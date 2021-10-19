@@ -48,9 +48,9 @@ module Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
     newDescribeStackDriftDetectionStatusResponse,
 
     -- * Response Lenses
-    describeStackDriftDetectionStatusResponse_detectionStatusReason,
     describeStackDriftDetectionStatusResponse_stackDriftStatus,
     describeStackDriftDetectionStatusResponse_driftedStackResourceCount,
+    describeStackDriftDetectionStatusResponse_detectionStatusReason,
     describeStackDriftDetectionStatusResponse_httpStatus,
     describeStackDriftDetectionStatusResponse_stackId,
     describeStackDriftDetectionStatusResponse_stackDriftDetectionId,
@@ -122,9 +122,9 @@ instance
       "DescribeStackDriftDetectionStatusResult"
       ( \s h x ->
           DescribeStackDriftDetectionStatusResponse'
-            Prelude.<$> (x Core..@? "DetectionStatusReason")
-              Prelude.<*> (x Core..@? "StackDriftStatus")
+            Prelude.<$> (x Core..@? "StackDriftStatus")
               Prelude.<*> (x Core..@? "DriftedStackResourceCount")
+              Prelude.<*> (x Core..@? "DetectionStatusReason")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..@ "StackId")
               Prelude.<*> (x Core..@ "StackDriftDetectionId")
@@ -170,9 +170,7 @@ instance
 
 -- | /See:/ 'newDescribeStackDriftDetectionStatusResponse' smart constructor.
 data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStatusResponse'
-  { -- | The reason the stack drift detection operation has its current status.
-    detectionStatusReason :: Prelude.Maybe Prelude.Text,
-    -- | Status of the stack\'s actual configuration compared to its expected
+  { -- | Status of the stack\'s actual configuration compared to its expected
     -- configuration.
     --
     -- -   @DRIFTED@: The stack differs from its expected template
@@ -191,6 +189,8 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
     -- This value will be 0 for stacks whose drift status is @IN_SYNC@.
     driftedStackResourceCount :: Prelude.Maybe Prelude.Int,
+    -- | The reason the stack drift detection operation has its current status.
+    detectionStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the stack.
@@ -233,8 +233,6 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detectionStatusReason', 'describeStackDriftDetectionStatusResponse_detectionStatusReason' - The reason the stack drift detection operation has its current status.
---
 -- 'stackDriftStatus', 'describeStackDriftDetectionStatusResponse_stackDriftStatus' - Status of the stack\'s actual configuration compared to its expected
 -- configuration.
 --
@@ -253,6 +251,8 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 -- 'driftedStackResourceCount', 'describeStackDriftDetectionStatusResponse_driftedStackResourceCount' - Total number of stack resources that have drifted. This is NULL until
 -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
 -- This value will be 0 for stacks whose drift status is @IN_SYNC@.
+--
+-- 'detectionStatusReason', 'describeStackDriftDetectionStatusResponse_detectionStatusReason' - The reason the stack drift detection operation has its current status.
 --
 -- 'httpStatus', 'describeStackDriftDetectionStatusResponse_httpStatus' - The response's http status code.
 --
@@ -303,11 +303,11 @@ newDescribeStackDriftDetectionStatusResponse
   pDetectionStatus_
   pTimestamp_ =
     DescribeStackDriftDetectionStatusResponse'
-      { detectionStatusReason =
-          Prelude.Nothing,
-        stackDriftStatus =
+      { stackDriftStatus =
           Prelude.Nothing,
         driftedStackResourceCount =
+          Prelude.Nothing,
+        detectionStatusReason =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
         stackId = pStackId_,
@@ -318,10 +318,6 @@ newDescribeStackDriftDetectionStatusResponse
         timestamp =
           Core._Time Lens.# pTimestamp_
       }
-
--- | The reason the stack drift detection operation has its current status.
-describeStackDriftDetectionStatusResponse_detectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Text)
-describeStackDriftDetectionStatusResponse_detectionStatusReason = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {detectionStatusReason} -> detectionStatusReason) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | Status of the stack\'s actual configuration compared to its expected
 -- configuration.
@@ -345,6 +341,10 @@ describeStackDriftDetectionStatusResponse_stackDriftStatus = Lens.lens (\Describ
 -- This value will be 0 for stacks whose drift status is @IN_SYNC@.
 describeStackDriftDetectionStatusResponse_driftedStackResourceCount :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Int)
 describeStackDriftDetectionStatusResponse_driftedStackResourceCount = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {driftedStackResourceCount} -> driftedStackResourceCount) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {driftedStackResourceCount = a} :: DescribeStackDriftDetectionStatusResponse)
+
+-- | The reason the stack drift detection operation has its current status.
+describeStackDriftDetectionStatusResponse_detectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Text)
+describeStackDriftDetectionStatusResponse_detectionStatusReason = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {detectionStatusReason} -> detectionStatusReason) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | The response's http status code.
 describeStackDriftDetectionStatusResponse_httpStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.Int

@@ -29,8 +29,8 @@ module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
     newDescribeNotificationSubscriptions,
 
     -- * Request Lenses
-    describeNotificationSubscriptions_limit,
     describeNotificationSubscriptions_marker,
+    describeNotificationSubscriptions_limit,
     describeNotificationSubscriptions_organizationId,
 
     -- * Destructuring the Response
@@ -38,8 +38,8 @@ module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
     newDescribeNotificationSubscriptionsResponse,
 
     -- * Response Lenses
-    describeNotificationSubscriptionsResponse_subscriptions,
     describeNotificationSubscriptionsResponse_marker,
+    describeNotificationSubscriptionsResponse_subscriptions,
     describeNotificationSubscriptionsResponse_httpStatus,
   )
 where
@@ -53,11 +53,11 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newDescribeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
-  { -- | The maximum number of items to return with this call.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | The marker for the next set of results. (You received this marker from a
+  { -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the organization.
     organizationId :: Prelude.Text
   }
@@ -71,10 +71,10 @@ data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.
---
 -- 'marker', 'describeNotificationSubscriptions_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.
 --
 -- 'organizationId', 'describeNotificationSubscriptions_organizationId' - The ID of the organization.
 newDescribeNotificationSubscriptions ::
@@ -83,20 +83,20 @@ newDescribeNotificationSubscriptions ::
   DescribeNotificationSubscriptions
 newDescribeNotificationSubscriptions pOrganizationId_ =
   DescribeNotificationSubscriptions'
-    { limit =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
-
--- | The maximum number of items to return with this call.
-describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Natural)
-describeNotificationSubscriptions_limit = Lens.lens (\DescribeNotificationSubscriptions' {limit} -> limit) (\s@DescribeNotificationSubscriptions' {} a -> s {limit = a} :: DescribeNotificationSubscriptions)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeNotificationSubscriptions_marker :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Text)
 describeNotificationSubscriptions_marker = Lens.lens (\DescribeNotificationSubscriptions' {marker} -> marker) (\s@DescribeNotificationSubscriptions' {} a -> s {marker = a} :: DescribeNotificationSubscriptions)
+
+-- | The maximum number of items to return with this call.
+describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Natural)
+describeNotificationSubscriptions_limit = Lens.lens (\DescribeNotificationSubscriptions' {limit} -> limit) (\s@DescribeNotificationSubscriptions' {} a -> s {limit = a} :: DescribeNotificationSubscriptions)
 
 -- | The ID of the organization.
 describeNotificationSubscriptions_organizationId :: Lens.Lens' DescribeNotificationSubscriptions Prelude.Text
@@ -139,8 +139,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeNotificationSubscriptionsResponse'
-            Prelude.<$> (x Core..?> "Subscriptions" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+              Prelude.<*> (x Core..?> "Subscriptions" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,15 +183,15 @@ instance
   where
   toQuery DescribeNotificationSubscriptions' {..} =
     Prelude.mconcat
-      ["limit" Core.=: limit, "marker" Core.=: marker]
+      ["marker" Core.=: marker, "limit" Core.=: limit]
 
 -- | /See:/ 'newDescribeNotificationSubscriptionsResponse' smart constructor.
 data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
-  { -- | The subscriptions.
-    subscriptions :: Prelude.Maybe [Subscription],
-    -- | The marker to use when requesting the next set of results. If there are
+  { -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The subscriptions.
+    subscriptions :: Prelude.Maybe [Subscription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,10 +205,10 @@ data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptions', 'describeNotificationSubscriptionsResponse_subscriptions' - The subscriptions.
---
 -- 'marker', 'describeNotificationSubscriptionsResponse_marker' - The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
+--
+-- 'subscriptions', 'describeNotificationSubscriptionsResponse_subscriptions' - The subscriptions.
 --
 -- 'httpStatus', 'describeNotificationSubscriptionsResponse_httpStatus' - The response's http status code.
 newDescribeNotificationSubscriptionsResponse ::
@@ -218,20 +218,20 @@ newDescribeNotificationSubscriptionsResponse ::
 newDescribeNotificationSubscriptionsResponse
   pHttpStatus_ =
     DescribeNotificationSubscriptionsResponse'
-      { subscriptions =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        subscriptions = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The subscriptions.
-describeNotificationSubscriptionsResponse_subscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe [Subscription])
-describeNotificationSubscriptionsResponse_subscriptions = Lens.lens (\DescribeNotificationSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {subscriptions = a} :: DescribeNotificationSubscriptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
 describeNotificationSubscriptionsResponse_marker :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe Prelude.Text)
 describeNotificationSubscriptionsResponse_marker = Lens.lens (\DescribeNotificationSubscriptionsResponse' {marker} -> marker) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {marker = a} :: DescribeNotificationSubscriptionsResponse)
+
+-- | The subscriptions.
+describeNotificationSubscriptionsResponse_subscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe [Subscription])
+describeNotificationSubscriptionsResponse_subscriptions = Lens.lens (\DescribeNotificationSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {subscriptions = a} :: DescribeNotificationSubscriptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNotificationSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeNotificationSubscriptionsResponse Prelude.Int

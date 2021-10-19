@@ -29,11 +29,11 @@ module Network.AWS.EC2.DescribeTrafficMirrorFilters
     newDescribeTrafficMirrorFilters,
 
     -- * Request Lenses
-    describeTrafficMirrorFilters_nextToken,
-    describeTrafficMirrorFilters_maxResults,
-    describeTrafficMirrorFilters_dryRun,
     describeTrafficMirrorFilters_trafficMirrorFilterIds,
     describeTrafficMirrorFilters_filters,
+    describeTrafficMirrorFilters_nextToken,
+    describeTrafficMirrorFilters_dryRun,
+    describeTrafficMirrorFilters_maxResults,
 
     -- * Destructuring the Response
     DescribeTrafficMirrorFiltersResponse (..),
@@ -55,25 +55,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTrafficMirrorFilters' smart constructor.
 data DescribeTrafficMirrorFilters = DescribeTrafficMirrorFilters'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Traffic Mirror filter.
+  { -- | The ID of the Traffic Mirror filter.
     trafficMirrorFilterIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters. The possible values are:
     --
     -- -   @description@: The Traffic Mirror filter description.
     --
     -- -   @traffic-mirror-filter-id@: The ID of the Traffic Mirror filter.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,17 +85,6 @@ data DescribeTrafficMirrorFilters = DescribeTrafficMirrorFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeTrafficMirrorFilters_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'describeTrafficMirrorFilters_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeTrafficMirrorFilters_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'trafficMirrorFilterIds', 'describeTrafficMirrorFilters_trafficMirrorFilterIds' - The ID of the Traffic Mirror filter.
 --
 -- 'filters', 'describeTrafficMirrorFilters_filters' - One or more filters. The possible values are:
@@ -103,27 +92,44 @@ data DescribeTrafficMirrorFilters = DescribeTrafficMirrorFilters'
 -- -   @description@: The Traffic Mirror filter description.
 --
 -- -   @traffic-mirror-filter-id@: The ID of the Traffic Mirror filter.
+--
+-- 'nextToken', 'describeTrafficMirrorFilters_nextToken' - The token for the next page of results.
+--
+-- 'dryRun', 'describeTrafficMirrorFilters_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeTrafficMirrorFilters_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeTrafficMirrorFilters ::
   DescribeTrafficMirrorFilters
 newDescribeTrafficMirrorFilters =
   DescribeTrafficMirrorFilters'
-    { nextToken =
+    { trafficMirrorFilterIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      trafficMirrorFilterIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | The ID of the Traffic Mirror filter.
+describeTrafficMirrorFilters_trafficMirrorFilterIds :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe [Prelude.Text])
+describeTrafficMirrorFilters_trafficMirrorFilterIds = Lens.lens (\DescribeTrafficMirrorFilters' {trafficMirrorFilterIds} -> trafficMirrorFilterIds) (\s@DescribeTrafficMirrorFilters' {} a -> s {trafficMirrorFilterIds = a} :: DescribeTrafficMirrorFilters) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more filters. The possible values are:
+--
+-- -   @description@: The Traffic Mirror filter description.
+--
+-- -   @traffic-mirror-filter-id@: The ID of the Traffic Mirror filter.
+describeTrafficMirrorFilters_filters :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe [Filter])
+describeTrafficMirrorFilters_filters = Lens.lens (\DescribeTrafficMirrorFilters' {filters} -> filters) (\s@DescribeTrafficMirrorFilters' {} a -> s {filters = a} :: DescribeTrafficMirrorFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next page of results.
 describeTrafficMirrorFilters_nextToken :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe Prelude.Text)
 describeTrafficMirrorFilters_nextToken = Lens.lens (\DescribeTrafficMirrorFilters' {nextToken} -> nextToken) (\s@DescribeTrafficMirrorFilters' {} a -> s {nextToken = a} :: DescribeTrafficMirrorFilters)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeTrafficMirrorFilters_maxResults :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe Prelude.Natural)
-describeTrafficMirrorFilters_maxResults = Lens.lens (\DescribeTrafficMirrorFilters' {maxResults} -> maxResults) (\s@DescribeTrafficMirrorFilters' {} a -> s {maxResults = a} :: DescribeTrafficMirrorFilters)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -132,17 +138,11 @@ describeTrafficMirrorFilters_maxResults = Lens.lens (\DescribeTrafficMirrorFilte
 describeTrafficMirrorFilters_dryRun :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe Prelude.Bool)
 describeTrafficMirrorFilters_dryRun = Lens.lens (\DescribeTrafficMirrorFilters' {dryRun} -> dryRun) (\s@DescribeTrafficMirrorFilters' {} a -> s {dryRun = a} :: DescribeTrafficMirrorFilters)
 
--- | The ID of the Traffic Mirror filter.
-describeTrafficMirrorFilters_trafficMirrorFilterIds :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe [Prelude.Text])
-describeTrafficMirrorFilters_trafficMirrorFilterIds = Lens.lens (\DescribeTrafficMirrorFilters' {trafficMirrorFilterIds} -> trafficMirrorFilterIds) (\s@DescribeTrafficMirrorFilters' {} a -> s {trafficMirrorFilterIds = a} :: DescribeTrafficMirrorFilters) Prelude.. Lens.mapping Lens._Coerce
-
--- | One or more filters. The possible values are:
---
--- -   @description@: The Traffic Mirror filter description.
---
--- -   @traffic-mirror-filter-id@: The ID of the Traffic Mirror filter.
-describeTrafficMirrorFilters_filters :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe [Filter])
-describeTrafficMirrorFilters_filters = Lens.lens (\DescribeTrafficMirrorFilters' {filters} -> filters) (\s@DescribeTrafficMirrorFilters' {} a -> s {filters = a} :: DescribeTrafficMirrorFilters) Prelude.. Lens.mapping Lens._Coerce
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeTrafficMirrorFilters_maxResults :: Lens.Lens' DescribeTrafficMirrorFilters (Prelude.Maybe Prelude.Natural)
+describeTrafficMirrorFilters_maxResults = Lens.lens (\DescribeTrafficMirrorFilters' {maxResults} -> maxResults) (\s@DescribeTrafficMirrorFilters' {} a -> s {maxResults = a} :: DescribeTrafficMirrorFilters)
 
 instance Core.AWSPager DescribeTrafficMirrorFilters where
   page rq rs
@@ -204,15 +204,15 @@ instance Core.ToQuery DescribeTrafficMirrorFilters where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TrafficMirrorFilterId"
               Prelude.<$> trafficMirrorFilterIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTrafficMirrorFiltersResponse' smart constructor.
@@ -255,7 +255,7 @@ newDescribeTrafficMirrorFiltersResponse pHttpStatus_ =
 
 -- | Information about one or more Traffic Mirror filters.
 describeTrafficMirrorFiltersResponse_trafficMirrorFilters :: Lens.Lens' DescribeTrafficMirrorFiltersResponse (Prelude.Maybe [TrafficMirrorFilter])
-describeTrafficMirrorFiltersResponse_trafficMirrorFilters = Lens.lens (\DescribeTrafficMirrorFiltersResponse' {trafficMirrorFilters} -> trafficMirrorFilters) (\s@DescribeTrafficMirrorFiltersResponse' {} a -> s {trafficMirrorFilters = a} :: DescribeTrafficMirrorFiltersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTrafficMirrorFiltersResponse_trafficMirrorFilters = Lens.lens (\DescribeTrafficMirrorFiltersResponse' {trafficMirrorFilters} -> trafficMirrorFilters) (\s@DescribeTrafficMirrorFiltersResponse' {} a -> s {trafficMirrorFilters = a} :: DescribeTrafficMirrorFiltersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. The value is
 -- @null@ when there are no more results to return.

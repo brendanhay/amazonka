@@ -56,9 +56,9 @@ module Network.AWS.EKS.UpdateClusterConfig
     newUpdateClusterConfig,
 
     -- * Request Lenses
-    updateClusterConfig_resourcesVpcConfig,
-    updateClusterConfig_logging,
     updateClusterConfig_clientRequestToken,
+    updateClusterConfig_logging,
+    updateClusterConfig_resourcesVpcConfig,
     updateClusterConfig_name,
 
     -- * Destructuring the Response
@@ -80,7 +80,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateClusterConfig' smart constructor.
 data UpdateClusterConfig = UpdateClusterConfig'
-  { resourcesVpcConfig :: Prelude.Maybe VpcConfigRequest,
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -91,9 +93,7 @@ data UpdateClusterConfig = UpdateClusterConfig'
     -- apply to exported control plane logs. For more information, see
     -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
     logging :: Prelude.Maybe Logging,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    resourcesVpcConfig :: Prelude.Maybe VpcConfigRequest,
     -- | The name of the Amazon EKS cluster to update.
     name :: Prelude.Text
   }
@@ -107,7 +107,8 @@ data UpdateClusterConfig = UpdateClusterConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourcesVpcConfig', 'updateClusterConfig_resourcesVpcConfig' - Undocumented member.
+-- 'clientRequestToken', 'updateClusterConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
 -- 'logging', 'updateClusterConfig_logging' - Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
@@ -119,8 +120,7 @@ data UpdateClusterConfig = UpdateClusterConfig'
 -- apply to exported control plane logs. For more information, see
 -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
--- 'clientRequestToken', 'updateClusterConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'resourcesVpcConfig', 'updateClusterConfig_resourcesVpcConfig' - Undocumented member.
 --
 -- 'name', 'updateClusterConfig_name' - The name of the Amazon EKS cluster to update.
 newUpdateClusterConfig ::
@@ -129,16 +129,17 @@ newUpdateClusterConfig ::
   UpdateClusterConfig
 newUpdateClusterConfig pName_ =
   UpdateClusterConfig'
-    { resourcesVpcConfig =
+    { clientRequestToken =
         Prelude.Nothing,
       logging = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      resourcesVpcConfig = Prelude.Nothing,
       name = pName_
     }
 
--- | Undocumented member.
-updateClusterConfig_resourcesVpcConfig :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe VpcConfigRequest)
-updateClusterConfig_resourcesVpcConfig = Lens.lens (\UpdateClusterConfig' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@UpdateClusterConfig' {} a -> s {resourcesVpcConfig = a} :: UpdateClusterConfig)
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+updateClusterConfig_clientRequestToken :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe Prelude.Text)
+updateClusterConfig_clientRequestToken = Lens.lens (\UpdateClusterConfig' {clientRequestToken} -> clientRequestToken) (\s@UpdateClusterConfig' {} a -> s {clientRequestToken = a} :: UpdateClusterConfig)
 
 -- | Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
@@ -152,10 +153,9 @@ updateClusterConfig_resourcesVpcConfig = Lens.lens (\UpdateClusterConfig' {resou
 updateClusterConfig_logging :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe Logging)
 updateClusterConfig_logging = Lens.lens (\UpdateClusterConfig' {logging} -> logging) (\s@UpdateClusterConfig' {} a -> s {logging = a} :: UpdateClusterConfig)
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-updateClusterConfig_clientRequestToken :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe Prelude.Text)
-updateClusterConfig_clientRequestToken = Lens.lens (\UpdateClusterConfig' {clientRequestToken} -> clientRequestToken) (\s@UpdateClusterConfig' {} a -> s {clientRequestToken = a} :: UpdateClusterConfig)
+-- | Undocumented member.
+updateClusterConfig_resourcesVpcConfig :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe VpcConfigRequest)
+updateClusterConfig_resourcesVpcConfig = Lens.lens (\UpdateClusterConfig' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@UpdateClusterConfig' {} a -> s {resourcesVpcConfig = a} :: UpdateClusterConfig)
 
 -- | The name of the Amazon EKS cluster to update.
 updateClusterConfig_name :: Lens.Lens' UpdateClusterConfig Prelude.Text
@@ -193,11 +193,11 @@ instance Core.ToJSON UpdateClusterConfig where
   toJSON UpdateClusterConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("resourcesVpcConfig" Core..=)
-              Prelude.<$> resourcesVpcConfig,
+          [ ("clientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
             ("logging" Core..=) Prelude.<$> logging,
-            ("clientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken
+            ("resourcesVpcConfig" Core..=)
+              Prelude.<$> resourcesVpcConfig
           ]
       )
 

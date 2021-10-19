@@ -36,7 +36,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExtendedS3DestinationConfiguration' smart constructor.
 data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
-  { -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records
+  { -- | The Amazon S3 backup mode. After you create a delivery stream, you can
+    -- update it to enable Amazon S3 backup if it is disabled. If backup is
+    -- enabled, you can\'t update the delivery stream to disable it.
+    s3BackupMode :: Prelude.Maybe S3BackupMode,
+    -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
+    -- delivered Amazon S3 files. You can also specify a custom prefix, as
+    -- described in
+    -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
+    -- | The configuration for backup in Amazon S3.
+    s3BackupConfiguration :: Prelude.Maybe S3DestinationConfiguration,
+    -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records
     -- before writing them to S3. This prefix appears immediately following the
     -- bucket name. For information about how to specify this prefix, see
     -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
@@ -44,35 +57,22 @@ data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
     -- | The encryption configuration. If no value is specified, the default is
     -- no encryption.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
-    -- | The configuration for backup in Amazon S3.
-    s3BackupConfiguration :: Prelude.Maybe S3DestinationConfiguration,
-    -- | The data processing configuration.
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
-    -- | The serializer, deserializer, and schema for converting data from the
-    -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
-    dataFormatConversionConfiguration :: Prelude.Maybe DataFormatConversionConfiguration,
-    -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
-    -- delivered Amazon S3 files. You can also specify a custom prefix, as
-    -- described in
-    -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
-    prefix :: Prelude.Maybe Prelude.Text,
     -- | The configuration of the dynamic partitioning mechanism that creates
     -- smaller data sets from the streaming data by partitioning it based on
     -- partition keys. Currently, dynamic partitioning is only supported for
     -- Amazon S3 destinations. For more information, see
     -- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
     dynamicPartitioningConfiguration :: Prelude.Maybe DynamicPartitioningConfiguration,
-    -- | The buffering option.
-    bufferingHints :: Prelude.Maybe BufferingHints,
-    -- | The Amazon S3 backup mode. After you create a delivery stream, you can
-    -- update it to enable Amazon S3 backup if it is disabled. If backup is
-    -- enabled, you can\'t update the delivery stream to disable it.
-    s3BackupMode :: Prelude.Maybe S3BackupMode,
     -- | The compression format. If no value is specified, the default is
     -- UNCOMPRESSED.
     compressionFormat :: Prelude.Maybe CompressionFormat,
+    -- | The buffering option.
+    bufferingHints :: Prelude.Maybe BufferingHints,
+    -- | The serializer, deserializer, and schema for converting data from the
+    -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
+    dataFormatConversionConfiguration :: Prelude.Maybe DataFormatConversionConfiguration,
+    -- | The data processing configuration.
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
@@ -91,6 +91,19 @@ data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3BackupMode', 'extendedS3DestinationConfiguration_s3BackupMode' - The Amazon S3 backup mode. After you create a delivery stream, you can
+-- update it to enable Amazon S3 backup if it is disabled. If backup is
+-- enabled, you can\'t update the delivery stream to disable it.
+--
+-- 'prefix', 'extendedS3DestinationConfiguration_prefix' - The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
+-- delivered Amazon S3 files. You can also specify a custom prefix, as
+-- described in
+-- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
+--
+-- 'cloudWatchLoggingOptions', 'extendedS3DestinationConfiguration_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
+--
+-- 's3BackupConfiguration', 'extendedS3DestinationConfiguration_s3BackupConfiguration' - The configuration for backup in Amazon S3.
+--
 -- 'errorOutputPrefix', 'extendedS3DestinationConfiguration_errorOutputPrefix' - A prefix that Kinesis Data Firehose evaluates and adds to failed records
 -- before writing them to S3. This prefix appears immediately following the
 -- bucket name. For information about how to specify this prefix, see
@@ -99,34 +112,21 @@ data ExtendedS3DestinationConfiguration = ExtendedS3DestinationConfiguration'
 -- 'encryptionConfiguration', 'extendedS3DestinationConfiguration_encryptionConfiguration' - The encryption configuration. If no value is specified, the default is
 -- no encryption.
 --
--- 's3BackupConfiguration', 'extendedS3DestinationConfiguration_s3BackupConfiguration' - The configuration for backup in Amazon S3.
---
--- 'processingConfiguration', 'extendedS3DestinationConfiguration_processingConfiguration' - The data processing configuration.
---
--- 'cloudWatchLoggingOptions', 'extendedS3DestinationConfiguration_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
---
--- 'dataFormatConversionConfiguration', 'extendedS3DestinationConfiguration_dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the
--- JSON format to the Parquet or ORC format before writing it to Amazon S3.
---
--- 'prefix', 'extendedS3DestinationConfiguration_prefix' - The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
--- delivered Amazon S3 files. You can also specify a custom prefix, as
--- described in
--- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
---
 -- 'dynamicPartitioningConfiguration', 'extendedS3DestinationConfiguration_dynamicPartitioningConfiguration' - The configuration of the dynamic partitioning mechanism that creates
 -- smaller data sets from the streaming data by partitioning it based on
 -- partition keys. Currently, dynamic partitioning is only supported for
 -- Amazon S3 destinations. For more information, see
 -- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
 --
--- 'bufferingHints', 'extendedS3DestinationConfiguration_bufferingHints' - The buffering option.
---
--- 's3BackupMode', 'extendedS3DestinationConfiguration_s3BackupMode' - The Amazon S3 backup mode. After you create a delivery stream, you can
--- update it to enable Amazon S3 backup if it is disabled. If backup is
--- enabled, you can\'t update the delivery stream to disable it.
---
 -- 'compressionFormat', 'extendedS3DestinationConfiguration_compressionFormat' - The compression format. If no value is specified, the default is
 -- UNCOMPRESSED.
+--
+-- 'bufferingHints', 'extendedS3DestinationConfiguration_bufferingHints' - The buffering option.
+--
+-- 'dataFormatConversionConfiguration', 'extendedS3DestinationConfiguration_dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the
+-- JSON format to the Parquet or ORC format before writing it to Amazon S3.
+--
+-- 'processingConfiguration', 'extendedS3DestinationConfiguration_processingConfiguration' - The data processing configuration.
 --
 -- 'roleARN', 'extendedS3DestinationConfiguration_roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more
 -- information, see
@@ -144,26 +144,47 @@ newExtendedS3DestinationConfiguration
   pRoleARN_
   pBucketARN_ =
     ExtendedS3DestinationConfiguration'
-      { errorOutputPrefix =
-          Prelude.Nothing,
-        encryptionConfiguration =
-          Prelude.Nothing,
-        s3BackupConfiguration = Prelude.Nothing,
-        processingConfiguration =
-          Prelude.Nothing,
-        cloudWatchLoggingOptions =
-          Prelude.Nothing,
-        dataFormatConversionConfiguration =
+      { s3BackupMode =
           Prelude.Nothing,
         prefix = Prelude.Nothing,
+        cloudWatchLoggingOptions =
+          Prelude.Nothing,
+        s3BackupConfiguration = Prelude.Nothing,
+        errorOutputPrefix = Prelude.Nothing,
+        encryptionConfiguration =
+          Prelude.Nothing,
         dynamicPartitioningConfiguration =
           Prelude.Nothing,
-        bufferingHints = Prelude.Nothing,
-        s3BackupMode = Prelude.Nothing,
         compressionFormat = Prelude.Nothing,
+        bufferingHints = Prelude.Nothing,
+        dataFormatConversionConfiguration =
+          Prelude.Nothing,
+        processingConfiguration =
+          Prelude.Nothing,
         roleARN = pRoleARN_,
         bucketARN = pBucketARN_
       }
+
+-- | The Amazon S3 backup mode. After you create a delivery stream, you can
+-- update it to enable Amazon S3 backup if it is disabled. If backup is
+-- enabled, you can\'t update the delivery stream to disable it.
+extendedS3DestinationConfiguration_s3BackupMode :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe S3BackupMode)
+extendedS3DestinationConfiguration_s3BackupMode = Lens.lens (\ExtendedS3DestinationConfiguration' {s3BackupMode} -> s3BackupMode) (\s@ExtendedS3DestinationConfiguration' {} a -> s {s3BackupMode = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
+-- delivered Amazon S3 files. You can also specify a custom prefix, as
+-- described in
+-- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
+extendedS3DestinationConfiguration_prefix :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe Prelude.Text)
+extendedS3DestinationConfiguration_prefix = Lens.lens (\ExtendedS3DestinationConfiguration' {prefix} -> prefix) (\s@ExtendedS3DestinationConfiguration' {} a -> s {prefix = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The Amazon CloudWatch logging options for your delivery stream.
+extendedS3DestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
+extendedS3DestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3DestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ExtendedS3DestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The configuration for backup in Amazon S3.
+extendedS3DestinationConfiguration_s3BackupConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe S3DestinationConfiguration)
+extendedS3DestinationConfiguration_s3BackupConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {s3BackupConfiguration} -> s3BackupConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {s3BackupConfiguration = a} :: ExtendedS3DestinationConfiguration)
 
 -- | A prefix that Kinesis Data Firehose evaluates and adds to failed records
 -- before writing them to S3. This prefix appears immediately following the
@@ -177,30 +198,6 @@ extendedS3DestinationConfiguration_errorOutputPrefix = Lens.lens (\ExtendedS3Des
 extendedS3DestinationConfiguration_encryptionConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe EncryptionConfiguration)
 extendedS3DestinationConfiguration_encryptionConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {encryptionConfiguration = a} :: ExtendedS3DestinationConfiguration)
 
--- | The configuration for backup in Amazon S3.
-extendedS3DestinationConfiguration_s3BackupConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe S3DestinationConfiguration)
-extendedS3DestinationConfiguration_s3BackupConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {s3BackupConfiguration} -> s3BackupConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {s3BackupConfiguration = a} :: ExtendedS3DestinationConfiguration)
-
--- | The data processing configuration.
-extendedS3DestinationConfiguration_processingConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe ProcessingConfiguration)
-extendedS3DestinationConfiguration_processingConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {processingConfiguration} -> processingConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {processingConfiguration = a} :: ExtendedS3DestinationConfiguration)
-
--- | The Amazon CloudWatch logging options for your delivery stream.
-extendedS3DestinationConfiguration_cloudWatchLoggingOptions :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe CloudWatchLoggingOptions)
-extendedS3DestinationConfiguration_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3DestinationConfiguration' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ExtendedS3DestinationConfiguration' {} a -> s {cloudWatchLoggingOptions = a} :: ExtendedS3DestinationConfiguration)
-
--- | The serializer, deserializer, and schema for converting data from the
--- JSON format to the Parquet or ORC format before writing it to Amazon S3.
-extendedS3DestinationConfiguration_dataFormatConversionConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe DataFormatConversionConfiguration)
-extendedS3DestinationConfiguration_dataFormatConversionConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {dataFormatConversionConfiguration} -> dataFormatConversionConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {dataFormatConversionConfiguration = a} :: ExtendedS3DestinationConfiguration)
-
--- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
--- delivered Amazon S3 files. You can also specify a custom prefix, as
--- described in
--- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
-extendedS3DestinationConfiguration_prefix :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe Prelude.Text)
-extendedS3DestinationConfiguration_prefix = Lens.lens (\ExtendedS3DestinationConfiguration' {prefix} -> prefix) (\s@ExtendedS3DestinationConfiguration' {} a -> s {prefix = a} :: ExtendedS3DestinationConfiguration)
-
 -- | The configuration of the dynamic partitioning mechanism that creates
 -- smaller data sets from the streaming data by partitioning it based on
 -- partition keys. Currently, dynamic partitioning is only supported for
@@ -209,20 +206,23 @@ extendedS3DestinationConfiguration_prefix = Lens.lens (\ExtendedS3DestinationCon
 extendedS3DestinationConfiguration_dynamicPartitioningConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe DynamicPartitioningConfiguration)
 extendedS3DestinationConfiguration_dynamicPartitioningConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {dynamicPartitioningConfiguration} -> dynamicPartitioningConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {dynamicPartitioningConfiguration = a} :: ExtendedS3DestinationConfiguration)
 
--- | The buffering option.
-extendedS3DestinationConfiguration_bufferingHints :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe BufferingHints)
-extendedS3DestinationConfiguration_bufferingHints = Lens.lens (\ExtendedS3DestinationConfiguration' {bufferingHints} -> bufferingHints) (\s@ExtendedS3DestinationConfiguration' {} a -> s {bufferingHints = a} :: ExtendedS3DestinationConfiguration)
-
--- | The Amazon S3 backup mode. After you create a delivery stream, you can
--- update it to enable Amazon S3 backup if it is disabled. If backup is
--- enabled, you can\'t update the delivery stream to disable it.
-extendedS3DestinationConfiguration_s3BackupMode :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe S3BackupMode)
-extendedS3DestinationConfiguration_s3BackupMode = Lens.lens (\ExtendedS3DestinationConfiguration' {s3BackupMode} -> s3BackupMode) (\s@ExtendedS3DestinationConfiguration' {} a -> s {s3BackupMode = a} :: ExtendedS3DestinationConfiguration)
-
 -- | The compression format. If no value is specified, the default is
 -- UNCOMPRESSED.
 extendedS3DestinationConfiguration_compressionFormat :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe CompressionFormat)
 extendedS3DestinationConfiguration_compressionFormat = Lens.lens (\ExtendedS3DestinationConfiguration' {compressionFormat} -> compressionFormat) (\s@ExtendedS3DestinationConfiguration' {} a -> s {compressionFormat = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The buffering option.
+extendedS3DestinationConfiguration_bufferingHints :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe BufferingHints)
+extendedS3DestinationConfiguration_bufferingHints = Lens.lens (\ExtendedS3DestinationConfiguration' {bufferingHints} -> bufferingHints) (\s@ExtendedS3DestinationConfiguration' {} a -> s {bufferingHints = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The serializer, deserializer, and schema for converting data from the
+-- JSON format to the Parquet or ORC format before writing it to Amazon S3.
+extendedS3DestinationConfiguration_dataFormatConversionConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe DataFormatConversionConfiguration)
+extendedS3DestinationConfiguration_dataFormatConversionConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {dataFormatConversionConfiguration} -> dataFormatConversionConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {dataFormatConversionConfiguration = a} :: ExtendedS3DestinationConfiguration)
+
+-- | The data processing configuration.
+extendedS3DestinationConfiguration_processingConfiguration :: Lens.Lens' ExtendedS3DestinationConfiguration (Prelude.Maybe ProcessingConfiguration)
+extendedS3DestinationConfiguration_processingConfiguration = Lens.lens (\ExtendedS3DestinationConfiguration' {processingConfiguration} -> processingConfiguration) (\s@ExtendedS3DestinationConfiguration' {} a -> s {processingConfiguration = a} :: ExtendedS3DestinationConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the AWS credentials. For more
 -- information, see
@@ -250,26 +250,26 @@ instance
   toJSON ExtendedS3DestinationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ErrorOutputPrefix" Core..=)
+          [ ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
+            ("Prefix" Core..=) Prelude.<$> prefix,
+            ("CloudWatchLoggingOptions" Core..=)
+              Prelude.<$> cloudWatchLoggingOptions,
+            ("S3BackupConfiguration" Core..=)
+              Prelude.<$> s3BackupConfiguration,
+            ("ErrorOutputPrefix" Core..=)
               Prelude.<$> errorOutputPrefix,
             ("EncryptionConfiguration" Core..=)
               Prelude.<$> encryptionConfiguration,
-            ("S3BackupConfiguration" Core..=)
-              Prelude.<$> s3BackupConfiguration,
-            ("ProcessingConfiguration" Core..=)
-              Prelude.<$> processingConfiguration,
-            ("CloudWatchLoggingOptions" Core..=)
-              Prelude.<$> cloudWatchLoggingOptions,
-            ("DataFormatConversionConfiguration" Core..=)
-              Prelude.<$> dataFormatConversionConfiguration,
-            ("Prefix" Core..=) Prelude.<$> prefix,
             ("DynamicPartitioningConfiguration" Core..=)
               Prelude.<$> dynamicPartitioningConfiguration,
-            ("BufferingHints" Core..=)
-              Prelude.<$> bufferingHints,
-            ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode,
             ("CompressionFormat" Core..=)
               Prelude.<$> compressionFormat,
+            ("BufferingHints" Core..=)
+              Prelude.<$> bufferingHints,
+            ("DataFormatConversionConfiguration" Core..=)
+              Prelude.<$> dataFormatConversionConfiguration,
+            ("ProcessingConfiguration" Core..=)
+              Prelude.<$> processingConfiguration,
             Prelude.Just ("RoleARN" Core..= roleARN),
             Prelude.Just ("BucketARN" Core..= bucketARN)
           ]

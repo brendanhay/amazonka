@@ -36,8 +36,8 @@ module Network.AWS.DeviceFarm.CreateTestGridUrl
     newCreateTestGridUrlResponse,
 
     -- * Response Lenses
-    createTestGridUrlResponse_url,
     createTestGridUrlResponse_expires,
+    createTestGridUrlResponse_url,
     createTestGridUrlResponse_httpStatus,
   )
 where
@@ -101,8 +101,8 @@ instance Core.AWSRequest CreateTestGridUrl where
     Response.receiveJSON
       ( \s h x ->
           CreateTestGridUrlResponse'
-            Prelude.<$> (x Core..?> "url")
-            Prelude.<*> (x Core..?> "expires")
+            Prelude.<$> (x Core..?> "expires")
+            Prelude.<*> (x Core..?> "url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,12 +143,12 @@ instance Core.ToQuery CreateTestGridUrl where
 
 -- | /See:/ 'newCreateTestGridUrlResponse' smart constructor.
 data CreateTestGridUrlResponse = CreateTestGridUrlResponse'
-  { -- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
-    -- seconds, to be passed to a @RemoteWebDriver@.
-    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
+  { -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
     -- active.
     expires :: Prelude.Maybe Core.POSIX,
+    -- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
+    -- seconds, to be passed to a @RemoteWebDriver@.
+    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,11 +162,11 @@ data CreateTestGridUrlResponse = CreateTestGridUrlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'createTestGridUrlResponse_url' - A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
--- seconds, to be passed to a @RemoteWebDriver@.
---
 -- 'expires', 'createTestGridUrlResponse_expires' - The number of seconds the URL from CreateTestGridUrlResult$url stays
 -- active.
+--
+-- 'url', 'createTestGridUrlResponse_url' - A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
+-- seconds, to be passed to a @RemoteWebDriver@.
 --
 -- 'httpStatus', 'createTestGridUrlResponse_httpStatus' - The response's http status code.
 newCreateTestGridUrlResponse ::
@@ -175,20 +175,21 @@ newCreateTestGridUrlResponse ::
   CreateTestGridUrlResponse
 newCreateTestGridUrlResponse pHttpStatus_ =
   CreateTestGridUrlResponse'
-    { url = Prelude.Nothing,
-      expires = Prelude.Nothing,
+    { expires =
+        Prelude.Nothing,
+      url = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
--- seconds, to be passed to a @RemoteWebDriver@.
-createTestGridUrlResponse_url :: Lens.Lens' CreateTestGridUrlResponse (Prelude.Maybe Prelude.Text)
-createTestGridUrlResponse_url = Lens.lens (\CreateTestGridUrlResponse' {url} -> url) (\s@CreateTestGridUrlResponse' {} a -> s {url = a} :: CreateTestGridUrlResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The number of seconds the URL from CreateTestGridUrlResult$url stays
 -- active.
 createTestGridUrlResponse_expires :: Lens.Lens' CreateTestGridUrlResponse (Prelude.Maybe Prelude.UTCTime)
 createTestGridUrlResponse_expires = Lens.lens (\CreateTestGridUrlResponse' {expires} -> expires) (\s@CreateTestGridUrlResponse' {} a -> s {expires = a} :: CreateTestGridUrlResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A signed URL, expiring in CreateTestGridUrlRequest$expiresInSeconds
+-- seconds, to be passed to a @RemoteWebDriver@.
+createTestGridUrlResponse_url :: Lens.Lens' CreateTestGridUrlResponse (Prelude.Maybe Prelude.Text)
+createTestGridUrlResponse_url = Lens.lens (\CreateTestGridUrlResponse' {url} -> url) (\s@CreateTestGridUrlResponse' {} a -> s {url = a} :: CreateTestGridUrlResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
 createTestGridUrlResponse_httpStatus :: Lens.Lens' CreateTestGridUrlResponse Prelude.Int

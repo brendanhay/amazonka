@@ -91,7 +91,7 @@ newGetSMSAttributes =
 --
 -- If you don\'t use this parameter, Amazon SNS returns all SMS attributes.
 getSMSAttributes_attributes :: Lens.Lens' GetSMSAttributes (Prelude.Maybe [Prelude.Text])
-getSMSAttributes_attributes = Lens.lens (\GetSMSAttributes' {attributes} -> attributes) (\s@GetSMSAttributes' {} a -> s {attributes = a} :: GetSMSAttributes) Prelude.. Lens.mapping Lens._Coerce
+getSMSAttributes_attributes = Lens.lens (\GetSMSAttributes' {attributes} -> attributes) (\s@GetSMSAttributes' {} a -> s {attributes = a} :: GetSMSAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest GetSMSAttributes where
   type
@@ -166,7 +166,7 @@ newGetSMSAttributesResponse pHttpStatus_ =
 
 -- | The SMS attribute names and their values.
 getSMSAttributesResponse_attributes :: Lens.Lens' GetSMSAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSMSAttributesResponse_attributes = Lens.lens (\GetSMSAttributesResponse' {attributes} -> attributes) (\s@GetSMSAttributesResponse' {} a -> s {attributes = a} :: GetSMSAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getSMSAttributesResponse_attributes = Lens.lens (\GetSMSAttributesResponse' {attributes} -> attributes) (\s@GetSMSAttributesResponse' {} a -> s {attributes = a} :: GetSMSAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSMSAttributesResponse_httpStatus :: Lens.Lens' GetSMSAttributesResponse Prelude.Int

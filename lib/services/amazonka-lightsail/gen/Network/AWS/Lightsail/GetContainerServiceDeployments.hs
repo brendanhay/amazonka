@@ -176,7 +176,7 @@ newGetContainerServiceDeploymentsResponse
 
 -- | An array of objects that describe deployments for a container service.
 getContainerServiceDeploymentsResponse_deployments :: Lens.Lens' GetContainerServiceDeploymentsResponse (Prelude.Maybe [ContainerServiceDeployment])
-getContainerServiceDeploymentsResponse_deployments = Lens.lens (\GetContainerServiceDeploymentsResponse' {deployments} -> deployments) (\s@GetContainerServiceDeploymentsResponse' {} a -> s {deployments = a} :: GetContainerServiceDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
+getContainerServiceDeploymentsResponse_deployments = Lens.lens (\GetContainerServiceDeploymentsResponse' {deployments} -> deployments) (\s@GetContainerServiceDeploymentsResponse' {} a -> s {deployments = a} :: GetContainerServiceDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerServiceDeploymentsResponse_httpStatus :: Lens.Lens' GetContainerServiceDeploymentsResponse Prelude.Int

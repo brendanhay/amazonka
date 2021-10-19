@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCertificate' smart constructor.
 data Certificate = Certificate'
-  { -- | Indicates whether the certificate is the default certificate. Do not set
+  { -- | The Amazon Resource Name (ARN) of the certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the certificate is the default certificate. Do not set
     -- this value when specifying a certificate as an input. This value is not
     -- included in the output when describing a listener, but is included when
     -- describing listener certificates.
-    isDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text
+    isDefault :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data Certificate = Certificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateArn', 'certificate_certificateArn' - The Amazon Resource Name (ARN) of the certificate.
+--
 -- 'isDefault', 'certificate_isDefault' - Indicates whether the certificate is the default certificate. Do not set
 -- this value when specifying a certificate as an input. This value is not
 -- included in the output when describing a listener, but is included when
 -- describing listener certificates.
---
--- 'certificateArn', 'certificate_certificateArn' - The Amazon Resource Name (ARN) of the certificate.
 newCertificate ::
   Certificate
 newCertificate =
   Certificate'
-    { isDefault = Prelude.Nothing,
-      certificateArn = Prelude.Nothing
+    { certificateArn = Prelude.Nothing,
+      isDefault = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the certificate.
+certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certificateArn) (\s@Certificate' {} a -> s {certificateArn = a} :: Certificate)
 
 -- | Indicates whether the certificate is the default certificate. Do not set
 -- this value when specifying a certificate as an input. This value is not
@@ -66,15 +70,11 @@ newCertificate =
 certificate_isDefault :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Bool)
 certificate_isDefault = Lens.lens (\Certificate' {isDefault} -> isDefault) (\s@Certificate' {} a -> s {isDefault = a} :: Certificate)
 
--- | The Amazon Resource Name (ARN) of the certificate.
-certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
-certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certificateArn) (\s@Certificate' {} a -> s {certificateArn = a} :: Certificate)
-
 instance Core.FromXML Certificate where
   parseXML x =
     Certificate'
-      Prelude.<$> (x Core..@? "IsDefault")
-      Prelude.<*> (x Core..@? "CertificateArn")
+      Prelude.<$> (x Core..@? "CertificateArn")
+      Prelude.<*> (x Core..@? "IsDefault")
 
 instance Prelude.Hashable Certificate
 
@@ -83,6 +83,6 @@ instance Prelude.NFData Certificate
 instance Core.ToQuery Certificate where
   toQuery Certificate' {..} =
     Prelude.mconcat
-      [ "IsDefault" Core.=: isDefault,
-        "CertificateArn" Core.=: certificateArn
+      [ "CertificateArn" Core.=: certificateArn,
+        "IsDefault" Core.=: isDefault
       ]

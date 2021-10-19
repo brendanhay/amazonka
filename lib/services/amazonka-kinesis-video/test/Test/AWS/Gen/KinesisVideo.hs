@@ -27,20 +27,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListTagsForStream $
---             newListTagsForStream
+--         [ requestListSignalingChannels $
+--             newListSignalingChannels
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
---         , requestTagResource $
---             newTagResource
---
---         , requestDeleteStream $
---             newDeleteStream
---
---         , requestUpdateStream $
---             newUpdateStream
+--         , requestUntagStream $
+--             newUntagStream
 --
 --         , requestUpdateDataRetention $
 --             newUpdateDataRetention
@@ -48,8 +42,11 @@ import Test.Tasty
 --         , requestGetDataEndpoint $
 --             newGetDataEndpoint
 --
---         , requestUntagStream $
---             newUntagStream
+--         , requestGetSignalingChannelEndpoint $
+--             newGetSignalingChannelEndpoint
+--
+--         , requestListTagsForStream $
+--             newListTagsForStream
 --
 --         , requestDeleteSignalingChannel $
 --             newDeleteSignalingChannel
@@ -57,8 +54,29 @@ import Test.Tasty
 --         , requestUpdateSignalingChannel $
 --             newUpdateSignalingChannel
 --
---         , requestListSignalingChannels $
---             newListSignalingChannels
+--         , requestUpdateStream $
+--             newUpdateStream
+--
+--         , requestDeleteStream $
+--             newDeleteStream
+--
+--         , requestListStreams $
+--             newListStreams
+--
+--         , requestCreateStream $
+--             newCreateStream
+--
+--         , requestDescribeSignalingChannel $
+--             newDescribeSignalingChannel
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestTagStream $
+--             newTagStream
 --
 --         , requestCreateSignalingChannel $
 --             newCreateSignalingChannel
@@ -66,41 +84,17 @@ import Test.Tasty
 --         , requestDescribeStream $
 --             newDescribeStream
 --
---         , requestTagStream $
---             newTagStream
---
---         , requestDescribeSignalingChannel $
---             newDescribeSignalingChannel
---
---         , requestGetSignalingChannelEndpoint $
---             newGetSignalingChannelEndpoint
---
---         , requestCreateStream $
---             newCreateStream
---
---         , requestListStreams $
---             newListStreams
---
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --           ]
 
 --     , testGroup "response"
---         [ responseListTagsForStream $
---             newListTagsForStreamResponse
+--         [ responseListSignalingChannels $
+--             newListSignalingChannelsResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDeleteStream $
---             newDeleteStreamResponse
---
---         , responseUpdateStream $
---             newUpdateStreamResponse
+--         , responseUntagStream $
+--             newUntagStreamResponse
 --
 --         , responseUpdateDataRetention $
 --             newUpdateDataRetentionResponse
@@ -108,8 +102,11 @@ import Test.Tasty
 --         , responseGetDataEndpoint $
 --             newGetDataEndpointResponse
 --
---         , responseUntagStream $
---             newUntagStreamResponse
+--         , responseGetSignalingChannelEndpoint $
+--             newGetSignalingChannelEndpointResponse
+--
+--         , responseListTagsForStream $
+--             newListTagsForStreamResponse
 --
 --         , responseDeleteSignalingChannel $
 --             newDeleteSignalingChannelResponse
@@ -117,8 +114,29 @@ import Test.Tasty
 --         , responseUpdateSignalingChannel $
 --             newUpdateSignalingChannelResponse
 --
---         , responseListSignalingChannels $
---             newListSignalingChannelsResponse
+--         , responseUpdateStream $
+--             newUpdateStreamResponse
+--
+--         , responseDeleteStream $
+--             newDeleteStreamResponse
+--
+--         , responseListStreams $
+--             newListStreamsResponse
+--
+--         , responseCreateStream $
+--             newCreateStreamResponse
+--
+--         , responseDescribeSignalingChannel $
+--             newDescribeSignalingChannelResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseTagStream $
+--             newTagStreamResponse
 --
 --         , responseCreateSignalingChannel $
 --             newCreateSignalingChannelResponse
@@ -126,58 +144,28 @@ import Test.Tasty
 --         , responseDescribeStream $
 --             newDescribeStreamResponse
 --
---         , responseTagStream $
---             newTagStreamResponse
---
---         , responseDescribeSignalingChannel $
---             newDescribeSignalingChannelResponse
---
---         , responseGetSignalingChannelEndpoint $
---             newGetSignalingChannelEndpointResponse
---
---         , responseCreateStream $
---             newCreateStreamResponse
---
---         , responseListStreams $
---             newListStreamsResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --           ]
 --     ]
 
 -- Requests
 
-requestListTagsForStream :: ListTagsForStream -> TestTree
-requestListTagsForStream =
+requestListSignalingChannels :: ListSignalingChannels -> TestTree
+requestListSignalingChannels =
   req
-    "ListTagsForStream"
-    "fixture/ListTagsForStream.yaml"
+    "ListSignalingChannels"
+    "fixture/ListSignalingChannels.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestUntagStream :: UntagStream -> TestTree
+requestUntagStream =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDeleteStream :: DeleteStream -> TestTree
-requestDeleteStream =
-  req
-    "DeleteStream"
-    "fixture/DeleteStream.yaml"
-
-requestUpdateStream :: UpdateStream -> TestTree
-requestUpdateStream =
-  req
-    "UpdateStream"
-    "fixture/UpdateStream.yaml"
+    "UntagStream"
+    "fixture/UntagStream.yaml"
 
 requestUpdateDataRetention :: UpdateDataRetention -> TestTree
 requestUpdateDataRetention =
@@ -191,11 +179,17 @@ requestGetDataEndpoint =
     "GetDataEndpoint"
     "fixture/GetDataEndpoint.yaml"
 
-requestUntagStream :: UntagStream -> TestTree
-requestUntagStream =
+requestGetSignalingChannelEndpoint :: GetSignalingChannelEndpoint -> TestTree
+requestGetSignalingChannelEndpoint =
   req
-    "UntagStream"
-    "fixture/UntagStream.yaml"
+    "GetSignalingChannelEndpoint"
+    "fixture/GetSignalingChannelEndpoint.yaml"
+
+requestListTagsForStream :: ListTagsForStream -> TestTree
+requestListTagsForStream =
+  req
+    "ListTagsForStream"
+    "fixture/ListTagsForStream.yaml"
 
 requestDeleteSignalingChannel :: DeleteSignalingChannel -> TestTree
 requestDeleteSignalingChannel =
@@ -209,11 +203,53 @@ requestUpdateSignalingChannel =
     "UpdateSignalingChannel"
     "fixture/UpdateSignalingChannel.yaml"
 
-requestListSignalingChannels :: ListSignalingChannels -> TestTree
-requestListSignalingChannels =
+requestUpdateStream :: UpdateStream -> TestTree
+requestUpdateStream =
   req
-    "ListSignalingChannels"
-    "fixture/ListSignalingChannels.yaml"
+    "UpdateStream"
+    "fixture/UpdateStream.yaml"
+
+requestDeleteStream :: DeleteStream -> TestTree
+requestDeleteStream =
+  req
+    "DeleteStream"
+    "fixture/DeleteStream.yaml"
+
+requestListStreams :: ListStreams -> TestTree
+requestListStreams =
+  req
+    "ListStreams"
+    "fixture/ListStreams.yaml"
+
+requestCreateStream :: CreateStream -> TestTree
+requestCreateStream =
+  req
+    "CreateStream"
+    "fixture/CreateStream.yaml"
+
+requestDescribeSignalingChannel :: DescribeSignalingChannel -> TestTree
+requestDescribeSignalingChannel =
+  req
+    "DescribeSignalingChannel"
+    "fixture/DescribeSignalingChannel.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestTagStream :: TagStream -> TestTree
+requestTagStream =
+  req
+    "TagStream"
+    "fixture/TagStream.yaml"
 
 requestCreateSignalingChannel :: CreateSignalingChannel -> TestTree
 requestCreateSignalingChannel =
@@ -227,83 +263,31 @@ requestDescribeStream =
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
-requestTagStream :: TagStream -> TestTree
-requestTagStream =
-  req
-    "TagStream"
-    "fixture/TagStream.yaml"
-
-requestDescribeSignalingChannel :: DescribeSignalingChannel -> TestTree
-requestDescribeSignalingChannel =
-  req
-    "DescribeSignalingChannel"
-    "fixture/DescribeSignalingChannel.yaml"
-
-requestGetSignalingChannelEndpoint :: GetSignalingChannelEndpoint -> TestTree
-requestGetSignalingChannelEndpoint =
-  req
-    "GetSignalingChannelEndpoint"
-    "fixture/GetSignalingChannelEndpoint.yaml"
-
-requestCreateStream :: CreateStream -> TestTree
-requestCreateStream =
-  req
-    "CreateStream"
-    "fixture/CreateStream.yaml"
-
-requestListStreams :: ListStreams -> TestTree
-requestListStreams =
-  req
-    "ListStreams"
-    "fixture/ListStreams.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 -- Responses
 
-responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
-responseListTagsForStream =
+responseListSignalingChannels :: ListSignalingChannelsResponse -> TestTree
+responseListSignalingChannels =
   res
-    "ListTagsForStreamResponse"
-    "fixture/ListTagsForStreamResponse.proto"
+    "ListSignalingChannelsResponse"
+    "fixture/ListSignalingChannelsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForStream)
+    (Proxy :: Proxy ListSignalingChannels)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy :: Proxy ListTagsForResource)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseUntagStream :: UntagStreamResponse -> TestTree
+responseUntagStream =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "UntagStreamResponse"
+    "fixture/UntagStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
-
-responseDeleteStream :: DeleteStreamResponse -> TestTree
-responseDeleteStream =
-  res
-    "DeleteStreamResponse"
-    "fixture/DeleteStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteStream)
-
-responseUpdateStream :: UpdateStreamResponse -> TestTree
-responseUpdateStream =
-  res
-    "UpdateStreamResponse"
-    "fixture/UpdateStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateStream)
+    (Proxy :: Proxy UntagStream)
 
 responseUpdateDataRetention :: UpdateDataRetentionResponse -> TestTree
 responseUpdateDataRetention =
@@ -321,13 +305,21 @@ responseGetDataEndpoint =
     defaultService
     (Proxy :: Proxy GetDataEndpoint)
 
-responseUntagStream :: UntagStreamResponse -> TestTree
-responseUntagStream =
+responseGetSignalingChannelEndpoint :: GetSignalingChannelEndpointResponse -> TestTree
+responseGetSignalingChannelEndpoint =
   res
-    "UntagStreamResponse"
-    "fixture/UntagStreamResponse.proto"
+    "GetSignalingChannelEndpointResponse"
+    "fixture/GetSignalingChannelEndpointResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagStream)
+    (Proxy :: Proxy GetSignalingChannelEndpoint)
+
+responseListTagsForStream :: ListTagsForStreamResponse -> TestTree
+responseListTagsForStream =
+  res
+    "ListTagsForStreamResponse"
+    "fixture/ListTagsForStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForStream)
 
 responseDeleteSignalingChannel :: DeleteSignalingChannelResponse -> TestTree
 responseDeleteSignalingChannel =
@@ -345,13 +337,69 @@ responseUpdateSignalingChannel =
     defaultService
     (Proxy :: Proxy UpdateSignalingChannel)
 
-responseListSignalingChannels :: ListSignalingChannelsResponse -> TestTree
-responseListSignalingChannels =
+responseUpdateStream :: UpdateStreamResponse -> TestTree
+responseUpdateStream =
   res
-    "ListSignalingChannelsResponse"
-    "fixture/ListSignalingChannelsResponse.proto"
+    "UpdateStreamResponse"
+    "fixture/UpdateStreamResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSignalingChannels)
+    (Proxy :: Proxy UpdateStream)
+
+responseDeleteStream :: DeleteStreamResponse -> TestTree
+responseDeleteStream =
+  res
+    "DeleteStreamResponse"
+    "fixture/DeleteStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteStream)
+
+responseListStreams :: ListStreamsResponse -> TestTree
+responseListStreams =
+  res
+    "ListStreamsResponse"
+    "fixture/ListStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStreams)
+
+responseCreateStream :: CreateStreamResponse -> TestTree
+responseCreateStream =
+  res
+    "CreateStreamResponse"
+    "fixture/CreateStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStream)
+
+responseDescribeSignalingChannel :: DescribeSignalingChannelResponse -> TestTree
+responseDescribeSignalingChannel =
+  res
+    "DescribeSignalingChannelResponse"
+    "fixture/DescribeSignalingChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSignalingChannel)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseTagStream :: TagStreamResponse -> TestTree
+responseTagStream =
+  res
+    "TagStreamResponse"
+    "fixture/TagStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagStream)
 
 responseCreateSignalingChannel :: CreateSignalingChannelResponse -> TestTree
 responseCreateSignalingChannel =
@@ -368,51 +416,3 @@ responseDescribeStream =
     "fixture/DescribeStreamResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeStream)
-
-responseTagStream :: TagStreamResponse -> TestTree
-responseTagStream =
-  res
-    "TagStreamResponse"
-    "fixture/TagStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagStream)
-
-responseDescribeSignalingChannel :: DescribeSignalingChannelResponse -> TestTree
-responseDescribeSignalingChannel =
-  res
-    "DescribeSignalingChannelResponse"
-    "fixture/DescribeSignalingChannelResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeSignalingChannel)
-
-responseGetSignalingChannelEndpoint :: GetSignalingChannelEndpointResponse -> TestTree
-responseGetSignalingChannelEndpoint =
-  res
-    "GetSignalingChannelEndpointResponse"
-    "fixture/GetSignalingChannelEndpointResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetSignalingChannelEndpoint)
-
-responseCreateStream :: CreateStreamResponse -> TestTree
-responseCreateStream =
-  res
-    "CreateStreamResponse"
-    "fixture/CreateStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStream)
-
-responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams =
-  res
-    "ListStreamsResponse"
-    "fixture/ListStreamsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListStreams)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)

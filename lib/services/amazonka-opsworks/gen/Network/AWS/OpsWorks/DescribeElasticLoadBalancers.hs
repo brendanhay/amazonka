@@ -91,7 +91,7 @@ newDescribeElasticLoadBalancers =
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 describeElasticLoadBalancers_layerIds :: Lens.Lens' DescribeElasticLoadBalancers (Prelude.Maybe [Prelude.Text])
-describeElasticLoadBalancers_layerIds = Lens.lens (\DescribeElasticLoadBalancers' {layerIds} -> layerIds) (\s@DescribeElasticLoadBalancers' {} a -> s {layerIds = a} :: DescribeElasticLoadBalancers) Prelude.. Lens.mapping Lens._Coerce
+describeElasticLoadBalancers_layerIds = Lens.lens (\DescribeElasticLoadBalancers' {layerIds} -> layerIds) (\s@DescribeElasticLoadBalancers' {} a -> s {layerIds = a} :: DescribeElasticLoadBalancers) Prelude.. Lens.mapping Lens.coerced
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
 -- instances.
@@ -187,7 +187,7 @@ newDescribeElasticLoadBalancersResponse pHttpStatus_ =
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
 describeElasticLoadBalancersResponse_elasticLoadBalancers :: Lens.Lens' DescribeElasticLoadBalancersResponse (Prelude.Maybe [ElasticLoadBalancer])
-describeElasticLoadBalancersResponse_elasticLoadBalancers = Lens.lens (\DescribeElasticLoadBalancersResponse' {elasticLoadBalancers} -> elasticLoadBalancers) (\s@DescribeElasticLoadBalancersResponse' {} a -> s {elasticLoadBalancers = a} :: DescribeElasticLoadBalancersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeElasticLoadBalancersResponse_elasticLoadBalancers = Lens.lens (\DescribeElasticLoadBalancersResponse' {elasticLoadBalancers} -> elasticLoadBalancers) (\s@DescribeElasticLoadBalancersResponse' {} a -> s {elasticLoadBalancers = a} :: DescribeElasticLoadBalancersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeElasticLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeElasticLoadBalancersResponse Prelude.Int

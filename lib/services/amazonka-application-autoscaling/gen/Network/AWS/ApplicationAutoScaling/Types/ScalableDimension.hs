@@ -37,6 +37,7 @@ module Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
         ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount,
         ScalableDimension_Kafka_broker_storage_VolumeSize,
         ScalableDimension_Lambda_function_ProvisionedConcurrency,
+        ScalableDimension_Neptune_cluster_ReadReplicaCount,
         ScalableDimension_Rds_cluster_ReadReplicaCount,
         ScalableDimension_Sagemaker_variant_DesiredInstanceCount
       ),
@@ -125,6 +126,9 @@ pattern ScalableDimension_Kafka_broker_storage_VolumeSize = ScalableDimension' "
 pattern ScalableDimension_Lambda_function_ProvisionedConcurrency :: ScalableDimension
 pattern ScalableDimension_Lambda_function_ProvisionedConcurrency = ScalableDimension' "lambda:function:ProvisionedConcurrency"
 
+pattern ScalableDimension_Neptune_cluster_ReadReplicaCount :: ScalableDimension
+pattern ScalableDimension_Neptune_cluster_ReadReplicaCount = ScalableDimension' "neptune:cluster:ReadReplicaCount"
+
 pattern ScalableDimension_Rds_cluster_ReadReplicaCount :: ScalableDimension
 pattern ScalableDimension_Rds_cluster_ReadReplicaCount = ScalableDimension' "rds:cluster:ReadReplicaCount"
 
@@ -149,6 +153,7 @@ pattern ScalableDimension_Sagemaker_variant_DesiredInstanceCount = ScalableDimen
   ScalableDimension_Elasticmapreduce_instancegroup_InstanceCount,
   ScalableDimension_Kafka_broker_storage_VolumeSize,
   ScalableDimension_Lambda_function_ProvisionedConcurrency,
+  ScalableDimension_Neptune_cluster_ReadReplicaCount,
   ScalableDimension_Rds_cluster_ReadReplicaCount,
   ScalableDimension_Sagemaker_variant_DesiredInstanceCount,
   ScalableDimension'

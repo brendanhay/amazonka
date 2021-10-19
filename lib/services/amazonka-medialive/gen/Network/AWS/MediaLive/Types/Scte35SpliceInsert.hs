@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScte35SpliceInsert' smart constructor.
 data Scte35SpliceInsert = Scte35SpliceInsert'
-  { -- | When specified, this offset (in milliseconds) is added to the input Ad
+  { -- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
+    -- to 0 will no longer trigger blackouts or Ad Avail slates
+    webDeliveryAllowedFlag :: Prelude.Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior,
+    -- | When specified, this offset (in milliseconds) is added to the input Ad
     -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
     -- does not apply to OOB messages.
     adAvailOffset :: Prelude.Maybe Prelude.Int,
     -- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set
     -- to 0 will no longer trigger blackouts or Ad Avail slates
-    noRegionalBlackoutFlag :: Prelude.Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior,
-    -- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
-    -- to 0 will no longer trigger blackouts or Ad Avail slates
-    webDeliveryAllowedFlag :: Prelude.Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior
+    noRegionalBlackoutFlag :: Prelude.Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,24 +50,29 @@ data Scte35SpliceInsert = Scte35SpliceInsert'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'webDeliveryAllowedFlag', 'scte35SpliceInsert_webDeliveryAllowedFlag' - When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
+-- to 0 will no longer trigger blackouts or Ad Avail slates
+--
 -- 'adAvailOffset', 'scte35SpliceInsert_adAvailOffset' - When specified, this offset (in milliseconds) is added to the input Ad
 -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
 -- does not apply to OOB messages.
 --
 -- 'noRegionalBlackoutFlag', 'scte35SpliceInsert_noRegionalBlackoutFlag' - When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set
 -- to 0 will no longer trigger blackouts or Ad Avail slates
---
--- 'webDeliveryAllowedFlag', 'scte35SpliceInsert_webDeliveryAllowedFlag' - When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
--- to 0 will no longer trigger blackouts or Ad Avail slates
 newScte35SpliceInsert ::
   Scte35SpliceInsert
 newScte35SpliceInsert =
   Scte35SpliceInsert'
-    { adAvailOffset =
+    { webDeliveryAllowedFlag =
         Prelude.Nothing,
-      noRegionalBlackoutFlag = Prelude.Nothing,
-      webDeliveryAllowedFlag = Prelude.Nothing
+      adAvailOffset = Prelude.Nothing,
+      noRegionalBlackoutFlag = Prelude.Nothing
     }
+
+-- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
+-- to 0 will no longer trigger blackouts or Ad Avail slates
+scte35SpliceInsert_webDeliveryAllowedFlag :: Lens.Lens' Scte35SpliceInsert (Prelude.Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
+scte35SpliceInsert_webDeliveryAllowedFlag = Lens.lens (\Scte35SpliceInsert' {webDeliveryAllowedFlag} -> webDeliveryAllowedFlag) (\s@Scte35SpliceInsert' {} a -> s {webDeliveryAllowedFlag = a} :: Scte35SpliceInsert)
 
 -- | When specified, this offset (in milliseconds) is added to the input Ad
 -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
@@ -80,20 +85,15 @@ scte35SpliceInsert_adAvailOffset = Lens.lens (\Scte35SpliceInsert' {adAvailOffse
 scte35SpliceInsert_noRegionalBlackoutFlag :: Lens.Lens' Scte35SpliceInsert (Prelude.Maybe Scte35SpliceInsertNoRegionalBlackoutBehavior)
 scte35SpliceInsert_noRegionalBlackoutFlag = Lens.lens (\Scte35SpliceInsert' {noRegionalBlackoutFlag} -> noRegionalBlackoutFlag) (\s@Scte35SpliceInsert' {} a -> s {noRegionalBlackoutFlag = a} :: Scte35SpliceInsert)
 
--- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
--- to 0 will no longer trigger blackouts or Ad Avail slates
-scte35SpliceInsert_webDeliveryAllowedFlag :: Lens.Lens' Scte35SpliceInsert (Prelude.Maybe Scte35SpliceInsertWebDeliveryAllowedBehavior)
-scte35SpliceInsert_webDeliveryAllowedFlag = Lens.lens (\Scte35SpliceInsert' {webDeliveryAllowedFlag} -> webDeliveryAllowedFlag) (\s@Scte35SpliceInsert' {} a -> s {webDeliveryAllowedFlag = a} :: Scte35SpliceInsert)
-
 instance Core.FromJSON Scte35SpliceInsert where
   parseJSON =
     Core.withObject
       "Scte35SpliceInsert"
       ( \x ->
           Scte35SpliceInsert'
-            Prelude.<$> (x Core..:? "adAvailOffset")
+            Prelude.<$> (x Core..:? "webDeliveryAllowedFlag")
+            Prelude.<*> (x Core..:? "adAvailOffset")
             Prelude.<*> (x Core..:? "noRegionalBlackoutFlag")
-            Prelude.<*> (x Core..:? "webDeliveryAllowedFlag")
       )
 
 instance Prelude.Hashable Scte35SpliceInsert
@@ -104,10 +104,10 @@ instance Core.ToJSON Scte35SpliceInsert where
   toJSON Scte35SpliceInsert' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset,
+          [ ("webDeliveryAllowedFlag" Core..=)
+              Prelude.<$> webDeliveryAllowedFlag,
+            ("adAvailOffset" Core..=) Prelude.<$> adAvailOffset,
             ("noRegionalBlackoutFlag" Core..=)
-              Prelude.<$> noRegionalBlackoutFlag,
-            ("webDeliveryAllowedFlag" Core..=)
-              Prelude.<$> webDeliveryAllowedFlag
+              Prelude.<$> noRegionalBlackoutFlag
           ]
       )

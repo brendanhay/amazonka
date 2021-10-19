@@ -29,28 +29,28 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCampaignSmsMessage' smart constructor.
 data CampaignSmsMessage = CampaignSmsMessage'
-  { -- | The entity ID or Principal Entity (PE) id received from the regulatory
-    -- body for sending SMS in your country.
-    entityId :: Prelude.Maybe Prelude.Text,
+  { -- | The long code to send the SMS message from. This value should be one of
+    -- the dedicated long codes that\'s assigned to your AWS account. Although
+    -- it isn\'t required, we recommend that you specify the long code using an
+    -- E.164 format to ensure prompt and accurate delivery of the message. For
+    -- example, +12065550100.
+    originationNumber :: Prelude.Maybe Prelude.Text,
+    -- | The template ID received from the regulatory body for sending SMS in
+    -- your country.
+    templateId :: Prelude.Maybe Prelude.Text,
     -- | The body of the SMS message.
     body :: Prelude.Maybe Prelude.Text,
-    -- | The sender ID to display on recipients\' devices when they receive the
-    -- SMS message.
-    senderId :: Prelude.Maybe Prelude.Text,
     -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that
     -- are critical or time-sensitive, such as a one-time passwords) and
     -- PROMOTIONAL (for messsages that aren\'t critical or time-sensitive, such
     -- as marketing messages).
     messageType :: Prelude.Maybe MessageType,
-    -- | The template ID received from the regulatory body for sending SMS in
-    -- your country.
-    templateId :: Prelude.Maybe Prelude.Text,
-    -- | The long code to send the SMS message from. This value should be one of
-    -- the dedicated long codes that\'s assigned to your AWS account. Although
-    -- it isn\'t required, we recommend that you specify the long code using an
-    -- E.164 format to ensure prompt and accurate delivery of the message. For
-    -- example, +12065550100.
-    originationNumber :: Prelude.Maybe Prelude.Text
+    -- | The sender ID to display on recipients\' devices when they receive the
+    -- SMS message.
+    senderId :: Prelude.Maybe Prelude.Text,
+    -- | The entity ID or Principal Entity (PE) id received from the regulatory
+    -- body for sending SMS in your country.
+    entityId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,64 +62,39 @@ data CampaignSmsMessage = CampaignSmsMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entityId', 'campaignSmsMessage_entityId' - The entity ID or Principal Entity (PE) id received from the regulatory
--- body for sending SMS in your country.
+-- 'originationNumber', 'campaignSmsMessage_originationNumber' - The long code to send the SMS message from. This value should be one of
+-- the dedicated long codes that\'s assigned to your AWS account. Although
+-- it isn\'t required, we recommend that you specify the long code using an
+-- E.164 format to ensure prompt and accurate delivery of the message. For
+-- example, +12065550100.
+--
+-- 'templateId', 'campaignSmsMessage_templateId' - The template ID received from the regulatory body for sending SMS in
+-- your country.
 --
 -- 'body', 'campaignSmsMessage_body' - The body of the SMS message.
---
--- 'senderId', 'campaignSmsMessage_senderId' - The sender ID to display on recipients\' devices when they receive the
--- SMS message.
 --
 -- 'messageType', 'campaignSmsMessage_messageType' - The SMS message type. Valid values are TRANSACTIONAL (for messages that
 -- are critical or time-sensitive, such as a one-time passwords) and
 -- PROMOTIONAL (for messsages that aren\'t critical or time-sensitive, such
 -- as marketing messages).
 --
--- 'templateId', 'campaignSmsMessage_templateId' - The template ID received from the regulatory body for sending SMS in
--- your country.
+-- 'senderId', 'campaignSmsMessage_senderId' - The sender ID to display on recipients\' devices when they receive the
+-- SMS message.
 --
--- 'originationNumber', 'campaignSmsMessage_originationNumber' - The long code to send the SMS message from. This value should be one of
--- the dedicated long codes that\'s assigned to your AWS account. Although
--- it isn\'t required, we recommend that you specify the long code using an
--- E.164 format to ensure prompt and accurate delivery of the message. For
--- example, +12065550100.
+-- 'entityId', 'campaignSmsMessage_entityId' - The entity ID or Principal Entity (PE) id received from the regulatory
+-- body for sending SMS in your country.
 newCampaignSmsMessage ::
   CampaignSmsMessage
 newCampaignSmsMessage =
   CampaignSmsMessage'
-    { entityId = Prelude.Nothing,
-      body = Prelude.Nothing,
-      senderId = Prelude.Nothing,
-      messageType = Prelude.Nothing,
+    { originationNumber =
+        Prelude.Nothing,
       templateId = Prelude.Nothing,
-      originationNumber = Prelude.Nothing
+      body = Prelude.Nothing,
+      messageType = Prelude.Nothing,
+      senderId = Prelude.Nothing,
+      entityId = Prelude.Nothing
     }
-
--- | The entity ID or Principal Entity (PE) id received from the regulatory
--- body for sending SMS in your country.
-campaignSmsMessage_entityId :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
-campaignSmsMessage_entityId = Lens.lens (\CampaignSmsMessage' {entityId} -> entityId) (\s@CampaignSmsMessage' {} a -> s {entityId = a} :: CampaignSmsMessage)
-
--- | The body of the SMS message.
-campaignSmsMessage_body :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
-campaignSmsMessage_body = Lens.lens (\CampaignSmsMessage' {body} -> body) (\s@CampaignSmsMessage' {} a -> s {body = a} :: CampaignSmsMessage)
-
--- | The sender ID to display on recipients\' devices when they receive the
--- SMS message.
-campaignSmsMessage_senderId :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
-campaignSmsMessage_senderId = Lens.lens (\CampaignSmsMessage' {senderId} -> senderId) (\s@CampaignSmsMessage' {} a -> s {senderId = a} :: CampaignSmsMessage)
-
--- | The SMS message type. Valid values are TRANSACTIONAL (for messages that
--- are critical or time-sensitive, such as a one-time passwords) and
--- PROMOTIONAL (for messsages that aren\'t critical or time-sensitive, such
--- as marketing messages).
-campaignSmsMessage_messageType :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe MessageType)
-campaignSmsMessage_messageType = Lens.lens (\CampaignSmsMessage' {messageType} -> messageType) (\s@CampaignSmsMessage' {} a -> s {messageType = a} :: CampaignSmsMessage)
-
--- | The template ID received from the regulatory body for sending SMS in
--- your country.
-campaignSmsMessage_templateId :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
-campaignSmsMessage_templateId = Lens.lens (\CampaignSmsMessage' {templateId} -> templateId) (\s@CampaignSmsMessage' {} a -> s {templateId = a} :: CampaignSmsMessage)
 
 -- | The long code to send the SMS message from. This value should be one of
 -- the dedicated long codes that\'s assigned to your AWS account. Although
@@ -129,18 +104,44 @@ campaignSmsMessage_templateId = Lens.lens (\CampaignSmsMessage' {templateId} -> 
 campaignSmsMessage_originationNumber :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
 campaignSmsMessage_originationNumber = Lens.lens (\CampaignSmsMessage' {originationNumber} -> originationNumber) (\s@CampaignSmsMessage' {} a -> s {originationNumber = a} :: CampaignSmsMessage)
 
+-- | The template ID received from the regulatory body for sending SMS in
+-- your country.
+campaignSmsMessage_templateId :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
+campaignSmsMessage_templateId = Lens.lens (\CampaignSmsMessage' {templateId} -> templateId) (\s@CampaignSmsMessage' {} a -> s {templateId = a} :: CampaignSmsMessage)
+
+-- | The body of the SMS message.
+campaignSmsMessage_body :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
+campaignSmsMessage_body = Lens.lens (\CampaignSmsMessage' {body} -> body) (\s@CampaignSmsMessage' {} a -> s {body = a} :: CampaignSmsMessage)
+
+-- | The SMS message type. Valid values are TRANSACTIONAL (for messages that
+-- are critical or time-sensitive, such as a one-time passwords) and
+-- PROMOTIONAL (for messsages that aren\'t critical or time-sensitive, such
+-- as marketing messages).
+campaignSmsMessage_messageType :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe MessageType)
+campaignSmsMessage_messageType = Lens.lens (\CampaignSmsMessage' {messageType} -> messageType) (\s@CampaignSmsMessage' {} a -> s {messageType = a} :: CampaignSmsMessage)
+
+-- | The sender ID to display on recipients\' devices when they receive the
+-- SMS message.
+campaignSmsMessage_senderId :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
+campaignSmsMessage_senderId = Lens.lens (\CampaignSmsMessage' {senderId} -> senderId) (\s@CampaignSmsMessage' {} a -> s {senderId = a} :: CampaignSmsMessage)
+
+-- | The entity ID or Principal Entity (PE) id received from the regulatory
+-- body for sending SMS in your country.
+campaignSmsMessage_entityId :: Lens.Lens' CampaignSmsMessage (Prelude.Maybe Prelude.Text)
+campaignSmsMessage_entityId = Lens.lens (\CampaignSmsMessage' {entityId} -> entityId) (\s@CampaignSmsMessage' {} a -> s {entityId = a} :: CampaignSmsMessage)
+
 instance Core.FromJSON CampaignSmsMessage where
   parseJSON =
     Core.withObject
       "CampaignSmsMessage"
       ( \x ->
           CampaignSmsMessage'
-            Prelude.<$> (x Core..:? "EntityId")
-            Prelude.<*> (x Core..:? "Body")
-            Prelude.<*> (x Core..:? "SenderId")
-            Prelude.<*> (x Core..:? "MessageType")
+            Prelude.<$> (x Core..:? "OriginationNumber")
             Prelude.<*> (x Core..:? "TemplateId")
-            Prelude.<*> (x Core..:? "OriginationNumber")
+            Prelude.<*> (x Core..:? "Body")
+            Prelude.<*> (x Core..:? "MessageType")
+            Prelude.<*> (x Core..:? "SenderId")
+            Prelude.<*> (x Core..:? "EntityId")
       )
 
 instance Prelude.Hashable CampaignSmsMessage
@@ -151,12 +152,12 @@ instance Core.ToJSON CampaignSmsMessage where
   toJSON CampaignSmsMessage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EntityId" Core..=) Prelude.<$> entityId,
-            ("Body" Core..=) Prelude.<$> body,
-            ("SenderId" Core..=) Prelude.<$> senderId,
-            ("MessageType" Core..=) Prelude.<$> messageType,
+          [ ("OriginationNumber" Core..=)
+              Prelude.<$> originationNumber,
             ("TemplateId" Core..=) Prelude.<$> templateId,
-            ("OriginationNumber" Core..=)
-              Prelude.<$> originationNumber
+            ("Body" Core..=) Prelude.<$> body,
+            ("MessageType" Core..=) Prelude.<$> messageType,
+            ("SenderId" Core..=) Prelude.<$> senderId,
+            ("EntityId" Core..=) Prelude.<$> entityId
           ]
       )

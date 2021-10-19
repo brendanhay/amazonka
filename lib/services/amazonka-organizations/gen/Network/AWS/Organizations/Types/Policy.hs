@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
-  { -- | A structure that contains additional details about the policy.
-    policySummary :: Prelude.Maybe PolicySummary,
-    -- | The text content of the policy.
-    content :: Prelude.Maybe Prelude.Text
+  { -- | The text content of the policy.
+    content :: Prelude.Maybe Prelude.Text,
+    -- | A structure that contains additional details about the policy.
+    policySummary :: Prelude.Maybe PolicySummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data Policy = Policy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policySummary', 'policy_policySummary' - A structure that contains additional details about the policy.
---
 -- 'content', 'policy_content' - The text content of the policy.
+--
+-- 'policySummary', 'policy_policySummary' - A structure that contains additional details about the policy.
 newPolicy ::
   Policy
 newPolicy =
   Policy'
-    { policySummary = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      policySummary = Prelude.Nothing
     }
-
--- | A structure that contains additional details about the policy.
-policy_policySummary :: Lens.Lens' Policy (Prelude.Maybe PolicySummary)
-policy_policySummary = Lens.lens (\Policy' {policySummary} -> policySummary) (\s@Policy' {} a -> s {policySummary = a} :: Policy)
 
 -- | The text content of the policy.
 policy_content :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_content = Lens.lens (\Policy' {content} -> content) (\s@Policy' {} a -> s {content = a} :: Policy)
+
+-- | A structure that contains additional details about the policy.
+policy_policySummary :: Lens.Lens' Policy (Prelude.Maybe PolicySummary)
+policy_policySummary = Lens.lens (\Policy' {policySummary} -> policySummary) (\s@Policy' {} a -> s {policySummary = a} :: Policy)
 
 instance Core.FromJSON Policy where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON Policy where
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Core..:? "PolicySummary")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<$> (x Core..:? "Content")
+            Prelude.<*> (x Core..:? "PolicySummary")
       )
 
 instance Prelude.Hashable Policy

@@ -119,7 +119,7 @@ newKernelCapabilities =
 -- Valid values:
 -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
 kernelCapabilities_drop :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
-kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@KernelCapabilities' {} a -> s {drop = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens._Coerce
+kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@KernelCapabilities' {} a -> s {drop = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Linux capabilities for the container that have been added to the
 -- default configuration provided by Docker. This parameter maps to
@@ -136,7 +136,7 @@ kernelCapabilities_drop = Lens.lens (\KernelCapabilities' {drop} -> drop) (\s@Ke
 -- Valid values:
 -- @\"ALL\" | \"AUDIT_CONTROL\" | \"AUDIT_WRITE\" | \"BLOCK_SUSPEND\" | \"CHOWN\" | \"DAC_OVERRIDE\" | \"DAC_READ_SEARCH\" | \"FOWNER\" | \"FSETID\" | \"IPC_LOCK\" | \"IPC_OWNER\" | \"KILL\" | \"LEASE\" | \"LINUX_IMMUTABLE\" | \"MAC_ADMIN\" | \"MAC_OVERRIDE\" | \"MKNOD\" | \"NET_ADMIN\" | \"NET_BIND_SERVICE\" | \"NET_BROADCAST\" | \"NET_RAW\" | \"SETFCAP\" | \"SETGID\" | \"SETPCAP\" | \"SETUID\" | \"SYS_ADMIN\" | \"SYS_BOOT\" | \"SYS_CHROOT\" | \"SYS_MODULE\" | \"SYS_NICE\" | \"SYS_PACCT\" | \"SYS_PTRACE\" | \"SYS_RAWIO\" | \"SYS_RESOURCE\" | \"SYS_TIME\" | \"SYS_TTY_CONFIG\" | \"SYSLOG\" | \"WAKE_ALARM\"@
 kernelCapabilities_add :: Lens.Lens' KernelCapabilities (Prelude.Maybe [Prelude.Text])
-kernelCapabilities_add = Lens.lens (\KernelCapabilities' {add} -> add) (\s@KernelCapabilities' {} a -> s {add = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens._Coerce
+kernelCapabilities_add = Lens.lens (\KernelCapabilities' {add} -> add) (\s@KernelCapabilities' {} a -> s {add = a} :: KernelCapabilities) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON KernelCapabilities where
   parseJSON =

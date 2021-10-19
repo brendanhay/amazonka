@@ -49,9 +49,9 @@ module Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
     newDescribeAffectedAccountsForOrganizationResponse,
 
     -- * Response Lenses
-    describeAffectedAccountsForOrganizationResponse_nextToken,
-    describeAffectedAccountsForOrganizationResponse_eventScopeCode,
     describeAffectedAccountsForOrganizationResponse_affectedAccounts,
+    describeAffectedAccountsForOrganizationResponse_eventScopeCode,
+    describeAffectedAccountsForOrganizationResponse_nextToken,
     describeAffectedAccountsForOrganizationResponse_httpStatus,
   )
 where
@@ -182,11 +182,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedAccountsForOrganizationResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> ( x Core..?> "affectedAccounts"
+                            Core..!@ Prelude.mempty
+                        )
               Prelude.<*> (x Core..?> "eventScopeCode")
-              Prelude.<*> ( x Core..?> "affectedAccounts"
-                              Core..!@ Prelude.mempty
-                          )
+              Prelude.<*> (x Core..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,12 +243,8 @@ instance
 
 -- | /See:/ 'newDescribeAffectedAccountsForOrganizationResponse' smart constructor.
 data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsForOrganizationResponse'
-  { -- | If the results of a search are large, only a portion of the results are
-    -- returned, and a @nextToken@ pagination token is returned in the
-    -- response. To retrieve the next batch of results, reissue the search
-    -- request and include the returned token. When all results have been
-    -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A JSON set of elements of the affected accounts.
+    affectedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | This parameter specifies if the AWS Health event is a public AWS service
     -- event or an account-specific event.
     --
@@ -264,8 +260,12 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
     eventScopeCode :: Prelude.Maybe EventScopeCode,
-    -- | A JSON set of elements of the affected accounts.
-    affectedAccounts :: Prelude.Maybe [Prelude.Text],
+    -- | If the results of a search are large, only a portion of the results are
+    -- returned, and a @nextToken@ pagination token is returned in the
+    -- response. To retrieve the next batch of results, reissue the search
+    -- request and include the returned token. When all results have been
+    -- returned, the response does not contain a pagination token value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -279,11 +279,7 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAffectedAccountsForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
+-- 'affectedAccounts', 'describeAffectedAccountsForOrganizationResponse_affectedAccounts' - A JSON set of elements of the affected accounts.
 --
 -- 'eventScopeCode', 'describeAffectedAccountsForOrganizationResponse_eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service
 -- event or an account-specific event.
@@ -300,7 +296,11 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 --
--- 'affectedAccounts', 'describeAffectedAccountsForOrganizationResponse_affectedAccounts' - A JSON set of elements of the affected accounts.
+-- 'nextToken', 'describeAffectedAccountsForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
 --
 -- 'httpStatus', 'describeAffectedAccountsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeAffectedAccountsForOrganizationResponse ::
@@ -310,22 +310,18 @@ newDescribeAffectedAccountsForOrganizationResponse ::
 newDescribeAffectedAccountsForOrganizationResponse
   pHttpStatus_ =
     DescribeAffectedAccountsForOrganizationResponse'
-      { nextToken =
+      { affectedAccounts =
           Prelude.Nothing,
         eventScopeCode =
           Prelude.Nothing,
-        affectedAccounts =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
--- | If the results of a search are large, only a portion of the results are
--- returned, and a @nextToken@ pagination token is returned in the
--- response. To retrieve the next batch of results, reissue the search
--- request and include the returned token. When all results have been
--- returned, the response does not contain a pagination token value.
-describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe Prelude.Text)
-describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganizationResponse)
+-- | A JSON set of elements of the affected accounts.
+describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe [Prelude.Text])
+describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | This parameter specifies if the AWS Health event is a public AWS service
 -- event or an account-specific event.
@@ -344,9 +340,13 @@ describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\Describe
 describeAffectedAccountsForOrganizationResponse_eventScopeCode :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe EventScopeCode)
 describeAffectedAccountsForOrganizationResponse_eventScopeCode = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {eventScopeCode} -> eventScopeCode) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {eventScopeCode = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
--- | A JSON set of elements of the affected accounts.
-describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe [Prelude.Text])
-describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | If the results of a search are large, only a portion of the results are
+-- returned, and a @nextToken@ pagination token is returned in the
+-- response. To retrieve the next batch of results, reissue the search
+-- request and include the returned token. When all results have been
+-- returned, the response does not contain a pagination token value.
+describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
 -- | The response's http status code.
 describeAffectedAccountsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse Prelude.Int

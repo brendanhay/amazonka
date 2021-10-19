@@ -82,23 +82,23 @@ newRecipes =
 
 -- | An array of custom recipe names to be run following a @setup@ event.
 recipes_setup :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_setup = Lens.lens (\Recipes' {setup} -> setup) (\s@Recipes' {} a -> s {setup = a} :: Recipes) Prelude.. Lens.mapping Lens._Coerce
+recipes_setup = Lens.lens (\Recipes' {setup} -> setup) (\s@Recipes' {} a -> s {setup = a} :: Recipes) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of custom recipe names to be run following a @shutdown@ event.
 recipes_shutdown :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_shutdown = Lens.lens (\Recipes' {shutdown} -> shutdown) (\s@Recipes' {} a -> s {shutdown = a} :: Recipes) Prelude.. Lens.mapping Lens._Coerce
+recipes_shutdown = Lens.lens (\Recipes' {shutdown} -> shutdown) (\s@Recipes' {} a -> s {shutdown = a} :: Recipes) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of custom recipe names to be run following a @undeploy@ event.
 recipes_undeploy :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_undeploy = Lens.lens (\Recipes' {undeploy} -> undeploy) (\s@Recipes' {} a -> s {undeploy = a} :: Recipes) Prelude.. Lens.mapping Lens._Coerce
+recipes_undeploy = Lens.lens (\Recipes' {undeploy} -> undeploy) (\s@Recipes' {} a -> s {undeploy = a} :: Recipes) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of custom recipe names to be run following a @configure@ event.
 recipes_configure :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_configure = Lens.lens (\Recipes' {configure} -> configure) (\s@Recipes' {} a -> s {configure = a} :: Recipes) Prelude.. Lens.mapping Lens._Coerce
+recipes_configure = Lens.lens (\Recipes' {configure} -> configure) (\s@Recipes' {} a -> s {configure = a} :: Recipes) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of custom recipe names to be run following a @deploy@ event.
 recipes_deploy :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_deploy = Lens.lens (\Recipes' {deploy} -> deploy) (\s@Recipes' {} a -> s {deploy = a} :: Recipes) Prelude.. Lens.mapping Lens._Coerce
+recipes_deploy = Lens.lens (\Recipes' {deploy} -> deploy) (\s@Recipes' {} a -> s {deploy = a} :: Recipes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Recipes where
   parseJSON =

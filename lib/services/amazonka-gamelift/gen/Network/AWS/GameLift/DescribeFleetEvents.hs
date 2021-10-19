@@ -51,8 +51,8 @@ module Network.AWS.GameLift.DescribeFleetEvents
     newDescribeFleetEvents,
 
     -- * Request Lenses
-    describeFleetEvents_nextToken,
     describeFleetEvents_startTime,
+    describeFleetEvents_nextToken,
     describeFleetEvents_endTime,
     describeFleetEvents_limit,
     describeFleetEvents_fleetId,
@@ -79,15 +79,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-  { -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The earliest date to retrieve event logs for. If no start time is
+  { -- | The earliest date to retrieve event logs for. If no start time is
     -- specified, this call returns entries starting from when the fleet was
     -- created to the specified end time. Format is a number expressed in Unix
     -- time as milliseconds (ex: \"1469498468.057\").
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The most recent date to retrieve event logs for. If no end time is
     -- specified, this call returns entries from the specified start time up to
     -- the present. Format is a number expressed in Unix time as milliseconds
@@ -110,14 +110,14 @@ data DescribeFleetEvents = DescribeFleetEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFleetEvents_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
---
 -- 'startTime', 'describeFleetEvents_startTime' - The earliest date to retrieve event logs for. If no start time is
 -- specified, this call returns entries starting from when the fleet was
 -- created to the specified end time. Format is a number expressed in Unix
 -- time as milliseconds (ex: \"1469498468.057\").
+--
+-- 'nextToken', 'describeFleetEvents_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
 --
 -- 'endTime', 'describeFleetEvents_endTime' - The most recent date to retrieve event logs for. If no end time is
 -- specified, this call returns entries from the specified start time up to
@@ -135,18 +135,12 @@ newDescribeFleetEvents ::
   DescribeFleetEvents
 newDescribeFleetEvents pFleetId_ =
   DescribeFleetEvents'
-    { nextToken = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+    { startTime = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       endTime = Prelude.Nothing,
       limit = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-describeFleetEvents_nextToken :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.Text)
-describeFleetEvents_nextToken = Lens.lens (\DescribeFleetEvents' {nextToken} -> nextToken) (\s@DescribeFleetEvents' {} a -> s {nextToken = a} :: DescribeFleetEvents)
 
 -- | The earliest date to retrieve event logs for. If no start time is
 -- specified, this call returns entries starting from when the fleet was
@@ -154,6 +148,12 @@ describeFleetEvents_nextToken = Lens.lens (\DescribeFleetEvents' {nextToken} -> 
 -- time as milliseconds (ex: \"1469498468.057\").
 describeFleetEvents_startTime :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.UTCTime)
 describeFleetEvents_startTime = Lens.lens (\DescribeFleetEvents' {startTime} -> startTime) (\s@DescribeFleetEvents' {} a -> s {startTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Core._Time
+
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+describeFleetEvents_nextToken :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.Text)
+describeFleetEvents_nextToken = Lens.lens (\DescribeFleetEvents' {nextToken} -> nextToken) (\s@DescribeFleetEvents' {} a -> s {nextToken = a} :: DescribeFleetEvents)
 
 -- | The most recent date to retrieve event logs for. If no end time is
 -- specified, this call returns entries from the specified start time up to
@@ -231,8 +231,8 @@ instance Core.ToJSON DescribeFleetEvents where
   toJSON DescribeFleetEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StartTime" Core..=) Prelude.<$> startTime,
+          [ ("StartTime" Core..=) Prelude.<$> startTime,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("EndTime" Core..=) Prelude.<$> endTime,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("FleetId" Core..= fleetId)
@@ -298,7 +298,7 @@ describeFleetEventsResponse_nextToken = Lens.lens (\DescribeFleetEventsResponse'
 -- | A collection of objects containing event log entries for the specified
 -- fleet.
 describeFleetEventsResponse_events :: Lens.Lens' DescribeFleetEventsResponse (Prelude.Maybe [Event])
-describeFleetEventsResponse_events = Lens.lens (\DescribeFleetEventsResponse' {events} -> events) (\s@DescribeFleetEventsResponse' {} a -> s {events = a} :: DescribeFleetEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeFleetEventsResponse_events = Lens.lens (\DescribeFleetEventsResponse' {events} -> events) (\s@DescribeFleetEventsResponse' {} a -> s {events = a} :: DescribeFleetEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetEventsResponse_httpStatus :: Lens.Lens' DescribeFleetEventsResponse Prelude.Int

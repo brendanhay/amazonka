@@ -95,7 +95,7 @@ listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTag
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 listTags_resourceIdList :: Lens.Lens' ListTags [Prelude.Text]
-listTags_resourceIdList = Lens.lens (\ListTags' {resourceIdList} -> resourceIdList) (\s@ListTags' {} a -> s {resourceIdList = a} :: ListTags) Prelude.. Lens._Coerce
+listTags_resourceIdList = Lens.lens (\ListTags' {resourceIdList} -> resourceIdList) (\s@ListTags' {} a -> s {resourceIdList = a} :: ListTags) Prelude.. Lens.coerced
 
 instance Core.AWSPager ListTags where
   page rq rs
@@ -210,7 +210,7 @@ listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextTo
 
 -- | A list of resource tags.
 listTagsResponse_resourceTagList :: Lens.Lens' ListTagsResponse (Prelude.Maybe [ResourceTag])
-listTagsResponse_resourceTagList = Lens.lens (\ListTagsResponse' {resourceTagList} -> resourceTagList) (\s@ListTagsResponse' {} a -> s {resourceTagList = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsResponse_resourceTagList = Lens.lens (\ListTagsResponse' {resourceTagList} -> resourceTagList) (\s@ListTagsResponse' {} a -> s {resourceTagList = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int

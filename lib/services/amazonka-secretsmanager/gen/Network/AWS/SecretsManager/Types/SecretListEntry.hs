@@ -31,10 +31,16 @@ import Network.AWS.SecretsManager.Types.Tag
 --
 -- /See:/ 'newSecretListEntry' smart constructor.
 data SecretListEntry = SecretListEntry'
-  { -- | The date and time when a secret was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
-    -- | Returns the name of the service that created the secret.
-    owningService :: Prelude.Maybe Prelude.Text,
+  { -- | The last date and time that this secret was modified in any way.
+    lastChangedDate :: Prelude.Maybe Core.POSIX,
+    -- | The Region where Secrets Manager originated the secret.
+    primaryRegion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the secret.
+    --
+    -- For more information about ARNs in Secrets Manager, see
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources>
+    -- in the /Amazon Web Services Secrets Manager User Guide/.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | A list of all of the currently assigned @SecretVersionStage@ staging
     -- labels and the @SecretVersionId@ attached to each one. Staging labels
     -- are used to keep track of the different versions during the rotation
@@ -44,16 +50,18 @@ data SecretListEntry = SecretListEntry'
     -- deprecated and subject to deletion. Such versions are not included in
     -- this list.
     secretVersionsToStages :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text)),
-    -- | The most recent date and time that the Secrets Manager rotation process
-    -- was successfully completed. This value is null if the secret hasn\'t
-    -- ever rotated.
-    lastRotatedDate :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the secret.
-    --
-    -- For more information about ARNs in Secrets Manager, see
-    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources>
-    -- in the /Amazon Web Services Secrets Manager User Guide/.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | A structure that defines the rotation configuration for the secret.
+    rotationRules :: Prelude.Maybe RotationRulesType,
+    -- | The date and time the deletion of the secret occurred. Not present on
+    -- active secrets. The secret can be recovered until the number of days in
+    -- the recovery window has passed, as specified in the
+    -- @RecoveryWindowInDays@ parameter of the DeleteSecret operation.
+    deletedDate :: Prelude.Maybe Core.POSIX,
+    -- | Indicates whether automatic, scheduled rotation is enabled for this
+    -- secret.
+    rotationEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time when a secret was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The ARN or alias of the Amazon Web Services KMS customer master key
     -- (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in
     -- each version of the secret. If you don\'t provide a key, then Secrets
@@ -65,32 +73,24 @@ data SecretListEntry = SecretListEntry'
     -- @\/prod\/databases\/dbserver1@ could represent the secret for a server
     -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Region where Secrets Manager originated the secret.
-    primaryRegion :: Prelude.Maybe Prelude.Text,
-    -- | The last date and time that this secret was modified in any way.
-    lastChangedDate :: Prelude.Maybe Core.POSIX,
-    -- | The date and time the deletion of the secret occurred. Not present on
-    -- active secrets. The secret can be recovered until the number of days in
-    -- the recovery window has passed, as specified in the
-    -- @RecoveryWindowInDays@ parameter of the DeleteSecret operation.
-    deletedDate :: Prelude.Maybe Core.POSIX,
-    -- | The list of user-defined tags associated with the secret. To add tags to
-    -- a secret, use TagResource. To remove tags, use UntagResource.
-    tags :: Prelude.Maybe [Tag],
-    -- | Indicates whether automatic, scheduled rotation is enabled for this
-    -- secret.
-    rotationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | A structure that defines the rotation configuration for the secret.
-    rotationRules :: Prelude.Maybe RotationRulesType,
+    -- | Returns the name of the service that created the secret.
+    owningService :: Prelude.Maybe Prelude.Text,
+    -- | The most recent date and time that the Secrets Manager rotation process
+    -- was successfully completed. This value is null if the secret hasn\'t
+    -- ever rotated.
+    lastRotatedDate :: Prelude.Maybe Core.POSIX,
+    -- | The last date that this secret was accessed. This value is truncated to
+    -- midnight of the date and therefore shows only the date, not the time.
+    lastAccessedDate :: Prelude.Maybe Core.POSIX,
     -- | The user-provided description of the secret.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of an Amazon Web Services Lambda function invoked by Secrets
     -- Manager to rotate and expire the secret either automatically per the
     -- schedule or manually by a call to RotateSecret.
     rotationLambdaARN :: Prelude.Maybe Prelude.Text,
-    -- | The last date that this secret was accessed. This value is truncated to
-    -- midnight of the date and therefore shows only the date, not the time.
-    lastAccessedDate :: Prelude.Maybe Core.POSIX
+    -- | The list of user-defined tags associated with the secret. To add tags to
+    -- a secret, use TagResource. To remove tags, use UntagResource.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -102,9 +102,15 @@ data SecretListEntry = SecretListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'secretListEntry_createdDate' - The date and time when a secret was created.
+-- 'lastChangedDate', 'secretListEntry_lastChangedDate' - The last date and time that this secret was modified in any way.
 --
--- 'owningService', 'secretListEntry_owningService' - Returns the name of the service that created the secret.
+-- 'primaryRegion', 'secretListEntry_primaryRegion' - The Region where Secrets Manager originated the secret.
+--
+-- 'arn', 'secretListEntry_arn' - The Amazon Resource Name (ARN) of the secret.
+--
+-- For more information about ARNs in Secrets Manager, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 --
 -- 'secretVersionsToStages', 'secretListEntry_secretVersionsToStages' - A list of all of the currently assigned @SecretVersionStage@ staging
 -- labels and the @SecretVersionId@ attached to each one. Staging labels
@@ -115,15 +121,17 @@ data SecretListEntry = SecretListEntry'
 -- deprecated and subject to deletion. Such versions are not included in
 -- this list.
 --
--- 'lastRotatedDate', 'secretListEntry_lastRotatedDate' - The most recent date and time that the Secrets Manager rotation process
--- was successfully completed. This value is null if the secret hasn\'t
--- ever rotated.
+-- 'rotationRules', 'secretListEntry_rotationRules' - A structure that defines the rotation configuration for the secret.
 --
--- 'arn', 'secretListEntry_arn' - The Amazon Resource Name (ARN) of the secret.
+-- 'deletedDate', 'secretListEntry_deletedDate' - The date and time the deletion of the secret occurred. Not present on
+-- active secrets. The secret can be recovered until the number of days in
+-- the recovery window has passed, as specified in the
+-- @RecoveryWindowInDays@ parameter of the DeleteSecret operation.
 --
--- For more information about ARNs in Secrets Manager, see
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources>
--- in the /Amazon Web Services Secrets Manager User Guide/.
+-- 'rotationEnabled', 'secretListEntry_rotationEnabled' - Indicates whether automatic, scheduled rotation is enabled for this
+-- secret.
+--
+-- 'createdDate', 'secretListEntry_createdDate' - The date and time when a secret was created.
 --
 -- 'kmsKeyId', 'secretListEntry_kmsKeyId' - The ARN or alias of the Amazon Web Services KMS customer master key
 -- (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in
@@ -136,22 +144,14 @@ data SecretListEntry = SecretListEntry'
 -- @\/prod\/databases\/dbserver1@ could represent the secret for a server
 -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
 --
--- 'primaryRegion', 'secretListEntry_primaryRegion' - The Region where Secrets Manager originated the secret.
+-- 'owningService', 'secretListEntry_owningService' - Returns the name of the service that created the secret.
 --
--- 'lastChangedDate', 'secretListEntry_lastChangedDate' - The last date and time that this secret was modified in any way.
+-- 'lastRotatedDate', 'secretListEntry_lastRotatedDate' - The most recent date and time that the Secrets Manager rotation process
+-- was successfully completed. This value is null if the secret hasn\'t
+-- ever rotated.
 --
--- 'deletedDate', 'secretListEntry_deletedDate' - The date and time the deletion of the secret occurred. Not present on
--- active secrets. The secret can be recovered until the number of days in
--- the recovery window has passed, as specified in the
--- @RecoveryWindowInDays@ parameter of the DeleteSecret operation.
---
--- 'tags', 'secretListEntry_tags' - The list of user-defined tags associated with the secret. To add tags to
--- a secret, use TagResource. To remove tags, use UntagResource.
---
--- 'rotationEnabled', 'secretListEntry_rotationEnabled' - Indicates whether automatic, scheduled rotation is enabled for this
--- secret.
---
--- 'rotationRules', 'secretListEntry_rotationRules' - A structure that defines the rotation configuration for the secret.
+-- 'lastAccessedDate', 'secretListEntry_lastAccessedDate' - The last date that this secret was accessed. This value is truncated to
+-- midnight of the date and therefore shows only the date, not the time.
 --
 -- 'description', 'secretListEntry_description' - The user-provided description of the secret.
 --
@@ -159,37 +159,45 @@ data SecretListEntry = SecretListEntry'
 -- Manager to rotate and expire the secret either automatically per the
 -- schedule or manually by a call to RotateSecret.
 --
--- 'lastAccessedDate', 'secretListEntry_lastAccessedDate' - The last date that this secret was accessed. This value is truncated to
--- midnight of the date and therefore shows only the date, not the time.
+-- 'tags', 'secretListEntry_tags' - The list of user-defined tags associated with the secret. To add tags to
+-- a secret, use TagResource. To remove tags, use UntagResource.
 newSecretListEntry ::
   SecretListEntry
 newSecretListEntry =
   SecretListEntry'
-    { createdDate = Prelude.Nothing,
-      owningService = Prelude.Nothing,
-      secretVersionsToStages = Prelude.Nothing,
-      lastRotatedDate = Prelude.Nothing,
+    { lastChangedDate = Prelude.Nothing,
+      primaryRegion = Prelude.Nothing,
       arn = Prelude.Nothing,
+      secretVersionsToStages = Prelude.Nothing,
+      rotationRules = Prelude.Nothing,
+      deletedDate = Prelude.Nothing,
+      rotationEnabled = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       name = Prelude.Nothing,
-      primaryRegion = Prelude.Nothing,
-      lastChangedDate = Prelude.Nothing,
-      deletedDate = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      rotationEnabled = Prelude.Nothing,
-      rotationRules = Prelude.Nothing,
+      owningService = Prelude.Nothing,
+      lastRotatedDate = Prelude.Nothing,
+      lastAccessedDate = Prelude.Nothing,
       description = Prelude.Nothing,
       rotationLambdaARN = Prelude.Nothing,
-      lastAccessedDate = Prelude.Nothing
+      tags = Prelude.Nothing
     }
 
--- | The date and time when a secret was created.
-secretListEntry_createdDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_createdDate = Lens.lens (\SecretListEntry' {createdDate} -> createdDate) (\s@SecretListEntry' {} a -> s {createdDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+-- | The last date and time that this secret was modified in any way.
+secretListEntry_lastChangedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
+secretListEntry_lastChangedDate = Lens.lens (\SecretListEntry' {lastChangedDate} -> lastChangedDate) (\s@SecretListEntry' {} a -> s {lastChangedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
 
--- | Returns the name of the service that created the secret.
-secretListEntry_owningService :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
-secretListEntry_owningService = Lens.lens (\SecretListEntry' {owningService} -> owningService) (\s@SecretListEntry' {} a -> s {owningService = a} :: SecretListEntry)
+-- | The Region where Secrets Manager originated the secret.
+secretListEntry_primaryRegion :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
+secretListEntry_primaryRegion = Lens.lens (\SecretListEntry' {primaryRegion} -> primaryRegion) (\s@SecretListEntry' {} a -> s {primaryRegion = a} :: SecretListEntry)
+
+-- | The Amazon Resource Name (ARN) of the secret.
+--
+-- For more information about ARNs in Secrets Manager, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
+secretListEntry_arn :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
+secretListEntry_arn = Lens.lens (\SecretListEntry' {arn} -> arn) (\s@SecretListEntry' {} a -> s {arn = a} :: SecretListEntry)
 
 -- | A list of all of the currently assigned @SecretVersionStage@ staging
 -- labels and the @SecretVersionId@ attached to each one. Staging labels
@@ -200,21 +208,27 @@ secretListEntry_owningService = Lens.lens (\SecretListEntry' {owningService} -> 
 -- deprecated and subject to deletion. Such versions are not included in
 -- this list.
 secretListEntry_secretVersionsToStages :: Lens.Lens' SecretListEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text)))
-secretListEntry_secretVersionsToStages = Lens.lens (\SecretListEntry' {secretVersionsToStages} -> secretVersionsToStages) (\s@SecretListEntry' {} a -> s {secretVersionsToStages = a} :: SecretListEntry) Prelude.. Lens.mapping Lens._Coerce
+secretListEntry_secretVersionsToStages = Lens.lens (\SecretListEntry' {secretVersionsToStages} -> secretVersionsToStages) (\s@SecretListEntry' {} a -> s {secretVersionsToStages = a} :: SecretListEntry) Prelude.. Lens.mapping Lens.coerced
 
--- | The most recent date and time that the Secrets Manager rotation process
--- was successfully completed. This value is null if the secret hasn\'t
--- ever rotated.
-secretListEntry_lastRotatedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_lastRotatedDate = Lens.lens (\SecretListEntry' {lastRotatedDate} -> lastRotatedDate) (\s@SecretListEntry' {} a -> s {lastRotatedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+-- | A structure that defines the rotation configuration for the secret.
+secretListEntry_rotationRules :: Lens.Lens' SecretListEntry (Prelude.Maybe RotationRulesType)
+secretListEntry_rotationRules = Lens.lens (\SecretListEntry' {rotationRules} -> rotationRules) (\s@SecretListEntry' {} a -> s {rotationRules = a} :: SecretListEntry)
 
--- | The Amazon Resource Name (ARN) of the secret.
---
--- For more information about ARNs in Secrets Manager, see
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#iam-resources Policy Resources>
--- in the /Amazon Web Services Secrets Manager User Guide/.
-secretListEntry_arn :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
-secretListEntry_arn = Lens.lens (\SecretListEntry' {arn} -> arn) (\s@SecretListEntry' {} a -> s {arn = a} :: SecretListEntry)
+-- | The date and time the deletion of the secret occurred. Not present on
+-- active secrets. The secret can be recovered until the number of days in
+-- the recovery window has passed, as specified in the
+-- @RecoveryWindowInDays@ parameter of the DeleteSecret operation.
+secretListEntry_deletedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
+secretListEntry_deletedDate = Lens.lens (\SecretListEntry' {deletedDate} -> deletedDate) (\s@SecretListEntry' {} a -> s {deletedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+
+-- | Indicates whether automatic, scheduled rotation is enabled for this
+-- secret.
+secretListEntry_rotationEnabled :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Bool)
+secretListEntry_rotationEnabled = Lens.lens (\SecretListEntry' {rotationEnabled} -> rotationEnabled) (\s@SecretListEntry' {} a -> s {rotationEnabled = a} :: SecretListEntry)
+
+-- | The date and time when a secret was created.
+secretListEntry_createdDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
+secretListEntry_createdDate = Lens.lens (\SecretListEntry' {createdDate} -> createdDate) (\s@SecretListEntry' {} a -> s {createdDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN or alias of the Amazon Web Services KMS customer master key
 -- (CMK) used to encrypt the @SecretString@ and @SecretBinary@ fields in
@@ -231,34 +245,20 @@ secretListEntry_kmsKeyId = Lens.lens (\SecretListEntry' {kmsKeyId} -> kmsKeyId) 
 secretListEntry_name :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
 secretListEntry_name = Lens.lens (\SecretListEntry' {name} -> name) (\s@SecretListEntry' {} a -> s {name = a} :: SecretListEntry)
 
--- | The Region where Secrets Manager originated the secret.
-secretListEntry_primaryRegion :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
-secretListEntry_primaryRegion = Lens.lens (\SecretListEntry' {primaryRegion} -> primaryRegion) (\s@SecretListEntry' {} a -> s {primaryRegion = a} :: SecretListEntry)
+-- | Returns the name of the service that created the secret.
+secretListEntry_owningService :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
+secretListEntry_owningService = Lens.lens (\SecretListEntry' {owningService} -> owningService) (\s@SecretListEntry' {} a -> s {owningService = a} :: SecretListEntry)
 
--- | The last date and time that this secret was modified in any way.
-secretListEntry_lastChangedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_lastChangedDate = Lens.lens (\SecretListEntry' {lastChangedDate} -> lastChangedDate) (\s@SecretListEntry' {} a -> s {lastChangedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+-- | The most recent date and time that the Secrets Manager rotation process
+-- was successfully completed. This value is null if the secret hasn\'t
+-- ever rotated.
+secretListEntry_lastRotatedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
+secretListEntry_lastRotatedDate = Lens.lens (\SecretListEntry' {lastRotatedDate} -> lastRotatedDate) (\s@SecretListEntry' {} a -> s {lastRotatedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
 
--- | The date and time the deletion of the secret occurred. Not present on
--- active secrets. The secret can be recovered until the number of days in
--- the recovery window has passed, as specified in the
--- @RecoveryWindowInDays@ parameter of the DeleteSecret operation.
-secretListEntry_deletedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_deletedDate = Lens.lens (\SecretListEntry' {deletedDate} -> deletedDate) (\s@SecretListEntry' {} a -> s {deletedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
-
--- | The list of user-defined tags associated with the secret. To add tags to
--- a secret, use TagResource. To remove tags, use UntagResource.
-secretListEntry_tags :: Lens.Lens' SecretListEntry (Prelude.Maybe [Tag])
-secretListEntry_tags = Lens.lens (\SecretListEntry' {tags} -> tags) (\s@SecretListEntry' {} a -> s {tags = a} :: SecretListEntry) Prelude.. Lens.mapping Lens._Coerce
-
--- | Indicates whether automatic, scheduled rotation is enabled for this
--- secret.
-secretListEntry_rotationEnabled :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Bool)
-secretListEntry_rotationEnabled = Lens.lens (\SecretListEntry' {rotationEnabled} -> rotationEnabled) (\s@SecretListEntry' {} a -> s {rotationEnabled = a} :: SecretListEntry)
-
--- | A structure that defines the rotation configuration for the secret.
-secretListEntry_rotationRules :: Lens.Lens' SecretListEntry (Prelude.Maybe RotationRulesType)
-secretListEntry_rotationRules = Lens.lens (\SecretListEntry' {rotationRules} -> rotationRules) (\s@SecretListEntry' {} a -> s {rotationRules = a} :: SecretListEntry)
+-- | The last date that this secret was accessed. This value is truncated to
+-- midnight of the date and therefore shows only the date, not the time.
+secretListEntry_lastAccessedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
+secretListEntry_lastAccessedDate = Lens.lens (\SecretListEntry' {lastAccessedDate} -> lastAccessedDate) (\s@SecretListEntry' {} a -> s {lastAccessedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
 
 -- | The user-provided description of the secret.
 secretListEntry_description :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
@@ -270,10 +270,10 @@ secretListEntry_description = Lens.lens (\SecretListEntry' {description} -> desc
 secretListEntry_rotationLambdaARN :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
 secretListEntry_rotationLambdaARN = Lens.lens (\SecretListEntry' {rotationLambdaARN} -> rotationLambdaARN) (\s@SecretListEntry' {} a -> s {rotationLambdaARN = a} :: SecretListEntry)
 
--- | The last date that this secret was accessed. This value is truncated to
--- midnight of the date and therefore shows only the date, not the time.
-secretListEntry_lastAccessedDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
-secretListEntry_lastAccessedDate = Lens.lens (\SecretListEntry' {lastAccessedDate} -> lastAccessedDate) (\s@SecretListEntry' {} a -> s {lastAccessedDate = a} :: SecretListEntry) Prelude.. Lens.mapping Core._Time
+-- | The list of user-defined tags associated with the secret. To add tags to
+-- a secret, use TagResource. To remove tags, use UntagResource.
+secretListEntry_tags :: Lens.Lens' SecretListEntry (Prelude.Maybe [Tag])
+secretListEntry_tags = Lens.lens (\SecretListEntry' {tags} -> tags) (\s@SecretListEntry' {} a -> s {tags = a} :: SecretListEntry) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SecretListEntry where
   parseJSON =
@@ -281,24 +281,24 @@ instance Core.FromJSON SecretListEntry where
       "SecretListEntry"
       ( \x ->
           SecretListEntry'
-            Prelude.<$> (x Core..:? "CreatedDate")
-            Prelude.<*> (x Core..:? "OwningService")
+            Prelude.<$> (x Core..:? "LastChangedDate")
+            Prelude.<*> (x Core..:? "PrimaryRegion")
+            Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> ( x Core..:? "SecretVersionsToStages"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastRotatedDate")
-            Prelude.<*> (x Core..:? "ARN")
+            Prelude.<*> (x Core..:? "RotationRules")
+            Prelude.<*> (x Core..:? "DeletedDate")
+            Prelude.<*> (x Core..:? "RotationEnabled")
+            Prelude.<*> (x Core..:? "CreatedDate")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "PrimaryRegion")
-            Prelude.<*> (x Core..:? "LastChangedDate")
-            Prelude.<*> (x Core..:? "DeletedDate")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RotationEnabled")
-            Prelude.<*> (x Core..:? "RotationRules")
+            Prelude.<*> (x Core..:? "OwningService")
+            Prelude.<*> (x Core..:? "LastRotatedDate")
+            Prelude.<*> (x Core..:? "LastAccessedDate")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RotationLambdaARN")
-            Prelude.<*> (x Core..:? "LastAccessedDate")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SecretListEntry

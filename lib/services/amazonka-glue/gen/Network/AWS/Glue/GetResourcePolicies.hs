@@ -43,8 +43,8 @@ module Network.AWS.Glue.GetResourcePolicies
     newGetResourcePoliciesResponse,
 
     -- * Response Lenses
-    getResourcePoliciesResponse_nextToken,
     getResourcePoliciesResponse_getResourcePoliciesResponseList,
+    getResourcePoliciesResponse_nextToken,
     getResourcePoliciesResponse_httpStatus,
   )
 where
@@ -123,10 +123,10 @@ instance Core.AWSRequest GetResourcePolicies where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePoliciesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "GetResourcePoliciesResponseList"
+            Prelude.<$> ( x Core..?> "GetResourcePoliciesResponseList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,12 +166,12 @@ instance Core.ToQuery GetResourcePolicies where
 
 -- | /See:/ 'newGetResourcePoliciesResponse' smart constructor.
 data GetResourcePoliciesResponse = GetResourcePoliciesResponse'
-  { -- | A continuation token, if the returned list does not contain the last
-    -- resource policy available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the individual resource policies and the account-level
+  { -- | A list of the individual resource policies and the account-level
     -- resource policy.
     getResourcePoliciesResponseList :: Prelude.Maybe [GluePolicy],
+    -- | A continuation token, if the returned list does not contain the last
+    -- resource policy available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,11 +185,11 @@ data GetResourcePoliciesResponse = GetResourcePoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getResourcePoliciesResponse_nextToken' - A continuation token, if the returned list does not contain the last
--- resource policy available.
---
 -- 'getResourcePoliciesResponseList', 'getResourcePoliciesResponse_getResourcePoliciesResponseList' - A list of the individual resource policies and the account-level
 -- resource policy.
+--
+-- 'nextToken', 'getResourcePoliciesResponse_nextToken' - A continuation token, if the returned list does not contain the last
+-- resource policy available.
 --
 -- 'httpStatus', 'getResourcePoliciesResponse_httpStatus' - The response's http status code.
 newGetResourcePoliciesResponse ::
@@ -198,22 +198,21 @@ newGetResourcePoliciesResponse ::
   GetResourcePoliciesResponse
 newGetResourcePoliciesResponse pHttpStatus_ =
   GetResourcePoliciesResponse'
-    { nextToken =
+    { getResourcePoliciesResponseList =
         Prelude.Nothing,
-      getResourcePoliciesResponseList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the individual resource policies and the account-level
+-- resource policy.
+getResourcePoliciesResponse_getResourcePoliciesResponseList :: Lens.Lens' GetResourcePoliciesResponse (Prelude.Maybe [GluePolicy])
+getResourcePoliciesResponse_getResourcePoliciesResponseList = Lens.lens (\GetResourcePoliciesResponse' {getResourcePoliciesResponseList} -> getResourcePoliciesResponseList) (\s@GetResourcePoliciesResponse' {} a -> s {getResourcePoliciesResponseList = a} :: GetResourcePoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if the returned list does not contain the last
 -- resource policy available.
 getResourcePoliciesResponse_nextToken :: Lens.Lens' GetResourcePoliciesResponse (Prelude.Maybe Prelude.Text)
 getResourcePoliciesResponse_nextToken = Lens.lens (\GetResourcePoliciesResponse' {nextToken} -> nextToken) (\s@GetResourcePoliciesResponse' {} a -> s {nextToken = a} :: GetResourcePoliciesResponse)
-
--- | A list of the individual resource policies and the account-level
--- resource policy.
-getResourcePoliciesResponse_getResourcePoliciesResponseList :: Lens.Lens' GetResourcePoliciesResponse (Prelude.Maybe [GluePolicy])
-getResourcePoliciesResponse_getResourcePoliciesResponseList = Lens.lens (\GetResourcePoliciesResponse' {getResourcePoliciesResponseList} -> getResourcePoliciesResponseList) (\s@GetResourcePoliciesResponse' {} a -> s {getResourcePoliciesResponseList = a} :: GetResourcePoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getResourcePoliciesResponse_httpStatus :: Lens.Lens' GetResourcePoliciesResponse Prelude.Int

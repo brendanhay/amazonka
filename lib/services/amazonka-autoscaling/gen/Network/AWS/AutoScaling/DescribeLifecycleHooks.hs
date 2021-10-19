@@ -84,7 +84,7 @@ newDescribeLifecycleHooks pAutoScalingGroupName_ =
 -- | The names of one or more lifecycle hooks. If you omit this parameter,
 -- all lifecycle hooks are described.
 describeLifecycleHooks_lifecycleHookNames :: Lens.Lens' DescribeLifecycleHooks (Prelude.Maybe [Prelude.Text])
-describeLifecycleHooks_lifecycleHookNames = Lens.lens (\DescribeLifecycleHooks' {lifecycleHookNames} -> lifecycleHookNames) (\s@DescribeLifecycleHooks' {} a -> s {lifecycleHookNames = a} :: DescribeLifecycleHooks) Prelude.. Lens.mapping Lens._Coerce
+describeLifecycleHooks_lifecycleHookNames = Lens.lens (\DescribeLifecycleHooks' {lifecycleHookNames} -> lifecycleHookNames) (\s@DescribeLifecycleHooks' {} a -> s {lifecycleHookNames = a} :: DescribeLifecycleHooks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 describeLifecycleHooks_autoScalingGroupName :: Lens.Lens' DescribeLifecycleHooks Prelude.Text
@@ -164,7 +164,7 @@ newDescribeLifecycleHooksResponse pHttpStatus_ =
 
 -- | The lifecycle hooks for the specified group.
 describeLifecycleHooksResponse_lifecycleHooks :: Lens.Lens' DescribeLifecycleHooksResponse (Prelude.Maybe [LifecycleHook])
-describeLifecycleHooksResponse_lifecycleHooks = Lens.lens (\DescribeLifecycleHooksResponse' {lifecycleHooks} -> lifecycleHooks) (\s@DescribeLifecycleHooksResponse' {} a -> s {lifecycleHooks = a} :: DescribeLifecycleHooksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLifecycleHooksResponse_lifecycleHooks = Lens.lens (\DescribeLifecycleHooksResponse' {lifecycleHooks} -> lifecycleHooks) (\s@DescribeLifecycleHooksResponse' {} a -> s {lifecycleHooks = a} :: DescribeLifecycleHooksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLifecycleHooksResponse_httpStatus :: Lens.Lens' DescribeLifecycleHooksResponse Prelude.Int

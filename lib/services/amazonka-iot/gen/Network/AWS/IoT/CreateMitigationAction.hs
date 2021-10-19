@@ -46,8 +46,8 @@ module Network.AWS.IoT.CreateMitigationAction
     newCreateMitigationActionResponse,
 
     -- * Response Lenses
-    createMitigationActionResponse_actionArn,
     createMitigationActionResponse_actionId,
+    createMitigationActionResponse_actionArn,
     createMitigationActionResponse_httpStatus,
   )
 where
@@ -110,7 +110,7 @@ newCreateMitigationAction
 
 -- | Metadata that can be used to manage the mitigation action.
 createMitigationAction_tags :: Lens.Lens' CreateMitigationAction (Prelude.Maybe [Tag])
-createMitigationAction_tags = Lens.lens (\CreateMitigationAction' {tags} -> tags) (\s@CreateMitigationAction' {} a -> s {tags = a} :: CreateMitigationAction) Prelude.. Lens.mapping Lens._Coerce
+createMitigationAction_tags = Lens.lens (\CreateMitigationAction' {tags} -> tags) (\s@CreateMitigationAction' {} a -> s {tags = a} :: CreateMitigationAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | A friendly name for the action. Choose a friendly name that accurately
 -- describes the action (for example, @EnableLoggingAction@).
@@ -134,8 +134,8 @@ instance Core.AWSRequest CreateMitigationAction where
     Response.receiveJSON
       ( \s h x ->
           CreateMitigationActionResponse'
-            Prelude.<$> (x Core..?> "actionArn")
-            Prelude.<*> (x Core..?> "actionId")
+            Prelude.<$> (x Core..?> "actionId")
+            Prelude.<*> (x Core..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,10 +166,10 @@ instance Core.ToQuery CreateMitigationAction where
 
 -- | /See:/ 'newCreateMitigationActionResponse' smart constructor.
 data CreateMitigationActionResponse = CreateMitigationActionResponse'
-  { -- | The ARN for the new mitigation action.
-    actionArn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the new mitigation action.
+  { -- | A unique identifier for the new mitigation action.
     actionId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN for the new mitigation action.
+    actionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,9 +183,9 @@ data CreateMitigationActionResponse = CreateMitigationActionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionArn', 'createMitigationActionResponse_actionArn' - The ARN for the new mitigation action.
---
 -- 'actionId', 'createMitigationActionResponse_actionId' - A unique identifier for the new mitigation action.
+--
+-- 'actionArn', 'createMitigationActionResponse_actionArn' - The ARN for the new mitigation action.
 --
 -- 'httpStatus', 'createMitigationActionResponse_httpStatus' - The response's http status code.
 newCreateMitigationActionResponse ::
@@ -194,19 +194,19 @@ newCreateMitigationActionResponse ::
   CreateMitigationActionResponse
 newCreateMitigationActionResponse pHttpStatus_ =
   CreateMitigationActionResponse'
-    { actionArn =
+    { actionId =
         Prelude.Nothing,
-      actionId = Prelude.Nothing,
+      actionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN for the new mitigation action.
-createMitigationActionResponse_actionArn :: Lens.Lens' CreateMitigationActionResponse (Prelude.Maybe Prelude.Text)
-createMitigationActionResponse_actionArn = Lens.lens (\CreateMitigationActionResponse' {actionArn} -> actionArn) (\s@CreateMitigationActionResponse' {} a -> s {actionArn = a} :: CreateMitigationActionResponse)
 
 -- | A unique identifier for the new mitigation action.
 createMitigationActionResponse_actionId :: Lens.Lens' CreateMitigationActionResponse (Prelude.Maybe Prelude.Text)
 createMitigationActionResponse_actionId = Lens.lens (\CreateMitigationActionResponse' {actionId} -> actionId) (\s@CreateMitigationActionResponse' {} a -> s {actionId = a} :: CreateMitigationActionResponse)
+
+-- | The ARN for the new mitigation action.
+createMitigationActionResponse_actionArn :: Lens.Lens' CreateMitigationActionResponse (Prelude.Maybe Prelude.Text)
+createMitigationActionResponse_actionArn = Lens.lens (\CreateMitigationActionResponse' {actionArn} -> actionArn) (\s@CreateMitigationActionResponse' {} a -> s {actionArn = a} :: CreateMitigationActionResponse)
 
 -- | The response's http status code.
 createMitigationActionResponse_httpStatus :: Lens.Lens' CreateMitigationActionResponse Prelude.Int

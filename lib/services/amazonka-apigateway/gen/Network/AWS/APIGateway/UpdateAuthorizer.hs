@@ -38,16 +38,16 @@ module Network.AWS.APIGateway.UpdateAuthorizer
     newAuthorizer,
 
     -- * Response Lenses
-    authorizer_identityValidationExpression,
-    authorizer_authorizerCredentials,
-    authorizer_id,
     authorizer_authorizerUri,
+    authorizer_identityValidationExpression,
     authorizer_providerARNs,
     authorizer_name,
-    authorizer_identitySource,
+    authorizer_id,
     authorizer_authorizerResultTtlInSeconds,
     authorizer_authType,
     authorizer_type,
+    authorizer_identitySource,
+    authorizer_authorizerCredentials,
   )
 where
 
@@ -103,7 +103,7 @@ newUpdateAuthorizer pRestApiId_ pAuthorizerId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateAuthorizer_patchOperations :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe [PatchOperation])
-updateAuthorizer_patchOperations = Lens.lens (\UpdateAuthorizer' {patchOperations} -> patchOperations) (\s@UpdateAuthorizer' {} a -> s {patchOperations = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Lens._Coerce
+updateAuthorizer_patchOperations = Lens.lens (\UpdateAuthorizer' {patchOperations} -> patchOperations) (\s@UpdateAuthorizer' {} a -> s {patchOperations = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateAuthorizer_restApiId :: Lens.Lens' UpdateAuthorizer Prelude.Text

@@ -216,7 +216,7 @@ createCompilationJob_vpcConfig = Lens.lens (\CreateCompilationJob' {vpcConfig} -
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createCompilationJob_tags :: Lens.Lens' CreateCompilationJob (Prelude.Maybe [Tag])
-createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\s@CreateCompilationJob' {} a -> s {tags = a} :: CreateCompilationJob) Prelude.. Lens.mapping Lens._Coerce
+createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\s@CreateCompilationJob' {} a -> s {tags = a} :: CreateCompilationJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the model compilation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.

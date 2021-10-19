@@ -30,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFleetLaunchTemplateConfigRequest' smart constructor.
 data FleetLaunchTemplateConfigRequest = FleetLaunchTemplateConfigRequest'
-  { -- | The launch template to use. You must specify either the launch template
-    -- ID or launch template name in the request.
-    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecificationRequest,
-    -- | Any parameters that you specify override the same parameters in the
+  { -- | Any parameters that you specify override the same parameters in the
     -- launch template.
     --
     -- For fleets of type @request@ and @maintain@, a maximum of 300 items is
     -- allowed across all launch templates.
-    overrides :: Prelude.Maybe [FleetLaunchTemplateOverridesRequest]
+    overrides :: Prelude.Maybe [FleetLaunchTemplateOverridesRequest],
+    -- | The launch template to use. You must specify either the launch template
+    -- ID or launch template name in the request.
+    launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecificationRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,27 +50,23 @@ data FleetLaunchTemplateConfigRequest = FleetLaunchTemplateConfigRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplateSpecification', 'fleetLaunchTemplateConfigRequest_launchTemplateSpecification' - The launch template to use. You must specify either the launch template
--- ID or launch template name in the request.
---
 -- 'overrides', 'fleetLaunchTemplateConfigRequest_overrides' - Any parameters that you specify override the same parameters in the
 -- launch template.
 --
 -- For fleets of type @request@ and @maintain@, a maximum of 300 items is
 -- allowed across all launch templates.
+--
+-- 'launchTemplateSpecification', 'fleetLaunchTemplateConfigRequest_launchTemplateSpecification' - The launch template to use. You must specify either the launch template
+-- ID or launch template name in the request.
 newFleetLaunchTemplateConfigRequest ::
   FleetLaunchTemplateConfigRequest
 newFleetLaunchTemplateConfigRequest =
   FleetLaunchTemplateConfigRequest'
-    { launchTemplateSpecification =
+    { overrides =
         Prelude.Nothing,
-      overrides = Prelude.Nothing
+      launchTemplateSpecification =
+        Prelude.Nothing
     }
-
--- | The launch template to use. You must specify either the launch template
--- ID or launch template name in the request.
-fleetLaunchTemplateConfigRequest_launchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfigRequest (Prelude.Maybe FleetLaunchTemplateSpecificationRequest)
-fleetLaunchTemplateConfigRequest_launchTemplateSpecification = Lens.lens (\FleetLaunchTemplateConfigRequest' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {launchTemplateSpecification = a} :: FleetLaunchTemplateConfigRequest)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template.
@@ -78,7 +74,12 @@ fleetLaunchTemplateConfigRequest_launchTemplateSpecification = Lens.lens (\Fleet
 -- For fleets of type @request@ and @maintain@, a maximum of 300 items is
 -- allowed across all launch templates.
 fleetLaunchTemplateConfigRequest_overrides :: Lens.Lens' FleetLaunchTemplateConfigRequest (Prelude.Maybe [FleetLaunchTemplateOverridesRequest])
-fleetLaunchTemplateConfigRequest_overrides = Lens.lens (\FleetLaunchTemplateConfigRequest' {overrides} -> overrides) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {overrides = a} :: FleetLaunchTemplateConfigRequest) Prelude.. Lens.mapping Lens._Coerce
+fleetLaunchTemplateConfigRequest_overrides = Lens.lens (\FleetLaunchTemplateConfigRequest' {overrides} -> overrides) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {overrides = a} :: FleetLaunchTemplateConfigRequest) Prelude.. Lens.mapping Lens.coerced
+
+-- | The launch template to use. You must specify either the launch template
+-- ID or launch template name in the request.
+fleetLaunchTemplateConfigRequest_launchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfigRequest (Prelude.Maybe FleetLaunchTemplateSpecificationRequest)
+fleetLaunchTemplateConfigRequest_launchTemplateSpecification = Lens.lens (\FleetLaunchTemplateConfigRequest' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@FleetLaunchTemplateConfigRequest' {} a -> s {launchTemplateSpecification = a} :: FleetLaunchTemplateConfigRequest)
 
 instance
   Prelude.Hashable
@@ -94,8 +95,8 @@ instance
   where
   toQuery FleetLaunchTemplateConfigRequest' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateSpecification"
-          Core.=: launchTemplateSpecification,
-        Core.toQuery
-          (Core.toQueryList "Overrides" Prelude.<$> overrides)
+      [ Core.toQuery
+          (Core.toQueryList "Overrides" Prelude.<$> overrides),
+        "LaunchTemplateSpecification"
+          Core.=: launchTemplateSpecification
       ]

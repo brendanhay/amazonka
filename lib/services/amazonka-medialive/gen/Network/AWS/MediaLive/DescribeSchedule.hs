@@ -207,7 +207,7 @@ describeScheduleResponse_nextToken = Lens.lens (\DescribeScheduleResponse' {next
 
 -- | The list of actions in the schedule.
 describeScheduleResponse_scheduleActions :: Lens.Lens' DescribeScheduleResponse (Prelude.Maybe [ScheduleAction])
-describeScheduleResponse_scheduleActions = Lens.lens (\DescribeScheduleResponse' {scheduleActions} -> scheduleActions) (\s@DescribeScheduleResponse' {} a -> s {scheduleActions = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Lens._Coerce
+describeScheduleResponse_scheduleActions = Lens.lens (\DescribeScheduleResponse' {scheduleActions} -> scheduleActions) (\s@DescribeScheduleResponse' {} a -> s {scheduleActions = a} :: DescribeScheduleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeScheduleResponse_httpStatus :: Lens.Lens' DescribeScheduleResponse Prelude.Int

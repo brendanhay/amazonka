@@ -32,21 +32,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRouteTable' smart constructor.
 data RouteTable = RouteTable'
-  { -- | The ID of the Amazon Web Services account that owns the route table.
-    ownerId :: Prelude.Maybe Prelude.Text,
+  { -- | The ID of the route table.
+    routeTableId :: Prelude.Maybe Prelude.Text,
     -- | The routes in the route table.
     routes :: Prelude.Maybe [Route],
-    -- | The ID of the route table.
-    routeTableId :: Prelude.Maybe Prelude.Text,
-    -- | Any tags assigned to the route table.
-    tags :: Prelude.Maybe [Tag],
-    -- | Any virtual private gateway (VGW) propagating routes.
-    propagatingVgws :: Prelude.Maybe [PropagatingVgw],
     -- | The ID of the VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Any virtual private gateway (VGW) propagating routes.
+    propagatingVgws :: Prelude.Maybe [PropagatingVgw],
+    -- | The ID of the Amazon Web Services account that owns the route table.
+    ownerId :: Prelude.Maybe Prelude.Text,
     -- | The associations between the route table and one or more subnets or a
     -- gateway.
-    associations :: Prelude.Maybe [RouteTableAssociation]
+    associations :: Prelude.Maybe [RouteTableAssociation],
+    -- | Any tags assigned to the route table.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,79 +58,79 @@ data RouteTable = RouteTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'routeTable_ownerId' - The ID of the Amazon Web Services account that owns the route table.
+-- 'routeTableId', 'routeTable_routeTableId' - The ID of the route table.
 --
 -- 'routes', 'routeTable_routes' - The routes in the route table.
 --
--- 'routeTableId', 'routeTable_routeTableId' - The ID of the route table.
---
--- 'tags', 'routeTable_tags' - Any tags assigned to the route table.
+-- 'vpcId', 'routeTable_vpcId' - The ID of the VPC.
 --
 -- 'propagatingVgws', 'routeTable_propagatingVgws' - Any virtual private gateway (VGW) propagating routes.
 --
--- 'vpcId', 'routeTable_vpcId' - The ID of the VPC.
+-- 'ownerId', 'routeTable_ownerId' - The ID of the Amazon Web Services account that owns the route table.
 --
 -- 'associations', 'routeTable_associations' - The associations between the route table and one or more subnets or a
 -- gateway.
+--
+-- 'tags', 'routeTable_tags' - Any tags assigned to the route table.
 newRouteTable ::
   RouteTable
 newRouteTable =
   RouteTable'
-    { ownerId = Prelude.Nothing,
+    { routeTableId = Prelude.Nothing,
       routes = Prelude.Nothing,
-      routeTableId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      propagatingVgws = Prelude.Nothing,
       vpcId = Prelude.Nothing,
-      associations = Prelude.Nothing
+      propagatingVgws = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
+      associations = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The ID of the Amazon Web Services account that owns the route table.
-routeTable_ownerId :: Lens.Lens' RouteTable (Prelude.Maybe Prelude.Text)
-routeTable_ownerId = Lens.lens (\RouteTable' {ownerId} -> ownerId) (\s@RouteTable' {} a -> s {ownerId = a} :: RouteTable)
-
--- | The routes in the route table.
-routeTable_routes :: Lens.Lens' RouteTable (Prelude.Maybe [Route])
-routeTable_routes = Lens.lens (\RouteTable' {routes} -> routes) (\s@RouteTable' {} a -> s {routes = a} :: RouteTable) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the route table.
 routeTable_routeTableId :: Lens.Lens' RouteTable (Prelude.Maybe Prelude.Text)
 routeTable_routeTableId = Lens.lens (\RouteTable' {routeTableId} -> routeTableId) (\s@RouteTable' {} a -> s {routeTableId = a} :: RouteTable)
 
--- | Any tags assigned to the route table.
-routeTable_tags :: Lens.Lens' RouteTable (Prelude.Maybe [Tag])
-routeTable_tags = Lens.lens (\RouteTable' {tags} -> tags) (\s@RouteTable' {} a -> s {tags = a} :: RouteTable) Prelude.. Lens.mapping Lens._Coerce
-
--- | Any virtual private gateway (VGW) propagating routes.
-routeTable_propagatingVgws :: Lens.Lens' RouteTable (Prelude.Maybe [PropagatingVgw])
-routeTable_propagatingVgws = Lens.lens (\RouteTable' {propagatingVgws} -> propagatingVgws) (\s@RouteTable' {} a -> s {propagatingVgws = a} :: RouteTable) Prelude.. Lens.mapping Lens._Coerce
+-- | The routes in the route table.
+routeTable_routes :: Lens.Lens' RouteTable (Prelude.Maybe [Route])
+routeTable_routes = Lens.lens (\RouteTable' {routes} -> routes) (\s@RouteTable' {} a -> s {routes = a} :: RouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the VPC.
 routeTable_vpcId :: Lens.Lens' RouteTable (Prelude.Maybe Prelude.Text)
 routeTable_vpcId = Lens.lens (\RouteTable' {vpcId} -> vpcId) (\s@RouteTable' {} a -> s {vpcId = a} :: RouteTable)
 
+-- | Any virtual private gateway (VGW) propagating routes.
+routeTable_propagatingVgws :: Lens.Lens' RouteTable (Prelude.Maybe [PropagatingVgw])
+routeTable_propagatingVgws = Lens.lens (\RouteTable' {propagatingVgws} -> propagatingVgws) (\s@RouteTable' {} a -> s {propagatingVgws = a} :: RouteTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ID of the Amazon Web Services account that owns the route table.
+routeTable_ownerId :: Lens.Lens' RouteTable (Prelude.Maybe Prelude.Text)
+routeTable_ownerId = Lens.lens (\RouteTable' {ownerId} -> ownerId) (\s@RouteTable' {} a -> s {ownerId = a} :: RouteTable)
+
 -- | The associations between the route table and one or more subnets or a
 -- gateway.
 routeTable_associations :: Lens.Lens' RouteTable (Prelude.Maybe [RouteTableAssociation])
-routeTable_associations = Lens.lens (\RouteTable' {associations} -> associations) (\s@RouteTable' {} a -> s {associations = a} :: RouteTable) Prelude.. Lens.mapping Lens._Coerce
+routeTable_associations = Lens.lens (\RouteTable' {associations} -> associations) (\s@RouteTable' {} a -> s {associations = a} :: RouteTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | Any tags assigned to the route table.
+routeTable_tags :: Lens.Lens' RouteTable (Prelude.Maybe [Tag])
+routeTable_tags = Lens.lens (\RouteTable' {tags} -> tags) (\s@RouteTable' {} a -> s {tags = a} :: RouteTable) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML RouteTable where
   parseXML x =
     RouteTable'
-      Prelude.<$> (x Core..@? "ownerId")
+      Prelude.<$> (x Core..@? "routeTableId")
       Prelude.<*> ( x Core..@? "routeSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "routeTableId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "item")
-                  )
+      Prelude.<*> (x Core..@? "vpcId")
       Prelude.<*> ( x Core..@? "propagatingVgwSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "vpcId")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> ( x Core..@? "associationSet" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "item")
+                  )
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 

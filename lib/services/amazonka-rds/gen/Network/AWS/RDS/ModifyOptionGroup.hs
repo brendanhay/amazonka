@@ -114,11 +114,11 @@ newModifyOptionGroup pOptionGroupName_ =
 -- present, the specified configuration is used to update the existing
 -- configuration.
 modifyOptionGroup_optionsToInclude :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [OptionConfiguration])
-modifyOptionGroup_optionsToInclude = Lens.lens (\ModifyOptionGroup' {optionsToInclude} -> optionsToInclude) (\s@ModifyOptionGroup' {} a -> s {optionsToInclude = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens._Coerce
+modifyOptionGroup_optionsToInclude = Lens.lens (\ModifyOptionGroup' {optionsToInclude} -> optionsToInclude) (\s@ModifyOptionGroup' {} a -> s {optionsToInclude = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Options in this list are removed from the option group.
 modifyOptionGroup_optionsToRemove :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [Prelude.Text])
-modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens._Coerce
+modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates whether to apply the change immediately or during
 -- the next maintenance window for each instance associated with the option

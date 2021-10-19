@@ -36,13 +36,13 @@ module Network.AWS.Redshift.ModifySnapshotSchedule
     newSnapshotSchedule,
 
     -- * Response Lenses
-    snapshotSchedule_nextInvocations,
     snapshotSchedule_associatedClusters,
-    snapshotSchedule_scheduleIdentifier,
-    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_nextInvocations,
     snapshotSchedule_scheduleDefinitions,
-    snapshotSchedule_tags,
+    snapshotSchedule_scheduleDescription,
+    snapshotSchedule_scheduleIdentifier,
     snapshotSchedule_associatedClusterCount,
+    snapshotSchedule_tags,
   )
 where
 
@@ -96,7 +96,7 @@ modifySnapshotSchedule_scheduleIdentifier = Lens.lens (\ModifySnapshotSchedule' 
 -- up of schedule expressions, for example, \"cron(30 12 *)\" or \"rate(12
 -- hours)\".
 modifySnapshotSchedule_scheduleDefinitions :: Lens.Lens' ModifySnapshotSchedule [Prelude.Text]
-modifySnapshotSchedule_scheduleDefinitions = Lens.lens (\ModifySnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@ModifySnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: ModifySnapshotSchedule) Prelude.. Lens._Coerce
+modifySnapshotSchedule_scheduleDefinitions = Lens.lens (\ModifySnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@ModifySnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: ModifySnapshotSchedule) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifySnapshotSchedule where
   type

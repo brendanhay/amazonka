@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQuickConnectConfig' smart constructor.
 data QuickConnectConfig = QuickConnectConfig'
-  { -- | The user configuration. This is required only if QuickConnectType is
+  { -- | The queue configuration. This is required only if QuickConnectType is
+    -- QUEUE.
+    queueConfig :: Prelude.Maybe QueueQuickConnectConfig,
+    -- | The user configuration. This is required only if QuickConnectType is
     -- USER.
     userConfig :: Prelude.Maybe UserQuickConnectConfig,
     -- | The phone configuration. This is required only if QuickConnectType is
     -- PHONE_NUMBER.
     phoneConfig :: Prelude.Maybe PhoneNumberQuickConnectConfig,
-    -- | The queue configuration. This is required only if QuickConnectType is
-    -- QUEUE.
-    queueConfig :: Prelude.Maybe QueueQuickConnectConfig,
     -- | The type of quick connect. In the Amazon Connect console, when you
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
@@ -55,14 +55,14 @@ data QuickConnectConfig = QuickConnectConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'queueConfig', 'quickConnectConfig_queueConfig' - The queue configuration. This is required only if QuickConnectType is
+-- QUEUE.
+--
 -- 'userConfig', 'quickConnectConfig_userConfig' - The user configuration. This is required only if QuickConnectType is
 -- USER.
 --
 -- 'phoneConfig', 'quickConnectConfig_phoneConfig' - The phone configuration. This is required only if QuickConnectType is
 -- PHONE_NUMBER.
---
--- 'queueConfig', 'quickConnectConfig_queueConfig' - The queue configuration. This is required only if QuickConnectType is
--- QUEUE.
 --
 -- 'quickConnectType', 'quickConnectConfig_quickConnectType' - The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
@@ -73,11 +73,16 @@ newQuickConnectConfig ::
   QuickConnectConfig
 newQuickConnectConfig pQuickConnectType_ =
   QuickConnectConfig'
-    { userConfig = Prelude.Nothing,
+    { queueConfig = Prelude.Nothing,
+      userConfig = Prelude.Nothing,
       phoneConfig = Prelude.Nothing,
-      queueConfig = Prelude.Nothing,
       quickConnectType = pQuickConnectType_
     }
+
+-- | The queue configuration. This is required only if QuickConnectType is
+-- QUEUE.
+quickConnectConfig_queueConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe QueueQuickConnectConfig)
+quickConnectConfig_queueConfig = Lens.lens (\QuickConnectConfig' {queueConfig} -> queueConfig) (\s@QuickConnectConfig' {} a -> s {queueConfig = a} :: QuickConnectConfig)
 
 -- | The user configuration. This is required only if QuickConnectType is
 -- USER.
@@ -88,11 +93,6 @@ quickConnectConfig_userConfig = Lens.lens (\QuickConnectConfig' {userConfig} -> 
 -- PHONE_NUMBER.
 quickConnectConfig_phoneConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe PhoneNumberQuickConnectConfig)
 quickConnectConfig_phoneConfig = Lens.lens (\QuickConnectConfig' {phoneConfig} -> phoneConfig) (\s@QuickConnectConfig' {} a -> s {phoneConfig = a} :: QuickConnectConfig)
-
--- | The queue configuration. This is required only if QuickConnectType is
--- QUEUE.
-quickConnectConfig_queueConfig :: Lens.Lens' QuickConnectConfig (Prelude.Maybe QueueQuickConnectConfig)
-quickConnectConfig_queueConfig = Lens.lens (\QuickConnectConfig' {queueConfig} -> queueConfig) (\s@QuickConnectConfig' {} a -> s {queueConfig = a} :: QuickConnectConfig)
 
 -- | The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
@@ -106,9 +106,9 @@ instance Core.FromJSON QuickConnectConfig where
       "QuickConnectConfig"
       ( \x ->
           QuickConnectConfig'
-            Prelude.<$> (x Core..:? "UserConfig")
+            Prelude.<$> (x Core..:? "QueueConfig")
+            Prelude.<*> (x Core..:? "UserConfig")
             Prelude.<*> (x Core..:? "PhoneConfig")
-            Prelude.<*> (x Core..:? "QueueConfig")
             Prelude.<*> (x Core..: "QuickConnectType")
       )
 
@@ -120,9 +120,9 @@ instance Core.ToJSON QuickConnectConfig where
   toJSON QuickConnectConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserConfig" Core..=) Prelude.<$> userConfig,
+          [ ("QueueConfig" Core..=) Prelude.<$> queueConfig,
+            ("UserConfig" Core..=) Prelude.<$> userConfig,
             ("PhoneConfig" Core..=) Prelude.<$> phoneConfig,
-            ("QueueConfig" Core..=) Prelude.<$> queueConfig,
             Prelude.Just
               ("QuickConnectType" Core..= quickConnectType)
           ]

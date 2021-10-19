@@ -36,11 +36,11 @@ module Network.AWS.Route53Domains.GetOperationDetail
 
     -- * Response Lenses
     getOperationDetailResponse_status,
-    getOperationDetailResponse_message,
-    getOperationDetailResponse_operationId,
     getOperationDetailResponse_submittedDate,
     getOperationDetailResponse_domainName,
+    getOperationDetailResponse_operationId,
     getOperationDetailResponse_type,
+    getOperationDetailResponse_message,
     getOperationDetailResponse_httpStatus,
   )
 where
@@ -99,11 +99,11 @@ instance Core.AWSRequest GetOperationDetail where
       ( \s h x ->
           GetOperationDetailResponse'
             Prelude.<$> (x Core..?> "Status")
-            Prelude.<*> (x Core..?> "Message")
-            Prelude.<*> (x Core..?> "OperationId")
             Prelude.<*> (x Core..?> "SubmittedDate")
             Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "OperationId")
             Prelude.<*> (x Core..?> "Type")
+            Prelude.<*> (x Core..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,16 +145,16 @@ instance Core.ToQuery GetOperationDetail where
 data GetOperationDetailResponse = GetOperationDetailResponse'
   { -- | The current status of the requested operation in the system.
     status :: Prelude.Maybe OperationStatus,
-    -- | Detailed information on the status including possible errors.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the operation.
-    operationId :: Prelude.Maybe Prelude.Text,
     -- | The date when the request was submitted.
     submittedDate :: Prelude.Maybe Core.POSIX,
     -- | The name of a domain.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the operation.
+    operationId :: Prelude.Maybe Prelude.Text,
     -- | The type of operation that was requested.
     type' :: Prelude.Maybe OperationType,
+    -- | Detailed information on the status including possible errors.
+    message :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,15 +170,15 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
 --
 -- 'status', 'getOperationDetailResponse_status' - The current status of the requested operation in the system.
 --
--- 'message', 'getOperationDetailResponse_message' - Detailed information on the status including possible errors.
---
--- 'operationId', 'getOperationDetailResponse_operationId' - The identifier for the operation.
---
 -- 'submittedDate', 'getOperationDetailResponse_submittedDate' - The date when the request was submitted.
 --
 -- 'domainName', 'getOperationDetailResponse_domainName' - The name of a domain.
 --
+-- 'operationId', 'getOperationDetailResponse_operationId' - The identifier for the operation.
+--
 -- 'type'', 'getOperationDetailResponse_type' - The type of operation that was requested.
+--
+-- 'message', 'getOperationDetailResponse_message' - Detailed information on the status including possible errors.
 --
 -- 'httpStatus', 'getOperationDetailResponse_httpStatus' - The response's http status code.
 newGetOperationDetailResponse ::
@@ -189,25 +189,17 @@ newGetOperationDetailResponse pHttpStatus_ =
   GetOperationDetailResponse'
     { status =
         Prelude.Nothing,
-      message = Prelude.Nothing,
-      operationId = Prelude.Nothing,
       submittedDate = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      operationId = Prelude.Nothing,
       type' = Prelude.Nothing,
+      message = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current status of the requested operation in the system.
 getOperationDetailResponse_status :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationStatus)
 getOperationDetailResponse_status = Lens.lens (\GetOperationDetailResponse' {status} -> status) (\s@GetOperationDetailResponse' {} a -> s {status = a} :: GetOperationDetailResponse)
-
--- | Detailed information on the status including possible errors.
-getOperationDetailResponse_message :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
-getOperationDetailResponse_message = Lens.lens (\GetOperationDetailResponse' {message} -> message) (\s@GetOperationDetailResponse' {} a -> s {message = a} :: GetOperationDetailResponse)
-
--- | The identifier for the operation.
-getOperationDetailResponse_operationId :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
-getOperationDetailResponse_operationId = Lens.lens (\GetOperationDetailResponse' {operationId} -> operationId) (\s@GetOperationDetailResponse' {} a -> s {operationId = a} :: GetOperationDetailResponse)
 
 -- | The date when the request was submitted.
 getOperationDetailResponse_submittedDate :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.UTCTime)
@@ -217,9 +209,17 @@ getOperationDetailResponse_submittedDate = Lens.lens (\GetOperationDetailRespons
 getOperationDetailResponse_domainName :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
 getOperationDetailResponse_domainName = Lens.lens (\GetOperationDetailResponse' {domainName} -> domainName) (\s@GetOperationDetailResponse' {} a -> s {domainName = a} :: GetOperationDetailResponse)
 
+-- | The identifier for the operation.
+getOperationDetailResponse_operationId :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
+getOperationDetailResponse_operationId = Lens.lens (\GetOperationDetailResponse' {operationId} -> operationId) (\s@GetOperationDetailResponse' {} a -> s {operationId = a} :: GetOperationDetailResponse)
+
 -- | The type of operation that was requested.
 getOperationDetailResponse_type :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe OperationType)
 getOperationDetailResponse_type = Lens.lens (\GetOperationDetailResponse' {type'} -> type') (\s@GetOperationDetailResponse' {} a -> s {type' = a} :: GetOperationDetailResponse)
+
+-- | Detailed information on the status including possible errors.
+getOperationDetailResponse_message :: Lens.Lens' GetOperationDetailResponse (Prelude.Maybe Prelude.Text)
+getOperationDetailResponse_message = Lens.lens (\GetOperationDetailResponse' {message} -> message) (\s@GetOperationDetailResponse' {} a -> s {message = a} :: GetOperationDetailResponse)
 
 -- | The response's http status code.
 getOperationDetailResponse_httpStatus :: Lens.Lens' GetOperationDetailResponse Prelude.Int

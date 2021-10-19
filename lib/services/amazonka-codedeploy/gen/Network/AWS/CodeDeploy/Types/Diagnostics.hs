@@ -34,10 +34,6 @@ data Diagnostics = Diagnostics'
     -- If available, AWS CodeDeploy returns up to the last 4 KB of the
     -- diagnostic log.
     logTail :: Prelude.Maybe Prelude.Text,
-    -- | The message associated with the error.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The name of the script.
-    scriptName :: Prelude.Maybe Prelude.Text,
     -- | The associated error code:
     --
     -- -   Success: The specified script ran.
@@ -55,7 +51,11 @@ data Diagnostics = Diagnostics'
     --
     -- -   UnknownError: The specified script did not run for an unknown
     --     reason.
-    errorCode :: Prelude.Maybe LifecycleErrorCode
+    errorCode :: Prelude.Maybe LifecycleErrorCode,
+    -- | The name of the script.
+    scriptName :: Prelude.Maybe Prelude.Text,
+    -- | The message associated with the error.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,10 +71,6 @@ data Diagnostics = Diagnostics'
 --
 -- If available, AWS CodeDeploy returns up to the last 4 KB of the
 -- diagnostic log.
---
--- 'message', 'diagnostics_message' - The message associated with the error.
---
--- 'scriptName', 'diagnostics_scriptName' - The name of the script.
 --
 -- 'errorCode', 'diagnostics_errorCode' - The associated error code:
 --
@@ -93,14 +89,18 @@ data Diagnostics = Diagnostics'
 --
 -- -   UnknownError: The specified script did not run for an unknown
 --     reason.
+--
+-- 'scriptName', 'diagnostics_scriptName' - The name of the script.
+--
+-- 'message', 'diagnostics_message' - The message associated with the error.
 newDiagnostics ::
   Diagnostics
 newDiagnostics =
   Diagnostics'
     { logTail = Prelude.Nothing,
-      message = Prelude.Nothing,
+      errorCode = Prelude.Nothing,
       scriptName = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      message = Prelude.Nothing
     }
 
 -- | The last portion of the diagnostic log.
@@ -109,14 +109,6 @@ newDiagnostics =
 -- diagnostic log.
 diagnostics_logTail :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
 diagnostics_logTail = Lens.lens (\Diagnostics' {logTail} -> logTail) (\s@Diagnostics' {} a -> s {logTail = a} :: Diagnostics)
-
--- | The message associated with the error.
-diagnostics_message :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
-diagnostics_message = Lens.lens (\Diagnostics' {message} -> message) (\s@Diagnostics' {} a -> s {message = a} :: Diagnostics)
-
--- | The name of the script.
-diagnostics_scriptName :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
-diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\s@Diagnostics' {} a -> s {scriptName = a} :: Diagnostics)
 
 -- | The associated error code:
 --
@@ -138,6 +130,14 @@ diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\
 diagnostics_errorCode :: Lens.Lens' Diagnostics (Prelude.Maybe LifecycleErrorCode)
 diagnostics_errorCode = Lens.lens (\Diagnostics' {errorCode} -> errorCode) (\s@Diagnostics' {} a -> s {errorCode = a} :: Diagnostics)
 
+-- | The name of the script.
+diagnostics_scriptName :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
+diagnostics_scriptName = Lens.lens (\Diagnostics' {scriptName} -> scriptName) (\s@Diagnostics' {} a -> s {scriptName = a} :: Diagnostics)
+
+-- | The message associated with the error.
+diagnostics_message :: Lens.Lens' Diagnostics (Prelude.Maybe Prelude.Text)
+diagnostics_message = Lens.lens (\Diagnostics' {message} -> message) (\s@Diagnostics' {} a -> s {message = a} :: Diagnostics)
+
 instance Core.FromJSON Diagnostics where
   parseJSON =
     Core.withObject
@@ -145,9 +145,9 @@ instance Core.FromJSON Diagnostics where
       ( \x ->
           Diagnostics'
             Prelude.<$> (x Core..:? "logTail")
-            Prelude.<*> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "scriptName")
             Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<*> (x Core..:? "scriptName")
+            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable Diagnostics

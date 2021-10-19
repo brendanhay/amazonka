@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Compatibility = Compatibility'
   { -- | The supported default version.
     defaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The supported compute platform.
-    platformVersions :: Prelude.Maybe [Prelude.Text],
     -- | The supported Kubernetes version of the cluster.
-    clusterVersion :: Prelude.Maybe Prelude.Text
+    clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | The supported compute platform.
+    platformVersions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data Compatibility = Compatibility'
 --
 -- 'defaultVersion', 'compatibility_defaultVersion' - The supported default version.
 --
--- 'platformVersions', 'compatibility_platformVersions' - The supported compute platform.
---
 -- 'clusterVersion', 'compatibility_clusterVersion' - The supported Kubernetes version of the cluster.
+--
+-- 'platformVersions', 'compatibility_platformVersions' - The supported compute platform.
 newCompatibility ::
   Compatibility
 newCompatibility =
   Compatibility'
     { defaultVersion = Prelude.Nothing,
-      platformVersions = Prelude.Nothing,
-      clusterVersion = Prelude.Nothing
+      clusterVersion = Prelude.Nothing,
+      platformVersions = Prelude.Nothing
     }
 
 -- | The supported default version.
 compatibility_defaultVersion :: Lens.Lens' Compatibility (Prelude.Maybe Prelude.Bool)
 compatibility_defaultVersion = Lens.lens (\Compatibility' {defaultVersion} -> defaultVersion) (\s@Compatibility' {} a -> s {defaultVersion = a} :: Compatibility)
 
--- | The supported compute platform.
-compatibility_platformVersions :: Lens.Lens' Compatibility (Prelude.Maybe [Prelude.Text])
-compatibility_platformVersions = Lens.lens (\Compatibility' {platformVersions} -> platformVersions) (\s@Compatibility' {} a -> s {platformVersions = a} :: Compatibility) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The supported Kubernetes version of the cluster.
 compatibility_clusterVersion :: Lens.Lens' Compatibility (Prelude.Maybe Prelude.Text)
 compatibility_clusterVersion = Lens.lens (\Compatibility' {clusterVersion} -> clusterVersion) (\s@Compatibility' {} a -> s {clusterVersion = a} :: Compatibility)
+
+-- | The supported compute platform.
+compatibility_platformVersions :: Lens.Lens' Compatibility (Prelude.Maybe [Prelude.Text])
+compatibility_platformVersions = Lens.lens (\Compatibility' {platformVersions} -> platformVersions) (\s@Compatibility' {} a -> s {platformVersions = a} :: Compatibility) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Compatibility where
   parseJSON =
@@ -77,10 +77,10 @@ instance Core.FromJSON Compatibility where
       ( \x ->
           Compatibility'
             Prelude.<$> (x Core..:? "defaultVersion")
+            Prelude.<*> (x Core..:? "clusterVersion")
             Prelude.<*> ( x Core..:? "platformVersions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "clusterVersion")
       )
 
 instance Prelude.Hashable Compatibility

@@ -38,8 +38,8 @@ module Network.AWS.ElastiCache.BatchApplyUpdateAction
     newUpdateActionResultsMessage,
 
     -- * Response Lenses
-    updateActionResultsMessage_processedUpdateActions,
     updateActionResultsMessage_unprocessedUpdateActions,
+    updateActionResultsMessage_processedUpdateActions,
   )
 where
 
@@ -88,11 +88,11 @@ newBatchApplyUpdateAction pServiceUpdateName_ =
 
 -- | The cache cluster IDs
 batchApplyUpdateAction_cacheClusterIds :: Lens.Lens' BatchApplyUpdateAction (Prelude.Maybe [Prelude.Text])
-batchApplyUpdateAction_cacheClusterIds = Lens.lens (\BatchApplyUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchApplyUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchApplyUpdateAction) Prelude.. Lens.mapping Lens._Coerce
+batchApplyUpdateAction_cacheClusterIds = Lens.lens (\BatchApplyUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchApplyUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchApplyUpdateAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The replication group IDs
 batchApplyUpdateAction_replicationGroupIds :: Lens.Lens' BatchApplyUpdateAction (Prelude.Maybe [Prelude.Text])
-batchApplyUpdateAction_replicationGroupIds = Lens.lens (\BatchApplyUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchApplyUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchApplyUpdateAction) Prelude.. Lens.mapping Lens._Coerce
+batchApplyUpdateAction_replicationGroupIds = Lens.lens (\BatchApplyUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchApplyUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchApplyUpdateAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the service update
 batchApplyUpdateAction_serviceUpdateName :: Lens.Lens' BatchApplyUpdateAction Prelude.Text

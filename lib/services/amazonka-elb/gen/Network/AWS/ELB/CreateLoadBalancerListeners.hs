@@ -92,7 +92,7 @@ createLoadBalancerListeners_loadBalancerName = Lens.lens (\CreateLoadBalancerLis
 
 -- | The listeners.
 createLoadBalancerListeners_listeners :: Lens.Lens' CreateLoadBalancerListeners [Listener]
-createLoadBalancerListeners_listeners = Lens.lens (\CreateLoadBalancerListeners' {listeners} -> listeners) (\s@CreateLoadBalancerListeners' {} a -> s {listeners = a} :: CreateLoadBalancerListeners) Prelude.. Lens._Coerce
+createLoadBalancerListeners_listeners = Lens.lens (\CreateLoadBalancerListeners' {listeners} -> listeners) (\s@CreateLoadBalancerListeners' {} a -> s {listeners = a} :: CreateLoadBalancerListeners) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateLoadBalancerListeners where
   type

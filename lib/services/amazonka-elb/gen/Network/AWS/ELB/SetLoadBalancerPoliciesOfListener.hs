@@ -116,7 +116,7 @@ setLoadBalancerPoliciesOfListener_loadBalancerPort = Lens.lens (\SetLoadBalancer
 -- enabled. If you omit a policy that is currently enabled, it is disabled.
 -- If the list is empty, all current policies are disabled.
 setLoadBalancerPoliciesOfListener_policyNames :: Lens.Lens' SetLoadBalancerPoliciesOfListener [Prelude.Text]
-setLoadBalancerPoliciesOfListener_policyNames = Lens.lens (\SetLoadBalancerPoliciesOfListener' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesOfListener' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener) Prelude.. Lens._Coerce
+setLoadBalancerPoliciesOfListener_policyNames = Lens.lens (\SetLoadBalancerPoliciesOfListener' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesOfListener' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesOfListener) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

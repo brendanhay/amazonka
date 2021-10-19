@@ -97,12 +97,12 @@ directoryConnectSettings_vpcId = Lens.lens (\DirectoryConnectSettings' {vpcId} -
 -- | A list of subnet identifiers in the VPC in which the AD Connector is
 -- created.
 directoryConnectSettings_subnetIds :: Lens.Lens' DirectoryConnectSettings [Prelude.Text]
-directoryConnectSettings_subnetIds = Lens.lens (\DirectoryConnectSettings' {subnetIds} -> subnetIds) (\s@DirectoryConnectSettings' {} a -> s {subnetIds = a} :: DirectoryConnectSettings) Prelude.. Lens._Coerce
+directoryConnectSettings_subnetIds = Lens.lens (\DirectoryConnectSettings' {subnetIds} -> subnetIds) (\s@DirectoryConnectSettings' {} a -> s {subnetIds = a} :: DirectoryConnectSettings) Prelude.. Lens.coerced
 
 -- | A list of one or more IP addresses of DNS servers or domain controllers
 -- in your self-managed directory.
 directoryConnectSettings_customerDnsIps :: Lens.Lens' DirectoryConnectSettings [Prelude.Text]
-directoryConnectSettings_customerDnsIps = Lens.lens (\DirectoryConnectSettings' {customerDnsIps} -> customerDnsIps) (\s@DirectoryConnectSettings' {} a -> s {customerDnsIps = a} :: DirectoryConnectSettings) Prelude.. Lens._Coerce
+directoryConnectSettings_customerDnsIps = Lens.lens (\DirectoryConnectSettings' {customerDnsIps} -> customerDnsIps) (\s@DirectoryConnectSettings' {} a -> s {customerDnsIps = a} :: DirectoryConnectSettings) Prelude.. Lens.coerced
 
 -- | The user name of an account in your self-managed directory that is used
 -- to connect to the directory. This account must have the following

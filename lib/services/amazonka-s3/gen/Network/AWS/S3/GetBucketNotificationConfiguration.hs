@@ -53,9 +53,9 @@ module Network.AWS.S3.GetBucketNotificationConfiguration
     newNotificationConfiguration,
 
     -- * Response Lenses
-    notificationConfiguration_lambdaFunctionConfigurations,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
+    notificationConfiguration_lambdaFunctionConfigurations,
   )
 where
 
@@ -118,7 +118,9 @@ instance
   type
     AWSResponse GetBucketNotificationConfiguration =
       NotificationConfiguration
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
 

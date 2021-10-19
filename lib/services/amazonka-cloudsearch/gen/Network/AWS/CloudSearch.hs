@@ -31,29 +31,29 @@ module Network.AWS.CloudSearch
     -- * Errors
     -- $errors
 
-    -- ** InvalidTypeException
-    _InvalidTypeException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** InternalException
-    _InternalException,
-
     -- ** BaseException
     _BaseException,
 
-    -- ** ValidationException
-    _ValidationException,
+    -- ** DisabledOperationException
+    _DisabledOperationException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalException
+    _InternalException,
+
+    -- ** InvalidTypeException
+    _InvalidTypeException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** DisabledOperationException
-    _DisabledOperationException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -61,23 +61,59 @@ module Network.AWS.CloudSearch
     -- * Operations
     -- $operations
 
+    -- ** DescribeAvailabilityOptions
+    DescribeAvailabilityOptions (DescribeAvailabilityOptions'),
+    newDescribeAvailabilityOptions,
+    DescribeAvailabilityOptionsResponse (DescribeAvailabilityOptionsResponse'),
+    newDescribeAvailabilityOptionsResponse,
+
+    -- ** DescribeExpressions
+    DescribeExpressions (DescribeExpressions'),
+    newDescribeExpressions,
+    DescribeExpressionsResponse (DescribeExpressionsResponse'),
+    newDescribeExpressionsResponse,
+
     -- ** DefineExpression
     DefineExpression (DefineExpression'),
     newDefineExpression,
     DefineExpressionResponse (DefineExpressionResponse'),
     newDefineExpressionResponse,
 
+    -- ** DescribeScalingParameters
+    DescribeScalingParameters (DescribeScalingParameters'),
+    newDescribeScalingParameters,
+    DescribeScalingParametersResponse (DescribeScalingParametersResponse'),
+    newDescribeScalingParametersResponse,
+
+    -- ** DescribeServiceAccessPolicies
+    DescribeServiceAccessPolicies (DescribeServiceAccessPolicies'),
+    newDescribeServiceAccessPolicies,
+    DescribeServiceAccessPoliciesResponse (DescribeServiceAccessPoliciesResponse'),
+    newDescribeServiceAccessPoliciesResponse,
+
+    -- ** DescribeSuggesters
+    DescribeSuggesters (DescribeSuggesters'),
+    newDescribeSuggesters,
+    DescribeSuggestersResponse (DescribeSuggestersResponse'),
+    newDescribeSuggestersResponse,
+
+    -- ** UpdateAvailabilityOptions
+    UpdateAvailabilityOptions (UpdateAvailabilityOptions'),
+    newUpdateAvailabilityOptions,
+    UpdateAvailabilityOptionsResponse (UpdateAvailabilityOptionsResponse'),
+    newUpdateAvailabilityOptionsResponse,
+
+    -- ** DeleteExpression
+    DeleteExpression (DeleteExpression'),
+    newDeleteExpression,
+    DeleteExpressionResponse (DeleteExpressionResponse'),
+    newDeleteExpressionResponse,
+
     -- ** ListDomainNames
     ListDomainNames (ListDomainNames'),
     newListDomainNames,
     ListDomainNamesResponse (ListDomainNamesResponse'),
     newListDomainNamesResponse,
-
-    -- ** DescribeDomainEndpointOptions
-    DescribeDomainEndpointOptions (DescribeDomainEndpointOptions'),
-    newDescribeDomainEndpointOptions,
-    DescribeDomainEndpointOptionsResponse (DescribeDomainEndpointOptionsResponse'),
-    newDescribeDomainEndpointOptionsResponse,
 
     -- ** DefineSuggester
     DefineSuggester (DefineSuggester'),
@@ -91,17 +127,29 @@ module Network.AWS.CloudSearch
     DescribeDomainsResponse (DescribeDomainsResponse'),
     newDescribeDomainsResponse,
 
-    -- ** DeleteExpression
-    DeleteExpression (DeleteExpression'),
-    newDeleteExpression,
-    DeleteExpressionResponse (DeleteExpressionResponse'),
-    newDeleteExpressionResponse,
+    -- ** DeleteAnalysisScheme
+    DeleteAnalysisScheme (DeleteAnalysisScheme'),
+    newDeleteAnalysisScheme,
+    DeleteAnalysisSchemeResponse (DeleteAnalysisSchemeResponse'),
+    newDeleteAnalysisSchemeResponse,
 
-    -- ** DeleteIndexField
-    DeleteIndexField (DeleteIndexField'),
-    newDeleteIndexField,
-    DeleteIndexFieldResponse (DeleteIndexFieldResponse'),
-    newDeleteIndexFieldResponse,
+    -- ** DescribeDomainEndpointOptions
+    DescribeDomainEndpointOptions (DescribeDomainEndpointOptions'),
+    newDescribeDomainEndpointOptions,
+    DescribeDomainEndpointOptionsResponse (DescribeDomainEndpointOptionsResponse'),
+    newDescribeDomainEndpointOptionsResponse,
+
+    -- ** DescribeAnalysisSchemes
+    DescribeAnalysisSchemes (DescribeAnalysisSchemes'),
+    newDescribeAnalysisSchemes,
+    DescribeAnalysisSchemesResponse (DescribeAnalysisSchemesResponse'),
+    newDescribeAnalysisSchemesResponse,
+
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
 
     -- ** UpdateDomainEndpointOptions
     UpdateDomainEndpointOptions (UpdateDomainEndpointOptions'),
@@ -121,53 +169,23 @@ module Network.AWS.CloudSearch
     DeleteSuggesterResponse (DeleteSuggesterResponse'),
     newDeleteSuggesterResponse,
 
-    -- ** DescribeExpressions
-    DescribeExpressions (DescribeExpressions'),
-    newDescribeExpressions,
-    DescribeExpressionsResponse (DescribeExpressionsResponse'),
-    newDescribeExpressionsResponse,
+    -- ** DefineAnalysisScheme
+    DefineAnalysisScheme (DefineAnalysisScheme'),
+    newDefineAnalysisScheme,
+    DefineAnalysisSchemeResponse (DefineAnalysisSchemeResponse'),
+    newDefineAnalysisSchemeResponse,
 
-    -- ** DescribeAvailabilityOptions
-    DescribeAvailabilityOptions (DescribeAvailabilityOptions'),
-    newDescribeAvailabilityOptions,
-    DescribeAvailabilityOptionsResponse (DescribeAvailabilityOptionsResponse'),
-    newDescribeAvailabilityOptionsResponse,
+    -- ** IndexDocuments
+    IndexDocuments (IndexDocuments'),
+    newIndexDocuments,
+    IndexDocumentsResponse (IndexDocumentsResponse'),
+    newIndexDocumentsResponse,
 
-    -- ** CreateDomain
-    CreateDomain (CreateDomain'),
-    newCreateDomain,
-    CreateDomainResponse (CreateDomainResponse'),
-    newCreateDomainResponse,
-
-    -- ** DefineIndexField
-    DefineIndexField (DefineIndexField'),
-    newDefineIndexField,
-    DefineIndexFieldResponse (DefineIndexFieldResponse'),
-    newDefineIndexFieldResponse,
-
-    -- ** DeleteDomain
-    DeleteDomain (DeleteDomain'),
-    newDeleteDomain,
-    DeleteDomainResponse (DeleteDomainResponse'),
-    newDeleteDomainResponse,
-
-    -- ** DescribeAnalysisSchemes
-    DescribeAnalysisSchemes (DescribeAnalysisSchemes'),
-    newDescribeAnalysisSchemes,
-    DescribeAnalysisSchemesResponse (DescribeAnalysisSchemesResponse'),
-    newDescribeAnalysisSchemesResponse,
-
-    -- ** DeleteAnalysisScheme
-    DeleteAnalysisScheme (DeleteAnalysisScheme'),
-    newDeleteAnalysisScheme,
-    DeleteAnalysisSchemeResponse (DeleteAnalysisSchemeResponse'),
-    newDeleteAnalysisSchemeResponse,
-
-    -- ** BuildSuggesters
-    BuildSuggesters (BuildSuggesters'),
-    newBuildSuggesters,
-    BuildSuggestersResponse (BuildSuggestersResponse'),
-    newBuildSuggestersResponse,
+    -- ** DeleteIndexField
+    DeleteIndexField (DeleteIndexField'),
+    newDeleteIndexField,
+    DeleteIndexFieldResponse (DeleteIndexFieldResponse'),
+    newDeleteIndexFieldResponse,
 
     -- ** UpdateServiceAccessPolicies
     UpdateServiceAccessPolicies (UpdateServiceAccessPolicies'),
@@ -181,41 +199,23 @@ module Network.AWS.CloudSearch
     UpdateScalingParametersResponse (UpdateScalingParametersResponse'),
     newUpdateScalingParametersResponse,
 
-    -- ** UpdateAvailabilityOptions
-    UpdateAvailabilityOptions (UpdateAvailabilityOptions'),
-    newUpdateAvailabilityOptions,
-    UpdateAvailabilityOptionsResponse (UpdateAvailabilityOptionsResponse'),
-    newUpdateAvailabilityOptionsResponse,
+    -- ** BuildSuggesters
+    BuildSuggesters (BuildSuggesters'),
+    newBuildSuggesters,
+    BuildSuggestersResponse (BuildSuggestersResponse'),
+    newBuildSuggestersResponse,
 
-    -- ** DescribeSuggesters
-    DescribeSuggesters (DescribeSuggesters'),
-    newDescribeSuggesters,
-    DescribeSuggestersResponse (DescribeSuggestersResponse'),
-    newDescribeSuggestersResponse,
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
 
-    -- ** IndexDocuments
-    IndexDocuments (IndexDocuments'),
-    newIndexDocuments,
-    IndexDocumentsResponse (IndexDocumentsResponse'),
-    newIndexDocumentsResponse,
-
-    -- ** DescribeServiceAccessPolicies
-    DescribeServiceAccessPolicies (DescribeServiceAccessPolicies'),
-    newDescribeServiceAccessPolicies,
-    DescribeServiceAccessPoliciesResponse (DescribeServiceAccessPoliciesResponse'),
-    newDescribeServiceAccessPoliciesResponse,
-
-    -- ** DefineAnalysisScheme
-    DefineAnalysisScheme (DefineAnalysisScheme'),
-    newDefineAnalysisScheme,
-    DefineAnalysisSchemeResponse (DefineAnalysisSchemeResponse'),
-    newDefineAnalysisSchemeResponse,
-
-    -- ** DescribeScalingParameters
-    DescribeScalingParameters (DescribeScalingParameters'),
-    newDescribeScalingParameters,
-    DescribeScalingParametersResponse (DescribeScalingParametersResponse'),
-    newDescribeScalingParametersResponse,
+    -- ** DefineIndexField
+    DefineIndexField (DefineIndexField'),
+    newDefineIndexField,
+    DefineIndexFieldResponse (DefineIndexFieldResponse'),
+    newDefineIndexFieldResponse,
 
     -- * Types
 

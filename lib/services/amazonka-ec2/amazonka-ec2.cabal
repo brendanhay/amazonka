@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-ec2
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Elastic Compute Cloud SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -81,6 +81,7 @@ library
     Network.AWS.EC2.BundleInstance
     Network.AWS.EC2.CancelBundleTask
     Network.AWS.EC2.CancelCapacityReservation
+    Network.AWS.EC2.CancelCapacityReservationFleets
     Network.AWS.EC2.CancelConversionTask
     Network.AWS.EC2.CancelExportTask
     Network.AWS.EC2.CancelImportTask
@@ -92,6 +93,7 @@ library
     Network.AWS.EC2.CopyImage
     Network.AWS.EC2.CopySnapshot
     Network.AWS.EC2.CreateCapacityReservation
+    Network.AWS.EC2.CreateCapacityReservationFleet
     Network.AWS.EC2.CreateCarrierGateway
     Network.AWS.EC2.CreateClientVpnEndpoint
     Network.AWS.EC2.CreateClientVpnRoute
@@ -223,6 +225,7 @@ library
     Network.AWS.EC2.DescribeAvailabilityZones
     Network.AWS.EC2.DescribeBundleTasks
     Network.AWS.EC2.DescribeByoipCidrs
+    Network.AWS.EC2.DescribeCapacityReservationFleets
     Network.AWS.EC2.DescribeCapacityReservations
     Network.AWS.EC2.DescribeCarrierGateways
     Network.AWS.EC2.DescribeClassicLinkInstances
@@ -415,6 +418,7 @@ library
     Network.AWS.EC2.ModifyAddressAttribute
     Network.AWS.EC2.ModifyAvailabilityZoneGroup
     Network.AWS.EC2.ModifyCapacityReservation
+    Network.AWS.EC2.ModifyCapacityReservationFleet
     Network.AWS.EC2.ModifyClientVpnEndpoint
     Network.AWS.EC2.ModifyDefaultCreditSpecification
     Network.AWS.EC2.ModifyEbsDefaultKmsKeyId
@@ -568,12 +572,16 @@ library
     Network.AWS.EC2.Types.ByoipCidr
     Network.AWS.EC2.Types.ByoipCidrState
     Network.AWS.EC2.Types.CancelBatchErrorCode
+    Network.AWS.EC2.Types.CancelCapacityReservationFleetError
     Network.AWS.EC2.Types.CancelledSpotInstanceRequest
     Network.AWS.EC2.Types.CancelSpotFleetRequestsError
     Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem
     Network.AWS.EC2.Types.CancelSpotFleetRequestsSuccessItem
     Network.AWS.EC2.Types.CancelSpotInstanceRequestState
     Network.AWS.EC2.Types.CapacityReservation
+    Network.AWS.EC2.Types.CapacityReservationFleet
+    Network.AWS.EC2.Types.CapacityReservationFleetCancellationState
+    Network.AWS.EC2.Types.CapacityReservationFleetState
     Network.AWS.EC2.Types.CapacityReservationGroup
     Network.AWS.EC2.Types.CapacityReservationInstancePlatform
     Network.AWS.EC2.Types.CapacityReservationOptions
@@ -657,6 +665,9 @@ library
     Network.AWS.EC2.Types.DescribeFastSnapshotRestoreSuccessItem
     Network.AWS.EC2.Types.DescribeFleetError
     Network.AWS.EC2.Types.DescribeFleetsInstances
+    Network.AWS.EC2.Types.DestinationFileFormat
+    Network.AWS.EC2.Types.DestinationOptionsRequest
+    Network.AWS.EC2.Types.DestinationOptionsResponse
     Network.AWS.EC2.Types.DeviceType
     Network.AWS.EC2.Types.DhcpConfiguration
     Network.AWS.EC2.Types.DhcpOptions
@@ -719,16 +730,20 @@ library
     Network.AWS.EC2.Types.ExportTaskState
     Network.AWS.EC2.Types.ExportToS3Task
     Network.AWS.EC2.Types.ExportToS3TaskSpecification
+    Network.AWS.EC2.Types.FailedCapacityReservationFleetCancellationResult
     Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion
     Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
     Network.AWS.EC2.Types.FederatedAuthentication
     Network.AWS.EC2.Types.FederatedAuthenticationRequest
     Network.AWS.EC2.Types.Filter
     Network.AWS.EC2.Types.FleetActivityStatus
+    Network.AWS.EC2.Types.FleetCapacityReservation
+    Network.AWS.EC2.Types.FleetCapacityReservationTenancy
     Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
     Network.AWS.EC2.Types.FleetData
     Network.AWS.EC2.Types.FleetEventType
     Network.AWS.EC2.Types.FleetExcessCapacityTerminationPolicy
+    Network.AWS.EC2.Types.FleetInstanceMatchCriteria
     Network.AWS.EC2.Types.FleetLaunchTemplateConfig
     Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest
     Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
@@ -842,6 +857,7 @@ library
     Network.AWS.EC2.Types.InstanceStatusDetails
     Network.AWS.EC2.Types.InstanceStatusEvent
     Network.AWS.EC2.Types.InstanceStatusSummary
+    Network.AWS.EC2.Types.InstanceStorageEncryptionSupport
     Network.AWS.EC2.Types.InstanceStorageInfo
     Network.AWS.EC2.Types.InstanceTagNotificationAttribute
     Network.AWS.EC2.Types.InstanceType
@@ -1048,6 +1064,7 @@ library
     Network.AWS.EC2.Types.RequestLaunchTemplateData
     Network.AWS.EC2.Types.RequestSpotLaunchSpecification
     Network.AWS.EC2.Types.Reservation
+    Network.AWS.EC2.Types.ReservationFleetInstanceSpecification
     Network.AWS.EC2.Types.ReservationState
     Network.AWS.EC2.Types.ReservationValue
     Network.AWS.EC2.Types.ReservedInstanceLimitPrice
@@ -1305,8 +1322,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-ec2-test
   type:             exitcode-stdio-1.0
@@ -1324,9 +1341,9 @@ test-suite amazonka-ec2-test
     Test.AWS.Gen.EC2
 
   build-depends:
-    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka              ^>=2.0
     , amazonka-ec2
-    , amazonka-test         >=1.6.1 && <1.6.2
+    , amazonka-test         ^>=2.0
     , base
     , bytestring
     , case-insensitive

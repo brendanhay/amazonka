@@ -30,8 +30,8 @@ module Network.AWS.CodeBuild.ListBuildsForProject
     newListBuildsForProject,
 
     -- * Request Lenses
-    listBuildsForProject_nextToken,
     listBuildsForProject_sortOrder,
+    listBuildsForProject_nextToken,
     listBuildsForProject_projectName,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Network.AWS.CodeBuild.ListBuildsForProject
     newListBuildsForProjectResponse,
 
     -- * Response Lenses
-    listBuildsForProjectResponse_nextToken,
     listBuildsForProjectResponse_ids,
+    listBuildsForProjectResponse_nextToken,
     listBuildsForProjectResponse_httpStatus,
   )
 where
@@ -54,25 +54,28 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBuildsForProject' smart constructor.
 data ListBuildsForProject = ListBuildsForProject'
-  { -- | During a previous call, if there are more than 100 items in the list,
+  { -- | The order to sort the results in. The results are sorted by build
+    -- number, not the build identifier. If this is not specified, the results
+    -- are sorted in descending order.
+    --
+    -- Valid values include:
+    --
+    -- -   @ASCENDING@: List the build identifiers in ascending order, by build
+    --     number.
+    --
+    -- -   @DESCENDING@: List the build identifiers in descending order, by
+    --     build number.
+    --
+    -- If the project has more than 100 builds, setting the sort order will
+    -- result in an error.
+    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | During a previous call, if there are more than 100 items in the list,
     -- only the first 100 items are returned, along with a unique string called
     -- a /nextToken/. To get the next batch of items in the list, call this
     -- operation again, adding the next token to the call. To get all of the
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The order to list results in. The results are sorted by build number,
-    -- not the build identifier.
-    --
-    -- Valid values include:
-    --
-    -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
-    --
-    -- -   @DESCENDING@: List the build IDs in descending order by build ID.
-    --
-    -- If the project has more than 100 builds, setting the sort order will
-    -- result in an error.
-    sortOrder :: Prelude.Maybe SortOrderType,
     -- | The name of the CodeBuild project.
     projectName :: Prelude.Text
   }
@@ -86,24 +89,27 @@ data ListBuildsForProject = ListBuildsForProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listBuildsForProject_sortOrder' - The order to sort the results in. The results are sorted by build
+-- number, not the build identifier. If this is not specified, the results
+-- are sorted in descending order.
+--
+-- Valid values include:
+--
+-- -   @ASCENDING@: List the build identifiers in ascending order, by build
+--     number.
+--
+-- -   @DESCENDING@: List the build identifiers in descending order, by
+--     build number.
+--
+-- If the project has more than 100 builds, setting the sort order will
+-- result in an error.
+--
 -- 'nextToken', 'listBuildsForProject_nextToken' - During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
 -- a /nextToken/. To get the next batch of items in the list, call this
 -- operation again, adding the next token to the call. To get all of the
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
---
--- 'sortOrder', 'listBuildsForProject_sortOrder' - The order to list results in. The results are sorted by build number,
--- not the build identifier.
---
--- Valid values include:
---
--- -   @ASCENDING@: List the build IDs in ascending order by build ID.
---
--- -   @DESCENDING@: List the build IDs in descending order by build ID.
---
--- If the project has more than 100 builds, setting the sort order will
--- result in an error.
 --
 -- 'projectName', 'listBuildsForProject_projectName' - The name of the CodeBuild project.
 newListBuildsForProject ::
@@ -112,10 +118,27 @@ newListBuildsForProject ::
   ListBuildsForProject
 newListBuildsForProject pProjectName_ =
   ListBuildsForProject'
-    { nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       projectName = pProjectName_
     }
+
+-- | The order to sort the results in. The results are sorted by build
+-- number, not the build identifier. If this is not specified, the results
+-- are sorted in descending order.
+--
+-- Valid values include:
+--
+-- -   @ASCENDING@: List the build identifiers in ascending order, by build
+--     number.
+--
+-- -   @DESCENDING@: List the build identifiers in descending order, by
+--     build number.
+--
+-- If the project has more than 100 builds, setting the sort order will
+-- result in an error.
+listBuildsForProject_sortOrder :: Lens.Lens' ListBuildsForProject (Prelude.Maybe SortOrderType)
+listBuildsForProject_sortOrder = Lens.lens (\ListBuildsForProject' {sortOrder} -> sortOrder) (\s@ListBuildsForProject' {} a -> s {sortOrder = a} :: ListBuildsForProject)
 
 -- | During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
@@ -125,20 +148,6 @@ newListBuildsForProject pProjectName_ =
 -- token that is returned, until no more next tokens are returned.
 listBuildsForProject_nextToken :: Lens.Lens' ListBuildsForProject (Prelude.Maybe Prelude.Text)
 listBuildsForProject_nextToken = Lens.lens (\ListBuildsForProject' {nextToken} -> nextToken) (\s@ListBuildsForProject' {} a -> s {nextToken = a} :: ListBuildsForProject)
-
--- | The order to list results in. The results are sorted by build number,
--- not the build identifier.
---
--- Valid values include:
---
--- -   @ASCENDING@: List the build IDs in ascending order by build ID.
---
--- -   @DESCENDING@: List the build IDs in descending order by build ID.
---
--- If the project has more than 100 builds, setting the sort order will
--- result in an error.
-listBuildsForProject_sortOrder :: Lens.Lens' ListBuildsForProject (Prelude.Maybe SortOrderType)
-listBuildsForProject_sortOrder = Lens.lens (\ListBuildsForProject' {sortOrder} -> sortOrder) (\s@ListBuildsForProject' {} a -> s {sortOrder = a} :: ListBuildsForProject)
 
 -- | The name of the CodeBuild project.
 listBuildsForProject_projectName :: Lens.Lens' ListBuildsForProject Prelude.Text
@@ -175,8 +184,8 @@ instance Core.AWSRequest ListBuildsForProject where
     Response.receiveJSON
       ( \s h x ->
           ListBuildsForProjectResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "ids")
+            Prelude.<$> (x Core..?> "ids")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -203,8 +212,8 @@ instance Core.ToJSON ListBuildsForProject where
   toJSON ListBuildsForProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder,
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             Prelude.Just ("projectName" Core..= projectName)
           ]
       )
@@ -217,14 +226,14 @@ instance Core.ToQuery ListBuildsForProject where
 
 -- | /See:/ 'newListBuildsForProjectResponse' smart constructor.
 data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
-  { -- | If there are more than 100 items in the list, only the first 100 items
+  { -- | A list of build identifiers for the specified build project, with each
+    -- build ID representing a single build.
+    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | If there are more than 100 items in the list, only the first 100 items
     -- are returned, along with a unique string called a /nextToken/. To get
     -- the next batch of items in the list, call this operation again, adding
     -- the next token to the call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of build IDs for the specified build project, with each build ID
-    -- representing a single build.
-    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -238,13 +247,13 @@ data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ids', 'listBuildsForProjectResponse_ids' - A list of build identifiers for the specified build project, with each
+-- build ID representing a single build.
+--
 -- 'nextToken', 'listBuildsForProjectResponse_nextToken' - If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
 -- the next batch of items in the list, call this operation again, adding
 -- the next token to the call.
---
--- 'ids', 'listBuildsForProjectResponse_ids' - A list of build IDs for the specified build project, with each build ID
--- representing a single build.
 --
 -- 'httpStatus', 'listBuildsForProjectResponse_httpStatus' - The response's http status code.
 newListBuildsForProjectResponse ::
@@ -253,11 +262,16 @@ newListBuildsForProjectResponse ::
   ListBuildsForProjectResponse
 newListBuildsForProjectResponse pHttpStatus_ =
   ListBuildsForProjectResponse'
-    { nextToken =
+    { ids =
         Prelude.Nothing,
-      ids = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of build identifiers for the specified build project, with each
+-- build ID representing a single build.
+listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more than 100 items in the list, only the first 100 items
 -- are returned, along with a unique string called a /nextToken/. To get
@@ -265,11 +279,6 @@ newListBuildsForProjectResponse pHttpStatus_ =
 -- the next token to the call.
 listBuildsForProjectResponse_nextToken :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe Prelude.Text)
 listBuildsForProjectResponse_nextToken = Lens.lens (\ListBuildsForProjectResponse' {nextToken} -> nextToken) (\s@ListBuildsForProjectResponse' {} a -> s {nextToken = a} :: ListBuildsForProjectResponse)
-
--- | A list of build IDs for the specified build project, with each build ID
--- representing a single build.
-listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listBuildsForProjectResponse_httpStatus :: Lens.Lens' ListBuildsForProjectResponse Prelude.Int

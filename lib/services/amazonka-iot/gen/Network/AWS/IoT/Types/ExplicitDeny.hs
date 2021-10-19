@@ -49,7 +49,7 @@ newExplicitDeny =
 
 -- | The policies that denied the authorization.
 explicitDeny_policies :: Lens.Lens' ExplicitDeny (Prelude.Maybe [Policy])
-explicitDeny_policies = Lens.lens (\ExplicitDeny' {policies} -> policies) (\s@ExplicitDeny' {} a -> s {policies = a} :: ExplicitDeny) Prelude.. Lens.mapping Lens._Coerce
+explicitDeny_policies = Lens.lens (\ExplicitDeny' {policies} -> policies) (\s@ExplicitDeny' {} a -> s {policies = a} :: ExplicitDeny) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ExplicitDeny where
   parseJSON =

@@ -82,7 +82,7 @@ newQueryStringConditionConfig =
 -- If you specify multiple key\/value pairs or values, the condition is
 -- satisfied if one of them is found in the query string.
 queryStringConditionConfig_values :: Lens.Lens' QueryStringConditionConfig (Prelude.Maybe [QueryStringKeyValuePair])
-queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Prelude.. Lens.mapping Lens._Coerce
+queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML QueryStringConditionConfig where
   parseXML x =

@@ -28,8 +28,8 @@ module Network.AWS.CloudWatchEvents.UpdateArchive
 
     -- * Request Lenses
     updateArchive_eventPattern,
-    updateArchive_description,
     updateArchive_retentionDays,
+    updateArchive_description,
     updateArchive_archiveName,
 
     -- * Destructuring the Response
@@ -38,9 +38,9 @@ module Network.AWS.CloudWatchEvents.UpdateArchive
 
     -- * Response Lenses
     updateArchiveResponse_creationTime,
-    updateArchiveResponse_stateReason,
-    updateArchiveResponse_archiveArn,
     updateArchiveResponse_state,
+    updateArchiveResponse_archiveArn,
+    updateArchiveResponse_stateReason,
     updateArchiveResponse_httpStatus,
   )
 where
@@ -56,10 +56,10 @@ import qualified Network.AWS.Response as Response
 data UpdateArchive = UpdateArchive'
   { -- | The event pattern to use to filter events sent to the archive.
     eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | The description for the archive.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The number of days to retain events in the archive.
     retentionDays :: Prelude.Maybe Prelude.Natural,
+    -- | The description for the archive.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the archive to update.
     archiveName :: Prelude.Text
   }
@@ -75,9 +75,9 @@ data UpdateArchive = UpdateArchive'
 --
 -- 'eventPattern', 'updateArchive_eventPattern' - The event pattern to use to filter events sent to the archive.
 --
--- 'description', 'updateArchive_description' - The description for the archive.
---
 -- 'retentionDays', 'updateArchive_retentionDays' - The number of days to retain events in the archive.
+--
+-- 'description', 'updateArchive_description' - The description for the archive.
 --
 -- 'archiveName', 'updateArchive_archiveName' - The name of the archive to update.
 newUpdateArchive ::
@@ -87,8 +87,8 @@ newUpdateArchive ::
 newUpdateArchive pArchiveName_ =
   UpdateArchive'
     { eventPattern = Prelude.Nothing,
-      description = Prelude.Nothing,
       retentionDays = Prelude.Nothing,
+      description = Prelude.Nothing,
       archiveName = pArchiveName_
     }
 
@@ -96,13 +96,13 @@ newUpdateArchive pArchiveName_ =
 updateArchive_eventPattern :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Text)
 updateArchive_eventPattern = Lens.lens (\UpdateArchive' {eventPattern} -> eventPattern) (\s@UpdateArchive' {} a -> s {eventPattern = a} :: UpdateArchive)
 
--- | The description for the archive.
-updateArchive_description :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Text)
-updateArchive_description = Lens.lens (\UpdateArchive' {description} -> description) (\s@UpdateArchive' {} a -> s {description = a} :: UpdateArchive)
-
 -- | The number of days to retain events in the archive.
 updateArchive_retentionDays :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Natural)
 updateArchive_retentionDays = Lens.lens (\UpdateArchive' {retentionDays} -> retentionDays) (\s@UpdateArchive' {} a -> s {retentionDays = a} :: UpdateArchive)
+
+-- | The description for the archive.
+updateArchive_description :: Lens.Lens' UpdateArchive (Prelude.Maybe Prelude.Text)
+updateArchive_description = Lens.lens (\UpdateArchive' {description} -> description) (\s@UpdateArchive' {} a -> s {description = a} :: UpdateArchive)
 
 -- | The name of the archive to update.
 updateArchive_archiveName :: Lens.Lens' UpdateArchive Prelude.Text
@@ -118,9 +118,9 @@ instance Core.AWSRequest UpdateArchive where
       ( \s h x ->
           UpdateArchiveResponse'
             Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "StateReason")
-            Prelude.<*> (x Core..?> "ArchiveArn")
             Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "ArchiveArn")
+            Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,8 +146,8 @@ instance Core.ToJSON UpdateArchive where
     Core.object
       ( Prelude.catMaybes
           [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("Description" Core..=) Prelude.<$> description,
             ("RetentionDays" Core..=) Prelude.<$> retentionDays,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("ArchiveName" Core..= archiveName)
           ]
       )
@@ -162,12 +162,12 @@ instance Core.ToQuery UpdateArchive where
 data UpdateArchiveResponse = UpdateArchiveResponse'
   { -- | The time at which the archive was updated.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The reason that the archive is in the current state.
-    stateReason :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the archive.
-    archiveArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the archive.
     state :: Prelude.Maybe ArchiveState,
+    -- | The ARN of the archive.
+    archiveArn :: Prelude.Maybe Prelude.Text,
+    -- | The reason that the archive is in the current state.
+    stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,11 +183,11 @@ data UpdateArchiveResponse = UpdateArchiveResponse'
 --
 -- 'creationTime', 'updateArchiveResponse_creationTime' - The time at which the archive was updated.
 --
--- 'stateReason', 'updateArchiveResponse_stateReason' - The reason that the archive is in the current state.
+-- 'state', 'updateArchiveResponse_state' - The state of the archive.
 --
 -- 'archiveArn', 'updateArchiveResponse_archiveArn' - The ARN of the archive.
 --
--- 'state', 'updateArchiveResponse_state' - The state of the archive.
+-- 'stateReason', 'updateArchiveResponse_stateReason' - The reason that the archive is in the current state.
 --
 -- 'httpStatus', 'updateArchiveResponse_httpStatus' - The response's http status code.
 newUpdateArchiveResponse ::
@@ -198,9 +198,9 @@ newUpdateArchiveResponse pHttpStatus_ =
   UpdateArchiveResponse'
     { creationTime =
         Prelude.Nothing,
-      stateReason = Prelude.Nothing,
-      archiveArn = Prelude.Nothing,
       state = Prelude.Nothing,
+      archiveArn = Prelude.Nothing,
+      stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -208,17 +208,17 @@ newUpdateArchiveResponse pHttpStatus_ =
 updateArchiveResponse_creationTime :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
 updateArchiveResponse_creationTime = Lens.lens (\UpdateArchiveResponse' {creationTime} -> creationTime) (\s@UpdateArchiveResponse' {} a -> s {creationTime = a} :: UpdateArchiveResponse) Prelude.. Lens.mapping Core._Time
 
--- | The reason that the archive is in the current state.
-updateArchiveResponse_stateReason :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
-updateArchiveResponse_stateReason = Lens.lens (\UpdateArchiveResponse' {stateReason} -> stateReason) (\s@UpdateArchiveResponse' {} a -> s {stateReason = a} :: UpdateArchiveResponse)
+-- | The state of the archive.
+updateArchiveResponse_state :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe ArchiveState)
+updateArchiveResponse_state = Lens.lens (\UpdateArchiveResponse' {state} -> state) (\s@UpdateArchiveResponse' {} a -> s {state = a} :: UpdateArchiveResponse)
 
 -- | The ARN of the archive.
 updateArchiveResponse_archiveArn :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
 updateArchiveResponse_archiveArn = Lens.lens (\UpdateArchiveResponse' {archiveArn} -> archiveArn) (\s@UpdateArchiveResponse' {} a -> s {archiveArn = a} :: UpdateArchiveResponse)
 
--- | The state of the archive.
-updateArchiveResponse_state :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe ArchiveState)
-updateArchiveResponse_state = Lens.lens (\UpdateArchiveResponse' {state} -> state) (\s@UpdateArchiveResponse' {} a -> s {state = a} :: UpdateArchiveResponse)
+-- | The reason that the archive is in the current state.
+updateArchiveResponse_stateReason :: Lens.Lens' UpdateArchiveResponse (Prelude.Maybe Prelude.Text)
+updateArchiveResponse_stateReason = Lens.lens (\UpdateArchiveResponse' {stateReason} -> stateReason) (\s@UpdateArchiveResponse' {} a -> s {stateReason = a} :: UpdateArchiveResponse)
 
 -- | The response's http status code.
 updateArchiveResponse_httpStatus :: Lens.Lens' UpdateArchiveResponse Prelude.Int

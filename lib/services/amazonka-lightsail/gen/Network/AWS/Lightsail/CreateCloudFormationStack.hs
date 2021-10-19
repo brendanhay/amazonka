@@ -90,7 +90,7 @@ newCreateCloudFormationStack =
 -- You will get an invalid parameter error if you pass more than one
 -- instance entry in this array.
 createCloudFormationStack_instances :: Lens.Lens' CreateCloudFormationStack [InstanceEntry]
-createCloudFormationStack_instances = Lens.lens (\CreateCloudFormationStack' {instances} -> instances) (\s@CreateCloudFormationStack' {} a -> s {instances = a} :: CreateCloudFormationStack) Prelude.. Lens._Coerce
+createCloudFormationStack_instances = Lens.lens (\CreateCloudFormationStack' {instances} -> instances) (\s@CreateCloudFormationStack' {} a -> s {instances = a} :: CreateCloudFormationStack) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateCloudFormationStack where
   type
@@ -176,7 +176,7 @@ newCreateCloudFormationStackResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createCloudFormationStackResponse_operations :: Lens.Lens' CreateCloudFormationStackResponse (Prelude.Maybe [Operation])
-createCloudFormationStackResponse_operations = Lens.lens (\CreateCloudFormationStackResponse' {operations} -> operations) (\s@CreateCloudFormationStackResponse' {} a -> s {operations = a} :: CreateCloudFormationStackResponse) Prelude.. Lens.mapping Lens._Coerce
+createCloudFormationStackResponse_operations = Lens.lens (\CreateCloudFormationStackResponse' {operations} -> operations) (\s@CreateCloudFormationStackResponse' {} a -> s {operations = a} :: CreateCloudFormationStackResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createCloudFormationStackResponse_httpStatus :: Lens.Lens' CreateCloudFormationStackResponse Prelude.Int

@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newApproval' smart constructor.
 data Approval = Approval'
-  { -- | The Amazon Resource Name (ARN) of the user.
-    userArn :: Prelude.Maybe Prelude.Text,
-    -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
+  { -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
     -- stored.
-    approvalState :: Prelude.Maybe ApprovalState
+    approvalState :: Prelude.Maybe ApprovalState,
+    -- | The Amazon Resource Name (ARN) of the user.
+    userArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data Approval = Approval'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userArn', 'approval_userArn' - The Amazon Resource Name (ARN) of the user.
---
 -- 'approvalState', 'approval_approvalState' - The state of the approval, APPROVE or REVOKE. REVOKE states are not
 -- stored.
+--
+-- 'userArn', 'approval_userArn' - The Amazon Resource Name (ARN) of the user.
 newApproval ::
   Approval
 newApproval =
   Approval'
-    { userArn = Prelude.Nothing,
-      approvalState = Prelude.Nothing
+    { approvalState = Prelude.Nothing,
+      userArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the user.
-approval_userArn :: Lens.Lens' Approval (Prelude.Maybe Prelude.Text)
-approval_userArn = Lens.lens (\Approval' {userArn} -> userArn) (\s@Approval' {} a -> s {userArn = a} :: Approval)
 
 -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
 -- stored.
 approval_approvalState :: Lens.Lens' Approval (Prelude.Maybe ApprovalState)
 approval_approvalState = Lens.lens (\Approval' {approvalState} -> approvalState) (\s@Approval' {} a -> s {approvalState = a} :: Approval)
+
+-- | The Amazon Resource Name (ARN) of the user.
+approval_userArn :: Lens.Lens' Approval (Prelude.Maybe Prelude.Text)
+approval_userArn = Lens.lens (\Approval' {userArn} -> userArn) (\s@Approval' {} a -> s {userArn = a} :: Approval)
 
 instance Core.FromJSON Approval where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON Approval where
       "Approval"
       ( \x ->
           Approval'
-            Prelude.<$> (x Core..:? "userArn")
-            Prelude.<*> (x Core..:? "approvalState")
+            Prelude.<$> (x Core..:? "approvalState")
+            Prelude.<*> (x Core..:? "userArn")
       )
 
 instance Prelude.Hashable Approval

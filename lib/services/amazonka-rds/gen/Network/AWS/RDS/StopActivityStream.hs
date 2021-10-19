@@ -42,8 +42,8 @@ module Network.AWS.RDS.StopActivityStream
 
     -- * Response Lenses
     stopActivityStreamResponse_status,
-    stopActivityStreamResponse_kmsKeyId,
     stopActivityStreamResponse_kinesisStreamName,
+    stopActivityStreamResponse_kmsKeyId,
     stopActivityStreamResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest StopActivityStream where
       ( \s h x ->
           StopActivityStreamResponse'
             Prelude.<$> (x Core..@? "Status")
-            Prelude.<*> (x Core..@? "KmsKeyId")
             Prelude.<*> (x Core..@? "KinesisStreamName")
+            Prelude.<*> (x Core..@? "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,6 +144,9 @@ instance Core.ToQuery StopActivityStream where
 data StopActivityStreamResponse = StopActivityStreamResponse'
   { -- | The status of the database activity stream.
     status :: Prelude.Maybe ActivityStreamStatus,
+    -- | The name of the Amazon Kinesis data stream used for the database
+    -- activity stream.
+    kinesisStreamName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier used for encrypting messages
     -- in the database activity stream.
     --
@@ -151,9 +154,6 @@ data StopActivityStreamResponse = StopActivityStreamResponse'
     -- ARN, or alias name for the Amazon Web Services KMS customer master key
     -- (CMK).
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Kinesis data stream used for the database
-    -- activity stream.
-    kinesisStreamName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,15 +169,15 @@ data StopActivityStreamResponse = StopActivityStreamResponse'
 --
 -- 'status', 'stopActivityStreamResponse_status' - The status of the database activity stream.
 --
+-- 'kinesisStreamName', 'stopActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database
+-- activity stream.
+--
 -- 'kmsKeyId', 'stopActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier used for encrypting messages
 -- in the database activity stream.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
 -- ARN, or alias name for the Amazon Web Services KMS customer master key
 -- (CMK).
---
--- 'kinesisStreamName', 'stopActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database
--- activity stream.
 --
 -- 'httpStatus', 'stopActivityStreamResponse_httpStatus' - The response's http status code.
 newStopActivityStreamResponse ::
@@ -188,14 +188,19 @@ newStopActivityStreamResponse pHttpStatus_ =
   StopActivityStreamResponse'
     { status =
         Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
       kinesisStreamName = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the database activity stream.
 stopActivityStreamResponse_status :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe ActivityStreamStatus)
 stopActivityStreamResponse_status = Lens.lens (\StopActivityStreamResponse' {status} -> status) (\s@StopActivityStreamResponse' {} a -> s {status = a} :: StopActivityStreamResponse)
+
+-- | The name of the Amazon Kinesis data stream used for the database
+-- activity stream.
+stopActivityStreamResponse_kinesisStreamName :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
+stopActivityStreamResponse_kinesisStreamName = Lens.lens (\StopActivityStreamResponse' {kinesisStreamName} -> kinesisStreamName) (\s@StopActivityStreamResponse' {} a -> s {kinesisStreamName = a} :: StopActivityStreamResponse)
 
 -- | The Amazon Web Services KMS key identifier used for encrypting messages
 -- in the database activity stream.
@@ -205,11 +210,6 @@ stopActivityStreamResponse_status = Lens.lens (\StopActivityStreamResponse' {sta
 -- (CMK).
 stopActivityStreamResponse_kmsKeyId :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
 stopActivityStreamResponse_kmsKeyId = Lens.lens (\StopActivityStreamResponse' {kmsKeyId} -> kmsKeyId) (\s@StopActivityStreamResponse' {} a -> s {kmsKeyId = a} :: StopActivityStreamResponse)
-
--- | The name of the Amazon Kinesis data stream used for the database
--- activity stream.
-stopActivityStreamResponse_kinesisStreamName :: Lens.Lens' StopActivityStreamResponse (Prelude.Maybe Prelude.Text)
-stopActivityStreamResponse_kinesisStreamName = Lens.lens (\StopActivityStreamResponse' {kinesisStreamName} -> kinesisStreamName) (\s@StopActivityStreamResponse' {} a -> s {kinesisStreamName = a} :: StopActivityStreamResponse)
 
 -- | The response's http status code.
 stopActivityStreamResponse_httpStatus :: Lens.Lens' StopActivityStreamResponse Prelude.Int

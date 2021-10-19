@@ -65,7 +65,7 @@ batchGetLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchGetLinkAttributes' 
 
 -- | A list of attribute names whose values will be retrieved.
 batchGetLinkAttributes_attributeNames :: Lens.Lens' BatchGetLinkAttributes [Prelude.Text]
-batchGetLinkAttributes_attributeNames = Lens.lens (\BatchGetLinkAttributes' {attributeNames} -> attributeNames) (\s@BatchGetLinkAttributes' {} a -> s {attributeNames = a} :: BatchGetLinkAttributes) Prelude.. Lens._Coerce
+batchGetLinkAttributes_attributeNames = Lens.lens (\BatchGetLinkAttributes' {attributeNames} -> attributeNames) (\s@BatchGetLinkAttributes' {} a -> s {attributeNames = a} :: BatchGetLinkAttributes) Prelude.. Lens.coerced
 
 instance Prelude.Hashable BatchGetLinkAttributes
 

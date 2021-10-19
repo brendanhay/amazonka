@@ -19,23 +19,23 @@ module Network.AWS.MediaConvert
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -43,11 +43,11 @@ module Network.AWS.MediaConvert
     -- * Operations
     -- $operations
 
-    -- ** DisassociateCertificate
-    DisassociateCertificate (DisassociateCertificate'),
-    newDisassociateCertificate,
-    DisassociateCertificateResponse (DisassociateCertificateResponse'),
-    newDisassociateCertificateResponse,
+    -- ** DeletePreset
+    DeletePreset (DeletePreset'),
+    newDeletePreset,
+    DeletePresetResponse (DeletePresetResponse'),
+    newDeletePresetResponse,
 
     -- ** UpdatePreset
     UpdatePreset (UpdatePreset'),
@@ -55,23 +55,53 @@ module Network.AWS.MediaConvert
     UpdatePresetResponse (UpdatePresetResponse'),
     newUpdatePresetResponse,
 
-    -- ** DeletePreset
-    DeletePreset (DeletePreset'),
-    newDeletePreset,
-    DeletePresetResponse (DeletePresetResponse'),
-    newDeletePresetResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** ListPresets (Paginated)
-    ListPresets (ListPresets'),
-    newListPresets,
-    ListPresetsResponse (ListPresetsResponse'),
-    newListPresetsResponse,
+    -- ** ListQueues (Paginated)
+    ListQueues (ListQueues'),
+    newListQueues,
+    ListQueuesResponse (ListQueuesResponse'),
+    newListQueuesResponse,
 
-    -- ** CreatePreset
-    CreatePreset (CreatePreset'),
-    newCreatePreset,
-    CreatePresetResponse (CreatePresetResponse'),
-    newCreatePresetResponse,
+    -- ** DeleteQueue
+    DeleteQueue (DeleteQueue'),
+    newDeleteQueue,
+    DeleteQueueResponse (DeleteQueueResponse'),
+    newDeleteQueueResponse,
+
+    -- ** UpdateQueue
+    UpdateQueue (UpdateQueue'),
+    newUpdateQueue,
+    UpdateQueueResponse (UpdateQueueResponse'),
+    newUpdateQueueResponse,
+
+    -- ** GetPreset
+    GetPreset (GetPreset'),
+    newGetPreset,
+    GetPresetResponse (GetPresetResponse'),
+    newGetPresetResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** PutPolicy
+    PutPolicy (PutPolicy'),
+    newPutPolicy,
+    PutPolicyResponse (PutPolicyResponse'),
+    newPutPolicyResponse,
 
     -- ** GetJob
     GetJob (GetJob'),
@@ -79,17 +109,53 @@ module Network.AWS.MediaConvert
     GetJobResponse (GetJobResponse'),
     newGetJobResponse,
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
 
-    -- ** ListJobTemplates (Paginated)
-    ListJobTemplates (ListJobTemplates'),
-    newListJobTemplates,
-    ListJobTemplatesResponse (ListJobTemplatesResponse'),
-    newListJobTemplatesResponse,
+    -- ** CreatePreset
+    CreatePreset (CreatePreset'),
+    newCreatePreset,
+    CreatePresetResponse (CreatePresetResponse'),
+    newCreatePresetResponse,
+
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
+
+    -- ** DisassociateCertificate
+    DisassociateCertificate (DisassociateCertificate'),
+    newDisassociateCertificate,
+    DisassociateCertificateResponse (DisassociateCertificateResponse'),
+    newDisassociateCertificateResponse,
+
+    -- ** GetQueue
+    GetQueue (GetQueue'),
+    newGetQueue,
+    GetQueueResponse (GetQueueResponse'),
+    newGetQueueResponse,
+
+    -- ** DescribeEndpoints (Paginated)
+    DescribeEndpoints (DescribeEndpoints'),
+    newDescribeEndpoints,
+    DescribeEndpointsResponse (DescribeEndpointsResponse'),
+    newDescribeEndpointsResponse,
+
+    -- ** CreateQueue
+    CreateQueue (CreateQueue'),
+    newCreateQueue,
+    CreateQueueResponse (CreateQueueResponse'),
+    newCreateQueueResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** CreateJobTemplate
     CreateJobTemplate (CreateJobTemplate'),
@@ -103,35 +169,11 @@ module Network.AWS.MediaConvert
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListQueues (Paginated)
-    ListQueues (ListQueues'),
-    newListQueues,
-    ListQueuesResponse (ListQueuesResponse'),
-    newListQueuesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** GetQueue
-    GetQueue (GetQueue'),
-    newGetQueue,
-    GetQueueResponse (GetQueueResponse'),
-    newGetQueueResponse,
-
-    -- ** AssociateCertificate
-    AssociateCertificate (AssociateCertificate'),
-    newAssociateCertificate,
-    AssociateCertificateResponse (AssociateCertificateResponse'),
-    newAssociateCertificateResponse,
-
-    -- ** GetJobTemplate
-    GetJobTemplate (GetJobTemplate'),
-    newGetJobTemplate,
-    GetJobTemplateResponse (GetJobTemplateResponse'),
-    newGetJobTemplateResponse,
+    -- ** DeleteJobTemplate
+    DeleteJobTemplate (DeleteJobTemplate'),
+    newDeleteJobTemplate,
+    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
+    newDeleteJobTemplateResponse,
 
     -- ** UpdateJobTemplate
     UpdateJobTemplate (UpdateJobTemplate'),
@@ -139,59 +181,35 @@ module Network.AWS.MediaConvert
     UpdateJobTemplateResponse (UpdateJobTemplateResponse'),
     newUpdateJobTemplateResponse,
 
-    -- ** DeleteJobTemplate
-    DeleteJobTemplate (DeleteJobTemplate'),
-    newDeleteJobTemplate,
-    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
-    newDeleteJobTemplateResponse,
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
 
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** ListJobTemplates (Paginated)
+    ListJobTemplates (ListJobTemplates'),
+    newListJobTemplates,
+    ListJobTemplatesResponse (ListJobTemplatesResponse'),
+    newListJobTemplatesResponse,
 
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
+    -- ** GetJobTemplate
+    GetJobTemplate (GetJobTemplate'),
+    newGetJobTemplate,
+    GetJobTemplateResponse (GetJobTemplateResponse'),
+    newGetJobTemplateResponse,
 
-    -- ** GetPreset
-    GetPreset (GetPreset'),
-    newGetPreset,
-    GetPresetResponse (GetPresetResponse'),
-    newGetPresetResponse,
+    -- ** AssociateCertificate
+    AssociateCertificate (AssociateCertificate'),
+    newAssociateCertificate,
+    AssociateCertificateResponse (AssociateCertificateResponse'),
+    newAssociateCertificateResponse,
 
-    -- ** UpdateQueue
-    UpdateQueue (UpdateQueue'),
-    newUpdateQueue,
-    UpdateQueueResponse (UpdateQueueResponse'),
-    newUpdateQueueResponse,
-
-    -- ** DeleteQueue
-    DeleteQueue (DeleteQueue'),
-    newDeleteQueue,
-    DeleteQueueResponse (DeleteQueueResponse'),
-    newDeleteQueueResponse,
-
-    -- ** CreateQueue
-    CreateQueue (CreateQueue'),
-    newCreateQueue,
-    CreateQueueResponse (CreateQueueResponse'),
-    newCreateQueueResponse,
-
-    -- ** DescribeEndpoints (Paginated)
-    DescribeEndpoints (DescribeEndpoints'),
-    newDescribeEndpoints,
-    DescribeEndpointsResponse (DescribeEndpointsResponse'),
-    newDescribeEndpointsResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- * Types
 
@@ -863,6 +881,9 @@ module Network.AWS.MediaConvert
 
     -- ** InputFilterEnable
     InputFilterEnable (..),
+
+    -- ** InputPolicy
+    InputPolicy (..),
 
     -- ** InputPsiControl
     InputPsiControl (..),
@@ -1794,6 +1815,10 @@ module Network.AWS.MediaConvert
     PartnerWatermarking (PartnerWatermarking'),
     newPartnerWatermarking,
 
+    -- ** Policy
+    Policy (Policy'),
+    newPolicy,
+
     -- ** Preset
     Preset (Preset'),
     newPreset,
@@ -1979,12 +2004,14 @@ import Network.AWS.MediaConvert.CreateJobTemplate
 import Network.AWS.MediaConvert.CreatePreset
 import Network.AWS.MediaConvert.CreateQueue
 import Network.AWS.MediaConvert.DeleteJobTemplate
+import Network.AWS.MediaConvert.DeletePolicy
 import Network.AWS.MediaConvert.DeletePreset
 import Network.AWS.MediaConvert.DeleteQueue
 import Network.AWS.MediaConvert.DescribeEndpoints
 import Network.AWS.MediaConvert.DisassociateCertificate
 import Network.AWS.MediaConvert.GetJob
 import Network.AWS.MediaConvert.GetJobTemplate
+import Network.AWS.MediaConvert.GetPolicy
 import Network.AWS.MediaConvert.GetPreset
 import Network.AWS.MediaConvert.GetQueue
 import Network.AWS.MediaConvert.Lens
@@ -1993,6 +2020,7 @@ import Network.AWS.MediaConvert.ListJobs
 import Network.AWS.MediaConvert.ListPresets
 import Network.AWS.MediaConvert.ListQueues
 import Network.AWS.MediaConvert.ListTagsForResource
+import Network.AWS.MediaConvert.PutPolicy
 import Network.AWS.MediaConvert.TagResource
 import Network.AWS.MediaConvert.Types
 import Network.AWS.MediaConvert.UntagResource

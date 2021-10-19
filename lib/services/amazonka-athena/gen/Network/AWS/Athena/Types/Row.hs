@@ -48,7 +48,7 @@ newRow = Row' {data' = Prelude.Nothing}
 
 -- | The data that populates a row in a query result table.
 row_data :: Lens.Lens' Row (Prelude.Maybe [Datum])
-row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Prelude.. Lens.mapping Lens._Coerce
+row_data = Lens.lens (\Row' {data'} -> data') (\s@Row' {} a -> s {data' = a} :: Row) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Row where
   parseJSON =

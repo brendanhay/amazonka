@@ -191,7 +191,7 @@ listDatastoresResponse_nextToken = Lens.lens (\ListDatastoresResponse' {nextToke
 
 -- | A list of @DatastoreSummary@ objects.
 listDatastoresResponse_datastoreSummaries :: Lens.Lens' ListDatastoresResponse (Prelude.Maybe [DatastoreSummary])
-listDatastoresResponse_datastoreSummaries = Lens.lens (\ListDatastoresResponse' {datastoreSummaries} -> datastoreSummaries) (\s@ListDatastoresResponse' {} a -> s {datastoreSummaries = a} :: ListDatastoresResponse) Prelude.. Lens.mapping Lens._Coerce
+listDatastoresResponse_datastoreSummaries = Lens.lens (\ListDatastoresResponse' {datastoreSummaries} -> datastoreSummaries) (\s@ListDatastoresResponse' {} a -> s {datastoreSummaries = a} :: ListDatastoresResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDatastoresResponse_httpStatus :: Lens.Lens' ListDatastoresResponse Prelude.Int

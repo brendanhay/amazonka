@@ -95,7 +95,7 @@ untagResource_resource = Lens.lens (\UntagResource' {resource} -> resource) (\s@
 -- tags (priority:High), you specify the key for the tag that you want to
 -- remove (priority).
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

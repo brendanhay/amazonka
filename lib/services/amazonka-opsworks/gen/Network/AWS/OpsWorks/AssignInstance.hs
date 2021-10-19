@@ -96,7 +96,7 @@ assignInstance_instanceId = Lens.lens (\AssignInstance' {instanceId} -> instance
 -- | The layer ID, which must correspond to a custom layer. You cannot assign
 -- a registered instance to a built-in layer.
 assignInstance_layerIds :: Lens.Lens' AssignInstance [Prelude.Text]
-assignInstance_layerIds = Lens.lens (\AssignInstance' {layerIds} -> layerIds) (\s@AssignInstance' {} a -> s {layerIds = a} :: AssignInstance) Prelude.. Lens._Coerce
+assignInstance_layerIds = Lens.lens (\AssignInstance' {layerIds} -> layerIds) (\s@AssignInstance' {} a -> s {layerIds = a} :: AssignInstance) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AssignInstance where
   type

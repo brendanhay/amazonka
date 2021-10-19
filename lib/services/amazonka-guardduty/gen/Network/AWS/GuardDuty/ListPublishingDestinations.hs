@@ -209,7 +209,7 @@ listPublishingDestinationsResponse_httpStatus = Lens.lens (\ListPublishingDestin
 -- | A @Destinations@ object that includes information about each publishing
 -- destination returned.
 listPublishingDestinationsResponse_destinations :: Lens.Lens' ListPublishingDestinationsResponse [Destination]
-listPublishingDestinationsResponse_destinations = Lens.lens (\ListPublishingDestinationsResponse' {destinations} -> destinations) (\s@ListPublishingDestinationsResponse' {} a -> s {destinations = a} :: ListPublishingDestinationsResponse) Prelude.. Lens._Coerce
+listPublishingDestinationsResponse_destinations = Lens.lens (\ListPublishingDestinationsResponse' {destinations} -> destinations) (\s@ListPublishingDestinationsResponse' {} a -> s {destinations = a} :: ListPublishingDestinationsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

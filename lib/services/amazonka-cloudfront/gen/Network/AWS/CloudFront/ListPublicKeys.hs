@@ -28,8 +28,8 @@ module Network.AWS.CloudFront.ListPublicKeys
     newListPublicKeys,
 
     -- * Request Lenses
-    listPublicKeys_maxItems,
     listPublicKeys_marker,
+    listPublicKeys_maxItems,
 
     -- * Destructuring the Response
     ListPublicKeysResponse (..),
@@ -50,14 +50,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { -- | The maximum number of public keys you want in the response body.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this when paginating results to indicate where to begin in your list
+  { -- | Use this when paginating results to indicate where to begin in your list
     -- of public keys. The results include public keys in the list that occur
     -- after the marker. To get the next page of results, set the @Marker@ to
     -- the value of the @NextMarker@ from the current page\'s response (which
     -- is also the ID of the last public key on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of public keys you want in the response body.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,24 +69,20 @@ data ListPublicKeys = ListPublicKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listPublicKeys_maxItems' - The maximum number of public keys you want in the response body.
---
 -- 'marker', 'listPublicKeys_marker' - Use this when paginating results to indicate where to begin in your list
 -- of public keys. The results include public keys in the list that occur
 -- after the marker. To get the next page of results, set the @Marker@ to
 -- the value of the @NextMarker@ from the current page\'s response (which
 -- is also the ID of the last public key on that page).
+--
+-- 'maxItems', 'listPublicKeys_maxItems' - The maximum number of public keys you want in the response body.
 newListPublicKeys ::
   ListPublicKeys
 newListPublicKeys =
   ListPublicKeys'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of public keys you want in the response body.
-listPublicKeys_maxItems :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
-listPublicKeys_maxItems = Lens.lens (\ListPublicKeys' {maxItems} -> maxItems) (\s@ListPublicKeys' {} a -> s {maxItems = a} :: ListPublicKeys)
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of public keys. The results include public keys in the list that occur
@@ -95,6 +91,10 @@ listPublicKeys_maxItems = Lens.lens (\ListPublicKeys' {maxItems} -> maxItems) (\
 -- is also the ID of the last public key on that page).
 listPublicKeys_marker :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
 listPublicKeys_marker = Lens.lens (\ListPublicKeys' {marker} -> marker) (\s@ListPublicKeys' {} a -> s {marker = a} :: ListPublicKeys)
+
+-- | The maximum number of public keys you want in the response body.
+listPublicKeys_maxItems :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
+listPublicKeys_maxItems = Lens.lens (\ListPublicKeys' {maxItems} -> maxItems) (\s@ListPublicKeys' {} a -> s {maxItems = a} :: ListPublicKeys)
 
 instance Core.AWSRequest ListPublicKeys where
   type
@@ -122,8 +122,8 @@ instance Core.ToPath ListPublicKeys where
 instance Core.ToQuery ListPublicKeys where
   toQuery ListPublicKeys' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListPublicKeysResponse' smart constructor.

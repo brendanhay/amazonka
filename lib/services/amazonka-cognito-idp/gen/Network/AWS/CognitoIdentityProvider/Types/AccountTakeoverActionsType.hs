@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data AccountTakeoverActionsType = AccountTakeoverActionsType'
   { -- | Action to take for a low risk.
     lowAction :: Prelude.Maybe AccountTakeoverActionType,
-    -- | Action to take for a medium risk.
-    mediumAction :: Prelude.Maybe AccountTakeoverActionType,
     -- | Action to take for a high risk.
-    highAction :: Prelude.Maybe AccountTakeoverActionType
+    highAction :: Prelude.Maybe AccountTakeoverActionType,
+    -- | Action to take for a medium risk.
+    mediumAction :: Prelude.Maybe AccountTakeoverActionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data AccountTakeoverActionsType = AccountTakeoverActionsType'
 --
 -- 'lowAction', 'accountTakeoverActionsType_lowAction' - Action to take for a low risk.
 --
--- 'mediumAction', 'accountTakeoverActionsType_mediumAction' - Action to take for a medium risk.
---
 -- 'highAction', 'accountTakeoverActionsType_highAction' - Action to take for a high risk.
+--
+-- 'mediumAction', 'accountTakeoverActionsType_mediumAction' - Action to take for a medium risk.
 newAccountTakeoverActionsType ::
   AccountTakeoverActionsType
 newAccountTakeoverActionsType =
   AccountTakeoverActionsType'
     { lowAction =
         Prelude.Nothing,
-      mediumAction = Prelude.Nothing,
-      highAction = Prelude.Nothing
+      highAction = Prelude.Nothing,
+      mediumAction = Prelude.Nothing
     }
 
 -- | Action to take for a low risk.
 accountTakeoverActionsType_lowAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_lowAction = Lens.lens (\AccountTakeoverActionsType' {lowAction} -> lowAction) (\s@AccountTakeoverActionsType' {} a -> s {lowAction = a} :: AccountTakeoverActionsType)
 
--- | Action to take for a medium risk.
-accountTakeoverActionsType_mediumAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
-accountTakeoverActionsType_mediumAction = Lens.lens (\AccountTakeoverActionsType' {mediumAction} -> mediumAction) (\s@AccountTakeoverActionsType' {} a -> s {mediumAction = a} :: AccountTakeoverActionsType)
-
 -- | Action to take for a high risk.
 accountTakeoverActionsType_highAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
 accountTakeoverActionsType_highAction = Lens.lens (\AccountTakeoverActionsType' {highAction} -> highAction) (\s@AccountTakeoverActionsType' {} a -> s {highAction = a} :: AccountTakeoverActionsType)
+
+-- | Action to take for a medium risk.
+accountTakeoverActionsType_mediumAction :: Lens.Lens' AccountTakeoverActionsType (Prelude.Maybe AccountTakeoverActionType)
+accountTakeoverActionsType_mediumAction = Lens.lens (\AccountTakeoverActionsType' {mediumAction} -> mediumAction) (\s@AccountTakeoverActionsType' {} a -> s {mediumAction = a} :: AccountTakeoverActionsType)
 
 instance Core.FromJSON AccountTakeoverActionsType where
   parseJSON =
@@ -79,8 +79,8 @@ instance Core.FromJSON AccountTakeoverActionsType where
       ( \x ->
           AccountTakeoverActionsType'
             Prelude.<$> (x Core..:? "LowAction")
-            Prelude.<*> (x Core..:? "MediumAction")
             Prelude.<*> (x Core..:? "HighAction")
+            Prelude.<*> (x Core..:? "MediumAction")
       )
 
 instance Prelude.Hashable AccountTakeoverActionsType
@@ -92,7 +92,7 @@ instance Core.ToJSON AccountTakeoverActionsType where
     Core.object
       ( Prelude.catMaybes
           [ ("LowAction" Core..=) Prelude.<$> lowAction,
-            ("MediumAction" Core..=) Prelude.<$> mediumAction,
-            ("HighAction" Core..=) Prelude.<$> highAction
+            ("HighAction" Core..=) Prelude.<$> highAction,
+            ("MediumAction" Core..=) Prelude.<$> mediumAction
           ]
       )

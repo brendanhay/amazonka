@@ -93,7 +93,7 @@ newDescribeConditionalForwarders pDirectoryId_ =
 -- to get the list of associated conditional forwarders. If this member is
 -- null, all conditional forwarders are returned.
 describeConditionalForwarders_remoteDomainNames :: Lens.Lens' DescribeConditionalForwarders (Prelude.Maybe [Prelude.Text])
-describeConditionalForwarders_remoteDomainNames = Lens.lens (\DescribeConditionalForwarders' {remoteDomainNames} -> remoteDomainNames) (\s@DescribeConditionalForwarders' {} a -> s {remoteDomainNames = a} :: DescribeConditionalForwarders) Prelude.. Lens.mapping Lens._Coerce
+describeConditionalForwarders_remoteDomainNames = Lens.lens (\DescribeConditionalForwarders' {remoteDomainNames} -> remoteDomainNames) (\s@DescribeConditionalForwarders' {} a -> s {remoteDomainNames = a} :: DescribeConditionalForwarders) Prelude.. Lens.mapping Lens.coerced
 
 -- | The directory ID for which to get the list of associated conditional
 -- forwarders.
@@ -190,7 +190,7 @@ newDescribeConditionalForwardersResponse pHttpStatus_ =
 
 -- | The list of conditional forwarders that have been created.
 describeConditionalForwardersResponse_conditionalForwarders :: Lens.Lens' DescribeConditionalForwardersResponse (Prelude.Maybe [ConditionalForwarder])
-describeConditionalForwardersResponse_conditionalForwarders = Lens.lens (\DescribeConditionalForwardersResponse' {conditionalForwarders} -> conditionalForwarders) (\s@DescribeConditionalForwardersResponse' {} a -> s {conditionalForwarders = a} :: DescribeConditionalForwardersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConditionalForwardersResponse_conditionalForwarders = Lens.lens (\DescribeConditionalForwardersResponse' {conditionalForwarders} -> conditionalForwarders) (\s@DescribeConditionalForwardersResponse' {} a -> s {conditionalForwarders = a} :: DescribeConditionalForwardersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConditionalForwardersResponse_httpStatus :: Lens.Lens' DescribeConditionalForwardersResponse Prelude.Int

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: generate MODELS
+# Usage: generate [--commit] MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the
 # services definitions in https://github.com/boto/botocore/tree/develop/botocore/data/<MODEL>.
@@ -8,6 +8,8 @@
 # Generates the output per MODEL in a temporary directory, formats .cabal and
 # .hs files, removes the related amazonka-*/gen directories, and finally
 # replaces the amazonka-*/gen contents with the updated sources.
+#
+# If --commit is the first argument a commit will be created per service directory.
 
 set -euo pipefail
 
@@ -17,6 +19,20 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 say() {
   echo >&2 "$@"
 }
+
+commit="false"
+
+case "${1:-}" in
+--commit)
+  if [[ "$(git diff --stat)" != "" ]]; then
+    say "Unable to use --commit when the git working tree is dirty."
+    exit 1
+  fi
+
+  commit="true"
+  shift
+  ;;
+esac
 
 # Format new sources in tmp and replace the corresponding amazonka-*/gen
 # directory in the source tree if successful.
@@ -92,5 +108,15 @@ parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 
 # Generate BUILD files for every package.
 ./scripts/update-gazelle
+
+# If --commit was passed as the first argument, created a commit per service.
+if [ "$commit" = "true" ]; then
+  for service in lib/services/amazonka-*; do
+
+    if git add "$service" >/dev/null 2>&1; then
+      git commit -m "$(basename "$service"): regenerating service"
+    fi
+  done
+fi
 
 say "Done."

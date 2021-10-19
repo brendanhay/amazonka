@@ -29,11 +29,11 @@ import Network.AWS.SESv2.Types.PlacementStatistics
 --
 -- /See:/ 'newIspPlacement' smart constructor.
 data IspPlacement = IspPlacement'
-  { -- | The name of the email provider that the inbox placement data applies to.
-    ispName :: Prelude.Maybe Prelude.Text,
-    -- | An object that contains inbox placement metrics for a specific email
+  { -- | An object that contains inbox placement metrics for a specific email
     -- provider.
-    placementStatistics :: Prelude.Maybe PlacementStatistics
+    placementStatistics :: Prelude.Maybe PlacementStatistics,
+    -- | The name of the email provider that the inbox placement data applies to.
+    ispName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,27 @@ data IspPlacement = IspPlacement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ispName', 'ispPlacement_ispName' - The name of the email provider that the inbox placement data applies to.
---
 -- 'placementStatistics', 'ispPlacement_placementStatistics' - An object that contains inbox placement metrics for a specific email
 -- provider.
+--
+-- 'ispName', 'ispPlacement_ispName' - The name of the email provider that the inbox placement data applies to.
 newIspPlacement ::
   IspPlacement
 newIspPlacement =
   IspPlacement'
-    { ispName = Prelude.Nothing,
-      placementStatistics = Prelude.Nothing
+    { placementStatistics =
+        Prelude.Nothing,
+      ispName = Prelude.Nothing
     }
-
--- | The name of the email provider that the inbox placement data applies to.
-ispPlacement_ispName :: Lens.Lens' IspPlacement (Prelude.Maybe Prelude.Text)
-ispPlacement_ispName = Lens.lens (\IspPlacement' {ispName} -> ispName) (\s@IspPlacement' {} a -> s {ispName = a} :: IspPlacement)
 
 -- | An object that contains inbox placement metrics for a specific email
 -- provider.
 ispPlacement_placementStatistics :: Lens.Lens' IspPlacement (Prelude.Maybe PlacementStatistics)
 ispPlacement_placementStatistics = Lens.lens (\IspPlacement' {placementStatistics} -> placementStatistics) (\s@IspPlacement' {} a -> s {placementStatistics = a} :: IspPlacement)
+
+-- | The name of the email provider that the inbox placement data applies to.
+ispPlacement_ispName :: Lens.Lens' IspPlacement (Prelude.Maybe Prelude.Text)
+ispPlacement_ispName = Lens.lens (\IspPlacement' {ispName} -> ispName) (\s@IspPlacement' {} a -> s {ispName = a} :: IspPlacement)
 
 instance Core.FromJSON IspPlacement where
   parseJSON =
@@ -72,8 +73,8 @@ instance Core.FromJSON IspPlacement where
       "IspPlacement"
       ( \x ->
           IspPlacement'
-            Prelude.<$> (x Core..:? "IspName")
-            Prelude.<*> (x Core..:? "PlacementStatistics")
+            Prelude.<$> (x Core..:? "PlacementStatistics")
+            Prelude.<*> (x Core..:? "IspName")
       )
 
 instance Prelude.Hashable IspPlacement

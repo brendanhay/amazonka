@@ -55,7 +55,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newTestRenderEmailTemplate' smart constructor.
 data TestRenderEmailTemplate = TestRenderEmailTemplate'
-  { -- | The name of the template that you want to render.
+  { -- | The name of the template.
     templateName :: Prelude.Text,
     -- | A list of replacement values to apply to the template. This parameter is
     -- a JSON object, typically consisting of key-value pairs in which the keys
@@ -72,7 +72,7 @@ data TestRenderEmailTemplate = TestRenderEmailTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'testRenderEmailTemplate_templateName' - The name of the template that you want to render.
+-- 'templateName', 'testRenderEmailTemplate_templateName' - The name of the template.
 --
 -- 'templateData', 'testRenderEmailTemplate_templateData' - A list of replacement values to apply to the template. This parameter is
 -- a JSON object, typically consisting of key-value pairs in which the keys
@@ -92,7 +92,7 @@ newTestRenderEmailTemplate
         templateData = pTemplateData_
       }
 
--- | The name of the template that you want to render.
+-- | The name of the template.
 testRenderEmailTemplate_templateName :: Lens.Lens' TestRenderEmailTemplate Prelude.Text
 testRenderEmailTemplate_templateName = Lens.lens (\TestRenderEmailTemplate' {templateName} -> templateName) (\s@TestRenderEmailTemplate' {} a -> s {templateName = a} :: TestRenderEmailTemplate)
 

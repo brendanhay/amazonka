@@ -97,7 +97,7 @@ newReportTaskProgress pTaskId_ =
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
 reportTaskProgress_fields :: Lens.Lens' ReportTaskProgress (Prelude.Maybe [Field])
-reportTaskProgress_fields = Lens.lens (\ReportTaskProgress' {fields} -> fields) (\s@ReportTaskProgress' {} a -> s {fields = a} :: ReportTaskProgress) Prelude.. Lens.mapping Lens._Coerce
+reportTaskProgress_fields = Lens.lens (\ReportTaskProgress' {fields} -> fields) (\s@ReportTaskProgress' {} a -> s {fields = a} :: ReportTaskProgress) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.

@@ -60,7 +60,7 @@ processingConfiguration_enabled = Lens.lens (\ProcessingConfiguration' {enabled}
 
 -- | The data processors.
 processingConfiguration_processors :: Lens.Lens' ProcessingConfiguration (Prelude.Maybe [Processor])
-processingConfiguration_processors = Lens.lens (\ProcessingConfiguration' {processors} -> processors) (\s@ProcessingConfiguration' {} a -> s {processors = a} :: ProcessingConfiguration) Prelude.. Lens.mapping Lens._Coerce
+processingConfiguration_processors = Lens.lens (\ProcessingConfiguration' {processors} -> processors) (\s@ProcessingConfiguration' {} a -> s {processors = a} :: ProcessingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ProcessingConfiguration where
   parseJSON =

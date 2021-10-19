@@ -74,7 +74,7 @@ cachingConfig_ttl = Lens.lens (\CachingConfig' {ttl} -> ttl) (\s@CachingConfig' 
 -- Valid values are entries from the @$context.arguments@,
 -- @$context.source@, and @$context.identity@ maps.
 cachingConfig_cachingKeys :: Lens.Lens' CachingConfig (Prelude.Maybe [Prelude.Text])
-cachingConfig_cachingKeys = Lens.lens (\CachingConfig' {cachingKeys} -> cachingKeys) (\s@CachingConfig' {} a -> s {cachingKeys = a} :: CachingConfig) Prelude.. Lens.mapping Lens._Coerce
+cachingConfig_cachingKeys = Lens.lens (\CachingConfig' {cachingKeys} -> cachingKeys) (\s@CachingConfig' {} a -> s {cachingKeys = a} :: CachingConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CachingConfig where
   parseJSON =

@@ -134,7 +134,7 @@ acceptMatch_ticketId = Lens.lens (\AcceptMatch' {ticketId} -> ticketId) (\s@Acce
 -- | A unique identifier for a player delivering the response. This parameter
 -- can include one or multiple player IDs.
 acceptMatch_playerIds :: Lens.Lens' AcceptMatch [Prelude.Text]
-acceptMatch_playerIds = Lens.lens (\AcceptMatch' {playerIds} -> playerIds) (\s@AcceptMatch' {} a -> s {playerIds = a} :: AcceptMatch) Prelude.. Lens._Coerce
+acceptMatch_playerIds = Lens.lens (\AcceptMatch' {playerIds} -> playerIds) (\s@AcceptMatch' {} a -> s {playerIds = a} :: AcceptMatch) Prelude.. Lens.coerced
 
 -- | Player response to the proposed match.
 acceptMatch_acceptanceType :: Lens.Lens' AcceptMatch AcceptanceType

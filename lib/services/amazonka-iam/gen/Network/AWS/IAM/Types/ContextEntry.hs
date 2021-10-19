@@ -77,7 +77,7 @@ newContextEntry =
 -- values) to provide to the simulation when the key is referenced by a
 -- @Condition@ element in an input policy.
 contextEntry_contextKeyValues :: Lens.Lens' ContextEntry (Prelude.Maybe [Prelude.Text])
-contextEntry_contextKeyValues = Lens.lens (\ContextEntry' {contextKeyValues} -> contextKeyValues) (\s@ContextEntry' {} a -> s {contextKeyValues = a} :: ContextEntry) Prelude.. Lens.mapping Lens._Coerce
+contextEntry_contextKeyValues = Lens.lens (\ContextEntry' {contextKeyValues} -> contextKeyValues) (\s@ContextEntry' {} a -> s {contextKeyValues = a} :: ContextEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The full name of a condition context key, including the service prefix.
 -- For example, @aws:SourceIp@ or @s3:VersionId@.

@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newColumnStatisticsError' smart constructor.
 data ColumnStatisticsError = ColumnStatisticsError'
-  { -- | The @ColumnStatistics@ of the column.
-    columnStatistics :: Prelude.Maybe ColumnStatistics,
-    -- | An error message with the reason for the failure of an operation.
-    error :: Prelude.Maybe ErrorDetail
+  { -- | An error message with the reason for the failure of an operation.
+    error :: Prelude.Maybe ErrorDetail,
+    -- | The @ColumnStatistics@ of the column.
+    columnStatistics :: Prelude.Maybe ColumnStatistics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,24 @@ data ColumnStatisticsError = ColumnStatisticsError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'columnStatistics', 'columnStatisticsError_columnStatistics' - The @ColumnStatistics@ of the column.
---
 -- 'error', 'columnStatisticsError_error' - An error message with the reason for the failure of an operation.
+--
+-- 'columnStatistics', 'columnStatisticsError_columnStatistics' - The @ColumnStatistics@ of the column.
 newColumnStatisticsError ::
   ColumnStatisticsError
 newColumnStatisticsError =
   ColumnStatisticsError'
-    { columnStatistics =
-        Prelude.Nothing,
-      error = Prelude.Nothing
+    { error = Prelude.Nothing,
+      columnStatistics = Prelude.Nothing
     }
-
--- | The @ColumnStatistics@ of the column.
-columnStatisticsError_columnStatistics :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ColumnStatistics)
-columnStatisticsError_columnStatistics = Lens.lens (\ColumnStatisticsError' {columnStatistics} -> columnStatistics) (\s@ColumnStatisticsError' {} a -> s {columnStatistics = a} :: ColumnStatisticsError)
 
 -- | An error message with the reason for the failure of an operation.
 columnStatisticsError_error :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ErrorDetail)
 columnStatisticsError_error = Lens.lens (\ColumnStatisticsError' {error} -> error) (\s@ColumnStatisticsError' {} a -> s {error = a} :: ColumnStatisticsError)
+
+-- | The @ColumnStatistics@ of the column.
+columnStatisticsError_columnStatistics :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ColumnStatistics)
+columnStatisticsError_columnStatistics = Lens.lens (\ColumnStatisticsError' {columnStatistics} -> columnStatistics) (\s@ColumnStatisticsError' {} a -> s {columnStatistics = a} :: ColumnStatisticsError)
 
 instance Core.FromJSON ColumnStatisticsError where
   parseJSON =
@@ -71,8 +70,8 @@ instance Core.FromJSON ColumnStatisticsError where
       "ColumnStatisticsError"
       ( \x ->
           ColumnStatisticsError'
-            Prelude.<$> (x Core..:? "ColumnStatistics")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "Error")
+            Prelude.<*> (x Core..:? "ColumnStatistics")
       )
 
 instance Prelude.Hashable ColumnStatisticsError

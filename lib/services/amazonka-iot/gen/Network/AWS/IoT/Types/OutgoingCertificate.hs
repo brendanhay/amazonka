@@ -31,14 +31,14 @@ data OutgoingCertificate = OutgoingCertificate'
     transferDate :: Prelude.Maybe Core.POSIX,
     -- | The certificate ARN.
     certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The transfer message.
-    transferMessage :: Prelude.Maybe Prelude.Text,
-    -- | The certificate creation date.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The certificate ID.
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account to which the transfer was made.
     transferredTo :: Prelude.Maybe Prelude.Text,
-    -- | The certificate ID.
-    certificateId :: Prelude.Maybe Prelude.Text
+    -- | The certificate creation date.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The transfer message.
+    transferMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,13 +54,13 @@ data OutgoingCertificate = OutgoingCertificate'
 --
 -- 'certificateArn', 'outgoingCertificate_certificateArn' - The certificate ARN.
 --
--- 'transferMessage', 'outgoingCertificate_transferMessage' - The transfer message.
---
--- 'creationDate', 'outgoingCertificate_creationDate' - The certificate creation date.
+-- 'certificateId', 'outgoingCertificate_certificateId' - The certificate ID.
 --
 -- 'transferredTo', 'outgoingCertificate_transferredTo' - The Amazon Web Services account to which the transfer was made.
 --
--- 'certificateId', 'outgoingCertificate_certificateId' - The certificate ID.
+-- 'creationDate', 'outgoingCertificate_creationDate' - The certificate creation date.
+--
+-- 'transferMessage', 'outgoingCertificate_transferMessage' - The transfer message.
 newOutgoingCertificate ::
   OutgoingCertificate
 newOutgoingCertificate =
@@ -68,10 +68,10 @@ newOutgoingCertificate =
     { transferDate =
         Prelude.Nothing,
       certificateArn = Prelude.Nothing,
-      transferMessage = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
+      certificateId = Prelude.Nothing,
       transferredTo = Prelude.Nothing,
-      certificateId = Prelude.Nothing
+      creationDate = Prelude.Nothing,
+      transferMessage = Prelude.Nothing
     }
 
 -- | The date the transfer was initiated.
@@ -82,21 +82,21 @@ outgoingCertificate_transferDate = Lens.lens (\OutgoingCertificate' {transferDat
 outgoingCertificate_certificateArn :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
 outgoingCertificate_certificateArn = Lens.lens (\OutgoingCertificate' {certificateArn} -> certificateArn) (\s@OutgoingCertificate' {} a -> s {certificateArn = a} :: OutgoingCertificate)
 
--- | The transfer message.
-outgoingCertificate_transferMessage :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
-outgoingCertificate_transferMessage = Lens.lens (\OutgoingCertificate' {transferMessage} -> transferMessage) (\s@OutgoingCertificate' {} a -> s {transferMessage = a} :: OutgoingCertificate)
-
--- | The certificate creation date.
-outgoingCertificate_creationDate :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.UTCTime)
-outgoingCertificate_creationDate = Lens.lens (\OutgoingCertificate' {creationDate} -> creationDate) (\s@OutgoingCertificate' {} a -> s {creationDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Core._Time
+-- | The certificate ID.
+outgoingCertificate_certificateId :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
+outgoingCertificate_certificateId = Lens.lens (\OutgoingCertificate' {certificateId} -> certificateId) (\s@OutgoingCertificate' {} a -> s {certificateId = a} :: OutgoingCertificate)
 
 -- | The Amazon Web Services account to which the transfer was made.
 outgoingCertificate_transferredTo :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
 outgoingCertificate_transferredTo = Lens.lens (\OutgoingCertificate' {transferredTo} -> transferredTo) (\s@OutgoingCertificate' {} a -> s {transferredTo = a} :: OutgoingCertificate)
 
--- | The certificate ID.
-outgoingCertificate_certificateId :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
-outgoingCertificate_certificateId = Lens.lens (\OutgoingCertificate' {certificateId} -> certificateId) (\s@OutgoingCertificate' {} a -> s {certificateId = a} :: OutgoingCertificate)
+-- | The certificate creation date.
+outgoingCertificate_creationDate :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.UTCTime)
+outgoingCertificate_creationDate = Lens.lens (\OutgoingCertificate' {creationDate} -> creationDate) (\s@OutgoingCertificate' {} a -> s {creationDate = a} :: OutgoingCertificate) Prelude.. Lens.mapping Core._Time
+
+-- | The transfer message.
+outgoingCertificate_transferMessage :: Lens.Lens' OutgoingCertificate (Prelude.Maybe Prelude.Text)
+outgoingCertificate_transferMessage = Lens.lens (\OutgoingCertificate' {transferMessage} -> transferMessage) (\s@OutgoingCertificate' {} a -> s {transferMessage = a} :: OutgoingCertificate)
 
 instance Core.FromJSON OutgoingCertificate where
   parseJSON =
@@ -106,10 +106,10 @@ instance Core.FromJSON OutgoingCertificate where
           OutgoingCertificate'
             Prelude.<$> (x Core..:? "transferDate")
             Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "transferMessage")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "transferredTo")
             Prelude.<*> (x Core..:? "certificateId")
+            Prelude.<*> (x Core..:? "transferredTo")
+            Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "transferMessage")
       )
 
 instance Prelude.Hashable OutgoingCertificate

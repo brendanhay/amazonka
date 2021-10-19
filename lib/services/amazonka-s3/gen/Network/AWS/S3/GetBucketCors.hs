@@ -109,7 +109,9 @@ instance Core.AWSRequest GetBucketCors where
   type
     AWSResponse GetBucketCors =
       GetBucketCorsResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
@@ -171,7 +173,7 @@ newGetBucketCorsResponse pHttpStatus_ =
 -- | A set of origins and methods (cross-origin access that you want to
 -- allow). You can add up to 100 rules to the configuration.
 getBucketCorsResponse_cORSRules :: Lens.Lens' GetBucketCorsResponse (Prelude.Maybe [CORSRule])
-getBucketCorsResponse_cORSRules = Lens.lens (\GetBucketCorsResponse' {cORSRules} -> cORSRules) (\s@GetBucketCorsResponse' {} a -> s {cORSRules = a} :: GetBucketCorsResponse) Prelude.. Lens.mapping Lens._Coerce
+getBucketCorsResponse_cORSRules = Lens.lens (\GetBucketCorsResponse' {cORSRules} -> cORSRules) (\s@GetBucketCorsResponse' {} a -> s {cORSRules = a} :: GetBucketCorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBucketCorsResponse_httpStatus :: Lens.Lens' GetBucketCorsResponse Prelude.Int

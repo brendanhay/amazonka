@@ -133,7 +133,7 @@ tagSAMLProvider_sAMLProviderArn = Lens.lens (\TagSAMLProvider' {sAMLProviderArn}
 -- | The list of tags that you want to attach to the SAML identity provider
 -- in IAM. Each tag consists of a key name and an associated value.
 tagSAMLProvider_tags :: Lens.Lens' TagSAMLProvider [Tag]
-tagSAMLProvider_tags = Lens.lens (\TagSAMLProvider' {tags} -> tags) (\s@TagSAMLProvider' {} a -> s {tags = a} :: TagSAMLProvider) Prelude.. Lens._Coerce
+tagSAMLProvider_tags = Lens.lens (\TagSAMLProvider' {tags} -> tags) (\s@TagSAMLProvider' {} a -> s {tags = a} :: TagSAMLProvider) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagSAMLProvider where
   type

@@ -148,7 +148,7 @@ getTagsResponse_arn = Lens.lens (\GetTagsResponse' {arn} -> arn) (\s@GetTagsResp
 
 -- | The tags associated with the specified resource group.
 getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int

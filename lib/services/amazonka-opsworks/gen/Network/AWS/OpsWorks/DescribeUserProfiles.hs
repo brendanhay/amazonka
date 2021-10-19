@@ -80,7 +80,7 @@ newDescribeUserProfiles =
 -- | An array of IAM or federated user ARNs that identify the users to be
 -- described.
 describeUserProfiles_iamUserArns :: Lens.Lens' DescribeUserProfiles (Prelude.Maybe [Prelude.Text])
-describeUserProfiles_iamUserArns = Lens.lens (\DescribeUserProfiles' {iamUserArns} -> iamUserArns) (\s@DescribeUserProfiles' {} a -> s {iamUserArns = a} :: DescribeUserProfiles) Prelude.. Lens.mapping Lens._Coerce
+describeUserProfiles_iamUserArns = Lens.lens (\DescribeUserProfiles' {iamUserArns} -> iamUserArns) (\s@DescribeUserProfiles' {} a -> s {iamUserArns = a} :: DescribeUserProfiles) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeUserProfiles where
   type
@@ -162,7 +162,7 @@ newDescribeUserProfilesResponse pHttpStatus_ =
 
 -- | A @Users@ object that describes the specified users.
 describeUserProfilesResponse_userProfiles :: Lens.Lens' DescribeUserProfilesResponse (Prelude.Maybe [UserProfile])
-describeUserProfilesResponse_userProfiles = Lens.lens (\DescribeUserProfilesResponse' {userProfiles} -> userProfiles) (\s@DescribeUserProfilesResponse' {} a -> s {userProfiles = a} :: DescribeUserProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeUserProfilesResponse_userProfiles = Lens.lens (\DescribeUserProfilesResponse' {userProfiles} -> userProfiles) (\s@DescribeUserProfilesResponse' {} a -> s {userProfiles = a} :: DescribeUserProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeUserProfilesResponse_httpStatus :: Lens.Lens' DescribeUserProfilesResponse Prelude.Int

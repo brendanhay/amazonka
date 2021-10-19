@@ -104,7 +104,7 @@ newCreateUseCase
 
 -- | One or more tags.
 createUseCase_tags :: Lens.Lens' CreateUseCase (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createUseCase_tags = Lens.lens (\CreateUseCase' {tags} -> tags) (\s@CreateUseCase' {} a -> s {tags = a} :: CreateUseCase) Prelude.. Lens.mapping Lens._Coerce
+createUseCase_tags = Lens.lens (\CreateUseCase' {tags} -> tags) (\s@CreateUseCase' {} a -> s {tags = a} :: CreateUseCase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.

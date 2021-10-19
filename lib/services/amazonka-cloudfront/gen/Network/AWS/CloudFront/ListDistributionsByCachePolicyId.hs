@@ -35,8 +35,8 @@ module Network.AWS.CloudFront.ListDistributionsByCachePolicyId
     newListDistributionsByCachePolicyId,
 
     -- * Request Lenses
-    listDistributionsByCachePolicyId_maxItems,
     listDistributionsByCachePolicyId_marker,
+    listDistributionsByCachePolicyId_maxItems,
     listDistributionsByCachePolicyId_cachePolicyId,
 
     -- * Destructuring the Response
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDistributionsByCachePolicyId' smart constructor.
 data ListDistributionsByCachePolicyId = ListDistributionsByCachePolicyId'
-  { -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
     -- set this field’s value to the value of @NextMarker@ from the current
     -- page’s response.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of distribution IDs that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | The ID of the cache policy whose associated distribution IDs you want to
     -- list.
     cachePolicyId :: Prelude.Text
@@ -80,13 +80,13 @@ data ListDistributionsByCachePolicyId = ListDistributionsByCachePolicyId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listDistributionsByCachePolicyId_maxItems' - The maximum number of distribution IDs that you want in the response.
---
 -- 'marker', 'listDistributionsByCachePolicyId_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
 -- set this field’s value to the value of @NextMarker@ from the current
 -- page’s response.
+--
+-- 'maxItems', 'listDistributionsByCachePolicyId_maxItems' - The maximum number of distribution IDs that you want in the response.
 --
 -- 'cachePolicyId', 'listDistributionsByCachePolicyId_cachePolicyId' - The ID of the cache policy whose associated distribution IDs you want to
 -- list.
@@ -96,15 +96,11 @@ newListDistributionsByCachePolicyId ::
   ListDistributionsByCachePolicyId
 newListDistributionsByCachePolicyId pCachePolicyId_ =
   ListDistributionsByCachePolicyId'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       cachePolicyId = pCachePolicyId_
     }
-
--- | The maximum number of distribution IDs that you want in the response.
-listDistributionsByCachePolicyId_maxItems :: Lens.Lens' ListDistributionsByCachePolicyId (Prelude.Maybe Prelude.Text)
-listDistributionsByCachePolicyId_maxItems = Lens.lens (\ListDistributionsByCachePolicyId' {maxItems} -> maxItems) (\s@ListDistributionsByCachePolicyId' {} a -> s {maxItems = a} :: ListDistributionsByCachePolicyId)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
@@ -113,6 +109,10 @@ listDistributionsByCachePolicyId_maxItems = Lens.lens (\ListDistributionsByCache
 -- page’s response.
 listDistributionsByCachePolicyId_marker :: Lens.Lens' ListDistributionsByCachePolicyId (Prelude.Maybe Prelude.Text)
 listDistributionsByCachePolicyId_marker = Lens.lens (\ListDistributionsByCachePolicyId' {marker} -> marker) (\s@ListDistributionsByCachePolicyId' {} a -> s {marker = a} :: ListDistributionsByCachePolicyId)
+
+-- | The maximum number of distribution IDs that you want in the response.
+listDistributionsByCachePolicyId_maxItems :: Lens.Lens' ListDistributionsByCachePolicyId (Prelude.Maybe Prelude.Text)
+listDistributionsByCachePolicyId_maxItems = Lens.lens (\ListDistributionsByCachePolicyId' {maxItems} -> maxItems) (\s@ListDistributionsByCachePolicyId' {} a -> s {maxItems = a} :: ListDistributionsByCachePolicyId)
 
 -- | The ID of the cache policy whose associated distribution IDs you want to
 -- list.
@@ -162,8 +162,8 @@ instance
   where
   toQuery ListDistributionsByCachePolicyId' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListDistributionsByCachePolicyIdResponse' smart constructor.

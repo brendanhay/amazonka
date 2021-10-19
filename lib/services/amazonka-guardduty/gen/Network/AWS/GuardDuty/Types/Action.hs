@@ -31,17 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'
-  { -- | The GuardDuty finding activity type.
-    actionType :: Prelude.Maybe Prelude.Text,
-    -- | Information about the NETWORK_CONNECTION action described in this
+  { -- | Information about the NETWORK_CONNECTION action described in this
     -- finding.
     networkConnectionAction :: Prelude.Maybe NetworkConnectionAction,
+    -- | Information about the PORT_PROBE action described in this finding.
+    portProbeAction :: Prelude.Maybe PortProbeAction,
+    -- | The GuardDuty finding activity type.
+    actionType :: Prelude.Maybe Prelude.Text,
     -- | Information about the DNS_REQUEST action described in this finding.
     dnsRequestAction :: Prelude.Maybe DnsRequestAction,
     -- | Information about the AWS_API_CALL action described in this finding.
-    awsApiCallAction :: Prelude.Maybe AwsApiCallAction,
-    -- | Information about the PORT_PROBE action described in this finding.
-    portProbeAction :: Prelude.Maybe PortProbeAction
+    awsApiCallAction :: Prelude.Maybe AwsApiCallAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,35 +53,39 @@ data Action = Action'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionType', 'action_actionType' - The GuardDuty finding activity type.
---
 -- 'networkConnectionAction', 'action_networkConnectionAction' - Information about the NETWORK_CONNECTION action described in this
 -- finding.
+--
+-- 'portProbeAction', 'action_portProbeAction' - Information about the PORT_PROBE action described in this finding.
+--
+-- 'actionType', 'action_actionType' - The GuardDuty finding activity type.
 --
 -- 'dnsRequestAction', 'action_dnsRequestAction' - Information about the DNS_REQUEST action described in this finding.
 --
 -- 'awsApiCallAction', 'action_awsApiCallAction' - Information about the AWS_API_CALL action described in this finding.
---
--- 'portProbeAction', 'action_portProbeAction' - Information about the PORT_PROBE action described in this finding.
 newAction ::
   Action
 newAction =
   Action'
-    { actionType = Prelude.Nothing,
-      networkConnectionAction = Prelude.Nothing,
+    { networkConnectionAction = Prelude.Nothing,
+      portProbeAction = Prelude.Nothing,
+      actionType = Prelude.Nothing,
       dnsRequestAction = Prelude.Nothing,
-      awsApiCallAction = Prelude.Nothing,
-      portProbeAction = Prelude.Nothing
+      awsApiCallAction = Prelude.Nothing
     }
-
--- | The GuardDuty finding activity type.
-action_actionType :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
-action_actionType = Lens.lens (\Action' {actionType} -> actionType) (\s@Action' {} a -> s {actionType = a} :: Action)
 
 -- | Information about the NETWORK_CONNECTION action described in this
 -- finding.
 action_networkConnectionAction :: Lens.Lens' Action (Prelude.Maybe NetworkConnectionAction)
 action_networkConnectionAction = Lens.lens (\Action' {networkConnectionAction} -> networkConnectionAction) (\s@Action' {} a -> s {networkConnectionAction = a} :: Action)
+
+-- | Information about the PORT_PROBE action described in this finding.
+action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
+action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
+
+-- | The GuardDuty finding activity type.
+action_actionType :: Lens.Lens' Action (Prelude.Maybe Prelude.Text)
+action_actionType = Lens.lens (\Action' {actionType} -> actionType) (\s@Action' {} a -> s {actionType = a} :: Action)
 
 -- | Information about the DNS_REQUEST action described in this finding.
 action_dnsRequestAction :: Lens.Lens' Action (Prelude.Maybe DnsRequestAction)
@@ -91,21 +95,17 @@ action_dnsRequestAction = Lens.lens (\Action' {dnsRequestAction} -> dnsRequestAc
 action_awsApiCallAction :: Lens.Lens' Action (Prelude.Maybe AwsApiCallAction)
 action_awsApiCallAction = Lens.lens (\Action' {awsApiCallAction} -> awsApiCallAction) (\s@Action' {} a -> s {awsApiCallAction = a} :: Action)
 
--- | Information about the PORT_PROBE action described in this finding.
-action_portProbeAction :: Lens.Lens' Action (Prelude.Maybe PortProbeAction)
-action_portProbeAction = Lens.lens (\Action' {portProbeAction} -> portProbeAction) (\s@Action' {} a -> s {portProbeAction = a} :: Action)
-
 instance Core.FromJSON Action where
   parseJSON =
     Core.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Core..:? "actionType")
-            Prelude.<*> (x Core..:? "networkConnectionAction")
+            Prelude.<$> (x Core..:? "networkConnectionAction")
+            Prelude.<*> (x Core..:? "portProbeAction")
+            Prelude.<*> (x Core..:? "actionType")
             Prelude.<*> (x Core..:? "dnsRequestAction")
             Prelude.<*> (x Core..:? "awsApiCallAction")
-            Prelude.<*> (x Core..:? "portProbeAction")
       )
 
 instance Prelude.Hashable Action

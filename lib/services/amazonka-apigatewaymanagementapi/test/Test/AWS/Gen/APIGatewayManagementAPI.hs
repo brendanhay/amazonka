@@ -30,11 +30,11 @@ import Test.Tasty
 --         [ requestDeleteConnection $
 --             newDeleteConnection
 --
---         , requestPostToConnection $
---             newPostToConnection
---
 --         , requestGetConnection $
 --             newGetConnection
+--
+--         , requestPostToConnection $
+--             newPostToConnection
 --
 --           ]
 
@@ -42,11 +42,11 @@ import Test.Tasty
 --         [ responseDeleteConnection $
 --             newDeleteConnectionResponse
 --
---         , responsePostToConnection $
---             newPostToConnectionResponse
---
 --         , responseGetConnection $
 --             newGetConnectionResponse
+--
+--         , responsePostToConnection $
+--             newPostToConnectionResponse
 --
 --           ]
 --     ]
@@ -59,17 +59,17 @@ requestDeleteConnection =
     "DeleteConnection"
     "fixture/DeleteConnection.yaml"
 
-requestPostToConnection :: PostToConnection -> TestTree
-requestPostToConnection =
-  req
-    "PostToConnection"
-    "fixture/PostToConnection.yaml"
-
 requestGetConnection :: GetConnection -> TestTree
 requestGetConnection =
   req
     "GetConnection"
     "fixture/GetConnection.yaml"
+
+requestPostToConnection :: PostToConnection -> TestTree
+requestPostToConnection =
+  req
+    "PostToConnection"
+    "fixture/PostToConnection.yaml"
 
 -- Responses
 
@@ -81,14 +81,6 @@ responseDeleteConnection =
     defaultService
     (Proxy :: Proxy DeleteConnection)
 
-responsePostToConnection :: PostToConnectionResponse -> TestTree
-responsePostToConnection =
-  res
-    "PostToConnectionResponse"
-    "fixture/PostToConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy PostToConnection)
-
 responseGetConnection :: GetConnectionResponse -> TestTree
 responseGetConnection =
   res
@@ -96,3 +88,11 @@ responseGetConnection =
     "fixture/GetConnectionResponse.proto"
     defaultService
     (Proxy :: Proxy GetConnection)
+
+responsePostToConnection :: PostToConnectionResponse -> TestTree
+responsePostToConnection =
+  res
+    "PostToConnectionResponse"
+    "fixture/PostToConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy PostToConnection)

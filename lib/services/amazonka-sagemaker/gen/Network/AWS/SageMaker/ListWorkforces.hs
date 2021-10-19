@@ -31,9 +31,9 @@ module Network.AWS.SageMaker.ListWorkforces
     newListWorkforces,
 
     -- * Request Lenses
+    listWorkforces_nameContains,
     listWorkforces_nextToken,
     listWorkforces_sortOrder,
-    listWorkforces_nameContains,
     listWorkforces_maxResults,
     listWorkforces_sortBy,
 
@@ -57,13 +57,13 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListWorkforces' smart constructor.
 data ListWorkforces = ListWorkforces'
-  { -- | A token to resume pagination.
+  { -- | A filter you can use to search for workforces using part of the
+    -- workforce name.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A token to resume pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Sort workforces in ascending or descending order.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter you can use to search for workforces using part of the
-    -- workforce name.
-    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of workforces returned in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sort workforces using the workforce name or creation date.
@@ -79,12 +79,12 @@ data ListWorkforces = ListWorkforces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listWorkforces_nameContains' - A filter you can use to search for workforces using part of the
+-- workforce name.
+--
 -- 'nextToken', 'listWorkforces_nextToken' - A token to resume pagination.
 --
 -- 'sortOrder', 'listWorkforces_sortOrder' - Sort workforces in ascending or descending order.
---
--- 'nameContains', 'listWorkforces_nameContains' - A filter you can use to search for workforces using part of the
--- workforce name.
 --
 -- 'maxResults', 'listWorkforces_maxResults' - The maximum number of workforces returned in the response.
 --
@@ -93,12 +93,17 @@ newListWorkforces ::
   ListWorkforces
 newListWorkforces =
   ListWorkforces'
-    { nextToken = Prelude.Nothing,
+    { nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
+
+-- | A filter you can use to search for workforces using part of the
+-- workforce name.
+listWorkforces_nameContains :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
+listWorkforces_nameContains = Lens.lens (\ListWorkforces' {nameContains} -> nameContains) (\s@ListWorkforces' {} a -> s {nameContains = a} :: ListWorkforces)
 
 -- | A token to resume pagination.
 listWorkforces_nextToken :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
@@ -107,11 +112,6 @@ listWorkforces_nextToken = Lens.lens (\ListWorkforces' {nextToken} -> nextToken)
 -- | Sort workforces in ascending or descending order.
 listWorkforces_sortOrder :: Lens.Lens' ListWorkforces (Prelude.Maybe SortOrder)
 listWorkforces_sortOrder = Lens.lens (\ListWorkforces' {sortOrder} -> sortOrder) (\s@ListWorkforces' {} a -> s {sortOrder = a} :: ListWorkforces)
-
--- | A filter you can use to search for workforces using part of the
--- workforce name.
-listWorkforces_nameContains :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Text)
-listWorkforces_nameContains = Lens.lens (\ListWorkforces' {nameContains} -> nameContains) (\s@ListWorkforces' {} a -> s {nameContains = a} :: ListWorkforces)
 
 -- | The maximum number of workforces returned in the response.
 listWorkforces_maxResults :: Lens.Lens' ListWorkforces (Prelude.Maybe Prelude.Natural)
@@ -174,9 +174,9 @@ instance Core.ToJSON ListWorkforces where
   toJSON ListWorkforces' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy
           ]
@@ -234,6 +234,6 @@ listWorkforcesResponse_httpStatus = Lens.lens (\ListWorkforcesResponse' {httpSta
 
 -- | A list containing information about your workforce.
 listWorkforcesResponse_workforces :: Lens.Lens' ListWorkforcesResponse [Workforce]
-listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Prelude.. Lens._Coerce
+listWorkforcesResponse_workforces = Lens.lens (\ListWorkforcesResponse' {workforces} -> workforces) (\s@ListWorkforcesResponse' {} a -> s {workforces = a} :: ListWorkforcesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListWorkforcesResponse

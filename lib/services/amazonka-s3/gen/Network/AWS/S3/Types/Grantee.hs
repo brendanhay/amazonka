@@ -31,10 +31,6 @@ import Network.AWS.S3.Types.Type
 data Grantee = Grantee'
   { -- | URI of the grantee group.
     uri :: Prelude.Maybe Prelude.Text,
-    -- | The canonical user ID of the grantee.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Screen name of the grantee.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Email address of the grantee.
     --
     -- Using email addresses to specify a grantee is only supported in the
@@ -60,6 +56,10 @@ data Grantee = Grantee'
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
     -- in the Amazon Web Services General Reference.
     emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | Screen name of the grantee.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The canonical user ID of the grantee.
+    id :: Prelude.Maybe Prelude.Text,
     -- | Type of grantee
     type' :: Type
   }
@@ -74,10 +74,6 @@ data Grantee = Grantee'
 -- for backwards compatibility:
 --
 -- 'uri', 'grantee_uri' - URI of the grantee group.
---
--- 'id', 'grantee_id' - The canonical user ID of the grantee.
---
--- 'displayName', 'grantee_displayName' - Screen name of the grantee.
 --
 -- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.
 --
@@ -104,6 +100,10 @@ data Grantee = Grantee'
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
 -- in the Amazon Web Services General Reference.
 --
+-- 'displayName', 'grantee_displayName' - Screen name of the grantee.
+--
+-- 'id', 'grantee_id' - The canonical user ID of the grantee.
+--
 -- 'type'', 'grantee_type' - Type of grantee
 newGrantee ::
   -- | 'type''
@@ -112,23 +112,15 @@ newGrantee ::
 newGrantee pType_ =
   Grantee'
     { uri = Prelude.Nothing,
-      id = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      id = Prelude.Nothing,
       type' = pType_
     }
 
 -- | URI of the grantee group.
 grantee_uri :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_uri = Lens.lens (\Grantee' {uri} -> uri) (\s@Grantee' {} a -> s {uri = a} :: Grantee)
-
--- | The canonical user ID of the grantee.
-grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
-grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
-
--- | Screen name of the grantee.
-grantee_displayName :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
-grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Grantee' {} a -> s {displayName = a} :: Grantee)
 
 -- | Email address of the grantee.
 --
@@ -157,6 +149,14 @@ grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Gra
 grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
 
+-- | Screen name of the grantee.
+grantee_displayName :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Grantee' {} a -> s {displayName = a} :: Grantee)
+
+-- | The canonical user ID of the grantee.
+grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
+
 -- | Type of grantee
 grantee_type :: Lens.Lens' Grantee Type
 grantee_type = Lens.lens (\Grantee' {type'} -> type') (\s@Grantee' {} a -> s {type' = a} :: Grantee)
@@ -165,9 +165,9 @@ instance Core.FromXML Grantee where
   parseXML x =
     Grantee'
       Prelude.<$> (x Core..@? "URI")
-      Prelude.<*> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "DisplayName")
       Prelude.<*> (x Core..@? "EmailAddress")
+      Prelude.<*> (x Core..@? "DisplayName")
+      Prelude.<*> (x Core..@? "ID")
       Prelude.<*> (x Core..@ "xsi:type")
 
 instance Prelude.Hashable Grantee
@@ -178,8 +178,8 @@ instance Core.ToXML Grantee where
   toXML Grantee' {..} =
     Prelude.mconcat
       [ "URI" Core.@= uri,
-        "ID" Core.@= id,
-        "DisplayName" Core.@= displayName,
         "EmailAddress" Core.@= emailAddress,
+        "DisplayName" Core.@= displayName,
+        "ID" Core.@= id,
         "xsi:type" Core.@@= type'
       ]

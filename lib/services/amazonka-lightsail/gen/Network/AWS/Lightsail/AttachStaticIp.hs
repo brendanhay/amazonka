@@ -173,7 +173,7 @@ newAttachStaticIpResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 attachStaticIpResponse_operations :: Lens.Lens' AttachStaticIpResponse (Prelude.Maybe [Operation])
-attachStaticIpResponse_operations = Lens.lens (\AttachStaticIpResponse' {operations} -> operations) (\s@AttachStaticIpResponse' {} a -> s {operations = a} :: AttachStaticIpResponse) Prelude.. Lens.mapping Lens._Coerce
+attachStaticIpResponse_operations = Lens.lens (\AttachStaticIpResponse' {operations} -> operations) (\s@AttachStaticIpResponse' {} a -> s {operations = a} :: AttachStaticIpResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 attachStaticIpResponse_httpStatus :: Lens.Lens' AttachStaticIpResponse Prelude.Int

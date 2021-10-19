@@ -81,7 +81,7 @@ newRegisterDevices pDeviceFleetName_ =
 
 -- | The tags associated with devices.
 registerDevices_tags :: Lens.Lens' RegisterDevices (Prelude.Maybe [Tag])
-registerDevices_tags = Lens.lens (\RegisterDevices' {tags} -> tags) (\s@RegisterDevices' {} a -> s {tags = a} :: RegisterDevices) Prelude.. Lens.mapping Lens._Coerce
+registerDevices_tags = Lens.lens (\RegisterDevices' {tags} -> tags) (\s@RegisterDevices' {} a -> s {tags = a} :: RegisterDevices) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the fleet.
 registerDevices_deviceFleetName :: Lens.Lens' RegisterDevices Prelude.Text
@@ -89,7 +89,7 @@ registerDevices_deviceFleetName = Lens.lens (\RegisterDevices' {deviceFleetName}
 
 -- | A list of devices to register with SageMaker Edge Manager.
 registerDevices_devices :: Lens.Lens' RegisterDevices [Device]
-registerDevices_devices = Lens.lens (\RegisterDevices' {devices} -> devices) (\s@RegisterDevices' {} a -> s {devices = a} :: RegisterDevices) Prelude.. Lens._Coerce
+registerDevices_devices = Lens.lens (\RegisterDevices' {devices} -> devices) (\s@RegisterDevices' {} a -> s {devices = a} :: RegisterDevices) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RegisterDevices where
   type

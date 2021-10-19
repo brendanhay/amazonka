@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
   { -- | The time period covered by this budget comparison.
     timePeriod :: Prelude.Maybe TimePeriod,
-    -- | The amount of cost or usage that you created the budget for.
-    budgetedAmount :: Prelude.Maybe Spend,
     -- | Your actual costs or usage for a budget period.
-    actualAmount :: Prelude.Maybe Spend
+    actualAmount :: Prelude.Maybe Spend,
+    -- | The amount of cost or usage that you created the budget for.
+    budgetedAmount :: Prelude.Maybe Spend
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,30 @@ data BudgetedAndActualAmounts = BudgetedAndActualAmounts'
 --
 -- 'timePeriod', 'budgetedAndActualAmounts_timePeriod' - The time period covered by this budget comparison.
 --
--- 'budgetedAmount', 'budgetedAndActualAmounts_budgetedAmount' - The amount of cost or usage that you created the budget for.
---
 -- 'actualAmount', 'budgetedAndActualAmounts_actualAmount' - Your actual costs or usage for a budget period.
+--
+-- 'budgetedAmount', 'budgetedAndActualAmounts_budgetedAmount' - The amount of cost or usage that you created the budget for.
 newBudgetedAndActualAmounts ::
   BudgetedAndActualAmounts
 newBudgetedAndActualAmounts =
   BudgetedAndActualAmounts'
     { timePeriod =
         Prelude.Nothing,
-      budgetedAmount = Prelude.Nothing,
-      actualAmount = Prelude.Nothing
+      actualAmount = Prelude.Nothing,
+      budgetedAmount = Prelude.Nothing
     }
 
 -- | The time period covered by this budget comparison.
 budgetedAndActualAmounts_timePeriod :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe TimePeriod)
 budgetedAndActualAmounts_timePeriod = Lens.lens (\BudgetedAndActualAmounts' {timePeriod} -> timePeriod) (\s@BudgetedAndActualAmounts' {} a -> s {timePeriod = a} :: BudgetedAndActualAmounts)
 
--- | The amount of cost or usage that you created the budget for.
-budgetedAndActualAmounts_budgetedAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
-budgetedAndActualAmounts_budgetedAmount = Lens.lens (\BudgetedAndActualAmounts' {budgetedAmount} -> budgetedAmount) (\s@BudgetedAndActualAmounts' {} a -> s {budgetedAmount = a} :: BudgetedAndActualAmounts)
-
 -- | Your actual costs or usage for a budget period.
 budgetedAndActualAmounts_actualAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
 budgetedAndActualAmounts_actualAmount = Lens.lens (\BudgetedAndActualAmounts' {actualAmount} -> actualAmount) (\s@BudgetedAndActualAmounts' {} a -> s {actualAmount = a} :: BudgetedAndActualAmounts)
+
+-- | The amount of cost or usage that you created the budget for.
+budgetedAndActualAmounts_budgetedAmount :: Lens.Lens' BudgetedAndActualAmounts (Prelude.Maybe Spend)
+budgetedAndActualAmounts_budgetedAmount = Lens.lens (\BudgetedAndActualAmounts' {budgetedAmount} -> budgetedAmount) (\s@BudgetedAndActualAmounts' {} a -> s {budgetedAmount = a} :: BudgetedAndActualAmounts)
 
 instance Core.FromJSON BudgetedAndActualAmounts where
   parseJSON =
@@ -81,8 +81,8 @@ instance Core.FromJSON BudgetedAndActualAmounts where
       ( \x ->
           BudgetedAndActualAmounts'
             Prelude.<$> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "BudgetedAmount")
             Prelude.<*> (x Core..:? "ActualAmount")
+            Prelude.<*> (x Core..:? "BudgetedAmount")
       )
 
 instance Prelude.Hashable BudgetedAndActualAmounts

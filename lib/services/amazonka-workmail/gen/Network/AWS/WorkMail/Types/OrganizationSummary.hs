@@ -27,18 +27,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationSummary' smart constructor.
 data OrganizationSummary = OrganizationSummary'
-  { -- | The alias associated with the organization.
+  { -- | The state associated with the organization.
+    state :: Prelude.Maybe Prelude.Text,
+    -- | The alias associated with the organization.
     alias :: Prelude.Maybe Prelude.Text,
-    -- | The identifier associated with the organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The default email domain associated with the organization.
     defaultMailDomain :: Prelude.Maybe Prelude.Text,
-    -- | The state associated with the organization.
-    state :: Prelude.Maybe Prelude.Text,
     -- | The error message associated with the organization. It is only present
     -- if unexpected behavior has occurred with regards to the organization. It
     -- provides insight or solutions regarding unexpected behavior.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The identifier associated with the organization.
+    organizationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,43 +50,39 @@ data OrganizationSummary = OrganizationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'state', 'organizationSummary_state' - The state associated with the organization.
+--
 -- 'alias', 'organizationSummary_alias' - The alias associated with the organization.
 --
--- 'organizationId', 'organizationSummary_organizationId' - The identifier associated with the organization.
---
 -- 'defaultMailDomain', 'organizationSummary_defaultMailDomain' - The default email domain associated with the organization.
---
--- 'state', 'organizationSummary_state' - The state associated with the organization.
 --
 -- 'errorMessage', 'organizationSummary_errorMessage' - The error message associated with the organization. It is only present
 -- if unexpected behavior has occurred with regards to the organization. It
 -- provides insight or solutions regarding unexpected behavior.
+--
+-- 'organizationId', 'organizationSummary_organizationId' - The identifier associated with the organization.
 newOrganizationSummary ::
   OrganizationSummary
 newOrganizationSummary =
   OrganizationSummary'
-    { alias = Prelude.Nothing,
-      organizationId = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      alias = Prelude.Nothing,
       defaultMailDomain = Prelude.Nothing,
-      state = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+      errorMessage = Prelude.Nothing,
+      organizationId = Prelude.Nothing
     }
+
+-- | The state associated with the organization.
+organizationSummary_state :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
+organizationSummary_state = Lens.lens (\OrganizationSummary' {state} -> state) (\s@OrganizationSummary' {} a -> s {state = a} :: OrganizationSummary)
 
 -- | The alias associated with the organization.
 organizationSummary_alias :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_alias = Lens.lens (\OrganizationSummary' {alias} -> alias) (\s@OrganizationSummary' {} a -> s {alias = a} :: OrganizationSummary)
 
--- | The identifier associated with the organization.
-organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
-organizationSummary_organizationId = Lens.lens (\OrganizationSummary' {organizationId} -> organizationId) (\s@OrganizationSummary' {} a -> s {organizationId = a} :: OrganizationSummary)
-
 -- | The default email domain associated with the organization.
 organizationSummary_defaultMailDomain :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_defaultMailDomain = Lens.lens (\OrganizationSummary' {defaultMailDomain} -> defaultMailDomain) (\s@OrganizationSummary' {} a -> s {defaultMailDomain = a} :: OrganizationSummary)
-
--- | The state associated with the organization.
-organizationSummary_state :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
-organizationSummary_state = Lens.lens (\OrganizationSummary' {state} -> state) (\s@OrganizationSummary' {} a -> s {state = a} :: OrganizationSummary)
 
 -- | The error message associated with the organization. It is only present
 -- if unexpected behavior has occurred with regards to the organization. It
@@ -94,17 +90,21 @@ organizationSummary_state = Lens.lens (\OrganizationSummary' {state} -> state) (
 organizationSummary_errorMessage :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_errorMessage = Lens.lens (\OrganizationSummary' {errorMessage} -> errorMessage) (\s@OrganizationSummary' {} a -> s {errorMessage = a} :: OrganizationSummary)
 
+-- | The identifier associated with the organization.
+organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
+organizationSummary_organizationId = Lens.lens (\OrganizationSummary' {organizationId} -> organizationId) (\s@OrganizationSummary' {} a -> s {organizationId = a} :: OrganizationSummary)
+
 instance Core.FromJSON OrganizationSummary where
   parseJSON =
     Core.withObject
       "OrganizationSummary"
       ( \x ->
           OrganizationSummary'
-            Prelude.<$> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "OrganizationId")
+            Prelude.<$> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "Alias")
             Prelude.<*> (x Core..:? "DefaultMailDomain")
-            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ErrorMessage")
+            Prelude.<*> (x Core..:? "OrganizationId")
       )
 
 instance Prelude.Hashable OrganizationSummary

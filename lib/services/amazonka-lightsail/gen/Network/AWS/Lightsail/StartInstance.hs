@@ -169,7 +169,7 @@ newStartInstanceResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 startInstanceResponse_operations :: Lens.Lens' StartInstanceResponse (Prelude.Maybe [Operation])
-startInstanceResponse_operations = Lens.lens (\StartInstanceResponse' {operations} -> operations) (\s@StartInstanceResponse' {} a -> s {operations = a} :: StartInstanceResponse) Prelude.. Lens.mapping Lens._Coerce
+startInstanceResponse_operations = Lens.lens (\StartInstanceResponse' {operations} -> operations) (\s@StartInstanceResponse' {} a -> s {operations = a} :: StartInstanceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startInstanceResponse_httpStatus :: Lens.Lens' StartInstanceResponse Prelude.Int

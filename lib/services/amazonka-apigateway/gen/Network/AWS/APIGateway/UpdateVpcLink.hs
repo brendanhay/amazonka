@@ -35,13 +35,13 @@ module Network.AWS.APIGateway.UpdateVpcLink
     newVpcLink,
 
     -- * Response Lenses
-    vpcLink_statusMessage,
     vpcLink_status,
-    vpcLink_id,
     vpcLink_targetArns,
     vpcLink_name,
-    vpcLink_tags,
+    vpcLink_statusMessage,
+    vpcLink_id,
     vpcLink_description,
+    vpcLink_tags,
   )
 where
 
@@ -91,7 +91,7 @@ newUpdateVpcLink pVpcLinkId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateVpcLink_patchOperations :: Lens.Lens' UpdateVpcLink (Prelude.Maybe [PatchOperation])
-updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Prelude.. Lens.mapping Lens._Coerce
+updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The identifier of the VpcLink. It is used in an Integration
 -- to reference this VpcLink.

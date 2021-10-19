@@ -28,9 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newErrorInformation' smart constructor.
 data ErrorInformation = ErrorInformation'
-  { -- | An accompanying error message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | For more information, see
+  { -- | For more information, see
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy>
     -- in the
     -- <https://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide>.
@@ -75,7 +73,9 @@ data ErrorInformation = ErrorInformation'
     -- -   REVISION_MISSING: The revision ID was missing. This error code is
     --     most likely raised if the revision is deleted after the deployment
     --     is created, but before it is started.
-    code :: Prelude.Maybe DeployErrorCode
+    code :: Prelude.Maybe DeployErrorCode,
+    -- | An accompanying error message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,8 +86,6 @@ data ErrorInformation = ErrorInformation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'message', 'errorInformation_message' - An accompanying error message.
 --
 -- 'code', 'errorInformation_code' - For more information, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy>
@@ -134,17 +132,15 @@ data ErrorInformation = ErrorInformation'
 -- -   REVISION_MISSING: The revision ID was missing. This error code is
 --     most likely raised if the revision is deleted after the deployment
 --     is created, but before it is started.
+--
+-- 'message', 'errorInformation_message' - An accompanying error message.
 newErrorInformation ::
   ErrorInformation
 newErrorInformation =
   ErrorInformation'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | An accompanying error message.
-errorInformation_message :: Lens.Lens' ErrorInformation (Prelude.Maybe Prelude.Text)
-errorInformation_message = Lens.lens (\ErrorInformation' {message} -> message) (\s@ErrorInformation' {} a -> s {message = a} :: ErrorInformation)
 
 -- | For more information, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html Error Codes for AWS CodeDeploy>
@@ -194,14 +190,18 @@ errorInformation_message = Lens.lens (\ErrorInformation' {message} -> message) (
 errorInformation_code :: Lens.Lens' ErrorInformation (Prelude.Maybe DeployErrorCode)
 errorInformation_code = Lens.lens (\ErrorInformation' {code} -> code) (\s@ErrorInformation' {} a -> s {code = a} :: ErrorInformation)
 
+-- | An accompanying error message.
+errorInformation_message :: Lens.Lens' ErrorInformation (Prelude.Maybe Prelude.Text)
+errorInformation_message = Lens.lens (\ErrorInformation' {message} -> message) (\s@ErrorInformation' {} a -> s {message = a} :: ErrorInformation)
+
 instance Core.FromJSON ErrorInformation where
   parseJSON =
     Core.withObject
       "ErrorInformation"
       ( \x ->
           ErrorInformation'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "code")
+            Prelude.<$> (x Core..:? "code")
+            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable ErrorInformation

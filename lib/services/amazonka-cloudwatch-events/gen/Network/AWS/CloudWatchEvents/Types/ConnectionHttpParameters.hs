@@ -64,15 +64,15 @@ newConnectionHttpParameters =
 
 -- | Contains additional query string parameters for the connection.
 connectionHttpParameters_queryStringParameters :: Lens.Lens' ConnectionHttpParameters (Prelude.Maybe [ConnectionQueryStringParameter])
-connectionHttpParameters_queryStringParameters = Lens.lens (\ConnectionHttpParameters' {queryStringParameters} -> queryStringParameters) (\s@ConnectionHttpParameters' {} a -> s {queryStringParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens._Coerce
+connectionHttpParameters_queryStringParameters = Lens.lens (\ConnectionHttpParameters' {queryStringParameters} -> queryStringParameters) (\s@ConnectionHttpParameters' {} a -> s {queryStringParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains additional header parameters for the connection.
 connectionHttpParameters_headerParameters :: Lens.Lens' ConnectionHttpParameters (Prelude.Maybe [ConnectionHeaderParameter])
-connectionHttpParameters_headerParameters = Lens.lens (\ConnectionHttpParameters' {headerParameters} -> headerParameters) (\s@ConnectionHttpParameters' {} a -> s {headerParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens._Coerce
+connectionHttpParameters_headerParameters = Lens.lens (\ConnectionHttpParameters' {headerParameters} -> headerParameters) (\s@ConnectionHttpParameters' {} a -> s {headerParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains additional body string parameters for the connection.
 connectionHttpParameters_bodyParameters :: Lens.Lens' ConnectionHttpParameters (Prelude.Maybe [ConnectionBodyParameter])
-connectionHttpParameters_bodyParameters = Lens.lens (\ConnectionHttpParameters' {bodyParameters} -> bodyParameters) (\s@ConnectionHttpParameters' {} a -> s {bodyParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens._Coerce
+connectionHttpParameters_bodyParameters = Lens.lens (\ConnectionHttpParameters' {bodyParameters} -> bodyParameters) (\s@ConnectionHttpParameters' {} a -> s {bodyParameters = a} :: ConnectionHttpParameters) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ConnectionHttpParameters where
   parseJSON =

@@ -38,8 +38,8 @@ module Network.AWS.MarketplaceAnalytics.GenerateDataSet
     newGenerateDataSet,
 
     -- * Request Lenses
-    generateDataSet_destinationS3Prefix,
     generateDataSet_customerDefinedValues,
+    generateDataSet_destinationS3Prefix,
     generateDataSet_dataSetType,
     generateDataSet_dataSetPublicationDate,
     generateDataSet_roleNameArn,
@@ -67,7 +67,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGenerateDataSet' smart constructor.
 data GenerateDataSet = GenerateDataSet'
-  { -- | (Optional) The desired S3 prefix for the published data set, similar to
+  { -- | (Optional) Key-value pairs which will be returned, unmodified, in the
+    -- Amazon SNS notification message and the data set metadata file. These
+    -- key-value pairs can be used to correlated responses with tracking
+    -- information from other systems.
+    customerDefinedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | (Optional) The desired S3 prefix for the published data set, similar to
     -- a directory path in standard file systems. For example, if given the
     -- bucket name \"mybucket\" and the prefix \"myprefix\/mydatasets\", the
     -- output file \"outputfile\" would be published to
@@ -75,11 +80,6 @@ data GenerateDataSet = GenerateDataSet'
     -- directory structure does not exist, it will be created. If no prefix is
     -- provided, the data set will be published to the S3 bucket root.
     destinationS3Prefix :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Key-value pairs which will be returned, unmodified, in the
-    -- Amazon SNS notification message and the data set metadata file. These
-    -- key-value pairs can be used to correlated responses with tracking
-    -- information from other systems.
-    customerDefinedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The desired data set type.
     --
     -- -   __customer_subscriber_hourly_monthly_subscriptions__
@@ -224,6 +224,11 @@ data GenerateDataSet = GenerateDataSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customerDefinedValues', 'generateDataSet_customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the
+-- Amazon SNS notification message and the data set metadata file. These
+-- key-value pairs can be used to correlated responses with tracking
+-- information from other systems.
+--
 -- 'destinationS3Prefix', 'generateDataSet_destinationS3Prefix' - (Optional) The desired S3 prefix for the published data set, similar to
 -- a directory path in standard file systems. For example, if given the
 -- bucket name \"mybucket\" and the prefix \"myprefix\/mydatasets\", the
@@ -231,11 +236,6 @@ data GenerateDataSet = GenerateDataSet'
 -- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
 -- directory structure does not exist, it will be created. If no prefix is
 -- provided, the data set will be published to the S3 bucket root.
---
--- 'customerDefinedValues', 'generateDataSet_customerDefinedValues' - (Optional) Key-value pairs which will be returned, unmodified, in the
--- Amazon SNS notification message and the data set metadata file. These
--- key-value pairs can be used to correlated responses with tracking
--- information from other systems.
 --
 -- 'dataSetType', 'generateDataSet_dataSetType' - The desired data set type.
 --
@@ -388,9 +388,9 @@ newGenerateDataSet
   pDestinationS3BucketName_
   pSnsTopicArn_ =
     GenerateDataSet'
-      { destinationS3Prefix =
+      { customerDefinedValues =
           Prelude.Nothing,
-        customerDefinedValues = Prelude.Nothing,
+        destinationS3Prefix = Prelude.Nothing,
         dataSetType = pDataSetType_,
         dataSetPublicationDate =
           Core._Time Lens.# pDataSetPublicationDate_,
@@ -398,6 +398,13 @@ newGenerateDataSet
         destinationS3BucketName = pDestinationS3BucketName_,
         snsTopicArn = pSnsTopicArn_
       }
+
+-- | (Optional) Key-value pairs which will be returned, unmodified, in the
+-- Amazon SNS notification message and the data set metadata file. These
+-- key-value pairs can be used to correlated responses with tracking
+-- information from other systems.
+generateDataSet_customerDefinedValues :: Lens.Lens' GenerateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+generateDataSet_customerDefinedValues = Lens.lens (\GenerateDataSet' {customerDefinedValues} -> customerDefinedValues) (\s@GenerateDataSet' {} a -> s {customerDefinedValues = a} :: GenerateDataSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) The desired S3 prefix for the published data set, similar to
 -- a directory path in standard file systems. For example, if given the
@@ -408,13 +415,6 @@ newGenerateDataSet
 -- provided, the data set will be published to the S3 bucket root.
 generateDataSet_destinationS3Prefix :: Lens.Lens' GenerateDataSet (Prelude.Maybe Prelude.Text)
 generateDataSet_destinationS3Prefix = Lens.lens (\GenerateDataSet' {destinationS3Prefix} -> destinationS3Prefix) (\s@GenerateDataSet' {} a -> s {destinationS3Prefix = a} :: GenerateDataSet)
-
--- | (Optional) Key-value pairs which will be returned, unmodified, in the
--- Amazon SNS notification message and the data set metadata file. These
--- key-value pairs can be used to correlated responses with tracking
--- information from other systems.
-generateDataSet_customerDefinedValues :: Lens.Lens' GenerateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-generateDataSet_customerDefinedValues = Lens.lens (\GenerateDataSet' {customerDefinedValues} -> customerDefinedValues) (\s@GenerateDataSet' {} a -> s {customerDefinedValues = a} :: GenerateDataSet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The desired data set type.
 --
@@ -595,10 +595,10 @@ instance Core.ToJSON GenerateDataSet where
   toJSON GenerateDataSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("destinationS3Prefix" Core..=)
-              Prelude.<$> destinationS3Prefix,
-            ("customerDefinedValues" Core..=)
+          [ ("customerDefinedValues" Core..=)
               Prelude.<$> customerDefinedValues,
+            ("destinationS3Prefix" Core..=)
+              Prelude.<$> destinationS3Prefix,
             Prelude.Just ("dataSetType" Core..= dataSetType),
             Prelude.Just
               ( "dataSetPublicationDate"

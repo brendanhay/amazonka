@@ -30,8 +30,8 @@ module Network.AWS.DAX.DescribeParameters
 
     -- * Request Lenses
     describeParameters_nextToken,
-    describeParameters_maxResults,
     describeParameters_source,
+    describeParameters_maxResults,
     describeParameters_parameterGroupName,
 
     -- * Destructuring the Response
@@ -59,15 +59,15 @@ data DescribeParameters = DescribeParameters'
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | How the parameter is defined. For example, @system@ denotes a
+    -- system-defined parameter.
+    source :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | How the parameter is defined. For example, @system@ denotes a
-    -- system-defined parameter.
-    source :: Prelude.Maybe Prelude.Text,
     -- | The name of the parameter group.
     parameterGroupName :: Prelude.Text
   }
@@ -86,14 +86,14 @@ data DescribeParameters = DescribeParameters'
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
 --
+-- 'source', 'describeParameters_source' - How the parameter is defined. For example, @system@ denotes a
+-- system-defined parameter.
+--
 -- 'maxResults', 'describeParameters_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
---
--- 'source', 'describeParameters_source' - How the parameter is defined. For example, @system@ denotes a
--- system-defined parameter.
 --
 -- 'parameterGroupName', 'describeParameters_parameterGroupName' - The name of the parameter group.
 newDescribeParameters ::
@@ -103,8 +103,8 @@ newDescribeParameters ::
 newDescribeParameters pParameterGroupName_ =
   DescribeParameters'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       source = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       parameterGroupName = pParameterGroupName_
     }
 
@@ -115,6 +115,11 @@ newDescribeParameters pParameterGroupName_ =
 describeParameters_nextToken :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
 describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> nextToken) (\s@DescribeParameters' {} a -> s {nextToken = a} :: DescribeParameters)
 
+-- | How the parameter is defined. For example, @system@ denotes a
+-- system-defined parameter.
+describeParameters_source :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
+describeParameters_source = Lens.lens (\DescribeParameters' {source} -> source) (\s@DescribeParameters' {} a -> s {source = a} :: DescribeParameters)
+
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
@@ -122,11 +127,6 @@ describeParameters_nextToken = Lens.lens (\DescribeParameters' {nextToken} -> ne
 -- The value for @MaxResults@ must be between 20 and 100.
 describeParameters_maxResults :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Int)
 describeParameters_maxResults = Lens.lens (\DescribeParameters' {maxResults} -> maxResults) (\s@DescribeParameters' {} a -> s {maxResults = a} :: DescribeParameters)
-
--- | How the parameter is defined. For example, @system@ denotes a
--- system-defined parameter.
-describeParameters_source :: Lens.Lens' DescribeParameters (Prelude.Maybe Prelude.Text)
-describeParameters_source = Lens.lens (\DescribeParameters' {source} -> source) (\s@DescribeParameters' {} a -> s {source = a} :: DescribeParameters)
 
 -- | The name of the parameter group.
 describeParameters_parameterGroupName :: Lens.Lens' DescribeParameters Prelude.Text
@@ -192,8 +192,8 @@ instance Core.ToJSON DescribeParameters where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("Source" Core..=) Prelude.<$> source,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("ParameterGroupName" Core..= parameterGroupName)
           ]
@@ -250,7 +250,7 @@ describeParametersResponse_nextToken = Lens.lens (\DescribeParametersResponse' {
 -- | A list of parameters within a parameter group. Each element in the list
 -- represents one parameter.
 describeParametersResponse_parameters :: Lens.Lens' DescribeParametersResponse (Prelude.Maybe [Parameter])
-describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeParametersResponse_parameters = Lens.lens (\DescribeParametersResponse' {parameters} -> parameters) (\s@DescribeParametersResponse' {} a -> s {parameters = a} :: DescribeParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeParametersResponse_httpStatus :: Lens.Lens' DescribeParametersResponse Prelude.Int

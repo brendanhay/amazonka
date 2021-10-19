@@ -129,7 +129,7 @@ createApp_resourceSpec = Lens.lens (\CreateApp' {resourceSpec} -> resourceSpec) 
 -- | Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
 createApp_tags :: Lens.Lens' CreateApp (Prelude.Maybe [Tag])
-createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+createApp_tags = Lens.lens (\CreateApp' {tags} -> tags) (\s@CreateApp' {} a -> s {tags = a} :: CreateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | The domain ID.
 createApp_domainId :: Lens.Lens' CreateApp Prelude.Text

@@ -39,8 +39,8 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     -- * Response Lenses
     identityDescription_lastModifiedDate,
     identityDescription_creationDate,
-    identityDescription_identityId,
     identityDescription_logins,
+    identityDescription_identityId,
   )
 where
 

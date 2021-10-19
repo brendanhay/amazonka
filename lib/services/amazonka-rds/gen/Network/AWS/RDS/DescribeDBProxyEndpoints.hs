@@ -29,11 +29,11 @@ module Network.AWS.RDS.DescribeDBProxyEndpoints
     newDescribeDBProxyEndpoints,
 
     -- * Request Lenses
-    describeDBProxyEndpoints_dbProxyEndpointName,
     describeDBProxyEndpoints_filters,
-    describeDBProxyEndpoints_dbProxyName,
-    describeDBProxyEndpoints_maxRecords,
     describeDBProxyEndpoints_marker,
+    describeDBProxyEndpoints_maxRecords,
+    describeDBProxyEndpoints_dbProxyName,
+    describeDBProxyEndpoints_dbProxyEndpointName,
 
     -- * Destructuring the Response
     DescribeDBProxyEndpointsResponse (..),
@@ -55,16 +55,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDBProxyEndpoints' smart constructor.
 data DescribeDBProxyEndpoints = DescribeDBProxyEndpoints'
-  { -- | The name of a DB proxy endpoint to describe. If you omit this parameter,
-    -- the output includes information about all DB proxy endpoints associated
-    -- with the specified proxy.
-    dbProxyEndpointName :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is not currently supported.
+  { -- | This parameter is not currently supported.
     filters :: Prelude.Maybe [Filter],
-    -- | The name of the DB proxy whose endpoints you want to describe. If you
-    -- omit this parameter, the output includes information about all DB proxy
-    -- endpoints associated with all your DB proxies.
-    dbProxyName :: Prelude.Maybe Prelude.Text,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -74,10 +70,14 @@ data DescribeDBProxyEndpoints = DescribeDBProxyEndpoints'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Natural,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | The name of the DB proxy whose endpoints you want to describe. If you
+    -- omit this parameter, the output includes information about all DB proxy
+    -- endpoints associated with all your DB proxies.
+    dbProxyName :: Prelude.Maybe Prelude.Text,
+    -- | The name of a DB proxy endpoint to describe. If you omit this parameter,
+    -- the output includes information about all DB proxy endpoints associated
+    -- with the specified proxy.
+    dbProxyEndpointName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,15 +89,11 @@ data DescribeDBProxyEndpoints = DescribeDBProxyEndpoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dbProxyEndpointName', 'describeDBProxyEndpoints_dbProxyEndpointName' - The name of a DB proxy endpoint to describe. If you omit this parameter,
--- the output includes information about all DB proxy endpoints associated
--- with the specified proxy.
---
 -- 'filters', 'describeDBProxyEndpoints_filters' - This parameter is not currently supported.
 --
--- 'dbProxyName', 'describeDBProxyEndpoints_dbProxyName' - The name of the DB proxy whose endpoints you want to describe. If you
--- omit this parameter, the output includes information about all DB proxy
--- endpoints associated with all your DB proxies.
+-- 'marker', 'describeDBProxyEndpoints_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeDBProxyEndpoints_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -108,36 +104,34 @@ data DescribeDBProxyEndpoints = DescribeDBProxyEndpoints'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
--- 'marker', 'describeDBProxyEndpoints_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- 'dbProxyName', 'describeDBProxyEndpoints_dbProxyName' - The name of the DB proxy whose endpoints you want to describe. If you
+-- omit this parameter, the output includes information about all DB proxy
+-- endpoints associated with all your DB proxies.
+--
+-- 'dbProxyEndpointName', 'describeDBProxyEndpoints_dbProxyEndpointName' - The name of a DB proxy endpoint to describe. If you omit this parameter,
+-- the output includes information about all DB proxy endpoints associated
+-- with the specified proxy.
 newDescribeDBProxyEndpoints ::
   DescribeDBProxyEndpoints
 newDescribeDBProxyEndpoints =
   DescribeDBProxyEndpoints'
-    { dbProxyEndpointName =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      dbProxyName = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      dbProxyName = Prelude.Nothing,
+      dbProxyEndpointName = Prelude.Nothing
     }
-
--- | The name of a DB proxy endpoint to describe. If you omit this parameter,
--- the output includes information about all DB proxy endpoints associated
--- with the specified proxy.
-describeDBProxyEndpoints_dbProxyEndpointName :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Text)
-describeDBProxyEndpoints_dbProxyEndpointName = Lens.lens (\DescribeDBProxyEndpoints' {dbProxyEndpointName} -> dbProxyEndpointName) (\s@DescribeDBProxyEndpoints' {} a -> s {dbProxyEndpointName = a} :: DescribeDBProxyEndpoints)
 
 -- | This parameter is not currently supported.
 describeDBProxyEndpoints_filters :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe [Filter])
-describeDBProxyEndpoints_filters = Lens.lens (\DescribeDBProxyEndpoints' {filters} -> filters) (\s@DescribeDBProxyEndpoints' {} a -> s {filters = a} :: DescribeDBProxyEndpoints) Prelude.. Lens.mapping Lens._Coerce
+describeDBProxyEndpoints_filters = Lens.lens (\DescribeDBProxyEndpoints' {filters} -> filters) (\s@DescribeDBProxyEndpoints' {} a -> s {filters = a} :: DescribeDBProxyEndpoints) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the DB proxy whose endpoints you want to describe. If you
--- omit this parameter, the output includes information about all DB proxy
--- endpoints associated with all your DB proxies.
-describeDBProxyEndpoints_dbProxyName :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Text)
-describeDBProxyEndpoints_dbProxyName = Lens.lens (\DescribeDBProxyEndpoints' {dbProxyName} -> dbProxyName) (\s@DescribeDBProxyEndpoints' {} a -> s {dbProxyName = a} :: DescribeDBProxyEndpoints)
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeDBProxyEndpoints_marker :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Text)
+describeDBProxyEndpoints_marker = Lens.lens (\DescribeDBProxyEndpoints' {marker} -> marker) (\s@DescribeDBProxyEndpoints' {} a -> s {marker = a} :: DescribeDBProxyEndpoints)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -150,11 +144,17 @@ describeDBProxyEndpoints_dbProxyName = Lens.lens (\DescribeDBProxyEndpoints' {db
 describeDBProxyEndpoints_maxRecords :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Natural)
 describeDBProxyEndpoints_maxRecords = Lens.lens (\DescribeDBProxyEndpoints' {maxRecords} -> maxRecords) (\s@DescribeDBProxyEndpoints' {} a -> s {maxRecords = a} :: DescribeDBProxyEndpoints)
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeDBProxyEndpoints_marker :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Text)
-describeDBProxyEndpoints_marker = Lens.lens (\DescribeDBProxyEndpoints' {marker} -> marker) (\s@DescribeDBProxyEndpoints' {} a -> s {marker = a} :: DescribeDBProxyEndpoints)
+-- | The name of the DB proxy whose endpoints you want to describe. If you
+-- omit this parameter, the output includes information about all DB proxy
+-- endpoints associated with all your DB proxies.
+describeDBProxyEndpoints_dbProxyName :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Text)
+describeDBProxyEndpoints_dbProxyName = Lens.lens (\DescribeDBProxyEndpoints' {dbProxyName} -> dbProxyName) (\s@DescribeDBProxyEndpoints' {} a -> s {dbProxyName = a} :: DescribeDBProxyEndpoints)
+
+-- | The name of a DB proxy endpoint to describe. If you omit this parameter,
+-- the output includes information about all DB proxy endpoints associated
+-- with the specified proxy.
+describeDBProxyEndpoints_dbProxyEndpointName :: Lens.Lens' DescribeDBProxyEndpoints (Prelude.Maybe Prelude.Text)
+describeDBProxyEndpoints_dbProxyEndpointName = Lens.lens (\DescribeDBProxyEndpoints' {dbProxyEndpointName} -> dbProxyEndpointName) (\s@DescribeDBProxyEndpoints' {} a -> s {dbProxyEndpointName = a} :: DescribeDBProxyEndpoints)
 
 instance Core.AWSPager DescribeDBProxyEndpoints where
   page rq rs
@@ -213,13 +213,13 @@ instance Core.ToQuery DescribeDBProxyEndpoints where
           Core.=: ("DescribeDBProxyEndpoints" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBProxyEndpointName" Core.=: dbProxyEndpointName,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "DBProxyName" Core.=: dbProxyName,
+        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "DBProxyName" Core.=: dbProxyName,
+        "DBProxyEndpointName" Core.=: dbProxyEndpointName
       ]
 
 -- | /See:/ 'newDescribeDBProxyEndpointsResponse' smart constructor.
@@ -264,7 +264,7 @@ newDescribeDBProxyEndpointsResponse pHttpStatus_ =
 
 -- | The list of @ProxyEndpoint@ objects returned by the API operation.
 describeDBProxyEndpointsResponse_dbProxyEndpoints :: Lens.Lens' DescribeDBProxyEndpointsResponse (Prelude.Maybe [DBProxyEndpoint])
-describeDBProxyEndpointsResponse_dbProxyEndpoints = Lens.lens (\DescribeDBProxyEndpointsResponse' {dbProxyEndpoints} -> dbProxyEndpoints) (\s@DescribeDBProxyEndpointsResponse' {} a -> s {dbProxyEndpoints = a} :: DescribeDBProxyEndpointsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDBProxyEndpointsResponse_dbProxyEndpoints = Lens.lens (\DescribeDBProxyEndpointsResponse' {dbProxyEndpoints} -> dbProxyEndpoints) (\s@DescribeDBProxyEndpointsResponse' {} a -> s {dbProxyEndpoints = a} :: DescribeDBProxyEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

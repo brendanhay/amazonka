@@ -30,10 +30,10 @@ module Network.AWS.EC2.DescribeVpcEndpointServicePermissions
     newDescribeVpcEndpointServicePermissions,
 
     -- * Request Lenses
-    describeVpcEndpointServicePermissions_nextToken,
-    describeVpcEndpointServicePermissions_maxResults,
-    describeVpcEndpointServicePermissions_dryRun,
     describeVpcEndpointServicePermissions_filters,
+    describeVpcEndpointServicePermissions_nextToken,
+    describeVpcEndpointServicePermissions_dryRun,
+    describeVpcEndpointServicePermissions_maxResults,
     describeVpcEndpointServicePermissions_serviceId,
 
     -- * Destructuring the Response
@@ -56,26 +56,26 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVpcEndpointServicePermissions' smart constructor.
 data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissions'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results of the initial request can be seen by
-    -- sending another request with the returned @NextToken@ value. This value
-    -- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
-    -- 1,000, only 1,000 results are returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @principal@ - The ARN of the principal.
     --
     -- -   @principal-type@ - The principal type (@All@ | @Service@ |
     --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
     filters :: Prelude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results of the initial request can be seen by
+    -- sending another request with the returned @NextToken@ value. This value
+    -- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
+    -- 1,000, only 1,000 results are returned.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the service.
     serviceId :: Prelude.Text
   }
@@ -89,25 +89,25 @@ data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVpcEndpointServicePermissions_nextToken' - The token to retrieve the next page of results.
---
--- 'maxResults', 'describeVpcEndpointServicePermissions_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results of the initial request can be seen by
--- sending another request with the returned @NextToken@ value. This value
--- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
--- 1,000, only 1,000 results are returned.
---
--- 'dryRun', 'describeVpcEndpointServicePermissions_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'filters', 'describeVpcEndpointServicePermissions_filters' - One or more filters.
 --
 -- -   @principal@ - The ARN of the principal.
 --
 -- -   @principal-type@ - The principal type (@All@ | @Service@ |
 --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
+--
+-- 'nextToken', 'describeVpcEndpointServicePermissions_nextToken' - The token to retrieve the next page of results.
+--
+-- 'dryRun', 'describeVpcEndpointServicePermissions_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeVpcEndpointServicePermissions_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results of the initial request can be seen by
+-- sending another request with the returned @NextToken@ value. This value
+-- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
+-- 1,000, only 1,000 results are returned.
 --
 -- 'serviceId', 'describeVpcEndpointServicePermissions_serviceId' - The ID of the service.
 newDescribeVpcEndpointServicePermissions ::
@@ -116,32 +116,13 @@ newDescribeVpcEndpointServicePermissions ::
   DescribeVpcEndpointServicePermissions
 newDescribeVpcEndpointServicePermissions pServiceId_ =
   DescribeVpcEndpointServicePermissions'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       serviceId = pServiceId_
     }
-
--- | The token to retrieve the next page of results.
-describeVpcEndpointServicePermissions_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Text)
-describeVpcEndpointServicePermissions_nextToken = Lens.lens (\DescribeVpcEndpointServicePermissions' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicePermissions)
-
--- | The maximum number of results to return for the request in a single
--- page. The remaining results of the initial request can be seen by
--- sending another request with the returned @NextToken@ value. This value
--- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
--- 1,000, only 1,000 results are returned.
-describeVpcEndpointServicePermissions_maxResults :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Int)
-describeVpcEndpointServicePermissions_maxResults = Lens.lens (\DescribeVpcEndpointServicePermissions' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {maxResults = a} :: DescribeVpcEndpointServicePermissions)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpointServicePermissions_dryRun :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Bool)
-describeVpcEndpointServicePermissions_dryRun = Lens.lens (\DescribeVpcEndpointServicePermissions' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {dryRun = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | One or more filters.
 --
@@ -150,7 +131,26 @@ describeVpcEndpointServicePermissions_dryRun = Lens.lens (\DescribeVpcEndpointSe
 -- -   @principal-type@ - The principal type (@All@ | @Service@ |
 --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
 describeVpcEndpointServicePermissions_filters :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe [Filter])
-describeVpcEndpointServicePermissions_filters = Lens.lens (\DescribeVpcEndpointServicePermissions' {filters} -> filters) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {filters = a} :: DescribeVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens._Coerce
+describeVpcEndpointServicePermissions_filters = Lens.lens (\DescribeVpcEndpointServicePermissions' {filters} -> filters) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {filters = a} :: DescribeVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page of results.
+describeVpcEndpointServicePermissions_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServicePermissions_nextToken = Lens.lens (\DescribeVpcEndpointServicePermissions' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicePermissions)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcEndpointServicePermissions_dryRun :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Bool)
+describeVpcEndpointServicePermissions_dryRun = Lens.lens (\DescribeVpcEndpointServicePermissions' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {dryRun = a} :: DescribeVpcEndpointServicePermissions)
+
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results of the initial request can be seen by
+-- sending another request with the returned @NextToken@ value. This value
+-- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
+-- 1,000, only 1,000 results are returned.
+describeVpcEndpointServicePermissions_maxResults :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Int)
+describeVpcEndpointServicePermissions_maxResults = Lens.lens (\DescribeVpcEndpointServicePermissions' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {maxResults = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | The ID of the service.
 describeVpcEndpointServicePermissions_serviceId :: Lens.Lens' DescribeVpcEndpointServicePermissions Prelude.Text
@@ -234,11 +234,11 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "ServiceId" Core.=: serviceId
       ]
 
@@ -289,7 +289,7 @@ describeVpcEndpointServicePermissionsResponse_nextToken = Lens.lens (\DescribeVp
 
 -- | Information about one or more allowed principals.
 describeVpcEndpointServicePermissionsResponse_allowedPrincipals :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse (Prelude.Maybe [AllowedPrincipal])
-describeVpcEndpointServicePermissionsResponse_allowedPrincipals = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {allowedPrincipals} -> allowedPrincipals) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {allowedPrincipals = a} :: DescribeVpcEndpointServicePermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVpcEndpointServicePermissionsResponse_allowedPrincipals = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {allowedPrincipals} -> allowedPrincipals) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {allowedPrincipals = a} :: DescribeVpcEndpointServicePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVpcEndpointServicePermissionsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse Prelude.Int

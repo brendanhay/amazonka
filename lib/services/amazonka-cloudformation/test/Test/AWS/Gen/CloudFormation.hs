@@ -27,83 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestRegisterPublisher $
---             newRegisterPublisher
+--         [ requestDescribeStackSetOperation $
+--             newDescribeStackSetOperation
 --
 --         , requestImportStacksToStackSet $
 --             newImportStacksToStackSet
---
---         , requestDescribeStackResourceDrifts $
---             newDescribeStackResourceDrifts
---
---         , requestDescribeStackEvents $
---             newDescribeStackEvents
---
---         , requestListImports $
---             newListImports
---
---         , requestDescribeChangeSet $
---             newDescribeChangeSet
---
---         , requestStopStackSetOperation $
---             newStopStackSetOperation
---
---         , requestDescribeStackResource $
---             newDescribeStackResource
---
---         , requestTestType $
---             newTestType
---
---         , requestDetectStackResourceDrift $
---             newDetectStackResourceDrift
---
---         , requestSetTypeDefaultVersion $
---             newSetTypeDefaultVersion
---
---         , requestExecuteChangeSet $
---             newExecuteChangeSet
---
---         , requestRollbackStack $
---             newRollbackStack
---
---         , requestGetStackPolicy $
---             newGetStackPolicy
---
---         , requestCreateStackInstances $
---             newCreateStackInstances
---
---         , requestDescribeStacks $
---             newDescribeStacks
---
---         , requestRecordHandlerProgress $
---             newRecordHandlerProgress
---
---         , requestListStackSetOperations $
---             newListStackSetOperations
---
---         , requestUpdateStackSet $
---             newUpdateStackSet
---
---         , requestEstimateTemplateCost $
---             newEstimateTemplateCost
---
---         , requestDeleteStackSet $
---             newDeleteStackSet
---
---         , requestCreateStack $
---             newCreateStack
---
---         , requestDescribeAccountLimits $
---             newDescribeAccountLimits
---
---         , requestGetTemplateSummary $
---             newGetTemplateSummary
---
---         , requestSetTypeConfiguration $
---             newSetTypeConfiguration
---
---         , requestDescribeStackInstance $
---             newDescribeStackInstance
 --
 --         , requestDeleteStack $
 --             newDeleteStack
@@ -111,26 +39,170 @@ import Test.Tasty
 --         , requestUpdateStack $
 --             newUpdateStack
 --
---         , requestListStacks $
---             newListStacks
+--         , requestBatchDescribeTypeConfigurations $
+--             newBatchDescribeTypeConfigurations
 --
---         , requestSignalResource $
---             newSignalResource
+--         , requestSetTypeConfiguration $
+--             newSetTypeConfiguration
 --
---         , requestDetectStackDrift $
---             newDetectStackDrift
+--         , requestGetTemplateSummary $
+--             newGetTemplateSummary
 --
---         , requestSetStackPolicy $
---             newSetStackPolicy
+--         , requestListChangeSets $
+--             newListChangeSets
 --
---         , requestDescribeStackSetOperation $
---             newDescribeStackSetOperation
+--         , requestListStackResources $
+--             newListStackResources
+--
+--         , requestUpdateStackInstances $
+--             newUpdateStackInstances
+--
+--         , requestDeleteStackInstances $
+--             newDeleteStackInstances
+--
+--         , requestDescribeType $
+--             newDescribeType
+--
+--         , requestCreateStackInstances $
+--             newCreateStackInstances
+--
+--         , requestListTypeRegistrations $
+--             newListTypeRegistrations
+--
+--         , requestGetStackPolicy $
+--             newGetStackPolicy
+--
+--         , requestDescribeStacks $
+--             newDescribeStacks
+--
+--         , requestCreateChangeSet $
+--             newCreateChangeSet
+--
+--         , requestListStackSetOperations $
+--             newListStackSetOperations
+--
+--         , requestExecuteChangeSet $
+--             newExecuteChangeSet
+--
+--         , requestDescribePublisher $
+--             newDescribePublisher
+--
+--         , requestListStackInstances $
+--             newListStackInstances
+--
+--         , requestContinueUpdateRollback $
+--             newContinueUpdateRollback
+--
+--         , requestValidateTemplate $
+--             newValidateTemplate
+--
+--         , requestCancelUpdateStack $
+--             newCancelUpdateStack
+--
+--         , requestPublishType $
+--             newPublishType
+--
+--         , requestListTypes $
+--             newListTypes
 --
 --         , requestDescribeTypeRegistration $
 --             newDescribeTypeRegistration
 --
---         , requestListTypes $
---             newListTypes
+--         , requestDetectStackDrift $
+--             newDetectStackDrift
+--
+--         , requestDescribeStackEvents $
+--             newDescribeStackEvents
+--
+--         , requestSignalResource $
+--             newSignalResource
+--
+--         , requestSetStackPolicy $
+--             newSetStackPolicy
+--
+--         , requestListImports $
+--             newListImports
+--
+--         , requestDescribeStackResourceDrifts $
+--             newDescribeStackResourceDrifts
+--
+--         , requestListStacks $
+--             newListStacks
+--
+--         , requestRegisterPublisher $
+--             newRegisterPublisher
+--
+--         , requestDescribeAccountLimits $
+--             newDescribeAccountLimits
+--
+--         , requestDescribeStackResources $
+--             newDescribeStackResources
+--
+--         , requestDescribeStackInstance $
+--             newDescribeStackInstance
+--
+--         , requestCreateStack $
+--             newCreateStack
+--
+--         , requestUpdateStackSet $
+--             newUpdateStackSet
+--
+--         , requestDeleteStackSet $
+--             newDeleteStackSet
+--
+--         , requestEstimateTemplateCost $
+--             newEstimateTemplateCost
+--
+--         , requestDeleteChangeSet $
+--             newDeleteChangeSet
+--
+--         , requestListStackSets $
+--             newListStackSets
+--
+--         , requestListExports $
+--             newListExports
+--
+--         , requestDescribeStackDriftDetectionStatus $
+--             newDescribeStackDriftDetectionStatus
+--
+--         , requestRollbackStack $
+--             newRollbackStack
+--
+--         , requestCreateStackSet $
+--             newCreateStackSet
+--
+--         , requestDeregisterType $
+--             newDeregisterType
+--
+--         , requestDeactivateType $
+--             newDeactivateType
+--
+--         , requestRecordHandlerProgress $
+--             newRecordHandlerProgress
+--
+--         , requestListTypeVersions $
+--             newListTypeVersions
+--
+--         , requestSetTypeDefaultVersion $
+--             newSetTypeDefaultVersion
+--
+--         , requestUpdateTerminationProtection $
+--             newUpdateTerminationProtection
+--
+--         , requestTestType $
+--             newTestType
+--
+--         , requestGetTemplate $
+--             newGetTemplate
+--
+--         , requestDetectStackSetDrift $
+--             newDetectStackSetDrift
+--
+--         , requestDetectStackResourceDrift $
+--             newDetectStackResourceDrift
+--
+--         , requestDescribeChangeSet $
+--             newDescribeChangeSet
 --
 --         , requestDescribeStackSet $
 --             newDescribeStackSet
@@ -141,167 +213,23 @@ import Test.Tasty
 --         , requestRegisterType $
 --             newRegisterType
 --
---         , requestPublishType $
---             newPublishType
---
---         , requestCancelUpdateStack $
---             newCancelUpdateStack
---
 --         , requestActivateType $
 --             newActivateType
 --
---         , requestValidateTemplate $
---             newValidateTemplate
+--         , requestStopStackSetOperation $
+--             newStopStackSetOperation
 --
---         , requestDetectStackSetDrift $
---             newDetectStackSetDrift
---
---         , requestGetTemplate $
---             newGetTemplate
---
---         , requestListStackInstances $
---             newListStackInstances
---
---         , requestContinueUpdateRollback $
---             newContinueUpdateRollback
---
---         , requestUpdateTerminationProtection $
---             newUpdateTerminationProtection
---
---         , requestListTypeVersions $
---             newListTypeVersions
---
---         , requestDescribePublisher $
---             newDescribePublisher
---
---         , requestDeactivateType $
---             newDeactivateType
---
---         , requestListTypeRegistrations $
---             newListTypeRegistrations
---
---         , requestCreateStackSet $
---             newCreateStackSet
---
---         , requestCreateChangeSet $
---             newCreateChangeSet
---
---         , requestDeregisterType $
---             newDeregisterType
---
---         , requestDescribeType $
---             newDescribeType
---
---         , requestListChangeSets $
---             newListChangeSets
---
---         , requestDeleteChangeSet $
---             newDeleteChangeSet
---
---         , requestDeleteStackInstances $
---             newDeleteStackInstances
---
---         , requestListStackResources $
---             newListStackResources
---
---         , requestUpdateStackInstances $
---             newUpdateStackInstances
---
---         , requestDescribeStackDriftDetectionStatus $
---             newDescribeStackDriftDetectionStatus
---
---         , requestListStackSets $
---             newListStackSets
---
---         , requestListExports $
---             newListExports
---
---         , requestDescribeStackResources $
---             newDescribeStackResources
---
---         , requestBatchDescribeTypeConfigurations $
---             newBatchDescribeTypeConfigurations
+--         , requestDescribeStackResource $
+--             newDescribeStackResource
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseRegisterPublisher $
---             newRegisterPublisherResponse
+--         [ responseDescribeStackSetOperation $
+--             newDescribeStackSetOperationResponse
 --
 --         , responseImportStacksToStackSet $
 --             newImportStacksToStackSetResponse
---
---         , responseDescribeStackResourceDrifts $
---             newDescribeStackResourceDriftsResponse
---
---         , responseDescribeStackEvents $
---             newDescribeStackEventsResponse
---
---         , responseListImports $
---             newListImportsResponse
---
---         , responseDescribeChangeSet $
---             newDescribeChangeSetResponse
---
---         , responseStopStackSetOperation $
---             newStopStackSetOperationResponse
---
---         , responseDescribeStackResource $
---             newDescribeStackResourceResponse
---
---         , responseTestType $
---             newTestTypeResponse
---
---         , responseDetectStackResourceDrift $
---             newDetectStackResourceDriftResponse
---
---         , responseSetTypeDefaultVersion $
---             newSetTypeDefaultVersionResponse
---
---         , responseExecuteChangeSet $
---             newExecuteChangeSetResponse
---
---         , responseRollbackStack $
---             newRollbackStackResponse
---
---         , responseGetStackPolicy $
---             newGetStackPolicyResponse
---
---         , responseCreateStackInstances $
---             newCreateStackInstancesResponse
---
---         , responseDescribeStacks $
---             newDescribeStacksResponse
---
---         , responseRecordHandlerProgress $
---             newRecordHandlerProgressResponse
---
---         , responseListStackSetOperations $
---             newListStackSetOperationsResponse
---
---         , responseUpdateStackSet $
---             newUpdateStackSetResponse
---
---         , responseEstimateTemplateCost $
---             newEstimateTemplateCostResponse
---
---         , responseDeleteStackSet $
---             newDeleteStackSetResponse
---
---         , responseCreateStack $
---             newCreateStackResponse
---
---         , responseDescribeAccountLimits $
---             newDescribeAccountLimitsResponse
---
---         , responseGetTemplateSummary $
---             newGetTemplateSummaryResponse
---
---         , responseSetTypeConfiguration $
---             newSetTypeConfigurationResponse
---
---         , responseDescribeStackInstance $
---             newDescribeStackInstanceResponse
 --
 --         , responseDeleteStack $
 --             newDeleteStackResponse
@@ -309,26 +237,170 @@ import Test.Tasty
 --         , responseUpdateStack $
 --             newUpdateStackResponse
 --
---         , responseListStacks $
---             newListStacksResponse
+--         , responseBatchDescribeTypeConfigurations $
+--             newBatchDescribeTypeConfigurationsResponse
 --
---         , responseSignalResource $
---             newSignalResourceResponse
+--         , responseSetTypeConfiguration $
+--             newSetTypeConfigurationResponse
 --
---         , responseDetectStackDrift $
---             newDetectStackDriftResponse
+--         , responseGetTemplateSummary $
+--             newGetTemplateSummaryResponse
 --
---         , responseSetStackPolicy $
---             newSetStackPolicyResponse
+--         , responseListChangeSets $
+--             newListChangeSetsResponse
 --
---         , responseDescribeStackSetOperation $
---             newDescribeStackSetOperationResponse
+--         , responseListStackResources $
+--             newListStackResourcesResponse
+--
+--         , responseUpdateStackInstances $
+--             newUpdateStackInstancesResponse
+--
+--         , responseDeleteStackInstances $
+--             newDeleteStackInstancesResponse
+--
+--         , responseDescribeType $
+--             newDescribeTypeResponse
+--
+--         , responseCreateStackInstances $
+--             newCreateStackInstancesResponse
+--
+--         , responseListTypeRegistrations $
+--             newListTypeRegistrationsResponse
+--
+--         , responseGetStackPolicy $
+--             newGetStackPolicyResponse
+--
+--         , responseDescribeStacks $
+--             newDescribeStacksResponse
+--
+--         , responseCreateChangeSet $
+--             newCreateChangeSetResponse
+--
+--         , responseListStackSetOperations $
+--             newListStackSetOperationsResponse
+--
+--         , responseExecuteChangeSet $
+--             newExecuteChangeSetResponse
+--
+--         , responseDescribePublisher $
+--             newDescribePublisherResponse
+--
+--         , responseListStackInstances $
+--             newListStackInstancesResponse
+--
+--         , responseContinueUpdateRollback $
+--             newContinueUpdateRollbackResponse
+--
+--         , responseValidateTemplate $
+--             newValidateTemplateResponse
+--
+--         , responseCancelUpdateStack $
+--             newCancelUpdateStackResponse
+--
+--         , responsePublishType $
+--             newPublishTypeResponse
+--
+--         , responseListTypes $
+--             newListTypesResponse
 --
 --         , responseDescribeTypeRegistration $
 --             newDescribeTypeRegistrationResponse
 --
---         , responseListTypes $
---             newListTypesResponse
+--         , responseDetectStackDrift $
+--             newDetectStackDriftResponse
+--
+--         , responseDescribeStackEvents $
+--             newDescribeStackEventsResponse
+--
+--         , responseSignalResource $
+--             newSignalResourceResponse
+--
+--         , responseSetStackPolicy $
+--             newSetStackPolicyResponse
+--
+--         , responseListImports $
+--             newListImportsResponse
+--
+--         , responseDescribeStackResourceDrifts $
+--             newDescribeStackResourceDriftsResponse
+--
+--         , responseListStacks $
+--             newListStacksResponse
+--
+--         , responseRegisterPublisher $
+--             newRegisterPublisherResponse
+--
+--         , responseDescribeAccountLimits $
+--             newDescribeAccountLimitsResponse
+--
+--         , responseDescribeStackResources $
+--             newDescribeStackResourcesResponse
+--
+--         , responseDescribeStackInstance $
+--             newDescribeStackInstanceResponse
+--
+--         , responseCreateStack $
+--             newCreateStackResponse
+--
+--         , responseUpdateStackSet $
+--             newUpdateStackSetResponse
+--
+--         , responseDeleteStackSet $
+--             newDeleteStackSetResponse
+--
+--         , responseEstimateTemplateCost $
+--             newEstimateTemplateCostResponse
+--
+--         , responseDeleteChangeSet $
+--             newDeleteChangeSetResponse
+--
+--         , responseListStackSets $
+--             newListStackSetsResponse
+--
+--         , responseListExports $
+--             newListExportsResponse
+--
+--         , responseDescribeStackDriftDetectionStatus $
+--             newDescribeStackDriftDetectionStatusResponse
+--
+--         , responseRollbackStack $
+--             newRollbackStackResponse
+--
+--         , responseCreateStackSet $
+--             newCreateStackSetResponse
+--
+--         , responseDeregisterType $
+--             newDeregisterTypeResponse
+--
+--         , responseDeactivateType $
+--             newDeactivateTypeResponse
+--
+--         , responseRecordHandlerProgress $
+--             newRecordHandlerProgressResponse
+--
+--         , responseListTypeVersions $
+--             newListTypeVersionsResponse
+--
+--         , responseSetTypeDefaultVersion $
+--             newSetTypeDefaultVersionResponse
+--
+--         , responseUpdateTerminationProtection $
+--             newUpdateTerminationProtectionResponse
+--
+--         , responseTestType $
+--             newTestTypeResponse
+--
+--         , responseGetTemplate $
+--             newGetTemplateResponse
+--
+--         , responseDetectStackSetDrift $
+--             newDetectStackSetDriftResponse
+--
+--         , responseDetectStackResourceDrift $
+--             newDetectStackResourceDriftResponse
+--
+--         , responseDescribeChangeSet $
+--             newDescribeChangeSetResponse
 --
 --         , responseDescribeStackSet $
 --             newDescribeStackSetResponse
@@ -339,247 +411,31 @@ import Test.Tasty
 --         , responseRegisterType $
 --             newRegisterTypeResponse
 --
---         , responsePublishType $
---             newPublishTypeResponse
---
---         , responseCancelUpdateStack $
---             newCancelUpdateStackResponse
---
 --         , responseActivateType $
 --             newActivateTypeResponse
 --
---         , responseValidateTemplate $
---             newValidateTemplateResponse
+--         , responseStopStackSetOperation $
+--             newStopStackSetOperationResponse
 --
---         , responseDetectStackSetDrift $
---             newDetectStackSetDriftResponse
---
---         , responseGetTemplate $
---             newGetTemplateResponse
---
---         , responseListStackInstances $
---             newListStackInstancesResponse
---
---         , responseContinueUpdateRollback $
---             newContinueUpdateRollbackResponse
---
---         , responseUpdateTerminationProtection $
---             newUpdateTerminationProtectionResponse
---
---         , responseListTypeVersions $
---             newListTypeVersionsResponse
---
---         , responseDescribePublisher $
---             newDescribePublisherResponse
---
---         , responseDeactivateType $
---             newDeactivateTypeResponse
---
---         , responseListTypeRegistrations $
---             newListTypeRegistrationsResponse
---
---         , responseCreateStackSet $
---             newCreateStackSetResponse
---
---         , responseCreateChangeSet $
---             newCreateChangeSetResponse
---
---         , responseDeregisterType $
---             newDeregisterTypeResponse
---
---         , responseDescribeType $
---             newDescribeTypeResponse
---
---         , responseListChangeSets $
---             newListChangeSetsResponse
---
---         , responseDeleteChangeSet $
---             newDeleteChangeSetResponse
---
---         , responseDeleteStackInstances $
---             newDeleteStackInstancesResponse
---
---         , responseListStackResources $
---             newListStackResourcesResponse
---
---         , responseUpdateStackInstances $
---             newUpdateStackInstancesResponse
---
---         , responseDescribeStackDriftDetectionStatus $
---             newDescribeStackDriftDetectionStatusResponse
---
---         , responseListStackSets $
---             newListStackSetsResponse
---
---         , responseListExports $
---             newListExportsResponse
---
---         , responseDescribeStackResources $
---             newDescribeStackResourcesResponse
---
---         , responseBatchDescribeTypeConfigurations $
---             newBatchDescribeTypeConfigurationsResponse
+--         , responseDescribeStackResource $
+--             newDescribeStackResourceResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestRegisterPublisher :: RegisterPublisher -> TestTree
-requestRegisterPublisher =
+requestDescribeStackSetOperation :: DescribeStackSetOperation -> TestTree
+requestDescribeStackSetOperation =
   req
-    "RegisterPublisher"
-    "fixture/RegisterPublisher.yaml"
+    "DescribeStackSetOperation"
+    "fixture/DescribeStackSetOperation.yaml"
 
 requestImportStacksToStackSet :: ImportStacksToStackSet -> TestTree
 requestImportStacksToStackSet =
   req
     "ImportStacksToStackSet"
     "fixture/ImportStacksToStackSet.yaml"
-
-requestDescribeStackResourceDrifts :: DescribeStackResourceDrifts -> TestTree
-requestDescribeStackResourceDrifts =
-  req
-    "DescribeStackResourceDrifts"
-    "fixture/DescribeStackResourceDrifts.yaml"
-
-requestDescribeStackEvents :: DescribeStackEvents -> TestTree
-requestDescribeStackEvents =
-  req
-    "DescribeStackEvents"
-    "fixture/DescribeStackEvents.yaml"
-
-requestListImports :: ListImports -> TestTree
-requestListImports =
-  req
-    "ListImports"
-    "fixture/ListImports.yaml"
-
-requestDescribeChangeSet :: DescribeChangeSet -> TestTree
-requestDescribeChangeSet =
-  req
-    "DescribeChangeSet"
-    "fixture/DescribeChangeSet.yaml"
-
-requestStopStackSetOperation :: StopStackSetOperation -> TestTree
-requestStopStackSetOperation =
-  req
-    "StopStackSetOperation"
-    "fixture/StopStackSetOperation.yaml"
-
-requestDescribeStackResource :: DescribeStackResource -> TestTree
-requestDescribeStackResource =
-  req
-    "DescribeStackResource"
-    "fixture/DescribeStackResource.yaml"
-
-requestTestType :: TestType -> TestTree
-requestTestType =
-  req
-    "TestType"
-    "fixture/TestType.yaml"
-
-requestDetectStackResourceDrift :: DetectStackResourceDrift -> TestTree
-requestDetectStackResourceDrift =
-  req
-    "DetectStackResourceDrift"
-    "fixture/DetectStackResourceDrift.yaml"
-
-requestSetTypeDefaultVersion :: SetTypeDefaultVersion -> TestTree
-requestSetTypeDefaultVersion =
-  req
-    "SetTypeDefaultVersion"
-    "fixture/SetTypeDefaultVersion.yaml"
-
-requestExecuteChangeSet :: ExecuteChangeSet -> TestTree
-requestExecuteChangeSet =
-  req
-    "ExecuteChangeSet"
-    "fixture/ExecuteChangeSet.yaml"
-
-requestRollbackStack :: RollbackStack -> TestTree
-requestRollbackStack =
-  req
-    "RollbackStack"
-    "fixture/RollbackStack.yaml"
-
-requestGetStackPolicy :: GetStackPolicy -> TestTree
-requestGetStackPolicy =
-  req
-    "GetStackPolicy"
-    "fixture/GetStackPolicy.yaml"
-
-requestCreateStackInstances :: CreateStackInstances -> TestTree
-requestCreateStackInstances =
-  req
-    "CreateStackInstances"
-    "fixture/CreateStackInstances.yaml"
-
-requestDescribeStacks :: DescribeStacks -> TestTree
-requestDescribeStacks =
-  req
-    "DescribeStacks"
-    "fixture/DescribeStacks.yaml"
-
-requestRecordHandlerProgress :: RecordHandlerProgress -> TestTree
-requestRecordHandlerProgress =
-  req
-    "RecordHandlerProgress"
-    "fixture/RecordHandlerProgress.yaml"
-
-requestListStackSetOperations :: ListStackSetOperations -> TestTree
-requestListStackSetOperations =
-  req
-    "ListStackSetOperations"
-    "fixture/ListStackSetOperations.yaml"
-
-requestUpdateStackSet :: UpdateStackSet -> TestTree
-requestUpdateStackSet =
-  req
-    "UpdateStackSet"
-    "fixture/UpdateStackSet.yaml"
-
-requestEstimateTemplateCost :: EstimateTemplateCost -> TestTree
-requestEstimateTemplateCost =
-  req
-    "EstimateTemplateCost"
-    "fixture/EstimateTemplateCost.yaml"
-
-requestDeleteStackSet :: DeleteStackSet -> TestTree
-requestDeleteStackSet =
-  req
-    "DeleteStackSet"
-    "fixture/DeleteStackSet.yaml"
-
-requestCreateStack :: CreateStack -> TestTree
-requestCreateStack =
-  req
-    "CreateStack"
-    "fixture/CreateStack.yaml"
-
-requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
-requestDescribeAccountLimits =
-  req
-    "DescribeAccountLimits"
-    "fixture/DescribeAccountLimits.yaml"
-
-requestGetTemplateSummary :: GetTemplateSummary -> TestTree
-requestGetTemplateSummary =
-  req
-    "GetTemplateSummary"
-    "fixture/GetTemplateSummary.yaml"
-
-requestSetTypeConfiguration :: SetTypeConfiguration -> TestTree
-requestSetTypeConfiguration =
-  req
-    "SetTypeConfiguration"
-    "fixture/SetTypeConfiguration.yaml"
-
-requestDescribeStackInstance :: DescribeStackInstance -> TestTree
-requestDescribeStackInstance =
-  req
-    "DescribeStackInstance"
-    "fixture/DescribeStackInstance.yaml"
 
 requestDeleteStack :: DeleteStack -> TestTree
 requestDeleteStack =
@@ -593,35 +449,137 @@ requestUpdateStack =
     "UpdateStack"
     "fixture/UpdateStack.yaml"
 
-requestListStacks :: ListStacks -> TestTree
-requestListStacks =
+requestBatchDescribeTypeConfigurations :: BatchDescribeTypeConfigurations -> TestTree
+requestBatchDescribeTypeConfigurations =
   req
-    "ListStacks"
-    "fixture/ListStacks.yaml"
+    "BatchDescribeTypeConfigurations"
+    "fixture/BatchDescribeTypeConfigurations.yaml"
 
-requestSignalResource :: SignalResource -> TestTree
-requestSignalResource =
+requestSetTypeConfiguration :: SetTypeConfiguration -> TestTree
+requestSetTypeConfiguration =
   req
-    "SignalResource"
-    "fixture/SignalResource.yaml"
+    "SetTypeConfiguration"
+    "fixture/SetTypeConfiguration.yaml"
 
-requestDetectStackDrift :: DetectStackDrift -> TestTree
-requestDetectStackDrift =
+requestGetTemplateSummary :: GetTemplateSummary -> TestTree
+requestGetTemplateSummary =
   req
-    "DetectStackDrift"
-    "fixture/DetectStackDrift.yaml"
+    "GetTemplateSummary"
+    "fixture/GetTemplateSummary.yaml"
 
-requestSetStackPolicy :: SetStackPolicy -> TestTree
-requestSetStackPolicy =
+requestListChangeSets :: ListChangeSets -> TestTree
+requestListChangeSets =
   req
-    "SetStackPolicy"
-    "fixture/SetStackPolicy.yaml"
+    "ListChangeSets"
+    "fixture/ListChangeSets.yaml"
 
-requestDescribeStackSetOperation :: DescribeStackSetOperation -> TestTree
-requestDescribeStackSetOperation =
+requestListStackResources :: ListStackResources -> TestTree
+requestListStackResources =
   req
-    "DescribeStackSetOperation"
-    "fixture/DescribeStackSetOperation.yaml"
+    "ListStackResources"
+    "fixture/ListStackResources.yaml"
+
+requestUpdateStackInstances :: UpdateStackInstances -> TestTree
+requestUpdateStackInstances =
+  req
+    "UpdateStackInstances"
+    "fixture/UpdateStackInstances.yaml"
+
+requestDeleteStackInstances :: DeleteStackInstances -> TestTree
+requestDeleteStackInstances =
+  req
+    "DeleteStackInstances"
+    "fixture/DeleteStackInstances.yaml"
+
+requestDescribeType :: DescribeType -> TestTree
+requestDescribeType =
+  req
+    "DescribeType"
+    "fixture/DescribeType.yaml"
+
+requestCreateStackInstances :: CreateStackInstances -> TestTree
+requestCreateStackInstances =
+  req
+    "CreateStackInstances"
+    "fixture/CreateStackInstances.yaml"
+
+requestListTypeRegistrations :: ListTypeRegistrations -> TestTree
+requestListTypeRegistrations =
+  req
+    "ListTypeRegistrations"
+    "fixture/ListTypeRegistrations.yaml"
+
+requestGetStackPolicy :: GetStackPolicy -> TestTree
+requestGetStackPolicy =
+  req
+    "GetStackPolicy"
+    "fixture/GetStackPolicy.yaml"
+
+requestDescribeStacks :: DescribeStacks -> TestTree
+requestDescribeStacks =
+  req
+    "DescribeStacks"
+    "fixture/DescribeStacks.yaml"
+
+requestCreateChangeSet :: CreateChangeSet -> TestTree
+requestCreateChangeSet =
+  req
+    "CreateChangeSet"
+    "fixture/CreateChangeSet.yaml"
+
+requestListStackSetOperations :: ListStackSetOperations -> TestTree
+requestListStackSetOperations =
+  req
+    "ListStackSetOperations"
+    "fixture/ListStackSetOperations.yaml"
+
+requestExecuteChangeSet :: ExecuteChangeSet -> TestTree
+requestExecuteChangeSet =
+  req
+    "ExecuteChangeSet"
+    "fixture/ExecuteChangeSet.yaml"
+
+requestDescribePublisher :: DescribePublisher -> TestTree
+requestDescribePublisher =
+  req
+    "DescribePublisher"
+    "fixture/DescribePublisher.yaml"
+
+requestListStackInstances :: ListStackInstances -> TestTree
+requestListStackInstances =
+  req
+    "ListStackInstances"
+    "fixture/ListStackInstances.yaml"
+
+requestContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
+requestContinueUpdateRollback =
+  req
+    "ContinueUpdateRollback"
+    "fixture/ContinueUpdateRollback.yaml"
+
+requestValidateTemplate :: ValidateTemplate -> TestTree
+requestValidateTemplate =
+  req
+    "ValidateTemplate"
+    "fixture/ValidateTemplate.yaml"
+
+requestCancelUpdateStack :: CancelUpdateStack -> TestTree
+requestCancelUpdateStack =
+  req
+    "CancelUpdateStack"
+    "fixture/CancelUpdateStack.yaml"
+
+requestPublishType :: PublishType -> TestTree
+requestPublishType =
+  req
+    "PublishType"
+    "fixture/PublishType.yaml"
+
+requestListTypes :: ListTypes -> TestTree
+requestListTypes =
+  req
+    "ListTypes"
+    "fixture/ListTypes.yaml"
 
 requestDescribeTypeRegistration :: DescribeTypeRegistration -> TestTree
 requestDescribeTypeRegistration =
@@ -629,11 +587,197 @@ requestDescribeTypeRegistration =
     "DescribeTypeRegistration"
     "fixture/DescribeTypeRegistration.yaml"
 
-requestListTypes :: ListTypes -> TestTree
-requestListTypes =
+requestDetectStackDrift :: DetectStackDrift -> TestTree
+requestDetectStackDrift =
   req
-    "ListTypes"
-    "fixture/ListTypes.yaml"
+    "DetectStackDrift"
+    "fixture/DetectStackDrift.yaml"
+
+requestDescribeStackEvents :: DescribeStackEvents -> TestTree
+requestDescribeStackEvents =
+  req
+    "DescribeStackEvents"
+    "fixture/DescribeStackEvents.yaml"
+
+requestSignalResource :: SignalResource -> TestTree
+requestSignalResource =
+  req
+    "SignalResource"
+    "fixture/SignalResource.yaml"
+
+requestSetStackPolicy :: SetStackPolicy -> TestTree
+requestSetStackPolicy =
+  req
+    "SetStackPolicy"
+    "fixture/SetStackPolicy.yaml"
+
+requestListImports :: ListImports -> TestTree
+requestListImports =
+  req
+    "ListImports"
+    "fixture/ListImports.yaml"
+
+requestDescribeStackResourceDrifts :: DescribeStackResourceDrifts -> TestTree
+requestDescribeStackResourceDrifts =
+  req
+    "DescribeStackResourceDrifts"
+    "fixture/DescribeStackResourceDrifts.yaml"
+
+requestListStacks :: ListStacks -> TestTree
+requestListStacks =
+  req
+    "ListStacks"
+    "fixture/ListStacks.yaml"
+
+requestRegisterPublisher :: RegisterPublisher -> TestTree
+requestRegisterPublisher =
+  req
+    "RegisterPublisher"
+    "fixture/RegisterPublisher.yaml"
+
+requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
+requestDescribeAccountLimits =
+  req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits.yaml"
+
+requestDescribeStackResources :: DescribeStackResources -> TestTree
+requestDescribeStackResources =
+  req
+    "DescribeStackResources"
+    "fixture/DescribeStackResources.yaml"
+
+requestDescribeStackInstance :: DescribeStackInstance -> TestTree
+requestDescribeStackInstance =
+  req
+    "DescribeStackInstance"
+    "fixture/DescribeStackInstance.yaml"
+
+requestCreateStack :: CreateStack -> TestTree
+requestCreateStack =
+  req
+    "CreateStack"
+    "fixture/CreateStack.yaml"
+
+requestUpdateStackSet :: UpdateStackSet -> TestTree
+requestUpdateStackSet =
+  req
+    "UpdateStackSet"
+    "fixture/UpdateStackSet.yaml"
+
+requestDeleteStackSet :: DeleteStackSet -> TestTree
+requestDeleteStackSet =
+  req
+    "DeleteStackSet"
+    "fixture/DeleteStackSet.yaml"
+
+requestEstimateTemplateCost :: EstimateTemplateCost -> TestTree
+requestEstimateTemplateCost =
+  req
+    "EstimateTemplateCost"
+    "fixture/EstimateTemplateCost.yaml"
+
+requestDeleteChangeSet :: DeleteChangeSet -> TestTree
+requestDeleteChangeSet =
+  req
+    "DeleteChangeSet"
+    "fixture/DeleteChangeSet.yaml"
+
+requestListStackSets :: ListStackSets -> TestTree
+requestListStackSets =
+  req
+    "ListStackSets"
+    "fixture/ListStackSets.yaml"
+
+requestListExports :: ListExports -> TestTree
+requestListExports =
+  req
+    "ListExports"
+    "fixture/ListExports.yaml"
+
+requestDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatus -> TestTree
+requestDescribeStackDriftDetectionStatus =
+  req
+    "DescribeStackDriftDetectionStatus"
+    "fixture/DescribeStackDriftDetectionStatus.yaml"
+
+requestRollbackStack :: RollbackStack -> TestTree
+requestRollbackStack =
+  req
+    "RollbackStack"
+    "fixture/RollbackStack.yaml"
+
+requestCreateStackSet :: CreateStackSet -> TestTree
+requestCreateStackSet =
+  req
+    "CreateStackSet"
+    "fixture/CreateStackSet.yaml"
+
+requestDeregisterType :: DeregisterType -> TestTree
+requestDeregisterType =
+  req
+    "DeregisterType"
+    "fixture/DeregisterType.yaml"
+
+requestDeactivateType :: DeactivateType -> TestTree
+requestDeactivateType =
+  req
+    "DeactivateType"
+    "fixture/DeactivateType.yaml"
+
+requestRecordHandlerProgress :: RecordHandlerProgress -> TestTree
+requestRecordHandlerProgress =
+  req
+    "RecordHandlerProgress"
+    "fixture/RecordHandlerProgress.yaml"
+
+requestListTypeVersions :: ListTypeVersions -> TestTree
+requestListTypeVersions =
+  req
+    "ListTypeVersions"
+    "fixture/ListTypeVersions.yaml"
+
+requestSetTypeDefaultVersion :: SetTypeDefaultVersion -> TestTree
+requestSetTypeDefaultVersion =
+  req
+    "SetTypeDefaultVersion"
+    "fixture/SetTypeDefaultVersion.yaml"
+
+requestUpdateTerminationProtection :: UpdateTerminationProtection -> TestTree
+requestUpdateTerminationProtection =
+  req
+    "UpdateTerminationProtection"
+    "fixture/UpdateTerminationProtection.yaml"
+
+requestTestType :: TestType -> TestTree
+requestTestType =
+  req
+    "TestType"
+    "fixture/TestType.yaml"
+
+requestGetTemplate :: GetTemplate -> TestTree
+requestGetTemplate =
+  req
+    "GetTemplate"
+    "fixture/GetTemplate.yaml"
+
+requestDetectStackSetDrift :: DetectStackSetDrift -> TestTree
+requestDetectStackSetDrift =
+  req
+    "DetectStackSetDrift"
+    "fixture/DetectStackSetDrift.yaml"
+
+requestDetectStackResourceDrift :: DetectStackResourceDrift -> TestTree
+requestDetectStackResourceDrift =
+  req
+    "DetectStackResourceDrift"
+    "fixture/DetectStackResourceDrift.yaml"
+
+requestDescribeChangeSet :: DescribeChangeSet -> TestTree
+requestDescribeChangeSet =
+  req
+    "DescribeChangeSet"
+    "fixture/DescribeChangeSet.yaml"
 
 requestDescribeStackSet :: DescribeStackSet -> TestTree
 requestDescribeStackSet =
@@ -653,177 +797,33 @@ requestRegisterType =
     "RegisterType"
     "fixture/RegisterType.yaml"
 
-requestPublishType :: PublishType -> TestTree
-requestPublishType =
-  req
-    "PublishType"
-    "fixture/PublishType.yaml"
-
-requestCancelUpdateStack :: CancelUpdateStack -> TestTree
-requestCancelUpdateStack =
-  req
-    "CancelUpdateStack"
-    "fixture/CancelUpdateStack.yaml"
-
 requestActivateType :: ActivateType -> TestTree
 requestActivateType =
   req
     "ActivateType"
     "fixture/ActivateType.yaml"
 
-requestValidateTemplate :: ValidateTemplate -> TestTree
-requestValidateTemplate =
+requestStopStackSetOperation :: StopStackSetOperation -> TestTree
+requestStopStackSetOperation =
   req
-    "ValidateTemplate"
-    "fixture/ValidateTemplate.yaml"
+    "StopStackSetOperation"
+    "fixture/StopStackSetOperation.yaml"
 
-requestDetectStackSetDrift :: DetectStackSetDrift -> TestTree
-requestDetectStackSetDrift =
+requestDescribeStackResource :: DescribeStackResource -> TestTree
+requestDescribeStackResource =
   req
-    "DetectStackSetDrift"
-    "fixture/DetectStackSetDrift.yaml"
-
-requestGetTemplate :: GetTemplate -> TestTree
-requestGetTemplate =
-  req
-    "GetTemplate"
-    "fixture/GetTemplate.yaml"
-
-requestListStackInstances :: ListStackInstances -> TestTree
-requestListStackInstances =
-  req
-    "ListStackInstances"
-    "fixture/ListStackInstances.yaml"
-
-requestContinueUpdateRollback :: ContinueUpdateRollback -> TestTree
-requestContinueUpdateRollback =
-  req
-    "ContinueUpdateRollback"
-    "fixture/ContinueUpdateRollback.yaml"
-
-requestUpdateTerminationProtection :: UpdateTerminationProtection -> TestTree
-requestUpdateTerminationProtection =
-  req
-    "UpdateTerminationProtection"
-    "fixture/UpdateTerminationProtection.yaml"
-
-requestListTypeVersions :: ListTypeVersions -> TestTree
-requestListTypeVersions =
-  req
-    "ListTypeVersions"
-    "fixture/ListTypeVersions.yaml"
-
-requestDescribePublisher :: DescribePublisher -> TestTree
-requestDescribePublisher =
-  req
-    "DescribePublisher"
-    "fixture/DescribePublisher.yaml"
-
-requestDeactivateType :: DeactivateType -> TestTree
-requestDeactivateType =
-  req
-    "DeactivateType"
-    "fixture/DeactivateType.yaml"
-
-requestListTypeRegistrations :: ListTypeRegistrations -> TestTree
-requestListTypeRegistrations =
-  req
-    "ListTypeRegistrations"
-    "fixture/ListTypeRegistrations.yaml"
-
-requestCreateStackSet :: CreateStackSet -> TestTree
-requestCreateStackSet =
-  req
-    "CreateStackSet"
-    "fixture/CreateStackSet.yaml"
-
-requestCreateChangeSet :: CreateChangeSet -> TestTree
-requestCreateChangeSet =
-  req
-    "CreateChangeSet"
-    "fixture/CreateChangeSet.yaml"
-
-requestDeregisterType :: DeregisterType -> TestTree
-requestDeregisterType =
-  req
-    "DeregisterType"
-    "fixture/DeregisterType.yaml"
-
-requestDescribeType :: DescribeType -> TestTree
-requestDescribeType =
-  req
-    "DescribeType"
-    "fixture/DescribeType.yaml"
-
-requestListChangeSets :: ListChangeSets -> TestTree
-requestListChangeSets =
-  req
-    "ListChangeSets"
-    "fixture/ListChangeSets.yaml"
-
-requestDeleteChangeSet :: DeleteChangeSet -> TestTree
-requestDeleteChangeSet =
-  req
-    "DeleteChangeSet"
-    "fixture/DeleteChangeSet.yaml"
-
-requestDeleteStackInstances :: DeleteStackInstances -> TestTree
-requestDeleteStackInstances =
-  req
-    "DeleteStackInstances"
-    "fixture/DeleteStackInstances.yaml"
-
-requestListStackResources :: ListStackResources -> TestTree
-requestListStackResources =
-  req
-    "ListStackResources"
-    "fixture/ListStackResources.yaml"
-
-requestUpdateStackInstances :: UpdateStackInstances -> TestTree
-requestUpdateStackInstances =
-  req
-    "UpdateStackInstances"
-    "fixture/UpdateStackInstances.yaml"
-
-requestDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatus -> TestTree
-requestDescribeStackDriftDetectionStatus =
-  req
-    "DescribeStackDriftDetectionStatus"
-    "fixture/DescribeStackDriftDetectionStatus.yaml"
-
-requestListStackSets :: ListStackSets -> TestTree
-requestListStackSets =
-  req
-    "ListStackSets"
-    "fixture/ListStackSets.yaml"
-
-requestListExports :: ListExports -> TestTree
-requestListExports =
-  req
-    "ListExports"
-    "fixture/ListExports.yaml"
-
-requestDescribeStackResources :: DescribeStackResources -> TestTree
-requestDescribeStackResources =
-  req
-    "DescribeStackResources"
-    "fixture/DescribeStackResources.yaml"
-
-requestBatchDescribeTypeConfigurations :: BatchDescribeTypeConfigurations -> TestTree
-requestBatchDescribeTypeConfigurations =
-  req
-    "BatchDescribeTypeConfigurations"
-    "fixture/BatchDescribeTypeConfigurations.yaml"
+    "DescribeStackResource"
+    "fixture/DescribeStackResource.yaml"
 
 -- Responses
 
-responseRegisterPublisher :: RegisterPublisherResponse -> TestTree
-responseRegisterPublisher =
+responseDescribeStackSetOperation :: DescribeStackSetOperationResponse -> TestTree
+responseDescribeStackSetOperation =
   res
-    "RegisterPublisherResponse"
-    "fixture/RegisterPublisherResponse.proto"
+    "DescribeStackSetOperationResponse"
+    "fixture/DescribeStackSetOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy RegisterPublisher)
+    (Proxy :: Proxy DescribeStackSetOperation)
 
 responseImportStacksToStackSet :: ImportStacksToStackSetResponse -> TestTree
 responseImportStacksToStackSet =
@@ -832,198 +832,6 @@ responseImportStacksToStackSet =
     "fixture/ImportStacksToStackSetResponse.proto"
     defaultService
     (Proxy :: Proxy ImportStacksToStackSet)
-
-responseDescribeStackResourceDrifts :: DescribeStackResourceDriftsResponse -> TestTree
-responseDescribeStackResourceDrifts =
-  res
-    "DescribeStackResourceDriftsResponse"
-    "fixture/DescribeStackResourceDriftsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStackResourceDrifts)
-
-responseDescribeStackEvents :: DescribeStackEventsResponse -> TestTree
-responseDescribeStackEvents =
-  res
-    "DescribeStackEventsResponse"
-    "fixture/DescribeStackEventsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStackEvents)
-
-responseListImports :: ListImportsResponse -> TestTree
-responseListImports =
-  res
-    "ListImportsResponse"
-    "fixture/ListImportsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListImports)
-
-responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
-responseDescribeChangeSet =
-  res
-    "DescribeChangeSetResponse"
-    "fixture/DescribeChangeSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeChangeSet)
-
-responseStopStackSetOperation :: StopStackSetOperationResponse -> TestTree
-responseStopStackSetOperation =
-  res
-    "StopStackSetOperationResponse"
-    "fixture/StopStackSetOperationResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopStackSetOperation)
-
-responseDescribeStackResource :: DescribeStackResourceResponse -> TestTree
-responseDescribeStackResource =
-  res
-    "DescribeStackResourceResponse"
-    "fixture/DescribeStackResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStackResource)
-
-responseTestType :: TestTypeResponse -> TestTree
-responseTestType =
-  res
-    "TestTypeResponse"
-    "fixture/TestTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy TestType)
-
-responseDetectStackResourceDrift :: DetectStackResourceDriftResponse -> TestTree
-responseDetectStackResourceDrift =
-  res
-    "DetectStackResourceDriftResponse"
-    "fixture/DetectStackResourceDriftResponse.proto"
-    defaultService
-    (Proxy :: Proxy DetectStackResourceDrift)
-
-responseSetTypeDefaultVersion :: SetTypeDefaultVersionResponse -> TestTree
-responseSetTypeDefaultVersion =
-  res
-    "SetTypeDefaultVersionResponse"
-    "fixture/SetTypeDefaultVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetTypeDefaultVersion)
-
-responseExecuteChangeSet :: ExecuteChangeSetResponse -> TestTree
-responseExecuteChangeSet =
-  res
-    "ExecuteChangeSetResponse"
-    "fixture/ExecuteChangeSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy ExecuteChangeSet)
-
-responseRollbackStack :: RollbackStackResponse -> TestTree
-responseRollbackStack =
-  res
-    "RollbackStackResponse"
-    "fixture/RollbackStackResponse.proto"
-    defaultService
-    (Proxy :: Proxy RollbackStack)
-
-responseGetStackPolicy :: GetStackPolicyResponse -> TestTree
-responseGetStackPolicy =
-  res
-    "GetStackPolicyResponse"
-    "fixture/GetStackPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetStackPolicy)
-
-responseCreateStackInstances :: CreateStackInstancesResponse -> TestTree
-responseCreateStackInstances =
-  res
-    "CreateStackInstancesResponse"
-    "fixture/CreateStackInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStackInstances)
-
-responseDescribeStacks :: DescribeStacksResponse -> TestTree
-responseDescribeStacks =
-  res
-    "DescribeStacksResponse"
-    "fixture/DescribeStacksResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStacks)
-
-responseRecordHandlerProgress :: RecordHandlerProgressResponse -> TestTree
-responseRecordHandlerProgress =
-  res
-    "RecordHandlerProgressResponse"
-    "fixture/RecordHandlerProgressResponse.proto"
-    defaultService
-    (Proxy :: Proxy RecordHandlerProgress)
-
-responseListStackSetOperations :: ListStackSetOperationsResponse -> TestTree
-responseListStackSetOperations =
-  res
-    "ListStackSetOperationsResponse"
-    "fixture/ListStackSetOperationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListStackSetOperations)
-
-responseUpdateStackSet :: UpdateStackSetResponse -> TestTree
-responseUpdateStackSet =
-  res
-    "UpdateStackSetResponse"
-    "fixture/UpdateStackSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateStackSet)
-
-responseEstimateTemplateCost :: EstimateTemplateCostResponse -> TestTree
-responseEstimateTemplateCost =
-  res
-    "EstimateTemplateCostResponse"
-    "fixture/EstimateTemplateCostResponse.proto"
-    defaultService
-    (Proxy :: Proxy EstimateTemplateCost)
-
-responseDeleteStackSet :: DeleteStackSetResponse -> TestTree
-responseDeleteStackSet =
-  res
-    "DeleteStackSetResponse"
-    "fixture/DeleteStackSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteStackSet)
-
-responseCreateStack :: CreateStackResponse -> TestTree
-responseCreateStack =
-  res
-    "CreateStackResponse"
-    "fixture/CreateStackResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStack)
-
-responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
-responseDescribeAccountLimits =
-  res
-    "DescribeAccountLimitsResponse"
-    "fixture/DescribeAccountLimitsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAccountLimits)
-
-responseGetTemplateSummary :: GetTemplateSummaryResponse -> TestTree
-responseGetTemplateSummary =
-  res
-    "GetTemplateSummaryResponse"
-    "fixture/GetTemplateSummaryResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetTemplateSummary)
-
-responseSetTypeConfiguration :: SetTypeConfigurationResponse -> TestTree
-responseSetTypeConfiguration =
-  res
-    "SetTypeConfigurationResponse"
-    "fixture/SetTypeConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetTypeConfiguration)
-
-responseDescribeStackInstance :: DescribeStackInstanceResponse -> TestTree
-responseDescribeStackInstance =
-  res
-    "DescribeStackInstanceResponse"
-    "fixture/DescribeStackInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStackInstance)
 
 responseDeleteStack :: DeleteStackResponse -> TestTree
 responseDeleteStack =
@@ -1041,45 +849,181 @@ responseUpdateStack =
     defaultService
     (Proxy :: Proxy UpdateStack)
 
-responseListStacks :: ListStacksResponse -> TestTree
-responseListStacks =
+responseBatchDescribeTypeConfigurations :: BatchDescribeTypeConfigurationsResponse -> TestTree
+responseBatchDescribeTypeConfigurations =
   res
-    "ListStacksResponse"
-    "fixture/ListStacksResponse.proto"
+    "BatchDescribeTypeConfigurationsResponse"
+    "fixture/BatchDescribeTypeConfigurationsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListStacks)
+    (Proxy :: Proxy BatchDescribeTypeConfigurations)
 
-responseSignalResource :: SignalResourceResponse -> TestTree
-responseSignalResource =
+responseSetTypeConfiguration :: SetTypeConfigurationResponse -> TestTree
+responseSetTypeConfiguration =
   res
-    "SignalResourceResponse"
-    "fixture/SignalResourceResponse.proto"
+    "SetTypeConfigurationResponse"
+    "fixture/SetTypeConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy SignalResource)
+    (Proxy :: Proxy SetTypeConfiguration)
 
-responseDetectStackDrift :: DetectStackDriftResponse -> TestTree
-responseDetectStackDrift =
+responseGetTemplateSummary :: GetTemplateSummaryResponse -> TestTree
+responseGetTemplateSummary =
   res
-    "DetectStackDriftResponse"
-    "fixture/DetectStackDriftResponse.proto"
+    "GetTemplateSummaryResponse"
+    "fixture/GetTemplateSummaryResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectStackDrift)
+    (Proxy :: Proxy GetTemplateSummary)
 
-responseSetStackPolicy :: SetStackPolicyResponse -> TestTree
-responseSetStackPolicy =
+responseListChangeSets :: ListChangeSetsResponse -> TestTree
+responseListChangeSets =
   res
-    "SetStackPolicyResponse"
-    "fixture/SetStackPolicyResponse.proto"
+    "ListChangeSetsResponse"
+    "fixture/ListChangeSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy SetStackPolicy)
+    (Proxy :: Proxy ListChangeSets)
 
-responseDescribeStackSetOperation :: DescribeStackSetOperationResponse -> TestTree
-responseDescribeStackSetOperation =
+responseListStackResources :: ListStackResourcesResponse -> TestTree
+responseListStackResources =
   res
-    "DescribeStackSetOperationResponse"
-    "fixture/DescribeStackSetOperationResponse.proto"
+    "ListStackResourcesResponse"
+    "fixture/ListStackResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeStackSetOperation)
+    (Proxy :: Proxy ListStackResources)
+
+responseUpdateStackInstances :: UpdateStackInstancesResponse -> TestTree
+responseUpdateStackInstances =
+  res
+    "UpdateStackInstancesResponse"
+    "fixture/UpdateStackInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateStackInstances)
+
+responseDeleteStackInstances :: DeleteStackInstancesResponse -> TestTree
+responseDeleteStackInstances =
+  res
+    "DeleteStackInstancesResponse"
+    "fixture/DeleteStackInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteStackInstances)
+
+responseDescribeType :: DescribeTypeResponse -> TestTree
+responseDescribeType =
+  res
+    "DescribeTypeResponse"
+    "fixture/DescribeTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeType)
+
+responseCreateStackInstances :: CreateStackInstancesResponse -> TestTree
+responseCreateStackInstances =
+  res
+    "CreateStackInstancesResponse"
+    "fixture/CreateStackInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStackInstances)
+
+responseListTypeRegistrations :: ListTypeRegistrationsResponse -> TestTree
+responseListTypeRegistrations =
+  res
+    "ListTypeRegistrationsResponse"
+    "fixture/ListTypeRegistrationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTypeRegistrations)
+
+responseGetStackPolicy :: GetStackPolicyResponse -> TestTree
+responseGetStackPolicy =
+  res
+    "GetStackPolicyResponse"
+    "fixture/GetStackPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetStackPolicy)
+
+responseDescribeStacks :: DescribeStacksResponse -> TestTree
+responseDescribeStacks =
+  res
+    "DescribeStacksResponse"
+    "fixture/DescribeStacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStacks)
+
+responseCreateChangeSet :: CreateChangeSetResponse -> TestTree
+responseCreateChangeSet =
+  res
+    "CreateChangeSetResponse"
+    "fixture/CreateChangeSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateChangeSet)
+
+responseListStackSetOperations :: ListStackSetOperationsResponse -> TestTree
+responseListStackSetOperations =
+  res
+    "ListStackSetOperationsResponse"
+    "fixture/ListStackSetOperationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStackSetOperations)
+
+responseExecuteChangeSet :: ExecuteChangeSetResponse -> TestTree
+responseExecuteChangeSet =
+  res
+    "ExecuteChangeSetResponse"
+    "fixture/ExecuteChangeSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy ExecuteChangeSet)
+
+responseDescribePublisher :: DescribePublisherResponse -> TestTree
+responseDescribePublisher =
+  res
+    "DescribePublisherResponse"
+    "fixture/DescribePublisherResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribePublisher)
+
+responseListStackInstances :: ListStackInstancesResponse -> TestTree
+responseListStackInstances =
+  res
+    "ListStackInstancesResponse"
+    "fixture/ListStackInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStackInstances)
+
+responseContinueUpdateRollback :: ContinueUpdateRollbackResponse -> TestTree
+responseContinueUpdateRollback =
+  res
+    "ContinueUpdateRollbackResponse"
+    "fixture/ContinueUpdateRollbackResponse.proto"
+    defaultService
+    (Proxy :: Proxy ContinueUpdateRollback)
+
+responseValidateTemplate :: ValidateTemplateResponse -> TestTree
+responseValidateTemplate =
+  res
+    "ValidateTemplateResponse"
+    "fixture/ValidateTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy ValidateTemplate)
+
+responseCancelUpdateStack :: CancelUpdateStackResponse -> TestTree
+responseCancelUpdateStack =
+  res
+    "CancelUpdateStackResponse"
+    "fixture/CancelUpdateStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelUpdateStack)
+
+responsePublishType :: PublishTypeResponse -> TestTree
+responsePublishType =
+  res
+    "PublishTypeResponse"
+    "fixture/PublishTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy PublishType)
+
+responseListTypes :: ListTypesResponse -> TestTree
+responseListTypes =
+  res
+    "ListTypesResponse"
+    "fixture/ListTypesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTypes)
 
 responseDescribeTypeRegistration :: DescribeTypeRegistrationResponse -> TestTree
 responseDescribeTypeRegistration =
@@ -1089,13 +1033,261 @@ responseDescribeTypeRegistration =
     defaultService
     (Proxy :: Proxy DescribeTypeRegistration)
 
-responseListTypes :: ListTypesResponse -> TestTree
-responseListTypes =
+responseDetectStackDrift :: DetectStackDriftResponse -> TestTree
+responseDetectStackDrift =
   res
-    "ListTypesResponse"
-    "fixture/ListTypesResponse.proto"
+    "DetectStackDriftResponse"
+    "fixture/DetectStackDriftResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTypes)
+    (Proxy :: Proxy DetectStackDrift)
+
+responseDescribeStackEvents :: DescribeStackEventsResponse -> TestTree
+responseDescribeStackEvents =
+  res
+    "DescribeStackEventsResponse"
+    "fixture/DescribeStackEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStackEvents)
+
+responseSignalResource :: SignalResourceResponse -> TestTree
+responseSignalResource =
+  res
+    "SignalResourceResponse"
+    "fixture/SignalResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy SignalResource)
+
+responseSetStackPolicy :: SetStackPolicyResponse -> TestTree
+responseSetStackPolicy =
+  res
+    "SetStackPolicyResponse"
+    "fixture/SetStackPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetStackPolicy)
+
+responseListImports :: ListImportsResponse -> TestTree
+responseListImports =
+  res
+    "ListImportsResponse"
+    "fixture/ListImportsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListImports)
+
+responseDescribeStackResourceDrifts :: DescribeStackResourceDriftsResponse -> TestTree
+responseDescribeStackResourceDrifts =
+  res
+    "DescribeStackResourceDriftsResponse"
+    "fixture/DescribeStackResourceDriftsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStackResourceDrifts)
+
+responseListStacks :: ListStacksResponse -> TestTree
+responseListStacks =
+  res
+    "ListStacksResponse"
+    "fixture/ListStacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStacks)
+
+responseRegisterPublisher :: RegisterPublisherResponse -> TestTree
+responseRegisterPublisher =
+  res
+    "RegisterPublisherResponse"
+    "fixture/RegisterPublisherResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterPublisher)
+
+responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
+responseDescribeAccountLimits =
+  res
+    "DescribeAccountLimitsResponse"
+    "fixture/DescribeAccountLimitsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAccountLimits)
+
+responseDescribeStackResources :: DescribeStackResourcesResponse -> TestTree
+responseDescribeStackResources =
+  res
+    "DescribeStackResourcesResponse"
+    "fixture/DescribeStackResourcesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStackResources)
+
+responseDescribeStackInstance :: DescribeStackInstanceResponse -> TestTree
+responseDescribeStackInstance =
+  res
+    "DescribeStackInstanceResponse"
+    "fixture/DescribeStackInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStackInstance)
+
+responseCreateStack :: CreateStackResponse -> TestTree
+responseCreateStack =
+  res
+    "CreateStackResponse"
+    "fixture/CreateStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStack)
+
+responseUpdateStackSet :: UpdateStackSetResponse -> TestTree
+responseUpdateStackSet =
+  res
+    "UpdateStackSetResponse"
+    "fixture/UpdateStackSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateStackSet)
+
+responseDeleteStackSet :: DeleteStackSetResponse -> TestTree
+responseDeleteStackSet =
+  res
+    "DeleteStackSetResponse"
+    "fixture/DeleteStackSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteStackSet)
+
+responseEstimateTemplateCost :: EstimateTemplateCostResponse -> TestTree
+responseEstimateTemplateCost =
+  res
+    "EstimateTemplateCostResponse"
+    "fixture/EstimateTemplateCostResponse.proto"
+    defaultService
+    (Proxy :: Proxy EstimateTemplateCost)
+
+responseDeleteChangeSet :: DeleteChangeSetResponse -> TestTree
+responseDeleteChangeSet =
+  res
+    "DeleteChangeSetResponse"
+    "fixture/DeleteChangeSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteChangeSet)
+
+responseListStackSets :: ListStackSetsResponse -> TestTree
+responseListStackSets =
+  res
+    "ListStackSetsResponse"
+    "fixture/ListStackSetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStackSets)
+
+responseListExports :: ListExportsResponse -> TestTree
+responseListExports =
+  res
+    "ListExportsResponse"
+    "fixture/ListExportsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListExports)
+
+responseDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatusResponse -> TestTree
+responseDescribeStackDriftDetectionStatus =
+  res
+    "DescribeStackDriftDetectionStatusResponse"
+    "fixture/DescribeStackDriftDetectionStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStackDriftDetectionStatus)
+
+responseRollbackStack :: RollbackStackResponse -> TestTree
+responseRollbackStack =
+  res
+    "RollbackStackResponse"
+    "fixture/RollbackStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy RollbackStack)
+
+responseCreateStackSet :: CreateStackSetResponse -> TestTree
+responseCreateStackSet =
+  res
+    "CreateStackSetResponse"
+    "fixture/CreateStackSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStackSet)
+
+responseDeregisterType :: DeregisterTypeResponse -> TestTree
+responseDeregisterType =
+  res
+    "DeregisterTypeResponse"
+    "fixture/DeregisterTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeregisterType)
+
+responseDeactivateType :: DeactivateTypeResponse -> TestTree
+responseDeactivateType =
+  res
+    "DeactivateTypeResponse"
+    "fixture/DeactivateTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeactivateType)
+
+responseRecordHandlerProgress :: RecordHandlerProgressResponse -> TestTree
+responseRecordHandlerProgress =
+  res
+    "RecordHandlerProgressResponse"
+    "fixture/RecordHandlerProgressResponse.proto"
+    defaultService
+    (Proxy :: Proxy RecordHandlerProgress)
+
+responseListTypeVersions :: ListTypeVersionsResponse -> TestTree
+responseListTypeVersions =
+  res
+    "ListTypeVersionsResponse"
+    "fixture/ListTypeVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTypeVersions)
+
+responseSetTypeDefaultVersion :: SetTypeDefaultVersionResponse -> TestTree
+responseSetTypeDefaultVersion =
+  res
+    "SetTypeDefaultVersionResponse"
+    "fixture/SetTypeDefaultVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetTypeDefaultVersion)
+
+responseUpdateTerminationProtection :: UpdateTerminationProtectionResponse -> TestTree
+responseUpdateTerminationProtection =
+  res
+    "UpdateTerminationProtectionResponse"
+    "fixture/UpdateTerminationProtectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateTerminationProtection)
+
+responseTestType :: TestTypeResponse -> TestTree
+responseTestType =
+  res
+    "TestTypeResponse"
+    "fixture/TestTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy TestType)
+
+responseGetTemplate :: GetTemplateResponse -> TestTree
+responseGetTemplate =
+  res
+    "GetTemplateResponse"
+    "fixture/GetTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTemplate)
+
+responseDetectStackSetDrift :: DetectStackSetDriftResponse -> TestTree
+responseDetectStackSetDrift =
+  res
+    "DetectStackSetDriftResponse"
+    "fixture/DetectStackSetDriftResponse.proto"
+    defaultService
+    (Proxy :: Proxy DetectStackSetDrift)
+
+responseDetectStackResourceDrift :: DetectStackResourceDriftResponse -> TestTree
+responseDetectStackResourceDrift =
+  res
+    "DetectStackResourceDriftResponse"
+    "fixture/DetectStackResourceDriftResponse.proto"
+    defaultService
+    (Proxy :: Proxy DetectStackResourceDrift)
+
+responseDescribeChangeSet :: DescribeChangeSetResponse -> TestTree
+responseDescribeChangeSet =
+  res
+    "DescribeChangeSetResponse"
+    "fixture/DescribeChangeSetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeChangeSet)
 
 responseDescribeStackSet :: DescribeStackSetResponse -> TestTree
 responseDescribeStackSet =
@@ -1121,22 +1313,6 @@ responseRegisterType =
     defaultService
     (Proxy :: Proxy RegisterType)
 
-responsePublishType :: PublishTypeResponse -> TestTree
-responsePublishType =
-  res
-    "PublishTypeResponse"
-    "fixture/PublishTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy PublishType)
-
-responseCancelUpdateStack :: CancelUpdateStackResponse -> TestTree
-responseCancelUpdateStack =
-  res
-    "CancelUpdateStackResponse"
-    "fixture/CancelUpdateStackResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelUpdateStack)
-
 responseActivateType :: ActivateTypeResponse -> TestTree
 responseActivateType =
   res
@@ -1145,194 +1321,18 @@ responseActivateType =
     defaultService
     (Proxy :: Proxy ActivateType)
 
-responseValidateTemplate :: ValidateTemplateResponse -> TestTree
-responseValidateTemplate =
+responseStopStackSetOperation :: StopStackSetOperationResponse -> TestTree
+responseStopStackSetOperation =
   res
-    "ValidateTemplateResponse"
-    "fixture/ValidateTemplateResponse.proto"
+    "StopStackSetOperationResponse"
+    "fixture/StopStackSetOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy ValidateTemplate)
+    (Proxy :: Proxy StopStackSetOperation)
 
-responseDetectStackSetDrift :: DetectStackSetDriftResponse -> TestTree
-responseDetectStackSetDrift =
+responseDescribeStackResource :: DescribeStackResourceResponse -> TestTree
+responseDescribeStackResource =
   res
-    "DetectStackSetDriftResponse"
-    "fixture/DetectStackSetDriftResponse.proto"
+    "DescribeStackResourceResponse"
+    "fixture/DescribeStackResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DetectStackSetDrift)
-
-responseGetTemplate :: GetTemplateResponse -> TestTree
-responseGetTemplate =
-  res
-    "GetTemplateResponse"
-    "fixture/GetTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetTemplate)
-
-responseListStackInstances :: ListStackInstancesResponse -> TestTree
-responseListStackInstances =
-  res
-    "ListStackInstancesResponse"
-    "fixture/ListStackInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListStackInstances)
-
-responseContinueUpdateRollback :: ContinueUpdateRollbackResponse -> TestTree
-responseContinueUpdateRollback =
-  res
-    "ContinueUpdateRollbackResponse"
-    "fixture/ContinueUpdateRollbackResponse.proto"
-    defaultService
-    (Proxy :: Proxy ContinueUpdateRollback)
-
-responseUpdateTerminationProtection :: UpdateTerminationProtectionResponse -> TestTree
-responseUpdateTerminationProtection =
-  res
-    "UpdateTerminationProtectionResponse"
-    "fixture/UpdateTerminationProtectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateTerminationProtection)
-
-responseListTypeVersions :: ListTypeVersionsResponse -> TestTree
-responseListTypeVersions =
-  res
-    "ListTypeVersionsResponse"
-    "fixture/ListTypeVersionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTypeVersions)
-
-responseDescribePublisher :: DescribePublisherResponse -> TestTree
-responseDescribePublisher =
-  res
-    "DescribePublisherResponse"
-    "fixture/DescribePublisherResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribePublisher)
-
-responseDeactivateType :: DeactivateTypeResponse -> TestTree
-responseDeactivateType =
-  res
-    "DeactivateTypeResponse"
-    "fixture/DeactivateTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeactivateType)
-
-responseListTypeRegistrations :: ListTypeRegistrationsResponse -> TestTree
-responseListTypeRegistrations =
-  res
-    "ListTypeRegistrationsResponse"
-    "fixture/ListTypeRegistrationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTypeRegistrations)
-
-responseCreateStackSet :: CreateStackSetResponse -> TestTree
-responseCreateStackSet =
-  res
-    "CreateStackSetResponse"
-    "fixture/CreateStackSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStackSet)
-
-responseCreateChangeSet :: CreateChangeSetResponse -> TestTree
-responseCreateChangeSet =
-  res
-    "CreateChangeSetResponse"
-    "fixture/CreateChangeSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateChangeSet)
-
-responseDeregisterType :: DeregisterTypeResponse -> TestTree
-responseDeregisterType =
-  res
-    "DeregisterTypeResponse"
-    "fixture/DeregisterTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeregisterType)
-
-responseDescribeType :: DescribeTypeResponse -> TestTree
-responseDescribeType =
-  res
-    "DescribeTypeResponse"
-    "fixture/DescribeTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeType)
-
-responseListChangeSets :: ListChangeSetsResponse -> TestTree
-responseListChangeSets =
-  res
-    "ListChangeSetsResponse"
-    "fixture/ListChangeSetsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListChangeSets)
-
-responseDeleteChangeSet :: DeleteChangeSetResponse -> TestTree
-responseDeleteChangeSet =
-  res
-    "DeleteChangeSetResponse"
-    "fixture/DeleteChangeSetResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteChangeSet)
-
-responseDeleteStackInstances :: DeleteStackInstancesResponse -> TestTree
-responseDeleteStackInstances =
-  res
-    "DeleteStackInstancesResponse"
-    "fixture/DeleteStackInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteStackInstances)
-
-responseListStackResources :: ListStackResourcesResponse -> TestTree
-responseListStackResources =
-  res
-    "ListStackResourcesResponse"
-    "fixture/ListStackResourcesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListStackResources)
-
-responseUpdateStackInstances :: UpdateStackInstancesResponse -> TestTree
-responseUpdateStackInstances =
-  res
-    "UpdateStackInstancesResponse"
-    "fixture/UpdateStackInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateStackInstances)
-
-responseDescribeStackDriftDetectionStatus :: DescribeStackDriftDetectionStatusResponse -> TestTree
-responseDescribeStackDriftDetectionStatus =
-  res
-    "DescribeStackDriftDetectionStatusResponse"
-    "fixture/DescribeStackDriftDetectionStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStackDriftDetectionStatus)
-
-responseListStackSets :: ListStackSetsResponse -> TestTree
-responseListStackSets =
-  res
-    "ListStackSetsResponse"
-    "fixture/ListStackSetsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListStackSets)
-
-responseListExports :: ListExportsResponse -> TestTree
-responseListExports =
-  res
-    "ListExportsResponse"
-    "fixture/ListExportsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListExports)
-
-responseDescribeStackResources :: DescribeStackResourcesResponse -> TestTree
-responseDescribeStackResources =
-  res
-    "DescribeStackResourcesResponse"
-    "fixture/DescribeStackResourcesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeStackResources)
-
-responseBatchDescribeTypeConfigurations :: BatchDescribeTypeConfigurationsResponse -> TestTree
-responseBatchDescribeTypeConfigurations =
-  res
-    "BatchDescribeTypeConfigurationsResponse"
-    "fixture/BatchDescribeTypeConfigurationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchDescribeTypeConfigurations)
+    (Proxy :: Proxy DescribeStackResource)

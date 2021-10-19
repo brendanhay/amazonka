@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDolbyVisionLevel6Metadata' smart constructor.
 data DolbyVisionLevel6Metadata = DolbyVisionLevel6Metadata'
-  { -- | Maximum Content Light Level. Static HDR metadata that corresponds to the
-    -- brightest pixel in the entire stream. Measured in nits.
-    maxCll :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds
+  { -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds
     -- to the highest frame-average brightness in the entire stream. Measured
     -- in nits.
-    maxFall :: Prelude.Maybe Prelude.Natural
+    maxFall :: Prelude.Maybe Prelude.Natural,
+    -- | Maximum Content Light Level. Static HDR metadata that corresponds to the
+    -- brightest pixel in the entire stream. Measured in nits.
+    maxCll :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,20 @@ data DolbyVisionLevel6Metadata = DolbyVisionLevel6Metadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxCll', 'dolbyVisionLevel6Metadata_maxCll' - Maximum Content Light Level. Static HDR metadata that corresponds to the
--- brightest pixel in the entire stream. Measured in nits.
---
 -- 'maxFall', 'dolbyVisionLevel6Metadata_maxFall' - Maximum Frame-Average Light Level. Static HDR metadata that corresponds
 -- to the highest frame-average brightness in the entire stream. Measured
 -- in nits.
+--
+-- 'maxCll', 'dolbyVisionLevel6Metadata_maxCll' - Maximum Content Light Level. Static HDR metadata that corresponds to the
+-- brightest pixel in the entire stream. Measured in nits.
 newDolbyVisionLevel6Metadata ::
   DolbyVisionLevel6Metadata
 newDolbyVisionLevel6Metadata =
   DolbyVisionLevel6Metadata'
-    { maxCll =
+    { maxFall =
         Prelude.Nothing,
-      maxFall = Prelude.Nothing
+      maxCll = Prelude.Nothing
     }
-
--- | Maximum Content Light Level. Static HDR metadata that corresponds to the
--- brightest pixel in the entire stream. Measured in nits.
-dolbyVisionLevel6Metadata_maxCll :: Lens.Lens' DolbyVisionLevel6Metadata (Prelude.Maybe Prelude.Natural)
-dolbyVisionLevel6Metadata_maxCll = Lens.lens (\DolbyVisionLevel6Metadata' {maxCll} -> maxCll) (\s@DolbyVisionLevel6Metadata' {} a -> s {maxCll = a} :: DolbyVisionLevel6Metadata)
 
 -- | Maximum Frame-Average Light Level. Static HDR metadata that corresponds
 -- to the highest frame-average brightness in the entire stream. Measured
@@ -72,14 +67,19 @@ dolbyVisionLevel6Metadata_maxCll = Lens.lens (\DolbyVisionLevel6Metadata' {maxCl
 dolbyVisionLevel6Metadata_maxFall :: Lens.Lens' DolbyVisionLevel6Metadata (Prelude.Maybe Prelude.Natural)
 dolbyVisionLevel6Metadata_maxFall = Lens.lens (\DolbyVisionLevel6Metadata' {maxFall} -> maxFall) (\s@DolbyVisionLevel6Metadata' {} a -> s {maxFall = a} :: DolbyVisionLevel6Metadata)
 
+-- | Maximum Content Light Level. Static HDR metadata that corresponds to the
+-- brightest pixel in the entire stream. Measured in nits.
+dolbyVisionLevel6Metadata_maxCll :: Lens.Lens' DolbyVisionLevel6Metadata (Prelude.Maybe Prelude.Natural)
+dolbyVisionLevel6Metadata_maxCll = Lens.lens (\DolbyVisionLevel6Metadata' {maxCll} -> maxCll) (\s@DolbyVisionLevel6Metadata' {} a -> s {maxCll = a} :: DolbyVisionLevel6Metadata)
+
 instance Core.FromJSON DolbyVisionLevel6Metadata where
   parseJSON =
     Core.withObject
       "DolbyVisionLevel6Metadata"
       ( \x ->
           DolbyVisionLevel6Metadata'
-            Prelude.<$> (x Core..:? "maxCll")
-            Prelude.<*> (x Core..:? "maxFall")
+            Prelude.<$> (x Core..:? "maxFall")
+            Prelude.<*> (x Core..:? "maxCll")
       )
 
 instance Prelude.Hashable DolbyVisionLevel6Metadata
@@ -90,7 +90,7 @@ instance Core.ToJSON DolbyVisionLevel6Metadata where
   toJSON DolbyVisionLevel6Metadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("maxCll" Core..=) Prelude.<$> maxCll,
-            ("maxFall" Core..=) Prelude.<$> maxFall
+          [ ("maxFall" Core..=) Prelude.<$> maxFall,
+            ("maxCll" Core..=) Prelude.<$> maxCll
           ]
       )

@@ -27,53 +27,53 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReservationAggregates' smart constructor.
 data ReservationAggregates = ReservationAggregates'
-  { -- | The number of reservation hours that you didn\'t use.
-    unusedHours :: Prelude.Maybe Prelude.Text,
-    -- | The realized savings because of purchasing and using a reservation.
-    realizedSavings :: Prelude.Maybe Prelude.Text,
+  { -- | How many reservation hours that you purchased.
+    purchasedHours :: Prelude.Maybe Prelude.Text,
     -- | The total number of reservation hours that you used.
     totalActualHours :: Prelude.Maybe Prelude.Text,
-    -- | How many reservation hours that you purchased.
-    purchasedHours :: Prelude.Maybe Prelude.Text,
-    -- | The unrealized savings because of purchasing and using a reservation.
-    unrealizedSavings :: Prelude.Maybe Prelude.Text,
-    -- | How much your reservation costs if charged On-Demand rates.
-    onDemandCostOfRIHoursUsed :: Prelude.Maybe Prelude.Text,
-    -- | The monthly cost of your reservation. It\'s amortized over the
-    -- reservation period.
-    amortizedRecurringFee :: Prelude.Maybe Prelude.Text,
-    -- | The cost of unused hours for your reservation.
-    rICostForUnusedHours :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of reservation time that you used.
+    utilizationPercentage :: Prelude.Maybe Prelude.Text,
+    -- | The total cost of your reservation. It\'s amortized over the reservation
+    -- period.
+    totalAmortizedFee :: Prelude.Maybe Prelude.Text,
     -- | The number of Amazon EC2 reservation hours that you didn\'t use. It\'s
     -- converted to normalized units. Normalized units are available only for
     -- Amazon EC2 usage after November 11, 2017.
     unusedUnits :: Prelude.Maybe Prelude.Text,
-    -- | The total number of Amazon EC2 reservation hours that you used. It\'s
-    -- converted to normalized units. Normalized units are available only for
-    -- Amazon EC2 usage after November 11, 2017.
-    totalActualUnits :: Prelude.Maybe Prelude.Text,
-    -- | How much you might save if you use your entire reservation.
-    totalPotentialRISavings :: Prelude.Maybe Prelude.Text,
-    -- | The total cost of your reservation. It\'s amortized over the reservation
-    -- period.
-    totalAmortizedFee :: Prelude.Maybe Prelude.Text,
-    -- | How much you saved due to purchasing and utilizing reservation. Amazon
-    -- Web Services calculates this by subtracting @TotalAmortizedFee@ from
-    -- @OnDemandCostOfRIHoursUsed@.
-    netRISavings :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of Amazon EC2 reservation time that you used. It\'s
-    -- converted to normalized units. Normalized units are available only for
-    -- Amazon EC2 usage after November 11, 2017.
-    utilizationPercentageInUnits :: Prelude.Maybe Prelude.Text,
-    -- | The upfront cost of your reservation. It\'s amortized over the
-    -- reservation period.
-    amortizedUpfrontFee :: Prelude.Maybe Prelude.Text,
+    -- | The unrealized savings because of purchasing and using a reservation.
+    unrealizedSavings :: Prelude.Maybe Prelude.Text,
+    -- | The cost of unused hours for your reservation.
+    rICostForUnusedHours :: Prelude.Maybe Prelude.Text,
+    -- | The number of reservation hours that you didn\'t use.
+    unusedHours :: Prelude.Maybe Prelude.Text,
+    -- | The realized savings because of purchasing and using a reservation.
+    realizedSavings :: Prelude.Maybe Prelude.Text,
     -- | The number of Amazon EC2 reservation hours that you purchased. It\'s
     -- converted to normalized units. Normalized units are available only for
     -- Amazon EC2 usage after November 11, 2017.
     purchasedUnits :: Prelude.Maybe Prelude.Text,
-    -- | The percentage of reservation time that you used.
-    utilizationPercentage :: Prelude.Maybe Prelude.Text
+    -- | The upfront cost of your reservation. It\'s amortized over the
+    -- reservation period.
+    amortizedUpfrontFee :: Prelude.Maybe Prelude.Text,
+    -- | The monthly cost of your reservation. It\'s amortized over the
+    -- reservation period.
+    amortizedRecurringFee :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of Amazon EC2 reservation time that you used. It\'s
+    -- converted to normalized units. Normalized units are available only for
+    -- Amazon EC2 usage after November 11, 2017.
+    utilizationPercentageInUnits :: Prelude.Maybe Prelude.Text,
+    -- | How much you saved due to purchasing and utilizing reservation. Amazon
+    -- Web Services calculates this by subtracting @TotalAmortizedFee@ from
+    -- @OnDemandCostOfRIHoursUsed@.
+    netRISavings :: Prelude.Maybe Prelude.Text,
+    -- | How much your reservation costs if charged On-Demand rates.
+    onDemandCostOfRIHoursUsed :: Prelude.Maybe Prelude.Text,
+    -- | How much you might save if you use your entire reservation.
+    totalPotentialRISavings :: Prelude.Maybe Prelude.Text,
+    -- | The total number of Amazon EC2 reservation hours that you used. It\'s
+    -- converted to normalized units. Normalized units are available only for
+    -- Amazon EC2 usage after November 11, 2017.
+    totalActualUnits :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,75 +85,106 @@ data ReservationAggregates = ReservationAggregates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unusedHours', 'reservationAggregates_unusedHours' - The number of reservation hours that you didn\'t use.
---
--- 'realizedSavings', 'reservationAggregates_realizedSavings' - The realized savings because of purchasing and using a reservation.
+-- 'purchasedHours', 'reservationAggregates_purchasedHours' - How many reservation hours that you purchased.
 --
 -- 'totalActualHours', 'reservationAggregates_totalActualHours' - The total number of reservation hours that you used.
 --
--- 'purchasedHours', 'reservationAggregates_purchasedHours' - How many reservation hours that you purchased.
+-- 'utilizationPercentage', 'reservationAggregates_utilizationPercentage' - The percentage of reservation time that you used.
 --
--- 'unrealizedSavings', 'reservationAggregates_unrealizedSavings' - The unrealized savings because of purchasing and using a reservation.
---
--- 'onDemandCostOfRIHoursUsed', 'reservationAggregates_onDemandCostOfRIHoursUsed' - How much your reservation costs if charged On-Demand rates.
---
--- 'amortizedRecurringFee', 'reservationAggregates_amortizedRecurringFee' - The monthly cost of your reservation. It\'s amortized over the
--- reservation period.
---
--- 'rICostForUnusedHours', 'reservationAggregates_rICostForUnusedHours' - The cost of unused hours for your reservation.
+-- 'totalAmortizedFee', 'reservationAggregates_totalAmortizedFee' - The total cost of your reservation. It\'s amortized over the reservation
+-- period.
 --
 -- 'unusedUnits', 'reservationAggregates_unusedUnits' - The number of Amazon EC2 reservation hours that you didn\'t use. It\'s
 -- converted to normalized units. Normalized units are available only for
 -- Amazon EC2 usage after November 11, 2017.
 --
--- 'totalActualUnits', 'reservationAggregates_totalActualUnits' - The total number of Amazon EC2 reservation hours that you used. It\'s
--- converted to normalized units. Normalized units are available only for
--- Amazon EC2 usage after November 11, 2017.
+-- 'unrealizedSavings', 'reservationAggregates_unrealizedSavings' - The unrealized savings because of purchasing and using a reservation.
 --
--- 'totalPotentialRISavings', 'reservationAggregates_totalPotentialRISavings' - How much you might save if you use your entire reservation.
+-- 'rICostForUnusedHours', 'reservationAggregates_rICostForUnusedHours' - The cost of unused hours for your reservation.
 --
--- 'totalAmortizedFee', 'reservationAggregates_totalAmortizedFee' - The total cost of your reservation. It\'s amortized over the reservation
--- period.
+-- 'unusedHours', 'reservationAggregates_unusedHours' - The number of reservation hours that you didn\'t use.
 --
--- 'netRISavings', 'reservationAggregates_netRISavings' - How much you saved due to purchasing and utilizing reservation. Amazon
--- Web Services calculates this by subtracting @TotalAmortizedFee@ from
--- @OnDemandCostOfRIHoursUsed@.
+-- 'realizedSavings', 'reservationAggregates_realizedSavings' - The realized savings because of purchasing and using a reservation.
 --
--- 'utilizationPercentageInUnits', 'reservationAggregates_utilizationPercentageInUnits' - The percentage of Amazon EC2 reservation time that you used. It\'s
+-- 'purchasedUnits', 'reservationAggregates_purchasedUnits' - The number of Amazon EC2 reservation hours that you purchased. It\'s
 -- converted to normalized units. Normalized units are available only for
 -- Amazon EC2 usage after November 11, 2017.
 --
 -- 'amortizedUpfrontFee', 'reservationAggregates_amortizedUpfrontFee' - The upfront cost of your reservation. It\'s amortized over the
 -- reservation period.
 --
--- 'purchasedUnits', 'reservationAggregates_purchasedUnits' - The number of Amazon EC2 reservation hours that you purchased. It\'s
+-- 'amortizedRecurringFee', 'reservationAggregates_amortizedRecurringFee' - The monthly cost of your reservation. It\'s amortized over the
+-- reservation period.
+--
+-- 'utilizationPercentageInUnits', 'reservationAggregates_utilizationPercentageInUnits' - The percentage of Amazon EC2 reservation time that you used. It\'s
 -- converted to normalized units. Normalized units are available only for
 -- Amazon EC2 usage after November 11, 2017.
 --
--- 'utilizationPercentage', 'reservationAggregates_utilizationPercentage' - The percentage of reservation time that you used.
+-- 'netRISavings', 'reservationAggregates_netRISavings' - How much you saved due to purchasing and utilizing reservation. Amazon
+-- Web Services calculates this by subtracting @TotalAmortizedFee@ from
+-- @OnDemandCostOfRIHoursUsed@.
+--
+-- 'onDemandCostOfRIHoursUsed', 'reservationAggregates_onDemandCostOfRIHoursUsed' - How much your reservation costs if charged On-Demand rates.
+--
+-- 'totalPotentialRISavings', 'reservationAggregates_totalPotentialRISavings' - How much you might save if you use your entire reservation.
+--
+-- 'totalActualUnits', 'reservationAggregates_totalActualUnits' - The total number of Amazon EC2 reservation hours that you used. It\'s
+-- converted to normalized units. Normalized units are available only for
+-- Amazon EC2 usage after November 11, 2017.
 newReservationAggregates ::
   ReservationAggregates
 newReservationAggregates =
   ReservationAggregates'
-    { unusedHours =
+    { purchasedHours =
         Prelude.Nothing,
-      realizedSavings = Prelude.Nothing,
       totalActualHours = Prelude.Nothing,
-      purchasedHours = Prelude.Nothing,
-      unrealizedSavings = Prelude.Nothing,
-      onDemandCostOfRIHoursUsed = Prelude.Nothing,
-      amortizedRecurringFee = Prelude.Nothing,
-      rICostForUnusedHours = Prelude.Nothing,
-      unusedUnits = Prelude.Nothing,
-      totalActualUnits = Prelude.Nothing,
-      totalPotentialRISavings = Prelude.Nothing,
+      utilizationPercentage = Prelude.Nothing,
       totalAmortizedFee = Prelude.Nothing,
-      netRISavings = Prelude.Nothing,
-      utilizationPercentageInUnits = Prelude.Nothing,
-      amortizedUpfrontFee = Prelude.Nothing,
+      unusedUnits = Prelude.Nothing,
+      unrealizedSavings = Prelude.Nothing,
+      rICostForUnusedHours = Prelude.Nothing,
+      unusedHours = Prelude.Nothing,
+      realizedSavings = Prelude.Nothing,
       purchasedUnits = Prelude.Nothing,
-      utilizationPercentage = Prelude.Nothing
+      amortizedUpfrontFee = Prelude.Nothing,
+      amortizedRecurringFee = Prelude.Nothing,
+      utilizationPercentageInUnits = Prelude.Nothing,
+      netRISavings = Prelude.Nothing,
+      onDemandCostOfRIHoursUsed = Prelude.Nothing,
+      totalPotentialRISavings = Prelude.Nothing,
+      totalActualUnits = Prelude.Nothing
     }
+
+-- | How many reservation hours that you purchased.
+reservationAggregates_purchasedHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_purchasedHours = Lens.lens (\ReservationAggregates' {purchasedHours} -> purchasedHours) (\s@ReservationAggregates' {} a -> s {purchasedHours = a} :: ReservationAggregates)
+
+-- | The total number of reservation hours that you used.
+reservationAggregates_totalActualHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_totalActualHours = Lens.lens (\ReservationAggregates' {totalActualHours} -> totalActualHours) (\s@ReservationAggregates' {} a -> s {totalActualHours = a} :: ReservationAggregates)
+
+-- | The percentage of reservation time that you used.
+reservationAggregates_utilizationPercentage :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_utilizationPercentage = Lens.lens (\ReservationAggregates' {utilizationPercentage} -> utilizationPercentage) (\s@ReservationAggregates' {} a -> s {utilizationPercentage = a} :: ReservationAggregates)
+
+-- | The total cost of your reservation. It\'s amortized over the reservation
+-- period.
+reservationAggregates_totalAmortizedFee :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_totalAmortizedFee = Lens.lens (\ReservationAggregates' {totalAmortizedFee} -> totalAmortizedFee) (\s@ReservationAggregates' {} a -> s {totalAmortizedFee = a} :: ReservationAggregates)
+
+-- | The number of Amazon EC2 reservation hours that you didn\'t use. It\'s
+-- converted to normalized units. Normalized units are available only for
+-- Amazon EC2 usage after November 11, 2017.
+reservationAggregates_unusedUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_unusedUnits = Lens.lens (\ReservationAggregates' {unusedUnits} -> unusedUnits) (\s@ReservationAggregates' {} a -> s {unusedUnits = a} :: ReservationAggregates)
+
+-- | The unrealized savings because of purchasing and using a reservation.
+reservationAggregates_unrealizedSavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_unrealizedSavings = Lens.lens (\ReservationAggregates' {unrealizedSavings} -> unrealizedSavings) (\s@ReservationAggregates' {} a -> s {unrealizedSavings = a} :: ReservationAggregates)
+
+-- | The cost of unused hours for your reservation.
+reservationAggregates_rICostForUnusedHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_rICostForUnusedHours = Lens.lens (\ReservationAggregates' {rICostForUnusedHours} -> rICostForUnusedHours) (\s@ReservationAggregates' {} a -> s {rICostForUnusedHours = a} :: ReservationAggregates)
 
 -- | The number of reservation hours that you didn\'t use.
 reservationAggregates_unusedHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
@@ -163,57 +194,21 @@ reservationAggregates_unusedHours = Lens.lens (\ReservationAggregates' {unusedHo
 reservationAggregates_realizedSavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
 reservationAggregates_realizedSavings = Lens.lens (\ReservationAggregates' {realizedSavings} -> realizedSavings) (\s@ReservationAggregates' {} a -> s {realizedSavings = a} :: ReservationAggregates)
 
--- | The total number of reservation hours that you used.
-reservationAggregates_totalActualHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_totalActualHours = Lens.lens (\ReservationAggregates' {totalActualHours} -> totalActualHours) (\s@ReservationAggregates' {} a -> s {totalActualHours = a} :: ReservationAggregates)
+-- | The number of Amazon EC2 reservation hours that you purchased. It\'s
+-- converted to normalized units. Normalized units are available only for
+-- Amazon EC2 usage after November 11, 2017.
+reservationAggregates_purchasedUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_purchasedUnits = Lens.lens (\ReservationAggregates' {purchasedUnits} -> purchasedUnits) (\s@ReservationAggregates' {} a -> s {purchasedUnits = a} :: ReservationAggregates)
 
--- | How many reservation hours that you purchased.
-reservationAggregates_purchasedHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_purchasedHours = Lens.lens (\ReservationAggregates' {purchasedHours} -> purchasedHours) (\s@ReservationAggregates' {} a -> s {purchasedHours = a} :: ReservationAggregates)
-
--- | The unrealized savings because of purchasing and using a reservation.
-reservationAggregates_unrealizedSavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_unrealizedSavings = Lens.lens (\ReservationAggregates' {unrealizedSavings} -> unrealizedSavings) (\s@ReservationAggregates' {} a -> s {unrealizedSavings = a} :: ReservationAggregates)
-
--- | How much your reservation costs if charged On-Demand rates.
-reservationAggregates_onDemandCostOfRIHoursUsed :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_onDemandCostOfRIHoursUsed = Lens.lens (\ReservationAggregates' {onDemandCostOfRIHoursUsed} -> onDemandCostOfRIHoursUsed) (\s@ReservationAggregates' {} a -> s {onDemandCostOfRIHoursUsed = a} :: ReservationAggregates)
+-- | The upfront cost of your reservation. It\'s amortized over the
+-- reservation period.
+reservationAggregates_amortizedUpfrontFee :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_amortizedUpfrontFee = Lens.lens (\ReservationAggregates' {amortizedUpfrontFee} -> amortizedUpfrontFee) (\s@ReservationAggregates' {} a -> s {amortizedUpfrontFee = a} :: ReservationAggregates)
 
 -- | The monthly cost of your reservation. It\'s amortized over the
 -- reservation period.
 reservationAggregates_amortizedRecurringFee :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
 reservationAggregates_amortizedRecurringFee = Lens.lens (\ReservationAggregates' {amortizedRecurringFee} -> amortizedRecurringFee) (\s@ReservationAggregates' {} a -> s {amortizedRecurringFee = a} :: ReservationAggregates)
-
--- | The cost of unused hours for your reservation.
-reservationAggregates_rICostForUnusedHours :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_rICostForUnusedHours = Lens.lens (\ReservationAggregates' {rICostForUnusedHours} -> rICostForUnusedHours) (\s@ReservationAggregates' {} a -> s {rICostForUnusedHours = a} :: ReservationAggregates)
-
--- | The number of Amazon EC2 reservation hours that you didn\'t use. It\'s
--- converted to normalized units. Normalized units are available only for
--- Amazon EC2 usage after November 11, 2017.
-reservationAggregates_unusedUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_unusedUnits = Lens.lens (\ReservationAggregates' {unusedUnits} -> unusedUnits) (\s@ReservationAggregates' {} a -> s {unusedUnits = a} :: ReservationAggregates)
-
--- | The total number of Amazon EC2 reservation hours that you used. It\'s
--- converted to normalized units. Normalized units are available only for
--- Amazon EC2 usage after November 11, 2017.
-reservationAggregates_totalActualUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_totalActualUnits = Lens.lens (\ReservationAggregates' {totalActualUnits} -> totalActualUnits) (\s@ReservationAggregates' {} a -> s {totalActualUnits = a} :: ReservationAggregates)
-
--- | How much you might save if you use your entire reservation.
-reservationAggregates_totalPotentialRISavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_totalPotentialRISavings = Lens.lens (\ReservationAggregates' {totalPotentialRISavings} -> totalPotentialRISavings) (\s@ReservationAggregates' {} a -> s {totalPotentialRISavings = a} :: ReservationAggregates)
-
--- | The total cost of your reservation. It\'s amortized over the reservation
--- period.
-reservationAggregates_totalAmortizedFee :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_totalAmortizedFee = Lens.lens (\ReservationAggregates' {totalAmortizedFee} -> totalAmortizedFee) (\s@ReservationAggregates' {} a -> s {totalAmortizedFee = a} :: ReservationAggregates)
-
--- | How much you saved due to purchasing and utilizing reservation. Amazon
--- Web Services calculates this by subtracting @TotalAmortizedFee@ from
--- @OnDemandCostOfRIHoursUsed@.
-reservationAggregates_netRISavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_netRISavings = Lens.lens (\ReservationAggregates' {netRISavings} -> netRISavings) (\s@ReservationAggregates' {} a -> s {netRISavings = a} :: ReservationAggregates)
 
 -- | The percentage of Amazon EC2 reservation time that you used. It\'s
 -- converted to normalized units. Normalized units are available only for
@@ -221,20 +216,25 @@ reservationAggregates_netRISavings = Lens.lens (\ReservationAggregates' {netRISa
 reservationAggregates_utilizationPercentageInUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
 reservationAggregates_utilizationPercentageInUnits = Lens.lens (\ReservationAggregates' {utilizationPercentageInUnits} -> utilizationPercentageInUnits) (\s@ReservationAggregates' {} a -> s {utilizationPercentageInUnits = a} :: ReservationAggregates)
 
--- | The upfront cost of your reservation. It\'s amortized over the
--- reservation period.
-reservationAggregates_amortizedUpfrontFee :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_amortizedUpfrontFee = Lens.lens (\ReservationAggregates' {amortizedUpfrontFee} -> amortizedUpfrontFee) (\s@ReservationAggregates' {} a -> s {amortizedUpfrontFee = a} :: ReservationAggregates)
+-- | How much you saved due to purchasing and utilizing reservation. Amazon
+-- Web Services calculates this by subtracting @TotalAmortizedFee@ from
+-- @OnDemandCostOfRIHoursUsed@.
+reservationAggregates_netRISavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_netRISavings = Lens.lens (\ReservationAggregates' {netRISavings} -> netRISavings) (\s@ReservationAggregates' {} a -> s {netRISavings = a} :: ReservationAggregates)
 
--- | The number of Amazon EC2 reservation hours that you purchased. It\'s
+-- | How much your reservation costs if charged On-Demand rates.
+reservationAggregates_onDemandCostOfRIHoursUsed :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_onDemandCostOfRIHoursUsed = Lens.lens (\ReservationAggregates' {onDemandCostOfRIHoursUsed} -> onDemandCostOfRIHoursUsed) (\s@ReservationAggregates' {} a -> s {onDemandCostOfRIHoursUsed = a} :: ReservationAggregates)
+
+-- | How much you might save if you use your entire reservation.
+reservationAggregates_totalPotentialRISavings :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_totalPotentialRISavings = Lens.lens (\ReservationAggregates' {totalPotentialRISavings} -> totalPotentialRISavings) (\s@ReservationAggregates' {} a -> s {totalPotentialRISavings = a} :: ReservationAggregates)
+
+-- | The total number of Amazon EC2 reservation hours that you used. It\'s
 -- converted to normalized units. Normalized units are available only for
 -- Amazon EC2 usage after November 11, 2017.
-reservationAggregates_purchasedUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_purchasedUnits = Lens.lens (\ReservationAggregates' {purchasedUnits} -> purchasedUnits) (\s@ReservationAggregates' {} a -> s {purchasedUnits = a} :: ReservationAggregates)
-
--- | The percentage of reservation time that you used.
-reservationAggregates_utilizationPercentage :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
-reservationAggregates_utilizationPercentage = Lens.lens (\ReservationAggregates' {utilizationPercentage} -> utilizationPercentage) (\s@ReservationAggregates' {} a -> s {utilizationPercentage = a} :: ReservationAggregates)
+reservationAggregates_totalActualUnits :: Lens.Lens' ReservationAggregates (Prelude.Maybe Prelude.Text)
+reservationAggregates_totalActualUnits = Lens.lens (\ReservationAggregates' {totalActualUnits} -> totalActualUnits) (\s@ReservationAggregates' {} a -> s {totalActualUnits = a} :: ReservationAggregates)
 
 instance Core.FromJSON ReservationAggregates where
   parseJSON =
@@ -242,23 +242,23 @@ instance Core.FromJSON ReservationAggregates where
       "ReservationAggregates"
       ( \x ->
           ReservationAggregates'
-            Prelude.<$> (x Core..:? "UnusedHours")
-            Prelude.<*> (x Core..:? "RealizedSavings")
+            Prelude.<$> (x Core..:? "PurchasedHours")
             Prelude.<*> (x Core..:? "TotalActualHours")
-            Prelude.<*> (x Core..:? "PurchasedHours")
-            Prelude.<*> (x Core..:? "UnrealizedSavings")
-            Prelude.<*> (x Core..:? "OnDemandCostOfRIHoursUsed")
-            Prelude.<*> (x Core..:? "AmortizedRecurringFee")
-            Prelude.<*> (x Core..:? "RICostForUnusedHours")
-            Prelude.<*> (x Core..:? "UnusedUnits")
-            Prelude.<*> (x Core..:? "TotalActualUnits")
-            Prelude.<*> (x Core..:? "TotalPotentialRISavings")
-            Prelude.<*> (x Core..:? "TotalAmortizedFee")
-            Prelude.<*> (x Core..:? "NetRISavings")
-            Prelude.<*> (x Core..:? "UtilizationPercentageInUnits")
-            Prelude.<*> (x Core..:? "AmortizedUpfrontFee")
-            Prelude.<*> (x Core..:? "PurchasedUnits")
             Prelude.<*> (x Core..:? "UtilizationPercentage")
+            Prelude.<*> (x Core..:? "TotalAmortizedFee")
+            Prelude.<*> (x Core..:? "UnusedUnits")
+            Prelude.<*> (x Core..:? "UnrealizedSavings")
+            Prelude.<*> (x Core..:? "RICostForUnusedHours")
+            Prelude.<*> (x Core..:? "UnusedHours")
+            Prelude.<*> (x Core..:? "RealizedSavings")
+            Prelude.<*> (x Core..:? "PurchasedUnits")
+            Prelude.<*> (x Core..:? "AmortizedUpfrontFee")
+            Prelude.<*> (x Core..:? "AmortizedRecurringFee")
+            Prelude.<*> (x Core..:? "UtilizationPercentageInUnits")
+            Prelude.<*> (x Core..:? "NetRISavings")
+            Prelude.<*> (x Core..:? "OnDemandCostOfRIHoursUsed")
+            Prelude.<*> (x Core..:? "TotalPotentialRISavings")
+            Prelude.<*> (x Core..:? "TotalActualUnits")
       )
 
 instance Prelude.Hashable ReservationAggregates

@@ -228,7 +228,7 @@ getRelationalDatabasesResponse_nextPageToken = Lens.lens (\GetRelationalDatabase
 -- | An object describing the result of your get relational databases
 -- request.
 getRelationalDatabasesResponse_relationalDatabases :: Lens.Lens' GetRelationalDatabasesResponse (Prelude.Maybe [RelationalDatabase])
-getRelationalDatabasesResponse_relationalDatabases = Lens.lens (\GetRelationalDatabasesResponse' {relationalDatabases} -> relationalDatabases) (\s@GetRelationalDatabasesResponse' {} a -> s {relationalDatabases = a} :: GetRelationalDatabasesResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabasesResponse_relationalDatabases = Lens.lens (\GetRelationalDatabasesResponse' {relationalDatabases} -> relationalDatabases) (\s@GetRelationalDatabasesResponse' {} a -> s {relationalDatabases = a} :: GetRelationalDatabasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRelationalDatabasesResponse_httpStatus :: Lens.Lens' GetRelationalDatabasesResponse Prelude.Int

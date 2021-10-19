@@ -42,8 +42,8 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     newRequestEnvironmentInfo,
 
     -- * Request Lenses
-    requestEnvironmentInfo_environmentId,
     requestEnvironmentInfo_environmentName,
+    requestEnvironmentInfo_environmentId,
     requestEnvironmentInfo_infoType,
 
     -- * Destructuring the Response
@@ -64,16 +64,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRequestEnvironmentInfo' smart constructor.
 data RequestEnvironmentInfo = RequestEnvironmentInfo'
-  { -- | The ID of the environment of the requested data.
-    --
-    -- If no such environment is found, @RequestEnvironmentInfo@ returns an
-    -- @InvalidParameterValue@ error.
-    --
-    -- Condition: You must specify either this or an EnvironmentName, or both.
-    -- If you do not specify either, AWS Elastic Beanstalk returns
-    -- @MissingRequiredParameter@ error.
-    environmentId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the environment of the requested data.
+  { -- | The name of the environment of the requested data.
     --
     -- If no such environment is found, @RequestEnvironmentInfo@ returns an
     -- @InvalidParameterValue@ error.
@@ -82,6 +73,15 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo'
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
     environmentName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the environment of the requested data.
+    --
+    -- If no such environment is found, @RequestEnvironmentInfo@ returns an
+    -- @InvalidParameterValue@ error.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both.
+    -- If you do not specify either, AWS Elastic Beanstalk returns
+    -- @MissingRequiredParameter@ error.
+    environmentId :: Prelude.Maybe Prelude.Text,
     -- | The type of information to request.
     infoType :: EnvironmentInfoType
   }
@@ -95,15 +95,6 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentId', 'requestEnvironmentInfo_environmentId' - The ID of the environment of the requested data.
---
--- If no such environment is found, @RequestEnvironmentInfo@ returns an
--- @InvalidParameterValue@ error.
---
--- Condition: You must specify either this or an EnvironmentName, or both.
--- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
---
 -- 'environmentName', 'requestEnvironmentInfo_environmentName' - The name of the environment of the requested data.
 --
 -- If no such environment is found, @RequestEnvironmentInfo@ returns an
@@ -113,20 +104,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo'
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
 --
--- 'infoType', 'requestEnvironmentInfo_infoType' - The type of information to request.
-newRequestEnvironmentInfo ::
-  -- | 'infoType'
-  EnvironmentInfoType ->
-  RequestEnvironmentInfo
-newRequestEnvironmentInfo pInfoType_ =
-  RequestEnvironmentInfo'
-    { environmentId =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      infoType = pInfoType_
-    }
-
--- | The ID of the environment of the requested data.
+-- 'environmentId', 'requestEnvironmentInfo_environmentId' - The ID of the environment of the requested data.
 --
 -- If no such environment is found, @RequestEnvironmentInfo@ returns an
 -- @InvalidParameterValue@ error.
@@ -134,8 +112,19 @@ newRequestEnvironmentInfo pInfoType_ =
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-requestEnvironmentInfo_environmentId :: Lens.Lens' RequestEnvironmentInfo (Prelude.Maybe Prelude.Text)
-requestEnvironmentInfo_environmentId = Lens.lens (\RequestEnvironmentInfo' {environmentId} -> environmentId) (\s@RequestEnvironmentInfo' {} a -> s {environmentId = a} :: RequestEnvironmentInfo)
+--
+-- 'infoType', 'requestEnvironmentInfo_infoType' - The type of information to request.
+newRequestEnvironmentInfo ::
+  -- | 'infoType'
+  EnvironmentInfoType ->
+  RequestEnvironmentInfo
+newRequestEnvironmentInfo pInfoType_ =
+  RequestEnvironmentInfo'
+    { environmentName =
+        Prelude.Nothing,
+      environmentId = Prelude.Nothing,
+      infoType = pInfoType_
+    }
 
 -- | The name of the environment of the requested data.
 --
@@ -147,6 +136,17 @@ requestEnvironmentInfo_environmentId = Lens.lens (\RequestEnvironmentInfo' {envi
 -- @MissingRequiredParameter@ error.
 requestEnvironmentInfo_environmentName :: Lens.Lens' RequestEnvironmentInfo (Prelude.Maybe Prelude.Text)
 requestEnvironmentInfo_environmentName = Lens.lens (\RequestEnvironmentInfo' {environmentName} -> environmentName) (\s@RequestEnvironmentInfo' {} a -> s {environmentName = a} :: RequestEnvironmentInfo)
+
+-- | The ID of the environment of the requested data.
+--
+-- If no such environment is found, @RequestEnvironmentInfo@ returns an
+-- @InvalidParameterValue@ error.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+requestEnvironmentInfo_environmentId :: Lens.Lens' RequestEnvironmentInfo (Prelude.Maybe Prelude.Text)
+requestEnvironmentInfo_environmentId = Lens.lens (\RequestEnvironmentInfo' {environmentId} -> environmentId) (\s@RequestEnvironmentInfo' {} a -> s {environmentId = a} :: RequestEnvironmentInfo)
 
 -- | The type of information to request.
 requestEnvironmentInfo_infoType :: Lens.Lens' RequestEnvironmentInfo EnvironmentInfoType
@@ -178,8 +178,8 @@ instance Core.ToQuery RequestEnvironmentInfo where
           Core.=: ("RequestEnvironmentInfo" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentId" Core.=: environmentId,
         "EnvironmentName" Core.=: environmentName,
+        "EnvironmentId" Core.=: environmentId,
         "InfoType" Core.=: infoType
       ]
 

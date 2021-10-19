@@ -32,18 +32,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchListIncomingTypedLinks' smart constructor.
 data BatchListIncomingTypedLinks = BatchListIncomingTypedLinks'
-  { -- | The pagination token.
+  { -- | Provides range filters for multiple attributes. When providing ranges to
+    -- typed link selection, any inexact ranges must be specified at the end.
+    -- Any attributes that do not have a range specified are presumed to match
+    -- the entire range.
+    filterAttributeRanges :: Prelude.Maybe [TypedLinkAttributeRange],
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters are interpreted in the order of the attributes on the typed link
     -- facet, not the order in which they are supplied to any API calls.
     filterTypedLink :: Prelude.Maybe TypedLinkSchemaAndFacetName,
     -- | The maximum number of results to retrieve.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Provides range filters for multiple attributes. When providing ranges to
-    -- typed link selection, any inexact ranges must be specified at the end.
-    -- Any attributes that do not have a range specified are presumed to match
-    -- the entire range.
-    filterAttributeRanges :: Prelude.Maybe [TypedLinkAttributeRange],
     -- | The reference that identifies the object whose attributes will be
     -- listed.
     objectReference :: ObjectReference
@@ -58,17 +58,17 @@ data BatchListIncomingTypedLinks = BatchListIncomingTypedLinks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filterAttributeRanges', 'batchListIncomingTypedLinks_filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to
+-- typed link selection, any inexact ranges must be specified at the end.
+-- Any attributes that do not have a range specified are presumed to match
+-- the entire range.
+--
 -- 'nextToken', 'batchListIncomingTypedLinks_nextToken' - The pagination token.
 --
 -- 'filterTypedLink', 'batchListIncomingTypedLinks_filterTypedLink' - Filters are interpreted in the order of the attributes on the typed link
 -- facet, not the order in which they are supplied to any API calls.
 --
 -- 'maxResults', 'batchListIncomingTypedLinks_maxResults' - The maximum number of results to retrieve.
---
--- 'filterAttributeRanges', 'batchListIncomingTypedLinks_filterAttributeRanges' - Provides range filters for multiple attributes. When providing ranges to
--- typed link selection, any inexact ranges must be specified at the end.
--- Any attributes that do not have a range specified are presumed to match
--- the entire range.
 --
 -- 'objectReference', 'batchListIncomingTypedLinks_objectReference' - The reference that identifies the object whose attributes will be
 -- listed.
@@ -78,13 +78,20 @@ newBatchListIncomingTypedLinks ::
   BatchListIncomingTypedLinks
 newBatchListIncomingTypedLinks pObjectReference_ =
   BatchListIncomingTypedLinks'
-    { nextToken =
+    { filterAttributeRanges =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       filterTypedLink = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      filterAttributeRanges = Prelude.Nothing,
       objectReference = pObjectReference_
     }
+
+-- | Provides range filters for multiple attributes. When providing ranges to
+-- typed link selection, any inexact ranges must be specified at the end.
+-- Any attributes that do not have a range specified are presumed to match
+-- the entire range.
+batchListIncomingTypedLinks_filterAttributeRanges :: Lens.Lens' BatchListIncomingTypedLinks (Prelude.Maybe [TypedLinkAttributeRange])
+batchListIncomingTypedLinks_filterAttributeRanges = Lens.lens (\BatchListIncomingTypedLinks' {filterAttributeRanges} -> filterAttributeRanges) (\s@BatchListIncomingTypedLinks' {} a -> s {filterAttributeRanges = a} :: BatchListIncomingTypedLinks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 batchListIncomingTypedLinks_nextToken :: Lens.Lens' BatchListIncomingTypedLinks (Prelude.Maybe Prelude.Text)
@@ -99,13 +106,6 @@ batchListIncomingTypedLinks_filterTypedLink = Lens.lens (\BatchListIncomingTyped
 batchListIncomingTypedLinks_maxResults :: Lens.Lens' BatchListIncomingTypedLinks (Prelude.Maybe Prelude.Natural)
 batchListIncomingTypedLinks_maxResults = Lens.lens (\BatchListIncomingTypedLinks' {maxResults} -> maxResults) (\s@BatchListIncomingTypedLinks' {} a -> s {maxResults = a} :: BatchListIncomingTypedLinks)
 
--- | Provides range filters for multiple attributes. When providing ranges to
--- typed link selection, any inexact ranges must be specified at the end.
--- Any attributes that do not have a range specified are presumed to match
--- the entire range.
-batchListIncomingTypedLinks_filterAttributeRanges :: Lens.Lens' BatchListIncomingTypedLinks (Prelude.Maybe [TypedLinkAttributeRange])
-batchListIncomingTypedLinks_filterAttributeRanges = Lens.lens (\BatchListIncomingTypedLinks' {filterAttributeRanges} -> filterAttributeRanges) (\s@BatchListIncomingTypedLinks' {} a -> s {filterAttributeRanges = a} :: BatchListIncomingTypedLinks) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The reference that identifies the object whose attributes will be
 -- listed.
 batchListIncomingTypedLinks_objectReference :: Lens.Lens' BatchListIncomingTypedLinks ObjectReference
@@ -119,12 +119,12 @@ instance Core.ToJSON BatchListIncomingTypedLinks where
   toJSON BatchListIncomingTypedLinks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("FilterAttributeRanges" Core..=)
+              Prelude.<$> filterAttributeRanges,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("FilterTypedLink" Core..=)
               Prelude.<$> filterTypedLink,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("FilterAttributeRanges" Core..=)
-              Prelude.<$> filterAttributeRanges,
             Prelude.Just
               ("ObjectReference" Core..= objectReference)
           ]

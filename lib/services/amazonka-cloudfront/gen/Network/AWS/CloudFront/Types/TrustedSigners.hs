@@ -69,7 +69,7 @@ newTrustedSigners pEnabled_ pQuantity_ =
 
 -- | A list of account identifiers.
 trustedSigners_items :: Lens.Lens' TrustedSigners (Prelude.Maybe [Prelude.Text])
-trustedSigners_items = Lens.lens (\TrustedSigners' {items} -> items) (\s@TrustedSigners' {} a -> s {items = a} :: TrustedSigners) Prelude.. Lens.mapping Lens._Coerce
+trustedSigners_items = Lens.lens (\TrustedSigners' {items} -> items) (\s@TrustedSigners' {} a -> s {items = a} :: TrustedSigners) Prelude.. Lens.mapping Lens.coerced
 
 -- | This field is @true@ if any of the accounts have public keys that
 -- CloudFront can use to verify the signatures of signed URLs and signed

@@ -120,7 +120,7 @@ inputCaptions_mergePolicy = Lens.lens (\InputCaptions' {mergePolicy} -> mergePol
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
 inputCaptions_captionSources :: Lens.Lens' InputCaptions (Prelude.Maybe [CaptionSource])
-inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> captionSources) (\s@InputCaptions' {} a -> s {captionSources = a} :: InputCaptions) Prelude.. Lens.mapping Lens._Coerce
+inputCaptions_captionSources = Lens.lens (\InputCaptions' {captionSources} -> captionSources) (\s@InputCaptions' {} a -> s {captionSources = a} :: InputCaptions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON InputCaptions where
   parseJSON =

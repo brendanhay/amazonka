@@ -35,20 +35,20 @@ data FunctionConfiguration = FunctionConfiguration'
     memorySize :: Prelude.Maybe Prelude.Int,
     -- | The execution arguments.
     execArgs :: Prelude.Maybe Prelude.Text,
-    -- | The allowed function execution time, after which Lambda should terminate
-    -- the function. This timeout still applies to pinned Lambda functions for
-    -- each request.
-    timeout :: Prelude.Maybe Prelude.Int,
-    -- | The expected encoding type of the input payload for the function. The
-    -- default is \'\'json\'\'.
-    encodingType :: Prelude.Maybe EncodingType,
+    -- | The environment configuration of the function.
+    environment :: Prelude.Maybe FunctionConfigurationEnvironment,
     -- | The name of the function executable.
     executable :: Prelude.Maybe Prelude.Text,
     -- | True if the function is pinned. Pinned means the function is long-lived
     -- and starts when the core starts.
     pinned :: Prelude.Maybe Prelude.Bool,
-    -- | The environment configuration of the function.
-    environment :: Prelude.Maybe FunctionConfigurationEnvironment
+    -- | The expected encoding type of the input payload for the function. The
+    -- default is \'\'json\'\'.
+    encodingType :: Prelude.Maybe EncodingType,
+    -- | The allowed function execution time, after which Lambda should terminate
+    -- the function. This timeout still applies to pinned Lambda functions for
+    -- each request.
+    timeout :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,19 +66,19 @@ data FunctionConfiguration = FunctionConfiguration'
 --
 -- 'execArgs', 'functionConfiguration_execArgs' - The execution arguments.
 --
--- 'timeout', 'functionConfiguration_timeout' - The allowed function execution time, after which Lambda should terminate
--- the function. This timeout still applies to pinned Lambda functions for
--- each request.
---
--- 'encodingType', 'functionConfiguration_encodingType' - The expected encoding type of the input payload for the function. The
--- default is \'\'json\'\'.
+-- 'environment', 'functionConfiguration_environment' - The environment configuration of the function.
 --
 -- 'executable', 'functionConfiguration_executable' - The name of the function executable.
 --
 -- 'pinned', 'functionConfiguration_pinned' - True if the function is pinned. Pinned means the function is long-lived
 -- and starts when the core starts.
 --
--- 'environment', 'functionConfiguration_environment' - The environment configuration of the function.
+-- 'encodingType', 'functionConfiguration_encodingType' - The expected encoding type of the input payload for the function. The
+-- default is \'\'json\'\'.
+--
+-- 'timeout', 'functionConfiguration_timeout' - The allowed function execution time, after which Lambda should terminate
+-- the function. This timeout still applies to pinned Lambda functions for
+-- each request.
 newFunctionConfiguration ::
   FunctionConfiguration
 newFunctionConfiguration =
@@ -86,11 +86,11 @@ newFunctionConfiguration =
     { memorySize =
         Prelude.Nothing,
       execArgs = Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      encodingType = Prelude.Nothing,
+      environment = Prelude.Nothing,
       executable = Prelude.Nothing,
       pinned = Prelude.Nothing,
-      environment = Prelude.Nothing
+      encodingType = Prelude.Nothing,
+      timeout = Prelude.Nothing
     }
 
 -- | The memory size, in KB, which the function requires. This setting is not
@@ -103,16 +103,9 @@ functionConfiguration_memorySize = Lens.lens (\FunctionConfiguration' {memorySiz
 functionConfiguration_execArgs :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_execArgs = Lens.lens (\FunctionConfiguration' {execArgs} -> execArgs) (\s@FunctionConfiguration' {} a -> s {execArgs = a} :: FunctionConfiguration)
 
--- | The allowed function execution time, after which Lambda should terminate
--- the function. This timeout still applies to pinned Lambda functions for
--- each request.
-functionConfiguration_timeout :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Int)
-functionConfiguration_timeout = Lens.lens (\FunctionConfiguration' {timeout} -> timeout) (\s@FunctionConfiguration' {} a -> s {timeout = a} :: FunctionConfiguration)
-
--- | The expected encoding type of the input payload for the function. The
--- default is \'\'json\'\'.
-functionConfiguration_encodingType :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EncodingType)
-functionConfiguration_encodingType = Lens.lens (\FunctionConfiguration' {encodingType} -> encodingType) (\s@FunctionConfiguration' {} a -> s {encodingType = a} :: FunctionConfiguration)
+-- | The environment configuration of the function.
+functionConfiguration_environment :: Lens.Lens' FunctionConfiguration (Prelude.Maybe FunctionConfigurationEnvironment)
+functionConfiguration_environment = Lens.lens (\FunctionConfiguration' {environment} -> environment) (\s@FunctionConfiguration' {} a -> s {environment = a} :: FunctionConfiguration)
 
 -- | The name of the function executable.
 functionConfiguration_executable :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
@@ -123,9 +116,16 @@ functionConfiguration_executable = Lens.lens (\FunctionConfiguration' {executabl
 functionConfiguration_pinned :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Bool)
 functionConfiguration_pinned = Lens.lens (\FunctionConfiguration' {pinned} -> pinned) (\s@FunctionConfiguration' {} a -> s {pinned = a} :: FunctionConfiguration)
 
--- | The environment configuration of the function.
-functionConfiguration_environment :: Lens.Lens' FunctionConfiguration (Prelude.Maybe FunctionConfigurationEnvironment)
-functionConfiguration_environment = Lens.lens (\FunctionConfiguration' {environment} -> environment) (\s@FunctionConfiguration' {} a -> s {environment = a} :: FunctionConfiguration)
+-- | The expected encoding type of the input payload for the function. The
+-- default is \'\'json\'\'.
+functionConfiguration_encodingType :: Lens.Lens' FunctionConfiguration (Prelude.Maybe EncodingType)
+functionConfiguration_encodingType = Lens.lens (\FunctionConfiguration' {encodingType} -> encodingType) (\s@FunctionConfiguration' {} a -> s {encodingType = a} :: FunctionConfiguration)
+
+-- | The allowed function execution time, after which Lambda should terminate
+-- the function. This timeout still applies to pinned Lambda functions for
+-- each request.
+functionConfiguration_timeout :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Int)
+functionConfiguration_timeout = Lens.lens (\FunctionConfiguration' {timeout} -> timeout) (\s@FunctionConfiguration' {} a -> s {timeout = a} :: FunctionConfiguration)
 
 instance Core.FromJSON FunctionConfiguration where
   parseJSON =
@@ -135,11 +135,11 @@ instance Core.FromJSON FunctionConfiguration where
           FunctionConfiguration'
             Prelude.<$> (x Core..:? "MemorySize")
             Prelude.<*> (x Core..:? "ExecArgs")
-            Prelude.<*> (x Core..:? "Timeout")
-            Prelude.<*> (x Core..:? "EncodingType")
+            Prelude.<*> (x Core..:? "Environment")
             Prelude.<*> (x Core..:? "Executable")
             Prelude.<*> (x Core..:? "Pinned")
-            Prelude.<*> (x Core..:? "Environment")
+            Prelude.<*> (x Core..:? "EncodingType")
+            Prelude.<*> (x Core..:? "Timeout")
       )
 
 instance Prelude.Hashable FunctionConfiguration
@@ -152,10 +152,10 @@ instance Core.ToJSON FunctionConfiguration where
       ( Prelude.catMaybes
           [ ("MemorySize" Core..=) Prelude.<$> memorySize,
             ("ExecArgs" Core..=) Prelude.<$> execArgs,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("EncodingType" Core..=) Prelude.<$> encodingType,
+            ("Environment" Core..=) Prelude.<$> environment,
             ("Executable" Core..=) Prelude.<$> executable,
             ("Pinned" Core..=) Prelude.<$> pinned,
-            ("Environment" Core..=) Prelude.<$> environment
+            ("EncodingType" Core..=) Prelude.<$> encodingType,
+            ("Timeout" Core..=) Prelude.<$> timeout
           ]
       )

@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
-  { -- | The descriptive message for the state change reason.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The programmable code for the state change reason. Note: Currently, the
+  { -- | The programmable code for the state change reason. Note: Currently, the
     -- service provides no code for the state change.
-    code :: Prelude.Maybe StepStateChangeReasonCode
+    code :: Prelude.Maybe StepStateChangeReasonCode,
+    -- | The descriptive message for the state change reason.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data StepStateChangeReason = StepStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'stepStateChangeReason_message' - The descriptive message for the state change reason.
---
 -- 'code', 'stepStateChangeReason_code' - The programmable code for the state change reason. Note: Currently, the
 -- service provides no code for the state change.
+--
+-- 'message', 'stepStateChangeReason_message' - The descriptive message for the state change reason.
 newStepStateChangeReason ::
   StepStateChangeReason
 newStepStateChangeReason =
   StepStateChangeReason'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The descriptive message for the state change reason.
-stepStateChangeReason_message :: Lens.Lens' StepStateChangeReason (Prelude.Maybe Prelude.Text)
-stepStateChangeReason_message = Lens.lens (\StepStateChangeReason' {message} -> message) (\s@StepStateChangeReason' {} a -> s {message = a} :: StepStateChangeReason)
 
 -- | The programmable code for the state change reason. Note: Currently, the
 -- service provides no code for the state change.
 stepStateChangeReason_code :: Lens.Lens' StepStateChangeReason (Prelude.Maybe StepStateChangeReasonCode)
 stepStateChangeReason_code = Lens.lens (\StepStateChangeReason' {code} -> code) (\s@StepStateChangeReason' {} a -> s {code = a} :: StepStateChangeReason)
+
+-- | The descriptive message for the state change reason.
+stepStateChangeReason_message :: Lens.Lens' StepStateChangeReason (Prelude.Maybe Prelude.Text)
+stepStateChangeReason_message = Lens.lens (\StepStateChangeReason' {message} -> message) (\s@StepStateChangeReason' {} a -> s {message = a} :: StepStateChangeReason)
 
 instance Core.FromJSON StepStateChangeReason where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON StepStateChangeReason where
       "StepStateChangeReason"
       ( \x ->
           StepStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable StepStateChangeReason

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
-  { -- | The port that is used by the Listener.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The protocol that is used by the Listener.
-    protocol :: Prelude.Maybe Prelude.Text
+  { -- | The protocol that is used by the Listener.
+    protocol :: Prelude.Maybe Prelude.Text,
+    -- | The port that is used by the Listener.
+    port :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,30 +42,30 @@ data Listener = Listener'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'listener_port' - The port that is used by the Listener.
---
 -- 'protocol', 'listener_protocol' - The protocol that is used by the Listener.
+--
+-- 'port', 'listener_port' - The port that is used by the Listener.
 newListener ::
   Listener
 newListener =
   Listener'
-    { port = Prelude.Nothing,
-      protocol = Prelude.Nothing
+    { protocol = Prelude.Nothing,
+      port = Prelude.Nothing
     }
-
--- | The port that is used by the Listener.
-listener_port :: Lens.Lens' Listener (Prelude.Maybe Prelude.Int)
-listener_port = Lens.lens (\Listener' {port} -> port) (\s@Listener' {} a -> s {port = a} :: Listener)
 
 -- | The protocol that is used by the Listener.
 listener_protocol :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
 listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
+-- | The port that is used by the Listener.
+listener_port :: Lens.Lens' Listener (Prelude.Maybe Prelude.Int)
+listener_port = Lens.lens (\Listener' {port} -> port) (\s@Listener' {} a -> s {port = a} :: Listener)
+
 instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> (x Core..@? "Port")
-      Prelude.<*> (x Core..@? "Protocol")
+      Prelude.<$> (x Core..@? "Protocol")
+      Prelude.<*> (x Core..@? "Port")
 
 instance Prelude.Hashable Listener
 

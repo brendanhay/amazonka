@@ -90,7 +90,7 @@ newDescribeRdsDbInstances pStackId_ =
 
 -- | An array containing the ARNs of the instances to be described.
 describeRdsDbInstances_rdsDbInstanceArns :: Lens.Lens' DescribeRdsDbInstances (Prelude.Maybe [Prelude.Text])
-describeRdsDbInstances_rdsDbInstanceArns = Lens.lens (\DescribeRdsDbInstances' {rdsDbInstanceArns} -> rdsDbInstanceArns) (\s@DescribeRdsDbInstances' {} a -> s {rdsDbInstanceArns = a} :: DescribeRdsDbInstances) Prelude.. Lens.mapping Lens._Coerce
+describeRdsDbInstances_rdsDbInstanceArns = Lens.lens (\DescribeRdsDbInstances' {rdsDbInstanceArns} -> rdsDbInstanceArns) (\s@DescribeRdsDbInstances' {} a -> s {rdsDbInstanceArns = a} :: DescribeRdsDbInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the stack with which the instances are registered. The
 -- operation returns descriptions of all registered Amazon RDS instances.
@@ -180,7 +180,7 @@ newDescribeRdsDbInstancesResponse pHttpStatus_ =
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
 describeRdsDbInstancesResponse_rdsDbInstances :: Lens.Lens' DescribeRdsDbInstancesResponse (Prelude.Maybe [RdsDbInstance])
-describeRdsDbInstancesResponse_rdsDbInstances = Lens.lens (\DescribeRdsDbInstancesResponse' {rdsDbInstances} -> rdsDbInstances) (\s@DescribeRdsDbInstancesResponse' {} a -> s {rdsDbInstances = a} :: DescribeRdsDbInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRdsDbInstancesResponse_rdsDbInstances = Lens.lens (\DescribeRdsDbInstancesResponse' {rdsDbInstances} -> rdsDbInstances) (\s@DescribeRdsDbInstancesResponse' {} a -> s {rdsDbInstances = a} :: DescribeRdsDbInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRdsDbInstancesResponse_httpStatus :: Lens.Lens' DescribeRdsDbInstancesResponse Prelude.Int

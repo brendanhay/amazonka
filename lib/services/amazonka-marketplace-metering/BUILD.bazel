@@ -19,14 +19,14 @@ haskell_library(
         "gen/Network/AWS/MarketplaceMetering/Waiters.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_marketplace_metering=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
+        "-DVERSION_amazonka_marketplace_metering=\"2.0\"",
     ],
     hidden_modules = [],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka",
@@ -44,11 +44,11 @@ haskell_test(
         "test/Test/AWS/MarketplaceMetering/Internal.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_marketplace_metering=\"1.6.1\"",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka_marketplace_metering=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-marketplace-metering",

@@ -32,11 +32,11 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     newDescribeWorkspaces,
 
     -- * Request Lenses
-    describeWorkspaces_nextToken,
-    describeWorkspaces_bundleId,
-    describeWorkspaces_workspaceIds,
     describeWorkspaces_directoryId,
+    describeWorkspaces_workspaceIds,
     describeWorkspaces_userName,
+    describeWorkspaces_bundleId,
+    describeWorkspaces_nextToken,
     describeWorkspaces_limit,
 
     -- * Destructuring the Response
@@ -59,13 +59,10 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeWorkspaces' smart constructor.
 data DescribeWorkspaces = DescribeWorkspaces'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
-    -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the bundle. All WorkSpaces that are created from this
-    -- bundle are retrieved. You cannot combine this parameter with any other
-    -- filter.
-    bundleId :: Prelude.Maybe Prelude.Text,
+  { -- | The identifier of the directory. In addition, you can optionally specify
+    -- a specific directory user (see @UserName@). You cannot combine this
+    -- parameter with any other filter.
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of the WorkSpaces. You cannot combine this parameter
     -- with any other filter.
     --
@@ -73,13 +70,16 @@ data DescribeWorkspaces = DescribeWorkspaces'
     -- it returns is not immediately available. If you immediately call
     -- DescribeWorkspaces with this identifier, no information is returned.
     workspaceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The identifier of the directory. In addition, you can optionally specify
-    -- a specific directory user (see @UserName@). You cannot combine this
-    -- parameter with any other filter.
-    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the directory user. You must specify this parameter with
     -- @DirectoryId@.
     userName :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the bundle. All WorkSpaces that are created from this
+    -- bundle are retrieved. You cannot combine this parameter with any other
+    -- filter.
+    bundleId :: Prelude.Maybe Prelude.Text,
+    -- | If you received a @NextToken@ from a previous call that was paginated,
+    -- provide this token to receive the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return.
     limit :: Prelude.Maybe Prelude.Natural
   }
@@ -93,12 +93,9 @@ data DescribeWorkspaces = DescribeWorkspaces'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWorkspaces_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
--- provide this token to receive the next set of results.
---
--- 'bundleId', 'describeWorkspaces_bundleId' - The identifier of the bundle. All WorkSpaces that are created from this
--- bundle are retrieved. You cannot combine this parameter with any other
--- filter.
+-- 'directoryId', 'describeWorkspaces_directoryId' - The identifier of the directory. In addition, you can optionally specify
+-- a specific directory user (see @UserName@). You cannot combine this
+-- parameter with any other filter.
 --
 -- 'workspaceIds', 'describeWorkspaces_workspaceIds' - The identifiers of the WorkSpaces. You cannot combine this parameter
 -- with any other filter.
@@ -107,36 +104,34 @@ data DescribeWorkspaces = DescribeWorkspaces'
 -- it returns is not immediately available. If you immediately call
 -- DescribeWorkspaces with this identifier, no information is returned.
 --
--- 'directoryId', 'describeWorkspaces_directoryId' - The identifier of the directory. In addition, you can optionally specify
--- a specific directory user (see @UserName@). You cannot combine this
--- parameter with any other filter.
---
 -- 'userName', 'describeWorkspaces_userName' - The name of the directory user. You must specify this parameter with
 -- @DirectoryId@.
+--
+-- 'bundleId', 'describeWorkspaces_bundleId' - The identifier of the bundle. All WorkSpaces that are created from this
+-- bundle are retrieved. You cannot combine this parameter with any other
+-- filter.
+--
+-- 'nextToken', 'describeWorkspaces_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
 --
 -- 'limit', 'describeWorkspaces_limit' - The maximum number of items to return.
 newDescribeWorkspaces ::
   DescribeWorkspaces
 newDescribeWorkspaces =
   DescribeWorkspaces'
-    { nextToken = Prelude.Nothing,
-      bundleId = Prelude.Nothing,
+    { directoryId = Prelude.Nothing,
       workspaceIds = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
       userName = Prelude.Nothing,
+      bundleId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       limit = Prelude.Nothing
     }
 
--- | If you received a @NextToken@ from a previous call that was paginated,
--- provide this token to receive the next set of results.
-describeWorkspaces_nextToken :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
-describeWorkspaces_nextToken = Lens.lens (\DescribeWorkspaces' {nextToken} -> nextToken) (\s@DescribeWorkspaces' {} a -> s {nextToken = a} :: DescribeWorkspaces)
-
--- | The identifier of the bundle. All WorkSpaces that are created from this
--- bundle are retrieved. You cannot combine this parameter with any other
--- filter.
-describeWorkspaces_bundleId :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
-describeWorkspaces_bundleId = Lens.lens (\DescribeWorkspaces' {bundleId} -> bundleId) (\s@DescribeWorkspaces' {} a -> s {bundleId = a} :: DescribeWorkspaces)
+-- | The identifier of the directory. In addition, you can optionally specify
+-- a specific directory user (see @UserName@). You cannot combine this
+-- parameter with any other filter.
+describeWorkspaces_directoryId :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
+describeWorkspaces_directoryId = Lens.lens (\DescribeWorkspaces' {directoryId} -> directoryId) (\s@DescribeWorkspaces' {} a -> s {directoryId = a} :: DescribeWorkspaces)
 
 -- | The identifiers of the WorkSpaces. You cannot combine this parameter
 -- with any other filter.
@@ -145,18 +140,23 @@ describeWorkspaces_bundleId = Lens.lens (\DescribeWorkspaces' {bundleId} -> bund
 -- it returns is not immediately available. If you immediately call
 -- DescribeWorkspaces with this identifier, no information is returned.
 describeWorkspaces_workspaceIds :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeWorkspaces_workspaceIds = Lens.lens (\DescribeWorkspaces' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspaces' {} a -> s {workspaceIds = a} :: DescribeWorkspaces) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of the directory. In addition, you can optionally specify
--- a specific directory user (see @UserName@). You cannot combine this
--- parameter with any other filter.
-describeWorkspaces_directoryId :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
-describeWorkspaces_directoryId = Lens.lens (\DescribeWorkspaces' {directoryId} -> directoryId) (\s@DescribeWorkspaces' {} a -> s {directoryId = a} :: DescribeWorkspaces)
+describeWorkspaces_workspaceIds = Lens.lens (\DescribeWorkspaces' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspaces' {} a -> s {workspaceIds = a} :: DescribeWorkspaces) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the directory user. You must specify this parameter with
 -- @DirectoryId@.
 describeWorkspaces_userName :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
 describeWorkspaces_userName = Lens.lens (\DescribeWorkspaces' {userName} -> userName) (\s@DescribeWorkspaces' {} a -> s {userName = a} :: DescribeWorkspaces)
+
+-- | The identifier of the bundle. All WorkSpaces that are created from this
+-- bundle are retrieved. You cannot combine this parameter with any other
+-- filter.
+describeWorkspaces_bundleId :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
+describeWorkspaces_bundleId = Lens.lens (\DescribeWorkspaces' {bundleId} -> bundleId) (\s@DescribeWorkspaces' {} a -> s {bundleId = a} :: DescribeWorkspaces)
+
+-- | If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
+describeWorkspaces_nextToken :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Text)
+describeWorkspaces_nextToken = Lens.lens (\DescribeWorkspaces' {nextToken} -> nextToken) (\s@DescribeWorkspaces' {} a -> s {nextToken = a} :: DescribeWorkspaces)
 
 -- | The maximum number of items to return.
 describeWorkspaces_limit :: Lens.Lens' DescribeWorkspaces (Prelude.Maybe Prelude.Natural)
@@ -221,11 +221,11 @@ instance Core.ToJSON DescribeWorkspaces where
   toJSON DescribeWorkspaces' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("BundleId" Core..=) Prelude.<$> bundleId,
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
             ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds,
-            ("DirectoryId" Core..=) Prelude.<$> directoryId,
             ("UserName" Core..=) Prelude.<$> userName,
+            ("BundleId" Core..=) Prelude.<$> bundleId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -290,7 +290,7 @@ describeWorkspacesResponse_nextToken = Lens.lens (\DescribeWorkspacesResponse' {
 -- Because CreateWorkspaces is an asynchronous operation, some of the
 -- returned information could be incomplete.
 describeWorkspacesResponse_workspaces :: Lens.Lens' DescribeWorkspacesResponse (Prelude.Maybe [Workspace])
-describeWorkspacesResponse_workspaces = Lens.lens (\DescribeWorkspacesResponse' {workspaces} -> workspaces) (\s@DescribeWorkspacesResponse' {} a -> s {workspaces = a} :: DescribeWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeWorkspacesResponse_workspaces = Lens.lens (\DescribeWorkspacesResponse' {workspaces} -> workspaces) (\s@DescribeWorkspacesResponse' {} a -> s {workspaces = a} :: DescribeWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeWorkspacesResponse_httpStatus :: Lens.Lens' DescribeWorkspacesResponse Prelude.Int

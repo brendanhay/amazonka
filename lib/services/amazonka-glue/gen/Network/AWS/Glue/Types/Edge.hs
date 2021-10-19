@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEdge' smart constructor.
 data Edge = Edge'
-  { -- | The unique of the node within the workflow where the edge ends.
-    destinationId :: Prelude.Maybe Prelude.Text,
-    -- | The unique of the node within the workflow where the edge starts.
-    sourceId :: Prelude.Maybe Prelude.Text
+  { -- | The unique of the node within the workflow where the edge starts.
+    sourceId :: Prelude.Maybe Prelude.Text,
+    -- | The unique of the node within the workflow where the edge ends.
+    destinationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Edge = Edge'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationId', 'edge_destinationId' - The unique of the node within the workflow where the edge ends.
---
 -- 'sourceId', 'edge_sourceId' - The unique of the node within the workflow where the edge starts.
+--
+-- 'destinationId', 'edge_destinationId' - The unique of the node within the workflow where the edge ends.
 newEdge ::
   Edge
 newEdge =
   Edge'
-    { destinationId = Prelude.Nothing,
-      sourceId = Prelude.Nothing
+    { sourceId = Prelude.Nothing,
+      destinationId = Prelude.Nothing
     }
-
--- | The unique of the node within the workflow where the edge ends.
-edge_destinationId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
-edge_destinationId = Lens.lens (\Edge' {destinationId} -> destinationId) (\s@Edge' {} a -> s {destinationId = a} :: Edge)
 
 -- | The unique of the node within the workflow where the edge starts.
 edge_sourceId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
 edge_sourceId = Lens.lens (\Edge' {sourceId} -> sourceId) (\s@Edge' {} a -> s {sourceId = a} :: Edge)
+
+-- | The unique of the node within the workflow where the edge ends.
+edge_destinationId :: Lens.Lens' Edge (Prelude.Maybe Prelude.Text)
+edge_destinationId = Lens.lens (\Edge' {destinationId} -> destinationId) (\s@Edge' {} a -> s {destinationId = a} :: Edge)
 
 instance Core.FromJSON Edge where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Edge where
       "Edge"
       ( \x ->
           Edge'
-            Prelude.<$> (x Core..:? "DestinationId")
-            Prelude.<*> (x Core..:? "SourceId")
+            Prelude.<$> (x Core..:? "SourceId")
+            Prelude.<*> (x Core..:? "DestinationId")
       )
 
 instance Prelude.Hashable Edge

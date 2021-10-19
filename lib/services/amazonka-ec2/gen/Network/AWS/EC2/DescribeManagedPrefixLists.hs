@@ -33,11 +33,11 @@ module Network.AWS.EC2.DescribeManagedPrefixLists
     newDescribeManagedPrefixLists,
 
     -- * Request Lenses
+    describeManagedPrefixLists_filters,
     describeManagedPrefixLists_prefixListIds,
     describeManagedPrefixLists_nextToken,
-    describeManagedPrefixLists_maxResults,
     describeManagedPrefixLists_dryRun,
-    describeManagedPrefixLists_filters,
+    describeManagedPrefixLists_maxResults,
 
     -- * Destructuring the Response
     DescribeManagedPrefixListsResponse (..),
@@ -59,27 +59,27 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeManagedPrefixLists' smart constructor.
 data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
-  { -- | One or more prefix list IDs.
-    prefixListIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @owner-id@ - The ID of the prefix list owner.
     --
     -- -   @prefix-list-id@ - The ID of the prefix list.
     --
     -- -   @prefix-list-name@ - The name of the prefix list.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | One or more prefix list IDs.
+    prefixListIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,19 +91,6 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'prefixListIds', 'describeManagedPrefixLists_prefixListIds' - One or more prefix list IDs.
---
--- 'nextToken', 'describeManagedPrefixLists_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'describeManagedPrefixLists_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeManagedPrefixLists_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'filters', 'describeManagedPrefixLists_filters' - One or more filters.
 --
 -- -   @owner-id@ - The ID of the prefix list owner.
@@ -111,38 +98,30 @@ data DescribeManagedPrefixLists = DescribeManagedPrefixLists'
 -- -   @prefix-list-id@ - The ID of the prefix list.
 --
 -- -   @prefix-list-name@ - The name of the prefix list.
+--
+-- 'prefixListIds', 'describeManagedPrefixLists_prefixListIds' - One or more prefix list IDs.
+--
+-- 'nextToken', 'describeManagedPrefixLists_nextToken' - The token for the next page of results.
+--
+-- 'dryRun', 'describeManagedPrefixLists_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeManagedPrefixLists_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeManagedPrefixLists ::
   DescribeManagedPrefixLists
 newDescribeManagedPrefixLists =
   DescribeManagedPrefixLists'
-    { prefixListIds =
+    { filters =
         Prelude.Nothing,
+      prefixListIds = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | One or more prefix list IDs.
-describeManagedPrefixLists_prefixListIds :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe [Prelude.Text])
-describeManagedPrefixLists_prefixListIds = Lens.lens (\DescribeManagedPrefixLists' {prefixListIds} -> prefixListIds) (\s@DescribeManagedPrefixLists' {} a -> s {prefixListIds = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens._Coerce
-
--- | The token for the next page of results.
-describeManagedPrefixLists_nextToken :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Text)
-describeManagedPrefixLists_nextToken = Lens.lens (\DescribeManagedPrefixLists' {nextToken} -> nextToken) (\s@DescribeManagedPrefixLists' {} a -> s {nextToken = a} :: DescribeManagedPrefixLists)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeManagedPrefixLists_maxResults :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Natural)
-describeManagedPrefixLists_maxResults = Lens.lens (\DescribeManagedPrefixLists' {maxResults} -> maxResults) (\s@DescribeManagedPrefixLists' {} a -> s {maxResults = a} :: DescribeManagedPrefixLists)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeManagedPrefixLists_dryRun :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Bool)
-describeManagedPrefixLists_dryRun = Lens.lens (\DescribeManagedPrefixLists' {dryRun} -> dryRun) (\s@DescribeManagedPrefixLists' {} a -> s {dryRun = a} :: DescribeManagedPrefixLists)
 
 -- | One or more filters.
 --
@@ -152,7 +131,28 @@ describeManagedPrefixLists_dryRun = Lens.lens (\DescribeManagedPrefixLists' {dry
 --
 -- -   @prefix-list-name@ - The name of the prefix list.
 describeManagedPrefixLists_filters :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe [Filter])
-describeManagedPrefixLists_filters = Lens.lens (\DescribeManagedPrefixLists' {filters} -> filters) (\s@DescribeManagedPrefixLists' {} a -> s {filters = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens._Coerce
+describeManagedPrefixLists_filters = Lens.lens (\DescribeManagedPrefixLists' {filters} -> filters) (\s@DescribeManagedPrefixLists' {} a -> s {filters = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more prefix list IDs.
+describeManagedPrefixLists_prefixListIds :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe [Prelude.Text])
+describeManagedPrefixLists_prefixListIds = Lens.lens (\DescribeManagedPrefixLists' {prefixListIds} -> prefixListIds) (\s@DescribeManagedPrefixLists' {} a -> s {prefixListIds = a} :: DescribeManagedPrefixLists) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeManagedPrefixLists_nextToken :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Text)
+describeManagedPrefixLists_nextToken = Lens.lens (\DescribeManagedPrefixLists' {nextToken} -> nextToken) (\s@DescribeManagedPrefixLists' {} a -> s {nextToken = a} :: DescribeManagedPrefixLists)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeManagedPrefixLists_dryRun :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Bool)
+describeManagedPrefixLists_dryRun = Lens.lens (\DescribeManagedPrefixLists' {dryRun} -> dryRun) (\s@DescribeManagedPrefixLists' {} a -> s {dryRun = a} :: DescribeManagedPrefixLists)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeManagedPrefixLists_maxResults :: Lens.Lens' DescribeManagedPrefixLists (Prelude.Maybe Prelude.Natural)
+describeManagedPrefixLists_maxResults = Lens.lens (\DescribeManagedPrefixLists' {maxResults} -> maxResults) (\s@DescribeManagedPrefixLists' {} a -> s {maxResults = a} :: DescribeManagedPrefixLists)
 
 instance Core.AWSPager DescribeManagedPrefixLists where
   page rq rs
@@ -210,14 +210,14 @@ instance Core.ToQuery DescribeManagedPrefixLists where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        Core.toQuery
           ( Core.toQueryList "PrefixListId"
               Prelude.<$> prefixListIds
           ),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeManagedPrefixListsResponse' smart constructor.
@@ -265,7 +265,7 @@ describeManagedPrefixListsResponse_nextToken = Lens.lens (\DescribeManagedPrefix
 
 -- | Information about the prefix lists.
 describeManagedPrefixListsResponse_prefixLists :: Lens.Lens' DescribeManagedPrefixListsResponse (Prelude.Maybe [ManagedPrefixList])
-describeManagedPrefixListsResponse_prefixLists = Lens.lens (\DescribeManagedPrefixListsResponse' {prefixLists} -> prefixLists) (\s@DescribeManagedPrefixListsResponse' {} a -> s {prefixLists = a} :: DescribeManagedPrefixListsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeManagedPrefixListsResponse_prefixLists = Lens.lens (\DescribeManagedPrefixListsResponse' {prefixLists} -> prefixLists) (\s@DescribeManagedPrefixListsResponse' {} a -> s {prefixLists = a} :: DescribeManagedPrefixListsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeManagedPrefixListsResponse_httpStatus :: Lens.Lens' DescribeManagedPrefixListsResponse Prelude.Int

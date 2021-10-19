@@ -45,10 +45,10 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     newLookupDeveloperIdentity,
 
     -- * Request Lenses
-    lookupDeveloperIdentity_nextToken,
-    lookupDeveloperIdentity_maxResults,
     lookupDeveloperIdentity_developerUserIdentifier,
+    lookupDeveloperIdentity_nextToken,
     lookupDeveloperIdentity_identityId,
+    lookupDeveloperIdentity_maxResults,
     lookupDeveloperIdentity_identityPoolId,
 
     -- * Destructuring the Response
@@ -57,8 +57,8 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 
     -- * Response Lenses
     lookupDeveloperIdentityResponse_nextToken,
-    lookupDeveloperIdentityResponse_developerUserIdentifierList,
     lookupDeveloperIdentityResponse_identityId,
+    lookupDeveloperIdentityResponse_developerUserIdentifierList,
     lookupDeveloperIdentityResponse_httpStatus,
   )
 where
@@ -74,21 +74,21 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newLookupDeveloperIdentity' smart constructor.
 data LookupDeveloperIdentity = LookupDeveloperIdentity'
-  { -- | A pagination token. The first call you make will have @NextToken@ set to
+  { -- | A unique ID used by your backend authentication process to identify a
+    -- user. Typically, a developer identity provider would issue many
+    -- developer user identifiers, in keeping with the number of users.
+    developerUserIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token. The first call you make will have @NextToken@ set to
     -- null. After that the service will return @NextToken@ values as needed.
     -- For example, let\'s say you make a request with @MaxResults@ set to 10,
     -- and there are 20 matches in the database. The service will return a
     -- pagination token as a part of the response. This token can be used to
     -- call the API again and get results starting from the 11th match.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of identities to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A unique ID used by your backend authentication process to identify a
-    -- user. Typically, a developer identity provider would issue many
-    -- developer user identifiers, in keeping with the number of users.
-    developerUserIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier in the format REGION:GUID.
     identityId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of identities to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An identity pool ID in the format REGION:GUID.
     identityPoolId :: Prelude.Text
   }
@@ -102,6 +102,10 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'developerUserIdentifier', 'lookupDeveloperIdentity_developerUserIdentifier' - A unique ID used by your backend authentication process to identify a
+-- user. Typically, a developer identity provider would issue many
+-- developer user identifiers, in keeping with the number of users.
+--
 -- 'nextToken', 'lookupDeveloperIdentity_nextToken' - A pagination token. The first call you make will have @NextToken@ set to
 -- null. After that the service will return @NextToken@ values as needed.
 -- For example, let\'s say you make a request with @MaxResults@ set to 10,
@@ -109,13 +113,9 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity'
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
 --
--- 'maxResults', 'lookupDeveloperIdentity_maxResults' - The maximum number of identities to return.
---
--- 'developerUserIdentifier', 'lookupDeveloperIdentity_developerUserIdentifier' - A unique ID used by your backend authentication process to identify a
--- user. Typically, a developer identity provider would issue many
--- developer user identifiers, in keeping with the number of users.
---
 -- 'identityId', 'lookupDeveloperIdentity_identityId' - A unique identifier in the format REGION:GUID.
+--
+-- 'maxResults', 'lookupDeveloperIdentity_maxResults' - The maximum number of identities to return.
 --
 -- 'identityPoolId', 'lookupDeveloperIdentity_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newLookupDeveloperIdentity ::
@@ -124,13 +124,19 @@ newLookupDeveloperIdentity ::
   LookupDeveloperIdentity
 newLookupDeveloperIdentity pIdentityPoolId_ =
   LookupDeveloperIdentity'
-    { nextToken =
+    { developerUserIdentifier =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      developerUserIdentifier = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       identityId = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       identityPoolId = pIdentityPoolId_
     }
+
+-- | A unique ID used by your backend authentication process to identify a
+-- user. Typically, a developer identity provider would issue many
+-- developer user identifiers, in keeping with the number of users.
+lookupDeveloperIdentity_developerUserIdentifier :: Lens.Lens' LookupDeveloperIdentity (Prelude.Maybe Prelude.Text)
+lookupDeveloperIdentity_developerUserIdentifier = Lens.lens (\LookupDeveloperIdentity' {developerUserIdentifier} -> developerUserIdentifier) (\s@LookupDeveloperIdentity' {} a -> s {developerUserIdentifier = a} :: LookupDeveloperIdentity)
 
 -- | A pagination token. The first call you make will have @NextToken@ set to
 -- null. After that the service will return @NextToken@ values as needed.
@@ -141,19 +147,13 @@ newLookupDeveloperIdentity pIdentityPoolId_ =
 lookupDeveloperIdentity_nextToken :: Lens.Lens' LookupDeveloperIdentity (Prelude.Maybe Prelude.Text)
 lookupDeveloperIdentity_nextToken = Lens.lens (\LookupDeveloperIdentity' {nextToken} -> nextToken) (\s@LookupDeveloperIdentity' {} a -> s {nextToken = a} :: LookupDeveloperIdentity)
 
--- | The maximum number of identities to return.
-lookupDeveloperIdentity_maxResults :: Lens.Lens' LookupDeveloperIdentity (Prelude.Maybe Prelude.Natural)
-lookupDeveloperIdentity_maxResults = Lens.lens (\LookupDeveloperIdentity' {maxResults} -> maxResults) (\s@LookupDeveloperIdentity' {} a -> s {maxResults = a} :: LookupDeveloperIdentity)
-
--- | A unique ID used by your backend authentication process to identify a
--- user. Typically, a developer identity provider would issue many
--- developer user identifiers, in keeping with the number of users.
-lookupDeveloperIdentity_developerUserIdentifier :: Lens.Lens' LookupDeveloperIdentity (Prelude.Maybe Prelude.Text)
-lookupDeveloperIdentity_developerUserIdentifier = Lens.lens (\LookupDeveloperIdentity' {developerUserIdentifier} -> developerUserIdentifier) (\s@LookupDeveloperIdentity' {} a -> s {developerUserIdentifier = a} :: LookupDeveloperIdentity)
-
 -- | A unique identifier in the format REGION:GUID.
 lookupDeveloperIdentity_identityId :: Lens.Lens' LookupDeveloperIdentity (Prelude.Maybe Prelude.Text)
 lookupDeveloperIdentity_identityId = Lens.lens (\LookupDeveloperIdentity' {identityId} -> identityId) (\s@LookupDeveloperIdentity' {} a -> s {identityId = a} :: LookupDeveloperIdentity)
+
+-- | The maximum number of identities to return.
+lookupDeveloperIdentity_maxResults :: Lens.Lens' LookupDeveloperIdentity (Prelude.Maybe Prelude.Natural)
+lookupDeveloperIdentity_maxResults = Lens.lens (\LookupDeveloperIdentity' {maxResults} -> maxResults) (\s@LookupDeveloperIdentity' {} a -> s {maxResults = a} :: LookupDeveloperIdentity)
 
 -- | An identity pool ID in the format REGION:GUID.
 lookupDeveloperIdentity_identityPoolId :: Lens.Lens' LookupDeveloperIdentity Prelude.Text
@@ -169,10 +169,10 @@ instance Core.AWSRequest LookupDeveloperIdentity where
       ( \s h x ->
           LookupDeveloperIdentityResponse'
             Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "IdentityId")
             Prelude.<*> ( x Core..?> "DeveloperUserIdentifierList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "IdentityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,11 +199,11 @@ instance Core.ToJSON LookupDeveloperIdentity where
   toJSON LookupDeveloperIdentity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DeveloperUserIdentifier" Core..=)
+          [ ("DeveloperUserIdentifier" Core..=)
               Prelude.<$> developerUserIdentifier,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("IdentityId" Core..=) Prelude.<$> identityId,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("IdentityPoolId" Core..= identityPoolId)
           ]
@@ -226,12 +226,12 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
     -- pagination token as a part of the response. This token can be used to
     -- call the API again and get results starting from the 11th match.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text,
     -- | This is the list of developer user identifiers associated with an
     -- identity ID. Cognito supports the association of multiple developer user
     -- identifiers with an identity ID.
     developerUserIdentifierList :: Prelude.Maybe [Prelude.Text],
-    -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -252,11 +252,11 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
 --
+-- 'identityId', 'lookupDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.
+--
 -- 'developerUserIdentifierList', 'lookupDeveloperIdentityResponse_developerUserIdentifierList' - This is the list of developer user identifiers associated with an
 -- identity ID. Cognito supports the association of multiple developer user
 -- identifiers with an identity ID.
---
--- 'identityId', 'lookupDeveloperIdentityResponse_identityId' - A unique identifier in the format REGION:GUID.
 --
 -- 'httpStatus', 'lookupDeveloperIdentityResponse_httpStatus' - The response's http status code.
 newLookupDeveloperIdentityResponse ::
@@ -267,9 +267,9 @@ newLookupDeveloperIdentityResponse pHttpStatus_ =
   LookupDeveloperIdentityResponse'
     { nextToken =
         Prelude.Nothing,
+      identityId = Prelude.Nothing,
       developerUserIdentifierList =
         Prelude.Nothing,
-      identityId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -282,15 +282,15 @@ newLookupDeveloperIdentityResponse pHttpStatus_ =
 lookupDeveloperIdentityResponse_nextToken :: Lens.Lens' LookupDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
 lookupDeveloperIdentityResponse_nextToken = Lens.lens (\LookupDeveloperIdentityResponse' {nextToken} -> nextToken) (\s@LookupDeveloperIdentityResponse' {} a -> s {nextToken = a} :: LookupDeveloperIdentityResponse)
 
+-- | A unique identifier in the format REGION:GUID.
+lookupDeveloperIdentityResponse_identityId :: Lens.Lens' LookupDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
+lookupDeveloperIdentityResponse_identityId = Lens.lens (\LookupDeveloperIdentityResponse' {identityId} -> identityId) (\s@LookupDeveloperIdentityResponse' {} a -> s {identityId = a} :: LookupDeveloperIdentityResponse)
+
 -- | This is the list of developer user identifiers associated with an
 -- identity ID. Cognito supports the association of multiple developer user
 -- identifiers with an identity ID.
 lookupDeveloperIdentityResponse_developerUserIdentifierList :: Lens.Lens' LookupDeveloperIdentityResponse (Prelude.Maybe [Prelude.Text])
-lookupDeveloperIdentityResponse_developerUserIdentifierList = Lens.lens (\LookupDeveloperIdentityResponse' {developerUserIdentifierList} -> developerUserIdentifierList) (\s@LookupDeveloperIdentityResponse' {} a -> s {developerUserIdentifierList = a} :: LookupDeveloperIdentityResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A unique identifier in the format REGION:GUID.
-lookupDeveloperIdentityResponse_identityId :: Lens.Lens' LookupDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
-lookupDeveloperIdentityResponse_identityId = Lens.lens (\LookupDeveloperIdentityResponse' {identityId} -> identityId) (\s@LookupDeveloperIdentityResponse' {} a -> s {identityId = a} :: LookupDeveloperIdentityResponse)
+lookupDeveloperIdentityResponse_developerUserIdentifierList = Lens.lens (\LookupDeveloperIdentityResponse' {developerUserIdentifierList} -> developerUserIdentifierList) (\s@LookupDeveloperIdentityResponse' {} a -> s {developerUserIdentifierList = a} :: LookupDeveloperIdentityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 lookupDeveloperIdentityResponse_httpStatus :: Lens.Lens' LookupDeveloperIdentityResponse Prelude.Int

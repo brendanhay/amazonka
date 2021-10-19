@@ -52,7 +52,7 @@ newDocumentMetadataResponseInfo =
 
 -- | Details about a reviewer\'s response to a document review request.
 documentMetadataResponseInfo_reviewerResponse :: Lens.Lens' DocumentMetadataResponseInfo (Prelude.Maybe [DocumentReviewerResponseSource])
-documentMetadataResponseInfo_reviewerResponse = Lens.lens (\DocumentMetadataResponseInfo' {reviewerResponse} -> reviewerResponse) (\s@DocumentMetadataResponseInfo' {} a -> s {reviewerResponse = a} :: DocumentMetadataResponseInfo) Prelude.. Lens.mapping Lens._Coerce
+documentMetadataResponseInfo_reviewerResponse = Lens.lens (\DocumentMetadataResponseInfo' {reviewerResponse} -> reviewerResponse) (\s@DocumentMetadataResponseInfo' {} a -> s {reviewerResponse = a} :: DocumentMetadataResponseInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON DocumentMetadataResponseInfo where
   parseJSON =

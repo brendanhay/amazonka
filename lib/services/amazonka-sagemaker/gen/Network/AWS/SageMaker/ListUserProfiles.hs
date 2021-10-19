@@ -29,11 +29,11 @@ module Network.AWS.SageMaker.ListUserProfiles
     newListUserProfiles,
 
     -- * Request Lenses
+    listUserProfiles_domainIdEquals,
+    listUserProfiles_userProfileNameContains,
     listUserProfiles_nextToken,
     listUserProfiles_sortOrder,
-    listUserProfiles_userProfileNameContains,
     listUserProfiles_maxResults,
-    listUserProfiles_domainIdEquals,
     listUserProfiles_sortBy,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Network.AWS.SageMaker.ListUserProfiles
     newListUserProfilesResponse,
 
     -- * Response Lenses
-    listUserProfilesResponse_nextToken,
     listUserProfilesResponse_userProfiles,
+    listUserProfilesResponse_nextToken,
     listUserProfilesResponse_httpStatus,
   )
 where
@@ -56,17 +56,17 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListUserProfiles' smart constructor.
 data ListUserProfiles = ListUserProfiles'
-  { -- | If the previous response was truncated, you will receive this token. Use
+  { -- | A parameter by which to filter the results.
+    domainIdEquals :: Prelude.Maybe Prelude.Text,
+    -- | A parameter by which to filter the results.
+    userProfileNameContains :: Prelude.Maybe Prelude.Text,
+    -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for the results. The default is Ascending.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A parameter by which to filter the results.
-    userProfileNameContains :: Prelude.Maybe Prelude.Text,
     -- | Returns a list up to a specified limit.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A parameter by which to filter the results.
-    domainIdEquals :: Prelude.Maybe Prelude.Text,
     -- | The parameter by which to sort the results. The default is CreationTime.
     sortBy :: Prelude.Maybe UserProfileSortKey
   }
@@ -80,29 +80,37 @@ data ListUserProfiles = ListUserProfiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainIdEquals', 'listUserProfiles_domainIdEquals' - A parameter by which to filter the results.
+--
+-- 'userProfileNameContains', 'listUserProfiles_userProfileNameContains' - A parameter by which to filter the results.
+--
 -- 'nextToken', 'listUserProfiles_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
 --
 -- 'sortOrder', 'listUserProfiles_sortOrder' - The sort order for the results. The default is Ascending.
 --
--- 'userProfileNameContains', 'listUserProfiles_userProfileNameContains' - A parameter by which to filter the results.
---
 -- 'maxResults', 'listUserProfiles_maxResults' - Returns a list up to a specified limit.
---
--- 'domainIdEquals', 'listUserProfiles_domainIdEquals' - A parameter by which to filter the results.
 --
 -- 'sortBy', 'listUserProfiles_sortBy' - The parameter by which to sort the results. The default is CreationTime.
 newListUserProfiles ::
   ListUserProfiles
 newListUserProfiles =
   ListUserProfiles'
-    { nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
+    { domainIdEquals = Prelude.Nothing,
       userProfileNameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      domainIdEquals = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
+
+-- | A parameter by which to filter the results.
+listUserProfiles_domainIdEquals :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
+listUserProfiles_domainIdEquals = Lens.lens (\ListUserProfiles' {domainIdEquals} -> domainIdEquals) (\s@ListUserProfiles' {} a -> s {domainIdEquals = a} :: ListUserProfiles)
+
+-- | A parameter by which to filter the results.
+listUserProfiles_userProfileNameContains :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
+listUserProfiles_userProfileNameContains = Lens.lens (\ListUserProfiles' {userProfileNameContains} -> userProfileNameContains) (\s@ListUserProfiles' {} a -> s {userProfileNameContains = a} :: ListUserProfiles)
 
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
@@ -113,17 +121,9 @@ listUserProfiles_nextToken = Lens.lens (\ListUserProfiles' {nextToken} -> nextTo
 listUserProfiles_sortOrder :: Lens.Lens' ListUserProfiles (Prelude.Maybe SortOrder)
 listUserProfiles_sortOrder = Lens.lens (\ListUserProfiles' {sortOrder} -> sortOrder) (\s@ListUserProfiles' {} a -> s {sortOrder = a} :: ListUserProfiles)
 
--- | A parameter by which to filter the results.
-listUserProfiles_userProfileNameContains :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
-listUserProfiles_userProfileNameContains = Lens.lens (\ListUserProfiles' {userProfileNameContains} -> userProfileNameContains) (\s@ListUserProfiles' {} a -> s {userProfileNameContains = a} :: ListUserProfiles)
-
 -- | Returns a list up to a specified limit.
 listUserProfiles_maxResults :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Natural)
 listUserProfiles_maxResults = Lens.lens (\ListUserProfiles' {maxResults} -> maxResults) (\s@ListUserProfiles' {} a -> s {maxResults = a} :: ListUserProfiles)
-
--- | A parameter by which to filter the results.
-listUserProfiles_domainIdEquals :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
-listUserProfiles_domainIdEquals = Lens.lens (\ListUserProfiles' {domainIdEquals} -> domainIdEquals) (\s@ListUserProfiles' {} a -> s {domainIdEquals = a} :: ListUserProfiles)
 
 -- | The parameter by which to sort the results. The default is CreationTime.
 listUserProfiles_sortBy :: Lens.Lens' ListUserProfiles (Prelude.Maybe UserProfileSortKey)
@@ -160,8 +160,8 @@ instance Core.AWSRequest ListUserProfiles where
     Response.receiveJSON
       ( \s h x ->
           ListUserProfilesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "UserProfiles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "UserProfiles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,13 +186,13 @@ instance Core.ToJSON ListUserProfiles where
   toJSON ListUserProfiles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+          [ ("DomainIdEquals" Core..=)
+              Prelude.<$> domainIdEquals,
             ("UserProfileNameContains" Core..=)
               Prelude.<$> userProfileNameContains,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("DomainIdEquals" Core..=)
-              Prelude.<$> domainIdEquals,
             ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
@@ -205,11 +205,11 @@ instance Core.ToQuery ListUserProfiles where
 
 -- | /See:/ 'newListUserProfilesResponse' smart constructor.
 data ListUserProfilesResponse = ListUserProfilesResponse'
-  { -- | If the previous response was truncated, you will receive this token. Use
+  { -- | The list of user profiles.
+    userProfiles :: Prelude.Maybe [UserProfileDetails],
+    -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of user profiles.
-    userProfiles :: Prelude.Maybe [UserProfileDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,10 +223,10 @@ data ListUserProfilesResponse = ListUserProfilesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userProfiles', 'listUserProfilesResponse_userProfiles' - The list of user profiles.
+--
 -- 'nextToken', 'listUserProfilesResponse_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
---
--- 'userProfiles', 'listUserProfilesResponse_userProfiles' - The list of user profiles.
 --
 -- 'httpStatus', 'listUserProfilesResponse_httpStatus' - The response's http status code.
 newListUserProfilesResponse ::
@@ -235,20 +235,20 @@ newListUserProfilesResponse ::
   ListUserProfilesResponse
 newListUserProfilesResponse pHttpStatus_ =
   ListUserProfilesResponse'
-    { nextToken =
+    { userProfiles =
         Prelude.Nothing,
-      userProfiles = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of user profiles.
+listUserProfilesResponse_userProfiles :: Lens.Lens' ListUserProfilesResponse (Prelude.Maybe [UserProfileDetails])
+listUserProfilesResponse_userProfiles = Lens.lens (\ListUserProfilesResponse' {userProfiles} -> userProfiles) (\s@ListUserProfilesResponse' {} a -> s {userProfiles = a} :: ListUserProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
 listUserProfilesResponse_nextToken :: Lens.Lens' ListUserProfilesResponse (Prelude.Maybe Prelude.Text)
 listUserProfilesResponse_nextToken = Lens.lens (\ListUserProfilesResponse' {nextToken} -> nextToken) (\s@ListUserProfilesResponse' {} a -> s {nextToken = a} :: ListUserProfilesResponse)
-
--- | The list of user profiles.
-listUserProfilesResponse_userProfiles :: Lens.Lens' ListUserProfilesResponse (Prelude.Maybe [UserProfileDetails])
-listUserProfilesResponse_userProfiles = Lens.lens (\ListUserProfilesResponse' {userProfiles} -> userProfiles) (\s@ListUserProfilesResponse' {} a -> s {userProfiles = a} :: ListUserProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listUserProfilesResponse_httpStatus :: Lens.Lens' ListUserProfilesResponse Prelude.Int

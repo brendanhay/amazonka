@@ -33,12 +33,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ContactFlowSummary = ContactFlowSummary'
   { -- | The Amazon Resource Name (ARN) of the contact flow.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the contact flow.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the contact flow.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The type of contact flow.
     contactFlowType :: Prelude.Maybe ContactFlowType,
-    -- | The name of the contact flow.
-    name :: Prelude.Maybe Prelude.Text
+    -- | The identifier of the contact flow.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,36 +52,36 @@ data ContactFlowSummary = ContactFlowSummary'
 --
 -- 'arn', 'contactFlowSummary_arn' - The Amazon Resource Name (ARN) of the contact flow.
 --
--- 'id', 'contactFlowSummary_id' - The identifier of the contact flow.
+-- 'name', 'contactFlowSummary_name' - The name of the contact flow.
 --
 -- 'contactFlowType', 'contactFlowSummary_contactFlowType' - The type of contact flow.
 --
--- 'name', 'contactFlowSummary_name' - The name of the contact flow.
+-- 'id', 'contactFlowSummary_id' - The identifier of the contact flow.
 newContactFlowSummary ::
   ContactFlowSummary
 newContactFlowSummary =
   ContactFlowSummary'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+      name = Prelude.Nothing,
       contactFlowType = Prelude.Nothing,
-      name = Prelude.Nothing
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the contact flow.
 contactFlowSummary_arn :: Lens.Lens' ContactFlowSummary (Prelude.Maybe Prelude.Text)
 contactFlowSummary_arn = Lens.lens (\ContactFlowSummary' {arn} -> arn) (\s@ContactFlowSummary' {} a -> s {arn = a} :: ContactFlowSummary)
 
--- | The identifier of the contact flow.
-contactFlowSummary_id :: Lens.Lens' ContactFlowSummary (Prelude.Maybe Prelude.Text)
-contactFlowSummary_id = Lens.lens (\ContactFlowSummary' {id} -> id) (\s@ContactFlowSummary' {} a -> s {id = a} :: ContactFlowSummary)
+-- | The name of the contact flow.
+contactFlowSummary_name :: Lens.Lens' ContactFlowSummary (Prelude.Maybe Prelude.Text)
+contactFlowSummary_name = Lens.lens (\ContactFlowSummary' {name} -> name) (\s@ContactFlowSummary' {} a -> s {name = a} :: ContactFlowSummary)
 
 -- | The type of contact flow.
 contactFlowSummary_contactFlowType :: Lens.Lens' ContactFlowSummary (Prelude.Maybe ContactFlowType)
 contactFlowSummary_contactFlowType = Lens.lens (\ContactFlowSummary' {contactFlowType} -> contactFlowType) (\s@ContactFlowSummary' {} a -> s {contactFlowType = a} :: ContactFlowSummary)
 
--- | The name of the contact flow.
-contactFlowSummary_name :: Lens.Lens' ContactFlowSummary (Prelude.Maybe Prelude.Text)
-contactFlowSummary_name = Lens.lens (\ContactFlowSummary' {name} -> name) (\s@ContactFlowSummary' {} a -> s {name = a} :: ContactFlowSummary)
+-- | The identifier of the contact flow.
+contactFlowSummary_id :: Lens.Lens' ContactFlowSummary (Prelude.Maybe Prelude.Text)
+contactFlowSummary_id = Lens.lens (\ContactFlowSummary' {id} -> id) (\s@ContactFlowSummary' {} a -> s {id = a} :: ContactFlowSummary)
 
 instance Core.FromJSON ContactFlowSummary where
   parseJSON =
@@ -90,9 +90,9 @@ instance Core.FromJSON ContactFlowSummary where
       ( \x ->
           ContactFlowSummary'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "ContactFlowType")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ContactFlowType")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable ContactFlowSummary

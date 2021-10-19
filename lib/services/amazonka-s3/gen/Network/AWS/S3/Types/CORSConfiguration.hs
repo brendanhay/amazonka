@@ -56,7 +56,7 @@ newCORSConfiguration =
 -- | A set of origins and methods (cross-origin access that you want to
 -- allow). You can add up to 100 rules to the configuration.
 cORSConfiguration_cORSRules :: Lens.Lens' CORSConfiguration [CORSRule]
-cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Prelude.. Lens._Coerce
+cORSConfiguration_cORSRules = Lens.lens (\CORSConfiguration' {cORSRules} -> cORSRules) (\s@CORSConfiguration' {} a -> s {cORSRules = a} :: CORSConfiguration) Prelude.. Lens.coerced
 
 instance Prelude.Hashable CORSConfiguration
 

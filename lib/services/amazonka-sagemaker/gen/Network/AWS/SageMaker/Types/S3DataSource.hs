@@ -246,7 +246,7 @@ s3DataSource_s3DataDistributionType = Lens.lens (\S3DataSource' {s3DataDistribut
 -- | A list of one or more attribute names to use that are found in a
 -- specified augmented manifest file.
 s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
-s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens._Coerce
+s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
 -- SageMaker uses all objects that match the specified key name prefix for

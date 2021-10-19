@@ -36,8 +36,16 @@ data UsageLimit = UsageLimit'
   { -- | The limit amount. If time-based, this amount is in minutes. If
     -- data-based, this amount is in terabytes (TB).
     amount :: Prelude.Maybe Prelude.Integer,
-    -- | The Amazon Redshift feature to which the limit applies.
-    featureType :: Prelude.Maybe UsageLimitFeatureType,
+    -- | The type of limit. Depending on the feature type, this can be based on a
+    -- time duration or data size.
+    limitType :: Prelude.Maybe UsageLimitLimitType,
+    -- | The identifier of the usage limit.
+    usageLimitId :: Prelude.Maybe Prelude.Text,
+    -- | The time period that the amount applies to. A @weekly@ period begins on
+    -- Sunday. The default is @monthly@.
+    period :: Prelude.Maybe UsageLimitPeriod,
+    -- | The identifier of the cluster with a usage limit.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The action that Amazon Redshift takes when the limit is reached.
     -- Possible values are:
     --
@@ -48,18 +56,10 @@ data UsageLimit = UsageLimit'
     -- -   __disable__ - To disable the feature until the next usage period
     --     begins.
     breachAction :: Prelude.Maybe UsageLimitBreachAction,
-    -- | The type of limit. Depending on the feature type, this can be based on a
-    -- time duration or data size.
-    limitType :: Prelude.Maybe UsageLimitLimitType,
+    -- | The Amazon Redshift feature to which the limit applies.
+    featureType :: Prelude.Maybe UsageLimitFeatureType,
     -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
-    -- | The identifier of the cluster with a usage limit.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The time period that the amount applies to. A @weekly@ period begins on
-    -- Sunday. The default is @monthly@.
-    period :: Prelude.Maybe UsageLimitPeriod,
-    -- | The identifier of the usage limit.
-    usageLimitId :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,7 +74,15 @@ data UsageLimit = UsageLimit'
 -- 'amount', 'usageLimit_amount' - The limit amount. If time-based, this amount is in minutes. If
 -- data-based, this amount is in terabytes (TB).
 --
--- 'featureType', 'usageLimit_featureType' - The Amazon Redshift feature to which the limit applies.
+-- 'limitType', 'usageLimit_limitType' - The type of limit. Depending on the feature type, this can be based on a
+-- time duration or data size.
+--
+-- 'usageLimitId', 'usageLimit_usageLimitId' - The identifier of the usage limit.
+--
+-- 'period', 'usageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on
+-- Sunday. The default is @monthly@.
+--
+-- 'clusterIdentifier', 'usageLimit_clusterIdentifier' - The identifier of the cluster with a usage limit.
 --
 -- 'breachAction', 'usageLimit_breachAction' - The action that Amazon Redshift takes when the limit is reached.
 -- Possible values are:
@@ -86,29 +94,21 @@ data UsageLimit = UsageLimit'
 -- -   __disable__ - To disable the feature until the next usage period
 --     begins.
 --
--- 'limitType', 'usageLimit_limitType' - The type of limit. Depending on the feature type, this can be based on a
--- time duration or data size.
+-- 'featureType', 'usageLimit_featureType' - The Amazon Redshift feature to which the limit applies.
 --
 -- 'tags', 'usageLimit_tags' - A list of tag instances.
---
--- 'clusterIdentifier', 'usageLimit_clusterIdentifier' - The identifier of the cluster with a usage limit.
---
--- 'period', 'usageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on
--- Sunday. The default is @monthly@.
---
--- 'usageLimitId', 'usageLimit_usageLimitId' - The identifier of the usage limit.
 newUsageLimit ::
   UsageLimit
 newUsageLimit =
   UsageLimit'
     { amount = Prelude.Nothing,
-      featureType = Prelude.Nothing,
-      breachAction = Prelude.Nothing,
       limitType = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
+      usageLimitId = Prelude.Nothing,
       period = Prelude.Nothing,
-      usageLimitId = Prelude.Nothing
+      clusterIdentifier = Prelude.Nothing,
+      breachAction = Prelude.Nothing,
+      featureType = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The limit amount. If time-based, this amount is in minutes. If
@@ -116,9 +116,23 @@ newUsageLimit =
 usageLimit_amount :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Integer)
 usageLimit_amount = Lens.lens (\UsageLimit' {amount} -> amount) (\s@UsageLimit' {} a -> s {amount = a} :: UsageLimit)
 
--- | The Amazon Redshift feature to which the limit applies.
-usageLimit_featureType :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitFeatureType)
-usageLimit_featureType = Lens.lens (\UsageLimit' {featureType} -> featureType) (\s@UsageLimit' {} a -> s {featureType = a} :: UsageLimit)
+-- | The type of limit. Depending on the feature type, this can be based on a
+-- time duration or data size.
+usageLimit_limitType :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitLimitType)
+usageLimit_limitType = Lens.lens (\UsageLimit' {limitType} -> limitType) (\s@UsageLimit' {} a -> s {limitType = a} :: UsageLimit)
+
+-- | The identifier of the usage limit.
+usageLimit_usageLimitId :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Text)
+usageLimit_usageLimitId = Lens.lens (\UsageLimit' {usageLimitId} -> usageLimitId) (\s@UsageLimit' {} a -> s {usageLimitId = a} :: UsageLimit)
+
+-- | The time period that the amount applies to. A @weekly@ period begins on
+-- Sunday. The default is @monthly@.
+usageLimit_period :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitPeriod)
+usageLimit_period = Lens.lens (\UsageLimit' {period} -> period) (\s@UsageLimit' {} a -> s {period = a} :: UsageLimit)
+
+-- | The identifier of the cluster with a usage limit.
+usageLimit_clusterIdentifier :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Text)
+usageLimit_clusterIdentifier = Lens.lens (\UsageLimit' {clusterIdentifier} -> clusterIdentifier) (\s@UsageLimit' {} a -> s {clusterIdentifier = a} :: UsageLimit)
 
 -- | The action that Amazon Redshift takes when the limit is reached.
 -- Possible values are:
@@ -132,41 +146,27 @@ usageLimit_featureType = Lens.lens (\UsageLimit' {featureType} -> featureType) (
 usageLimit_breachAction :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitBreachAction)
 usageLimit_breachAction = Lens.lens (\UsageLimit' {breachAction} -> breachAction) (\s@UsageLimit' {} a -> s {breachAction = a} :: UsageLimit)
 
--- | The type of limit. Depending on the feature type, this can be based on a
--- time duration or data size.
-usageLimit_limitType :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitLimitType)
-usageLimit_limitType = Lens.lens (\UsageLimit' {limitType} -> limitType) (\s@UsageLimit' {} a -> s {limitType = a} :: UsageLimit)
+-- | The Amazon Redshift feature to which the limit applies.
+usageLimit_featureType :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitFeatureType)
+usageLimit_featureType = Lens.lens (\UsageLimit' {featureType} -> featureType) (\s@UsageLimit' {} a -> s {featureType = a} :: UsageLimit)
 
 -- | A list of tag instances.
 usageLimit_tags :: Lens.Lens' UsageLimit (Prelude.Maybe [Tag])
-usageLimit_tags = Lens.lens (\UsageLimit' {tags} -> tags) (\s@UsageLimit' {} a -> s {tags = a} :: UsageLimit) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of the cluster with a usage limit.
-usageLimit_clusterIdentifier :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Text)
-usageLimit_clusterIdentifier = Lens.lens (\UsageLimit' {clusterIdentifier} -> clusterIdentifier) (\s@UsageLimit' {} a -> s {clusterIdentifier = a} :: UsageLimit)
-
--- | The time period that the amount applies to. A @weekly@ period begins on
--- Sunday. The default is @monthly@.
-usageLimit_period :: Lens.Lens' UsageLimit (Prelude.Maybe UsageLimitPeriod)
-usageLimit_period = Lens.lens (\UsageLimit' {period} -> period) (\s@UsageLimit' {} a -> s {period = a} :: UsageLimit)
-
--- | The identifier of the usage limit.
-usageLimit_usageLimitId :: Lens.Lens' UsageLimit (Prelude.Maybe Prelude.Text)
-usageLimit_usageLimitId = Lens.lens (\UsageLimit' {usageLimitId} -> usageLimitId) (\s@UsageLimit' {} a -> s {usageLimitId = a} :: UsageLimit)
+usageLimit_tags = Lens.lens (\UsageLimit' {tags} -> tags) (\s@UsageLimit' {} a -> s {tags = a} :: UsageLimit) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML UsageLimit where
   parseXML x =
     UsageLimit'
       Prelude.<$> (x Core..@? "Amount")
-      Prelude.<*> (x Core..@? "FeatureType")
-      Prelude.<*> (x Core..@? "BreachAction")
       Prelude.<*> (x Core..@? "LimitType")
+      Prelude.<*> (x Core..@? "UsageLimitId")
+      Prelude.<*> (x Core..@? "Period")
+      Prelude.<*> (x Core..@? "ClusterIdentifier")
+      Prelude.<*> (x Core..@? "BreachAction")
+      Prelude.<*> (x Core..@? "FeatureType")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "ClusterIdentifier")
-      Prelude.<*> (x Core..@? "Period")
-      Prelude.<*> (x Core..@? "UsageLimitId")
 
 instance Prelude.Hashable UsageLimit
 

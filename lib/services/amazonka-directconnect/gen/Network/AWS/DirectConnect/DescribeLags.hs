@@ -146,7 +146,7 @@ newDescribeLagsResponse pHttpStatus_ =
 
 -- | The LAGs.
 describeLagsResponse_lags :: Lens.Lens' DescribeLagsResponse (Prelude.Maybe [Lag])
-describeLagsResponse_lags = Lens.lens (\DescribeLagsResponse' {lags} -> lags) (\s@DescribeLagsResponse' {} a -> s {lags = a} :: DescribeLagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLagsResponse_lags = Lens.lens (\DescribeLagsResponse' {lags} -> lags) (\s@DescribeLagsResponse' {} a -> s {lags = a} :: DescribeLagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLagsResponse_httpStatus :: Lens.Lens' DescribeLagsResponse Prelude.Int

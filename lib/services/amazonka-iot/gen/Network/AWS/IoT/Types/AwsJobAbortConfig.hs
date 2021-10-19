@@ -49,12 +49,12 @@ newAwsJobAbortConfig ::
 newAwsJobAbortConfig pAbortCriteriaList_ =
   AwsJobAbortConfig'
     { abortCriteriaList =
-        Lens._Coerce Lens.# pAbortCriteriaList_
+        Lens.coerced Lens.# pAbortCriteriaList_
     }
 
 -- | The list of criteria that determine when and how to abort the job.
 awsJobAbortConfig_abortCriteriaList :: Lens.Lens' AwsJobAbortConfig (Prelude.NonEmpty AwsJobAbortCriteria)
-awsJobAbortConfig_abortCriteriaList = Lens.lens (\AwsJobAbortConfig' {abortCriteriaList} -> abortCriteriaList) (\s@AwsJobAbortConfig' {} a -> s {abortCriteriaList = a} :: AwsJobAbortConfig) Prelude.. Lens._Coerce
+awsJobAbortConfig_abortCriteriaList = Lens.lens (\AwsJobAbortConfig' {abortCriteriaList} -> abortCriteriaList) (\s@AwsJobAbortConfig' {} a -> s {abortCriteriaList = a} :: AwsJobAbortConfig) Prelude.. Lens.coerced
 
 instance Prelude.Hashable AwsJobAbortConfig
 

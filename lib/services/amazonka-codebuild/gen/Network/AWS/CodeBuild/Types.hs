@@ -17,8 +17,8 @@ module Network.AWS.CodeBuild.Types
     defaultService,
 
     -- * Errors
-    _OAuthProviderException,
     _ResourceAlreadyExistsException,
+    _OAuthProviderException,
     _AccountLimitExceededException,
     _InvalidInputException,
     _ResourceNotFoundException,
@@ -34,6 +34,9 @@ module Network.AWS.CodeBuild.Types
 
     -- * AuthType
     AuthType (..),
+
+    -- * BatchReportModeType
+    BatchReportModeType (..),
 
     -- * BucketOwnerAccess
     BucketOwnerAccess (..),
@@ -137,89 +140,89 @@ module Network.AWS.CodeBuild.Types
     -- * BatchRestrictions
     BatchRestrictions (..),
     newBatchRestrictions,
-    batchRestrictions_computeTypesAllowed,
     batchRestrictions_maximumBuildsAllowed,
+    batchRestrictions_computeTypesAllowed,
 
     -- * Build
     Build (..),
     newBuild,
-    build_vpcConfig,
+    build_phases,
+    build_buildComplete,
+    build_secondaryArtifacts,
+    build_arn,
+    build_exportedEnvironmentVariables,
+    build_buildNumber,
+    build_startTime,
+    build_artifacts,
+    build_environment,
+    build_initiator,
+    build_networkInterface,
+    build_secondarySourceVersions,
+    build_currentPhase,
+    build_queuedTimeoutInMinutes,
+    build_cache,
+    build_secondarySources,
+    build_debugSession,
     build_sourceVersion,
     build_buildBatchArn,
-    build_secondaryArtifacts,
+    build_logs,
     build_resolvedSourceVersion,
-    build_phases,
-    build_cache,
-    build_serviceRole,
-    build_secondarySourceVersions,
-    build_networkInterface,
-    build_encryptionKey,
-    build_id,
-    build_environment,
-    build_source,
-    build_startTime,
-    build_arn,
-    build_buildNumber,
-    build_artifacts,
+    build_vpcConfig,
+    build_endTime,
     build_projectName,
     build_buildStatus,
-    build_endTime,
-    build_buildComplete,
-    build_logs,
-    build_debugSession,
-    build_queuedTimeoutInMinutes,
-    build_secondarySources,
-    build_timeoutInMinutes,
-    build_currentPhase,
-    build_initiator,
-    build_reportArns,
-    build_exportedEnvironmentVariables,
+    build_source,
+    build_id,
     build_fileSystemLocations,
+    build_reportArns,
+    build_encryptionKey,
+    build_serviceRole,
+    build_timeoutInMinutes,
 
     -- * BuildArtifacts
     BuildArtifacts (..),
     newBuildArtifacts,
-    buildArtifacts_bucketOwnerAccess,
-    buildArtifacts_sha256sum,
-    buildArtifacts_artifactIdentifier,
-    buildArtifacts_overrideArtifactName,
-    buildArtifacts_encryptionDisabled,
-    buildArtifacts_md5sum,
     buildArtifacts_location,
+    buildArtifacts_md5sum,
+    buildArtifacts_encryptionDisabled,
+    buildArtifacts_overrideArtifactName,
+    buildArtifacts_artifactIdentifier,
+    buildArtifacts_sha256sum,
+    buildArtifacts_bucketOwnerAccess,
 
     -- * BuildBatch
     BuildBatch (..),
     newBuildBatch,
-    buildBatch_vpcConfig,
-    buildBatch_sourceVersion,
-    buildBatch_secondaryArtifacts,
-    buildBatch_resolvedSourceVersion,
     buildBatch_phases,
-    buildBatch_cache,
-    buildBatch_serviceRole,
-    buildBatch_buildBatchNumber,
-    buildBatch_secondarySourceVersions,
-    buildBatch_encryptionKey,
-    buildBatch_id,
-    buildBatch_environment,
-    buildBatch_source,
-    buildBatch_startTime,
-    buildBatch_arn,
-    buildBatch_artifacts,
-    buildBatch_projectName,
-    buildBatch_endTime,
-    buildBatch_buildGroups,
+    buildBatch_secondaryArtifacts,
     buildBatch_buildTimeoutInMinutes,
-    buildBatch_queuedTimeoutInMinutes,
-    buildBatch_secondarySources,
-    buildBatch_complete,
-    buildBatch_currentPhase,
-    buildBatch_buildBatchStatus,
-    buildBatch_logConfig,
-    buildBatch_initiator,
-    buildBatch_buildBatchConfig,
-    buildBatch_fileSystemLocations,
     buildBatch_debugSessionEnabled,
+    buildBatch_arn,
+    buildBatch_startTime,
+    buildBatch_artifacts,
+    buildBatch_environment,
+    buildBatch_initiator,
+    buildBatch_secondarySourceVersions,
+    buildBatch_buildBatchStatus,
+    buildBatch_currentPhase,
+    buildBatch_buildBatchNumber,
+    buildBatch_queuedTimeoutInMinutes,
+    buildBatch_cache,
+    buildBatch_secondarySources,
+    buildBatch_sourceVersion,
+    buildBatch_resolvedSourceVersion,
+    buildBatch_vpcConfig,
+    buildBatch_endTime,
+    buildBatch_projectName,
+    buildBatch_buildGroups,
+    buildBatch_source,
+    buildBatch_id,
+    buildBatch_fileSystemLocations,
+    buildBatch_buildBatchConfig,
+    buildBatch_encryptionKey,
+    buildBatch_logConfig,
+    buildBatch_serviceRole,
+    buildBatch_complete,
 
     -- * BuildBatchFilter
     BuildBatchFilter (..),
@@ -229,20 +232,20 @@ module Network.AWS.CodeBuild.Types
     -- * BuildBatchPhase
     BuildBatchPhase (..),
     newBuildBatchPhase,
-    buildBatchPhase_phaseType,
     buildBatchPhase_contexts,
     buildBatchPhase_startTime,
+    buildBatchPhase_phaseStatus,
+    buildBatchPhase_phaseType,
     buildBatchPhase_endTime,
     buildBatchPhase_durationInSeconds,
-    buildBatchPhase_phaseStatus,
 
     -- * BuildGroup
     BuildGroup (..),
     newBuildGroup,
-    buildGroup_dependsOn,
     buildGroup_identifier,
-    buildGroup_currentBuildSummary,
+    buildGroup_dependsOn,
     buildGroup_ignoreFailure,
+    buildGroup_currentBuildSummary,
     buildGroup_priorBuildSummaryList,
 
     -- * BuildNotDeleted
@@ -254,12 +257,12 @@ module Network.AWS.CodeBuild.Types
     -- * BuildPhase
     BuildPhase (..),
     newBuildPhase,
-    buildPhase_phaseType,
     buildPhase_contexts,
     buildPhase_startTime,
+    buildPhase_phaseStatus,
+    buildPhase_phaseType,
     buildPhase_endTime,
     buildPhase_durationInSeconds,
-    buildPhase_phaseStatus,
 
     -- * BuildStatusConfig
     BuildStatusConfig (..),
@@ -271,10 +274,10 @@ module Network.AWS.CodeBuild.Types
     BuildSummary (..),
     newBuildSummary,
     buildSummary_secondaryArtifacts,
-    buildSummary_requestedOn,
+    buildSummary_primaryArtifact,
     buildSummary_arn,
     buildSummary_buildStatus,
-    buildSummary_primaryArtifact,
+    buildSummary_requestedOn,
 
     -- * CloudWatchLogsConfig
     CloudWatchLogsConfig (..),
@@ -286,32 +289,32 @@ module Network.AWS.CodeBuild.Types
     -- * CodeCoverage
     CodeCoverage (..),
     newCodeCoverage,
-    codeCoverage_branchesMissed,
-    codeCoverage_linesCovered,
-    codeCoverage_branchesCovered,
-    codeCoverage_filePath,
-    codeCoverage_reportARN,
-    codeCoverage_id,
     codeCoverage_expired,
-    codeCoverage_lineCoveragePercentage,
+    codeCoverage_branchesMissed,
     codeCoverage_linesMissed,
+    codeCoverage_filePath,
+    codeCoverage_branchesCovered,
+    codeCoverage_linesCovered,
     codeCoverage_branchCoveragePercentage,
+    codeCoverage_id,
+    codeCoverage_lineCoveragePercentage,
+    codeCoverage_reportARN,
 
     -- * CodeCoverageReportSummary
     CodeCoverageReportSummary (..),
     newCodeCoverageReportSummary,
     codeCoverageReportSummary_branchesMissed,
-    codeCoverageReportSummary_linesCovered,
-    codeCoverageReportSummary_branchesCovered,
-    codeCoverageReportSummary_lineCoveragePercentage,
     codeCoverageReportSummary_linesMissed,
+    codeCoverageReportSummary_branchesCovered,
+    codeCoverageReportSummary_linesCovered,
     codeCoverageReportSummary_branchCoveragePercentage,
+    codeCoverageReportSummary_lineCoveragePercentage,
 
     -- * DebugSession
     DebugSession (..),
     newDebugSession,
-    debugSession_sessionTarget,
     debugSession_sessionEnabled,
+    debugSession_sessionTarget,
 
     -- * EnvironmentImage
     EnvironmentImage (..),
@@ -342,8 +345,8 @@ module Network.AWS.CodeBuild.Types
     -- * ExportedEnvironmentVariable
     ExportedEnvironmentVariable (..),
     newExportedEnvironmentVariable,
-    exportedEnvironmentVariable_name,
     exportedEnvironmentVariable_value,
+    exportedEnvironmentVariable_name,
 
     -- * GitSubmodulesConfig
     GitSubmodulesConfig (..),
@@ -359,13 +362,13 @@ module Network.AWS.CodeBuild.Types
     -- * LogsLocation
     LogsLocation (..),
     newLogsLocation,
+    logsLocation_deepLink,
     logsLocation_s3Logs,
     logsLocation_cloudWatchLogs,
-    logsLocation_deepLink,
-    logsLocation_groupName,
-    logsLocation_cloudWatchLogsArn,
-    logsLocation_s3LogsArn,
     logsLocation_s3DeepLink,
+    logsLocation_s3LogsArn,
+    logsLocation_cloudWatchLogsArn,
+    logsLocation_groupName,
     logsLocation_streamName,
 
     -- * NetworkInterface
@@ -383,78 +386,79 @@ module Network.AWS.CodeBuild.Types
     -- * Project
     Project (..),
     newProject,
-    project_vpcConfig,
-    project_sourceVersion,
     project_secondaryArtifacts,
-    project_cache,
-    project_serviceRole,
+    project_resourceAccessRole,
+    project_arn,
+    project_artifacts,
+    project_environment,
+    project_created,
+    project_concurrentBuildLimit,
     project_secondarySourceVersions,
+    project_queuedTimeoutInMinutes,
+    project_cache,
+    project_secondarySources,
+    project_sourceVersion,
+    project_name,
+    project_vpcConfig,
+    project_publicProjectAlias,
+    project_source,
+    project_badge,
+    project_logsConfig,
+    project_fileSystemLocations,
+    project_buildBatchConfig,
+    project_encryptionKey,
+    project_lastModified,
     project_projectVisibility,
     project_webhook,
-    project_concurrentBuildLimit,
-    project_encryptionKey,
-    project_environment,
-    project_source,
-    project_arn,
-    project_logsConfig,
-    project_artifacts,
-    project_resourceAccessRole,
-    project_name,
-    project_queuedTimeoutInMinutes,
-    project_secondarySources,
-    project_timeoutInMinutes,
-    project_tags,
     project_description,
-    project_lastModified,
-    project_buildBatchConfig,
-    project_created,
-    project_badge,
-    project_fileSystemLocations,
-    project_publicProjectAlias,
+    project_serviceRole,
+    project_tags,
+    project_timeoutInMinutes,
 
     -- * ProjectArtifacts
     ProjectArtifacts (..),
     newProjectArtifacts,
-    projectArtifacts_bucketOwnerAccess,
-    projectArtifacts_namespaceType,
-    projectArtifacts_artifactIdentifier,
-    projectArtifacts_overrideArtifactName,
-    projectArtifacts_encryptionDisabled,
-    projectArtifacts_name,
     projectArtifacts_packaging,
     projectArtifacts_path,
     projectArtifacts_location,
+    projectArtifacts_name,
+    projectArtifacts_encryptionDisabled,
+    projectArtifacts_overrideArtifactName,
+    projectArtifacts_artifactIdentifier,
+    projectArtifacts_bucketOwnerAccess,
+    projectArtifacts_namespaceType,
     projectArtifacts_type,
 
     -- * ProjectBadge
     ProjectBadge (..),
     newProjectBadge,
-    projectBadge_badgeRequestUrl,
     projectBadge_badgeEnabled,
+    projectBadge_badgeRequestUrl,
 
     -- * ProjectBuildBatchConfig
     ProjectBuildBatchConfig (..),
     newProjectBuildBatchConfig,
     projectBuildBatchConfig_combineArtifacts,
-    projectBuildBatchConfig_serviceRole,
     projectBuildBatchConfig_timeoutInMins,
     projectBuildBatchConfig_restrictions,
+    projectBuildBatchConfig_batchReportMode,
+    projectBuildBatchConfig_serviceRole,
 
     -- * ProjectCache
     ProjectCache (..),
     newProjectCache,
-    projectCache_modes,
     projectCache_location,
+    projectCache_modes,
     projectCache_type,
 
     -- * ProjectEnvironment
     ProjectEnvironment (..),
     newProjectEnvironment,
-    projectEnvironment_privilegedMode,
     projectEnvironment_imagePullCredentialsType,
+    projectEnvironment_privilegedMode,
     projectEnvironment_registryCredential,
-    projectEnvironment_environmentVariables,
     projectEnvironment_certificate,
+    projectEnvironment_environmentVariables,
     projectEnvironment_type,
     projectEnvironment_image,
     projectEnvironment_computeType,
@@ -462,24 +466,24 @@ module Network.AWS.CodeBuild.Types
     -- * ProjectFileSystemLocation
     ProjectFileSystemLocation (..),
     newProjectFileSystemLocation,
+    projectFileSystemLocation_location,
     projectFileSystemLocation_identifier,
     projectFileSystemLocation_mountOptions,
-    projectFileSystemLocation_mountPoint,
     projectFileSystemLocation_type,
-    projectFileSystemLocation_location,
+    projectFileSystemLocation_mountPoint,
 
     -- * ProjectSource
     ProjectSource (..),
     newProjectSource,
-    projectSource_gitCloneDepth,
-    projectSource_buildStatusConfig,
-    projectSource_auth,
-    projectSource_insecureSsl,
     projectSource_reportBuildStatus,
-    projectSource_sourceIdentifier,
-    projectSource_buildspec,
-    projectSource_gitSubmodulesConfig,
+    projectSource_insecureSsl,
     projectSource_location,
+    projectSource_auth,
+    projectSource_buildspec,
+    projectSource_sourceIdentifier,
+    projectSource_gitCloneDepth,
+    projectSource_gitSubmodulesConfig,
+    projectSource_buildStatusConfig,
     projectSource_type,
 
     -- * ProjectSourceVersion
@@ -497,24 +501,24 @@ module Network.AWS.CodeBuild.Types
     -- * Report
     Report (..),
     newReport,
-    report_codeCoverageSummary,
-    report_status,
     report_reportGroupArn,
-    report_exportConfig,
-    report_arn,
-    report_testSummary,
-    report_executionId,
+    report_status,
     report_expired,
-    report_name,
-    report_type,
-    report_created,
+    report_executionId,
     report_truncated,
+    report_arn,
+    report_created,
+    report_name,
+    report_codeCoverageSummary,
+    report_testSummary,
+    report_type,
+    report_exportConfig,
 
     -- * ReportExportConfig
     ReportExportConfig (..),
     newReportExportConfig,
-    reportExportConfig_s3Destination,
     reportExportConfig_exportConfigType,
+    reportExportConfig_s3Destination,
 
     -- * ReportFilter
     ReportFilter (..),
@@ -525,51 +529,51 @@ module Network.AWS.CodeBuild.Types
     ReportGroup (..),
     newReportGroup,
     reportGroup_status,
-    reportGroup_exportConfig,
     reportGroup_arn,
-    reportGroup_name,
-    reportGroup_tags,
-    reportGroup_lastModified,
-    reportGroup_type,
     reportGroup_created,
+    reportGroup_name,
+    reportGroup_type,
+    reportGroup_lastModified,
+    reportGroup_exportConfig,
+    reportGroup_tags,
 
     -- * ReportGroupTrendStats
     ReportGroupTrendStats (..),
     newReportGroupTrendStats,
-    reportGroupTrendStats_min,
     reportGroupTrendStats_max,
     reportGroupTrendStats_average,
+    reportGroupTrendStats_min,
 
     -- * ReportWithRawData
     ReportWithRawData (..),
     newReportWithRawData,
-    reportWithRawData_reportArn,
     reportWithRawData_data,
+    reportWithRawData_reportArn,
 
     -- * ResolvedArtifact
     ResolvedArtifact (..),
     newResolvedArtifact,
+    resolvedArtifact_location,
     resolvedArtifact_identifier,
     resolvedArtifact_type,
-    resolvedArtifact_location,
 
     -- * S3LogsConfig
     S3LogsConfig (..),
     newS3LogsConfig,
-    s3LogsConfig_bucketOwnerAccess,
-    s3LogsConfig_encryptionDisabled,
     s3LogsConfig_location,
+    s3LogsConfig_encryptionDisabled,
+    s3LogsConfig_bucketOwnerAccess,
     s3LogsConfig_status,
 
     -- * S3ReportExportConfig
     S3ReportExportConfig (..),
     newS3ReportExportConfig,
-    s3ReportExportConfig_bucketOwner,
-    s3ReportExportConfig_encryptionKey,
-    s3ReportExportConfig_encryptionDisabled,
     s3ReportExportConfig_packaging,
-    s3ReportExportConfig_bucket,
     s3ReportExportConfig_path,
+    s3ReportExportConfig_bucket,
+    s3ReportExportConfig_bucketOwner,
+    s3ReportExportConfig_encryptionDisabled,
+    s3ReportExportConfig_encryptionKey,
 
     -- * SourceAuth
     SourceAuth (..),
@@ -581,26 +585,26 @@ module Network.AWS.CodeBuild.Types
     SourceCredentialsInfo (..),
     newSourceCredentialsInfo,
     sourceCredentialsInfo_arn,
-    sourceCredentialsInfo_authType,
     sourceCredentialsInfo_serverType,
+    sourceCredentialsInfo_authType,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
 
     -- * TestCase
     TestCase (..),
     newTestCase,
-    testCase_testRawDataPath,
+    testCase_durationInNanoSeconds,
     testCase_status,
+    testCase_expired,
+    testCase_prefix,
+    testCase_name,
+    testCase_testRawDataPath,
     testCase_message,
     testCase_reportArn,
-    testCase_prefix,
-    testCase_expired,
-    testCase_name,
-    testCase_durationInNanoSeconds,
 
     -- * TestCaseFilter
     TestCaseFilter (..),
@@ -619,19 +623,19 @@ module Network.AWS.CodeBuild.Types
     VpcConfig (..),
     newVpcConfig,
     vpcConfig_securityGroupIds,
-    vpcConfig_subnets,
     vpcConfig_vpcId,
+    vpcConfig_subnets,
 
     -- * Webhook
     Webhook (..),
     newWebhook,
     webhook_branchFilter,
-    webhook_payloadUrl,
-    webhook_filterGroups,
-    webhook_secret,
-    webhook_buildType,
-    webhook_url,
     webhook_lastModifiedSecret,
+    webhook_url,
+    webhook_secret,
+    webhook_filterGroups,
+    webhook_payloadUrl,
+    webhook_buildType,
 
     -- * WebhookFilter
     WebhookFilter (..),
@@ -646,6 +650,7 @@ import Network.AWS.CodeBuild.Types.ArtifactNamespace
 import Network.AWS.CodeBuild.Types.ArtifactPackaging
 import Network.AWS.CodeBuild.Types.ArtifactsType
 import Network.AWS.CodeBuild.Types.AuthType
+import Network.AWS.CodeBuild.Types.BatchReportModeType
 import Network.AWS.CodeBuild.Types.BatchRestrictions
 import Network.AWS.CodeBuild.Types.BucketOwnerAccess
 import Network.AWS.CodeBuild.Types.Build
@@ -762,37 +767,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -805,14 +787,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | There was a problem with the underlying OAuth provider.
-_OAuthProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OAuthProviderException =
-  Core._MatchServiceError
-    defaultService
-    "OAuthProviderException"
 
 -- | The specified Amazon Web Services resource cannot be created, because an
 -- Amazon Web Services resource with the same settings already exists.
@@ -821,6 +819,13 @@ _ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
+
+-- | There was a problem with the underlying OAuth provider.
+_OAuthProviderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OAuthProviderException =
+  Core._MatchServiceError
+    defaultService
+    "OAuthProviderException"
 
 -- | An Amazon Web Services service limit was exceeded for the calling Amazon
 -- Web Services account.

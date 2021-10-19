@@ -32,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ThingTypeDefinition = ThingTypeDefinition'
   { -- | The ThingTypeProperties for the thing type.
     thingTypeProperties :: Prelude.Maybe ThingTypeProperties,
+    -- | The name of the thing type.
+    thingTypeName :: Prelude.Maybe Prelude.Text,
     -- | The ThingTypeMetadata contains additional information about the thing
     -- type including: creation date and time, a value indicating whether the
     -- thing type is deprecated, and a date and time when it was deprecated.
     thingTypeMetadata :: Prelude.Maybe ThingTypeMetadata,
     -- | The thing type ARN.
-    thingTypeArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing type.
-    thingTypeName :: Prelude.Maybe Prelude.Text
+    thingTypeArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,27 +53,31 @@ data ThingTypeDefinition = ThingTypeDefinition'
 --
 -- 'thingTypeProperties', 'thingTypeDefinition_thingTypeProperties' - The ThingTypeProperties for the thing type.
 --
+-- 'thingTypeName', 'thingTypeDefinition_thingTypeName' - The name of the thing type.
+--
 -- 'thingTypeMetadata', 'thingTypeDefinition_thingTypeMetadata' - The ThingTypeMetadata contains additional information about the thing
 -- type including: creation date and time, a value indicating whether the
 -- thing type is deprecated, and a date and time when it was deprecated.
 --
 -- 'thingTypeArn', 'thingTypeDefinition_thingTypeArn' - The thing type ARN.
---
--- 'thingTypeName', 'thingTypeDefinition_thingTypeName' - The name of the thing type.
 newThingTypeDefinition ::
   ThingTypeDefinition
 newThingTypeDefinition =
   ThingTypeDefinition'
     { thingTypeProperties =
         Prelude.Nothing,
+      thingTypeName = Prelude.Nothing,
       thingTypeMetadata = Prelude.Nothing,
-      thingTypeArn = Prelude.Nothing,
-      thingTypeName = Prelude.Nothing
+      thingTypeArn = Prelude.Nothing
     }
 
 -- | The ThingTypeProperties for the thing type.
 thingTypeDefinition_thingTypeProperties :: Lens.Lens' ThingTypeDefinition (Prelude.Maybe ThingTypeProperties)
 thingTypeDefinition_thingTypeProperties = Lens.lens (\ThingTypeDefinition' {thingTypeProperties} -> thingTypeProperties) (\s@ThingTypeDefinition' {} a -> s {thingTypeProperties = a} :: ThingTypeDefinition)
+
+-- | The name of the thing type.
+thingTypeDefinition_thingTypeName :: Lens.Lens' ThingTypeDefinition (Prelude.Maybe Prelude.Text)
+thingTypeDefinition_thingTypeName = Lens.lens (\ThingTypeDefinition' {thingTypeName} -> thingTypeName) (\s@ThingTypeDefinition' {} a -> s {thingTypeName = a} :: ThingTypeDefinition)
 
 -- | The ThingTypeMetadata contains additional information about the thing
 -- type including: creation date and time, a value indicating whether the
@@ -85,10 +89,6 @@ thingTypeDefinition_thingTypeMetadata = Lens.lens (\ThingTypeDefinition' {thingT
 thingTypeDefinition_thingTypeArn :: Lens.Lens' ThingTypeDefinition (Prelude.Maybe Prelude.Text)
 thingTypeDefinition_thingTypeArn = Lens.lens (\ThingTypeDefinition' {thingTypeArn} -> thingTypeArn) (\s@ThingTypeDefinition' {} a -> s {thingTypeArn = a} :: ThingTypeDefinition)
 
--- | The name of the thing type.
-thingTypeDefinition_thingTypeName :: Lens.Lens' ThingTypeDefinition (Prelude.Maybe Prelude.Text)
-thingTypeDefinition_thingTypeName = Lens.lens (\ThingTypeDefinition' {thingTypeName} -> thingTypeName) (\s@ThingTypeDefinition' {} a -> s {thingTypeName = a} :: ThingTypeDefinition)
-
 instance Core.FromJSON ThingTypeDefinition where
   parseJSON =
     Core.withObject
@@ -96,9 +96,9 @@ instance Core.FromJSON ThingTypeDefinition where
       ( \x ->
           ThingTypeDefinition'
             Prelude.<$> (x Core..:? "thingTypeProperties")
+            Prelude.<*> (x Core..:? "thingTypeName")
             Prelude.<*> (x Core..:? "thingTypeMetadata")
             Prelude.<*> (x Core..:? "thingTypeArn")
-            Prelude.<*> (x Core..:? "thingTypeName")
       )
 
 instance Prelude.Hashable ThingTypeDefinition

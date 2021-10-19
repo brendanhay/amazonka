@@ -21,11 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists
--- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html Lambda layers>
+-- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html Lambda layers>
 -- and shows information about the latest version of each. Specify a
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime identifier>
 -- to list only layers that indicate that they\'re compatible with that
--- runtime.
+-- runtime. Specify a compatible architecture to include only layers that
+-- are compatible with that
+-- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListLayers
@@ -34,9 +36,10 @@ module Network.AWS.Lambda.ListLayers
     newListLayers,
 
     -- * Request Lenses
-    listLayers_maxItems,
-    listLayers_marker,
     listLayers_compatibleRuntime,
+    listLayers_marker,
+    listLayers_maxItems,
+    listLayers_compatibleArchitecture,
 
     -- * Destructuring the Response
     ListLayersResponse (..),
@@ -58,12 +61,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListLayers' smart constructor.
 data ListLayers = ListLayers'
-  { -- | The maximum number of layers to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+  { -- | A runtime identifier. For example, @go1.x@.
+    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A runtime identifier. For example, @go1.x@.
-    compatibleRuntime :: Prelude.Maybe Runtime
+    -- | The maximum number of layers to return.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The compatible
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
+    compatibleArchitecture :: Prelude.Maybe Architecture
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,31 +81,40 @@ data ListLayers = ListLayers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listLayers_maxItems' - The maximum number of layers to return.
+-- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
 --
 -- 'marker', 'listLayers_marker' - A pagination token returned by a previous call.
 --
--- 'compatibleRuntime', 'listLayers_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
+-- 'maxItems', 'listLayers_maxItems' - The maximum number of layers to return.
+--
+-- 'compatibleArchitecture', 'listLayers_compatibleArchitecture' - The compatible
+-- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
 newListLayers ::
   ListLayers
 newListLayers =
   ListLayers'
-    { maxItems = Prelude.Nothing,
+    { compatibleRuntime = Prelude.Nothing,
       marker = Prelude.Nothing,
-      compatibleRuntime = Prelude.Nothing
+      maxItems = Prelude.Nothing,
+      compatibleArchitecture = Prelude.Nothing
     }
 
--- | The maximum number of layers to return.
-listLayers_maxItems :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Natural)
-listLayers_maxItems = Lens.lens (\ListLayers' {maxItems} -> maxItems) (\s@ListLayers' {} a -> s {maxItems = a} :: ListLayers)
+-- | A runtime identifier. For example, @go1.x@.
+listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
+listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
 
 -- | A pagination token returned by a previous call.
 listLayers_marker :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Text)
 listLayers_marker = Lens.lens (\ListLayers' {marker} -> marker) (\s@ListLayers' {} a -> s {marker = a} :: ListLayers)
 
--- | A runtime identifier. For example, @go1.x@.
-listLayers_compatibleRuntime :: Lens.Lens' ListLayers (Prelude.Maybe Runtime)
-listLayers_compatibleRuntime = Lens.lens (\ListLayers' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayers' {} a -> s {compatibleRuntime = a} :: ListLayers)
+-- | The maximum number of layers to return.
+listLayers_maxItems :: Lens.Lens' ListLayers (Prelude.Maybe Prelude.Natural)
+listLayers_maxItems = Lens.lens (\ListLayers' {maxItems} -> maxItems) (\s@ListLayers' {} a -> s {maxItems = a} :: ListLayers)
+
+-- | The compatible
+-- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
+listLayers_compatibleArchitecture :: Lens.Lens' ListLayers (Prelude.Maybe Architecture)
+listLayers_compatibleArchitecture = Lens.lens (\ListLayers' {compatibleArchitecture} -> compatibleArchitecture) (\s@ListLayers' {} a -> s {compatibleArchitecture = a} :: ListLayers)
 
 instance Core.AWSPager ListLayers where
   page rq rs
@@ -145,9 +160,11 @@ instance Core.ToPath ListLayers where
 instance Core.ToQuery ListLayers where
   toQuery ListLayers' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
+      [ "CompatibleRuntime" Core.=: compatibleRuntime,
         "Marker" Core.=: marker,
-        "CompatibleRuntime" Core.=: compatibleRuntime
+        "MaxItems" Core.=: maxItems,
+        "CompatibleArchitecture"
+          Core.=: compatibleArchitecture
       ]
 
 -- | /See:/ 'newListLayersResponse' smart constructor.
@@ -194,7 +211,7 @@ listLayersResponse_nextMarker = Lens.lens (\ListLayersResponse' {nextMarker} -> 
 
 -- | A list of function layers.
 listLayersResponse_layers :: Lens.Lens' ListLayersResponse (Prelude.Maybe [LayersListItem])
-listLayersResponse_layers = Lens.lens (\ListLayersResponse' {layers} -> layers) (\s@ListLayersResponse' {} a -> s {layers = a} :: ListLayersResponse) Prelude.. Lens.mapping Lens._Coerce
+listLayersResponse_layers = Lens.lens (\ListLayersResponse' {layers} -> layers) (\s@ListLayersResponse' {} a -> s {layers = a} :: ListLayersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLayersResponse_httpStatus :: Lens.Lens' ListLayersResponse Prelude.Int

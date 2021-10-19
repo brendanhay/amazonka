@@ -32,12 +32,12 @@ module Network.AWS.SESv2.CreateConfigurationSet
     newCreateConfigurationSet,
 
     -- * Request Lenses
-    createConfigurationSet_trackingOptions,
     createConfigurationSet_sendingOptions,
     createConfigurationSet_deliveryOptions,
+    createConfigurationSet_trackingOptions,
     createConfigurationSet_reputationOptions,
-    createConfigurationSet_suppressionOptions,
     createConfigurationSet_tags,
+    createConfigurationSet_suppressionOptions,
     createConfigurationSet_configurationSetName,
 
     -- * Destructuring the Response
@@ -60,23 +60,25 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newCreateConfigurationSet' smart constructor.
 data CreateConfigurationSet = CreateConfigurationSet'
-  { -- | An object that defines the open and click tracking options for emails
-    -- that you send using the configuration set.
-    trackingOptions :: Prelude.Maybe TrackingOptions,
-    -- | An object that defines whether or not Amazon SES can send email that you
+  { -- | An object that defines whether or not Amazon SES can send email that you
     -- send using the configuration set.
     sendingOptions :: Prelude.Maybe SendingOptions,
     -- | An object that defines the dedicated IP pool that is used to send emails
     -- that you send using the configuration set.
     deliveryOptions :: Prelude.Maybe DeliveryOptions,
+    -- | An object that defines the open and click tracking options for emails
+    -- that you send using the configuration set.
+    trackingOptions :: Prelude.Maybe TrackingOptions,
     -- | An object that defines whether or not Amazon SES collects reputation
     -- metrics for the emails that you send that use the configuration set.
     reputationOptions :: Prelude.Maybe ReputationOptions,
-    suppressionOptions :: Prelude.Maybe SuppressionOptions,
-    -- | An array of objects that define the tags (keys and values) that you want
-    -- to associate with the configuration set.
+    -- | An array of objects that define the tags (keys and values) to associate
+    -- with the configuration set.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the configuration set.
+    suppressionOptions :: Prelude.Maybe SuppressionOptions,
+    -- | The name of the configuration set. The name can contain up to 64
+    -- alphanumeric characters, including letters, numbers, hyphens (-) and
+    -- underscores (_) only.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,44 +91,41 @@ data CreateConfigurationSet = CreateConfigurationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trackingOptions', 'createConfigurationSet_trackingOptions' - An object that defines the open and click tracking options for emails
--- that you send using the configuration set.
---
 -- 'sendingOptions', 'createConfigurationSet_sendingOptions' - An object that defines whether or not Amazon SES can send email that you
 -- send using the configuration set.
 --
 -- 'deliveryOptions', 'createConfigurationSet_deliveryOptions' - An object that defines the dedicated IP pool that is used to send emails
 -- that you send using the configuration set.
 --
+-- 'trackingOptions', 'createConfigurationSet_trackingOptions' - An object that defines the open and click tracking options for emails
+-- that you send using the configuration set.
+--
 -- 'reputationOptions', 'createConfigurationSet_reputationOptions' - An object that defines whether or not Amazon SES collects reputation
 -- metrics for the emails that you send that use the configuration set.
 --
+-- 'tags', 'createConfigurationSet_tags' - An array of objects that define the tags (keys and values) to associate
+-- with the configuration set.
+--
 -- 'suppressionOptions', 'createConfigurationSet_suppressionOptions' - Undocumented member.
 --
--- 'tags', 'createConfigurationSet_tags' - An array of objects that define the tags (keys and values) that you want
--- to associate with the configuration set.
---
--- 'configurationSetName', 'createConfigurationSet_configurationSetName' - The name of the configuration set.
+-- 'configurationSetName', 'createConfigurationSet_configurationSetName' - The name of the configuration set. The name can contain up to 64
+-- alphanumeric characters, including letters, numbers, hyphens (-) and
+-- underscores (_) only.
 newCreateConfigurationSet ::
   -- | 'configurationSetName'
   Prelude.Text ->
   CreateConfigurationSet
 newCreateConfigurationSet pConfigurationSetName_ =
   CreateConfigurationSet'
-    { trackingOptions =
+    { sendingOptions =
         Prelude.Nothing,
-      sendingOptions = Prelude.Nothing,
       deliveryOptions = Prelude.Nothing,
+      trackingOptions = Prelude.Nothing,
       reputationOptions = Prelude.Nothing,
-      suppressionOptions = Prelude.Nothing,
       tags = Prelude.Nothing,
+      suppressionOptions = Prelude.Nothing,
       configurationSetName = pConfigurationSetName_
     }
-
--- | An object that defines the open and click tracking options for emails
--- that you send using the configuration set.
-createConfigurationSet_trackingOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe TrackingOptions)
-createConfigurationSet_trackingOptions = Lens.lens (\CreateConfigurationSet' {trackingOptions} -> trackingOptions) (\s@CreateConfigurationSet' {} a -> s {trackingOptions = a} :: CreateConfigurationSet)
 
 -- | An object that defines whether or not Amazon SES can send email that you
 -- send using the configuration set.
@@ -138,21 +137,28 @@ createConfigurationSet_sendingOptions = Lens.lens (\CreateConfigurationSet' {sen
 createConfigurationSet_deliveryOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe DeliveryOptions)
 createConfigurationSet_deliveryOptions = Lens.lens (\CreateConfigurationSet' {deliveryOptions} -> deliveryOptions) (\s@CreateConfigurationSet' {} a -> s {deliveryOptions = a} :: CreateConfigurationSet)
 
+-- | An object that defines the open and click tracking options for emails
+-- that you send using the configuration set.
+createConfigurationSet_trackingOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe TrackingOptions)
+createConfigurationSet_trackingOptions = Lens.lens (\CreateConfigurationSet' {trackingOptions} -> trackingOptions) (\s@CreateConfigurationSet' {} a -> s {trackingOptions = a} :: CreateConfigurationSet)
+
 -- | An object that defines whether or not Amazon SES collects reputation
 -- metrics for the emails that you send that use the configuration set.
 createConfigurationSet_reputationOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe ReputationOptions)
 createConfigurationSet_reputationOptions = Lens.lens (\CreateConfigurationSet' {reputationOptions} -> reputationOptions) (\s@CreateConfigurationSet' {} a -> s {reputationOptions = a} :: CreateConfigurationSet)
 
+-- | An array of objects that define the tags (keys and values) to associate
+-- with the configuration set.
+createConfigurationSet_tags :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe [Tag])
+createConfigurationSet_tags = Lens.lens (\CreateConfigurationSet' {tags} -> tags) (\s@CreateConfigurationSet' {} a -> s {tags = a} :: CreateConfigurationSet) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 createConfigurationSet_suppressionOptions :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe SuppressionOptions)
 createConfigurationSet_suppressionOptions = Lens.lens (\CreateConfigurationSet' {suppressionOptions} -> suppressionOptions) (\s@CreateConfigurationSet' {} a -> s {suppressionOptions = a} :: CreateConfigurationSet)
 
--- | An array of objects that define the tags (keys and values) that you want
--- to associate with the configuration set.
-createConfigurationSet_tags :: Lens.Lens' CreateConfigurationSet (Prelude.Maybe [Tag])
-createConfigurationSet_tags = Lens.lens (\CreateConfigurationSet' {tags} -> tags) (\s@CreateConfigurationSet' {} a -> s {tags = a} :: CreateConfigurationSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the configuration set.
+-- | The name of the configuration set. The name can contain up to 64
+-- alphanumeric characters, including letters, numbers, hyphens (-) and
+-- underscores (_) only.
 createConfigurationSet_configurationSetName :: Lens.Lens' CreateConfigurationSet Prelude.Text
 createConfigurationSet_configurationSetName = Lens.lens (\CreateConfigurationSet' {configurationSetName} -> configurationSetName) (\s@CreateConfigurationSet' {} a -> s {configurationSetName = a} :: CreateConfigurationSet)
 
@@ -187,17 +193,17 @@ instance Core.ToJSON CreateConfigurationSet where
   toJSON CreateConfigurationSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TrackingOptions" Core..=)
-              Prelude.<$> trackingOptions,
-            ("SendingOptions" Core..=)
+          [ ("SendingOptions" Core..=)
               Prelude.<$> sendingOptions,
             ("DeliveryOptions" Core..=)
               Prelude.<$> deliveryOptions,
+            ("TrackingOptions" Core..=)
+              Prelude.<$> trackingOptions,
             ("ReputationOptions" Core..=)
               Prelude.<$> reputationOptions,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("SuppressionOptions" Core..=)
               Prelude.<$> suppressionOptions,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "ConfigurationSetName"
                   Core..= configurationSetName

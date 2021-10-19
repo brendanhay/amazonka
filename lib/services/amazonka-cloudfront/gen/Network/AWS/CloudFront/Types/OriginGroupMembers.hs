@@ -55,7 +55,7 @@ newOriginGroupMembers ::
 newOriginGroupMembers pQuantity_ pItems_ =
   OriginGroupMembers'
     { quantity = pQuantity_,
-      items = Lens._Coerce Lens.# pItems_
+      items = Lens.coerced Lens.# pItems_
     }
 
 -- | The number of origins in an origin group.
@@ -64,7 +64,7 @@ originGroupMembers_quantity = Lens.lens (\OriginGroupMembers' {quantity} -> quan
 
 -- | Items (origins) in an origin group.
 originGroupMembers_items :: Lens.Lens' OriginGroupMembers (Prelude.NonEmpty OriginGroupMember)
-originGroupMembers_items = Lens.lens (\OriginGroupMembers' {items} -> items) (\s@OriginGroupMembers' {} a -> s {items = a} :: OriginGroupMembers) Prelude.. Lens._Coerce
+originGroupMembers_items = Lens.lens (\OriginGroupMembers' {items} -> items) (\s@OriginGroupMembers' {} a -> s {items = a} :: OriginGroupMembers) Prelude.. Lens.coerced
 
 instance Core.FromXML OriginGroupMembers where
   parseXML x =

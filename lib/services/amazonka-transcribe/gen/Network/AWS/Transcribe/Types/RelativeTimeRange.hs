@@ -32,20 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRelativeTimeRange' smart constructor.
 data RelativeTimeRange = RelativeTimeRange'
-  { -- | A value that indicates the percentage of the beginning of the time
-    -- range. To set a relative time range, you must specify a start percentage
-    -- and an end percentage. For example, if you specify the following values:
-    --
-    -- -   StartPercentage - 10
-    --
-    -- -   EndPercentage - 50
-    --
-    -- This looks at the time range starting from 10% of the way into the call
-    -- to 50% of the way through the call. For a call that lasts 100,000
-    -- milliseconds, this example range would apply from the 10,000 millisecond
-    -- mark to the 50,000 millisecond mark.
-    startPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | A value that indicates the percentage of the end of the time range. To
+  { -- | A value that indicates the percentage of the end of the time range. To
     -- set a relative time range, you must specify a start percentage and an
     -- end percentage. For example, if you specify the following values:
     --
@@ -58,16 +45,29 @@ data RelativeTimeRange = RelativeTimeRange'
     -- milliseconds, this example range would apply from the 10,000 millisecond
     -- mark to the 50,000 millisecond mark.
     endPercentage :: Prelude.Maybe Prelude.Natural,
+    -- | A range that takes the portion of the call up to the time in
+    -- milliseconds set by the value that you\'ve specified. For example, if
+    -- you specify @120000@, the time range is set for the first 120,000
+    -- milliseconds of the call.
+    first :: Prelude.Maybe Prelude.Natural,
     -- | A range that takes the portion of the call from the time in milliseconds
     -- set by the value that you\'ve specified to the end of the call. For
     -- example, if you specify @120000@, the time range is set for the last
     -- 120,000 milliseconds of the call.
     last :: Prelude.Maybe Prelude.Natural,
-    -- | A range that takes the portion of the call up to the time in
-    -- milliseconds set by the value that you\'ve specified. For example, if
-    -- you specify @120000@, the time range is set for the first 120,000
-    -- milliseconds of the call.
-    first :: Prelude.Maybe Prelude.Natural
+    -- | A value that indicates the percentage of the beginning of the time
+    -- range. To set a relative time range, you must specify a start percentage
+    -- and an end percentage. For example, if you specify the following values:
+    --
+    -- -   StartPercentage - 10
+    --
+    -- -   EndPercentage - 50
+    --
+    -- This looks at the time range starting from 10% of the way into the call
+    -- to 50% of the way through the call. For a call that lasts 100,000
+    -- milliseconds, this example range would apply from the 10,000 millisecond
+    -- mark to the 50,000 millisecond mark.
+    startPercentage :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,19 +78,6 @@ data RelativeTimeRange = RelativeTimeRange'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'startPercentage', 'relativeTimeRange_startPercentage' - A value that indicates the percentage of the beginning of the time
--- range. To set a relative time range, you must specify a start percentage
--- and an end percentage. For example, if you specify the following values:
---
--- -   StartPercentage - 10
---
--- -   EndPercentage - 50
---
--- This looks at the time range starting from 10% of the way into the call
--- to 50% of the way through the call. For a call that lasts 100,000
--- milliseconds, this example range would apply from the 10,000 millisecond
--- mark to the 50,000 millisecond mark.
 --
 -- 'endPercentage', 'relativeTimeRange_endPercentage' - A value that indicates the percentage of the end of the time range. To
 -- set a relative time range, you must specify a start percentage and an
@@ -105,27 +92,17 @@ data RelativeTimeRange = RelativeTimeRange'
 -- milliseconds, this example range would apply from the 10,000 millisecond
 -- mark to the 50,000 millisecond mark.
 --
+-- 'first', 'relativeTimeRange_first' - A range that takes the portion of the call up to the time in
+-- milliseconds set by the value that you\'ve specified. For example, if
+-- you specify @120000@, the time range is set for the first 120,000
+-- milliseconds of the call.
+--
 -- 'last', 'relativeTimeRange_last' - A range that takes the portion of the call from the time in milliseconds
 -- set by the value that you\'ve specified to the end of the call. For
 -- example, if you specify @120000@, the time range is set for the last
 -- 120,000 milliseconds of the call.
 --
--- 'first', 'relativeTimeRange_first' - A range that takes the portion of the call up to the time in
--- milliseconds set by the value that you\'ve specified. For example, if
--- you specify @120000@, the time range is set for the first 120,000
--- milliseconds of the call.
-newRelativeTimeRange ::
-  RelativeTimeRange
-newRelativeTimeRange =
-  RelativeTimeRange'
-    { startPercentage =
-        Prelude.Nothing,
-      endPercentage = Prelude.Nothing,
-      last = Prelude.Nothing,
-      first = Prelude.Nothing
-    }
-
--- | A value that indicates the percentage of the beginning of the time
+-- 'startPercentage', 'relativeTimeRange_startPercentage' - A value that indicates the percentage of the beginning of the time
 -- range. To set a relative time range, you must specify a start percentage
 -- and an end percentage. For example, if you specify the following values:
 --
@@ -137,8 +114,15 @@ newRelativeTimeRange =
 -- to 50% of the way through the call. For a call that lasts 100,000
 -- milliseconds, this example range would apply from the 10,000 millisecond
 -- mark to the 50,000 millisecond mark.
-relativeTimeRange_startPercentage :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
-relativeTimeRange_startPercentage = Lens.lens (\RelativeTimeRange' {startPercentage} -> startPercentage) (\s@RelativeTimeRange' {} a -> s {startPercentage = a} :: RelativeTimeRange)
+newRelativeTimeRange ::
+  RelativeTimeRange
+newRelativeTimeRange =
+  RelativeTimeRange'
+    { endPercentage = Prelude.Nothing,
+      first = Prelude.Nothing,
+      last = Prelude.Nothing,
+      startPercentage = Prelude.Nothing
+    }
 
 -- | A value that indicates the percentage of the end of the time range. To
 -- set a relative time range, you must specify a start percentage and an
@@ -155,13 +139,6 @@ relativeTimeRange_startPercentage = Lens.lens (\RelativeTimeRange' {startPercent
 relativeTimeRange_endPercentage :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_endPercentage = Lens.lens (\RelativeTimeRange' {endPercentage} -> endPercentage) (\s@RelativeTimeRange' {} a -> s {endPercentage = a} :: RelativeTimeRange)
 
--- | A range that takes the portion of the call from the time in milliseconds
--- set by the value that you\'ve specified to the end of the call. For
--- example, if you specify @120000@, the time range is set for the last
--- 120,000 milliseconds of the call.
-relativeTimeRange_last :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
-relativeTimeRange_last = Lens.lens (\RelativeTimeRange' {last} -> last) (\s@RelativeTimeRange' {} a -> s {last = a} :: RelativeTimeRange)
-
 -- | A range that takes the portion of the call up to the time in
 -- milliseconds set by the value that you\'ve specified. For example, if
 -- you specify @120000@, the time range is set for the first 120,000
@@ -169,16 +146,38 @@ relativeTimeRange_last = Lens.lens (\RelativeTimeRange' {last} -> last) (\s@Rela
 relativeTimeRange_first :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_first = Lens.lens (\RelativeTimeRange' {first} -> first) (\s@RelativeTimeRange' {} a -> s {first = a} :: RelativeTimeRange)
 
+-- | A range that takes the portion of the call from the time in milliseconds
+-- set by the value that you\'ve specified to the end of the call. For
+-- example, if you specify @120000@, the time range is set for the last
+-- 120,000 milliseconds of the call.
+relativeTimeRange_last :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
+relativeTimeRange_last = Lens.lens (\RelativeTimeRange' {last} -> last) (\s@RelativeTimeRange' {} a -> s {last = a} :: RelativeTimeRange)
+
+-- | A value that indicates the percentage of the beginning of the time
+-- range. To set a relative time range, you must specify a start percentage
+-- and an end percentage. For example, if you specify the following values:
+--
+-- -   StartPercentage - 10
+--
+-- -   EndPercentage - 50
+--
+-- This looks at the time range starting from 10% of the way into the call
+-- to 50% of the way through the call. For a call that lasts 100,000
+-- milliseconds, this example range would apply from the 10,000 millisecond
+-- mark to the 50,000 millisecond mark.
+relativeTimeRange_startPercentage :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
+relativeTimeRange_startPercentage = Lens.lens (\RelativeTimeRange' {startPercentage} -> startPercentage) (\s@RelativeTimeRange' {} a -> s {startPercentage = a} :: RelativeTimeRange)
+
 instance Core.FromJSON RelativeTimeRange where
   parseJSON =
     Core.withObject
       "RelativeTimeRange"
       ( \x ->
           RelativeTimeRange'
-            Prelude.<$> (x Core..:? "StartPercentage")
-            Prelude.<*> (x Core..:? "EndPercentage")
-            Prelude.<*> (x Core..:? "Last")
+            Prelude.<$> (x Core..:? "EndPercentage")
             Prelude.<*> (x Core..:? "First")
+            Prelude.<*> (x Core..:? "Last")
+            Prelude.<*> (x Core..:? "StartPercentage")
       )
 
 instance Prelude.Hashable RelativeTimeRange
@@ -189,10 +188,10 @@ instance Core.ToJSON RelativeTimeRange where
   toJSON RelativeTimeRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StartPercentage" Core..=)
-              Prelude.<$> startPercentage,
-            ("EndPercentage" Core..=) Prelude.<$> endPercentage,
+          [ ("EndPercentage" Core..=) Prelude.<$> endPercentage,
+            ("First" Core..=) Prelude.<$> first,
             ("Last" Core..=) Prelude.<$> last,
-            ("First" Core..=) Prelude.<$> first
+            ("StartPercentage" Core..=)
+              Prelude.<$> startPercentage
           ]
       )

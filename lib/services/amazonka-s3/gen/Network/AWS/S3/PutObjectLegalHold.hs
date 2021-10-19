@@ -31,11 +31,11 @@ module Network.AWS.S3.PutObjectLegalHold
     newPutObjectLegalHold,
 
     -- * Request Lenses
-    putObjectLegalHold_expectedBucketOwner,
-    putObjectLegalHold_contentMD5,
-    putObjectLegalHold_versionId,
     putObjectLegalHold_legalHold,
+    putObjectLegalHold_versionId,
     putObjectLegalHold_requestPayer,
+    putObjectLegalHold_contentMD5,
+    putObjectLegalHold_expectedBucketOwner,
     putObjectLegalHold_bucket,
     putObjectLegalHold_key,
 
@@ -58,22 +58,22 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutObjectLegalHold' smart constructor.
 data PutObjectLegalHold = PutObjectLegalHold'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+  { -- | Container element for the Legal Hold configuration you want to apply to
+    -- the specified object.
+    legalHold :: Prelude.Maybe ObjectLockLegalHold,
+    -- | The version ID of the object that you want to place a Legal Hold on.
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The version ID of the object that you want to place a Legal Hold on.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    -- | Container element for the Legal Hold configuration you want to apply to
-    -- the specified object.
-    legalHold :: Prelude.Maybe ObjectLockLegalHold,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the object that you want to place a Legal
     -- Hold on.
     --
@@ -99,9 +99,12 @@ data PutObjectLegalHold = PutObjectLegalHold'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putObjectLegalHold_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'legalHold', 'putObjectLegalHold_legalHold' - Container element for the Legal Hold configuration you want to apply to
+-- the specified object.
+--
+-- 'versionId', 'putObjectLegalHold_versionId' - The version ID of the object that you want to place a Legal Hold on.
+--
+-- 'requestPayer', 'putObjectLegalHold_requestPayer' - Undocumented member.
 --
 -- 'contentMD5', 'putObjectLegalHold_contentMD5' - The MD5 hash for the request body.
 --
@@ -109,12 +112,9 @@ data PutObjectLegalHold = PutObjectLegalHold'
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
 --
--- 'versionId', 'putObjectLegalHold_versionId' - The version ID of the object that you want to place a Legal Hold on.
---
--- 'legalHold', 'putObjectLegalHold_legalHold' - Container element for the Legal Hold configuration you want to apply to
--- the specified object.
---
--- 'requestPayer', 'putObjectLegalHold_requestPayer' - Undocumented member.
+-- 'expectedBucketOwner', 'putObjectLegalHold_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putObjectLegalHold_bucket' - The bucket name containing the object that you want to place a Legal
 -- Hold on.
@@ -137,21 +137,27 @@ newPutObjectLegalHold ::
   PutObjectLegalHold
 newPutObjectLegalHold pBucket_ pKey_ =
   PutObjectLegalHold'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+    { legalHold = Prelude.Nothing,
       versionId = Prelude.Nothing,
-      legalHold = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putObjectLegalHold_expectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
-putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: PutObjectLegalHold)
+-- | Container element for the Legal Hold configuration you want to apply to
+-- the specified object.
+putObjectLegalHold_legalHold :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectLockLegalHold)
+putObjectLegalHold_legalHold = Lens.lens (\PutObjectLegalHold' {legalHold} -> legalHold) (\s@PutObjectLegalHold' {} a -> s {legalHold = a} :: PutObjectLegalHold)
+
+-- | The version ID of the object that you want to place a Legal Hold on.
+putObjectLegalHold_versionId :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectVersionId)
+putObjectLegalHold_versionId = Lens.lens (\PutObjectLegalHold' {versionId} -> versionId) (\s@PutObjectLegalHold' {} a -> s {versionId = a} :: PutObjectLegalHold)
+
+-- | Undocumented member.
+putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe RequestPayer)
+putObjectLegalHold_requestPayer = Lens.lens (\PutObjectLegalHold' {requestPayer} -> requestPayer) (\s@PutObjectLegalHold' {} a -> s {requestPayer = a} :: PutObjectLegalHold)
 
 -- | The MD5 hash for the request body.
 --
@@ -161,18 +167,11 @@ putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expect
 putObjectLegalHold_contentMD5 :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
 putObjectLegalHold_contentMD5 = Lens.lens (\PutObjectLegalHold' {contentMD5} -> contentMD5) (\s@PutObjectLegalHold' {} a -> s {contentMD5 = a} :: PutObjectLegalHold)
 
--- | The version ID of the object that you want to place a Legal Hold on.
-putObjectLegalHold_versionId :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectVersionId)
-putObjectLegalHold_versionId = Lens.lens (\PutObjectLegalHold' {versionId} -> versionId) (\s@PutObjectLegalHold' {} a -> s {versionId = a} :: PutObjectLegalHold)
-
--- | Container element for the Legal Hold configuration you want to apply to
--- the specified object.
-putObjectLegalHold_legalHold :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectLockLegalHold)
-putObjectLegalHold_legalHold = Lens.lens (\PutObjectLegalHold' {legalHold} -> legalHold) (\s@PutObjectLegalHold' {} a -> s {legalHold = a} :: PutObjectLegalHold)
-
--- | Undocumented member.
-putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe RequestPayer)
-putObjectLegalHold_requestPayer = Lens.lens (\PutObjectLegalHold' {requestPayer} -> requestPayer) (\s@PutObjectLegalHold' {} a -> s {requestPayer = a} :: PutObjectLegalHold)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putObjectLegalHold_expectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
+putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: PutObjectLegalHold)
 
 -- | The bucket name containing the object that you want to place a Legal
 -- Hold on.
@@ -196,7 +195,9 @@ instance Core.AWSRequest PutObjectLegalHold where
   type
     AWSResponse PutObjectLegalHold =
       PutObjectLegalHoldResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -218,10 +219,10 @@ instance Core.ToElement PutObjectLegalHold where
 instance Core.ToHeaders PutObjectLegalHold where
   toHeaders PutObjectLegalHold' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+      [ "x-amz-request-payer" Core.=# requestPayer,
         "Content-MD5" Core.=# contentMD5,
-        "x-amz-request-payer" Core.=# requestPayer
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutObjectLegalHold where

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchReadException' smart constructor.
 data BatchReadException = BatchReadException'
-  { -- | An exception message that is associated with the failure.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | A type of exception, such as @InvalidArnException@.
-    type' :: Prelude.Maybe BatchReadExceptionType
+  { -- | A type of exception, such as @InvalidArnException@.
+    type' :: Prelude.Maybe BatchReadExceptionType,
+    -- | An exception message that is associated with the failure.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data BatchReadException = BatchReadException'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'batchReadException_message' - An exception message that is associated with the failure.
---
 -- 'type'', 'batchReadException_type' - A type of exception, such as @InvalidArnException@.
+--
+-- 'message', 'batchReadException_message' - An exception message that is associated with the failure.
 newBatchReadException ::
   BatchReadException
 newBatchReadException =
   BatchReadException'
-    { message = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | An exception message that is associated with the failure.
-batchReadException_message :: Lens.Lens' BatchReadException (Prelude.Maybe Prelude.Text)
-batchReadException_message = Lens.lens (\BatchReadException' {message} -> message) (\s@BatchReadException' {} a -> s {message = a} :: BatchReadException)
 
 -- | A type of exception, such as @InvalidArnException@.
 batchReadException_type :: Lens.Lens' BatchReadException (Prelude.Maybe BatchReadExceptionType)
 batchReadException_type = Lens.lens (\BatchReadException' {type'} -> type') (\s@BatchReadException' {} a -> s {type' = a} :: BatchReadException)
+
+-- | An exception message that is associated with the failure.
+batchReadException_message :: Lens.Lens' BatchReadException (Prelude.Maybe Prelude.Text)
+batchReadException_message = Lens.lens (\BatchReadException' {message} -> message) (\s@BatchReadException' {} a -> s {message = a} :: BatchReadException)
 
 instance Core.FromJSON BatchReadException where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON BatchReadException where
       "BatchReadException"
       ( \x ->
           BatchReadException'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable BatchReadException

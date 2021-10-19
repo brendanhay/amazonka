@@ -70,7 +70,8 @@ data JoinDomain = JoinDomain'
     -- colon (“:”). For example, @mydc.mydomain.com:389@.
     domainControllers :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
-    -- operation to return a list of gateways for your account and Region.
+    -- operation to return a list of gateways for your account and Amazon Web
+    -- Services Region.
     gatewayARN :: Prelude.Text,
     -- | The name of the domain that you want the gateway to join.
     domainName :: Prelude.Text,
@@ -106,7 +107,8 @@ data JoinDomain = JoinDomain'
 -- colon (“:”). For example, @mydc.mydomain.com:389@.
 --
 -- 'gatewayARN', 'joinDomain_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
--- operation to return a list of gateways for your account and Region.
+-- operation to return a list of gateways for your account and Amazon Web
+-- Services Region.
 --
 -- 'domainName', 'joinDomain_domainName' - The name of the domain that you want the gateway to join.
 --
@@ -158,10 +160,11 @@ joinDomain_timeoutInSeconds = Lens.lens (\JoinDomain' {timeoutInSeconds} -> time
 -- server. If you need to specify the port number include it after the
 -- colon (“:”). For example, @mydc.mydomain.com:389@.
 joinDomain_domainControllers :: Lens.Lens' JoinDomain (Prelude.Maybe [Prelude.Text])
-joinDomain_domainControllers = Lens.lens (\JoinDomain' {domainControllers} -> domainControllers) (\s@JoinDomain' {} a -> s {domainControllers = a} :: JoinDomain) Prelude.. Lens.mapping Lens._Coerce
+joinDomain_domainControllers = Lens.lens (\JoinDomain' {domainControllers} -> domainControllers) (\s@JoinDomain' {} a -> s {domainControllers = a} :: JoinDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the @ListGateways@
--- operation to return a list of gateways for your account and Region.
+-- operation to return a list of gateways for your account and Amazon Web
+-- Services Region.
 joinDomain_gatewayARN :: Lens.Lens' JoinDomain Prelude.Text
 joinDomain_gatewayARN = Lens.lens (\JoinDomain' {gatewayARN} -> gatewayARN) (\s@JoinDomain' {} a -> s {gatewayARN = a} :: JoinDomain)
 

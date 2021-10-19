@@ -79,7 +79,7 @@ untagProject_id = Lens.lens (\UntagProject' {id} -> id) (\s@UntagProject' {} a -
 
 -- | The tags to remove from the project.
 untagProject_tags :: Lens.Lens' UntagProject [Prelude.Text]
-untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' {} a -> s {tags = a} :: UntagProject) Prelude.. Lens._Coerce
+untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' {} a -> s {tags = a} :: UntagProject) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagProject where
   type AWSResponse UntagProject = UntagProjectResponse

@@ -44,8 +44,8 @@ module Network.AWS.ECR.InitiateLayerUpload
     newInitiateLayerUploadResponse,
 
     -- * Response Lenses
-    initiateLayerUploadResponse_uploadId,
     initiateLayerUploadResponse_partSize,
+    initiateLayerUploadResponse_uploadId,
     initiateLayerUploadResponse_httpStatus,
   )
 where
@@ -110,8 +110,8 @@ instance Core.AWSRequest InitiateLayerUpload where
     Response.receiveJSON
       ( \s h x ->
           InitiateLayerUploadResponse'
-            Prelude.<$> (x Core..?> "uploadId")
-            Prelude.<*> (x Core..?> "partSize")
+            Prelude.<$> (x Core..?> "partSize")
+            Prelude.<*> (x Core..?> "uploadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,12 +152,12 @@ instance Core.ToQuery InitiateLayerUpload where
 
 -- | /See:/ 'newInitiateLayerUploadResponse' smart constructor.
 data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
-  { -- | The upload ID for the layer upload. This parameter is passed to further
-    -- UploadLayerPart and CompleteLayerUpload operations.
-    uploadId :: Prelude.Maybe Prelude.Text,
-    -- | The size, in bytes, that Amazon ECR expects future layer part uploads to
+  { -- | The size, in bytes, that Amazon ECR expects future layer part uploads to
     -- be.
     partSize :: Prelude.Maybe Prelude.Natural,
+    -- | The upload ID for the layer upload. This parameter is passed to further
+    -- UploadLayerPart and CompleteLayerUpload operations.
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,11 +171,11 @@ data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadId', 'initiateLayerUploadResponse_uploadId' - The upload ID for the layer upload. This parameter is passed to further
--- UploadLayerPart and CompleteLayerUpload operations.
---
 -- 'partSize', 'initiateLayerUploadResponse_partSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to
 -- be.
+--
+-- 'uploadId', 'initiateLayerUploadResponse_uploadId' - The upload ID for the layer upload. This parameter is passed to further
+-- UploadLayerPart and CompleteLayerUpload operations.
 --
 -- 'httpStatus', 'initiateLayerUploadResponse_httpStatus' - The response's http status code.
 newInitiateLayerUploadResponse ::
@@ -184,21 +184,21 @@ newInitiateLayerUploadResponse ::
   InitiateLayerUploadResponse
 newInitiateLayerUploadResponse pHttpStatus_ =
   InitiateLayerUploadResponse'
-    { uploadId =
+    { partSize =
         Prelude.Nothing,
-      partSize = Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The upload ID for the layer upload. This parameter is passed to further
--- UploadLayerPart and CompleteLayerUpload operations.
-initiateLayerUploadResponse_uploadId :: Lens.Lens' InitiateLayerUploadResponse (Prelude.Maybe Prelude.Text)
-initiateLayerUploadResponse_uploadId = Lens.lens (\InitiateLayerUploadResponse' {uploadId} -> uploadId) (\s@InitiateLayerUploadResponse' {} a -> s {uploadId = a} :: InitiateLayerUploadResponse)
 
 -- | The size, in bytes, that Amazon ECR expects future layer part uploads to
 -- be.
 initiateLayerUploadResponse_partSize :: Lens.Lens' InitiateLayerUploadResponse (Prelude.Maybe Prelude.Natural)
 initiateLayerUploadResponse_partSize = Lens.lens (\InitiateLayerUploadResponse' {partSize} -> partSize) (\s@InitiateLayerUploadResponse' {} a -> s {partSize = a} :: InitiateLayerUploadResponse)
+
+-- | The upload ID for the layer upload. This parameter is passed to further
+-- UploadLayerPart and CompleteLayerUpload operations.
+initiateLayerUploadResponse_uploadId :: Lens.Lens' InitiateLayerUploadResponse (Prelude.Maybe Prelude.Text)
+initiateLayerUploadResponse_uploadId = Lens.lens (\InitiateLayerUploadResponse' {uploadId} -> uploadId) (\s@InitiateLayerUploadResponse' {} a -> s {uploadId = a} :: InitiateLayerUploadResponse)
 
 -- | The response's http status code.
 initiateLayerUploadResponse_httpStatus :: Lens.Lens' InitiateLayerUploadResponse Prelude.Int

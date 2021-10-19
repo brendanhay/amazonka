@@ -29,17 +29,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMatcher' smart constructor.
 data Matcher = Matcher'
-  { -- | You can specify values between 0 and 99. You can specify multiple values
-    -- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
-    -- default value is 12.
-    grpcCode :: Prelude.Maybe Prelude.Text,
-    -- | For Application Load Balancers, you can specify values between 200 and
+  { -- | For Application Load Balancers, you can specify values between 200 and
     -- 499, and the default value is 200. You can specify multiple values (for
     -- example, \"200,202\") or a range of values (for example, \"200-299\").
     --
     -- For Network Load Balancers and Gateway Load Balancers, this must be
     -- \"200–399\".
-    httpCode :: Prelude.Maybe Prelude.Text
+    --
+    -- Note that when using shorthand syntax, some values such as commas need
+    -- to be escaped.
+    httpCode :: Prelude.Maybe Prelude.Text,
+    -- | You can specify values between 0 and 99. You can specify multiple values
+    -- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
+    -- default value is 12.
+    grpcCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,29 +54,26 @@ data Matcher = Matcher'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grpcCode', 'matcher_grpcCode' - You can specify values between 0 and 99. You can specify multiple values
--- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
--- default value is 12.
---
 -- 'httpCode', 'matcher_httpCode' - For Application Load Balancers, you can specify values between 200 and
 -- 499, and the default value is 200. You can specify multiple values (for
 -- example, \"200,202\") or a range of values (for example, \"200-299\").
 --
 -- For Network Load Balancers and Gateway Load Balancers, this must be
 -- \"200–399\".
+--
+-- Note that when using shorthand syntax, some values such as commas need
+-- to be escaped.
+--
+-- 'grpcCode', 'matcher_grpcCode' - You can specify values between 0 and 99. You can specify multiple values
+-- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
+-- default value is 12.
 newMatcher ::
   Matcher
 newMatcher =
   Matcher'
-    { grpcCode = Prelude.Nothing,
-      httpCode = Prelude.Nothing
+    { httpCode = Prelude.Nothing,
+      grpcCode = Prelude.Nothing
     }
-
--- | You can specify values between 0 and 99. You can specify multiple values
--- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
--- default value is 12.
-matcher_grpcCode :: Lens.Lens' Matcher (Prelude.Maybe Prelude.Text)
-matcher_grpcCode = Lens.lens (\Matcher' {grpcCode} -> grpcCode) (\s@Matcher' {} a -> s {grpcCode = a} :: Matcher)
 
 -- | For Application Load Balancers, you can specify values between 200 and
 -- 499, and the default value is 200. You can specify multiple values (for
@@ -81,14 +81,23 @@ matcher_grpcCode = Lens.lens (\Matcher' {grpcCode} -> grpcCode) (\s@Matcher' {} 
 --
 -- For Network Load Balancers and Gateway Load Balancers, this must be
 -- \"200–399\".
+--
+-- Note that when using shorthand syntax, some values such as commas need
+-- to be escaped.
 matcher_httpCode :: Lens.Lens' Matcher (Prelude.Maybe Prelude.Text)
 matcher_httpCode = Lens.lens (\Matcher' {httpCode} -> httpCode) (\s@Matcher' {} a -> s {httpCode = a} :: Matcher)
+
+-- | You can specify values between 0 and 99. You can specify multiple values
+-- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
+-- default value is 12.
+matcher_grpcCode :: Lens.Lens' Matcher (Prelude.Maybe Prelude.Text)
+matcher_grpcCode = Lens.lens (\Matcher' {grpcCode} -> grpcCode) (\s@Matcher' {} a -> s {grpcCode = a} :: Matcher)
 
 instance Core.FromXML Matcher where
   parseXML x =
     Matcher'
-      Prelude.<$> (x Core..@? "GrpcCode")
-      Prelude.<*> (x Core..@? "HttpCode")
+      Prelude.<$> (x Core..@? "HttpCode")
+      Prelude.<*> (x Core..@? "GrpcCode")
 
 instance Prelude.Hashable Matcher
 
@@ -97,6 +106,6 @@ instance Prelude.NFData Matcher
 instance Core.ToQuery Matcher where
   toQuery Matcher' {..} =
     Prelude.mconcat
-      [ "GrpcCode" Core.=: grpcCode,
-        "HttpCode" Core.=: httpCode
+      [ "HttpCode" Core.=: httpCode,
+        "GrpcCode" Core.=: grpcCode
       ]

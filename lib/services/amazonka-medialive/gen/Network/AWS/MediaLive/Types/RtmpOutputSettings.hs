@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRtmpOutputSettings' smart constructor.
 data RtmpOutputSettings = RtmpOutputSettings'
-  { -- | If set to verifyAuthenticity, verify the tls certificate chain to a
+  { -- | Number of retry attempts.
+    numRetries :: Prelude.Maybe Prelude.Natural,
+    -- | If set to verifyAuthenticity, verify the tls certificate chain to a
     -- trusted Certificate Authority (CA). This will cause rtmps outputs with
     -- self-signed certificates to fail.
     certificateMode :: Prelude.Maybe RtmpOutputCertificateMode,
-    -- | Number of retry attempts.
-    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | Number of seconds to wait before retrying a connection to the Flash
     -- Media server if the connection is lost.
     connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
@@ -53,11 +53,11 @@ data RtmpOutputSettings = RtmpOutputSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'numRetries', 'rtmpOutputSettings_numRetries' - Number of retry attempts.
+--
 -- 'certificateMode', 'rtmpOutputSettings_certificateMode' - If set to verifyAuthenticity, verify the tls certificate chain to a
 -- trusted Certificate Authority (CA). This will cause rtmps outputs with
 -- self-signed certificates to fail.
---
--- 'numRetries', 'rtmpOutputSettings_numRetries' - Number of retry attempts.
 --
 -- 'connectionRetryInterval', 'rtmpOutputSettings_connectionRetryInterval' - Number of seconds to wait before retrying a connection to the Flash
 -- Media server if the connection is lost.
@@ -71,22 +71,21 @@ newRtmpOutputSettings ::
   RtmpOutputSettings
 newRtmpOutputSettings pDestination_ =
   RtmpOutputSettings'
-    { certificateMode =
-        Prelude.Nothing,
-      numRetries = Prelude.Nothing,
+    { numRetries = Prelude.Nothing,
+      certificateMode = Prelude.Nothing,
       connectionRetryInterval = Prelude.Nothing,
       destination = pDestination_
     }
+
+-- | Number of retry attempts.
+rtmpOutputSettings_numRetries :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
+rtmpOutputSettings_numRetries = Lens.lens (\RtmpOutputSettings' {numRetries} -> numRetries) (\s@RtmpOutputSettings' {} a -> s {numRetries = a} :: RtmpOutputSettings)
 
 -- | If set to verifyAuthenticity, verify the tls certificate chain to a
 -- trusted Certificate Authority (CA). This will cause rtmps outputs with
 -- self-signed certificates to fail.
 rtmpOutputSettings_certificateMode :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe RtmpOutputCertificateMode)
 rtmpOutputSettings_certificateMode = Lens.lens (\RtmpOutputSettings' {certificateMode} -> certificateMode) (\s@RtmpOutputSettings' {} a -> s {certificateMode = a} :: RtmpOutputSettings)
-
--- | Number of retry attempts.
-rtmpOutputSettings_numRetries :: Lens.Lens' RtmpOutputSettings (Prelude.Maybe Prelude.Natural)
-rtmpOutputSettings_numRetries = Lens.lens (\RtmpOutputSettings' {numRetries} -> numRetries) (\s@RtmpOutputSettings' {} a -> s {numRetries = a} :: RtmpOutputSettings)
 
 -- | Number of seconds to wait before retrying a connection to the Flash
 -- Media server if the connection is lost.
@@ -105,8 +104,8 @@ instance Core.FromJSON RtmpOutputSettings where
       "RtmpOutputSettings"
       ( \x ->
           RtmpOutputSettings'
-            Prelude.<$> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..:? "numRetries")
+            Prelude.<$> (x Core..:? "numRetries")
+            Prelude.<*> (x Core..:? "certificateMode")
             Prelude.<*> (x Core..:? "connectionRetryInterval")
             Prelude.<*> (x Core..: "destination")
       )
@@ -119,9 +118,9 @@ instance Core.ToJSON RtmpOutputSettings where
   toJSON RtmpOutputSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("certificateMode" Core..=)
+          [ ("numRetries" Core..=) Prelude.<$> numRetries,
+            ("certificateMode" Core..=)
               Prelude.<$> certificateMode,
-            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("connectionRetryInterval" Core..=)
               Prelude.<$> connectionRetryInterval,
             Prelude.Just ("destination" Core..= destination)

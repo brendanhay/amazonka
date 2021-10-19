@@ -33,12 +33,12 @@ module Network.AWS.Comprehend.StartEntitiesDetectionJob
     newStartEntitiesDetectionJob,
 
     -- * Request Lenses
-    startEntitiesDetectionJob_vpcConfig,
-    startEntitiesDetectionJob_volumeKmsKeyId,
-    startEntitiesDetectionJob_tags,
-    startEntitiesDetectionJob_clientRequestToken,
     startEntitiesDetectionJob_entityRecognizerArn,
     startEntitiesDetectionJob_jobName,
+    startEntitiesDetectionJob_vpcConfig,
+    startEntitiesDetectionJob_volumeKmsKeyId,
+    startEntitiesDetectionJob_clientRequestToken,
+    startEntitiesDetectionJob_tags,
     startEntitiesDetectionJob_inputDataConfig,
     startEntitiesDetectionJob_outputDataConfig,
     startEntitiesDetectionJob_dataAccessRoleArn,
@@ -49,9 +49,9 @@ module Network.AWS.Comprehend.StartEntitiesDetectionJob
     newStartEntitiesDetectionJobResponse,
 
     -- * Response Lenses
-    startEntitiesDetectionJobResponse_jobStatus,
-    startEntitiesDetectionJobResponse_jobArn,
     startEntitiesDetectionJobResponse_jobId,
+    startEntitiesDetectionJobResponse_jobArn,
+    startEntitiesDetectionJobResponse_jobStatus,
     startEntitiesDetectionJobResponse_httpStatus,
   )
 where
@@ -65,7 +65,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartEntitiesDetectionJob' smart constructor.
 data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
-  { -- | Configuration parameters for an optional private Virtual Private Cloud
+  { -- | The Amazon Resource Name (ARN) that identifies the specific entity
+    -- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
+    -- optional and is only used for a custom entity recognition job.
+    entityRecognizerArn :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the job.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | Configuration parameters for an optional private Virtual Private Cloud
     -- (VPC) containing the resources you are using for your entity detection
     -- job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
@@ -80,20 +86,14 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the request. If you don\'t set the client
+    -- request token, Amazon Comprehend generates one.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Tags to be associated with the entities detection job. A tag is a
     -- key-value pair that adds metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
-    -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that identifies the specific entity
-    -- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
-    -- optional and is only used for a custom entity recognition job.
-    entityRecognizerArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
@@ -119,6 +119,12 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'entityRecognizerArn', 'startEntitiesDetectionJob_entityRecognizerArn' - The Amazon Resource Name (ARN) that identifies the specific entity
+-- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
+-- optional and is only used for a custom entity recognition job.
+--
+-- 'jobName', 'startEntitiesDetectionJob_jobName' - The identifier of the job.
+--
 -- 'vpcConfig', 'startEntitiesDetectionJob_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your entity detection
 -- job. For more information, see
@@ -134,19 +140,13 @@ data StartEntitiesDetectionJob = StartEntitiesDetectionJob'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
+-- 'clientRequestToken', 'startEntitiesDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
+-- request token, Amazon Comprehend generates one.
+--
 -- 'tags', 'startEntitiesDetectionJob_tags' - Tags to be associated with the entities detection job. A tag is a
 -- key-value pair that adds metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
---
--- 'clientRequestToken', 'startEntitiesDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend generates one.
---
--- 'entityRecognizerArn', 'startEntitiesDetectionJob_entityRecognizerArn' - The Amazon Resource Name (ARN) that identifies the specific entity
--- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
--- optional and is only used for a custom entity recognition job.
---
--- 'jobName', 'startEntitiesDetectionJob_jobName' - The identifier of the job.
 --
 -- 'inputDataConfig', 'startEntitiesDetectionJob_inputDataConfig' - Specifies the format and location of the input data for the job.
 --
@@ -177,18 +177,28 @@ newStartEntitiesDetectionJob
   pDataAccessRoleArn_
   pLanguageCode_ =
     StartEntitiesDetectionJob'
-      { vpcConfig =
+      { entityRecognizerArn =
           Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        entityRecognizerArn = Prelude.Nothing,
         jobName = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
+        volumeKmsKeyId = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         languageCode = pLanguageCode_
       }
+
+-- | The Amazon Resource Name (ARN) that identifies the specific entity
+-- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
+-- optional and is only used for a custom entity recognition job.
+startEntitiesDetectionJob_entityRecognizerArn :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionJob_entityRecognizerArn = Lens.lens (\StartEntitiesDetectionJob' {entityRecognizerArn} -> entityRecognizerArn) (\s@StartEntitiesDetectionJob' {} a -> s {entityRecognizerArn = a} :: StartEntitiesDetectionJob)
+
+-- | The identifier of the job.
+startEntitiesDetectionJob_jobName :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionJob_jobName = Lens.lens (\StartEntitiesDetectionJob' {jobName} -> jobName) (\s@StartEntitiesDetectionJob' {} a -> s {jobName = a} :: StartEntitiesDetectionJob)
 
 -- | Configuration parameters for an optional private Virtual Private Cloud
 -- (VPC) containing the resources you are using for your entity detection
@@ -209,27 +219,17 @@ startEntitiesDetectionJob_vpcConfig = Lens.lens (\StartEntitiesDetectionJob' {vp
 startEntitiesDetectionJob_volumeKmsKeyId :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionJob_volumeKmsKeyId = Lens.lens (\StartEntitiesDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartEntitiesDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartEntitiesDetectionJob)
 
--- | Tags to be associated with the entities detection job. A tag is a
--- key-value pair that adds metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
-startEntitiesDetectionJob_tags :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe [Tag])
-startEntitiesDetectionJob_tags = Lens.lens (\StartEntitiesDetectionJob' {tags} -> tags) (\s@StartEntitiesDetectionJob' {} a -> s {tags = a} :: StartEntitiesDetectionJob) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
 startEntitiesDetectionJob_clientRequestToken :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionJob_clientRequestToken = Lens.lens (\StartEntitiesDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartEntitiesDetectionJob' {} a -> s {clientRequestToken = a} :: StartEntitiesDetectionJob)
 
--- | The Amazon Resource Name (ARN) that identifies the specific entity
--- recognizer to be used by the @StartEntitiesDetectionJob@. This ARN is
--- optional and is only used for a custom entity recognition job.
-startEntitiesDetectionJob_entityRecognizerArn :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
-startEntitiesDetectionJob_entityRecognizerArn = Lens.lens (\StartEntitiesDetectionJob' {entityRecognizerArn} -> entityRecognizerArn) (\s@StartEntitiesDetectionJob' {} a -> s {entityRecognizerArn = a} :: StartEntitiesDetectionJob)
-
--- | The identifier of the job.
-startEntitiesDetectionJob_jobName :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe Prelude.Text)
-startEntitiesDetectionJob_jobName = Lens.lens (\StartEntitiesDetectionJob' {jobName} -> jobName) (\s@StartEntitiesDetectionJob' {} a -> s {jobName = a} :: StartEntitiesDetectionJob)
+-- | Tags to be associated with the entities detection job. A tag is a
+-- key-value pair that adds metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+startEntitiesDetectionJob_tags :: Lens.Lens' StartEntitiesDetectionJob (Prelude.Maybe [Tag])
+startEntitiesDetectionJob_tags = Lens.lens (\StartEntitiesDetectionJob' {tags} -> tags) (\s@StartEntitiesDetectionJob' {} a -> s {tags = a} :: StartEntitiesDetectionJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the format and location of the input data for the job.
 startEntitiesDetectionJob_inputDataConfig :: Lens.Lens' StartEntitiesDetectionJob InputDataConfig
@@ -262,9 +262,9 @@ instance Core.AWSRequest StartEntitiesDetectionJob where
     Response.receiveJSON
       ( \s h x ->
           StartEntitiesDetectionJobResponse'
-            Prelude.<$> (x Core..?> "JobStatus")
+            Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (x Core..?> "JobArn")
-            Prelude.<*> (x Core..?> "JobId")
+            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -291,15 +291,15 @@ instance Core.ToJSON StartEntitiesDetectionJob where
   toJSON StartEntitiesDetectionJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Core..=)
-              Prelude.<$> volumeKmsKeyId,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ClientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
-            ("EntityRecognizerArn" Core..=)
+          [ ("EntityRecognizerArn" Core..=)
               Prelude.<$> entityRecognizerArn,
             ("JobName" Core..=) Prelude.<$> jobName,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Core..=)
+              Prelude.<$> volumeKmsKeyId,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("InputDataConfig" Core..= inputDataConfig),
             Prelude.Just
@@ -318,7 +318,20 @@ instance Core.ToQuery StartEntitiesDetectionJob where
 
 -- | /See:/ 'newStartEntitiesDetectionJobResponse' smart constructor.
 data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
-  { -- | The status of the job.
+  { -- | The identifier generated for the job. To get the status of job, use this
+    -- identifier with the operation.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
+    -- | The status of the job.
     --
     -- -   SUBMITTED - The job has been received and is queued for processing.
     --
@@ -335,19 +348,6 @@ data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
     --
     -- -   STOPPED - The job was successfully stopped without completing.
     jobStatus :: Prelude.Maybe JobStatus,
-    -- | The Amazon Resource Name (ARN) of the entities detection job. It is a
-    -- unique, fully qualified identifier for the job. It includes the AWS
-    -- account, Region, and the job ID. The format of the ARN is as follows:
-    --
-    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
-    --
-    -- The following is an example job ARN:
-    --
-    -- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
-    jobArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier generated for the job. To get the status of job, use this
-    -- identifier with the operation.
-    jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -360,6 +360,19 @@ data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'jobId', 'startEntitiesDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of job, use this
+-- identifier with the operation.
+--
+-- 'jobArn', 'startEntitiesDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the entities detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
 -- 'jobStatus', 'startEntitiesDetectionJobResponse_jobStatus' - The status of the job.
 --
@@ -378,7 +391,26 @@ data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
 --
 -- -   STOPPED - The job was successfully stopped without completing.
 --
--- 'jobArn', 'startEntitiesDetectionJobResponse_jobArn' - The Amazon Resource Name (ARN) of the entities detection job. It is a
+-- 'httpStatus', 'startEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
+newStartEntitiesDetectionJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartEntitiesDetectionJobResponse
+newStartEntitiesDetectionJobResponse pHttpStatus_ =
+  StartEntitiesDetectionJobResponse'
+    { jobId =
+        Prelude.Nothing,
+      jobArn = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The identifier generated for the job. To get the status of job, use this
+-- identifier with the operation.
+startEntitiesDetectionJobResponse_jobId :: Lens.Lens' StartEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionJobResponse_jobId = Lens.lens (\StartEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StartEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StartEntitiesDetectionJobResponse)
+
+-- | The Amazon Resource Name (ARN) of the entities detection job. It is a
 -- unique, fully qualified identifier for the job. It includes the AWS
 -- account, Region, and the job ID. The format of the ARN is as follows:
 --
@@ -387,23 +419,8 @@ data StartEntitiesDetectionJobResponse = StartEntitiesDetectionJobResponse'
 -- The following is an example job ARN:
 --
 -- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
---
--- 'jobId', 'startEntitiesDetectionJobResponse_jobId' - The identifier generated for the job. To get the status of job, use this
--- identifier with the operation.
---
--- 'httpStatus', 'startEntitiesDetectionJobResponse_httpStatus' - The response's http status code.
-newStartEntitiesDetectionJobResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  StartEntitiesDetectionJobResponse
-newStartEntitiesDetectionJobResponse pHttpStatus_ =
-  StartEntitiesDetectionJobResponse'
-    { jobStatus =
-        Prelude.Nothing,
-      jobArn = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+startEntitiesDetectionJobResponse_jobArn :: Lens.Lens' StartEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startEntitiesDetectionJobResponse_jobArn = Lens.lens (\StartEntitiesDetectionJobResponse' {jobArn} -> jobArn) (\s@StartEntitiesDetectionJobResponse' {} a -> s {jobArn = a} :: StartEntitiesDetectionJobResponse)
 
 -- | The status of the job.
 --
@@ -423,23 +440,6 @@ newStartEntitiesDetectionJobResponse pHttpStatus_ =
 -- -   STOPPED - The job was successfully stopped without completing.
 startEntitiesDetectionJobResponse_jobStatus :: Lens.Lens' StartEntitiesDetectionJobResponse (Prelude.Maybe JobStatus)
 startEntitiesDetectionJobResponse_jobStatus = Lens.lens (\StartEntitiesDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartEntitiesDetectionJobResponse' {} a -> s {jobStatus = a} :: StartEntitiesDetectionJobResponse)
-
--- | The Amazon Resource Name (ARN) of the entities detection job. It is a
--- unique, fully qualified identifier for the job. It includes the AWS
--- account, Region, and the job ID. The format of the ARN is as follows:
---
--- @arn:\<partition>:comprehend:\<region>:\<account-id>:entities-detection-job\/\<job-id>@
---
--- The following is an example job ARN:
---
--- @arn:aws:comprehend:us-west-2:111122223333:entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
-startEntitiesDetectionJobResponse_jobArn :: Lens.Lens' StartEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
-startEntitiesDetectionJobResponse_jobArn = Lens.lens (\StartEntitiesDetectionJobResponse' {jobArn} -> jobArn) (\s@StartEntitiesDetectionJobResponse' {} a -> s {jobArn = a} :: StartEntitiesDetectionJobResponse)
-
--- | The identifier generated for the job. To get the status of job, use this
--- identifier with the operation.
-startEntitiesDetectionJobResponse_jobId :: Lens.Lens' StartEntitiesDetectionJobResponse (Prelude.Maybe Prelude.Text)
-startEntitiesDetectionJobResponse_jobId = Lens.lens (\StartEntitiesDetectionJobResponse' {jobId} -> jobId) (\s@StartEntitiesDetectionJobResponse' {} a -> s {jobId = a} :: StartEntitiesDetectionJobResponse)
 
 -- | The response's http status code.
 startEntitiesDetectionJobResponse_httpStatus :: Lens.Lens' StartEntitiesDetectionJobResponse Prelude.Int

@@ -24,18 +24,18 @@
 -- launch an instance. When you launch an instance using RunInstances, you
 -- can specify a launch template instead of providing the launch parameters
 -- in the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an instance from a launch template>in
--- the /Amazon Elastic Compute Cloud User Guide/.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an instance from a launch template>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.CreateLaunchTemplate
   ( -- * Creating a Request
     CreateLaunchTemplate (..),
     newCreateLaunchTemplate,
 
     -- * Request Lenses
+    createLaunchTemplate_clientToken,
+    createLaunchTemplate_versionDescription,
     createLaunchTemplate_tagSpecifications,
     createLaunchTemplate_dryRun,
-    createLaunchTemplate_versionDescription,
-    createLaunchTemplate_clientToken,
     createLaunchTemplate_launchTemplateName,
     createLaunchTemplate_launchTemplateData,
 
@@ -44,8 +44,8 @@ module Network.AWS.EC2.CreateLaunchTemplate
     newCreateLaunchTemplateResponse,
 
     -- * Response Lenses
-    createLaunchTemplateResponse_launchTemplate,
     createLaunchTemplateResponse_warning,
+    createLaunchTemplateResponse_launchTemplate,
     createLaunchTemplateResponse_httpStatus,
   )
 where
@@ -59,21 +59,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLaunchTemplate' smart constructor.
 data CreateLaunchTemplate = CreateLaunchTemplate'
-  { -- | The tags to apply to the launch template during creation.
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
+    -- of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    --
+    -- Constraint: Maximum 128 ASCII characters.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the first version of the launch template.
+    versionDescription :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the launch template during creation.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A description for the first version of the launch template.
-    versionDescription :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency
-    -- of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    --
-    -- Constraint: Maximum 128 ASCII characters.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | A name for the launch template.
     launchTemplateName :: Prelude.Text,
     -- | The information for the launch template.
@@ -89,20 +89,20 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createLaunchTemplate_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
+-- Constraint: Maximum 128 ASCII characters.
+--
+-- 'versionDescription', 'createLaunchTemplate_versionDescription' - A description for the first version of the launch template.
+--
 -- 'tagSpecifications', 'createLaunchTemplate_tagSpecifications' - The tags to apply to the launch template during creation.
 --
 -- 'dryRun', 'createLaunchTemplate_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'versionDescription', 'createLaunchTemplate_versionDescription' - A description for the first version of the launch template.
---
--- 'clientToken', 'createLaunchTemplate_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
---
--- Constraint: Maximum 128 ASCII characters.
 --
 -- 'launchTemplateName', 'createLaunchTemplate_launchTemplateName' - A name for the launch template.
 --
@@ -117,29 +117,14 @@ newCreateLaunchTemplate
   pLaunchTemplateName_
   pLaunchTemplateData_ =
     CreateLaunchTemplate'
-      { tagSpecifications =
+      { clientToken =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         versionDescription = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         launchTemplateName = pLaunchTemplateName_,
         launchTemplateData = pLaunchTemplateData_
       }
-
--- | The tags to apply to the launch template during creation.
-createLaunchTemplate_tagSpecifications :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe [TagSpecification])
-createLaunchTemplate_tagSpecifications = Lens.lens (\CreateLaunchTemplate' {tagSpecifications} -> tagSpecifications) (\s@CreateLaunchTemplate' {} a -> s {tagSpecifications = a} :: CreateLaunchTemplate) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createLaunchTemplate_dryRun :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Bool)
-createLaunchTemplate_dryRun = Lens.lens (\CreateLaunchTemplate' {dryRun} -> dryRun) (\s@CreateLaunchTemplate' {} a -> s {dryRun = a} :: CreateLaunchTemplate)
-
--- | A description for the first version of the launch template.
-createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
-createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplate' {} a -> s {versionDescription = a} :: CreateLaunchTemplate)
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
@@ -148,6 +133,21 @@ createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {ver
 -- Constraint: Maximum 128 ASCII characters.
 createLaunchTemplate_clientToken :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
 createLaunchTemplate_clientToken = Lens.lens (\CreateLaunchTemplate' {clientToken} -> clientToken) (\s@CreateLaunchTemplate' {} a -> s {clientToken = a} :: CreateLaunchTemplate)
+
+-- | A description for the first version of the launch template.
+createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
+createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplate' {} a -> s {versionDescription = a} :: CreateLaunchTemplate)
+
+-- | The tags to apply to the launch template during creation.
+createLaunchTemplate_tagSpecifications :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe [TagSpecification])
+createLaunchTemplate_tagSpecifications = Lens.lens (\CreateLaunchTemplate' {tagSpecifications} -> tagSpecifications) (\s@CreateLaunchTemplate' {} a -> s {tagSpecifications = a} :: CreateLaunchTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createLaunchTemplate_dryRun :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Bool)
+createLaunchTemplate_dryRun = Lens.lens (\CreateLaunchTemplate' {dryRun} -> dryRun) (\s@CreateLaunchTemplate' {} a -> s {dryRun = a} :: CreateLaunchTemplate)
 
 -- | A name for the launch template.
 createLaunchTemplate_launchTemplateName :: Lens.Lens' CreateLaunchTemplate Prelude.Text
@@ -166,8 +166,8 @@ instance Core.AWSRequest CreateLaunchTemplate where
     Response.receiveXML
       ( \s h x ->
           CreateLaunchTemplateResponse'
-            Prelude.<$> (x Core..@? "launchTemplate")
-            Prelude.<*> (x Core..@? "warning")
+            Prelude.<$> (x Core..@? "warning")
+            Prelude.<*> (x Core..@? "launchTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -188,25 +188,25 @@ instance Core.ToQuery CreateLaunchTemplate where
           Core.=: ("CreateLaunchTemplate" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Core.=: clientToken,
+        "VersionDescription" Core.=: versionDescription,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "VersionDescription" Core.=: versionDescription,
-        "ClientToken" Core.=: clientToken,
         "LaunchTemplateName" Core.=: launchTemplateName,
         "LaunchTemplateData" Core.=: launchTemplateData
       ]
 
 -- | /See:/ 'newCreateLaunchTemplateResponse' smart constructor.
 data CreateLaunchTemplateResponse = CreateLaunchTemplateResponse'
-  { -- | Information about the launch template.
-    launchTemplate :: Prelude.Maybe LaunchTemplate,
-    -- | If the launch template contains parameters or parameter combinations
+  { -- | If the launch template contains parameters or parameter combinations
     -- that are not valid, an error code and an error message are returned for
     -- each issue that\'s found.
     warning :: Prelude.Maybe ValidationWarning,
+    -- | Information about the launch template.
+    launchTemplate :: Prelude.Maybe LaunchTemplate,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,11 +220,11 @@ data CreateLaunchTemplateResponse = CreateLaunchTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplate', 'createLaunchTemplateResponse_launchTemplate' - Information about the launch template.
---
 -- 'warning', 'createLaunchTemplateResponse_warning' - If the launch template contains parameters or parameter combinations
 -- that are not valid, an error code and an error message are returned for
 -- each issue that\'s found.
+--
+-- 'launchTemplate', 'createLaunchTemplateResponse_launchTemplate' - Information about the launch template.
 --
 -- 'httpStatus', 'createLaunchTemplateResponse_httpStatus' - The response's http status code.
 newCreateLaunchTemplateResponse ::
@@ -233,21 +233,21 @@ newCreateLaunchTemplateResponse ::
   CreateLaunchTemplateResponse
 newCreateLaunchTemplateResponse pHttpStatus_ =
   CreateLaunchTemplateResponse'
-    { launchTemplate =
+    { warning =
         Prelude.Nothing,
-      warning = Prelude.Nothing,
+      launchTemplate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the launch template.
-createLaunchTemplateResponse_launchTemplate :: Lens.Lens' CreateLaunchTemplateResponse (Prelude.Maybe LaunchTemplate)
-createLaunchTemplateResponse_launchTemplate = Lens.lens (\CreateLaunchTemplateResponse' {launchTemplate} -> launchTemplate) (\s@CreateLaunchTemplateResponse' {} a -> s {launchTemplate = a} :: CreateLaunchTemplateResponse)
 
 -- | If the launch template contains parameters or parameter combinations
 -- that are not valid, an error code and an error message are returned for
 -- each issue that\'s found.
 createLaunchTemplateResponse_warning :: Lens.Lens' CreateLaunchTemplateResponse (Prelude.Maybe ValidationWarning)
 createLaunchTemplateResponse_warning = Lens.lens (\CreateLaunchTemplateResponse' {warning} -> warning) (\s@CreateLaunchTemplateResponse' {} a -> s {warning = a} :: CreateLaunchTemplateResponse)
+
+-- | Information about the launch template.
+createLaunchTemplateResponse_launchTemplate :: Lens.Lens' CreateLaunchTemplateResponse (Prelude.Maybe LaunchTemplate)
+createLaunchTemplateResponse_launchTemplate = Lens.lens (\CreateLaunchTemplateResponse' {launchTemplate} -> launchTemplate) (\s@CreateLaunchTemplateResponse' {} a -> s {launchTemplate = a} :: CreateLaunchTemplateResponse)
 
 -- | The response's http status code.
 createLaunchTemplateResponse_httpStatus :: Lens.Lens' CreateLaunchTemplateResponse Prelude.Int

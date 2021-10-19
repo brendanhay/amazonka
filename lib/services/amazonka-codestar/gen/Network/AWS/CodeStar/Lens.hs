@@ -14,99 +14,12 @@
 module Network.AWS.CodeStar.Lens
   ( -- * Operations
 
-    -- ** DescribeUserProfile
-    describeUserProfile_userArn,
-    describeUserProfileResponse_sshPublicKey,
-    describeUserProfileResponse_displayName,
-    describeUserProfileResponse_emailAddress,
-    describeUserProfileResponse_httpStatus,
-    describeUserProfileResponse_userArn,
-    describeUserProfileResponse_createdTimestamp,
-    describeUserProfileResponse_lastModifiedTimestamp,
-
-    -- ** TagProject
-    tagProject_id,
-    tagProject_tags,
-    tagProjectResponse_tags,
-    tagProjectResponse_httpStatus,
-
-    -- ** DisassociateTeamMember
-    disassociateTeamMember_projectId,
-    disassociateTeamMember_userArn,
-    disassociateTeamMemberResponse_httpStatus,
-
     -- ** ListProjects
     listProjects_nextToken,
     listProjects_maxResults,
     listProjectsResponse_nextToken,
     listProjectsResponse_httpStatus,
     listProjectsResponse_projects,
-
-    -- ** CreateProject
-    createProject_sourceCode,
-    createProject_tags,
-    createProject_description,
-    createProject_clientRequestToken,
-    createProject_toolchain,
-    createProject_name,
-    createProject_id,
-    createProjectResponse_clientRequestToken,
-    createProjectResponse_projectTemplateId,
-    createProjectResponse_httpStatus,
-    createProjectResponse_id,
-    createProjectResponse_arn,
-
-    -- ** UpdateUserProfile
-    updateUserProfile_sshPublicKey,
-    updateUserProfile_displayName,
-    updateUserProfile_emailAddress,
-    updateUserProfile_userArn,
-    updateUserProfileResponse_createdTimestamp,
-    updateUserProfileResponse_lastModifiedTimestamp,
-    updateUserProfileResponse_sshPublicKey,
-    updateUserProfileResponse_displayName,
-    updateUserProfileResponse_emailAddress,
-    updateUserProfileResponse_httpStatus,
-    updateUserProfileResponse_userArn,
-
-    -- ** ListUserProfiles
-    listUserProfiles_nextToken,
-    listUserProfiles_maxResults,
-    listUserProfilesResponse_nextToken,
-    listUserProfilesResponse_httpStatus,
-    listUserProfilesResponse_userProfiles,
-
-    -- ** DeleteUserProfile
-    deleteUserProfile_userArn,
-    deleteUserProfileResponse_httpStatus,
-    deleteUserProfileResponse_userArn,
-
-    -- ** ListTagsForProject
-    listTagsForProject_nextToken,
-    listTagsForProject_maxResults,
-    listTagsForProject_id,
-    listTagsForProjectResponse_nextToken,
-    listTagsForProjectResponse_tags,
-    listTagsForProjectResponse_httpStatus,
-
-    -- ** UpdateProject
-    updateProject_name,
-    updateProject_description,
-    updateProject_id,
-    updateProjectResponse_httpStatus,
-
-    -- ** DeleteProject
-    deleteProject_deleteStack,
-    deleteProject_clientRequestToken,
-    deleteProject_id,
-    deleteProjectResponse_stackId,
-    deleteProjectResponse_projectArn,
-    deleteProjectResponse_httpStatus,
-
-    -- ** UntagProject
-    untagProject_id,
-    untagProject_tags,
-    untagProjectResponse_httpStatus,
 
     -- ** ListTeamMembers
     listTeamMembers_nextToken,
@@ -116,15 +29,58 @@ module Network.AWS.CodeStar.Lens
     listTeamMembersResponse_httpStatus,
     listTeamMembersResponse_teamMembers,
 
-    -- ** UpdateTeamMember
-    updateTeamMember_projectRole,
-    updateTeamMember_remoteAccessAllowed,
-    updateTeamMember_projectId,
-    updateTeamMember_userArn,
-    updateTeamMemberResponse_userArn,
-    updateTeamMemberResponse_projectRole,
-    updateTeamMemberResponse_remoteAccessAllowed,
-    updateTeamMemberResponse_httpStatus,
+    -- ** DeleteProject
+    deleteProject_deleteStack,
+    deleteProject_clientRequestToken,
+    deleteProject_id,
+    deleteProjectResponse_projectArn,
+    deleteProjectResponse_stackId,
+    deleteProjectResponse_httpStatus,
+
+    -- ** UpdateProject
+    updateProject_name,
+    updateProject_description,
+    updateProject_id,
+    updateProjectResponse_httpStatus,
+
+    -- ** DisassociateTeamMember
+    disassociateTeamMember_projectId,
+    disassociateTeamMember_userArn,
+    disassociateTeamMemberResponse_httpStatus,
+
+    -- ** TagProject
+    tagProject_id,
+    tagProject_tags,
+    tagProjectResponse_tags,
+    tagProjectResponse_httpStatus,
+
+    -- ** DescribeProject
+    describeProject_id,
+    describeProjectResponse_status,
+    describeProjectResponse_arn,
+    describeProjectResponse_projectTemplateId,
+    describeProjectResponse_name,
+    describeProjectResponse_id,
+    describeProjectResponse_stackId,
+    describeProjectResponse_clientRequestToken,
+    describeProjectResponse_createdTimeStamp,
+    describeProjectResponse_description,
+    describeProjectResponse_httpStatus,
+
+    -- ** ListUserProfiles
+    listUserProfiles_nextToken,
+    listUserProfiles_maxResults,
+    listUserProfilesResponse_nextToken,
+    listUserProfilesResponse_httpStatus,
+    listUserProfilesResponse_userProfiles,
+
+    -- ** ListResources
+    listResources_nextToken,
+    listResources_maxResults,
+    listResources_projectId,
+    listResourcesResponse_resources,
+    listResourcesResponse_nextToken,
+    listResourcesResponse_httpStatus,
 
     -- ** AssociateTeamMember
     associateTeamMember_remoteAccessAllowed,
@@ -135,39 +91,83 @@ module Network.AWS.CodeStar.Lens
     associateTeamMemberResponse_clientRequestToken,
     associateTeamMemberResponse_httpStatus,
 
+    -- ** UntagProject
+    untagProject_id,
+    untagProject_tags,
+    untagProjectResponse_httpStatus,
+
+    -- ** UpdateTeamMember
+    updateTeamMember_remoteAccessAllowed,
+    updateTeamMember_projectRole,
+    updateTeamMember_projectId,
+    updateTeamMember_userArn,
+    updateTeamMemberResponse_userArn,
+    updateTeamMemberResponse_remoteAccessAllowed,
+    updateTeamMemberResponse_projectRole,
+    updateTeamMemberResponse_httpStatus,
+
+    -- ** DescribeUserProfile
+    describeUserProfile_userArn,
+    describeUserProfileResponse_sshPublicKey,
+    describeUserProfileResponse_emailAddress,
+    describeUserProfileResponse_displayName,
+    describeUserProfileResponse_httpStatus,
+    describeUserProfileResponse_userArn,
+    describeUserProfileResponse_createdTimestamp,
+    describeUserProfileResponse_lastModifiedTimestamp,
+
+    -- ** ListTagsForProject
+    listTagsForProject_nextToken,
+    listTagsForProject_maxResults,
+    listTagsForProject_id,
+    listTagsForProjectResponse_nextToken,
+    listTagsForProjectResponse_tags,
+    listTagsForProjectResponse_httpStatus,
+
+    -- ** DeleteUserProfile
+    deleteUserProfile_userArn,
+    deleteUserProfileResponse_httpStatus,
+    deleteUserProfileResponse_userArn,
+
+    -- ** UpdateUserProfile
+    updateUserProfile_sshPublicKey,
+    updateUserProfile_emailAddress,
+    updateUserProfile_displayName,
+    updateUserProfile_userArn,
+    updateUserProfileResponse_lastModifiedTimestamp,
+    updateUserProfileResponse_sshPublicKey,
+    updateUserProfileResponse_emailAddress,
+    updateUserProfileResponse_displayName,
+    updateUserProfileResponse_createdTimestamp,
+    updateUserProfileResponse_httpStatus,
+    updateUserProfileResponse_userArn,
+
     -- ** CreateUserProfile
     createUserProfile_sshPublicKey,
     createUserProfile_userArn,
     createUserProfile_displayName,
     createUserProfile_emailAddress,
-    createUserProfileResponse_createdTimestamp,
     createUserProfileResponse_lastModifiedTimestamp,
     createUserProfileResponse_sshPublicKey,
-    createUserProfileResponse_displayName,
     createUserProfileResponse_emailAddress,
+    createUserProfileResponse_displayName,
+    createUserProfileResponse_createdTimestamp,
     createUserProfileResponse_httpStatus,
     createUserProfileResponse_userArn,
 
-    -- ** ListResources
-    listResources_nextToken,
-    listResources_maxResults,
-    listResources_projectId,
-    listResourcesResponse_nextToken,
-    listResourcesResponse_resources,
-    listResourcesResponse_httpStatus,
-
-    -- ** DescribeProject
-    describeProject_id,
-    describeProjectResponse_status,
-    describeProjectResponse_createdTimeStamp,
-    describeProjectResponse_stackId,
-    describeProjectResponse_id,
-    describeProjectResponse_arn,
-    describeProjectResponse_name,
-    describeProjectResponse_description,
-    describeProjectResponse_clientRequestToken,
-    describeProjectResponse_projectTemplateId,
-    describeProjectResponse_httpStatus,
+    -- ** CreateProject
+    createProject_sourceCode,
+    createProject_toolchain,
+    createProject_clientRequestToken,
+    createProject_description,
+    createProject_tags,
+    createProject_name,
+    createProject_id,
+    createProjectResponse_projectTemplateId,
+    createProjectResponse_clientRequestToken,
+    createProjectResponse_httpStatus,
+    createProjectResponse_id,
+    createProjectResponse_arn,
 
     -- * Types
 
@@ -199,15 +199,15 @@ module Network.AWS.CodeStar.Lens
     projectStatus_state,
 
     -- ** ProjectSummary
-    projectSummary_projectId,
     projectSummary_projectArn,
+    projectSummary_projectId,
 
     -- ** Resource
     resource_id,
 
     -- ** S3Location
-    s3Location_bucketName,
     s3Location_bucketKey,
+    s3Location_bucketName,
 
     -- ** TeamMember
     teamMember_remoteAccessAllowed,
@@ -223,10 +223,10 @@ module Network.AWS.CodeStar.Lens
     toolchainSource_s3,
 
     -- ** UserProfileSummary
-    userProfileSummary_userArn,
     userProfileSummary_sshPublicKey,
-    userProfileSummary_displayName,
+    userProfileSummary_userArn,
     userProfileSummary_emailAddress,
+    userProfileSummary_displayName,
   )
 where
 

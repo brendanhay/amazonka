@@ -29,7 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDiskImageDescription' smart constructor.
 data DiskImageDescription = DiskImageDescription'
-  { -- | The disk image format.
+  { -- | The size of the disk image, in GiB.
+    size :: Prelude.Maybe Prelude.Integer,
+    -- | The checksum computed for the disk image.
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | The disk image format.
     format :: Prelude.Maybe DiskImageFormat,
     -- | A presigned URL for the import manifest stored in Amazon S3. For
     -- information about creating a presigned URL for an Amazon S3 object, read
@@ -40,11 +44,7 @@ data DiskImageDescription = DiskImageDescription'
     -- For information about the import manifest referenced by this API action,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-    importManifestUrl :: Prelude.Maybe Prelude.Text,
-    -- | The size of the disk image, in GiB.
-    size :: Prelude.Maybe Prelude.Integer,
-    -- | The checksum computed for the disk image.
-    checksum :: Prelude.Maybe Prelude.Text
+    importManifestUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,10 @@ data DiskImageDescription = DiskImageDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'size', 'diskImageDescription_size' - The size of the disk image, in GiB.
+--
+-- 'checksum', 'diskImageDescription_checksum' - The checksum computed for the disk image.
 --
 -- 'format', 'diskImageDescription_format' - The disk image format.
 --
@@ -67,19 +71,23 @@ data DiskImageDescription = DiskImageDescription'
 -- For information about the import manifest referenced by this API action,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
---
--- 'size', 'diskImageDescription_size' - The size of the disk image, in GiB.
---
--- 'checksum', 'diskImageDescription_checksum' - The checksum computed for the disk image.
 newDiskImageDescription ::
   DiskImageDescription
 newDiskImageDescription =
   DiskImageDescription'
-    { format = Prelude.Nothing,
-      importManifestUrl = Prelude.Nothing,
-      size = Prelude.Nothing,
-      checksum = Prelude.Nothing
+    { size = Prelude.Nothing,
+      checksum = Prelude.Nothing,
+      format = Prelude.Nothing,
+      importManifestUrl = Prelude.Nothing
     }
+
+-- | The size of the disk image, in GiB.
+diskImageDescription_size :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Integer)
+diskImageDescription_size = Lens.lens (\DiskImageDescription' {size} -> size) (\s@DiskImageDescription' {} a -> s {size = a} :: DiskImageDescription)
+
+-- | The checksum computed for the disk image.
+diskImageDescription_checksum :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
+diskImageDescription_checksum = Lens.lens (\DiskImageDescription' {checksum} -> checksum) (\s@DiskImageDescription' {} a -> s {checksum = a} :: DiskImageDescription)
 
 -- | The disk image format.
 diskImageDescription_format :: Lens.Lens' DiskImageDescription (Prelude.Maybe DiskImageFormat)
@@ -97,21 +105,13 @@ diskImageDescription_format = Lens.lens (\DiskImageDescription' {format} -> form
 diskImageDescription_importManifestUrl :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
 diskImageDescription_importManifestUrl = Lens.lens (\DiskImageDescription' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDescription' {} a -> s {importManifestUrl = a} :: DiskImageDescription)
 
--- | The size of the disk image, in GiB.
-diskImageDescription_size :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Integer)
-diskImageDescription_size = Lens.lens (\DiskImageDescription' {size} -> size) (\s@DiskImageDescription' {} a -> s {size = a} :: DiskImageDescription)
-
--- | The checksum computed for the disk image.
-diskImageDescription_checksum :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
-diskImageDescription_checksum = Lens.lens (\DiskImageDescription' {checksum} -> checksum) (\s@DiskImageDescription' {} a -> s {checksum = a} :: DiskImageDescription)
-
 instance Core.FromXML DiskImageDescription where
   parseXML x =
     DiskImageDescription'
-      Prelude.<$> (x Core..@? "format")
-      Prelude.<*> (x Core..@? "importManifestUrl")
-      Prelude.<*> (x Core..@? "size")
+      Prelude.<$> (x Core..@? "size")
       Prelude.<*> (x Core..@? "checksum")
+      Prelude.<*> (x Core..@? "format")
+      Prelude.<*> (x Core..@? "importManifestUrl")
 
 instance Prelude.Hashable DiskImageDescription
 

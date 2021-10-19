@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCmafPackageCreateOrUpdateParameters' smart constructor.
 data CmafPackageCreateOrUpdateParameters = CmafPackageCreateOrUpdateParameters'
-  { streamSelection :: Prelude.Maybe StreamSelection,
-    -- | A list of HLS manifest configurations
+  { -- | A list of HLS manifest configurations
     hlsManifests :: Prelude.Maybe [HlsManifestCreateOrUpdateParameters],
-    -- | An optional custom string that is prepended to the name of each segment.
-    -- If not specified, it defaults to the ChannelId.
-    segmentPrefix :: Prelude.Maybe Prelude.Text,
-    encryption :: Prelude.Maybe CmafEncryption,
     -- | Duration (in seconds) of each segment. Actual segments will be rounded
     -- to the nearest multiple of the source segment duration.
-    segmentDurationSeconds :: Prelude.Maybe Prelude.Int
+    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
+    streamSelection :: Prelude.Maybe StreamSelection,
+    encryption :: Prelude.Maybe CmafEncryption,
+    -- | An optional custom string that is prepended to the name of each segment.
+    -- If not specified, it defaults to the ChannelId.
+    segmentPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,51 +51,51 @@ data CmafPackageCreateOrUpdateParameters = CmafPackageCreateOrUpdateParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamSelection', 'cmafPackageCreateOrUpdateParameters_streamSelection' - Undocumented member.
---
 -- 'hlsManifests', 'cmafPackageCreateOrUpdateParameters_hlsManifests' - A list of HLS manifest configurations
---
--- 'segmentPrefix', 'cmafPackageCreateOrUpdateParameters_segmentPrefix' - An optional custom string that is prepended to the name of each segment.
--- If not specified, it defaults to the ChannelId.
---
--- 'encryption', 'cmafPackageCreateOrUpdateParameters_encryption' - Undocumented member.
 --
 -- 'segmentDurationSeconds', 'cmafPackageCreateOrUpdateParameters_segmentDurationSeconds' - Duration (in seconds) of each segment. Actual segments will be rounded
 -- to the nearest multiple of the source segment duration.
+--
+-- 'streamSelection', 'cmafPackageCreateOrUpdateParameters_streamSelection' - Undocumented member.
+--
+-- 'encryption', 'cmafPackageCreateOrUpdateParameters_encryption' - Undocumented member.
+--
+-- 'segmentPrefix', 'cmafPackageCreateOrUpdateParameters_segmentPrefix' - An optional custom string that is prepended to the name of each segment.
+-- If not specified, it defaults to the ChannelId.
 newCmafPackageCreateOrUpdateParameters ::
   CmafPackageCreateOrUpdateParameters
 newCmafPackageCreateOrUpdateParameters =
   CmafPackageCreateOrUpdateParameters'
-    { streamSelection =
+    { hlsManifests =
         Prelude.Nothing,
-      hlsManifests = Prelude.Nothing,
-      segmentPrefix = Prelude.Nothing,
-      encryption = Prelude.Nothing,
       segmentDurationSeconds =
-        Prelude.Nothing
+        Prelude.Nothing,
+      streamSelection = Prelude.Nothing,
+      encryption = Prelude.Nothing,
+      segmentPrefix = Prelude.Nothing
     }
-
--- | Undocumented member.
-cmafPackageCreateOrUpdateParameters_streamSelection :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe StreamSelection)
-cmafPackageCreateOrUpdateParameters_streamSelection = Lens.lens (\CmafPackageCreateOrUpdateParameters' {streamSelection} -> streamSelection) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {streamSelection = a} :: CmafPackageCreateOrUpdateParameters)
 
 -- | A list of HLS manifest configurations
 cmafPackageCreateOrUpdateParameters_hlsManifests :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe [HlsManifestCreateOrUpdateParameters])
-cmafPackageCreateOrUpdateParameters_hlsManifests = Lens.lens (\CmafPackageCreateOrUpdateParameters' {hlsManifests} -> hlsManifests) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {hlsManifests = a} :: CmafPackageCreateOrUpdateParameters) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional custom string that is prepended to the name of each segment.
--- If not specified, it defaults to the ChannelId.
-cmafPackageCreateOrUpdateParameters_segmentPrefix :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe Prelude.Text)
-cmafPackageCreateOrUpdateParameters_segmentPrefix = Lens.lens (\CmafPackageCreateOrUpdateParameters' {segmentPrefix} -> segmentPrefix) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {segmentPrefix = a} :: CmafPackageCreateOrUpdateParameters)
-
--- | Undocumented member.
-cmafPackageCreateOrUpdateParameters_encryption :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe CmafEncryption)
-cmafPackageCreateOrUpdateParameters_encryption = Lens.lens (\CmafPackageCreateOrUpdateParameters' {encryption} -> encryption) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {encryption = a} :: CmafPackageCreateOrUpdateParameters)
+cmafPackageCreateOrUpdateParameters_hlsManifests = Lens.lens (\CmafPackageCreateOrUpdateParameters' {hlsManifests} -> hlsManifests) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {hlsManifests = a} :: CmafPackageCreateOrUpdateParameters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Duration (in seconds) of each segment. Actual segments will be rounded
 -- to the nearest multiple of the source segment duration.
 cmafPackageCreateOrUpdateParameters_segmentDurationSeconds :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe Prelude.Int)
 cmafPackageCreateOrUpdateParameters_segmentDurationSeconds = Lens.lens (\CmafPackageCreateOrUpdateParameters' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {segmentDurationSeconds = a} :: CmafPackageCreateOrUpdateParameters)
+
+-- | Undocumented member.
+cmafPackageCreateOrUpdateParameters_streamSelection :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe StreamSelection)
+cmafPackageCreateOrUpdateParameters_streamSelection = Lens.lens (\CmafPackageCreateOrUpdateParameters' {streamSelection} -> streamSelection) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {streamSelection = a} :: CmafPackageCreateOrUpdateParameters)
+
+-- | Undocumented member.
+cmafPackageCreateOrUpdateParameters_encryption :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe CmafEncryption)
+cmafPackageCreateOrUpdateParameters_encryption = Lens.lens (\CmafPackageCreateOrUpdateParameters' {encryption} -> encryption) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {encryption = a} :: CmafPackageCreateOrUpdateParameters)
+
+-- | An optional custom string that is prepended to the name of each segment.
+-- If not specified, it defaults to the ChannelId.
+cmafPackageCreateOrUpdateParameters_segmentPrefix :: Lens.Lens' CmafPackageCreateOrUpdateParameters (Prelude.Maybe Prelude.Text)
+cmafPackageCreateOrUpdateParameters_segmentPrefix = Lens.lens (\CmafPackageCreateOrUpdateParameters' {segmentPrefix} -> segmentPrefix) (\s@CmafPackageCreateOrUpdateParameters' {} a -> s {segmentPrefix = a} :: CmafPackageCreateOrUpdateParameters)
 
 instance
   Prelude.Hashable
@@ -112,12 +112,12 @@ instance
   toJSON CmafPackageCreateOrUpdateParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Core..=)
-              Prelude.<$> streamSelection,
-            ("hlsManifests" Core..=) Prelude.<$> hlsManifests,
-            ("segmentPrefix" Core..=) Prelude.<$> segmentPrefix,
-            ("encryption" Core..=) Prelude.<$> encryption,
+          [ ("hlsManifests" Core..=) Prelude.<$> hlsManifests,
             ("segmentDurationSeconds" Core..=)
-              Prelude.<$> segmentDurationSeconds
+              Prelude.<$> segmentDurationSeconds,
+            ("streamSelection" Core..=)
+              Prelude.<$> streamSelection,
+            ("encryption" Core..=) Prelude.<$> encryption,
+            ("segmentPrefix" Core..=) Prelude.<$> segmentPrefix
           ]
       )

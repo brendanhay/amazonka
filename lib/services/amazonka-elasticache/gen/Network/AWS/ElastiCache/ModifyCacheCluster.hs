@@ -29,25 +29,25 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     newModifyCacheCluster,
 
     -- * Request Lenses
-    modifyCacheCluster_securityGroupIds,
-    modifyCacheCluster_numCacheNodes,
-    modifyCacheCluster_cacheSecurityGroupNames,
-    modifyCacheCluster_authTokenUpdateStrategy,
-    modifyCacheCluster_snapshotWindow,
-    modifyCacheCluster_notificationTopicStatus,
-    modifyCacheCluster_newAvailabilityZones,
-    modifyCacheCluster_cacheParameterGroupName,
-    modifyCacheCluster_snapshotRetentionLimit,
-    modifyCacheCluster_cacheNodeIdsToRemove,
     modifyCacheCluster_engineVersion,
     modifyCacheCluster_cacheNodeType,
-    modifyCacheCluster_preferredMaintenanceWindow,
-    modifyCacheCluster_notificationTopicArn,
-    modifyCacheCluster_authToken,
+    modifyCacheCluster_securityGroupIds,
+    modifyCacheCluster_autoMinorVersionUpgrade,
+    modifyCacheCluster_cacheParameterGroupName,
+    modifyCacheCluster_snapshotWindow,
+    modifyCacheCluster_newAvailabilityZones,
     modifyCacheCluster_logDeliveryConfigurations,
+    modifyCacheCluster_authToken,
+    modifyCacheCluster_preferredMaintenanceWindow,
+    modifyCacheCluster_cacheNodeIdsToRemove,
+    modifyCacheCluster_snapshotRetentionLimit,
+    modifyCacheCluster_notificationTopicStatus,
     modifyCacheCluster_aZMode,
     modifyCacheCluster_applyImmediately,
-    modifyCacheCluster_autoMinorVersionUpgrade,
+    modifyCacheCluster_authTokenUpdateStrategy,
+    modifyCacheCluster_notificationTopicArn,
+    modifyCacheCluster_numCacheNodes,
+    modifyCacheCluster_cacheSecurityGroupNames,
     modifyCacheCluster_cacheClusterId,
 
     -- * Destructuring the Response
@@ -71,73 +71,31 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newModifyCacheCluster' smart constructor.
 data ModifyCacheCluster = ModifyCacheCluster'
-  { -- | Specifies the VPC Security Groups associated with the cluster.
+  { -- | The upgraded version of the cache engine to be run on the cache nodes.
+    --
+    -- __Important:__ You can upgrade to a newer engine version (see
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+    -- but you cannot downgrade to an earlier engine version. If you want to
+    -- use an earlier engine version, you must delete the existing cluster and
+    -- create it anew with the earlier engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | A valid cache node type that you want to scale this cluster up to.
+    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the VPC Security Groups associated with the cluster.
     --
     -- This parameter can be used only with clusters that are created in an
     -- Amazon Virtual Private Cloud (Amazon VPC).
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The number of cache nodes that the cluster should have. If the value for
-    -- @NumCacheNodes@ is greater than the sum of the number of current cache
-    -- nodes and the number of cache nodes pending creation (which may be
-    -- zero), more nodes are added. If the value is less than the number of
-    -- existing cache nodes, nodes are removed. If the value is equal to the
-    -- number of current cache nodes, any pending add or remove requests are
-    -- canceled.
-    --
-    -- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
-    -- parameter to provide the IDs of the specific cache nodes to remove.
-    --
-    -- For clusters running Redis, this value must be 1. For clusters running
-    -- Memcached, this value must be between 1 and 40.
-    --
-    -- Adding or removing Memcached cache nodes can be applied immediately or
-    -- as a pending operation (see @ApplyImmediately@).
-    --
-    -- A pending operation to modify the number of cache nodes in a cluster
-    -- during its maintenance window, whether by adding or removing nodes in
-    -- accordance with the scale out architecture, is not queued. The
-    -- customer\'s latest request to add or remove nodes to the cluster
-    -- overrides any previous pending operations to modify the number of cache
-    -- nodes in the cluster. For example, a request to remove 2 nodes would
-    -- override a previous pending operation to remove 3 nodes. Similarly, a
-    -- request to add 2 nodes would override a previous pending operation to
-    -- remove 3 nodes and vice versa. As Memcached cache nodes may now be
-    -- provisioned in different Availability Zones with flexible cache node
-    -- placement, a request to add nodes does not automatically override a
-    -- previous pending operation to add nodes. The customer can modify the
-    -- previous pending operation to add more nodes or explicitly cancel the
-    -- pending request and retry the new request. To cancel pending operations
-    -- to modify the number of cache nodes in a cluster, use the
-    -- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
-    -- of cache nodes currently in the cluster.
-    numCacheNodes :: Prelude.Maybe Prelude.Int,
-    -- | A list of cache security group names to authorize on this cluster. This
-    -- change is asynchronously applied as soon as possible.
-    --
-    -- You can use this parameter only with clusters that are created outside
-    -- of an Amazon Virtual Private Cloud (Amazon VPC).
-    --
-    -- Constraints: Must contain no more than 255 alphanumeric characters. Must
-    -- not be \"Default\".
-    cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the strategy to use to update the AUTH token. This parameter
-    -- must be specified with the @auth-token@ parameter. Possible values:
-    --
-    -- -   Rotate
-    --
-    -- -   Set
-    --
-    -- For more information, see
-    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
-    authTokenUpdateStrategy :: Prelude.Maybe AuthTokenUpdateStrategyType,
+    -- | This parameter is currently disabled.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the cache parameter group to apply to this cluster. This
+    -- change is asynchronously applied as soon as possible for parameters when
+    -- the @ApplyImmediately@ parameter is specified as @true@ for this
+    -- request.
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
     -- | The daily time range (in UTC) during which ElastiCache begins taking a
     -- daily snapshot of your cluster.
     snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Amazon SNS notification topic. Notifications are sent
-    -- only if the status is @active@.
-    --
-    -- Valid values: @active@ | @inactive@
-    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
     -- | This option is only supported on Memcached clusters.
     --
     -- The list of Availability Zones where the new Memcached cache nodes are
@@ -216,41 +174,23 @@ data ModifyCacheCluster = ModifyCacheCluster'
     --         create request is __Apply Immediately - No__, all creates are
     --         pending.
     newAvailabilityZones' :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the cache parameter group to apply to this cluster. This
-    -- change is asynchronously applied as soon as possible for parameters when
-    -- the @ApplyImmediately@ parameter is specified as @true@ for this
-    -- request.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The number of days for which ElastiCache retains automatic cluster
-    -- snapshots before deleting them. For example, if you set
-    -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
-    -- retained for 5 days before being deleted.
+    -- | Specifies the destination, format and type of the logs.
+    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- | Reserved parameter. The password used to access a password protected
+    -- server. This parameter must be specified with the @auth-token-update@
+    -- parameter. Password constraints:
     --
-    -- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
-    -- turned off.
-    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
-    -- | A list of cache node IDs to be removed. A node ID is a numeric
-    -- identifier (0001, 0002, etc.). This parameter is only valid when
-    -- @NumCacheNodes@ is less than the existing number of cache nodes. The
-    -- number of cache node IDs supplied in this parameter must match the
-    -- difference between the existing number of cache nodes in the cluster or
-    -- pending cache nodes, whichever is greater, and the value of
-    -- @NumCacheNodes@ in the request.
+    -- -   Must be only printable ASCII characters
     --
-    -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
-    -- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
-    -- you must list 2 (7 - 5) cache node IDs to remove.
-    cacheNodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | The upgraded version of the cache engine to be run on the cache nodes.
+    -- -   Must be at least 16 characters and no more than 128 characters in
+    --     length
     --
-    -- __Important:__ You can upgrade to a newer engine version (see
-    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
-    -- but you cannot downgrade to an earlier engine version. If you want to
-    -- use an earlier engine version, you must delete the existing cluster and
-    -- create it anew with the earlier engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | A valid cache node type that you want to scale this cluster up to.
-    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
+    --     \'\@\', \'%\'
+    --
+    -- For more information, see AUTH password at
+    -- <http://redis.io/commands/AUTH AUTH>.
+    authToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
     -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
@@ -274,28 +214,31 @@ data ModifyCacheCluster = ModifyCacheCluster'
     --
     -- Example: @sun:23:00-mon:01:30@
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
-    -- notifications are sent.
+    -- | A list of cache node IDs to be removed. A node ID is a numeric
+    -- identifier (0001, 0002, etc.). This parameter is only valid when
+    -- @NumCacheNodes@ is less than the existing number of cache nodes. The
+    -- number of cache node IDs supplied in this parameter must match the
+    -- difference between the existing number of cache nodes in the cluster or
+    -- pending cache nodes, whichever is greater, and the value of
+    -- @NumCacheNodes@ in the request.
     --
-    -- The Amazon SNS topic owner must be same as the cluster owner.
-    notificationTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | Reserved parameter. The password used to access a password protected
-    -- server. This parameter must be specified with the @auth-token-update@
-    -- parameter. Password constraints:
+    -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
+    -- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
+    -- you must list 2 (7 - 5) cache node IDs to remove.
+    cacheNodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | The number of days for which ElastiCache retains automatic cluster
+    -- snapshots before deleting them. For example, if you set
+    -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+    -- retained for 5 days before being deleted.
     --
-    -- -   Must be only printable ASCII characters
+    -- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
+    -- turned off.
+    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
+    -- | The status of the Amazon SNS notification topic. Notifications are sent
+    -- only if the status is @active@.
     --
-    -- -   Must be at least 16 characters and no more than 128 characters in
-    --     length
-    --
-    -- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
-    --     \'\@\', \'%\'
-    --
-    -- For more information, see AUTH password at
-    -- <http://redis.io/commands/AUTH AUTH>.
-    authToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the destination, format and type of the logs.
-    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- Valid values: @active@ | @inactive@
+    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the new nodes in this Memcached cluster are all
     -- created in a single Availability Zone or created across multiple
     -- Availability Zones.
@@ -325,8 +268,65 @@ data ModifyCacheCluster = ModifyCacheCluster'
     --
     -- Default: @false@
     applyImmediately :: Prelude.Maybe Prelude.Bool,
-    -- | This parameter is currently disabled.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the strategy to use to update the AUTH token. This parameter
+    -- must be specified with the @auth-token@ parameter. Possible values:
+    --
+    -- -   Rotate
+    --
+    -- -   Set
+    --
+    -- For more information, see
+    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+    authTokenUpdateStrategy :: Prelude.Maybe AuthTokenUpdateStrategyType,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+    -- notifications are sent.
+    --
+    -- The Amazon SNS topic owner must be same as the cluster owner.
+    notificationTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The number of cache nodes that the cluster should have. If the value for
+    -- @NumCacheNodes@ is greater than the sum of the number of current cache
+    -- nodes and the number of cache nodes pending creation (which may be
+    -- zero), more nodes are added. If the value is less than the number of
+    -- existing cache nodes, nodes are removed. If the value is equal to the
+    -- number of current cache nodes, any pending add or remove requests are
+    -- canceled.
+    --
+    -- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
+    -- parameter to provide the IDs of the specific cache nodes to remove.
+    --
+    -- For clusters running Redis, this value must be 1. For clusters running
+    -- Memcached, this value must be between 1 and 40.
+    --
+    -- Adding or removing Memcached cache nodes can be applied immediately or
+    -- as a pending operation (see @ApplyImmediately@).
+    --
+    -- A pending operation to modify the number of cache nodes in a cluster
+    -- during its maintenance window, whether by adding or removing nodes in
+    -- accordance with the scale out architecture, is not queued. The
+    -- customer\'s latest request to add or remove nodes to the cluster
+    -- overrides any previous pending operations to modify the number of cache
+    -- nodes in the cluster. For example, a request to remove 2 nodes would
+    -- override a previous pending operation to remove 3 nodes. Similarly, a
+    -- request to add 2 nodes would override a previous pending operation to
+    -- remove 3 nodes and vice versa. As Memcached cache nodes may now be
+    -- provisioned in different Availability Zones with flexible cache node
+    -- placement, a request to add nodes does not automatically override a
+    -- previous pending operation to add nodes. The customer can modify the
+    -- previous pending operation to add more nodes or explicitly cancel the
+    -- pending request and retry the new request. To cancel pending operations
+    -- to modify the number of cache nodes in a cluster, use the
+    -- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
+    -- of cache nodes currently in the cluster.
+    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    -- | A list of cache security group names to authorize on this cluster. This
+    -- change is asynchronously applied as soon as possible.
+    --
+    -- You can use this parameter only with clusters that are created outside
+    -- of an Amazon Virtual Private Cloud (Amazon VPC).
+    --
+    -- Constraints: Must contain no more than 255 alphanumeric characters. Must
+    -- not be \"Default\".
+    cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | The cluster identifier. This value is stored as a lowercase string.
     cacheClusterId :: Prelude.Text
   }
@@ -340,72 +340,30 @@ data ModifyCacheCluster = ModifyCacheCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineVersion', 'modifyCacheCluster_engineVersion' - The upgraded version of the cache engine to be run on the cache nodes.
+--
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cluster and
+-- create it anew with the earlier engine version.
+--
+-- 'cacheNodeType', 'modifyCacheCluster_cacheNodeType' - A valid cache node type that you want to scale this cluster up to.
+--
 -- 'securityGroupIds', 'modifyCacheCluster_securityGroupIds' - Specifies the VPC Security Groups associated with the cluster.
 --
 -- This parameter can be used only with clusters that are created in an
 -- Amazon Virtual Private Cloud (Amazon VPC).
 --
--- 'numCacheNodes', 'modifyCacheCluster_numCacheNodes' - The number of cache nodes that the cluster should have. If the value for
--- @NumCacheNodes@ is greater than the sum of the number of current cache
--- nodes and the number of cache nodes pending creation (which may be
--- zero), more nodes are added. If the value is less than the number of
--- existing cache nodes, nodes are removed. If the value is equal to the
--- number of current cache nodes, any pending add or remove requests are
--- canceled.
+-- 'autoMinorVersionUpgrade', 'modifyCacheCluster_autoMinorVersionUpgrade' - This parameter is currently disabled.
 --
--- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
--- parameter to provide the IDs of the specific cache nodes to remove.
---
--- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 40.
---
--- Adding or removing Memcached cache nodes can be applied immediately or
--- as a pending operation (see @ApplyImmediately@).
---
--- A pending operation to modify the number of cache nodes in a cluster
--- during its maintenance window, whether by adding or removing nodes in
--- accordance with the scale out architecture, is not queued. The
--- customer\'s latest request to add or remove nodes to the cluster
--- overrides any previous pending operations to modify the number of cache
--- nodes in the cluster. For example, a request to remove 2 nodes would
--- override a previous pending operation to remove 3 nodes. Similarly, a
--- request to add 2 nodes would override a previous pending operation to
--- remove 3 nodes and vice versa. As Memcached cache nodes may now be
--- provisioned in different Availability Zones with flexible cache node
--- placement, a request to add nodes does not automatically override a
--- previous pending operation to add nodes. The customer can modify the
--- previous pending operation to add more nodes or explicitly cancel the
--- pending request and retry the new request. To cancel pending operations
--- to modify the number of cache nodes in a cluster, use the
--- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
--- of cache nodes currently in the cluster.
---
--- 'cacheSecurityGroupNames', 'modifyCacheCluster_cacheSecurityGroupNames' - A list of cache security group names to authorize on this cluster. This
--- change is asynchronously applied as soon as possible.
---
--- You can use this parameter only with clusters that are created outside
--- of an Amazon Virtual Private Cloud (Amazon VPC).
---
--- Constraints: Must contain no more than 255 alphanumeric characters. Must
--- not be \"Default\".
---
--- 'authTokenUpdateStrategy', 'modifyCacheCluster_authTokenUpdateStrategy' - Specifies the strategy to use to update the AUTH token. This parameter
--- must be specified with the @auth-token@ parameter. Possible values:
---
--- -   Rotate
---
--- -   Set
---
--- For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+-- 'cacheParameterGroupName', 'modifyCacheCluster_cacheParameterGroupName' - The name of the cache parameter group to apply to this cluster. This
+-- change is asynchronously applied as soon as possible for parameters when
+-- the @ApplyImmediately@ parameter is specified as @true@ for this
+-- request.
 --
 -- 'snapshotWindow', 'modifyCacheCluster_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
 -- daily snapshot of your cluster.
---
--- 'notificationTopicStatus', 'modifyCacheCluster_notificationTopicStatus' - The status of the Amazon SNS notification topic. Notifications are sent
--- only if the status is @active@.
---
--- Valid values: @active@ | @inactive@
 --
 -- 'newAvailabilityZones'', 'modifyCacheCluster_newAvailabilityZones' - This option is only supported on Memcached clusters.
 --
@@ -485,40 +443,22 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --         create request is __Apply Immediately - No__, all creates are
 --         pending.
 --
--- 'cacheParameterGroupName', 'modifyCacheCluster_cacheParameterGroupName' - The name of the cache parameter group to apply to this cluster. This
--- change is asynchronously applied as soon as possible for parameters when
--- the @ApplyImmediately@ parameter is specified as @true@ for this
--- request.
+-- 'logDeliveryConfigurations', 'modifyCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
 --
--- 'snapshotRetentionLimit', 'modifyCacheCluster_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster
--- snapshots before deleting them. For example, if you set
--- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
--- retained for 5 days before being deleted.
+-- 'authToken', 'modifyCacheCluster_authToken' - Reserved parameter. The password used to access a password protected
+-- server. This parameter must be specified with the @auth-token-update@
+-- parameter. Password constraints:
 --
--- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
--- turned off.
+-- -   Must be only printable ASCII characters
 --
--- 'cacheNodeIdsToRemove', 'modifyCacheCluster_cacheNodeIdsToRemove' - A list of cache node IDs to be removed. A node ID is a numeric
--- identifier (0001, 0002, etc.). This parameter is only valid when
--- @NumCacheNodes@ is less than the existing number of cache nodes. The
--- number of cache node IDs supplied in this parameter must match the
--- difference between the existing number of cache nodes in the cluster or
--- pending cache nodes, whichever is greater, and the value of
--- @NumCacheNodes@ in the request.
+-- -   Must be at least 16 characters and no more than 128 characters in
+--     length
 --
--- For example: If you have 3 active cache nodes, 7 pending cache nodes,
--- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
--- you must list 2 (7 - 5) cache node IDs to remove.
+-- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
+--     \'\@\', \'%\'
 --
--- 'engineVersion', 'modifyCacheCluster_engineVersion' - The upgraded version of the cache engine to be run on the cache nodes.
---
--- __Important:__ You can upgrade to a newer engine version (see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
--- but you cannot downgrade to an earlier engine version. If you want to
--- use an earlier engine version, you must delete the existing cluster and
--- create it anew with the earlier engine version.
---
--- 'cacheNodeType', 'modifyCacheCluster_cacheNodeType' - A valid cache node type that you want to scale this cluster up to.
+-- For more information, see AUTH password at
+-- <http://redis.io/commands/AUTH AUTH>.
 --
 -- 'preferredMaintenanceWindow', 'modifyCacheCluster_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
@@ -543,27 +483,30 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --
 -- Example: @sun:23:00-mon:01:30@
 --
--- 'notificationTopicArn', 'modifyCacheCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications are sent.
+-- 'cacheNodeIdsToRemove', 'modifyCacheCluster_cacheNodeIdsToRemove' - A list of cache node IDs to be removed. A node ID is a numeric
+-- identifier (0001, 0002, etc.). This parameter is only valid when
+-- @NumCacheNodes@ is less than the existing number of cache nodes. The
+-- number of cache node IDs supplied in this parameter must match the
+-- difference between the existing number of cache nodes in the cluster or
+-- pending cache nodes, whichever is greater, and the value of
+-- @NumCacheNodes@ in the request.
 --
--- The Amazon SNS topic owner must be same as the cluster owner.
+-- For example: If you have 3 active cache nodes, 7 pending cache nodes,
+-- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
+-- you must list 2 (7 - 5) cache node IDs to remove.
 --
--- 'authToken', 'modifyCacheCluster_authToken' - Reserved parameter. The password used to access a password protected
--- server. This parameter must be specified with the @auth-token-update@
--- parameter. Password constraints:
+-- 'snapshotRetentionLimit', 'modifyCacheCluster_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic cluster
+-- snapshots before deleting them. For example, if you set
+-- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+-- retained for 5 days before being deleted.
 --
--- -   Must be only printable ASCII characters
+-- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
+-- turned off.
 --
--- -   Must be at least 16 characters and no more than 128 characters in
---     length
+-- 'notificationTopicStatus', 'modifyCacheCluster_notificationTopicStatus' - The status of the Amazon SNS notification topic. Notifications are sent
+-- only if the status is @active@.
 --
--- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
---     \'\@\', \'%\'
---
--- For more information, see AUTH password at
--- <http://redis.io/commands/AUTH AUTH>.
---
--- 'logDeliveryConfigurations', 'modifyCacheCluster_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
+-- Valid values: @active@ | @inactive@
 --
 -- 'aZMode', 'modifyCacheCluster_aZMode' - Specifies whether the new nodes in this Memcached cluster are all
 -- created in a single Availability Zone or created across multiple
@@ -594,46 +537,22 @@ data ModifyCacheCluster = ModifyCacheCluster'
 --
 -- Default: @false@
 --
--- 'autoMinorVersionUpgrade', 'modifyCacheCluster_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'authTokenUpdateStrategy', 'modifyCacheCluster_authTokenUpdateStrategy' - Specifies the strategy to use to update the AUTH token. This parameter
+-- must be specified with the @auth-token@ parameter. Possible values:
 --
--- 'cacheClusterId', 'modifyCacheCluster_cacheClusterId' - The cluster identifier. This value is stored as a lowercase string.
-newModifyCacheCluster ::
-  -- | 'cacheClusterId'
-  Prelude.Text ->
-  ModifyCacheCluster
-newModifyCacheCluster pCacheClusterId_ =
-  ModifyCacheCluster'
-    { securityGroupIds =
-        Prelude.Nothing,
-      numCacheNodes = Prelude.Nothing,
-      cacheSecurityGroupNames = Prelude.Nothing,
-      authTokenUpdateStrategy = Prelude.Nothing,
-      snapshotWindow = Prelude.Nothing,
-      notificationTopicStatus = Prelude.Nothing,
-      newAvailabilityZones' = Prelude.Nothing,
-      cacheParameterGroupName = Prelude.Nothing,
-      snapshotRetentionLimit = Prelude.Nothing,
-      cacheNodeIdsToRemove = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      notificationTopicArn = Prelude.Nothing,
-      authToken = Prelude.Nothing,
-      logDeliveryConfigurations = Prelude.Nothing,
-      aZMode = Prelude.Nothing,
-      applyImmediately = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
-      cacheClusterId = pCacheClusterId_
-    }
-
--- | Specifies the VPC Security Groups associated with the cluster.
+-- -   Rotate
 --
--- This parameter can be used only with clusters that are created in an
--- Amazon Virtual Private Cloud (Amazon VPC).
-modifyCacheCluster_securityGroupIds :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
-modifyCacheCluster_securityGroupIds = Lens.lens (\ModifyCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@ModifyCacheCluster' {} a -> s {securityGroupIds = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | The number of cache nodes that the cluster should have. If the value for
+-- -   Set
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+--
+-- 'notificationTopicArn', 'modifyCacheCluster_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications are sent.
+--
+-- The Amazon SNS topic owner must be same as the cluster owner.
+--
+-- 'numCacheNodes', 'modifyCacheCluster_numCacheNodes' - The number of cache nodes that the cluster should have. If the value for
 -- @NumCacheNodes@ is greater than the sum of the number of current cache
 -- nodes and the number of cache nodes pending creation (which may be
 -- zero), more nodes are added. If the value is less than the number of
@@ -667,10 +586,8 @@ modifyCacheCluster_securityGroupIds = Lens.lens (\ModifyCacheCluster' {securityG
 -- to modify the number of cache nodes in a cluster, use the
 -- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
 -- of cache nodes currently in the cluster.
-modifyCacheCluster_numCacheNodes :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
-modifyCacheCluster_numCacheNodes = Lens.lens (\ModifyCacheCluster' {numCacheNodes} -> numCacheNodes) (\s@ModifyCacheCluster' {} a -> s {numCacheNodes = a} :: ModifyCacheCluster)
-
--- | A list of cache security group names to authorize on this cluster. This
+--
+-- 'cacheSecurityGroupNames', 'modifyCacheCluster_cacheSecurityGroupNames' - A list of cache security group names to authorize on this cluster. This
 -- change is asynchronously applied as soon as possible.
 --
 -- You can use this parameter only with clusters that are created outside
@@ -678,32 +595,73 @@ modifyCacheCluster_numCacheNodes = Lens.lens (\ModifyCacheCluster' {numCacheNode
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
-modifyCacheCluster_cacheSecurityGroupNames :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
-modifyCacheCluster_cacheSecurityGroupNames = Lens.lens (\ModifyCacheCluster' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyCacheCluster' {} a -> s {cacheSecurityGroupNames = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens._Coerce
+--
+-- 'cacheClusterId', 'modifyCacheCluster_cacheClusterId' - The cluster identifier. This value is stored as a lowercase string.
+newModifyCacheCluster ::
+  -- | 'cacheClusterId'
+  Prelude.Text ->
+  ModifyCacheCluster
+newModifyCacheCluster pCacheClusterId_ =
+  ModifyCacheCluster'
+    { engineVersion =
+        Prelude.Nothing,
+      cacheNodeType = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      cacheParameterGroupName = Prelude.Nothing,
+      snapshotWindow = Prelude.Nothing,
+      newAvailabilityZones' = Prelude.Nothing,
+      logDeliveryConfigurations = Prelude.Nothing,
+      authToken = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      cacheNodeIdsToRemove = Prelude.Nothing,
+      snapshotRetentionLimit = Prelude.Nothing,
+      notificationTopicStatus = Prelude.Nothing,
+      aZMode = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      authTokenUpdateStrategy = Prelude.Nothing,
+      notificationTopicArn = Prelude.Nothing,
+      numCacheNodes = Prelude.Nothing,
+      cacheSecurityGroupNames = Prelude.Nothing,
+      cacheClusterId = pCacheClusterId_
+    }
 
--- | Specifies the strategy to use to update the AUTH token. This parameter
--- must be specified with the @auth-token@ parameter. Possible values:
+-- | The upgraded version of the cache engine to be run on the cache nodes.
 --
--- -   Rotate
+-- __Important:__ You can upgrade to a newer engine version (see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
+-- but you cannot downgrade to an earlier engine version. If you want to
+-- use an earlier engine version, you must delete the existing cluster and
+-- create it anew with the earlier engine version.
+modifyCacheCluster_engineVersion :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_engineVersion = Lens.lens (\ModifyCacheCluster' {engineVersion} -> engineVersion) (\s@ModifyCacheCluster' {} a -> s {engineVersion = a} :: ModifyCacheCluster)
+
+-- | A valid cache node type that you want to scale this cluster up to.
+modifyCacheCluster_cacheNodeType :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_cacheNodeType = Lens.lens (\ModifyCacheCluster' {cacheNodeType} -> cacheNodeType) (\s@ModifyCacheCluster' {} a -> s {cacheNodeType = a} :: ModifyCacheCluster)
+
+-- | Specifies the VPC Security Groups associated with the cluster.
 --
--- -   Set
---
--- For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
-modifyCacheCluster_authTokenUpdateStrategy :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe AuthTokenUpdateStrategyType)
-modifyCacheCluster_authTokenUpdateStrategy = Lens.lens (\ModifyCacheCluster' {authTokenUpdateStrategy} -> authTokenUpdateStrategy) (\s@ModifyCacheCluster' {} a -> s {authTokenUpdateStrategy = a} :: ModifyCacheCluster)
+-- This parameter can be used only with clusters that are created in an
+-- Amazon Virtual Private Cloud (Amazon VPC).
+modifyCacheCluster_securityGroupIds :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
+modifyCacheCluster_securityGroupIds = Lens.lens (\ModifyCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@ModifyCacheCluster' {} a -> s {securityGroupIds = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
+
+-- | This parameter is currently disabled.
+modifyCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Bool)
+modifyCacheCluster_autoMinorVersionUpgrade = Lens.lens (\ModifyCacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyCacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyCacheCluster)
+
+-- | The name of the cache parameter group to apply to this cluster. This
+-- change is asynchronously applied as soon as possible for parameters when
+-- the @ApplyImmediately@ parameter is specified as @true@ for this
+-- request.
+modifyCacheCluster_cacheParameterGroupName :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_cacheParameterGroupName = Lens.lens (\ModifyCacheCluster' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyCacheCluster' {} a -> s {cacheParameterGroupName = a} :: ModifyCacheCluster)
 
 -- | The daily time range (in UTC) during which ElastiCache begins taking a
 -- daily snapshot of your cluster.
 modifyCacheCluster_snapshotWindow :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
 modifyCacheCluster_snapshotWindow = Lens.lens (\ModifyCacheCluster' {snapshotWindow} -> snapshotWindow) (\s@ModifyCacheCluster' {} a -> s {snapshotWindow = a} :: ModifyCacheCluster)
-
--- | The status of the Amazon SNS notification topic. Notifications are sent
--- only if the status is @active@.
---
--- Valid values: @active@ | @inactive@
-modifyCacheCluster_notificationTopicStatus :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_notificationTopicStatus = Lens.lens (\ModifyCacheCluster' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyCacheCluster' {} a -> s {notificationTopicStatus = a} :: ModifyCacheCluster)
 
 -- | This option is only supported on Memcached clusters.
 --
@@ -783,52 +741,28 @@ modifyCacheCluster_notificationTopicStatus = Lens.lens (\ModifyCacheCluster' {no
 --         create request is __Apply Immediately - No__, all creates are
 --         pending.
 modifyCacheCluster_newAvailabilityZones :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
-modifyCacheCluster_newAvailabilityZones = Lens.lens (\ModifyCacheCluster' {newAvailabilityZones'} -> newAvailabilityZones') (\s@ModifyCacheCluster' {} a -> s {newAvailabilityZones' = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens._Coerce
+modifyCacheCluster_newAvailabilityZones = Lens.lens (\ModifyCacheCluster' {newAvailabilityZones'} -> newAvailabilityZones') (\s@ModifyCacheCluster' {} a -> s {newAvailabilityZones' = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the cache parameter group to apply to this cluster. This
--- change is asynchronously applied as soon as possible for parameters when
--- the @ApplyImmediately@ parameter is specified as @true@ for this
--- request.
-modifyCacheCluster_cacheParameterGroupName :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_cacheParameterGroupName = Lens.lens (\ModifyCacheCluster' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyCacheCluster' {} a -> s {cacheParameterGroupName = a} :: ModifyCacheCluster)
+-- | Specifies the destination, format and type of the logs.
+modifyCacheCluster_logDeliveryConfigurations :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [LogDeliveryConfigurationRequest])
+modifyCacheCluster_logDeliveryConfigurations = Lens.lens (\ModifyCacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyCacheCluster' {} a -> s {logDeliveryConfigurations = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of days for which ElastiCache retains automatic cluster
--- snapshots before deleting them. For example, if you set
--- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
--- retained for 5 days before being deleted.
+-- | Reserved parameter. The password used to access a password protected
+-- server. This parameter must be specified with the @auth-token-update@
+-- parameter. Password constraints:
 --
--- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
--- turned off.
-modifyCacheCluster_snapshotRetentionLimit :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
-modifyCacheCluster_snapshotRetentionLimit = Lens.lens (\ModifyCacheCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyCacheCluster' {} a -> s {snapshotRetentionLimit = a} :: ModifyCacheCluster)
-
--- | A list of cache node IDs to be removed. A node ID is a numeric
--- identifier (0001, 0002, etc.). This parameter is only valid when
--- @NumCacheNodes@ is less than the existing number of cache nodes. The
--- number of cache node IDs supplied in this parameter must match the
--- difference between the existing number of cache nodes in the cluster or
--- pending cache nodes, whichever is greater, and the value of
--- @NumCacheNodes@ in the request.
+-- -   Must be only printable ASCII characters
 --
--- For example: If you have 3 active cache nodes, 7 pending cache nodes,
--- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
--- you must list 2 (7 - 5) cache node IDs to remove.
-modifyCacheCluster_cacheNodeIdsToRemove :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
-modifyCacheCluster_cacheNodeIdsToRemove = Lens.lens (\ModifyCacheCluster' {cacheNodeIdsToRemove} -> cacheNodeIdsToRemove) (\s@ModifyCacheCluster' {} a -> s {cacheNodeIdsToRemove = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | The upgraded version of the cache engine to be run on the cache nodes.
+-- -   Must be at least 16 characters and no more than 128 characters in
+--     length
 --
--- __Important:__ You can upgrade to a newer engine version (see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement Selecting a Cache Engine and Version>),
--- but you cannot downgrade to an earlier engine version. If you want to
--- use an earlier engine version, you must delete the existing cluster and
--- create it anew with the earlier engine version.
-modifyCacheCluster_engineVersion :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_engineVersion = Lens.lens (\ModifyCacheCluster' {engineVersion} -> engineVersion) (\s@ModifyCacheCluster' {} a -> s {engineVersion = a} :: ModifyCacheCluster)
-
--- | A valid cache node type that you want to scale this cluster up to.
-modifyCacheCluster_cacheNodeType :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_cacheNodeType = Lens.lens (\ModifyCacheCluster' {cacheNodeType} -> cacheNodeType) (\s@ModifyCacheCluster' {} a -> s {cacheNodeType = a} :: ModifyCacheCluster)
+-- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
+--     \'\@\', \'%\'
+--
+-- For more information, see AUTH password at
+-- <http://redis.io/commands/AUTH AUTH>.
+modifyCacheCluster_authToken :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_authToken = Lens.lens (\ModifyCacheCluster' {authToken} -> authToken) (\s@ModifyCacheCluster' {} a -> s {authToken = a} :: ModifyCacheCluster)
 
 -- | Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
@@ -855,33 +789,36 @@ modifyCacheCluster_cacheNodeType = Lens.lens (\ModifyCacheCluster' {cacheNodeTyp
 modifyCacheCluster_preferredMaintenanceWindow :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
 modifyCacheCluster_preferredMaintenanceWindow = Lens.lens (\ModifyCacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyCacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: ModifyCacheCluster)
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications are sent.
+-- | A list of cache node IDs to be removed. A node ID is a numeric
+-- identifier (0001, 0002, etc.). This parameter is only valid when
+-- @NumCacheNodes@ is less than the existing number of cache nodes. The
+-- number of cache node IDs supplied in this parameter must match the
+-- difference between the existing number of cache nodes in the cluster or
+-- pending cache nodes, whichever is greater, and the value of
+-- @NumCacheNodes@ in the request.
 --
--- The Amazon SNS topic owner must be same as the cluster owner.
-modifyCacheCluster_notificationTopicArn :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_notificationTopicArn = Lens.lens (\ModifyCacheCluster' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyCacheCluster' {} a -> s {notificationTopicArn = a} :: ModifyCacheCluster)
+-- For example: If you have 3 active cache nodes, 7 pending cache nodes,
+-- and the number of cache nodes in this @ModifyCacheCluster@ call is 5,
+-- you must list 2 (7 - 5) cache node IDs to remove.
+modifyCacheCluster_cacheNodeIdsToRemove :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
+modifyCacheCluster_cacheNodeIdsToRemove = Lens.lens (\ModifyCacheCluster' {cacheNodeIdsToRemove} -> cacheNodeIdsToRemove) (\s@ModifyCacheCluster' {} a -> s {cacheNodeIdsToRemove = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | Reserved parameter. The password used to access a password protected
--- server. This parameter must be specified with the @auth-token-update@
--- parameter. Password constraints:
+-- | The number of days for which ElastiCache retains automatic cluster
+-- snapshots before deleting them. For example, if you set
+-- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+-- retained for 5 days before being deleted.
 --
--- -   Must be only printable ASCII characters
---
--- -   Must be at least 16 characters and no more than 128 characters in
---     length
---
--- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
---     \'\@\', \'%\'
---
--- For more information, see AUTH password at
--- <http://redis.io/commands/AUTH AUTH>.
-modifyCacheCluster_authToken :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
-modifyCacheCluster_authToken = Lens.lens (\ModifyCacheCluster' {authToken} -> authToken) (\s@ModifyCacheCluster' {} a -> s {authToken = a} :: ModifyCacheCluster)
+-- If the value of @SnapshotRetentionLimit@ is set to zero (0), backups are
+-- turned off.
+modifyCacheCluster_snapshotRetentionLimit :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
+modifyCacheCluster_snapshotRetentionLimit = Lens.lens (\ModifyCacheCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyCacheCluster' {} a -> s {snapshotRetentionLimit = a} :: ModifyCacheCluster)
 
--- | Specifies the destination, format and type of the logs.
-modifyCacheCluster_logDeliveryConfigurations :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [LogDeliveryConfigurationRequest])
-modifyCacheCluster_logDeliveryConfigurations = Lens.lens (\ModifyCacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyCacheCluster' {} a -> s {logDeliveryConfigurations = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens._Coerce
+-- | The status of the Amazon SNS notification topic. Notifications are sent
+-- only if the status is @active@.
+--
+-- Valid values: @active@ | @inactive@
+modifyCacheCluster_notificationTopicStatus :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_notificationTopicStatus = Lens.lens (\ModifyCacheCluster' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyCacheCluster' {} a -> s {notificationTopicStatus = a} :: ModifyCacheCluster)
 
 -- | Specifies whether the new nodes in this Memcached cluster are all
 -- created in a single Availability Zone or created across multiple
@@ -916,9 +853,72 @@ modifyCacheCluster_aZMode = Lens.lens (\ModifyCacheCluster' {aZMode} -> aZMode) 
 modifyCacheCluster_applyImmediately :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Bool)
 modifyCacheCluster_applyImmediately = Lens.lens (\ModifyCacheCluster' {applyImmediately} -> applyImmediately) (\s@ModifyCacheCluster' {} a -> s {applyImmediately = a} :: ModifyCacheCluster)
 
--- | This parameter is currently disabled.
-modifyCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Bool)
-modifyCacheCluster_autoMinorVersionUpgrade = Lens.lens (\ModifyCacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyCacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyCacheCluster)
+-- | Specifies the strategy to use to update the AUTH token. This parameter
+-- must be specified with the @auth-token@ parameter. Possible values:
+--
+-- -   Rotate
+--
+-- -   Set
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+modifyCacheCluster_authTokenUpdateStrategy :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe AuthTokenUpdateStrategyType)
+modifyCacheCluster_authTokenUpdateStrategy = Lens.lens (\ModifyCacheCluster' {authTokenUpdateStrategy} -> authTokenUpdateStrategy) (\s@ModifyCacheCluster' {} a -> s {authTokenUpdateStrategy = a} :: ModifyCacheCluster)
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications are sent.
+--
+-- The Amazon SNS topic owner must be same as the cluster owner.
+modifyCacheCluster_notificationTopicArn :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Text)
+modifyCacheCluster_notificationTopicArn = Lens.lens (\ModifyCacheCluster' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyCacheCluster' {} a -> s {notificationTopicArn = a} :: ModifyCacheCluster)
+
+-- | The number of cache nodes that the cluster should have. If the value for
+-- @NumCacheNodes@ is greater than the sum of the number of current cache
+-- nodes and the number of cache nodes pending creation (which may be
+-- zero), more nodes are added. If the value is less than the number of
+-- existing cache nodes, nodes are removed. If the value is equal to the
+-- number of current cache nodes, any pending add or remove requests are
+-- canceled.
+--
+-- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
+-- parameter to provide the IDs of the specific cache nodes to remove.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 40.
+--
+-- Adding or removing Memcached cache nodes can be applied immediately or
+-- as a pending operation (see @ApplyImmediately@).
+--
+-- A pending operation to modify the number of cache nodes in a cluster
+-- during its maintenance window, whether by adding or removing nodes in
+-- accordance with the scale out architecture, is not queued. The
+-- customer\'s latest request to add or remove nodes to the cluster
+-- overrides any previous pending operations to modify the number of cache
+-- nodes in the cluster. For example, a request to remove 2 nodes would
+-- override a previous pending operation to remove 3 nodes. Similarly, a
+-- request to add 2 nodes would override a previous pending operation to
+-- remove 3 nodes and vice versa. As Memcached cache nodes may now be
+-- provisioned in different Availability Zones with flexible cache node
+-- placement, a request to add nodes does not automatically override a
+-- previous pending operation to add nodes. The customer can modify the
+-- previous pending operation to add more nodes or explicitly cancel the
+-- pending request and retry the new request. To cancel pending operations
+-- to modify the number of cache nodes in a cluster, use the
+-- @ModifyCacheCluster@ request and set @NumCacheNodes@ equal to the number
+-- of cache nodes currently in the cluster.
+modifyCacheCluster_numCacheNodes :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe Prelude.Int)
+modifyCacheCluster_numCacheNodes = Lens.lens (\ModifyCacheCluster' {numCacheNodes} -> numCacheNodes) (\s@ModifyCacheCluster' {} a -> s {numCacheNodes = a} :: ModifyCacheCluster)
+
+-- | A list of cache security group names to authorize on this cluster. This
+-- change is asynchronously applied as soon as possible.
+--
+-- You can use this parameter only with clusters that are created outside
+-- of an Amazon Virtual Private Cloud (Amazon VPC).
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters. Must
+-- not be \"Default\".
+modifyCacheCluster_cacheSecurityGroupNames :: Lens.Lens' ModifyCacheCluster (Prelude.Maybe [Prelude.Text])
+modifyCacheCluster_cacheSecurityGroupNames = Lens.lens (\ModifyCacheCluster' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyCacheCluster' {} a -> s {cacheSecurityGroupNames = a} :: ModifyCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The cluster identifier. This value is stored as a lowercase string.
 modifyCacheCluster_cacheClusterId :: Lens.Lens' ModifyCacheCluster Prelude.Text
@@ -955,51 +955,51 @@ instance Core.ToQuery ModifyCacheCluster where
           Core.=: ("ModifyCacheCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "EngineVersion" Core.=: engineVersion,
+        "CacheNodeType" Core.=: cacheNodeType,
         "SecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "SecurityGroupId"
                 Prelude.<$> securityGroupIds
             ),
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
+        "CacheParameterGroupName"
+          Core.=: cacheParameterGroupName,
+        "SnapshotWindow" Core.=: snapshotWindow,
+        "NewAvailabilityZones"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "PreferredAvailabilityZone"
+                Prelude.<$> newAvailabilityZones'
+            ),
+        "LogDeliveryConfigurations"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "LogDeliveryConfigurationRequest"
+                Prelude.<$> logDeliveryConfigurations
+            ),
+        "AuthToken" Core.=: authToken,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
+        "CacheNodeIdsToRemove"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "CacheNodeId"
+                Prelude.<$> cacheNodeIdsToRemove
+            ),
+        "SnapshotRetentionLimit"
+          Core.=: snapshotRetentionLimit,
+        "NotificationTopicStatus"
+          Core.=: notificationTopicStatus,
+        "AZMode" Core.=: aZMode,
+        "ApplyImmediately" Core.=: applyImmediately,
+        "AuthTokenUpdateStrategy"
+          Core.=: authTokenUpdateStrategy,
+        "NotificationTopicArn" Core.=: notificationTopicArn,
         "NumCacheNodes" Core.=: numCacheNodes,
         "CacheSecurityGroupNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "CacheSecurityGroupName"
                 Prelude.<$> cacheSecurityGroupNames
             ),
-        "AuthTokenUpdateStrategy"
-          Core.=: authTokenUpdateStrategy,
-        "SnapshotWindow" Core.=: snapshotWindow,
-        "NotificationTopicStatus"
-          Core.=: notificationTopicStatus,
-        "NewAvailabilityZones"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "PreferredAvailabilityZone"
-                Prelude.<$> newAvailabilityZones'
-            ),
-        "CacheParameterGroupName"
-          Core.=: cacheParameterGroupName,
-        "SnapshotRetentionLimit"
-          Core.=: snapshotRetentionLimit,
-        "CacheNodeIdsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "CacheNodeId"
-                Prelude.<$> cacheNodeIdsToRemove
-            ),
-        "EngineVersion" Core.=: engineVersion,
-        "CacheNodeType" Core.=: cacheNodeType,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "NotificationTopicArn" Core.=: notificationTopicArn,
-        "AuthToken" Core.=: authToken,
-        "LogDeliveryConfigurations"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "LogDeliveryConfigurationRequest"
-                Prelude.<$> logDeliveryConfigurations
-            ),
-        "AZMode" Core.=: aZMode,
-        "ApplyImmediately" Core.=: applyImmediately,
-        "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
         "CacheClusterId" Core.=: cacheClusterId
       ]
 

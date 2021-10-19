@@ -30,12 +30,12 @@ module Network.AWS.CostExplorer.GetCostCategories
     newGetCostCategories,
 
     -- * Request Lenses
-    getCostCategories_maxResults,
-    getCostCategories_searchString,
     getCostCategories_nextPageToken,
+    getCostCategories_searchString,
     getCostCategories_costCategoryName,
-    getCostCategories_sortBy,
     getCostCategories_filter,
+    getCostCategories_maxResults,
+    getCostCategories_sortBy,
     getCostCategories_timePeriod,
 
     -- * Destructuring the Response
@@ -43,9 +43,9 @@ module Network.AWS.CostExplorer.GetCostCategories
     newGetCostCategoriesResponse,
 
     -- * Response Lenses
-    getCostCategoriesResponse_costCategoryValues,
     getCostCategoriesResponse_nextPageToken,
     getCostCategoriesResponse_costCategoryNames,
+    getCostCategoriesResponse_costCategoryValues,
     getCostCategoriesResponse_httpStatus,
     getCostCategoriesResponse_returnSize,
     getCostCategoriesResponse_totalSize,
@@ -61,14 +61,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCostCategories' smart constructor.
 data GetCostCategories = GetCostCategories'
-  { -- | This field is only used when @SortBy@ is provided in the request.
-    --
-    -- The maximum number of objects that to be returned for this request. If
-    -- @MaxResults@ is not specified with @SortBy@, the request will return
-    -- 1000 results as the default value for this parameter.
-    --
-    -- For @GetCostCategories@, MaxResults has an upper limit of 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | If the number of objects that are still available for retrieval exceeds
+    -- the limit, Amazon Web Services returns a NextPageToken value in the
+    -- response. To retrieve the next batch of objects, provide the
+    -- NextPageToken from the prior call in your next request.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The value that you want to search the filter values for.
     --
     -- If you do not specify a @CostCategoryName@, @SearchString@ will be used
@@ -76,12 +73,16 @@ data GetCostCategories = GetCostCategories'
     -- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
     -- filter Cost Category values that match the @SearchString@ pattern.
     searchString :: Prelude.Maybe Prelude.Text,
-    -- | If the number of objects that are still available for retrieval exceeds
-    -- the limit, Amazon Web Services returns a NextPageToken value in the
-    -- response. To retrieve the next batch of objects, provide the
-    -- NextPageToken from the prior call in your next request.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
     costCategoryName :: Prelude.Maybe Prelude.Text,
+    filter' :: Prelude.Maybe Expression,
+    -- | This field is only used when @SortBy@ is provided in the request.
+    --
+    -- The maximum number of objects that to be returned for this request. If
+    -- @MaxResults@ is not specified with @SortBy@, the request will return
+    -- 1000 results as the default value for this parameter.
+    --
+    -- For @GetCostCategories@, MaxResults has an upper limit of 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -106,7 +107,6 @@ data GetCostCategories = GetCostCategories'
     -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
     -- supported.
     sortBy :: Prelude.Maybe [SortDefinition],
-    filter' :: Prelude.Maybe Expression,
     timePeriod :: DateInterval
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,13 +119,10 @@ data GetCostCategories = GetCostCategories'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'getCostCategories_maxResults' - This field is only used when @SortBy@ is provided in the request.
---
--- The maximum number of objects that to be returned for this request. If
--- @MaxResults@ is not specified with @SortBy@, the request will return
--- 1000 results as the default value for this parameter.
---
--- For @GetCostCategories@, MaxResults has an upper limit of 1000.
+-- 'nextPageToken', 'getCostCategories_nextPageToken' - If the number of objects that are still available for retrieval exceeds
+-- the limit, Amazon Web Services returns a NextPageToken value in the
+-- response. To retrieve the next batch of objects, provide the
+-- NextPageToken from the prior call in your next request.
 --
 -- 'searchString', 'getCostCategories_searchString' - The value that you want to search the filter values for.
 --
@@ -134,12 +131,17 @@ data GetCostCategories = GetCostCategories'
 -- you do specifiy a @CostCategoryName@, @SearchString@ will be used to
 -- filter Cost Category values that match the @SearchString@ pattern.
 --
--- 'nextPageToken', 'getCostCategories_nextPageToken' - If the number of objects that are still available for retrieval exceeds
--- the limit, Amazon Web Services returns a NextPageToken value in the
--- response. To retrieve the next batch of objects, provide the
--- NextPageToken from the prior call in your next request.
---
 -- 'costCategoryName', 'getCostCategories_costCategoryName' - Undocumented member.
+--
+-- 'filter'', 'getCostCategories_filter' - Undocumented member.
+--
+-- 'maxResults', 'getCostCategories_maxResults' - This field is only used when @SortBy@ is provided in the request.
+--
+-- The maximum number of objects that to be returned for this request. If
+-- @MaxResults@ is not specified with @SortBy@, the request will return
+-- 1000 results as the default value for this parameter.
+--
+-- For @GetCostCategories@, MaxResults has an upper limit of 1000.
 --
 -- 'sortBy', 'getCostCategories_sortBy' - The value by which you want to sort the data.
 --
@@ -165,8 +167,6 @@ data GetCostCategories = GetCostCategories'
 -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
 -- supported.
 --
--- 'filter'', 'getCostCategories_filter' - Undocumented member.
---
 -- 'timePeriod', 'getCostCategories_timePeriod' - Undocumented member.
 newGetCostCategories ::
   -- | 'timePeriod'
@@ -174,24 +174,21 @@ newGetCostCategories ::
   GetCostCategories
 newGetCostCategories pTimePeriod_ =
   GetCostCategories'
-    { maxResults = Prelude.Nothing,
+    { nextPageToken = Prelude.Nothing,
       searchString = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
       costCategoryName = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
 
--- | This field is only used when @SortBy@ is provided in the request.
---
--- The maximum number of objects that to be returned for this request. If
--- @MaxResults@ is not specified with @SortBy@, the request will return
--- 1000 results as the default value for this parameter.
---
--- For @GetCostCategories@, MaxResults has an upper limit of 1000.
-getCostCategories_maxResults :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Natural)
-getCostCategories_maxResults = Lens.lens (\GetCostCategories' {maxResults} -> maxResults) (\s@GetCostCategories' {} a -> s {maxResults = a} :: GetCostCategories)
+-- | If the number of objects that are still available for retrieval exceeds
+-- the limit, Amazon Web Services returns a NextPageToken value in the
+-- response. To retrieve the next batch of objects, provide the
+-- NextPageToken from the prior call in your next request.
+getCostCategories_nextPageToken :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
+getCostCategories_nextPageToken = Lens.lens (\GetCostCategories' {nextPageToken} -> nextPageToken) (\s@GetCostCategories' {} a -> s {nextPageToken = a} :: GetCostCategories)
 
 -- | The value that you want to search the filter values for.
 --
@@ -202,16 +199,23 @@ getCostCategories_maxResults = Lens.lens (\GetCostCategories' {maxResults} -> ma
 getCostCategories_searchString :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_searchString = Lens.lens (\GetCostCategories' {searchString} -> searchString) (\s@GetCostCategories' {} a -> s {searchString = a} :: GetCostCategories)
 
--- | If the number of objects that are still available for retrieval exceeds
--- the limit, Amazon Web Services returns a NextPageToken value in the
--- response. To retrieve the next batch of objects, provide the
--- NextPageToken from the prior call in your next request.
-getCostCategories_nextPageToken :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
-getCostCategories_nextPageToken = Lens.lens (\GetCostCategories' {nextPageToken} -> nextPageToken) (\s@GetCostCategories' {} a -> s {nextPageToken = a} :: GetCostCategories)
-
 -- | Undocumented member.
 getCostCategories_costCategoryName :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_costCategoryName = Lens.lens (\GetCostCategories' {costCategoryName} -> costCategoryName) (\s@GetCostCategories' {} a -> s {costCategoryName = a} :: GetCostCategories)
+
+-- | Undocumented member.
+getCostCategories_filter :: Lens.Lens' GetCostCategories (Prelude.Maybe Expression)
+getCostCategories_filter = Lens.lens (\GetCostCategories' {filter'} -> filter') (\s@GetCostCategories' {} a -> s {filter' = a} :: GetCostCategories)
+
+-- | This field is only used when @SortBy@ is provided in the request.
+--
+-- The maximum number of objects that to be returned for this request. If
+-- @MaxResults@ is not specified with @SortBy@, the request will return
+-- 1000 results as the default value for this parameter.
+--
+-- For @GetCostCategories@, MaxResults has an upper limit of 1000.
+getCostCategories_maxResults :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Natural)
+getCostCategories_maxResults = Lens.lens (\GetCostCategories' {maxResults} -> maxResults) (\s@GetCostCategories' {} a -> s {maxResults = a} :: GetCostCategories)
 
 -- | The value by which you want to sort the data.
 --
@@ -237,11 +241,7 @@ getCostCategories_costCategoryName = Lens.lens (\GetCostCategories' {costCategor
 -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
 -- supported.
 getCostCategories_sortBy :: Lens.Lens' GetCostCategories (Prelude.Maybe [SortDefinition])
-getCostCategories_sortBy = Lens.lens (\GetCostCategories' {sortBy} -> sortBy) (\s@GetCostCategories' {} a -> s {sortBy = a} :: GetCostCategories) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-getCostCategories_filter :: Lens.Lens' GetCostCategories (Prelude.Maybe Expression)
-getCostCategories_filter = Lens.lens (\GetCostCategories' {filter'} -> filter') (\s@GetCostCategories' {} a -> s {filter' = a} :: GetCostCategories)
+getCostCategories_sortBy = Lens.lens (\GetCostCategories' {sortBy} -> sortBy) (\s@GetCostCategories' {} a -> s {sortBy = a} :: GetCostCategories) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getCostCategories_timePeriod :: Lens.Lens' GetCostCategories DateInterval
@@ -256,11 +256,11 @@ instance Core.AWSRequest GetCostCategories where
     Response.receiveJSON
       ( \s h x ->
           GetCostCategoriesResponse'
-            Prelude.<$> ( x Core..?> "CostCategoryValues"
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "CostCategoryNames"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
-            Prelude.<*> ( x Core..?> "CostCategoryNames"
+            Prelude.<*> ( x Core..?> "CostCategoryValues"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -291,13 +291,13 @@ instance Core.ToJSON GetCostCategories where
   toJSON GetCostCategories' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("SearchString" Core..=) Prelude.<$> searchString,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("CostCategoryName" Core..=)
               Prelude.<$> costCategoryName,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
@@ -310,18 +310,18 @@ instance Core.ToQuery GetCostCategories where
 
 -- | /See:/ 'newGetCostCategoriesResponse' smart constructor.
 data GetCostCategoriesResponse = GetCostCategoriesResponse'
-  { -- | The Cost Category values.
-    --
-    -- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
-    -- specified in the request.
-    costCategoryValues :: Prelude.Maybe [Prelude.Text],
-    -- | If the number of objects that are still available for retrieval exceeds
+  { -- | If the number of objects that are still available for retrieval exceeds
     -- the limit, Amazon Web Services returns a NextPageToken value in the
     -- response. To retrieve the next batch of objects, provide the marker from
     -- the prior call in your next request.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The names of the Cost Categories.
     costCategoryNames :: Prelude.Maybe [Prelude.Text],
+    -- | The Cost Category values.
+    --
+    -- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
+    -- specified in the request.
+    costCategoryValues :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The number of objects returned.
@@ -339,17 +339,17 @@ data GetCostCategoriesResponse = GetCostCategoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'costCategoryValues', 'getCostCategoriesResponse_costCategoryValues' - The Cost Category values.
---
--- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
--- specified in the request.
---
 -- 'nextPageToken', 'getCostCategoriesResponse_nextPageToken' - If the number of objects that are still available for retrieval exceeds
 -- the limit, Amazon Web Services returns a NextPageToken value in the
 -- response. To retrieve the next batch of objects, provide the marker from
 -- the prior call in your next request.
 --
 -- 'costCategoryNames', 'getCostCategoriesResponse_costCategoryNames' - The names of the Cost Categories.
+--
+-- 'costCategoryValues', 'getCostCategoriesResponse_costCategoryValues' - The Cost Category values.
+--
+-- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
+-- specified in the request.
 --
 -- 'httpStatus', 'getCostCategoriesResponse_httpStatus' - The response's http status code.
 --
@@ -369,21 +369,14 @@ newGetCostCategoriesResponse
   pReturnSize_
   pTotalSize_ =
     GetCostCategoriesResponse'
-      { costCategoryValues =
+      { nextPageToken =
           Prelude.Nothing,
-        nextPageToken = Prelude.Nothing,
         costCategoryNames = Prelude.Nothing,
+        costCategoryValues = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         returnSize = pReturnSize_,
         totalSize = pTotalSize_
       }
-
--- | The Cost Category values.
---
--- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
--- specified in the request.
-getCostCategoriesResponse_costCategoryValues :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe [Prelude.Text])
-getCostCategoriesResponse_costCategoryValues = Lens.lens (\GetCostCategoriesResponse' {costCategoryValues} -> costCategoryValues) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryValues = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the number of objects that are still available for retrieval exceeds
 -- the limit, Amazon Web Services returns a NextPageToken value in the
@@ -394,7 +387,14 @@ getCostCategoriesResponse_nextPageToken = Lens.lens (\GetCostCategoriesResponse'
 
 -- | The names of the Cost Categories.
 getCostCategoriesResponse_costCategoryNames :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe [Prelude.Text])
-getCostCategoriesResponse_costCategoryNames = Lens.lens (\GetCostCategoriesResponse' {costCategoryNames} -> costCategoryNames) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryNames = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
+getCostCategoriesResponse_costCategoryNames = Lens.lens (\GetCostCategoriesResponse' {costCategoryNames} -> costCategoryNames) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryNames = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Cost Category values.
+--
+-- @CostCategoryValues@ are not returned if @CostCategoryName@ is not
+-- specified in the request.
+getCostCategoriesResponse_costCategoryValues :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe [Prelude.Text])
+getCostCategoriesResponse_costCategoryValues = Lens.lens (\GetCostCategoriesResponse' {costCategoryValues} -> costCategoryValues) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryValues = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCostCategoriesResponse_httpStatus :: Lens.Lens' GetCostCategoriesResponse Prelude.Int

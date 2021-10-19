@@ -86,7 +86,7 @@ newCreateTags =
 
 -- | A list of configuration items that you want to tag.
 createTags_configurationIds :: Lens.Lens' CreateTags [Prelude.Text]
-createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> configurationIds) (\s@CreateTags' {} a -> s {configurationIds = a} :: CreateTags) Prelude.. Lens._Coerce
+createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> configurationIds) (\s@CreateTags' {} a -> s {configurationIds = a} :: CreateTags) Prelude.. Lens.coerced
 
 -- | Tags that you want to associate with one or more configuration items.
 -- Specify the tags that you want to create in a /key/-/value/ format. For
@@ -94,7 +94,7 @@ createTags_configurationIds = Lens.lens (\CreateTags' {configurationIds} -> conf
 --
 -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse

@@ -28,18 +28,18 @@ import Network.AWS.Rekognition.Types.LandmarkType
 --
 -- /See:/ 'newLandmark' smart constructor.
 data Landmark = Landmark'
-  { -- | The y-coordinate of the landmark expressed as a ratio of the height of
-    -- the image. The y-coordinate is measured from the top of the image. For
-    -- example, if the image height is 200 pixels and the y-coordinate of the
-    -- landmark is at 50 pixels, this value is 0.25.
-    y :: Prelude.Maybe Prelude.Double,
+  { -- | Type of landmark.
+    type' :: Prelude.Maybe LandmarkType,
     -- | The x-coordinate of the landmark expressed as a ratio of the width of
     -- the image. The x-coordinate is measured from the left-side of the image.
     -- For example, if the image is 700 pixels wide and the x-coordinate of the
     -- landmark is at 350 pixels, this value is 0.5.
     x :: Prelude.Maybe Prelude.Double,
-    -- | Type of landmark.
-    type' :: Prelude.Maybe LandmarkType
+    -- | The y-coordinate of the landmark expressed as a ratio of the height of
+    -- the image. The y-coordinate is measured from the top of the image. For
+    -- example, if the image height is 200 pixels and the y-coordinate of the
+    -- landmark is at 50 pixels, this value is 0.25.
+    y :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,32 +51,29 @@ data Landmark = Landmark'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'y', 'landmark_y' - The y-coordinate of the landmark expressed as a ratio of the height of
--- the image. The y-coordinate is measured from the top of the image. For
--- example, if the image height is 200 pixels and the y-coordinate of the
--- landmark is at 50 pixels, this value is 0.25.
+-- 'type'', 'landmark_type' - Type of landmark.
 --
 -- 'x', 'landmark_x' - The x-coordinate of the landmark expressed as a ratio of the width of
 -- the image. The x-coordinate is measured from the left-side of the image.
 -- For example, if the image is 700 pixels wide and the x-coordinate of the
 -- landmark is at 350 pixels, this value is 0.5.
 --
--- 'type'', 'landmark_type' - Type of landmark.
+-- 'y', 'landmark_y' - The y-coordinate of the landmark expressed as a ratio of the height of
+-- the image. The y-coordinate is measured from the top of the image. For
+-- example, if the image height is 200 pixels and the y-coordinate of the
+-- landmark is at 50 pixels, this value is 0.25.
 newLandmark ::
   Landmark
 newLandmark =
   Landmark'
-    { y = Prelude.Nothing,
+    { type' = Prelude.Nothing,
       x = Prelude.Nothing,
-      type' = Prelude.Nothing
+      y = Prelude.Nothing
     }
 
--- | The y-coordinate of the landmark expressed as a ratio of the height of
--- the image. The y-coordinate is measured from the top of the image. For
--- example, if the image height is 200 pixels and the y-coordinate of the
--- landmark is at 50 pixels, this value is 0.25.
-landmark_y :: Lens.Lens' Landmark (Prelude.Maybe Prelude.Double)
-landmark_y = Lens.lens (\Landmark' {y} -> y) (\s@Landmark' {} a -> s {y = a} :: Landmark)
+-- | Type of landmark.
+landmark_type :: Lens.Lens' Landmark (Prelude.Maybe LandmarkType)
+landmark_type = Lens.lens (\Landmark' {type'} -> type') (\s@Landmark' {} a -> s {type' = a} :: Landmark)
 
 -- | The x-coordinate of the landmark expressed as a ratio of the width of
 -- the image. The x-coordinate is measured from the left-side of the image.
@@ -85,9 +82,12 @@ landmark_y = Lens.lens (\Landmark' {y} -> y) (\s@Landmark' {} a -> s {y = a} :: 
 landmark_x :: Lens.Lens' Landmark (Prelude.Maybe Prelude.Double)
 landmark_x = Lens.lens (\Landmark' {x} -> x) (\s@Landmark' {} a -> s {x = a} :: Landmark)
 
--- | Type of landmark.
-landmark_type :: Lens.Lens' Landmark (Prelude.Maybe LandmarkType)
-landmark_type = Lens.lens (\Landmark' {type'} -> type') (\s@Landmark' {} a -> s {type' = a} :: Landmark)
+-- | The y-coordinate of the landmark expressed as a ratio of the height of
+-- the image. The y-coordinate is measured from the top of the image. For
+-- example, if the image height is 200 pixels and the y-coordinate of the
+-- landmark is at 50 pixels, this value is 0.25.
+landmark_y :: Lens.Lens' Landmark (Prelude.Maybe Prelude.Double)
+landmark_y = Lens.lens (\Landmark' {y} -> y) (\s@Landmark' {} a -> s {y = a} :: Landmark)
 
 instance Core.FromJSON Landmark where
   parseJSON =
@@ -95,9 +95,9 @@ instance Core.FromJSON Landmark where
       "Landmark"
       ( \x ->
           Landmark'
-            Prelude.<$> (x Core..:? "Y")
+            Prelude.<$> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "X")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Y")
       )
 
 instance Prelude.Hashable Landmark

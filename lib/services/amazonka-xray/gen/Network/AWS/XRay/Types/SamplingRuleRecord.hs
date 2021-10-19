@@ -32,10 +32,10 @@ import Network.AWS.XRay.Types.SamplingRule
 data SamplingRuleRecord = SamplingRuleRecord'
   { -- | When the rule was last modified.
     modifiedAt :: Prelude.Maybe Core.POSIX,
-    -- | When the rule was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The sampling rule.
-    samplingRule :: Prelude.Maybe SamplingRule
+    samplingRule :: Prelude.Maybe SamplingRule,
+    -- | When the rule was created.
+    createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data SamplingRuleRecord = SamplingRuleRecord'
 --
 -- 'modifiedAt', 'samplingRuleRecord_modifiedAt' - When the rule was last modified.
 --
--- 'createdAt', 'samplingRuleRecord_createdAt' - When the rule was created.
---
 -- 'samplingRule', 'samplingRuleRecord_samplingRule' - The sampling rule.
+--
+-- 'createdAt', 'samplingRuleRecord_createdAt' - When the rule was created.
 newSamplingRuleRecord ::
   SamplingRuleRecord
 newSamplingRuleRecord =
   SamplingRuleRecord'
     { modifiedAt = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      samplingRule = Prelude.Nothing
+      samplingRule = Prelude.Nothing,
+      createdAt = Prelude.Nothing
     }
 
 -- | When the rule was last modified.
 samplingRuleRecord_modifiedAt :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe Prelude.UTCTime)
 samplingRuleRecord_modifiedAt = Lens.lens (\SamplingRuleRecord' {modifiedAt} -> modifiedAt) (\s@SamplingRuleRecord' {} a -> s {modifiedAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Core._Time
 
--- | When the rule was created.
-samplingRuleRecord_createdAt :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe Prelude.UTCTime)
-samplingRuleRecord_createdAt = Lens.lens (\SamplingRuleRecord' {createdAt} -> createdAt) (\s@SamplingRuleRecord' {} a -> s {createdAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Core._Time
-
 -- | The sampling rule.
 samplingRuleRecord_samplingRule :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe SamplingRule)
 samplingRuleRecord_samplingRule = Lens.lens (\SamplingRuleRecord' {samplingRule} -> samplingRule) (\s@SamplingRuleRecord' {} a -> s {samplingRule = a} :: SamplingRuleRecord)
+
+-- | When the rule was created.
+samplingRuleRecord_createdAt :: Lens.Lens' SamplingRuleRecord (Prelude.Maybe Prelude.UTCTime)
+samplingRuleRecord_createdAt = Lens.lens (\SamplingRuleRecord' {createdAt} -> createdAt) (\s@SamplingRuleRecord' {} a -> s {createdAt = a} :: SamplingRuleRecord) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON SamplingRuleRecord where
   parseJSON =
@@ -80,8 +80,8 @@ instance Core.FromJSON SamplingRuleRecord where
       ( \x ->
           SamplingRuleRecord'
             Prelude.<$> (x Core..:? "ModifiedAt")
-            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "SamplingRule")
+            Prelude.<*> (x Core..:? "CreatedAt")
       )
 
 instance Prelude.Hashable SamplingRuleRecord

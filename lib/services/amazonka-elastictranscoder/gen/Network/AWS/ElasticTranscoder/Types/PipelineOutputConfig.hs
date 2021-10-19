@@ -171,7 +171,7 @@ pipelineOutputConfig_storageClass = Lens.lens (\PipelineOutputConfig' {storageCl
 -- the transcoded files and playlists to the owner of the role specified by
 -- @Role@, and grants no other permissions to any other user or group.
 pipelineOutputConfig_permissions :: Lens.Lens' PipelineOutputConfig (Prelude.Maybe [Permission])
-pipelineOutputConfig_permissions = Lens.lens (\PipelineOutputConfig' {permissions} -> permissions) (\s@PipelineOutputConfig' {} a -> s {permissions = a} :: PipelineOutputConfig) Prelude.. Lens.mapping Lens._Coerce
+pipelineOutputConfig_permissions = Lens.lens (\PipelineOutputConfig' {permissions} -> permissions) (\s@PipelineOutputConfig' {} a -> s {permissions = a} :: PipelineOutputConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PipelineOutputConfig where
   parseJSON =

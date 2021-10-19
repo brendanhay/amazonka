@@ -84,14 +84,14 @@ module Network.AWS.EFS.CreateFileSystem
     newCreateFileSystem,
 
     -- * Request Lenses
-    createFileSystem_throughputMode,
-    createFileSystem_encrypted,
     createFileSystem_provisionedThroughputInMibps,
     createFileSystem_availabilityZoneName,
+    createFileSystem_performanceMode,
+    createFileSystem_backup,
+    createFileSystem_encrypted,
+    createFileSystem_throughputMode,
     createFileSystem_kmsKeyId,
     createFileSystem_tags,
-    createFileSystem_backup,
-    createFileSystem_performanceMode,
     createFileSystem_creationToken,
 
     -- * Destructuring the Response
@@ -99,12 +99,12 @@ module Network.AWS.EFS.CreateFileSystem
     newFileSystemDescription,
 
     -- * Response Lenses
-    fileSystemDescription_throughputMode,
-    fileSystemDescription_encrypted,
-    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_provisionedThroughputInMibps,
     fileSystemDescription_availabilityZoneName,
-    fileSystemDescription_availabilityZoneId,
+    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_encrypted,
+    fileSystemDescription_throughputMode,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -128,26 +128,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFileSystem' smart constructor.
 data CreateFileSystem = CreateFileSystem'
-  { -- | Specifies the throughput mode for the file system, either @bursting@ or
-    -- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
-    -- also set a value for @ProvisionedThroughputInMibps@. After you create
-    -- the file system, you can decrease your file system\'s throughput in
-    -- Provisioned Throughput mode or change between the throughput modes, as
-    -- long as it’s been more than 24 hours since the last decrease or
-    -- throughput mode change. For more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying throughput with provisioned mode>
-    -- in the /Amazon EFS User Guide/.
-    --
-    -- Default is @bursting@.
-    throughputMode :: Prelude.Maybe ThroughputMode,
-    -- | A Boolean value that, if true, creates an encrypted file system. When
-    -- creating an encrypted file system, you have the option of specifying
-    -- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
-    -- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
-    -- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
-    -- protect the encrypted file system.
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The throughput, measured in MiB\/s, that you want to provision for a
+  { -- | The throughput, measured in MiB\/s, that you want to provision for a
     -- file system that you\'re creating. Valid values are 1-1024. Required if
     -- @ThroughputMode@ is set to @provisioned@. The upper limit for throughput
     -- is 1024 MiB\/s. To increase this limit, contact Amazon Web Services
@@ -165,6 +146,48 @@ data CreateFileSystem = CreateFileSystem'
     -- One Zone storage classes are not available in all Availability Zones in
     -- Amazon Web Services Regions where Amazon EFS is available.
     availabilityZoneName :: Prelude.Maybe Prelude.Text,
+    -- | The performance mode of the file system. We recommend @generalPurpose@
+    -- performance mode for most file systems. File systems using the @maxIO@
+    -- performance mode can scale to higher levels of aggregate throughput and
+    -- operations per second with a tradeoff of slightly higher latencies for
+    -- most file operations. The performance mode can\'t be changed after the
+    -- file system has been created.
+    --
+    -- The @maxIO@ mode is not supported on file systems using One Zone storage
+    -- classes.
+    performanceMode :: Prelude.Maybe PerformanceMode,
+    -- | Specifies whether automatic backups are enabled on the file system that
+    -- you are creating. Set the value to @true@ to enable automatic backups.
+    -- If you are creating a file system that uses One Zone storage classes,
+    -- automatic backups are enabled by default. For more information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>
+    -- in the /Amazon EFS User Guide/.
+    --
+    -- Default is @false@. However, if you specify an @AvailabilityZoneName@,
+    -- the default is @true@.
+    --
+    -- Backup is not available in all Amazon Web Services Regionswhere Amazon
+    -- EFS is available.
+    backup :: Prelude.Maybe Prelude.Bool,
+    -- | A Boolean value that, if true, creates an encrypted file system. When
+    -- creating an encrypted file system, you have the option of specifying
+    -- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
+    -- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
+    -- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
+    -- protect the encrypted file system.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the throughput mode for the file system, either @bursting@ or
+    -- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
+    -- also set a value for @ProvisionedThroughputInMibps@. After you create
+    -- the file system, you can decrease your file system\'s throughput in
+    -- Provisioned Throughput mode or change between the throughput modes, as
+    -- long as it’s been more than 24 hours since the last decrease or
+    -- throughput mode change. For more information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying throughput with provisioned mode>
+    -- in the /Amazon EFS User Guide/.
+    --
+    -- Default is @bursting@.
+    throughputMode :: Prelude.Maybe ThroughputMode,
     -- | The ID of the KMS CMK that you want to use to protect the encrypted file
     -- system. This parameter is only required if you want to use a non-default
     -- KMS key. If this parameter is not specified, the default CMK for Amazon
@@ -195,29 +218,6 @@ data CreateFileSystem = CreateFileSystem'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | Specifies whether automatic backups are enabled on the file system that
-    -- you are creating. Set the value to @true@ to enable automatic backups.
-    -- If you are creating a file system that uses One Zone storage classes,
-    -- automatic backups are enabled by default. For more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>
-    -- in the /Amazon EFS User Guide/.
-    --
-    -- Default is @false@. However, if you specify an @AvailabilityZoneName@,
-    -- the default is @true@.
-    --
-    -- Backup is not available in all Amazon Web Services Regionswhere Amazon
-    -- EFS is available.
-    backup :: Prelude.Maybe Prelude.Bool,
-    -- | The performance mode of the file system. We recommend @generalPurpose@
-    -- performance mode for most file systems. File systems using the @maxIO@
-    -- performance mode can scale to higher levels of aggregate throughput and
-    -- operations per second with a tradeoff of slightly higher latencies for
-    -- most file operations. The performance mode can\'t be changed after the
-    -- file system has been created.
-    --
-    -- The @maxIO@ mode is not supported on file systems using One Zone storage
-    -- classes.
-    performanceMode :: Prelude.Maybe PerformanceMode,
     -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
     -- idempotent creation.
     creationToken :: Prelude.Text
@@ -231,25 +231,6 @@ data CreateFileSystem = CreateFileSystem'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'throughputMode', 'createFileSystem_throughputMode' - Specifies the throughput mode for the file system, either @bursting@ or
--- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
--- also set a value for @ProvisionedThroughputInMibps@. After you create
--- the file system, you can decrease your file system\'s throughput in
--- Provisioned Throughput mode or change between the throughput modes, as
--- long as it’s been more than 24 hours since the last decrease or
--- throughput mode change. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying throughput with provisioned mode>
--- in the /Amazon EFS User Guide/.
---
--- Default is @bursting@.
---
--- 'encrypted', 'createFileSystem_encrypted' - A Boolean value that, if true, creates an encrypted file system. When
--- creating an encrypted file system, you have the option of specifying
--- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
--- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
--- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
--- protect the encrypted file system.
 --
 -- 'provisionedThroughputInMibps', 'createFileSystem_provisionedThroughputInMibps' - The throughput, measured in MiB\/s, that you want to provision for a
 -- file system that you\'re creating. Valid values are 1-1024. Required if
@@ -268,6 +249,48 @@ data CreateFileSystem = CreateFileSystem'
 --
 -- One Zone storage classes are not available in all Availability Zones in
 -- Amazon Web Services Regions where Amazon EFS is available.
+--
+-- 'performanceMode', 'createFileSystem_performanceMode' - The performance mode of the file system. We recommend @generalPurpose@
+-- performance mode for most file systems. File systems using the @maxIO@
+-- performance mode can scale to higher levels of aggregate throughput and
+-- operations per second with a tradeoff of slightly higher latencies for
+-- most file operations. The performance mode can\'t be changed after the
+-- file system has been created.
+--
+-- The @maxIO@ mode is not supported on file systems using One Zone storage
+-- classes.
+--
+-- 'backup', 'createFileSystem_backup' - Specifies whether automatic backups are enabled on the file system that
+-- you are creating. Set the value to @true@ to enable automatic backups.
+-- If you are creating a file system that uses One Zone storage classes,
+-- automatic backups are enabled by default. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>
+-- in the /Amazon EFS User Guide/.
+--
+-- Default is @false@. However, if you specify an @AvailabilityZoneName@,
+-- the default is @true@.
+--
+-- Backup is not available in all Amazon Web Services Regionswhere Amazon
+-- EFS is available.
+--
+-- 'encrypted', 'createFileSystem_encrypted' - A Boolean value that, if true, creates an encrypted file system. When
+-- creating an encrypted file system, you have the option of specifying
+-- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
+-- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
+-- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
+-- protect the encrypted file system.
+--
+-- 'throughputMode', 'createFileSystem_throughputMode' - Specifies the throughput mode for the file system, either @bursting@ or
+-- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
+-- also set a value for @ProvisionedThroughputInMibps@. After you create
+-- the file system, you can decrease your file system\'s throughput in
+-- Provisioned Throughput mode or change between the throughput modes, as
+-- long as it’s been more than 24 hours since the last decrease or
+-- throughput mode change. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying throughput with provisioned mode>
+-- in the /Amazon EFS User Guide/.
+--
+-- Default is @bursting@.
 --
 -- 'kmsKeyId', 'createFileSystem_kmsKeyId' - The ID of the KMS CMK that you want to use to protect the encrypted file
 -- system. This parameter is only required if you want to use a non-default
@@ -299,29 +322,6 @@ data CreateFileSystem = CreateFileSystem'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
 --
--- 'backup', 'createFileSystem_backup' - Specifies whether automatic backups are enabled on the file system that
--- you are creating. Set the value to @true@ to enable automatic backups.
--- If you are creating a file system that uses One Zone storage classes,
--- automatic backups are enabled by default. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>
--- in the /Amazon EFS User Guide/.
---
--- Default is @false@. However, if you specify an @AvailabilityZoneName@,
--- the default is @true@.
---
--- Backup is not available in all Amazon Web Services Regionswhere Amazon
--- EFS is available.
---
--- 'performanceMode', 'createFileSystem_performanceMode' - The performance mode of the file system. We recommend @generalPurpose@
--- performance mode for most file systems. File systems using the @maxIO@
--- performance mode can scale to higher levels of aggregate throughput and
--- operations per second with a tradeoff of slightly higher latencies for
--- most file operations. The performance mode can\'t be changed after the
--- file system has been created.
---
--- The @maxIO@ mode is not supported on file systems using One Zone storage
--- classes.
---
 -- 'creationToken', 'createFileSystem_creationToken' - A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
 newCreateFileSystem ::
@@ -330,39 +330,17 @@ newCreateFileSystem ::
   CreateFileSystem
 newCreateFileSystem pCreationToken_ =
   CreateFileSystem'
-    { throughputMode = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      provisionedThroughputInMibps = Prelude.Nothing,
+    { provisionedThroughputInMibps =
+        Prelude.Nothing,
       availabilityZoneName = Prelude.Nothing,
+      performanceMode = Prelude.Nothing,
+      backup = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      throughputMode = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       tags = Prelude.Nothing,
-      backup = Prelude.Nothing,
-      performanceMode = Prelude.Nothing,
       creationToken = pCreationToken_
     }
-
--- | Specifies the throughput mode for the file system, either @bursting@ or
--- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
--- also set a value for @ProvisionedThroughputInMibps@. After you create
--- the file system, you can decrease your file system\'s throughput in
--- Provisioned Throughput mode or change between the throughput modes, as
--- long as it’s been more than 24 hours since the last decrease or
--- throughput mode change. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying throughput with provisioned mode>
--- in the /Amazon EFS User Guide/.
---
--- Default is @bursting@.
-createFileSystem_throughputMode :: Lens.Lens' CreateFileSystem (Prelude.Maybe ThroughputMode)
-createFileSystem_throughputMode = Lens.lens (\CreateFileSystem' {throughputMode} -> throughputMode) (\s@CreateFileSystem' {} a -> s {throughputMode = a} :: CreateFileSystem)
-
--- | A Boolean value that, if true, creates an encrypted file system. When
--- creating an encrypted file system, you have the option of specifying
--- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
--- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
--- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
--- protect the encrypted file system.
-createFileSystem_encrypted :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
-createFileSystem_encrypted = Lens.lens (\CreateFileSystem' {encrypted} -> encrypted) (\s@CreateFileSystem' {} a -> s {encrypted = a} :: CreateFileSystem)
 
 -- | The throughput, measured in MiB\/s, that you want to provision for a
 -- file system that you\'re creating. Valid values are 1-1024. Required if
@@ -385,6 +363,56 @@ createFileSystem_provisionedThroughputInMibps = Lens.lens (\CreateFileSystem' {p
 -- Amazon Web Services Regions where Amazon EFS is available.
 createFileSystem_availabilityZoneName :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
 createFileSystem_availabilityZoneName = Lens.lens (\CreateFileSystem' {availabilityZoneName} -> availabilityZoneName) (\s@CreateFileSystem' {} a -> s {availabilityZoneName = a} :: CreateFileSystem)
+
+-- | The performance mode of the file system. We recommend @generalPurpose@
+-- performance mode for most file systems. File systems using the @maxIO@
+-- performance mode can scale to higher levels of aggregate throughput and
+-- operations per second with a tradeoff of slightly higher latencies for
+-- most file operations. The performance mode can\'t be changed after the
+-- file system has been created.
+--
+-- The @maxIO@ mode is not supported on file systems using One Zone storage
+-- classes.
+createFileSystem_performanceMode :: Lens.Lens' CreateFileSystem (Prelude.Maybe PerformanceMode)
+createFileSystem_performanceMode = Lens.lens (\CreateFileSystem' {performanceMode} -> performanceMode) (\s@CreateFileSystem' {} a -> s {performanceMode = a} :: CreateFileSystem)
+
+-- | Specifies whether automatic backups are enabled on the file system that
+-- you are creating. Set the value to @true@ to enable automatic backups.
+-- If you are creating a file system that uses One Zone storage classes,
+-- automatic backups are enabled by default. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>
+-- in the /Amazon EFS User Guide/.
+--
+-- Default is @false@. However, if you specify an @AvailabilityZoneName@,
+-- the default is @true@.
+--
+-- Backup is not available in all Amazon Web Services Regionswhere Amazon
+-- EFS is available.
+createFileSystem_backup :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
+createFileSystem_backup = Lens.lens (\CreateFileSystem' {backup} -> backup) (\s@CreateFileSystem' {} a -> s {backup = a} :: CreateFileSystem)
+
+-- | A Boolean value that, if true, creates an encrypted file system. When
+-- creating an encrypted file system, you have the option of specifying
+-- CreateFileSystemRequest$KmsKeyId for an existing Key Management Service
+-- (KMS customer master key (CMK). If you don\'t specify a CMK, then the
+-- default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is used to
+-- protect the encrypted file system.
+createFileSystem_encrypted :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
+createFileSystem_encrypted = Lens.lens (\CreateFileSystem' {encrypted} -> encrypted) (\s@CreateFileSystem' {} a -> s {encrypted = a} :: CreateFileSystem)
+
+-- | Specifies the throughput mode for the file system, either @bursting@ or
+-- @provisioned@. If you set @ThroughputMode@ to @provisioned@, you must
+-- also set a value for @ProvisionedThroughputInMibps@. After you create
+-- the file system, you can decrease your file system\'s throughput in
+-- Provisioned Throughput mode or change between the throughput modes, as
+-- long as it’s been more than 24 hours since the last decrease or
+-- throughput mode change. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying throughput with provisioned mode>
+-- in the /Amazon EFS User Guide/.
+--
+-- Default is @bursting@.
+createFileSystem_throughputMode :: Lens.Lens' CreateFileSystem (Prelude.Maybe ThroughputMode)
+createFileSystem_throughputMode = Lens.lens (\CreateFileSystem' {throughputMode} -> throughputMode) (\s@CreateFileSystem' {} a -> s {throughputMode = a} :: CreateFileSystem)
 
 -- | The ID of the KMS CMK that you want to use to protect the encrypted file
 -- system. This parameter is only required if you want to use a non-default
@@ -418,34 +446,7 @@ createFileSystem_kmsKeyId = Lens.lens (\CreateFileSystem' {kmsKeyId} -> kmsKeyId
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
 createFileSystem_tags :: Lens.Lens' CreateFileSystem (Prelude.Maybe [Tag])
-createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@CreateFileSystem' {} a -> s {tags = a} :: CreateFileSystem) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies whether automatic backups are enabled on the file system that
--- you are creating. Set the value to @true@ to enable automatic backups.
--- If you are creating a file system that uses One Zone storage classes,
--- automatic backups are enabled by default. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>
--- in the /Amazon EFS User Guide/.
---
--- Default is @false@. However, if you specify an @AvailabilityZoneName@,
--- the default is @true@.
---
--- Backup is not available in all Amazon Web Services Regionswhere Amazon
--- EFS is available.
-createFileSystem_backup :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
-createFileSystem_backup = Lens.lens (\CreateFileSystem' {backup} -> backup) (\s@CreateFileSystem' {} a -> s {backup = a} :: CreateFileSystem)
-
--- | The performance mode of the file system. We recommend @generalPurpose@
--- performance mode for most file systems. File systems using the @maxIO@
--- performance mode can scale to higher levels of aggregate throughput and
--- operations per second with a tradeoff of slightly higher latencies for
--- most file operations. The performance mode can\'t be changed after the
--- file system has been created.
---
--- The @maxIO@ mode is not supported on file systems using One Zone storage
--- classes.
-createFileSystem_performanceMode :: Lens.Lens' CreateFileSystem (Prelude.Maybe PerformanceMode)
-createFileSystem_performanceMode = Lens.lens (\CreateFileSystem' {performanceMode} -> performanceMode) (\s@CreateFileSystem' {} a -> s {performanceMode = a} :: CreateFileSystem)
+createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@CreateFileSystem' {} a -> s {tags = a} :: CreateFileSystem) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
@@ -472,18 +473,18 @@ instance Core.ToJSON CreateFileSystem where
   toJSON CreateFileSystem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ThroughputMode" Core..=)
-              Prelude.<$> throughputMode,
-            ("Encrypted" Core..=) Prelude.<$> encrypted,
-            ("ProvisionedThroughputInMibps" Core..=)
+          [ ("ProvisionedThroughputInMibps" Core..=)
               Prelude.<$> provisionedThroughputInMibps,
             ("AvailabilityZoneName" Core..=)
               Prelude.<$> availabilityZoneName,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("Backup" Core..=) Prelude.<$> backup,
             ("PerformanceMode" Core..=)
               Prelude.<$> performanceMode,
+            ("Backup" Core..=) Prelude.<$> backup,
+            ("Encrypted" Core..=) Prelude.<$> encrypted,
+            ("ThroughputMode" Core..=)
+              Prelude.<$> throughputMode,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("CreationToken" Core..= creationToken)
           ]

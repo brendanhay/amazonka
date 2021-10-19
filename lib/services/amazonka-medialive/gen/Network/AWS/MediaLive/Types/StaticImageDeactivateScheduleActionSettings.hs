@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStaticImageDeactivateScheduleActionSettings' smart constructor.
 data StaticImageDeactivateScheduleActionSettings = StaticImageDeactivateScheduleActionSettings'
-  { -- | The image overlay layer to deactivate, 0 to 7. Default is 0.
-    layer :: Prelude.Maybe Prelude.Natural,
-    -- | The time in milliseconds for the image to fade out. Default is 0 (no
+  { -- | The time in milliseconds for the image to fade out. Default is 0 (no
     -- fade-out).
-    fadeOut :: Prelude.Maybe Prelude.Natural
+    fadeOut :: Prelude.Maybe Prelude.Natural,
+    -- | The image overlay layer to deactivate, 0 to 7. Default is 0.
+    layer :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data StaticImageDeactivateScheduleActionSettings = StaticImageDeactivateSchedule
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'layer', 'staticImageDeactivateScheduleActionSettings_layer' - The image overlay layer to deactivate, 0 to 7. Default is 0.
---
 -- 'fadeOut', 'staticImageDeactivateScheduleActionSettings_fadeOut' - The time in milliseconds for the image to fade out. Default is 0 (no
 -- fade-out).
+--
+-- 'layer', 'staticImageDeactivateScheduleActionSettings_layer' - The image overlay layer to deactivate, 0 to 7. Default is 0.
 newStaticImageDeactivateScheduleActionSettings ::
   StaticImageDeactivateScheduleActionSettings
 newStaticImageDeactivateScheduleActionSettings =
   StaticImageDeactivateScheduleActionSettings'
-    { layer =
+    { fadeOut =
         Prelude.Nothing,
-      fadeOut = Prelude.Nothing
+      layer = Prelude.Nothing
     }
-
--- | The image overlay layer to deactivate, 0 to 7. Default is 0.
-staticImageDeactivateScheduleActionSettings_layer :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
-staticImageDeactivateScheduleActionSettings_layer = Lens.lens (\StaticImageDeactivateScheduleActionSettings' {layer} -> layer) (\s@StaticImageDeactivateScheduleActionSettings' {} a -> s {layer = a} :: StaticImageDeactivateScheduleActionSettings)
 
 -- | The time in milliseconds for the image to fade out. Default is 0 (no
 -- fade-out).
 staticImageDeactivateScheduleActionSettings_fadeOut :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 staticImageDeactivateScheduleActionSettings_fadeOut = Lens.lens (\StaticImageDeactivateScheduleActionSettings' {fadeOut} -> fadeOut) (\s@StaticImageDeactivateScheduleActionSettings' {} a -> s {fadeOut = a} :: StaticImageDeactivateScheduleActionSettings)
+
+-- | The image overlay layer to deactivate, 0 to 7. Default is 0.
+staticImageDeactivateScheduleActionSettings_layer :: Lens.Lens' StaticImageDeactivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+staticImageDeactivateScheduleActionSettings_layer = Lens.lens (\StaticImageDeactivateScheduleActionSettings' {layer} -> layer) (\s@StaticImageDeactivateScheduleActionSettings' {} a -> s {layer = a} :: StaticImageDeactivateScheduleActionSettings)
 
 instance
   Core.FromJSON
@@ -74,8 +74,8 @@ instance
       "StaticImageDeactivateScheduleActionSettings"
       ( \x ->
           StaticImageDeactivateScheduleActionSettings'
-            Prelude.<$> (x Core..:? "layer")
-              Prelude.<*> (x Core..:? "fadeOut")
+            Prelude.<$> (x Core..:? "fadeOut")
+              Prelude.<*> (x Core..:? "layer")
       )
 
 instance
@@ -94,7 +94,7 @@ instance
     StaticImageDeactivateScheduleActionSettings' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("layer" Core..=) Prelude.<$> layer,
-              ("fadeOut" Core..=) Prelude.<$> fadeOut
+            [ ("fadeOut" Core..=) Prelude.<$> fadeOut,
+              ("layer" Core..=) Prelude.<$> layer
             ]
         )

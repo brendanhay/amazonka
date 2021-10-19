@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLdapServerMetadataOutput' smart constructor.
 data LdapServerMetadataOutput = LdapServerMetadataOutput'
-  { -- | Specifies the LDAP attribute that identifies the group name attribute in
-    -- the object returned from the group membership query.
-    roleName :: Prelude.Maybe Prelude.Text,
+  { -- | Specifies the name of the LDAP attribute for the user group membership.
+    userRoleName :: Prelude.Maybe Prelude.Text,
     -- | The directory search scope for the user. If set to true, scope is to
     -- search the entire subtree.
     userSearchSubtree :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the name of the LDAP attribute for the user group membership.
-    userRoleName :: Prelude.Maybe Prelude.Text,
     -- | The directory search scope for the role. If set to true, scope is to
     -- search the entire subtree.
     roleSearchSubtree :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the LDAP attribute that identifies the group name attribute in
+    -- the object returned from the group membership query.
+    roleName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the location of the LDAP server such as AWS Directory Service
     -- for Microsoft Active Directory . Optional failover server.
     hosts :: [Prelude.Text],
@@ -84,16 +84,16 @@ data LdapServerMetadataOutput = LdapServerMetadataOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'ldapServerMetadataOutput_roleName' - Specifies the LDAP attribute that identifies the group name attribute in
--- the object returned from the group membership query.
+-- 'userRoleName', 'ldapServerMetadataOutput_userRoleName' - Specifies the name of the LDAP attribute for the user group membership.
 --
 -- 'userSearchSubtree', 'ldapServerMetadataOutput_userSearchSubtree' - The directory search scope for the user. If set to true, scope is to
 -- search the entire subtree.
 --
--- 'userRoleName', 'ldapServerMetadataOutput_userRoleName' - Specifies the name of the LDAP attribute for the user group membership.
---
 -- 'roleSearchSubtree', 'ldapServerMetadataOutput_roleSearchSubtree' - The directory search scope for the role. If set to true, scope is to
 -- search the entire subtree.
+--
+-- 'roleName', 'ldapServerMetadataOutput_roleName' - Specifies the LDAP attribute that identifies the group name attribute in
+-- the object returned from the group membership query.
 --
 -- 'hosts', 'ldapServerMetadataOutput_hosts' - Specifies the location of the LDAP server such as AWS Directory Service
 -- for Microsoft Active Directory . Optional failover server.
@@ -147,11 +147,11 @@ newLdapServerMetadataOutput
   pServiceAccountUsername_
   pRoleBase_ =
     LdapServerMetadataOutput'
-      { roleName =
+      { userRoleName =
           Prelude.Nothing,
         userSearchSubtree = Prelude.Nothing,
-        userRoleName = Prelude.Nothing,
         roleSearchSubtree = Prelude.Nothing,
+        roleName = Prelude.Nothing,
         hosts = Prelude.mempty,
         userSearchMatching = pUserSearchMatching_,
         userBase = pUserBase_,
@@ -160,29 +160,29 @@ newLdapServerMetadataOutput
         roleBase = pRoleBase_
       }
 
--- | Specifies the LDAP attribute that identifies the group name attribute in
--- the object returned from the group membership query.
-ldapServerMetadataOutput_roleName :: Lens.Lens' LdapServerMetadataOutput (Prelude.Maybe Prelude.Text)
-ldapServerMetadataOutput_roleName = Lens.lens (\LdapServerMetadataOutput' {roleName} -> roleName) (\s@LdapServerMetadataOutput' {} a -> s {roleName = a} :: LdapServerMetadataOutput)
+-- | Specifies the name of the LDAP attribute for the user group membership.
+ldapServerMetadataOutput_userRoleName :: Lens.Lens' LdapServerMetadataOutput (Prelude.Maybe Prelude.Text)
+ldapServerMetadataOutput_userRoleName = Lens.lens (\LdapServerMetadataOutput' {userRoleName} -> userRoleName) (\s@LdapServerMetadataOutput' {} a -> s {userRoleName = a} :: LdapServerMetadataOutput)
 
 -- | The directory search scope for the user. If set to true, scope is to
 -- search the entire subtree.
 ldapServerMetadataOutput_userSearchSubtree :: Lens.Lens' LdapServerMetadataOutput (Prelude.Maybe Prelude.Bool)
 ldapServerMetadataOutput_userSearchSubtree = Lens.lens (\LdapServerMetadataOutput' {userSearchSubtree} -> userSearchSubtree) (\s@LdapServerMetadataOutput' {} a -> s {userSearchSubtree = a} :: LdapServerMetadataOutput)
 
--- | Specifies the name of the LDAP attribute for the user group membership.
-ldapServerMetadataOutput_userRoleName :: Lens.Lens' LdapServerMetadataOutput (Prelude.Maybe Prelude.Text)
-ldapServerMetadataOutput_userRoleName = Lens.lens (\LdapServerMetadataOutput' {userRoleName} -> userRoleName) (\s@LdapServerMetadataOutput' {} a -> s {userRoleName = a} :: LdapServerMetadataOutput)
-
 -- | The directory search scope for the role. If set to true, scope is to
 -- search the entire subtree.
 ldapServerMetadataOutput_roleSearchSubtree :: Lens.Lens' LdapServerMetadataOutput (Prelude.Maybe Prelude.Bool)
 ldapServerMetadataOutput_roleSearchSubtree = Lens.lens (\LdapServerMetadataOutput' {roleSearchSubtree} -> roleSearchSubtree) (\s@LdapServerMetadataOutput' {} a -> s {roleSearchSubtree = a} :: LdapServerMetadataOutput)
 
+-- | Specifies the LDAP attribute that identifies the group name attribute in
+-- the object returned from the group membership query.
+ldapServerMetadataOutput_roleName :: Lens.Lens' LdapServerMetadataOutput (Prelude.Maybe Prelude.Text)
+ldapServerMetadataOutput_roleName = Lens.lens (\LdapServerMetadataOutput' {roleName} -> roleName) (\s@LdapServerMetadataOutput' {} a -> s {roleName = a} :: LdapServerMetadataOutput)
+
 -- | Specifies the location of the LDAP server such as AWS Directory Service
 -- for Microsoft Active Directory . Optional failover server.
 ldapServerMetadataOutput_hosts :: Lens.Lens' LdapServerMetadataOutput [Prelude.Text]
-ldapServerMetadataOutput_hosts = Lens.lens (\LdapServerMetadataOutput' {hosts} -> hosts) (\s@LdapServerMetadataOutput' {} a -> s {hosts = a} :: LdapServerMetadataOutput) Prelude.. Lens._Coerce
+ldapServerMetadataOutput_hosts = Lens.lens (\LdapServerMetadataOutput' {hosts} -> hosts) (\s@LdapServerMetadataOutput' {} a -> s {hosts = a} :: LdapServerMetadataOutput) Prelude.. Lens.coerced
 
 -- | The LDAP search filter used to find users within the userBase. The
 -- client\'s username is substituted into the {0} placeholder in the search
@@ -231,10 +231,10 @@ instance Core.FromJSON LdapServerMetadataOutput where
       "LdapServerMetadataOutput"
       ( \x ->
           LdapServerMetadataOutput'
-            Prelude.<$> (x Core..:? "roleName")
+            Prelude.<$> (x Core..:? "userRoleName")
             Prelude.<*> (x Core..:? "userSearchSubtree")
-            Prelude.<*> (x Core..:? "userRoleName")
             Prelude.<*> (x Core..:? "roleSearchSubtree")
+            Prelude.<*> (x Core..:? "roleName")
             Prelude.<*> (x Core..:? "hosts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "userSearchMatching")
             Prelude.<*> (x Core..: "userBase")

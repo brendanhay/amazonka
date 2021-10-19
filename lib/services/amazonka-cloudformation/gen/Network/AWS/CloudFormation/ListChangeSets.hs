@@ -207,7 +207,7 @@ listChangeSetsResponse_nextToken = Lens.lens (\ListChangeSetsResponse' {nextToke
 -- | A list of @ChangeSetSummary@ structures that provides the ID and status
 -- of each change set for the specified stack.
 listChangeSetsResponse_summaries :: Lens.Lens' ListChangeSetsResponse (Prelude.Maybe [ChangeSetSummary])
-listChangeSetsResponse_summaries = Lens.lens (\ListChangeSetsResponse' {summaries} -> summaries) (\s@ListChangeSetsResponse' {} a -> s {summaries = a} :: ListChangeSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listChangeSetsResponse_summaries = Lens.lens (\ListChangeSetsResponse' {summaries} -> summaries) (\s@ListChangeSetsResponse' {} a -> s {summaries = a} :: ListChangeSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listChangeSetsResponse_httpStatus :: Lens.Lens' ListChangeSetsResponse Prelude.Int

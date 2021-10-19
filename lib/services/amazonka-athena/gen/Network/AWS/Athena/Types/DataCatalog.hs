@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDataCatalog' smart constructor.
 data DataCatalog = DataCatalog'
-  { -- | An optional description of the data catalog.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Lambda function or functions to use for the data catalog.
+  { -- | Specifies the Lambda function or functions to use for the data catalog.
     -- This is a mapping whose values depend on the catalog type.
     --
     -- -   For the @HIVE@ data catalog type, use the following syntax. The
@@ -69,6 +67,8 @@ data DataCatalog = DataCatalog'
     --     -   Queries that specify a Glue Data Catalog other than the default
     --         @AwsDataCatalog@ must be run on Athena engine version 2.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An optional description of the data catalog.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the data catalog. The catalog name must be unique for the
     -- Amazon Web Services account and can use a maximum of 128 alphanumeric,
     -- underscore, at sign, or hyphen characters.
@@ -87,8 +87,6 @@ data DataCatalog = DataCatalog'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'description', 'dataCatalog_description' - An optional description of the data catalog.
 --
 -- 'parameters', 'dataCatalog_parameters' - Specifies the Lambda function or functions to use for the data catalog.
 -- This is a mapping whose values depend on the catalog type.
@@ -128,6 +126,8 @@ data DataCatalog = DataCatalog'
 --     -   Queries that specify a Glue Data Catalog other than the default
 --         @AwsDataCatalog@ must be run on Athena engine version 2.
 --
+-- 'description', 'dataCatalog_description' - An optional description of the data catalog.
+--
 -- 'name', 'dataCatalog_name' - The name of the data catalog. The catalog name must be unique for the
 -- Amazon Web Services account and can use a maximum of 128 alphanumeric,
 -- underscore, at sign, or hyphen characters.
@@ -143,15 +143,11 @@ newDataCatalog ::
   DataCatalog
 newDataCatalog pName_ pType_ =
   DataCatalog'
-    { description = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { parameters = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
-
--- | An optional description of the data catalog.
-dataCatalog_description :: Lens.Lens' DataCatalog (Prelude.Maybe Prelude.Text)
-dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description) (\s@DataCatalog' {} a -> s {description = a} :: DataCatalog)
 
 -- | Specifies the Lambda function or functions to use for the data catalog.
 -- This is a mapping whose values depend on the catalog type.
@@ -191,7 +187,11 @@ dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description)
 --     -   Queries that specify a Glue Data Catalog other than the default
 --         @AwsDataCatalog@ must be run on Athena engine version 2.
 dataCatalog_parameters :: Lens.Lens' DataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-dataCatalog_parameters = Lens.lens (\DataCatalog' {parameters} -> parameters) (\s@DataCatalog' {} a -> s {parameters = a} :: DataCatalog) Prelude.. Lens.mapping Lens._Coerce
+dataCatalog_parameters = Lens.lens (\DataCatalog' {parameters} -> parameters) (\s@DataCatalog' {} a -> s {parameters = a} :: DataCatalog) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional description of the data catalog.
+dataCatalog_description :: Lens.Lens' DataCatalog (Prelude.Maybe Prelude.Text)
+dataCatalog_description = Lens.lens (\DataCatalog' {description} -> description) (\s@DataCatalog' {} a -> s {description = a} :: DataCatalog)
 
 -- | The name of the data catalog. The catalog name must be unique for the
 -- Amazon Web Services account and can use a maximum of 128 alphanumeric,
@@ -211,8 +211,8 @@ instance Core.FromJSON DataCatalog where
       "DataCatalog"
       ( \x ->
           DataCatalog'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Type")
       )

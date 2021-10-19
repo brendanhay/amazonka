@@ -29,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
-  { -- | The unit to assign to the metric. If you omit this, the unit is set as
-    -- @None@.
-    unit :: Prelude.Maybe StandardUnit,
+  { -- | (Optional) The value to emit when a filter pattern does not match a log
+    -- event. This value can be null.
+    defaultValue :: Prelude.Maybe Prelude.Double,
     -- | The fields to use as dimensions for the metric. One metric filter can
     -- include as many as three dimensions.
     --
@@ -49,9 +49,9 @@ data MetricTransformation = MetricTransformation'
     -- higher than expected. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
     dimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | (Optional) The value to emit when a filter pattern does not match a log
-    -- event. This value can be null.
-    defaultValue :: Prelude.Maybe Prelude.Double,
+    -- | The unit to assign to the metric. If you omit this, the unit is set as
+    -- @None@.
+    unit :: Prelude.Maybe StandardUnit,
     -- | The name of the CloudWatch metric.
     metricName :: Prelude.Text,
     -- | A custom namespace to contain your metric in CloudWatch. Use namespaces
@@ -72,8 +72,8 @@ data MetricTransformation = MetricTransformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'metricTransformation_unit' - The unit to assign to the metric. If you omit this, the unit is set as
--- @None@.
+-- 'defaultValue', 'metricTransformation_defaultValue' - (Optional) The value to emit when a filter pattern does not match a log
+-- event. This value can be null.
 --
 -- 'dimensions', 'metricTransformation_dimensions' - The fields to use as dimensions for the metric. One metric filter can
 -- include as many as three dimensions.
@@ -92,8 +92,8 @@ data MetricTransformation = MetricTransformation'
 -- higher than expected. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
 --
--- 'defaultValue', 'metricTransformation_defaultValue' - (Optional) The value to emit when a filter pattern does not match a log
--- event. This value can be null.
+-- 'unit', 'metricTransformation_unit' - The unit to assign to the metric. If you omit this, the unit is set as
+-- @None@.
 --
 -- 'metricName', 'metricTransformation_metricName' - The name of the CloudWatch metric.
 --
@@ -116,18 +116,19 @@ newMetricTransformation
   pMetricNamespace_
   pMetricValue_ =
     MetricTransformation'
-      { unit = Prelude.Nothing,
+      { defaultValue =
+          Prelude.Nothing,
         dimensions = Prelude.Nothing,
-        defaultValue = Prelude.Nothing,
+        unit = Prelude.Nothing,
         metricName = pMetricName_,
         metricNamespace = pMetricNamespace_,
         metricValue = pMetricValue_
       }
 
--- | The unit to assign to the metric. If you omit this, the unit is set as
--- @None@.
-metricTransformation_unit :: Lens.Lens' MetricTransformation (Prelude.Maybe StandardUnit)
-metricTransformation_unit = Lens.lens (\MetricTransformation' {unit} -> unit) (\s@MetricTransformation' {} a -> s {unit = a} :: MetricTransformation)
+-- | (Optional) The value to emit when a filter pattern does not match a log
+-- event. This value can be null.
+metricTransformation_defaultValue :: Lens.Lens' MetricTransformation (Prelude.Maybe Prelude.Double)
+metricTransformation_defaultValue = Lens.lens (\MetricTransformation' {defaultValue} -> defaultValue) (\s@MetricTransformation' {} a -> s {defaultValue = a} :: MetricTransformation)
 
 -- | The fields to use as dimensions for the metric. One metric filter can
 -- include as many as three dimensions.
@@ -146,12 +147,12 @@ metricTransformation_unit = Lens.lens (\MetricTransformation' {unit} -> unit) (\
 -- higher than expected. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
 metricTransformation_dimensions :: Lens.Lens' MetricTransformation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-metricTransformation_dimensions = Lens.lens (\MetricTransformation' {dimensions} -> dimensions) (\s@MetricTransformation' {} a -> s {dimensions = a} :: MetricTransformation) Prelude.. Lens.mapping Lens._Coerce
+metricTransformation_dimensions = Lens.lens (\MetricTransformation' {dimensions} -> dimensions) (\s@MetricTransformation' {} a -> s {dimensions = a} :: MetricTransformation) Prelude.. Lens.mapping Lens.coerced
 
--- | (Optional) The value to emit when a filter pattern does not match a log
--- event. This value can be null.
-metricTransformation_defaultValue :: Lens.Lens' MetricTransformation (Prelude.Maybe Prelude.Double)
-metricTransformation_defaultValue = Lens.lens (\MetricTransformation' {defaultValue} -> defaultValue) (\s@MetricTransformation' {} a -> s {defaultValue = a} :: MetricTransformation)
+-- | The unit to assign to the metric. If you omit this, the unit is set as
+-- @None@.
+metricTransformation_unit :: Lens.Lens' MetricTransformation (Prelude.Maybe StandardUnit)
+metricTransformation_unit = Lens.lens (\MetricTransformation' {unit} -> unit) (\s@MetricTransformation' {} a -> s {unit = a} :: MetricTransformation)
 
 -- | The name of the CloudWatch metric.
 metricTransformation_metricName :: Lens.Lens' MetricTransformation Prelude.Text
@@ -174,9 +175,9 @@ instance Core.FromJSON MetricTransformation where
       "MetricTransformation"
       ( \x ->
           MetricTransformation'
-            Prelude.<$> (x Core..:? "unit")
+            Prelude.<$> (x Core..:? "defaultValue")
             Prelude.<*> (x Core..:? "dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "defaultValue")
+            Prelude.<*> (x Core..:? "unit")
             Prelude.<*> (x Core..: "metricName")
             Prelude.<*> (x Core..: "metricNamespace")
             Prelude.<*> (x Core..: "metricValue")
@@ -190,9 +191,9 @@ instance Core.ToJSON MetricTransformation where
   toJSON MetricTransformation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("unit" Core..=) Prelude.<$> unit,
+          [ ("defaultValue" Core..=) Prelude.<$> defaultValue,
             ("dimensions" Core..=) Prelude.<$> dimensions,
-            ("defaultValue" Core..=) Prelude.<$> defaultValue,
+            ("unit" Core..=) Prelude.<$> unit,
             Prelude.Just ("metricName" Core..= metricName),
             Prelude.Just
               ("metricNamespace" Core..= metricNamespace),

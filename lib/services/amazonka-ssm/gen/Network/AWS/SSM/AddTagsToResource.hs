@@ -213,7 +213,7 @@ addTagsToResource_resourceId = Lens.lens (\AddTagsToResource' {resourceId} -> re
 --
 -- Don\'t enter personally identifiable information in this field.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToResource where
   type

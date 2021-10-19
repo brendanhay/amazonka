@@ -107,7 +107,7 @@ untagSAMLProvider_sAMLProviderArn = Lens.lens (\UntagSAMLProvider' {sAMLProvider
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified SAML identity provider.
 untagSAMLProvider_tagKeys :: Lens.Lens' UntagSAMLProvider [Prelude.Text]
-untagSAMLProvider_tagKeys = Lens.lens (\UntagSAMLProvider' {tagKeys} -> tagKeys) (\s@UntagSAMLProvider' {} a -> s {tagKeys = a} :: UntagSAMLProvider) Prelude.. Lens._Coerce
+untagSAMLProvider_tagKeys = Lens.lens (\UntagSAMLProvider' {tagKeys} -> tagKeys) (\s@UntagSAMLProvider' {} a -> s {tagKeys = a} :: UntagSAMLProvider) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagSAMLProvider where
   type

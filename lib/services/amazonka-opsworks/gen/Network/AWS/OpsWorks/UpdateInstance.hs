@@ -383,7 +383,7 @@ updateInstance_autoScalingType = Lens.lens (\UpdateInstance' {autoScalingType} -
 
 -- | The instance\'s layer IDs.
 updateInstance_layerIds :: Lens.Lens' UpdateInstance (Prelude.Maybe [Prelude.Text])
-updateInstance_layerIds = Lens.lens (\UpdateInstance' {layerIds} -> layerIds) (\s@UpdateInstance' {} a -> s {layerIds = a} :: UpdateInstance) Prelude.. Lens.mapping Lens._Coerce
+updateInstance_layerIds = Lens.lens (\UpdateInstance' {layerIds} -> layerIds) (\s@UpdateInstance' {} a -> s {layerIds = a} :: UpdateInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance architecture. Instance types do not necessarily support
 -- both architectures. For a list of the architectures that are supported

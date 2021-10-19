@@ -66,46 +66,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMethod' smart constructor.
 data Method = Method'
-  { -- | The method\'s HTTP verb.
-    httpMethod :: Prelude.Maybe Prelude.Text,
-    -- | Gets the method\'s integration responsible for passing the
-    -- client-submitted request to the back end and performing necessary
-    -- transformations to make the request compliant with the back end.
-    --
-    -- ==== Example:
-    --
-    -- ===== Request
-    --
-    -- > GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T213210Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
-    --
-    -- ===== Response
-    --
-    -- The successful response returns a @200 OK@ status code and a payload
-    -- similar to the following:
-    --
-    -- > { "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }
-    --
-    -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html AWS CLI>
-    methodIntegration :: Prelude.Maybe Integration,
-    -- | A boolean flag specifying whether a valid ApiKey is required to invoke
-    -- this method.
-    apiKeyRequired :: Prelude.Maybe Prelude.Bool,
-    -- | The method\'s authorization type. Valid values are @NONE@ for open
-    -- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
-    -- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
-    -- pool.
-    authorizationType :: Prelude.Maybe Prelude.Text,
-    -- | A key-value map specifying data schemas, represented by Model resources,
-    -- (as the mapped value) of the request payloads of given content types (as
-    -- the mapping key).
-    requestModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identifier of a RequestValidator for request validation.
-    requestValidatorId :: Prelude.Maybe Prelude.Text,
-    -- | A human-friendly operation identifier for the method. For example, you
-    -- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
-    -- in the @PetStore@ example.
-    operationName :: Prelude.Maybe Prelude.Text,
-    -- | Gets a method response associated with a given HTTP status code.
+  { -- | Gets a method response associated with a given HTTP status code.
     --
     -- The collection of method responses are encapsulated in a key-value map,
     -- where the key is a response\'s HTTP status code and the value is a
@@ -127,9 +88,23 @@ data Method = Method'
     --
     -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html AWS CLI>
     methodResponses :: Prelude.Maybe (Prelude.HashMap Prelude.Text MethodResponse),
-    -- | The identifier of an Authorizer to use on this method. The
-    -- @authorizationType@ must be @CUSTOM@.
-    authorizerId :: Prelude.Maybe Prelude.Text,
+    -- | The method\'s HTTP verb.
+    httpMethod :: Prelude.Maybe Prelude.Text,
+    -- | A list of authorization scopes configured on the method. The scopes are
+    -- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method
+    -- invocation. The authorization works by matching the method scopes
+    -- against the scopes parsed from the access token in the incoming request.
+    -- The method invocation is authorized if any method scopes matches a
+    -- claimed scope in the access token. Otherwise, the invocation is not
+    -- authorized. When the method scope is configured, the client must provide
+    -- an access token instead of an identity token for authorization purposes.
+    authorizationScopes :: Prelude.Maybe [Prelude.Text],
+    -- | The identifier of a RequestValidator for request validation.
+    requestValidatorId :: Prelude.Maybe Prelude.Text,
+    -- | A key-value map specifying data schemas, represented by Model resources,
+    -- (as the mapped value) of the request payloads of given content types (as
+    -- the mapping key).
+    requestModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A key-value map defining required or optional method request parameters
     -- that can be accepted by API Gateway. A key is a method request parameter
     -- name matching the pattern of @method.request.{location}.{name}@, where
@@ -140,15 +115,40 @@ data Method = Method'
     -- available in Integration to be mapped to integration request parameters
     -- or templates.
     requestParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
-    -- | A list of authorization scopes configured on the method. The scopes are
-    -- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method
-    -- invocation. The authorization works by matching the method scopes
-    -- against the scopes parsed from the access token in the incoming request.
-    -- The method invocation is authorized if any method scopes matches a
-    -- claimed scope in the access token. Otherwise, the invocation is not
-    -- authorized. When the method scope is configured, the client must provide
-    -- an access token instead of an identity token for authorization purposes.
-    authorizationScopes :: Prelude.Maybe [Prelude.Text]
+    -- | The identifier of an Authorizer to use on this method. The
+    -- @authorizationType@ must be @CUSTOM@.
+    authorizerId :: Prelude.Maybe Prelude.Text,
+    -- | A human-friendly operation identifier for the method. For example, you
+    -- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
+    -- in the @PetStore@ example.
+    operationName :: Prelude.Maybe Prelude.Text,
+    -- | The method\'s authorization type. Valid values are @NONE@ for open
+    -- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
+    -- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
+    -- pool.
+    authorizationType :: Prelude.Maybe Prelude.Text,
+    -- | A boolean flag specifying whether a valid ApiKey is required to invoke
+    -- this method.
+    apiKeyRequired :: Prelude.Maybe Prelude.Bool,
+    -- | Gets the method\'s integration responsible for passing the
+    -- client-submitted request to the back end and performing necessary
+    -- transformations to make the request compliant with the back end.
+    --
+    -- ==== Example:
+    --
+    -- ===== Request
+    --
+    -- > GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T213210Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+    --
+    -- ===== Response
+    --
+    -- The successful response returns a @200 OK@ status code and a payload
+    -- similar to the following:
+    --
+    -- > { "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }
+    --
+    -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html AWS CLI>
+    methodIntegration :: Prelude.Maybe Integration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -159,45 +159,6 @@ data Method = Method'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'httpMethod', 'method_httpMethod' - The method\'s HTTP verb.
---
--- 'methodIntegration', 'method_methodIntegration' - Gets the method\'s integration responsible for passing the
--- client-submitted request to the back end and performing necessary
--- transformations to make the request compliant with the back end.
---
--- ==== Example:
---
--- ===== Request
---
--- > GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T213210Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
---
--- ===== Response
---
--- The successful response returns a @200 OK@ status code and a payload
--- similar to the following:
---
--- > { "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }
---
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html AWS CLI>
---
--- 'apiKeyRequired', 'method_apiKeyRequired' - A boolean flag specifying whether a valid ApiKey is required to invoke
--- this method.
---
--- 'authorizationType', 'method_authorizationType' - The method\'s authorization type. Valid values are @NONE@ for open
--- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
--- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
--- pool.
---
--- 'requestModels', 'method_requestModels' - A key-value map specifying data schemas, represented by Model resources,
--- (as the mapped value) of the request payloads of given content types (as
--- the mapping key).
---
--- 'requestValidatorId', 'method_requestValidatorId' - The identifier of a RequestValidator for request validation.
---
--- 'operationName', 'method_operationName' - A human-friendly operation identifier for the method. For example, you
--- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
--- in the @PetStore@ example.
 --
 -- 'methodResponses', 'method_methodResponses' - Gets a method response associated with a given HTTP status code.
 --
@@ -221,8 +182,22 @@ data Method = Method'
 --
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html AWS CLI>
 --
--- 'authorizerId', 'method_authorizerId' - The identifier of an Authorizer to use on this method. The
--- @authorizationType@ must be @CUSTOM@.
+-- 'httpMethod', 'method_httpMethod' - The method\'s HTTP verb.
+--
+-- 'authorizationScopes', 'method_authorizationScopes' - A list of authorization scopes configured on the method. The scopes are
+-- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method
+-- invocation. The authorization works by matching the method scopes
+-- against the scopes parsed from the access token in the incoming request.
+-- The method invocation is authorized if any method scopes matches a
+-- claimed scope in the access token. Otherwise, the invocation is not
+-- authorized. When the method scope is configured, the client must provide
+-- an access token instead of an identity token for authorization purposes.
+--
+-- 'requestValidatorId', 'method_requestValidatorId' - The identifier of a RequestValidator for request validation.
+--
+-- 'requestModels', 'method_requestModels' - A key-value map specifying data schemas, represented by Model resources,
+-- (as the mapped value) of the request payloads of given content types (as
+-- the mapping key).
 --
 -- 'requestParameters', 'method_requestParameters' - A key-value map defining required or optional method request parameters
 -- that can be accepted by API Gateway. A key is a method request parameter
@@ -234,36 +209,22 @@ data Method = Method'
 -- available in Integration to be mapped to integration request parameters
 -- or templates.
 --
--- 'authorizationScopes', 'method_authorizationScopes' - A list of authorization scopes configured on the method. The scopes are
--- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method
--- invocation. The authorization works by matching the method scopes
--- against the scopes parsed from the access token in the incoming request.
--- The method invocation is authorized if any method scopes matches a
--- claimed scope in the access token. Otherwise, the invocation is not
--- authorized. When the method scope is configured, the client must provide
--- an access token instead of an identity token for authorization purposes.
-newMethod ::
-  Method
-newMethod =
-  Method'
-    { httpMethod = Prelude.Nothing,
-      methodIntegration = Prelude.Nothing,
-      apiKeyRequired = Prelude.Nothing,
-      authorizationType = Prelude.Nothing,
-      requestModels = Prelude.Nothing,
-      requestValidatorId = Prelude.Nothing,
-      operationName = Prelude.Nothing,
-      methodResponses = Prelude.Nothing,
-      authorizerId = Prelude.Nothing,
-      requestParameters = Prelude.Nothing,
-      authorizationScopes = Prelude.Nothing
-    }
-
--- | The method\'s HTTP verb.
-method_httpMethod :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
-method_httpMethod = Lens.lens (\Method' {httpMethod} -> httpMethod) (\s@Method' {} a -> s {httpMethod = a} :: Method)
-
--- | Gets the method\'s integration responsible for passing the
+-- 'authorizerId', 'method_authorizerId' - The identifier of an Authorizer to use on this method. The
+-- @authorizationType@ must be @CUSTOM@.
+--
+-- 'operationName', 'method_operationName' - A human-friendly operation identifier for the method. For example, you
+-- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
+-- in the @PetStore@ example.
+--
+-- 'authorizationType', 'method_authorizationType' - The method\'s authorization type. Valid values are @NONE@ for open
+-- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
+-- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
+-- pool.
+--
+-- 'apiKeyRequired', 'method_apiKeyRequired' - A boolean flag specifying whether a valid ApiKey is required to invoke
+-- this method.
+--
+-- 'methodIntegration', 'method_methodIntegration' - Gets the method\'s integration responsible for passing the
 -- client-submitted request to the back end and performing necessary
 -- transformations to make the request compliant with the back end.
 --
@@ -281,36 +242,22 @@ method_httpMethod = Lens.lens (\Method' {httpMethod} -> httpMethod) (\s@Method' 
 -- > { "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }
 --
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html AWS CLI>
-method_methodIntegration :: Lens.Lens' Method (Prelude.Maybe Integration)
-method_methodIntegration = Lens.lens (\Method' {methodIntegration} -> methodIntegration) (\s@Method' {} a -> s {methodIntegration = a} :: Method)
-
--- | A boolean flag specifying whether a valid ApiKey is required to invoke
--- this method.
-method_apiKeyRequired :: Lens.Lens' Method (Prelude.Maybe Prelude.Bool)
-method_apiKeyRequired = Lens.lens (\Method' {apiKeyRequired} -> apiKeyRequired) (\s@Method' {} a -> s {apiKeyRequired = a} :: Method)
-
--- | The method\'s authorization type. Valid values are @NONE@ for open
--- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
--- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
--- pool.
-method_authorizationType :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
-method_authorizationType = Lens.lens (\Method' {authorizationType} -> authorizationType) (\s@Method' {} a -> s {authorizationType = a} :: Method)
-
--- | A key-value map specifying data schemas, represented by Model resources,
--- (as the mapped value) of the request payloads of given content types (as
--- the mapping key).
-method_requestModels :: Lens.Lens' Method (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-method_requestModels = Lens.lens (\Method' {requestModels} -> requestModels) (\s@Method' {} a -> s {requestModels = a} :: Method) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of a RequestValidator for request validation.
-method_requestValidatorId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
-method_requestValidatorId = Lens.lens (\Method' {requestValidatorId} -> requestValidatorId) (\s@Method' {} a -> s {requestValidatorId = a} :: Method)
-
--- | A human-friendly operation identifier for the method. For example, you
--- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
--- in the @PetStore@ example.
-method_operationName :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
-method_operationName = Lens.lens (\Method' {operationName} -> operationName) (\s@Method' {} a -> s {operationName = a} :: Method)
+newMethod ::
+  Method
+newMethod =
+  Method'
+    { methodResponses = Prelude.Nothing,
+      httpMethod = Prelude.Nothing,
+      authorizationScopes = Prelude.Nothing,
+      requestValidatorId = Prelude.Nothing,
+      requestModels = Prelude.Nothing,
+      requestParameters = Prelude.Nothing,
+      authorizerId = Prelude.Nothing,
+      operationName = Prelude.Nothing,
+      authorizationType = Prelude.Nothing,
+      apiKeyRequired = Prelude.Nothing,
+      methodIntegration = Prelude.Nothing
+    }
 
 -- | Gets a method response associated with a given HTTP status code.
 --
@@ -334,12 +281,32 @@ method_operationName = Lens.lens (\Method' {operationName} -> operationName) (\s
 --
 -- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-method-response.html AWS CLI>
 method_methodResponses :: Lens.Lens' Method (Prelude.Maybe (Prelude.HashMap Prelude.Text MethodResponse))
-method_methodResponses = Lens.lens (\Method' {methodResponses} -> methodResponses) (\s@Method' {} a -> s {methodResponses = a} :: Method) Prelude.. Lens.mapping Lens._Coerce
+method_methodResponses = Lens.lens (\Method' {methodResponses} -> methodResponses) (\s@Method' {} a -> s {methodResponses = a} :: Method) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier of an Authorizer to use on this method. The
--- @authorizationType@ must be @CUSTOM@.
-method_authorizerId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
-method_authorizerId = Lens.lens (\Method' {authorizerId} -> authorizerId) (\s@Method' {} a -> s {authorizerId = a} :: Method)
+-- | The method\'s HTTP verb.
+method_httpMethod :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
+method_httpMethod = Lens.lens (\Method' {httpMethod} -> httpMethod) (\s@Method' {} a -> s {httpMethod = a} :: Method)
+
+-- | A list of authorization scopes configured on the method. The scopes are
+-- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method
+-- invocation. The authorization works by matching the method scopes
+-- against the scopes parsed from the access token in the incoming request.
+-- The method invocation is authorized if any method scopes matches a
+-- claimed scope in the access token. Otherwise, the invocation is not
+-- authorized. When the method scope is configured, the client must provide
+-- an access token instead of an identity token for authorization purposes.
+method_authorizationScopes :: Lens.Lens' Method (Prelude.Maybe [Prelude.Text])
+method_authorizationScopes = Lens.lens (\Method' {authorizationScopes} -> authorizationScopes) (\s@Method' {} a -> s {authorizationScopes = a} :: Method) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of a RequestValidator for request validation.
+method_requestValidatorId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
+method_requestValidatorId = Lens.lens (\Method' {requestValidatorId} -> requestValidatorId) (\s@Method' {} a -> s {requestValidatorId = a} :: Method)
+
+-- | A key-value map specifying data schemas, represented by Model resources,
+-- (as the mapped value) of the request payloads of given content types (as
+-- the mapping key).
+method_requestModels :: Lens.Lens' Method (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+method_requestModels = Lens.lens (\Method' {requestModels} -> requestModels) (\s@Method' {} a -> s {requestModels = a} :: Method) Prelude.. Lens.mapping Lens.coerced
 
 -- | A key-value map defining required or optional method request parameters
 -- that can be accepted by API Gateway. A key is a method request parameter
@@ -351,18 +318,51 @@ method_authorizerId = Lens.lens (\Method' {authorizerId} -> authorizerId) (\s@Me
 -- available in Integration to be mapped to integration request parameters
 -- or templates.
 method_requestParameters :: Lens.Lens' Method (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
-method_requestParameters = Lens.lens (\Method' {requestParameters} -> requestParameters) (\s@Method' {} a -> s {requestParameters = a} :: Method) Prelude.. Lens.mapping Lens._Coerce
+method_requestParameters = Lens.lens (\Method' {requestParameters} -> requestParameters) (\s@Method' {} a -> s {requestParameters = a} :: Method) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of authorization scopes configured on the method. The scopes are
--- used with a @COGNITO_USER_POOLS@ authorizer to authorize the method
--- invocation. The authorization works by matching the method scopes
--- against the scopes parsed from the access token in the incoming request.
--- The method invocation is authorized if any method scopes matches a
--- claimed scope in the access token. Otherwise, the invocation is not
--- authorized. When the method scope is configured, the client must provide
--- an access token instead of an identity token for authorization purposes.
-method_authorizationScopes :: Lens.Lens' Method (Prelude.Maybe [Prelude.Text])
-method_authorizationScopes = Lens.lens (\Method' {authorizationScopes} -> authorizationScopes) (\s@Method' {} a -> s {authorizationScopes = a} :: Method) Prelude.. Lens.mapping Lens._Coerce
+-- | The identifier of an Authorizer to use on this method. The
+-- @authorizationType@ must be @CUSTOM@.
+method_authorizerId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
+method_authorizerId = Lens.lens (\Method' {authorizerId} -> authorizerId) (\s@Method' {} a -> s {authorizerId = a} :: Method)
+
+-- | A human-friendly operation identifier for the method. For example, you
+-- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
+-- in the @PetStore@ example.
+method_operationName :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
+method_operationName = Lens.lens (\Method' {operationName} -> operationName) (\s@Method' {} a -> s {operationName = a} :: Method)
+
+-- | The method\'s authorization type. Valid values are @NONE@ for open
+-- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
+-- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
+-- pool.
+method_authorizationType :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
+method_authorizationType = Lens.lens (\Method' {authorizationType} -> authorizationType) (\s@Method' {} a -> s {authorizationType = a} :: Method)
+
+-- | A boolean flag specifying whether a valid ApiKey is required to invoke
+-- this method.
+method_apiKeyRequired :: Lens.Lens' Method (Prelude.Maybe Prelude.Bool)
+method_apiKeyRequired = Lens.lens (\Method' {apiKeyRequired} -> apiKeyRequired) (\s@Method' {} a -> s {apiKeyRequired = a} :: Method)
+
+-- | Gets the method\'s integration responsible for passing the
+-- client-submitted request to the back end and performing necessary
+-- transformations to make the request compliant with the back end.
+--
+-- ==== Example:
+--
+-- ===== Request
+--
+-- > GET /restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration HTTP/1.1 Content-Type: application/json Host: apigateway.us-east-1.amazonaws.com Content-Length: 117 X-Amz-Date: 20160613T213210Z Authorization: AWS4-HMAC-SHA256 Credential={access_key_ID}/20160613/us-east-1/apigateway/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature={sig4_hash}
+--
+-- ===== Response
+--
+-- The successful response returns a @200 OK@ status code and a payload
+-- similar to the following:
+--
+-- > { "_links": { "curies": [ { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-{rel}.html", "name": "integration", "templated": true }, { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true } ], "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integration:responses": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integration:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration" }, "integrationresponse:put": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/{status_code}", "templated": true } }, "cacheKeyParameters": [], "cacheNamespace": "0cjtch", "credentials": "arn:aws:iam::123456789012:role/apigAwsProxyRole", "httpMethod": "POST", "passthroughBehavior": "WHEN_NO_MATCH", "requestTemplates": { "application/json": "{\n \"a\": \"$input.params('operand1')\",\n \"b\": \"$input.params('operand2')\", \n \"op\": \"$input.params('operator')\" \n}" }, "type": "AWS", "uri": "arn:aws:apigateway:us-west-2:lambda:path//2015-03-31/functions/arn:aws:lambda:us-west-2:123456789012:function:Calc/invocations", "_embedded": { "integration:responses": { "_links": { "self": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200", "name": "200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/uojnr9hd57/resources/0cjtch/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.operator": "integration.response.body.op", "method.response.header.operand_2": "integration.response.body.b", "method.response.header.operand_1": "integration.response.body.a" }, "responseTemplates": { "application/json": "#set($res = $input.path('$'))\n{\n \"result\": \"$res.a, $res.b, $res.op => $res.c\",\n \"a\" : \"$res.a\",\n \"b\" : \"$res.b\",\n \"op\" : \"$res.op\",\n \"c\" : \"$res.c\"\n}" }, "selectionPattern": "", "statusCode": "200" } } }
+--
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-integration.html AWS CLI>
+method_methodIntegration :: Lens.Lens' Method (Prelude.Maybe Integration)
+method_methodIntegration = Lens.lens (\Method' {methodIntegration} -> methodIntegration) (\s@Method' {} a -> s {methodIntegration = a} :: Method)
 
 instance Core.FromJSON Method where
   parseJSON =
@@ -370,23 +370,23 @@ instance Core.FromJSON Method where
       "Method"
       ( \x ->
           Method'
-            Prelude.<$> (x Core..:? "httpMethod")
-            Prelude.<*> (x Core..:? "methodIntegration")
-            Prelude.<*> (x Core..:? "apiKeyRequired")
-            Prelude.<*> (x Core..:? "authorizationType")
-            Prelude.<*> (x Core..:? "requestModels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "requestValidatorId")
-            Prelude.<*> (x Core..:? "operationName")
-            Prelude.<*> ( x Core..:? "methodResponses"
+            Prelude.<$> ( x Core..:? "methodResponses"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "authorizerId")
-            Prelude.<*> ( x Core..:? "requestParameters"
-                            Core..!= Prelude.mempty
-                        )
+            Prelude.<*> (x Core..:? "httpMethod")
             Prelude.<*> ( x Core..:? "authorizationScopes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "requestValidatorId")
+            Prelude.<*> (x Core..:? "requestModels" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "requestParameters"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "authorizerId")
+            Prelude.<*> (x Core..:? "operationName")
+            Prelude.<*> (x Core..:? "authorizationType")
+            Prelude.<*> (x Core..:? "apiKeyRequired")
+            Prelude.<*> (x Core..:? "methodIntegration")
       )
 
 instance Prelude.Hashable Method

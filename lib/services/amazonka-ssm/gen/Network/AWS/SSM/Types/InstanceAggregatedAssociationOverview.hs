@@ -61,7 +61,7 @@ instanceAggregatedAssociationOverview_detailedStatus = Lens.lens (\InstanceAggre
 
 -- | The number of associations for the instance(s).
 instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount :: Lens.Lens' InstanceAggregatedAssociationOverview (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount = Lens.lens (\InstanceAggregatedAssociationOverview' {instanceAssociationStatusAggregatedCount} -> instanceAssociationStatusAggregatedCount) (\s@InstanceAggregatedAssociationOverview' {} a -> s {instanceAssociationStatusAggregatedCount = a} :: InstanceAggregatedAssociationOverview) Prelude.. Lens.mapping Lens._Coerce
+instanceAggregatedAssociationOverview_instanceAssociationStatusAggregatedCount = Lens.lens (\InstanceAggregatedAssociationOverview' {instanceAssociationStatusAggregatedCount} -> instanceAssociationStatusAggregatedCount) (\s@InstanceAggregatedAssociationOverview' {} a -> s {instanceAssociationStatusAggregatedCount = a} :: InstanceAggregatedAssociationOverview) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

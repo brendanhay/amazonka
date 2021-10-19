@@ -30,10 +30,10 @@ module Network.AWS.DMS.DescribeReplicationTasks
     newDescribeReplicationTasks,
 
     -- * Request Lenses
-    describeReplicationTasks_withoutSettings,
     describeReplicationTasks_filters,
-    describeReplicationTasks_maxRecords,
+    describeReplicationTasks_withoutSettings,
     describeReplicationTasks_marker,
+    describeReplicationTasks_maxRecords,
 
     -- * Destructuring the Response
     DescribeReplicationTasksResponse (..),
@@ -57,15 +57,19 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeReplicationTasks' smart constructor.
 data DescribeReplicationTasks = DescribeReplicationTasks'
-  { -- | An option to set to avoid returning information about settings. Use this
-    -- to reduce overhead when setting information is too large. To use this
-    -- option, choose @true@; otherwise, choose @false@ (the default).
-    withoutSettings :: Prelude.Maybe Prelude.Bool,
-    -- | Filters applied to replication tasks.
+  { -- | Filters applied to replication tasks.
     --
     -- Valid filter names: replication-task-arn | replication-task-id |
     -- migration-type | endpoint-arn | replication-instance-arn
     filters :: Prelude.Maybe [Filter],
+    -- | An option to set to avoid returning information about settings. Use this
+    -- to reduce overhead when setting information is too large. To use this
+    -- option, choose @true@; otherwise, choose @false@ (the default).
+    withoutSettings :: Prelude.Maybe Prelude.Bool,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -74,11 +78,7 @@ data DescribeReplicationTasks = DescribeReplicationTasks'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,14 +90,18 @@ data DescribeReplicationTasks = DescribeReplicationTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'withoutSettings', 'describeReplicationTasks_withoutSettings' - An option to set to avoid returning information about settings. Use this
--- to reduce overhead when setting information is too large. To use this
--- option, choose @true@; otherwise, choose @false@ (the default).
---
 -- 'filters', 'describeReplicationTasks_filters' - Filters applied to replication tasks.
 --
 -- Valid filter names: replication-task-arn | replication-task-id |
 -- migration-type | endpoint-arn | replication-instance-arn
+--
+-- 'withoutSettings', 'describeReplicationTasks_withoutSettings' - An option to set to avoid returning information about settings. Use this
+-- to reduce overhead when setting information is too large. To use this
+-- option, choose @true@; otherwise, choose @false@ (the default).
+--
+-- 'marker', 'describeReplicationTasks_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
 -- 'maxRecords', 'describeReplicationTasks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -107,20 +111,23 @@ data DescribeReplicationTasks = DescribeReplicationTasks'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeReplicationTasks_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 newDescribeReplicationTasks ::
   DescribeReplicationTasks
 newDescribeReplicationTasks =
   DescribeReplicationTasks'
-    { withoutSettings =
+    { filters =
         Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      withoutSettings = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
+
+-- | Filters applied to replication tasks.
+--
+-- Valid filter names: replication-task-arn | replication-task-id |
+-- migration-type | endpoint-arn | replication-instance-arn
+describeReplicationTasks_filters :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe [Filter])
+describeReplicationTasks_filters = Lens.lens (\DescribeReplicationTasks' {filters} -> filters) (\s@DescribeReplicationTasks' {} a -> s {filters = a} :: DescribeReplicationTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | An option to set to avoid returning information about settings. Use this
 -- to reduce overhead when setting information is too large. To use this
@@ -128,12 +135,11 @@ newDescribeReplicationTasks =
 describeReplicationTasks_withoutSettings :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Bool)
 describeReplicationTasks_withoutSettings = Lens.lens (\DescribeReplicationTasks' {withoutSettings} -> withoutSettings) (\s@DescribeReplicationTasks' {} a -> s {withoutSettings = a} :: DescribeReplicationTasks)
 
--- | Filters applied to replication tasks.
---
--- Valid filter names: replication-task-arn | replication-task-id |
--- migration-type | endpoint-arn | replication-instance-arn
-describeReplicationTasks_filters :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe [Filter])
-describeReplicationTasks_filters = Lens.lens (\DescribeReplicationTasks' {filters} -> filters) (\s@DescribeReplicationTasks' {} a -> s {filters = a} :: DescribeReplicationTasks) Prelude.. Lens.mapping Lens._Coerce
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationTasks_marker :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Text)
+describeReplicationTasks_marker = Lens.lens (\DescribeReplicationTasks' {marker} -> marker) (\s@DescribeReplicationTasks' {} a -> s {marker = a} :: DescribeReplicationTasks)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -145,12 +151,6 @@ describeReplicationTasks_filters = Lens.lens (\DescribeReplicationTasks' {filter
 -- Constraints: Minimum 20, maximum 100.
 describeReplicationTasks_maxRecords :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Int)
 describeReplicationTasks_maxRecords = Lens.lens (\DescribeReplicationTasks' {maxRecords} -> maxRecords) (\s@DescribeReplicationTasks' {} a -> s {maxRecords = a} :: DescribeReplicationTasks)
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationTasks_marker :: Lens.Lens' DescribeReplicationTasks (Prelude.Maybe Prelude.Text)
-describeReplicationTasks_marker = Lens.lens (\DescribeReplicationTasks' {marker} -> marker) (\s@DescribeReplicationTasks' {} a -> s {marker = a} :: DescribeReplicationTasks)
 
 instance Core.AWSPager DescribeReplicationTasks where
   page rq rs
@@ -213,11 +213,11 @@ instance Core.ToJSON DescribeReplicationTasks where
   toJSON DescribeReplicationTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WithoutSettings" Core..=)
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("WithoutSettings" Core..=)
               Prelude.<$> withoutSettings,
-            ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )
 
@@ -271,7 +271,7 @@ newDescribeReplicationTasksResponse pHttpStatus_ =
 
 -- | A description of the replication tasks.
 describeReplicationTasksResponse_replicationTasks :: Lens.Lens' DescribeReplicationTasksResponse (Prelude.Maybe [ReplicationTask])
-describeReplicationTasksResponse_replicationTasks = Lens.lens (\DescribeReplicationTasksResponse' {replicationTasks} -> replicationTasks) (\s@DescribeReplicationTasksResponse' {} a -> s {replicationTasks = a} :: DescribeReplicationTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeReplicationTasksResponse_replicationTasks = Lens.lens (\DescribeReplicationTasksResponse' {replicationTasks} -> replicationTasks) (\s@DescribeReplicationTasksResponse' {} a -> s {replicationTasks = a} :: DescribeReplicationTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

@@ -27,8 +27,8 @@ module Network.AWS.AlexaBusiness.RevokeInvitation
     newRevokeInvitation,
 
     -- * Request Lenses
-    revokeInvitation_userArn,
     revokeInvitation_enrollmentId,
+    revokeInvitation_userArn,
 
     -- * Destructuring the Response
     RevokeInvitationResponse (..),
@@ -48,11 +48,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRevokeInvitation' smart constructor.
 data RevokeInvitation = RevokeInvitation'
-  { -- | The ARN of the user for whom to revoke an enrollment invitation.
+  { -- | The ARN of the enrollment invitation to revoke. Required.
+    enrollmentId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the user for whom to revoke an enrollment invitation.
     -- Required.
-    userArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the enrollment invitation to revoke. Required.
-    enrollmentId :: Prelude.Maybe Prelude.Text
+    userArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,26 +64,26 @@ data RevokeInvitation = RevokeInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'enrollmentId', 'revokeInvitation_enrollmentId' - The ARN of the enrollment invitation to revoke. Required.
+--
 -- 'userArn', 'revokeInvitation_userArn' - The ARN of the user for whom to revoke an enrollment invitation.
 -- Required.
---
--- 'enrollmentId', 'revokeInvitation_enrollmentId' - The ARN of the enrollment invitation to revoke. Required.
 newRevokeInvitation ::
   RevokeInvitation
 newRevokeInvitation =
   RevokeInvitation'
-    { userArn = Prelude.Nothing,
-      enrollmentId = Prelude.Nothing
+    { enrollmentId = Prelude.Nothing,
+      userArn = Prelude.Nothing
     }
+
+-- | The ARN of the enrollment invitation to revoke. Required.
+revokeInvitation_enrollmentId :: Lens.Lens' RevokeInvitation (Prelude.Maybe Prelude.Text)
+revokeInvitation_enrollmentId = Lens.lens (\RevokeInvitation' {enrollmentId} -> enrollmentId) (\s@RevokeInvitation' {} a -> s {enrollmentId = a} :: RevokeInvitation)
 
 -- | The ARN of the user for whom to revoke an enrollment invitation.
 -- Required.
 revokeInvitation_userArn :: Lens.Lens' RevokeInvitation (Prelude.Maybe Prelude.Text)
 revokeInvitation_userArn = Lens.lens (\RevokeInvitation' {userArn} -> userArn) (\s@RevokeInvitation' {} a -> s {userArn = a} :: RevokeInvitation)
-
--- | The ARN of the enrollment invitation to revoke. Required.
-revokeInvitation_enrollmentId :: Lens.Lens' RevokeInvitation (Prelude.Maybe Prelude.Text)
-revokeInvitation_enrollmentId = Lens.lens (\RevokeInvitation' {enrollmentId} -> enrollmentId) (\s@RevokeInvitation' {} a -> s {enrollmentId = a} :: RevokeInvitation)
 
 instance Core.AWSRequest RevokeInvitation where
   type
@@ -120,8 +120,8 @@ instance Core.ToJSON RevokeInvitation where
   toJSON RevokeInvitation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserArn" Core..=) Prelude.<$> userArn,
-            ("EnrollmentId" Core..=) Prelude.<$> enrollmentId
+          [ ("EnrollmentId" Core..=) Prelude.<$> enrollmentId,
+            ("UserArn" Core..=) Prelude.<$> userArn
           ]
       )
 

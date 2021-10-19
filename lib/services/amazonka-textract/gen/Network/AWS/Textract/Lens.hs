@@ -14,52 +14,46 @@
 module Network.AWS.Textract.Lens
   ( -- * Operations
 
-    -- ** GetDocumentTextDetection
-    getDocumentTextDetection_nextToken,
-    getDocumentTextDetection_maxResults,
-    getDocumentTextDetection_jobId,
-    getDocumentTextDetectionResponse_statusMessage,
-    getDocumentTextDetectionResponse_nextToken,
-    getDocumentTextDetectionResponse_warnings,
-    getDocumentTextDetectionResponse_jobStatus,
-    getDocumentTextDetectionResponse_blocks,
-    getDocumentTextDetectionResponse_documentMetadata,
-    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
-    getDocumentTextDetectionResponse_httpStatus,
-
-    -- ** GetDocumentAnalysis
-    getDocumentAnalysis_nextToken,
-    getDocumentAnalysis_maxResults,
-    getDocumentAnalysis_jobId,
-    getDocumentAnalysisResponse_statusMessage,
-    getDocumentAnalysisResponse_nextToken,
-    getDocumentAnalysisResponse_warnings,
-    getDocumentAnalysisResponse_analyzeDocumentModelVersion,
-    getDocumentAnalysisResponse_jobStatus,
-    getDocumentAnalysisResponse_blocks,
-    getDocumentAnalysisResponse_documentMetadata,
-    getDocumentAnalysisResponse_httpStatus,
+    -- ** DetectDocumentText
+    detectDocumentText_document,
+    detectDocumentTextResponse_documentMetadata,
+    detectDocumentTextResponse_blocks,
+    detectDocumentTextResponse_detectDocumentTextModelVersion,
+    detectDocumentTextResponse_httpStatus,
 
     -- ** StartDocumentAnalysis
-    startDocumentAnalysis_notificationChannel,
-    startDocumentAnalysis_outputConfig,
-    startDocumentAnalysis_kmsKeyId,
-    startDocumentAnalysis_clientRequestToken,
     startDocumentAnalysis_jobTag,
+    startDocumentAnalysis_notificationChannel,
+    startDocumentAnalysis_kmsKeyId,
+    startDocumentAnalysis_outputConfig,
+    startDocumentAnalysis_clientRequestToken,
     startDocumentAnalysis_documentLocation,
     startDocumentAnalysis_featureTypes,
     startDocumentAnalysisResponse_jobId,
     startDocumentAnalysisResponse_httpStatus,
 
-    -- ** StartDocumentTextDetection
-    startDocumentTextDetection_notificationChannel,
-    startDocumentTextDetection_outputConfig,
-    startDocumentTextDetection_kmsKeyId,
-    startDocumentTextDetection_clientRequestToken,
-    startDocumentTextDetection_jobTag,
-    startDocumentTextDetection_documentLocation,
-    startDocumentTextDetectionResponse_jobId,
-    startDocumentTextDetectionResponse_httpStatus,
+    -- ** AnalyzeDocument
+    analyzeDocument_humanLoopConfig,
+    analyzeDocument_document,
+    analyzeDocument_featureTypes,
+    analyzeDocumentResponse_documentMetadata,
+    analyzeDocumentResponse_blocks,
+    analyzeDocumentResponse_humanLoopActivationOutput,
+    analyzeDocumentResponse_analyzeDocumentModelVersion,
+    analyzeDocumentResponse_httpStatus,
+
+    -- ** GetDocumentTextDetection
+    getDocumentTextDetection_nextToken,
+    getDocumentTextDetection_maxResults,
+    getDocumentTextDetection_jobId,
+    getDocumentTextDetectionResponse_documentMetadata,
+    getDocumentTextDetectionResponse_blocks,
+    getDocumentTextDetectionResponse_warnings,
+    getDocumentTextDetectionResponse_nextToken,
+    getDocumentTextDetectionResponse_statusMessage,
+    getDocumentTextDetectionResponse_detectDocumentTextModelVersion,
+    getDocumentTextDetectionResponse_jobStatus,
+    getDocumentTextDetectionResponse_httpStatus,
 
     -- ** AnalyzeExpense
     analyzeExpense_document,
@@ -67,50 +61,56 @@ module Network.AWS.Textract.Lens
     analyzeExpenseResponse_expenseDocuments,
     analyzeExpenseResponse_httpStatus,
 
-    -- ** AnalyzeDocument
-    analyzeDocument_humanLoopConfig,
-    analyzeDocument_document,
-    analyzeDocument_featureTypes,
-    analyzeDocumentResponse_analyzeDocumentModelVersion,
-    analyzeDocumentResponse_blocks,
-    analyzeDocumentResponse_documentMetadata,
-    analyzeDocumentResponse_humanLoopActivationOutput,
-    analyzeDocumentResponse_httpStatus,
+    -- ** StartDocumentTextDetection
+    startDocumentTextDetection_jobTag,
+    startDocumentTextDetection_notificationChannel,
+    startDocumentTextDetection_kmsKeyId,
+    startDocumentTextDetection_outputConfig,
+    startDocumentTextDetection_clientRequestToken,
+    startDocumentTextDetection_documentLocation,
+    startDocumentTextDetectionResponse_jobId,
+    startDocumentTextDetectionResponse_httpStatus,
 
-    -- ** DetectDocumentText
-    detectDocumentText_document,
-    detectDocumentTextResponse_blocks,
-    detectDocumentTextResponse_documentMetadata,
-    detectDocumentTextResponse_detectDocumentTextModelVersion,
-    detectDocumentTextResponse_httpStatus,
+    -- ** GetDocumentAnalysis
+    getDocumentAnalysis_nextToken,
+    getDocumentAnalysis_maxResults,
+    getDocumentAnalysis_jobId,
+    getDocumentAnalysisResponse_documentMetadata,
+    getDocumentAnalysisResponse_blocks,
+    getDocumentAnalysisResponse_analyzeDocumentModelVersion,
+    getDocumentAnalysisResponse_warnings,
+    getDocumentAnalysisResponse_nextToken,
+    getDocumentAnalysisResponse_statusMessage,
+    getDocumentAnalysisResponse_jobStatus,
+    getDocumentAnalysisResponse_httpStatus,
 
     -- * Types
 
     -- ** Block
-    block_relationships,
-    block_selectionStatus,
-    block_blockType,
-    block_rowSpan,
-    block_page,
-    block_id,
-    block_textType,
     block_columnSpan,
+    block_text,
+    block_entityTypes,
+    block_columnIndex,
+    block_page,
+    block_rowSpan,
+    block_selectionStatus,
     block_rowIndex,
     block_confidence,
-    block_columnIndex,
-    block_entityTypes,
-    block_text,
+    block_relationships,
     block_geometry,
+    block_textType,
+    block_id,
+    block_blockType,
 
     -- ** BoundingBox
     boundingBox_height,
-    boundingBox_width,
     boundingBox_left,
+    boundingBox_width,
     boundingBox_top,
 
     -- ** Document
-    document_bytes,
     document_s3Object,
+    document_bytes,
 
     -- ** DocumentLocation
     documentLocation_s3Object,
@@ -119,28 +119,28 @@ module Network.AWS.Textract.Lens
     documentMetadata_pages,
 
     -- ** ExpenseDetection
-    expenseDetection_confidence,
     expenseDetection_text,
+    expenseDetection_confidence,
     expenseDetection_geometry,
 
     -- ** ExpenseDocument
     expenseDocument_lineItemGroups,
-    expenseDocument_expenseIndex,
     expenseDocument_summaryFields,
+    expenseDocument_expenseIndex,
 
     -- ** ExpenseField
     expenseField_labelDetection,
     expenseField_valueDetection,
-    expenseField_pageNumber,
     expenseField_type,
+    expenseField_pageNumber,
 
     -- ** ExpenseType
-    expenseType_confidence,
     expenseType_text,
+    expenseType_confidence,
 
     -- ** Geometry
-    geometry_polygon,
     geometry_boundingBox,
+    geometry_polygon,
 
     -- ** HumanLoopActivationOutput
     humanLoopActivationOutput_humanLoopActivationReasons,
@@ -171,17 +171,17 @@ module Network.AWS.Textract.Lens
     outputConfig_s3Bucket,
 
     -- ** Point
-    point_y,
     point_x,
+    point_y,
 
     -- ** Relationship
     relationship_ids,
     relationship_type,
 
     -- ** S3Object
-    s3Object_version,
-    s3Object_name,
     s3Object_bucket,
+    s3Object_name,
+    s3Object_version,
 
     -- ** Warning
     warning_pages,

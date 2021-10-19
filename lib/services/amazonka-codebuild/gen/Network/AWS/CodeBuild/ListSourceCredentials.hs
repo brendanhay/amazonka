@@ -139,7 +139,7 @@ newListSourceCredentialsResponse pHttpStatus_ =
 -- object includes the authentication type, token ARN, and type of source
 -- provider for one set of credentials.
 listSourceCredentialsResponse_sourceCredentialsInfos :: Lens.Lens' ListSourceCredentialsResponse (Prelude.Maybe [SourceCredentialsInfo])
-listSourceCredentialsResponse_sourceCredentialsInfos = Lens.lens (\ListSourceCredentialsResponse' {sourceCredentialsInfos} -> sourceCredentialsInfos) (\s@ListSourceCredentialsResponse' {} a -> s {sourceCredentialsInfos = a} :: ListSourceCredentialsResponse) Prelude.. Lens.mapping Lens._Coerce
+listSourceCredentialsResponse_sourceCredentialsInfos = Lens.lens (\ListSourceCredentialsResponse' {sourceCredentialsInfos} -> sourceCredentialsInfos) (\s@ListSourceCredentialsResponse' {} a -> s {sourceCredentialsInfos = a} :: ListSourceCredentialsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSourceCredentialsResponse_httpStatus :: Lens.Lens' ListSourceCredentialsResponse Prelude.Int

@@ -29,11 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHttpAction' smart constructor.
 data HttpAction = HttpAction'
-  { -- | The HTTP headers to send with the message data.
-    headers :: Prelude.Maybe [HttpActionHeader],
-    -- | The authentication method to use when sending data to an HTTPS endpoint.
-    auth :: Prelude.Maybe HttpAuthorization,
-    -- | The URL to which IoT sends a confirmation message. The value of the
+  { -- | The URL to which IoT sends a confirmation message. The value of the
     -- confirmation URL must be a prefix of the endpoint URL. If you do not
     -- specify a confirmation URL IoT uses the endpoint URL as the confirmation
     -- URL. If you use substitution templates in the confirmationUrl, you must
@@ -41,6 +37,10 @@ data HttpAction = HttpAction'
     -- of the substitution template before traffic is allowed to your endpoint
     -- URL.
     confirmationUrl :: Prelude.Maybe Prelude.Text,
+    -- | The authentication method to use when sending data to an HTTPS endpoint.
+    auth :: Prelude.Maybe HttpAuthorization,
+    -- | The HTTP headers to send with the message data.
+    headers :: Prelude.Maybe [HttpActionHeader],
     -- | The endpoint URL. If substitution templates are used in the URL, you
     -- must also specify a @confirmationUrl@. If this is a new destination, a
     -- new @TopicRuleDestination@ is created if possible.
@@ -56,10 +56,6 @@ data HttpAction = HttpAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'headers', 'httpAction_headers' - The HTTP headers to send with the message data.
---
--- 'auth', 'httpAction_auth' - The authentication method to use when sending data to an HTTPS endpoint.
---
 -- 'confirmationUrl', 'httpAction_confirmationUrl' - The URL to which IoT sends a confirmation message. The value of the
 -- confirmation URL must be a prefix of the endpoint URL. If you do not
 -- specify a confirmation URL IoT uses the endpoint URL as the confirmation
@@ -67,6 +63,10 @@ data HttpAction = HttpAction'
 -- create and enable topic rule destinations that match each possible value
 -- of the substitution template before traffic is allowed to your endpoint
 -- URL.
+--
+-- 'auth', 'httpAction_auth' - The authentication method to use when sending data to an HTTPS endpoint.
+--
+-- 'headers', 'httpAction_headers' - The HTTP headers to send with the message data.
 --
 -- 'url', 'httpAction_url' - The endpoint URL. If substitution templates are used in the URL, you
 -- must also specify a @confirmationUrl@. If this is a new destination, a
@@ -77,19 +77,11 @@ newHttpAction ::
   HttpAction
 newHttpAction pUrl_ =
   HttpAction'
-    { headers = Prelude.Nothing,
+    { confirmationUrl = Prelude.Nothing,
       auth = Prelude.Nothing,
-      confirmationUrl = Prelude.Nothing,
+      headers = Prelude.Nothing,
       url = pUrl_
     }
-
--- | The HTTP headers to send with the message data.
-httpAction_headers :: Lens.Lens' HttpAction (Prelude.Maybe [HttpActionHeader])
-httpAction_headers = Lens.lens (\HttpAction' {headers} -> headers) (\s@HttpAction' {} a -> s {headers = a} :: HttpAction) Prelude.. Lens.mapping Lens._Coerce
-
--- | The authentication method to use when sending data to an HTTPS endpoint.
-httpAction_auth :: Lens.Lens' HttpAction (Prelude.Maybe HttpAuthorization)
-httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -> s {auth = a} :: HttpAction)
 
 -- | The URL to which IoT sends a confirmation message. The value of the
 -- confirmation URL must be a prefix of the endpoint URL. If you do not
@@ -100,6 +92,14 @@ httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -
 -- URL.
 httpAction_confirmationUrl :: Lens.Lens' HttpAction (Prelude.Maybe Prelude.Text)
 httpAction_confirmationUrl = Lens.lens (\HttpAction' {confirmationUrl} -> confirmationUrl) (\s@HttpAction' {} a -> s {confirmationUrl = a} :: HttpAction)
+
+-- | The authentication method to use when sending data to an HTTPS endpoint.
+httpAction_auth :: Lens.Lens' HttpAction (Prelude.Maybe HttpAuthorization)
+httpAction_auth = Lens.lens (\HttpAction' {auth} -> auth) (\s@HttpAction' {} a -> s {auth = a} :: HttpAction)
+
+-- | The HTTP headers to send with the message data.
+httpAction_headers :: Lens.Lens' HttpAction (Prelude.Maybe [HttpActionHeader])
+httpAction_headers = Lens.lens (\HttpAction' {headers} -> headers) (\s@HttpAction' {} a -> s {headers = a} :: HttpAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The endpoint URL. If substitution templates are used in the URL, you
 -- must also specify a @confirmationUrl@. If this is a new destination, a
@@ -113,9 +113,9 @@ instance Core.FromJSON HttpAction where
       "HttpAction"
       ( \x ->
           HttpAction'
-            Prelude.<$> (x Core..:? "headers" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "confirmationUrl")
             Prelude.<*> (x Core..:? "auth")
-            Prelude.<*> (x Core..:? "confirmationUrl")
+            Prelude.<*> (x Core..:? "headers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "url")
       )
 
@@ -127,10 +127,10 @@ instance Core.ToJSON HttpAction where
   toJSON HttpAction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("headers" Core..=) Prelude.<$> headers,
-            ("auth" Core..=) Prelude.<$> auth,
-            ("confirmationUrl" Core..=)
+          [ ("confirmationUrl" Core..=)
               Prelude.<$> confirmationUrl,
+            ("auth" Core..=) Prelude.<$> auth,
+            ("headers" Core..=) Prelude.<$> headers,
             Prelude.Just ("url" Core..= url)
           ]
       )

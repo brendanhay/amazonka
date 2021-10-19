@@ -33,9 +33,6 @@ data SMSMessageActivity = SMSMessageActivity'
     -- specified, this value must match the name of an existing message
     -- template.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the sender ID and message type for an SMS message that\'s sent
-    -- to participants in a journey.
-    messageConfig :: Prelude.Maybe JourneySMSMessage,
     -- | The unique identifier for the version of the SMS template to use for the
     -- message. If specified, this value must match the identifier for an
     -- existing template version. To retrieve a list of versions and version
@@ -49,7 +46,10 @@ data SMSMessageActivity = SMSMessageActivity'
     templateVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the next activity to perform, after the
     -- message is sent.
-    nextActivity :: Prelude.Maybe Prelude.Text
+    nextActivity :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the sender ID and message type for an SMS message that\'s sent
+    -- to participants in a journey.
+    messageConfig :: Prelude.Maybe JourneySMSMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,9 +65,6 @@ data SMSMessageActivity = SMSMessageActivity'
 -- specified, this value must match the name of an existing message
 -- template.
 --
--- 'messageConfig', 'sMSMessageActivity_messageConfig' - Specifies the sender ID and message type for an SMS message that\'s sent
--- to participants in a journey.
---
 -- 'templateVersion', 'sMSMessageActivity_templateVersion' - The unique identifier for the version of the SMS template to use for the
 -- message. If specified, this value must match the identifier for an
 -- existing template version. To retrieve a list of versions and version
@@ -81,14 +78,17 @@ data SMSMessageActivity = SMSMessageActivity'
 --
 -- 'nextActivity', 'sMSMessageActivity_nextActivity' - The unique identifier for the next activity to perform, after the
 -- message is sent.
+--
+-- 'messageConfig', 'sMSMessageActivity_messageConfig' - Specifies the sender ID and message type for an SMS message that\'s sent
+-- to participants in a journey.
 newSMSMessageActivity ::
   SMSMessageActivity
 newSMSMessageActivity =
   SMSMessageActivity'
     { templateName = Prelude.Nothing,
-      messageConfig = Prelude.Nothing,
       templateVersion = Prelude.Nothing,
-      nextActivity = Prelude.Nothing
+      nextActivity = Prelude.Nothing,
+      messageConfig = Prelude.Nothing
     }
 
 -- | The name of the SMS message template to use for the message. If
@@ -96,11 +96,6 @@ newSMSMessageActivity =
 -- template.
 sMSMessageActivity_templateName :: Lens.Lens' SMSMessageActivity (Prelude.Maybe Prelude.Text)
 sMSMessageActivity_templateName = Lens.lens (\SMSMessageActivity' {templateName} -> templateName) (\s@SMSMessageActivity' {} a -> s {templateName = a} :: SMSMessageActivity)
-
--- | Specifies the sender ID and message type for an SMS message that\'s sent
--- to participants in a journey.
-sMSMessageActivity_messageConfig :: Lens.Lens' SMSMessageActivity (Prelude.Maybe JourneySMSMessage)
-sMSMessageActivity_messageConfig = Lens.lens (\SMSMessageActivity' {messageConfig} -> messageConfig) (\s@SMSMessageActivity' {} a -> s {messageConfig = a} :: SMSMessageActivity)
 
 -- | The unique identifier for the version of the SMS template to use for the
 -- message. If specified, this value must match the identifier for an
@@ -120,6 +115,11 @@ sMSMessageActivity_templateVersion = Lens.lens (\SMSMessageActivity' {templateVe
 sMSMessageActivity_nextActivity :: Lens.Lens' SMSMessageActivity (Prelude.Maybe Prelude.Text)
 sMSMessageActivity_nextActivity = Lens.lens (\SMSMessageActivity' {nextActivity} -> nextActivity) (\s@SMSMessageActivity' {} a -> s {nextActivity = a} :: SMSMessageActivity)
 
+-- | Specifies the sender ID and message type for an SMS message that\'s sent
+-- to participants in a journey.
+sMSMessageActivity_messageConfig :: Lens.Lens' SMSMessageActivity (Prelude.Maybe JourneySMSMessage)
+sMSMessageActivity_messageConfig = Lens.lens (\SMSMessageActivity' {messageConfig} -> messageConfig) (\s@SMSMessageActivity' {} a -> s {messageConfig = a} :: SMSMessageActivity)
+
 instance Core.FromJSON SMSMessageActivity where
   parseJSON =
     Core.withObject
@@ -127,9 +127,9 @@ instance Core.FromJSON SMSMessageActivity where
       ( \x ->
           SMSMessageActivity'
             Prelude.<$> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "MessageConfig")
             Prelude.<*> (x Core..:? "TemplateVersion")
             Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "MessageConfig")
       )
 
 instance Prelude.Hashable SMSMessageActivity
@@ -141,9 +141,9 @@ instance Core.ToJSON SMSMessageActivity where
     Core.object
       ( Prelude.catMaybes
           [ ("TemplateName" Core..=) Prelude.<$> templateName,
-            ("MessageConfig" Core..=) Prelude.<$> messageConfig,
             ("TemplateVersion" Core..=)
               Prelude.<$> templateVersion,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity
+            ("NextActivity" Core..=) Prelude.<$> nextActivity,
+            ("MessageConfig" Core..=) Prelude.<$> messageConfig
           ]
       )

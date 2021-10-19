@@ -31,11 +31,11 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'newHsmClientCertificate' smart constructor.
 data HsmClientCertificate = HsmClientCertificate'
-  { -- | The public key that the Amazon Redshift cluster will use to connect to
+  { -- | The identifier of the HSM client certificate.
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The public key that the Amazon Redshift cluster will use to connect to
     -- the HSM. You must register the public key in the HSM.
     hsmClientCertificatePublicKey :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the HSM client certificate.
-    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The list of tags for the HSM client certificate.
     tags :: Prelude.Maybe [Tag]
   }
@@ -49,40 +49,40 @@ data HsmClientCertificate = HsmClientCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'hsmClientCertificateIdentifier', 'hsmClientCertificate_hsmClientCertificateIdentifier' - The identifier of the HSM client certificate.
+--
 -- 'hsmClientCertificatePublicKey', 'hsmClientCertificate_hsmClientCertificatePublicKey' - The public key that the Amazon Redshift cluster will use to connect to
 -- the HSM. You must register the public key in the HSM.
---
--- 'hsmClientCertificateIdentifier', 'hsmClientCertificate_hsmClientCertificateIdentifier' - The identifier of the HSM client certificate.
 --
 -- 'tags', 'hsmClientCertificate_tags' - The list of tags for the HSM client certificate.
 newHsmClientCertificate ::
   HsmClientCertificate
 newHsmClientCertificate =
   HsmClientCertificate'
-    { hsmClientCertificatePublicKey =
+    { hsmClientCertificateIdentifier =
         Prelude.Nothing,
-      hsmClientCertificateIdentifier = Prelude.Nothing,
+      hsmClientCertificatePublicKey = Prelude.Nothing,
       tags = Prelude.Nothing
     }
+
+-- | The identifier of the HSM client certificate.
+hsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' HsmClientCertificate (Prelude.Maybe Prelude.Text)
+hsmClientCertificate_hsmClientCertificateIdentifier = Lens.lens (\HsmClientCertificate' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@HsmClientCertificate' {} a -> s {hsmClientCertificateIdentifier = a} :: HsmClientCertificate)
 
 -- | The public key that the Amazon Redshift cluster will use to connect to
 -- the HSM. You must register the public key in the HSM.
 hsmClientCertificate_hsmClientCertificatePublicKey :: Lens.Lens' HsmClientCertificate (Prelude.Maybe Prelude.Text)
 hsmClientCertificate_hsmClientCertificatePublicKey = Lens.lens (\HsmClientCertificate' {hsmClientCertificatePublicKey} -> hsmClientCertificatePublicKey) (\s@HsmClientCertificate' {} a -> s {hsmClientCertificatePublicKey = a} :: HsmClientCertificate)
 
--- | The identifier of the HSM client certificate.
-hsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' HsmClientCertificate (Prelude.Maybe Prelude.Text)
-hsmClientCertificate_hsmClientCertificateIdentifier = Lens.lens (\HsmClientCertificate' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@HsmClientCertificate' {} a -> s {hsmClientCertificateIdentifier = a} :: HsmClientCertificate)
-
 -- | The list of tags for the HSM client certificate.
 hsmClientCertificate_tags :: Lens.Lens' HsmClientCertificate (Prelude.Maybe [Tag])
-hsmClientCertificate_tags = Lens.lens (\HsmClientCertificate' {tags} -> tags) (\s@HsmClientCertificate' {} a -> s {tags = a} :: HsmClientCertificate) Prelude.. Lens.mapping Lens._Coerce
+hsmClientCertificate_tags = Lens.lens (\HsmClientCertificate' {tags} -> tags) (\s@HsmClientCertificate' {} a -> s {tags = a} :: HsmClientCertificate) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML HsmClientCertificate where
   parseXML x =
     HsmClientCertificate'
-      Prelude.<$> (x Core..@? "HsmClientCertificatePublicKey")
-      Prelude.<*> (x Core..@? "HsmClientCertificateIdentifier")
+      Prelude.<$> (x Core..@? "HsmClientCertificateIdentifier")
+      Prelude.<*> (x Core..@? "HsmClientCertificatePublicKey")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )

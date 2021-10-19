@@ -30,22 +30,22 @@ module Network.AWS.Greengrass.CreateResourceDefinition
     newCreateResourceDefinition,
 
     -- * Request Lenses
-    createResourceDefinition_name,
-    createResourceDefinition_initialVersion,
-    createResourceDefinition_tags,
     createResourceDefinition_amznClientToken,
+    createResourceDefinition_initialVersion,
+    createResourceDefinition_name,
+    createResourceDefinition_tags,
 
     -- * Destructuring the Response
     CreateResourceDefinitionResponse (..),
     newCreateResourceDefinitionResponse,
 
     -- * Response Lenses
-    createResourceDefinitionResponse_creationTimestamp,
     createResourceDefinitionResponse_latestVersionArn,
-    createResourceDefinitionResponse_latestVersion,
     createResourceDefinitionResponse_arn,
-    createResourceDefinitionResponse_id,
     createResourceDefinitionResponse_name,
+    createResourceDefinitionResponse_creationTimestamp,
+    createResourceDefinitionResponse_id,
+    createResourceDefinitionResponse_latestVersion,
     createResourceDefinitionResponse_lastUpdatedTimestamp,
     createResourceDefinitionResponse_httpStatus,
   )
@@ -60,14 +60,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateResourceDefinition' smart constructor.
 data CreateResourceDefinition = CreateResourceDefinition'
-  { -- | The name of the resource definition.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the initial version of the resource definition.
     initialVersion :: Prelude.Maybe ResourceDefinitionVersion,
+    -- | The name of the resource definition.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,38 +79,39 @@ data CreateResourceDefinition = CreateResourceDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createResourceDefinition_name' - The name of the resource definition.
+-- 'amznClientToken', 'createResourceDefinition_amznClientToken' - A client token used to correlate requests and responses.
 --
 -- 'initialVersion', 'createResourceDefinition_initialVersion' - Information about the initial version of the resource definition.
 --
--- 'tags', 'createResourceDefinition_tags' - Tag(s) to add to the new resource.
+-- 'name', 'createResourceDefinition_name' - The name of the resource definition.
 --
--- 'amznClientToken', 'createResourceDefinition_amznClientToken' - A client token used to correlate requests and responses.
+-- 'tags', 'createResourceDefinition_tags' - Tag(s) to add to the new resource.
 newCreateResourceDefinition ::
   CreateResourceDefinition
 newCreateResourceDefinition =
   CreateResourceDefinition'
-    { name = Prelude.Nothing,
+    { amznClientToken =
+        Prelude.Nothing,
       initialVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      amznClientToken = Prelude.Nothing
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | The name of the resource definition.
-createResourceDefinition_name :: Lens.Lens' CreateResourceDefinition (Prelude.Maybe Prelude.Text)
-createResourceDefinition_name = Lens.lens (\CreateResourceDefinition' {name} -> name) (\s@CreateResourceDefinition' {} a -> s {name = a} :: CreateResourceDefinition)
+-- | A client token used to correlate requests and responses.
+createResourceDefinition_amznClientToken :: Lens.Lens' CreateResourceDefinition (Prelude.Maybe Prelude.Text)
+createResourceDefinition_amznClientToken = Lens.lens (\CreateResourceDefinition' {amznClientToken} -> amznClientToken) (\s@CreateResourceDefinition' {} a -> s {amznClientToken = a} :: CreateResourceDefinition)
 
 -- | Information about the initial version of the resource definition.
 createResourceDefinition_initialVersion :: Lens.Lens' CreateResourceDefinition (Prelude.Maybe ResourceDefinitionVersion)
 createResourceDefinition_initialVersion = Lens.lens (\CreateResourceDefinition' {initialVersion} -> initialVersion) (\s@CreateResourceDefinition' {} a -> s {initialVersion = a} :: CreateResourceDefinition)
 
+-- | The name of the resource definition.
+createResourceDefinition_name :: Lens.Lens' CreateResourceDefinition (Prelude.Maybe Prelude.Text)
+createResourceDefinition_name = Lens.lens (\CreateResourceDefinition' {name} -> name) (\s@CreateResourceDefinition' {} a -> s {name = a} :: CreateResourceDefinition)
+
 -- | Tag(s) to add to the new resource.
 createResourceDefinition_tags :: Lens.Lens' CreateResourceDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createResourceDefinition_tags = Lens.lens (\CreateResourceDefinition' {tags} -> tags) (\s@CreateResourceDefinition' {} a -> s {tags = a} :: CreateResourceDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | A client token used to correlate requests and responses.
-createResourceDefinition_amznClientToken :: Lens.Lens' CreateResourceDefinition (Prelude.Maybe Prelude.Text)
-createResourceDefinition_amznClientToken = Lens.lens (\CreateResourceDefinition' {amznClientToken} -> amznClientToken) (\s@CreateResourceDefinition' {} a -> s {amznClientToken = a} :: CreateResourceDefinition)
+createResourceDefinition_tags = Lens.lens (\CreateResourceDefinition' {tags} -> tags) (\s@CreateResourceDefinition' {} a -> s {tags = a} :: CreateResourceDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateResourceDefinition where
   type
@@ -121,12 +122,12 @@ instance Core.AWSRequest CreateResourceDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateResourceDefinitionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
-            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<$> (x Core..?> "LatestVersionArn")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "LatestVersion")
             Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -147,9 +148,9 @@ instance Core.ToJSON CreateResourceDefinition where
   toJSON CreateResourceDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("InitialVersion" Core..=)
               Prelude.<$> initialVersion,
+            ("Name" Core..=) Prelude.<$> name,
             ("tags" Core..=) Prelude.<$> tags
           ]
       )
@@ -163,19 +164,19 @@ instance Core.ToQuery CreateResourceDefinition where
 
 -- | /See:/ 'newCreateResourceDefinitionResponse' smart constructor.
 data CreateResourceDefinitionResponse = CreateResourceDefinitionResponse'
-  { -- | The time, in milliseconds since the epoch, when the definition was
-    -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the latest version associated with the definition.
+  { -- | The ARN of the latest version associated with the definition.
     latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the definition.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
@@ -192,18 +193,18 @@ data CreateResourceDefinitionResponse = CreateResourceDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'createResourceDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
--- created.
---
 -- 'latestVersionArn', 'createResourceDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
---
--- 'latestVersion', 'createResourceDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
 -- 'arn', 'createResourceDefinitionResponse_arn' - The ARN of the definition.
 --
+-- 'name', 'createResourceDefinitionResponse_name' - The name of the definition.
+--
+-- 'creationTimestamp', 'createResourceDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
+--
 -- 'id', 'createResourceDefinitionResponse_id' - The ID of the definition.
 --
--- 'name', 'createResourceDefinitionResponse_name' - The name of the definition.
+-- 'latestVersion', 'createResourceDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
 -- 'lastUpdatedTimestamp', 'createResourceDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
@@ -215,41 +216,41 @@ newCreateResourceDefinitionResponse ::
   CreateResourceDefinitionResponse
 newCreateResourceDefinitionResponse pHttpStatus_ =
   CreateResourceDefinitionResponse'
-    { creationTimestamp =
+    { latestVersionArn =
         Prelude.Nothing,
-      latestVersionArn = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
       arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the latest version associated with the definition.
+createResourceDefinitionResponse_latestVersionArn :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionResponse_latestVersionArn = Lens.lens (\CreateResourceDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateResourceDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateResourceDefinitionResponse)
+
+-- | The ARN of the definition.
+createResourceDefinitionResponse_arn :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionResponse_arn = Lens.lens (\CreateResourceDefinitionResponse' {arn} -> arn) (\s@CreateResourceDefinitionResponse' {} a -> s {arn = a} :: CreateResourceDefinitionResponse)
+
+-- | The name of the definition.
+createResourceDefinitionResponse_name :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionResponse_name = Lens.lens (\CreateResourceDefinitionResponse' {name} -> name) (\s@CreateResourceDefinitionResponse' {} a -> s {name = a} :: CreateResourceDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was
 -- created.
 createResourceDefinitionResponse_creationTimestamp :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
 createResourceDefinitionResponse_creationTimestamp = Lens.lens (\CreateResourceDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateResourceDefinitionResponse' {} a -> s {creationTimestamp = a} :: CreateResourceDefinitionResponse)
 
--- | The ARN of the latest version associated with the definition.
-createResourceDefinitionResponse_latestVersionArn :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-createResourceDefinitionResponse_latestVersionArn = Lens.lens (\CreateResourceDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateResourceDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateResourceDefinitionResponse)
-
--- | The ID of the latest version associated with the definition.
-createResourceDefinitionResponse_latestVersion :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-createResourceDefinitionResponse_latestVersion = Lens.lens (\CreateResourceDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateResourceDefinitionResponse' {} a -> s {latestVersion = a} :: CreateResourceDefinitionResponse)
-
--- | The ARN of the definition.
-createResourceDefinitionResponse_arn :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-createResourceDefinitionResponse_arn = Lens.lens (\CreateResourceDefinitionResponse' {arn} -> arn) (\s@CreateResourceDefinitionResponse' {} a -> s {arn = a} :: CreateResourceDefinitionResponse)
-
 -- | The ID of the definition.
 createResourceDefinitionResponse_id :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
 createResourceDefinitionResponse_id = Lens.lens (\CreateResourceDefinitionResponse' {id} -> id) (\s@CreateResourceDefinitionResponse' {} a -> s {id = a} :: CreateResourceDefinitionResponse)
 
--- | The name of the definition.
-createResourceDefinitionResponse_name :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
-createResourceDefinitionResponse_name = Lens.lens (\CreateResourceDefinitionResponse' {name} -> name) (\s@CreateResourceDefinitionResponse' {} a -> s {name = a} :: CreateResourceDefinitionResponse)
+-- | The ID of the latest version associated with the definition.
+createResourceDefinitionResponse_latestVersion :: Lens.Lens' CreateResourceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionResponse_latestVersion = Lens.lens (\CreateResourceDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateResourceDefinitionResponse' {} a -> s {latestVersion = a} :: CreateResourceDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.

@@ -31,40 +31,22 @@ import Network.AWS.SSM.Types.TargetLocation
 --
 -- /See:/ 'newStepExecution' smart constructor.
 data StepExecution = StepExecution'
-  { -- | Returned values from the execution of the step.
-    outputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The action to take if the step fails. The default value is @Abort@.
-    onFailure :: Prelude.Maybe Prelude.Text,
+  { -- | Information about the Automation failure.
+    failureDetails :: Prelude.Maybe FailureDetails,
+    -- | The flag which can be used to end automation no matter whether the step
+    -- succeeds or fails.
+    isEnd :: Prelude.Maybe Prelude.Bool,
+    -- | Fully-resolved values passed into the step before execution.
+    inputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The name of this execution step.
+    stepName :: Prelude.Maybe Prelude.Text,
+    -- | If a step has finished execution, this contains the time the execution
+    -- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
+    executionEndTime :: Prelude.Maybe Core.POSIX,
     -- | If a step failed, this message explains why the execution failed.
     failureMessage :: Prelude.Maybe Prelude.Text,
     -- | A message associated with the response code for an execution.
     response :: Prelude.Maybe Prelude.Text,
-    -- | If a step has finished execution, this contains the time the execution
-    -- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
-    executionEndTime :: Prelude.Maybe Core.POSIX,
-    -- | The next step after the step succeeds.
-    nextStep :: Prelude.Maybe Prelude.Text,
-    -- | The flag which can be used to end automation no matter whether the step
-    -- succeeds or fails.
-    isEnd :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of tries to run the action of the step. The default
-    -- value is @1@.
-    maxAttempts :: Prelude.Maybe Prelude.Int,
-    -- | Information about the Automation failure.
-    failureDetails :: Prelude.Maybe FailureDetails,
-    -- | The targets for the step execution.
-    targets :: Prelude.Maybe [Target],
-    -- | If a step has begun execution, this contains the time the step started.
-    -- If the step is in Pending status, this field isn\'t populated.
-    executionStartTime :: Prelude.Maybe Core.POSIX,
-    -- | The combination of Amazon Web Services Regions and Amazon Web Services
-    -- accounts targeted by the current Automation execution.
-    targetLocation :: Prelude.Maybe TargetLocation,
-    -- | A user-specified list of parameters to override when running a step.
-    overriddenParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The flag which can be used to help decide whether the failure of current
-    -- step leads to the Automation failure.
-    isCritical :: Prelude.Maybe Prelude.Bool,
     -- | The action this step performs. The action determines the behavior of the
     -- step.
     action :: Prelude.Maybe Prelude.Text,
@@ -72,20 +54,38 @@ data StepExecution = StepExecution'
     responseCode :: Prelude.Maybe Prelude.Text,
     -- | The execution status for this step.
     stepStatus :: Prelude.Maybe AutomationExecutionStatus,
-    -- | The timeout seconds of the step.
-    timeoutSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The combination of Amazon Web Services Regions and Amazon Web Services
+    -- accounts targeted by the current Automation execution.
+    targetLocation :: Prelude.Maybe TargetLocation,
+    -- | A user-specified list of parameters to override when running a step.
+    overriddenParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | Returned values from the execution of the step.
+    outputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | If a step has begun execution, this contains the time the step started.
+    -- If the step is in Pending status, this field isn\'t populated.
+    executionStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of tries to run the action of the step. The default
+    -- value is @1@.
+    maxAttempts :: Prelude.Maybe Prelude.Int,
+    -- | The targets for the step execution.
+    targets :: Prelude.Maybe [Target],
+    -- | The next step after the step succeeds.
+    nextStep :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of a step execution.
+    stepExecutionId :: Prelude.Maybe Prelude.Text,
     -- | Strategies used when step fails, we support Continue and Abort. Abort
     -- will fail the automation when the step fails. Continue will ignore the
     -- failure of current step and allow automation to run the next step. With
     -- conditional branching, we add step:stepName to support the automation to
     -- go to another specific step.
     validNextSteps :: Prelude.Maybe [Prelude.Text],
-    -- | The unique ID of a step execution.
-    stepExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of this execution step.
-    stepName :: Prelude.Maybe Prelude.Text,
-    -- | Fully-resolved values passed into the step before execution.
-    inputs :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    -- | The timeout seconds of the step.
+    timeoutSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | The action to take if the step fails. The default value is @Abort@.
+    onFailure :: Prelude.Maybe Prelude.Text,
+    -- | The flag which can be used to help decide whether the failure of current
+    -- step leads to the Automation failure.
+    isCritical :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,39 +97,21 @@ data StepExecution = StepExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputs', 'stepExecution_outputs' - Returned values from the execution of the step.
---
--- 'onFailure', 'stepExecution_onFailure' - The action to take if the step fails. The default value is @Abort@.
---
--- 'failureMessage', 'stepExecution_failureMessage' - If a step failed, this message explains why the execution failed.
---
--- 'response', 'stepExecution_response' - A message associated with the response code for an execution.
---
--- 'executionEndTime', 'stepExecution_executionEndTime' - If a step has finished execution, this contains the time the execution
--- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
---
--- 'nextStep', 'stepExecution_nextStep' - The next step after the step succeeds.
+-- 'failureDetails', 'stepExecution_failureDetails' - Information about the Automation failure.
 --
 -- 'isEnd', 'stepExecution_isEnd' - The flag which can be used to end automation no matter whether the step
 -- succeeds or fails.
 --
--- 'maxAttempts', 'stepExecution_maxAttempts' - The maximum number of tries to run the action of the step. The default
--- value is @1@.
+-- 'inputs', 'stepExecution_inputs' - Fully-resolved values passed into the step before execution.
 --
--- 'failureDetails', 'stepExecution_failureDetails' - Information about the Automation failure.
+-- 'stepName', 'stepExecution_stepName' - The name of this execution step.
 --
--- 'targets', 'stepExecution_targets' - The targets for the step execution.
+-- 'executionEndTime', 'stepExecution_executionEndTime' - If a step has finished execution, this contains the time the execution
+-- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
 --
--- 'executionStartTime', 'stepExecution_executionStartTime' - If a step has begun execution, this contains the time the step started.
--- If the step is in Pending status, this field isn\'t populated.
+-- 'failureMessage', 'stepExecution_failureMessage' - If a step failed, this message explains why the execution failed.
 --
--- 'targetLocation', 'stepExecution_targetLocation' - The combination of Amazon Web Services Regions and Amazon Web Services
--- accounts targeted by the current Automation execution.
---
--- 'overriddenParameters', 'stepExecution_overriddenParameters' - A user-specified list of parameters to override when running a step.
---
--- 'isCritical', 'stepExecution_isCritical' - The flag which can be used to help decide whether the failure of current
--- step leads to the Automation failure.
+-- 'response', 'stepExecution_response' - A message associated with the response code for an execution.
 --
 -- 'action', 'stepExecution_action' - The action this step performs. The action determines the behavior of the
 -- step.
@@ -138,7 +120,24 @@ data StepExecution = StepExecution'
 --
 -- 'stepStatus', 'stepExecution_stepStatus' - The execution status for this step.
 --
--- 'timeoutSeconds', 'stepExecution_timeoutSeconds' - The timeout seconds of the step.
+-- 'targetLocation', 'stepExecution_targetLocation' - The combination of Amazon Web Services Regions and Amazon Web Services
+-- accounts targeted by the current Automation execution.
+--
+-- 'overriddenParameters', 'stepExecution_overriddenParameters' - A user-specified list of parameters to override when running a step.
+--
+-- 'outputs', 'stepExecution_outputs' - Returned values from the execution of the step.
+--
+-- 'executionStartTime', 'stepExecution_executionStartTime' - If a step has begun execution, this contains the time the step started.
+-- If the step is in Pending status, this field isn\'t populated.
+--
+-- 'maxAttempts', 'stepExecution_maxAttempts' - The maximum number of tries to run the action of the step. The default
+-- value is @1@.
+--
+-- 'targets', 'stepExecution_targets' - The targets for the step execution.
+--
+-- 'nextStep', 'stepExecution_nextStep' - The next step after the step succeeds.
+--
+-- 'stepExecutionId', 'stepExecution_stepExecutionId' - The unique ID of a step execution.
 --
 -- 'validNextSteps', 'stepExecution_validNextSteps' - Strategies used when step fails, we support Continue and Abort. Abort
 -- will fail the automation when the step fails. Continue will ignore the
@@ -146,46 +145,61 @@ data StepExecution = StepExecution'
 -- conditional branching, we add step:stepName to support the automation to
 -- go to another specific step.
 --
--- 'stepExecutionId', 'stepExecution_stepExecutionId' - The unique ID of a step execution.
+-- 'timeoutSeconds', 'stepExecution_timeoutSeconds' - The timeout seconds of the step.
 --
--- 'stepName', 'stepExecution_stepName' - The name of this execution step.
+-- 'onFailure', 'stepExecution_onFailure' - The action to take if the step fails. The default value is @Abort@.
 --
--- 'inputs', 'stepExecution_inputs' - Fully-resolved values passed into the step before execution.
+-- 'isCritical', 'stepExecution_isCritical' - The flag which can be used to help decide whether the failure of current
+-- step leads to the Automation failure.
 newStepExecution ::
   StepExecution
 newStepExecution =
   StepExecution'
-    { outputs = Prelude.Nothing,
-      onFailure = Prelude.Nothing,
+    { failureDetails = Prelude.Nothing,
+      isEnd = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      stepName = Prelude.Nothing,
+      executionEndTime = Prelude.Nothing,
       failureMessage = Prelude.Nothing,
       response = Prelude.Nothing,
-      executionEndTime = Prelude.Nothing,
-      nextStep = Prelude.Nothing,
-      isEnd = Prelude.Nothing,
-      maxAttempts = Prelude.Nothing,
-      failureDetails = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      executionStartTime = Prelude.Nothing,
-      targetLocation = Prelude.Nothing,
-      overriddenParameters = Prelude.Nothing,
-      isCritical = Prelude.Nothing,
       action = Prelude.Nothing,
       responseCode = Prelude.Nothing,
       stepStatus = Prelude.Nothing,
-      timeoutSeconds = Prelude.Nothing,
-      validNextSteps = Prelude.Nothing,
+      targetLocation = Prelude.Nothing,
+      overriddenParameters = Prelude.Nothing,
+      outputs = Prelude.Nothing,
+      executionStartTime = Prelude.Nothing,
+      maxAttempts = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      nextStep = Prelude.Nothing,
       stepExecutionId = Prelude.Nothing,
-      stepName = Prelude.Nothing,
-      inputs = Prelude.Nothing
+      validNextSteps = Prelude.Nothing,
+      timeoutSeconds = Prelude.Nothing,
+      onFailure = Prelude.Nothing,
+      isCritical = Prelude.Nothing
     }
 
--- | Returned values from the execution of the step.
-stepExecution_outputs :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-stepExecution_outputs = Lens.lens (\StepExecution' {outputs} -> outputs) (\s@StepExecution' {} a -> s {outputs = a} :: StepExecution) Prelude.. Lens.mapping Lens._Coerce
+-- | Information about the Automation failure.
+stepExecution_failureDetails :: Lens.Lens' StepExecution (Prelude.Maybe FailureDetails)
+stepExecution_failureDetails = Lens.lens (\StepExecution' {failureDetails} -> failureDetails) (\s@StepExecution' {} a -> s {failureDetails = a} :: StepExecution)
 
--- | The action to take if the step fails. The default value is @Abort@.
-stepExecution_onFailure :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
-stepExecution_onFailure = Lens.lens (\StepExecution' {onFailure} -> onFailure) (\s@StepExecution' {} a -> s {onFailure = a} :: StepExecution)
+-- | The flag which can be used to end automation no matter whether the step
+-- succeeds or fails.
+stepExecution_isEnd :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Bool)
+stepExecution_isEnd = Lens.lens (\StepExecution' {isEnd} -> isEnd) (\s@StepExecution' {} a -> s {isEnd = a} :: StepExecution)
+
+-- | Fully-resolved values passed into the step before execution.
+stepExecution_inputs :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+stepExecution_inputs = Lens.lens (\StepExecution' {inputs} -> inputs) (\s@StepExecution' {} a -> s {inputs = a} :: StepExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of this execution step.
+stepExecution_stepName :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
+stepExecution_stepName = Lens.lens (\StepExecution' {stepName} -> stepName) (\s@StepExecution' {} a -> s {stepName = a} :: StepExecution)
+
+-- | If a step has finished execution, this contains the time the execution
+-- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
+stepExecution_executionEndTime :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.UTCTime)
+stepExecution_executionEndTime = Lens.lens (\StepExecution' {executionEndTime} -> executionEndTime) (\s@StepExecution' {} a -> s {executionEndTime = a} :: StepExecution) Prelude.. Lens.mapping Core._Time
 
 -- | If a step failed, this message explains why the execution failed.
 stepExecution_failureMessage :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
@@ -194,52 +208,6 @@ stepExecution_failureMessage = Lens.lens (\StepExecution' {failureMessage} -> fa
 -- | A message associated with the response code for an execution.
 stepExecution_response :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
 stepExecution_response = Lens.lens (\StepExecution' {response} -> response) (\s@StepExecution' {} a -> s {response = a} :: StepExecution)
-
--- | If a step has finished execution, this contains the time the execution
--- ended. If the step hasn\'t yet concluded, this field isn\'t populated.
-stepExecution_executionEndTime :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.UTCTime)
-stepExecution_executionEndTime = Lens.lens (\StepExecution' {executionEndTime} -> executionEndTime) (\s@StepExecution' {} a -> s {executionEndTime = a} :: StepExecution) Prelude.. Lens.mapping Core._Time
-
--- | The next step after the step succeeds.
-stepExecution_nextStep :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
-stepExecution_nextStep = Lens.lens (\StepExecution' {nextStep} -> nextStep) (\s@StepExecution' {} a -> s {nextStep = a} :: StepExecution)
-
--- | The flag which can be used to end automation no matter whether the step
--- succeeds or fails.
-stepExecution_isEnd :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Bool)
-stepExecution_isEnd = Lens.lens (\StepExecution' {isEnd} -> isEnd) (\s@StepExecution' {} a -> s {isEnd = a} :: StepExecution)
-
--- | The maximum number of tries to run the action of the step. The default
--- value is @1@.
-stepExecution_maxAttempts :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Int)
-stepExecution_maxAttempts = Lens.lens (\StepExecution' {maxAttempts} -> maxAttempts) (\s@StepExecution' {} a -> s {maxAttempts = a} :: StepExecution)
-
--- | Information about the Automation failure.
-stepExecution_failureDetails :: Lens.Lens' StepExecution (Prelude.Maybe FailureDetails)
-stepExecution_failureDetails = Lens.lens (\StepExecution' {failureDetails} -> failureDetails) (\s@StepExecution' {} a -> s {failureDetails = a} :: StepExecution)
-
--- | The targets for the step execution.
-stepExecution_targets :: Lens.Lens' StepExecution (Prelude.Maybe [Target])
-stepExecution_targets = Lens.lens (\StepExecution' {targets} -> targets) (\s@StepExecution' {} a -> s {targets = a} :: StepExecution) Prelude.. Lens.mapping Lens._Coerce
-
--- | If a step has begun execution, this contains the time the step started.
--- If the step is in Pending status, this field isn\'t populated.
-stepExecution_executionStartTime :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.UTCTime)
-stepExecution_executionStartTime = Lens.lens (\StepExecution' {executionStartTime} -> executionStartTime) (\s@StepExecution' {} a -> s {executionStartTime = a} :: StepExecution) Prelude.. Lens.mapping Core._Time
-
--- | The combination of Amazon Web Services Regions and Amazon Web Services
--- accounts targeted by the current Automation execution.
-stepExecution_targetLocation :: Lens.Lens' StepExecution (Prelude.Maybe TargetLocation)
-stepExecution_targetLocation = Lens.lens (\StepExecution' {targetLocation} -> targetLocation) (\s@StepExecution' {} a -> s {targetLocation = a} :: StepExecution)
-
--- | A user-specified list of parameters to override when running a step.
-stepExecution_overriddenParameters :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-stepExecution_overriddenParameters = Lens.lens (\StepExecution' {overriddenParameters} -> overriddenParameters) (\s@StepExecution' {} a -> s {overriddenParameters = a} :: StepExecution) Prelude.. Lens.mapping Lens._Coerce
-
--- | The flag which can be used to help decide whether the failure of current
--- step leads to the Automation failure.
-stepExecution_isCritical :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Bool)
-stepExecution_isCritical = Lens.lens (\StepExecution' {isCritical} -> isCritical) (\s@StepExecution' {} a -> s {isCritical = a} :: StepExecution)
 
 -- | The action this step performs. The action determines the behavior of the
 -- step.
@@ -254,9 +222,40 @@ stepExecution_responseCode = Lens.lens (\StepExecution' {responseCode} -> respon
 stepExecution_stepStatus :: Lens.Lens' StepExecution (Prelude.Maybe AutomationExecutionStatus)
 stepExecution_stepStatus = Lens.lens (\StepExecution' {stepStatus} -> stepStatus) (\s@StepExecution' {} a -> s {stepStatus = a} :: StepExecution)
 
--- | The timeout seconds of the step.
-stepExecution_timeoutSeconds :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Integer)
-stepExecution_timeoutSeconds = Lens.lens (\StepExecution' {timeoutSeconds} -> timeoutSeconds) (\s@StepExecution' {} a -> s {timeoutSeconds = a} :: StepExecution)
+-- | The combination of Amazon Web Services Regions and Amazon Web Services
+-- accounts targeted by the current Automation execution.
+stepExecution_targetLocation :: Lens.Lens' StepExecution (Prelude.Maybe TargetLocation)
+stepExecution_targetLocation = Lens.lens (\StepExecution' {targetLocation} -> targetLocation) (\s@StepExecution' {} a -> s {targetLocation = a} :: StepExecution)
+
+-- | A user-specified list of parameters to override when running a step.
+stepExecution_overriddenParameters :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+stepExecution_overriddenParameters = Lens.lens (\StepExecution' {overriddenParameters} -> overriddenParameters) (\s@StepExecution' {} a -> s {overriddenParameters = a} :: StepExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returned values from the execution of the step.
+stepExecution_outputs :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+stepExecution_outputs = Lens.lens (\StepExecution' {outputs} -> outputs) (\s@StepExecution' {} a -> s {outputs = a} :: StepExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | If a step has begun execution, this contains the time the step started.
+-- If the step is in Pending status, this field isn\'t populated.
+stepExecution_executionStartTime :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.UTCTime)
+stepExecution_executionStartTime = Lens.lens (\StepExecution' {executionStartTime} -> executionStartTime) (\s@StepExecution' {} a -> s {executionStartTime = a} :: StepExecution) Prelude.. Lens.mapping Core._Time
+
+-- | The maximum number of tries to run the action of the step. The default
+-- value is @1@.
+stepExecution_maxAttempts :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Int)
+stepExecution_maxAttempts = Lens.lens (\StepExecution' {maxAttempts} -> maxAttempts) (\s@StepExecution' {} a -> s {maxAttempts = a} :: StepExecution)
+
+-- | The targets for the step execution.
+stepExecution_targets :: Lens.Lens' StepExecution (Prelude.Maybe [Target])
+stepExecution_targets = Lens.lens (\StepExecution' {targets} -> targets) (\s@StepExecution' {} a -> s {targets = a} :: StepExecution) Prelude.. Lens.mapping Lens.coerced
+
+-- | The next step after the step succeeds.
+stepExecution_nextStep :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
+stepExecution_nextStep = Lens.lens (\StepExecution' {nextStep} -> nextStep) (\s@StepExecution' {} a -> s {nextStep = a} :: StepExecution)
+
+-- | The unique ID of a step execution.
+stepExecution_stepExecutionId :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
+stepExecution_stepExecutionId = Lens.lens (\StepExecution' {stepExecutionId} -> stepExecutionId) (\s@StepExecution' {} a -> s {stepExecutionId = a} :: StepExecution)
 
 -- | Strategies used when step fails, we support Continue and Abort. Abort
 -- will fail the automation when the step fails. Continue will ignore the
@@ -264,19 +263,20 @@ stepExecution_timeoutSeconds = Lens.lens (\StepExecution' {timeoutSeconds} -> ti
 -- conditional branching, we add step:stepName to support the automation to
 -- go to another specific step.
 stepExecution_validNextSteps :: Lens.Lens' StepExecution (Prelude.Maybe [Prelude.Text])
-stepExecution_validNextSteps = Lens.lens (\StepExecution' {validNextSteps} -> validNextSteps) (\s@StepExecution' {} a -> s {validNextSteps = a} :: StepExecution) Prelude.. Lens.mapping Lens._Coerce
+stepExecution_validNextSteps = Lens.lens (\StepExecution' {validNextSteps} -> validNextSteps) (\s@StepExecution' {} a -> s {validNextSteps = a} :: StepExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | The unique ID of a step execution.
-stepExecution_stepExecutionId :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
-stepExecution_stepExecutionId = Lens.lens (\StepExecution' {stepExecutionId} -> stepExecutionId) (\s@StepExecution' {} a -> s {stepExecutionId = a} :: StepExecution)
+-- | The timeout seconds of the step.
+stepExecution_timeoutSeconds :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Integer)
+stepExecution_timeoutSeconds = Lens.lens (\StepExecution' {timeoutSeconds} -> timeoutSeconds) (\s@StepExecution' {} a -> s {timeoutSeconds = a} :: StepExecution)
 
--- | The name of this execution step.
-stepExecution_stepName :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
-stepExecution_stepName = Lens.lens (\StepExecution' {stepName} -> stepName) (\s@StepExecution' {} a -> s {stepName = a} :: StepExecution)
+-- | The action to take if the step fails. The default value is @Abort@.
+stepExecution_onFailure :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Text)
+stepExecution_onFailure = Lens.lens (\StepExecution' {onFailure} -> onFailure) (\s@StepExecution' {} a -> s {onFailure = a} :: StepExecution)
 
--- | Fully-resolved values passed into the step before execution.
-stepExecution_inputs :: Lens.Lens' StepExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-stepExecution_inputs = Lens.lens (\StepExecution' {inputs} -> inputs) (\s@StepExecution' {} a -> s {inputs = a} :: StepExecution) Prelude.. Lens.mapping Lens._Coerce
+-- | The flag which can be used to help decide whether the failure of current
+-- step leads to the Automation failure.
+stepExecution_isCritical :: Lens.Lens' StepExecution (Prelude.Maybe Prelude.Bool)
+stepExecution_isCritical = Lens.lens (\StepExecution' {isCritical} -> isCritical) (\s@StepExecution' {} a -> s {isCritical = a} :: StepExecution)
 
 instance Core.FromJSON StepExecution where
   parseJSON =
@@ -284,30 +284,30 @@ instance Core.FromJSON StepExecution where
       "StepExecution"
       ( \x ->
           StepExecution'
-            Prelude.<$> (x Core..:? "Outputs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OnFailure")
+            Prelude.<$> (x Core..:? "FailureDetails")
+            Prelude.<*> (x Core..:? "IsEnd")
+            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "StepName")
+            Prelude.<*> (x Core..:? "ExecutionEndTime")
             Prelude.<*> (x Core..:? "FailureMessage")
             Prelude.<*> (x Core..:? "Response")
-            Prelude.<*> (x Core..:? "ExecutionEndTime")
-            Prelude.<*> (x Core..:? "NextStep")
-            Prelude.<*> (x Core..:? "IsEnd")
-            Prelude.<*> (x Core..:? "MaxAttempts")
-            Prelude.<*> (x Core..:? "FailureDetails")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ExecutionStartTime")
+            Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "ResponseCode")
+            Prelude.<*> (x Core..:? "StepStatus")
             Prelude.<*> (x Core..:? "TargetLocation")
             Prelude.<*> ( x Core..:? "OverriddenParameters"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IsCritical")
-            Prelude.<*> (x Core..:? "Action")
-            Prelude.<*> (x Core..:? "ResponseCode")
-            Prelude.<*> (x Core..:? "StepStatus")
-            Prelude.<*> (x Core..:? "TimeoutSeconds")
-            Prelude.<*> (x Core..:? "ValidNextSteps" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ExecutionStartTime")
+            Prelude.<*> (x Core..:? "MaxAttempts")
+            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NextStep")
             Prelude.<*> (x Core..:? "StepExecutionId")
-            Prelude.<*> (x Core..:? "StepName")
-            Prelude.<*> (x Core..:? "Inputs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ValidNextSteps" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TimeoutSeconds")
+            Prelude.<*> (x Core..:? "OnFailure")
+            Prelude.<*> (x Core..:? "IsCritical")
       )
 
 instance Prelude.Hashable StepExecution

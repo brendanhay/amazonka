@@ -46,8 +46,8 @@ module Network.AWS.WAF.ListByteMatchSets
     newListByteMatchSetsResponse,
 
     -- * Response Lenses
-    listByteMatchSetsResponse_nextMarker,
     listByteMatchSetsResponse_byteMatchSets,
+    listByteMatchSetsResponse_nextMarker,
     listByteMatchSetsResponse_httpStatus,
   )
 where
@@ -150,8 +150,8 @@ instance Core.AWSRequest ListByteMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListByteMatchSetsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "ByteMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ByteMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,14 +191,14 @@ instance Core.ToQuery ListByteMatchSets where
 
 -- | /See:/ 'newListByteMatchSetsResponse' smart constructor.
 data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
-  { -- | If you have more @ByteMatchSet@ objects than the number that you
+  { -- | An array of ByteMatchSetSummary objects.
+    byteMatchSets :: Prelude.Maybe [ByteMatchSetSummary],
+    -- | If you have more @ByteMatchSet@ objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another
     -- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the
     -- response in the @NextMarker@ value in the next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | An array of ByteMatchSetSummary objects.
-    byteMatchSets :: Prelude.Maybe [ByteMatchSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,13 +212,13 @@ data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'byteMatchSets', 'listByteMatchSetsResponse_byteMatchSets' - An array of ByteMatchSetSummary objects.
+--
 -- 'nextMarker', 'listByteMatchSetsResponse_nextMarker' - If you have more @ByteMatchSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another
 -- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the
 -- response in the @NextMarker@ value in the next request.
---
--- 'byteMatchSets', 'listByteMatchSetsResponse_byteMatchSets' - An array of ByteMatchSetSummary objects.
 --
 -- 'httpStatus', 'listByteMatchSetsResponse_httpStatus' - The response's http status code.
 newListByteMatchSetsResponse ::
@@ -227,11 +227,15 @@ newListByteMatchSetsResponse ::
   ListByteMatchSetsResponse
 newListByteMatchSetsResponse pHttpStatus_ =
   ListByteMatchSetsResponse'
-    { nextMarker =
+    { byteMatchSets =
         Prelude.Nothing,
-      byteMatchSets = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of ByteMatchSetSummary objects.
+listByteMatchSetsResponse_byteMatchSets :: Lens.Lens' ListByteMatchSetsResponse (Prelude.Maybe [ByteMatchSetSummary])
+listByteMatchSetsResponse_byteMatchSets = Lens.lens (\ListByteMatchSetsResponse' {byteMatchSets} -> byteMatchSets) (\s@ListByteMatchSetsResponse' {} a -> s {byteMatchSets = a} :: ListByteMatchSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @ByteMatchSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
@@ -240,10 +244,6 @@ newListByteMatchSetsResponse pHttpStatus_ =
 -- response in the @NextMarker@ value in the next request.
 listByteMatchSetsResponse_nextMarker :: Lens.Lens' ListByteMatchSetsResponse (Prelude.Maybe Prelude.Text)
 listByteMatchSetsResponse_nextMarker = Lens.lens (\ListByteMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListByteMatchSetsResponse' {} a -> s {nextMarker = a} :: ListByteMatchSetsResponse)
-
--- | An array of ByteMatchSetSummary objects.
-listByteMatchSetsResponse_byteMatchSets :: Lens.Lens' ListByteMatchSetsResponse (Prelude.Maybe [ByteMatchSetSummary])
-listByteMatchSetsResponse_byteMatchSets = Lens.lens (\ListByteMatchSetsResponse' {byteMatchSets} -> byteMatchSets) (\s@ListByteMatchSetsResponse' {} a -> s {byteMatchSets = a} :: ListByteMatchSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listByteMatchSetsResponse_httpStatus :: Lens.Lens' ListByteMatchSetsResponse Prelude.Int

@@ -36,8 +36,8 @@ module Network.AWS.IoTAnalytics.GetDatasetContent
 
     -- * Response Lenses
     getDatasetContentResponse_status,
-    getDatasetContentResponse_timestamp,
     getDatasetContentResponse_entries,
+    getDatasetContentResponse_timestamp,
     getDatasetContentResponse_httpStatus,
   )
 where
@@ -106,8 +106,8 @@ instance Core.AWSRequest GetDatasetContent where
       ( \s h x ->
           GetDatasetContentResponse'
             Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "timestamp")
             Prelude.<*> (x Core..?> "entries" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "timestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,10 +131,10 @@ instance Core.ToQuery GetDatasetContent where
 data GetDatasetContentResponse = GetDatasetContentResponse'
   { -- | The status of the dataset content.
     status :: Prelude.Maybe DatasetContentStatus,
-    -- | The time when the request was made.
-    timestamp :: Prelude.Maybe Core.POSIX,
     -- | A list of @DatasetEntry@ objects.
     entries :: Prelude.Maybe [DatasetEntry],
+    -- | The time when the request was made.
+    timestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,9 +150,9 @@ data GetDatasetContentResponse = GetDatasetContentResponse'
 --
 -- 'status', 'getDatasetContentResponse_status' - The status of the dataset content.
 --
--- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.
---
 -- 'entries', 'getDatasetContentResponse_entries' - A list of @DatasetEntry@ objects.
+--
+-- 'timestamp', 'getDatasetContentResponse_timestamp' - The time when the request was made.
 --
 -- 'httpStatus', 'getDatasetContentResponse_httpStatus' - The response's http status code.
 newGetDatasetContentResponse ::
@@ -163,8 +163,8 @@ newGetDatasetContentResponse pHttpStatus_ =
   GetDatasetContentResponse'
     { status =
         Prelude.Nothing,
-      timestamp = Prelude.Nothing,
       entries = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -172,13 +172,13 @@ newGetDatasetContentResponse pHttpStatus_ =
 getDatasetContentResponse_status :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe DatasetContentStatus)
 getDatasetContentResponse_status = Lens.lens (\GetDatasetContentResponse' {status} -> status) (\s@GetDatasetContentResponse' {} a -> s {status = a} :: GetDatasetContentResponse)
 
+-- | A list of @DatasetEntry@ objects.
+getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe [DatasetEntry])
+getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The time when the request was made.
 getDatasetContentResponse_timestamp :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe Prelude.UTCTime)
 getDatasetContentResponse_timestamp = Lens.lens (\GetDatasetContentResponse' {timestamp} -> timestamp) (\s@GetDatasetContentResponse' {} a -> s {timestamp = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Core._Time
-
--- | A list of @DatasetEntry@ objects.
-getDatasetContentResponse_entries :: Lens.Lens' GetDatasetContentResponse (Prelude.Maybe [DatasetEntry])
-getDatasetContentResponse_entries = Lens.lens (\GetDatasetContentResponse' {entries} -> entries) (\s@GetDatasetContentResponse' {} a -> s {entries = a} :: GetDatasetContentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getDatasetContentResponse_httpStatus :: Lens.Lens' GetDatasetContentResponse Prelude.Int

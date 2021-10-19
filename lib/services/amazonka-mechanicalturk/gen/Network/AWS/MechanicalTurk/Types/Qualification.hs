@@ -32,6 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Qualification = Qualification'
   { -- | The status of the Qualification. Valid values are Granted | Revoked.
     status :: Prelude.Maybe QualificationStatus,
+    -- | The value (score) of the Qualification, if the Qualification has an
+    -- integer value.
+    integerValue :: Prelude.Maybe Prelude.Int,
+    localeValue :: Prelude.Maybe Locale,
     -- | The ID of the Qualification type for the Qualification.
     qualificationTypeId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Qualification was granted to the Worker. If the
@@ -39,12 +43,8 @@ data Qualification = Qualification'
     -- Qualification request, GrantTime is the date and time of the last call
     -- to the AcceptQualificationRequest operation.
     grantTime :: Prelude.Maybe Core.POSIX,
-    localeValue :: Prelude.Maybe Locale,
     -- | The ID of the Worker who possesses the Qualification.
-    workerId :: Prelude.Maybe Prelude.Text,
-    -- | The value (score) of the Qualification, if the Qualification has an
-    -- integer value.
-    integerValue :: Prelude.Maybe Prelude.Int
+    workerId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,11 @@ data Qualification = Qualification'
 --
 -- 'status', 'qualification_status' - The status of the Qualification. Valid values are Granted | Revoked.
 --
+-- 'integerValue', 'qualification_integerValue' - The value (score) of the Qualification, if the Qualification has an
+-- integer value.
+--
+-- 'localeValue', 'qualification_localeValue' - Undocumented member.
+--
 -- 'qualificationTypeId', 'qualification_qualificationTypeId' - The ID of the Qualification type for the Qualification.
 --
 -- 'grantTime', 'qualification_grantTime' - The date and time the Qualification was granted to the Worker. If the
@@ -65,27 +70,31 @@ data Qualification = Qualification'
 -- Qualification request, GrantTime is the date and time of the last call
 -- to the AcceptQualificationRequest operation.
 --
--- 'localeValue', 'qualification_localeValue' - Undocumented member.
---
 -- 'workerId', 'qualification_workerId' - The ID of the Worker who possesses the Qualification.
---
--- 'integerValue', 'qualification_integerValue' - The value (score) of the Qualification, if the Qualification has an
--- integer value.
 newQualification ::
   Qualification
 newQualification =
   Qualification'
     { status = Prelude.Nothing,
+      integerValue = Prelude.Nothing,
+      localeValue = Prelude.Nothing,
       qualificationTypeId = Prelude.Nothing,
       grantTime = Prelude.Nothing,
-      localeValue = Prelude.Nothing,
-      workerId = Prelude.Nothing,
-      integerValue = Prelude.Nothing
+      workerId = Prelude.Nothing
     }
 
 -- | The status of the Qualification. Valid values are Granted | Revoked.
 qualification_status :: Lens.Lens' Qualification (Prelude.Maybe QualificationStatus)
 qualification_status = Lens.lens (\Qualification' {status} -> status) (\s@Qualification' {} a -> s {status = a} :: Qualification)
+
+-- | The value (score) of the Qualification, if the Qualification has an
+-- integer value.
+qualification_integerValue :: Lens.Lens' Qualification (Prelude.Maybe Prelude.Int)
+qualification_integerValue = Lens.lens (\Qualification' {integerValue} -> integerValue) (\s@Qualification' {} a -> s {integerValue = a} :: Qualification)
+
+-- | Undocumented member.
+qualification_localeValue :: Lens.Lens' Qualification (Prelude.Maybe Locale)
+qualification_localeValue = Lens.lens (\Qualification' {localeValue} -> localeValue) (\s@Qualification' {} a -> s {localeValue = a} :: Qualification)
 
 -- | The ID of the Qualification type for the Qualification.
 qualification_qualificationTypeId :: Lens.Lens' Qualification (Prelude.Maybe Prelude.Text)
@@ -98,18 +107,9 @@ qualification_qualificationTypeId = Lens.lens (\Qualification' {qualificationTyp
 qualification_grantTime :: Lens.Lens' Qualification (Prelude.Maybe Prelude.UTCTime)
 qualification_grantTime = Lens.lens (\Qualification' {grantTime} -> grantTime) (\s@Qualification' {} a -> s {grantTime = a} :: Qualification) Prelude.. Lens.mapping Core._Time
 
--- | Undocumented member.
-qualification_localeValue :: Lens.Lens' Qualification (Prelude.Maybe Locale)
-qualification_localeValue = Lens.lens (\Qualification' {localeValue} -> localeValue) (\s@Qualification' {} a -> s {localeValue = a} :: Qualification)
-
 -- | The ID of the Worker who possesses the Qualification.
 qualification_workerId :: Lens.Lens' Qualification (Prelude.Maybe Prelude.Text)
 qualification_workerId = Lens.lens (\Qualification' {workerId} -> workerId) (\s@Qualification' {} a -> s {workerId = a} :: Qualification)
-
--- | The value (score) of the Qualification, if the Qualification has an
--- integer value.
-qualification_integerValue :: Lens.Lens' Qualification (Prelude.Maybe Prelude.Int)
-qualification_integerValue = Lens.lens (\Qualification' {integerValue} -> integerValue) (\s@Qualification' {} a -> s {integerValue = a} :: Qualification)
 
 instance Core.FromJSON Qualification where
   parseJSON =
@@ -118,11 +118,11 @@ instance Core.FromJSON Qualification where
       ( \x ->
           Qualification'
             Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "IntegerValue")
+            Prelude.<*> (x Core..:? "LocaleValue")
             Prelude.<*> (x Core..:? "QualificationTypeId")
             Prelude.<*> (x Core..:? "GrantTime")
-            Prelude.<*> (x Core..:? "LocaleValue")
             Prelude.<*> (x Core..:? "WorkerId")
-            Prelude.<*> (x Core..:? "IntegerValue")
       )
 
 instance Prelude.Hashable Qualification

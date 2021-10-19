@@ -480,7 +480,7 @@ getDistributionMetricData_unit = Lens.lens (\GetDistributionMetricData' {unit} -
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getDistributionMetricData_statistics :: Lens.Lens' GetDistributionMetricData [MetricStatistic]
-getDistributionMetricData_statistics = Lens.lens (\GetDistributionMetricData' {statistics} -> statistics) (\s@GetDistributionMetricData' {} a -> s {statistics = a} :: GetDistributionMetricData) Prelude.. Lens._Coerce
+getDistributionMetricData_statistics = Lens.lens (\GetDistributionMetricData' {statistics} -> statistics) (\s@GetDistributionMetricData' {} a -> s {statistics = a} :: GetDistributionMetricData) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetDistributionMetricData where
   type
@@ -578,7 +578,7 @@ getDistributionMetricDataResponse_metricName = Lens.lens (\GetDistributionMetric
 
 -- | An array of objects that describe the metric data returned.
 getDistributionMetricDataResponse_metricData :: Lens.Lens' GetDistributionMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getDistributionMetricDataResponse_metricData = Lens.lens (\GetDistributionMetricDataResponse' {metricData} -> metricData) (\s@GetDistributionMetricDataResponse' {} a -> s {metricData = a} :: GetDistributionMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getDistributionMetricDataResponse_metricData = Lens.lens (\GetDistributionMetricDataResponse' {metricData} -> metricData) (\s@GetDistributionMetricDataResponse' {} a -> s {metricData = a} :: GetDistributionMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDistributionMetricDataResponse_httpStatus :: Lens.Lens' GetDistributionMetricDataResponse Prelude.Int

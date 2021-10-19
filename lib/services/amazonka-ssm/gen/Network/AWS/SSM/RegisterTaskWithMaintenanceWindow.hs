@@ -27,18 +27,18 @@ module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
     newRegisterTaskWithMaintenanceWindow,
 
     -- * Request Lenses
-    registerTaskWithMaintenanceWindow_maxErrors,
-    registerTaskWithMaintenanceWindow_taskParameters,
     registerTaskWithMaintenanceWindow_serviceRoleArn,
-    registerTaskWithMaintenanceWindow_cutoffBehavior,
-    registerTaskWithMaintenanceWindow_targets,
+    registerTaskWithMaintenanceWindow_taskParameters,
     registerTaskWithMaintenanceWindow_priority,
-    registerTaskWithMaintenanceWindow_name,
-    registerTaskWithMaintenanceWindow_taskInvocationParameters,
-    registerTaskWithMaintenanceWindow_maxConcurrency,
-    registerTaskWithMaintenanceWindow_description,
-    registerTaskWithMaintenanceWindow_loggingInfo,
     registerTaskWithMaintenanceWindow_clientToken,
+    registerTaskWithMaintenanceWindow_cutoffBehavior,
+    registerTaskWithMaintenanceWindow_maxErrors,
+    registerTaskWithMaintenanceWindow_taskInvocationParameters,
+    registerTaskWithMaintenanceWindow_name,
+    registerTaskWithMaintenanceWindow_targets,
+    registerTaskWithMaintenanceWindow_loggingInfo,
+    registerTaskWithMaintenanceWindow_description,
+    registerTaskWithMaintenanceWindow_maxConcurrency,
     registerTaskWithMaintenanceWindow_windowId,
     registerTaskWithMaintenanceWindow_taskArn,
     registerTaskWithMaintenanceWindow_taskType,
@@ -62,23 +62,7 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newRegisterTaskWithMaintenanceWindow' smart constructor.
 data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
-  { -- | The maximum number of errors allowed before this task stops being
-    -- scheduled.
-    --
-    -- For maintenance window tasks without a target specified, you can\'t
-    -- supply a value for this option. Instead, the system inserts a
-    -- placeholder value of @1@. This value doesn\'t affect the running of your
-    -- task.
-    maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | The parameters that should be passed to the task when it is run.
-    --
-    -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
-    -- task when it runs, instead use the @Parameters@ option in the
-    -- @TaskInvocationParameters@ structure. For information about how Systems
-    -- Manager handles these options for the supported maintenance window task
-    -- types, see MaintenanceWindowTaskInvocationParameters.
-    taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
-    -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
+  { -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
     -- Services Systems Manager to assume when running a maintenance window
     -- task. If you do not specify a service role ARN, Systems Manager uses
     -- your account\'s service-linked role. If no service-linked role for
@@ -92,6 +76,21 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     --
     -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The parameters that should be passed to the task when it is run.
+    --
+    -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+    -- task when it runs, instead use the @Parameters@ option in the
+    -- @TaskInvocationParameters@ structure. For information about how Systems
+    -- Manager handles these options for the supported maintenance window task
+    -- types, see MaintenanceWindowTaskInvocationParameters.
+    taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
+    -- | The priority of the task in the maintenance window, the lower the number
+    -- the higher the priority. Tasks in a maintenance window are scheduled in
+    -- priority order with tasks that have the same priority scheduled in
+    -- parallel.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | User-provided idempotency token.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether tasks should continue to run after the cutoff time
     -- specified in the maintenance windows is reached.
     --
@@ -112,6 +111,19 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     --
     --     The status for tasks that are not completed is @TIMED_OUT@.
     cutoffBehavior :: Prelude.Maybe MaintenanceWindowTaskCutoffBehavior,
+    -- | The maximum number of errors allowed before this task stops being
+    -- scheduled.
+    --
+    -- For maintenance window tasks without a target specified, you can\'t
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@. This value doesn\'t affect the running of your
+    -- task.
+    maxErrors :: Prelude.Maybe Prelude.Text,
+    -- | The parameters that the task should use during execution. Populate only
+    -- the fields that match the task type. All other fields should be empty.
+    taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
+    -- | An optional name for the task.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The targets (either instances or maintenance window targets).
     --
     -- One or more targets must be specified for maintenance window Run
@@ -130,25 +142,6 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     --
     -- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
     targets :: Prelude.Maybe [Target],
-    -- | The priority of the task in the maintenance window, the lower the number
-    -- the higher the priority. Tasks in a maintenance window are scheduled in
-    -- priority order with tasks that have the same priority scheduled in
-    -- parallel.
-    priority :: Prelude.Maybe Prelude.Natural,
-    -- | An optional name for the task.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The parameters that the task should use during execution. Populate only
-    -- the fields that match the task type. All other fields should be empty.
-    taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
-    -- | The maximum number of targets this task can be run for in parallel.
-    --
-    -- For maintenance window tasks without a target specified, you can\'t
-    -- supply a value for this option. Instead, the system inserts a
-    -- placeholder value of @1@. This value doesn\'t affect the running of your
-    -- task.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | An optional description for the task.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A structure containing information about an Amazon Simple Storage
     -- Service (Amazon S3) bucket to write instance-level logs to.
     --
@@ -160,8 +153,15 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
     loggingInfo :: Prelude.Maybe LoggingInfo,
-    -- | User-provided idempotency token.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional description for the task.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The maximum number of targets this task can be run for in parallel.
+    --
+    -- For maintenance window tasks without a target specified, you can\'t
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@. This value doesn\'t affect the running of your
+    -- task.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window the task should be added to.
     windowId :: Prelude.Text,
     -- | The ARN of the task to run.
@@ -179,22 +179,6 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxErrors', 'registerTaskWithMaintenanceWindow_maxErrors' - The maximum number of errors allowed before this task stops being
--- scheduled.
---
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value doesn\'t affect the running of your
--- task.
---
--- 'taskParameters', 'registerTaskWithMaintenanceWindow_taskParameters' - The parameters that should be passed to the task when it is run.
---
--- @TaskParameters@ has been deprecated. To specify parameters to pass to a
--- task when it runs, instead use the @Parameters@ option in the
--- @TaskInvocationParameters@ structure. For information about how Systems
--- Manager handles these options for the supported maintenance window task
--- types, see MaintenanceWindowTaskInvocationParameters.
---
 -- 'serviceRoleArn', 'registerTaskWithMaintenanceWindow_serviceRoleArn' - The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
 -- Services Systems Manager to assume when running a maintenance window
 -- task. If you do not specify a service role ARN, Systems Manager uses
@@ -208,6 +192,21 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
 --
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+--
+-- 'taskParameters', 'registerTaskWithMaintenanceWindow_taskParameters' - The parameters that should be passed to the task when it is run.
+--
+-- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+-- task when it runs, instead use the @Parameters@ option in the
+-- @TaskInvocationParameters@ structure. For information about how Systems
+-- Manager handles these options for the supported maintenance window task
+-- types, see MaintenanceWindowTaskInvocationParameters.
+--
+-- 'priority', 'registerTaskWithMaintenanceWindow_priority' - The priority of the task in the maintenance window, the lower the number
+-- the higher the priority. Tasks in a maintenance window are scheduled in
+-- priority order with tasks that have the same priority scheduled in
+-- parallel.
+--
+-- 'clientToken', 'registerTaskWithMaintenanceWindow_clientToken' - User-provided idempotency token.
 --
 -- 'cutoffBehavior', 'registerTaskWithMaintenanceWindow_cutoffBehavior' - Indicates whether tasks should continue to run after the cutoff time
 -- specified in the maintenance windows is reached.
@@ -229,6 +228,19 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 --     The status for tasks that are not completed is @TIMED_OUT@.
 --
+-- 'maxErrors', 'registerTaskWithMaintenanceWindow_maxErrors' - The maximum number of errors allowed before this task stops being
+-- scheduled.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
+--
+-- 'taskInvocationParameters', 'registerTaskWithMaintenanceWindow_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
+-- the fields that match the task type. All other fields should be empty.
+--
+-- 'name', 'registerTaskWithMaintenanceWindow_name' - An optional name for the task.
+--
 -- 'targets', 'registerTaskWithMaintenanceWindow_targets' - The targets (either instances or maintenance window targets).
 --
 -- One or more targets must be specified for maintenance window Run
@@ -247,25 +259,6 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 -- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
 --
--- 'priority', 'registerTaskWithMaintenanceWindow_priority' - The priority of the task in the maintenance window, the lower the number
--- the higher the priority. Tasks in a maintenance window are scheduled in
--- priority order with tasks that have the same priority scheduled in
--- parallel.
---
--- 'name', 'registerTaskWithMaintenanceWindow_name' - An optional name for the task.
---
--- 'taskInvocationParameters', 'registerTaskWithMaintenanceWindow_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
--- the fields that match the task type. All other fields should be empty.
---
--- 'maxConcurrency', 'registerTaskWithMaintenanceWindow_maxConcurrency' - The maximum number of targets this task can be run for in parallel.
---
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value doesn\'t affect the running of your
--- task.
---
--- 'description', 'registerTaskWithMaintenanceWindow_description' - An optional description for the task.
---
 -- 'loggingInfo', 'registerTaskWithMaintenanceWindow_loggingInfo' - A structure containing information about an Amazon Simple Storage
 -- Service (Amazon S3) bucket to write instance-level logs to.
 --
@@ -277,7 +270,14 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
--- 'clientToken', 'registerTaskWithMaintenanceWindow_clientToken' - User-provided idempotency token.
+-- 'description', 'registerTaskWithMaintenanceWindow_description' - An optional description for the task.
+--
+-- 'maxConcurrency', 'registerTaskWithMaintenanceWindow_maxConcurrency' - The maximum number of targets this task can be run for in parallel.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
 --
 -- 'windowId', 'registerTaskWithMaintenanceWindow_windowId' - The ID of the maintenance window the task should be added to.
 --
@@ -297,44 +297,24 @@ newRegisterTaskWithMaintenanceWindow
   pTaskArn_
   pTaskType_ =
     RegisterTaskWithMaintenanceWindow'
-      { maxErrors =
+      { serviceRoleArn =
           Prelude.Nothing,
         taskParameters = Prelude.Nothing,
-        serviceRoleArn = Prelude.Nothing,
-        cutoffBehavior = Prelude.Nothing,
-        targets = Prelude.Nothing,
         priority = Prelude.Nothing,
-        name = Prelude.Nothing,
+        clientToken = Prelude.Nothing,
+        cutoffBehavior = Prelude.Nothing,
+        maxErrors = Prelude.Nothing,
         taskInvocationParameters =
           Prelude.Nothing,
-        maxConcurrency = Prelude.Nothing,
-        description = Prelude.Nothing,
+        name = Prelude.Nothing,
+        targets = Prelude.Nothing,
         loggingInfo = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        description = Prelude.Nothing,
+        maxConcurrency = Prelude.Nothing,
         windowId = pWindowId_,
         taskArn = pTaskArn_,
         taskType = pTaskType_
       }
-
--- | The maximum number of errors allowed before this task stops being
--- scheduled.
---
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value doesn\'t affect the running of your
--- task.
-registerTaskWithMaintenanceWindow_maxErrors :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTaskWithMaintenanceWindow_maxErrors = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxErrors} -> maxErrors) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxErrors = a} :: RegisterTaskWithMaintenanceWindow)
-
--- | The parameters that should be passed to the task when it is run.
---
--- @TaskParameters@ has been deprecated. To specify parameters to pass to a
--- task when it runs, instead use the @Parameters@ option in the
--- @TaskInvocationParameters@ structure. For information about how Systems
--- Manager handles these options for the supported maintenance window task
--- types, see MaintenanceWindowTaskInvocationParameters.
-registerTaskWithMaintenanceWindow_taskParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-registerTaskWithMaintenanceWindow_taskParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskParameters} -> taskParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskParameters = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
 -- Services Systems Manager to assume when running a maintenance window
@@ -351,6 +331,27 @@ registerTaskWithMaintenanceWindow_taskParameters = Lens.lens (\RegisterTaskWithM
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
 registerTaskWithMaintenanceWindow_serviceRoleArn :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_serviceRoleArn = Lens.lens (\RegisterTaskWithMaintenanceWindow' {serviceRoleArn} -> serviceRoleArn) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {serviceRoleArn = a} :: RegisterTaskWithMaintenanceWindow)
+
+-- | The parameters that should be passed to the task when it is run.
+--
+-- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+-- task when it runs, instead use the @Parameters@ option in the
+-- @TaskInvocationParameters@ structure. For information about how Systems
+-- Manager handles these options for the supported maintenance window task
+-- types, see MaintenanceWindowTaskInvocationParameters.
+registerTaskWithMaintenanceWindow_taskParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
+registerTaskWithMaintenanceWindow_taskParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskParameters} -> taskParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskParameters = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
+-- | The priority of the task in the maintenance window, the lower the number
+-- the higher the priority. Tasks in a maintenance window are scheduled in
+-- priority order with tasks that have the same priority scheduled in
+-- parallel.
+registerTaskWithMaintenanceWindow_priority :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Natural)
+registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMaintenanceWindow' {priority} -> priority) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {priority = a} :: RegisterTaskWithMaintenanceWindow)
+
+-- | User-provided idempotency token.
+registerTaskWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTaskWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | Indicates whether tasks should continue to run after the cutoff time
 -- specified in the maintenance windows is reached.
@@ -374,6 +375,25 @@ registerTaskWithMaintenanceWindow_serviceRoleArn = Lens.lens (\RegisterTaskWithM
 registerTaskWithMaintenanceWindow_cutoffBehavior :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskCutoffBehavior)
 registerTaskWithMaintenanceWindow_cutoffBehavior = Lens.lens (\RegisterTaskWithMaintenanceWindow' {cutoffBehavior} -> cutoffBehavior) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {cutoffBehavior = a} :: RegisterTaskWithMaintenanceWindow)
 
+-- | The maximum number of errors allowed before this task stops being
+-- scheduled.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
+registerTaskWithMaintenanceWindow_maxErrors :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_maxErrors = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxErrors} -> maxErrors) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxErrors = a} :: RegisterTaskWithMaintenanceWindow)
+
+-- | The parameters that the task should use during execution. Populate only
+-- the fields that match the task type. All other fields should be empty.
+registerTaskWithMaintenanceWindow_taskInvocationParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
+registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskInvocationParameters} -> taskInvocationParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskInvocationParameters = a} :: RegisterTaskWithMaintenanceWindow)
+
+-- | An optional name for the task.
+registerTaskWithMaintenanceWindow_name :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_name = Lens.lens (\RegisterTaskWithMaintenanceWindow' {name} -> name) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTaskWithMaintenanceWindow)
+
 -- | The targets (either instances or maintenance window targets).
 --
 -- One or more targets must be specified for maintenance window Run
@@ -392,36 +412,7 @@ registerTaskWithMaintenanceWindow_cutoffBehavior = Lens.lens (\RegisterTaskWithM
 --
 -- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
 registerTaskWithMaintenanceWindow_targets :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe [Target])
-registerTaskWithMaintenanceWindow_targets = Lens.lens (\RegisterTaskWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Lens._Coerce
-
--- | The priority of the task in the maintenance window, the lower the number
--- the higher the priority. Tasks in a maintenance window are scheduled in
--- priority order with tasks that have the same priority scheduled in
--- parallel.
-registerTaskWithMaintenanceWindow_priority :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Natural)
-registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMaintenanceWindow' {priority} -> priority) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {priority = a} :: RegisterTaskWithMaintenanceWindow)
-
--- | An optional name for the task.
-registerTaskWithMaintenanceWindow_name :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTaskWithMaintenanceWindow_name = Lens.lens (\RegisterTaskWithMaintenanceWindow' {name} -> name) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTaskWithMaintenanceWindow)
-
--- | The parameters that the task should use during execution. Populate only
--- the fields that match the task type. All other fields should be empty.
-registerTaskWithMaintenanceWindow_taskInvocationParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
-registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskInvocationParameters} -> taskInvocationParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskInvocationParameters = a} :: RegisterTaskWithMaintenanceWindow)
-
--- | The maximum number of targets this task can be run for in parallel.
---
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value doesn\'t affect the running of your
--- task.
-registerTaskWithMaintenanceWindow_maxConcurrency :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTaskWithMaintenanceWindow_maxConcurrency = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxConcurrency} -> maxConcurrency) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxConcurrency = a} :: RegisterTaskWithMaintenanceWindow)
-
--- | An optional description for the task.
-registerTaskWithMaintenanceWindow_description :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMaintenanceWindow' {description} -> description) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+registerTaskWithMaintenanceWindow_targets = Lens.lens (\RegisterTaskWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Lens.coerced
 
 -- | A structure containing information about an Amazon Simple Storage
 -- Service (Amazon S3) bucket to write instance-level logs to.
@@ -436,9 +427,18 @@ registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMain
 registerTaskWithMaintenanceWindow_loggingInfo :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe LoggingInfo)
 registerTaskWithMaintenanceWindow_loggingInfo = Lens.lens (\RegisterTaskWithMaintenanceWindow' {loggingInfo} -> loggingInfo) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {loggingInfo = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | User-provided idempotency token.
-registerTaskWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTaskWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTaskWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTaskWithMaintenanceWindow)
+-- | An optional description for the task.
+registerTaskWithMaintenanceWindow_description :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMaintenanceWindow' {description} -> description) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The maximum number of targets this task can be run for in parallel.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
+registerTaskWithMaintenanceWindow_maxConcurrency :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTaskWithMaintenanceWindow_maxConcurrency = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxConcurrency} -> maxConcurrency) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxConcurrency = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | The ID of the maintenance window the task should be added to.
 registerTaskWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTaskWithMaintenanceWindow Prelude.Text
@@ -501,23 +501,23 @@ instance
   toJSON RegisterTaskWithMaintenanceWindow' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+          [ ("ServiceRoleArn" Core..=)
+              Prelude.<$> serviceRoleArn,
             ("TaskParameters" Core..=)
               Prelude.<$> taskParameters,
-            ("ServiceRoleArn" Core..=)
-              Prelude.<$> serviceRoleArn,
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("CutoffBehavior" Core..=)
               Prelude.<$> cutoffBehavior,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Name" Core..=) Prelude.<$> name,
+            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
             ("TaskInvocationParameters" Core..=)
               Prelude.<$> taskInvocationParameters,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("LoggingInfo" Core..=) Prelude.<$> loggingInfo,
+            ("Description" Core..=) Prelude.<$> description,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LoggingInfo" Core..=) Prelude.<$> loggingInfo,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("WindowId" Core..= windowId),
             Prelude.Just ("TaskArn" Core..= taskArn),
             Prelude.Just ("TaskType" Core..= taskType)

@@ -64,7 +64,7 @@ failedRemediationBatch_failureMessage = Lens.lens (\FailedRemediationBatch' {fai
 
 -- | Returns remediation configurations of the failed items.
 failedRemediationBatch_failedItems :: Lens.Lens' FailedRemediationBatch (Prelude.Maybe [RemediationConfiguration])
-failedRemediationBatch_failedItems = Lens.lens (\FailedRemediationBatch' {failedItems} -> failedItems) (\s@FailedRemediationBatch' {} a -> s {failedItems = a} :: FailedRemediationBatch) Prelude.. Lens.mapping Lens._Coerce
+failedRemediationBatch_failedItems = Lens.lens (\FailedRemediationBatch' {failedItems} -> failedItems) (\s@FailedRemediationBatch' {} a -> s {failedItems = a} :: FailedRemediationBatch) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FailedRemediationBatch where
   parseJSON =

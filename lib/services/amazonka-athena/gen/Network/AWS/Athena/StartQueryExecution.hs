@@ -35,8 +35,8 @@ module Network.AWS.Athena.StartQueryExecution
     -- * Request Lenses
     startQueryExecution_queryExecutionContext,
     startQueryExecution_resultConfiguration,
-    startQueryExecution_workGroup,
     startQueryExecution_clientRequestToken,
+    startQueryExecution_workGroup,
     startQueryExecution_queryString,
 
     -- * Destructuring the Response
@@ -68,8 +68,6 @@ data StartQueryExecution = StartQueryExecution'
     -- WorkGroupConfiguration. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     resultConfiguration :: Prelude.Maybe ResultConfiguration,
-    -- | The name of the workgroup in which the query is being started.
-    workGroup :: Prelude.Maybe Prelude.Text,
     -- | A unique case-sensitive string used to ensure the request to create the
     -- query is idempotent (executes only once). If another
     -- @StartQueryExecution@ request is received, the same response is returned
@@ -82,6 +80,8 @@ data StartQueryExecution = StartQueryExecution'
     -- Amazon Web Services CLI, you must provide this token or the action will
     -- fail.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup in which the query is being started.
+    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The SQL query statements to be executed.
     queryString :: Prelude.Text
   }
@@ -105,8 +105,6 @@ data StartQueryExecution = StartQueryExecution'
 -- WorkGroupConfiguration. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
--- 'workGroup', 'startQueryExecution_workGroup' - The name of the workgroup in which the query is being started.
---
 -- 'clientRequestToken', 'startQueryExecution_clientRequestToken' - A unique case-sensitive string used to ensure the request to create the
 -- query is idempotent (executes only once). If another
 -- @StartQueryExecution@ request is received, the same response is returned
@@ -119,6 +117,8 @@ data StartQueryExecution = StartQueryExecution'
 -- Amazon Web Services CLI, you must provide this token or the action will
 -- fail.
 --
+-- 'workGroup', 'startQueryExecution_workGroup' - The name of the workgroup in which the query is being started.
+--
 -- 'queryString', 'startQueryExecution_queryString' - The SQL query statements to be executed.
 newStartQueryExecution ::
   -- | 'queryString'
@@ -129,8 +129,8 @@ newStartQueryExecution pQueryString_ =
     { queryExecutionContext =
         Prelude.Nothing,
       resultConfiguration = Prelude.Nothing,
-      workGroup = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      workGroup = Prelude.Nothing,
       queryString = pQueryString_
     }
 
@@ -148,10 +148,6 @@ startQueryExecution_queryExecutionContext = Lens.lens (\StartQueryExecution' {qu
 startQueryExecution_resultConfiguration :: Lens.Lens' StartQueryExecution (Prelude.Maybe ResultConfiguration)
 startQueryExecution_resultConfiguration = Lens.lens (\StartQueryExecution' {resultConfiguration} -> resultConfiguration) (\s@StartQueryExecution' {} a -> s {resultConfiguration = a} :: StartQueryExecution)
 
--- | The name of the workgroup in which the query is being started.
-startQueryExecution_workGroup :: Lens.Lens' StartQueryExecution (Prelude.Maybe Prelude.Text)
-startQueryExecution_workGroup = Lens.lens (\StartQueryExecution' {workGroup} -> workGroup) (\s@StartQueryExecution' {} a -> s {workGroup = a} :: StartQueryExecution)
-
 -- | A unique case-sensitive string used to ensure the request to create the
 -- query is idempotent (executes only once). If another
 -- @StartQueryExecution@ request is received, the same response is returned
@@ -165,6 +161,10 @@ startQueryExecution_workGroup = Lens.lens (\StartQueryExecution' {workGroup} -> 
 -- fail.
 startQueryExecution_clientRequestToken :: Lens.Lens' StartQueryExecution (Prelude.Maybe Prelude.Text)
 startQueryExecution_clientRequestToken = Lens.lens (\StartQueryExecution' {clientRequestToken} -> clientRequestToken) (\s@StartQueryExecution' {} a -> s {clientRequestToken = a} :: StartQueryExecution)
+
+-- | The name of the workgroup in which the query is being started.
+startQueryExecution_workGroup :: Lens.Lens' StartQueryExecution (Prelude.Maybe Prelude.Text)
+startQueryExecution_workGroup = Lens.lens (\StartQueryExecution' {workGroup} -> workGroup) (\s@StartQueryExecution' {} a -> s {workGroup = a} :: StartQueryExecution)
 
 -- | The SQL query statements to be executed.
 startQueryExecution_queryString :: Lens.Lens' StartQueryExecution Prelude.Text
@@ -210,9 +210,9 @@ instance Core.ToJSON StartQueryExecution where
               Prelude.<$> queryExecutionContext,
             ("ResultConfiguration" Core..=)
               Prelude.<$> resultConfiguration,
-            ("WorkGroup" Core..=) Prelude.<$> workGroup,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("WorkGroup" Core..=) Prelude.<$> workGroup,
             Prelude.Just ("QueryString" Core..= queryString)
           ]
       )

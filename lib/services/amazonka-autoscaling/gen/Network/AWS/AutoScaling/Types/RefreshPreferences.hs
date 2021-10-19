@@ -27,13 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRefreshPreferences' smart constructor.
 data RefreshPreferences = RefreshPreferences'
-  { -- | The amount of time, in seconds, to wait after a checkpoint before
-    -- continuing. This property is optional, but if you specify a value for
-    -- it, you must also specify a value for @CheckpointPercentages@. If you
-    -- specify a value for @CheckpointPercentages@ and not for
-    -- @CheckpointDelay@, the @CheckpointDelay@ defaults to @3600@ (1 hour).
-    checkpointDelay :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of capacity in the Auto Scaling group that must remain
+  { -- | The amount of capacity in the Auto Scaling group that must remain
     -- healthy during an instance refresh to allow the operation to continue.
     -- The value is expressed as a percentage of the desired capacity of the
     -- Auto Scaling group (rounded up to the nearest integer). The default is
@@ -43,11 +37,6 @@ data RefreshPreferences = RefreshPreferences'
     -- replacement to one instance at a time. In contrast, setting it to 0
     -- percent has the effect of replacing all instances at the same time.
     minHealthyPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The number of seconds until a newly launched instance is configured and
-    -- ready to use. During this time, Amazon EC2 Auto Scaling does not
-    -- immediately move on to the next replacement. The default is to use the
-    -- value for the health check grace period defined for the group.
-    instanceWarmup :: Prelude.Maybe Prelude.Natural,
     -- | A boolean value that indicates whether skip matching is enabled. If
     -- true, then Amazon EC2 Auto Scaling skips replacing instances that match
     -- the desired configuration. If no desired configuration is specified,
@@ -61,7 +50,18 @@ data RefreshPreferences = RefreshPreferences'
     -- For usage examples, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html Adding checkpoints to an instance refresh>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    checkpointPercentages :: Prelude.Maybe [Prelude.Natural]
+    checkpointPercentages :: Prelude.Maybe [Prelude.Natural],
+    -- | The amount of time, in seconds, to wait after a checkpoint before
+    -- continuing. This property is optional, but if you specify a value for
+    -- it, you must also specify a value for @CheckpointPercentages@. If you
+    -- specify a value for @CheckpointPercentages@ and not for
+    -- @CheckpointDelay@, the @CheckpointDelay@ defaults to @3600@ (1 hour).
+    checkpointDelay :: Prelude.Maybe Prelude.Natural,
+    -- | The number of seconds until a newly launched instance is configured and
+    -- ready to use. During this time, Amazon EC2 Auto Scaling does not
+    -- immediately move on to the next replacement. The default is to use the
+    -- value for the health check grace period defined for the group.
+    instanceWarmup :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +73,6 @@ data RefreshPreferences = RefreshPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'checkpointDelay', 'refreshPreferences_checkpointDelay' - The amount of time, in seconds, to wait after a checkpoint before
--- continuing. This property is optional, but if you specify a value for
--- it, you must also specify a value for @CheckpointPercentages@. If you
--- specify a value for @CheckpointPercentages@ and not for
--- @CheckpointDelay@, the @CheckpointDelay@ defaults to @3600@ (1 hour).
---
 -- 'minHealthyPercentage', 'refreshPreferences_minHealthyPercentage' - The amount of capacity in the Auto Scaling group that must remain
 -- healthy during an instance refresh to allow the operation to continue.
 -- The value is expressed as a percentage of the desired capacity of the
@@ -88,11 +82,6 @@ data RefreshPreferences = RefreshPreferences'
 -- Setting the minimum healthy percentage to 100 percent limits the rate of
 -- replacement to one instance at a time. In contrast, setting it to 0
 -- percent has the effect of replacing all instances at the same time.
---
--- 'instanceWarmup', 'refreshPreferences_instanceWarmup' - The number of seconds until a newly launched instance is configured and
--- ready to use. During this time, Amazon EC2 Auto Scaling does not
--- immediately move on to the next replacement. The default is to use the
--- value for the health check grace period defined for the group.
 --
 -- 'skipMatching', 'refreshPreferences_skipMatching' - A boolean value that indicates whether skip matching is enabled. If
 -- true, then Amazon EC2 Auto Scaling skips replacing instances that match
@@ -107,25 +96,28 @@ data RefreshPreferences = RefreshPreferences'
 -- For usage examples, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html Adding checkpoints to an instance refresh>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-newRefreshPreferences ::
-  RefreshPreferences
-newRefreshPreferences =
-  RefreshPreferences'
-    { checkpointDelay =
-        Prelude.Nothing,
-      minHealthyPercentage = Prelude.Nothing,
-      instanceWarmup = Prelude.Nothing,
-      skipMatching = Prelude.Nothing,
-      checkpointPercentages = Prelude.Nothing
-    }
-
--- | The amount of time, in seconds, to wait after a checkpoint before
+--
+-- 'checkpointDelay', 'refreshPreferences_checkpointDelay' - The amount of time, in seconds, to wait after a checkpoint before
 -- continuing. This property is optional, but if you specify a value for
 -- it, you must also specify a value for @CheckpointPercentages@. If you
 -- specify a value for @CheckpointPercentages@ and not for
 -- @CheckpointDelay@, the @CheckpointDelay@ defaults to @3600@ (1 hour).
-refreshPreferences_checkpointDelay :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
-refreshPreferences_checkpointDelay = Lens.lens (\RefreshPreferences' {checkpointDelay} -> checkpointDelay) (\s@RefreshPreferences' {} a -> s {checkpointDelay = a} :: RefreshPreferences)
+--
+-- 'instanceWarmup', 'refreshPreferences_instanceWarmup' - The number of seconds until a newly launched instance is configured and
+-- ready to use. During this time, Amazon EC2 Auto Scaling does not
+-- immediately move on to the next replacement. The default is to use the
+-- value for the health check grace period defined for the group.
+newRefreshPreferences ::
+  RefreshPreferences
+newRefreshPreferences =
+  RefreshPreferences'
+    { minHealthyPercentage =
+        Prelude.Nothing,
+      skipMatching = Prelude.Nothing,
+      checkpointPercentages = Prelude.Nothing,
+      checkpointDelay = Prelude.Nothing,
+      instanceWarmup = Prelude.Nothing
+    }
 
 -- | The amount of capacity in the Auto Scaling group that must remain
 -- healthy during an instance refresh to allow the operation to continue.
@@ -138,13 +130,6 @@ refreshPreferences_checkpointDelay = Lens.lens (\RefreshPreferences' {checkpoint
 -- percent has the effect of replacing all instances at the same time.
 refreshPreferences_minHealthyPercentage :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
 refreshPreferences_minHealthyPercentage = Lens.lens (\RefreshPreferences' {minHealthyPercentage} -> minHealthyPercentage) (\s@RefreshPreferences' {} a -> s {minHealthyPercentage = a} :: RefreshPreferences)
-
--- | The number of seconds until a newly launched instance is configured and
--- ready to use. During this time, Amazon EC2 Auto Scaling does not
--- immediately move on to the next replacement. The default is to use the
--- value for the health check grace period defined for the group.
-refreshPreferences_instanceWarmup :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
-refreshPreferences_instanceWarmup = Lens.lens (\RefreshPreferences' {instanceWarmup} -> instanceWarmup) (\s@RefreshPreferences' {} a -> s {instanceWarmup = a} :: RefreshPreferences)
 
 -- | A boolean value that indicates whether skip matching is enabled. If
 -- true, then Amazon EC2 Auto Scaling skips replacing instances that match
@@ -162,19 +147,34 @@ refreshPreferences_skipMatching = Lens.lens (\RefreshPreferences' {skipMatching}
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html Adding checkpoints to an instance refresh>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 refreshPreferences_checkpointPercentages :: Lens.Lens' RefreshPreferences (Prelude.Maybe [Prelude.Natural])
-refreshPreferences_checkpointPercentages = Lens.lens (\RefreshPreferences' {checkpointPercentages} -> checkpointPercentages) (\s@RefreshPreferences' {} a -> s {checkpointPercentages = a} :: RefreshPreferences) Prelude.. Lens.mapping Lens._Coerce
+refreshPreferences_checkpointPercentages = Lens.lens (\RefreshPreferences' {checkpointPercentages} -> checkpointPercentages) (\s@RefreshPreferences' {} a -> s {checkpointPercentages = a} :: RefreshPreferences) Prelude.. Lens.mapping Lens.coerced
+
+-- | The amount of time, in seconds, to wait after a checkpoint before
+-- continuing. This property is optional, but if you specify a value for
+-- it, you must also specify a value for @CheckpointPercentages@. If you
+-- specify a value for @CheckpointPercentages@ and not for
+-- @CheckpointDelay@, the @CheckpointDelay@ defaults to @3600@ (1 hour).
+refreshPreferences_checkpointDelay :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
+refreshPreferences_checkpointDelay = Lens.lens (\RefreshPreferences' {checkpointDelay} -> checkpointDelay) (\s@RefreshPreferences' {} a -> s {checkpointDelay = a} :: RefreshPreferences)
+
+-- | The number of seconds until a newly launched instance is configured and
+-- ready to use. During this time, Amazon EC2 Auto Scaling does not
+-- immediately move on to the next replacement. The default is to use the
+-- value for the health check grace period defined for the group.
+refreshPreferences_instanceWarmup :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
+refreshPreferences_instanceWarmup = Lens.lens (\RefreshPreferences' {instanceWarmup} -> instanceWarmup) (\s@RefreshPreferences' {} a -> s {instanceWarmup = a} :: RefreshPreferences)
 
 instance Core.FromXML RefreshPreferences where
   parseXML x =
     RefreshPreferences'
-      Prelude.<$> (x Core..@? "CheckpointDelay")
-      Prelude.<*> (x Core..@? "MinHealthyPercentage")
-      Prelude.<*> (x Core..@? "InstanceWarmup")
+      Prelude.<$> (x Core..@? "MinHealthyPercentage")
       Prelude.<*> (x Core..@? "SkipMatching")
       Prelude.<*> ( x Core..@? "CheckpointPercentages"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "CheckpointDelay")
+      Prelude.<*> (x Core..@? "InstanceWarmup")
 
 instance Prelude.Hashable RefreshPreferences
 
@@ -183,13 +183,13 @@ instance Prelude.NFData RefreshPreferences
 instance Core.ToQuery RefreshPreferences where
   toQuery RefreshPreferences' {..} =
     Prelude.mconcat
-      [ "CheckpointDelay" Core.=: checkpointDelay,
-        "MinHealthyPercentage" Core.=: minHealthyPercentage,
-        "InstanceWarmup" Core.=: instanceWarmup,
+      [ "MinHealthyPercentage" Core.=: minHealthyPercentage,
         "SkipMatching" Core.=: skipMatching,
         "CheckpointPercentages"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> checkpointPercentages
-            )
+            ),
+        "CheckpointDelay" Core.=: checkpointDelay,
+        "InstanceWarmup" Core.=: instanceWarmup
       ]

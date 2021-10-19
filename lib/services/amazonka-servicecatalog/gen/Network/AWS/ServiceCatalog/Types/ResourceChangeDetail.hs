@@ -29,12 +29,12 @@ import Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
 --
 -- /See:/ 'newResourceChangeDetail' smart constructor.
 data ResourceChangeDetail = ResourceChangeDetail'
-  { -- | For static evaluations, the value of the resource attribute will change
+  { -- | The ID of the entity that caused the change.
+    causingEntity :: Prelude.Maybe Prelude.Text,
+    -- | For static evaluations, the value of the resource attribute will change
     -- and the new value is known. For dynamic evaluations, the value might
     -- change, and any new value will be determined when the plan is updated.
     evaluation :: Prelude.Maybe EvaluationType,
-    -- | The ID of the entity that caused the change.
-    causingEntity :: Prelude.Maybe Prelude.Text,
     -- | Information about the resource attribute to be modified.
     target :: Prelude.Maybe ResourceTargetDefinition
   }
@@ -48,31 +48,32 @@ data ResourceChangeDetail = ResourceChangeDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'causingEntity', 'resourceChangeDetail_causingEntity' - The ID of the entity that caused the change.
+--
 -- 'evaluation', 'resourceChangeDetail_evaluation' - For static evaluations, the value of the resource attribute will change
 -- and the new value is known. For dynamic evaluations, the value might
 -- change, and any new value will be determined when the plan is updated.
---
--- 'causingEntity', 'resourceChangeDetail_causingEntity' - The ID of the entity that caused the change.
 --
 -- 'target', 'resourceChangeDetail_target' - Information about the resource attribute to be modified.
 newResourceChangeDetail ::
   ResourceChangeDetail
 newResourceChangeDetail =
   ResourceChangeDetail'
-    { evaluation = Prelude.Nothing,
-      causingEntity = Prelude.Nothing,
+    { causingEntity =
+        Prelude.Nothing,
+      evaluation = Prelude.Nothing,
       target = Prelude.Nothing
     }
+
+-- | The ID of the entity that caused the change.
+resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
+resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
 -- | For static evaluations, the value of the resource attribute will change
 -- and the new value is known. For dynamic evaluations, the value might
 -- change, and any new value will be determined when the plan is updated.
 resourceChangeDetail_evaluation :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe EvaluationType)
 resourceChangeDetail_evaluation = Lens.lens (\ResourceChangeDetail' {evaluation} -> evaluation) (\s@ResourceChangeDetail' {} a -> s {evaluation = a} :: ResourceChangeDetail)
-
--- | The ID of the entity that caused the change.
-resourceChangeDetail_causingEntity :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe Prelude.Text)
-resourceChangeDetail_causingEntity = Lens.lens (\ResourceChangeDetail' {causingEntity} -> causingEntity) (\s@ResourceChangeDetail' {} a -> s {causingEntity = a} :: ResourceChangeDetail)
 
 -- | Information about the resource attribute to be modified.
 resourceChangeDetail_target :: Lens.Lens' ResourceChangeDetail (Prelude.Maybe ResourceTargetDefinition)
@@ -84,8 +85,8 @@ instance Core.FromJSON ResourceChangeDetail where
       "ResourceChangeDetail"
       ( \x ->
           ResourceChangeDetail'
-            Prelude.<$> (x Core..:? "Evaluation")
-            Prelude.<*> (x Core..:? "CausingEntity")
+            Prelude.<$> (x Core..:? "CausingEntity")
+            Prelude.<*> (x Core..:? "Evaluation")
             Prelude.<*> (x Core..:? "Target")
       )
 

@@ -37,10 +37,10 @@ module Network.AWS.Lightsail.GetContainerLog
     newGetContainerLog,
 
     -- * Request Lenses
-    getContainerLog_pageToken,
-    getContainerLog_filterPattern,
     getContainerLog_startTime,
     getContainerLog_endTime,
+    getContainerLog_pageToken,
+    getContainerLog_filterPattern,
     getContainerLog_serviceName,
     getContainerLog_containerName,
 
@@ -49,8 +49,8 @@ module Network.AWS.Lightsail.GetContainerLog
     newGetContainerLogResponse,
 
     -- * Response Lenses
-    getContainerLogResponse_logEvents,
     getContainerLogResponse_nextPageToken,
+    getContainerLogResponse_logEvents,
     getContainerLogResponse_httpStatus,
   )
 where
@@ -64,32 +64,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetContainerLog' smart constructor.
 data GetContainerLog = GetContainerLog'
-  { -- | The token to advance to the next page of results from your request.
-    --
-    -- To get a page token, perform an initial @GetContainerLog@ request. If
-    -- your results are paginated, the response will return a next page token
-    -- that you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The pattern to use to filter the returned log events to a specific term.
-    --
-    -- The following are a few examples of filter patterns that you can
-    -- specify:
-    --
-    -- -   To return all log events, specify a filter pattern of @\"\"@.
-    --
-    -- -   To exclude log events that contain the @ERROR@ term, and return all
-    --     other log events, specify a filter pattern of @\"-ERROR\"@.
-    --
-    -- -   To return log events that contain the @ERROR@ term, specify a filter
-    --     pattern of @\"ERROR\"@.
-    --
-    -- -   To return log events that contain both the @ERROR@ and @Exception@
-    --     terms, specify a filter pattern of @\"ERROR Exception\"@.
-    --
-    -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
-    --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
-    filterPattern :: Prelude.Maybe Prelude.Text,
-    -- | The start of the time interval for which to get log data.
+  { -- | The start of the time interval for which to get log data.
     --
     -- Constraints:
     --
@@ -117,6 +92,31 @@ data GetContainerLog = GetContainerLog'
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetContainerLog@ request. If
+    -- your results are paginated, the response will return a next page token
+    -- that you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The pattern to use to filter the returned log events to a specific term.
+    --
+    -- The following are a few examples of filter patterns that you can
+    -- specify:
+    --
+    -- -   To return all log events, specify a filter pattern of @\"\"@.
+    --
+    -- -   To exclude log events that contain the @ERROR@ term, and return all
+    --     other log events, specify a filter pattern of @\"-ERROR\"@.
+    --
+    -- -   To return log events that contain the @ERROR@ term, specify a filter
+    --     pattern of @\"ERROR\"@.
+    --
+    -- -   To return log events that contain both the @ERROR@ and @Exception@
+    --     terms, specify a filter pattern of @\"ERROR Exception\"@.
+    --
+    -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
+    --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
+    filterPattern :: Prelude.Maybe Prelude.Text,
     -- | The name of the container service for which to get a container log.
     serviceName :: Prelude.Text,
     -- | The name of the container that is either running or previously ran on
@@ -132,31 +132,6 @@ data GetContainerLog = GetContainerLog'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'pageToken', 'getContainerLog_pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetContainerLog@ request. If
--- your results are paginated, the response will return a next page token
--- that you can specify as the page token in a subsequent request.
---
--- 'filterPattern', 'getContainerLog_filterPattern' - The pattern to use to filter the returned log events to a specific term.
---
--- The following are a few examples of filter patterns that you can
--- specify:
---
--- -   To return all log events, specify a filter pattern of @\"\"@.
---
--- -   To exclude log events that contain the @ERROR@ term, and return all
---     other log events, specify a filter pattern of @\"-ERROR\"@.
---
--- -   To return log events that contain the @ERROR@ term, specify a filter
---     pattern of @\"ERROR\"@.
---
--- -   To return log events that contain both the @ERROR@ and @Exception@
---     terms, specify a filter pattern of @\"ERROR Exception\"@.
---
--- -   To return log events that contain the @ERROR@ /or/ the @Exception@
---     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
 --
 -- 'startTime', 'getContainerLog_startTime' - The start of the time interval for which to get log data.
 --
@@ -186,35 +161,13 @@ data GetContainerLog = GetContainerLog'
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
 --
--- 'serviceName', 'getContainerLog_serviceName' - The name of the container service for which to get a container log.
---
--- 'containerName', 'getContainerLog_containerName' - The name of the container that is either running or previously ran on
--- the container service for which to return a log.
-newGetContainerLog ::
-  -- | 'serviceName'
-  Prelude.Text ->
-  -- | 'containerName'
-  Prelude.Text ->
-  GetContainerLog
-newGetContainerLog pServiceName_ pContainerName_ =
-  GetContainerLog'
-    { pageToken = Prelude.Nothing,
-      filterPattern = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      serviceName = pServiceName_,
-      containerName = pContainerName_
-    }
-
--- | The token to advance to the next page of results from your request.
+-- 'pageToken', 'getContainerLog_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetContainerLog@ request. If
 -- your results are paginated, the response will return a next page token
 -- that you can specify as the page token in a subsequent request.
-getContainerLog_pageToken :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
-getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToken) (\s@GetContainerLog' {} a -> s {pageToken = a} :: GetContainerLog)
-
--- | The pattern to use to filter the returned log events to a specific term.
+--
+-- 'filterPattern', 'getContainerLog_filterPattern' - The pattern to use to filter the returned log events to a specific term.
 --
 -- The following are a few examples of filter patterns that you can
 -- specify:
@@ -232,8 +185,26 @@ getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToke
 --
 -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
 --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
-getContainerLog_filterPattern :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
-getContainerLog_filterPattern = Lens.lens (\GetContainerLog' {filterPattern} -> filterPattern) (\s@GetContainerLog' {} a -> s {filterPattern = a} :: GetContainerLog)
+--
+-- 'serviceName', 'getContainerLog_serviceName' - The name of the container service for which to get a container log.
+--
+-- 'containerName', 'getContainerLog_containerName' - The name of the container that is either running or previously ran on
+-- the container service for which to return a log.
+newGetContainerLog ::
+  -- | 'serviceName'
+  Prelude.Text ->
+  -- | 'containerName'
+  Prelude.Text ->
+  GetContainerLog
+newGetContainerLog pServiceName_ pContainerName_ =
+  GetContainerLog'
+    { startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      filterPattern = Prelude.Nothing,
+      serviceName = pServiceName_,
+      containerName = pContainerName_
+    }
 
 -- | The start of the time interval for which to get log data.
 --
@@ -267,6 +238,35 @@ getContainerLog_startTime = Lens.lens (\GetContainerLog' {startTime} -> startTim
 getContainerLog_endTime :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.UTCTime)
 getContainerLog_endTime = Lens.lens (\GetContainerLog' {endTime} -> endTime) (\s@GetContainerLog' {} a -> s {endTime = a} :: GetContainerLog) Prelude.. Lens.mapping Core._Time
 
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetContainerLog@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
+getContainerLog_pageToken :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
+getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToken) (\s@GetContainerLog' {} a -> s {pageToken = a} :: GetContainerLog)
+
+-- | The pattern to use to filter the returned log events to a specific term.
+--
+-- The following are a few examples of filter patterns that you can
+-- specify:
+--
+-- -   To return all log events, specify a filter pattern of @\"\"@.
+--
+-- -   To exclude log events that contain the @ERROR@ term, and return all
+--     other log events, specify a filter pattern of @\"-ERROR\"@.
+--
+-- -   To return log events that contain the @ERROR@ term, specify a filter
+--     pattern of @\"ERROR\"@.
+--
+-- -   To return log events that contain both the @ERROR@ and @Exception@
+--     terms, specify a filter pattern of @\"ERROR Exception\"@.
+--
+-- -   To return log events that contain the @ERROR@ /or/ the @Exception@
+--     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
+getContainerLog_filterPattern :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
+getContainerLog_filterPattern = Lens.lens (\GetContainerLog' {filterPattern} -> filterPattern) (\s@GetContainerLog' {} a -> s {filterPattern = a} :: GetContainerLog)
+
 -- | The name of the container service for which to get a container log.
 getContainerLog_serviceName :: Lens.Lens' GetContainerLog Prelude.Text
 getContainerLog_serviceName = Lens.lens (\GetContainerLog' {serviceName} -> serviceName) (\s@GetContainerLog' {} a -> s {serviceName = a} :: GetContainerLog)
@@ -285,8 +285,8 @@ instance Core.AWSRequest GetContainerLog where
     Response.receiveJSON
       ( \s h x ->
           GetContainerLogResponse'
-            Prelude.<$> (x Core..?> "logEvents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "logEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -313,10 +313,10 @@ instance Core.ToJSON GetContainerLog where
   toJSON GetContainerLog' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pageToken" Core..=) Prelude.<$> pageToken,
-            ("filterPattern" Core..=) Prelude.<$> filterPattern,
-            ("startTime" Core..=) Prelude.<$> startTime,
+          [ ("startTime" Core..=) Prelude.<$> startTime,
             ("endTime" Core..=) Prelude.<$> endTime,
+            ("pageToken" Core..=) Prelude.<$> pageToken,
+            ("filterPattern" Core..=) Prelude.<$> filterPattern,
             Prelude.Just ("serviceName" Core..= serviceName),
             Prelude.Just
               ("containerName" Core..= containerName)
@@ -331,9 +331,7 @@ instance Core.ToQuery GetContainerLog where
 
 -- | /See:/ 'newGetContainerLogResponse' smart constructor.
 data GetContainerLogResponse = GetContainerLogResponse'
-  { -- | An array of objects that describe the log events of a container.
-    logEvents :: Prelude.Maybe [ContainerServiceLogEvent],
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -341,6 +339,8 @@ data GetContainerLogResponse = GetContainerLogResponse'
     -- To get the next page of results, perform another @GetContainerLog@
     -- request and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects that describe the log events of a container.
+    logEvents :: Prelude.Maybe [ContainerServiceLogEvent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -354,8 +354,6 @@ data GetContainerLogResponse = GetContainerLogResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logEvents', 'getContainerLogResponse_logEvents' - An array of objects that describe the log events of a container.
---
 -- 'nextPageToken', 'getContainerLogResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -364,6 +362,8 @@ data GetContainerLogResponse = GetContainerLogResponse'
 -- To get the next page of results, perform another @GetContainerLog@
 -- request and specify the next page token using the @pageToken@ parameter.
 --
+-- 'logEvents', 'getContainerLogResponse_logEvents' - An array of objects that describe the log events of a container.
+--
 -- 'httpStatus', 'getContainerLogResponse_httpStatus' - The response's http status code.
 newGetContainerLogResponse ::
   -- | 'httpStatus'
@@ -371,15 +371,11 @@ newGetContainerLogResponse ::
   GetContainerLogResponse
 newGetContainerLogResponse pHttpStatus_ =
   GetContainerLogResponse'
-    { logEvents =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      logEvents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects that describe the log events of a container.
-getContainerLogResponse_logEvents :: Lens.Lens' GetContainerLogResponse (Prelude.Maybe [ContainerServiceLogEvent])
-getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEvents} -> logEvents) (\s@GetContainerLogResponse' {} a -> s {logEvents = a} :: GetContainerLogResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -390,6 +386,10 @@ getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEve
 -- request and specify the next page token using the @pageToken@ parameter.
 getContainerLogResponse_nextPageToken :: Lens.Lens' GetContainerLogResponse (Prelude.Maybe Prelude.Text)
 getContainerLogResponse_nextPageToken = Lens.lens (\GetContainerLogResponse' {nextPageToken} -> nextPageToken) (\s@GetContainerLogResponse' {} a -> s {nextPageToken = a} :: GetContainerLogResponse)
+
+-- | An array of objects that describe the log events of a container.
+getContainerLogResponse_logEvents :: Lens.Lens' GetContainerLogResponse (Prelude.Maybe [ContainerServiceLogEvent])
+getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEvents} -> logEvents) (\s@GetContainerLogResponse' {} a -> s {logEvents = a} :: GetContainerLogResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerLogResponse_httpStatus :: Lens.Lens' GetContainerLogResponse Prelude.Int

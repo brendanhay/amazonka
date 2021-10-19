@@ -30,11 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScheduledAction' smart constructor.
 data ScheduledAction = ScheduledAction'
-  { -- | The date and time that the action is scheduled to begin, in UTC.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The date and time that the action is scheduled to end, in UTC.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | The scalable dimension. This string consists of the service namespace,
+  { -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
@@ -44,7 +40,7 @@ data ScheduledAction = ScheduledAction'
     --     of an EMR Instance Group.
     --
     -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
+    --     Spot Fleet.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -66,7 +62,7 @@ data ScheduledAction = ScheduledAction'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an Amazon SageMaker model endpoint variant.
+    --     instances for an SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -96,16 +92,23 @@ data ScheduledAction = ScheduledAction'
     --
     -- -   @elasticache:replication-group:Replicas@ - The number of replicas
     --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The time zone used when referring to the date and time of a scheduled
-    -- action, when the scheduled action uses an at or cron expression.
-    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the action is scheduled to begin, in UTC.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time that the action is scheduled to end, in UTC.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The new minimum and maximum capacity. You can set both values or just
     -- one. At the scheduled time, if the current capacity is below the minimum
     -- capacity, Application Auto Scaling scales out to the minimum capacity.
     -- If the current capacity is above the maximum capacity, Application Auto
     -- Scaling scales in to the maximum capacity.
     scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
+    -- | The time zone used when referring to the date and time of a scheduled
+    -- action, when the scheduled action uses an at or cron expression.
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The name of the scheduled action.
     scheduledActionName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the scheduled action.
@@ -145,8 +148,8 @@ data ScheduledAction = ScheduledAction'
     --     identifier is the cluster name and service name. Example:
     --     @service\/default\/sample-webapp@.
     --
-    -- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
-    --     the unique identifier is the Spot Fleet request ID. Example:
+    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+    --     unique identifier is the Spot Fleet request ID. Example:
     --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
     --
     -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -166,8 +169,8 @@ data ScheduledAction = ScheduledAction'
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
     --
-    -- -   Amazon SageMaker endpoint variant - The resource type is @variant@
-    --     and the unique identifier is the resource ID. Example:
+    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
+    --     unique identifier is the resource ID. Example:
     --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     --
     -- -   Custom resources are not supported with a resource type. This
@@ -202,6 +205,9 @@ data ScheduledAction = ScheduledAction'
     -- -   Amazon ElastiCache replication group - The resource type is
     --     @replication-group@ and the unique identifier is the replication
     --     group name. Example: @replication-group\/mycluster@.
+    --
+    -- -   Neptune cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Text,
     -- | The date and time that the scheduled action was created.
     creationTime :: Core.POSIX
@@ -216,10 +222,6 @@ data ScheduledAction = ScheduledAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'scheduledAction_startTime' - The date and time that the action is scheduled to begin, in UTC.
---
--- 'endTime', 'scheduledAction_endTime' - The date and time that the action is scheduled to end, in UTC.
---
 -- 'scalableDimension', 'scheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -230,7 +232,7 @@ data ScheduledAction = ScheduledAction'
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -252,7 +254,7 @@ data ScheduledAction = ScheduledAction'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -283,14 +285,21 @@ data ScheduledAction = ScheduledAction'
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
 --
--- 'timezone', 'scheduledAction_timezone' - The time zone used when referring to the date and time of a scheduled
--- action, when the scheduled action uses an at or cron expression.
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
+--
+-- 'startTime', 'scheduledAction_startTime' - The date and time that the action is scheduled to begin, in UTC.
+--
+-- 'endTime', 'scheduledAction_endTime' - The date and time that the action is scheduled to end, in UTC.
 --
 -- 'scalableTargetAction', 'scheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
 -- one. At the scheduled time, if the current capacity is below the minimum
 -- capacity, Application Auto Scaling scales out to the minimum capacity.
 -- If the current capacity is above the maximum capacity, Application Auto
 -- Scaling scales in to the maximum capacity.
+--
+-- 'timezone', 'scheduledAction_timezone' - The time zone used when referring to the date and time of a scheduled
+-- action, when the scheduled action uses an at or cron expression.
 --
 -- 'scheduledActionName', 'scheduledAction_scheduledActionName' - The name of the scheduled action.
 --
@@ -331,8 +340,8 @@ data ScheduledAction = ScheduledAction'
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -352,8 +361,8 @@ data ScheduledAction = ScheduledAction'
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -389,6 +398,9 @@ data ScheduledAction = ScheduledAction'
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
 --
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
+--
 -- 'creationTime', 'scheduledAction_creationTime' - The date and time that the scheduled action was created.
 newScheduledAction ::
   -- | 'scheduledActionName'
@@ -412,11 +424,12 @@ newScheduledAction
   pResourceId_
   pCreationTime_ =
     ScheduledAction'
-      { startTime = Prelude.Nothing,
+      { scalableDimension =
+          Prelude.Nothing,
+        startTime = Prelude.Nothing,
         endTime = Prelude.Nothing,
-        scalableDimension = Prelude.Nothing,
-        timezone = Prelude.Nothing,
         scalableTargetAction = Prelude.Nothing,
+        timezone = Prelude.Nothing,
         scheduledActionName = pScheduledActionName_,
         scheduledActionARN = pScheduledActionARN_,
         serviceNamespace = pServiceNamespace_,
@@ -424,14 +437,6 @@ newScheduledAction
         resourceId = pResourceId_,
         creationTime = Core._Time Lens.# pCreationTime_
       }
-
--- | The date and time that the action is scheduled to begin, in UTC.
-scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
-
--- | The date and time that the action is scheduled to end, in UTC.
-scheduledAction_endTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
@@ -443,7 +448,7 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -465,7 +470,7 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -495,13 +500,19 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableDimension)
 scheduledAction_scalableDimension = Lens.lens (\ScheduledAction' {scalableDimension} -> scalableDimension) (\s@ScheduledAction' {} a -> s {scalableDimension = a} :: ScheduledAction)
 
--- | The time zone used when referring to the date and time of a scheduled
--- action, when the scheduled action uses an at or cron expression.
-scheduledAction_timezone :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
-scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) (\s@ScheduledAction' {} a -> s {timezone = a} :: ScheduledAction)
+-- | The date and time that the action is scheduled to begin, in UTC.
+scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
+scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
+
+-- | The date and time that the action is scheduled to end, in UTC.
+scheduledAction_endTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
+scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | The new minimum and maximum capacity. You can set both values or just
 -- one. At the scheduled time, if the current capacity is below the minimum
@@ -510,6 +521,11 @@ scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) 
 -- Scaling scales in to the maximum capacity.
 scheduledAction_scalableTargetAction :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableTargetAction)
 scheduledAction_scalableTargetAction = Lens.lens (\ScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@ScheduledAction' {} a -> s {scalableTargetAction = a} :: ScheduledAction)
+
+-- | The time zone used when referring to the date and time of a scheduled
+-- action, when the scheduled action uses an at or cron expression.
+scheduledAction_timezone :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
+scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) (\s@ScheduledAction' {} a -> s {timezone = a} :: ScheduledAction)
 
 -- | The name of the scheduled action.
 scheduledAction_scheduledActionName :: Lens.Lens' ScheduledAction Prelude.Text
@@ -558,8 +574,8 @@ scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) 
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -579,8 +595,8 @@ scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) 
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -615,6 +631,9 @@ scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) 
 -- -   Amazon ElastiCache replication group - The resource type is
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
+--
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
 scheduledAction_resourceId :: Lens.Lens' ScheduledAction Prelude.Text
 scheduledAction_resourceId = Lens.lens (\ScheduledAction' {resourceId} -> resourceId) (\s@ScheduledAction' {} a -> s {resourceId = a} :: ScheduledAction)
 
@@ -628,11 +647,11 @@ instance Core.FromJSON ScheduledAction where
       "ScheduledAction"
       ( \x ->
           ScheduledAction'
-            Prelude.<$> (x Core..:? "StartTime")
+            Prelude.<$> (x Core..:? "ScalableDimension")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "ScalableDimension")
-            Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..:? "ScalableTargetAction")
+            Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..: "ScheduledActionName")
             Prelude.<*> (x Core..: "ScheduledActionARN")
             Prelude.<*> (x Core..: "ServiceNamespace")

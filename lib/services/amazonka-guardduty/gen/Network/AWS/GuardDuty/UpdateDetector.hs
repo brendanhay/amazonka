@@ -27,9 +27,9 @@ module Network.AWS.GuardDuty.UpdateDetector
     newUpdateDetector,
 
     -- * Request Lenses
-    updateDetector_enable,
-    updateDetector_dataSources,
     updateDetector_findingPublishingFrequency,
+    updateDetector_dataSources,
+    updateDetector_enable,
     updateDetector_detectorId,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDetector' smart constructor.
 data UpdateDetector = UpdateDetector'
-  { -- | Specifies whether the detector is enabled or not enabled.
-    enable :: Prelude.Maybe Prelude.Bool,
-    -- | Describes which data sources will be updated.
-    dataSources :: Prelude.Maybe DataSourceConfigurations,
-    -- | An enum value that specifies how frequently findings are exported, such
+  { -- | An enum value that specifies how frequently findings are exported, such
     -- as to CloudWatch Events.
     findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
+    -- | Describes which data sources will be updated.
+    dataSources :: Prelude.Maybe DataSourceConfigurations,
+    -- | Specifies whether the detector is enabled or not enabled.
+    enable :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID of the detector to update.
     detectorId :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data UpdateDetector = UpdateDetector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enable', 'updateDetector_enable' - Specifies whether the detector is enabled or not enabled.
+-- 'findingPublishingFrequency', 'updateDetector_findingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such
+-- as to CloudWatch Events.
 --
 -- 'dataSources', 'updateDetector_dataSources' - Describes which data sources will be updated.
 --
--- 'findingPublishingFrequency', 'updateDetector_findingPublishingFrequency' - An enum value that specifies how frequently findings are exported, such
--- as to CloudWatch Events.
+-- 'enable', 'updateDetector_enable' - Specifies whether the detector is enabled or not enabled.
 --
 -- 'detectorId', 'updateDetector_detectorId' - The unique ID of the detector to update.
 newUpdateDetector ::
@@ -84,24 +84,25 @@ newUpdateDetector ::
   UpdateDetector
 newUpdateDetector pDetectorId_ =
   UpdateDetector'
-    { enable = Prelude.Nothing,
+    { findingPublishingFrequency =
+        Prelude.Nothing,
       dataSources = Prelude.Nothing,
-      findingPublishingFrequency = Prelude.Nothing,
+      enable = Prelude.Nothing,
       detectorId = pDetectorId_
     }
-
--- | Specifies whether the detector is enabled or not enabled.
-updateDetector_enable :: Lens.Lens' UpdateDetector (Prelude.Maybe Prelude.Bool)
-updateDetector_enable = Lens.lens (\UpdateDetector' {enable} -> enable) (\s@UpdateDetector' {} a -> s {enable = a} :: UpdateDetector)
-
--- | Describes which data sources will be updated.
-updateDetector_dataSources :: Lens.Lens' UpdateDetector (Prelude.Maybe DataSourceConfigurations)
-updateDetector_dataSources = Lens.lens (\UpdateDetector' {dataSources} -> dataSources) (\s@UpdateDetector' {} a -> s {dataSources = a} :: UpdateDetector)
 
 -- | An enum value that specifies how frequently findings are exported, such
 -- as to CloudWatch Events.
 updateDetector_findingPublishingFrequency :: Lens.Lens' UpdateDetector (Prelude.Maybe FindingPublishingFrequency)
 updateDetector_findingPublishingFrequency = Lens.lens (\UpdateDetector' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@UpdateDetector' {} a -> s {findingPublishingFrequency = a} :: UpdateDetector)
+
+-- | Describes which data sources will be updated.
+updateDetector_dataSources :: Lens.Lens' UpdateDetector (Prelude.Maybe DataSourceConfigurations)
+updateDetector_dataSources = Lens.lens (\UpdateDetector' {dataSources} -> dataSources) (\s@UpdateDetector' {} a -> s {dataSources = a} :: UpdateDetector)
+
+-- | Specifies whether the detector is enabled or not enabled.
+updateDetector_enable :: Lens.Lens' UpdateDetector (Prelude.Maybe Prelude.Bool)
+updateDetector_enable = Lens.lens (\UpdateDetector' {enable} -> enable) (\s@UpdateDetector' {} a -> s {enable = a} :: UpdateDetector)
 
 -- | The unique ID of the detector to update.
 updateDetector_detectorId :: Lens.Lens' UpdateDetector Prelude.Text
@@ -138,10 +139,10 @@ instance Core.ToJSON UpdateDetector where
   toJSON UpdateDetector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("enable" Core..=) Prelude.<$> enable,
+          [ ("findingPublishingFrequency" Core..=)
+              Prelude.<$> findingPublishingFrequency,
             ("dataSources" Core..=) Prelude.<$> dataSources,
-            ("findingPublishingFrequency" Core..=)
-              Prelude.<$> findingPublishingFrequency
+            ("enable" Core..=) Prelude.<$> enable
           ]
       )
 

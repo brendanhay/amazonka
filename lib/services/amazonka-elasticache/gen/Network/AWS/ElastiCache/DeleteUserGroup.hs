@@ -38,12 +38,12 @@ module Network.AWS.ElastiCache.DeleteUserGroup
 
     -- * Response Lenses
     userGroup_status,
-    userGroup_replicationGroups,
-    userGroup_arn,
     userGroup_userIds,
-    userGroup_engine,
+    userGroup_arn,
     userGroup_userGroupId,
+    userGroup_engine,
     userGroup_pendingChanges,
+    userGroup_replicationGroups,
   )
 where
 

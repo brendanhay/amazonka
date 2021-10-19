@@ -72,7 +72,7 @@ newUntagResource ::
 newUntagResource pResourceArn_ pTagKeys_ =
   UntagResource'
     { resourceArn = pResourceArn_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
@@ -81,7 +81,7 @@ untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resource
 
 -- | The tag keys.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

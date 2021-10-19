@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a new pool of dedicated IP addresses. A pool can include one or
--- more dedicated IP addresses that are associated with your AWS account.
--- You can associate a pool with a configuration set. When you send an
--- email that uses that configuration set, the message is sent from one of
--- the addresses in the associated pool.
+-- more dedicated IP addresses that are associated with your Amazon Web
+-- Services account. You can associate a pool with a configuration set.
+-- When you send an email that uses that configuration set, the message is
+-- sent from one of the addresses in the associated pool.
 module Network.AWS.SESv2.CreateDedicatedIpPool
   ( -- * Creating a Request
     CreateDedicatedIpPool (..),
@@ -87,7 +87,7 @@ newCreateDedicatedIpPool pPoolName_ =
 -- | An object that defines the tags (keys and values) that you want to
 -- associate with the pool.
 createDedicatedIpPool_tags :: Lens.Lens' CreateDedicatedIpPool (Prelude.Maybe [Tag])
-createDedicatedIpPool_tags = Lens.lens (\CreateDedicatedIpPool' {tags} -> tags) (\s@CreateDedicatedIpPool' {} a -> s {tags = a} :: CreateDedicatedIpPool) Prelude.. Lens.mapping Lens._Coerce
+createDedicatedIpPool_tags = Lens.lens (\CreateDedicatedIpPool' {tags} -> tags) (\s@CreateDedicatedIpPool' {} a -> s {tags = a} :: CreateDedicatedIpPool) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the dedicated IP pool.
 createDedicatedIpPool_poolName :: Lens.Lens' CreateDedicatedIpPool Prelude.Text

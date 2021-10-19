@@ -34,14 +34,14 @@ module Network.AWS.APIGateway.GetUsagePlan
     newUsagePlan,
 
     -- * Response Lenses
-    usagePlan_id,
     usagePlan_apiStages,
     usagePlan_name,
-    usagePlan_tags,
-    usagePlan_productCode,
-    usagePlan_description,
-    usagePlan_quota,
+    usagePlan_id,
     usagePlan_throttle,
+    usagePlan_quota,
+    usagePlan_description,
+    usagePlan_productCode,
+    usagePlan_tags,
   )
 where
 

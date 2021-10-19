@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVideoDetail' smart constructor.
 data VideoDetail = VideoDetail'
-  { -- | Width in pixels for the output
-    widthInPx :: Prelude.Maybe Prelude.Int,
-    -- | Height in pixels for the output
-    heightInPx :: Prelude.Maybe Prelude.Int
+  { -- | Height in pixels for the output
+    heightInPx :: Prelude.Maybe Prelude.Int,
+    -- | Width in pixels for the output
+    widthInPx :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data VideoDetail = VideoDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'widthInPx', 'videoDetail_widthInPx' - Width in pixels for the output
---
 -- 'heightInPx', 'videoDetail_heightInPx' - Height in pixels for the output
+--
+-- 'widthInPx', 'videoDetail_widthInPx' - Width in pixels for the output
 newVideoDetail ::
   VideoDetail
 newVideoDetail =
   VideoDetail'
-    { widthInPx = Prelude.Nothing,
-      heightInPx = Prelude.Nothing
+    { heightInPx = Prelude.Nothing,
+      widthInPx = Prelude.Nothing
     }
-
--- | Width in pixels for the output
-videoDetail_widthInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
-videoDetail_widthInPx = Lens.lens (\VideoDetail' {widthInPx} -> widthInPx) (\s@VideoDetail' {} a -> s {widthInPx = a} :: VideoDetail)
 
 -- | Height in pixels for the output
 videoDetail_heightInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
 videoDetail_heightInPx = Lens.lens (\VideoDetail' {heightInPx} -> heightInPx) (\s@VideoDetail' {} a -> s {heightInPx = a} :: VideoDetail)
+
+-- | Width in pixels for the output
+videoDetail_widthInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
+videoDetail_widthInPx = Lens.lens (\VideoDetail' {widthInPx} -> widthInPx) (\s@VideoDetail' {} a -> s {widthInPx = a} :: VideoDetail)
 
 instance Core.FromJSON VideoDetail where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON VideoDetail where
       "VideoDetail"
       ( \x ->
           VideoDetail'
-            Prelude.<$> (x Core..:? "widthInPx")
-            Prelude.<*> (x Core..:? "heightInPx")
+            Prelude.<$> (x Core..:? "heightInPx")
+            Prelude.<*> (x Core..:? "widthInPx")
       )
 
 instance Prelude.Hashable VideoDetail

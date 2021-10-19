@@ -28,8 +28,8 @@ module Network.AWS.SMS.GenerateChangeSet
     newGenerateChangeSet,
 
     -- * Request Lenses
-    generateChangeSet_changesetFormat,
     generateChangeSet_appId,
+    generateChangeSet_changesetFormat,
 
     -- * Destructuring the Response
     GenerateChangeSetResponse (..),
@@ -50,10 +50,10 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'newGenerateChangeSet' smart constructor.
 data GenerateChangeSet = GenerateChangeSet'
-  { -- | The format for the change set.
-    changesetFormat :: Prelude.Maybe OutputFormat,
-    -- | The ID of the application associated with the change set.
-    appId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the application associated with the change set.
+    appId :: Prelude.Maybe Prelude.Text,
+    -- | The format for the change set.
+    changesetFormat :: Prelude.Maybe OutputFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,25 +65,24 @@ data GenerateChangeSet = GenerateChangeSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changesetFormat', 'generateChangeSet_changesetFormat' - The format for the change set.
---
 -- 'appId', 'generateChangeSet_appId' - The ID of the application associated with the change set.
+--
+-- 'changesetFormat', 'generateChangeSet_changesetFormat' - The format for the change set.
 newGenerateChangeSet ::
   GenerateChangeSet
 newGenerateChangeSet =
   GenerateChangeSet'
-    { changesetFormat =
-        Prelude.Nothing,
-      appId = Prelude.Nothing
+    { appId = Prelude.Nothing,
+      changesetFormat = Prelude.Nothing
     }
-
--- | The format for the change set.
-generateChangeSet_changesetFormat :: Lens.Lens' GenerateChangeSet (Prelude.Maybe OutputFormat)
-generateChangeSet_changesetFormat = Lens.lens (\GenerateChangeSet' {changesetFormat} -> changesetFormat) (\s@GenerateChangeSet' {} a -> s {changesetFormat = a} :: GenerateChangeSet)
 
 -- | The ID of the application associated with the change set.
 generateChangeSet_appId :: Lens.Lens' GenerateChangeSet (Prelude.Maybe Prelude.Text)
 generateChangeSet_appId = Lens.lens (\GenerateChangeSet' {appId} -> appId) (\s@GenerateChangeSet' {} a -> s {appId = a} :: GenerateChangeSet)
+
+-- | The format for the change set.
+generateChangeSet_changesetFormat :: Lens.Lens' GenerateChangeSet (Prelude.Maybe OutputFormat)
+generateChangeSet_changesetFormat = Lens.lens (\GenerateChangeSet' {changesetFormat} -> changesetFormat) (\s@GenerateChangeSet' {} a -> s {changesetFormat = a} :: GenerateChangeSet)
 
 instance Core.AWSRequest GenerateChangeSet where
   type
@@ -121,9 +120,9 @@ instance Core.ToJSON GenerateChangeSet where
   toJSON GenerateChangeSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("changesetFormat" Core..=)
-              Prelude.<$> changesetFormat,
-            ("appId" Core..=) Prelude.<$> appId
+          [ ("appId" Core..=) Prelude.<$> appId,
+            ("changesetFormat" Core..=)
+              Prelude.<$> changesetFormat
           ]
       )
 

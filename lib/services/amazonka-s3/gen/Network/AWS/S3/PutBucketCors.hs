@@ -72,8 +72,8 @@ module Network.AWS.S3.PutBucketCors
     newPutBucketCors,
 
     -- * Request Lenses
-    putBucketCors_expectedBucketOwner,
     putBucketCors_contentMD5,
+    putBucketCors_expectedBucketOwner,
     putBucketCors_bucket,
     putBucketCors_cORSConfiguration,
 
@@ -92,11 +92,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketCors' smart constructor.
 data PutBucketCors = PutBucketCors'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
+  { -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
     -- used as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, go to
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
@@ -105,6 +101,10 @@ data PutBucketCors = PutBucketCors'
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the bucket impacted by the @cors@configuration.
     bucket :: BucketName,
     -- | Describes the cross-origin access configuration for objects in an Amazon
@@ -123,10 +123,6 @@ data PutBucketCors = PutBucketCors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putBucketCors_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be
 -- used as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, go to
@@ -135,6 +131,10 @@ data PutBucketCors = PutBucketCors'
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketCors_bucket' - Specifies the bucket impacted by the @cors@configuration.
 --
@@ -150,18 +150,11 @@ newPutBucketCors ::
   PutBucketCors
 newPutBucketCors pBucket_ pCORSConfiguration_ =
   PutBucketCors'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+    { contentMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       cORSConfiguration = pCORSConfiguration_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketCors_expectedBucketOwner :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
-putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketCors' {} a -> s {expectedBucketOwner = a} :: PutBucketCors)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
 -- used as a message integrity check to verify that the request body was
@@ -173,6 +166,12 @@ putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOw
 -- automatically.
 putBucketCors_contentMD5 :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
 putBucketCors_contentMD5 = Lens.lens (\PutBucketCors' {contentMD5} -> contentMD5) (\s@PutBucketCors' {} a -> s {contentMD5 = a} :: PutBucketCors)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketCors_expectedBucketOwner :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
+putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketCors' {} a -> s {expectedBucketOwner = a} :: PutBucketCors)
 
 -- | Specifies the bucket impacted by the @cors@configuration.
 putBucketCors_bucket :: Lens.Lens' PutBucketCors BucketName
@@ -189,7 +188,10 @@ instance Core.AWSRequest PutBucketCors where
   type
     AWSResponse PutBucketCors =
       PutBucketCorsResponse
-  request = Request.putXML defaultService
+  request =
+    Request.contentMD5Header
+      Prelude.. Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutBucketCorsResponse'
 
@@ -206,9 +208,9 @@ instance Core.ToElement PutBucketCors where
 instance Core.ToHeaders PutBucketCors where
   toHeaders PutBucketCors' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketCors where

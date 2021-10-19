@@ -50,10 +50,9 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newPutEmailIdentityConfigurationSetAttributes' smart constructor.
 data PutEmailIdentityConfigurationSetAttributes = PutEmailIdentityConfigurationSetAttributes'
-  { -- | The configuration set that you want to associate with an email identity.
+  { -- | The configuration set to associate with an email identity.
     configurationSetName :: Prelude.Maybe Prelude.Text,
-    -- | The email address or domain that you want to associate with a
-    -- configuration set.
+    -- | The email address or domain to associate with a configuration set.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,10 +65,9 @@ data PutEmailIdentityConfigurationSetAttributes = PutEmailIdentityConfigurationS
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSetName', 'putEmailIdentityConfigurationSetAttributes_configurationSetName' - The configuration set that you want to associate with an email identity.
+-- 'configurationSetName', 'putEmailIdentityConfigurationSetAttributes_configurationSetName' - The configuration set to associate with an email identity.
 --
--- 'emailIdentity', 'putEmailIdentityConfigurationSetAttributes_emailIdentity' - The email address or domain that you want to associate with a
--- configuration set.
+-- 'emailIdentity', 'putEmailIdentityConfigurationSetAttributes_emailIdentity' - The email address or domain to associate with a configuration set.
 newPutEmailIdentityConfigurationSetAttributes ::
   -- | 'emailIdentity'
   Prelude.Text ->
@@ -82,12 +80,11 @@ newPutEmailIdentityConfigurationSetAttributes
         emailIdentity = pEmailIdentity_
       }
 
--- | The configuration set that you want to associate with an email identity.
+-- | The configuration set to associate with an email identity.
 putEmailIdentityConfigurationSetAttributes_configurationSetName :: Lens.Lens' PutEmailIdentityConfigurationSetAttributes (Prelude.Maybe Prelude.Text)
 putEmailIdentityConfigurationSetAttributes_configurationSetName = Lens.lens (\PutEmailIdentityConfigurationSetAttributes' {configurationSetName} -> configurationSetName) (\s@PutEmailIdentityConfigurationSetAttributes' {} a -> s {configurationSetName = a} :: PutEmailIdentityConfigurationSetAttributes)
 
--- | The email address or domain that you want to associate with a
--- configuration set.
+-- | The email address or domain to associate with a configuration set.
 putEmailIdentityConfigurationSetAttributes_emailIdentity :: Lens.Lens' PutEmailIdentityConfigurationSetAttributes Prelude.Text
 putEmailIdentityConfigurationSetAttributes_emailIdentity = Lens.lens (\PutEmailIdentityConfigurationSetAttributes' {emailIdentity} -> emailIdentity) (\s@PutEmailIdentityConfigurationSetAttributes' {} a -> s {emailIdentity = a} :: PutEmailIdentityConfigurationSetAttributes)
 

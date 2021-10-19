@@ -30,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSegmentGroupList' smart constructor.
 data SegmentGroupList = SegmentGroupList'
-  { -- | An array that defines the set of segment criteria to evaluate when
-    -- handling segment groups for the segment.
-    groups :: Prelude.Maybe [SegmentGroup],
-    -- | Specifies how to handle multiple segment groups for the segment. For
+  { -- | Specifies how to handle multiple segment groups for the segment. For
     -- example, if the segment includes three segment groups, whether the
     -- resulting segment includes endpoints that match all, any, or none of the
     -- segment groups.
-    include :: Prelude.Maybe Include
+    include :: Prelude.Maybe Include,
+    -- | An array that defines the set of segment criteria to evaluate when
+    -- handling segment groups for the segment.
+    groups :: Prelude.Maybe [SegmentGroup]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,20 @@ data SegmentGroupList = SegmentGroupList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'segmentGroupList_groups' - An array that defines the set of segment criteria to evaluate when
--- handling segment groups for the segment.
---
 -- 'include', 'segmentGroupList_include' - Specifies how to handle multiple segment groups for the segment. For
 -- example, if the segment includes three segment groups, whether the
 -- resulting segment includes endpoints that match all, any, or none of the
 -- segment groups.
+--
+-- 'groups', 'segmentGroupList_groups' - An array that defines the set of segment criteria to evaluate when
+-- handling segment groups for the segment.
 newSegmentGroupList ::
   SegmentGroupList
 newSegmentGroupList =
   SegmentGroupList'
-    { groups = Prelude.Nothing,
-      include = Prelude.Nothing
+    { include = Prelude.Nothing,
+      groups = Prelude.Nothing
     }
-
--- | An array that defines the set of segment criteria to evaluate when
--- handling segment groups for the segment.
-segmentGroupList_groups :: Lens.Lens' SegmentGroupList (Prelude.Maybe [SegmentGroup])
-segmentGroupList_groups = Lens.lens (\SegmentGroupList' {groups} -> groups) (\s@SegmentGroupList' {} a -> s {groups = a} :: SegmentGroupList) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies how to handle multiple segment groups for the segment. For
 -- example, if the segment includes three segment groups, whether the
@@ -76,14 +71,19 @@ segmentGroupList_groups = Lens.lens (\SegmentGroupList' {groups} -> groups) (\s@
 segmentGroupList_include :: Lens.Lens' SegmentGroupList (Prelude.Maybe Include)
 segmentGroupList_include = Lens.lens (\SegmentGroupList' {include} -> include) (\s@SegmentGroupList' {} a -> s {include = a} :: SegmentGroupList)
 
+-- | An array that defines the set of segment criteria to evaluate when
+-- handling segment groups for the segment.
+segmentGroupList_groups :: Lens.Lens' SegmentGroupList (Prelude.Maybe [SegmentGroup])
+segmentGroupList_groups = Lens.lens (\SegmentGroupList' {groups} -> groups) (\s@SegmentGroupList' {} a -> s {groups = a} :: SegmentGroupList) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON SegmentGroupList where
   parseJSON =
     Core.withObject
       "SegmentGroupList"
       ( \x ->
           SegmentGroupList'
-            Prelude.<$> (x Core..:? "Groups" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Include")
+            Prelude.<$> (x Core..:? "Include")
+            Prelude.<*> (x Core..:? "Groups" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable SegmentGroupList
@@ -94,7 +94,7 @@ instance Core.ToJSON SegmentGroupList where
   toJSON SegmentGroupList' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Groups" Core..=) Prelude.<$> groups,
-            ("Include" Core..=) Prelude.<$> include
+          [ ("Include" Core..=) Prelude.<$> include,
+            ("Groups" Core..=) Prelude.<$> groups
           ]
       )

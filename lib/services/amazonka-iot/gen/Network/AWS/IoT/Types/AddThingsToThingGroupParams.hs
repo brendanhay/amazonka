@@ -63,7 +63,7 @@ newAddThingsToThingGroupParams pThingGroupNames_ =
     { overrideDynamicGroups =
         Prelude.Nothing,
       thingGroupNames =
-        Lens._Coerce Lens.# pThingGroupNames_
+        Lens.coerced Lens.# pThingGroupNames_
     }
 
 -- | Specifies if this mitigation action can move the things that triggered
@@ -76,7 +76,7 @@ addThingsToThingGroupParams_overrideDynamicGroups = Lens.lens (\AddThingsToThing
 -- the mitigation action. You can add a thing to a maximum of 10 groups,
 -- but you can\'t add a thing to more than one group in the same hierarchy.
 addThingsToThingGroupParams_thingGroupNames :: Lens.Lens' AddThingsToThingGroupParams (Prelude.NonEmpty Prelude.Text)
-addThingsToThingGroupParams_thingGroupNames = Lens.lens (\AddThingsToThingGroupParams' {thingGroupNames} -> thingGroupNames) (\s@AddThingsToThingGroupParams' {} a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams) Prelude.. Lens._Coerce
+addThingsToThingGroupParams_thingGroupNames = Lens.lens (\AddThingsToThingGroupParams' {thingGroupNames} -> thingGroupNames) (\s@AddThingsToThingGroupParams' {} a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams) Prelude.. Lens.coerced
 
 instance Core.FromJSON AddThingsToThingGroupParams where
   parseJSON =

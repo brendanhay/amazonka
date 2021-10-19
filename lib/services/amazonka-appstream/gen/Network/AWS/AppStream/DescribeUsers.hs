@@ -39,8 +39,8 @@ module Network.AWS.AppStream.DescribeUsers
     newDescribeUsersResponse,
 
     -- * Response Lenses
-    describeUsersResponse_nextToken,
     describeUsersResponse_users,
+    describeUsersResponse_nextToken,
     describeUsersResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest DescribeUsers where
     Response.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,11 +176,11 @@ instance Core.ToQuery DescribeUsers where
 
 -- | /See:/ 'newDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | Information about users in the user pool.
+    users :: Prelude.Maybe [User],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about users in the user pool.
-    users :: Prelude.Maybe [User],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,10 +194,10 @@ data DescribeUsersResponse = DescribeUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'users', 'describeUsersResponse_users' - Information about users in the user pool.
+--
 -- 'nextToken', 'describeUsersResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
---
--- 'users', 'describeUsersResponse_users' - Information about users in the user pool.
 --
 -- 'httpStatus', 'describeUsersResponse_httpStatus' - The response's http status code.
 newDescribeUsersResponse ::
@@ -206,19 +206,19 @@ newDescribeUsersResponse ::
   DescribeUsersResponse
 newDescribeUsersResponse pHttpStatus_ =
   DescribeUsersResponse'
-    { nextToken = Prelude.Nothing,
-      users = Prelude.Nothing,
+    { users = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about users in the user pool.
+describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe [User])
+describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 describeUsersResponse_nextToken :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe Prelude.Text)
 describeUsersResponse_nextToken = Lens.lens (\DescribeUsersResponse' {nextToken} -> nextToken) (\s@DescribeUsersResponse' {} a -> s {nextToken = a} :: DescribeUsersResponse)
-
--- | Information about users in the user pool.
-describeUsersResponse_users :: Lens.Lens' DescribeUsersResponse (Prelude.Maybe [User])
-describeUsersResponse_users = Lens.lens (\DescribeUsersResponse' {users} -> users) (\s@DescribeUsersResponse' {} a -> s {users = a} :: DescribeUsersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeUsersResponse_httpStatus :: Lens.Lens' DescribeUsersResponse Prelude.Int

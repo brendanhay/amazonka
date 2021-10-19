@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDescribePackagesFilter' smart constructor.
 data DescribePackagesFilter = DescribePackagesFilter'
-  { -- | Any field from @PackageDetails@.
-    name :: Prelude.Maybe DescribePackagesFilterName,
-    -- | A list of values for the specified field.
-    value :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of values for the specified field.
+    value :: Prelude.Maybe [Prelude.Text],
+    -- | Any field from @PackageDetails@.
+    name :: Prelude.Maybe DescribePackagesFilterName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data DescribePackagesFilter = DescribePackagesFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'describePackagesFilter_name' - Any field from @PackageDetails@.
---
 -- 'value', 'describePackagesFilter_value' - A list of values for the specified field.
+--
+-- 'name', 'describePackagesFilter_name' - Any field from @PackageDetails@.
 newDescribePackagesFilter ::
   DescribePackagesFilter
 newDescribePackagesFilter =
   DescribePackagesFilter'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | A list of values for the specified field.
+describePackagesFilter_value :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe [Prelude.Text])
+describePackagesFilter_value = Lens.lens (\DescribePackagesFilter' {value} -> value) (\s@DescribePackagesFilter' {} a -> s {value = a} :: DescribePackagesFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | Any field from @PackageDetails@.
 describePackagesFilter_name :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe DescribePackagesFilterName)
 describePackagesFilter_name = Lens.lens (\DescribePackagesFilter' {name} -> name) (\s@DescribePackagesFilter' {} a -> s {name = a} :: DescribePackagesFilter)
-
--- | A list of values for the specified field.
-describePackagesFilter_value :: Lens.Lens' DescribePackagesFilter (Prelude.Maybe [Prelude.Text])
-describePackagesFilter_value = Lens.lens (\DescribePackagesFilter' {value} -> value) (\s@DescribePackagesFilter' {} a -> s {value = a} :: DescribePackagesFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable DescribePackagesFilter
 
@@ -70,7 +70,7 @@ instance Core.ToJSON DescribePackagesFilter where
   toJSON DescribePackagesFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

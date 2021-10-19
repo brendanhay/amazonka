@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFmp4HlsSettings' smart constructor.
 data Fmp4HlsSettings = Fmp4HlsSettings'
-  { -- | List all the audio groups that are used with the video output stream.
-    -- Input all the audio GROUP-IDs that are associated to the video, separate
-    -- by \',\'.
-    audioRenditionSets :: Prelude.Maybe Prelude.Text,
-    -- | If set to passthrough, Nielsen inaudible tones for media tracking will
+  { -- | If set to passthrough, Nielsen inaudible tones for media tracking will
     -- be detected in the input audio and an equivalent ID3 tag will be
     -- inserted in the output.
     nielsenId3Behavior :: Prelude.Maybe Fmp4NielsenId3Behavior,
+    -- | List all the audio groups that are used with the video output stream.
+    -- Input all the audio GROUP-IDs that are associated to the video, separate
+    -- by \',\'.
+    audioRenditionSets :: Prelude.Maybe Prelude.Text,
     -- | When set to passthrough, timed metadata is passed through from input to
     -- output.
     timedMetadataBehavior :: Prelude.Maybe Fmp4TimedMetadataBehavior
@@ -51,13 +51,13 @@ data Fmp4HlsSettings = Fmp4HlsSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'audioRenditionSets', 'fmp4HlsSettings_audioRenditionSets' - List all the audio groups that are used with the video output stream.
--- Input all the audio GROUP-IDs that are associated to the video, separate
--- by \',\'.
---
 -- 'nielsenId3Behavior', 'fmp4HlsSettings_nielsenId3Behavior' - If set to passthrough, Nielsen inaudible tones for media tracking will
 -- be detected in the input audio and an equivalent ID3 tag will be
 -- inserted in the output.
+--
+-- 'audioRenditionSets', 'fmp4HlsSettings_audioRenditionSets' - List all the audio groups that are used with the video output stream.
+-- Input all the audio GROUP-IDs that are associated to the video, separate
+-- by \',\'.
 --
 -- 'timedMetadataBehavior', 'fmp4HlsSettings_timedMetadataBehavior' - When set to passthrough, timed metadata is passed through from input to
 -- output.
@@ -65,23 +65,23 @@ newFmp4HlsSettings ::
   Fmp4HlsSettings
 newFmp4HlsSettings =
   Fmp4HlsSettings'
-    { audioRenditionSets =
+    { nielsenId3Behavior =
         Prelude.Nothing,
-      nielsenId3Behavior = Prelude.Nothing,
+      audioRenditionSets = Prelude.Nothing,
       timedMetadataBehavior = Prelude.Nothing
     }
-
--- | List all the audio groups that are used with the video output stream.
--- Input all the audio GROUP-IDs that are associated to the video, separate
--- by \',\'.
-fmp4HlsSettings_audioRenditionSets :: Lens.Lens' Fmp4HlsSettings (Prelude.Maybe Prelude.Text)
-fmp4HlsSettings_audioRenditionSets = Lens.lens (\Fmp4HlsSettings' {audioRenditionSets} -> audioRenditionSets) (\s@Fmp4HlsSettings' {} a -> s {audioRenditionSets = a} :: Fmp4HlsSettings)
 
 -- | If set to passthrough, Nielsen inaudible tones for media tracking will
 -- be detected in the input audio and an equivalent ID3 tag will be
 -- inserted in the output.
 fmp4HlsSettings_nielsenId3Behavior :: Lens.Lens' Fmp4HlsSettings (Prelude.Maybe Fmp4NielsenId3Behavior)
 fmp4HlsSettings_nielsenId3Behavior = Lens.lens (\Fmp4HlsSettings' {nielsenId3Behavior} -> nielsenId3Behavior) (\s@Fmp4HlsSettings' {} a -> s {nielsenId3Behavior = a} :: Fmp4HlsSettings)
+
+-- | List all the audio groups that are used with the video output stream.
+-- Input all the audio GROUP-IDs that are associated to the video, separate
+-- by \',\'.
+fmp4HlsSettings_audioRenditionSets :: Lens.Lens' Fmp4HlsSettings (Prelude.Maybe Prelude.Text)
+fmp4HlsSettings_audioRenditionSets = Lens.lens (\Fmp4HlsSettings' {audioRenditionSets} -> audioRenditionSets) (\s@Fmp4HlsSettings' {} a -> s {audioRenditionSets = a} :: Fmp4HlsSettings)
 
 -- | When set to passthrough, timed metadata is passed through from input to
 -- output.
@@ -94,8 +94,8 @@ instance Core.FromJSON Fmp4HlsSettings where
       "Fmp4HlsSettings"
       ( \x ->
           Fmp4HlsSettings'
-            Prelude.<$> (x Core..:? "audioRenditionSets")
-            Prelude.<*> (x Core..:? "nielsenId3Behavior")
+            Prelude.<$> (x Core..:? "nielsenId3Behavior")
+            Prelude.<*> (x Core..:? "audioRenditionSets")
             Prelude.<*> (x Core..:? "timedMetadataBehavior")
       )
 
@@ -107,10 +107,10 @@ instance Core.ToJSON Fmp4HlsSettings where
   toJSON Fmp4HlsSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("audioRenditionSets" Core..=)
-              Prelude.<$> audioRenditionSets,
-            ("nielsenId3Behavior" Core..=)
+          [ ("nielsenId3Behavior" Core..=)
               Prelude.<$> nielsenId3Behavior,
+            ("audioRenditionSets" Core..=)
+              Prelude.<$> audioRenditionSets,
             ("timedMetadataBehavior" Core..=)
               Prelude.<$> timedMetadataBehavior
           ]

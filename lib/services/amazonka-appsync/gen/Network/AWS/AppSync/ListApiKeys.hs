@@ -43,8 +43,8 @@ module Network.AWS.AppSync.ListApiKeys
     newListApiKeysResponse,
 
     -- * Response Lenses
-    listApiKeysResponse_nextToken,
     listApiKeysResponse_apiKeys,
+    listApiKeysResponse_nextToken,
     listApiKeysResponse_httpStatus,
   )
 where
@@ -135,8 +135,8 @@ instance Core.AWSRequest ListApiKeys where
     Response.receiveJSON
       ( \s h x ->
           ListApiKeysResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "apiKeys" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "apiKeys" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,11 +169,11 @@ instance Core.ToQuery ListApiKeys where
 
 -- | /See:/ 'newListApiKeysResponse' smart constructor.
 data ListApiKeysResponse = ListApiKeysResponse'
-  { -- | An identifier to be passed in the next request to this operation to
+  { -- | The @ApiKey@ objects.
+    apiKeys :: Prelude.Maybe [ApiKey],
+    -- | An identifier to be passed in the next request to this operation to
     -- return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @ApiKey@ objects.
-    apiKeys :: Prelude.Maybe [ApiKey],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,10 +187,10 @@ data ListApiKeysResponse = ListApiKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apiKeys', 'listApiKeysResponse_apiKeys' - The @ApiKey@ objects.
+--
 -- 'nextToken', 'listApiKeysResponse_nextToken' - An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
---
--- 'apiKeys', 'listApiKeysResponse_apiKeys' - The @ApiKey@ objects.
 --
 -- 'httpStatus', 'listApiKeysResponse_httpStatus' - The response's http status code.
 newListApiKeysResponse ::
@@ -199,19 +199,19 @@ newListApiKeysResponse ::
   ListApiKeysResponse
 newListApiKeysResponse pHttpStatus_ =
   ListApiKeysResponse'
-    { nextToken = Prelude.Nothing,
-      apiKeys = Prelude.Nothing,
+    { apiKeys = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @ApiKey@ objects.
+listApiKeysResponse_apiKeys :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe [ApiKey])
+listApiKeysResponse_apiKeys = Lens.lens (\ListApiKeysResponse' {apiKeys} -> apiKeys) (\s@ListApiKeysResponse' {} a -> s {apiKeys = a} :: ListApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
 listApiKeysResponse_nextToken :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe Prelude.Text)
 listApiKeysResponse_nextToken = Lens.lens (\ListApiKeysResponse' {nextToken} -> nextToken) (\s@ListApiKeysResponse' {} a -> s {nextToken = a} :: ListApiKeysResponse)
-
--- | The @ApiKey@ objects.
-listApiKeysResponse_apiKeys :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe [ApiKey])
-listApiKeysResponse_apiKeys = Lens.lens (\ListApiKeysResponse' {apiKeys} -> apiKeys) (\s@ListApiKeysResponse' {} a -> s {apiKeys = a} :: ListApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listApiKeysResponse_httpStatus :: Lens.Lens' ListApiKeysResponse Prelude.Int

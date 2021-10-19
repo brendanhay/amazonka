@@ -39,9 +39,9 @@ module Network.AWS.IoT.ListThingRegistrationTaskReports
     newListThingRegistrationTaskReportsResponse,
 
     -- * Response Lenses
+    listThingRegistrationTaskReportsResponse_resourceLinks,
     listThingRegistrationTaskReportsResponse_nextToken,
     listThingRegistrationTaskReportsResponse_reportType,
-    listThingRegistrationTaskReportsResponse_resourceLinks,
     listThingRegistrationTaskReportsResponse_httpStatus,
   )
 where
@@ -157,9 +157,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListThingRegistrationTaskReportsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "resourceLinks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "reportType")
-            Prelude.<*> (x Core..?> "resourceLinks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,13 +198,13 @@ instance
 
 -- | /See:/ 'newListThingRegistrationTaskReportsResponse' smart constructor.
 data ListThingRegistrationTaskReportsResponse = ListThingRegistrationTaskReportsResponse'
-  { -- | The token to use to get the next set of results, or __null__ if there
+  { -- | Links to the task resources.
+    resourceLinks :: Prelude.Maybe [Prelude.Text],
+    -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of task report.
     reportType :: Prelude.Maybe ReportType,
-    -- | Links to the task resources.
-    resourceLinks :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,12 +218,12 @@ data ListThingRegistrationTaskReportsResponse = ListThingRegistrationTaskReports
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceLinks', 'listThingRegistrationTaskReportsResponse_resourceLinks' - Links to the task resources.
+--
 -- 'nextToken', 'listThingRegistrationTaskReportsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 --
 -- 'reportType', 'listThingRegistrationTaskReportsResponse_reportType' - The type of task report.
---
--- 'resourceLinks', 'listThingRegistrationTaskReportsResponse_resourceLinks' - Links to the task resources.
 --
 -- 'httpStatus', 'listThingRegistrationTaskReportsResponse_httpStatus' - The response's http status code.
 newListThingRegistrationTaskReportsResponse ::
@@ -233,12 +233,16 @@ newListThingRegistrationTaskReportsResponse ::
 newListThingRegistrationTaskReportsResponse
   pHttpStatus_ =
     ListThingRegistrationTaskReportsResponse'
-      { nextToken =
+      { resourceLinks =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         reportType = Prelude.Nothing,
-        resourceLinks = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Links to the task resources.
+listThingRegistrationTaskReportsResponse_resourceLinks :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Prelude.Maybe [Prelude.Text])
+listThingRegistrationTaskReportsResponse_resourceLinks = Lens.lens (\ListThingRegistrationTaskReportsResponse' {resourceLinks} -> resourceLinks) (\s@ListThingRegistrationTaskReportsResponse' {} a -> s {resourceLinks = a} :: ListThingRegistrationTaskReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
@@ -248,10 +252,6 @@ listThingRegistrationTaskReportsResponse_nextToken = Lens.lens (\ListThingRegist
 -- | The type of task report.
 listThingRegistrationTaskReportsResponse_reportType :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Prelude.Maybe ReportType)
 listThingRegistrationTaskReportsResponse_reportType = Lens.lens (\ListThingRegistrationTaskReportsResponse' {reportType} -> reportType) (\s@ListThingRegistrationTaskReportsResponse' {} a -> s {reportType = a} :: ListThingRegistrationTaskReportsResponse)
-
--- | Links to the task resources.
-listThingRegistrationTaskReportsResponse_resourceLinks :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Prelude.Maybe [Prelude.Text])
-listThingRegistrationTaskReportsResponse_resourceLinks = Lens.lens (\ListThingRegistrationTaskReportsResponse' {resourceLinks} -> resourceLinks) (\s@ListThingRegistrationTaskReportsResponse' {} a -> s {resourceLinks = a} :: ListThingRegistrationTaskReportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listThingRegistrationTaskReportsResponse_httpStatus :: Lens.Lens' ListThingRegistrationTaskReportsResponse Prelude.Int

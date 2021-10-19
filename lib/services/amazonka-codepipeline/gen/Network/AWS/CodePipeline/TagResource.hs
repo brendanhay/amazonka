@@ -83,7 +83,7 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 
 -- | The tags you want to modify or add to the resource.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

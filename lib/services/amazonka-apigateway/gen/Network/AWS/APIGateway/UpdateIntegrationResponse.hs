@@ -40,9 +40,9 @@ module Network.AWS.APIGateway.UpdateIntegrationResponse
     -- * Response Lenses
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_responseParameters,
-    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
+    integrationResponse_statusCode,
+    integrationResponse_responseParameters,
   )
 where
 
@@ -122,7 +122,7 @@ newUpdateIntegrationResponse
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateIntegrationResponse_patchOperations :: Lens.Lens' UpdateIntegrationResponse (Prelude.Maybe [PatchOperation])
-updateIntegrationResponse_patchOperations = Lens.lens (\UpdateIntegrationResponse' {patchOperations} -> patchOperations) (\s@UpdateIntegrationResponse' {} a -> s {patchOperations = a} :: UpdateIntegrationResponse) Prelude.. Lens.mapping Lens._Coerce
+updateIntegrationResponse_patchOperations = Lens.lens (\UpdateIntegrationResponse' {patchOperations} -> patchOperations) (\s@UpdateIntegrationResponse' {} a -> s {patchOperations = a} :: UpdateIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateIntegrationResponse_restApiId :: Lens.Lens' UpdateIntegrationResponse Prelude.Text

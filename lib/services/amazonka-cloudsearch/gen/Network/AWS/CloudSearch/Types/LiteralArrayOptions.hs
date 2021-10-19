@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 data LiteralArrayOptions = LiteralArrayOptions'
   { -- | A list of source fields to map to the field.
     sourceFields :: Prelude.Maybe Prelude.Text,
-    -- | Whether facet information can be returned for the field.
-    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether facet information can be returned for the field.
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
@@ -53,9 +53,9 @@ data LiteralArrayOptions = LiteralArrayOptions'
 --
 -- 'sourceFields', 'literalArrayOptions_sourceFields' - A list of source fields to map to the field.
 --
--- 'facetEnabled', 'literalArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
---
 -- 'returnEnabled', 'literalArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
+--
+-- 'facetEnabled', 'literalArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'literalArrayOptions_searchEnabled' - Whether the contents of the field are searchable.
 --
@@ -67,8 +67,8 @@ newLiteralArrayOptions =
   LiteralArrayOptions'
     { sourceFields =
         Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
       returnEnabled = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
       defaultValue = Prelude.Nothing
     }
@@ -77,13 +77,13 @@ newLiteralArrayOptions =
 literalArrayOptions_sourceFields :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Text)
 literalArrayOptions_sourceFields = Lens.lens (\LiteralArrayOptions' {sourceFields} -> sourceFields) (\s@LiteralArrayOptions' {} a -> s {sourceFields = a} :: LiteralArrayOptions)
 
--- | Whether facet information can be returned for the field.
-literalArrayOptions_facetEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
-literalArrayOptions_facetEnabled = Lens.lens (\LiteralArrayOptions' {facetEnabled} -> facetEnabled) (\s@LiteralArrayOptions' {} a -> s {facetEnabled = a} :: LiteralArrayOptions)
-
 -- | Whether the contents of the field can be returned in the search results.
 literalArrayOptions_returnEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
 literalArrayOptions_returnEnabled = Lens.lens (\LiteralArrayOptions' {returnEnabled} -> returnEnabled) (\s@LiteralArrayOptions' {} a -> s {returnEnabled = a} :: LiteralArrayOptions)
+
+-- | Whether facet information can be returned for the field.
+literalArrayOptions_facetEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
+literalArrayOptions_facetEnabled = Lens.lens (\LiteralArrayOptions' {facetEnabled} -> facetEnabled) (\s@LiteralArrayOptions' {} a -> s {facetEnabled = a} :: LiteralArrayOptions)
 
 -- | Whether the contents of the field are searchable.
 literalArrayOptions_searchEnabled :: Lens.Lens' LiteralArrayOptions (Prelude.Maybe Prelude.Bool)
@@ -98,8 +98,8 @@ instance Core.FromXML LiteralArrayOptions where
   parseXML x =
     LiteralArrayOptions'
       Prelude.<$> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
@@ -111,8 +111,8 @@ instance Core.ToQuery LiteralArrayOptions where
   toQuery LiteralArrayOptions' {..} =
     Prelude.mconcat
       [ "SourceFields" Core.=: sourceFields,
-        "FacetEnabled" Core.=: facetEnabled,
         "ReturnEnabled" Core.=: returnEnabled,
+        "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
         "DefaultValue" Core.=: defaultValue
       ]

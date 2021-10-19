@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data MetricData = MetricData'
   { -- | The name of the metric.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the algorithm emitted the metric.
-    timestamp :: Prelude.Maybe Core.POSIX,
     -- | The value of the metric.
-    value :: Prelude.Maybe Prelude.Double
+    value :: Prelude.Maybe Prelude.Double,
+    -- | The date and time that the algorithm emitted the metric.
+    timestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data MetricData = MetricData'
 --
 -- 'metricName', 'metricData_metricName' - The name of the metric.
 --
--- 'timestamp', 'metricData_timestamp' - The date and time that the algorithm emitted the metric.
---
 -- 'value', 'metricData_value' - The value of the metric.
+--
+-- 'timestamp', 'metricData_timestamp' - The date and time that the algorithm emitted the metric.
 newMetricData ::
   MetricData
 newMetricData =
   MetricData'
     { metricName = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      value = Prelude.Nothing
+      value = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
 
 -- | The name of the metric.
 metricData_metricName :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Text)
 metricData_metricName = Lens.lens (\MetricData' {metricName} -> metricName) (\s@MetricData' {} a -> s {metricName = a} :: MetricData)
 
--- | The date and time that the algorithm emitted the metric.
-metricData_timestamp :: Lens.Lens' MetricData (Prelude.Maybe Prelude.UTCTime)
-metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Core._Time
-
 -- | The value of the metric.
 metricData_value :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Double)
 metricData_value = Lens.lens (\MetricData' {value} -> value) (\s@MetricData' {} a -> s {value = a} :: MetricData)
+
+-- | The date and time that the algorithm emitted the metric.
+metricData_timestamp :: Lens.Lens' MetricData (Prelude.Maybe Prelude.UTCTime)
+metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON MetricData where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON MetricData where
       ( \x ->
           MetricData'
             Prelude.<$> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "Timestamp")
             Prelude.<*> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Timestamp")
       )
 
 instance Prelude.Hashable MetricData

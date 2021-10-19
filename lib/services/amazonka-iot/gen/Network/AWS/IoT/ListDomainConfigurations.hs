@@ -34,9 +34,9 @@ module Network.AWS.IoT.ListDomainConfigurations
     newListDomainConfigurations,
 
     -- * Request Lenses
-    listDomainConfigurations_pageSize,
-    listDomainConfigurations_serviceType,
     listDomainConfigurations_marker,
+    listDomainConfigurations_serviceType,
+    listDomainConfigurations_pageSize,
 
     -- * Destructuring the Response
     ListDomainConfigurationsResponse (..),
@@ -58,12 +58,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDomainConfigurations' smart constructor.
 data ListDomainConfigurations = ListDomainConfigurations'
-  { -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+  { -- | The marker for the next set of results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The type of service delivered by the endpoint.
     serviceType :: Prelude.Maybe ServiceType,
-    -- | The marker for the next set of results.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | The result page size.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,32 +75,31 @@ data ListDomainConfigurations = ListDomainConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listDomainConfigurations_pageSize' - The result page size.
+-- 'marker', 'listDomainConfigurations_marker' - The marker for the next set of results.
 --
 -- 'serviceType', 'listDomainConfigurations_serviceType' - The type of service delivered by the endpoint.
 --
--- 'marker', 'listDomainConfigurations_marker' - The marker for the next set of results.
+-- 'pageSize', 'listDomainConfigurations_pageSize' - The result page size.
 newListDomainConfigurations ::
   ListDomainConfigurations
 newListDomainConfigurations =
   ListDomainConfigurations'
-    { pageSize =
-        Prelude.Nothing,
+    { marker = Prelude.Nothing,
       serviceType = Prelude.Nothing,
-      marker = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
 
--- | The result page size.
-listDomainConfigurations_pageSize :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Natural)
-listDomainConfigurations_pageSize = Lens.lens (\ListDomainConfigurations' {pageSize} -> pageSize) (\s@ListDomainConfigurations' {} a -> s {pageSize = a} :: ListDomainConfigurations)
+-- | The marker for the next set of results.
+listDomainConfigurations_marker :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Text)
+listDomainConfigurations_marker = Lens.lens (\ListDomainConfigurations' {marker} -> marker) (\s@ListDomainConfigurations' {} a -> s {marker = a} :: ListDomainConfigurations)
 
 -- | The type of service delivered by the endpoint.
 listDomainConfigurations_serviceType :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe ServiceType)
 listDomainConfigurations_serviceType = Lens.lens (\ListDomainConfigurations' {serviceType} -> serviceType) (\s@ListDomainConfigurations' {} a -> s {serviceType = a} :: ListDomainConfigurations)
 
--- | The marker for the next set of results.
-listDomainConfigurations_marker :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Text)
-listDomainConfigurations_marker = Lens.lens (\ListDomainConfigurations' {marker} -> marker) (\s@ListDomainConfigurations' {} a -> s {marker = a} :: ListDomainConfigurations)
+-- | The result page size.
+listDomainConfigurations_pageSize :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Natural)
+listDomainConfigurations_pageSize = Lens.lens (\ListDomainConfigurations' {pageSize} -> pageSize) (\s@ListDomainConfigurations' {} a -> s {pageSize = a} :: ListDomainConfigurations)
 
 instance Core.AWSPager ListDomainConfigurations where
   page rq rs
@@ -153,9 +152,9 @@ instance Core.ToPath ListDomainConfigurations where
 instance Core.ToQuery ListDomainConfigurations where
   toQuery ListDomainConfigurations' {..} =
     Prelude.mconcat
-      [ "pageSize" Core.=: pageSize,
+      [ "marker" Core.=: marker,
         "serviceType" Core.=: serviceType,
-        "marker" Core.=: marker
+        "pageSize" Core.=: pageSize
       ]
 
 -- | /See:/ 'newListDomainConfigurationsResponse' smart constructor.
@@ -199,7 +198,7 @@ newListDomainConfigurationsResponse pHttpStatus_ =
 -- | A list of objects that contain summary information about the user\'s
 -- domain configurations.
 listDomainConfigurationsResponse_domainConfigurations :: Lens.Lens' ListDomainConfigurationsResponse (Prelude.Maybe [DomainConfigurationSummary])
-listDomainConfigurationsResponse_domainConfigurations = Lens.lens (\ListDomainConfigurationsResponse' {domainConfigurations} -> domainConfigurations) (\s@ListDomainConfigurationsResponse' {} a -> s {domainConfigurations = a} :: ListDomainConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDomainConfigurationsResponse_domainConfigurations = Lens.lens (\ListDomainConfigurationsResponse' {domainConfigurations} -> domainConfigurations) (\s@ListDomainConfigurationsResponse' {} a -> s {domainConfigurations = a} :: ListDomainConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker for the next set of results.
 listDomainConfigurationsResponse_nextMarker :: Lens.Lens' ListDomainConfigurationsResponse (Prelude.Maybe Prelude.Text)

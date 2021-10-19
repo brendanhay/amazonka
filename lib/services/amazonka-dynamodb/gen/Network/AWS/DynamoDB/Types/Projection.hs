@@ -30,15 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProjection' smart constructor.
 data Projection = Projection'
-  { -- | Represents the non-key attribute names which will be projected into the
-    -- index.
-    --
-    -- For local secondary indexes, the total count of @NonKeyAttributes@
-    -- summed across all of the local secondary indexes, must not exceed 20. If
-    -- you project the same attribute into two different indexes, this counts
-    -- as two distinct attributes when determining the total.
-    nonKeyAttributes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The set of attributes that are projected into the index:
+  { -- | The set of attributes that are projected into the index:
     --
     -- -   @KEYS_ONLY@ - Only the index and primary keys are projected into the
     --     index.
@@ -48,7 +40,15 @@ data Projection = Projection'
     --     specify.
     --
     -- -   @ALL@ - All of the table attributes are projected into the index.
-    projectionType :: Prelude.Maybe ProjectionType
+    projectionType :: Prelude.Maybe ProjectionType,
+    -- | Represents the non-key attribute names which will be projected into the
+    -- index.
+    --
+    -- For local secondary indexes, the total count of @NonKeyAttributes@
+    -- summed across all of the local secondary indexes, must not exceed 20. If
+    -- you project the same attribute into two different indexes, this counts
+    -- as two distinct attributes when determining the total.
+    nonKeyAttributes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,14 +60,6 @@ data Projection = Projection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nonKeyAttributes', 'projection_nonKeyAttributes' - Represents the non-key attribute names which will be projected into the
--- index.
---
--- For local secondary indexes, the total count of @NonKeyAttributes@
--- summed across all of the local secondary indexes, must not exceed 20. If
--- you project the same attribute into two different indexes, this counts
--- as two distinct attributes when determining the total.
---
 -- 'projectionType', 'projection_projectionType' - The set of attributes that are projected into the index:
 --
 -- -   @KEYS_ONLY@ - Only the index and primary keys are projected into the
@@ -78,23 +70,21 @@ data Projection = Projection'
 --     specify.
 --
 -- -   @ALL@ - All of the table attributes are projected into the index.
-newProjection ::
-  Projection
-newProjection =
-  Projection'
-    { nonKeyAttributes = Prelude.Nothing,
-      projectionType = Prelude.Nothing
-    }
-
--- | Represents the non-key attribute names which will be projected into the
+--
+-- 'nonKeyAttributes', 'projection_nonKeyAttributes' - Represents the non-key attribute names which will be projected into the
 -- index.
 --
 -- For local secondary indexes, the total count of @NonKeyAttributes@
 -- summed across all of the local secondary indexes, must not exceed 20. If
 -- you project the same attribute into two different indexes, this counts
 -- as two distinct attributes when determining the total.
-projection_nonKeyAttributes :: Lens.Lens' Projection (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonKeyAttributes) (\s@Projection' {} a -> s {nonKeyAttributes = a} :: Projection) Prelude.. Lens.mapping Lens._Coerce
+newProjection ::
+  Projection
+newProjection =
+  Projection'
+    { projectionType = Prelude.Nothing,
+      nonKeyAttributes = Prelude.Nothing
+    }
 
 -- | The set of attributes that are projected into the index:
 --
@@ -109,14 +99,24 @@ projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonK
 projection_projectionType :: Lens.Lens' Projection (Prelude.Maybe ProjectionType)
 projection_projectionType = Lens.lens (\Projection' {projectionType} -> projectionType) (\s@Projection' {} a -> s {projectionType = a} :: Projection)
 
+-- | Represents the non-key attribute names which will be projected into the
+-- index.
+--
+-- For local secondary indexes, the total count of @NonKeyAttributes@
+-- summed across all of the local secondary indexes, must not exceed 20. If
+-- you project the same attribute into two different indexes, this counts
+-- as two distinct attributes when determining the total.
+projection_nonKeyAttributes :: Lens.Lens' Projection (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+projection_nonKeyAttributes = Lens.lens (\Projection' {nonKeyAttributes} -> nonKeyAttributes) (\s@Projection' {} a -> s {nonKeyAttributes = a} :: Projection) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON Projection where
   parseJSON =
     Core.withObject
       "Projection"
       ( \x ->
           Projection'
-            Prelude.<$> (x Core..:? "NonKeyAttributes")
-            Prelude.<*> (x Core..:? "ProjectionType")
+            Prelude.<$> (x Core..:? "ProjectionType")
+            Prelude.<*> (x Core..:? "NonKeyAttributes")
       )
 
 instance Prelude.Hashable Projection
@@ -127,9 +127,9 @@ instance Core.ToJSON Projection where
   toJSON Projection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NonKeyAttributes" Core..=)
-              Prelude.<$> nonKeyAttributes,
-            ("ProjectionType" Core..=)
-              Prelude.<$> projectionType
+          [ ("ProjectionType" Core..=)
+              Prelude.<$> projectionType,
+            ("NonKeyAttributes" Core..=)
+              Prelude.<$> nonKeyAttributes
           ]
       )

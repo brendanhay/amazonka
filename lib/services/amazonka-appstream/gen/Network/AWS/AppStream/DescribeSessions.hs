@@ -33,10 +33,10 @@ module Network.AWS.AppStream.DescribeSessions
     newDescribeSessions,
 
     -- * Request Lenses
-    describeSessions_nextToken,
     describeSessions_userId,
-    describeSessions_authenticationType,
+    describeSessions_nextToken,
     describeSessions_limit,
+    describeSessions_authenticationType,
     describeSessions_stackName,
     describeSessions_fleetName,
 
@@ -60,19 +60,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { -- | The pagination token to use to retrieve the next page of results for
-    -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The user identifier (ID). If you specify a user ID, you must also
+  { -- | The user identifier (ID). If you specify a user ID, you must also
     -- specify the authentication type.
     userId :: Prelude.Maybe Prelude.Text,
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The size of each page of results. The default value is 20 and the
+    -- maximum value is 50.
+    limit :: Prelude.Maybe Prelude.Int,
     -- | The authentication method. Specify @API@ for a user authenticated using
     -- a streaming URL or @SAML@ for a SAML federated user. The default is to
     -- authenticate users using a streaming URL.
     authenticationType :: Prelude.Maybe AuthenticationType,
-    -- | The size of each page of results. The default value is 20 and the
-    -- maximum value is 50.
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The name of the stack. This value is case-sensitive.
     stackName :: Prelude.Text,
     -- | The name of the fleet. This value is case-sensitive.
@@ -88,18 +88,18 @@ data DescribeSessions = DescribeSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userId', 'describeSessions_userId' - The user identifier (ID). If you specify a user ID, you must also
+-- specify the authentication type.
+--
 -- 'nextToken', 'describeSessions_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'userId', 'describeSessions_userId' - The user identifier (ID). If you specify a user ID, you must also
--- specify the authentication type.
+-- 'limit', 'describeSessions_limit' - The size of each page of results. The default value is 20 and the
+-- maximum value is 50.
 --
 -- 'authenticationType', 'describeSessions_authenticationType' - The authentication method. Specify @API@ for a user authenticated using
 -- a streaming URL or @SAML@ for a SAML federated user. The default is to
 -- authenticate users using a streaming URL.
---
--- 'limit', 'describeSessions_limit' - The size of each page of results. The default value is 20 and the
--- maximum value is 50.
 --
 -- 'stackName', 'describeSessions_stackName' - The name of the stack. This value is case-sensitive.
 --
@@ -112,34 +112,34 @@ newDescribeSessions ::
   DescribeSessions
 newDescribeSessions pStackName_ pFleetName_ =
   DescribeSessions'
-    { nextToken = Prelude.Nothing,
-      userId = Prelude.Nothing,
-      authenticationType = Prelude.Nothing,
+    { userId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       limit = Prelude.Nothing,
+      authenticationType = Prelude.Nothing,
       stackName = pStackName_,
       fleetName = pFleetName_
     }
-
--- | The pagination token to use to retrieve the next page of results for
--- this operation. If this value is null, it retrieves the first page.
-describeSessions_nextToken :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Text)
-describeSessions_nextToken = Lens.lens (\DescribeSessions' {nextToken} -> nextToken) (\s@DescribeSessions' {} a -> s {nextToken = a} :: DescribeSessions)
 
 -- | The user identifier (ID). If you specify a user ID, you must also
 -- specify the authentication type.
 describeSessions_userId :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Text)
 describeSessions_userId = Lens.lens (\DescribeSessions' {userId} -> userId) (\s@DescribeSessions' {} a -> s {userId = a} :: DescribeSessions)
 
--- | The authentication method. Specify @API@ for a user authenticated using
--- a streaming URL or @SAML@ for a SAML federated user. The default is to
--- authenticate users using a streaming URL.
-describeSessions_authenticationType :: Lens.Lens' DescribeSessions (Prelude.Maybe AuthenticationType)
-describeSessions_authenticationType = Lens.lens (\DescribeSessions' {authenticationType} -> authenticationType) (\s@DescribeSessions' {} a -> s {authenticationType = a} :: DescribeSessions)
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+describeSessions_nextToken :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Text)
+describeSessions_nextToken = Lens.lens (\DescribeSessions' {nextToken} -> nextToken) (\s@DescribeSessions' {} a -> s {nextToken = a} :: DescribeSessions)
 
 -- | The size of each page of results. The default value is 20 and the
 -- maximum value is 50.
 describeSessions_limit :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Int)
 describeSessions_limit = Lens.lens (\DescribeSessions' {limit} -> limit) (\s@DescribeSessions' {} a -> s {limit = a} :: DescribeSessions)
+
+-- | The authentication method. Specify @API@ for a user authenticated using
+-- a streaming URL or @SAML@ for a SAML federated user. The default is to
+-- authenticate users using a streaming URL.
+describeSessions_authenticationType :: Lens.Lens' DescribeSessions (Prelude.Maybe AuthenticationType)
+describeSessions_authenticationType = Lens.lens (\DescribeSessions' {authenticationType} -> authenticationType) (\s@DescribeSessions' {} a -> s {authenticationType = a} :: DescribeSessions)
 
 -- | The name of the stack. This value is case-sensitive.
 describeSessions_stackName :: Lens.Lens' DescribeSessions Prelude.Text
@@ -208,11 +208,11 @@ instance Core.ToJSON DescribeSessions where
   toJSON DescribeSessions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("UserId" Core..=) Prelude.<$> userId,
+          [ ("UserId" Core..=) Prelude.<$> userId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("AuthenticationType" Core..=)
               Prelude.<$> authenticationType,
-            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("StackName" Core..= stackName),
             Prelude.Just ("FleetName" Core..= fleetName)
           ]
@@ -269,7 +269,7 @@ describeSessionsResponse_nextToken = Lens.lens (\DescribeSessionsResponse' {next
 
 -- | Information about the streaming sessions.
 describeSessionsResponse_sessions :: Lens.Lens' DescribeSessionsResponse (Prelude.Maybe [Session])
-describeSessionsResponse_sessions = Lens.lens (\DescribeSessionsResponse' {sessions} -> sessions) (\s@DescribeSessionsResponse' {} a -> s {sessions = a} :: DescribeSessionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSessionsResponse_sessions = Lens.lens (\DescribeSessionsResponse' {sessions} -> sessions) (\s@DescribeSessionsResponse' {} a -> s {sessions = a} :: DescribeSessionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSessionsResponse_httpStatus :: Lens.Lens' DescribeSessionsResponse Prelude.Int

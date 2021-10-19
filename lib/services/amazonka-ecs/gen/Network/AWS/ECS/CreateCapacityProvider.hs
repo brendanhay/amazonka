@@ -184,7 +184,7 @@ newCreateCapacityProvider
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 createCapacityProvider_tags :: Lens.Lens' CreateCapacityProvider (Prelude.Maybe [Tag])
-createCapacityProvider_tags = Lens.lens (\CreateCapacityProvider' {tags} -> tags) (\s@CreateCapacityProvider' {} a -> s {tags = a} :: CreateCapacityProvider) Prelude.. Lens.mapping Lens._Coerce
+createCapacityProvider_tags = Lens.lens (\CreateCapacityProvider' {tags} -> tags) (\s@CreateCapacityProvider' {} a -> s {tags = a} :: CreateCapacityProvider) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the capacity provider. Up to 255 characters are allowed,
 -- including letters (upper and lowercase), numbers, underscores, and

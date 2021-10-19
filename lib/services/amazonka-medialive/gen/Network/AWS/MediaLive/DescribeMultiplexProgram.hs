@@ -36,10 +36,10 @@ module Network.AWS.MediaLive.DescribeMultiplexProgram
 
     -- * Response Lenses
     describeMultiplexProgramResponse_packetIdentifiersMap,
-    describeMultiplexProgramResponse_multiplexProgramSettings,
-    describeMultiplexProgramResponse_channelId,
-    describeMultiplexProgramResponse_programName,
     describeMultiplexProgramResponse_pipelineDetails,
+    describeMultiplexProgramResponse_programName,
+    describeMultiplexProgramResponse_channelId,
+    describeMultiplexProgramResponse_multiplexProgramSettings,
     describeMultiplexProgramResponse_httpStatus,
   )
 where
@@ -106,12 +106,12 @@ instance Core.AWSRequest DescribeMultiplexProgram where
       ( \s h x ->
           DescribeMultiplexProgramResponse'
             Prelude.<$> (x Core..?> "packetIdentifiersMap")
-            Prelude.<*> (x Core..?> "multiplexProgramSettings")
-            Prelude.<*> (x Core..?> "channelId")
-            Prelude.<*> (x Core..?> "programName")
             Prelude.<*> ( x Core..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "programName")
+            Prelude.<*> (x Core..?> "channelId")
+            Prelude.<*> (x Core..?> "multiplexProgramSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,18 +148,18 @@ instance Core.ToQuery DescribeMultiplexProgram where
 data DescribeMultiplexProgramResponse = DescribeMultiplexProgramResponse'
   { -- | The packet identifier map for this multiplex program.
     packetIdentifiersMap :: Prelude.Maybe MultiplexProgramPacketIdentifiersMap,
-    -- | The settings for this multiplex program.
-    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
-    -- | The MediaLive channel associated with the program.
-    channelId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the multiplex program.
-    programName :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the current sources for the specified program
     -- in the specified multiplex. Keep in mind that each multiplex pipeline
     -- connects to both pipelines in a given source channel (the channel
     -- identified by the program). But only one of those channel pipelines is
     -- ever active at one time.
     pipelineDetails :: Prelude.Maybe [MultiplexProgramPipelineDetail],
+    -- | The name of the multiplex program.
+    programName :: Prelude.Maybe Prelude.Text,
+    -- | The MediaLive channel associated with the program.
+    channelId :: Prelude.Maybe Prelude.Text,
+    -- | The settings for this multiplex program.
+    multiplexProgramSettings :: Prelude.Maybe MultiplexProgramSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,17 +175,17 @@ data DescribeMultiplexProgramResponse = DescribeMultiplexProgramResponse'
 --
 -- 'packetIdentifiersMap', 'describeMultiplexProgramResponse_packetIdentifiersMap' - The packet identifier map for this multiplex program.
 --
--- 'multiplexProgramSettings', 'describeMultiplexProgramResponse_multiplexProgramSettings' - The settings for this multiplex program.
---
--- 'channelId', 'describeMultiplexProgramResponse_channelId' - The MediaLive channel associated with the program.
---
--- 'programName', 'describeMultiplexProgramResponse_programName' - The name of the multiplex program.
---
 -- 'pipelineDetails', 'describeMultiplexProgramResponse_pipelineDetails' - Contains information about the current sources for the specified program
 -- in the specified multiplex. Keep in mind that each multiplex pipeline
 -- connects to both pipelines in a given source channel (the channel
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
+--
+-- 'programName', 'describeMultiplexProgramResponse_programName' - The name of the multiplex program.
+--
+-- 'channelId', 'describeMultiplexProgramResponse_channelId' - The MediaLive channel associated with the program.
+--
+-- 'multiplexProgramSettings', 'describeMultiplexProgramResponse_multiplexProgramSettings' - The settings for this multiplex program.
 --
 -- 'httpStatus', 'describeMultiplexProgramResponse_httpStatus' - The response's http status code.
 newDescribeMultiplexProgramResponse ::
@@ -196,11 +196,11 @@ newDescribeMultiplexProgramResponse pHttpStatus_ =
   DescribeMultiplexProgramResponse'
     { packetIdentifiersMap =
         Prelude.Nothing,
+      pipelineDetails = Prelude.Nothing,
+      programName = Prelude.Nothing,
+      channelId = Prelude.Nothing,
       multiplexProgramSettings =
         Prelude.Nothing,
-      channelId = Prelude.Nothing,
-      programName = Prelude.Nothing,
-      pipelineDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -208,25 +208,25 @@ newDescribeMultiplexProgramResponse pHttpStatus_ =
 describeMultiplexProgramResponse_packetIdentifiersMap :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe MultiplexProgramPacketIdentifiersMap)
 describeMultiplexProgramResponse_packetIdentifiersMap = Lens.lens (\DescribeMultiplexProgramResponse' {packetIdentifiersMap} -> packetIdentifiersMap) (\s@DescribeMultiplexProgramResponse' {} a -> s {packetIdentifiersMap = a} :: DescribeMultiplexProgramResponse)
 
--- | The settings for this multiplex program.
-describeMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe MultiplexProgramSettings)
-describeMultiplexProgramResponse_multiplexProgramSettings = Lens.lens (\DescribeMultiplexProgramResponse' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@DescribeMultiplexProgramResponse' {} a -> s {multiplexProgramSettings = a} :: DescribeMultiplexProgramResponse)
-
--- | The MediaLive channel associated with the program.
-describeMultiplexProgramResponse_channelId :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
-describeMultiplexProgramResponse_channelId = Lens.lens (\DescribeMultiplexProgramResponse' {channelId} -> channelId) (\s@DescribeMultiplexProgramResponse' {} a -> s {channelId = a} :: DescribeMultiplexProgramResponse)
-
--- | The name of the multiplex program.
-describeMultiplexProgramResponse_programName :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
-describeMultiplexProgramResponse_programName = Lens.lens (\DescribeMultiplexProgramResponse' {programName} -> programName) (\s@DescribeMultiplexProgramResponse' {} a -> s {programName = a} :: DescribeMultiplexProgramResponse)
-
 -- | Contains information about the current sources for the specified program
 -- in the specified multiplex. Keep in mind that each multiplex pipeline
 -- connects to both pipelines in a given source channel (the channel
 -- identified by the program). But only one of those channel pipelines is
 -- ever active at one time.
 describeMultiplexProgramResponse_pipelineDetails :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe [MultiplexProgramPipelineDetail])
-describeMultiplexProgramResponse_pipelineDetails = Lens.lens (\DescribeMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DescribeMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DescribeMultiplexProgramResponse) Prelude.. Lens.mapping Lens._Coerce
+describeMultiplexProgramResponse_pipelineDetails = Lens.lens (\DescribeMultiplexProgramResponse' {pipelineDetails} -> pipelineDetails) (\s@DescribeMultiplexProgramResponse' {} a -> s {pipelineDetails = a} :: DescribeMultiplexProgramResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the multiplex program.
+describeMultiplexProgramResponse_programName :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
+describeMultiplexProgramResponse_programName = Lens.lens (\DescribeMultiplexProgramResponse' {programName} -> programName) (\s@DescribeMultiplexProgramResponse' {} a -> s {programName = a} :: DescribeMultiplexProgramResponse)
+
+-- | The MediaLive channel associated with the program.
+describeMultiplexProgramResponse_channelId :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe Prelude.Text)
+describeMultiplexProgramResponse_channelId = Lens.lens (\DescribeMultiplexProgramResponse' {channelId} -> channelId) (\s@DescribeMultiplexProgramResponse' {} a -> s {channelId = a} :: DescribeMultiplexProgramResponse)
+
+-- | The settings for this multiplex program.
+describeMultiplexProgramResponse_multiplexProgramSettings :: Lens.Lens' DescribeMultiplexProgramResponse (Prelude.Maybe MultiplexProgramSettings)
+describeMultiplexProgramResponse_multiplexProgramSettings = Lens.lens (\DescribeMultiplexProgramResponse' {multiplexProgramSettings} -> multiplexProgramSettings) (\s@DescribeMultiplexProgramResponse' {} a -> s {multiplexProgramSettings = a} :: DescribeMultiplexProgramResponse)
 
 -- | The response's http status code.
 describeMultiplexProgramResponse_httpStatus :: Lens.Lens' DescribeMultiplexProgramResponse Prelude.Int

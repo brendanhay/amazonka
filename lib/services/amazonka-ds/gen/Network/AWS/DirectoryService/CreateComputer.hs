@@ -27,8 +27,8 @@ module Network.AWS.DirectoryService.CreateComputer
     newCreateComputer,
 
     -- * Request Lenses
-    createComputer_organizationalUnitDistinguishedName,
     createComputer_computerAttributes,
+    createComputer_organizationalUnitDistinguishedName,
     createComputer_directoryId,
     createComputer_computerName,
     createComputer_password,
@@ -54,12 +54,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateComputer' smart constructor.
 data CreateComputer = CreateComputer'
-  { -- | The fully-qualified distinguished name of the organizational unit to
-    -- place the computer account in.
-    organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text,
-    -- | An array of Attribute objects that contain any LDAP attributes to apply
+  { -- | An array of Attribute objects that contain any LDAP attributes to apply
     -- to the computer account.
     computerAttributes :: Prelude.Maybe [Attribute],
+    -- | The fully-qualified distinguished name of the organizational unit to
+    -- place the computer account in.
+    organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the directory in which to create the computer account.
     directoryId :: Prelude.Text,
     -- | The name of the computer account.
@@ -78,11 +78,11 @@ data CreateComputer = CreateComputer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationalUnitDistinguishedName', 'createComputer_organizationalUnitDistinguishedName' - The fully-qualified distinguished name of the organizational unit to
--- place the computer account in.
---
 -- 'computerAttributes', 'createComputer_computerAttributes' - An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
+--
+-- 'organizationalUnitDistinguishedName', 'createComputer_organizationalUnitDistinguishedName' - The fully-qualified distinguished name of the organizational unit to
+-- place the computer account in.
 --
 -- 'directoryId', 'createComputer_directoryId' - The identifier of the directory in which to create the computer account.
 --
@@ -103,23 +103,24 @@ newCreateComputer
   pComputerName_
   pPassword_ =
     CreateComputer'
-      { organizationalUnitDistinguishedName =
+      { computerAttributes =
           Prelude.Nothing,
-        computerAttributes = Prelude.Nothing,
+        organizationalUnitDistinguishedName =
+          Prelude.Nothing,
         directoryId = pDirectoryId_,
         computerName = pComputerName_,
         password = Core._Sensitive Lens.# pPassword_
       }
 
+-- | An array of Attribute objects that contain any LDAP attributes to apply
+-- to the computer account.
+createComputer_computerAttributes :: Lens.Lens' CreateComputer (Prelude.Maybe [Attribute])
+createComputer_computerAttributes = Lens.lens (\CreateComputer' {computerAttributes} -> computerAttributes) (\s@CreateComputer' {} a -> s {computerAttributes = a} :: CreateComputer) Prelude.. Lens.mapping Lens.coerced
+
 -- | The fully-qualified distinguished name of the organizational unit to
 -- place the computer account in.
 createComputer_organizationalUnitDistinguishedName :: Lens.Lens' CreateComputer (Prelude.Maybe Prelude.Text)
 createComputer_organizationalUnitDistinguishedName = Lens.lens (\CreateComputer' {organizationalUnitDistinguishedName} -> organizationalUnitDistinguishedName) (\s@CreateComputer' {} a -> s {organizationalUnitDistinguishedName = a} :: CreateComputer)
-
--- | An array of Attribute objects that contain any LDAP attributes to apply
--- to the computer account.
-createComputer_computerAttributes :: Lens.Lens' CreateComputer (Prelude.Maybe [Attribute])
-createComputer_computerAttributes = Lens.lens (\CreateComputer' {computerAttributes} -> computerAttributes) (\s@CreateComputer' {} a -> s {computerAttributes = a} :: CreateComputer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the directory in which to create the computer account.
 createComputer_directoryId :: Lens.Lens' CreateComputer Prelude.Text
@@ -170,10 +171,10 @@ instance Core.ToJSON CreateComputer where
   toJSON CreateComputer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OrganizationalUnitDistinguishedName" Core..=)
-              Prelude.<$> organizationalUnitDistinguishedName,
-            ("ComputerAttributes" Core..=)
+          [ ("ComputerAttributes" Core..=)
               Prelude.<$> computerAttributes,
+            ("OrganizationalUnitDistinguishedName" Core..=)
+              Prelude.<$> organizationalUnitDistinguishedName,
             Prelude.Just ("DirectoryId" Core..= directoryId),
             Prelude.Just ("ComputerName" Core..= computerName),
             Prelude.Just ("Password" Core..= password)

@@ -137,7 +137,7 @@ tagServerCertificate_serverCertificateName = Lens.lens (\TagServerCertificate' {
 -- | The list of tags that you want to attach to the IAM server certificate.
 -- Each tag consists of a key name and an associated value.
 tagServerCertificate_tags :: Lens.Lens' TagServerCertificate [Tag]
-tagServerCertificate_tags = Lens.lens (\TagServerCertificate' {tags} -> tags) (\s@TagServerCertificate' {} a -> s {tags = a} :: TagServerCertificate) Prelude.. Lens._Coerce
+tagServerCertificate_tags = Lens.lens (\TagServerCertificate' {tags} -> tags) (\s@TagServerCertificate' {} a -> s {tags = a} :: TagServerCertificate) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagServerCertificate where
   type

@@ -88,7 +88,7 @@ newUpdateContactList pContactListName_ =
 -- | An interest group, theme, or label within a list. A contact list can
 -- have multiple topics.
 updateContactList_topics :: Lens.Lens' UpdateContactList (Prelude.Maybe [Topic])
-updateContactList_topics = Lens.lens (\UpdateContactList' {topics} -> topics) (\s@UpdateContactList' {} a -> s {topics = a} :: UpdateContactList) Prelude.. Lens.mapping Lens._Coerce
+updateContactList_topics = Lens.lens (\UpdateContactList' {topics} -> topics) (\s@UpdateContactList' {} a -> s {topics = a} :: UpdateContactList) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of what the contact list is about.
 updateContactList_description :: Lens.Lens' UpdateContactList (Prelude.Maybe Prelude.Text)

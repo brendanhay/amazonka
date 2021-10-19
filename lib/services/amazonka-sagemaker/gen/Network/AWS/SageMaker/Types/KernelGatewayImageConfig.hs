@@ -58,7 +58,7 @@ newKernelGatewayImageConfig pKernelSpecs_ =
   KernelGatewayImageConfig'
     { fileSystemConfig =
         Prelude.Nothing,
-      kernelSpecs = Lens._Coerce Lens.# pKernelSpecs_
+      kernelSpecs = Lens.coerced Lens.# pKernelSpecs_
     }
 
 -- | The Amazon Elastic File System (EFS) storage configuration for a
@@ -68,7 +68,7 @@ kernelGatewayImageConfig_fileSystemConfig = Lens.lens (\KernelGatewayImageConfig
 
 -- | The specification of the Jupyter kernels in the image.
 kernelGatewayImageConfig_kernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Prelude.NonEmpty KernelSpec)
-kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Prelude.. Lens._Coerce
+kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON KernelGatewayImageConfig where
   parseJSON =

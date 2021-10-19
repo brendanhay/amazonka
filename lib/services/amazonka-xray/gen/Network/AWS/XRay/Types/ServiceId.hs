@@ -65,7 +65,7 @@ serviceId_accountId = Lens.lens (\ServiceId' {accountId} -> accountId) (\s@Servi
 
 -- |
 serviceId_names :: Lens.Lens' ServiceId (Prelude.Maybe [Prelude.Text])
-serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Prelude.. Lens.mapping Lens._Coerce
+serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 serviceId_name :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)

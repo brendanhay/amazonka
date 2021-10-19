@@ -52,7 +52,7 @@ newFindingCriteria =
 -- | Represents a map of finding properties that match specified conditions
 -- and values when querying findings.
 findingCriteria_criterion :: Lens.Lens' FindingCriteria (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
-findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Prelude.. Lens.mapping Lens._Coerce
+findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FindingCriteria where
   parseJSON =

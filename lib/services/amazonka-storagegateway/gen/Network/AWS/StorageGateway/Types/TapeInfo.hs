@@ -34,7 +34,8 @@ data TapeInfo = TapeInfo'
     -- | The Amazon Resource Name (ARN) of a virtual tape.
     tapeARN :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
-    -- operation to return a list of gateways for your account and Region.
+    -- operation to return a list of gateways for your account and Amazon Web
+    -- Services Region.
     gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The size, in bytes, of a virtual tape.
     tapeSizeInBytes :: Prelude.Maybe Prelude.Integer,
@@ -69,7 +70,8 @@ data TapeInfo = TapeInfo'
 -- 'tapeARN', 'tapeInfo_tapeARN' - The Amazon Resource Name (ARN) of a virtual tape.
 --
 -- 'gatewayARN', 'tapeInfo_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and Region.
+-- operation to return a list of gateways for your account and Amazon Web
+-- Services Region.
 --
 -- 'tapeSizeInBytes', 'tapeInfo_tapeSizeInBytes' - The size, in bytes, of a virtual tape.
 --
@@ -112,7 +114,8 @@ tapeInfo_tapeARN :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
 tapeInfo_tapeARN = Lens.lens (\TapeInfo' {tapeARN} -> tapeARN) (\s@TapeInfo' {} a -> s {tapeARN = a} :: TapeInfo)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and Region.
+-- operation to return a list of gateways for your account and Amazon Web
+-- Services Region.
 tapeInfo_gatewayARN :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
 tapeInfo_gatewayARN = Lens.lens (\TapeInfo' {gatewayARN} -> gatewayARN) (\s@TapeInfo' {} a -> s {gatewayARN = a} :: TapeInfo)
 

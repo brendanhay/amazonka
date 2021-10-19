@@ -17,128 +17,128 @@ module Network.AWS.SSM.Types
     defaultService,
 
     -- * Errors
-    _InvalidAutomationSignalException,
-    _InvalidDeleteInventoryParametersException,
-    _OpsMetadataKeyLimitExceededException,
-    _FeatureNotAvailableException,
-    _InvalidInstanceInformationFilterValue,
-    _InvalidAggregatorException,
-    _ComplianceTypeCountLimitExceededException,
     _AutomationDefinitionVersionNotFoundException,
-    _UnsupportedParameterType,
     _InvalidDocumentVersion,
-    _AutomationExecutionLimitExceededException,
-    _IdempotentParameterMismatch,
-    _OpsMetadataInvalidArgumentException,
-    _ResourceDataSyncConflictException,
-    _InvalidAutomationStatusUpdateException,
     _HierarchyTypeMismatchException,
-    _DoesNotExistException,
-    _ItemSizeLimitExceededException,
-    _DocumentAlreadyExists,
-    _ParameterMaxVersionLimitExceeded,
-    _DocumentLimitExceeded,
-    _AutomationStepNotFoundException,
-    _AutomationExecutionNotFoundException,
-    _DocumentPermissionLimit,
-    _InvalidFilter,
-    _InvalidTypeNameException,
-    _SubTypeCountLimitExceededException,
-    _AutomationDefinitionNotFoundException,
-    _OpsItemRelatedItemAssociationNotFoundException,
-    _InvalidInventoryItemContextException,
-    _InvalidDocument,
-    _TooManyTagsError,
-    _OpsItemInvalidParameterException,
-    _IncompatiblePolicyException,
-    _InvalidAllowedPatternException,
-    _OpsMetadataTooManyUpdatesException,
-    _InvalidParameters,
-    _TargetNotConnected,
-    _ParameterVersionLabelLimitExceeded,
-    _UnsupportedInventorySchemaVersionException,
-    _InvalidCommandId,
-    _InvalidOutputLocation,
-    _ResourceLimitExceededException,
-    _InvalidTarget,
-    _ServiceSettingNotFound,
-    _CustomSchemaCountLimitExceededException,
-    _InvalidUpdate,
-    _InvalidAssociation,
-    _InvalidDocumentSchemaVersion,
-    _InvalidOptionException,
-    _OpsItemNotFoundException,
-    _StatusUnchanged,
-    _OpsMetadataNotFoundException,
-    _InvalidInstanceId,
-    _TooManyUpdates,
-    _DuplicateDocumentVersionName,
-    _OpsItemRelatedItemAlreadyExistsException,
-    _InvalidPolicyAttributeException,
-    _AssociationDoesNotExist,
-    _InvalidAssociationVersion,
-    _InvalidFilterValue,
-    _ResourceDataSyncCountExceededException,
-    _InternalServerError,
-    _ParameterNotFound,
-    _AssociationLimitExceeded,
-    _AssociationAlreadyExists,
-    _ParameterLimitExceeded,
-    _InvalidDocumentContent,
-    _ItemContentMismatchException,
-    _UnsupportedFeatureRequiredException,
-    _PoliciesLimitExceededException,
-    _InvalidPluginName,
-    _ParameterAlreadyExists,
-    _InvalidDeletionIdException,
-    _ResourceDataSyncAlreadyExistsException,
     _InvalidSchedule,
-    _ResourceDataSyncNotFoundException,
-    _AlreadyExistsException,
-    _InvalidAutomationExecutionParametersException,
-    _DuplicateDocumentContent,
-    _ResourceInUseException,
-    _InvalidPolicyTypeException,
-    _InvalidNotificationConfig,
-    _InvalidFilterKey,
-    _InvalidDocumentType,
-    _InvalidResourceId,
-    _TotalSizeLimitExceededException,
-    _DuplicateInstanceId,
-    _AutomationDefinitionNotApprovedException,
-    _InvalidDocumentOperation,
-    _InvalidKeyId,
-    _InvalidResultAttributeException,
-    _InvocationDoesNotExist,
-    _InvalidResourceType,
-    _DocumentVersionLimitExceeded,
-    _ResourceDataSyncInvalidConfigurationException,
-    _InvalidInventoryGroupException,
-    _AssociationExecutionDoesNotExist,
-    _OpsMetadataLimitExceededException,
-    _OpsMetadataAlreadyExistsException,
-    _InvalidOutputFolder,
-    _HierarchyLevelLimitExceededException,
-    _OpsItemLimitExceededException,
-    _UnsupportedCalendarException,
-    _ParameterVersionNotFound,
-    _OpsItemAlreadyExistsException,
-    _InvalidActivationId,
-    _InvalidRole,
-    _InvalidActivation,
-    _InvalidInventoryRequestException,
-    _InvalidNextToken,
-    _AssociationVersionLimitExceeded,
-    _MaxDocumentSizeExceeded,
-    _UnsupportedOperatingSystem,
+    _UnsupportedParameterType,
+    _InvalidAutomationStatusUpdateException,
+    _OpsMetadataKeyLimitExceededException,
+    _InvalidPluginName,
+    _UnsupportedFeatureRequiredException,
+    _InvalidAggregatorException,
+    _FeatureNotAvailableException,
+    _InvalidAutomationSignalException,
+    _ResourceDataSyncCountExceededException,
+    _OpsItemRelatedItemAlreadyExistsException,
     _UnsupportedPlatformType,
-    _AssociatedInstances,
+    _InvalidFilterValue,
     _InvalidItemContentException,
-    _InvalidPermissionType,
-    _UnsupportedInventoryItemContextException,
     _InvalidFilterOption,
     _ParameterPatternMismatchException,
+    _InvalidPermissionType,
+    _AssociatedInstances,
+    _UnsupportedOperatingSystem,
+    _InvalidInstanceId,
+    _StatusUnchanged,
+    _InvalidNextToken,
+    _InvalidInventoryRequestException,
+    _InvalidAssociation,
+    _OpsItemAlreadyExistsException,
+    _InvalidOutputFolder,
+    _OpsMetadataAlreadyExistsException,
+    _OpsItemLimitExceededException,
+    _InvalidActivationId,
+    _OpsMetadataLimitExceededException,
+    _ServiceSettingNotFound,
+    _InvalidResultAttributeException,
+    _TargetNotConnected,
+    _ResourceLimitExceededException,
+    _OpsMetadataTooManyUpdatesException,
+    _ParameterVersionLabelLimitExceeded,
+    _ResourceDataSyncInvalidConfigurationException,
+    _InvalidCommandId,
+    _DuplicateInstanceId,
+    _InvalidResourceType,
+    _UnsupportedInventorySchemaVersionException,
+    _InvalidDocument,
+    _IncompatiblePolicyException,
+    _AutomationDefinitionNotFoundException,
+    _InvalidPolicyTypeException,
+    _InvalidFilterKey,
+    _InvalidAutomationExecutionParametersException,
+    _AutomationExecutionNotFoundException,
+    _InvalidTypeNameException,
+    _ResourceDataSyncNotFoundException,
+    _ParameterMaxVersionLimitExceeded,
+    _ItemSizeLimitExceededException,
+    _ResourceDataSyncAlreadyExistsException,
+    _DoesNotExistException,
+    _ResourceDataSyncConflictException,
+    _OpsMetadataInvalidArgumentException,
+    _AutomationExecutionLimitExceededException,
+    _IdempotentParameterMismatch,
+    _InvalidInstanceInformationFilterValue,
+    _ItemContentMismatchException,
+    _ParameterAlreadyExists,
+    _AssociationAlreadyExists,
+    _ComplianceTypeCountLimitExceededException,
+    _InvalidDeleteInventoryParametersException,
+    _InvalidDeletionIdException,
+    _PoliciesLimitExceededException,
+    _InvalidDocumentContent,
+    _ParameterLimitExceeded,
+    _AssociationLimitExceeded,
+    _InvalidAssociationVersion,
+    _AssociationDoesNotExist,
+    _InvalidPolicyAttributeException,
+    _ParameterNotFound,
     _TargetInUseException,
+    _InternalServerError,
+    _UnsupportedInventoryItemContextException,
+    _OpsMetadataNotFoundException,
+    _AssociationVersionLimitExceeded,
+    _InvalidRole,
+    _TooManyUpdates,
+    _DuplicateDocumentVersionName,
+    _OpsItemNotFoundException,
+    _InvalidActivation,
+    _InvalidOptionException,
+    _InvalidDocumentSchemaVersion,
+    _MaxDocumentSizeExceeded,
+    _ParameterVersionNotFound,
+    _UnsupportedCalendarException,
+    _InvalidUpdate,
+    _CustomSchemaCountLimitExceededException,
+    _AssociationExecutionDoesNotExist,
+    _InvalidTarget,
+    _HierarchyLevelLimitExceededException,
+    _InvalidInventoryGroupException,
+    _InvalidDocumentOperation,
+    _InvocationDoesNotExist,
+    _DocumentVersionLimitExceeded,
+    _InvalidOutputLocation,
+    _InvalidKeyId,
+    _InvalidParameters,
+    _AutomationDefinitionNotApprovedException,
+    _OpsItemInvalidParameterException,
+    _InvalidResourceId,
+    _InvalidAllowedPatternException,
+    _InvalidNotificationConfig,
+    _OpsItemRelatedItemAssociationNotFoundException,
+    _InvalidInventoryItemContextException,
+    _TotalSizeLimitExceededException,
+    _SubTypeCountLimitExceededException,
+    _InvalidDocumentType,
+    _TooManyTagsError,
+    _DocumentPermissionLimit,
+    _AutomationStepNotFoundException,
+    _DuplicateDocumentContent,
+    _DocumentAlreadyExists,
+    _DocumentLimitExceeded,
+    _AlreadyExistsException,
+    _InvalidFilter,
+    _ResourceInUseException,
 
     -- * AssociationComplianceSeverity
     AssociationComplianceSeverity (..),
@@ -392,75 +392,75 @@ module Network.AWS.SSM.Types
     -- * AccountSharingInfo
     AccountSharingInfo (..),
     newAccountSharingInfo,
-    accountSharingInfo_accountId,
     accountSharingInfo_sharedDocumentVersion,
+    accountSharingInfo_accountId,
 
     -- * Activation
     Activation (..),
     newActivation,
+    activation_expired,
+    activation_defaultInstanceName,
+    activation_activationId,
     activation_createdDate,
     activation_registrationLimit,
-    activation_iamRole,
-    activation_activationId,
-    activation_defaultInstanceName,
-    activation_expired,
     activation_expirationDate,
+    activation_description,
     activation_tags,
     activation_registrationsCount,
-    activation_description,
+    activation_iamRole,
 
     -- * Association
     Association (..),
     newAssociation,
-    association_instanceId,
-    association_lastExecutionDate,
-    association_overview,
-    association_targets,
-    association_name,
-    association_scheduleExpression,
     association_associationId,
-    association_associationName,
-    association_associationVersion,
+    association_instanceId,
+    association_overview,
+    association_lastExecutionDate,
+    association_scheduleExpression,
+    association_name,
+    association_targets,
     association_documentVersion,
+    association_associationVersion,
+    association_associationName,
 
     -- * AssociationDescription
     AssociationDescription (..),
     newAssociationDescription,
-    associationDescription_maxErrors,
-    associationDescription_status,
-    associationDescription_instanceId,
-    associationDescription_lastExecutionDate,
-    associationDescription_lastUpdateAssociationDate,
-    associationDescription_complianceSeverity,
-    associationDescription_overview,
-    associationDescription_automationTargetParameterName,
-    associationDescription_targets,
-    associationDescription_name,
-    associationDescription_scheduleExpression,
-    associationDescription_targetLocations,
-    associationDescription_date,
     associationDescription_associationId,
-    associationDescription_maxConcurrency,
-    associationDescription_calendarNames,
-    associationDescription_associationName,
-    associationDescription_associationVersion,
-    associationDescription_lastSuccessfulExecutionDate,
-    associationDescription_documentVersion,
-    associationDescription_parameters,
-    associationDescription_syncCompliance,
-    associationDescription_outputLocation,
+    associationDescription_instanceId,
+    associationDescription_status,
+    associationDescription_targetLocations,
     associationDescription_applyOnlyAtCronInterval,
+    associationDescription_lastSuccessfulExecutionDate,
+    associationDescription_overview,
+    associationDescription_lastUpdateAssociationDate,
+    associationDescription_date,
+    associationDescription_lastExecutionDate,
+    associationDescription_maxErrors,
+    associationDescription_scheduleExpression,
+    associationDescription_name,
+    associationDescription_outputLocation,
+    associationDescription_syncCompliance,
+    associationDescription_targets,
+    associationDescription_parameters,
+    associationDescription_documentVersion,
+    associationDescription_automationTargetParameterName,
+    associationDescription_associationVersion,
+    associationDescription_associationName,
+    associationDescription_calendarNames,
+    associationDescription_complianceSeverity,
+    associationDescription_maxConcurrency,
 
     -- * AssociationExecution
     AssociationExecution (..),
     newAssociationExecution,
-    associationExecution_status,
-    associationExecution_detailedStatus,
-    associationExecution_lastExecutionDate,
-    associationExecution_resourceCountByStatus,
-    associationExecution_createdTime,
-    associationExecution_executionId,
     associationExecution_associationId,
+    associationExecution_detailedStatus,
+    associationExecution_status,
+    associationExecution_executionId,
+    associationExecution_createdTime,
+    associationExecution_resourceCountByStatus,
+    associationExecution_lastExecutionDate,
     associationExecution_associationVersion,
 
     -- * AssociationExecutionFilter
@@ -473,14 +473,14 @@ module Network.AWS.SSM.Types
     -- * AssociationExecutionTarget
     AssociationExecutionTarget (..),
     newAssociationExecutionTarget,
-    associationExecutionTarget_resourceId,
-    associationExecutionTarget_status,
+    associationExecutionTarget_associationId,
     associationExecutionTarget_detailedStatus,
-    associationExecutionTarget_lastExecutionDate,
+    associationExecutionTarget_status,
+    associationExecutionTarget_executionId,
+    associationExecutionTarget_resourceId,
     associationExecutionTarget_resourceType,
     associationExecutionTarget_outputSource,
-    associationExecutionTarget_executionId,
-    associationExecutionTarget_associationId,
+    associationExecutionTarget_lastExecutionDate,
     associationExecutionTarget_associationVersion,
 
     -- * AssociationExecutionTargetsFilter
@@ -498,8 +498,8 @@ module Network.AWS.SSM.Types
     -- * AssociationOverview
     AssociationOverview (..),
     newAssociationOverview,
-    associationOverview_status,
     associationOverview_detailedStatus,
+    associationOverview_status,
     associationOverview_associationStatusAggregatedCount,
 
     -- * AssociationStatus
@@ -513,31 +513,31 @@ module Network.AWS.SSM.Types
     -- * AssociationVersionInfo
     AssociationVersionInfo (..),
     newAssociationVersionInfo,
-    associationVersionInfo_maxErrors,
-    associationVersionInfo_createdDate,
-    associationVersionInfo_complianceSeverity,
-    associationVersionInfo_targets,
-    associationVersionInfo_name,
-    associationVersionInfo_scheduleExpression,
-    associationVersionInfo_targetLocations,
     associationVersionInfo_associationId,
-    associationVersionInfo_maxConcurrency,
-    associationVersionInfo_calendarNames,
-    associationVersionInfo_associationName,
-    associationVersionInfo_associationVersion,
-    associationVersionInfo_documentVersion,
-    associationVersionInfo_parameters,
-    associationVersionInfo_syncCompliance,
-    associationVersionInfo_outputLocation,
+    associationVersionInfo_targetLocations,
     associationVersionInfo_applyOnlyAtCronInterval,
+    associationVersionInfo_createdDate,
+    associationVersionInfo_maxErrors,
+    associationVersionInfo_scheduleExpression,
+    associationVersionInfo_name,
+    associationVersionInfo_outputLocation,
+    associationVersionInfo_syncCompliance,
+    associationVersionInfo_targets,
+    associationVersionInfo_parameters,
+    associationVersionInfo_documentVersion,
+    associationVersionInfo_associationVersion,
+    associationVersionInfo_associationName,
+    associationVersionInfo_calendarNames,
+    associationVersionInfo_complianceSeverity,
+    associationVersionInfo_maxConcurrency,
 
     -- * AttachmentContent
     AttachmentContent (..),
     newAttachmentContent,
     attachmentContent_hash,
-    attachmentContent_name,
-    attachmentContent_url,
     attachmentContent_size,
+    attachmentContent_url,
+    attachmentContent_name,
     attachmentContent_hashType,
 
     -- * AttachmentInformation
@@ -548,44 +548,44 @@ module Network.AWS.SSM.Types
     -- * AttachmentsSource
     AttachmentsSource (..),
     newAttachmentsSource,
-    attachmentsSource_key,
     attachmentsSource_values,
+    attachmentsSource_key,
     attachmentsSource_name,
 
     -- * AutomationExecution
     AutomationExecution (..),
     newAutomationExecution,
-    automationExecution_maxErrors,
-    automationExecution_currentAction,
-    automationExecution_parentAutomationExecutionId,
-    automationExecution_outputs,
-    automationExecution_failureMessage,
-    automationExecution_mode,
-    automationExecution_executionEndTime,
-    automationExecution_changeRequestName,
-    automationExecution_automationExecutionId,
+    automationExecution_scheduledTime,
+    automationExecution_associationId,
+    automationExecution_opsItemId,
+    automationExecution_currentStepName,
+    automationExecution_targetParameterName,
+    automationExecution_targetLocations,
+    automationExecution_progressCounters,
     automationExecution_executedBy,
     automationExecution_documentName,
-    automationExecution_progressCounters,
+    automationExecution_executionEndTime,
+    automationExecution_failureMessage,
+    automationExecution_automationSubtype,
+    automationExecution_mode,
+    automationExecution_targetMaps,
+    automationExecution_stepExecutionsTruncated,
+    automationExecution_automationExecutionStatus,
+    automationExecution_parentAutomationExecutionId,
+    automationExecution_outputs,
+    automationExecution_maxErrors,
+    automationExecution_executionStartTime,
+    automationExecution_currentAction,
     automationExecution_targets,
     automationExecution_resolvedTargets,
-    automationExecution_executionStartTime,
-    automationExecution_targetLocations,
-    automationExecution_targetParameterName,
-    automationExecution_currentStepName,
-    automationExecution_opsItemId,
-    automationExecution_associationId,
-    automationExecution_scheduledTime,
-    automationExecution_stepExecutionsTruncated,
+    automationExecution_parameters,
+    automationExecution_documentVersion,
+    automationExecution_automationExecutionId,
+    automationExecution_changeRequestName,
+    automationExecution_stepExecutions,
+    automationExecution_runbooks,
     automationExecution_maxConcurrency,
     automationExecution_target,
-    automationExecution_automationExecutionStatus,
-    automationExecution_targetMaps,
-    automationExecution_runbooks,
-    automationExecution_automationSubtype,
-    automationExecution_stepExecutions,
-    automationExecution_documentVersion,
-    automationExecution_parameters,
 
     -- * AutomationExecutionFilter
     AutomationExecutionFilter (..),
@@ -596,47 +596,47 @@ module Network.AWS.SSM.Types
     -- * AutomationExecutionMetadata
     AutomationExecutionMetadata (..),
     newAutomationExecutionMetadata,
-    automationExecutionMetadata_maxErrors,
-    automationExecutionMetadata_currentAction,
-    automationExecutionMetadata_parentAutomationExecutionId,
-    automationExecutionMetadata_outputs,
-    automationExecutionMetadata_failureMessage,
-    automationExecutionMetadata_mode,
-    automationExecutionMetadata_executionEndTime,
-    automationExecutionMetadata_changeRequestName,
-    automationExecutionMetadata_automationExecutionId,
+    automationExecutionMetadata_scheduledTime,
+    automationExecutionMetadata_associationId,
+    automationExecutionMetadata_opsItemId,
+    automationExecutionMetadata_currentStepName,
+    automationExecutionMetadata_targetParameterName,
+    automationExecutionMetadata_logFile,
     automationExecutionMetadata_executedBy,
     automationExecutionMetadata_documentName,
-    automationExecutionMetadata_targets,
-    automationExecutionMetadata_resolvedTargets,
+    automationExecutionMetadata_executionEndTime,
+    automationExecutionMetadata_failureMessage,
+    automationExecutionMetadata_automationSubtype,
+    automationExecutionMetadata_mode,
+    automationExecutionMetadata_targetMaps,
+    automationExecutionMetadata_automationExecutionStatus,
+    automationExecutionMetadata_parentAutomationExecutionId,
+    automationExecutionMetadata_outputs,
+    automationExecutionMetadata_maxErrors,
     automationExecutionMetadata_executionStartTime,
     automationExecutionMetadata_automationType,
-    automationExecutionMetadata_targetParameterName,
-    automationExecutionMetadata_currentStepName,
-    automationExecutionMetadata_opsItemId,
-    automationExecutionMetadata_associationId,
-    automationExecutionMetadata_scheduledTime,
+    automationExecutionMetadata_currentAction,
+    automationExecutionMetadata_targets,
+    automationExecutionMetadata_resolvedTargets,
+    automationExecutionMetadata_documentVersion,
+    automationExecutionMetadata_automationExecutionId,
+    automationExecutionMetadata_changeRequestName,
+    automationExecutionMetadata_runbooks,
     automationExecutionMetadata_maxConcurrency,
     automationExecutionMetadata_target,
-    automationExecutionMetadata_automationExecutionStatus,
-    automationExecutionMetadata_targetMaps,
-    automationExecutionMetadata_runbooks,
-    automationExecutionMetadata_automationSubtype,
-    automationExecutionMetadata_documentVersion,
-    automationExecutionMetadata_logFile,
 
     -- * BaselineOverride
     BaselineOverride (..),
     newBaselineOverride,
-    baselineOverride_rejectedPatches,
-    baselineOverride_sources,
-    baselineOverride_approvedPatchesEnableNonSecurity,
-    baselineOverride_approvedPatchesComplianceLevel,
-    baselineOverride_approvedPatches,
-    baselineOverride_rejectedPatchesAction,
+    baselineOverride_approvalRules,
     baselineOverride_operatingSystem,
     baselineOverride_globalFilters,
-    baselineOverride_approvalRules,
+    baselineOverride_approvedPatchesComplianceLevel,
+    baselineOverride_rejectedPatchesAction,
+    baselineOverride_approvedPatches,
+    baselineOverride_approvedPatchesEnableNonSecurity,
+    baselineOverride_rejectedPatches,
+    baselineOverride_sources,
 
     -- * CloudWatchOutputConfig
     CloudWatchOutputConfig (..),
@@ -647,30 +647,30 @@ module Network.AWS.SSM.Types
     -- * Command
     Command (..),
     newCommand,
-    command_instanceIds,
-    command_maxErrors,
-    command_notificationConfig,
     command_status,
     command_expiresAfter,
-    command_requestedDateTime,
-    command_serviceRole,
+    command_notificationConfig,
+    command_targetCount,
+    command_cloudWatchOutputConfig,
+    command_deliveryTimedOutCount,
+    command_outputS3KeyPrefix,
+    command_documentName,
+    command_errorCount,
     command_statusDetails,
+    command_maxErrors,
+    command_instanceIds,
+    command_outputS3Region,
+    command_targets,
+    command_commandId,
+    command_parameters,
+    command_documentVersion,
+    command_timeoutSeconds,
+    command_comment,
     command_completedCount,
     command_outputS3BucketName,
-    command_errorCount,
-    command_comment,
-    command_documentName,
-    command_commandId,
-    command_targets,
-    command_outputS3Region,
     command_maxConcurrency,
-    command_deliveryTimedOutCount,
-    command_timeoutSeconds,
-    command_outputS3KeyPrefix,
-    command_cloudWatchOutputConfig,
-    command_documentVersion,
-    command_targetCount,
-    command_parameters,
+    command_requestedDateTime,
+    command_serviceRole,
 
     -- * CommandFilter
     CommandFilter (..),
@@ -681,38 +681,38 @@ module Network.AWS.SSM.Types
     -- * CommandInvocation
     CommandInvocation (..),
     newCommandInvocation,
-    commandInvocation_notificationConfig,
-    commandInvocation_standardOutputUrl,
-    commandInvocation_status,
     commandInvocation_instanceId,
-    commandInvocation_requestedDateTime,
-    commandInvocation_serviceRole,
-    commandInvocation_statusDetails,
-    commandInvocation_instanceName,
-    commandInvocation_comment,
-    commandInvocation_standardErrorUrl,
-    commandInvocation_documentName,
-    commandInvocation_commandId,
-    commandInvocation_traceOutput,
+    commandInvocation_status,
+    commandInvocation_notificationConfig,
     commandInvocation_commandPlugins,
     commandInvocation_cloudWatchOutputConfig,
+    commandInvocation_documentName,
+    commandInvocation_standardErrorUrl,
+    commandInvocation_statusDetails,
+    commandInvocation_standardOutputUrl,
+    commandInvocation_commandId,
     commandInvocation_documentVersion,
+    commandInvocation_comment,
+    commandInvocation_traceOutput,
+    commandInvocation_instanceName,
+    commandInvocation_requestedDateTime,
+    commandInvocation_serviceRole,
 
     -- * CommandPlugin
     CommandPlugin (..),
     newCommandPlugin,
-    commandPlugin_standardOutputUrl,
     commandPlugin_status,
-    commandPlugin_statusDetails,
-    commandPlugin_outputS3BucketName,
+    commandPlugin_responseStartDateTime,
+    commandPlugin_outputS3KeyPrefix,
     commandPlugin_standardErrorUrl,
+    commandPlugin_responseCode,
+    commandPlugin_statusDetails,
+    commandPlugin_output,
+    commandPlugin_standardOutputUrl,
     commandPlugin_name,
     commandPlugin_outputS3Region,
-    commandPlugin_output,
+    commandPlugin_outputS3BucketName,
     commandPlugin_responseFinishDateTime,
-    commandPlugin_responseCode,
-    commandPlugin_outputS3KeyPrefix,
-    commandPlugin_responseStartDateTime,
 
     -- * ComplianceExecutionSummary
     ComplianceExecutionSummary (..),
@@ -724,63 +724,63 @@ module Network.AWS.SSM.Types
     -- * ComplianceItem
     ComplianceItem (..),
     newComplianceItem,
-    complianceItem_resourceId,
     complianceItem_status,
-    complianceItem_severity,
-    complianceItem_title,
-    complianceItem_complianceType,
-    complianceItem_id,
+    complianceItem_resourceId,
     complianceItem_resourceType,
-    complianceItem_details,
+    complianceItem_severity,
     complianceItem_executionSummary,
+    complianceItem_details,
+    complianceItem_id,
+    complianceItem_complianceType,
+    complianceItem_title,
 
     -- * ComplianceItemEntry
     ComplianceItemEntry (..),
     newComplianceItemEntry,
-    complianceItemEntry_title,
-    complianceItemEntry_id,
     complianceItemEntry_details,
+    complianceItemEntry_id,
+    complianceItemEntry_title,
     complianceItemEntry_severity,
     complianceItemEntry_status,
 
     -- * ComplianceStringFilter
     ComplianceStringFilter (..),
     newComplianceStringFilter,
-    complianceStringFilter_key,
     complianceStringFilter_values,
+    complianceStringFilter_key,
     complianceStringFilter_type,
 
     -- * ComplianceSummaryItem
     ComplianceSummaryItem (..),
     newComplianceSummaryItem,
+    complianceSummaryItem_nonCompliantSummary,
     complianceSummaryItem_compliantSummary,
     complianceSummaryItem_complianceType,
-    complianceSummaryItem_nonCompliantSummary,
 
     -- * CompliantSummary
     CompliantSummary (..),
     newCompliantSummary,
-    compliantSummary_severitySummary,
     compliantSummary_compliantCount,
+    compliantSummary_severitySummary,
 
     -- * CreateAssociationBatchRequestEntry
     CreateAssociationBatchRequestEntry (..),
     newCreateAssociationBatchRequestEntry,
-    createAssociationBatchRequestEntry_maxErrors,
     createAssociationBatchRequestEntry_instanceId,
-    createAssociationBatchRequestEntry_complianceSeverity,
-    createAssociationBatchRequestEntry_automationTargetParameterName,
-    createAssociationBatchRequestEntry_targets,
-    createAssociationBatchRequestEntry_scheduleExpression,
     createAssociationBatchRequestEntry_targetLocations,
-    createAssociationBatchRequestEntry_maxConcurrency,
-    createAssociationBatchRequestEntry_calendarNames,
-    createAssociationBatchRequestEntry_associationName,
-    createAssociationBatchRequestEntry_documentVersion,
-    createAssociationBatchRequestEntry_parameters,
-    createAssociationBatchRequestEntry_syncCompliance,
-    createAssociationBatchRequestEntry_outputLocation,
     createAssociationBatchRequestEntry_applyOnlyAtCronInterval,
+    createAssociationBatchRequestEntry_maxErrors,
+    createAssociationBatchRequestEntry_scheduleExpression,
+    createAssociationBatchRequestEntry_outputLocation,
+    createAssociationBatchRequestEntry_syncCompliance,
+    createAssociationBatchRequestEntry_targets,
+    createAssociationBatchRequestEntry_parameters,
+    createAssociationBatchRequestEntry_documentVersion,
+    createAssociationBatchRequestEntry_automationTargetParameterName,
+    createAssociationBatchRequestEntry_associationName,
+    createAssociationBatchRequestEntry_calendarNames,
+    createAssociationBatchRequestEntry_complianceSeverity,
+    createAssociationBatchRequestEntry_maxConcurrency,
     createAssociationBatchRequestEntry_name,
 
     -- * DescribeActivationsFilter
@@ -792,41 +792,41 @@ module Network.AWS.SSM.Types
     -- * DocumentDefaultVersionDescription
     DocumentDefaultVersionDescription (..),
     newDocumentDefaultVersionDescription,
+    documentDefaultVersionDescription_defaultVersionName,
     documentDefaultVersionDescription_defaultVersion,
     documentDefaultVersionDescription_name,
-    documentDefaultVersionDescription_defaultVersionName,
 
     -- * DocumentDescription
     DocumentDescription (..),
     newDocumentDescription,
+    documentDescription_status,
     documentDescription_documentType,
+    documentDescription_hash,
+    documentDescription_versionName,
+    documentDescription_schemaVersion,
+    documentDescription_sha1,
+    documentDescription_reviewStatus,
+    documentDescription_attachmentsInformation,
+    documentDescription_defaultVersion,
+    documentDescription_targetType,
+    documentDescription_owner,
     documentDescription_platformTypes,
     documentDescription_createdDate,
-    documentDescription_status,
-    documentDescription_approvedVersion,
-    documentDescription_defaultVersion,
-    documentDescription_latestVersion,
-    documentDescription_targetType,
-    documentDescription_requires,
-    documentDescription_sha1,
-    documentDescription_statusInformation,
-    documentDescription_author,
-    documentDescription_versionName,
-    documentDescription_hash,
-    documentDescription_name,
-    documentDescription_pendingReviewVersion,
     documentDescription_documentFormat,
-    documentDescription_tags,
-    documentDescription_owner,
-    documentDescription_attachmentsInformation,
-    documentDescription_reviewInformation,
-    documentDescription_description,
-    documentDescription_reviewStatus,
-    documentDescription_schemaVersion,
-    documentDescription_documentVersion,
-    documentDescription_displayName,
+    documentDescription_pendingReviewVersion,
+    documentDescription_name,
     documentDescription_hashType,
     documentDescription_parameters,
+    documentDescription_documentVersion,
+    documentDescription_author,
+    documentDescription_displayName,
+    documentDescription_statusInformation,
+    documentDescription_description,
+    documentDescription_requires,
+    documentDescription_reviewInformation,
+    documentDescription_tags,
+    documentDescription_latestVersion,
+    documentDescription_approvedVersion,
 
     -- * DocumentFilter
     DocumentFilter (..),
@@ -838,26 +838,26 @@ module Network.AWS.SSM.Types
     DocumentIdentifier (..),
     newDocumentIdentifier,
     documentIdentifier_documentType,
+    documentIdentifier_versionName,
+    documentIdentifier_schemaVersion,
+    documentIdentifier_reviewStatus,
+    documentIdentifier_targetType,
+    documentIdentifier_owner,
     documentIdentifier_platformTypes,
     documentIdentifier_createdDate,
-    documentIdentifier_targetType,
-    documentIdentifier_requires,
-    documentIdentifier_author,
-    documentIdentifier_versionName,
-    documentIdentifier_name,
     documentIdentifier_documentFormat,
-    documentIdentifier_tags,
-    documentIdentifier_owner,
-    documentIdentifier_reviewStatus,
-    documentIdentifier_schemaVersion,
+    documentIdentifier_name,
     documentIdentifier_documentVersion,
+    documentIdentifier_author,
     documentIdentifier_displayName,
+    documentIdentifier_requires,
+    documentIdentifier_tags,
 
     -- * DocumentKeyValuesFilter
     DocumentKeyValuesFilter (..),
     newDocumentKeyValuesFilter,
-    documentKeyValuesFilter_key,
     documentKeyValuesFilter_values,
+    documentKeyValuesFilter_key,
 
     -- * DocumentMetadataResponseInfo
     DocumentMetadataResponseInfo (..),
@@ -868,9 +868,9 @@ module Network.AWS.SSM.Types
     DocumentParameter (..),
     newDocumentParameter,
     documentParameter_name,
-    documentParameter_description,
     documentParameter_defaultValue,
     documentParameter_type,
+    documentParameter_description,
 
     -- * DocumentRequires
     DocumentRequires (..),
@@ -887,11 +887,11 @@ module Network.AWS.SSM.Types
     -- * DocumentReviewerResponseSource
     DocumentReviewerResponseSource (..),
     newDocumentReviewerResponseSource,
-    documentReviewerResponseSource_comment,
-    documentReviewerResponseSource_updatedTime,
-    documentReviewerResponseSource_createTime,
-    documentReviewerResponseSource_reviewStatus,
     documentReviewerResponseSource_reviewer,
+    documentReviewerResponseSource_reviewStatus,
+    documentReviewerResponseSource_updatedTime,
+    documentReviewerResponseSource_comment,
+    documentReviewerResponseSource_createTime,
 
     -- * DocumentReviews
     DocumentReviews (..),
@@ -902,16 +902,16 @@ module Network.AWS.SSM.Types
     -- * DocumentVersionInfo
     DocumentVersionInfo (..),
     newDocumentVersionInfo,
-    documentVersionInfo_createdDate,
     documentVersionInfo_status,
-    documentVersionInfo_statusInformation,
     documentVersionInfo_versionName,
-    documentVersionInfo_name,
-    documentVersionInfo_documentFormat,
     documentVersionInfo_reviewStatus,
-    documentVersionInfo_isDefaultVersion,
+    documentVersionInfo_createdDate,
+    documentVersionInfo_documentFormat,
+    documentVersionInfo_name,
     documentVersionInfo_documentVersion,
     documentVersionInfo_displayName,
+    documentVersionInfo_statusInformation,
+    documentVersionInfo_isDefaultVersion,
 
     -- * EffectivePatch
     EffectivePatch (..),
@@ -923,15 +923,15 @@ module Network.AWS.SSM.Types
     FailedCreateAssociation (..),
     newFailedCreateAssociation,
     failedCreateAssociation_entry,
-    failedCreateAssociation_message,
     failedCreateAssociation_fault,
+    failedCreateAssociation_message,
 
     -- * FailureDetails
     FailureDetails (..),
     newFailureDetails,
-    failureDetails_details,
-    failureDetails_failureStage,
     failureDetails_failureType,
+    failureDetails_failureStage,
+    failureDetails_details,
 
     -- * InstanceAggregatedAssociationOverview
     InstanceAggregatedAssociationOverview (..),
@@ -942,8 +942,8 @@ module Network.AWS.SSM.Types
     -- * InstanceAssociation
     InstanceAssociation (..),
     newInstanceAssociation,
-    instanceAssociation_instanceId,
     instanceAssociation_associationId,
+    instanceAssociation_instanceId,
     instanceAssociation_content,
     instanceAssociation_associationVersion,
 
@@ -960,41 +960,41 @@ module Network.AWS.SSM.Types
     -- * InstanceAssociationStatusInfo
     InstanceAssociationStatusInfo (..),
     newInstanceAssociationStatusInfo,
-    instanceAssociationStatusInfo_status,
+    instanceAssociationStatusInfo_associationId,
     instanceAssociationStatusInfo_instanceId,
     instanceAssociationStatusInfo_detailedStatus,
-    instanceAssociationStatusInfo_name,
-    instanceAssociationStatusInfo_associationId,
+    instanceAssociationStatusInfo_status,
     instanceAssociationStatusInfo_outputUrl,
-    instanceAssociationStatusInfo_executionDate,
     instanceAssociationStatusInfo_executionSummary,
-    instanceAssociationStatusInfo_associationName,
-    instanceAssociationStatusInfo_associationVersion,
+    instanceAssociationStatusInfo_name,
     instanceAssociationStatusInfo_errorCode,
     instanceAssociationStatusInfo_documentVersion,
+    instanceAssociationStatusInfo_associationVersion,
+    instanceAssociationStatusInfo_executionDate,
+    instanceAssociationStatusInfo_associationName,
 
     -- * InstanceInformation
     InstanceInformation (..),
     newInstanceInformation,
     instanceInformation_instanceId,
     instanceInformation_pingStatus,
-    instanceInformation_iamRole,
-    instanceInformation_activationId,
-    instanceInformation_lastSuccessfulAssociationExecutionDate,
+    instanceInformation_iPAddress,
+    instanceInformation_resourceType,
+    instanceInformation_registrationDate,
+    instanceInformation_platformVersion,
+    instanceInformation_isLatestVersion,
     instanceInformation_agentVersion,
     instanceInformation_lastPingDateTime,
-    instanceInformation_platformVersion,
-    instanceInformation_lastAssociationExecutionDate,
-    instanceInformation_resourceType,
-    instanceInformation_associationOverview,
+    instanceInformation_lastSuccessfulAssociationExecutionDate,
+    instanceInformation_activationId,
     instanceInformation_name,
-    instanceInformation_iPAddress,
     instanceInformation_platformType,
-    instanceInformation_isLatestVersion,
+    instanceInformation_associationOverview,
+    instanceInformation_associationStatus,
+    instanceInformation_lastAssociationExecutionDate,
     instanceInformation_platformName,
     instanceInformation_computerName,
-    instanceInformation_associationStatus,
-    instanceInformation_registrationDate,
+    instanceInformation_iamRole,
 
     -- * InstanceInformationFilter
     InstanceInformationFilter (..),
@@ -1011,22 +1011,22 @@ module Network.AWS.SSM.Types
     -- * InstancePatchState
     InstancePatchState (..),
     newInstancePatchState,
-    instancePatchState_otherNonCompliantCount,
     instancePatchState_unreportedNotApplicableCount,
+    instancePatchState_otherNonCompliantCount,
+    instancePatchState_rebootOption,
+    instancePatchState_installedPendingRebootCount,
+    instancePatchState_ownerInformation,
+    instancePatchState_securityNonCompliantCount,
+    instancePatchState_installedRejectedCount,
+    instancePatchState_failedCount,
     instancePatchState_installedOtherCount,
+    instancePatchState_missingCount,
     instancePatchState_installOverrideList,
     instancePatchState_criticalNonCompliantCount,
-    instancePatchState_installedPendingRebootCount,
-    instancePatchState_securityNonCompliantCount,
-    instancePatchState_rebootOption,
-    instancePatchState_missingCount,
-    instancePatchState_snapshotId,
-    instancePatchState_lastNoRebootInstallOperationTime,
-    instancePatchState_installedCount,
     instancePatchState_notApplicableCount,
-    instancePatchState_failedCount,
-    instancePatchState_installedRejectedCount,
-    instancePatchState_ownerInformation,
+    instancePatchState_installedCount,
+    instancePatchState_lastNoRebootInstallOperationTime,
+    instancePatchState_snapshotId,
     instancePatchState_instanceId,
     instancePatchState_patchGroup,
     instancePatchState_baselineId,
@@ -1052,26 +1052,26 @@ module Network.AWS.SSM.Types
     InventoryDeletionStatusItem (..),
     newInventoryDeletionStatusItem,
     inventoryDeletionStatusItem_typeName,
-    inventoryDeletionStatusItem_lastStatusMessage,
     inventoryDeletionStatusItem_lastStatusUpdateTime,
+    inventoryDeletionStatusItem_lastStatusMessage,
+    inventoryDeletionStatusItem_deletionSummary,
+    inventoryDeletionStatusItem_lastStatus,
     inventoryDeletionStatusItem_deletionStartTime,
     inventoryDeletionStatusItem_deletionId,
-    inventoryDeletionStatusItem_lastStatus,
-    inventoryDeletionStatusItem_deletionSummary,
 
     -- * InventoryDeletionSummary
     InventoryDeletionSummary (..),
     newInventoryDeletionSummary,
     inventoryDeletionSummary_remainingCount,
-    inventoryDeletionSummary_totalCount,
     inventoryDeletionSummary_summaryItems,
+    inventoryDeletionSummary_totalCount,
 
     -- * InventoryDeletionSummaryItem
     InventoryDeletionSummaryItem (..),
     newInventoryDeletionSummaryItem,
     inventoryDeletionSummaryItem_remainingCount,
-    inventoryDeletionSummaryItem_version,
     inventoryDeletionSummaryItem_count,
+    inventoryDeletionSummaryItem_version,
 
     -- * InventoryFilter
     InventoryFilter (..),
@@ -1090,8 +1090,8 @@ module Network.AWS.SSM.Types
     InventoryItem (..),
     newInventoryItem,
     inventoryItem_context,
-    inventoryItem_content,
     inventoryItem_contentHash,
+    inventoryItem_content,
     inventoryItem_typeName,
     inventoryItem_schemaVersion,
     inventoryItem_captureTime,
@@ -1119,8 +1119,8 @@ module Network.AWS.SSM.Types
     -- * InventoryResultItem
     InventoryResultItem (..),
     newInventoryResultItem,
-    inventoryResultItem_captureTime,
     inventoryResultItem_contentHash,
+    inventoryResultItem_captureTime,
     inventoryResultItem_typeName,
     inventoryResultItem_schemaVersion,
     inventoryResultItem_content,
@@ -1135,68 +1135,68 @@ module Network.AWS.SSM.Types
     -- * MaintenanceWindowAutomationParameters
     MaintenanceWindowAutomationParameters (..),
     newMaintenanceWindowAutomationParameters,
-    maintenanceWindowAutomationParameters_documentVersion,
     maintenanceWindowAutomationParameters_parameters,
+    maintenanceWindowAutomationParameters_documentVersion,
 
     -- * MaintenanceWindowExecution
     MaintenanceWindowExecution (..),
     newMaintenanceWindowExecution,
     maintenanceWindowExecution_status,
-    maintenanceWindowExecution_statusDetails,
     maintenanceWindowExecution_startTime,
+    maintenanceWindowExecution_windowExecutionId,
+    maintenanceWindowExecution_statusDetails,
     maintenanceWindowExecution_endTime,
     maintenanceWindowExecution_windowId,
-    maintenanceWindowExecution_windowExecutionId,
 
     -- * MaintenanceWindowExecutionTaskIdentity
     MaintenanceWindowExecutionTaskIdentity (..),
     newMaintenanceWindowExecutionTaskIdentity,
     maintenanceWindowExecutionTaskIdentity_status,
-    maintenanceWindowExecutionTaskIdentity_statusDetails,
-    maintenanceWindowExecutionTaskIdentity_startTime,
-    maintenanceWindowExecutionTaskIdentity_endTime,
-    maintenanceWindowExecutionTaskIdentity_windowExecutionId,
-    maintenanceWindowExecutionTaskIdentity_taskArn,
-    maintenanceWindowExecutionTaskIdentity_taskType,
     maintenanceWindowExecutionTaskIdentity_taskExecutionId,
+    maintenanceWindowExecutionTaskIdentity_startTime,
+    maintenanceWindowExecutionTaskIdentity_taskType,
+    maintenanceWindowExecutionTaskIdentity_taskArn,
+    maintenanceWindowExecutionTaskIdentity_windowExecutionId,
+    maintenanceWindowExecutionTaskIdentity_statusDetails,
+    maintenanceWindowExecutionTaskIdentity_endTime,
 
     -- * MaintenanceWindowExecutionTaskInvocationIdentity
     MaintenanceWindowExecutionTaskInvocationIdentity (..),
     newMaintenanceWindowExecutionTaskInvocationIdentity,
     maintenanceWindowExecutionTaskInvocationIdentity_status,
-    maintenanceWindowExecutionTaskInvocationIdentity_statusDetails,
-    maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId,
-    maintenanceWindowExecutionTaskInvocationIdentity_startTime,
-    maintenanceWindowExecutionTaskInvocationIdentity_endTime,
     maintenanceWindowExecutionTaskInvocationIdentity_executionId,
-    maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId,
+    maintenanceWindowExecutionTaskInvocationIdentity_taskExecutionId,
+    maintenanceWindowExecutionTaskInvocationIdentity_startTime,
     maintenanceWindowExecutionTaskInvocationIdentity_invocationId,
     maintenanceWindowExecutionTaskInvocationIdentity_ownerInformation,
     maintenanceWindowExecutionTaskInvocationIdentity_taskType,
+    maintenanceWindowExecutionTaskInvocationIdentity_windowTargetId,
+    maintenanceWindowExecutionTaskInvocationIdentity_windowExecutionId,
+    maintenanceWindowExecutionTaskInvocationIdentity_statusDetails,
+    maintenanceWindowExecutionTaskInvocationIdentity_endTime,
     maintenanceWindowExecutionTaskInvocationIdentity_parameters,
-    maintenanceWindowExecutionTaskInvocationIdentity_taskExecutionId,
 
     -- * MaintenanceWindowFilter
     MaintenanceWindowFilter (..),
     newMaintenanceWindowFilter,
-    maintenanceWindowFilter_key,
     maintenanceWindowFilter_values,
+    maintenanceWindowFilter_key,
 
     -- * MaintenanceWindowIdentity
     MaintenanceWindowIdentity (..),
     newMaintenanceWindowIdentity,
-    maintenanceWindowIdentity_startDate,
-    maintenanceWindowIdentity_duration,
-    maintenanceWindowIdentity_scheduleOffset,
     maintenanceWindowIdentity_enabled,
-    maintenanceWindowIdentity_cutoff,
-    maintenanceWindowIdentity_name,
-    maintenanceWindowIdentity_windowId,
-    maintenanceWindowIdentity_scheduleTimezone,
-    maintenanceWindowIdentity_description,
-    maintenanceWindowIdentity_endDate,
-    maintenanceWindowIdentity_nextExecutionTime,
     maintenanceWindowIdentity_schedule,
+    maintenanceWindowIdentity_nextExecutionTime,
+    maintenanceWindowIdentity_scheduleOffset,
+    maintenanceWindowIdentity_endDate,
+    maintenanceWindowIdentity_scheduleTimezone,
+    maintenanceWindowIdentity_startDate,
+    maintenanceWindowIdentity_name,
+    maintenanceWindowIdentity_cutoff,
+    maintenanceWindowIdentity_description,
+    maintenanceWindowIdentity_duration,
+    maintenanceWindowIdentity_windowId,
 
     -- * MaintenanceWindowIdentityForTarget
     MaintenanceWindowIdentityForTarget (..),
@@ -1214,17 +1214,17 @@ module Network.AWS.SSM.Types
     -- * MaintenanceWindowRunCommandParameters
     MaintenanceWindowRunCommandParameters (..),
     newMaintenanceWindowRunCommandParameters,
-    maintenanceWindowRunCommandParameters_notificationConfig,
     maintenanceWindowRunCommandParameters_serviceRoleArn,
-    maintenanceWindowRunCommandParameters_outputS3BucketName,
-    maintenanceWindowRunCommandParameters_comment,
-    maintenanceWindowRunCommandParameters_documentHash,
-    maintenanceWindowRunCommandParameters_timeoutSeconds,
-    maintenanceWindowRunCommandParameters_outputS3KeyPrefix,
-    maintenanceWindowRunCommandParameters_cloudWatchOutputConfig,
-    maintenanceWindowRunCommandParameters_documentVersion,
+    maintenanceWindowRunCommandParameters_notificationConfig,
     maintenanceWindowRunCommandParameters_documentHashType,
+    maintenanceWindowRunCommandParameters_cloudWatchOutputConfig,
+    maintenanceWindowRunCommandParameters_outputS3KeyPrefix,
     maintenanceWindowRunCommandParameters_parameters,
+    maintenanceWindowRunCommandParameters_documentHash,
+    maintenanceWindowRunCommandParameters_documentVersion,
+    maintenanceWindowRunCommandParameters_timeoutSeconds,
+    maintenanceWindowRunCommandParameters_comment,
+    maintenanceWindowRunCommandParameters_outputS3BucketName,
 
     -- * MaintenanceWindowStepFunctionsParameters
     MaintenanceWindowStepFunctionsParameters (..),
@@ -1235,39 +1235,39 @@ module Network.AWS.SSM.Types
     -- * MaintenanceWindowTarget
     MaintenanceWindowTarget (..),
     newMaintenanceWindowTarget,
-    maintenanceWindowTarget_windowTargetId,
     maintenanceWindowTarget_resourceType,
-    maintenanceWindowTarget_targets,
-    maintenanceWindowTarget_name,
-    maintenanceWindowTarget_windowId,
-    maintenanceWindowTarget_description,
     maintenanceWindowTarget_ownerInformation,
+    maintenanceWindowTarget_windowTargetId,
+    maintenanceWindowTarget_name,
+    maintenanceWindowTarget_targets,
+    maintenanceWindowTarget_description,
+    maintenanceWindowTarget_windowId,
 
     -- * MaintenanceWindowTask
     MaintenanceWindowTask (..),
     newMaintenanceWindowTask,
-    maintenanceWindowTask_maxErrors,
-    maintenanceWindowTask_taskParameters,
     maintenanceWindowTask_serviceRoleArn,
     maintenanceWindowTask_windowTaskId,
-    maintenanceWindowTask_cutoffBehavior,
-    maintenanceWindowTask_targets,
+    maintenanceWindowTask_taskParameters,
     maintenanceWindowTask_priority,
-    maintenanceWindowTask_name,
-    maintenanceWindowTask_windowId,
-    maintenanceWindowTask_maxConcurrency,
-    maintenanceWindowTask_description,
     maintenanceWindowTask_taskArn,
-    maintenanceWindowTask_type,
+    maintenanceWindowTask_cutoffBehavior,
+    maintenanceWindowTask_maxErrors,
+    maintenanceWindowTask_name,
+    maintenanceWindowTask_targets,
     maintenanceWindowTask_loggingInfo,
+    maintenanceWindowTask_type,
+    maintenanceWindowTask_description,
+    maintenanceWindowTask_maxConcurrency,
+    maintenanceWindowTask_windowId,
 
     -- * MaintenanceWindowTaskInvocationParameters
     MaintenanceWindowTaskInvocationParameters (..),
     newMaintenanceWindowTaskInvocationParameters,
     maintenanceWindowTaskInvocationParameters_automation,
-    maintenanceWindowTaskInvocationParameters_lambda,
-    maintenanceWindowTaskInvocationParameters_runCommand,
     maintenanceWindowTaskInvocationParameters_stepFunctions,
+    maintenanceWindowTaskInvocationParameters_runCommand,
+    maintenanceWindowTaskInvocationParameters_lambda,
 
     -- * MaintenanceWindowTaskParameterValueExpression
     MaintenanceWindowTaskParameterValueExpression (..),
@@ -1282,25 +1282,25 @@ module Network.AWS.SSM.Types
     -- * NonCompliantSummary
     NonCompliantSummary (..),
     newNonCompliantSummary,
-    nonCompliantSummary_severitySummary,
     nonCompliantSummary_nonCompliantCount,
+    nonCompliantSummary_severitySummary,
 
     -- * NotificationConfig
     NotificationConfig (..),
     newNotificationConfig,
-    notificationConfig_notificationArn,
-    notificationConfig_notificationType,
     notificationConfig_notificationEvents,
+    notificationConfig_notificationType,
+    notificationConfig_notificationArn,
 
     -- * OpsAggregator
     OpsAggregator (..),
     newOpsAggregator,
     opsAggregator_typeName,
-    opsAggregator_attributeName,
-    opsAggregator_values,
-    opsAggregator_aggregatorType,
-    opsAggregator_filters,
     opsAggregator_aggregators,
+    opsAggregator_values,
+    opsAggregator_filters,
+    opsAggregator_attributeName,
+    opsAggregator_aggregatorType,
 
     -- * OpsEntity
     OpsEntity (..),
@@ -1324,27 +1324,27 @@ module Network.AWS.SSM.Types
     -- * OpsItem
     OpsItem (..),
     newOpsItem,
-    opsItem_status,
-    opsItem_plannedEndTime,
-    opsItem_severity,
-    opsItem_actualStartTime,
-    opsItem_category,
-    opsItem_operationalData,
-    opsItem_title,
-    opsItem_source,
-    opsItem_createdTime,
-    opsItem_version,
-    opsItem_priority,
     opsItem_actualEndTime,
     opsItem_opsItemId,
-    opsItem_plannedStartTime,
-    opsItem_opsItemType,
-    opsItem_notifications,
-    opsItem_lastModifiedTime,
-    opsItem_description,
+    opsItem_status,
+    opsItem_priority,
+    opsItem_createdTime,
+    opsItem_category,
+    opsItem_severity,
     opsItem_createdBy,
-    opsItem_lastModifiedBy,
+    opsItem_lastModifiedTime,
+    opsItem_opsItemType,
+    opsItem_version,
+    opsItem_source,
     opsItem_relatedOpsItems,
+    opsItem_title,
+    opsItem_lastModifiedBy,
+    opsItem_operationalData,
+    opsItem_actualStartTime,
+    opsItem_description,
+    opsItem_plannedEndTime,
+    opsItem_notifications,
+    opsItem_plannedStartTime,
 
     -- * OpsItemDataValue
     OpsItemDataValue (..),
@@ -1362,13 +1362,13 @@ module Network.AWS.SSM.Types
     -- * OpsItemEventSummary
     OpsItemEventSummary (..),
     newOpsItemEventSummary,
-    opsItemEventSummary_detailType,
-    opsItemEventSummary_eventId,
-    opsItemEventSummary_source,
-    opsItemEventSummary_createdTime,
     opsItemEventSummary_opsItemId,
-    opsItemEventSummary_detail,
+    opsItemEventSummary_createdTime,
     opsItemEventSummary_createdBy,
+    opsItemEventSummary_detailType,
+    opsItemEventSummary_source,
+    opsItemEventSummary_detail,
+    opsItemEventSummary_eventId,
 
     -- * OpsItemFilter
     OpsItemFilter (..),
@@ -1390,14 +1390,14 @@ module Network.AWS.SSM.Types
     -- * OpsItemRelatedItemSummary
     OpsItemRelatedItemSummary (..),
     newOpsItemRelatedItemSummary,
-    opsItemRelatedItemSummary_createdTime,
-    opsItemRelatedItemSummary_resourceType,
-    opsItemRelatedItemSummary_opsItemId,
     opsItemRelatedItemSummary_associationId,
+    opsItemRelatedItemSummary_opsItemId,
     opsItemRelatedItemSummary_resourceUri,
-    opsItemRelatedItemSummary_associationType,
-    opsItemRelatedItemSummary_lastModifiedTime,
+    opsItemRelatedItemSummary_resourceType,
+    opsItemRelatedItemSummary_createdTime,
     opsItemRelatedItemSummary_createdBy,
+    opsItemRelatedItemSummary_lastModifiedTime,
+    opsItemRelatedItemSummary_associationType,
     opsItemRelatedItemSummary_lastModifiedBy,
 
     -- * OpsItemRelatedItemsFilter
@@ -1410,32 +1410,32 @@ module Network.AWS.SSM.Types
     -- * OpsItemSummary
     OpsItemSummary (..),
     newOpsItemSummary,
-    opsItemSummary_status,
-    opsItemSummary_plannedEndTime,
-    opsItemSummary_severity,
-    opsItemSummary_actualStartTime,
-    opsItemSummary_category,
-    opsItemSummary_operationalData,
-    opsItemSummary_title,
-    opsItemSummary_source,
-    opsItemSummary_createdTime,
-    opsItemSummary_priority,
     opsItemSummary_actualEndTime,
     opsItemSummary_opsItemId,
-    opsItemSummary_plannedStartTime,
-    opsItemSummary_opsItemType,
-    opsItemSummary_lastModifiedTime,
+    opsItemSummary_status,
+    opsItemSummary_priority,
+    opsItemSummary_createdTime,
+    opsItemSummary_category,
+    opsItemSummary_severity,
     opsItemSummary_createdBy,
+    opsItemSummary_lastModifiedTime,
+    opsItemSummary_opsItemType,
+    opsItemSummary_source,
+    opsItemSummary_title,
     opsItemSummary_lastModifiedBy,
+    opsItemSummary_operationalData,
+    opsItemSummary_actualStartTime,
+    opsItemSummary_plannedEndTime,
+    opsItemSummary_plannedStartTime,
 
     -- * OpsMetadata
     OpsMetadata (..),
     newOpsMetadata,
-    opsMetadata_lastModifiedDate,
-    opsMetadata_resourceId,
     opsMetadata_opsMetadataArn,
-    opsMetadata_creationDate,
+    opsMetadata_resourceId,
+    opsMetadata_lastModifiedDate,
     opsMetadata_lastModifiedUser,
+    opsMetadata_creationDate,
 
     -- * OpsMetadataFilter
     OpsMetadataFilter (..),
@@ -1458,53 +1458,53 @@ module Network.AWS.SSM.Types
     Parameter (..),
     newParameter,
     parameter_lastModifiedDate,
-    parameter_arn,
-    parameter_version,
-    parameter_name,
-    parameter_sourceResult,
-    parameter_value,
-    parameter_dataType,
-    parameter_type,
     parameter_selector,
+    parameter_arn,
+    parameter_value,
+    parameter_sourceResult,
+    parameter_name,
+    parameter_version,
+    parameter_type,
+    parameter_dataType,
 
     -- * ParameterHistory
     ParameterHistory (..),
     newParameterHistory,
     parameterHistory_lastModifiedDate,
-    parameterHistory_policies,
-    parameterHistory_labels,
-    parameterHistory_version,
-    parameterHistory_name,
-    parameterHistory_description,
+    parameterHistory_keyId,
     parameterHistory_value,
-    parameterHistory_dataType,
+    parameterHistory_name,
+    parameterHistory_tier,
+    parameterHistory_version,
+    parameterHistory_lastModifiedUser,
+    parameterHistory_labels,
     parameterHistory_allowedPattern,
     parameterHistory_type,
-    parameterHistory_lastModifiedUser,
-    parameterHistory_tier,
-    parameterHistory_keyId,
+    parameterHistory_dataType,
+    parameterHistory_description,
+    parameterHistory_policies,
 
     -- * ParameterInlinePolicy
     ParameterInlinePolicy (..),
     newParameterInlinePolicy,
     parameterInlinePolicy_policyType,
-    parameterInlinePolicy_policyText,
     parameterInlinePolicy_policyStatus,
+    parameterInlinePolicy_policyText,
 
     -- * ParameterMetadata
     ParameterMetadata (..),
     newParameterMetadata,
     parameterMetadata_lastModifiedDate,
-    parameterMetadata_policies,
-    parameterMetadata_version,
+    parameterMetadata_keyId,
     parameterMetadata_name,
-    parameterMetadata_description,
-    parameterMetadata_dataType,
+    parameterMetadata_tier,
+    parameterMetadata_version,
+    parameterMetadata_lastModifiedUser,
     parameterMetadata_allowedPattern,
     parameterMetadata_type,
-    parameterMetadata_lastModifiedUser,
-    parameterMetadata_tier,
-    parameterMetadata_keyId,
+    parameterMetadata_dataType,
+    parameterMetadata_description,
+    parameterMetadata_policies,
 
     -- * ParameterStringFilter
     ParameterStringFilter (..),
@@ -1522,38 +1522,38 @@ module Network.AWS.SSM.Types
     -- * Patch
     Patch (..),
     newPatch,
-    patch_msrcSeverity,
-    patch_vendor,
-    patch_epoch,
-    patch_product,
-    patch_severity,
-    patch_title,
-    patch_id,
-    patch_productFamily,
-    patch_repository,
-    patch_version,
-    patch_name,
     patch_bugzillaIds,
-    patch_msrcNumber,
-    patch_release,
-    patch_cVEIds,
-    patch_description,
-    patch_classification,
+    patch_vendor,
+    patch_msrcSeverity,
+    patch_repository,
+    patch_productFamily,
+    patch_severity,
     patch_advisoryIds,
-    patch_arch,
-    patch_releaseDate,
+    patch_cVEIds,
+    patch_classification,
+    patch_release,
+    patch_msrcNumber,
+    patch_name,
+    patch_version,
     patch_language,
     patch_kbNumber,
     patch_contentUrl,
+    patch_id,
+    patch_releaseDate,
+    patch_title,
+    patch_arch,
+    patch_product,
+    patch_description,
+    patch_epoch,
 
     -- * PatchBaselineIdentity
     PatchBaselineIdentity (..),
     newPatchBaselineIdentity,
     patchBaselineIdentity_baselineName,
-    patchBaselineIdentity_baselineId,
-    patchBaselineIdentity_defaultBaseline,
     patchBaselineIdentity_baselineDescription,
     patchBaselineIdentity_operatingSystem,
+    patchBaselineIdentity_defaultBaseline,
+    patchBaselineIdentity_baselineId,
 
     -- * PatchComplianceData
     PatchComplianceData (..),
@@ -1586,16 +1586,16 @@ module Network.AWS.SSM.Types
     -- * PatchOrchestratorFilter
     PatchOrchestratorFilter (..),
     newPatchOrchestratorFilter,
-    patchOrchestratorFilter_key,
     patchOrchestratorFilter_values,
+    patchOrchestratorFilter_key,
 
     -- * PatchRule
     PatchRule (..),
     newPatchRule,
     patchRule_approveAfterDays,
     patchRule_approveUntilDate,
-    patchRule_complianceLevel,
     patchRule_enableNonSecurity,
+    patchRule_complianceLevel,
     patchRule_patchFilterGroup,
 
     -- * PatchRuleGroup
@@ -1614,17 +1614,17 @@ module Network.AWS.SSM.Types
     PatchStatus (..),
     newPatchStatus,
     patchStatus_approvalDate,
-    patchStatus_complianceLevel,
     patchStatus_deploymentStatus,
+    patchStatus_complianceLevel,
 
     -- * ProgressCounters
     ProgressCounters (..),
     newProgressCounters,
-    progressCounters_cancelledSteps,
-    progressCounters_timedOutSteps,
-    progressCounters_totalSteps,
     progressCounters_failedSteps,
+    progressCounters_cancelledSteps,
     progressCounters_successSteps,
+    progressCounters_totalSteps,
+    progressCounters_timedOutSteps,
 
     -- * RelatedOpsItem
     RelatedOpsItem (..),
@@ -1634,20 +1634,20 @@ module Network.AWS.SSM.Types
     -- * ResolvedTargets
     ResolvedTargets (..),
     newResolvedTargets,
-    resolvedTargets_parameterValues,
     resolvedTargets_truncated,
+    resolvedTargets_parameterValues,
 
     -- * ResourceComplianceSummaryItem
     ResourceComplianceSummaryItem (..),
     newResourceComplianceSummaryItem,
-    resourceComplianceSummaryItem_resourceId,
-    resourceComplianceSummaryItem_status,
-    resourceComplianceSummaryItem_overallSeverity,
-    resourceComplianceSummaryItem_compliantSummary,
-    resourceComplianceSummaryItem_complianceType,
-    resourceComplianceSummaryItem_resourceType,
     resourceComplianceSummaryItem_nonCompliantSummary,
+    resourceComplianceSummaryItem_status,
+    resourceComplianceSummaryItem_resourceId,
+    resourceComplianceSummaryItem_resourceType,
+    resourceComplianceSummaryItem_compliantSummary,
     resourceComplianceSummaryItem_executionSummary,
+    resourceComplianceSummaryItem_overallSeverity,
+    resourceComplianceSummaryItem_complianceType,
 
     -- * ResourceDataSyncAwsOrganizationsSource
     ResourceDataSyncAwsOrganizationsSource (..),
@@ -1664,15 +1664,15 @@ module Network.AWS.SSM.Types
     ResourceDataSyncItem (..),
     newResourceDataSyncItem,
     resourceDataSyncItem_syncType,
-    resourceDataSyncItem_s3Destination,
-    resourceDataSyncItem_syncLastModifiedTime,
-    resourceDataSyncItem_syncName,
-    resourceDataSyncItem_lastSyncTime,
     resourceDataSyncItem_syncSource,
-    resourceDataSyncItem_lastSuccessfulSyncTime,
-    resourceDataSyncItem_lastStatus,
     resourceDataSyncItem_lastSyncStatusMessage,
     resourceDataSyncItem_syncCreatedTime,
+    resourceDataSyncItem_lastSyncTime,
+    resourceDataSyncItem_syncName,
+    resourceDataSyncItem_lastStatus,
+    resourceDataSyncItem_syncLastModifiedTime,
+    resourceDataSyncItem_s3Destination,
+    resourceDataSyncItem_lastSuccessfulSyncTime,
 
     -- * ResourceDataSyncOrganizationalUnit
     ResourceDataSyncOrganizationalUnit (..),
@@ -1692,21 +1692,21 @@ module Network.AWS.SSM.Types
     -- * ResourceDataSyncSource
     ResourceDataSyncSource (..),
     newResourceDataSyncSource,
+    resourceDataSyncSource_enableAllOpsDataSources,
     resourceDataSyncSource_includeFutureRegions,
     resourceDataSyncSource_awsOrganizationsSource,
-    resourceDataSyncSource_enableAllOpsDataSources,
     resourceDataSyncSource_sourceType,
     resourceDataSyncSource_sourceRegions,
 
     -- * ResourceDataSyncSourceWithState
     ResourceDataSyncSourceWithState (..),
     newResourceDataSyncSourceWithState,
-    resourceDataSyncSourceWithState_includeFutureRegions,
     resourceDataSyncSourceWithState_state,
-    resourceDataSyncSourceWithState_sourceRegions,
-    resourceDataSyncSourceWithState_awsOrganizationsSource,
-    resourceDataSyncSourceWithState_sourceType,
     resourceDataSyncSourceWithState_enableAllOpsDataSources,
+    resourceDataSyncSourceWithState_includeFutureRegions,
+    resourceDataSyncSourceWithState_sourceType,
+    resourceDataSyncSourceWithState_awsOrganizationsSource,
+    resourceDataSyncSourceWithState_sourceRegions,
 
     -- * ResultAttribute
     ResultAttribute (..),
@@ -1717,27 +1717,27 @@ module Network.AWS.SSM.Types
     ReviewInformation (..),
     newReviewInformation,
     reviewInformation_status,
-    reviewInformation_reviewedTime,
     reviewInformation_reviewer,
+    reviewInformation_reviewedTime,
 
     -- * Runbook
     Runbook (..),
     newRunbook,
+    runbook_targetParameterName,
+    runbook_targetLocations,
     runbook_maxErrors,
     runbook_targets,
-    runbook_targetLocations,
-    runbook_targetParameterName,
-    runbook_maxConcurrency,
-    runbook_documentVersion,
     runbook_parameters,
+    runbook_documentVersion,
+    runbook_maxConcurrency,
     runbook_documentName,
 
     -- * S3OutputLocation
     S3OutputLocation (..),
     newS3OutputLocation,
-    s3OutputLocation_outputS3BucketName,
-    s3OutputLocation_outputS3Region,
     s3OutputLocation_outputS3KeyPrefix,
+    s3OutputLocation_outputS3Region,
+    s3OutputLocation_outputS3BucketName,
 
     -- * S3OutputUrl
     S3OutputUrl (..),
@@ -1754,25 +1754,25 @@ module Network.AWS.SSM.Types
     -- * ServiceSetting
     ServiceSetting (..),
     newServiceSetting,
-    serviceSetting_lastModifiedDate,
     serviceSetting_status,
-    serviceSetting_settingValue,
+    serviceSetting_lastModifiedDate,
     serviceSetting_arn,
     serviceSetting_settingId,
     serviceSetting_lastModifiedUser,
+    serviceSetting_settingValue,
 
     -- * Session
     Session (..),
     newSession,
     session_status,
-    session_startDate,
-    session_sessionId,
-    session_documentName,
-    session_details,
     session_outputUrl,
-    session_owner,
-    session_target,
+    session_documentName,
     session_endDate,
+    session_owner,
+    session_startDate,
+    session_details,
+    session_sessionId,
+    session_target,
 
     -- * SessionFilter
     SessionFilter (..),
@@ -1790,37 +1790,37 @@ module Network.AWS.SSM.Types
     SeveritySummary (..),
     newSeveritySummary,
     severitySummary_lowCount,
-    severitySummary_mediumCount,
-    severitySummary_criticalCount,
-    severitySummary_highCount,
     severitySummary_unspecifiedCount,
+    severitySummary_highCount,
+    severitySummary_mediumCount,
     severitySummary_informationalCount,
+    severitySummary_criticalCount,
 
     -- * StepExecution
     StepExecution (..),
     newStepExecution,
-    stepExecution_outputs,
-    stepExecution_onFailure,
+    stepExecution_failureDetails,
+    stepExecution_isEnd,
+    stepExecution_inputs,
+    stepExecution_stepName,
+    stepExecution_executionEndTime,
     stepExecution_failureMessage,
     stepExecution_response,
-    stepExecution_executionEndTime,
-    stepExecution_nextStep,
-    stepExecution_isEnd,
-    stepExecution_maxAttempts,
-    stepExecution_failureDetails,
-    stepExecution_targets,
-    stepExecution_executionStartTime,
-    stepExecution_targetLocation,
-    stepExecution_overriddenParameters,
-    stepExecution_isCritical,
     stepExecution_action,
     stepExecution_responseCode,
     stepExecution_stepStatus,
-    stepExecution_timeoutSeconds,
-    stepExecution_validNextSteps,
+    stepExecution_targetLocation,
+    stepExecution_overriddenParameters,
+    stepExecution_outputs,
+    stepExecution_executionStartTime,
+    stepExecution_maxAttempts,
+    stepExecution_targets,
+    stepExecution_nextStep,
     stepExecution_stepExecutionId,
-    stepExecution_stepName,
-    stepExecution_inputs,
+    stepExecution_validNextSteps,
+    stepExecution_timeoutSeconds,
+    stepExecution_onFailure,
+    stepExecution_isCritical,
 
     -- * StepExecutionFilter
     StepExecutionFilter (..),
@@ -1837,17 +1837,17 @@ module Network.AWS.SSM.Types
     -- * Target
     Target (..),
     newTarget,
-    target_key,
     target_values,
+    target_key,
 
     -- * TargetLocation
     TargetLocation (..),
     newTargetLocation,
-    targetLocation_executionRoleName,
     targetLocation_accounts,
-    targetLocation_regions,
-    targetLocation_targetLocationMaxErrors,
     targetLocation_targetLocationMaxConcurrency,
+    targetLocation_targetLocationMaxErrors,
+    targetLocation_regions,
+    targetLocation_executionRoleName,
   )
 where
 
@@ -2112,37 +2112,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -2155,62 +2132,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The signal isn\'t valid for the current Automation execution.
-_InvalidAutomationSignalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAutomationSignalException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAutomationSignalException"
-
--- | One or more of the parameters specified for the delete operation isn\'t
--- valid. Verify all parameters and try again.
-_InvalidDeleteInventoryParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeleteInventoryParametersException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDeleteInventoryParametersException"
-
--- | The OpsMetadata object exceeds the maximum number of OpsMetadata keys
--- that you can assign to an application in Application Manager.
-_OpsMetadataKeyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsMetadataKeyLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "OpsMetadataKeyLimitExceededException"
-
--- | You attempted to register a @LAMBDA@ or @STEP_FUNCTIONS@ task in a
--- region where the corresponding service isn\'t available.
-_FeatureNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FeatureNotAvailableException =
-  Core._MatchServiceError
-    defaultService
-    "FeatureNotAvailableException"
-
--- | The specified filter value isn\'t valid.
-_InvalidInstanceInformationFilterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInstanceInformationFilterValue =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInstanceInformationFilterValue"
-
--- | The specified aggregator isn\'t valid for inventory groups. Verify that
--- the aggregator uses a valid inventory type such as @AWS:Application@ or
--- @AWS:InstanceInformation@.
-_InvalidAggregatorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAggregatorException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAggregatorException"
-
--- | You specified too many custom compliance types. You can specify a
--- maximum of 10 different types.
-_ComplianceTypeCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ComplianceTypeCountLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ComplianceTypeCountLimitExceededException"
 
 -- | An Automation runbook with the specified name and version couldn\'t be
 -- found.
@@ -2220,58 +2165,12 @@ _AutomationDefinitionVersionNotFoundException =
     defaultService
     "AutomationDefinitionVersionNotFoundException"
 
--- | The parameter type isn\'t supported.
-_UnsupportedParameterType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedParameterType =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedParameterType"
-
 -- | The document version isn\'t valid or doesn\'t exist.
 _InvalidDocumentVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidDocumentVersion =
   Core._MatchServiceError
     defaultService
     "InvalidDocumentVersion"
-
--- | The number of simultaneously running Automation executions exceeded the
--- allowable limit.
-_AutomationExecutionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationExecutionLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "AutomationExecutionLimitExceededException"
-
--- | Error returned when an idempotent operation is retried and the
--- parameters don\'t match the original call to the API with the same
--- idempotency token.
-_IdempotentParameterMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatch =
-  Core._MatchServiceError
-    defaultService
-    "IdempotentParameterMismatch"
-
--- | One of the arguments passed is invalid.
-_OpsMetadataInvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsMetadataInvalidArgumentException =
-  Core._MatchServiceError
-    defaultService
-    "OpsMetadataInvalidArgumentException"
-
--- | Another @UpdateResourceDataSync@ request is being processed. Wait a few
--- minutes and try again.
-_ResourceDataSyncConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceDataSyncConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceDataSyncConflictException"
-
--- | The specified update status operation isn\'t valid.
-_InvalidAutomationStatusUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAutomationStatusUpdateException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAutomationStatusUpdateException"
 
 -- | Parameter Store doesn\'t support changing a parameter type in a
 -- hierarchy. For example, you can\'t change a parameter from a @String@
@@ -2282,32 +2181,412 @@ _HierarchyTypeMismatchException =
     defaultService
     "HierarchyTypeMismatchException"
 
--- | Error returned when the ID specified for a resource, such as a
--- maintenance window or patch baseline, doesn\'t exist.
+-- | The schedule is invalid. Verify your cron or rate expression and try
+-- again.
+_InvalidSchedule :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSchedule =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSchedule"
+
+-- | The parameter type isn\'t supported.
+_UnsupportedParameterType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedParameterType =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedParameterType"
+
+-- | The specified update status operation isn\'t valid.
+_InvalidAutomationStatusUpdateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAutomationStatusUpdateException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAutomationStatusUpdateException"
+
+-- | The OpsMetadata object exceeds the maximum number of OpsMetadata keys
+-- that you can assign to an application in Application Manager.
+_OpsMetadataKeyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataKeyLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "OpsMetadataKeyLimitExceededException"
+
+-- | The plugin name isn\'t valid.
+_InvalidPluginName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPluginName =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPluginName"
+
+-- | Patching for applications released by Microsoft is only available on EC2
+-- instances and advanced instances. To patch applications released by
+-- Microsoft on on-premises servers and VMs, you must enable advanced
+-- instances. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html Enabling the advanced-instances tier>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+_UnsupportedFeatureRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedFeatureRequiredException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedFeatureRequiredException"
+
+-- | The specified aggregator isn\'t valid for inventory groups. Verify that
+-- the aggregator uses a valid inventory type such as @AWS:Application@ or
+-- @AWS:InstanceInformation@.
+_InvalidAggregatorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAggregatorException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAggregatorException"
+
+-- | You attempted to register a @LAMBDA@ or @STEP_FUNCTIONS@ task in a
+-- region where the corresponding service isn\'t available.
+_FeatureNotAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FeatureNotAvailableException =
+  Core._MatchServiceError
+    defaultService
+    "FeatureNotAvailableException"
+
+-- | The signal isn\'t valid for the current Automation execution.
+_InvalidAutomationSignalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAutomationSignalException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAutomationSignalException"
+
+-- | You have exceeded the allowed maximum sync configurations.
+_ResourceDataSyncCountExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncCountExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceDataSyncCountExceededException"
+
+-- | The Amazon Resource Name (ARN) is already associated with the OpsItem.
+_OpsItemRelatedItemAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemRelatedItemAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "OpsItemRelatedItemAlreadyExistsException"
+
+-- | The document doesn\'t support the platform type of the given instance
+-- ID(s). For example, you sent an document for a Windows instance to a
+-- Linux instance.
+_UnsupportedPlatformType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedPlatformType =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedPlatformType"
+
+-- | The filter value isn\'t valid. Verify the value and try again.
+_InvalidFilterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterValue =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilterValue"
+
+-- | One or more content items isn\'t valid.
+_InvalidItemContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidItemContentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidItemContentException"
+
+-- | The specified filter option isn\'t valid. Valid options are Equals and
+-- BeginsWith. For Path filter, valid options are Recursive and OneLevel.
+_InvalidFilterOption :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterOption =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilterOption"
+
+-- | The parameter name isn\'t valid.
+_ParameterPatternMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterPatternMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "ParameterPatternMismatchException"
+
+-- | The permission type isn\'t supported. /Share/ is the only supported
+-- permission type.
+_InvalidPermissionType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPermissionType =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPermissionType"
+
+-- | You must disassociate a document from all instances before you can
+-- delete it.
+_AssociatedInstances :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociatedInstances =
+  Core._MatchServiceError
+    defaultService
+    "AssociatedInstances"
+
+-- | The operating systems you specified isn\'t supported, or the operation
+-- isn\'t supported for the operating system.
+_UnsupportedOperatingSystem :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperatingSystem =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperatingSystem"
+
+-- | The following problems can cause this exception:
 --
--- For information about resource quotas in Amazon Web Services Systems
--- Manager, see
+-- -   You don\'t have permission to access the instance.
+--
+-- -   Amazon Web Services Systems Manager Agent(SSM Agent) isn\'t running.
+--     Verify that SSM Agent is running.
+--
+-- -   SSM Agent isn\'t registered with the SSM endpoint. Try reinstalling
+--     SSM Agent.
+--
+-- -   The instance isn\'t in valid state. Valid states are: @Running@,
+--     @Pending@, @Stopped@, and @Stopping@. Invalid states are:
+--     @Shutting-down@ and @Terminated@.
+_InvalidInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInstanceId =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInstanceId"
+
+-- | The updated status is the same as the current status.
+_StatusUnchanged :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StatusUnchanged =
+  Core._MatchServiceError
+    defaultService
+    "StatusUnchanged"
+
+-- | The specified token isn\'t valid.
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextToken"
+
+-- | The request isn\'t valid.
+_InvalidInventoryRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInventoryRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInventoryRequestException"
+
+-- | The association isn\'t valid or doesn\'t exist.
+_InvalidAssociation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAssociation =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAssociation"
+
+-- | The OpsItem already exists.
+_OpsItemAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "OpsItemAlreadyExistsException"
+
+-- | The S3 bucket doesn\'t exist.
+_InvalidOutputFolder :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOutputFolder =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOutputFolder"
+
+-- | An OpsMetadata object already exists for the selected resource.
+_OpsMetadataAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "OpsMetadataAlreadyExistsException"
+
+-- | The request caused OpsItems to exceed one or more quotas. For
+-- information about OpsItem quotas, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits What are the resource limits for OpsCenter?>.
+_OpsItemLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "OpsItemLimitExceededException"
+
+-- | The activation ID isn\'t valid. Verify the you entered the correct
+-- ActivationId or ActivationCode and try again.
+_InvalidActivationId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidActivationId =
+  Core._MatchServiceError
+    defaultService
+    "InvalidActivationId"
+
+-- | Your account reached the maximum number of OpsMetadata objects allowed
+-- by Application Manager. The maximum is 200 OpsMetadata objects. Delete
+-- one or more OpsMetadata object and try again.
+_OpsMetadataLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "OpsMetadataLimitExceededException"
+
+-- | The specified service setting wasn\'t found. Either the service name or
+-- the setting hasn\'t been provisioned by the Amazon Web Services service
+-- team.
+_ServiceSettingNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceSettingNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ServiceSettingNotFound"
+
+-- | The specified inventory item result attribute isn\'t valid.
+_InvalidResultAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResultAttributeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResultAttributeException"
+
+-- | The specified target instance for the session isn\'t fully configured
+-- for use with Session Manager. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html Getting started with Session Manager>
+-- in the /Amazon Web Services Systems Manager User Guide/. This error is
+-- also returned if you attempt to start a session on an instance that is
+-- located in a different account or Region
+_TargetNotConnected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetNotConnected =
+  Core._MatchServiceError
+    defaultService
+    "TargetNotConnected"
+
+-- | Error returned when the caller has exceeded the default resource quotas.
+-- For example, too many maintenance windows or patch baselines have been
+-- created.
+--
+-- For information about resource quotas in Systems Manager, see
 -- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm Systems Manager service quotas>
 -- in the /Amazon Web Services General Reference/.
-_DoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DoesNotExistException =
+_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "DoesNotExistException"
+    "ResourceLimitExceededException"
 
--- | The inventory item size has exceeded the size limit.
-_ItemSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ItemSizeLimitExceededException =
+-- | The system is processing too many concurrent updates. Wait a few moments
+-- and try again.
+_OpsMetadataTooManyUpdatesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataTooManyUpdatesException =
   Core._MatchServiceError
     defaultService
-    "ItemSizeLimitExceededException"
+    "OpsMetadataTooManyUpdatesException"
 
--- | The specified document already exists.
-_DocumentAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DocumentAlreadyExists =
+-- | A parameter version can have a maximum of ten labels.
+_ParameterVersionLabelLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterVersionLabelLimitExceeded =
   Core._MatchServiceError
     defaultService
-    "DocumentAlreadyExists"
+    "ParameterVersionLabelLimitExceeded"
+
+-- | The specified sync configuration is invalid.
+_ResourceDataSyncInvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncInvalidConfigurationException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceDataSyncInvalidConfigurationException"
+
+-- | The specified command ID isn\'t valid. Verify the ID and try again.
+_InvalidCommandId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCommandId =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCommandId"
+
+-- | You can\'t specify an instance ID in more than one association.
+_DuplicateInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateInstanceId =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateInstanceId"
+
+-- | The resource type isn\'t valid. For example, if you are attempting to
+-- tag an instance, the instance must be a registered, managed instance.
+_InvalidResourceType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceType =
+  Core._MatchServiceError
+    defaultService
+    "InvalidResourceType"
+
+-- | Inventory item type schema version has to match supported versions in
+-- the service. Check output of GetInventorySchema to see the available
+-- schema version for each type.
+_UnsupportedInventorySchemaVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedInventorySchemaVersionException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedInventorySchemaVersionException"
+
+-- | The specified SSM document doesn\'t exist.
+_InvalidDocument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocument =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDocument"
+
+-- | There is a conflict in the policies specified for this parameter. You
+-- can\'t, for example, specify two Expiration policies for a parameter.
+-- Review your policies, and try again.
+_IncompatiblePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncompatiblePolicyException =
+  Core._MatchServiceError
+    defaultService
+    "IncompatiblePolicyException"
+
+-- | An Automation runbook with the specified name couldn\'t be found.
+_AutomationDefinitionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationDefinitionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "AutomationDefinitionNotFoundException"
+
+-- | The policy type isn\'t supported. Parameter Store supports the following
+-- policy types: Expiration, ExpirationNotification, and
+-- NoChangeNotification.
+_InvalidPolicyTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyTypeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPolicyTypeException"
+
+-- | The specified key isn\'t valid.
+_InvalidFilterKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilterKey =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilterKey"
+
+-- | The supplied parameters for invoking the specified Automation runbook
+-- are incorrect. For example, they may not match the set of parameters
+-- permitted for the specified Automation document.
+_InvalidAutomationExecutionParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAutomationExecutionParametersException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAutomationExecutionParametersException"
+
+-- | There is no automation execution information for the requested
+-- automation execution ID.
+_AutomationExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "AutomationExecutionNotFoundException"
+
+-- | The parameter type name isn\'t valid.
+_InvalidTypeNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTypeNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidTypeNameException"
+
+-- | The specified sync name wasn\'t found.
+_ResourceDataSyncNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceDataSyncNotFoundException"
 
 -- | Parameter Store retains the 100 most recently created versions of a
 -- parameter. After this number of versions has been created, Parameter
@@ -2332,263 +2611,202 @@ _ParameterMaxVersionLimitExceeded =
     defaultService
     "ParameterMaxVersionLimitExceeded"
 
--- | You can have at most 500 active SSM documents.
-_DocumentLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DocumentLimitExceeded =
+-- | The inventory item size has exceeded the size limit.
+_ItemSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ItemSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "DocumentLimitExceeded"
+    "ItemSizeLimitExceededException"
 
--- | The specified step name and execution ID don\'t exist. Verify the
--- information and try again.
-_AutomationStepNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationStepNotFoundException =
+-- | A sync configuration with the same name already exists.
+_ResourceDataSyncAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "AutomationStepNotFoundException"
+    "ResourceDataSyncAlreadyExistsException"
 
--- | There is no automation execution information for the requested
--- automation execution ID.
-_AutomationExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationExecutionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "AutomationExecutionNotFoundException"
-
--- | The document can\'t be shared with more Amazon Web Services user
--- accounts. You can share a document with a maximum of 20 accounts. You
--- can publicly share up to five documents. If you need to increase this
--- limit, contact Amazon Web Services Support.
-_DocumentPermissionLimit :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DocumentPermissionLimit =
-  Core._MatchServiceError
-    defaultService
-    "DocumentPermissionLimit"
-
--- | The filter name isn\'t valid. Verify the you entered the correct name
--- and try again.
-_InvalidFilter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFilter =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFilter"
-
--- | The parameter type name isn\'t valid.
-_InvalidTypeNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTypeNameException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidTypeNameException"
-
--- | The sub-type count exceeded the limit for the inventory type.
-_SubTypeCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SubTypeCountLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "SubTypeCountLimitExceededException"
-
--- | An Automation runbook with the specified name couldn\'t be found.
-_AutomationDefinitionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationDefinitionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "AutomationDefinitionNotFoundException"
-
--- | The association wasn\'t found using the parameters you specified in the
--- call. Verify the information and try again.
-_OpsItemRelatedItemAssociationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsItemRelatedItemAssociationNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "OpsItemRelatedItemAssociationNotFoundException"
-
--- | You specified invalid keys or values in the @Context@ attribute for
--- @InventoryItem@. Verify the keys and values, and try again.
-_InvalidInventoryItemContextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInventoryItemContextException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInventoryItemContextException"
-
--- | The specified SSM document doesn\'t exist.
-_InvalidDocument :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDocument =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDocument"
-
--- | The @Targets@ parameter includes too many tags. Remove one or more tags
--- and try the command again.
-_TooManyTagsError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsError =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsError"
-
--- | A specified parameter argument isn\'t valid. Verify the available
--- arguments and try again.
-_OpsItemInvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsItemInvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "OpsItemInvalidParameterException"
-
--- | There is a conflict in the policies specified for this parameter. You
--- can\'t, for example, specify two Expiration policies for a parameter.
--- Review your policies, and try again.
-_IncompatiblePolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IncompatiblePolicyException =
-  Core._MatchServiceError
-    defaultService
-    "IncompatiblePolicyException"
-
--- | The request doesn\'t meet the regular expression requirement.
-_InvalidAllowedPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAllowedPatternException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAllowedPatternException"
-
--- | The system is processing too many concurrent updates. Wait a few moments
--- and try again.
-_OpsMetadataTooManyUpdatesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsMetadataTooManyUpdatesException =
-  Core._MatchServiceError
-    defaultService
-    "OpsMetadataTooManyUpdatesException"
-
--- | You must specify values for all required parameters in the Amazon Web
--- Services Systems Manager document (SSM document). You can only supply
--- values to parameters defined in the SSM document.
-_InvalidParameters :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameters =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameters"
-
--- | The specified target instance for the session isn\'t fully configured
--- for use with Session Manager. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html Getting started with Session Manager>
--- in the /Amazon Web Services Systems Manager User Guide/. This error is
--- also returned if you attempt to start a session on an instance that is
--- located in a different account or Region
-_TargetNotConnected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TargetNotConnected =
-  Core._MatchServiceError
-    defaultService
-    "TargetNotConnected"
-
--- | A parameter version can have a maximum of ten labels.
-_ParameterVersionLabelLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterVersionLabelLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "ParameterVersionLabelLimitExceeded"
-
--- | Inventory item type schema version has to match supported versions in
--- the service. Check output of GetInventorySchema to see the available
--- schema version for each type.
-_UnsupportedInventorySchemaVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedInventorySchemaVersionException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedInventorySchemaVersionException"
-
--- | The specified command ID isn\'t valid. Verify the ID and try again.
-_InvalidCommandId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCommandId =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCommandId"
-
--- | The output location isn\'t valid or doesn\'t exist.
-_InvalidOutputLocation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOutputLocation =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOutputLocation"
-
--- | Error returned when the caller has exceeded the default resource quotas.
--- For example, too many maintenance windows or patch baselines have been
--- created.
+-- | Error returned when the ID specified for a resource, such as a
+-- maintenance window or patch baseline, doesn\'t exist.
 --
--- For information about resource quotas in Systems Manager, see
+-- For information about resource quotas in Amazon Web Services Systems
+-- Manager, see
 -- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm Systems Manager service quotas>
 -- in the /Amazon Web Services General Reference/.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceLimitExceededException =
+_DoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DoesNotExistException =
   Core._MatchServiceError
     defaultService
-    "ResourceLimitExceededException"
+    "DoesNotExistException"
 
--- | The target isn\'t valid or doesn\'t exist. It might not be configured
--- for Systems Manager or you might not have permission to perform the
--- operation.
-_InvalidTarget :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTarget =
+-- | Another @UpdateResourceDataSync@ request is being processed. Wait a few
+-- minutes and try again.
+_ResourceDataSyncConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceDataSyncConflictException =
   Core._MatchServiceError
     defaultService
-    "InvalidTarget"
+    "ResourceDataSyncConflictException"
 
--- | The specified service setting wasn\'t found. Either the service name or
--- the setting hasn\'t been provisioned by the Amazon Web Services service
--- team.
-_ServiceSettingNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceSettingNotFound =
+-- | One of the arguments passed is invalid.
+_OpsMetadataInvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsMetadataInvalidArgumentException =
   Core._MatchServiceError
     defaultService
-    "ServiceSettingNotFound"
+    "OpsMetadataInvalidArgumentException"
 
--- | You have exceeded the limit for custom schemas. Delete one or more
--- custom schemas and try again.
-_CustomSchemaCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomSchemaCountLimitExceededException =
+-- | The number of simultaneously running Automation executions exceeded the
+-- allowable limit.
+_AutomationExecutionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationExecutionLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "CustomSchemaCountLimitExceededException"
+    "AutomationExecutionLimitExceededException"
 
--- | The update isn\'t valid.
-_InvalidUpdate :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidUpdate =
+-- | Error returned when an idempotent operation is retried and the
+-- parameters don\'t match the original call to the API with the same
+-- idempotency token.
+_IdempotentParameterMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatch =
   Core._MatchServiceError
     defaultService
-    "InvalidUpdate"
+    "IdempotentParameterMismatch"
 
--- | The association isn\'t valid or doesn\'t exist.
-_InvalidAssociation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAssociation =
+-- | The specified filter value isn\'t valid.
+_InvalidInstanceInformationFilterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInstanceInformationFilterValue =
   Core._MatchServiceError
     defaultService
-    "InvalidAssociation"
+    "InvalidInstanceInformationFilterValue"
 
--- | The version of the document schema isn\'t supported.
-_InvalidDocumentSchemaVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDocumentSchemaVersion =
+-- | The inventory item has invalid content.
+_ItemContentMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ItemContentMismatchException =
   Core._MatchServiceError
     defaultService
-    "InvalidDocumentSchemaVersion"
+    "ItemContentMismatchException"
 
--- | The delete inventory option specified isn\'t valid. Verify the option
--- and try again.
-_InvalidOptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOptionException =
+-- | The parameter already exists. You can\'t create duplicate parameters.
+_ParameterAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterAlreadyExists =
   Core._MatchServiceError
     defaultService
-    "InvalidOptionException"
+    "ParameterAlreadyExists"
 
--- | The specified OpsItem ID doesn\'t exist. Verify the ID and try again.
-_OpsItemNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsItemNotFoundException =
+-- | The specified association already exists.
+_AssociationAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationAlreadyExists =
   Core._MatchServiceError
     defaultService
-    "OpsItemNotFoundException"
+    "AssociationAlreadyExists"
 
--- | The updated status is the same as the current status.
-_StatusUnchanged :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StatusUnchanged =
+-- | You specified too many custom compliance types. You can specify a
+-- maximum of 10 different types.
+_ComplianceTypeCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ComplianceTypeCountLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "StatusUnchanged"
+    "ComplianceTypeCountLimitExceededException"
+
+-- | One or more of the parameters specified for the delete operation isn\'t
+-- valid. Verify all parameters and try again.
+_InvalidDeleteInventoryParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeleteInventoryParametersException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeleteInventoryParametersException"
+
+-- | The ID specified for the delete operation doesn\'t exist or isn\'t
+-- valid. Verify the ID and try again.
+_InvalidDeletionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeletionIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeletionIdException"
+
+-- | You specified more than the maximum number of allowed policies for the
+-- parameter. The maximum is 10.
+_PoliciesLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PoliciesLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "PoliciesLimitExceededException"
+
+-- | The content for the document isn\'t valid.
+_InvalidDocumentContent :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentContent =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDocumentContent"
+
+-- | You have exceeded the number of parameters for this Amazon Web Services
+-- account. Delete one or more parameters and try again.
+_ParameterLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "ParameterLimitExceeded"
+
+-- | You can have at most 2,000 active associations.
+_AssociationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "AssociationLimitExceeded"
+
+-- | The version you specified isn\'t valid. Use ListAssociationVersions to
+-- view all versions of an association according to the association ID. Or,
+-- use the @$LATEST@ parameter to view the latest version of the
+-- association.
+_InvalidAssociationVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAssociationVersion =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAssociationVersion"
+
+-- | The specified association doesn\'t exist.
+_AssociationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationDoesNotExist =
+  Core._MatchServiceError
+    defaultService
+    "AssociationDoesNotExist"
+
+-- | A policy attribute or its value is invalid.
+_InvalidPolicyAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyAttributeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPolicyAttributeException"
+
+-- | The parameter couldn\'t be found. Verify the name and try again.
+_ParameterNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ParameterNotFound"
+
+-- | You specified the @Safe@ option for the
+-- DeregisterTargetFromMaintenanceWindow operation, but the target is still
+-- referenced in a task.
+_TargetInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TargetInUseException =
+  Core._MatchServiceError
+    defaultService
+    "TargetInUseException"
+
+-- | An error occurred on the server side.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
+
+-- | The @Context@ attribute that you specified for the @InventoryItem@
+-- isn\'t allowed for this inventory type. You can only use the @Context@
+-- attribute with inventory types like @AWS:ComplianceItem@.
+_UnsupportedInventoryItemContextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedInventoryItemContextException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedInventoryItemContextException"
 
 -- | The OpsMetadata object doesn\'t exist.
 _OpsMetadataNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -2597,24 +2815,25 @@ _OpsMetadataNotFoundException =
     defaultService
     "OpsMetadataNotFoundException"
 
--- | The following problems can cause this exception:
---
--- -   You don\'t have permission to access the instance.
---
--- -   Amazon Web Services Systems Manager Agent(SSM Agent) isn\'t running.
---     Verify that SSM Agent is running.
---
--- -   SSM Agent isn\'t registered with the SSM endpoint. Try reinstalling
---     SSM Agent.
---
--- -   The instance isn\'t in valid state. Valid states are: @Running@,
---     @Pending@, @Stopped@, and @Stopping@. Invalid states are:
---     @Shutting-down@ and @Terminated@.
-_InvalidInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInstanceId =
+-- | You have reached the maximum number versions allowed for an association.
+-- Each association has a limit of 1,000 versions.
+_AssociationVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssociationVersionLimitExceeded =
   Core._MatchServiceError
     defaultService
-    "InvalidInstanceId"
+    "AssociationVersionLimitExceeded"
+
+-- | The role name can\'t contain invalid characters. Also verify that you
+-- specified an IAM role for notifications that includes the required trust
+-- policy. For information about configuring the IAM role for Run Command
+-- notifications, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+_InvalidRole :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRole =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRole"
 
 -- | There are concurrent updates for a resource that supports one update at
 -- a time.
@@ -2632,322 +2851,73 @@ _DuplicateDocumentVersionName =
     defaultService
     "DuplicateDocumentVersionName"
 
--- | The Amazon Resource Name (ARN) is already associated with the OpsItem.
-_OpsItemRelatedItemAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsItemRelatedItemAlreadyExistsException =
+-- | The specified OpsItem ID doesn\'t exist. Verify the ID and try again.
+_OpsItemNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemNotFoundException =
   Core._MatchServiceError
     defaultService
-    "OpsItemRelatedItemAlreadyExistsException"
+    "OpsItemNotFoundException"
 
--- | A policy attribute or its value is invalid.
-_InvalidPolicyAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPolicyAttributeException =
+-- | The activation isn\'t valid. The activation might have been deleted, or
+-- the ActivationId and the ActivationCode don\'t match.
+_InvalidActivation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidActivation =
   Core._MatchServiceError
     defaultService
-    "InvalidPolicyAttributeException"
+    "InvalidActivation"
 
--- | The specified association doesn\'t exist.
-_AssociationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssociationDoesNotExist =
-  Core._MatchServiceError
-    defaultService
-    "AssociationDoesNotExist"
-
--- | The version you specified isn\'t valid. Use ListAssociationVersions to
--- view all versions of an association according to the association ID. Or,
--- use the @$LATEST@ parameter to view the latest version of the
--- association.
-_InvalidAssociationVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAssociationVersion =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAssociationVersion"
-
--- | The filter value isn\'t valid. Verify the value and try again.
-_InvalidFilterValue :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFilterValue =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFilterValue"
-
--- | You have exceeded the allowed maximum sync configurations.
-_ResourceDataSyncCountExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceDataSyncCountExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceDataSyncCountExceededException"
-
--- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-
--- | The parameter couldn\'t be found. Verify the name and try again.
-_ParameterNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterNotFound =
-  Core._MatchServiceError
-    defaultService
-    "ParameterNotFound"
-
--- | You can have at most 2,000 active associations.
-_AssociationLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssociationLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "AssociationLimitExceeded"
-
--- | The specified association already exists.
-_AssociationAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssociationAlreadyExists =
-  Core._MatchServiceError
-    defaultService
-    "AssociationAlreadyExists"
-
--- | You have exceeded the number of parameters for this Amazon Web Services
--- account. Delete one or more parameters and try again.
-_ParameterLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "ParameterLimitExceeded"
-
--- | The content for the document isn\'t valid.
-_InvalidDocumentContent :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDocumentContent =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDocumentContent"
-
--- | The inventory item has invalid content.
-_ItemContentMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ItemContentMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "ItemContentMismatchException"
-
--- | Patching for applications released by Microsoft is only available on EC2
--- instances and advanced instances. To patch applications released by
--- Microsoft on on-premises servers and VMs, you must enable advanced
--- instances. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html Enabling the advanced-instances tier>
--- in the /Amazon Web Services Systems Manager User Guide/.
-_UnsupportedFeatureRequiredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedFeatureRequiredException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedFeatureRequiredException"
-
--- | You specified more than the maximum number of allowed policies for the
--- parameter. The maximum is 10.
-_PoliciesLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PoliciesLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "PoliciesLimitExceededException"
-
--- | The plugin name isn\'t valid.
-_InvalidPluginName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPluginName =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPluginName"
-
--- | The parameter already exists. You can\'t create duplicate parameters.
-_ParameterAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterAlreadyExists =
-  Core._MatchServiceError
-    defaultService
-    "ParameterAlreadyExists"
-
--- | The ID specified for the delete operation doesn\'t exist or isn\'t
--- valid. Verify the ID and try again.
-_InvalidDeletionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeletionIdException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDeletionIdException"
-
--- | A sync configuration with the same name already exists.
-_ResourceDataSyncAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceDataSyncAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceDataSyncAlreadyExistsException"
-
--- | The schedule is invalid. Verify your cron or rate expression and try
--- again.
-_InvalidSchedule :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSchedule =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSchedule"
-
--- | The specified sync name wasn\'t found.
-_ResourceDataSyncNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceDataSyncNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceDataSyncNotFoundException"
-
--- | Error returned if an attempt is made to register a patch group with a
--- patch baseline that is already registered with a different patch
--- baseline.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "AlreadyExistsException"
-
--- | The supplied parameters for invoking the specified Automation runbook
--- are incorrect. For example, they may not match the set of parameters
--- permitted for the specified Automation document.
-_InvalidAutomationExecutionParametersException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAutomationExecutionParametersException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAutomationExecutionParametersException"
-
--- | The content of the association document matches another document. Change
--- the content of the document and try again.
-_DuplicateDocumentContent :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateDocumentContent =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateDocumentContent"
-
--- | Error returned if an attempt is made to delete a patch baseline that is
--- registered for a patch group.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | The policy type isn\'t supported. Parameter Store supports the following
--- policy types: Expiration, ExpirationNotification, and
--- NoChangeNotification.
-_InvalidPolicyTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPolicyTypeException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPolicyTypeException"
-
--- | One or more configuration items isn\'t valid. Verify that a valid Amazon
--- Resource Name (ARN) was provided for an Amazon Simple Notification
--- Service topic.
-_InvalidNotificationConfig :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNotificationConfig =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNotificationConfig"
-
--- | The specified key isn\'t valid.
-_InvalidFilterKey :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFilterKey =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFilterKey"
-
--- | The SSM document type isn\'t valid. Valid document types are described
--- in the @DocumentType@ property.
-_InvalidDocumentType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDocumentType =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDocumentType"
-
--- | The resource ID isn\'t valid. Verify that you entered the correct ID and
--- try again.
-_InvalidResourceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourceId =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResourceId"
-
--- | The size of inventory data has exceeded the total size limit for the
--- resource.
-_TotalSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TotalSizeLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "TotalSizeLimitExceededException"
-
--- | You can\'t specify an instance ID in more than one association.
-_DuplicateInstanceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateInstanceId =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateInstanceId"
-
--- | Indicates that the Change Manager change template used in the change
--- request was rejected or is still in a pending state.
-_AutomationDefinitionNotApprovedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AutomationDefinitionNotApprovedException =
-  Core._MatchServiceError
-    defaultService
-    "AutomationDefinitionNotApprovedException"
-
--- | You attempted to delete a document while it is still shared. You must
--- stop sharing the document before you can delete it.
-_InvalidDocumentOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDocumentOperation =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDocumentOperation"
-
--- | The query key ID isn\'t valid.
-_InvalidKeyId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidKeyId =
-  Core._MatchServiceError
-    defaultService
-    "InvalidKeyId"
-
--- | The specified inventory item result attribute isn\'t valid.
-_InvalidResultAttributeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResultAttributeException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResultAttributeException"
-
--- | The command ID and instance ID you specified didn\'t match any
--- invocations. Verify the command ID and the instance ID and try again.
-_InvocationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvocationDoesNotExist =
-  Core._MatchServiceError
-    defaultService
-    "InvocationDoesNotExist"
-
--- | The resource type isn\'t valid. For example, if you are attempting to
--- tag an instance, the instance must be a registered, managed instance.
-_InvalidResourceType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResourceType =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResourceType"
-
--- | The document has too many versions. Delete one or more document versions
+-- | The delete inventory option specified isn\'t valid. Verify the option
 -- and try again.
-_DocumentVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DocumentVersionLimitExceeded =
+_InvalidOptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOptionException =
   Core._MatchServiceError
     defaultService
-    "DocumentVersionLimitExceeded"
+    "InvalidOptionException"
 
--- | The specified sync configuration is invalid.
-_ResourceDataSyncInvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceDataSyncInvalidConfigurationException =
+-- | The version of the document schema isn\'t supported.
+_InvalidDocumentSchemaVersion :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentSchemaVersion =
   Core._MatchServiceError
     defaultService
-    "ResourceDataSyncInvalidConfigurationException"
+    "InvalidDocumentSchemaVersion"
 
--- | The specified inventory group isn\'t valid.
-_InvalidInventoryGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInventoryGroupException =
+-- | The size limit of a document is 64 KB.
+_MaxDocumentSizeExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxDocumentSizeExceeded =
   Core._MatchServiceError
     defaultService
-    "InvalidInventoryGroupException"
+    "MaxDocumentSizeExceeded"
+
+-- | The specified parameter version wasn\'t found. Verify the parameter name
+-- and version, and try again.
+_ParameterVersionNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ParameterVersionNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ParameterVersionNotFound"
+
+-- | The calendar entry contained in the specified SSM document isn\'t
+-- supported.
+_UnsupportedCalendarException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedCalendarException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedCalendarException"
+
+-- | The update isn\'t valid.
+_InvalidUpdate :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidUpdate =
+  Core._MatchServiceError
+    defaultService
+    "InvalidUpdate"
+
+-- | You have exceeded the limit for custom schemas. Delete one or more
+-- custom schemas and try again.
+_CustomSchemaCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomSchemaCountLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CustomSchemaCountLimitExceededException"
 
 -- | The specified execution ID doesn\'t exist. Verify the ID number and try
 -- again.
@@ -2957,28 +2927,14 @@ _AssociationExecutionDoesNotExist =
     defaultService
     "AssociationExecutionDoesNotExist"
 
--- | Your account reached the maximum number of OpsMetadata objects allowed
--- by Application Manager. The maximum is 200 OpsMetadata objects. Delete
--- one or more OpsMetadata object and try again.
-_OpsMetadataLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsMetadataLimitExceededException =
+-- | The target isn\'t valid or doesn\'t exist. It might not be configured
+-- for Systems Manager or you might not have permission to perform the
+-- operation.
+_InvalidTarget :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTarget =
   Core._MatchServiceError
     defaultService
-    "OpsMetadataLimitExceededException"
-
--- | An OpsMetadata object already exists for the selected resource.
-_OpsMetadataAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsMetadataAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "OpsMetadataAlreadyExistsException"
-
--- | The S3 bucket doesn\'t exist.
-_InvalidOutputFolder :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOutputFolder =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOutputFolder"
+    "InvalidTarget"
 
 -- | A hierarchy can have a maximum of 15 levels. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html Requirements and constraints for parameter names>
@@ -2989,164 +2945,208 @@ _HierarchyLevelLimitExceededException =
     defaultService
     "HierarchyLevelLimitExceededException"
 
--- | The request caused OpsItems to exceed one or more quotas. For
--- information about OpsItem quotas, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits What are the resource limits for OpsCenter?>.
-_OpsItemLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsItemLimitExceededException =
+-- | The specified inventory group isn\'t valid.
+_InvalidInventoryGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInventoryGroupException =
   Core._MatchServiceError
     defaultService
-    "OpsItemLimitExceededException"
+    "InvalidInventoryGroupException"
 
--- | The calendar entry contained in the specified SSM document isn\'t
--- supported.
-_UnsupportedCalendarException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedCalendarException =
+-- | You attempted to delete a document while it is still shared. You must
+-- stop sharing the document before you can delete it.
+_InvalidDocumentOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentOperation =
   Core._MatchServiceError
     defaultService
-    "UnsupportedCalendarException"
+    "InvalidDocumentOperation"
 
--- | The specified parameter version wasn\'t found. Verify the parameter name
--- and version, and try again.
-_ParameterVersionNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterVersionNotFound =
+-- | The command ID and instance ID you specified didn\'t match any
+-- invocations. Verify the command ID and the instance ID and try again.
+_InvocationDoesNotExist :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvocationDoesNotExist =
   Core._MatchServiceError
     defaultService
-    "ParameterVersionNotFound"
+    "InvocationDoesNotExist"
 
--- | The OpsItem already exists.
-_OpsItemAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OpsItemAlreadyExistsException =
+-- | The document has too many versions. Delete one or more document versions
+-- and try again.
+_DocumentVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentVersionLimitExceeded =
   Core._MatchServiceError
     defaultService
-    "OpsItemAlreadyExistsException"
+    "DocumentVersionLimitExceeded"
 
--- | The activation ID isn\'t valid. Verify the you entered the correct
--- ActivationId or ActivationCode and try again.
-_InvalidActivationId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidActivationId =
+-- | The output location isn\'t valid or doesn\'t exist.
+_InvalidOutputLocation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOutputLocation =
   Core._MatchServiceError
     defaultService
-    "InvalidActivationId"
+    "InvalidOutputLocation"
 
--- | The role name can\'t contain invalid characters. Also verify that you
--- specified an IAM role for notifications that includes the required trust
--- policy. For information about configuring the IAM role for Run Command
--- notifications, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html Configuring Amazon SNS Notifications for Run Command>
--- in the /Amazon Web Services Systems Manager User Guide/.
-_InvalidRole :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRole =
+-- | The query key ID isn\'t valid.
+_InvalidKeyId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidKeyId =
   Core._MatchServiceError
     defaultService
-    "InvalidRole"
+    "InvalidKeyId"
 
--- | The activation isn\'t valid. The activation might have been deleted, or
--- the ActivationId and the ActivationCode don\'t match.
-_InvalidActivation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidActivation =
+-- | You must specify values for all required parameters in the Amazon Web
+-- Services Systems Manager document (SSM document). You can only supply
+-- values to parameters defined in the SSM document.
+_InvalidParameters :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameters =
   Core._MatchServiceError
     defaultService
-    "InvalidActivation"
+    "InvalidParameters"
 
--- | The request isn\'t valid.
-_InvalidInventoryRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInventoryRequestException =
+-- | Indicates that the Change Manager change template used in the change
+-- request was rejected or is still in a pending state.
+_AutomationDefinitionNotApprovedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationDefinitionNotApprovedException =
   Core._MatchServiceError
     defaultService
-    "InvalidInventoryRequestException"
+    "AutomationDefinitionNotApprovedException"
 
--- | The specified token isn\'t valid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextToken =
+-- | A specified parameter argument isn\'t valid. Verify the available
+-- arguments and try again.
+_OpsItemInvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemInvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "InvalidNextToken"
+    "OpsItemInvalidParameterException"
 
--- | You have reached the maximum number versions allowed for an association.
--- Each association has a limit of 1,000 versions.
-_AssociationVersionLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssociationVersionLimitExceeded =
+-- | The resource ID isn\'t valid. Verify that you entered the correct ID and
+-- try again.
+_InvalidResourceId :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResourceId =
   Core._MatchServiceError
     defaultService
-    "AssociationVersionLimitExceeded"
+    "InvalidResourceId"
 
--- | The size limit of a document is 64 KB.
-_MaxDocumentSizeExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxDocumentSizeExceeded =
+-- | The request doesn\'t meet the regular expression requirement.
+_InvalidAllowedPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAllowedPatternException =
   Core._MatchServiceError
     defaultService
-    "MaxDocumentSizeExceeded"
+    "InvalidAllowedPatternException"
 
--- | The operating systems you specified isn\'t supported, or the operation
--- isn\'t supported for the operating system.
-_UnsupportedOperatingSystem :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperatingSystem =
+-- | One or more configuration items isn\'t valid. Verify that a valid Amazon
+-- Resource Name (ARN) was provided for an Amazon Simple Notification
+-- Service topic.
+_InvalidNotificationConfig :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNotificationConfig =
   Core._MatchServiceError
     defaultService
-    "UnsupportedOperatingSystem"
+    "InvalidNotificationConfig"
 
--- | The document doesn\'t support the platform type of the given instance
--- ID(s). For example, you sent an document for a Windows instance to a
--- Linux instance.
-_UnsupportedPlatformType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedPlatformType =
+-- | The association wasn\'t found using the parameters you specified in the
+-- call. Verify the information and try again.
+_OpsItemRelatedItemAssociationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OpsItemRelatedItemAssociationNotFoundException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedPlatformType"
+    "OpsItemRelatedItemAssociationNotFoundException"
 
--- | You must disassociate a document from all instances before you can
--- delete it.
-_AssociatedInstances :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssociatedInstances =
+-- | You specified invalid keys or values in the @Context@ attribute for
+-- @InventoryItem@. Verify the keys and values, and try again.
+_InvalidInventoryItemContextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInventoryItemContextException =
   Core._MatchServiceError
     defaultService
-    "AssociatedInstances"
+    "InvalidInventoryItemContextException"
 
--- | One or more content items isn\'t valid.
-_InvalidItemContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidItemContentException =
+-- | The size of inventory data has exceeded the total size limit for the
+-- resource.
+_TotalSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TotalSizeLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidItemContentException"
+    "TotalSizeLimitExceededException"
 
--- | The permission type isn\'t supported. /Share/ is the only supported
--- permission type.
-_InvalidPermissionType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPermissionType =
+-- | The sub-type count exceeded the limit for the inventory type.
+_SubTypeCountLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SubTypeCountLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidPermissionType"
+    "SubTypeCountLimitExceededException"
 
--- | The @Context@ attribute that you specified for the @InventoryItem@
--- isn\'t allowed for this inventory type. You can only use the @Context@
--- attribute with inventory types like @AWS:ComplianceItem@.
-_UnsupportedInventoryItemContextException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedInventoryItemContextException =
+-- | The SSM document type isn\'t valid. Valid document types are described
+-- in the @DocumentType@ property.
+_InvalidDocumentType :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDocumentType =
   Core._MatchServiceError
     defaultService
-    "UnsupportedInventoryItemContextException"
+    "InvalidDocumentType"
 
--- | The specified filter option isn\'t valid. Valid options are Equals and
--- BeginsWith. For Path filter, valid options are Recursive and OneLevel.
-_InvalidFilterOption :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFilterOption =
+-- | The @Targets@ parameter includes too many tags. Remove one or more tags
+-- and try the command again.
+_TooManyTagsError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsError =
   Core._MatchServiceError
     defaultService
-    "InvalidFilterOption"
+    "TooManyTagsError"
 
--- | The parameter name isn\'t valid.
-_ParameterPatternMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ParameterPatternMismatchException =
+-- | The document can\'t be shared with more Amazon Web Services user
+-- accounts. You can share a document with a maximum of 20 accounts. You
+-- can publicly share up to five documents. If you need to increase this
+-- limit, contact Amazon Web Services Support.
+_DocumentPermissionLimit :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentPermissionLimit =
   Core._MatchServiceError
     defaultService
-    "ParameterPatternMismatchException"
+    "DocumentPermissionLimit"
 
--- | You specified the @Safe@ option for the
--- DeregisterTargetFromMaintenanceWindow operation, but the target is still
--- referenced in a task.
-_TargetInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TargetInUseException =
+-- | The specified step name and execution ID don\'t exist. Verify the
+-- information and try again.
+_AutomationStepNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AutomationStepNotFoundException =
   Core._MatchServiceError
     defaultService
-    "TargetInUseException"
+    "AutomationStepNotFoundException"
+
+-- | The content of the association document matches another document. Change
+-- the content of the document and try again.
+_DuplicateDocumentContent :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateDocumentContent =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateDocumentContent"
+
+-- | The specified document already exists.
+_DocumentAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentAlreadyExists =
+  Core._MatchServiceError
+    defaultService
+    "DocumentAlreadyExists"
+
+-- | You can have at most 500 active SSM documents.
+_DocumentLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DocumentLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "DocumentLimitExceeded"
+
+-- | Error returned if an attempt is made to register a patch group with a
+-- patch baseline that is already registered with a different patch
+-- baseline.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyExistsException"
+
+-- | The filter name isn\'t valid. Verify the you entered the correct name
+-- and try again.
+_InvalidFilter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFilter =
+  Core._MatchServiceError
+    defaultService
+    "InvalidFilter"
+
+-- | Error returned if an attempt is made to delete a patch baseline that is
+-- registered for a patch group.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"

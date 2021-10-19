@@ -227,7 +227,7 @@ listJobsByStatusResponse_nextPageToken = Lens.lens (\ListJobsByStatusResponse' {
 
 -- | An array of @Job@ objects that have the specified status.
 listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job])
-listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listJobsByStatusResponse_httpStatus :: Lens.Lens' ListJobsByStatusResponse Prelude.Int

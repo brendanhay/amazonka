@@ -212,7 +212,7 @@ listSMSSandboxPhoneNumbersResponse_httpStatus = Lens.lens (\ListSMSSandboxPhoneN
 
 -- | A list of the calling account\'s pending and verified phone numbers.
 listSMSSandboxPhoneNumbersResponse_phoneNumbers :: Lens.Lens' ListSMSSandboxPhoneNumbersResponse [SMSSandboxPhoneNumber]
-listSMSSandboxPhoneNumbersResponse_phoneNumbers = Lens.lens (\ListSMSSandboxPhoneNumbersResponse' {phoneNumbers} -> phoneNumbers) (\s@ListSMSSandboxPhoneNumbersResponse' {} a -> s {phoneNumbers = a} :: ListSMSSandboxPhoneNumbersResponse) Prelude.. Lens._Coerce
+listSMSSandboxPhoneNumbersResponse_phoneNumbers = Lens.lens (\ListSMSSandboxPhoneNumbersResponse' {phoneNumbers} -> phoneNumbers) (\s@ListSMSSandboxPhoneNumbersResponse' {} a -> s {phoneNumbers = a} :: ListSMSSandboxPhoneNumbersResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

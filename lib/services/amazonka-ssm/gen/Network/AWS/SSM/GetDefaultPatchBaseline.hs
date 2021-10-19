@@ -39,8 +39,8 @@ module Network.AWS.SSM.GetDefaultPatchBaseline
     newGetDefaultPatchBaselineResponse,
 
     -- * Response Lenses
-    getDefaultPatchBaselineResponse_baselineId,
     getDefaultPatchBaselineResponse_operatingSystem,
+    getDefaultPatchBaselineResponse_baselineId,
     getDefaultPatchBaselineResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest GetDefaultPatchBaseline where
     Response.receiveJSON
       ( \s h x ->
           GetDefaultPatchBaselineResponse'
-            Prelude.<$> (x Core..?> "BaselineId")
-            Prelude.<*> (x Core..?> "OperatingSystem")
+            Prelude.<$> (x Core..?> "OperatingSystem")
+            Prelude.<*> (x Core..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,10 +130,10 @@ instance Core.ToQuery GetDefaultPatchBaseline where
 
 -- | /See:/ 'newGetDefaultPatchBaselineResponse' smart constructor.
 data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
-  { -- | The ID of the default patch baseline.
-    baselineId :: Prelude.Maybe Prelude.Text,
-    -- | The operating system for the returned patch baseline.
+  { -- | The operating system for the returned patch baseline.
     operatingSystem :: Prelude.Maybe OperatingSystem,
+    -- | The ID of the default patch baseline.
+    baselineId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,9 +147,9 @@ data GetDefaultPatchBaselineResponse = GetDefaultPatchBaselineResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'baselineId', 'getDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.
---
 -- 'operatingSystem', 'getDefaultPatchBaselineResponse_operatingSystem' - The operating system for the returned patch baseline.
+--
+-- 'baselineId', 'getDefaultPatchBaselineResponse_baselineId' - The ID of the default patch baseline.
 --
 -- 'httpStatus', 'getDefaultPatchBaselineResponse_httpStatus' - The response's http status code.
 newGetDefaultPatchBaselineResponse ::
@@ -158,19 +158,19 @@ newGetDefaultPatchBaselineResponse ::
   GetDefaultPatchBaselineResponse
 newGetDefaultPatchBaselineResponse pHttpStatus_ =
   GetDefaultPatchBaselineResponse'
-    { baselineId =
+    { operatingSystem =
         Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
+      baselineId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the default patch baseline.
-getDefaultPatchBaselineResponse_baselineId :: Lens.Lens' GetDefaultPatchBaselineResponse (Prelude.Maybe Prelude.Text)
-getDefaultPatchBaselineResponse_baselineId = Lens.lens (\GetDefaultPatchBaselineResponse' {baselineId} -> baselineId) (\s@GetDefaultPatchBaselineResponse' {} a -> s {baselineId = a} :: GetDefaultPatchBaselineResponse)
 
 -- | The operating system for the returned patch baseline.
 getDefaultPatchBaselineResponse_operatingSystem :: Lens.Lens' GetDefaultPatchBaselineResponse (Prelude.Maybe OperatingSystem)
 getDefaultPatchBaselineResponse_operatingSystem = Lens.lens (\GetDefaultPatchBaselineResponse' {operatingSystem} -> operatingSystem) (\s@GetDefaultPatchBaselineResponse' {} a -> s {operatingSystem = a} :: GetDefaultPatchBaselineResponse)
+
+-- | The ID of the default patch baseline.
+getDefaultPatchBaselineResponse_baselineId :: Lens.Lens' GetDefaultPatchBaselineResponse (Prelude.Maybe Prelude.Text)
+getDefaultPatchBaselineResponse_baselineId = Lens.lens (\GetDefaultPatchBaselineResponse' {baselineId} -> baselineId) (\s@GetDefaultPatchBaselineResponse' {} a -> s {baselineId = a} :: GetDefaultPatchBaselineResponse)
 
 -- | The response's http status code.
 getDefaultPatchBaselineResponse_httpStatus :: Lens.Lens' GetDefaultPatchBaselineResponse Prelude.Int

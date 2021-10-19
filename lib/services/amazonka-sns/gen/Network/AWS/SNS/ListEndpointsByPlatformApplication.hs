@@ -246,7 +246,7 @@ listEndpointsByPlatformApplicationResponse_nextToken = Lens.lens (\ListEndpoints
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 listEndpointsByPlatformApplicationResponse_endpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe [Endpoint])
-listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Prelude.. Lens.mapping Lens._Coerce
+listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEndpointsByPlatformApplicationResponse_httpStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Prelude.Int

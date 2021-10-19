@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReplaceContentEntry' smart constructor.
 data ReplaceContentEntry = ReplaceContentEntry'
-  { -- | The base-64 encoded content to use when the replacement type is
+  { -- | The file mode to apply during conflict resoltion.
+    fileMode :: Prelude.Maybe FileModeTypeEnum,
+    -- | The base-64 encoded content to use when the replacement type is
     -- USE_NEW_CONTENT.
     content :: Prelude.Maybe Core.Base64,
-    -- | The file mode to apply during conflict resoltion.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
     -- | The path of the conflicting file.
     filePath :: Prelude.Text,
     -- | The replacement type to use when determining how to resolve the
@@ -51,14 +51,14 @@ data ReplaceContentEntry = ReplaceContentEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fileMode', 'replaceContentEntry_fileMode' - The file mode to apply during conflict resoltion.
+--
 -- 'content', 'replaceContentEntry_content' - The base-64 encoded content to use when the replacement type is
 -- USE_NEW_CONTENT.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
---
--- 'fileMode', 'replaceContentEntry_fileMode' - The file mode to apply during conflict resoltion.
 --
 -- 'filePath', 'replaceContentEntry_filePath' - The path of the conflicting file.
 --
@@ -72,11 +72,15 @@ newReplaceContentEntry ::
   ReplaceContentEntry
 newReplaceContentEntry pFilePath_ pReplacementType_ =
   ReplaceContentEntry'
-    { content = Prelude.Nothing,
-      fileMode = Prelude.Nothing,
+    { fileMode = Prelude.Nothing,
+      content = Prelude.Nothing,
       filePath = pFilePath_,
       replacementType = pReplacementType_
     }
+
+-- | The file mode to apply during conflict resoltion.
+replaceContentEntry_fileMode :: Lens.Lens' ReplaceContentEntry (Prelude.Maybe FileModeTypeEnum)
+replaceContentEntry_fileMode = Lens.lens (\ReplaceContentEntry' {fileMode} -> fileMode) (\s@ReplaceContentEntry' {} a -> s {fileMode = a} :: ReplaceContentEntry)
 
 -- | The base-64 encoded content to use when the replacement type is
 -- USE_NEW_CONTENT.--
@@ -86,10 +90,6 @@ newReplaceContentEntry pFilePath_ pReplacementType_ =
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 replaceContentEntry_content :: Lens.Lens' ReplaceContentEntry (Prelude.Maybe Prelude.ByteString)
 replaceContentEntry_content = Lens.lens (\ReplaceContentEntry' {content} -> content) (\s@ReplaceContentEntry' {} a -> s {content = a} :: ReplaceContentEntry) Prelude.. Lens.mapping Core._Base64
-
--- | The file mode to apply during conflict resoltion.
-replaceContentEntry_fileMode :: Lens.Lens' ReplaceContentEntry (Prelude.Maybe FileModeTypeEnum)
-replaceContentEntry_fileMode = Lens.lens (\ReplaceContentEntry' {fileMode} -> fileMode) (\s@ReplaceContentEntry' {} a -> s {fileMode = a} :: ReplaceContentEntry)
 
 -- | The path of the conflicting file.
 replaceContentEntry_filePath :: Lens.Lens' ReplaceContentEntry Prelude.Text
@@ -108,8 +108,8 @@ instance Core.ToJSON ReplaceContentEntry where
   toJSON ReplaceContentEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("content" Core..=) Prelude.<$> content,
-            ("fileMode" Core..=) Prelude.<$> fileMode,
+          [ ("fileMode" Core..=) Prelude.<$> fileMode,
+            ("content" Core..=) Prelude.<$> content,
             Prelude.Just ("filePath" Core..= filePath),
             Prelude.Just
               ("replacementType" Core..= replacementType)

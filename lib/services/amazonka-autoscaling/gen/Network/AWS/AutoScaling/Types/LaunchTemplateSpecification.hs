@@ -31,7 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateSpecification' smart constructor.
 data LaunchTemplateSpecification = LaunchTemplateSpecification'
-  { -- | The ID of the launch template. To get the template ID, use the Amazon
+  { -- | The name of the launch template. To get the template name, use the
+    -- Amazon EC2
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
+    -- API operation. New launch templates can be created using the Amazon EC2
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html CreateLaunchTemplate>
+    -- API.
+    --
+    -- Conditional: You must specify either a @LaunchTemplateId@ or a
+    -- @LaunchTemplateName@.
+    launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the launch template. To get the template ID, use the Amazon
     -- EC2
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
     -- API operation. New launch templates can be created using the Amazon EC2
@@ -52,17 +62,7 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
     -- value is @$Default@, Amazon EC2 Auto Scaling selects the default version
     -- of the launch template when launching instances. The default value is
     -- @$Default@.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. To get the template name, use the
-    -- Amazon EC2
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
-    -- API operation. New launch templates can be created using the Amazon EC2
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html CreateLaunchTemplate>
-    -- API.
-    --
-    -- Conditional: You must specify either a @LaunchTemplateId@ or a
-    -- @LaunchTemplateName@.
-    launchTemplateName :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,6 +73,16 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template. To get the template name, use the
+-- Amazon EC2
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
+-- API operation. New launch templates can be created using the Amazon EC2
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html CreateLaunchTemplate>
+-- API.
+--
+-- Conditional: You must specify either a @LaunchTemplateId@ or a
+-- @LaunchTemplateName@.
 --
 -- 'launchTemplateId', 'launchTemplateSpecification_launchTemplateId' - The ID of the launch template. To get the template ID, use the Amazon
 -- EC2
@@ -95,8 +105,17 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 -- value is @$Default@, Amazon EC2 Auto Scaling selects the default version
 -- of the launch template when launching instances. The default value is
 -- @$Default@.
---
--- 'launchTemplateName', 'launchTemplateSpecification_launchTemplateName' - The name of the launch template. To get the template name, use the
+newLaunchTemplateSpecification ::
+  LaunchTemplateSpecification
+newLaunchTemplateSpecification =
+  LaunchTemplateSpecification'
+    { launchTemplateName =
+        Prelude.Nothing,
+      launchTemplateId = Prelude.Nothing,
+      version = Prelude.Nothing
+    }
+
+-- | The name of the launch template. To get the template name, use the
 -- Amazon EC2
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
 -- API operation. New launch templates can be created using the Amazon EC2
@@ -105,15 +124,8 @@ data LaunchTemplateSpecification = LaunchTemplateSpecification'
 --
 -- Conditional: You must specify either a @LaunchTemplateId@ or a
 -- @LaunchTemplateName@.
-newLaunchTemplateSpecification ::
-  LaunchTemplateSpecification
-newLaunchTemplateSpecification =
-  LaunchTemplateSpecification'
-    { launchTemplateId =
-        Prelude.Nothing,
-      version = Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing
-    }
+launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
 
 -- | The ID of the launch template. To get the template ID, use the Amazon
 -- EC2
@@ -141,24 +153,12 @@ launchTemplateSpecification_launchTemplateId = Lens.lens (\LaunchTemplateSpecifi
 launchTemplateSpecification_version :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
 launchTemplateSpecification_version = Lens.lens (\LaunchTemplateSpecification' {version} -> version) (\s@LaunchTemplateSpecification' {} a -> s {version = a} :: LaunchTemplateSpecification)
 
--- | The name of the launch template. To get the template name, use the
--- Amazon EC2
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html DescribeLaunchTemplates>
--- API operation. New launch templates can be created using the Amazon EC2
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html CreateLaunchTemplate>
--- API.
---
--- Conditional: You must specify either a @LaunchTemplateId@ or a
--- @LaunchTemplateName@.
-launchTemplateSpecification_launchTemplateName :: Lens.Lens' LaunchTemplateSpecification (Prelude.Maybe Prelude.Text)
-launchTemplateSpecification_launchTemplateName = Lens.lens (\LaunchTemplateSpecification' {launchTemplateName} -> launchTemplateName) (\s@LaunchTemplateSpecification' {} a -> s {launchTemplateName = a} :: LaunchTemplateSpecification)
-
 instance Core.FromXML LaunchTemplateSpecification where
   parseXML x =
     LaunchTemplateSpecification'
-      Prelude.<$> (x Core..@? "LaunchTemplateId")
+      Prelude.<$> (x Core..@? "LaunchTemplateName")
+      Prelude.<*> (x Core..@? "LaunchTemplateId")
       Prelude.<*> (x Core..@? "Version")
-      Prelude.<*> (x Core..@? "LaunchTemplateName")
 
 instance Prelude.Hashable LaunchTemplateSpecification
 
@@ -167,7 +167,7 @@ instance Prelude.NFData LaunchTemplateSpecification
 instance Core.ToQuery LaunchTemplateSpecification where
   toQuery LaunchTemplateSpecification' {..} =
     Prelude.mconcat
-      [ "LaunchTemplateId" Core.=: launchTemplateId,
-        "Version" Core.=: version,
-        "LaunchTemplateName" Core.=: launchTemplateName
+      [ "LaunchTemplateName" Core.=: launchTemplateName,
+        "LaunchTemplateId" Core.=: launchTemplateId,
+        "Version" Core.=: version
       ]

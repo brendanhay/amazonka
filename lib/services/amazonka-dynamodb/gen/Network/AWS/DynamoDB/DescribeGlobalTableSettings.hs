@@ -169,7 +169,7 @@ newDescribeGlobalTableSettingsResponse pHttpStatus_ =
 
 -- | The Region-specific settings for the global table.
 describeGlobalTableSettingsResponse_replicaSettings :: Lens.Lens' DescribeGlobalTableSettingsResponse (Prelude.Maybe [ReplicaSettingsDescription])
-describeGlobalTableSettingsResponse_replicaSettings = Lens.lens (\DescribeGlobalTableSettingsResponse' {replicaSettings} -> replicaSettings) (\s@DescribeGlobalTableSettingsResponse' {} a -> s {replicaSettings = a} :: DescribeGlobalTableSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeGlobalTableSettingsResponse_replicaSettings = Lens.lens (\DescribeGlobalTableSettingsResponse' {replicaSettings} -> replicaSettings) (\s@DescribeGlobalTableSettingsResponse' {} a -> s {replicaSettings = a} :: DescribeGlobalTableSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the global table.
 describeGlobalTableSettingsResponse_globalTableName :: Lens.Lens' DescribeGlobalTableSettingsResponse (Prelude.Maybe Prelude.Text)

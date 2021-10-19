@@ -110,6 +110,7 @@ haskell_library(
         "gen/Network/AWS/SESv2/Types/DkimAttributes.hs",
         "gen/Network/AWS/SESv2/Types/DkimSigningAttributes.hs",
         "gen/Network/AWS/SESv2/Types/DkimSigningAttributesOrigin.hs",
+        "gen/Network/AWS/SESv2/Types/DkimSigningKeyLength.hs",
         "gen/Network/AWS/SESv2/Types/DkimStatus.hs",
         "gen/Network/AWS/SESv2/Types/DomainDeliverabilityCampaign.hs",
         "gen/Network/AWS/SESv2/Types/DomainDeliverabilityTrackingOption.hs",
@@ -178,14 +179,14 @@ haskell_library(
         "gen/Network/AWS/SESv2/Waiters.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_sesv2=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
+        "-DVERSION_amazonka_sesv2=\"2.0\"",
     ],
     hidden_modules = [],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka",
@@ -203,11 +204,11 @@ haskell_test(
         "test/Test/AWS/SESv2/Internal.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_sesv2=\"1.6.1\"",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka_sesv2=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-sesv2",

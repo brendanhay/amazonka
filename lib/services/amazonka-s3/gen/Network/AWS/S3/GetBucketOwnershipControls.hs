@@ -111,7 +111,9 @@ instance Core.AWSRequest GetBucketOwnershipControls where
   type
     AWSResponse GetBucketOwnershipControls =
       GetBucketOwnershipControlsResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->

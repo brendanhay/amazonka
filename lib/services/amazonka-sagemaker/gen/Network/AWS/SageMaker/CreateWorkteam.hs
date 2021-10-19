@@ -31,8 +31,8 @@ module Network.AWS.SageMaker.CreateWorkteam
     newCreateWorkteam,
 
     -- * Request Lenses
-    createWorkteam_workforceName,
     createWorkteam_notificationConfiguration,
+    createWorkteam_workforceName,
     createWorkteam_tags,
     createWorkteam_workteamName,
     createWorkteam_memberDefinitions,
@@ -57,11 +57,11 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateWorkteam' smart constructor.
 data CreateWorkteam = CreateWorkteam'
-  { -- | The name of the workforce.
-    workforceName :: Prelude.Maybe Prelude.Text,
-    -- | Configures notification of workers regarding available or expiring work
+  { -- | Configures notification of workers regarding available or expiring work
     -- items.
     notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
+    -- | The name of the workforce.
+    workforceName :: Prelude.Maybe Prelude.Text,
     -- | An array of key-value pairs.
     --
     -- For more information, see
@@ -107,10 +107,10 @@ data CreateWorkteam = CreateWorkteam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'workforceName', 'createWorkteam_workforceName' - The name of the workforce.
---
 -- 'notificationConfiguration', 'createWorkteam_notificationConfiguration' - Configures notification of workers regarding available or expiring work
 -- items.
+--
+-- 'workforceName', 'createWorkteam_workforceName' - The name of the workforce.
 --
 -- 'tags', 'createWorkteam_tags' - An array of key-value pairs.
 --
@@ -158,23 +158,24 @@ newCreateWorkteam
   pMemberDefinitions_
   pDescription_ =
     CreateWorkteam'
-      { workforceName = Prelude.Nothing,
-        notificationConfiguration = Prelude.Nothing,
+      { notificationConfiguration =
+          Prelude.Nothing,
+        workforceName = Prelude.Nothing,
         tags = Prelude.Nothing,
         workteamName = pWorkteamName_,
         memberDefinitions =
-          Lens._Coerce Lens.# pMemberDefinitions_,
+          Lens.coerced Lens.# pMemberDefinitions_,
         description = pDescription_
       }
-
--- | The name of the workforce.
-createWorkteam_workforceName :: Lens.Lens' CreateWorkteam (Prelude.Maybe Prelude.Text)
-createWorkteam_workforceName = Lens.lens (\CreateWorkteam' {workforceName} -> workforceName) (\s@CreateWorkteam' {} a -> s {workforceName = a} :: CreateWorkteam)
 
 -- | Configures notification of workers regarding available or expiring work
 -- items.
 createWorkteam_notificationConfiguration :: Lens.Lens' CreateWorkteam (Prelude.Maybe NotificationConfiguration)
 createWorkteam_notificationConfiguration = Lens.lens (\CreateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@CreateWorkteam' {} a -> s {notificationConfiguration = a} :: CreateWorkteam)
+
+-- | The name of the workforce.
+createWorkteam_workforceName :: Lens.Lens' CreateWorkteam (Prelude.Maybe Prelude.Text)
+createWorkteam_workforceName = Lens.lens (\CreateWorkteam' {workforceName} -> workforceName) (\s@CreateWorkteam' {} a -> s {workforceName = a} :: CreateWorkteam)
 
 -- | An array of key-value pairs.
 --
@@ -184,7 +185,7 @@ createWorkteam_notificationConfiguration = Lens.lens (\CreateWorkteam' {notifica
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createWorkteam_tags :: Lens.Lens' CreateWorkteam (Prelude.Maybe [Tag])
-createWorkteam_tags = Lens.lens (\CreateWorkteam' {tags} -> tags) (\s@CreateWorkteam' {} a -> s {tags = a} :: CreateWorkteam) Prelude.. Lens.mapping Lens._Coerce
+createWorkteam_tags = Lens.lens (\CreateWorkteam' {tags} -> tags) (\s@CreateWorkteam' {} a -> s {tags = a} :: CreateWorkteam) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the work team. Use this name to identify the work team.
 createWorkteam_workteamName :: Lens.Lens' CreateWorkteam Prelude.Text
@@ -212,7 +213,7 @@ createWorkteam_workteamName = Lens.lens (\CreateWorkteam' {workteamName} -> work
 -- that you want to include in your private work team in
 -- @OidcMemberDefinition@ by listing those groups in @Groups@.
 createWorkteam_memberDefinitions :: Lens.Lens' CreateWorkteam (Prelude.NonEmpty MemberDefinition)
-createWorkteam_memberDefinitions = Lens.lens (\CreateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@CreateWorkteam' {} a -> s {memberDefinitions = a} :: CreateWorkteam) Prelude.. Lens._Coerce
+createWorkteam_memberDefinitions = Lens.lens (\CreateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@CreateWorkteam' {} a -> s {memberDefinitions = a} :: CreateWorkteam) Prelude.. Lens.coerced
 
 -- | A description of the work team.
 createWorkteam_description :: Lens.Lens' CreateWorkteam Prelude.Text
@@ -252,9 +253,9 @@ instance Core.ToJSON CreateWorkteam where
   toJSON CreateWorkteam' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WorkforceName" Core..=) Prelude.<$> workforceName,
-            ("NotificationConfiguration" Core..=)
+          [ ("NotificationConfiguration" Core..=)
               Prelude.<$> notificationConfiguration,
+            ("WorkforceName" Core..=) Prelude.<$> workforceName,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("WorkteamName" Core..= workteamName),
             Prelude.Just

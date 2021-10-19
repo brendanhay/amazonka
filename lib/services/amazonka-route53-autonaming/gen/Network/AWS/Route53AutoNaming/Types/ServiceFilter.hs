@@ -109,7 +109,7 @@ serviceFilter_name = Lens.lens (\ServiceFilter' {name} -> name) (\s@ServiceFilte
 -- | The values that are applicable to the value that you specify for
 -- @Condition@ to filter the list of services.
 serviceFilter_values :: Lens.Lens' ServiceFilter [Prelude.Text]
-serviceFilter_values = Lens.lens (\ServiceFilter' {values} -> values) (\s@ServiceFilter' {} a -> s {values = a} :: ServiceFilter) Prelude.. Lens._Coerce
+serviceFilter_values = Lens.lens (\ServiceFilter' {values} -> values) (\s@ServiceFilter' {} a -> s {values = a} :: ServiceFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ServiceFilter
 

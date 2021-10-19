@@ -81,7 +81,7 @@ newDisassociateMembers ::
 newDisassociateMembers pDetectorId_ pAccountIds_ =
   DisassociateMembers'
     { detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | The unique ID of the detector of the GuardDuty account whose members you
@@ -92,7 +92,7 @@ disassociateMembers_detectorId = Lens.lens (\DisassociateMembers' {detectorId} -
 -- | A list of account IDs of the GuardDuty member accounts that you want to
 -- disassociate from the administrator account.
 disassociateMembers_accountIds :: Lens.Lens' DisassociateMembers (Prelude.NonEmpty Prelude.Text)
-disassociateMembers_accountIds = Lens.lens (\DisassociateMembers' {accountIds} -> accountIds) (\s@DisassociateMembers' {} a -> s {accountIds = a} :: DisassociateMembers) Prelude.. Lens._Coerce
+disassociateMembers_accountIds = Lens.lens (\DisassociateMembers' {accountIds} -> accountIds) (\s@DisassociateMembers' {} a -> s {accountIds = a} :: DisassociateMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DisassociateMembers where
   type
@@ -182,6 +182,6 @@ disassociateMembersResponse_httpStatus = Lens.lens (\DisassociateMembersResponse
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 disassociateMembersResponse_unprocessedAccounts :: Lens.Lens' DisassociateMembersResponse [UnprocessedAccount]
-disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DisassociateMembersResponse' {} a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse) Prelude.. Lens._Coerce
+disassociateMembersResponse_unprocessedAccounts = Lens.lens (\DisassociateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DisassociateMembersResponse' {} a -> s {unprocessedAccounts = a} :: DisassociateMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DisassociateMembersResponse

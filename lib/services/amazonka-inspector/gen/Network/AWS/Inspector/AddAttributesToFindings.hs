@@ -77,18 +77,18 @@ newAddAttributesToFindings ::
 newAddAttributesToFindings pFindingArns_ =
   AddAttributesToFindings'
     { findingArns =
-        Lens._Coerce Lens.# pFindingArns_,
+        Lens.coerced Lens.# pFindingArns_,
       attributes = Prelude.mempty
     }
 
 -- | The ARNs that specify the findings that you want to assign attributes
 -- to.
 addAttributesToFindings_findingArns :: Lens.Lens' AddAttributesToFindings (Prelude.NonEmpty Prelude.Text)
-addAttributesToFindings_findingArns = Lens.lens (\AddAttributesToFindings' {findingArns} -> findingArns) (\s@AddAttributesToFindings' {} a -> s {findingArns = a} :: AddAttributesToFindings) Prelude.. Lens._Coerce
+addAttributesToFindings_findingArns = Lens.lens (\AddAttributesToFindings' {findingArns} -> findingArns) (\s@AddAttributesToFindings' {} a -> s {findingArns = a} :: AddAttributesToFindings) Prelude.. Lens.coerced
 
 -- | The array of attributes that you want to assign to specified findings.
 addAttributesToFindings_attributes :: Lens.Lens' AddAttributesToFindings [Attribute]
-addAttributesToFindings_attributes = Lens.lens (\AddAttributesToFindings' {attributes} -> attributes) (\s@AddAttributesToFindings' {} a -> s {attributes = a} :: AddAttributesToFindings) Prelude.. Lens._Coerce
+addAttributesToFindings_attributes = Lens.lens (\AddAttributesToFindings' {attributes} -> attributes) (\s@AddAttributesToFindings' {} a -> s {attributes = a} :: AddAttributesToFindings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddAttributesToFindings where
   type
@@ -177,7 +177,7 @@ addAttributesToFindingsResponse_httpStatus = Lens.lens (\AddAttributesToFindings
 -- | Attribute details that cannot be described. An error code is provided
 -- for each failed item.
 addAttributesToFindingsResponse_failedItems :: Lens.Lens' AddAttributesToFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-addAttributesToFindingsResponse_failedItems = Lens.lens (\AddAttributesToFindingsResponse' {failedItems} -> failedItems) (\s@AddAttributesToFindingsResponse' {} a -> s {failedItems = a} :: AddAttributesToFindingsResponse) Prelude.. Lens._Coerce
+addAttributesToFindingsResponse_failedItems = Lens.lens (\AddAttributesToFindingsResponse' {failedItems} -> failedItems) (\s@AddAttributesToFindingsResponse' {} a -> s {failedItems = a} :: AddAttributesToFindingsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

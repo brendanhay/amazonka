@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputSourceRequest' smart constructor.
 data InputSourceRequest = InputSourceRequest'
-  { -- | The key used to extract the password from EC2 Parameter store.
-    passwordParam :: Prelude.Maybe Prelude.Text,
+  { -- | This represents the customer\'s source URL where stream is pulled from.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The username for the input source.
     username :: Prelude.Maybe Prelude.Text,
-    -- | This represents the customer\'s source URL where stream is pulled from.
-    url :: Prelude.Maybe Prelude.Text
+    -- | The key used to extract the password from EC2 Parameter store.
+    passwordParam :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,31 @@ data InputSourceRequest = InputSourceRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'passwordParam', 'inputSourceRequest_passwordParam' - The key used to extract the password from EC2 Parameter store.
+-- 'url', 'inputSourceRequest_url' - This represents the customer\'s source URL where stream is pulled from.
 --
 -- 'username', 'inputSourceRequest_username' - The username for the input source.
 --
--- 'url', 'inputSourceRequest_url' - This represents the customer\'s source URL where stream is pulled from.
+-- 'passwordParam', 'inputSourceRequest_passwordParam' - The key used to extract the password from EC2 Parameter store.
 newInputSourceRequest ::
   InputSourceRequest
 newInputSourceRequest =
   InputSourceRequest'
-    { passwordParam =
-        Prelude.Nothing,
+    { url = Prelude.Nothing,
       username = Prelude.Nothing,
-      url = Prelude.Nothing
+      passwordParam = Prelude.Nothing
     }
 
--- | The key used to extract the password from EC2 Parameter store.
-inputSourceRequest_passwordParam :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
-inputSourceRequest_passwordParam = Lens.lens (\InputSourceRequest' {passwordParam} -> passwordParam) (\s@InputSourceRequest' {} a -> s {passwordParam = a} :: InputSourceRequest)
+-- | This represents the customer\'s source URL where stream is pulled from.
+inputSourceRequest_url :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
+inputSourceRequest_url = Lens.lens (\InputSourceRequest' {url} -> url) (\s@InputSourceRequest' {} a -> s {url = a} :: InputSourceRequest)
 
 -- | The username for the input source.
 inputSourceRequest_username :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
 inputSourceRequest_username = Lens.lens (\InputSourceRequest' {username} -> username) (\s@InputSourceRequest' {} a -> s {username = a} :: InputSourceRequest)
 
--- | This represents the customer\'s source URL where stream is pulled from.
-inputSourceRequest_url :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
-inputSourceRequest_url = Lens.lens (\InputSourceRequest' {url} -> url) (\s@InputSourceRequest' {} a -> s {url = a} :: InputSourceRequest)
+-- | The key used to extract the password from EC2 Parameter store.
+inputSourceRequest_passwordParam :: Lens.Lens' InputSourceRequest (Prelude.Maybe Prelude.Text)
+inputSourceRequest_passwordParam = Lens.lens (\InputSourceRequest' {passwordParam} -> passwordParam) (\s@InputSourceRequest' {} a -> s {passwordParam = a} :: InputSourceRequest)
 
 instance Prelude.Hashable InputSourceRequest
 
@@ -79,8 +78,8 @@ instance Core.ToJSON InputSourceRequest where
   toJSON InputSourceRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("passwordParam" Core..=) Prelude.<$> passwordParam,
+          [ ("url" Core..=) Prelude.<$> url,
             ("username" Core..=) Prelude.<$> username,
-            ("url" Core..=) Prelude.<$> url
+            ("passwordParam" Core..=) Prelude.<$> passwordParam
           ]
       )

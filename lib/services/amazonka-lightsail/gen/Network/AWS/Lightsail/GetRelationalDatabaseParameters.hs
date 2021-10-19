@@ -265,7 +265,7 @@ getRelationalDatabaseParametersResponse_nextPageToken = Lens.lens (\GetRelationa
 -- | An object describing the result of your get relational database
 -- parameters request.
 getRelationalDatabaseParametersResponse_parameters :: Lens.Lens' GetRelationalDatabaseParametersResponse (Prelude.Maybe [RelationalDatabaseParameter])
-getRelationalDatabaseParametersResponse_parameters = Lens.lens (\GetRelationalDatabaseParametersResponse' {parameters} -> parameters) (\s@GetRelationalDatabaseParametersResponse' {} a -> s {parameters = a} :: GetRelationalDatabaseParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabaseParametersResponse_parameters = Lens.lens (\GetRelationalDatabaseParametersResponse' {parameters} -> parameters) (\s@GetRelationalDatabaseParametersResponse' {} a -> s {parameters = a} :: GetRelationalDatabaseParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRelationalDatabaseParametersResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseParametersResponse Prelude.Int

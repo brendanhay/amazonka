@@ -27,17 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestChangeMessageVisibilityBatch $
---             newChangeMessageVisibilityBatch
+--         [ requestGetQueueUrl $
+--             newGetQueueUrl
 --
 --         , requestPurgeQueue $
 --             newPurgeQueue
 --
---         , requestTagQueue $
---             newTagQueue
+--         , requestChangeMessageVisibilityBatch $
+--             newChangeMessageVisibilityBatch
 --
---         , requestChangeMessageVisibility $
---             newChangeMessageVisibility
+--         , requestSendMessage $
+--             newSendMessage
+--
+--         , requestRemovePermission $
+--             newRemovePermission
 --
 --         , requestGetQueueAttributes $
 --             newGetQueueAttributes
@@ -48,6 +51,21 @@ import Test.Tasty
 --         , requestReceiveMessage $
 --             newReceiveMessage
 --
+--         , requestDeleteQueue $
+--             newDeleteQueue
+--
+--         , requestTagQueue $
+--             newTagQueue
+--
+--         , requestDeleteMessageBatch $
+--             newDeleteMessageBatch
+--
+--         , requestSetQueueAttributes $
+--             newSetQueueAttributes
+--
+--         , requestListDeadLetterSourceQueues $
+--             newListDeadLetterSourceQueues
+--
 --         , requestAddPermission $
 --             newAddPermission
 --
@@ -57,50 +75,35 @@ import Test.Tasty
 --         , requestListQueueTags $
 --             newListQueueTags
 --
---         , requestListDeadLetterSourceQueues $
---             newListDeadLetterSourceQueues
---
---         , requestSendMessage $
---             newSendMessage
---
---         , requestGetQueueUrl $
---             newGetQueueUrl
---
---         , requestSetQueueAttributes $
---             newSetQueueAttributes
---
---         , requestDeleteMessageBatch $
---             newDeleteMessageBatch
---
---         , requestSendMessageBatch $
---             newSendMessageBatch
+--         , requestCreateQueue $
+--             newCreateQueue
 --
 --         , requestUntagQueue $
 --             newUntagQueue
 --
---         , requestDeleteQueue $
---             newDeleteQueue
+--         , requestSendMessageBatch $
+--             newSendMessageBatch
 --
---         , requestCreateQueue $
---             newCreateQueue
---
---         , requestRemovePermission $
---             newRemovePermission
+--         , requestChangeMessageVisibility $
+--             newChangeMessageVisibility
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseChangeMessageVisibilityBatch $
---             newChangeMessageVisibilityBatchResponse
+--         [ responseGetQueueUrl $
+--             newGetQueueUrlResponse
 --
 --         , responsePurgeQueue $
 --             newPurgeQueueResponse
 --
---         , responseTagQueue $
---             newTagQueueResponse
+--         , responseChangeMessageVisibilityBatch $
+--             newChangeMessageVisibilityBatchResponse
 --
---         , responseChangeMessageVisibility $
---             newChangeMessageVisibilityResponse
+--         , responseSendMessage $
+--             newSendMessageResponse
+--
+--         , responseRemovePermission $
+--             newRemovePermissionResponse
 --
 --         , responseGetQueueAttributes $
 --             newGetQueueAttributesResponse
@@ -111,6 +114,21 @@ import Test.Tasty
 --         , responseReceiveMessage $
 --             newReceiveMessageResponse
 --
+--         , responseDeleteQueue $
+--             newDeleteQueueResponse
+--
+--         , responseTagQueue $
+--             newTagQueueResponse
+--
+--         , responseDeleteMessageBatch $
+--             newDeleteMessageBatchResponse
+--
+--         , responseSetQueueAttributes $
+--             newSetQueueAttributesResponse
+--
+--         , responseListDeadLetterSourceQueues $
+--             newListDeadLetterSourceQueuesResponse
+--
 --         , responseAddPermission $
 --             newAddPermissionResponse
 --
@@ -120,46 +138,28 @@ import Test.Tasty
 --         , responseListQueueTags $
 --             newListQueueTagsResponse
 --
---         , responseListDeadLetterSourceQueues $
---             newListDeadLetterSourceQueuesResponse
---
---         , responseSendMessage $
---             newSendMessageResponse
---
---         , responseGetQueueUrl $
---             newGetQueueUrlResponse
---
---         , responseSetQueueAttributes $
---             newSetQueueAttributesResponse
---
---         , responseDeleteMessageBatch $
---             newDeleteMessageBatchResponse
---
---         , responseSendMessageBatch $
---             newSendMessageBatchResponse
+--         , responseCreateQueue $
+--             newCreateQueueResponse
 --
 --         , responseUntagQueue $
 --             newUntagQueueResponse
 --
---         , responseDeleteQueue $
---             newDeleteQueueResponse
+--         , responseSendMessageBatch $
+--             newSendMessageBatchResponse
 --
---         , responseCreateQueue $
---             newCreateQueueResponse
---
---         , responseRemovePermission $
---             newRemovePermissionResponse
+--         , responseChangeMessageVisibility $
+--             newChangeMessageVisibilityResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatch -> TestTree
-requestChangeMessageVisibilityBatch =
+requestGetQueueUrl :: GetQueueUrl -> TestTree
+requestGetQueueUrl =
   req
-    "ChangeMessageVisibilityBatch"
-    "fixture/ChangeMessageVisibilityBatch.yaml"
+    "GetQueueUrl"
+    "fixture/GetQueueUrl.yaml"
 
 requestPurgeQueue :: PurgeQueue -> TestTree
 requestPurgeQueue =
@@ -167,17 +167,23 @@ requestPurgeQueue =
     "PurgeQueue"
     "fixture/PurgeQueue.yaml"
 
-requestTagQueue :: TagQueue -> TestTree
-requestTagQueue =
+requestChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatch -> TestTree
+requestChangeMessageVisibilityBatch =
   req
-    "TagQueue"
-    "fixture/TagQueue.yaml"
+    "ChangeMessageVisibilityBatch"
+    "fixture/ChangeMessageVisibilityBatch.yaml"
 
-requestChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
-requestChangeMessageVisibility =
+requestSendMessage :: SendMessage -> TestTree
+requestSendMessage =
   req
-    "ChangeMessageVisibility"
-    "fixture/ChangeMessageVisibility.yaml"
+    "SendMessage"
+    "fixture/SendMessage.yaml"
+
+requestRemovePermission :: RemovePermission -> TestTree
+requestRemovePermission =
+  req
+    "RemovePermission"
+    "fixture/RemovePermission.yaml"
 
 requestGetQueueAttributes :: GetQueueAttributes -> TestTree
 requestGetQueueAttributes =
@@ -197,6 +203,36 @@ requestReceiveMessage =
     "ReceiveMessage"
     "fixture/ReceiveMessage.yaml"
 
+requestDeleteQueue :: DeleteQueue -> TestTree
+requestDeleteQueue =
+  req
+    "DeleteQueue"
+    "fixture/DeleteQueue.yaml"
+
+requestTagQueue :: TagQueue -> TestTree
+requestTagQueue =
+  req
+    "TagQueue"
+    "fixture/TagQueue.yaml"
+
+requestDeleteMessageBatch :: DeleteMessageBatch -> TestTree
+requestDeleteMessageBatch =
+  req
+    "DeleteMessageBatch"
+    "fixture/DeleteMessageBatch.yaml"
+
+requestSetQueueAttributes :: SetQueueAttributes -> TestTree
+requestSetQueueAttributes =
+  req
+    "SetQueueAttributes"
+    "fixture/SetQueueAttributes.yaml"
+
+requestListDeadLetterSourceQueues :: ListDeadLetterSourceQueues -> TestTree
+requestListDeadLetterSourceQueues =
+  req
+    "ListDeadLetterSourceQueues"
+    "fixture/ListDeadLetterSourceQueues.yaml"
+
 requestAddPermission :: AddPermission -> TestTree
 requestAddPermission =
   req
@@ -215,41 +251,11 @@ requestListQueueTags =
     "ListQueueTags"
     "fixture/ListQueueTags.yaml"
 
-requestListDeadLetterSourceQueues :: ListDeadLetterSourceQueues -> TestTree
-requestListDeadLetterSourceQueues =
+requestCreateQueue :: CreateQueue -> TestTree
+requestCreateQueue =
   req
-    "ListDeadLetterSourceQueues"
-    "fixture/ListDeadLetterSourceQueues.yaml"
-
-requestSendMessage :: SendMessage -> TestTree
-requestSendMessage =
-  req
-    "SendMessage"
-    "fixture/SendMessage.yaml"
-
-requestGetQueueUrl :: GetQueueUrl -> TestTree
-requestGetQueueUrl =
-  req
-    "GetQueueUrl"
-    "fixture/GetQueueUrl.yaml"
-
-requestSetQueueAttributes :: SetQueueAttributes -> TestTree
-requestSetQueueAttributes =
-  req
-    "SetQueueAttributes"
-    "fixture/SetQueueAttributes.yaml"
-
-requestDeleteMessageBatch :: DeleteMessageBatch -> TestTree
-requestDeleteMessageBatch =
-  req
-    "DeleteMessageBatch"
-    "fixture/DeleteMessageBatch.yaml"
-
-requestSendMessageBatch :: SendMessageBatch -> TestTree
-requestSendMessageBatch =
-  req
-    "SendMessageBatch"
-    "fixture/SendMessageBatch.yaml"
+    "CreateQueue"
+    "fixture/CreateQueue.yaml"
 
 requestUntagQueue :: UntagQueue -> TestTree
 requestUntagQueue =
@@ -257,33 +263,27 @@ requestUntagQueue =
     "UntagQueue"
     "fixture/UntagQueue.yaml"
 
-requestDeleteQueue :: DeleteQueue -> TestTree
-requestDeleteQueue =
+requestSendMessageBatch :: SendMessageBatch -> TestTree
+requestSendMessageBatch =
   req
-    "DeleteQueue"
-    "fixture/DeleteQueue.yaml"
+    "SendMessageBatch"
+    "fixture/SendMessageBatch.yaml"
 
-requestCreateQueue :: CreateQueue -> TestTree
-requestCreateQueue =
+requestChangeMessageVisibility :: ChangeMessageVisibility -> TestTree
+requestChangeMessageVisibility =
   req
-    "CreateQueue"
-    "fixture/CreateQueue.yaml"
-
-requestRemovePermission :: RemovePermission -> TestTree
-requestRemovePermission =
-  req
-    "RemovePermission"
-    "fixture/RemovePermission.yaml"
+    "ChangeMessageVisibility"
+    "fixture/ChangeMessageVisibility.yaml"
 
 -- Responses
 
-responseChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatchResponse -> TestTree
-responseChangeMessageVisibilityBatch =
+responseGetQueueUrl :: GetQueueUrlResponse -> TestTree
+responseGetQueueUrl =
   res
-    "ChangeMessageVisibilityBatchResponse"
-    "fixture/ChangeMessageVisibilityBatchResponse.proto"
+    "GetQueueUrlResponse"
+    "fixture/GetQueueUrlResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeMessageVisibilityBatch)
+    (Proxy :: Proxy GetQueueUrl)
 
 responsePurgeQueue :: PurgeQueueResponse -> TestTree
 responsePurgeQueue =
@@ -293,21 +293,29 @@ responsePurgeQueue =
     defaultService
     (Proxy :: Proxy PurgeQueue)
 
-responseTagQueue :: TagQueueResponse -> TestTree
-responseTagQueue =
+responseChangeMessageVisibilityBatch :: ChangeMessageVisibilityBatchResponse -> TestTree
+responseChangeMessageVisibilityBatch =
   res
-    "TagQueueResponse"
-    "fixture/TagQueueResponse.proto"
+    "ChangeMessageVisibilityBatchResponse"
+    "fixture/ChangeMessageVisibilityBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy TagQueue)
+    (Proxy :: Proxy ChangeMessageVisibilityBatch)
 
-responseChangeMessageVisibility :: ChangeMessageVisibilityResponse -> TestTree
-responseChangeMessageVisibility =
+responseSendMessage :: SendMessageResponse -> TestTree
+responseSendMessage =
   res
-    "ChangeMessageVisibilityResponse"
-    "fixture/ChangeMessageVisibilityResponse.proto"
+    "SendMessageResponse"
+    "fixture/SendMessageResponse.proto"
     defaultService
-    (Proxy :: Proxy ChangeMessageVisibility)
+    (Proxy :: Proxy SendMessage)
+
+responseRemovePermission :: RemovePermissionResponse -> TestTree
+responseRemovePermission =
+  res
+    "RemovePermissionResponse"
+    "fixture/RemovePermissionResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemovePermission)
 
 responseGetQueueAttributes :: GetQueueAttributesResponse -> TestTree
 responseGetQueueAttributes =
@@ -333,6 +341,46 @@ responseReceiveMessage =
     defaultService
     (Proxy :: Proxy ReceiveMessage)
 
+responseDeleteQueue :: DeleteQueueResponse -> TestTree
+responseDeleteQueue =
+  res
+    "DeleteQueueResponse"
+    "fixture/DeleteQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteQueue)
+
+responseTagQueue :: TagQueueResponse -> TestTree
+responseTagQueue =
+  res
+    "TagQueueResponse"
+    "fixture/TagQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagQueue)
+
+responseDeleteMessageBatch :: DeleteMessageBatchResponse -> TestTree
+responseDeleteMessageBatch =
+  res
+    "DeleteMessageBatchResponse"
+    "fixture/DeleteMessageBatchResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMessageBatch)
+
+responseSetQueueAttributes :: SetQueueAttributesResponse -> TestTree
+responseSetQueueAttributes =
+  res
+    "SetQueueAttributesResponse"
+    "fixture/SetQueueAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetQueueAttributes)
+
+responseListDeadLetterSourceQueues :: ListDeadLetterSourceQueuesResponse -> TestTree
+responseListDeadLetterSourceQueues =
+  res
+    "ListDeadLetterSourceQueuesResponse"
+    "fixture/ListDeadLetterSourceQueuesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDeadLetterSourceQueues)
+
 responseAddPermission :: AddPermissionResponse -> TestTree
 responseAddPermission =
   res
@@ -357,53 +405,13 @@ responseListQueueTags =
     defaultService
     (Proxy :: Proxy ListQueueTags)
 
-responseListDeadLetterSourceQueues :: ListDeadLetterSourceQueuesResponse -> TestTree
-responseListDeadLetterSourceQueues =
+responseCreateQueue :: CreateQueueResponse -> TestTree
+responseCreateQueue =
   res
-    "ListDeadLetterSourceQueuesResponse"
-    "fixture/ListDeadLetterSourceQueuesResponse.proto"
+    "CreateQueueResponse"
+    "fixture/CreateQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDeadLetterSourceQueues)
-
-responseSendMessage :: SendMessageResponse -> TestTree
-responseSendMessage =
-  res
-    "SendMessageResponse"
-    "fixture/SendMessageResponse.proto"
-    defaultService
-    (Proxy :: Proxy SendMessage)
-
-responseGetQueueUrl :: GetQueueUrlResponse -> TestTree
-responseGetQueueUrl =
-  res
-    "GetQueueUrlResponse"
-    "fixture/GetQueueUrlResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetQueueUrl)
-
-responseSetQueueAttributes :: SetQueueAttributesResponse -> TestTree
-responseSetQueueAttributes =
-  res
-    "SetQueueAttributesResponse"
-    "fixture/SetQueueAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetQueueAttributes)
-
-responseDeleteMessageBatch :: DeleteMessageBatchResponse -> TestTree
-responseDeleteMessageBatch =
-  res
-    "DeleteMessageBatchResponse"
-    "fixture/DeleteMessageBatchResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteMessageBatch)
-
-responseSendMessageBatch :: SendMessageBatchResponse -> TestTree
-responseSendMessageBatch =
-  res
-    "SendMessageBatchResponse"
-    "fixture/SendMessageBatchResponse.proto"
-    defaultService
-    (Proxy :: Proxy SendMessageBatch)
+    (Proxy :: Proxy CreateQueue)
 
 responseUntagQueue :: UntagQueueResponse -> TestTree
 responseUntagQueue =
@@ -413,26 +421,18 @@ responseUntagQueue =
     defaultService
     (Proxy :: Proxy UntagQueue)
 
-responseDeleteQueue :: DeleteQueueResponse -> TestTree
-responseDeleteQueue =
+responseSendMessageBatch :: SendMessageBatchResponse -> TestTree
+responseSendMessageBatch =
   res
-    "DeleteQueueResponse"
-    "fixture/DeleteQueueResponse.proto"
+    "SendMessageBatchResponse"
+    "fixture/SendMessageBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteQueue)
+    (Proxy :: Proxy SendMessageBatch)
 
-responseCreateQueue :: CreateQueueResponse -> TestTree
-responseCreateQueue =
+responseChangeMessageVisibility :: ChangeMessageVisibilityResponse -> TestTree
+responseChangeMessageVisibility =
   res
-    "CreateQueueResponse"
-    "fixture/CreateQueueResponse.proto"
+    "ChangeMessageVisibilityResponse"
+    "fixture/ChangeMessageVisibilityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQueue)
-
-responseRemovePermission :: RemovePermissionResponse -> TestTree
-responseRemovePermission =
-  res
-    "RemovePermissionResponse"
-    "fixture/RemovePermissionResponse.proto"
-    defaultService
-    (Proxy :: Proxy RemovePermission)
+    (Proxy :: Proxy ChangeMessageVisibility)

@@ -28,7 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTemplate' smart constructor.
 data Template = Template'
-  { -- | The unique identifier for the version of the message template to use for
+  { -- | The name of the message template to use for the message. If specified,
+    -- this value must match the name of an existing message template.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the version of the message template to use for
     -- the message. If specified, this value must match the identifier for an
     -- existing template version. To retrieve a list of versions and version
     -- identifiers for a template, use the Template Versions resource.
@@ -38,10 +41,7 @@ data Template = Template'
     -- the version of a template that\'s been most recently reviewed and
     -- approved for use, depending on your workflow. It isn\'t necessarily the
     -- latest version of a template.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the message template to use for the message. If specified,
-    -- this value must match the name of an existing message template.
-    name :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +53,9 @@ data Template = Template'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'template_name' - The name of the message template to use for the message. If specified,
+-- this value must match the name of an existing message template.
+--
 -- 'version', 'template_version' - The unique identifier for the version of the message template to use for
 -- the message. If specified, this value must match the identifier for an
 -- existing template version. To retrieve a list of versions and version
@@ -63,16 +66,18 @@ data Template = Template'
 -- the version of a template that\'s been most recently reviewed and
 -- approved for use, depending on your workflow. It isn\'t necessarily the
 -- latest version of a template.
---
--- 'name', 'template_name' - The name of the message template to use for the message. If specified,
--- this value must match the name of an existing message template.
 newTemplate ::
   Template
 newTemplate =
   Template'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The name of the message template to use for the message. If specified,
+-- this value must match the name of an existing message template.
+template_name :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
+template_name = Lens.lens (\Template' {name} -> name) (\s@Template' {} a -> s {name = a} :: Template)
 
 -- | The unique identifier for the version of the message template to use for
 -- the message. If specified, this value must match the identifier for an
@@ -87,19 +92,14 @@ newTemplate =
 template_version :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
 template_version = Lens.lens (\Template' {version} -> version) (\s@Template' {} a -> s {version = a} :: Template)
 
--- | The name of the message template to use for the message. If specified,
--- this value must match the name of an existing message template.
-template_name :: Lens.Lens' Template (Prelude.Maybe Prelude.Text)
-template_name = Lens.lens (\Template' {name} -> name) (\s@Template' {} a -> s {name = a} :: Template)
-
 instance Core.FromJSON Template where
   parseJSON =
     Core.withObject
       "Template"
       ( \x ->
           Template'
-            Prelude.<$> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance Prelude.Hashable Template
@@ -110,7 +110,7 @@ instance Core.ToJSON Template where
   toJSON Template' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Version" Core..=) Prelude.<$> version
           ]
       )

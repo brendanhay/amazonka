@@ -105,7 +105,7 @@ untagOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\UntagOpenIDCon
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified OIDC provider.
 untagOpenIDConnectProvider_tagKeys :: Lens.Lens' UntagOpenIDConnectProvider [Prelude.Text]
-untagOpenIDConnectProvider_tagKeys = Lens.lens (\UntagOpenIDConnectProvider' {tagKeys} -> tagKeys) (\s@UntagOpenIDConnectProvider' {} a -> s {tagKeys = a} :: UntagOpenIDConnectProvider) Prelude.. Lens._Coerce
+untagOpenIDConnectProvider_tagKeys = Lens.lens (\UntagOpenIDConnectProvider' {tagKeys} -> tagKeys) (\s@UntagOpenIDConnectProvider' {} a -> s {tagKeys = a} :: UntagOpenIDConnectProvider) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagOpenIDConnectProvider where
   type

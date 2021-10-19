@@ -30,16 +30,16 @@ module Network.AWS.SageMaker.ListHyperParameterTuningJobs
     newListHyperParameterTuningJobs,
 
     -- * Request Lenses
+    listHyperParameterTuningJobs_nameContains,
     listHyperParameterTuningJobs_lastModifiedTimeBefore,
+    listHyperParameterTuningJobs_creationTimeAfter,
     listHyperParameterTuningJobs_nextToken,
     listHyperParameterTuningJobs_sortOrder,
-    listHyperParameterTuningJobs_nameContains,
-    listHyperParameterTuningJobs_maxResults,
-    listHyperParameterTuningJobs_creationTimeBefore,
     listHyperParameterTuningJobs_lastModifiedTimeAfter,
-    listHyperParameterTuningJobs_sortBy,
+    listHyperParameterTuningJobs_creationTimeBefore,
     listHyperParameterTuningJobs_statusEquals,
-    listHyperParameterTuningJobs_creationTimeAfter,
+    listHyperParameterTuningJobs_maxResults,
+    listHyperParameterTuningJobs_sortBy,
 
     -- * Destructuring the Response
     ListHyperParameterTuningJobsResponse (..),
@@ -61,33 +61,33 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListHyperParameterTuningJobs' smart constructor.
 data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
-  { -- | A filter that returns only tuning jobs that were modified before the
+  { -- | A string in the tuning job name. This filter returns only tuning jobs
+    -- whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only tuning jobs that were modified before the
     -- specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | A filter that returns only tuning jobs that were created after the
+    -- specified time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | If the result of the previous @ListHyperParameterTuningJobs@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of tuning jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for results. The default is @Ascending@.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A string in the tuning job name. This filter returns only tuning jobs
-    -- whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of tuning jobs to return. The default value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only tuning jobs that were created before the
-    -- specified time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only tuning jobs that were modified after the
     -- specified time.
     lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | The field to sort results by. The default is @Name@.
-    sortBy :: Prelude.Maybe HyperParameterTuningJobSortByOptions,
+    -- | A filter that returns only tuning jobs that were created before the
+    -- specified time.
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only tuning jobs with the specified status.
     statusEquals :: Prelude.Maybe HyperParameterTuningJobStatus,
-    -- | A filter that returns only tuning jobs that were created after the
-    -- specified time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    -- | The maximum number of tuning jobs to return. The default value is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The field to sort results by. The default is @Name@.
+    sortBy :: Prelude.Maybe HyperParameterTuningJobSortByOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,7 +99,13 @@ data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listHyperParameterTuningJobs_nameContains' - A string in the tuning job name. This filter returns only tuning jobs
+-- whose name contains the specified string.
+--
 -- 'lastModifiedTimeBefore', 'listHyperParameterTuningJobs_lastModifiedTimeBefore' - A filter that returns only tuning jobs that were modified before the
+-- specified time.
+--
+-- 'creationTimeAfter', 'listHyperParameterTuningJobs_creationTimeAfter' - A filter that returns only tuning jobs that were created after the
 -- specified time.
 --
 -- 'nextToken', 'listHyperParameterTuningJobs_nextToken' - If the result of the previous @ListHyperParameterTuningJobs@ request was
@@ -108,44 +114,48 @@ data ListHyperParameterTuningJobs = ListHyperParameterTuningJobs'
 --
 -- 'sortOrder', 'listHyperParameterTuningJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
--- 'nameContains', 'listHyperParameterTuningJobs_nameContains' - A string in the tuning job name. This filter returns only tuning jobs
--- whose name contains the specified string.
---
--- 'maxResults', 'listHyperParameterTuningJobs_maxResults' - The maximum number of tuning jobs to return. The default value is 10.
+-- 'lastModifiedTimeAfter', 'listHyperParameterTuningJobs_lastModifiedTimeAfter' - A filter that returns only tuning jobs that were modified after the
+-- specified time.
 --
 -- 'creationTimeBefore', 'listHyperParameterTuningJobs_creationTimeBefore' - A filter that returns only tuning jobs that were created before the
 -- specified time.
 --
--- 'lastModifiedTimeAfter', 'listHyperParameterTuningJobs_lastModifiedTimeAfter' - A filter that returns only tuning jobs that were modified after the
--- specified time.
---
--- 'sortBy', 'listHyperParameterTuningJobs_sortBy' - The field to sort results by. The default is @Name@.
---
 -- 'statusEquals', 'listHyperParameterTuningJobs_statusEquals' - A filter that returns only tuning jobs with the specified status.
 --
--- 'creationTimeAfter', 'listHyperParameterTuningJobs_creationTimeAfter' - A filter that returns only tuning jobs that were created after the
--- specified time.
+-- 'maxResults', 'listHyperParameterTuningJobs_maxResults' - The maximum number of tuning jobs to return. The default value is 10.
+--
+-- 'sortBy', 'listHyperParameterTuningJobs_sortBy' - The field to sort results by. The default is @Name@.
 newListHyperParameterTuningJobs ::
   ListHyperParameterTuningJobs
 newListHyperParameterTuningJobs =
   ListHyperParameterTuningJobs'
-    { lastModifiedTimeBefore =
+    { nameContains =
         Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+      creationTimeBefore = Prelude.Nothing,
       statusEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A string in the tuning job name. This filter returns only tuning jobs
+-- whose name contains the specified string.
+listHyperParameterTuningJobs_nameContains :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Text)
+listHyperParameterTuningJobs_nameContains = Lens.lens (\ListHyperParameterTuningJobs' {nameContains} -> nameContains) (\s@ListHyperParameterTuningJobs' {} a -> s {nameContains = a} :: ListHyperParameterTuningJobs)
 
 -- | A filter that returns only tuning jobs that were modified before the
 -- specified time.
 listHyperParameterTuningJobs_lastModifiedTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
 listHyperParameterTuningJobs_lastModifiedTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
+
+-- | A filter that returns only tuning jobs that were created after the
+-- specified time.
+listHyperParameterTuningJobs_creationTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
+listHyperParameterTuningJobs_creationTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeAfter = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
 -- | If the result of the previous @ListHyperParameterTuningJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
@@ -157,37 +167,27 @@ listHyperParameterTuningJobs_nextToken = Lens.lens (\ListHyperParameterTuningJob
 listHyperParameterTuningJobs_sortOrder :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe SortOrder)
 listHyperParameterTuningJobs_sortOrder = Lens.lens (\ListHyperParameterTuningJobs' {sortOrder} -> sortOrder) (\s@ListHyperParameterTuningJobs' {} a -> s {sortOrder = a} :: ListHyperParameterTuningJobs)
 
--- | A string in the tuning job name. This filter returns only tuning jobs
--- whose name contains the specified string.
-listHyperParameterTuningJobs_nameContains :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Text)
-listHyperParameterTuningJobs_nameContains = Lens.lens (\ListHyperParameterTuningJobs' {nameContains} -> nameContains) (\s@ListHyperParameterTuningJobs' {} a -> s {nameContains = a} :: ListHyperParameterTuningJobs)
-
--- | The maximum number of tuning jobs to return. The default value is 10.
-listHyperParameterTuningJobs_maxResults :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Natural)
-listHyperParameterTuningJobs_maxResults = Lens.lens (\ListHyperParameterTuningJobs' {maxResults} -> maxResults) (\s@ListHyperParameterTuningJobs' {} a -> s {maxResults = a} :: ListHyperParameterTuningJobs)
+-- | A filter that returns only tuning jobs that were modified after the
+-- specified time.
+listHyperParameterTuningJobs_lastModifiedTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
+listHyperParameterTuningJobs_lastModifiedTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only tuning jobs that were created before the
 -- specified time.
 listHyperParameterTuningJobs_creationTimeBefore :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
 listHyperParameterTuningJobs_creationTimeBefore = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeBefore = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
 
--- | A filter that returns only tuning jobs that were modified after the
--- specified time.
-listHyperParameterTuningJobs_lastModifiedTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
-listHyperParameterTuningJobs_lastModifiedTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
-
--- | The field to sort results by. The default is @Name@.
-listHyperParameterTuningJobs_sortBy :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe HyperParameterTuningJobSortByOptions)
-listHyperParameterTuningJobs_sortBy = Lens.lens (\ListHyperParameterTuningJobs' {sortBy} -> sortBy) (\s@ListHyperParameterTuningJobs' {} a -> s {sortBy = a} :: ListHyperParameterTuningJobs)
-
 -- | A filter that returns only tuning jobs with the specified status.
 listHyperParameterTuningJobs_statusEquals :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe HyperParameterTuningJobStatus)
 listHyperParameterTuningJobs_statusEquals = Lens.lens (\ListHyperParameterTuningJobs' {statusEquals} -> statusEquals) (\s@ListHyperParameterTuningJobs' {} a -> s {statusEquals = a} :: ListHyperParameterTuningJobs)
 
--- | A filter that returns only tuning jobs that were created after the
--- specified time.
-listHyperParameterTuningJobs_creationTimeAfter :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.UTCTime)
-listHyperParameterTuningJobs_creationTimeAfter = Lens.lens (\ListHyperParameterTuningJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListHyperParameterTuningJobs' {} a -> s {creationTimeAfter = a} :: ListHyperParameterTuningJobs) Prelude.. Lens.mapping Core._Time
+-- | The maximum number of tuning jobs to return. The default value is 10.
+listHyperParameterTuningJobs_maxResults :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe Prelude.Natural)
+listHyperParameterTuningJobs_maxResults = Lens.lens (\ListHyperParameterTuningJobs' {maxResults} -> maxResults) (\s@ListHyperParameterTuningJobs' {} a -> s {maxResults = a} :: ListHyperParameterTuningJobs)
+
+-- | The field to sort results by. The default is @Name@.
+listHyperParameterTuningJobs_sortBy :: Lens.Lens' ListHyperParameterTuningJobs (Prelude.Maybe HyperParameterTuningJobSortByOptions)
+listHyperParameterTuningJobs_sortBy = Lens.lens (\ListHyperParameterTuningJobs' {sortBy} -> sortBy) (\s@ListHyperParameterTuningJobs' {} a -> s {sortBy = a} :: ListHyperParameterTuningJobs)
 
 instance Core.AWSPager ListHyperParameterTuningJobs where
   page rq rs
@@ -251,20 +251,20 @@ instance Core.ToJSON ListHyperParameterTuningJobs where
   toJSON ListHyperParameterTuningJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastModifiedTimeBefore" Core..=)
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
             ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeBefore" Core..=)
-              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
             ("StatusEquals" Core..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -330,7 +330,7 @@ listHyperParameterTuningJobsResponse_httpStatus = Lens.lens (\ListHyperParameter
 -- | A list of HyperParameterTuningJobSummary objects that describe the
 -- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
 listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries :: Lens.Lens' ListHyperParameterTuningJobsResponse [HyperParameterTuningJobSummary]
-listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries = Lens.lens (\ListHyperParameterTuningJobsResponse' {hyperParameterTuningJobSummaries} -> hyperParameterTuningJobSummaries) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {hyperParameterTuningJobSummaries = a} :: ListHyperParameterTuningJobsResponse) Prelude.. Lens._Coerce
+listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries = Lens.lens (\ListHyperParameterTuningJobsResponse' {hyperParameterTuningJobSummaries} -> hyperParameterTuningJobSummaries) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {hyperParameterTuningJobSummaries = a} :: ListHyperParameterTuningJobsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

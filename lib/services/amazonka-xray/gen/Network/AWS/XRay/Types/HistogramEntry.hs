@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHistogramEntry' smart constructor.
 data HistogramEntry = HistogramEntry'
-  { -- | The value of the entry.
-    value :: Prelude.Maybe Prelude.Double,
-    -- | The prevalence of the entry.
-    count :: Prelude.Maybe Prelude.Int
+  { -- | The prevalence of the entry.
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The value of the entry.
+    value :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data HistogramEntry = HistogramEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'histogramEntry_value' - The value of the entry.
---
 -- 'count', 'histogramEntry_count' - The prevalence of the entry.
+--
+-- 'value', 'histogramEntry_value' - The value of the entry.
 newHistogramEntry ::
   HistogramEntry
 newHistogramEntry =
   HistogramEntry'
-    { value = Prelude.Nothing,
-      count = Prelude.Nothing
+    { count = Prelude.Nothing,
+      value = Prelude.Nothing
     }
-
--- | The value of the entry.
-histogramEntry_value :: Lens.Lens' HistogramEntry (Prelude.Maybe Prelude.Double)
-histogramEntry_value = Lens.lens (\HistogramEntry' {value} -> value) (\s@HistogramEntry' {} a -> s {value = a} :: HistogramEntry)
 
 -- | The prevalence of the entry.
 histogramEntry_count :: Lens.Lens' HistogramEntry (Prelude.Maybe Prelude.Int)
 histogramEntry_count = Lens.lens (\HistogramEntry' {count} -> count) (\s@HistogramEntry' {} a -> s {count = a} :: HistogramEntry)
+
+-- | The value of the entry.
+histogramEntry_value :: Lens.Lens' HistogramEntry (Prelude.Maybe Prelude.Double)
+histogramEntry_value = Lens.lens (\HistogramEntry' {value} -> value) (\s@HistogramEntry' {} a -> s {value = a} :: HistogramEntry)
 
 instance Core.FromJSON HistogramEntry where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON HistogramEntry where
       "HistogramEntry"
       ( \x ->
           HistogramEntry'
-            Prelude.<$> (x Core..:? "Value")
-            Prelude.<*> (x Core..:? "Count")
+            Prelude.<$> (x Core..:? "Count")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable HistogramEntry

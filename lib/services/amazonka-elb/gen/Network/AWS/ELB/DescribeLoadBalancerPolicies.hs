@@ -88,7 +88,7 @@ newDescribeLoadBalancerPolicies =
 
 -- | The names of the policies.
 describeLoadBalancerPolicies_policyNames :: Lens.Lens' DescribeLoadBalancerPolicies (Prelude.Maybe [Prelude.Text])
-describeLoadBalancerPolicies_policyNames = Lens.lens (\DescribeLoadBalancerPolicies' {policyNames} -> policyNames) (\s@DescribeLoadBalancerPolicies' {} a -> s {policyNames = a} :: DescribeLoadBalancerPolicies) Prelude.. Lens.mapping Lens._Coerce
+describeLoadBalancerPolicies_policyNames = Lens.lens (\DescribeLoadBalancerPolicies' {policyNames} -> policyNames) (\s@DescribeLoadBalancerPolicies' {} a -> s {policyNames = a} :: DescribeLoadBalancerPolicies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the load balancer.
 describeLoadBalancerPolicies_loadBalancerName :: Lens.Lens' DescribeLoadBalancerPolicies (Prelude.Maybe Prelude.Text)
@@ -173,7 +173,7 @@ newDescribeLoadBalancerPoliciesResponse pHttpStatus_ =
 
 -- | Information about the policies.
 describeLoadBalancerPoliciesResponse_policyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Prelude.Maybe [PolicyDescription])
-describeLoadBalancerPoliciesResponse_policyDescriptions = Lens.lens (\DescribeLoadBalancerPoliciesResponse' {policyDescriptions} -> policyDescriptions) (\s@DescribeLoadBalancerPoliciesResponse' {} a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLoadBalancerPoliciesResponse_policyDescriptions = Lens.lens (\DescribeLoadBalancerPoliciesResponse' {policyDescriptions} -> policyDescriptions) (\s@DescribeLoadBalancerPoliciesResponse' {} a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLoadBalancerPoliciesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Prelude.Int

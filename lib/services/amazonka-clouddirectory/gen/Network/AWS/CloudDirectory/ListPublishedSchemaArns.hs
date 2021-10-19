@@ -201,7 +201,7 @@ newListPublishedSchemaArnsResponse pHttpStatus_ =
 
 -- | The ARNs of published schemas.
 listPublishedSchemaArnsResponse_schemaArns :: Lens.Lens' ListPublishedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listPublishedSchemaArnsResponse_schemaArns = Lens.lens (\ListPublishedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListPublishedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListPublishedSchemaArnsResponse) Prelude.. Lens.mapping Lens._Coerce
+listPublishedSchemaArnsResponse_schemaArns = Lens.lens (\ListPublishedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListPublishedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListPublishedSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listPublishedSchemaArnsResponse_nextToken :: Lens.Lens' ListPublishedSchemaArnsResponse (Prelude.Maybe Prelude.Text)

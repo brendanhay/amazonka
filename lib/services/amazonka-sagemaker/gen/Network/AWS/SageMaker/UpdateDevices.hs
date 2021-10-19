@@ -79,7 +79,7 @@ updateDevices_deviceFleetName = Lens.lens (\UpdateDevices' {deviceFleetName} -> 
 
 -- | List of devices to register with Edge Manager agent.
 updateDevices_devices :: Lens.Lens' UpdateDevices [Device]
-updateDevices_devices = Lens.lens (\UpdateDevices' {devices} -> devices) (\s@UpdateDevices' {} a -> s {devices = a} :: UpdateDevices) Prelude.. Lens._Coerce
+updateDevices_devices = Lens.lens (\UpdateDevices' {devices} -> devices) (\s@UpdateDevices' {} a -> s {devices = a} :: UpdateDevices) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateDevices where
   type

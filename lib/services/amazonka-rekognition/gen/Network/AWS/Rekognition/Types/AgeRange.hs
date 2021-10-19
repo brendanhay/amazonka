@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAgeRange' smart constructor.
 data AgeRange = AgeRange'
-  { -- | The highest estimated age.
-    high :: Prelude.Maybe Prelude.Natural,
-    -- | The lowest estimated age.
-    low :: Prelude.Maybe Prelude.Natural
+  { -- | The lowest estimated age.
+    low :: Prelude.Maybe Prelude.Natural,
+    -- | The highest estimated age.
+    high :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,24 @@ data AgeRange = AgeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'high', 'ageRange_high' - The highest estimated age.
---
 -- 'low', 'ageRange_low' - The lowest estimated age.
+--
+-- 'high', 'ageRange_high' - The highest estimated age.
 newAgeRange ::
   AgeRange
 newAgeRange =
   AgeRange'
-    { high = Prelude.Nothing,
-      low = Prelude.Nothing
+    { low = Prelude.Nothing,
+      high = Prelude.Nothing
     }
-
--- | The highest estimated age.
-ageRange_high :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
-ageRange_high = Lens.lens (\AgeRange' {high} -> high) (\s@AgeRange' {} a -> s {high = a} :: AgeRange)
 
 -- | The lowest estimated age.
 ageRange_low :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
 ageRange_low = Lens.lens (\AgeRange' {low} -> low) (\s@AgeRange' {} a -> s {low = a} :: AgeRange)
+
+-- | The highest estimated age.
+ageRange_high :: Lens.Lens' AgeRange (Prelude.Maybe Prelude.Natural)
+ageRange_high = Lens.lens (\AgeRange' {high} -> high) (\s@AgeRange' {} a -> s {high = a} :: AgeRange)
 
 instance Core.FromJSON AgeRange where
   parseJSON =
@@ -72,7 +72,7 @@ instance Core.FromJSON AgeRange where
       "AgeRange"
       ( \x ->
           AgeRange'
-            Prelude.<$> (x Core..:? "High") Prelude.<*> (x Core..:? "Low")
+            Prelude.<$> (x Core..:? "Low") Prelude.<*> (x Core..:? "High")
       )
 
 instance Prelude.Hashable AgeRange

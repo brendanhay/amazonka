@@ -51,7 +51,7 @@ newJobExecutionStatusDetails =
 
 -- | The job execution status.
 jobExecutionStatusDetails_detailsMap :: Lens.Lens' JobExecutionStatusDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobExecutionStatusDetails_detailsMap = Lens.lens (\JobExecutionStatusDetails' {detailsMap} -> detailsMap) (\s@JobExecutionStatusDetails' {} a -> s {detailsMap = a} :: JobExecutionStatusDetails) Prelude.. Lens.mapping Lens._Coerce
+jobExecutionStatusDetails_detailsMap = Lens.lens (\JobExecutionStatusDetails' {detailsMap} -> detailsMap) (\s@JobExecutionStatusDetails' {} a -> s {detailsMap = a} :: JobExecutionStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON JobExecutionStatusDetails where
   parseJSON =

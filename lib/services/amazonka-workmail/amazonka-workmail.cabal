@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-workmail
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon WorkMail SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -59,13 +59,16 @@ library
     Network.AWS.WorkMail.DeleteAlias
     Network.AWS.WorkMail.DeleteGroup
     Network.AWS.WorkMail.DeleteMailboxPermissions
+    Network.AWS.WorkMail.DeleteMobileDeviceAccessOverride
     Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
     Network.AWS.WorkMail.DeleteOrganization
     Network.AWS.WorkMail.DeleteResource
     Network.AWS.WorkMail.DeleteRetentionPolicy
     Network.AWS.WorkMail.DeleteUser
     Network.AWS.WorkMail.DeregisterFromWorkMail
+    Network.AWS.WorkMail.DeregisterMailDomain
     Network.AWS.WorkMail.DescribeGroup
+    Network.AWS.WorkMail.DescribeInboundDmarcSettings
     Network.AWS.WorkMail.DescribeMailboxExportJob
     Network.AWS.WorkMail.DescribeOrganization
     Network.AWS.WorkMail.DescribeResource
@@ -75,7 +78,9 @@ library
     Network.AWS.WorkMail.GetAccessControlEffect
     Network.AWS.WorkMail.GetDefaultRetentionPolicy
     Network.AWS.WorkMail.GetMailboxDetails
+    Network.AWS.WorkMail.GetMailDomain
     Network.AWS.WorkMail.GetMobileDeviceAccessEffect
+    Network.AWS.WorkMail.GetMobileDeviceAccessOverride
     Network.AWS.WorkMail.Lens
     Network.AWS.WorkMail.ListAccessControlRules
     Network.AWS.WorkMail.ListAliases
@@ -83,6 +88,8 @@ library
     Network.AWS.WorkMail.ListGroups
     Network.AWS.WorkMail.ListMailboxExportJobs
     Network.AWS.WorkMail.ListMailboxPermissions
+    Network.AWS.WorkMail.ListMailDomains
+    Network.AWS.WorkMail.ListMobileDeviceAccessOverrides
     Network.AWS.WorkMail.ListMobileDeviceAccessRules
     Network.AWS.WorkMail.ListOrganizations
     Network.AWS.WorkMail.ListResourceDelegates
@@ -90,8 +97,11 @@ library
     Network.AWS.WorkMail.ListTagsForResource
     Network.AWS.WorkMail.ListUsers
     Network.AWS.WorkMail.PutAccessControlRule
+    Network.AWS.WorkMail.PutInboundDmarcSettings
     Network.AWS.WorkMail.PutMailboxPermissions
+    Network.AWS.WorkMail.PutMobileDeviceAccessOverride
     Network.AWS.WorkMail.PutRetentionPolicy
+    Network.AWS.WorkMail.RegisterMailDomain
     Network.AWS.WorkMail.RegisterToWorkMail
     Network.AWS.WorkMail.ResetPassword
     Network.AWS.WorkMail.StartMailboxExportJob
@@ -101,6 +111,8 @@ library
     Network.AWS.WorkMail.Types.AccessControlRuleEffect
     Network.AWS.WorkMail.Types.BookingOptions
     Network.AWS.WorkMail.Types.Delegate
+    Network.AWS.WorkMail.Types.DnsRecord
+    Network.AWS.WorkMail.Types.DnsRecordVerificationStatus
     Network.AWS.WorkMail.Types.Domain
     Network.AWS.WorkMail.Types.EntityState
     Network.AWS.WorkMail.Types.FolderConfiguration
@@ -108,9 +120,11 @@ library
     Network.AWS.WorkMail.Types.Group
     Network.AWS.WorkMail.Types.MailboxExportJob
     Network.AWS.WorkMail.Types.MailboxExportJobState
+    Network.AWS.WorkMail.Types.MailDomainSummary
     Network.AWS.WorkMail.Types.Member
     Network.AWS.WorkMail.Types.MemberType
     Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
+    Network.AWS.WorkMail.Types.MobileDeviceAccessOverride
     Network.AWS.WorkMail.Types.MobileDeviceAccessRule
     Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect
     Network.AWS.WorkMail.Types.OrganizationSummary
@@ -123,6 +137,7 @@ library
     Network.AWS.WorkMail.Types.User
     Network.AWS.WorkMail.Types.UserRole
     Network.AWS.WorkMail.UntagResource
+    Network.AWS.WorkMail.UpdateDefaultMailDomain
     Network.AWS.WorkMail.UpdateMailboxQuota
     Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
     Network.AWS.WorkMail.UpdatePrimaryEmailAddress
@@ -131,8 +146,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-workmail-test
   type:             exitcode-stdio-1.0
@@ -150,8 +165,8 @@ test-suite amazonka-workmail-test
     Test.AWS.WorkMail.Internal
 
   build-depends:
-    , amazonka              >=1.6.1 && <1.6.2
-    , amazonka-test         >=1.6.1 && <1.6.2
+    , amazonka              ^>=2.0
+    , amazonka-test         ^>=2.0
     , amazonka-workmail
     , base
     , bytestring

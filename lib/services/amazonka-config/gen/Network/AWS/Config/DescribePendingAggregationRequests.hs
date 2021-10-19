@@ -234,7 +234,7 @@ describePendingAggregationRequestsResponse_nextToken = Lens.lens (\DescribePendi
 
 -- | Returns a PendingAggregationRequests object.
 describePendingAggregationRequestsResponse_pendingAggregationRequests :: Lens.Lens' DescribePendingAggregationRequestsResponse (Prelude.Maybe [PendingAggregationRequest])
-describePendingAggregationRequestsResponse_pendingAggregationRequests = Lens.lens (\DescribePendingAggregationRequestsResponse' {pendingAggregationRequests} -> pendingAggregationRequests) (\s@DescribePendingAggregationRequestsResponse' {} a -> s {pendingAggregationRequests = a} :: DescribePendingAggregationRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
+describePendingAggregationRequestsResponse_pendingAggregationRequests = Lens.lens (\DescribePendingAggregationRequestsResponse' {pendingAggregationRequests} -> pendingAggregationRequests) (\s@DescribePendingAggregationRequestsResponse' {} a -> s {pendingAggregationRequests = a} :: DescribePendingAggregationRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePendingAggregationRequestsResponse_httpStatus :: Lens.Lens' DescribePendingAggregationRequestsResponse Prelude.Int

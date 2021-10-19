@@ -28,10 +28,10 @@ module Network.AWS.EC2.GetCoipPoolUsage
     newGetCoipPoolUsage,
 
     -- * Request Lenses
-    getCoipPoolUsage_nextToken,
-    getCoipPoolUsage_maxResults,
-    getCoipPoolUsage_dryRun,
     getCoipPoolUsage_filters,
+    getCoipPoolUsage_nextToken,
+    getCoipPoolUsage_dryRun,
+    getCoipPoolUsage_maxResults,
     getCoipPoolUsage_poolId,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.EC2.GetCoipPoolUsage
 
     -- * Response Lenses
     getCoipPoolUsageResponse_coipAddressUsages,
-    getCoipPoolUsageResponse_localGatewayRouteTableId,
     getCoipPoolUsageResponse_coipPoolId,
+    getCoipPoolUsageResponse_localGatewayRouteTableId,
     getCoipPoolUsageResponse_httpStatus,
   )
 where
@@ -55,18 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCoipPoolUsage' smart constructor.
 data GetCoipPoolUsage = GetCoipPoolUsage'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters. The following are the possible values:
+  { -- | The filters. The following are the possible values:
     --
     -- -   @coip-address-usage.allocation-id@
     --
@@ -76,6 +65,17 @@ data GetCoipPoolUsage = GetCoipPoolUsage'
     --
     -- -   @coip-address-usage.co-ip@
     filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the address pool.
     poolId :: Prelude.Text
   }
@@ -89,17 +89,6 @@ data GetCoipPoolUsage = GetCoipPoolUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getCoipPoolUsage_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'getCoipPoolUsage_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'getCoipPoolUsage_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'filters', 'getCoipPoolUsage_filters' - The filters. The following are the possible values:
 --
 -- -   @coip-address-usage.allocation-id@
@@ -110,6 +99,17 @@ data GetCoipPoolUsage = GetCoipPoolUsage'
 --
 -- -   @coip-address-usage.co-ip@
 --
+-- 'nextToken', 'getCoipPoolUsage_nextToken' - The token for the next page of results.
+--
+-- 'dryRun', 'getCoipPoolUsage_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'getCoipPoolUsage_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+--
 -- 'poolId', 'getCoipPoolUsage_poolId' - The ID of the address pool.
 newGetCoipPoolUsage ::
   -- | 'poolId'
@@ -117,29 +117,12 @@ newGetCoipPoolUsage ::
   GetCoipPoolUsage
 newGetCoipPoolUsage pPoolId_ =
   GetCoipPoolUsage'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       poolId = pPoolId_
     }
-
--- | The token for the next page of results.
-getCoipPoolUsage_nextToken :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Text)
-getCoipPoolUsage_nextToken = Lens.lens (\GetCoipPoolUsage' {nextToken} -> nextToken) (\s@GetCoipPoolUsage' {} a -> s {nextToken = a} :: GetCoipPoolUsage)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getCoipPoolUsage_maxResults :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Natural)
-getCoipPoolUsage_maxResults = Lens.lens (\GetCoipPoolUsage' {maxResults} -> maxResults) (\s@GetCoipPoolUsage' {} a -> s {maxResults = a} :: GetCoipPoolUsage)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-getCoipPoolUsage_dryRun :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Bool)
-getCoipPoolUsage_dryRun = Lens.lens (\GetCoipPoolUsage' {dryRun} -> dryRun) (\s@GetCoipPoolUsage' {} a -> s {dryRun = a} :: GetCoipPoolUsage)
 
 -- | The filters. The following are the possible values:
 --
@@ -151,7 +134,24 @@ getCoipPoolUsage_dryRun = Lens.lens (\GetCoipPoolUsage' {dryRun} -> dryRun) (\s@
 --
 -- -   @coip-address-usage.co-ip@
 getCoipPoolUsage_filters :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe [Filter])
-getCoipPoolUsage_filters = Lens.lens (\GetCoipPoolUsage' {filters} -> filters) (\s@GetCoipPoolUsage' {} a -> s {filters = a} :: GetCoipPoolUsage) Prelude.. Lens.mapping Lens._Coerce
+getCoipPoolUsage_filters = Lens.lens (\GetCoipPoolUsage' {filters} -> filters) (\s@GetCoipPoolUsage' {} a -> s {filters = a} :: GetCoipPoolUsage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+getCoipPoolUsage_nextToken :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Text)
+getCoipPoolUsage_nextToken = Lens.lens (\GetCoipPoolUsage' {nextToken} -> nextToken) (\s@GetCoipPoolUsage' {} a -> s {nextToken = a} :: GetCoipPoolUsage)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+getCoipPoolUsage_dryRun :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Bool)
+getCoipPoolUsage_dryRun = Lens.lens (\GetCoipPoolUsage' {dryRun} -> dryRun) (\s@GetCoipPoolUsage' {} a -> s {dryRun = a} :: GetCoipPoolUsage)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getCoipPoolUsage_maxResults :: Lens.Lens' GetCoipPoolUsage (Prelude.Maybe Prelude.Natural)
+getCoipPoolUsage_maxResults = Lens.lens (\GetCoipPoolUsage' {maxResults} -> maxResults) (\s@GetCoipPoolUsage' {} a -> s {maxResults = a} :: GetCoipPoolUsage)
 
 -- | The ID of the address pool.
 getCoipPoolUsage_poolId :: Lens.Lens' GetCoipPoolUsage Prelude.Text
@@ -170,8 +170,8 @@ instance Core.AWSRequest GetCoipPoolUsage where
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "localGatewayRouteTableId")
             Prelude.<*> (x Core..@? "coipPoolId")
+            Prelude.<*> (x Core..@? "localGatewayRouteTableId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,11 +192,11 @@ instance Core.ToQuery GetCoipPoolUsage where
           Core.=: ("GetCoipPoolUsage" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "PoolId" Core.=: poolId
       ]
 
@@ -204,10 +204,10 @@ instance Core.ToQuery GetCoipPoolUsage where
 data GetCoipPoolUsageResponse = GetCoipPoolUsageResponse'
   { -- | Information about the address usage.
     coipAddressUsages :: Prelude.Maybe [CoipAddressUsage],
-    -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the customer-owned address pool.
     coipPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,9 +223,9 @@ data GetCoipPoolUsageResponse = GetCoipPoolUsageResponse'
 --
 -- 'coipAddressUsages', 'getCoipPoolUsageResponse_coipAddressUsages' - Information about the address usage.
 --
--- 'localGatewayRouteTableId', 'getCoipPoolUsageResponse_localGatewayRouteTableId' - The ID of the local gateway route table.
---
 -- 'coipPoolId', 'getCoipPoolUsageResponse_coipPoolId' - The ID of the customer-owned address pool.
+--
+-- 'localGatewayRouteTableId', 'getCoipPoolUsageResponse_localGatewayRouteTableId' - The ID of the local gateway route table.
 --
 -- 'httpStatus', 'getCoipPoolUsageResponse_httpStatus' - The response's http status code.
 newGetCoipPoolUsageResponse ::
@@ -236,22 +236,22 @@ newGetCoipPoolUsageResponse pHttpStatus_ =
   GetCoipPoolUsageResponse'
     { coipAddressUsages =
         Prelude.Nothing,
-      localGatewayRouteTableId = Prelude.Nothing,
       coipPoolId = Prelude.Nothing,
+      localGatewayRouteTableId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the address usage.
 getCoipPoolUsageResponse_coipAddressUsages :: Lens.Lens' GetCoipPoolUsageResponse (Prelude.Maybe [CoipAddressUsage])
-getCoipPoolUsageResponse_coipAddressUsages = Lens.lens (\GetCoipPoolUsageResponse' {coipAddressUsages} -> coipAddressUsages) (\s@GetCoipPoolUsageResponse' {} a -> s {coipAddressUsages = a} :: GetCoipPoolUsageResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ID of the local gateway route table.
-getCoipPoolUsageResponse_localGatewayRouteTableId :: Lens.Lens' GetCoipPoolUsageResponse (Prelude.Maybe Prelude.Text)
-getCoipPoolUsageResponse_localGatewayRouteTableId = Lens.lens (\GetCoipPoolUsageResponse' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@GetCoipPoolUsageResponse' {} a -> s {localGatewayRouteTableId = a} :: GetCoipPoolUsageResponse)
+getCoipPoolUsageResponse_coipAddressUsages = Lens.lens (\GetCoipPoolUsageResponse' {coipAddressUsages} -> coipAddressUsages) (\s@GetCoipPoolUsageResponse' {} a -> s {coipAddressUsages = a} :: GetCoipPoolUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the customer-owned address pool.
 getCoipPoolUsageResponse_coipPoolId :: Lens.Lens' GetCoipPoolUsageResponse (Prelude.Maybe Prelude.Text)
 getCoipPoolUsageResponse_coipPoolId = Lens.lens (\GetCoipPoolUsageResponse' {coipPoolId} -> coipPoolId) (\s@GetCoipPoolUsageResponse' {} a -> s {coipPoolId = a} :: GetCoipPoolUsageResponse)
+
+-- | The ID of the local gateway route table.
+getCoipPoolUsageResponse_localGatewayRouteTableId :: Lens.Lens' GetCoipPoolUsageResponse (Prelude.Maybe Prelude.Text)
+getCoipPoolUsageResponse_localGatewayRouteTableId = Lens.lens (\GetCoipPoolUsageResponse' {localGatewayRouteTableId} -> localGatewayRouteTableId) (\s@GetCoipPoolUsageResponse' {} a -> s {localGatewayRouteTableId = a} :: GetCoipPoolUsageResponse)
 
 -- | The response's http status code.
 getCoipPoolUsageResponse_httpStatus :: Lens.Lens' GetCoipPoolUsageResponse Prelude.Int

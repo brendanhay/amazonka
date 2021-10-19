@@ -14,217 +14,369 @@
 module Network.AWS.IAM.Lens
   ( -- * Operations
 
-    -- ** ListSigningCertificates
-    listSigningCertificates_userName,
-    listSigningCertificates_maxItems,
-    listSigningCertificates_marker,
-    listSigningCertificatesResponse_isTruncated,
-    listSigningCertificatesResponse_marker,
-    listSigningCertificatesResponse_httpStatus,
-    listSigningCertificatesResponse_certificates,
+    -- ** GetContextKeysForPrincipalPolicy
+    getContextKeysForPrincipalPolicy_policyInputList,
+    getContextKeysForPrincipalPolicy_policySourceArn,
+    getContextKeysForPolicyResponse_contextKeyNames,
+
+    -- ** ListPolicies
+    listPolicies_pathPrefix,
+    listPolicies_onlyAttached,
+    listPolicies_marker,
+    listPolicies_scope,
+    listPolicies_maxItems,
+    listPolicies_policyUsageFilter,
+    listPoliciesResponse_marker,
+    listPoliciesResponse_isTruncated,
+    listPoliciesResponse_policies,
+    listPoliciesResponse_httpStatus,
+
+    -- ** CreatePolicy
+    createPolicy_path,
+    createPolicy_description,
+    createPolicy_tags,
+    createPolicy_policyName,
+    createPolicy_policyDocument,
+    createPolicyResponse_policy,
+    createPolicyResponse_httpStatus,
+
+    -- ** ListInstanceProfilesForRole
+    listInstanceProfilesForRole_marker,
+    listInstanceProfilesForRole_maxItems,
+    listInstanceProfilesForRole_roleName,
+    listInstanceProfilesForRoleResponse_marker,
+    listInstanceProfilesForRoleResponse_isTruncated,
+    listInstanceProfilesForRoleResponse_httpStatus,
+    listInstanceProfilesForRoleResponse_instanceProfiles,
+
+    -- ** AttachGroupPolicy
+    attachGroupPolicy_groupName,
+    attachGroupPolicy_policyArn,
+
+    -- ** CreateAccessKey
+    createAccessKey_userName,
+    createAccessKeyResponse_httpStatus,
+    createAccessKeyResponse_accessKey,
 
     -- ** ListRoleTags
-    listRoleTags_maxItems,
     listRoleTags_marker,
+    listRoleTags_maxItems,
     listRoleTags_roleName,
-    listRoleTagsResponse_isTruncated,
     listRoleTagsResponse_marker,
+    listRoleTagsResponse_isTruncated,
     listRoleTagsResponse_httpStatus,
     listRoleTagsResponse_tags,
+
+    -- ** ListSSHPublicKeys
+    listSSHPublicKeys_userName,
+    listSSHPublicKeys_marker,
+    listSSHPublicKeys_maxItems,
+    listSSHPublicKeysResponse_sSHPublicKeys,
+    listSSHPublicKeysResponse_marker,
+    listSSHPublicKeysResponse_isTruncated,
+    listSSHPublicKeysResponse_httpStatus,
+
+    -- ** UntagOpenIDConnectProvider
+    untagOpenIDConnectProvider_openIDConnectProviderArn,
+    untagOpenIDConnectProvider_tagKeys,
+
+    -- ** ListOpenIDConnectProviders
+    listOpenIDConnectProvidersResponse_openIDConnectProviderList,
+    listOpenIDConnectProvidersResponse_httpStatus,
+
+    -- ** CreateVirtualMFADevice
+    createVirtualMFADevice_path,
+    createVirtualMFADevice_tags,
+    createVirtualMFADevice_virtualMFADeviceName,
+    createVirtualMFADeviceResponse_httpStatus,
+    createVirtualMFADeviceResponse_virtualMFADevice,
+
+    -- ** DeleteAccountPasswordPolicy
+
+    -- ** UpdateAccountPasswordPolicy
+    updateAccountPasswordPolicy_minimumPasswordLength,
+    updateAccountPasswordPolicy_requireNumbers,
+    updateAccountPasswordPolicy_passwordReusePrevention,
+    updateAccountPasswordPolicy_requireLowercaseCharacters,
+    updateAccountPasswordPolicy_maxPasswordAge,
+    updateAccountPasswordPolicy_hardExpiry,
+    updateAccountPasswordPolicy_requireSymbols,
+    updateAccountPasswordPolicy_requireUppercaseCharacters,
+    updateAccountPasswordPolicy_allowUsersToChangePassword,
 
     -- ** AttachRolePolicy
     attachRolePolicy_roleName,
     attachRolePolicy_policyArn,
-
-    -- ** DeleteOpenIDConnectProvider
-    deleteOpenIDConnectProvider_openIDConnectProviderArn,
-
-    -- ** GetUser
-    getUser_userName,
-    getUserResponse_httpStatus,
-    getUserResponse_user,
-
-    -- ** CreateVirtualMFADevice
-    createVirtualMFADevice_tags,
-    createVirtualMFADevice_path,
-    createVirtualMFADevice_virtualMFADeviceName,
-    createVirtualMFADeviceResponse_httpStatus,
-    createVirtualMFADeviceResponse_virtualMFADevice,
 
     -- ** UpdateSSHPublicKey
     updateSSHPublicKey_userName,
     updateSSHPublicKey_sSHPublicKeyId,
     updateSSHPublicKey_status,
 
-    -- ** UntagOpenIDConnectProvider
-    untagOpenIDConnectProvider_openIDConnectProviderArn,
-    untagOpenIDConnectProvider_tagKeys,
-
     -- ** DeleteSSHPublicKey
     deleteSSHPublicKey_userName,
     deleteSSHPublicKey_sSHPublicKeyId,
 
-    -- ** ListOpenIDConnectProviders
-    listOpenIDConnectProvidersResponse_openIDConnectProviderList,
-    listOpenIDConnectProvidersResponse_httpStatus,
+    -- ** GetUserPolicy
+    getUserPolicy_userName,
+    getUserPolicy_policyName,
+    getUserPolicyResponse_httpStatus,
+    getUserPolicyResponse_userName,
+    getUserPolicyResponse_policyName,
+    getUserPolicyResponse_policyDocument,
 
-    -- ** ListEntitiesForPolicy
-    listEntitiesForPolicy_entityFilter,
-    listEntitiesForPolicy_policyUsageFilter,
-    listEntitiesForPolicy_pathPrefix,
-    listEntitiesForPolicy_maxItems,
-    listEntitiesForPolicy_marker,
-    listEntitiesForPolicy_policyArn,
-    listEntitiesForPolicyResponse_policyRoles,
-    listEntitiesForPolicyResponse_isTruncated,
-    listEntitiesForPolicyResponse_policyUsers,
-    listEntitiesForPolicyResponse_policyGroups,
-    listEntitiesForPolicyResponse_marker,
-    listEntitiesForPolicyResponse_httpStatus,
+    -- ** UpdateServiceSpecificCredential
+    updateServiceSpecificCredential_userName,
+    updateServiceSpecificCredential_serviceSpecificCredentialId,
+    updateServiceSpecificCredential_status,
 
-    -- ** CreateServiceLinkedRole
-    createServiceLinkedRole_customSuffix,
-    createServiceLinkedRole_description,
-    createServiceLinkedRole_aWSServiceName,
-    createServiceLinkedRoleResponse_role,
-    createServiceLinkedRoleResponse_httpStatus,
+    -- ** DeleteServiceSpecificCredential
+    deleteServiceSpecificCredential_userName,
+    deleteServiceSpecificCredential_serviceSpecificCredentialId,
 
-    -- ** GetSAMLProvider
-    getSAMLProvider_sAMLProviderArn,
-    getSAMLProviderResponse_createDate,
-    getSAMLProviderResponse_validUntil,
-    getSAMLProviderResponse_sAMLMetadataDocument,
-    getSAMLProviderResponse_tags,
-    getSAMLProviderResponse_httpStatus,
+    -- ** ListAttachedRolePolicies
+    listAttachedRolePolicies_pathPrefix,
+    listAttachedRolePolicies_marker,
+    listAttachedRolePolicies_maxItems,
+    listAttachedRolePolicies_roleName,
+    listAttachedRolePoliciesResponse_attachedPolicies,
+    listAttachedRolePoliciesResponse_marker,
+    listAttachedRolePoliciesResponse_isTruncated,
+    listAttachedRolePoliciesResponse_httpStatus,
 
-    -- ** ListPolicies
-    listPolicies_scope,
-    listPolicies_onlyAttached,
-    listPolicies_policyUsageFilter,
-    listPolicies_pathPrefix,
-    listPolicies_maxItems,
-    listPolicies_marker,
-    listPoliciesResponse_policies,
-    listPoliciesResponse_isTruncated,
-    listPoliciesResponse_marker,
-    listPoliciesResponse_httpStatus,
+    -- ** GetRole
+    getRole_roleName,
+    getRoleResponse_httpStatus,
+    getRoleResponse_role,
 
-    -- ** CreatePolicy
-    createPolicy_tags,
-    createPolicy_description,
-    createPolicy_path,
-    createPolicy_policyName,
-    createPolicy_policyDocument,
-    createPolicyResponse_policy,
-    createPolicyResponse_httpStatus,
+    -- ** DeactivateMFADevice
+    deactivateMFADevice_userName,
+    deactivateMFADevice_serialNumber,
 
-    -- ** ListGroupsForUser
-    listGroupsForUser_maxItems,
-    listGroupsForUser_marker,
-    listGroupsForUser_userName,
-    listGroupsForUserResponse_isTruncated,
-    listGroupsForUserResponse_marker,
-    listGroupsForUserResponse_httpStatus,
-    listGroupsForUserResponse_groups,
+    -- ** CreateOpenIDConnectProvider
+    createOpenIDConnectProvider_clientIDList,
+    createOpenIDConnectProvider_tags,
+    createOpenIDConnectProvider_url,
+    createOpenIDConnectProvider_thumbprintList,
+    createOpenIDConnectProviderResponse_openIDConnectProviderArn,
+    createOpenIDConnectProviderResponse_tags,
+    createOpenIDConnectProviderResponse_httpStatus,
 
-    -- ** GetContextKeysForPrincipalPolicy
-    getContextKeysForPrincipalPolicy_policyInputList,
-    getContextKeysForPrincipalPolicy_policySourceArn,
-    getContextKeysForPolicyResponse_contextKeyNames,
+    -- ** DeleteVirtualMFADevice
+    deleteVirtualMFADevice_serialNumber,
 
-    -- ** SimulatePrincipalPolicy
-    simulatePrincipalPolicy_resourceOwner,
-    simulatePrincipalPolicy_contextEntries,
-    simulatePrincipalPolicy_resourcePolicy,
-    simulatePrincipalPolicy_permissionsBoundaryPolicyInputList,
-    simulatePrincipalPolicy_resourceArns,
-    simulatePrincipalPolicy_policyInputList,
-    simulatePrincipalPolicy_resourceHandlingOption,
-    simulatePrincipalPolicy_callerArn,
-    simulatePrincipalPolicy_maxItems,
-    simulatePrincipalPolicy_marker,
-    simulatePrincipalPolicy_policySourceArn,
-    simulatePrincipalPolicy_actionNames,
-    simulatePolicyResponse_isTruncated,
+    -- ** ListRoles
+    listRoles_pathPrefix,
+    listRoles_marker,
+    listRoles_maxItems,
+    listRolesResponse_marker,
+    listRolesResponse_isTruncated,
+    listRolesResponse_httpStatus,
+    listRolesResponse_roles,
+
+    -- ** ListUserPolicies
+    listUserPolicies_marker,
+    listUserPolicies_maxItems,
+    listUserPolicies_userName,
+    listUserPoliciesResponse_marker,
+    listUserPoliciesResponse_isTruncated,
+    listUserPoliciesResponse_httpStatus,
+    listUserPoliciesResponse_policyNames,
+
+    -- ** ListOpenIDConnectProviderTags
+    listOpenIDConnectProviderTags_marker,
+    listOpenIDConnectProviderTags_maxItems,
+    listOpenIDConnectProviderTags_openIDConnectProviderArn,
+    listOpenIDConnectProviderTagsResponse_marker,
+    listOpenIDConnectProviderTagsResponse_isTruncated,
+    listOpenIDConnectProviderTagsResponse_httpStatus,
+    listOpenIDConnectProviderTagsResponse_tags,
+
+    -- ** PutRolePermissionsBoundary
+    putRolePermissionsBoundary_roleName,
+    putRolePermissionsBoundary_permissionsBoundary,
+
+    -- ** UploadSSHPublicKey
+    uploadSSHPublicKey_userName,
+    uploadSSHPublicKey_sSHPublicKeyBody,
+    uploadSSHPublicKeyResponse_sSHPublicKey,
+    uploadSSHPublicKeyResponse_httpStatus,
+
+    -- ** DeleteRolePermissionsBoundary
+    deleteRolePermissionsBoundary_roleName,
+
+    -- ** SimulateCustomPolicy
+    simulateCustomPolicy_resourcePolicy,
+    simulateCustomPolicy_callerArn,
+    simulateCustomPolicy_resourceHandlingOption,
+    simulateCustomPolicy_resourceArns,
+    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
+    simulateCustomPolicy_marker,
+    simulateCustomPolicy_maxItems,
+    simulateCustomPolicy_contextEntries,
+    simulateCustomPolicy_resourceOwner,
+    simulateCustomPolicy_policyInputList,
+    simulateCustomPolicy_actionNames,
     simulatePolicyResponse_evaluationResults,
     simulatePolicyResponse_marker,
+    simulatePolicyResponse_isTruncated,
 
-    -- ** ListInstanceProfileTags
-    listInstanceProfileTags_maxItems,
-    listInstanceProfileTags_marker,
-    listInstanceProfileTags_instanceProfileName,
-    listInstanceProfileTagsResponse_isTruncated,
-    listInstanceProfileTagsResponse_marker,
-    listInstanceProfileTagsResponse_httpStatus,
-    listInstanceProfileTagsResponse_tags,
+    -- ** UpdateRole
+    updateRole_maxSessionDuration,
+    updateRole_description,
+    updateRole_roleName,
+    updateRoleResponse_httpStatus,
 
-    -- ** DeletePolicy
-    deletePolicy_policyArn,
+    -- ** DeleteRole
+    deleteRole_roleName,
 
-    -- ** UpdateServerCertificate
-    updateServerCertificate_newPath,
-    updateServerCertificate_newServerCertificateName,
-    updateServerCertificate_serverCertificateName,
+    -- ** ListUsers
+    listUsers_pathPrefix,
+    listUsers_marker,
+    listUsers_maxItems,
+    listUsersResponse_marker,
+    listUsersResponse_isTruncated,
+    listUsersResponse_httpStatus,
+    listUsersResponse_users,
 
-    -- ** ListAttachedGroupPolicies
-    listAttachedGroupPolicies_pathPrefix,
-    listAttachedGroupPolicies_maxItems,
-    listAttachedGroupPolicies_marker,
-    listAttachedGroupPolicies_groupName,
-    listAttachedGroupPoliciesResponse_isTruncated,
-    listAttachedGroupPoliciesResponse_attachedPolicies,
-    listAttachedGroupPoliciesResponse_marker,
-    listAttachedGroupPoliciesResponse_httpStatus,
+    -- ** UpdateOpenIDConnectProviderThumbprint
+    updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn,
+    updateOpenIDConnectProviderThumbprint_thumbprintList,
 
-    -- ** UpdateAssumeRolePolicy
-    updateAssumeRolePolicy_roleName,
-    updateAssumeRolePolicy_policyDocument,
+    -- ** PutUserPolicy
+    putUserPolicy_userName,
+    putUserPolicy_policyName,
+    putUserPolicy_policyDocument,
 
-    -- ** UntagServerCertificate
-    untagServerCertificate_serverCertificateName,
-    untagServerCertificate_tagKeys,
+    -- ** TagMFADevice
+    tagMFADevice_serialNumber,
+    tagMFADevice_tags,
 
-    -- ** ChangePassword
-    changePassword_oldPassword,
-    changePassword_newPassword,
+    -- ** GetSSHPublicKey
+    getSSHPublicKey_userName,
+    getSSHPublicKey_sSHPublicKeyId,
+    getSSHPublicKey_encoding,
+    getSSHPublicKeyResponse_sSHPublicKey,
+    getSSHPublicKeyResponse_httpStatus,
 
-    -- ** ListServerCertificates
-    listServerCertificates_pathPrefix,
-    listServerCertificates_maxItems,
-    listServerCertificates_marker,
-    listServerCertificatesResponse_isTruncated,
-    listServerCertificatesResponse_marker,
-    listServerCertificatesResponse_httpStatus,
-    listServerCertificatesResponse_serverCertificateMetadataList,
+    -- ** UntagUser
+    untagUser_userName,
+    untagUser_tagKeys,
 
-    -- ** GetGroupPolicy
-    getGroupPolicy_groupName,
-    getGroupPolicy_policyName,
-    getGroupPolicyResponse_httpStatus,
-    getGroupPolicyResponse_groupName,
-    getGroupPolicyResponse_policyName,
-    getGroupPolicyResponse_policyDocument,
+    -- ** DetachGroupPolicy
+    detachGroupPolicy_groupName,
+    detachGroupPolicy_policyArn,
 
-    -- ** DeleteServerCertificate
-    deleteServerCertificate_serverCertificateName,
+    -- ** TagInstanceProfile
+    tagInstanceProfile_instanceProfileName,
+    tagInstanceProfile_tags,
 
-    -- ** ListMFADeviceTags
-    listMFADeviceTags_maxItems,
-    listMFADeviceTags_marker,
-    listMFADeviceTags_serialNumber,
-    listMFADeviceTagsResponse_isTruncated,
-    listMFADeviceTagsResponse_marker,
-    listMFADeviceTagsResponse_httpStatus,
-    listMFADeviceTagsResponse_tags,
+    -- ** GetOpenIDConnectProvider
+    getOpenIDConnectProvider_openIDConnectProviderArn,
+    getOpenIDConnectProviderResponse_createDate,
+    getOpenIDConnectProviderResponse_url,
+    getOpenIDConnectProviderResponse_thumbprintList,
+    getOpenIDConnectProviderResponse_clientIDList,
+    getOpenIDConnectProviderResponse_tags,
+    getOpenIDConnectProviderResponse_httpStatus,
 
-    -- ** UntagPolicy
-    untagPolicy_policyArn,
-    untagPolicy_tagKeys,
+    -- ** PutUserPermissionsBoundary
+    putUserPermissionsBoundary_userName,
+    putUserPermissionsBoundary_permissionsBoundary,
 
-    -- ** GetLoginProfile
-    getLoginProfile_userName,
-    getLoginProfileResponse_httpStatus,
-    getLoginProfileResponse_loginProfile,
+    -- ** DeleteUserPolicy
+    deleteUserPolicy_userName,
+    deleteUserPolicy_policyName,
+
+    -- ** TagSAMLProvider
+    tagSAMLProvider_sAMLProviderArn,
+    tagSAMLProvider_tags,
+
+    -- ** DeleteUserPermissionsBoundary
+    deleteUserPermissionsBoundary_userName,
+
+    -- ** CreateRole
+    createRole_maxSessionDuration,
+    createRole_path,
+    createRole_permissionsBoundary,
+    createRole_description,
+    createRole_tags,
+    createRole_roleName,
+    createRole_assumeRolePolicyDocument,
+    createRoleResponse_httpStatus,
+    createRoleResponse_role,
+
+    -- ** ResetServiceSpecificCredential
+    resetServiceSpecificCredential_userName,
+    resetServiceSpecificCredential_serviceSpecificCredentialId,
+    resetServiceSpecificCredentialResponse_serviceSpecificCredential,
+    resetServiceSpecificCredentialResponse_httpStatus,
+
+    -- ** UntagSAMLProvider
+    untagSAMLProvider_sAMLProviderArn,
+    untagSAMLProvider_tagKeys,
+
+    -- ** GetCredentialReport
+    getCredentialReportResponse_content,
+    getCredentialReportResponse_generatedTime,
+    getCredentialReportResponse_reportFormat,
+    getCredentialReportResponse_httpStatus,
+
+    -- ** ListServerCertificateTags
+    listServerCertificateTags_marker,
+    listServerCertificateTags_maxItems,
+    listServerCertificateTags_serverCertificateName,
+    listServerCertificateTagsResponse_marker,
+    listServerCertificateTagsResponse_isTruncated,
+    listServerCertificateTagsResponse_httpStatus,
+    listServerCertificateTagsResponse_tags,
+
+    -- ** GetAccountSummary
+    getAccountSummaryResponse_summaryMap,
+    getAccountSummaryResponse_httpStatus,
+
+    -- ** GenerateServiceLastAccessedDetails
+    generateServiceLastAccessedDetails_granularity,
+    generateServiceLastAccessedDetails_arn,
+    generateServiceLastAccessedDetailsResponse_jobId,
+    generateServiceLastAccessedDetailsResponse_httpStatus,
+
+    -- ** ListPolicyTags
+    listPolicyTags_marker,
+    listPolicyTags_maxItems,
+    listPolicyTags_policyArn,
+    listPolicyTagsResponse_marker,
+    listPolicyTagsResponse_isTruncated,
+    listPolicyTagsResponse_httpStatus,
+    listPolicyTagsResponse_tags,
+
+    -- ** ListGroupPolicies
+    listGroupPolicies_marker,
+    listGroupPolicies_maxItems,
+    listGroupPolicies_groupName,
+    listGroupPoliciesResponse_marker,
+    listGroupPoliciesResponse_isTruncated,
+    listGroupPoliciesResponse_httpStatus,
+    listGroupPoliciesResponse_policyNames,
+
+    -- ** DeletePolicyVersion
+    deletePolicyVersion_policyArn,
+    deletePolicyVersion_versionId,
+
+    -- ** TagUser
+    tagUser_userName,
+    tagUser_tags,
+
+    -- ** DeleteInstanceProfile
+    deleteInstanceProfile_instanceProfileName,
+
+    -- ** DetachRolePolicy
+    detachRolePolicy_roleName,
+    detachRolePolicy_policyArn,
+
+    -- ** RemoveRoleFromInstanceProfile
+    removeRoleFromInstanceProfile_instanceProfileName,
+    removeRoleFromInstanceProfile_roleName,
 
     -- ** CreatePolicyVersion
     createPolicyVersion_setAsDefault,
@@ -233,23 +385,45 @@ module Network.AWS.IAM.Lens
     createPolicyVersionResponse_policyVersion,
     createPolicyVersionResponse_httpStatus,
 
-    -- ** GetServerCertificate
-    getServerCertificate_serverCertificateName,
-    getServerCertificateResponse_httpStatus,
-    getServerCertificateResponse_serverCertificate,
+    -- ** CreateInstanceProfile
+    createInstanceProfile_path,
+    createInstanceProfile_tags,
+    createInstanceProfile_instanceProfileName,
+    createInstanceProfileResponse_httpStatus,
+    createInstanceProfileResponse_instanceProfile,
 
-    -- ** ListGroups
-    listGroups_pathPrefix,
-    listGroups_maxItems,
-    listGroups_marker,
-    listGroupsResponse_isTruncated,
-    listGroupsResponse_marker,
-    listGroupsResponse_httpStatus,
-    listGroupsResponse_groups,
+    -- ** CreateSAMLProvider
+    createSAMLProvider_tags,
+    createSAMLProvider_sAMLMetadataDocument,
+    createSAMLProvider_name,
+    createSAMLProviderResponse_sAMLProviderArn,
+    createSAMLProviderResponse_tags,
+    createSAMLProviderResponse_httpStatus,
 
-    -- ** TagRole
-    tagRole_roleName,
-    tagRole_tags,
+    -- ** GetAccountAuthorizationDetails
+    getAccountAuthorizationDetails_marker,
+    getAccountAuthorizationDetails_maxItems,
+    getAccountAuthorizationDetails_filter,
+    getAccountAuthorizationDetailsResponse_roleDetailList,
+    getAccountAuthorizationDetailsResponse_groupDetailList,
+    getAccountAuthorizationDetailsResponse_userDetailList,
+    getAccountAuthorizationDetailsResponse_marker,
+    getAccountAuthorizationDetailsResponse_isTruncated,
+    getAccountAuthorizationDetailsResponse_policies,
+    getAccountAuthorizationDetailsResponse_httpStatus,
+
+    -- ** GetServiceLinkedRoleDeletionStatus
+    getServiceLinkedRoleDeletionStatus_deletionTaskId,
+    getServiceLinkedRoleDeletionStatusResponse_reason,
+    getServiceLinkedRoleDeletionStatusResponse_httpStatus,
+    getServiceLinkedRoleDeletionStatusResponse_status,
+
+    -- ** DeleteAccountAlias
+    deleteAccountAlias_accountAlias,
+
+    -- ** DetachUserPolicy
+    detachUserPolicy_userName,
+    detachUserPolicy_policyArn,
 
     -- ** RemoveUserFromGroup
     removeUserFromGroup_groupName,
@@ -259,200 +433,256 @@ module Network.AWS.IAM.Lens
     deleteGroupPolicy_groupName,
     deleteGroupPolicy_policyName,
 
-    -- ** CreateInstanceProfile
-    createInstanceProfile_tags,
-    createInstanceProfile_path,
-    createInstanceProfile_instanceProfileName,
-    createInstanceProfileResponse_httpStatus,
-    createInstanceProfileResponse_instanceProfile,
+    -- ** TagRole
+    tagRole_roleName,
+    tagRole_tags,
 
-    -- ** RemoveRoleFromInstanceProfile
-    removeRoleFromInstanceProfile_instanceProfileName,
-    removeRoleFromInstanceProfile_roleName,
+    -- ** PutGroupPolicy
+    putGroupPolicy_groupName,
+    putGroupPolicy_policyName,
+    putGroupPolicy_policyDocument,
 
-    -- ** GenerateCredentialReport
-    generateCredentialReportResponse_state,
-    generateCredentialReportResponse_description,
-    generateCredentialReportResponse_httpStatus,
+    -- ** GetLoginProfile
+    getLoginProfile_userName,
+    getLoginProfileResponse_httpStatus,
+    getLoginProfileResponse_loginProfile,
 
-    -- ** ResetServiceSpecificCredential
-    resetServiceSpecificCredential_userName,
-    resetServiceSpecificCredential_serviceSpecificCredentialId,
-    resetServiceSpecificCredentialResponse_serviceSpecificCredential,
-    resetServiceSpecificCredentialResponse_httpStatus,
+    -- ** GetGroupPolicy
+    getGroupPolicy_groupName,
+    getGroupPolicy_policyName,
+    getGroupPolicyResponse_httpStatus,
+    getGroupPolicyResponse_groupName,
+    getGroupPolicyResponse_policyName,
+    getGroupPolicyResponse_policyDocument,
 
-    -- ** DetachRolePolicy
-    detachRolePolicy_roleName,
-    detachRolePolicy_policyArn,
+    -- ** GenerateOrganizationsAccessReport
+    generateOrganizationsAccessReport_organizationsPolicyId,
+    generateOrganizationsAccessReport_entityPath,
+    generateOrganizationsAccessReportResponse_jobId,
+    generateOrganizationsAccessReportResponse_httpStatus,
 
-    -- ** GenerateServiceLastAccessedDetails
-    generateServiceLastAccessedDetails_granularity,
-    generateServiceLastAccessedDetails_arn,
-    generateServiceLastAccessedDetailsResponse_jobId,
-    generateServiceLastAccessedDetailsResponse_httpStatus,
+    -- ** ChangePassword
+    changePassword_oldPassword,
+    changePassword_newPassword,
 
-    -- ** SetDefaultPolicyVersion
-    setDefaultPolicyVersion_policyArn,
-    setDefaultPolicyVersion_versionId,
+    -- ** ListServerCertificates
+    listServerCertificates_pathPrefix,
+    listServerCertificates_marker,
+    listServerCertificates_maxItems,
+    listServerCertificatesResponse_marker,
+    listServerCertificatesResponse_isTruncated,
+    listServerCertificatesResponse_httpStatus,
+    listServerCertificatesResponse_serverCertificateMetadataList,
 
-    -- ** UpdateRoleDescription
-    updateRoleDescription_roleName,
-    updateRoleDescription_description,
-    updateRoleDescriptionResponse_role,
-    updateRoleDescriptionResponse_httpStatus,
+    -- ** DeleteServiceLinkedRole
+    deleteServiceLinkedRole_roleName,
+    deleteServiceLinkedRoleResponse_httpStatus,
+    deleteServiceLinkedRoleResponse_deletionTaskId,
 
-    -- ** UploadServerCertificate
-    uploadServerCertificate_tags,
-    uploadServerCertificate_certificateChain,
-    uploadServerCertificate_path,
-    uploadServerCertificate_serverCertificateName,
-    uploadServerCertificate_certificateBody,
-    uploadServerCertificate_privateKey,
-    uploadServerCertificateResponse_serverCertificateMetadata,
-    uploadServerCertificateResponse_tags,
-    uploadServerCertificateResponse_httpStatus,
+    -- ** DeletePolicy
+    deletePolicy_policyArn,
 
-    -- ** ListPolicyTags
-    listPolicyTags_maxItems,
-    listPolicyTags_marker,
-    listPolicyTags_policyArn,
-    listPolicyTagsResponse_isTruncated,
-    listPolicyTagsResponse_marker,
-    listPolicyTagsResponse_httpStatus,
-    listPolicyTagsResponse_tags,
+    -- ** UpdateAssumeRolePolicy
+    updateAssumeRolePolicy_roleName,
+    updateAssumeRolePolicy_policyDocument,
 
-    -- ** ListSAMLProviders
-    listSAMLProvidersResponse_sAMLProviderList,
-    listSAMLProvidersResponse_httpStatus,
+    -- ** GetServiceLastAccessedDetailsWithEntities
+    getServiceLastAccessedDetailsWithEntities_marker,
+    getServiceLastAccessedDetailsWithEntities_maxItems,
+    getServiceLastAccessedDetailsWithEntities_jobId,
+    getServiceLastAccessedDetailsWithEntities_serviceNamespace,
+    getServiceLastAccessedDetailsWithEntitiesResponse_error,
+    getServiceLastAccessedDetailsWithEntitiesResponse_marker,
+    getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated,
+    getServiceLastAccessedDetailsWithEntitiesResponse_httpStatus,
+    getServiceLastAccessedDetailsWithEntitiesResponse_jobStatus,
+    getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate,
+    getServiceLastAccessedDetailsWithEntitiesResponse_jobCompletionDate,
+    getServiceLastAccessedDetailsWithEntitiesResponse_entityDetailsList,
 
-    -- ** CreateGroup
-    createGroup_path,
-    createGroup_groupName,
-    createGroupResponse_httpStatus,
-    createGroupResponse_group,
+    -- ** UntagServerCertificate
+    untagServerCertificate_serverCertificateName,
+    untagServerCertificate_tagKeys,
 
-    -- ** EnableMFADevice
-    enableMFADevice_userName,
-    enableMFADevice_serialNumber,
-    enableMFADevice_authenticationCode1,
-    enableMFADevice_authenticationCode2,
+    -- ** GetInstanceProfile
+    getInstanceProfile_instanceProfileName,
+    getInstanceProfileResponse_httpStatus,
+    getInstanceProfileResponse_instanceProfile,
 
-    -- ** ListPoliciesGrantingServiceAccess
-    listPoliciesGrantingServiceAccess_marker,
-    listPoliciesGrantingServiceAccess_arn,
-    listPoliciesGrantingServiceAccess_serviceNamespaces,
-    listPoliciesGrantingServiceAccessResponse_isTruncated,
-    listPoliciesGrantingServiceAccessResponse_marker,
-    listPoliciesGrantingServiceAccessResponse_httpStatus,
-    listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
+    -- ** CreateLoginProfile
+    createLoginProfile_passwordResetRequired,
+    createLoginProfile_userName,
+    createLoginProfile_password,
+    createLoginProfileResponse_httpStatus,
+    createLoginProfileResponse_loginProfile,
 
-    -- ** GetOpenIDConnectProvider
-    getOpenIDConnectProvider_openIDConnectProviderArn,
-    getOpenIDConnectProviderResponse_clientIDList,
-    getOpenIDConnectProviderResponse_createDate,
-    getOpenIDConnectProviderResponse_thumbprintList,
-    getOpenIDConnectProviderResponse_tags,
-    getOpenIDConnectProviderResponse_url,
-    getOpenIDConnectProviderResponse_httpStatus,
+    -- ** GetSAMLProvider
+    getSAMLProvider_sAMLProviderArn,
+    getSAMLProviderResponse_createDate,
+    getSAMLProviderResponse_validUntil,
+    getSAMLProviderResponse_tags,
+    getSAMLProviderResponse_sAMLMetadataDocument,
+    getSAMLProviderResponse_httpStatus,
 
-    -- ** CreateRole
-    createRole_maxSessionDuration,
-    createRole_permissionsBoundary,
-    createRole_tags,
-    createRole_description,
-    createRole_path,
-    createRole_roleName,
-    createRole_assumeRolePolicyDocument,
-    createRoleResponse_httpStatus,
-    createRoleResponse_role,
+    -- ** AddRoleToInstanceProfile
+    addRoleToInstanceProfile_instanceProfileName,
+    addRoleToInstanceProfile_roleName,
 
-    -- ** DeleteUserPolicy
-    deleteUserPolicy_userName,
-    deleteUserPolicy_policyName,
+    -- ** ListGroupsForUser
+    listGroupsForUser_marker,
+    listGroupsForUser_maxItems,
+    listGroupsForUser_userName,
+    listGroupsForUserResponse_marker,
+    listGroupsForUserResponse_isTruncated,
+    listGroupsForUserResponse_httpStatus,
+    listGroupsForUserResponse_groups,
 
-    -- ** TagInstanceProfile
-    tagInstanceProfile_instanceProfileName,
-    tagInstanceProfile_tags,
+    -- ** ListEntitiesForPolicy
+    listEntitiesForPolicy_pathPrefix,
+    listEntitiesForPolicy_entityFilter,
+    listEntitiesForPolicy_marker,
+    listEntitiesForPolicy_maxItems,
+    listEntitiesForPolicy_policyUsageFilter,
+    listEntitiesForPolicy_policyArn,
+    listEntitiesForPolicyResponse_policyGroups,
+    listEntitiesForPolicyResponse_policyRoles,
+    listEntitiesForPolicyResponse_marker,
+    listEntitiesForPolicyResponse_policyUsers,
+    listEntitiesForPolicyResponse_isTruncated,
+    listEntitiesForPolicyResponse_httpStatus,
 
-    -- ** PutUserPermissionsBoundary
-    putUserPermissionsBoundary_userName,
-    putUserPermissionsBoundary_permissionsBoundary,
+    -- ** AddUserToGroup
+    addUserToGroup_groupName,
+    addUserToGroup_userName,
 
-    -- ** TagMFADevice
-    tagMFADevice_serialNumber,
-    tagMFADevice_tags,
+    -- ** TagOpenIDConnectProvider
+    tagOpenIDConnectProvider_openIDConnectProviderArn,
+    tagOpenIDConnectProvider_tags,
 
-    -- ** UploadSigningCertificate
-    uploadSigningCertificate_userName,
-    uploadSigningCertificate_certificateBody,
-    uploadSigningCertificateResponse_httpStatus,
-    uploadSigningCertificateResponse_certificate,
+    -- ** SimulatePrincipalPolicy
+    simulatePrincipalPolicy_policyInputList,
+    simulatePrincipalPolicy_resourcePolicy,
+    simulatePrincipalPolicy_callerArn,
+    simulatePrincipalPolicy_resourceHandlingOption,
+    simulatePrincipalPolicy_resourceArns,
+    simulatePrincipalPolicy_permissionsBoundaryPolicyInputList,
+    simulatePrincipalPolicy_marker,
+    simulatePrincipalPolicy_maxItems,
+    simulatePrincipalPolicy_contextEntries,
+    simulatePrincipalPolicy_resourceOwner,
+    simulatePrincipalPolicy_policySourceArn,
+    simulatePrincipalPolicy_actionNames,
+    simulatePolicyResponse_evaluationResults,
+    simulatePolicyResponse_marker,
+    simulatePolicyResponse_isTruncated,
 
-    -- ** ListOpenIDConnectProviderTags
-    listOpenIDConnectProviderTags_maxItems,
-    listOpenIDConnectProviderTags_marker,
-    listOpenIDConnectProviderTags_openIDConnectProviderArn,
-    listOpenIDConnectProviderTagsResponse_isTruncated,
-    listOpenIDConnectProviderTagsResponse_marker,
-    listOpenIDConnectProviderTagsResponse_httpStatus,
-    listOpenIDConnectProviderTagsResponse_tags,
+    -- ** GetOrganizationsAccessReport
+    getOrganizationsAccessReport_sortKey,
+    getOrganizationsAccessReport_marker,
+    getOrganizationsAccessReport_maxItems,
+    getOrganizationsAccessReport_jobId,
+    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
+    getOrganizationsAccessReportResponse_jobCompletionDate,
+    getOrganizationsAccessReportResponse_accessDetails,
+    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
+    getOrganizationsAccessReportResponse_marker,
+    getOrganizationsAccessReportResponse_errorDetails,
+    getOrganizationsAccessReportResponse_isTruncated,
+    getOrganizationsAccessReportResponse_httpStatus,
+    getOrganizationsAccessReportResponse_jobStatus,
+    getOrganizationsAccessReportResponse_jobCreationDate,
 
-    -- ** ListRoles
-    listRoles_pathPrefix,
-    listRoles_maxItems,
-    listRoles_marker,
-    listRolesResponse_isTruncated,
-    listRolesResponse_marker,
-    listRolesResponse_httpStatus,
-    listRolesResponse_roles,
+    -- ** GetPolicyVersion
+    getPolicyVersion_policyArn,
+    getPolicyVersion_versionId,
+    getPolicyVersionResponse_policyVersion,
+    getPolicyVersionResponse_httpStatus,
 
-    -- ** CreateUser
-    createUser_permissionsBoundary,
-    createUser_tags,
-    createUser_path,
-    createUser_userName,
-    createUserResponse_user,
-    createUserResponse_httpStatus,
+    -- ** CreateServiceLinkedRole
+    createServiceLinkedRole_customSuffix,
+    createServiceLinkedRole_description,
+    createServiceLinkedRole_aWSServiceName,
+    createServiceLinkedRoleResponse_role,
+    createServiceLinkedRoleResponse_httpStatus,
 
-    -- ** DeleteRolePolicy
-    deleteRolePolicy_roleName,
-    deleteRolePolicy_policyName,
+    -- ** ListServiceSpecificCredentials
+    listServiceSpecificCredentials_userName,
+    listServiceSpecificCredentials_serviceName,
+    listServiceSpecificCredentialsResponse_serviceSpecificCredentials,
+    listServiceSpecificCredentialsResponse_httpStatus,
 
-    -- ** DeleteRolePermissionsBoundary
-    deleteRolePermissionsBoundary_roleName,
+    -- ** DeleteOpenIDConnectProvider
+    deleteOpenIDConnectProvider_openIDConnectProviderArn,
 
-    -- ** ListVirtualMFADevices
-    listVirtualMFADevices_assignmentStatus,
-    listVirtualMFADevices_maxItems,
-    listVirtualMFADevices_marker,
-    listVirtualMFADevicesResponse_isTruncated,
-    listVirtualMFADevicesResponse_marker,
-    listVirtualMFADevicesResponse_httpStatus,
-    listVirtualMFADevicesResponse_virtualMFADevices,
+    -- ** GetUser
+    getUser_userName,
+    getUserResponse_httpStatus,
+    getUserResponse_user,
 
-    -- ** TagPolicy
-    tagPolicy_policyArn,
-    tagPolicy_tags,
+    -- ** ListSigningCertificates
+    listSigningCertificates_userName,
+    listSigningCertificates_marker,
+    listSigningCertificates_maxItems,
+    listSigningCertificatesResponse_marker,
+    listSigningCertificatesResponse_isTruncated,
+    listSigningCertificatesResponse_httpStatus,
+    listSigningCertificatesResponse_certificates,
+
+    -- ** DeleteSigningCertificate
+    deleteSigningCertificate_userName,
+    deleteSigningCertificate_certificateId,
+
+    -- ** UpdateSigningCertificate
+    updateSigningCertificate_userName,
+    updateSigningCertificate_certificateId,
+    updateSigningCertificate_status,
+
+    -- ** ListAttachedUserPolicies
+    listAttachedUserPolicies_pathPrefix,
+    listAttachedUserPolicies_marker,
+    listAttachedUserPolicies_maxItems,
+    listAttachedUserPolicies_userName,
+    listAttachedUserPoliciesResponse_attachedPolicies,
+    listAttachedUserPoliciesResponse_marker,
+    listAttachedUserPoliciesResponse_isTruncated,
+    listAttachedUserPoliciesResponse_httpStatus,
 
     -- ** RemoveClientIDFromOpenIDConnectProvider
     removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn,
     removeClientIDFromOpenIDConnectProvider_clientID,
 
-    -- ** ListAttachedRolePolicies
-    listAttachedRolePolicies_pathPrefix,
-    listAttachedRolePolicies_maxItems,
-    listAttachedRolePolicies_marker,
-    listAttachedRolePolicies_roleName,
-    listAttachedRolePoliciesResponse_isTruncated,
-    listAttachedRolePoliciesResponse_attachedPolicies,
-    listAttachedRolePoliciesResponse_marker,
-    listAttachedRolePoliciesResponse_httpStatus,
+    -- ** AttachUserPolicy
+    attachUserPolicy_userName,
+    attachUserPolicy_policyArn,
+
+    -- ** TagPolicy
+    tagPolicy_policyArn,
+    tagPolicy_tags,
 
     -- ** CreateServiceSpecificCredential
     createServiceSpecificCredential_userName,
     createServiceSpecificCredential_serviceName,
     createServiceSpecificCredentialResponse_serviceSpecificCredential,
     createServiceSpecificCredentialResponse_httpStatus,
+
+    -- ** ListVirtualMFADevices
+    listVirtualMFADevices_assignmentStatus,
+    listVirtualMFADevices_marker,
+    listVirtualMFADevices_maxItems,
+    listVirtualMFADevicesResponse_marker,
+    listVirtualMFADevicesResponse_isTruncated,
+    listVirtualMFADevicesResponse_httpStatus,
+    listVirtualMFADevicesResponse_virtualMFADevices,
+
+    -- ** ResyncMFADevice
+    resyncMFADevice_userName,
+    resyncMFADevice_serialNumber,
+    resyncMFADevice_authenticationCode1,
+    resyncMFADevice_authenticationCode2,
+
+    -- ** TagServerCertificate
+    tagServerCertificate_serverCertificateName,
+    tagServerCertificate_tags,
 
     -- ** DeleteAccessKey
     deleteAccessKey_userName,
@@ -463,6 +693,24 @@ module Network.AWS.IAM.Lens
     updateAccessKey_accessKeyId,
     updateAccessKey_status,
 
+    -- ** ListUserTags
+    listUserTags_marker,
+    listUserTags_maxItems,
+    listUserTags_userName,
+    listUserTagsResponse_marker,
+    listUserTagsResponse_isTruncated,
+    listUserTagsResponse_httpStatus,
+    listUserTagsResponse_tags,
+
+    -- ** ListAccessKeys
+    listAccessKeys_userName,
+    listAccessKeys_marker,
+    listAccessKeys_maxItems,
+    listAccessKeysResponse_marker,
+    listAccessKeysResponse_isTruncated,
+    listAccessKeysResponse_httpStatus,
+    listAccessKeysResponse_accessKeyMetadata,
+
     -- ** GetRolePolicy
     getRolePolicy_roleName,
     getRolePolicy_policyName,
@@ -471,411 +719,43 @@ module Network.AWS.IAM.Lens
     getRolePolicyResponse_policyName,
     getRolePolicyResponse_policyDocument,
 
-    -- ** DeleteVirtualMFADevice
-    deleteVirtualMFADevice_serialNumber,
-
-    -- ** ResyncMFADevice
-    resyncMFADevice_userName,
-    resyncMFADevice_serialNumber,
-    resyncMFADevice_authenticationCode1,
-    resyncMFADevice_authenticationCode2,
-
-    -- ** ListAttachedUserPolicies
-    listAttachedUserPolicies_pathPrefix,
-    listAttachedUserPolicies_maxItems,
-    listAttachedUserPolicies_marker,
-    listAttachedUserPolicies_userName,
-    listAttachedUserPoliciesResponse_isTruncated,
-    listAttachedUserPoliciesResponse_attachedPolicies,
-    listAttachedUserPoliciesResponse_marker,
-    listAttachedUserPoliciesResponse_httpStatus,
-
-    -- ** ListSSHPublicKeys
-    listSSHPublicKeys_userName,
-    listSSHPublicKeys_maxItems,
-    listSSHPublicKeys_marker,
-    listSSHPublicKeysResponse_isTruncated,
-    listSSHPublicKeysResponse_sSHPublicKeys,
-    listSSHPublicKeysResponse_marker,
-    listSSHPublicKeysResponse_httpStatus,
-
-    -- ** UpdateAccountPasswordPolicy
-    updateAccountPasswordPolicy_requireLowercaseCharacters,
-    updateAccountPasswordPolicy_maxPasswordAge,
-    updateAccountPasswordPolicy_passwordReusePrevention,
-    updateAccountPasswordPolicy_minimumPasswordLength,
-    updateAccountPasswordPolicy_requireUppercaseCharacters,
-    updateAccountPasswordPolicy_allowUsersToChangePassword,
-    updateAccountPasswordPolicy_hardExpiry,
-    updateAccountPasswordPolicy_requireSymbols,
-    updateAccountPasswordPolicy_requireNumbers,
-
-    -- ** UpdateServiceSpecificCredential
-    updateServiceSpecificCredential_userName,
-    updateServiceSpecificCredential_serviceSpecificCredentialId,
-    updateServiceSpecificCredential_status,
-
-    -- ** UpdateSigningCertificate
-    updateSigningCertificate_userName,
-    updateSigningCertificate_certificateId,
-    updateSigningCertificate_status,
-
-    -- ** CreateAccessKey
-    createAccessKey_userName,
-    createAccessKeyResponse_httpStatus,
-    createAccessKeyResponse_accessKey,
-
-    -- ** ListServiceSpecificCredentials
-    listServiceSpecificCredentials_serviceName,
-    listServiceSpecificCredentials_userName,
-    listServiceSpecificCredentialsResponse_serviceSpecificCredentials,
-    listServiceSpecificCredentialsResponse_httpStatus,
-
-    -- ** DeleteSigningCertificate
-    deleteSigningCertificate_userName,
-    deleteSigningCertificate_certificateId,
-
-    -- ** GetUserPolicy
-    getUserPolicy_userName,
-    getUserPolicy_policyName,
-    getUserPolicyResponse_httpStatus,
-    getUserPolicyResponse_userName,
-    getUserPolicyResponse_policyName,
-    getUserPolicyResponse_policyDocument,
-
-    -- ** DeleteAccountPasswordPolicy
-
-    -- ** DeleteServiceSpecificCredential
-    deleteServiceSpecificCredential_userName,
-    deleteServiceSpecificCredential_serviceSpecificCredentialId,
-
-    -- ** GetPolicyVersion
-    getPolicyVersion_policyArn,
-    getPolicyVersion_versionId,
-    getPolicyVersionResponse_policyVersion,
-    getPolicyVersionResponse_httpStatus,
-
-    -- ** CreateLoginProfile
-    createLoginProfile_passwordResetRequired,
-    createLoginProfile_userName,
-    createLoginProfile_password,
-    createLoginProfileResponse_httpStatus,
-    createLoginProfileResponse_loginProfile,
-
-    -- ** AddRoleToInstanceProfile
-    addRoleToInstanceProfile_instanceProfileName,
-    addRoleToInstanceProfile_roleName,
-
-    -- ** ListInstanceProfilesForRole
-    listInstanceProfilesForRole_maxItems,
-    listInstanceProfilesForRole_marker,
-    listInstanceProfilesForRole_roleName,
-    listInstanceProfilesForRoleResponse_isTruncated,
-    listInstanceProfilesForRoleResponse_marker,
-    listInstanceProfilesForRoleResponse_httpStatus,
-    listInstanceProfilesForRoleResponse_instanceProfiles,
-
-    -- ** TagOpenIDConnectProvider
-    tagOpenIDConnectProvider_openIDConnectProviderArn,
-    tagOpenIDConnectProvider_tags,
-
-    -- ** GetOrganizationsAccessReport
-    getOrganizationsAccessReport_sortKey,
-    getOrganizationsAccessReport_maxItems,
-    getOrganizationsAccessReport_marker,
-    getOrganizationsAccessReport_jobId,
-    getOrganizationsAccessReportResponse_accessDetails,
-    getOrganizationsAccessReportResponse_isTruncated,
-    getOrganizationsAccessReportResponse_jobCompletionDate,
-    getOrganizationsAccessReportResponse_numberOfServicesNotAccessed,
-    getOrganizationsAccessReportResponse_numberOfServicesAccessible,
-    getOrganizationsAccessReportResponse_marker,
-    getOrganizationsAccessReportResponse_errorDetails,
-    getOrganizationsAccessReportResponse_httpStatus,
-    getOrganizationsAccessReportResponse_jobStatus,
-    getOrganizationsAccessReportResponse_jobCreationDate,
-
-    -- ** GetInstanceProfile
-    getInstanceProfile_instanceProfileName,
-    getInstanceProfileResponse_httpStatus,
-    getInstanceProfileResponse_instanceProfile,
-
-    -- ** AddUserToGroup
-    addUserToGroup_groupName,
-    addUserToGroup_userName,
-
-    -- ** AttachGroupPolicy
-    attachGroupPolicy_groupName,
-    attachGroupPolicy_policyArn,
-
-    -- ** DeleteServiceLinkedRole
-    deleteServiceLinkedRole_roleName,
-    deleteServiceLinkedRoleResponse_httpStatus,
-    deleteServiceLinkedRoleResponse_deletionTaskId,
-
-    -- ** ListSAMLProviderTags
-    listSAMLProviderTags_maxItems,
-    listSAMLProviderTags_marker,
-    listSAMLProviderTags_sAMLProviderArn,
-    listSAMLProviderTagsResponse_isTruncated,
-    listSAMLProviderTagsResponse_marker,
-    listSAMLProviderTagsResponse_httpStatus,
-    listSAMLProviderTagsResponse_tags,
-
-    -- ** GetServiceLastAccessedDetailsWithEntities
-    getServiceLastAccessedDetailsWithEntities_maxItems,
-    getServiceLastAccessedDetailsWithEntities_marker,
-    getServiceLastAccessedDetailsWithEntities_jobId,
-    getServiceLastAccessedDetailsWithEntities_serviceNamespace,
-    getServiceLastAccessedDetailsWithEntitiesResponse_isTruncated,
-    getServiceLastAccessedDetailsWithEntitiesResponse_error,
-    getServiceLastAccessedDetailsWithEntitiesResponse_marker,
-    getServiceLastAccessedDetailsWithEntitiesResponse_httpStatus,
-    getServiceLastAccessedDetailsWithEntitiesResponse_jobStatus,
-    getServiceLastAccessedDetailsWithEntitiesResponse_jobCreationDate,
-    getServiceLastAccessedDetailsWithEntitiesResponse_jobCompletionDate,
-    getServiceLastAccessedDetailsWithEntitiesResponse_entityDetailsList,
-
-    -- ** UpdateLoginProfile
-    updateLoginProfile_passwordResetRequired,
-    updateLoginProfile_password,
-    updateLoginProfile_userName,
-
-    -- ** DeleteLoginProfile
-    deleteLoginProfile_userName,
-
-    -- ** GetGroup
-    getGroup_maxItems,
-    getGroup_marker,
-    getGroup_groupName,
-    getGroupResponse_isTruncated,
-    getGroupResponse_marker,
-    getGroupResponse_httpStatus,
-    getGroupResponse_group,
-    getGroupResponse_users,
-
-    -- ** GenerateOrganizationsAccessReport
-    generateOrganizationsAccessReport_organizationsPolicyId,
-    generateOrganizationsAccessReport_entityPath,
-    generateOrganizationsAccessReportResponse_jobId,
-    generateOrganizationsAccessReportResponse_httpStatus,
-
-    -- ** GetPolicy
-    getPolicy_policyArn,
-    getPolicyResponse_policy,
-    getPolicyResponse_httpStatus,
-
-    -- ** PutGroupPolicy
-    putGroupPolicy_groupName,
-    putGroupPolicy_policyName,
-    putGroupPolicy_policyDocument,
-
-    -- ** DeleteAccountAlias
-    deleteAccountAlias_accountAlias,
-
-    -- ** GetServiceLastAccessedDetails
-    getServiceLastAccessedDetails_maxItems,
-    getServiceLastAccessedDetails_marker,
-    getServiceLastAccessedDetails_jobId,
-    getServiceLastAccessedDetailsResponse_isTruncated,
-    getServiceLastAccessedDetailsResponse_jobType,
-    getServiceLastAccessedDetailsResponse_error,
-    getServiceLastAccessedDetailsResponse_marker,
-    getServiceLastAccessedDetailsResponse_httpStatus,
-    getServiceLastAccessedDetailsResponse_jobStatus,
-    getServiceLastAccessedDetailsResponse_jobCreationDate,
-    getServiceLastAccessedDetailsResponse_servicesLastAccessed,
-    getServiceLastAccessedDetailsResponse_jobCompletionDate,
-
-    -- ** GetAccountAuthorizationDetails
-    getAccountAuthorizationDetails_filter,
-    getAccountAuthorizationDetails_maxItems,
-    getAccountAuthorizationDetails_marker,
-    getAccountAuthorizationDetailsResponse_roleDetailList,
-    getAccountAuthorizationDetailsResponse_groupDetailList,
-    getAccountAuthorizationDetailsResponse_policies,
-    getAccountAuthorizationDetailsResponse_isTruncated,
-    getAccountAuthorizationDetailsResponse_userDetailList,
-    getAccountAuthorizationDetailsResponse_marker,
-    getAccountAuthorizationDetailsResponse_httpStatus,
-
-    -- ** DeleteGroup
-    deleteGroup_groupName,
-
-    -- ** GetServiceLinkedRoleDeletionStatus
-    getServiceLinkedRoleDeletionStatus_deletionTaskId,
-    getServiceLinkedRoleDeletionStatusResponse_reason,
-    getServiceLinkedRoleDeletionStatusResponse_httpStatus,
-    getServiceLinkedRoleDeletionStatusResponse_status,
-
-    -- ** CreateSAMLProvider
-    createSAMLProvider_tags,
-    createSAMLProvider_sAMLMetadataDocument,
-    createSAMLProvider_name,
-    createSAMLProviderResponse_sAMLProviderArn,
-    createSAMLProviderResponse_tags,
-    createSAMLProviderResponse_httpStatus,
-
-    -- ** DetachUserPolicy
-    detachUserPolicy_userName,
-    detachUserPolicy_policyArn,
-
-    -- ** UpdateGroup
-    updateGroup_newGroupName,
-    updateGroup_newPath,
-    updateGroup_groupName,
-
-    -- ** ListMFADevices
-    listMFADevices_userName,
-    listMFADevices_maxItems,
-    listMFADevices_marker,
-    listMFADevicesResponse_isTruncated,
-    listMFADevicesResponse_marker,
-    listMFADevicesResponse_httpStatus,
-    listMFADevicesResponse_mfaDevices,
-
-    -- ** ListServerCertificateTags
-    listServerCertificateTags_maxItems,
-    listServerCertificateTags_marker,
-    listServerCertificateTags_serverCertificateName,
-    listServerCertificateTagsResponse_isTruncated,
-    listServerCertificateTagsResponse_marker,
-    listServerCertificateTagsResponse_httpStatus,
-    listServerCertificateTagsResponse_tags,
-
-    -- ** ListGroupPolicies
-    listGroupPolicies_maxItems,
-    listGroupPolicies_marker,
-    listGroupPolicies_groupName,
-    listGroupPoliciesResponse_isTruncated,
-    listGroupPoliciesResponse_marker,
-    listGroupPoliciesResponse_httpStatus,
-    listGroupPoliciesResponse_policyNames,
-
-    -- ** UntagSAMLProvider
-    untagSAMLProvider_sAMLProviderArn,
-    untagSAMLProvider_tagKeys,
-
-    -- ** DeleteSAMLProvider
-    deleteSAMLProvider_sAMLProviderArn,
-
-    -- ** CreateAccountAlias
-    createAccountAlias_accountAlias,
-
-    -- ** TagUser
-    tagUser_userName,
-    tagUser_tags,
-
-    -- ** UntagInstanceProfile
-    untagInstanceProfile_instanceProfileName,
-    untagInstanceProfile_tagKeys,
-
-    -- ** ListAccountAliases
-    listAccountAliases_maxItems,
-    listAccountAliases_marker,
-    listAccountAliasesResponse_isTruncated,
-    listAccountAliasesResponse_marker,
-    listAccountAliasesResponse_httpStatus,
-    listAccountAliasesResponse_accountAliases,
-
-    -- ** UpdateSAMLProvider
-    updateSAMLProvider_sAMLMetadataDocument,
-    updateSAMLProvider_sAMLProviderArn,
-    updateSAMLProviderResponse_sAMLProviderArn,
-    updateSAMLProviderResponse_httpStatus,
-
-    -- ** ListInstanceProfiles
-    listInstanceProfiles_pathPrefix,
-    listInstanceProfiles_maxItems,
-    listInstanceProfiles_marker,
-    listInstanceProfilesResponse_isTruncated,
-    listInstanceProfilesResponse_marker,
-    listInstanceProfilesResponse_httpStatus,
-    listInstanceProfilesResponse_instanceProfiles,
-
-    -- ** DeleteInstanceProfile
-    deleteInstanceProfile_instanceProfileName,
-
-    -- ** GetAccountSummary
-    getAccountSummaryResponse_summaryMap,
-    getAccountSummaryResponse_httpStatus,
-
-    -- ** DeletePolicyVersion
-    deletePolicyVersion_policyArn,
-    deletePolicyVersion_versionId,
-
-    -- ** UntagMFADevice
-    untagMFADevice_serialNumber,
-    untagMFADevice_tagKeys,
-
-    -- ** GetCredentialReport
-    getCredentialReportResponse_reportFormat,
-    getCredentialReportResponse_generatedTime,
-    getCredentialReportResponse_content,
-    getCredentialReportResponse_httpStatus,
-
-    -- ** ListPolicyVersions
-    listPolicyVersions_maxItems,
-    listPolicyVersions_marker,
-    listPolicyVersions_policyArn,
-    listPolicyVersionsResponse_versions,
-    listPolicyVersionsResponse_isTruncated,
-    listPolicyVersionsResponse_marker,
-    listPolicyVersionsResponse_httpStatus,
-
-    -- ** DeleteUserPermissionsBoundary
-    deleteUserPermissionsBoundary_userName,
-
-    -- ** UntagUser
-    untagUser_userName,
-    untagUser_tagKeys,
-
-    -- ** DetachGroupPolicy
-    detachGroupPolicy_groupName,
-    detachGroupPolicy_policyArn,
-
-    -- ** AddClientIDToOpenIDConnectProvider
-    addClientIDToOpenIDConnectProvider_openIDConnectProviderArn,
-    addClientIDToOpenIDConnectProvider_clientID,
-
-    -- ** GetSSHPublicKey
-    getSSHPublicKey_userName,
-    getSSHPublicKey_sSHPublicKeyId,
-    getSSHPublicKey_encoding,
-    getSSHPublicKeyResponse_sSHPublicKey,
-    getSSHPublicKeyResponse_httpStatus,
-
-    -- ** UpdateUser
-    updateUser_newPath,
-    updateUser_newUserName,
-    updateUser_userName,
-
-    -- ** ListUsers
-    listUsers_pathPrefix,
-    listUsers_maxItems,
-    listUsers_marker,
-    listUsersResponse_isTruncated,
-    listUsersResponse_marker,
-    listUsersResponse_httpStatus,
-    listUsersResponse_users,
-
-    -- ** ListRolePolicies
-    listRolePolicies_maxItems,
-    listRolePolicies_marker,
-    listRolePolicies_roleName,
-    listRolePoliciesResponse_isTruncated,
-    listRolePoliciesResponse_marker,
-    listRolePoliciesResponse_httpStatus,
-    listRolePoliciesResponse_policyNames,
-
-    -- ** PutUserPolicy
-    putUserPolicy_userName,
-    putUserPolicy_policyName,
-    putUserPolicy_policyDocument,
-
-    -- ** TagSAMLProvider
-    tagSAMLProvider_sAMLProviderArn,
-    tagSAMLProvider_tags,
+    -- ** SetSecurityTokenServicePreferences
+    setSecurityTokenServicePreferences_globalEndpointTokenVersion,
+
+    -- ** UntagRole
+    untagRole_roleName,
+    untagRole_tagKeys,
+
+    -- ** CreateUser
+    createUser_path,
+    createUser_permissionsBoundary,
+    createUser_tags,
+    createUser_userName,
+    createUserResponse_user,
+    createUserResponse_httpStatus,
+
+    -- ** PutRolePolicy
+    putRolePolicy_roleName,
+    putRolePolicy_policyName,
+    putRolePolicy_policyDocument,
+
+    -- ** GetContextKeysForCustomPolicy
+    getContextKeysForCustomPolicy_policyInputList,
+    getContextKeysForPolicyResponse_contextKeyNames,
+
+    -- ** UploadSigningCertificate
+    uploadSigningCertificate_userName,
+    uploadSigningCertificate_certificateBody,
+    uploadSigningCertificateResponse_httpStatus,
+    uploadSigningCertificateResponse_certificate,
+
+    -- ** DeleteRolePolicy
+    deleteRolePolicy_roleName,
+    deleteRolePolicy_policyName,
+
+    -- ** GetAccountPasswordPolicy
+    getAccountPasswordPolicyResponse_httpStatus,
+    getAccountPasswordPolicyResponse_passwordPolicy,
 
     -- ** GetAccessKeyLastUsed
     getAccessKeyLastUsed_accessKeyId,
@@ -883,128 +763,248 @@ module Network.AWS.IAM.Lens
     getAccessKeyLastUsedResponse_accessKeyLastUsed,
     getAccessKeyLastUsedResponse_httpStatus,
 
+    -- ** UpdateUser
+    updateUser_newUserName,
+    updateUser_newPath,
+    updateUser_userName,
+
     -- ** DeleteUser
     deleteUser_userName,
 
-    -- ** GetAccountPasswordPolicy
-    getAccountPasswordPolicyResponse_httpStatus,
-    getAccountPasswordPolicyResponse_passwordPolicy,
+    -- ** AddClientIDToOpenIDConnectProvider
+    addClientIDToOpenIDConnectProvider_openIDConnectProviderArn,
+    addClientIDToOpenIDConnectProvider_clientID,
 
-    -- ** UpdateOpenIDConnectProviderThumbprint
-    updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn,
-    updateOpenIDConnectProviderThumbprint_thumbprintList,
+    -- ** ListRolePolicies
+    listRolePolicies_marker,
+    listRolePolicies_maxItems,
+    listRolePolicies_roleName,
+    listRolePoliciesResponse_marker,
+    listRolePoliciesResponse_isTruncated,
+    listRolePoliciesResponse_httpStatus,
+    listRolePoliciesResponse_policyNames,
 
-    -- ** GetContextKeysForCustomPolicy
-    getContextKeysForCustomPolicy_policyInputList,
-    getContextKeysForPolicyResponse_contextKeyNames,
+    -- ** CreateAccountAlias
+    createAccountAlias_accountAlias,
 
-    -- ** UpdateRole
-    updateRole_maxSessionDuration,
-    updateRole_description,
-    updateRole_roleName,
-    updateRoleResponse_httpStatus,
+    -- ** ListPoliciesGrantingServiceAccess
+    listPoliciesGrantingServiceAccess_marker,
+    listPoliciesGrantingServiceAccess_arn,
+    listPoliciesGrantingServiceAccess_serviceNamespaces,
+    listPoliciesGrantingServiceAccessResponse_marker,
+    listPoliciesGrantingServiceAccessResponse_isTruncated,
+    listPoliciesGrantingServiceAccessResponse_httpStatus,
+    listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
 
-    -- ** UploadSSHPublicKey
-    uploadSSHPublicKey_userName,
-    uploadSSHPublicKey_sSHPublicKeyBody,
-    uploadSSHPublicKeyResponse_sSHPublicKey,
-    uploadSSHPublicKeyResponse_httpStatus,
+    -- ** ListInstanceProfiles
+    listInstanceProfiles_pathPrefix,
+    listInstanceProfiles_marker,
+    listInstanceProfiles_maxItems,
+    listInstanceProfilesResponse_marker,
+    listInstanceProfilesResponse_isTruncated,
+    listInstanceProfilesResponse_httpStatus,
+    listInstanceProfilesResponse_instanceProfiles,
 
-    -- ** DeleteRole
-    deleteRole_roleName,
+    -- ** EnableMFADevice
+    enableMFADevice_userName,
+    enableMFADevice_serialNumber,
+    enableMFADevice_authenticationCode1,
+    enableMFADevice_authenticationCode2,
 
-    -- ** ListUserPolicies
-    listUserPolicies_maxItems,
-    listUserPolicies_marker,
-    listUserPolicies_userName,
-    listUserPoliciesResponse_isTruncated,
-    listUserPoliciesResponse_marker,
-    listUserPoliciesResponse_httpStatus,
-    listUserPoliciesResponse_policyNames,
+    -- ** ListAccountAliases
+    listAccountAliases_marker,
+    listAccountAliases_maxItems,
+    listAccountAliasesResponse_marker,
+    listAccountAliasesResponse_isTruncated,
+    listAccountAliasesResponse_httpStatus,
+    listAccountAliasesResponse_accountAliases,
 
-    -- ** SimulateCustomPolicy
-    simulateCustomPolicy_resourceOwner,
-    simulateCustomPolicy_contextEntries,
-    simulateCustomPolicy_resourcePolicy,
-    simulateCustomPolicy_permissionsBoundaryPolicyInputList,
-    simulateCustomPolicy_resourceArns,
-    simulateCustomPolicy_resourceHandlingOption,
-    simulateCustomPolicy_callerArn,
-    simulateCustomPolicy_maxItems,
-    simulateCustomPolicy_marker,
-    simulateCustomPolicy_policyInputList,
-    simulateCustomPolicy_actionNames,
-    simulatePolicyResponse_isTruncated,
-    simulatePolicyResponse_evaluationResults,
-    simulatePolicyResponse_marker,
+    -- ** DeleteSAMLProvider
+    deleteSAMLProvider_sAMLProviderArn,
 
-    -- ** PutRolePolicy
-    putRolePolicy_roleName,
-    putRolePolicy_policyName,
-    putRolePolicy_policyDocument,
+    -- ** UpdateSAMLProvider
+    updateSAMLProvider_sAMLMetadataDocument,
+    updateSAMLProvider_sAMLProviderArn,
+    updateSAMLProviderResponse_sAMLProviderArn,
+    updateSAMLProviderResponse_httpStatus,
 
-    -- ** PutRolePermissionsBoundary
-    putRolePermissionsBoundary_roleName,
-    putRolePermissionsBoundary_permissionsBoundary,
+    -- ** UntagMFADevice
+    untagMFADevice_serialNumber,
+    untagMFADevice_tagKeys,
 
-    -- ** UntagRole
-    untagRole_roleName,
-    untagRole_tagKeys,
+    -- ** CreateGroup
+    createGroup_path,
+    createGroup_groupName,
+    createGroupResponse_httpStatus,
+    createGroupResponse_group,
 
-    -- ** TagServerCertificate
-    tagServerCertificate_serverCertificateName,
-    tagServerCertificate_tags,
+    -- ** ListMFADevices
+    listMFADevices_userName,
+    listMFADevices_marker,
+    listMFADevices_maxItems,
+    listMFADevicesResponse_marker,
+    listMFADevicesResponse_isTruncated,
+    listMFADevicesResponse_httpStatus,
+    listMFADevicesResponse_mfaDevices,
 
-    -- ** CreateOpenIDConnectProvider
-    createOpenIDConnectProvider_clientIDList,
-    createOpenIDConnectProvider_tags,
-    createOpenIDConnectProvider_url,
-    createOpenIDConnectProvider_thumbprintList,
-    createOpenIDConnectProviderResponse_tags,
-    createOpenIDConnectProviderResponse_openIDConnectProviderArn,
-    createOpenIDConnectProviderResponse_httpStatus,
+    -- ** UntagInstanceProfile
+    untagInstanceProfile_instanceProfileName,
+    untagInstanceProfile_tagKeys,
 
-    -- ** ListAccessKeys
-    listAccessKeys_userName,
-    listAccessKeys_maxItems,
-    listAccessKeys_marker,
-    listAccessKeysResponse_isTruncated,
-    listAccessKeysResponse_marker,
-    listAccessKeysResponse_httpStatus,
-    listAccessKeysResponse_accessKeyMetadata,
+    -- ** UploadServerCertificate
+    uploadServerCertificate_path,
+    uploadServerCertificate_certificateChain,
+    uploadServerCertificate_tags,
+    uploadServerCertificate_serverCertificateName,
+    uploadServerCertificate_certificateBody,
+    uploadServerCertificate_privateKey,
+    uploadServerCertificateResponse_serverCertificateMetadata,
+    uploadServerCertificateResponse_tags,
+    uploadServerCertificateResponse_httpStatus,
 
-    -- ** SetSecurityTokenServicePreferences
-    setSecurityTokenServicePreferences_globalEndpointTokenVersion,
+    -- ** SetDefaultPolicyVersion
+    setDefaultPolicyVersion_policyArn,
+    setDefaultPolicyVersion_versionId,
 
-    -- ** AttachUserPolicy
-    attachUserPolicy_userName,
-    attachUserPolicy_policyArn,
+    -- ** ListPolicyVersions
+    listPolicyVersions_marker,
+    listPolicyVersions_maxItems,
+    listPolicyVersions_policyArn,
+    listPolicyVersionsResponse_versions,
+    listPolicyVersionsResponse_marker,
+    listPolicyVersionsResponse_isTruncated,
+    listPolicyVersionsResponse_httpStatus,
 
-    -- ** ListUserTags
-    listUserTags_maxItems,
-    listUserTags_marker,
-    listUserTags_userName,
-    listUserTagsResponse_isTruncated,
-    listUserTagsResponse_marker,
-    listUserTagsResponse_httpStatus,
-    listUserTagsResponse_tags,
+    -- ** UpdateRoleDescription
+    updateRoleDescription_roleName,
+    updateRoleDescription_description,
+    updateRoleDescriptionResponse_role,
+    updateRoleDescriptionResponse_httpStatus,
 
-    -- ** DeactivateMFADevice
-    deactivateMFADevice_userName,
-    deactivateMFADevice_serialNumber,
+    -- ** ListSAMLProviders
+    listSAMLProvidersResponse_sAMLProviderList,
+    listSAMLProvidersResponse_httpStatus,
 
-    -- ** GetRole
-    getRole_roleName,
-    getRoleResponse_httpStatus,
-    getRoleResponse_role,
+    -- ** GetServiceLastAccessedDetails
+    getServiceLastAccessedDetails_marker,
+    getServiceLastAccessedDetails_maxItems,
+    getServiceLastAccessedDetails_jobId,
+    getServiceLastAccessedDetailsResponse_jobType,
+    getServiceLastAccessedDetailsResponse_error,
+    getServiceLastAccessedDetailsResponse_marker,
+    getServiceLastAccessedDetailsResponse_isTruncated,
+    getServiceLastAccessedDetailsResponse_httpStatus,
+    getServiceLastAccessedDetailsResponse_jobStatus,
+    getServiceLastAccessedDetailsResponse_jobCreationDate,
+    getServiceLastAccessedDetailsResponse_servicesLastAccessed,
+    getServiceLastAccessedDetailsResponse_jobCompletionDate,
+
+    -- ** GetServerCertificate
+    getServerCertificate_serverCertificateName,
+    getServerCertificateResponse_httpStatus,
+    getServerCertificateResponse_serverCertificate,
+
+    -- ** DeleteGroup
+    deleteGroup_groupName,
+
+    -- ** UpdateGroup
+    updateGroup_newGroupName,
+    updateGroup_newPath,
+    updateGroup_groupName,
+
+    -- ** ListGroups
+    listGroups_pathPrefix,
+    listGroups_marker,
+    listGroups_maxItems,
+    listGroupsResponse_marker,
+    listGroupsResponse_isTruncated,
+    listGroupsResponse_httpStatus,
+    listGroupsResponse_groups,
+
+    -- ** GenerateCredentialReport
+    generateCredentialReportResponse_state,
+    generateCredentialReportResponse_description,
+    generateCredentialReportResponse_httpStatus,
+
+    -- ** GetPolicy
+    getPolicy_policyArn,
+    getPolicyResponse_policy,
+    getPolicyResponse_httpStatus,
+
+    -- ** ListInstanceProfileTags
+    listInstanceProfileTags_marker,
+    listInstanceProfileTags_maxItems,
+    listInstanceProfileTags_instanceProfileName,
+    listInstanceProfileTagsResponse_marker,
+    listInstanceProfileTagsResponse_isTruncated,
+    listInstanceProfileTagsResponse_httpStatus,
+    listInstanceProfileTagsResponse_tags,
+
+    -- ** UpdateLoginProfile
+    updateLoginProfile_password,
+    updateLoginProfile_passwordResetRequired,
+    updateLoginProfile_userName,
+
+    -- ** DeleteLoginProfile
+    deleteLoginProfile_userName,
+
+    -- ** ListSAMLProviderTags
+    listSAMLProviderTags_marker,
+    listSAMLProviderTags_maxItems,
+    listSAMLProviderTags_sAMLProviderArn,
+    listSAMLProviderTagsResponse_marker,
+    listSAMLProviderTagsResponse_isTruncated,
+    listSAMLProviderTagsResponse_httpStatus,
+    listSAMLProviderTagsResponse_tags,
+
+    -- ** GetGroup
+    getGroup_marker,
+    getGroup_maxItems,
+    getGroup_groupName,
+    getGroupResponse_marker,
+    getGroupResponse_isTruncated,
+    getGroupResponse_httpStatus,
+    getGroupResponse_group,
+    getGroupResponse_users,
+
+    -- ** UntagPolicy
+    untagPolicy_policyArn,
+    untagPolicy_tagKeys,
+
+    -- ** DeleteServerCertificate
+    deleteServerCertificate_serverCertificateName,
+
+    -- ** UpdateServerCertificate
+    updateServerCertificate_newServerCertificateName,
+    updateServerCertificate_newPath,
+    updateServerCertificate_serverCertificateName,
+
+    -- ** ListAttachedGroupPolicies
+    listAttachedGroupPolicies_pathPrefix,
+    listAttachedGroupPolicies_marker,
+    listAttachedGroupPolicies_maxItems,
+    listAttachedGroupPolicies_groupName,
+    listAttachedGroupPoliciesResponse_attachedPolicies,
+    listAttachedGroupPoliciesResponse_marker,
+    listAttachedGroupPoliciesResponse_isTruncated,
+    listAttachedGroupPoliciesResponse_httpStatus,
+
+    -- ** ListMFADeviceTags
+    listMFADeviceTags_marker,
+    listMFADeviceTags_maxItems,
+    listMFADeviceTags_serialNumber,
+    listMFADeviceTagsResponse_marker,
+    listMFADeviceTagsResponse_isTruncated,
+    listMFADeviceTagsResponse_httpStatus,
+    listMFADeviceTagsResponse_tags,
 
     -- * Types
 
     -- ** AccessDetail
-    accessDetail_totalAuthenticatedEntities,
-    accessDetail_lastAuthenticatedTime,
     accessDetail_entityPath,
     accessDetail_region,
+    accessDetail_lastAuthenticatedTime,
+    accessDetail_totalAuthenticatedEntities,
     accessDetail_serviceName,
     accessDetail_serviceNamespace,
 
@@ -1027,8 +1027,8 @@ module Network.AWS.IAM.Lens
     accessKeyMetadata_accessKeyId,
 
     -- ** AttachedPermissionsBoundary
-    attachedPermissionsBoundary_permissionsBoundaryArn,
     attachedPermissionsBoundary_permissionsBoundaryType,
+    attachedPermissionsBoundary_permissionsBoundaryArn,
 
     -- ** AttachedPolicy
     attachedPolicy_policyName,
@@ -1040,8 +1040,8 @@ module Network.AWS.IAM.Lens
     contextEntry_contextKeyType,
 
     -- ** DeletionTaskFailureReasonType
-    deletionTaskFailureReasonType_reason,
     deletionTaskFailureReasonType_roleUsageList,
+    deletionTaskFailureReasonType_reason,
 
     -- ** EntityDetails
     entityDetails_lastAuthenticated,
@@ -1059,13 +1059,13 @@ module Network.AWS.IAM.Lens
     errorDetails_code,
 
     -- ** EvaluationResult
-    evaluationResult_evalDecisionDetails,
-    evaluationResult_organizationsDecisionDetail,
-    evaluationResult_permissionsBoundaryDecisionDetail,
-    evaluationResult_resourceSpecificResults,
     evaluationResult_matchedStatements,
+    evaluationResult_evalDecisionDetails,
+    evaluationResult_resourceSpecificResults,
     evaluationResult_evalResourceName,
     evaluationResult_missingContextValues,
+    evaluationResult_permissionsBoundaryDecisionDetail,
+    evaluationResult_organizationsDecisionDetail,
     evaluationResult_evalActionName,
     evaluationResult_evalDecision,
 
@@ -1080,13 +1080,13 @@ module Network.AWS.IAM.Lens
     group_createDate,
 
     -- ** GroupDetail
-    groupDetail_attachedManagedPolicies,
-    groupDetail_createDate,
-    groupDetail_groupName,
     groupDetail_arn,
-    groupDetail_groupId,
     groupDetail_path,
+    groupDetail_createDate,
+    groupDetail_groupId,
     groupDetail_groupPolicyList,
+    groupDetail_groupName,
+    groupDetail_attachedManagedPolicies,
 
     -- ** InstanceProfile
     instanceProfile_tags,
@@ -1098,8 +1098,8 @@ module Network.AWS.IAM.Lens
     instanceProfile_roles,
 
     -- ** ListPoliciesGrantingServiceAccessEntry
-    listPoliciesGrantingServiceAccessEntry_policies,
     listPoliciesGrantingServiceAccessEntry_serviceNamespace,
+    listPoliciesGrantingServiceAccessEntry_policies,
 
     -- ** LoginProfile
     loginProfile_passwordResetRequired,
@@ -1113,17 +1113,17 @@ module Network.AWS.IAM.Lens
 
     -- ** ManagedPolicyDetail
     managedPolicyDetail_policyName,
-    managedPolicyDetail_permissionsBoundaryUsageCount,
-    managedPolicyDetail_isAttachable,
-    managedPolicyDetail_createDate,
     managedPolicyDetail_arn,
-    managedPolicyDetail_attachmentCount,
-    managedPolicyDetail_defaultVersionId,
-    managedPolicyDetail_description,
-    managedPolicyDetail_policyVersionList,
     managedPolicyDetail_updateDate,
-    managedPolicyDetail_path,
     managedPolicyDetail_policyId,
+    managedPolicyDetail_path,
+    managedPolicyDetail_policyVersionList,
+    managedPolicyDetail_createDate,
+    managedPolicyDetail_isAttachable,
+    managedPolicyDetail_permissionsBoundaryUsageCount,
+    managedPolicyDetail_defaultVersionId,
+    managedPolicyDetail_attachmentCount,
+    managedPolicyDetail_description,
 
     -- ** OpenIDConnectProviderListEntry
     openIDConnectProviderListEntry_arn,
@@ -1132,37 +1132,37 @@ module Network.AWS.IAM.Lens
     organizationsDecisionDetail_allowedByOrganizations,
 
     -- ** PasswordPolicy
+    passwordPolicy_expirePasswords,
+    passwordPolicy_minimumPasswordLength,
+    passwordPolicy_requireNumbers,
+    passwordPolicy_passwordReusePrevention,
     passwordPolicy_requireLowercaseCharacters,
     passwordPolicy_maxPasswordAge,
-    passwordPolicy_passwordReusePrevention,
-    passwordPolicy_minimumPasswordLength,
-    passwordPolicy_expirePasswords,
-    passwordPolicy_requireUppercaseCharacters,
-    passwordPolicy_allowUsersToChangePassword,
     passwordPolicy_hardExpiry,
     passwordPolicy_requireSymbols,
-    passwordPolicy_requireNumbers,
+    passwordPolicy_requireUppercaseCharacters,
+    passwordPolicy_allowUsersToChangePassword,
 
     -- ** PermissionsBoundaryDecisionDetail
     permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary,
 
     -- ** Policy
     policy_policyName,
-    policy_permissionsBoundaryUsageCount,
-    policy_isAttachable,
-    policy_createDate,
     policy_arn,
-    policy_attachmentCount,
-    policy_defaultVersionId,
-    policy_tags,
-    policy_description,
     policy_updateDate,
-    policy_path,
     policy_policyId,
+    policy_path,
+    policy_createDate,
+    policy_isAttachable,
+    policy_permissionsBoundaryUsageCount,
+    policy_defaultVersionId,
+    policy_attachmentCount,
+    policy_description,
+    policy_tags,
 
     -- ** PolicyDetail
-    policyDetail_policyName,
     policyDetail_policyDocument,
+    policyDetail_policyName,
 
     -- ** PolicyGrantingServiceAccess
     policyGrantingServiceAccess_entityName,
@@ -1172,42 +1172,42 @@ module Network.AWS.IAM.Lens
     policyGrantingServiceAccess_policyType,
 
     -- ** PolicyGroup
-    policyGroup_groupName,
     policyGroup_groupId,
+    policyGroup_groupName,
 
     -- ** PolicyRole
-    policyRole_roleId,
     policyRole_roleName,
+    policyRole_roleId,
 
     -- ** PolicyUser
-    policyUser_userId,
     policyUser_userName,
+    policyUser_userId,
 
     -- ** PolicyVersion
-    policyVersion_createDate,
     policyVersion_versionId,
+    policyVersion_createDate,
     policyVersion_document,
     policyVersion_isDefaultVersion,
 
     -- ** Position
-    position_column,
     position_line,
+    position_column,
 
     -- ** ResourceSpecificResult
-    resourceSpecificResult_evalDecisionDetails,
-    resourceSpecificResult_permissionsBoundaryDecisionDetail,
     resourceSpecificResult_matchedStatements,
+    resourceSpecificResult_evalDecisionDetails,
     resourceSpecificResult_missingContextValues,
+    resourceSpecificResult_permissionsBoundaryDecisionDetail,
     resourceSpecificResult_evalResourceName,
     resourceSpecificResult_evalResourceDecision,
 
     -- ** Role
-    role_assumeRolePolicyDocument,
     role_maxSessionDuration,
+    role_assumeRolePolicyDocument,
     role_roleLastUsed,
     role_permissionsBoundary,
-    role_tags,
     role_description,
+    role_tags,
     role_path,
     role_roleName,
     role_roleId,
@@ -1216,17 +1216,17 @@ module Network.AWS.IAM.Lens
 
     -- ** RoleDetail
     roleDetail_assumeRolePolicyDocument,
-    roleDetail_roleLastUsed,
-    roleDetail_roleId,
-    roleDetail_attachedManagedPolicies,
-    roleDetail_rolePolicyList,
-    roleDetail_roleName,
-    roleDetail_createDate,
-    roleDetail_permissionsBoundary,
     roleDetail_arn,
-    roleDetail_tags,
-    roleDetail_instanceProfileList,
     roleDetail_path,
+    roleDetail_instanceProfileList,
+    roleDetail_createDate,
+    roleDetail_roleName,
+    roleDetail_roleId,
+    roleDetail_roleLastUsed,
+    roleDetail_permissionsBoundary,
+    roleDetail_rolePolicyList,
+    roleDetail_tags,
+    roleDetail_attachedManagedPolicies,
 
     -- ** RoleLastUsed
     roleLastUsed_lastUsedDate,
@@ -1237,8 +1237,8 @@ module Network.AWS.IAM.Lens
     roleUsageType_region,
 
     -- ** SAMLProviderListEntry
-    sAMLProviderListEntry_createDate,
     sAMLProviderListEntry_arn,
+    sAMLProviderListEntry_createDate,
     sAMLProviderListEntry_validUntil,
 
     -- ** SSHPublicKey
@@ -1256,8 +1256,8 @@ module Network.AWS.IAM.Lens
     sSHPublicKeyMetadata_uploadDate,
 
     -- ** ServerCertificate
-    serverCertificate_tags,
     serverCertificate_certificateChain,
+    serverCertificate_tags,
     serverCertificate_serverCertificateMetadata,
     serverCertificate_certificateBody,
 
@@ -1270,11 +1270,11 @@ module Network.AWS.IAM.Lens
     serverCertificateMetadata_arn,
 
     -- ** ServiceLastAccessed
-    serviceLastAccessed_totalAuthenticatedEntities,
-    serviceLastAccessed_lastAuthenticatedRegion,
-    serviceLastAccessed_lastAuthenticatedEntity,
-    serviceLastAccessed_trackedActionsLastAccessed,
     serviceLastAccessed_lastAuthenticated,
+    serviceLastAccessed_trackedActionsLastAccessed,
+    serviceLastAccessed_lastAuthenticatedEntity,
+    serviceLastAccessed_lastAuthenticatedRegion,
+    serviceLastAccessed_totalAuthenticatedEntities,
     serviceLastAccessed_serviceName,
     serviceLastAccessed_serviceNamespace,
 
@@ -1303,54 +1303,54 @@ module Network.AWS.IAM.Lens
     signingCertificate_status,
 
     -- ** SimulatePolicyResponse
-    simulatePolicyResponse_isTruncated,
     simulatePolicyResponse_evaluationResults,
     simulatePolicyResponse_marker,
+    simulatePolicyResponse_isTruncated,
 
     -- ** Statement
-    statement_startPosition,
     statement_sourcePolicyType,
-    statement_endPosition,
     statement_sourcePolicyId,
+    statement_endPosition,
+    statement_startPosition,
 
     -- ** Tag
     tag_key,
     tag_value,
 
     -- ** TrackedActionLastAccessed
-    trackedActionLastAccessed_actionName,
     trackedActionLastAccessed_lastAccessedTime,
-    trackedActionLastAccessed_lastAccessedRegion,
+    trackedActionLastAccessed_actionName,
     trackedActionLastAccessed_lastAccessedEntity,
+    trackedActionLastAccessed_lastAccessedRegion,
 
     -- ** User
-    user_permissionsBoundary,
     user_passwordLastUsed,
-    user_tags,
     user_path,
+    user_permissionsBoundary,
+    user_tags,
     user_userName,
     user_userId,
     user_arn,
     user_createDate,
 
     -- ** UserDetail
-    userDetail_attachedManagedPolicies,
-    userDetail_createDate,
-    userDetail_permissionsBoundary,
-    userDetail_arn,
     userDetail_groupList,
-    userDetail_userId,
-    userDetail_tags,
-    userDetail_userName,
-    userDetail_userPolicyList,
+    userDetail_arn,
     userDetail_path,
+    userDetail_createDate,
+    userDetail_userName,
+    userDetail_userId,
+    userDetail_permissionsBoundary,
+    userDetail_userPolicyList,
+    userDetail_tags,
+    userDetail_attachedManagedPolicies,
 
     -- ** VirtualMFADevice
+    virtualMFADevice_qRCodePNG,
+    virtualMFADevice_base32StringSeed,
     virtualMFADevice_user,
     virtualMFADevice_enableDate,
-    virtualMFADevice_qRCodePNG,
     virtualMFADevice_tags,
-    virtualMFADevice_base32StringSeed,
     virtualMFADevice_serialNumber,
   )
 where

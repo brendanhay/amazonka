@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGroupOwnerSetting' smart constructor.
 data GroupOwnerSetting = GroupOwnerSetting'
-  { -- | The name of the Linux OS group whose privileges will be added to the
-    -- Lambda process. This field is optional.
-    groupOwner :: Prelude.Maybe Prelude.Text,
-    -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
+  { -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
     -- group owner of the resource to the Lambda process privileges. Thus the
     -- Lambda process will have the file access permissions of the added Linux
     -- group.
-    autoAddGroupOwner :: Prelude.Maybe Prelude.Bool
+    autoAddGroupOwner :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the Linux OS group whose privileges will be added to the
+    -- Lambda process. This field is optional.
+    groupOwner :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,21 @@ data GroupOwnerSetting = GroupOwnerSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupOwner', 'groupOwnerSetting_groupOwner' - The name of the Linux OS group whose privileges will be added to the
--- Lambda process. This field is optional.
---
 -- 'autoAddGroupOwner', 'groupOwnerSetting_autoAddGroupOwner' - If true, AWS IoT Greengrass automatically adds the specified Linux OS
 -- group owner of the resource to the Lambda process privileges. Thus the
 -- Lambda process will have the file access permissions of the added Linux
 -- group.
+--
+-- 'groupOwner', 'groupOwnerSetting_groupOwner' - The name of the Linux OS group whose privileges will be added to the
+-- Lambda process. This field is optional.
 newGroupOwnerSetting ::
   GroupOwnerSetting
 newGroupOwnerSetting =
   GroupOwnerSetting'
-    { groupOwner = Prelude.Nothing,
-      autoAddGroupOwner = Prelude.Nothing
+    { autoAddGroupOwner =
+        Prelude.Nothing,
+      groupOwner = Prelude.Nothing
     }
-
--- | The name of the Linux OS group whose privileges will be added to the
--- Lambda process. This field is optional.
-groupOwnerSetting_groupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Text)
-groupOwnerSetting_groupOwner = Lens.lens (\GroupOwnerSetting' {groupOwner} -> groupOwner) (\s@GroupOwnerSetting' {} a -> s {groupOwner = a} :: GroupOwnerSetting)
 
 -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
 -- group owner of the resource to the Lambda process privileges. Thus the
@@ -73,14 +69,19 @@ groupOwnerSetting_groupOwner = Lens.lens (\GroupOwnerSetting' {groupOwner} -> gr
 groupOwnerSetting_autoAddGroupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Bool)
 groupOwnerSetting_autoAddGroupOwner = Lens.lens (\GroupOwnerSetting' {autoAddGroupOwner} -> autoAddGroupOwner) (\s@GroupOwnerSetting' {} a -> s {autoAddGroupOwner = a} :: GroupOwnerSetting)
 
+-- | The name of the Linux OS group whose privileges will be added to the
+-- Lambda process. This field is optional.
+groupOwnerSetting_groupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Text)
+groupOwnerSetting_groupOwner = Lens.lens (\GroupOwnerSetting' {groupOwner} -> groupOwner) (\s@GroupOwnerSetting' {} a -> s {groupOwner = a} :: GroupOwnerSetting)
+
 instance Core.FromJSON GroupOwnerSetting where
   parseJSON =
     Core.withObject
       "GroupOwnerSetting"
       ( \x ->
           GroupOwnerSetting'
-            Prelude.<$> (x Core..:? "GroupOwner")
-            Prelude.<*> (x Core..:? "AutoAddGroupOwner")
+            Prelude.<$> (x Core..:? "AutoAddGroupOwner")
+            Prelude.<*> (x Core..:? "GroupOwner")
       )
 
 instance Prelude.Hashable GroupOwnerSetting
@@ -91,8 +92,8 @@ instance Core.ToJSON GroupOwnerSetting where
   toJSON GroupOwnerSetting' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GroupOwner" Core..=) Prelude.<$> groupOwner,
-            ("AutoAddGroupOwner" Core..=)
-              Prelude.<$> autoAddGroupOwner
+          [ ("AutoAddGroupOwner" Core..=)
+              Prelude.<$> autoAddGroupOwner,
+            ("GroupOwner" Core..=) Prelude.<$> groupOwner
           ]
       )

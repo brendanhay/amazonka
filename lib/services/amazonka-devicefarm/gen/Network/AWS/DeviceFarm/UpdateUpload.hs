@@ -27,9 +27,9 @@ module Network.AWS.DeviceFarm.UpdateUpload
     newUpdateUpload,
 
     -- * Request Lenses
-    updateUpload_contentType,
     updateUpload_editContent,
     updateUpload_name,
+    updateUpload_contentType,
     updateUpload_arn,
 
     -- * Destructuring the Response
@@ -51,15 +51,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUpload' smart constructor.
 data UpdateUpload = UpdateUpload'
-  { -- | The upload\'s content type (for example, @application\/x-yaml@).
-    contentType :: Prelude.Maybe Prelude.Text,
-    -- | Set to true if the YAML file has changed and must be updated. Otherwise,
+  { -- | Set to true if the YAML file has changed and must be updated. Otherwise,
     -- set to false.
     editContent :: Prelude.Maybe Prelude.Bool,
     -- | The upload\'s test spec file name. The name must not contain any forward
     -- slashes (\/). The test spec file name must end with the @.yaml@ or
     -- @.yml@ file extension.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The upload\'s content type (for example, @application\/x-yaml@).
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the uploaded test spec.
     arn :: Prelude.Text
   }
@@ -73,14 +73,14 @@ data UpdateUpload = UpdateUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentType', 'updateUpload_contentType' - The upload\'s content type (for example, @application\/x-yaml@).
---
 -- 'editContent', 'updateUpload_editContent' - Set to true if the YAML file has changed and must be updated. Otherwise,
 -- set to false.
 --
 -- 'name', 'updateUpload_name' - The upload\'s test spec file name. The name must not contain any forward
 -- slashes (\/). The test spec file name must end with the @.yaml@ or
 -- @.yml@ file extension.
+--
+-- 'contentType', 'updateUpload_contentType' - The upload\'s content type (for example, @application\/x-yaml@).
 --
 -- 'arn', 'updateUpload_arn' - The Amazon Resource Name (ARN) of the uploaded test spec.
 newUpdateUpload ::
@@ -89,15 +89,11 @@ newUpdateUpload ::
   UpdateUpload
 newUpdateUpload pArn_ =
   UpdateUpload'
-    { contentType = Prelude.Nothing,
-      editContent = Prelude.Nothing,
+    { editContent = Prelude.Nothing,
       name = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       arn = pArn_
     }
-
--- | The upload\'s content type (for example, @application\/x-yaml@).
-updateUpload_contentType :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
-updateUpload_contentType = Lens.lens (\UpdateUpload' {contentType} -> contentType) (\s@UpdateUpload' {} a -> s {contentType = a} :: UpdateUpload)
 
 -- | Set to true if the YAML file has changed and must be updated. Otherwise,
 -- set to false.
@@ -109,6 +105,10 @@ updateUpload_editContent = Lens.lens (\UpdateUpload' {editContent} -> editConten
 -- @.yml@ file extension.
 updateUpload_name :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
 updateUpload_name = Lens.lens (\UpdateUpload' {name} -> name) (\s@UpdateUpload' {} a -> s {name = a} :: UpdateUpload)
+
+-- | The upload\'s content type (for example, @application\/x-yaml@).
+updateUpload_contentType :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
+updateUpload_contentType = Lens.lens (\UpdateUpload' {contentType} -> contentType) (\s@UpdateUpload' {} a -> s {contentType = a} :: UpdateUpload)
 
 -- | The Amazon Resource Name (ARN) of the uploaded test spec.
 updateUpload_arn :: Lens.Lens' UpdateUpload Prelude.Text
@@ -148,9 +148,9 @@ instance Core.ToJSON UpdateUpload where
   toJSON UpdateUpload' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("contentType" Core..=) Prelude.<$> contentType,
-            ("editContent" Core..=) Prelude.<$> editContent,
+          [ ("editContent" Core..=) Prelude.<$> editContent,
             ("name" Core..=) Prelude.<$> name,
+            ("contentType" Core..=) Prelude.<$> contentType,
             Prelude.Just ("arn" Core..= arn)
           ]
       )

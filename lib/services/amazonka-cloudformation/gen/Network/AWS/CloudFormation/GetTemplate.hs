@@ -33,9 +33,9 @@ module Network.AWS.CloudFormation.GetTemplate
     newGetTemplate,
 
     -- * Request Lenses
+    getTemplate_changeSetName,
     getTemplate_templateStage,
     getTemplate_stackName,
-    getTemplate_changeSetName,
 
     -- * Destructuring the Response
     GetTemplateResponse (..),
@@ -59,7 +59,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetTemplate' smart constructor.
 data GetTemplate = GetTemplate'
-  { -- | For templates that include transforms, the stage of the template that
+  { -- | The name or Amazon Resource Name (ARN) of a change set for which
+    -- CloudFormation returns the associated template. If you specify a name,
+    -- you must also specify the @StackName@.
+    changeSetName :: Prelude.Maybe Prelude.Text,
+    -- | For templates that include transforms, the stage of the template that
     -- CloudFormation returns. To get the user-submitted template, specify
     -- @Original@. To get the template after CloudFormation has processed all
     -- transforms, specify @Processed@.
@@ -77,11 +81,7 @@ data GetTemplate = GetTemplate'
     -- -   Deleted stacks: You must specify the unique stack ID.
     --
     -- Default: There is no default value.
-    stackName :: Prelude.Maybe Prelude.Text,
-    -- | The name or Amazon Resource Name (ARN) of a change set for which
-    -- CloudFormation returns the associated template. If you specify a name,
-    -- you must also specify the @StackName@.
-    changeSetName :: Prelude.Maybe Prelude.Text
+    stackName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +92,10 @@ data GetTemplate = GetTemplate'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'changeSetName', 'getTemplate_changeSetName' - The name or Amazon Resource Name (ARN) of a change set for which
+-- CloudFormation returns the associated template. If you specify a name,
+-- you must also specify the @StackName@.
 --
 -- 'templateStage', 'getTemplate_templateStage' - For templates that include transforms, the stage of the template that
 -- CloudFormation returns. To get the user-submitted template, specify
@@ -111,18 +115,20 @@ data GetTemplate = GetTemplate'
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
---
--- 'changeSetName', 'getTemplate_changeSetName' - The name or Amazon Resource Name (ARN) of a change set for which
--- CloudFormation returns the associated template. If you specify a name,
--- you must also specify the @StackName@.
 newGetTemplate ::
   GetTemplate
 newGetTemplate =
   GetTemplate'
-    { templateStage = Prelude.Nothing,
-      stackName = Prelude.Nothing,
-      changeSetName = Prelude.Nothing
+    { changeSetName = Prelude.Nothing,
+      templateStage = Prelude.Nothing,
+      stackName = Prelude.Nothing
     }
+
+-- | The name or Amazon Resource Name (ARN) of a change set for which
+-- CloudFormation returns the associated template. If you specify a name,
+-- you must also specify the @StackName@.
+getTemplate_changeSetName :: Lens.Lens' GetTemplate (Prelude.Maybe Prelude.Text)
+getTemplate_changeSetName = Lens.lens (\GetTemplate' {changeSetName} -> changeSetName) (\s@GetTemplate' {} a -> s {changeSetName = a} :: GetTemplate)
 
 -- | For templates that include transforms, the stage of the template that
 -- CloudFormation returns. To get the user-submitted template, specify
@@ -146,12 +152,6 @@ getTemplate_templateStage = Lens.lens (\GetTemplate' {templateStage} -> template
 -- Default: There is no default value.
 getTemplate_stackName :: Lens.Lens' GetTemplate (Prelude.Maybe Prelude.Text)
 getTemplate_stackName = Lens.lens (\GetTemplate' {stackName} -> stackName) (\s@GetTemplate' {} a -> s {stackName = a} :: GetTemplate)
-
--- | The name or Amazon Resource Name (ARN) of a change set for which
--- CloudFormation returns the associated template. If you specify a name,
--- you must also specify the @StackName@.
-getTemplate_changeSetName :: Lens.Lens' GetTemplate (Prelude.Maybe Prelude.Text)
-getTemplate_changeSetName = Lens.lens (\GetTemplate' {changeSetName} -> changeSetName) (\s@GetTemplate' {} a -> s {changeSetName = a} :: GetTemplate)
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
@@ -185,9 +185,9 @@ instance Core.ToQuery GetTemplate where
           Core.=: ("GetTemplate" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
+        "ChangeSetName" Core.=: changeSetName,
         "TemplateStage" Core.=: templateStage,
-        "StackName" Core.=: stackName,
-        "ChangeSetName" Core.=: changeSetName
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for GetTemplate action.
@@ -252,7 +252,7 @@ newGetTemplateResponse pHttpStatus_ =
 -- finishes creating the change set, the @Processed@ template becomes
 -- available.
 getTemplateResponse_stagesAvailable :: Lens.Lens' GetTemplateResponse (Prelude.Maybe [TemplateStage])
-getTemplateResponse_stagesAvailable = Lens.lens (\GetTemplateResponse' {stagesAvailable} -> stagesAvailable) (\s@GetTemplateResponse' {} a -> s {stagesAvailable = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
+getTemplateResponse_stagesAvailable = Lens.lens (\GetTemplateResponse' {stagesAvailable} -> stagesAvailable) (\s@GetTemplateResponse' {} a -> s {stagesAvailable = a} :: GetTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Structure containing the template body. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>

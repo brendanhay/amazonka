@@ -102,7 +102,7 @@ listStacks_nextToken = Lens.lens (\ListStacks' {nextToken} -> nextToken) (\s@Lis
 -- of stack status codes, see the @StackStatus@ parameter of the Stack data
 -- type.
 listStacks_stackStatusFilter :: Lens.Lens' ListStacks (Prelude.Maybe [StackStatus])
-listStacks_stackStatusFilter = Lens.lens (\ListStacks' {stackStatusFilter} -> stackStatusFilter) (\s@ListStacks' {} a -> s {stackStatusFilter = a} :: ListStacks) Prelude.. Lens.mapping Lens._Coerce
+listStacks_stackStatusFilter = Lens.lens (\ListStacks' {stackStatusFilter} -> stackStatusFilter) (\s@ListStacks' {} a -> s {stackStatusFilter = a} :: ListStacks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListStacks where
   page rq rs
@@ -213,7 +213,7 @@ listStacksResponse_nextToken = Lens.lens (\ListStacksResponse' {nextToken} -> ne
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
 listStacksResponse_stackSummaries :: Lens.Lens' ListStacksResponse (Prelude.Maybe [StackSummary])
-listStacksResponse_stackSummaries = Lens.lens (\ListStacksResponse' {stackSummaries} -> stackSummaries) (\s@ListStacksResponse' {} a -> s {stackSummaries = a} :: ListStacksResponse) Prelude.. Lens.mapping Lens._Coerce
+listStacksResponse_stackSummaries = Lens.lens (\ListStacksResponse' {stackSummaries} -> stackSummaries) (\s@ListStacksResponse' {} a -> s {stackSummaries = a} :: ListStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStacksResponse_httpStatus :: Lens.Lens' ListStacksResponse Prelude.Int

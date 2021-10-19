@@ -158,7 +158,7 @@ newDetachStaticIpResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 detachStaticIpResponse_operations :: Lens.Lens' DetachStaticIpResponse (Prelude.Maybe [Operation])
-detachStaticIpResponse_operations = Lens.lens (\DetachStaticIpResponse' {operations} -> operations) (\s@DetachStaticIpResponse' {} a -> s {operations = a} :: DetachStaticIpResponse) Prelude.. Lens.mapping Lens._Coerce
+detachStaticIpResponse_operations = Lens.lens (\DetachStaticIpResponse' {operations} -> operations) (\s@DetachStaticIpResponse' {} a -> s {operations = a} :: DetachStaticIpResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detachStaticIpResponse_httpStatus :: Lens.Lens' DetachStaticIpResponse Prelude.Int

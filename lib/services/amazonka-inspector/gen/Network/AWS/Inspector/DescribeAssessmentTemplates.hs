@@ -71,12 +71,12 @@ newDescribeAssessmentTemplates
   pAssessmentTemplateArns_ =
     DescribeAssessmentTemplates'
       { assessmentTemplateArns =
-          Lens._Coerce Lens.# pAssessmentTemplateArns_
+          Lens.coerced Lens.# pAssessmentTemplateArns_
       }
 
 -- | Undocumented member.
 describeAssessmentTemplates_assessmentTemplateArns :: Lens.Lens' DescribeAssessmentTemplates (Prelude.NonEmpty Prelude.Text)
-describeAssessmentTemplates_assessmentTemplateArns = Lens.lens (\DescribeAssessmentTemplates' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@DescribeAssessmentTemplates' {} a -> s {assessmentTemplateArns = a} :: DescribeAssessmentTemplates) Prelude.. Lens._Coerce
+describeAssessmentTemplates_assessmentTemplateArns = Lens.lens (\DescribeAssessmentTemplates' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@DescribeAssessmentTemplates' {} a -> s {assessmentTemplateArns = a} :: DescribeAssessmentTemplates) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeAssessmentTemplates where
   type
@@ -174,12 +174,12 @@ describeAssessmentTemplatesResponse_httpStatus = Lens.lens (\DescribeAssessmentT
 
 -- | Information about the assessment templates.
 describeAssessmentTemplatesResponse_assessmentTemplates :: Lens.Lens' DescribeAssessmentTemplatesResponse [AssessmentTemplate]
-describeAssessmentTemplatesResponse_assessmentTemplates = Lens.lens (\DescribeAssessmentTemplatesResponse' {assessmentTemplates} -> assessmentTemplates) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {assessmentTemplates = a} :: DescribeAssessmentTemplatesResponse) Prelude.. Lens._Coerce
+describeAssessmentTemplatesResponse_assessmentTemplates = Lens.lens (\DescribeAssessmentTemplatesResponse' {assessmentTemplates} -> assessmentTemplates) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {assessmentTemplates = a} :: DescribeAssessmentTemplatesResponse) Prelude.. Lens.coerced
 
 -- | Assessment template details that cannot be described. An error code is
 -- provided for each failed item.
 describeAssessmentTemplatesResponse_failedItems :: Lens.Lens' DescribeAssessmentTemplatesResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeAssessmentTemplatesResponse_failedItems = Lens.lens (\DescribeAssessmentTemplatesResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {failedItems = a} :: DescribeAssessmentTemplatesResponse) Prelude.. Lens._Coerce
+describeAssessmentTemplatesResponse_failedItems = Lens.lens (\DescribeAssessmentTemplatesResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentTemplatesResponse' {} a -> s {failedItems = a} :: DescribeAssessmentTemplatesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

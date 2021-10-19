@@ -75,8 +75,7 @@ data PutEmailIdentityFeedbackAttributes = PutEmailIdentityFeedbackAttributes'
     -- receive an email notification when these events occur (even if this
     -- setting is disabled).
     emailForwardingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The email identity that you want to configure bounce and complaint
-    -- feedback forwarding for.
+    -- | The email identity.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,8 +100,7 @@ data PutEmailIdentityFeedbackAttributes = PutEmailIdentityFeedbackAttributes'
 -- receive an email notification when these events occur (even if this
 -- setting is disabled).
 --
--- 'emailIdentity', 'putEmailIdentityFeedbackAttributes_emailIdentity' - The email identity that you want to configure bounce and complaint
--- feedback forwarding for.
+-- 'emailIdentity', 'putEmailIdentityFeedbackAttributes_emailIdentity' - The email identity.
 newPutEmailIdentityFeedbackAttributes ::
   -- | 'emailIdentity'
   Prelude.Text ->
@@ -128,8 +126,7 @@ newPutEmailIdentityFeedbackAttributes pEmailIdentity_ =
 putEmailIdentityFeedbackAttributes_emailForwardingEnabled :: Lens.Lens' PutEmailIdentityFeedbackAttributes (Prelude.Maybe Prelude.Bool)
 putEmailIdentityFeedbackAttributes_emailForwardingEnabled = Lens.lens (\PutEmailIdentityFeedbackAttributes' {emailForwardingEnabled} -> emailForwardingEnabled) (\s@PutEmailIdentityFeedbackAttributes' {} a -> s {emailForwardingEnabled = a} :: PutEmailIdentityFeedbackAttributes)
 
--- | The email identity that you want to configure bounce and complaint
--- feedback forwarding for.
+-- | The email identity.
 putEmailIdentityFeedbackAttributes_emailIdentity :: Lens.Lens' PutEmailIdentityFeedbackAttributes Prelude.Text
 putEmailIdentityFeedbackAttributes_emailIdentity = Lens.lens (\PutEmailIdentityFeedbackAttributes' {emailIdentity} -> emailIdentity) (\s@PutEmailIdentityFeedbackAttributes' {} a -> s {emailIdentity = a} :: PutEmailIdentityFeedbackAttributes)
 

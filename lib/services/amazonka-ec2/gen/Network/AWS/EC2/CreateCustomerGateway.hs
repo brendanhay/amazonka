@@ -58,11 +58,11 @@ module Network.AWS.EC2.CreateCustomerGateway
     newCreateCustomerGateway,
 
     -- * Request Lenses
-    createCustomerGateway_tagSpecifications,
-    createCustomerGateway_dryRun,
     createCustomerGateway_certificateArn,
+    createCustomerGateway_tagSpecifications,
     createCustomerGateway_deviceName,
     createCustomerGateway_publicIp,
+    createCustomerGateway_dryRun,
     createCustomerGateway_bgpAsn,
     createCustomerGateway_type,
 
@@ -87,15 +87,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
-  { -- | The tags to apply to the customer gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+  { -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the customer gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A name for the customer gateway device.
     --
     -- Length Constraints: Up to 255 characters.
@@ -103,6 +98,11 @@ data CreateCustomerGateway = CreateCustomerGateway'
     -- | The Internet-routable IP address for the customer gateway\'s outside
     -- interface. The address must be static.
     publicIp :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | For devices that support BGP, the customer gateway\'s BGP ASN.
     --
     -- Default: 65000
@@ -121,14 +121,9 @@ data CreateCustomerGateway = CreateCustomerGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createCustomerGateway_tagSpecifications' - The tags to apply to the customer gateway.
---
--- 'dryRun', 'createCustomerGateway_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'certificateArn', 'createCustomerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
+--
+-- 'tagSpecifications', 'createCustomerGateway_tagSpecifications' - The tags to apply to the customer gateway.
 --
 -- 'deviceName', 'createCustomerGateway_deviceName' - A name for the customer gateway device.
 --
@@ -136,6 +131,11 @@ data CreateCustomerGateway = CreateCustomerGateway'
 --
 -- 'publicIp', 'createCustomerGateway_publicIp' - The Internet-routable IP address for the customer gateway\'s outside
 -- interface. The address must be static.
+--
+-- 'dryRun', 'createCustomerGateway_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'bgpAsn', 'createCustomerGateway_bgpAsn' - For devices that support BGP, the customer gateway\'s BGP ASN.
 --
@@ -151,30 +151,23 @@ newCreateCustomerGateway ::
   CreateCustomerGateway
 newCreateCustomerGateway pBgpAsn_ pType_ =
   CreateCustomerGateway'
-    { tagSpecifications =
+    { certificateArn =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       deviceName = Prelude.Nothing,
       publicIp = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       bgpAsn = pBgpAsn_,
       type' = pType_
     }
 
--- | The tags to apply to the customer gateway.
-createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
-createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createCustomerGateway_dryRun :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Bool)
-createCustomerGateway_dryRun = Lens.lens (\CreateCustomerGateway' {dryRun} -> dryRun) (\s@CreateCustomerGateway' {} a -> s {dryRun = a} :: CreateCustomerGateway)
-
 -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
 createCustomerGateway_certificateArn :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_certificateArn = Lens.lens (\CreateCustomerGateway' {certificateArn} -> certificateArn) (\s@CreateCustomerGateway' {} a -> s {certificateArn = a} :: CreateCustomerGateway)
+
+-- | The tags to apply to the customer gateway.
+createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
+createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the customer gateway device.
 --
@@ -186,6 +179,13 @@ createCustomerGateway_deviceName = Lens.lens (\CreateCustomerGateway' {deviceNam
 -- interface. The address must be static.
 createCustomerGateway_publicIp :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_publicIp = Lens.lens (\CreateCustomerGateway' {publicIp} -> publicIp) (\s@CreateCustomerGateway' {} a -> s {publicIp = a} :: CreateCustomerGateway)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createCustomerGateway_dryRun :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Bool)
+createCustomerGateway_dryRun = Lens.lens (\CreateCustomerGateway' {dryRun} -> dryRun) (\s@CreateCustomerGateway' {} a -> s {dryRun = a} :: CreateCustomerGateway)
 
 -- | For devices that support BGP, the customer gateway\'s BGP ASN.
 --
@@ -228,14 +228,14 @@ instance Core.ToQuery CreateCustomerGateway where
           Core.=: ("CreateCustomerGateway" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "CertificateArn" Core.=: certificateArn,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
-        "CertificateArn" Core.=: certificateArn,
         "DeviceName" Core.=: deviceName,
         "IpAddress" Core.=: publicIp,
+        "DryRun" Core.=: dryRun,
         "BgpAsn" Core.=: bgpAsn,
         "Type" Core.=: type'
       ]

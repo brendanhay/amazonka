@@ -27,61 +27,49 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdateScalingPlan $
---             newUpdateScalingPlan
---
---         , requestDeleteScalingPlan $
---             newDeleteScalingPlan
---
---         , requestDescribeScalingPlanResources $
+--         [ requestDescribeScalingPlanResources $
 --             newDescribeScalingPlanResources
---
---         , requestGetScalingPlanResourceForecastData $
---             newGetScalingPlanResourceForecastData
---
---         , requestDescribeScalingPlans $
---             newDescribeScalingPlans
 --
 --         , requestCreateScalingPlan $
 --             newCreateScalingPlan
 --
+--         , requestDeleteScalingPlan $
+--             newDeleteScalingPlan
+--
+--         , requestUpdateScalingPlan $
+--             newUpdateScalingPlan
+--
+--         , requestDescribeScalingPlans $
+--             newDescribeScalingPlans
+--
+--         , requestGetScalingPlanResourceForecastData $
+--             newGetScalingPlanResourceForecastData
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdateScalingPlan $
---             newUpdateScalingPlanResponse
+--         [ responseDescribeScalingPlanResources $
+--             newDescribeScalingPlanResourcesResponse
+--
+--         , responseCreateScalingPlan $
+--             newCreateScalingPlanResponse
 --
 --         , responseDeleteScalingPlan $
 --             newDeleteScalingPlanResponse
 --
---         , responseDescribeScalingPlanResources $
---             newDescribeScalingPlanResourcesResponse
---
---         , responseGetScalingPlanResourceForecastData $
---             newGetScalingPlanResourceForecastDataResponse
+--         , responseUpdateScalingPlan $
+--             newUpdateScalingPlanResponse
 --
 --         , responseDescribeScalingPlans $
 --             newDescribeScalingPlansResponse
 --
---         , responseCreateScalingPlan $
---             newCreateScalingPlanResponse
+--         , responseGetScalingPlanResourceForecastData $
+--             newGetScalingPlanResourceForecastDataResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdateScalingPlan :: UpdateScalingPlan -> TestTree
-requestUpdateScalingPlan =
-  req
-    "UpdateScalingPlan"
-    "fixture/UpdateScalingPlan.yaml"
-
-requestDeleteScalingPlan :: DeleteScalingPlan -> TestTree
-requestDeleteScalingPlan =
-  req
-    "DeleteScalingPlan"
-    "fixture/DeleteScalingPlan.yaml"
 
 requestDescribeScalingPlanResources :: DescribeScalingPlanResources -> TestTree
 requestDescribeScalingPlanResources =
@@ -89,11 +77,23 @@ requestDescribeScalingPlanResources =
     "DescribeScalingPlanResources"
     "fixture/DescribeScalingPlanResources.yaml"
 
-requestGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastData -> TestTree
-requestGetScalingPlanResourceForecastData =
+requestCreateScalingPlan :: CreateScalingPlan -> TestTree
+requestCreateScalingPlan =
   req
-    "GetScalingPlanResourceForecastData"
-    "fixture/GetScalingPlanResourceForecastData.yaml"
+    "CreateScalingPlan"
+    "fixture/CreateScalingPlan.yaml"
+
+requestDeleteScalingPlan :: DeleteScalingPlan -> TestTree
+requestDeleteScalingPlan =
+  req
+    "DeleteScalingPlan"
+    "fixture/DeleteScalingPlan.yaml"
+
+requestUpdateScalingPlan :: UpdateScalingPlan -> TestTree
+requestUpdateScalingPlan =
+  req
+    "UpdateScalingPlan"
+    "fixture/UpdateScalingPlan.yaml"
 
 requestDescribeScalingPlans :: DescribeScalingPlans -> TestTree
 requestDescribeScalingPlans =
@@ -101,29 +101,13 @@ requestDescribeScalingPlans =
     "DescribeScalingPlans"
     "fixture/DescribeScalingPlans.yaml"
 
-requestCreateScalingPlan :: CreateScalingPlan -> TestTree
-requestCreateScalingPlan =
+requestGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastData -> TestTree
+requestGetScalingPlanResourceForecastData =
   req
-    "CreateScalingPlan"
-    "fixture/CreateScalingPlan.yaml"
+    "GetScalingPlanResourceForecastData"
+    "fixture/GetScalingPlanResourceForecastData.yaml"
 
 -- Responses
-
-responseUpdateScalingPlan :: UpdateScalingPlanResponse -> TestTree
-responseUpdateScalingPlan =
-  res
-    "UpdateScalingPlanResponse"
-    "fixture/UpdateScalingPlanResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateScalingPlan)
-
-responseDeleteScalingPlan :: DeleteScalingPlanResponse -> TestTree
-responseDeleteScalingPlan =
-  res
-    "DeleteScalingPlanResponse"
-    "fixture/DeleteScalingPlanResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteScalingPlan)
 
 responseDescribeScalingPlanResources :: DescribeScalingPlanResourcesResponse -> TestTree
 responseDescribeScalingPlanResources =
@@ -133,13 +117,29 @@ responseDescribeScalingPlanResources =
     defaultService
     (Proxy :: Proxy DescribeScalingPlanResources)
 
-responseGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastDataResponse -> TestTree
-responseGetScalingPlanResourceForecastData =
+responseCreateScalingPlan :: CreateScalingPlanResponse -> TestTree
+responseCreateScalingPlan =
   res
-    "GetScalingPlanResourceForecastDataResponse"
-    "fixture/GetScalingPlanResourceForecastDataResponse.proto"
+    "CreateScalingPlanResponse"
+    "fixture/CreateScalingPlanResponse.proto"
     defaultService
-    (Proxy :: Proxy GetScalingPlanResourceForecastData)
+    (Proxy :: Proxy CreateScalingPlan)
+
+responseDeleteScalingPlan :: DeleteScalingPlanResponse -> TestTree
+responseDeleteScalingPlan =
+  res
+    "DeleteScalingPlanResponse"
+    "fixture/DeleteScalingPlanResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteScalingPlan)
+
+responseUpdateScalingPlan :: UpdateScalingPlanResponse -> TestTree
+responseUpdateScalingPlan =
+  res
+    "UpdateScalingPlanResponse"
+    "fixture/UpdateScalingPlanResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateScalingPlan)
 
 responseDescribeScalingPlans :: DescribeScalingPlansResponse -> TestTree
 responseDescribeScalingPlans =
@@ -149,10 +149,10 @@ responseDescribeScalingPlans =
     defaultService
     (Proxy :: Proxy DescribeScalingPlans)
 
-responseCreateScalingPlan :: CreateScalingPlanResponse -> TestTree
-responseCreateScalingPlan =
+responseGetScalingPlanResourceForecastData :: GetScalingPlanResourceForecastDataResponse -> TestTree
+responseGetScalingPlanResourceForecastData =
   res
-    "CreateScalingPlanResponse"
-    "fixture/CreateScalingPlanResponse.proto"
+    "GetScalingPlanResourceForecastDataResponse"
+    "fixture/GetScalingPlanResourceForecastDataResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateScalingPlan)
+    (Proxy :: Proxy GetScalingPlanResourceForecastData)

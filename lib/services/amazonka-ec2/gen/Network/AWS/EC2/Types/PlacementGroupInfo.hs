@@ -53,7 +53,7 @@ newPlacementGroupInfo =
 
 -- | The supported placement group types.
 placementGroupInfo_supportedStrategies :: Lens.Lens' PlacementGroupInfo (Prelude.Maybe [PlacementGroupStrategy])
-placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {supportedStrategies} -> supportedStrategies) (\s@PlacementGroupInfo' {} a -> s {supportedStrategies = a} :: PlacementGroupInfo) Prelude.. Lens.mapping Lens._Coerce
+placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {supportedStrategies} -> supportedStrategies) (\s@PlacementGroupInfo' {} a -> s {supportedStrategies = a} :: PlacementGroupInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML PlacementGroupInfo where
   parseXML x =

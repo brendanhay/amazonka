@@ -70,7 +70,7 @@ builtinSlotTypeMetadata_signature = Lens.lens (\BuiltinSlotTypeMetadata' {signat
 
 -- | A list of target locales for the slot.
 builtinSlotTypeMetadata_supportedLocales :: Lens.Lens' BuiltinSlotTypeMetadata (Prelude.Maybe [Locale])
-builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinSlotTypeMetadata' {} a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata) Prelude.. Lens.mapping Lens._Coerce
+builtinSlotTypeMetadata_supportedLocales = Lens.lens (\BuiltinSlotTypeMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinSlotTypeMetadata' {} a -> s {supportedLocales = a} :: BuiltinSlotTypeMetadata) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON BuiltinSlotTypeMetadata where
   parseJSON =

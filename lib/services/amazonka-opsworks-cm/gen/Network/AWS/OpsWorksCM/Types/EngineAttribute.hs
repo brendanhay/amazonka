@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEngineAttribute' smart constructor.
 data EngineAttribute = EngineAttribute'
-  { -- | The name of the engine attribute.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The value of the engine attribute.
-    value :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | The value of the engine attribute.
+    value :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the engine attribute.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data EngineAttribute = EngineAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'engineAttribute_name' - The name of the engine attribute.
---
 -- 'value', 'engineAttribute_value' - The value of the engine attribute.
+--
+-- 'name', 'engineAttribute_name' - The name of the engine attribute.
 newEngineAttribute ::
   EngineAttribute
 newEngineAttribute =
   EngineAttribute'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the engine attribute.
-engineAttribute_name :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
-engineAttribute_name = Lens.lens (\EngineAttribute' {name} -> name) (\s@EngineAttribute' {} a -> s {name = a} :: EngineAttribute)
 
 -- | The value of the engine attribute.
 engineAttribute_value :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
 engineAttribute_value = Lens.lens (\EngineAttribute' {value} -> value) (\s@EngineAttribute' {} a -> s {value = a} :: EngineAttribute) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The name of the engine attribute.
+engineAttribute_name :: Lens.Lens' EngineAttribute (Prelude.Maybe Prelude.Text)
+engineAttribute_name = Lens.lens (\EngineAttribute' {name} -> name) (\s@EngineAttribute' {} a -> s {name = a} :: EngineAttribute)
 
 instance Core.FromJSON EngineAttribute where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON EngineAttribute where
       "EngineAttribute"
       ( \x ->
           EngineAttribute'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable EngineAttribute
@@ -78,7 +78,7 @@ instance Core.ToJSON EngineAttribute where
   toJSON EngineAttribute' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

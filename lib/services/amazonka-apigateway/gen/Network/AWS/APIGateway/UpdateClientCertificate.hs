@@ -35,12 +35,12 @@ module Network.AWS.APIGateway.UpdateClientCertificate
     newClientCertificate,
 
     -- * Response Lenses
-    clientCertificate_createdDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
-    clientCertificate_tags,
+    clientCertificate_createdDate,
+    clientCertificate_expirationDate,
     clientCertificate_description,
+    clientCertificate_tags,
   )
 where
 
@@ -91,7 +91,7 @@ newUpdateClientCertificate pClientCertificateId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateClientCertificate_patchOperations :: Lens.Lens' UpdateClientCertificate (Prelude.Maybe [PatchOperation])
-updateClientCertificate_patchOperations = Lens.lens (\UpdateClientCertificate' {patchOperations} -> patchOperations) (\s@UpdateClientCertificate' {} a -> s {patchOperations = a} :: UpdateClientCertificate) Prelude.. Lens.mapping Lens._Coerce
+updateClientCertificate_patchOperations = Lens.lens (\UpdateClientCertificate' {patchOperations} -> patchOperations) (\s@UpdateClientCertificate' {} a -> s {patchOperations = a} :: UpdateClientCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The identifier of the ClientCertificate resource to be
 -- updated.

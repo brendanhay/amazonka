@@ -52,9 +52,9 @@ module Network.AWS.SWF.ListWorkflowTypes
 
     -- * Request Lenses
     listWorkflowTypes_nextPageToken,
+    listWorkflowTypes_reverseOrder,
     listWorkflowTypes_name,
     listWorkflowTypes_maximumPageSize,
-    listWorkflowTypes_reverseOrder,
     listWorkflowTypes_domain,
     listWorkflowTypes_registrationStatus,
 
@@ -88,15 +88,15 @@ data ListWorkflowTypes = ListWorkflowTypes'
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | When set to @true@, returns the results in reverse order. By default the
+    -- results are returned in ascending alphabetical order of the @name@ of
+    -- the workflow types.
+    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | If specified, lists the workflow type with this name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
-    -- | When set to @true@, returns the results in reverse order. By default the
-    -- results are returned in ascending alphabetical order of the @name@ of
-    -- the workflow types.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain in which the workflow types have been registered.
     domain :: Prelude.Text,
     -- | Specifies the registration status of the workflow types to list.
@@ -122,14 +122,14 @@ data ListWorkflowTypes = ListWorkflowTypes'
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
 --
+-- 'reverseOrder', 'listWorkflowTypes_reverseOrder' - When set to @true@, returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the @name@ of
+-- the workflow types.
+--
 -- 'name', 'listWorkflowTypes_name' - If specified, lists the workflow type with this name.
 --
 -- 'maximumPageSize', 'listWorkflowTypes_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
---
--- 'reverseOrder', 'listWorkflowTypes_reverseOrder' - When set to @true@, returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the @name@ of
--- the workflow types.
 --
 -- 'domain', 'listWorkflowTypes_domain' - The name of the domain in which the workflow types have been registered.
 --
@@ -143,9 +143,9 @@ newListWorkflowTypes ::
 newListWorkflowTypes pDomain_ pRegistrationStatus_ =
   ListWorkflowTypes'
     { nextPageToken = Prelude.Nothing,
+      reverseOrder = Prelude.Nothing,
       name = Prelude.Nothing,
       maximumPageSize = Prelude.Nothing,
-      reverseOrder = Prelude.Nothing,
       domain = pDomain_,
       registrationStatus = pRegistrationStatus_
     }
@@ -162,6 +162,12 @@ newListWorkflowTypes pDomain_ pRegistrationStatus_ =
 listWorkflowTypes_nextPageToken :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
 listWorkflowTypes_nextPageToken = Lens.lens (\ListWorkflowTypes' {nextPageToken} -> nextPageToken) (\s@ListWorkflowTypes' {} a -> s {nextPageToken = a} :: ListWorkflowTypes)
 
+-- | When set to @true@, returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the @name@ of
+-- the workflow types.
+listWorkflowTypes_reverseOrder :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Bool)
+listWorkflowTypes_reverseOrder = Lens.lens (\ListWorkflowTypes' {reverseOrder} -> reverseOrder) (\s@ListWorkflowTypes' {} a -> s {reverseOrder = a} :: ListWorkflowTypes)
+
 -- | If specified, lists the workflow type with this name.
 listWorkflowTypes_name :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Text)
 listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@ListWorkflowTypes' {} a -> s {name = a} :: ListWorkflowTypes)
@@ -170,12 +176,6 @@ listWorkflowTypes_name = Lens.lens (\ListWorkflowTypes' {name} -> name) (\s@List
 -- @nextPageToken@ to obtain further pages of results.
 listWorkflowTypes_maximumPageSize :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Natural)
 listWorkflowTypes_maximumPageSize = Lens.lens (\ListWorkflowTypes' {maximumPageSize} -> maximumPageSize) (\s@ListWorkflowTypes' {} a -> s {maximumPageSize = a} :: ListWorkflowTypes)
-
--- | When set to @true@, returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the @name@ of
--- the workflow types.
-listWorkflowTypes_reverseOrder :: Lens.Lens' ListWorkflowTypes (Prelude.Maybe Prelude.Bool)
-listWorkflowTypes_reverseOrder = Lens.lens (\ListWorkflowTypes' {reverseOrder} -> reverseOrder) (\s@ListWorkflowTypes' {} a -> s {reverseOrder = a} :: ListWorkflowTypes)
 
 -- | The name of the domain in which the workflow types have been registered.
 listWorkflowTypes_domain :: Lens.Lens' ListWorkflowTypes Prelude.Text
@@ -242,10 +242,10 @@ instance Core.ToJSON ListWorkflowTypes where
     Core.object
       ( Prelude.catMaybes
           [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             ("name" Core..=) Prelude.<$> name,
             ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just
               ("registrationStatus" Core..= registrationStatus)
@@ -325,6 +325,6 @@ listWorkflowTypesResponse_httpStatus = Lens.lens (\ListWorkflowTypesResponse' {h
 
 -- | The list of workflow type information.
 listWorkflowTypesResponse_typeInfos :: Lens.Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
-listWorkflowTypesResponse_typeInfos = Lens.lens (\ListWorkflowTypesResponse' {typeInfos} -> typeInfos) (\s@ListWorkflowTypesResponse' {} a -> s {typeInfos = a} :: ListWorkflowTypesResponse) Prelude.. Lens._Coerce
+listWorkflowTypesResponse_typeInfos = Lens.lens (\ListWorkflowTypesResponse' {typeInfos} -> typeInfos) (\s@ListWorkflowTypesResponse' {} a -> s {typeInfos = a} :: ListWorkflowTypesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListWorkflowTypesResponse

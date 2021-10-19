@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConnectionAuthResponseParameters' smart constructor.
 data ConnectionAuthResponseParameters = ConnectionAuthResponseParameters'
-  { -- | The authorization parameters for Basic authorization.
-    basicAuthParameters :: Prelude.Maybe ConnectionBasicAuthResponseParameters,
-    -- | The API Key parameters to use for authorization.
-    apiKeyAuthParameters :: Prelude.Maybe ConnectionApiKeyAuthResponseParameters,
-    -- | The OAuth parameters to use for authorization.
+  { -- | The OAuth parameters to use for authorization.
     oAuthParameters :: Prelude.Maybe ConnectionOAuthResponseParameters,
     -- | Additional parameters for the connection that are passed through with
     -- every invocation to the HTTP endpoint.
-    invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters
+    invocationHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
+    -- | The API Key parameters to use for authorization.
+    apiKeyAuthParameters :: Prelude.Maybe ConnectionApiKeyAuthResponseParameters,
+    -- | The authorization parameters for Basic authorization.
+    basicAuthParameters :: Prelude.Maybe ConnectionBasicAuthResponseParameters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,25 @@ data ConnectionAuthResponseParameters = ConnectionAuthResponseParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'basicAuthParameters', 'connectionAuthResponseParameters_basicAuthParameters' - The authorization parameters for Basic authorization.
---
--- 'apiKeyAuthParameters', 'connectionAuthResponseParameters_apiKeyAuthParameters' - The API Key parameters to use for authorization.
---
 -- 'oAuthParameters', 'connectionAuthResponseParameters_oAuthParameters' - The OAuth parameters to use for authorization.
 --
 -- 'invocationHttpParameters', 'connectionAuthResponseParameters_invocationHttpParameters' - Additional parameters for the connection that are passed through with
 -- every invocation to the HTTP endpoint.
+--
+-- 'apiKeyAuthParameters', 'connectionAuthResponseParameters_apiKeyAuthParameters' - The API Key parameters to use for authorization.
+--
+-- 'basicAuthParameters', 'connectionAuthResponseParameters_basicAuthParameters' - The authorization parameters for Basic authorization.
 newConnectionAuthResponseParameters ::
   ConnectionAuthResponseParameters
 newConnectionAuthResponseParameters =
   ConnectionAuthResponseParameters'
-    { basicAuthParameters =
+    { oAuthParameters =
+        Prelude.Nothing,
+      invocationHttpParameters =
         Prelude.Nothing,
       apiKeyAuthParameters = Prelude.Nothing,
-      oAuthParameters = Prelude.Nothing,
-      invocationHttpParameters =
-        Prelude.Nothing
+      basicAuthParameters = Prelude.Nothing
     }
-
--- | The authorization parameters for Basic authorization.
-connectionAuthResponseParameters_basicAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionBasicAuthResponseParameters)
-connectionAuthResponseParameters_basicAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {basicAuthParameters} -> basicAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {basicAuthParameters = a} :: ConnectionAuthResponseParameters)
-
--- | The API Key parameters to use for authorization.
-connectionAuthResponseParameters_apiKeyAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionApiKeyAuthResponseParameters)
-connectionAuthResponseParameters_apiKeyAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {apiKeyAuthParameters = a} :: ConnectionAuthResponseParameters)
 
 -- | The OAuth parameters to use for authorization.
 connectionAuthResponseParameters_oAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionOAuthResponseParameters)
@@ -88,6 +80,14 @@ connectionAuthResponseParameters_oAuthParameters = Lens.lens (\ConnectionAuthRes
 connectionAuthResponseParameters_invocationHttpParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionHttpParameters)
 connectionAuthResponseParameters_invocationHttpParameters = Lens.lens (\ConnectionAuthResponseParameters' {invocationHttpParameters} -> invocationHttpParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {invocationHttpParameters = a} :: ConnectionAuthResponseParameters)
 
+-- | The API Key parameters to use for authorization.
+connectionAuthResponseParameters_apiKeyAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionApiKeyAuthResponseParameters)
+connectionAuthResponseParameters_apiKeyAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {apiKeyAuthParameters} -> apiKeyAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {apiKeyAuthParameters = a} :: ConnectionAuthResponseParameters)
+
+-- | The authorization parameters for Basic authorization.
+connectionAuthResponseParameters_basicAuthParameters :: Lens.Lens' ConnectionAuthResponseParameters (Prelude.Maybe ConnectionBasicAuthResponseParameters)
+connectionAuthResponseParameters_basicAuthParameters = Lens.lens (\ConnectionAuthResponseParameters' {basicAuthParameters} -> basicAuthParameters) (\s@ConnectionAuthResponseParameters' {} a -> s {basicAuthParameters = a} :: ConnectionAuthResponseParameters)
+
 instance
   Core.FromJSON
     ConnectionAuthResponseParameters
@@ -97,10 +97,10 @@ instance
       "ConnectionAuthResponseParameters"
       ( \x ->
           ConnectionAuthResponseParameters'
-            Prelude.<$> (x Core..:? "BasicAuthParameters")
-            Prelude.<*> (x Core..:? "ApiKeyAuthParameters")
-            Prelude.<*> (x Core..:? "OAuthParameters")
+            Prelude.<$> (x Core..:? "OAuthParameters")
             Prelude.<*> (x Core..:? "InvocationHttpParameters")
+            Prelude.<*> (x Core..:? "ApiKeyAuthParameters")
+            Prelude.<*> (x Core..:? "BasicAuthParameters")
       )
 
 instance

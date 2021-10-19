@@ -58,7 +58,7 @@ newRunCommandTarget ::
 newRunCommandTarget pKey_ pValues_ =
   RunCommandTarget'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | Can be either @tag:@ /tag-key/ or @InstanceIds@.
@@ -68,7 +68,7 @@ runCommandTarget_key = Lens.lens (\RunCommandTarget' {key} -> key) (\s@RunComman
 -- | If @Key@ is @tag:@ /tag-key/, @Values@ is a list of tag values. If @Key@
 -- is @InstanceIds@, @Values@ is a list of Amazon EC2 instance IDs.
 runCommandTarget_values :: Lens.Lens' RunCommandTarget (Prelude.NonEmpty Prelude.Text)
-runCommandTarget_values = Lens.lens (\RunCommandTarget' {values} -> values) (\s@RunCommandTarget' {} a -> s {values = a} :: RunCommandTarget) Prelude.. Lens._Coerce
+runCommandTarget_values = Lens.lens (\RunCommandTarget' {values} -> values) (\s@RunCommandTarget' {} a -> s {values = a} :: RunCommandTarget) Prelude.. Lens.coerced
 
 instance Core.FromJSON RunCommandTarget where
   parseJSON =

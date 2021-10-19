@@ -44,8 +44,8 @@ module Network.AWS.CertificateManager.ExportCertificate
 
     -- * Response Lenses
     exportCertificateResponse_privateKey,
-    exportCertificateResponse_certificateChain,
     exportCertificateResponse_certificate,
+    exportCertificateResponse_certificateChain,
     exportCertificateResponse_httpStatus,
   )
 where
@@ -139,8 +139,8 @@ instance Core.AWSRequest ExportCertificate where
       ( \s h x ->
           ExportCertificateResponse'
             Prelude.<$> (x Core..?> "PrivateKey")
-            Prelude.<*> (x Core..?> "CertificateChain")
             Prelude.<*> (x Core..?> "Certificate")
+            Prelude.<*> (x Core..?> "CertificateChain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,11 +185,11 @@ data ExportCertificateResponse = ExportCertificateResponse'
     -- certificate. The key is output in PKCS #8 format and is base64
     -- PEM-encoded.
     privateKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The base64 PEM-encoded certificate.
+    certificate :: Prelude.Maybe Prelude.Text,
     -- | The base64 PEM-encoded certificate chain. This does not include the
     -- certificate that you are exporting.
     certificateChain :: Prelude.Maybe Prelude.Text,
-    -- | The base64 PEM-encoded certificate.
-    certificate :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ExportCertificateResponse = ExportCertificateResponse'
 -- certificate. The key is output in PKCS #8 format and is base64
 -- PEM-encoded.
 --
+-- 'certificate', 'exportCertificateResponse_certificate' - The base64 PEM-encoded certificate.
+--
 -- 'certificateChain', 'exportCertificateResponse_certificateChain' - The base64 PEM-encoded certificate chain. This does not include the
 -- certificate that you are exporting.
---
--- 'certificate', 'exportCertificateResponse_certificate' - The base64 PEM-encoded certificate.
 --
 -- 'httpStatus', 'exportCertificateResponse_httpStatus' - The response's http status code.
 newExportCertificateResponse ::
@@ -221,8 +221,8 @@ newExportCertificateResponse pHttpStatus_ =
   ExportCertificateResponse'
     { privateKey =
         Prelude.Nothing,
-      certificateChain = Prelude.Nothing,
       certificate = Prelude.Nothing,
+      certificateChain = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -232,14 +232,14 @@ newExportCertificateResponse pHttpStatus_ =
 exportCertificateResponse_privateKey :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
 exportCertificateResponse_privateKey = Lens.lens (\ExportCertificateResponse' {privateKey} -> privateKey) (\s@ExportCertificateResponse' {} a -> s {privateKey = a} :: ExportCertificateResponse) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The base64 PEM-encoded certificate.
+exportCertificateResponse_certificate :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
+exportCertificateResponse_certificate = Lens.lens (\ExportCertificateResponse' {certificate} -> certificate) (\s@ExportCertificateResponse' {} a -> s {certificate = a} :: ExportCertificateResponse)
+
 -- | The base64 PEM-encoded certificate chain. This does not include the
 -- certificate that you are exporting.
 exportCertificateResponse_certificateChain :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
 exportCertificateResponse_certificateChain = Lens.lens (\ExportCertificateResponse' {certificateChain} -> certificateChain) (\s@ExportCertificateResponse' {} a -> s {certificateChain = a} :: ExportCertificateResponse)
-
--- | The base64 PEM-encoded certificate.
-exportCertificateResponse_certificate :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
-exportCertificateResponse_certificate = Lens.lens (\ExportCertificateResponse' {certificate} -> certificate) (\s@ExportCertificateResponse' {} a -> s {certificate = a} :: ExportCertificateResponse)
 
 -- | The response's http status code.
 exportCertificateResponse_httpStatus :: Lens.Lens' ExportCertificateResponse Prelude.Int

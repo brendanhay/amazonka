@@ -29,8 +29,8 @@ module Network.AWS.CloudFront.ListInvalidations
     newListInvalidations,
 
     -- * Request Lenses
-    listInvalidations_maxItems,
     listInvalidations_marker,
+    listInvalidations_maxItems,
     listInvalidations_distributionId,
 
     -- * Destructuring the Response
@@ -54,10 +54,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListInvalidations' smart constructor.
 data ListInvalidations = ListInvalidations'
-  { -- | The maximum number of invalidation batches that you want in the response
-    -- body.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter when paginating results to indicate where to begin in
+  { -- | Use this parameter when paginating results to indicate where to begin in
     -- your list of invalidation batches. Because the results are returned in
     -- decreasing order from most recent to oldest, the most recent results are
     -- on the first page, the second page will contain earlier results, and so
@@ -65,6 +62,9 @@ data ListInvalidations = ListInvalidations'
     -- @NextMarker@ from the current page\'s response. This value is the same
     -- as the ID of the last invalidation batch on that page.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of invalidation batches that you want in the response
+    -- body.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | The distribution\'s ID.
     distributionId :: Prelude.Text
   }
@@ -78,9 +78,6 @@ data ListInvalidations = ListInvalidations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listInvalidations_maxItems' - The maximum number of invalidation batches that you want in the response
--- body.
---
 -- 'marker', 'listInvalidations_marker' - Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
 -- decreasing order from most recent to oldest, the most recent results are
@@ -89,6 +86,9 @@ data ListInvalidations = ListInvalidations'
 -- @NextMarker@ from the current page\'s response. This value is the same
 -- as the ID of the last invalidation batch on that page.
 --
+-- 'maxItems', 'listInvalidations_maxItems' - The maximum number of invalidation batches that you want in the response
+-- body.
+--
 -- 'distributionId', 'listInvalidations_distributionId' - The distribution\'s ID.
 newListInvalidations ::
   -- | 'distributionId'
@@ -96,15 +96,10 @@ newListInvalidations ::
   ListInvalidations
 newListInvalidations pDistributionId_ =
   ListInvalidations'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       distributionId = pDistributionId_
     }
-
--- | The maximum number of invalidation batches that you want in the response
--- body.
-listInvalidations_maxItems :: Lens.Lens' ListInvalidations (Prelude.Maybe Prelude.Text)
-listInvalidations_maxItems = Lens.lens (\ListInvalidations' {maxItems} -> maxItems) (\s@ListInvalidations' {} a -> s {maxItems = a} :: ListInvalidations)
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
@@ -115,6 +110,11 @@ listInvalidations_maxItems = Lens.lens (\ListInvalidations' {maxItems} -> maxIte
 -- as the ID of the last invalidation batch on that page.
 listInvalidations_marker :: Lens.Lens' ListInvalidations (Prelude.Maybe Prelude.Text)
 listInvalidations_marker = Lens.lens (\ListInvalidations' {marker} -> marker) (\s@ListInvalidations' {} a -> s {marker = a} :: ListInvalidations)
+
+-- | The maximum number of invalidation batches that you want in the response
+-- body.
+listInvalidations_maxItems :: Lens.Lens' ListInvalidations (Prelude.Maybe Prelude.Text)
+listInvalidations_maxItems = Lens.lens (\ListInvalidations' {maxItems} -> maxItems) (\s@ListInvalidations' {} a -> s {maxItems = a} :: ListInvalidations)
 
 -- | The distribution\'s ID.
 listInvalidations_distributionId :: Lens.Lens' ListInvalidations Prelude.Text
@@ -175,8 +175,8 @@ instance Core.ToPath ListInvalidations where
 instance Core.ToQuery ListInvalidations where
   toQuery ListInvalidations' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | The returned result of the corresponding request.

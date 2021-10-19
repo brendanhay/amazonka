@@ -226,7 +226,7 @@ newDescribeConfigurationSettingsResponse pHttpStatus_ =
 
 -- | A list of ConfigurationSettingsDescription.
 describeConfigurationSettingsResponse_configurationSettings :: Lens.Lens' DescribeConfigurationSettingsResponse (Prelude.Maybe [ConfigurationSettingsDescription])
-describeConfigurationSettingsResponse_configurationSettings = Lens.lens (\DescribeConfigurationSettingsResponse' {configurationSettings} -> configurationSettings) (\s@DescribeConfigurationSettingsResponse' {} a -> s {configurationSettings = a} :: DescribeConfigurationSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConfigurationSettingsResponse_configurationSettings = Lens.lens (\DescribeConfigurationSettingsResponse' {configurationSettings} -> configurationSettings) (\s@DescribeConfigurationSettingsResponse' {} a -> s {configurationSettings = a} :: DescribeConfigurationSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeConfigurationSettingsResponse_httpStatus :: Lens.Lens' DescribeConfigurationSettingsResponse Prelude.Int

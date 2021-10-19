@@ -52,8 +52,8 @@ module Network.AWS.SecretsManager.GetResourcePolicy
     newGetResourcePolicyResponse,
 
     -- * Response Lenses
-    getResourcePolicyResponse_arn,
     getResourcePolicyResponse_resourcePolicy,
+    getResourcePolicyResponse_arn,
     getResourcePolicyResponse_name,
     getResourcePolicyResponse_httpStatus,
   )
@@ -72,24 +72,8 @@ data GetResourcePolicy = GetResourcePolicy'
     -- resource-based policy for. You can specify either the Amazon Resource
     -- Name (ARN) or the friendly name of the secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,24 +90,8 @@ data GetResourcePolicy = GetResourcePolicy'
 -- resource-based policy for. You can specify either the Amazon Resource
 -- Name (ARN) or the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 newGetResourcePolicy ::
   -- | 'secretId'
   Prelude.Text ->
@@ -135,24 +103,8 @@ newGetResourcePolicy pSecretId_ =
 -- resource-based policy for. You can specify either the Amazon Resource
 -- Name (ARN) or the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 getResourcePolicy_secretId :: Lens.Lens' GetResourcePolicy Prelude.Text
 getResourcePolicy_secretId = Lens.lens (\GetResourcePolicy' {secretId} -> secretId) (\s@GetResourcePolicy' {} a -> s {secretId = a} :: GetResourcePolicy)
 
@@ -165,8 +117,8 @@ instance Core.AWSRequest GetResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "ResourcePolicy")
+            Prelude.<$> (x Core..?> "ResourcePolicy")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -205,9 +157,7 @@ instance Core.ToQuery GetResourcePolicy where
 
 -- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
-  { -- | The ARN of the secret that the resource-based policy was retrieved for.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | A JSON-formatted string that describes the permissions that are
+  { -- | A JSON-formatted string that describes the permissions that are
     -- associated with the attached secret. These permissions are combined with
     -- any permissions that are associated with the user or role that attempts
     -- to access this secret. The combined permissions specify who can access
@@ -215,6 +165,8 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
     -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
     -- in the /Amazon Web Services Secrets Manager User Guide/.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret that the resource-based policy was retrieved for.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret that the resource-based policy was
     -- retrieved for.
     name :: Prelude.Maybe Prelude.Text,
@@ -231,8 +183,6 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'getResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was retrieved for.
---
 -- 'resourcePolicy', 'getResourcePolicyResponse_resourcePolicy' - A JSON-formatted string that describes the permissions that are
 -- associated with the attached secret. These permissions are combined with
 -- any permissions that are associated with the user or role that attempts
@@ -240,6 +190,8 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- the secret and what actions they can perform. For more information, see
 -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
 -- in the /Amazon Web Services Secrets Manager User Guide/.
+--
+-- 'arn', 'getResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was retrieved for.
 --
 -- 'name', 'getResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
 -- retrieved for.
@@ -251,15 +203,12 @@ newGetResourcePolicyResponse ::
   GetResourcePolicyResponse
 newGetResourcePolicyResponse pHttpStatus_ =
   GetResourcePolicyResponse'
-    { arn = Prelude.Nothing,
-      resourcePolicy = Prelude.Nothing,
+    { resourcePolicy =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ARN of the secret that the resource-based policy was retrieved for.
-getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
-getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> arn) (\s@GetResourcePolicyResponse' {} a -> s {arn = a} :: GetResourcePolicyResponse)
 
 -- | A JSON-formatted string that describes the permissions that are
 -- associated with the attached secret. These permissions are combined with
@@ -270,6 +219,10 @@ getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> 
 -- in the /Amazon Web Services Secrets Manager User Guide/.
 getResourcePolicyResponse_resourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_resourcePolicy = Lens.lens (\GetResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@GetResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: GetResourcePolicyResponse)
+
+-- | The ARN of the secret that the resource-based policy was retrieved for.
+getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> arn) (\s@GetResourcePolicyResponse' {} a -> s {arn = a} :: GetResourcePolicyResponse)
 
 -- | The friendly name of the secret that the resource-based policy was
 -- retrieved for.

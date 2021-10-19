@@ -91,7 +91,7 @@ newStartRemediationExecution
       { configRuleName =
           pConfigRuleName_,
         resourceKeys =
-          Lens._Coerce Lens.# pResourceKeys_
+          Lens.coerced Lens.# pResourceKeys_
       }
 
 -- | The list of names of Config rules that you want to run remediation
@@ -102,7 +102,7 @@ startRemediationExecution_configRuleName = Lens.lens (\StartRemediationExecution
 -- | A list of resource keys to be processed with the current request. Each
 -- element in the list consists of the resource type and resource ID.
 startRemediationExecution_resourceKeys :: Lens.Lens' StartRemediationExecution (Prelude.NonEmpty ResourceKey)
-startRemediationExecution_resourceKeys = Lens.lens (\StartRemediationExecution' {resourceKeys} -> resourceKeys) (\s@StartRemediationExecution' {} a -> s {resourceKeys = a} :: StartRemediationExecution) Prelude.. Lens._Coerce
+startRemediationExecution_resourceKeys = Lens.lens (\StartRemediationExecution' {resourceKeys} -> resourceKeys) (\s@StartRemediationExecution' {} a -> s {resourceKeys = a} :: StartRemediationExecution) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartRemediationExecution where
   type
@@ -201,7 +201,7 @@ startRemediationExecutionResponse_failureMessage = Lens.lens (\StartRemediationE
 -- | For resources that have failed to start execution, the API returns a
 -- resource key object.
 startRemediationExecutionResponse_failedItems :: Lens.Lens' StartRemediationExecutionResponse (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
-startRemediationExecutionResponse_failedItems = Lens.lens (\StartRemediationExecutionResponse' {failedItems} -> failedItems) (\s@StartRemediationExecutionResponse' {} a -> s {failedItems = a} :: StartRemediationExecutionResponse) Prelude.. Lens.mapping Lens._Coerce
+startRemediationExecutionResponse_failedItems = Lens.lens (\StartRemediationExecutionResponse' {failedItems} -> failedItems) (\s@StartRemediationExecutionResponse' {} a -> s {failedItems = a} :: StartRemediationExecutionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startRemediationExecutionResponse_httpStatus :: Lens.Lens' StartRemediationExecutionResponse Prelude.Int

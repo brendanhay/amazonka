@@ -29,11 +29,11 @@ module Network.AWS.Redshift.DescribeEndpointAuthorization
     newDescribeEndpointAuthorization,
 
     -- * Request Lenses
-    describeEndpointAuthorization_account,
     describeEndpointAuthorization_clusterIdentifier,
-    describeEndpointAuthorization_grantee,
-    describeEndpointAuthorization_maxRecords,
+    describeEndpointAuthorization_account,
     describeEndpointAuthorization_marker,
+    describeEndpointAuthorization_maxRecords,
+    describeEndpointAuthorization_grantee,
 
     -- * Destructuring the Response
     DescribeEndpointAuthorizationResponse (..),
@@ -55,27 +55,27 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEndpointAuthorization' smart constructor.
 data DescribeEndpointAuthorization = DescribeEndpointAuthorization'
-  { -- | The AAmazon Web Services account ID of either the cluster owner
+  { -- | The cluster identifier of the cluster to access.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The AAmazon Web Services account ID of either the cluster owner
     -- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
     -- value is of the grantor.
     account :: Prelude.Maybe Prelude.Text,
-    -- | The cluster identifier of the cluster to access.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to check authorization from a grantor or grantee point
-    -- of view. If true, Amazon Redshift returns endpoint authorizations that
-    -- you\'ve been granted. If false (default), checks authorization from a
-    -- grantor point of view.
-    grantee :: Prelude.Maybe Prelude.Bool,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by the @MaxRecords@ parameter.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a @Marker@ is included in the response so that the remaining
     -- results can be retrieved.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeEndpointAuthorization@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by the @MaxRecords@ parameter.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | Indicates whether to check authorization from a grantor or grantee point
+    -- of view. If true, Amazon Redshift returns endpoint authorizations that
+    -- you\'ve been granted. If false (default), checks authorization from a
+    -- grantor point of view.
+    grantee :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,37 +87,41 @@ data DescribeEndpointAuthorization = DescribeEndpointAuthorization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterIdentifier', 'describeEndpointAuthorization_clusterIdentifier' - The cluster identifier of the cluster to access.
+--
 -- 'account', 'describeEndpointAuthorization_account' - The AAmazon Web Services account ID of either the cluster owner
 -- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
 -- value is of the grantor.
 --
--- 'clusterIdentifier', 'describeEndpointAuthorization_clusterIdentifier' - The cluster identifier of the cluster to access.
---
--- 'grantee', 'describeEndpointAuthorization_grantee' - Indicates whether to check authorization from a grantor or grantee point
--- of view. If true, Amazon Redshift returns endpoint authorizations that
--- you\'ve been granted. If false (default), checks authorization from a
--- grantor point of view.
+-- 'marker', 'describeEndpointAuthorization_marker' - An optional pagination token provided by a previous
+-- @DescribeEndpointAuthorization@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
 --
 -- 'maxRecords', 'describeEndpointAuthorization_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a @Marker@ is included in the response so that the remaining
 -- results can be retrieved.
 --
--- 'marker', 'describeEndpointAuthorization_marker' - An optional pagination token provided by a previous
--- @DescribeEndpointAuthorization@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
+-- 'grantee', 'describeEndpointAuthorization_grantee' - Indicates whether to check authorization from a grantor or grantee point
+-- of view. If true, Amazon Redshift returns endpoint authorizations that
+-- you\'ve been granted. If false (default), checks authorization from a
+-- grantor point of view.
 newDescribeEndpointAuthorization ::
   DescribeEndpointAuthorization
 newDescribeEndpointAuthorization =
   DescribeEndpointAuthorization'
-    { account =
+    { clusterIdentifier =
         Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
-      grantee = Prelude.Nothing,
+      account = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      grantee = Prelude.Nothing
     }
+
+-- | The cluster identifier of the cluster to access.
+describeEndpointAuthorization_clusterIdentifier :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
+describeEndpointAuthorization_clusterIdentifier = Lens.lens (\DescribeEndpointAuthorization' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeEndpointAuthorization' {} a -> s {clusterIdentifier = a} :: DescribeEndpointAuthorization)
 
 -- | The AAmazon Web Services account ID of either the cluster owner
 -- (grantor) or grantee. If @Grantee@ parameter is true, then the @Account@
@@ -125,16 +129,12 @@ newDescribeEndpointAuthorization =
 describeEndpointAuthorization_account :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
 describeEndpointAuthorization_account = Lens.lens (\DescribeEndpointAuthorization' {account} -> account) (\s@DescribeEndpointAuthorization' {} a -> s {account = a} :: DescribeEndpointAuthorization)
 
--- | The cluster identifier of the cluster to access.
-describeEndpointAuthorization_clusterIdentifier :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
-describeEndpointAuthorization_clusterIdentifier = Lens.lens (\DescribeEndpointAuthorization' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeEndpointAuthorization' {} a -> s {clusterIdentifier = a} :: DescribeEndpointAuthorization)
-
--- | Indicates whether to check authorization from a grantor or grantee point
--- of view. If true, Amazon Redshift returns endpoint authorizations that
--- you\'ve been granted. If false (default), checks authorization from a
--- grantor point of view.
-describeEndpointAuthorization_grantee :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Bool)
-describeEndpointAuthorization_grantee = Lens.lens (\DescribeEndpointAuthorization' {grantee} -> grantee) (\s@DescribeEndpointAuthorization' {} a -> s {grantee = a} :: DescribeEndpointAuthorization)
+-- | An optional pagination token provided by a previous
+-- @DescribeEndpointAuthorization@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by the @MaxRecords@ parameter.
+describeEndpointAuthorization_marker :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
+describeEndpointAuthorization_marker = Lens.lens (\DescribeEndpointAuthorization' {marker} -> marker) (\s@DescribeEndpointAuthorization' {} a -> s {marker = a} :: DescribeEndpointAuthorization)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -143,12 +143,12 @@ describeEndpointAuthorization_grantee = Lens.lens (\DescribeEndpointAuthorizatio
 describeEndpointAuthorization_maxRecords :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Int)
 describeEndpointAuthorization_maxRecords = Lens.lens (\DescribeEndpointAuthorization' {maxRecords} -> maxRecords) (\s@DescribeEndpointAuthorization' {} a -> s {maxRecords = a} :: DescribeEndpointAuthorization)
 
--- | An optional pagination token provided by a previous
--- @DescribeEndpointAuthorization@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by the @MaxRecords@ parameter.
-describeEndpointAuthorization_marker :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Text)
-describeEndpointAuthorization_marker = Lens.lens (\DescribeEndpointAuthorization' {marker} -> marker) (\s@DescribeEndpointAuthorization' {} a -> s {marker = a} :: DescribeEndpointAuthorization)
+-- | Indicates whether to check authorization from a grantor or grantee point
+-- of view. If true, Amazon Redshift returns endpoint authorizations that
+-- you\'ve been granted. If false (default), checks authorization from a
+-- grantor point of view.
+describeEndpointAuthorization_grantee :: Lens.Lens' DescribeEndpointAuthorization (Prelude.Maybe Prelude.Bool)
+describeEndpointAuthorization_grantee = Lens.lens (\DescribeEndpointAuthorization' {grantee} -> grantee) (\s@DescribeEndpointAuthorization' {} a -> s {grantee = a} :: DescribeEndpointAuthorization)
 
 instance Core.AWSPager DescribeEndpointAuthorization where
   page rq rs
@@ -214,11 +214,11 @@ instance Core.ToQuery DescribeEndpointAuthorization where
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "Account" Core.=: account,
         "ClusterIdentifier" Core.=: clusterIdentifier,
-        "Grantee" Core.=: grantee,
+        "Account" Core.=: account,
+        "Marker" Core.=: marker,
         "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Grantee" Core.=: grantee
       ]
 
 -- | /See:/ 'newDescribeEndpointAuthorizationResponse' smart constructor.
@@ -265,7 +265,7 @@ newDescribeEndpointAuthorizationResponse pHttpStatus_ =
 
 -- | The authorizations to an endpoint.
 describeEndpointAuthorizationResponse_endpointAuthorizationList :: Lens.Lens' DescribeEndpointAuthorizationResponse (Prelude.Maybe [EndpointAuthorization])
-describeEndpointAuthorizationResponse_endpointAuthorizationList = Lens.lens (\DescribeEndpointAuthorizationResponse' {endpointAuthorizationList} -> endpointAuthorizationList) (\s@DescribeEndpointAuthorizationResponse' {} a -> s {endpointAuthorizationList = a} :: DescribeEndpointAuthorizationResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEndpointAuthorizationResponse_endpointAuthorizationList = Lens.lens (\DescribeEndpointAuthorizationResponse' {endpointAuthorizationList} -> endpointAuthorizationList) (\s@DescribeEndpointAuthorizationResponse' {} a -> s {endpointAuthorizationList = a} :: DescribeEndpointAuthorizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeEndpointAuthorization@ request. If this parameter is specified,

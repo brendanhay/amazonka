@@ -37,12 +37,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
-  { -- | The recipients to place on the To: line of the message.
-    toAddresses :: Prelude.Maybe [Prelude.Text],
+  { -- | The recipients to place on the BCC: line of the message.
+    bccAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The recipients to place on the CC: line of the message.
     ccAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | The recipients to place on the BCC: line of the message.
-    bccAddresses :: Prelude.Maybe [Prelude.Text]
+    -- | The recipients to place on the To: line of the message.
+    toAddresses :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,31 +54,31 @@ data Destination = Destination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toAddresses', 'destination_toAddresses' - The recipients to place on the To: line of the message.
+-- 'bccAddresses', 'destination_bccAddresses' - The recipients to place on the BCC: line of the message.
 --
 -- 'ccAddresses', 'destination_ccAddresses' - The recipients to place on the CC: line of the message.
 --
--- 'bccAddresses', 'destination_bccAddresses' - The recipients to place on the BCC: line of the message.
+-- 'toAddresses', 'destination_toAddresses' - The recipients to place on the To: line of the message.
 newDestination ::
   Destination
 newDestination =
   Destination'
-    { toAddresses = Prelude.Nothing,
+    { bccAddresses = Prelude.Nothing,
       ccAddresses = Prelude.Nothing,
-      bccAddresses = Prelude.Nothing
+      toAddresses = Prelude.Nothing
     }
-
--- | The recipients to place on the To: line of the message.
-destination_toAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
-destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses) (\s@Destination' {} a -> s {toAddresses = a} :: Destination) Prelude.. Lens.mapping Lens._Coerce
-
--- | The recipients to place on the CC: line of the message.
-destination_ccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
-destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses) (\s@Destination' {} a -> s {ccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The recipients to place on the BCC: line of the message.
 destination_bccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
-destination_bccAddresses = Lens.lens (\Destination' {bccAddresses} -> bccAddresses) (\s@Destination' {} a -> s {bccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens._Coerce
+destination_bccAddresses = Lens.lens (\Destination' {bccAddresses} -> bccAddresses) (\s@Destination' {} a -> s {bccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
+
+-- | The recipients to place on the CC: line of the message.
+destination_ccAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
+destination_ccAddresses = Lens.lens (\Destination' {ccAddresses} -> ccAddresses) (\s@Destination' {} a -> s {ccAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
+
+-- | The recipients to place on the To: line of the message.
+destination_toAddresses :: Lens.Lens' Destination (Prelude.Maybe [Prelude.Text])
+destination_toAddresses = Lens.lens (\Destination' {toAddresses} -> toAddresses) (\s@Destination' {} a -> s {toAddresses = a} :: Destination) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable Destination
 
@@ -87,13 +87,13 @@ instance Prelude.NFData Destination
 instance Core.ToQuery Destination where
   toQuery Destination' {..} =
     Prelude.mconcat
-      [ "ToAddresses"
+      [ "BccAddresses"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> toAddresses),
+            (Core.toQueryList "member" Prelude.<$> bccAddresses),
         "CcAddresses"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> ccAddresses),
-        "BccAddresses"
+        "ToAddresses"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> bccAddresses)
+            (Core.toQueryList "member" Prelude.<$> toAddresses)
       ]

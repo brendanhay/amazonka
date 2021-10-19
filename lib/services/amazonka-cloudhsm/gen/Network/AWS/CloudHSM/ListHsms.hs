@@ -56,8 +56,8 @@ module Network.AWS.CloudHSM.ListHsms
     newListHsmsResponse,
 
     -- * Response Lenses
-    listHsmsResponse_hsmList,
     listHsmsResponse_nextToken,
+    listHsmsResponse_hsmList,
     listHsmsResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest ListHsms where
     Response.receiveJSON
       ( \s h x ->
           ListHsmsResponse'
-            Prelude.<$> (x Core..?> "HsmList" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "HsmList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,11 +163,11 @@ instance Core.ToQuery ListHsms where
 --
 -- /See:/ 'newListHsmsResponse' smart constructor.
 data ListHsmsResponse = ListHsmsResponse'
-  { -- | The list of ARNs that identify the HSMs.
-    hsmList :: Prelude.Maybe [Prelude.Text],
-    -- | If not null, more results are available. Pass this value to @ListHsms@
+  { -- | If not null, more results are available. Pass this value to @ListHsms@
     -- to retrieve the next set of items.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of ARNs that identify the HSMs.
+    hsmList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,10 +181,10 @@ data ListHsmsResponse = ListHsmsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hsmList', 'listHsmsResponse_hsmList' - The list of ARNs that identify the HSMs.
---
 -- 'nextToken', 'listHsmsResponse_nextToken' - If not null, more results are available. Pass this value to @ListHsms@
 -- to retrieve the next set of items.
+--
+-- 'hsmList', 'listHsmsResponse_hsmList' - The list of ARNs that identify the HSMs.
 --
 -- 'httpStatus', 'listHsmsResponse_httpStatus' - The response's http status code.
 newListHsmsResponse ::
@@ -193,19 +193,19 @@ newListHsmsResponse ::
   ListHsmsResponse
 newListHsmsResponse pHttpStatus_ =
   ListHsmsResponse'
-    { hsmList = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      hsmList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of ARNs that identify the HSMs.
-listHsmsResponse_hsmList :: Lens.Lens' ListHsmsResponse (Prelude.Maybe [Prelude.Text])
-listHsmsResponse_hsmList = Lens.lens (\ListHsmsResponse' {hsmList} -> hsmList) (\s@ListHsmsResponse' {} a -> s {hsmList = a} :: ListHsmsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If not null, more results are available. Pass this value to @ListHsms@
 -- to retrieve the next set of items.
 listHsmsResponse_nextToken :: Lens.Lens' ListHsmsResponse (Prelude.Maybe Prelude.Text)
 listHsmsResponse_nextToken = Lens.lens (\ListHsmsResponse' {nextToken} -> nextToken) (\s@ListHsmsResponse' {} a -> s {nextToken = a} :: ListHsmsResponse)
+
+-- | The list of ARNs that identify the HSMs.
+listHsmsResponse_hsmList :: Lens.Lens' ListHsmsResponse (Prelude.Maybe [Prelude.Text])
+listHsmsResponse_hsmList = Lens.lens (\ListHsmsResponse' {hsmList} -> hsmList) (\s@ListHsmsResponse' {} a -> s {hsmList = a} :: ListHsmsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listHsmsResponse_httpStatus :: Lens.Lens' ListHsmsResponse Prelude.Int

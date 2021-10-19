@@ -42,8 +42,8 @@ module Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
     -- * Request Lenses
     listDistributionsByRealtimeLogConfig_realtimeLogConfigName,
     listDistributionsByRealtimeLogConfig_realtimeLogConfigArn,
-    listDistributionsByRealtimeLogConfig_maxItems,
     listDistributionsByRealtimeLogConfig_marker,
+    listDistributionsByRealtimeLogConfig_maxItems,
 
     -- * Destructuring the Response
     ListDistributionsByRealtimeLogConfigResponse (..),
@@ -70,14 +70,14 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
     -- | The Amazon Resource Name (ARN) of the real-time log configuration whose
     -- associated distributions you want to list.
     realtimeLogConfigArn :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of distributions that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of distributions. The response includes distributions in the
     -- list that occur after the marker. To get the next page of the list, set
     -- this field’s value to the value of @NextMarker@ from the current page’s
     -- response.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of distributions that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,13 +95,13 @@ data ListDistributionsByRealtimeLogConfig = ListDistributionsByRealtimeLogConfig
 -- 'realtimeLogConfigArn', 'listDistributionsByRealtimeLogConfig_realtimeLogConfigArn' - The Amazon Resource Name (ARN) of the real-time log configuration whose
 -- associated distributions you want to list.
 --
--- 'maxItems', 'listDistributionsByRealtimeLogConfig_maxItems' - The maximum number of distributions that you want in the response.
---
 -- 'marker', 'listDistributionsByRealtimeLogConfig_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distributions. The response includes distributions in the
 -- list that occur after the marker. To get the next page of the list, set
 -- this field’s value to the value of @NextMarker@ from the current page’s
 -- response.
+--
+-- 'maxItems', 'listDistributionsByRealtimeLogConfig_maxItems' - The maximum number of distributions that you want in the response.
 newListDistributionsByRealtimeLogConfig ::
   ListDistributionsByRealtimeLogConfig
 newListDistributionsByRealtimeLogConfig =
@@ -110,8 +110,8 @@ newListDistributionsByRealtimeLogConfig =
         Prelude.Nothing,
       realtimeLogConfigArn =
         Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
 
 -- | The name of the real-time log configuration whose associated
@@ -124,10 +124,6 @@ listDistributionsByRealtimeLogConfig_realtimeLogConfigName = Lens.lens (\ListDis
 listDistributionsByRealtimeLogConfig_realtimeLogConfigArn :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_realtimeLogConfigArn = Lens.lens (\ListDistributionsByRealtimeLogConfig' {realtimeLogConfigArn} -> realtimeLogConfigArn) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {realtimeLogConfigArn = a} :: ListDistributionsByRealtimeLogConfig)
 
--- | The maximum number of distributions that you want in the response.
-listDistributionsByRealtimeLogConfig_maxItems :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
-listDistributionsByRealtimeLogConfig_maxItems = Lens.lens (\ListDistributionsByRealtimeLogConfig' {maxItems} -> maxItems) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {maxItems = a} :: ListDistributionsByRealtimeLogConfig)
-
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distributions. The response includes distributions in the
 -- list that occur after the marker. To get the next page of the list, set
@@ -135,6 +131,10 @@ listDistributionsByRealtimeLogConfig_maxItems = Lens.lens (\ListDistributionsByR
 -- response.
 listDistributionsByRealtimeLogConfig_marker :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
 listDistributionsByRealtimeLogConfig_marker = Lens.lens (\ListDistributionsByRealtimeLogConfig' {marker} -> marker) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {marker = a} :: ListDistributionsByRealtimeLogConfig)
+
+-- | The maximum number of distributions that you want in the response.
+listDistributionsByRealtimeLogConfig_maxItems :: Lens.Lens' ListDistributionsByRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+listDistributionsByRealtimeLogConfig_maxItems = Lens.lens (\ListDistributionsByRealtimeLogConfig' {maxItems} -> maxItems) (\s@ListDistributionsByRealtimeLogConfig' {} a -> s {maxItems = a} :: ListDistributionsByRealtimeLogConfig)
 
 instance
   Core.AWSRequest
@@ -197,8 +197,8 @@ instance
       [ "RealtimeLogConfigName"
           Core.@= realtimeLogConfigName,
         "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn,
-        "MaxItems" Core.@= maxItems,
-        "Marker" Core.@= marker
+        "Marker" Core.@= marker,
+        "MaxItems" Core.@= maxItems
       ]
 
 -- | /See:/ 'newListDistributionsByRealtimeLogConfigResponse' smart constructor.

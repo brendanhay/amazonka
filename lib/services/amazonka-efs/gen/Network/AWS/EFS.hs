@@ -29,80 +29,14 @@ module Network.AWS.EFS
     -- * Errors
     -- $errors
 
-    -- ** SecurityGroupLimitExceeded
-    _SecurityGroupLimitExceeded,
-
-    -- ** FileSystemInUse
-    _FileSystemInUse,
-
-    -- ** ThroughputLimitExceeded
-    _ThroughputLimitExceeded,
-
-    -- ** DependencyTimeout
-    _DependencyTimeout,
-
-    -- ** AccessPointAlreadyExists
-    _AccessPointAlreadyExists,
-
-    -- ** InvalidPolicyException
-    _InvalidPolicyException,
-
-    -- ** AccessPointLimitExceeded
-    _AccessPointLimitExceeded,
-
-    -- ** AccessPointNotFound
-    _AccessPointNotFound,
-
-    -- ** FileSystemNotFound
-    _FileSystemNotFound,
-
-    -- ** SubnetNotFound
-    _SubnetNotFound,
-
-    -- ** TooManyRequests
-    _TooManyRequests,
-
-    -- ** NetworkInterfaceLimitExceeded
-    _NetworkInterfaceLimitExceeded,
-
-    -- ** FileSystemAlreadyExists
-    _FileSystemAlreadyExists,
-
-    -- ** FileSystemLimitExceeded
-    _FileSystemLimitExceeded,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** IncorrectMountTargetState
-    _IncorrectMountTargetState,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** MountTargetNotFound
     _MountTargetNotFound,
 
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** NoFreeAddressesInSubnet
-    _NoFreeAddressesInSubnet,
-
-    -- ** BadRequest
-    _BadRequest,
-
-    -- ** IncorrectFileSystemLifeCycleState
-    _IncorrectFileSystemLifeCycleState,
-
-    -- ** InsufficientThroughputCapacity
-    _InsufficientThroughputCapacity,
-
-    -- ** PolicyNotFound
-    _PolicyNotFound,
-
-    -- ** IpAddressInUse
-    _IpAddressInUse,
-
-    -- ** AvailabilityZonesMismatch
-    _AvailabilityZonesMismatch,
+    -- ** SecurityGroupLimitExceeded
+    _SecurityGroupLimitExceeded,
 
     -- ** SecurityGroupNotFound
     _SecurityGroupNotFound,
@@ -113,77 +47,89 @@ module Network.AWS.EFS
     -- ** UnsupportedAvailabilityZone
     _UnsupportedAvailabilityZone,
 
+    -- ** FileSystemLimitExceeded
+    _FileSystemLimitExceeded,
+
+    -- ** TooManyRequests
+    _TooManyRequests,
+
+    -- ** NetworkInterfaceLimitExceeded
+    _NetworkInterfaceLimitExceeded,
+
+    -- ** FileSystemAlreadyExists
+    _FileSystemAlreadyExists,
+
+    -- ** SubnetNotFound
+    _SubnetNotFound,
+
+    -- ** AvailabilityZonesMismatch
+    _AvailabilityZonesMismatch,
+
+    -- ** FileSystemNotFound
+    _FileSystemNotFound,
+
+    -- ** IncorrectFileSystemLifeCycleState
+    _IncorrectFileSystemLifeCycleState,
+
+    -- ** BadRequest
+    _BadRequest,
+
+    -- ** NoFreeAddressesInSubnet
+    _NoFreeAddressesInSubnet,
+
+    -- ** ThroughputLimitExceeded
+    _ThroughputLimitExceeded,
+
+    -- ** DependencyTimeout
+    _DependencyTimeout,
+
+    -- ** FileSystemInUse
+    _FileSystemInUse,
+
+    -- ** IncorrectMountTargetState
+    _IncorrectMountTargetState,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** IpAddressInUse
+    _IpAddressInUse,
+
+    -- ** PolicyNotFound
+    _PolicyNotFound,
+
+    -- ** AccessPointNotFound
+    _AccessPointNotFound,
+
+    -- ** InsufficientThroughputCapacity
+    _InsufficientThroughputCapacity,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** AccessPointAlreadyExists
+    _AccessPointAlreadyExists,
+
+    -- ** AccessPointLimitExceeded
+    _AccessPointLimitExceeded,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** PutLifecycleConfiguration
-    PutLifecycleConfiguration (PutLifecycleConfiguration'),
-    newPutLifecycleConfiguration,
-    LifecycleConfigurationDescription (LifecycleConfigurationDescription'),
-    newLifecycleConfigurationDescription,
-
-    -- ** PutBackupPolicy
-    PutBackupPolicy (PutBackupPolicy'),
-    newPutBackupPolicy,
-    BackupPolicyDescription (BackupPolicyDescription'),
-    newBackupPolicyDescription,
+    -- ** CreateAccessPoint
+    CreateAccessPoint (CreateAccessPoint'),
+    newCreateAccessPoint,
+    AccessPointDescription (AccessPointDescription'),
+    newAccessPointDescription,
 
     -- ** DescribeAccountPreferences
     DescribeAccountPreferences (DescribeAccountPreferences'),
     newDescribeAccountPreferences,
     DescribeAccountPreferencesResponse (DescribeAccountPreferencesResponse'),
     newDescribeAccountPreferencesResponse,
-
-    -- ** DeleteAccessPoint
-    DeleteAccessPoint (DeleteAccessPoint'),
-    newDeleteAccessPoint,
-    DeleteAccessPointResponse (DeleteAccessPointResponse'),
-    newDeleteAccessPointResponse,
-
-    -- ** DescribeFileSystemPolicy
-    DescribeFileSystemPolicy (DescribeFileSystemPolicy'),
-    newDescribeFileSystemPolicy,
-    FileSystemPolicyDescription (FileSystemPolicyDescription'),
-    newFileSystemPolicyDescription,
-
-    -- ** ModifyMountTargetSecurityGroups
-    ModifyMountTargetSecurityGroups (ModifyMountTargetSecurityGroups'),
-    newModifyMountTargetSecurityGroups,
-    ModifyMountTargetSecurityGroupsResponse (ModifyMountTargetSecurityGroupsResponse'),
-    newModifyMountTargetSecurityGroupsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** CreateMountTarget
-    CreateMountTarget (CreateMountTarget'),
-    newCreateMountTarget,
-    MountTargetDescription (MountTargetDescription'),
-    newMountTargetDescription,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteMountTarget
-    DeleteMountTarget (DeleteMountTarget'),
-    newDeleteMountTarget,
-    DeleteMountTargetResponse (DeleteMountTargetResponse'),
-    newDeleteMountTargetResponse,
-
-    -- ** DescribeFileSystems (Paginated)
-    DescribeFileSystems (DescribeFileSystems'),
-    newDescribeFileSystems,
-    DescribeFileSystemsResponse (DescribeFileSystemsResponse'),
-    newDescribeFileSystemsResponse,
 
     -- ** DescribeMountTargets (Paginated)
     DescribeMountTargets (DescribeMountTargets'),
@@ -197,23 +143,95 @@ module Network.AWS.EFS
     DeleteFileSystemPolicyResponse (DeleteFileSystemPolicyResponse'),
     newDeleteFileSystemPolicyResponse,
 
-    -- ** CreateFileSystem
-    CreateFileSystem (CreateFileSystem'),
-    newCreateFileSystem,
-    FileSystemDescription (FileSystemDescription'),
-    newFileSystemDescription,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** CreateAccessPoint
-    CreateAccessPoint (CreateAccessPoint'),
-    newCreateAccessPoint,
-    AccessPointDescription (AccessPointDescription'),
-    newAccessPointDescription,
+    -- ** PutFileSystemPolicy
+    PutFileSystemPolicy (PutFileSystemPolicy'),
+    newPutFileSystemPolicy,
+    FileSystemPolicyDescription (FileSystemPolicyDescription'),
+    newFileSystemPolicyDescription,
+
+    -- ** DescribeFileSystems (Paginated)
+    DescribeFileSystems (DescribeFileSystems'),
+    newDescribeFileSystems,
+    DescribeFileSystemsResponse (DescribeFileSystemsResponse'),
+    newDescribeFileSystemsResponse,
+
+    -- ** DeleteMountTarget
+    DeleteMountTarget (DeleteMountTarget'),
+    newDeleteMountTarget,
+    DeleteMountTargetResponse (DeleteMountTargetResponse'),
+    newDeleteMountTargetResponse,
+
+    -- ** PutAccountPreferences
+    PutAccountPreferences (PutAccountPreferences'),
+    newPutAccountPreferences,
+    PutAccountPreferencesResponse (PutAccountPreferencesResponse'),
+    newPutAccountPreferencesResponse,
+
+    -- ** DescribeMountTargetSecurityGroups
+    DescribeMountTargetSecurityGroups (DescribeMountTargetSecurityGroups'),
+    newDescribeMountTargetSecurityGroups,
+    DescribeMountTargetSecurityGroupsResponse (DescribeMountTargetSecurityGroupsResponse'),
+    newDescribeMountTargetSecurityGroupsResponse,
 
     -- ** DescribeAccessPoints
     DescribeAccessPoints (DescribeAccessPoints'),
     newDescribeAccessPoints,
     DescribeAccessPointsResponse (DescribeAccessPointsResponse'),
     newDescribeAccessPointsResponse,
+
+    -- ** ModifyMountTargetSecurityGroups
+    ModifyMountTargetSecurityGroups (ModifyMountTargetSecurityGroups'),
+    newModifyMountTargetSecurityGroups,
+    ModifyMountTargetSecurityGroupsResponse (ModifyMountTargetSecurityGroupsResponse'),
+    newModifyMountTargetSecurityGroupsResponse,
+
+    -- ** CreateFileSystem
+    CreateFileSystem (CreateFileSystem'),
+    newCreateFileSystem,
+    FileSystemDescription (FileSystemDescription'),
+    newFileSystemDescription,
+
+    -- ** PutLifecycleConfiguration
+    PutLifecycleConfiguration (PutLifecycleConfiguration'),
+    newPutLifecycleConfiguration,
+    LifecycleConfigurationDescription (LifecycleConfigurationDescription'),
+    newLifecycleConfigurationDescription,
+
+    -- ** PutBackupPolicy
+    PutBackupPolicy (PutBackupPolicy'),
+    newPutBackupPolicy,
+    BackupPolicyDescription (BackupPolicyDescription'),
+    newBackupPolicyDescription,
+
+    -- ** DeleteFileSystem
+    DeleteFileSystem (DeleteFileSystem'),
+    newDeleteFileSystem,
+    DeleteFileSystemResponse (DeleteFileSystemResponse'),
+    newDeleteFileSystemResponse,
+
+    -- ** UpdateFileSystem
+    UpdateFileSystem (UpdateFileSystem'),
+    newUpdateFileSystem,
+    FileSystemDescription (FileSystemDescription'),
+    newFileSystemDescription,
+
+    -- ** CreateMountTarget
+    CreateMountTarget (CreateMountTarget'),
+    newCreateMountTarget,
+    MountTargetDescription (MountTargetDescription'),
+    newMountTargetDescription,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** DescribeBackupPolicy
     DescribeBackupPolicy (DescribeBackupPolicy'),
@@ -227,41 +245,23 @@ module Network.AWS.EFS
     LifecycleConfigurationDescription (LifecycleConfigurationDescription'),
     newLifecycleConfigurationDescription,
 
-    -- ** DescribeMountTargetSecurityGroups
-    DescribeMountTargetSecurityGroups (DescribeMountTargetSecurityGroups'),
-    newDescribeMountTargetSecurityGroups,
-    DescribeMountTargetSecurityGroupsResponse (DescribeMountTargetSecurityGroupsResponse'),
-    newDescribeMountTargetSecurityGroupsResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
-    -- ** PutAccountPreferences
-    PutAccountPreferences (PutAccountPreferences'),
-    newPutAccountPreferences,
-    PutAccountPreferencesResponse (PutAccountPreferencesResponse'),
-    newPutAccountPreferencesResponse,
-
-    -- ** UpdateFileSystem
-    UpdateFileSystem (UpdateFileSystem'),
-    newUpdateFileSystem,
-    FileSystemDescription (FileSystemDescription'),
-    newFileSystemDescription,
-
-    -- ** DeleteFileSystem
-    DeleteFileSystem (DeleteFileSystem'),
-    newDeleteFileSystem,
-    DeleteFileSystemResponse (DeleteFileSystemResponse'),
-    newDeleteFileSystemResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** PutFileSystemPolicy
-    PutFileSystemPolicy (PutFileSystemPolicy'),
-    newPutFileSystemPolicy,
+    -- ** DescribeFileSystemPolicy
+    DescribeFileSystemPolicy (DescribeFileSystemPolicy'),
+    newDescribeFileSystemPolicy,
     FileSystemPolicyDescription (FileSystemPolicyDescription'),
     newFileSystemPolicyDescription,
+
+    -- ** DeleteAccessPoint
+    DeleteAccessPoint (DeleteAccessPoint'),
+    newDeleteAccessPoint,
+    DeleteAccessPointResponse (DeleteAccessPointResponse'),
+    newDeleteAccessPointResponse,
 
     -- * Types
 

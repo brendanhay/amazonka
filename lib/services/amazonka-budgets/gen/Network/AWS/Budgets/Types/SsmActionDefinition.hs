@@ -66,7 +66,7 @@ newSsmActionDefinition
       { actionSubType =
           pActionSubType_,
         region = pRegion_,
-        instanceIds = Lens._Coerce Lens.# pInstanceIds_
+        instanceIds = Lens.coerced Lens.# pInstanceIds_
       }
 
 -- | The action subType.
@@ -79,7 +79,7 @@ ssmActionDefinition_region = Lens.lens (\SsmActionDefinition' {region} -> region
 
 -- | The EC2 and RDS instance IDs.
 ssmActionDefinition_instanceIds :: Lens.Lens' SsmActionDefinition (Prelude.NonEmpty Prelude.Text)
-ssmActionDefinition_instanceIds = Lens.lens (\SsmActionDefinition' {instanceIds} -> instanceIds) (\s@SsmActionDefinition' {} a -> s {instanceIds = a} :: SsmActionDefinition) Prelude.. Lens._Coerce
+ssmActionDefinition_instanceIds = Lens.lens (\SsmActionDefinition' {instanceIds} -> instanceIds) (\s@SsmActionDefinition' {} a -> s {instanceIds = a} :: SsmActionDefinition) Prelude.. Lens.coerced
 
 instance Core.FromJSON SsmActionDefinition where
   parseJSON =

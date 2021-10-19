@@ -39,8 +39,8 @@ module Network.AWS.SES.DescribeReceiptRuleSet
     newDescribeReceiptRuleSetResponse,
 
     -- * Response Lenses
-    describeReceiptRuleSetResponse_metadata,
     describeReceiptRuleSetResponse_rules,
+    describeReceiptRuleSetResponse_metadata,
     describeReceiptRuleSetResponse_httpStatus,
   )
 where
@@ -97,10 +97,10 @@ instance Core.AWSRequest DescribeReceiptRuleSet where
       "DescribeReceiptRuleSetResult"
       ( \s h x ->
           DescribeReceiptRuleSetResponse'
-            Prelude.<$> (x Core..@? "Metadata")
-            Prelude.<*> ( x Core..@? "Rules" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Rules" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "Metadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,12 +128,12 @@ instance Core.ToQuery DescribeReceiptRuleSet where
 --
 -- /See:/ 'newDescribeReceiptRuleSetResponse' smart constructor.
 data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
-  { -- | The metadata for the receipt rule set, which consists of the rule set
-    -- name and the timestamp of when the rule set was created.
-    metadata :: Prelude.Maybe ReceiptRuleSetMetadata,
-    -- | A list of the receipt rules that belong to the specified receipt rule
+  { -- | A list of the receipt rules that belong to the specified receipt rule
     -- set.
     rules :: Prelude.Maybe [ReceiptRule],
+    -- | The metadata for the receipt rule set, which consists of the rule set
+    -- name and the timestamp of when the rule set was created.
+    metadata :: Prelude.Maybe ReceiptRuleSetMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,11 +147,11 @@ data DescribeReceiptRuleSetResponse = DescribeReceiptRuleSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'describeReceiptRuleSetResponse_metadata' - The metadata for the receipt rule set, which consists of the rule set
--- name and the timestamp of when the rule set was created.
---
 -- 'rules', 'describeReceiptRuleSetResponse_rules' - A list of the receipt rules that belong to the specified receipt rule
 -- set.
+--
+-- 'metadata', 'describeReceiptRuleSetResponse_metadata' - The metadata for the receipt rule set, which consists of the rule set
+-- name and the timestamp of when the rule set was created.
 --
 -- 'httpStatus', 'describeReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newDescribeReceiptRuleSetResponse ::
@@ -160,21 +160,21 @@ newDescribeReceiptRuleSetResponse ::
   DescribeReceiptRuleSetResponse
 newDescribeReceiptRuleSetResponse pHttpStatus_ =
   DescribeReceiptRuleSetResponse'
-    { metadata =
+    { rules =
         Prelude.Nothing,
-      rules = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the receipt rules that belong to the specified receipt rule
+-- set.
+describeReceiptRuleSetResponse_rules :: Lens.Lens' DescribeReceiptRuleSetResponse (Prelude.Maybe [ReceiptRule])
+describeReceiptRuleSetResponse_rules = Lens.lens (\DescribeReceiptRuleSetResponse' {rules} -> rules) (\s@DescribeReceiptRuleSetResponse' {} a -> s {rules = a} :: DescribeReceiptRuleSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata for the receipt rule set, which consists of the rule set
 -- name and the timestamp of when the rule set was created.
 describeReceiptRuleSetResponse_metadata :: Lens.Lens' DescribeReceiptRuleSetResponse (Prelude.Maybe ReceiptRuleSetMetadata)
 describeReceiptRuleSetResponse_metadata = Lens.lens (\DescribeReceiptRuleSetResponse' {metadata} -> metadata) (\s@DescribeReceiptRuleSetResponse' {} a -> s {metadata = a} :: DescribeReceiptRuleSetResponse)
-
--- | A list of the receipt rules that belong to the specified receipt rule
--- set.
-describeReceiptRuleSetResponse_rules :: Lens.Lens' DescribeReceiptRuleSetResponse (Prelude.Maybe [ReceiptRule])
-describeReceiptRuleSetResponse_rules = Lens.lens (\DescribeReceiptRuleSetResponse' {rules} -> rules) (\s@DescribeReceiptRuleSetResponse' {} a -> s {rules = a} :: DescribeReceiptRuleSetResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeReceiptRuleSetResponse_httpStatus :: Lens.Lens' DescribeReceiptRuleSetResponse Prelude.Int

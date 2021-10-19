@@ -14,23 +14,18 @@
 module Network.AWS.KinesisVideoArchivedMedia.Lens
   ( -- * Operations
 
-    -- ** ListFragments
-    listFragments_nextToken,
-    listFragments_maxResults,
-    listFragments_streamARN,
-    listFragments_streamName,
-    listFragments_fragmentSelector,
-    listFragmentsResponse_nextToken,
-    listFragmentsResponse_fragments,
-    listFragmentsResponse_httpStatus,
-
-    -- ** GetMediaForFragmentList
-    getMediaForFragmentList_streamARN,
-    getMediaForFragmentList_streamName,
-    getMediaForFragmentList_fragments,
-    getMediaForFragmentListResponse_contentType,
-    getMediaForFragmentListResponse_httpStatus,
-    getMediaForFragmentListResponse_payload,
+    -- ** GetHLSStreamingSessionURL
+    getHLSStreamingSessionURL_displayFragmentTimestamp,
+    getHLSStreamingSessionURL_hLSFragmentSelector,
+    getHLSStreamingSessionURL_expires,
+    getHLSStreamingSessionURL_streamARN,
+    getHLSStreamingSessionURL_playbackMode,
+    getHLSStreamingSessionURL_containerFormat,
+    getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults,
+    getHLSStreamingSessionURL_discontinuityMode,
+    getHLSStreamingSessionURL_streamName,
+    getHLSStreamingSessionURLResponse_hLSStreamingSessionURL,
+    getHLSStreamingSessionURLResponse_httpStatus,
 
     -- ** GetClip
     getClip_streamARN,
@@ -40,30 +35,35 @@ module Network.AWS.KinesisVideoArchivedMedia.Lens
     getClipResponse_httpStatus,
     getClipResponse_payload,
 
+    -- ** GetMediaForFragmentList
+    getMediaForFragmentList_streamARN,
+    getMediaForFragmentList_streamName,
+    getMediaForFragmentList_fragments,
+    getMediaForFragmentListResponse_contentType,
+    getMediaForFragmentListResponse_httpStatus,
+    getMediaForFragmentListResponse_payload,
+
+    -- ** ListFragments
+    listFragments_fragmentSelector,
+    listFragments_streamARN,
+    listFragments_nextToken,
+    listFragments_streamName,
+    listFragments_maxResults,
+    listFragmentsResponse_nextToken,
+    listFragmentsResponse_fragments,
+    listFragmentsResponse_httpStatus,
+
     -- ** GetDASHStreamingSessionURL
     getDASHStreamingSessionURL_displayFragmentTimestamp,
-    getDASHStreamingSessionURL_displayFragmentNumber,
-    getDASHStreamingSessionURL_maxManifestFragmentResults,
-    getDASHStreamingSessionURL_dASHFragmentSelector,
-    getDASHStreamingSessionURL_playbackMode,
-    getDASHStreamingSessionURL_streamARN,
-    getDASHStreamingSessionURL_streamName,
     getDASHStreamingSessionURL_expires,
+    getDASHStreamingSessionURL_dASHFragmentSelector,
+    getDASHStreamingSessionURL_maxManifestFragmentResults,
+    getDASHStreamingSessionURL_streamARN,
+    getDASHStreamingSessionURL_playbackMode,
+    getDASHStreamingSessionURL_streamName,
+    getDASHStreamingSessionURL_displayFragmentNumber,
     getDASHStreamingSessionURLResponse_dASHStreamingSessionURL,
     getDASHStreamingSessionURLResponse_httpStatus,
-
-    -- ** GetHLSStreamingSessionURL
-    getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults,
-    getHLSStreamingSessionURL_containerFormat,
-    getHLSStreamingSessionURL_displayFragmentTimestamp,
-    getHLSStreamingSessionURL_playbackMode,
-    getHLSStreamingSessionURL_streamARN,
-    getHLSStreamingSessionURL_streamName,
-    getHLSStreamingSessionURL_expires,
-    getHLSStreamingSessionURL_discontinuityMode,
-    getHLSStreamingSessionURL_hLSFragmentSelector,
-    getHLSStreamingSessionURLResponse_hLSStreamingSessionURL,
-    getHLSStreamingSessionURLResponse_httpStatus,
 
     -- * Types
 
@@ -84,11 +84,11 @@ module Network.AWS.KinesisVideoArchivedMedia.Lens
     dASHTimestampRange_startTimestamp,
 
     -- ** Fragment
-    fragment_producerTimestamp,
-    fragment_serverTimestamp,
-    fragment_fragmentNumber,
-    fragment_fragmentSizeInBytes,
     fragment_fragmentLengthInMilliseconds,
+    fragment_serverTimestamp,
+    fragment_fragmentSizeInBytes,
+    fragment_fragmentNumber,
+    fragment_producerTimestamp,
 
     -- ** FragmentSelector
     fragmentSelector_fragmentSelectorType,

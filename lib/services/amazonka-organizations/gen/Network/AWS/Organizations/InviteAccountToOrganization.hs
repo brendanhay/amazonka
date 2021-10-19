@@ -201,7 +201,7 @@ inviteAccountToOrganization_notes = Lens.lens (\InviteAccountToOrganization' {no
 -- tags for an account, then the entire request fails and invitations are
 -- not sent.
 inviteAccountToOrganization_tags :: Lens.Lens' InviteAccountToOrganization (Prelude.Maybe [Tag])
-inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tags} -> tags) (\s@InviteAccountToOrganization' {} a -> s {tags = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Lens._Coerce
+inviteAccountToOrganization_tags = Lens.lens (\InviteAccountToOrganization' {tags} -> tags) (\s@InviteAccountToOrganization' {} a -> s {tags = a} :: InviteAccountToOrganization) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier (ID) of the AWS account that you want to invite to join
 -- your organization. This is a JSON object that contains the following

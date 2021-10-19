@@ -25,7 +25,8 @@
 -- Versions that have been deleted aren\'t listed. Specify a
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime identifier>
 -- to list only versions that indicate that they\'re compatible with that
--- runtime.
+-- runtime. Specify a compatible architecture to include only layer
+-- versions that are compatible with that architecture.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListLayerVersions
@@ -34,9 +35,10 @@ module Network.AWS.Lambda.ListLayerVersions
     newListLayerVersions,
 
     -- * Request Lenses
-    listLayerVersions_maxItems,
-    listLayerVersions_marker,
     listLayerVersions_compatibleRuntime,
+    listLayerVersions_marker,
+    listLayerVersions_maxItems,
+    listLayerVersions_compatibleArchitecture,
     listLayerVersions_layerName,
 
     -- * Destructuring the Response
@@ -44,8 +46,8 @@ module Network.AWS.Lambda.ListLayerVersions
     newListLayerVersionsResponse,
 
     -- * Response Lenses
-    listLayerVersionsResponse_nextMarker,
     listLayerVersionsResponse_layerVersions,
+    listLayerVersionsResponse_nextMarker,
     listLayerVersionsResponse_httpStatus,
   )
 where
@@ -59,12 +61,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListLayerVersions' smart constructor.
 data ListLayerVersions = ListLayerVersions'
-  { -- | The maximum number of versions to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+  { -- | A runtime identifier. For example, @go1.x@.
+    compatibleRuntime :: Prelude.Maybe Runtime,
     -- | A pagination token returned by a previous call.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A runtime identifier. For example, @go1.x@.
-    compatibleRuntime :: Prelude.Maybe Runtime,
+    -- | The maximum number of versions to return.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | The compatible
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
+    compatibleArchitecture :: Prelude.Maybe Architecture,
     -- | The name or Amazon Resource Name (ARN) of the layer.
     layerName :: Prelude.Text
   }
@@ -78,11 +83,14 @@ data ListLayerVersions = ListLayerVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listLayerVersions_maxItems' - The maximum number of versions to return.
+-- 'compatibleRuntime', 'listLayerVersions_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
 --
 -- 'marker', 'listLayerVersions_marker' - A pagination token returned by a previous call.
 --
--- 'compatibleRuntime', 'listLayerVersions_compatibleRuntime' - A runtime identifier. For example, @go1.x@.
+-- 'maxItems', 'listLayerVersions_maxItems' - The maximum number of versions to return.
+--
+-- 'compatibleArchitecture', 'listLayerVersions_compatibleArchitecture' - The compatible
+-- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
 --
 -- 'layerName', 'listLayerVersions_layerName' - The name or Amazon Resource Name (ARN) of the layer.
 newListLayerVersions ::
@@ -91,23 +99,30 @@ newListLayerVersions ::
   ListLayerVersions
 newListLayerVersions pLayerName_ =
   ListLayerVersions'
-    { maxItems = Prelude.Nothing,
+    { compatibleRuntime =
+        Prelude.Nothing,
       marker = Prelude.Nothing,
-      compatibleRuntime = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      compatibleArchitecture = Prelude.Nothing,
       layerName = pLayerName_
     }
 
--- | The maximum number of versions to return.
-listLayerVersions_maxItems :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Natural)
-listLayerVersions_maxItems = Lens.lens (\ListLayerVersions' {maxItems} -> maxItems) (\s@ListLayerVersions' {} a -> s {maxItems = a} :: ListLayerVersions)
+-- | A runtime identifier. For example, @go1.x@.
+listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Prelude.Maybe Runtime)
+listLayerVersions_compatibleRuntime = Lens.lens (\ListLayerVersions' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayerVersions' {} a -> s {compatibleRuntime = a} :: ListLayerVersions)
 
 -- | A pagination token returned by a previous call.
 listLayerVersions_marker :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Text)
 listLayerVersions_marker = Lens.lens (\ListLayerVersions' {marker} -> marker) (\s@ListLayerVersions' {} a -> s {marker = a} :: ListLayerVersions)
 
--- | A runtime identifier. For example, @go1.x@.
-listLayerVersions_compatibleRuntime :: Lens.Lens' ListLayerVersions (Prelude.Maybe Runtime)
-listLayerVersions_compatibleRuntime = Lens.lens (\ListLayerVersions' {compatibleRuntime} -> compatibleRuntime) (\s@ListLayerVersions' {} a -> s {compatibleRuntime = a} :: ListLayerVersions)
+-- | The maximum number of versions to return.
+listLayerVersions_maxItems :: Lens.Lens' ListLayerVersions (Prelude.Maybe Prelude.Natural)
+listLayerVersions_maxItems = Lens.lens (\ListLayerVersions' {maxItems} -> maxItems) (\s@ListLayerVersions' {} a -> s {maxItems = a} :: ListLayerVersions)
+
+-- | The compatible
+-- <https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html instruction set architecture>.
+listLayerVersions_compatibleArchitecture :: Lens.Lens' ListLayerVersions (Prelude.Maybe Architecture)
+listLayerVersions_compatibleArchitecture = Lens.lens (\ListLayerVersions' {compatibleArchitecture} -> compatibleArchitecture) (\s@ListLayerVersions' {} a -> s {compatibleArchitecture = a} :: ListLayerVersions)
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 listLayerVersions_layerName :: Lens.Lens' ListLayerVersions Prelude.Text
@@ -144,8 +159,8 @@ instance Core.AWSRequest ListLayerVersions where
     Response.receiveJSON
       ( \s h x ->
           ListLayerVersionsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "LayerVersions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "LayerVersions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,18 +182,20 @@ instance Core.ToPath ListLayerVersions where
 instance Core.ToQuery ListLayerVersions where
   toQuery ListLayerVersions' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
+      [ "CompatibleRuntime" Core.=: compatibleRuntime,
         "Marker" Core.=: marker,
-        "CompatibleRuntime" Core.=: compatibleRuntime
+        "MaxItems" Core.=: maxItems,
+        "CompatibleArchitecture"
+          Core.=: compatibleArchitecture
       ]
 
 -- | /See:/ 'newListLayerVersionsResponse' smart constructor.
 data ListLayerVersionsResponse = ListLayerVersionsResponse'
-  { -- | A pagination token returned when the response doesn\'t contain all
+  { -- | A list of versions.
+    layerVersions :: Prelude.Maybe [LayerVersionsListItem],
+    -- | A pagination token returned when the response doesn\'t contain all
     -- versions.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of versions.
-    layerVersions :: Prelude.Maybe [LayerVersionsListItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -192,10 +209,10 @@ data ListLayerVersionsResponse = ListLayerVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'layerVersions', 'listLayerVersionsResponse_layerVersions' - A list of versions.
+--
 -- 'nextMarker', 'listLayerVersionsResponse_nextMarker' - A pagination token returned when the response doesn\'t contain all
 -- versions.
---
--- 'layerVersions', 'listLayerVersionsResponse_layerVersions' - A list of versions.
 --
 -- 'httpStatus', 'listLayerVersionsResponse_httpStatus' - The response's http status code.
 newListLayerVersionsResponse ::
@@ -204,20 +221,20 @@ newListLayerVersionsResponse ::
   ListLayerVersionsResponse
 newListLayerVersionsResponse pHttpStatus_ =
   ListLayerVersionsResponse'
-    { nextMarker =
+    { layerVersions =
         Prelude.Nothing,
-      layerVersions = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of versions.
+listLayerVersionsResponse_layerVersions :: Lens.Lens' ListLayerVersionsResponse (Prelude.Maybe [LayerVersionsListItem])
+listLayerVersionsResponse_layerVersions = Lens.lens (\ListLayerVersionsResponse' {layerVersions} -> layerVersions) (\s@ListLayerVersionsResponse' {} a -> s {layerVersions = a} :: ListLayerVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token returned when the response doesn\'t contain all
 -- versions.
 listLayerVersionsResponse_nextMarker :: Lens.Lens' ListLayerVersionsResponse (Prelude.Maybe Prelude.Text)
 listLayerVersionsResponse_nextMarker = Lens.lens (\ListLayerVersionsResponse' {nextMarker} -> nextMarker) (\s@ListLayerVersionsResponse' {} a -> s {nextMarker = a} :: ListLayerVersionsResponse)
-
--- | A list of versions.
-listLayerVersionsResponse_layerVersions :: Lens.Lens' ListLayerVersionsResponse (Prelude.Maybe [LayerVersionsListItem])
-listLayerVersionsResponse_layerVersions = Lens.lens (\ListLayerVersionsResponse' {layerVersions} -> layerVersions) (\s@ListLayerVersionsResponse' {} a -> s {layerVersions = a} :: ListLayerVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listLayerVersionsResponse_httpStatus :: Lens.Lens' ListLayerVersionsResponse Prelude.Int

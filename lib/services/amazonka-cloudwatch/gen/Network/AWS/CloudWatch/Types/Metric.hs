@@ -69,7 +69,7 @@ metric_namespace = Lens.lens (\Metric' {namespace} -> namespace) (\s@Metric' {} 
 
 -- | The dimensions for the metric.
 metric_dimensions :: Lens.Lens' Metric (Prelude.Maybe [Dimension])
-metric_dimensions = Lens.lens (\Metric' {dimensions} -> dimensions) (\s@Metric' {} a -> s {dimensions = a} :: Metric) Prelude.. Lens.mapping Lens._Coerce
+metric_dimensions = Lens.lens (\Metric' {dimensions} -> dimensions) (\s@Metric' {} a -> s {dimensions = a} :: Metric) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML Metric where
   parseXML x =

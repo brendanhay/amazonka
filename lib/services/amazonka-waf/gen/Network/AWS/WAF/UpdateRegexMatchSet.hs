@@ -141,7 +141,7 @@ newUpdateRegexMatchSet
     UpdateRegexMatchSet'
       { regexMatchSetId =
           pRegexMatchSetId_,
-        updates = Lens._Coerce Lens.# pUpdates_,
+        updates = Lens.coerced Lens.# pUpdates_,
         changeToken = pChangeToken_
       }
 
@@ -155,7 +155,7 @@ updateRegexMatchSet_regexMatchSetId = Lens.lens (\UpdateRegexMatchSet' {regexMat
 -- or delete from a RegexMatchSet. For more information, see
 -- RegexMatchTuple.
 updateRegexMatchSet_updates :: Lens.Lens' UpdateRegexMatchSet (Prelude.NonEmpty RegexMatchSetUpdate)
-updateRegexMatchSet_updates = Lens.lens (\UpdateRegexMatchSet' {updates} -> updates) (\s@UpdateRegexMatchSet' {} a -> s {updates = a} :: UpdateRegexMatchSet) Prelude.. Lens._Coerce
+updateRegexMatchSet_updates = Lens.lens (\UpdateRegexMatchSet' {updates} -> updates) (\s@UpdateRegexMatchSet' {} a -> s {updates = a} :: UpdateRegexMatchSet) Prelude.. Lens.coerced
 
 -- | The value returned by the most recent call to GetChangeToken.
 updateRegexMatchSet_changeToken :: Lens.Lens' UpdateRegexMatchSet Prelude.Text

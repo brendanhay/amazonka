@@ -232,7 +232,7 @@ lookupPolicyResponse_nextToken = Lens.lens (\LookupPolicyResponse' {nextToken} -
 -- @ObjectIdentifier@, and @PolicyType@. For more information, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies>.
 lookupPolicyResponse_policyToPathList :: Lens.Lens' LookupPolicyResponse (Prelude.Maybe [PolicyToPath])
-lookupPolicyResponse_policyToPathList = Lens.lens (\LookupPolicyResponse' {policyToPathList} -> policyToPathList) (\s@LookupPolicyResponse' {} a -> s {policyToPathList = a} :: LookupPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
+lookupPolicyResponse_policyToPathList = Lens.lens (\LookupPolicyResponse' {policyToPathList} -> policyToPathList) (\s@LookupPolicyResponse' {} a -> s {policyToPathList = a} :: LookupPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 lookupPolicyResponse_httpStatus :: Lens.Lens' LookupPolicyResponse Prelude.Int

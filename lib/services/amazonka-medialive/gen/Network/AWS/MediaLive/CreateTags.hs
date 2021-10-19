@@ -75,7 +75,7 @@ newCreateTags pResourceArn_ =
 
 -- | Undocumented member.
 createTags_tags :: Lens.Lens' CreateTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.mapping Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createTags_resourceArn :: Lens.Lens' CreateTags Prelude.Text

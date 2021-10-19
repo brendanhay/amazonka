@@ -34,10 +34,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunctionRunAsConfig' smart constructor.
 data FunctionRunAsConfig = FunctionRunAsConfig'
-  { -- | The group ID whose permissions are used to run a Lambda function.
-    gid :: Prelude.Maybe Prelude.Int,
-    -- | The user ID whose permissions are used to run a Lambda function.
-    uid :: Prelude.Maybe Prelude.Int
+  { -- | The user ID whose permissions are used to run a Lambda function.
+    uid :: Prelude.Maybe Prelude.Int,
+    -- | The group ID whose permissions are used to run a Lambda function.
+    gid :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,24 @@ data FunctionRunAsConfig = FunctionRunAsConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gid', 'functionRunAsConfig_gid' - The group ID whose permissions are used to run a Lambda function.
---
 -- 'uid', 'functionRunAsConfig_uid' - The user ID whose permissions are used to run a Lambda function.
+--
+-- 'gid', 'functionRunAsConfig_gid' - The group ID whose permissions are used to run a Lambda function.
 newFunctionRunAsConfig ::
   FunctionRunAsConfig
 newFunctionRunAsConfig =
   FunctionRunAsConfig'
-    { gid = Prelude.Nothing,
-      uid = Prelude.Nothing
+    { uid = Prelude.Nothing,
+      gid = Prelude.Nothing
     }
-
--- | The group ID whose permissions are used to run a Lambda function.
-functionRunAsConfig_gid :: Lens.Lens' FunctionRunAsConfig (Prelude.Maybe Prelude.Int)
-functionRunAsConfig_gid = Lens.lens (\FunctionRunAsConfig' {gid} -> gid) (\s@FunctionRunAsConfig' {} a -> s {gid = a} :: FunctionRunAsConfig)
 
 -- | The user ID whose permissions are used to run a Lambda function.
 functionRunAsConfig_uid :: Lens.Lens' FunctionRunAsConfig (Prelude.Maybe Prelude.Int)
 functionRunAsConfig_uid = Lens.lens (\FunctionRunAsConfig' {uid} -> uid) (\s@FunctionRunAsConfig' {} a -> s {uid = a} :: FunctionRunAsConfig)
+
+-- | The group ID whose permissions are used to run a Lambda function.
+functionRunAsConfig_gid :: Lens.Lens' FunctionRunAsConfig (Prelude.Maybe Prelude.Int)
+functionRunAsConfig_gid = Lens.lens (\FunctionRunAsConfig' {gid} -> gid) (\s@FunctionRunAsConfig' {} a -> s {gid = a} :: FunctionRunAsConfig)
 
 instance Core.FromJSON FunctionRunAsConfig where
   parseJSON =
@@ -74,7 +74,7 @@ instance Core.FromJSON FunctionRunAsConfig where
       "FunctionRunAsConfig"
       ( \x ->
           FunctionRunAsConfig'
-            Prelude.<$> (x Core..:? "Gid") Prelude.<*> (x Core..:? "Uid")
+            Prelude.<$> (x Core..:? "Uid") Prelude.<*> (x Core..:? "Gid")
       )
 
 instance Prelude.Hashable FunctionRunAsConfig
@@ -85,7 +85,7 @@ instance Core.ToJSON FunctionRunAsConfig where
   toJSON FunctionRunAsConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Gid" Core..=) Prelude.<$> gid,
-            ("Uid" Core..=) Prelude.<$> uid
+          [ ("Uid" Core..=) Prelude.<$> uid,
+            ("Gid" Core..=) Prelude.<$> gid
           ]
       )

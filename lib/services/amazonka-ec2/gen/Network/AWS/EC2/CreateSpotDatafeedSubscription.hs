@@ -31,8 +31,8 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     newCreateSpotDatafeedSubscription,
 
     -- * Request Lenses
-    createSpotDatafeedSubscription_dryRun,
     createSpotDatafeedSubscription_prefix,
+    createSpotDatafeedSubscription_dryRun,
     createSpotDatafeedSubscription_bucket,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateSpotDatafeedSubscription' smart constructor.
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The prefix for the data feed file names.
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The prefix for the data feed file names.
-    prefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket in which to store the Spot Instance
     -- data feed. For more information about bucket names, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules Rules for bucket naming>
@@ -79,12 +79,12 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'prefix', 'createSpotDatafeedSubscription_prefix' - The prefix for the data feed file names.
+--
 -- 'dryRun', 'createSpotDatafeedSubscription_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'prefix', 'createSpotDatafeedSubscription_prefix' - The prefix for the data feed file names.
 --
 -- 'bucket', 'createSpotDatafeedSubscription_bucket' - The name of the Amazon S3 bucket in which to store the Spot Instance
 -- data feed. For more information about bucket names, see
@@ -96,11 +96,15 @@ newCreateSpotDatafeedSubscription ::
   CreateSpotDatafeedSubscription
 newCreateSpotDatafeedSubscription pBucket_ =
   CreateSpotDatafeedSubscription'
-    { dryRun =
+    { prefix =
         Prelude.Nothing,
-      prefix = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       bucket = pBucket_
     }
+
+-- | The prefix for the data feed file names.
+createSpotDatafeedSubscription_prefix :: Lens.Lens' CreateSpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
+createSpotDatafeedSubscription_prefix = Lens.lens (\CreateSpotDatafeedSubscription' {prefix} -> prefix) (\s@CreateSpotDatafeedSubscription' {} a -> s {prefix = a} :: CreateSpotDatafeedSubscription)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -108,10 +112,6 @@ newCreateSpotDatafeedSubscription pBucket_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 createSpotDatafeedSubscription_dryRun :: Lens.Lens' CreateSpotDatafeedSubscription (Prelude.Maybe Prelude.Bool)
 createSpotDatafeedSubscription_dryRun = Lens.lens (\CreateSpotDatafeedSubscription' {dryRun} -> dryRun) (\s@CreateSpotDatafeedSubscription' {} a -> s {dryRun = a} :: CreateSpotDatafeedSubscription)
-
--- | The prefix for the data feed file names.
-createSpotDatafeedSubscription_prefix :: Lens.Lens' CreateSpotDatafeedSubscription (Prelude.Maybe Prelude.Text)
-createSpotDatafeedSubscription_prefix = Lens.lens (\CreateSpotDatafeedSubscription' {prefix} -> prefix) (\s@CreateSpotDatafeedSubscription' {} a -> s {prefix = a} :: CreateSpotDatafeedSubscription)
 
 -- | The name of the Amazon S3 bucket in which to store the Spot Instance
 -- data feed. For more information about bucket names, see
@@ -162,8 +162,8 @@ instance Core.ToQuery CreateSpotDatafeedSubscription where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Prefix" Core.=: prefix,
+        "DryRun" Core.=: dryRun,
         "Bucket" Core.=: bucket
       ]
 

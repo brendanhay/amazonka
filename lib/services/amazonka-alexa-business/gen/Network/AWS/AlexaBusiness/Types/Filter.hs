@@ -60,7 +60,7 @@ filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :
 
 -- | The values of a filter.
 filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Filter
 

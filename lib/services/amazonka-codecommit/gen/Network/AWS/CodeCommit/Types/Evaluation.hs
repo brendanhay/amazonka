@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEvaluation' smart constructor.
 data Evaluation = Evaluation'
-  { -- | Whether the approval rule requirements for the pull request have been
-    -- overridden and no longer need to be met.
-    overridden :: Prelude.Maybe Prelude.Bool,
-    -- | The names of the approval rules that have had their conditions met.
+  { -- | The names of the approval rules that have had their conditions met.
     approvalRulesSatisfied :: Prelude.Maybe [Prelude.Text],
+    -- | The names of the approval rules that have not had their conditions met.
+    approvalRulesNotSatisfied :: Prelude.Maybe [Prelude.Text],
     -- | Whether the state of the pull request is approved.
     approved :: Prelude.Maybe Prelude.Bool,
-    -- | The names of the approval rules that have not had their conditions met.
-    approvalRulesNotSatisfied :: Prelude.Maybe [Prelude.Text]
+    -- | Whether the approval rule requirements for the pull request have been
+    -- overridden and no longer need to be met.
+    overridden :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,40 +48,41 @@ data Evaluation = Evaluation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'overridden', 'evaluation_overridden' - Whether the approval rule requirements for the pull request have been
--- overridden and no longer need to be met.
---
 -- 'approvalRulesSatisfied', 'evaluation_approvalRulesSatisfied' - The names of the approval rules that have had their conditions met.
+--
+-- 'approvalRulesNotSatisfied', 'evaluation_approvalRulesNotSatisfied' - The names of the approval rules that have not had their conditions met.
 --
 -- 'approved', 'evaluation_approved' - Whether the state of the pull request is approved.
 --
--- 'approvalRulesNotSatisfied', 'evaluation_approvalRulesNotSatisfied' - The names of the approval rules that have not had their conditions met.
+-- 'overridden', 'evaluation_overridden' - Whether the approval rule requirements for the pull request have been
+-- overridden and no longer need to be met.
 newEvaluation ::
   Evaluation
 newEvaluation =
   Evaluation'
-    { overridden = Prelude.Nothing,
-      approvalRulesSatisfied = Prelude.Nothing,
+    { approvalRulesSatisfied =
+        Prelude.Nothing,
+      approvalRulesNotSatisfied = Prelude.Nothing,
       approved = Prelude.Nothing,
-      approvalRulesNotSatisfied = Prelude.Nothing
+      overridden = Prelude.Nothing
     }
-
--- | Whether the approval rule requirements for the pull request have been
--- overridden and no longer need to be met.
-evaluation_overridden :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Bool)
-evaluation_overridden = Lens.lens (\Evaluation' {overridden} -> overridden) (\s@Evaluation' {} a -> s {overridden = a} :: Evaluation)
 
 -- | The names of the approval rules that have had their conditions met.
 evaluation_approvalRulesSatisfied :: Lens.Lens' Evaluation (Prelude.Maybe [Prelude.Text])
-evaluation_approvalRulesSatisfied = Lens.lens (\Evaluation' {approvalRulesSatisfied} -> approvalRulesSatisfied) (\s@Evaluation' {} a -> s {approvalRulesSatisfied = a} :: Evaluation) Prelude.. Lens.mapping Lens._Coerce
+evaluation_approvalRulesSatisfied = Lens.lens (\Evaluation' {approvalRulesSatisfied} -> approvalRulesSatisfied) (\s@Evaluation' {} a -> s {approvalRulesSatisfied = a} :: Evaluation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of the approval rules that have not had their conditions met.
+evaluation_approvalRulesNotSatisfied :: Lens.Lens' Evaluation (Prelude.Maybe [Prelude.Text])
+evaluation_approvalRulesNotSatisfied = Lens.lens (\Evaluation' {approvalRulesNotSatisfied} -> approvalRulesNotSatisfied) (\s@Evaluation' {} a -> s {approvalRulesNotSatisfied = a} :: Evaluation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether the state of the pull request is approved.
 evaluation_approved :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Bool)
 evaluation_approved = Lens.lens (\Evaluation' {approved} -> approved) (\s@Evaluation' {} a -> s {approved = a} :: Evaluation)
 
--- | The names of the approval rules that have not had their conditions met.
-evaluation_approvalRulesNotSatisfied :: Lens.Lens' Evaluation (Prelude.Maybe [Prelude.Text])
-evaluation_approvalRulesNotSatisfied = Lens.lens (\Evaluation' {approvalRulesNotSatisfied} -> approvalRulesNotSatisfied) (\s@Evaluation' {} a -> s {approvalRulesNotSatisfied = a} :: Evaluation) Prelude.. Lens.mapping Lens._Coerce
+-- | Whether the approval rule requirements for the pull request have been
+-- overridden and no longer need to be met.
+evaluation_overridden :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Bool)
+evaluation_overridden = Lens.lens (\Evaluation' {overridden} -> overridden) (\s@Evaluation' {} a -> s {overridden = a} :: Evaluation)
 
 instance Core.FromJSON Evaluation where
   parseJSON =
@@ -89,14 +90,14 @@ instance Core.FromJSON Evaluation where
       "Evaluation"
       ( \x ->
           Evaluation'
-            Prelude.<$> (x Core..:? "overridden")
-            Prelude.<*> ( x Core..:? "approvalRulesSatisfied"
+            Prelude.<$> ( x Core..:? "approvalRulesSatisfied"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "approved")
             Prelude.<*> ( x Core..:? "approvalRulesNotSatisfied"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "approved")
+            Prelude.<*> (x Core..:? "overridden")
       )
 
 instance Prelude.Hashable Evaluation

@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFinding' smart constructor.
 data Finding = Finding'
-  { -- | The title of the finding.
-    title :: Prelude.Maybe Prelude.Text,
-    service :: Prelude.Maybe ServiceInfo,
-    -- | The partition associated with the finding.
-    partition :: Prelude.Maybe Prelude.Text,
+  { service :: Prelude.Maybe ServiceInfo,
     -- | The confidence score for the finding.
     confidence :: Prelude.Maybe Prelude.Double,
+    -- | The partition associated with the finding.
+    partition :: Prelude.Maybe Prelude.Text,
+    -- | The title of the finding.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The description of the finding.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the account in which the finding was generated.
@@ -69,13 +69,13 @@ data Finding = Finding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'title', 'finding_title' - The title of the finding.
---
 -- 'service', 'finding_service' - Undocumented member.
+--
+-- 'confidence', 'finding_confidence' - The confidence score for the finding.
 --
 -- 'partition', 'finding_partition' - The partition associated with the finding.
 --
--- 'confidence', 'finding_confidence' - The confidence score for the finding.
+-- 'title', 'finding_title' - The title of the finding.
 --
 -- 'description', 'finding_description' - The description of the finding.
 --
@@ -132,10 +132,10 @@ newFinding
   pType_
   pUpdatedAt_ =
     Finding'
-      { title = Prelude.Nothing,
-        service = Prelude.Nothing,
-        partition = Prelude.Nothing,
+      { service = Prelude.Nothing,
         confidence = Prelude.Nothing,
+        partition = Prelude.Nothing,
+        title = Prelude.Nothing,
         description = Prelude.Nothing,
         accountId = pAccountId_,
         arn = pArn_,
@@ -149,21 +149,21 @@ newFinding
         updatedAt = pUpdatedAt_
       }
 
--- | The title of the finding.
-finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
-finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
-
 -- | Undocumented member.
 finding_service :: Lens.Lens' Finding (Prelude.Maybe ServiceInfo)
 finding_service = Lens.lens (\Finding' {service} -> service) (\s@Finding' {} a -> s {service = a} :: Finding)
+
+-- | The confidence score for the finding.
+finding_confidence :: Lens.Lens' Finding (Prelude.Maybe Prelude.Double)
+finding_confidence = Lens.lens (\Finding' {confidence} -> confidence) (\s@Finding' {} a -> s {confidence = a} :: Finding)
 
 -- | The partition associated with the finding.
 finding_partition :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
 finding_partition = Lens.lens (\Finding' {partition} -> partition) (\s@Finding' {} a -> s {partition = a} :: Finding)
 
--- | The confidence score for the finding.
-finding_confidence :: Lens.Lens' Finding (Prelude.Maybe Prelude.Double)
-finding_confidence = Lens.lens (\Finding' {confidence} -> confidence) (\s@Finding' {} a -> s {confidence = a} :: Finding)
+-- | The title of the finding.
+finding_title :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
+finding_title = Lens.lens (\Finding' {title} -> title) (\s@Finding' {} a -> s {title = a} :: Finding)
 
 -- | The description of the finding.
 finding_description :: Lens.Lens' Finding (Prelude.Maybe Prelude.Text)
@@ -215,10 +215,10 @@ instance Core.FromJSON Finding where
       "Finding"
       ( \x ->
           Finding'
-            Prelude.<$> (x Core..:? "title")
-            Prelude.<*> (x Core..:? "service")
-            Prelude.<*> (x Core..:? "partition")
+            Prelude.<$> (x Core..:? "service")
             Prelude.<*> (x Core..:? "confidence")
+            Prelude.<*> (x Core..:? "partition")
+            Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "accountId")
             Prelude.<*> (x Core..: "arn")

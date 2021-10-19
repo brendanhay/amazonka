@@ -34,17 +34,17 @@ module Network.AWS.IoT.ListAuthorizers
 
     -- * Request Lenses
     listAuthorizers_status,
-    listAuthorizers_pageSize,
-    listAuthorizers_ascendingOrder,
     listAuthorizers_marker,
+    listAuthorizers_ascendingOrder,
+    listAuthorizers_pageSize,
 
     -- * Destructuring the Response
     ListAuthorizersResponse (..),
     newListAuthorizersResponse,
 
     -- * Response Lenses
-    listAuthorizersResponse_nextMarker,
     listAuthorizersResponse_authorizers,
+    listAuthorizersResponse_nextMarker,
     listAuthorizersResponse_httpStatus,
   )
 where
@@ -60,12 +60,12 @@ import qualified Network.AWS.Response as Response
 data ListAuthorizers = ListAuthorizers'
   { -- | The status of the list authorizers request.
     status :: Prelude.Maybe AuthorizerStatus,
-    -- | The maximum number of results to return at one time.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | A marker used to get the next set of results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Return the list of authorizers in ascending alphabetical order.
     ascendingOrder :: Prelude.Maybe Prelude.Bool,
-    -- | A marker used to get the next set of results.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | The maximum number of results to return at one time.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,36 +79,36 @@ data ListAuthorizers = ListAuthorizers'
 --
 -- 'status', 'listAuthorizers_status' - The status of the list authorizers request.
 --
--- 'pageSize', 'listAuthorizers_pageSize' - The maximum number of results to return at one time.
+-- 'marker', 'listAuthorizers_marker' - A marker used to get the next set of results.
 --
 -- 'ascendingOrder', 'listAuthorizers_ascendingOrder' - Return the list of authorizers in ascending alphabetical order.
 --
--- 'marker', 'listAuthorizers_marker' - A marker used to get the next set of results.
+-- 'pageSize', 'listAuthorizers_pageSize' - The maximum number of results to return at one time.
 newListAuthorizers ::
   ListAuthorizers
 newListAuthorizers =
   ListAuthorizers'
     { status = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
+      marker = Prelude.Nothing,
       ascendingOrder = Prelude.Nothing,
-      marker = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
 
 -- | The status of the list authorizers request.
 listAuthorizers_status :: Lens.Lens' ListAuthorizers (Prelude.Maybe AuthorizerStatus)
 listAuthorizers_status = Lens.lens (\ListAuthorizers' {status} -> status) (\s@ListAuthorizers' {} a -> s {status = a} :: ListAuthorizers)
 
--- | The maximum number of results to return at one time.
-listAuthorizers_pageSize :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Natural)
-listAuthorizers_pageSize = Lens.lens (\ListAuthorizers' {pageSize} -> pageSize) (\s@ListAuthorizers' {} a -> s {pageSize = a} :: ListAuthorizers)
+-- | A marker used to get the next set of results.
+listAuthorizers_marker :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Text)
+listAuthorizers_marker = Lens.lens (\ListAuthorizers' {marker} -> marker) (\s@ListAuthorizers' {} a -> s {marker = a} :: ListAuthorizers)
 
 -- | Return the list of authorizers in ascending alphabetical order.
 listAuthorizers_ascendingOrder :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Bool)
 listAuthorizers_ascendingOrder = Lens.lens (\ListAuthorizers' {ascendingOrder} -> ascendingOrder) (\s@ListAuthorizers' {} a -> s {ascendingOrder = a} :: ListAuthorizers)
 
--- | A marker used to get the next set of results.
-listAuthorizers_marker :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Text)
-listAuthorizers_marker = Lens.lens (\ListAuthorizers' {marker} -> marker) (\s@ListAuthorizers' {} a -> s {marker = a} :: ListAuthorizers)
+-- | The maximum number of results to return at one time.
+listAuthorizers_pageSize :: Lens.Lens' ListAuthorizers (Prelude.Maybe Prelude.Natural)
+listAuthorizers_pageSize = Lens.lens (\ListAuthorizers' {pageSize} -> pageSize) (\s@ListAuthorizers' {} a -> s {pageSize = a} :: ListAuthorizers)
 
 instance Core.AWSPager ListAuthorizers where
   page rq rs
@@ -141,8 +141,8 @@ instance Core.AWSRequest ListAuthorizers where
     Response.receiveJSON
       ( \s h x ->
           ListAuthorizersResponse'
-            Prelude.<$> (x Core..?> "nextMarker")
-            Prelude.<*> (x Core..?> "authorizers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "authorizers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,17 +160,17 @@ instance Core.ToQuery ListAuthorizers where
   toQuery ListAuthorizers' {..} =
     Prelude.mconcat
       [ "status" Core.=: status,
-        "pageSize" Core.=: pageSize,
+        "marker" Core.=: marker,
         "isAscendingOrder" Core.=: ascendingOrder,
-        "marker" Core.=: marker
+        "pageSize" Core.=: pageSize
       ]
 
 -- | /See:/ 'newListAuthorizersResponse' smart constructor.
 data ListAuthorizersResponse = ListAuthorizersResponse'
-  { -- | A marker used to get the next set of results.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The authorizers.
+  { -- | The authorizers.
     authorizers :: Prelude.Maybe [AuthorizerSummary],
+    -- | A marker used to get the next set of results.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data ListAuthorizersResponse = ListAuthorizersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listAuthorizersResponse_nextMarker' - A marker used to get the next set of results.
---
 -- 'authorizers', 'listAuthorizersResponse_authorizers' - The authorizers.
+--
+-- 'nextMarker', 'listAuthorizersResponse_nextMarker' - A marker used to get the next set of results.
 --
 -- 'httpStatus', 'listAuthorizersResponse_httpStatus' - The response's http status code.
 newListAuthorizersResponse ::
@@ -195,19 +195,19 @@ newListAuthorizersResponse ::
   ListAuthorizersResponse
 newListAuthorizersResponse pHttpStatus_ =
   ListAuthorizersResponse'
-    { nextMarker =
+    { authorizers =
         Prelude.Nothing,
-      authorizers = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The authorizers.
+listAuthorizersResponse_authorizers :: Lens.Lens' ListAuthorizersResponse (Prelude.Maybe [AuthorizerSummary])
+listAuthorizersResponse_authorizers = Lens.lens (\ListAuthorizersResponse' {authorizers} -> authorizers) (\s@ListAuthorizersResponse' {} a -> s {authorizers = a} :: ListAuthorizersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A marker used to get the next set of results.
 listAuthorizersResponse_nextMarker :: Lens.Lens' ListAuthorizersResponse (Prelude.Maybe Prelude.Text)
 listAuthorizersResponse_nextMarker = Lens.lens (\ListAuthorizersResponse' {nextMarker} -> nextMarker) (\s@ListAuthorizersResponse' {} a -> s {nextMarker = a} :: ListAuthorizersResponse)
-
--- | The authorizers.
-listAuthorizersResponse_authorizers :: Lens.Lens' ListAuthorizersResponse (Prelude.Maybe [AuthorizerSummary])
-listAuthorizersResponse_authorizers = Lens.lens (\ListAuthorizersResponse' {authorizers} -> authorizers) (\s@ListAuthorizersResponse' {} a -> s {authorizers = a} :: ListAuthorizersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listAuthorizersResponse_httpStatus :: Lens.Lens' ListAuthorizersResponse Prelude.Int

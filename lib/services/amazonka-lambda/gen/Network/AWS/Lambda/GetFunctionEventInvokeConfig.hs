@@ -39,11 +39,11 @@ module Network.AWS.Lambda.GetFunctionEventInvokeConfig
     newFunctionEventInvokeConfig,
 
     -- * Response Lenses
-    functionEventInvokeConfig_maximumEventAgeInSeconds,
     functionEventInvokeConfig_functionArn,
-    functionEventInvokeConfig_destinationConfig,
+    functionEventInvokeConfig_maximumEventAgeInSeconds,
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
+    functionEventInvokeConfig_destinationConfig,
   )
 where
 

@@ -46,8 +46,8 @@ module Network.AWS.CloudFormation.RollbackStack
     newRollbackStack,
 
     -- * Request Lenses
-    rollbackStack_roleARN,
     rollbackStack_clientRequestToken,
+    rollbackStack_roleARN,
     rollbackStack_stackName,
 
     -- * Destructuring the Response
@@ -69,11 +69,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRollbackStack' smart constructor.
 data RollbackStack = RollbackStack'
-  { -- | The Amazon Resource Name (ARN) of an Identity and Access Management role
+  { -- | A unique identifier for this @RollbackStack@ request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an Identity and Access Management role
     -- that CloudFormation assumes to rollback the stack.
     roleARN :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for this @RollbackStack@ request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name that is associated with the stack.
     stackName :: Prelude.Text
   }
@@ -87,10 +87,10 @@ data RollbackStack = RollbackStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientRequestToken', 'rollbackStack_clientRequestToken' - A unique identifier for this @RollbackStack@ request.
+--
 -- 'roleARN', 'rollbackStack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management role
 -- that CloudFormation assumes to rollback the stack.
---
--- 'clientRequestToken', 'rollbackStack_clientRequestToken' - A unique identifier for this @RollbackStack@ request.
 --
 -- 'stackName', 'rollbackStack_stackName' - The name that is associated with the stack.
 newRollbackStack ::
@@ -99,19 +99,20 @@ newRollbackStack ::
   RollbackStack
 newRollbackStack pStackName_ =
   RollbackStack'
-    { roleARN = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
+      roleARN = Prelude.Nothing,
       stackName = pStackName_
     }
+
+-- | A unique identifier for this @RollbackStack@ request.
+rollbackStack_clientRequestToken :: Lens.Lens' RollbackStack (Prelude.Maybe Prelude.Text)
+rollbackStack_clientRequestToken = Lens.lens (\RollbackStack' {clientRequestToken} -> clientRequestToken) (\s@RollbackStack' {} a -> s {clientRequestToken = a} :: RollbackStack)
 
 -- | The Amazon Resource Name (ARN) of an Identity and Access Management role
 -- that CloudFormation assumes to rollback the stack.
 rollbackStack_roleARN :: Lens.Lens' RollbackStack (Prelude.Maybe Prelude.Text)
 rollbackStack_roleARN = Lens.lens (\RollbackStack' {roleARN} -> roleARN) (\s@RollbackStack' {} a -> s {roleARN = a} :: RollbackStack)
-
--- | A unique identifier for this @RollbackStack@ request.
-rollbackStack_clientRequestToken :: Lens.Lens' RollbackStack (Prelude.Maybe Prelude.Text)
-rollbackStack_clientRequestToken = Lens.lens (\RollbackStack' {clientRequestToken} -> clientRequestToken) (\s@RollbackStack' {} a -> s {clientRequestToken = a} :: RollbackStack)
 
 -- | The name that is associated with the stack.
 rollbackStack_stackName :: Lens.Lens' RollbackStack Prelude.Text
@@ -148,8 +149,8 @@ instance Core.ToQuery RollbackStack where
           Core.=: ("RollbackStack" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "RoleARN" Core.=: roleARN,
         "ClientRequestToken" Core.=: clientRequestToken,
+        "RoleARN" Core.=: roleARN,
         "StackName" Core.=: stackName
       ]
 

@@ -97,7 +97,7 @@ tag_arn = Lens.lens (\Tag' {arn} -> arn) (\s@Tag' {} a -> s {arn = a} :: Tag)
 -- | The tags to add to the specified resource group. A tag is a
 -- string-to-string map of key-value pairs.
 tag_tags :: Lens.Lens' Tag (Prelude.HashMap Prelude.Text Prelude.Text)
-tag_tags = Lens.lens (\Tag' {tags} -> tags) (\s@Tag' {} a -> s {tags = a} :: Tag) Prelude.. Lens._Coerce
+tag_tags = Lens.lens (\Tag' {tags} -> tags) (\s@Tag' {} a -> s {tags = a} :: Tag) Prelude.. Lens.coerced
 
 instance Core.AWSRequest Tag where
   type AWSResponse Tag = TagResponse
@@ -174,7 +174,7 @@ tagResponse_arn = Lens.lens (\TagResponse' {arn} -> arn) (\s@TagResponse' {} a -
 
 -- | The tags that have been added to the specified resource group.
 tagResponse_tags :: Lens.Lens' TagResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-tagResponse_tags = Lens.lens (\TagResponse' {tags} -> tags) (\s@TagResponse' {} a -> s {tags = a} :: TagResponse) Prelude.. Lens.mapping Lens._Coerce
+tagResponse_tags = Lens.lens (\TagResponse' {tags} -> tags) (\s@TagResponse' {} a -> s {tags = a} :: TagResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 tagResponse_httpStatus :: Lens.Lens' TagResponse Prelude.Int

@@ -30,7 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReplicationTask' smart constructor.
 data ReplicationTask = ReplicationTask'
-  { -- | The status of the replication task. This response parameter can return
+  { -- | The settings for the replication task.
+    replicationTaskSettings :: Prelude.Maybe Prelude.Text,
+    -- | The status of the replication task. This response parameter can return
     -- one of the following values:
     --
     -- -   @\"moving\"@ – The task is being moved in response to running the
@@ -122,53 +124,18 @@ data ReplicationTask = ReplicationTask'
     -- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
     --     specified server time.
     stopReason :: Prelude.Maybe Prelude.Text,
-    -- | The type of migration.
-    migrationType :: Prelude.Maybe MigrationTypeValue,
-    -- | The date the replication task was created.
-    replicationTaskCreationDate :: Prelude.Maybe Core.POSIX,
-    -- | Indicates the last checkpoint that occurred during a change data capture
-    -- (CDC) operation. You can provide this value to the @CdcStartPosition@
-    -- parameter to start a CDC operation that begins at that checkpoint.
-    recoveryCheckpoint :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the replication instance to which this task is moved in
-    -- response to running the
-    -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html MoveReplicationTask>
-    -- operation. Otherwise, this response parameter isn\'t a member of the
-    -- @ReplicationTask@ object.
-    targetReplicationInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | Supplemental information that the task requires to migrate the data for
-    -- certain source and target endpoints. For more information, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
-    -- in the /Database Migration Service User Guide./
-    taskData :: Prelude.Maybe Prelude.Text,
     -- | The ARN that uniquely identifies the endpoint.
     targetEndpointArn :: Prelude.Maybe Prelude.Text,
-    -- | The settings for the replication task.
-    replicationTaskSettings :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Prelude.Maybe Prelude.Text,
-    -- | Table mappings specified in the task.
-    tableMappings :: Prelude.Maybe Prelude.Text,
-    -- | The last error (failure) message generated for the replication task.
-    lastFailureMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
-    sourceEndpointArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the replication instance.
-    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
-    -- | The statistics for the task, including elapsed time, tables loaded, and
-    -- table errors.
-    replicationTaskStats :: Prelude.Maybe ReplicationTaskStats,
-    -- | The date the replication task is scheduled to start.
-    replicationTaskStartDate :: Prelude.Maybe Core.POSIX,
-    -- | Indicates when you want a change data capture (CDC) operation to stop.
-    -- The value can be either server time or commit time.
+    -- | The user-assigned replication task identifier or name.
     --
-    -- Server time example: --cdc-stop-position
-    -- “server_time:2018-02-09T12:12:12”
+    -- Constraints:
     --
-    -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
-    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    -- -   Must contain 1-255 alphanumeric characters or hyphens.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    replicationTaskIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Indicates when you want a change data capture (CDC) operation to start.
     -- Use either @CdcStartPosition@ or @CdcStartTime@ to specify when you want
     -- the CDC operation to start. Specifying both values results in an error.
@@ -182,16 +149,49 @@ data ReplicationTask = ReplicationTask'
     --
     -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
     cdcStartPosition :: Prelude.Maybe Prelude.Text,
-    -- | The user-assigned replication task identifier or name.
+    -- | The date the replication task is scheduled to start.
+    replicationTaskStartDate :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
+    sourceEndpointArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the last checkpoint that occurred during a change data capture
+    -- (CDC) operation. You can provide this value to the @CdcStartPosition@
+    -- parameter to start a CDC operation that begins at that checkpoint.
+    recoveryCheckpoint :: Prelude.Maybe Prelude.Text,
+    -- | Table mappings specified in the task.
+    tableMappings :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the replication instance to which this task is moved in
+    -- response to running the
+    -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html MoveReplicationTask>
+    -- operation. Otherwise, this response parameter isn\'t a member of the
+    -- @ReplicationTask@ object.
+    targetReplicationInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The date the replication task was created.
+    replicationTaskCreationDate :: Prelude.Maybe Core.POSIX,
+    -- | The type of migration.
+    migrationType :: Prelude.Maybe MigrationTypeValue,
+    -- | The Amazon Resource Name (ARN) of the replication task.
+    replicationTaskArn :: Prelude.Maybe Prelude.Text,
+    -- | Supplemental information that the task requires to migrate the data for
+    -- certain source and target endpoints. For more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
+    -- in the /Database Migration Service User Guide./
+    taskData :: Prelude.Maybe Prelude.Text,
+    -- | Indicates when you want a change data capture (CDC) operation to stop.
+    -- The value can be either server time or commit time.
     --
-    -- Constraints:
+    -- Server time example: --cdc-stop-position
+    -- “server_time:2018-02-09T12:12:12”
     --
-    -- -   Must contain 1-255 alphanumeric characters or hyphens.
-    --
-    -- -   First character must be a letter.
-    --
-    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    replicationTaskIdentifier :: Prelude.Maybe Prelude.Text
+    -- Commit time example: --cdc-stop-position “commit_time:
+    -- 2018-02-09T12:12:12 “
+    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    -- | The statistics for the task, including elapsed time, tables loaded, and
+    -- table errors.
+    replicationTaskStats :: Prelude.Maybe ReplicationTaskStats,
+    -- | The ARN of the replication instance.
+    replicationInstanceArn :: Prelude.Maybe Prelude.Text,
+    -- | The last error (failure) message generated for the replication task.
+    lastFailureMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -202,6 +202,8 @@ data ReplicationTask = ReplicationTask'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'replicationTaskSettings', 'replicationTask_replicationTaskSettings' - The settings for the replication task.
 --
 -- 'status', 'replicationTask_status' - The status of the replication task. This response parameter can return
 -- one of the following values:
@@ -295,52 +297,17 @@ data ReplicationTask = ReplicationTask'
 -- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
 --     specified server time.
 --
--- 'migrationType', 'replicationTask_migrationType' - The type of migration.
---
--- 'replicationTaskCreationDate', 'replicationTask_replicationTaskCreationDate' - The date the replication task was created.
---
--- 'recoveryCheckpoint', 'replicationTask_recoveryCheckpoint' - Indicates the last checkpoint that occurred during a change data capture
--- (CDC) operation. You can provide this value to the @CdcStartPosition@
--- parameter to start a CDC operation that begins at that checkpoint.
---
--- 'targetReplicationInstanceArn', 'replicationTask_targetReplicationInstanceArn' - The ARN of the replication instance to which this task is moved in
--- response to running the
--- <https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html MoveReplicationTask>
--- operation. Otherwise, this response parameter isn\'t a member of the
--- @ReplicationTask@ object.
---
--- 'taskData', 'replicationTask_taskData' - Supplemental information that the task requires to migrate the data for
--- certain source and target endpoints. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
--- in the /Database Migration Service User Guide./
---
 -- 'targetEndpointArn', 'replicationTask_targetEndpointArn' - The ARN that uniquely identifies the endpoint.
 --
--- 'replicationTaskSettings', 'replicationTask_replicationTaskSettings' - The settings for the replication task.
+-- 'replicationTaskIdentifier', 'replicationTask_replicationTaskIdentifier' - The user-assigned replication task identifier or name.
 --
--- 'replicationTaskArn', 'replicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
+-- Constraints:
 --
--- 'tableMappings', 'replicationTask_tableMappings' - Table mappings specified in the task.
+-- -   Must contain 1-255 alphanumeric characters or hyphens.
 --
--- 'lastFailureMessage', 'replicationTask_lastFailureMessage' - The last error (failure) message generated for the replication task.
+-- -   First character must be a letter.
 --
--- 'sourceEndpointArn', 'replicationTask_sourceEndpointArn' - The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
---
--- 'replicationInstanceArn', 'replicationTask_replicationInstanceArn' - The ARN of the replication instance.
---
--- 'replicationTaskStats', 'replicationTask_replicationTaskStats' - The statistics for the task, including elapsed time, tables loaded, and
--- table errors.
---
--- 'replicationTaskStartDate', 'replicationTask_replicationTaskStartDate' - The date the replication task is scheduled to start.
---
--- 'cdcStopPosition', 'replicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
--- The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position
--- “server_time:2018-02-09T12:12:12”
---
--- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- 'cdcStartPosition', 'replicationTask_cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start.
 -- Use either @CdcStartPosition@ or @CdcStartTime@ to specify when you want
@@ -355,39 +322,77 @@ data ReplicationTask = ReplicationTask'
 --
 -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
 --
--- 'replicationTaskIdentifier', 'replicationTask_replicationTaskIdentifier' - The user-assigned replication task identifier or name.
+-- 'replicationTaskStartDate', 'replicationTask_replicationTaskStartDate' - The date the replication task is scheduled to start.
 --
--- Constraints:
+-- 'sourceEndpointArn', 'replicationTask_sourceEndpointArn' - The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
 --
--- -   Must contain 1-255 alphanumeric characters or hyphens.
+-- 'recoveryCheckpoint', 'replicationTask_recoveryCheckpoint' - Indicates the last checkpoint that occurred during a change data capture
+-- (CDC) operation. You can provide this value to the @CdcStartPosition@
+-- parameter to start a CDC operation that begins at that checkpoint.
 --
--- -   First character must be a letter.
+-- 'tableMappings', 'replicationTask_tableMappings' - Table mappings specified in the task.
 --
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
+-- 'targetReplicationInstanceArn', 'replicationTask_targetReplicationInstanceArn' - The ARN of the replication instance to which this task is moved in
+-- response to running the
+-- <https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html MoveReplicationTask>
+-- operation. Otherwise, this response parameter isn\'t a member of the
+-- @ReplicationTask@ object.
+--
+-- 'replicationTaskCreationDate', 'replicationTask_replicationTaskCreationDate' - The date the replication task was created.
+--
+-- 'migrationType', 'replicationTask_migrationType' - The type of migration.
+--
+-- 'replicationTaskArn', 'replicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
+--
+-- 'taskData', 'replicationTask_taskData' - Supplemental information that the task requires to migrate the data for
+-- certain source and target endpoints. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
+-- in the /Database Migration Service User Guide./
+--
+-- 'cdcStopPosition', 'replicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
+--
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+--
+-- 'replicationTaskStats', 'replicationTask_replicationTaskStats' - The statistics for the task, including elapsed time, tables loaded, and
+-- table errors.
+--
+-- 'replicationInstanceArn', 'replicationTask_replicationInstanceArn' - The ARN of the replication instance.
+--
+-- 'lastFailureMessage', 'replicationTask_lastFailureMessage' - The last error (failure) message generated for the replication task.
 newReplicationTask ::
   ReplicationTask
 newReplicationTask =
   ReplicationTask'
-    { status = Prelude.Nothing,
+    { replicationTaskSettings =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       stopReason = Prelude.Nothing,
-      migrationType = Prelude.Nothing,
-      replicationTaskCreationDate = Prelude.Nothing,
-      recoveryCheckpoint = Prelude.Nothing,
-      targetReplicationInstanceArn = Prelude.Nothing,
-      taskData = Prelude.Nothing,
       targetEndpointArn = Prelude.Nothing,
-      replicationTaskSettings = Prelude.Nothing,
-      replicationTaskArn = Prelude.Nothing,
-      tableMappings = Prelude.Nothing,
-      lastFailureMessage = Prelude.Nothing,
-      sourceEndpointArn = Prelude.Nothing,
-      replicationInstanceArn = Prelude.Nothing,
-      replicationTaskStats = Prelude.Nothing,
-      replicationTaskStartDate = Prelude.Nothing,
-      cdcStopPosition = Prelude.Nothing,
+      replicationTaskIdentifier = Prelude.Nothing,
       cdcStartPosition = Prelude.Nothing,
-      replicationTaskIdentifier = Prelude.Nothing
+      replicationTaskStartDate = Prelude.Nothing,
+      sourceEndpointArn = Prelude.Nothing,
+      recoveryCheckpoint = Prelude.Nothing,
+      tableMappings = Prelude.Nothing,
+      targetReplicationInstanceArn = Prelude.Nothing,
+      replicationTaskCreationDate = Prelude.Nothing,
+      migrationType = Prelude.Nothing,
+      replicationTaskArn = Prelude.Nothing,
+      taskData = Prelude.Nothing,
+      cdcStopPosition = Prelude.Nothing,
+      replicationTaskStats = Prelude.Nothing,
+      replicationInstanceArn = Prelude.Nothing,
+      lastFailureMessage = Prelude.Nothing
     }
+
+-- | The settings for the replication task.
+replicationTask_replicationTaskSettings :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_replicationTaskSettings = Lens.lens (\ReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@ReplicationTask' {} a -> s {replicationTaskSettings = a} :: ReplicationTask)
 
 -- | The status of the replication task. This response parameter can return
 -- one of the following values:
@@ -485,82 +490,21 @@ replicationTask_status = Lens.lens (\ReplicationTask' {status} -> status) (\s@Re
 replicationTask_stopReason :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_stopReason = Lens.lens (\ReplicationTask' {stopReason} -> stopReason) (\s@ReplicationTask' {} a -> s {stopReason = a} :: ReplicationTask)
 
--- | The type of migration.
-replicationTask_migrationType :: Lens.Lens' ReplicationTask (Prelude.Maybe MigrationTypeValue)
-replicationTask_migrationType = Lens.lens (\ReplicationTask' {migrationType} -> migrationType) (\s@ReplicationTask' {} a -> s {migrationType = a} :: ReplicationTask)
-
--- | The date the replication task was created.
-replicationTask_replicationTaskCreationDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
-replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {replicationTaskCreationDate} -> replicationTaskCreationDate) (\s@ReplicationTask' {} a -> s {replicationTaskCreationDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
-
--- | Indicates the last checkpoint that occurred during a change data capture
--- (CDC) operation. You can provide this value to the @CdcStartPosition@
--- parameter to start a CDC operation that begins at that checkpoint.
-replicationTask_recoveryCheckpoint :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_recoveryCheckpoint = Lens.lens (\ReplicationTask' {recoveryCheckpoint} -> recoveryCheckpoint) (\s@ReplicationTask' {} a -> s {recoveryCheckpoint = a} :: ReplicationTask)
-
--- | The ARN of the replication instance to which this task is moved in
--- response to running the
--- <https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html MoveReplicationTask>
--- operation. Otherwise, this response parameter isn\'t a member of the
--- @ReplicationTask@ object.
-replicationTask_targetReplicationInstanceArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_targetReplicationInstanceArn = Lens.lens (\ReplicationTask' {targetReplicationInstanceArn} -> targetReplicationInstanceArn) (\s@ReplicationTask' {} a -> s {targetReplicationInstanceArn = a} :: ReplicationTask)
-
--- | Supplemental information that the task requires to migrate the data for
--- certain source and target endpoints. For more information, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
--- in the /Database Migration Service User Guide./
-replicationTask_taskData :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_taskData = Lens.lens (\ReplicationTask' {taskData} -> taskData) (\s@ReplicationTask' {} a -> s {taskData = a} :: ReplicationTask)
-
 -- | The ARN that uniquely identifies the endpoint.
 replicationTask_targetEndpointArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_targetEndpointArn = Lens.lens (\ReplicationTask' {targetEndpointArn} -> targetEndpointArn) (\s@ReplicationTask' {} a -> s {targetEndpointArn = a} :: ReplicationTask)
 
--- | The settings for the replication task.
-replicationTask_replicationTaskSettings :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_replicationTaskSettings = Lens.lens (\ReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@ReplicationTask' {} a -> s {replicationTaskSettings = a} :: ReplicationTask)
-
--- | The Amazon Resource Name (ARN) of the replication task.
-replicationTask_replicationTaskArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_replicationTaskArn = Lens.lens (\ReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationTask' {} a -> s {replicationTaskArn = a} :: ReplicationTask)
-
--- | Table mappings specified in the task.
-replicationTask_tableMappings :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_tableMappings = Lens.lens (\ReplicationTask' {tableMappings} -> tableMappings) (\s@ReplicationTask' {} a -> s {tableMappings = a} :: ReplicationTask)
-
--- | The last error (failure) message generated for the replication task.
-replicationTask_lastFailureMessage :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_lastFailureMessage = Lens.lens (\ReplicationTask' {lastFailureMessage} -> lastFailureMessage) (\s@ReplicationTask' {} a -> s {lastFailureMessage = a} :: ReplicationTask)
-
--- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
-replicationTask_sourceEndpointArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_sourceEndpointArn = Lens.lens (\ReplicationTask' {sourceEndpointArn} -> sourceEndpointArn) (\s@ReplicationTask' {} a -> s {sourceEndpointArn = a} :: ReplicationTask)
-
--- | The ARN of the replication instance.
-replicationTask_replicationInstanceArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_replicationInstanceArn = Lens.lens (\ReplicationTask' {replicationInstanceArn} -> replicationInstanceArn) (\s@ReplicationTask' {} a -> s {replicationInstanceArn = a} :: ReplicationTask)
-
--- | The statistics for the task, including elapsed time, tables loaded, and
--- table errors.
-replicationTask_replicationTaskStats :: Lens.Lens' ReplicationTask (Prelude.Maybe ReplicationTaskStats)
-replicationTask_replicationTaskStats = Lens.lens (\ReplicationTask' {replicationTaskStats} -> replicationTaskStats) (\s@ReplicationTask' {} a -> s {replicationTaskStats = a} :: ReplicationTask)
-
--- | The date the replication task is scheduled to start.
-replicationTask_replicationTaskStartDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
-replicationTask_replicationTaskStartDate = Lens.lens (\ReplicationTask' {replicationTaskStartDate} -> replicationTaskStartDate) (\s@ReplicationTask' {} a -> s {replicationTaskStartDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
-
--- | Indicates when you want a change data capture (CDC) operation to stop.
--- The value can be either server time or commit time.
+-- | The user-assigned replication task identifier or name.
 --
--- Server time example: --cdc-stop-position
--- “server_time:2018-02-09T12:12:12”
+-- Constraints:
 --
--- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
-replicationTask_cdcStopPosition :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_cdcStopPosition = Lens.lens (\ReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@ReplicationTask' {} a -> s {cdcStopPosition = a} :: ReplicationTask)
+-- -   Must contain 1-255 alphanumeric characters or hyphens.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+replicationTask_replicationTaskIdentifier :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_replicationTaskIdentifier = Lens.lens (\ReplicationTask' {replicationTaskIdentifier} -> replicationTaskIdentifier) (\s@ReplicationTask' {} a -> s {replicationTaskIdentifier = a} :: ReplicationTask)
 
 -- | Indicates when you want a change data capture (CDC) operation to start.
 -- Use either @CdcStartPosition@ or @CdcStartTime@ to specify when you want
@@ -577,17 +521,74 @@ replicationTask_cdcStopPosition = Lens.lens (\ReplicationTask' {cdcStopPosition}
 replicationTask_cdcStartPosition :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_cdcStartPosition = Lens.lens (\ReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@ReplicationTask' {} a -> s {cdcStartPosition = a} :: ReplicationTask)
 
--- | The user-assigned replication task identifier or name.
+-- | The date the replication task is scheduled to start.
+replicationTask_replicationTaskStartDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
+replicationTask_replicationTaskStartDate = Lens.lens (\ReplicationTask' {replicationTaskStartDate} -> replicationTaskStartDate) (\s@ReplicationTask' {} a -> s {replicationTaskStartDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) that uniquely identifies the endpoint.
+replicationTask_sourceEndpointArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_sourceEndpointArn = Lens.lens (\ReplicationTask' {sourceEndpointArn} -> sourceEndpointArn) (\s@ReplicationTask' {} a -> s {sourceEndpointArn = a} :: ReplicationTask)
+
+-- | Indicates the last checkpoint that occurred during a change data capture
+-- (CDC) operation. You can provide this value to the @CdcStartPosition@
+-- parameter to start a CDC operation that begins at that checkpoint.
+replicationTask_recoveryCheckpoint :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_recoveryCheckpoint = Lens.lens (\ReplicationTask' {recoveryCheckpoint} -> recoveryCheckpoint) (\s@ReplicationTask' {} a -> s {recoveryCheckpoint = a} :: ReplicationTask)
+
+-- | Table mappings specified in the task.
+replicationTask_tableMappings :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_tableMappings = Lens.lens (\ReplicationTask' {tableMappings} -> tableMappings) (\s@ReplicationTask' {} a -> s {tableMappings = a} :: ReplicationTask)
+
+-- | The ARN of the replication instance to which this task is moved in
+-- response to running the
+-- <https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html MoveReplicationTask>
+-- operation. Otherwise, this response parameter isn\'t a member of the
+-- @ReplicationTask@ object.
+replicationTask_targetReplicationInstanceArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_targetReplicationInstanceArn = Lens.lens (\ReplicationTask' {targetReplicationInstanceArn} -> targetReplicationInstanceArn) (\s@ReplicationTask' {} a -> s {targetReplicationInstanceArn = a} :: ReplicationTask)
+
+-- | The date the replication task was created.
+replicationTask_replicationTaskCreationDate :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.UTCTime)
+replicationTask_replicationTaskCreationDate = Lens.lens (\ReplicationTask' {replicationTaskCreationDate} -> replicationTaskCreationDate) (\s@ReplicationTask' {} a -> s {replicationTaskCreationDate = a} :: ReplicationTask) Prelude.. Lens.mapping Core._Time
+
+-- | The type of migration.
+replicationTask_migrationType :: Lens.Lens' ReplicationTask (Prelude.Maybe MigrationTypeValue)
+replicationTask_migrationType = Lens.lens (\ReplicationTask' {migrationType} -> migrationType) (\s@ReplicationTask' {} a -> s {migrationType = a} :: ReplicationTask)
+
+-- | The Amazon Resource Name (ARN) of the replication task.
+replicationTask_replicationTaskArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_replicationTaskArn = Lens.lens (\ReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@ReplicationTask' {} a -> s {replicationTaskArn = a} :: ReplicationTask)
+
+-- | Supplemental information that the task requires to migrate the data for
+-- certain source and target endpoints. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
+-- in the /Database Migration Service User Guide./
+replicationTask_taskData :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_taskData = Lens.lens (\ReplicationTask' {taskData} -> taskData) (\s@ReplicationTask' {} a -> s {taskData = a} :: ReplicationTask)
+
+-- | Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
 --
--- Constraints:
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
 --
--- -   Must contain 1-255 alphanumeric characters or hyphens.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
-replicationTask_replicationTaskIdentifier :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
-replicationTask_replicationTaskIdentifier = Lens.lens (\ReplicationTask' {replicationTaskIdentifier} -> replicationTaskIdentifier) (\s@ReplicationTask' {} a -> s {replicationTaskIdentifier = a} :: ReplicationTask)
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+replicationTask_cdcStopPosition :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_cdcStopPosition = Lens.lens (\ReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@ReplicationTask' {} a -> s {cdcStopPosition = a} :: ReplicationTask)
+
+-- | The statistics for the task, including elapsed time, tables loaded, and
+-- table errors.
+replicationTask_replicationTaskStats :: Lens.Lens' ReplicationTask (Prelude.Maybe ReplicationTaskStats)
+replicationTask_replicationTaskStats = Lens.lens (\ReplicationTask' {replicationTaskStats} -> replicationTaskStats) (\s@ReplicationTask' {} a -> s {replicationTaskStats = a} :: ReplicationTask)
+
+-- | The ARN of the replication instance.
+replicationTask_replicationInstanceArn :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_replicationInstanceArn = Lens.lens (\ReplicationTask' {replicationInstanceArn} -> replicationInstanceArn) (\s@ReplicationTask' {} a -> s {replicationInstanceArn = a} :: ReplicationTask)
+
+-- | The last error (failure) message generated for the replication task.
+replicationTask_lastFailureMessage :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
+replicationTask_lastFailureMessage = Lens.lens (\ReplicationTask' {lastFailureMessage} -> lastFailureMessage) (\s@ReplicationTask' {} a -> s {lastFailureMessage = a} :: ReplicationTask)
 
 instance Core.FromJSON ReplicationTask where
   parseJSON =
@@ -595,25 +596,25 @@ instance Core.FromJSON ReplicationTask where
       "ReplicationTask"
       ( \x ->
           ReplicationTask'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "ReplicationTaskSettings")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "StopReason")
-            Prelude.<*> (x Core..:? "MigrationType")
-            Prelude.<*> (x Core..:? "ReplicationTaskCreationDate")
-            Prelude.<*> (x Core..:? "RecoveryCheckpoint")
-            Prelude.<*> (x Core..:? "TargetReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "TaskData")
             Prelude.<*> (x Core..:? "TargetEndpointArn")
-            Prelude.<*> (x Core..:? "ReplicationTaskSettings")
-            Prelude.<*> (x Core..:? "ReplicationTaskArn")
-            Prelude.<*> (x Core..:? "TableMappings")
-            Prelude.<*> (x Core..:? "LastFailureMessage")
-            Prelude.<*> (x Core..:? "SourceEndpointArn")
-            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
-            Prelude.<*> (x Core..:? "ReplicationTaskStats")
-            Prelude.<*> (x Core..:? "ReplicationTaskStartDate")
-            Prelude.<*> (x Core..:? "CdcStopPosition")
-            Prelude.<*> (x Core..:? "CdcStartPosition")
             Prelude.<*> (x Core..:? "ReplicationTaskIdentifier")
+            Prelude.<*> (x Core..:? "CdcStartPosition")
+            Prelude.<*> (x Core..:? "ReplicationTaskStartDate")
+            Prelude.<*> (x Core..:? "SourceEndpointArn")
+            Prelude.<*> (x Core..:? "RecoveryCheckpoint")
+            Prelude.<*> (x Core..:? "TableMappings")
+            Prelude.<*> (x Core..:? "TargetReplicationInstanceArn")
+            Prelude.<*> (x Core..:? "ReplicationTaskCreationDate")
+            Prelude.<*> (x Core..:? "MigrationType")
+            Prelude.<*> (x Core..:? "ReplicationTaskArn")
+            Prelude.<*> (x Core..:? "TaskData")
+            Prelude.<*> (x Core..:? "CdcStopPosition")
+            Prelude.<*> (x Core..:? "ReplicationTaskStats")
+            Prelude.<*> (x Core..:? "ReplicationInstanceArn")
+            Prelude.<*> (x Core..:? "LastFailureMessage")
       )
 
 instance Prelude.Hashable ReplicationTask

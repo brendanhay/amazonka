@@ -41,8 +41,8 @@ module Network.AWS.EC2.ImportVolume
     newImportVolume,
 
     -- * Request Lenses
-    importVolume_dryRun,
     importVolume_description,
+    importVolume_dryRun,
     importVolume_availabilityZone,
     importVolume_image,
     importVolume_volume,
@@ -66,13 +66,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportVolume' smart constructor.
 data ImportVolume = ImportVolume'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | A description of the volume.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A description of the volume.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone for the resulting EBS volume.
     availabilityZone :: Prelude.Text,
     -- | The disk image.
@@ -90,12 +90,12 @@ data ImportVolume = ImportVolume'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'importVolume_description' - A description of the volume.
+--
 -- 'dryRun', 'importVolume_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'description', 'importVolume_description' - A description of the volume.
 --
 -- 'availabilityZone', 'importVolume_availabilityZone' - The Availability Zone for the resulting EBS volume.
 --
@@ -112,12 +112,16 @@ newImportVolume ::
   ImportVolume
 newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
   ImportVolume'
-    { dryRun = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       availabilityZone = pAvailabilityZone_,
       image = pImage_,
       volume = pVolume_
     }
+
+-- | A description of the volume.
+importVolume_description :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Text)
+importVolume_description = Lens.lens (\ImportVolume' {description} -> description) (\s@ImportVolume' {} a -> s {description = a} :: ImportVolume)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -125,10 +129,6 @@ newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 importVolume_dryRun :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Bool)
 importVolume_dryRun = Lens.lens (\ImportVolume' {dryRun} -> dryRun) (\s@ImportVolume' {} a -> s {dryRun = a} :: ImportVolume)
-
--- | A description of the volume.
-importVolume_description :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Text)
-importVolume_description = Lens.lens (\ImportVolume' {description} -> description) (\s@ImportVolume' {} a -> s {description = a} :: ImportVolume)
 
 -- | The Availability Zone for the resulting EBS volume.
 importVolume_availabilityZone :: Lens.Lens' ImportVolume Prelude.Text
@@ -170,8 +170,8 @@ instance Core.ToQuery ImportVolume where
           Core.=: ("ImportVolume" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "AvailabilityZone" Core.=: availabilityZone,
         "Image" Core.=: image,
         "Volume" Core.=: volume

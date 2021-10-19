@@ -67,12 +67,12 @@ module Network.AWS.Rekognition.GetLabelDetection
     newGetLabelDetectionResponse,
 
     -- * Response Lenses
-    getLabelDetectionResponse_statusMessage,
-    getLabelDetectionResponse_videoMetadata,
     getLabelDetectionResponse_nextToken,
-    getLabelDetectionResponse_labelModelVersion,
-    getLabelDetectionResponse_jobStatus,
+    getLabelDetectionResponse_videoMetadata,
+    getLabelDetectionResponse_statusMessage,
     getLabelDetectionResponse_labels,
+    getLabelDetectionResponse_jobStatus,
+    getLabelDetectionResponse_labelModelVersion,
     getLabelDetectionResponse_httpStatus,
   )
 where
@@ -182,12 +182,12 @@ instance Core.AWSRequest GetLabelDetection where
     Response.receiveJSON
       ( \s h x ->
           GetLabelDetectionResponse'
-            Prelude.<$> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "LabelModelVersion")
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "LabelModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,25 +229,25 @@ instance Core.ToQuery GetLabelDetection where
 
 -- | /See:/ 'newGetLabelDetectionResponse' smart constructor.
 data GetLabelDetectionResponse = GetLabelDetectionResponse'
-  { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+  { -- | If the response is truncated, Amazon Rekognition Video returns this
+    -- token that you can use in the subsequent request to retrieve the next
+    -- set of labels.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition video operation.
     videoMetadata :: Prelude.Maybe VideoMetadata,
-    -- | If the response is truncated, Amazon Rekognition Video returns this
-    -- token that you can use in the subsequent request to retrieve the next
-    -- set of labels.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Version number of the label detection model that was used to detect
-    -- labels.
-    labelModelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the label detection job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | An array of labels detected in the video. Each element contains the
     -- detected label and the time, in milliseconds from the start of the
     -- video, that the label was detected.
     labels :: Prelude.Maybe [LabelDetection],
+    -- | The current status of the label detection job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | Version number of the label detection model that was used to detect
+    -- labels.
+    labelModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,24 +261,24 @@ data GetLabelDetectionResponse = GetLabelDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'getLabelDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- 'nextToken', 'getLabelDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of labels.
 --
 -- 'videoMetadata', 'getLabelDetectionResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition video operation.
 --
--- 'nextToken', 'getLabelDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
--- token that you can use in the subsequent request to retrieve the next
--- set of labels.
---
--- 'labelModelVersion', 'getLabelDetectionResponse_labelModelVersion' - Version number of the label detection model that was used to detect
--- labels.
---
--- 'jobStatus', 'getLabelDetectionResponse_jobStatus' - The current status of the label detection job.
+-- 'statusMessage', 'getLabelDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'labels', 'getLabelDetectionResponse_labels' - An array of labels detected in the video. Each element contains the
 -- detected label and the time, in milliseconds from the start of the
 -- video, that the label was detected.
+--
+-- 'jobStatus', 'getLabelDetectionResponse_jobStatus' - The current status of the label detection job.
+--
+-- 'labelModelVersion', 'getLabelDetectionResponse_labelModelVersion' - Version number of the label detection model that was used to detect
+-- labels.
 --
 -- 'httpStatus', 'getLabelDetectionResponse_httpStatus' - The response's http status code.
 newGetLabelDetectionResponse ::
@@ -287,25 +287,15 @@ newGetLabelDetectionResponse ::
   GetLabelDetectionResponse
 newGetLabelDetectionResponse pHttpStatus_ =
   GetLabelDetectionResponse'
-    { statusMessage =
+    { nextToken =
         Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      labelModelVersion = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       labels = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      labelModelVersion = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getLabelDetectionResponse_statusMessage :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
-getLabelDetectionResponse_statusMessage = Lens.lens (\GetLabelDetectionResponse' {statusMessage} -> statusMessage) (\s@GetLabelDetectionResponse' {} a -> s {statusMessage = a} :: GetLabelDetectionResponse)
-
--- | Information about a video that Amazon Rekognition Video analyzed.
--- @Videometadata@ is returned in every page of paginated responses from a
--- Amazon Rekognition video operation.
-getLabelDetectionResponse_videoMetadata :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoMetadata)
-getLabelDetectionResponse_videoMetadata = Lens.lens (\GetLabelDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetLabelDetectionResponse' {} a -> s {videoMetadata = a} :: GetLabelDetectionResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -313,20 +303,30 @@ getLabelDetectionResponse_videoMetadata = Lens.lens (\GetLabelDetectionResponse'
 getLabelDetectionResponse_nextToken :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
 getLabelDetectionResponse_nextToken = Lens.lens (\GetLabelDetectionResponse' {nextToken} -> nextToken) (\s@GetLabelDetectionResponse' {} a -> s {nextToken = a} :: GetLabelDetectionResponse)
 
--- | Version number of the label detection model that was used to detect
--- labels.
-getLabelDetectionResponse_labelModelVersion :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
-getLabelDetectionResponse_labelModelVersion = Lens.lens (\GetLabelDetectionResponse' {labelModelVersion} -> labelModelVersion) (\s@GetLabelDetectionResponse' {} a -> s {labelModelVersion = a} :: GetLabelDetectionResponse)
+-- | Information about a video that Amazon Rekognition Video analyzed.
+-- @Videometadata@ is returned in every page of paginated responses from a
+-- Amazon Rekognition video operation.
+getLabelDetectionResponse_videoMetadata :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoMetadata)
+getLabelDetectionResponse_videoMetadata = Lens.lens (\GetLabelDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetLabelDetectionResponse' {} a -> s {videoMetadata = a} :: GetLabelDetectionResponse)
 
--- | The current status of the label detection job.
-getLabelDetectionResponse_jobStatus :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoJobStatus)
-getLabelDetectionResponse_jobStatus = Lens.lens (\GetLabelDetectionResponse' {jobStatus} -> jobStatus) (\s@GetLabelDetectionResponse' {} a -> s {jobStatus = a} :: GetLabelDetectionResponse)
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getLabelDetectionResponse_statusMessage :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_statusMessage = Lens.lens (\GetLabelDetectionResponse' {statusMessage} -> statusMessage) (\s@GetLabelDetectionResponse' {} a -> s {statusMessage = a} :: GetLabelDetectionResponse)
 
 -- | An array of labels detected in the video. Each element contains the
 -- detected label and the time, in milliseconds from the start of the
 -- video, that the label was detected.
 getLabelDetectionResponse_labels :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe [LabelDetection])
-getLabelDetectionResponse_labels = Lens.lens (\GetLabelDetectionResponse' {labels} -> labels) (\s@GetLabelDetectionResponse' {} a -> s {labels = a} :: GetLabelDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
+getLabelDetectionResponse_labels = Lens.lens (\GetLabelDetectionResponse' {labels} -> labels) (\s@GetLabelDetectionResponse' {} a -> s {labels = a} :: GetLabelDetectionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current status of the label detection job.
+getLabelDetectionResponse_jobStatus :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoJobStatus)
+getLabelDetectionResponse_jobStatus = Lens.lens (\GetLabelDetectionResponse' {jobStatus} -> jobStatus) (\s@GetLabelDetectionResponse' {} a -> s {jobStatus = a} :: GetLabelDetectionResponse)
+
+-- | Version number of the label detection model that was used to detect
+-- labels.
+getLabelDetectionResponse_labelModelVersion :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_labelModelVersion = Lens.lens (\GetLabelDetectionResponse' {labelModelVersion} -> labelModelVersion) (\s@GetLabelDetectionResponse' {} a -> s {labelModelVersion = a} :: GetLabelDetectionResponse)
 
 -- | The response's http status code.
 getLabelDetectionResponse_httpStatus :: Lens.Lens' GetLabelDetectionResponse Prelude.Int

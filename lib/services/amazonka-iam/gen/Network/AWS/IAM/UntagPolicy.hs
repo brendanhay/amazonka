@@ -103,7 +103,7 @@ untagPolicy_policyArn = Lens.lens (\UntagPolicy' {policyArn} -> policyArn) (\s@U
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified policy.
 untagPolicy_tagKeys :: Lens.Lens' UntagPolicy [Prelude.Text]
-untagPolicy_tagKeys = Lens.lens (\UntagPolicy' {tagKeys} -> tagKeys) (\s@UntagPolicy' {} a -> s {tagKeys = a} :: UntagPolicy) Prelude.. Lens._Coerce
+untagPolicy_tagKeys = Lens.lens (\UntagPolicy' {tagKeys} -> tagKeys) (\s@UntagPolicy' {} a -> s {tagKeys = a} :: UntagPolicy) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagPolicy where
   type AWSResponse UntagPolicy = UntagPolicyResponse

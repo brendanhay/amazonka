@@ -77,7 +77,7 @@ opsItemEventFilter_key = Lens.lens (\OpsItemEventFilter' {key} -> key) (\s@OpsIt
 
 -- | The values for the filter, consisting of one or more OpsItem IDs.
 opsItemEventFilter_values :: Lens.Lens' OpsItemEventFilter [Prelude.Text]
-opsItemEventFilter_values = Lens.lens (\OpsItemEventFilter' {values} -> values) (\s@OpsItemEventFilter' {} a -> s {values = a} :: OpsItemEventFilter) Prelude.. Lens._Coerce
+opsItemEventFilter_values = Lens.lens (\OpsItemEventFilter' {values} -> values) (\s@OpsItemEventFilter' {} a -> s {values = a} :: OpsItemEventFilter) Prelude.. Lens.coerced
 
 -- | The operator used by the filter call. Currently, the only supported
 -- value is @Equal@.

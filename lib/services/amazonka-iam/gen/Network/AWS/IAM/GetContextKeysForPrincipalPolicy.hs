@@ -159,7 +159,7 @@ newGetContextKeysForPrincipalPolicy pPolicySourceArn_ =
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
 getContextKeysForPrincipalPolicy_policyInputList :: Lens.Lens' GetContextKeysForPrincipalPolicy (Prelude.Maybe [Prelude.Text])
-getContextKeysForPrincipalPolicy_policyInputList = Lens.lens (\GetContextKeysForPrincipalPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForPrincipalPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForPrincipalPolicy) Prelude.. Lens.mapping Lens._Coerce
+getContextKeysForPrincipalPolicy_policyInputList = Lens.lens (\GetContextKeysForPrincipalPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForPrincipalPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForPrincipalPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of a user, group, or role whose policies contain the context
 -- keys that you want listed. If you specify a user, the list includes

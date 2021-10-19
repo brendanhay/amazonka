@@ -84,10 +84,10 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     newGetMetricStatistics,
 
     -- * Request Lenses
-    getMetricStatistics_unit,
+    getMetricStatistics_extendedStatistics,
     getMetricStatistics_statistics,
     getMetricStatistics_dimensions,
-    getMetricStatistics_extendedStatistics,
+    getMetricStatistics_unit,
     getMetricStatistics_namespace,
     getMetricStatistics_metricName,
     getMetricStatistics_startTime,
@@ -114,14 +114,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMetricStatistics' smart constructor.
 data GetMetricStatistics = GetMetricStatistics'
-  { -- | The unit for a given metric. If you omit @Unit@, all data that was
-    -- collected with any unit is returned, along with the corresponding units
-    -- that were specified when the data was reported to CloudWatch. If you
-    -- specify a unit, the operation returns only data that was collected with
-    -- that unit specified. If you specify a unit that does not match the data
-    -- collected, the results of the operation are null. CloudWatch does not
-    -- perform unit conversions.
-    unit :: Prelude.Maybe StandardUnit,
+  { -- | The percentile statistics. Specify values between p0.0 and p100. When
+    -- calling @GetMetricStatistics@, you must specify either @Statistics@ or
+    -- @ExtendedStatistics@, but not both. Percentile statistics are not
+    -- available for metrics when any of the metric values are negative
+    -- numbers.
+    extendedStatistics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The metric statistics, other than percentile. For percentile statistics,
     -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
     -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
@@ -138,12 +136,14 @@ data GetMetricStatistics = GetMetricStatistics'
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
     -- in the /Amazon CloudWatch User Guide/.
     dimensions :: Prelude.Maybe [Dimension],
-    -- | The percentile statistics. Specify values between p0.0 and p100. When
-    -- calling @GetMetricStatistics@, you must specify either @Statistics@ or
-    -- @ExtendedStatistics@, but not both. Percentile statistics are not
-    -- available for metrics when any of the metric values are negative
-    -- numbers.
-    extendedStatistics :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The unit for a given metric. If you omit @Unit@, all data that was
+    -- collected with any unit is returned, along with the corresponding units
+    -- that were specified when the data was reported to CloudWatch. If you
+    -- specify a unit, the operation returns only data that was collected with
+    -- that unit specified. If you specify a unit that does not match the data
+    -- collected, the results of the operation are null. CloudWatch does not
+    -- perform unit conversions.
+    unit :: Prelude.Maybe StandardUnit,
     -- | The namespace of the metric, with or without spaces.
     namespace :: Prelude.Text,
     -- | The name of the metric, with or without spaces.
@@ -216,13 +216,11 @@ data GetMetricStatistics = GetMetricStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'getMetricStatistics_unit' - The unit for a given metric. If you omit @Unit@, all data that was
--- collected with any unit is returned, along with the corresponding units
--- that were specified when the data was reported to CloudWatch. If you
--- specify a unit, the operation returns only data that was collected with
--- that unit specified. If you specify a unit that does not match the data
--- collected, the results of the operation are null. CloudWatch does not
--- perform unit conversions.
+-- 'extendedStatistics', 'getMetricStatistics_extendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When
+-- calling @GetMetricStatistics@, you must specify either @Statistics@ or
+-- @ExtendedStatistics@, but not both. Percentile statistics are not
+-- available for metrics when any of the metric values are negative
+-- numbers.
 --
 -- 'statistics', 'getMetricStatistics_statistics' - The metric statistics, other than percentile. For percentile statistics,
 -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
@@ -240,11 +238,13 @@ data GetMetricStatistics = GetMetricStatistics'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
 -- in the /Amazon CloudWatch User Guide/.
 --
--- 'extendedStatistics', 'getMetricStatistics_extendedStatistics' - The percentile statistics. Specify values between p0.0 and p100. When
--- calling @GetMetricStatistics@, you must specify either @Statistics@ or
--- @ExtendedStatistics@, but not both. Percentile statistics are not
--- available for metrics when any of the metric values are negative
--- numbers.
+-- 'unit', 'getMetricStatistics_unit' - The unit for a given metric. If you omit @Unit@, all data that was
+-- collected with any unit is returned, along with the corresponding units
+-- that were specified when the data was reported to CloudWatch. If you
+-- specify a unit, the operation returns only data that was collected with
+-- that unit specified. If you specify a unit that does not match the data
+-- collected, the results of the operation are null. CloudWatch does not
+-- perform unit conversions.
 --
 -- 'namespace', 'getMetricStatistics_namespace' - The namespace of the metric, with or without spaces.
 --
@@ -325,10 +325,11 @@ newGetMetricStatistics
   pEndTime_
   pPeriod_ =
     GetMetricStatistics'
-      { unit = Prelude.Nothing,
+      { extendedStatistics =
+          Prelude.Nothing,
         statistics = Prelude.Nothing,
         dimensions = Prelude.Nothing,
-        extendedStatistics = Prelude.Nothing,
+        unit = Prelude.Nothing,
         namespace = pNamespace_,
         metricName = pMetricName_,
         startTime = Core._Time Lens.# pStartTime_,
@@ -336,21 +337,19 @@ newGetMetricStatistics
         period = pPeriod_
       }
 
--- | The unit for a given metric. If you omit @Unit@, all data that was
--- collected with any unit is returned, along with the corresponding units
--- that were specified when the data was reported to CloudWatch. If you
--- specify a unit, the operation returns only data that was collected with
--- that unit specified. If you specify a unit that does not match the data
--- collected, the results of the operation are null. CloudWatch does not
--- perform unit conversions.
-getMetricStatistics_unit :: Lens.Lens' GetMetricStatistics (Prelude.Maybe StandardUnit)
-getMetricStatistics_unit = Lens.lens (\GetMetricStatistics' {unit} -> unit) (\s@GetMetricStatistics' {} a -> s {unit = a} :: GetMetricStatistics)
+-- | The percentile statistics. Specify values between p0.0 and p100. When
+-- calling @GetMetricStatistics@, you must specify either @Statistics@ or
+-- @ExtendedStatistics@, but not both. Percentile statistics are not
+-- available for metrics when any of the metric values are negative
+-- numbers.
+getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metric statistics, other than percentile. For percentile statistics,
 -- use @ExtendedStatistics@. When calling @GetMetricStatistics@, you must
 -- specify either @Statistics@ or @ExtendedStatistics@, but not both.
 getMetricStatistics_statistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Statistic))
-getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -> statistics) (\s@GetMetricStatistics' {} a -> s {statistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens._Coerce
+getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -> statistics) (\s@GetMetricStatistics' {} a -> s {statistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
 -- | The dimensions. If the metric contains multiple dimensions, you must
 -- include a value for each dimension. CloudWatch treats each unique
@@ -364,15 +363,17 @@ getMetricStatistics_statistics = Lens.lens (\GetMetricStatistics' {statistics} -
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
 -- in the /Amazon CloudWatch User Guide/.
 getMetricStatistics_dimensions :: Lens.Lens' GetMetricStatistics (Prelude.Maybe [Dimension])
-getMetricStatistics_dimensions = Lens.lens (\GetMetricStatistics' {dimensions} -> dimensions) (\s@GetMetricStatistics' {} a -> s {dimensions = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens._Coerce
+getMetricStatistics_dimensions = Lens.lens (\GetMetricStatistics' {dimensions} -> dimensions) (\s@GetMetricStatistics' {} a -> s {dimensions = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens.coerced
 
--- | The percentile statistics. Specify values between p0.0 and p100. When
--- calling @GetMetricStatistics@, you must specify either @Statistics@ or
--- @ExtendedStatistics@, but not both. Percentile statistics are not
--- available for metrics when any of the metric values are negative
--- numbers.
-getMetricStatistics_extendedStatistics :: Lens.Lens' GetMetricStatistics (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getMetricStatistics_extendedStatistics = Lens.lens (\GetMetricStatistics' {extendedStatistics} -> extendedStatistics) (\s@GetMetricStatistics' {} a -> s {extendedStatistics = a} :: GetMetricStatistics) Prelude.. Lens.mapping Lens._Coerce
+-- | The unit for a given metric. If you omit @Unit@, all data that was
+-- collected with any unit is returned, along with the corresponding units
+-- that were specified when the data was reported to CloudWatch. If you
+-- specify a unit, the operation returns only data that was collected with
+-- that unit specified. If you specify a unit that does not match the data
+-- collected, the results of the operation are null. CloudWatch does not
+-- perform unit conversions.
+getMetricStatistics_unit :: Lens.Lens' GetMetricStatistics (Prelude.Maybe StandardUnit)
+getMetricStatistics_unit = Lens.lens (\GetMetricStatistics' {unit} -> unit) (\s@GetMetricStatistics' {} a -> s {unit = a} :: GetMetricStatistics)
 
 -- | The namespace of the metric, with or without spaces.
 getMetricStatistics_namespace :: Lens.Lens' GetMetricStatistics Prelude.Text
@@ -479,18 +480,18 @@ instance Core.ToQuery GetMetricStatistics where
           Core.=: ("GetMetricStatistics" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-08-01" :: Prelude.ByteString),
-        "Unit" Core.=: unit,
+        "ExtendedStatistics"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> extendedStatistics
+            ),
         "Statistics"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> statistics),
         "Dimensions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> dimensions),
-        "ExtendedStatistics"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> extendedStatistics
-            ),
+        "Unit" Core.=: unit,
         "Namespace" Core.=: namespace,
         "MetricName" Core.=: metricName,
         "StartTime" Core.=: startTime,
@@ -536,7 +537,7 @@ newGetMetricStatisticsResponse pHttpStatus_ =
 
 -- | The data points for the specified metric.
 getMetricStatisticsResponse_datapoints :: Lens.Lens' GetMetricStatisticsResponse (Prelude.Maybe [Datapoint])
-getMetricStatisticsResponse_datapoints = Lens.lens (\GetMetricStatisticsResponse' {datapoints} -> datapoints) (\s@GetMetricStatisticsResponse' {} a -> s {datapoints = a} :: GetMetricStatisticsResponse) Prelude.. Lens.mapping Lens._Coerce
+getMetricStatisticsResponse_datapoints = Lens.lens (\GetMetricStatisticsResponse' {datapoints} -> datapoints) (\s@GetMetricStatisticsResponse' {} a -> s {datapoints = a} :: GetMetricStatisticsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A label for the specified metric.
 getMetricStatisticsResponse_label :: Lens.Lens' GetMetricStatisticsResponse (Prelude.Maybe Prelude.Text)

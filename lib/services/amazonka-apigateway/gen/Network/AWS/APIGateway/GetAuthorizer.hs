@@ -37,16 +37,16 @@ module Network.AWS.APIGateway.GetAuthorizer
     newAuthorizer,
 
     -- * Response Lenses
-    authorizer_identityValidationExpression,
-    authorizer_authorizerCredentials,
-    authorizer_id,
     authorizer_authorizerUri,
+    authorizer_identityValidationExpression,
     authorizer_providerARNs,
     authorizer_name,
-    authorizer_identitySource,
+    authorizer_id,
     authorizer_authorizerResultTtlInSeconds,
     authorizer_authType,
     authorizer_type,
+    authorizer_identitySource,
+    authorizer_authorizerCredentials,
   )
 where
 

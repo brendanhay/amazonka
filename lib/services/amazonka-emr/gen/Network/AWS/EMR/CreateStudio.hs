@@ -27,11 +27,11 @@ module Network.AWS.EMR.CreateStudio
     newCreateStudio,
 
     -- * Request Lenses
-    createStudio_userRole,
-    createStudio_idpRelayStateParameterName,
-    createStudio_tags,
     createStudio_idpAuthUrl,
+    createStudio_idpRelayStateParameterName,
+    createStudio_userRole,
     createStudio_description,
+    createStudio_tags,
     createStudio_name,
     createStudio_authMode,
     createStudio_vpcId,
@@ -46,8 +46,8 @@ module Network.AWS.EMR.CreateStudio
     newCreateStudioResponse,
 
     -- * Response Lenses
-    createStudioResponse_url,
     createStudioResponse_studioId,
+    createStudioResponse_url,
     createStudioResponse_httpStatus,
   )
 where
@@ -61,30 +61,30 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStudio' smart constructor.
 data CreateStudio = CreateStudio'
-  { -- | The IAM user role that users and groups assume when logged in to an
-    -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
-    -- Services SSO authentication. The permissions attached to the @UserRole@
-    -- can be scoped down for each user or group using session policies.
-    userRole :: Prelude.Maybe Prelude.Text,
+  { -- | The authentication endpoint of your identity provider (IdP). Specify
+    -- this value when you use IAM authentication and want to let federated
+    -- users log in to a Studio with the Studio URL and credentials from your
+    -- IdP. Amazon EMR Studio redirects users to this endpoint to enter
+    -- credentials.
+    idpAuthUrl :: Prelude.Maybe Prelude.Text,
     -- | The name that your identity provider (IdP) uses for its @RelayState@
     -- parameter. For example, @RelayState@ or @TargetSource@. Specify this
     -- value when you use IAM authentication and want to let federated users
     -- log in to a Studio using the Studio URL. The @RelayState@ parameter
     -- differs by IdP.
     idpRelayStateParameterName :: Prelude.Maybe Prelude.Text,
+    -- | The IAM user role that users and groups assume when logged in to an
+    -- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
+    -- Services SSO authentication. The permissions attached to the @UserRole@
+    -- can be scoped down for each user or group using session policies.
+    userRole :: Prelude.Maybe Prelude.Text,
+    -- | A detailed description of the Amazon EMR Studio.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to associate with the Amazon EMR Studio. Tags are
     -- user-defined key-value pairs that consist of a required key string with
     -- a maximum of 128 characters, and an optional value string with a maximum
     -- of 256 characters.
     tags :: Prelude.Maybe [Tag],
-    -- | The authentication endpoint of your identity provider (IdP). Specify
-    -- this value when you use IAM authentication and want to let federated
-    -- users log in to a Studio with the Studio URL and credentials from your
-    -- IdP. Amazon EMR Studio redirects users to this endpoint to enter
-    -- credentials.
-    idpAuthUrl :: Prelude.Maybe Prelude.Text,
-    -- | A detailed description of the Amazon EMR Studio.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A descriptive name for the Amazon EMR Studio.
     name :: Prelude.Text,
     -- | Specifies whether the Studio authenticates users using IAM or Amazon Web
@@ -125,10 +125,11 @@ data CreateStudio = CreateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userRole', 'createStudio_userRole' - The IAM user role that users and groups assume when logged in to an
--- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
--- Services SSO authentication. The permissions attached to the @UserRole@
--- can be scoped down for each user or group using session policies.
+-- 'idpAuthUrl', 'createStudio_idpAuthUrl' - The authentication endpoint of your identity provider (IdP). Specify
+-- this value when you use IAM authentication and want to let federated
+-- users log in to a Studio with the Studio URL and credentials from your
+-- IdP. Amazon EMR Studio redirects users to this endpoint to enter
+-- credentials.
 --
 -- 'idpRelayStateParameterName', 'createStudio_idpRelayStateParameterName' - The name that your identity provider (IdP) uses for its @RelayState@
 -- parameter. For example, @RelayState@ or @TargetSource@. Specify this
@@ -136,18 +137,17 @@ data CreateStudio = CreateStudio'
 -- log in to a Studio using the Studio URL. The @RelayState@ parameter
 -- differs by IdP.
 --
+-- 'userRole', 'createStudio_userRole' - The IAM user role that users and groups assume when logged in to an
+-- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
+-- Services SSO authentication. The permissions attached to the @UserRole@
+-- can be scoped down for each user or group using session policies.
+--
+-- 'description', 'createStudio_description' - A detailed description of the Amazon EMR Studio.
+--
 -- 'tags', 'createStudio_tags' - A list of tags to associate with the Amazon EMR Studio. Tags are
 -- user-defined key-value pairs that consist of a required key string with
 -- a maximum of 128 characters, and an optional value string with a maximum
 -- of 256 characters.
---
--- 'idpAuthUrl', 'createStudio_idpAuthUrl' - The authentication endpoint of your identity provider (IdP). Specify
--- this value when you use IAM authentication and want to let federated
--- users log in to a Studio with the Studio URL and credentials from your
--- IdP. Amazon EMR Studio redirects users to this endpoint to enter
--- credentials.
---
--- 'description', 'createStudio_description' - A detailed description of the Amazon EMR Studio.
 --
 -- 'name', 'createStudio_name' - A descriptive name for the Amazon EMR Studio.
 --
@@ -202,11 +202,11 @@ newCreateStudio
   pEngineSecurityGroupId_
   pDefaultS3Location_ =
     CreateStudio'
-      { userRole = Prelude.Nothing,
+      { idpAuthUrl = Prelude.Nothing,
         idpRelayStateParameterName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        idpAuthUrl = Prelude.Nothing,
+        userRole = Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         name = pName_,
         authMode = pAuthMode_,
         vpcId = pVpcId_,
@@ -218,12 +218,13 @@ newCreateStudio
         defaultS3Location = pDefaultS3Location_
       }
 
--- | The IAM user role that users and groups assume when logged in to an
--- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
--- Services SSO authentication. The permissions attached to the @UserRole@
--- can be scoped down for each user or group using session policies.
-createStudio_userRole :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
-createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@CreateStudio' {} a -> s {userRole = a} :: CreateStudio)
+-- | The authentication endpoint of your identity provider (IdP). Specify
+-- this value when you use IAM authentication and want to let federated
+-- users log in to a Studio with the Studio URL and credentials from your
+-- IdP. Amazon EMR Studio redirects users to this endpoint to enter
+-- credentials.
+createStudio_idpAuthUrl :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_idpAuthUrl = Lens.lens (\CreateStudio' {idpAuthUrl} -> idpAuthUrl) (\s@CreateStudio' {} a -> s {idpAuthUrl = a} :: CreateStudio)
 
 -- | The name that your identity provider (IdP) uses for its @RelayState@
 -- parameter. For example, @RelayState@ or @TargetSource@. Specify this
@@ -233,24 +234,23 @@ createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@Cr
 createStudio_idpRelayStateParameterName :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
 createStudio_idpRelayStateParameterName = Lens.lens (\CreateStudio' {idpRelayStateParameterName} -> idpRelayStateParameterName) (\s@CreateStudio' {} a -> s {idpRelayStateParameterName = a} :: CreateStudio)
 
+-- | The IAM user role that users and groups assume when logged in to an
+-- Amazon EMR Studio. Only specify a @UserRole@ when you use Amazon Web
+-- Services SSO authentication. The permissions attached to the @UserRole@
+-- can be scoped down for each user or group using session policies.
+createStudio_userRole :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@CreateStudio' {} a -> s {userRole = a} :: CreateStudio)
+
+-- | A detailed description of the Amazon EMR Studio.
+createStudio_description :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_description = Lens.lens (\CreateStudio' {description} -> description) (\s@CreateStudio' {} a -> s {description = a} :: CreateStudio)
+
 -- | A list of tags to associate with the Amazon EMR Studio. Tags are
 -- user-defined key-value pairs that consist of a required key string with
 -- a maximum of 128 characters, and an optional value string with a maximum
 -- of 256 characters.
 createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe [Tag])
-createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens._Coerce
-
--- | The authentication endpoint of your identity provider (IdP). Specify
--- this value when you use IAM authentication and want to let federated
--- users log in to a Studio with the Studio URL and credentials from your
--- IdP. Amazon EMR Studio redirects users to this endpoint to enter
--- credentials.
-createStudio_idpAuthUrl :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
-createStudio_idpAuthUrl = Lens.lens (\CreateStudio' {idpAuthUrl} -> idpAuthUrl) (\s@CreateStudio' {} a -> s {idpAuthUrl = a} :: CreateStudio)
-
--- | A detailed description of the Amazon EMR Studio.
-createStudio_description :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
-createStudio_description = Lens.lens (\CreateStudio' {description} -> description) (\s@CreateStudio' {} a -> s {description = a} :: CreateStudio)
+createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Lens.coerced
 
 -- | A descriptive name for the Amazon EMR Studio.
 createStudio_name :: Lens.Lens' CreateStudio Prelude.Text
@@ -271,7 +271,7 @@ createStudio_vpcId = Lens.lens (\CreateStudio' {vpcId} -> vpcId) (\s@CreateStudi
 -- specified by @VpcId@. Studio users can create a Workspace in any of the
 -- specified subnets.
 createStudio_subnetIds :: Lens.Lens' CreateStudio [Prelude.Text]
-createStudio_subnetIds = Lens.lens (\CreateStudio' {subnetIds} -> subnetIds) (\s@CreateStudio' {} a -> s {subnetIds = a} :: CreateStudio) Prelude.. Lens._Coerce
+createStudio_subnetIds = Lens.lens (\CreateStudio' {subnetIds} -> subnetIds) (\s@CreateStudio' {} a -> s {subnetIds = a} :: CreateStudio) Prelude.. Lens.coerced
 
 -- | The IAM role that the Amazon EMR Studio assumes. The service role
 -- provides a way for Amazon EMR Studio to interoperate with other Amazon
@@ -304,8 +304,8 @@ instance Core.AWSRequest CreateStudio where
     Response.receiveJSON
       ( \s h x ->
           CreateStudioResponse'
-            Prelude.<$> (x Core..?> "Url")
-            Prelude.<*> (x Core..?> "StudioId")
+            Prelude.<$> (x Core..?> "StudioId")
+            Prelude.<*> (x Core..?> "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -332,12 +332,12 @@ instance Core.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UserRole" Core..=) Prelude.<$> userRole,
+          [ ("IdpAuthUrl" Core..=) Prelude.<$> idpAuthUrl,
             ("IdpRelayStateParameterName" Core..=)
               Prelude.<$> idpRelayStateParameterName,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("IdpAuthUrl" Core..=) Prelude.<$> idpAuthUrl,
+            ("UserRole" Core..=) Prelude.<$> userRole,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("AuthMode" Core..= authMode),
             Prelude.Just ("VpcId" Core..= vpcId),
@@ -364,10 +364,10 @@ instance Core.ToQuery CreateStudio where
 
 -- | /See:/ 'newCreateStudioResponse' smart constructor.
 data CreateStudioResponse = CreateStudioResponse'
-  { -- | The unique Studio access URL.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon EMR Studio.
+  { -- | The ID of the Amazon EMR Studio.
     studioId :: Prelude.Maybe Prelude.Text,
+    -- | The unique Studio access URL.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -381,9 +381,9 @@ data CreateStudioResponse = CreateStudioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'createStudioResponse_url' - The unique Studio access URL.
---
 -- 'studioId', 'createStudioResponse_studioId' - The ID of the Amazon EMR Studio.
+--
+-- 'url', 'createStudioResponse_url' - The unique Studio access URL.
 --
 -- 'httpStatus', 'createStudioResponse_httpStatus' - The response's http status code.
 newCreateStudioResponse ::
@@ -392,18 +392,18 @@ newCreateStudioResponse ::
   CreateStudioResponse
 newCreateStudioResponse pHttpStatus_ =
   CreateStudioResponse'
-    { url = Prelude.Nothing,
-      studioId = Prelude.Nothing,
+    { studioId = Prelude.Nothing,
+      url = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The unique Studio access URL.
-createStudioResponse_url :: Lens.Lens' CreateStudioResponse (Prelude.Maybe Prelude.Text)
-createStudioResponse_url = Lens.lens (\CreateStudioResponse' {url} -> url) (\s@CreateStudioResponse' {} a -> s {url = a} :: CreateStudioResponse)
 
 -- | The ID of the Amazon EMR Studio.
 createStudioResponse_studioId :: Lens.Lens' CreateStudioResponse (Prelude.Maybe Prelude.Text)
 createStudioResponse_studioId = Lens.lens (\CreateStudioResponse' {studioId} -> studioId) (\s@CreateStudioResponse' {} a -> s {studioId = a} :: CreateStudioResponse)
+
+-- | The unique Studio access URL.
+createStudioResponse_url :: Lens.Lens' CreateStudioResponse (Prelude.Maybe Prelude.Text)
+createStudioResponse_url = Lens.lens (\CreateStudioResponse' {url} -> url) (\s@CreateStudioResponse' {} a -> s {url = a} :: CreateStudioResponse)
 
 -- | The response's http status code.
 createStudioResponse_httpStatus :: Lens.Lens' CreateStudioResponse Prelude.Int

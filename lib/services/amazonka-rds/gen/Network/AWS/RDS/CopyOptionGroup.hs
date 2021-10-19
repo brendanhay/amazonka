@@ -134,7 +134,7 @@ newCopyOptionGroup
 
 -- | Undocumented member.
 copyOptionGroup_tags :: Lens.Lens' CopyOptionGroup (Prelude.Maybe [Tag])
-copyOptionGroup_tags = Lens.lens (\CopyOptionGroup' {tags} -> tags) (\s@CopyOptionGroup' {} a -> s {tags = a} :: CopyOptionGroup) Prelude.. Lens.mapping Lens._Coerce
+copyOptionGroup_tags = Lens.lens (\CopyOptionGroup' {tags} -> tags) (\s@CopyOptionGroup' {} a -> s {tags = a} :: CopyOptionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the source option group.
 --

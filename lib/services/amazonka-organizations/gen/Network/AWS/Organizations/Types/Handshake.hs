@@ -39,25 +39,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHandshake' smart constructor.
 data Handshake = Handshake'
-  { -- | The date and time that the handshake request was made.
-    requestedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | Information about the two accounts that are participating in the
-    -- handshake.
-    parties :: Prelude.Maybe [HandshakeParty],
-    -- | The Amazon Resource Name (ARN) of a handshake.
-    --
-    -- For more information about ARNs in Organizations, see
-    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier (ID) of a handshake. The originating account
-    -- creates the ID when it initiates the handshake.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
-    -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
-    -- digits.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the handshake. Use the state to trace the flow of
+  { -- | The current state of the handshake. Use the state to trace the flow of
     -- the handshake through the process from its creation to its acceptance.
     -- The meaning of each of the valid values is as follows:
     --
@@ -83,8 +65,12 @@ data Handshake = Handshake'
     --     originator did not receive a response of any kind from the recipient
     --     before the expiration time (15 days).
     state :: Prelude.Maybe HandshakeState,
-    -- | Additional information that is needed to process the handshake.
-    resources :: Prelude.Maybe [HandshakeResource],
+    -- | The Amazon Resource Name (ARN) of a handshake.
+    --
+    -- For more information about ARNs in Organizations, see
+    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
+    -- in the /AWS Service Authorization Reference/.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The type of handshake, indicating what action occurs when the recipient
     -- accepts the handshake. The following handshake types are supported:
     --
@@ -104,10 +90,24 @@ data Handshake = Handshake'
     --     account and signals the master that it can finalize the process to
     --     enable all features.
     action :: Prelude.Maybe ActionType,
+    -- | Additional information that is needed to process the handshake.
+    resources :: Prelude.Maybe [HandshakeResource],
+    -- | The unique identifier (ID) of a handshake. The originating account
+    -- creates the ID when it initiates the handshake.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
+    -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
+    -- digits.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the handshake expires. If the recipient of the
     -- handshake request fails to respond before the specified date and time,
     -- the handshake becomes inactive and is no longer valid.
-    expirationTimestamp :: Prelude.Maybe Core.POSIX
+    expirationTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | Information about the two accounts that are participating in the
+    -- handshake.
+    parties :: Prelude.Maybe [HandshakeParty],
+    -- | The date and time that the handshake request was made.
+    requestedTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -118,24 +118,6 @@ data Handshake = Handshake'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'requestedTimestamp', 'handshake_requestedTimestamp' - The date and time that the handshake request was made.
---
--- 'parties', 'handshake_parties' - Information about the two accounts that are participating in the
--- handshake.
---
--- 'arn', 'handshake_arn' - The Amazon Resource Name (ARN) of a handshake.
---
--- For more information about ARNs in Organizations, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
---
--- 'id', 'handshake_id' - The unique identifier (ID) of a handshake. The originating account
--- creates the ID when it initiates the handshake.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
--- string requires \"h-\" followed by from 8 to 32 lowercase letters or
--- digits.
 --
 -- 'state', 'handshake_state' - The current state of the handshake. Use the state to trace the flow of
 -- the handshake through the process from its creation to its acceptance.
@@ -163,7 +145,11 @@ data Handshake = Handshake'
 --     originator did not receive a response of any kind from the recipient
 --     before the expiration time (15 days).
 --
--- 'resources', 'handshake_resources' - Additional information that is needed to process the handshake.
+-- 'arn', 'handshake_arn' - The Amazon Resource Name (ARN) of a handshake.
+--
+-- For more information about ARNs in Organizations, see
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
+-- in the /AWS Service Authorization Reference/.
 --
 -- 'action', 'handshake_action' - The type of handshake, indicating what action occurs when the recipient
 -- accepts the handshake. The following handshake types are supported:
@@ -184,48 +170,36 @@ data Handshake = Handshake'
 --     account and signals the master that it can finalize the process to
 --     enable all features.
 --
--- 'expirationTimestamp', 'handshake_expirationTimestamp' - The date and time that the handshake expires. If the recipient of the
--- handshake request fails to respond before the specified date and time,
--- the handshake becomes inactive and is no longer valid.
-newHandshake ::
-  Handshake
-newHandshake =
-  Handshake'
-    { requestedTimestamp = Prelude.Nothing,
-      parties = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      state = Prelude.Nothing,
-      resources = Prelude.Nothing,
-      action = Prelude.Nothing,
-      expirationTimestamp = Prelude.Nothing
-    }
-
--- | The date and time that the handshake request was made.
-handshake_requestedTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
-handshake_requestedTimestamp = Lens.lens (\Handshake' {requestedTimestamp} -> requestedTimestamp) (\s@Handshake' {} a -> s {requestedTimestamp = a} :: Handshake) Prelude.. Lens.mapping Core._Time
-
--- | Information about the two accounts that are participating in the
--- handshake.
-handshake_parties :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeParty])
-handshake_parties = Lens.lens (\Handshake' {parties} -> parties) (\s@Handshake' {} a -> s {parties = a} :: Handshake) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Resource Name (ARN) of a handshake.
+-- 'resources', 'handshake_resources' - Additional information that is needed to process the handshake.
 --
--- For more information about ARNs in Organizations, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
-handshake_arn :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
-handshake_arn = Lens.lens (\Handshake' {arn} -> arn) (\s@Handshake' {} a -> s {arn = a} :: Handshake)
-
--- | The unique identifier (ID) of a handshake. The originating account
+-- 'id', 'handshake_id' - The unique identifier (ID) of a handshake. The originating account
 -- creates the ID when it initiates the handshake.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-handshake_id :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
-handshake_id = Lens.lens (\Handshake' {id} -> id) (\s@Handshake' {} a -> s {id = a} :: Handshake)
+--
+-- 'expirationTimestamp', 'handshake_expirationTimestamp' - The date and time that the handshake expires. If the recipient of the
+-- handshake request fails to respond before the specified date and time,
+-- the handshake becomes inactive and is no longer valid.
+--
+-- 'parties', 'handshake_parties' - Information about the two accounts that are participating in the
+-- handshake.
+--
+-- 'requestedTimestamp', 'handshake_requestedTimestamp' - The date and time that the handshake request was made.
+newHandshake ::
+  Handshake
+newHandshake =
+  Handshake'
+    { state = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      action = Prelude.Nothing,
+      resources = Prelude.Nothing,
+      id = Prelude.Nothing,
+      expirationTimestamp = Prelude.Nothing,
+      parties = Prelude.Nothing,
+      requestedTimestamp = Prelude.Nothing
+    }
 
 -- | The current state of the handshake. Use the state to trace the flow of
 -- the handshake through the process from its creation to its acceptance.
@@ -255,9 +229,13 @@ handshake_id = Lens.lens (\Handshake' {id} -> id) (\s@Handshake' {} a -> s {id =
 handshake_state :: Lens.Lens' Handshake (Prelude.Maybe HandshakeState)
 handshake_state = Lens.lens (\Handshake' {state} -> state) (\s@Handshake' {} a -> s {state = a} :: Handshake)
 
--- | Additional information that is needed to process the handshake.
-handshake_resources :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeResource])
-handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Handshake' {} a -> s {resources = a} :: Handshake) Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Resource Name (ARN) of a handshake.
+--
+-- For more information about ARNs in Organizations, see
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
+-- in the /AWS Service Authorization Reference/.
+handshake_arn :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
+handshake_arn = Lens.lens (\Handshake' {arn} -> arn) (\s@Handshake' {} a -> s {arn = a} :: Handshake)
 
 -- | The type of handshake, indicating what action occurs when the recipient
 -- accepts the handshake. The following handshake types are supported:
@@ -280,11 +258,33 @@ handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Hands
 handshake_action :: Lens.Lens' Handshake (Prelude.Maybe ActionType)
 handshake_action = Lens.lens (\Handshake' {action} -> action) (\s@Handshake' {} a -> s {action = a} :: Handshake)
 
+-- | Additional information that is needed to process the handshake.
+handshake_resources :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeResource])
+handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Handshake' {} a -> s {resources = a} :: Handshake) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifier (ID) of a handshake. The originating account
+-- creates the ID when it initiates the handshake.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
+-- string requires \"h-\" followed by from 8 to 32 lowercase letters or
+-- digits.
+handshake_id :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
+handshake_id = Lens.lens (\Handshake' {id} -> id) (\s@Handshake' {} a -> s {id = a} :: Handshake)
+
 -- | The date and time that the handshake expires. If the recipient of the
 -- handshake request fails to respond before the specified date and time,
 -- the handshake becomes inactive and is no longer valid.
 handshake_expirationTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
 handshake_expirationTimestamp = Lens.lens (\Handshake' {expirationTimestamp} -> expirationTimestamp) (\s@Handshake' {} a -> s {expirationTimestamp = a} :: Handshake) Prelude.. Lens.mapping Core._Time
+
+-- | Information about the two accounts that are participating in the
+-- handshake.
+handshake_parties :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeParty])
+handshake_parties = Lens.lens (\Handshake' {parties} -> parties) (\s@Handshake' {} a -> s {parties = a} :: Handshake) Prelude.. Lens.mapping Lens.coerced
+
+-- | The date and time that the handshake request was made.
+handshake_requestedTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
+handshake_requestedTimestamp = Lens.lens (\Handshake' {requestedTimestamp} -> requestedTimestamp) (\s@Handshake' {} a -> s {requestedTimestamp = a} :: Handshake) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Handshake where
   parseJSON =
@@ -292,14 +292,14 @@ instance Core.FromJSON Handshake where
       "Handshake"
       ( \x ->
           Handshake'
-            Prelude.<$> (x Core..:? "RequestedTimestamp")
-            Prelude.<*> (x Core..:? "Parties" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ExpirationTimestamp")
+            Prelude.<*> (x Core..:? "Parties" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RequestedTimestamp")
       )
 
 instance Prelude.Hashable Handshake

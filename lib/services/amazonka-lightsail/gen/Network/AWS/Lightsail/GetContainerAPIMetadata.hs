@@ -135,7 +135,7 @@ newGetContainerAPIMetadataResponse pHttpStatus_ =
 -- | Metadata about Lightsail containers, such as the current version of the
 -- Lightsail Control (lightsailctl) plugin.
 getContainerAPIMetadataResponse_metadata :: Lens.Lens' GetContainerAPIMetadataResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-getContainerAPIMetadataResponse_metadata = Lens.lens (\GetContainerAPIMetadataResponse' {metadata} -> metadata) (\s@GetContainerAPIMetadataResponse' {} a -> s {metadata = a} :: GetContainerAPIMetadataResponse) Prelude.. Lens.mapping Lens._Coerce
+getContainerAPIMetadataResponse_metadata = Lens.lens (\GetContainerAPIMetadataResponse' {metadata} -> metadata) (\s@GetContainerAPIMetadataResponse' {} a -> s {metadata = a} :: GetContainerAPIMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerAPIMetadataResponse_httpStatus :: Lens.Lens' GetContainerAPIMetadataResponse Prelude.Int

@@ -29,10 +29,10 @@ import Network.AWS.Redshift.Types.AttributeValueTarget
 --
 -- /See:/ 'newAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { -- | The name of the attribute.
-    attributeName :: Prelude.Maybe Prelude.Text,
-    -- | A list of attribute values.
-    attributeValues :: Prelude.Maybe [AttributeValueTarget]
+  { -- | A list of attribute values.
+    attributeValues :: Prelude.Maybe [AttributeValueTarget],
+    -- | The name of the attribute.
+    attributeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,33 @@ data AccountAttribute = AccountAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeName', 'accountAttribute_attributeName' - The name of the attribute.
---
 -- 'attributeValues', 'accountAttribute_attributeValues' - A list of attribute values.
+--
+-- 'attributeName', 'accountAttribute_attributeName' - The name of the attribute.
 newAccountAttribute ::
   AccountAttribute
 newAccountAttribute =
   AccountAttribute'
-    { attributeName = Prelude.Nothing,
-      attributeValues = Prelude.Nothing
+    { attributeValues =
+        Prelude.Nothing,
+      attributeName = Prelude.Nothing
     }
+
+-- | A list of attribute values.
+accountAttribute_attributeValues :: Lens.Lens' AccountAttribute (Prelude.Maybe [AttributeValueTarget])
+accountAttribute_attributeValues = Lens.lens (\AccountAttribute' {attributeValues} -> attributeValues) (\s@AccountAttribute' {} a -> s {attributeValues = a} :: AccountAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the attribute.
 accountAttribute_attributeName :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Text)
 accountAttribute_attributeName = Lens.lens (\AccountAttribute' {attributeName} -> attributeName) (\s@AccountAttribute' {} a -> s {attributeName = a} :: AccountAttribute)
 
--- | A list of attribute values.
-accountAttribute_attributeValues :: Lens.Lens' AccountAttribute (Prelude.Maybe [AttributeValueTarget])
-accountAttribute_attributeValues = Lens.lens (\AccountAttribute' {attributeValues} -> attributeValues) (\s@AccountAttribute' {} a -> s {attributeValues = a} :: AccountAttribute) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromXML AccountAttribute where
   parseXML x =
     AccountAttribute'
-      Prelude.<$> (x Core..@? "AttributeName")
-      Prelude.<*> ( x Core..@? "AttributeValues" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "AttributeValues" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "AttributeValueTarget")
                   )
+      Prelude.<*> (x Core..@? "AttributeName")
 
 instance Prelude.Hashable AccountAttribute
 

@@ -88,7 +88,7 @@ newCancelCommand pCommandId_ =
 -- command. If not provided, the command is canceled on every instance on
 -- which it was requested.
 cancelCommand_instanceIds :: Lens.Lens' CancelCommand (Prelude.Maybe [Prelude.Text])
-cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Prelude.. Lens.mapping Lens._Coerce
+cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the command you want to cancel.
 cancelCommand_commandId :: Lens.Lens' CancelCommand Prelude.Text

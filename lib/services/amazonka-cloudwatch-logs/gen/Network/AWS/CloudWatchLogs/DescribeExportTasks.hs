@@ -30,10 +30,10 @@ module Network.AWS.CloudWatchLogs.DescribeExportTasks
     newDescribeExportTasks,
 
     -- * Request Lenses
-    describeExportTasks_nextToken,
     describeExportTasks_taskId,
-    describeExportTasks_statusCode,
+    describeExportTasks_nextToken,
     describeExportTasks_limit,
+    describeExportTasks_statusCode,
 
     -- * Destructuring the Response
     DescribeExportTasksResponse (..),
@@ -55,18 +55,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the export task. Specifying a task ID filters the results to
+  { -- | The ID of the export task. Specifying a task ID filters the results to
     -- zero or one export tasks.
     taskId :: Prelude.Maybe Prelude.Text,
-    -- | The status code of the export task. Specifying a status code filters the
-    -- results to zero or more export tasks.
-    statusCode :: Prelude.Maybe ExportTaskStatusCode,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The status code of the export task. Specifying a status code filters the
+    -- results to zero or more export tasks.
+    statusCode :: Prelude.Maybe ExportTaskStatusCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,46 +78,46 @@ data DescribeExportTasks = DescribeExportTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeExportTasks_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'taskId', 'describeExportTasks_taskId' - The ID of the export task. Specifying a task ID filters the results to
 -- zero or one export tasks.
 --
--- 'statusCode', 'describeExportTasks_statusCode' - The status code of the export task. Specifying a status code filters the
--- results to zero or more export tasks.
+-- 'nextToken', 'describeExportTasks_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'limit', 'describeExportTasks_limit' - The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
+--
+-- 'statusCode', 'describeExportTasks_statusCode' - The status code of the export task. Specifying a status code filters the
+-- results to zero or more export tasks.
 newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { nextToken = Prelude.Nothing,
-      taskId = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { taskId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      statusCode = Prelude.Nothing
     }
-
--- | The token for the next set of items to return. (You received this token
--- from a previous call.)
-describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
-describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
 
 -- | The ID of the export task. Specifying a task ID filters the results to
 -- zero or one export tasks.
 describeExportTasks_taskId :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
 describeExportTasks_taskId = Lens.lens (\DescribeExportTasks' {taskId} -> taskId) (\s@DescribeExportTasks' {} a -> s {taskId = a} :: DescribeExportTasks)
 
--- | The status code of the export task. Specifying a status code filters the
--- results to zero or more export tasks.
-describeExportTasks_statusCode :: Lens.Lens' DescribeExportTasks (Prelude.Maybe ExportTaskStatusCode)
-describeExportTasks_statusCode = Lens.lens (\DescribeExportTasks' {statusCode} -> statusCode) (\s@DescribeExportTasks' {} a -> s {statusCode = a} :: DescribeExportTasks)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
 describeExportTasks_limit :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Natural)
 describeExportTasks_limit = Lens.lens (\DescribeExportTasks' {limit} -> limit) (\s@DescribeExportTasks' {} a -> s {limit = a} :: DescribeExportTasks)
+
+-- | The status code of the export task. Specifying a status code filters the
+-- results to zero or more export tasks.
+describeExportTasks_statusCode :: Lens.Lens' DescribeExportTasks (Prelude.Maybe ExportTaskStatusCode)
+describeExportTasks_statusCode = Lens.lens (\DescribeExportTasks' {statusCode} -> statusCode) (\s@DescribeExportTasks' {} a -> s {statusCode = a} :: DescribeExportTasks)
 
 instance Core.AWSPager DescribeExportTasks where
   page rq rs
@@ -178,10 +178,10 @@ instance Core.ToJSON DescribeExportTasks where
   toJSON DescribeExportTasks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("taskId" Core..=) Prelude.<$> taskId,
-            ("statusCode" Core..=) Prelude.<$> statusCode,
-            ("limit" Core..=) Prelude.<$> limit
+          [ ("taskId" Core..=) Prelude.<$> taskId,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("limit" Core..=) Prelude.<$> limit,
+            ("statusCode" Core..=) Prelude.<$> statusCode
           ]
       )
 
@@ -232,7 +232,7 @@ describeExportTasksResponse_nextToken = Lens.lens (\DescribeExportTasksResponse'
 
 -- | The export tasks.
 describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
-describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int

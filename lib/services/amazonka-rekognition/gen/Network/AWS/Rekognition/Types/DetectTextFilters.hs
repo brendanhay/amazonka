@@ -63,7 +63,7 @@ newDetectTextFilters =
 -- | A Filter focusing on a certain area of the image. Uses a @BoundingBox@
 -- object to set the region of the image.
 detectTextFilters_regionsOfInterest :: Lens.Lens' DetectTextFilters (Prelude.Maybe [RegionOfInterest])
-detectTextFilters_regionsOfInterest = Lens.lens (\DetectTextFilters' {regionsOfInterest} -> regionsOfInterest) (\s@DetectTextFilters' {} a -> s {regionsOfInterest = a} :: DetectTextFilters) Prelude.. Lens.mapping Lens._Coerce
+detectTextFilters_regionsOfInterest = Lens.lens (\DetectTextFilters' {regionsOfInterest} -> regionsOfInterest) (\s@DetectTextFilters' {} a -> s {regionsOfInterest = a} :: DetectTextFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 detectTextFilters_wordFilter :: Lens.Lens' DetectTextFilters (Prelude.Maybe DetectionFilter)

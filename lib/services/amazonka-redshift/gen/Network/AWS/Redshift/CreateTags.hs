@@ -106,7 +106,7 @@ createTags_resourceName = Lens.lens (\CreateTags' {resourceName} -> resourceName
 -- tags with a space. For example,
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse

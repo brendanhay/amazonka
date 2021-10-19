@@ -161,7 +161,7 @@ newDescribeAuthenticationProfilesResponse
 
 -- | The list of authentication profiles.
 describeAuthenticationProfilesResponse_authenticationProfiles :: Lens.Lens' DescribeAuthenticationProfilesResponse (Prelude.Maybe [AuthenticationProfile])
-describeAuthenticationProfilesResponse_authenticationProfiles = Lens.lens (\DescribeAuthenticationProfilesResponse' {authenticationProfiles} -> authenticationProfiles) (\s@DescribeAuthenticationProfilesResponse' {} a -> s {authenticationProfiles = a} :: DescribeAuthenticationProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAuthenticationProfilesResponse_authenticationProfiles = Lens.lens (\DescribeAuthenticationProfilesResponse' {authenticationProfiles} -> authenticationProfiles) (\s@DescribeAuthenticationProfilesResponse' {} a -> s {authenticationProfiles = a} :: DescribeAuthenticationProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAuthenticationProfilesResponse_httpStatus :: Lens.Lens' DescribeAuthenticationProfilesResponse Prelude.Int

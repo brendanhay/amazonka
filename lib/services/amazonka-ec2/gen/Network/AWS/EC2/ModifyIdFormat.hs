@@ -37,11 +37,11 @@
 -- @vpn-gateway@.
 --
 -- This setting applies to the IAM user who makes the request; it does not
--- apply to the entire AWS account. By default, an IAM user defaults to the
--- same settings as the root user. If you\'re using this action as the root
--- user, then these settings apply to the entire account, unless an IAM
--- user explicitly overrides these settings for themselves. For more
--- information, see
+-- apply to the entire Amazon Web Services account. By default, an IAM user
+-- defaults to the same settings as the root user. If you\'re using this
+-- action as the root user, then these settings apply to the entire
+-- account, unless an IAM user explicitly overrides these settings for
+-- themselves. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --

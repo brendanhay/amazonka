@@ -67,7 +67,7 @@ originSslProtocols_quantity = Lens.lens (\OriginSslProtocols' {quantity} -> quan
 
 -- | A list that contains allowed SSL\/TLS protocols for this distribution.
 originSslProtocols_items :: Lens.Lens' OriginSslProtocols [SslProtocol]
-originSslProtocols_items = Lens.lens (\OriginSslProtocols' {items} -> items) (\s@OriginSslProtocols' {} a -> s {items = a} :: OriginSslProtocols) Prelude.. Lens._Coerce
+originSslProtocols_items = Lens.lens (\OriginSslProtocols' {items} -> items) (\s@OriginSslProtocols' {} a -> s {items = a} :: OriginSslProtocols) Prelude.. Lens.coerced
 
 instance Core.FromXML OriginSslProtocols where
   parseXML x =

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUSD' smart constructor.
 data USD = USD'
-  { -- | The whole number of dollars in the amount.
-    dollars :: Prelude.Maybe Prelude.Natural,
-    -- | The fractional portion, in cents, of the amount.
+  { -- | The fractional portion, in cents, of the amount.
     cents :: Prelude.Maybe Prelude.Natural,
+    -- | The whole number of dollars in the amount.
+    dollars :: Prelude.Maybe Prelude.Natural,
     -- | Fractions of a cent, in tenths.
     tenthFractionsOfACent :: Prelude.Maybe Prelude.Natural
   }
@@ -44,27 +44,27 @@ data USD = USD'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dollars', 'usd_dollars' - The whole number of dollars in the amount.
---
 -- 'cents', 'usd_cents' - The fractional portion, in cents, of the amount.
+--
+-- 'dollars', 'usd_dollars' - The whole number of dollars in the amount.
 --
 -- 'tenthFractionsOfACent', 'usd_tenthFractionsOfACent' - Fractions of a cent, in tenths.
 newUSD ::
   USD
 newUSD =
   USD'
-    { dollars = Prelude.Nothing,
-      cents = Prelude.Nothing,
+    { cents = Prelude.Nothing,
+      dollars = Prelude.Nothing,
       tenthFractionsOfACent = Prelude.Nothing
     }
-
--- | The whole number of dollars in the amount.
-usd_dollars :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
-usd_dollars = Lens.lens (\USD' {dollars} -> dollars) (\s@USD' {} a -> s {dollars = a} :: USD)
 
 -- | The fractional portion, in cents, of the amount.
 usd_cents :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
 usd_cents = Lens.lens (\USD' {cents} -> cents) (\s@USD' {} a -> s {cents = a} :: USD)
+
+-- | The whole number of dollars in the amount.
+usd_dollars :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
+usd_dollars = Lens.lens (\USD' {dollars} -> dollars) (\s@USD' {} a -> s {dollars = a} :: USD)
 
 -- | Fractions of a cent, in tenths.
 usd_tenthFractionsOfACent :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
@@ -76,8 +76,8 @@ instance Core.FromJSON USD where
       "USD"
       ( \x ->
           USD'
-            Prelude.<$> (x Core..:? "Dollars")
-            Prelude.<*> (x Core..:? "Cents")
+            Prelude.<$> (x Core..:? "Cents")
+            Prelude.<*> (x Core..:? "Dollars")
             Prelude.<*> (x Core..:? "TenthFractionsOfACent")
       )
 
@@ -89,8 +89,8 @@ instance Core.ToJSON USD where
   toJSON USD' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Dollars" Core..=) Prelude.<$> dollars,
-            ("Cents" Core..=) Prelude.<$> cents,
+          [ ("Cents" Core..=) Prelude.<$> cents,
+            ("Dollars" Core..=) Prelude.<$> dollars,
             ("TenthFractionsOfACent" Core..=)
               Prelude.<$> tenthFractionsOfACent
           ]

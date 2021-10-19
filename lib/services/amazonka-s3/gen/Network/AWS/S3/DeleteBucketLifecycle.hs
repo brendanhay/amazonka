@@ -113,7 +113,9 @@ instance Core.AWSRequest DeleteBucketLifecycle where
   type
     AWSResponse DeleteBucketLifecycle =
       DeleteBucketLifecycleResponse
-  request = Request.delete defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketLifecycleResponse'
 

@@ -29,11 +29,11 @@ import Network.AWS.SMS.Types.ServerReplicationParameters
 --
 -- /See:/ 'newServerReplicationConfiguration' smart constructor.
 data ServerReplicationConfiguration = ServerReplicationConfiguration'
-  { -- | The ID of the server with which this replication configuration is
+  { -- | The parameters for replicating the server.
+    serverReplicationParameters :: Prelude.Maybe ServerReplicationParameters,
+    -- | The ID of the server with which this replication configuration is
     -- associated.
-    server :: Prelude.Maybe Server,
-    -- | The parameters for replicating the server.
-    serverReplicationParameters :: Prelude.Maybe ServerReplicationParameters
+    server :: Prelude.Maybe Server
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,27 @@ data ServerReplicationConfiguration = ServerReplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'serverReplicationParameters', 'serverReplicationConfiguration_serverReplicationParameters' - The parameters for replicating the server.
+--
 -- 'server', 'serverReplicationConfiguration_server' - The ID of the server with which this replication configuration is
 -- associated.
---
--- 'serverReplicationParameters', 'serverReplicationConfiguration_serverReplicationParameters' - The parameters for replicating the server.
 newServerReplicationConfiguration ::
   ServerReplicationConfiguration
 newServerReplicationConfiguration =
   ServerReplicationConfiguration'
-    { server =
+    { serverReplicationParameters =
         Prelude.Nothing,
-      serverReplicationParameters =
-        Prelude.Nothing
+      server = Prelude.Nothing
     }
+
+-- | The parameters for replicating the server.
+serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe ServerReplicationParameters)
+serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerReplicationConfiguration' {serverReplicationParameters} -> serverReplicationParameters) (\s@ServerReplicationConfiguration' {} a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
 
 -- | The ID of the server with which this replication configuration is
 -- associated.
 serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe Server)
 serverReplicationConfiguration_server = Lens.lens (\ServerReplicationConfiguration' {server} -> server) (\s@ServerReplicationConfiguration' {} a -> s {server = a} :: ServerReplicationConfiguration)
-
--- | The parameters for replicating the server.
-serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe ServerReplicationParameters)
-serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerReplicationConfiguration' {serverReplicationParameters} -> serverReplicationParameters) (\s@ServerReplicationConfiguration' {} a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
 
 instance Core.FromJSON ServerReplicationConfiguration where
   parseJSON =
@@ -74,8 +73,8 @@ instance Core.FromJSON ServerReplicationConfiguration where
       "ServerReplicationConfiguration"
       ( \x ->
           ServerReplicationConfiguration'
-            Prelude.<$> (x Core..:? "server")
-            Prelude.<*> (x Core..:? "serverReplicationParameters")
+            Prelude.<$> (x Core..:? "serverReplicationParameters")
+            Prelude.<*> (x Core..:? "server")
       )
 
 instance
@@ -90,8 +89,8 @@ instance Core.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("server" Core..=) Prelude.<$> server,
-            ("serverReplicationParameters" Core..=)
-              Prelude.<$> serverReplicationParameters
+          [ ("serverReplicationParameters" Core..=)
+              Prelude.<$> serverReplicationParameters,
+            ("server" Core..=) Prelude.<$> server
           ]
       )

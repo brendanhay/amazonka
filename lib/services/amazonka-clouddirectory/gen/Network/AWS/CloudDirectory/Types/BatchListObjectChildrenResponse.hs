@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchListObjectChildrenResponse' smart constructor.
 data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The children structure, which is a map with the key as the @LinkName@
+  { -- | The children structure, which is a map with the key as the @LinkName@
     -- and @ObjectIdentifier@ as the value.
-    children :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    children :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,27 +43,27 @@ data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListObjectChildrenResponse_nextToken' - The pagination token.
---
 -- 'children', 'batchListObjectChildrenResponse_children' - The children structure, which is a map with the key as the @LinkName@
 -- and @ObjectIdentifier@ as the value.
+--
+-- 'nextToken', 'batchListObjectChildrenResponse_nextToken' - The pagination token.
 newBatchListObjectChildrenResponse ::
   BatchListObjectChildrenResponse
 newBatchListObjectChildrenResponse =
   BatchListObjectChildrenResponse'
-    { nextToken =
+    { children =
         Prelude.Nothing,
-      children = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The pagination token.
-batchListObjectChildrenResponse_nextToken :: Lens.Lens' BatchListObjectChildrenResponse (Prelude.Maybe Prelude.Text)
-batchListObjectChildrenResponse_nextToken = Lens.lens (\BatchListObjectChildrenResponse' {nextToken} -> nextToken) (\s@BatchListObjectChildrenResponse' {} a -> s {nextToken = a} :: BatchListObjectChildrenResponse)
 
 -- | The children structure, which is a map with the key as the @LinkName@
 -- and @ObjectIdentifier@ as the value.
 batchListObjectChildrenResponse_children :: Lens.Lens' BatchListObjectChildrenResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-batchListObjectChildrenResponse_children = Lens.lens (\BatchListObjectChildrenResponse' {children} -> children) (\s@BatchListObjectChildrenResponse' {} a -> s {children = a} :: BatchListObjectChildrenResponse) Prelude.. Lens.mapping Lens._Coerce
+batchListObjectChildrenResponse_children = Lens.lens (\BatchListObjectChildrenResponse' {children} -> children) (\s@BatchListObjectChildrenResponse' {} a -> s {children = a} :: BatchListObjectChildrenResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The pagination token.
+batchListObjectChildrenResponse_nextToken :: Lens.Lens' BatchListObjectChildrenResponse (Prelude.Maybe Prelude.Text)
+batchListObjectChildrenResponse_nextToken = Lens.lens (\BatchListObjectChildrenResponse' {nextToken} -> nextToken) (\s@BatchListObjectChildrenResponse' {} a -> s {nextToken = a} :: BatchListObjectChildrenResponse)
 
 instance
   Core.FromJSON
@@ -74,8 +74,8 @@ instance
       "BatchListObjectChildrenResponse"
       ( \x ->
           BatchListObjectChildrenResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> (x Core..:? "Children" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Children" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NextToken")
       )
 
 instance

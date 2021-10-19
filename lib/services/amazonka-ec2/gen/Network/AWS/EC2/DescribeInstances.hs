@@ -50,11 +50,11 @@ module Network.AWS.EC2.DescribeInstances
     newDescribeInstances,
 
     -- * Request Lenses
-    describeInstances_instanceIds,
-    describeInstances_nextToken,
-    describeInstances_maxResults,
-    describeInstances_dryRun,
     describeInstances_filters,
+    describeInstances_nextToken,
+    describeInstances_instanceIds,
+    describeInstances_dryRun,
+    describeInstances_maxResults,
 
     -- * Destructuring the Response
     DescribeInstancesResponse (..),
@@ -76,23 +76,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInstances' smart constructor.
 data DescribeInstances = DescribeInstances'
-  { -- | The instance IDs.
-    --
-    -- Default: Describes all your instances.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000. You cannot specify this
-    -- parameter and the instance IDs parameter in the same call.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters.
+  { -- | The filters.
     --
     -- -   @affinity@ - The affinity setting for an instance running on a
     --     Dedicated Host (@default@ | @host@).
@@ -368,7 +352,23 @@ data DescribeInstances = DescribeInstances'
     --     (@paravirtual@ | @hvm@).
     --
     -- -   @vpc-id@ - The ID of the VPC that the instance is running in.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The instance IDs.
+    --
+    -- Default: Describes all your instances.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned @NextToken@
+    -- value. This value can be between 5 and 1000. You cannot specify this
+    -- parameter and the instance IDs parameter in the same call.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -379,22 +379,6 @@ data DescribeInstances = DescribeInstances'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'instanceIds', 'describeInstances_instanceIds' - The instance IDs.
---
--- Default: Describes all your instances.
---
--- 'nextToken', 'describeInstances_nextToken' - The token to request the next page of results.
---
--- 'maxResults', 'describeInstances_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
---
--- 'dryRun', 'describeInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeInstances_filters' - The filters.
 --
@@ -672,40 +656,32 @@ data DescribeInstances = DescribeInstances'
 --     (@paravirtual@ | @hvm@).
 --
 -- -   @vpc-id@ - The ID of the VPC that the instance is running in.
+--
+-- 'nextToken', 'describeInstances_nextToken' - The token to request the next page of results.
+--
+-- 'instanceIds', 'describeInstances_instanceIds' - The instance IDs.
+--
+-- Default: Describes all your instances.
+--
+-- 'dryRun', 'describeInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeInstances_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000. You cannot specify this
+-- parameter and the instance IDs parameter in the same call.
 newDescribeInstances ::
   DescribeInstances
 newDescribeInstances =
   DescribeInstances'
-    { instanceIds = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | The instance IDs.
---
--- Default: Describes all your instances.
-describeInstances_instanceIds :: Lens.Lens' DescribeInstances (Prelude.Maybe [Prelude.Text])
-describeInstances_instanceIds = Lens.lens (\DescribeInstances' {instanceIds} -> instanceIds) (\s@DescribeInstances' {} a -> s {instanceIds = a} :: DescribeInstances) Prelude.. Lens.mapping Lens._Coerce
-
--- | The token to request the next page of results.
-describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
-describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
-
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
-describeInstances_maxResults :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Int)
-describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> maxResults) (\s@DescribeInstances' {} a -> s {maxResults = a} :: DescribeInstances)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInstances_dryRun :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Bool)
-describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\s@DescribeInstances' {} a -> s {dryRun = a} :: DescribeInstances)
 
 -- | The filters.
 --
@@ -984,7 +960,31 @@ describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\
 --
 -- -   @vpc-id@ - The ID of the VPC that the instance is running in.
 describeInstances_filters :: Lens.Lens' DescribeInstances (Prelude.Maybe [Filter])
-describeInstances_filters = Lens.lens (\DescribeInstances' {filters} -> filters) (\s@DescribeInstances' {} a -> s {filters = a} :: DescribeInstances) Prelude.. Lens.mapping Lens._Coerce
+describeInstances_filters = Lens.lens (\DescribeInstances' {filters} -> filters) (\s@DescribeInstances' {} a -> s {filters = a} :: DescribeInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to request the next page of results.
+describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
+
+-- | The instance IDs.
+--
+-- Default: Describes all your instances.
+describeInstances_instanceIds :: Lens.Lens' DescribeInstances (Prelude.Maybe [Prelude.Text])
+describeInstances_instanceIds = Lens.lens (\DescribeInstances' {instanceIds} -> instanceIds) (\s@DescribeInstances' {} a -> s {instanceIds = a} :: DescribeInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInstances_dryRun :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Bool)
+describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\s@DescribeInstances' {} a -> s {dryRun = a} :: DescribeInstances)
+
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned @NextToken@
+-- value. This value can be between 5 and 1000. You cannot specify this
+-- parameter and the instance IDs parameter in the same call.
+describeInstances_maxResults :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Int)
+describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> maxResults) (\s@DescribeInstances' {} a -> s {maxResults = a} :: DescribeInstances)
 
 instance Core.AWSPager DescribeInstances where
   page rq rs
@@ -1042,14 +1042,14 @@ instance Core.ToQuery DescribeInstances where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
           ( Core.toQueryList "InstanceId"
               Prelude.<$> instanceIds
           ),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInstancesResponse' smart constructor.
@@ -1097,7 +1097,7 @@ describeInstancesResponse_nextToken = Lens.lens (\DescribeInstancesResponse' {ne
 
 -- | Information about the reservations.
 describeInstancesResponse_reservations :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe [Reservation])
-describeInstancesResponse_reservations = Lens.lens (\DescribeInstancesResponse' {reservations} -> reservations) (\s@DescribeInstancesResponse' {} a -> s {reservations = a} :: DescribeInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstancesResponse_reservations = Lens.lens (\DescribeInstancesResponse' {reservations} -> reservations) (\s@DescribeInstancesResponse' {} a -> s {reservations = a} :: DescribeInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstancesResponse_httpStatus :: Lens.Lens' DescribeInstancesResponse Prelude.Int

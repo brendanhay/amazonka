@@ -32,28 +32,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTypeConfigurationDetails' smart constructor.
 data TypeConfigurationDetails = TypeConfigurationDetails'
-  { -- | The name of the extension.
-    typeName :: Prelude.Maybe Prelude.Text,
-    -- | The alias specified for this configuration, if one was specified when
-    -- the configuration was set.
-    alias :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string specifying the configuration data for the extension, in
-    -- this account and region.
-    --
-    -- If a configuration has not been set for a specified extension,
-    -- CloudFormation returns @{}@.
-    configuration :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the configuration data, in this
-    -- account and region.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | When the configuration data was last updated for this extension.
+  { -- | When the configuration data was last updated for this extension.
     --
     -- If a configuration has not been set for a specified extension,
     -- CloudFormation returns @null@.
     lastUpdated :: Prelude.Maybe Core.ISO8601,
-    -- | Whether or not this configuration data is the default configuration for
-    -- the extension.
-    isDefaultConfiguration :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the extension.
+    typeName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the configuration data, in this
+    -- account and region.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The alias specified for this configuration, if one was specified when
+    -- the configuration was set.
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the extension, in this account and
     -- region.
     --
@@ -63,7 +54,16 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
     -- assigned when you
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
     -- in this account and region.
-    typeArn :: Prelude.Maybe Prelude.Text
+    typeArn :: Prelude.Maybe Prelude.Text,
+    -- | A JSON string specifying the configuration data for the extension, in
+    -- this account and region.
+    --
+    -- If a configuration has not been set for a specified extension,
+    -- CloudFormation returns @{}@.
+    configuration :: Prelude.Maybe Prelude.Text,
+    -- | Whether or not this configuration data is the default configuration for
+    -- the extension.
+    isDefaultConfiguration :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,27 +75,18 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'typeConfigurationDetails_typeName' - The name of the extension.
---
--- 'alias', 'typeConfigurationDetails_alias' - The alias specified for this configuration, if one was specified when
--- the configuration was set.
---
--- 'configuration', 'typeConfigurationDetails_configuration' - A JSON string specifying the configuration data for the extension, in
--- this account and region.
---
--- If a configuration has not been set for a specified extension,
--- CloudFormation returns @{}@.
---
--- 'arn', 'typeConfigurationDetails_arn' - The Amazon Resource Name (ARN) for the configuration data, in this
--- account and region.
---
 -- 'lastUpdated', 'typeConfigurationDetails_lastUpdated' - When the configuration data was last updated for this extension.
 --
 -- If a configuration has not been set for a specified extension,
 -- CloudFormation returns @null@.
 --
--- 'isDefaultConfiguration', 'typeConfigurationDetails_isDefaultConfiguration' - Whether or not this configuration data is the default configuration for
--- the extension.
+-- 'typeName', 'typeConfigurationDetails_typeName' - The name of the extension.
+--
+-- 'arn', 'typeConfigurationDetails_arn' - The Amazon Resource Name (ARN) for the configuration data, in this
+-- account and region.
+--
+-- 'alias', 'typeConfigurationDetails_alias' - The alias specified for this configuration, if one was specified when
+-- the configuration was set.
 --
 -- 'typeArn', 'typeConfigurationDetails_typeArn' - The Amazon Resource Name (ARN) for the extension, in this account and
 -- region.
@@ -106,41 +97,28 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
 -- assigned when you
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html register the type>
 -- in this account and region.
-newTypeConfigurationDetails ::
-  TypeConfigurationDetails
-newTypeConfigurationDetails =
-  TypeConfigurationDetails'
-    { typeName =
-        Prelude.Nothing,
-      alias = Prelude.Nothing,
-      configuration = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
-      isDefaultConfiguration = Prelude.Nothing,
-      typeArn = Prelude.Nothing
-    }
-
--- | The name of the extension.
-typeConfigurationDetails_typeName :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
-typeConfigurationDetails_typeName = Lens.lens (\TypeConfigurationDetails' {typeName} -> typeName) (\s@TypeConfigurationDetails' {} a -> s {typeName = a} :: TypeConfigurationDetails)
-
--- | The alias specified for this configuration, if one was specified when
--- the configuration was set.
-typeConfigurationDetails_alias :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
-typeConfigurationDetails_alias = Lens.lens (\TypeConfigurationDetails' {alias} -> alias) (\s@TypeConfigurationDetails' {} a -> s {alias = a} :: TypeConfigurationDetails)
-
--- | A JSON string specifying the configuration data for the extension, in
+--
+-- 'configuration', 'typeConfigurationDetails_configuration' - A JSON string specifying the configuration data for the extension, in
 -- this account and region.
 --
 -- If a configuration has not been set for a specified extension,
 -- CloudFormation returns @{}@.
-typeConfigurationDetails_configuration :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
-typeConfigurationDetails_configuration = Lens.lens (\TypeConfigurationDetails' {configuration} -> configuration) (\s@TypeConfigurationDetails' {} a -> s {configuration = a} :: TypeConfigurationDetails)
-
--- | The Amazon Resource Name (ARN) for the configuration data, in this
--- account and region.
-typeConfigurationDetails_arn :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
-typeConfigurationDetails_arn = Lens.lens (\TypeConfigurationDetails' {arn} -> arn) (\s@TypeConfigurationDetails' {} a -> s {arn = a} :: TypeConfigurationDetails)
+--
+-- 'isDefaultConfiguration', 'typeConfigurationDetails_isDefaultConfiguration' - Whether or not this configuration data is the default configuration for
+-- the extension.
+newTypeConfigurationDetails ::
+  TypeConfigurationDetails
+newTypeConfigurationDetails =
+  TypeConfigurationDetails'
+    { lastUpdated =
+        Prelude.Nothing,
+      typeName = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      alias = Prelude.Nothing,
+      typeArn = Prelude.Nothing,
+      configuration = Prelude.Nothing,
+      isDefaultConfiguration = Prelude.Nothing
+    }
 
 -- | When the configuration data was last updated for this extension.
 --
@@ -149,10 +127,19 @@ typeConfigurationDetails_arn = Lens.lens (\TypeConfigurationDetails' {arn} -> ar
 typeConfigurationDetails_lastUpdated :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.UTCTime)
 typeConfigurationDetails_lastUpdated = Lens.lens (\TypeConfigurationDetails' {lastUpdated} -> lastUpdated) (\s@TypeConfigurationDetails' {} a -> s {lastUpdated = a} :: TypeConfigurationDetails) Prelude.. Lens.mapping Core._Time
 
--- | Whether or not this configuration data is the default configuration for
--- the extension.
-typeConfigurationDetails_isDefaultConfiguration :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Bool)
-typeConfigurationDetails_isDefaultConfiguration = Lens.lens (\TypeConfigurationDetails' {isDefaultConfiguration} -> isDefaultConfiguration) (\s@TypeConfigurationDetails' {} a -> s {isDefaultConfiguration = a} :: TypeConfigurationDetails)
+-- | The name of the extension.
+typeConfigurationDetails_typeName :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
+typeConfigurationDetails_typeName = Lens.lens (\TypeConfigurationDetails' {typeName} -> typeName) (\s@TypeConfigurationDetails' {} a -> s {typeName = a} :: TypeConfigurationDetails)
+
+-- | The Amazon Resource Name (ARN) for the configuration data, in this
+-- account and region.
+typeConfigurationDetails_arn :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
+typeConfigurationDetails_arn = Lens.lens (\TypeConfigurationDetails' {arn} -> arn) (\s@TypeConfigurationDetails' {} a -> s {arn = a} :: TypeConfigurationDetails)
+
+-- | The alias specified for this configuration, if one was specified when
+-- the configuration was set.
+typeConfigurationDetails_alias :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
+typeConfigurationDetails_alias = Lens.lens (\TypeConfigurationDetails' {alias} -> alias) (\s@TypeConfigurationDetails' {} a -> s {alias = a} :: TypeConfigurationDetails)
 
 -- | The Amazon Resource Name (ARN) for the extension, in this account and
 -- region.
@@ -166,16 +153,29 @@ typeConfigurationDetails_isDefaultConfiguration = Lens.lens (\TypeConfigurationD
 typeConfigurationDetails_typeArn :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
 typeConfigurationDetails_typeArn = Lens.lens (\TypeConfigurationDetails' {typeArn} -> typeArn) (\s@TypeConfigurationDetails' {} a -> s {typeArn = a} :: TypeConfigurationDetails)
 
+-- | A JSON string specifying the configuration data for the extension, in
+-- this account and region.
+--
+-- If a configuration has not been set for a specified extension,
+-- CloudFormation returns @{}@.
+typeConfigurationDetails_configuration :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
+typeConfigurationDetails_configuration = Lens.lens (\TypeConfigurationDetails' {configuration} -> configuration) (\s@TypeConfigurationDetails' {} a -> s {configuration = a} :: TypeConfigurationDetails)
+
+-- | Whether or not this configuration data is the default configuration for
+-- the extension.
+typeConfigurationDetails_isDefaultConfiguration :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Bool)
+typeConfigurationDetails_isDefaultConfiguration = Lens.lens (\TypeConfigurationDetails' {isDefaultConfiguration} -> isDefaultConfiguration) (\s@TypeConfigurationDetails' {} a -> s {isDefaultConfiguration = a} :: TypeConfigurationDetails)
+
 instance Core.FromXML TypeConfigurationDetails where
   parseXML x =
     TypeConfigurationDetails'
-      Prelude.<$> (x Core..@? "TypeName")
-      Prelude.<*> (x Core..@? "Alias")
-      Prelude.<*> (x Core..@? "Configuration")
+      Prelude.<$> (x Core..@? "LastUpdated")
+      Prelude.<*> (x Core..@? "TypeName")
       Prelude.<*> (x Core..@? "Arn")
-      Prelude.<*> (x Core..@? "LastUpdated")
-      Prelude.<*> (x Core..@? "IsDefaultConfiguration")
+      Prelude.<*> (x Core..@? "Alias")
       Prelude.<*> (x Core..@? "TypeArn")
+      Prelude.<*> (x Core..@? "Configuration")
+      Prelude.<*> (x Core..@? "IsDefaultConfiguration")
 
 instance Prelude.Hashable TypeConfigurationDetails
 

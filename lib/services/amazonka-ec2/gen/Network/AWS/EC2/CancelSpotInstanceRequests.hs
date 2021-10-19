@@ -96,7 +96,7 @@ cancelSpotInstanceRequests_dryRun = Lens.lens (\CancelSpotInstanceRequests' {dry
 
 -- | One or more Spot Instance request IDs.
 cancelSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' CancelSpotInstanceRequests [Prelude.Text]
-cancelSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\CancelSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@CancelSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: CancelSpotInstanceRequests) Prelude.. Lens._Coerce
+cancelSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\CancelSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@CancelSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: CancelSpotInstanceRequests) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CancelSpotInstanceRequests where
   type
@@ -172,7 +172,7 @@ newCancelSpotInstanceRequestsResponse pHttpStatus_ =
 
 -- | One or more Spot Instance requests.
 cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests :: Lens.Lens' CancelSpotInstanceRequestsResponse (Prelude.Maybe [CancelledSpotInstanceRequest])
-cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests = Lens.lens (\CancelSpotInstanceRequestsResponse' {cancelledSpotInstanceRequests} -> cancelledSpotInstanceRequests) (\s@CancelSpotInstanceRequestsResponse' {} a -> s {cancelledSpotInstanceRequests = a} :: CancelSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
+cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests = Lens.lens (\CancelSpotInstanceRequestsResponse' {cancelledSpotInstanceRequests} -> cancelledSpotInstanceRequests) (\s@CancelSpotInstanceRequestsResponse' {} a -> s {cancelledSpotInstanceRequests = a} :: CancelSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 cancelSpotInstanceRequestsResponse_httpStatus :: Lens.Lens' CancelSpotInstanceRequestsResponse Prelude.Int

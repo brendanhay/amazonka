@@ -118,7 +118,7 @@ newCorsRule pAllowedOrigins_ =
       maxAgeSeconds = Prelude.Nothing,
       exposeHeaders = Prelude.Nothing,
       allowedOrigins =
-        Lens._Coerce Lens.# pAllowedOrigins_,
+        Lens.coerced Lens.# pAllowedOrigins_,
       allowedHeaders = Prelude.mempty
     }
 
@@ -128,7 +128,7 @@ newCorsRule pAllowedOrigins_ =
 -- Each CORS rule must contain at least one @AllowedMethods@ and one
 -- @AllowedOrigins@ element.
 corsRule_allowedMethods :: Lens.Lens' CorsRule (Prelude.Maybe (Prelude.NonEmpty MethodName))
-corsRule_allowedMethods = Lens.lens (\CorsRule' {allowedMethods} -> allowedMethods) (\s@CorsRule' {} a -> s {allowedMethods = a} :: CorsRule) Prelude.. Lens.mapping Lens._Coerce
+corsRule_allowedMethods = Lens.lens (\CorsRule' {allowedMethods} -> allowedMethods) (\s@CorsRule' {} a -> s {allowedMethods = a} :: CorsRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time in seconds that your browser caches the preflight response for
 -- the specified resource.
@@ -143,7 +143,7 @@ corsRule_maxAgeSeconds = Lens.lens (\CorsRule' {maxAgeSeconds} -> maxAgeSeconds)
 --
 -- This element is optional for each rule.
 corsRule_exposeHeaders :: Lens.Lens' CorsRule (Prelude.Maybe [Prelude.Text])
-corsRule_exposeHeaders = Lens.lens (\CorsRule' {exposeHeaders} -> exposeHeaders) (\s@CorsRule' {} a -> s {exposeHeaders = a} :: CorsRule) Prelude.. Lens.mapping Lens._Coerce
+corsRule_exposeHeaders = Lens.lens (\CorsRule' {exposeHeaders} -> exposeHeaders) (\s@CorsRule' {} a -> s {exposeHeaders = a} :: CorsRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more response headers that you want users to be able to access
 -- from their applications (for example, from a JavaScript @XMLHttpRequest@
@@ -154,7 +154,7 @@ corsRule_exposeHeaders = Lens.lens (\CorsRule' {exposeHeaders} -> exposeHeaders)
 -- http:\/\/*.example.com. Additionally, you can specify only one wildcard
 -- character to allow cross-origin access for all origins.
 corsRule_allowedOrigins :: Lens.Lens' CorsRule (Prelude.NonEmpty Prelude.Text)
-corsRule_allowedOrigins = Lens.lens (\CorsRule' {allowedOrigins} -> allowedOrigins) (\s@CorsRule' {} a -> s {allowedOrigins = a} :: CorsRule) Prelude.. Lens._Coerce
+corsRule_allowedOrigins = Lens.lens (\CorsRule' {allowedOrigins} -> allowedOrigins) (\s@CorsRule' {} a -> s {allowedOrigins = a} :: CorsRule) Prelude.. Lens.coerced
 
 -- | Specifies which headers are allowed in a preflight @OPTIONS@ request
 -- through the @Access-Control-Request-Headers@ header. Each header name
@@ -164,7 +164,7 @@ corsRule_allowedOrigins = Lens.lens (\CorsRule' {allowedOrigins} -> allowedOrigi
 --
 -- This element can contain only one wildcard character (*).
 corsRule_allowedHeaders :: Lens.Lens' CorsRule [Prelude.Text]
-corsRule_allowedHeaders = Lens.lens (\CorsRule' {allowedHeaders} -> allowedHeaders) (\s@CorsRule' {} a -> s {allowedHeaders = a} :: CorsRule) Prelude.. Lens._Coerce
+corsRule_allowedHeaders = Lens.lens (\CorsRule' {allowedHeaders} -> allowedHeaders) (\s@CorsRule' {} a -> s {allowedHeaders = a} :: CorsRule) Prelude.. Lens.coerced
 
 instance Core.FromJSON CorsRule where
   parseJSON =

@@ -29,18 +29,18 @@ import Network.AWS.SageMaker.Types.TrialSource
 --
 -- /See:/ 'newTrialSummary' smart constructor.
 data TrialSummary = TrialSummary'
-  { -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Prelude.Maybe Prelude.Text,
-    trialSource :: Prelude.Maybe TrialSource,
-    -- | When the trial was created.
+  { -- | When the trial was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Prelude.Maybe Prelude.Text,
     -- | When the trial was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the trial.
-    trialName :: Prelude.Maybe Prelude.Text,
+    trialSource :: Prelude.Maybe TrialSource,
     -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
     -- @TrialName@ is displayed.
-    displayName :: Prelude.Maybe Prelude.Text
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the trial.
+    trialName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,54 +52,54 @@ data TrialSummary = TrialSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trialArn', 'trialSummary_trialArn' - The Amazon Resource Name (ARN) of the trial.
---
--- 'trialSource', 'trialSummary_trialSource' - Undocumented member.
---
 -- 'creationTime', 'trialSummary_creationTime' - When the trial was created.
+--
+-- 'trialArn', 'trialSummary_trialArn' - The Amazon Resource Name (ARN) of the trial.
 --
 -- 'lastModifiedTime', 'trialSummary_lastModifiedTime' - When the trial was last modified.
 --
--- 'trialName', 'trialSummary_trialName' - The name of the trial.
+-- 'trialSource', 'trialSummary_trialSource' - Undocumented member.
 --
 -- 'displayName', 'trialSummary_displayName' - The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
+--
+-- 'trialName', 'trialSummary_trialName' - The name of the trial.
 newTrialSummary ::
   TrialSummary
 newTrialSummary =
   TrialSummary'
-    { trialArn = Prelude.Nothing,
-      trialSource = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      trialArn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      trialName = Prelude.Nothing,
-      displayName = Prelude.Nothing
+      trialSource = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      trialName = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the trial.
-trialSummary_trialArn :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
-trialSummary_trialArn = Lens.lens (\TrialSummary' {trialArn} -> trialArn) (\s@TrialSummary' {} a -> s {trialArn = a} :: TrialSummary)
-
--- | Undocumented member.
-trialSummary_trialSource :: Lens.Lens' TrialSummary (Prelude.Maybe TrialSource)
-trialSummary_trialSource = Lens.lens (\TrialSummary' {trialSource} -> trialSource) (\s@TrialSummary' {} a -> s {trialSource = a} :: TrialSummary)
 
 -- | When the trial was created.
 trialSummary_creationTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
 trialSummary_creationTime = Lens.lens (\TrialSummary' {creationTime} -> creationTime) (\s@TrialSummary' {} a -> s {creationTime = a} :: TrialSummary) Prelude.. Lens.mapping Core._Time
 
+-- | The Amazon Resource Name (ARN) of the trial.
+trialSummary_trialArn :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
+trialSummary_trialArn = Lens.lens (\TrialSummary' {trialArn} -> trialArn) (\s@TrialSummary' {} a -> s {trialArn = a} :: TrialSummary)
+
 -- | When the trial was last modified.
 trialSummary_lastModifiedTime :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.UTCTime)
 trialSummary_lastModifiedTime = Lens.lens (\TrialSummary' {lastModifiedTime} -> lastModifiedTime) (\s@TrialSummary' {} a -> s {lastModifiedTime = a} :: TrialSummary) Prelude.. Lens.mapping Core._Time
 
--- | The name of the trial.
-trialSummary_trialName :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
-trialSummary_trialName = Lens.lens (\TrialSummary' {trialName} -> trialName) (\s@TrialSummary' {} a -> s {trialName = a} :: TrialSummary)
+-- | Undocumented member.
+trialSummary_trialSource :: Lens.Lens' TrialSummary (Prelude.Maybe TrialSource)
+trialSummary_trialSource = Lens.lens (\TrialSummary' {trialSource} -> trialSource) (\s@TrialSummary' {} a -> s {trialSource = a} :: TrialSummary)
 
 -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
 trialSummary_displayName :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
 trialSummary_displayName = Lens.lens (\TrialSummary' {displayName} -> displayName) (\s@TrialSummary' {} a -> s {displayName = a} :: TrialSummary)
+
+-- | The name of the trial.
+trialSummary_trialName :: Lens.Lens' TrialSummary (Prelude.Maybe Prelude.Text)
+trialSummary_trialName = Lens.lens (\TrialSummary' {trialName} -> trialName) (\s@TrialSummary' {} a -> s {trialName = a} :: TrialSummary)
 
 instance Core.FromJSON TrialSummary where
   parseJSON =
@@ -107,12 +107,12 @@ instance Core.FromJSON TrialSummary where
       "TrialSummary"
       ( \x ->
           TrialSummary'
-            Prelude.<$> (x Core..:? "TrialArn")
-            Prelude.<*> (x Core..:? "TrialSource")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "TrialArn")
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "TrialName")
+            Prelude.<*> (x Core..:? "TrialSource")
             Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "TrialName")
       )
 
 instance Prelude.Hashable TrialSummary

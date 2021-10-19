@@ -64,7 +64,7 @@ awsEc2InstanceViolation_violationTarget = Lens.lens (\AwsEc2InstanceViolation' {
 -- | Violation detail for network interfaces associated with the EC2
 -- instance.
 awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations :: Lens.Lens' AwsEc2InstanceViolation (Prelude.Maybe [AwsEc2NetworkInterfaceViolation])
-awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations = Lens.lens (\AwsEc2InstanceViolation' {awsEc2NetworkInterfaceViolations} -> awsEc2NetworkInterfaceViolations) (\s@AwsEc2InstanceViolation' {} a -> s {awsEc2NetworkInterfaceViolations = a} :: AwsEc2InstanceViolation) Prelude.. Lens.mapping Lens._Coerce
+awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations = Lens.lens (\AwsEc2InstanceViolation' {awsEc2NetworkInterfaceViolations} -> awsEc2NetworkInterfaceViolations) (\s@AwsEc2InstanceViolation' {} a -> s {awsEc2NetworkInterfaceViolations = a} :: AwsEc2InstanceViolation) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AwsEc2InstanceViolation where
   parseJSON =

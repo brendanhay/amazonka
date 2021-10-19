@@ -48,7 +48,7 @@ newPipelineConfig =
 
 -- | A list of @Function@ objects.
 pipelineConfig_functions :: Lens.Lens' PipelineConfig (Prelude.Maybe [Prelude.Text])
-pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Prelude.. Lens.mapping Lens._Coerce
+pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON PipelineConfig where
   parseJSON =

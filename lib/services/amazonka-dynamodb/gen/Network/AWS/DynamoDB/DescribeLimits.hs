@@ -92,10 +92,10 @@ module Network.AWS.DynamoDB.DescribeLimits
     newDescribeLimitsResponse,
 
     -- * Response Lenses
-    describeLimitsResponse_accountMaxWriteCapacityUnits,
-    describeLimitsResponse_tableMaxReadCapacityUnits,
-    describeLimitsResponse_accountMaxReadCapacityUnits,
     describeLimitsResponse_tableMaxWriteCapacityUnits,
+    describeLimitsResponse_tableMaxReadCapacityUnits,
+    describeLimitsResponse_accountMaxWriteCapacityUnits,
+    describeLimitsResponse_accountMaxReadCapacityUnits,
     describeLimitsResponse_httpStatus,
   )
 where
@@ -132,10 +132,10 @@ instance Core.AWSRequest DescribeLimits where
     Response.receiveJSON
       ( \s h x ->
           DescribeLimitsResponse'
-            Prelude.<$> (x Core..?> "AccountMaxWriteCapacityUnits")
+            Prelude.<$> (x Core..?> "TableMaxWriteCapacityUnits")
             Prelude.<*> (x Core..?> "TableMaxReadCapacityUnits")
+            Prelude.<*> (x Core..?> "AccountMaxWriteCapacityUnits")
             Prelude.<*> (x Core..?> "AccountMaxReadCapacityUnits")
-            Prelude.<*> (x Core..?> "TableMaxWriteCapacityUnits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,22 +171,22 @@ instance Core.ToQuery DescribeLimits where
 --
 -- /See:/ 'newDescribeLimitsResponse' smart constructor.
 data DescribeLimitsResponse = DescribeLimitsResponse'
-  { -- | The maximum total write capacity units that your account allows you to
-    -- provision across all of your tables in this Region.
-    accountMaxWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
+  { -- | The maximum write capacity units that your account allows you to
+    -- provision for a new table that you are creating in this Region,
+    -- including the write capacity units provisioned for its global secondary
+    -- indexes (GSIs).
+    tableMaxWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The maximum read capacity units that your account allows you to
     -- provision for a new table that you are creating in this Region,
     -- including the read capacity units provisioned for its global secondary
     -- indexes (GSIs).
     tableMaxReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum total write capacity units that your account allows you to
+    -- provision across all of your tables in this Region.
+    accountMaxWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The maximum total read capacity units that your account allows you to
     -- provision across all of your tables in this Region.
     accountMaxReadCapacityUnits :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum write capacity units that your account allows you to
-    -- provision for a new table that you are creating in this Region,
-    -- including the write capacity units provisioned for its global secondary
-    -- indexes (GSIs).
-    tableMaxWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,21 +200,21 @@ data DescribeLimitsResponse = DescribeLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountMaxWriteCapacityUnits', 'describeLimitsResponse_accountMaxWriteCapacityUnits' - The maximum total write capacity units that your account allows you to
--- provision across all of your tables in this Region.
+-- 'tableMaxWriteCapacityUnits', 'describeLimitsResponse_tableMaxWriteCapacityUnits' - The maximum write capacity units that your account allows you to
+-- provision for a new table that you are creating in this Region,
+-- including the write capacity units provisioned for its global secondary
+-- indexes (GSIs).
 --
 -- 'tableMaxReadCapacityUnits', 'describeLimitsResponse_tableMaxReadCapacityUnits' - The maximum read capacity units that your account allows you to
 -- provision for a new table that you are creating in this Region,
 -- including the read capacity units provisioned for its global secondary
 -- indexes (GSIs).
 --
--- 'accountMaxReadCapacityUnits', 'describeLimitsResponse_accountMaxReadCapacityUnits' - The maximum total read capacity units that your account allows you to
+-- 'accountMaxWriteCapacityUnits', 'describeLimitsResponse_accountMaxWriteCapacityUnits' - The maximum total write capacity units that your account allows you to
 -- provision across all of your tables in this Region.
 --
--- 'tableMaxWriteCapacityUnits', 'describeLimitsResponse_tableMaxWriteCapacityUnits' - The maximum write capacity units that your account allows you to
--- provision for a new table that you are creating in this Region,
--- including the write capacity units provisioned for its global secondary
--- indexes (GSIs).
+-- 'accountMaxReadCapacityUnits', 'describeLimitsResponse_accountMaxReadCapacityUnits' - The maximum total read capacity units that your account allows you to
+-- provision across all of your tables in this Region.
 --
 -- 'httpStatus', 'describeLimitsResponse_httpStatus' - The response's http status code.
 newDescribeLimitsResponse ::
@@ -223,18 +223,20 @@ newDescribeLimitsResponse ::
   DescribeLimitsResponse
 newDescribeLimitsResponse pHttpStatus_ =
   DescribeLimitsResponse'
-    { accountMaxWriteCapacityUnits =
+    { tableMaxWriteCapacityUnits =
         Prelude.Nothing,
       tableMaxReadCapacityUnits = Prelude.Nothing,
+      accountMaxWriteCapacityUnits = Prelude.Nothing,
       accountMaxReadCapacityUnits = Prelude.Nothing,
-      tableMaxWriteCapacityUnits = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The maximum total write capacity units that your account allows you to
--- provision across all of your tables in this Region.
-describeLimitsResponse_accountMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
-describeLimitsResponse_accountMaxWriteCapacityUnits = Lens.lens (\DescribeLimitsResponse' {accountMaxWriteCapacityUnits} -> accountMaxWriteCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {accountMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
+-- | The maximum write capacity units that your account allows you to
+-- provision for a new table that you are creating in this Region,
+-- including the write capacity units provisioned for its global secondary
+-- indexes (GSIs).
+describeLimitsResponse_tableMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
+describeLimitsResponse_tableMaxWriteCapacityUnits = Lens.lens (\DescribeLimitsResponse' {tableMaxWriteCapacityUnits} -> tableMaxWriteCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {tableMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
 
 -- | The maximum read capacity units that your account allows you to
 -- provision for a new table that you are creating in this Region,
@@ -243,17 +245,15 @@ describeLimitsResponse_accountMaxWriteCapacityUnits = Lens.lens (\DescribeLimits
 describeLimitsResponse_tableMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
 describeLimitsResponse_tableMaxReadCapacityUnits = Lens.lens (\DescribeLimitsResponse' {tableMaxReadCapacityUnits} -> tableMaxReadCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {tableMaxReadCapacityUnits = a} :: DescribeLimitsResponse)
 
+-- | The maximum total write capacity units that your account allows you to
+-- provision across all of your tables in this Region.
+describeLimitsResponse_accountMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
+describeLimitsResponse_accountMaxWriteCapacityUnits = Lens.lens (\DescribeLimitsResponse' {accountMaxWriteCapacityUnits} -> accountMaxWriteCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {accountMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
+
 -- | The maximum total read capacity units that your account allows you to
 -- provision across all of your tables in this Region.
 describeLimitsResponse_accountMaxReadCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
 describeLimitsResponse_accountMaxReadCapacityUnits = Lens.lens (\DescribeLimitsResponse' {accountMaxReadCapacityUnits} -> accountMaxReadCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {accountMaxReadCapacityUnits = a} :: DescribeLimitsResponse)
-
--- | The maximum write capacity units that your account allows you to
--- provision for a new table that you are creating in this Region,
--- including the write capacity units provisioned for its global secondary
--- indexes (GSIs).
-describeLimitsResponse_tableMaxWriteCapacityUnits :: Lens.Lens' DescribeLimitsResponse (Prelude.Maybe Prelude.Natural)
-describeLimitsResponse_tableMaxWriteCapacityUnits = Lens.lens (\DescribeLimitsResponse' {tableMaxWriteCapacityUnits} -> tableMaxWriteCapacityUnits) (\s@DescribeLimitsResponse' {} a -> s {tableMaxWriteCapacityUnits = a} :: DescribeLimitsResponse)
 
 -- | The response's http status code.
 describeLimitsResponse_httpStatus :: Lens.Lens' DescribeLimitsResponse Prelude.Int

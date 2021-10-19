@@ -91,7 +91,7 @@ setCognitoEvents_identityPoolId = Lens.lens (\SetCognitoEvents' {identityPoolId}
 
 -- | The events to configure
 setCognitoEvents_events :: Lens.Lens' SetCognitoEvents (Prelude.HashMap Prelude.Text Prelude.Text)
-setCognitoEvents_events = Lens.lens (\SetCognitoEvents' {events} -> events) (\s@SetCognitoEvents' {} a -> s {events = a} :: SetCognitoEvents) Prelude.. Lens._Coerce
+setCognitoEvents_events = Lens.lens (\SetCognitoEvents' {events} -> events) (\s@SetCognitoEvents' {} a -> s {events = a} :: SetCognitoEvents) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetCognitoEvents where
   type

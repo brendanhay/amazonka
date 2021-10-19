@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListTestGridSessionArtifacts
     newListTestGridSessionArtifacts,
 
     -- * Request Lenses
-    listTestGridSessionArtifacts_nextToken,
     listTestGridSessionArtifacts_maxResult,
+    listTestGridSessionArtifacts_nextToken,
     listTestGridSessionArtifacts_type,
     listTestGridSessionArtifacts_sessionArn,
 
@@ -37,8 +37,8 @@ module Network.AWS.DeviceFarm.ListTestGridSessionArtifacts
     newListTestGridSessionArtifactsResponse,
 
     -- * Response Lenses
-    listTestGridSessionArtifactsResponse_nextToken,
     listTestGridSessionArtifactsResponse_artifacts,
+    listTestGridSessionArtifactsResponse_nextToken,
     listTestGridSessionArtifactsResponse_httpStatus,
   )
 where
@@ -52,10 +52,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTestGridSessionArtifacts' smart constructor.
 data ListTestGridSessionArtifacts = ListTestGridSessionArtifacts'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned by a request.
+  { -- | The maximum number of results to be returned by a request.
     maxResult :: Prelude.Maybe Prelude.Natural,
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Limit results to a specified type of artifact.
     type' :: Prelude.Maybe TestGridSessionArtifactCategory,
     -- | The ARN of a TestGridSession.
@@ -71,9 +71,9 @@ data ListTestGridSessionArtifacts = ListTestGridSessionArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTestGridSessionArtifacts_nextToken' - Pagination token.
---
 -- 'maxResult', 'listTestGridSessionArtifacts_maxResult' - The maximum number of results to be returned by a request.
+--
+-- 'nextToken', 'listTestGridSessionArtifacts_nextToken' - Pagination token.
 --
 -- 'type'', 'listTestGridSessionArtifacts_type' - Limit results to a specified type of artifact.
 --
@@ -84,20 +84,20 @@ newListTestGridSessionArtifacts ::
   ListTestGridSessionArtifacts
 newListTestGridSessionArtifacts pSessionArn_ =
   ListTestGridSessionArtifacts'
-    { nextToken =
+    { maxResult =
         Prelude.Nothing,
-      maxResult = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       type' = Prelude.Nothing,
       sessionArn = pSessionArn_
     }
 
--- | Pagination token.
-listTestGridSessionArtifacts_nextToken :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe Prelude.Text)
-listTestGridSessionArtifacts_nextToken = Lens.lens (\ListTestGridSessionArtifacts' {nextToken} -> nextToken) (\s@ListTestGridSessionArtifacts' {} a -> s {nextToken = a} :: ListTestGridSessionArtifacts)
-
 -- | The maximum number of results to be returned by a request.
 listTestGridSessionArtifacts_maxResult :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe Prelude.Natural)
 listTestGridSessionArtifacts_maxResult = Lens.lens (\ListTestGridSessionArtifacts' {maxResult} -> maxResult) (\s@ListTestGridSessionArtifacts' {} a -> s {maxResult = a} :: ListTestGridSessionArtifacts)
+
+-- | Pagination token.
+listTestGridSessionArtifacts_nextToken :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe Prelude.Text)
+listTestGridSessionArtifacts_nextToken = Lens.lens (\ListTestGridSessionArtifacts' {nextToken} -> nextToken) (\s@ListTestGridSessionArtifacts' {} a -> s {nextToken = a} :: ListTestGridSessionArtifacts)
 
 -- | Limit results to a specified type of artifact.
 listTestGridSessionArtifacts_type :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe TestGridSessionArtifactCategory)
@@ -116,8 +116,8 @@ instance Core.AWSRequest ListTestGridSessionArtifacts where
     Response.receiveJSON
       ( \s h x ->
           ListTestGridSessionArtifactsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,8 +146,8 @@ instance Core.ToJSON ListTestGridSessionArtifacts where
   toJSON ListTestGridSessionArtifacts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResult" Core..=) Prelude.<$> maxResult,
+          [ ("maxResult" Core..=) Prelude.<$> maxResult,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("type" Core..=) Prelude.<$> type',
             Prelude.Just ("sessionArn" Core..= sessionArn)
           ]
@@ -161,10 +161,10 @@ instance Core.ToQuery ListTestGridSessionArtifacts where
 
 -- | /See:/ 'newListTestGridSessionArtifactsResponse' smart constructor.
 data ListTestGridSessionArtifactsResponse = ListTestGridSessionArtifactsResponse'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of test grid session artifacts for a TestGridSession.
+  { -- | A list of test grid session artifacts for a TestGridSession.
     artifacts :: Prelude.Maybe [TestGridSessionArtifact],
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,9 +178,9 @@ data ListTestGridSessionArtifactsResponse = ListTestGridSessionArtifactsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTestGridSessionArtifactsResponse_nextToken' - Pagination token.
---
 -- 'artifacts', 'listTestGridSessionArtifactsResponse_artifacts' - A list of test grid session artifacts for a TestGridSession.
+--
+-- 'nextToken', 'listTestGridSessionArtifactsResponse_nextToken' - Pagination token.
 --
 -- 'httpStatus', 'listTestGridSessionArtifactsResponse_httpStatus' - The response's http status code.
 newListTestGridSessionArtifactsResponse ::
@@ -189,19 +189,19 @@ newListTestGridSessionArtifactsResponse ::
   ListTestGridSessionArtifactsResponse
 newListTestGridSessionArtifactsResponse pHttpStatus_ =
   ListTestGridSessionArtifactsResponse'
-    { nextToken =
+    { artifacts =
         Prelude.Nothing,
-      artifacts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of test grid session artifacts for a TestGridSession.
+listTestGridSessionArtifactsResponse_artifacts :: Lens.Lens' ListTestGridSessionArtifactsResponse (Prelude.Maybe [TestGridSessionArtifact])
+listTestGridSessionArtifactsResponse_artifacts = Lens.lens (\ListTestGridSessionArtifactsResponse' {artifacts} -> artifacts) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {artifacts = a} :: ListTestGridSessionArtifactsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token.
 listTestGridSessionArtifactsResponse_nextToken :: Lens.Lens' ListTestGridSessionArtifactsResponse (Prelude.Maybe Prelude.Text)
 listTestGridSessionArtifactsResponse_nextToken = Lens.lens (\ListTestGridSessionArtifactsResponse' {nextToken} -> nextToken) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {nextToken = a} :: ListTestGridSessionArtifactsResponse)
-
--- | A list of test grid session artifacts for a TestGridSession.
-listTestGridSessionArtifactsResponse_artifacts :: Lens.Lens' ListTestGridSessionArtifactsResponse (Prelude.Maybe [TestGridSessionArtifact])
-listTestGridSessionArtifactsResponse_artifacts = Lens.lens (\ListTestGridSessionArtifactsResponse' {artifacts} -> artifacts) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {artifacts = a} :: ListTestGridSessionArtifactsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTestGridSessionArtifactsResponse_httpStatus :: Lens.Lens' ListTestGridSessionArtifactsResponse Prelude.Int

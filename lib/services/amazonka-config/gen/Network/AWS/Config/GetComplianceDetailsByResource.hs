@@ -32,8 +32,8 @@ module Network.AWS.Config.GetComplianceDetailsByResource
     newGetComplianceDetailsByResource,
 
     -- * Request Lenses
-    getComplianceDetailsByResource_nextToken,
     getComplianceDetailsByResource_complianceTypes,
+    getComplianceDetailsByResource_nextToken,
     getComplianceDetailsByResource_resourceType,
     getComplianceDetailsByResource_resourceId,
 
@@ -42,8 +42,8 @@ module Network.AWS.Config.GetComplianceDetailsByResource
     newGetComplianceDetailsByResourceResponse,
 
     -- * Response Lenses
-    getComplianceDetailsByResourceResponse_nextToken,
     getComplianceDetailsByResourceResponse_evaluationResults,
+    getComplianceDetailsByResourceResponse_nextToken,
     getComplianceDetailsByResourceResponse_httpStatus,
   )
 where
@@ -59,14 +59,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetComplianceDetailsByResource' smart constructor.
 data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by compliance.
+  { -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @NOT_APPLICABLE@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of the Amazon Web Services resource for which you want
     -- compliance information.
     resourceType :: Prelude.Text,
@@ -84,13 +84,13 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getComplianceDetailsByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'complianceTypes', 'getComplianceDetailsByResource_complianceTypes' - Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @NOT_APPLICABLE@.
+--
+-- 'nextToken', 'getComplianceDetailsByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 --
 -- 'resourceType', 'getComplianceDetailsByResource_resourceType' - The type of the Amazon Web Services resource for which you want
 -- compliance information.
@@ -107,24 +107,24 @@ newGetComplianceDetailsByResource
   pResourceType_
   pResourceId_ =
     GetComplianceDetailsByResource'
-      { nextToken =
+      { complianceTypes =
           Prelude.Nothing,
-        complianceTypes = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         resourceType = pResourceType_,
         resourceId = pResourceId_
       }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-getComplianceDetailsByResource_nextToken :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
-getComplianceDetailsByResource_nextToken = Lens.lens (\GetComplianceDetailsByResource' {nextToken} -> nextToken) (\s@GetComplianceDetailsByResource' {} a -> s {nextToken = a} :: GetComplianceDetailsByResource)
 
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @NOT_APPLICABLE@.
 getComplianceDetailsByResource_complianceTypes :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe [ComplianceType])
-getComplianceDetailsByResource_complianceTypes = Lens.lens (\GetComplianceDetailsByResource' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByResource' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByResource) Prelude.. Lens.mapping Lens._Coerce
+getComplianceDetailsByResource_complianceTypes = Lens.lens (\GetComplianceDetailsByResource' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByResource' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByResource) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+getComplianceDetailsByResource_nextToken :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe Prelude.Text)
+getComplianceDetailsByResource_nextToken = Lens.lens (\GetComplianceDetailsByResource' {nextToken} -> nextToken) (\s@GetComplianceDetailsByResource' {} a -> s {nextToken = a} :: GetComplianceDetailsByResource)
 
 -- | The type of the Amazon Web Services resource for which you want
 -- compliance information.
@@ -170,10 +170,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailsByResourceResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "EvaluationResults"
+            Prelude.<$> ( x Core..?> "EvaluationResults"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,9 +207,9 @@ instance Core.ToJSON GetComplianceDetailsByResource where
   toJSON GetComplianceDetailsByResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Core..=)
+          [ ("ComplianceTypes" Core..=)
               Prelude.<$> complianceTypes,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             Prelude.Just ("ResourceType" Core..= resourceType),
             Prelude.Just ("ResourceId" Core..= resourceId)
           ]
@@ -225,12 +225,12 @@ instance Core.ToQuery GetComplianceDetailsByResource where
 --
 -- /See:/ 'newGetComplianceDetailsByResourceResponse' smart constructor.
 data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResponse'
-  { -- | The string that you use in a subsequent request to get the next page of
-    -- results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the specified Amazon Web Services resource complies
+  { -- | Indicates whether the specified Amazon Web Services resource complies
     -- each Config rule.
     evaluationResults :: Prelude.Maybe [EvaluationResult],
+    -- | The string that you use in a subsequent request to get the next page of
+    -- results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,11 +244,11 @@ data GetComplianceDetailsByResourceResponse = GetComplianceDetailsByResourceResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getComplianceDetailsByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of
--- results in a paginated response.
---
 -- 'evaluationResults', 'getComplianceDetailsByResourceResponse_evaluationResults' - Indicates whether the specified Amazon Web Services resource complies
 -- each Config rule.
+--
+-- 'nextToken', 'getComplianceDetailsByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of
+-- results in a paginated response.
 --
 -- 'httpStatus', 'getComplianceDetailsByResourceResponse_httpStatus' - The response's http status code.
 newGetComplianceDetailsByResourceResponse ::
@@ -258,21 +258,21 @@ newGetComplianceDetailsByResourceResponse ::
 newGetComplianceDetailsByResourceResponse
   pHttpStatus_ =
     GetComplianceDetailsByResourceResponse'
-      { nextToken =
+      { evaluationResults =
           Prelude.Nothing,
-        evaluationResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Indicates whether the specified Amazon Web Services resource complies
+-- each Config rule.
+getComplianceDetailsByResourceResponse_evaluationResults :: Lens.Lens' GetComplianceDetailsByResourceResponse (Prelude.Maybe [EvaluationResult])
+getComplianceDetailsByResourceResponse_evaluationResults = Lens.lens (\GetComplianceDetailsByResourceResponse' {evaluationResults} -> evaluationResults) (\s@GetComplianceDetailsByResourceResponse' {} a -> s {evaluationResults = a} :: GetComplianceDetailsByResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 getComplianceDetailsByResourceResponse_nextToken :: Lens.Lens' GetComplianceDetailsByResourceResponse (Prelude.Maybe Prelude.Text)
 getComplianceDetailsByResourceResponse_nextToken = Lens.lens (\GetComplianceDetailsByResourceResponse' {nextToken} -> nextToken) (\s@GetComplianceDetailsByResourceResponse' {} a -> s {nextToken = a} :: GetComplianceDetailsByResourceResponse)
-
--- | Indicates whether the specified Amazon Web Services resource complies
--- each Config rule.
-getComplianceDetailsByResourceResponse_evaluationResults :: Lens.Lens' GetComplianceDetailsByResourceResponse (Prelude.Maybe [EvaluationResult])
-getComplianceDetailsByResourceResponse_evaluationResults = Lens.lens (\GetComplianceDetailsByResourceResponse' {evaluationResults} -> evaluationResults) (\s@GetComplianceDetailsByResourceResponse' {} a -> s {evaluationResults = a} :: GetComplianceDetailsByResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getComplianceDetailsByResourceResponse_httpStatus :: Lens.Lens' GetComplianceDetailsByResourceResponse Prelude.Int

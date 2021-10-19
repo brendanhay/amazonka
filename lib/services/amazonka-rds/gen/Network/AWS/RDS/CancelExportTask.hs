@@ -36,21 +36,21 @@ module Network.AWS.RDS.CancelExportTask
     newExportTask,
 
     -- * Response Lenses
-    exportTask_taskEndTime,
+    exportTask_totalExtractedDataInGB,
     exportTask_status,
     exportTask_iamRoleArn,
-    exportTask_totalExtractedDataInGB,
+    exportTask_sourceArn,
+    exportTask_exportOnly,
+    exportTask_taskStartTime,
     exportTask_warningMessage,
     exportTask_snapshotTime,
-    exportTask_s3Bucket,
-    exportTask_exportOnly,
     exportTask_kmsKeyId,
-    exportTask_failureCause,
-    exportTask_percentProgress,
-    exportTask_sourceArn,
-    exportTask_s3Prefix,
-    exportTask_taskStartTime,
+    exportTask_taskEndTime,
     exportTask_exportTaskIdentifier,
+    exportTask_s3Prefix,
+    exportTask_percentProgress,
+    exportTask_s3Bucket,
+    exportTask_failureCause,
   )
 where
 

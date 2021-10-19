@@ -34,15 +34,15 @@ import Network.AWS.ResourceGroups.Types.QueryErrorCode
 --
 -- /See:/ 'newQueryError' smart constructor.
 data QueryError = QueryError'
-  { -- | A message that explains the @ErrorCode@ value. Messages might state that
+  { -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
+    -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+    errorCode :: Prelude.Maybe QueryErrorCode,
+    -- | A message that explains the @ErrorCode@ value. Messages might state that
     -- the specified CloudFormation stack does not exist (or no longer exists).
     -- For @CLOUDFORMATION_STACK_INACTIVE@, the message typically states that
     -- the CloudFormation stack has a status that is not (or no longer) active,
     -- such as @CREATE_FAILED@.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
-    -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-    errorCode :: Prelude.Maybe QueryErrorCode
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,21 +54,26 @@ data QueryError = QueryError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'errorCode', 'queryError_errorCode' - Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
+-- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+--
 -- 'message', 'queryError_message' - A message that explains the @ErrorCode@ value. Messages might state that
 -- the specified CloudFormation stack does not exist (or no longer exists).
 -- For @CLOUDFORMATION_STACK_INACTIVE@, the message typically states that
 -- the CloudFormation stack has a status that is not (or no longer) active,
 -- such as @CREATE_FAILED@.
---
--- 'errorCode', 'queryError_errorCode' - Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
--- @CLOUDFORMATION_STACK_NOT_EXISTING@.
 newQueryError ::
   QueryError
 newQueryError =
   QueryError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      message = Prelude.Nothing
     }
+
+-- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
+-- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+queryError_errorCode :: Lens.Lens' QueryError (Prelude.Maybe QueryErrorCode)
+queryError_errorCode = Lens.lens (\QueryError' {errorCode} -> errorCode) (\s@QueryError' {} a -> s {errorCode = a} :: QueryError)
 
 -- | A message that explains the @ErrorCode@ value. Messages might state that
 -- the specified CloudFormation stack does not exist (or no longer exists).
@@ -78,19 +83,14 @@ newQueryError =
 queryError_message :: Lens.Lens' QueryError (Prelude.Maybe Prelude.Text)
 queryError_message = Lens.lens (\QueryError' {message} -> message) (\s@QueryError' {} a -> s {message = a} :: QueryError)
 
--- | Possible values are @CLOUDFORMATION_STACK_INACTIVE@ and
--- @CLOUDFORMATION_STACK_NOT_EXISTING@.
-queryError_errorCode :: Lens.Lens' QueryError (Prelude.Maybe QueryErrorCode)
-queryError_errorCode = Lens.lens (\QueryError' {errorCode} -> errorCode) (\s@QueryError' {} a -> s {errorCode = a} :: QueryError)
-
 instance Core.FromJSON QueryError where
   parseJSON =
     Core.withObject
       "QueryError"
       ( \x ->
           QueryError'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable QueryError

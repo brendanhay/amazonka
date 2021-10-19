@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRepositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
-  { -- | The name associated with the repository.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    -- | The ID associated with the repository.
-    repositoryId :: Prelude.Maybe Prelude.Text
+  { -- | The ID associated with the repository.
+    repositoryId :: Prelude.Maybe Prelude.Text,
+    -- | The name associated with the repository.
+    repositoryName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data RepositoryNameIdPair = RepositoryNameIdPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'repositoryName', 'repositoryNameIdPair_repositoryName' - The name associated with the repository.
---
 -- 'repositoryId', 'repositoryNameIdPair_repositoryId' - The ID associated with the repository.
+--
+-- 'repositoryName', 'repositoryNameIdPair_repositoryName' - The name associated with the repository.
 newRepositoryNameIdPair ::
   RepositoryNameIdPair
 newRepositoryNameIdPair =
   RepositoryNameIdPair'
-    { repositoryName =
+    { repositoryId =
         Prelude.Nothing,
-      repositoryId = Prelude.Nothing
+      repositoryName = Prelude.Nothing
     }
-
--- | The name associated with the repository.
-repositoryNameIdPair_repositoryName :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
-repositoryNameIdPair_repositoryName = Lens.lens (\RepositoryNameIdPair' {repositoryName} -> repositoryName) (\s@RepositoryNameIdPair' {} a -> s {repositoryName = a} :: RepositoryNameIdPair)
 
 -- | The ID associated with the repository.
 repositoryNameIdPair_repositoryId :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
 repositoryNameIdPair_repositoryId = Lens.lens (\RepositoryNameIdPair' {repositoryId} -> repositoryId) (\s@RepositoryNameIdPair' {} a -> s {repositoryId = a} :: RepositoryNameIdPair)
+
+-- | The name associated with the repository.
+repositoryNameIdPair_repositoryName :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
+repositoryNameIdPair_repositoryName = Lens.lens (\RepositoryNameIdPair' {repositoryName} -> repositoryName) (\s@RepositoryNameIdPair' {} a -> s {repositoryName = a} :: RepositoryNameIdPair)
 
 instance Core.FromJSON RepositoryNameIdPair where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON RepositoryNameIdPair where
       "RepositoryNameIdPair"
       ( \x ->
           RepositoryNameIdPair'
-            Prelude.<$> (x Core..:? "repositoryName")
-            Prelude.<*> (x Core..:? "repositoryId")
+            Prelude.<$> (x Core..:? "repositoryId")
+            Prelude.<*> (x Core..:? "repositoryName")
       )
 
 instance Prelude.Hashable RepositoryNameIdPair

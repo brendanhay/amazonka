@@ -28,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAccessLogSettings' smart constructor.
 data AccessLogSettings = AccessLogSettings'
-  { -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
-    -- Kinesis Data Firehose delivery stream to receive access logs. If you
-    -- specify a Kinesis Data Firehose delivery stream, the stream name must
-    -- begin with @amazon-apigateway-@.
-    destinationArn :: Prelude.Maybe Prelude.Text,
-    -- | A single line format of the access logs of data, as specified by
+  { -- | A single line format of the access logs of data, as specified by
     -- selected
     -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
     -- The format must include at least @$context.requestId@.
-    format :: Prelude.Maybe Prelude.Text
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
+    -- Kinesis Data Firehose delivery stream to receive access logs. If you
+    -- specify a Kinesis Data Firehose delivery stream, the stream name must
+    -- begin with @amazon-apigateway-@.
+    destinationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,30 +49,22 @@ data AccessLogSettings = AccessLogSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationArn', 'accessLogSettings_destinationArn' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
--- Kinesis Data Firehose delivery stream to receive access logs. If you
--- specify a Kinesis Data Firehose delivery stream, the stream name must
--- begin with @amazon-apigateway-@.
---
 -- 'format', 'accessLogSettings_format' - A single line format of the access logs of data, as specified by
 -- selected
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
 -- The format must include at least @$context.requestId@.
+--
+-- 'destinationArn', 'accessLogSettings_destinationArn' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
+-- Kinesis Data Firehose delivery stream to receive access logs. If you
+-- specify a Kinesis Data Firehose delivery stream, the stream name must
+-- begin with @amazon-apigateway-@.
 newAccessLogSettings ::
   AccessLogSettings
 newAccessLogSettings =
   AccessLogSettings'
-    { destinationArn =
-        Prelude.Nothing,
-      format = Prelude.Nothing
+    { format = Prelude.Nothing,
+      destinationArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
--- Kinesis Data Firehose delivery stream to receive access logs. If you
--- specify a Kinesis Data Firehose delivery stream, the stream name must
--- begin with @amazon-apigateway-@.
-accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
-accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
 
 -- | A single line format of the access logs of data, as specified by
 -- selected
@@ -81,14 +73,21 @@ accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationAr
 accessLogSettings_format :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_format = Lens.lens (\AccessLogSettings' {format} -> format) (\s@AccessLogSettings' {} a -> s {format = a} :: AccessLogSettings)
 
+-- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
+-- Kinesis Data Firehose delivery stream to receive access logs. If you
+-- specify a Kinesis Data Firehose delivery stream, the stream name must
+-- begin with @amazon-apigateway-@.
+accessLogSettings_destinationArn :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
+accessLogSettings_destinationArn = Lens.lens (\AccessLogSettings' {destinationArn} -> destinationArn) (\s@AccessLogSettings' {} a -> s {destinationArn = a} :: AccessLogSettings)
+
 instance Core.FromJSON AccessLogSettings where
   parseJSON =
     Core.withObject
       "AccessLogSettings"
       ( \x ->
           AccessLogSettings'
-            Prelude.<$> (x Core..:? "destinationArn")
-            Prelude.<*> (x Core..:? "format")
+            Prelude.<$> (x Core..:? "format")
+            Prelude.<*> (x Core..:? "destinationArn")
       )
 
 instance Prelude.Hashable AccessLogSettings

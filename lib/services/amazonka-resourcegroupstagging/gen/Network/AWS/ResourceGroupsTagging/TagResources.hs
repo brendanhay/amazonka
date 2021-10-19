@@ -109,7 +109,7 @@ newTagResources ::
 newTagResources pResourceARNList_ =
   TagResources'
     { resourceARNList =
-        Lens._Coerce Lens.# pResourceARNList_,
+        Lens.coerced Lens.# pResourceARNList_,
       tags = Prelude.mempty
     }
 
@@ -121,12 +121,12 @@ newTagResources pResourceARNList_ =
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
 tagResources_resourceARNList :: Lens.Lens' TagResources (Prelude.NonEmpty Prelude.Text)
-tagResources_resourceARNList = Lens.lens (\TagResources' {resourceARNList} -> resourceARNList) (\s@TagResources' {} a -> s {resourceARNList = a} :: TagResources) Prelude.. Lens._Coerce
+tagResources_resourceARNList = Lens.lens (\TagResources' {resourceARNList} -> resourceARNList) (\s@TagResources' {} a -> s {resourceARNList = a} :: TagResources) Prelude.. Lens.coerced
 
 -- | Specifies a list of tags that you want to add to the specified
 -- resources. A tag consists of a key and a value that you define.
 tagResources_tags :: Lens.Lens' TagResources (Prelude.HashMap Prelude.Text Prelude.Text)
-tagResources_tags = Lens.lens (\TagResources' {tags} -> tags) (\s@TagResources' {} a -> s {tags = a} :: TagResources) Prelude.. Lens._Coerce
+tagResources_tags = Lens.lens (\TagResources' {tags} -> tags) (\s@TagResources' {} a -> s {tags = a} :: TagResources) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResources where
   type AWSResponse TagResources = TagResourcesResponse
@@ -221,7 +221,7 @@ newTagResourcesResponse pHttpStatus_ =
 -- error message. If there are no errors, the @FailedResourcesMap@ is
 -- empty.
 tagResourcesResponse_failedResourcesMap :: Lens.Lens' TagResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo))
-tagResourcesResponse_failedResourcesMap = Lens.lens (\TagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@TagResourcesResponse' {} a -> s {failedResourcesMap = a} :: TagResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+tagResourcesResponse_failedResourcesMap = Lens.lens (\TagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@TagResourcesResponse' {} a -> s {failedResourcesMap = a} :: TagResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 tagResourcesResponse_httpStatus :: Lens.Lens' TagResourcesResponse Prelude.Int

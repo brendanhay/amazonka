@@ -78,7 +78,7 @@ newPutInventory ::
 newPutInventory pInstanceId_ pItems_ =
   PutInventory'
     { instanceId = pInstanceId_,
-      items = Lens._Coerce Lens.# pItems_
+      items = Lens.coerced Lens.# pItems_
     }
 
 -- | An instance ID where you want to add or update inventory items.
@@ -87,7 +87,7 @@ putInventory_instanceId = Lens.lens (\PutInventory' {instanceId} -> instanceId) 
 
 -- | The inventory items that you want to add or update on instances.
 putInventory_items :: Lens.Lens' PutInventory (Prelude.NonEmpty InventoryItem)
-putInventory_items = Lens.lens (\PutInventory' {items} -> items) (\s@PutInventory' {} a -> s {items = a} :: PutInventory) Prelude.. Lens._Coerce
+putInventory_items = Lens.lens (\PutInventory' {items} -> items) (\s@PutInventory' {} a -> s {items = a} :: PutInventory) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutInventory where
   type AWSResponse PutInventory = PutInventoryResponse

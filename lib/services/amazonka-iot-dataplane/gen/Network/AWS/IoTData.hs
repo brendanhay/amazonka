@@ -36,35 +36,35 @@ module Network.AWS.IoTData
     -- * Errors
     -- $errors
 
-    -- ** UnsupportedDocumentEncodingException
-    _UnsupportedDocumentEncodingException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InvalidRequestException
     _InvalidRequestException,
-
-    -- ** RequestEntityTooLargeException
-    _RequestEntityTooLargeException,
 
     -- ** ConflictException
     _ConflictException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** RequestEntityTooLargeException
+    _RequestEntityTooLargeException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** MethodNotAllowedException
+    _MethodNotAllowedException,
 
     -- ** InternalFailureException
     _InternalFailureException,
 
-    -- ** MethodNotAllowedException
-    _MethodNotAllowedException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** UnsupportedDocumentEncodingException
+    _UnsupportedDocumentEncodingException,
 
     -- * Waiters
     -- $waiters
@@ -78,29 +78,11 @@ module Network.AWS.IoTData
     GetThingShadowResponse (GetThingShadowResponse'),
     newGetThingShadowResponse,
 
-    -- ** Publish
-    Publish (Publish'),
-    newPublish,
-    PublishResponse (PublishResponse'),
-    newPublishResponse,
-
-    -- ** ListRetainedMessages (Paginated)
-    ListRetainedMessages (ListRetainedMessages'),
-    newListRetainedMessages,
-    ListRetainedMessagesResponse (ListRetainedMessagesResponse'),
-    newListRetainedMessagesResponse,
-
     -- ** ListNamedShadowsForThing
     ListNamedShadowsForThing (ListNamedShadowsForThing'),
     newListNamedShadowsForThing,
     ListNamedShadowsForThingResponse (ListNamedShadowsForThingResponse'),
     newListNamedShadowsForThingResponse,
-
-    -- ** UpdateThingShadow
-    UpdateThingShadow (UpdateThingShadow'),
-    newUpdateThingShadow,
-    UpdateThingShadowResponse (UpdateThingShadowResponse'),
-    newUpdateThingShadowResponse,
 
     -- ** DeleteThingShadow
     DeleteThingShadow (DeleteThingShadow'),
@@ -108,11 +90,29 @@ module Network.AWS.IoTData
     DeleteThingShadowResponse (DeleteThingShadowResponse'),
     newDeleteThingShadowResponse,
 
+    -- ** UpdateThingShadow
+    UpdateThingShadow (UpdateThingShadow'),
+    newUpdateThingShadow,
+    UpdateThingShadowResponse (UpdateThingShadowResponse'),
+    newUpdateThingShadowResponse,
+
+    -- ** ListRetainedMessages (Paginated)
+    ListRetainedMessages (ListRetainedMessages'),
+    newListRetainedMessages,
+    ListRetainedMessagesResponse (ListRetainedMessagesResponse'),
+    newListRetainedMessagesResponse,
+
     -- ** GetRetainedMessage
     GetRetainedMessage (GetRetainedMessage'),
     newGetRetainedMessage,
     GetRetainedMessageResponse (GetRetainedMessageResponse'),
     newGetRetainedMessageResponse,
+
+    -- ** Publish
+    Publish (Publish'),
+    newPublish,
+    PublishResponse (PublishResponse'),
+    newPublishResponse,
 
     -- * Types
 

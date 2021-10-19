@@ -241,7 +241,7 @@ newListFileSharesResponse pHttpStatus_ =
 
 -- | An array of information about the S3 File Gateway\'s file shares.
 listFileSharesResponse_fileShareInfoList :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe [FileShareInfo])
-listFileSharesResponse_fileShareInfoList = Lens.lens (\ListFileSharesResponse' {fileShareInfoList} -> fileShareInfoList) (\s@ListFileSharesResponse' {} a -> s {fileShareInfoList = a} :: ListFileSharesResponse) Prelude.. Lens.mapping Lens._Coerce
+listFileSharesResponse_fileShareInfoList = Lens.lens (\ListFileSharesResponse' {fileShareInfoList} -> fileShareInfoList) (\s@ListFileSharesResponse' {} a -> s {fileShareInfoList = a} :: ListFileSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the request includes @Marker@, the response returns that value in
 -- this field.

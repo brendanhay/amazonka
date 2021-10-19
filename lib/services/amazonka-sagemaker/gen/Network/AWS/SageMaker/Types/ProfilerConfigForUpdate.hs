@@ -28,9 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProfilerConfigForUpdate' smart constructor.
 data ProfilerConfigForUpdate = ProfilerConfigForUpdate'
-  { -- | Path to Amazon S3 storage location for system and framework metrics.
-    s3OutputPath :: Prelude.Maybe Prelude.Text,
-    -- | Configuration information for capturing framework metrics. Available key
+  { -- | Configuration information for capturing framework metrics. Available key
     -- strings for different profiling options are @DetailedProfilingConfig@,
     -- @PythonProfilingConfig@, and @DataLoaderProfilingConfig@. The following
     -- codes are configuration structures for the @ProfilingParameters@
@@ -38,6 +36,8 @@ data ProfilerConfigForUpdate = ProfilerConfigForUpdate'
     -- @ProfilingParameters@ parameter, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
     profilingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Path to Amazon S3 storage location for system and framework metrics.
+    s3OutputPath :: Prelude.Maybe Prelude.Text,
     -- | A time interval for capturing system metrics in milliseconds. Available
     -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
     -- (1 minute) milliseconds. The default value is 500 milliseconds.
@@ -55,8 +55,6 @@ data ProfilerConfigForUpdate = ProfilerConfigForUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3OutputPath', 'profilerConfigForUpdate_s3OutputPath' - Path to Amazon S3 storage location for system and framework metrics.
---
 -- 'profilingParameters', 'profilerConfigForUpdate_profilingParameters' - Configuration information for capturing framework metrics. Available key
 -- strings for different profiling options are @DetailedProfilingConfig@,
 -- @PythonProfilingConfig@, and @DataLoaderProfilingConfig@. The following
@@ -64,6 +62,8 @@ data ProfilerConfigForUpdate = ProfilerConfigForUpdate'
 -- parameter. To learn more about how to configure the
 -- @ProfilingParameters@ parameter, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
+--
+-- 's3OutputPath', 'profilerConfigForUpdate_s3OutputPath' - Path to Amazon S3 storage location for system and framework metrics.
 --
 -- 'profilingIntervalInMilliseconds', 'profilerConfigForUpdate_profilingIntervalInMilliseconds' - A time interval for capturing system metrics in milliseconds. Available
 -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
@@ -74,16 +74,12 @@ newProfilerConfigForUpdate ::
   ProfilerConfigForUpdate
 newProfilerConfigForUpdate =
   ProfilerConfigForUpdate'
-    { s3OutputPath =
+    { profilingParameters =
         Prelude.Nothing,
-      profilingParameters = Prelude.Nothing,
+      s3OutputPath = Prelude.Nothing,
       profilingIntervalInMilliseconds = Prelude.Nothing,
       disableProfiler = Prelude.Nothing
     }
-
--- | Path to Amazon S3 storage location for system and framework metrics.
-profilerConfigForUpdate_s3OutputPath :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe Prelude.Text)
-profilerConfigForUpdate_s3OutputPath = Lens.lens (\ProfilerConfigForUpdate' {s3OutputPath} -> s3OutputPath) (\s@ProfilerConfigForUpdate' {} a -> s {s3OutputPath = a} :: ProfilerConfigForUpdate)
 
 -- | Configuration information for capturing framework metrics. Available key
 -- strings for different profiling options are @DetailedProfilingConfig@,
@@ -93,7 +89,11 @@ profilerConfigForUpdate_s3OutputPath = Lens.lens (\ProfilerConfigForUpdate' {s3O
 -- @ProfilingParameters@ parameter, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
 profilerConfigForUpdate_profilingParameters :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-profilerConfigForUpdate_profilingParameters = Lens.lens (\ProfilerConfigForUpdate' {profilingParameters} -> profilingParameters) (\s@ProfilerConfigForUpdate' {} a -> s {profilingParameters = a} :: ProfilerConfigForUpdate) Prelude.. Lens.mapping Lens._Coerce
+profilerConfigForUpdate_profilingParameters = Lens.lens (\ProfilerConfigForUpdate' {profilingParameters} -> profilingParameters) (\s@ProfilerConfigForUpdate' {} a -> s {profilingParameters = a} :: ProfilerConfigForUpdate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Path to Amazon S3 storage location for system and framework metrics.
+profilerConfigForUpdate_s3OutputPath :: Lens.Lens' ProfilerConfigForUpdate (Prelude.Maybe Prelude.Text)
+profilerConfigForUpdate_s3OutputPath = Lens.lens (\ProfilerConfigForUpdate' {s3OutputPath} -> s3OutputPath) (\s@ProfilerConfigForUpdate' {} a -> s {s3OutputPath = a} :: ProfilerConfigForUpdate)
 
 -- | A time interval for capturing system metrics in milliseconds. Available
 -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
@@ -113,9 +113,9 @@ instance Core.ToJSON ProfilerConfigForUpdate where
   toJSON ProfilerConfigForUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
-            ("ProfilingParameters" Core..=)
+          [ ("ProfilingParameters" Core..=)
               Prelude.<$> profilingParameters,
+            ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
             ("ProfilingIntervalInMilliseconds" Core..=)
               Prelude.<$> profilingIntervalInMilliseconds,
             ("DisableProfiler" Core..=)

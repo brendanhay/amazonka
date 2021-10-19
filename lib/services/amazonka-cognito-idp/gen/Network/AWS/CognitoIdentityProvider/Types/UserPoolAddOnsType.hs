@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUserPoolAddOnsType' smart constructor.
 data UserPoolAddOnsType = UserPoolAddOnsType'
   { -- | The advanced security mode.
-    advancedSecurityMode :: Prelude.Maybe AdvancedSecurityModeType
+    advancedSecurityMode :: AdvancedSecurityModeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,15 +43,17 @@ data UserPoolAddOnsType = UserPoolAddOnsType'
 --
 -- 'advancedSecurityMode', 'userPoolAddOnsType_advancedSecurityMode' - The advanced security mode.
 newUserPoolAddOnsType ::
+  -- | 'advancedSecurityMode'
+  AdvancedSecurityModeType ->
   UserPoolAddOnsType
-newUserPoolAddOnsType =
+newUserPoolAddOnsType pAdvancedSecurityMode_ =
   UserPoolAddOnsType'
     { advancedSecurityMode =
-        Prelude.Nothing
+        pAdvancedSecurityMode_
     }
 
 -- | The advanced security mode.
-userPoolAddOnsType_advancedSecurityMode :: Lens.Lens' UserPoolAddOnsType (Prelude.Maybe AdvancedSecurityModeType)
+userPoolAddOnsType_advancedSecurityMode :: Lens.Lens' UserPoolAddOnsType AdvancedSecurityModeType
 userPoolAddOnsType_advancedSecurityMode = Lens.lens (\UserPoolAddOnsType' {advancedSecurityMode} -> advancedSecurityMode) (\s@UserPoolAddOnsType' {} a -> s {advancedSecurityMode = a} :: UserPoolAddOnsType)
 
 instance Core.FromJSON UserPoolAddOnsType where
@@ -60,7 +62,7 @@ instance Core.FromJSON UserPoolAddOnsType where
       "UserPoolAddOnsType"
       ( \x ->
           UserPoolAddOnsType'
-            Prelude.<$> (x Core..:? "AdvancedSecurityMode")
+            Prelude.<$> (x Core..: "AdvancedSecurityMode")
       )
 
 instance Prelude.Hashable UserPoolAddOnsType
@@ -71,7 +73,9 @@ instance Core.ToJSON UserPoolAddOnsType where
   toJSON UserPoolAddOnsType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AdvancedSecurityMode" Core..=)
-              Prelude.<$> advancedSecurityMode
+          [ Prelude.Just
+              ( "AdvancedSecurityMode"
+                  Core..= advancedSecurityMode
+              )
           ]
       )

@@ -46,9 +46,9 @@ module Network.AWS.AutoScaling.StartInstanceRefresh
     newStartInstanceRefresh,
 
     -- * Request Lenses
+    startInstanceRefresh_preferences,
     startInstanceRefresh_strategy,
     startInstanceRefresh_desiredConfiguration,
-    startInstanceRefresh_preferences,
     startInstanceRefresh_autoScalingGroupName,
 
     -- * Destructuring the Response
@@ -70,7 +70,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartInstanceRefresh' smart constructor.
 data StartInstanceRefresh = StartInstanceRefresh'
-  { -- | The strategy to use for the instance refresh. The only valid value is
+  { -- | Set of preferences associated with the instance refresh request. If not
+    -- provided, the default values are used.
+    preferences :: Prelude.Maybe RefreshPreferences,
+    -- | The strategy to use for the instance refresh. The only valid value is
     -- @Rolling@.
     --
     -- A rolling update helps you update your instances gradually. A rolling
@@ -94,9 +97,6 @@ data StartInstanceRefresh = StartInstanceRefresh'
     -- launch template and version. This can help you reduce the number of
     -- replacements that are required to apply updates.
     desiredConfiguration :: Prelude.Maybe DesiredConfiguration,
-    -- | Set of preferences associated with the instance refresh request. If not
-    -- provided, the default values are used.
-    preferences :: Prelude.Maybe RefreshPreferences,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
   }
@@ -109,6 +109,9 @@ data StartInstanceRefresh = StartInstanceRefresh'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request. If not
+-- provided, the default values are used.
 --
 -- 'strategy', 'startInstanceRefresh_strategy' - The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
@@ -134,9 +137,6 @@ data StartInstanceRefresh = StartInstanceRefresh'
 -- launch template and version. This can help you reduce the number of
 -- replacements that are required to apply updates.
 --
--- 'preferences', 'startInstanceRefresh_preferences' - Set of preferences associated with the instance refresh request. If not
--- provided, the default values are used.
---
 -- 'autoScalingGroupName', 'startInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
 newStartInstanceRefresh ::
   -- | 'autoScalingGroupName'
@@ -144,11 +144,17 @@ newStartInstanceRefresh ::
   StartInstanceRefresh
 newStartInstanceRefresh pAutoScalingGroupName_ =
   StartInstanceRefresh'
-    { strategy = Prelude.Nothing,
+    { preferences =
+        Prelude.Nothing,
+      strategy = Prelude.Nothing,
       desiredConfiguration = Prelude.Nothing,
-      preferences = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
+
+-- | Set of preferences associated with the instance refresh request. If not
+-- provided, the default values are used.
+startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
+startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
 
 -- | The strategy to use for the instance refresh. The only valid value is
 -- @Rolling@.
@@ -177,11 +183,6 @@ startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> 
 -- replacements that are required to apply updates.
 startInstanceRefresh_desiredConfiguration :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe DesiredConfiguration)
 startInstanceRefresh_desiredConfiguration = Lens.lens (\StartInstanceRefresh' {desiredConfiguration} -> desiredConfiguration) (\s@StartInstanceRefresh' {} a -> s {desiredConfiguration = a} :: StartInstanceRefresh)
-
--- | Set of preferences associated with the instance refresh request. If not
--- provided, the default values are used.
-startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
-startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
 
 -- | The name of the Auto Scaling group.
 startInstanceRefresh_autoScalingGroupName :: Lens.Lens' StartInstanceRefresh Prelude.Text
@@ -218,9 +219,9 @@ instance Core.ToQuery StartInstanceRefresh where
           Core.=: ("StartInstanceRefresh" :: Prelude.ByteString),
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
+        "Preferences" Core.=: preferences,
         "Strategy" Core.=: strategy,
         "DesiredConfiguration" Core.=: desiredConfiguration,
-        "Preferences" Core.=: preferences,
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 

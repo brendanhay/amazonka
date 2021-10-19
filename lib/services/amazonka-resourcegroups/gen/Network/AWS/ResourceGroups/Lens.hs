@@ -14,50 +14,13 @@
 module Network.AWS.ResourceGroups.Lens
   ( -- * Operations
 
-    -- ** GetGroupConfiguration
-    getGroupConfiguration_group,
-    getGroupConfigurationResponse_groupConfiguration,
-    getGroupConfigurationResponse_httpStatus,
-
-    -- ** PutGroupConfiguration
-    putGroupConfiguration_configuration,
-    putGroupConfiguration_group,
-    putGroupConfigurationResponse_httpStatus,
-
-    -- ** ListGroups
-    listGroups_nextToken,
-    listGroups_maxResults,
-    listGroups_filters,
-    listGroupsResponse_groups,
-    listGroupsResponse_nextToken,
-    listGroupsResponse_groupIdentifiers,
-    listGroupsResponse_httpStatus,
-
-    -- ** CreateGroup
-    createGroup_configuration,
-    createGroup_tags,
-    createGroup_description,
-    createGroup_resourceQuery,
-    createGroup_name,
-    createGroupResponse_groupConfiguration,
-    createGroupResponse_group,
-    createGroupResponse_tags,
-    createGroupResponse_resourceQuery,
-    createGroupResponse_httpStatus,
-
-    -- ** GetGroupQuery
-    getGroupQuery_groupName,
-    getGroupQuery_group,
-    getGroupQueryResponse_groupQuery,
-    getGroupQueryResponse_httpStatus,
-
     -- ** SearchResources
     searchResources_nextToken,
     searchResources_maxResults,
     searchResources_resourceQuery,
+    searchResourcesResponse_queryErrors,
     searchResourcesResponse_nextToken,
     searchResourcesResponse_resourceIdentifiers,
-    searchResourcesResponse_queryErrors,
     searchResourcesResponse_httpStatus,
 
     -- ** GetTags
@@ -66,24 +29,33 @@ module Network.AWS.ResourceGroups.Lens
     getTagsResponse_tags,
     getTagsResponse_httpStatus,
 
-    -- ** UpdateGroupQuery
-    updateGroupQuery_groupName,
-    updateGroupQuery_group,
-    updateGroupQuery_resourceQuery,
-    updateGroupQueryResponse_groupQuery,
-    updateGroupQueryResponse_httpStatus,
+    -- ** Tag
+    tag_arn,
+    tag_tags,
+    tagResponse_arn,
+    tagResponse_tags,
+    tagResponse_httpStatus,
 
-    -- ** ListGroupResources
-    listGroupResources_nextToken,
-    listGroupResources_maxResults,
-    listGroupResources_groupName,
-    listGroupResources_group,
-    listGroupResources_filters,
-    listGroupResourcesResponse_nextToken,
-    listGroupResourcesResponse_resourceIdentifiers,
-    listGroupResourcesResponse_queryErrors,
-    listGroupResourcesResponse_resources,
-    listGroupResourcesResponse_httpStatus,
+    -- ** UngroupResources
+    ungroupResources_group,
+    ungroupResources_resourceArns,
+    ungroupResourcesResponse_pending,
+    ungroupResourcesResponse_succeeded,
+    ungroupResourcesResponse_failed,
+    ungroupResourcesResponse_httpStatus,
+
+    -- ** GroupResources
+    groupResources_group,
+    groupResources_resourceArns,
+    groupResourcesResponse_pending,
+    groupResourcesResponse_succeeded,
+    groupResourcesResponse_failed,
+    groupResourcesResponse_httpStatus,
+
+    -- ** PutGroupConfiguration
+    putGroupConfiguration_group,
+    putGroupConfiguration_configuration,
+    putGroupConfigurationResponse_httpStatus,
 
     -- ** Untag
     untag_arn,
@@ -92,54 +64,82 @@ module Network.AWS.ResourceGroups.Lens
     untagResponse_keys,
     untagResponse_httpStatus,
 
-    -- ** GetGroup
-    getGroup_groupName,
-    getGroup_group,
-    getGroupResponse_group,
-    getGroupResponse_httpStatus,
+    -- ** UpdateGroupQuery
+    updateGroupQuery_group,
+    updateGroupQuery_groupName,
+    updateGroupQuery_resourceQuery,
+    updateGroupQueryResponse_groupQuery,
+    updateGroupQueryResponse_httpStatus,
+
+    -- ** ListGroupResources
+    listGroupResources_group,
+    listGroupResources_filters,
+    listGroupResources_nextToken,
+    listGroupResources_groupName,
+    listGroupResources_maxResults,
+    listGroupResourcesResponse_resources,
+    listGroupResourcesResponse_queryErrors,
+    listGroupResourcesResponse_nextToken,
+    listGroupResourcesResponse_resourceIdentifiers,
+    listGroupResourcesResponse_httpStatus,
+
+    -- ** GetGroupQuery
+    getGroupQuery_group,
+    getGroupQuery_groupName,
+    getGroupQueryResponse_groupQuery,
+    getGroupQueryResponse_httpStatus,
+
+    -- ** CreateGroup
+    createGroup_resourceQuery,
+    createGroup_configuration,
+    createGroup_description,
+    createGroup_tags,
+    createGroup_name,
+    createGroupResponse_group,
+    createGroupResponse_groupConfiguration,
+    createGroupResponse_resourceQuery,
+    createGroupResponse_tags,
+    createGroupResponse_httpStatus,
 
     -- ** DeleteGroup
-    deleteGroup_groupName,
     deleteGroup_group,
+    deleteGroup_groupName,
     deleteGroupResponse_group,
     deleteGroupResponse_httpStatus,
 
-    -- ** GroupResources
-    groupResources_group,
-    groupResources_resourceArns,
-    groupResourcesResponse_succeeded,
-    groupResourcesResponse_pending,
-    groupResourcesResponse_failed,
-    groupResourcesResponse_httpStatus,
-
     -- ** UpdateGroup
-    updateGroup_groupName,
     updateGroup_group,
+    updateGroup_groupName,
     updateGroup_description,
     updateGroupResponse_group,
     updateGroupResponse_httpStatus,
 
-    -- ** UngroupResources
-    ungroupResources_group,
-    ungroupResources_resourceArns,
-    ungroupResourcesResponse_succeeded,
-    ungroupResourcesResponse_pending,
-    ungroupResourcesResponse_failed,
-    ungroupResourcesResponse_httpStatus,
+    -- ** ListGroups
+    listGroups_filters,
+    listGroups_nextToken,
+    listGroups_maxResults,
+    listGroupsResponse_groups,
+    listGroupsResponse_nextToken,
+    listGroupsResponse_groupIdentifiers,
+    listGroupsResponse_httpStatus,
 
-    -- ** Tag
-    tag_arn,
-    tag_tags,
-    tagResponse_arn,
-    tagResponse_tags,
-    tagResponse_httpStatus,
+    -- ** GetGroup
+    getGroup_group,
+    getGroup_groupName,
+    getGroupResponse_group,
+    getGroupResponse_httpStatus,
+
+    -- ** GetGroupConfiguration
+    getGroupConfiguration_group,
+    getGroupConfigurationResponse_groupConfiguration,
+    getGroupConfigurationResponse_httpStatus,
 
     -- * Types
 
     -- ** FailedResource
     failedResource_resourceArn,
-    failedResource_errorMessage,
     failedResource_errorCode,
+    failedResource_errorMessage,
 
     -- ** Group
     group_description,
@@ -148,9 +148,9 @@ module Network.AWS.ResourceGroups.Lens
 
     -- ** GroupConfiguration
     groupConfiguration_status,
-    groupConfiguration_configuration,
     groupConfiguration_failureReason,
     groupConfiguration_proposedConfiguration,
+    groupConfiguration_configuration,
 
     -- ** GroupConfigurationItem
     groupConfigurationItem_parameters,
@@ -165,8 +165,8 @@ module Network.AWS.ResourceGroups.Lens
     groupFilter_values,
 
     -- ** GroupIdentifier
-    groupIdentifier_groupName,
     groupIdentifier_groupArn,
+    groupIdentifier_groupName,
 
     -- ** GroupQuery
     groupQuery_groupName,
@@ -180,16 +180,16 @@ module Network.AWS.ResourceGroups.Lens
     pendingResource_resourceArn,
 
     -- ** QueryError
-    queryError_message,
     queryError_errorCode,
+    queryError_message,
 
     -- ** ResourceFilter
     resourceFilter_name,
     resourceFilter_values,
 
     -- ** ResourceIdentifier
-    resourceIdentifier_resourceArn,
     resourceIdentifier_resourceType,
+    resourceIdentifier_resourceArn,
 
     -- ** ResourceQuery
     resourceQuery_type,

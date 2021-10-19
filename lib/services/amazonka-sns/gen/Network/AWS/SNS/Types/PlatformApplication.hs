@@ -60,7 +60,7 @@ platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {p
 
 -- | Attributes for platform application object.
 platformApplication_attributes :: Lens.Lens' PlatformApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Prelude.. Lens.mapping Lens._Coerce
+platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML PlatformApplication where
   parseXML x =

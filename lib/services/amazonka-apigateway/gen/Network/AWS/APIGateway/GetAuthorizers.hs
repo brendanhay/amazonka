@@ -31,8 +31,8 @@ module Network.AWS.APIGateway.GetAuthorizers
     newGetAuthorizers,
 
     -- * Request Lenses
-    getAuthorizers_position,
     getAuthorizers_limit,
+    getAuthorizers_position,
     getAuthorizers_restApiId,
 
     -- * Destructuring the Response
@@ -57,11 +57,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -75,10 +75,10 @@ data GetAuthorizers = GetAuthorizers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getAuthorizers_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getAuthorizers_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getAuthorizers_position' - The current pagination position in the paged result set.
 --
 -- 'restApiId', 'getAuthorizers_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetAuthorizers ::
@@ -87,19 +87,19 @@ newGetAuthorizers ::
   GetAuthorizers
 newGetAuthorizers pRestApiId_ =
   GetAuthorizers'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set.
-getAuthorizers_position :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Text)
-getAuthorizers_position = Lens.lens (\GetAuthorizers' {position} -> position) (\s@GetAuthorizers' {} a -> s {position = a} :: GetAuthorizers)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getAuthorizers_limit :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Int)
 getAuthorizers_limit = Lens.lens (\GetAuthorizers' {limit} -> limit) (\s@GetAuthorizers' {} a -> s {limit = a} :: GetAuthorizers)
+
+-- | The current pagination position in the paged result set.
+getAuthorizers_position :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Text)
+getAuthorizers_position = Lens.lens (\GetAuthorizers' {position} -> position) (\s@GetAuthorizers' {} a -> s {position = a} :: GetAuthorizers)
 
 -- | [Required] The string identifier of the associated RestApi.
 getAuthorizers_restApiId :: Lens.Lens' GetAuthorizers Prelude.Text
@@ -159,7 +159,7 @@ instance Core.ToPath GetAuthorizers where
 instance Core.ToQuery GetAuthorizers where
   toQuery GetAuthorizers' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of Authorizer resources.
 --
@@ -202,7 +202,7 @@ newGetAuthorizersResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getAuthorizersResponse_items :: Lens.Lens' GetAuthorizersResponse (Prelude.Maybe [Authorizer])
-getAuthorizersResponse_items = Lens.lens (\GetAuthorizersResponse' {items} -> items) (\s@GetAuthorizersResponse' {} a -> s {items = a} :: GetAuthorizersResponse) Prelude.. Lens.mapping Lens._Coerce
+getAuthorizersResponse_items = Lens.lens (\GetAuthorizersResponse' {items} -> items) (\s@GetAuthorizersResponse' {} a -> s {items = a} :: GetAuthorizersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getAuthorizersResponse_position :: Lens.Lens' GetAuthorizersResponse (Prelude.Maybe Prelude.Text)

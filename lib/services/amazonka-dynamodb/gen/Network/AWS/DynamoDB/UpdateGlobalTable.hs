@@ -103,7 +103,7 @@ updateGlobalTable_globalTableName = Lens.lens (\UpdateGlobalTable' {globalTableN
 
 -- | A list of Regions that should be added or removed from the global table.
 updateGlobalTable_replicaUpdates :: Lens.Lens' UpdateGlobalTable [ReplicaUpdate]
-updateGlobalTable_replicaUpdates = Lens.lens (\UpdateGlobalTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateGlobalTable' {} a -> s {replicaUpdates = a} :: UpdateGlobalTable) Prelude.. Lens._Coerce
+updateGlobalTable_replicaUpdates = Lens.lens (\UpdateGlobalTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateGlobalTable' {} a -> s {replicaUpdates = a} :: UpdateGlobalTable) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateGlobalTable where
   type

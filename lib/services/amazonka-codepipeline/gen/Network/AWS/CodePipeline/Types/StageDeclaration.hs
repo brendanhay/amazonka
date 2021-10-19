@@ -64,7 +64,7 @@ newStageDeclaration pName_ =
 
 -- | Reserved for future use.
 stageDeclaration_blockers :: Lens.Lens' StageDeclaration (Prelude.Maybe [BlockerDeclaration])
-stageDeclaration_blockers = Lens.lens (\StageDeclaration' {blockers} -> blockers) (\s@StageDeclaration' {} a -> s {blockers = a} :: StageDeclaration) Prelude.. Lens.mapping Lens._Coerce
+stageDeclaration_blockers = Lens.lens (\StageDeclaration' {blockers} -> blockers) (\s@StageDeclaration' {} a -> s {blockers = a} :: StageDeclaration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the stage.
 stageDeclaration_name :: Lens.Lens' StageDeclaration Prelude.Text
@@ -72,7 +72,7 @@ stageDeclaration_name = Lens.lens (\StageDeclaration' {name} -> name) (\s@StageD
 
 -- | The actions included in a stage.
 stageDeclaration_actions :: Lens.Lens' StageDeclaration [ActionDeclaration]
-stageDeclaration_actions = Lens.lens (\StageDeclaration' {actions} -> actions) (\s@StageDeclaration' {} a -> s {actions = a} :: StageDeclaration) Prelude.. Lens._Coerce
+stageDeclaration_actions = Lens.lens (\StageDeclaration' {actions} -> actions) (\s@StageDeclaration' {} a -> s {actions = a} :: StageDeclaration) Prelude.. Lens.coerced
 
 instance Core.FromJSON StageDeclaration where
   parseJSON =

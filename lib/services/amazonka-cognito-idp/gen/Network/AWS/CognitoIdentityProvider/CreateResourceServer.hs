@@ -105,7 +105,7 @@ newCreateResourceServer
 -- | A list of scopes. Each scope is map, where the keys are @name@ and
 -- @description@.
 createResourceServer_scopes :: Lens.Lens' CreateResourceServer (Prelude.Maybe [ResourceServerScopeType])
-createResourceServer_scopes = Lens.lens (\CreateResourceServer' {scopes} -> scopes) (\s@CreateResourceServer' {} a -> s {scopes = a} :: CreateResourceServer) Prelude.. Lens.mapping Lens._Coerce
+createResourceServer_scopes = Lens.lens (\CreateResourceServer' {scopes} -> scopes) (\s@CreateResourceServer' {} a -> s {scopes = a} :: CreateResourceServer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for the user pool.
 createResourceServer_userPoolId :: Lens.Lens' CreateResourceServer Prelude.Text

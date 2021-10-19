@@ -88,7 +88,7 @@ newStartOnDemandAuditTask =
 -- including those that are enabled or @UpdateAccountAuditConfiguration@ to
 -- select which checks are enabled.
 startOnDemandAuditTask_targetCheckNames :: Lens.Lens' StartOnDemandAuditTask [Prelude.Text]
-startOnDemandAuditTask_targetCheckNames = Lens.lens (\StartOnDemandAuditTask' {targetCheckNames} -> targetCheckNames) (\s@StartOnDemandAuditTask' {} a -> s {targetCheckNames = a} :: StartOnDemandAuditTask) Prelude.. Lens._Coerce
+startOnDemandAuditTask_targetCheckNames = Lens.lens (\StartOnDemandAuditTask' {targetCheckNames} -> targetCheckNames) (\s@StartOnDemandAuditTask' {} a -> s {targetCheckNames = a} :: StartOnDemandAuditTask) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartOnDemandAuditTask where
   type

@@ -242,7 +242,7 @@ listDeadLetterSourceQueuesResponse_httpStatus = Lens.lens (\ListDeadLetterSource
 -- | A list of source queue URLs that have the @RedrivePolicy@ queue
 -- attribute configured with a dead-letter queue.
 listDeadLetterSourceQueuesResponse_queueUrls :: Lens.Lens' ListDeadLetterSourceQueuesResponse [Prelude.Text]
-listDeadLetterSourceQueuesResponse_queueUrls = Lens.lens (\ListDeadLetterSourceQueuesResponse' {queueUrls} -> queueUrls) (\s@ListDeadLetterSourceQueuesResponse' {} a -> s {queueUrls = a} :: ListDeadLetterSourceQueuesResponse) Prelude.. Lens._Coerce
+listDeadLetterSourceQueuesResponse_queueUrls = Lens.lens (\ListDeadLetterSourceQueuesResponse' {queueUrls} -> queueUrls) (\s@ListDeadLetterSourceQueuesResponse' {} a -> s {queueUrls = a} :: ListDeadLetterSourceQueuesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

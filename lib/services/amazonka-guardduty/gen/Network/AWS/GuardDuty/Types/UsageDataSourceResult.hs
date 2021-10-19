@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUsageDataSourceResult' smart constructor.
 data UsageDataSourceResult = UsageDataSourceResult'
-  { -- | The data source type that generated usage.
-    dataSource :: Prelude.Maybe DataSource,
-    -- | Represents the total of usage for the specified data source.
-    total :: Prelude.Maybe Total
+  { -- | Represents the total of usage for the specified data source.
+    total :: Prelude.Maybe Total,
+    -- | The data source type that generated usage.
+    dataSource :: Prelude.Maybe DataSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data UsageDataSourceResult = UsageDataSourceResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSource', 'usageDataSourceResult_dataSource' - The data source type that generated usage.
---
 -- 'total', 'usageDataSourceResult_total' - Represents the total of usage for the specified data source.
+--
+-- 'dataSource', 'usageDataSourceResult_dataSource' - The data source type that generated usage.
 newUsageDataSourceResult ::
   UsageDataSourceResult
 newUsageDataSourceResult =
   UsageDataSourceResult'
-    { dataSource =
-        Prelude.Nothing,
-      total = Prelude.Nothing
+    { total = Prelude.Nothing,
+      dataSource = Prelude.Nothing
     }
-
--- | The data source type that generated usage.
-usageDataSourceResult_dataSource :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe DataSource)
-usageDataSourceResult_dataSource = Lens.lens (\UsageDataSourceResult' {dataSource} -> dataSource) (\s@UsageDataSourceResult' {} a -> s {dataSource = a} :: UsageDataSourceResult)
 
 -- | Represents the total of usage for the specified data source.
 usageDataSourceResult_total :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe Total)
 usageDataSourceResult_total = Lens.lens (\UsageDataSourceResult' {total} -> total) (\s@UsageDataSourceResult' {} a -> s {total = a} :: UsageDataSourceResult)
+
+-- | The data source type that generated usage.
+usageDataSourceResult_dataSource :: Lens.Lens' UsageDataSourceResult (Prelude.Maybe DataSource)
+usageDataSourceResult_dataSource = Lens.lens (\UsageDataSourceResult' {dataSource} -> dataSource) (\s@UsageDataSourceResult' {} a -> s {dataSource = a} :: UsageDataSourceResult)
 
 instance Core.FromJSON UsageDataSourceResult where
   parseJSON =
@@ -70,8 +69,8 @@ instance Core.FromJSON UsageDataSourceResult where
       "UsageDataSourceResult"
       ( \x ->
           UsageDataSourceResult'
-            Prelude.<$> (x Core..:? "dataSource")
-            Prelude.<*> (x Core..:? "total")
+            Prelude.<$> (x Core..:? "total")
+            Prelude.<*> (x Core..:? "dataSource")
       )
 
 instance Prelude.Hashable UsageDataSourceResult

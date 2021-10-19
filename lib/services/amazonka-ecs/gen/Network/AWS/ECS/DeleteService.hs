@@ -45,8 +45,8 @@ module Network.AWS.ECS.DeleteService
     newDeleteService,
 
     -- * Request Lenses
-    deleteService_force,
     deleteService_cluster,
+    deleteService_force,
     deleteService_service,
 
     -- * Destructuring the Response
@@ -68,14 +68,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteService' smart constructor.
 data DeleteService = DeleteService'
-  { -- | If @true@, allows you to delete a service even if it has not been scaled
-    -- down to zero tasks. It is only necessary to use this if the service is
-    -- using the @REPLICA@ scheduling strategy.
-    force :: Prelude.Maybe Prelude.Bool,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service to delete. If you do not specify a cluster, the
     -- default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
+    -- | If @true@, allows you to delete a service even if it has not been scaled
+    -- down to zero tasks. It is only necessary to use this if the service is
+    -- using the @REPLICA@ scheduling strategy.
+    force :: Prelude.Maybe Prelude.Bool,
     -- | The name of the service to delete.
     service :: Prelude.Text
   }
@@ -89,13 +89,13 @@ data DeleteService = DeleteService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'deleteService_force' - If @true@, allows you to delete a service even if it has not been scaled
--- down to zero tasks. It is only necessary to use this if the service is
--- using the @REPLICA@ scheduling strategy.
---
 -- 'cluster', 'deleteService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service to delete. If you do not specify a cluster, the
 -- default cluster is assumed.
+--
+-- 'force', 'deleteService_force' - If @true@, allows you to delete a service even if it has not been scaled
+-- down to zero tasks. It is only necessary to use this if the service is
+-- using the @REPLICA@ scheduling strategy.
 --
 -- 'service', 'deleteService_service' - The name of the service to delete.
 newDeleteService ::
@@ -104,22 +104,22 @@ newDeleteService ::
   DeleteService
 newDeleteService pService_ =
   DeleteService'
-    { force = Prelude.Nothing,
-      cluster = Prelude.Nothing,
+    { cluster = Prelude.Nothing,
+      force = Prelude.Nothing,
       service = pService_
     }
-
--- | If @true@, allows you to delete a service even if it has not been scaled
--- down to zero tasks. It is only necessary to use this if the service is
--- using the @REPLICA@ scheduling strategy.
-deleteService_force :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Bool)
-deleteService_force = Lens.lens (\DeleteService' {force} -> force) (\s@DeleteService' {} a -> s {force = a} :: DeleteService)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service to delete. If you do not specify a cluster, the
 -- default cluster is assumed.
 deleteService_cluster :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Text)
 deleteService_cluster = Lens.lens (\DeleteService' {cluster} -> cluster) (\s@DeleteService' {} a -> s {cluster = a} :: DeleteService)
+
+-- | If @true@, allows you to delete a service even if it has not been scaled
+-- down to zero tasks. It is only necessary to use this if the service is
+-- using the @REPLICA@ scheduling strategy.
+deleteService_force :: Lens.Lens' DeleteService (Prelude.Maybe Prelude.Bool)
+deleteService_force = Lens.lens (\DeleteService' {force} -> force) (\s@DeleteService' {} a -> s {force = a} :: DeleteService)
 
 -- | The name of the service to delete.
 deleteService_service :: Lens.Lens' DeleteService Prelude.Text
@@ -161,8 +161,8 @@ instance Core.ToJSON DeleteService where
   toJSON DeleteService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("force" Core..=) Prelude.<$> force,
-            ("cluster" Core..=) Prelude.<$> cluster,
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            ("force" Core..=) Prelude.<$> force,
             Prelude.Just ("service" Core..= service)
           ]
       )

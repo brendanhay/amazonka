@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLexicon' smart constructor.
 data Lexicon = Lexicon'
-  { -- | Name of the lexicon.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Lexicon content in string format. The content of a lexicon must be in
+  { -- | Lexicon content in string format. The content of a lexicon must be in
     -- PLS format.
-    content :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    content :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Name of the lexicon.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data Lexicon = Lexicon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'lexicon_name' - Name of the lexicon.
---
 -- 'content', 'lexicon_content' - Lexicon content in string format. The content of a lexicon must be in
 -- PLS format.
+--
+-- 'name', 'lexicon_name' - Name of the lexicon.
 newLexicon ::
   Lexicon
 newLexicon =
   Lexicon'
-    { name = Prelude.Nothing,
-      content = Prelude.Nothing
+    { content = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Name of the lexicon.
-lexicon_name :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
-lexicon_name = Lens.lens (\Lexicon' {name} -> name) (\s@Lexicon' {} a -> s {name = a} :: Lexicon)
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 -- PLS format.
 lexicon_content :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
 lexicon_content = Lens.lens (\Lexicon' {content} -> content) (\s@Lexicon' {} a -> s {content = a} :: Lexicon) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Name of the lexicon.
+lexicon_name :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
+lexicon_name = Lens.lens (\Lexicon' {name} -> name) (\s@Lexicon' {} a -> s {name = a} :: Lexicon)
 
 instance Core.FromJSON Lexicon where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON Lexicon where
       "Lexicon"
       ( \x ->
           Lexicon'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Content")
+            Prelude.<$> (x Core..:? "Content")
+            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable Lexicon

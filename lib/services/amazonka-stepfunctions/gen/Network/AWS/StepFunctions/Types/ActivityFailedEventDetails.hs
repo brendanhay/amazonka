@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActivityFailedEventDetails' smart constructor.
 data ActivityFailedEventDetails = ActivityFailedEventDetails'
-  { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The error code of the failure.
-    error :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+  { -- | The error code of the failure.
+    error :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ActivityFailedEventDetails = ActivityFailedEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cause', 'activityFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
---
 -- 'error', 'activityFailedEventDetails_error' - The error code of the failure.
+--
+-- 'cause', 'activityFailedEventDetails_cause' - A more detailed explanation of the cause of the failure.
 newActivityFailedEventDetails ::
   ActivityFailedEventDetails
 newActivityFailedEventDetails =
   ActivityFailedEventDetails'
-    { cause =
+    { error =
         Prelude.Nothing,
-      error = Prelude.Nothing
+      cause = Prelude.Nothing
     }
-
--- | A more detailed explanation of the cause of the failure.
-activityFailedEventDetails_cause :: Lens.Lens' ActivityFailedEventDetails (Prelude.Maybe Prelude.Text)
-activityFailedEventDetails_cause = Lens.lens (\ActivityFailedEventDetails' {cause} -> cause) (\s@ActivityFailedEventDetails' {} a -> s {cause = a} :: ActivityFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
 activityFailedEventDetails_error :: Lens.Lens' ActivityFailedEventDetails (Prelude.Maybe Prelude.Text)
 activityFailedEventDetails_error = Lens.lens (\ActivityFailedEventDetails' {error} -> error) (\s@ActivityFailedEventDetails' {} a -> s {error = a} :: ActivityFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A more detailed explanation of the cause of the failure.
+activityFailedEventDetails_cause :: Lens.Lens' ActivityFailedEventDetails (Prelude.Maybe Prelude.Text)
+activityFailedEventDetails_cause = Lens.lens (\ActivityFailedEventDetails' {cause} -> cause) (\s@ActivityFailedEventDetails' {} a -> s {cause = a} :: ActivityFailedEventDetails) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON ActivityFailedEventDetails where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON ActivityFailedEventDetails where
       "ActivityFailedEventDetails"
       ( \x ->
           ActivityFailedEventDetails'
-            Prelude.<$> (x Core..:? "cause")
-            Prelude.<*> (x Core..:? "error")
+            Prelude.<$> (x Core..:? "error")
+            Prelude.<*> (x Core..:? "cause")
       )
 
 instance Prelude.Hashable ActivityFailedEventDetails

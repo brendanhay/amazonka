@@ -35,8 +35,8 @@ module Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
     newListDistributionsByOriginRequestPolicyId,
 
     -- * Request Lenses
-    listDistributionsByOriginRequestPolicyId_maxItems,
     listDistributionsByOriginRequestPolicyId_marker,
+    listDistributionsByOriginRequestPolicyId_maxItems,
     listDistributionsByOriginRequestPolicyId_originRequestPolicyId,
 
     -- * Destructuring the Response
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDistributionsByOriginRequestPolicyId' smart constructor.
 data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequestPolicyId'
-  { -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
     -- set this field’s value to the value of @NextMarker@ from the current
     -- page’s response.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of distribution IDs that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | The ID of the origin request policy whose associated distribution IDs
     -- you want to list.
     originRequestPolicyId :: Prelude.Text
@@ -80,13 +80,13 @@ data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequest
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listDistributionsByOriginRequestPolicyId_maxItems' - The maximum number of distribution IDs that you want in the response.
---
 -- 'marker', 'listDistributionsByOriginRequestPolicyId_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
 -- set this field’s value to the value of @NextMarker@ from the current
 -- page’s response.
+--
+-- 'maxItems', 'listDistributionsByOriginRequestPolicyId_maxItems' - The maximum number of distribution IDs that you want in the response.
 --
 -- 'originRequestPolicyId', 'listDistributionsByOriginRequestPolicyId_originRequestPolicyId' - The ID of the origin request policy whose associated distribution IDs
 -- you want to list.
@@ -97,16 +97,12 @@ newListDistributionsByOriginRequestPolicyId ::
 newListDistributionsByOriginRequestPolicyId
   pOriginRequestPolicyId_ =
     ListDistributionsByOriginRequestPolicyId'
-      { maxItems =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        maxItems = Prelude.Nothing,
         originRequestPolicyId =
           pOriginRequestPolicyId_
       }
-
--- | The maximum number of distribution IDs that you want in the response.
-listDistributionsByOriginRequestPolicyId_maxItems :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Prelude.Maybe Prelude.Text)
-listDistributionsByOriginRequestPolicyId_maxItems = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {maxItems} -> maxItems) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {maxItems = a} :: ListDistributionsByOriginRequestPolicyId)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
@@ -115,6 +111,10 @@ listDistributionsByOriginRequestPolicyId_maxItems = Lens.lens (\ListDistribution
 -- page’s response.
 listDistributionsByOriginRequestPolicyId_marker :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Prelude.Maybe Prelude.Text)
 listDistributionsByOriginRequestPolicyId_marker = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {marker} -> marker) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {marker = a} :: ListDistributionsByOriginRequestPolicyId)
+
+-- | The maximum number of distribution IDs that you want in the response.
+listDistributionsByOriginRequestPolicyId_maxItems :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Prelude.Maybe Prelude.Text)
+listDistributionsByOriginRequestPolicyId_maxItems = Lens.lens (\ListDistributionsByOriginRequestPolicyId' {maxItems} -> maxItems) (\s@ListDistributionsByOriginRequestPolicyId' {} a -> s {maxItems = a} :: ListDistributionsByOriginRequestPolicyId)
 
 -- | The ID of the origin request policy whose associated distribution IDs
 -- you want to list.
@@ -168,8 +168,8 @@ instance
   where
   toQuery ListDistributionsByOriginRequestPolicyId' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListDistributionsByOriginRequestPolicyIdResponse' smart constructor.

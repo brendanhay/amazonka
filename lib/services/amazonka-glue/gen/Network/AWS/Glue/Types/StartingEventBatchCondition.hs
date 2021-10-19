@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStartingEventBatchCondition' smart constructor.
 data StartingEventBatchCondition = StartingEventBatchCondition'
-  { -- | Number of events in the batch.
-    batchSize :: Prelude.Maybe Prelude.Int,
-    -- | Duration of the batch window in seconds.
-    batchWindow :: Prelude.Maybe Prelude.Int
+  { -- | Duration of the batch window in seconds.
+    batchWindow :: Prelude.Maybe Prelude.Int,
+    -- | Number of events in the batch.
+    batchSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,25 +45,25 @@ data StartingEventBatchCondition = StartingEventBatchCondition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'batchSize', 'startingEventBatchCondition_batchSize' - Number of events in the batch.
---
 -- 'batchWindow', 'startingEventBatchCondition_batchWindow' - Duration of the batch window in seconds.
+--
+-- 'batchSize', 'startingEventBatchCondition_batchSize' - Number of events in the batch.
 newStartingEventBatchCondition ::
   StartingEventBatchCondition
 newStartingEventBatchCondition =
   StartingEventBatchCondition'
-    { batchSize =
+    { batchWindow =
         Prelude.Nothing,
-      batchWindow = Prelude.Nothing
+      batchSize = Prelude.Nothing
     }
-
--- | Number of events in the batch.
-startingEventBatchCondition_batchSize :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
-startingEventBatchCondition_batchSize = Lens.lens (\StartingEventBatchCondition' {batchSize} -> batchSize) (\s@StartingEventBatchCondition' {} a -> s {batchSize = a} :: StartingEventBatchCondition)
 
 -- | Duration of the batch window in seconds.
 startingEventBatchCondition_batchWindow :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
 startingEventBatchCondition_batchWindow = Lens.lens (\StartingEventBatchCondition' {batchWindow} -> batchWindow) (\s@StartingEventBatchCondition' {} a -> s {batchWindow = a} :: StartingEventBatchCondition)
+
+-- | Number of events in the batch.
+startingEventBatchCondition_batchSize :: Lens.Lens' StartingEventBatchCondition (Prelude.Maybe Prelude.Int)
+startingEventBatchCondition_batchSize = Lens.lens (\StartingEventBatchCondition' {batchSize} -> batchSize) (\s@StartingEventBatchCondition' {} a -> s {batchSize = a} :: StartingEventBatchCondition)
 
 instance Core.FromJSON StartingEventBatchCondition where
   parseJSON =
@@ -71,8 +71,8 @@ instance Core.FromJSON StartingEventBatchCondition where
       "StartingEventBatchCondition"
       ( \x ->
           StartingEventBatchCondition'
-            Prelude.<$> (x Core..:? "BatchSize")
-            Prelude.<*> (x Core..:? "BatchWindow")
+            Prelude.<$> (x Core..:? "BatchWindow")
+            Prelude.<*> (x Core..:? "BatchSize")
       )
 
 instance Prelude.Hashable StartingEventBatchCondition

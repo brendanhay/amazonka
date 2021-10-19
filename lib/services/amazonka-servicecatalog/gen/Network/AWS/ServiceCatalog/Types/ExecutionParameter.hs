@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExecutionParameter' smart constructor.
 data ExecutionParameter = ExecutionParameter'
-  { -- | The name of the execution parameter.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The default values for the execution parameter.
+  { -- | The default values for the execution parameter.
     defaultValues :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the execution parameter.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The execution parameter type.
     type' :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,28 @@ data ExecutionParameter = ExecutionParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'executionParameter_name' - The name of the execution parameter.
---
 -- 'defaultValues', 'executionParameter_defaultValues' - The default values for the execution parameter.
+--
+-- 'name', 'executionParameter_name' - The name of the execution parameter.
 --
 -- 'type'', 'executionParameter_type' - The execution parameter type.
 newExecutionParameter ::
   ExecutionParameter
 newExecutionParameter =
   ExecutionParameter'
-    { name = Prelude.Nothing,
-      defaultValues = Prelude.Nothing,
+    { defaultValues =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       type' = Prelude.Nothing
     }
+
+-- | The default values for the execution parameter.
+executionParameter_defaultValues :: Lens.Lens' ExecutionParameter (Prelude.Maybe [Prelude.Text])
+executionParameter_defaultValues = Lens.lens (\ExecutionParameter' {defaultValues} -> defaultValues) (\s@ExecutionParameter' {} a -> s {defaultValues = a} :: ExecutionParameter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the execution parameter.
 executionParameter_name :: Lens.Lens' ExecutionParameter (Prelude.Maybe Prelude.Text)
 executionParameter_name = Lens.lens (\ExecutionParameter' {name} -> name) (\s@ExecutionParameter' {} a -> s {name = a} :: ExecutionParameter)
-
--- | The default values for the execution parameter.
-executionParameter_defaultValues :: Lens.Lens' ExecutionParameter (Prelude.Maybe [Prelude.Text])
-executionParameter_defaultValues = Lens.lens (\ExecutionParameter' {defaultValues} -> defaultValues) (\s@ExecutionParameter' {} a -> s {defaultValues = a} :: ExecutionParameter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The execution parameter type.
 executionParameter_type :: Lens.Lens' ExecutionParameter (Prelude.Maybe Prelude.Text)
@@ -77,8 +78,8 @@ instance Core.FromJSON ExecutionParameter where
       "ExecutionParameter"
       ( \x ->
           ExecutionParameter'
-            Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DefaultValues" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "DefaultValues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Type")
       )
 

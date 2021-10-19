@@ -219,7 +219,7 @@ listInstanceAttributesResponse_nextToken = Lens.lens (\ListInstanceAttributesRes
 
 -- | The attribute types.
 listInstanceAttributesResponse_attributes :: Lens.Lens' ListInstanceAttributesResponse (Prelude.Maybe [Attribute])
-listInstanceAttributesResponse_attributes = Lens.lens (\ListInstanceAttributesResponse' {attributes} -> attributes) (\s@ListInstanceAttributesResponse' {} a -> s {attributes = a} :: ListInstanceAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+listInstanceAttributesResponse_attributes = Lens.lens (\ListInstanceAttributesResponse' {attributes} -> attributes) (\s@ListInstanceAttributesResponse' {} a -> s {attributes = a} :: ListInstanceAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstanceAttributesResponse_httpStatus :: Lens.Lens' ListInstanceAttributesResponse Prelude.Int

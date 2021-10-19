@@ -693,14 +693,14 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Indicates that a request was not valid.
-_ValidationException :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | Indicates that a resource was not found.
-_ResourceNotFoundException :: (Core.AsError a) => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

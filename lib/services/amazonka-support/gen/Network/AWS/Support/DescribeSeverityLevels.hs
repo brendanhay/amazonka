@@ -175,7 +175,7 @@ newDescribeSeverityLevelsResponse pHttpStatus_ =
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
 describeSeverityLevelsResponse_severityLevels :: Lens.Lens' DescribeSeverityLevelsResponse (Prelude.Maybe [SeverityLevel])
-describeSeverityLevelsResponse_severityLevels = Lens.lens (\DescribeSeverityLevelsResponse' {severityLevels} -> severityLevels) (\s@DescribeSeverityLevelsResponse' {} a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSeverityLevelsResponse_severityLevels = Lens.lens (\DescribeSeverityLevelsResponse' {severityLevels} -> severityLevels) (\s@DescribeSeverityLevelsResponse' {} a -> s {severityLevels = a} :: DescribeSeverityLevelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSeverityLevelsResponse_httpStatus :: Lens.Lens' DescribeSeverityLevelsResponse Prelude.Int

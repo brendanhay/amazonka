@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchListPolicyAttachmentsResponse' smart constructor.
 data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-    objectIdentifiers :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of @ObjectIdentifiers@ to which the policy is attached.
+    objectIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'batchListPolicyAttachmentsResponse_nextToken' - The pagination token.
---
 -- 'objectIdentifiers', 'batchListPolicyAttachmentsResponse_objectIdentifiers' - A list of @ObjectIdentifiers@ to which the policy is attached.
+--
+-- 'nextToken', 'batchListPolicyAttachmentsResponse_nextToken' - The pagination token.
 newBatchListPolicyAttachmentsResponse ::
   BatchListPolicyAttachmentsResponse
 newBatchListPolicyAttachmentsResponse =
   BatchListPolicyAttachmentsResponse'
-    { nextToken =
+    { objectIdentifiers =
         Prelude.Nothing,
-      objectIdentifiers = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | A list of @ObjectIdentifiers@ to which the policy is attached.
+batchListPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Prelude.Maybe [Prelude.Text])
+batchListPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\BatchListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 batchListPolicyAttachmentsResponse_nextToken :: Lens.Lens' BatchListPolicyAttachmentsResponse (Prelude.Maybe Prelude.Text)
 batchListPolicyAttachmentsResponse_nextToken = Lens.lens (\BatchListPolicyAttachmentsResponse' {nextToken} -> nextToken) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {nextToken = a} :: BatchListPolicyAttachmentsResponse)
-
--- | A list of @ObjectIdentifiers@ to which the policy is attached.
-batchListPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Prelude.Maybe [Prelude.Text])
-batchListPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\BatchListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -71,10 +71,10 @@ instance
       "BatchListPolicyAttachmentsResponse"
       ( \x ->
           BatchListPolicyAttachmentsResponse'
-            Prelude.<$> (x Core..:? "NextToken")
-            Prelude.<*> ( x Core..:? "ObjectIdentifiers"
+            Prelude.<$> ( x Core..:? "ObjectIdentifiers"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "NextToken")
       )
 
 instance

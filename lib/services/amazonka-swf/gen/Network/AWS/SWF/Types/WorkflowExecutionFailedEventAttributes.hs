@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newWorkflowExecutionFailedEventAttributes' smart constructor.
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes'
-  { -- | The details of the failure.
-    details :: Prelude.Maybe Prelude.Text,
-    -- | The descriptive reason provided for the failure.
+  { -- | The descriptive reason provided for the failure.
     reason :: Prelude.Maybe Prelude.Text,
+    -- | The details of the failure.
+    details :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @FailWorkflowExecution@ decision to
     -- fail this execution. This information can be useful for diagnosing
@@ -47,9 +47,9 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'details', 'workflowExecutionFailedEventAttributes_details' - The details of the failure.
---
 -- 'reason', 'workflowExecutionFailedEventAttributes_reason' - The descriptive reason provided for the failure.
+--
+-- 'details', 'workflowExecutionFailedEventAttributes_details' - The details of the failure.
 --
 -- 'decisionTaskCompletedEventId', 'workflowExecutionFailedEventAttributes_decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @FailWorkflowExecution@ decision to
@@ -62,20 +62,20 @@ newWorkflowExecutionFailedEventAttributes ::
 newWorkflowExecutionFailedEventAttributes
   pDecisionTaskCompletedEventId_ =
     WorkflowExecutionFailedEventAttributes'
-      { details =
+      { reason =
           Prelude.Nothing,
-        reason = Prelude.Nothing,
+        details = Prelude.Nothing,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
--- | The details of the failure.
-workflowExecutionFailedEventAttributes_details :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
-workflowExecutionFailedEventAttributes_details = Lens.lens (\WorkflowExecutionFailedEventAttributes' {details} -> details) (\s@WorkflowExecutionFailedEventAttributes' {} a -> s {details = a} :: WorkflowExecutionFailedEventAttributes)
-
 -- | The descriptive reason provided for the failure.
 workflowExecutionFailedEventAttributes_reason :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionFailedEventAttributes_reason = Lens.lens (\WorkflowExecutionFailedEventAttributes' {reason} -> reason) (\s@WorkflowExecutionFailedEventAttributes' {} a -> s {reason = a} :: WorkflowExecutionFailedEventAttributes)
+
+-- | The details of the failure.
+workflowExecutionFailedEventAttributes_details :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionFailedEventAttributes_details = Lens.lens (\WorkflowExecutionFailedEventAttributes' {details} -> details) (\s@WorkflowExecutionFailedEventAttributes' {} a -> s {details = a} :: WorkflowExecutionFailedEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
 -- decision task that resulted in the @FailWorkflowExecution@ decision to
@@ -93,8 +93,8 @@ instance
       "WorkflowExecutionFailedEventAttributes"
       ( \x ->
           WorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "details")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Core..:? "reason")
+            Prelude.<*> (x Core..:? "details")
             Prelude.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 

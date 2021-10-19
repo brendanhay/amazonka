@@ -30,14 +30,14 @@ import Network.AWS.SageMaker.Types.ScheduleConfig
 --
 -- /See:/ 'newMonitoringScheduleConfig' smart constructor.
 data MonitoringScheduleConfig = MonitoringScheduleConfig'
-  { -- | Configures the monitoring schedule.
-    scheduleConfig :: Prelude.Maybe ScheduleConfig,
-    -- | The type of the monitoring job definition to schedule.
+  { -- | The type of the monitoring job definition to schedule.
     monitoringType :: Prelude.Maybe MonitoringType,
-    -- | The name of the monitoring job definition to schedule.
-    monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text,
+    -- | Configures the monitoring schedule.
+    scheduleConfig :: Prelude.Maybe ScheduleConfig,
     -- | Defines the monitoring job.
-    monitoringJobDefinition :: Prelude.Maybe MonitoringJobDefinition
+    monitoringJobDefinition :: Prelude.Maybe MonitoringJobDefinition,
+    -- | The name of the monitoring job definition to schedule.
+    monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,39 +49,39 @@ data MonitoringScheduleConfig = MonitoringScheduleConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scheduleConfig', 'monitoringScheduleConfig_scheduleConfig' - Configures the monitoring schedule.
---
 -- 'monitoringType', 'monitoringScheduleConfig_monitoringType' - The type of the monitoring job definition to schedule.
 --
--- 'monitoringJobDefinitionName', 'monitoringScheduleConfig_monitoringJobDefinitionName' - The name of the monitoring job definition to schedule.
+-- 'scheduleConfig', 'monitoringScheduleConfig_scheduleConfig' - Configures the monitoring schedule.
 --
 -- 'monitoringJobDefinition', 'monitoringScheduleConfig_monitoringJobDefinition' - Defines the monitoring job.
+--
+-- 'monitoringJobDefinitionName', 'monitoringScheduleConfig_monitoringJobDefinitionName' - The name of the monitoring job definition to schedule.
 newMonitoringScheduleConfig ::
   MonitoringScheduleConfig
 newMonitoringScheduleConfig =
   MonitoringScheduleConfig'
-    { scheduleConfig =
+    { monitoringType =
         Prelude.Nothing,
-      monitoringType = Prelude.Nothing,
-      monitoringJobDefinitionName = Prelude.Nothing,
-      monitoringJobDefinition = Prelude.Nothing
+      scheduleConfig = Prelude.Nothing,
+      monitoringJobDefinition = Prelude.Nothing,
+      monitoringJobDefinitionName = Prelude.Nothing
     }
-
--- | Configures the monitoring schedule.
-monitoringScheduleConfig_scheduleConfig :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe ScheduleConfig)
-monitoringScheduleConfig_scheduleConfig = Lens.lens (\MonitoringScheduleConfig' {scheduleConfig} -> scheduleConfig) (\s@MonitoringScheduleConfig' {} a -> s {scheduleConfig = a} :: MonitoringScheduleConfig)
 
 -- | The type of the monitoring job definition to schedule.
 monitoringScheduleConfig_monitoringType :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe MonitoringType)
 monitoringScheduleConfig_monitoringType = Lens.lens (\MonitoringScheduleConfig' {monitoringType} -> monitoringType) (\s@MonitoringScheduleConfig' {} a -> s {monitoringType = a} :: MonitoringScheduleConfig)
 
--- | The name of the monitoring job definition to schedule.
-monitoringScheduleConfig_monitoringJobDefinitionName :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe Prelude.Text)
-monitoringScheduleConfig_monitoringJobDefinitionName = Lens.lens (\MonitoringScheduleConfig' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@MonitoringScheduleConfig' {} a -> s {monitoringJobDefinitionName = a} :: MonitoringScheduleConfig)
+-- | Configures the monitoring schedule.
+monitoringScheduleConfig_scheduleConfig :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe ScheduleConfig)
+monitoringScheduleConfig_scheduleConfig = Lens.lens (\MonitoringScheduleConfig' {scheduleConfig} -> scheduleConfig) (\s@MonitoringScheduleConfig' {} a -> s {scheduleConfig = a} :: MonitoringScheduleConfig)
 
 -- | Defines the monitoring job.
 monitoringScheduleConfig_monitoringJobDefinition :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe MonitoringJobDefinition)
 monitoringScheduleConfig_monitoringJobDefinition = Lens.lens (\MonitoringScheduleConfig' {monitoringJobDefinition} -> monitoringJobDefinition) (\s@MonitoringScheduleConfig' {} a -> s {monitoringJobDefinition = a} :: MonitoringScheduleConfig)
+
+-- | The name of the monitoring job definition to schedule.
+monitoringScheduleConfig_monitoringJobDefinitionName :: Lens.Lens' MonitoringScheduleConfig (Prelude.Maybe Prelude.Text)
+monitoringScheduleConfig_monitoringJobDefinitionName = Lens.lens (\MonitoringScheduleConfig' {monitoringJobDefinitionName} -> monitoringJobDefinitionName) (\s@MonitoringScheduleConfig' {} a -> s {monitoringJobDefinitionName = a} :: MonitoringScheduleConfig)
 
 instance Core.FromJSON MonitoringScheduleConfig where
   parseJSON =
@@ -89,10 +89,10 @@ instance Core.FromJSON MonitoringScheduleConfig where
       "MonitoringScheduleConfig"
       ( \x ->
           MonitoringScheduleConfig'
-            Prelude.<$> (x Core..:? "ScheduleConfig")
-            Prelude.<*> (x Core..:? "MonitoringType")
-            Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
+            Prelude.<$> (x Core..:? "MonitoringType")
+            Prelude.<*> (x Core..:? "ScheduleConfig")
             Prelude.<*> (x Core..:? "MonitoringJobDefinition")
+            Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
       )
 
 instance Prelude.Hashable MonitoringScheduleConfig
@@ -103,13 +103,13 @@ instance Core.ToJSON MonitoringScheduleConfig where
   toJSON MonitoringScheduleConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScheduleConfig" Core..=)
-              Prelude.<$> scheduleConfig,
-            ("MonitoringType" Core..=)
+          [ ("MonitoringType" Core..=)
               Prelude.<$> monitoringType,
-            ("MonitoringJobDefinitionName" Core..=)
-              Prelude.<$> monitoringJobDefinitionName,
+            ("ScheduleConfig" Core..=)
+              Prelude.<$> scheduleConfig,
             ("MonitoringJobDefinition" Core..=)
-              Prelude.<$> monitoringJobDefinition
+              Prelude.<$> monitoringJobDefinition,
+            ("MonitoringJobDefinitionName" Core..=)
+              Prelude.<$> monitoringJobDefinitionName
           ]
       )

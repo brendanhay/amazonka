@@ -91,7 +91,7 @@ newBatchDetectSentiment pLanguageCode_ =
 -- a maximum of 25 documents. Each document must contain fewer that 5,000
 -- bytes of UTF-8 encoded characters.
 batchDetectSentiment_textList :: Lens.Lens' BatchDetectSentiment [Prelude.Text]
-batchDetectSentiment_textList = Lens.lens (\BatchDetectSentiment' {textList} -> textList) (\s@BatchDetectSentiment' {} a -> s {textList = a} :: BatchDetectSentiment) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+batchDetectSentiment_textList = Lens.lens (\BatchDetectSentiment' {textList} -> textList) (\s@BatchDetectSentiment' {} a -> s {textList = a} :: BatchDetectSentiment) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -204,13 +204,13 @@ batchDetectSentimentResponse_httpStatus = Lens.lens (\BatchDetectSentimentRespon
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectSentimentResponse_resultList :: Lens.Lens' BatchDetectSentimentResponse [BatchDetectSentimentItemResult]
-batchDetectSentimentResponse_resultList = Lens.lens (\BatchDetectSentimentResponse' {resultList} -> resultList) (\s@BatchDetectSentimentResponse' {} a -> s {resultList = a} :: BatchDetectSentimentResponse) Prelude.. Lens._Coerce
+batchDetectSentimentResponse_resultList = Lens.lens (\BatchDetectSentimentResponse' {resultList} -> resultList) (\s@BatchDetectSentimentResponse' {} a -> s {resultList = a} :: BatchDetectSentimentResponse) Prelude.. Lens.coerced
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectSentimentResponse_errorList :: Lens.Lens' BatchDetectSentimentResponse [BatchItemError]
-batchDetectSentimentResponse_errorList = Lens.lens (\BatchDetectSentimentResponse' {errorList} -> errorList) (\s@BatchDetectSentimentResponse' {} a -> s {errorList = a} :: BatchDetectSentimentResponse) Prelude.. Lens._Coerce
+batchDetectSentimentResponse_errorList = Lens.lens (\BatchDetectSentimentResponse' {errorList} -> errorList) (\s@BatchDetectSentimentResponse' {} a -> s {errorList = a} :: BatchDetectSentimentResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData BatchDetectSentimentResponse

@@ -30,10 +30,10 @@ module Network.AWS.WorkMail.GetMobileDeviceAccessEffect
     newGetMobileDeviceAccessEffect,
 
     -- * Request Lenses
-    getMobileDeviceAccessEffect_deviceModel,
-    getMobileDeviceAccessEffect_deviceUserAgent,
     getMobileDeviceAccessEffect_deviceOperatingSystem,
+    getMobileDeviceAccessEffect_deviceModel,
     getMobileDeviceAccessEffect_deviceType,
+    getMobileDeviceAccessEffect_deviceUserAgent,
     getMobileDeviceAccessEffect_organizationId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Network.AWS.WorkMail.GetMobileDeviceAccessEffect
     newGetMobileDeviceAccessEffectResponse,
 
     -- * Response Lenses
-    getMobileDeviceAccessEffectResponse_matchedRules,
     getMobileDeviceAccessEffectResponse_effect,
+    getMobileDeviceAccessEffectResponse_matchedRules,
     getMobileDeviceAccessEffectResponse_httpStatus,
   )
 where
@@ -56,14 +56,14 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'newGetMobileDeviceAccessEffect' smart constructor.
 data GetMobileDeviceAccessEffect = GetMobileDeviceAccessEffect'
-  { -- | Device model the simulated user will report.
-    deviceModel :: Prelude.Maybe Prelude.Text,
-    -- | Device user agent the simulated user will report.
-    deviceUserAgent :: Prelude.Maybe Prelude.Text,
-    -- | Device operating system the simulated user will report.
+  { -- | Device operating system the simulated user will report.
     deviceOperatingSystem :: Prelude.Maybe Prelude.Text,
+    -- | Device model the simulated user will report.
+    deviceModel :: Prelude.Maybe Prelude.Text,
     -- | Device type the simulated user will report.
     deviceType :: Prelude.Maybe Prelude.Text,
+    -- | Device user agent the simulated user will report.
+    deviceUserAgent :: Prelude.Maybe Prelude.Text,
     -- | The Amazon WorkMail organization to simulate the access effect for.
     organizationId :: Prelude.Text
   }
@@ -77,13 +77,13 @@ data GetMobileDeviceAccessEffect = GetMobileDeviceAccessEffect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceModel', 'getMobileDeviceAccessEffect_deviceModel' - Device model the simulated user will report.
---
--- 'deviceUserAgent', 'getMobileDeviceAccessEffect_deviceUserAgent' - Device user agent the simulated user will report.
---
 -- 'deviceOperatingSystem', 'getMobileDeviceAccessEffect_deviceOperatingSystem' - Device operating system the simulated user will report.
 --
+-- 'deviceModel', 'getMobileDeviceAccessEffect_deviceModel' - Device model the simulated user will report.
+--
 -- 'deviceType', 'getMobileDeviceAccessEffect_deviceType' - Device type the simulated user will report.
+--
+-- 'deviceUserAgent', 'getMobileDeviceAccessEffect_deviceUserAgent' - Device user agent the simulated user will report.
 --
 -- 'organizationId', 'getMobileDeviceAccessEffect_organizationId' - The Amazon WorkMail organization to simulate the access effect for.
 newGetMobileDeviceAccessEffect ::
@@ -92,29 +92,29 @@ newGetMobileDeviceAccessEffect ::
   GetMobileDeviceAccessEffect
 newGetMobileDeviceAccessEffect pOrganizationId_ =
   GetMobileDeviceAccessEffect'
-    { deviceModel =
+    { deviceOperatingSystem =
         Prelude.Nothing,
-      deviceUserAgent = Prelude.Nothing,
-      deviceOperatingSystem = Prelude.Nothing,
+      deviceModel = Prelude.Nothing,
       deviceType = Prelude.Nothing,
+      deviceUserAgent = Prelude.Nothing,
       organizationId = pOrganizationId_
     }
-
--- | Device model the simulated user will report.
-getMobileDeviceAccessEffect_deviceModel :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
-getMobileDeviceAccessEffect_deviceModel = Lens.lens (\GetMobileDeviceAccessEffect' {deviceModel} -> deviceModel) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceModel = a} :: GetMobileDeviceAccessEffect)
-
--- | Device user agent the simulated user will report.
-getMobileDeviceAccessEffect_deviceUserAgent :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
-getMobileDeviceAccessEffect_deviceUserAgent = Lens.lens (\GetMobileDeviceAccessEffect' {deviceUserAgent} -> deviceUserAgent) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceUserAgent = a} :: GetMobileDeviceAccessEffect)
 
 -- | Device operating system the simulated user will report.
 getMobileDeviceAccessEffect_deviceOperatingSystem :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
 getMobileDeviceAccessEffect_deviceOperatingSystem = Lens.lens (\GetMobileDeviceAccessEffect' {deviceOperatingSystem} -> deviceOperatingSystem) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceOperatingSystem = a} :: GetMobileDeviceAccessEffect)
 
+-- | Device model the simulated user will report.
+getMobileDeviceAccessEffect_deviceModel :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
+getMobileDeviceAccessEffect_deviceModel = Lens.lens (\GetMobileDeviceAccessEffect' {deviceModel} -> deviceModel) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceModel = a} :: GetMobileDeviceAccessEffect)
+
 -- | Device type the simulated user will report.
 getMobileDeviceAccessEffect_deviceType :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
 getMobileDeviceAccessEffect_deviceType = Lens.lens (\GetMobileDeviceAccessEffect' {deviceType} -> deviceType) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceType = a} :: GetMobileDeviceAccessEffect)
+
+-- | Device user agent the simulated user will report.
+getMobileDeviceAccessEffect_deviceUserAgent :: Lens.Lens' GetMobileDeviceAccessEffect (Prelude.Maybe Prelude.Text)
+getMobileDeviceAccessEffect_deviceUserAgent = Lens.lens (\GetMobileDeviceAccessEffect' {deviceUserAgent} -> deviceUserAgent) (\s@GetMobileDeviceAccessEffect' {} a -> s {deviceUserAgent = a} :: GetMobileDeviceAccessEffect)
 
 -- | The Amazon WorkMail organization to simulate the access effect for.
 getMobileDeviceAccessEffect_organizationId :: Lens.Lens' GetMobileDeviceAccessEffect Prelude.Text
@@ -129,8 +129,8 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
     Response.receiveJSON
       ( \s h x ->
           GetMobileDeviceAccessEffectResponse'
-            Prelude.<$> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Effect")
+            Prelude.<$> (x Core..?> "Effect")
+            Prelude.<*> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,12 +157,12 @@ instance Core.ToJSON GetMobileDeviceAccessEffect where
   toJSON GetMobileDeviceAccessEffect' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DeviceModel" Core..=) Prelude.<$> deviceModel,
+          [ ("DeviceOperatingSystem" Core..=)
+              Prelude.<$> deviceOperatingSystem,
+            ("DeviceModel" Core..=) Prelude.<$> deviceModel,
+            ("DeviceType" Core..=) Prelude.<$> deviceType,
             ("DeviceUserAgent" Core..=)
               Prelude.<$> deviceUserAgent,
-            ("DeviceOperatingSystem" Core..=)
-              Prelude.<$> deviceOperatingSystem,
-            ("DeviceType" Core..=) Prelude.<$> deviceType,
             Prelude.Just
               ("OrganizationId" Core..= organizationId)
           ]
@@ -176,13 +176,13 @@ instance Core.ToQuery GetMobileDeviceAccessEffect where
 
 -- | /See:/ 'newGetMobileDeviceAccessEffectResponse' smart constructor.
 data GetMobileDeviceAccessEffectResponse = GetMobileDeviceAccessEffectResponse'
-  { -- | A list of the rules which matched the simulated user input and produced
-    -- the effect.
-    matchedRules :: Prelude.Maybe [MobileDeviceAccessMatchedRule],
-    -- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating
+  { -- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating
     -- mobile device access rules in the Amazon WorkMail organization for the
     -- simulated user parameters.
     effect :: Prelude.Maybe MobileDeviceAccessRuleEffect,
+    -- | A list of the rules which matched the simulated user input and produced
+    -- the effect.
+    matchedRules :: Prelude.Maybe [MobileDeviceAccessMatchedRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -196,12 +196,12 @@ data GetMobileDeviceAccessEffectResponse = GetMobileDeviceAccessEffectResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'matchedRules', 'getMobileDeviceAccessEffectResponse_matchedRules' - A list of the rules which matched the simulated user input and produced
--- the effect.
---
 -- 'effect', 'getMobileDeviceAccessEffectResponse_effect' - The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating
 -- mobile device access rules in the Amazon WorkMail organization for the
 -- simulated user parameters.
+--
+-- 'matchedRules', 'getMobileDeviceAccessEffectResponse_matchedRules' - A list of the rules which matched the simulated user input and produced
+-- the effect.
 --
 -- 'httpStatus', 'getMobileDeviceAccessEffectResponse_httpStatus' - The response's http status code.
 newGetMobileDeviceAccessEffectResponse ::
@@ -210,22 +210,22 @@ newGetMobileDeviceAccessEffectResponse ::
   GetMobileDeviceAccessEffectResponse
 newGetMobileDeviceAccessEffectResponse pHttpStatus_ =
   GetMobileDeviceAccessEffectResponse'
-    { matchedRules =
+    { effect =
         Prelude.Nothing,
-      effect = Prelude.Nothing,
+      matchedRules = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of the rules which matched the simulated user input and produced
--- the effect.
-getMobileDeviceAccessEffectResponse_matchedRules :: Lens.Lens' GetMobileDeviceAccessEffectResponse (Prelude.Maybe [MobileDeviceAccessMatchedRule])
-getMobileDeviceAccessEffectResponse_matchedRules = Lens.lens (\GetMobileDeviceAccessEffectResponse' {matchedRules} -> matchedRules) (\s@GetMobileDeviceAccessEffectResponse' {} a -> s {matchedRules = a} :: GetMobileDeviceAccessEffectResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The effect of the simulated access, @ALLOW@ or @DENY@, after evaluating
 -- mobile device access rules in the Amazon WorkMail organization for the
 -- simulated user parameters.
 getMobileDeviceAccessEffectResponse_effect :: Lens.Lens' GetMobileDeviceAccessEffectResponse (Prelude.Maybe MobileDeviceAccessRuleEffect)
 getMobileDeviceAccessEffectResponse_effect = Lens.lens (\GetMobileDeviceAccessEffectResponse' {effect} -> effect) (\s@GetMobileDeviceAccessEffectResponse' {} a -> s {effect = a} :: GetMobileDeviceAccessEffectResponse)
+
+-- | A list of the rules which matched the simulated user input and produced
+-- the effect.
+getMobileDeviceAccessEffectResponse_matchedRules :: Lens.Lens' GetMobileDeviceAccessEffectResponse (Prelude.Maybe [MobileDeviceAccessMatchedRule])
+getMobileDeviceAccessEffectResponse_matchedRules = Lens.lens (\GetMobileDeviceAccessEffectResponse' {matchedRules} -> matchedRules) (\s@GetMobileDeviceAccessEffectResponse' {} a -> s {matchedRules = a} :: GetMobileDeviceAccessEffectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getMobileDeviceAccessEffectResponse_httpStatus :: Lens.Lens' GetMobileDeviceAccessEffectResponse Prelude.Int

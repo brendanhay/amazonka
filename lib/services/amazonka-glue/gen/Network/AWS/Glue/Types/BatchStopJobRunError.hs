@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchStopJobRunError' smart constructor.
 data BatchStopJobRunError = BatchStopJobRunError'
-  { -- | Specifies details about the error that was encountered.
-    errorDetail :: Prelude.Maybe ErrorDetail,
+  { -- | The name of the job definition that is used in the job run in question.
+    jobName :: Prelude.Maybe Prelude.Text,
     -- | The @JobRunId@ of the job run in question.
     jobRunId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the job definition that is used in the job run in question.
-    jobName :: Prelude.Maybe Prelude.Text
+    -- | Specifies details about the error that was encountered.
+    errorDetail :: Prelude.Maybe ErrorDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,32 +46,31 @@ data BatchStopJobRunError = BatchStopJobRunError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorDetail', 'batchStopJobRunError_errorDetail' - Specifies details about the error that was encountered.
+-- 'jobName', 'batchStopJobRunError_jobName' - The name of the job definition that is used in the job run in question.
 --
 -- 'jobRunId', 'batchStopJobRunError_jobRunId' - The @JobRunId@ of the job run in question.
 --
--- 'jobName', 'batchStopJobRunError_jobName' - The name of the job definition that is used in the job run in question.
+-- 'errorDetail', 'batchStopJobRunError_errorDetail' - Specifies details about the error that was encountered.
 newBatchStopJobRunError ::
   BatchStopJobRunError
 newBatchStopJobRunError =
   BatchStopJobRunError'
-    { errorDetail =
-        Prelude.Nothing,
+    { jobName = Prelude.Nothing,
       jobRunId = Prelude.Nothing,
-      jobName = Prelude.Nothing
+      errorDetail = Prelude.Nothing
     }
 
--- | Specifies details about the error that was encountered.
-batchStopJobRunError_errorDetail :: Lens.Lens' BatchStopJobRunError (Prelude.Maybe ErrorDetail)
-batchStopJobRunError_errorDetail = Lens.lens (\BatchStopJobRunError' {errorDetail} -> errorDetail) (\s@BatchStopJobRunError' {} a -> s {errorDetail = a} :: BatchStopJobRunError)
+-- | The name of the job definition that is used in the job run in question.
+batchStopJobRunError_jobName :: Lens.Lens' BatchStopJobRunError (Prelude.Maybe Prelude.Text)
+batchStopJobRunError_jobName = Lens.lens (\BatchStopJobRunError' {jobName} -> jobName) (\s@BatchStopJobRunError' {} a -> s {jobName = a} :: BatchStopJobRunError)
 
 -- | The @JobRunId@ of the job run in question.
 batchStopJobRunError_jobRunId :: Lens.Lens' BatchStopJobRunError (Prelude.Maybe Prelude.Text)
 batchStopJobRunError_jobRunId = Lens.lens (\BatchStopJobRunError' {jobRunId} -> jobRunId) (\s@BatchStopJobRunError' {} a -> s {jobRunId = a} :: BatchStopJobRunError)
 
--- | The name of the job definition that is used in the job run in question.
-batchStopJobRunError_jobName :: Lens.Lens' BatchStopJobRunError (Prelude.Maybe Prelude.Text)
-batchStopJobRunError_jobName = Lens.lens (\BatchStopJobRunError' {jobName} -> jobName) (\s@BatchStopJobRunError' {} a -> s {jobName = a} :: BatchStopJobRunError)
+-- | Specifies details about the error that was encountered.
+batchStopJobRunError_errorDetail :: Lens.Lens' BatchStopJobRunError (Prelude.Maybe ErrorDetail)
+batchStopJobRunError_errorDetail = Lens.lens (\BatchStopJobRunError' {errorDetail} -> errorDetail) (\s@BatchStopJobRunError' {} a -> s {errorDetail = a} :: BatchStopJobRunError)
 
 instance Core.FromJSON BatchStopJobRunError where
   parseJSON =
@@ -79,9 +78,9 @@ instance Core.FromJSON BatchStopJobRunError where
       "BatchStopJobRunError"
       ( \x ->
           BatchStopJobRunError'
-            Prelude.<$> (x Core..:? "ErrorDetail")
+            Prelude.<$> (x Core..:? "JobName")
             Prelude.<*> (x Core..:? "JobRunId")
-            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
 instance Prelude.Hashable BatchStopJobRunError

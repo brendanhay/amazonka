@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMitigationAction' smart constructor.
 data MitigationAction = MitigationAction'
-  { -- | The IAM role ARN used to apply this mitigation action.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the mitigation action.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The set of parameters for this mitigation action. The parameters vary,
+  { -- | The set of parameters for this mitigation action. The parameters vary,
     -- depending on the kind of action you apply.
     actionParams :: Prelude.Maybe MitigationActionParams,
     -- | A user-friendly name for the mitigation action.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the mitigation action.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The IAM role ARN used to apply this mitigation action.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,31 +49,23 @@ data MitigationAction = MitigationAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'mitigationAction_roleArn' - The IAM role ARN used to apply this mitigation action.
---
--- 'id', 'mitigationAction_id' - A unique identifier for the mitigation action.
---
 -- 'actionParams', 'mitigationAction_actionParams' - The set of parameters for this mitigation action. The parameters vary,
 -- depending on the kind of action you apply.
 --
 -- 'name', 'mitigationAction_name' - A user-friendly name for the mitigation action.
+--
+-- 'id', 'mitigationAction_id' - A unique identifier for the mitigation action.
+--
+-- 'roleArn', 'mitigationAction_roleArn' - The IAM role ARN used to apply this mitigation action.
 newMitigationAction ::
   MitigationAction
 newMitigationAction =
   MitigationAction'
-    { roleArn = Prelude.Nothing,
+    { actionParams = Prelude.Nothing,
+      name = Prelude.Nothing,
       id = Prelude.Nothing,
-      actionParams = Prelude.Nothing,
-      name = Prelude.Nothing
+      roleArn = Prelude.Nothing
     }
-
--- | The IAM role ARN used to apply this mitigation action.
-mitigationAction_roleArn :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
-mitigationAction_roleArn = Lens.lens (\MitigationAction' {roleArn} -> roleArn) (\s@MitigationAction' {} a -> s {roleArn = a} :: MitigationAction)
-
--- | A unique identifier for the mitigation action.
-mitigationAction_id :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
-mitigationAction_id = Lens.lens (\MitigationAction' {id} -> id) (\s@MitigationAction' {} a -> s {id = a} :: MitigationAction)
 
 -- | The set of parameters for this mitigation action. The parameters vary,
 -- depending on the kind of action you apply.
@@ -84,16 +76,24 @@ mitigationAction_actionParams = Lens.lens (\MitigationAction' {actionParams} -> 
 mitigationAction_name :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
 mitigationAction_name = Lens.lens (\MitigationAction' {name} -> name) (\s@MitigationAction' {} a -> s {name = a} :: MitigationAction)
 
+-- | A unique identifier for the mitigation action.
+mitigationAction_id :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
+mitigationAction_id = Lens.lens (\MitigationAction' {id} -> id) (\s@MitigationAction' {} a -> s {id = a} :: MitigationAction)
+
+-- | The IAM role ARN used to apply this mitigation action.
+mitigationAction_roleArn :: Lens.Lens' MitigationAction (Prelude.Maybe Prelude.Text)
+mitigationAction_roleArn = Lens.lens (\MitigationAction' {roleArn} -> roleArn) (\s@MitigationAction' {} a -> s {roleArn = a} :: MitigationAction)
+
 instance Core.FromJSON MitigationAction where
   parseJSON =
     Core.withObject
       "MitigationAction"
       ( \x ->
           MitigationAction'
-            Prelude.<$> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "actionParams")
+            Prelude.<$> (x Core..:? "actionParams")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "roleArn")
       )
 
 instance Prelude.Hashable MitigationAction

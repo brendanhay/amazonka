@@ -40,6 +40,8 @@ data Instance = Instance'
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | A unique identifier for the instance.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Current status of the instance. Possible statuses include the following:
     --
     -- -   __PENDING__ -- The instance is in the process of being created and
@@ -55,18 +57,23 @@ data Instance = Instance'
     --     This may happen to reduce capacity during a scaling down event or to
     --     recycle resources in the event of a problem.
     status :: Prelude.Maybe InstanceStatus,
-    -- | A unique identifier for the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the fleet that the instance is in.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | IP address that is assigned to the instance.
+    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | The fleet location of the instance, expressed as an AWS Region code,
+    -- such as @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | Operating system that is running on this instance.
+    operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift fleet resource and uniquely identifies
     -- it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
-    -- | IP address that is assigned to the instance.
-    ipAddress :: Prelude.Maybe Prelude.Text,
+    -- | EC2 instance type that defines the computing resources of this instance.
+    type' :: Prelude.Maybe EC2InstanceType,
+    -- | A unique identifier for the fleet that the instance is in.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
@@ -79,14 +86,7 @@ data Instance = Instance'
     --
     -- When connecting to a game session that is running on a TLS-enabled
     -- fleet, you must use the DNS name, not the IP address.
-    dnsName :: Prelude.Maybe Prelude.Text,
-    -- | Operating system that is running on this instance.
-    operatingSystem :: Prelude.Maybe OperatingSystem,
-    -- | EC2 instance type that defines the computing resources of this instance.
-    type' :: Prelude.Maybe EC2InstanceType,
-    -- | The fleet location of the instance, expressed as an AWS Region code,
-    -- such as @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text
+    dnsName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,6 +101,8 @@ data Instance = Instance'
 -- 'creationTime', 'instance_creationTime' - A time stamp indicating when this data object was created. Format is a
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
+--
+-- 'instanceId', 'instance_instanceId' - A unique identifier for the instance.
 --
 -- 'status', 'instance_status' - Current status of the instance. Possible statuses include the following:
 --
@@ -117,9 +119,12 @@ data Instance = Instance'
 --     This may happen to reduce capacity during a scaling down event or to
 --     recycle resources in the event of a problem.
 --
--- 'instanceId', 'instance_instanceId' - A unique identifier for the instance.
+-- 'ipAddress', 'instance_ipAddress' - IP address that is assigned to the instance.
 --
--- 'fleetId', 'instance_fleetId' - A unique identifier for the fleet that the instance is in.
+-- 'location', 'instance_location' - The fleet location of the instance, expressed as an AWS Region code,
+-- such as @us-west-2@.
+--
+-- 'operatingSystem', 'instance_operatingSystem' - Operating system that is running on this instance.
 --
 -- 'fleetArn', 'instance_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -127,7 +132,9 @@ data Instance = Instance'
 -- it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
--- 'ipAddress', 'instance_ipAddress' - IP address that is assigned to the instance.
+-- 'type'', 'instance_type' - EC2 instance type that defines the computing resources of this instance.
+--
+-- 'fleetId', 'instance_fleetId' - A unique identifier for the fleet that the instance is in.
 --
 -- 'dnsName', 'instance_dnsName' - The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
@@ -141,27 +148,20 @@ data Instance = Instance'
 --
 -- When connecting to a game session that is running on a TLS-enabled
 -- fleet, you must use the DNS name, not the IP address.
---
--- 'operatingSystem', 'instance_operatingSystem' - Operating system that is running on this instance.
---
--- 'type'', 'instance_type' - EC2 instance type that defines the computing resources of this instance.
---
--- 'location', 'instance_location' - The fleet location of the instance, expressed as an AWS Region code,
--- such as @us-west-2@.
 newInstance ::
   Instance
 newInstance =
   Instance'
     { creationTime = Prelude.Nothing,
-      status = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      fleetId = Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
+      status = Prelude.Nothing,
       ipAddress = Prelude.Nothing,
-      dnsName = Prelude.Nothing,
+      location = Prelude.Nothing,
       operatingSystem = Prelude.Nothing,
+      fleetArn = Prelude.Nothing,
       type' = Prelude.Nothing,
-      location = Prelude.Nothing
+      fleetId = Prelude.Nothing,
+      dnsName = Prelude.Nothing
     }
 
 -- | A time stamp indicating when this data object was created. Format is a
@@ -169,6 +169,10 @@ newInstance =
 -- @\"1469498468.057\"@).
 instance_creationTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
 instance_creationTime = Lens.lens (\Instance' {creationTime} -> creationTime) (\s@Instance' {} a -> s {creationTime = a} :: Instance) Prelude.. Lens.mapping Core._Time
+
+-- | A unique identifier for the instance.
+instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
 
 -- | Current status of the instance. Possible statuses include the following:
 --
@@ -187,13 +191,18 @@ instance_creationTime = Lens.lens (\Instance' {creationTime} -> creationTime) (\
 instance_status :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
 instance_status = Lens.lens (\Instance' {status} -> status) (\s@Instance' {} a -> s {status = a} :: Instance)
 
--- | A unique identifier for the instance.
-instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
+-- | IP address that is assigned to the instance.
+instance_ipAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_ipAddress = Lens.lens (\Instance' {ipAddress} -> ipAddress) (\s@Instance' {} a -> s {ipAddress = a} :: Instance)
 
--- | A unique identifier for the fleet that the instance is in.
-instance_fleetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_fleetId = Lens.lens (\Instance' {fleetId} -> fleetId) (\s@Instance' {} a -> s {fleetId = a} :: Instance)
+-- | The fleet location of the instance, expressed as an AWS Region code,
+-- such as @us-west-2@.
+instance_location :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_location = Lens.lens (\Instance' {location} -> location) (\s@Instance' {} a -> s {location = a} :: Instance)
+
+-- | Operating system that is running on this instance.
+instance_operatingSystem :: Lens.Lens' Instance (Prelude.Maybe OperatingSystem)
+instance_operatingSystem = Lens.lens (\Instance' {operatingSystem} -> operatingSystem) (\s@Instance' {} a -> s {operatingSystem = a} :: Instance)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -203,9 +212,13 @@ instance_fleetId = Lens.lens (\Instance' {fleetId} -> fleetId) (\s@Instance' {} 
 instance_fleetArn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_fleetArn = Lens.lens (\Instance' {fleetArn} -> fleetArn) (\s@Instance' {} a -> s {fleetArn = a} :: Instance)
 
--- | IP address that is assigned to the instance.
-instance_ipAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_ipAddress = Lens.lens (\Instance' {ipAddress} -> ipAddress) (\s@Instance' {} a -> s {ipAddress = a} :: Instance)
+-- | EC2 instance type that defines the computing resources of this instance.
+instance_type :: Lens.Lens' Instance (Prelude.Maybe EC2InstanceType)
+instance_type = Lens.lens (\Instance' {type'} -> type') (\s@Instance' {} a -> s {type' = a} :: Instance)
+
+-- | A unique identifier for the fleet that the instance is in.
+instance_fleetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_fleetId = Lens.lens (\Instance' {fleetId} -> fleetId) (\s@Instance' {} a -> s {fleetId = a} :: Instance)
 
 -- | The DNS identifier assigned to the instance that is running the game
 -- session. Values have the following format:
@@ -222,19 +235,6 @@ instance_ipAddress = Lens.lens (\Instance' {ipAddress} -> ipAddress) (\s@Instanc
 instance_dnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_dnsName = Lens.lens (\Instance' {dnsName} -> dnsName) (\s@Instance' {} a -> s {dnsName = a} :: Instance)
 
--- | Operating system that is running on this instance.
-instance_operatingSystem :: Lens.Lens' Instance (Prelude.Maybe OperatingSystem)
-instance_operatingSystem = Lens.lens (\Instance' {operatingSystem} -> operatingSystem) (\s@Instance' {} a -> s {operatingSystem = a} :: Instance)
-
--- | EC2 instance type that defines the computing resources of this instance.
-instance_type :: Lens.Lens' Instance (Prelude.Maybe EC2InstanceType)
-instance_type = Lens.lens (\Instance' {type'} -> type') (\s@Instance' {} a -> s {type' = a} :: Instance)
-
--- | The fleet location of the instance, expressed as an AWS Region code,
--- such as @us-west-2@.
-instance_location :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_location = Lens.lens (\Instance' {location} -> location) (\s@Instance' {} a -> s {location = a} :: Instance)
-
 instance Core.FromJSON Instance where
   parseJSON =
     Core.withObject
@@ -242,15 +242,15 @@ instance Core.FromJSON Instance where
       ( \x ->
           Instance'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "FleetArn")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "IpAddress")
-            Prelude.<*> (x Core..:? "DnsName")
-            Prelude.<*> (x Core..:? "OperatingSystem")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "Location")
+            Prelude.<*> (x Core..:? "OperatingSystem")
+            Prelude.<*> (x Core..:? "FleetArn")
+            Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "DnsName")
       )
 
 instance Prelude.Hashable Instance

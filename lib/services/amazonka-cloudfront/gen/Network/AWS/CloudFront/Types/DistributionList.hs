@@ -101,7 +101,7 @@ newDistributionList
 -- | A complex type that contains one @DistributionSummary@ element for each
 -- distribution that was created by the current account.
 distributionList_items :: Lens.Lens' DistributionList (Prelude.Maybe [DistributionSummary])
-distributionList_items = Lens.lens (\DistributionList' {items} -> items) (\s@DistributionList' {} a -> s {items = a} :: DistributionList) Prelude.. Lens.mapping Lens._Coerce
+distributionList_items = Lens.lens (\DistributionList' {items} -> items) (\s@DistributionList' {} a -> s {items = a} :: DistributionList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing

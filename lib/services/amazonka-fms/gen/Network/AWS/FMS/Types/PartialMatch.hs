@@ -59,7 +59,7 @@ newPartialMatch =
 
 -- | The violation reason.
 partialMatch_targetViolationReasons :: Lens.Lens' PartialMatch (Prelude.Maybe [Prelude.Text])
-partialMatch_targetViolationReasons = Lens.lens (\PartialMatch' {targetViolationReasons} -> targetViolationReasons) (\s@PartialMatch' {} a -> s {targetViolationReasons = a} :: PartialMatch) Prelude.. Lens.mapping Lens._Coerce
+partialMatch_targetViolationReasons = Lens.lens (\PartialMatch' {targetViolationReasons} -> targetViolationReasons) (\s@PartialMatch' {} a -> s {targetViolationReasons = a} :: PartialMatch) Prelude.. Lens.mapping Lens.coerced
 
 -- | The reference rule from the primary security group of the Firewall
 -- Manager policy.

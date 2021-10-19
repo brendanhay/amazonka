@@ -45,8 +45,8 @@ module Network.AWS.SNS.ListPhoneNumbersOptedOut
     newListPhoneNumbersOptedOutResponse,
 
     -- * Response Lenses
-    listPhoneNumbersOptedOutResponse_nextToken,
     listPhoneNumbersOptedOutResponse_phoneNumbers,
+    listPhoneNumbersOptedOutResponse_nextToken,
     listPhoneNumbersOptedOutResponse_httpStatus,
   )
 where
@@ -126,10 +126,10 @@ instance Core.AWSRequest ListPhoneNumbersOptedOut where
       "ListPhoneNumbersOptedOutResult"
       ( \s h x ->
           ListPhoneNumbersOptedOutResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "phoneNumbers" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "phoneNumbers" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,14 +157,14 @@ instance Core.ToQuery ListPhoneNumbersOptedOut where
 --
 -- /See:/ 'newListPhoneNumbersOptedOutResponse' smart constructor.
 data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
-  { -- | A @NextToken@ string is returned when you call the
-    -- @ListPhoneNumbersOptedOut@ action if additional records are available
-    -- after the first page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of phone numbers that are opted out of receiving SMS messages.
+  { -- | A list of phone numbers that are opted out of receiving SMS messages.
     -- The list is paginated, and each page can contain up to 100 phone
     -- numbers.
     phoneNumbers :: Prelude.Maybe [Prelude.Text],
+    -- | A @NextToken@ string is returned when you call the
+    -- @ListPhoneNumbersOptedOut@ action if additional records are available
+    -- after the first page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,13 +178,13 @@ data ListPhoneNumbersOptedOutResponse = ListPhoneNumbersOptedOutResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPhoneNumbersOptedOutResponse_nextToken' - A @NextToken@ string is returned when you call the
--- @ListPhoneNumbersOptedOut@ action if additional records are available
--- after the first page of results.
---
 -- 'phoneNumbers', 'listPhoneNumbersOptedOutResponse_phoneNumbers' - A list of phone numbers that are opted out of receiving SMS messages.
 -- The list is paginated, and each page can contain up to 100 phone
 -- numbers.
+--
+-- 'nextToken', 'listPhoneNumbersOptedOutResponse_nextToken' - A @NextToken@ string is returned when you call the
+-- @ListPhoneNumbersOptedOut@ action if additional records are available
+-- after the first page of results.
 --
 -- 'httpStatus', 'listPhoneNumbersOptedOutResponse_httpStatus' - The response's http status code.
 newListPhoneNumbersOptedOutResponse ::
@@ -193,23 +193,23 @@ newListPhoneNumbersOptedOutResponse ::
   ListPhoneNumbersOptedOutResponse
 newListPhoneNumbersOptedOutResponse pHttpStatus_ =
   ListPhoneNumbersOptedOutResponse'
-    { nextToken =
+    { phoneNumbers =
         Prelude.Nothing,
-      phoneNumbers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of phone numbers that are opted out of receiving SMS messages.
+-- The list is paginated, and each page can contain up to 100 phone
+-- numbers.
+listPhoneNumbersOptedOutResponse_phoneNumbers :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Prelude.Maybe [Prelude.Text])
+listPhoneNumbersOptedOutResponse_phoneNumbers = Lens.lens (\ListPhoneNumbersOptedOutResponse' {phoneNumbers} -> phoneNumbers) (\s@ListPhoneNumbersOptedOutResponse' {} a -> s {phoneNumbers = a} :: ListPhoneNumbersOptedOutResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @NextToken@ string is returned when you call the
 -- @ListPhoneNumbersOptedOut@ action if additional records are available
 -- after the first page of results.
 listPhoneNumbersOptedOutResponse_nextToken :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Prelude.Maybe Prelude.Text)
 listPhoneNumbersOptedOutResponse_nextToken = Lens.lens (\ListPhoneNumbersOptedOutResponse' {nextToken} -> nextToken) (\s@ListPhoneNumbersOptedOutResponse' {} a -> s {nextToken = a} :: ListPhoneNumbersOptedOutResponse)
-
--- | A list of phone numbers that are opted out of receiving SMS messages.
--- The list is paginated, and each page can contain up to 100 phone
--- numbers.
-listPhoneNumbersOptedOutResponse_phoneNumbers :: Lens.Lens' ListPhoneNumbersOptedOutResponse (Prelude.Maybe [Prelude.Text])
-listPhoneNumbersOptedOutResponse_phoneNumbers = Lens.lens (\ListPhoneNumbersOptedOutResponse' {phoneNumbers} -> phoneNumbers) (\s@ListPhoneNumbersOptedOutResponse' {} a -> s {phoneNumbers = a} :: ListPhoneNumbersOptedOutResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listPhoneNumbersOptedOutResponse_httpStatus :: Lens.Lens' ListPhoneNumbersOptedOutResponse Prelude.Int

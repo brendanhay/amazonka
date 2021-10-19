@@ -34,8 +34,8 @@ module Network.AWS.Config.PutRemediationExceptions
     newPutRemediationExceptions,
 
     -- * Request Lenses
-    putRemediationExceptions_expirationTime,
     putRemediationExceptions_message,
+    putRemediationExceptions_expirationTime,
     putRemediationExceptions_configRuleName,
     putRemediationExceptions_resourceKeys,
 
@@ -58,10 +58,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutRemediationExceptions' smart constructor.
 data PutRemediationExceptions = PutRemediationExceptions'
-  { -- | The exception is automatically deleted after the expiration date.
-    expirationTime :: Prelude.Maybe Core.POSIX,
-    -- | The message contains an explanation of the exception.
+  { -- | The message contains an explanation of the exception.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The exception is automatically deleted after the expiration date.
+    expirationTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the Config rule for which you want to create remediation
     -- exception.
     configRuleName :: Prelude.Text,
@@ -80,9 +80,9 @@ data PutRemediationExceptions = PutRemediationExceptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expirationTime', 'putRemediationExceptions_expirationTime' - The exception is automatically deleted after the expiration date.
---
 -- 'message', 'putRemediationExceptions_message' - The message contains an explanation of the exception.
+--
+-- 'expirationTime', 'putRemediationExceptions_expirationTime' - The exception is automatically deleted after the expiration date.
 --
 -- 'configRuleName', 'putRemediationExceptions_configRuleName' - The name of the Config rule for which you want to create remediation
 -- exception.
@@ -100,20 +100,20 @@ newPutRemediationExceptions
   pConfigRuleName_
   pResourceKeys_ =
     PutRemediationExceptions'
-      { expirationTime =
+      { message =
           Prelude.Nothing,
-        message = Prelude.Nothing,
+        expirationTime = Prelude.Nothing,
         configRuleName = pConfigRuleName_,
-        resourceKeys = Lens._Coerce Lens.# pResourceKeys_
+        resourceKeys = Lens.coerced Lens.# pResourceKeys_
       }
-
--- | The exception is automatically deleted after the expiration date.
-putRemediationExceptions_expirationTime :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.UTCTime)
-putRemediationExceptions_expirationTime = Lens.lens (\PutRemediationExceptions' {expirationTime} -> expirationTime) (\s@PutRemediationExceptions' {} a -> s {expirationTime = a} :: PutRemediationExceptions) Prelude.. Lens.mapping Core._Time
 
 -- | The message contains an explanation of the exception.
 putRemediationExceptions_message :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.Text)
 putRemediationExceptions_message = Lens.lens (\PutRemediationExceptions' {message} -> message) (\s@PutRemediationExceptions' {} a -> s {message = a} :: PutRemediationExceptions)
+
+-- | The exception is automatically deleted after the expiration date.
+putRemediationExceptions_expirationTime :: Lens.Lens' PutRemediationExceptions (Prelude.Maybe Prelude.UTCTime)
+putRemediationExceptions_expirationTime = Lens.lens (\PutRemediationExceptions' {expirationTime} -> expirationTime) (\s@PutRemediationExceptions' {} a -> s {expirationTime = a} :: PutRemediationExceptions) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the Config rule for which you want to create remediation
 -- exception.
@@ -124,7 +124,7 @@ putRemediationExceptions_configRuleName = Lens.lens (\PutRemediationExceptions' 
 -- current request. Config adds exception for each resource key. For
 -- example, Config adds 3 exceptions for 3 resource keys.
 putRemediationExceptions_resourceKeys :: Lens.Lens' PutRemediationExceptions (Prelude.NonEmpty RemediationExceptionResourceKey)
-putRemediationExceptions_resourceKeys = Lens.lens (\PutRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@PutRemediationExceptions' {} a -> s {resourceKeys = a} :: PutRemediationExceptions) Prelude.. Lens._Coerce
+putRemediationExceptions_resourceKeys = Lens.lens (\PutRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@PutRemediationExceptions' {} a -> s {resourceKeys = a} :: PutRemediationExceptions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutRemediationExceptions where
   type
@@ -162,9 +162,9 @@ instance Core.ToJSON PutRemediationExceptions where
   toJSON PutRemediationExceptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpirationTime" Core..=)
+          [ ("Message" Core..=) Prelude.<$> message,
+            ("ExpirationTime" Core..=)
               Prelude.<$> expirationTime,
-            ("Message" Core..=) Prelude.<$> message,
             Prelude.Just
               ("ConfigRuleName" Core..= configRuleName),
             Prelude.Just ("ResourceKeys" Core..= resourceKeys)
@@ -216,7 +216,7 @@ newPutRemediationExceptionsResponse pHttpStatus_ =
 -- object in the batch consists of a list of failed items and failure
 -- messages.
 putRemediationExceptionsResponse_failedBatches :: Lens.Lens' PutRemediationExceptionsResponse (Prelude.Maybe [FailedRemediationExceptionBatch])
-putRemediationExceptionsResponse_failedBatches = Lens.lens (\PutRemediationExceptionsResponse' {failedBatches} -> failedBatches) (\s@PutRemediationExceptionsResponse' {} a -> s {failedBatches = a} :: PutRemediationExceptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+putRemediationExceptionsResponse_failedBatches = Lens.lens (\PutRemediationExceptionsResponse' {failedBatches} -> failedBatches) (\s@PutRemediationExceptionsResponse' {} a -> s {failedBatches = a} :: PutRemediationExceptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putRemediationExceptionsResponse_httpStatus :: Lens.Lens' PutRemediationExceptionsResponse Prelude.Int

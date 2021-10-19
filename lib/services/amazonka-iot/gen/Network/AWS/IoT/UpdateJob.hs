@@ -32,11 +32,11 @@ module Network.AWS.IoT.UpdateJob
 
     -- * Request Lenses
     updateJob_jobExecutionsRolloutConfig,
-    updateJob_timeoutConfig,
+    updateJob_abortConfig,
     updateJob_namespaceId,
     updateJob_presignedUrlConfig,
     updateJob_description,
-    updateJob_abortConfig,
+    updateJob_timeoutConfig,
     updateJob_jobId,
 
     -- * Destructuring the Response
@@ -56,12 +56,8 @@ import qualified Network.AWS.Response as Response
 data UpdateJob = UpdateJob'
   { -- | Allows you to create a staged rollout of the job.
     jobExecutionsRolloutConfig :: Prelude.Maybe JobExecutionsRolloutConfig,
-    -- | Specifies the amount of time each device has to finish its execution of
-    -- the job. The timer is started when the job execution status is set to
-    -- @IN_PROGRESS@. If the job execution status is not set to another
-    -- terminal state before the time expires, it will be automatically set to
-    -- @TIMED_OUT@.
-    timeoutConfig :: Prelude.Maybe TimeoutConfig,
+    -- | Allows you to create criteria to abort a job.
+    abortConfig :: Prelude.Maybe AbortConfig,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -76,8 +72,12 @@ data UpdateJob = UpdateJob'
     presignedUrlConfig :: Prelude.Maybe PresignedUrlConfig,
     -- | A short text description of the job.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Allows you to create criteria to abort a job.
-    abortConfig :: Prelude.Maybe AbortConfig,
+    -- | Specifies the amount of time each device has to finish its execution of
+    -- the job. The timer is started when the job execution status is set to
+    -- @IN_PROGRESS@. If the job execution status is not set to another
+    -- terminal state before the time expires, it will be automatically set to
+    -- @TIMED_OUT@.
+    timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | The ID of the job to be updated.
     jobId :: Prelude.Text
   }
@@ -93,11 +93,7 @@ data UpdateJob = UpdateJob'
 --
 -- 'jobExecutionsRolloutConfig', 'updateJob_jobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
 --
--- 'timeoutConfig', 'updateJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
--- the job. The timer is started when the job execution status is set to
--- @IN_PROGRESS@. If the job execution status is not set to another
--- terminal state before the time expires, it will be automatically set to
--- @TIMED_OUT@.
+-- 'abortConfig', 'updateJob_abortConfig' - Allows you to create criteria to abort a job.
 --
 -- 'namespaceId', 'updateJob_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
@@ -113,7 +109,11 @@ data UpdateJob = UpdateJob'
 --
 -- 'description', 'updateJob_description' - A short text description of the job.
 --
--- 'abortConfig', 'updateJob_abortConfig' - Allows you to create criteria to abort a job.
+-- 'timeoutConfig', 'updateJob_timeoutConfig' - Specifies the amount of time each device has to finish its execution of
+-- the job. The timer is started when the job execution status is set to
+-- @IN_PROGRESS@. If the job execution status is not set to another
+-- terminal state before the time expires, it will be automatically set to
+-- @TIMED_OUT@.
 --
 -- 'jobId', 'updateJob_jobId' - The ID of the job to be updated.
 newUpdateJob ::
@@ -124,11 +124,11 @@ newUpdateJob pJobId_ =
   UpdateJob'
     { jobExecutionsRolloutConfig =
         Prelude.Nothing,
-      timeoutConfig = Prelude.Nothing,
+      abortConfig = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
       presignedUrlConfig = Prelude.Nothing,
       description = Prelude.Nothing,
-      abortConfig = Prelude.Nothing,
+      timeoutConfig = Prelude.Nothing,
       jobId = pJobId_
     }
 
@@ -136,13 +136,9 @@ newUpdateJob pJobId_ =
 updateJob_jobExecutionsRolloutConfig :: Lens.Lens' UpdateJob (Prelude.Maybe JobExecutionsRolloutConfig)
 updateJob_jobExecutionsRolloutConfig = Lens.lens (\UpdateJob' {jobExecutionsRolloutConfig} -> jobExecutionsRolloutConfig) (\s@UpdateJob' {} a -> s {jobExecutionsRolloutConfig = a} :: UpdateJob)
 
--- | Specifies the amount of time each device has to finish its execution of
--- the job. The timer is started when the job execution status is set to
--- @IN_PROGRESS@. If the job execution status is not set to another
--- terminal state before the time expires, it will be automatically set to
--- @TIMED_OUT@.
-updateJob_timeoutConfig :: Lens.Lens' UpdateJob (Prelude.Maybe TimeoutConfig)
-updateJob_timeoutConfig = Lens.lens (\UpdateJob' {timeoutConfig} -> timeoutConfig) (\s@UpdateJob' {} a -> s {timeoutConfig = a} :: UpdateJob)
+-- | Allows you to create criteria to abort a job.
+updateJob_abortConfig :: Lens.Lens' UpdateJob (Prelude.Maybe AbortConfig)
+updateJob_abortConfig = Lens.lens (\UpdateJob' {abortConfig} -> abortConfig) (\s@UpdateJob' {} a -> s {abortConfig = a} :: UpdateJob)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
@@ -164,9 +160,13 @@ updateJob_presignedUrlConfig = Lens.lens (\UpdateJob' {presignedUrlConfig} -> pr
 updateJob_description :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_description = Lens.lens (\UpdateJob' {description} -> description) (\s@UpdateJob' {} a -> s {description = a} :: UpdateJob)
 
--- | Allows you to create criteria to abort a job.
-updateJob_abortConfig :: Lens.Lens' UpdateJob (Prelude.Maybe AbortConfig)
-updateJob_abortConfig = Lens.lens (\UpdateJob' {abortConfig} -> abortConfig) (\s@UpdateJob' {} a -> s {abortConfig = a} :: UpdateJob)
+-- | Specifies the amount of time each device has to finish its execution of
+-- the job. The timer is started when the job execution status is set to
+-- @IN_PROGRESS@. If the job execution status is not set to another
+-- terminal state before the time expires, it will be automatically set to
+-- @TIMED_OUT@.
+updateJob_timeoutConfig :: Lens.Lens' UpdateJob (Prelude.Maybe TimeoutConfig)
+updateJob_timeoutConfig = Lens.lens (\UpdateJob' {timeoutConfig} -> timeoutConfig) (\s@UpdateJob' {} a -> s {timeoutConfig = a} :: UpdateJob)
 
 -- | The ID of the job to be updated.
 updateJob_jobId :: Lens.Lens' UpdateJob Prelude.Text
@@ -190,11 +190,11 @@ instance Core.ToJSON UpdateJob where
       ( Prelude.catMaybes
           [ ("jobExecutionsRolloutConfig" Core..=)
               Prelude.<$> jobExecutionsRolloutConfig,
-            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
+            ("abortConfig" Core..=) Prelude.<$> abortConfig,
             ("presignedUrlConfig" Core..=)
               Prelude.<$> presignedUrlConfig,
             ("description" Core..=) Prelude.<$> description,
-            ("abortConfig" Core..=) Prelude.<$> abortConfig
+            ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig
           ]
       )
 

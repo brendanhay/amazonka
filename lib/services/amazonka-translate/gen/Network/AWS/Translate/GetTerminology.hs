@@ -35,8 +35,8 @@ module Network.AWS.Translate.GetTerminology
     newGetTerminologyResponse,
 
     -- * Response Lenses
-    getTerminologyResponse_terminologyDataLocation,
     getTerminologyResponse_terminologyProperties,
+    getTerminologyResponse_terminologyDataLocation,
     getTerminologyResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest GetTerminology where
     Response.receiveJSON
       ( \s h x ->
           GetTerminologyResponse'
-            Prelude.<$> (x Core..?> "TerminologyDataLocation")
-            Prelude.<*> (x Core..?> "TerminologyProperties")
+            Prelude.<$> (x Core..?> "TerminologyProperties")
+            Prelude.<*> (x Core..?> "TerminologyDataLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,12 +144,12 @@ instance Core.ToQuery GetTerminology where
 
 -- | /See:/ 'newGetTerminologyResponse' smart constructor.
 data GetTerminologyResponse = GetTerminologyResponse'
-  { -- | The data location of the custom terminology being retrieved. The custom
+  { -- | The properties of the custom terminology being retrieved.
+    terminologyProperties :: Prelude.Maybe TerminologyProperties,
+    -- | The data location of the custom terminology being retrieved. The custom
     -- terminology file is returned in a presigned url that has a 30 minute
     -- expiration.
     terminologyDataLocation :: Prelude.Maybe TerminologyDataLocation,
-    -- | The properties of the custom terminology being retrieved.
-    terminologyProperties :: Prelude.Maybe TerminologyProperties,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,11 +163,11 @@ data GetTerminologyResponse = GetTerminologyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'terminologyProperties', 'getTerminologyResponse_terminologyProperties' - The properties of the custom terminology being retrieved.
+--
 -- 'terminologyDataLocation', 'getTerminologyResponse_terminologyDataLocation' - The data location of the custom terminology being retrieved. The custom
 -- terminology file is returned in a presigned url that has a 30 minute
 -- expiration.
---
--- 'terminologyProperties', 'getTerminologyResponse_terminologyProperties' - The properties of the custom terminology being retrieved.
 --
 -- 'httpStatus', 'getTerminologyResponse_httpStatus' - The response's http status code.
 newGetTerminologyResponse ::
@@ -176,21 +176,21 @@ newGetTerminologyResponse ::
   GetTerminologyResponse
 newGetTerminologyResponse pHttpStatus_ =
   GetTerminologyResponse'
-    { terminologyDataLocation =
+    { terminologyProperties =
         Prelude.Nothing,
-      terminologyProperties = Prelude.Nothing,
+      terminologyDataLocation = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The properties of the custom terminology being retrieved.
+getTerminologyResponse_terminologyProperties :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyProperties)
+getTerminologyResponse_terminologyProperties = Lens.lens (\GetTerminologyResponse' {terminologyProperties} -> terminologyProperties) (\s@GetTerminologyResponse' {} a -> s {terminologyProperties = a} :: GetTerminologyResponse)
 
 -- | The data location of the custom terminology being retrieved. The custom
 -- terminology file is returned in a presigned url that has a 30 minute
 -- expiration.
 getTerminologyResponse_terminologyDataLocation :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
 getTerminologyResponse_terminologyDataLocation = Lens.lens (\GetTerminologyResponse' {terminologyDataLocation} -> terminologyDataLocation) (\s@GetTerminologyResponse' {} a -> s {terminologyDataLocation = a} :: GetTerminologyResponse)
-
--- | The properties of the custom terminology being retrieved.
-getTerminologyResponse_terminologyProperties :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyProperties)
-getTerminologyResponse_terminologyProperties = Lens.lens (\GetTerminologyResponse' {terminologyProperties} -> terminologyProperties) (\s@GetTerminologyResponse' {} a -> s {terminologyProperties = a} :: GetTerminologyResponse)
 
 -- | The response's http status code.
 getTerminologyResponse_httpStatus :: Lens.Lens' GetTerminologyResponse Prelude.Int

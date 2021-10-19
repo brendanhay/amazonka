@@ -68,7 +68,7 @@ newEnumerationValue pValue_ =
 
 -- | Additional values related to the slot type value.
 enumerationValue_synonyms :: Lens.Lens' EnumerationValue (Prelude.Maybe [Prelude.Text])
-enumerationValue_synonyms = Lens.lens (\EnumerationValue' {synonyms} -> synonyms) (\s@EnumerationValue' {} a -> s {synonyms = a} :: EnumerationValue) Prelude.. Lens.mapping Lens._Coerce
+enumerationValue_synonyms = Lens.lens (\EnumerationValue' {synonyms} -> synonyms) (\s@EnumerationValue' {} a -> s {synonyms = a} :: EnumerationValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the slot type.
 enumerationValue_value :: Lens.Lens' EnumerationValue Prelude.Text

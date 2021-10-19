@@ -17,44 +17,44 @@ module Network.AWS.KinesisVideo
     -- * Errors
     -- $errors
 
-    -- ** AccountStreamLimitExceededException
-    _AccountStreamLimitExceededException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
-    -- ** VersionMismatchException
-    _VersionMismatchException,
-
-    -- ** AccountChannelLimitExceededException
-    _AccountChannelLimitExceededException,
-
-    -- ** ClientLimitExceededException
-    _ClientLimitExceededException,
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- ** TagsPerResourceExceededLimitException
     _TagsPerResourceExceededLimitException,
 
-    -- ** DeviceStreamLimitExceededException
-    _DeviceStreamLimitExceededException,
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
 
-    -- ** InvalidResourceFormatException
-    _InvalidResourceFormatException,
+    -- ** ClientLimitExceededException
+    _ClientLimitExceededException,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
-
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    -- ** AccountChannelLimitExceededException
+    _AccountChannelLimitExceededException,
 
     -- ** InvalidDeviceException
     _InvalidDeviceException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
+    -- ** VersionMismatchException
+    _VersionMismatchException,
 
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
+    -- ** AccountStreamLimitExceededException
+    _AccountStreamLimitExceededException,
+
+    -- ** InvalidResourceFormatException
+    _InvalidResourceFormatException,
+
+    -- ** DeviceStreamLimitExceededException
+    _DeviceStreamLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -62,35 +62,23 @@ module Network.AWS.KinesisVideo
     -- * Operations
     -- $operations
 
-    -- ** ListTagsForStream
-    ListTagsForStream (ListTagsForStream'),
-    newListTagsForStream,
-    ListTagsForStreamResponse (ListTagsForStreamResponse'),
-    newListTagsForStreamResponse,
+    -- ** ListSignalingChannels (Paginated)
+    ListSignalingChannels (ListSignalingChannels'),
+    newListSignalingChannels,
+    ListSignalingChannelsResponse (ListSignalingChannelsResponse'),
+    newListSignalingChannelsResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteStream
-    DeleteStream (DeleteStream'),
-    newDeleteStream,
-    DeleteStreamResponse (DeleteStreamResponse'),
-    newDeleteStreamResponse,
-
-    -- ** UpdateStream
-    UpdateStream (UpdateStream'),
-    newUpdateStream,
-    UpdateStreamResponse (UpdateStreamResponse'),
-    newUpdateStreamResponse,
+    -- ** UntagStream
+    UntagStream (UntagStream'),
+    newUntagStream,
+    UntagStreamResponse (UntagStreamResponse'),
+    newUntagStreamResponse,
 
     -- ** UpdateDataRetention
     UpdateDataRetention (UpdateDataRetention'),
@@ -104,11 +92,17 @@ module Network.AWS.KinesisVideo
     GetDataEndpointResponse (GetDataEndpointResponse'),
     newGetDataEndpointResponse,
 
-    -- ** UntagStream
-    UntagStream (UntagStream'),
-    newUntagStream,
-    UntagStreamResponse (UntagStreamResponse'),
-    newUntagStreamResponse,
+    -- ** GetSignalingChannelEndpoint
+    GetSignalingChannelEndpoint (GetSignalingChannelEndpoint'),
+    newGetSignalingChannelEndpoint,
+    GetSignalingChannelEndpointResponse (GetSignalingChannelEndpointResponse'),
+    newGetSignalingChannelEndpointResponse,
+
+    -- ** ListTagsForStream
+    ListTagsForStream (ListTagsForStream'),
+    newListTagsForStream,
+    ListTagsForStreamResponse (ListTagsForStreamResponse'),
+    newListTagsForStreamResponse,
 
     -- ** DeleteSignalingChannel
     DeleteSignalingChannel (DeleteSignalingChannel'),
@@ -122,11 +116,53 @@ module Network.AWS.KinesisVideo
     UpdateSignalingChannelResponse (UpdateSignalingChannelResponse'),
     newUpdateSignalingChannelResponse,
 
-    -- ** ListSignalingChannels (Paginated)
-    ListSignalingChannels (ListSignalingChannels'),
-    newListSignalingChannels,
-    ListSignalingChannelsResponse (ListSignalingChannelsResponse'),
-    newListSignalingChannelsResponse,
+    -- ** UpdateStream
+    UpdateStream (UpdateStream'),
+    newUpdateStream,
+    UpdateStreamResponse (UpdateStreamResponse'),
+    newUpdateStreamResponse,
+
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
+
+    -- ** ListStreams (Paginated)
+    ListStreams (ListStreams'),
+    newListStreams,
+    ListStreamsResponse (ListStreamsResponse'),
+    newListStreamsResponse,
+
+    -- ** CreateStream
+    CreateStream (CreateStream'),
+    newCreateStream,
+    CreateStreamResponse (CreateStreamResponse'),
+    newCreateStreamResponse,
+
+    -- ** DescribeSignalingChannel
+    DescribeSignalingChannel (DescribeSignalingChannel'),
+    newDescribeSignalingChannel,
+    DescribeSignalingChannelResponse (DescribeSignalingChannelResponse'),
+    newDescribeSignalingChannelResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** TagStream
+    TagStream (TagStream'),
+    newTagStream,
+    TagStreamResponse (TagStreamResponse'),
+    newTagStreamResponse,
 
     -- ** CreateSignalingChannel
     CreateSignalingChannel (CreateSignalingChannel'),
@@ -139,42 +175,6 @@ module Network.AWS.KinesisVideo
     newDescribeStream,
     DescribeStreamResponse (DescribeStreamResponse'),
     newDescribeStreamResponse,
-
-    -- ** TagStream
-    TagStream (TagStream'),
-    newTagStream,
-    TagStreamResponse (TagStreamResponse'),
-    newTagStreamResponse,
-
-    -- ** DescribeSignalingChannel
-    DescribeSignalingChannel (DescribeSignalingChannel'),
-    newDescribeSignalingChannel,
-    DescribeSignalingChannelResponse (DescribeSignalingChannelResponse'),
-    newDescribeSignalingChannelResponse,
-
-    -- ** GetSignalingChannelEndpoint
-    GetSignalingChannelEndpoint (GetSignalingChannelEndpoint'),
-    newGetSignalingChannelEndpoint,
-    GetSignalingChannelEndpointResponse (GetSignalingChannelEndpointResponse'),
-    newGetSignalingChannelEndpointResponse,
-
-    -- ** CreateStream
-    CreateStream (CreateStream'),
-    newCreateStream,
-    CreateStreamResponse (CreateStreamResponse'),
-    newCreateStreamResponse,
-
-    -- ** ListStreams (Paginated)
-    ListStreams (ListStreams'),
-    newListStreams,
-    ListStreamsResponse (ListStreamsResponse'),
-    newListStreamsResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
 
     -- * Types
 

@@ -74,7 +74,7 @@ outputGroup_name = Lens.lens (\OutputGroup' {name} -> name) (\s@OutputGroup' {} 
 
 -- | Undocumented member.
 outputGroup_outputs :: Lens.Lens' OutputGroup [Output]
-outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputGroup' {} a -> s {outputs = a} :: OutputGroup) Prelude.. Lens._Coerce
+outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputGroup' {} a -> s {outputs = a} :: OutputGroup) Prelude.. Lens.coerced
 
 -- | Settings associated with the output group.
 outputGroup_outputGroupSettings :: Lens.Lens' OutputGroup OutputGroupSettings

@@ -29,30 +29,30 @@ module Network.AWS.APIGateway.CreateApiKey
     newCreateApiKey,
 
     -- * Request Lenses
-    createApiKey_customerId,
-    createApiKey_stageKeys,
     createApiKey_enabled,
-    createApiKey_name,
-    createApiKey_generateDistinctId,
-    createApiKey_tags,
-    createApiKey_description,
     createApiKey_value,
+    createApiKey_customerId,
+    createApiKey_generateDistinctId,
+    createApiKey_name,
+    createApiKey_stageKeys,
+    createApiKey_description,
+    createApiKey_tags,
 
     -- * Destructuring the Response
     ApiKey (..),
     newApiKey,
 
     -- * Response Lenses
-    apiKey_createdDate,
-    apiKey_customerId,
-    apiKey_lastUpdatedDate,
-    apiKey_stageKeys,
-    apiKey_id,
     apiKey_enabled,
-    apiKey_name,
-    apiKey_tags,
-    apiKey_description,
     apiKey_value,
+    apiKey_customerId,
+    apiKey_createdDate,
+    apiKey_name,
+    apiKey_id,
+    apiKey_stageKeys,
+    apiKey_lastUpdatedDate,
+    apiKey_description,
+    apiKey_tags,
   )
 where
 
@@ -67,28 +67,28 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateApiKey' smart constructor.
 data CreateApiKey = CreateApiKey'
-  { -- | An AWS Marketplace customer identifier , when integrating with the AWS
+  { -- | Specifies whether the ApiKey can be used by callers.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies a value of the API key.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | An AWS Marketplace customer identifier , when integrating with the AWS
     -- SaaS Marketplace.
     customerId :: Prelude.Maybe Prelude.Text,
-    -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
-    -- key.
-    stageKeys :: Prelude.Maybe [StageKey],
-    -- | Specifies whether the ApiKey can be used by callers.
-    enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the ApiKey.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether (@true@) or not (@false@) the key identifier is
     -- distinct from the created API key value. This parameter is deprecated
     -- and should not be used.
     generateDistinctId :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the ApiKey.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
+    -- key.
+    stageKeys :: Prelude.Maybe [StageKey],
+    -- | The description of the ApiKey.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the ApiKey.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a value of the API key.
-    value :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,58 +100,53 @@ data CreateApiKey = CreateApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customerId', 'createApiKey_customerId' - An AWS Marketplace customer identifier , when integrating with the AWS
--- SaaS Marketplace.
---
--- 'stageKeys', 'createApiKey_stageKeys' - DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
--- key.
---
 -- 'enabled', 'createApiKey_enabled' - Specifies whether the ApiKey can be used by callers.
 --
--- 'name', 'createApiKey_name' - The name of the ApiKey.
+-- 'value', 'createApiKey_value' - Specifies a value of the API key.
+--
+-- 'customerId', 'createApiKey_customerId' - An AWS Marketplace customer identifier , when integrating with the AWS
+-- SaaS Marketplace.
 --
 -- 'generateDistinctId', 'createApiKey_generateDistinctId' - Specifies whether (@true@) or not (@false@) the key identifier is
 -- distinct from the created API key value. This parameter is deprecated
 -- and should not be used.
 --
--- 'tags', 'createApiKey_tags' - The key-value map of strings. The valid character set is
--- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
--- start with @aws:@. The tag value can be up to 256 characters.
+-- 'name', 'createApiKey_name' - The name of the ApiKey.
+--
+-- 'stageKeys', 'createApiKey_stageKeys' - DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
+-- key.
 --
 -- 'description', 'createApiKey_description' - The description of the ApiKey.
 --
--- 'value', 'createApiKey_value' - Specifies a value of the API key.
+-- 'tags', 'createApiKey_tags' - The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
 newCreateApiKey ::
   CreateApiKey
 newCreateApiKey =
   CreateApiKey'
-    { customerId = Prelude.Nothing,
-      stageKeys = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { enabled = Prelude.Nothing,
+      value = Prelude.Nothing,
+      customerId = Prelude.Nothing,
       generateDistinctId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      name = Prelude.Nothing,
+      stageKeys = Prelude.Nothing,
       description = Prelude.Nothing,
-      value = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | An AWS Marketplace customer identifier , when integrating with the AWS
--- SaaS Marketplace.
-createApiKey_customerId :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
-createApiKey_customerId = Lens.lens (\CreateApiKey' {customerId} -> customerId) (\s@CreateApiKey' {} a -> s {customerId = a} :: CreateApiKey)
-
--- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
--- key.
-createApiKey_stageKeys :: Lens.Lens' CreateApiKey (Prelude.Maybe [StageKey])
-createApiKey_stageKeys = Lens.lens (\CreateApiKey' {stageKeys} -> stageKeys) (\s@CreateApiKey' {} a -> s {stageKeys = a} :: CreateApiKey) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the ApiKey can be used by callers.
 createApiKey_enabled :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Bool)
 createApiKey_enabled = Lens.lens (\CreateApiKey' {enabled} -> enabled) (\s@CreateApiKey' {} a -> s {enabled = a} :: CreateApiKey)
 
--- | The name of the ApiKey.
-createApiKey_name :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
-createApiKey_name = Lens.lens (\CreateApiKey' {name} -> name) (\s@CreateApiKey' {} a -> s {name = a} :: CreateApiKey)
+-- | Specifies a value of the API key.
+createApiKey_value :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
+createApiKey_value = Lens.lens (\CreateApiKey' {value} -> value) (\s@CreateApiKey' {} a -> s {value = a} :: CreateApiKey)
+
+-- | An AWS Marketplace customer identifier , when integrating with the AWS
+-- SaaS Marketplace.
+createApiKey_customerId :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
+createApiKey_customerId = Lens.lens (\CreateApiKey' {customerId} -> customerId) (\s@CreateApiKey' {} a -> s {customerId = a} :: CreateApiKey)
 
 -- | Specifies whether (@true@) or not (@false@) the key identifier is
 -- distinct from the created API key value. This parameter is deprecated
@@ -159,19 +154,24 @@ createApiKey_name = Lens.lens (\CreateApiKey' {name} -> name) (\s@CreateApiKey' 
 createApiKey_generateDistinctId :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Bool)
 createApiKey_generateDistinctId = Lens.lens (\CreateApiKey' {generateDistinctId} -> generateDistinctId) (\s@CreateApiKey' {} a -> s {generateDistinctId = a} :: CreateApiKey)
 
--- | The key-value map of strings. The valid character set is
--- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
--- start with @aws:@. The tag value can be up to 256 characters.
-createApiKey_tags :: Lens.Lens' CreateApiKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createApiKey_tags = Lens.lens (\CreateApiKey' {tags} -> tags) (\s@CreateApiKey' {} a -> s {tags = a} :: CreateApiKey) Prelude.. Lens.mapping Lens._Coerce
+-- | The name of the ApiKey.
+createApiKey_name :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
+createApiKey_name = Lens.lens (\CreateApiKey' {name} -> name) (\s@CreateApiKey' {} a -> s {name = a} :: CreateApiKey)
+
+-- | DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
+-- key.
+createApiKey_stageKeys :: Lens.Lens' CreateApiKey (Prelude.Maybe [StageKey])
+createApiKey_stageKeys = Lens.lens (\CreateApiKey' {stageKeys} -> stageKeys) (\s@CreateApiKey' {} a -> s {stageKeys = a} :: CreateApiKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the ApiKey.
 createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
 createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
--- | Specifies a value of the API key.
-createApiKey_value :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
-createApiKey_value = Lens.lens (\CreateApiKey' {value} -> value) (\s@CreateApiKey' {} a -> s {value = a} :: CreateApiKey)
+-- | The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
+createApiKey_tags :: Lens.Lens' CreateApiKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createApiKey_tags = Lens.lens (\CreateApiKey' {tags} -> tags) (\s@CreateApiKey' {} a -> s {tags = a} :: CreateApiKey) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateApiKey where
   type AWSResponse CreateApiKey = ApiKey
@@ -197,15 +197,15 @@ instance Core.ToJSON CreateApiKey where
   toJSON CreateApiKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("customerId" Core..=) Prelude.<$> customerId,
-            ("stageKeys" Core..=) Prelude.<$> stageKeys,
-            ("enabled" Core..=) Prelude.<$> enabled,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("enabled" Core..=) Prelude.<$> enabled,
+            ("value" Core..=) Prelude.<$> value,
+            ("customerId" Core..=) Prelude.<$> customerId,
             ("generateDistinctId" Core..=)
               Prelude.<$> generateDistinctId,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("name" Core..=) Prelude.<$> name,
+            ("stageKeys" Core..=) Prelude.<$> stageKeys,
             ("description" Core..=) Prelude.<$> description,
-            ("value" Core..=) Prelude.<$> value
+            ("tags" Core..=) Prelude.<$> tags
           ]
       )
 

@@ -83,7 +83,7 @@ addAttributesActivity_name = Lens.lens (\AddAttributesActivity' {name} -> name) 
 -- The existing attributes remain in the message, so if you want to remove
 -- the originals, use @RemoveAttributeActivity@.
 addAttributesActivity_attributes :: Lens.Lens' AddAttributesActivity (Prelude.HashMap Prelude.Text Prelude.Text)
-addAttributesActivity_attributes = Lens.lens (\AddAttributesActivity' {attributes} -> attributes) (\s@AddAttributesActivity' {} a -> s {attributes = a} :: AddAttributesActivity) Prelude.. Lens._Coerce
+addAttributesActivity_attributes = Lens.lens (\AddAttributesActivity' {attributes} -> attributes) (\s@AddAttributesActivity' {} a -> s {attributes = a} :: AddAttributesActivity) Prelude.. Lens.coerced
 
 instance Core.FromJSON AddAttributesActivity where
   parseJSON =

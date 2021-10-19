@@ -140,7 +140,7 @@ createLogGroup_kmsKeyId = Lens.lens (\CreateLogGroup' {kmsKeyId} -> kmsKeyId) (\
 -- information about using tags to control access, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Controlling access to Amazon Web Services resources using tags>.
 createLogGroup_tags :: Lens.Lens' CreateLogGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLogGroup_tags = Lens.lens (\CreateLogGroup' {tags} -> tags) (\s@CreateLogGroup' {} a -> s {tags = a} :: CreateLogGroup) Prelude.. Lens.mapping Lens._Coerce
+createLogGroup_tags = Lens.lens (\CreateLogGroup' {tags} -> tags) (\s@CreateLogGroup' {} a -> s {tags = a} :: CreateLogGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the log group.
 createLogGroup_logGroupName :: Lens.Lens' CreateLogGroup Prelude.Text

@@ -30,20 +30,20 @@ module Network.AWS.ElasticSearch.CreateElasticsearchDomain
 
     -- * Request Lenses
     createElasticsearchDomain_eBSOptions,
-    createElasticsearchDomain_snapshotOptions,
-    createElasticsearchDomain_elasticsearchClusterConfig,
-    createElasticsearchDomain_domainEndpointOptions,
-    createElasticsearchDomain_autoTuneOptions,
-    createElasticsearchDomain_vPCOptions,
-    createElasticsearchDomain_accessPolicies,
-    createElasticsearchDomain_encryptionAtRestOptions,
-    createElasticsearchDomain_cognitoOptions,
     createElasticsearchDomain_nodeToNodeEncryptionOptions,
-    createElasticsearchDomain_elasticsearchVersion,
-    createElasticsearchDomain_advancedOptions,
-    createElasticsearchDomain_tagList,
-    createElasticsearchDomain_advancedSecurityOptions,
+    createElasticsearchDomain_accessPolicies,
+    createElasticsearchDomain_autoTuneOptions,
     createElasticsearchDomain_logPublishingOptions,
+    createElasticsearchDomain_advancedSecurityOptions,
+    createElasticsearchDomain_tagList,
+    createElasticsearchDomain_elasticsearchClusterConfig,
+    createElasticsearchDomain_snapshotOptions,
+    createElasticsearchDomain_cognitoOptions,
+    createElasticsearchDomain_encryptionAtRestOptions,
+    createElasticsearchDomain_vPCOptions,
+    createElasticsearchDomain_domainEndpointOptions,
+    createElasticsearchDomain_advancedOptions,
+    createElasticsearchDomain_elasticsearchVersion,
     createElasticsearchDomain_domainName,
 
     -- * Destructuring the Response
@@ -68,50 +68,50 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
   { -- | Options to enable, disable and specify the type and size of EBS storage
     -- volumes.
     eBSOptions :: Prelude.Maybe EBSOptions,
-    -- | Option to set time, in UTC format, of the daily automated snapshot.
-    -- Default value is 0 hours.
-    snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Specifies the NodeToNodeEncryptionOptions.
+    nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
+    -- | IAM access policy as a JSON-formatted string.
+    accessPolicies :: Prelude.Maybe Prelude.Text,
+    -- | Specifies Auto-Tune options.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsInput,
+    -- | Map of @LogType@ and @LogPublishingOption@, each containing options to
+    -- publish a given type of Elasticsearch log.
+    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    -- | Specifies advanced security options.
+    advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
+    -- | A list of @Tag@ added during domain creation.
+    tagList :: Prelude.Maybe [Tag],
     -- | Configuration options for an Elasticsearch domain. Specifies the
     -- instance type and number of instances in the domain cluster.
     elasticsearchClusterConfig :: Prelude.Maybe ElasticsearchClusterConfig,
-    -- | Options to specify configuration that will be applied to the domain
-    -- endpoint.
-    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
-    -- | Specifies Auto-Tune options.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsInput,
+    -- | Option to set time, in UTC format, of the daily automated snapshot.
+    -- Default value is 0 hours.
+    snapshotOptions :: Prelude.Maybe SnapshotOptions,
+    -- | Options to specify the Cognito user and identity pools for Kibana
+    -- authentication. For more information, see
+    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
+    cognitoOptions :: Prelude.Maybe CognitoOptions,
+    -- | Specifies the Encryption At Rest Options.
+    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
     -- | Options to specify the subnets and security groups for VPC endpoint. For
     -- more information, see
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
     -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
     vPCOptions :: Prelude.Maybe VPCOptions,
-    -- | IAM access policy as a JSON-formatted string.
-    accessPolicies :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Encryption At Rest Options.
-    encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
-    -- | Options to specify the Cognito user and identity pools for Kibana
-    -- authentication. For more information, see
-    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
-    cognitoOptions :: Prelude.Maybe CognitoOptions,
-    -- | Specifies the NodeToNodeEncryptionOptions.
-    nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
-    -- | String of format X.Y to specify version for the Elasticsearch domain eg.
-    -- \"1.5\" or \"2.3\". For more information, see
-    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
-    -- in the /Amazon Elasticsearch Service Developer Guide/.
-    elasticsearchVersion :: Prelude.Maybe Prelude.Text,
+    -- | Options to specify configuration that will be applied to the domain
+    -- endpoint.
+    domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
     -- | Option to allow references to indices in an HTTP request body. Must be
     -- @false@ when configuring access to individual sub-resources. By default,
     -- the value is @true@. See
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
     -- for more information.
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of @Tag@ added during domain creation.
-    tagList :: Prelude.Maybe [Tag],
-    -- | Specifies advanced security options.
-    advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsInput,
-    -- | Map of @LogType@ and @LogPublishingOption@, each containing options to
-    -- publish a given type of Elasticsearch log.
-    logPublishingOptions :: Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption),
+    -- | String of format X.Y to specify version for the Elasticsearch domain eg.
+    -- \"1.5\" or \"2.3\". For more information, see
+    -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
+    -- in the /Amazon Elasticsearch Service Developer Guide/.
+    elasticsearchVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the Elasticsearch domain that you are creating. Domain names
     -- are unique across the domains owned by an account within an AWS region.
     -- Domain names must start with a lowercase letter and can contain the
@@ -131,36 +131,38 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
 -- 'eBSOptions', 'createElasticsearchDomain_eBSOptions' - Options to enable, disable and specify the type and size of EBS storage
 -- volumes.
 --
--- 'snapshotOptions', 'createElasticsearchDomain_snapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot.
--- Default value is 0 hours.
+-- 'nodeToNodeEncryptionOptions', 'createElasticsearchDomain_nodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
+--
+-- 'accessPolicies', 'createElasticsearchDomain_accessPolicies' - IAM access policy as a JSON-formatted string.
+--
+-- 'autoTuneOptions', 'createElasticsearchDomain_autoTuneOptions' - Specifies Auto-Tune options.
+--
+-- 'logPublishingOptions', 'createElasticsearchDomain_logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@, each containing options to
+-- publish a given type of Elasticsearch log.
+--
+-- 'advancedSecurityOptions', 'createElasticsearchDomain_advancedSecurityOptions' - Specifies advanced security options.
+--
+-- 'tagList', 'createElasticsearchDomain_tagList' - A list of @Tag@ added during domain creation.
 --
 -- 'elasticsearchClusterConfig', 'createElasticsearchDomain_elasticsearchClusterConfig' - Configuration options for an Elasticsearch domain. Specifies the
 -- instance type and number of instances in the domain cluster.
 --
--- 'domainEndpointOptions', 'createElasticsearchDomain_domainEndpointOptions' - Options to specify configuration that will be applied to the domain
--- endpoint.
+-- 'snapshotOptions', 'createElasticsearchDomain_snapshotOptions' - Option to set time, in UTC format, of the daily automated snapshot.
+-- Default value is 0 hours.
 --
--- 'autoTuneOptions', 'createElasticsearchDomain_autoTuneOptions' - Specifies Auto-Tune options.
+-- 'cognitoOptions', 'createElasticsearchDomain_cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana
+-- authentication. For more information, see
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
+--
+-- 'encryptionAtRestOptions', 'createElasticsearchDomain_encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
 --
 -- 'vPCOptions', 'createElasticsearchDomain_vPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
 -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
 --
--- 'accessPolicies', 'createElasticsearchDomain_accessPolicies' - IAM access policy as a JSON-formatted string.
---
--- 'encryptionAtRestOptions', 'createElasticsearchDomain_encryptionAtRestOptions' - Specifies the Encryption At Rest Options.
---
--- 'cognitoOptions', 'createElasticsearchDomain_cognitoOptions' - Options to specify the Cognito user and identity pools for Kibana
--- authentication. For more information, see
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
---
--- 'nodeToNodeEncryptionOptions', 'createElasticsearchDomain_nodeToNodeEncryptionOptions' - Specifies the NodeToNodeEncryptionOptions.
---
--- 'elasticsearchVersion', 'createElasticsearchDomain_elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg.
--- \"1.5\" or \"2.3\". For more information, see
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
--- in the /Amazon Elasticsearch Service Developer Guide/.
+-- 'domainEndpointOptions', 'createElasticsearchDomain_domainEndpointOptions' - Options to specify configuration that will be applied to the domain
+-- endpoint.
 --
 -- 'advancedOptions', 'createElasticsearchDomain_advancedOptions' - Option to allow references to indices in an HTTP request body. Must be
 -- @false@ when configuring access to individual sub-resources. By default,
@@ -168,12 +170,10 @@ data CreateElasticsearchDomain = CreateElasticsearchDomain'
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
 -- for more information.
 --
--- 'tagList', 'createElasticsearchDomain_tagList' - A list of @Tag@ added during domain creation.
---
--- 'advancedSecurityOptions', 'createElasticsearchDomain_advancedSecurityOptions' - Specifies advanced security options.
---
--- 'logPublishingOptions', 'createElasticsearchDomain_logPublishingOptions' - Map of @LogType@ and @LogPublishingOption@, each containing options to
--- publish a given type of Elasticsearch log.
+-- 'elasticsearchVersion', 'createElasticsearchDomain_elasticsearchVersion' - String of format X.Y to specify version for the Elasticsearch domain eg.
+-- \"1.5\" or \"2.3\". For more information, see
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
+-- in the /Amazon Elasticsearch Service Developer Guide/.
 --
 -- 'domainName', 'createElasticsearchDomain_domainName' - The name of the Elasticsearch domain that you are creating. Domain names
 -- are unique across the domains owned by an account within an AWS region.
@@ -187,20 +187,20 @@ newCreateElasticsearchDomain pDomainName_ =
   CreateElasticsearchDomain'
     { eBSOptions =
         Prelude.Nothing,
-      snapshotOptions = Prelude.Nothing,
-      elasticsearchClusterConfig = Prelude.Nothing,
-      domainEndpointOptions = Prelude.Nothing,
-      autoTuneOptions = Prelude.Nothing,
-      vPCOptions = Prelude.Nothing,
-      accessPolicies = Prelude.Nothing,
-      encryptionAtRestOptions = Prelude.Nothing,
-      cognitoOptions = Prelude.Nothing,
       nodeToNodeEncryptionOptions = Prelude.Nothing,
-      elasticsearchVersion = Prelude.Nothing,
-      advancedOptions = Prelude.Nothing,
-      tagList = Prelude.Nothing,
-      advancedSecurityOptions = Prelude.Nothing,
+      accessPolicies = Prelude.Nothing,
+      autoTuneOptions = Prelude.Nothing,
       logPublishingOptions = Prelude.Nothing,
+      advancedSecurityOptions = Prelude.Nothing,
+      tagList = Prelude.Nothing,
+      elasticsearchClusterConfig = Prelude.Nothing,
+      snapshotOptions = Prelude.Nothing,
+      cognitoOptions = Prelude.Nothing,
+      encryptionAtRestOptions = Prelude.Nothing,
+      vPCOptions = Prelude.Nothing,
+      domainEndpointOptions = Prelude.Nothing,
+      advancedOptions = Prelude.Nothing,
+      elasticsearchVersion = Prelude.Nothing,
       domainName = pDomainName_
     }
 
@@ -209,24 +209,50 @@ newCreateElasticsearchDomain pDomainName_ =
 createElasticsearchDomain_eBSOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe EBSOptions)
 createElasticsearchDomain_eBSOptions = Lens.lens (\CreateElasticsearchDomain' {eBSOptions} -> eBSOptions) (\s@CreateElasticsearchDomain' {} a -> s {eBSOptions = a} :: CreateElasticsearchDomain)
 
--- | Option to set time, in UTC format, of the daily automated snapshot.
--- Default value is 0 hours.
-createElasticsearchDomain_snapshotOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe SnapshotOptions)
-createElasticsearchDomain_snapshotOptions = Lens.lens (\CreateElasticsearchDomain' {snapshotOptions} -> snapshotOptions) (\s@CreateElasticsearchDomain' {} a -> s {snapshotOptions = a} :: CreateElasticsearchDomain)
+-- | Specifies the NodeToNodeEncryptionOptions.
+createElasticsearchDomain_nodeToNodeEncryptionOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe NodeToNodeEncryptionOptions)
+createElasticsearchDomain_nodeToNodeEncryptionOptions = Lens.lens (\CreateElasticsearchDomain' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@CreateElasticsearchDomain' {} a -> s {nodeToNodeEncryptionOptions = a} :: CreateElasticsearchDomain)
+
+-- | IAM access policy as a JSON-formatted string.
+createElasticsearchDomain_accessPolicies :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe Prelude.Text)
+createElasticsearchDomain_accessPolicies = Lens.lens (\CreateElasticsearchDomain' {accessPolicies} -> accessPolicies) (\s@CreateElasticsearchDomain' {} a -> s {accessPolicies = a} :: CreateElasticsearchDomain)
+
+-- | Specifies Auto-Tune options.
+createElasticsearchDomain_autoTuneOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe AutoTuneOptionsInput)
+createElasticsearchDomain_autoTuneOptions = Lens.lens (\CreateElasticsearchDomain' {autoTuneOptions} -> autoTuneOptions) (\s@CreateElasticsearchDomain' {} a -> s {autoTuneOptions = a} :: CreateElasticsearchDomain)
+
+-- | Map of @LogType@ and @LogPublishingOption@, each containing options to
+-- publish a given type of Elasticsearch log.
+createElasticsearchDomain_logPublishingOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
+createElasticsearchDomain_logPublishingOptions = Lens.lens (\CreateElasticsearchDomain' {logPublishingOptions} -> logPublishingOptions) (\s@CreateElasticsearchDomain' {} a -> s {logPublishingOptions = a} :: CreateElasticsearchDomain) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies advanced security options.
+createElasticsearchDomain_advancedSecurityOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe AdvancedSecurityOptionsInput)
+createElasticsearchDomain_advancedSecurityOptions = Lens.lens (\CreateElasticsearchDomain' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@CreateElasticsearchDomain' {} a -> s {advancedSecurityOptions = a} :: CreateElasticsearchDomain)
+
+-- | A list of @Tag@ added during domain creation.
+createElasticsearchDomain_tagList :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe [Tag])
+createElasticsearchDomain_tagList = Lens.lens (\CreateElasticsearchDomain' {tagList} -> tagList) (\s@CreateElasticsearchDomain' {} a -> s {tagList = a} :: CreateElasticsearchDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | Configuration options for an Elasticsearch domain. Specifies the
 -- instance type and number of instances in the domain cluster.
 createElasticsearchDomain_elasticsearchClusterConfig :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe ElasticsearchClusterConfig)
 createElasticsearchDomain_elasticsearchClusterConfig = Lens.lens (\CreateElasticsearchDomain' {elasticsearchClusterConfig} -> elasticsearchClusterConfig) (\s@CreateElasticsearchDomain' {} a -> s {elasticsearchClusterConfig = a} :: CreateElasticsearchDomain)
 
--- | Options to specify configuration that will be applied to the domain
--- endpoint.
-createElasticsearchDomain_domainEndpointOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe DomainEndpointOptions)
-createElasticsearchDomain_domainEndpointOptions = Lens.lens (\CreateElasticsearchDomain' {domainEndpointOptions} -> domainEndpointOptions) (\s@CreateElasticsearchDomain' {} a -> s {domainEndpointOptions = a} :: CreateElasticsearchDomain)
+-- | Option to set time, in UTC format, of the daily automated snapshot.
+-- Default value is 0 hours.
+createElasticsearchDomain_snapshotOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe SnapshotOptions)
+createElasticsearchDomain_snapshotOptions = Lens.lens (\CreateElasticsearchDomain' {snapshotOptions} -> snapshotOptions) (\s@CreateElasticsearchDomain' {} a -> s {snapshotOptions = a} :: CreateElasticsearchDomain)
 
--- | Specifies Auto-Tune options.
-createElasticsearchDomain_autoTuneOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe AutoTuneOptionsInput)
-createElasticsearchDomain_autoTuneOptions = Lens.lens (\CreateElasticsearchDomain' {autoTuneOptions} -> autoTuneOptions) (\s@CreateElasticsearchDomain' {} a -> s {autoTuneOptions = a} :: CreateElasticsearchDomain)
+-- | Options to specify the Cognito user and identity pools for Kibana
+-- authentication. For more information, see
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
+createElasticsearchDomain_cognitoOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe CognitoOptions)
+createElasticsearchDomain_cognitoOptions = Lens.lens (\CreateElasticsearchDomain' {cognitoOptions} -> cognitoOptions) (\s@CreateElasticsearchDomain' {} a -> s {cognitoOptions = a} :: CreateElasticsearchDomain)
+
+-- | Specifies the Encryption At Rest Options.
+createElasticsearchDomain_encryptionAtRestOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe EncryptionAtRestOptions)
+createElasticsearchDomain_encryptionAtRestOptions = Lens.lens (\CreateElasticsearchDomain' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@CreateElasticsearchDomain' {} a -> s {encryptionAtRestOptions = a} :: CreateElasticsearchDomain)
 
 -- | Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
@@ -235,30 +261,10 @@ createElasticsearchDomain_autoTuneOptions = Lens.lens (\CreateElasticsearchDomai
 createElasticsearchDomain_vPCOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe VPCOptions)
 createElasticsearchDomain_vPCOptions = Lens.lens (\CreateElasticsearchDomain' {vPCOptions} -> vPCOptions) (\s@CreateElasticsearchDomain' {} a -> s {vPCOptions = a} :: CreateElasticsearchDomain)
 
--- | IAM access policy as a JSON-formatted string.
-createElasticsearchDomain_accessPolicies :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe Prelude.Text)
-createElasticsearchDomain_accessPolicies = Lens.lens (\CreateElasticsearchDomain' {accessPolicies} -> accessPolicies) (\s@CreateElasticsearchDomain' {} a -> s {accessPolicies = a} :: CreateElasticsearchDomain)
-
--- | Specifies the Encryption At Rest Options.
-createElasticsearchDomain_encryptionAtRestOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe EncryptionAtRestOptions)
-createElasticsearchDomain_encryptionAtRestOptions = Lens.lens (\CreateElasticsearchDomain' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@CreateElasticsearchDomain' {} a -> s {encryptionAtRestOptions = a} :: CreateElasticsearchDomain)
-
--- | Options to specify the Cognito user and identity pools for Kibana
--- authentication. For more information, see
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html Amazon Cognito Authentication for Kibana>.
-createElasticsearchDomain_cognitoOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe CognitoOptions)
-createElasticsearchDomain_cognitoOptions = Lens.lens (\CreateElasticsearchDomain' {cognitoOptions} -> cognitoOptions) (\s@CreateElasticsearchDomain' {} a -> s {cognitoOptions = a} :: CreateElasticsearchDomain)
-
--- | Specifies the NodeToNodeEncryptionOptions.
-createElasticsearchDomain_nodeToNodeEncryptionOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe NodeToNodeEncryptionOptions)
-createElasticsearchDomain_nodeToNodeEncryptionOptions = Lens.lens (\CreateElasticsearchDomain' {nodeToNodeEncryptionOptions} -> nodeToNodeEncryptionOptions) (\s@CreateElasticsearchDomain' {} a -> s {nodeToNodeEncryptionOptions = a} :: CreateElasticsearchDomain)
-
--- | String of format X.Y to specify version for the Elasticsearch domain eg.
--- \"1.5\" or \"2.3\". For more information, see
--- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
--- in the /Amazon Elasticsearch Service Developer Guide/.
-createElasticsearchDomain_elasticsearchVersion :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe Prelude.Text)
-createElasticsearchDomain_elasticsearchVersion = Lens.lens (\CreateElasticsearchDomain' {elasticsearchVersion} -> elasticsearchVersion) (\s@CreateElasticsearchDomain' {} a -> s {elasticsearchVersion = a} :: CreateElasticsearchDomain)
+-- | Options to specify configuration that will be applied to the domain
+-- endpoint.
+createElasticsearchDomain_domainEndpointOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe DomainEndpointOptions)
+createElasticsearchDomain_domainEndpointOptions = Lens.lens (\CreateElasticsearchDomain' {domainEndpointOptions} -> domainEndpointOptions) (\s@CreateElasticsearchDomain' {} a -> s {domainEndpointOptions = a} :: CreateElasticsearchDomain)
 
 -- | Option to allow references to indices in an HTTP request body. Must be
 -- @false@ when configuring access to individual sub-resources. By default,
@@ -266,20 +272,14 @@ createElasticsearchDomain_elasticsearchVersion = Lens.lens (\CreateElasticsearch
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options Configuration Advanced Options>
 -- for more information.
 createElasticsearchDomain_advancedOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createElasticsearchDomain_advancedOptions = Lens.lens (\CreateElasticsearchDomain' {advancedOptions} -> advancedOptions) (\s@CreateElasticsearchDomain' {} a -> s {advancedOptions = a} :: CreateElasticsearchDomain) Prelude.. Lens.mapping Lens._Coerce
+createElasticsearchDomain_advancedOptions = Lens.lens (\CreateElasticsearchDomain' {advancedOptions} -> advancedOptions) (\s@CreateElasticsearchDomain' {} a -> s {advancedOptions = a} :: CreateElasticsearchDomain) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of @Tag@ added during domain creation.
-createElasticsearchDomain_tagList :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe [Tag])
-createElasticsearchDomain_tagList = Lens.lens (\CreateElasticsearchDomain' {tagList} -> tagList) (\s@CreateElasticsearchDomain' {} a -> s {tagList = a} :: CreateElasticsearchDomain) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies advanced security options.
-createElasticsearchDomain_advancedSecurityOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe AdvancedSecurityOptionsInput)
-createElasticsearchDomain_advancedSecurityOptions = Lens.lens (\CreateElasticsearchDomain' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@CreateElasticsearchDomain' {} a -> s {advancedSecurityOptions = a} :: CreateElasticsearchDomain)
-
--- | Map of @LogType@ and @LogPublishingOption@, each containing options to
--- publish a given type of Elasticsearch log.
-createElasticsearchDomain_logPublishingOptions :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe (Prelude.HashMap LogType LogPublishingOption))
-createElasticsearchDomain_logPublishingOptions = Lens.lens (\CreateElasticsearchDomain' {logPublishingOptions} -> logPublishingOptions) (\s@CreateElasticsearchDomain' {} a -> s {logPublishingOptions = a} :: CreateElasticsearchDomain) Prelude.. Lens.mapping Lens._Coerce
+-- | String of format X.Y to specify version for the Elasticsearch domain eg.
+-- \"1.5\" or \"2.3\". For more information, see
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains Creating Elasticsearch Domains>
+-- in the /Amazon Elasticsearch Service Developer Guide/.
+createElasticsearchDomain_elasticsearchVersion :: Lens.Lens' CreateElasticsearchDomain (Prelude.Maybe Prelude.Text)
+createElasticsearchDomain_elasticsearchVersion = Lens.lens (\CreateElasticsearchDomain' {elasticsearchVersion} -> elasticsearchVersion) (\s@CreateElasticsearchDomain' {} a -> s {elasticsearchVersion = a} :: CreateElasticsearchDomain)
 
 -- | The name of the Elasticsearch domain that you are creating. Domain names
 -- are unique across the domains owned by an account within an AWS region.
@@ -313,32 +313,32 @@ instance Core.ToJSON CreateElasticsearchDomain where
     Core.object
       ( Prelude.catMaybes
           [ ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
-            ("SnapshotOptions" Core..=)
-              Prelude.<$> snapshotOptions,
-            ("ElasticsearchClusterConfig" Core..=)
-              Prelude.<$> elasticsearchClusterConfig,
-            ("DomainEndpointOptions" Core..=)
-              Prelude.<$> domainEndpointOptions,
-            ("AutoTuneOptions" Core..=)
-              Prelude.<$> autoTuneOptions,
-            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
-            ("AccessPolicies" Core..=)
-              Prelude.<$> accessPolicies,
-            ("EncryptionAtRestOptions" Core..=)
-              Prelude.<$> encryptionAtRestOptions,
-            ("CognitoOptions" Core..=)
-              Prelude.<$> cognitoOptions,
             ("NodeToNodeEncryptionOptions" Core..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
-            ("ElasticsearchVersion" Core..=)
-              Prelude.<$> elasticsearchVersion,
-            ("AdvancedOptions" Core..=)
-              Prelude.<$> advancedOptions,
-            ("TagList" Core..=) Prelude.<$> tagList,
-            ("AdvancedSecurityOptions" Core..=)
-              Prelude.<$> advancedSecurityOptions,
+            ("AccessPolicies" Core..=)
+              Prelude.<$> accessPolicies,
+            ("AutoTuneOptions" Core..=)
+              Prelude.<$> autoTuneOptions,
             ("LogPublishingOptions" Core..=)
               Prelude.<$> logPublishingOptions,
+            ("AdvancedSecurityOptions" Core..=)
+              Prelude.<$> advancedSecurityOptions,
+            ("TagList" Core..=) Prelude.<$> tagList,
+            ("ElasticsearchClusterConfig" Core..=)
+              Prelude.<$> elasticsearchClusterConfig,
+            ("SnapshotOptions" Core..=)
+              Prelude.<$> snapshotOptions,
+            ("CognitoOptions" Core..=)
+              Prelude.<$> cognitoOptions,
+            ("EncryptionAtRestOptions" Core..=)
+              Prelude.<$> encryptionAtRestOptions,
+            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
+            ("DomainEndpointOptions" Core..=)
+              Prelude.<$> domainEndpointOptions,
+            ("AdvancedOptions" Core..=)
+              Prelude.<$> advancedOptions,
+            ("ElasticsearchVersion" Core..=)
+              Prelude.<$> elasticsearchVersion,
             Prelude.Just ("DomainName" Core..= domainName)
           ]
       )

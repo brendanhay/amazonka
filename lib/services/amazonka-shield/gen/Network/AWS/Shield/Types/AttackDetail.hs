@@ -31,8 +31,17 @@ import Network.AWS.Shield.Types.SummarizedCounter
 --
 -- /See:/ 'newAttackDetail' smart constructor.
 data AttackDetail = AttackDetail'
-  { -- | The ARN (Amazon Resource Name) of the resource that was attacked.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+  { -- | The unique identifier (ID) of the attack.
+    attackId :: Prelude.Maybe Prelude.Text,
+    -- | The time the attack started, in Unix time in seconds. For more
+    -- information see
+    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | If applicable, additional detail about the resource being attacked, for
+    -- example, IP address or URL.
+    subResources :: Prelude.Maybe [SubResourceSummary],
+    -- | List of mitigation actions taken for the attack.
+    mitigations :: Prelude.Maybe [Mitigation],
     -- | The array of objects that provide details of the Shield event.
     --
     -- For infrastructure layer events (L3 and L4 events) after January 25,
@@ -41,23 +50,14 @@ data AttackDetail = AttackDetail'
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
     -- in the /WAF Developer Guide/.
     attackProperties :: Prelude.Maybe [AttackProperty],
-    -- | The time the attack started, in Unix time in seconds. For more
-    -- information see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    startTime :: Prelude.Maybe Core.POSIX,
+    -- | List of counters that describe the attack for the specified time period.
+    attackCounters :: Prelude.Maybe [SummarizedCounter],
+    -- | The ARN (Amazon Resource Name) of the resource that was attacked.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | The time the attack ended, in Unix time in seconds. For more information
     -- see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | List of counters that describe the attack for the specified time period.
-    attackCounters :: Prelude.Maybe [SummarizedCounter],
-    -- | List of mitigation actions taken for the attack.
-    mitigations :: Prelude.Maybe [Mitigation],
-    -- | The unique identifier (ID) of the attack.
-    attackId :: Prelude.Maybe Prelude.Text,
-    -- | If applicable, additional detail about the resource being attacked, for
-    -- example, IP address or URL.
-    subResources :: Prelude.Maybe [SubResourceSummary]
+    endTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,7 +69,16 @@ data AttackDetail = AttackDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'attackDetail_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
+-- 'attackId', 'attackDetail_attackId' - The unique identifier (ID) of the attack.
+--
+-- 'startTime', 'attackDetail_startTime' - The time the attack started, in Unix time in seconds. For more
+-- information see
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+--
+-- 'subResources', 'attackDetail_subResources' - If applicable, additional detail about the resource being attacked, for
+-- example, IP address or URL.
+--
+-- 'mitigations', 'attackDetail_mitigations' - List of mitigation actions taken for the attack.
 --
 -- 'attackProperties', 'attackDetail_attackProperties' - The array of objects that provide details of the Shield event.
 --
@@ -79,39 +88,45 @@ data AttackDetail = AttackDetail'
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 --
--- 'startTime', 'attackDetail_startTime' - The time the attack started, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- 'attackCounters', 'attackDetail_attackCounters' - List of counters that describe the attack for the specified time period.
+--
+-- 'resourceArn', 'attackDetail_resourceArn' - The ARN (Amazon Resource Name) of the resource that was attacked.
 --
 -- 'endTime', 'attackDetail_endTime' - The time the attack ended, in Unix time in seconds. For more information
 -- see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
---
--- 'attackCounters', 'attackDetail_attackCounters' - List of counters that describe the attack for the specified time period.
---
--- 'mitigations', 'attackDetail_mitigations' - List of mitigation actions taken for the attack.
---
--- 'attackId', 'attackDetail_attackId' - The unique identifier (ID) of the attack.
---
--- 'subResources', 'attackDetail_subResources' - If applicable, additional detail about the resource being attacked, for
--- example, IP address or URL.
 newAttackDetail ::
   AttackDetail
 newAttackDetail =
   AttackDetail'
-    { resourceArn = Prelude.Nothing,
-      attackProperties = Prelude.Nothing,
+    { attackId = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      attackCounters = Prelude.Nothing,
+      subResources = Prelude.Nothing,
       mitigations = Prelude.Nothing,
-      attackId = Prelude.Nothing,
-      subResources = Prelude.Nothing
+      attackProperties = Prelude.Nothing,
+      attackCounters = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
+      endTime = Prelude.Nothing
     }
 
--- | The ARN (Amazon Resource Name) of the resource that was attacked.
-attackDetail_resourceArn :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
-attackDetail_resourceArn = Lens.lens (\AttackDetail' {resourceArn} -> resourceArn) (\s@AttackDetail' {} a -> s {resourceArn = a} :: AttackDetail)
+-- | The unique identifier (ID) of the attack.
+attackDetail_attackId :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
+attackDetail_attackId = Lens.lens (\AttackDetail' {attackId} -> attackId) (\s@AttackDetail' {} a -> s {attackId = a} :: AttackDetail)
+
+-- | The time the attack started, in Unix time in seconds. For more
+-- information see
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+attackDetail_startTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
+attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s@AttackDetail' {} a -> s {startTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
+
+-- | If applicable, additional detail about the resource being attacked, for
+-- example, IP address or URL.
+attackDetail_subResources :: Lens.Lens' AttackDetail (Prelude.Maybe [SubResourceSummary])
+attackDetail_subResources = Lens.lens (\AttackDetail' {subResources} -> subResources) (\s@AttackDetail' {} a -> s {subResources = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of mitigation actions taken for the attack.
+attackDetail_mitigations :: Lens.Lens' AttackDetail (Prelude.Maybe [Mitigation])
+attackDetail_mitigations = Lens.lens (\AttackDetail' {mitigations} -> mitigations) (\s@AttackDetail' {} a -> s {mitigations = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The array of objects that provide details of the Shield event.
 --
@@ -121,13 +136,15 @@ attackDetail_resourceArn = Lens.lens (\AttackDetail' {resourceArn} -> resourceAr
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 attackDetail_attackProperties :: Lens.Lens' AttackDetail (Prelude.Maybe [AttackProperty])
-attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> attackProperties) (\s@AttackDetail' {} a -> s {attackProperties = a} :: AttackDetail) Prelude.. Lens.mapping Lens._Coerce
+attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> attackProperties) (\s@AttackDetail' {} a -> s {attackProperties = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The time the attack started, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-attackDetail_startTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
-attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s@AttackDetail' {} a -> s {startTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
+-- | List of counters that describe the attack for the specified time period.
+attackDetail_attackCounters :: Lens.Lens' AttackDetail (Prelude.Maybe [SummarizedCounter])
+attackDetail_attackCounters = Lens.lens (\AttackDetail' {attackCounters} -> attackCounters) (\s@AttackDetail' {} a -> s {attackCounters = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The ARN (Amazon Resource Name) of the resource that was attacked.
+attackDetail_resourceArn :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
+attackDetail_resourceArn = Lens.lens (\AttackDetail' {resourceArn} -> resourceArn) (\s@AttackDetail' {} a -> s {resourceArn = a} :: AttackDetail)
 
 -- | The time the attack ended, in Unix time in seconds. For more information
 -- see
@@ -135,39 +152,22 @@ attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s
 attackDetail_endTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
 attackDetail_endTime = Lens.lens (\AttackDetail' {endTime} -> endTime) (\s@AttackDetail' {} a -> s {endTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
 
--- | List of counters that describe the attack for the specified time period.
-attackDetail_attackCounters :: Lens.Lens' AttackDetail (Prelude.Maybe [SummarizedCounter])
-attackDetail_attackCounters = Lens.lens (\AttackDetail' {attackCounters} -> attackCounters) (\s@AttackDetail' {} a -> s {attackCounters = a} :: AttackDetail) Prelude.. Lens.mapping Lens._Coerce
-
--- | List of mitigation actions taken for the attack.
-attackDetail_mitigations :: Lens.Lens' AttackDetail (Prelude.Maybe [Mitigation])
-attackDetail_mitigations = Lens.lens (\AttackDetail' {mitigations} -> mitigations) (\s@AttackDetail' {} a -> s {mitigations = a} :: AttackDetail) Prelude.. Lens.mapping Lens._Coerce
-
--- | The unique identifier (ID) of the attack.
-attackDetail_attackId :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.Text)
-attackDetail_attackId = Lens.lens (\AttackDetail' {attackId} -> attackId) (\s@AttackDetail' {} a -> s {attackId = a} :: AttackDetail)
-
--- | If applicable, additional detail about the resource being attacked, for
--- example, IP address or URL.
-attackDetail_subResources :: Lens.Lens' AttackDetail (Prelude.Maybe [SubResourceSummary])
-attackDetail_subResources = Lens.lens (\AttackDetail' {subResources} -> subResources) (\s@AttackDetail' {} a -> s {subResources = a} :: AttackDetail) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON AttackDetail where
   parseJSON =
     Core.withObject
       "AttackDetail"
       ( \x ->
           AttackDetail'
-            Prelude.<$> (x Core..:? "ResourceArn")
+            Prelude.<$> (x Core..:? "AttackId")
+            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "SubResources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Mitigations" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "AttackProperties"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "AttackCounters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Mitigations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AttackId")
-            Prelude.<*> (x Core..:? "SubResources" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "EndTime")
       )
 
 instance Prelude.Hashable AttackDetail

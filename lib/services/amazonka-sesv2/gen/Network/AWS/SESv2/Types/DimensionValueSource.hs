@@ -31,11 +31,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
 -- | The location where the Amazon SES API v2 finds the value of a dimension
--- to publish to Amazon CloudWatch. If you want to use the message tags
--- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to
--- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want
--- to use your own email headers, choose @emailHeader@. If you want to use
--- link tags, choose @linkTags@.
+-- to publish to Amazon CloudWatch. To use the message tags that you
+-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the
+-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own
+-- email headers, choose @emailHeader@. To use link tags, choose
+-- @linkTags@.
 newtype DimensionValueSource = DimensionValueSource'
   { fromDimensionValueSource ::
       Core.Text

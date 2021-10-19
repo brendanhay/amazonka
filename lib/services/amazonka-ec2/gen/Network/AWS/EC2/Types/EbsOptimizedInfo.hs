@@ -28,21 +28,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEbsOptimizedInfo' smart constructor.
 data EbsOptimizedInfo = EbsOptimizedInfo'
-  { -- | The baseline bandwidth performance for an EBS-optimized instance type,
-    -- in Mbps.
-    baselineBandwidthInMbps :: Prelude.Maybe Prelude.Int,
-    -- | The maximum input\/output storage operations per second for an
+  { -- | The maximum input\/output storage operations per second for an
     -- EBS-optimized instance type.
     maximumIops :: Prelude.Maybe Prelude.Int,
-    -- | The maximum bandwidth performance for an EBS-optimized instance type, in
-    -- Mbps.
-    maximumBandwidthInMbps :: Prelude.Maybe Prelude.Int,
-    -- | The maximum throughput performance for an EBS-optimized instance type,
-    -- in MB\/s.
-    maximumThroughputInMBps :: Prelude.Maybe Prelude.Double,
     -- | The baseline input\/output storage operations per seconds for an
     -- EBS-optimized instance type.
     baselineIops :: Prelude.Maybe Prelude.Int,
+    -- | The maximum throughput performance for an EBS-optimized instance type,
+    -- in MB\/s.
+    maximumThroughputInMBps :: Prelude.Maybe Prelude.Double,
+    -- | The maximum bandwidth performance for an EBS-optimized instance type, in
+    -- Mbps.
+    maximumBandwidthInMbps :: Prelude.Maybe Prelude.Int,
+    -- | The baseline bandwidth performance for an EBS-optimized instance type,
+    -- in Mbps.
+    baselineBandwidthInMbps :: Prelude.Maybe Prelude.Int,
     -- | The baseline throughput performance for an EBS-optimized instance type,
     -- in MB\/s.
     baselineThroughputInMBps :: Prelude.Maybe Prelude.Double
@@ -57,20 +57,20 @@ data EbsOptimizedInfo = EbsOptimizedInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'baselineBandwidthInMbps', 'ebsOptimizedInfo_baselineBandwidthInMbps' - The baseline bandwidth performance for an EBS-optimized instance type,
--- in Mbps.
---
 -- 'maximumIops', 'ebsOptimizedInfo_maximumIops' - The maximum input\/output storage operations per second for an
 -- EBS-optimized instance type.
 --
--- 'maximumBandwidthInMbps', 'ebsOptimizedInfo_maximumBandwidthInMbps' - The maximum bandwidth performance for an EBS-optimized instance type, in
--- Mbps.
+-- 'baselineIops', 'ebsOptimizedInfo_baselineIops' - The baseline input\/output storage operations per seconds for an
+-- EBS-optimized instance type.
 --
 -- 'maximumThroughputInMBps', 'ebsOptimizedInfo_maximumThroughputInMBps' - The maximum throughput performance for an EBS-optimized instance type,
 -- in MB\/s.
 --
--- 'baselineIops', 'ebsOptimizedInfo_baselineIops' - The baseline input\/output storage operations per seconds for an
--- EBS-optimized instance type.
+-- 'maximumBandwidthInMbps', 'ebsOptimizedInfo_maximumBandwidthInMbps' - The maximum bandwidth performance for an EBS-optimized instance type, in
+-- Mbps.
+--
+-- 'baselineBandwidthInMbps', 'ebsOptimizedInfo_baselineBandwidthInMbps' - The baseline bandwidth performance for an EBS-optimized instance type,
+-- in Mbps.
 --
 -- 'baselineThroughputInMBps', 'ebsOptimizedInfo_baselineThroughputInMBps' - The baseline throughput performance for an EBS-optimized instance type,
 -- in MB\/s.
@@ -78,39 +78,38 @@ newEbsOptimizedInfo ::
   EbsOptimizedInfo
 newEbsOptimizedInfo =
   EbsOptimizedInfo'
-    { baselineBandwidthInMbps =
-        Prelude.Nothing,
-      maximumIops = Prelude.Nothing,
-      maximumBandwidthInMbps = Prelude.Nothing,
-      maximumThroughputInMBps = Prelude.Nothing,
+    { maximumIops = Prelude.Nothing,
       baselineIops = Prelude.Nothing,
+      maximumThroughputInMBps = Prelude.Nothing,
+      maximumBandwidthInMbps = Prelude.Nothing,
+      baselineBandwidthInMbps = Prelude.Nothing,
       baselineThroughputInMBps = Prelude.Nothing
     }
-
--- | The baseline bandwidth performance for an EBS-optimized instance type,
--- in Mbps.
-ebsOptimizedInfo_baselineBandwidthInMbps :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
-ebsOptimizedInfo_baselineBandwidthInMbps = Lens.lens (\EbsOptimizedInfo' {baselineBandwidthInMbps} -> baselineBandwidthInMbps) (\s@EbsOptimizedInfo' {} a -> s {baselineBandwidthInMbps = a} :: EbsOptimizedInfo)
 
 -- | The maximum input\/output storage operations per second for an
 -- EBS-optimized instance type.
 ebsOptimizedInfo_maximumIops :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
 ebsOptimizedInfo_maximumIops = Lens.lens (\EbsOptimizedInfo' {maximumIops} -> maximumIops) (\s@EbsOptimizedInfo' {} a -> s {maximumIops = a} :: EbsOptimizedInfo)
 
--- | The maximum bandwidth performance for an EBS-optimized instance type, in
--- Mbps.
-ebsOptimizedInfo_maximumBandwidthInMbps :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
-ebsOptimizedInfo_maximumBandwidthInMbps = Lens.lens (\EbsOptimizedInfo' {maximumBandwidthInMbps} -> maximumBandwidthInMbps) (\s@EbsOptimizedInfo' {} a -> s {maximumBandwidthInMbps = a} :: EbsOptimizedInfo)
+-- | The baseline input\/output storage operations per seconds for an
+-- EBS-optimized instance type.
+ebsOptimizedInfo_baselineIops :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
+ebsOptimizedInfo_baselineIops = Lens.lens (\EbsOptimizedInfo' {baselineIops} -> baselineIops) (\s@EbsOptimizedInfo' {} a -> s {baselineIops = a} :: EbsOptimizedInfo)
 
 -- | The maximum throughput performance for an EBS-optimized instance type,
 -- in MB\/s.
 ebsOptimizedInfo_maximumThroughputInMBps :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Double)
 ebsOptimizedInfo_maximumThroughputInMBps = Lens.lens (\EbsOptimizedInfo' {maximumThroughputInMBps} -> maximumThroughputInMBps) (\s@EbsOptimizedInfo' {} a -> s {maximumThroughputInMBps = a} :: EbsOptimizedInfo)
 
--- | The baseline input\/output storage operations per seconds for an
--- EBS-optimized instance type.
-ebsOptimizedInfo_baselineIops :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
-ebsOptimizedInfo_baselineIops = Lens.lens (\EbsOptimizedInfo' {baselineIops} -> baselineIops) (\s@EbsOptimizedInfo' {} a -> s {baselineIops = a} :: EbsOptimizedInfo)
+-- | The maximum bandwidth performance for an EBS-optimized instance type, in
+-- Mbps.
+ebsOptimizedInfo_maximumBandwidthInMbps :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
+ebsOptimizedInfo_maximumBandwidthInMbps = Lens.lens (\EbsOptimizedInfo' {maximumBandwidthInMbps} -> maximumBandwidthInMbps) (\s@EbsOptimizedInfo' {} a -> s {maximumBandwidthInMbps = a} :: EbsOptimizedInfo)
+
+-- | The baseline bandwidth performance for an EBS-optimized instance type,
+-- in Mbps.
+ebsOptimizedInfo_baselineBandwidthInMbps :: Lens.Lens' EbsOptimizedInfo (Prelude.Maybe Prelude.Int)
+ebsOptimizedInfo_baselineBandwidthInMbps = Lens.lens (\EbsOptimizedInfo' {baselineBandwidthInMbps} -> baselineBandwidthInMbps) (\s@EbsOptimizedInfo' {} a -> s {baselineBandwidthInMbps = a} :: EbsOptimizedInfo)
 
 -- | The baseline throughput performance for an EBS-optimized instance type,
 -- in MB\/s.
@@ -120,11 +119,11 @@ ebsOptimizedInfo_baselineThroughputInMBps = Lens.lens (\EbsOptimizedInfo' {basel
 instance Core.FromXML EbsOptimizedInfo where
   parseXML x =
     EbsOptimizedInfo'
-      Prelude.<$> (x Core..@? "baselineBandwidthInMbps")
-      Prelude.<*> (x Core..@? "maximumIops")
-      Prelude.<*> (x Core..@? "maximumBandwidthInMbps")
-      Prelude.<*> (x Core..@? "maximumThroughputInMBps")
+      Prelude.<$> (x Core..@? "maximumIops")
       Prelude.<*> (x Core..@? "baselineIops")
+      Prelude.<*> (x Core..@? "maximumThroughputInMBps")
+      Prelude.<*> (x Core..@? "maximumBandwidthInMbps")
+      Prelude.<*> (x Core..@? "baselineBandwidthInMbps")
       Prelude.<*> (x Core..@? "baselineThroughputInMBps")
 
 instance Prelude.Hashable EbsOptimizedInfo

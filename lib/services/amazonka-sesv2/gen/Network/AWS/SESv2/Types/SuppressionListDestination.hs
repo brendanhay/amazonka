@@ -28,7 +28,7 @@ import Network.AWS.SESv2.Types.SuppressionListImportAction
 --
 -- /See:/ 'newSuppressionListDestination' smart constructor.
 data SuppressionListDestination = SuppressionListDestination'
-  { -- | The type of action that you want to perform on the address. Acceptable
+  { -- | The type of action to perform on the address. The following are possible
     -- values:
     --
     -- -   PUT: add the addresses to the suppression list. If the record
@@ -47,7 +47,7 @@ data SuppressionListDestination = SuppressionListDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suppressionListImportAction', 'suppressionListDestination_suppressionListImportAction' - The type of action that you want to perform on the address. Acceptable
+-- 'suppressionListImportAction', 'suppressionListDestination_suppressionListImportAction' - The type of action to perform on the address. The following are possible
 -- values:
 --
 -- -   PUT: add the addresses to the suppression list. If the record
@@ -65,7 +65,7 @@ newSuppressionListDestination
           pSuppressionListImportAction_
       }
 
--- | The type of action that you want to perform on the address. Acceptable
+-- | The type of action to perform on the address. The following are possible
 -- values:
 --
 -- -   PUT: add the addresses to the suppression list. If the record

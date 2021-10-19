@@ -143,7 +143,7 @@ executeProvisionedProductServiceAction_acceptLanguage = Lens.lens (\ExecuteProvi
 -- passed and default values will be used for any special parameters such
 -- as @TARGET@.
 executeProvisionedProductServiceAction_parameters :: Lens.Lens' ExecuteProvisionedProductServiceAction (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-executeProvisionedProductServiceAction_parameters = Lens.lens (\ExecuteProvisionedProductServiceAction' {parameters} -> parameters) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {parameters = a} :: ExecuteProvisionedProductServiceAction) Prelude.. Lens.mapping Lens._Coerce
+executeProvisionedProductServiceAction_parameters = Lens.lens (\ExecuteProvisionedProductServiceAction' {parameters} -> parameters) (\s@ExecuteProvisionedProductServiceAction' {} a -> s {parameters = a} :: ExecuteProvisionedProductServiceAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the provisioned product.
 executeProvisionedProductServiceAction_provisionedProductId :: Lens.Lens' ExecuteProvisionedProductServiceAction Prelude.Text

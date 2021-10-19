@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDashboardValidationMessage' smart constructor.
 data DashboardValidationMessage = DashboardValidationMessage'
-  { -- | A message describing the error or warning.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The data path related to the message.
-    dataPath :: Prelude.Maybe Prelude.Text
+  { -- | The data path related to the message.
+    dataPath :: Prelude.Maybe Prelude.Text,
+    -- | A message describing the error or warning.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,31 +42,31 @@ data DashboardValidationMessage = DashboardValidationMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'dashboardValidationMessage_message' - A message describing the error or warning.
---
 -- 'dataPath', 'dashboardValidationMessage_dataPath' - The data path related to the message.
+--
+-- 'message', 'dashboardValidationMessage_message' - A message describing the error or warning.
 newDashboardValidationMessage ::
   DashboardValidationMessage
 newDashboardValidationMessage =
   DashboardValidationMessage'
-    { message =
+    { dataPath =
         Prelude.Nothing,
-      dataPath = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | A message describing the error or warning.
-dashboardValidationMessage_message :: Lens.Lens' DashboardValidationMessage (Prelude.Maybe Prelude.Text)
-dashboardValidationMessage_message = Lens.lens (\DashboardValidationMessage' {message} -> message) (\s@DashboardValidationMessage' {} a -> s {message = a} :: DashboardValidationMessage)
 
 -- | The data path related to the message.
 dashboardValidationMessage_dataPath :: Lens.Lens' DashboardValidationMessage (Prelude.Maybe Prelude.Text)
 dashboardValidationMessage_dataPath = Lens.lens (\DashboardValidationMessage' {dataPath} -> dataPath) (\s@DashboardValidationMessage' {} a -> s {dataPath = a} :: DashboardValidationMessage)
 
+-- | A message describing the error or warning.
+dashboardValidationMessage_message :: Lens.Lens' DashboardValidationMessage (Prelude.Maybe Prelude.Text)
+dashboardValidationMessage_message = Lens.lens (\DashboardValidationMessage' {message} -> message) (\s@DashboardValidationMessage' {} a -> s {message = a} :: DashboardValidationMessage)
+
 instance Core.FromXML DashboardValidationMessage where
   parseXML x =
     DashboardValidationMessage'
-      Prelude.<$> (x Core..@? "Message")
-      Prelude.<*> (x Core..@? "DataPath")
+      Prelude.<$> (x Core..@? "DataPath")
+      Prelude.<*> (x Core..@? "Message")
 
 instance Prelude.Hashable DashboardValidationMessage
 

@@ -196,7 +196,7 @@ listDomainsResponse_nextToken = Lens.lens (\ListDomainsResponse' {nextToken} -> 
 
 -- | The list of domains.
 listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [DomainDetails])
-listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int

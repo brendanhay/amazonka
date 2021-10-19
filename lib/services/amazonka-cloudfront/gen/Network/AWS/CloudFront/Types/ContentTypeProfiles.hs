@@ -58,7 +58,7 @@ newContentTypeProfiles pQuantity_ =
 
 -- | Items in a field-level encryption content type-profile mapping.
 contentTypeProfiles_items :: Lens.Lens' ContentTypeProfiles (Prelude.Maybe [ContentTypeProfile])
-contentTypeProfiles_items = Lens.lens (\ContentTypeProfiles' {items} -> items) (\s@ContentTypeProfiles' {} a -> s {items = a} :: ContentTypeProfiles) Prelude.. Lens.mapping Lens._Coerce
+contentTypeProfiles_items = Lens.lens (\ContentTypeProfiles' {items} -> items) (\s@ContentTypeProfiles' {} a -> s {items = a} :: ContentTypeProfiles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of field-level encryption content type-profile mappings.
 contentTypeProfiles_quantity :: Lens.Lens' ContentTypeProfiles Prelude.Int

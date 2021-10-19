@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Pose = Pose'
   { -- | Value representing the face rotation on the yaw axis.
     yaw :: Prelude.Maybe Prelude.Double,
-    -- | Value representing the face rotation on the pitch axis.
-    pitch :: Prelude.Maybe Prelude.Double,
     -- | Value representing the face rotation on the roll axis.
-    roll :: Prelude.Maybe Prelude.Double
+    roll :: Prelude.Maybe Prelude.Double,
+    -- | Value representing the face rotation on the pitch axis.
+    pitch :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data Pose = Pose'
 --
 -- 'yaw', 'pose_yaw' - Value representing the face rotation on the yaw axis.
 --
--- 'pitch', 'pose_pitch' - Value representing the face rotation on the pitch axis.
---
 -- 'roll', 'pose_roll' - Value representing the face rotation on the roll axis.
+--
+-- 'pitch', 'pose_pitch' - Value representing the face rotation on the pitch axis.
 newPose ::
   Pose
 newPose =
   Pose'
     { yaw = Prelude.Nothing,
-      pitch = Prelude.Nothing,
-      roll = Prelude.Nothing
+      roll = Prelude.Nothing,
+      pitch = Prelude.Nothing
     }
 
 -- | Value representing the face rotation on the yaw axis.
 pose_yaw :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_yaw = Lens.lens (\Pose' {yaw} -> yaw) (\s@Pose' {} a -> s {yaw = a} :: Pose)
 
--- | Value representing the face rotation on the pitch axis.
-pose_pitch :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
-pose_pitch = Lens.lens (\Pose' {pitch} -> pitch) (\s@Pose' {} a -> s {pitch = a} :: Pose)
-
 -- | Value representing the face rotation on the roll axis.
 pose_roll :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
 pose_roll = Lens.lens (\Pose' {roll} -> roll) (\s@Pose' {} a -> s {roll = a} :: Pose)
+
+-- | Value representing the face rotation on the pitch axis.
+pose_pitch :: Lens.Lens' Pose (Prelude.Maybe Prelude.Double)
+pose_pitch = Lens.lens (\Pose' {pitch} -> pitch) (\s@Pose' {} a -> s {pitch = a} :: Pose)
 
 instance Core.FromJSON Pose where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON Pose where
       ( \x ->
           Pose'
             Prelude.<$> (x Core..:? "Yaw")
-            Prelude.<*> (x Core..:? "Pitch")
             Prelude.<*> (x Core..:? "Roll")
+            Prelude.<*> (x Core..:? "Pitch")
       )
 
 instance Prelude.Hashable Pose

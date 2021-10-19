@@ -88,7 +88,7 @@ untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resource
 -- | The tag names of the tags to remove from the given Cloud9 development
 -- environment.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

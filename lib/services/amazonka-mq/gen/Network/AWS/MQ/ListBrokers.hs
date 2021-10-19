@@ -195,7 +195,7 @@ listBrokersResponse_nextToken = Lens.lens (\ListBrokersResponse' {nextToken} -> 
 
 -- | A list of information about all brokers.
 listBrokersResponse_brokerSummaries :: Lens.Lens' ListBrokersResponse (Prelude.Maybe [BrokerSummary])
-listBrokersResponse_brokerSummaries = Lens.lens (\ListBrokersResponse' {brokerSummaries} -> brokerSummaries) (\s@ListBrokersResponse' {} a -> s {brokerSummaries = a} :: ListBrokersResponse) Prelude.. Lens.mapping Lens._Coerce
+listBrokersResponse_brokerSummaries = Lens.lens (\ListBrokersResponse' {brokerSummaries} -> brokerSummaries) (\s@ListBrokersResponse' {} a -> s {brokerSummaries = a} :: ListBrokersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBrokersResponse_httpStatus :: Lens.Lens' ListBrokersResponse Prelude.Int

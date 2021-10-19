@@ -31,11 +31,11 @@ module Network.AWS.IoT.CreateFleetMetric
     newCreateFleetMetric,
 
     -- * Request Lenses
-    createFleetMetric_indexName,
-    createFleetMetric_unit,
     createFleetMetric_queryVersion,
-    createFleetMetric_tags,
     createFleetMetric_description,
+    createFleetMetric_unit,
+    createFleetMetric_indexName,
+    createFleetMetric_tags,
     createFleetMetric_metricName,
     createFleetMetric_queryString,
     createFleetMetric_aggregationType,
@@ -47,8 +47,8 @@ module Network.AWS.IoT.CreateFleetMetric
     newCreateFleetMetricResponse,
 
     -- * Response Lenses
-    createFleetMetricResponse_metricArn,
     createFleetMetricResponse_metricName,
+    createFleetMetricResponse_metricArn,
     createFleetMetricResponse_httpStatus,
   )
 where
@@ -62,19 +62,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFleetMetric' smart constructor.
 data CreateFleetMetric = CreateFleetMetric'
-  { -- | The name of the index to search.
-    indexName :: Prelude.Maybe Prelude.Text,
+  { -- | The query version.
+    queryVersion :: Prelude.Maybe Prelude.Text,
+    -- | The fleet metric description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Used to support unit transformation such as milliseconds to seconds. The
     -- unit must be supported by
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
     -- Default to null.
     unit :: Prelude.Maybe FleetMetricUnit,
-    -- | The query version.
-    queryVersion :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index to search.
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | Metadata, which can be used to manage the fleet metric.
     tags :: Prelude.Maybe [Tag],
-    -- | The fleet metric description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet metric to create.
     metricName :: Prelude.Text,
     -- | The search query string.
@@ -97,18 +97,18 @@ data CreateFleetMetric = CreateFleetMetric'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexName', 'createFleetMetric_indexName' - The name of the index to search.
+-- 'queryVersion', 'createFleetMetric_queryVersion' - The query version.
+--
+-- 'description', 'createFleetMetric_description' - The fleet metric description.
 --
 -- 'unit', 'createFleetMetric_unit' - Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html CW metric>.
 -- Default to null.
 --
--- 'queryVersion', 'createFleetMetric_queryVersion' - The query version.
+-- 'indexName', 'createFleetMetric_indexName' - The name of the index to search.
 --
 -- 'tags', 'createFleetMetric_tags' - Metadata, which can be used to manage the fleet metric.
---
--- 'description', 'createFleetMetric_description' - The fleet metric description.
 --
 -- 'metricName', 'createFleetMetric_metricName' - The name of the fleet metric to create.
 --
@@ -139,11 +139,11 @@ newCreateFleetMetric
   pPeriod_
   pAggregationField_ =
     CreateFleetMetric'
-      { indexName = Prelude.Nothing,
-        unit = Prelude.Nothing,
-        queryVersion = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { queryVersion = Prelude.Nothing,
         description = Prelude.Nothing,
+        unit = Prelude.Nothing,
+        indexName = Prelude.Nothing,
+        tags = Prelude.Nothing,
         metricName = pMetricName_,
         queryString = pQueryString_,
         aggregationType = pAggregationType_,
@@ -151,9 +151,13 @@ newCreateFleetMetric
         aggregationField = pAggregationField_
       }
 
--- | The name of the index to search.
-createFleetMetric_indexName :: Lens.Lens' CreateFleetMetric (Prelude.Maybe Prelude.Text)
-createFleetMetric_indexName = Lens.lens (\CreateFleetMetric' {indexName} -> indexName) (\s@CreateFleetMetric' {} a -> s {indexName = a} :: CreateFleetMetric)
+-- | The query version.
+createFleetMetric_queryVersion :: Lens.Lens' CreateFleetMetric (Prelude.Maybe Prelude.Text)
+createFleetMetric_queryVersion = Lens.lens (\CreateFleetMetric' {queryVersion} -> queryVersion) (\s@CreateFleetMetric' {} a -> s {queryVersion = a} :: CreateFleetMetric)
+
+-- | The fleet metric description.
+createFleetMetric_description :: Lens.Lens' CreateFleetMetric (Prelude.Maybe Prelude.Text)
+createFleetMetric_description = Lens.lens (\CreateFleetMetric' {description} -> description) (\s@CreateFleetMetric' {} a -> s {description = a} :: CreateFleetMetric)
 
 -- | Used to support unit transformation such as milliseconds to seconds. The
 -- unit must be supported by
@@ -162,17 +166,13 @@ createFleetMetric_indexName = Lens.lens (\CreateFleetMetric' {indexName} -> inde
 createFleetMetric_unit :: Lens.Lens' CreateFleetMetric (Prelude.Maybe FleetMetricUnit)
 createFleetMetric_unit = Lens.lens (\CreateFleetMetric' {unit} -> unit) (\s@CreateFleetMetric' {} a -> s {unit = a} :: CreateFleetMetric)
 
--- | The query version.
-createFleetMetric_queryVersion :: Lens.Lens' CreateFleetMetric (Prelude.Maybe Prelude.Text)
-createFleetMetric_queryVersion = Lens.lens (\CreateFleetMetric' {queryVersion} -> queryVersion) (\s@CreateFleetMetric' {} a -> s {queryVersion = a} :: CreateFleetMetric)
+-- | The name of the index to search.
+createFleetMetric_indexName :: Lens.Lens' CreateFleetMetric (Prelude.Maybe Prelude.Text)
+createFleetMetric_indexName = Lens.lens (\CreateFleetMetric' {indexName} -> indexName) (\s@CreateFleetMetric' {} a -> s {indexName = a} :: CreateFleetMetric)
 
 -- | Metadata, which can be used to manage the fleet metric.
 createFleetMetric_tags :: Lens.Lens' CreateFleetMetric (Prelude.Maybe [Tag])
-createFleetMetric_tags = Lens.lens (\CreateFleetMetric' {tags} -> tags) (\s@CreateFleetMetric' {} a -> s {tags = a} :: CreateFleetMetric) Prelude.. Lens.mapping Lens._Coerce
-
--- | The fleet metric description.
-createFleetMetric_description :: Lens.Lens' CreateFleetMetric (Prelude.Maybe Prelude.Text)
-createFleetMetric_description = Lens.lens (\CreateFleetMetric' {description} -> description) (\s@CreateFleetMetric' {} a -> s {description = a} :: CreateFleetMetric)
+createFleetMetric_tags = Lens.lens (\CreateFleetMetric' {tags} -> tags) (\s@CreateFleetMetric' {} a -> s {tags = a} :: CreateFleetMetric) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the fleet metric to create.
 createFleetMetric_metricName :: Lens.Lens' CreateFleetMetric Prelude.Text
@@ -204,8 +204,8 @@ instance Core.AWSRequest CreateFleetMetric where
     Response.receiveJSON
       ( \s h x ->
           CreateFleetMetricResponse'
-            Prelude.<$> (x Core..?> "metricArn")
-            Prelude.<*> (x Core..?> "metricName")
+            Prelude.<$> (x Core..?> "metricName")
+            Prelude.<*> (x Core..?> "metricArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,11 +220,11 @@ instance Core.ToJSON CreateFleetMetric where
   toJSON CreateFleetMetric' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("indexName" Core..=) Prelude.<$> indexName,
-            ("unit" Core..=) Prelude.<$> unit,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("queryVersion" Core..=) Prelude.<$> queryVersion,
             ("description" Core..=) Prelude.<$> description,
+            ("unit" Core..=) Prelude.<$> unit,
+            ("indexName" Core..=) Prelude.<$> indexName,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("queryString" Core..= queryString),
             Prelude.Just
               ("aggregationType" Core..= aggregationType),
@@ -244,10 +244,10 @@ instance Core.ToQuery CreateFleetMetric where
 
 -- | /See:/ 'newCreateFleetMetricResponse' smart constructor.
 data CreateFleetMetricResponse = CreateFleetMetricResponse'
-  { -- | The Amazon Resource Name (ARN) of the new fleet metric.
-    metricArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the fleet metric to create.
+  { -- | The name of the fleet metric to create.
     metricName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the new fleet metric.
+    metricArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -261,9 +261,9 @@ data CreateFleetMetricResponse = CreateFleetMetricResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricArn', 'createFleetMetricResponse_metricArn' - The Amazon Resource Name (ARN) of the new fleet metric.
---
 -- 'metricName', 'createFleetMetricResponse_metricName' - The name of the fleet metric to create.
+--
+-- 'metricArn', 'createFleetMetricResponse_metricArn' - The Amazon Resource Name (ARN) of the new fleet metric.
 --
 -- 'httpStatus', 'createFleetMetricResponse_httpStatus' - The response's http status code.
 newCreateFleetMetricResponse ::
@@ -272,19 +272,19 @@ newCreateFleetMetricResponse ::
   CreateFleetMetricResponse
 newCreateFleetMetricResponse pHttpStatus_ =
   CreateFleetMetricResponse'
-    { metricArn =
+    { metricName =
         Prelude.Nothing,
-      metricName = Prelude.Nothing,
+      metricArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the new fleet metric.
-createFleetMetricResponse_metricArn :: Lens.Lens' CreateFleetMetricResponse (Prelude.Maybe Prelude.Text)
-createFleetMetricResponse_metricArn = Lens.lens (\CreateFleetMetricResponse' {metricArn} -> metricArn) (\s@CreateFleetMetricResponse' {} a -> s {metricArn = a} :: CreateFleetMetricResponse)
 
 -- | The name of the fleet metric to create.
 createFleetMetricResponse_metricName :: Lens.Lens' CreateFleetMetricResponse (Prelude.Maybe Prelude.Text)
 createFleetMetricResponse_metricName = Lens.lens (\CreateFleetMetricResponse' {metricName} -> metricName) (\s@CreateFleetMetricResponse' {} a -> s {metricName = a} :: CreateFleetMetricResponse)
+
+-- | The Amazon Resource Name (ARN) of the new fleet metric.
+createFleetMetricResponse_metricArn :: Lens.Lens' CreateFleetMetricResponse (Prelude.Maybe Prelude.Text)
+createFleetMetricResponse_metricArn = Lens.lens (\CreateFleetMetricResponse' {metricArn} -> metricArn) (\s@CreateFleetMetricResponse' {} a -> s {metricArn = a} :: CreateFleetMetricResponse)
 
 -- | The response's http status code.
 createFleetMetricResponse_httpStatus :: Lens.Lens' CreateFleetMetricResponse Prelude.Int

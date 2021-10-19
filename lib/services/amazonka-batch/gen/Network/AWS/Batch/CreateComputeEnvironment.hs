@@ -73,9 +73,9 @@ module Network.AWS.Batch.CreateComputeEnvironment
     newCreateComputeEnvironment,
 
     -- * Request Lenses
-    createComputeEnvironment_serviceRole,
     createComputeEnvironment_state,
     createComputeEnvironment_computeResources,
+    createComputeEnvironment_serviceRole,
     createComputeEnvironment_tags,
     createComputeEnvironment_computeEnvironmentName,
     createComputeEnvironment_type,
@@ -102,7 +102,28 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateComputeEnvironment' smart constructor.
 data CreateComputeEnvironment = CreateComputeEnvironment'
-  { -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
+  { -- | The state of the compute environment. If the state is @ENABLED@, then
+    -- the compute environment accepts jobs from a queue and can scale out
+    -- automatically based on queues.
+    --
+    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+    -- jobs from an associated job queue on the compute resources within the
+    -- environment. If the compute environment is managed, then it can scale
+    -- its instances out or in automatically, based on the job queue demand.
+    --
+    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+    -- state continue to progress normally. Managed compute environments in the
+    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+    -- value after instances become idle.
+    state :: Prelude.Maybe CEState,
+    -- | Details about the compute resources managed by the compute environment.
+    -- This parameter is required for managed compute environments. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+    -- in the /Batch User Guide/.
+    computeResources :: Prelude.Maybe ComputeResource,
+    -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
     -- make calls to other Amazon Web Services services on your behalf. For
     -- more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html Batch service IAM role>
@@ -129,27 +150,6 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
     -- specify the full ARN of your service role when you create compute
     -- environments.
     serviceRole :: Prelude.Maybe Prelude.Text,
-    -- | The state of the compute environment. If the state is @ENABLED@, then
-    -- the compute environment accepts jobs from a queue and can scale out
-    -- automatically based on queues.
-    --
-    -- If the state is @ENABLED@, then the Batch scheduler can attempt to place
-    -- jobs from an associated job queue on the compute resources within the
-    -- environment. If the compute environment is managed, then it can scale
-    -- its instances out or in automatically, based on the job queue demand.
-    --
-    -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
-    -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
-    -- state continue to progress normally. Managed compute environments in the
-    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
-    -- value after instances become idle.
-    state :: Prelude.Maybe CEState,
-    -- | Details about the compute resources managed by the compute environment.
-    -- This parameter is required for managed compute environments. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
-    -- in the /Batch User Guide/.
-    computeResources :: Prelude.Maybe ComputeResource,
     -- | The tags that you apply to the compute environment to help you
     -- categorize and organize your resources. Each tag consists of a key and
     -- an optional value. For more information, see
@@ -182,6 +182,27 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'state', 'createComputeEnvironment_state' - The state of the compute environment. If the state is @ENABLED@, then
+-- the compute environment accepts jobs from a queue and can scale out
+-- automatically based on queues.
+--
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
+--
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
+--
+-- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
+-- This parameter is required for managed compute environments. For more
+-- information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+--
 -- 'serviceRole', 'createComputeEnvironment_serviceRole' - The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
 -- more information, see
@@ -208,27 +229,6 @@ data CreateComputeEnvironment = CreateComputeEnvironment'
 -- @service-role@ path prefix. Because of this, we recommend that you
 -- specify the full ARN of your service role when you create compute
 -- environments.
---
--- 'state', 'createComputeEnvironment_state' - The state of the compute environment. If the state is @ENABLED@, then
--- the compute environment accepts jobs from a queue and can scale out
--- automatically based on queues.
---
--- If the state is @ENABLED@, then the Batch scheduler can attempt to place
--- jobs from an associated job queue on the compute resources within the
--- environment. If the compute environment is managed, then it can scale
--- its instances out or in automatically, based on the job queue demand.
---
--- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
--- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
--- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
---
--- 'computeResources', 'createComputeEnvironment_computeResources' - Details about the compute resources managed by the compute environment.
--- This parameter is required for managed compute environments. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
 --
 -- 'tags', 'createComputeEnvironment_tags' - The tags that you apply to the compute environment to help you
 -- categorize and organize your resources. Each tag consists of a key and
@@ -260,14 +260,38 @@ newCreateComputeEnvironment
   pComputeEnvironmentName_
   pType_ =
     CreateComputeEnvironment'
-      { serviceRole =
-          Prelude.Nothing,
-        state = Prelude.Nothing,
+      { state = Prelude.Nothing,
         computeResources = Prelude.Nothing,
+        serviceRole = Prelude.Nothing,
         tags = Prelude.Nothing,
         computeEnvironmentName = pComputeEnvironmentName_,
         type' = pType_
       }
+
+-- | The state of the compute environment. If the state is @ENABLED@, then
+-- the compute environment accepts jobs from a queue and can scale out
+-- automatically based on queues.
+--
+-- If the state is @ENABLED@, then the Batch scheduler can attempt to place
+-- jobs from an associated job queue on the compute resources within the
+-- environment. If the compute environment is managed, then it can scale
+-- its instances out or in automatically, based on the job queue demand.
+--
+-- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
+-- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
+-- state continue to progress normally. Managed compute environments in the
+-- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
+-- value after instances become idle.
+createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
+createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
+
+-- | Details about the compute resources managed by the compute environment.
+-- This parameter is required for managed compute environments. For more
+-- information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
+-- in the /Batch User Guide/.
+createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
+createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that allows Batch to
 -- make calls to other Amazon Web Services services on your behalf. For
@@ -298,31 +322,6 @@ newCreateComputeEnvironment
 createComputeEnvironment_serviceRole :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe Prelude.Text)
 createComputeEnvironment_serviceRole = Lens.lens (\CreateComputeEnvironment' {serviceRole} -> serviceRole) (\s@CreateComputeEnvironment' {} a -> s {serviceRole = a} :: CreateComputeEnvironment)
 
--- | The state of the compute environment. If the state is @ENABLED@, then
--- the compute environment accepts jobs from a queue and can scale out
--- automatically based on queues.
---
--- If the state is @ENABLED@, then the Batch scheduler can attempt to place
--- jobs from an associated job queue on the compute resources within the
--- environment. If the compute environment is managed, then it can scale
--- its instances out or in automatically, based on the job queue demand.
---
--- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
--- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
--- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
-createComputeEnvironment_state :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe CEState)
-createComputeEnvironment_state = Lens.lens (\CreateComputeEnvironment' {state} -> state) (\s@CreateComputeEnvironment' {} a -> s {state = a} :: CreateComputeEnvironment)
-
--- | Details about the compute resources managed by the compute environment.
--- This parameter is required for managed compute environments. For more
--- information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
--- in the /Batch User Guide/.
-createComputeEnvironment_computeResources :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe ComputeResource)
-createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment' {computeResources} -> computeResources) (\s@CreateComputeEnvironment' {} a -> s {computeResources = a} :: CreateComputeEnvironment)
-
 -- | The tags that you apply to the compute environment to help you
 -- categorize and organize your resources. Each tag consists of a key and
 -- an optional value. For more information, see
@@ -336,7 +335,7 @@ createComputeEnvironment_computeResources = Lens.lens (\CreateComputeEnvironment
 -- API operations. These tags don\'t propagate to the underlying compute
 -- resources.
 createComputeEnvironment_tags :: Lens.Lens' CreateComputeEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens._Coerce
+createComputeEnvironment_tags = Lens.lens (\CreateComputeEnvironment' {tags} -> tags) (\s@CreateComputeEnvironment' {} a -> s {tags = a} :: CreateComputeEnvironment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for your compute environment. Up to 128 letters (uppercase and
 -- lowercase), numbers, hyphens, and underscores are allowed.
@@ -383,10 +382,10 @@ instance Core.ToJSON CreateComputeEnvironment where
   toJSON CreateComputeEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("serviceRole" Core..=) Prelude.<$> serviceRole,
-            ("state" Core..=) Prelude.<$> state,
+          [ ("state" Core..=) Prelude.<$> state,
             ("computeResources" Core..=)
               Prelude.<$> computeResources,
+            ("serviceRole" Core..=) Prelude.<$> serviceRole,
             ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "computeEnvironmentName"

@@ -34,10 +34,10 @@ module Network.AWS.APIGateway.UpdateAccount
     newAccount,
 
     -- * Response Lenses
-    account_throttleSettings,
     account_apiKeyVersion,
-    account_features,
     account_cloudwatchRoleArn,
+    account_features,
+    account_throttleSettings,
   )
 where
 
@@ -77,7 +77,7 @@ newUpdateAccount =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateAccount_patchOperations :: Lens.Lens' UpdateAccount (Prelude.Maybe [PatchOperation])
-updateAccount_patchOperations = Lens.lens (\UpdateAccount' {patchOperations} -> patchOperations) (\s@UpdateAccount' {} a -> s {patchOperations = a} :: UpdateAccount) Prelude.. Lens.mapping Lens._Coerce
+updateAccount_patchOperations = Lens.lens (\UpdateAccount' {patchOperations} -> patchOperations) (\s@UpdateAccount' {} a -> s {patchOperations = a} :: UpdateAccount) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest UpdateAccount where
   type AWSResponse UpdateAccount = Account

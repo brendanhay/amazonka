@@ -203,7 +203,7 @@ listProvisioningArtifactsResponse_nextPageToken = Lens.lens (\ListProvisioningAr
 
 -- | Information about the provisioning artifacts.
 listProvisioningArtifactsResponse_provisioningArtifactDetails :: Lens.Lens' ListProvisioningArtifactsResponse (Prelude.Maybe [ProvisioningArtifactDetail])
-listProvisioningArtifactsResponse_provisioningArtifactDetails = Lens.lens (\ListProvisioningArtifactsResponse' {provisioningArtifactDetails} -> provisioningArtifactDetails) (\s@ListProvisioningArtifactsResponse' {} a -> s {provisioningArtifactDetails = a} :: ListProvisioningArtifactsResponse) Prelude.. Lens.mapping Lens._Coerce
+listProvisioningArtifactsResponse_provisioningArtifactDetails = Lens.lens (\ListProvisioningArtifactsResponse' {provisioningArtifactDetails} -> provisioningArtifactDetails) (\s@ListProvisioningArtifactsResponse' {} a -> s {provisioningArtifactDetails = a} :: ListProvisioningArtifactsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listProvisioningArtifactsResponse_httpStatus :: Lens.Lens' ListProvisioningArtifactsResponse Prelude.Int

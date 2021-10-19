@@ -35,14 +35,14 @@ module Network.AWS.APIGateway.UpdateUsagePlan
     newUsagePlan,
 
     -- * Response Lenses
-    usagePlan_id,
     usagePlan_apiStages,
     usagePlan_name,
-    usagePlan_tags,
-    usagePlan_productCode,
-    usagePlan_description,
-    usagePlan_quota,
+    usagePlan_id,
     usagePlan_throttle,
+    usagePlan_quota,
+    usagePlan_description,
+    usagePlan_productCode,
+    usagePlan_tags,
   )
 where
 
@@ -90,7 +90,7 @@ newUpdateUsagePlan pUsagePlanId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateUsagePlan_patchOperations :: Lens.Lens' UpdateUsagePlan (Prelude.Maybe [PatchOperation])
-updateUsagePlan_patchOperations = Lens.lens (\UpdateUsagePlan' {patchOperations} -> patchOperations) (\s@UpdateUsagePlan' {} a -> s {patchOperations = a} :: UpdateUsagePlan) Prelude.. Lens.mapping Lens._Coerce
+updateUsagePlan_patchOperations = Lens.lens (\UpdateUsagePlan' {patchOperations} -> patchOperations) (\s@UpdateUsagePlan' {} a -> s {patchOperations = a} :: UpdateUsagePlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The Id of the to-be-updated usage plan.
 updateUsagePlan_usagePlanId :: Lens.Lens' UpdateUsagePlan Prelude.Text

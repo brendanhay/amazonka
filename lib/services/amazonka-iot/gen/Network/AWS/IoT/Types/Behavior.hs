@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBehavior' smart constructor.
 data Behavior = Behavior'
-  { -- | The dimension for a metric in your behavior. For example, using a
+  { -- | Suppresses alerts.
+    suppressAlerts :: Prelude.Maybe Prelude.Bool,
+    -- | The dimension for a metric in your behavior. For example, using a
     -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
     -- only MQTT topics where the name matches the pattern specified in the
     -- dimension. This can\'t be used with custom metrics.
     metricDimension :: Prelude.Maybe MetricDimension,
-    -- | Suppresses alerts.
-    suppressAlerts :: Prelude.Maybe Prelude.Bool,
     -- | What is measured by the behavior.
     metric :: Prelude.Maybe Prelude.Text,
     -- | The criteria that determine if a device is behaving normally in regard
@@ -54,12 +54,12 @@ data Behavior = Behavior'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'suppressAlerts', 'behavior_suppressAlerts' - Suppresses alerts.
+--
 -- 'metricDimension', 'behavior_metricDimension' - The dimension for a metric in your behavior. For example, using a
 -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
 -- only MQTT topics where the name matches the pattern specified in the
 -- dimension. This can\'t be used with custom metrics.
---
--- 'suppressAlerts', 'behavior_suppressAlerts' - Suppresses alerts.
 --
 -- 'metric', 'behavior_metric' - What is measured by the behavior.
 --
@@ -73,12 +73,16 @@ newBehavior ::
   Behavior
 newBehavior pName_ =
   Behavior'
-    { metricDimension = Prelude.Nothing,
-      suppressAlerts = Prelude.Nothing,
+    { suppressAlerts = Prelude.Nothing,
+      metricDimension = Prelude.Nothing,
       metric = Prelude.Nothing,
       criteria = Prelude.Nothing,
       name = pName_
     }
+
+-- | Suppresses alerts.
+behavior_suppressAlerts :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Bool)
+behavior_suppressAlerts = Lens.lens (\Behavior' {suppressAlerts} -> suppressAlerts) (\s@Behavior' {} a -> s {suppressAlerts = a} :: Behavior)
 
 -- | The dimension for a metric in your behavior. For example, using a
 -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
@@ -86,10 +90,6 @@ newBehavior pName_ =
 -- dimension. This can\'t be used with custom metrics.
 behavior_metricDimension :: Lens.Lens' Behavior (Prelude.Maybe MetricDimension)
 behavior_metricDimension = Lens.lens (\Behavior' {metricDimension} -> metricDimension) (\s@Behavior' {} a -> s {metricDimension = a} :: Behavior)
-
--- | Suppresses alerts.
-behavior_suppressAlerts :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Bool)
-behavior_suppressAlerts = Lens.lens (\Behavior' {suppressAlerts} -> suppressAlerts) (\s@Behavior' {} a -> s {suppressAlerts = a} :: Behavior)
 
 -- | What is measured by the behavior.
 behavior_metric :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Text)
@@ -110,8 +110,8 @@ instance Core.FromJSON Behavior where
       "Behavior"
       ( \x ->
           Behavior'
-            Prelude.<$> (x Core..:? "metricDimension")
-            Prelude.<*> (x Core..:? "suppressAlerts")
+            Prelude.<$> (x Core..:? "suppressAlerts")
+            Prelude.<*> (x Core..:? "metricDimension")
             Prelude.<*> (x Core..:? "metric")
             Prelude.<*> (x Core..:? "criteria")
             Prelude.<*> (x Core..: "name")
@@ -125,10 +125,10 @@ instance Core.ToJSON Behavior where
   toJSON Behavior' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("metricDimension" Core..=)
-              Prelude.<$> metricDimension,
-            ("suppressAlerts" Core..=)
+          [ ("suppressAlerts" Core..=)
               Prelude.<$> suppressAlerts,
+            ("metricDimension" Core..=)
+              Prelude.<$> metricDimension,
             ("metric" Core..=) Prelude.<$> metric,
             ("criteria" Core..=) Prelude.<$> criteria,
             Prelude.Just ("name" Core..= name)

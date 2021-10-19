@@ -106,7 +106,7 @@ newResumeGameServerGroup
     ResumeGameServerGroup'
       { gameServerGroupName =
           pGameServerGroupName_,
-        resumeActions = Lens._Coerce Lens.# pResumeActions_
+        resumeActions = Lens.coerced Lens.# pResumeActions_
       }
 
 -- | A unique identifier for the game server group. Use either the
@@ -116,7 +116,7 @@ resumeGameServerGroup_gameServerGroupName = Lens.lens (\ResumeGameServerGroup' {
 
 -- | The activity to resume for this game server group.
 resumeGameServerGroup_resumeActions :: Lens.Lens' ResumeGameServerGroup (Prelude.NonEmpty GameServerGroupAction)
-resumeGameServerGroup_resumeActions = Lens.lens (\ResumeGameServerGroup' {resumeActions} -> resumeActions) (\s@ResumeGameServerGroup' {} a -> s {resumeActions = a} :: ResumeGameServerGroup) Prelude.. Lens._Coerce
+resumeGameServerGroup_resumeActions = Lens.lens (\ResumeGameServerGroup' {resumeActions} -> resumeActions) (\s@ResumeGameServerGroup' {} a -> s {resumeActions = a} :: ResumeGameServerGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ResumeGameServerGroup where
   type

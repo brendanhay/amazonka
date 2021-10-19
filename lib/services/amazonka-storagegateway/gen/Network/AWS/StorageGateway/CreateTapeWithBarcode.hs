@@ -96,7 +96,8 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
     tags :: Prelude.Maybe [Tag],
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tape with. Use the ListGateways operation to
-    -- return a list of gateways for your account and Region.
+    -- return a list of gateways for your account and Amazon Web Services
+    -- Region.
     gatewayARN :: Prelude.Text,
     -- | The size, in bytes, of the virtual tape that you want to create.
     --
@@ -149,7 +150,8 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 --
 -- 'gatewayARN', 'createTapeWithBarcode_gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tape with. Use the ListGateways operation to
--- return a list of gateways for your account and Region.
+-- return a list of gateways for your account and Amazon Web Services
+-- Region.
 --
 -- 'tapeSizeInBytes', 'createTapeWithBarcode_tapeSizeInBytes' - The size, in bytes, of the virtual tape that you want to create.
 --
@@ -219,11 +221,12 @@ createTapeWithBarcode_worm = Lens.lens (\CreateTapeWithBarcode' {worm} -> worm) 
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createTapeWithBarcode_tags :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe [Tag])
-createTapeWithBarcode_tags = Lens.lens (\CreateTapeWithBarcode' {tags} -> tags) (\s@CreateTapeWithBarcode' {} a -> s {tags = a} :: CreateTapeWithBarcode) Prelude.. Lens.mapping Lens._Coerce
+createTapeWithBarcode_tags = Lens.lens (\CreateTapeWithBarcode' {tags} -> tags) (\s@CreateTapeWithBarcode' {} a -> s {tags = a} :: CreateTapeWithBarcode) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tape with. Use the ListGateways operation to
--- return a list of gateways for your account and Region.
+-- return a list of gateways for your account and Amazon Web Services
+-- Region.
 createTapeWithBarcode_gatewayARN :: Lens.Lens' CreateTapeWithBarcode Prelude.Text
 createTapeWithBarcode_gatewayARN = Lens.lens (\CreateTapeWithBarcode' {gatewayARN} -> gatewayARN) (\s@CreateTapeWithBarcode' {} a -> s {gatewayARN = a} :: CreateTapeWithBarcode)
 

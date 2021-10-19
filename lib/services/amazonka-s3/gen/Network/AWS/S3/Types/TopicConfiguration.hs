@@ -94,7 +94,7 @@ topicConfiguration_topicArn = Lens.lens (\TopicConfiguration' {topicArn} -> topi
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
 -- in the /Amazon S3 User Guide/.
 topicConfiguration_events :: Lens.Lens' TopicConfiguration [Event]
-topicConfiguration_events = Lens.lens (\TopicConfiguration' {events} -> events) (\s@TopicConfiguration' {} a -> s {events = a} :: TopicConfiguration) Prelude.. Lens._Coerce
+topicConfiguration_events = Lens.lens (\TopicConfiguration' {events} -> events) (\s@TopicConfiguration' {} a -> s {events = a} :: TopicConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromXML TopicConfiguration where
   parseXML x =

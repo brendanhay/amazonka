@@ -81,7 +81,7 @@ newGetIdentityMailFromDomainAttributes =
 
 -- | A list of one or more identities.
 getIdentityMailFromDomainAttributes_identities :: Lens.Lens' GetIdentityMailFromDomainAttributes [Prelude.Text]
-getIdentityMailFromDomainAttributes_identities = Lens.lens (\GetIdentityMailFromDomainAttributes' {identities} -> identities) (\s@GetIdentityMailFromDomainAttributes' {} a -> s {identities = a} :: GetIdentityMailFromDomainAttributes) Prelude.. Lens._Coerce
+getIdentityMailFromDomainAttributes_identities = Lens.lens (\GetIdentityMailFromDomainAttributes' {identities} -> identities) (\s@GetIdentityMailFromDomainAttributes' {} a -> s {identities = a} :: GetIdentityMailFromDomainAttributes) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -180,7 +180,7 @@ getIdentityMailFromDomainAttributesResponse_httpStatus = Lens.lens (\GetIdentity
 
 -- | A map of identities to custom MAIL FROM attributes.
 getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes :: Lens.Lens' GetIdentityMailFromDomainAttributesResponse (Prelude.HashMap Prelude.Text IdentityMailFromDomainAttributes)
-getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes = Lens.lens (\GetIdentityMailFromDomainAttributesResponse' {mailFromDomainAttributes} -> mailFromDomainAttributes) (\s@GetIdentityMailFromDomainAttributesResponse' {} a -> s {mailFromDomainAttributes = a} :: GetIdentityMailFromDomainAttributesResponse) Prelude.. Lens._Coerce
+getIdentityMailFromDomainAttributesResponse_mailFromDomainAttributes = Lens.lens (\GetIdentityMailFromDomainAttributesResponse' {mailFromDomainAttributes} -> mailFromDomainAttributes) (\s@GetIdentityMailFromDomainAttributesResponse' {} a -> s {mailFromDomainAttributes = a} :: GetIdentityMailFromDomainAttributesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

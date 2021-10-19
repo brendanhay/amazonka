@@ -76,11 +76,11 @@ newRemoveTagsFromOnPremisesInstances =
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 removeTagsFromOnPremisesInstances_tags :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Tag]
-removeTagsFromOnPremisesInstances_tags = Lens.lens (\RemoveTagsFromOnPremisesInstances' {tags} -> tags) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {tags = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Lens._Coerce
+removeTagsFromOnPremisesInstances_tags = Lens.lens (\RemoveTagsFromOnPremisesInstances' {tags} -> tags) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {tags = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Lens.coerced
 
 -- | The names of the on-premises instances from which to remove tags.
 removeTagsFromOnPremisesInstances_instanceNames :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Prelude.Text]
-removeTagsFromOnPremisesInstances_instanceNames = Lens.lens (\RemoveTagsFromOnPremisesInstances' {instanceNames} -> instanceNames) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {instanceNames = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Lens._Coerce
+removeTagsFromOnPremisesInstances_instanceNames = Lens.lens (\RemoveTagsFromOnPremisesInstances' {instanceNames} -> instanceNames) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {instanceNames = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

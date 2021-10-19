@@ -27,18 +27,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPortfolioDetail' smart constructor.
 data PortfolioDetail = PortfolioDetail'
-  { -- | The name of the portfolio provider.
-    providerName :: Prelude.Maybe Prelude.Text,
-    -- | The portfolio identifier.
-    id :: Prelude.Maybe Prelude.Text,
+  { -- | The ARN assigned to the portfolio.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The UTC time stamp of the creation time.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The ARN assigned to the portfolio.
-    arn :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name to use for display purposes.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The description of the portfolio.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The name to use for display purposes.
-    displayName :: Prelude.Maybe Prelude.Text
+    -- | The name of the portfolio provider.
+    providerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,52 +50,52 @@ data PortfolioDetail = PortfolioDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'portfolioDetail_providerName' - The name of the portfolio provider.
---
--- 'id', 'portfolioDetail_id' - The portfolio identifier.
+-- 'arn', 'portfolioDetail_arn' - The ARN assigned to the portfolio.
 --
 -- 'createdTime', 'portfolioDetail_createdTime' - The UTC time stamp of the creation time.
 --
--- 'arn', 'portfolioDetail_arn' - The ARN assigned to the portfolio.
+-- 'id', 'portfolioDetail_id' - The portfolio identifier.
+--
+-- 'displayName', 'portfolioDetail_displayName' - The name to use for display purposes.
 --
 -- 'description', 'portfolioDetail_description' - The description of the portfolio.
 --
--- 'displayName', 'portfolioDetail_displayName' - The name to use for display purposes.
+-- 'providerName', 'portfolioDetail_providerName' - The name of the portfolio provider.
 newPortfolioDetail ::
   PortfolioDetail
 newPortfolioDetail =
   PortfolioDetail'
-    { providerName = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       description = Prelude.Nothing,
-      displayName = Prelude.Nothing
+      providerName = Prelude.Nothing
     }
-
--- | The name of the portfolio provider.
-portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
-portfolioDetail_providerName = Lens.lens (\PortfolioDetail' {providerName} -> providerName) (\s@PortfolioDetail' {} a -> s {providerName = a} :: PortfolioDetail)
-
--- | The portfolio identifier.
-portfolioDetail_id :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
-portfolioDetail_id = Lens.lens (\PortfolioDetail' {id} -> id) (\s@PortfolioDetail' {} a -> s {id = a} :: PortfolioDetail)
-
--- | The UTC time stamp of the creation time.
-portfolioDetail_createdTime :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.UTCTime)
-portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN assigned to the portfolio.
 portfolioDetail_arn :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_arn = Lens.lens (\PortfolioDetail' {arn} -> arn) (\s@PortfolioDetail' {} a -> s {arn = a} :: PortfolioDetail)
 
--- | The description of the portfolio.
-portfolioDetail_description :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
-portfolioDetail_description = Lens.lens (\PortfolioDetail' {description} -> description) (\s@PortfolioDetail' {} a -> s {description = a} :: PortfolioDetail)
+-- | The UTC time stamp of the creation time.
+portfolioDetail_createdTime :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.UTCTime)
+portfolioDetail_createdTime = Lens.lens (\PortfolioDetail' {createdTime} -> createdTime) (\s@PortfolioDetail' {} a -> s {createdTime = a} :: PortfolioDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The portfolio identifier.
+portfolioDetail_id :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
+portfolioDetail_id = Lens.lens (\PortfolioDetail' {id} -> id) (\s@PortfolioDetail' {} a -> s {id = a} :: PortfolioDetail)
 
 -- | The name to use for display purposes.
 portfolioDetail_displayName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
 portfolioDetail_displayName = Lens.lens (\PortfolioDetail' {displayName} -> displayName) (\s@PortfolioDetail' {} a -> s {displayName = a} :: PortfolioDetail)
+
+-- | The description of the portfolio.
+portfolioDetail_description :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
+portfolioDetail_description = Lens.lens (\PortfolioDetail' {description} -> description) (\s@PortfolioDetail' {} a -> s {description = a} :: PortfolioDetail)
+
+-- | The name of the portfolio provider.
+portfolioDetail_providerName :: Lens.Lens' PortfolioDetail (Prelude.Maybe Prelude.Text)
+portfolioDetail_providerName = Lens.lens (\PortfolioDetail' {providerName} -> providerName) (\s@PortfolioDetail' {} a -> s {providerName = a} :: PortfolioDetail)
 
 instance Core.FromJSON PortfolioDetail where
   parseJSON =
@@ -103,12 +103,12 @@ instance Core.FromJSON PortfolioDetail where
       "PortfolioDetail"
       ( \x ->
           PortfolioDetail'
-            Prelude.<$> (x Core..:? "ProviderName")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "CreatedTime")
-            Prelude.<*> (x Core..:? "ARN")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ProviderName")
       )
 
 instance Prelude.Hashable PortfolioDetail

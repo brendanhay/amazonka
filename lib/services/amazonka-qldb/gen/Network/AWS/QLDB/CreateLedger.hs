@@ -38,13 +38,13 @@ module Network.AWS.QLDB.CreateLedger
     newCreateLedgerResponse,
 
     -- * Response Lenses
+    createLedgerResponse_state,
     createLedgerResponse_deletionProtection,
-    createLedgerResponse_permissionsMode,
+    createLedgerResponse_kmsKeyArn,
     createLedgerResponse_arn,
     createLedgerResponse_name,
-    createLedgerResponse_kmsKeyArn,
-    createLedgerResponse_state,
     createLedgerResponse_creationDateTime,
+    createLedgerResponse_permissionsMode,
     createLedgerResponse_httpStatus,
   )
 where
@@ -311,7 +311,7 @@ createLedger_kmsKey = Lens.lens (\CreateLedger' {kmsKey} -> kmsKey) (\s@CreateLe
 -- create. Tag keys are case sensitive. Tag values are case sensitive and
 -- can be null.
 createLedger_tags :: Lens.Lens' CreateLedger (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' {} a -> s {tags = a} :: CreateLedger) Prelude.. Lens.mapping Lens._Coerce
+createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' {} a -> s {tags = a} :: CreateLedger) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the ledger that you want to create. The name must be unique
 -- among all of the ledgers in your account in the current Region.
@@ -358,13 +358,13 @@ instance Core.AWSRequest CreateLedger where
     Response.receiveJSON
       ( \s h x ->
           CreateLedgerResponse'
-            Prelude.<$> (x Core..?> "DeletionProtection")
-            Prelude.<*> (x Core..?> "PermissionsMode")
+            Prelude.<$> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "DeletionProtection")
+            Prelude.<*> (x Core..?> "KmsKeyArn")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "KmsKeyArn")
-            Prelude.<*> (x Core..?> "State")
             Prelude.<*> (x Core..?> "CreationDateTime")
+            Prelude.<*> (x Core..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -405,7 +405,9 @@ instance Core.ToQuery CreateLedger where
 
 -- | /See:/ 'newCreateLedgerResponse' smart constructor.
 data CreateLedgerResponse = CreateLedgerResponse'
-  { -- | The flag that prevents a ledger from being deleted by any user. If not
+  { -- | The current status of the ledger.
+    state :: Prelude.Maybe LedgerState,
+    -- | The flag that prevents a ledger from being deleted by any user. If not
     -- provided on ledger creation, this feature is enabled (@true@) by
     -- default.
     --
@@ -413,22 +415,20 @@ data CreateLedgerResponse = CreateLedgerResponse'
     -- can delete the ledger. You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The permissions mode of the ledger that you created.
-    permissionsMode :: Prelude.Maybe PermissionsMode,
-    -- | The Amazon Resource Name (ARN) for the ledger.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the ledger.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the customer managed KMS key that the ledger uses for
     -- encryption at rest. If this parameter is undefined, the ledger uses an
     -- Amazon Web Services owned KMS key for encryption.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the ledger.
-    state :: Prelude.Maybe LedgerState,
+    -- | The Amazon Resource Name (ARN) for the ledger.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the ledger.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The permissions mode of the ledger that you created.
+    permissionsMode :: Prelude.Maybe PermissionsMode,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -442,6 +442,8 @@ data CreateLedgerResponse = CreateLedgerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'state', 'createLedgerResponse_state' - The current status of the ledger.
+--
 -- 'deletionProtection', 'createLedgerResponse_deletionProtection' - The flag that prevents a ledger from being deleted by any user. If not
 -- provided on ledger creation, this feature is enabled (@true@) by
 -- default.
@@ -450,21 +452,19 @@ data CreateLedgerResponse = CreateLedgerResponse'
 -- can delete the ledger. You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@.
 --
--- 'permissionsMode', 'createLedgerResponse_permissionsMode' - The permissions mode of the ledger that you created.
+-- 'kmsKeyArn', 'createLedgerResponse_kmsKeyArn' - The ARN of the customer managed KMS key that the ledger uses for
+-- encryption at rest. If this parameter is undefined, the ledger uses an
+-- Amazon Web Services owned KMS key for encryption.
 --
 -- 'arn', 'createLedgerResponse_arn' - The Amazon Resource Name (ARN) for the ledger.
 --
 -- 'name', 'createLedgerResponse_name' - The name of the ledger.
 --
--- 'kmsKeyArn', 'createLedgerResponse_kmsKeyArn' - The ARN of the customer managed KMS key that the ledger uses for
--- encryption at rest. If this parameter is undefined, the ledger uses an
--- Amazon Web Services owned KMS key for encryption.
---
--- 'state', 'createLedgerResponse_state' - The current status of the ledger.
---
 -- 'creationDateTime', 'createLedgerResponse_creationDateTime' - The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
+--
+-- 'permissionsMode', 'createLedgerResponse_permissionsMode' - The permissions mode of the ledger that you created.
 --
 -- 'httpStatus', 'createLedgerResponse_httpStatus' - The response's http status code.
 newCreateLedgerResponse ::
@@ -473,16 +473,19 @@ newCreateLedgerResponse ::
   CreateLedgerResponse
 newCreateLedgerResponse pHttpStatus_ =
   CreateLedgerResponse'
-    { deletionProtection =
-        Prelude.Nothing,
-      permissionsMode = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
+      kmsKeyArn = Prelude.Nothing,
       arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing,
-      state = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      permissionsMode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The current status of the ledger.
+createLedgerResponse_state :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe LedgerState)
+createLedgerResponse_state = Lens.lens (\CreateLedgerResponse' {state} -> state) (\s@CreateLedgerResponse' {} a -> s {state = a} :: CreateLedgerResponse)
 
 -- | The flag that prevents a ledger from being deleted by any user. If not
 -- provided on ledger creation, this feature is enabled (@true@) by
@@ -494,9 +497,11 @@ newCreateLedgerResponse pHttpStatus_ =
 createLedgerResponse_deletionProtection :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Bool)
 createLedgerResponse_deletionProtection = Lens.lens (\CreateLedgerResponse' {deletionProtection} -> deletionProtection) (\s@CreateLedgerResponse' {} a -> s {deletionProtection = a} :: CreateLedgerResponse)
 
--- | The permissions mode of the ledger that you created.
-createLedgerResponse_permissionsMode :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe PermissionsMode)
-createLedgerResponse_permissionsMode = Lens.lens (\CreateLedgerResponse' {permissionsMode} -> permissionsMode) (\s@CreateLedgerResponse' {} a -> s {permissionsMode = a} :: CreateLedgerResponse)
+-- | The ARN of the customer managed KMS key that the ledger uses for
+-- encryption at rest. If this parameter is undefined, the ledger uses an
+-- Amazon Web Services owned KMS key for encryption.
+createLedgerResponse_kmsKeyArn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
+createLedgerResponse_kmsKeyArn = Lens.lens (\CreateLedgerResponse' {kmsKeyArn} -> kmsKeyArn) (\s@CreateLedgerResponse' {} a -> s {kmsKeyArn = a} :: CreateLedgerResponse)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 createLedgerResponse_arn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
@@ -506,21 +511,15 @@ createLedgerResponse_arn = Lens.lens (\CreateLedgerResponse' {arn} -> arn) (\s@C
 createLedgerResponse_name :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
 createLedgerResponse_name = Lens.lens (\CreateLedgerResponse' {name} -> name) (\s@CreateLedgerResponse' {} a -> s {name = a} :: CreateLedgerResponse)
 
--- | The ARN of the customer managed KMS key that the ledger uses for
--- encryption at rest. If this parameter is undefined, the ledger uses an
--- Amazon Web Services owned KMS key for encryption.
-createLedgerResponse_kmsKeyArn :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.Text)
-createLedgerResponse_kmsKeyArn = Lens.lens (\CreateLedgerResponse' {kmsKeyArn} -> kmsKeyArn) (\s@CreateLedgerResponse' {} a -> s {kmsKeyArn = a} :: CreateLedgerResponse)
-
--- | The current status of the ledger.
-createLedgerResponse_state :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe LedgerState)
-createLedgerResponse_state = Lens.lens (\CreateLedgerResponse' {state} -> state) (\s@CreateLedgerResponse' {} a -> s {state = a} :: CreateLedgerResponse)
-
 -- | The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
 createLedgerResponse_creationDateTime :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe Prelude.UTCTime)
 createLedgerResponse_creationDateTime = Lens.lens (\CreateLedgerResponse' {creationDateTime} -> creationDateTime) (\s@CreateLedgerResponse' {} a -> s {creationDateTime = a} :: CreateLedgerResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The permissions mode of the ledger that you created.
+createLedgerResponse_permissionsMode :: Lens.Lens' CreateLedgerResponse (Prelude.Maybe PermissionsMode)
+createLedgerResponse_permissionsMode = Lens.lens (\CreateLedgerResponse' {permissionsMode} -> permissionsMode) (\s@CreateLedgerResponse' {} a -> s {permissionsMode = a} :: CreateLedgerResponse)
 
 -- | The response's http status code.
 createLedgerResponse_httpStatus :: Lens.Lens' CreateLedgerResponse Prelude.Int

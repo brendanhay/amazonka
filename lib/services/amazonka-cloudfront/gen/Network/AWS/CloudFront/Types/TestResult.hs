@@ -33,20 +33,20 @@ data TestResult = TestResult'
     -- maximum allowed time. For example, a compute utilization of 35 means
     -- that the function completed in 35% of the maximum allowed time.
     computeUtilization :: Prelude.Maybe Prelude.Text,
+    -- | Contains the log lines that the function wrote (if any) when running the
+    -- test.
+    functionExecutionLogs :: Prelude.Maybe [Prelude.Text],
     -- | The event object returned by the function. For more information about
     -- the structure of the event object, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html Event object structure>
     -- in the /Amazon CloudFront Developer Guide/.
     functionOutput :: Prelude.Maybe Prelude.Text,
-    -- | Contains the log lines that the function wrote (if any) when running the
-    -- test.
-    functionExecutionLogs :: Prelude.Maybe [Prelude.Text],
-    -- | If the result of testing the function was an error, this field contains
-    -- the error message.
-    functionErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | Contains configuration information and metadata about the CloudFront
     -- function that was tested.
-    functionSummary :: Prelude.Maybe FunctionSummary
+    functionSummary :: Prelude.Maybe FunctionSummary,
+    -- | If the result of testing the function was an error, this field contains
+    -- the error message.
+    functionErrorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,28 +62,28 @@ data TestResult = TestResult'
 -- maximum allowed time. For example, a compute utilization of 35 means
 -- that the function completed in 35% of the maximum allowed time.
 --
+-- 'functionExecutionLogs', 'testResult_functionExecutionLogs' - Contains the log lines that the function wrote (if any) when running the
+-- test.
+--
 -- 'functionOutput', 'testResult_functionOutput' - The event object returned by the function. For more information about
 -- the structure of the event object, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html Event object structure>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- 'functionExecutionLogs', 'testResult_functionExecutionLogs' - Contains the log lines that the function wrote (if any) when running the
--- test.
+-- 'functionSummary', 'testResult_functionSummary' - Contains configuration information and metadata about the CloudFront
+-- function that was tested.
 --
 -- 'functionErrorMessage', 'testResult_functionErrorMessage' - If the result of testing the function was an error, this field contains
 -- the error message.
---
--- 'functionSummary', 'testResult_functionSummary' - Contains configuration information and metadata about the CloudFront
--- function that was tested.
 newTestResult ::
   TestResult
 newTestResult =
   TestResult'
     { computeUtilization = Prelude.Nothing,
-      functionOutput = Prelude.Nothing,
       functionExecutionLogs = Prelude.Nothing,
-      functionErrorMessage = Prelude.Nothing,
-      functionSummary = Prelude.Nothing
+      functionOutput = Prelude.Nothing,
+      functionSummary = Prelude.Nothing,
+      functionErrorMessage = Prelude.Nothing
     }
 
 -- | The amount of time that the function took to run as a percentage of the
@@ -92,6 +92,11 @@ newTestResult =
 testResult_computeUtilization :: Lens.Lens' TestResult (Prelude.Maybe Prelude.Text)
 testResult_computeUtilization = Lens.lens (\TestResult' {computeUtilization} -> computeUtilization) (\s@TestResult' {} a -> s {computeUtilization = a} :: TestResult)
 
+-- | Contains the log lines that the function wrote (if any) when running the
+-- test.
+testResult_functionExecutionLogs :: Lens.Lens' TestResult (Prelude.Maybe [Prelude.Text])
+testResult_functionExecutionLogs = Lens.lens (\TestResult' {functionExecutionLogs} -> functionExecutionLogs) (\s@TestResult' {} a -> s {functionExecutionLogs = a} :: TestResult) Prelude.. Lens.mapping Lens.coerced
+
 -- | The event object returned by the function. For more information about
 -- the structure of the event object, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html Event object structure>
@@ -99,32 +104,27 @@ testResult_computeUtilization = Lens.lens (\TestResult' {computeUtilization} -> 
 testResult_functionOutput :: Lens.Lens' TestResult (Prelude.Maybe Prelude.Text)
 testResult_functionOutput = Lens.lens (\TestResult' {functionOutput} -> functionOutput) (\s@TestResult' {} a -> s {functionOutput = a} :: TestResult)
 
--- | Contains the log lines that the function wrote (if any) when running the
--- test.
-testResult_functionExecutionLogs :: Lens.Lens' TestResult (Prelude.Maybe [Prelude.Text])
-testResult_functionExecutionLogs = Lens.lens (\TestResult' {functionExecutionLogs} -> functionExecutionLogs) (\s@TestResult' {} a -> s {functionExecutionLogs = a} :: TestResult) Prelude.. Lens.mapping Lens._Coerce
+-- | Contains configuration information and metadata about the CloudFront
+-- function that was tested.
+testResult_functionSummary :: Lens.Lens' TestResult (Prelude.Maybe FunctionSummary)
+testResult_functionSummary = Lens.lens (\TestResult' {functionSummary} -> functionSummary) (\s@TestResult' {} a -> s {functionSummary = a} :: TestResult)
 
 -- | If the result of testing the function was an error, this field contains
 -- the error message.
 testResult_functionErrorMessage :: Lens.Lens' TestResult (Prelude.Maybe Prelude.Text)
 testResult_functionErrorMessage = Lens.lens (\TestResult' {functionErrorMessage} -> functionErrorMessage) (\s@TestResult' {} a -> s {functionErrorMessage = a} :: TestResult)
 
--- | Contains configuration information and metadata about the CloudFront
--- function that was tested.
-testResult_functionSummary :: Lens.Lens' TestResult (Prelude.Maybe FunctionSummary)
-testResult_functionSummary = Lens.lens (\TestResult' {functionSummary} -> functionSummary) (\s@TestResult' {} a -> s {functionSummary = a} :: TestResult)
-
 instance Core.FromXML TestResult where
   parseXML x =
     TestResult'
       Prelude.<$> (x Core..@? "ComputeUtilization")
-      Prelude.<*> (x Core..@? "FunctionOutput")
       Prelude.<*> ( x Core..@? "FunctionExecutionLogs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "FunctionErrorMessage")
+      Prelude.<*> (x Core..@? "FunctionOutput")
       Prelude.<*> (x Core..@? "FunctionSummary")
+      Prelude.<*> (x Core..@? "FunctionErrorMessage")
 
 instance Prelude.Hashable TestResult
 

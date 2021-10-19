@@ -30,17 +30,23 @@ module Network.AWS.CloudSearchDomains
     -- * Errors
     -- $errors
 
-    -- ** SearchException
-    _SearchException,
-
     -- ** DocumentServiceException
     _DocumentServiceException,
+
+    -- ** SearchException
+    _SearchException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
+
+    -- ** Suggest
+    Suggest (Suggest'),
+    newSuggest,
+    SuggestResponse (SuggestResponse'),
+    newSuggestResponse,
 
     -- ** UploadDocuments
     UploadDocuments (UploadDocuments'),
@@ -53,12 +59,6 @@ module Network.AWS.CloudSearchDomains
     newSearch,
     SearchResponse (SearchResponse'),
     newSearchResponse,
-
-    -- ** Suggest
-    Suggest (Suggest'),
-    newSuggest,
-    SuggestResponse (SuggestResponse'),
-    newSuggestResponse,
 
     -- * Types
 

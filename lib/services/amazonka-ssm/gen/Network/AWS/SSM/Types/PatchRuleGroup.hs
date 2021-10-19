@@ -49,7 +49,7 @@ newPatchRuleGroup =
 
 -- | The rules that make up the rule group.
 patchRuleGroup_patchRules :: Lens.Lens' PatchRuleGroup [PatchRule]
-patchRuleGroup_patchRules = Lens.lens (\PatchRuleGroup' {patchRules} -> patchRules) (\s@PatchRuleGroup' {} a -> s {patchRules = a} :: PatchRuleGroup) Prelude.. Lens._Coerce
+patchRuleGroup_patchRules = Lens.lens (\PatchRuleGroup' {patchRules} -> patchRules) (\s@PatchRuleGroup' {} a -> s {patchRules = a} :: PatchRuleGroup) Prelude.. Lens.coerced
 
 instance Core.FromJSON PatchRuleGroup where
   parseJSON =

@@ -65,11 +65,11 @@ module Network.AWS.EC2.AttachVolume
 
     -- * Response Lenses
     volumeAttachment_instanceId,
-    volumeAttachment_attachTime,
+    volumeAttachment_deleteOnTermination,
+    volumeAttachment_state,
     volumeAttachment_device,
     volumeAttachment_volumeId,
-    volumeAttachment_state,
-    volumeAttachment_deleteOnTermination,
+    volumeAttachment_attachTime,
   )
 where
 

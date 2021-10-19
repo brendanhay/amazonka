@@ -73,7 +73,7 @@ metricsAndOperator_accessPointArn = Lens.lens (\MetricsAndOperator' {accessPoint
 
 -- | The list of tags used when evaluating an AND predicate.
 metricsAndOperator_tags :: Lens.Lens' MetricsAndOperator (Prelude.Maybe [Tag])
-metricsAndOperator_tags = Lens.lens (\MetricsAndOperator' {tags} -> tags) (\s@MetricsAndOperator' {} a -> s {tags = a} :: MetricsAndOperator) Prelude.. Lens.mapping Lens._Coerce
+metricsAndOperator_tags = Lens.lens (\MetricsAndOperator' {tags} -> tags) (\s@MetricsAndOperator' {} a -> s {tags = a} :: MetricsAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML MetricsAndOperator where
   parseXML x =

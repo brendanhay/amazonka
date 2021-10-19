@@ -29,16 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data GroupType = GroupType'
   { -- | The date the group was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The role ARN for the group.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
     -- | The date the group was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | A string containing the description of the group.
-    description :: Prelude.Maybe Prelude.Text,
     -- | A nonnegative integer value that specifies the precedence of this group
     -- relative to the other groups that a user can belong to in the user pool.
     -- If a user belongs to two or more groups, it is the group with the
@@ -55,7 +49,13 @@ data GroupType = GroupType'
     -- is not set in users\' tokens.
     --
     -- The default @Precedence@ value is null.
-    precedence :: Prelude.Maybe Prelude.Natural
+    precedence :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the group.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | A string containing the description of the group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The role ARN for the group.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,15 +69,9 @@ data GroupType = GroupType'
 --
 -- 'lastModifiedDate', 'groupType_lastModifiedDate' - The date the group was last modified.
 --
--- 'roleArn', 'groupType_roleArn' - The role ARN for the group.
---
 -- 'userPoolId', 'groupType_userPoolId' - The user pool ID for the user pool.
 --
--- 'groupName', 'groupType_groupName' - The name of the group.
---
 -- 'creationDate', 'groupType_creationDate' - The date the group was created.
---
--- 'description', 'groupType_description' - A string containing the description of the group.
 --
 -- 'precedence', 'groupType_precedence' - A nonnegative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
@@ -95,42 +89,36 @@ data GroupType = GroupType'
 -- is not set in users\' tokens.
 --
 -- The default @Precedence@ value is null.
+--
+-- 'groupName', 'groupType_groupName' - The name of the group.
+--
+-- 'description', 'groupType_description' - A string containing the description of the group.
+--
+-- 'roleArn', 'groupType_roleArn' - The role ARN for the group.
 newGroupType ::
   GroupType
 newGroupType =
   GroupType'
     { lastModifiedDate = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
       userPoolId = Prelude.Nothing,
-      groupName = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      precedence = Prelude.Nothing,
+      groupName = Prelude.Nothing,
       description = Prelude.Nothing,
-      precedence = Prelude.Nothing
+      roleArn = Prelude.Nothing
     }
 
 -- | The date the group was last modified.
 groupType_lastModifiedDate :: Lens.Lens' GroupType (Prelude.Maybe Prelude.UTCTime)
 groupType_lastModifiedDate = Lens.lens (\GroupType' {lastModifiedDate} -> lastModifiedDate) (\s@GroupType' {} a -> s {lastModifiedDate = a} :: GroupType) Prelude.. Lens.mapping Core._Time
 
--- | The role ARN for the group.
-groupType_roleArn :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
-groupType_roleArn = Lens.lens (\GroupType' {roleArn} -> roleArn) (\s@GroupType' {} a -> s {roleArn = a} :: GroupType)
-
 -- | The user pool ID for the user pool.
 groupType_userPoolId :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
 groupType_userPoolId = Lens.lens (\GroupType' {userPoolId} -> userPoolId) (\s@GroupType' {} a -> s {userPoolId = a} :: GroupType)
 
--- | The name of the group.
-groupType_groupName :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
-groupType_groupName = Lens.lens (\GroupType' {groupName} -> groupName) (\s@GroupType' {} a -> s {groupName = a} :: GroupType)
-
 -- | The date the group was created.
 groupType_creationDate :: Lens.Lens' GroupType (Prelude.Maybe Prelude.UTCTime)
 groupType_creationDate = Lens.lens (\GroupType' {creationDate} -> creationDate) (\s@GroupType' {} a -> s {creationDate = a} :: GroupType) Prelude.. Lens.mapping Core._Time
-
--- | A string containing the description of the group.
-groupType_description :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
-groupType_description = Lens.lens (\GroupType' {description} -> description) (\s@GroupType' {} a -> s {description = a} :: GroupType)
 
 -- | A nonnegative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
@@ -151,6 +139,18 @@ groupType_description = Lens.lens (\GroupType' {description} -> description) (\s
 groupType_precedence :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Natural)
 groupType_precedence = Lens.lens (\GroupType' {precedence} -> precedence) (\s@GroupType' {} a -> s {precedence = a} :: GroupType)
 
+-- | The name of the group.
+groupType_groupName :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
+groupType_groupName = Lens.lens (\GroupType' {groupName} -> groupName) (\s@GroupType' {} a -> s {groupName = a} :: GroupType)
+
+-- | A string containing the description of the group.
+groupType_description :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
+groupType_description = Lens.lens (\GroupType' {description} -> description) (\s@GroupType' {} a -> s {description = a} :: GroupType)
+
+-- | The role ARN for the group.
+groupType_roleArn :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
+groupType_roleArn = Lens.lens (\GroupType' {roleArn} -> roleArn) (\s@GroupType' {} a -> s {roleArn = a} :: GroupType)
+
 instance Core.FromJSON GroupType where
   parseJSON =
     Core.withObject
@@ -158,12 +158,12 @@ instance Core.FromJSON GroupType where
       ( \x ->
           GroupType'
             Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "UserPoolId")
-            Prelude.<*> (x Core..:? "GroupName")
             Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "Precedence")
+            Prelude.<*> (x Core..:? "GroupName")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "RoleArn")
       )
 
 instance Prelude.Hashable GroupType

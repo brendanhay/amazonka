@@ -143,13 +143,13 @@ newCreateLoadBalancerTlsCertificate
 -- have a maximum of 9 alternative names (in addition to the 1 primary
 -- domain). We do not support wildcards (e.g., @*.example.com@).
 createLoadBalancerTlsCertificate_certificateAlternativeNames :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Prelude.Text])
-createLoadBalancerTlsCertificate_certificateAlternativeNames = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
+createLoadBalancerTlsCertificate_certificateAlternativeNames = Lens.lens (\CreateLoadBalancerTlsCertificate' {certificateAlternativeNames} -> certificateAlternativeNames) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {certificateAlternativeNames = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createLoadBalancerTlsCertificate_tags :: Lens.Lens' CreateLoadBalancerTlsCertificate (Prelude.Maybe [Tag])
-createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertificate' {tags} -> tags) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {tags = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens._Coerce
+createLoadBalancerTlsCertificate_tags = Lens.lens (\CreateLoadBalancerTlsCertificate' {tags} -> tags) (\s@CreateLoadBalancerTlsCertificate' {} a -> s {tags = a} :: CreateLoadBalancerTlsCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The load balancer name where you want to create the SSL\/TLS
 -- certificate.
@@ -280,7 +280,7 @@ newCreateLoadBalancerTlsCertificateResponse
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' CreateLoadBalancerTlsCertificateResponse (Prelude.Maybe [Operation])
-createLoadBalancerTlsCertificateResponse_operations = Lens.lens (\CreateLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@CreateLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: CreateLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
+createLoadBalancerTlsCertificateResponse_operations = Lens.lens (\CreateLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@CreateLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: CreateLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' CreateLoadBalancerTlsCertificateResponse Prelude.Int

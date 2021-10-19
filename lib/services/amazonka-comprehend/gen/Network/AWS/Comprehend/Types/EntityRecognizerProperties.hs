@@ -32,38 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerProperties' smart constructor.
 data EntityRecognizerProperties = EntityRecognizerProperties'
-  { -- | The language of the input documents. All documents must be in the same
+  { -- | Provides the status of the entity recognizer.
+    status :: Prelude.Maybe ModelStatus,
+    -- | The language of the input documents. All documents must be in the same
     -- language. Only English (\"en\") is currently supported.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | Configuration parameters for a private Virtual Private Cloud (VPC)
-    -- containing the resources you are using for your custom entity
-    -- recognizer. For more information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | Provides the status of the entity recognizer.
-    status :: Prelude.Maybe ModelStatus,
-    -- | The input data properties of an entity recognizer.
-    inputDataConfig :: Prelude.Maybe EntityRecognizerInputDataConfig,
-    -- | A description of the status of the recognizer.
-    message :: Prelude.Maybe Prelude.Text,
+    -- | The time that training of the entity recognizer was completed.
+    trainingEndTime :: Prelude.Maybe Core.POSIX,
     -- | The version name you assigned to the entity recognizer.
     versionName :: Prelude.Maybe Prelude.Text,
-    -- | The time that the recognizer creation completed.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
-    -- either of the following formats:
-    --
-    -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    --
-    -- -   Amazon Resource Name (ARN) of a KMS Key:
-    --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The time that the recognizer was submitted for processing.
-    submitTime :: Prelude.Maybe Core.POSIX,
-    -- | Provides information about an entity recognizer.
-    recognizerMetadata :: Prelude.Maybe (Core.Sensitive EntityRecognizerMetadata),
     -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
     entityRecognizerArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -75,13 +52,36 @@ data EntityRecognizerProperties = EntityRecognizerProperties'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     modelKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The input data properties of an entity recognizer.
+    inputDataConfig :: Prelude.Maybe EntityRecognizerInputDataConfig,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC)
+    -- containing the resources you are using for your custom entity
+    -- recognizer. For more information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+    vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+    -- uses to encrypt data on the storage volume attached to the ML compute
+    -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
+    -- either of the following formats:
+    --
+    -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    --
+    -- -   Amazon Resource Name (ARN) of a KMS Key:
+    --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The time that the recognizer creation completed.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | The time that training of the entity recognizer started.
     trainingStartTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
     -- role that grants Amazon Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The time that training of the entity recognizer was completed.
-    trainingEndTime :: Prelude.Maybe Core.POSIX
+    -- | Provides information about an entity recognizer.
+    recognizerMetadata :: Prelude.Maybe (Core.Sensitive EntityRecognizerMetadata),
+    -- | A description of the status of the recognizer.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The time that the recognizer was submitted for processing.
+    submitTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -93,37 +93,14 @@ data EntityRecognizerProperties = EntityRecognizerProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'status', 'entityRecognizerProperties_status' - Provides the status of the entity recognizer.
+--
 -- 'languageCode', 'entityRecognizerProperties_languageCode' - The language of the input documents. All documents must be in the same
 -- language. Only English (\"en\") is currently supported.
 --
--- 'vpcConfig', 'entityRecognizerProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
--- containing the resources you are using for your custom entity
--- recognizer. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
---
--- 'status', 'entityRecognizerProperties_status' - Provides the status of the entity recognizer.
---
--- 'inputDataConfig', 'entityRecognizerProperties_inputDataConfig' - The input data properties of an entity recognizer.
---
--- 'message', 'entityRecognizerProperties_message' - A description of the status of the recognizer.
+-- 'trainingEndTime', 'entityRecognizerProperties_trainingEndTime' - The time that training of the entity recognizer was completed.
 --
 -- 'versionName', 'entityRecognizerProperties_versionName' - The version name you assigned to the entity recognizer.
---
--- 'endTime', 'entityRecognizerProperties_endTime' - The time that the recognizer creation completed.
---
--- 'volumeKmsKeyId', 'entityRecognizerProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt data on the storage volume attached to the ML compute
--- instance(s) that process the analysis job. The VolumeKmsKeyId can be
--- either of the following formats:
---
--- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- -   Amazon Resource Name (ARN) of a KMS Key:
---     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- 'submitTime', 'entityRecognizerProperties_submitTime' - The time that the recognizer was submitted for processing.
---
--- 'recognizerMetadata', 'entityRecognizerProperties_recognizerMetadata' - Provides information about an entity recognizer.
 --
 -- 'entityRecognizerArn', 'entityRecognizerProperties_entityRecognizerArn' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
 --
@@ -136,67 +113,14 @@ data EntityRecognizerProperties = EntityRecognizerProperties'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- 'trainingStartTime', 'entityRecognizerProperties_trainingStartTime' - The time that training of the entity recognizer started.
+-- 'inputDataConfig', 'entityRecognizerProperties_inputDataConfig' - The input data properties of an entity recognizer.
 --
--- 'dataAccessRoleArn', 'entityRecognizerProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
--- role that grants Amazon Comprehend read access to your input data.
---
--- 'trainingEndTime', 'entityRecognizerProperties_trainingEndTime' - The time that training of the entity recognizer was completed.
-newEntityRecognizerProperties ::
-  EntityRecognizerProperties
-newEntityRecognizerProperties =
-  EntityRecognizerProperties'
-    { languageCode =
-        Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
-      status = Prelude.Nothing,
-      inputDataConfig = Prelude.Nothing,
-      message = Prelude.Nothing,
-      versionName = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      volumeKmsKeyId = Prelude.Nothing,
-      submitTime = Prelude.Nothing,
-      recognizerMetadata = Prelude.Nothing,
-      entityRecognizerArn = Prelude.Nothing,
-      modelKmsKeyId = Prelude.Nothing,
-      trainingStartTime = Prelude.Nothing,
-      dataAccessRoleArn = Prelude.Nothing,
-      trainingEndTime = Prelude.Nothing
-    }
-
--- | The language of the input documents. All documents must be in the same
--- language. Only English (\"en\") is currently supported.
-entityRecognizerProperties_languageCode :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe LanguageCode)
-entityRecognizerProperties_languageCode = Lens.lens (\EntityRecognizerProperties' {languageCode} -> languageCode) (\s@EntityRecognizerProperties' {} a -> s {languageCode = a} :: EntityRecognizerProperties)
-
--- | Configuration parameters for a private Virtual Private Cloud (VPC)
+-- 'vpcConfig', 'entityRecognizerProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your custom entity
 -- recognizer. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-entityRecognizerProperties_vpcConfig :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe VpcConfig)
-entityRecognizerProperties_vpcConfig = Lens.lens (\EntityRecognizerProperties' {vpcConfig} -> vpcConfig) (\s@EntityRecognizerProperties' {} a -> s {vpcConfig = a} :: EntityRecognizerProperties)
-
--- | Provides the status of the entity recognizer.
-entityRecognizerProperties_status :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe ModelStatus)
-entityRecognizerProperties_status = Lens.lens (\EntityRecognizerProperties' {status} -> status) (\s@EntityRecognizerProperties' {} a -> s {status = a} :: EntityRecognizerProperties)
-
--- | The input data properties of an entity recognizer.
-entityRecognizerProperties_inputDataConfig :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe EntityRecognizerInputDataConfig)
-entityRecognizerProperties_inputDataConfig = Lens.lens (\EntityRecognizerProperties' {inputDataConfig} -> inputDataConfig) (\s@EntityRecognizerProperties' {} a -> s {inputDataConfig = a} :: EntityRecognizerProperties)
-
--- | A description of the status of the recognizer.
-entityRecognizerProperties_message :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
-entityRecognizerProperties_message = Lens.lens (\EntityRecognizerProperties' {message} -> message) (\s@EntityRecognizerProperties' {} a -> s {message = a} :: EntityRecognizerProperties)
-
--- | The version name you assigned to the entity recognizer.
-entityRecognizerProperties_versionName :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
-entityRecognizerProperties_versionName = Lens.lens (\EntityRecognizerProperties' {versionName} -> versionName) (\s@EntityRecognizerProperties' {} a -> s {versionName = a} :: EntityRecognizerProperties)
-
--- | The time that the recognizer creation completed.
-entityRecognizerProperties_endTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerProperties_endTime = Lens.lens (\EntityRecognizerProperties' {endTime} -> endTime) (\s@EntityRecognizerProperties' {} a -> s {endTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
-
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+--
+-- 'volumeKmsKeyId', 'entityRecognizerProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
 -- either of the following formats:
@@ -205,16 +129,57 @@ entityRecognizerProperties_endTime = Lens.lens (\EntityRecognizerProperties' {en
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-entityRecognizerProperties_volumeKmsKeyId :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
-entityRecognizerProperties_volumeKmsKeyId = Lens.lens (\EntityRecognizerProperties' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@EntityRecognizerProperties' {} a -> s {volumeKmsKeyId = a} :: EntityRecognizerProperties)
+--
+-- 'endTime', 'entityRecognizerProperties_endTime' - The time that the recognizer creation completed.
+--
+-- 'trainingStartTime', 'entityRecognizerProperties_trainingStartTime' - The time that training of the entity recognizer started.
+--
+-- 'dataAccessRoleArn', 'entityRecognizerProperties_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
+-- role that grants Amazon Comprehend read access to your input data.
+--
+-- 'recognizerMetadata', 'entityRecognizerProperties_recognizerMetadata' - Provides information about an entity recognizer.
+--
+-- 'message', 'entityRecognizerProperties_message' - A description of the status of the recognizer.
+--
+-- 'submitTime', 'entityRecognizerProperties_submitTime' - The time that the recognizer was submitted for processing.
+newEntityRecognizerProperties ::
+  EntityRecognizerProperties
+newEntityRecognizerProperties =
+  EntityRecognizerProperties'
+    { status =
+        Prelude.Nothing,
+      languageCode = Prelude.Nothing,
+      trainingEndTime = Prelude.Nothing,
+      versionName = Prelude.Nothing,
+      entityRecognizerArn = Prelude.Nothing,
+      modelKmsKeyId = Prelude.Nothing,
+      inputDataConfig = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      trainingStartTime = Prelude.Nothing,
+      dataAccessRoleArn = Prelude.Nothing,
+      recognizerMetadata = Prelude.Nothing,
+      message = Prelude.Nothing,
+      submitTime = Prelude.Nothing
+    }
 
--- | The time that the recognizer was submitted for processing.
-entityRecognizerProperties_submitTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerProperties_submitTime = Lens.lens (\EntityRecognizerProperties' {submitTime} -> submitTime) (\s@EntityRecognizerProperties' {} a -> s {submitTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
+-- | Provides the status of the entity recognizer.
+entityRecognizerProperties_status :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe ModelStatus)
+entityRecognizerProperties_status = Lens.lens (\EntityRecognizerProperties' {status} -> status) (\s@EntityRecognizerProperties' {} a -> s {status = a} :: EntityRecognizerProperties)
 
--- | Provides information about an entity recognizer.
-entityRecognizerProperties_recognizerMetadata :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe EntityRecognizerMetadata)
-entityRecognizerProperties_recognizerMetadata = Lens.lens (\EntityRecognizerProperties' {recognizerMetadata} -> recognizerMetadata) (\s@EntityRecognizerProperties' {} a -> s {recognizerMetadata = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Sensitive
+-- | The language of the input documents. All documents must be in the same
+-- language. Only English (\"en\") is currently supported.
+entityRecognizerProperties_languageCode :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe LanguageCode)
+entityRecognizerProperties_languageCode = Lens.lens (\EntityRecognizerProperties' {languageCode} -> languageCode) (\s@EntityRecognizerProperties' {} a -> s {languageCode = a} :: EntityRecognizerProperties)
+
+-- | The time that training of the entity recognizer was completed.
+entityRecognizerProperties_trainingEndTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
+entityRecognizerProperties_trainingEndTime = Lens.lens (\EntityRecognizerProperties' {trainingEndTime} -> trainingEndTime) (\s@EntityRecognizerProperties' {} a -> s {trainingEndTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The version name you assigned to the entity recognizer.
+entityRecognizerProperties_versionName :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
+entityRecognizerProperties_versionName = Lens.lens (\EntityRecognizerProperties' {versionName} -> versionName) (\s@EntityRecognizerProperties' {} a -> s {versionName = a} :: EntityRecognizerProperties)
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
 entityRecognizerProperties_entityRecognizerArn :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
@@ -231,6 +196,33 @@ entityRecognizerProperties_entityRecognizerArn = Lens.lens (\EntityRecognizerPro
 entityRecognizerProperties_modelKmsKeyId :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
 entityRecognizerProperties_modelKmsKeyId = Lens.lens (\EntityRecognizerProperties' {modelKmsKeyId} -> modelKmsKeyId) (\s@EntityRecognizerProperties' {} a -> s {modelKmsKeyId = a} :: EntityRecognizerProperties)
 
+-- | The input data properties of an entity recognizer.
+entityRecognizerProperties_inputDataConfig :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe EntityRecognizerInputDataConfig)
+entityRecognizerProperties_inputDataConfig = Lens.lens (\EntityRecognizerProperties' {inputDataConfig} -> inputDataConfig) (\s@EntityRecognizerProperties' {} a -> s {inputDataConfig = a} :: EntityRecognizerProperties)
+
+-- | Configuration parameters for a private Virtual Private Cloud (VPC)
+-- containing the resources you are using for your custom entity
+-- recognizer. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+entityRecognizerProperties_vpcConfig :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe VpcConfig)
+entityRecognizerProperties_vpcConfig = Lens.lens (\EntityRecognizerProperties' {vpcConfig} -> vpcConfig) (\s@EntityRecognizerProperties' {} a -> s {vpcConfig = a} :: EntityRecognizerProperties)
+
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt data on the storage volume attached to the ML compute
+-- instance(s) that process the analysis job. The VolumeKmsKeyId can be
+-- either of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+entityRecognizerProperties_volumeKmsKeyId :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
+entityRecognizerProperties_volumeKmsKeyId = Lens.lens (\EntityRecognizerProperties' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@EntityRecognizerProperties' {} a -> s {volumeKmsKeyId = a} :: EntityRecognizerProperties)
+
+-- | The time that the recognizer creation completed.
+entityRecognizerProperties_endTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
+entityRecognizerProperties_endTime = Lens.lens (\EntityRecognizerProperties' {endTime} -> endTime) (\s@EntityRecognizerProperties' {} a -> s {endTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
+
 -- | The time that training of the entity recognizer started.
 entityRecognizerProperties_trainingStartTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
 entityRecognizerProperties_trainingStartTime = Lens.lens (\EntityRecognizerProperties' {trainingStartTime} -> trainingStartTime) (\s@EntityRecognizerProperties' {} a -> s {trainingStartTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
@@ -240,9 +232,17 @@ entityRecognizerProperties_trainingStartTime = Lens.lens (\EntityRecognizerPrope
 entityRecognizerProperties_dataAccessRoleArn :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
 entityRecognizerProperties_dataAccessRoleArn = Lens.lens (\EntityRecognizerProperties' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@EntityRecognizerProperties' {} a -> s {dataAccessRoleArn = a} :: EntityRecognizerProperties)
 
--- | The time that training of the entity recognizer was completed.
-entityRecognizerProperties_trainingEndTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerProperties_trainingEndTime = Lens.lens (\EntityRecognizerProperties' {trainingEndTime} -> trainingEndTime) (\s@EntityRecognizerProperties' {} a -> s {trainingEndTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
+-- | Provides information about an entity recognizer.
+entityRecognizerProperties_recognizerMetadata :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe EntityRecognizerMetadata)
+entityRecognizerProperties_recognizerMetadata = Lens.lens (\EntityRecognizerProperties' {recognizerMetadata} -> recognizerMetadata) (\s@EntityRecognizerProperties' {} a -> s {recognizerMetadata = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Sensitive
+
+-- | A description of the status of the recognizer.
+entityRecognizerProperties_message :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.Text)
+entityRecognizerProperties_message = Lens.lens (\EntityRecognizerProperties' {message} -> message) (\s@EntityRecognizerProperties' {} a -> s {message = a} :: EntityRecognizerProperties)
+
+-- | The time that the recognizer was submitted for processing.
+entityRecognizerProperties_submitTime :: Lens.Lens' EntityRecognizerProperties (Prelude.Maybe Prelude.UTCTime)
+entityRecognizerProperties_submitTime = Lens.lens (\EntityRecognizerProperties' {submitTime} -> submitTime) (\s@EntityRecognizerProperties' {} a -> s {submitTime = a} :: EntityRecognizerProperties) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON EntityRecognizerProperties where
   parseJSON =
@@ -250,21 +250,21 @@ instance Core.FromJSON EntityRecognizerProperties where
       "EntityRecognizerProperties"
       ( \x ->
           EntityRecognizerProperties'
-            Prelude.<$> (x Core..:? "LanguageCode")
-            Prelude.<*> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "TrainingEndTime")
             Prelude.<*> (x Core..:? "VersionName")
-            Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..:? "SubmitTime")
-            Prelude.<*> (x Core..:? "RecognizerMetadata")
             Prelude.<*> (x Core..:? "EntityRecognizerArn")
             Prelude.<*> (x Core..:? "ModelKmsKeyId")
+            Prelude.<*> (x Core..:? "InputDataConfig")
+            Prelude.<*> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "TrainingStartTime")
             Prelude.<*> (x Core..:? "DataAccessRoleArn")
-            Prelude.<*> (x Core..:? "TrainingEndTime")
+            Prelude.<*> (x Core..:? "RecognizerMetadata")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "SubmitTime")
       )
 
 instance Prelude.Hashable EntityRecognizerProperties

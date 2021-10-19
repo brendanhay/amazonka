@@ -31,11 +31,11 @@ module Network.AWS.CodeCommit.GetDifferences
     newGetDifferences,
 
     -- * Request Lenses
-    getDifferences_beforeCommitSpecifier,
-    getDifferences_nextToken,
-    getDifferences_maxResults,
-    getDifferences_beforePath,
     getDifferences_afterPath,
+    getDifferences_nextToken,
+    getDifferences_beforeCommitSpecifier,
+    getDifferences_beforePath,
+    getDifferences_maxResults,
     getDifferences_repositoryName,
     getDifferences_afterCommitSpecifier,
 
@@ -44,8 +44,8 @@ module Network.AWS.CodeCommit.GetDifferences
     newGetDifferencesResponse,
 
     -- * Response Lenses
-    getDifferencesResponse_differences,
     getDifferencesResponse_nextToken,
+    getDifferencesResponse_differences,
     getDifferencesResponse_httpStatus,
   )
 where
@@ -59,28 +59,28 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDifferences' smart constructor.
 data GetDifferences = GetDifferences'
-  { -- | The branch, tag, HEAD, or other fully qualified reference used to
+  { -- | The file path in which to check differences. Limits the results to this
+    -- path. Can also be used to specify the changed name of a directory or
+    -- folder, if it has changed. If not specified, differences are shown for
+    -- all paths.
+    afterPath :: Prelude.Maybe Prelude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to
     -- identify a commit (for example, the full commit ID). Optional. If not
     -- specified, all changes before the @afterCommitSpecifier@ value are
     -- shown. If you do not use @beforeCommitSpecifier@ in your request,
     -- consider limiting the results with @maxResults@.
     beforeCommitSpecifier :: Prelude.Maybe Prelude.Text,
-    -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A non-zero, non-negative integer used to limit the number of returned
-    -- results.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The file path in which to check for differences. Limits the results to
     -- this path. Can also be used to specify the previous name of a directory
     -- or folder. If @beforePath@ and @afterPath@ are not specified,
     -- differences are shown for all paths.
     beforePath :: Prelude.Maybe Prelude.Text,
-    -- | The file path in which to check differences. Limits the results to this
-    -- path. Can also be used to specify the changed name of a directory or
-    -- folder, if it has changed. If not specified, differences are shown for
-    -- all paths.
-    afterPath :: Prelude.Maybe Prelude.Text,
+    -- | A non-zero, non-negative integer used to limit the number of returned
+    -- results.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the repository where you want to get differences.
     repositoryName :: Prelude.Text,
     -- | The branch, tag, HEAD, or other fully qualified reference used to
@@ -97,27 +97,27 @@ data GetDifferences = GetDifferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'afterPath', 'getDifferences_afterPath' - The file path in which to check differences. Limits the results to this
+-- path. Can also be used to specify the changed name of a directory or
+-- folder, if it has changed. If not specified, differences are shown for
+-- all paths.
+--
+-- 'nextToken', 'getDifferences_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+--
 -- 'beforeCommitSpecifier', 'getDifferences_beforeCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, the full commit ID). Optional. If not
 -- specified, all changes before the @afterCommitSpecifier@ value are
 -- shown. If you do not use @beforeCommitSpecifier@ in your request,
 -- consider limiting the results with @maxResults@.
 --
--- 'nextToken', 'getDifferences_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
--- 'maxResults', 'getDifferences_maxResults' - A non-zero, non-negative integer used to limit the number of returned
--- results.
---
 -- 'beforePath', 'getDifferences_beforePath' - The file path in which to check for differences. Limits the results to
 -- this path. Can also be used to specify the previous name of a directory
 -- or folder. If @beforePath@ and @afterPath@ are not specified,
 -- differences are shown for all paths.
 --
--- 'afterPath', 'getDifferences_afterPath' - The file path in which to check differences. Limits the results to this
--- path. Can also be used to specify the changed name of a directory or
--- folder, if it has changed. If not specified, differences are shown for
--- all paths.
+-- 'maxResults', 'getDifferences_maxResults' - A non-zero, non-negative integer used to limit the number of returned
+-- results.
 --
 -- 'repositoryName', 'getDifferences_repositoryName' - The name of the repository where you want to get differences.
 --
@@ -133,15 +133,26 @@ newGetDifferences
   pRepositoryName_
   pAfterCommitSpecifier_ =
     GetDifferences'
-      { beforeCommitSpecifier =
-          Prelude.Nothing,
+      { afterPath = Prelude.Nothing,
         nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        beforeCommitSpecifier = Prelude.Nothing,
         beforePath = Prelude.Nothing,
-        afterPath = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         afterCommitSpecifier = pAfterCommitSpecifier_
       }
+
+-- | The file path in which to check differences. Limits the results to this
+-- path. Can also be used to specify the changed name of a directory or
+-- folder, if it has changed. If not specified, differences are shown for
+-- all paths.
+getDifferences_afterPath :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
+getDifferences_afterPath = Lens.lens (\GetDifferences' {afterPath} -> afterPath) (\s@GetDifferences' {} a -> s {afterPath = a} :: GetDifferences)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+getDifferences_nextToken :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
+getDifferences_nextToken = Lens.lens (\GetDifferences' {nextToken} -> nextToken) (\s@GetDifferences' {} a -> s {nextToken = a} :: GetDifferences)
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to
 -- identify a commit (for example, the full commit ID). Optional. If not
@@ -151,16 +162,6 @@ newGetDifferences
 getDifferences_beforeCommitSpecifier :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
 getDifferences_beforeCommitSpecifier = Lens.lens (\GetDifferences' {beforeCommitSpecifier} -> beforeCommitSpecifier) (\s@GetDifferences' {} a -> s {beforeCommitSpecifier = a} :: GetDifferences)
 
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-getDifferences_nextToken :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
-getDifferences_nextToken = Lens.lens (\GetDifferences' {nextToken} -> nextToken) (\s@GetDifferences' {} a -> s {nextToken = a} :: GetDifferences)
-
--- | A non-zero, non-negative integer used to limit the number of returned
--- results.
-getDifferences_maxResults :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Int)
-getDifferences_maxResults = Lens.lens (\GetDifferences' {maxResults} -> maxResults) (\s@GetDifferences' {} a -> s {maxResults = a} :: GetDifferences)
-
 -- | The file path in which to check for differences. Limits the results to
 -- this path. Can also be used to specify the previous name of a directory
 -- or folder. If @beforePath@ and @afterPath@ are not specified,
@@ -168,12 +169,10 @@ getDifferences_maxResults = Lens.lens (\GetDifferences' {maxResults} -> maxResul
 getDifferences_beforePath :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
 getDifferences_beforePath = Lens.lens (\GetDifferences' {beforePath} -> beforePath) (\s@GetDifferences' {} a -> s {beforePath = a} :: GetDifferences)
 
--- | The file path in which to check differences. Limits the results to this
--- path. Can also be used to specify the changed name of a directory or
--- folder, if it has changed. If not specified, differences are shown for
--- all paths.
-getDifferences_afterPath :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Text)
-getDifferences_afterPath = Lens.lens (\GetDifferences' {afterPath} -> afterPath) (\s@GetDifferences' {} a -> s {afterPath = a} :: GetDifferences)
+-- | A non-zero, non-negative integer used to limit the number of returned
+-- results.
+getDifferences_maxResults :: Lens.Lens' GetDifferences (Prelude.Maybe Prelude.Int)
+getDifferences_maxResults = Lens.lens (\GetDifferences' {maxResults} -> maxResults) (\s@GetDifferences' {} a -> s {maxResults = a} :: GetDifferences)
 
 -- | The name of the repository where you want to get differences.
 getDifferences_repositoryName :: Lens.Lens' GetDifferences Prelude.Text
@@ -214,8 +213,8 @@ instance Core.AWSRequest GetDifferences where
     Response.receiveJSON
       ( \s h x ->
           GetDifferencesResponse'
-            Prelude.<$> (x Core..?> "differences" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "differences" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -242,12 +241,12 @@ instance Core.ToJSON GetDifferences where
   toJSON GetDifferences' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("beforeCommitSpecifier" Core..=)
-              Prelude.<$> beforeCommitSpecifier,
+          [ ("afterPath" Core..=) Prelude.<$> afterPath,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("beforeCommitSpecifier" Core..=)
+              Prelude.<$> beforeCommitSpecifier,
             ("beforePath" Core..=) Prelude.<$> beforePath,
-            ("afterPath" Core..=) Prelude.<$> afterPath,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just
@@ -265,13 +264,13 @@ instance Core.ToQuery GetDifferences where
 
 -- | /See:/ 'newGetDifferencesResponse' smart constructor.
 data GetDifferencesResponse = GetDifferencesResponse'
-  { -- | A data type object that contains information about the differences,
+  { -- | An enumeration token that can be used in a request to return the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A data type object that contains information about the differences,
     -- including whether the difference is added, modified, or deleted (A, D,
     -- M).
     differences :: Prelude.Maybe [Difference],
-    -- | An enumeration token that can be used in a request to return the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -285,12 +284,12 @@ data GetDifferencesResponse = GetDifferencesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextToken', 'getDifferencesResponse_nextToken' - An enumeration token that can be used in a request to return the next
+-- batch of the results.
+--
 -- 'differences', 'getDifferencesResponse_differences' - A data type object that contains information about the differences,
 -- including whether the difference is added, modified, or deleted (A, D,
 -- M).
---
--- 'nextToken', 'getDifferencesResponse_nextToken' - An enumeration token that can be used in a request to return the next
--- batch of the results.
 --
 -- 'httpStatus', 'getDifferencesResponse_httpStatus' - The response's http status code.
 newGetDifferencesResponse ::
@@ -299,22 +298,22 @@ newGetDifferencesResponse ::
   GetDifferencesResponse
 newGetDifferencesResponse pHttpStatus_ =
   GetDifferencesResponse'
-    { differences =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      differences = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A data type object that contains information about the differences,
--- including whether the difference is added, modified, or deleted (A, D,
--- M).
-getDifferencesResponse_differences :: Lens.Lens' GetDifferencesResponse (Prelude.Maybe [Difference])
-getDifferencesResponse_differences = Lens.lens (\GetDifferencesResponse' {differences} -> differences) (\s@GetDifferencesResponse' {} a -> s {differences = a} :: GetDifferencesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.
 getDifferencesResponse_nextToken :: Lens.Lens' GetDifferencesResponse (Prelude.Maybe Prelude.Text)
 getDifferencesResponse_nextToken = Lens.lens (\GetDifferencesResponse' {nextToken} -> nextToken) (\s@GetDifferencesResponse' {} a -> s {nextToken = a} :: GetDifferencesResponse)
+
+-- | A data type object that contains information about the differences,
+-- including whether the difference is added, modified, or deleted (A, D,
+-- M).
+getDifferencesResponse_differences :: Lens.Lens' GetDifferencesResponse (Prelude.Maybe [Difference])
+getDifferencesResponse_differences = Lens.lens (\GetDifferencesResponse' {differences} -> differences) (\s@GetDifferencesResponse' {} a -> s {differences = a} :: GetDifferencesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDifferencesResponse_httpStatus :: Lens.Lens' GetDifferencesResponse Prelude.Int

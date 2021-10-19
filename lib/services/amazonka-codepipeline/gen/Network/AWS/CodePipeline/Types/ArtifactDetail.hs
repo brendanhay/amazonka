@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newArtifactDetail' smart constructor.
 data ArtifactDetail = ArtifactDetail'
-  { -- | The Amazon S3 artifact location for the action execution.
-    s3location :: Prelude.Maybe S3Location,
-    -- | The artifact object name for the action execution.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The artifact object name for the action execution.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 artifact location for the action execution.
+    s3location :: Prelude.Maybe S3Location
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ArtifactDetail = ArtifactDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3location', 'artifactDetail_s3location' - The Amazon S3 artifact location for the action execution.
---
 -- 'name', 'artifactDetail_name' - The artifact object name for the action execution.
+--
+-- 's3location', 'artifactDetail_s3location' - The Amazon S3 artifact location for the action execution.
 newArtifactDetail ::
   ArtifactDetail
 newArtifactDetail =
   ArtifactDetail'
-    { s3location = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      s3location = Prelude.Nothing
     }
-
--- | The Amazon S3 artifact location for the action execution.
-artifactDetail_s3location :: Lens.Lens' ArtifactDetail (Prelude.Maybe S3Location)
-artifactDetail_s3location = Lens.lens (\ArtifactDetail' {s3location} -> s3location) (\s@ArtifactDetail' {} a -> s {s3location = a} :: ArtifactDetail)
 
 -- | The artifact object name for the action execution.
 artifactDetail_name :: Lens.Lens' ArtifactDetail (Prelude.Maybe Prelude.Text)
 artifactDetail_name = Lens.lens (\ArtifactDetail' {name} -> name) (\s@ArtifactDetail' {} a -> s {name = a} :: ArtifactDetail)
+
+-- | The Amazon S3 artifact location for the action execution.
+artifactDetail_s3location :: Lens.Lens' ArtifactDetail (Prelude.Maybe S3Location)
+artifactDetail_s3location = Lens.lens (\ArtifactDetail' {s3location} -> s3location) (\s@ArtifactDetail' {} a -> s {s3location = a} :: ArtifactDetail)
 
 instance Core.FromJSON ArtifactDetail where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON ArtifactDetail where
       "ArtifactDetail"
       ( \x ->
           ArtifactDetail'
-            Prelude.<$> (x Core..:? "s3location")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "s3location")
       )
 
 instance Prelude.Hashable ArtifactDetail

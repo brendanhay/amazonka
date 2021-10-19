@@ -97,7 +97,7 @@ newCreateRouteTable pVpcId_ =
 
 -- | The tags to assign to the route table.
 createRouteTable_tagSpecifications :: Lens.Lens' CreateRouteTable (Prelude.Maybe [TagSpecification])
-createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateRouteTable' {} a -> s {tagSpecifications = a} :: CreateRouteTable) Prelude.. Lens.mapping Lens._Coerce
+createRouteTable_tagSpecifications = Lens.lens (\CreateRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateRouteTable' {} a -> s {tagSpecifications = a} :: CreateRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

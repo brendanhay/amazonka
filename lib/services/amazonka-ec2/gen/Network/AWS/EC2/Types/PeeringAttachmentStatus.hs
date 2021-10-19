@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPeeringAttachmentStatus' smart constructor.
 data PeeringAttachmentStatus = PeeringAttachmentStatus'
-  { -- | The status message, if applicable.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The status code.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The status message, if applicable.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,30 @@ data PeeringAttachmentStatus = PeeringAttachmentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'peeringAttachmentStatus_message' - The status message, if applicable.
---
 -- 'code', 'peeringAttachmentStatus_code' - The status code.
+--
+-- 'message', 'peeringAttachmentStatus_message' - The status message, if applicable.
 newPeeringAttachmentStatus ::
   PeeringAttachmentStatus
 newPeeringAttachmentStatus =
   PeeringAttachmentStatus'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The status message, if applicable.
-peeringAttachmentStatus_message :: Lens.Lens' PeeringAttachmentStatus (Prelude.Maybe Prelude.Text)
-peeringAttachmentStatus_message = Lens.lens (\PeeringAttachmentStatus' {message} -> message) (\s@PeeringAttachmentStatus' {} a -> s {message = a} :: PeeringAttachmentStatus)
 
 -- | The status code.
 peeringAttachmentStatus_code :: Lens.Lens' PeeringAttachmentStatus (Prelude.Maybe Prelude.Text)
 peeringAttachmentStatus_code = Lens.lens (\PeeringAttachmentStatus' {code} -> code) (\s@PeeringAttachmentStatus' {} a -> s {code = a} :: PeeringAttachmentStatus)
 
+-- | The status message, if applicable.
+peeringAttachmentStatus_message :: Lens.Lens' PeeringAttachmentStatus (Prelude.Maybe Prelude.Text)
+peeringAttachmentStatus_message = Lens.lens (\PeeringAttachmentStatus' {message} -> message) (\s@PeeringAttachmentStatus' {} a -> s {message = a} :: PeeringAttachmentStatus)
+
 instance Core.FromXML PeeringAttachmentStatus where
   parseXML x =
     PeeringAttachmentStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "code")
+      Prelude.<*> (x Core..@? "message")
 
 instance Prelude.Hashable PeeringAttachmentStatus
 

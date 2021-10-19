@@ -30,10 +30,10 @@ module Network.AWS.EC2.DescribePlacementGroups
     newDescribePlacementGroups,
 
     -- * Request Lenses
+    describePlacementGroups_filters,
+    describePlacementGroups_groupNames,
     describePlacementGroups_groupIds,
     describePlacementGroups_dryRun,
-    describePlacementGroups_groupNames,
-    describePlacementGroups_filters,
 
     -- * Destructuring the Response
     DescribePlacementGroupsResponse (..),
@@ -54,19 +54,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribePlacementGroups' smart constructor.
 data DescribePlacementGroups = DescribePlacementGroups'
-  { -- | The IDs of the placement groups.
-    groupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The names of the placement groups.
-    --
-    -- Default: Describes all your placement groups, or only those otherwise
-    -- specified.
-    groupNames :: Prelude.Maybe [Prelude.Text],
-    -- | The filters.
+  { -- | The filters.
     --
     -- -   @group-name@ - The name of the placement group.
     --
@@ -85,7 +73,19 @@ data DescribePlacementGroups = DescribePlacementGroups'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources that have a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The names of the placement groups.
+    --
+    -- Default: Describes all your placement groups, or only those otherwise
+    -- specified.
+    groupNames :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the placement groups.
+    groupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,18 +96,6 @@ data DescribePlacementGroups = DescribePlacementGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'groupIds', 'describePlacementGroups_groupIds' - The IDs of the placement groups.
---
--- 'dryRun', 'describePlacementGroups_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'groupNames', 'describePlacementGroups_groupNames' - The names of the placement groups.
---
--- Default: Describes all your placement groups, or only those otherwise
--- specified.
 --
 -- 'filters', 'describePlacementGroups_filters' - The filters.
 --
@@ -128,34 +116,27 @@ data DescribePlacementGroups = DescribePlacementGroups'
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources that have a tag with a specific key,
 --     regardless of the tag value.
+--
+-- 'groupNames', 'describePlacementGroups_groupNames' - The names of the placement groups.
+--
+-- Default: Describes all your placement groups, or only those otherwise
+-- specified.
+--
+-- 'groupIds', 'describePlacementGroups_groupIds' - The IDs of the placement groups.
+--
+-- 'dryRun', 'describePlacementGroups_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribePlacementGroups ::
   DescribePlacementGroups
 newDescribePlacementGroups =
   DescribePlacementGroups'
-    { groupIds =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       groupNames = Prelude.Nothing,
-      filters = Prelude.Nothing
+      groupIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | The IDs of the placement groups.
-describePlacementGroups_groupIds :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
-describePlacementGroups_groupIds = Lens.lens (\DescribePlacementGroups' {groupIds} -> groupIds) (\s@DescribePlacementGroups' {} a -> s {groupIds = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describePlacementGroups_dryRun :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe Prelude.Bool)
-describePlacementGroups_dryRun = Lens.lens (\DescribePlacementGroups' {dryRun} -> dryRun) (\s@DescribePlacementGroups' {} a -> s {dryRun = a} :: DescribePlacementGroups)
-
--- | The names of the placement groups.
---
--- Default: Describes all your placement groups, or only those otherwise
--- specified.
-describePlacementGroups_groupNames :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
-describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {groupNames} -> groupNames) (\s@DescribePlacementGroups' {} a -> s {groupNames = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -177,7 +158,25 @@ describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {group
 --     filter to find all resources that have a tag with a specific key,
 --     regardless of the tag value.
 describePlacementGroups_filters :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Filter])
-describePlacementGroups_filters = Lens.lens (\DescribePlacementGroups' {filters} -> filters) (\s@DescribePlacementGroups' {} a -> s {filters = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens._Coerce
+describePlacementGroups_filters = Lens.lens (\DescribePlacementGroups' {filters} -> filters) (\s@DescribePlacementGroups' {} a -> s {filters = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The names of the placement groups.
+--
+-- Default: Describes all your placement groups, or only those otherwise
+-- specified.
+describePlacementGroups_groupNames :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
+describePlacementGroups_groupNames = Lens.lens (\DescribePlacementGroups' {groupNames} -> groupNames) (\s@DescribePlacementGroups' {} a -> s {groupNames = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the placement groups.
+describePlacementGroups_groupIds :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe [Prelude.Text])
+describePlacementGroups_groupIds = Lens.lens (\DescribePlacementGroups' {groupIds} -> groupIds) (\s@DescribePlacementGroups' {} a -> s {groupIds = a} :: DescribePlacementGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describePlacementGroups_dryRun :: Lens.Lens' DescribePlacementGroups (Prelude.Maybe Prelude.Bool)
+describePlacementGroups_dryRun = Lens.lens (\DescribePlacementGroups' {dryRun} -> dryRun) (\s@DescribePlacementGroups' {} a -> s {dryRun = a} :: DescribePlacementGroups)
 
 instance Core.AWSRequest DescribePlacementGroups where
   type
@@ -213,14 +212,14 @@ instance Core.ToQuery DescribePlacementGroups where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
-        "DryRun" Core.=: dryRun,
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           ( Core.toQueryList "GroupName"
               Prelude.<$> groupNames
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "GroupId" Prelude.<$> groupIds),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribePlacementGroupsResponse' smart constructor.
@@ -256,7 +255,7 @@ newDescribePlacementGroupsResponse pHttpStatus_ =
 
 -- | Information about the placement groups.
 describePlacementGroupsResponse_placementGroups :: Lens.Lens' DescribePlacementGroupsResponse (Prelude.Maybe [PlacementGroup])
-describePlacementGroupsResponse_placementGroups = Lens.lens (\DescribePlacementGroupsResponse' {placementGroups} -> placementGroups) (\s@DescribePlacementGroupsResponse' {} a -> s {placementGroups = a} :: DescribePlacementGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describePlacementGroupsResponse_placementGroups = Lens.lens (\DescribePlacementGroupsResponse' {placementGroups} -> placementGroups) (\s@DescribePlacementGroupsResponse' {} a -> s {placementGroups = a} :: DescribePlacementGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePlacementGroupsResponse_httpStatus :: Lens.Lens' DescribePlacementGroupsResponse Prelude.Int

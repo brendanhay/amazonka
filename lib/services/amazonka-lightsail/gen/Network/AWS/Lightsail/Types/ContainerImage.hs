@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContainerImage' smart constructor.
 data ContainerImage = ContainerImage'
-  { -- | The timestamp when the container image was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The name of the container image.
+  { -- | The name of the container image.
     image :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the container image was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The digest of the container image.
     digest :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data ContainerImage = ContainerImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'containerImage_createdAt' - The timestamp when the container image was created.
---
 -- 'image', 'containerImage_image' - The name of the container image.
+--
+-- 'createdAt', 'containerImage_createdAt' - The timestamp when the container image was created.
 --
 -- 'digest', 'containerImage_digest' - The digest of the container image.
 newContainerImage ::
   ContainerImage
 newContainerImage =
   ContainerImage'
-    { createdAt = Prelude.Nothing,
-      image = Prelude.Nothing,
+    { image = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       digest = Prelude.Nothing
     }
-
--- | The timestamp when the container image was created.
-containerImage_createdAt :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.UTCTime)
-containerImage_createdAt = Lens.lens (\ContainerImage' {createdAt} -> createdAt) (\s@ContainerImage' {} a -> s {createdAt = a} :: ContainerImage) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the container image.
 containerImage_image :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
 containerImage_image = Lens.lens (\ContainerImage' {image} -> image) (\s@ContainerImage' {} a -> s {image = a} :: ContainerImage)
+
+-- | The timestamp when the container image was created.
+containerImage_createdAt :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.UTCTime)
+containerImage_createdAt = Lens.lens (\ContainerImage' {createdAt} -> createdAt) (\s@ContainerImage' {} a -> s {createdAt = a} :: ContainerImage) Prelude.. Lens.mapping Core._Time
 
 -- | The digest of the container image.
 containerImage_digest :: Lens.Lens' ContainerImage (Prelude.Maybe Prelude.Text)
@@ -77,8 +77,8 @@ instance Core.FromJSON ContainerImage where
       "ContainerImage"
       ( \x ->
           ContainerImage'
-            Prelude.<$> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "image")
+            Prelude.<$> (x Core..:? "image")
+            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "digest")
       )
 

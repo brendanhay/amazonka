@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDmsTransferSettings' smart constructor.
 data DmsTransferSettings = DmsTransferSettings'
-  { -- | The name of the S3 bucket to use.
-    bucketName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
+  { -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
     -- role must allow the @iam:PassRole@ action.
-    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text
+    serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the S3 bucket to use.
+    bucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,27 @@ data DmsTransferSettings = DmsTransferSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.
---
 -- 'serviceAccessRoleArn', 'dmsTransferSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service access IAM role. The
 -- role must allow the @iam:PassRole@ action.
+--
+-- 'bucketName', 'dmsTransferSettings_bucketName' - The name of the S3 bucket to use.
 newDmsTransferSettings ::
   DmsTransferSettings
 newDmsTransferSettings =
   DmsTransferSettings'
-    { bucketName = Prelude.Nothing,
-      serviceAccessRoleArn = Prelude.Nothing
+    { serviceAccessRoleArn =
+        Prelude.Nothing,
+      bucketName = Prelude.Nothing
     }
-
--- | The name of the S3 bucket to use.
-dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
-dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
 -- | The Amazon Resource Name (ARN) used by the service access IAM role. The
 -- role must allow the @iam:PassRole@ action.
 dmsTransferSettings_serviceAccessRoleArn :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
 dmsTransferSettings_serviceAccessRoleArn = Lens.lens (\DmsTransferSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@DmsTransferSettings' {} a -> s {serviceAccessRoleArn = a} :: DmsTransferSettings)
+
+-- | The name of the S3 bucket to use.
+dmsTransferSettings_bucketName :: Lens.Lens' DmsTransferSettings (Prelude.Maybe Prelude.Text)
+dmsTransferSettings_bucketName = Lens.lens (\DmsTransferSettings' {bucketName} -> bucketName) (\s@DmsTransferSettings' {} a -> s {bucketName = a} :: DmsTransferSettings)
 
 instance Core.FromJSON DmsTransferSettings where
   parseJSON =
@@ -70,8 +71,8 @@ instance Core.FromJSON DmsTransferSettings where
       "DmsTransferSettings"
       ( \x ->
           DmsTransferSettings'
-            Prelude.<$> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
+            Prelude.<$> (x Core..:? "ServiceAccessRoleArn")
+            Prelude.<*> (x Core..:? "BucketName")
       )
 
 instance Prelude.Hashable DmsTransferSettings
@@ -82,8 +83,8 @@ instance Core.ToJSON DmsTransferSettings where
   toJSON DmsTransferSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BucketName" Core..=) Prelude.<$> bucketName,
-            ("ServiceAccessRoleArn" Core..=)
-              Prelude.<$> serviceAccessRoleArn
+          [ ("ServiceAccessRoleArn" Core..=)
+              Prelude.<$> serviceAccessRoleArn,
+            ("BucketName" Core..=) Prelude.<$> bucketName
           ]
       )

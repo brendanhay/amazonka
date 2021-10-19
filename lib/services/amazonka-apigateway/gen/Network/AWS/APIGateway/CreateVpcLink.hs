@@ -30,8 +30,8 @@ module Network.AWS.APIGateway.CreateVpcLink
     newCreateVpcLink,
 
     -- * Request Lenses
-    createVpcLink_tags,
     createVpcLink_description,
+    createVpcLink_tags,
     createVpcLink_name,
     createVpcLink_targetArns,
 
@@ -40,13 +40,13 @@ module Network.AWS.APIGateway.CreateVpcLink
     newVpcLink,
 
     -- * Response Lenses
-    vpcLink_statusMessage,
     vpcLink_status,
-    vpcLink_id,
     vpcLink_targetArns,
     vpcLink_name,
-    vpcLink_tags,
+    vpcLink_statusMessage,
+    vpcLink_id,
     vpcLink_description,
+    vpcLink_tags,
   )
 where
 
@@ -64,12 +64,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateVpcLink' smart constructor.
 data CreateVpcLink = CreateVpcLink'
-  { -- | The key-value map of strings. The valid character set is
+  { -- | The description of the VPC link.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the VPC link.
-    description :: Prelude.Maybe Prelude.Text,
     -- | [Required] The name used to label and identify the VPC link.
     name :: Prelude.Text,
     -- | [Required] The ARN of the network load balancer of the VPC targeted by
@@ -87,11 +87,11 @@ data CreateVpcLink = CreateVpcLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'createVpcLink_description' - The description of the VPC link.
+--
 -- 'tags', 'createVpcLink_tags' - The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
---
--- 'description', 'createVpcLink_description' - The description of the VPC link.
 --
 -- 'name', 'createVpcLink_name' - [Required] The name used to label and identify the VPC link.
 --
@@ -104,21 +104,21 @@ newCreateVpcLink ::
   CreateVpcLink
 newCreateVpcLink pName_ =
   CreateVpcLink'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       targetArns = Prelude.mempty
     }
+
+-- | The description of the VPC link.
+createVpcLink_description :: Lens.Lens' CreateVpcLink (Prelude.Maybe Prelude.Text)
+createVpcLink_description = Lens.lens (\CreateVpcLink' {description} -> description) (\s@CreateVpcLink' {} a -> s {description = a} :: CreateVpcLink)
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
 createVpcLink_tags :: Lens.Lens' CreateVpcLink (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createVpcLink_tags = Lens.lens (\CreateVpcLink' {tags} -> tags) (\s@CreateVpcLink' {} a -> s {tags = a} :: CreateVpcLink) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description of the VPC link.
-createVpcLink_description :: Lens.Lens' CreateVpcLink (Prelude.Maybe Prelude.Text)
-createVpcLink_description = Lens.lens (\CreateVpcLink' {description} -> description) (\s@CreateVpcLink' {} a -> s {description = a} :: CreateVpcLink)
+createVpcLink_tags = Lens.lens (\CreateVpcLink' {tags} -> tags) (\s@CreateVpcLink' {} a -> s {tags = a} :: CreateVpcLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The name used to label and identify the VPC link.
 createVpcLink_name :: Lens.Lens' CreateVpcLink Prelude.Text
@@ -128,7 +128,7 @@ createVpcLink_name = Lens.lens (\CreateVpcLink' {name} -> name) (\s@CreateVpcLin
 -- the VPC link. The network load balancer must be owned by the same AWS
 -- account of the API owner.
 createVpcLink_targetArns :: Lens.Lens' CreateVpcLink [Prelude.Text]
-createVpcLink_targetArns = Lens.lens (\CreateVpcLink' {targetArns} -> targetArns) (\s@CreateVpcLink' {} a -> s {targetArns = a} :: CreateVpcLink) Prelude.. Lens._Coerce
+createVpcLink_targetArns = Lens.lens (\CreateVpcLink' {targetArns} -> targetArns) (\s@CreateVpcLink' {} a -> s {targetArns = a} :: CreateVpcLink) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateVpcLink where
   type AWSResponse CreateVpcLink = VpcLink
@@ -154,8 +154,8 @@ instance Core.ToJSON CreateVpcLink where
   toJSON CreateVpcLink' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
+          [ ("description" Core..=) Prelude.<$> description,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("targetArns" Core..= targetArns)
           ]

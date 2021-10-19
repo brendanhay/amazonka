@@ -113,7 +113,7 @@ newCreateCodeRepository
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createCodeRepository_tags :: Lens.Lens' CreateCodeRepository (Prelude.Maybe [Tag])
-createCodeRepository_tags = Lens.lens (\CreateCodeRepository' {tags} -> tags) (\s@CreateCodeRepository' {} a -> s {tags = a} :: CreateCodeRepository) Prelude.. Lens.mapping Lens._Coerce
+createCodeRepository_tags = Lens.lens (\CreateCodeRepository' {tags} -> tags) (\s@CreateCodeRepository' {} a -> s {tags = a} :: CreateCodeRepository) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Git repository. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).

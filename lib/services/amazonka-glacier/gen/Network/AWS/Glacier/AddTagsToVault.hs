@@ -102,7 +102,7 @@ newAddTagsToVault pAccountId_ pVaultName_ =
 -- | The tags to add to the vault. Each tag is composed of a key and a value.
 -- The value can be an empty string.
 addTagsToVault_tags :: Lens.Lens' AddTagsToVault (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-addTagsToVault_tags = Lens.lens (\AddTagsToVault' {tags} -> tags) (\s@AddTagsToVault' {} a -> s {tags = a} :: AddTagsToVault) Prelude.. Lens.mapping Lens._Coerce
+addTagsToVault_tags = Lens.lens (\AddTagsToVault' {tags} -> tags) (\s@AddTagsToVault' {} a -> s {tags = a} :: AddTagsToVault) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single

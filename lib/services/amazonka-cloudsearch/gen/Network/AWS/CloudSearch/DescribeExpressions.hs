@@ -107,7 +107,7 @@ describeExpressions_deployed = Lens.lens (\DescribeExpressions' {deployed} -> de
 -- | Limits the @DescribeExpressions@ response to the specified expressions.
 -- If not specified, all expressions are shown.
 describeExpressions_expressionNames :: Lens.Lens' DescribeExpressions (Prelude.Maybe [Prelude.Text])
-describeExpressions_expressionNames = Lens.lens (\DescribeExpressions' {expressionNames} -> expressionNames) (\s@DescribeExpressions' {} a -> s {expressionNames = a} :: DescribeExpressions) Prelude.. Lens.mapping Lens._Coerce
+describeExpressions_expressionNames = Lens.lens (\DescribeExpressions' {expressionNames} -> expressionNames) (\s@DescribeExpressions' {} a -> s {expressionNames = a} :: DescribeExpressions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain you want to describe.
 describeExpressions_domainName :: Lens.Lens' DescribeExpressions Prelude.Text
@@ -195,6 +195,6 @@ describeExpressionsResponse_httpStatus = Lens.lens (\DescribeExpressionsResponse
 
 -- | The expressions configured for the domain.
 describeExpressionsResponse_expressions :: Lens.Lens' DescribeExpressionsResponse [ExpressionStatus]
-describeExpressionsResponse_expressions = Lens.lens (\DescribeExpressionsResponse' {expressions} -> expressions) (\s@DescribeExpressionsResponse' {} a -> s {expressions = a} :: DescribeExpressionsResponse) Prelude.. Lens._Coerce
+describeExpressionsResponse_expressions = Lens.lens (\DescribeExpressionsResponse' {expressions} -> expressions) (\s@DescribeExpressionsResponse' {} a -> s {expressions = a} :: DescribeExpressionsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeExpressionsResponse

@@ -38,13 +38,13 @@ module Network.AWS.ElastiCache.DeleteUser
 
     -- * Response Lenses
     user_status,
-    user_accessString,
+    user_arn,
     user_userGroupIds,
     user_authentication,
-    user_arn,
-    user_userId,
     user_engine,
     user_userName,
+    user_accessString,
+    user_userId,
   )
 where
 

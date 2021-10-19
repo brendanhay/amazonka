@@ -103,7 +103,7 @@ newPutAccountSuppressionAttributes =
 --     for your account when a message sent to that address results in a
 --     hard bounce.
 putAccountSuppressionAttributes_suppressedReasons :: Lens.Lens' PutAccountSuppressionAttributes (Prelude.Maybe [SuppressionListReason])
-putAccountSuppressionAttributes_suppressedReasons = Lens.lens (\PutAccountSuppressionAttributes' {suppressedReasons} -> suppressedReasons) (\s@PutAccountSuppressionAttributes' {} a -> s {suppressedReasons = a} :: PutAccountSuppressionAttributes) Prelude.. Lens.mapping Lens._Coerce
+putAccountSuppressionAttributes_suppressedReasons = Lens.lens (\PutAccountSuppressionAttributes' {suppressedReasons} -> suppressedReasons) (\s@PutAccountSuppressionAttributes' {} a -> s {suppressedReasons = a} :: PutAccountSuppressionAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest

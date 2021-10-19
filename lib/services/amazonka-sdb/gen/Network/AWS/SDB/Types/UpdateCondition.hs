@@ -37,11 +37,11 @@ data UpdateCondition = UpdateCondition'
     -- condition to be satisfied. Specify @false@ if the attribute should not
     -- exist in order for the update condition to be satisfied.
     exists :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the attribute involved in the condition.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The value of an attribute. This value can only be specified when the
     -- @Exists@ parameter is equal to @true@.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The name of the attribute involved in the condition.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,17 +59,17 @@ data UpdateCondition = UpdateCondition'
 -- condition to be satisfied. Specify @false@ if the attribute should not
 -- exist in order for the update condition to be satisfied.
 --
--- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.
---
 -- 'value', 'updateCondition_value' - The value of an attribute. This value can only be specified when the
 -- @Exists@ parameter is equal to @true@.
+--
+-- 'name', 'updateCondition_name' - The name of the attribute involved in the condition.
 newUpdateCondition ::
   UpdateCondition
 newUpdateCondition =
   UpdateCondition'
     { exists = Prelude.Nothing,
-      name = Prelude.Nothing,
-      value = Prelude.Nothing
+      value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | A value specifying whether or not the specified attribute must exist
@@ -80,14 +80,14 @@ newUpdateCondition =
 updateCondition_exists :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Bool)
 updateCondition_exists = Lens.lens (\UpdateCondition' {exists} -> exists) (\s@UpdateCondition' {} a -> s {exists = a} :: UpdateCondition)
 
--- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
-updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
-
 -- | The value of an attribute. This value can only be specified when the
 -- @Exists@ parameter is equal to @true@.
 updateCondition_value :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
 updateCondition_value = Lens.lens (\UpdateCondition' {value} -> value) (\s@UpdateCondition' {} a -> s {value = a} :: UpdateCondition)
+
+-- | The name of the attribute involved in the condition.
+updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
+updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
 
 instance Prelude.Hashable UpdateCondition
 
@@ -97,6 +97,6 @@ instance Core.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =
     Prelude.mconcat
       [ "Exists" Core.=: exists,
-        "Name" Core.=: name,
-        "Value" Core.=: value
+        "Value" Core.=: value,
+        "Name" Core.=: name
       ]

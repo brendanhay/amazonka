@@ -41,9 +41,9 @@ module Network.AWS.CloudFormation.ExecuteChangeSet
     newExecuteChangeSet,
 
     -- * Request Lenses
-    executeChangeSet_stackName,
-    executeChangeSet_clientRequestToken,
     executeChangeSet_disableRollback,
+    executeChangeSet_clientRequestToken,
+    executeChangeSet_stackName,
     executeChangeSet_changeSetName,
 
     -- * Destructuring the Response
@@ -66,20 +66,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newExecuteChangeSet' smart constructor.
 data ExecuteChangeSet = ExecuteChangeSet'
-  { -- | If you specified the name of a change set, specify the stack name or ID
-    -- (ARN) that is associated with the change set you want to execute.
-    stackName :: Prelude.Maybe Prelude.Text,
+  { -- | Preserves the state of previously provisioned resources when an
+    -- operation fails.
+    --
+    -- Default: @True@
+    disableRollback :: Prelude.Maybe Prelude.Bool,
     -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this
     -- token if you plan to retry requests so that CloudFormation knows that
     -- you\'re not attempting to execute a change set to update a stack with
     -- the same name. You might retry @ExecuteChangeSet@ requests to ensure
     -- that CloudFormation successfully received them.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | Preserves the state of previously provisioned resources when an
-    -- operation fails.
-    --
-    -- Default: @True@
-    disableRollback :: Prelude.Maybe Prelude.Bool,
+    -- | If you specified the name of a change set, specify the stack name or ID
+    -- (ARN) that is associated with the change set you want to execute.
+    stackName :: Prelude.Maybe Prelude.Text,
     -- | The name or ARN of the change set that you want use to update the
     -- specified stack.
     changeSetName :: Prelude.Text
@@ -94,8 +94,10 @@ data ExecuteChangeSet = ExecuteChangeSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackName', 'executeChangeSet_stackName' - If you specified the name of a change set, specify the stack name or ID
--- (ARN) that is associated with the change set you want to execute.
+-- 'disableRollback', 'executeChangeSet_disableRollback' - Preserves the state of previously provisioned resources when an
+-- operation fails.
+--
+-- Default: @True@
 --
 -- 'clientRequestToken', 'executeChangeSet_clientRequestToken' - A unique identifier for this @ExecuteChangeSet@ request. Specify this
 -- token if you plan to retry requests so that CloudFormation knows that
@@ -103,10 +105,8 @@ data ExecuteChangeSet = ExecuteChangeSet'
 -- the same name. You might retry @ExecuteChangeSet@ requests to ensure
 -- that CloudFormation successfully received them.
 --
--- 'disableRollback', 'executeChangeSet_disableRollback' - Preserves the state of previously provisioned resources when an
--- operation fails.
---
--- Default: @True@
+-- 'stackName', 'executeChangeSet_stackName' - If you specified the name of a change set, specify the stack name or ID
+-- (ARN) that is associated with the change set you want to execute.
 --
 -- 'changeSetName', 'executeChangeSet_changeSetName' - The name or ARN of the change set that you want use to update the
 -- specified stack.
@@ -116,16 +116,19 @@ newExecuteChangeSet ::
   ExecuteChangeSet
 newExecuteChangeSet pChangeSetName_ =
   ExecuteChangeSet'
-    { stackName = Prelude.Nothing,
+    { disableRollback =
+        Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      disableRollback = Prelude.Nothing,
+      stackName = Prelude.Nothing,
       changeSetName = pChangeSetName_
     }
 
--- | If you specified the name of a change set, specify the stack name or ID
--- (ARN) that is associated with the change set you want to execute.
-executeChangeSet_stackName :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
-executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackName) (\s@ExecuteChangeSet' {} a -> s {stackName = a} :: ExecuteChangeSet)
+-- | Preserves the state of previously provisioned resources when an
+-- operation fails.
+--
+-- Default: @True@
+executeChangeSet_disableRollback :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Bool)
+executeChangeSet_disableRollback = Lens.lens (\ExecuteChangeSet' {disableRollback} -> disableRollback) (\s@ExecuteChangeSet' {} a -> s {disableRollback = a} :: ExecuteChangeSet)
 
 -- | A unique identifier for this @ExecuteChangeSet@ request. Specify this
 -- token if you plan to retry requests so that CloudFormation knows that
@@ -135,12 +138,10 @@ executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackN
 executeChangeSet_clientRequestToken :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
 executeChangeSet_clientRequestToken = Lens.lens (\ExecuteChangeSet' {clientRequestToken} -> clientRequestToken) (\s@ExecuteChangeSet' {} a -> s {clientRequestToken = a} :: ExecuteChangeSet)
 
--- | Preserves the state of previously provisioned resources when an
--- operation fails.
---
--- Default: @True@
-executeChangeSet_disableRollback :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Bool)
-executeChangeSet_disableRollback = Lens.lens (\ExecuteChangeSet' {disableRollback} -> disableRollback) (\s@ExecuteChangeSet' {} a -> s {disableRollback = a} :: ExecuteChangeSet)
+-- | If you specified the name of a change set, specify the stack name or ID
+-- (ARN) that is associated with the change set you want to execute.
+executeChangeSet_stackName :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
+executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackName) (\s@ExecuteChangeSet' {} a -> s {stackName = a} :: ExecuteChangeSet)
 
 -- | The name or ARN of the change set that you want use to update the
 -- specified stack.
@@ -177,9 +178,9 @@ instance Core.ToQuery ExecuteChangeSet where
           Core.=: ("ExecuteChangeSet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName,
-        "ClientRequestToken" Core.=: clientRequestToken,
         "DisableRollback" Core.=: disableRollback,
+        "ClientRequestToken" Core.=: clientRequestToken,
+        "StackName" Core.=: stackName,
         "ChangeSetName" Core.=: changeSetName
       ]
 

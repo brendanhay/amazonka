@@ -17,16 +17,16 @@ module Network.AWS.MigrationHub.Types
     defaultService,
 
     -- * Errors
-    _UnauthorizedOperation,
-    _ServiceUnavailableException,
-    _InvalidInputException,
-    _InternalServerError,
-    _ThrottlingException,
-    _PolicyErrorException,
-    _HomeRegionNotSetException,
     _AccessDeniedException,
-    _ResourceNotFoundException,
+    _HomeRegionNotSetException,
     _DryRunOperation,
+    _PolicyErrorException,
+    _ThrottlingException,
+    _InternalServerError,
+    _InvalidInputException,
+    _ServiceUnavailableException,
+    _ResourceNotFoundException,
+    _UnauthorizedOperation,
 
     -- * ApplicationStatus
     ApplicationStatus (..),
@@ -40,9 +40,9 @@ module Network.AWS.MigrationHub.Types
     -- * ApplicationState
     ApplicationState (..),
     newApplicationState,
+    applicationState_lastUpdatedTime,
     applicationState_applicationId,
     applicationState_applicationStatus,
-    applicationState_lastUpdatedTime,
 
     -- * CreatedArtifact
     CreatedArtifact (..),
@@ -59,21 +59,21 @@ module Network.AWS.MigrationHub.Types
     -- * MigrationTask
     MigrationTask (..),
     newMigrationTask,
-    migrationTask_resourceAttributeList,
     migrationTask_updateDateTime,
+    migrationTask_resourceAttributeList,
     migrationTask_task,
-    migrationTask_migrationTaskName,
     migrationTask_progressUpdateStream,
+    migrationTask_migrationTaskName,
 
     -- * MigrationTaskSummary
     MigrationTaskSummary (..),
     newMigrationTaskSummary,
     migrationTaskSummary_status,
-    migrationTaskSummary_progressPercent,
     migrationTaskSummary_updateDateTime,
+    migrationTaskSummary_progressPercent,
     migrationTaskSummary_statusDetail,
-    migrationTaskSummary_migrationTaskName,
     migrationTaskSummary_progressUpdateStream,
+    migrationTaskSummary_migrationTaskName,
 
     -- * ProgressUpdateStreamSummary
     ProgressUpdateStreamSummary (..),
@@ -137,37 +137,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -180,46 +157,52 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Exception raised to indicate a request was not authorized when the
+-- | You do not have sufficient access to perform this action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+
+-- | The home region is not set. Set the home region to continue.
+_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HomeRegionNotSetException =
+  Core._MatchServiceError
+    defaultService
+    "HomeRegionNotSetException"
+
+-- | Exception raised to indicate a successfully authorized action when the
 -- @DryRun@ flag is set to \"true\".
-_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedOperation =
+_DryRunOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DryRunOperation =
   Core._MatchServiceError
     defaultService
-    "UnauthorizedOperation"
-
--- | Exception raised when there is an internal, configuration, or dependency
--- error encountered.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-
--- | Exception raised when the provided input violates a policy constraint or
--- is entered in the wrong format or data type.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInputException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInputException"
-
--- | Exception raised when an internal, configuration, or dependency error is
--- encountered.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
+    "DryRunOperation"
 
 -- | Exception raised when there are problems accessing Application Discovery
 -- Service (Application Discovery Service); most likely due to a
@@ -231,19 +214,36 @@ _PolicyErrorException =
     defaultService
     "PolicyErrorException"
 
--- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HomeRegionNotSetException =
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
   Core._MatchServiceError
     defaultService
-    "HomeRegionNotSetException"
+    "ThrottlingException"
 
--- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | Exception raised when an internal, configuration, or dependency error is
+-- encountered.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
+    "InternalServerError"
+
+-- | Exception raised when the provided input violates a policy constraint or
+-- is entered in the wrong format or data type.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInputException"
+
+-- | Exception raised when there is an internal, configuration, or dependency
+-- error encountered.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
 
 -- | Exception raised when the request references a resource (Application
 -- Discovery Service configuration, update stream, migration task, etc.)
@@ -255,10 +255,10 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
 
--- | Exception raised to indicate a successfully authorized action when the
+-- | Exception raised to indicate a request was not authorized when the
 -- @DryRun@ flag is set to \"true\".
-_DryRunOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DryRunOperation =
+_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperation =
   Core._MatchServiceError
     defaultService
-    "DryRunOperation"
+    "UnauthorizedOperation"

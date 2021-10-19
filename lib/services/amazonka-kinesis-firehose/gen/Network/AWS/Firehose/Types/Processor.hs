@@ -59,7 +59,7 @@ newProcessor pType_ =
 
 -- | The processor parameters.
 processor_parameters :: Lens.Lens' Processor (Prelude.Maybe [ProcessorParameter])
-processor_parameters = Lens.lens (\Processor' {parameters} -> parameters) (\s@Processor' {} a -> s {parameters = a} :: Processor) Prelude.. Lens.mapping Lens._Coerce
+processor_parameters = Lens.lens (\Processor' {parameters} -> parameters) (\s@Processor' {} a -> s {parameters = a} :: Processor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of processor.
 processor_type :: Lens.Lens' Processor ProcessorType

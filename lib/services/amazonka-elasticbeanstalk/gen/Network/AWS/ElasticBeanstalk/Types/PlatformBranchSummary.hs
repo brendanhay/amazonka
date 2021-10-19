@@ -37,16 +37,16 @@ data PlatformBranchSummary = PlatformBranchSummary'
     -- A larger @BranchOrder@ value designates a newer platform branch within
     -- the platform.
     branchOrder :: Prelude.Maybe Prelude.Int,
-    -- | The support life cycle state of the platform branch.
-    --
-    -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
-    lifecycleState :: Prelude.Maybe Prelude.Text,
+    -- | The name of the platform to which this platform branch belongs.
+    platformName :: Prelude.Maybe Prelude.Text,
     -- | The environment tiers that platform versions in this branch support.
     --
     -- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
     supportedTierList :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the platform to which this platform branch belongs.
-    platformName :: Prelude.Maybe Prelude.Text
+    -- | The support life cycle state of the platform branch.
+    --
+    -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
+    lifecycleState :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,15 +68,15 @@ data PlatformBranchSummary = PlatformBranchSummary'
 -- A larger @BranchOrder@ value designates a newer platform branch within
 -- the platform.
 --
--- 'lifecycleState', 'platformBranchSummary_lifecycleState' - The support life cycle state of the platform branch.
---
--- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
+-- 'platformName', 'platformBranchSummary_platformName' - The name of the platform to which this platform branch belongs.
 --
 -- 'supportedTierList', 'platformBranchSummary_supportedTierList' - The environment tiers that platform versions in this branch support.
 --
 -- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
 --
--- 'platformName', 'platformBranchSummary_platformName' - The name of the platform to which this platform branch belongs.
+-- 'lifecycleState', 'platformBranchSummary_lifecycleState' - The support life cycle state of the platform branch.
+--
+-- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
 newPlatformBranchSummary ::
   PlatformBranchSummary
 newPlatformBranchSummary =
@@ -84,9 +84,9 @@ newPlatformBranchSummary =
     { branchName =
         Prelude.Nothing,
       branchOrder = Prelude.Nothing,
-      lifecycleState = Prelude.Nothing,
+      platformName = Prelude.Nothing,
       supportedTierList = Prelude.Nothing,
-      platformName = Prelude.Nothing
+      lifecycleState = Prelude.Nothing
     }
 
 -- | The name of the platform branch.
@@ -103,33 +103,33 @@ platformBranchSummary_branchName = Lens.lens (\PlatformBranchSummary' {branchNam
 platformBranchSummary_branchOrder :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Int)
 platformBranchSummary_branchOrder = Lens.lens (\PlatformBranchSummary' {branchOrder} -> branchOrder) (\s@PlatformBranchSummary' {} a -> s {branchOrder = a} :: PlatformBranchSummary)
 
+-- | The name of the platform to which this platform branch belongs.
+platformBranchSummary_platformName :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
+platformBranchSummary_platformName = Lens.lens (\PlatformBranchSummary' {platformName} -> platformName) (\s@PlatformBranchSummary' {} a -> s {platformName = a} :: PlatformBranchSummary)
+
+-- | The environment tiers that platform versions in this branch support.
+--
+-- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
+platformBranchSummary_supportedTierList :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe [Prelude.Text])
+platformBranchSummary_supportedTierList = Lens.lens (\PlatformBranchSummary' {supportedTierList} -> supportedTierList) (\s@PlatformBranchSummary' {} a -> s {supportedTierList = a} :: PlatformBranchSummary) Prelude.. Lens.mapping Lens.coerced
+
 -- | The support life cycle state of the platform branch.
 --
 -- Possible values: @beta@ | @supported@ | @deprecated@ | @retired@
 platformBranchSummary_lifecycleState :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
 platformBranchSummary_lifecycleState = Lens.lens (\PlatformBranchSummary' {lifecycleState} -> lifecycleState) (\s@PlatformBranchSummary' {} a -> s {lifecycleState = a} :: PlatformBranchSummary)
 
--- | The environment tiers that platform versions in this branch support.
---
--- Possible values: @WebServer\/Standard@ | @Worker\/SQS\/HTTP@
-platformBranchSummary_supportedTierList :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe [Prelude.Text])
-platformBranchSummary_supportedTierList = Lens.lens (\PlatformBranchSummary' {supportedTierList} -> supportedTierList) (\s@PlatformBranchSummary' {} a -> s {supportedTierList = a} :: PlatformBranchSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the platform to which this platform branch belongs.
-platformBranchSummary_platformName :: Lens.Lens' PlatformBranchSummary (Prelude.Maybe Prelude.Text)
-platformBranchSummary_platformName = Lens.lens (\PlatformBranchSummary' {platformName} -> platformName) (\s@PlatformBranchSummary' {} a -> s {platformName = a} :: PlatformBranchSummary)
-
 instance Core.FromXML PlatformBranchSummary where
   parseXML x =
     PlatformBranchSummary'
       Prelude.<$> (x Core..@? "BranchName")
       Prelude.<*> (x Core..@? "BranchOrder")
-      Prelude.<*> (x Core..@? "LifecycleState")
+      Prelude.<*> (x Core..@? "PlatformName")
       Prelude.<*> ( x Core..@? "SupportedTierList"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PlatformName")
+      Prelude.<*> (x Core..@? "LifecycleState")
 
 instance Prelude.Hashable PlatformBranchSummary
 

@@ -38,10 +38,10 @@ module Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources
     newRegisterTransitGatewayMulticastGroupSources,
 
     -- * Request Lenses
-    registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
-    registerTransitGatewayMulticastGroupSources_dryRun,
     registerTransitGatewayMulticastGroupSources_networkInterfaceIds,
+    registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
     registerTransitGatewayMulticastGroupSources_groupIpAddress,
+    registerTransitGatewayMulticastGroupSources_dryRun,
 
     -- * Destructuring the Response
     RegisterTransitGatewayMulticastGroupSourcesResponse (..),
@@ -62,18 +62,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterTransitGatewayMulticastGroupSources' smart constructor.
 data RegisterTransitGatewayMulticastGroupSources = RegisterTransitGatewayMulticastGroupSources'
-  { -- | The ID of the transit gateway multicast domain.
+  { -- | The group sources\' network interface IDs to register with the transit
+    -- gateway multicast group.
+    networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the transit gateway multicast domain.
     transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address assigned to the transit gateway multicast group.
+    groupIpAddress :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The group sources\' network interface IDs to register with the transit
-    -- gateway multicast group.
-    networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The IP address assigned to the transit gateway multicast group.
-    groupIpAddress :: Prelude.Maybe Prelude.Text
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,33 +85,42 @@ data RegisterTransitGatewayMulticastGroupSources = RegisterTransitGatewayMultica
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkInterfaceIds', 'registerTransitGatewayMulticastGroupSources_networkInterfaceIds' - The group sources\' network interface IDs to register with the transit
+-- gateway multicast group.
+--
 -- 'transitGatewayMulticastDomainId', 'registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
+--
+-- 'groupIpAddress', 'registerTransitGatewayMulticastGroupSources_groupIpAddress' - The IP address assigned to the transit gateway multicast group.
 --
 -- 'dryRun', 'registerTransitGatewayMulticastGroupSources_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'networkInterfaceIds', 'registerTransitGatewayMulticastGroupSources_networkInterfaceIds' - The group sources\' network interface IDs to register with the transit
--- gateway multicast group.
---
--- 'groupIpAddress', 'registerTransitGatewayMulticastGroupSources_groupIpAddress' - The IP address assigned to the transit gateway multicast group.
 newRegisterTransitGatewayMulticastGroupSources ::
   RegisterTransitGatewayMulticastGroupSources
 newRegisterTransitGatewayMulticastGroupSources =
   RegisterTransitGatewayMulticastGroupSources'
-    { transitGatewayMulticastDomainId =
+    { networkInterfaceIds =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      networkInterfaceIds =
+      transitGatewayMulticastDomainId =
         Prelude.Nothing,
       groupIpAddress =
-        Prelude.Nothing
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
+
+-- | The group sources\' network interface IDs to register with the transit
+-- gateway multicast group.
+registerTransitGatewayMulticastGroupSources_networkInterfaceIds :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe [Prelude.Text])
+registerTransitGatewayMulticastGroupSources_networkInterfaceIds = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {networkInterfaceIds} -> networkInterfaceIds) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {networkInterfaceIds = a} :: RegisterTransitGatewayMulticastGroupSources) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the transit gateway multicast domain.
 registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
 registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {transitGatewayMulticastDomainId = a} :: RegisterTransitGatewayMulticastGroupSources)
+
+-- | The IP address assigned to the transit gateway multicast group.
+registerTransitGatewayMulticastGroupSources_groupIpAddress :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
+registerTransitGatewayMulticastGroupSources_groupIpAddress = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {groupIpAddress} -> groupIpAddress) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {groupIpAddress = a} :: RegisterTransitGatewayMulticastGroupSources)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -119,15 +128,6 @@ registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId = Le
 -- Otherwise, it is @UnauthorizedOperation@.
 registerTransitGatewayMulticastGroupSources_dryRun :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Bool)
 registerTransitGatewayMulticastGroupSources_dryRun = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {dryRun} -> dryRun) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {dryRun = a} :: RegisterTransitGatewayMulticastGroupSources)
-
--- | The group sources\' network interface IDs to register with the transit
--- gateway multicast group.
-registerTransitGatewayMulticastGroupSources_networkInterfaceIds :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe [Prelude.Text])
-registerTransitGatewayMulticastGroupSources_networkInterfaceIds = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {networkInterfaceIds} -> networkInterfaceIds) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {networkInterfaceIds = a} :: RegisterTransitGatewayMulticastGroupSources) Prelude.. Lens.mapping Lens._Coerce
-
--- | The IP address assigned to the transit gateway multicast group.
-registerTransitGatewayMulticastGroupSources_groupIpAddress :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Prelude.Maybe Prelude.Text)
-registerTransitGatewayMulticastGroupSources_groupIpAddress = Lens.lens (\RegisterTransitGatewayMulticastGroupSources' {groupIpAddress} -> groupIpAddress) (\s@RegisterTransitGatewayMulticastGroupSources' {} a -> s {groupIpAddress = a} :: RegisterTransitGatewayMulticastGroupSources)
 
 instance
   Core.AWSRequest
@@ -179,14 +179,14 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "TransitGatewayMulticastDomainId"
-            Core.=: transitGatewayMulticastDomainId,
-          "DryRun" Core.=: dryRun,
           Core.toQuery
             ( Core.toQueryList "NetworkInterfaceIds"
                 Prelude.<$> networkInterfaceIds
             ),
-          "GroupIpAddress" Core.=: groupIpAddress
+          "TransitGatewayMulticastDomainId"
+            Core.=: transitGatewayMulticastDomainId,
+          "GroupIpAddress" Core.=: groupIpAddress,
+          "DryRun" Core.=: dryRun
         ]
 
 -- | /See:/ 'newRegisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.

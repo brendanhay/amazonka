@@ -78,7 +78,7 @@ newUntagResource ::
 newUntagResource pResourceId_ pTagKeys_ =
   UntagResource'
     { resourceId = pResourceId_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | Specifies the EFS resource that you want to remove tags from.
@@ -88,7 +88,7 @@ untagResource_resourceId = Lens.lens (\UntagResource' {resourceId} -> resourceId
 -- | The keys of the key-value tag pairs that you want to remove from the
 -- specified EFS resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

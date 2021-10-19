@@ -52,8 +52,8 @@ module Network.AWS.Organizations.ListChildren
     newListChildrenResponse,
 
     -- * Response Lenses
-    listChildrenResponse_nextToken,
     listChildrenResponse_children,
+    listChildrenResponse_nextToken,
     listChildrenResponse_httpStatus,
   )
 where
@@ -224,8 +224,8 @@ instance Core.AWSRequest ListChildren where
     Response.receiveJSON
       ( \s h x ->
           ListChildrenResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Children" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -267,14 +267,14 @@ instance Core.ToQuery ListChildren where
 
 -- | /See:/ 'newListChildrenResponse' smart constructor.
 data ListChildrenResponse = ListChildrenResponse'
-  { -- | If present, indicates that more output is available than is included in
+  { -- | The list of children of the specified parent container.
+    children :: Prelude.Maybe [Child],
+    -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of children of the specified parent container.
-    children :: Prelude.Maybe [Child],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -288,13 +288,13 @@ data ListChildrenResponse = ListChildrenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'children', 'listChildrenResponse_children' - The list of children of the specified parent container.
+--
 -- 'nextToken', 'listChildrenResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
---
--- 'children', 'listChildrenResponse_children' - The list of children of the specified parent container.
 --
 -- 'httpStatus', 'listChildrenResponse_httpStatus' - The response's http status code.
 newListChildrenResponse ::
@@ -303,10 +303,14 @@ newListChildrenResponse ::
   ListChildrenResponse
 newListChildrenResponse pHttpStatus_ =
   ListChildrenResponse'
-    { nextToken = Prelude.Nothing,
-      children = Prelude.Nothing,
+    { children = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of children of the specified parent container.
+listChildrenResponse_children :: Lens.Lens' ListChildrenResponse (Prelude.Maybe [Child])
+listChildrenResponse_children = Lens.lens (\ListChildrenResponse' {children} -> children) (\s@ListChildrenResponse' {} a -> s {children = a} :: ListChildrenResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -315,10 +319,6 @@ newListChildrenResponse pHttpStatus_ =
 -- element comes back as @null@.
 listChildrenResponse_nextToken :: Lens.Lens' ListChildrenResponse (Prelude.Maybe Prelude.Text)
 listChildrenResponse_nextToken = Lens.lens (\ListChildrenResponse' {nextToken} -> nextToken) (\s@ListChildrenResponse' {} a -> s {nextToken = a} :: ListChildrenResponse)
-
--- | The list of children of the specified parent container.
-listChildrenResponse_children :: Lens.Lens' ListChildrenResponse (Prelude.Maybe [Child])
-listChildrenResponse_children = Lens.lens (\ListChildrenResponse' {children} -> children) (\s@ListChildrenResponse' {} a -> s {children = a} :: ListChildrenResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listChildrenResponse_httpStatus :: Lens.Lens' ListChildrenResponse Prelude.Int

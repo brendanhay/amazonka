@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPlatformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
-  { -- | The version of the programming language.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the programming language.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the programming language.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The version of the programming language.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,31 +42,31 @@ data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'platformProgrammingLanguage_version' - The version of the programming language.
---
 -- 'name', 'platformProgrammingLanguage_name' - The name of the programming language.
+--
+-- 'version', 'platformProgrammingLanguage_version' - The version of the programming language.
 newPlatformProgrammingLanguage ::
   PlatformProgrammingLanguage
 newPlatformProgrammingLanguage =
   PlatformProgrammingLanguage'
-    { version =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing
+      version = Prelude.Nothing
     }
-
--- | The version of the programming language.
-platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
-platformProgrammingLanguage_version = Lens.lens (\PlatformProgrammingLanguage' {version} -> version) (\s@PlatformProgrammingLanguage' {} a -> s {version = a} :: PlatformProgrammingLanguage)
 
 -- | The name of the programming language.
 platformProgrammingLanguage_name :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
 platformProgrammingLanguage_name = Lens.lens (\PlatformProgrammingLanguage' {name} -> name) (\s@PlatformProgrammingLanguage' {} a -> s {name = a} :: PlatformProgrammingLanguage)
 
+-- | The version of the programming language.
+platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
+platformProgrammingLanguage_version = Lens.lens (\PlatformProgrammingLanguage' {version} -> version) (\s@PlatformProgrammingLanguage' {} a -> s {version = a} :: PlatformProgrammingLanguage)
+
 instance Core.FromXML PlatformProgrammingLanguage where
   parseXML x =
     PlatformProgrammingLanguage'
-      Prelude.<$> (x Core..@? "Version")
-      Prelude.<*> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Name")
+      Prelude.<*> (x Core..@? "Version")
 
 instance Prelude.Hashable PlatformProgrammingLanguage
 

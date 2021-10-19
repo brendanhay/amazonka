@@ -77,7 +77,7 @@ newGroupConfigurationItem pType_ =
 -- see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html#about-slg-types Supported resource types and parameters>.
 groupConfigurationItem_parameters :: Lens.Lens' GroupConfigurationItem (Prelude.Maybe [GroupConfigurationParameter])
-groupConfigurationItem_parameters = Lens.lens (\GroupConfigurationItem' {parameters} -> parameters) (\s@GroupConfigurationItem' {} a -> s {parameters = a} :: GroupConfigurationItem) Prelude.. Lens.mapping Lens._Coerce
+groupConfigurationItem_parameters = Lens.lens (\GroupConfigurationItem' {parameters} -> parameters) (\s@GroupConfigurationItem' {} a -> s {parameters = a} :: GroupConfigurationItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the type of group configuration item. Each item must have a
 -- unique value for @type@. For the list of types that you can specify for

@@ -140,7 +140,7 @@ createPlatformApplication_platform = Lens.lens (\CreatePlatformApplication' {pla
 -- | For a list of attributes, see
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>.
 createPlatformApplication_attributes :: Lens.Lens' CreatePlatformApplication (Prelude.HashMap Prelude.Text Prelude.Text)
-createPlatformApplication_attributes = Lens.lens (\CreatePlatformApplication' {attributes} -> attributes) (\s@CreatePlatformApplication' {} a -> s {attributes = a} :: CreatePlatformApplication) Prelude.. Lens._Coerce
+createPlatformApplication_attributes = Lens.lens (\CreatePlatformApplication' {attributes} -> attributes) (\s@CreatePlatformApplication' {} a -> s {attributes = a} :: CreatePlatformApplication) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreatePlatformApplication where
   type

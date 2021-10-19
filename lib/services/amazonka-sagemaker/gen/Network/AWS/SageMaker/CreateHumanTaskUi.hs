@@ -94,7 +94,7 @@ newCreateHumanTaskUi pHumanTaskUiName_ pUiTemplate_ =
 -- and organize a human review workflow user interface. Each tag consists
 -- of a key and a value, both of which you define.
 createHumanTaskUi_tags :: Lens.Lens' CreateHumanTaskUi (Prelude.Maybe [Tag])
-createHumanTaskUi_tags = Lens.lens (\CreateHumanTaskUi' {tags} -> tags) (\s@CreateHumanTaskUi' {} a -> s {tags = a} :: CreateHumanTaskUi) Prelude.. Lens.mapping Lens._Coerce
+createHumanTaskUi_tags = Lens.lens (\CreateHumanTaskUi' {tags} -> tags) (\s@CreateHumanTaskUi' {} a -> s {tags = a} :: CreateHumanTaskUi) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the user interface you are creating.
 createHumanTaskUi_humanTaskUiName :: Lens.Lens' CreateHumanTaskUi Prelude.Text

@@ -40,8 +40,8 @@ module Network.AWS.ELBv2.DescribeListenerCertificates
     newDescribeListenerCertificates,
 
     -- * Request Lenses
-    describeListenerCertificates_pageSize,
     describeListenerCertificates_marker,
+    describeListenerCertificates_pageSize,
     describeListenerCertificates_listenerArn,
 
     -- * Destructuring the Response
@@ -49,8 +49,8 @@ module Network.AWS.ELBv2.DescribeListenerCertificates
     newDescribeListenerCertificatesResponse,
 
     -- * Response Lenses
-    describeListenerCertificatesResponse_nextMarker,
     describeListenerCertificatesResponse_certificates,
+    describeListenerCertificatesResponse_nextMarker,
     describeListenerCertificatesResponse_httpStatus,
   )
 where
@@ -64,11 +64,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeListenerCertificates' smart constructor.
 data DescribeListenerCertificates = DescribeListenerCertificates'
-  { -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The marker for the next set of results. (You received this marker from a
+  { -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Names (ARN) of the listener.
     listenerArn :: Prelude.Text
   }
@@ -82,10 +82,10 @@ data DescribeListenerCertificates = DescribeListenerCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'describeListenerCertificates_pageSize' - The maximum number of results to return with this call.
---
 -- 'marker', 'describeListenerCertificates_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'pageSize', 'describeListenerCertificates_pageSize' - The maximum number of results to return with this call.
 --
 -- 'listenerArn', 'describeListenerCertificates_listenerArn' - The Amazon Resource Names (ARN) of the listener.
 newDescribeListenerCertificates ::
@@ -94,20 +94,20 @@ newDescribeListenerCertificates ::
   DescribeListenerCertificates
 newDescribeListenerCertificates pListenerArn_ =
   DescribeListenerCertificates'
-    { pageSize =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       listenerArn = pListenerArn_
     }
-
--- | The maximum number of results to return with this call.
-describeListenerCertificates_pageSize :: Lens.Lens' DescribeListenerCertificates (Prelude.Maybe Prelude.Natural)
-describeListenerCertificates_pageSize = Lens.lens (\DescribeListenerCertificates' {pageSize} -> pageSize) (\s@DescribeListenerCertificates' {} a -> s {pageSize = a} :: DescribeListenerCertificates)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeListenerCertificates_marker :: Lens.Lens' DescribeListenerCertificates (Prelude.Maybe Prelude.Text)
 describeListenerCertificates_marker = Lens.lens (\DescribeListenerCertificates' {marker} -> marker) (\s@DescribeListenerCertificates' {} a -> s {marker = a} :: DescribeListenerCertificates)
+
+-- | The maximum number of results to return with this call.
+describeListenerCertificates_pageSize :: Lens.Lens' DescribeListenerCertificates (Prelude.Maybe Prelude.Natural)
+describeListenerCertificates_pageSize = Lens.lens (\DescribeListenerCertificates' {pageSize} -> pageSize) (\s@DescribeListenerCertificates' {} a -> s {pageSize = a} :: DescribeListenerCertificates)
 
 -- | The Amazon Resource Names (ARN) of the listener.
 describeListenerCertificates_listenerArn :: Lens.Lens' DescribeListenerCertificates Prelude.Text
@@ -145,10 +145,10 @@ instance Core.AWSRequest DescribeListenerCertificates where
       "DescribeListenerCertificatesResult"
       ( \s h x ->
           DescribeListenerCertificatesResponse'
-            Prelude.<$> (x Core..@? "NextMarker")
-            Prelude.<*> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Certificates" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,18 +173,18 @@ instance Core.ToQuery DescribeListenerCertificates where
                   ),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "PageSize" Core.=: pageSize,
         "Marker" Core.=: marker,
+        "PageSize" Core.=: pageSize,
         "ListenerArn" Core.=: listenerArn
       ]
 
 -- | /See:/ 'newDescribeListenerCertificatesResponse' smart constructor.
 data DescribeListenerCertificatesResponse = DescribeListenerCertificatesResponse'
-  { -- | If there are additional results, this is the marker for the next set of
+  { -- | Information about the certificates.
+    certificates :: Prelude.Maybe [Certificate],
+    -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Information about the certificates.
-    certificates :: Prelude.Maybe [Certificate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,10 +198,10 @@ data DescribeListenerCertificatesResponse = DescribeListenerCertificatesResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificates', 'describeListenerCertificatesResponse_certificates' - Information about the certificates.
+--
 -- 'nextMarker', 'describeListenerCertificatesResponse_nextMarker' - If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
---
--- 'certificates', 'describeListenerCertificatesResponse_certificates' - Information about the certificates.
 --
 -- 'httpStatus', 'describeListenerCertificatesResponse_httpStatus' - The response's http status code.
 newDescribeListenerCertificatesResponse ::
@@ -210,20 +210,20 @@ newDescribeListenerCertificatesResponse ::
   DescribeListenerCertificatesResponse
 newDescribeListenerCertificatesResponse pHttpStatus_ =
   DescribeListenerCertificatesResponse'
-    { nextMarker =
+    { certificates =
         Prelude.Nothing,
-      certificates = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the certificates.
+describeListenerCertificatesResponse_certificates :: Lens.Lens' DescribeListenerCertificatesResponse (Prelude.Maybe [Certificate])
+describeListenerCertificatesResponse_certificates = Lens.lens (\DescribeListenerCertificatesResponse' {certificates} -> certificates) (\s@DescribeListenerCertificatesResponse' {} a -> s {certificates = a} :: DescribeListenerCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
 describeListenerCertificatesResponse_nextMarker :: Lens.Lens' DescribeListenerCertificatesResponse (Prelude.Maybe Prelude.Text)
 describeListenerCertificatesResponse_nextMarker = Lens.lens (\DescribeListenerCertificatesResponse' {nextMarker} -> nextMarker) (\s@DescribeListenerCertificatesResponse' {} a -> s {nextMarker = a} :: DescribeListenerCertificatesResponse)
-
--- | Information about the certificates.
-describeListenerCertificatesResponse_certificates :: Lens.Lens' DescribeListenerCertificatesResponse (Prelude.Maybe [Certificate])
-describeListenerCertificatesResponse_certificates = Lens.lens (\DescribeListenerCertificatesResponse' {certificates} -> certificates) (\s@DescribeListenerCertificatesResponse' {} a -> s {certificates = a} :: DescribeListenerCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeListenerCertificatesResponse_httpStatus :: Lens.Lens' DescribeListenerCertificatesResponse Prelude.Int

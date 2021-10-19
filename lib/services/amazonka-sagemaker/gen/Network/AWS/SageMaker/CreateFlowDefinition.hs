@@ -28,8 +28,8 @@ module Network.AWS.SageMaker.CreateFlowDefinition
 
     -- * Request Lenses
     createFlowDefinition_humanLoopRequestSource,
-    createFlowDefinition_tags,
     createFlowDefinition_humanLoopActivationConfig,
+    createFlowDefinition_tags,
     createFlowDefinition_flowDefinitionName,
     createFlowDefinition_humanLoopConfig,
     createFlowDefinition_outputConfig,
@@ -58,13 +58,13 @@ data CreateFlowDefinition = CreateFlowDefinition'
     -- specify if Amazon Rekognition or Amazon Textract is used as an
     -- integration source.
     humanLoopRequestSource :: Prelude.Maybe HumanLoopRequestSource,
+    -- | An object containing information about the events that trigger a human
+    -- workflow.
+    humanLoopActivationConfig :: Prelude.Maybe HumanLoopActivationConfig,
     -- | An array of key-value pairs that contain metadata to help you categorize
     -- and organize a flow definition. Each tag consists of a key and a value,
     -- both of which you define.
     tags :: Prelude.Maybe [Tag],
-    -- | An object containing information about the events that trigger a human
-    -- workflow.
-    humanLoopActivationConfig :: Prelude.Maybe HumanLoopActivationConfig,
     -- | The name of your flow definition.
     flowDefinitionName :: Prelude.Text,
     -- | An object containing information about the tasks the human reviewers
@@ -92,12 +92,12 @@ data CreateFlowDefinition = CreateFlowDefinition'
 -- specify if Amazon Rekognition or Amazon Textract is used as an
 -- integration source.
 --
+-- 'humanLoopActivationConfig', 'createFlowDefinition_humanLoopActivationConfig' - An object containing information about the events that trigger a human
+-- workflow.
+--
 -- 'tags', 'createFlowDefinition_tags' - An array of key-value pairs that contain metadata to help you categorize
 -- and organize a flow definition. Each tag consists of a key and a value,
 -- both of which you define.
---
--- 'humanLoopActivationConfig', 'createFlowDefinition_humanLoopActivationConfig' - An object containing information about the events that trigger a human
--- workflow.
 --
 -- 'flowDefinitionName', 'createFlowDefinition_flowDefinitionName' - The name of your flow definition.
 --
@@ -128,8 +128,8 @@ newCreateFlowDefinition
     CreateFlowDefinition'
       { humanLoopRequestSource =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
         humanLoopActivationConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         flowDefinitionName = pFlowDefinitionName_,
         humanLoopConfig = pHumanLoopConfig_,
         outputConfig = pOutputConfig_,
@@ -142,16 +142,16 @@ newCreateFlowDefinition
 createFlowDefinition_humanLoopRequestSource :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe HumanLoopRequestSource)
 createFlowDefinition_humanLoopRequestSource = Lens.lens (\CreateFlowDefinition' {humanLoopRequestSource} -> humanLoopRequestSource) (\s@CreateFlowDefinition' {} a -> s {humanLoopRequestSource = a} :: CreateFlowDefinition)
 
--- | An array of key-value pairs that contain metadata to help you categorize
--- and organize a flow definition. Each tag consists of a key and a value,
--- both of which you define.
-createFlowDefinition_tags :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe [Tag])
-createFlowDefinition_tags = Lens.lens (\CreateFlowDefinition' {tags} -> tags) (\s@CreateFlowDefinition' {} a -> s {tags = a} :: CreateFlowDefinition) Prelude.. Lens.mapping Lens._Coerce
-
 -- | An object containing information about the events that trigger a human
 -- workflow.
 createFlowDefinition_humanLoopActivationConfig :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe HumanLoopActivationConfig)
 createFlowDefinition_humanLoopActivationConfig = Lens.lens (\CreateFlowDefinition' {humanLoopActivationConfig} -> humanLoopActivationConfig) (\s@CreateFlowDefinition' {} a -> s {humanLoopActivationConfig = a} :: CreateFlowDefinition)
+
+-- | An array of key-value pairs that contain metadata to help you categorize
+-- and organize a flow definition. Each tag consists of a key and a value,
+-- both of which you define.
+createFlowDefinition_tags :: Lens.Lens' CreateFlowDefinition (Prelude.Maybe [Tag])
+createFlowDefinition_tags = Lens.lens (\CreateFlowDefinition' {tags} -> tags) (\s@CreateFlowDefinition' {} a -> s {tags = a} :: CreateFlowDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of your flow definition.
 createFlowDefinition_flowDefinitionName :: Lens.Lens' CreateFlowDefinition Prelude.Text
@@ -211,9 +211,9 @@ instance Core.ToJSON CreateFlowDefinition where
       ( Prelude.catMaybes
           [ ("HumanLoopRequestSource" Core..=)
               Prelude.<$> humanLoopRequestSource,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("HumanLoopActivationConfig" Core..=)
               Prelude.<$> humanLoopActivationConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("FlowDefinitionName" Core..= flowDefinitionName),
             Prelude.Just

@@ -156,7 +156,7 @@ newGetCognitoEventsResponse pHttpStatus_ =
 
 -- | The Cognito Events returned from the GetCognitoEvents request
 getCognitoEventsResponse_events :: Lens.Lens' GetCognitoEventsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getCognitoEventsResponse_events = Lens.lens (\GetCognitoEventsResponse' {events} -> events) (\s@GetCognitoEventsResponse' {} a -> s {events = a} :: GetCognitoEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+getCognitoEventsResponse_events = Lens.lens (\GetCognitoEventsResponse' {events} -> events) (\s@GetCognitoEventsResponse' {} a -> s {events = a} :: GetCognitoEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCognitoEventsResponse_httpStatus :: Lens.Lens' GetCognitoEventsResponse Prelude.Int

@@ -234,7 +234,7 @@ listPoliciesResponse_nextToken = Lens.lens (\ListPoliciesResponse' {nextToken} -
 
 -- | An array of @PolicySummary@ objects.
 listPoliciesResponse_policyList :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [PolicySummary])
-listPoliciesResponse_policyList = Lens.lens (\ListPoliciesResponse' {policyList} -> policyList) (\s@ListPoliciesResponse' {} a -> s {policyList = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+listPoliciesResponse_policyList = Lens.lens (\ListPoliciesResponse' {policyList} -> policyList) (\s@ListPoliciesResponse' {} a -> s {policyList = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int

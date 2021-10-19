@@ -153,7 +153,7 @@ newCreateRule pName_ pMetricName_ pChangeToken_ =
 
 -- |
 createRule_tags :: Lens.Lens' CreateRule (Prelude.Maybe (Prelude.NonEmpty Tag))
-createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens._Coerce
+createRule_tags = Lens.lens (\CreateRule' {tags} -> tags) (\s@CreateRule' {} a -> s {tags = a} :: CreateRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A friendly name or description of the Rule. You can\'t change the name
 -- of a @Rule@ after you create it.

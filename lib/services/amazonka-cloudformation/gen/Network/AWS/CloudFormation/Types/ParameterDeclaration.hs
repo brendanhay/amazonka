@@ -28,19 +28,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newParameterDeclaration' smart constructor.
 data ParameterDeclaration = ParameterDeclaration'
-  { -- | The criteria that CloudFormation uses to validate parameter values.
-    parameterConstraints :: Prelude.Maybe ParameterConstraints,
+  { -- | The name that is associated with the parameter.
+    parameterKey :: Prelude.Maybe Prelude.Text,
     -- | The type of parameter.
     parameterType :: Prelude.Maybe Prelude.Text,
-    -- | The description that is associate with the parameter.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name that is associated with the parameter.
-    parameterKey :: Prelude.Maybe Prelude.Text,
+    -- | The criteria that CloudFormation uses to validate parameter values.
+    parameterConstraints :: Prelude.Maybe ParameterConstraints,
     -- | The default value of the parameter.
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | Flag that indicates whether the parameter value is shown as plain text
     -- in logs and in the Amazon Web Services Management Console.
-    noEcho :: Prelude.Maybe Prelude.Bool
+    noEcho :: Prelude.Maybe Prelude.Bool,
+    -- | The description that is associate with the parameter.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,46 +52,42 @@ data ParameterDeclaration = ParameterDeclaration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterConstraints', 'parameterDeclaration_parameterConstraints' - The criteria that CloudFormation uses to validate parameter values.
+-- 'parameterKey', 'parameterDeclaration_parameterKey' - The name that is associated with the parameter.
 --
 -- 'parameterType', 'parameterDeclaration_parameterType' - The type of parameter.
 --
--- 'description', 'parameterDeclaration_description' - The description that is associate with the parameter.
---
--- 'parameterKey', 'parameterDeclaration_parameterKey' - The name that is associated with the parameter.
+-- 'parameterConstraints', 'parameterDeclaration_parameterConstraints' - The criteria that CloudFormation uses to validate parameter values.
 --
 -- 'defaultValue', 'parameterDeclaration_defaultValue' - The default value of the parameter.
 --
 -- 'noEcho', 'parameterDeclaration_noEcho' - Flag that indicates whether the parameter value is shown as plain text
 -- in logs and in the Amazon Web Services Management Console.
+--
+-- 'description', 'parameterDeclaration_description' - The description that is associate with the parameter.
 newParameterDeclaration ::
   ParameterDeclaration
 newParameterDeclaration =
   ParameterDeclaration'
-    { parameterConstraints =
+    { parameterKey =
         Prelude.Nothing,
       parameterType = Prelude.Nothing,
-      description = Prelude.Nothing,
-      parameterKey = Prelude.Nothing,
+      parameterConstraints = Prelude.Nothing,
       defaultValue = Prelude.Nothing,
-      noEcho = Prelude.Nothing
+      noEcho = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
--- | The criteria that CloudFormation uses to validate parameter values.
-parameterDeclaration_parameterConstraints :: Lens.Lens' ParameterDeclaration (Prelude.Maybe ParameterConstraints)
-parameterDeclaration_parameterConstraints = Lens.lens (\ParameterDeclaration' {parameterConstraints} -> parameterConstraints) (\s@ParameterDeclaration' {} a -> s {parameterConstraints = a} :: ParameterDeclaration)
+-- | The name that is associated with the parameter.
+parameterDeclaration_parameterKey :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
+parameterDeclaration_parameterKey = Lens.lens (\ParameterDeclaration' {parameterKey} -> parameterKey) (\s@ParameterDeclaration' {} a -> s {parameterKey = a} :: ParameterDeclaration)
 
 -- | The type of parameter.
 parameterDeclaration_parameterType :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
 parameterDeclaration_parameterType = Lens.lens (\ParameterDeclaration' {parameterType} -> parameterType) (\s@ParameterDeclaration' {} a -> s {parameterType = a} :: ParameterDeclaration)
 
--- | The description that is associate with the parameter.
-parameterDeclaration_description :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
-parameterDeclaration_description = Lens.lens (\ParameterDeclaration' {description} -> description) (\s@ParameterDeclaration' {} a -> s {description = a} :: ParameterDeclaration)
-
--- | The name that is associated with the parameter.
-parameterDeclaration_parameterKey :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
-parameterDeclaration_parameterKey = Lens.lens (\ParameterDeclaration' {parameterKey} -> parameterKey) (\s@ParameterDeclaration' {} a -> s {parameterKey = a} :: ParameterDeclaration)
+-- | The criteria that CloudFormation uses to validate parameter values.
+parameterDeclaration_parameterConstraints :: Lens.Lens' ParameterDeclaration (Prelude.Maybe ParameterConstraints)
+parameterDeclaration_parameterConstraints = Lens.lens (\ParameterDeclaration' {parameterConstraints} -> parameterConstraints) (\s@ParameterDeclaration' {} a -> s {parameterConstraints = a} :: ParameterDeclaration)
 
 -- | The default value of the parameter.
 parameterDeclaration_defaultValue :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
@@ -102,15 +98,19 @@ parameterDeclaration_defaultValue = Lens.lens (\ParameterDeclaration' {defaultVa
 parameterDeclaration_noEcho :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Bool)
 parameterDeclaration_noEcho = Lens.lens (\ParameterDeclaration' {noEcho} -> noEcho) (\s@ParameterDeclaration' {} a -> s {noEcho = a} :: ParameterDeclaration)
 
+-- | The description that is associate with the parameter.
+parameterDeclaration_description :: Lens.Lens' ParameterDeclaration (Prelude.Maybe Prelude.Text)
+parameterDeclaration_description = Lens.lens (\ParameterDeclaration' {description} -> description) (\s@ParameterDeclaration' {} a -> s {description = a} :: ParameterDeclaration)
+
 instance Core.FromXML ParameterDeclaration where
   parseXML x =
     ParameterDeclaration'
-      Prelude.<$> (x Core..@? "ParameterConstraints")
+      Prelude.<$> (x Core..@? "ParameterKey")
       Prelude.<*> (x Core..@? "ParameterType")
-      Prelude.<*> (x Core..@? "Description")
-      Prelude.<*> (x Core..@? "ParameterKey")
+      Prelude.<*> (x Core..@? "ParameterConstraints")
       Prelude.<*> (x Core..@? "DefaultValue")
       Prelude.<*> (x Core..@? "NoEcho")
+      Prelude.<*> (x Core..@? "Description")
 
 instance Prelude.Hashable ParameterDeclaration
 

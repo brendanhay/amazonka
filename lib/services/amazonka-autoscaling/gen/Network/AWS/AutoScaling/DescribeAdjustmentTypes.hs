@@ -136,7 +136,7 @@ newDescribeAdjustmentTypesResponse pHttpStatus_ =
 
 -- | The policy adjustment types.
 describeAdjustmentTypesResponse_adjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Prelude.Maybe [AdjustmentType])
-describeAdjustmentTypesResponse_adjustmentTypes = Lens.lens (\DescribeAdjustmentTypesResponse' {adjustmentTypes} -> adjustmentTypes) (\s@DescribeAdjustmentTypesResponse' {} a -> s {adjustmentTypes = a} :: DescribeAdjustmentTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAdjustmentTypesResponse_adjustmentTypes = Lens.lens (\DescribeAdjustmentTypesResponse' {adjustmentTypes} -> adjustmentTypes) (\s@DescribeAdjustmentTypesResponse' {} a -> s {adjustmentTypes = a} :: DescribeAdjustmentTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAdjustmentTypesResponse_httpStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Prelude.Int

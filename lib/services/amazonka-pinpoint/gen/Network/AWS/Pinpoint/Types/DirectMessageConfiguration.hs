@@ -37,37 +37,37 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDirectMessageConfiguration' smart constructor.
 data DirectMessageConfiguration = DirectMessageConfiguration'
-  { -- | The default push notification message for the ADM (Amazon Device
-    -- Messaging) channel. This message overrides the default push notification
-    -- message (DefaultPushNotificationMessage).
-    aDMMessage :: Prelude.Maybe ADMMessage,
-    -- | The default message for all channels.
-    defaultMessage :: Prelude.Maybe DefaultMessage,
-    -- | The default message for the voice channel. This message overrides the
-    -- default message (DefaultMessage).
-    voiceMessage :: Prelude.Maybe VoiceMessage,
+  { -- | The default push notification message for the APNs (Apple Push
+    -- Notification service) channel. This message overrides the default push
+    -- notification message (DefaultPushNotificationMessage).
+    aPNSMessage :: Prelude.Maybe APNSMessage,
     -- | The default push notification message for the GCM channel, which is used
     -- to send notifications through the Firebase Cloud Messaging (FCM),
     -- formerly Google Cloud Messaging (GCM), service. This message overrides
     -- the default push notification message (DefaultPushNotificationMessage).
     gCMMessage :: Prelude.Maybe GCMMessage,
-    -- | The default message for the email channel. This message overrides the
-    -- default message (DefaultMessage).
-    emailMessage :: Prelude.Maybe EmailMessage,
-    -- | The default push notification message for the APNs (Apple Push
-    -- Notification service) channel. This message overrides the default push
-    -- notification message (DefaultPushNotificationMessage).
-    aPNSMessage :: Prelude.Maybe APNSMessage,
+    -- | The default message for all channels.
+    defaultMessage :: Prelude.Maybe DefaultMessage,
+    -- | The default push notification message for the ADM (Amazon Device
+    -- Messaging) channel. This message overrides the default push notification
+    -- message (DefaultPushNotificationMessage).
+    aDMMessage :: Prelude.Maybe ADMMessage,
     -- | The default message for the SMS channel. This message overrides the
     -- default message (DefaultMessage).
     sMSMessage :: Prelude.Maybe SMSMessage,
-    -- | The default push notification message for all push notification
-    -- channels.
-    defaultPushNotificationMessage :: Prelude.Maybe DefaultPushNotificationMessage,
+    -- | The default message for the email channel. This message overrides the
+    -- default message (DefaultMessage).
+    emailMessage :: Prelude.Maybe EmailMessage,
+    -- | The default message for the voice channel. This message overrides the
+    -- default message (DefaultMessage).
+    voiceMessage :: Prelude.Maybe VoiceMessage,
     -- | The default push notification message for the Baidu (Baidu Cloud Push)
     -- channel. This message overrides the default push notification message
     -- (DefaultPushNotificationMessage).
-    baiduMessage :: Prelude.Maybe BaiduMessage
+    baiduMessage :: Prelude.Maybe BaiduMessage,
+    -- | The default push notification message for all push notification
+    -- channels.
+    defaultPushNotificationMessage :: Prelude.Maybe DefaultPushNotificationMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,67 +79,58 @@ data DirectMessageConfiguration = DirectMessageConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aDMMessage', 'directMessageConfiguration_aDMMessage' - The default push notification message for the ADM (Amazon Device
--- Messaging) channel. This message overrides the default push notification
--- message (DefaultPushNotificationMessage).
---
--- 'defaultMessage', 'directMessageConfiguration_defaultMessage' - The default message for all channels.
---
--- 'voiceMessage', 'directMessageConfiguration_voiceMessage' - The default message for the voice channel. This message overrides the
--- default message (DefaultMessage).
+-- 'aPNSMessage', 'directMessageConfiguration_aPNSMessage' - The default push notification message for the APNs (Apple Push
+-- Notification service) channel. This message overrides the default push
+-- notification message (DefaultPushNotificationMessage).
 --
 -- 'gCMMessage', 'directMessageConfiguration_gCMMessage' - The default push notification message for the GCM channel, which is used
 -- to send notifications through the Firebase Cloud Messaging (FCM),
 -- formerly Google Cloud Messaging (GCM), service. This message overrides
 -- the default push notification message (DefaultPushNotificationMessage).
 --
--- 'emailMessage', 'directMessageConfiguration_emailMessage' - The default message for the email channel. This message overrides the
--- default message (DefaultMessage).
+-- 'defaultMessage', 'directMessageConfiguration_defaultMessage' - The default message for all channels.
 --
--- 'aPNSMessage', 'directMessageConfiguration_aPNSMessage' - The default push notification message for the APNs (Apple Push
--- Notification service) channel. This message overrides the default push
--- notification message (DefaultPushNotificationMessage).
+-- 'aDMMessage', 'directMessageConfiguration_aDMMessage' - The default push notification message for the ADM (Amazon Device
+-- Messaging) channel. This message overrides the default push notification
+-- message (DefaultPushNotificationMessage).
 --
 -- 'sMSMessage', 'directMessageConfiguration_sMSMessage' - The default message for the SMS channel. This message overrides the
 -- default message (DefaultMessage).
 --
--- 'defaultPushNotificationMessage', 'directMessageConfiguration_defaultPushNotificationMessage' - The default push notification message for all push notification
--- channels.
+-- 'emailMessage', 'directMessageConfiguration_emailMessage' - The default message for the email channel. This message overrides the
+-- default message (DefaultMessage).
+--
+-- 'voiceMessage', 'directMessageConfiguration_voiceMessage' - The default message for the voice channel. This message overrides the
+-- default message (DefaultMessage).
 --
 -- 'baiduMessage', 'directMessageConfiguration_baiduMessage' - The default push notification message for the Baidu (Baidu Cloud Push)
 -- channel. This message overrides the default push notification message
 -- (DefaultPushNotificationMessage).
+--
+-- 'defaultPushNotificationMessage', 'directMessageConfiguration_defaultPushNotificationMessage' - The default push notification message for all push notification
+-- channels.
 newDirectMessageConfiguration ::
   DirectMessageConfiguration
 newDirectMessageConfiguration =
   DirectMessageConfiguration'
-    { aDMMessage =
+    { aPNSMessage =
         Prelude.Nothing,
-      defaultMessage = Prelude.Nothing,
-      voiceMessage = Prelude.Nothing,
       gCMMessage = Prelude.Nothing,
-      emailMessage = Prelude.Nothing,
-      aPNSMessage = Prelude.Nothing,
+      defaultMessage = Prelude.Nothing,
+      aDMMessage = Prelude.Nothing,
       sMSMessage = Prelude.Nothing,
+      emailMessage = Prelude.Nothing,
+      voiceMessage = Prelude.Nothing,
+      baiduMessage = Prelude.Nothing,
       defaultPushNotificationMessage =
-        Prelude.Nothing,
-      baiduMessage = Prelude.Nothing
+        Prelude.Nothing
     }
 
--- | The default push notification message for the ADM (Amazon Device
--- Messaging) channel. This message overrides the default push notification
--- message (DefaultPushNotificationMessage).
-directMessageConfiguration_aDMMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe ADMMessage)
-directMessageConfiguration_aDMMessage = Lens.lens (\DirectMessageConfiguration' {aDMMessage} -> aDMMessage) (\s@DirectMessageConfiguration' {} a -> s {aDMMessage = a} :: DirectMessageConfiguration)
-
--- | The default message for all channels.
-directMessageConfiguration_defaultMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe DefaultMessage)
-directMessageConfiguration_defaultMessage = Lens.lens (\DirectMessageConfiguration' {defaultMessage} -> defaultMessage) (\s@DirectMessageConfiguration' {} a -> s {defaultMessage = a} :: DirectMessageConfiguration)
-
--- | The default message for the voice channel. This message overrides the
--- default message (DefaultMessage).
-directMessageConfiguration_voiceMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe VoiceMessage)
-directMessageConfiguration_voiceMessage = Lens.lens (\DirectMessageConfiguration' {voiceMessage} -> voiceMessage) (\s@DirectMessageConfiguration' {} a -> s {voiceMessage = a} :: DirectMessageConfiguration)
+-- | The default push notification message for the APNs (Apple Push
+-- Notification service) channel. This message overrides the default push
+-- notification message (DefaultPushNotificationMessage).
+directMessageConfiguration_aPNSMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe APNSMessage)
+directMessageConfiguration_aPNSMessage = Lens.lens (\DirectMessageConfiguration' {aPNSMessage} -> aPNSMessage) (\s@DirectMessageConfiguration' {} a -> s {aPNSMessage = a} :: DirectMessageConfiguration)
 
 -- | The default push notification message for the GCM channel, which is used
 -- to send notifications through the Firebase Cloud Messaging (FCM),
@@ -148,32 +139,41 @@ directMessageConfiguration_voiceMessage = Lens.lens (\DirectMessageConfiguration
 directMessageConfiguration_gCMMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe GCMMessage)
 directMessageConfiguration_gCMMessage = Lens.lens (\DirectMessageConfiguration' {gCMMessage} -> gCMMessage) (\s@DirectMessageConfiguration' {} a -> s {gCMMessage = a} :: DirectMessageConfiguration)
 
--- | The default message for the email channel. This message overrides the
--- default message (DefaultMessage).
-directMessageConfiguration_emailMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe EmailMessage)
-directMessageConfiguration_emailMessage = Lens.lens (\DirectMessageConfiguration' {emailMessage} -> emailMessage) (\s@DirectMessageConfiguration' {} a -> s {emailMessage = a} :: DirectMessageConfiguration)
+-- | The default message for all channels.
+directMessageConfiguration_defaultMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe DefaultMessage)
+directMessageConfiguration_defaultMessage = Lens.lens (\DirectMessageConfiguration' {defaultMessage} -> defaultMessage) (\s@DirectMessageConfiguration' {} a -> s {defaultMessage = a} :: DirectMessageConfiguration)
 
--- | The default push notification message for the APNs (Apple Push
--- Notification service) channel. This message overrides the default push
--- notification message (DefaultPushNotificationMessage).
-directMessageConfiguration_aPNSMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe APNSMessage)
-directMessageConfiguration_aPNSMessage = Lens.lens (\DirectMessageConfiguration' {aPNSMessage} -> aPNSMessage) (\s@DirectMessageConfiguration' {} a -> s {aPNSMessage = a} :: DirectMessageConfiguration)
+-- | The default push notification message for the ADM (Amazon Device
+-- Messaging) channel. This message overrides the default push notification
+-- message (DefaultPushNotificationMessage).
+directMessageConfiguration_aDMMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe ADMMessage)
+directMessageConfiguration_aDMMessage = Lens.lens (\DirectMessageConfiguration' {aDMMessage} -> aDMMessage) (\s@DirectMessageConfiguration' {} a -> s {aDMMessage = a} :: DirectMessageConfiguration)
 
 -- | The default message for the SMS channel. This message overrides the
 -- default message (DefaultMessage).
 directMessageConfiguration_sMSMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe SMSMessage)
 directMessageConfiguration_sMSMessage = Lens.lens (\DirectMessageConfiguration' {sMSMessage} -> sMSMessage) (\s@DirectMessageConfiguration' {} a -> s {sMSMessage = a} :: DirectMessageConfiguration)
 
--- | The default push notification message for all push notification
--- channels.
-directMessageConfiguration_defaultPushNotificationMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe DefaultPushNotificationMessage)
-directMessageConfiguration_defaultPushNotificationMessage = Lens.lens (\DirectMessageConfiguration' {defaultPushNotificationMessage} -> defaultPushNotificationMessage) (\s@DirectMessageConfiguration' {} a -> s {defaultPushNotificationMessage = a} :: DirectMessageConfiguration)
+-- | The default message for the email channel. This message overrides the
+-- default message (DefaultMessage).
+directMessageConfiguration_emailMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe EmailMessage)
+directMessageConfiguration_emailMessage = Lens.lens (\DirectMessageConfiguration' {emailMessage} -> emailMessage) (\s@DirectMessageConfiguration' {} a -> s {emailMessage = a} :: DirectMessageConfiguration)
+
+-- | The default message for the voice channel. This message overrides the
+-- default message (DefaultMessage).
+directMessageConfiguration_voiceMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe VoiceMessage)
+directMessageConfiguration_voiceMessage = Lens.lens (\DirectMessageConfiguration' {voiceMessage} -> voiceMessage) (\s@DirectMessageConfiguration' {} a -> s {voiceMessage = a} :: DirectMessageConfiguration)
 
 -- | The default push notification message for the Baidu (Baidu Cloud Push)
 -- channel. This message overrides the default push notification message
 -- (DefaultPushNotificationMessage).
 directMessageConfiguration_baiduMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe BaiduMessage)
 directMessageConfiguration_baiduMessage = Lens.lens (\DirectMessageConfiguration' {baiduMessage} -> baiduMessage) (\s@DirectMessageConfiguration' {} a -> s {baiduMessage = a} :: DirectMessageConfiguration)
+
+-- | The default push notification message for all push notification
+-- channels.
+directMessageConfiguration_defaultPushNotificationMessage :: Lens.Lens' DirectMessageConfiguration (Prelude.Maybe DefaultPushNotificationMessage)
+directMessageConfiguration_defaultPushNotificationMessage = Lens.lens (\DirectMessageConfiguration' {defaultPushNotificationMessage} -> defaultPushNotificationMessage) (\s@DirectMessageConfiguration' {} a -> s {defaultPushNotificationMessage = a} :: DirectMessageConfiguration)
 
 instance Prelude.Hashable DirectMessageConfiguration
 
@@ -183,16 +183,16 @@ instance Core.ToJSON DirectMessageConfiguration where
   toJSON DirectMessageConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ADMMessage" Core..=) Prelude.<$> aDMMessage,
+          [ ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
+            ("GCMMessage" Core..=) Prelude.<$> gCMMessage,
             ("DefaultMessage" Core..=)
               Prelude.<$> defaultMessage,
-            ("VoiceMessage" Core..=) Prelude.<$> voiceMessage,
-            ("GCMMessage" Core..=) Prelude.<$> gCMMessage,
-            ("EmailMessage" Core..=) Prelude.<$> emailMessage,
-            ("APNSMessage" Core..=) Prelude.<$> aPNSMessage,
+            ("ADMMessage" Core..=) Prelude.<$> aDMMessage,
             ("SMSMessage" Core..=) Prelude.<$> sMSMessage,
+            ("EmailMessage" Core..=) Prelude.<$> emailMessage,
+            ("VoiceMessage" Core..=) Prelude.<$> voiceMessage,
+            ("BaiduMessage" Core..=) Prelude.<$> baiduMessage,
             ("DefaultPushNotificationMessage" Core..=)
-              Prelude.<$> defaultPushNotificationMessage,
-            ("BaiduMessage" Core..=) Prelude.<$> baiduMessage
+              Prelude.<$> defaultPushNotificationMessage
           ]
       )

@@ -210,7 +210,7 @@ newDescribePermissionsResponse pHttpStatus_ =
 --     contains a single @Permission@ object with permissions for the
 --     specified stack and IAM ARN.
 describePermissionsResponse_permissions :: Lens.Lens' DescribePermissionsResponse (Prelude.Maybe [Permission])
-describePermissionsResponse_permissions = Lens.lens (\DescribePermissionsResponse' {permissions} -> permissions) (\s@DescribePermissionsResponse' {} a -> s {permissions = a} :: DescribePermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describePermissionsResponse_permissions = Lens.lens (\DescribePermissionsResponse' {permissions} -> permissions) (\s@DescribePermissionsResponse' {} a -> s {permissions = a} :: DescribePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describePermissionsResponse_httpStatus :: Lens.Lens' DescribePermissionsResponse Prelude.Int

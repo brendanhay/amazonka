@@ -43,8 +43,8 @@ module Network.AWS.CloudFormation.ListExports
     newListExportsResponse,
 
     -- * Response Lenses
-    listExportsResponse_exports,
     listExportsResponse_nextToken,
+    listExportsResponse_exports,
     listExportsResponse_httpStatus,
   )
 where
@@ -111,10 +111,10 @@ instance Core.AWSRequest ListExports where
       "ListExportsResult"
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> ( x Core..@? "Exports" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextToken")
+            Prelude.<*> ( x Core..@? "Exports" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,12 +140,12 @@ instance Core.ToQuery ListExports where
 
 -- | /See:/ 'newListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { -- | The output for the ListExports action.
-    exports :: Prelude.Maybe [Export],
-    -- | If the output exceeds 100 exported output values, a string that
+  { -- | If the output exceeds 100 exported output values, a string that
     -- identifies the next page of exports. If there is no additional page,
     -- this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The output for the ListExports action.
+    exports :: Prelude.Maybe [Export],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -159,11 +159,11 @@ data ListExportsResponse = ListExportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exports', 'listExportsResponse_exports' - The output for the ListExports action.
---
 -- 'nextToken', 'listExportsResponse_nextToken' - If the output exceeds 100 exported output values, a string that
 -- identifies the next page of exports. If there is no additional page,
 -- this value is null.
+--
+-- 'exports', 'listExportsResponse_exports' - The output for the ListExports action.
 --
 -- 'httpStatus', 'listExportsResponse_httpStatus' - The response's http status code.
 newListExportsResponse ::
@@ -172,20 +172,20 @@ newListExportsResponse ::
   ListExportsResponse
 newListExportsResponse pHttpStatus_ =
   ListExportsResponse'
-    { exports = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      exports = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The output for the ListExports action.
-listExportsResponse_exports :: Lens.Lens' ListExportsResponse (Prelude.Maybe [Export])
-listExportsResponse_exports = Lens.lens (\ListExportsResponse' {exports} -> exports) (\s@ListExportsResponse' {} a -> s {exports = a} :: ListExportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the output exceeds 100 exported output values, a string that
 -- identifies the next page of exports. If there is no additional page,
 -- this value is null.
 listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Prelude.Maybe Prelude.Text)
 listExportsResponse_nextToken = Lens.lens (\ListExportsResponse' {nextToken} -> nextToken) (\s@ListExportsResponse' {} a -> s {nextToken = a} :: ListExportsResponse)
+
+-- | The output for the ListExports action.
+listExportsResponse_exports :: Lens.Lens' ListExportsResponse (Prelude.Maybe [Export])
+listExportsResponse_exports = Lens.lens (\ListExportsResponse' {exports} -> exports) (\s@ListExportsResponse' {} a -> s {exports = a} :: ListExportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Prelude.Int

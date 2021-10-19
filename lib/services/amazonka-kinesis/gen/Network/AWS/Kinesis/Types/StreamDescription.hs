@@ -258,7 +258,7 @@ streamDescription_streamStatus = Lens.lens (\StreamDescription' {streamStatus} -
 
 -- | The shards that comprise the stream.
 streamDescription_shards :: Lens.Lens' StreamDescription [Shard]
-streamDescription_shards = Lens.lens (\StreamDescription' {shards} -> shards) (\s@StreamDescription' {} a -> s {shards = a} :: StreamDescription) Prelude.. Lens._Coerce
+streamDescription_shards = Lens.lens (\StreamDescription' {shards} -> shards) (\s@StreamDescription' {} a -> s {shards = a} :: StreamDescription) Prelude.. Lens.coerced
 
 -- | If set to @true@, more shards in the stream are available to describe.
 streamDescription_hasMoreShards :: Lens.Lens' StreamDescription Prelude.Bool
@@ -275,7 +275,7 @@ streamDescription_streamCreationTimestamp = Lens.lens (\StreamDescription' {stre
 
 -- | Represents the current enhanced monitoring settings of the stream.
 streamDescription_enhancedMonitoring :: Lens.Lens' StreamDescription [EnhancedMetrics]
-streamDescription_enhancedMonitoring = Lens.lens (\StreamDescription' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescription' {} a -> s {enhancedMonitoring = a} :: StreamDescription) Prelude.. Lens._Coerce
+streamDescription_enhancedMonitoring = Lens.lens (\StreamDescription' {enhancedMonitoring} -> enhancedMonitoring) (\s@StreamDescription' {} a -> s {enhancedMonitoring = a} :: StreamDescription) Prelude.. Lens.coerced
 
 instance Core.FromJSON StreamDescription where
   parseJSON =

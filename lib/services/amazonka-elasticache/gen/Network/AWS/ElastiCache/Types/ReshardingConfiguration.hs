@@ -59,7 +59,7 @@ newReshardingConfiguration =
 
 -- | A list of preferred availability zones for the nodes in this cluster.
 reshardingConfiguration_preferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe [Prelude.Text])
-reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfiguration' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ReshardingConfiguration' {} a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration) Prelude.. Lens.mapping Lens._Coerce
+reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfiguration' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ReshardingConfiguration' {} a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied
 -- id for the node group these configuration values apply to.

@@ -92,7 +92,7 @@ resourceToImport_logicalResourceId = Lens.lens (\ResourceToImport' {logicalResou
 -- resources) and the value is the actual property value (for example,
 -- @MyS3Bucket@).
 resourceToImport_resourceIdentifier :: Lens.Lens' ResourceToImport (Prelude.HashMap Prelude.Text Prelude.Text)
-resourceToImport_resourceIdentifier = Lens.lens (\ResourceToImport' {resourceIdentifier} -> resourceIdentifier) (\s@ResourceToImport' {} a -> s {resourceIdentifier = a} :: ResourceToImport) Prelude.. Lens._Coerce
+resourceToImport_resourceIdentifier = Lens.lens (\ResourceToImport' {resourceIdentifier} -> resourceIdentifier) (\s@ResourceToImport' {} a -> s {resourceIdentifier = a} :: ResourceToImport) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ResourceToImport
 

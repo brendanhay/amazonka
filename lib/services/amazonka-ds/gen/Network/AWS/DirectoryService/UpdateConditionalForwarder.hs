@@ -109,7 +109,7 @@ updateConditionalForwarder_remoteDomainName = Lens.lens (\UpdateConditionalForwa
 -- | The updated IP addresses of the remote DNS server associated with the
 -- conditional forwarder.
 updateConditionalForwarder_dnsIpAddrs :: Lens.Lens' UpdateConditionalForwarder [Prelude.Text]
-updateConditionalForwarder_dnsIpAddrs = Lens.lens (\UpdateConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@UpdateConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: UpdateConditionalForwarder) Prelude.. Lens._Coerce
+updateConditionalForwarder_dnsIpAddrs = Lens.lens (\UpdateConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@UpdateConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: UpdateConditionalForwarder) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateConditionalForwarder where
   type

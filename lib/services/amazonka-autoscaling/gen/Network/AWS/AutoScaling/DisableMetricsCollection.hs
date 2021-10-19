@@ -202,7 +202,7 @@ newDisableMetricsCollection pAutoScalingGroupName_ =
 --
 -- If you omit this parameter, all metrics are disabled.
 disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Prelude.Maybe [Prelude.Text])
-disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Prelude.. Lens.mapping Lens._Coerce
+disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 disableMetricsCollection_autoScalingGroupName :: Lens.Lens' DisableMetricsCollection Prelude.Text

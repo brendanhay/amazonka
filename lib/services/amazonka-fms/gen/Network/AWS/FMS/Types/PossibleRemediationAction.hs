@@ -70,7 +70,7 @@ possibleRemediationAction_description = Lens.lens (\PossibleRemediationAction' {
 
 -- | The ordered list of remediation actions.
 possibleRemediationAction_orderedRemediationActions :: Lens.Lens' PossibleRemediationAction [RemediationActionWithOrder]
-possibleRemediationAction_orderedRemediationActions = Lens.lens (\PossibleRemediationAction' {orderedRemediationActions} -> orderedRemediationActions) (\s@PossibleRemediationAction' {} a -> s {orderedRemediationActions = a} :: PossibleRemediationAction) Prelude.. Lens._Coerce
+possibleRemediationAction_orderedRemediationActions = Lens.lens (\PossibleRemediationAction' {orderedRemediationActions} -> orderedRemediationActions) (\s@PossibleRemediationAction' {} a -> s {orderedRemediationActions = a} :: PossibleRemediationAction) Prelude.. Lens.coerced
 
 instance Core.FromJSON PossibleRemediationAction where
   parseJSON =

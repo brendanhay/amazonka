@@ -35,9 +35,9 @@ module Network.AWS.Kinesis.EnableEnhancedMonitoring
     newEnhancedMonitoringOutput,
 
     -- * Response Lenses
+    enhancedMonitoringOutput_desiredShardLevelMetrics,
     enhancedMonitoringOutput_currentShardLevelMetrics,
     enhancedMonitoringOutput_streamName,
-    enhancedMonitoringOutput_desiredShardLevelMetrics,
   )
 where
 
@@ -156,7 +156,7 @@ enableEnhancedMonitoring_streamName = Lens.lens (\EnableEnhancedMonitoring' {str
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 enableEnhancedMonitoring_shardLevelMetrics :: Lens.Lens' EnableEnhancedMonitoring [MetricsName]
-enableEnhancedMonitoring_shardLevelMetrics = Lens.lens (\EnableEnhancedMonitoring' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnableEnhancedMonitoring' {} a -> s {shardLevelMetrics = a} :: EnableEnhancedMonitoring) Prelude.. Lens._Coerce
+enableEnhancedMonitoring_shardLevelMetrics = Lens.lens (\EnableEnhancedMonitoring' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnableEnhancedMonitoring' {} a -> s {shardLevelMetrics = a} :: EnableEnhancedMonitoring) Prelude.. Lens.coerced
 
 instance Core.AWSRequest EnableEnhancedMonitoring where
   type

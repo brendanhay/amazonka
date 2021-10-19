@@ -31,14 +31,14 @@ import Network.AWS.S3.Types.InventoryFormat
 --
 -- /See:/ 'newInventoryS3BucketDestination' smart constructor.
 data InventoryS3BucketDestination = InventoryS3BucketDestination'
-  { -- | The account ID that owns the destination S3 bucket. If no account ID is
+  { -- | The prefix that is prepended to all inventory results.
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The account ID that owns the destination S3 bucket. If no account ID is
     -- provided, the owner is not validated before exporting data.
     --
     -- Although this value is optional, we strongly recommend that you set it
     -- to help prevent problems if the destination bucket ownership changes.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The prefix that is prepended to all inventory results.
-    prefix :: Prelude.Maybe Prelude.Text,
     -- | Contains the type of server-side encryption used to encrypt the
     -- inventory results.
     encryption :: Prelude.Maybe InventoryEncryption,
@@ -58,13 +58,13 @@ data InventoryS3BucketDestination = InventoryS3BucketDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'prefix', 'inventoryS3BucketDestination_prefix' - The prefix that is prepended to all inventory results.
+--
 -- 'accountId', 'inventoryS3BucketDestination_accountId' - The account ID that owns the destination S3 bucket. If no account ID is
 -- provided, the owner is not validated before exporting data.
 --
 -- Although this value is optional, we strongly recommend that you set it
 -- to help prevent problems if the destination bucket ownership changes.
---
--- 'prefix', 'inventoryS3BucketDestination_prefix' - The prefix that is prepended to all inventory results.
 --
 -- 'encryption', 'inventoryS3BucketDestination_encryption' - Contains the type of server-side encryption used to encrypt the
 -- inventory results.
@@ -81,13 +81,17 @@ newInventoryS3BucketDestination ::
   InventoryS3BucketDestination
 newInventoryS3BucketDestination pBucket_ pFormat_ =
   InventoryS3BucketDestination'
-    { accountId =
+    { prefix =
         Prelude.Nothing,
-      prefix = Prelude.Nothing,
+      accountId = Prelude.Nothing,
       encryption = Prelude.Nothing,
       bucket = pBucket_,
       format = pFormat_
     }
+
+-- | The prefix that is prepended to all inventory results.
+inventoryS3BucketDestination_prefix :: Lens.Lens' InventoryS3BucketDestination (Prelude.Maybe Prelude.Text)
+inventoryS3BucketDestination_prefix = Lens.lens (\InventoryS3BucketDestination' {prefix} -> prefix) (\s@InventoryS3BucketDestination' {} a -> s {prefix = a} :: InventoryS3BucketDestination)
 
 -- | The account ID that owns the destination S3 bucket. If no account ID is
 -- provided, the owner is not validated before exporting data.
@@ -96,10 +100,6 @@ newInventoryS3BucketDestination pBucket_ pFormat_ =
 -- to help prevent problems if the destination bucket ownership changes.
 inventoryS3BucketDestination_accountId :: Lens.Lens' InventoryS3BucketDestination (Prelude.Maybe Prelude.Text)
 inventoryS3BucketDestination_accountId = Lens.lens (\InventoryS3BucketDestination' {accountId} -> accountId) (\s@InventoryS3BucketDestination' {} a -> s {accountId = a} :: InventoryS3BucketDestination)
-
--- | The prefix that is prepended to all inventory results.
-inventoryS3BucketDestination_prefix :: Lens.Lens' InventoryS3BucketDestination (Prelude.Maybe Prelude.Text)
-inventoryS3BucketDestination_prefix = Lens.lens (\InventoryS3BucketDestination' {prefix} -> prefix) (\s@InventoryS3BucketDestination' {} a -> s {prefix = a} :: InventoryS3BucketDestination)
 
 -- | Contains the type of server-side encryption used to encrypt the
 -- inventory results.
@@ -118,8 +118,8 @@ inventoryS3BucketDestination_format = Lens.lens (\InventoryS3BucketDestination' 
 instance Core.FromXML InventoryS3BucketDestination where
   parseXML x =
     InventoryS3BucketDestination'
-      Prelude.<$> (x Core..@? "AccountId")
-      Prelude.<*> (x Core..@? "Prefix")
+      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "AccountId")
       Prelude.<*> (x Core..@? "Encryption")
       Prelude.<*> (x Core..@ "Bucket")
       Prelude.<*> (x Core..@ "Format")
@@ -133,8 +133,8 @@ instance Prelude.NFData InventoryS3BucketDestination
 instance Core.ToXML InventoryS3BucketDestination where
   toXML InventoryS3BucketDestination' {..} =
     Prelude.mconcat
-      [ "AccountId" Core.@= accountId,
-        "Prefix" Core.@= prefix,
+      [ "Prefix" Core.@= prefix,
+        "AccountId" Core.@= accountId,
         "Encryption" Core.@= encryption,
         "Bucket" Core.@= bucket,
         "Format" Core.@= format

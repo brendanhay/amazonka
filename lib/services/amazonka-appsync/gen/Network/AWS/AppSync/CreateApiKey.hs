@@ -28,8 +28,8 @@ module Network.AWS.AppSync.CreateApiKey
     newCreateApiKey,
 
     -- * Request Lenses
-    createApiKey_description,
     createApiKey_expires,
+    createApiKey_description,
     createApiKey_apiId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateApiKey' smart constructor.
 data CreateApiKey = CreateApiKey'
-  { -- | A description of the purpose of the API key.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The time from creation time after which the API key expires. The date is
+  { -- | The time from creation time after which the API key expires. The date is
     -- represented as seconds since the epoch, rounded down to the nearest
     -- hour. The default value for this parameter is 7 days from creation time.
     -- For more information, see .
     expires :: Prelude.Maybe Prelude.Integer,
+    -- | A description of the purpose of the API key.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID for your GraphQL API.
     apiId :: Prelude.Text
   }
@@ -71,12 +71,12 @@ data CreateApiKey = CreateApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'createApiKey_description' - A description of the purpose of the API key.
---
 -- 'expires', 'createApiKey_expires' - The time from creation time after which the API key expires. The date is
 -- represented as seconds since the epoch, rounded down to the nearest
 -- hour. The default value for this parameter is 7 days from creation time.
 -- For more information, see .
+--
+-- 'description', 'createApiKey_description' - A description of the purpose of the API key.
 --
 -- 'apiId', 'createApiKey_apiId' - The ID for your GraphQL API.
 newCreateApiKey ::
@@ -85,14 +85,10 @@ newCreateApiKey ::
   CreateApiKey
 newCreateApiKey pApiId_ =
   CreateApiKey'
-    { description = Prelude.Nothing,
-      expires = Prelude.Nothing,
+    { expires = Prelude.Nothing,
+      description = Prelude.Nothing,
       apiId = pApiId_
     }
-
--- | A description of the purpose of the API key.
-createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
-createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
 -- | The time from creation time after which the API key expires. The date is
 -- represented as seconds since the epoch, rounded down to the nearest
@@ -100,6 +96,10 @@ createApiKey_description = Lens.lens (\CreateApiKey' {description} -> descriptio
 -- For more information, see .
 createApiKey_expires :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Integer)
 createApiKey_expires = Lens.lens (\CreateApiKey' {expires} -> expires) (\s@CreateApiKey' {} a -> s {expires = a} :: CreateApiKey)
+
+-- | A description of the purpose of the API key.
+createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
+createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
 -- | The ID for your GraphQL API.
 createApiKey_apiId :: Lens.Lens' CreateApiKey Prelude.Text
@@ -135,8 +135,8 @@ instance Core.ToJSON CreateApiKey where
   toJSON CreateApiKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("expires" Core..=) Prelude.<$> expires
+          [ ("expires" Core..=) Prelude.<$> expires,
+            ("description" Core..=) Prelude.<$> description
           ]
       )
 

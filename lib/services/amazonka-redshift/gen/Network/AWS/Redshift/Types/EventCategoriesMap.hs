@@ -29,11 +29,11 @@ import Network.AWS.Redshift.Types.EventInfoMap
 --
 -- /See:/ 'newEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { -- | The events in the event category.
-    events :: Prelude.Maybe [EventInfoMap],
-    -- | The source type, such as cluster or cluster-snapshot, that the returned
+  { -- | The source type, such as cluster or cluster-snapshot, that the returned
     -- categories belong to.
-    sourceType :: Prelude.Maybe Prelude.Text
+    sourceType :: Prelude.Maybe Prelude.Text,
+    -- | The events in the event category.
+    events :: Prelude.Maybe [EventInfoMap]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,34 +45,34 @@ data EventCategoriesMap = EventCategoriesMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'events', 'eventCategoriesMap_events' - The events in the event category.
---
 -- 'sourceType', 'eventCategoriesMap_sourceType' - The source type, such as cluster or cluster-snapshot, that the returned
 -- categories belong to.
+--
+-- 'events', 'eventCategoriesMap_events' - The events in the event category.
 newEventCategoriesMap ::
   EventCategoriesMap
 newEventCategoriesMap =
   EventCategoriesMap'
-    { events = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+    { sourceType = Prelude.Nothing,
+      events = Prelude.Nothing
     }
-
--- | The events in the event category.
-eventCategoriesMap_events :: Lens.Lens' EventCategoriesMap (Prelude.Maybe [EventInfoMap])
-eventCategoriesMap_events = Lens.lens (\EventCategoriesMap' {events} -> events) (\s@EventCategoriesMap' {} a -> s {events = a} :: EventCategoriesMap) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The source type, such as cluster or cluster-snapshot, that the returned
 -- categories belong to.
 eventCategoriesMap_sourceType :: Lens.Lens' EventCategoriesMap (Prelude.Maybe Prelude.Text)
 eventCategoriesMap_sourceType = Lens.lens (\EventCategoriesMap' {sourceType} -> sourceType) (\s@EventCategoriesMap' {} a -> s {sourceType = a} :: EventCategoriesMap)
 
+-- | The events in the event category.
+eventCategoriesMap_events :: Lens.Lens' EventCategoriesMap (Prelude.Maybe [EventInfoMap])
+eventCategoriesMap_events = Lens.lens (\EventCategoriesMap' {events} -> events) (\s@EventCategoriesMap' {} a -> s {events = a} :: EventCategoriesMap) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      Prelude.<$> ( x Core..@? "Events" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "SourceType")
+      Prelude.<*> ( x Core..@? "Events" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "EventInfoMap")
                   )
-      Prelude.<*> (x Core..@? "SourceType")
 
 instance Prelude.Hashable EventCategoriesMap
 

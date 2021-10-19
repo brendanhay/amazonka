@@ -66,7 +66,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newCreateEmailIdentityPolicy' smart constructor.
 data CreateEmailIdentityPolicy = CreateEmailIdentityPolicy'
-  { -- | The email identity for which you want to create a policy.
+  { -- | The email identity.
     emailIdentity :: Prelude.Text,
     -- | The name of the policy.
     --
@@ -90,7 +90,7 @@ data CreateEmailIdentityPolicy = CreateEmailIdentityPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailIdentity', 'createEmailIdentityPolicy_emailIdentity' - The email identity for which you want to create a policy.
+-- 'emailIdentity', 'createEmailIdentityPolicy_emailIdentity' - The email identity.
 --
 -- 'policyName', 'createEmailIdentityPolicy_policyName' - The name of the policy.
 --
@@ -121,7 +121,7 @@ newCreateEmailIdentityPolicy
         policy = pPolicy_
       }
 
--- | The email identity for which you want to create a policy.
+-- | The email identity.
 createEmailIdentityPolicy_emailIdentity :: Lens.Lens' CreateEmailIdentityPolicy Prelude.Text
 createEmailIdentityPolicy_emailIdentity = Lens.lens (\CreateEmailIdentityPolicy' {emailIdentity} -> emailIdentity) (\s@CreateEmailIdentityPolicy' {} a -> s {emailIdentity = a} :: CreateEmailIdentityPolicy)
 

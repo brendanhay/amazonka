@@ -134,7 +134,7 @@ newDescribeAccountAttributesResponse pHttpStatus_ =
 
 -- | The attributes that are currently set for the account.
 describeAccountAttributesResponse_attributes :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountAttribute])
-describeAccountAttributesResponse_attributes = Lens.lens (\DescribeAccountAttributesResponse' {attributes} -> attributes) (\s@DescribeAccountAttributesResponse' {} a -> s {attributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAccountAttributesResponse_attributes = Lens.lens (\DescribeAccountAttributesResponse' {attributes} -> attributes) (\s@DescribeAccountAttributesResponse' {} a -> s {attributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int

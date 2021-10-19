@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateCpuOptions' smart constructor.
 data LaunchTemplateCpuOptions = LaunchTemplateCpuOptions'
-  { -- | The number of threads per CPU core.
-    threadsPerCore :: Prelude.Maybe Prelude.Int,
-    -- | The number of CPU cores for the instance.
-    coreCount :: Prelude.Maybe Prelude.Int
+  { -- | The number of CPU cores for the instance.
+    coreCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of threads per CPU core.
+    threadsPerCore :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,31 +43,31 @@ data LaunchTemplateCpuOptions = LaunchTemplateCpuOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'threadsPerCore', 'launchTemplateCpuOptions_threadsPerCore' - The number of threads per CPU core.
---
 -- 'coreCount', 'launchTemplateCpuOptions_coreCount' - The number of CPU cores for the instance.
+--
+-- 'threadsPerCore', 'launchTemplateCpuOptions_threadsPerCore' - The number of threads per CPU core.
 newLaunchTemplateCpuOptions ::
   LaunchTemplateCpuOptions
 newLaunchTemplateCpuOptions =
   LaunchTemplateCpuOptions'
-    { threadsPerCore =
+    { coreCount =
         Prelude.Nothing,
-      coreCount = Prelude.Nothing
+      threadsPerCore = Prelude.Nothing
     }
-
--- | The number of threads per CPU core.
-launchTemplateCpuOptions_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe Prelude.Int)
-launchTemplateCpuOptions_threadsPerCore = Lens.lens (\LaunchTemplateCpuOptions' {threadsPerCore} -> threadsPerCore) (\s@LaunchTemplateCpuOptions' {} a -> s {threadsPerCore = a} :: LaunchTemplateCpuOptions)
 
 -- | The number of CPU cores for the instance.
 launchTemplateCpuOptions_coreCount :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe Prelude.Int)
 launchTemplateCpuOptions_coreCount = Lens.lens (\LaunchTemplateCpuOptions' {coreCount} -> coreCount) (\s@LaunchTemplateCpuOptions' {} a -> s {coreCount = a} :: LaunchTemplateCpuOptions)
 
+-- | The number of threads per CPU core.
+launchTemplateCpuOptions_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe Prelude.Int)
+launchTemplateCpuOptions_threadsPerCore = Lens.lens (\LaunchTemplateCpuOptions' {threadsPerCore} -> threadsPerCore) (\s@LaunchTemplateCpuOptions' {} a -> s {threadsPerCore = a} :: LaunchTemplateCpuOptions)
+
 instance Core.FromXML LaunchTemplateCpuOptions where
   parseXML x =
     LaunchTemplateCpuOptions'
-      Prelude.<$> (x Core..@? "threadsPerCore")
-      Prelude.<*> (x Core..@? "coreCount")
+      Prelude.<$> (x Core..@? "coreCount")
+      Prelude.<*> (x Core..@? "threadsPerCore")
 
 instance Prelude.Hashable LaunchTemplateCpuOptions
 

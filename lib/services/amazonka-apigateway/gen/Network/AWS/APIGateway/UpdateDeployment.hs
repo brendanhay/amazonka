@@ -36,9 +36,9 @@ module Network.AWS.APIGateway.UpdateDeployment
     newDeployment,
 
     -- * Response Lenses
+    deployment_apiSummary,
     deployment_createdDate,
     deployment_id,
-    deployment_apiSummary,
     deployment_description,
   )
 where
@@ -97,7 +97,7 @@ newUpdateDeployment pRestApiId_ pDeploymentId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateDeployment_patchOperations :: Lens.Lens' UpdateDeployment (Prelude.Maybe [PatchOperation])
-updateDeployment_patchOperations = Lens.lens (\UpdateDeployment' {patchOperations} -> patchOperations) (\s@UpdateDeployment' {} a -> s {patchOperations = a} :: UpdateDeployment) Prelude.. Lens.mapping Lens._Coerce
+updateDeployment_patchOperations = Lens.lens (\UpdateDeployment' {patchOperations} -> patchOperations) (\s@UpdateDeployment' {} a -> s {patchOperations = a} :: UpdateDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateDeployment_restApiId :: Lens.Lens' UpdateDeployment Prelude.Text

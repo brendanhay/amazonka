@@ -103,13 +103,13 @@ newModifyClusterIamRoles pClusterIdentifier_ =
 -- You can disassociate up to 10 IAM roles from a single cluster in a
 -- single request.
 modifyClusterIamRoles_removeIamRoles :: Lens.Lens' ModifyClusterIamRoles (Prelude.Maybe [Prelude.Text])
-modifyClusterIamRoles_removeIamRoles = Lens.lens (\ModifyClusterIamRoles' {removeIamRoles} -> removeIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {removeIamRoles = a} :: ModifyClusterIamRoles) Prelude.. Lens.mapping Lens._Coerce
+modifyClusterIamRoles_removeIamRoles = Lens.lens (\ModifyClusterIamRoles' {removeIamRoles} -> removeIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {removeIamRoles = a} :: ModifyClusterIamRoles) Prelude.. Lens.mapping Lens.coerced
 
 -- | Zero or more IAM roles to associate with the cluster. The roles must be
 -- in their Amazon Resource Name (ARN) format. You can associate up to 10
 -- IAM roles with a single cluster in a single request.
 modifyClusterIamRoles_addIamRoles :: Lens.Lens' ModifyClusterIamRoles (Prelude.Maybe [Prelude.Text])
-modifyClusterIamRoles_addIamRoles = Lens.lens (\ModifyClusterIamRoles' {addIamRoles} -> addIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {addIamRoles = a} :: ModifyClusterIamRoles) Prelude.. Lens.mapping Lens._Coerce
+modifyClusterIamRoles_addIamRoles = Lens.lens (\ModifyClusterIamRoles' {addIamRoles} -> addIamRoles) (\s@ModifyClusterIamRoles' {} a -> s {addIamRoles = a} :: ModifyClusterIamRoles) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique identifier of the cluster for which you want to associate or
 -- disassociate IAM roles.

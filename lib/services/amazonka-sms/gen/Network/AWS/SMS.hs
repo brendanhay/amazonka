@@ -27,17 +27,32 @@ module Network.AWS.SMS
     -- * Errors
     -- $errors
 
-    -- ** InternalError
-    _InternalError,
+    -- ** ReplicationRunLimitExceededException
+    _ReplicationRunLimitExceededException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** NoConnectorsAvailableException
     _NoConnectorsAvailableException,
 
-    -- ** ReplicationRunLimitExceededException
-    _ReplicationRunLimitExceededException,
+    -- ** ReplicationJobNotFoundException
+    _ReplicationJobNotFoundException,
 
-    -- ** UnauthorizedOperationException
-    _UnauthorizedOperationException,
+    -- ** ServerCannotBeReplicatedException
+    _ServerCannotBeReplicatedException,
+
+    -- ** DryRunOperationException
+    _DryRunOperationException,
+
+    -- ** InternalError
+    _InternalError,
+
+    -- ** ReplicationJobAlreadyExistsException
+    _ReplicationJobAlreadyExistsException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
 
     -- ** TemporarilyUnavailableException
     _TemporarilyUnavailableException,
@@ -45,23 +60,8 @@ module Network.AWS.SMS
     -- ** MissingRequiredParameterException
     _MissingRequiredParameterException,
 
-    -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** ReplicationJobNotFoundException
-    _ReplicationJobNotFoundException,
-
-    -- ** DryRunOperationException
-    _DryRunOperationException,
-
-    -- ** ServerCannotBeReplicatedException
-    _ServerCannotBeReplicatedException,
-
-    -- ** ReplicationJobAlreadyExistsException
-    _ReplicationJobAlreadyExistsException,
+    -- ** UnauthorizedOperationException
+    _UnauthorizedOperationException,
 
     -- * Waiters
     -- $waiters
@@ -69,29 +69,11 @@ module Network.AWS.SMS
     -- * Operations
     -- $operations
 
-    -- ** GenerateChangeSet
-    GenerateChangeSet (GenerateChangeSet'),
-    newGenerateChangeSet,
-    GenerateChangeSetResponse (GenerateChangeSetResponse'),
-    newGenerateChangeSetResponse,
-
-    -- ** ImportAppCatalog
-    ImportAppCatalog (ImportAppCatalog'),
-    newImportAppCatalog,
-    ImportAppCatalogResponse (ImportAppCatalogResponse'),
-    newImportAppCatalogResponse,
-
-    -- ** GetAppValidationConfiguration
-    GetAppValidationConfiguration (GetAppValidationConfiguration'),
-    newGetAppValidationConfiguration,
-    GetAppValidationConfigurationResponse (GetAppValidationConfigurationResponse'),
-    newGetAppValidationConfigurationResponse,
-
-    -- ** LaunchApp
-    LaunchApp (LaunchApp'),
-    newLaunchApp,
-    LaunchAppResponse (LaunchAppResponse'),
-    newLaunchAppResponse,
+    -- ** DeleteAppReplicationConfiguration
+    DeleteAppReplicationConfiguration (DeleteAppReplicationConfiguration'),
+    newDeleteAppReplicationConfiguration,
+    DeleteAppReplicationConfigurationResponse (DeleteAppReplicationConfigurationResponse'),
+    newDeleteAppReplicationConfigurationResponse,
 
     -- ** PutAppReplicationConfiguration
     PutAppReplicationConfiguration (PutAppReplicationConfiguration'),
@@ -99,53 +81,29 @@ module Network.AWS.SMS
     PutAppReplicationConfigurationResponse (PutAppReplicationConfigurationResponse'),
     newPutAppReplicationConfigurationResponse,
 
-    -- ** GetConnectors (Paginated)
-    GetConnectors (GetConnectors'),
-    newGetConnectors,
-    GetConnectorsResponse (GetConnectorsResponse'),
-    newGetConnectorsResponse,
+    -- ** DeleteServerCatalog
+    DeleteServerCatalog (DeleteServerCatalog'),
+    newDeleteServerCatalog,
+    DeleteServerCatalogResponse (DeleteServerCatalogResponse'),
+    newDeleteServerCatalogResponse,
 
-    -- ** StartOnDemandReplicationRun
-    StartOnDemandReplicationRun (StartOnDemandReplicationRun'),
-    newStartOnDemandReplicationRun,
-    StartOnDemandReplicationRunResponse (StartOnDemandReplicationRunResponse'),
-    newStartOnDemandReplicationRunResponse,
+    -- ** ImportAppCatalog
+    ImportAppCatalog (ImportAppCatalog'),
+    newImportAppCatalog,
+    ImportAppCatalogResponse (ImportAppCatalogResponse'),
+    newImportAppCatalogResponse,
 
-    -- ** GenerateTemplate
-    GenerateTemplate (GenerateTemplate'),
-    newGenerateTemplate,
-    GenerateTemplateResponse (GenerateTemplateResponse'),
-    newGenerateTemplateResponse,
+    -- ** GetAppLaunchConfiguration
+    GetAppLaunchConfiguration (GetAppLaunchConfiguration'),
+    newGetAppLaunchConfiguration,
+    GetAppLaunchConfigurationResponse (GetAppLaunchConfigurationResponse'),
+    newGetAppLaunchConfigurationResponse,
 
-    -- ** PutAppValidationConfiguration
-    PutAppValidationConfiguration (PutAppValidationConfiguration'),
-    newPutAppValidationConfiguration,
-    PutAppValidationConfigurationResponse (PutAppValidationConfigurationResponse'),
-    newPutAppValidationConfigurationResponse,
-
-    -- ** ListApps (Paginated)
-    ListApps (ListApps'),
-    newListApps,
-    ListAppsResponse (ListAppsResponse'),
-    newListAppsResponse,
-
-    -- ** GetServers (Paginated)
-    GetServers (GetServers'),
-    newGetServers,
-    GetServersResponse (GetServersResponse'),
-    newGetServersResponse,
-
-    -- ** GetReplicationRuns (Paginated)
-    GetReplicationRuns (GetReplicationRuns'),
-    newGetReplicationRuns,
-    GetReplicationRunsResponse (GetReplicationRunsResponse'),
-    newGetReplicationRunsResponse,
-
-    -- ** TerminateApp
-    TerminateApp (TerminateApp'),
-    newTerminateApp,
-    TerminateAppResponse (TerminateAppResponse'),
-    newTerminateAppResponse,
+    -- ** DeleteAppLaunchConfiguration
+    DeleteAppLaunchConfiguration (DeleteAppLaunchConfiguration'),
+    newDeleteAppLaunchConfiguration,
+    DeleteAppLaunchConfigurationResponse (DeleteAppLaunchConfigurationResponse'),
+    newDeleteAppLaunchConfigurationResponse,
 
     -- ** StartAppReplication
     StartAppReplication (StartAppReplication'),
@@ -159,89 +117,29 @@ module Network.AWS.SMS
     PutAppLaunchConfigurationResponse (PutAppLaunchConfigurationResponse'),
     newPutAppLaunchConfigurationResponse,
 
-    -- ** StopAppReplication
-    StopAppReplication (StopAppReplication'),
-    newStopAppReplication,
-    StopAppReplicationResponse (StopAppReplicationResponse'),
-    newStopAppReplicationResponse,
+    -- ** GetReplicationRuns (Paginated)
+    GetReplicationRuns (GetReplicationRuns'),
+    newGetReplicationRuns,
+    GetReplicationRunsResponse (GetReplicationRunsResponse'),
+    newGetReplicationRunsResponse,
 
-    -- ** CreateReplicationJob
-    CreateReplicationJob (CreateReplicationJob'),
-    newCreateReplicationJob,
-    CreateReplicationJobResponse (CreateReplicationJobResponse'),
-    newCreateReplicationJobResponse,
+    -- ** TerminateApp
+    TerminateApp (TerminateApp'),
+    newTerminateApp,
+    TerminateAppResponse (TerminateAppResponse'),
+    newTerminateAppResponse,
 
-    -- ** GetApp
-    GetApp (GetApp'),
-    newGetApp,
-    GetAppResponse (GetAppResponse'),
-    newGetAppResponse,
+    -- ** ListApps (Paginated)
+    ListApps (ListApps'),
+    newListApps,
+    ListAppsResponse (ListAppsResponse'),
+    newListAppsResponse,
 
-    -- ** DeleteServerCatalog
-    DeleteServerCatalog (DeleteServerCatalog'),
-    newDeleteServerCatalog,
-    DeleteServerCatalogResponse (DeleteServerCatalogResponse'),
-    newDeleteServerCatalogResponse,
-
-    -- ** DeleteAppReplicationConfiguration
-    DeleteAppReplicationConfiguration (DeleteAppReplicationConfiguration'),
-    newDeleteAppReplicationConfiguration,
-    DeleteAppReplicationConfigurationResponse (DeleteAppReplicationConfigurationResponse'),
-    newDeleteAppReplicationConfigurationResponse,
-
-    -- ** DisassociateConnector
-    DisassociateConnector (DisassociateConnector'),
-    newDisassociateConnector,
-    DisassociateConnectorResponse (DisassociateConnectorResponse'),
-    newDisassociateConnectorResponse,
-
-    -- ** GetReplicationJobs (Paginated)
-    GetReplicationJobs (GetReplicationJobs'),
-    newGetReplicationJobs,
-    GetReplicationJobsResponse (GetReplicationJobsResponse'),
-    newGetReplicationJobsResponse,
-
-    -- ** NotifyAppValidationOutput
-    NotifyAppValidationOutput (NotifyAppValidationOutput'),
-    newNotifyAppValidationOutput,
-    NotifyAppValidationOutputResponse (NotifyAppValidationOutputResponse'),
-    newNotifyAppValidationOutputResponse,
-
-    -- ** StartOnDemandAppReplication
-    StartOnDemandAppReplication (StartOnDemandAppReplication'),
-    newStartOnDemandAppReplication,
-    StartOnDemandAppReplicationResponse (StartOnDemandAppReplicationResponse'),
-    newStartOnDemandAppReplicationResponse,
-
-    -- ** DeleteAppValidationConfiguration
-    DeleteAppValidationConfiguration (DeleteAppValidationConfiguration'),
-    newDeleteAppValidationConfiguration,
-    DeleteAppValidationConfigurationResponse (DeleteAppValidationConfigurationResponse'),
-    newDeleteAppValidationConfigurationResponse,
-
-    -- ** GetAppReplicationConfiguration
-    GetAppReplicationConfiguration (GetAppReplicationConfiguration'),
-    newGetAppReplicationConfiguration,
-    GetAppReplicationConfigurationResponse (GetAppReplicationConfigurationResponse'),
-    newGetAppReplicationConfigurationResponse,
-
-    -- ** ImportServerCatalog
-    ImportServerCatalog (ImportServerCatalog'),
-    newImportServerCatalog,
-    ImportServerCatalogResponse (ImportServerCatalogResponse'),
-    newImportServerCatalogResponse,
-
-    -- ** GetAppValidationOutput
-    GetAppValidationOutput (GetAppValidationOutput'),
-    newGetAppValidationOutput,
-    GetAppValidationOutputResponse (GetAppValidationOutputResponse'),
-    newGetAppValidationOutputResponse,
-
-    -- ** UpdateApp
-    UpdateApp (UpdateApp'),
-    newUpdateApp,
-    UpdateAppResponse (UpdateAppResponse'),
-    newUpdateAppResponse,
+    -- ** GetServers (Paginated)
+    GetServers (GetServers'),
+    newGetServers,
+    GetServersResponse (GetServersResponse'),
+    newGetServersResponse,
 
     -- ** DeleteApp
     DeleteApp (DeleteApp'),
@@ -249,23 +147,77 @@ module Network.AWS.SMS
     DeleteAppResponse (DeleteAppResponse'),
     newDeleteAppResponse,
 
-    -- ** DeleteAppLaunchConfiguration
-    DeleteAppLaunchConfiguration (DeleteAppLaunchConfiguration'),
-    newDeleteAppLaunchConfiguration,
-    DeleteAppLaunchConfigurationResponse (DeleteAppLaunchConfigurationResponse'),
-    newDeleteAppLaunchConfigurationResponse,
+    -- ** UpdateApp
+    UpdateApp (UpdateApp'),
+    newUpdateApp,
+    UpdateAppResponse (UpdateAppResponse'),
+    newUpdateAppResponse,
 
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
+    -- ** StartOnDemandAppReplication
+    StartOnDemandAppReplication (StartOnDemandAppReplication'),
+    newStartOnDemandAppReplication,
+    StartOnDemandAppReplicationResponse (StartOnDemandAppReplicationResponse'),
+    newStartOnDemandAppReplicationResponse,
 
-    -- ** GetAppLaunchConfiguration
-    GetAppLaunchConfiguration (GetAppLaunchConfiguration'),
-    newGetAppLaunchConfiguration,
-    GetAppLaunchConfigurationResponse (GetAppLaunchConfigurationResponse'),
-    newGetAppLaunchConfigurationResponse,
+    -- ** ImportServerCatalog
+    ImportServerCatalog (ImportServerCatalog'),
+    newImportServerCatalog,
+    ImportServerCatalogResponse (ImportServerCatalogResponse'),
+    newImportServerCatalogResponse,
+
+    -- ** GenerateTemplate
+    GenerateTemplate (GenerateTemplate'),
+    newGenerateTemplate,
+    GenerateTemplateResponse (GenerateTemplateResponse'),
+    newGenerateTemplateResponse,
+
+    -- ** GetConnectors (Paginated)
+    GetConnectors (GetConnectors'),
+    newGetConnectors,
+    GetConnectorsResponse (GetConnectorsResponse'),
+    newGetConnectorsResponse,
+
+    -- ** GetReplicationJobs (Paginated)
+    GetReplicationJobs (GetReplicationJobs'),
+    newGetReplicationJobs,
+    GetReplicationJobsResponse (GetReplicationJobsResponse'),
+    newGetReplicationJobsResponse,
+
+    -- ** DisassociateConnector
+    DisassociateConnector (DisassociateConnector'),
+    newDisassociateConnector,
+    DisassociateConnectorResponse (DisassociateConnectorResponse'),
+    newDisassociateConnectorResponse,
+
+    -- ** LaunchApp
+    LaunchApp (LaunchApp'),
+    newLaunchApp,
+    LaunchAppResponse (LaunchAppResponse'),
+    newLaunchAppResponse,
+
+    -- ** GetAppValidationConfiguration
+    GetAppValidationConfiguration (GetAppValidationConfiguration'),
+    newGetAppValidationConfiguration,
+    GetAppValidationConfigurationResponse (GetAppValidationConfigurationResponse'),
+    newGetAppValidationConfigurationResponse,
+
+    -- ** CreateReplicationJob
+    CreateReplicationJob (CreateReplicationJob'),
+    newCreateReplicationJob,
+    CreateReplicationJobResponse (CreateReplicationJobResponse'),
+    newCreateReplicationJobResponse,
+
+    -- ** GenerateChangeSet
+    GenerateChangeSet (GenerateChangeSet'),
+    newGenerateChangeSet,
+    GenerateChangeSetResponse (GenerateChangeSetResponse'),
+    newGenerateChangeSetResponse,
+
+    -- ** GetApp
+    GetApp (GetApp'),
+    newGetApp,
+    GetAppResponse (GetAppResponse'),
+    newGetAppResponse,
 
     -- ** UpdateReplicationJob
     UpdateReplicationJob (UpdateReplicationJob'),
@@ -278,6 +230,54 @@ module Network.AWS.SMS
     newDeleteReplicationJob,
     DeleteReplicationJobResponse (DeleteReplicationJobResponse'),
     newDeleteReplicationJobResponse,
+
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
+
+    -- ** StopAppReplication
+    StopAppReplication (StopAppReplication'),
+    newStopAppReplication,
+    StopAppReplicationResponse (StopAppReplicationResponse'),
+    newStopAppReplicationResponse,
+
+    -- ** DeleteAppValidationConfiguration
+    DeleteAppValidationConfiguration (DeleteAppValidationConfiguration'),
+    newDeleteAppValidationConfiguration,
+    DeleteAppValidationConfigurationResponse (DeleteAppValidationConfigurationResponse'),
+    newDeleteAppValidationConfigurationResponse,
+
+    -- ** PutAppValidationConfiguration
+    PutAppValidationConfiguration (PutAppValidationConfiguration'),
+    newPutAppValidationConfiguration,
+    PutAppValidationConfigurationResponse (PutAppValidationConfigurationResponse'),
+    newPutAppValidationConfigurationResponse,
+
+    -- ** GetAppValidationOutput
+    GetAppValidationOutput (GetAppValidationOutput'),
+    newGetAppValidationOutput,
+    GetAppValidationOutputResponse (GetAppValidationOutputResponse'),
+    newGetAppValidationOutputResponse,
+
+    -- ** GetAppReplicationConfiguration
+    GetAppReplicationConfiguration (GetAppReplicationConfiguration'),
+    newGetAppReplicationConfiguration,
+    GetAppReplicationConfigurationResponse (GetAppReplicationConfigurationResponse'),
+    newGetAppReplicationConfigurationResponse,
+
+    -- ** StartOnDemandReplicationRun
+    StartOnDemandReplicationRun (StartOnDemandReplicationRun'),
+    newStartOnDemandReplicationRun,
+    StartOnDemandReplicationRunResponse (StartOnDemandReplicationRunResponse'),
+    newStartOnDemandReplicationRunResponse,
+
+    -- ** NotifyAppValidationOutput
+    NotifyAppValidationOutput (NotifyAppValidationOutput'),
+    newNotifyAppValidationOutput,
+    NotifyAppValidationOutputResponse (NotifyAppValidationOutputResponse'),
+    newNotifyAppValidationOutputResponse,
 
     -- * Types
 

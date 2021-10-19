@@ -92,7 +92,7 @@ newPutStoredQuery pStoredQuery_ =
 
 -- | A list of @Tags@ object.
 putStoredQuery_tags :: Lens.Lens' PutStoredQuery (Prelude.Maybe [Tag])
-putStoredQuery_tags = Lens.lens (\PutStoredQuery' {tags} -> tags) (\s@PutStoredQuery' {} a -> s {tags = a} :: PutStoredQuery) Prelude.. Lens.mapping Lens._Coerce
+putStoredQuery_tags = Lens.lens (\PutStoredQuery' {tags} -> tags) (\s@PutStoredQuery' {} a -> s {tags = a} :: PutStoredQuery) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of @StoredQuery@ objects. The mandatory fields are @QueryName@
 -- and @Expression@.

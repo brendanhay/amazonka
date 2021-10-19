@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatasetContentSummary' smart constructor.
 data DatasetContentSummary = DatasetContentSummary'
-  { -- | The status of the dataset contents.
-    status :: Prelude.Maybe DatasetContentStatus,
-    -- | The actual time the creation of the dataset contents was started.
+  { -- | The actual time the creation of the dataset contents was started.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
-    completionTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the dataset contents.
+    status :: Prelude.Maybe DatasetContentStatus,
     -- | The time the creation of the dataset contents was scheduled to start.
     scheduleTime :: Prelude.Maybe Core.POSIX,
+    -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
+    completionTime :: Prelude.Maybe Core.POSIX,
     -- | The version of the dataset contents.
     version :: Prelude.Maybe Prelude.Text
   }
@@ -49,41 +49,42 @@ data DatasetContentSummary = DatasetContentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'datasetContentSummary_status' - The status of the dataset contents.
---
 -- 'creationTime', 'datasetContentSummary_creationTime' - The actual time the creation of the dataset contents was started.
 --
--- 'completionTime', 'datasetContentSummary_completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.
+-- 'status', 'datasetContentSummary_status' - The status of the dataset contents.
 --
 -- 'scheduleTime', 'datasetContentSummary_scheduleTime' - The time the creation of the dataset contents was scheduled to start.
+--
+-- 'completionTime', 'datasetContentSummary_completionTime' - The time the dataset content status was updated to SUCCEEDED or FAILED.
 --
 -- 'version', 'datasetContentSummary_version' - The version of the dataset contents.
 newDatasetContentSummary ::
   DatasetContentSummary
 newDatasetContentSummary =
   DatasetContentSummary'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
+    { creationTime =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       scheduleTime = Prelude.Nothing,
+      completionTime = Prelude.Nothing,
       version = Prelude.Nothing
     }
-
--- | The status of the dataset contents.
-datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Prelude.Maybe DatasetContentStatus)
-datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> status) (\s@DatasetContentSummary' {} a -> s {status = a} :: DatasetContentSummary)
 
 -- | The actual time the creation of the dataset contents was started.
 datasetContentSummary_creationTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
 datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
 
--- | The time the dataset content status was updated to SUCCEEDED or FAILED.
-datasetContentSummary_completionTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
+-- | The status of the dataset contents.
+datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Prelude.Maybe DatasetContentStatus)
+datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> status) (\s@DatasetContentSummary' {} a -> s {status = a} :: DatasetContentSummary)
 
 -- | The time the creation of the dataset contents was scheduled to start.
 datasetContentSummary_scheduleTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
 datasetContentSummary_scheduleTime = Lens.lens (\DatasetContentSummary' {scheduleTime} -> scheduleTime) (\s@DatasetContentSummary' {} a -> s {scheduleTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The time the dataset content status was updated to SUCCEEDED or FAILED.
+datasetContentSummary_completionTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
+datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The version of the dataset contents.
 datasetContentSummary_version :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.Text)
@@ -95,10 +96,10 @@ instance Core.FromJSON DatasetContentSummary where
       "DatasetContentSummary"
       ( \x ->
           DatasetContentSummary'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "creationTime")
-            Prelude.<*> (x Core..:? "completionTime")
+            Prelude.<$> (x Core..:? "creationTime")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "scheduleTime")
+            Prelude.<*> (x Core..:? "completionTime")
             Prelude.<*> (x Core..:? "version")
       )
 

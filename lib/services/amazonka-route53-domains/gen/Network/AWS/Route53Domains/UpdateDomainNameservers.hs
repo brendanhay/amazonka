@@ -112,7 +112,7 @@ updateDomainNameservers_domainName = Lens.lens (\UpdateDomainNameservers' {domai
 
 -- | A list of new name servers for the domain.
 updateDomainNameservers_nameservers :: Lens.Lens' UpdateDomainNameservers [Nameserver]
-updateDomainNameservers_nameservers = Lens.lens (\UpdateDomainNameservers' {nameservers} -> nameservers) (\s@UpdateDomainNameservers' {} a -> s {nameservers = a} :: UpdateDomainNameservers) Prelude.. Lens._Coerce
+updateDomainNameservers_nameservers = Lens.lens (\UpdateDomainNameservers' {nameservers} -> nameservers) (\s@UpdateDomainNameservers' {} a -> s {nameservers = a} :: UpdateDomainNameservers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateDomainNameservers where
   type

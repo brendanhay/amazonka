@@ -14,70 +14,6 @@
 module Network.AWS.CloudDirectory.Lens
   ( -- * Operations
 
-    -- ** ListTypedLinkFacetNames
-    listTypedLinkFacetNames_nextToken,
-    listTypedLinkFacetNames_maxResults,
-    listTypedLinkFacetNames_schemaArn,
-    listTypedLinkFacetNamesResponse_nextToken,
-    listTypedLinkFacetNamesResponse_facetNames,
-    listTypedLinkFacetNamesResponse_httpStatus,
-
-    -- ** GetDirectory
-    getDirectory_directoryArn,
-    getDirectoryResponse_httpStatus,
-    getDirectoryResponse_directory,
-
-    -- ** AttachTypedLink
-    attachTypedLink_directoryArn,
-    attachTypedLink_sourceObjectReference,
-    attachTypedLink_targetObjectReference,
-    attachTypedLink_typedLinkFacet,
-    attachTypedLink_attributes,
-    attachTypedLinkResponse_typedLinkSpecifier,
-    attachTypedLinkResponse_httpStatus,
-
-    -- ** GetObjectInformation
-    getObjectInformation_consistencyLevel,
-    getObjectInformation_directoryArn,
-    getObjectInformation_objectReference,
-    getObjectInformationResponse_schemaFacets,
-    getObjectInformationResponse_objectIdentifier,
-    getObjectInformationResponse_httpStatus,
-
-    -- ** DeleteObject
-    deleteObject_directoryArn,
-    deleteObject_objectReference,
-    deleteObjectResponse_httpStatus,
-
-    -- ** UpdateFacet
-    updateFacet_attributeUpdates,
-    updateFacet_objectType,
-    updateFacet_schemaArn,
-    updateFacet_name,
-    updateFacetResponse_httpStatus,
-
-    -- ** GetObjectAttributes
-    getObjectAttributes_consistencyLevel,
-    getObjectAttributes_directoryArn,
-    getObjectAttributes_objectReference,
-    getObjectAttributes_schemaFacet,
-    getObjectAttributes_attributeNames,
-    getObjectAttributesResponse_attributes,
-    getObjectAttributesResponse_httpStatus,
-
-    -- ** UpgradeAppliedSchema
-    upgradeAppliedSchema_dryRun,
-    upgradeAppliedSchema_publishedSchemaArn,
-    upgradeAppliedSchema_directoryArn,
-    upgradeAppliedSchemaResponse_directoryArn,
-    upgradeAppliedSchemaResponse_upgradedSchemaArn,
-    upgradeAppliedSchemaResponse_httpStatus,
-
-    -- ** DeleteFacet
-    deleteFacet_schemaArn,
-    deleteFacet_name,
-    deleteFacetResponse_httpStatus,
-
     -- ** ListTypedLinkFacetAttributes
     listTypedLinkFacetAttributes_nextToken,
     listTypedLinkFacetAttributes_maxResults,
@@ -87,176 +23,59 @@ module Network.AWS.CloudDirectory.Lens
     listTypedLinkFacetAttributesResponse_attributes,
     listTypedLinkFacetAttributesResponse_httpStatus,
 
-    -- ** UpgradePublishedSchema
-    upgradePublishedSchema_dryRun,
-    upgradePublishedSchema_developmentSchemaArn,
-    upgradePublishedSchema_publishedSchemaArn,
-    upgradePublishedSchema_minorVersion,
-    upgradePublishedSchemaResponse_upgradedSchemaArn,
-    upgradePublishedSchemaResponse_httpStatus,
+    -- ** DeleteObject
+    deleteObject_directoryArn,
+    deleteObject_objectReference,
+    deleteObjectResponse_httpStatus,
 
-    -- ** CreateObject
-    createObject_linkName,
-    createObject_parentReference,
-    createObject_objectAttributeList,
-    createObject_directoryArn,
-    createObject_schemaFacets,
-    createObjectResponse_objectIdentifier,
-    createObjectResponse_httpStatus,
+    -- ** ListIndex
+    listIndex_rangesOnIndexedValues,
+    listIndex_consistencyLevel,
+    listIndex_nextToken,
+    listIndex_maxResults,
+    listIndex_directoryArn,
+    listIndex_indexReference,
+    listIndexResponse_indexAttachments,
+    listIndexResponse_nextToken,
+    listIndexResponse_httpStatus,
 
-    -- ** BatchWrite
-    batchWrite_directoryArn,
-    batchWrite_operations,
-    batchWriteResponse_responses,
-    batchWriteResponse_httpStatus,
+    -- ** UpgradeAppliedSchema
+    upgradeAppliedSchema_dryRun,
+    upgradeAppliedSchema_publishedSchemaArn,
+    upgradeAppliedSchema_directoryArn,
+    upgradeAppliedSchemaResponse_directoryArn,
+    upgradeAppliedSchemaResponse_upgradedSchemaArn,
+    upgradeAppliedSchemaResponse_httpStatus,
 
-    -- ** UpdateLinkAttributes
-    updateLinkAttributes_directoryArn,
-    updateLinkAttributes_typedLinkSpecifier,
-    updateLinkAttributes_attributeUpdates,
-    updateLinkAttributesResponse_httpStatus,
+    -- ** GetDirectory
+    getDirectory_directoryArn,
+    getDirectoryResponse_httpStatus,
+    getDirectoryResponse_directory,
 
-    -- ** ListDevelopmentSchemaArns
-    listDevelopmentSchemaArns_nextToken,
-    listDevelopmentSchemaArns_maxResults,
-    listDevelopmentSchemaArnsResponse_schemaArns,
-    listDevelopmentSchemaArnsResponse_nextToken,
-    listDevelopmentSchemaArnsResponse_httpStatus,
+    -- ** GetObjectInformation
+    getObjectInformation_consistencyLevel,
+    getObjectInformation_directoryArn,
+    getObjectInformation_objectReference,
+    getObjectInformationResponse_objectIdentifier,
+    getObjectInformationResponse_schemaFacets,
+    getObjectInformationResponse_httpStatus,
 
-    -- ** GetTypedLinkFacetInformation
-    getTypedLinkFacetInformation_schemaArn,
-    getTypedLinkFacetInformation_name,
-    getTypedLinkFacetInformationResponse_identityAttributeOrder,
-    getTypedLinkFacetInformationResponse_httpStatus,
+    -- ** ListAttachedIndices
+    listAttachedIndices_consistencyLevel,
+    listAttachedIndices_nextToken,
+    listAttachedIndices_maxResults,
+    listAttachedIndices_directoryArn,
+    listAttachedIndices_targetReference,
+    listAttachedIndicesResponse_indexAttachments,
+    listAttachedIndicesResponse_nextToken,
+    listAttachedIndicesResponse_httpStatus,
 
-    -- ** DetachTypedLink
-    detachTypedLink_directoryArn,
-    detachTypedLink_typedLinkSpecifier,
-
-    -- ** GetFacet
-    getFacet_schemaArn,
-    getFacet_name,
-    getFacetResponse_facet,
-    getFacetResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** ListIncomingTypedLinks
-    listIncomingTypedLinks_nextToken,
-    listIncomingTypedLinks_filterTypedLink,
-    listIncomingTypedLinks_maxResults,
-    listIncomingTypedLinks_consistencyLevel,
-    listIncomingTypedLinks_filterAttributeRanges,
-    listIncomingTypedLinks_directoryArn,
-    listIncomingTypedLinks_objectReference,
-    listIncomingTypedLinksResponse_linkSpecifiers,
-    listIncomingTypedLinksResponse_nextToken,
-    listIncomingTypedLinksResponse_httpStatus,
-
-    -- ** ListObjectParents
-    listObjectParents_nextToken,
-    listObjectParents_maxResults,
-    listObjectParents_includeAllLinksToEachParent,
-    listObjectParents_consistencyLevel,
-    listObjectParents_directoryArn,
-    listObjectParents_objectReference,
-    listObjectParentsResponse_parentLinks,
-    listObjectParentsResponse_parents,
-    listObjectParentsResponse_nextToken,
-    listObjectParentsResponse_httpStatus,
-
-    -- ** ListPolicyAttachments
-    listPolicyAttachments_nextToken,
-    listPolicyAttachments_maxResults,
-    listPolicyAttachments_consistencyLevel,
-    listPolicyAttachments_directoryArn,
-    listPolicyAttachments_policyReference,
-    listPolicyAttachmentsResponse_nextToken,
-    listPolicyAttachmentsResponse_objectIdentifiers,
-    listPolicyAttachmentsResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** ListObjectAttributes
-    listObjectAttributes_nextToken,
-    listObjectAttributes_maxResults,
-    listObjectAttributes_consistencyLevel,
-    listObjectAttributes_facetFilter,
-    listObjectAttributes_directoryArn,
-    listObjectAttributes_objectReference,
-    listObjectAttributesResponse_nextToken,
-    listObjectAttributesResponse_attributes,
-    listObjectAttributesResponse_httpStatus,
-
-    -- ** DeleteTypedLinkFacet
-    deleteTypedLinkFacet_schemaArn,
-    deleteTypedLinkFacet_name,
-    deleteTypedLinkFacetResponse_httpStatus,
-
-    -- ** PublishSchema
-    publishSchema_name,
-    publishSchema_minorVersion,
-    publishSchema_developmentSchemaArn,
-    publishSchema_version,
-    publishSchemaResponse_publishedSchemaArn,
-    publishSchemaResponse_httpStatus,
-
-    -- ** DeleteDirectory
-    deleteDirectory_directoryArn,
-    deleteDirectoryResponse_httpStatus,
-    deleteDirectoryResponse_directoryArn,
-
-    -- ** UpdateTypedLinkFacet
-    updateTypedLinkFacet_schemaArn,
-    updateTypedLinkFacet_name,
-    updateTypedLinkFacet_attributeUpdates,
-    updateTypedLinkFacet_identityAttributeOrder,
-    updateTypedLinkFacetResponse_httpStatus,
-
-    -- ** CreateDirectory
-    createDirectory_name,
-    createDirectory_schemaArn,
-    createDirectoryResponse_httpStatus,
-    createDirectoryResponse_directoryArn,
-    createDirectoryResponse_name,
-    createDirectoryResponse_objectIdentifier,
-    createDirectoryResponse_appliedSchemaArn,
-
-    -- ** ListPublishedSchemaArns
-    listPublishedSchemaArns_nextToken,
-    listPublishedSchemaArns_schemaArn,
-    listPublishedSchemaArns_maxResults,
-    listPublishedSchemaArnsResponse_schemaArns,
-    listPublishedSchemaArnsResponse_nextToken,
-    listPublishedSchemaArnsResponse_httpStatus,
-
-    -- ** ListDirectories
-    listDirectories_nextToken,
-    listDirectories_maxResults,
-    listDirectories_state,
-    listDirectoriesResponse_nextToken,
-    listDirectoriesResponse_httpStatus,
-    listDirectoriesResponse_directories,
-
-    -- ** ListObjectParentPaths
-    listObjectParentPaths_nextToken,
-    listObjectParentPaths_maxResults,
-    listObjectParentPaths_directoryArn,
-    listObjectParentPaths_objectReference,
-    listObjectParentPathsResponse_nextToken,
-    listObjectParentPathsResponse_pathToObjectIdentifiersList,
-    listObjectParentPathsResponse_httpStatus,
-
-    -- ** CreateSchema
-    createSchema_name,
-    createSchemaResponse_schemaArn,
-    createSchemaResponse_httpStatus,
+    -- ** DetachFromIndex
+    detachFromIndex_directoryArn,
+    detachFromIndex_indexReference,
+    detachFromIndex_targetReference,
+    detachFromIndexResponse_detachedObjectIdentifier,
+    detachFromIndexResponse_httpStatus,
 
     -- ** LookupPolicy
     lookupPolicy_nextToken,
@@ -267,179 +86,57 @@ module Network.AWS.CloudDirectory.Lens
     lookupPolicyResponse_policyToPathList,
     lookupPolicyResponse_httpStatus,
 
-    -- ** CreateIndex
-    createIndex_linkName,
-    createIndex_parentReference,
-    createIndex_directoryArn,
-    createIndex_orderedIndexedAttributeList,
-    createIndex_isUnique,
-    createIndexResponse_objectIdentifier,
-    createIndexResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** DetachFromIndex
-    detachFromIndex_directoryArn,
-    detachFromIndex_indexReference,
-    detachFromIndex_targetReference,
-    detachFromIndexResponse_detachedObjectIdentifier,
-    detachFromIndexResponse_httpStatus,
+    -- ** ListPublishedSchemaArns
+    listPublishedSchemaArns_nextToken,
+    listPublishedSchemaArns_schemaArn,
+    listPublishedSchemaArns_maxResults,
+    listPublishedSchemaArnsResponse_schemaArns,
+    listPublishedSchemaArnsResponse_nextToken,
+    listPublishedSchemaArnsResponse_httpStatus,
 
-    -- ** ListAttachedIndices
-    listAttachedIndices_nextToken,
-    listAttachedIndices_maxResults,
-    listAttachedIndices_consistencyLevel,
-    listAttachedIndices_directoryArn,
-    listAttachedIndices_targetReference,
-    listAttachedIndicesResponse_nextToken,
-    listAttachedIndicesResponse_indexAttachments,
-    listAttachedIndicesResponse_httpStatus,
+    -- ** ListDirectories
+    listDirectories_state,
+    listDirectories_nextToken,
+    listDirectories_maxResults,
+    listDirectoriesResponse_nextToken,
+    listDirectoriesResponse_httpStatus,
+    listDirectoriesResponse_directories,
 
-    -- ** DetachPolicy
-    detachPolicy_directoryArn,
-    detachPolicy_policyReference,
-    detachPolicy_objectReference,
-    detachPolicyResponse_httpStatus,
+    -- ** CreateTypedLinkFacet
+    createTypedLinkFacet_schemaArn,
+    createTypedLinkFacet_facet,
+    createTypedLinkFacetResponse_httpStatus,
 
-    -- ** ListObjectChildren
-    listObjectChildren_nextToken,
-    listObjectChildren_maxResults,
-    listObjectChildren_consistencyLevel,
-    listObjectChildren_directoryArn,
-    listObjectChildren_objectReference,
-    listObjectChildrenResponse_nextToken,
-    listObjectChildrenResponse_children,
-    listObjectChildrenResponse_httpStatus,
+    -- ** ListObjectParentPaths
+    listObjectParentPaths_nextToken,
+    listObjectParentPaths_maxResults,
+    listObjectParentPaths_directoryArn,
+    listObjectParentPaths_objectReference,
+    listObjectParentPathsResponse_pathToObjectIdentifiersList,
+    listObjectParentPathsResponse_nextToken,
+    listObjectParentPathsResponse_httpStatus,
 
-    -- ** ListIndex
-    listIndex_nextToken,
-    listIndex_maxResults,
-    listIndex_consistencyLevel,
-    listIndex_rangesOnIndexedValues,
-    listIndex_directoryArn,
-    listIndex_indexReference,
-    listIndexResponse_nextToken,
-    listIndexResponse_indexAttachments,
-    listIndexResponse_httpStatus,
+    -- ** DisableDirectory
+    disableDirectory_directoryArn,
+    disableDirectoryResponse_httpStatus,
+    disableDirectoryResponse_directoryArn,
 
-    -- ** ListObjectPolicies
-    listObjectPolicies_nextToken,
-    listObjectPolicies_maxResults,
-    listObjectPolicies_consistencyLevel,
-    listObjectPolicies_directoryArn,
-    listObjectPolicies_objectReference,
-    listObjectPoliciesResponse_nextToken,
-    listObjectPoliciesResponse_attachedPolicyIds,
-    listObjectPoliciesResponse_httpStatus,
-
-    -- ** GetLinkAttributes
-    getLinkAttributes_consistencyLevel,
-    getLinkAttributes_directoryArn,
-    getLinkAttributes_typedLinkSpecifier,
-    getLinkAttributes_attributeNames,
-    getLinkAttributesResponse_attributes,
-    getLinkAttributesResponse_httpStatus,
-
-    -- ** CreateFacet
-    createFacet_facetStyle,
-    createFacet_attributes,
-    createFacet_objectType,
-    createFacet_schemaArn,
-    createFacet_name,
-    createFacetResponse_httpStatus,
-
-    -- ** PutSchemaFromJson
-    putSchemaFromJson_schemaArn,
-    putSchemaFromJson_document,
-    putSchemaFromJsonResponse_arn,
-    putSchemaFromJsonResponse_httpStatus,
-
-    -- ** BatchRead
-    batchRead_consistencyLevel,
-    batchRead_directoryArn,
-    batchRead_operations,
-    batchReadResponse_responses,
-    batchReadResponse_httpStatus,
-
-    -- ** AttachObject
-    attachObject_directoryArn,
-    attachObject_parentReference,
-    attachObject_childReference,
-    attachObject_linkName,
-    attachObjectResponse_attachedObjectIdentifier,
-    attachObjectResponse_httpStatus,
-
-    -- ** AttachToIndex
-    attachToIndex_directoryArn,
-    attachToIndex_indexReference,
-    attachToIndex_targetReference,
-    attachToIndexResponse_attachedObjectIdentifier,
-    attachToIndexResponse_httpStatus,
-
-    -- ** AttachPolicy
-    attachPolicy_directoryArn,
-    attachPolicy_policyReference,
-    attachPolicy_objectReference,
-    attachPolicyResponse_httpStatus,
-
-    -- ** ListFacetNames
-    listFacetNames_nextToken,
-    listFacetNames_maxResults,
-    listFacetNames_schemaArn,
-    listFacetNamesResponse_nextToken,
-    listFacetNamesResponse_facetNames,
-    listFacetNamesResponse_httpStatus,
-
-    -- ** ListOutgoingTypedLinks
-    listOutgoingTypedLinks_nextToken,
-    listOutgoingTypedLinks_filterTypedLink,
-    listOutgoingTypedLinks_maxResults,
-    listOutgoingTypedLinks_consistencyLevel,
-    listOutgoingTypedLinks_filterAttributeRanges,
-    listOutgoingTypedLinks_directoryArn,
-    listOutgoingTypedLinks_objectReference,
-    listOutgoingTypedLinksResponse_nextToken,
-    listOutgoingTypedLinksResponse_typedLinkSpecifiers,
-    listOutgoingTypedLinksResponse_httpStatus,
-
-    -- ** UpdateObjectAttributes
-    updateObjectAttributes_directoryArn,
-    updateObjectAttributes_objectReference,
-    updateObjectAttributes_attributeUpdates,
-    updateObjectAttributesResponse_objectIdentifier,
-    updateObjectAttributesResponse_httpStatus,
-
-    -- ** ListAppliedSchemaArns
-    listAppliedSchemaArns_nextToken,
-    listAppliedSchemaArns_schemaArn,
-    listAppliedSchemaArns_maxResults,
-    listAppliedSchemaArns_directoryArn,
-    listAppliedSchemaArnsResponse_schemaArns,
-    listAppliedSchemaArnsResponse_nextToken,
-    listAppliedSchemaArnsResponse_httpStatus,
-
-    -- ** ListManagedSchemaArns
-    listManagedSchemaArns_nextToken,
-    listManagedSchemaArns_schemaArn,
-    listManagedSchemaArns_maxResults,
-    listManagedSchemaArnsResponse_schemaArns,
-    listManagedSchemaArnsResponse_nextToken,
-    listManagedSchemaArnsResponse_httpStatus,
-
-    -- ** DeleteSchema
-    deleteSchema_schemaArn,
-    deleteSchemaResponse_schemaArn,
-    deleteSchemaResponse_httpStatus,
-
-    -- ** UpdateSchema
-    updateSchema_schemaArn,
-    updateSchema_name,
-    updateSchemaResponse_schemaArn,
-    updateSchemaResponse_httpStatus,
-
-    -- ** RemoveFacetFromObject
-    removeFacetFromObject_directoryArn,
-    removeFacetFromObject_schemaFacet,
-    removeFacetFromObject_objectReference,
-    removeFacetFromObjectResponse_httpStatus,
+    -- ** CreateDirectory
+    createDirectory_name,
+    createDirectory_schemaArn,
+    createDirectoryResponse_httpStatus,
+    createDirectoryResponse_directoryArn,
+    createDirectoryResponse_name,
+    createDirectoryResponse_objectIdentifier,
+    createDirectoryResponse_appliedSchemaArn,
 
     -- ** ListFacetAttributes
     listFacetAttributes_nextToken,
@@ -450,38 +147,202 @@ module Network.AWS.CloudDirectory.Lens
     listFacetAttributesResponse_attributes,
     listFacetAttributesResponse_httpStatus,
 
+    -- ** ListManagedSchemaArns
+    listManagedSchemaArns_nextToken,
+    listManagedSchemaArns_schemaArn,
+    listManagedSchemaArns_maxResults,
+    listManagedSchemaArnsResponse_schemaArns,
+    listManagedSchemaArnsResponse_nextToken,
+    listManagedSchemaArnsResponse_httpStatus,
+
+    -- ** UpdateTypedLinkFacet
+    updateTypedLinkFacet_schemaArn,
+    updateTypedLinkFacet_name,
+    updateTypedLinkFacet_attributeUpdates,
+    updateTypedLinkFacet_identityAttributeOrder,
+    updateTypedLinkFacetResponse_httpStatus,
+
+    -- ** DeleteTypedLinkFacet
+    deleteTypedLinkFacet_schemaArn,
+    deleteTypedLinkFacet_name,
+    deleteTypedLinkFacetResponse_httpStatus,
+
     -- ** GetAppliedSchemaVersion
     getAppliedSchemaVersion_schemaArn,
     getAppliedSchemaVersionResponse_appliedSchemaArn,
     getAppliedSchemaVersionResponse_httpStatus,
+
+    -- ** RemoveFacetFromObject
+    removeFacetFromObject_directoryArn,
+    removeFacetFromObject_schemaFacet,
+    removeFacetFromObject_objectReference,
+    removeFacetFromObjectResponse_httpStatus,
 
     -- ** EnableDirectory
     enableDirectory_directoryArn,
     enableDirectoryResponse_httpStatus,
     enableDirectoryResponse_directoryArn,
 
-    -- ** ApplySchema
-    applySchema_publishedSchemaArn,
-    applySchema_directoryArn,
-    applySchemaResponse_directoryArn,
-    applySchemaResponse_appliedSchemaArn,
-    applySchemaResponse_httpStatus,
+    -- ** ListObjectAttributes
+    listObjectAttributes_facetFilter,
+    listObjectAttributes_consistencyLevel,
+    listObjectAttributes_nextToken,
+    listObjectAttributes_maxResults,
+    listObjectAttributes_directoryArn,
+    listObjectAttributes_objectReference,
+    listObjectAttributesResponse_nextToken,
+    listObjectAttributesResponse_attributes,
+    listObjectAttributesResponse_httpStatus,
 
-    -- ** DisableDirectory
-    disableDirectory_directoryArn,
-    disableDirectoryResponse_httpStatus,
-    disableDirectoryResponse_directoryArn,
+    -- ** ListAppliedSchemaArns
+    listAppliedSchemaArns_nextToken,
+    listAppliedSchemaArns_schemaArn,
+    listAppliedSchemaArns_maxResults,
+    listAppliedSchemaArns_directoryArn,
+    listAppliedSchemaArnsResponse_schemaArns,
+    listAppliedSchemaArnsResponse_nextToken,
+    listAppliedSchemaArnsResponse_httpStatus,
 
-    -- ** CreateTypedLinkFacet
-    createTypedLinkFacet_schemaArn,
-    createTypedLinkFacet_facet,
-    createTypedLinkFacetResponse_httpStatus,
+    -- ** ListIncomingTypedLinks
+    listIncomingTypedLinks_filterAttributeRanges,
+    listIncomingTypedLinks_consistencyLevel,
+    listIncomingTypedLinks_nextToken,
+    listIncomingTypedLinks_filterTypedLink,
+    listIncomingTypedLinks_maxResults,
+    listIncomingTypedLinks_directoryArn,
+    listIncomingTypedLinks_objectReference,
+    listIncomingTypedLinksResponse_linkSpecifiers,
+    listIncomingTypedLinksResponse_nextToken,
+    listIncomingTypedLinksResponse_httpStatus,
 
-    -- ** GetSchemaAsJson
-    getSchemaAsJson_schemaArn,
-    getSchemaAsJsonResponse_name,
-    getSchemaAsJsonResponse_document,
-    getSchemaAsJsonResponse_httpStatus,
+    -- ** GetFacet
+    getFacet_schemaArn,
+    getFacet_name,
+    getFacetResponse_facet,
+    getFacetResponse_httpStatus,
+
+    -- ** GetTypedLinkFacetInformation
+    getTypedLinkFacetInformation_schemaArn,
+    getTypedLinkFacetInformation_name,
+    getTypedLinkFacetInformationResponse_identityAttributeOrder,
+    getTypedLinkFacetInformationResponse_httpStatus,
+
+    -- ** ListDevelopmentSchemaArns
+    listDevelopmentSchemaArns_nextToken,
+    listDevelopmentSchemaArns_maxResults,
+    listDevelopmentSchemaArnsResponse_schemaArns,
+    listDevelopmentSchemaArnsResponse_nextToken,
+    listDevelopmentSchemaArnsResponse_httpStatus,
+
+    -- ** AttachObject
+    attachObject_directoryArn,
+    attachObject_parentReference,
+    attachObject_childReference,
+    attachObject_linkName,
+    attachObjectResponse_attachedObjectIdentifier,
+    attachObjectResponse_httpStatus,
+
+    -- ** BatchWrite
+    batchWrite_directoryArn,
+    batchWrite_operations,
+    batchWriteResponse_responses,
+    batchWriteResponse_httpStatus,
+
+    -- ** CreateObject
+    createObject_parentReference,
+    createObject_objectAttributeList,
+    createObject_linkName,
+    createObject_directoryArn,
+    createObject_schemaFacets,
+    createObjectResponse_objectIdentifier,
+    createObjectResponse_httpStatus,
+
+    -- ** UpgradePublishedSchema
+    upgradePublishedSchema_dryRun,
+    upgradePublishedSchema_developmentSchemaArn,
+    upgradePublishedSchema_publishedSchemaArn,
+    upgradePublishedSchema_minorVersion,
+    upgradePublishedSchemaResponse_upgradedSchemaArn,
+    upgradePublishedSchemaResponse_httpStatus,
+
+    -- ** CreateFacet
+    createFacet_facetStyle,
+    createFacet_objectType,
+    createFacet_attributes,
+    createFacet_schemaArn,
+    createFacet_name,
+    createFacetResponse_httpStatus,
+
+    -- ** GetLinkAttributes
+    getLinkAttributes_consistencyLevel,
+    getLinkAttributes_directoryArn,
+    getLinkAttributes_typedLinkSpecifier,
+    getLinkAttributes_attributeNames,
+    getLinkAttributesResponse_attributes,
+    getLinkAttributesResponse_httpStatus,
+
+    -- ** GetObjectAttributes
+    getObjectAttributes_consistencyLevel,
+    getObjectAttributes_directoryArn,
+    getObjectAttributes_objectReference,
+    getObjectAttributes_schemaFacet,
+    getObjectAttributes_attributeNames,
+    getObjectAttributesResponse_attributes,
+    getObjectAttributesResponse_httpStatus,
+
+    -- ** DeleteFacet
+    deleteFacet_schemaArn,
+    deleteFacet_name,
+    deleteFacetResponse_httpStatus,
+
+    -- ** UpdateFacet
+    updateFacet_objectType,
+    updateFacet_attributeUpdates,
+    updateFacet_schemaArn,
+    updateFacet_name,
+    updateFacetResponse_httpStatus,
+
+    -- ** ListObjectChildren
+    listObjectChildren_consistencyLevel,
+    listObjectChildren_nextToken,
+    listObjectChildren_maxResults,
+    listObjectChildren_directoryArn,
+    listObjectChildren_objectReference,
+    listObjectChildrenResponse_children,
+    listObjectChildrenResponse_nextToken,
+    listObjectChildrenResponse_httpStatus,
+
+    -- ** ListTypedLinkFacetNames
+    listTypedLinkFacetNames_nextToken,
+    listTypedLinkFacetNames_maxResults,
+    listTypedLinkFacetNames_schemaArn,
+    listTypedLinkFacetNamesResponse_nextToken,
+    listTypedLinkFacetNamesResponse_facetNames,
+    listTypedLinkFacetNamesResponse_httpStatus,
+
+    -- ** AttachTypedLink
+    attachTypedLink_directoryArn,
+    attachTypedLink_sourceObjectReference,
+    attachTypedLink_targetObjectReference,
+    attachTypedLink_typedLinkFacet,
+    attachTypedLink_attributes,
+    attachTypedLinkResponse_typedLinkSpecifier,
+    attachTypedLinkResponse_httpStatus,
+
+    -- ** DetachPolicy
+    detachPolicy_directoryArn,
+    detachPolicy_policyReference,
+    detachPolicy_objectReference,
+    detachPolicyResponse_httpStatus,
+
+    -- ** CreateIndex
+    createIndex_parentReference,
+    createIndex_linkName,
+    createIndex_directoryArn,
+    createIndex_orderedIndexedAttributeList,
+    createIndex_isUnique,
+    createIndexResponse_objectIdentifier,
+    createIndexResponse_httpStatus,
 
     -- ** DetachObject
     detachObject_directoryArn,
@@ -497,13 +358,152 @@ module Network.AWS.CloudDirectory.Lens
     addFacetToObject_objectReference,
     addFacetToObjectResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** ApplySchema
+    applySchema_publishedSchemaArn,
+    applySchema_directoryArn,
+    applySchemaResponse_directoryArn,
+    applySchemaResponse_appliedSchemaArn,
+    applySchemaResponse_httpStatus,
+
+    -- ** CreateSchema
+    createSchema_name,
+    createSchemaResponse_schemaArn,
+    createSchemaResponse_httpStatus,
+
+    -- ** GetSchemaAsJson
+    getSchemaAsJson_schemaArn,
+    getSchemaAsJsonResponse_document,
+    getSchemaAsJsonResponse_name,
+    getSchemaAsJsonResponse_httpStatus,
+
+    -- ** PublishSchema
+    publishSchema_minorVersion,
+    publishSchema_name,
+    publishSchema_developmentSchemaArn,
+    publishSchema_version,
+    publishSchemaResponse_publishedSchemaArn,
+    publishSchemaResponse_httpStatus,
+
+    -- ** DeleteDirectory
+    deleteDirectory_directoryArn,
+    deleteDirectoryResponse_httpStatus,
+    deleteDirectoryResponse_directoryArn,
+
+    -- ** ListObjectParents
+    listObjectParents_consistencyLevel,
+    listObjectParents_includeAllLinksToEachParent,
+    listObjectParents_nextToken,
+    listObjectParents_maxResults,
+    listObjectParents_directoryArn,
+    listObjectParents_objectReference,
+    listObjectParentsResponse_nextToken,
+    listObjectParentsResponse_parents,
+    listObjectParentsResponse_parentLinks,
+    listObjectParentsResponse_httpStatus,
+
+    -- ** ListPolicyAttachments
+    listPolicyAttachments_consistencyLevel,
+    listPolicyAttachments_nextToken,
+    listPolicyAttachments_maxResults,
+    listPolicyAttachments_directoryArn,
+    listPolicyAttachments_policyReference,
+    listPolicyAttachmentsResponse_objectIdentifiers,
+    listPolicyAttachmentsResponse_nextToken,
+    listPolicyAttachmentsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UpdateSchema
+    updateSchema_schemaArn,
+    updateSchema_name,
+    updateSchemaResponse_schemaArn,
+    updateSchemaResponse_httpStatus,
+
+    -- ** DeleteSchema
+    deleteSchema_schemaArn,
+    deleteSchemaResponse_schemaArn,
+    deleteSchemaResponse_httpStatus,
+
+    -- ** DetachTypedLink
+    detachTypedLink_directoryArn,
+    detachTypedLink_typedLinkSpecifier,
+
+    -- ** ListFacetNames
+    listFacetNames_nextToken,
+    listFacetNames_maxResults,
+    listFacetNames_schemaArn,
+    listFacetNamesResponse_nextToken,
+    listFacetNamesResponse_facetNames,
+    listFacetNamesResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** ListOutgoingTypedLinks
+    listOutgoingTypedLinks_filterAttributeRanges,
+    listOutgoingTypedLinks_consistencyLevel,
+    listOutgoingTypedLinks_nextToken,
+    listOutgoingTypedLinks_filterTypedLink,
+    listOutgoingTypedLinks_maxResults,
+    listOutgoingTypedLinks_directoryArn,
+    listOutgoingTypedLinks_objectReference,
+    listOutgoingTypedLinksResponse_typedLinkSpecifiers,
+    listOutgoingTypedLinksResponse_nextToken,
+    listOutgoingTypedLinksResponse_httpStatus,
+
+    -- ** UpdateObjectAttributes
+    updateObjectAttributes_directoryArn,
+    updateObjectAttributes_objectReference,
+    updateObjectAttributes_attributeUpdates,
+    updateObjectAttributesResponse_objectIdentifier,
+    updateObjectAttributesResponse_httpStatus,
+
+    -- ** AttachPolicy
+    attachPolicy_directoryArn,
+    attachPolicy_policyReference,
+    attachPolicy_objectReference,
+    attachPolicyResponse_httpStatus,
+
+    -- ** BatchRead
+    batchRead_consistencyLevel,
+    batchRead_directoryArn,
+    batchRead_operations,
+    batchReadResponse_responses,
+    batchReadResponse_httpStatus,
+
+    -- ** PutSchemaFromJson
+    putSchemaFromJson_schemaArn,
+    putSchemaFromJson_document,
+    putSchemaFromJsonResponse_arn,
+    putSchemaFromJsonResponse_httpStatus,
+
+    -- ** UpdateLinkAttributes
+    updateLinkAttributes_directoryArn,
+    updateLinkAttributes_typedLinkSpecifier,
+    updateLinkAttributes_attributeUpdates,
+    updateLinkAttributesResponse_httpStatus,
+
+    -- ** AttachToIndex
+    attachToIndex_directoryArn,
+    attachToIndex_indexReference,
+    attachToIndex_targetReference,
+    attachToIndexResponse_attachedObjectIdentifier,
+    attachToIndexResponse_httpStatus,
+
+    -- ** ListObjectPolicies
+    listObjectPolicies_consistencyLevel,
+    listObjectPolicies_nextToken,
+    listObjectPolicies_maxResults,
+    listObjectPolicies_directoryArn,
+    listObjectPolicies_objectReference,
+    listObjectPoliciesResponse_nextToken,
+    listObjectPoliciesResponse_attachedPolicyIds,
+    listObjectPoliciesResponse_httpStatus,
 
     -- * Types
 
@@ -558,8 +558,8 @@ module Network.AWS.CloudDirectory.Lens
     batchAttachTypedLinkResponse_typedLinkSpecifier,
 
     -- ** BatchCreateIndex
-    batchCreateIndex_linkName,
     batchCreateIndex_parentReference,
+    batchCreateIndex_linkName,
     batchCreateIndex_batchReferenceName,
     batchCreateIndex_orderedIndexedAttributeList,
     batchCreateIndex_isUnique,
@@ -568,8 +568,8 @@ module Network.AWS.CloudDirectory.Lens
     batchCreateIndexResponse_objectIdentifier,
 
     -- ** BatchCreateObject
-    batchCreateObject_linkName,
     batchCreateObject_parentReference,
+    batchCreateObject_linkName,
     batchCreateObject_batchReferenceName,
     batchCreateObject_schemaFacet,
     batchCreateObject_objectAttributeList,
@@ -627,8 +627,8 @@ module Network.AWS.CloudDirectory.Lens
     batchGetObjectInformation_objectReference,
 
     -- ** BatchGetObjectInformationResponse
-    batchGetObjectInformationResponse_schemaFacets,
     batchGetObjectInformationResponse_objectIdentifier,
+    batchGetObjectInformationResponse_schemaFacets,
 
     -- ** BatchListAttachedIndices
     batchListAttachedIndices_nextToken,
@@ -636,14 +636,14 @@ module Network.AWS.CloudDirectory.Lens
     batchListAttachedIndices_targetReference,
 
     -- ** BatchListAttachedIndicesResponse
-    batchListAttachedIndicesResponse_nextToken,
     batchListAttachedIndicesResponse_indexAttachments,
+    batchListAttachedIndicesResponse_nextToken,
 
     -- ** BatchListIncomingTypedLinks
+    batchListIncomingTypedLinks_filterAttributeRanges,
     batchListIncomingTypedLinks_nextToken,
     batchListIncomingTypedLinks_filterTypedLink,
     batchListIncomingTypedLinks_maxResults,
-    batchListIncomingTypedLinks_filterAttributeRanges,
     batchListIncomingTypedLinks_objectReference,
 
     -- ** BatchListIncomingTypedLinksResponse
@@ -651,19 +651,19 @@ module Network.AWS.CloudDirectory.Lens
     batchListIncomingTypedLinksResponse_nextToken,
 
     -- ** BatchListIndex
+    batchListIndex_rangesOnIndexedValues,
     batchListIndex_nextToken,
     batchListIndex_maxResults,
-    batchListIndex_rangesOnIndexedValues,
     batchListIndex_indexReference,
 
     -- ** BatchListIndexResponse
-    batchListIndexResponse_nextToken,
     batchListIndexResponse_indexAttachments,
+    batchListIndexResponse_nextToken,
 
     -- ** BatchListObjectAttributes
+    batchListObjectAttributes_facetFilter,
     batchListObjectAttributes_nextToken,
     batchListObjectAttributes_maxResults,
-    batchListObjectAttributes_facetFilter,
     batchListObjectAttributes_objectReference,
 
     -- ** BatchListObjectAttributesResponse
@@ -676,8 +676,8 @@ module Network.AWS.CloudDirectory.Lens
     batchListObjectChildren_objectReference,
 
     -- ** BatchListObjectChildrenResponse
-    batchListObjectChildrenResponse_nextToken,
     batchListObjectChildrenResponse_children,
+    batchListObjectChildrenResponse_nextToken,
 
     -- ** BatchListObjectParentPaths
     batchListObjectParentPaths_nextToken,
@@ -685,8 +685,8 @@ module Network.AWS.CloudDirectory.Lens
     batchListObjectParentPaths_objectReference,
 
     -- ** BatchListObjectParentPathsResponse
-    batchListObjectParentPathsResponse_nextToken,
     batchListObjectParentPathsResponse_pathToObjectIdentifiersList,
+    batchListObjectParentPathsResponse_nextToken,
 
     -- ** BatchListObjectParents
     batchListObjectParents_nextToken,
@@ -694,8 +694,8 @@ module Network.AWS.CloudDirectory.Lens
     batchListObjectParents_objectReference,
 
     -- ** BatchListObjectParentsResponse
-    batchListObjectParentsResponse_parentLinks,
     batchListObjectParentsResponse_nextToken,
+    batchListObjectParentsResponse_parentLinks,
 
     -- ** BatchListObjectPolicies
     batchListObjectPolicies_nextToken,
@@ -707,15 +707,15 @@ module Network.AWS.CloudDirectory.Lens
     batchListObjectPoliciesResponse_attachedPolicyIds,
 
     -- ** BatchListOutgoingTypedLinks
+    batchListOutgoingTypedLinks_filterAttributeRanges,
     batchListOutgoingTypedLinks_nextToken,
     batchListOutgoingTypedLinks_filterTypedLink,
     batchListOutgoingTypedLinks_maxResults,
-    batchListOutgoingTypedLinks_filterAttributeRanges,
     batchListOutgoingTypedLinks_objectReference,
 
     -- ** BatchListOutgoingTypedLinksResponse
-    batchListOutgoingTypedLinksResponse_nextToken,
     batchListOutgoingTypedLinksResponse_typedLinkSpecifiers,
+    batchListOutgoingTypedLinksResponse_nextToken,
 
     -- ** BatchListPolicyAttachments
     batchListPolicyAttachments_nextToken,
@@ -723,8 +723,8 @@ module Network.AWS.CloudDirectory.Lens
     batchListPolicyAttachments_policyReference,
 
     -- ** BatchListPolicyAttachmentsResponse
-    batchListPolicyAttachmentsResponse_nextToken,
     batchListPolicyAttachmentsResponse_objectIdentifiers,
+    batchListPolicyAttachmentsResponse_nextToken,
 
     -- ** BatchLookupPolicy
     batchLookupPolicy_nextToken,
@@ -736,44 +736,44 @@ module Network.AWS.CloudDirectory.Lens
     batchLookupPolicyResponse_policyToPathList,
 
     -- ** BatchReadException
-    batchReadException_message,
     batchReadException_type,
+    batchReadException_message,
 
     -- ** BatchReadOperation
+    batchReadOperation_listIndex,
     batchReadOperation_getObjectInformation,
-    batchReadOperation_getObjectAttributes,
+    batchReadOperation_listAttachedIndices,
+    batchReadOperation_lookupPolicy,
+    batchReadOperation_listObjectParentPaths,
+    batchReadOperation_listObjectAttributes,
     batchReadOperation_listIncomingTypedLinks,
+    batchReadOperation_getLinkAttributes,
+    batchReadOperation_getObjectAttributes,
+    batchReadOperation_listObjectChildren,
     batchReadOperation_listObjectParents,
     batchReadOperation_listPolicyAttachments,
-    batchReadOperation_listObjectAttributes,
-    batchReadOperation_listObjectParentPaths,
-    batchReadOperation_lookupPolicy,
-    batchReadOperation_listAttachedIndices,
-    batchReadOperation_listObjectChildren,
-    batchReadOperation_listIndex,
-    batchReadOperation_listObjectPolicies,
-    batchReadOperation_getLinkAttributes,
     batchReadOperation_listOutgoingTypedLinks,
+    batchReadOperation_listObjectPolicies,
 
     -- ** BatchReadOperationResponse
-    batchReadOperationResponse_successfulResponse,
     batchReadOperationResponse_exceptionResponse,
+    batchReadOperationResponse_successfulResponse,
 
     -- ** BatchReadSuccessfulResponse
+    batchReadSuccessfulResponse_listIndex,
     batchReadSuccessfulResponse_getObjectInformation,
-    batchReadSuccessfulResponse_getObjectAttributes,
+    batchReadSuccessfulResponse_listAttachedIndices,
+    batchReadSuccessfulResponse_lookupPolicy,
+    batchReadSuccessfulResponse_listObjectParentPaths,
+    batchReadSuccessfulResponse_listObjectAttributes,
     batchReadSuccessfulResponse_listIncomingTypedLinks,
+    batchReadSuccessfulResponse_getLinkAttributes,
+    batchReadSuccessfulResponse_getObjectAttributes,
+    batchReadSuccessfulResponse_listObjectChildren,
     batchReadSuccessfulResponse_listObjectParents,
     batchReadSuccessfulResponse_listPolicyAttachments,
-    batchReadSuccessfulResponse_listObjectAttributes,
-    batchReadSuccessfulResponse_listObjectParentPaths,
-    batchReadSuccessfulResponse_lookupPolicy,
-    batchReadSuccessfulResponse_listAttachedIndices,
-    batchReadSuccessfulResponse_listObjectChildren,
-    batchReadSuccessfulResponse_listIndex,
-    batchReadSuccessfulResponse_listObjectPolicies,
-    batchReadSuccessfulResponse_getLinkAttributes,
     batchReadSuccessfulResponse_listOutgoingTypedLinks,
+    batchReadSuccessfulResponse_listObjectPolicies,
 
     -- ** BatchRemoveFacetFromObject
     batchRemoveFacetFromObject_schemaFacet,
@@ -795,60 +795,60 @@ module Network.AWS.CloudDirectory.Lens
     batchUpdateObjectAttributesResponse_objectIdentifier,
 
     -- ** BatchWriteOperation
-    batchWriteOperation_attachTypedLink,
     batchWriteOperation_deleteObject,
-    batchWriteOperation_createObject,
-    batchWriteOperation_updateLinkAttributes,
-    batchWriteOperation_detachTypedLink,
-    batchWriteOperation_createIndex,
     batchWriteOperation_detachFromIndex,
-    batchWriteOperation_detachPolicy,
-    batchWriteOperation_attachObject,
-    batchWriteOperation_attachToIndex,
-    batchWriteOperation_attachPolicy,
-    batchWriteOperation_updateObjectAttributes,
     batchWriteOperation_removeFacetFromObject,
+    batchWriteOperation_attachObject,
+    batchWriteOperation_createObject,
+    batchWriteOperation_attachTypedLink,
+    batchWriteOperation_detachPolicy,
+    batchWriteOperation_createIndex,
     batchWriteOperation_detachObject,
     batchWriteOperation_addFacetToObject,
+    batchWriteOperation_detachTypedLink,
+    batchWriteOperation_updateObjectAttributes,
+    batchWriteOperation_attachPolicy,
+    batchWriteOperation_updateLinkAttributes,
+    batchWriteOperation_attachToIndex,
 
     -- ** BatchWriteOperationResponse
-    batchWriteOperationResponse_attachTypedLink,
     batchWriteOperationResponse_deleteObject,
-    batchWriteOperationResponse_createObject,
-    batchWriteOperationResponse_updateLinkAttributes,
-    batchWriteOperationResponse_detachTypedLink,
-    batchWriteOperationResponse_createIndex,
     batchWriteOperationResponse_detachFromIndex,
-    batchWriteOperationResponse_detachPolicy,
-    batchWriteOperationResponse_attachObject,
-    batchWriteOperationResponse_attachToIndex,
-    batchWriteOperationResponse_attachPolicy,
-    batchWriteOperationResponse_updateObjectAttributes,
     batchWriteOperationResponse_removeFacetFromObject,
+    batchWriteOperationResponse_attachObject,
+    batchWriteOperationResponse_createObject,
+    batchWriteOperationResponse_attachTypedLink,
+    batchWriteOperationResponse_detachPolicy,
+    batchWriteOperationResponse_createIndex,
     batchWriteOperationResponse_detachObject,
     batchWriteOperationResponse_addFacetToObject,
+    batchWriteOperationResponse_detachTypedLink,
+    batchWriteOperationResponse_updateObjectAttributes,
+    batchWriteOperationResponse_attachPolicy,
+    batchWriteOperationResponse_updateLinkAttributes,
+    batchWriteOperationResponse_attachToIndex,
 
     -- ** Directory
     directory_directoryArn,
-    directory_name,
     directory_state,
+    directory_name,
     directory_creationDateTime,
 
     -- ** Facet
     facet_facetStyle,
-    facet_name,
     facet_objectType,
+    facet_name,
 
     -- ** FacetAttribute
     facetAttribute_attributeReference,
-    facetAttribute_requiredBehavior,
     facetAttribute_attributeDefinition,
+    facetAttribute_requiredBehavior,
     facetAttribute_name,
 
     -- ** FacetAttributeDefinition
-    facetAttributeDefinition_isImmutable,
     facetAttributeDefinition_rules,
     facetAttributeDefinition_defaultValue,
+    facetAttributeDefinition_isImmutable,
     facetAttributeDefinition_type,
 
     -- ** FacetAttributeReference
@@ -860,12 +860,12 @@ module Network.AWS.CloudDirectory.Lens
     facetAttributeUpdate_action,
 
     -- ** IndexAttachment
-    indexAttachment_objectIdentifier,
     indexAttachment_indexedAttributes,
+    indexAttachment_objectIdentifier,
 
     -- ** LinkAttributeAction
-    linkAttributeAction_attributeUpdateValue,
     linkAttributeAction_attributeActionType,
+    linkAttributeAction_attributeUpdateValue,
 
     -- ** LinkAttributeUpdate
     linkAttributeUpdate_attributeAction,
@@ -884,8 +884,8 @@ module Network.AWS.CloudDirectory.Lens
     objectAttributeUpdate_objectAttributeKey,
 
     -- ** ObjectIdentifierAndLinkNameTuple
-    objectIdentifierAndLinkNameTuple_linkName,
     objectIdentifierAndLinkNameTuple_objectIdentifier,
+    objectIdentifierAndLinkNameTuple_linkName,
 
     -- ** ObjectReference
     objectReference_selector,
@@ -895,32 +895,32 @@ module Network.AWS.CloudDirectory.Lens
     pathToObjectIdentifiers_path,
 
     -- ** PolicyAttachment
+    policyAttachment_policyId,
     policyAttachment_policyType,
     policyAttachment_objectIdentifier,
-    policyAttachment_policyId,
 
     -- ** PolicyToPath
-    policyToPath_policies,
     policyToPath_path,
+    policyToPath_policies,
 
     -- ** Rule
-    rule_type,
     rule_parameters,
+    rule_type,
 
     -- ** SchemaFacet
-    schemaFacet_schemaArn,
     schemaFacet_facetName,
+    schemaFacet_schemaArn,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** TypedAttributeValue
+    typedAttributeValue_binaryValue,
+    typedAttributeValue_datetimeValue,
+    typedAttributeValue_numberValue,
     typedAttributeValue_stringValue,
     typedAttributeValue_booleanValue,
-    typedAttributeValue_binaryValue,
-    typedAttributeValue_numberValue,
-    typedAttributeValue_datetimeValue,
 
     -- ** TypedAttributeValueRange
     typedAttributeValueRange_endValue,
@@ -929,9 +929,9 @@ module Network.AWS.CloudDirectory.Lens
     typedAttributeValueRange_endMode,
 
     -- ** TypedLinkAttributeDefinition
-    typedLinkAttributeDefinition_isImmutable,
     typedLinkAttributeDefinition_rules,
     typedLinkAttributeDefinition_defaultValue,
+    typedLinkAttributeDefinition_isImmutable,
     typedLinkAttributeDefinition_name,
     typedLinkAttributeDefinition_type,
     typedLinkAttributeDefinition_requiredBehavior,

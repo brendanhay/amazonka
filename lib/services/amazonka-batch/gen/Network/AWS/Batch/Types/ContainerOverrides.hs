@@ -29,7 +29,27 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContainerOverrides' smart constructor.
 data ContainerOverrides = ContainerOverrides'
-  { -- | This parameter indicates the amount of memory (in MiB) that\'s reserved
+  { -- | The command to send to the container that overrides the default command
+    -- from the Docker image or the job definition.
+    command :: Prelude.Maybe [Prelude.Text],
+    -- | The environment variables to send to the container. You can add new
+    -- environment variables, which are added to the container at launch, or
+    -- you can override the existing environment variables from the Docker
+    -- image or the job definition.
+    --
+    -- Environment variables must not start with @AWS_BATCH@; this naming
+    -- convention is reserved for variables that are set by the Batch service.
+    environment :: Prelude.Maybe [KeyValuePair],
+    -- | The type and amount of resources to assign to a container. This
+    -- overrides the settings in the job definition. The supported resources
+    -- include @GPU@, @MEMORY@, and @VCPU@.
+    resourceRequirements :: Prelude.Maybe [ResourceRequirement],
+    -- | The instance type to use for a multi-node parallel job.
+    --
+    -- This parameter isn\'t applicable to single-node container jobs or jobs
+    -- that run on Fargate resources, and shouldn\'t be provided.
+    instanceType :: Prelude.Maybe Prelude.Text,
+    -- | This parameter indicates the amount of memory (in MiB) that\'s reserved
     -- for the job. It overrides the @memory@ parameter set in the job
     -- definition, but doesn\'t override any memory requirement specified in
     -- the @ResourceRequirement@ structure in the job definition. To override
@@ -42,11 +62,6 @@ data ContainerOverrides = ContainerOverrides'
     -- isn\'t supported for jobs that run on Fargate resources. For these
     -- resources, use @resourceRequirement@ instead.
     memory :: Prelude.Maybe Prelude.Int,
-    -- | The instance type to use for a multi-node parallel job.
-    --
-    -- This parameter isn\'t applicable to single-node container jobs or jobs
-    -- that run on Fargate resources, and shouldn\'t be provided.
-    instanceType :: Prelude.Maybe Prelude.Text,
     -- | This parameter indicates the number of vCPUs reserved for the
     -- container.It overrides the @vcpus@ parameter that\'s set in the job
     -- definition, but doesn\'t override any vCPU requirement specified in the
@@ -68,22 +83,7 @@ data ContainerOverrides = ContainerOverrides'
     -- isn\'t supported for jobs that run on Fargate resources. For Fargate
     -- resources, you can only use @resourceRequirement@. For EC2 resources,
     -- you can use either this parameter or @resourceRequirement@ but not both.
-    vcpus :: Prelude.Maybe Prelude.Int,
-    -- | The environment variables to send to the container. You can add new
-    -- environment variables, which are added to the container at launch, or
-    -- you can override the existing environment variables from the Docker
-    -- image or the job definition.
-    --
-    -- Environment variables must not start with @AWS_BATCH@; this naming
-    -- convention is reserved for variables that are set by the Batch service.
-    environment :: Prelude.Maybe [KeyValuePair],
-    -- | The command to send to the container that overrides the default command
-    -- from the Docker image or the job definition.
-    command :: Prelude.Maybe [Prelude.Text],
-    -- | The type and amount of resources to assign to a container. This
-    -- overrides the settings in the job definition. The supported resources
-    -- include @GPU@, @MEMORY@, and @VCPU@.
-    resourceRequirements :: Prelude.Maybe [ResourceRequirement]
+    vcpus :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,6 +94,26 @@ data ContainerOverrides = ContainerOverrides'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'command', 'containerOverrides_command' - The command to send to the container that overrides the default command
+-- from the Docker image or the job definition.
+--
+-- 'environment', 'containerOverrides_environment' - The environment variables to send to the container. You can add new
+-- environment variables, which are added to the container at launch, or
+-- you can override the existing environment variables from the Docker
+-- image or the job definition.
+--
+-- Environment variables must not start with @AWS_BATCH@; this naming
+-- convention is reserved for variables that are set by the Batch service.
+--
+-- 'resourceRequirements', 'containerOverrides_resourceRequirements' - The type and amount of resources to assign to a container. This
+-- overrides the settings in the job definition. The supported resources
+-- include @GPU@, @MEMORY@, and @VCPU@.
+--
+-- 'instanceType', 'containerOverrides_instanceType' - The instance type to use for a multi-node parallel job.
+--
+-- This parameter isn\'t applicable to single-node container jobs or jobs
+-- that run on Fargate resources, and shouldn\'t be provided.
 --
 -- 'memory', 'containerOverrides_memory' - This parameter indicates the amount of memory (in MiB) that\'s reserved
 -- for the job. It overrides the @memory@ parameter set in the job
@@ -107,11 +127,6 @@ data ContainerOverrides = ContainerOverrides'
 -- This parameter is supported for jobs that run on EC2 resources, but
 -- isn\'t supported for jobs that run on Fargate resources. For these
 -- resources, use @resourceRequirement@ instead.
---
--- 'instanceType', 'containerOverrides_instanceType' - The instance type to use for a multi-node parallel job.
---
--- This parameter isn\'t applicable to single-node container jobs or jobs
--- that run on Fargate resources, and shouldn\'t be provided.
 --
 -- 'vcpus', 'containerOverrides_vcpus' - This parameter indicates the number of vCPUs reserved for the
 -- container.It overrides the @vcpus@ parameter that\'s set in the job
@@ -134,32 +149,45 @@ data ContainerOverrides = ContainerOverrides'
 -- isn\'t supported for jobs that run on Fargate resources. For Fargate
 -- resources, you can only use @resourceRequirement@. For EC2 resources,
 -- you can use either this parameter or @resourceRequirement@ but not both.
---
--- 'environment', 'containerOverrides_environment' - The environment variables to send to the container. You can add new
+newContainerOverrides ::
+  ContainerOverrides
+newContainerOverrides =
+  ContainerOverrides'
+    { command = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      resourceRequirements = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      memory = Prelude.Nothing,
+      vcpus = Prelude.Nothing
+    }
+
+-- | The command to send to the container that overrides the default command
+-- from the Docker image or the job definition.
+containerOverrides_command :: Lens.Lens' ContainerOverrides (Prelude.Maybe [Prelude.Text])
+containerOverrides_command = Lens.lens (\ContainerOverrides' {command} -> command) (\s@ContainerOverrides' {} a -> s {command = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens.coerced
+
+-- | The environment variables to send to the container. You can add new
 -- environment variables, which are added to the container at launch, or
 -- you can override the existing environment variables from the Docker
 -- image or the job definition.
 --
 -- Environment variables must not start with @AWS_BATCH@; this naming
 -- convention is reserved for variables that are set by the Batch service.
---
--- 'command', 'containerOverrides_command' - The command to send to the container that overrides the default command
--- from the Docker image or the job definition.
---
--- 'resourceRequirements', 'containerOverrides_resourceRequirements' - The type and amount of resources to assign to a container. This
+containerOverrides_environment :: Lens.Lens' ContainerOverrides (Prelude.Maybe [KeyValuePair])
+containerOverrides_environment = Lens.lens (\ContainerOverrides' {environment} -> environment) (\s@ContainerOverrides' {} a -> s {environment = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens.coerced
+
+-- | The type and amount of resources to assign to a container. This
 -- overrides the settings in the job definition. The supported resources
 -- include @GPU@, @MEMORY@, and @VCPU@.
-newContainerOverrides ::
-  ContainerOverrides
-newContainerOverrides =
-  ContainerOverrides'
-    { memory = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      vcpus = Prelude.Nothing,
-      environment = Prelude.Nothing,
-      command = Prelude.Nothing,
-      resourceRequirements = Prelude.Nothing
-    }
+containerOverrides_resourceRequirements :: Lens.Lens' ContainerOverrides (Prelude.Maybe [ResourceRequirement])
+containerOverrides_resourceRequirements = Lens.lens (\ContainerOverrides' {resourceRequirements} -> resourceRequirements) (\s@ContainerOverrides' {} a -> s {resourceRequirements = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens.coerced
+
+-- | The instance type to use for a multi-node parallel job.
+--
+-- This parameter isn\'t applicable to single-node container jobs or jobs
+-- that run on Fargate resources, and shouldn\'t be provided.
+containerOverrides_instanceType :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Text)
+containerOverrides_instanceType = Lens.lens (\ContainerOverrides' {instanceType} -> instanceType) (\s@ContainerOverrides' {} a -> s {instanceType = a} :: ContainerOverrides)
 
 -- | This parameter indicates the amount of memory (in MiB) that\'s reserved
 -- for the job. It overrides the @memory@ parameter set in the job
@@ -175,13 +203,6 @@ newContainerOverrides =
 -- resources, use @resourceRequirement@ instead.
 containerOverrides_memory :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Int)
 containerOverrides_memory = Lens.lens (\ContainerOverrides' {memory} -> memory) (\s@ContainerOverrides' {} a -> s {memory = a} :: ContainerOverrides)
-
--- | The instance type to use for a multi-node parallel job.
---
--- This parameter isn\'t applicable to single-node container jobs or jobs
--- that run on Fargate resources, and shouldn\'t be provided.
-containerOverrides_instanceType :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Text)
-containerOverrides_instanceType = Lens.lens (\ContainerOverrides' {instanceType} -> instanceType) (\s@ContainerOverrides' {} a -> s {instanceType = a} :: ContainerOverrides)
 
 -- | This parameter indicates the number of vCPUs reserved for the
 -- container.It overrides the @vcpus@ parameter that\'s set in the job
@@ -207,27 +228,6 @@ containerOverrides_instanceType = Lens.lens (\ContainerOverrides' {instanceType}
 containerOverrides_vcpus :: Lens.Lens' ContainerOverrides (Prelude.Maybe Prelude.Int)
 containerOverrides_vcpus = Lens.lens (\ContainerOverrides' {vcpus} -> vcpus) (\s@ContainerOverrides' {} a -> s {vcpus = a} :: ContainerOverrides)
 
--- | The environment variables to send to the container. You can add new
--- environment variables, which are added to the container at launch, or
--- you can override the existing environment variables from the Docker
--- image or the job definition.
---
--- Environment variables must not start with @AWS_BATCH@; this naming
--- convention is reserved for variables that are set by the Batch service.
-containerOverrides_environment :: Lens.Lens' ContainerOverrides (Prelude.Maybe [KeyValuePair])
-containerOverrides_environment = Lens.lens (\ContainerOverrides' {environment} -> environment) (\s@ContainerOverrides' {} a -> s {environment = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens._Coerce
-
--- | The command to send to the container that overrides the default command
--- from the Docker image or the job definition.
-containerOverrides_command :: Lens.Lens' ContainerOverrides (Prelude.Maybe [Prelude.Text])
-containerOverrides_command = Lens.lens (\ContainerOverrides' {command} -> command) (\s@ContainerOverrides' {} a -> s {command = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens._Coerce
-
--- | The type and amount of resources to assign to a container. This
--- overrides the settings in the job definition. The supported resources
--- include @GPU@, @MEMORY@, and @VCPU@.
-containerOverrides_resourceRequirements :: Lens.Lens' ContainerOverrides (Prelude.Maybe [ResourceRequirement])
-containerOverrides_resourceRequirements = Lens.lens (\ContainerOverrides' {resourceRequirements} -> resourceRequirements) (\s@ContainerOverrides' {} a -> s {resourceRequirements = a} :: ContainerOverrides) Prelude.. Lens.mapping Lens._Coerce
-
 instance Prelude.Hashable ContainerOverrides
 
 instance Prelude.NFData ContainerOverrides
@@ -236,12 +236,12 @@ instance Core.ToJSON ContainerOverrides where
   toJSON ContainerOverrides' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("memory" Core..=) Prelude.<$> memory,
-            ("instanceType" Core..=) Prelude.<$> instanceType,
-            ("vcpus" Core..=) Prelude.<$> vcpus,
+          [ ("command" Core..=) Prelude.<$> command,
             ("environment" Core..=) Prelude.<$> environment,
-            ("command" Core..=) Prelude.<$> command,
             ("resourceRequirements" Core..=)
-              Prelude.<$> resourceRequirements
+              Prelude.<$> resourceRequirements,
+            ("instanceType" Core..=) Prelude.<$> instanceType,
+            ("memory" Core..=) Prelude.<$> memory,
+            ("vcpus" Core..=) Prelude.<$> vcpus
           ]
       )

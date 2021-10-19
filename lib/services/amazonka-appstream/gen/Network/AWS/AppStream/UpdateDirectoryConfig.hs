@@ -99,7 +99,7 @@ updateDirectoryConfig_serviceAccountCredentials = Lens.lens (\UpdateDirectoryCon
 -- | The distinguished names of the organizational units for computer
 -- accounts.
 updateDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' UpdateDirectoryConfig (Prelude.Maybe [Prelude.Text])
-updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens._Coerce
+updateDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\UpdateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@UpdateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: UpdateDirectoryConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Directory Config object.
 updateDirectoryConfig_directoryName :: Lens.Lens' UpdateDirectoryConfig Prelude.Text

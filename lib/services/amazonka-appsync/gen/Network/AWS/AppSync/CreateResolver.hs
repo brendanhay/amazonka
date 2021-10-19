@@ -30,13 +30,13 @@ module Network.AWS.AppSync.CreateResolver
     newCreateResolver,
 
     -- * Request Lenses
-    createResolver_responseMappingTemplate,
-    createResolver_kind,
-    createResolver_syncConfig,
     createResolver_dataSourceName,
-    createResolver_cachingConfig,
-    createResolver_pipelineConfig,
     createResolver_requestMappingTemplate,
+    createResolver_kind,
+    createResolver_cachingConfig,
+    createResolver_responseMappingTemplate,
+    createResolver_syncConfig,
+    createResolver_pipelineConfig,
     createResolver_apiId,
     createResolver_typeName,
     createResolver_fieldName,
@@ -60,8 +60,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateResolver' smart constructor.
 data CreateResolver = CreateResolver'
-  { -- | The mapping template to be used for responses from the data source.
-    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+  { -- | The name of the data source for which the resolver is being created.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The mapping template to be used for requests.
+    --
+    -- A resolver uses a request mapping template to convert a GraphQL
+    -- expression into a format that a data source can understand. Mapping
+    -- templates are written in Apache Velocity Template Language (VTL).
+    --
+    -- VTL request mapping templates are optional when using a Lambda data
+    -- source. For all other data sources, VTL request and response mapping
+    -- templates are required.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The resolver type.
     --
     -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
@@ -73,24 +83,14 @@ data CreateResolver = CreateResolver'
     --     use a pipeline resolver to execute a GraphQL query against multiple
     --     data sources.
     kind :: Prelude.Maybe ResolverKind,
-    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
-    syncConfig :: Prelude.Maybe SyncConfig,
-    -- | The name of the data source for which the resolver is being created.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The caching configuration for the resolver.
     cachingConfig :: Prelude.Maybe CachingConfig,
+    -- | The mapping template to be used for responses from the data source.
+    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+    syncConfig :: Prelude.Maybe SyncConfig,
     -- | The @PipelineConfig@.
     pipelineConfig :: Prelude.Maybe PipelineConfig,
-    -- | The mapping template to be used for requests.
-    --
-    -- A resolver uses a request mapping template to convert a GraphQL
-    -- expression into a format that a data source can understand. Mapping
-    -- templates are written in Apache Velocity Template Language (VTL).
-    --
-    -- VTL request mapping templates are optional when using a Lambda data
-    -- source. For all other data sources, VTL request and response mapping
-    -- templates are required.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The ID for the GraphQL API for which the resolver is being created.
     apiId :: Prelude.Text,
     -- | The name of the @Type@.
@@ -108,7 +108,17 @@ data CreateResolver = CreateResolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'responseMappingTemplate', 'createResolver_responseMappingTemplate' - The mapping template to be used for responses from the data source.
+-- 'dataSourceName', 'createResolver_dataSourceName' - The name of the data source for which the resolver is being created.
+--
+-- 'requestMappingTemplate', 'createResolver_requestMappingTemplate' - The mapping template to be used for requests.
+--
+-- A resolver uses a request mapping template to convert a GraphQL
+-- expression into a format that a data source can understand. Mapping
+-- templates are written in Apache Velocity Template Language (VTL).
+--
+-- VTL request mapping templates are optional when using a Lambda data
+-- source. For all other data sources, VTL request and response mapping
+-- templates are required.
 --
 -- 'kind', 'createResolver_kind' - The resolver type.
 --
@@ -121,23 +131,13 @@ data CreateResolver = CreateResolver'
 --     use a pipeline resolver to execute a GraphQL query against multiple
 --     data sources.
 --
--- 'syncConfig', 'createResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
---
--- 'dataSourceName', 'createResolver_dataSourceName' - The name of the data source for which the resolver is being created.
---
 -- 'cachingConfig', 'createResolver_cachingConfig' - The caching configuration for the resolver.
 --
+-- 'responseMappingTemplate', 'createResolver_responseMappingTemplate' - The mapping template to be used for responses from the data source.
+--
+-- 'syncConfig', 'createResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
+--
 -- 'pipelineConfig', 'createResolver_pipelineConfig' - The @PipelineConfig@.
---
--- 'requestMappingTemplate', 'createResolver_requestMappingTemplate' - The mapping template to be used for requests.
---
--- A resolver uses a request mapping template to convert a GraphQL
--- expression into a format that a data source can understand. Mapping
--- templates are written in Apache Velocity Template Language (VTL).
---
--- VTL request mapping templates are optional when using a Lambda data
--- source. For all other data sources, VTL request and response mapping
--- templates are required.
 --
 -- 'apiId', 'createResolver_apiId' - The ID for the GraphQL API for which the resolver is being created.
 --
@@ -154,22 +154,33 @@ newCreateResolver ::
   CreateResolver
 newCreateResolver pApiId_ pTypeName_ pFieldName_ =
   CreateResolver'
-    { responseMappingTemplate =
-        Prelude.Nothing,
-      kind = Prelude.Nothing,
-      syncConfig = Prelude.Nothing,
-      dataSourceName = Prelude.Nothing,
-      cachingConfig = Prelude.Nothing,
-      pipelineConfig = Prelude.Nothing,
+    { dataSourceName = Prelude.Nothing,
       requestMappingTemplate = Prelude.Nothing,
+      kind = Prelude.Nothing,
+      cachingConfig = Prelude.Nothing,
+      responseMappingTemplate = Prelude.Nothing,
+      syncConfig = Prelude.Nothing,
+      pipelineConfig = Prelude.Nothing,
       apiId = pApiId_,
       typeName = pTypeName_,
       fieldName = pFieldName_
     }
 
--- | The mapping template to be used for responses from the data source.
-createResolver_responseMappingTemplate :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
-createResolver_responseMappingTemplate = Lens.lens (\CreateResolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@CreateResolver' {} a -> s {responseMappingTemplate = a} :: CreateResolver)
+-- | The name of the data source for which the resolver is being created.
+createResolver_dataSourceName :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
+createResolver_dataSourceName = Lens.lens (\CreateResolver' {dataSourceName} -> dataSourceName) (\s@CreateResolver' {} a -> s {dataSourceName = a} :: CreateResolver)
+
+-- | The mapping template to be used for requests.
+--
+-- A resolver uses a request mapping template to convert a GraphQL
+-- expression into a format that a data source can understand. Mapping
+-- templates are written in Apache Velocity Template Language (VTL).
+--
+-- VTL request mapping templates are optional when using a Lambda data
+-- source. For all other data sources, VTL request and response mapping
+-- templates are required.
+createResolver_requestMappingTemplate :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
+createResolver_requestMappingTemplate = Lens.lens (\CreateResolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@CreateResolver' {} a -> s {requestMappingTemplate = a} :: CreateResolver)
 
 -- | The resolver type.
 --
@@ -184,33 +195,21 @@ createResolver_responseMappingTemplate = Lens.lens (\CreateResolver' {responseMa
 createResolver_kind :: Lens.Lens' CreateResolver (Prelude.Maybe ResolverKind)
 createResolver_kind = Lens.lens (\CreateResolver' {kind} -> kind) (\s@CreateResolver' {} a -> s {kind = a} :: CreateResolver)
 
--- | The @SyncConfig@ for a resolver attached to a versioned datasource.
-createResolver_syncConfig :: Lens.Lens' CreateResolver (Prelude.Maybe SyncConfig)
-createResolver_syncConfig = Lens.lens (\CreateResolver' {syncConfig} -> syncConfig) (\s@CreateResolver' {} a -> s {syncConfig = a} :: CreateResolver)
-
--- | The name of the data source for which the resolver is being created.
-createResolver_dataSourceName :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
-createResolver_dataSourceName = Lens.lens (\CreateResolver' {dataSourceName} -> dataSourceName) (\s@CreateResolver' {} a -> s {dataSourceName = a} :: CreateResolver)
-
 -- | The caching configuration for the resolver.
 createResolver_cachingConfig :: Lens.Lens' CreateResolver (Prelude.Maybe CachingConfig)
 createResolver_cachingConfig = Lens.lens (\CreateResolver' {cachingConfig} -> cachingConfig) (\s@CreateResolver' {} a -> s {cachingConfig = a} :: CreateResolver)
 
+-- | The mapping template to be used for responses from the data source.
+createResolver_responseMappingTemplate :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
+createResolver_responseMappingTemplate = Lens.lens (\CreateResolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@CreateResolver' {} a -> s {responseMappingTemplate = a} :: CreateResolver)
+
+-- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+createResolver_syncConfig :: Lens.Lens' CreateResolver (Prelude.Maybe SyncConfig)
+createResolver_syncConfig = Lens.lens (\CreateResolver' {syncConfig} -> syncConfig) (\s@CreateResolver' {} a -> s {syncConfig = a} :: CreateResolver)
+
 -- | The @PipelineConfig@.
 createResolver_pipelineConfig :: Lens.Lens' CreateResolver (Prelude.Maybe PipelineConfig)
 createResolver_pipelineConfig = Lens.lens (\CreateResolver' {pipelineConfig} -> pipelineConfig) (\s@CreateResolver' {} a -> s {pipelineConfig = a} :: CreateResolver)
-
--- | The mapping template to be used for requests.
---
--- A resolver uses a request mapping template to convert a GraphQL
--- expression into a format that a data source can understand. Mapping
--- templates are written in Apache Velocity Template Language (VTL).
---
--- VTL request mapping templates are optional when using a Lambda data
--- source. For all other data sources, VTL request and response mapping
--- templates are required.
-createResolver_requestMappingTemplate :: Lens.Lens' CreateResolver (Prelude.Maybe Prelude.Text)
-createResolver_requestMappingTemplate = Lens.lens (\CreateResolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@CreateResolver' {} a -> s {requestMappingTemplate = a} :: CreateResolver)
 
 -- | The ID for the GraphQL API for which the resolver is being created.
 createResolver_apiId :: Lens.Lens' CreateResolver Prelude.Text
@@ -256,17 +255,17 @@ instance Core.ToJSON CreateResolver where
   toJSON CreateResolver' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("responseMappingTemplate" Core..=)
-              Prelude.<$> responseMappingTemplate,
-            ("kind" Core..=) Prelude.<$> kind,
-            ("syncConfig" Core..=) Prelude.<$> syncConfig,
-            ("dataSourceName" Core..=)
+          [ ("dataSourceName" Core..=)
               Prelude.<$> dataSourceName,
-            ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
-            ("pipelineConfig" Core..=)
-              Prelude.<$> pipelineConfig,
             ("requestMappingTemplate" Core..=)
               Prelude.<$> requestMappingTemplate,
+            ("kind" Core..=) Prelude.<$> kind,
+            ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
+            ("responseMappingTemplate" Core..=)
+              Prelude.<$> responseMappingTemplate,
+            ("syncConfig" Core..=) Prelude.<$> syncConfig,
+            ("pipelineConfig" Core..=)
+              Prelude.<$> pipelineConfig,
             Prelude.Just ("fieldName" Core..= fieldName)
           ]
       )

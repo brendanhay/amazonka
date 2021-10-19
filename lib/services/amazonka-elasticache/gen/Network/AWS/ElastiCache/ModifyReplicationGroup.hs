@@ -35,30 +35,30 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     newModifyReplicationGroup,
 
     -- * Request Lenses
-    modifyReplicationGroup_securityGroupIds,
     modifyReplicationGroup_automaticFailoverEnabled,
-    modifyReplicationGroup_cacheSecurityGroupNames,
-    modifyReplicationGroup_authTokenUpdateStrategy,
-    modifyReplicationGroup_primaryClusterId,
-    modifyReplicationGroup_snapshotWindow,
-    modifyReplicationGroup_notificationTopicStatus,
-    modifyReplicationGroup_cacheParameterGroupName,
-    modifyReplicationGroup_userGroupIdsToRemove,
-    modifyReplicationGroup_replicationGroupDescription,
-    modifyReplicationGroup_snapshotRetentionLimit,
-    modifyReplicationGroup_userGroupIdsToAdd,
-    modifyReplicationGroup_nodeGroupId,
-    modifyReplicationGroup_snapshottingClusterId,
-    modifyReplicationGroup_multiAZEnabled,
     modifyReplicationGroup_engineVersion,
     modifyReplicationGroup_cacheNodeType,
-    modifyReplicationGroup_preferredMaintenanceWindow,
-    modifyReplicationGroup_notificationTopicArn,
-    modifyReplicationGroup_removeUserGroups,
-    modifyReplicationGroup_authToken,
-    modifyReplicationGroup_logDeliveryConfigurations,
-    modifyReplicationGroup_applyImmediately,
+    modifyReplicationGroup_snapshottingClusterId,
+    modifyReplicationGroup_securityGroupIds,
     modifyReplicationGroup_autoMinorVersionUpgrade,
+    modifyReplicationGroup_cacheParameterGroupName,
+    modifyReplicationGroup_replicationGroupDescription,
+    modifyReplicationGroup_snapshotWindow,
+    modifyReplicationGroup_logDeliveryConfigurations,
+    modifyReplicationGroup_authToken,
+    modifyReplicationGroup_primaryClusterId,
+    modifyReplicationGroup_preferredMaintenanceWindow,
+    modifyReplicationGroup_multiAZEnabled,
+    modifyReplicationGroup_userGroupIdsToAdd,
+    modifyReplicationGroup_nodeGroupId,
+    modifyReplicationGroup_snapshotRetentionLimit,
+    modifyReplicationGroup_userGroupIdsToRemove,
+    modifyReplicationGroup_notificationTopicStatus,
+    modifyReplicationGroup_applyImmediately,
+    modifyReplicationGroup_removeUserGroups,
+    modifyReplicationGroup_authTokenUpdateStrategy,
+    modifyReplicationGroup_notificationTopicArn,
+    modifyReplicationGroup_cacheSecurityGroupNames,
     modifyReplicationGroup_replicationGroupId,
 
     -- * Destructuring the Response
@@ -82,87 +82,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newModifyReplicationGroup' smart constructor.
 data ModifyReplicationGroup = ModifyReplicationGroup'
-  { -- | Specifies the VPC Security Groups associated with the clusters in the
-    -- replication group.
-    --
-    -- This parameter can be used only with replication group containing
-    -- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | Determines whether a read replica is automatically promoted to
+  { -- | Determines whether a read replica is automatically promoted to
     -- read\/write primary if the existing primary encounters a failure.
     --
     -- Valid values: @true@ | @false@
     automaticFailoverEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of cache security group names to authorize for the clusters in
-    -- this replication group. This change is asynchronously applied as soon as
-    -- possible.
-    --
-    -- This parameter can be used only with replication group containing
-    -- clusters running outside of an Amazon Virtual Private Cloud (Amazon
-    -- VPC).
-    --
-    -- Constraints: Must contain no more than 255 alphanumeric characters. Must
-    -- not be @Default@.
-    cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the strategy to use to update the AUTH token. This parameter
-    -- must be specified with the @auth-token@ parameter. Possible values:
-    --
-    -- -   Rotate
-    --
-    -- -   Set
-    --
-    -- For more information, see
-    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
-    authTokenUpdateStrategy :: Prelude.Maybe AuthTokenUpdateStrategyType,
-    -- | For replication groups with a single primary, if this parameter is
-    -- specified, ElastiCache promotes the specified cluster in the specified
-    -- replication group to the primary role. The nodes of all other clusters
-    -- in the replication group are read replicas.
-    primaryClusterId :: Prelude.Maybe Prelude.Text,
-    -- | The daily time range (in UTC) during which ElastiCache begins taking a
-    -- daily snapshot of the node group (shard) specified by
-    -- @SnapshottingClusterId@.
-    --
-    -- Example: @05:00-09:00@
-    --
-    -- If you do not specify this parameter, ElastiCache automatically chooses
-    -- an appropriate time range.
-    snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Amazon SNS notification topic for the replication
-    -- group. Notifications are sent only if the status is @active@.
-    --
-    -- Valid values: @active@ | @inactive@
-    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
-    -- | The name of the cache parameter group to apply to all of the clusters in
-    -- this replication group. This change is asynchronously applied as soon as
-    -- possible for parameters when the @ApplyImmediately@ parameter is
-    -- specified as @true@ for this request.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the user group to disassociate from the replication group,
-    -- meaning the users in the group no longer can access the replication
-    -- group.
-    userGroupIdsToRemove :: Prelude.Maybe [Prelude.Text],
-    -- | A description for the replication group. Maximum length is 255
-    -- characters.
-    replicationGroupDescription :: Prelude.Maybe Prelude.Text,
-    -- | The number of days for which ElastiCache retains automatic node group
-    -- (shard) snapshots before deleting them. For example, if you set
-    -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
-    -- retained for 5 days before being deleted.
-    --
-    -- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
-    -- backups are turned off.
-    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the user group you are associating with the replication group.
-    userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text],
-    -- | Deprecated. This parameter is not used.
-    nodeGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The cluster ID that is used as the daily snapshot source for the
-    -- replication group. This parameter cannot be set for Redis (cluster mode
-    -- enabled) replication groups.
-    snapshottingClusterId :: Prelude.Maybe Prelude.Text,
-    -- | A flag to indicate MultiAZ is enabled.
-    multiAZEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The upgraded version of the cache engine to be run on the clusters in
     -- the replication group.
     --
@@ -175,6 +99,57 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- | A valid cache node type that you want to scale this replication group
     -- to.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- | The cluster ID that is used as the daily snapshot source for the
+    -- replication group. This parameter cannot be set for Redis (cluster mode
+    -- enabled) replication groups.
+    snapshottingClusterId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the VPC Security Groups associated with the clusters in the
+    -- replication group.
+    --
+    -- This parameter can be used only with replication group containing
+    -- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | This parameter is currently disabled.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the cache parameter group to apply to all of the clusters in
+    -- this replication group. This change is asynchronously applied as soon as
+    -- possible for parameters when the @ApplyImmediately@ parameter is
+    -- specified as @true@ for this request.
+    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A description for the replication group. Maximum length is 255
+    -- characters.
+    replicationGroupDescription :: Prelude.Maybe Prelude.Text,
+    -- | The daily time range (in UTC) during which ElastiCache begins taking a
+    -- daily snapshot of the node group (shard) specified by
+    -- @SnapshottingClusterId@.
+    --
+    -- Example: @05:00-09:00@
+    --
+    -- If you do not specify this parameter, ElastiCache automatically chooses
+    -- an appropriate time range.
+    snapshotWindow :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the destination, format and type of the logs.
+    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- | Reserved parameter. The password used to access a password protected
+    -- server. This parameter must be specified with the
+    -- @auth-token-update-strategy @ parameter. Password constraints:
+    --
+    -- -   Must be only printable ASCII characters
+    --
+    -- -   Must be at least 16 characters and no more than 128 characters in
+    --     length
+    --
+    -- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
+    --     \'\@\', \'%\'
+    --
+    -- For more information, see AUTH password at
+    -- <http://redis.io/commands/AUTH AUTH>.
+    authToken :: Prelude.Maybe Prelude.Text,
+    -- | For replication groups with a single primary, if this parameter is
+    -- specified, ElastiCache promotes the specified cluster in the specified
+    -- replication group to the primary role. The nodes of all other clusters
+    -- in the replication group are read replicas.
+    primaryClusterId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
     -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
@@ -198,30 +173,29 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- Example: @sun:23:00-mon:01:30@
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
-    -- notifications are sent.
+    -- | A flag to indicate MultiAZ is enabled.
+    multiAZEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the user group you are associating with the replication group.
+    userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text],
+    -- | Deprecated. This parameter is not used.
+    nodeGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The number of days for which ElastiCache retains automatic node group
+    -- (shard) snapshots before deleting them. For example, if you set
+    -- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+    -- retained for 5 days before being deleted.
     --
-    -- The Amazon SNS topic owner must be same as the replication group owner.
-    notificationTopicArn :: Prelude.Maybe Prelude.Text,
-    -- | Removes the user group associated with this replication group.
-    removeUserGroups :: Prelude.Maybe Prelude.Bool,
-    -- | Reserved parameter. The password used to access a password protected
-    -- server. This parameter must be specified with the
-    -- @auth-token-update-strategy @ parameter. Password constraints:
+    -- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
+    -- backups are turned off.
+    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the user group to disassociate from the replication group,
+    -- meaning the users in the group no longer can access the replication
+    -- group.
+    userGroupIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | The status of the Amazon SNS notification topic for the replication
+    -- group. Notifications are sent only if the status is @active@.
     --
-    -- -   Must be only printable ASCII characters
-    --
-    -- -   Must be at least 16 characters and no more than 128 characters in
-    --     length
-    --
-    -- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
-    --     \'\@\', \'%\'
-    --
-    -- For more information, see AUTH password at
-    -- <http://redis.io/commands/AUTH AUTH>.
-    authToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the destination, format and type of the logs.
-    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- Valid values: @active@ | @inactive@
+    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
     -- | If @true@, this parameter causes the modifications in this request and
     -- any pending modifications to be applied, asynchronously and as soon as
     -- possible, regardless of the @PreferredMaintenanceWindow@ setting for the
@@ -235,8 +209,34 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     --
     -- Default: @false@
     applyImmediately :: Prelude.Maybe Prelude.Bool,
-    -- | This parameter is currently disabled.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | Removes the user group associated with this replication group.
+    removeUserGroups :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the strategy to use to update the AUTH token. This parameter
+    -- must be specified with the @auth-token@ parameter. Possible values:
+    --
+    -- -   Rotate
+    --
+    -- -   Set
+    --
+    -- For more information, see
+    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+    authTokenUpdateStrategy :: Prelude.Maybe AuthTokenUpdateStrategyType,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+    -- notifications are sent.
+    --
+    -- The Amazon SNS topic owner must be same as the replication group owner.
+    notificationTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of cache security group names to authorize for the clusters in
+    -- this replication group. This change is asynchronously applied as soon as
+    -- possible.
+    --
+    -- This parameter can be used only with replication group containing
+    -- clusters running outside of an Amazon Virtual Private Cloud (Amazon
+    -- VPC).
+    --
+    -- Constraints: Must contain no more than 255 alphanumeric characters. Must
+    -- not be @Default@.
+    cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | The identifier of the replication group to modify.
     replicationGroupId :: Prelude.Text
   }
@@ -250,86 +250,10 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'modifyReplicationGroup_securityGroupIds' - Specifies the VPC Security Groups associated with the clusters in the
--- replication group.
---
--- This parameter can be used only with replication group containing
--- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
---
 -- 'automaticFailoverEnabled', 'modifyReplicationGroup_automaticFailoverEnabled' - Determines whether a read replica is automatically promoted to
 -- read\/write primary if the existing primary encounters a failure.
 --
 -- Valid values: @true@ | @false@
---
--- 'cacheSecurityGroupNames', 'modifyReplicationGroup_cacheSecurityGroupNames' - A list of cache security group names to authorize for the clusters in
--- this replication group. This change is asynchronously applied as soon as
--- possible.
---
--- This parameter can be used only with replication group containing
--- clusters running outside of an Amazon Virtual Private Cloud (Amazon
--- VPC).
---
--- Constraints: Must contain no more than 255 alphanumeric characters. Must
--- not be @Default@.
---
--- 'authTokenUpdateStrategy', 'modifyReplicationGroup_authTokenUpdateStrategy' - Specifies the strategy to use to update the AUTH token. This parameter
--- must be specified with the @auth-token@ parameter. Possible values:
---
--- -   Rotate
---
--- -   Set
---
--- For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
---
--- 'primaryClusterId', 'modifyReplicationGroup_primaryClusterId' - For replication groups with a single primary, if this parameter is
--- specified, ElastiCache promotes the specified cluster in the specified
--- replication group to the primary role. The nodes of all other clusters
--- in the replication group are read replicas.
---
--- 'snapshotWindow', 'modifyReplicationGroup_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
--- daily snapshot of the node group (shard) specified by
--- @SnapshottingClusterId@.
---
--- Example: @05:00-09:00@
---
--- If you do not specify this parameter, ElastiCache automatically chooses
--- an appropriate time range.
---
--- 'notificationTopicStatus', 'modifyReplicationGroup_notificationTopicStatus' - The status of the Amazon SNS notification topic for the replication
--- group. Notifications are sent only if the status is @active@.
---
--- Valid values: @active@ | @inactive@
---
--- 'cacheParameterGroupName', 'modifyReplicationGroup_cacheParameterGroupName' - The name of the cache parameter group to apply to all of the clusters in
--- this replication group. This change is asynchronously applied as soon as
--- possible for parameters when the @ApplyImmediately@ parameter is
--- specified as @true@ for this request.
---
--- 'userGroupIdsToRemove', 'modifyReplicationGroup_userGroupIdsToRemove' - The ID of the user group to disassociate from the replication group,
--- meaning the users in the group no longer can access the replication
--- group.
---
--- 'replicationGroupDescription', 'modifyReplicationGroup_replicationGroupDescription' - A description for the replication group. Maximum length is 255
--- characters.
---
--- 'snapshotRetentionLimit', 'modifyReplicationGroup_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic node group
--- (shard) snapshots before deleting them. For example, if you set
--- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
--- retained for 5 days before being deleted.
---
--- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
--- backups are turned off.
---
--- 'userGroupIdsToAdd', 'modifyReplicationGroup_userGroupIdsToAdd' - The ID of the user group you are associating with the replication group.
---
--- 'nodeGroupId', 'modifyReplicationGroup_nodeGroupId' - Deprecated. This parameter is not used.
---
--- 'snapshottingClusterId', 'modifyReplicationGroup_snapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the
--- replication group. This parameter cannot be set for Redis (cluster mode
--- enabled) replication groups.
---
--- 'multiAZEnabled', 'modifyReplicationGroup_multiAZEnabled' - A flag to indicate MultiAZ is enabled.
 --
 -- 'engineVersion', 'modifyReplicationGroup_engineVersion' - The upgraded version of the cache engine to be run on the clusters in
 -- the replication group.
@@ -342,6 +266,57 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 --
 -- 'cacheNodeType', 'modifyReplicationGroup_cacheNodeType' - A valid cache node type that you want to scale this replication group
 -- to.
+--
+-- 'snapshottingClusterId', 'modifyReplicationGroup_snapshottingClusterId' - The cluster ID that is used as the daily snapshot source for the
+-- replication group. This parameter cannot be set for Redis (cluster mode
+-- enabled) replication groups.
+--
+-- 'securityGroupIds', 'modifyReplicationGroup_securityGroupIds' - Specifies the VPC Security Groups associated with the clusters in the
+-- replication group.
+--
+-- This parameter can be used only with replication group containing
+-- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
+--
+-- 'autoMinorVersionUpgrade', 'modifyReplicationGroup_autoMinorVersionUpgrade' - This parameter is currently disabled.
+--
+-- 'cacheParameterGroupName', 'modifyReplicationGroup_cacheParameterGroupName' - The name of the cache parameter group to apply to all of the clusters in
+-- this replication group. This change is asynchronously applied as soon as
+-- possible for parameters when the @ApplyImmediately@ parameter is
+-- specified as @true@ for this request.
+--
+-- 'replicationGroupDescription', 'modifyReplicationGroup_replicationGroupDescription' - A description for the replication group. Maximum length is 255
+-- characters.
+--
+-- 'snapshotWindow', 'modifyReplicationGroup_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
+-- daily snapshot of the node group (shard) specified by
+-- @SnapshottingClusterId@.
+--
+-- Example: @05:00-09:00@
+--
+-- If you do not specify this parameter, ElastiCache automatically chooses
+-- an appropriate time range.
+--
+-- 'logDeliveryConfigurations', 'modifyReplicationGroup_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
+--
+-- 'authToken', 'modifyReplicationGroup_authToken' - Reserved parameter. The password used to access a password protected
+-- server. This parameter must be specified with the
+-- @auth-token-update-strategy @ parameter. Password constraints:
+--
+-- -   Must be only printable ASCII characters
+--
+-- -   Must be at least 16 characters and no more than 128 characters in
+--     length
+--
+-- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
+--     \'\@\', \'%\'
+--
+-- For more information, see AUTH password at
+-- <http://redis.io/commands/AUTH AUTH>.
+--
+-- 'primaryClusterId', 'modifyReplicationGroup_primaryClusterId' - For replication groups with a single primary, if this parameter is
+-- specified, ElastiCache promotes the specified cluster in the specified
+-- replication group to the primary role. The nodes of all other clusters
+-- in the replication group are read replicas.
 --
 -- 'preferredMaintenanceWindow', 'modifyReplicationGroup_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
@@ -366,29 +341,28 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 --
 -- Example: @sun:23:00-mon:01:30@
 --
--- 'notificationTopicArn', 'modifyReplicationGroup_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications are sent.
+-- 'multiAZEnabled', 'modifyReplicationGroup_multiAZEnabled' - A flag to indicate MultiAZ is enabled.
 --
--- The Amazon SNS topic owner must be same as the replication group owner.
+-- 'userGroupIdsToAdd', 'modifyReplicationGroup_userGroupIdsToAdd' - The ID of the user group you are associating with the replication group.
 --
--- 'removeUserGroups', 'modifyReplicationGroup_removeUserGroups' - Removes the user group associated with this replication group.
+-- 'nodeGroupId', 'modifyReplicationGroup_nodeGroupId' - Deprecated. This parameter is not used.
 --
--- 'authToken', 'modifyReplicationGroup_authToken' - Reserved parameter. The password used to access a password protected
--- server. This parameter must be specified with the
--- @auth-token-update-strategy @ parameter. Password constraints:
+-- 'snapshotRetentionLimit', 'modifyReplicationGroup_snapshotRetentionLimit' - The number of days for which ElastiCache retains automatic node group
+-- (shard) snapshots before deleting them. For example, if you set
+-- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+-- retained for 5 days before being deleted.
 --
--- -   Must be only printable ASCII characters
+-- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
+-- backups are turned off.
 --
--- -   Must be at least 16 characters and no more than 128 characters in
---     length
+-- 'userGroupIdsToRemove', 'modifyReplicationGroup_userGroupIdsToRemove' - The ID of the user group to disassociate from the replication group,
+-- meaning the users in the group no longer can access the replication
+-- group.
 --
--- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
---     \'\@\', \'%\'
+-- 'notificationTopicStatus', 'modifyReplicationGroup_notificationTopicStatus' - The status of the Amazon SNS notification topic for the replication
+-- group. Notifications are sent only if the status is @active@.
 --
--- For more information, see AUTH password at
--- <http://redis.io/commands/AUTH AUTH>.
---
--- 'logDeliveryConfigurations', 'modifyReplicationGroup_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
+-- Valid values: @active@ | @inactive@
 --
 -- 'applyImmediately', 'modifyReplicationGroup_applyImmediately' - If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -403,59 +377,24 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 --
 -- Default: @false@
 --
--- 'autoMinorVersionUpgrade', 'modifyReplicationGroup_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'removeUserGroups', 'modifyReplicationGroup_removeUserGroups' - Removes the user group associated with this replication group.
 --
--- 'replicationGroupId', 'modifyReplicationGroup_replicationGroupId' - The identifier of the replication group to modify.
-newModifyReplicationGroup ::
-  -- | 'replicationGroupId'
-  Prelude.Text ->
-  ModifyReplicationGroup
-newModifyReplicationGroup pReplicationGroupId_ =
-  ModifyReplicationGroup'
-    { securityGroupIds =
-        Prelude.Nothing,
-      automaticFailoverEnabled = Prelude.Nothing,
-      cacheSecurityGroupNames = Prelude.Nothing,
-      authTokenUpdateStrategy = Prelude.Nothing,
-      primaryClusterId = Prelude.Nothing,
-      snapshotWindow = Prelude.Nothing,
-      notificationTopicStatus = Prelude.Nothing,
-      cacheParameterGroupName = Prelude.Nothing,
-      userGroupIdsToRemove = Prelude.Nothing,
-      replicationGroupDescription = Prelude.Nothing,
-      snapshotRetentionLimit = Prelude.Nothing,
-      userGroupIdsToAdd = Prelude.Nothing,
-      nodeGroupId = Prelude.Nothing,
-      snapshottingClusterId = Prelude.Nothing,
-      multiAZEnabled = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      notificationTopicArn = Prelude.Nothing,
-      removeUserGroups = Prelude.Nothing,
-      authToken = Prelude.Nothing,
-      logDeliveryConfigurations = Prelude.Nothing,
-      applyImmediately = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
-      replicationGroupId = pReplicationGroupId_
-    }
-
--- | Specifies the VPC Security Groups associated with the clusters in the
--- replication group.
+-- 'authTokenUpdateStrategy', 'modifyReplicationGroup_authTokenUpdateStrategy' - Specifies the strategy to use to update the AUTH token. This parameter
+-- must be specified with the @auth-token@ parameter. Possible values:
 --
--- This parameter can be used only with replication group containing
--- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
-modifyReplicationGroup_securityGroupIds :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
-modifyReplicationGroup_securityGroupIds = Lens.lens (\ModifyReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@ModifyReplicationGroup' {} a -> s {securityGroupIds = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | Determines whether a read replica is automatically promoted to
--- read\/write primary if the existing primary encounters a failure.
+-- -   Rotate
 --
--- Valid values: @true@ | @false@
-modifyReplicationGroup_automaticFailoverEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
-modifyReplicationGroup_automaticFailoverEnabled = Lens.lens (\ModifyReplicationGroup' {automaticFailoverEnabled} -> automaticFailoverEnabled) (\s@ModifyReplicationGroup' {} a -> s {automaticFailoverEnabled = a} :: ModifyReplicationGroup)
-
--- | A list of cache security group names to authorize for the clusters in
+-- -   Set
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+--
+-- 'notificationTopicArn', 'modifyReplicationGroup_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications are sent.
+--
+-- The Amazon SNS topic owner must be same as the replication group owner.
+--
+-- 'cacheSecurityGroupNames', 'modifyReplicationGroup_cacheSecurityGroupNames' - A list of cache security group names to authorize for the clusters in
 -- this replication group. This change is asynchronously applied as soon as
 -- possible.
 --
@@ -465,91 +404,48 @@ modifyReplicationGroup_automaticFailoverEnabled = Lens.lens (\ModifyReplicationG
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be @Default@.
-modifyReplicationGroup_cacheSecurityGroupNames :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
-modifyReplicationGroup_cacheSecurityGroupNames = Lens.lens (\ModifyReplicationGroup' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyReplicationGroup' {} a -> s {cacheSecurityGroupNames = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies the strategy to use to update the AUTH token. This parameter
--- must be specified with the @auth-token@ parameter. Possible values:
 --
--- -   Rotate
+-- 'replicationGroupId', 'modifyReplicationGroup_replicationGroupId' - The identifier of the replication group to modify.
+newModifyReplicationGroup ::
+  -- | 'replicationGroupId'
+  Prelude.Text ->
+  ModifyReplicationGroup
+newModifyReplicationGroup pReplicationGroupId_ =
+  ModifyReplicationGroup'
+    { automaticFailoverEnabled =
+        Prelude.Nothing,
+      engineVersion = Prelude.Nothing,
+      cacheNodeType = Prelude.Nothing,
+      snapshottingClusterId = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing,
+      cacheParameterGroupName = Prelude.Nothing,
+      replicationGroupDescription = Prelude.Nothing,
+      snapshotWindow = Prelude.Nothing,
+      logDeliveryConfigurations = Prelude.Nothing,
+      authToken = Prelude.Nothing,
+      primaryClusterId = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      multiAZEnabled = Prelude.Nothing,
+      userGroupIdsToAdd = Prelude.Nothing,
+      nodeGroupId = Prelude.Nothing,
+      snapshotRetentionLimit = Prelude.Nothing,
+      userGroupIdsToRemove = Prelude.Nothing,
+      notificationTopicStatus = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      removeUserGroups = Prelude.Nothing,
+      authTokenUpdateStrategy = Prelude.Nothing,
+      notificationTopicArn = Prelude.Nothing,
+      cacheSecurityGroupNames = Prelude.Nothing,
+      replicationGroupId = pReplicationGroupId_
+    }
+
+-- | Determines whether a read replica is automatically promoted to
+-- read\/write primary if the existing primary encounters a failure.
 --
--- -   Set
---
--- For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
-modifyReplicationGroup_authTokenUpdateStrategy :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe AuthTokenUpdateStrategyType)
-modifyReplicationGroup_authTokenUpdateStrategy = Lens.lens (\ModifyReplicationGroup' {authTokenUpdateStrategy} -> authTokenUpdateStrategy) (\s@ModifyReplicationGroup' {} a -> s {authTokenUpdateStrategy = a} :: ModifyReplicationGroup)
-
--- | For replication groups with a single primary, if this parameter is
--- specified, ElastiCache promotes the specified cluster in the specified
--- replication group to the primary role. The nodes of all other clusters
--- in the replication group are read replicas.
-modifyReplicationGroup_primaryClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_primaryClusterId = Lens.lens (\ModifyReplicationGroup' {primaryClusterId} -> primaryClusterId) (\s@ModifyReplicationGroup' {} a -> s {primaryClusterId = a} :: ModifyReplicationGroup)
-
--- | The daily time range (in UTC) during which ElastiCache begins taking a
--- daily snapshot of the node group (shard) specified by
--- @SnapshottingClusterId@.
---
--- Example: @05:00-09:00@
---
--- If you do not specify this parameter, ElastiCache automatically chooses
--- an appropriate time range.
-modifyReplicationGroup_snapshotWindow :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_snapshotWindow = Lens.lens (\ModifyReplicationGroup' {snapshotWindow} -> snapshotWindow) (\s@ModifyReplicationGroup' {} a -> s {snapshotWindow = a} :: ModifyReplicationGroup)
-
--- | The status of the Amazon SNS notification topic for the replication
--- group. Notifications are sent only if the status is @active@.
---
--- Valid values: @active@ | @inactive@
-modifyReplicationGroup_notificationTopicStatus :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_notificationTopicStatus = Lens.lens (\ModifyReplicationGroup' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyReplicationGroup' {} a -> s {notificationTopicStatus = a} :: ModifyReplicationGroup)
-
--- | The name of the cache parameter group to apply to all of the clusters in
--- this replication group. This change is asynchronously applied as soon as
--- possible for parameters when the @ApplyImmediately@ parameter is
--- specified as @true@ for this request.
-modifyReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyReplicationGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyReplicationGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyReplicationGroup)
-
--- | The ID of the user group to disassociate from the replication group,
--- meaning the users in the group no longer can access the replication
--- group.
-modifyReplicationGroup_userGroupIdsToRemove :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
-modifyReplicationGroup_userGroupIdsToRemove = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToRemove = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description for the replication group. Maximum length is 255
--- characters.
-modifyReplicationGroup_replicationGroupDescription :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_replicationGroupDescription = Lens.lens (\ModifyReplicationGroup' {replicationGroupDescription} -> replicationGroupDescription) (\s@ModifyReplicationGroup' {} a -> s {replicationGroupDescription = a} :: ModifyReplicationGroup)
-
--- | The number of days for which ElastiCache retains automatic node group
--- (shard) snapshots before deleting them. For example, if you set
--- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
--- retained for 5 days before being deleted.
---
--- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
--- backups are turned off.
-modifyReplicationGroup_snapshotRetentionLimit :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Int)
-modifyReplicationGroup_snapshotRetentionLimit = Lens.lens (\ModifyReplicationGroup' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyReplicationGroup' {} a -> s {snapshotRetentionLimit = a} :: ModifyReplicationGroup)
-
--- | The ID of the user group you are associating with the replication group.
-modifyReplicationGroup_userGroupIdsToAdd :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
-modifyReplicationGroup_userGroupIdsToAdd = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToAdd = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
-
--- | Deprecated. This parameter is not used.
-modifyReplicationGroup_nodeGroupId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_nodeGroupId = Lens.lens (\ModifyReplicationGroup' {nodeGroupId} -> nodeGroupId) (\s@ModifyReplicationGroup' {} a -> s {nodeGroupId = a} :: ModifyReplicationGroup)
-
--- | The cluster ID that is used as the daily snapshot source for the
--- replication group. This parameter cannot be set for Redis (cluster mode
--- enabled) replication groups.
-modifyReplicationGroup_snapshottingClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_snapshottingClusterId = Lens.lens (\ModifyReplicationGroup' {snapshottingClusterId} -> snapshottingClusterId) (\s@ModifyReplicationGroup' {} a -> s {snapshottingClusterId = a} :: ModifyReplicationGroup)
-
--- | A flag to indicate MultiAZ is enabled.
-modifyReplicationGroup_multiAZEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
-modifyReplicationGroup_multiAZEnabled = Lens.lens (\ModifyReplicationGroup' {multiAZEnabled} -> multiAZEnabled) (\s@ModifyReplicationGroup' {} a -> s {multiAZEnabled = a} :: ModifyReplicationGroup)
+-- Valid values: @true@ | @false@
+modifyReplicationGroup_automaticFailoverEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
+modifyReplicationGroup_automaticFailoverEnabled = Lens.lens (\ModifyReplicationGroup' {automaticFailoverEnabled} -> automaticFailoverEnabled) (\s@ModifyReplicationGroup' {} a -> s {automaticFailoverEnabled = a} :: ModifyReplicationGroup)
 
 -- | The upgraded version of the cache engine to be run on the clusters in
 -- the replication group.
@@ -566,6 +462,75 @@ modifyReplicationGroup_engineVersion = Lens.lens (\ModifyReplicationGroup' {engi
 -- to.
 modifyReplicationGroup_cacheNodeType :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_cacheNodeType = Lens.lens (\ModifyReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@ModifyReplicationGroup' {} a -> s {cacheNodeType = a} :: ModifyReplicationGroup)
+
+-- | The cluster ID that is used as the daily snapshot source for the
+-- replication group. This parameter cannot be set for Redis (cluster mode
+-- enabled) replication groups.
+modifyReplicationGroup_snapshottingClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_snapshottingClusterId = Lens.lens (\ModifyReplicationGroup' {snapshottingClusterId} -> snapshottingClusterId) (\s@ModifyReplicationGroup' {} a -> s {snapshottingClusterId = a} :: ModifyReplicationGroup)
+
+-- | Specifies the VPC Security Groups associated with the clusters in the
+-- replication group.
+--
+-- This parameter can be used only with replication group containing
+-- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
+modifyReplicationGroup_securityGroupIds :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_securityGroupIds = Lens.lens (\ModifyReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@ModifyReplicationGroup' {} a -> s {securityGroupIds = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | This parameter is currently disabled.
+modifyReplicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
+modifyReplicationGroup_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationGroup)
+
+-- | The name of the cache parameter group to apply to all of the clusters in
+-- this replication group. This change is asynchronously applied as soon as
+-- possible for parameters when the @ApplyImmediately@ parameter is
+-- specified as @true@ for this request.
+modifyReplicationGroup_cacheParameterGroupName :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_cacheParameterGroupName = Lens.lens (\ModifyReplicationGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyReplicationGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyReplicationGroup)
+
+-- | A description for the replication group. Maximum length is 255
+-- characters.
+modifyReplicationGroup_replicationGroupDescription :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_replicationGroupDescription = Lens.lens (\ModifyReplicationGroup' {replicationGroupDescription} -> replicationGroupDescription) (\s@ModifyReplicationGroup' {} a -> s {replicationGroupDescription = a} :: ModifyReplicationGroup)
+
+-- | The daily time range (in UTC) during which ElastiCache begins taking a
+-- daily snapshot of the node group (shard) specified by
+-- @SnapshottingClusterId@.
+--
+-- Example: @05:00-09:00@
+--
+-- If you do not specify this parameter, ElastiCache automatically chooses
+-- an appropriate time range.
+modifyReplicationGroup_snapshotWindow :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_snapshotWindow = Lens.lens (\ModifyReplicationGroup' {snapshotWindow} -> snapshotWindow) (\s@ModifyReplicationGroup' {} a -> s {snapshotWindow = a} :: ModifyReplicationGroup)
+
+-- | Specifies the destination, format and type of the logs.
+modifyReplicationGroup_logDeliveryConfigurations :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [LogDeliveryConfigurationRequest])
+modifyReplicationGroup_logDeliveryConfigurations = Lens.lens (\ModifyReplicationGroup' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyReplicationGroup' {} a -> s {logDeliveryConfigurations = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | Reserved parameter. The password used to access a password protected
+-- server. This parameter must be specified with the
+-- @auth-token-update-strategy @ parameter. Password constraints:
+--
+-- -   Must be only printable ASCII characters
+--
+-- -   Must be at least 16 characters and no more than 128 characters in
+--     length
+--
+-- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
+--     \'\@\', \'%\'
+--
+-- For more information, see AUTH password at
+-- <http://redis.io/commands/AUTH AUTH>.
+modifyReplicationGroup_authToken :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_authToken = Lens.lens (\ModifyReplicationGroup' {authToken} -> authToken) (\s@ModifyReplicationGroup' {} a -> s {authToken = a} :: ModifyReplicationGroup)
+
+-- | For replication groups with a single primary, if this parameter is
+-- specified, ElastiCache promotes the specified cluster in the specified
+-- replication group to the primary role. The nodes of all other clusters
+-- in the replication group are read replicas.
+modifyReplicationGroup_primaryClusterId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_primaryClusterId = Lens.lens (\ModifyReplicationGroup' {primaryClusterId} -> primaryClusterId) (\s@ModifyReplicationGroup' {} a -> s {primaryClusterId = a} :: ModifyReplicationGroup)
 
 -- | Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
@@ -592,37 +557,40 @@ modifyReplicationGroup_cacheNodeType = Lens.lens (\ModifyReplicationGroup' {cach
 modifyReplicationGroup_preferredMaintenanceWindow :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
 modifyReplicationGroup_preferredMaintenanceWindow = Lens.lens (\ModifyReplicationGroup' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@ModifyReplicationGroup' {} a -> s {preferredMaintenanceWindow = a} :: ModifyReplicationGroup)
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
--- notifications are sent.
---
--- The Amazon SNS topic owner must be same as the replication group owner.
-modifyReplicationGroup_notificationTopicArn :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_notificationTopicArn = Lens.lens (\ModifyReplicationGroup' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyReplicationGroup' {} a -> s {notificationTopicArn = a} :: ModifyReplicationGroup)
+-- | A flag to indicate MultiAZ is enabled.
+modifyReplicationGroup_multiAZEnabled :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
+modifyReplicationGroup_multiAZEnabled = Lens.lens (\ModifyReplicationGroup' {multiAZEnabled} -> multiAZEnabled) (\s@ModifyReplicationGroup' {} a -> s {multiAZEnabled = a} :: ModifyReplicationGroup)
 
--- | Removes the user group associated with this replication group.
-modifyReplicationGroup_removeUserGroups :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
-modifyReplicationGroup_removeUserGroups = Lens.lens (\ModifyReplicationGroup' {removeUserGroups} -> removeUserGroups) (\s@ModifyReplicationGroup' {} a -> s {removeUserGroups = a} :: ModifyReplicationGroup)
+-- | The ID of the user group you are associating with the replication group.
+modifyReplicationGroup_userGroupIdsToAdd :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_userGroupIdsToAdd = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToAdd = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | Reserved parameter. The password used to access a password protected
--- server. This parameter must be specified with the
--- @auth-token-update-strategy @ parameter. Password constraints:
---
--- -   Must be only printable ASCII characters
---
--- -   Must be at least 16 characters and no more than 128 characters in
---     length
---
--- -   Cannot contain any of the following characters: \'\/\', \'\"\', or
---     \'\@\', \'%\'
---
--- For more information, see AUTH password at
--- <http://redis.io/commands/AUTH AUTH>.
-modifyReplicationGroup_authToken :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
-modifyReplicationGroup_authToken = Lens.lens (\ModifyReplicationGroup' {authToken} -> authToken) (\s@ModifyReplicationGroup' {} a -> s {authToken = a} :: ModifyReplicationGroup)
+-- | Deprecated. This parameter is not used.
+modifyReplicationGroup_nodeGroupId :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_nodeGroupId = Lens.lens (\ModifyReplicationGroup' {nodeGroupId} -> nodeGroupId) (\s@ModifyReplicationGroup' {} a -> s {nodeGroupId = a} :: ModifyReplicationGroup)
 
--- | Specifies the destination, format and type of the logs.
-modifyReplicationGroup_logDeliveryConfigurations :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [LogDeliveryConfigurationRequest])
-modifyReplicationGroup_logDeliveryConfigurations = Lens.lens (\ModifyReplicationGroup' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@ModifyReplicationGroup' {} a -> s {logDeliveryConfigurations = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+-- | The number of days for which ElastiCache retains automatic node group
+-- (shard) snapshots before deleting them. For example, if you set
+-- @SnapshotRetentionLimit@ to 5, a snapshot that was taken today is
+-- retained for 5 days before being deleted.
+--
+-- __Important__ If the value of SnapshotRetentionLimit is set to zero (0),
+-- backups are turned off.
+modifyReplicationGroup_snapshotRetentionLimit :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Int)
+modifyReplicationGroup_snapshotRetentionLimit = Lens.lens (\ModifyReplicationGroup' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@ModifyReplicationGroup' {} a -> s {snapshotRetentionLimit = a} :: ModifyReplicationGroup)
+
+-- | The ID of the user group to disassociate from the replication group,
+-- meaning the users in the group no longer can access the replication
+-- group.
+modifyReplicationGroup_userGroupIdsToRemove :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_userGroupIdsToRemove = Lens.lens (\ModifyReplicationGroup' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@ModifyReplicationGroup' {} a -> s {userGroupIdsToRemove = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The status of the Amazon SNS notification topic for the replication
+-- group. Notifications are sent only if the status is @active@.
+--
+-- Valid values: @active@ | @inactive@
+modifyReplicationGroup_notificationTopicStatus :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_notificationTopicStatus = Lens.lens (\ModifyReplicationGroup' {notificationTopicStatus} -> notificationTopicStatus) (\s@ModifyReplicationGroup' {} a -> s {notificationTopicStatus = a} :: ModifyReplicationGroup)
 
 -- | If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -639,9 +607,41 @@ modifyReplicationGroup_logDeliveryConfigurations = Lens.lens (\ModifyReplication
 modifyReplicationGroup_applyImmediately :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_applyImmediately = Lens.lens (\ModifyReplicationGroup' {applyImmediately} -> applyImmediately) (\s@ModifyReplicationGroup' {} a -> s {applyImmediately = a} :: ModifyReplicationGroup)
 
--- | This parameter is currently disabled.
-modifyReplicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
-modifyReplicationGroup_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationGroup)
+-- | Removes the user group associated with this replication group.
+modifyReplicationGroup_removeUserGroups :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
+modifyReplicationGroup_removeUserGroups = Lens.lens (\ModifyReplicationGroup' {removeUserGroups} -> removeUserGroups) (\s@ModifyReplicationGroup' {} a -> s {removeUserGroups = a} :: ModifyReplicationGroup)
+
+-- | Specifies the strategy to use to update the AUTH token. This parameter
+-- must be specified with the @auth-token@ parameter. Possible values:
+--
+-- -   Rotate
+--
+-- -   Set
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html Authenticating Users with Redis AUTH>
+modifyReplicationGroup_authTokenUpdateStrategy :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe AuthTokenUpdateStrategyType)
+modifyReplicationGroup_authTokenUpdateStrategy = Lens.lens (\ModifyReplicationGroup' {authTokenUpdateStrategy} -> authTokenUpdateStrategy) (\s@ModifyReplicationGroup' {} a -> s {authTokenUpdateStrategy = a} :: ModifyReplicationGroup)
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
+-- notifications are sent.
+--
+-- The Amazon SNS topic owner must be same as the replication group owner.
+modifyReplicationGroup_notificationTopicArn :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationGroup_notificationTopicArn = Lens.lens (\ModifyReplicationGroup' {notificationTopicArn} -> notificationTopicArn) (\s@ModifyReplicationGroup' {} a -> s {notificationTopicArn = a} :: ModifyReplicationGroup)
+
+-- | A list of cache security group names to authorize for the clusters in
+-- this replication group. This change is asynchronously applied as soon as
+-- possible.
+--
+-- This parameter can be used only with replication group containing
+-- clusters running outside of an Amazon Virtual Private Cloud (Amazon
+-- VPC).
+--
+-- Constraints: Must contain no more than 255 alphanumeric characters. Must
+-- not be @Default@.
+modifyReplicationGroup_cacheSecurityGroupNames :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
+modifyReplicationGroup_cacheSecurityGroupNames = Lens.lens (\ModifyReplicationGroup' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@ModifyReplicationGroup' {} a -> s {cacheSecurityGroupNames = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the replication group to modify.
 modifyReplicationGroup_replicationGroupId :: Lens.Lens' ModifyReplicationGroup Prelude.Text
@@ -678,59 +678,59 @@ instance Core.ToQuery ModifyReplicationGroup where
           Core.=: ("ModifyReplicationGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "AutomaticFailoverEnabled"
+          Core.=: automaticFailoverEnabled,
+        "EngineVersion" Core.=: engineVersion,
+        "CacheNodeType" Core.=: cacheNodeType,
+        "SnapshottingClusterId"
+          Core.=: snapshottingClusterId,
         "SecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "SecurityGroupId"
                 Prelude.<$> securityGroupIds
             ),
-        "AutomaticFailoverEnabled"
-          Core.=: automaticFailoverEnabled,
-        "CacheSecurityGroupNames"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "CacheSecurityGroupName"
-                Prelude.<$> cacheSecurityGroupNames
-            ),
-        "AuthTokenUpdateStrategy"
-          Core.=: authTokenUpdateStrategy,
-        "PrimaryClusterId" Core.=: primaryClusterId,
-        "SnapshotWindow" Core.=: snapshotWindow,
-        "NotificationTopicStatus"
-          Core.=: notificationTopicStatus,
+        "AutoMinorVersionUpgrade"
+          Core.=: autoMinorVersionUpgrade,
         "CacheParameterGroupName"
           Core.=: cacheParameterGroupName,
-        "UserGroupIdsToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> userGroupIdsToRemove
-            ),
         "ReplicationGroupDescription"
           Core.=: replicationGroupDescription,
-        "SnapshotRetentionLimit"
-          Core.=: snapshotRetentionLimit,
+        "SnapshotWindow" Core.=: snapshotWindow,
+        "LogDeliveryConfigurations"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "LogDeliveryConfigurationRequest"
+                Prelude.<$> logDeliveryConfigurations
+            ),
+        "AuthToken" Core.=: authToken,
+        "PrimaryClusterId" Core.=: primaryClusterId,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
+        "MultiAZEnabled" Core.=: multiAZEnabled,
         "UserGroupIdsToAdd"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> userGroupIdsToAdd
             ),
         "NodeGroupId" Core.=: nodeGroupId,
-        "SnapshottingClusterId"
-          Core.=: snapshottingClusterId,
-        "MultiAZEnabled" Core.=: multiAZEnabled,
-        "EngineVersion" Core.=: engineVersion,
-        "CacheNodeType" Core.=: cacheNodeType,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "NotificationTopicArn" Core.=: notificationTopicArn,
-        "RemoveUserGroups" Core.=: removeUserGroups,
-        "AuthToken" Core.=: authToken,
-        "LogDeliveryConfigurations"
+        "SnapshotRetentionLimit"
+          Core.=: snapshotRetentionLimit,
+        "UserGroupIdsToRemove"
           Core.=: Core.toQuery
-            ( Core.toQueryList "LogDeliveryConfigurationRequest"
-                Prelude.<$> logDeliveryConfigurations
+            ( Core.toQueryList "member"
+                Prelude.<$> userGroupIdsToRemove
             ),
+        "NotificationTopicStatus"
+          Core.=: notificationTopicStatus,
         "ApplyImmediately" Core.=: applyImmediately,
-        "AutoMinorVersionUpgrade"
-          Core.=: autoMinorVersionUpgrade,
+        "RemoveUserGroups" Core.=: removeUserGroups,
+        "AuthTokenUpdateStrategy"
+          Core.=: authTokenUpdateStrategy,
+        "NotificationTopicArn" Core.=: notificationTopicArn,
+        "CacheSecurityGroupNames"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "CacheSecurityGroupName"
+                Prelude.<$> cacheSecurityGroupNames
+            ),
         "ReplicationGroupId" Core.=: replicationGroupId
       ]
 

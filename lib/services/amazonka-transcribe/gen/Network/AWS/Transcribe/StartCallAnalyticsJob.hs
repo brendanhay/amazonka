@@ -33,10 +33,10 @@ module Network.AWS.Transcribe.StartCallAnalyticsJob
     newStartCallAnalyticsJob,
 
     -- * Request Lenses
-    startCallAnalyticsJob_channelDefinitions,
-    startCallAnalyticsJob_outputEncryptionKMSKeyId,
     startCallAnalyticsJob_settings,
+    startCallAnalyticsJob_outputEncryptionKMSKeyId,
     startCallAnalyticsJob_outputLocation,
+    startCallAnalyticsJob_channelDefinitions,
     startCallAnalyticsJob_callAnalyticsJobName,
     startCallAnalyticsJob_media,
     startCallAnalyticsJob_dataAccessRoleArn,
@@ -60,12 +60,9 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'newStartCallAnalyticsJob' smart constructor.
 data StartCallAnalyticsJob = StartCallAnalyticsJob'
-  { -- | When you start a call analytics job, you must pass an array that maps
-    -- the agent and the customer to specific audio channels. The values you
-    -- can assign to a channel are 0 and 1. The agent and the customer must
-    -- each have their own channel. You can\'t assign more than one channel to
-    -- an agent or customer.
-    channelDefinitions :: Prelude.Maybe (Prelude.NonEmpty ChannelDefinition),
+  { -- | A @Settings@ object that provides optional settings for a call analytics
+    -- job.
+    settings :: Prelude.Maybe CallAnalyticsJobSettings,
     -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
     -- Service key used to encrypt the output of the call analytics job. The
     -- user calling the operation must have permission to use the specified KMS
@@ -94,9 +91,6 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputLocation@ parameter.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
-    -- | A @Settings@ object that provides optional settings for a call analytics
-    -- job.
-    settings :: Prelude.Maybe CallAnalyticsJobSettings,
     -- | The Amazon S3 location where the output of the call analytics job is
     -- stored. You can provide the following location types to store the output
     -- of call analytics job:
@@ -126,6 +120,12 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- Amazon Transcribe uses the default Amazon S3 key for server-side
     -- encryption of the analytics job output that is placed in your S3 bucket.
     outputLocation :: Prelude.Maybe Prelude.Text,
+    -- | When you start a call analytics job, you must pass an array that maps
+    -- the agent and the customer to specific audio channels. The values you
+    -- can assign to a channel are 0 and 1. The agent and the customer must
+    -- each have their own channel. You can\'t assign more than one channel to
+    -- an agent or customer.
+    channelDefinitions :: Prelude.Maybe (Prelude.NonEmpty ChannelDefinition),
     -- | The name of the call analytics job. You can\'t use the string \".\" or
     -- \"..\" by themselves as the job name. The name must also be unique
     -- within an Amazon Web Services account. If you try to create a call
@@ -150,11 +150,8 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelDefinitions', 'startCallAnalyticsJob_channelDefinitions' - When you start a call analytics job, you must pass an array that maps
--- the agent and the customer to specific audio channels. The values you
--- can assign to a channel are 0 and 1. The agent and the customer must
--- each have their own channel. You can\'t assign more than one channel to
--- an agent or customer.
+-- 'settings', 'startCallAnalyticsJob_settings' - A @Settings@ object that provides optional settings for a call analytics
+-- job.
 --
 -- 'outputEncryptionKMSKeyId', 'startCallAnalyticsJob_outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
 -- Service key used to encrypt the output of the call analytics job. The
@@ -183,9 +180,6 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 --
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputLocation@ parameter.
---
--- 'settings', 'startCallAnalyticsJob_settings' - A @Settings@ object that provides optional settings for a call analytics
--- job.
 --
 -- 'outputLocation', 'startCallAnalyticsJob_outputLocation' - The Amazon S3 location where the output of the call analytics job is
 -- stored. You can provide the following location types to store the output
@@ -216,6 +210,12 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 -- Amazon Transcribe uses the default Amazon S3 key for server-side
 -- encryption of the analytics job output that is placed in your S3 bucket.
 --
+-- 'channelDefinitions', 'startCallAnalyticsJob_channelDefinitions' - When you start a call analytics job, you must pass an array that maps
+-- the agent and the customer to specific audio channels. The values you
+-- can assign to a channel are 0 and 1. The agent and the customer must
+-- each have their own channel. You can\'t assign more than one channel to
+-- an agent or customer.
+--
 -- 'callAnalyticsJobName', 'startCallAnalyticsJob_callAnalyticsJobName' - The name of the call analytics job. You can\'t use the string \".\" or
 -- \"..\" by themselves as the job name. The name must also be unique
 -- within an Amazon Web Services account. If you try to create a call
@@ -242,23 +242,19 @@ newStartCallAnalyticsJob
   pMedia_
   pDataAccessRoleArn_ =
     StartCallAnalyticsJob'
-      { channelDefinitions =
-          Prelude.Nothing,
+      { settings = Prelude.Nothing,
         outputEncryptionKMSKeyId = Prelude.Nothing,
-        settings = Prelude.Nothing,
         outputLocation = Prelude.Nothing,
+        channelDefinitions = Prelude.Nothing,
         callAnalyticsJobName = pCallAnalyticsJobName_,
         media = pMedia_,
         dataAccessRoleArn = pDataAccessRoleArn_
       }
 
--- | When you start a call analytics job, you must pass an array that maps
--- the agent and the customer to specific audio channels. The values you
--- can assign to a channel are 0 and 1. The agent and the customer must
--- each have their own channel. You can\'t assign more than one channel to
--- an agent or customer.
-startCallAnalyticsJob_channelDefinitions :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe (Prelude.NonEmpty ChannelDefinition))
-startCallAnalyticsJob_channelDefinitions = Lens.lens (\StartCallAnalyticsJob' {channelDefinitions} -> channelDefinitions) (\s@StartCallAnalyticsJob' {} a -> s {channelDefinitions = a} :: StartCallAnalyticsJob) Prelude.. Lens.mapping Lens._Coerce
+-- | A @Settings@ object that provides optional settings for a call analytics
+-- job.
+startCallAnalyticsJob_settings :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe CallAnalyticsJobSettings)
+startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -> settings) (\s@StartCallAnalyticsJob' {} a -> s {settings = a} :: StartCallAnalyticsJob)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
 -- Service key used to encrypt the output of the call analytics job. The
@@ -290,11 +286,6 @@ startCallAnalyticsJob_channelDefinitions = Lens.lens (\StartCallAnalyticsJob' {c
 startCallAnalyticsJob_outputEncryptionKMSKeyId :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
 startCallAnalyticsJob_outputEncryptionKMSKeyId = Lens.lens (\StartCallAnalyticsJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartCallAnalyticsJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartCallAnalyticsJob)
 
--- | A @Settings@ object that provides optional settings for a call analytics
--- job.
-startCallAnalyticsJob_settings :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe CallAnalyticsJobSettings)
-startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -> settings) (\s@StartCallAnalyticsJob' {} a -> s {settings = a} :: StartCallAnalyticsJob)
-
 -- | The Amazon S3 location where the output of the call analytics job is
 -- stored. You can provide the following location types to store the output
 -- of call analytics job:
@@ -325,6 +316,14 @@ startCallAnalyticsJob_settings = Lens.lens (\StartCallAnalyticsJob' {settings} -
 -- encryption of the analytics job output that is placed in your S3 bucket.
 startCallAnalyticsJob_outputLocation :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
 startCallAnalyticsJob_outputLocation = Lens.lens (\StartCallAnalyticsJob' {outputLocation} -> outputLocation) (\s@StartCallAnalyticsJob' {} a -> s {outputLocation = a} :: StartCallAnalyticsJob)
+
+-- | When you start a call analytics job, you must pass an array that maps
+-- the agent and the customer to specific audio channels. The values you
+-- can assign to a channel are 0 and 1. The agent and the customer must
+-- each have their own channel. You can\'t assign more than one channel to
+-- an agent or customer.
+startCallAnalyticsJob_channelDefinitions :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe (Prelude.NonEmpty ChannelDefinition))
+startCallAnalyticsJob_channelDefinitions = Lens.lens (\StartCallAnalyticsJob' {channelDefinitions} -> channelDefinitions) (\s@StartCallAnalyticsJob' {} a -> s {channelDefinitions = a} :: StartCallAnalyticsJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the call analytics job. You can\'t use the string \".\" or
 -- \"..\" by themselves as the job name. The name must also be unique
@@ -382,13 +381,13 @@ instance Core.ToJSON StartCallAnalyticsJob where
   toJSON StartCallAnalyticsJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ChannelDefinitions" Core..=)
-              Prelude.<$> channelDefinitions,
+          [ ("Settings" Core..=) Prelude.<$> settings,
             ("OutputEncryptionKMSKeyId" Core..=)
               Prelude.<$> outputEncryptionKMSKeyId,
-            ("Settings" Core..=) Prelude.<$> settings,
             ("OutputLocation" Core..=)
               Prelude.<$> outputLocation,
+            ("ChannelDefinitions" Core..=)
+              Prelude.<$> channelDefinitions,
             Prelude.Just
               ( "CallAnalyticsJobName"
                   Core..= callAnalyticsJobName

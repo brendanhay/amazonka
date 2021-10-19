@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newField' smart constructor.
 data Field = Field'
-  { -- | The field value, expressed as a String.
-    stringValue :: Prelude.Maybe Prelude.Text,
-    -- | The field value, expressed as the identifier of another object.
+  { -- | The field value, expressed as the identifier of another object.
     refValue :: Prelude.Maybe Prelude.Text,
+    -- | The field value, expressed as a String.
+    stringValue :: Prelude.Maybe Prelude.Text,
     -- | The field identifier.
     key :: Prelude.Text
   }
@@ -46,9 +46,9 @@ data Field = Field'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringValue', 'field_stringValue' - The field value, expressed as a String.
---
 -- 'refValue', 'field_refValue' - The field value, expressed as the identifier of another object.
+--
+-- 'stringValue', 'field_stringValue' - The field value, expressed as a String.
 --
 -- 'key', 'field_key' - The field identifier.
 newField ::
@@ -57,18 +57,18 @@ newField ::
   Field
 newField pKey_ =
   Field'
-    { stringValue = Prelude.Nothing,
-      refValue = Prelude.Nothing,
+    { refValue = Prelude.Nothing,
+      stringValue = Prelude.Nothing,
       key = pKey_
     }
-
--- | The field value, expressed as a String.
-field_stringValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
-field_stringValue = Lens.lens (\Field' {stringValue} -> stringValue) (\s@Field' {} a -> s {stringValue = a} :: Field)
 
 -- | The field value, expressed as the identifier of another object.
 field_refValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
 field_refValue = Lens.lens (\Field' {refValue} -> refValue) (\s@Field' {} a -> s {refValue = a} :: Field)
+
+-- | The field value, expressed as a String.
+field_stringValue :: Lens.Lens' Field (Prelude.Maybe Prelude.Text)
+field_stringValue = Lens.lens (\Field' {stringValue} -> stringValue) (\s@Field' {} a -> s {stringValue = a} :: Field)
 
 -- | The field identifier.
 field_key :: Lens.Lens' Field Prelude.Text
@@ -80,8 +80,8 @@ instance Core.FromJSON Field where
       "Field"
       ( \x ->
           Field'
-            Prelude.<$> (x Core..:? "stringValue")
-            Prelude.<*> (x Core..:? "refValue")
+            Prelude.<$> (x Core..:? "refValue")
+            Prelude.<*> (x Core..:? "stringValue")
             Prelude.<*> (x Core..: "key")
       )
 
@@ -93,8 +93,8 @@ instance Core.ToJSON Field where
   toJSON Field' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("stringValue" Core..=) Prelude.<$> stringValue,
-            ("refValue" Core..=) Prelude.<$> refValue,
+          [ ("refValue" Core..=) Prelude.<$> refValue,
+            ("stringValue" Core..=) Prelude.<$> stringValue,
             Prelude.Just ("key" Core..= key)
           ]
       )

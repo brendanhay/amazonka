@@ -55,7 +55,7 @@ newEndpoint =
 
 -- | Attributes for endpoint.
 endpoint_attributes :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Prelude.. Lens.mapping Lens._Coerce
+endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | EndpointArn for mobile app and device.
 endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)

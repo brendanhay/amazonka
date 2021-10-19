@@ -66,7 +66,7 @@ newHttpEndpointRequestConfiguration =
 
 -- | Describes the metadata sent to the HTTP endpoint destination.
 httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe [HttpEndpointCommonAttribute])
-httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Prelude.. Lens.mapping Lens._Coerce
+httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Kinesis Data Firehose uses the content encoding to compress the body of
 -- a request before sending the request to the destination. For more

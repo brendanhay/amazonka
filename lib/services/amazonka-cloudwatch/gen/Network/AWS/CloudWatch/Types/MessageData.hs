@@ -34,10 +34,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMessageData' smart constructor.
 data MessageData = MessageData'
-  { -- | The error code or status code associated with the message.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The message text.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The message text.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The error code or status code associated with the message.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,29 @@ data MessageData = MessageData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'messageData_code' - The error code or status code associated with the message.
---
 -- 'value', 'messageData_value' - The message text.
+--
+-- 'code', 'messageData_code' - The error code or status code associated with the message.
 newMessageData ::
   MessageData
 newMessageData =
   MessageData'
-    { code = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The error code or status code associated with the message.
-messageData_code :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
-messageData_code = Lens.lens (\MessageData' {code} -> code) (\s@MessageData' {} a -> s {code = a} :: MessageData)
 
 -- | The message text.
 messageData_value :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
 messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' {} a -> s {value = a} :: MessageData)
 
+-- | The error code or status code associated with the message.
+messageData_code :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
+messageData_code = Lens.lens (\MessageData' {code} -> code) (\s@MessageData' {} a -> s {code = a} :: MessageData)
+
 instance Core.FromXML MessageData where
   parseXML x =
     MessageData'
-      Prelude.<$> (x Core..@? "Code") Prelude.<*> (x Core..@? "Value")
+      Prelude.<$> (x Core..@? "Value") Prelude.<*> (x Core..@? "Code")
 
 instance Prelude.Hashable MessageData
 

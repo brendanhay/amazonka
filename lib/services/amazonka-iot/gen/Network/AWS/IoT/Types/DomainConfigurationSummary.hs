@@ -38,11 +38,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDomainConfigurationSummary' smart constructor.
 data DomainConfigurationSummary = DomainConfigurationSummary'
-  { -- | The ARN of the domain configuration.
-    domainConfigurationArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the domain configuration. This value must be unique to a
+  { -- | The name of the domain configuration. This value must be unique to a
     -- region.
     domainConfigurationName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the domain configuration.
+    domainConfigurationArn :: Prelude.Maybe Prelude.Text,
     -- | The type of service delivered by the endpoint.
     serviceType :: Prelude.Maybe ServiceType
   }
@@ -56,30 +56,30 @@ data DomainConfigurationSummary = DomainConfigurationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainConfigurationArn', 'domainConfigurationSummary_domainConfigurationArn' - The ARN of the domain configuration.
---
 -- 'domainConfigurationName', 'domainConfigurationSummary_domainConfigurationName' - The name of the domain configuration. This value must be unique to a
 -- region.
+--
+-- 'domainConfigurationArn', 'domainConfigurationSummary_domainConfigurationArn' - The ARN of the domain configuration.
 --
 -- 'serviceType', 'domainConfigurationSummary_serviceType' - The type of service delivered by the endpoint.
 newDomainConfigurationSummary ::
   DomainConfigurationSummary
 newDomainConfigurationSummary =
   DomainConfigurationSummary'
-    { domainConfigurationArn =
+    { domainConfigurationName =
         Prelude.Nothing,
-      domainConfigurationName = Prelude.Nothing,
+      domainConfigurationArn = Prelude.Nothing,
       serviceType = Prelude.Nothing
     }
-
--- | The ARN of the domain configuration.
-domainConfigurationSummary_domainConfigurationArn :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
-domainConfigurationSummary_domainConfigurationArn = Lens.lens (\DomainConfigurationSummary' {domainConfigurationArn} -> domainConfigurationArn) (\s@DomainConfigurationSummary' {} a -> s {domainConfigurationArn = a} :: DomainConfigurationSummary)
 
 -- | The name of the domain configuration. This value must be unique to a
 -- region.
 domainConfigurationSummary_domainConfigurationName :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
 domainConfigurationSummary_domainConfigurationName = Lens.lens (\DomainConfigurationSummary' {domainConfigurationName} -> domainConfigurationName) (\s@DomainConfigurationSummary' {} a -> s {domainConfigurationName = a} :: DomainConfigurationSummary)
+
+-- | The ARN of the domain configuration.
+domainConfigurationSummary_domainConfigurationArn :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe Prelude.Text)
+domainConfigurationSummary_domainConfigurationArn = Lens.lens (\DomainConfigurationSummary' {domainConfigurationArn} -> domainConfigurationArn) (\s@DomainConfigurationSummary' {} a -> s {domainConfigurationArn = a} :: DomainConfigurationSummary)
 
 -- | The type of service delivered by the endpoint.
 domainConfigurationSummary_serviceType :: Lens.Lens' DomainConfigurationSummary (Prelude.Maybe ServiceType)
@@ -91,8 +91,8 @@ instance Core.FromJSON DomainConfigurationSummary where
       "DomainConfigurationSummary"
       ( \x ->
           DomainConfigurationSummary'
-            Prelude.<$> (x Core..:? "domainConfigurationArn")
-            Prelude.<*> (x Core..:? "domainConfigurationName")
+            Prelude.<$> (x Core..:? "domainConfigurationName")
+            Prelude.<*> (x Core..:? "domainConfigurationArn")
             Prelude.<*> (x Core..:? "serviceType")
       )
 

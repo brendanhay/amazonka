@@ -35,8 +35,8 @@ module Network.AWS.CloudFront.ListDistributionsByKeyGroup
     newListDistributionsByKeyGroup,
 
     -- * Request Lenses
-    listDistributionsByKeyGroup_maxItems,
     listDistributionsByKeyGroup_marker,
+    listDistributionsByKeyGroup_maxItems,
     listDistributionsByKeyGroup_keyGroupId,
 
     -- * Destructuring the Response
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDistributionsByKeyGroup' smart constructor.
 data ListDistributionsByKeyGroup = ListDistributionsByKeyGroup'
-  { -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
     -- set this field’s value to the value of @NextMarker@ from the current
     -- page’s response.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of distribution IDs that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Text,
     -- | The ID of the key group whose associated distribution IDs you are
     -- listing.
     keyGroupId :: Prelude.Text
@@ -80,13 +80,13 @@ data ListDistributionsByKeyGroup = ListDistributionsByKeyGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listDistributionsByKeyGroup_maxItems' - The maximum number of distribution IDs that you want in the response.
---
 -- 'marker', 'listDistributionsByKeyGroup_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
 -- the list that occur after the marker. To get the next page of the list,
 -- set this field’s value to the value of @NextMarker@ from the current
 -- page’s response.
+--
+-- 'maxItems', 'listDistributionsByKeyGroup_maxItems' - The maximum number of distribution IDs that you want in the response.
 --
 -- 'keyGroupId', 'listDistributionsByKeyGroup_keyGroupId' - The ID of the key group whose associated distribution IDs you are
 -- listing.
@@ -96,15 +96,11 @@ newListDistributionsByKeyGroup ::
   ListDistributionsByKeyGroup
 newListDistributionsByKeyGroup pKeyGroupId_ =
   ListDistributionsByKeyGroup'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       keyGroupId = pKeyGroupId_
     }
-
--- | The maximum number of distribution IDs that you want in the response.
-listDistributionsByKeyGroup_maxItems :: Lens.Lens' ListDistributionsByKeyGroup (Prelude.Maybe Prelude.Text)
-listDistributionsByKeyGroup_maxItems = Lens.lens (\ListDistributionsByKeyGroup' {maxItems} -> maxItems) (\s@ListDistributionsByKeyGroup' {} a -> s {maxItems = a} :: ListDistributionsByKeyGroup)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of distribution IDs. The response includes distribution IDs in
@@ -113,6 +109,10 @@ listDistributionsByKeyGroup_maxItems = Lens.lens (\ListDistributionsByKeyGroup' 
 -- page’s response.
 listDistributionsByKeyGroup_marker :: Lens.Lens' ListDistributionsByKeyGroup (Prelude.Maybe Prelude.Text)
 listDistributionsByKeyGroup_marker = Lens.lens (\ListDistributionsByKeyGroup' {marker} -> marker) (\s@ListDistributionsByKeyGroup' {} a -> s {marker = a} :: ListDistributionsByKeyGroup)
+
+-- | The maximum number of distribution IDs that you want in the response.
+listDistributionsByKeyGroup_maxItems :: Lens.Lens' ListDistributionsByKeyGroup (Prelude.Maybe Prelude.Text)
+listDistributionsByKeyGroup_maxItems = Lens.lens (\ListDistributionsByKeyGroup' {maxItems} -> maxItems) (\s@ListDistributionsByKeyGroup' {} a -> s {maxItems = a} :: ListDistributionsByKeyGroup)
 
 -- | The ID of the key group whose associated distribution IDs you are
 -- listing.
@@ -149,8 +149,8 @@ instance Core.ToPath ListDistributionsByKeyGroup where
 instance Core.ToQuery ListDistributionsByKeyGroup where
   toQuery ListDistributionsByKeyGroup' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListDistributionsByKeyGroupResponse' smart constructor.

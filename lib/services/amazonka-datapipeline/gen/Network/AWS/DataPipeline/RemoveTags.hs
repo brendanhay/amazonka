@@ -84,7 +84,7 @@ removeTags_pipelineId = Lens.lens (\RemoveTags' {pipelineId} -> pipelineId) (\s@
 
 -- | The keys of the tags to remove.
 removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse

@@ -30,7 +30,7 @@ import Network.AWS.WorkMail.Types.RetentionAction
 --
 -- /See:/ 'newFolderConfiguration' smart constructor.
 data FolderConfiguration = FolderConfiguration'
-  { -- | The period of time at which the folder configuration action is applied.
+  { -- | The number of days for which the folder-configuration action applies.
     period :: Prelude.Maybe Prelude.Natural,
     -- | The folder name.
     name :: FolderName,
@@ -48,7 +48,7 @@ data FolderConfiguration = FolderConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'period', 'folderConfiguration_period' - The period of time at which the folder configuration action is applied.
+-- 'period', 'folderConfiguration_period' - The number of days for which the folder-configuration action applies.
 --
 -- 'name', 'folderConfiguration_name' - The folder name.
 --
@@ -67,7 +67,7 @@ newFolderConfiguration pName_ pAction_ =
       action = pAction_
     }
 
--- | The period of time at which the folder configuration action is applied.
+-- | The number of days for which the folder-configuration action applies.
 folderConfiguration_period :: Lens.Lens' FolderConfiguration (Prelude.Maybe Prelude.Natural)
 folderConfiguration_period = Lens.lens (\FolderConfiguration' {period} -> period) (\s@FolderConfiguration' {} a -> s {period = a} :: FolderConfiguration)
 

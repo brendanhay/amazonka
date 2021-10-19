@@ -184,7 +184,7 @@ newGetConfigurationSetEventDestinationsResponse
 -- | An array that includes all of the events destinations that have been
 -- configured for the configuration set.
 getConfigurationSetEventDestinationsResponse_eventDestinations :: Lens.Lens' GetConfigurationSetEventDestinationsResponse (Prelude.Maybe [EventDestination])
-getConfigurationSetEventDestinationsResponse_eventDestinations = Lens.lens (\GetConfigurationSetEventDestinationsResponse' {eventDestinations} -> eventDestinations) (\s@GetConfigurationSetEventDestinationsResponse' {} a -> s {eventDestinations = a} :: GetConfigurationSetEventDestinationsResponse) Prelude.. Lens.mapping Lens._Coerce
+getConfigurationSetEventDestinationsResponse_eventDestinations = Lens.lens (\GetConfigurationSetEventDestinationsResponse' {eventDestinations} -> eventDestinations) (\s@GetConfigurationSetEventDestinationsResponse' {} a -> s {eventDestinations = a} :: GetConfigurationSetEventDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getConfigurationSetEventDestinationsResponse_httpStatus :: Lens.Lens' GetConfigurationSetEventDestinationsResponse Prelude.Int

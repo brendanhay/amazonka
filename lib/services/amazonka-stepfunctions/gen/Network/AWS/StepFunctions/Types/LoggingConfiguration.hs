@@ -30,13 +30,13 @@ import Network.AWS.StepFunctions.Types.LogLevel
 --
 -- /See:/ 'newLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { -- | An array of objects that describes where your execution history events
+  { -- | Determines whether execution data is included in your log. When set to
+    -- @false@, data is excluded.
+    includeExecutionData :: Prelude.Maybe Prelude.Bool,
+    -- | An array of objects that describes where your execution history events
     -- will be logged. Limited to size 1. Required, if your log level is not
     -- set to @OFF@.
     destinations :: Prelude.Maybe [LogDestination],
-    -- | Determines whether execution data is included in your log. When set to
-    -- @false@, data is excluded.
-    includeExecutionData :: Prelude.Maybe Prelude.Bool,
     -- | Defines which category of execution history events are logged.
     level :: Prelude.Maybe LogLevel
   }
@@ -50,34 +50,34 @@ data LoggingConfiguration = LoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeExecutionData', 'loggingConfiguration_includeExecutionData' - Determines whether execution data is included in your log. When set to
+-- @false@, data is excluded.
+--
 -- 'destinations', 'loggingConfiguration_destinations' - An array of objects that describes where your execution history events
 -- will be logged. Limited to size 1. Required, if your log level is not
 -- set to @OFF@.
---
--- 'includeExecutionData', 'loggingConfiguration_includeExecutionData' - Determines whether execution data is included in your log. When set to
--- @false@, data is excluded.
 --
 -- 'level', 'loggingConfiguration_level' - Defines which category of execution history events are logged.
 newLoggingConfiguration ::
   LoggingConfiguration
 newLoggingConfiguration =
   LoggingConfiguration'
-    { destinations =
+    { includeExecutionData =
         Prelude.Nothing,
-      includeExecutionData = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       level = Prelude.Nothing
     }
-
--- | An array of objects that describes where your execution history events
--- will be logged. Limited to size 1. Required, if your log level is not
--- set to @OFF@.
-loggingConfiguration_destinations :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [LogDestination])
-loggingConfiguration_destinations = Lens.lens (\LoggingConfiguration' {destinations} -> destinations) (\s@LoggingConfiguration' {} a -> s {destinations = a} :: LoggingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Determines whether execution data is included in your log. When set to
 -- @false@, data is excluded.
 loggingConfiguration_includeExecutionData :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_includeExecutionData = Lens.lens (\LoggingConfiguration' {includeExecutionData} -> includeExecutionData) (\s@LoggingConfiguration' {} a -> s {includeExecutionData = a} :: LoggingConfiguration)
+
+-- | An array of objects that describes where your execution history events
+-- will be logged. Limited to size 1. Required, if your log level is not
+-- set to @OFF@.
+loggingConfiguration_destinations :: Lens.Lens' LoggingConfiguration (Prelude.Maybe [LogDestination])
+loggingConfiguration_destinations = Lens.lens (\LoggingConfiguration' {destinations} -> destinations) (\s@LoggingConfiguration' {} a -> s {destinations = a} :: LoggingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Defines which category of execution history events are logged.
 loggingConfiguration_level :: Lens.Lens' LoggingConfiguration (Prelude.Maybe LogLevel)
@@ -89,8 +89,8 @@ instance Core.FromJSON LoggingConfiguration where
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Core..:? "destinations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "includeExecutionData")
+            Prelude.<$> (x Core..:? "includeExecutionData")
+            Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "level")
       )
 
@@ -102,9 +102,9 @@ instance Core.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("destinations" Core..=) Prelude.<$> destinations,
-            ("includeExecutionData" Core..=)
+          [ ("includeExecutionData" Core..=)
               Prelude.<$> includeExecutionData,
+            ("destinations" Core..=) Prelude.<$> destinations,
             ("level" Core..=) Prelude.<$> level
           ]
       )

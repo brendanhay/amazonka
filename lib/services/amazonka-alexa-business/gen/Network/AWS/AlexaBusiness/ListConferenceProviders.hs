@@ -37,8 +37,8 @@ module Network.AWS.AlexaBusiness.ListConferenceProviders
     newListConferenceProvidersResponse,
 
     -- * Response Lenses
-    listConferenceProvidersResponse_nextToken,
     listConferenceProvidersResponse_conferenceProviders,
+    listConferenceProvidersResponse_nextToken,
     listConferenceProvidersResponse_httpStatus,
   )
 where
@@ -121,10 +121,10 @@ instance Core.AWSRequest ListConferenceProviders where
     Response.receiveJSON
       ( \s h x ->
           ListConferenceProvidersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConferenceProviders"
+            Prelude.<$> ( x Core..?> "ConferenceProviders"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,10 +164,10 @@ instance Core.ToQuery ListConferenceProviders where
 
 -- | /See:/ 'newListConferenceProvidersResponse' smart constructor.
 data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The conference providers.
+  { -- | The conference providers.
     conferenceProviders :: Prelude.Maybe [ConferenceProvider],
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +181,9 @@ data ListConferenceProvidersResponse = ListConferenceProvidersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listConferenceProvidersResponse_nextToken' - The tokens used for pagination.
---
 -- 'conferenceProviders', 'listConferenceProvidersResponse_conferenceProviders' - The conference providers.
+--
+-- 'nextToken', 'listConferenceProvidersResponse_nextToken' - The tokens used for pagination.
 --
 -- 'httpStatus', 'listConferenceProvidersResponse_httpStatus' - The response's http status code.
 newListConferenceProvidersResponse ::
@@ -192,19 +192,19 @@ newListConferenceProvidersResponse ::
   ListConferenceProvidersResponse
 newListConferenceProvidersResponse pHttpStatus_ =
   ListConferenceProvidersResponse'
-    { nextToken =
+    { conferenceProviders =
         Prelude.Nothing,
-      conferenceProviders = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The conference providers.
+listConferenceProvidersResponse_conferenceProviders :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe [ConferenceProvider])
+listConferenceProvidersResponse_conferenceProviders = Lens.lens (\ListConferenceProvidersResponse' {conferenceProviders} -> conferenceProviders) (\s@ListConferenceProvidersResponse' {} a -> s {conferenceProviders = a} :: ListConferenceProvidersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tokens used for pagination.
 listConferenceProvidersResponse_nextToken :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe Prelude.Text)
 listConferenceProvidersResponse_nextToken = Lens.lens (\ListConferenceProvidersResponse' {nextToken} -> nextToken) (\s@ListConferenceProvidersResponse' {} a -> s {nextToken = a} :: ListConferenceProvidersResponse)
-
--- | The conference providers.
-listConferenceProvidersResponse_conferenceProviders :: Lens.Lens' ListConferenceProvidersResponse (Prelude.Maybe [ConferenceProvider])
-listConferenceProvidersResponse_conferenceProviders = Lens.lens (\ListConferenceProvidersResponse' {conferenceProviders} -> conferenceProviders) (\s@ListConferenceProvidersResponse' {} a -> s {conferenceProviders = a} :: ListConferenceProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listConferenceProvidersResponse_httpStatus :: Lens.Lens' ListConferenceProvidersResponse Prelude.Int

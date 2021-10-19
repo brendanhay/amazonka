@@ -70,7 +70,7 @@ newDescribeTags =
 
 -- | The Amazon Resource Names (ARNs) of the resources.
 describeTags_resourceArns :: Lens.Lens' DescribeTags [Prelude.Text]
-describeTags_resourceArns = Lens.lens (\DescribeTags' {resourceArns} -> resourceArns) (\s@DescribeTags' {} a -> s {resourceArns = a} :: DescribeTags) Prelude.. Lens._Coerce
+describeTags_resourceArns = Lens.lens (\DescribeTags' {resourceArns} -> resourceArns) (\s@DescribeTags' {} a -> s {resourceArns = a} :: DescribeTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -148,7 +148,7 @@ newDescribeTagsResponse pHttpStatus_ =
 
 -- | Information about the tags.
 describeTagsResponse_resourceTags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [ResourceTag])
-describeTagsResponse_resourceTags = Lens.lens (\DescribeTagsResponse' {resourceTags} -> resourceTags) (\s@DescribeTagsResponse' {} a -> s {resourceTags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_resourceTags = Lens.lens (\DescribeTagsResponse' {resourceTags} -> resourceTags) (\s@DescribeTagsResponse' {} a -> s {resourceTags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

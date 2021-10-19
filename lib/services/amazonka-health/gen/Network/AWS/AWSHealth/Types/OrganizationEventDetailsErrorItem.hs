@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationEventDetailsErrorItem' smart constructor.
 data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
-  { -- | The name of the error.
-    errorName :: Prelude.Maybe Prelude.Text,
-    -- | Error information returned when a
+  { -- | Error information returned when a
     -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
     -- operation can\'t find a specified event.
     awsAccountId :: Prelude.Maybe Prelude.Text,
@@ -43,6 +41,8 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
     --
     -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
     eventArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the error.
+    errorName :: Prelude.Maybe Prelude.Text,
     -- | A message that describes the error.
     --
     -- If you call the @DescribeEventDetailsForOrganization@ operation and
@@ -72,8 +72,6 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.
---
 -- 'awsAccountId', 'organizationEventDetailsErrorItem_awsAccountId' - Error information returned when a
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
 -- operation can\'t find a specified event.
@@ -85,6 +83,8 @@ data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
 -- For example, an event ARN might look like the following:
 --
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
+--
+-- 'errorName', 'organizationEventDetailsErrorItem_errorName' - The name of the error.
 --
 -- 'errorMessage', 'organizationEventDetailsErrorItem_errorMessage' - A message that describes the error.
 --
@@ -107,16 +107,12 @@ newOrganizationEventDetailsErrorItem ::
   OrganizationEventDetailsErrorItem
 newOrganizationEventDetailsErrorItem =
   OrganizationEventDetailsErrorItem'
-    { errorName =
+    { awsAccountId =
         Prelude.Nothing,
-      awsAccountId = Prelude.Nothing,
       eventArn = Prelude.Nothing,
+      errorName = Prelude.Nothing,
       errorMessage = Prelude.Nothing
     }
-
--- | The name of the error.
-organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
-organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
 
 -- | Error information returned when a
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
@@ -133,6 +129,10 @@ organizationEventDetailsErrorItem_awsAccountId = Lens.lens (\OrganizationEventDe
 -- @arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 organizationEventDetailsErrorItem_eventArn :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
 organizationEventDetailsErrorItem_eventArn = Lens.lens (\OrganizationEventDetailsErrorItem' {eventArn} -> eventArn) (\s@OrganizationEventDetailsErrorItem' {} a -> s {eventArn = a} :: OrganizationEventDetailsErrorItem)
+
+-- | The name of the error.
+organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
 
 -- | A message that describes the error.
 --
@@ -163,9 +163,9 @@ instance
       "OrganizationEventDetailsErrorItem"
       ( \x ->
           OrganizationEventDetailsErrorItem'
-            Prelude.<$> (x Core..:? "errorName")
-            Prelude.<*> (x Core..:? "awsAccountId")
+            Prelude.<$> (x Core..:? "awsAccountId")
             Prelude.<*> (x Core..:? "eventArn")
+            Prelude.<*> (x Core..:? "errorName")
             Prelude.<*> (x Core..:? "errorMessage")
       )
 

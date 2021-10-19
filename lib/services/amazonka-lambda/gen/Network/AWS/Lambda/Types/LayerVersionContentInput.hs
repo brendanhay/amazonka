@@ -30,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLayerVersionContentInput' smart constructor.
 data LayerVersionContentInput = LayerVersionContentInput'
-  { -- | The Amazon S3 bucket of the layer archive.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
+  { -- | For versioned objects, the version of the layer archive object to use.
+    s3ObjectVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 key of the layer archive.
+    s3Key :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded contents of the layer archive. Amazon Web Services
     -- SDK and Amazon Web Services CLI clients handle the encoding for you.
     zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | The Amazon S3 key of the layer archive.
-    s3Key :: Prelude.Maybe Prelude.Text,
-    -- | For versioned objects, the version of the layer archive object to use.
-    s3ObjectVersion :: Prelude.Maybe Prelude.Text
+    -- | The Amazon S3 bucket of the layer archive.
+    s3Bucket :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -50,7 +50,9 @@ data LayerVersionContentInput = LayerVersionContentInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Bucket', 'layerVersionContentInput_s3Bucket' - The Amazon S3 bucket of the layer archive.
+-- 's3ObjectVersion', 'layerVersionContentInput_s3ObjectVersion' - For versioned objects, the version of the layer archive object to use.
+--
+-- 's3Key', 'layerVersionContentInput_s3Key' - The Amazon S3 key of the layer archive.
 --
 -- 'zipFile', 'layerVersionContentInput_zipFile' - The base64-encoded contents of the layer archive. Amazon Web Services
 -- SDK and Amazon Web Services CLI clients handle the encoding for you.--
@@ -59,23 +61,25 @@ data LayerVersionContentInput = LayerVersionContentInput'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 's3Key', 'layerVersionContentInput_s3Key' - The Amazon S3 key of the layer archive.
---
--- 's3ObjectVersion', 'layerVersionContentInput_s3ObjectVersion' - For versioned objects, the version of the layer archive object to use.
+-- 's3Bucket', 'layerVersionContentInput_s3Bucket' - The Amazon S3 bucket of the layer archive.
 newLayerVersionContentInput ::
   LayerVersionContentInput
 newLayerVersionContentInput =
   LayerVersionContentInput'
-    { s3Bucket =
+    { s3ObjectVersion =
         Prelude.Nothing,
-      zipFile = Prelude.Nothing,
       s3Key = Prelude.Nothing,
-      s3ObjectVersion = Prelude.Nothing
+      zipFile = Prelude.Nothing,
+      s3Bucket = Prelude.Nothing
     }
 
--- | The Amazon S3 bucket of the layer archive.
-layerVersionContentInput_s3Bucket :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
-layerVersionContentInput_s3Bucket = Lens.lens (\LayerVersionContentInput' {s3Bucket} -> s3Bucket) (\s@LayerVersionContentInput' {} a -> s {s3Bucket = a} :: LayerVersionContentInput)
+-- | For versioned objects, the version of the layer archive object to use.
+layerVersionContentInput_s3ObjectVersion :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
+layerVersionContentInput_s3ObjectVersion = Lens.lens (\LayerVersionContentInput' {s3ObjectVersion} -> s3ObjectVersion) (\s@LayerVersionContentInput' {} a -> s {s3ObjectVersion = a} :: LayerVersionContentInput)
+
+-- | The Amazon S3 key of the layer archive.
+layerVersionContentInput_s3Key :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
+layerVersionContentInput_s3Key = Lens.lens (\LayerVersionContentInput' {s3Key} -> s3Key) (\s@LayerVersionContentInput' {} a -> s {s3Key = a} :: LayerVersionContentInput)
 
 -- | The base64-encoded contents of the layer archive. Amazon Web Services
 -- SDK and Amazon Web Services CLI clients handle the encoding for you.--
@@ -86,13 +90,9 @@ layerVersionContentInput_s3Bucket = Lens.lens (\LayerVersionContentInput' {s3Buc
 layerVersionContentInput_zipFile :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.ByteString)
 layerVersionContentInput_zipFile = Lens.lens (\LayerVersionContentInput' {zipFile} -> zipFile) (\s@LayerVersionContentInput' {} a -> s {zipFile = a} :: LayerVersionContentInput) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | The Amazon S3 key of the layer archive.
-layerVersionContentInput_s3Key :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
-layerVersionContentInput_s3Key = Lens.lens (\LayerVersionContentInput' {s3Key} -> s3Key) (\s@LayerVersionContentInput' {} a -> s {s3Key = a} :: LayerVersionContentInput)
-
--- | For versioned objects, the version of the layer archive object to use.
-layerVersionContentInput_s3ObjectVersion :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
-layerVersionContentInput_s3ObjectVersion = Lens.lens (\LayerVersionContentInput' {s3ObjectVersion} -> s3ObjectVersion) (\s@LayerVersionContentInput' {} a -> s {s3ObjectVersion = a} :: LayerVersionContentInput)
+-- | The Amazon S3 bucket of the layer archive.
+layerVersionContentInput_s3Bucket :: Lens.Lens' LayerVersionContentInput (Prelude.Maybe Prelude.Text)
+layerVersionContentInput_s3Bucket = Lens.lens (\LayerVersionContentInput' {s3Bucket} -> s3Bucket) (\s@LayerVersionContentInput' {} a -> s {s3Bucket = a} :: LayerVersionContentInput)
 
 instance Prelude.Hashable LayerVersionContentInput
 
@@ -102,10 +102,10 @@ instance Core.ToJSON LayerVersionContentInput where
   toJSON LayerVersionContentInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("S3Bucket" Core..=) Prelude.<$> s3Bucket,
-            ("ZipFile" Core..=) Prelude.<$> zipFile,
+          [ ("S3ObjectVersion" Core..=)
+              Prelude.<$> s3ObjectVersion,
             ("S3Key" Core..=) Prelude.<$> s3Key,
-            ("S3ObjectVersion" Core..=)
-              Prelude.<$> s3ObjectVersion
+            ("ZipFile" Core..=) Prelude.<$> zipFile,
+            ("S3Bucket" Core..=) Prelude.<$> s3Bucket
           ]
       )

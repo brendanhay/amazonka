@@ -40,8 +40,8 @@ module Network.AWS.SSM.DescribeMaintenanceWindowsForTarget
     newDescribeMaintenanceWindowsForTargetResponse,
 
     -- * Response Lenses
-    describeMaintenanceWindowsForTargetResponse_nextToken,
     describeMaintenanceWindowsForTargetResponse_windowIdentities,
+    describeMaintenanceWindowsForTargetResponse_nextToken,
     describeMaintenanceWindowsForTargetResponse_httpStatus,
   )
 where
@@ -115,7 +115,7 @@ describeMaintenanceWindowsForTarget_maxResults = Lens.lens (\DescribeMaintenance
 
 -- | The instance ID or key-value pair to retrieve information about.
 describeMaintenanceWindowsForTarget_targets :: Lens.Lens' DescribeMaintenanceWindowsForTarget [Target]
-describeMaintenanceWindowsForTarget_targets = Lens.lens (\DescribeMaintenanceWindowsForTarget' {targets} -> targets) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {targets = a} :: DescribeMaintenanceWindowsForTarget) Prelude.. Lens._Coerce
+describeMaintenanceWindowsForTarget_targets = Lens.lens (\DescribeMaintenanceWindowsForTarget' {targets} -> targets) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {targets = a} :: DescribeMaintenanceWindowsForTarget) Prelude.. Lens.coerced
 
 -- | The type of resource you want to retrieve information about. For
 -- example, @INSTANCE@.
@@ -159,10 +159,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowsForTargetResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "WindowIdentities"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "WindowIdentities"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -220,12 +220,12 @@ instance
 
 -- | /See:/ 'newDescribeMaintenanceWindowsForTargetResponse' smart constructor.
 data DescribeMaintenanceWindowsForTargetResponse = DescribeMaintenanceWindowsForTargetResponse'
-  { -- | The token for the next set of items to return. (You use this token in
-    -- the next call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the maintenance window targets and tasks an instance
+  { -- | Information about the maintenance window targets and tasks an instance
     -- is associated with.
     windowIdentities :: Prelude.Maybe [MaintenanceWindowIdentityForTarget],
+    -- | The token for the next set of items to return. (You use this token in
+    -- the next call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -239,11 +239,11 @@ data DescribeMaintenanceWindowsForTargetResponse = DescribeMaintenanceWindowsFor
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeMaintenanceWindowsForTargetResponse_nextToken' - The token for the next set of items to return. (You use this token in
--- the next call.)
---
 -- 'windowIdentities', 'describeMaintenanceWindowsForTargetResponse_windowIdentities' - Information about the maintenance window targets and tasks an instance
 -- is associated with.
+--
+-- 'nextToken', 'describeMaintenanceWindowsForTargetResponse_nextToken' - The token for the next set of items to return. (You use this token in
+-- the next call.)
 --
 -- 'httpStatus', 'describeMaintenanceWindowsForTargetResponse_httpStatus' - The response's http status code.
 newDescribeMaintenanceWindowsForTargetResponse ::
@@ -253,22 +253,21 @@ newDescribeMaintenanceWindowsForTargetResponse ::
 newDescribeMaintenanceWindowsForTargetResponse
   pHttpStatus_ =
     DescribeMaintenanceWindowsForTargetResponse'
-      { nextToken =
+      { windowIdentities =
           Prelude.Nothing,
-        windowIdentities =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Information about the maintenance window targets and tasks an instance
+-- is associated with.
+describeMaintenanceWindowsForTargetResponse_windowIdentities :: Lens.Lens' DescribeMaintenanceWindowsForTargetResponse (Prelude.Maybe [MaintenanceWindowIdentityForTarget])
+describeMaintenanceWindowsForTargetResponse_windowIdentities = Lens.lens (\DescribeMaintenanceWindowsForTargetResponse' {windowIdentities} -> windowIdentities) (\s@DescribeMaintenanceWindowsForTargetResponse' {} a -> s {windowIdentities = a} :: DescribeMaintenanceWindowsForTargetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You use this token in
 -- the next call.)
 describeMaintenanceWindowsForTargetResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowsForTargetResponse (Prelude.Maybe Prelude.Text)
 describeMaintenanceWindowsForTargetResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowsForTargetResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowsForTargetResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowsForTargetResponse)
-
--- | Information about the maintenance window targets and tasks an instance
--- is associated with.
-describeMaintenanceWindowsForTargetResponse_windowIdentities :: Lens.Lens' DescribeMaintenanceWindowsForTargetResponse (Prelude.Maybe [MaintenanceWindowIdentityForTarget])
-describeMaintenanceWindowsForTargetResponse_windowIdentities = Lens.lens (\DescribeMaintenanceWindowsForTargetResponse' {windowIdentities} -> windowIdentities) (\s@DescribeMaintenanceWindowsForTargetResponse' {} a -> s {windowIdentities = a} :: DescribeMaintenanceWindowsForTargetResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeMaintenanceWindowsForTargetResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowsForTargetResponse Prelude.Int

@@ -33,10 +33,10 @@ module Network.AWS.EC2.DescribeTags
     newDescribeTags,
 
     -- * Request Lenses
-    describeTags_nextToken,
-    describeTags_maxResults,
-    describeTags_dryRun,
     describeTags_filters,
+    describeTags_nextToken,
+    describeTags_dryRun,
+    describeTags_maxResults,
 
     -- * Destructuring the Response
     DescribeTagsResponse (..),
@@ -58,18 +58,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. This value can
-    -- be between 5 and 1000. To retrieve the remaining results, make another
-    -- call with the returned @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters.
+  { -- | The filters.
     --
     -- -   @key@ - The tag key.
     --
@@ -90,7 +79,18 @@ data DescribeTags = DescribeTags'
     --     filter value to find resources with the tag \"Owner=TeamA\".
     --
     -- -   @value@ - The tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. This value can
+    -- be between 5 and 1000. To retrieve the remaining results, make another
+    -- call with the returned @NextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,17 +101,6 @@ data DescribeTags = DescribeTags'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.
---
--- 'maxResults', 'describeTags_maxResults' - The maximum number of results to return in a single call. This value can
--- be between 5 and 1000. To retrieve the remaining results, make another
--- call with the returned @NextToken@ value.
---
--- 'dryRun', 'describeTags_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeTags_filters' - The filters.
 --
@@ -134,32 +123,26 @@ data DescribeTags = DescribeTags'
 --     filter value to find resources with the tag \"Owner=TeamA\".
 --
 -- -   @value@ - The tag value.
+--
+-- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.
+--
+-- 'dryRun', 'describeTags_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeTags_maxResults' - The maximum number of results to return in a single call. This value can
+-- be between 5 and 1000. To retrieve the remaining results, make another
+-- call with the returned @NextToken@ value.
 newDescribeTags ::
   DescribeTags
 newDescribeTags =
   DescribeTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | The token to retrieve the next page of results.
-describeTags_nextToken :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
-describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s@DescribeTags' {} a -> s {nextToken = a} :: DescribeTags)
-
--- | The maximum number of results to return in a single call. This value can
--- be between 5 and 1000. To retrieve the remaining results, make another
--- call with the returned @NextToken@ value.
-describeTags_maxResults :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
-describeTags_maxResults = Lens.lens (\DescribeTags' {maxResults} -> maxResults) (\s@DescribeTags' {} a -> s {maxResults = a} :: DescribeTags)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeTags_dryRun :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Bool)
-describeTags_dryRun = Lens.lens (\DescribeTags' {dryRun} -> dryRun) (\s@DescribeTags' {} a -> s {dryRun = a} :: DescribeTags)
 
 -- | The filters.
 --
@@ -183,7 +166,24 @@ describeTags_dryRun = Lens.lens (\DescribeTags' {dryRun} -> dryRun) (\s@Describe
 --
 -- -   @value@ - The tag value.
 describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [Filter])
-describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
+describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page of results.
+describeTags_nextToken :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
+describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s@DescribeTags' {} a -> s {nextToken = a} :: DescribeTags)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeTags_dryRun :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Bool)
+describeTags_dryRun = Lens.lens (\DescribeTags' {dryRun} -> dryRun) (\s@DescribeTags' {} a -> s {dryRun = a} :: DescribeTags)
+
+-- | The maximum number of results to return in a single call. This value can
+-- be between 5 and 1000. To retrieve the remaining results, make another
+-- call with the returned @NextToken@ value.
+describeTags_maxResults :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
+describeTags_maxResults = Lens.lens (\DescribeTags' {maxResults} -> maxResults) (\s@DescribeTags' {} a -> s {maxResults = a} :: DescribeTags)
 
 instance Core.AWSPager DescribeTags where
   page rq rs
@@ -235,11 +235,11 @@ instance Core.ToQuery DescribeTags where
           Core.=: ("DescribeTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeTagsResponse' smart constructor.
@@ -286,7 +286,7 @@ describeTagsResponse_nextToken = Lens.lens (\DescribeTagsResponse' {nextToken} -
 
 -- | The tags.
 describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TagDescription])
-describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

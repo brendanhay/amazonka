@@ -192,7 +192,7 @@ listContactListsResponse_nextToken = Lens.lens (\ListContactListsResponse' {next
 
 -- | The available contact lists.
 listContactListsResponse_contactLists :: Lens.Lens' ListContactListsResponse (Prelude.Maybe [ContactList])
-listContactListsResponse_contactLists = Lens.lens (\ListContactListsResponse' {contactLists} -> contactLists) (\s@ListContactListsResponse' {} a -> s {contactLists = a} :: ListContactListsResponse) Prelude.. Lens.mapping Lens._Coerce
+listContactListsResponse_contactLists = Lens.lens (\ListContactListsResponse' {contactLists} -> contactLists) (\s@ListContactListsResponse' {} a -> s {contactLists = a} :: ListContactListsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listContactListsResponse_httpStatus :: Lens.Lens' ListContactListsResponse Prelude.Int

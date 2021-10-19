@@ -100,7 +100,7 @@ untagUser_userName = Lens.lens (\UntagUser' {userName} -> userName) (\s@UntagUse
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified user.
 untagUser_tagKeys :: Lens.Lens' UntagUser [Prelude.Text]
-untagUser_tagKeys = Lens.lens (\UntagUser' {tagKeys} -> tagKeys) (\s@UntagUser' {} a -> s {tagKeys = a} :: UntagUser) Prelude.. Lens._Coerce
+untagUser_tagKeys = Lens.lens (\UntagUser' {tagKeys} -> tagKeys) (\s@UntagUser' {} a -> s {tagKeys = a} :: UntagUser) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagUser where
   type AWSResponse UntagUser = UntagUserResponse

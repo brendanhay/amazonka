@@ -30,10 +30,10 @@ module Network.AWS.AppSync.CreateFunction
     newCreateFunction,
 
     -- * Request Lenses
+    createFunction_requestMappingTemplate,
     createFunction_responseMappingTemplate,
     createFunction_syncConfig,
     createFunction_description,
-    createFunction_requestMappingTemplate,
     createFunction_apiId,
     createFunction_name,
     createFunction_dataSourceName,
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFunction' smart constructor.
 data CreateFunction = CreateFunction'
-  { -- | The @Function@ response mapping template.
+  { -- | The @Function@ request mapping template. Functions support only the
+    -- 2018-05-29 version of the request mapping template.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The @Function@ response mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
     syncConfig :: Prelude.Maybe SyncConfig,
     -- | The @Function@ description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The @Function@ request mapping template. Functions support only the
-    -- 2018-05-29 version of the request mapping template.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The GraphQL API ID.
     apiId :: Prelude.Text,
     -- | The @Function@ name. The function name does not have to be unique.
@@ -86,14 +86,14 @@ data CreateFunction = CreateFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestMappingTemplate', 'createFunction_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the
+-- 2018-05-29 version of the request mapping template.
+--
 -- 'responseMappingTemplate', 'createFunction_responseMappingTemplate' - The @Function@ response mapping template.
 --
 -- 'syncConfig', 'createFunction_syncConfig' - Undocumented member.
 --
 -- 'description', 'createFunction_description' - The @Function@ description.
---
--- 'requestMappingTemplate', 'createFunction_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the
--- 2018-05-29 version of the request mapping template.
 --
 -- 'apiId', 'createFunction_apiId' - The GraphQL API ID.
 --
@@ -119,16 +119,21 @@ newCreateFunction
   pDataSourceName_
   pFunctionVersion_ =
     CreateFunction'
-      { responseMappingTemplate =
+      { requestMappingTemplate =
           Prelude.Nothing,
+        responseMappingTemplate = Prelude.Nothing,
         syncConfig = Prelude.Nothing,
         description = Prelude.Nothing,
-        requestMappingTemplate = Prelude.Nothing,
         apiId = pApiId_,
         name = pName_,
         dataSourceName = pDataSourceName_,
         functionVersion = pFunctionVersion_
       }
+
+-- | The @Function@ request mapping template. Functions support only the
+-- 2018-05-29 version of the request mapping template.
+createFunction_requestMappingTemplate :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
+createFunction_requestMappingTemplate = Lens.lens (\CreateFunction' {requestMappingTemplate} -> requestMappingTemplate) (\s@CreateFunction' {} a -> s {requestMappingTemplate = a} :: CreateFunction)
 
 -- | The @Function@ response mapping template.
 createFunction_responseMappingTemplate :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
@@ -141,11 +146,6 @@ createFunction_syncConfig = Lens.lens (\CreateFunction' {syncConfig} -> syncConf
 -- | The @Function@ description.
 createFunction_description :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
 createFunction_description = Lens.lens (\CreateFunction' {description} -> description) (\s@CreateFunction' {} a -> s {description = a} :: CreateFunction)
-
--- | The @Function@ request mapping template. Functions support only the
--- 2018-05-29 version of the request mapping template.
-createFunction_requestMappingTemplate :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Text)
-createFunction_requestMappingTemplate = Lens.lens (\CreateFunction' {requestMappingTemplate} -> requestMappingTemplate) (\s@CreateFunction' {} a -> s {requestMappingTemplate = a} :: CreateFunction)
 
 -- | The GraphQL API ID.
 createFunction_apiId :: Lens.Lens' CreateFunction Prelude.Text
@@ -196,12 +196,12 @@ instance Core.ToJSON CreateFunction where
   toJSON CreateFunction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("responseMappingTemplate" Core..=)
+          [ ("requestMappingTemplate" Core..=)
+              Prelude.<$> requestMappingTemplate,
+            ("responseMappingTemplate" Core..=)
               Prelude.<$> responseMappingTemplate,
             ("syncConfig" Core..=) Prelude.<$> syncConfig,
             ("description" Core..=) Prelude.<$> description,
-            ("requestMappingTemplate" Core..=)
-              Prelude.<$> requestMappingTemplate,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("dataSourceName" Core..= dataSourceName),

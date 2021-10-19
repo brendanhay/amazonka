@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAuthorizerSummary' smart constructor.
 data AuthorizerSummary = AuthorizerSummary'
-  { -- | The authorizer ARN.
-    authorizerArn :: Prelude.Maybe Prelude.Text,
-    -- | The authorizer name.
-    authorizerName :: Prelude.Maybe Prelude.Text
+  { -- | The authorizer name.
+    authorizerName :: Prelude.Maybe Prelude.Text,
+    -- | The authorizer ARN.
+    authorizerArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,25 @@ data AuthorizerSummary = AuthorizerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizerArn', 'authorizerSummary_authorizerArn' - The authorizer ARN.
---
 -- 'authorizerName', 'authorizerSummary_authorizerName' - The authorizer name.
+--
+-- 'authorizerArn', 'authorizerSummary_authorizerArn' - The authorizer ARN.
 newAuthorizerSummary ::
   AuthorizerSummary
 newAuthorizerSummary =
   AuthorizerSummary'
-    { authorizerArn = Prelude.Nothing,
-      authorizerName = Prelude.Nothing
+    { authorizerName =
+        Prelude.Nothing,
+      authorizerArn = Prelude.Nothing
     }
-
--- | The authorizer ARN.
-authorizerSummary_authorizerArn :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
-authorizerSummary_authorizerArn = Lens.lens (\AuthorizerSummary' {authorizerArn} -> authorizerArn) (\s@AuthorizerSummary' {} a -> s {authorizerArn = a} :: AuthorizerSummary)
 
 -- | The authorizer name.
 authorizerSummary_authorizerName :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
 authorizerSummary_authorizerName = Lens.lens (\AuthorizerSummary' {authorizerName} -> authorizerName) (\s@AuthorizerSummary' {} a -> s {authorizerName = a} :: AuthorizerSummary)
+
+-- | The authorizer ARN.
+authorizerSummary_authorizerArn :: Lens.Lens' AuthorizerSummary (Prelude.Maybe Prelude.Text)
+authorizerSummary_authorizerArn = Lens.lens (\AuthorizerSummary' {authorizerArn} -> authorizerArn) (\s@AuthorizerSummary' {} a -> s {authorizerArn = a} :: AuthorizerSummary)
 
 instance Core.FromJSON AuthorizerSummary where
   parseJSON =
@@ -67,8 +68,8 @@ instance Core.FromJSON AuthorizerSummary where
       "AuthorizerSummary"
       ( \x ->
           AuthorizerSummary'
-            Prelude.<$> (x Core..:? "authorizerArn")
-            Prelude.<*> (x Core..:? "authorizerName")
+            Prelude.<$> (x Core..:? "authorizerName")
+            Prelude.<*> (x Core..:? "authorizerArn")
       )
 
 instance Prelude.Hashable AuthorizerSummary

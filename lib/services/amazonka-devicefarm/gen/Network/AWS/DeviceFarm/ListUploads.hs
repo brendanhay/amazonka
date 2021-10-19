@@ -422,7 +422,7 @@ listUploadsResponse_nextToken = Lens.lens (\ListUploadsResponse' {nextToken} -> 
 
 -- | Information about the uploads.
 listUploadsResponse_uploads :: Lens.Lens' ListUploadsResponse (Prelude.Maybe [Upload])
-listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Prelude.. Lens.mapping Lens._Coerce
+listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUploadsResponse_httpStatus :: Lens.Lens' ListUploadsResponse Prelude.Int

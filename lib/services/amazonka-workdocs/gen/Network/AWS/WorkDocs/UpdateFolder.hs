@@ -29,8 +29,8 @@ module Network.AWS.WorkDocs.UpdateFolder
 
     -- * Request Lenses
     updateFolder_parentFolderId,
-    updateFolder_name,
     updateFolder_authenticationToken,
+    updateFolder_name,
     updateFolder_resourceState,
     updateFolder_folderId,
 
@@ -51,11 +51,11 @@ import Network.AWS.WorkDocs.Types
 data UpdateFolder = UpdateFolder'
   { -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the folder.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name of the folder.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
     -- values from the API.
     resourceState :: Prelude.Maybe ResourceStateType,
@@ -74,10 +74,10 @@ data UpdateFolder = UpdateFolder'
 --
 -- 'parentFolderId', 'updateFolder_parentFolderId' - The ID of the parent folder.
 --
--- 'name', 'updateFolder_name' - The name of the folder.
---
 -- 'authenticationToken', 'updateFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
+--
+-- 'name', 'updateFolder_name' - The name of the folder.
 --
 -- 'resourceState', 'updateFolder_resourceState' - The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.
@@ -90,8 +90,8 @@ newUpdateFolder ::
 newUpdateFolder pFolderId_ =
   UpdateFolder'
     { parentFolderId = Prelude.Nothing,
-      name = Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceState = Prelude.Nothing,
       folderId = pFolderId_
     }
@@ -100,14 +100,14 @@ newUpdateFolder pFolderId_ =
 updateFolder_parentFolderId :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
 updateFolder_parentFolderId = Lens.lens (\UpdateFolder' {parentFolderId} -> parentFolderId) (\s@UpdateFolder' {} a -> s {parentFolderId = a} :: UpdateFolder)
 
--- | The name of the folder.
-updateFolder_name :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
-updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' {} a -> s {name = a} :: UpdateFolder)
-
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 updateFolder_authenticationToken :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
 updateFolder_authenticationToken = Lens.lens (\UpdateFolder' {authenticationToken} -> authenticationToken) (\s@UpdateFolder' {} a -> s {authenticationToken = a} :: UpdateFolder) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The name of the folder.
+updateFolder_name :: Lens.Lens' UpdateFolder (Prelude.Maybe Prelude.Text)
+updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' {} a -> s {name = a} :: UpdateFolder)
 
 -- | The resource state of the folder. Only ACTIVE and RECYCLED are accepted
 -- values from the API.

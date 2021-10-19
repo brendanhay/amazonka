@@ -14,16 +14,6 @@
 module Network.AWS.MarketplaceMetering.Lens
   ( -- * Operations
 
-    -- ** MeterUsage
-    meterUsage_usageAllocations,
-    meterUsage_usageQuantity,
-    meterUsage_dryRun,
-    meterUsage_productCode,
-    meterUsage_timestamp,
-    meterUsage_usageDimension,
-    meterUsageResponse_meteringRecordId,
-    meterUsageResponse_httpStatus,
-
     -- ** RegisterUsage
     registerUsage_nonce,
     registerUsage_productCode,
@@ -32,18 +22,28 @@ module Network.AWS.MarketplaceMetering.Lens
     registerUsageResponse_publicKeyRotationTimestamp,
     registerUsageResponse_httpStatus,
 
+    -- ** BatchMeterUsage
+    batchMeterUsage_usageRecords,
+    batchMeterUsage_productCode,
+    batchMeterUsageResponse_results,
+    batchMeterUsageResponse_unprocessedRecords,
+    batchMeterUsageResponse_httpStatus,
+
     -- ** ResolveCustomer
     resolveCustomer_registrationToken,
     resolveCustomerResponse_customerIdentifier,
     resolveCustomerResponse_productCode,
     resolveCustomerResponse_httpStatus,
 
-    -- ** BatchMeterUsage
-    batchMeterUsage_usageRecords,
-    batchMeterUsage_productCode,
-    batchMeterUsageResponse_unprocessedRecords,
-    batchMeterUsageResponse_results,
-    batchMeterUsageResponse_httpStatus,
+    -- ** MeterUsage
+    meterUsage_usageQuantity,
+    meterUsage_usageAllocations,
+    meterUsage_dryRun,
+    meterUsage_productCode,
+    meterUsage_timestamp,
+    meterUsage_usageDimension,
+    meterUsageResponse_meteringRecordId,
+    meterUsageResponse_httpStatus,
 
     -- * Types
 
@@ -56,16 +56,16 @@ module Network.AWS.MarketplaceMetering.Lens
     usageAllocation_allocatedUsageQuantity,
 
     -- ** UsageRecord
-    usageRecord_usageAllocations,
     usageRecord_quantity,
+    usageRecord_usageAllocations,
     usageRecord_timestamp,
     usageRecord_customerIdentifier,
     usageRecord_dimension,
 
     -- ** UsageRecordResult
     usageRecordResult_status,
-    usageRecordResult_meteringRecordId,
     usageRecordResult_usageRecord,
+    usageRecordResult_meteringRecordId,
   )
 where
 

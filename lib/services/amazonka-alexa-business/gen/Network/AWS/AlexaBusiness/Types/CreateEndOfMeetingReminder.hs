@@ -66,14 +66,14 @@ newCreateEndOfMeetingReminder
   pEnabled_ =
     CreateEndOfMeetingReminder'
       { reminderAtMinutes =
-          Lens._Coerce Lens.# pReminderAtMinutes_,
+          Lens.coerced Lens.# pReminderAtMinutes_,
         reminderType = pReminderType_,
         enabled = pEnabled_
       }
 
 -- | A range of 3 to 15 minutes that determines when the reminder begins.
 createEndOfMeetingReminder_reminderAtMinutes :: Lens.Lens' CreateEndOfMeetingReminder (Prelude.NonEmpty Prelude.Int)
-createEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\CreateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@CreateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: CreateEndOfMeetingReminder) Prelude.. Lens._Coerce
+createEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\CreateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@CreateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: CreateEndOfMeetingReminder) Prelude.. Lens.coerced
 
 -- | The type of sound that users hear during the end of meeting reminder.
 createEndOfMeetingReminder_reminderType :: Lens.Lens' CreateEndOfMeetingReminder EndOfMeetingReminderType

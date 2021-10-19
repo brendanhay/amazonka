@@ -79,7 +79,7 @@ newNodeConfigurationOptionsFilter =
 -- EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
 -- For example, filter NumberOfNodes (name) GT (operator) 3 (values).
 nodeConfigurationOptionsFilter_values :: Lens.Lens' NodeConfigurationOptionsFilter (Prelude.Maybe [Prelude.Text])
-nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilter' {values} -> values) (\s@NodeConfigurationOptionsFilter' {} a -> s {values = a} :: NodeConfigurationOptionsFilter) Prelude.. Lens.mapping Lens._Coerce
+nodeConfigurationOptionsFilter_values = Lens.lens (\NodeConfigurationOptionsFilter' {values} -> values) (\s@NodeConfigurationOptionsFilter' {} a -> s {values = a} :: NodeConfigurationOptionsFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filter operator. If filter Name is NodeType only the \'in\' operator
 -- is supported. Provide one value to evaluate for \'eq\', \'lt\', \'le\',

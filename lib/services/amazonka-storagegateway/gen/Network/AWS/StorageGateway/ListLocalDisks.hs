@@ -177,7 +177,7 @@ listLocalDisksResponse_gatewayARN = Lens.lens (\ListLocalDisksResponse' {gateway
 --
 -- -   ListLocalDisksOutput$Disks
 listLocalDisksResponse_disks :: Lens.Lens' ListLocalDisksResponse (Prelude.Maybe [Disk])
-listLocalDisksResponse_disks = Lens.lens (\ListLocalDisksResponse' {disks} -> disks) (\s@ListLocalDisksResponse' {} a -> s {disks = a} :: ListLocalDisksResponse) Prelude.. Lens.mapping Lens._Coerce
+listLocalDisksResponse_disks = Lens.lens (\ListLocalDisksResponse' {disks} -> disks) (\s@ListLocalDisksResponse' {} a -> s {disks = a} :: ListLocalDisksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLocalDisksResponse_httpStatus :: Lens.Lens' ListLocalDisksResponse Prelude.Int

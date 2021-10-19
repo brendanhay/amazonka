@@ -30,9 +30,9 @@ module Network.AWS.APIGateway.GetUsagePlanKeys
     newGetUsagePlanKeys,
 
     -- * Request Lenses
-    getUsagePlanKeys_position,
     getUsagePlanKeys_nameQuery,
     getUsagePlanKeys_limit,
+    getUsagePlanKeys_position,
     getUsagePlanKeys_usagePlanId,
 
     -- * Destructuring the Response
@@ -58,14 +58,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetUsagePlanKeys' smart constructor.
 data GetUsagePlanKeys = GetUsagePlanKeys'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | A query parameter specifying the name of the to-be-returned usage plan
+  { -- | A query parameter specifying the name of the to-be-returned usage plan
     -- keys.
     nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The Id of the UsagePlan resource representing the usage plan
     -- containing the to-be-retrieved UsagePlanKey resource representing a plan
     -- customer.
@@ -81,13 +81,13 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getUsagePlanKeys_position' - The current pagination position in the paged result set.
---
 -- 'nameQuery', 'getUsagePlanKeys_nameQuery' - A query parameter specifying the name of the to-be-returned usage plan
 -- keys.
 --
 -- 'limit', 'getUsagePlanKeys_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getUsagePlanKeys_position' - The current pagination position in the paged result set.
 --
 -- 'usagePlanId', 'getUsagePlanKeys_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-retrieved UsagePlanKey resource representing a plan
@@ -98,15 +98,11 @@ newGetUsagePlanKeys ::
   GetUsagePlanKeys
 newGetUsagePlanKeys pUsagePlanId_ =
   GetUsagePlanKeys'
-    { position = Prelude.Nothing,
-      nameQuery = Prelude.Nothing,
+    { nameQuery = Prelude.Nothing,
       limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       usagePlanId = pUsagePlanId_
     }
-
--- | The current pagination position in the paged result set.
-getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
-getUsagePlanKeys_position = Lens.lens (\GetUsagePlanKeys' {position} -> position) (\s@GetUsagePlanKeys' {} a -> s {position = a} :: GetUsagePlanKeys)
 
 -- | A query parameter specifying the name of the to-be-returned usage plan
 -- keys.
@@ -117,6 +113,10 @@ getUsagePlanKeys_nameQuery = Lens.lens (\GetUsagePlanKeys' {nameQuery} -> nameQu
 -- and the maximum value is 500.
 getUsagePlanKeys_limit :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Int)
 getUsagePlanKeys_limit = Lens.lens (\GetUsagePlanKeys' {limit} -> limit) (\s@GetUsagePlanKeys' {} a -> s {limit = a} :: GetUsagePlanKeys)
+
+-- | The current pagination position in the paged result set.
+getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
+getUsagePlanKeys_position = Lens.lens (\GetUsagePlanKeys' {position} -> position) (\s@GetUsagePlanKeys' {} a -> s {position = a} :: GetUsagePlanKeys)
 
 -- | [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-retrieved UsagePlanKey resource representing a plan
@@ -180,9 +180,9 @@ instance Core.ToPath GetUsagePlanKeys where
 instance Core.ToQuery GetUsagePlanKeys where
   toQuery GetUsagePlanKeys' {..} =
     Prelude.mconcat
-      [ "position" Core.=: position,
-        "name" Core.=: nameQuery,
-        "limit" Core.=: limit
+      [ "name" Core.=: nameQuery,
+        "limit" Core.=: limit,
+        "position" Core.=: position
       ]
 
 -- | Represents the collection of usage plan keys added to usage plans for
@@ -226,7 +226,7 @@ newGetUsagePlanKeysResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getUsagePlanKeysResponse_items :: Lens.Lens' GetUsagePlanKeysResponse (Prelude.Maybe [UsagePlanKey])
-getUsagePlanKeysResponse_items = Lens.lens (\GetUsagePlanKeysResponse' {items} -> items) (\s@GetUsagePlanKeysResponse' {} a -> s {items = a} :: GetUsagePlanKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+getUsagePlanKeysResponse_items = Lens.lens (\GetUsagePlanKeysResponse' {items} -> items) (\s@GetUsagePlanKeysResponse' {} a -> s {items = a} :: GetUsagePlanKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getUsagePlanKeysResponse_position :: Lens.Lens' GetUsagePlanKeysResponse (Prelude.Maybe Prelude.Text)

@@ -29,15 +29,15 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'newKernelGatewayAppSettings' smart constructor.
 data KernelGatewayAppSettings = KernelGatewayAppSettings'
-  { -- | A list of custom SageMaker images that are configured to run as a
+  { -- | The default instance type and the Amazon Resource Name (ARN) of the
+    -- default SageMaker image used by the KernelGateway app.
+    defaultResourceSpec :: Prelude.Maybe ResourceSpec,
+    -- | A list of custom SageMaker images that are configured to run as a
     -- KernelGateway app.
     customImages :: Prelude.Maybe [CustomImage],
     -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
     -- to the the user profile or domain.
-    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text],
-    -- | The default instance type and the Amazon Resource Name (ARN) of the
-    -- default SageMaker image used by the KernelGateway app.
-    defaultResourceSpec :: Prelude.Maybe ResourceSpec
+    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,38 +49,38 @@ data KernelGatewayAppSettings = KernelGatewayAppSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultResourceSpec', 'kernelGatewayAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
+-- default SageMaker image used by the KernelGateway app.
+--
 -- 'customImages', 'kernelGatewayAppSettings_customImages' - A list of custom SageMaker images that are configured to run as a
 -- KernelGateway app.
 --
 -- 'lifecycleConfigArns', 'kernelGatewayAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
 -- to the the user profile or domain.
---
--- 'defaultResourceSpec', 'kernelGatewayAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
--- default SageMaker image used by the KernelGateway app.
 newKernelGatewayAppSettings ::
   KernelGatewayAppSettings
 newKernelGatewayAppSettings =
   KernelGatewayAppSettings'
-    { customImages =
+    { defaultResourceSpec =
         Prelude.Nothing,
-      lifecycleConfigArns = Prelude.Nothing,
-      defaultResourceSpec = Prelude.Nothing
+      customImages = Prelude.Nothing,
+      lifecycleConfigArns = Prelude.Nothing
     }
-
--- | A list of custom SageMaker images that are configured to run as a
--- KernelGateway app.
-kernelGatewayAppSettings_customImages :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [CustomImage])
-kernelGatewayAppSettings_customImages = Lens.lens (\KernelGatewayAppSettings' {customImages} -> customImages) (\s@KernelGatewayAppSettings' {} a -> s {customImages = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
--- to the the user profile or domain.
-kernelGatewayAppSettings_lifecycleConfigArns :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [Prelude.Text])
-kernelGatewayAppSettings_lifecycleConfigArns = Lens.lens (\KernelGatewayAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@KernelGatewayAppSettings' {} a -> s {lifecycleConfigArns = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the KernelGateway app.
 kernelGatewayAppSettings_defaultResourceSpec :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe ResourceSpec)
 kernelGatewayAppSettings_defaultResourceSpec = Lens.lens (\KernelGatewayAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@KernelGatewayAppSettings' {} a -> s {defaultResourceSpec = a} :: KernelGatewayAppSettings)
+
+-- | A list of custom SageMaker images that are configured to run as a
+-- KernelGateway app.
+kernelGatewayAppSettings_customImages :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [CustomImage])
+kernelGatewayAppSettings_customImages = Lens.lens (\KernelGatewayAppSettings' {customImages} -> customImages) (\s@KernelGatewayAppSettings' {} a -> s {customImages = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+-- to the the user profile or domain.
+kernelGatewayAppSettings_lifecycleConfigArns :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [Prelude.Text])
+kernelGatewayAppSettings_lifecycleConfigArns = Lens.lens (\KernelGatewayAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@KernelGatewayAppSettings' {} a -> s {lifecycleConfigArns = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON KernelGatewayAppSettings where
   parseJSON =
@@ -88,11 +88,11 @@ instance Core.FromJSON KernelGatewayAppSettings where
       "KernelGatewayAppSettings"
       ( \x ->
           KernelGatewayAppSettings'
-            Prelude.<$> (x Core..:? "CustomImages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "DefaultResourceSpec")
+            Prelude.<*> (x Core..:? "CustomImages" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "LifecycleConfigArns"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "DefaultResourceSpec")
       )
 
 instance Prelude.Hashable KernelGatewayAppSettings
@@ -103,10 +103,10 @@ instance Core.ToJSON KernelGatewayAppSettings where
   toJSON KernelGatewayAppSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CustomImages" Core..=) Prelude.<$> customImages,
+          [ ("DefaultResourceSpec" Core..=)
+              Prelude.<$> defaultResourceSpec,
+            ("CustomImages" Core..=) Prelude.<$> customImages,
             ("LifecycleConfigArns" Core..=)
-              Prelude.<$> lifecycleConfigArns,
-            ("DefaultResourceSpec" Core..=)
-              Prelude.<$> defaultResourceSpec
+              Prelude.<$> lifecycleConfigArns
           ]
       )

@@ -76,7 +76,7 @@ newRelationship =
 -- | An array of IDs for related blocks. You can get the type of the
 -- relationship from the @Type@ element.
 relationship_ids :: Lens.Lens' Relationship (Prelude.Maybe [Prelude.Text])
-relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} a -> s {ids = a} :: Relationship) Prelude.. Lens.mapping Lens._Coerce
+relationship_ids = Lens.lens (\Relationship' {ids} -> ids) (\s@Relationship' {} a -> s {ids = a} :: Relationship) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of relationship that the blocks in the IDs array have with the
 -- current block. The relationship can be @VALUE@ or @CHILD@. A

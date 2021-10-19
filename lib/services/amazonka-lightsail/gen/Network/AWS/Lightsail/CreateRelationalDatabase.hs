@@ -31,11 +31,11 @@ module Network.AWS.Lightsail.CreateRelationalDatabase
     newCreateRelationalDatabase,
 
     -- * Request Lenses
-    createRelationalDatabase_preferredBackupWindow,
     createRelationalDatabase_masterUserPassword,
     createRelationalDatabase_publiclyAccessible,
-    createRelationalDatabase_availabilityZone,
     createRelationalDatabase_preferredMaintenanceWindow,
+    createRelationalDatabase_preferredBackupWindow,
+    createRelationalDatabase_availabilityZone,
     createRelationalDatabase_tags,
     createRelationalDatabase_relationalDatabaseName,
     createRelationalDatabase_relationalDatabaseBlueprintId,
@@ -62,7 +62,44 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateRelationalDatabase' smart constructor.
 data CreateRelationalDatabase = CreateRelationalDatabase'
-  { -- | The daily time range during which automated backups are created for your
+  { -- | The password for the master user. The password can include any printable
+    -- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
+    -- spaces.
+    --
+    -- __MySQL__
+    --
+    -- Constraints: Must contain from 8 to 41 characters.
+    --
+    -- __PostgreSQL__
+    --
+    -- Constraints: Must contain from 8 to 128 characters.
+    masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Specifies the accessibility options for your new database. A value of
+    -- @true@ specifies a database that is available to resources outside of
+    -- your Lightsail account. A value of @false@ specifies a database that is
+    -- available only to your Lightsail resources in the same region as your
+    -- database.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | The weekly time range during which system maintenance can occur on your
+    -- new database.
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour
+    -- block of time for each AWS Region, occurring on a random day of the
+    -- week.
+    --
+    -- Constraints:
+    --
+    -- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
+    --
+    -- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+    --
+    -- -   Must be at least 30 minutes.
+    --
+    -- -   Specified in Coordinated Universal Time (UTC).
+    --
+    -- -   Example: @Tue:17:00-Tue:17:30@
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | The daily time range during which automated backups are created for your
     -- new database if automated backups are enabled.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
@@ -84,24 +121,6 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     --
     -- -   Must be at least 30 minutes.
     preferredBackupWindow :: Prelude.Maybe Prelude.Text,
-    -- | The password for the master user. The password can include any printable
-    -- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
-    -- spaces.
-    --
-    -- __MySQL__
-    --
-    -- Constraints: Must contain from 8 to 41 characters.
-    --
-    -- __PostgreSQL__
-    --
-    -- Constraints: Must contain from 8 to 128 characters.
-    masterUserPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Specifies the accessibility options for your new database. A value of
-    -- @true@ specifies a database that is available to resources outside of
-    -- your Lightsail account. A value of @false@ specifies a database that is
-    -- available only to your Lightsail resources in the same region as your
-    -- database.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
     -- | The Availability Zone in which to create your new database. Use the
     -- @us-east-2a@ case-sensitive format.
     --
@@ -110,25 +129,6 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
     -- @include relational database Availability Zones@ parameter to your
     -- request.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The weekly time range during which system maintenance can occur on your
-    -- new database.
-    --
-    -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each AWS Region, occurring on a random day of the
-    -- week.
-    --
-    -- Constraints:
-    --
-    -- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
-    --
-    -- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
-    --
-    -- -   Must be at least 30 minutes.
-    --
-    -- -   Specified in Coordinated Universal Time (UTC).
-    --
-    -- -   Example: @Tue:17:00-Tue:17:30@
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
@@ -253,6 +253,43 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'masterUserPassword', 'createRelationalDatabase_masterUserPassword' - The password for the master user. The password can include any printable
+-- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
+-- spaces.
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+--
+-- 'publiclyAccessible', 'createRelationalDatabase_publiclyAccessible' - Specifies the accessibility options for your new database. A value of
+-- @true@ specifies a database that is available to resources outside of
+-- your Lightsail account. A value of @false@ specifies a database that is
+-- available only to your Lightsail resources in the same region as your
+-- database.
+--
+-- 'preferredMaintenanceWindow', 'createRelationalDatabase_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on your
+-- new database.
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each AWS Region, occurring on a random day of the
+-- week.
+--
+-- Constraints:
+--
+-- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
+--
+-- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- -   Must be at least 30 minutes.
+--
+-- -   Specified in Coordinated Universal Time (UTC).
+--
+-- -   Example: @Tue:17:00-Tue:17:30@
+--
 -- 'preferredBackupWindow', 'createRelationalDatabase_preferredBackupWindow' - The daily time range during which automated backups are created for your
 -- new database if automated backups are enabled.
 --
@@ -275,24 +312,6 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 --
 -- -   Must be at least 30 minutes.
 --
--- 'masterUserPassword', 'createRelationalDatabase_masterUserPassword' - The password for the master user. The password can include any printable
--- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
--- spaces.
---
--- __MySQL__
---
--- Constraints: Must contain from 8 to 41 characters.
---
--- __PostgreSQL__
---
--- Constraints: Must contain from 8 to 128 characters.
---
--- 'publiclyAccessible', 'createRelationalDatabase_publiclyAccessible' - Specifies the accessibility options for your new database. A value of
--- @true@ specifies a database that is available to resources outside of
--- your Lightsail account. A value of @false@ specifies a database that is
--- available only to your Lightsail resources in the same region as your
--- database.
---
 -- 'availabilityZone', 'createRelationalDatabase_availabilityZone' - The Availability Zone in which to create your new database. Use the
 -- @us-east-2a@ case-sensitive format.
 --
@@ -300,25 +319,6 @@ data CreateRelationalDatabase = CreateRelationalDatabase'
 -- operation. Be sure to add the
 -- @include relational database Availability Zones@ parameter to your
 -- request.
---
--- 'preferredMaintenanceWindow', 'createRelationalDatabase_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur on your
--- new database.
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week.
---
--- Constraints:
---
--- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
---
--- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- -   Must be at least 30 minutes.
---
--- -   Specified in Coordinated Universal Time (UTC).
---
--- -   Example: @Tue:17:00-Tue:17:30@
 --
 -- 'tags', 'createRelationalDatabase_tags' - The tag keys and optional values to add to the resource during create.
 --
@@ -451,12 +451,12 @@ newCreateRelationalDatabase
   pMasterDatabaseName_
   pMasterUsername_ =
     CreateRelationalDatabase'
-      { preferredBackupWindow =
+      { masterUserPassword =
           Prelude.Nothing,
-        masterUserPassword = Prelude.Nothing,
         publiclyAccessible = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
         preferredMaintenanceWindow = Prelude.Nothing,
+        preferredBackupWindow = Prelude.Nothing,
+        availabilityZone = Prelude.Nothing,
         tags = Prelude.Nothing,
         relationalDatabaseName = pRelationalDatabaseName_,
         relationalDatabaseBlueprintId =
@@ -466,6 +466,49 @@ newCreateRelationalDatabase
         masterDatabaseName = pMasterDatabaseName_,
         masterUsername = pMasterUsername_
       }
+
+-- | The password for the master user. The password can include any printable
+-- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
+-- spaces.
+--
+-- __MySQL__
+--
+-- Constraints: Must contain from 8 to 41 characters.
+--
+-- __PostgreSQL__
+--
+-- Constraints: Must contain from 8 to 128 characters.
+createRelationalDatabase_masterUserPassword :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
+createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Specifies the accessibility options for your new database. A value of
+-- @true@ specifies a database that is available to resources outside of
+-- your Lightsail account. A value of @false@ specifies a database that is
+-- available only to your Lightsail resources in the same region as your
+-- database.
+createRelationalDatabase_publiclyAccessible :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Bool)
+createRelationalDatabase_publiclyAccessible = Lens.lens (\CreateRelationalDatabase' {publiclyAccessible} -> publiclyAccessible) (\s@CreateRelationalDatabase' {} a -> s {publiclyAccessible = a} :: CreateRelationalDatabase)
+
+-- | The weekly time range during which system maintenance can occur on your
+-- new database.
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each AWS Region, occurring on a random day of the
+-- week.
+--
+-- Constraints:
+--
+-- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
+--
+-- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- -   Must be at least 30 minutes.
+--
+-- -   Specified in Coordinated Universal Time (UTC).
+--
+-- -   Example: @Tue:17:00-Tue:17:30@
+createRelationalDatabase_preferredMaintenanceWindow :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
+createRelationalDatabase_preferredMaintenanceWindow = Lens.lens (\CreateRelationalDatabase' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateRelationalDatabase' {} a -> s {preferredMaintenanceWindow = a} :: CreateRelationalDatabase)
 
 -- | The daily time range during which automated backups are created for your
 -- new database if automated backups are enabled.
@@ -491,28 +534,6 @@ newCreateRelationalDatabase
 createRelationalDatabase_preferredBackupWindow :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
 createRelationalDatabase_preferredBackupWindow = Lens.lens (\CreateRelationalDatabase' {preferredBackupWindow} -> preferredBackupWindow) (\s@CreateRelationalDatabase' {} a -> s {preferredBackupWindow = a} :: CreateRelationalDatabase)
 
--- | The password for the master user. The password can include any printable
--- ASCII character except \"\/\", \"\"\", or \"\@\". It cannot contain
--- spaces.
---
--- __MySQL__
---
--- Constraints: Must contain from 8 to 41 characters.
---
--- __PostgreSQL__
---
--- Constraints: Must contain from 8 to 128 characters.
-createRelationalDatabase_masterUserPassword :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
-createRelationalDatabase_masterUserPassword = Lens.lens (\CreateRelationalDatabase' {masterUserPassword} -> masterUserPassword) (\s@CreateRelationalDatabase' {} a -> s {masterUserPassword = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Core._Sensitive
-
--- | Specifies the accessibility options for your new database. A value of
--- @true@ specifies a database that is available to resources outside of
--- your Lightsail account. A value of @false@ specifies a database that is
--- available only to your Lightsail resources in the same region as your
--- database.
-createRelationalDatabase_publiclyAccessible :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Bool)
-createRelationalDatabase_publiclyAccessible = Lens.lens (\CreateRelationalDatabase' {publiclyAccessible} -> publiclyAccessible) (\s@CreateRelationalDatabase' {} a -> s {publiclyAccessible = a} :: CreateRelationalDatabase)
-
 -- | The Availability Zone in which to create your new database. Use the
 -- @us-east-2a@ case-sensitive format.
 --
@@ -523,32 +544,11 @@ createRelationalDatabase_publiclyAccessible = Lens.lens (\CreateRelationalDataba
 createRelationalDatabase_availabilityZone :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
 createRelationalDatabase_availabilityZone = Lens.lens (\CreateRelationalDatabase' {availabilityZone} -> availabilityZone) (\s@CreateRelationalDatabase' {} a -> s {availabilityZone = a} :: CreateRelationalDatabase)
 
--- | The weekly time range during which system maintenance can occur on your
--- new database.
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each AWS Region, occurring on a random day of the
--- week.
---
--- Constraints:
---
--- -   Must be in the @ddd:hh24:mi-ddd:hh24:mi@ format.
---
--- -   Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- -   Must be at least 30 minutes.
---
--- -   Specified in Coordinated Universal Time (UTC).
---
--- -   Example: @Tue:17:00-Tue:17:30@
-createRelationalDatabase_preferredMaintenanceWindow :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe Prelude.Text)
-createRelationalDatabase_preferredMaintenanceWindow = Lens.lens (\CreateRelationalDatabase' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateRelationalDatabase' {} a -> s {preferredMaintenanceWindow = a} :: CreateRelationalDatabase)
-
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
 createRelationalDatabase_tags :: Lens.Lens' CreateRelationalDatabase (Prelude.Maybe [Tag])
-createRelationalDatabase_tags = Lens.lens (\CreateRelationalDatabase' {tags} -> tags) (\s@CreateRelationalDatabase' {} a -> s {tags = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Lens._Coerce
+createRelationalDatabase_tags = Lens.lens (\CreateRelationalDatabase' {tags} -> tags) (\s@CreateRelationalDatabase' {} a -> s {tags = a} :: CreateRelationalDatabase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name to use for your new Lightsail database resource.
 --
@@ -705,16 +705,16 @@ instance Core.ToJSON CreateRelationalDatabase where
   toJSON CreateRelationalDatabase' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("preferredBackupWindow" Core..=)
-              Prelude.<$> preferredBackupWindow,
-            ("masterUserPassword" Core..=)
+          [ ("masterUserPassword" Core..=)
               Prelude.<$> masterUserPassword,
             ("publiclyAccessible" Core..=)
               Prelude.<$> publiclyAccessible,
-            ("availabilityZone" Core..=)
-              Prelude.<$> availabilityZone,
             ("preferredMaintenanceWindow" Core..=)
               Prelude.<$> preferredMaintenanceWindow,
+            ("preferredBackupWindow" Core..=)
+              Prelude.<$> preferredBackupWindow,
+            ("availabilityZone" Core..=)
+              Prelude.<$> availabilityZone,
             ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "relationalDatabaseName"
@@ -780,7 +780,7 @@ newCreateRelationalDatabaseResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 createRelationalDatabaseResponse_operations :: Lens.Lens' CreateRelationalDatabaseResponse (Prelude.Maybe [Operation])
-createRelationalDatabaseResponse_operations = Lens.lens (\CreateRelationalDatabaseResponse' {operations} -> operations) (\s@CreateRelationalDatabaseResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseResponse) Prelude.. Lens.mapping Lens._Coerce
+createRelationalDatabaseResponse_operations = Lens.lens (\CreateRelationalDatabaseResponse' {operations} -> operations) (\s@CreateRelationalDatabaseResponse' {} a -> s {operations = a} :: CreateRelationalDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createRelationalDatabaseResponse_httpStatus :: Lens.Lens' CreateRelationalDatabaseResponse Prelude.Int

@@ -30,18 +30,18 @@ module Network.AWS.CodeBuild.ListReports
     newListReports,
 
     -- * Request Lenses
-    listReports_nextToken,
     listReports_sortOrder,
-    listReports_maxResults,
+    listReports_nextToken,
     listReports_filter,
+    listReports_maxResults,
 
     -- * Destructuring the Response
     ListReportsResponse (..),
     newListReportsResponse,
 
     -- * Response Lenses
-    listReportsResponse_nextToken,
     listReportsResponse_reports,
+    listReportsResponse_nextToken,
     listReportsResponse_httpStatus,
   )
 where
@@ -55,15 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListReports' smart constructor.
 data ListReports = ListReports'
-  { -- | During a previous call, the maximum number of items that can be returned
-    -- is the value specified in @maxResults@. If there more items in the list,
-    -- then a unique string called a /nextToken/ is returned. To get the next
-    -- batch of items in the list, call this operation again, adding the next
-    -- token to the call. To get all of the items in the list, keep calling
-    -- this operation with each subsequent next token that is returned, until
-    -- no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the sort order for the list of returned reports. Valid values
+  { -- | Specifies the sort order for the list of returned reports. Valid values
     -- are:
     --
     -- -   @ASCENDING@: return reports in chronological order based on their
@@ -72,12 +64,20 @@ data ListReports = ListReports'
     -- -   @DESCENDING@: return reports in the reverse chronological order
     --     based on their creation date.
     sortOrder :: Prelude.Maybe SortOrderType,
+    -- | During a previous call, the maximum number of items that can be returned
+    -- is the value specified in @maxResults@. If there more items in the list,
+    -- then a unique string called a /nextToken/ is returned. To get the next
+    -- batch of items in the list, call this operation again, adding the next
+    -- token to the call. To get all of the items in the list, keep calling
+    -- this operation with each subsequent next token that is returned, until
+    -- no more next tokens are returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A @ReportFilter@ object used to filter the returned reports.
+    filter' :: Prelude.Maybe ReportFilter,
     -- | The maximum number of paginated reports returned per response. Use
     -- @nextToken@ to iterate pages in the list of returned @Report@ objects.
     -- The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A @ReportFilter@ object used to filter the returned reports.
-    filter' :: Prelude.Maybe ReportFilter
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,14 +89,6 @@ data ListReports = ListReports'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReports_nextToken' - During a previous call, the maximum number of items that can be returned
--- is the value specified in @maxResults@. If there more items in the list,
--- then a unique string called a /nextToken/ is returned. To get the next
--- batch of items in the list, call this operation again, adding the next
--- token to the call. To get all of the items in the list, keep calling
--- this operation with each subsequent next token that is returned, until
--- no more next tokens are returned.
---
 -- 'sortOrder', 'listReports_sortOrder' - Specifies the sort order for the list of returned reports. Valid values
 -- are:
 --
@@ -106,30 +98,28 @@ data ListReports = ListReports'
 -- -   @DESCENDING@: return reports in the reverse chronological order
 --     based on their creation date.
 --
--- 'maxResults', 'listReports_maxResults' - The maximum number of paginated reports returned per response. Use
--- @nextToken@ to iterate pages in the list of returned @Report@ objects.
--- The default value is 100.
---
--- 'filter'', 'listReports_filter' - A @ReportFilter@ object used to filter the returned reports.
-newListReports ::
-  ListReports
-newListReports =
-  ListReports'
-    { nextToken = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
-    }
-
--- | During a previous call, the maximum number of items that can be returned
+-- 'nextToken', 'listReports_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
 -- batch of items in the list, call this operation again, adding the next
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
-listReports_nextToken :: Lens.Lens' ListReports (Prelude.Maybe Prelude.Text)
-listReports_nextToken = Lens.lens (\ListReports' {nextToken} -> nextToken) (\s@ListReports' {} a -> s {nextToken = a} :: ListReports)
+--
+-- 'filter'', 'listReports_filter' - A @ReportFilter@ object used to filter the returned reports.
+--
+-- 'maxResults', 'listReports_maxResults' - The maximum number of paginated reports returned per response. Use
+-- @nextToken@ to iterate pages in the list of returned @Report@ objects.
+-- The default value is 100.
+newListReports ::
+  ListReports
+newListReports =
+  ListReports'
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | Specifies the sort order for the list of returned reports. Valid values
 -- are:
@@ -142,15 +132,25 @@ listReports_nextToken = Lens.lens (\ListReports' {nextToken} -> nextToken) (\s@L
 listReports_sortOrder :: Lens.Lens' ListReports (Prelude.Maybe SortOrderType)
 listReports_sortOrder = Lens.lens (\ListReports' {sortOrder} -> sortOrder) (\s@ListReports' {} a -> s {sortOrder = a} :: ListReports)
 
+-- | During a previous call, the maximum number of items that can be returned
+-- is the value specified in @maxResults@. If there more items in the list,
+-- then a unique string called a /nextToken/ is returned. To get the next
+-- batch of items in the list, call this operation again, adding the next
+-- token to the call. To get all of the items in the list, keep calling
+-- this operation with each subsequent next token that is returned, until
+-- no more next tokens are returned.
+listReports_nextToken :: Lens.Lens' ListReports (Prelude.Maybe Prelude.Text)
+listReports_nextToken = Lens.lens (\ListReports' {nextToken} -> nextToken) (\s@ListReports' {} a -> s {nextToken = a} :: ListReports)
+
+-- | A @ReportFilter@ object used to filter the returned reports.
+listReports_filter :: Lens.Lens' ListReports (Prelude.Maybe ReportFilter)
+listReports_filter = Lens.lens (\ListReports' {filter'} -> filter') (\s@ListReports' {} a -> s {filter' = a} :: ListReports)
+
 -- | The maximum number of paginated reports returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @Report@ objects.
 -- The default value is 100.
 listReports_maxResults :: Lens.Lens' ListReports (Prelude.Maybe Prelude.Natural)
 listReports_maxResults = Lens.lens (\ListReports' {maxResults} -> maxResults) (\s@ListReports' {} a -> s {maxResults = a} :: ListReports)
-
--- | A @ReportFilter@ object used to filter the returned reports.
-listReports_filter :: Lens.Lens' ListReports (Prelude.Maybe ReportFilter)
-listReports_filter = Lens.lens (\ListReports' {filter'} -> filter') (\s@ListReports' {} a -> s {filter' = a} :: ListReports)
 
 instance Core.AWSPager ListReports where
   page rq rs
@@ -179,8 +179,8 @@ instance Core.AWSRequest ListReports where
     Response.receiveJSON
       ( \s h x ->
           ListReportsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "reports")
+            Prelude.<$> (x Core..?> "reports")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -207,10 +207,10 @@ instance Core.ToJSON ListReports where
   toJSON ListReports' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("filter" Core..=) Prelude.<$> filter'
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -222,7 +222,10 @@ instance Core.ToQuery ListReports where
 
 -- | /See:/ 'newListReportsResponse' smart constructor.
 data ListReportsResponse = ListReportsResponse'
-  { -- | During a previous call, the maximum number of items that can be returned
+  { -- | The list of returned ARNs for the reports in the current Amazon Web
+    -- Services account.
+    reports :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -230,9 +233,6 @@ data ListReportsResponse = ListReportsResponse'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of returned ARNs for the reports in the current Amazon Web
-    -- Services account.
-    reports :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,6 +246,9 @@ data ListReportsResponse = ListReportsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reports', 'listReportsResponse_reports' - The list of returned ARNs for the reports in the current Amazon Web
+-- Services account.
+--
 -- 'nextToken', 'listReportsResponse_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -254,9 +257,6 @@ data ListReportsResponse = ListReportsResponse'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'reports', 'listReportsResponse_reports' - The list of returned ARNs for the reports in the current Amazon Web
--- Services account.
---
 -- 'httpStatus', 'listReportsResponse_httpStatus' - The response's http status code.
 newListReportsResponse ::
   -- | 'httpStatus'
@@ -264,10 +264,15 @@ newListReportsResponse ::
   ListReportsResponse
 newListReportsResponse pHttpStatus_ =
   ListReportsResponse'
-    { nextToken = Prelude.Nothing,
-      reports = Prelude.Nothing,
+    { reports = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of returned ARNs for the reports in the current Amazon Web
+-- Services account.
+listReportsResponse_reports :: Lens.Lens' ListReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listReportsResponse_reports = Lens.lens (\ListReportsResponse' {reports} -> reports) (\s@ListReportsResponse' {} a -> s {reports = a} :: ListReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -278,11 +283,6 @@ newListReportsResponse pHttpStatus_ =
 -- no more next tokens are returned.
 listReportsResponse_nextToken :: Lens.Lens' ListReportsResponse (Prelude.Maybe Prelude.Text)
 listReportsResponse_nextToken = Lens.lens (\ListReportsResponse' {nextToken} -> nextToken) (\s@ListReportsResponse' {} a -> s {nextToken = a} :: ListReportsResponse)
-
--- | The list of returned ARNs for the reports in the current Amazon Web
--- Services account.
-listReportsResponse_reports :: Lens.Lens' ListReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listReportsResponse_reports = Lens.lens (\ListReportsResponse' {reports} -> reports) (\s@ListReportsResponse' {} a -> s {reports = a} :: ListReportsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listReportsResponse_httpStatus :: Lens.Lens' ListReportsResponse Prelude.Int

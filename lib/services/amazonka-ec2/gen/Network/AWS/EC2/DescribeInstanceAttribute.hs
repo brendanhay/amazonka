@@ -43,20 +43,20 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Response Lenses
     describeInstanceAttributeResponse_instanceId,
     describeInstanceAttributeResponse_groups,
+    describeInstanceAttributeResponse_enaSupport,
+    describeInstanceAttributeResponse_sourceDestCheck,
+    describeInstanceAttributeResponse_disableApiTermination,
+    describeInstanceAttributeResponse_enclaveOptions,
+    describeInstanceAttributeResponse_ramdiskId,
+    describeInstanceAttributeResponse_kernelId,
+    describeInstanceAttributeResponse_rootDeviceName,
+    describeInstanceAttributeResponse_instanceType,
+    describeInstanceAttributeResponse_sriovNetSupport,
     describeInstanceAttributeResponse_ebsOptimized,
     describeInstanceAttributeResponse_userData,
-    describeInstanceAttributeResponse_instanceType,
-    describeInstanceAttributeResponse_rootDeviceName,
-    describeInstanceAttributeResponse_ramdiskId,
-    describeInstanceAttributeResponse_productCodes,
-    describeInstanceAttributeResponse_sourceDestCheck,
     describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior,
-    describeInstanceAttributeResponse_sriovNetSupport,
+    describeInstanceAttributeResponse_productCodes,
     describeInstanceAttributeResponse_blockDeviceMappings,
-    describeInstanceAttributeResponse_enclaveOptions,
-    describeInstanceAttributeResponse_kernelId,
-    describeInstanceAttributeResponse_disableApiTermination,
-    describeInstanceAttributeResponse_enaSupport,
     describeInstanceAttributeResponse_httpStatus,
   )
 where
@@ -146,25 +146,25 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "enaSupport")
+            Prelude.<*> (x Core..@? "sourceDestCheck")
+            Prelude.<*> (x Core..@? "disableApiTermination")
+            Prelude.<*> (x Core..@? "enclaveOptions")
+            Prelude.<*> (x Core..@? "ramdisk")
+            Prelude.<*> (x Core..@? "kernel")
+            Prelude.<*> (x Core..@? "rootDeviceName")
+            Prelude.<*> (x Core..@? "instanceType")
+            Prelude.<*> (x Core..@? "sriovNetSupport")
             Prelude.<*> (x Core..@? "ebsOptimized")
             Prelude.<*> (x Core..@? "userData")
-            Prelude.<*> (x Core..@? "instanceType")
-            Prelude.<*> (x Core..@? "rootDeviceName")
-            Prelude.<*> (x Core..@? "ramdisk")
+            Prelude.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
             Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "sourceDestCheck")
-            Prelude.<*> (x Core..@? "instanceInitiatedShutdownBehavior")
-            Prelude.<*> (x Core..@? "sriovNetSupport")
             Prelude.<*> ( x Core..@? "blockDeviceMapping"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> (x Core..@? "enclaveOptions")
-            Prelude.<*> (x Core..@? "kernel")
-            Prelude.<*> (x Core..@? "disableApiTermination")
-            Prelude.<*> (x Core..@? "enaSupport")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -198,18 +198,8 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The security groups associated with the instance.
     groups :: Prelude.Maybe [GroupIdentifier],
-    -- | Indicates whether the instance is optimized for Amazon EBS I\/O.
-    ebsOptimized :: Prelude.Maybe AttributeBooleanValue,
-    -- | The user data.
-    userData :: Prelude.Maybe AttributeValue,
-    -- | The instance type.
-    instanceType :: Prelude.Maybe AttributeValue,
-    -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Prelude.Maybe AttributeValue,
-    -- | The RAM disk ID.
-    ramdiskId :: Prelude.Maybe AttributeValue,
-    -- | A list of product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
+    -- | Indicates whether enhanced networking with ENA is enabled.
+    enaSupport :: Prelude.Maybe AttributeBooleanValue,
     -- | Enable or disable source\/destination checks, which ensure that the
     -- instance is either the source or the destination of any traffic that it
     -- receives. If the value is @true@, source\/destination checks are
@@ -217,25 +207,35 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     -- must disable source\/destination checks if the instance runs services
     -- such as network address translation, routing, or firewalls.
     sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
+    -- | If the value is @true@, you can\'t terminate the instance through the
+    -- Amazon EC2 console, CLI, or API; otherwise, you can.
+    disableApiTermination :: Prelude.Maybe AttributeBooleanValue,
+    -- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
+    -- parameter to @true@; otherwise, set it to @false@.
+    enclaveOptions :: Prelude.Maybe EnclaveOptions,
+    -- | The RAM disk ID.
+    ramdiskId :: Prelude.Maybe AttributeValue,
+    -- | The kernel ID.
+    kernelId :: Prelude.Maybe AttributeValue,
+    -- | The device name of the root device volume (for example, @\/dev\/sda1@).
+    rootDeviceName :: Prelude.Maybe AttributeValue,
+    -- | The instance type.
+    instanceType :: Prelude.Maybe AttributeValue,
+    -- | Indicates whether enhanced networking with the Intel 82599 Virtual
+    -- Function interface is enabled.
+    sriovNetSupport :: Prelude.Maybe AttributeValue,
+    -- | Indicates whether the instance is optimized for Amazon EBS I\/O.
+    ebsOptimized :: Prelude.Maybe AttributeBooleanValue,
+    -- | The user data.
+    userData :: Prelude.Maybe AttributeValue,
     -- | Indicates whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
     -- system shutdown).
     instanceInitiatedShutdownBehavior :: Prelude.Maybe AttributeValue,
-    -- | Indicates whether enhanced networking with the Intel 82599 Virtual
-    -- Function interface is enabled.
-    sriovNetSupport :: Prelude.Maybe AttributeValue,
+    -- | A list of product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The block device mapping of the instance.
     blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
-    -- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
-    -- parameter to @true@; otherwise, set it to @false@.
-    enclaveOptions :: Prelude.Maybe EnclaveOptions,
-    -- | The kernel ID.
-    kernelId :: Prelude.Maybe AttributeValue,
-    -- | If the value is @true@, you can\'t terminate the instance through the
-    -- Amazon EC2 console, CLI, or API; otherwise, you can.
-    disableApiTermination :: Prelude.Maybe AttributeBooleanValue,
-    -- | Indicates whether enhanced networking with ENA is enabled.
-    enaSupport :: Prelude.Maybe AttributeBooleanValue,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -253,17 +253,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- 'groups', 'describeInstanceAttributeResponse_groups' - The security groups associated with the instance.
 --
--- 'ebsOptimized', 'describeInstanceAttributeResponse_ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I\/O.
---
--- 'userData', 'describeInstanceAttributeResponse_userData' - The user data.
---
--- 'instanceType', 'describeInstanceAttributeResponse_instanceType' - The instance type.
---
--- 'rootDeviceName', 'describeInstanceAttributeResponse_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
---
--- 'ramdiskId', 'describeInstanceAttributeResponse_ramdiskId' - The RAM disk ID.
---
--- 'productCodes', 'describeInstanceAttributeResponse_productCodes' - A list of product codes.
+-- 'enaSupport', 'describeInstanceAttributeResponse_enaSupport' - Indicates whether enhanced networking with ENA is enabled.
 --
 -- 'sourceDestCheck', 'describeInstanceAttributeResponse_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the
 -- instance is either the source or the destination of any traffic that it
@@ -272,24 +262,34 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 -- must disable source\/destination checks if the instance runs services
 -- such as network address translation, routing, or firewalls.
 --
--- 'instanceInitiatedShutdownBehavior', 'describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
---
--- 'sriovNetSupport', 'describeInstanceAttributeResponse_sriovNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual
--- Function interface is enabled.
---
--- 'blockDeviceMappings', 'describeInstanceAttributeResponse_blockDeviceMappings' - The block device mapping of the instance.
+-- 'disableApiTermination', 'describeInstanceAttributeResponse_disableApiTermination' - If the value is @true@, you can\'t terminate the instance through the
+-- Amazon EC2 console, CLI, or API; otherwise, you can.
 --
 -- 'enclaveOptions', 'describeInstanceAttributeResponse_enclaveOptions' - To enable the instance for Amazon Web Services Nitro Enclaves, set this
 -- parameter to @true@; otherwise, set it to @false@.
 --
+-- 'ramdiskId', 'describeInstanceAttributeResponse_ramdiskId' - The RAM disk ID.
+--
 -- 'kernelId', 'describeInstanceAttributeResponse_kernelId' - The kernel ID.
 --
--- 'disableApiTermination', 'describeInstanceAttributeResponse_disableApiTermination' - If the value is @true@, you can\'t terminate the instance through the
--- Amazon EC2 console, CLI, or API; otherwise, you can.
+-- 'rootDeviceName', 'describeInstanceAttributeResponse_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
 --
--- 'enaSupport', 'describeInstanceAttributeResponse_enaSupport' - Indicates whether enhanced networking with ENA is enabled.
+-- 'instanceType', 'describeInstanceAttributeResponse_instanceType' - The instance type.
+--
+-- 'sriovNetSupport', 'describeInstanceAttributeResponse_sriovNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual
+-- Function interface is enabled.
+--
+-- 'ebsOptimized', 'describeInstanceAttributeResponse_ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I\/O.
+--
+-- 'userData', 'describeInstanceAttributeResponse_userData' - The user data.
+--
+-- 'instanceInitiatedShutdownBehavior', 'describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for
+-- system shutdown).
+--
+-- 'productCodes', 'describeInstanceAttributeResponse_productCodes' - A list of product codes.
+--
+-- 'blockDeviceMappings', 'describeInstanceAttributeResponse_blockDeviceMappings' - The block device mapping of the instance.
 --
 -- 'httpStatus', 'describeInstanceAttributeResponse_httpStatus' - The response's http status code.
 newDescribeInstanceAttributeResponse ::
@@ -301,21 +301,21 @@ newDescribeInstanceAttributeResponse pHttpStatus_ =
     { instanceId =
         Prelude.Nothing,
       groups = Prelude.Nothing,
+      enaSupport = Prelude.Nothing,
+      sourceDestCheck = Prelude.Nothing,
+      disableApiTermination = Prelude.Nothing,
+      enclaveOptions = Prelude.Nothing,
+      ramdiskId = Prelude.Nothing,
+      kernelId = Prelude.Nothing,
+      rootDeviceName = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      sriovNetSupport = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
       userData = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      rootDeviceName = Prelude.Nothing,
-      ramdiskId = Prelude.Nothing,
-      productCodes = Prelude.Nothing,
-      sourceDestCheck = Prelude.Nothing,
       instanceInitiatedShutdownBehavior =
         Prelude.Nothing,
-      sriovNetSupport = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       blockDeviceMappings = Prelude.Nothing,
-      enclaveOptions = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
-      disableApiTermination = Prelude.Nothing,
-      enaSupport = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -325,31 +325,11 @@ describeInstanceAttributeResponse_instanceId = Lens.lens (\DescribeInstanceAttri
 
 -- | The security groups associated with the instance.
 describeInstanceAttributeResponse_groups :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [GroupIdentifier])
-describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether the instance is optimized for Amazon EBS I\/O.
-describeInstanceAttributeResponse_ebsOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
-describeInstanceAttributeResponse_ebsOptimized = Lens.lens (\DescribeInstanceAttributeResponse' {ebsOptimized} -> ebsOptimized) (\s@DescribeInstanceAttributeResponse' {} a -> s {ebsOptimized = a} :: DescribeInstanceAttributeResponse)
-
--- | The user data.
-describeInstanceAttributeResponse_userData :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_userData = Lens.lens (\DescribeInstanceAttributeResponse' {userData} -> userData) (\s@DescribeInstanceAttributeResponse' {} a -> s {userData = a} :: DescribeInstanceAttributeResponse)
-
--- | The instance type.
-describeInstanceAttributeResponse_instanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_instanceType = Lens.lens (\DescribeInstanceAttributeResponse' {instanceType} -> instanceType) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceType = a} :: DescribeInstanceAttributeResponse)
-
--- | The device name of the root device volume (for example, @\/dev\/sda1@).
-describeInstanceAttributeResponse_rootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_rootDeviceName = Lens.lens (\DescribeInstanceAttributeResponse' {rootDeviceName} -> rootDeviceName) (\s@DescribeInstanceAttributeResponse' {} a -> s {rootDeviceName = a} :: DescribeInstanceAttributeResponse)
-
--- | The RAM disk ID.
-describeInstanceAttributeResponse_ramdiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_ramdiskId = Lens.lens (\DescribeInstanceAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeInstanceAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeInstanceAttributeResponse)
-
--- | A list of product codes.
-describeInstanceAttributeResponse_productCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [ProductCode])
-describeInstanceAttributeResponse_productCodes = Lens.lens (\DescribeInstanceAttributeResponse' {productCodes} -> productCodes) (\s@DescribeInstanceAttributeResponse' {} a -> s {productCodes = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | Indicates whether enhanced networking with ENA is enabled.
+describeInstanceAttributeResponse_enaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_enaSupport = Lens.lens (\DescribeInstanceAttributeResponse' {enaSupport} -> enaSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {enaSupport = a} :: DescribeInstanceAttributeResponse)
 
 -- | Enable or disable source\/destination checks, which ensure that the
 -- instance is either the source or the destination of any traffic that it
@@ -360,38 +340,58 @@ describeInstanceAttributeResponse_productCodes = Lens.lens (\DescribeInstanceAtt
 describeInstanceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeInstanceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeInstanceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeInstanceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeInstanceAttributeResponse)
 
--- | Indicates whether an instance stops or terminates when you initiate
--- shutdown from the instance (using the operating system command for
--- system shutdown).
-describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior = Lens.lens (\DescribeInstanceAttributeResponse' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceInitiatedShutdownBehavior = a} :: DescribeInstanceAttributeResponse)
-
--- | Indicates whether enhanced networking with the Intel 82599 Virtual
--- Function interface is enabled.
-describeInstanceAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
-describeInstanceAttributeResponse_sriovNetSupport = Lens.lens (\DescribeInstanceAttributeResponse' {sriovNetSupport} -> sriovNetSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {sriovNetSupport = a} :: DescribeInstanceAttributeResponse)
-
--- | The block device mapping of the instance.
-describeInstanceAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [InstanceBlockDeviceMapping])
-describeInstanceAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeInstanceAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeInstanceAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | If the value is @true@, you can\'t terminate the instance through the
+-- Amazon EC2 console, CLI, or API; otherwise, you can.
+describeInstanceAttributeResponse_disableApiTermination :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_disableApiTermination = Lens.lens (\DescribeInstanceAttributeResponse' {disableApiTermination} -> disableApiTermination) (\s@DescribeInstanceAttributeResponse' {} a -> s {disableApiTermination = a} :: DescribeInstanceAttributeResponse)
 
 -- | To enable the instance for Amazon Web Services Nitro Enclaves, set this
 -- parameter to @true@; otherwise, set it to @false@.
 describeInstanceAttributeResponse_enclaveOptions :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe EnclaveOptions)
 describeInstanceAttributeResponse_enclaveOptions = Lens.lens (\DescribeInstanceAttributeResponse' {enclaveOptions} -> enclaveOptions) (\s@DescribeInstanceAttributeResponse' {} a -> s {enclaveOptions = a} :: DescribeInstanceAttributeResponse)
 
+-- | The RAM disk ID.
+describeInstanceAttributeResponse_ramdiskId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_ramdiskId = Lens.lens (\DescribeInstanceAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeInstanceAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeInstanceAttributeResponse)
+
 -- | The kernel ID.
 describeInstanceAttributeResponse_kernelId :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
 describeInstanceAttributeResponse_kernelId = Lens.lens (\DescribeInstanceAttributeResponse' {kernelId} -> kernelId) (\s@DescribeInstanceAttributeResponse' {} a -> s {kernelId = a} :: DescribeInstanceAttributeResponse)
 
--- | If the value is @true@, you can\'t terminate the instance through the
--- Amazon EC2 console, CLI, or API; otherwise, you can.
-describeInstanceAttributeResponse_disableApiTermination :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
-describeInstanceAttributeResponse_disableApiTermination = Lens.lens (\DescribeInstanceAttributeResponse' {disableApiTermination} -> disableApiTermination) (\s@DescribeInstanceAttributeResponse' {} a -> s {disableApiTermination = a} :: DescribeInstanceAttributeResponse)
+-- | The device name of the root device volume (for example, @\/dev\/sda1@).
+describeInstanceAttributeResponse_rootDeviceName :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_rootDeviceName = Lens.lens (\DescribeInstanceAttributeResponse' {rootDeviceName} -> rootDeviceName) (\s@DescribeInstanceAttributeResponse' {} a -> s {rootDeviceName = a} :: DescribeInstanceAttributeResponse)
 
--- | Indicates whether enhanced networking with ENA is enabled.
-describeInstanceAttributeResponse_enaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
-describeInstanceAttributeResponse_enaSupport = Lens.lens (\DescribeInstanceAttributeResponse' {enaSupport} -> enaSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {enaSupport = a} :: DescribeInstanceAttributeResponse)
+-- | The instance type.
+describeInstanceAttributeResponse_instanceType :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_instanceType = Lens.lens (\DescribeInstanceAttributeResponse' {instanceType} -> instanceType) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceType = a} :: DescribeInstanceAttributeResponse)
+
+-- | Indicates whether enhanced networking with the Intel 82599 Virtual
+-- Function interface is enabled.
+describeInstanceAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_sriovNetSupport = Lens.lens (\DescribeInstanceAttributeResponse' {sriovNetSupport} -> sriovNetSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {sriovNetSupport = a} :: DescribeInstanceAttributeResponse)
+
+-- | Indicates whether the instance is optimized for Amazon EBS I\/O.
+describeInstanceAttributeResponse_ebsOptimized :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_ebsOptimized = Lens.lens (\DescribeInstanceAttributeResponse' {ebsOptimized} -> ebsOptimized) (\s@DescribeInstanceAttributeResponse' {} a -> s {ebsOptimized = a} :: DescribeInstanceAttributeResponse)
+
+-- | The user data.
+describeInstanceAttributeResponse_userData :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_userData = Lens.lens (\DescribeInstanceAttributeResponse' {userData} -> userData) (\s@DescribeInstanceAttributeResponse' {} a -> s {userData = a} :: DescribeInstanceAttributeResponse)
+
+-- | Indicates whether an instance stops or terminates when you initiate
+-- shutdown from the instance (using the operating system command for
+-- system shutdown).
+describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeValue)
+describeInstanceAttributeResponse_instanceInitiatedShutdownBehavior = Lens.lens (\DescribeInstanceAttributeResponse' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@DescribeInstanceAttributeResponse' {} a -> s {instanceInitiatedShutdownBehavior = a} :: DescribeInstanceAttributeResponse)
+
+-- | A list of product codes.
+describeInstanceAttributeResponse_productCodes :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [ProductCode])
+describeInstanceAttributeResponse_productCodes = Lens.lens (\DescribeInstanceAttributeResponse' {productCodes} -> productCodes) (\s@DescribeInstanceAttributeResponse' {} a -> s {productCodes = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The block device mapping of the instance.
+describeInstanceAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [InstanceBlockDeviceMapping])
+describeInstanceAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeInstanceAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeInstanceAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceAttributeResponse_httpStatus :: Lens.Lens' DescribeInstanceAttributeResponse Prelude.Int

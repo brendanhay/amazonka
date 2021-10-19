@@ -210,7 +210,7 @@ listSuitesResponse_nextToken = Lens.lens (\ListSuitesResponse' {nextToken} -> ne
 
 -- | Information about the suites.
 listSuitesResponse_suites :: Lens.Lens' ListSuitesResponse (Prelude.Maybe [Suite])
-listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) (\s@ListSuitesResponse' {} a -> s {suites = a} :: ListSuitesResponse) Prelude.. Lens.mapping Lens._Coerce
+listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) (\s@ListSuitesResponse' {} a -> s {suites = a} :: ListSuitesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSuitesResponse_httpStatus :: Lens.Lens' ListSuitesResponse Prelude.Int

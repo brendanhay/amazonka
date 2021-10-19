@@ -36,8 +36,8 @@ module Network.AWS.APIGateway.ImportApiKeys
     newImportApiKeysResponse,
 
     -- * Response Lenses
-    importApiKeysResponse_warnings,
     importApiKeysResponse_ids,
+    importApiKeysResponse_warnings,
     importApiKeysResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest ImportApiKeys where
     Response.receiveJSON
       ( \s h x ->
           ImportApiKeysResponse'
-            Prelude.<$> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,10 +158,10 @@ instance Core.ToQuery ImportApiKeys where
 --
 -- /See:/ 'newImportApiKeysResponse' smart constructor.
 data ImportApiKeysResponse = ImportApiKeysResponse'
-  { -- | A list of warning messages.
-    warnings :: Prelude.Maybe [Prelude.Text],
-    -- | A list of all the ApiKey identifiers.
+  { -- | A list of all the ApiKey identifiers.
     ids :: Prelude.Maybe [Prelude.Text],
+    -- | A list of warning messages.
+    warnings :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data ImportApiKeysResponse = ImportApiKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'warnings', 'importApiKeysResponse_warnings' - A list of warning messages.
---
 -- 'ids', 'importApiKeysResponse_ids' - A list of all the ApiKey identifiers.
+--
+-- 'warnings', 'importApiKeysResponse_warnings' - A list of warning messages.
 --
 -- 'httpStatus', 'importApiKeysResponse_httpStatus' - The response's http status code.
 newImportApiKeysResponse ::
@@ -186,18 +186,18 @@ newImportApiKeysResponse ::
   ImportApiKeysResponse
 newImportApiKeysResponse pHttpStatus_ =
   ImportApiKeysResponse'
-    { warnings = Prelude.Nothing,
-      ids = Prelude.Nothing,
+    { ids = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of warning messages.
-importApiKeysResponse_warnings :: Lens.Lens' ImportApiKeysResponse (Prelude.Maybe [Prelude.Text])
-importApiKeysResponse_warnings = Lens.lens (\ImportApiKeysResponse' {warnings} -> warnings) (\s@ImportApiKeysResponse' {} a -> s {warnings = a} :: ImportApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of all the ApiKey identifiers.
 importApiKeysResponse_ids :: Lens.Lens' ImportApiKeysResponse (Prelude.Maybe [Prelude.Text])
-importApiKeysResponse_ids = Lens.lens (\ImportApiKeysResponse' {ids} -> ids) (\s@ImportApiKeysResponse' {} a -> s {ids = a} :: ImportApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+importApiKeysResponse_ids = Lens.lens (\ImportApiKeysResponse' {ids} -> ids) (\s@ImportApiKeysResponse' {} a -> s {ids = a} :: ImportApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of warning messages.
+importApiKeysResponse_warnings :: Lens.Lens' ImportApiKeysResponse (Prelude.Maybe [Prelude.Text])
+importApiKeysResponse_warnings = Lens.lens (\ImportApiKeysResponse' {warnings} -> warnings) (\s@ImportApiKeysResponse' {} a -> s {warnings = a} :: ImportApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 importApiKeysResponse_httpStatus :: Lens.Lens' ImportApiKeysResponse Prelude.Int

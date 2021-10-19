@@ -38,10 +38,10 @@ data ValidationMessage = ValidationMessage'
     -- -   @warning@: This message is providing information you should take
     --     into account.
     severity :: Prelude.Maybe ValidationSeverity,
-    -- | A message describing the error or warning.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The namespace to which the option belongs.
-    namespace :: Prelude.Maybe Prelude.Text
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | A message describing the error or warning.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,17 +63,17 @@ data ValidationMessage = ValidationMessage'
 -- -   @warning@: This message is providing information you should take
 --     into account.
 --
--- 'message', 'validationMessage_message' - A message describing the error or warning.
---
 -- 'namespace', 'validationMessage_namespace' - The namespace to which the option belongs.
+--
+-- 'message', 'validationMessage_message' - A message describing the error or warning.
 newValidationMessage ::
   ValidationMessage
 newValidationMessage =
   ValidationMessage'
     { optionName = Prelude.Nothing,
       severity = Prelude.Nothing,
-      message = Prelude.Nothing,
-      namespace = Prelude.Nothing
+      namespace = Prelude.Nothing,
+      message = Prelude.Nothing
     }
 
 -- | The name of the option.
@@ -90,21 +90,21 @@ validationMessage_optionName = Lens.lens (\ValidationMessage' {optionName} -> op
 validationMessage_severity :: Lens.Lens' ValidationMessage (Prelude.Maybe ValidationSeverity)
 validationMessage_severity = Lens.lens (\ValidationMessage' {severity} -> severity) (\s@ValidationMessage' {} a -> s {severity = a} :: ValidationMessage)
 
--- | A message describing the error or warning.
-validationMessage_message :: Lens.Lens' ValidationMessage (Prelude.Maybe Prelude.Text)
-validationMessage_message = Lens.lens (\ValidationMessage' {message} -> message) (\s@ValidationMessage' {} a -> s {message = a} :: ValidationMessage)
-
 -- | The namespace to which the option belongs.
 validationMessage_namespace :: Lens.Lens' ValidationMessage (Prelude.Maybe Prelude.Text)
 validationMessage_namespace = Lens.lens (\ValidationMessage' {namespace} -> namespace) (\s@ValidationMessage' {} a -> s {namespace = a} :: ValidationMessage)
+
+-- | A message describing the error or warning.
+validationMessage_message :: Lens.Lens' ValidationMessage (Prelude.Maybe Prelude.Text)
+validationMessage_message = Lens.lens (\ValidationMessage' {message} -> message) (\s@ValidationMessage' {} a -> s {message = a} :: ValidationMessage)
 
 instance Core.FromXML ValidationMessage where
   parseXML x =
     ValidationMessage'
       Prelude.<$> (x Core..@? "OptionName")
       Prelude.<*> (x Core..@? "Severity")
-      Prelude.<*> (x Core..@? "Message")
       Prelude.<*> (x Core..@? "Namespace")
+      Prelude.<*> (x Core..@? "Message")
 
 instance Prelude.Hashable ValidationMessage
 

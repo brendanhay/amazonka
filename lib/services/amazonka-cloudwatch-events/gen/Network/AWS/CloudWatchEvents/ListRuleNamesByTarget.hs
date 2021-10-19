@@ -40,8 +40,8 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
     newListRuleNamesByTargetResponse,
 
     -- * Response Lenses
-    listRuleNamesByTargetResponse_nextToken,
     listRuleNamesByTargetResponse_ruleNames,
+    listRuleNamesByTargetResponse_nextToken,
     listRuleNamesByTargetResponse_httpStatus,
   )
 where
@@ -146,8 +146,8 @@ instance Core.AWSRequest ListRuleNamesByTarget where
     Response.receiveJSON
       ( \s h x ->
           ListRuleNamesByTargetResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "RuleNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "RuleNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,11 +189,11 @@ instance Core.ToQuery ListRuleNamesByTarget where
 
 -- | /See:/ 'newListRuleNamesByTargetResponse' smart constructor.
 data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
-  { -- | Indicates whether there are additional results to retrieve. If there are
+  { -- | The names of the rules that can invoke the given target.
+    ruleNames :: Prelude.Maybe [Prelude.Text],
+    -- | Indicates whether there are additional results to retrieve. If there are
     -- no more results, the value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of the rules that can invoke the given target.
-    ruleNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,10 +207,10 @@ data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ruleNames', 'listRuleNamesByTargetResponse_ruleNames' - The names of the rules that can invoke the given target.
+--
 -- 'nextToken', 'listRuleNamesByTargetResponse_nextToken' - Indicates whether there are additional results to retrieve. If there are
 -- no more results, the value is null.
---
--- 'ruleNames', 'listRuleNamesByTargetResponse_ruleNames' - The names of the rules that can invoke the given target.
 --
 -- 'httpStatus', 'listRuleNamesByTargetResponse_httpStatus' - The response's http status code.
 newListRuleNamesByTargetResponse ::
@@ -219,20 +219,20 @@ newListRuleNamesByTargetResponse ::
   ListRuleNamesByTargetResponse
 newListRuleNamesByTargetResponse pHttpStatus_ =
   ListRuleNamesByTargetResponse'
-    { nextToken =
+    { ruleNames =
         Prelude.Nothing,
-      ruleNames = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The names of the rules that can invoke the given target.
+listRuleNamesByTargetResponse_ruleNames :: Lens.Lens' ListRuleNamesByTargetResponse (Prelude.Maybe [Prelude.Text])
+listRuleNamesByTargetResponse_ruleNames = Lens.lens (\ListRuleNamesByTargetResponse' {ruleNames} -> ruleNames) (\s@ListRuleNamesByTargetResponse' {} a -> s {ruleNames = a} :: ListRuleNamesByTargetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether there are additional results to retrieve. If there are
 -- no more results, the value is null.
 listRuleNamesByTargetResponse_nextToken :: Lens.Lens' ListRuleNamesByTargetResponse (Prelude.Maybe Prelude.Text)
 listRuleNamesByTargetResponse_nextToken = Lens.lens (\ListRuleNamesByTargetResponse' {nextToken} -> nextToken) (\s@ListRuleNamesByTargetResponse' {} a -> s {nextToken = a} :: ListRuleNamesByTargetResponse)
-
--- | The names of the rules that can invoke the given target.
-listRuleNamesByTargetResponse_ruleNames :: Lens.Lens' ListRuleNamesByTargetResponse (Prelude.Maybe [Prelude.Text])
-listRuleNamesByTargetResponse_ruleNames = Lens.lens (\ListRuleNamesByTargetResponse' {ruleNames} -> ruleNames) (\s@ListRuleNamesByTargetResponse' {} a -> s {ruleNames = a} :: ListRuleNamesByTargetResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRuleNamesByTargetResponse_httpStatus :: Lens.Lens' ListRuleNamesByTargetResponse Prelude.Int

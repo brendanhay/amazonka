@@ -83,7 +83,7 @@ disassociateIpGroups_directoryId = Lens.lens (\DisassociateIpGroups' {directoryI
 
 -- | The identifiers of one or more IP access control groups.
 disassociateIpGroups_groupIds :: Lens.Lens' DisassociateIpGroups [Prelude.Text]
-disassociateIpGroups_groupIds = Lens.lens (\DisassociateIpGroups' {groupIds} -> groupIds) (\s@DisassociateIpGroups' {} a -> s {groupIds = a} :: DisassociateIpGroups) Prelude.. Lens._Coerce
+disassociateIpGroups_groupIds = Lens.lens (\DisassociateIpGroups' {groupIds} -> groupIds) (\s@DisassociateIpGroups' {} a -> s {groupIds = a} :: DisassociateIpGroups) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DisassociateIpGroups where
   type

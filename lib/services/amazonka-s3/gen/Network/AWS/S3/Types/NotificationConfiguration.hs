@@ -32,15 +32,15 @@ import Network.AWS.S3.Types.TopicConfiguration
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | Describes the Lambda functions to invoke and the events for which to
-    -- invoke them.
-    lambdaFunctionConfigurations :: Prelude.Maybe [LambdaFunctionConfiguration],
-    -- | The Amazon Simple Queue Service queues to publish messages to and the
+  { -- | The Amazon Simple Queue Service queues to publish messages to and the
     -- events for which to publish messages.
     queueConfigurations :: Prelude.Maybe [QueueConfiguration],
     -- | The topic to which notifications are sent and the events for which
     -- notifications are generated.
-    topicConfigurations :: Prelude.Maybe [TopicConfiguration]
+    topicConfigurations :: Prelude.Maybe [TopicConfiguration],
+    -- | Describes the Lambda functions to invoke and the events for which to
+    -- invoke them.
+    lambdaFunctionConfigurations :: Prelude.Maybe [LambdaFunctionConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,48 +52,48 @@ data NotificationConfiguration = NotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaFunctionConfigurations', 'notificationConfiguration_lambdaFunctionConfigurations' - Describes the Lambda functions to invoke and the events for which to
--- invoke them.
---
 -- 'queueConfigurations', 'notificationConfiguration_queueConfigurations' - The Amazon Simple Queue Service queues to publish messages to and the
 -- events for which to publish messages.
 --
 -- 'topicConfigurations', 'notificationConfiguration_topicConfigurations' - The topic to which notifications are sent and the events for which
 -- notifications are generated.
+--
+-- 'lambdaFunctionConfigurations', 'notificationConfiguration_lambdaFunctionConfigurations' - Describes the Lambda functions to invoke and the events for which to
+-- invoke them.
 newNotificationConfiguration ::
   NotificationConfiguration
 newNotificationConfiguration =
   NotificationConfiguration'
-    { lambdaFunctionConfigurations =
+    { queueConfigurations =
         Prelude.Nothing,
-      queueConfigurations = Prelude.Nothing,
-      topicConfigurations = Prelude.Nothing
+      topicConfigurations = Prelude.Nothing,
+      lambdaFunctionConfigurations = Prelude.Nothing
     }
-
--- | Describes the Lambda functions to invoke and the events for which to
--- invoke them.
-notificationConfiguration_lambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [LambdaFunctionConfiguration])
-notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\NotificationConfiguration' {lambdaFunctionConfigurations} -> lambdaFunctionConfigurations) (\s@NotificationConfiguration' {} a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Simple Queue Service queues to publish messages to and the
 -- events for which to publish messages.
 notificationConfiguration_queueConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [QueueConfiguration])
-notificationConfiguration_queueConfigurations = Lens.lens (\NotificationConfiguration' {queueConfigurations} -> queueConfigurations) (\s@NotificationConfiguration' {} a -> s {queueConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+notificationConfiguration_queueConfigurations = Lens.lens (\NotificationConfiguration' {queueConfigurations} -> queueConfigurations) (\s@NotificationConfiguration' {} a -> s {queueConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The topic to which notifications are sent and the events for which
 -- notifications are generated.
 notificationConfiguration_topicConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [TopicConfiguration])
-notificationConfiguration_topicConfigurations = Lens.lens (\NotificationConfiguration' {topicConfigurations} -> topicConfigurations) (\s@NotificationConfiguration' {} a -> s {topicConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+notificationConfiguration_topicConfigurations = Lens.lens (\NotificationConfiguration' {topicConfigurations} -> topicConfigurations) (\s@NotificationConfiguration' {} a -> s {topicConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Describes the Lambda functions to invoke and the events for which to
+-- invoke them.
+notificationConfiguration_lambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [LambdaFunctionConfiguration])
+notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\NotificationConfiguration' {lambdaFunctionConfigurations} -> lambdaFunctionConfigurations) (\s@NotificationConfiguration' {} a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> ( Core.may
+      Prelude.<$> (Core.may (Core.parseXMLList "QueueConfiguration") x)
+      Prelude.<*> (Core.may (Core.parseXMLList "TopicConfiguration") x)
+      Prelude.<*> ( Core.may
                       (Core.parseXMLList "CloudFunctionConfiguration")
                       x
                   )
-      Prelude.<*> (Core.may (Core.parseXMLList "QueueConfiguration") x)
-      Prelude.<*> (Core.may (Core.parseXMLList "TopicConfiguration") x)
 
 instance Prelude.Hashable NotificationConfiguration
 
@@ -103,15 +103,15 @@ instance Core.ToXML NotificationConfiguration where
   toXML NotificationConfiguration' {..} =
     Prelude.mconcat
       [ Core.toXML
-          ( Core.toXMLList "CloudFunctionConfiguration"
-              Prelude.<$> lambdaFunctionConfigurations
-          ),
-        Core.toXML
           ( Core.toXMLList "QueueConfiguration"
               Prelude.<$> queueConfigurations
           ),
         Core.toXML
           ( Core.toXMLList "TopicConfiguration"
               Prelude.<$> topicConfigurations
+          ),
+        Core.toXML
+          ( Core.toXMLList "CloudFunctionConfiguration"
+              Prelude.<$> lambdaFunctionConfigurations
           )
       ]

@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTypeOffering' smart constructor.
 data InstanceTypeOffering = InstanceTypeOffering'
-  { -- | The instance type. For more information, see
+  { -- | The identifier for the location. This depends on the location type. For
+    -- example, if the location type is @region@, the location is the Region
+    -- code (for example, @us-east-2@.)
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The instance type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     instanceType :: Prelude.Maybe InstanceType,
     -- | The location type.
-    locationType :: Prelude.Maybe LocationType,
-    -- | The identifier for the location. This depends on the location type. For
-    -- example, if the location type is @region@, the location is the Region
-    -- code (for example, @us-east-2@.)
-    location :: Prelude.Maybe Prelude.Text
+    locationType :: Prelude.Maybe LocationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,29 @@ data InstanceTypeOffering = InstanceTypeOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'location', 'instanceTypeOffering_location' - The identifier for the location. This depends on the location type. For
+-- example, if the location type is @region@, the location is the Region
+-- code (for example, @us-east-2@.)
+--
 -- 'instanceType', 'instanceTypeOffering_instanceType' - The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
 -- 'locationType', 'instanceTypeOffering_locationType' - The location type.
---
--- 'location', 'instanceTypeOffering_location' - The identifier for the location. This depends on the location type. For
--- example, if the location type is @region@, the location is the Region
--- code (for example, @us-east-2@.)
 newInstanceTypeOffering ::
   InstanceTypeOffering
 newInstanceTypeOffering =
   InstanceTypeOffering'
-    { instanceType =
-        Prelude.Nothing,
-      locationType = Prelude.Nothing,
-      location = Prelude.Nothing
+    { location = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      locationType = Prelude.Nothing
     }
+
+-- | The identifier for the location. This depends on the location type. For
+-- example, if the location type is @region@, the location is the Region
+-- code (for example, @us-east-2@.)
+instanceTypeOffering_location :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe Prelude.Text)
+instanceTypeOffering_location = Lens.lens (\InstanceTypeOffering' {location} -> location) (\s@InstanceTypeOffering' {} a -> s {location = a} :: InstanceTypeOffering)
 
 -- | The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
@@ -80,18 +85,12 @@ instanceTypeOffering_instanceType = Lens.lens (\InstanceTypeOffering' {instanceT
 instanceTypeOffering_locationType :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe LocationType)
 instanceTypeOffering_locationType = Lens.lens (\InstanceTypeOffering' {locationType} -> locationType) (\s@InstanceTypeOffering' {} a -> s {locationType = a} :: InstanceTypeOffering)
 
--- | The identifier for the location. This depends on the location type. For
--- example, if the location type is @region@, the location is the Region
--- code (for example, @us-east-2@.)
-instanceTypeOffering_location :: Lens.Lens' InstanceTypeOffering (Prelude.Maybe Prelude.Text)
-instanceTypeOffering_location = Lens.lens (\InstanceTypeOffering' {location} -> location) (\s@InstanceTypeOffering' {} a -> s {location = a} :: InstanceTypeOffering)
-
 instance Core.FromXML InstanceTypeOffering where
   parseXML x =
     InstanceTypeOffering'
-      Prelude.<$> (x Core..@? "instanceType")
+      Prelude.<$> (x Core..@? "location")
+      Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "locationType")
-      Prelude.<*> (x Core..@? "location")
 
 instance Prelude.Hashable InstanceTypeOffering
 

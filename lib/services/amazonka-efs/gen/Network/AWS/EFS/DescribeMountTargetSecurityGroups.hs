@@ -176,7 +176,7 @@ describeMountTargetSecurityGroupsResponse_httpStatus = Lens.lens (\DescribeMount
 
 -- | An array of security groups.
 describeMountTargetSecurityGroupsResponse_securityGroups :: Lens.Lens' DescribeMountTargetSecurityGroupsResponse [Prelude.Text]
-describeMountTargetSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeMountTargetSecurityGroupsResponse) Prelude.. Lens._Coerce
+describeMountTargetSecurityGroupsResponse_securityGroups = Lens.lens (\DescribeMountTargetSecurityGroupsResponse' {securityGroups} -> securityGroups) (\s@DescribeMountTargetSecurityGroupsResponse' {} a -> s {securityGroups = a} :: DescribeMountTargetSecurityGroupsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

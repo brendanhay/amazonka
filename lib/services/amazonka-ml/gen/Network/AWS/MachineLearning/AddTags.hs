@@ -97,7 +97,7 @@ newAddTags pResourceId_ pResourceType_ =
 -- specifying a value, Amazon ML creates a tag with the specified key and a
 -- value of null.
 addTags_tags :: Lens.Lens' AddTags [Tag]
-addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
+addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens.coerced
 
 -- | The ID of the ML object to tag. For example, @exampleModelId@.
 addTags_resourceId :: Lens.Lens' AddTags Prelude.Text

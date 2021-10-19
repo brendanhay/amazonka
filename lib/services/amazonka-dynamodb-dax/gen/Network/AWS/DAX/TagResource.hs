@@ -84,7 +84,7 @@ tagResource_resourceName = Lens.lens (\TagResource' {resourceName} -> resourceNa
 
 -- | The tags to be assigned to the DAX resource.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
@@ -161,7 +161,7 @@ newTagResourceResponse pHttpStatus_ =
 
 -- | The list of tags that are associated with the DAX resource.
 tagResourceResponse_tags :: Lens.Lens' TagResourceResponse (Prelude.Maybe [Tag])
-tagResourceResponse_tags = Lens.lens (\TagResourceResponse' {tags} -> tags) (\s@TagResourceResponse' {} a -> s {tags = a} :: TagResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+tagResourceResponse_tags = Lens.lens (\TagResourceResponse' {tags} -> tags) (\s@TagResourceResponse' {} a -> s {tags = a} :: TagResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int

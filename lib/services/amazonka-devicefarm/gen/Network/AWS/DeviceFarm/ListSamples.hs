@@ -210,7 +210,7 @@ listSamplesResponse_nextToken = Lens.lens (\ListSamplesResponse' {nextToken} -> 
 
 -- | Information about the samples.
 listSamplesResponse_samples :: Lens.Lens' ListSamplesResponse (Prelude.Maybe [Sample])
-listSamplesResponse_samples = Lens.lens (\ListSamplesResponse' {samples} -> samples) (\s@ListSamplesResponse' {} a -> s {samples = a} :: ListSamplesResponse) Prelude.. Lens.mapping Lens._Coerce
+listSamplesResponse_samples = Lens.lens (\ListSamplesResponse' {samples} -> samples) (\s@ListSamplesResponse' {} a -> s {samples = a} :: ListSamplesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSamplesResponse_httpStatus :: Lens.Lens' ListSamplesResponse Prelude.Int

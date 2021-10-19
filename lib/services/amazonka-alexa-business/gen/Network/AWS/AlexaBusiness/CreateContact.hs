@@ -27,13 +27,13 @@ module Network.AWS.AlexaBusiness.CreateContact
     newCreateContact,
 
     -- * Request Lenses
-    createContact_phoneNumber,
-    createContact_phoneNumbers,
-    createContact_tags,
-    createContact_clientRequestToken,
     createContact_lastName,
-    createContact_displayName,
+    createContact_phoneNumbers,
+    createContact_phoneNumber,
     createContact_sipAddresses,
+    createContact_displayName,
+    createContact_clientRequestToken,
+    createContact_tags,
     createContact_firstName,
 
     -- * Destructuring the Response
@@ -55,26 +55,26 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateContact' smart constructor.
 data CreateContact = CreateContact'
-  { -- | The phone number of the contact in E.164 format. The phone number type
+  { -- | The last name of the contact that is used to call the contact on the
+    -- device.
+    lastName :: Prelude.Maybe Prelude.Text,
+    -- | The list of phone numbers for the contact.
+    phoneNumbers :: Prelude.Maybe [PhoneNumber],
+    -- | The phone number of the contact in E.164 format. The phone number type
     -- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
     -- recommend that you use PhoneNumbers, which lets you specify the phone
     -- number type and multiple numbers.
     phoneNumber :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The list of phone numbers for the contact.
-    phoneNumbers :: Prelude.Maybe [PhoneNumber],
-    -- | The tags to be added to the specified resource. Do not provide system
-    -- tags.
-    tags :: Prelude.Maybe [Tag],
+    -- | The list of SIP addresses for the contact.
+    sipAddresses :: Prelude.Maybe [SipAddress],
+    -- | The name of the contact to display on the console.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The last name of the contact that is used to call the contact on the
-    -- device.
-    lastName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the contact to display on the console.
-    displayName :: Prelude.Maybe Prelude.Text,
-    -- | The list of SIP addresses for the contact.
-    sipAddresses :: Prelude.Maybe [SipAddress],
+    -- | The tags to be added to the specified resource. Do not provide system
+    -- tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The first name of the contact that is used to call the contact on the
     -- device.
     firstName :: Prelude.Text
@@ -89,25 +89,25 @@ data CreateContact = CreateContact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastName', 'createContact_lastName' - The last name of the contact that is used to call the contact on the
+-- device.
+--
+-- 'phoneNumbers', 'createContact_phoneNumbers' - The list of phone numbers for the contact.
+--
 -- 'phoneNumber', 'createContact_phoneNumber' - The phone number of the contact in E.164 format. The phone number type
 -- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
 -- recommend that you use PhoneNumbers, which lets you specify the phone
 -- number type and multiple numbers.
 --
--- 'phoneNumbers', 'createContact_phoneNumbers' - The list of phone numbers for the contact.
+-- 'sipAddresses', 'createContact_sipAddresses' - The list of SIP addresses for the contact.
 --
--- 'tags', 'createContact_tags' - The tags to be added to the specified resource. Do not provide system
--- tags.
+-- 'displayName', 'createContact_displayName' - The name of the contact to display on the console.
 --
 -- 'clientRequestToken', 'createContact_clientRequestToken' - A unique, user-specified identifier for this request that ensures
 -- idempotency.
 --
--- 'lastName', 'createContact_lastName' - The last name of the contact that is used to call the contact on the
--- device.
---
--- 'displayName', 'createContact_displayName' - The name of the contact to display on the console.
---
--- 'sipAddresses', 'createContact_sipAddresses' - The list of SIP addresses for the contact.
+-- 'tags', 'createContact_tags' - The tags to be added to the specified resource. Do not provide system
+-- tags.
 --
 -- 'firstName', 'createContact_firstName' - The first name of the contact that is used to call the contact on the
 -- device.
@@ -117,15 +117,24 @@ newCreateContact ::
   CreateContact
 newCreateContact pFirstName_ =
   CreateContact'
-    { phoneNumber = Prelude.Nothing,
+    { lastName = Prelude.Nothing,
       phoneNumbers = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      lastName = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+      phoneNumber = Prelude.Nothing,
       sipAddresses = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       firstName = pFirstName_
     }
+
+-- | The last name of the contact that is used to call the contact on the
+-- device.
+createContact_lastName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_lastName = Lens.lens (\CreateContact' {lastName} -> lastName) (\s@CreateContact' {} a -> s {lastName = a} :: CreateContact)
+
+-- | The list of phone numbers for the contact.
+createContact_phoneNumbers :: Lens.Lens' CreateContact (Prelude.Maybe [PhoneNumber])
+createContact_phoneNumbers = Lens.lens (\CreateContact' {phoneNumbers} -> phoneNumbers) (\s@CreateContact' {} a -> s {phoneNumbers = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The phone number of the contact in E.164 format. The phone number type
 -- defaults to WORK. You can specify PhoneNumber or PhoneNumbers. We
@@ -134,32 +143,23 @@ newCreateContact pFirstName_ =
 createContact_phoneNumber :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
 createContact_phoneNumber = Lens.lens (\CreateContact' {phoneNumber} -> phoneNumber) (\s@CreateContact' {} a -> s {phoneNumber = a} :: CreateContact) Prelude.. Lens.mapping Core._Sensitive
 
--- | The list of phone numbers for the contact.
-createContact_phoneNumbers :: Lens.Lens' CreateContact (Prelude.Maybe [PhoneNumber])
-createContact_phoneNumbers = Lens.lens (\CreateContact' {phoneNumbers} -> phoneNumbers) (\s@CreateContact' {} a -> s {phoneNumbers = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
+-- | The list of SIP addresses for the contact.
+createContact_sipAddresses :: Lens.Lens' CreateContact (Prelude.Maybe [SipAddress])
+createContact_sipAddresses = Lens.lens (\CreateContact' {sipAddresses} -> sipAddresses) (\s@CreateContact' {} a -> s {sipAddresses = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
 
--- | The tags to be added to the specified resource. Do not provide system
--- tags.
-createContact_tags :: Lens.Lens' CreateContact (Prelude.Maybe [Tag])
-createContact_tags = Lens.lens (\CreateContact' {tags} -> tags) (\s@CreateContact' {} a -> s {tags = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
+-- | The name of the contact to display on the console.
+createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
 
 -- | A unique, user-specified identifier for this request that ensures
 -- idempotency.
 createContact_clientRequestToken :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
 createContact_clientRequestToken = Lens.lens (\CreateContact' {clientRequestToken} -> clientRequestToken) (\s@CreateContact' {} a -> s {clientRequestToken = a} :: CreateContact)
 
--- | The last name of the contact that is used to call the contact on the
--- device.
-createContact_lastName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
-createContact_lastName = Lens.lens (\CreateContact' {lastName} -> lastName) (\s@CreateContact' {} a -> s {lastName = a} :: CreateContact)
-
--- | The name of the contact to display on the console.
-createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
-createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
-
--- | The list of SIP addresses for the contact.
-createContact_sipAddresses :: Lens.Lens' CreateContact (Prelude.Maybe [SipAddress])
-createContact_sipAddresses = Lens.lens (\CreateContact' {sipAddresses} -> sipAddresses) (\s@CreateContact' {} a -> s {sipAddresses = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
+-- | The tags to be added to the specified resource. Do not provide system
+-- tags.
+createContact_tags :: Lens.Lens' CreateContact (Prelude.Maybe [Tag])
+createContact_tags = Lens.lens (\CreateContact' {tags} -> tags) (\s@CreateContact' {} a -> s {tags = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The first name of the contact that is used to call the contact on the
 -- device.
@@ -202,14 +202,14 @@ instance Core.ToJSON CreateContact where
   toJSON CreateContact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+          [ ("LastName" Core..=) Prelude.<$> lastName,
             ("PhoneNumbers" Core..=) Prelude.<$> phoneNumbers,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
+            ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("LastName" Core..=) Prelude.<$> lastName,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
-            ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("FirstName" Core..= firstName)
           ]
       )

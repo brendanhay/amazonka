@@ -65,7 +65,7 @@ nodegroupResources_remoteAccessSecurityGroup = Lens.lens (\NodegroupResources' {
 
 -- | The Auto Scaling groups associated with the node group.
 nodegroupResources_autoScalingGroups :: Lens.Lens' NodegroupResources (Prelude.Maybe [AutoScalingGroup])
-nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScalingGroups} -> autoScalingGroups) (\s@NodegroupResources' {} a -> s {autoScalingGroups = a} :: NodegroupResources) Prelude.. Lens.mapping Lens._Coerce
+nodegroupResources_autoScalingGroups = Lens.lens (\NodegroupResources' {autoScalingGroups} -> autoScalingGroups) (\s@NodegroupResources' {} a -> s {autoScalingGroups = a} :: NodegroupResources) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON NodegroupResources where
   parseJSON =

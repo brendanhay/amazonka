@@ -106,7 +106,7 @@ createDirectoryConfig_directoryName = Lens.lens (\CreateDirectoryConfig' {direct
 -- | The distinguished names of the organizational units for computer
 -- accounts.
 createDirectoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' CreateDirectoryConfig [Prelude.Text]
-createDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\CreateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@CreateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig) Prelude.. Lens._Coerce
+createDirectoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\CreateDirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@CreateDirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: CreateDirectoryConfig) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateDirectoryConfig where
   type

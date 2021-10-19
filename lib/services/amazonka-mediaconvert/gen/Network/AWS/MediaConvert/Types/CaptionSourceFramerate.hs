@@ -33,16 +33,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCaptionSourceFramerate' smart constructor.
 data CaptionSourceFramerate = CaptionSourceFramerate'
-  { -- | Specify the numerator of the fraction that represents the frame rate for
-    -- the setting Caption source frame rate (CaptionSourceFramerate). Use this
-    -- setting along with the setting Framerate denominator
-    -- (framerateDenominator).
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the denominator of the fraction that represents the frame rate
+  { -- | Specify the denominator of the fraction that represents the frame rate
     -- for the setting Caption source frame rate (CaptionSourceFramerate). Use
     -- this setting along with the setting Framerate numerator
     -- (framerateNumerator).
-    framerateDenominator :: Prelude.Maybe Prelude.Natural
+    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the numerator of the fraction that represents the frame rate for
+    -- the setting Caption source frame rate (CaptionSourceFramerate). Use this
+    -- setting along with the setting Framerate denominator
+    -- (framerateDenominator).
+    framerateNumerator :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,30 +54,23 @@ data CaptionSourceFramerate = CaptionSourceFramerate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'framerateNumerator', 'captionSourceFramerate_framerateNumerator' - Specify the numerator of the fraction that represents the frame rate for
--- the setting Caption source frame rate (CaptionSourceFramerate). Use this
--- setting along with the setting Framerate denominator
--- (framerateDenominator).
---
 -- 'framerateDenominator', 'captionSourceFramerate_framerateDenominator' - Specify the denominator of the fraction that represents the frame rate
 -- for the setting Caption source frame rate (CaptionSourceFramerate). Use
 -- this setting along with the setting Framerate numerator
 -- (framerateNumerator).
+--
+-- 'framerateNumerator', 'captionSourceFramerate_framerateNumerator' - Specify the numerator of the fraction that represents the frame rate for
+-- the setting Caption source frame rate (CaptionSourceFramerate). Use this
+-- setting along with the setting Framerate denominator
+-- (framerateDenominator).
 newCaptionSourceFramerate ::
   CaptionSourceFramerate
 newCaptionSourceFramerate =
   CaptionSourceFramerate'
-    { framerateNumerator =
+    { framerateDenominator =
         Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing
+      framerateNumerator = Prelude.Nothing
     }
-
--- | Specify the numerator of the fraction that represents the frame rate for
--- the setting Caption source frame rate (CaptionSourceFramerate). Use this
--- setting along with the setting Framerate denominator
--- (framerateDenominator).
-captionSourceFramerate_framerateNumerator :: Lens.Lens' CaptionSourceFramerate (Prelude.Maybe Prelude.Natural)
-captionSourceFramerate_framerateNumerator = Lens.lens (\CaptionSourceFramerate' {framerateNumerator} -> framerateNumerator) (\s@CaptionSourceFramerate' {} a -> s {framerateNumerator = a} :: CaptionSourceFramerate)
 
 -- | Specify the denominator of the fraction that represents the frame rate
 -- for the setting Caption source frame rate (CaptionSourceFramerate). Use
@@ -86,14 +79,21 @@ captionSourceFramerate_framerateNumerator = Lens.lens (\CaptionSourceFramerate' 
 captionSourceFramerate_framerateDenominator :: Lens.Lens' CaptionSourceFramerate (Prelude.Maybe Prelude.Natural)
 captionSourceFramerate_framerateDenominator = Lens.lens (\CaptionSourceFramerate' {framerateDenominator} -> framerateDenominator) (\s@CaptionSourceFramerate' {} a -> s {framerateDenominator = a} :: CaptionSourceFramerate)
 
+-- | Specify the numerator of the fraction that represents the frame rate for
+-- the setting Caption source frame rate (CaptionSourceFramerate). Use this
+-- setting along with the setting Framerate denominator
+-- (framerateDenominator).
+captionSourceFramerate_framerateNumerator :: Lens.Lens' CaptionSourceFramerate (Prelude.Maybe Prelude.Natural)
+captionSourceFramerate_framerateNumerator = Lens.lens (\CaptionSourceFramerate' {framerateNumerator} -> framerateNumerator) (\s@CaptionSourceFramerate' {} a -> s {framerateNumerator = a} :: CaptionSourceFramerate)
+
 instance Core.FromJSON CaptionSourceFramerate where
   parseJSON =
     Core.withObject
       "CaptionSourceFramerate"
       ( \x ->
           CaptionSourceFramerate'
-            Prelude.<$> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "framerateDenominator")
+            Prelude.<$> (x Core..:? "framerateDenominator")
+            Prelude.<*> (x Core..:? "framerateNumerator")
       )
 
 instance Prelude.Hashable CaptionSourceFramerate
@@ -104,9 +104,9 @@ instance Core.ToJSON CaptionSourceFramerate where
   toJSON CaptionSourceFramerate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("framerateNumerator" Core..=)
-              Prelude.<$> framerateNumerator,
-            ("framerateDenominator" Core..=)
-              Prelude.<$> framerateDenominator
+          [ ("framerateDenominator" Core..=)
+              Prelude.<$> framerateDenominator,
+            ("framerateNumerator" Core..=)
+              Prelude.<$> framerateNumerator
           ]
       )

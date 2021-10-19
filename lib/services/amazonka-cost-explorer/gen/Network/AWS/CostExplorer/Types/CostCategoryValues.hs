@@ -36,9 +36,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCostCategoryValues' smart constructor.
 data CostCategoryValues = CostCategoryValues'
-  { key :: Prelude.Maybe Prelude.Text,
-    -- | The specific value of the Cost Category.
+  { -- | The specific value of the Cost Category.
     values :: Prelude.Maybe [Prelude.Text],
+    key :: Prelude.Maybe Prelude.Text,
     -- | The match options that you can use to filter your results. MatchOptions
     -- is only applicable for actions related to cost category. The default
     -- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.
@@ -54,9 +54,9 @@ data CostCategoryValues = CostCategoryValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'costCategoryValues_key' - Undocumented member.
---
 -- 'values', 'costCategoryValues_values' - The specific value of the Cost Category.
+--
+-- 'key', 'costCategoryValues_key' - Undocumented member.
 --
 -- 'matchOptions', 'costCategoryValues_matchOptions' - The match options that you can use to filter your results. MatchOptions
 -- is only applicable for actions related to cost category. The default
@@ -65,24 +65,24 @@ newCostCategoryValues ::
   CostCategoryValues
 newCostCategoryValues =
   CostCategoryValues'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing,
       matchOptions = Prelude.Nothing
     }
+
+-- | The specific value of the Cost Category.
+costCategoryValues_values :: Lens.Lens' CostCategoryValues (Prelude.Maybe [Prelude.Text])
+costCategoryValues_values = Lens.lens (\CostCategoryValues' {values} -> values) (\s@CostCategoryValues' {} a -> s {values = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 costCategoryValues_key :: Lens.Lens' CostCategoryValues (Prelude.Maybe Prelude.Text)
 costCategoryValues_key = Lens.lens (\CostCategoryValues' {key} -> key) (\s@CostCategoryValues' {} a -> s {key = a} :: CostCategoryValues)
 
--- | The specific value of the Cost Category.
-costCategoryValues_values :: Lens.Lens' CostCategoryValues (Prelude.Maybe [Prelude.Text])
-costCategoryValues_values = Lens.lens (\CostCategoryValues' {values} -> values) (\s@CostCategoryValues' {} a -> s {values = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The match options that you can use to filter your results. MatchOptions
 -- is only applicable for actions related to cost category. The default
 -- values for @MatchOptions@ is @EQUALS@ and @CASE_SENSITIVE@.
 costCategoryValues_matchOptions :: Lens.Lens' CostCategoryValues (Prelude.Maybe [MatchOption])
-costCategoryValues_matchOptions = Lens.lens (\CostCategoryValues' {matchOptions} -> matchOptions) (\s@CostCategoryValues' {} a -> s {matchOptions = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens._Coerce
+costCategoryValues_matchOptions = Lens.lens (\CostCategoryValues' {matchOptions} -> matchOptions) (\s@CostCategoryValues' {} a -> s {matchOptions = a} :: CostCategoryValues) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CostCategoryValues where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON CostCategoryValues where
       "CostCategoryValues"
       ( \x ->
           CostCategoryValues'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
       )
 
@@ -103,8 +103,8 @@ instance Core.ToJSON CostCategoryValues where
   toJSON CostCategoryValues' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values,
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Key" Core..=) Prelude.<$> key,
             ("MatchOptions" Core..=) Prelude.<$> matchOptions
           ]
       )

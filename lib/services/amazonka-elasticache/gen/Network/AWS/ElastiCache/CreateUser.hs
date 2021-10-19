@@ -43,13 +43,13 @@ module Network.AWS.ElastiCache.CreateUser
 
     -- * Response Lenses
     user_status,
-    user_accessString,
+    user_arn,
     user_userGroupIds,
     user_authentication,
-    user_arn,
-    user_userId,
     user_engine,
     user_userName,
+    user_accessString,
+    user_userId,
   )
 where
 
@@ -132,7 +132,7 @@ newCreateUser
 -- | Passwords used for this user. You can create up to two passwords for
 -- each user.
 createUser_passwords :: Lens.Lens' CreateUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createUser_passwords = Lens.lens (\CreateUser' {passwords} -> passwords) (\s@CreateUser' {} a -> s {passwords = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
+createUser_passwords = Lens.lens (\CreateUser' {passwords} -> passwords) (\s@CreateUser' {} a -> s {passwords = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates a password is not required for this user.
 createUser_noPasswordRequired :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
@@ -141,7 +141,7 @@ createUser_noPasswordRequired = Lens.lens (\CreateUser' {noPasswordRequired} -> 
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens._Coerce
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the user.
 createUser_userId :: Lens.Lens' CreateUser Prelude.Text

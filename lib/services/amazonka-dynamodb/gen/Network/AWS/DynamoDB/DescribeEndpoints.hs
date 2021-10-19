@@ -135,6 +135,6 @@ describeEndpointsResponse_httpStatus = Lens.lens (\DescribeEndpointsResponse' {h
 
 -- | List of endpoints.
 describeEndpointsResponse_endpoints :: Lens.Lens' DescribeEndpointsResponse [Endpoint]
-describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Prelude.. Lens._Coerce
+describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeEndpointsResponse

@@ -17,14 +17,14 @@ module Network.AWS.LexModels.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _BadRequestException,
     _AccessDeniedException,
+    _PreconditionFailedException,
     _ConflictException,
+    _NotFoundException,
+    _InternalFailureException,
+    _BadRequestException,
     _LimitExceededException,
     _ResourceInUseException,
-    _InternalFailureException,
-    _PreconditionFailedException,
 
     -- * ChannelStatus
     ChannelStatus (..),
@@ -98,36 +98,36 @@ module Network.AWS.LexModels.Types
     -- * BotAliasMetadata
     BotAliasMetadata (..),
     newBotAliasMetadata,
-    botAliasMetadata_createdDate,
-    botAliasMetadata_botName,
-    botAliasMetadata_lastUpdatedDate,
-    botAliasMetadata_botVersion,
-    botAliasMetadata_name,
-    botAliasMetadata_description,
     botAliasMetadata_checksum,
+    botAliasMetadata_botVersion,
+    botAliasMetadata_botName,
+    botAliasMetadata_createdDate,
+    botAliasMetadata_name,
     botAliasMetadata_conversationLogs,
+    botAliasMetadata_lastUpdatedDate,
+    botAliasMetadata_description,
 
     -- * BotChannelAssociation
     BotChannelAssociation (..),
     newBotChannelAssociation,
-    botChannelAssociation_botAlias,
-    botChannelAssociation_createdDate,
-    botChannelAssociation_status,
-    botChannelAssociation_botConfiguration,
-    botChannelAssociation_botName,
-    botChannelAssociation_name,
     botChannelAssociation_failureReason,
-    botChannelAssociation_description,
+    botChannelAssociation_status,
+    botChannelAssociation_botAlias,
+    botChannelAssociation_botName,
+    botChannelAssociation_botConfiguration,
+    botChannelAssociation_createdDate,
+    botChannelAssociation_name,
     botChannelAssociation_type,
+    botChannelAssociation_description,
 
     -- * BotMetadata
     BotMetadata (..),
     newBotMetadata,
-    botMetadata_createdDate,
     botMetadata_status,
-    botMetadata_lastUpdatedDate,
-    botMetadata_version,
+    botMetadata_createdDate,
     botMetadata_name,
+    botMetadata_version,
+    botMetadata_lastUpdatedDate,
     botMetadata_description,
 
     -- * BuiltinIntentMetadata
@@ -198,9 +198,9 @@ module Network.AWS.LexModels.Types
     IntentMetadata (..),
     newIntentMetadata,
     intentMetadata_createdDate,
-    intentMetadata_lastUpdatedDate,
-    intentMetadata_version,
     intentMetadata_name,
+    intentMetadata_version,
+    intentMetadata_lastUpdatedDate,
     intentMetadata_description,
 
     -- * KendraConfiguration
@@ -221,10 +221,10 @@ module Network.AWS.LexModels.Types
     -- * LogSettingsResponse
     LogSettingsResponse (..),
     newLogSettingsResponse,
-    logSettingsResponse_resourceArn,
-    logSettingsResponse_logType,
-    logSettingsResponse_kmsKeyArn,
     logSettingsResponse_destination,
+    logSettingsResponse_kmsKeyArn,
+    logSettingsResponse_logType,
+    logSettingsResponse_resourceArn,
     logSettingsResponse_resourcePrefix,
 
     -- * Message
@@ -237,23 +237,23 @@ module Network.AWS.LexModels.Types
     -- * MigrationAlert
     MigrationAlert (..),
     newMigrationAlert,
-    migrationAlert_message,
-    migrationAlert_details,
     migrationAlert_referenceURLs,
+    migrationAlert_details,
     migrationAlert_type,
+    migrationAlert_message,
 
     -- * MigrationSummary
     MigrationSummary (..),
     newMigrationSummary,
     migrationSummary_v1BotVersion,
-    migrationSummary_migrationId,
-    migrationSummary_v1BotLocale,
-    migrationSummary_migrationTimestamp,
     migrationSummary_migrationStrategy,
-    migrationSummary_v2BotRole,
-    migrationSummary_v1BotName,
-    migrationSummary_v2BotId,
+    migrationSummary_migrationTimestamp,
     migrationSummary_migrationStatus,
+    migrationSummary_v2BotId,
+    migrationSummary_v1BotLocale,
+    migrationSummary_v1BotName,
+    migrationSummary_v2BotRole,
+    migrationSummary_migrationId,
 
     -- * OutputContext
     OutputContext (..),
@@ -272,15 +272,15 @@ module Network.AWS.LexModels.Types
     -- * Slot
     Slot (..),
     newSlot,
-    slot_responseCard,
     slot_slotType,
     slot_valueElicitationPrompt,
-    slot_slotTypeVersion,
+    slot_responseCard,
     slot_priority,
+    slot_obfuscationSetting,
+    slot_defaultValueSpec,
+    slot_slotTypeVersion,
     slot_sampleUtterances,
     slot_description,
-    slot_defaultValueSpec,
-    slot_obfuscationSetting,
     slot_name,
     slot_slotConstraint,
 
@@ -303,9 +303,9 @@ module Network.AWS.LexModels.Types
     SlotTypeMetadata (..),
     newSlotTypeMetadata,
     slotTypeMetadata_createdDate,
-    slotTypeMetadata_lastUpdatedDate,
-    slotTypeMetadata_version,
     slotTypeMetadata_name,
+    slotTypeMetadata_version,
+    slotTypeMetadata_lastUpdatedDate,
     slotTypeMetadata_description,
 
     -- * SlotTypeRegexConfiguration
@@ -328,11 +328,11 @@ module Network.AWS.LexModels.Types
     -- * UtteranceData
     UtteranceData (..),
     newUtteranceData,
-    utteranceData_utteranceString,
-    utteranceData_distinctUsers,
-    utteranceData_count,
-    utteranceData_lastUtteredDate,
     utteranceData_firstUtteredDate,
+    utteranceData_count,
+    utteranceData_utteranceString,
+    utteranceData_lastUtteredDate,
+    utteranceData_distinctUsers,
 
     -- * UtteranceList
     UtteranceList (..),
@@ -428,37 +428,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -471,25 +448,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The resource specified in the request was not found. Check the resource
--- and try again.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The request is not well formed. For example, a value is invalid or a
--- required field is missing. Check the field values, and try again.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | Your IAM user or role does not have permission to call the Amazon Lex V2
 -- APIs required to migrate your bot.
@@ -500,6 +482,16 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
+-- | The checksum of the resource that you are trying to change does not
+-- match the checksum in the request. Check the resource\'s checksum and
+-- try again.
+_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreconditionFailedException =
+  Core._MatchServiceError
+    defaultService
+    "PreconditionFailedException"
+    Prelude.. Core.hasStatus 412
+
 -- | There was a conflict processing the request. Try your request again.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
@@ -507,6 +499,32 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | The resource specified in the request was not found. Check the resource
+-- and try again.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | An internal Amazon Lex error occurred. Try your request again.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
+
+-- | The request is not well formed. For example, a value is invalid or a
+-- required field is missing. Check the field values, and try again.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
 
 -- | The request exceeded a limit. Try your request again.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -534,21 +552,3 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
     Prelude.. Core.hasStatus 400
-
--- | An internal Amazon Lex error occurred. Try your request again.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
-
--- | The checksum of the resource that you are trying to change does not
--- match the checksum in the request. Check the resource\'s checksum and
--- try again.
-_PreconditionFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreconditionFailedException =
-  Core._MatchServiceError
-    defaultService
-    "PreconditionFailedException"
-    Prelude.. Core.hasStatus 412

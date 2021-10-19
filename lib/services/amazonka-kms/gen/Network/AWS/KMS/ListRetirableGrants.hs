@@ -60,8 +60,8 @@ module Network.AWS.KMS.ListRetirableGrants
     newListRetirableGrants,
 
     -- * Request Lenses
-    listRetirableGrants_limit,
     listRetirableGrants_marker,
+    listRetirableGrants_limit,
     listRetirableGrants_retiringPrincipal,
 
     -- * Destructuring the Response
@@ -69,9 +69,9 @@ module Network.AWS.KMS.ListRetirableGrants
     newListGrantsResponse,
 
     -- * Response Lenses
-    listGrantsResponse_nextMarker,
-    listGrantsResponse_grants,
     listGrantsResponse_truncated,
+    listGrantsResponse_grants,
+    listGrantsResponse_nextMarker,
   )
 where
 
@@ -84,17 +84,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListRetirableGrants' smart constructor.
 data ListRetirableGrants = ListRetirableGrants'
-  { -- | Use this parameter to specify the maximum number of items to return.
+  { -- | Use this parameter in a subsequent request after you receive a response
+    -- with truncated results. Set it to the value of @NextMarker@ from the
+    -- truncated response you just received.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to specify the maximum number of items to return.
     -- When this value is present, KMS does not return more than the specified
     -- number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter in a subsequent request after you receive a response
-    -- with truncated results. Set it to the value of @NextMarker@ from the
-    -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The retiring principal for which to list grants. Enter a principal in
     -- your Amazon Web Services account.
     --
@@ -119,16 +119,16 @@ data ListRetirableGrants = ListRetirableGrants'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listRetirableGrants_marker' - Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+--
 -- 'limit', 'listRetirableGrants_limit' - Use this parameter to specify the maximum number of items to return.
 -- When this value is present, KMS does not return more than the specified
 -- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
---
--- 'marker', 'listRetirableGrants_marker' - Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
 --
 -- 'retiringPrincipal', 'listRetirableGrants_retiringPrincipal' - The retiring principal for which to list grants. Enter a principal in
 -- your Amazon Web Services account.
@@ -148,10 +148,16 @@ newListRetirableGrants ::
   ListRetirableGrants
 newListRetirableGrants pRetiringPrincipal_ =
   ListRetirableGrants'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       retiringPrincipal = pRetiringPrincipal_
     }
+
+-- | Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+listRetirableGrants_marker :: Lens.Lens' ListRetirableGrants (Prelude.Maybe Prelude.Text)
+listRetirableGrants_marker = Lens.lens (\ListRetirableGrants' {marker} -> marker) (\s@ListRetirableGrants' {} a -> s {marker = a} :: ListRetirableGrants)
 
 -- | Use this parameter to specify the maximum number of items to return.
 -- When this value is present, KMS does not return more than the specified
@@ -161,12 +167,6 @@ newListRetirableGrants pRetiringPrincipal_ =
 -- 100, inclusive. If you do not include a value, it defaults to 50.
 listRetirableGrants_limit :: Lens.Lens' ListRetirableGrants (Prelude.Maybe Prelude.Natural)
 listRetirableGrants_limit = Lens.lens (\ListRetirableGrants' {limit} -> limit) (\s@ListRetirableGrants' {} a -> s {limit = a} :: ListRetirableGrants)
-
--- | Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
-listRetirableGrants_marker :: Lens.Lens' ListRetirableGrants (Prelude.Maybe Prelude.Text)
-listRetirableGrants_marker = Lens.lens (\ListRetirableGrants' {marker} -> marker) (\s@ListRetirableGrants' {} a -> s {marker = a} :: ListRetirableGrants)
 
 -- | The retiring principal for which to list grants. Enter a principal in
 -- your Amazon Web Services account.
@@ -215,8 +215,8 @@ instance Core.ToJSON ListRetirableGrants where
   toJSON ListRetirableGrants' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("RetiringPrincipal" Core..= retiringPrincipal)
           ]

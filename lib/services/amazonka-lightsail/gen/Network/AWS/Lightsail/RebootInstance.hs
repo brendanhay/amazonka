@@ -162,7 +162,7 @@ newRebootInstanceResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 rebootInstanceResponse_operations :: Lens.Lens' RebootInstanceResponse (Prelude.Maybe [Operation])
-rebootInstanceResponse_operations = Lens.lens (\RebootInstanceResponse' {operations} -> operations) (\s@RebootInstanceResponse' {} a -> s {operations = a} :: RebootInstanceResponse) Prelude.. Lens.mapping Lens._Coerce
+rebootInstanceResponse_operations = Lens.lens (\RebootInstanceResponse' {operations} -> operations) (\s@RebootInstanceResponse' {} a -> s {operations = a} :: RebootInstanceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 rebootInstanceResponse_httpStatus :: Lens.Lens' RebootInstanceResponse Prelude.Int

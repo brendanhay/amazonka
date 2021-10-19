@@ -47,10 +47,10 @@ module Network.AWS.ECR.CompleteLayerUpload
     newCompleteLayerUploadResponse,
 
     -- * Response Lenses
-    completeLayerUploadResponse_uploadId,
     completeLayerUploadResponse_registryId,
-    completeLayerUploadResponse_repositoryName,
     completeLayerUploadResponse_layerDigest,
+    completeLayerUploadResponse_repositoryName,
+    completeLayerUploadResponse_uploadId,
     completeLayerUploadResponse_httpStatus,
   )
 where
@@ -112,7 +112,7 @@ newCompleteLayerUpload
       { registryId = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         uploadId = pUploadId_,
-        layerDigests = Lens._Coerce Lens.# pLayerDigests_
+        layerDigests = Lens.coerced Lens.# pLayerDigests_
       }
 
 -- | The Amazon Web Services account ID associated with the registry to which
@@ -132,7 +132,7 @@ completeLayerUpload_uploadId = Lens.lens (\CompleteLayerUpload' {uploadId} -> up
 
 -- | The @sha256@ digest of the image layer.
 completeLayerUpload_layerDigests :: Lens.Lens' CompleteLayerUpload (Prelude.NonEmpty Prelude.Text)
-completeLayerUpload_layerDigests = Lens.lens (\CompleteLayerUpload' {layerDigests} -> layerDigests) (\s@CompleteLayerUpload' {} a -> s {layerDigests = a} :: CompleteLayerUpload) Prelude.. Lens._Coerce
+completeLayerUpload_layerDigests = Lens.lens (\CompleteLayerUpload' {layerDigests} -> layerDigests) (\s@CompleteLayerUpload' {} a -> s {layerDigests = a} :: CompleteLayerUpload) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CompleteLayerUpload where
   type
@@ -143,10 +143,10 @@ instance Core.AWSRequest CompleteLayerUpload where
     Response.receiveJSON
       ( \s h x ->
           CompleteLayerUploadResponse'
-            Prelude.<$> (x Core..?> "uploadId")
-            Prelude.<*> (x Core..?> "registryId")
-            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<$> (x Core..?> "registryId")
             Prelude.<*> (x Core..?> "layerDigest")
+            Prelude.<*> (x Core..?> "repositoryName")
+            Prelude.<*> (x Core..?> "uploadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -189,14 +189,14 @@ instance Core.ToQuery CompleteLayerUpload where
 
 -- | /See:/ 'newCompleteLayerUploadResponse' smart constructor.
 data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
-  { -- | The upload ID associated with the layer.
-    uploadId :: Prelude.Maybe Prelude.Text,
-    -- | The registry ID associated with the request.
+  { -- | The registry ID associated with the request.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
     -- | The @sha256@ digest of the image layer.
     layerDigest :: Prelude.Maybe Prelude.Text,
+    -- | The repository name associated with the request.
+    repositoryName :: Prelude.Maybe Prelude.Text,
+    -- | The upload ID associated with the layer.
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,13 +210,13 @@ data CompleteLayerUploadResponse = CompleteLayerUploadResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID associated with the layer.
---
 -- 'registryId', 'completeLayerUploadResponse_registryId' - The registry ID associated with the request.
+--
+-- 'layerDigest', 'completeLayerUploadResponse_layerDigest' - The @sha256@ digest of the image layer.
 --
 -- 'repositoryName', 'completeLayerUploadResponse_repositoryName' - The repository name associated with the request.
 --
--- 'layerDigest', 'completeLayerUploadResponse_layerDigest' - The @sha256@ digest of the image layer.
+-- 'uploadId', 'completeLayerUploadResponse_uploadId' - The upload ID associated with the layer.
 --
 -- 'httpStatus', 'completeLayerUploadResponse_httpStatus' - The response's http status code.
 newCompleteLayerUploadResponse ::
@@ -225,29 +225,29 @@ newCompleteLayerUploadResponse ::
   CompleteLayerUploadResponse
 newCompleteLayerUploadResponse pHttpStatus_ =
   CompleteLayerUploadResponse'
-    { uploadId =
+    { registryId =
         Prelude.Nothing,
-      registryId = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
       layerDigest = Prelude.Nothing,
+      repositoryName = Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The upload ID associated with the layer.
-completeLayerUploadResponse_uploadId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
-completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' {uploadId} -> uploadId) (\s@CompleteLayerUploadResponse' {} a -> s {uploadId = a} :: CompleteLayerUploadResponse)
 
 -- | The registry ID associated with the request.
 completeLayerUploadResponse_registryId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_registryId = Lens.lens (\CompleteLayerUploadResponse' {registryId} -> registryId) (\s@CompleteLayerUploadResponse' {} a -> s {registryId = a} :: CompleteLayerUploadResponse)
 
+-- | The @sha256@ digest of the image layer.
+completeLayerUploadResponse_layerDigest :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_layerDigest = Lens.lens (\CompleteLayerUploadResponse' {layerDigest} -> layerDigest) (\s@CompleteLayerUploadResponse' {} a -> s {layerDigest = a} :: CompleteLayerUploadResponse)
+
 -- | The repository name associated with the request.
 completeLayerUploadResponse_repositoryName :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
 completeLayerUploadResponse_repositoryName = Lens.lens (\CompleteLayerUploadResponse' {repositoryName} -> repositoryName) (\s@CompleteLayerUploadResponse' {} a -> s {repositoryName = a} :: CompleteLayerUploadResponse)
 
--- | The @sha256@ digest of the image layer.
-completeLayerUploadResponse_layerDigest :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
-completeLayerUploadResponse_layerDigest = Lens.lens (\CompleteLayerUploadResponse' {layerDigest} -> layerDigest) (\s@CompleteLayerUploadResponse' {} a -> s {layerDigest = a} :: CompleteLayerUploadResponse)
+-- | The upload ID associated with the layer.
+completeLayerUploadResponse_uploadId :: Lens.Lens' CompleteLayerUploadResponse (Prelude.Maybe Prelude.Text)
+completeLayerUploadResponse_uploadId = Lens.lens (\CompleteLayerUploadResponse' {uploadId} -> uploadId) (\s@CompleteLayerUploadResponse' {} a -> s {uploadId = a} :: CompleteLayerUploadResponse)
 
 -- | The response's http status code.
 completeLayerUploadResponse_httpStatus :: Lens.Lens' CompleteLayerUploadResponse Prelude.Int

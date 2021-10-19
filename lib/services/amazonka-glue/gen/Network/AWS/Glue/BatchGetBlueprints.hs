@@ -27,8 +27,8 @@ module Network.AWS.Glue.BatchGetBlueprints
     newBatchGetBlueprints,
 
     -- * Request Lenses
-    batchGetBlueprints_includeBlueprint,
     batchGetBlueprints_includeParameterSpec,
+    batchGetBlueprints_includeBlueprint,
     batchGetBlueprints_names,
 
     -- * Destructuring the Response
@@ -51,11 +51,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchGetBlueprints' smart constructor.
 data BatchGetBlueprints = BatchGetBlueprints'
-  { -- | Specifies whether or not to include the blueprint in the response.
-    includeBlueprint :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether or not to include the parameters, as a JSON string,
+  { -- | Specifies whether or not to include the parameters, as a JSON string,
     -- for the blueprint in the response.
     includeParameterSpec :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether or not to include the blueprint in the response.
+    includeBlueprint :: Prelude.Maybe Prelude.Bool,
     -- | A list of blueprint names.
     names :: Prelude.NonEmpty Prelude.Text
   }
@@ -69,10 +69,10 @@ data BatchGetBlueprints = BatchGetBlueprints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeBlueprint', 'batchGetBlueprints_includeBlueprint' - Specifies whether or not to include the blueprint in the response.
---
 -- 'includeParameterSpec', 'batchGetBlueprints_includeParameterSpec' - Specifies whether or not to include the parameters, as a JSON string,
 -- for the blueprint in the response.
+--
+-- 'includeBlueprint', 'batchGetBlueprints_includeBlueprint' - Specifies whether or not to include the blueprint in the response.
 --
 -- 'names', 'batchGetBlueprints_names' - A list of blueprint names.
 newBatchGetBlueprints ::
@@ -81,24 +81,24 @@ newBatchGetBlueprints ::
   BatchGetBlueprints
 newBatchGetBlueprints pNames_ =
   BatchGetBlueprints'
-    { includeBlueprint =
+    { includeParameterSpec =
         Prelude.Nothing,
-      includeParameterSpec = Prelude.Nothing,
-      names = Lens._Coerce Lens.# pNames_
+      includeBlueprint = Prelude.Nothing,
+      names = Lens.coerced Lens.# pNames_
     }
-
--- | Specifies whether or not to include the blueprint in the response.
-batchGetBlueprints_includeBlueprint :: Lens.Lens' BatchGetBlueprints (Prelude.Maybe Prelude.Bool)
-batchGetBlueprints_includeBlueprint = Lens.lens (\BatchGetBlueprints' {includeBlueprint} -> includeBlueprint) (\s@BatchGetBlueprints' {} a -> s {includeBlueprint = a} :: BatchGetBlueprints)
 
 -- | Specifies whether or not to include the parameters, as a JSON string,
 -- for the blueprint in the response.
 batchGetBlueprints_includeParameterSpec :: Lens.Lens' BatchGetBlueprints (Prelude.Maybe Prelude.Bool)
 batchGetBlueprints_includeParameterSpec = Lens.lens (\BatchGetBlueprints' {includeParameterSpec} -> includeParameterSpec) (\s@BatchGetBlueprints' {} a -> s {includeParameterSpec = a} :: BatchGetBlueprints)
 
+-- | Specifies whether or not to include the blueprint in the response.
+batchGetBlueprints_includeBlueprint :: Lens.Lens' BatchGetBlueprints (Prelude.Maybe Prelude.Bool)
+batchGetBlueprints_includeBlueprint = Lens.lens (\BatchGetBlueprints' {includeBlueprint} -> includeBlueprint) (\s@BatchGetBlueprints' {} a -> s {includeBlueprint = a} :: BatchGetBlueprints)
+
 -- | A list of blueprint names.
 batchGetBlueprints_names :: Lens.Lens' BatchGetBlueprints (Prelude.NonEmpty Prelude.Text)
-batchGetBlueprints_names = Lens.lens (\BatchGetBlueprints' {names} -> names) (\s@BatchGetBlueprints' {} a -> s {names = a} :: BatchGetBlueprints) Prelude.. Lens._Coerce
+batchGetBlueprints_names = Lens.lens (\BatchGetBlueprints' {names} -> names) (\s@BatchGetBlueprints' {} a -> s {names = a} :: BatchGetBlueprints) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetBlueprints where
   type
@@ -137,10 +137,10 @@ instance Core.ToJSON BatchGetBlueprints where
   toJSON BatchGetBlueprints' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IncludeBlueprint" Core..=)
-              Prelude.<$> includeBlueprint,
-            ("IncludeParameterSpec" Core..=)
+          [ ("IncludeParameterSpec" Core..=)
               Prelude.<$> includeParameterSpec,
+            ("IncludeBlueprint" Core..=)
+              Prelude.<$> includeBlueprint,
             Prelude.Just ("Names" Core..= names)
           ]
       )
@@ -189,11 +189,11 @@ newBatchGetBlueprintsResponse pHttpStatus_ =
 
 -- | Returns a list of blueprint as a @Blueprints@ object.
 batchGetBlueprintsResponse_blueprints :: Lens.Lens' BatchGetBlueprintsResponse (Prelude.Maybe [Blueprint])
-batchGetBlueprintsResponse_blueprints = Lens.lens (\BatchGetBlueprintsResponse' {blueprints} -> blueprints) (\s@BatchGetBlueprintsResponse' {} a -> s {blueprints = a} :: BatchGetBlueprintsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetBlueprintsResponse_blueprints = Lens.lens (\BatchGetBlueprintsResponse' {blueprints} -> blueprints) (\s@BatchGetBlueprintsResponse' {} a -> s {blueprints = a} :: BatchGetBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns a list of @BlueprintNames@ that were not found.
 batchGetBlueprintsResponse_missingBlueprints :: Lens.Lens' BatchGetBlueprintsResponse (Prelude.Maybe [Prelude.Text])
-batchGetBlueprintsResponse_missingBlueprints = Lens.lens (\BatchGetBlueprintsResponse' {missingBlueprints} -> missingBlueprints) (\s@BatchGetBlueprintsResponse' {} a -> s {missingBlueprints = a} :: BatchGetBlueprintsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetBlueprintsResponse_missingBlueprints = Lens.lens (\BatchGetBlueprintsResponse' {missingBlueprints} -> missingBlueprints) (\s@BatchGetBlueprintsResponse' {} a -> s {missingBlueprints = a} :: BatchGetBlueprintsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetBlueprintsResponse_httpStatus :: Lens.Lens' BatchGetBlueprintsResponse Prelude.Int

@@ -79,7 +79,7 @@ newItemCollectionMetrics =
 -- | The partition key value of the item collection. This value is the same
 -- as the partition key value of the item.
 itemCollectionMetrics_itemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens._Coerce
+itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {itemCollectionKey} -> itemCollectionKey) (\s@ItemCollectionMetrics' {} a -> s {itemCollectionKey = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens.coerced
 
 -- | An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -91,7 +91,7 @@ itemCollectionMetrics_itemCollectionKey = Lens.lens (\ItemCollectionMetrics' {it
 -- The estimate is subject to change over time; therefore, do not rely on
 -- the precision or accuracy of the estimate.
 itemCollectionMetrics_sizeEstimateRangeGB :: Lens.Lens' ItemCollectionMetrics (Prelude.Maybe [Prelude.Double])
-itemCollectionMetrics_sizeEstimateRangeGB = Lens.lens (\ItemCollectionMetrics' {sizeEstimateRangeGB} -> sizeEstimateRangeGB) (\s@ItemCollectionMetrics' {} a -> s {sizeEstimateRangeGB = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens._Coerce
+itemCollectionMetrics_sizeEstimateRangeGB = Lens.lens (\ItemCollectionMetrics' {sizeEstimateRangeGB} -> sizeEstimateRangeGB) (\s@ItemCollectionMetrics' {} a -> s {sizeEstimateRangeGB = a} :: ItemCollectionMetrics) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ItemCollectionMetrics where
   parseJSON =

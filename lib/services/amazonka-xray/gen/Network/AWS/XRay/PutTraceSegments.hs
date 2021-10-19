@@ -123,7 +123,7 @@ newPutTraceSegments =
 -- | A string containing a JSON document defining one or more segments or
 -- subsegments.
 putTraceSegments_traceSegmentDocuments :: Lens.Lens' PutTraceSegments [Prelude.Text]
-putTraceSegments_traceSegmentDocuments = Lens.lens (\PutTraceSegments' {traceSegmentDocuments} -> traceSegmentDocuments) (\s@PutTraceSegments' {} a -> s {traceSegmentDocuments = a} :: PutTraceSegments) Prelude.. Lens._Coerce
+putTraceSegments_traceSegmentDocuments = Lens.lens (\PutTraceSegments' {traceSegmentDocuments} -> traceSegmentDocuments) (\s@PutTraceSegments' {} a -> s {traceSegmentDocuments = a} :: PutTraceSegments) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutTraceSegments where
   type
@@ -197,7 +197,7 @@ newPutTraceSegmentsResponse pHttpStatus_ =
 
 -- | Segments that failed processing.
 putTraceSegmentsResponse_unprocessedTraceSegments :: Lens.Lens' PutTraceSegmentsResponse (Prelude.Maybe [UnprocessedTraceSegment])
-putTraceSegmentsResponse_unprocessedTraceSegments = Lens.lens (\PutTraceSegmentsResponse' {unprocessedTraceSegments} -> unprocessedTraceSegments) (\s@PutTraceSegmentsResponse' {} a -> s {unprocessedTraceSegments = a} :: PutTraceSegmentsResponse) Prelude.. Lens.mapping Lens._Coerce
+putTraceSegmentsResponse_unprocessedTraceSegments = Lens.lens (\PutTraceSegmentsResponse' {unprocessedTraceSegments} -> unprocessedTraceSegments) (\s@PutTraceSegmentsResponse' {} a -> s {unprocessedTraceSegments = a} :: PutTraceSegmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putTraceSegmentsResponse_httpStatus :: Lens.Lens' PutTraceSegmentsResponse Prelude.Int

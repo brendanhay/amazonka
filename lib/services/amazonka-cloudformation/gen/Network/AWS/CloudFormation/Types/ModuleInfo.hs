@@ -33,7 +33,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newModuleInfo' smart constructor.
 data ModuleInfo = ModuleInfo'
-  { -- | A concantenated list of the logical IDs of the module or modules
+  { -- | A concantenated list of the the module type or types containing the
+    -- resource. Module types are listed starting with the inner-most nested
+    -- module, and separated by @\/@.
+    --
+    -- In the following example, the resource was created from a module of type
+    -- @AWS::First::Example::MODULE@, that is nested inside a parent module of
+    -- type @AWS::Second::Example::MODULE@.
+    --
+    -- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
+    typeHierarchy :: Prelude.Maybe Prelude.Text,
+    -- | A concantenated list of the logical IDs of the module or modules
     -- containing the resource. Modules are listed starting with the inner-most
     -- nested module, and separated by @\/@.
     --
@@ -45,17 +55,7 @@ data ModuleInfo = ModuleInfo'
     -- For more information, see
     -- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
     -- in the /CloudFormation User Guide/.
-    logicalIdHierarchy :: Prelude.Maybe Prelude.Text,
-    -- | A concantenated list of the the module type or types containing the
-    -- resource. Module types are listed starting with the inner-most nested
-    -- module, and separated by @\/@.
-    --
-    -- In the following example, the resource was created from a module of type
-    -- @AWS::First::Example::MODULE@, that is nested inside a parent module of
-    -- type @AWS::Second::Example::MODULE@.
-    --
-    -- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
-    typeHierarchy :: Prelude.Maybe Prelude.Text
+    logicalIdHierarchy :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +66,16 @@ data ModuleInfo = ModuleInfo'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'typeHierarchy', 'moduleInfo_typeHierarchy' - A concantenated list of the the module type or types containing the
+-- resource. Module types are listed starting with the inner-most nested
+-- module, and separated by @\/@.
+--
+-- In the following example, the resource was created from a module of type
+-- @AWS::First::Example::MODULE@, that is nested inside a parent module of
+-- type @AWS::Second::Example::MODULE@.
+--
+-- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
 --
 -- 'logicalIdHierarchy', 'moduleInfo_logicalIdHierarchy' - A concantenated list of the logical IDs of the module or modules
 -- containing the resource. Modules are listed starting with the inner-most
@@ -79,8 +89,15 @@ data ModuleInfo = ModuleInfo'
 -- For more information, see
 -- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
 -- in the /CloudFormation User Guide/.
---
--- 'typeHierarchy', 'moduleInfo_typeHierarchy' - A concantenated list of the the module type or types containing the
+newModuleInfo ::
+  ModuleInfo
+newModuleInfo =
+  ModuleInfo'
+    { typeHierarchy = Prelude.Nothing,
+      logicalIdHierarchy = Prelude.Nothing
+    }
+
+-- | A concantenated list of the the module type or types containing the
 -- resource. Module types are listed starting with the inner-most nested
 -- module, and separated by @\/@.
 --
@@ -89,13 +106,8 @@ data ModuleInfo = ModuleInfo'
 -- type @AWS::Second::Example::MODULE@.
 --
 -- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
-newModuleInfo ::
-  ModuleInfo
-newModuleInfo =
-  ModuleInfo'
-    { logicalIdHierarchy = Prelude.Nothing,
-      typeHierarchy = Prelude.Nothing
-    }
+moduleInfo_typeHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
+moduleInfo_typeHierarchy = Lens.lens (\ModuleInfo' {typeHierarchy} -> typeHierarchy) (\s@ModuleInfo' {} a -> s {typeHierarchy = a} :: ModuleInfo)
 
 -- | A concantenated list of the logical IDs of the module or modules
 -- containing the resource. Modules are listed starting with the inner-most
@@ -112,23 +124,11 @@ newModuleInfo =
 moduleInfo_logicalIdHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
 moduleInfo_logicalIdHierarchy = Lens.lens (\ModuleInfo' {logicalIdHierarchy} -> logicalIdHierarchy) (\s@ModuleInfo' {} a -> s {logicalIdHierarchy = a} :: ModuleInfo)
 
--- | A concantenated list of the the module type or types containing the
--- resource. Module types are listed starting with the inner-most nested
--- module, and separated by @\/@.
---
--- In the following example, the resource was created from a module of type
--- @AWS::First::Example::MODULE@, that is nested inside a parent module of
--- type @AWS::Second::Example::MODULE@.
---
--- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
-moduleInfo_typeHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
-moduleInfo_typeHierarchy = Lens.lens (\ModuleInfo' {typeHierarchy} -> typeHierarchy) (\s@ModuleInfo' {} a -> s {typeHierarchy = a} :: ModuleInfo)
-
 instance Core.FromXML ModuleInfo where
   parseXML x =
     ModuleInfo'
-      Prelude.<$> (x Core..@? "LogicalIdHierarchy")
-      Prelude.<*> (x Core..@? "TypeHierarchy")
+      Prelude.<$> (x Core..@? "TypeHierarchy")
+      Prelude.<*> (x Core..@? "LogicalIdHierarchy")
 
 instance Prelude.Hashable ModuleInfo
 

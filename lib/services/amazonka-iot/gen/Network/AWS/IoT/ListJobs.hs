@@ -33,21 +33,21 @@ module Network.AWS.IoT.ListJobs
     newListJobs,
 
     -- * Request Lenses
-    listJobs_nextToken,
     listJobs_status,
-    listJobs_targetSelection,
-    listJobs_namespaceId,
-    listJobs_maxResults,
-    listJobs_thingGroupName,
     listJobs_thingGroupId,
+    listJobs_namespaceId,
+    listJobs_nextToken,
+    listJobs_thingGroupName,
+    listJobs_maxResults,
+    listJobs_targetSelection,
 
     -- * Destructuring the Response
     ListJobsResponse (..),
     newListJobsResponse,
 
     -- * Response Lenses
-    listJobsResponse_nextToken,
     listJobsResponse_jobs,
+    listJobsResponse_nextToken,
     listJobsResponse_httpStatus,
   )
 where
@@ -61,18 +61,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | The token to retrieve the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An optional filter that lets you search for jobs that have the specified
+  { -- | An optional filter that lets you search for jobs that have the specified
     -- status.
     status :: Prelude.Maybe JobStatus,
-    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
-    -- complete after all those things specified as targets have completed the
-    -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
-    -- change is detected in a target. For example, a job will run on a thing
-    -- when the thing is added to a target group, even after the job was
-    -- completed by all things originally in the group.
-    targetSelection :: Prelude.Maybe TargetSelection,
+    -- | A filter that limits the returned jobs to those for the specified group.
+    thingGroupId :: Prelude.Maybe Prelude.Text,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, Amazon Web Services IoT
@@ -83,12 +76,19 @@ data ListJobs = ListJobs'
     --
     -- The @namespaceId@ feature is in public preview.
     namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | A filter that limits the returned jobs to those for the specified group.
     thingGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A filter that limits the returned jobs to those for the specified group.
-    thingGroupId :: Prelude.Maybe Prelude.Text
+    -- | The maximum number of results to return per request.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
+    -- complete after all those things specified as targets have completed the
+    -- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
+    -- change is detected in a target. For example, a job will run on a thing
+    -- when the thing is added to a target group, even after the job was
+    -- completed by all things originally in the group.
+    targetSelection :: Prelude.Maybe TargetSelection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,17 +100,10 @@ data ListJobs = ListJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listJobs_nextToken' - The token to retrieve the next set of results.
---
 -- 'status', 'listJobs_status' - An optional filter that lets you search for jobs that have the specified
 -- status.
 --
--- 'targetSelection', 'listJobs_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
--- complete after all those things specified as targets have completed the
--- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
--- change is detected in a target. For example, a job will run on a thing
--- when the thing is added to a target group, even after the job was
--- completed by all things originally in the group.
+-- 'thingGroupId', 'listJobs_thingGroupId' - A filter that limits the returned jobs to those for the specified group.
 --
 -- 'namespaceId', 'listJobs_namespaceId' - The namespace used to indicate that a job is a customer-managed job.
 --
@@ -122,41 +115,39 @@ data ListJobs = ListJobs'
 --
 -- The @namespaceId@ feature is in public preview.
 --
--- 'maxResults', 'listJobs_maxResults' - The maximum number of results to return per request.
+-- 'nextToken', 'listJobs_nextToken' - The token to retrieve the next set of results.
 --
 -- 'thingGroupName', 'listJobs_thingGroupName' - A filter that limits the returned jobs to those for the specified group.
 --
--- 'thingGroupId', 'listJobs_thingGroupId' - A filter that limits the returned jobs to those for the specified group.
+-- 'maxResults', 'listJobs_maxResults' - The maximum number of results to return per request.
+--
+-- 'targetSelection', 'listJobs_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
+-- complete after all those things specified as targets have completed the
+-- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
+-- change is detected in a target. For example, a job will run on a thing
+-- when the thing is added to a target group, even after the job was
+-- completed by all things originally in the group.
 newListJobs ::
   ListJobs
 newListJobs =
   ListJobs'
-    { nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
-      targetSelection = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      thingGroupId = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       thingGroupName = Prelude.Nothing,
-      thingGroupId = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      targetSelection = Prelude.Nothing
     }
-
--- | The token to retrieve the next set of results.
-listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | An optional filter that lets you search for jobs that have the specified
 -- status.
 listJobs_status :: Lens.Lens' ListJobs (Prelude.Maybe JobStatus)
 listJobs_status = Lens.lens (\ListJobs' {status} -> status) (\s@ListJobs' {} a -> s {status = a} :: ListJobs)
 
--- | Specifies whether the job will continue to run (CONTINUOUS), or will be
--- complete after all those things specified as targets have completed the
--- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
--- change is detected in a target. For example, a job will run on a thing
--- when the thing is added to a target group, even after the job was
--- completed by all things originally in the group.
-listJobs_targetSelection :: Lens.Lens' ListJobs (Prelude.Maybe TargetSelection)
-listJobs_targetSelection = Lens.lens (\ListJobs' {targetSelection} -> targetSelection) (\s@ListJobs' {} a -> s {targetSelection = a} :: ListJobs)
+-- | A filter that limits the returned jobs to those for the specified group.
+listJobs_thingGroupId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_thingGroupId = Lens.lens (\ListJobs' {thingGroupId} -> thingGroupId) (\s@ListJobs' {} a -> s {thingGroupId = a} :: ListJobs)
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
@@ -170,17 +161,26 @@ listJobs_targetSelection = Lens.lens (\ListJobs' {targetSelection} -> targetSele
 listJobs_namespaceId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_namespaceId = Lens.lens (\ListJobs' {namespaceId} -> namespaceId) (\s@ListJobs' {} a -> s {namespaceId = a} :: ListJobs)
 
--- | The maximum number of results to return per request.
-listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
-listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
+-- | The token to retrieve the next set of results.
+listJobs_nextToken :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
+listJobs_nextToken = Lens.lens (\ListJobs' {nextToken} -> nextToken) (\s@ListJobs' {} a -> s {nextToken = a} :: ListJobs)
 
 -- | A filter that limits the returned jobs to those for the specified group.
 listJobs_thingGroupName :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
 listJobs_thingGroupName = Lens.lens (\ListJobs' {thingGroupName} -> thingGroupName) (\s@ListJobs' {} a -> s {thingGroupName = a} :: ListJobs)
 
--- | A filter that limits the returned jobs to those for the specified group.
-listJobs_thingGroupId :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Text)
-listJobs_thingGroupId = Lens.lens (\ListJobs' {thingGroupId} -> thingGroupId) (\s@ListJobs' {} a -> s {thingGroupId = a} :: ListJobs)
+-- | The maximum number of results to return per request.
+listJobs_maxResults :: Lens.Lens' ListJobs (Prelude.Maybe Prelude.Natural)
+listJobs_maxResults = Lens.lens (\ListJobs' {maxResults} -> maxResults) (\s@ListJobs' {} a -> s {maxResults = a} :: ListJobs)
+
+-- | Specifies whether the job will continue to run (CONTINUOUS), or will be
+-- complete after all those things specified as targets have completed the
+-- job (SNAPSHOT). If continuous, the job may also be run on a thing when a
+-- change is detected in a target. For example, a job will run on a thing
+-- when the thing is added to a target group, even after the job was
+-- completed by all things originally in the group.
+listJobs_targetSelection :: Lens.Lens' ListJobs (Prelude.Maybe TargetSelection)
+listJobs_targetSelection = Lens.lens (\ListJobs' {targetSelection} -> targetSelection) (\s@ListJobs' {} a -> s {targetSelection = a} :: ListJobs)
 
 instance Core.AWSPager ListJobs where
   page rq rs
@@ -208,8 +208,8 @@ instance Core.AWSRequest ListJobs where
     Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,22 +226,22 @@ instance Core.ToPath ListJobs where
 instance Core.ToQuery ListJobs where
   toQuery ListJobs' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "status" Core.=: status,
-        "targetSelection" Core.=: targetSelection,
+      [ "status" Core.=: status,
+        "thingGroupId" Core.=: thingGroupId,
         "namespaceId" Core.=: namespaceId,
-        "maxResults" Core.=: maxResults,
+        "nextToken" Core.=: nextToken,
         "thingGroupName" Core.=: thingGroupName,
-        "thingGroupId" Core.=: thingGroupId
+        "maxResults" Core.=: maxResults,
+        "targetSelection" Core.=: targetSelection
       ]
 
 -- | /See:/ 'newListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { -- | The token for the next set of results, or __null__ if there are no
+  { -- | A list of jobs.
+    jobs :: Prelude.Maybe [JobSummary],
+    -- | The token for the next set of results, or __null__ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of jobs.
-    jobs :: Prelude.Maybe [JobSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,10 +255,10 @@ data ListJobsResponse = ListJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobs', 'listJobsResponse_jobs' - A list of jobs.
+--
 -- 'nextToken', 'listJobsResponse_nextToken' - The token for the next set of results, or __null__ if there are no
 -- additional results.
---
--- 'jobs', 'listJobsResponse_jobs' - A list of jobs.
 --
 -- 'httpStatus', 'listJobsResponse_httpStatus' - The response's http status code.
 newListJobsResponse ::
@@ -267,19 +267,19 @@ newListJobsResponse ::
   ListJobsResponse
 newListJobsResponse pHttpStatus_ =
   ListJobsResponse'
-    { nextToken = Prelude.Nothing,
-      jobs = Prelude.Nothing,
+    { jobs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of jobs.
+listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [JobSummary])
+listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results, or __null__ if there are no
 -- additional results.
 listJobsResponse_nextToken :: Lens.Lens' ListJobsResponse (Prelude.Maybe Prelude.Text)
 listJobsResponse_nextToken = Lens.lens (\ListJobsResponse' {nextToken} -> nextToken) (\s@ListJobsResponse' {} a -> s {nextToken = a} :: ListJobsResponse)
-
--- | A list of jobs.
-listJobsResponse_jobs :: Lens.Lens' ListJobsResponse (Prelude.Maybe [JobSummary])
-listJobsResponse_jobs = Lens.lens (\ListJobsResponse' {jobs} -> jobs) (\s@ListJobsResponse' {} a -> s {jobs = a} :: ListJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens.Lens' ListJobsResponse Prelude.Int

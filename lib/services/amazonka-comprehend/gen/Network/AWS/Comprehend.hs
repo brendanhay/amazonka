@@ -25,29 +25,38 @@ module Network.AWS.Comprehend
     -- ** ResourceUnavailableException
     _ResourceUnavailableException,
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** InvalidFilterException
-    _InvalidFilterException,
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** ResourceLimitExceededException
     _ResourceLimitExceededException,
 
-    -- ** BatchSizeLimitExceededException
-    _BatchSizeLimitExceededException,
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidRequestException
-    _InvalidRequestException,
+    -- ** InternalServerException
+    _InternalServerException,
 
-    -- ** TextSizeLimitExceededException
-    _TextSizeLimitExceededException,
+    -- ** BatchSizeLimitExceededException
+    _BatchSizeLimitExceededException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** UnsupportedLanguageException
+    _UnsupportedLanguageException,
+
+    -- ** JobNotFoundException
+    _JobNotFoundException,
+
+    -- ** TooManyTagKeysException
+    _TooManyTagKeysException,
+
+    -- ** InvalidFilterException
+    _InvalidFilterException,
 
     -- ** KmsKeyValidationException
     _KmsKeyValidationException,
@@ -55,20 +64,11 @@ module Network.AWS.Comprehend
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** TooManyTagKeysException
-    _TooManyTagKeysException,
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
 
-    -- ** JobNotFoundException
-    _JobNotFoundException,
-
-    -- ** UnsupportedLanguageException
-    _UnsupportedLanguageException,
-
-    -- ** InternalServerException
-    _InternalServerException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -76,11 +76,29 @@ module Network.AWS.Comprehend
     -- * Operations
     -- $operations
 
-    -- ** StartSentimentDetectionJob
-    StartSentimentDetectionJob (StartSentimentDetectionJob'),
-    newStartSentimentDetectionJob,
-    StartSentimentDetectionJobResponse (StartSentimentDetectionJobResponse'),
-    newStartSentimentDetectionJobResponse,
+    -- ** BatchDetectSentiment
+    BatchDetectSentiment (BatchDetectSentiment'),
+    newBatchDetectSentiment,
+    BatchDetectSentimentResponse (BatchDetectSentimentResponse'),
+    newBatchDetectSentimentResponse,
+
+    -- ** DeleteEntityRecognizer
+    DeleteEntityRecognizer (DeleteEntityRecognizer'),
+    newDeleteEntityRecognizer,
+    DeleteEntityRecognizerResponse (DeleteEntityRecognizerResponse'),
+    newDeleteEntityRecognizerResponse,
+
+    -- ** DescribeKeyPhrasesDetectionJob
+    DescribeKeyPhrasesDetectionJob (DescribeKeyPhrasesDetectionJob'),
+    newDescribeKeyPhrasesDetectionJob,
+    DescribeKeyPhrasesDetectionJobResponse (DescribeKeyPhrasesDetectionJobResponse'),
+    newDescribeKeyPhrasesDetectionJobResponse,
+
+    -- ** ListEntitiesDetectionJobs (Paginated)
+    ListEntitiesDetectionJobs (ListEntitiesDetectionJobs'),
+    newListEntitiesDetectionJobs,
+    ListEntitiesDetectionJobsResponse (ListEntitiesDetectionJobsResponse'),
+    newListEntitiesDetectionJobsResponse,
 
     -- ** CreateEndpoint
     CreateEndpoint (CreateEndpoint'),
@@ -94,227 +112,23 @@ module Network.AWS.Comprehend
     StopEventsDetectionJobResponse (StopEventsDetectionJobResponse'),
     newStopEventsDetectionJobResponse,
 
-    -- ** StopSentimentDetectionJob
-    StopSentimentDetectionJob (StopSentimentDetectionJob'),
-    newStopSentimentDetectionJob,
-    StopSentimentDetectionJobResponse (StopSentimentDetectionJobResponse'),
-    newStopSentimentDetectionJobResponse,
+    -- ** StartSentimentDetectionJob
+    StartSentimentDetectionJob (StartSentimentDetectionJob'),
+    newStartSentimentDetectionJob,
+    StartSentimentDetectionJobResponse (StartSentimentDetectionJobResponse'),
+    newStartSentimentDetectionJobResponse,
 
-    -- ** StartEventsDetectionJob
-    StartEventsDetectionJob (StartEventsDetectionJob'),
-    newStartEventsDetectionJob,
-    StartEventsDetectionJobResponse (StartEventsDetectionJobResponse'),
-    newStartEventsDetectionJobResponse,
+    -- ** BatchDetectSyntax
+    BatchDetectSyntax (BatchDetectSyntax'),
+    newBatchDetectSyntax,
+    BatchDetectSyntaxResponse (BatchDetectSyntaxResponse'),
+    newBatchDetectSyntaxResponse,
 
-    -- ** DescribeKeyPhrasesDetectionJob
-    DescribeKeyPhrasesDetectionJob (DescribeKeyPhrasesDetectionJob'),
-    newDescribeKeyPhrasesDetectionJob,
-    DescribeKeyPhrasesDetectionJobResponse (DescribeKeyPhrasesDetectionJobResponse'),
-    newDescribeKeyPhrasesDetectionJobResponse,
-
-    -- ** ListEntityRecognizers (Paginated)
-    ListEntityRecognizers (ListEntityRecognizers'),
-    newListEntityRecognizers,
-    ListEntityRecognizersResponse (ListEntityRecognizersResponse'),
-    newListEntityRecognizersResponse,
-
-    -- ** DeleteEntityRecognizer
-    DeleteEntityRecognizer (DeleteEntityRecognizer'),
-    newDeleteEntityRecognizer,
-    DeleteEntityRecognizerResponse (DeleteEntityRecognizerResponse'),
-    newDeleteEntityRecognizerResponse,
-
-    -- ** BatchDetectSentiment
-    BatchDetectSentiment (BatchDetectSentiment'),
-    newBatchDetectSentiment,
-    BatchDetectSentimentResponse (BatchDetectSentimentResponse'),
-    newBatchDetectSentimentResponse,
-
-    -- ** StopKeyPhrasesDetectionJob
-    StopKeyPhrasesDetectionJob (StopKeyPhrasesDetectionJob'),
-    newStopKeyPhrasesDetectionJob,
-    StopKeyPhrasesDetectionJobResponse (StopKeyPhrasesDetectionJobResponse'),
-    newStopKeyPhrasesDetectionJobResponse,
-
-    -- ** ListDocumentClassifiers (Paginated)
-    ListDocumentClassifiers (ListDocumentClassifiers'),
-    newListDocumentClassifiers,
-    ListDocumentClassifiersResponse (ListDocumentClassifiersResponse'),
-    newListDocumentClassifiersResponse,
-
-    -- ** CreateEntityRecognizer
-    CreateEntityRecognizer (CreateEntityRecognizer'),
-    newCreateEntityRecognizer,
-    CreateEntityRecognizerResponse (CreateEntityRecognizerResponse'),
-    newCreateEntityRecognizerResponse,
-
-    -- ** StartKeyPhrasesDetectionJob
-    StartKeyPhrasesDetectionJob (StartKeyPhrasesDetectionJob'),
-    newStartKeyPhrasesDetectionJob,
-    StartKeyPhrasesDetectionJobResponse (StartKeyPhrasesDetectionJobResponse'),
-    newStartKeyPhrasesDetectionJobResponse,
-
-    -- ** ListDominantLanguageDetectionJobs (Paginated)
-    ListDominantLanguageDetectionJobs (ListDominantLanguageDetectionJobs'),
-    newListDominantLanguageDetectionJobs,
-    ListDominantLanguageDetectionJobsResponse (ListDominantLanguageDetectionJobsResponse'),
-    newListDominantLanguageDetectionJobsResponse,
-
-    -- ** StartDocumentClassificationJob
-    StartDocumentClassificationJob (StartDocumentClassificationJob'),
-    newStartDocumentClassificationJob,
-    StartDocumentClassificationJobResponse (StartDocumentClassificationJobResponse'),
-    newStartDocumentClassificationJobResponse,
-
-    -- ** DetectKeyPhrases
-    DetectKeyPhrases (DetectKeyPhrases'),
-    newDetectKeyPhrases,
-    DetectKeyPhrasesResponse (DetectKeyPhrasesResponse'),
-    newDetectKeyPhrasesResponse,
-
-    -- ** ListSentimentDetectionJobs (Paginated)
-    ListSentimentDetectionJobs (ListSentimentDetectionJobs'),
-    newListSentimentDetectionJobs,
-    ListSentimentDetectionJobsResponse (ListSentimentDetectionJobsResponse'),
-    newListSentimentDetectionJobsResponse,
-
-    -- ** ListEventsDetectionJobs
-    ListEventsDetectionJobs (ListEventsDetectionJobs'),
-    newListEventsDetectionJobs,
-    ListEventsDetectionJobsResponse (ListEventsDetectionJobsResponse'),
-    newListEventsDetectionJobsResponse,
-
-    -- ** BatchDetectEntities
-    BatchDetectEntities (BatchDetectEntities'),
-    newBatchDetectEntities,
-    BatchDetectEntitiesResponse (BatchDetectEntitiesResponse'),
-    newBatchDetectEntitiesResponse,
-
-    -- ** DetectSyntax
-    DetectSyntax (DetectSyntax'),
-    newDetectSyntax,
-    DetectSyntaxResponse (DetectSyntaxResponse'),
-    newDetectSyntaxResponse,
-
-    -- ** DescribeEndpoint
-    DescribeEndpoint (DescribeEndpoint'),
-    newDescribeEndpoint,
-    DescribeEndpointResponse (DescribeEndpointResponse'),
-    newDescribeEndpointResponse,
-
-    -- ** ContainsPiiEntities
-    ContainsPiiEntities (ContainsPiiEntities'),
-    newContainsPiiEntities,
-    ContainsPiiEntitiesResponse (ContainsPiiEntitiesResponse'),
-    newContainsPiiEntitiesResponse,
-
-    -- ** BatchDetectDominantLanguage
-    BatchDetectDominantLanguage (BatchDetectDominantLanguage'),
-    newBatchDetectDominantLanguage,
-    BatchDetectDominantLanguageResponse (BatchDetectDominantLanguageResponse'),
-    newBatchDetectDominantLanguageResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** ListTopicsDetectionJobs (Paginated)
-    ListTopicsDetectionJobs (ListTopicsDetectionJobs'),
-    newListTopicsDetectionJobs,
-    ListTopicsDetectionJobsResponse (ListTopicsDetectionJobsResponse'),
-    newListTopicsDetectionJobsResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** StopTrainingDocumentClassifier
-    StopTrainingDocumentClassifier (StopTrainingDocumentClassifier'),
-    newStopTrainingDocumentClassifier,
-    StopTrainingDocumentClassifierResponse (StopTrainingDocumentClassifierResponse'),
-    newStopTrainingDocumentClassifierResponse,
-
-    -- ** ListKeyPhrasesDetectionJobs (Paginated)
-    ListKeyPhrasesDetectionJobs (ListKeyPhrasesDetectionJobs'),
-    newListKeyPhrasesDetectionJobs,
-    ListKeyPhrasesDetectionJobsResponse (ListKeyPhrasesDetectionJobsResponse'),
-    newListKeyPhrasesDetectionJobsResponse,
-
-    -- ** DescribeEntityRecognizer
-    DescribeEntityRecognizer (DescribeEntityRecognizer'),
-    newDescribeEntityRecognizer,
-    DescribeEntityRecognizerResponse (DescribeEntityRecognizerResponse'),
-    newDescribeEntityRecognizerResponse,
-
-    -- ** ListDocumentClassifierSummaries
-    ListDocumentClassifierSummaries (ListDocumentClassifierSummaries'),
-    newListDocumentClassifierSummaries,
-    ListDocumentClassifierSummariesResponse (ListDocumentClassifierSummariesResponse'),
-    newListDocumentClassifierSummariesResponse,
-
-    -- ** DescribePiiEntitiesDetectionJob
-    DescribePiiEntitiesDetectionJob (DescribePiiEntitiesDetectionJob'),
-    newDescribePiiEntitiesDetectionJob,
-    DescribePiiEntitiesDetectionJobResponse (DescribePiiEntitiesDetectionJobResponse'),
-    newDescribePiiEntitiesDetectionJobResponse,
-
-    -- ** DescribeDominantLanguageDetectionJob
-    DescribeDominantLanguageDetectionJob (DescribeDominantLanguageDetectionJob'),
-    newDescribeDominantLanguageDetectionJob,
-    DescribeDominantLanguageDetectionJobResponse (DescribeDominantLanguageDetectionJobResponse'),
-    newDescribeDominantLanguageDetectionJobResponse,
-
-    -- ** StopEntitiesDetectionJob
-    StopEntitiesDetectionJob (StopEntitiesDetectionJob'),
-    newStopEntitiesDetectionJob,
-    StopEntitiesDetectionJobResponse (StopEntitiesDetectionJobResponse'),
-    newStopEntitiesDetectionJobResponse,
-
-    -- ** DescribeDocumentClassifier
-    DescribeDocumentClassifier (DescribeDocumentClassifier'),
-    newDescribeDocumentClassifier,
-    DescribeDocumentClassifierResponse (DescribeDocumentClassifierResponse'),
-    newDescribeDocumentClassifierResponse,
-
-    -- ** StopPiiEntitiesDetectionJob
-    StopPiiEntitiesDetectionJob (StopPiiEntitiesDetectionJob'),
-    newStopPiiEntitiesDetectionJob,
-    StopPiiEntitiesDetectionJobResponse (StopPiiEntitiesDetectionJobResponse'),
-    newStopPiiEntitiesDetectionJobResponse,
-
-    -- ** StopTrainingEntityRecognizer
-    StopTrainingEntityRecognizer (StopTrainingEntityRecognizer'),
-    newStopTrainingEntityRecognizer,
-    StopTrainingEntityRecognizerResponse (StopTrainingEntityRecognizerResponse'),
-    newStopTrainingEntityRecognizerResponse,
-
-    -- ** StartEntitiesDetectionJob
-    StartEntitiesDetectionJob (StartEntitiesDetectionJob'),
-    newStartEntitiesDetectionJob,
-    StartEntitiesDetectionJobResponse (StartEntitiesDetectionJobResponse'),
-    newStartEntitiesDetectionJobResponse,
-
-    -- ** StartPiiEntitiesDetectionJob
-    StartPiiEntitiesDetectionJob (StartPiiEntitiesDetectionJob'),
-    newStartPiiEntitiesDetectionJob,
-    StartPiiEntitiesDetectionJobResponse (StartPiiEntitiesDetectionJobResponse'),
-    newStartPiiEntitiesDetectionJobResponse,
-
-    -- ** DetectPiiEntities
-    DetectPiiEntities (DetectPiiEntities'),
-    newDetectPiiEntities,
-    DetectPiiEntitiesResponse (DetectPiiEntitiesResponse'),
-    newDetectPiiEntitiesResponse,
-
-    -- ** DeleteEndpoint
-    DeleteEndpoint (DeleteEndpoint'),
-    newDeleteEndpoint,
-    DeleteEndpointResponse (DeleteEndpointResponse'),
-    newDeleteEndpointResponse,
+    -- ** StartTopicsDetectionJob
+    StartTopicsDetectionJob (StartTopicsDetectionJob'),
+    newStartTopicsDetectionJob,
+    StartTopicsDetectionJobResponse (StartTopicsDetectionJobResponse'),
+    newStartTopicsDetectionJobResponse,
 
     -- ** DescribeEventsDetectionJob
     DescribeEventsDetectionJob (DescribeEventsDetectionJob'),
@@ -322,83 +136,53 @@ module Network.AWS.Comprehend
     DescribeEventsDetectionJobResponse (DescribeEventsDetectionJobResponse'),
     newDescribeEventsDetectionJobResponse,
 
+    -- ** DeleteEndpoint
+    DeleteEndpoint (DeleteEndpoint'),
+    newDeleteEndpoint,
+    DeleteEndpointResponse (DeleteEndpointResponse'),
+    newDeleteEndpointResponse,
+
     -- ** UpdateEndpoint
     UpdateEndpoint (UpdateEndpoint'),
     newUpdateEndpoint,
     UpdateEndpointResponse (UpdateEndpointResponse'),
     newUpdateEndpointResponse,
 
-    -- ** ListEndpoints
-    ListEndpoints (ListEndpoints'),
-    newListEndpoints,
-    ListEndpointsResponse (ListEndpointsResponse'),
-    newListEndpointsResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** DetectDominantLanguage
-    DetectDominantLanguage (DetectDominantLanguage'),
-    newDetectDominantLanguage,
-    DetectDominantLanguageResponse (DetectDominantLanguageResponse'),
-    newDetectDominantLanguageResponse,
+    -- ** BatchDetectKeyPhrases
+    BatchDetectKeyPhrases (BatchDetectKeyPhrases'),
+    newBatchDetectKeyPhrases,
+    BatchDetectKeyPhrasesResponse (BatchDetectKeyPhrasesResponse'),
+    newBatchDetectKeyPhrasesResponse,
 
-    -- ** ListDocumentClassificationJobs (Paginated)
-    ListDocumentClassificationJobs (ListDocumentClassificationJobs'),
-    newListDocumentClassificationJobs,
-    ListDocumentClassificationJobsResponse (ListDocumentClassificationJobsResponse'),
-    newListDocumentClassificationJobsResponse,
+    -- ** DescribeSentimentDetectionJob
+    DescribeSentimentDetectionJob (DescribeSentimentDetectionJob'),
+    newDescribeSentimentDetectionJob,
+    DescribeSentimentDetectionJobResponse (DescribeSentimentDetectionJobResponse'),
+    newDescribeSentimentDetectionJobResponse,
 
-    -- ** DescribeTopicsDetectionJob
-    DescribeTopicsDetectionJob (DescribeTopicsDetectionJob'),
-    newDescribeTopicsDetectionJob,
-    DescribeTopicsDetectionJobResponse (DescribeTopicsDetectionJobResponse'),
-    newDescribeTopicsDetectionJobResponse,
+    -- ** StartEntitiesDetectionJob
+    StartEntitiesDetectionJob (StartEntitiesDetectionJob'),
+    newStartEntitiesDetectionJob,
+    StartEntitiesDetectionJobResponse (StartEntitiesDetectionJobResponse'),
+    newStartEntitiesDetectionJobResponse,
 
-    -- ** ClassifyDocument
-    ClassifyDocument (ClassifyDocument'),
-    newClassifyDocument,
-    ClassifyDocumentResponse (ClassifyDocumentResponse'),
-    newClassifyDocumentResponse,
+    -- ** StopPiiEntitiesDetectionJob
+    StopPiiEntitiesDetectionJob (StopPiiEntitiesDetectionJob'),
+    newStopPiiEntitiesDetectionJob,
+    StopPiiEntitiesDetectionJobResponse (StopPiiEntitiesDetectionJobResponse'),
+    newStopPiiEntitiesDetectionJobResponse,
 
-    -- ** ListPiiEntitiesDetectionJobs
-    ListPiiEntitiesDetectionJobs (ListPiiEntitiesDetectionJobs'),
-    newListPiiEntitiesDetectionJobs,
-    ListPiiEntitiesDetectionJobsResponse (ListPiiEntitiesDetectionJobsResponse'),
-    newListPiiEntitiesDetectionJobsResponse,
-
-    -- ** ListEntitiesDetectionJobs (Paginated)
-    ListEntitiesDetectionJobs (ListEntitiesDetectionJobs'),
-    newListEntitiesDetectionJobs,
-    ListEntitiesDetectionJobsResponse (ListEntitiesDetectionJobsResponse'),
-    newListEntitiesDetectionJobsResponse,
-
-    -- ** CreateDocumentClassifier
-    CreateDocumentClassifier (CreateDocumentClassifier'),
-    newCreateDocumentClassifier,
-    CreateDocumentClassifierResponse (CreateDocumentClassifierResponse'),
-    newCreateDocumentClassifierResponse,
-
-    -- ** DeleteDocumentClassifier
-    DeleteDocumentClassifier (DeleteDocumentClassifier'),
-    newDeleteDocumentClassifier,
-    DeleteDocumentClassifierResponse (DeleteDocumentClassifierResponse'),
-    newDeleteDocumentClassifierResponse,
-
-    -- ** DescribeDocumentClassificationJob
-    DescribeDocumentClassificationJob (DescribeDocumentClassificationJob'),
-    newDescribeDocumentClassificationJob,
-    DescribeDocumentClassificationJobResponse (DescribeDocumentClassificationJobResponse'),
-    newDescribeDocumentClassificationJobResponse,
-
-    -- ** DescribeEntitiesDetectionJob
-    DescribeEntitiesDetectionJob (DescribeEntitiesDetectionJob'),
-    newDescribeEntitiesDetectionJob,
-    DescribeEntitiesDetectionJobResponse (DescribeEntitiesDetectionJobResponse'),
-    newDescribeEntitiesDetectionJobResponse,
-
-    -- ** StopDominantLanguageDetectionJob
-    StopDominantLanguageDetectionJob (StopDominantLanguageDetectionJob'),
-    newStopDominantLanguageDetectionJob,
-    StopDominantLanguageDetectionJobResponse (StopDominantLanguageDetectionJobResponse'),
-    newStopDominantLanguageDetectionJobResponse,
+    -- ** DescribeEntityRecognizer
+    DescribeEntityRecognizer (DescribeEntityRecognizer'),
+    newDescribeEntityRecognizer,
+    DescribeEntityRecognizerResponse (DescribeEntityRecognizerResponse'),
+    newDescribeEntityRecognizerResponse,
 
     -- ** DetectSentiment
     DetectSentiment (DetectSentiment'),
@@ -412,29 +196,113 @@ module Network.AWS.Comprehend
     StartDominantLanguageDetectionJobResponse (StartDominantLanguageDetectionJobResponse'),
     newStartDominantLanguageDetectionJobResponse,
 
-    -- ** ListEntityRecognizerSummaries
-    ListEntityRecognizerSummaries (ListEntityRecognizerSummaries'),
-    newListEntityRecognizerSummaries,
-    ListEntityRecognizerSummariesResponse (ListEntityRecognizerSummariesResponse'),
-    newListEntityRecognizerSummariesResponse,
+    -- ** StopTrainingDocumentClassifier
+    StopTrainingDocumentClassifier (StopTrainingDocumentClassifier'),
+    newStopTrainingDocumentClassifier,
+    StopTrainingDocumentClassifierResponse (StopTrainingDocumentClassifierResponse'),
+    newStopTrainingDocumentClassifierResponse,
 
-    -- ** BatchDetectKeyPhrases
-    BatchDetectKeyPhrases (BatchDetectKeyPhrases'),
-    newBatchDetectKeyPhrases,
-    BatchDetectKeyPhrasesResponse (BatchDetectKeyPhrasesResponse'),
-    newBatchDetectKeyPhrasesResponse,
+    -- ** DescribeDocumentClassificationJob
+    DescribeDocumentClassificationJob (DescribeDocumentClassificationJob'),
+    newDescribeDocumentClassificationJob,
+    DescribeDocumentClassificationJobResponse (DescribeDocumentClassificationJobResponse'),
+    newDescribeDocumentClassificationJobResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ContainsPiiEntities
+    ContainsPiiEntities (ContainsPiiEntities'),
+    newContainsPiiEntities,
+    ContainsPiiEntitiesResponse (ContainsPiiEntitiesResponse'),
+    newContainsPiiEntitiesResponse,
 
-    -- ** BatchDetectSyntax
-    BatchDetectSyntax (BatchDetectSyntax'),
-    newBatchDetectSyntax,
-    BatchDetectSyntaxResponse (BatchDetectSyntaxResponse'),
-    newBatchDetectSyntaxResponse,
+    -- ** ListEventsDetectionJobs
+    ListEventsDetectionJobs (ListEventsDetectionJobs'),
+    newListEventsDetectionJobs,
+    ListEventsDetectionJobsResponse (ListEventsDetectionJobsResponse'),
+    newListEventsDetectionJobsResponse,
+
+    -- ** BatchDetectEntities
+    BatchDetectEntities (BatchDetectEntities'),
+    newBatchDetectEntities,
+    BatchDetectEntitiesResponse (BatchDetectEntitiesResponse'),
+    newBatchDetectEntitiesResponse,
+
+    -- ** CreateEntityRecognizer
+    CreateEntityRecognizer (CreateEntityRecognizer'),
+    newCreateEntityRecognizer,
+    CreateEntityRecognizerResponse (CreateEntityRecognizerResponse'),
+    newCreateEntityRecognizerResponse,
+
+    -- ** StopKeyPhrasesDetectionJob
+    StopKeyPhrasesDetectionJob (StopKeyPhrasesDetectionJob'),
+    newStopKeyPhrasesDetectionJob,
+    StopKeyPhrasesDetectionJobResponse (StopKeyPhrasesDetectionJobResponse'),
+    newStopKeyPhrasesDetectionJobResponse,
+
+    -- ** CreateDocumentClassifier
+    CreateDocumentClassifier (CreateDocumentClassifier'),
+    newCreateDocumentClassifier,
+    CreateDocumentClassifierResponse (CreateDocumentClassifierResponse'),
+    newCreateDocumentClassifierResponse,
+
+    -- ** ListPiiEntitiesDetectionJobs
+    ListPiiEntitiesDetectionJobs (ListPiiEntitiesDetectionJobs'),
+    newListPiiEntitiesDetectionJobs,
+    ListPiiEntitiesDetectionJobsResponse (ListPiiEntitiesDetectionJobsResponse'),
+    newListPiiEntitiesDetectionJobsResponse,
+
+    -- ** ListEntityRecognizers (Paginated)
+    ListEntityRecognizers (ListEntityRecognizers'),
+    newListEntityRecognizers,
+    ListEntityRecognizersResponse (ListEntityRecognizersResponse'),
+    newListEntityRecognizersResponse,
+
+    -- ** StopSentimentDetectionJob
+    StopSentimentDetectionJob (StopSentimentDetectionJob'),
+    newStopSentimentDetectionJob,
+    StopSentimentDetectionJobResponse (StopSentimentDetectionJobResponse'),
+    newStopSentimentDetectionJobResponse,
+
+    -- ** DetectDominantLanguage
+    DetectDominantLanguage (DetectDominantLanguage'),
+    newDetectDominantLanguage,
+    DetectDominantLanguageResponse (DetectDominantLanguageResponse'),
+    newDetectDominantLanguageResponse,
+
+    -- ** ClassifyDocument
+    ClassifyDocument (ClassifyDocument'),
+    newClassifyDocument,
+    ClassifyDocumentResponse (ClassifyDocumentResponse'),
+    newClassifyDocumentResponse,
+
+    -- ** StartEventsDetectionJob
+    StartEventsDetectionJob (StartEventsDetectionJob'),
+    newStartEventsDetectionJob,
+    StartEventsDetectionJobResponse (StartEventsDetectionJobResponse'),
+    newStartEventsDetectionJobResponse,
+
+    -- ** DescribeTopicsDetectionJob
+    DescribeTopicsDetectionJob (DescribeTopicsDetectionJob'),
+    newDescribeTopicsDetectionJob,
+    DescribeTopicsDetectionJobResponse (DescribeTopicsDetectionJobResponse'),
+    newDescribeTopicsDetectionJobResponse,
+
+    -- ** ListDocumentClassificationJobs (Paginated)
+    ListDocumentClassificationJobs (ListDocumentClassificationJobs'),
+    newListDocumentClassificationJobs,
+    ListDocumentClassificationJobsResponse (ListDocumentClassificationJobsResponse'),
+    newListDocumentClassificationJobsResponse,
+
+    -- ** DetectPiiEntities
+    DetectPiiEntities (DetectPiiEntities'),
+    newDetectPiiEntities,
+    DetectPiiEntitiesResponse (DetectPiiEntitiesResponse'),
+    newDetectPiiEntitiesResponse,
+
+    -- ** ListEndpoints
+    ListEndpoints (ListEndpoints'),
+    newListEndpoints,
+    ListEndpointsResponse (ListEndpointsResponse'),
+    newListEndpointsResponse,
 
     -- ** DetectEntities
     DetectEntities (DetectEntities'),
@@ -442,17 +310,149 @@ module Network.AWS.Comprehend
     DetectEntitiesResponse (DetectEntitiesResponse'),
     newDetectEntitiesResponse,
 
-    -- ** StartTopicsDetectionJob
-    StartTopicsDetectionJob (StartTopicsDetectionJob'),
-    newStartTopicsDetectionJob,
-    StartTopicsDetectionJobResponse (StartTopicsDetectionJobResponse'),
-    newStartTopicsDetectionJobResponse,
+    -- ** DescribeDocumentClassifier
+    DescribeDocumentClassifier (DescribeDocumentClassifier'),
+    newDescribeDocumentClassifier,
+    DescribeDocumentClassifierResponse (DescribeDocumentClassifierResponse'),
+    newDescribeDocumentClassifierResponse,
 
-    -- ** DescribeSentimentDetectionJob
-    DescribeSentimentDetectionJob (DescribeSentimentDetectionJob'),
-    newDescribeSentimentDetectionJob,
-    DescribeSentimentDetectionJobResponse (DescribeSentimentDetectionJobResponse'),
-    newDescribeSentimentDetectionJobResponse,
+    -- ** DescribeDominantLanguageDetectionJob
+    DescribeDominantLanguageDetectionJob (DescribeDominantLanguageDetectionJob'),
+    newDescribeDominantLanguageDetectionJob,
+    DescribeDominantLanguageDetectionJobResponse (DescribeDominantLanguageDetectionJobResponse'),
+    newDescribeDominantLanguageDetectionJobResponse,
+
+    -- ** ListEntityRecognizerSummaries
+    ListEntityRecognizerSummaries (ListEntityRecognizerSummaries'),
+    newListEntityRecognizerSummaries,
+    ListEntityRecognizerSummariesResponse (ListEntityRecognizerSummariesResponse'),
+    newListEntityRecognizerSummariesResponse,
+
+    -- ** StopEntitiesDetectionJob
+    StopEntitiesDetectionJob (StopEntitiesDetectionJob'),
+    newStopEntitiesDetectionJob,
+    StopEntitiesDetectionJobResponse (StopEntitiesDetectionJobResponse'),
+    newStopEntitiesDetectionJobResponse,
+
+    -- ** StopTrainingEntityRecognizer
+    StopTrainingEntityRecognizer (StopTrainingEntityRecognizer'),
+    newStopTrainingEntityRecognizer,
+    StopTrainingEntityRecognizerResponse (StopTrainingEntityRecognizerResponse'),
+    newStopTrainingEntityRecognizerResponse,
+
+    -- ** StartPiiEntitiesDetectionJob
+    StartPiiEntitiesDetectionJob (StartPiiEntitiesDetectionJob'),
+    newStartPiiEntitiesDetectionJob,
+    StartPiiEntitiesDetectionJobResponse (StartPiiEntitiesDetectionJobResponse'),
+    newStartPiiEntitiesDetectionJobResponse,
+
+    -- ** ListKeyPhrasesDetectionJobs (Paginated)
+    ListKeyPhrasesDetectionJobs (ListKeyPhrasesDetectionJobs'),
+    newListKeyPhrasesDetectionJobs,
+    ListKeyPhrasesDetectionJobsResponse (ListKeyPhrasesDetectionJobsResponse'),
+    newListKeyPhrasesDetectionJobsResponse,
+
+    -- ** DescribeEntitiesDetectionJob
+    DescribeEntitiesDetectionJob (DescribeEntitiesDetectionJob'),
+    newDescribeEntitiesDetectionJob,
+    DescribeEntitiesDetectionJobResponse (DescribeEntitiesDetectionJobResponse'),
+    newDescribeEntitiesDetectionJobResponse,
+
+    -- ** ListDocumentClassifierSummaries
+    ListDocumentClassifierSummaries (ListDocumentClassifierSummaries'),
+    newListDocumentClassifierSummaries,
+    ListDocumentClassifierSummariesResponse (ListDocumentClassifierSummariesResponse'),
+    newListDocumentClassifierSummariesResponse,
+
+    -- ** StopDominantLanguageDetectionJob
+    StopDominantLanguageDetectionJob (StopDominantLanguageDetectionJob'),
+    newStopDominantLanguageDetectionJob,
+    StopDominantLanguageDetectionJobResponse (StopDominantLanguageDetectionJobResponse'),
+    newStopDominantLanguageDetectionJobResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribePiiEntitiesDetectionJob
+    DescribePiiEntitiesDetectionJob (DescribePiiEntitiesDetectionJob'),
+    newDescribePiiEntitiesDetectionJob,
+    DescribePiiEntitiesDetectionJobResponse (DescribePiiEntitiesDetectionJobResponse'),
+    newDescribePiiEntitiesDetectionJobResponse,
+
+    -- ** ListTopicsDetectionJobs (Paginated)
+    ListTopicsDetectionJobs (ListTopicsDetectionJobs'),
+    newListTopicsDetectionJobs,
+    ListTopicsDetectionJobsResponse (ListTopicsDetectionJobsResponse'),
+    newListTopicsDetectionJobsResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** BatchDetectDominantLanguage
+    BatchDetectDominantLanguage (BatchDetectDominantLanguage'),
+    newBatchDetectDominantLanguage,
+    BatchDetectDominantLanguageResponse (BatchDetectDominantLanguageResponse'),
+    newBatchDetectDominantLanguageResponse,
+
+    -- ** StartDocumentClassificationJob
+    StartDocumentClassificationJob (StartDocumentClassificationJob'),
+    newStartDocumentClassificationJob,
+    StartDocumentClassificationJobResponse (StartDocumentClassificationJobResponse'),
+    newStartDocumentClassificationJobResponse,
+
+    -- ** DetectKeyPhrases
+    DetectKeyPhrases (DetectKeyPhrases'),
+    newDetectKeyPhrases,
+    DetectKeyPhrasesResponse (DetectKeyPhrasesResponse'),
+    newDetectKeyPhrasesResponse,
+
+    -- ** DetectSyntax
+    DetectSyntax (DetectSyntax'),
+    newDetectSyntax,
+    DetectSyntaxResponse (DetectSyntaxResponse'),
+    newDetectSyntaxResponse,
+
+    -- ** DescribeEndpoint
+    DescribeEndpoint (DescribeEndpoint'),
+    newDescribeEndpoint,
+    DescribeEndpointResponse (DescribeEndpointResponse'),
+    newDescribeEndpointResponse,
+
+    -- ** ListSentimentDetectionJobs (Paginated)
+    ListSentimentDetectionJobs (ListSentimentDetectionJobs'),
+    newListSentimentDetectionJobs,
+    ListSentimentDetectionJobsResponse (ListSentimentDetectionJobsResponse'),
+    newListSentimentDetectionJobsResponse,
+
+    -- ** DeleteDocumentClassifier
+    DeleteDocumentClassifier (DeleteDocumentClassifier'),
+    newDeleteDocumentClassifier,
+    DeleteDocumentClassifierResponse (DeleteDocumentClassifierResponse'),
+    newDeleteDocumentClassifierResponse,
+
+    -- ** ListDominantLanguageDetectionJobs (Paginated)
+    ListDominantLanguageDetectionJobs (ListDominantLanguageDetectionJobs'),
+    newListDominantLanguageDetectionJobs,
+    ListDominantLanguageDetectionJobsResponse (ListDominantLanguageDetectionJobsResponse'),
+    newListDominantLanguageDetectionJobsResponse,
+
+    -- ** StartKeyPhrasesDetectionJob
+    StartKeyPhrasesDetectionJob (StartKeyPhrasesDetectionJob'),
+    newStartKeyPhrasesDetectionJob,
+    StartKeyPhrasesDetectionJobResponse (StartKeyPhrasesDetectionJobResponse'),
+    newStartKeyPhrasesDetectionJobResponse,
+
+    -- ** ListDocumentClassifiers (Paginated)
+    ListDocumentClassifiers (ListDocumentClassifiers'),
+    newListDocumentClassifiers,
+    ListDocumentClassifiersResponse (ListDocumentClassifiersResponse'),
+    newListDocumentClassifiersResponse,
 
     -- * Types
 

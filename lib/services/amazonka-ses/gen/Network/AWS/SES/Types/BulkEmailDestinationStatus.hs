@@ -79,12 +79,12 @@ data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
     -- -   @Failed@: Amazon SES was unable to process your request. See the
     --     error message for additional information.
     status :: Prelude.Maybe BulkEmailStatus,
-    -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
-    -- operation.
-    messageId :: Prelude.Maybe Prelude.Text,
     -- | A description of an error that prevented a message being sent using the
     -- @SendBulkTemplatedEmail@ operation.
-    error :: Prelude.Maybe Prelude.Text
+    error :: Prelude.Maybe Prelude.Text,
+    -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
+    -- operation.
+    messageId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -146,19 +146,19 @@ data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
 -- -   @Failed@: Amazon SES was unable to process your request. See the
 --     error message for additional information.
 --
--- 'messageId', 'bulkEmailDestinationStatus_messageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@
--- operation.
---
 -- 'error', 'bulkEmailDestinationStatus_error' - A description of an error that prevented a message being sent using the
 -- @SendBulkTemplatedEmail@ operation.
+--
+-- 'messageId', 'bulkEmailDestinationStatus_messageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@
+-- operation.
 newBulkEmailDestinationStatus ::
   BulkEmailDestinationStatus
 newBulkEmailDestinationStatus =
   BulkEmailDestinationStatus'
     { status =
         Prelude.Nothing,
-      messageId = Prelude.Nothing,
-      error = Prelude.Nothing
+      error = Prelude.Nothing,
+      messageId = Prelude.Nothing
     }
 
 -- | The status of a message sent using the @SendBulkTemplatedEmail@
@@ -213,22 +213,22 @@ newBulkEmailDestinationStatus =
 bulkEmailDestinationStatus_status :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe BulkEmailStatus)
 bulkEmailDestinationStatus_status = Lens.lens (\BulkEmailDestinationStatus' {status} -> status) (\s@BulkEmailDestinationStatus' {} a -> s {status = a} :: BulkEmailDestinationStatus)
 
--- | The unique message identifier returned from the @SendBulkTemplatedEmail@
--- operation.
-bulkEmailDestinationStatus_messageId :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
-bulkEmailDestinationStatus_messageId = Lens.lens (\BulkEmailDestinationStatus' {messageId} -> messageId) (\s@BulkEmailDestinationStatus' {} a -> s {messageId = a} :: BulkEmailDestinationStatus)
-
 -- | A description of an error that prevented a message being sent using the
 -- @SendBulkTemplatedEmail@ operation.
 bulkEmailDestinationStatus_error :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
 bulkEmailDestinationStatus_error = Lens.lens (\BulkEmailDestinationStatus' {error} -> error) (\s@BulkEmailDestinationStatus' {} a -> s {error = a} :: BulkEmailDestinationStatus)
 
+-- | The unique message identifier returned from the @SendBulkTemplatedEmail@
+-- operation.
+bulkEmailDestinationStatus_messageId :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
+bulkEmailDestinationStatus_messageId = Lens.lens (\BulkEmailDestinationStatus' {messageId} -> messageId) (\s@BulkEmailDestinationStatus' {} a -> s {messageId = a} :: BulkEmailDestinationStatus)
+
 instance Core.FromXML BulkEmailDestinationStatus where
   parseXML x =
     BulkEmailDestinationStatus'
       Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "MessageId")
       Prelude.<*> (x Core..@? "Error")
+      Prelude.<*> (x Core..@? "MessageId")
 
 instance Prelude.Hashable BulkEmailDestinationStatus
 

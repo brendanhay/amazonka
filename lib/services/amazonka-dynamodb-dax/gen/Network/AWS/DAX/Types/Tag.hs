@@ -35,12 +35,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key for the tag. Tag keys are case sensitive. Every DAX cluster can
+  { -- | The value of the tag. Tag values are case-sensitive and can be null.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key for the tag. Tag keys are case sensitive. Every DAX cluster can
     -- only have one tag with the same key. If you try to add an existing tag
     -- (same key), the existing tag value will be updated to the new value.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value of the tag. Tag values are case-sensitive and can be null.
-    value :: Prelude.Maybe Prelude.Text
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,18 +52,22 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'value', 'tag_value' - The value of the tag. Tag values are case-sensitive and can be null.
+--
 -- 'key', 'tag_key' - The key for the tag. Tag keys are case sensitive. Every DAX cluster can
 -- only have one tag with the same key. If you try to add an existing tag
 -- (same key), the existing tag value will be updated to the new value.
---
--- 'value', 'tag_value' - The value of the tag. Tag values are case-sensitive and can be null.
 newTag ::
   Tag
 newTag =
   Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
+
+-- | The value of the tag. Tag values are case-sensitive and can be null.
+tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | The key for the tag. Tag keys are case sensitive. Every DAX cluster can
 -- only have one tag with the same key. If you try to add an existing tag
@@ -71,17 +75,13 @@ newTag =
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The value of the tag. Tag values are case-sensitive and can be null.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
-
 instance Core.FromJSON Tag where
   parseJSON =
     Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
 instance Prelude.Hashable Tag
@@ -92,7 +92,7 @@ instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

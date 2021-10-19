@@ -131,14 +131,14 @@ haskell_library(
         "gen/Network/AWS/DirectoryService/Waiters.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_ds=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
+        "-DVERSION_amazonka_ds=\"2.0\"",
     ],
     hidden_modules = [],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka",
@@ -156,11 +156,11 @@ haskell_test(
         "test/Test/AWS/Gen/DirectoryService.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_ds=\"1.6.1\"",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka_ds=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-ds",

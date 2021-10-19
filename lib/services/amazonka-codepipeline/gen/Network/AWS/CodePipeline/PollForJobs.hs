@@ -35,8 +35,8 @@ module Network.AWS.CodePipeline.PollForJobs
     newPollForJobs,
 
     -- * Request Lenses
-    pollForJobs_queryParam,
     pollForJobs_maxBatchSize,
+    pollForJobs_queryParam,
     pollForJobs_actionTypeId,
 
     -- * Destructuring the Response
@@ -60,14 +60,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPollForJobs' smart constructor.
 data PollForJobs = PollForJobs'
-  { -- | A map of property names and values. For an action type with no queryable
+  { -- | The maximum number of jobs to return in a poll for jobs call.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | A map of property names and values. For an action type with no queryable
     -- properties, this value must be null or an empty map. For an action type
     -- with a queryable property, you must supply that property as a key in the
     -- map. Only jobs whose action configuration matches the mapped value are
     -- returned.
     queryParam :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The maximum number of jobs to return in a poll for jobs call.
-    maxBatchSize :: Prelude.Maybe Prelude.Natural,
     -- | Represents information about an action type.
     actionTypeId :: ActionTypeId
   }
@@ -81,13 +81,13 @@ data PollForJobs = PollForJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxBatchSize', 'pollForJobs_maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
+--
 -- 'queryParam', 'pollForJobs_queryParam' - A map of property names and values. For an action type with no queryable
 -- properties, this value must be null or an empty map. For an action type
 -- with a queryable property, you must supply that property as a key in the
 -- map. Only jobs whose action configuration matches the mapped value are
 -- returned.
---
--- 'maxBatchSize', 'pollForJobs_maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
 --
 -- 'actionTypeId', 'pollForJobs_actionTypeId' - Represents information about an action type.
 newPollForJobs ::
@@ -96,10 +96,14 @@ newPollForJobs ::
   PollForJobs
 newPollForJobs pActionTypeId_ =
   PollForJobs'
-    { queryParam = Prelude.Nothing,
-      maxBatchSize = Prelude.Nothing,
+    { maxBatchSize = Prelude.Nothing,
+      queryParam = Prelude.Nothing,
       actionTypeId = pActionTypeId_
     }
+
+-- | The maximum number of jobs to return in a poll for jobs call.
+pollForJobs_maxBatchSize :: Lens.Lens' PollForJobs (Prelude.Maybe Prelude.Natural)
+pollForJobs_maxBatchSize = Lens.lens (\PollForJobs' {maxBatchSize} -> maxBatchSize) (\s@PollForJobs' {} a -> s {maxBatchSize = a} :: PollForJobs)
 
 -- | A map of property names and values. For an action type with no queryable
 -- properties, this value must be null or an empty map. For an action type
@@ -107,11 +111,7 @@ newPollForJobs pActionTypeId_ =
 -- map. Only jobs whose action configuration matches the mapped value are
 -- returned.
 pollForJobs_queryParam :: Lens.Lens' PollForJobs (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-pollForJobs_queryParam = Lens.lens (\PollForJobs' {queryParam} -> queryParam) (\s@PollForJobs' {} a -> s {queryParam = a} :: PollForJobs) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of jobs to return in a poll for jobs call.
-pollForJobs_maxBatchSize :: Lens.Lens' PollForJobs (Prelude.Maybe Prelude.Natural)
-pollForJobs_maxBatchSize = Lens.lens (\PollForJobs' {maxBatchSize} -> maxBatchSize) (\s@PollForJobs' {} a -> s {maxBatchSize = a} :: PollForJobs)
+pollForJobs_queryParam = Lens.lens (\PollForJobs' {queryParam} -> queryParam) (\s@PollForJobs' {} a -> s {queryParam = a} :: PollForJobs) Prelude.. Lens.mapping Lens.coerced
 
 -- | Represents information about an action type.
 pollForJobs_actionTypeId :: Lens.Lens' PollForJobs ActionTypeId
@@ -151,8 +151,8 @@ instance Core.ToJSON PollForJobs where
   toJSON PollForJobs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("queryParam" Core..=) Prelude.<$> queryParam,
-            ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+            ("queryParam" Core..=) Prelude.<$> queryParam,
             Prelude.Just ("actionTypeId" Core..= actionTypeId)
           ]
       )
@@ -197,7 +197,7 @@ newPollForJobsResponse pHttpStatus_ =
 
 -- | Information about the jobs to take action on.
 pollForJobsResponse_jobs :: Lens.Lens' PollForJobsResponse (Prelude.Maybe [Job])
-pollForJobsResponse_jobs = Lens.lens (\PollForJobsResponse' {jobs} -> jobs) (\s@PollForJobsResponse' {} a -> s {jobs = a} :: PollForJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+pollForJobsResponse_jobs = Lens.lens (\PollForJobsResponse' {jobs} -> jobs) (\s@PollForJobsResponse' {} a -> s {jobs = a} :: PollForJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 pollForJobsResponse_httpStatus :: Lens.Lens' PollForJobsResponse Prelude.Int

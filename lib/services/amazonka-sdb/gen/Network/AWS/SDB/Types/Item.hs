@@ -70,7 +70,7 @@ item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: 
 
 -- | A list of attributes.
 item_attributes :: Lens.Lens' Item [Attribute]
-item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Prelude.. Lens._Coerce
+item_attributes = Lens.lens (\Item' {attributes} -> attributes) (\s@Item' {} a -> s {attributes = a} :: Item) Prelude.. Lens.coerced
 
 instance Core.FromXML Item where
   parseXML x =

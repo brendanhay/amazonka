@@ -253,6 +253,6 @@ listActivitiesResponse_httpStatus = Lens.lens (\ListActivitiesResponse' {httpSta
 
 -- | The list of activities.
 listActivitiesResponse_activities :: Lens.Lens' ListActivitiesResponse [ActivityListItem]
-listActivitiesResponse_activities = Lens.lens (\ListActivitiesResponse' {activities} -> activities) (\s@ListActivitiesResponse' {} a -> s {activities = a} :: ListActivitiesResponse) Prelude.. Lens._Coerce
+listActivitiesResponse_activities = Lens.lens (\ListActivitiesResponse' {activities} -> activities) (\s@ListActivitiesResponse' {} a -> s {activities = a} :: ListActivitiesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListActivitiesResponse

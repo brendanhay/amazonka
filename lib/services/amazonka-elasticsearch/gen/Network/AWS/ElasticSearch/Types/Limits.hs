@@ -73,12 +73,12 @@ limits_instanceLimits = Lens.lens (\Limits' {instanceLimits} -> instanceLimits) 
 -- | List of additional limits that are specific to a given InstanceType and
 -- for each of it\'s @ InstanceRole @ .
 limits_additionalLimits :: Lens.Lens' Limits (Prelude.Maybe [AdditionalLimit])
-limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens._Coerce
+limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
 -- | StorageType represents the list of storage related types and attributes
 -- that are available for given InstanceType.
 limits_storageTypes :: Lens.Lens' Limits (Prelude.Maybe [StorageType])
-limits_storageTypes = Lens.lens (\Limits' {storageTypes} -> storageTypes) (\s@Limits' {} a -> s {storageTypes = a} :: Limits) Prelude.. Lens.mapping Lens._Coerce
+limits_storageTypes = Lens.lens (\Limits' {storageTypes} -> storageTypes) (\s@Limits' {} a -> s {storageTypes = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Limits where
   parseJSON =

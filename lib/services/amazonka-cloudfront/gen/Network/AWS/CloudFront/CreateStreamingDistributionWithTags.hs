@@ -39,8 +39,8 @@ module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 
     -- * Response Lenses
     createStreamingDistributionWithTagsResponse_eTag,
-    createStreamingDistributionWithTagsResponse_streamingDistribution,
     createStreamingDistributionWithTagsResponse_location,
+    createStreamingDistributionWithTagsResponse_streamingDistribution,
     createStreamingDistributionWithTagsResponse_httpStatus,
   )
 where
@@ -97,8 +97,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateStreamingDistributionWithTagsResponse'
-            Prelude.<$> (h Core..#? "ETag") Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (h Core..#? "ETag")
               Prelude.<*> (h Core..#? "Location")
+              Prelude.<*> (Core.parseXML x)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,11 +146,11 @@ instance
 data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWithTagsResponse'
   { -- | The current version of the distribution created.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The streaming distribution\'s information.
-    streamingDistribution :: Prelude.Maybe StreamingDistribution,
     -- | The fully qualified URI of the new streaming distribution resource just
     -- created.
     location :: Prelude.Maybe Prelude.Text,
+    -- | The streaming distribution\'s information.
+    streamingDistribution :: Prelude.Maybe StreamingDistribution,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,10 +166,10 @@ data CreateStreamingDistributionWithTagsResponse = CreateStreamingDistributionWi
 --
 -- 'eTag', 'createStreamingDistributionWithTagsResponse_eTag' - The current version of the distribution created.
 --
--- 'streamingDistribution', 'createStreamingDistributionWithTagsResponse_streamingDistribution' - The streaming distribution\'s information.
---
 -- 'location', 'createStreamingDistributionWithTagsResponse_location' - The fully qualified URI of the new streaming distribution resource just
 -- created.
+--
+-- 'streamingDistribution', 'createStreamingDistributionWithTagsResponse_streamingDistribution' - The streaming distribution\'s information.
 --
 -- 'httpStatus', 'createStreamingDistributionWithTagsResponse_httpStatus' - The response's http status code.
 newCreateStreamingDistributionWithTagsResponse ::
@@ -180,9 +181,9 @@ newCreateStreamingDistributionWithTagsResponse
     CreateStreamingDistributionWithTagsResponse'
       { eTag =
           Prelude.Nothing,
+        location = Prelude.Nothing,
         streamingDistribution =
           Prelude.Nothing,
-        location = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -190,14 +191,14 @@ newCreateStreamingDistributionWithTagsResponse
 createStreamingDistributionWithTagsResponse_eTag :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
 createStreamingDistributionWithTagsResponse_eTag = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {eTag} -> eTag) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {eTag = a} :: CreateStreamingDistributionWithTagsResponse)
 
--- | The streaming distribution\'s information.
-createStreamingDistributionWithTagsResponse_streamingDistribution :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe StreamingDistribution)
-createStreamingDistributionWithTagsResponse_streamingDistribution = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {streamingDistribution} -> streamingDistribution) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {streamingDistribution = a} :: CreateStreamingDistributionWithTagsResponse)
-
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created.
 createStreamingDistributionWithTagsResponse_location :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe Prelude.Text)
 createStreamingDistributionWithTagsResponse_location = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {location} -> location) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {location = a} :: CreateStreamingDistributionWithTagsResponse)
+
+-- | The streaming distribution\'s information.
+createStreamingDistributionWithTagsResponse_streamingDistribution :: Lens.Lens' CreateStreamingDistributionWithTagsResponse (Prelude.Maybe StreamingDistribution)
+createStreamingDistributionWithTagsResponse_streamingDistribution = Lens.lens (\CreateStreamingDistributionWithTagsResponse' {streamingDistribution} -> streamingDistribution) (\s@CreateStreamingDistributionWithTagsResponse' {} a -> s {streamingDistribution = a} :: CreateStreamingDistributionWithTagsResponse)
 
 -- | The response's http status code.
 createStreamingDistributionWithTagsResponse_httpStatus :: Lens.Lens' CreateStreamingDistributionWithTagsResponse Prelude.Int

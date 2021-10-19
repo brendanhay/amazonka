@@ -30,8 +30,8 @@ module Network.AWS.Greengrass.CreateDeployment
 
     -- * Request Lenses
     createDeployment_deploymentId,
-    createDeployment_groupVersionId,
     createDeployment_amznClientToken,
+    createDeployment_groupVersionId,
     createDeployment_groupId,
     createDeployment_deploymentType,
 
@@ -57,10 +57,10 @@ import qualified Network.AWS.Response as Response
 data CreateDeployment = CreateDeployment'
   { -- | The ID of the deployment if you wish to redeploy a previous deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the group version to be deployed.
-    groupVersionId :: Prelude.Maybe Prelude.Text,
     -- | A client token used to correlate requests and responses.
     amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the group version to be deployed.
+    groupVersionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Greengrass group.
     groupId :: Prelude.Text,
     -- | The type of deployment. When used for \'\'CreateDeployment\'\', only
@@ -79,9 +79,9 @@ data CreateDeployment = CreateDeployment'
 --
 -- 'deploymentId', 'createDeployment_deploymentId' - The ID of the deployment if you wish to redeploy a previous deployment.
 --
--- 'groupVersionId', 'createDeployment_groupVersionId' - The ID of the group version to be deployed.
---
 -- 'amznClientToken', 'createDeployment_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'groupVersionId', 'createDeployment_groupVersionId' - The ID of the group version to be deployed.
 --
 -- 'groupId', 'createDeployment_groupId' - The ID of the Greengrass group.
 --
@@ -96,8 +96,8 @@ newCreateDeployment ::
 newCreateDeployment pGroupId_ pDeploymentType_ =
   CreateDeployment'
     { deploymentId = Prelude.Nothing,
-      groupVersionId = Prelude.Nothing,
       amznClientToken = Prelude.Nothing,
+      groupVersionId = Prelude.Nothing,
       groupId = pGroupId_,
       deploymentType = pDeploymentType_
     }
@@ -106,13 +106,13 @@ newCreateDeployment pGroupId_ pDeploymentType_ =
 createDeployment_deploymentId :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_deploymentId = Lens.lens (\CreateDeployment' {deploymentId} -> deploymentId) (\s@CreateDeployment' {} a -> s {deploymentId = a} :: CreateDeployment)
 
--- | The ID of the group version to be deployed.
-createDeployment_groupVersionId :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_groupVersionId = Lens.lens (\CreateDeployment' {groupVersionId} -> groupVersionId) (\s@CreateDeployment' {} a -> s {groupVersionId = a} :: CreateDeployment)
-
 -- | A client token used to correlate requests and responses.
 createDeployment_amznClientToken :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_amznClientToken = Lens.lens (\CreateDeployment' {amznClientToken} -> amznClientToken) (\s@CreateDeployment' {} a -> s {amznClientToken = a} :: CreateDeployment)
+
+-- | The ID of the group version to be deployed.
+createDeployment_groupVersionId :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_groupVersionId = Lens.lens (\CreateDeployment' {groupVersionId} -> groupVersionId) (\s@CreateDeployment' {} a -> s {groupVersionId = a} :: CreateDeployment)
 
 -- | The ID of the Greengrass group.
 createDeployment_groupId :: Lens.Lens' CreateDeployment Prelude.Text

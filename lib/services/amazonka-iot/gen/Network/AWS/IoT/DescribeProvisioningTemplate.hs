@@ -41,13 +41,13 @@ module Network.AWS.IoT.DescribeProvisioningTemplate
     describeProvisioningTemplateResponse_lastModifiedDate,
     describeProvisioningTemplateResponse_templateName,
     describeProvisioningTemplateResponse_preProvisioningHook,
-    describeProvisioningTemplateResponse_creationDate,
     describeProvisioningTemplateResponse_enabled,
-    describeProvisioningTemplateResponse_defaultVersionId,
-    describeProvisioningTemplateResponse_description,
     describeProvisioningTemplateResponse_provisioningRoleArn,
-    describeProvisioningTemplateResponse_templateBody,
+    describeProvisioningTemplateResponse_defaultVersionId,
+    describeProvisioningTemplateResponse_creationDate,
     describeProvisioningTemplateResponse_templateArn,
+    describeProvisioningTemplateResponse_templateBody,
+    describeProvisioningTemplateResponse_description,
     describeProvisioningTemplateResponse_httpStatus,
   )
 where
@@ -101,13 +101,13 @@ instance Core.AWSRequest DescribeProvisioningTemplate where
             Prelude.<$> (x Core..?> "lastModifiedDate")
             Prelude.<*> (x Core..?> "templateName")
             Prelude.<*> (x Core..?> "preProvisioningHook")
-            Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (x Core..?> "enabled")
-            Prelude.<*> (x Core..?> "defaultVersionId")
-            Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "provisioningRoleArn")
-            Prelude.<*> (x Core..?> "templateBody")
+            Prelude.<*> (x Core..?> "defaultVersionId")
+            Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (x Core..?> "templateArn")
+            Prelude.<*> (x Core..?> "templateBody")
+            Prelude.<*> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,21 +136,21 @@ data DescribeProvisioningTemplateResponse = DescribeProvisioningTemplateResponse
     templateName :: Prelude.Maybe Prelude.Text,
     -- | Gets information about a pre-provisioned hook.
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
-    -- | The date when the fleet provisioning template was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | True if the fleet provisioning template is enabled, otherwise false.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The default fleet template version ID.
-    defaultVersionId :: Prelude.Maybe Prelude.Int,
-    -- | The description of the fleet provisioning template.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role associated with the provisioning template. This IoT
     -- role grants permission to provision a device.
     provisioningRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The JSON formatted contents of the fleet provisioning template.
-    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The default fleet template version ID.
+    defaultVersionId :: Prelude.Maybe Prelude.Int,
+    -- | The date when the fleet provisioning template was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the fleet provisioning template.
     templateArn :: Prelude.Maybe Prelude.Text,
+    -- | The JSON formatted contents of the fleet provisioning template.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The description of the fleet provisioning template.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,20 +170,20 @@ data DescribeProvisioningTemplateResponse = DescribeProvisioningTemplateResponse
 --
 -- 'preProvisioningHook', 'describeProvisioningTemplateResponse_preProvisioningHook' - Gets information about a pre-provisioned hook.
 --
--- 'creationDate', 'describeProvisioningTemplateResponse_creationDate' - The date when the fleet provisioning template was created.
---
 -- 'enabled', 'describeProvisioningTemplateResponse_enabled' - True if the fleet provisioning template is enabled, otherwise false.
---
--- 'defaultVersionId', 'describeProvisioningTemplateResponse_defaultVersionId' - The default fleet template version ID.
---
--- 'description', 'describeProvisioningTemplateResponse_description' - The description of the fleet provisioning template.
 --
 -- 'provisioningRoleArn', 'describeProvisioningTemplateResponse_provisioningRoleArn' - The ARN of the role associated with the provisioning template. This IoT
 -- role grants permission to provision a device.
 --
--- 'templateBody', 'describeProvisioningTemplateResponse_templateBody' - The JSON formatted contents of the fleet provisioning template.
+-- 'defaultVersionId', 'describeProvisioningTemplateResponse_defaultVersionId' - The default fleet template version ID.
+--
+-- 'creationDate', 'describeProvisioningTemplateResponse_creationDate' - The date when the fleet provisioning template was created.
 --
 -- 'templateArn', 'describeProvisioningTemplateResponse_templateArn' - The ARN of the fleet provisioning template.
+--
+-- 'templateBody', 'describeProvisioningTemplateResponse_templateBody' - The JSON formatted contents of the fleet provisioning template.
+--
+-- 'description', 'describeProvisioningTemplateResponse_description' - The description of the fleet provisioning template.
 --
 -- 'httpStatus', 'describeProvisioningTemplateResponse_httpStatus' - The response's http status code.
 newDescribeProvisioningTemplateResponse ::
@@ -196,13 +196,13 @@ newDescribeProvisioningTemplateResponse pHttpStatus_ =
         Prelude.Nothing,
       templateName = Prelude.Nothing,
       preProvisioningHook = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       enabled = Prelude.Nothing,
-      defaultVersionId = Prelude.Nothing,
-      description = Prelude.Nothing,
       provisioningRoleArn = Prelude.Nothing,
-      templateBody = Prelude.Nothing,
+      defaultVersionId = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       templateArn = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -218,34 +218,34 @@ describeProvisioningTemplateResponse_templateName = Lens.lens (\DescribeProvisio
 describeProvisioningTemplateResponse_preProvisioningHook :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe ProvisioningHook)
 describeProvisioningTemplateResponse_preProvisioningHook = Lens.lens (\DescribeProvisioningTemplateResponse' {preProvisioningHook} -> preProvisioningHook) (\s@DescribeProvisioningTemplateResponse' {} a -> s {preProvisioningHook = a} :: DescribeProvisioningTemplateResponse)
 
--- | The date when the fleet provisioning template was created.
-describeProvisioningTemplateResponse_creationDate :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.UTCTime)
-describeProvisioningTemplateResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateResponse) Prelude.. Lens.mapping Core._Time
-
 -- | True if the fleet provisioning template is enabled, otherwise false.
 describeProvisioningTemplateResponse_enabled :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Bool)
 describeProvisioningTemplateResponse_enabled = Lens.lens (\DescribeProvisioningTemplateResponse' {enabled} -> enabled) (\s@DescribeProvisioningTemplateResponse' {} a -> s {enabled = a} :: DescribeProvisioningTemplateResponse)
-
--- | The default fleet template version ID.
-describeProvisioningTemplateResponse_defaultVersionId :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Int)
-describeProvisioningTemplateResponse_defaultVersionId = Lens.lens (\DescribeProvisioningTemplateResponse' {defaultVersionId} -> defaultVersionId) (\s@DescribeProvisioningTemplateResponse' {} a -> s {defaultVersionId = a} :: DescribeProvisioningTemplateResponse)
-
--- | The description of the fleet provisioning template.
-describeProvisioningTemplateResponse_description :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
-describeProvisioningTemplateResponse_description = Lens.lens (\DescribeProvisioningTemplateResponse' {description} -> description) (\s@DescribeProvisioningTemplateResponse' {} a -> s {description = a} :: DescribeProvisioningTemplateResponse)
 
 -- | The ARN of the role associated with the provisioning template. This IoT
 -- role grants permission to provision a device.
 describeProvisioningTemplateResponse_provisioningRoleArn :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
 describeProvisioningTemplateResponse_provisioningRoleArn = Lens.lens (\DescribeProvisioningTemplateResponse' {provisioningRoleArn} -> provisioningRoleArn) (\s@DescribeProvisioningTemplateResponse' {} a -> s {provisioningRoleArn = a} :: DescribeProvisioningTemplateResponse)
 
--- | The JSON formatted contents of the fleet provisioning template.
-describeProvisioningTemplateResponse_templateBody :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
-describeProvisioningTemplateResponse_templateBody = Lens.lens (\DescribeProvisioningTemplateResponse' {templateBody} -> templateBody) (\s@DescribeProvisioningTemplateResponse' {} a -> s {templateBody = a} :: DescribeProvisioningTemplateResponse)
+-- | The default fleet template version ID.
+describeProvisioningTemplateResponse_defaultVersionId :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Int)
+describeProvisioningTemplateResponse_defaultVersionId = Lens.lens (\DescribeProvisioningTemplateResponse' {defaultVersionId} -> defaultVersionId) (\s@DescribeProvisioningTemplateResponse' {} a -> s {defaultVersionId = a} :: DescribeProvisioningTemplateResponse)
+
+-- | The date when the fleet provisioning template was created.
+describeProvisioningTemplateResponse_creationDate :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.UTCTime)
+describeProvisioningTemplateResponse_creationDate = Lens.lens (\DescribeProvisioningTemplateResponse' {creationDate} -> creationDate) (\s@DescribeProvisioningTemplateResponse' {} a -> s {creationDate = a} :: DescribeProvisioningTemplateResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the fleet provisioning template.
 describeProvisioningTemplateResponse_templateArn :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
 describeProvisioningTemplateResponse_templateArn = Lens.lens (\DescribeProvisioningTemplateResponse' {templateArn} -> templateArn) (\s@DescribeProvisioningTemplateResponse' {} a -> s {templateArn = a} :: DescribeProvisioningTemplateResponse)
+
+-- | The JSON formatted contents of the fleet provisioning template.
+describeProvisioningTemplateResponse_templateBody :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
+describeProvisioningTemplateResponse_templateBody = Lens.lens (\DescribeProvisioningTemplateResponse' {templateBody} -> templateBody) (\s@DescribeProvisioningTemplateResponse' {} a -> s {templateBody = a} :: DescribeProvisioningTemplateResponse)
+
+-- | The description of the fleet provisioning template.
+describeProvisioningTemplateResponse_description :: Lens.Lens' DescribeProvisioningTemplateResponse (Prelude.Maybe Prelude.Text)
+describeProvisioningTemplateResponse_description = Lens.lens (\DescribeProvisioningTemplateResponse' {description} -> description) (\s@DescribeProvisioningTemplateResponse' {} a -> s {description = a} :: DescribeProvisioningTemplateResponse)
 
 -- | The response's http status code.
 describeProvisioningTemplateResponse_httpStatus :: Lens.Lens' DescribeProvisioningTemplateResponse Prelude.Int

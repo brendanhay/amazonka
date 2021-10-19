@@ -31,35 +31,35 @@ module Network.AWS.Snowball
     -- ** InvalidResourceException
     _InvalidResourceException,
 
-    -- ** InvalidInputCombinationException
-    _InvalidInputCombinationException,
-
-    -- ** ClusterLimitExceededException
-    _ClusterLimitExceededException,
-
-    -- ** InvalidAddressException
-    _InvalidAddressException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** UnsupportedAddressException
+    _UnsupportedAddressException,
 
     -- ** ReturnShippingLabelAlreadyExistsException
     _ReturnShippingLabelAlreadyExistsException,
 
-    -- ** UnsupportedAddressException
-    _UnsupportedAddressException,
-
-    -- ** Ec2RequestFailedException
-    _Ec2RequestFailedException,
-
-    -- ** ConflictException
-    _ConflictException,
+    -- ** KMSRequestFailedException
+    _KMSRequestFailedException,
 
     -- ** InvalidJobStateException
     _InvalidJobStateException,
 
-    -- ** KMSRequestFailedException
-    _KMSRequestFailedException,
+    -- ** InvalidInputCombinationException
+    _InvalidInputCombinationException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** Ec2RequestFailedException
+    _Ec2RequestFailedException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** ClusterLimitExceededException
+    _ClusterLimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -67,143 +67,17 @@ module Network.AWS.Snowball
     -- * Operations
     -- $operations
 
-    -- ** ListClusterJobs (Paginated)
-    ListClusterJobs (ListClusterJobs'),
-    newListClusterJobs,
-    ListClusterJobsResponse (ListClusterJobsResponse'),
-    newListClusterJobsResponse,
-
-    -- ** UpdateJobShipmentState
-    UpdateJobShipmentState (UpdateJobShipmentState'),
-    newUpdateJobShipmentState,
-    UpdateJobShipmentStateResponse (UpdateJobShipmentStateResponse'),
-    newUpdateJobShipmentStateResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
-
-    -- ** UpdateJob
-    UpdateJob (UpdateJob'),
-    newUpdateJob,
-    UpdateJobResponse (UpdateJobResponse'),
-    newUpdateJobResponse,
-
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
-
-    -- ** ListLongTermPricing
-    ListLongTermPricing (ListLongTermPricing'),
-    newListLongTermPricing,
-    ListLongTermPricingResponse (ListLongTermPricingResponse'),
-    newListLongTermPricingResponse,
-
-    -- ** GetSoftwareUpdates
-    GetSoftwareUpdates (GetSoftwareUpdates'),
-    newGetSoftwareUpdates,
-    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
-    newGetSoftwareUpdatesResponse,
-
-    -- ** DescribeReturnShippingLabel
-    DescribeReturnShippingLabel (DescribeReturnShippingLabel'),
-    newDescribeReturnShippingLabel,
-    DescribeReturnShippingLabelResponse (DescribeReturnShippingLabelResponse'),
-    newDescribeReturnShippingLabelResponse,
-
-    -- ** DescribeAddress
-    DescribeAddress (DescribeAddress'),
-    newDescribeAddress,
-    DescribeAddressResponse (DescribeAddressResponse'),
-    newDescribeAddressResponse,
-
-    -- ** ListCompatibleImages (Paginated)
-    ListCompatibleImages (ListCompatibleImages'),
-    newListCompatibleImages,
-    ListCompatibleImagesResponse (ListCompatibleImagesResponse'),
-    newListCompatibleImagesResponse,
-
-    -- ** DescribeAddresses (Paginated)
-    DescribeAddresses (DescribeAddresses'),
-    newDescribeAddresses,
-    DescribeAddressesResponse (DescribeAddressesResponse'),
-    newDescribeAddressesResponse,
-
-    -- ** DescribeJob
-    DescribeJob (DescribeJob'),
-    newDescribeJob,
-    DescribeJobResponse (DescribeJobResponse'),
-    newDescribeJobResponse,
-
-    -- ** DescribeCluster
-    DescribeCluster (DescribeCluster'),
-    newDescribeCluster,
-    DescribeClusterResponse (DescribeClusterResponse'),
-    newDescribeClusterResponse,
-
-    -- ** GetJobUnlockCode
-    GetJobUnlockCode (GetJobUnlockCode'),
-    newGetJobUnlockCode,
-    GetJobUnlockCodeResponse (GetJobUnlockCodeResponse'),
-    newGetJobUnlockCodeResponse,
-
     -- ** CancelCluster
     CancelCluster (CancelCluster'),
     newCancelCluster,
     CancelClusterResponse (CancelClusterResponse'),
     newCancelClusterResponse,
 
-    -- ** GetJobManifest
-    GetJobManifest (GetJobManifest'),
-    newGetJobManifest,
-    GetJobManifestResponse (GetJobManifestResponse'),
-    newGetJobManifestResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
-
-    -- ** ListClusters (Paginated)
-    ListClusters (ListClusters'),
-    newListClusters,
-    ListClustersResponse (ListClustersResponse'),
-    newListClustersResponse,
-
-    -- ** UpdateCluster
-    UpdateCluster (UpdateCluster'),
-    newUpdateCluster,
-    UpdateClusterResponse (UpdateClusterResponse'),
-    newUpdateClusterResponse,
-
-    -- ** CreateLongTermPricing
-    CreateLongTermPricing (CreateLongTermPricing'),
-    newCreateLongTermPricing,
-    CreateLongTermPricingResponse (CreateLongTermPricingResponse'),
-    newCreateLongTermPricingResponse,
-
-    -- ** UpdateLongTermPricing
-    UpdateLongTermPricing (UpdateLongTermPricing'),
-    newUpdateLongTermPricing,
-    UpdateLongTermPricingResponse (UpdateLongTermPricingResponse'),
-    newUpdateLongTermPricingResponse,
-
-    -- ** GetSnowballUsage
-    GetSnowballUsage (GetSnowballUsage'),
-    newGetSnowballUsage,
-    GetSnowballUsageResponse (GetSnowballUsageResponse'),
-    newGetSnowballUsageResponse,
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
 
     -- ** CreateAddress
     CreateAddress (CreateAddress'),
@@ -216,6 +90,132 @@ module Network.AWS.Snowball
     newCreateReturnShippingLabel,
     CreateReturnShippingLabelResponse (CreateReturnShippingLabelResponse'),
     newCreateReturnShippingLabelResponse,
+
+    -- ** GetSnowballUsage
+    GetSnowballUsage (GetSnowballUsage'),
+    newGetSnowballUsage,
+    GetSnowballUsageResponse (GetSnowballUsageResponse'),
+    newGetSnowballUsageResponse,
+
+    -- ** DescribeAddresses (Paginated)
+    DescribeAddresses (DescribeAddresses'),
+    newDescribeAddresses,
+    DescribeAddressesResponse (DescribeAddressesResponse'),
+    newDescribeAddressesResponse,
+
+    -- ** ListCompatibleImages (Paginated)
+    ListCompatibleImages (ListCompatibleImages'),
+    newListCompatibleImages,
+    ListCompatibleImagesResponse (ListCompatibleImagesResponse'),
+    newListCompatibleImagesResponse,
+
+    -- ** CreateLongTermPricing
+    CreateLongTermPricing (CreateLongTermPricing'),
+    newCreateLongTermPricing,
+    CreateLongTermPricingResponse (CreateLongTermPricingResponse'),
+    newCreateLongTermPricingResponse,
+
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** GetSoftwareUpdates
+    GetSoftwareUpdates (GetSoftwareUpdates'),
+    newGetSoftwareUpdates,
+    GetSoftwareUpdatesResponse (GetSoftwareUpdatesResponse'),
+    newGetSoftwareUpdatesResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** ListLongTermPricing
+    ListLongTermPricing (ListLongTermPricing'),
+    newListLongTermPricing,
+    ListLongTermPricingResponse (ListLongTermPricingResponse'),
+    newListLongTermPricingResponse,
+
+    -- ** GetJobManifest
+    GetJobManifest (GetJobManifest'),
+    newGetJobManifest,
+    GetJobManifestResponse (GetJobManifestResponse'),
+    newGetJobManifestResponse,
+
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** UpdateJob
+    UpdateJob (UpdateJob'),
+    newUpdateJob,
+    UpdateJobResponse (UpdateJobResponse'),
+    newUpdateJobResponse,
+
+    -- ** UpdateJobShipmentState
+    UpdateJobShipmentState (UpdateJobShipmentState'),
+    newUpdateJobShipmentState,
+    UpdateJobShipmentStateResponse (UpdateJobShipmentStateResponse'),
+    newUpdateJobShipmentStateResponse,
+
+    -- ** GetJobUnlockCode
+    GetJobUnlockCode (GetJobUnlockCode'),
+    newGetJobUnlockCode,
+    GetJobUnlockCodeResponse (GetJobUnlockCodeResponse'),
+    newGetJobUnlockCodeResponse,
+
+    -- ** ListClusterJobs (Paginated)
+    ListClusterJobs (ListClusterJobs'),
+    newListClusterJobs,
+    ListClusterJobsResponse (ListClusterJobsResponse'),
+    newListClusterJobsResponse,
+
+    -- ** DescribeJob
+    DescribeJob (DescribeJob'),
+    newDescribeJob,
+    DescribeJobResponse (DescribeJobResponse'),
+    newDescribeJobResponse,
+
+    -- ** UpdateLongTermPricing
+    UpdateLongTermPricing (UpdateLongTermPricing'),
+    newUpdateLongTermPricing,
+    UpdateLongTermPricingResponse (UpdateLongTermPricingResponse'),
+    newUpdateLongTermPricingResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** DescribeAddress
+    DescribeAddress (DescribeAddress'),
+    newDescribeAddress,
+    DescribeAddressResponse (DescribeAddressResponse'),
+    newDescribeAddressResponse,
+
+    -- ** DescribeReturnShippingLabel
+    DescribeReturnShippingLabel (DescribeReturnShippingLabel'),
+    newDescribeReturnShippingLabel,
+    DescribeReturnShippingLabelResponse (DescribeReturnShippingLabelResponse'),
+    newDescribeReturnShippingLabelResponse,
+
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- * Types
 

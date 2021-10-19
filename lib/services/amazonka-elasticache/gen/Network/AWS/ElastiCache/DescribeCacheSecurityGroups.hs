@@ -32,8 +32,8 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 
     -- * Request Lenses
     describeCacheSecurityGroups_cacheSecurityGroupName,
-    describeCacheSecurityGroups_maxRecords,
     describeCacheSecurityGroups_marker,
+    describeCacheSecurityGroups_maxRecords,
 
     -- * Destructuring the Response
     DescribeCacheSecurityGroupsResponse (..),
@@ -59,6 +59,11 @@ import qualified Network.AWS.Response as Response
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
   { -- | The name of the cache security group to return details for.
     cacheSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -66,12 +71,7 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +85,11 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
 --
 -- 'cacheSecurityGroupName', 'describeCacheSecurityGroups_cacheSecurityGroupName' - The name of the cache security group to return details for.
 --
+-- 'marker', 'describeCacheSecurityGroups_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeCacheSecurityGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -92,24 +97,26 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
---
--- 'marker', 'describeCacheSecurityGroups_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
 newDescribeCacheSecurityGroups ::
   DescribeCacheSecurityGroups
 newDescribeCacheSecurityGroups =
   DescribeCacheSecurityGroups'
     { cacheSecurityGroupName =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The name of the cache security group to return details for.
 describeCacheSecurityGroups_cacheSecurityGroupName :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Text)
 describeCacheSecurityGroups_cacheSecurityGroupName = Lens.lens (\DescribeCacheSecurityGroups' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@DescribeCacheSecurityGroups' {} a -> s {cacheSecurityGroupName = a} :: DescribeCacheSecurityGroups)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCacheSecurityGroups_marker :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Text)
+describeCacheSecurityGroups_marker = Lens.lens (\DescribeCacheSecurityGroups' {marker} -> marker) (\s@DescribeCacheSecurityGroups' {} a -> s {marker = a} :: DescribeCacheSecurityGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -120,13 +127,6 @@ describeCacheSecurityGroups_cacheSecurityGroupName = Lens.lens (\DescribeCacheSe
 -- Constraints: minimum 20; maximum 100.
 describeCacheSecurityGroups_maxRecords :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Int)
 describeCacheSecurityGroups_maxRecords = Lens.lens (\DescribeCacheSecurityGroups' {maxRecords} -> maxRecords) (\s@DescribeCacheSecurityGroups' {} a -> s {maxRecords = a} :: DescribeCacheSecurityGroups)
-
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeCacheSecurityGroups_marker :: Lens.Lens' DescribeCacheSecurityGroups (Prelude.Maybe Prelude.Text)
-describeCacheSecurityGroups_marker = Lens.lens (\DescribeCacheSecurityGroups' {marker} -> marker) (\s@DescribeCacheSecurityGroups' {} a -> s {marker = a} :: DescribeCacheSecurityGroups)
 
 instance Core.AWSPager DescribeCacheSecurityGroups where
   page rq rs
@@ -189,8 +189,8 @@ instance Core.ToQuery DescribeCacheSecurityGroups where
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "CacheSecurityGroupName"
           Core.=: cacheSecurityGroupName,
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeCacheSecurityGroups@ operation.
@@ -236,7 +236,7 @@ newDescribeCacheSecurityGroupsResponse pHttpStatus_ =
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
 describeCacheSecurityGroupsResponse_cacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Prelude.Maybe [CacheSecurityGroup])
-describeCacheSecurityGroupsResponse_cacheSecurityGroups = Lens.lens (\DescribeCacheSecurityGroupsResponse' {cacheSecurityGroups} -> cacheSecurityGroups) (\s@DescribeCacheSecurityGroupsResponse' {} a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCacheSecurityGroupsResponse_cacheSecurityGroups = Lens.lens (\DescribeCacheSecurityGroupsResponse' {cacheSecurityGroups} -> cacheSecurityGroups) (\s@DescribeCacheSecurityGroupsResponse' {} a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Provides an identifier to allow retrieval of paginated results.
 describeCacheSecurityGroupsResponse_marker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Prelude.Maybe Prelude.Text)

@@ -87,7 +87,7 @@ untagResource_resourceName = Lens.lens (\UntagResource' {resourceName} -> resour
 -- | A list of tag keys. If the DAX cluster has any tags with these keys,
 -- then the tags are removed from the cluster.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type
@@ -166,7 +166,7 @@ newUntagResourceResponse pHttpStatus_ =
 
 -- | The tag keys that have been removed from the cluster.
 untagResourceResponse_tags :: Lens.Lens' UntagResourceResponse (Prelude.Maybe [Tag])
-untagResourceResponse_tags = Lens.lens (\UntagResourceResponse' {tags} -> tags) (\s@UntagResourceResponse' {} a -> s {tags = a} :: UntagResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+untagResourceResponse_tags = Lens.lens (\UntagResourceResponse' {tags} -> tags) (\s@UntagResourceResponse' {} a -> s {tags = a} :: UntagResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int

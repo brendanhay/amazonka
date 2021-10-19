@@ -50,7 +50,7 @@ newCompletedMultipartUpload =
 
 -- | Array of CompletedPart data types.
 completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Prelude.Maybe (Prelude.NonEmpty CompletedPart))
-completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Prelude.. Lens.mapping Lens._Coerce
+completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable CompletedMultipartUpload
 

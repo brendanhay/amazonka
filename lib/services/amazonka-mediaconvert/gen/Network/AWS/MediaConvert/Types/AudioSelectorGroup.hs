@@ -64,7 +64,7 @@ newAudioSelectorGroup =
 -- input (e.g., \"Audio Selector 1\"). The audio selector name parameter
 -- can be repeated to add any number of audio selectors to the group.
 audioSelectorGroup_audioSelectorNames :: Lens.Lens' AudioSelectorGroup (Prelude.Maybe [Prelude.Text])
-audioSelectorGroup_audioSelectorNames = Lens.lens (\AudioSelectorGroup' {audioSelectorNames} -> audioSelectorNames) (\s@AudioSelectorGroup' {} a -> s {audioSelectorNames = a} :: AudioSelectorGroup) Prelude.. Lens.mapping Lens._Coerce
+audioSelectorGroup_audioSelectorNames = Lens.lens (\AudioSelectorGroup' {audioSelectorNames} -> audioSelectorNames) (\s@AudioSelectorGroup' {} a -> s {audioSelectorNames = a} :: AudioSelectorGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AudioSelectorGroup where
   parseJSON =

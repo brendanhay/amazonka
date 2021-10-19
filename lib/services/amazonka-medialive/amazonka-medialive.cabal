@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-medialive
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Elemental MediaLive SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -52,6 +52,7 @@ library
     Network.AWS.MediaLive.BatchStop
     Network.AWS.MediaLive.BatchUpdateSchedule
     Network.AWS.MediaLive.CancelInputDeviceTransfer
+    Network.AWS.MediaLive.ClaimDevice
     Network.AWS.MediaLive.CreateChannel
     Network.AWS.MediaLive.CreateInput
     Network.AWS.MediaLive.CreateInputSecurityGroup
@@ -141,6 +142,7 @@ library
     Network.AWS.MediaLive.Types.AudioTrack
     Network.AWS.MediaLive.Types.AudioTrackSelection
     Network.AWS.MediaLive.Types.AudioType
+    Network.AWS.MediaLive.Types.AudioWatermarkSettings
     Network.AWS.MediaLive.Types.AuthenticationScheme
     Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings
     Network.AWS.MediaLive.Types.AvailBlanking
@@ -451,8 +453,13 @@ library
     Network.AWS.MediaLive.Types.MultiplexVideoSettings
     Network.AWS.MediaLive.Types.NetworkInputServerValidation
     Network.AWS.MediaLive.Types.NetworkInputSettings
+    Network.AWS.MediaLive.Types.NielsenCBET
     Network.AWS.MediaLive.Types.NielsenConfiguration
+    Network.AWS.MediaLive.Types.NielsenNaesIiNw
     Network.AWS.MediaLive.Types.NielsenPcmToId3TaggingState
+    Network.AWS.MediaLive.Types.NielsenWatermarksCbetStepaside
+    Network.AWS.MediaLive.Types.NielsenWatermarksDistributionTypes
+    Network.AWS.MediaLive.Types.NielsenWatermarksSettings
     Network.AWS.MediaLive.Types.Offering
     Network.AWS.MediaLive.Types.OfferingDurationUnits
     Network.AWS.MediaLive.Types.OfferingType
@@ -578,8 +585,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-medialive-test
   type:             exitcode-stdio-1.0
@@ -597,9 +604,9 @@ test-suite amazonka-medialive-test
     Test.AWS.MediaLive.Internal
 
   build-depends:
-    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka              ^>=2.0
     , amazonka-medialive
-    , amazonka-test         >=1.6.1 && <1.6.2
+    , amazonka-test         ^>=2.0
     , base
     , bytestring
     , case-insensitive

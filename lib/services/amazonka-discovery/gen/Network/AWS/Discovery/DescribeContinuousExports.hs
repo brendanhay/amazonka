@@ -32,8 +32,8 @@ module Network.AWS.Discovery.DescribeContinuousExports
 
     -- * Request Lenses
     describeContinuousExports_nextToken,
-    describeContinuousExports_maxResults,
     describeContinuousExports_exportIds,
+    describeContinuousExports_maxResults,
 
     -- * Destructuring the Response
     DescribeContinuousExportsResponse (..),
@@ -57,11 +57,11 @@ import qualified Network.AWS.Response as Response
 data DescribeContinuousExports = DescribeContinuousExports'
   { -- | The token from the previous call to @DescribeExportTasks@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The unique IDs assigned to the exports.
+    exportIds :: Prelude.Maybe [Prelude.Text],
     -- | A number between 1 and 100 specifying the maximum number of continuous
     -- export descriptions returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The unique IDs assigned to the exports.
-    exportIds :: Prelude.Maybe [Prelude.Text]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,32 +75,32 @@ data DescribeContinuousExports = DescribeContinuousExports'
 --
 -- 'nextToken', 'describeContinuousExports_nextToken' - The token from the previous call to @DescribeExportTasks@.
 --
+-- 'exportIds', 'describeContinuousExports_exportIds' - The unique IDs assigned to the exports.
+--
 -- 'maxResults', 'describeContinuousExports_maxResults' - A number between 1 and 100 specifying the maximum number of continuous
 -- export descriptions returned.
---
--- 'exportIds', 'describeContinuousExports_exportIds' - The unique IDs assigned to the exports.
 newDescribeContinuousExports ::
   DescribeContinuousExports
 newDescribeContinuousExports =
   DescribeContinuousExports'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      exportIds = Prelude.Nothing
+      exportIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The token from the previous call to @DescribeExportTasks@.
 describeContinuousExports_nextToken :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe Prelude.Text)
 describeContinuousExports_nextToken = Lens.lens (\DescribeContinuousExports' {nextToken} -> nextToken) (\s@DescribeContinuousExports' {} a -> s {nextToken = a} :: DescribeContinuousExports)
 
+-- | The unique IDs assigned to the exports.
+describeContinuousExports_exportIds :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe [Prelude.Text])
+describeContinuousExports_exportIds = Lens.lens (\DescribeContinuousExports' {exportIds} -> exportIds) (\s@DescribeContinuousExports' {} a -> s {exportIds = a} :: DescribeContinuousExports) Prelude.. Lens.mapping Lens.coerced
+
 -- | A number between 1 and 100 specifying the maximum number of continuous
 -- export descriptions returned.
 describeContinuousExports_maxResults :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe Prelude.Natural)
 describeContinuousExports_maxResults = Lens.lens (\DescribeContinuousExports' {maxResults} -> maxResults) (\s@DescribeContinuousExports' {} a -> s {maxResults = a} :: DescribeContinuousExports)
-
--- | The unique IDs assigned to the exports.
-describeContinuousExports_exportIds :: Lens.Lens' DescribeContinuousExports (Prelude.Maybe [Prelude.Text])
-describeContinuousExports_exportIds = Lens.lens (\DescribeContinuousExports' {exportIds} -> exportIds) (\s@DescribeContinuousExports' {} a -> s {exportIds = a} :: DescribeContinuousExports) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeContinuousExports where
   page rq rs
@@ -162,8 +162,8 @@ instance Core.ToJSON DescribeContinuousExports where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("exportIds" Core..=) Prelude.<$> exportIds
+            ("exportIds" Core..=) Prelude.<$> exportIds,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -215,7 +215,7 @@ describeContinuousExportsResponse_nextToken = Lens.lens (\DescribeContinuousExpo
 
 -- | A list of continuous export descriptions.
 describeContinuousExportsResponse_descriptions :: Lens.Lens' DescribeContinuousExportsResponse (Prelude.Maybe [ContinuousExportDescription])
-describeContinuousExportsResponse_descriptions = Lens.lens (\DescribeContinuousExportsResponse' {descriptions} -> descriptions) (\s@DescribeContinuousExportsResponse' {} a -> s {descriptions = a} :: DescribeContinuousExportsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeContinuousExportsResponse_descriptions = Lens.lens (\DescribeContinuousExportsResponse' {descriptions} -> descriptions) (\s@DescribeContinuousExportsResponse' {} a -> s {descriptions = a} :: DescribeContinuousExportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeContinuousExportsResponse_httpStatus :: Lens.Lens' DescribeContinuousExportsResponse Prelude.Int

@@ -28,8 +28,8 @@ import Network.AWS.XRay.Types.InsightsConfiguration
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
-  { -- | The unique case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
+  { -- | The filter expression defining the parameters to include traces.
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -38,11 +38,11 @@ data Group = Group'
     -- -   The NotificationsEnabled boolean can be set to true to enable
     --     insights notifications through Amazon EventBridge for the group.
     insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
-    -- | The filter expression defining the parameters to include traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the group generated based on the
     -- GroupName.
-    groupARN :: Prelude.Maybe Prelude.Text
+    groupARN :: Prelude.Maybe Prelude.Text,
+    -- | The unique case-sensitive name of the group.
+    groupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,7 +54,7 @@ data Group = Group'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'group_groupName' - The unique case-sensitive name of the group.
+-- 'filterExpression', 'group_filterExpression' - The filter expression defining the parameters to include traces.
 --
 -- 'insightsConfiguration', 'group_insightsConfiguration' - The structure containing configurations related to insights.
 --
@@ -64,23 +64,23 @@ data Group = Group'
 -- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications through Amazon EventBridge for the group.
 --
--- 'filterExpression', 'group_filterExpression' - The filter expression defining the parameters to include traces.
---
 -- 'groupARN', 'group_groupARN' - The Amazon Resource Name (ARN) of the group generated based on the
 -- GroupName.
+--
+-- 'groupName', 'group_groupName' - The unique case-sensitive name of the group.
 newGroup ::
   Group
 newGroup =
   Group'
-    { groupName = Prelude.Nothing,
+    { filterExpression = Prelude.Nothing,
       insightsConfiguration = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+      groupARN = Prelude.Nothing,
+      groupName = Prelude.Nothing
     }
 
--- | The unique case-sensitive name of the group.
-group_groupName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -> s {groupName = a} :: Group)
+-- | The filter expression defining the parameters to include traces.
+group_filterExpression :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_filterExpression = Lens.lens (\Group' {filterExpression} -> filterExpression) (\s@Group' {} a -> s {filterExpression = a} :: Group)
 
 -- | The structure containing configurations related to insights.
 --
@@ -92,14 +92,14 @@ group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -
 group_insightsConfiguration :: Lens.Lens' Group (Prelude.Maybe InsightsConfiguration)
 group_insightsConfiguration = Lens.lens (\Group' {insightsConfiguration} -> insightsConfiguration) (\s@Group' {} a -> s {insightsConfiguration = a} :: Group)
 
--- | The filter expression defining the parameters to include traces.
-group_filterExpression :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
-group_filterExpression = Lens.lens (\Group' {filterExpression} -> filterExpression) (\s@Group' {} a -> s {filterExpression = a} :: Group)
-
 -- | The Amazon Resource Name (ARN) of the group generated based on the
 -- GroupName.
 group_groupARN :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
 group_groupARN = Lens.lens (\Group' {groupARN} -> groupARN) (\s@Group' {} a -> s {groupARN = a} :: Group)
+
+-- | The unique case-sensitive name of the group.
+group_groupName :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -> s {groupName = a} :: Group)
 
 instance Core.FromJSON Group where
   parseJSON =
@@ -107,10 +107,10 @@ instance Core.FromJSON Group where
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Core..:? "GroupName")
+            Prelude.<$> (x Core..:? "FilterExpression")
             Prelude.<*> (x Core..:? "InsightsConfiguration")
-            Prelude.<*> (x Core..:? "FilterExpression")
             Prelude.<*> (x Core..:? "GroupARN")
+            Prelude.<*> (x Core..:? "GroupName")
       )
 
 instance Prelude.Hashable Group

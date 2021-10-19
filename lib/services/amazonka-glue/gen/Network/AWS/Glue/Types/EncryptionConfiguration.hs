@@ -33,10 +33,10 @@ data EncryptionConfiguration = EncryptionConfiguration'
   { -- | The encryption configuration for Amazon Simple Storage Service (Amazon
     -- S3) data.
     s3Encryption :: Prelude.Maybe [S3Encryption],
-    -- | The encryption configuration for Amazon CloudWatch.
-    cloudWatchEncryption :: Prelude.Maybe CloudWatchEncryption,
     -- | The encryption configuration for job bookmarks.
-    jobBookmarksEncryption :: Prelude.Maybe JobBookmarksEncryption
+    jobBookmarksEncryption :: Prelude.Maybe JobBookmarksEncryption,
+    -- | The encryption configuration for Amazon CloudWatch.
+    cloudWatchEncryption :: Prelude.Maybe CloudWatchEncryption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,31 +51,31 @@ data EncryptionConfiguration = EncryptionConfiguration'
 -- 's3Encryption', 'encryptionConfiguration_s3Encryption' - The encryption configuration for Amazon Simple Storage Service (Amazon
 -- S3) data.
 --
--- 'cloudWatchEncryption', 'encryptionConfiguration_cloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
---
 -- 'jobBookmarksEncryption', 'encryptionConfiguration_jobBookmarksEncryption' - The encryption configuration for job bookmarks.
+--
+-- 'cloudWatchEncryption', 'encryptionConfiguration_cloudWatchEncryption' - The encryption configuration for Amazon CloudWatch.
 newEncryptionConfiguration ::
   EncryptionConfiguration
 newEncryptionConfiguration =
   EncryptionConfiguration'
     { s3Encryption =
         Prelude.Nothing,
-      cloudWatchEncryption = Prelude.Nothing,
-      jobBookmarksEncryption = Prelude.Nothing
+      jobBookmarksEncryption = Prelude.Nothing,
+      cloudWatchEncryption = Prelude.Nothing
     }
 
 -- | The encryption configuration for Amazon Simple Storage Service (Amazon
 -- S3) data.
 encryptionConfiguration_s3Encryption :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe [S3Encryption])
-encryptionConfiguration_s3Encryption = Lens.lens (\EncryptionConfiguration' {s3Encryption} -> s3Encryption) (\s@EncryptionConfiguration' {} a -> s {s3Encryption = a} :: EncryptionConfiguration) Prelude.. Lens.mapping Lens._Coerce
-
--- | The encryption configuration for Amazon CloudWatch.
-encryptionConfiguration_cloudWatchEncryption :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe CloudWatchEncryption)
-encryptionConfiguration_cloudWatchEncryption = Lens.lens (\EncryptionConfiguration' {cloudWatchEncryption} -> cloudWatchEncryption) (\s@EncryptionConfiguration' {} a -> s {cloudWatchEncryption = a} :: EncryptionConfiguration)
+encryptionConfiguration_s3Encryption = Lens.lens (\EncryptionConfiguration' {s3Encryption} -> s3Encryption) (\s@EncryptionConfiguration' {} a -> s {s3Encryption = a} :: EncryptionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The encryption configuration for job bookmarks.
 encryptionConfiguration_jobBookmarksEncryption :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe JobBookmarksEncryption)
 encryptionConfiguration_jobBookmarksEncryption = Lens.lens (\EncryptionConfiguration' {jobBookmarksEncryption} -> jobBookmarksEncryption) (\s@EncryptionConfiguration' {} a -> s {jobBookmarksEncryption = a} :: EncryptionConfiguration)
+
+-- | The encryption configuration for Amazon CloudWatch.
+encryptionConfiguration_cloudWatchEncryption :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe CloudWatchEncryption)
+encryptionConfiguration_cloudWatchEncryption = Lens.lens (\EncryptionConfiguration' {cloudWatchEncryption} -> cloudWatchEncryption) (\s@EncryptionConfiguration' {} a -> s {cloudWatchEncryption = a} :: EncryptionConfiguration)
 
 instance Core.FromJSON EncryptionConfiguration where
   parseJSON =
@@ -84,8 +84,8 @@ instance Core.FromJSON EncryptionConfiguration where
       ( \x ->
           EncryptionConfiguration'
             Prelude.<$> (x Core..:? "S3Encryption" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CloudWatchEncryption")
             Prelude.<*> (x Core..:? "JobBookmarksEncryption")
+            Prelude.<*> (x Core..:? "CloudWatchEncryption")
       )
 
 instance Prelude.Hashable EncryptionConfiguration
@@ -97,9 +97,9 @@ instance Core.ToJSON EncryptionConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("S3Encryption" Core..=) Prelude.<$> s3Encryption,
-            ("CloudWatchEncryption" Core..=)
-              Prelude.<$> cloudWatchEncryption,
             ("JobBookmarksEncryption" Core..=)
-              Prelude.<$> jobBookmarksEncryption
+              Prelude.<$> jobBookmarksEncryption,
+            ("CloudWatchEncryption" Core..=)
+              Prelude.<$> cloudWatchEncryption
           ]
       )

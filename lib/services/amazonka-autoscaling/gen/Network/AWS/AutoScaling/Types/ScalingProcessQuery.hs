@@ -116,7 +116,7 @@ newScalingProcessQuery pAutoScalingGroupName_ =
 --
 -- If you omit this parameter, all processes are specified.
 scalingProcessQuery_scalingProcesses :: Lens.Lens' ScalingProcessQuery (Prelude.Maybe [Prelude.Text])
-scalingProcessQuery_scalingProcesses = Lens.lens (\ScalingProcessQuery' {scalingProcesses} -> scalingProcesses) (\s@ScalingProcessQuery' {} a -> s {scalingProcesses = a} :: ScalingProcessQuery) Prelude.. Lens.mapping Lens._Coerce
+scalingProcessQuery_scalingProcesses = Lens.lens (\ScalingProcessQuery' {scalingProcesses} -> scalingProcesses) (\s@ScalingProcessQuery' {} a -> s {scalingProcesses = a} :: ScalingProcessQuery) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 scalingProcessQuery_autoScalingGroupName :: Lens.Lens' ScalingProcessQuery Prelude.Text

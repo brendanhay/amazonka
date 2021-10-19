@@ -31,15 +31,15 @@ import Network.AWS.SSM.Types.DocumentParameterType
 data DocumentParameter = DocumentParameter'
   { -- | The name of the parameter.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A description of what the parameter does, how to use it, the default
-    -- value, and whether or not the parameter is optional.
-    description :: Prelude.Maybe Prelude.Text,
     -- | If specified, the default values for the parameters. Parameters without
     -- a default value are required. Parameters with a default value are
     -- optional.
     defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The type of parameter. The type can be either String or StringList.
-    type' :: Prelude.Maybe DocumentParameterType
+    type' :: Prelude.Maybe DocumentParameterType,
+    -- | A description of what the parameter does, how to use it, the default
+    -- value, and whether or not the parameter is optional.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,32 +53,27 @@ data DocumentParameter = DocumentParameter'
 --
 -- 'name', 'documentParameter_name' - The name of the parameter.
 --
--- 'description', 'documentParameter_description' - A description of what the parameter does, how to use it, the default
--- value, and whether or not the parameter is optional.
---
 -- 'defaultValue', 'documentParameter_defaultValue' - If specified, the default values for the parameters. Parameters without
 -- a default value are required. Parameters with a default value are
 -- optional.
 --
 -- 'type'', 'documentParameter_type' - The type of parameter. The type can be either String or StringList.
+--
+-- 'description', 'documentParameter_description' - A description of what the parameter does, how to use it, the default
+-- value, and whether or not the parameter is optional.
 newDocumentParameter ::
   DocumentParameter
 newDocumentParameter =
   DocumentParameter'
     { name = Prelude.Nothing,
-      description = Prelude.Nothing,
       defaultValue = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The name of the parameter.
 documentParameter_name :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
 documentParameter_name = Lens.lens (\DocumentParameter' {name} -> name) (\s@DocumentParameter' {} a -> s {name = a} :: DocumentParameter)
-
--- | A description of what the parameter does, how to use it, the default
--- value, and whether or not the parameter is optional.
-documentParameter_description :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
-documentParameter_description = Lens.lens (\DocumentParameter' {description} -> description) (\s@DocumentParameter' {} a -> s {description = a} :: DocumentParameter)
 
 -- | If specified, the default values for the parameters. Parameters without
 -- a default value are required. Parameters with a default value are
@@ -90,6 +85,11 @@ documentParameter_defaultValue = Lens.lens (\DocumentParameter' {defaultValue} -
 documentParameter_type :: Lens.Lens' DocumentParameter (Prelude.Maybe DocumentParameterType)
 documentParameter_type = Lens.lens (\DocumentParameter' {type'} -> type') (\s@DocumentParameter' {} a -> s {type' = a} :: DocumentParameter)
 
+-- | A description of what the parameter does, how to use it, the default
+-- value, and whether or not the parameter is optional.
+documentParameter_description :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_description = Lens.lens (\DocumentParameter' {description} -> description) (\s@DocumentParameter' {} a -> s {description = a} :: DocumentParameter)
+
 instance Core.FromJSON DocumentParameter where
   parseJSON =
     Core.withObject
@@ -97,9 +97,9 @@ instance Core.FromJSON DocumentParameter where
       ( \x ->
           DocumentParameter'
             Prelude.<$> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "DefaultValue")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable DocumentParameter

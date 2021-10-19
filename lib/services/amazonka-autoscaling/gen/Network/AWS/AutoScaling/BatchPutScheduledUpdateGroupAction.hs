@@ -87,7 +87,7 @@ batchPutScheduledUpdateGroupAction_autoScalingGroupName = Lens.lens (\BatchPutSc
 
 -- | One or more scheduled actions. The maximum number allowed is 50.
 batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupAction [ScheduledUpdateGroupActionRequest]
-batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupAction' {scheduledUpdateGroupActions} -> scheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupAction' {} a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction) Prelude.. Lens._Coerce
+batchPutScheduledUpdateGroupAction_scheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupAction' {scheduledUpdateGroupActions} -> scheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupAction' {} a -> s {scheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupAction) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -185,7 +185,7 @@ newBatchPutScheduledUpdateGroupActionResponse
 -- | The names of the scheduled actions that could not be created or updated,
 -- including an error message.
 batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse (Prelude.Maybe [FailedScheduledUpdateGroupActionRequest])
-batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupActionResponse' {failedScheduledUpdateGroupActions} -> failedScheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupActionResponse' {} a -> s {failedScheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupActionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchPutScheduledUpdateGroupActionResponse_failedScheduledUpdateGroupActions = Lens.lens (\BatchPutScheduledUpdateGroupActionResponse' {failedScheduledUpdateGroupActions} -> failedScheduledUpdateGroupActions) (\s@BatchPutScheduledUpdateGroupActionResponse' {} a -> s {failedScheduledUpdateGroupActions = a} :: BatchPutScheduledUpdateGroupActionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchPutScheduledUpdateGroupActionResponse_httpStatus :: Lens.Lens' BatchPutScheduledUpdateGroupActionResponse Prelude.Int

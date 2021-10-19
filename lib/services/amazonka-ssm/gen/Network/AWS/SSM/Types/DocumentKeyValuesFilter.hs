@@ -98,10 +98,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDocumentKeyValuesFilter' smart constructor.
 data DocumentKeyValuesFilter = DocumentKeyValuesFilter'
-  { -- | The name of the filter key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value for the filter key.
-    values :: Prelude.Maybe [Prelude.Text]
+  { -- | The value for the filter key.
+    values :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the filter key.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -113,24 +113,24 @@ data DocumentKeyValuesFilter = DocumentKeyValuesFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'documentKeyValuesFilter_key' - The name of the filter key.
---
 -- 'values', 'documentKeyValuesFilter_values' - The value for the filter key.
+--
+-- 'key', 'documentKeyValuesFilter_key' - The name of the filter key.
 newDocumentKeyValuesFilter ::
   DocumentKeyValuesFilter
 newDocumentKeyValuesFilter =
   DocumentKeyValuesFilter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing
     }
+
+-- | The value for the filter key.
+documentKeyValuesFilter_values :: Lens.Lens' DocumentKeyValuesFilter (Prelude.Maybe [Prelude.Text])
+documentKeyValuesFilter_values = Lens.lens (\DocumentKeyValuesFilter' {values} -> values) (\s@DocumentKeyValuesFilter' {} a -> s {values = a} :: DocumentKeyValuesFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter key.
 documentKeyValuesFilter_key :: Lens.Lens' DocumentKeyValuesFilter (Prelude.Maybe Prelude.Text)
 documentKeyValuesFilter_key = Lens.lens (\DocumentKeyValuesFilter' {key} -> key) (\s@DocumentKeyValuesFilter' {} a -> s {key = a} :: DocumentKeyValuesFilter)
-
--- | The value for the filter key.
-documentKeyValuesFilter_values :: Lens.Lens' DocumentKeyValuesFilter (Prelude.Maybe [Prelude.Text])
-documentKeyValuesFilter_values = Lens.lens (\DocumentKeyValuesFilter' {values} -> values) (\s@DocumentKeyValuesFilter' {} a -> s {values = a} :: DocumentKeyValuesFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable DocumentKeyValuesFilter
 
@@ -140,7 +140,7 @@ instance Core.ToJSON DocumentKeyValuesFilter where
   toJSON DocumentKeyValuesFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeviceNetworkProfileInfo' smart constructor.
 data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
-  { -- | The time (in epoch) when the certificate expires.
-    certificateExpirationTime :: Prelude.Maybe Core.POSIX,
-    -- | The ARN of the certificate associated with a device.
+  { -- | The ARN of the certificate associated with a device.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Prelude.Maybe Prelude.Text
+    networkProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | The time (in epoch) when the certificate expires.
+    certificateExpirationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,20 @@ data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateExpirationTime', 'deviceNetworkProfileInfo_certificateExpirationTime' - The time (in epoch) when the certificate expires.
---
 -- 'certificateArn', 'deviceNetworkProfileInfo_certificateArn' - The ARN of the certificate associated with a device.
 --
 -- 'networkProfileArn', 'deviceNetworkProfileInfo_networkProfileArn' - The ARN of the network profile associated with a device.
+--
+-- 'certificateExpirationTime', 'deviceNetworkProfileInfo_certificateExpirationTime' - The time (in epoch) when the certificate expires.
 newDeviceNetworkProfileInfo ::
   DeviceNetworkProfileInfo
 newDeviceNetworkProfileInfo =
   DeviceNetworkProfileInfo'
-    { certificateExpirationTime =
+    { certificateArn =
         Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      networkProfileArn = Prelude.Nothing
+      networkProfileArn = Prelude.Nothing,
+      certificateExpirationTime = Prelude.Nothing
     }
-
--- | The time (in epoch) when the certificate expires.
-deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.UTCTime)
-deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The ARN of the certificate associated with a device.
 deviceNetworkProfileInfo_certificateArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
@@ -71,15 +67,19 @@ deviceNetworkProfileInfo_certificateArn = Lens.lens (\DeviceNetworkProfileInfo' 
 deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
 deviceNetworkProfileInfo_networkProfileArn = Lens.lens (\DeviceNetworkProfileInfo' {networkProfileArn} -> networkProfileArn) (\s@DeviceNetworkProfileInfo' {} a -> s {networkProfileArn = a} :: DeviceNetworkProfileInfo)
 
+-- | The time (in epoch) when the certificate expires.
+deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.UTCTime)
+deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON DeviceNetworkProfileInfo where
   parseJSON =
     Core.withObject
       "DeviceNetworkProfileInfo"
       ( \x ->
           DeviceNetworkProfileInfo'
-            Prelude.<$> (x Core..:? "CertificateExpirationTime")
-            Prelude.<*> (x Core..:? "CertificateArn")
+            Prelude.<$> (x Core..:? "CertificateArn")
             Prelude.<*> (x Core..:? "NetworkProfileArn")
+            Prelude.<*> (x Core..:? "CertificateExpirationTime")
       )
 
 instance Prelude.Hashable DeviceNetworkProfileInfo

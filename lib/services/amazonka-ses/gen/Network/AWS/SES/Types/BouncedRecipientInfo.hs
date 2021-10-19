@@ -34,19 +34,19 @@ import Network.AWS.SES.Types.RecipientDsnFields
 --
 -- /See:/ 'newBouncedRecipientInfo' smart constructor.
 data BouncedRecipientInfo = BouncedRecipientInfo'
-  { -- | This parameter is used only for sending authorization. It is the ARN of
+  { -- | The reason for the bounce. You must provide either this parameter or
+    -- @RecipientDsnFields@.
+    bounceType :: Prelude.Maybe BounceType,
+    -- | Recipient-related DSN fields, most of which would normally be filled in
+    -- automatically when provided with a @BounceType@. You must provide either
+    -- this parameter or @BounceType@.
+    recipientDsnFields :: Prelude.Maybe RecipientDsnFields,
+    -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to receive email for the recipient of the bounced
     -- email. For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     recipientArn :: Prelude.Maybe Prelude.Text,
-    -- | Recipient-related DSN fields, most of which would normally be filled in
-    -- automatically when provided with a @BounceType@. You must provide either
-    -- this parameter or @BounceType@.
-    recipientDsnFields :: Prelude.Maybe RecipientDsnFields,
-    -- | The reason for the bounce. You must provide either this parameter or
-    -- @RecipientDsnFields@.
-    bounceType :: Prelude.Maybe BounceType,
     -- | The email address of the recipient of the bounced email.
     recipient :: Prelude.Text
   }
@@ -60,18 +60,18 @@ data BouncedRecipientInfo = BouncedRecipientInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recipientArn', 'bouncedRecipientInfo_recipientArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to receive email for the recipient of the bounced
--- email. For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+-- 'bounceType', 'bouncedRecipientInfo_bounceType' - The reason for the bounce. You must provide either this parameter or
+-- @RecipientDsnFields@.
 --
 -- 'recipientDsnFields', 'bouncedRecipientInfo_recipientDsnFields' - Recipient-related DSN fields, most of which would normally be filled in
 -- automatically when provided with a @BounceType@. You must provide either
 -- this parameter or @BounceType@.
 --
--- 'bounceType', 'bouncedRecipientInfo_bounceType' - The reason for the bounce. You must provide either this parameter or
--- @RecipientDsnFields@.
+-- 'recipientArn', 'bouncedRecipientInfo_recipientArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to receive email for the recipient of the bounced
+-- email. For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- 'recipient', 'bouncedRecipientInfo_recipient' - The email address of the recipient of the bounced email.
 newBouncedRecipientInfo ::
@@ -80,12 +80,22 @@ newBouncedRecipientInfo ::
   BouncedRecipientInfo
 newBouncedRecipientInfo pRecipient_ =
   BouncedRecipientInfo'
-    { recipientArn =
-        Prelude.Nothing,
+    { bounceType = Prelude.Nothing,
       recipientDsnFields = Prelude.Nothing,
-      bounceType = Prelude.Nothing,
+      recipientArn = Prelude.Nothing,
       recipient = pRecipient_
     }
+
+-- | The reason for the bounce. You must provide either this parameter or
+-- @RecipientDsnFields@.
+bouncedRecipientInfo_bounceType :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe BounceType)
+bouncedRecipientInfo_bounceType = Lens.lens (\BouncedRecipientInfo' {bounceType} -> bounceType) (\s@BouncedRecipientInfo' {} a -> s {bounceType = a} :: BouncedRecipientInfo)
+
+-- | Recipient-related DSN fields, most of which would normally be filled in
+-- automatically when provided with a @BounceType@. You must provide either
+-- this parameter or @BounceType@.
+bouncedRecipientInfo_recipientDsnFields :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe RecipientDsnFields)
+bouncedRecipientInfo_recipientDsnFields = Lens.lens (\BouncedRecipientInfo' {recipientDsnFields} -> recipientDsnFields) (\s@BouncedRecipientInfo' {} a -> s {recipientDsnFields = a} :: BouncedRecipientInfo)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -94,17 +104,6 @@ newBouncedRecipientInfo pRecipient_ =
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 bouncedRecipientInfo_recipientArn :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe Prelude.Text)
 bouncedRecipientInfo_recipientArn = Lens.lens (\BouncedRecipientInfo' {recipientArn} -> recipientArn) (\s@BouncedRecipientInfo' {} a -> s {recipientArn = a} :: BouncedRecipientInfo)
-
--- | Recipient-related DSN fields, most of which would normally be filled in
--- automatically when provided with a @BounceType@. You must provide either
--- this parameter or @BounceType@.
-bouncedRecipientInfo_recipientDsnFields :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe RecipientDsnFields)
-bouncedRecipientInfo_recipientDsnFields = Lens.lens (\BouncedRecipientInfo' {recipientDsnFields} -> recipientDsnFields) (\s@BouncedRecipientInfo' {} a -> s {recipientDsnFields = a} :: BouncedRecipientInfo)
-
--- | The reason for the bounce. You must provide either this parameter or
--- @RecipientDsnFields@.
-bouncedRecipientInfo_bounceType :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe BounceType)
-bouncedRecipientInfo_bounceType = Lens.lens (\BouncedRecipientInfo' {bounceType} -> bounceType) (\s@BouncedRecipientInfo' {} a -> s {bounceType = a} :: BouncedRecipientInfo)
 
 -- | The email address of the recipient of the bounced email.
 bouncedRecipientInfo_recipient :: Lens.Lens' BouncedRecipientInfo Prelude.Text
@@ -117,8 +116,8 @@ instance Prelude.NFData BouncedRecipientInfo
 instance Core.ToQuery BouncedRecipientInfo where
   toQuery BouncedRecipientInfo' {..} =
     Prelude.mconcat
-      [ "RecipientArn" Core.=: recipientArn,
+      [ "BounceType" Core.=: bounceType,
         "RecipientDsnFields" Core.=: recipientDsnFields,
-        "BounceType" Core.=: bounceType,
+        "RecipientArn" Core.=: recipientArn,
         "Recipient" Core.=: recipient
       ]

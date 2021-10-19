@@ -127,7 +127,7 @@ getObjectAttributes_schemaFacet = Lens.lens (\GetObjectAttributes' {schemaFacet}
 
 -- | List of attribute names whose values will be retrieved.
 getObjectAttributes_attributeNames :: Lens.Lens' GetObjectAttributes [Prelude.Text]
-getObjectAttributes_attributeNames = Lens.lens (\GetObjectAttributes' {attributeNames} -> attributeNames) (\s@GetObjectAttributes' {} a -> s {attributeNames = a} :: GetObjectAttributes) Prelude.. Lens._Coerce
+getObjectAttributes_attributeNames = Lens.lens (\GetObjectAttributes' {attributeNames} -> attributeNames) (\s@GetObjectAttributes' {} a -> s {attributeNames = a} :: GetObjectAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetObjectAttributes where
   type
@@ -206,7 +206,7 @@ newGetObjectAttributesResponse pHttpStatus_ =
 
 -- | The attributes that are associated with the object.
 getObjectAttributesResponse_attributes :: Lens.Lens' GetObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-getObjectAttributesResponse_attributes = Lens.lens (\GetObjectAttributesResponse' {attributes} -> attributes) (\s@GetObjectAttributesResponse' {} a -> s {attributes = a} :: GetObjectAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getObjectAttributesResponse_attributes = Lens.lens (\GetObjectAttributesResponse' {attributes} -> attributes) (\s@GetObjectAttributesResponse' {} a -> s {attributes = a} :: GetObjectAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getObjectAttributesResponse_httpStatus :: Lens.Lens' GetObjectAttributesResponse Prelude.Int

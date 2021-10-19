@@ -94,7 +94,7 @@ newTagCertificateAuthority
     TagCertificateAuthority'
       { certificateAuthorityArn =
           pCertificateAuthorityArn_,
-        tags = Lens._Coerce Lens.# pTags_
+        tags = Lens.coerced Lens.# pTags_
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
@@ -107,7 +107,7 @@ tagCertificateAuthority_certificateAuthorityArn = Lens.lens (\TagCertificateAuth
 
 -- | List of tags to be associated with the CA.
 tagCertificateAuthority_tags :: Lens.Lens' TagCertificateAuthority (Prelude.NonEmpty Tag)
-tagCertificateAuthority_tags = Lens.lens (\TagCertificateAuthority' {tags} -> tags) (\s@TagCertificateAuthority' {} a -> s {tags = a} :: TagCertificateAuthority) Prelude.. Lens._Coerce
+tagCertificateAuthority_tags = Lens.lens (\TagCertificateAuthority' {tags} -> tags) (\s@TagCertificateAuthority' {} a -> s {tags = a} :: TagCertificateAuthority) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagCertificateAuthority where
   type

@@ -33,10 +33,10 @@ data Image = Image'
   { -- | When a create, update, or delete operation fails, the reason for the
     -- failure.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The description of the image.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the image as displayed.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the image.
+    description :: Prelude.Maybe Prelude.Text,
     -- | When the image was created.
     creationTime :: Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the image.
@@ -61,9 +61,9 @@ data Image = Image'
 -- 'failureReason', 'image_failureReason' - When a create, update, or delete operation fails, the reason for the
 -- failure.
 --
--- 'description', 'image_description' - The description of the image.
---
 -- 'displayName', 'image_displayName' - The name of the image as displayed.
+--
+-- 'description', 'image_description' - The description of the image.
 --
 -- 'creationTime', 'image_creationTime' - When the image was created.
 --
@@ -94,8 +94,8 @@ newImage
   pLastModifiedTime_ =
     Image'
       { failureReason = Prelude.Nothing,
-        description = Prelude.Nothing,
         displayName = Prelude.Nothing,
+        description = Prelude.Nothing,
         creationTime = Core._Time Lens.# pCreationTime_,
         imageArn = pImageArn_,
         imageName = pImageName_,
@@ -109,13 +109,13 @@ newImage
 image_failureReason :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_failureReason = Lens.lens (\Image' {failureReason} -> failureReason) (\s@Image' {} a -> s {failureReason = a} :: Image)
 
--- | The description of the image.
-image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
-image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
-
 -- | The name of the image as displayed.
 image_displayName :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
 image_displayName = Lens.lens (\Image' {displayName} -> displayName) (\s@Image' {} a -> s {displayName = a} :: Image)
+
+-- | The description of the image.
+image_description :: Lens.Lens' Image (Prelude.Maybe Prelude.Text)
+image_description = Lens.lens (\Image' {description} -> description) (\s@Image' {} a -> s {description = a} :: Image)
 
 -- | When the image was created.
 image_creationTime :: Lens.Lens' Image Prelude.UTCTime
@@ -144,8 +144,8 @@ instance Core.FromJSON Image where
       ( \x ->
           Image'
             Prelude.<$> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..: "CreationTime")
             Prelude.<*> (x Core..: "ImageArn")
             Prelude.<*> (x Core..: "ImageName")

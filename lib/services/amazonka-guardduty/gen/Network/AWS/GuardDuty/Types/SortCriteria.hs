@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSortCriteria' smart constructor.
 data SortCriteria = SortCriteria'
-  { -- | Represents the finding attribute (for example, accountId) to sort
+  { -- | The order by which the sorted findings are to be displayed.
+    orderBy :: Prelude.Maybe OrderBy,
+    -- | Represents the finding attribute (for example, accountId) to sort
     -- findings by.
-    attributeName :: Prelude.Maybe Prelude.Text,
-    -- | The order by which the sorted findings are to be displayed.
-    orderBy :: Prelude.Maybe OrderBy
+    attributeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,26 +44,26 @@ data SortCriteria = SortCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'orderBy', 'sortCriteria_orderBy' - The order by which the sorted findings are to be displayed.
+--
 -- 'attributeName', 'sortCriteria_attributeName' - Represents the finding attribute (for example, accountId) to sort
 -- findings by.
---
--- 'orderBy', 'sortCriteria_orderBy' - The order by which the sorted findings are to be displayed.
 newSortCriteria ::
   SortCriteria
 newSortCriteria =
   SortCriteria'
-    { attributeName = Prelude.Nothing,
-      orderBy = Prelude.Nothing
+    { orderBy = Prelude.Nothing,
+      attributeName = Prelude.Nothing
     }
+
+-- | The order by which the sorted findings are to be displayed.
+sortCriteria_orderBy :: Lens.Lens' SortCriteria (Prelude.Maybe OrderBy)
+sortCriteria_orderBy = Lens.lens (\SortCriteria' {orderBy} -> orderBy) (\s@SortCriteria' {} a -> s {orderBy = a} :: SortCriteria)
 
 -- | Represents the finding attribute (for example, accountId) to sort
 -- findings by.
 sortCriteria_attributeName :: Lens.Lens' SortCriteria (Prelude.Maybe Prelude.Text)
 sortCriteria_attributeName = Lens.lens (\SortCriteria' {attributeName} -> attributeName) (\s@SortCriteria' {} a -> s {attributeName = a} :: SortCriteria)
-
--- | The order by which the sorted findings are to be displayed.
-sortCriteria_orderBy :: Lens.Lens' SortCriteria (Prelude.Maybe OrderBy)
-sortCriteria_orderBy = Lens.lens (\SortCriteria' {orderBy} -> orderBy) (\s@SortCriteria' {} a -> s {orderBy = a} :: SortCriteria)
 
 instance Prelude.Hashable SortCriteria
 
@@ -73,7 +73,7 @@ instance Core.ToJSON SortCriteria where
   toJSON SortCriteria' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("attributeName" Core..=) Prelude.<$> attributeName,
-            ("orderBy" Core..=) Prelude.<$> orderBy
+          [ ("orderBy" Core..=) Prelude.<$> orderBy,
+            ("attributeName" Core..=) Prelude.<$> attributeName
           ]
       )

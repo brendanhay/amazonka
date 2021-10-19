@@ -166,7 +166,7 @@ updateProtectionGroup_resourceType = Lens.lens (\UpdateProtectionGroup' {resourc
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
 updateProtectionGroup_members :: Lens.Lens' UpdateProtectionGroup (Prelude.Maybe [Prelude.Text])
-updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> members) (\s@UpdateProtectionGroup' {} a -> s {members = a} :: UpdateProtectionGroup) Prelude.. Lens.mapping Lens._Coerce
+updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> members) (\s@UpdateProtectionGroup' {} a -> s {members = a} :: UpdateProtectionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for

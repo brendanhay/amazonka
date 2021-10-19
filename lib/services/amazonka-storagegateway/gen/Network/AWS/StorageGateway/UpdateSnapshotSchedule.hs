@@ -157,7 +157,7 @@ updateSnapshotSchedule_description = Lens.lens (\UpdateSnapshotSchedule' {descri
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 updateSnapshotSchedule_tags :: Lens.Lens' UpdateSnapshotSchedule (Prelude.Maybe [Tag])
-updateSnapshotSchedule_tags = Lens.lens (\UpdateSnapshotSchedule' {tags} -> tags) (\s@UpdateSnapshotSchedule' {} a -> s {tags = a} :: UpdateSnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
+updateSnapshotSchedule_tags = Lens.lens (\UpdateSnapshotSchedule' {tags} -> tags) (\s@UpdateSnapshotSchedule' {} a -> s {tags = a} :: UpdateSnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.

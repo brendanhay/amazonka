@@ -127,7 +127,7 @@ newGeoRestriction pRestrictionType_ pQuantity_ =
 -- Standardization/ website. You can also refer to the country list on the
 -- CloudFront console, which includes both country names and codes.
 geoRestriction_items :: Lens.Lens' GeoRestriction (Prelude.Maybe [Prelude.Text])
-geoRestriction_items = Lens.lens (\GeoRestriction' {items} -> items) (\s@GeoRestriction' {} a -> s {items = a} :: GeoRestriction) Prelude.. Lens.mapping Lens._Coerce
+geoRestriction_items = Lens.lens (\GeoRestriction' {items} -> items) (\s@GeoRestriction' {} a -> s {items = a} :: GeoRestriction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The method that you want to use to restrict distribution of your content
 -- by country:

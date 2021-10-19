@@ -162,7 +162,7 @@ updateContainerInstancesState_cluster = Lens.lens (\UpdateContainerInstancesStat
 
 -- | A list of container instance IDs or full ARN entries.
 updateContainerInstancesState_containerInstances :: Lens.Lens' UpdateContainerInstancesState [Prelude.Text]
-updateContainerInstancesState_containerInstances = Lens.lens (\UpdateContainerInstancesState' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesState' {} a -> s {containerInstances = a} :: UpdateContainerInstancesState) Prelude.. Lens._Coerce
+updateContainerInstancesState_containerInstances = Lens.lens (\UpdateContainerInstancesState' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesState' {} a -> s {containerInstances = a} :: UpdateContainerInstancesState) Prelude.. Lens.coerced
 
 -- | The container instance state with which to update the container
 -- instance. The only valid values for this action are @ACTIVE@ and
@@ -269,11 +269,11 @@ newUpdateContainerInstancesStateResponse pHttpStatus_ =
 
 -- | Any failures associated with the call.
 updateContainerInstancesStateResponse_failures :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [Failure])
-updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens._Coerce
+updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of container instances.
 updateContainerInstancesStateResponse_containerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [ContainerInstance])
-updateContainerInstancesStateResponse_containerInstances = Lens.lens (\UpdateContainerInstancesStateResponse' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesStateResponse' {} a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens._Coerce
+updateContainerInstancesStateResponse_containerInstances = Lens.lens (\UpdateContainerInstancesStateResponse' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesStateResponse' {} a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateContainerInstancesStateResponse_httpStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Prelude.Int

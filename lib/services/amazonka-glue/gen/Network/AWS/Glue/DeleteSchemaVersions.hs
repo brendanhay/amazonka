@@ -205,7 +205,7 @@ newDeleteSchemaVersionsResponse pHttpStatus_ =
 -- | A list of @SchemaVersionErrorItem@ objects, each containing an error and
 -- schema version.
 deleteSchemaVersionsResponse_schemaVersionErrors :: Lens.Lens' DeleteSchemaVersionsResponse (Prelude.Maybe [SchemaVersionErrorItem])
-deleteSchemaVersionsResponse_schemaVersionErrors = Lens.lens (\DeleteSchemaVersionsResponse' {schemaVersionErrors} -> schemaVersionErrors) (\s@DeleteSchemaVersionsResponse' {} a -> s {schemaVersionErrors = a} :: DeleteSchemaVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteSchemaVersionsResponse_schemaVersionErrors = Lens.lens (\DeleteSchemaVersionsResponse' {schemaVersionErrors} -> schemaVersionErrors) (\s@DeleteSchemaVersionsResponse' {} a -> s {schemaVersionErrors = a} :: DeleteSchemaVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteSchemaVersionsResponse_httpStatus :: Lens.Lens' DeleteSchemaVersionsResponse Prelude.Int

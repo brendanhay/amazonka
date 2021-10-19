@@ -68,10 +68,10 @@ module Network.AWS.EC2.CreateSnapshot
     newCreateSnapshot,
 
     -- * Request Lenses
-    createSnapshot_tagSpecifications,
-    createSnapshot_dryRun,
     createSnapshot_outpostArn,
+    createSnapshot_tagSpecifications,
     createSnapshot_description,
+    createSnapshot_dryRun,
     createSnapshot_volumeId,
 
     -- * Destructuring the Response
@@ -79,10 +79,10 @@ module Network.AWS.EC2.CreateSnapshot
     newSnapshot,
 
     -- * Response Lenses
-    snapshot_ownerAlias,
     snapshot_stateMessage,
-    snapshot_outpostArn,
+    snapshot_ownerAlias,
     snapshot_dataEncryptionKeyId,
+    snapshot_outpostArn,
     snapshot_kmsKeyId,
     snapshot_tags,
     snapshot_snapshotId,
@@ -106,14 +106,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { -- | The tags to apply to the snapshot during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the Outpost on which to create a local
+  { -- | The Amazon Resource Name (ARN) of the Outpost on which to create a local
     -- snapshot.
     --
     -- -   To create a snapshot of a volume in a Region, omit this parameter.
@@ -131,8 +124,15 @@ data CreateSnapshot = CreateSnapshot'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     outpostArn :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the snapshot during creation.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A description for the snapshot.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Amazon EBS volume.
     volumeId :: Prelude.Text
   }
@@ -145,13 +145,6 @@ data CreateSnapshot = CreateSnapshot'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'tagSpecifications', 'createSnapshot_tagSpecifications' - The tags to apply to the snapshot during creation.
---
--- 'dryRun', 'createSnapshot_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'outpostArn', 'createSnapshot_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create a local
 -- snapshot.
@@ -171,7 +164,14 @@ data CreateSnapshot = CreateSnapshot'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot Create local snapshots from volumes on an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
+-- 'tagSpecifications', 'createSnapshot_tagSpecifications' - The tags to apply to the snapshot during creation.
+--
 -- 'description', 'createSnapshot_description' - A description for the snapshot.
+--
+-- 'dryRun', 'createSnapshot_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'volumeId', 'createSnapshot_volumeId' - The ID of the Amazon EBS volume.
 newCreateSnapshot ::
@@ -180,24 +180,12 @@ newCreateSnapshot ::
   CreateSnapshot
 newCreateSnapshot pVolumeId_ =
   CreateSnapshot'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
+    { outpostArn = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       volumeId = pVolumeId_
     }
-
--- | The tags to apply to the snapshot during creation.
-createSnapshot_tagSpecifications :: Lens.Lens' CreateSnapshot (Prelude.Maybe [TagSpecification])
-createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshot' {} a -> s {tagSpecifications = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createSnapshot_dryRun :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Bool)
-createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@CreateSnapshot' {} a -> s {dryRun = a} :: CreateSnapshot)
 
 -- | The Amazon Resource Name (ARN) of the Outpost on which to create a local
 -- snapshot.
@@ -219,9 +207,20 @@ createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@Crea
 createSnapshot_outpostArn :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_outpostArn = Lens.lens (\CreateSnapshot' {outpostArn} -> outpostArn) (\s@CreateSnapshot' {} a -> s {outpostArn = a} :: CreateSnapshot)
 
+-- | The tags to apply to the snapshot during creation.
+createSnapshot_tagSpecifications :: Lens.Lens' CreateSnapshot (Prelude.Maybe [TagSpecification])
+createSnapshot_tagSpecifications = Lens.lens (\CreateSnapshot' {tagSpecifications} -> tagSpecifications) (\s@CreateSnapshot' {} a -> s {tagSpecifications = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens.coerced
+
 -- | A description for the snapshot.
 createSnapshot_description :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_description = Lens.lens (\CreateSnapshot' {description} -> description) (\s@CreateSnapshot' {} a -> s {description = a} :: CreateSnapshot)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createSnapshot_dryRun :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Bool)
+createSnapshot_dryRun = Lens.lens (\CreateSnapshot' {dryRun} -> dryRun) (\s@CreateSnapshot' {} a -> s {dryRun = a} :: CreateSnapshot)
 
 -- | The ID of the Amazon EBS volume.
 createSnapshot_volumeId :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -250,12 +249,12 @@ instance Core.ToQuery CreateSnapshot where
           Core.=: ("CreateSnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "OutpostArn" Core.=: outpostArn,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
-        "OutpostArn" Core.=: outpostArn,
         "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "VolumeId" Core.=: volumeId
       ]

@@ -58,7 +58,7 @@ newThingTypeProperties =
 
 -- | A list of searchable thing attribute names.
 thingTypeProperties_searchableAttributes :: Lens.Lens' ThingTypeProperties (Prelude.Maybe [Prelude.Text])
-thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {searchableAttributes} -> searchableAttributes) (\s@ThingTypeProperties' {} a -> s {searchableAttributes = a} :: ThingTypeProperties) Prelude.. Lens.mapping Lens._Coerce
+thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {searchableAttributes} -> searchableAttributes) (\s@ThingTypeProperties' {} a -> s {searchableAttributes = a} :: ThingTypeProperties) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the thing type.
 thingTypeProperties_thingTypeDescription :: Lens.Lens' ThingTypeProperties (Prelude.Maybe Prelude.Text)

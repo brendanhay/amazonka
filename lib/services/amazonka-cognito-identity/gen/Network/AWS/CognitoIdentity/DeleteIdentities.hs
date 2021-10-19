@@ -74,12 +74,12 @@ newDeleteIdentities ::
 newDeleteIdentities pIdentityIdsToDelete_ =
   DeleteIdentities'
     { identityIdsToDelete =
-        Lens._Coerce Lens.# pIdentityIdsToDelete_
+        Lens.coerced Lens.# pIdentityIdsToDelete_
     }
 
 -- | A list of 1-60 identities that you want to delete.
 deleteIdentities_identityIdsToDelete :: Lens.Lens' DeleteIdentities (Prelude.NonEmpty Prelude.Text)
-deleteIdentities_identityIdsToDelete = Lens.lens (\DeleteIdentities' {identityIdsToDelete} -> identityIdsToDelete) (\s@DeleteIdentities' {} a -> s {identityIdsToDelete = a} :: DeleteIdentities) Prelude.. Lens._Coerce
+deleteIdentities_identityIdsToDelete = Lens.lens (\DeleteIdentities' {identityIdsToDelete} -> identityIdsToDelete) (\s@DeleteIdentities' {} a -> s {identityIdsToDelete = a} :: DeleteIdentities) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteIdentities where
   type
@@ -168,7 +168,7 @@ newDeleteIdentitiesResponse pHttpStatus_ =
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
 deleteIdentitiesResponse_unprocessedIdentityIds :: Lens.Lens' DeleteIdentitiesResponse (Prelude.Maybe [UnprocessedIdentityId])
-deleteIdentitiesResponse_unprocessedIdentityIds = Lens.lens (\DeleteIdentitiesResponse' {unprocessedIdentityIds} -> unprocessedIdentityIds) (\s@DeleteIdentitiesResponse' {} a -> s {unprocessedIdentityIds = a} :: DeleteIdentitiesResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteIdentitiesResponse_unprocessedIdentityIds = Lens.lens (\DeleteIdentitiesResponse' {unprocessedIdentityIds} -> unprocessedIdentityIds) (\s@DeleteIdentitiesResponse' {} a -> s {unprocessedIdentityIds = a} :: DeleteIdentitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteIdentitiesResponse_httpStatus :: Lens.Lens' DeleteIdentitiesResponse Prelude.Int

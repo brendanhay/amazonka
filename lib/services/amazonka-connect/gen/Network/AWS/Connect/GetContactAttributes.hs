@@ -162,7 +162,7 @@ newGetContactAttributesResponse pHttpStatus_ =
 
 -- | Information about the attributes.
 getContactAttributesResponse_attributes :: Lens.Lens' GetContactAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getContactAttributesResponse_attributes = Lens.lens (\GetContactAttributesResponse' {attributes} -> attributes) (\s@GetContactAttributesResponse' {} a -> s {attributes = a} :: GetContactAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getContactAttributesResponse_attributes = Lens.lens (\GetContactAttributesResponse' {attributes} -> attributes) (\s@GetContactAttributesResponse' {} a -> s {attributes = a} :: GetContactAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContactAttributesResponse_httpStatus :: Lens.Lens' GetContactAttributesResponse Prelude.Int

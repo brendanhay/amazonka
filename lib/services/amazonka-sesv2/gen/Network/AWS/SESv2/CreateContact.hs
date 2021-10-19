@@ -110,7 +110,7 @@ createContact_attributesData = Lens.lens (\CreateContact' {attributesData} -> at
 
 -- | The contact\'s preferences for being opted-in to or opted-out of topics.
 createContact_topicPreferences :: Lens.Lens' CreateContact (Prelude.Maybe [TopicPreference])
-createContact_topicPreferences = Lens.lens (\CreateContact' {topicPreferences} -> topicPreferences) (\s@CreateContact' {} a -> s {topicPreferences = a} :: CreateContact) Prelude.. Lens.mapping Lens._Coerce
+createContact_topicPreferences = Lens.lens (\CreateContact' {topicPreferences} -> topicPreferences) (\s@CreateContact' {} a -> s {topicPreferences = a} :: CreateContact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the contact list to which the contact should be added.
 createContact_contactListName :: Lens.Lens' CreateContact Prelude.Text

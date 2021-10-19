@@ -188,7 +188,7 @@ describeTagsResponse_resourceType = Lens.lens (\DescribeTagsResponse' {resourceT
 
 -- | A list of tags associated with the ML object.
 describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [Tag])
-describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

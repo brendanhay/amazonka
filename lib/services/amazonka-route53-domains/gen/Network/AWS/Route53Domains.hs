@@ -22,20 +22,20 @@ module Network.AWS.Route53Domains
     -- ** InvalidInput
     _InvalidInput,
 
-    -- ** UnsupportedTLD
-    _UnsupportedTLD,
-
-    -- ** DuplicateRequest
-    _DuplicateRequest,
+    -- ** OperationLimitExceeded
+    _OperationLimitExceeded,
 
     -- ** DomainLimitExceeded
     _DomainLimitExceeded,
 
-    -- ** OperationLimitExceeded
-    _OperationLimitExceeded,
+    -- ** UnsupportedTLD
+    _UnsupportedTLD,
 
     -- ** TLDRulesViolation
     _TLDRulesViolation,
+
+    -- ** DuplicateRequest
+    _DuplicateRequest,
 
     -- * Waiters
     -- $waiters
@@ -43,23 +43,23 @@ module Network.AWS.Route53Domains
     -- * Operations
     -- $operations
 
+    -- ** ListOperations (Paginated)
+    ListOperations (ListOperations'),
+    newListOperations,
+    ListOperationsResponse (ListOperationsResponse'),
+    newListOperationsResponse,
+
+    -- ** GetDomainDetail
+    GetDomainDetail (GetDomainDetail'),
+    newGetDomainDetail,
+    GetDomainDetailResponse (GetDomainDetailResponse'),
+    newGetDomainDetailResponse,
+
     -- ** CheckDomainTransferability
     CheckDomainTransferability (CheckDomainTransferability'),
     newCheckDomainTransferability,
     CheckDomainTransferabilityResponse (CheckDomainTransferabilityResponse'),
     newCheckDomainTransferabilityResponse,
-
-    -- ** CheckDomainAvailability
-    CheckDomainAvailability (CheckDomainAvailability'),
-    newCheckDomainAvailability,
-    CheckDomainAvailabilityResponse (CheckDomainAvailabilityResponse'),
-    newCheckDomainAvailabilityResponse,
-
-    -- ** TransferDomainToAnotherAwsAccount
-    TransferDomainToAnotherAwsAccount (TransferDomainToAnotherAwsAccount'),
-    newTransferDomainToAnotherAwsAccount,
-    TransferDomainToAnotherAwsAccountResponse (TransferDomainToAnotherAwsAccountResponse'),
-    newTransferDomainToAnotherAwsAccountResponse,
 
     -- ** UpdateDomainContactPrivacy
     UpdateDomainContactPrivacy (UpdateDomainContactPrivacy'),
@@ -67,17 +67,53 @@ module Network.AWS.Route53Domains
     UpdateDomainContactPrivacyResponse (UpdateDomainContactPrivacyResponse'),
     newUpdateDomainContactPrivacyResponse,
 
-    -- ** ListOperations (Paginated)
-    ListOperations (ListOperations'),
-    newListOperations,
-    ListOperationsResponse (ListOperationsResponse'),
-    newListOperationsResponse,
+    -- ** GetOperationDetail
+    GetOperationDetail (GetOperationDetail'),
+    newGetOperationDetail,
+    GetOperationDetailResponse (GetOperationDetailResponse'),
+    newGetOperationDetailResponse,
 
-    -- ** DisableDomainTransferLock
-    DisableDomainTransferLock (DisableDomainTransferLock'),
-    newDisableDomainTransferLock,
-    DisableDomainTransferLockResponse (DisableDomainTransferLockResponse'),
-    newDisableDomainTransferLockResponse,
+    -- ** RejectDomainTransferFromAnotherAwsAccount
+    RejectDomainTransferFromAnotherAwsAccount (RejectDomainTransferFromAnotherAwsAccount'),
+    newRejectDomainTransferFromAnotherAwsAccount,
+    RejectDomainTransferFromAnotherAwsAccountResponse (RejectDomainTransferFromAnotherAwsAccountResponse'),
+    newRejectDomainTransferFromAnotherAwsAccountResponse,
+
+    -- ** EnableDomainAutoRenew
+    EnableDomainAutoRenew (EnableDomainAutoRenew'),
+    newEnableDomainAutoRenew,
+    EnableDomainAutoRenewResponse (EnableDomainAutoRenewResponse'),
+    newEnableDomainAutoRenewResponse,
+
+    -- ** ResendContactReachabilityEmail
+    ResendContactReachabilityEmail (ResendContactReachabilityEmail'),
+    newResendContactReachabilityEmail,
+    ResendContactReachabilityEmailResponse (ResendContactReachabilityEmailResponse'),
+    newResendContactReachabilityEmailResponse,
+
+    -- ** DisableDomainAutoRenew
+    DisableDomainAutoRenew (DisableDomainAutoRenew'),
+    newDisableDomainAutoRenew,
+    DisableDomainAutoRenewResponse (DisableDomainAutoRenewResponse'),
+    newDisableDomainAutoRenewResponse,
+
+    -- ** RenewDomain
+    RenewDomain (RenewDomain'),
+    newRenewDomain,
+    RenewDomainResponse (RenewDomainResponse'),
+    newRenewDomainResponse,
+
+    -- ** ViewBilling (Paginated)
+    ViewBilling (ViewBilling'),
+    newViewBilling,
+    ViewBillingResponse (ViewBillingResponse'),
+    newViewBillingResponse,
+
+    -- ** UpdateDomainContact
+    UpdateDomainContact (UpdateDomainContact'),
+    newUpdateDomainContact,
+    UpdateDomainContactResponse (UpdateDomainContactResponse'),
+    newUpdateDomainContactResponse,
 
     -- ** EnableDomainTransferLock
     EnableDomainTransferLock (EnableDomainTransferLock'),
@@ -97,83 +133,23 @@ module Network.AWS.Route53Domains
     GetDomainSuggestionsResponse (GetDomainSuggestionsResponse'),
     newGetDomainSuggestionsResponse,
 
-    -- ** CancelDomainTransferToAnotherAwsAccount
-    CancelDomainTransferToAnotherAwsAccount (CancelDomainTransferToAnotherAwsAccount'),
-    newCancelDomainTransferToAnotherAwsAccount,
-    CancelDomainTransferToAnotherAwsAccountResponse (CancelDomainTransferToAnotherAwsAccountResponse'),
-    newCancelDomainTransferToAnotherAwsAccountResponse,
+    -- ** DisableDomainTransferLock
+    DisableDomainTransferLock (DisableDomainTransferLock'),
+    newDisableDomainTransferLock,
+    DisableDomainTransferLockResponse (DisableDomainTransferLockResponse'),
+    newDisableDomainTransferLockResponse,
 
-    -- ** ListDomains (Paginated)
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
+    -- ** CheckDomainAvailability
+    CheckDomainAvailability (CheckDomainAvailability'),
+    newCheckDomainAvailability,
+    CheckDomainAvailabilityResponse (CheckDomainAvailabilityResponse'),
+    newCheckDomainAvailabilityResponse,
 
-    -- ** ViewBilling (Paginated)
-    ViewBilling (ViewBilling'),
-    newViewBilling,
-    ViewBillingResponse (ViewBillingResponse'),
-    newViewBillingResponse,
-
-    -- ** UpdateTagsForDomain
-    UpdateTagsForDomain (UpdateTagsForDomain'),
-    newUpdateTagsForDomain,
-    UpdateTagsForDomainResponse (UpdateTagsForDomainResponse'),
-    newUpdateTagsForDomainResponse,
-
-    -- ** DeleteTagsForDomain
-    DeleteTagsForDomain (DeleteTagsForDomain'),
-    newDeleteTagsForDomain,
-    DeleteTagsForDomainResponse (DeleteTagsForDomainResponse'),
-    newDeleteTagsForDomainResponse,
-
-    -- ** ListTagsForDomain
-    ListTagsForDomain (ListTagsForDomain'),
-    newListTagsForDomain,
-    ListTagsForDomainResponse (ListTagsForDomainResponse'),
-    newListTagsForDomainResponse,
-
-    -- ** ResendContactReachabilityEmail
-    ResendContactReachabilityEmail (ResendContactReachabilityEmail'),
-    newResendContactReachabilityEmail,
-    ResendContactReachabilityEmailResponse (ResendContactReachabilityEmailResponse'),
-    newResendContactReachabilityEmailResponse,
-
-    -- ** DisableDomainAutoRenew
-    DisableDomainAutoRenew (DisableDomainAutoRenew'),
-    newDisableDomainAutoRenew,
-    DisableDomainAutoRenewResponse (DisableDomainAutoRenewResponse'),
-    newDisableDomainAutoRenewResponse,
-
-    -- ** UpdateDomainNameservers
-    UpdateDomainNameservers (UpdateDomainNameservers'),
-    newUpdateDomainNameservers,
-    UpdateDomainNameserversResponse (UpdateDomainNameserversResponse'),
-    newUpdateDomainNameserversResponse,
-
-    -- ** EnableDomainAutoRenew
-    EnableDomainAutoRenew (EnableDomainAutoRenew'),
-    newEnableDomainAutoRenew,
-    EnableDomainAutoRenewResponse (EnableDomainAutoRenewResponse'),
-    newEnableDomainAutoRenewResponse,
-
-    -- ** GetContactReachabilityStatus
-    GetContactReachabilityStatus (GetContactReachabilityStatus'),
-    newGetContactReachabilityStatus,
-    GetContactReachabilityStatusResponse (GetContactReachabilityStatusResponse'),
-    newGetContactReachabilityStatusResponse,
-
-    -- ** RejectDomainTransferFromAnotherAwsAccount
-    RejectDomainTransferFromAnotherAwsAccount (RejectDomainTransferFromAnotherAwsAccount'),
-    newRejectDomainTransferFromAnotherAwsAccount,
-    RejectDomainTransferFromAnotherAwsAccountResponse (RejectDomainTransferFromAnotherAwsAccountResponse'),
-    newRejectDomainTransferFromAnotherAwsAccountResponse,
-
-    -- ** GetOperationDetail
-    GetOperationDetail (GetOperationDetail'),
-    newGetOperationDetail,
-    GetOperationDetailResponse (GetOperationDetailResponse'),
-    newGetOperationDetailResponse,
+    -- ** TransferDomainToAnotherAwsAccount
+    TransferDomainToAnotherAwsAccount (TransferDomainToAnotherAwsAccount'),
+    newTransferDomainToAnotherAwsAccount,
+    TransferDomainToAnotherAwsAccountResponse (TransferDomainToAnotherAwsAccountResponse'),
+    newTransferDomainToAnotherAwsAccountResponse,
 
     -- ** AcceptDomainTransferFromAnotherAwsAccount
     AcceptDomainTransferFromAnotherAwsAccount (AcceptDomainTransferFromAnotherAwsAccount'),
@@ -181,23 +157,41 @@ module Network.AWS.Route53Domains
     AcceptDomainTransferFromAnotherAwsAccountResponse (AcceptDomainTransferFromAnotherAwsAccountResponse'),
     newAcceptDomainTransferFromAnotherAwsAccountResponse,
 
-    -- ** GetDomainDetail
-    GetDomainDetail (GetDomainDetail'),
-    newGetDomainDetail,
-    GetDomainDetailResponse (GetDomainDetailResponse'),
-    newGetDomainDetailResponse,
+    -- ** GetContactReachabilityStatus
+    GetContactReachabilityStatus (GetContactReachabilityStatus'),
+    newGetContactReachabilityStatus,
+    GetContactReachabilityStatusResponse (GetContactReachabilityStatusResponse'),
+    newGetContactReachabilityStatusResponse,
 
-    -- ** UpdateDomainContact
-    UpdateDomainContact (UpdateDomainContact'),
-    newUpdateDomainContact,
-    UpdateDomainContactResponse (UpdateDomainContactResponse'),
-    newUpdateDomainContactResponse,
+    -- ** ListTagsForDomain
+    ListTagsForDomain (ListTagsForDomain'),
+    newListTagsForDomain,
+    ListTagsForDomainResponse (ListTagsForDomainResponse'),
+    newListTagsForDomainResponse,
 
-    -- ** RenewDomain
-    RenewDomain (RenewDomain'),
-    newRenewDomain,
-    RenewDomainResponse (RenewDomainResponse'),
-    newRenewDomainResponse,
+    -- ** UpdateDomainNameservers
+    UpdateDomainNameservers (UpdateDomainNameservers'),
+    newUpdateDomainNameservers,
+    UpdateDomainNameserversResponse (UpdateDomainNameserversResponse'),
+    newUpdateDomainNameserversResponse,
+
+    -- ** DeleteTagsForDomain
+    DeleteTagsForDomain (DeleteTagsForDomain'),
+    newDeleteTagsForDomain,
+    DeleteTagsForDomainResponse (DeleteTagsForDomainResponse'),
+    newDeleteTagsForDomainResponse,
+
+    -- ** UpdateTagsForDomain
+    UpdateTagsForDomain (UpdateTagsForDomain'),
+    newUpdateTagsForDomain,
+    UpdateTagsForDomainResponse (UpdateTagsForDomainResponse'),
+    newUpdateTagsForDomainResponse,
+
+    -- ** RetrieveDomainAuthCode
+    RetrieveDomainAuthCode (RetrieveDomainAuthCode'),
+    newRetrieveDomainAuthCode,
+    RetrieveDomainAuthCodeResponse (RetrieveDomainAuthCodeResponse'),
+    newRetrieveDomainAuthCodeResponse,
 
     -- ** TransferDomain
     TransferDomain (TransferDomain'),
@@ -205,11 +199,17 @@ module Network.AWS.Route53Domains
     TransferDomainResponse (TransferDomainResponse'),
     newTransferDomainResponse,
 
-    -- ** RetrieveDomainAuthCode
-    RetrieveDomainAuthCode (RetrieveDomainAuthCode'),
-    newRetrieveDomainAuthCode,
-    RetrieveDomainAuthCodeResponse (RetrieveDomainAuthCodeResponse'),
-    newRetrieveDomainAuthCodeResponse,
+    -- ** ListDomains (Paginated)
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
+
+    -- ** CancelDomainTransferToAnotherAwsAccount
+    CancelDomainTransferToAnotherAwsAccount (CancelDomainTransferToAnotherAwsAccount'),
+    newCancelDomainTransferToAnotherAwsAccount,
+    CancelDomainTransferToAnotherAwsAccountResponse (CancelDomainTransferToAnotherAwsAccountResponse'),
+    newCancelDomainTransferToAnotherAwsAccountResponse,
 
     -- * Types
 

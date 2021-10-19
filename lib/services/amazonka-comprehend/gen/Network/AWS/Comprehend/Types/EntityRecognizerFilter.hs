@@ -33,13 +33,13 @@ data EntityRecognizerFilter = EntityRecognizerFilter'
   { -- | The status of an entity recognizer.
     status :: Prelude.Maybe ModelStatus,
     -- | Filters the list of entities based on the time that the list was
-    -- submitted for processing. Returns only jobs submitted before the
-    -- specified time. Jobs are returned in descending order, newest to oldest.
-    submitTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Filters the list of entities based on the time that the list was
     -- submitted for processing. Returns only jobs submitted after the
     -- specified time. Jobs are returned in ascending order, oldest to newest.
     submitTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | Filters the list of entities based on the time that the list was
+    -- submitted for processing. Returns only jobs submitted before the
+    -- specified time. Jobs are returned in descending order, newest to oldest.
+    submitTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The name that you assigned the entity recognizer.
     recognizerName :: Prelude.Maybe Prelude.Text
   }
@@ -55,13 +55,13 @@ data EntityRecognizerFilter = EntityRecognizerFilter'
 --
 -- 'status', 'entityRecognizerFilter_status' - The status of an entity recognizer.
 --
--- 'submitTimeBefore', 'entityRecognizerFilter_submitTimeBefore' - Filters the list of entities based on the time that the list was
--- submitted for processing. Returns only jobs submitted before the
--- specified time. Jobs are returned in descending order, newest to oldest.
---
 -- 'submitTimeAfter', 'entityRecognizerFilter_submitTimeAfter' - Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted after the
 -- specified time. Jobs are returned in ascending order, oldest to newest.
+--
+-- 'submitTimeBefore', 'entityRecognizerFilter_submitTimeBefore' - Filters the list of entities based on the time that the list was
+-- submitted for processing. Returns only jobs submitted before the
+-- specified time. Jobs are returned in descending order, newest to oldest.
 --
 -- 'recognizerName', 'entityRecognizerFilter_recognizerName' - The name that you assigned the entity recognizer.
 newEntityRecognizerFilter ::
@@ -69,8 +69,8 @@ newEntityRecognizerFilter ::
 newEntityRecognizerFilter =
   EntityRecognizerFilter'
     { status = Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
       submitTimeAfter = Prelude.Nothing,
+      submitTimeBefore = Prelude.Nothing,
       recognizerName = Prelude.Nothing
     }
 
@@ -79,16 +79,16 @@ entityRecognizerFilter_status :: Lens.Lens' EntityRecognizerFilter (Prelude.Mayb
 entityRecognizerFilter_status = Lens.lens (\EntityRecognizerFilter' {status} -> status) (\s@EntityRecognizerFilter' {} a -> s {status = a} :: EntityRecognizerFilter)
 
 -- | Filters the list of entities based on the time that the list was
--- submitted for processing. Returns only jobs submitted before the
--- specified time. Jobs are returned in descending order, newest to oldest.
-entityRecognizerFilter_submitTimeBefore :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EntityRecognizerFilter' {} a -> s {submitTimeBefore = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
-
--- | Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted after the
 -- specified time. Jobs are returned in ascending order, oldest to newest.
 entityRecognizerFilter_submitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
 entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntityRecognizerFilter' {} a -> s {submitTimeAfter = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
+
+-- | Filters the list of entities based on the time that the list was
+-- submitted for processing. Returns only jobs submitted before the
+-- specified time. Jobs are returned in descending order, newest to oldest.
+entityRecognizerFilter_submitTimeBefore :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
+entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EntityRecognizerFilter' {} a -> s {submitTimeBefore = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Core._Time
 
 -- | The name that you assigned the entity recognizer.
 entityRecognizerFilter_recognizerName :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.Text)
@@ -103,10 +103,10 @@ instance Core.ToJSON EntityRecognizerFilter where
     Core.object
       ( Prelude.catMaybes
           [ ("Status" Core..=) Prelude.<$> status,
-            ("SubmitTimeBefore" Core..=)
-              Prelude.<$> submitTimeBefore,
             ("SubmitTimeAfter" Core..=)
               Prelude.<$> submitTimeAfter,
+            ("SubmitTimeBefore" Core..=)
+              Prelude.<$> submitTimeBefore,
             ("RecognizerName" Core..=)
               Prelude.<$> recognizerName
           ]

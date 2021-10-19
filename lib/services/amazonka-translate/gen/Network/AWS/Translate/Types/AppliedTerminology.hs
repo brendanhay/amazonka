@@ -71,7 +71,7 @@ newAppliedTerminology =
 -- terms will be returned, and the specific terms applied will be the first
 -- 250 terms in the source text.
 appliedTerminology_terms :: Lens.Lens' AppliedTerminology (Prelude.Maybe [Term])
-appliedTerminology_terms = Lens.lens (\AppliedTerminology' {terms} -> terms) (\s@AppliedTerminology' {} a -> s {terms = a} :: AppliedTerminology) Prelude.. Lens.mapping Lens._Coerce
+appliedTerminology_terms = Lens.lens (\AppliedTerminology' {terms} -> terms) (\s@AppliedTerminology' {} a -> s {terms = a} :: AppliedTerminology) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the custom terminology applied to the input text by Amazon
 -- Translate for the translated text response.

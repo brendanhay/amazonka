@@ -75,7 +75,7 @@ pipelineObject_name = Lens.lens (\PipelineObject' {name} -> name) (\s@PipelineOb
 
 -- | Key-value pairs that define the properties of the object.
 pipelineObject_fields :: Lens.Lens' PipelineObject [Field]
-pipelineObject_fields = Lens.lens (\PipelineObject' {fields} -> fields) (\s@PipelineObject' {} a -> s {fields = a} :: PipelineObject) Prelude.. Lens._Coerce
+pipelineObject_fields = Lens.lens (\PipelineObject' {fields} -> fields) (\s@PipelineObject' {} a -> s {fields = a} :: PipelineObject) Prelude.. Lens.coerced
 
 instance Core.FromJSON PipelineObject where
   parseJSON =

@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists gateways owned by an account in an Region specified in the
--- request. The returned list is ordered by gateway Amazon Resource Name
--- (ARN).
+-- Lists gateways owned by an Amazon Web Services account in an Amazon Web
+-- Services Region specified in the request. The returned list is ordered
+-- by gateway Amazon Resource Name (ARN).
 --
 -- By default, the operation returns a maximum of 100 gateways. This
 -- operation supports pagination that allows you to optionally reduce the
@@ -221,7 +221,7 @@ listGatewaysResponse_marker = Lens.lens (\ListGatewaysResponse' {marker} -> mark
 
 -- | An array of GatewayInfo objects.
 listGatewaysResponse_gateways :: Lens.Lens' ListGatewaysResponse (Prelude.Maybe [GatewayInfo])
-listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
+listGatewaysResponse_gateways = Lens.lens (\ListGatewaysResponse' {gateways} -> gateways) (\s@ListGatewaysResponse' {} a -> s {gateways = a} :: ListGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGatewaysResponse_httpStatus :: Lens.Lens' ListGatewaysResponse Prelude.Int

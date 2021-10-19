@@ -27,8 +27,8 @@ module Network.AWS.Glue.UpdateTable
     newUpdateTable,
 
     -- * Request Lenses
-    updateTable_catalogId,
     updateTable_skipArchive,
+    updateTable_catalogId,
     updateTable_databaseName,
     updateTable_tableInput,
 
@@ -50,13 +50,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { -- | The ID of the Data Catalog where the table resides. If none is provided,
-    -- the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | By default, @UpdateTable@ always creates an archived version of the
+  { -- | By default, @UpdateTable@ always creates an archived version of the
     -- table before updating it. However, if @skipArchive@ is set to true,
     -- @UpdateTable@ does not create the archived version.
     skipArchive :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the Data Catalog where the table resides. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -74,12 +74,12 @@ data UpdateTable = UpdateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'updateTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
--- the Amazon Web Services account ID is used by default.
---
 -- 'skipArchive', 'updateTable_skipArchive' - By default, @UpdateTable@ always creates an archived version of the
 -- table before updating it. However, if @skipArchive@ is set to true,
 -- @UpdateTable@ does not create the archived version.
+--
+-- 'catalogId', 'updateTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'updateTable_databaseName' - The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -94,22 +94,22 @@ newUpdateTable ::
   UpdateTable
 newUpdateTable pDatabaseName_ pTableInput_ =
   UpdateTable'
-    { catalogId = Prelude.Nothing,
-      skipArchive = Prelude.Nothing,
+    { skipArchive = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableInput = pTableInput_
     }
-
--- | The ID of the Data Catalog where the table resides. If none is provided,
--- the Amazon Web Services account ID is used by default.
-updateTable_catalogId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
-updateTable_catalogId = Lens.lens (\UpdateTable' {catalogId} -> catalogId) (\s@UpdateTable' {} a -> s {catalogId = a} :: UpdateTable)
 
 -- | By default, @UpdateTable@ always creates an archived version of the
 -- table before updating it. However, if @skipArchive@ is set to true,
 -- @UpdateTable@ does not create the archived version.
 updateTable_skipArchive :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Bool)
 updateTable_skipArchive = Lens.lens (\UpdateTable' {skipArchive} -> skipArchive) (\s@UpdateTable' {} a -> s {skipArchive = a} :: UpdateTable)
+
+-- | The ID of the Data Catalog where the table resides. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+updateTable_catalogId :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Text)
+updateTable_catalogId = Lens.lens (\UpdateTable' {catalogId} -> catalogId) (\s@UpdateTable' {} a -> s {catalogId = a} :: UpdateTable)
 
 -- | The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -152,8 +152,8 @@ instance Core.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("SkipArchive" Core..=) Prelude.<$> skipArchive,
+          [ ("SkipArchive" Core..=) Prelude.<$> skipArchive,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableInput" Core..= tableInput)
           ]

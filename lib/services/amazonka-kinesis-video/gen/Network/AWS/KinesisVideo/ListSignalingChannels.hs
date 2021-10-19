@@ -40,8 +40,8 @@ module Network.AWS.KinesisVideo.ListSignalingChannels
     newListSignalingChannelsResponse,
 
     -- * Response Lenses
-    listSignalingChannelsResponse_nextToken,
     listSignalingChannelsResponse_channelInfoList,
+    listSignalingChannelsResponse_nextToken,
     listSignalingChannelsResponse_httpStatus,
   )
 where
@@ -142,10 +142,10 @@ instance Core.AWSRequest ListSignalingChannels where
     Response.receiveJSON
       ( \s h x ->
           ListSignalingChannelsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ChannelInfoList"
+            Prelude.<$> ( x Core..?> "ChannelInfoList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,12 +175,12 @@ instance Core.ToQuery ListSignalingChannels where
 
 -- | /See:/ 'newListSignalingChannelsResponse' smart constructor.
 data ListSignalingChannelsResponse = ListSignalingChannelsResponse'
-  { -- | If the response is truncated, the call returns this element with a
+  { -- | An array of @ChannelInfo@ objects.
+    channelInfoList :: Prelude.Maybe [ChannelInfo],
+    -- | If the response is truncated, the call returns this element with a
     -- token. To get the next batch of streams, use this token in your next
     -- request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ChannelInfo@ objects.
-    channelInfoList :: Prelude.Maybe [ChannelInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,11 +194,11 @@ data ListSignalingChannelsResponse = ListSignalingChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'channelInfoList', 'listSignalingChannelsResponse_channelInfoList' - An array of @ChannelInfo@ objects.
+--
 -- 'nextToken', 'listSignalingChannelsResponse_nextToken' - If the response is truncated, the call returns this element with a
 -- token. To get the next batch of streams, use this token in your next
 -- request.
---
--- 'channelInfoList', 'listSignalingChannelsResponse_channelInfoList' - An array of @ChannelInfo@ objects.
 --
 -- 'httpStatus', 'listSignalingChannelsResponse_httpStatus' - The response's http status code.
 newListSignalingChannelsResponse ::
@@ -207,21 +207,21 @@ newListSignalingChannelsResponse ::
   ListSignalingChannelsResponse
 newListSignalingChannelsResponse pHttpStatus_ =
   ListSignalingChannelsResponse'
-    { nextToken =
+    { channelInfoList =
         Prelude.Nothing,
-      channelInfoList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @ChannelInfo@ objects.
+listSignalingChannelsResponse_channelInfoList :: Lens.Lens' ListSignalingChannelsResponse (Prelude.Maybe [ChannelInfo])
+listSignalingChannelsResponse_channelInfoList = Lens.lens (\ListSignalingChannelsResponse' {channelInfoList} -> channelInfoList) (\s@ListSignalingChannelsResponse' {} a -> s {channelInfoList = a} :: ListSignalingChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, the call returns this element with a
 -- token. To get the next batch of streams, use this token in your next
 -- request.
 listSignalingChannelsResponse_nextToken :: Lens.Lens' ListSignalingChannelsResponse (Prelude.Maybe Prelude.Text)
 listSignalingChannelsResponse_nextToken = Lens.lens (\ListSignalingChannelsResponse' {nextToken} -> nextToken) (\s@ListSignalingChannelsResponse' {} a -> s {nextToken = a} :: ListSignalingChannelsResponse)
-
--- | An array of @ChannelInfo@ objects.
-listSignalingChannelsResponse_channelInfoList :: Lens.Lens' ListSignalingChannelsResponse (Prelude.Maybe [ChannelInfo])
-listSignalingChannelsResponse_channelInfoList = Lens.lens (\ListSignalingChannelsResponse' {channelInfoList} -> channelInfoList) (\s@ListSignalingChannelsResponse' {} a -> s {channelInfoList = a} :: ListSignalingChannelsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listSignalingChannelsResponse_httpStatus :: Lens.Lens' ListSignalingChannelsResponse Prelude.Int

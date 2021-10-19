@@ -32,8 +32,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDesiredConfiguration' smart constructor.
 data DesiredConfiguration = DesiredConfiguration'
-  { launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
-    mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy
+  { mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy,
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data DesiredConfiguration = DesiredConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplate', 'desiredConfiguration_launchTemplate' - Undocumented member.
---
 -- 'mixedInstancesPolicy', 'desiredConfiguration_mixedInstancesPolicy' - Undocumented member.
+--
+-- 'launchTemplate', 'desiredConfiguration_launchTemplate' - Undocumented member.
 newDesiredConfiguration ::
   DesiredConfiguration
 newDesiredConfiguration =
   DesiredConfiguration'
-    { launchTemplate =
+    { mixedInstancesPolicy =
         Prelude.Nothing,
-      mixedInstancesPolicy = Prelude.Nothing
+      launchTemplate = Prelude.Nothing
     }
-
--- | Undocumented member.
-desiredConfiguration_launchTemplate :: Lens.Lens' DesiredConfiguration (Prelude.Maybe LaunchTemplateSpecification)
-desiredConfiguration_launchTemplate = Lens.lens (\DesiredConfiguration' {launchTemplate} -> launchTemplate) (\s@DesiredConfiguration' {} a -> s {launchTemplate = a} :: DesiredConfiguration)
 
 -- | Undocumented member.
 desiredConfiguration_mixedInstancesPolicy :: Lens.Lens' DesiredConfiguration (Prelude.Maybe MixedInstancesPolicy)
 desiredConfiguration_mixedInstancesPolicy = Lens.lens (\DesiredConfiguration' {mixedInstancesPolicy} -> mixedInstancesPolicy) (\s@DesiredConfiguration' {} a -> s {mixedInstancesPolicy = a} :: DesiredConfiguration)
 
+-- | Undocumented member.
+desiredConfiguration_launchTemplate :: Lens.Lens' DesiredConfiguration (Prelude.Maybe LaunchTemplateSpecification)
+desiredConfiguration_launchTemplate = Lens.lens (\DesiredConfiguration' {launchTemplate} -> launchTemplate) (\s@DesiredConfiguration' {} a -> s {launchTemplate = a} :: DesiredConfiguration)
+
 instance Core.FromXML DesiredConfiguration where
   parseXML x =
     DesiredConfiguration'
-      Prelude.<$> (x Core..@? "LaunchTemplate")
-      Prelude.<*> (x Core..@? "MixedInstancesPolicy")
+      Prelude.<$> (x Core..@? "MixedInstancesPolicy")
+      Prelude.<*> (x Core..@? "LaunchTemplate")
 
 instance Prelude.Hashable DesiredConfiguration
 
@@ -78,6 +78,6 @@ instance Prelude.NFData DesiredConfiguration
 instance Core.ToQuery DesiredConfiguration where
   toQuery DesiredConfiguration' {..} =
     Prelude.mconcat
-      [ "LaunchTemplate" Core.=: launchTemplate,
-        "MixedInstancesPolicy" Core.=: mixedInstancesPolicy
+      [ "MixedInstancesPolicy" Core.=: mixedInstancesPolicy,
+        "LaunchTemplate" Core.=: launchTemplate
       ]

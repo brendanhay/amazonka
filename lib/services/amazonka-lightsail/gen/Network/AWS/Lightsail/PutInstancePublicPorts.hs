@@ -93,7 +93,7 @@ newPutInstancePublicPorts pInstanceName_ =
 -- | An array of objects to describe the ports to open for the specified
 -- instance.
 putInstancePublicPorts_portInfos :: Lens.Lens' PutInstancePublicPorts [PortInfo]
-putInstancePublicPorts_portInfos = Lens.lens (\PutInstancePublicPorts' {portInfos} -> portInfos) (\s@PutInstancePublicPorts' {} a -> s {portInfos = a} :: PutInstancePublicPorts) Prelude.. Lens._Coerce
+putInstancePublicPorts_portInfos = Lens.lens (\PutInstancePublicPorts' {portInfos} -> portInfos) (\s@PutInstancePublicPorts' {} a -> s {portInfos = a} :: PutInstancePublicPorts) Prelude.. Lens.coerced
 
 -- | The name of the instance for which to open ports.
 putInstancePublicPorts_instanceName :: Lens.Lens' PutInstancePublicPorts Prelude.Text

@@ -48,7 +48,7 @@ newStaticValue =
 
 -- | A list of values. For example, the ARN of the assumed role.
 staticValue_values :: Lens.Lens' StaticValue [Prelude.Text]
-staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Prelude.. Lens._Coerce
+staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Prelude.. Lens.coerced
 
 instance Core.FromJSON StaticValue where
   parseJSON =

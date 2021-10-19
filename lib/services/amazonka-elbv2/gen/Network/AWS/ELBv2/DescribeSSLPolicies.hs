@@ -36,17 +36,18 @@ module Network.AWS.ELBv2.DescribeSSLPolicies
     newDescribeSSLPolicies,
 
     -- * Request Lenses
+    describeSSLPolicies_loadBalancerType,
     describeSSLPolicies_names,
-    describeSSLPolicies_pageSize,
     describeSSLPolicies_marker,
+    describeSSLPolicies_pageSize,
 
     -- * Destructuring the Response
     DescribeSSLPoliciesResponse (..),
     newDescribeSSLPoliciesResponse,
 
     -- * Response Lenses
-    describeSSLPoliciesResponse_nextMarker,
     describeSSLPoliciesResponse_sslPolicies,
+    describeSSLPoliciesResponse_nextMarker,
     describeSSLPoliciesResponse_httpStatus,
   )
 where
@@ -60,13 +61,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
-  { -- | The names of the policies.
+  { -- | The type of load balancer. The default lists the SSL policies for all
+    -- load balancers.
+    loadBalancerType :: Prelude.Maybe LoadBalancerTypeEnum,
+    -- | The names of the policies.
     names :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,33 +82,43 @@ data DescribeSSLPolicies = DescribeSSLPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'describeSSLPolicies_names' - The names of the policies.
+-- 'loadBalancerType', 'describeSSLPolicies_loadBalancerType' - The type of load balancer. The default lists the SSL policies for all
+-- load balancers.
 --
--- 'pageSize', 'describeSSLPolicies_pageSize' - The maximum number of results to return with this call.
+-- 'names', 'describeSSLPolicies_names' - The names of the policies.
 --
 -- 'marker', 'describeSSLPolicies_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'pageSize', 'describeSSLPolicies_pageSize' - The maximum number of results to return with this call.
 newDescribeSSLPolicies ::
   DescribeSSLPolicies
 newDescribeSSLPolicies =
   DescribeSSLPolicies'
-    { names = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { loadBalancerType =
+        Prelude.Nothing,
+      names = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
+
+-- | The type of load balancer. The default lists the SSL policies for all
+-- load balancers.
+describeSSLPolicies_loadBalancerType :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe LoadBalancerTypeEnum)
+describeSSLPolicies_loadBalancerType = Lens.lens (\DescribeSSLPolicies' {loadBalancerType} -> loadBalancerType) (\s@DescribeSSLPolicies' {} a -> s {loadBalancerType = a} :: DescribeSSLPolicies)
 
 -- | The names of the policies.
 describeSSLPolicies_names :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe [Prelude.Text])
-describeSSLPolicies_names = Lens.lens (\DescribeSSLPolicies' {names} -> names) (\s@DescribeSSLPolicies' {} a -> s {names = a} :: DescribeSSLPolicies) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results to return with this call.
-describeSSLPolicies_pageSize :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Natural)
-describeSSLPolicies_pageSize = Lens.lens (\DescribeSSLPolicies' {pageSize} -> pageSize) (\s@DescribeSSLPolicies' {} a -> s {pageSize = a} :: DescribeSSLPolicies)
+describeSSLPolicies_names = Lens.lens (\DescribeSSLPolicies' {names} -> names) (\s@DescribeSSLPolicies' {} a -> s {names = a} :: DescribeSSLPolicies) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeSSLPolicies_marker :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Text)
 describeSSLPolicies_marker = Lens.lens (\DescribeSSLPolicies' {marker} -> marker) (\s@DescribeSSLPolicies' {} a -> s {marker = a} :: DescribeSSLPolicies)
+
+-- | The maximum number of results to return with this call.
+describeSSLPolicies_pageSize :: Lens.Lens' DescribeSSLPolicies (Prelude.Maybe Prelude.Natural)
+describeSSLPolicies_pageSize = Lens.lens (\DescribeSSLPolicies' {pageSize} -> pageSize) (\s@DescribeSSLPolicies' {} a -> s {pageSize = a} :: DescribeSSLPolicies)
 
 instance Core.AWSPager DescribeSSLPolicies where
   page rq rs
@@ -138,10 +152,10 @@ instance Core.AWSRequest DescribeSSLPolicies where
       "DescribeSSLPoliciesResult"
       ( \s h x ->
           DescribeSSLPoliciesResponse'
-            Prelude.<$> (x Core..@? "NextMarker")
-            Prelude.<*> ( x Core..@? "SslPolicies" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "SslPolicies" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,20 +176,21 @@ instance Core.ToQuery DescribeSSLPolicies where
           Core.=: ("DescribeSSLPolicies" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
+        "LoadBalancerType" Core.=: loadBalancerType,
         "Names"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> names),
-        "PageSize" Core.=: pageSize,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "PageSize" Core.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
-  { -- | If there are additional results, this is the marker for the next set of
+  { -- | Information about the security policies.
+    sslPolicies :: Prelude.Maybe [SslPolicy],
+    -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Information about the security policies.
-    sslPolicies :: Prelude.Maybe [SslPolicy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +204,10 @@ data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sslPolicies', 'describeSSLPoliciesResponse_sslPolicies' - Information about the security policies.
+--
 -- 'nextMarker', 'describeSSLPoliciesResponse_nextMarker' - If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
---
--- 'sslPolicies', 'describeSSLPoliciesResponse_sslPolicies' - Information about the security policies.
 --
 -- 'httpStatus', 'describeSSLPoliciesResponse_httpStatus' - The response's http status code.
 newDescribeSSLPoliciesResponse ::
@@ -201,20 +216,20 @@ newDescribeSSLPoliciesResponse ::
   DescribeSSLPoliciesResponse
 newDescribeSSLPoliciesResponse pHttpStatus_ =
   DescribeSSLPoliciesResponse'
-    { nextMarker =
+    { sslPolicies =
         Prelude.Nothing,
-      sslPolicies = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the security policies.
+describeSSLPoliciesResponse_sslPolicies :: Lens.Lens' DescribeSSLPoliciesResponse (Prelude.Maybe [SslPolicy])
+describeSSLPoliciesResponse_sslPolicies = Lens.lens (\DescribeSSLPoliciesResponse' {sslPolicies} -> sslPolicies) (\s@DescribeSSLPoliciesResponse' {} a -> s {sslPolicies = a} :: DescribeSSLPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
 describeSSLPoliciesResponse_nextMarker :: Lens.Lens' DescribeSSLPoliciesResponse (Prelude.Maybe Prelude.Text)
 describeSSLPoliciesResponse_nextMarker = Lens.lens (\DescribeSSLPoliciesResponse' {nextMarker} -> nextMarker) (\s@DescribeSSLPoliciesResponse' {} a -> s {nextMarker = a} :: DescribeSSLPoliciesResponse)
-
--- | Information about the security policies.
-describeSSLPoliciesResponse_sslPolicies :: Lens.Lens' DescribeSSLPoliciesResponse (Prelude.Maybe [SslPolicy])
-describeSSLPoliciesResponse_sslPolicies = Lens.lens (\DescribeSSLPoliciesResponse' {sslPolicies} -> sslPolicies) (\s@DescribeSSLPoliciesResponse' {} a -> s {sslPolicies = a} :: DescribeSSLPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeSSLPoliciesResponse_httpStatus :: Lens.Lens' DescribeSSLPoliciesResponse Prelude.Int

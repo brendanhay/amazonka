@@ -14,164 +14,107 @@
 module Network.AWS.CloudWatchLogs.Lens
   ( -- * Operations
 
-    -- ** DescribeExportTasks
-    describeExportTasks_nextToken,
-    describeExportTasks_taskId,
-    describeExportTasks_statusCode,
-    describeExportTasks_limit,
-    describeExportTasksResponse_nextToken,
-    describeExportTasksResponse_exportTasks,
-    describeExportTasksResponse_httpStatus,
-
-    -- ** GetLogRecord
-    getLogRecord_logRecordPointer,
-    getLogRecordResponse_logRecord,
-    getLogRecordResponse_httpStatus,
-
-    -- ** CreateLogStream
-    createLogStream_logGroupName,
-    createLogStream_logStreamName,
-
-    -- ** DescribeResourcePolicies
-    describeResourcePolicies_nextToken,
-    describeResourcePolicies_limit,
-    describeResourcePoliciesResponse_nextToken,
-    describeResourcePoliciesResponse_resourcePolicies,
-    describeResourcePoliciesResponse_httpStatus,
-
-    -- ** DescribeQueryDefinitions
-    describeQueryDefinitions_nextToken,
-    describeQueryDefinitions_maxResults,
-    describeQueryDefinitions_queryDefinitionNamePrefix,
-    describeQueryDefinitionsResponse_nextToken,
-    describeQueryDefinitionsResponse_queryDefinitions,
-    describeQueryDefinitionsResponse_httpStatus,
-
-    -- ** DescribeLogStreams
-    describeLogStreams_logStreamNamePrefix,
-    describeLogStreams_nextToken,
-    describeLogStreams_orderBy,
-    describeLogStreams_descending,
-    describeLogStreams_limit,
-    describeLogStreams_logGroupName,
-    describeLogStreamsResponse_nextToken,
-    describeLogStreamsResponse_logStreams,
-    describeLogStreamsResponse_httpStatus,
-
-    -- ** DeleteQueryDefinition
-    deleteQueryDefinition_queryDefinitionId,
-    deleteQueryDefinitionResponse_success,
-    deleteQueryDefinitionResponse_httpStatus,
-
-    -- ** PutResourcePolicy
-    putResourcePolicy_policyDocument,
-    putResourcePolicy_policyName,
-    putResourcePolicyResponse_resourcePolicy,
-    putResourcePolicyResponse_httpStatus,
-
-    -- ** DisassociateKmsKey
-    disassociateKmsKey_logGroupName,
-
-    -- ** DeleteDestination
-    deleteDestination_destinationName,
-
-    -- ** DescribeSubscriptionFilters
-    describeSubscriptionFilters_filterNamePrefix,
-    describeSubscriptionFilters_nextToken,
-    describeSubscriptionFilters_limit,
-    describeSubscriptionFilters_logGroupName,
-    describeSubscriptionFiltersResponse_nextToken,
-    describeSubscriptionFiltersResponse_subscriptionFilters,
-    describeSubscriptionFiltersResponse_httpStatus,
-
-    -- ** PutDestinationPolicy
-    putDestinationPolicy_destinationName,
-    putDestinationPolicy_accessPolicy,
-
-    -- ** PutRetentionPolicy
-    putRetentionPolicy_logGroupName,
-    putRetentionPolicy_retentionInDays,
-
-    -- ** DeleteMetricFilter
-    deleteMetricFilter_logGroupName,
-    deleteMetricFilter_filterName,
-
-    -- ** DescribeLogGroups
-    describeLogGroups_nextToken,
-    describeLogGroups_logGroupNamePrefix,
-    describeLogGroups_limit,
-    describeLogGroupsResponse_nextToken,
-    describeLogGroupsResponse_logGroups,
-    describeLogGroupsResponse_httpStatus,
-
-    -- ** DescribeMetricFilters
-    describeMetricFilters_metricNamespace,
-    describeMetricFilters_filterNamePrefix,
-    describeMetricFilters_nextToken,
-    describeMetricFilters_metricName,
-    describeMetricFilters_logGroupName,
-    describeMetricFilters_limit,
-    describeMetricFiltersResponse_metricFilters,
-    describeMetricFiltersResponse_nextToken,
-    describeMetricFiltersResponse_httpStatus,
-
-    -- ** PutSubscriptionFilter
-    putSubscriptionFilter_roleArn,
-    putSubscriptionFilter_distribution,
-    putSubscriptionFilter_logGroupName,
-    putSubscriptionFilter_filterName,
-    putSubscriptionFilter_filterPattern,
-    putSubscriptionFilter_destinationArn,
-
-    -- ** DescribeDestinations
-    describeDestinations_nextToken,
-    describeDestinations_destinationNamePrefix,
-    describeDestinations_limit,
-    describeDestinationsResponse_nextToken,
-    describeDestinationsResponse_destinations,
-    describeDestinationsResponse_httpStatus,
-
-    -- ** CreateLogGroup
-    createLogGroup_kmsKeyId,
-    createLogGroup_tags,
-    createLogGroup_logGroupName,
-
-    -- ** CancelExportTask
-    cancelExportTask_taskId,
-
     -- ** GetLogGroupFields
     getLogGroupFields_time,
     getLogGroupFields_logGroupName,
     getLogGroupFieldsResponse_logGroupFields,
     getLogGroupFieldsResponse_httpStatus,
 
-    -- ** DeleteLogStream
-    deleteLogStream_logGroupName,
-    deleteLogStream_logStreamName,
+    -- ** GetLogRecord
+    getLogRecord_logRecordPointer,
+    getLogRecordResponse_logRecord,
+    getLogRecordResponse_httpStatus,
 
-    -- ** TagLogGroup
-    tagLogGroup_logGroupName,
-    tagLogGroup_tags,
+    -- ** DescribeDestinations
+    describeDestinations_nextToken,
+    describeDestinations_limit,
+    describeDestinations_destinationNamePrefix,
+    describeDestinationsResponse_nextToken,
+    describeDestinationsResponse_destinations,
+    describeDestinationsResponse_httpStatus,
 
-    -- ** DescribeQueries
-    describeQueries_nextToken,
-    describeQueries_status,
-    describeQueries_maxResults,
-    describeQueries_logGroupName,
-    describeQueriesResponse_nextToken,
-    describeQueriesResponse_queries,
-    describeQueriesResponse_httpStatus,
+    -- ** UntagLogGroup
+    untagLogGroup_logGroupName,
+    untagLogGroup_tags,
 
-    -- ** AssociateKmsKey
-    associateKmsKey_logGroupName,
-    associateKmsKey_kmsKeyId,
+    -- ** StopQuery
+    stopQuery_queryId,
+    stopQueryResponse_success,
+    stopQueryResponse_httpStatus,
 
-    -- ** GetQueryResults
-    getQueryResults_queryId,
-    getQueryResultsResponse_status,
-    getQueryResultsResponse_statistics,
-    getQueryResultsResponse_results,
-    getQueryResultsResponse_httpStatus,
+    -- ** CreateExportTask
+    createExportTask_destinationPrefix,
+    createExportTask_taskName,
+    createExportTask_logStreamNamePrefix,
+    createExportTask_logGroupName,
+    createExportTask_from,
+    createExportTask_to,
+    createExportTask_destination,
+    createExportTaskResponse_taskId,
+    createExportTaskResponse_httpStatus,
+
+    -- ** PutDestination
+    putDestination_destinationName,
+    putDestination_targetArn,
+    putDestination_roleArn,
+    putDestinationResponse_destination,
+    putDestinationResponse_httpStatus,
+
+    -- ** DescribeSubscriptionFilters
+    describeSubscriptionFilters_filterNamePrefix,
+    describeSubscriptionFilters_nextToken,
+    describeSubscriptionFilters_limit,
+    describeSubscriptionFilters_logGroupName,
+    describeSubscriptionFiltersResponse_subscriptionFilters,
+    describeSubscriptionFiltersResponse_nextToken,
+    describeSubscriptionFiltersResponse_httpStatus,
+
+    -- ** GetLogEvents
+    getLogEvents_startTime,
+    getLogEvents_startFromHead,
+    getLogEvents_nextToken,
+    getLogEvents_endTime,
+    getLogEvents_limit,
+    getLogEvents_logGroupName,
+    getLogEvents_logStreamName,
+    getLogEventsResponse_nextBackwardToken,
+    getLogEventsResponse_nextForwardToken,
+    getLogEventsResponse_events,
+    getLogEventsResponse_httpStatus,
+
+    -- ** DescribeLogGroups
+    describeLogGroups_logGroupNamePrefix,
+    describeLogGroups_nextToken,
+    describeLogGroups_limit,
+    describeLogGroupsResponse_logGroups,
+    describeLogGroupsResponse_nextToken,
+    describeLogGroupsResponse_httpStatus,
+
+    -- ** DeleteDestination
+    deleteDestination_destinationName,
+
+    -- ** DisassociateKmsKey
+    disassociateKmsKey_logGroupName,
+
+    -- ** FilterLogEvents
+    filterLogEvents_startTime,
+    filterLogEvents_nextToken,
+    filterLogEvents_logStreamNames,
+    filterLogEvents_logStreamNamePrefix,
+    filterLogEvents_endTime,
+    filterLogEvents_limit,
+    filterLogEvents_filterPattern,
+    filterLogEvents_interleaved,
+    filterLogEvents_logGroupName,
+    filterLogEventsResponse_searchedLogStreams,
+    filterLogEventsResponse_nextToken,
+    filterLogEventsResponse_events,
+    filterLogEventsResponse_httpStatus,
+
+    -- ** DeleteQueryDefinition
+    deleteQueryDefinition_queryDefinitionId,
+    deleteQueryDefinitionResponse_success,
+    deleteQueryDefinitionResponse_httpStatus,
 
     -- ** PutQueryDefinition
     putQueryDefinition_logGroupNames,
@@ -181,68 +124,66 @@ module Network.AWS.CloudWatchLogs.Lens
     putQueryDefinitionResponse_queryDefinitionId,
     putQueryDefinitionResponse_httpStatus,
 
-    -- ** DeleteResourcePolicy
-    deleteResourcePolicy_policyName,
+    -- ** TagLogGroup
+    tagLogGroup_logGroupName,
+    tagLogGroup_tags,
 
-    -- ** FilterLogEvents
-    filterLogEvents_logStreamNamePrefix,
-    filterLogEvents_nextToken,
-    filterLogEvents_interleaved,
-    filterLogEvents_filterPattern,
-    filterLogEvents_startTime,
-    filterLogEvents_endTime,
-    filterLogEvents_logStreamNames,
-    filterLogEvents_limit,
-    filterLogEvents_logGroupName,
-    filterLogEventsResponse_nextToken,
-    filterLogEventsResponse_searchedLogStreams,
-    filterLogEventsResponse_events,
-    filterLogEventsResponse_httpStatus,
+    -- ** DescribeResourcePolicies
+    describeResourcePolicies_nextToken,
+    describeResourcePolicies_limit,
+    describeResourcePoliciesResponse_resourcePolicies,
+    describeResourcePoliciesResponse_nextToken,
+    describeResourcePoliciesResponse_httpStatus,
 
-    -- ** ListTagsLogGroup
-    listTagsLogGroup_logGroupName,
-    listTagsLogGroupResponse_tags,
-    listTagsLogGroupResponse_httpStatus,
+    -- ** DescribeQueryDefinitions
+    describeQueryDefinitions_queryDefinitionNamePrefix,
+    describeQueryDefinitions_nextToken,
+    describeQueryDefinitions_maxResults,
+    describeQueryDefinitionsResponse_queryDefinitions,
+    describeQueryDefinitionsResponse_nextToken,
+    describeQueryDefinitionsResponse_httpStatus,
 
-    -- ** GetLogEvents
-    getLogEvents_nextToken,
-    getLogEvents_startFromHead,
-    getLogEvents_startTime,
-    getLogEvents_endTime,
-    getLogEvents_limit,
-    getLogEvents_logGroupName,
-    getLogEvents_logStreamName,
-    getLogEventsResponse_nextForwardToken,
-    getLogEventsResponse_nextBackwardToken,
-    getLogEventsResponse_events,
-    getLogEventsResponse_httpStatus,
+    -- ** DeleteLogStream
+    deleteLogStream_logGroupName,
+    deleteLogStream_logStreamName,
 
-    -- ** CreateExportTask
-    createExportTask_logStreamNamePrefix,
-    createExportTask_taskName,
-    createExportTask_destinationPrefix,
-    createExportTask_logGroupName,
-    createExportTask_from,
-    createExportTask_to,
-    createExportTask_destination,
-    createExportTaskResponse_taskId,
-    createExportTaskResponse_httpStatus,
+    -- ** DescribeQueries
+    describeQueries_status,
+    describeQueries_logGroupName,
+    describeQueries_nextToken,
+    describeQueries_maxResults,
+    describeQueriesResponse_queries,
+    describeQueriesResponse_nextToken,
+    describeQueriesResponse_httpStatus,
 
-    -- ** DeleteRetentionPolicy
-    deleteRetentionPolicy_logGroupName,
+    -- ** CreateLogStream
+    createLogStream_logGroupName,
+    createLogStream_logStreamName,
 
-    -- ** PutDestination
-    putDestination_destinationName,
-    putDestination_targetArn,
-    putDestination_roleArn,
-    putDestinationResponse_destination,
-    putDestinationResponse_httpStatus,
+    -- ** CreateLogGroup
+    createLogGroup_kmsKeyId,
+    createLogGroup_tags,
+    createLogGroup_logGroupName,
 
-    -- ** PutMetricFilter
-    putMetricFilter_logGroupName,
-    putMetricFilter_filterName,
-    putMetricFilter_filterPattern,
-    putMetricFilter_metricTransformations,
+    -- ** DescribeExportTasks
+    describeExportTasks_taskId,
+    describeExportTasks_nextToken,
+    describeExportTasks_limit,
+    describeExportTasks_statusCode,
+    describeExportTasksResponse_nextToken,
+    describeExportTasksResponse_exportTasks,
+    describeExportTasksResponse_httpStatus,
+
+    -- ** CancelExportTask
+    cancelExportTask_taskId,
+
+    -- ** PutSubscriptionFilter
+    putSubscriptionFilter_distribution,
+    putSubscriptionFilter_roleArn,
+    putSubscriptionFilter_logGroupName,
+    putSubscriptionFilter_filterName,
+    putSubscriptionFilter_filterPattern,
+    putSubscriptionFilter_destinationArn,
 
     -- ** StartQuery
     startQuery_logGroupNames,
@@ -254,17 +195,32 @@ module Network.AWS.CloudWatchLogs.Lens
     startQueryResponse_queryId,
     startQueryResponse_httpStatus,
 
+    -- ** DeleteLogGroup
+    deleteLogGroup_logGroupName,
+
+    -- ** DeleteSubscriptionFilter
+    deleteSubscriptionFilter_logGroupName,
+    deleteSubscriptionFilter_filterName,
+
     -- ** PutLogEvents
     putLogEvents_sequenceToken,
     putLogEvents_logGroupName,
     putLogEvents_logStreamName,
     putLogEvents_logEvents,
-    putLogEventsResponse_nextSequenceToken,
     putLogEventsResponse_rejectedLogEventsInfo,
+    putLogEventsResponse_nextSequenceToken,
     putLogEventsResponse_httpStatus,
 
-    -- ** DeleteLogGroup
-    deleteLogGroup_logGroupName,
+    -- ** DescribeMetricFilters
+    describeMetricFilters_filterNamePrefix,
+    describeMetricFilters_metricName,
+    describeMetricFilters_logGroupName,
+    describeMetricFilters_nextToken,
+    describeMetricFilters_metricNamespace,
+    describeMetricFilters_limit,
+    describeMetricFiltersResponse_nextToken,
+    describeMetricFiltersResponse_metricFilters,
+    describeMetricFiltersResponse_httpStatus,
 
     -- ** TestMetricFilter
     testMetricFilter_filterPattern,
@@ -272,152 +228,196 @@ module Network.AWS.CloudWatchLogs.Lens
     testMetricFilterResponse_matches,
     testMetricFilterResponse_httpStatus,
 
-    -- ** DeleteSubscriptionFilter
-    deleteSubscriptionFilter_logGroupName,
-    deleteSubscriptionFilter_filterName,
+    -- ** PutDestinationPolicy
+    putDestinationPolicy_destinationName,
+    putDestinationPolicy_accessPolicy,
 
-    -- ** UntagLogGroup
-    untagLogGroup_logGroupName,
-    untagLogGroup_tags,
+    -- ** PutMetricFilter
+    putMetricFilter_logGroupName,
+    putMetricFilter_filterName,
+    putMetricFilter_filterPattern,
+    putMetricFilter_metricTransformations,
 
-    -- ** StopQuery
-    stopQuery_queryId,
-    stopQueryResponse_success,
-    stopQueryResponse_httpStatus,
+    -- ** DeleteRetentionPolicy
+    deleteRetentionPolicy_logGroupName,
+
+    -- ** DeleteMetricFilter
+    deleteMetricFilter_logGroupName,
+    deleteMetricFilter_filterName,
+
+    -- ** PutRetentionPolicy
+    putRetentionPolicy_logGroupName,
+    putRetentionPolicy_retentionInDays,
+
+    -- ** ListTagsLogGroup
+    listTagsLogGroup_logGroupName,
+    listTagsLogGroupResponse_tags,
+    listTagsLogGroupResponse_httpStatus,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_policyName,
+    putResourcePolicy_policyDocument,
+    putResourcePolicyResponse_resourcePolicy,
+    putResourcePolicyResponse_httpStatus,
+
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_policyName,
+
+    -- ** AssociateKmsKey
+    associateKmsKey_logGroupName,
+    associateKmsKey_kmsKeyId,
+
+    -- ** GetQueryResults
+    getQueryResults_queryId,
+    getQueryResultsResponse_status,
+    getQueryResultsResponse_results,
+    getQueryResultsResponse_statistics,
+    getQueryResultsResponse_httpStatus,
+
+    -- ** DescribeLogStreams
+    describeLogStreams_orderBy,
+    describeLogStreams_descending,
+    describeLogStreams_nextToken,
+    describeLogStreams_logStreamNamePrefix,
+    describeLogStreams_limit,
+    describeLogStreams_logGroupName,
+    describeLogStreamsResponse_nextToken,
+    describeLogStreamsResponse_logStreams,
+    describeLogStreamsResponse_httpStatus,
 
     -- * Types
 
     -- ** Destination
+    destination_targetArn,
     destination_creationTime,
-    destination_roleArn,
-    destination_destinationName,
     destination_arn,
     destination_accessPolicy,
-    destination_targetArn,
+    destination_destinationName,
+    destination_roleArn,
 
     -- ** ExportTask
-    exportTask_executionInfo,
-    exportTask_status,
-    exportTask_to,
-    exportTask_taskId,
-    exportTask_taskName,
     exportTask_destinationPrefix,
     exportTask_destination,
-    exportTask_logGroupName,
+    exportTask_status,
+    exportTask_taskName,
+    exportTask_taskId,
+    exportTask_to,
     exportTask_from,
+    exportTask_logGroupName,
+    exportTask_executionInfo,
 
     -- ** ExportTaskExecutionInfo
     exportTaskExecutionInfo_creationTime,
     exportTaskExecutionInfo_completionTime,
 
     -- ** ExportTaskStatus
-    exportTaskStatus_message,
     exportTaskStatus_code,
+    exportTaskStatus_message,
 
     -- ** FilteredLogEvent
-    filteredLogEvent_logStreamName,
-    filteredLogEvent_eventId,
-    filteredLogEvent_message,
     filteredLogEvent_ingestionTime,
+    filteredLogEvent_logStreamName,
+    filteredLogEvent_message,
     filteredLogEvent_timestamp,
+    filteredLogEvent_eventId,
 
     -- ** InputLogEvent
     inputLogEvent_timestamp,
     inputLogEvent_message,
 
     -- ** LogGroup
-    logGroup_retentionInDays,
     logGroup_creationTime,
-    logGroup_arn,
-    logGroup_storedBytes,
-    logGroup_kmsKeyId,
     logGroup_metricFilterCount,
+    logGroup_arn,
     logGroup_logGroupName,
+    logGroup_retentionInDays,
+    logGroup_kmsKeyId,
+    logGroup_storedBytes,
 
     -- ** LogGroupField
-    logGroupField_name,
     logGroupField_percent,
+    logGroupField_name,
 
     -- ** LogStream
-    logStream_logStreamName,
     logStream_creationTime,
-    logStream_arn,
-    logStream_storedBytes,
     logStream_uploadSequenceToken,
-    logStream_lastEventTimestamp,
+    logStream_arn,
     logStream_firstEventTimestamp,
+    logStream_logStreamName,
+    logStream_storedBytes,
     logStream_lastIngestionTime,
+    logStream_lastEventTimestamp,
 
     -- ** MetricFilter
-    metricFilter_filterName,
     metricFilter_creationTime,
-    metricFilter_filterPattern,
+    metricFilter_filterName,
     metricFilter_logGroupName,
+    metricFilter_filterPattern,
     metricFilter_metricTransformations,
 
     -- ** MetricFilterMatchRecord
+    metricFilterMatchRecord_extractedValues,
     metricFilterMatchRecord_eventNumber,
     metricFilterMatchRecord_eventMessage,
-    metricFilterMatchRecord_extractedValues,
 
     -- ** MetricTransformation
-    metricTransformation_unit,
-    metricTransformation_dimensions,
     metricTransformation_defaultValue,
+    metricTransformation_dimensions,
+    metricTransformation_unit,
     metricTransformation_metricName,
     metricTransformation_metricNamespace,
     metricTransformation_metricValue,
 
     -- ** OutputLogEvent
-    outputLogEvent_message,
     outputLogEvent_ingestionTime,
+    outputLogEvent_message,
     outputLogEvent_timestamp,
 
     -- ** QueryDefinition
-    queryDefinition_queryString,
-    queryDefinition_name,
     queryDefinition_logGroupNames,
-    queryDefinition_lastModified,
     queryDefinition_queryDefinitionId,
+    queryDefinition_name,
+    queryDefinition_queryString,
+    queryDefinition_lastModified,
 
     -- ** QueryInfo
-    queryInfo_queryString,
     queryInfo_status,
     queryInfo_queryId,
     queryInfo_logGroupName,
+    queryInfo_queryString,
     queryInfo_createTime,
 
     -- ** QueryStatistics
+    queryStatistics_recordsScanned,
     queryStatistics_bytesScanned,
     queryStatistics_recordsMatched,
-    queryStatistics_recordsScanned,
 
     -- ** RejectedLogEventsInfo
     rejectedLogEventsInfo_tooOldLogEventEndIndex,
-    rejectedLogEventsInfo_expiredLogEventEndIndex,
     rejectedLogEventsInfo_tooNewLogEventStartIndex,
+    rejectedLogEventsInfo_expiredLogEventEndIndex,
 
     -- ** ResourcePolicy
-    resourcePolicy_policyDocument,
     resourcePolicy_policyName,
+    resourcePolicy_policyDocument,
     resourcePolicy_lastUpdatedTime,
 
     -- ** ResultField
-    resultField_value,
     resultField_field,
+    resultField_value,
 
     -- ** SearchedLogStream
     searchedLogStream_logStreamName,
     searchedLogStream_searchedCompletely,
 
     -- ** SubscriptionFilter
-    subscriptionFilter_filterName,
     subscriptionFilter_creationTime,
-    subscriptionFilter_destinationArn,
-    subscriptionFilter_roleArn,
-    subscriptionFilter_filterPattern,
+    subscriptionFilter_filterName,
     subscriptionFilter_distribution,
+    subscriptionFilter_destinationArn,
     subscriptionFilter_logGroupName,
+    subscriptionFilter_filterPattern,
+    subscriptionFilter_roleArn,
   )
 where
 

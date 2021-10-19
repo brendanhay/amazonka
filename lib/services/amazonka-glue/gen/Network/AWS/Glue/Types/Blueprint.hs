@@ -39,29 +39,29 @@ data Blueprint = Blueprint'
     --
     -- -   Failed — The blueprint registration failed.
     status :: Prelude.Maybe BlueprintStatus,
-    -- | The date and time the blueprint was registered.
-    createdOn :: Prelude.Maybe Core.POSIX,
+    -- | A JSON string that indicates the list of parameter specifications for
+    -- the blueprint.
+    parameterSpec :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the path in Amazon S3 where the blueprint is published.
+    blueprintLocation :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the blueprint was last modified.
+    lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | When there are multiple versions of a blueprint and the latest version
     -- has some errors, this attribute indicates the last successful blueprint
     -- definition that is available with the service.
     lastActiveDefinition :: Prelude.Maybe LastActiveDefinition,
-    -- | The date and time the blueprint was last modified.
-    lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | The name of the blueprint.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specifies a path in Amazon S3 where the blueprint is copied when you
     -- call @CreateBlueprint\/UpdateBlueprint@ to register the blueprint in
     -- Glue.
     blueprintServiceLocation :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that indicates the list of parameter specifications for
-    -- the blueprint.
-    parameterSpec :: Prelude.Maybe Prelude.Text,
-    -- | The description of the blueprint.
-    description :: Prelude.Maybe Prelude.Text,
     -- | An error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the path in Amazon S3 where the blueprint is published.
-    blueprintLocation :: Prelude.Maybe Prelude.Text
+    -- | The description of the blueprint.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the blueprint was registered.
+    createdOn :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,13 +83,16 @@ data Blueprint = Blueprint'
 --
 -- -   Failed — The blueprint registration failed.
 --
--- 'createdOn', 'blueprint_createdOn' - The date and time the blueprint was registered.
+-- 'parameterSpec', 'blueprint_parameterSpec' - A JSON string that indicates the list of parameter specifications for
+-- the blueprint.
+--
+-- 'blueprintLocation', 'blueprint_blueprintLocation' - Specifies the path in Amazon S3 where the blueprint is published.
+--
+-- 'lastModifiedOn', 'blueprint_lastModifiedOn' - The date and time the blueprint was last modified.
 --
 -- 'lastActiveDefinition', 'blueprint_lastActiveDefinition' - When there are multiple versions of a blueprint and the latest version
 -- has some errors, this attribute indicates the last successful blueprint
 -- definition that is available with the service.
---
--- 'lastModifiedOn', 'blueprint_lastModifiedOn' - The date and time the blueprint was last modified.
 --
 -- 'name', 'blueprint_name' - The name of the blueprint.
 --
@@ -97,28 +100,25 @@ data Blueprint = Blueprint'
 -- call @CreateBlueprint\/UpdateBlueprint@ to register the blueprint in
 -- Glue.
 --
--- 'parameterSpec', 'blueprint_parameterSpec' - A JSON string that indicates the list of parameter specifications for
--- the blueprint.
+-- 'errorMessage', 'blueprint_errorMessage' - An error message.
 --
 -- 'description', 'blueprint_description' - The description of the blueprint.
 --
--- 'errorMessage', 'blueprint_errorMessage' - An error message.
---
--- 'blueprintLocation', 'blueprint_blueprintLocation' - Specifies the path in Amazon S3 where the blueprint is published.
+-- 'createdOn', 'blueprint_createdOn' - The date and time the blueprint was registered.
 newBlueprint ::
   Blueprint
 newBlueprint =
   Blueprint'
     { status = Prelude.Nothing,
-      createdOn = Prelude.Nothing,
-      lastActiveDefinition = Prelude.Nothing,
+      parameterSpec = Prelude.Nothing,
+      blueprintLocation = Prelude.Nothing,
       lastModifiedOn = Prelude.Nothing,
+      lastActiveDefinition = Prelude.Nothing,
       name = Prelude.Nothing,
       blueprintServiceLocation = Prelude.Nothing,
-      parameterSpec = Prelude.Nothing,
-      description = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      blueprintLocation = Prelude.Nothing
+      description = Prelude.Nothing,
+      createdOn = Prelude.Nothing
     }
 
 -- | The status of the blueprint registration.
@@ -133,19 +133,24 @@ newBlueprint =
 blueprint_status :: Lens.Lens' Blueprint (Prelude.Maybe BlueprintStatus)
 blueprint_status = Lens.lens (\Blueprint' {status} -> status) (\s@Blueprint' {} a -> s {status = a} :: Blueprint)
 
--- | The date and time the blueprint was registered.
-blueprint_createdOn :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.UTCTime)
-blueprint_createdOn = Lens.lens (\Blueprint' {createdOn} -> createdOn) (\s@Blueprint' {} a -> s {createdOn = a} :: Blueprint) Prelude.. Lens.mapping Core._Time
+-- | A JSON string that indicates the list of parameter specifications for
+-- the blueprint.
+blueprint_parameterSpec :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
+blueprint_parameterSpec = Lens.lens (\Blueprint' {parameterSpec} -> parameterSpec) (\s@Blueprint' {} a -> s {parameterSpec = a} :: Blueprint)
+
+-- | Specifies the path in Amazon S3 where the blueprint is published.
+blueprint_blueprintLocation :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
+blueprint_blueprintLocation = Lens.lens (\Blueprint' {blueprintLocation} -> blueprintLocation) (\s@Blueprint' {} a -> s {blueprintLocation = a} :: Blueprint)
+
+-- | The date and time the blueprint was last modified.
+blueprint_lastModifiedOn :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.UTCTime)
+blueprint_lastModifiedOn = Lens.lens (\Blueprint' {lastModifiedOn} -> lastModifiedOn) (\s@Blueprint' {} a -> s {lastModifiedOn = a} :: Blueprint) Prelude.. Lens.mapping Core._Time
 
 -- | When there are multiple versions of a blueprint and the latest version
 -- has some errors, this attribute indicates the last successful blueprint
 -- definition that is available with the service.
 blueprint_lastActiveDefinition :: Lens.Lens' Blueprint (Prelude.Maybe LastActiveDefinition)
 blueprint_lastActiveDefinition = Lens.lens (\Blueprint' {lastActiveDefinition} -> lastActiveDefinition) (\s@Blueprint' {} a -> s {lastActiveDefinition = a} :: Blueprint)
-
--- | The date and time the blueprint was last modified.
-blueprint_lastModifiedOn :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.UTCTime)
-blueprint_lastModifiedOn = Lens.lens (\Blueprint' {lastModifiedOn} -> lastModifiedOn) (\s@Blueprint' {} a -> s {lastModifiedOn = a} :: Blueprint) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the blueprint.
 blueprint_name :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
@@ -157,22 +162,17 @@ blueprint_name = Lens.lens (\Blueprint' {name} -> name) (\s@Blueprint' {} a -> s
 blueprint_blueprintServiceLocation :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_blueprintServiceLocation = Lens.lens (\Blueprint' {blueprintServiceLocation} -> blueprintServiceLocation) (\s@Blueprint' {} a -> s {blueprintServiceLocation = a} :: Blueprint)
 
--- | A JSON string that indicates the list of parameter specifications for
--- the blueprint.
-blueprint_parameterSpec :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
-blueprint_parameterSpec = Lens.lens (\Blueprint' {parameterSpec} -> parameterSpec) (\s@Blueprint' {} a -> s {parameterSpec = a} :: Blueprint)
+-- | An error message.
+blueprint_errorMessage :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
+blueprint_errorMessage = Lens.lens (\Blueprint' {errorMessage} -> errorMessage) (\s@Blueprint' {} a -> s {errorMessage = a} :: Blueprint)
 
 -- | The description of the blueprint.
 blueprint_description :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
 blueprint_description = Lens.lens (\Blueprint' {description} -> description) (\s@Blueprint' {} a -> s {description = a} :: Blueprint)
 
--- | An error message.
-blueprint_errorMessage :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
-blueprint_errorMessage = Lens.lens (\Blueprint' {errorMessage} -> errorMessage) (\s@Blueprint' {} a -> s {errorMessage = a} :: Blueprint)
-
--- | Specifies the path in Amazon S3 where the blueprint is published.
-blueprint_blueprintLocation :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.Text)
-blueprint_blueprintLocation = Lens.lens (\Blueprint' {blueprintLocation} -> blueprintLocation) (\s@Blueprint' {} a -> s {blueprintLocation = a} :: Blueprint)
+-- | The date and time the blueprint was registered.
+blueprint_createdOn :: Lens.Lens' Blueprint (Prelude.Maybe Prelude.UTCTime)
+blueprint_createdOn = Lens.lens (\Blueprint' {createdOn} -> createdOn) (\s@Blueprint' {} a -> s {createdOn = a} :: Blueprint) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Blueprint where
   parseJSON =
@@ -181,15 +181,15 @@ instance Core.FromJSON Blueprint where
       ( \x ->
           Blueprint'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreatedOn")
-            Prelude.<*> (x Core..:? "LastActiveDefinition")
+            Prelude.<*> (x Core..:? "ParameterSpec")
+            Prelude.<*> (x Core..:? "BlueprintLocation")
             Prelude.<*> (x Core..:? "LastModifiedOn")
+            Prelude.<*> (x Core..:? "LastActiveDefinition")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "BlueprintServiceLocation")
-            Prelude.<*> (x Core..:? "ParameterSpec")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "BlueprintLocation")
+            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "CreatedOn")
       )
 
 instance Prelude.Hashable Blueprint

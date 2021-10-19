@@ -79,12 +79,12 @@ newBatchGetNamedQuery ::
 newBatchGetNamedQuery pNamedQueryIds_ =
   BatchGetNamedQuery'
     { namedQueryIds =
-        Lens._Coerce Lens.# pNamedQueryIds_
+        Lens.coerced Lens.# pNamedQueryIds_
     }
 
 -- | An array of query IDs.
 batchGetNamedQuery_namedQueryIds :: Lens.Lens' BatchGetNamedQuery (Prelude.NonEmpty Prelude.Text)
-batchGetNamedQuery_namedQueryIds = Lens.lens (\BatchGetNamedQuery' {namedQueryIds} -> namedQueryIds) (\s@BatchGetNamedQuery' {} a -> s {namedQueryIds = a} :: BatchGetNamedQuery) Prelude.. Lens._Coerce
+batchGetNamedQuery_namedQueryIds = Lens.lens (\BatchGetNamedQuery' {namedQueryIds} -> namedQueryIds) (\s@BatchGetNamedQuery' {} a -> s {namedQueryIds = a} :: BatchGetNamedQuery) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetNamedQuery where
   type
@@ -174,11 +174,11 @@ newBatchGetNamedQueryResponse pHttpStatus_ =
 
 -- | Information about the named query IDs submitted.
 batchGetNamedQueryResponse_namedQueries :: Lens.Lens' BatchGetNamedQueryResponse (Prelude.Maybe [NamedQuery])
-batchGetNamedQueryResponse_namedQueries = Lens.lens (\BatchGetNamedQueryResponse' {namedQueries} -> namedQueries) (\s@BatchGetNamedQueryResponse' {} a -> s {namedQueries = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetNamedQueryResponse_namedQueries = Lens.lens (\BatchGetNamedQueryResponse' {namedQueries} -> namedQueries) (\s@BatchGetNamedQueryResponse' {} a -> s {namedQueries = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about provided query IDs.
 batchGetNamedQueryResponse_unprocessedNamedQueryIds :: Lens.Lens' BatchGetNamedQueryResponse (Prelude.Maybe [UnprocessedNamedQueryId])
-batchGetNamedQueryResponse_unprocessedNamedQueryIds = Lens.lens (\BatchGetNamedQueryResponse' {unprocessedNamedQueryIds} -> unprocessedNamedQueryIds) (\s@BatchGetNamedQueryResponse' {} a -> s {unprocessedNamedQueryIds = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetNamedQueryResponse_unprocessedNamedQueryIds = Lens.lens (\BatchGetNamedQueryResponse' {unprocessedNamedQueryIds} -> unprocessedNamedQueryIds) (\s@BatchGetNamedQueryResponse' {} a -> s {unprocessedNamedQueryIds = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetNamedQueryResponse_httpStatus :: Lens.Lens' BatchGetNamedQueryResponse Prelude.Int

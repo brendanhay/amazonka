@@ -32,9 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNodeOverrides' smart constructor.
 data NodeOverrides = NodeOverrides'
-  { -- | The node property overrides for the job.
-    nodePropertyOverrides :: Prelude.Maybe [NodePropertyOverride],
-    -- | The number of nodes to use with a multi-node parallel job. This value
+  { -- | The number of nodes to use with a multi-node parallel job. This value
     -- overrides the number of nodes that are specified in the job definition.
     -- To use this override:
     --
@@ -46,7 +44,9 @@ data NodeOverrides = NodeOverrides'
     --
     -- -   The main node index specified in the job definition must be fewer
     --     than the number of nodes specified in the override.
-    numNodes :: Prelude.Maybe Prelude.Int
+    numNodes :: Prelude.Maybe Prelude.Int,
+    -- | The node property overrides for the job.
+    nodePropertyOverrides :: Prelude.Maybe [NodePropertyOverride]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,8 +57,6 @@ data NodeOverrides = NodeOverrides'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nodePropertyOverrides', 'nodeOverrides_nodePropertyOverrides' - The node property overrides for the job.
 --
 -- 'numNodes', 'nodeOverrides_numNodes' - The number of nodes to use with a multi-node parallel job. This value
 -- overrides the number of nodes that are specified in the job definition.
@@ -72,18 +70,15 @@ data NodeOverrides = NodeOverrides'
 --
 -- -   The main node index specified in the job definition must be fewer
 --     than the number of nodes specified in the override.
+--
+-- 'nodePropertyOverrides', 'nodeOverrides_nodePropertyOverrides' - The node property overrides for the job.
 newNodeOverrides ::
   NodeOverrides
 newNodeOverrides =
   NodeOverrides'
-    { nodePropertyOverrides =
-        Prelude.Nothing,
-      numNodes = Prelude.Nothing
+    { numNodes = Prelude.Nothing,
+      nodePropertyOverrides = Prelude.Nothing
     }
-
--- | The node property overrides for the job.
-nodeOverrides_nodePropertyOverrides :: Lens.Lens' NodeOverrides (Prelude.Maybe [NodePropertyOverride])
-nodeOverrides_nodePropertyOverrides = Lens.lens (\NodeOverrides' {nodePropertyOverrides} -> nodePropertyOverrides) (\s@NodeOverrides' {} a -> s {nodePropertyOverrides = a} :: NodeOverrides) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of nodes to use with a multi-node parallel job. This value
 -- overrides the number of nodes that are specified in the job definition.
@@ -100,6 +95,10 @@ nodeOverrides_nodePropertyOverrides = Lens.lens (\NodeOverrides' {nodePropertyOv
 nodeOverrides_numNodes :: Lens.Lens' NodeOverrides (Prelude.Maybe Prelude.Int)
 nodeOverrides_numNodes = Lens.lens (\NodeOverrides' {numNodes} -> numNodes) (\s@NodeOverrides' {} a -> s {numNodes = a} :: NodeOverrides)
 
+-- | The node property overrides for the job.
+nodeOverrides_nodePropertyOverrides :: Lens.Lens' NodeOverrides (Prelude.Maybe [NodePropertyOverride])
+nodeOverrides_nodePropertyOverrides = Lens.lens (\NodeOverrides' {nodePropertyOverrides} -> nodePropertyOverrides) (\s@NodeOverrides' {} a -> s {nodePropertyOverrides = a} :: NodeOverrides) Prelude.. Lens.mapping Lens.coerced
+
 instance Prelude.Hashable NodeOverrides
 
 instance Prelude.NFData NodeOverrides
@@ -108,8 +107,8 @@ instance Core.ToJSON NodeOverrides where
   toJSON NodeOverrides' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nodePropertyOverrides" Core..=)
-              Prelude.<$> nodePropertyOverrides,
-            ("numNodes" Core..=) Prelude.<$> numNodes
+          [ ("numNodes" Core..=) Prelude.<$> numNodes,
+            ("nodePropertyOverrides" Core..=)
+              Prelude.<$> nodePropertyOverrides
           ]
       )

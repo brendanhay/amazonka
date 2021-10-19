@@ -36,15 +36,15 @@ module Network.AWS.Redshift.AuthorizeEndpointAccess
     newEndpointAuthorization,
 
     -- * Response Lenses
-    endpointAuthorization_allowedAllVPCs,
     endpointAuthorization_status,
+    endpointAuthorization_allowedAllVPCs,
+    endpointAuthorization_endpointCount,
+    endpointAuthorization_grantor,
     endpointAuthorization_clusterIdentifier,
     endpointAuthorization_grantee,
-    endpointAuthorization_authorizeTime,
     endpointAuthorization_allowedVPCs,
     endpointAuthorization_clusterStatus,
-    endpointAuthorization_grantor,
-    endpointAuthorization_endpointCount,
+    endpointAuthorization_authorizeTime,
   )
 where
 
@@ -97,7 +97,7 @@ authorizeEndpointAccess_clusterIdentifier = Lens.lens (\AuthorizeEndpointAccess'
 
 -- | The virtual private cloud (VPC) identifiers to grant access to.
 authorizeEndpointAccess_vpcIds :: Lens.Lens' AuthorizeEndpointAccess (Prelude.Maybe [Prelude.Text])
-authorizeEndpointAccess_vpcIds = Lens.lens (\AuthorizeEndpointAccess' {vpcIds} -> vpcIds) (\s@AuthorizeEndpointAccess' {} a -> s {vpcIds = a} :: AuthorizeEndpointAccess) Prelude.. Lens.mapping Lens._Coerce
+authorizeEndpointAccess_vpcIds = Lens.lens (\AuthorizeEndpointAccess' {vpcIds} -> vpcIds) (\s@AuthorizeEndpointAccess' {} a -> s {vpcIds = a} :: AuthorizeEndpointAccess) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services account ID to grant access to.
 authorizeEndpointAccess_account :: Lens.Lens' AuthorizeEndpointAccess Prelude.Text

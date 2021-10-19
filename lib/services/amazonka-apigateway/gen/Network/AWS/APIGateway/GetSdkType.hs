@@ -35,8 +35,8 @@ module Network.AWS.APIGateway.GetSdkType
 
     -- * Response Lenses
     sdkType_friendlyName,
-    sdkType_id,
     sdkType_configurationProperties,
+    sdkType_id,
     sdkType_description,
   )
 where

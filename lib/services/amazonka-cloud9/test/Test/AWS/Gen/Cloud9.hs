@@ -30,14 +30,8 @@ import Test.Tasty
 --         [ requestListEnvironments $
 --             newListEnvironments
 --
---         , requestCreateEnvironmentMembership $
---             newCreateEnvironmentMembership
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestTagResource $
---             newTagResource
+--         , requestUpdateEnvironment $
+--             newUpdateEnvironment
 --
 --         , requestDeleteEnvironment $
 --             newDeleteEnvironment
@@ -45,11 +39,23 @@ import Test.Tasty
 --         , requestDescribeEnvironmentStatus $
 --             newDescribeEnvironmentStatus
 --
---         , requestUpdateEnvironment $
---             newUpdateEnvironment
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
---         , requestDescribeEnvironmentMemberships $
---             newDescribeEnvironmentMemberships
+--         , requestCreateEnvironmentEC $
+--             newCreateEnvironmentEC
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestCreateEnvironmentMembership $
+--             newCreateEnvironmentMembership
+--
+--         , requestDescribeEnvironments $
+--             newDescribeEnvironments
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestDeleteEnvironmentMembership $
 --             newDeleteEnvironmentMembership
@@ -57,14 +63,8 @@ import Test.Tasty
 --         , requestUpdateEnvironmentMembership $
 --             newUpdateEnvironmentMembership
 --
---         , requestDescribeEnvironments $
---             newDescribeEnvironments
---
---         , requestCreateEnvironmentEC $
---             newCreateEnvironmentEC
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestDescribeEnvironmentMemberships $
+--             newDescribeEnvironmentMemberships
 --
 --           ]
 
@@ -72,14 +72,8 @@ import Test.Tasty
 --         [ responseListEnvironments $
 --             newListEnvironmentsResponse
 --
---         , responseCreateEnvironmentMembership $
---             newCreateEnvironmentMembershipResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseUpdateEnvironment $
+--             newUpdateEnvironmentResponse
 --
 --         , responseDeleteEnvironment $
 --             newDeleteEnvironmentResponse
@@ -87,11 +81,23 @@ import Test.Tasty
 --         , responseDescribeEnvironmentStatus $
 --             newDescribeEnvironmentStatusResponse
 --
---         , responseUpdateEnvironment $
---             newUpdateEnvironmentResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
---         , responseDescribeEnvironmentMemberships $
---             newDescribeEnvironmentMembershipsResponse
+--         , responseCreateEnvironmentEC $
+--             newCreateEnvironmentECResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseCreateEnvironmentMembership $
+--             newCreateEnvironmentMembershipResponse
+--
+--         , responseDescribeEnvironments $
+--             newDescribeEnvironmentsResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseDeleteEnvironmentMembership $
 --             newDeleteEnvironmentMembershipResponse
@@ -99,14 +105,8 @@ import Test.Tasty
 --         , responseUpdateEnvironmentMembership $
 --             newUpdateEnvironmentMembershipResponse
 --
---         , responseDescribeEnvironments $
---             newDescribeEnvironmentsResponse
---
---         , responseCreateEnvironmentEC $
---             newCreateEnvironmentECResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseDescribeEnvironmentMemberships $
+--             newDescribeEnvironmentMembershipsResponse
 --
 --           ]
 --     ]
@@ -119,23 +119,11 @@ requestListEnvironments =
     "ListEnvironments"
     "fixture/ListEnvironments.yaml"
 
-requestCreateEnvironmentMembership :: CreateEnvironmentMembership -> TestTree
-requestCreateEnvironmentMembership =
+requestUpdateEnvironment :: UpdateEnvironment -> TestTree
+requestUpdateEnvironment =
   req
-    "CreateEnvironmentMembership"
-    "fixture/CreateEnvironmentMembership.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "UpdateEnvironment"
+    "fixture/UpdateEnvironment.yaml"
 
 requestDeleteEnvironment :: DeleteEnvironment -> TestTree
 requestDeleteEnvironment =
@@ -149,17 +137,41 @@ requestDescribeEnvironmentStatus =
     "DescribeEnvironmentStatus"
     "fixture/DescribeEnvironmentStatus.yaml"
 
-requestUpdateEnvironment :: UpdateEnvironment -> TestTree
-requestUpdateEnvironment =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "UpdateEnvironment"
-    "fixture/UpdateEnvironment.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-requestDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships -> TestTree
-requestDescribeEnvironmentMemberships =
+requestCreateEnvironmentEC :: CreateEnvironmentEC -> TestTree
+requestCreateEnvironmentEC =
   req
-    "DescribeEnvironmentMemberships"
-    "fixture/DescribeEnvironmentMemberships.yaml"
+    "CreateEnvironmentEC"
+    "fixture/CreateEnvironmentEC.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestCreateEnvironmentMembership :: CreateEnvironmentMembership -> TestTree
+requestCreateEnvironmentMembership =
+  req
+    "CreateEnvironmentMembership"
+    "fixture/CreateEnvironmentMembership.yaml"
+
+requestDescribeEnvironments :: DescribeEnvironments -> TestTree
+requestDescribeEnvironments =
+  req
+    "DescribeEnvironments"
+    "fixture/DescribeEnvironments.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestDeleteEnvironmentMembership :: DeleteEnvironmentMembership -> TestTree
 requestDeleteEnvironmentMembership =
@@ -173,23 +185,11 @@ requestUpdateEnvironmentMembership =
     "UpdateEnvironmentMembership"
     "fixture/UpdateEnvironmentMembership.yaml"
 
-requestDescribeEnvironments :: DescribeEnvironments -> TestTree
-requestDescribeEnvironments =
+requestDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships -> TestTree
+requestDescribeEnvironmentMemberships =
   req
-    "DescribeEnvironments"
-    "fixture/DescribeEnvironments.yaml"
-
-requestCreateEnvironmentEC :: CreateEnvironmentEC -> TestTree
-requestCreateEnvironmentEC =
-  req
-    "CreateEnvironmentEC"
-    "fixture/CreateEnvironmentEC.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "DescribeEnvironmentMemberships"
+    "fixture/DescribeEnvironmentMemberships.yaml"
 
 -- Responses
 
@@ -201,29 +201,13 @@ responseListEnvironments =
     defaultService
     (Proxy :: Proxy ListEnvironments)
 
-responseCreateEnvironmentMembership :: CreateEnvironmentMembershipResponse -> TestTree
-responseCreateEnvironmentMembership =
+responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
+responseUpdateEnvironment =
   res
-    "CreateEnvironmentMembershipResponse"
-    "fixture/CreateEnvironmentMembershipResponse.proto"
+    "UpdateEnvironmentResponse"
+    "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironmentMembership)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy :: Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
 responseDeleteEnvironment =
@@ -241,21 +225,53 @@ responseDescribeEnvironmentStatus =
     defaultService
     (Proxy :: Proxy DescribeEnvironmentStatus)
 
-responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
-responseUpdateEnvironment =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "UpdateEnvironmentResponse"
-    "fixture/UpdateEnvironmentResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironment)
+    (Proxy :: Proxy ListTagsForResource)
 
-responseDescribeEnvironmentMemberships :: DescribeEnvironmentMembershipsResponse -> TestTree
-responseDescribeEnvironmentMemberships =
+responseCreateEnvironmentEC :: CreateEnvironmentECResponse -> TestTree
+responseCreateEnvironmentEC =
   res
-    "DescribeEnvironmentMembershipsResponse"
-    "fixture/DescribeEnvironmentMembershipsResponse.proto"
+    "CreateEnvironmentECResponse"
+    "fixture/CreateEnvironmentECResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironmentMemberships)
+    (Proxy :: Proxy CreateEnvironmentEC)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseCreateEnvironmentMembership :: CreateEnvironmentMembershipResponse -> TestTree
+responseCreateEnvironmentMembership =
+  res
+    "CreateEnvironmentMembershipResponse"
+    "fixture/CreateEnvironmentMembershipResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateEnvironmentMembership)
+
+responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
+responseDescribeEnvironments =
+  res
+    "DescribeEnvironmentsResponse"
+    "fixture/DescribeEnvironmentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEnvironments)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
 
 responseDeleteEnvironmentMembership :: DeleteEnvironmentMembershipResponse -> TestTree
 responseDeleteEnvironmentMembership =
@@ -273,26 +289,10 @@ responseUpdateEnvironmentMembership =
     defaultService
     (Proxy :: Proxy UpdateEnvironmentMembership)
 
-responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
-responseDescribeEnvironments =
+responseDescribeEnvironmentMemberships :: DescribeEnvironmentMembershipsResponse -> TestTree
+responseDescribeEnvironmentMemberships =
   res
-    "DescribeEnvironmentsResponse"
-    "fixture/DescribeEnvironmentsResponse.proto"
+    "DescribeEnvironmentMembershipsResponse"
+    "fixture/DescribeEnvironmentMembershipsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironments)
-
-responseCreateEnvironmentEC :: CreateEnvironmentECResponse -> TestTree
-responseCreateEnvironmentEC =
-  res
-    "CreateEnvironmentECResponse"
-    "fixture/CreateEnvironmentECResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateEnvironmentEC)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy DescribeEnvironmentMemberships)

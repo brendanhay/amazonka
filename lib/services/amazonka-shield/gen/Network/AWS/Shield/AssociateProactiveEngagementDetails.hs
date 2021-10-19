@@ -116,7 +116,7 @@ newAssociateProactiveEngagementDetails =
 -- them, retrieve the list using @DescribeEmergencyContactSettings@ and
 -- then provide it here.
 associateProactiveEngagementDetails_emergencyContactList :: Lens.Lens' AssociateProactiveEngagementDetails [EmergencyContact]
-associateProactiveEngagementDetails_emergencyContactList = Lens.lens (\AssociateProactiveEngagementDetails' {emergencyContactList} -> emergencyContactList) (\s@AssociateProactiveEngagementDetails' {} a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails) Prelude.. Lens._Coerce
+associateProactiveEngagementDetails_emergencyContactList = Lens.lens (\AssociateProactiveEngagementDetails' {emergencyContactList} -> emergencyContactList) (\s@AssociateProactiveEngagementDetails' {} a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

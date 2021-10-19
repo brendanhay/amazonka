@@ -34,8 +34,8 @@ module Network.AWS.ResourceGroups.UpdateGroup
     newUpdateGroup,
 
     -- * Request Lenses
-    updateGroup_groupName,
     updateGroup_group,
+    updateGroup_groupName,
     updateGroup_description,
 
     -- * Destructuring the Response
@@ -57,10 +57,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
-  { -- | Don\'t use this parameter. Use @Group@ instead.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | The name or the ARN of the resource group to modify.
+  { -- | The name or the ARN of the resource group to modify.
     group' :: Prelude.Maybe Prelude.Text,
+    -- | Don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | The new description that you want to update the resource group with.
     -- Descriptions can contain letters, numbers, hyphens, underscores,
     -- periods, and spaces.
@@ -76,9 +76,9 @@ data UpdateGroup = UpdateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupName', 'updateGroup_groupName' - Don\'t use this parameter. Use @Group@ instead.
---
 -- 'group'', 'updateGroup_group' - The name or the ARN of the resource group to modify.
+--
+-- 'groupName', 'updateGroup_groupName' - Don\'t use this parameter. Use @Group@ instead.
 --
 -- 'description', 'updateGroup_description' - The new description that you want to update the resource group with.
 -- Descriptions can contain letters, numbers, hyphens, underscores,
@@ -87,18 +87,18 @@ newUpdateGroup ::
   UpdateGroup
 newUpdateGroup =
   UpdateGroup'
-    { groupName = Prelude.Nothing,
-      group' = Prelude.Nothing,
+    { group' = Prelude.Nothing,
+      groupName = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | Don\'t use this parameter. Use @Group@ instead.
-updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
-updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 -- | The name or the ARN of the resource group to modify.
 updateGroup_group :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
 updateGroup_group = Lens.lens (\UpdateGroup' {group'} -> group') (\s@UpdateGroup' {} a -> s {group' = a} :: UpdateGroup)
+
+-- | Don\'t use this parameter. Use @Group@ instead.
+updateGroup_groupName :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@UpdateGroup' {} a -> s {groupName = a} :: UpdateGroup)
 
 -- | The new description that you want to update the resource group with.
 -- Descriptions can contain letters, numbers, hyphens, underscores,
@@ -128,8 +128,8 @@ instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GroupName" Core..=) Prelude.<$> groupName,
-            ("Group" Core..=) Prelude.<$> group',
+          [ ("Group" Core..=) Prelude.<$> group',
+            ("GroupName" Core..=) Prelude.<$> groupName,
             ("Description" Core..=) Prelude.<$> description
           ]
       )

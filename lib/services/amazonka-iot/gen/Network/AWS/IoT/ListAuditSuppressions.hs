@@ -33,11 +33,11 @@ module Network.AWS.IoT.ListAuditSuppressions
     newListAuditSuppressions,
 
     -- * Request Lenses
+    listAuditSuppressions_checkName,
     listAuditSuppressions_nextToken,
+    listAuditSuppressions_ascendingOrder,
     listAuditSuppressions_maxResults,
     listAuditSuppressions_resourceIdentifier,
-    listAuditSuppressions_checkName,
-    listAuditSuppressions_ascendingOrder,
 
     -- * Destructuring the Response
     ListAuditSuppressionsResponse (..),
@@ -59,16 +59,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAuditSuppressions' smart constructor.
 data ListAuditSuppressions = ListAuditSuppressions'
-  { -- | The token for the next set of results.
+  { checkName :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
-    checkName :: Prelude.Maybe Prelude.Text,
     -- | Determines whether suppressions are listed in ascending order by
     -- expiration date or not. If parameter isn\'t provided,
     -- @ascendingOrder=true@.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    resourceIdentifier :: Prelude.Maybe ResourceIdentifier
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,31 +80,41 @@ data ListAuditSuppressions = ListAuditSuppressions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAuditSuppressions_nextToken' - The token for the next set of results.
---
--- 'maxResults', 'listAuditSuppressions_maxResults' - The maximum number of results to return at one time. The default is 25.
---
--- 'resourceIdentifier', 'listAuditSuppressions_resourceIdentifier' - Undocumented member.
---
 -- 'checkName', 'listAuditSuppressions_checkName' - Undocumented member.
+--
+-- 'nextToken', 'listAuditSuppressions_nextToken' - The token for the next set of results.
 --
 -- 'ascendingOrder', 'listAuditSuppressions_ascendingOrder' - Determines whether suppressions are listed in ascending order by
 -- expiration date or not. If parameter isn\'t provided,
 -- @ascendingOrder=true@.
+--
+-- 'maxResults', 'listAuditSuppressions_maxResults' - The maximum number of results to return at one time. The default is 25.
+--
+-- 'resourceIdentifier', 'listAuditSuppressions_resourceIdentifier' - Undocumented member.
 newListAuditSuppressions ::
   ListAuditSuppressions
 newListAuditSuppressions =
   ListAuditSuppressions'
-    { nextToken = Prelude.Nothing,
+    { checkName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      ascendingOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
-      checkName = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+      resourceIdentifier = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listAuditSuppressions_checkName :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
+listAuditSuppressions_checkName = Lens.lens (\ListAuditSuppressions' {checkName} -> checkName) (\s@ListAuditSuppressions' {} a -> s {checkName = a} :: ListAuditSuppressions)
 
 -- | The token for the next set of results.
 listAuditSuppressions_nextToken :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
 listAuditSuppressions_nextToken = Lens.lens (\ListAuditSuppressions' {nextToken} -> nextToken) (\s@ListAuditSuppressions' {} a -> s {nextToken = a} :: ListAuditSuppressions)
+
+-- | Determines whether suppressions are listed in ascending order by
+-- expiration date or not. If parameter isn\'t provided,
+-- @ascendingOrder=true@.
+listAuditSuppressions_ascendingOrder :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Bool)
+listAuditSuppressions_ascendingOrder = Lens.lens (\ListAuditSuppressions' {ascendingOrder} -> ascendingOrder) (\s@ListAuditSuppressions' {} a -> s {ascendingOrder = a} :: ListAuditSuppressions)
 
 -- | The maximum number of results to return at one time. The default is 25.
 listAuditSuppressions_maxResults :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Natural)
@@ -113,16 +123,6 @@ listAuditSuppressions_maxResults = Lens.lens (\ListAuditSuppressions' {maxResult
 -- | Undocumented member.
 listAuditSuppressions_resourceIdentifier :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe ResourceIdentifier)
 listAuditSuppressions_resourceIdentifier = Lens.lens (\ListAuditSuppressions' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditSuppressions' {} a -> s {resourceIdentifier = a} :: ListAuditSuppressions)
-
--- | Undocumented member.
-listAuditSuppressions_checkName :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
-listAuditSuppressions_checkName = Lens.lens (\ListAuditSuppressions' {checkName} -> checkName) (\s@ListAuditSuppressions' {} a -> s {checkName = a} :: ListAuditSuppressions)
-
--- | Determines whether suppressions are listed in ascending order by
--- expiration date or not. If parameter isn\'t provided,
--- @ascendingOrder=true@.
-listAuditSuppressions_ascendingOrder :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Bool)
-listAuditSuppressions_ascendingOrder = Lens.lens (\ListAuditSuppressions' {ascendingOrder} -> ascendingOrder) (\s@ListAuditSuppressions' {} a -> s {ascendingOrder = a} :: ListAuditSuppressions)
 
 instance Core.AWSPager ListAuditSuppressions where
   page rq rs
@@ -171,13 +171,13 @@ instance Core.ToJSON ListAuditSuppressions where
   toJSON ListAuditSuppressions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("checkName" Core..=) Prelude.<$> checkName,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("ascendingOrder" Core..=)
+              Prelude.<$> ascendingOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("resourceIdentifier" Core..=)
-              Prelude.<$> resourceIdentifier,
-            ("checkName" Core..=) Prelude.<$> checkName,
-            ("ascendingOrder" Core..=)
-              Prelude.<$> ascendingOrder
+              Prelude.<$> resourceIdentifier
           ]
       )
 
@@ -232,7 +232,7 @@ listAuditSuppressionsResponse_nextToken = Lens.lens (\ListAuditSuppressionsRespo
 
 -- | List of audit suppressions.
 listAuditSuppressionsResponse_suppressions :: Lens.Lens' ListAuditSuppressionsResponse (Prelude.Maybe [AuditSuppression])
-listAuditSuppressionsResponse_suppressions = Lens.lens (\ListAuditSuppressionsResponse' {suppressions} -> suppressions) (\s@ListAuditSuppressionsResponse' {} a -> s {suppressions = a} :: ListAuditSuppressionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listAuditSuppressionsResponse_suppressions = Lens.lens (\ListAuditSuppressionsResponse' {suppressions} -> suppressions) (\s@ListAuditSuppressionsResponse' {} a -> s {suppressions = a} :: ListAuditSuppressionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAuditSuppressionsResponse_httpStatus :: Lens.Lens' ListAuditSuppressionsResponse Prelude.Int

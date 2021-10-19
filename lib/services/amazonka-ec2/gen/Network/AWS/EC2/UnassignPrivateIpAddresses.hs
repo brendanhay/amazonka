@@ -91,11 +91,11 @@ newUnassignPrivateIpAddresses pNetworkInterfaceId_ =
 -- interface. You can specify this option multiple times to unassign more
 -- than one IP address.
 unassignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' UnassignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
-unassignPrivateIpAddresses_privateIpAddresses = Lens.lens (\UnassignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@UnassignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens._Coerce
+unassignPrivateIpAddresses_privateIpAddresses = Lens.lens (\UnassignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@UnassignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IPv4 prefixes to unassign from the network interface.
 unassignPrivateIpAddresses_ipv4Prefixes :: Lens.Lens' UnassignPrivateIpAddresses (Prelude.Maybe [Prelude.Text])
-unassignPrivateIpAddresses_ipv4Prefixes = Lens.lens (\UnassignPrivateIpAddresses' {ipv4Prefixes} -> ipv4Prefixes) (\s@UnassignPrivateIpAddresses' {} a -> s {ipv4Prefixes = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens._Coerce
+unassignPrivateIpAddresses_ipv4Prefixes = Lens.lens (\UnassignPrivateIpAddresses' {ipv4Prefixes} -> ipv4Prefixes) (\s@UnassignPrivateIpAddresses' {} a -> s {ipv4Prefixes = a} :: UnassignPrivateIpAddresses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the network interface.
 unassignPrivateIpAddresses_networkInterfaceId :: Lens.Lens' UnassignPrivateIpAddresses Prelude.Text

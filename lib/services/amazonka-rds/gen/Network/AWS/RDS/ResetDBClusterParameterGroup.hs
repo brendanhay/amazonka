@@ -124,7 +124,7 @@ resetDBClusterParameterGroup_resetAllParameters = Lens.lens (\ResetDBClusterPara
 -- the default values. You can\'t use this parameter if the
 -- @ResetAllParameters@ parameter is enabled.
 resetDBClusterParameterGroup_parameters :: Lens.Lens' ResetDBClusterParameterGroup (Prelude.Maybe [Parameter])
-resetDBClusterParameterGroup_parameters = Lens.lens (\ResetDBClusterParameterGroup' {parameters} -> parameters) (\s@ResetDBClusterParameterGroup' {} a -> s {parameters = a} :: ResetDBClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+resetDBClusterParameterGroup_parameters = Lens.lens (\ResetDBClusterParameterGroup' {parameters} -> parameters) (\s@ResetDBClusterParameterGroup' {} a -> s {parameters = a} :: ResetDBClusterParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DB cluster parameter group to reset.
 resetDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' ResetDBClusterParameterGroup Prelude.Text

@@ -170,7 +170,9 @@ headBucket_bucket = Lens.lens (\HeadBucket' {bucket} -> bucket) (\s@HeadBucket' 
 
 instance Core.AWSRequest HeadBucket where
   type AWSResponse HeadBucket = HeadBucketResponse
-  request = Request.head' defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.head' defaultService
   response = Response.receiveNull HeadBucketResponse'
 
 instance Prelude.Hashable HeadBucket

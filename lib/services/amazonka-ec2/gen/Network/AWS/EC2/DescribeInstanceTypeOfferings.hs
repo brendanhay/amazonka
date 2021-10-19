@@ -32,19 +32,19 @@ module Network.AWS.EC2.DescribeInstanceTypeOfferings
     newDescribeInstanceTypeOfferings,
 
     -- * Request Lenses
-    describeInstanceTypeOfferings_nextToken,
-    describeInstanceTypeOfferings_maxResults,
-    describeInstanceTypeOfferings_dryRun,
-    describeInstanceTypeOfferings_locationType,
     describeInstanceTypeOfferings_filters,
+    describeInstanceTypeOfferings_nextToken,
+    describeInstanceTypeOfferings_locationType,
+    describeInstanceTypeOfferings_dryRun,
+    describeInstanceTypeOfferings_maxResults,
 
     -- * Destructuring the Response
     DescribeInstanceTypeOfferingsResponse (..),
     newDescribeInstanceTypeOfferingsResponse,
 
     -- * Response Lenses
-    describeInstanceTypeOfferingsResponse_nextToken,
     describeInstanceTypeOfferingsResponse_instanceTypeOfferings,
+    describeInstanceTypeOfferingsResponse_nextToken,
     describeInstanceTypeOfferingsResponse_httpStatus,
   )
 where
@@ -58,27 +58,27 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInstanceTypeOfferings' smart constructor.
 data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the next token value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The location type.
-    locationType :: Prelude.Maybe LocationType,
-    -- | One or more filters. Filter names and values are case-sensitive.
+  { -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @location@ - This depends on the location type. For example, if the
     --     location type is @region@ (default), the location is the Region code
     --     (for example, @us-east-2@.)
     --
     -- -   @instance-type@ - The instance type. For example, @c5.2xlarge@.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The location type.
+    locationType :: Prelude.Maybe LocationType,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results can be seen by sending another request with
+    -- the next token value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,19 +90,6 @@ data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstanceTypeOfferings_nextToken' - The token to retrieve the next page of results.
---
--- 'maxResults', 'describeInstanceTypeOfferings_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
---
--- 'dryRun', 'describeInstanceTypeOfferings_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'locationType', 'describeInstanceTypeOfferings_locationType' - The location type.
---
 -- 'filters', 'describeInstanceTypeOfferings_filters' - One or more filters. Filter names and values are case-sensitive.
 --
 -- -   @location@ - This depends on the location type. For example, if the
@@ -110,38 +97,30 @@ data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
 --     (for example, @us-east-2@.)
 --
 -- -   @instance-type@ - The instance type. For example, @c5.2xlarge@.
+--
+-- 'nextToken', 'describeInstanceTypeOfferings_nextToken' - The token to retrieve the next page of results.
+--
+-- 'locationType', 'describeInstanceTypeOfferings_locationType' - The location type.
+--
+-- 'dryRun', 'describeInstanceTypeOfferings_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeInstanceTypeOfferings_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the next token value.
 newDescribeInstanceTypeOfferings ::
   DescribeInstanceTypeOfferings
 newDescribeInstanceTypeOfferings =
   DescribeInstanceTypeOfferings'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       locationType = Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token to retrieve the next page of results.
-describeInstanceTypeOfferings_nextToken :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Text)
-describeInstanceTypeOfferings_nextToken = Lens.lens (\DescribeInstanceTypeOfferings' {nextToken} -> nextToken) (\s@DescribeInstanceTypeOfferings' {} a -> s {nextToken = a} :: DescribeInstanceTypeOfferings)
-
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
-describeInstanceTypeOfferings_maxResults :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Natural)
-describeInstanceTypeOfferings_maxResults = Lens.lens (\DescribeInstanceTypeOfferings' {maxResults} -> maxResults) (\s@DescribeInstanceTypeOfferings' {} a -> s {maxResults = a} :: DescribeInstanceTypeOfferings)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceTypeOfferings_dryRun :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Bool)
-describeInstanceTypeOfferings_dryRun = Lens.lens (\DescribeInstanceTypeOfferings' {dryRun} -> dryRun) (\s@DescribeInstanceTypeOfferings' {} a -> s {dryRun = a} :: DescribeInstanceTypeOfferings)
-
--- | The location type.
-describeInstanceTypeOfferings_locationType :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe LocationType)
-describeInstanceTypeOfferings_locationType = Lens.lens (\DescribeInstanceTypeOfferings' {locationType} -> locationType) (\s@DescribeInstanceTypeOfferings' {} a -> s {locationType = a} :: DescribeInstanceTypeOfferings)
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -151,7 +130,28 @@ describeInstanceTypeOfferings_locationType = Lens.lens (\DescribeInstanceTypeOff
 --
 -- -   @instance-type@ - The instance type. For example, @c5.2xlarge@.
 describeInstanceTypeOfferings_filters :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe [Filter])
-describeInstanceTypeOfferings_filters = Lens.lens (\DescribeInstanceTypeOfferings' {filters} -> filters) (\s@DescribeInstanceTypeOfferings' {} a -> s {filters = a} :: DescribeInstanceTypeOfferings) Prelude.. Lens.mapping Lens._Coerce
+describeInstanceTypeOfferings_filters = Lens.lens (\DescribeInstanceTypeOfferings' {filters} -> filters) (\s@DescribeInstanceTypeOfferings' {} a -> s {filters = a} :: DescribeInstanceTypeOfferings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page of results.
+describeInstanceTypeOfferings_nextToken :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Text)
+describeInstanceTypeOfferings_nextToken = Lens.lens (\DescribeInstanceTypeOfferings' {nextToken} -> nextToken) (\s@DescribeInstanceTypeOfferings' {} a -> s {nextToken = a} :: DescribeInstanceTypeOfferings)
+
+-- | The location type.
+describeInstanceTypeOfferings_locationType :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe LocationType)
+describeInstanceTypeOfferings_locationType = Lens.lens (\DescribeInstanceTypeOfferings' {locationType} -> locationType) (\s@DescribeInstanceTypeOfferings' {} a -> s {locationType = a} :: DescribeInstanceTypeOfferings)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInstanceTypeOfferings_dryRun :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Bool)
+describeInstanceTypeOfferings_dryRun = Lens.lens (\DescribeInstanceTypeOfferings' {dryRun} -> dryRun) (\s@DescribeInstanceTypeOfferings' {} a -> s {dryRun = a} :: DescribeInstanceTypeOfferings)
+
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the next token value.
+describeInstanceTypeOfferings_maxResults :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Natural)
+describeInstanceTypeOfferings_maxResults = Lens.lens (\DescribeInstanceTypeOfferings' {maxResults} -> maxResults) (\s@DescribeInstanceTypeOfferings' {} a -> s {maxResults = a} :: DescribeInstanceTypeOfferings)
 
 instance Core.AWSPager DescribeInstanceTypeOfferings where
   page rq rs
@@ -187,11 +187,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceTypeOfferingsResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "instanceTypeOfferingSet"
+            Prelude.<$> ( x Core..@? "instanceTypeOfferingSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -216,21 +216,21 @@ instance Core.ToQuery DescribeInstanceTypeOfferings where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
-        "LocationType" Core.=: locationType,
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "LocationType" Core.=: locationType,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInstanceTypeOfferingsResponse' smart constructor.
 data DescribeInstanceTypeOfferingsResponse = DescribeInstanceTypeOfferingsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | The instance types offered.
+    instanceTypeOfferings :: Prelude.Maybe [InstanceTypeOffering],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance types offered.
-    instanceTypeOfferings :: Prelude.Maybe [InstanceTypeOffering],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -244,10 +244,10 @@ data DescribeInstanceTypeOfferingsResponse = DescribeInstanceTypeOfferingsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceTypeOfferings', 'describeInstanceTypeOfferingsResponse_instanceTypeOfferings' - The instance types offered.
+--
 -- 'nextToken', 'describeInstanceTypeOfferingsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'instanceTypeOfferings', 'describeInstanceTypeOfferingsResponse_instanceTypeOfferings' - The instance types offered.
 --
 -- 'httpStatus', 'describeInstanceTypeOfferingsResponse_httpStatus' - The response's http status code.
 newDescribeInstanceTypeOfferingsResponse ::
@@ -256,21 +256,20 @@ newDescribeInstanceTypeOfferingsResponse ::
   DescribeInstanceTypeOfferingsResponse
 newDescribeInstanceTypeOfferingsResponse pHttpStatus_ =
   DescribeInstanceTypeOfferingsResponse'
-    { nextToken =
+    { instanceTypeOfferings =
         Prelude.Nothing,
-      instanceTypeOfferings =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The instance types offered.
+describeInstanceTypeOfferingsResponse_instanceTypeOfferings :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Prelude.Maybe [InstanceTypeOffering])
+describeInstanceTypeOfferingsResponse_instanceTypeOfferings = Lens.lens (\DescribeInstanceTypeOfferingsResponse' {instanceTypeOfferings} -> instanceTypeOfferings) (\s@DescribeInstanceTypeOfferingsResponse' {} a -> s {instanceTypeOfferings = a} :: DescribeInstanceTypeOfferingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeInstanceTypeOfferingsResponse_nextToken :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Prelude.Maybe Prelude.Text)
 describeInstanceTypeOfferingsResponse_nextToken = Lens.lens (\DescribeInstanceTypeOfferingsResponse' {nextToken} -> nextToken) (\s@DescribeInstanceTypeOfferingsResponse' {} a -> s {nextToken = a} :: DescribeInstanceTypeOfferingsResponse)
-
--- | The instance types offered.
-describeInstanceTypeOfferingsResponse_instanceTypeOfferings :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Prelude.Maybe [InstanceTypeOffering])
-describeInstanceTypeOfferingsResponse_instanceTypeOfferings = Lens.lens (\DescribeInstanceTypeOfferingsResponse' {instanceTypeOfferings} -> instanceTypeOfferings) (\s@DescribeInstanceTypeOfferingsResponse' {} a -> s {instanceTypeOfferings = a} :: DescribeInstanceTypeOfferingsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeInstanceTypeOfferingsResponse_httpStatus :: Lens.Lens' DescribeInstanceTypeOfferingsResponse Prelude.Int

@@ -170,7 +170,7 @@ newStartRelationalDatabaseResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 startRelationalDatabaseResponse_operations :: Lens.Lens' StartRelationalDatabaseResponse (Prelude.Maybe [Operation])
-startRelationalDatabaseResponse_operations = Lens.lens (\StartRelationalDatabaseResponse' {operations} -> operations) (\s@StartRelationalDatabaseResponse' {} a -> s {operations = a} :: StartRelationalDatabaseResponse) Prelude.. Lens.mapping Lens._Coerce
+startRelationalDatabaseResponse_operations = Lens.lens (\StartRelationalDatabaseResponse' {operations} -> operations) (\s@StartRelationalDatabaseResponse' {} a -> s {operations = a} :: StartRelationalDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startRelationalDatabaseResponse_httpStatus :: Lens.Lens' StartRelationalDatabaseResponse Prelude.Int

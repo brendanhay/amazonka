@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCPU' smart constructor.
 data CPU = CPU'
-  { -- | The CPU\'s architecture (for example, x86 or ARM).
-    architecture :: Prelude.Maybe Prelude.Text,
-    -- | The CPU\'s frequency.
+  { -- | The CPU\'s frequency.
     frequency :: Prelude.Maybe Prelude.Text,
     -- | The clock speed of the device\'s CPU, expressed in hertz (Hz). For
     -- example, a 1.2 GHz CPU is expressed as 1200000000.
-    clock :: Prelude.Maybe Prelude.Double
+    clock :: Prelude.Maybe Prelude.Double,
+    -- | The CPU\'s architecture (for example, x86 or ARM).
+    architecture :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,20 @@ data CPU = CPU'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'architecture', 'cpu_architecture' - The CPU\'s architecture (for example, x86 or ARM).
---
 -- 'frequency', 'cpu_frequency' - The CPU\'s frequency.
 --
 -- 'clock', 'cpu_clock' - The clock speed of the device\'s CPU, expressed in hertz (Hz). For
 -- example, a 1.2 GHz CPU is expressed as 1200000000.
+--
+-- 'architecture', 'cpu_architecture' - The CPU\'s architecture (for example, x86 or ARM).
 newCPU ::
   CPU
 newCPU =
   CPU'
-    { architecture = Prelude.Nothing,
-      frequency = Prelude.Nothing,
-      clock = Prelude.Nothing
+    { frequency = Prelude.Nothing,
+      clock = Prelude.Nothing,
+      architecture = Prelude.Nothing
     }
-
--- | The CPU\'s architecture (for example, x86 or ARM).
-cpu_architecture :: Lens.Lens' CPU (Prelude.Maybe Prelude.Text)
-cpu_architecture = Lens.lens (\CPU' {architecture} -> architecture) (\s@CPU' {} a -> s {architecture = a} :: CPU)
 
 -- | The CPU\'s frequency.
 cpu_frequency :: Lens.Lens' CPU (Prelude.Maybe Prelude.Text)
@@ -74,15 +70,19 @@ cpu_frequency = Lens.lens (\CPU' {frequency} -> frequency) (\s@CPU' {} a -> s {f
 cpu_clock :: Lens.Lens' CPU (Prelude.Maybe Prelude.Double)
 cpu_clock = Lens.lens (\CPU' {clock} -> clock) (\s@CPU' {} a -> s {clock = a} :: CPU)
 
+-- | The CPU\'s architecture (for example, x86 or ARM).
+cpu_architecture :: Lens.Lens' CPU (Prelude.Maybe Prelude.Text)
+cpu_architecture = Lens.lens (\CPU' {architecture} -> architecture) (\s@CPU' {} a -> s {architecture = a} :: CPU)
+
 instance Core.FromJSON CPU where
   parseJSON =
     Core.withObject
       "CPU"
       ( \x ->
           CPU'
-            Prelude.<$> (x Core..:? "architecture")
-            Prelude.<*> (x Core..:? "frequency")
+            Prelude.<$> (x Core..:? "frequency")
             Prelude.<*> (x Core..:? "clock")
+            Prelude.<*> (x Core..:? "architecture")
       )
 
 instance Prelude.Hashable CPU

@@ -140,7 +140,7 @@ newUpdateRuleGroup
   pChangeToken_ =
     UpdateRuleGroup'
       { ruleGroupId = pRuleGroupId_,
-        updates = Lens._Coerce Lens.# pUpdates_,
+        updates = Lens.coerced Lens.# pUpdates_,
         changeToken = pChangeToken_
       }
 
@@ -160,7 +160,7 @@ updateRuleGroup_ruleGroupId = Lens.lens (\UpdateRuleGroup' {ruleGroupId} -> rule
 -- @ActivatedRule|Action@ is used instead of
 -- @ActivatedRule|OverrideAction@.
 updateRuleGroup_updates :: Lens.Lens' UpdateRuleGroup (Prelude.NonEmpty RuleGroupUpdate)
-updateRuleGroup_updates = Lens.lens (\UpdateRuleGroup' {updates} -> updates) (\s@UpdateRuleGroup' {} a -> s {updates = a} :: UpdateRuleGroup) Prelude.. Lens._Coerce
+updateRuleGroup_updates = Lens.lens (\UpdateRuleGroup' {updates} -> updates) (\s@UpdateRuleGroup' {} a -> s {updates = a} :: UpdateRuleGroup) Prelude.. Lens.coerced
 
 -- | The value returned by the most recent call to GetChangeToken.
 updateRuleGroup_changeToken :: Lens.Lens' UpdateRuleGroup Prelude.Text

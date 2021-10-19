@@ -14,245 +14,39 @@
 module Network.AWS.Glacier.Lens
   ( -- * Operations
 
-    -- ** PurchaseProvisionedCapacity
-    purchaseProvisionedCapacity_accountId,
-    purchaseProvisionedCapacityResponse_capacityId,
-    purchaseProvisionedCapacityResponse_httpStatus,
-
-    -- ** DescribeVault
-    describeVault_accountId,
-    describeVault_vaultName,
-    describeVaultOutput_lastInventoryDate,
-    describeVaultOutput_creationDate,
-    describeVaultOutput_vaultName,
-    describeVaultOutput_vaultARN,
-    describeVaultOutput_sizeInBytes,
-    describeVaultOutput_numberOfArchives,
-
-    -- ** CompleteMultipartUpload
-    completeMultipartUpload_accountId,
-    completeMultipartUpload_vaultName,
-    completeMultipartUpload_uploadId,
-    completeMultipartUpload_archiveSize,
-    completeMultipartUpload_checksum,
-    archiveCreationOutput_archiveId,
-    archiveCreationOutput_checksum,
-    archiveCreationOutput_location,
-
     -- ** SetVaultAccessPolicy
     setVaultAccessPolicy_policy,
     setVaultAccessPolicy_accountId,
     setVaultAccessPolicy_vaultName,
 
-    -- ** SetDataRetrievalPolicy
-    setDataRetrievalPolicy_policy,
-    setDataRetrievalPolicy_accountId,
-
-    -- ** UploadArchive
-    uploadArchive_archiveDescription,
-    uploadArchive_checksum,
-    uploadArchive_vaultName,
-    uploadArchive_accountId,
-    uploadArchive_body,
-    archiveCreationOutput_archiveId,
-    archiveCreationOutput_checksum,
-    archiveCreationOutput_location,
-
-    -- ** ListProvisionedCapacity
-    listProvisionedCapacity_accountId,
-    listProvisionedCapacityResponse_provisionedCapacityList,
-    listProvisionedCapacityResponse_httpStatus,
-
-    -- ** SetVaultNotifications
-    setVaultNotifications_vaultNotificationConfig,
-    setVaultNotifications_accountId,
-    setVaultNotifications_vaultName,
-
-    -- ** AbortVaultLock
-    abortVaultLock_accountId,
-    abortVaultLock_vaultName,
-
-    -- ** RemoveTagsFromVault
-    removeTagsFromVault_tagKeys,
-    removeTagsFromVault_accountId,
-    removeTagsFromVault_vaultName,
-
-    -- ** DeleteArchive
-    deleteArchive_accountId,
-    deleteArchive_vaultName,
-    deleteArchive_archiveId,
-
-    -- ** DeleteVault
-    deleteVault_accountId,
-    deleteVault_vaultName,
-
-    -- ** ListVaults
-    listVaults_limit,
-    listVaults_marker,
-    listVaults_accountId,
-    listVaultsResponse_vaultList,
-    listVaultsResponse_marker,
-    listVaultsResponse_httpStatus,
-
-    -- ** DescribeJob
-    describeJob_accountId,
-    describeJob_vaultName,
-    describeJob_jobId,
-    glacierJobDescription_sHA256TreeHash,
-    glacierJobDescription_statusMessage,
-    glacierJobDescription_jobDescription,
-    glacierJobDescription_retrievalByteRange,
-    glacierJobDescription_jobOutputPath,
-    glacierJobDescription_creationDate,
-    glacierJobDescription_selectParameters,
-    glacierJobDescription_sNSTopic,
-    glacierJobDescription_vaultARN,
-    glacierJobDescription_archiveId,
-    glacierJobDescription_statusCode,
-    glacierJobDescription_inventorySizeInBytes,
-    glacierJobDescription_archiveSizeInBytes,
-    glacierJobDescription_action,
-    glacierJobDescription_inventoryRetrievalParameters,
-    glacierJobDescription_completionDate,
-    glacierJobDescription_completed,
-    glacierJobDescription_archiveSHA256TreeHash,
-    glacierJobDescription_tier,
-    glacierJobDescription_jobId,
-    glacierJobDescription_outputLocation,
-
-    -- ** ListTagsForVault
-    listTagsForVault_accountId,
-    listTagsForVault_vaultName,
-    listTagsForVaultResponse_tags,
-    listTagsForVaultResponse_httpStatus,
-
-    -- ** InitiateVaultLock
-    initiateVaultLock_policy,
-    initiateVaultLock_accountId,
-    initiateVaultLock_vaultName,
-    initiateVaultLockResponse_lockId,
-    initiateVaultLockResponse_httpStatus,
-
-    -- ** AbortMultipartUpload
-    abortMultipartUpload_accountId,
-    abortMultipartUpload_vaultName,
-    abortMultipartUpload_uploadId,
-
-    -- ** DeleteVaultAccessPolicy
-    deleteVaultAccessPolicy_accountId,
-    deleteVaultAccessPolicy_vaultName,
-
-    -- ** GetVaultLock
-    getVaultLock_accountId,
-    getVaultLock_vaultName,
-    getVaultLockResponse_creationDate,
-    getVaultLockResponse_expirationDate,
-    getVaultLockResponse_state,
-    getVaultLockResponse_policy,
-    getVaultLockResponse_httpStatus,
-
-    -- ** ListMultipartUploads
-    listMultipartUploads_limit,
-    listMultipartUploads_marker,
-    listMultipartUploads_accountId,
-    listMultipartUploads_vaultName,
-    listMultipartUploadsResponse_uploadsList,
-    listMultipartUploadsResponse_marker,
-    listMultipartUploadsResponse_httpStatus,
-
     -- ** InitiateJob
     initiateJob_jobParameters,
     initiateJob_accountId,
     initiateJob_vaultName,
+    initiateJobResponse_jobId,
     initiateJobResponse_jobOutputPath,
     initiateJobResponse_location,
-    initiateJobResponse_jobId,
     initiateJobResponse_httpStatus,
 
-    -- ** AddTagsToVault
-    addTagsToVault_tags,
-    addTagsToVault_accountId,
-    addTagsToVault_vaultName,
+    -- ** SetDataRetrievalPolicy
+    setDataRetrievalPolicy_policy,
+    setDataRetrievalPolicy_accountId,
 
-    -- ** InitiateMultipartUpload
-    initiateMultipartUpload_archiveDescription,
-    initiateMultipartUpload_accountId,
-    initiateMultipartUpload_vaultName,
-    initiateMultipartUpload_partSize,
-    initiateMultipartUploadResponse_uploadId,
-    initiateMultipartUploadResponse_location,
-    initiateMultipartUploadResponse_httpStatus,
-
-    -- ** GetJobOutput
-    getJobOutput_range,
-    getJobOutput_accountId,
-    getJobOutput_vaultName,
-    getJobOutput_jobId,
-    getJobOutputResponse_contentType,
-    getJobOutputResponse_contentRange,
-    getJobOutputResponse_acceptRanges,
-    getJobOutputResponse_archiveDescription,
-    getJobOutputResponse_checksum,
-    getJobOutputResponse_status,
-    getJobOutputResponse_body,
-
-    -- ** CreateVault
-    createVault_accountId,
-    createVault_vaultName,
-    createVaultResponse_location,
-    createVaultResponse_httpStatus,
-
-    -- ** ListParts
-    listParts_limit,
-    listParts_marker,
-    listParts_accountId,
-    listParts_vaultName,
-    listParts_uploadId,
-    listPartsResponse_partSizeInBytes,
-    listPartsResponse_creationDate,
-    listPartsResponse_vaultARN,
-    listPartsResponse_archiveDescription,
-    listPartsResponse_parts,
-    listPartsResponse_multipartUploadId,
-    listPartsResponse_marker,
-    listPartsResponse_httpStatus,
-
-    -- ** ListJobs
-    listJobs_statuscode,
-    listJobs_completed,
-    listJobs_limit,
-    listJobs_marker,
-    listJobs_accountId,
-    listJobs_vaultName,
-    listJobsResponse_jobList,
-    listJobsResponse_marker,
-    listJobsResponse_httpStatus,
-
-    -- ** GetVaultAccessPolicy
-    getVaultAccessPolicy_accountId,
-    getVaultAccessPolicy_vaultName,
-    getVaultAccessPolicyResponse_policy,
-    getVaultAccessPolicyResponse_httpStatus,
-
-    -- ** CompleteVaultLock
-    completeVaultLock_accountId,
-    completeVaultLock_vaultName,
-    completeVaultLock_lockId,
-
-    -- ** GetDataRetrievalPolicy
-    getDataRetrievalPolicy_accountId,
-    getDataRetrievalPolicyResponse_policy,
-    getDataRetrievalPolicyResponse_httpStatus,
-
-    -- ** DeleteVaultNotifications
-    deleteVaultNotifications_accountId,
-    deleteVaultNotifications_vaultName,
+    -- ** DeleteVaultAccessPolicy
+    deleteVaultAccessPolicy_accountId,
+    deleteVaultAccessPolicy_vaultName,
 
     -- ** GetVaultNotifications
     getVaultNotifications_accountId,
     getVaultNotifications_vaultName,
     getVaultNotificationsResponse_vaultNotificationConfig,
     getVaultNotificationsResponse_httpStatus,
+
+    -- ** ListTagsForVault
+    listTagsForVault_accountId,
+    listTagsForVault_vaultName,
+    listTagsForVaultResponse_tags,
+    listTagsForVaultResponse_httpStatus,
 
     -- ** UploadMultipartPart
     uploadMultipartPart_accountId,
@@ -264,6 +58,212 @@ module Network.AWS.Glacier.Lens
     uploadMultipartPartResponse_checksum,
     uploadMultipartPartResponse_httpStatus,
 
+    -- ** DeleteVaultNotifications
+    deleteVaultNotifications_accountId,
+    deleteVaultNotifications_vaultName,
+
+    -- ** CompleteVaultLock
+    completeVaultLock_accountId,
+    completeVaultLock_vaultName,
+    completeVaultLock_lockId,
+
+    -- ** AbortVaultLock
+    abortVaultLock_accountId,
+    abortVaultLock_vaultName,
+
+    -- ** ListVaults
+    listVaults_marker,
+    listVaults_limit,
+    listVaults_accountId,
+    listVaultsResponse_marker,
+    listVaultsResponse_vaultList,
+    listVaultsResponse_httpStatus,
+
+    -- ** ListProvisionedCapacity
+    listProvisionedCapacity_accountId,
+    listProvisionedCapacityResponse_provisionedCapacityList,
+    listProvisionedCapacityResponse_httpStatus,
+
+    -- ** ListJobs
+    listJobs_marker,
+    listJobs_completed,
+    listJobs_limit,
+    listJobs_statuscode,
+    listJobs_accountId,
+    listJobs_vaultName,
+    listJobsResponse_marker,
+    listJobsResponse_jobList,
+    listJobsResponse_httpStatus,
+
+    -- ** SetVaultNotifications
+    setVaultNotifications_vaultNotificationConfig,
+    setVaultNotifications_accountId,
+    setVaultNotifications_vaultName,
+
+    -- ** GetJobOutput
+    getJobOutput_range,
+    getJobOutput_accountId,
+    getJobOutput_vaultName,
+    getJobOutput_jobId,
+    getJobOutputResponse_checksum,
+    getJobOutputResponse_acceptRanges,
+    getJobOutputResponse_archiveDescription,
+    getJobOutputResponse_contentRange,
+    getJobOutputResponse_contentType,
+    getJobOutputResponse_status,
+    getJobOutputResponse_body,
+
+    -- ** CompleteMultipartUpload
+    completeMultipartUpload_accountId,
+    completeMultipartUpload_vaultName,
+    completeMultipartUpload_uploadId,
+    completeMultipartUpload_archiveSize,
+    completeMultipartUpload_checksum,
+    archiveCreationOutput_archiveId,
+    archiveCreationOutput_checksum,
+    archiveCreationOutput_location,
+
+    -- ** ListMultipartUploads
+    listMultipartUploads_marker,
+    listMultipartUploads_limit,
+    listMultipartUploads_accountId,
+    listMultipartUploads_vaultName,
+    listMultipartUploadsResponse_uploadsList,
+    listMultipartUploadsResponse_marker,
+    listMultipartUploadsResponse_httpStatus,
+
+    -- ** AbortMultipartUpload
+    abortMultipartUpload_accountId,
+    abortMultipartUpload_vaultName,
+    abortMultipartUpload_uploadId,
+
+    -- ** PurchaseProvisionedCapacity
+    purchaseProvisionedCapacity_accountId,
+    purchaseProvisionedCapacityResponse_capacityId,
+    purchaseProvisionedCapacityResponse_httpStatus,
+
+    -- ** DescribeVault
+    describeVault_accountId,
+    describeVault_vaultName,
+    describeVaultOutput_vaultName,
+    describeVaultOutput_sizeInBytes,
+    describeVaultOutput_lastInventoryDate,
+    describeVaultOutput_vaultARN,
+    describeVaultOutput_creationDate,
+    describeVaultOutput_numberOfArchives,
+
+    -- ** GetVaultLock
+    getVaultLock_accountId,
+    getVaultLock_vaultName,
+    getVaultLockResponse_state,
+    getVaultLockResponse_expirationDate,
+    getVaultLockResponse_creationDate,
+    getVaultLockResponse_policy,
+    getVaultLockResponse_httpStatus,
+
+    -- ** DescribeJob
+    describeJob_accountId,
+    describeJob_vaultName,
+    describeJob_jobId,
+    glacierJobDescription_sHA256TreeHash,
+    glacierJobDescription_archiveId,
+    glacierJobDescription_selectParameters,
+    glacierJobDescription_jobId,
+    glacierJobDescription_jobOutputPath,
+    glacierJobDescription_retrievalByteRange,
+    glacierJobDescription_inventoryRetrievalParameters,
+    glacierJobDescription_action,
+    glacierJobDescription_jobDescription,
+    glacierJobDescription_sNSTopic,
+    glacierJobDescription_statusMessage,
+    glacierJobDescription_vaultARN,
+    glacierJobDescription_outputLocation,
+    glacierJobDescription_tier,
+    glacierJobDescription_archiveSHA256TreeHash,
+    glacierJobDescription_creationDate,
+    glacierJobDescription_completed,
+    glacierJobDescription_completionDate,
+    glacierJobDescription_inventorySizeInBytes,
+    glacierJobDescription_archiveSizeInBytes,
+    glacierJobDescription_statusCode,
+
+    -- ** InitiateVaultLock
+    initiateVaultLock_policy,
+    initiateVaultLock_accountId,
+    initiateVaultLock_vaultName,
+    initiateVaultLockResponse_lockId,
+    initiateVaultLockResponse_httpStatus,
+
+    -- ** GetVaultAccessPolicy
+    getVaultAccessPolicy_accountId,
+    getVaultAccessPolicy_vaultName,
+    getVaultAccessPolicyResponse_policy,
+    getVaultAccessPolicyResponse_httpStatus,
+
+    -- ** GetDataRetrievalPolicy
+    getDataRetrievalPolicy_accountId,
+    getDataRetrievalPolicyResponse_policy,
+    getDataRetrievalPolicyResponse_httpStatus,
+
+    -- ** RemoveTagsFromVault
+    removeTagsFromVault_tagKeys,
+    removeTagsFromVault_accountId,
+    removeTagsFromVault_vaultName,
+
+    -- ** DeleteVault
+    deleteVault_accountId,
+    deleteVault_vaultName,
+
+    -- ** DeleteArchive
+    deleteArchive_accountId,
+    deleteArchive_vaultName,
+    deleteArchive_archiveId,
+
+    -- ** CreateVault
+    createVault_accountId,
+    createVault_vaultName,
+    createVaultResponse_location,
+    createVaultResponse_httpStatus,
+
+    -- ** InitiateMultipartUpload
+    initiateMultipartUpload_archiveDescription,
+    initiateMultipartUpload_accountId,
+    initiateMultipartUpload_vaultName,
+    initiateMultipartUpload_partSize,
+    initiateMultipartUploadResponse_location,
+    initiateMultipartUploadResponse_uploadId,
+    initiateMultipartUploadResponse_httpStatus,
+
+    -- ** ListParts
+    listParts_marker,
+    listParts_limit,
+    listParts_accountId,
+    listParts_vaultName,
+    listParts_uploadId,
+    listPartsResponse_parts,
+    listPartsResponse_multipartUploadId,
+    listPartsResponse_partSizeInBytes,
+    listPartsResponse_archiveDescription,
+    listPartsResponse_vaultARN,
+    listPartsResponse_marker,
+    listPartsResponse_creationDate,
+    listPartsResponse_httpStatus,
+
+    -- ** AddTagsToVault
+    addTagsToVault_tags,
+    addTagsToVault_accountId,
+    addTagsToVault_vaultName,
+
+    -- ** UploadArchive
+    uploadArchive_checksum,
+    uploadArchive_archiveDescription,
+    uploadArchive_vaultName,
+    uploadArchive_accountId,
+    uploadArchive_body,
+    archiveCreationOutput_archiveId,
+    archiveCreationOutput_checksum,
+    archiveCreationOutput_location,
+
     -- * Types
 
     -- ** ArchiveCreationOutput
@@ -272,33 +272,33 @@ module Network.AWS.Glacier.Lens
     archiveCreationOutput_location,
 
     -- ** CSVInput
-    cSVInput_recordDelimiter,
     cSVInput_quoteCharacter,
+    cSVInput_recordDelimiter,
     cSVInput_fileHeaderInfo,
-    cSVInput_fieldDelimiter,
-    cSVInput_comments,
     cSVInput_quoteEscapeCharacter,
+    cSVInput_comments,
+    cSVInput_fieldDelimiter,
 
     -- ** CSVOutput
-    cSVOutput_recordDelimiter,
     cSVOutput_quoteCharacter,
-    cSVOutput_fieldDelimiter,
     cSVOutput_quoteFields,
+    cSVOutput_recordDelimiter,
     cSVOutput_quoteEscapeCharacter,
+    cSVOutput_fieldDelimiter,
 
     -- ** DataRetrievalPolicy
     dataRetrievalPolicy_rules,
 
     -- ** DataRetrievalRule
-    dataRetrievalRule_bytesPerHour,
     dataRetrievalRule_strategy,
+    dataRetrievalRule_bytesPerHour,
 
     -- ** DescribeVaultOutput
-    describeVaultOutput_lastInventoryDate,
-    describeVaultOutput_creationDate,
     describeVaultOutput_vaultName,
-    describeVaultOutput_vaultARN,
     describeVaultOutput_sizeInBytes,
+    describeVaultOutput_lastInventoryDate,
+    describeVaultOutput_vaultARN,
+    describeVaultOutput_creationDate,
     describeVaultOutput_numberOfArchives,
 
     -- ** Encryption
@@ -308,65 +308,65 @@ module Network.AWS.Glacier.Lens
 
     -- ** GlacierJobDescription
     glacierJobDescription_sHA256TreeHash,
-    glacierJobDescription_statusMessage,
-    glacierJobDescription_jobDescription,
-    glacierJobDescription_retrievalByteRange,
-    glacierJobDescription_jobOutputPath,
-    glacierJobDescription_creationDate,
-    glacierJobDescription_selectParameters,
-    glacierJobDescription_sNSTopic,
-    glacierJobDescription_vaultARN,
     glacierJobDescription_archiveId,
-    glacierJobDescription_statusCode,
+    glacierJobDescription_selectParameters,
+    glacierJobDescription_jobId,
+    glacierJobDescription_jobOutputPath,
+    glacierJobDescription_retrievalByteRange,
+    glacierJobDescription_inventoryRetrievalParameters,
+    glacierJobDescription_action,
+    glacierJobDescription_jobDescription,
+    glacierJobDescription_sNSTopic,
+    glacierJobDescription_statusMessage,
+    glacierJobDescription_vaultARN,
+    glacierJobDescription_outputLocation,
+    glacierJobDescription_tier,
+    glacierJobDescription_archiveSHA256TreeHash,
+    glacierJobDescription_creationDate,
+    glacierJobDescription_completed,
+    glacierJobDescription_completionDate,
     glacierJobDescription_inventorySizeInBytes,
     glacierJobDescription_archiveSizeInBytes,
-    glacierJobDescription_action,
-    glacierJobDescription_inventoryRetrievalParameters,
-    glacierJobDescription_completionDate,
-    glacierJobDescription_completed,
-    glacierJobDescription_archiveSHA256TreeHash,
-    glacierJobDescription_tier,
-    glacierJobDescription_jobId,
-    glacierJobDescription_outputLocation,
+    glacierJobDescription_statusCode,
 
     -- ** Grant
-    grant_grantee,
     grant_permission,
+    grant_grantee,
 
     -- ** Grantee
     grantee_uri,
-    grantee_id,
-    grantee_displayName,
     grantee_emailAddress,
+    grantee_displayName,
+    grantee_id,
     grantee_type,
 
     -- ** InputSerialization
     inputSerialization_csv,
 
     -- ** InventoryRetrievalJobDescription
-    inventoryRetrievalJobDescription_startDate,
     inventoryRetrievalJobDescription_format,
     inventoryRetrievalJobDescription_endDate,
-    inventoryRetrievalJobDescription_limit,
+    inventoryRetrievalJobDescription_startDate,
     inventoryRetrievalJobDescription_marker,
+    inventoryRetrievalJobDescription_limit,
 
     -- ** InventoryRetrievalJobInput
-    inventoryRetrievalJobInput_startDate,
     inventoryRetrievalJobInput_endDate,
-    inventoryRetrievalJobInput_limit,
+    inventoryRetrievalJobInput_startDate,
     inventoryRetrievalJobInput_marker,
+    inventoryRetrievalJobInput_limit,
 
     -- ** JobParameters
+    jobParameters_archiveId,
+    jobParameters_selectParameters,
     jobParameters_format,
     jobParameters_retrievalByteRange,
-    jobParameters_selectParameters,
-    jobParameters_sNSTopic,
-    jobParameters_archiveId,
-    jobParameters_description,
     jobParameters_inventoryRetrievalParameters,
-    jobParameters_type,
-    jobParameters_tier,
+    jobParameters_sNSTopic,
     jobParameters_outputLocation,
+    jobParameters_tier,
+    jobParameters_type,
+    jobParameters_description,
 
     -- ** OutputLocation
     outputLocation_s3,
@@ -379,32 +379,32 @@ module Network.AWS.Glacier.Lens
     partListElement_rangeInBytes,
 
     -- ** ProvisionedCapacityDescription
-    provisionedCapacityDescription_startDate,
     provisionedCapacityDescription_capacityId,
+    provisionedCapacityDescription_startDate,
     provisionedCapacityDescription_expirationDate,
 
     -- ** S3Location
-    s3Location_bucketName,
-    s3Location_prefix,
     s3Location_cannedACL,
+    s3Location_prefix,
+    s3Location_bucketName,
+    s3Location_accessControlList,
+    s3Location_userMetadata,
     s3Location_encryption,
     s3Location_storageClass,
-    s3Location_userMetadata,
-    s3Location_accessControlList,
     s3Location_tagging,
 
     -- ** SelectParameters
     selectParameters_expressionType,
     selectParameters_outputSerialization,
-    selectParameters_inputSerialization,
     selectParameters_expression,
+    selectParameters_inputSerialization,
 
     -- ** UploadListElement
-    uploadListElement_partSizeInBytes,
-    uploadListElement_creationDate,
-    uploadListElement_vaultARN,
-    uploadListElement_archiveDescription,
     uploadListElement_multipartUploadId,
+    uploadListElement_partSizeInBytes,
+    uploadListElement_archiveDescription,
+    uploadListElement_vaultARN,
+    uploadListElement_creationDate,
 
     -- ** VaultAccessPolicy
     vaultAccessPolicy_policy,
@@ -413,8 +413,8 @@ module Network.AWS.Glacier.Lens
     vaultLockPolicy_policy,
 
     -- ** VaultNotificationConfig
-    vaultNotificationConfig_events,
     vaultNotificationConfig_sNSTopic,
+    vaultNotificationConfig_events,
   )
 where
 

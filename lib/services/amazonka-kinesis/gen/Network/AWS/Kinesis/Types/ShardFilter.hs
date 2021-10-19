@@ -26,8 +26,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { shardId :: Prelude.Maybe Prelude.Text,
-    timestamp :: Prelude.Maybe Core.POSIX,
+  { timestamp :: Prelude.Maybe Core.POSIX,
+    shardId :: Prelude.Maybe Prelude.Text,
     type' :: ShardFilterType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,9 +40,9 @@ data ShardFilter = ShardFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shardId', 'shardFilter_shardId' - Undocumented member.
---
 -- 'timestamp', 'shardFilter_timestamp' - Undocumented member.
+--
+-- 'shardId', 'shardFilter_shardId' - Undocumented member.
 --
 -- 'type'', 'shardFilter_type' - Undocumented member.
 newShardFilter ::
@@ -51,18 +51,18 @@ newShardFilter ::
   ShardFilter
 newShardFilter pType_ =
   ShardFilter'
-    { shardId = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
+    { timestamp = Prelude.Nothing,
+      shardId = Prelude.Nothing,
       type' = pType_
     }
 
 -- | Undocumented member.
-shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
-shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
-
--- | Undocumented member.
 shardFilter_timestamp :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.UTCTime)
 shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
+shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
 
 -- | Undocumented member.
 shardFilter_type :: Lens.Lens' ShardFilter ShardFilterType
@@ -76,8 +76,8 @@ instance Core.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ShardId" Core..=) Prelude.<$> shardId,
-            ("Timestamp" Core..=) Prelude.<$> timestamp,
+          [ ("Timestamp" Core..=) Prelude.<$> timestamp,
+            ("ShardId" Core..=) Prelude.<$> shardId,
             Prelude.Just ("Type" Core..= type')
           ]
       )

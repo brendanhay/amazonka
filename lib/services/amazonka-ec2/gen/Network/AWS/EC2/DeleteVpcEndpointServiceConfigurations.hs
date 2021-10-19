@@ -94,7 +94,7 @@ deleteVpcEndpointServiceConfigurations_dryRun = Lens.lens (\DeleteVpcEndpointSer
 
 -- | The IDs of one or more services.
 deleteVpcEndpointServiceConfigurations_serviceIds :: Lens.Lens' DeleteVpcEndpointServiceConfigurations [Prelude.Text]
-deleteVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DeleteVpcEndpointServiceConfigurations' {serviceIds} -> serviceIds) (\s@DeleteVpcEndpointServiceConfigurations' {} a -> s {serviceIds = a} :: DeleteVpcEndpointServiceConfigurations) Prelude.. Lens._Coerce
+deleteVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DeleteVpcEndpointServiceConfigurations' {serviceIds} -> serviceIds) (\s@DeleteVpcEndpointServiceConfigurations' {} a -> s {serviceIds = a} :: DeleteVpcEndpointServiceConfigurations) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -188,7 +188,7 @@ newDeleteVpcEndpointServiceConfigurationsResponse
 -- | Information about the service configurations that were not deleted, if
 -- applicable.
 deleteVpcEndpointServiceConfigurationsResponse_unsuccessful :: Lens.Lens' DeleteVpcEndpointServiceConfigurationsResponse (Prelude.Maybe [UnsuccessfulItem])
-deleteVpcEndpointServiceConfigurationsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointServiceConfigurationsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointServiceConfigurationsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointServiceConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteVpcEndpointServiceConfigurationsResponse_unsuccessful = Lens.lens (\DeleteVpcEndpointServiceConfigurationsResponse' {unsuccessful} -> unsuccessful) (\s@DeleteVpcEndpointServiceConfigurationsResponse' {} a -> s {unsuccessful = a} :: DeleteVpcEndpointServiceConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteVpcEndpointServiceConfigurationsResponse_httpStatus :: Lens.Lens' DeleteVpcEndpointServiceConfigurationsResponse Prelude.Int

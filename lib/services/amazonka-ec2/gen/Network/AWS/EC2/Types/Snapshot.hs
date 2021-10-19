@@ -30,21 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
-  { -- | The Amazon Web Services owner alias, from an Amazon-maintained list
-    -- (@amazon@). This is not the user-configured Amazon Web Services account
-    -- alias set using the IAM console.
-    ownerAlias :: Prelude.Maybe Prelude.Text,
-    -- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
+  { -- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
     -- copy operation fails (for example, if the proper Key Management Service
     -- (KMS) permissions are not obtained) this field displays error state
     -- details to help you diagnose why the error occurred. This parameter is
     -- only returned by DescribeSnapshots.
     stateMessage :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the Outpost on which the snapshot is stored. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    outpostArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services owner alias, from an Amazon-maintained list
+    -- (@amazon@). This is not the user-configured Amazon Web Services account
+    -- alias set using the IAM console.
+    ownerAlias :: Prelude.Maybe Prelude.Text,
     -- | The data encryption key identifier for the snapshot. This value is a
     -- unique identifier that corresponds to the data encryption key that was
     -- used to encrypt the original volume or snapshot copy. Because data
@@ -53,6 +48,11 @@ data Snapshot = Snapshot'
     -- then they belong to the same volume\/snapshot lineage. This parameter is
     -- only returned by DescribeSnapshots.
     dataEncryptionKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Outpost on which the snapshot is stored. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
     -- key that was used to protect the volume encryption key for the parent
     -- volume.
@@ -91,20 +91,15 @@ data Snapshot = Snapshot'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerAlias', 'snapshot_ownerAlias' - The Amazon Web Services owner alias, from an Amazon-maintained list
--- (@amazon@). This is not the user-configured Amazon Web Services account
--- alias set using the IAM console.
---
 -- 'stateMessage', 'snapshot_stateMessage' - Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
 -- copy operation fails (for example, if the proper Key Management Service
 -- (KMS) permissions are not obtained) this field displays error state
 -- details to help you diagnose why the error occurred. This parameter is
 -- only returned by DescribeSnapshots.
 --
--- 'outpostArn', 'snapshot_outpostArn' - The ARN of the Outpost on which the snapshot is stored. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- 'ownerAlias', 'snapshot_ownerAlias' - The Amazon Web Services owner alias, from an Amazon-maintained list
+-- (@amazon@). This is not the user-configured Amazon Web Services account
+-- alias set using the IAM console.
 --
 -- 'dataEncryptionKeyId', 'snapshot_dataEncryptionKeyId' - The data encryption key identifier for the snapshot. This value is a
 -- unique identifier that corresponds to the data encryption key that was
@@ -113,6 +108,11 @@ data Snapshot = Snapshot'
 -- vice versa, if snapshots share the same data encryption key identifier,
 -- then they belong to the same volume\/snapshot lineage. This parameter is
 -- only returned by DescribeSnapshots.
+--
+-- 'outpostArn', 'snapshot_outpostArn' - The ARN of the Outpost on which the snapshot is stored. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'kmsKeyId', 'snapshot_kmsKeyId' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
 -- key that was used to protect the volume encryption key for the parent
@@ -171,10 +171,10 @@ newSnapshot
   pState_
   pEncrypted_ =
     Snapshot'
-      { ownerAlias = Prelude.Nothing,
-        stateMessage = Prelude.Nothing,
-        outpostArn = Prelude.Nothing,
+      { stateMessage = Prelude.Nothing,
+        ownerAlias = Prelude.Nothing,
         dataEncryptionKeyId = Prelude.Nothing,
+        outpostArn = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         tags = Prelude.Nothing,
         snapshotId = pSnapshotId_,
@@ -188,12 +188,6 @@ newSnapshot
         encrypted = pEncrypted_
       }
 
--- | The Amazon Web Services owner alias, from an Amazon-maintained list
--- (@amazon@). This is not the user-configured Amazon Web Services account
--- alias set using the IAM console.
-snapshot_ownerAlias :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_ownerAlias = Lens.lens (\Snapshot' {ownerAlias} -> ownerAlias) (\s@Snapshot' {} a -> s {ownerAlias = a} :: Snapshot)
-
 -- | Encrypted Amazon EBS snapshots are copied asynchronously. If a snapshot
 -- copy operation fails (for example, if the proper Key Management Service
 -- (KMS) permissions are not obtained) this field displays error state
@@ -202,12 +196,11 @@ snapshot_ownerAlias = Lens.lens (\Snapshot' {ownerAlias} -> ownerAlias) (\s@Snap
 snapshot_stateMessage :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_stateMessage = Lens.lens (\Snapshot' {stateMessage} -> stateMessage) (\s@Snapshot' {} a -> s {stateMessage = a} :: Snapshot)
 
--- | The ARN of the Outpost on which the snapshot is stored. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-snapshot_outpostArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
-snapshot_outpostArn = Lens.lens (\Snapshot' {outpostArn} -> outpostArn) (\s@Snapshot' {} a -> s {outpostArn = a} :: Snapshot)
+-- | The Amazon Web Services owner alias, from an Amazon-maintained list
+-- (@amazon@). This is not the user-configured Amazon Web Services account
+-- alias set using the IAM console.
+snapshot_ownerAlias :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_ownerAlias = Lens.lens (\Snapshot' {ownerAlias} -> ownerAlias) (\s@Snapshot' {} a -> s {ownerAlias = a} :: Snapshot)
 
 -- | The data encryption key identifier for the snapshot. This value is a
 -- unique identifier that corresponds to the data encryption key that was
@@ -219,6 +212,13 @@ snapshot_outpostArn = Lens.lens (\Snapshot' {outpostArn} -> outpostArn) (\s@Snap
 snapshot_dataEncryptionKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_dataEncryptionKeyId = Lens.lens (\Snapshot' {dataEncryptionKeyId} -> dataEncryptionKeyId) (\s@Snapshot' {} a -> s {dataEncryptionKeyId = a} :: Snapshot)
 
+-- | The ARN of the Outpost on which the snapshot is stored. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html Amazon EBS local snapshots on Outposts>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+snapshot_outpostArn :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_outpostArn = Lens.lens (\Snapshot' {outpostArn} -> outpostArn) (\s@Snapshot' {} a -> s {outpostArn = a} :: Snapshot)
+
 -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
 -- key that was used to protect the volume encryption key for the parent
 -- volume.
@@ -227,7 +227,7 @@ snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' 
 
 -- | Any tags assigned to the snapshot.
 snapshot_tags :: Lens.Lens' Snapshot (Prelude.Maybe [Tag])
-snapshot_tags = Lens.lens (\Snapshot' {tags} -> tags) (\s@Snapshot' {} a -> s {tags = a} :: Snapshot) Prelude.. Lens.mapping Lens._Coerce
+snapshot_tags = Lens.lens (\Snapshot' {tags} -> tags) (\s@Snapshot' {} a -> s {tags = a} :: Snapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the snapshot. Each snapshot receives a unique identifier when
 -- it is created.
@@ -271,10 +271,10 @@ snapshot_encrypted = Lens.lens (\Snapshot' {encrypted} -> encrypted) (\s@Snapsho
 instance Core.FromXML Snapshot where
   parseXML x =
     Snapshot'
-      Prelude.<$> (x Core..@? "ownerAlias")
-      Prelude.<*> (x Core..@? "statusMessage")
-      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<$> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "ownerAlias")
       Prelude.<*> (x Core..@? "dataEncryptionKeyId")
+      Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "kmsKeyId")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")

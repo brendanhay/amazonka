@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDynamodbDataSourceConfig' smart constructor.
 data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
-  { -- | Set to TRUE to use Amazon Cognito credentials with this data source.
-    useCallerCredentials :: Prelude.Maybe Prelude.Bool,
-    -- | Set to TRUE to use Conflict Detection and Resolution with this data
+  { -- | Set to TRUE to use Conflict Detection and Resolution with this data
     -- source.
     versioned :: Prelude.Maybe Prelude.Bool,
+    -- | Set to TRUE to use Amazon Cognito credentials with this data source.
+    useCallerCredentials :: Prelude.Maybe Prelude.Bool,
     -- | The @DeltaSyncConfig@ for a versioned datasource.
     deltaSyncConfig :: Prelude.Maybe DeltaSyncConfig,
     -- | The table name.
@@ -50,10 +50,10 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useCallerCredentials', 'dynamodbDataSourceConfig_useCallerCredentials' - Set to TRUE to use Amazon Cognito credentials with this data source.
---
 -- 'versioned', 'dynamodbDataSourceConfig_versioned' - Set to TRUE to use Conflict Detection and Resolution with this data
 -- source.
+--
+-- 'useCallerCredentials', 'dynamodbDataSourceConfig_useCallerCredentials' - Set to TRUE to use Amazon Cognito credentials with this data source.
 --
 -- 'deltaSyncConfig', 'dynamodbDataSourceConfig_deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned datasource.
 --
@@ -68,22 +68,22 @@ newDynamodbDataSourceConfig ::
   DynamodbDataSourceConfig
 newDynamodbDataSourceConfig pTableName_ pAwsRegion_ =
   DynamodbDataSourceConfig'
-    { useCallerCredentials =
+    { versioned =
         Prelude.Nothing,
-      versioned = Prelude.Nothing,
+      useCallerCredentials = Prelude.Nothing,
       deltaSyncConfig = Prelude.Nothing,
       tableName = pTableName_,
       awsRegion = pAwsRegion_
     }
 
--- | Set to TRUE to use Amazon Cognito credentials with this data source.
-dynamodbDataSourceConfig_useCallerCredentials :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
-dynamodbDataSourceConfig_useCallerCredentials = Lens.lens (\DynamodbDataSourceConfig' {useCallerCredentials} -> useCallerCredentials) (\s@DynamodbDataSourceConfig' {} a -> s {useCallerCredentials = a} :: DynamodbDataSourceConfig)
-
 -- | Set to TRUE to use Conflict Detection and Resolution with this data
 -- source.
 dynamodbDataSourceConfig_versioned :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
 dynamodbDataSourceConfig_versioned = Lens.lens (\DynamodbDataSourceConfig' {versioned} -> versioned) (\s@DynamodbDataSourceConfig' {} a -> s {versioned = a} :: DynamodbDataSourceConfig)
+
+-- | Set to TRUE to use Amazon Cognito credentials with this data source.
+dynamodbDataSourceConfig_useCallerCredentials :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
+dynamodbDataSourceConfig_useCallerCredentials = Lens.lens (\DynamodbDataSourceConfig' {useCallerCredentials} -> useCallerCredentials) (\s@DynamodbDataSourceConfig' {} a -> s {useCallerCredentials = a} :: DynamodbDataSourceConfig)
 
 -- | The @DeltaSyncConfig@ for a versioned datasource.
 dynamodbDataSourceConfig_deltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe DeltaSyncConfig)
@@ -103,8 +103,8 @@ instance Core.FromJSON DynamodbDataSourceConfig where
       "DynamodbDataSourceConfig"
       ( \x ->
           DynamodbDataSourceConfig'
-            Prelude.<$> (x Core..:? "useCallerCredentials")
-            Prelude.<*> (x Core..:? "versioned")
+            Prelude.<$> (x Core..:? "versioned")
+            Prelude.<*> (x Core..:? "useCallerCredentials")
             Prelude.<*> (x Core..:? "deltaSyncConfig")
             Prelude.<*> (x Core..: "tableName")
             Prelude.<*> (x Core..: "awsRegion")
@@ -118,9 +118,9 @@ instance Core.ToJSON DynamodbDataSourceConfig where
   toJSON DynamodbDataSourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("useCallerCredentials" Core..=)
+          [ ("versioned" Core..=) Prelude.<$> versioned,
+            ("useCallerCredentials" Core..=)
               Prelude.<$> useCallerCredentials,
-            ("versioned" Core..=) Prelude.<$> versioned,
             ("deltaSyncConfig" Core..=)
               Prelude.<$> deltaSyncConfig,
             Prelude.Just ("tableName" Core..= tableName),

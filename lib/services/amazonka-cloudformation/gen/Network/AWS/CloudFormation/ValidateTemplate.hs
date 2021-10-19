@@ -30,19 +30,19 @@ module Network.AWS.CloudFormation.ValidateTemplate
     newValidateTemplate,
 
     -- * Request Lenses
-    validateTemplate_templateURL,
     validateTemplate_templateBody,
+    validateTemplate_templateURL,
 
     -- * Destructuring the Response
     ValidateTemplateResponse (..),
     newValidateTemplateResponse,
 
     -- * Response Lenses
-    validateTemplateResponse_capabilities,
     validateTemplateResponse_declaredTransforms,
-    validateTemplateResponse_description,
-    validateTemplateResponse_parameters,
     validateTemplateResponse_capabilitiesReason,
+    validateTemplateResponse_parameters,
+    validateTemplateResponse_description,
+    validateTemplateResponse_capabilities,
     validateTemplateResponse_httpStatus,
   )
 where
@@ -58,7 +58,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newValidateTemplate' smart constructor.
 data ValidateTemplate = ValidateTemplate'
-  { -- | Location of file containing the template body. The URL must point to a
+  { -- | Structure containing the template body with a minimum length of 1 byte
+    -- and a maximum length of 51,200 bytes. For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- in the CloudFormation User Guide.
+    --
+    -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+    -- passed, only @TemplateBody@ is used.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | Location of file containing the template body. The URL must point to a
     -- template (max size: 460,800 bytes) that is located in an Amazon S3
     -- bucket or a Systems Manager document. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -66,15 +74,7 @@ data ValidateTemplate = ValidateTemplate'
     --
     -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
     -- passed, only @TemplateBody@ is used.
-    templateURL :: Prelude.Maybe Prelude.Text,
-    -- | Structure containing the template body with a minimum length of 1 byte
-    -- and a maximum length of 51,200 bytes. For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the CloudFormation User Guide.
-    --
-    -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
-    -- passed, only @TemplateBody@ is used.
-    templateBody :: Prelude.Maybe Prelude.Text
+    templateURL :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,17 +86,17 @@ data ValidateTemplate = ValidateTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateURL', 'validateTemplate_templateURL' - Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) that is located in an Amazon S3
--- bucket or a Systems Manager document. For more information, go to
+-- 'templateBody', 'validateTemplate_templateBody' - Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the CloudFormation User Guide.
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
 --
--- 'templateBody', 'validateTemplate_templateBody' - Structure containing the template body with a minimum length of 1 byte
--- and a maximum length of 51,200 bytes. For more information, go to
+-- 'templateURL', 'validateTemplate_templateURL' - Location of file containing the template body. The URL must point to a
+-- template (max size: 460,800 bytes) that is located in an Amazon S3
+-- bucket or a Systems Manager document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the CloudFormation User Guide.
 --
@@ -106,9 +106,19 @@ newValidateTemplate ::
   ValidateTemplate
 newValidateTemplate =
   ValidateTemplate'
-    { templateURL = Prelude.Nothing,
-      templateBody = Prelude.Nothing
+    { templateBody = Prelude.Nothing,
+      templateURL = Prelude.Nothing
     }
+
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the CloudFormation User Guide.
+--
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+-- passed, only @TemplateBody@ is used.
+validateTemplate_templateBody :: Lens.Lens' ValidateTemplate (Prelude.Maybe Prelude.Text)
+validateTemplate_templateBody = Lens.lens (\ValidateTemplate' {templateBody} -> templateBody) (\s@ValidateTemplate' {} a -> s {templateBody = a} :: ValidateTemplate)
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 460,800 bytes) that is located in an Amazon S3
@@ -121,16 +131,6 @@ newValidateTemplate =
 validateTemplate_templateURL :: Lens.Lens' ValidateTemplate (Prelude.Maybe Prelude.Text)
 validateTemplate_templateURL = Lens.lens (\ValidateTemplate' {templateURL} -> templateURL) (\s@ValidateTemplate' {} a -> s {templateURL = a} :: ValidateTemplate)
 
--- | Structure containing the template body with a minimum length of 1 byte
--- and a maximum length of 51,200 bytes. For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the CloudFormation User Guide.
---
--- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
--- passed, only @TemplateBody@ is used.
-validateTemplate_templateBody :: Lens.Lens' ValidateTemplate (Prelude.Maybe Prelude.Text)
-validateTemplate_templateBody = Lens.lens (\ValidateTemplate' {templateBody} -> templateBody) (\s@ValidateTemplate' {} a -> s {templateBody = a} :: ValidateTemplate)
-
 instance Core.AWSRequest ValidateTemplate where
   type
     AWSResponse ValidateTemplate =
@@ -141,18 +141,18 @@ instance Core.AWSRequest ValidateTemplate where
       "ValidateTemplateResult"
       ( \s h x ->
           ValidateTemplateResponse'
-            Prelude.<$> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
-                            Prelude.>>= Core.may (Core.parseXMLList "member")
-                        )
-            Prelude.<*> ( x Core..@? "DeclaredTransforms"
+            Prelude.<$> ( x Core..@? "DeclaredTransforms"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Description")
+            Prelude.<*> (x Core..@? "CapabilitiesReason")
             Prelude.<*> ( x Core..@? "Parameters" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "CapabilitiesReason")
+            Prelude.<*> (x Core..@? "Description")
+            Prelude.<*> ( x Core..@? "Capabilities" Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,15 +173,24 @@ instance Core.ToQuery ValidateTemplate where
           Core.=: ("ValidateTemplate" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "TemplateURL" Core.=: templateURL,
-        "TemplateBody" Core.=: templateBody
+        "TemplateBody" Core.=: templateBody,
+        "TemplateURL" Core.=: templateURL
       ]
 
 -- | The output for ValidateTemplate action.
 --
 -- /See:/ 'newValidateTemplateResponse' smart constructor.
 data ValidateTemplateResponse = ValidateTemplateResponse'
-  { -- | The capabilities found within the template. If your template contains
+  { -- | A list of the transforms that are declared in the template.
+    declaredTransforms :: Prelude.Maybe [Prelude.Text],
+    -- | The list of resources that generated the values in the @Capabilities@
+    -- response element.
+    capabilitiesReason :: Prelude.Maybe Prelude.Text,
+    -- | A list of @TemplateParameter@ structures.
+    parameters :: Prelude.Maybe [TemplateParameter],
+    -- | The description found within the template.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The capabilities found within the template. If your template contains
     -- IAM resources, you must specify the CAPABILITY_IAM or
     -- CAPABILITY_NAMED_IAM value for this parameter when you use the
     -- CreateStack or UpdateStack actions with your template; otherwise, those
@@ -190,15 +199,6 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
     capabilities :: Prelude.Maybe [Capability],
-    -- | A list of the transforms that are declared in the template.
-    declaredTransforms :: Prelude.Maybe [Prelude.Text],
-    -- | The description found within the template.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A list of @TemplateParameter@ structures.
-    parameters :: Prelude.Maybe [TemplateParameter],
-    -- | The list of resources that generated the values in the @Capabilities@
-    -- response element.
-    capabilitiesReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,6 +212,15 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'declaredTransforms', 'validateTemplateResponse_declaredTransforms' - A list of the transforms that are declared in the template.
+--
+-- 'capabilitiesReason', 'validateTemplateResponse_capabilitiesReason' - The list of resources that generated the values in the @Capabilities@
+-- response element.
+--
+-- 'parameters', 'validateTemplateResponse_parameters' - A list of @TemplateParameter@ structures.
+--
+-- 'description', 'validateTemplateResponse_description' - The description found within the template.
+--
 -- 'capabilities', 'validateTemplateResponse_capabilities' - The capabilities found within the template. If your template contains
 -- IAM resources, you must specify the CAPABILITY_IAM or
 -- CAPABILITY_NAMED_IAM value for this parameter when you use the
@@ -221,15 +230,6 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
 --
--- 'declaredTransforms', 'validateTemplateResponse_declaredTransforms' - A list of the transforms that are declared in the template.
---
--- 'description', 'validateTemplateResponse_description' - The description found within the template.
---
--- 'parameters', 'validateTemplateResponse_parameters' - A list of @TemplateParameter@ structures.
---
--- 'capabilitiesReason', 'validateTemplateResponse_capabilitiesReason' - The list of resources that generated the values in the @Capabilities@
--- response element.
---
 -- 'httpStatus', 'validateTemplateResponse_httpStatus' - The response's http status code.
 newValidateTemplateResponse ::
   -- | 'httpStatus'
@@ -237,14 +237,31 @@ newValidateTemplateResponse ::
   ValidateTemplateResponse
 newValidateTemplateResponse pHttpStatus_ =
   ValidateTemplateResponse'
-    { capabilities =
+    { declaredTransforms =
         Prelude.Nothing,
-      declaredTransforms = Prelude.Nothing,
-      description = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       capabilitiesReason = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      description = Prelude.Nothing,
+      capabilities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the transforms that are declared in the template.
+validateTemplateResponse_declaredTransforms :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe [Prelude.Text])
+validateTemplateResponse_declaredTransforms = Lens.lens (\ValidateTemplateResponse' {declaredTransforms} -> declaredTransforms) (\s@ValidateTemplateResponse' {} a -> s {declaredTransforms = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of resources that generated the values in the @Capabilities@
+-- response element.
+validateTemplateResponse_capabilitiesReason :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe Prelude.Text)
+validateTemplateResponse_capabilitiesReason = Lens.lens (\ValidateTemplateResponse' {capabilitiesReason} -> capabilitiesReason) (\s@ValidateTemplateResponse' {} a -> s {capabilitiesReason = a} :: ValidateTemplateResponse)
+
+-- | A list of @TemplateParameter@ structures.
+validateTemplateResponse_parameters :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe [TemplateParameter])
+validateTemplateResponse_parameters = Lens.lens (\ValidateTemplateResponse' {parameters} -> parameters) (\s@ValidateTemplateResponse' {} a -> s {parameters = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The description found within the template.
+validateTemplateResponse_description :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe Prelude.Text)
+validateTemplateResponse_description = Lens.lens (\ValidateTemplateResponse' {description} -> description) (\s@ValidateTemplateResponse' {} a -> s {description = a} :: ValidateTemplateResponse)
 
 -- | The capabilities found within the template. If your template contains
 -- IAM resources, you must specify the CAPABILITY_IAM or
@@ -255,24 +272,7 @@ newValidateTemplateResponse pHttpStatus_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
 validateTemplateResponse_capabilities :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe [Capability])
-validateTemplateResponse_capabilities = Lens.lens (\ValidateTemplateResponse' {capabilities} -> capabilities) (\s@ValidateTemplateResponse' {} a -> s {capabilities = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of the transforms that are declared in the template.
-validateTemplateResponse_declaredTransforms :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe [Prelude.Text])
-validateTemplateResponse_declaredTransforms = Lens.lens (\ValidateTemplateResponse' {declaredTransforms} -> declaredTransforms) (\s@ValidateTemplateResponse' {} a -> s {declaredTransforms = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description found within the template.
-validateTemplateResponse_description :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe Prelude.Text)
-validateTemplateResponse_description = Lens.lens (\ValidateTemplateResponse' {description} -> description) (\s@ValidateTemplateResponse' {} a -> s {description = a} :: ValidateTemplateResponse)
-
--- | A list of @TemplateParameter@ structures.
-validateTemplateResponse_parameters :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe [TemplateParameter])
-validateTemplateResponse_parameters = Lens.lens (\ValidateTemplateResponse' {parameters} -> parameters) (\s@ValidateTemplateResponse' {} a -> s {parameters = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The list of resources that generated the values in the @Capabilities@
--- response element.
-validateTemplateResponse_capabilitiesReason :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe Prelude.Text)
-validateTemplateResponse_capabilitiesReason = Lens.lens (\ValidateTemplateResponse' {capabilitiesReason} -> capabilitiesReason) (\s@ValidateTemplateResponse' {} a -> s {capabilitiesReason = a} :: ValidateTemplateResponse)
+validateTemplateResponse_capabilities = Lens.lens (\ValidateTemplateResponse' {capabilities} -> capabilities) (\s@ValidateTemplateResponse' {} a -> s {capabilities = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 validateTemplateResponse_httpStatus :: Lens.Lens' ValidateTemplateResponse Prelude.Int

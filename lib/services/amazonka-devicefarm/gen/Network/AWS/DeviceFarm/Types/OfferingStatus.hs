@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOfferingStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
-  { -- | The number of available devices in the offering.
-    quantity :: Prelude.Maybe Prelude.Int,
+  { -- | The date on which the offering is effective.
+    effectiveOn :: Prelude.Maybe Core.POSIX,
     -- | Represents the metadata of an offering status.
     offering :: Prelude.Maybe Offering,
-    -- | The date on which the offering is effective.
-    effectiveOn :: Prelude.Maybe Core.POSIX,
+    -- | The number of available devices in the offering.
+    quantity :: Prelude.Maybe Prelude.Int,
     -- | The type specified for the offering status.
     type' :: Prelude.Maybe OfferingTransactionType
   }
@@ -48,34 +48,34 @@ data OfferingStatus = OfferingStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quantity', 'offeringStatus_quantity' - The number of available devices in the offering.
+-- 'effectiveOn', 'offeringStatus_effectiveOn' - The date on which the offering is effective.
 --
 -- 'offering', 'offeringStatus_offering' - Represents the metadata of an offering status.
 --
--- 'effectiveOn', 'offeringStatus_effectiveOn' - The date on which the offering is effective.
+-- 'quantity', 'offeringStatus_quantity' - The number of available devices in the offering.
 --
 -- 'type'', 'offeringStatus_type' - The type specified for the offering status.
 newOfferingStatus ::
   OfferingStatus
 newOfferingStatus =
   OfferingStatus'
-    { quantity = Prelude.Nothing,
+    { effectiveOn = Prelude.Nothing,
       offering = Prelude.Nothing,
-      effectiveOn = Prelude.Nothing,
+      quantity = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
--- | The number of available devices in the offering.
-offeringStatus_quantity :: Lens.Lens' OfferingStatus (Prelude.Maybe Prelude.Int)
-offeringStatus_quantity = Lens.lens (\OfferingStatus' {quantity} -> quantity) (\s@OfferingStatus' {} a -> s {quantity = a} :: OfferingStatus)
+-- | The date on which the offering is effective.
+offeringStatus_effectiveOn :: Lens.Lens' OfferingStatus (Prelude.Maybe Prelude.UTCTime)
+offeringStatus_effectiveOn = Lens.lens (\OfferingStatus' {effectiveOn} -> effectiveOn) (\s@OfferingStatus' {} a -> s {effectiveOn = a} :: OfferingStatus) Prelude.. Lens.mapping Core._Time
 
 -- | Represents the metadata of an offering status.
 offeringStatus_offering :: Lens.Lens' OfferingStatus (Prelude.Maybe Offering)
 offeringStatus_offering = Lens.lens (\OfferingStatus' {offering} -> offering) (\s@OfferingStatus' {} a -> s {offering = a} :: OfferingStatus)
 
--- | The date on which the offering is effective.
-offeringStatus_effectiveOn :: Lens.Lens' OfferingStatus (Prelude.Maybe Prelude.UTCTime)
-offeringStatus_effectiveOn = Lens.lens (\OfferingStatus' {effectiveOn} -> effectiveOn) (\s@OfferingStatus' {} a -> s {effectiveOn = a} :: OfferingStatus) Prelude.. Lens.mapping Core._Time
+-- | The number of available devices in the offering.
+offeringStatus_quantity :: Lens.Lens' OfferingStatus (Prelude.Maybe Prelude.Int)
+offeringStatus_quantity = Lens.lens (\OfferingStatus' {quantity} -> quantity) (\s@OfferingStatus' {} a -> s {quantity = a} :: OfferingStatus)
 
 -- | The type specified for the offering status.
 offeringStatus_type :: Lens.Lens' OfferingStatus (Prelude.Maybe OfferingTransactionType)
@@ -87,9 +87,9 @@ instance Core.FromJSON OfferingStatus where
       "OfferingStatus"
       ( \x ->
           OfferingStatus'
-            Prelude.<$> (x Core..:? "quantity")
+            Prelude.<$> (x Core..:? "effectiveOn")
             Prelude.<*> (x Core..:? "offering")
-            Prelude.<*> (x Core..:? "effectiveOn")
+            Prelude.<*> (x Core..:? "quantity")
             Prelude.<*> (x Core..:? "type")
       )
 

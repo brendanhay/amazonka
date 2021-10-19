@@ -58,7 +58,7 @@ newScriptBootstrapActionConfig pPath_ =
 
 -- | A list of command line arguments to pass to the bootstrap action script.
 scriptBootstrapActionConfig_args :: Lens.Lens' ScriptBootstrapActionConfig (Prelude.Maybe [Prelude.Text])
-scriptBootstrapActionConfig_args = Lens.lens (\ScriptBootstrapActionConfig' {args} -> args) (\s@ScriptBootstrapActionConfig' {} a -> s {args = a} :: ScriptBootstrapActionConfig) Prelude.. Lens.mapping Lens._Coerce
+scriptBootstrapActionConfig_args = Lens.lens (\ScriptBootstrapActionConfig' {args} -> args) (\s@ScriptBootstrapActionConfig' {} a -> s {args = a} :: ScriptBootstrapActionConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | Location in Amazon S3 of the script to run during a bootstrap action.
 scriptBootstrapActionConfig_path :: Lens.Lens' ScriptBootstrapActionConfig Prelude.Text

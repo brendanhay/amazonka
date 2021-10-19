@@ -160,7 +160,7 @@ newDescribeEmergencyContactSettingsResponse
 -- enabled, for escalations to the SRT and to initiate proactive customer
 -- support.
 describeEmergencyContactSettingsResponse_emergencyContactList :: Lens.Lens' DescribeEmergencyContactSettingsResponse (Prelude.Maybe [EmergencyContact])
-describeEmergencyContactSettingsResponse_emergencyContactList = Lens.lens (\DescribeEmergencyContactSettingsResponse' {emergencyContactList} -> emergencyContactList) (\s@DescribeEmergencyContactSettingsResponse' {} a -> s {emergencyContactList = a} :: DescribeEmergencyContactSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEmergencyContactSettingsResponse_emergencyContactList = Lens.lens (\DescribeEmergencyContactSettingsResponse' {emergencyContactList} -> emergencyContactList) (\s@DescribeEmergencyContactSettingsResponse' {} a -> s {emergencyContactList = a} :: DescribeEmergencyContactSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEmergencyContactSettingsResponse_httpStatus :: Lens.Lens' DescribeEmergencyContactSettingsResponse Prelude.Int

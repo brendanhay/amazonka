@@ -80,12 +80,12 @@ newCreateAssociationBatch ::
 newCreateAssociationBatch pEntries_ =
   CreateAssociationBatch'
     { entries =
-        Lens._Coerce Lens.# pEntries_
+        Lens.coerced Lens.# pEntries_
     }
 
 -- | One or more associations.
 createAssociationBatch_entries :: Lens.Lens' CreateAssociationBatch (Prelude.NonEmpty CreateAssociationBatchRequestEntry)
-createAssociationBatch_entries = Lens.lens (\CreateAssociationBatch' {entries} -> entries) (\s@CreateAssociationBatch' {} a -> s {entries = a} :: CreateAssociationBatch) Prelude.. Lens._Coerce
+createAssociationBatch_entries = Lens.lens (\CreateAssociationBatch' {entries} -> entries) (\s@CreateAssociationBatch' {} a -> s {entries = a} :: CreateAssociationBatch) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateAssociationBatch where
   type
@@ -171,11 +171,11 @@ newCreateAssociationBatchResponse pHttpStatus_ =
 
 -- | Information about the associations that succeeded.
 createAssociationBatchResponse_successful :: Lens.Lens' CreateAssociationBatchResponse (Prelude.Maybe [AssociationDescription])
-createAssociationBatchResponse_successful = Lens.lens (\CreateAssociationBatchResponse' {successful} -> successful) (\s@CreateAssociationBatchResponse' {} a -> s {successful = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens._Coerce
+createAssociationBatchResponse_successful = Lens.lens (\CreateAssociationBatchResponse' {successful} -> successful) (\s@CreateAssociationBatchResponse' {} a -> s {successful = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the associations that failed.
 createAssociationBatchResponse_failed :: Lens.Lens' CreateAssociationBatchResponse (Prelude.Maybe [FailedCreateAssociation])
-createAssociationBatchResponse_failed = Lens.lens (\CreateAssociationBatchResponse' {failed} -> failed) (\s@CreateAssociationBatchResponse' {} a -> s {failed = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens._Coerce
+createAssociationBatchResponse_failed = Lens.lens (\CreateAssociationBatchResponse' {failed} -> failed) (\s@CreateAssociationBatchResponse' {} a -> s {failed = a} :: CreateAssociationBatchResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createAssociationBatchResponse_httpStatus :: Lens.Lens' CreateAssociationBatchResponse Prelude.Int

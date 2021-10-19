@@ -28,8 +28,8 @@ module Network.AWS.IoT.UpdateAuditSuppression
 
     -- * Request Lenses
     updateAuditSuppression_expirationDate,
-    updateAuditSuppression_description,
     updateAuditSuppression_suppressIndefinitely,
+    updateAuditSuppression_description,
     updateAuditSuppression_checkName,
     updateAuditSuppression_resourceIdentifier,
 
@@ -54,10 +54,10 @@ data UpdateAuditSuppression = UpdateAuditSuppression'
   { -- | The expiration date (epoch timestamp in seconds) that you want the
     -- suppression to adhere to.
     expirationDate :: Prelude.Maybe Core.POSIX,
-    -- | The description of the audit suppression.
-    description :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a suppression should exist indefinitely or not.
     suppressIndefinitely :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the audit suppression.
+    description :: Prelude.Maybe Prelude.Text,
     checkName :: Prelude.Text,
     resourceIdentifier :: ResourceIdentifier
   }
@@ -74,9 +74,9 @@ data UpdateAuditSuppression = UpdateAuditSuppression'
 -- 'expirationDate', 'updateAuditSuppression_expirationDate' - The expiration date (epoch timestamp in seconds) that you want the
 -- suppression to adhere to.
 --
--- 'description', 'updateAuditSuppression_description' - The description of the audit suppression.
---
 -- 'suppressIndefinitely', 'updateAuditSuppression_suppressIndefinitely' - Indicates whether a suppression should exist indefinitely or not.
+--
+-- 'description', 'updateAuditSuppression_description' - The description of the audit suppression.
 --
 -- 'checkName', 'updateAuditSuppression_checkName' - Undocumented member.
 --
@@ -93,8 +93,8 @@ newUpdateAuditSuppression
     UpdateAuditSuppression'
       { expirationDate =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         suppressIndefinitely = Prelude.Nothing,
+        description = Prelude.Nothing,
         checkName = pCheckName_,
         resourceIdentifier = pResourceIdentifier_
       }
@@ -104,13 +104,13 @@ newUpdateAuditSuppression
 updateAuditSuppression_expirationDate :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.UTCTime)
 updateAuditSuppression_expirationDate = Lens.lens (\UpdateAuditSuppression' {expirationDate} -> expirationDate) (\s@UpdateAuditSuppression' {} a -> s {expirationDate = a} :: UpdateAuditSuppression) Prelude.. Lens.mapping Core._Time
 
--- | The description of the audit suppression.
-updateAuditSuppression_description :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Text)
-updateAuditSuppression_description = Lens.lens (\UpdateAuditSuppression' {description} -> description) (\s@UpdateAuditSuppression' {} a -> s {description = a} :: UpdateAuditSuppression)
-
 -- | Indicates whether a suppression should exist indefinitely or not.
 updateAuditSuppression_suppressIndefinitely :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Bool)
 updateAuditSuppression_suppressIndefinitely = Lens.lens (\UpdateAuditSuppression' {suppressIndefinitely} -> suppressIndefinitely) (\s@UpdateAuditSuppression' {} a -> s {suppressIndefinitely = a} :: UpdateAuditSuppression)
+
+-- | The description of the audit suppression.
+updateAuditSuppression_description :: Lens.Lens' UpdateAuditSuppression (Prelude.Maybe Prelude.Text)
+updateAuditSuppression_description = Lens.lens (\UpdateAuditSuppression' {description} -> description) (\s@UpdateAuditSuppression' {} a -> s {description = a} :: UpdateAuditSuppression)
 
 -- | Undocumented member.
 updateAuditSuppression_checkName :: Lens.Lens' UpdateAuditSuppression Prelude.Text
@@ -145,9 +145,9 @@ instance Core.ToJSON UpdateAuditSuppression where
       ( Prelude.catMaybes
           [ ("expirationDate" Core..=)
               Prelude.<$> expirationDate,
-            ("description" Core..=) Prelude.<$> description,
             ("suppressIndefinitely" Core..=)
               Prelude.<$> suppressIndefinitely,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("checkName" Core..= checkName),
             Prelude.Just
               ("resourceIdentifier" Core..= resourceIdentifier)

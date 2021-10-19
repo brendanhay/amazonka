@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTrialComponentParameterValue' smart constructor.
 data TrialComponentParameterValue = TrialComponentParameterValue'
-  { -- | The string value of a categorical hyperparameter. If you specify a value
-    -- for this parameter, you can\'t specify the @NumberValue@ parameter.
-    stringValue :: Prelude.Maybe Prelude.Text,
-    -- | The numeric value of a numeric hyperparameter. If you specify a value
+  { -- | The numeric value of a numeric hyperparameter. If you specify a value
     -- for this parameter, you can\'t specify the @StringValue@ parameter.
-    numberValue :: Prelude.Maybe Prelude.Double
+    numberValue :: Prelude.Maybe Prelude.Double,
+    -- | The string value of a categorical hyperparameter. If you specify a value
+    -- for this parameter, you can\'t specify the @NumberValue@ parameter.
+    stringValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data TrialComponentParameterValue = TrialComponentParameterValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringValue', 'trialComponentParameterValue_stringValue' - The string value of a categorical hyperparameter. If you specify a value
--- for this parameter, you can\'t specify the @NumberValue@ parameter.
---
 -- 'numberValue', 'trialComponentParameterValue_numberValue' - The numeric value of a numeric hyperparameter. If you specify a value
 -- for this parameter, you can\'t specify the @StringValue@ parameter.
+--
+-- 'stringValue', 'trialComponentParameterValue_stringValue' - The string value of a categorical hyperparameter. If you specify a value
+-- for this parameter, you can\'t specify the @NumberValue@ parameter.
 newTrialComponentParameterValue ::
   TrialComponentParameterValue
 newTrialComponentParameterValue =
   TrialComponentParameterValue'
-    { stringValue =
+    { numberValue =
         Prelude.Nothing,
-      numberValue = Prelude.Nothing
+      stringValue = Prelude.Nothing
     }
-
--- | The string value of a categorical hyperparameter. If you specify a value
--- for this parameter, you can\'t specify the @NumberValue@ parameter.
-trialComponentParameterValue_stringValue :: Lens.Lens' TrialComponentParameterValue (Prelude.Maybe Prelude.Text)
-trialComponentParameterValue_stringValue = Lens.lens (\TrialComponentParameterValue' {stringValue} -> stringValue) (\s@TrialComponentParameterValue' {} a -> s {stringValue = a} :: TrialComponentParameterValue)
 
 -- | The numeric value of a numeric hyperparameter. If you specify a value
 -- for this parameter, you can\'t specify the @StringValue@ parameter.
 trialComponentParameterValue_numberValue :: Lens.Lens' TrialComponentParameterValue (Prelude.Maybe Prelude.Double)
 trialComponentParameterValue_numberValue = Lens.lens (\TrialComponentParameterValue' {numberValue} -> numberValue) (\s@TrialComponentParameterValue' {} a -> s {numberValue = a} :: TrialComponentParameterValue)
+
+-- | The string value of a categorical hyperparameter. If you specify a value
+-- for this parameter, you can\'t specify the @NumberValue@ parameter.
+trialComponentParameterValue_stringValue :: Lens.Lens' TrialComponentParameterValue (Prelude.Maybe Prelude.Text)
+trialComponentParameterValue_stringValue = Lens.lens (\TrialComponentParameterValue' {stringValue} -> stringValue) (\s@TrialComponentParameterValue' {} a -> s {stringValue = a} :: TrialComponentParameterValue)
 
 instance Core.FromJSON TrialComponentParameterValue where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON TrialComponentParameterValue where
       "TrialComponentParameterValue"
       ( \x ->
           TrialComponentParameterValue'
-            Prelude.<$> (x Core..:? "StringValue")
-            Prelude.<*> (x Core..:? "NumberValue")
+            Prelude.<$> (x Core..:? "NumberValue")
+            Prelude.<*> (x Core..:? "StringValue")
       )
 
 instance
@@ -91,7 +91,7 @@ instance Core.ToJSON TrialComponentParameterValue where
   toJSON TrialComponentParameterValue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StringValue" Core..=) Prelude.<$> stringValue,
-            ("NumberValue" Core..=) Prelude.<$> numberValue
+          [ ("NumberValue" Core..=) Prelude.<$> numberValue,
+            ("StringValue" Core..=) Prelude.<$> stringValue
           ]
       )

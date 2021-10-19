@@ -27,9 +27,9 @@ module Network.AWS.APIGateway.CreateRequestValidator
     newCreateRequestValidator,
 
     -- * Request Lenses
-    createRequestValidator_validateRequestBody,
     createRequestValidator_validateRequestParameters,
     createRequestValidator_name,
+    createRequestValidator_validateRequestBody,
     createRequestValidator_restApiId,
 
     -- * Destructuring the Response
@@ -37,10 +37,10 @@ module Network.AWS.APIGateway.CreateRequestValidator
     newRequestValidator,
 
     -- * Response Lenses
-    requestValidator_validateRequestBody,
-    requestValidator_id,
     requestValidator_validateRequestParameters,
     requestValidator_name,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
   )
 where
 
@@ -55,14 +55,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateRequestValidator' smart constructor.
 data CreateRequestValidator = CreateRequestValidator'
-  { -- | A Boolean flag to indicate whether to validate request body according to
-    -- the configured model schema for the method (@true@) or not (@false@).
-    validateRequestBody :: Prelude.Maybe Prelude.Bool,
-    -- | A Boolean flag to indicate whether to validate request parameters,
+  { -- | A Boolean flag to indicate whether to validate request parameters,
     -- @true@, or not @false@.
     validateRequestParameters :: Prelude.Maybe Prelude.Bool,
     -- | The name of the to-be-created RequestValidator.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean flag to indicate whether to validate request body according to
+    -- the configured model schema for the method (@true@) or not (@false@).
+    validateRequestBody :: Prelude.Maybe Prelude.Bool,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -76,13 +76,13 @@ data CreateRequestValidator = CreateRequestValidator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'validateRequestBody', 'createRequestValidator_validateRequestBody' - A Boolean flag to indicate whether to validate request body according to
--- the configured model schema for the method (@true@) or not (@false@).
---
 -- 'validateRequestParameters', 'createRequestValidator_validateRequestParameters' - A Boolean flag to indicate whether to validate request parameters,
 -- @true@, or not @false@.
 --
 -- 'name', 'createRequestValidator_name' - The name of the to-be-created RequestValidator.
+--
+-- 'validateRequestBody', 'createRequestValidator_validateRequestBody' - A Boolean flag to indicate whether to validate request body according to
+-- the configured model schema for the method (@true@) or not (@false@).
 --
 -- 'restApiId', 'createRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
 newCreateRequestValidator ::
@@ -91,17 +91,12 @@ newCreateRequestValidator ::
   CreateRequestValidator
 newCreateRequestValidator pRestApiId_ =
   CreateRequestValidator'
-    { validateRequestBody =
+    { validateRequestParameters =
         Prelude.Nothing,
-      validateRequestParameters = Prelude.Nothing,
       name = Prelude.Nothing,
+      validateRequestBody = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | A Boolean flag to indicate whether to validate request body according to
--- the configured model schema for the method (@true@) or not (@false@).
-createRequestValidator_validateRequestBody :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
-createRequestValidator_validateRequestBody = Lens.lens (\CreateRequestValidator' {validateRequestBody} -> validateRequestBody) (\s@CreateRequestValidator' {} a -> s {validateRequestBody = a} :: CreateRequestValidator)
 
 -- | A Boolean flag to indicate whether to validate request parameters,
 -- @true@, or not @false@.
@@ -111,6 +106,11 @@ createRequestValidator_validateRequestParameters = Lens.lens (\CreateRequestVali
 -- | The name of the to-be-created RequestValidator.
 createRequestValidator_name :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Text)
 createRequestValidator_name = Lens.lens (\CreateRequestValidator' {name} -> name) (\s@CreateRequestValidator' {} a -> s {name = a} :: CreateRequestValidator)
+
+-- | A Boolean flag to indicate whether to validate request body according to
+-- the configured model schema for the method (@true@) or not (@false@).
+createRequestValidator_validateRequestBody :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
+createRequestValidator_validateRequestBody = Lens.lens (\CreateRequestValidator' {validateRequestBody} -> validateRequestBody) (\s@CreateRequestValidator' {} a -> s {validateRequestBody = a} :: CreateRequestValidator)
 
 -- | [Required] The string identifier of the associated RestApi.
 createRequestValidator_restApiId :: Lens.Lens' CreateRequestValidator Prelude.Text
@@ -142,11 +142,11 @@ instance Core.ToJSON CreateRequestValidator where
   toJSON CreateRequestValidator' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("validateRequestBody" Core..=)
-              Prelude.<$> validateRequestBody,
-            ("validateRequestParameters" Core..=)
+          [ ("validateRequestParameters" Core..=)
               Prelude.<$> validateRequestParameters,
-            ("name" Core..=) Prelude.<$> name
+            ("name" Core..=) Prelude.<$> name,
+            ("validateRequestBody" Core..=)
+              Prelude.<$> validateRequestBody
           ]
       )
 

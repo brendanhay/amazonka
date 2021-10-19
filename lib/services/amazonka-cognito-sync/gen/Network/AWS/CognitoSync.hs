@@ -42,20 +42,23 @@ module Network.AWS.CognitoSync
     -- * Errors
     -- $errors
 
-    -- ** InvalidConfigurationException
-    _InvalidConfigurationException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
-    -- ** ResourceConflictException
-    _ResourceConflictException,
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
 
     -- ** InternalErrorException
     _InternalErrorException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    -- ** InvalidConfigurationException
+    _InvalidConfigurationException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** DuplicateRequestException
+    _DuplicateRequestException,
+
+    -- ** LambdaThrottledException
+    _LambdaThrottledException,
 
     -- ** AlreadyStreamedException
     _AlreadyStreamedException,
@@ -63,23 +66,20 @@ module Network.AWS.CognitoSync
     -- ** InvalidLambdaFunctionOutputException
     _InvalidLambdaFunctionOutputException,
 
-    -- ** LambdaThrottledException
-    _LambdaThrottledException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
-    -- ** DuplicateRequestException
-    _DuplicateRequestException,
+    -- ** ResourceConflictException
+    _ResourceConflictException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** NotAuthorizedException
-    _NotAuthorizedException,
-
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -87,47 +87,23 @@ module Network.AWS.CognitoSync
     -- * Operations
     -- $operations
 
-    -- ** UpdateRecords
-    UpdateRecords (UpdateRecords'),
-    newUpdateRecords,
-    UpdateRecordsResponse (UpdateRecordsResponse'),
-    newUpdateRecordsResponse,
+    -- ** DescribeDataset
+    DescribeDataset (DescribeDataset'),
+    newDescribeDataset,
+    DescribeDatasetResponse (DescribeDatasetResponse'),
+    newDescribeDatasetResponse,
 
-    -- ** ListRecords
-    ListRecords (ListRecords'),
-    newListRecords,
-    ListRecordsResponse (ListRecordsResponse'),
-    newListRecordsResponse,
+    -- ** SetCognitoEvents
+    SetCognitoEvents (SetCognitoEvents'),
+    newSetCognitoEvents,
+    SetCognitoEventsResponse (SetCognitoEventsResponse'),
+    newSetCognitoEventsResponse,
 
-    -- ** RegisterDevice
-    RegisterDevice (RegisterDevice'),
-    newRegisterDevice,
-    RegisterDeviceResponse (RegisterDeviceResponse'),
-    newRegisterDeviceResponse,
-
-    -- ** BulkPublish
-    BulkPublish (BulkPublish'),
-    newBulkPublish,
-    BulkPublishResponse (BulkPublishResponse'),
-    newBulkPublishResponse,
-
-    -- ** SubscribeToDataset
-    SubscribeToDataset (SubscribeToDataset'),
-    newSubscribeToDataset,
-    SubscribeToDatasetResponse (SubscribeToDatasetResponse'),
-    newSubscribeToDatasetResponse,
-
-    -- ** DescribeIdentityUsage
-    DescribeIdentityUsage (DescribeIdentityUsage'),
-    newDescribeIdentityUsage,
-    DescribeIdentityUsageResponse (DescribeIdentityUsageResponse'),
-    newDescribeIdentityUsageResponse,
-
-    -- ** SetIdentityPoolConfiguration
-    SetIdentityPoolConfiguration (SetIdentityPoolConfiguration'),
-    newSetIdentityPoolConfiguration,
-    SetIdentityPoolConfigurationResponse (SetIdentityPoolConfigurationResponse'),
-    newSetIdentityPoolConfigurationResponse,
+    -- ** DescribeIdentityPoolUsage
+    DescribeIdentityPoolUsage (DescribeIdentityPoolUsage'),
+    newDescribeIdentityPoolUsage,
+    DescribeIdentityPoolUsageResponse (DescribeIdentityPoolUsageResponse'),
+    newDescribeIdentityPoolUsageResponse,
 
     -- ** GetBulkPublishDetails
     GetBulkPublishDetails (GetBulkPublishDetails'),
@@ -141,41 +117,11 @@ module Network.AWS.CognitoSync
     ListIdentityPoolUsageResponse (ListIdentityPoolUsageResponse'),
     newListIdentityPoolUsageResponse,
 
-    -- ** SetCognitoEvents
-    SetCognitoEvents (SetCognitoEvents'),
-    newSetCognitoEvents,
-    SetCognitoEventsResponse (SetCognitoEventsResponse'),
-    newSetCognitoEventsResponse,
-
-    -- ** DescribeDataset
-    DescribeDataset (DescribeDataset'),
-    newDescribeDataset,
-    DescribeDatasetResponse (DescribeDatasetResponse'),
-    newDescribeDatasetResponse,
-
-    -- ** UnsubscribeFromDataset
-    UnsubscribeFromDataset (UnsubscribeFromDataset'),
-    newUnsubscribeFromDataset,
-    UnsubscribeFromDatasetResponse (UnsubscribeFromDatasetResponse'),
-    newUnsubscribeFromDatasetResponse,
-
-    -- ** GetIdentityPoolConfiguration
-    GetIdentityPoolConfiguration (GetIdentityPoolConfiguration'),
-    newGetIdentityPoolConfiguration,
-    GetIdentityPoolConfigurationResponse (GetIdentityPoolConfigurationResponse'),
-    newGetIdentityPoolConfigurationResponse,
-
-    -- ** GetCognitoEvents
-    GetCognitoEvents (GetCognitoEvents'),
-    newGetCognitoEvents,
-    GetCognitoEventsResponse (GetCognitoEventsResponse'),
-    newGetCognitoEventsResponse,
-
-    -- ** ListDatasets
-    ListDatasets (ListDatasets'),
-    newListDatasets,
-    ListDatasetsResponse (ListDatasetsResponse'),
-    newListDatasetsResponse,
+    -- ** SetIdentityPoolConfiguration
+    SetIdentityPoolConfiguration (SetIdentityPoolConfiguration'),
+    newSetIdentityPoolConfiguration,
+    SetIdentityPoolConfigurationResponse (SetIdentityPoolConfigurationResponse'),
+    newSetIdentityPoolConfigurationResponse,
 
     -- ** DeleteDataset
     DeleteDataset (DeleteDataset'),
@@ -183,11 +129,65 @@ module Network.AWS.CognitoSync
     DeleteDatasetResponse (DeleteDatasetResponse'),
     newDeleteDatasetResponse,
 
-    -- ** DescribeIdentityPoolUsage
-    DescribeIdentityPoolUsage (DescribeIdentityPoolUsage'),
-    newDescribeIdentityPoolUsage,
-    DescribeIdentityPoolUsageResponse (DescribeIdentityPoolUsageResponse'),
-    newDescribeIdentityPoolUsageResponse,
+    -- ** GetCognitoEvents
+    GetCognitoEvents (GetCognitoEvents'),
+    newGetCognitoEvents,
+    GetCognitoEventsResponse (GetCognitoEventsResponse'),
+    newGetCognitoEventsResponse,
+
+    -- ** DescribeIdentityUsage
+    DescribeIdentityUsage (DescribeIdentityUsage'),
+    newDescribeIdentityUsage,
+    DescribeIdentityUsageResponse (DescribeIdentityUsageResponse'),
+    newDescribeIdentityUsageResponse,
+
+    -- ** RegisterDevice
+    RegisterDevice (RegisterDevice'),
+    newRegisterDevice,
+    RegisterDeviceResponse (RegisterDeviceResponse'),
+    newRegisterDeviceResponse,
+
+    -- ** SubscribeToDataset
+    SubscribeToDataset (SubscribeToDataset'),
+    newSubscribeToDataset,
+    SubscribeToDatasetResponse (SubscribeToDatasetResponse'),
+    newSubscribeToDatasetResponse,
+
+    -- ** GetIdentityPoolConfiguration
+    GetIdentityPoolConfiguration (GetIdentityPoolConfiguration'),
+    newGetIdentityPoolConfiguration,
+    GetIdentityPoolConfigurationResponse (GetIdentityPoolConfigurationResponse'),
+    newGetIdentityPoolConfigurationResponse,
+
+    -- ** ListRecords
+    ListRecords (ListRecords'),
+    newListRecords,
+    ListRecordsResponse (ListRecordsResponse'),
+    newListRecordsResponse,
+
+    -- ** UnsubscribeFromDataset
+    UnsubscribeFromDataset (UnsubscribeFromDataset'),
+    newUnsubscribeFromDataset,
+    UnsubscribeFromDatasetResponse (UnsubscribeFromDatasetResponse'),
+    newUnsubscribeFromDatasetResponse,
+
+    -- ** UpdateRecords
+    UpdateRecords (UpdateRecords'),
+    newUpdateRecords,
+    UpdateRecordsResponse (UpdateRecordsResponse'),
+    newUpdateRecordsResponse,
+
+    -- ** ListDatasets
+    ListDatasets (ListDatasets'),
+    newListDatasets,
+    ListDatasetsResponse (ListDatasetsResponse'),
+    newListDatasetsResponse,
+
+    -- ** BulkPublish
+    BulkPublish (BulkPublish'),
+    newBulkPublish,
+    BulkPublishResponse (BulkPublishResponse'),
+    newBulkPublishResponse,
 
     -- * Types
 

@@ -30,9 +30,9 @@ module Network.AWS.DirectConnect.UpdateDirectConnectGatewayAssociation
     newUpdateDirectConnectGatewayAssociation,
 
     -- * Request Lenses
-    updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway,
-    updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway,
     updateDirectConnectGatewayAssociation_associationId,
+    updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway,
+    updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway,
 
     -- * Destructuring the Response
     UpdateDirectConnectGatewayAssociationResponse (..),
@@ -53,13 +53,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDirectConnectGatewayAssociation' smart constructor.
 data UpdateDirectConnectGatewayAssociation = UpdateDirectConnectGatewayAssociation'
-  { -- | The Amazon VPC prefixes to no longer advertise to the Direct Connect
-    -- gateway.
-    removeAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
+  { -- | The ID of the Direct Connect gateway association.
+    associationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
     addAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
-    -- | The ID of the Direct Connect gateway association.
-    associationId :: Prelude.Maybe Prelude.Text
+    -- | The Amazon VPC prefixes to no longer advertise to the Direct Connect
+    -- gateway.
+    removeAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,35 +71,36 @@ data UpdateDirectConnectGatewayAssociation = UpdateDirectConnectGatewayAssociati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'removeAllowedPrefixesToDirectConnectGateway', 'updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to no longer advertise to the Direct Connect
--- gateway.
+-- 'associationId', 'updateDirectConnectGatewayAssociation_associationId' - The ID of the Direct Connect gateway association.
 --
 -- 'addAllowedPrefixesToDirectConnectGateway', 'updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 --
--- 'associationId', 'updateDirectConnectGatewayAssociation_associationId' - The ID of the Direct Connect gateway association.
+-- 'removeAllowedPrefixesToDirectConnectGateway', 'updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to no longer advertise to the Direct Connect
+-- gateway.
 newUpdateDirectConnectGatewayAssociation ::
   UpdateDirectConnectGatewayAssociation
 newUpdateDirectConnectGatewayAssociation =
   UpdateDirectConnectGatewayAssociation'
-    { removeAllowedPrefixesToDirectConnectGateway =
+    { associationId =
         Prelude.Nothing,
       addAllowedPrefixesToDirectConnectGateway =
         Prelude.Nothing,
-      associationId = Prelude.Nothing
+      removeAllowedPrefixesToDirectConnectGateway =
+        Prelude.Nothing
     }
-
--- | The Amazon VPC prefixes to no longer advertise to the Direct Connect
--- gateway.
-updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway :: Lens.Lens' UpdateDirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
-updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway = Lens.lens (\UpdateDirectConnectGatewayAssociation' {removeAllowedPrefixesToDirectConnectGateway} -> removeAllowedPrefixesToDirectConnectGateway) (\s@UpdateDirectConnectGatewayAssociation' {} a -> s {removeAllowedPrefixesToDirectConnectGateway = a} :: UpdateDirectConnectGatewayAssociation) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway :: Lens.Lens' UpdateDirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
-updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway = Lens.lens (\UpdateDirectConnectGatewayAssociation' {addAllowedPrefixesToDirectConnectGateway} -> addAllowedPrefixesToDirectConnectGateway) (\s@UpdateDirectConnectGatewayAssociation' {} a -> s {addAllowedPrefixesToDirectConnectGateway = a} :: UpdateDirectConnectGatewayAssociation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Direct Connect gateway association.
 updateDirectConnectGatewayAssociation_associationId :: Lens.Lens' UpdateDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 updateDirectConnectGatewayAssociation_associationId = Lens.lens (\UpdateDirectConnectGatewayAssociation' {associationId} -> associationId) (\s@UpdateDirectConnectGatewayAssociation' {} a -> s {associationId = a} :: UpdateDirectConnectGatewayAssociation)
+
+-- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway :: Lens.Lens' UpdateDirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
+updateDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway = Lens.lens (\UpdateDirectConnectGatewayAssociation' {addAllowedPrefixesToDirectConnectGateway} -> addAllowedPrefixesToDirectConnectGateway) (\s@UpdateDirectConnectGatewayAssociation' {} a -> s {addAllowedPrefixesToDirectConnectGateway = a} :: UpdateDirectConnectGatewayAssociation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon VPC prefixes to no longer advertise to the Direct Connect
+-- gateway.
+updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway :: Lens.Lens' UpdateDirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
+updateDirectConnectGatewayAssociation_removeAllowedPrefixesToDirectConnectGateway = Lens.lens (\UpdateDirectConnectGatewayAssociation' {removeAllowedPrefixesToDirectConnectGateway} -> removeAllowedPrefixesToDirectConnectGateway) (\s@UpdateDirectConnectGatewayAssociation' {} a -> s {removeAllowedPrefixesToDirectConnectGateway = a} :: UpdateDirectConnectGatewayAssociation) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -151,13 +152,13 @@ instance
   toJSON UpdateDirectConnectGatewayAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ( "removeAllowedPrefixesToDirectConnectGateway"
-                Core..=
-            )
-              Prelude.<$> removeAllowedPrefixesToDirectConnectGateway,
+          [ ("associationId" Core..=) Prelude.<$> associationId,
             ("addAllowedPrefixesToDirectConnectGateway" Core..=)
               Prelude.<$> addAllowedPrefixesToDirectConnectGateway,
-            ("associationId" Core..=) Prelude.<$> associationId
+            ( "removeAllowedPrefixesToDirectConnectGateway"
+                Core..=
+            )
+              Prelude.<$> removeAllowedPrefixesToDirectConnectGateway
           ]
       )
 

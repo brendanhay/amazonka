@@ -88,8 +88,8 @@ module Network.AWS.SecretsManager.RotateSecret
 
     -- * Request Lenses
     rotateSecret_rotationRules,
-    rotateSecret_rotationLambdaARN,
     rotateSecret_clientRequestToken,
+    rotateSecret_rotationLambdaARN,
     rotateSecret_secretId,
 
     -- * Destructuring the Response
@@ -97,9 +97,9 @@ module Network.AWS.SecretsManager.RotateSecret
     newRotateSecretResponse,
 
     -- * Response Lenses
+    rotateSecretResponse_versionId,
     rotateSecretResponse_arn,
     rotateSecretResponse_name,
-    rotateSecretResponse_versionId,
     rotateSecretResponse_httpStatus,
   )
 where
@@ -115,9 +115,6 @@ import Network.AWS.SecretsManager.Types
 data RotateSecret = RotateSecret'
   { -- | A structure that defines the rotation configuration for this secret.
     rotationRules :: Prelude.Maybe RotationRulesType,
-    -- | (Optional) Specifies the ARN of the Lambda function that can rotate the
-    -- secret.
-    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret that helps ensure idempotency.
     --
@@ -140,27 +137,14 @@ data RotateSecret = RotateSecret'
     -- function\'s processing. This value becomes the @VersionId@ of the new
     -- version.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Specifies the ARN of the Lambda function that can rotate the
+    -- secret.
+    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
     -- | Specifies the secret that you want to rotate. You can specify either the
     -- Amazon Resource Name (ARN) or the friendly name of the secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -174,9 +158,6 @@ data RotateSecret = RotateSecret'
 -- for backwards compatibility:
 --
 -- 'rotationRules', 'rotateSecret_rotationRules' - A structure that defines the rotation configuration for this secret.
---
--- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - (Optional) Specifies the ARN of the Lambda function that can rotate the
--- secret.
 --
 -- 'clientRequestToken', 'rotateSecret_clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the
 -- secret that helps ensure idempotency.
@@ -200,27 +181,14 @@ data RotateSecret = RotateSecret'
 -- function\'s processing. This value becomes the @VersionId@ of the new
 -- version.
 --
+-- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - (Optional) Specifies the ARN of the Lambda function that can rotate the
+-- secret.
+--
 -- 'secretId', 'rotateSecret_secretId' - Specifies the secret that you want to rotate. You can specify either the
 -- Amazon Resource Name (ARN) or the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 newRotateSecret ::
   -- | 'secretId'
   Prelude.Text ->
@@ -228,19 +196,14 @@ newRotateSecret ::
 newRotateSecret pSecretId_ =
   RotateSecret'
     { rotationRules = Prelude.Nothing,
-      rotationLambdaARN = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      rotationLambdaARN = Prelude.Nothing,
       secretId = pSecretId_
     }
 
 -- | A structure that defines the rotation configuration for this secret.
 rotateSecret_rotationRules :: Lens.Lens' RotateSecret (Prelude.Maybe RotationRulesType)
 rotateSecret_rotationRules = Lens.lens (\RotateSecret' {rotationRules} -> rotationRules) (\s@RotateSecret' {} a -> s {rotationRules = a} :: RotateSecret)
-
--- | (Optional) Specifies the ARN of the Lambda function that can rotate the
--- secret.
-rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
-rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
 
 -- | (Optional) Specifies a unique identifier for the new version of the
 -- secret that helps ensure idempotency.
@@ -266,27 +229,16 @@ rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -
 rotateSecret_clientRequestToken :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
 rotateSecret_clientRequestToken = Lens.lens (\RotateSecret' {clientRequestToken} -> clientRequestToken) (\s@RotateSecret' {} a -> s {clientRequestToken = a} :: RotateSecret)
 
+-- | (Optional) Specifies the ARN of the Lambda function that can rotate the
+-- secret.
+rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
+rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
+
 -- | Specifies the secret that you want to rotate. You can specify either the
 -- Amazon Resource Name (ARN) or the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 rotateSecret_secretId :: Lens.Lens' RotateSecret Prelude.Text
 rotateSecret_secretId = Lens.lens (\RotateSecret' {secretId} -> secretId) (\s@RotateSecret' {} a -> s {secretId = a} :: RotateSecret)
 
@@ -297,9 +249,9 @@ instance Core.AWSRequest RotateSecret where
     Response.receiveJSON
       ( \s h x ->
           RotateSecretResponse'
-            Prelude.<$> (x Core..?> "ARN")
+            Prelude.<$> (x Core..?> "VersionId")
+            Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -327,10 +279,10 @@ instance Core.ToJSON RotateSecret where
     Core.object
       ( Prelude.catMaybes
           [ ("RotationRules" Core..=) Prelude.<$> rotationRules,
-            ("RotationLambdaARN" Core..=)
-              Prelude.<$> rotationLambdaARN,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("RotationLambdaARN" Core..=)
+              Prelude.<$> rotationLambdaARN,
             Prelude.Just ("SecretId" Core..= secretId)
           ]
       )
@@ -343,13 +295,13 @@ instance Core.ToQuery RotateSecret where
 
 -- | /See:/ 'newRotateSecretResponse' smart constructor.
 data RotateSecretResponse = RotateSecretResponse'
-  { -- | The ARN of the secret.
+  { -- | The ID of the new version of the secret created by the rotation started
+    -- by this request.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the new version of the secret created by the rotation started
-    -- by this request.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -363,12 +315,12 @@ data RotateSecretResponse = RotateSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionId', 'rotateSecretResponse_versionId' - The ID of the new version of the secret created by the rotation started
+-- by this request.
+--
 -- 'arn', 'rotateSecretResponse_arn' - The ARN of the secret.
 --
 -- 'name', 'rotateSecretResponse_name' - The friendly name of the secret.
---
--- 'versionId', 'rotateSecretResponse_versionId' - The ID of the new version of the secret created by the rotation started
--- by this request.
 --
 -- 'httpStatus', 'rotateSecretResponse_httpStatus' - The response's http status code.
 newRotateSecretResponse ::
@@ -377,11 +329,16 @@ newRotateSecretResponse ::
   RotateSecretResponse
 newRotateSecretResponse pHttpStatus_ =
   RotateSecretResponse'
-    { arn = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ID of the new version of the secret created by the rotation started
+-- by this request.
+rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
+rotateSecretResponse_versionId = Lens.lens (\RotateSecretResponse' {versionId} -> versionId) (\s@RotateSecretResponse' {} a -> s {versionId = a} :: RotateSecretResponse)
 
 -- | The ARN of the secret.
 rotateSecretResponse_arn :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
@@ -390,11 +347,6 @@ rotateSecretResponse_arn = Lens.lens (\RotateSecretResponse' {arn} -> arn) (\s@R
 -- | The friendly name of the secret.
 rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
-
--- | The ID of the new version of the secret created by the rotation started
--- by this request.
-rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
-rotateSecretResponse_versionId = Lens.lens (\RotateSecretResponse' {versionId} -> versionId) (\s@RotateSecretResponse' {} a -> s {versionId = a} :: RotateSecretResponse)
 
 -- | The response's http status code.
 rotateSecretResponse_httpStatus :: Lens.Lens' RotateSecretResponse Prelude.Int

@@ -27,77 +27,26 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListPlatformBranches $
---             newListPlatformBranches
---
---         , requestSwapEnvironmentCNAMEs $
---             newSwapEnvironmentCNAMEs
---
---         , requestListAvailableSolutionStacks $
---             newListAvailableSolutionStacks
---
---         , requestListPlatformVersions $
---             newListPlatformVersions
---
---         , requestDescribeApplications $
+--         [ requestDescribeApplications $
 --             newDescribeApplications
 --
---         , requestCreateApplicationVersion $
---             newCreateApplicationVersion
---
---         , requestDescribeEnvironmentHealth $
---             newDescribeEnvironmentHealth
---
---         , requestCreateConfigurationTemplate $
---             newCreateConfigurationTemplate
+--         , requestUpdateEnvironment $
+--             newUpdateEnvironment
 --
 --         , requestTerminateEnvironment $
 --             newTerminateEnvironment
 --
---         , requestCreateEnvironment $
---             newCreateEnvironment
+--         , requestListPlatformVersions $
+--             newListPlatformVersions
 --
---         , requestCreatePlatformVersion $
---             newCreatePlatformVersion
+--         , requestDeletePlatformVersion $
+--             newDeletePlatformVersion
 --
---         , requestDescribeEnvironmentResources $
---             newDescribeEnvironmentResources
+--         , requestCreateApplicationVersion $
+--             newCreateApplicationVersion
 --
---         , requestUpdateApplicationVersion $
---             newUpdateApplicationVersion
---
---         , requestDeleteApplicationVersion $
---             newDeleteApplicationVersion
---
---         , requestCheckDNSAvailability $
---             newCheckDNSAvailability
---
---         , requestComposeEnvironments $
---             newComposeEnvironments
---
---         , requestCreateApplication $
---             newCreateApplication
---
---         , requestDescribeAccountAttributes $
---             newDescribeAccountAttributes
---
---         , requestValidateConfigurationSettings $
---             newValidateConfigurationSettings
---
---         , requestDescribeEnvironmentManagedActions $
---             newDescribeEnvironmentManagedActions
---
---         , requestCreateStorageLocation $
---             newCreateStorageLocation
---
---         , requestDescribeConfigurationSettings $
---             newDescribeConfigurationSettings
---
---         , requestRetrieveEnvironmentInfo $
---             newRetrieveEnvironmentInfo
---
---         , requestDescribeConfigurationOptions $
---             newDescribeConfigurationOptions
+--         , requestListPlatformBranches $
+--             newListPlatformBranches
 --
 --         , requestDescribeEvents $
 --             newDescribeEvents
@@ -105,11 +54,59 @@ import Test.Tasty
 --         , requestRequestEnvironmentInfo $
 --             newRequestEnvironmentInfo
 --
---         , requestApplyEnvironmentManagedAction $
---             newApplyEnvironmentManagedAction
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
---         , requestUpdateApplicationResourceLifecycle $
---             newUpdateApplicationResourceLifecycle
+--         , requestRetrieveEnvironmentInfo $
+--             newRetrieveEnvironmentInfo
+--
+--         , requestDescribePlatformVersion $
+--             newDescribePlatformVersion
+--
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
+--         , requestUpdateApplication $
+--             newUpdateApplication
+--
+--         , requestDescribeInstancesHealth $
+--             newDescribeInstancesHealth
+--
+--         , requestCreateApplication $
+--             newCreateApplication
+--
+--         , requestComposeEnvironments $
+--             newComposeEnvironments
+--
+--         , requestAbortEnvironmentUpdate $
+--             newAbortEnvironmentUpdate
+--
+--         , requestDeleteConfigurationTemplate $
+--             newDeleteConfigurationTemplate
+--
+--         , requestUpdateConfigurationTemplate $
+--             newUpdateConfigurationTemplate
+--
+--         , requestUpdateTagsForResource $
+--             newUpdateTagsForResource
+--
+--         , requestDescribeEnvironmentResources $
+--             newDescribeEnvironmentResources
+--
+--         , requestDescribeEnvironmentManagedActionHistory $
+--             newDescribeEnvironmentManagedActionHistory
+--
+--         , requestDeleteApplicationVersion $
+--             newDeleteApplicationVersion
+--
+--         , requestUpdateApplicationVersion $
+--             newUpdateApplicationVersion
+--
+--         , requestCreateConfigurationTemplate $
+--             newCreateConfigurationTemplate
+--
+--         , requestDescribeEnvironmentHealth $
+--             newDescribeEnvironmentHealth
 --
 --         , requestRebuildEnvironment $
 --             newRebuildEnvironment
@@ -117,38 +114,41 @@ import Test.Tasty
 --         , requestDeleteEnvironmentConfiguration $
 --             newDeleteEnvironmentConfiguration
 --
---         , requestDeletePlatformVersion $
---             newDeletePlatformVersion
+--         , requestUpdateApplicationResourceLifecycle $
+--             newUpdateApplicationResourceLifecycle
 --
---         , requestUpdateEnvironment $
---             newUpdateEnvironment
+--         , requestSwapEnvironmentCNAMEs $
+--             newSwapEnvironmentCNAMEs
 --
---         , requestUpdateTagsForResource $
---             newUpdateTagsForResource
+--         , requestListAvailableSolutionStacks $
+--             newListAvailableSolutionStacks
 --
---         , requestUpdateConfigurationTemplate $
---             newUpdateConfigurationTemplate
+--         , requestApplyEnvironmentManagedAction $
+--             newApplyEnvironmentManagedAction
 --
---         , requestDescribeEnvironmentManagedActionHistory $
---             newDescribeEnvironmentManagedActionHistory
+--         , requestDescribeConfigurationOptions $
+--             newDescribeConfigurationOptions
 --
---         , requestDeleteConfigurationTemplate $
---             newDeleteConfigurationTemplate
+--         , requestDisassociateEnvironmentOperationsRole $
+--             newDisassociateEnvironmentOperationsRole
 --
---         , requestDescribeApplicationVersions $
---             newDescribeApplicationVersions
+--         , requestCreateStorageLocation $
+--             newCreateStorageLocation
 --
---         , requestAbortEnvironmentUpdate $
---             newAbortEnvironmentUpdate
+--         , requestDescribeEnvironmentManagedActions $
+--             newDescribeEnvironmentManagedActions
 --
---         , requestDeleteApplication $
---             newDeleteApplication
+--         , requestDescribeConfigurationSettings $
+--             newDescribeConfigurationSettings
 --
---         , requestDescribeInstancesHealth $
---             newDescribeInstancesHealth
+--         , requestValidateConfigurationSettings $
+--             newValidateConfigurationSettings
 --
---         , requestUpdateApplication $
---             newUpdateApplication
+--         , requestDescribeAccountAttributes $
+--             newDescribeAccountAttributes
+--
+--         , requestAssociateEnvironmentOperationsRole $
+--             newAssociateEnvironmentOperationsRole
 --
 --         , requestRestartAppServer $
 --             newRestartAppServer
@@ -156,92 +156,41 @@ import Test.Tasty
 --         , requestDescribeEnvironments $
 --             newDescribeEnvironments
 --
---         , requestAssociateEnvironmentOperationsRole $
---             newAssociateEnvironmentOperationsRole
+--         , requestCheckDNSAvailability $
+--             newCheckDNSAvailability
 --
---         , requestDescribePlatformVersion $
---             newDescribePlatformVersion
+--         , requestDescribeApplicationVersions $
+--             newDescribeApplicationVersions
 --
---         , requestDisassociateEnvironmentOperationsRole $
---             newDisassociateEnvironmentOperationsRole
+--         , requestCreateEnvironment $
+--             newCreateEnvironment
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCreatePlatformVersion $
+--             newCreatePlatformVersion
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListPlatformBranches $
---             newListPlatformBranchesResponse
---
---         , responseSwapEnvironmentCNAMEs $
---             newSwapEnvironmentCNAMEsResponse
---
---         , responseListAvailableSolutionStacks $
---             newListAvailableSolutionStacksResponse
---
---         , responseListPlatformVersions $
---             newListPlatformVersionsResponse
---
---         , responseDescribeApplications $
+--         [ responseDescribeApplications $
 --             newDescribeApplicationsResponse
 --
---         , responseCreateApplicationVersion $
---             newApplicationVersionDescriptionMessage
---
---         , responseDescribeEnvironmentHealth $
---             newDescribeEnvironmentHealthResponse
---
---         , responseCreateConfigurationTemplate $
---             newConfigurationSettingsDescription
+--         , responseUpdateEnvironment $
+--             newEnvironmentDescription
 --
 --         , responseTerminateEnvironment $
 --             newEnvironmentDescription
 --
---         , responseCreateEnvironment $
---             newEnvironmentDescription
+--         , responseListPlatformVersions $
+--             newListPlatformVersionsResponse
 --
---         , responseCreatePlatformVersion $
---             newCreatePlatformVersionResponse
+--         , responseDeletePlatformVersion $
+--             newDeletePlatformVersionResponse
 --
---         , responseDescribeEnvironmentResources $
---             newDescribeEnvironmentResourcesResponse
---
---         , responseUpdateApplicationVersion $
+--         , responseCreateApplicationVersion $
 --             newApplicationVersionDescriptionMessage
 --
---         , responseDeleteApplicationVersion $
---             newDeleteApplicationVersionResponse
---
---         , responseCheckDNSAvailability $
---             newCheckDNSAvailabilityResponse
---
---         , responseComposeEnvironments $
---             newEnvironmentDescriptionsMessage
---
---         , responseCreateApplication $
---             newApplicationDescriptionMessage
---
---         , responseDescribeAccountAttributes $
---             newDescribeAccountAttributesResponse
---
---         , responseValidateConfigurationSettings $
---             newValidateConfigurationSettingsResponse
---
---         , responseDescribeEnvironmentManagedActions $
---             newDescribeEnvironmentManagedActionsResponse
---
---         , responseCreateStorageLocation $
---             newCreateStorageLocationResponse
---
---         , responseDescribeConfigurationSettings $
---             newDescribeConfigurationSettingsResponse
---
---         , responseRetrieveEnvironmentInfo $
---             newRetrieveEnvironmentInfoResponse
---
---         , responseDescribeConfigurationOptions $
---             newDescribeConfigurationOptionsResponse
+--         , responseListPlatformBranches $
+--             newListPlatformBranchesResponse
 --
 --         , responseDescribeEvents $
 --             newDescribeEventsResponse
@@ -249,11 +198,59 @@ import Test.Tasty
 --         , responseRequestEnvironmentInfo $
 --             newRequestEnvironmentInfoResponse
 --
---         , responseApplyEnvironmentManagedAction $
---             newApplyEnvironmentManagedActionResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
---         , responseUpdateApplicationResourceLifecycle $
---             newUpdateApplicationResourceLifecycleResponse
+--         , responseRetrieveEnvironmentInfo $
+--             newRetrieveEnvironmentInfoResponse
+--
+--         , responseDescribePlatformVersion $
+--             newDescribePlatformVersionResponse
+--
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
+--         , responseUpdateApplication $
+--             newApplicationDescriptionMessage
+--
+--         , responseDescribeInstancesHealth $
+--             newDescribeInstancesHealthResponse
+--
+--         , responseCreateApplication $
+--             newApplicationDescriptionMessage
+--
+--         , responseComposeEnvironments $
+--             newEnvironmentDescriptionsMessage
+--
+--         , responseAbortEnvironmentUpdate $
+--             newAbortEnvironmentUpdateResponse
+--
+--         , responseDeleteConfigurationTemplate $
+--             newDeleteConfigurationTemplateResponse
+--
+--         , responseUpdateConfigurationTemplate $
+--             newConfigurationSettingsDescription
+--
+--         , responseUpdateTagsForResource $
+--             newUpdateTagsForResourceResponse
+--
+--         , responseDescribeEnvironmentResources $
+--             newDescribeEnvironmentResourcesResponse
+--
+--         , responseDescribeEnvironmentManagedActionHistory $
+--             newDescribeEnvironmentManagedActionHistoryResponse
+--
+--         , responseDeleteApplicationVersion $
+--             newDeleteApplicationVersionResponse
+--
+--         , responseUpdateApplicationVersion $
+--             newApplicationVersionDescriptionMessage
+--
+--         , responseCreateConfigurationTemplate $
+--             newConfigurationSettingsDescription
+--
+--         , responseDescribeEnvironmentHealth $
+--             newDescribeEnvironmentHealthResponse
 --
 --         , responseRebuildEnvironment $
 --             newRebuildEnvironmentResponse
@@ -261,38 +258,41 @@ import Test.Tasty
 --         , responseDeleteEnvironmentConfiguration $
 --             newDeleteEnvironmentConfigurationResponse
 --
---         , responseDeletePlatformVersion $
---             newDeletePlatformVersionResponse
+--         , responseUpdateApplicationResourceLifecycle $
+--             newUpdateApplicationResourceLifecycleResponse
 --
---         , responseUpdateEnvironment $
---             newEnvironmentDescription
+--         , responseSwapEnvironmentCNAMEs $
+--             newSwapEnvironmentCNAMEsResponse
 --
---         , responseUpdateTagsForResource $
---             newUpdateTagsForResourceResponse
+--         , responseListAvailableSolutionStacks $
+--             newListAvailableSolutionStacksResponse
 --
---         , responseUpdateConfigurationTemplate $
---             newConfigurationSettingsDescription
+--         , responseApplyEnvironmentManagedAction $
+--             newApplyEnvironmentManagedActionResponse
 --
---         , responseDescribeEnvironmentManagedActionHistory $
---             newDescribeEnvironmentManagedActionHistoryResponse
+--         , responseDescribeConfigurationOptions $
+--             newDescribeConfigurationOptionsResponse
 --
---         , responseDeleteConfigurationTemplate $
---             newDeleteConfigurationTemplateResponse
+--         , responseDisassociateEnvironmentOperationsRole $
+--             newDisassociateEnvironmentOperationsRoleResponse
 --
---         , responseDescribeApplicationVersions $
---             newDescribeApplicationVersionsResponse
+--         , responseCreateStorageLocation $
+--             newCreateStorageLocationResponse
 --
---         , responseAbortEnvironmentUpdate $
---             newAbortEnvironmentUpdateResponse
+--         , responseDescribeEnvironmentManagedActions $
+--             newDescribeEnvironmentManagedActionsResponse
 --
---         , responseDeleteApplication $
---             newDeleteApplicationResponse
+--         , responseDescribeConfigurationSettings $
+--             newDescribeConfigurationSettingsResponse
 --
---         , responseDescribeInstancesHealth $
---             newDescribeInstancesHealthResponse
+--         , responseValidateConfigurationSettings $
+--             newValidateConfigurationSettingsResponse
 --
---         , responseUpdateApplication $
---             newApplicationDescriptionMessage
+--         , responseDescribeAccountAttributes $
+--             newDescribeAccountAttributesResponse
+--
+--         , responseAssociateEnvironmentOperationsRole $
+--             newAssociateEnvironmentOperationsRoleResponse
 --
 --         , responseRestartAppServer $
 --             newRestartAppServerResponse
@@ -300,46 +300,22 @@ import Test.Tasty
 --         , responseDescribeEnvironments $
 --             newEnvironmentDescriptionsMessage
 --
---         , responseAssociateEnvironmentOperationsRole $
---             newAssociateEnvironmentOperationsRoleResponse
+--         , responseCheckDNSAvailability $
+--             newCheckDNSAvailabilityResponse
 --
---         , responseDescribePlatformVersion $
---             newDescribePlatformVersionResponse
+--         , responseDescribeApplicationVersions $
+--             newDescribeApplicationVersionsResponse
 --
---         , responseDisassociateEnvironmentOperationsRole $
---             newDisassociateEnvironmentOperationsRoleResponse
+--         , responseCreateEnvironment $
+--             newEnvironmentDescription
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCreatePlatformVersion $
+--             newCreatePlatformVersionResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListPlatformBranches :: ListPlatformBranches -> TestTree
-requestListPlatformBranches =
-  req
-    "ListPlatformBranches"
-    "fixture/ListPlatformBranches.yaml"
-
-requestSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs -> TestTree
-requestSwapEnvironmentCNAMEs =
-  req
-    "SwapEnvironmentCNAMEs"
-    "fixture/SwapEnvironmentCNAMEs.yaml"
-
-requestListAvailableSolutionStacks :: ListAvailableSolutionStacks -> TestTree
-requestListAvailableSolutionStacks =
-  req
-    "ListAvailableSolutionStacks"
-    "fixture/ListAvailableSolutionStacks.yaml"
-
-requestListPlatformVersions :: ListPlatformVersions -> TestTree
-requestListPlatformVersions =
-  req
-    "ListPlatformVersions"
-    "fixture/ListPlatformVersions.yaml"
 
 requestDescribeApplications :: DescribeApplications -> TestTree
 requestDescribeApplications =
@@ -347,23 +323,11 @@ requestDescribeApplications =
     "DescribeApplications"
     "fixture/DescribeApplications.yaml"
 
-requestCreateApplicationVersion :: CreateApplicationVersion -> TestTree
-requestCreateApplicationVersion =
+requestUpdateEnvironment :: UpdateEnvironment -> TestTree
+requestUpdateEnvironment =
   req
-    "CreateApplicationVersion"
-    "fixture/CreateApplicationVersion.yaml"
-
-requestDescribeEnvironmentHealth :: DescribeEnvironmentHealth -> TestTree
-requestDescribeEnvironmentHealth =
-  req
-    "DescribeEnvironmentHealth"
-    "fixture/DescribeEnvironmentHealth.yaml"
-
-requestCreateConfigurationTemplate :: CreateConfigurationTemplate -> TestTree
-requestCreateConfigurationTemplate =
-  req
-    "CreateConfigurationTemplate"
-    "fixture/CreateConfigurationTemplate.yaml"
+    "UpdateEnvironment"
+    "fixture/UpdateEnvironment.yaml"
 
 requestTerminateEnvironment :: TerminateEnvironment -> TestTree
 requestTerminateEnvironment =
@@ -371,95 +335,29 @@ requestTerminateEnvironment =
     "TerminateEnvironment"
     "fixture/TerminateEnvironment.yaml"
 
-requestCreateEnvironment :: CreateEnvironment -> TestTree
-requestCreateEnvironment =
+requestListPlatformVersions :: ListPlatformVersions -> TestTree
+requestListPlatformVersions =
   req
-    "CreateEnvironment"
-    "fixture/CreateEnvironment.yaml"
+    "ListPlatformVersions"
+    "fixture/ListPlatformVersions.yaml"
 
-requestCreatePlatformVersion :: CreatePlatformVersion -> TestTree
-requestCreatePlatformVersion =
+requestDeletePlatformVersion :: DeletePlatformVersion -> TestTree
+requestDeletePlatformVersion =
   req
-    "CreatePlatformVersion"
-    "fixture/CreatePlatformVersion.yaml"
+    "DeletePlatformVersion"
+    "fixture/DeletePlatformVersion.yaml"
 
-requestDescribeEnvironmentResources :: DescribeEnvironmentResources -> TestTree
-requestDescribeEnvironmentResources =
+requestCreateApplicationVersion :: CreateApplicationVersion -> TestTree
+requestCreateApplicationVersion =
   req
-    "DescribeEnvironmentResources"
-    "fixture/DescribeEnvironmentResources.yaml"
+    "CreateApplicationVersion"
+    "fixture/CreateApplicationVersion.yaml"
 
-requestUpdateApplicationVersion :: UpdateApplicationVersion -> TestTree
-requestUpdateApplicationVersion =
+requestListPlatformBranches :: ListPlatformBranches -> TestTree
+requestListPlatformBranches =
   req
-    "UpdateApplicationVersion"
-    "fixture/UpdateApplicationVersion.yaml"
-
-requestDeleteApplicationVersion :: DeleteApplicationVersion -> TestTree
-requestDeleteApplicationVersion =
-  req
-    "DeleteApplicationVersion"
-    "fixture/DeleteApplicationVersion.yaml"
-
-requestCheckDNSAvailability :: CheckDNSAvailability -> TestTree
-requestCheckDNSAvailability =
-  req
-    "CheckDNSAvailability"
-    "fixture/CheckDNSAvailability.yaml"
-
-requestComposeEnvironments :: ComposeEnvironments -> TestTree
-requestComposeEnvironments =
-  req
-    "ComposeEnvironments"
-    "fixture/ComposeEnvironments.yaml"
-
-requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
-  req
-    "CreateApplication"
-    "fixture/CreateApplication.yaml"
-
-requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-requestDescribeAccountAttributes =
-  req
-    "DescribeAccountAttributes"
-    "fixture/DescribeAccountAttributes.yaml"
-
-requestValidateConfigurationSettings :: ValidateConfigurationSettings -> TestTree
-requestValidateConfigurationSettings =
-  req
-    "ValidateConfigurationSettings"
-    "fixture/ValidateConfigurationSettings.yaml"
-
-requestDescribeEnvironmentManagedActions :: DescribeEnvironmentManagedActions -> TestTree
-requestDescribeEnvironmentManagedActions =
-  req
-    "DescribeEnvironmentManagedActions"
-    "fixture/DescribeEnvironmentManagedActions.yaml"
-
-requestCreateStorageLocation :: CreateStorageLocation -> TestTree
-requestCreateStorageLocation =
-  req
-    "CreateStorageLocation"
-    "fixture/CreateStorageLocation.yaml"
-
-requestDescribeConfigurationSettings :: DescribeConfigurationSettings -> TestTree
-requestDescribeConfigurationSettings =
-  req
-    "DescribeConfigurationSettings"
-    "fixture/DescribeConfigurationSettings.yaml"
-
-requestRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
-requestRetrieveEnvironmentInfo =
-  req
-    "RetrieveEnvironmentInfo"
-    "fixture/RetrieveEnvironmentInfo.yaml"
-
-requestDescribeConfigurationOptions :: DescribeConfigurationOptions -> TestTree
-requestDescribeConfigurationOptions =
-  req
-    "DescribeConfigurationOptions"
-    "fixture/DescribeConfigurationOptions.yaml"
+    "ListPlatformBranches"
+    "fixture/ListPlatformBranches.yaml"
 
 requestDescribeEvents :: DescribeEvents -> TestTree
 requestDescribeEvents =
@@ -473,17 +371,113 @@ requestRequestEnvironmentInfo =
     "RequestEnvironmentInfo"
     "fixture/RequestEnvironmentInfo.yaml"
 
-requestApplyEnvironmentManagedAction :: ApplyEnvironmentManagedAction -> TestTree
-requestApplyEnvironmentManagedAction =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "ApplyEnvironmentManagedAction"
-    "fixture/ApplyEnvironmentManagedAction.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-requestUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycle -> TestTree
-requestUpdateApplicationResourceLifecycle =
+requestRetrieveEnvironmentInfo :: RetrieveEnvironmentInfo -> TestTree
+requestRetrieveEnvironmentInfo =
   req
-    "UpdateApplicationResourceLifecycle"
-    "fixture/UpdateApplicationResourceLifecycle.yaml"
+    "RetrieveEnvironmentInfo"
+    "fixture/RetrieveEnvironmentInfo.yaml"
+
+requestDescribePlatformVersion :: DescribePlatformVersion -> TestTree
+requestDescribePlatformVersion =
+  req
+    "DescribePlatformVersion"
+    "fixture/DescribePlatformVersion.yaml"
+
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
+  req
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
+requestDescribeInstancesHealth :: DescribeInstancesHealth -> TestTree
+requestDescribeInstancesHealth =
+  req
+    "DescribeInstancesHealth"
+    "fixture/DescribeInstancesHealth.yaml"
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication =
+  req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
+
+requestComposeEnvironments :: ComposeEnvironments -> TestTree
+requestComposeEnvironments =
+  req
+    "ComposeEnvironments"
+    "fixture/ComposeEnvironments.yaml"
+
+requestAbortEnvironmentUpdate :: AbortEnvironmentUpdate -> TestTree
+requestAbortEnvironmentUpdate =
+  req
+    "AbortEnvironmentUpdate"
+    "fixture/AbortEnvironmentUpdate.yaml"
+
+requestDeleteConfigurationTemplate :: DeleteConfigurationTemplate -> TestTree
+requestDeleteConfigurationTemplate =
+  req
+    "DeleteConfigurationTemplate"
+    "fixture/DeleteConfigurationTemplate.yaml"
+
+requestUpdateConfigurationTemplate :: UpdateConfigurationTemplate -> TestTree
+requestUpdateConfigurationTemplate =
+  req
+    "UpdateConfigurationTemplate"
+    "fixture/UpdateConfigurationTemplate.yaml"
+
+requestUpdateTagsForResource :: UpdateTagsForResource -> TestTree
+requestUpdateTagsForResource =
+  req
+    "UpdateTagsForResource"
+    "fixture/UpdateTagsForResource.yaml"
+
+requestDescribeEnvironmentResources :: DescribeEnvironmentResources -> TestTree
+requestDescribeEnvironmentResources =
+  req
+    "DescribeEnvironmentResources"
+    "fixture/DescribeEnvironmentResources.yaml"
+
+requestDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistory -> TestTree
+requestDescribeEnvironmentManagedActionHistory =
+  req
+    "DescribeEnvironmentManagedActionHistory"
+    "fixture/DescribeEnvironmentManagedActionHistory.yaml"
+
+requestDeleteApplicationVersion :: DeleteApplicationVersion -> TestTree
+requestDeleteApplicationVersion =
+  req
+    "DeleteApplicationVersion"
+    "fixture/DeleteApplicationVersion.yaml"
+
+requestUpdateApplicationVersion :: UpdateApplicationVersion -> TestTree
+requestUpdateApplicationVersion =
+  req
+    "UpdateApplicationVersion"
+    "fixture/UpdateApplicationVersion.yaml"
+
+requestCreateConfigurationTemplate :: CreateConfigurationTemplate -> TestTree
+requestCreateConfigurationTemplate =
+  req
+    "CreateConfigurationTemplate"
+    "fixture/CreateConfigurationTemplate.yaml"
+
+requestDescribeEnvironmentHealth :: DescribeEnvironmentHealth -> TestTree
+requestDescribeEnvironmentHealth =
+  req
+    "DescribeEnvironmentHealth"
+    "fixture/DescribeEnvironmentHealth.yaml"
 
 requestRebuildEnvironment :: RebuildEnvironment -> TestTree
 requestRebuildEnvironment =
@@ -497,71 +491,77 @@ requestDeleteEnvironmentConfiguration =
     "DeleteEnvironmentConfiguration"
     "fixture/DeleteEnvironmentConfiguration.yaml"
 
-requestDeletePlatformVersion :: DeletePlatformVersion -> TestTree
-requestDeletePlatformVersion =
+requestUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycle -> TestTree
+requestUpdateApplicationResourceLifecycle =
   req
-    "DeletePlatformVersion"
-    "fixture/DeletePlatformVersion.yaml"
+    "UpdateApplicationResourceLifecycle"
+    "fixture/UpdateApplicationResourceLifecycle.yaml"
 
-requestUpdateEnvironment :: UpdateEnvironment -> TestTree
-requestUpdateEnvironment =
+requestSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs -> TestTree
+requestSwapEnvironmentCNAMEs =
   req
-    "UpdateEnvironment"
-    "fixture/UpdateEnvironment.yaml"
+    "SwapEnvironmentCNAMEs"
+    "fixture/SwapEnvironmentCNAMEs.yaml"
 
-requestUpdateTagsForResource :: UpdateTagsForResource -> TestTree
-requestUpdateTagsForResource =
+requestListAvailableSolutionStacks :: ListAvailableSolutionStacks -> TestTree
+requestListAvailableSolutionStacks =
   req
-    "UpdateTagsForResource"
-    "fixture/UpdateTagsForResource.yaml"
+    "ListAvailableSolutionStacks"
+    "fixture/ListAvailableSolutionStacks.yaml"
 
-requestUpdateConfigurationTemplate :: UpdateConfigurationTemplate -> TestTree
-requestUpdateConfigurationTemplate =
+requestApplyEnvironmentManagedAction :: ApplyEnvironmentManagedAction -> TestTree
+requestApplyEnvironmentManagedAction =
   req
-    "UpdateConfigurationTemplate"
-    "fixture/UpdateConfigurationTemplate.yaml"
+    "ApplyEnvironmentManagedAction"
+    "fixture/ApplyEnvironmentManagedAction.yaml"
 
-requestDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistory -> TestTree
-requestDescribeEnvironmentManagedActionHistory =
+requestDescribeConfigurationOptions :: DescribeConfigurationOptions -> TestTree
+requestDescribeConfigurationOptions =
   req
-    "DescribeEnvironmentManagedActionHistory"
-    "fixture/DescribeEnvironmentManagedActionHistory.yaml"
+    "DescribeConfigurationOptions"
+    "fixture/DescribeConfigurationOptions.yaml"
 
-requestDeleteConfigurationTemplate :: DeleteConfigurationTemplate -> TestTree
-requestDeleteConfigurationTemplate =
+requestDisassociateEnvironmentOperationsRole :: DisassociateEnvironmentOperationsRole -> TestTree
+requestDisassociateEnvironmentOperationsRole =
   req
-    "DeleteConfigurationTemplate"
-    "fixture/DeleteConfigurationTemplate.yaml"
+    "DisassociateEnvironmentOperationsRole"
+    "fixture/DisassociateEnvironmentOperationsRole.yaml"
 
-requestDescribeApplicationVersions :: DescribeApplicationVersions -> TestTree
-requestDescribeApplicationVersions =
+requestCreateStorageLocation :: CreateStorageLocation -> TestTree
+requestCreateStorageLocation =
   req
-    "DescribeApplicationVersions"
-    "fixture/DescribeApplicationVersions.yaml"
+    "CreateStorageLocation"
+    "fixture/CreateStorageLocation.yaml"
 
-requestAbortEnvironmentUpdate :: AbortEnvironmentUpdate -> TestTree
-requestAbortEnvironmentUpdate =
+requestDescribeEnvironmentManagedActions :: DescribeEnvironmentManagedActions -> TestTree
+requestDescribeEnvironmentManagedActions =
   req
-    "AbortEnvironmentUpdate"
-    "fixture/AbortEnvironmentUpdate.yaml"
+    "DescribeEnvironmentManagedActions"
+    "fixture/DescribeEnvironmentManagedActions.yaml"
 
-requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
+requestDescribeConfigurationSettings :: DescribeConfigurationSettings -> TestTree
+requestDescribeConfigurationSettings =
   req
-    "DeleteApplication"
-    "fixture/DeleteApplication.yaml"
+    "DescribeConfigurationSettings"
+    "fixture/DescribeConfigurationSettings.yaml"
 
-requestDescribeInstancesHealth :: DescribeInstancesHealth -> TestTree
-requestDescribeInstancesHealth =
+requestValidateConfigurationSettings :: ValidateConfigurationSettings -> TestTree
+requestValidateConfigurationSettings =
   req
-    "DescribeInstancesHealth"
-    "fixture/DescribeInstancesHealth.yaml"
+    "ValidateConfigurationSettings"
+    "fixture/ValidateConfigurationSettings.yaml"
 
-requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
+requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
+requestDescribeAccountAttributes =
   req
-    "UpdateApplication"
-    "fixture/UpdateApplication.yaml"
+    "DescribeAccountAttributes"
+    "fixture/DescribeAccountAttributes.yaml"
+
+requestAssociateEnvironmentOperationsRole :: AssociateEnvironmentOperationsRole -> TestTree
+requestAssociateEnvironmentOperationsRole =
+  req
+    "AssociateEnvironmentOperationsRole"
+    "fixture/AssociateEnvironmentOperationsRole.yaml"
 
 requestRestartAppServer :: RestartAppServer -> TestTree
 requestRestartAppServer =
@@ -575,63 +575,31 @@ requestDescribeEnvironments =
     "DescribeEnvironments"
     "fixture/DescribeEnvironments.yaml"
 
-requestAssociateEnvironmentOperationsRole :: AssociateEnvironmentOperationsRole -> TestTree
-requestAssociateEnvironmentOperationsRole =
+requestCheckDNSAvailability :: CheckDNSAvailability -> TestTree
+requestCheckDNSAvailability =
   req
-    "AssociateEnvironmentOperationsRole"
-    "fixture/AssociateEnvironmentOperationsRole.yaml"
+    "CheckDNSAvailability"
+    "fixture/CheckDNSAvailability.yaml"
 
-requestDescribePlatformVersion :: DescribePlatformVersion -> TestTree
-requestDescribePlatformVersion =
+requestDescribeApplicationVersions :: DescribeApplicationVersions -> TestTree
+requestDescribeApplicationVersions =
   req
-    "DescribePlatformVersion"
-    "fixture/DescribePlatformVersion.yaml"
+    "DescribeApplicationVersions"
+    "fixture/DescribeApplicationVersions.yaml"
 
-requestDisassociateEnvironmentOperationsRole :: DisassociateEnvironmentOperationsRole -> TestTree
-requestDisassociateEnvironmentOperationsRole =
+requestCreateEnvironment :: CreateEnvironment -> TestTree
+requestCreateEnvironment =
   req
-    "DisassociateEnvironmentOperationsRole"
-    "fixture/DisassociateEnvironmentOperationsRole.yaml"
+    "CreateEnvironment"
+    "fixture/CreateEnvironment.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestCreatePlatformVersion :: CreatePlatformVersion -> TestTree
+requestCreatePlatformVersion =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "CreatePlatformVersion"
+    "fixture/CreatePlatformVersion.yaml"
 
 -- Responses
-
-responseListPlatformBranches :: ListPlatformBranchesResponse -> TestTree
-responseListPlatformBranches =
-  res
-    "ListPlatformBranchesResponse"
-    "fixture/ListPlatformBranchesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPlatformBranches)
-
-responseSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsResponse -> TestTree
-responseSwapEnvironmentCNAMEs =
-  res
-    "SwapEnvironmentCNAMEsResponse"
-    "fixture/SwapEnvironmentCNAMEsResponse.proto"
-    defaultService
-    (Proxy :: Proxy SwapEnvironmentCNAMEs)
-
-responseListAvailableSolutionStacks :: ListAvailableSolutionStacksResponse -> TestTree
-responseListAvailableSolutionStacks =
-  res
-    "ListAvailableSolutionStacksResponse"
-    "fixture/ListAvailableSolutionStacksResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAvailableSolutionStacks)
-
-responseListPlatformVersions :: ListPlatformVersionsResponse -> TestTree
-responseListPlatformVersions =
-  res
-    "ListPlatformVersionsResponse"
-    "fixture/ListPlatformVersionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPlatformVersions)
 
 responseDescribeApplications :: DescribeApplicationsResponse -> TestTree
 responseDescribeApplications =
@@ -641,29 +609,13 @@ responseDescribeApplications =
     defaultService
     (Proxy :: Proxy DescribeApplications)
 
-responseCreateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
-responseCreateApplicationVersion =
+responseUpdateEnvironment :: EnvironmentDescription -> TestTree
+responseUpdateEnvironment =
   res
-    "CreateApplicationVersionResponse"
-    "fixture/CreateApplicationVersionResponse.proto"
+    "UpdateEnvironmentResponse"
+    "fixture/UpdateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateApplicationVersion)
-
-responseDescribeEnvironmentHealth :: DescribeEnvironmentHealthResponse -> TestTree
-responseDescribeEnvironmentHealth =
-  res
-    "DescribeEnvironmentHealthResponse"
-    "fixture/DescribeEnvironmentHealthResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeEnvironmentHealth)
-
-responseCreateConfigurationTemplate :: ConfigurationSettingsDescription -> TestTree
-responseCreateConfigurationTemplate =
-  res
-    "CreateConfigurationTemplateResponse"
-    "fixture/CreateConfigurationTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateConfigurationTemplate)
+    (Proxy :: Proxy UpdateEnvironment)
 
 responseTerminateEnvironment :: EnvironmentDescription -> TestTree
 responseTerminateEnvironment =
@@ -673,125 +625,37 @@ responseTerminateEnvironment =
     defaultService
     (Proxy :: Proxy TerminateEnvironment)
 
-responseCreateEnvironment :: EnvironmentDescription -> TestTree
-responseCreateEnvironment =
+responseListPlatformVersions :: ListPlatformVersionsResponse -> TestTree
+responseListPlatformVersions =
   res
-    "CreateEnvironmentResponse"
-    "fixture/CreateEnvironmentResponse.proto"
+    "ListPlatformVersionsResponse"
+    "fixture/ListPlatformVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEnvironment)
+    (Proxy :: Proxy ListPlatformVersions)
 
-responseCreatePlatformVersion :: CreatePlatformVersionResponse -> TestTree
-responseCreatePlatformVersion =
+responseDeletePlatformVersion :: DeletePlatformVersionResponse -> TestTree
+responseDeletePlatformVersion =
   res
-    "CreatePlatformVersionResponse"
-    "fixture/CreatePlatformVersionResponse.proto"
+    "DeletePlatformVersionResponse"
+    "fixture/DeletePlatformVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlatformVersion)
+    (Proxy :: Proxy DeletePlatformVersion)
 
-responseDescribeEnvironmentResources :: DescribeEnvironmentResourcesResponse -> TestTree
-responseDescribeEnvironmentResources =
+responseCreateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
+responseCreateApplicationVersion =
   res
-    "DescribeEnvironmentResourcesResponse"
-    "fixture/DescribeEnvironmentResourcesResponse.proto"
+    "CreateApplicationVersionResponse"
+    "fixture/CreateApplicationVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironmentResources)
+    (Proxy :: Proxy CreateApplicationVersion)
 
-responseUpdateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
-responseUpdateApplicationVersion =
+responseListPlatformBranches :: ListPlatformBranchesResponse -> TestTree
+responseListPlatformBranches =
   res
-    "UpdateApplicationVersionResponse"
-    "fixture/UpdateApplicationVersionResponse.proto"
+    "ListPlatformBranchesResponse"
+    "fixture/ListPlatformBranchesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplicationVersion)
-
-responseDeleteApplicationVersion :: DeleteApplicationVersionResponse -> TestTree
-responseDeleteApplicationVersion =
-  res
-    "DeleteApplicationVersionResponse"
-    "fixture/DeleteApplicationVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteApplicationVersion)
-
-responseCheckDNSAvailability :: CheckDNSAvailabilityResponse -> TestTree
-responseCheckDNSAvailability =
-  res
-    "CheckDNSAvailabilityResponse"
-    "fixture/CheckDNSAvailabilityResponse.proto"
-    defaultService
-    (Proxy :: Proxy CheckDNSAvailability)
-
-responseComposeEnvironments :: EnvironmentDescriptionsMessage -> TestTree
-responseComposeEnvironments =
-  res
-    "ComposeEnvironmentsResponse"
-    "fixture/ComposeEnvironmentsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ComposeEnvironments)
-
-responseCreateApplication :: ApplicationDescriptionMessage -> TestTree
-responseCreateApplication =
-  res
-    "CreateApplicationResponse"
-    "fixture/CreateApplicationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateApplication)
-
-responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
-responseDescribeAccountAttributes =
-  res
-    "DescribeAccountAttributesResponse"
-    "fixture/DescribeAccountAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAccountAttributes)
-
-responseValidateConfigurationSettings :: ValidateConfigurationSettingsResponse -> TestTree
-responseValidateConfigurationSettings =
-  res
-    "ValidateConfigurationSettingsResponse"
-    "fixture/ValidateConfigurationSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ValidateConfigurationSettings)
-
-responseDescribeEnvironmentManagedActions :: DescribeEnvironmentManagedActionsResponse -> TestTree
-responseDescribeEnvironmentManagedActions =
-  res
-    "DescribeEnvironmentManagedActionsResponse"
-    "fixture/DescribeEnvironmentManagedActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeEnvironmentManagedActions)
-
-responseCreateStorageLocation :: CreateStorageLocationResponse -> TestTree
-responseCreateStorageLocation =
-  res
-    "CreateStorageLocationResponse"
-    "fixture/CreateStorageLocationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateStorageLocation)
-
-responseDescribeConfigurationSettings :: DescribeConfigurationSettingsResponse -> TestTree
-responseDescribeConfigurationSettings =
-  res
-    "DescribeConfigurationSettingsResponse"
-    "fixture/DescribeConfigurationSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeConfigurationSettings)
-
-responseRetrieveEnvironmentInfo :: RetrieveEnvironmentInfoResponse -> TestTree
-responseRetrieveEnvironmentInfo =
-  res
-    "RetrieveEnvironmentInfoResponse"
-    "fixture/RetrieveEnvironmentInfoResponse.proto"
-    defaultService
-    (Proxy :: Proxy RetrieveEnvironmentInfo)
-
-responseDescribeConfigurationOptions :: DescribeConfigurationOptionsResponse -> TestTree
-responseDescribeConfigurationOptions =
-  res
-    "DescribeConfigurationOptionsResponse"
-    "fixture/DescribeConfigurationOptionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeConfigurationOptions)
+    (Proxy :: Proxy ListPlatformBranches)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
 responseDescribeEvents =
@@ -809,21 +673,149 @@ responseRequestEnvironmentInfo =
     defaultService
     (Proxy :: Proxy RequestEnvironmentInfo)
 
-responseApplyEnvironmentManagedAction :: ApplyEnvironmentManagedActionResponse -> TestTree
-responseApplyEnvironmentManagedAction =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "ApplyEnvironmentManagedActionResponse"
-    "fixture/ApplyEnvironmentManagedActionResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ApplyEnvironmentManagedAction)
+    (Proxy :: Proxy ListTagsForResource)
 
-responseUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycleResponse -> TestTree
-responseUpdateApplicationResourceLifecycle =
+responseRetrieveEnvironmentInfo :: RetrieveEnvironmentInfoResponse -> TestTree
+responseRetrieveEnvironmentInfo =
   res
-    "UpdateApplicationResourceLifecycleResponse"
-    "fixture/UpdateApplicationResourceLifecycleResponse.proto"
+    "RetrieveEnvironmentInfoResponse"
+    "fixture/RetrieveEnvironmentInfoResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplicationResourceLifecycle)
+    (Proxy :: Proxy RetrieveEnvironmentInfo)
+
+responseDescribePlatformVersion :: DescribePlatformVersionResponse -> TestTree
+responseDescribePlatformVersion =
+  res
+    "DescribePlatformVersionResponse"
+    "fixture/DescribePlatformVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribePlatformVersion)
+
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
+  res
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApplication)
+
+responseUpdateApplication :: ApplicationDescriptionMessage -> TestTree
+responseUpdateApplication =
+  res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApplication)
+
+responseDescribeInstancesHealth :: DescribeInstancesHealthResponse -> TestTree
+responseDescribeInstancesHealth =
+  res
+    "DescribeInstancesHealthResponse"
+    "fixture/DescribeInstancesHealthResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeInstancesHealth)
+
+responseCreateApplication :: ApplicationDescriptionMessage -> TestTree
+responseCreateApplication =
+  res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateApplication)
+
+responseComposeEnvironments :: EnvironmentDescriptionsMessage -> TestTree
+responseComposeEnvironments =
+  res
+    "ComposeEnvironmentsResponse"
+    "fixture/ComposeEnvironmentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ComposeEnvironments)
+
+responseAbortEnvironmentUpdate :: AbortEnvironmentUpdateResponse -> TestTree
+responseAbortEnvironmentUpdate =
+  res
+    "AbortEnvironmentUpdateResponse"
+    "fixture/AbortEnvironmentUpdateResponse.proto"
+    defaultService
+    (Proxy :: Proxy AbortEnvironmentUpdate)
+
+responseDeleteConfigurationTemplate :: DeleteConfigurationTemplateResponse -> TestTree
+responseDeleteConfigurationTemplate =
+  res
+    "DeleteConfigurationTemplateResponse"
+    "fixture/DeleteConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConfigurationTemplate)
+
+responseUpdateConfigurationTemplate :: ConfigurationSettingsDescription -> TestTree
+responseUpdateConfigurationTemplate =
+  res
+    "UpdateConfigurationTemplateResponse"
+    "fixture/UpdateConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateConfigurationTemplate)
+
+responseUpdateTagsForResource :: UpdateTagsForResourceResponse -> TestTree
+responseUpdateTagsForResource =
+  res
+    "UpdateTagsForResourceResponse"
+    "fixture/UpdateTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateTagsForResource)
+
+responseDescribeEnvironmentResources :: DescribeEnvironmentResourcesResponse -> TestTree
+responseDescribeEnvironmentResources =
+  res
+    "DescribeEnvironmentResourcesResponse"
+    "fixture/DescribeEnvironmentResourcesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEnvironmentResources)
+
+responseDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistoryResponse -> TestTree
+responseDescribeEnvironmentManagedActionHistory =
+  res
+    "DescribeEnvironmentManagedActionHistoryResponse"
+    "fixture/DescribeEnvironmentManagedActionHistoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEnvironmentManagedActionHistory)
+
+responseDeleteApplicationVersion :: DeleteApplicationVersionResponse -> TestTree
+responseDeleteApplicationVersion =
+  res
+    "DeleteApplicationVersionResponse"
+    "fixture/DeleteApplicationVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApplicationVersion)
+
+responseUpdateApplicationVersion :: ApplicationVersionDescriptionMessage -> TestTree
+responseUpdateApplicationVersion =
+  res
+    "UpdateApplicationVersionResponse"
+    "fixture/UpdateApplicationVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApplicationVersion)
+
+responseCreateConfigurationTemplate :: ConfigurationSettingsDescription -> TestTree
+responseCreateConfigurationTemplate =
+  res
+    "CreateConfigurationTemplateResponse"
+    "fixture/CreateConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConfigurationTemplate)
+
+responseDescribeEnvironmentHealth :: DescribeEnvironmentHealthResponse -> TestTree
+responseDescribeEnvironmentHealth =
+  res
+    "DescribeEnvironmentHealthResponse"
+    "fixture/DescribeEnvironmentHealthResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEnvironmentHealth)
 
 responseRebuildEnvironment :: RebuildEnvironmentResponse -> TestTree
 responseRebuildEnvironment =
@@ -841,93 +833,101 @@ responseDeleteEnvironmentConfiguration =
     defaultService
     (Proxy :: Proxy DeleteEnvironmentConfiguration)
 
-responseDeletePlatformVersion :: DeletePlatformVersionResponse -> TestTree
-responseDeletePlatformVersion =
+responseUpdateApplicationResourceLifecycle :: UpdateApplicationResourceLifecycleResponse -> TestTree
+responseUpdateApplicationResourceLifecycle =
   res
-    "DeletePlatformVersionResponse"
-    "fixture/DeletePlatformVersionResponse.proto"
+    "UpdateApplicationResourceLifecycleResponse"
+    "fixture/UpdateApplicationResourceLifecycleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePlatformVersion)
+    (Proxy :: Proxy UpdateApplicationResourceLifecycle)
 
-responseUpdateEnvironment :: EnvironmentDescription -> TestTree
-responseUpdateEnvironment =
+responseSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsResponse -> TestTree
+responseSwapEnvironmentCNAMEs =
   res
-    "UpdateEnvironmentResponse"
-    "fixture/UpdateEnvironmentResponse.proto"
+    "SwapEnvironmentCNAMEsResponse"
+    "fixture/SwapEnvironmentCNAMEsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEnvironment)
+    (Proxy :: Proxy SwapEnvironmentCNAMEs)
 
-responseUpdateTagsForResource :: UpdateTagsForResourceResponse -> TestTree
-responseUpdateTagsForResource =
+responseListAvailableSolutionStacks :: ListAvailableSolutionStacksResponse -> TestTree
+responseListAvailableSolutionStacks =
   res
-    "UpdateTagsForResourceResponse"
-    "fixture/UpdateTagsForResourceResponse.proto"
+    "ListAvailableSolutionStacksResponse"
+    "fixture/ListAvailableSolutionStacksResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTagsForResource)
+    (Proxy :: Proxy ListAvailableSolutionStacks)
 
-responseUpdateConfigurationTemplate :: ConfigurationSettingsDescription -> TestTree
-responseUpdateConfigurationTemplate =
+responseApplyEnvironmentManagedAction :: ApplyEnvironmentManagedActionResponse -> TestTree
+responseApplyEnvironmentManagedAction =
   res
-    "UpdateConfigurationTemplateResponse"
-    "fixture/UpdateConfigurationTemplateResponse.proto"
+    "ApplyEnvironmentManagedActionResponse"
+    "fixture/ApplyEnvironmentManagedActionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateConfigurationTemplate)
+    (Proxy :: Proxy ApplyEnvironmentManagedAction)
 
-responseDescribeEnvironmentManagedActionHistory :: DescribeEnvironmentManagedActionHistoryResponse -> TestTree
-responseDescribeEnvironmentManagedActionHistory =
+responseDescribeConfigurationOptions :: DescribeConfigurationOptionsResponse -> TestTree
+responseDescribeConfigurationOptions =
   res
-    "DescribeEnvironmentManagedActionHistoryResponse"
-    "fixture/DescribeEnvironmentManagedActionHistoryResponse.proto"
+    "DescribeConfigurationOptionsResponse"
+    "fixture/DescribeConfigurationOptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEnvironmentManagedActionHistory)
+    (Proxy :: Proxy DescribeConfigurationOptions)
 
-responseDeleteConfigurationTemplate :: DeleteConfigurationTemplateResponse -> TestTree
-responseDeleteConfigurationTemplate =
+responseDisassociateEnvironmentOperationsRole :: DisassociateEnvironmentOperationsRoleResponse -> TestTree
+responseDisassociateEnvironmentOperationsRole =
   res
-    "DeleteConfigurationTemplateResponse"
-    "fixture/DeleteConfigurationTemplateResponse.proto"
+    "DisassociateEnvironmentOperationsRoleResponse"
+    "fixture/DisassociateEnvironmentOperationsRoleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteConfigurationTemplate)
+    (Proxy :: Proxy DisassociateEnvironmentOperationsRole)
 
-responseDescribeApplicationVersions :: DescribeApplicationVersionsResponse -> TestTree
-responseDescribeApplicationVersions =
+responseCreateStorageLocation :: CreateStorageLocationResponse -> TestTree
+responseCreateStorageLocation =
   res
-    "DescribeApplicationVersionsResponse"
-    "fixture/DescribeApplicationVersionsResponse.proto"
+    "CreateStorageLocationResponse"
+    "fixture/CreateStorageLocationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeApplicationVersions)
+    (Proxy :: Proxy CreateStorageLocation)
 
-responseAbortEnvironmentUpdate :: AbortEnvironmentUpdateResponse -> TestTree
-responseAbortEnvironmentUpdate =
+responseDescribeEnvironmentManagedActions :: DescribeEnvironmentManagedActionsResponse -> TestTree
+responseDescribeEnvironmentManagedActions =
   res
-    "AbortEnvironmentUpdateResponse"
-    "fixture/AbortEnvironmentUpdateResponse.proto"
+    "DescribeEnvironmentManagedActionsResponse"
+    "fixture/DescribeEnvironmentManagedActionsResponse.proto"
     defaultService
-    (Proxy :: Proxy AbortEnvironmentUpdate)
+    (Proxy :: Proxy DescribeEnvironmentManagedActions)
 
-responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
+responseDescribeConfigurationSettings :: DescribeConfigurationSettingsResponse -> TestTree
+responseDescribeConfigurationSettings =
   res
-    "DeleteApplicationResponse"
-    "fixture/DeleteApplicationResponse.proto"
+    "DescribeConfigurationSettingsResponse"
+    "fixture/DescribeConfigurationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApplication)
+    (Proxy :: Proxy DescribeConfigurationSettings)
 
-responseDescribeInstancesHealth :: DescribeInstancesHealthResponse -> TestTree
-responseDescribeInstancesHealth =
+responseValidateConfigurationSettings :: ValidateConfigurationSettingsResponse -> TestTree
+responseValidateConfigurationSettings =
   res
-    "DescribeInstancesHealthResponse"
-    "fixture/DescribeInstancesHealthResponse.proto"
+    "ValidateConfigurationSettingsResponse"
+    "fixture/ValidateConfigurationSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeInstancesHealth)
+    (Proxy :: Proxy ValidateConfigurationSettings)
 
-responseUpdateApplication :: ApplicationDescriptionMessage -> TestTree
-responseUpdateApplication =
+responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
+responseDescribeAccountAttributes =
   res
-    "UpdateApplicationResponse"
-    "fixture/UpdateApplicationResponse.proto"
+    "DescribeAccountAttributesResponse"
+    "fixture/DescribeAccountAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateApplication)
+    (Proxy :: Proxy DescribeAccountAttributes)
+
+responseAssociateEnvironmentOperationsRole :: AssociateEnvironmentOperationsRoleResponse -> TestTree
+responseAssociateEnvironmentOperationsRole =
+  res
+    "AssociateEnvironmentOperationsRoleResponse"
+    "fixture/AssociateEnvironmentOperationsRoleResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateEnvironmentOperationsRole)
 
 responseRestartAppServer :: RestartAppServerResponse -> TestTree
 responseRestartAppServer =
@@ -945,34 +945,34 @@ responseDescribeEnvironments =
     defaultService
     (Proxy :: Proxy DescribeEnvironments)
 
-responseAssociateEnvironmentOperationsRole :: AssociateEnvironmentOperationsRoleResponse -> TestTree
-responseAssociateEnvironmentOperationsRole =
+responseCheckDNSAvailability :: CheckDNSAvailabilityResponse -> TestTree
+responseCheckDNSAvailability =
   res
-    "AssociateEnvironmentOperationsRoleResponse"
-    "fixture/AssociateEnvironmentOperationsRoleResponse.proto"
+    "CheckDNSAvailabilityResponse"
+    "fixture/CheckDNSAvailabilityResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateEnvironmentOperationsRole)
+    (Proxy :: Proxy CheckDNSAvailability)
 
-responseDescribePlatformVersion :: DescribePlatformVersionResponse -> TestTree
-responseDescribePlatformVersion =
+responseDescribeApplicationVersions :: DescribeApplicationVersionsResponse -> TestTree
+responseDescribeApplicationVersions =
   res
-    "DescribePlatformVersionResponse"
-    "fixture/DescribePlatformVersionResponse.proto"
+    "DescribeApplicationVersionsResponse"
+    "fixture/DescribeApplicationVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePlatformVersion)
+    (Proxy :: Proxy DescribeApplicationVersions)
 
-responseDisassociateEnvironmentOperationsRole :: DisassociateEnvironmentOperationsRoleResponse -> TestTree
-responseDisassociateEnvironmentOperationsRole =
+responseCreateEnvironment :: EnvironmentDescription -> TestTree
+responseCreateEnvironment =
   res
-    "DisassociateEnvironmentOperationsRoleResponse"
-    "fixture/DisassociateEnvironmentOperationsRoleResponse.proto"
+    "CreateEnvironmentResponse"
+    "fixture/CreateEnvironmentResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateEnvironmentOperationsRole)
+    (Proxy :: Proxy CreateEnvironment)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseCreatePlatformVersion :: CreatePlatformVersionResponse -> TestTree
+responseCreatePlatformVersion =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "CreatePlatformVersionResponse"
+    "fixture/CreatePlatformVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy CreatePlatformVersion)

@@ -205,7 +205,7 @@ listPresetsResponse_nextPageToken = Lens.lens (\ListPresetsResponse' {nextPageTo
 
 -- | An array of @Preset@ objects.
 listPresetsResponse_presets :: Lens.Lens' ListPresetsResponse (Prelude.Maybe [Preset])
-listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> presets) (\s@ListPresetsResponse' {} a -> s {presets = a} :: ListPresetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> presets) (\s@ListPresetsResponse' {} a -> s {presets = a} :: ListPresetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPresetsResponse_httpStatus :: Lens.Lens' ListPresetsResponse Prelude.Int

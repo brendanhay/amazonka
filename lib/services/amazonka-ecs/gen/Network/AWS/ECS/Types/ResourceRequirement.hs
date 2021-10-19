@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html Working with GPUs on Amazon ECS>
 -- or
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html Working with Amazon Elastic Inference on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/
 --
 -- /See:/ 'newResourceRequirement' smart constructor.

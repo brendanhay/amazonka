@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { -- | The parameter key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The parameter value.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The parameter value.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The parameter key.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ProvisioningParameter = ProvisioningParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'provisioningParameter_key' - The parameter key.
---
 -- 'value', 'provisioningParameter_value' - The parameter value.
+--
+-- 'key', 'provisioningParameter_key' - The parameter key.
 newProvisioningParameter ::
   ProvisioningParameter
 newProvisioningParameter =
   ProvisioningParameter'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The parameter key.
-provisioningParameter_key :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
-provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s@ProvisioningParameter' {} a -> s {key = a} :: ProvisioningParameter)
 
 -- | The parameter value.
 provisioningParameter_value :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
 provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> value) (\s@ProvisioningParameter' {} a -> s {value = a} :: ProvisioningParameter)
+
+-- | The parameter key.
+provisioningParameter_key :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
+provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s@ProvisioningParameter' {} a -> s {key = a} :: ProvisioningParameter)
 
 instance Prelude.Hashable ProvisioningParameter
 
@@ -69,7 +69,7 @@ instance Core.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

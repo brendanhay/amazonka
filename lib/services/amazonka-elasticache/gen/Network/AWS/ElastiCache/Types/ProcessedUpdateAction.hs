@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProcessedUpdateAction' smart constructor.
 data ProcessedUpdateAction = ProcessedUpdateAction'
-  { -- | The ID of the replication group
-    replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the update action on the Redis cluster
-    updateActionStatus :: Prelude.Maybe UpdateActionStatus,
-    -- | The ID of the cache cluster
+  { -- | The ID of the cache cluster
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the service update
-    serviceUpdateName :: Prelude.Maybe Prelude.Text
+    serviceUpdateName :: Prelude.Maybe Prelude.Text,
+    -- | The status of the update action on the Redis cluster
+    updateActionStatus :: Prelude.Maybe UpdateActionStatus,
+    -- | The ID of the replication group
+    replicationGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,31 +48,23 @@ data ProcessedUpdateAction = ProcessedUpdateAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationGroupId', 'processedUpdateAction_replicationGroupId' - The ID of the replication group
---
--- 'updateActionStatus', 'processedUpdateAction_updateActionStatus' - The status of the update action on the Redis cluster
---
 -- 'cacheClusterId', 'processedUpdateAction_cacheClusterId' - The ID of the cache cluster
 --
 -- 'serviceUpdateName', 'processedUpdateAction_serviceUpdateName' - The unique ID of the service update
+--
+-- 'updateActionStatus', 'processedUpdateAction_updateActionStatus' - The status of the update action on the Redis cluster
+--
+-- 'replicationGroupId', 'processedUpdateAction_replicationGroupId' - The ID of the replication group
 newProcessedUpdateAction ::
   ProcessedUpdateAction
 newProcessedUpdateAction =
   ProcessedUpdateAction'
-    { replicationGroupId =
+    { cacheClusterId =
         Prelude.Nothing,
+      serviceUpdateName = Prelude.Nothing,
       updateActionStatus = Prelude.Nothing,
-      cacheClusterId = Prelude.Nothing,
-      serviceUpdateName = Prelude.Nothing
+      replicationGroupId = Prelude.Nothing
     }
-
--- | The ID of the replication group
-processedUpdateAction_replicationGroupId :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
-processedUpdateAction_replicationGroupId = Lens.lens (\ProcessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@ProcessedUpdateAction' {} a -> s {replicationGroupId = a} :: ProcessedUpdateAction)
-
--- | The status of the update action on the Redis cluster
-processedUpdateAction_updateActionStatus :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe UpdateActionStatus)
-processedUpdateAction_updateActionStatus = Lens.lens (\ProcessedUpdateAction' {updateActionStatus} -> updateActionStatus) (\s@ProcessedUpdateAction' {} a -> s {updateActionStatus = a} :: ProcessedUpdateAction)
 
 -- | The ID of the cache cluster
 processedUpdateAction_cacheClusterId :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
@@ -82,13 +74,21 @@ processedUpdateAction_cacheClusterId = Lens.lens (\ProcessedUpdateAction' {cache
 processedUpdateAction_serviceUpdateName :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
 processedUpdateAction_serviceUpdateName = Lens.lens (\ProcessedUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@ProcessedUpdateAction' {} a -> s {serviceUpdateName = a} :: ProcessedUpdateAction)
 
+-- | The status of the update action on the Redis cluster
+processedUpdateAction_updateActionStatus :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe UpdateActionStatus)
+processedUpdateAction_updateActionStatus = Lens.lens (\ProcessedUpdateAction' {updateActionStatus} -> updateActionStatus) (\s@ProcessedUpdateAction' {} a -> s {updateActionStatus = a} :: ProcessedUpdateAction)
+
+-- | The ID of the replication group
+processedUpdateAction_replicationGroupId :: Lens.Lens' ProcessedUpdateAction (Prelude.Maybe Prelude.Text)
+processedUpdateAction_replicationGroupId = Lens.lens (\ProcessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@ProcessedUpdateAction' {} a -> s {replicationGroupId = a} :: ProcessedUpdateAction)
+
 instance Core.FromXML ProcessedUpdateAction where
   parseXML x =
     ProcessedUpdateAction'
-      Prelude.<$> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> (x Core..@? "UpdateActionStatus")
-      Prelude.<*> (x Core..@? "CacheClusterId")
+      Prelude.<$> (x Core..@? "CacheClusterId")
       Prelude.<*> (x Core..@? "ServiceUpdateName")
+      Prelude.<*> (x Core..@? "UpdateActionStatus")
+      Prelude.<*> (x Core..@? "ReplicationGroupId")
 
 instance Prelude.Hashable ProcessedUpdateAction
 

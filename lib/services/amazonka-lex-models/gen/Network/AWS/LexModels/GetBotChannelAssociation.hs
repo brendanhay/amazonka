@@ -40,15 +40,15 @@ module Network.AWS.LexModels.GetBotChannelAssociation
     newGetBotChannelAssociationResponse,
 
     -- * Response Lenses
-    getBotChannelAssociationResponse_botAlias,
-    getBotChannelAssociationResponse_createdDate,
-    getBotChannelAssociationResponse_status,
-    getBotChannelAssociationResponse_botConfiguration,
-    getBotChannelAssociationResponse_botName,
-    getBotChannelAssociationResponse_name,
     getBotChannelAssociationResponse_failureReason,
-    getBotChannelAssociationResponse_description,
+    getBotChannelAssociationResponse_status,
+    getBotChannelAssociationResponse_botAlias,
+    getBotChannelAssociationResponse_botName,
+    getBotChannelAssociationResponse_botConfiguration,
+    getBotChannelAssociationResponse_createdDate,
+    getBotChannelAssociationResponse_name,
     getBotChannelAssociationResponse_type,
+    getBotChannelAssociationResponse_description,
     getBotChannelAssociationResponse_httpStatus,
   )
 where
@@ -129,17 +129,17 @@ instance Core.AWSRequest GetBotChannelAssociation where
     Response.receiveJSON
       ( \s h x ->
           GetBotChannelAssociationResponse'
-            Prelude.<$> (x Core..?> "botAlias")
-            Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<$> (x Core..?> "failureReason")
             Prelude.<*> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "botAlias")
+            Prelude.<*> (x Core..?> "botName")
             Prelude.<*> ( x Core..?> "botConfiguration"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "botName")
+            Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "type")
+            Prelude.<*> (x Core..?> "description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,12 +174,9 @@ instance Core.ToQuery GetBotChannelAssociation where
 
 -- | /See:/ 'newGetBotChannelAssociationResponse' smart constructor.
 data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
-  { -- | An alias pointing to the specific version of the Amazon Lex bot to which
-    -- this association is being made.
-    botAlias :: Prelude.Maybe Prelude.Text,
-    -- | The date that the association between the bot and the channel was
-    -- created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+  { -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+    -- to create the association.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the bot channel.
     --
     -- -   @CREATED@ - The channel has been created and is ready for use.
@@ -189,20 +186,23 @@ data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
     -- -   @FAILED@ - There was an error creating the channel. For information
     --     about the reason for the failure, see the @failureReason@ field.
     status :: Prelude.Maybe ChannelStatus,
+    -- | An alias pointing to the specific version of the Amazon Lex bot to which
+    -- this association is being made.
+    botAlias :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon Lex bot.
+    botName :: Prelude.Maybe Prelude.Text,
     -- | Provides information that the messaging platform needs to communicate
     -- with the Amazon Lex bot.
     botConfiguration :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The name of the Amazon Lex bot.
-    botName :: Prelude.Maybe Prelude.Text,
+    -- | The date that the association between the bot and the channel was
+    -- created.
+    createdDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the association between the bot and the channel.
     name :: Prelude.Maybe Prelude.Text,
-    -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
-    -- to create the association.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | A description of the association between the bot and the channel.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The type of the messaging platform.
     type' :: Prelude.Maybe ChannelType,
+    -- | A description of the association between the bot and the channel.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -216,11 +216,8 @@ data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'botAlias', 'getBotChannelAssociationResponse_botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which
--- this association is being made.
---
--- 'createdDate', 'getBotChannelAssociationResponse_createdDate' - The date that the association between the bot and the channel was
--- created.
+-- 'failureReason', 'getBotChannelAssociationResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+-- to create the association.
 --
 -- 'status', 'getBotChannelAssociationResponse_status' - The status of the bot channel.
 --
@@ -231,19 +228,22 @@ data GetBotChannelAssociationResponse = GetBotChannelAssociationResponse'
 -- -   @FAILED@ - There was an error creating the channel. For information
 --     about the reason for the failure, see the @failureReason@ field.
 --
--- 'botConfiguration', 'getBotChannelAssociationResponse_botConfiguration' - Provides information that the messaging platform needs to communicate
--- with the Amazon Lex bot.
+-- 'botAlias', 'getBotChannelAssociationResponse_botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which
+-- this association is being made.
 --
 -- 'botName', 'getBotChannelAssociationResponse_botName' - The name of the Amazon Lex bot.
 --
+-- 'botConfiguration', 'getBotChannelAssociationResponse_botConfiguration' - Provides information that the messaging platform needs to communicate
+-- with the Amazon Lex bot.
+--
+-- 'createdDate', 'getBotChannelAssociationResponse_createdDate' - The date that the association between the bot and the channel was
+-- created.
+--
 -- 'name', 'getBotChannelAssociationResponse_name' - The name of the association between the bot and the channel.
 --
--- 'failureReason', 'getBotChannelAssociationResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
--- to create the association.
+-- 'type'', 'getBotChannelAssociationResponse_type' - The type of the messaging platform.
 --
 -- 'description', 'getBotChannelAssociationResponse_description' - A description of the association between the bot and the channel.
---
--- 'type'', 'getBotChannelAssociationResponse_type' - The type of the messaging platform.
 --
 -- 'httpStatus', 'getBotChannelAssociationResponse_httpStatus' - The response's http status code.
 newGetBotChannelAssociationResponse ::
@@ -252,28 +252,23 @@ newGetBotChannelAssociationResponse ::
   GetBotChannelAssociationResponse
 newGetBotChannelAssociationResponse pHttpStatus_ =
   GetBotChannelAssociationResponse'
-    { botAlias =
+    { failureReason =
         Prelude.Nothing,
-      createdDate = Prelude.Nothing,
       status = Prelude.Nothing,
-      botConfiguration = Prelude.Nothing,
+      botAlias = Prelude.Nothing,
       botName = Prelude.Nothing,
+      botConfiguration = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      description = Prelude.Nothing,
       type' = Prelude.Nothing,
+      description = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An alias pointing to the specific version of the Amazon Lex bot to which
--- this association is being made.
-getBotChannelAssociationResponse_botAlias :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
-getBotChannelAssociationResponse_botAlias = Lens.lens (\GetBotChannelAssociationResponse' {botAlias} -> botAlias) (\s@GetBotChannelAssociationResponse' {} a -> s {botAlias = a} :: GetBotChannelAssociationResponse)
-
--- | The date that the association between the bot and the channel was
--- created.
-getBotChannelAssociationResponse_createdDate :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.UTCTime)
-getBotChannelAssociationResponse_createdDate = Lens.lens (\GetBotChannelAssociationResponse' {createdDate} -> createdDate) (\s@GetBotChannelAssociationResponse' {} a -> s {createdDate = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping Core._Time
+-- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+-- to create the association.
+getBotChannelAssociationResponse_failureReason :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
+getBotChannelAssociationResponse_failureReason = Lens.lens (\GetBotChannelAssociationResponse' {failureReason} -> failureReason) (\s@GetBotChannelAssociationResponse' {} a -> s {failureReason = a} :: GetBotChannelAssociationResponse)
 
 -- | The status of the bot channel.
 --
@@ -286,31 +281,36 @@ getBotChannelAssociationResponse_createdDate = Lens.lens (\GetBotChannelAssociat
 getBotChannelAssociationResponse_status :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe ChannelStatus)
 getBotChannelAssociationResponse_status = Lens.lens (\GetBotChannelAssociationResponse' {status} -> status) (\s@GetBotChannelAssociationResponse' {} a -> s {status = a} :: GetBotChannelAssociationResponse)
 
--- | Provides information that the messaging platform needs to communicate
--- with the Amazon Lex bot.
-getBotChannelAssociationResponse_botConfiguration :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getBotChannelAssociationResponse_botConfiguration = Lens.lens (\GetBotChannelAssociationResponse' {botConfiguration} -> botConfiguration) (\s@GetBotChannelAssociationResponse' {} a -> s {botConfiguration = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
+-- | An alias pointing to the specific version of the Amazon Lex bot to which
+-- this association is being made.
+getBotChannelAssociationResponse_botAlias :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
+getBotChannelAssociationResponse_botAlias = Lens.lens (\GetBotChannelAssociationResponse' {botAlias} -> botAlias) (\s@GetBotChannelAssociationResponse' {} a -> s {botAlias = a} :: GetBotChannelAssociationResponse)
 
 -- | The name of the Amazon Lex bot.
 getBotChannelAssociationResponse_botName :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
 getBotChannelAssociationResponse_botName = Lens.lens (\GetBotChannelAssociationResponse' {botName} -> botName) (\s@GetBotChannelAssociationResponse' {} a -> s {botName = a} :: GetBotChannelAssociationResponse)
 
+-- | Provides information that the messaging platform needs to communicate
+-- with the Amazon Lex bot.
+getBotChannelAssociationResponse_botConfiguration :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getBotChannelAssociationResponse_botConfiguration = Lens.lens (\GetBotChannelAssociationResponse' {botConfiguration} -> botConfiguration) (\s@GetBotChannelAssociationResponse' {} a -> s {botConfiguration = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
+-- | The date that the association between the bot and the channel was
+-- created.
+getBotChannelAssociationResponse_createdDate :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.UTCTime)
+getBotChannelAssociationResponse_createdDate = Lens.lens (\GetBotChannelAssociationResponse' {createdDate} -> createdDate) (\s@GetBotChannelAssociationResponse' {} a -> s {createdDate = a} :: GetBotChannelAssociationResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The name of the association between the bot and the channel.
 getBotChannelAssociationResponse_name :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
 getBotChannelAssociationResponse_name = Lens.lens (\GetBotChannelAssociationResponse' {name} -> name) (\s@GetBotChannelAssociationResponse' {} a -> s {name = a} :: GetBotChannelAssociationResponse)
 
--- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
--- to create the association.
-getBotChannelAssociationResponse_failureReason :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
-getBotChannelAssociationResponse_failureReason = Lens.lens (\GetBotChannelAssociationResponse' {failureReason} -> failureReason) (\s@GetBotChannelAssociationResponse' {} a -> s {failureReason = a} :: GetBotChannelAssociationResponse)
+-- | The type of the messaging platform.
+getBotChannelAssociationResponse_type :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe ChannelType)
+getBotChannelAssociationResponse_type = Lens.lens (\GetBotChannelAssociationResponse' {type'} -> type') (\s@GetBotChannelAssociationResponse' {} a -> s {type' = a} :: GetBotChannelAssociationResponse)
 
 -- | A description of the association between the bot and the channel.
 getBotChannelAssociationResponse_description :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe Prelude.Text)
 getBotChannelAssociationResponse_description = Lens.lens (\GetBotChannelAssociationResponse' {description} -> description) (\s@GetBotChannelAssociationResponse' {} a -> s {description = a} :: GetBotChannelAssociationResponse)
-
--- | The type of the messaging platform.
-getBotChannelAssociationResponse_type :: Lens.Lens' GetBotChannelAssociationResponse (Prelude.Maybe ChannelType)
-getBotChannelAssociationResponse_type = Lens.lens (\GetBotChannelAssociationResponse' {type'} -> type') (\s@GetBotChannelAssociationResponse' {} a -> s {type' = a} :: GetBotChannelAssociationResponse)
 
 -- | The response's http status code.
 getBotChannelAssociationResponse_httpStatus :: Lens.Lens' GetBotChannelAssociationResponse Prelude.Int

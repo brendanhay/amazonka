@@ -50,8 +50,8 @@ module Network.AWS.CloudFront.CreateFunction
 
     -- * Response Lenses
     createFunctionResponse_eTag,
-    createFunctionResponse_functionSummary,
     createFunctionResponse_location,
+    createFunctionResponse_functionSummary,
     createFunctionResponse_httpStatus,
   )
 where
@@ -149,8 +149,8 @@ instance Core.AWSRequest CreateFunction where
       ( \s h x ->
           CreateFunctionResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,12 +185,12 @@ data CreateFunctionResponse = CreateFunctionResponse'
   { -- | The version identifier for the current version of the CloudFront
     -- function.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | Contains configuration information and metadata about a CloudFront
-    -- function.
-    functionSummary :: Prelude.Maybe FunctionSummary,
     -- | The URL of the CloudFront function. Use the URL to manage the function
     -- with the CloudFront API.
     location :: Prelude.Maybe Prelude.Text,
+    -- | Contains configuration information and metadata about a CloudFront
+    -- function.
+    functionSummary :: Prelude.Maybe FunctionSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -207,11 +207,11 @@ data CreateFunctionResponse = CreateFunctionResponse'
 -- 'eTag', 'createFunctionResponse_eTag' - The version identifier for the current version of the CloudFront
 -- function.
 --
--- 'functionSummary', 'createFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
--- function.
---
 -- 'location', 'createFunctionResponse_location' - The URL of the CloudFront function. Use the URL to manage the function
 -- with the CloudFront API.
+--
+-- 'functionSummary', 'createFunctionResponse_functionSummary' - Contains configuration information and metadata about a CloudFront
+-- function.
 --
 -- 'httpStatus', 'createFunctionResponse_httpStatus' - The response's http status code.
 newCreateFunctionResponse ::
@@ -221,8 +221,8 @@ newCreateFunctionResponse ::
 newCreateFunctionResponse pHttpStatus_ =
   CreateFunctionResponse'
     { eTag = Prelude.Nothing,
-      functionSummary = Prelude.Nothing,
       location = Prelude.Nothing,
+      functionSummary = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -231,15 +231,15 @@ newCreateFunctionResponse pHttpStatus_ =
 createFunctionResponse_eTag :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe Prelude.Text)
 createFunctionResponse_eTag = Lens.lens (\CreateFunctionResponse' {eTag} -> eTag) (\s@CreateFunctionResponse' {} a -> s {eTag = a} :: CreateFunctionResponse)
 
--- | Contains configuration information and metadata about a CloudFront
--- function.
-createFunctionResponse_functionSummary :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe FunctionSummary)
-createFunctionResponse_functionSummary = Lens.lens (\CreateFunctionResponse' {functionSummary} -> functionSummary) (\s@CreateFunctionResponse' {} a -> s {functionSummary = a} :: CreateFunctionResponse)
-
 -- | The URL of the CloudFront function. Use the URL to manage the function
 -- with the CloudFront API.
 createFunctionResponse_location :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe Prelude.Text)
 createFunctionResponse_location = Lens.lens (\CreateFunctionResponse' {location} -> location) (\s@CreateFunctionResponse' {} a -> s {location = a} :: CreateFunctionResponse)
+
+-- | Contains configuration information and metadata about a CloudFront
+-- function.
+createFunctionResponse_functionSummary :: Lens.Lens' CreateFunctionResponse (Prelude.Maybe FunctionSummary)
+createFunctionResponse_functionSummary = Lens.lens (\CreateFunctionResponse' {functionSummary} -> functionSummary) (\s@CreateFunctionResponse' {} a -> s {functionSummary = a} :: CreateFunctionResponse)
 
 -- | The response's http status code.
 createFunctionResponse_httpStatus :: Lens.Lens' CreateFunctionResponse Prelude.Int

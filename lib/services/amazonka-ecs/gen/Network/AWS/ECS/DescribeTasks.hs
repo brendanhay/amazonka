@@ -36,8 +36,8 @@ module Network.AWS.ECS.DescribeTasks
     newDescribeTasksResponse,
 
     -- * Response Lenses
-    describeTasksResponse_tasks,
     describeTasksResponse_failures,
+    describeTasksResponse_tasks,
     describeTasksResponse_httpStatus,
   )
 where
@@ -98,7 +98,7 @@ newDescribeTasks =
 -- @TAGS@ is specified, the tags are included in the response. If this
 -- field is omitted, tags are not included in the response.
 describeTasks_include :: Lens.Lens' DescribeTasks (Prelude.Maybe [TaskField])
-describeTasks_include = Lens.lens (\DescribeTasks' {include} -> include) (\s@DescribeTasks' {} a -> s {include = a} :: DescribeTasks) Prelude.. Lens.mapping Lens._Coerce
+describeTasks_include = Lens.lens (\DescribeTasks' {include} -> include) (\s@DescribeTasks' {} a -> s {include = a} :: DescribeTasks) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task or tasks to describe. If you do not specify a cluster,
@@ -110,7 +110,7 @@ describeTasks_cluster = Lens.lens (\DescribeTasks' {cluster} -> cluster) (\s@Des
 
 -- | A list of up to 100 task IDs or full ARN entries.
 describeTasks_tasks :: Lens.Lens' DescribeTasks [Prelude.Text]
-describeTasks_tasks = Lens.lens (\DescribeTasks' {tasks} -> tasks) (\s@DescribeTasks' {} a -> s {tasks = a} :: DescribeTasks) Prelude.. Lens._Coerce
+describeTasks_tasks = Lens.lens (\DescribeTasks' {tasks} -> tasks) (\s@DescribeTasks' {} a -> s {tasks = a} :: DescribeTasks) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeTasks where
   type
@@ -121,8 +121,8 @@ instance Core.AWSRequest DescribeTasks where
     Response.receiveJSON
       ( \s h x ->
           DescribeTasksResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,10 +163,10 @@ instance Core.ToQuery DescribeTasks where
 
 -- | /See:/ 'newDescribeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
-  { -- | The list of tasks.
-    tasks :: Prelude.Maybe [Task],
-    -- | Any failures associated with the call.
+  { -- | Any failures associated with the call.
     failures :: Prelude.Maybe [Failure],
+    -- | The list of tasks.
+    tasks :: Prelude.Maybe [Task],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,9 +180,9 @@ data DescribeTasksResponse = DescribeTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tasks', 'describeTasksResponse_tasks' - The list of tasks.
---
 -- 'failures', 'describeTasksResponse_failures' - Any failures associated with the call.
+--
+-- 'tasks', 'describeTasksResponse_tasks' - The list of tasks.
 --
 -- 'httpStatus', 'describeTasksResponse_httpStatus' - The response's http status code.
 newDescribeTasksResponse ::
@@ -191,18 +191,18 @@ newDescribeTasksResponse ::
   DescribeTasksResponse
 newDescribeTasksResponse pHttpStatus_ =
   DescribeTasksResponse'
-    { tasks = Prelude.Nothing,
-      failures = Prelude.Nothing,
+    { failures = Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of tasks.
-describeTasksResponse_tasks :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Task])
-describeTasksResponse_tasks = Lens.lens (\DescribeTasksResponse' {tasks} -> tasks) (\s@DescribeTasksResponse' {} a -> s {tasks = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Any failures associated with the call.
 describeTasksResponse_failures :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Failure])
-describeTasksResponse_failures = Lens.lens (\DescribeTasksResponse' {failures} -> failures) (\s@DescribeTasksResponse' {} a -> s {failures = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTasksResponse_failures = Lens.lens (\DescribeTasksResponse' {failures} -> failures) (\s@DescribeTasksResponse' {} a -> s {failures = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of tasks.
+describeTasksResponse_tasks :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Task])
+describeTasksResponse_tasks = Lens.lens (\DescribeTasksResponse' {tasks} -> tasks) (\s@DescribeTasksResponse' {} a -> s {tasks = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTasksResponse_httpStatus :: Lens.Lens' DescribeTasksResponse Prelude.Int

@@ -69,11 +69,11 @@ module Network.AWS.EC2.DescribeVolumeStatus
     newDescribeVolumeStatus,
 
     -- * Request Lenses
-    describeVolumeStatus_nextToken,
-    describeVolumeStatus_maxResults,
-    describeVolumeStatus_volumeIds,
-    describeVolumeStatus_dryRun,
     describeVolumeStatus_filters,
+    describeVolumeStatus_volumeIds,
+    describeVolumeStatus_nextToken,
+    describeVolumeStatus_dryRun,
+    describeVolumeStatus_maxResults,
 
     -- * Destructuring the Response
     DescribeVolumeStatusResponse (..),
@@ -95,31 +95,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVolumeStatus' smart constructor.
 data DescribeVolumeStatus = DescribeVolumeStatus'
-  { -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
-    -- request. When the results of the request exceed @MaxResults@, this value
-    -- can be used to retrieve the next page of results. This value is @null@
-    -- when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of volume results returned by @DescribeVolumeStatus@
-    -- in paginated output. When this parameter is used, the request only
-    -- returns @MaxResults@ results in a single page along with a @NextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another request with the returned @NextToken@ value.
-    -- This value can be between 5 and 1,000; if @MaxResults@ is given a value
-    -- larger than 1,000, only 1,000 results are returned. If this parameter is
-    -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
-    -- specify this parameter and the volume IDs parameter in the same request.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The IDs of the volumes.
-    --
-    -- Default: Describes all your volumes.
-    volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters.
+  { -- | The filters.
     --
     -- -   @action.code@ - The action code for the event (for example,
     --     @enable-volume-io@).
@@ -152,7 +128,31 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     --
     -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
     --     | @warning@ | @insufficient-data@).
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The IDs of the volumes.
+    --
+    -- Default: Describes all your volumes.
+    volumeIds :: Prelude.Maybe [Prelude.Text],
+    -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
+    -- request. When the results of the request exceed @MaxResults@, this value
+    -- can be used to retrieve the next page of results. This value is @null@
+    -- when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of volume results returned by @DescribeVolumeStatus@
+    -- in paginated output. When this parameter is used, the request only
+    -- returns @MaxResults@ results in a single page along with a @NextToken@
+    -- response element. The remaining results of the initial request can be
+    -- seen by sending another request with the returned @NextToken@ value.
+    -- This value can be between 5 and 1,000; if @MaxResults@ is given a value
+    -- larger than 1,000, only 1,000 results are returned. If this parameter is
+    -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
+    -- specify this parameter and the volume IDs parameter in the same request.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -163,30 +163,6 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@
--- request. When the results of the request exceed @MaxResults@, this value
--- can be used to retrieve the next page of results. This value is @null@
--- when there are no more results to return.
---
--- 'maxResults', 'describeVolumeStatus_maxResults' - The maximum number of volume results returned by @DescribeVolumeStatus@
--- in paginated output. When this parameter is used, the request only
--- returns @MaxResults@ results in a single page along with a @NextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another request with the returned @NextToken@ value.
--- This value can be between 5 and 1,000; if @MaxResults@ is given a value
--- larger than 1,000, only 1,000 results are returned. If this parameter is
--- not used, then @DescribeVolumeStatus@ returns all results. You cannot
--- specify this parameter and the volume IDs parameter in the same request.
---
--- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.
---
--- Default: Describes all your volumes.
---
--- 'dryRun', 'describeVolumeStatus_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVolumeStatus_filters' - The filters.
 --
@@ -221,25 +197,22 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
 --
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
-newDescribeVolumeStatus ::
-  DescribeVolumeStatus
-newDescribeVolumeStatus =
-  DescribeVolumeStatus'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      volumeIds = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
-    }
-
--- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
+--
+-- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.
+--
+-- Default: Describes all your volumes.
+--
+-- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@
 -- request. When the results of the request exceed @MaxResults@, this value
 -- can be used to retrieve the next page of results. This value is @null@
 -- when there are no more results to return.
-describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Text)
-describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -> nextToken) (\s@DescribeVolumeStatus' {} a -> s {nextToken = a} :: DescribeVolumeStatus)
-
--- | The maximum number of volume results returned by @DescribeVolumeStatus@
+--
+-- 'dryRun', 'describeVolumeStatus_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeVolumeStatus_maxResults' - The maximum number of volume results returned by @DescribeVolumeStatus@
 -- in paginated output. When this parameter is used, the request only
 -- returns @MaxResults@ results in a single page along with a @NextToken@
 -- response element. The remaining results of the initial request can be
@@ -248,21 +221,16 @@ describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -
 -- larger than 1,000, only 1,000 results are returned. If this parameter is
 -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
 -- specify this parameter and the volume IDs parameter in the same request.
-describeVolumeStatus_maxResults :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Int)
-describeVolumeStatus_maxResults = Lens.lens (\DescribeVolumeStatus' {maxResults} -> maxResults) (\s@DescribeVolumeStatus' {} a -> s {maxResults = a} :: DescribeVolumeStatus)
-
--- | The IDs of the volumes.
---
--- Default: Describes all your volumes.
-describeVolumeStatus_volumeIds :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Prelude.Text])
-describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -> volumeIds) (\s@DescribeVolumeStatus' {} a -> s {volumeIds = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVolumeStatus_dryRun :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Bool)
-describeVolumeStatus_dryRun = Lens.lens (\DescribeVolumeStatus' {dryRun} -> dryRun) (\s@DescribeVolumeStatus' {} a -> s {dryRun = a} :: DescribeVolumeStatus)
+newDescribeVolumeStatus ::
+  DescribeVolumeStatus
+newDescribeVolumeStatus =
+  DescribeVolumeStatus'
+    { filters = Prelude.Nothing,
+      volumeIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
+    }
 
 -- | The filters.
 --
@@ -298,7 +266,39 @@ describeVolumeStatus_dryRun = Lens.lens (\DescribeVolumeStatus' {dryRun} -> dryR
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
 describeVolumeStatus_filters :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Filter])
-describeVolumeStatus_filters = Lens.lens (\DescribeVolumeStatus' {filters} -> filters) (\s@DescribeVolumeStatus' {} a -> s {filters = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens._Coerce
+describeVolumeStatus_filters = Lens.lens (\DescribeVolumeStatus' {filters} -> filters) (\s@DescribeVolumeStatus' {} a -> s {filters = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the volumes.
+--
+-- Default: Describes all your volumes.
+describeVolumeStatus_volumeIds :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Prelude.Text])
+describeVolumeStatus_volumeIds = Lens.lens (\DescribeVolumeStatus' {volumeIds} -> volumeIds) (\s@DescribeVolumeStatus' {} a -> s {volumeIds = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
+-- request. When the results of the request exceed @MaxResults@, this value
+-- can be used to retrieve the next page of results. This value is @null@
+-- when there are no more results to return.
+describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Text)
+describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -> nextToken) (\s@DescribeVolumeStatus' {} a -> s {nextToken = a} :: DescribeVolumeStatus)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVolumeStatus_dryRun :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Bool)
+describeVolumeStatus_dryRun = Lens.lens (\DescribeVolumeStatus' {dryRun} -> dryRun) (\s@DescribeVolumeStatus' {} a -> s {dryRun = a} :: DescribeVolumeStatus)
+
+-- | The maximum number of volume results returned by @DescribeVolumeStatus@
+-- in paginated output. When this parameter is used, the request only
+-- returns @MaxResults@ results in a single page along with a @NextToken@
+-- response element. The remaining results of the initial request can be
+-- seen by sending another request with the returned @NextToken@ value.
+-- This value can be between 5 and 1,000; if @MaxResults@ is given a value
+-- larger than 1,000, only 1,000 results are returned. If this parameter is
+-- not used, then @DescribeVolumeStatus@ returns all results. You cannot
+-- specify this parameter and the volume IDs parameter in the same request.
+describeVolumeStatus_maxResults :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Int)
+describeVolumeStatus_maxResults = Lens.lens (\DescribeVolumeStatus' {maxResults} -> maxResults) (\s@DescribeVolumeStatus' {} a -> s {maxResults = a} :: DescribeVolumeStatus)
 
 instance Core.AWSPager DescribeVolumeStatus where
   page rq rs
@@ -355,13 +355,13 @@ instance Core.ToQuery DescribeVolumeStatus where
           Core.=: ("DescribeVolumeStatus" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
           (Core.toQueryList "VolumeId" Prelude.<$> volumeIds),
+        "NextToken" Core.=: nextToken,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeVolumeStatusResponse' smart constructor.
@@ -409,7 +409,7 @@ describeVolumeStatusResponse_nextToken = Lens.lens (\DescribeVolumeStatusRespons
 
 -- | Information about the status of the volumes.
 describeVolumeStatusResponse_volumeStatuses :: Lens.Lens' DescribeVolumeStatusResponse (Prelude.Maybe [VolumeStatusItem])
-describeVolumeStatusResponse_volumeStatuses = Lens.lens (\DescribeVolumeStatusResponse' {volumeStatuses} -> volumeStatuses) (\s@DescribeVolumeStatusResponse' {} a -> s {volumeStatuses = a} :: DescribeVolumeStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVolumeStatusResponse_volumeStatuses = Lens.lens (\DescribeVolumeStatusResponse' {volumeStatuses} -> volumeStatuses) (\s@DescribeVolumeStatusResponse' {} a -> s {volumeStatuses = a} :: DescribeVolumeStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVolumeStatusResponse_httpStatus :: Lens.Lens' DescribeVolumeStatusResponse Prelude.Int

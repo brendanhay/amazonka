@@ -27,56 +27,14 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateDataCatalog $
---             newCreateDataCatalog
+--         [ requestListDatabases $
+--             newListDatabases
 --
---         , requestListQueryExecutions $
---             newListQueryExecutions
+--         , requestCreatePreparedStatement $
+--             newCreatePreparedStatement
 --
---         , requestDeletePreparedStatement $
---             newDeletePreparedStatement
---
---         , requestListTableMetadata $
---             newListTableMetadata
---
---         , requestUpdatePreparedStatement $
---             newUpdatePreparedStatement
---
---         , requestListPreparedStatements $
---             newListPreparedStatements
---
---         , requestGetPreparedStatement $
---             newGetPreparedStatement
---
---         , requestGetQueryExecution $
---             newGetQueryExecution
---
---         , requestGetDatabase $
---             newGetDatabase
---
---         , requestBatchGetNamedQuery $
---             newBatchGetNamedQuery
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDeleteNamedQuery $
---             newDeleteNamedQuery
---
---         , requestGetDataCatalog $
---             newGetDataCatalog
---
---         , requestListEngineVersions $
---             newListEngineVersions
---
---         , requestCreateWorkGroup $
---             newCreateWorkGroup
---
---         , requestListDataCatalogs $
---             newListDataCatalogs
+--         , requestDeleteWorkGroup $
+--             newDeleteWorkGroup
 --
 --         , requestUpdateWorkGroup $
 --             newUpdateWorkGroup
@@ -84,104 +42,104 @@ import Test.Tasty
 --         , requestGetNamedQuery $
 --             newGetNamedQuery
 --
---         , requestListWorkGroups $
---             newListWorkGroups
---
---         , requestDeleteWorkGroup $
---             newDeleteWorkGroup
---
---         , requestListDatabases $
---             newListDatabases
---
---         , requestCreatePreparedStatement $
---             newCreatePreparedStatement
---
---         , requestGetQueryResults $
---             newGetQueryResults
---
---         , requestGetWorkGroup $
---             newGetWorkGroup
---
---         , requestStopQueryExecution $
---             newStopQueryExecution
---
---         , requestStartQueryExecution $
---             newStartQueryExecution
---
---         , requestListNamedQueries $
---             newListNamedQueries
---
---         , requestGetTableMetadata $
---             newGetTableMetadata
---
---         , requestCreateNamedQuery $
---             newCreateNamedQuery
---
---         , requestBatchGetQueryExecution $
---             newBatchGetQueryExecution
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestDeleteDataCatalog $
 --             newDeleteDataCatalog
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestUpdateDataCatalog $
 --             newUpdateDataCatalog
+--
+--         , requestListDataCatalogs $
+--             newListDataCatalogs
+--
+--         , requestCreateNamedQuery $
+--             newCreateNamedQuery
+--
+--         , requestGetTableMetadata $
+--             newGetTableMetadata
+--
+--         , requestListNamedQueries $
+--             newListNamedQueries
+--
+--         , requestDeleteNamedQuery $
+--             newDeleteNamedQuery
+--
+--         , requestStartQueryExecution $
+--             newStartQueryExecution
+--
+--         , requestBatchGetNamedQuery $
+--             newBatchGetNamedQuery
+--
+--         , requestGetQueryExecution $
+--             newGetQueryExecution
+--
+--         , requestListPreparedStatements $
+--             newListPreparedStatements
+--
+--         , requestCreateDataCatalog $
+--             newCreateDataCatalog
+--
+--         , requestListWorkGroups $
+--             newListWorkGroups
+--
+--         , requestCreateWorkGroup $
+--             newCreateWorkGroup
+--
+--         , requestBatchGetQueryExecution $
+--             newBatchGetQueryExecution
+--
+--         , requestListEngineVersions $
+--             newListEngineVersions
+--
+--         , requestGetDataCatalog $
+--             newGetDataCatalog
+--
+--         , requestStopQueryExecution $
+--             newStopQueryExecution
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestGetWorkGroup $
+--             newGetWorkGroup
+--
+--         , requestGetDatabase $
+--             newGetDatabase
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestGetPreparedStatement $
+--             newGetPreparedStatement
+--
+--         , requestGetQueryResults $
+--             newGetQueryResults
+--
+--         , requestListTableMetadata $
+--             newListTableMetadata
+--
+--         , requestListQueryExecutions $
+--             newListQueryExecutions
+--
+--         , requestDeletePreparedStatement $
+--             newDeletePreparedStatement
+--
+--         , requestUpdatePreparedStatement $
+--             newUpdatePreparedStatement
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateDataCatalog $
---             newCreateDataCatalogResponse
+--         [ responseListDatabases $
+--             newListDatabasesResponse
 --
---         , responseListQueryExecutions $
---             newListQueryExecutionsResponse
+--         , responseCreatePreparedStatement $
+--             newCreatePreparedStatementResponse
 --
---         , responseDeletePreparedStatement $
---             newDeletePreparedStatementResponse
---
---         , responseListTableMetadata $
---             newListTableMetadataResponse
---
---         , responseUpdatePreparedStatement $
---             newUpdatePreparedStatementResponse
---
---         , responseListPreparedStatements $
---             newListPreparedStatementsResponse
---
---         , responseGetPreparedStatement $
---             newGetPreparedStatementResponse
---
---         , responseGetQueryExecution $
---             newGetQueryExecutionResponse
---
---         , responseGetDatabase $
---             newGetDatabaseResponse
---
---         , responseBatchGetNamedQuery $
---             newBatchGetNamedQueryResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDeleteNamedQuery $
---             newDeleteNamedQueryResponse
---
---         , responseGetDataCatalog $
---             newGetDataCatalogResponse
---
---         , responseListEngineVersions $
---             newListEngineVersionsResponse
---
---         , responseCreateWorkGroup $
---             newCreateWorkGroupResponse
---
---         , responseListDataCatalogs $
---             newListDataCatalogsResponse
+--         , responseDeleteWorkGroup $
+--             newDeleteWorkGroupResponse
 --
 --         , responseUpdateWorkGroup $
 --             newUpdateWorkGroupResponse
@@ -189,181 +147,97 @@ import Test.Tasty
 --         , responseGetNamedQuery $
 --             newGetNamedQueryResponse
 --
---         , responseListWorkGroups $
---             newListWorkGroupsResponse
---
---         , responseDeleteWorkGroup $
---             newDeleteWorkGroupResponse
---
---         , responseListDatabases $
---             newListDatabasesResponse
---
---         , responseCreatePreparedStatement $
---             newCreatePreparedStatementResponse
---
---         , responseGetQueryResults $
---             newGetQueryResultsResponse
---
---         , responseGetWorkGroup $
---             newGetWorkGroupResponse
---
---         , responseStopQueryExecution $
---             newStopQueryExecutionResponse
---
---         , responseStartQueryExecution $
---             newStartQueryExecutionResponse
---
---         , responseListNamedQueries $
---             newListNamedQueriesResponse
---
---         , responseGetTableMetadata $
---             newGetTableMetadataResponse
---
---         , responseCreateNamedQuery $
---             newCreateNamedQueryResponse
---
---         , responseBatchGetQueryExecution $
---             newBatchGetQueryExecutionResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseDeleteDataCatalog $
 --             newDeleteDataCatalogResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseUpdateDataCatalog $
 --             newUpdateDataCatalogResponse
+--
+--         , responseListDataCatalogs $
+--             newListDataCatalogsResponse
+--
+--         , responseCreateNamedQuery $
+--             newCreateNamedQueryResponse
+--
+--         , responseGetTableMetadata $
+--             newGetTableMetadataResponse
+--
+--         , responseListNamedQueries $
+--             newListNamedQueriesResponse
+--
+--         , responseDeleteNamedQuery $
+--             newDeleteNamedQueryResponse
+--
+--         , responseStartQueryExecution $
+--             newStartQueryExecutionResponse
+--
+--         , responseBatchGetNamedQuery $
+--             newBatchGetNamedQueryResponse
+--
+--         , responseGetQueryExecution $
+--             newGetQueryExecutionResponse
+--
+--         , responseListPreparedStatements $
+--             newListPreparedStatementsResponse
+--
+--         , responseCreateDataCatalog $
+--             newCreateDataCatalogResponse
+--
+--         , responseListWorkGroups $
+--             newListWorkGroupsResponse
+--
+--         , responseCreateWorkGroup $
+--             newCreateWorkGroupResponse
+--
+--         , responseBatchGetQueryExecution $
+--             newBatchGetQueryExecutionResponse
+--
+--         , responseListEngineVersions $
+--             newListEngineVersionsResponse
+--
+--         , responseGetDataCatalog $
+--             newGetDataCatalogResponse
+--
+--         , responseStopQueryExecution $
+--             newStopQueryExecutionResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseGetWorkGroup $
+--             newGetWorkGroupResponse
+--
+--         , responseGetDatabase $
+--             newGetDatabaseResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseGetPreparedStatement $
+--             newGetPreparedStatementResponse
+--
+--         , responseGetQueryResults $
+--             newGetQueryResultsResponse
+--
+--         , responseListTableMetadata $
+--             newListTableMetadataResponse
+--
+--         , responseListQueryExecutions $
+--             newListQueryExecutionsResponse
+--
+--         , responseDeletePreparedStatement $
+--             newDeletePreparedStatementResponse
+--
+--         , responseUpdatePreparedStatement $
+--             newUpdatePreparedStatementResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateDataCatalog :: CreateDataCatalog -> TestTree
-requestCreateDataCatalog =
-  req
-    "CreateDataCatalog"
-    "fixture/CreateDataCatalog.yaml"
-
-requestListQueryExecutions :: ListQueryExecutions -> TestTree
-requestListQueryExecutions =
-  req
-    "ListQueryExecutions"
-    "fixture/ListQueryExecutions.yaml"
-
-requestDeletePreparedStatement :: DeletePreparedStatement -> TestTree
-requestDeletePreparedStatement =
-  req
-    "DeletePreparedStatement"
-    "fixture/DeletePreparedStatement.yaml"
-
-requestListTableMetadata :: ListTableMetadata -> TestTree
-requestListTableMetadata =
-  req
-    "ListTableMetadata"
-    "fixture/ListTableMetadata.yaml"
-
-requestUpdatePreparedStatement :: UpdatePreparedStatement -> TestTree
-requestUpdatePreparedStatement =
-  req
-    "UpdatePreparedStatement"
-    "fixture/UpdatePreparedStatement.yaml"
-
-requestListPreparedStatements :: ListPreparedStatements -> TestTree
-requestListPreparedStatements =
-  req
-    "ListPreparedStatements"
-    "fixture/ListPreparedStatements.yaml"
-
-requestGetPreparedStatement :: GetPreparedStatement -> TestTree
-requestGetPreparedStatement =
-  req
-    "GetPreparedStatement"
-    "fixture/GetPreparedStatement.yaml"
-
-requestGetQueryExecution :: GetQueryExecution -> TestTree
-requestGetQueryExecution =
-  req
-    "GetQueryExecution"
-    "fixture/GetQueryExecution.yaml"
-
-requestGetDatabase :: GetDatabase -> TestTree
-requestGetDatabase =
-  req
-    "GetDatabase"
-    "fixture/GetDatabase.yaml"
-
-requestBatchGetNamedQuery :: BatchGetNamedQuery -> TestTree
-requestBatchGetNamedQuery =
-  req
-    "BatchGetNamedQuery"
-    "fixture/BatchGetNamedQuery.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDeleteNamedQuery :: DeleteNamedQuery -> TestTree
-requestDeleteNamedQuery =
-  req
-    "DeleteNamedQuery"
-    "fixture/DeleteNamedQuery.yaml"
-
-requestGetDataCatalog :: GetDataCatalog -> TestTree
-requestGetDataCatalog =
-  req
-    "GetDataCatalog"
-    "fixture/GetDataCatalog.yaml"
-
-requestListEngineVersions :: ListEngineVersions -> TestTree
-requestListEngineVersions =
-  req
-    "ListEngineVersions"
-    "fixture/ListEngineVersions.yaml"
-
-requestCreateWorkGroup :: CreateWorkGroup -> TestTree
-requestCreateWorkGroup =
-  req
-    "CreateWorkGroup"
-    "fixture/CreateWorkGroup.yaml"
-
-requestListDataCatalogs :: ListDataCatalogs -> TestTree
-requestListDataCatalogs =
-  req
-    "ListDataCatalogs"
-    "fixture/ListDataCatalogs.yaml"
-
-requestUpdateWorkGroup :: UpdateWorkGroup -> TestTree
-requestUpdateWorkGroup =
-  req
-    "UpdateWorkGroup"
-    "fixture/UpdateWorkGroup.yaml"
-
-requestGetNamedQuery :: GetNamedQuery -> TestTree
-requestGetNamedQuery =
-  req
-    "GetNamedQuery"
-    "fixture/GetNamedQuery.yaml"
-
-requestListWorkGroups :: ListWorkGroups -> TestTree
-requestListWorkGroups =
-  req
-    "ListWorkGroups"
-    "fixture/ListWorkGroups.yaml"
-
-requestDeleteWorkGroup :: DeleteWorkGroup -> TestTree
-requestDeleteWorkGroup =
-  req
-    "DeleteWorkGroup"
-    "fixture/DeleteWorkGroup.yaml"
 
 requestListDatabases :: ListDatabases -> TestTree
 requestListDatabases =
@@ -377,59 +251,23 @@ requestCreatePreparedStatement =
     "CreatePreparedStatement"
     "fixture/CreatePreparedStatement.yaml"
 
-requestGetQueryResults :: GetQueryResults -> TestTree
-requestGetQueryResults =
+requestDeleteWorkGroup :: DeleteWorkGroup -> TestTree
+requestDeleteWorkGroup =
   req
-    "GetQueryResults"
-    "fixture/GetQueryResults.yaml"
+    "DeleteWorkGroup"
+    "fixture/DeleteWorkGroup.yaml"
 
-requestGetWorkGroup :: GetWorkGroup -> TestTree
-requestGetWorkGroup =
+requestUpdateWorkGroup :: UpdateWorkGroup -> TestTree
+requestUpdateWorkGroup =
   req
-    "GetWorkGroup"
-    "fixture/GetWorkGroup.yaml"
+    "UpdateWorkGroup"
+    "fixture/UpdateWorkGroup.yaml"
 
-requestStopQueryExecution :: StopQueryExecution -> TestTree
-requestStopQueryExecution =
+requestGetNamedQuery :: GetNamedQuery -> TestTree
+requestGetNamedQuery =
   req
-    "StopQueryExecution"
-    "fixture/StopQueryExecution.yaml"
-
-requestStartQueryExecution :: StartQueryExecution -> TestTree
-requestStartQueryExecution =
-  req
-    "StartQueryExecution"
-    "fixture/StartQueryExecution.yaml"
-
-requestListNamedQueries :: ListNamedQueries -> TestTree
-requestListNamedQueries =
-  req
-    "ListNamedQueries"
-    "fixture/ListNamedQueries.yaml"
-
-requestGetTableMetadata :: GetTableMetadata -> TestTree
-requestGetTableMetadata =
-  req
-    "GetTableMetadata"
-    "fixture/GetTableMetadata.yaml"
-
-requestCreateNamedQuery :: CreateNamedQuery -> TestTree
-requestCreateNamedQuery =
-  req
-    "CreateNamedQuery"
-    "fixture/CreateNamedQuery.yaml"
-
-requestBatchGetQueryExecution :: BatchGetQueryExecution -> TestTree
-requestBatchGetQueryExecution =
-  req
-    "BatchGetQueryExecution"
-    "fixture/BatchGetQueryExecution.yaml"
-
-requestDeleteDataCatalog :: DeleteDataCatalog -> TestTree
-requestDeleteDataCatalog =
-  req
-    "DeleteDataCatalog"
-    "fixture/DeleteDataCatalog.yaml"
+    "GetNamedQuery"
+    "fixture/GetNamedQuery.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -437,181 +275,175 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestDeleteDataCatalog :: DeleteDataCatalog -> TestTree
+requestDeleteDataCatalog =
+  req
+    "DeleteDataCatalog"
+    "fixture/DeleteDataCatalog.yaml"
+
 requestUpdateDataCatalog :: UpdateDataCatalog -> TestTree
 requestUpdateDataCatalog =
   req
     "UpdateDataCatalog"
     "fixture/UpdateDataCatalog.yaml"
 
+requestListDataCatalogs :: ListDataCatalogs -> TestTree
+requestListDataCatalogs =
+  req
+    "ListDataCatalogs"
+    "fixture/ListDataCatalogs.yaml"
+
+requestCreateNamedQuery :: CreateNamedQuery -> TestTree
+requestCreateNamedQuery =
+  req
+    "CreateNamedQuery"
+    "fixture/CreateNamedQuery.yaml"
+
+requestGetTableMetadata :: GetTableMetadata -> TestTree
+requestGetTableMetadata =
+  req
+    "GetTableMetadata"
+    "fixture/GetTableMetadata.yaml"
+
+requestListNamedQueries :: ListNamedQueries -> TestTree
+requestListNamedQueries =
+  req
+    "ListNamedQueries"
+    "fixture/ListNamedQueries.yaml"
+
+requestDeleteNamedQuery :: DeleteNamedQuery -> TestTree
+requestDeleteNamedQuery =
+  req
+    "DeleteNamedQuery"
+    "fixture/DeleteNamedQuery.yaml"
+
+requestStartQueryExecution :: StartQueryExecution -> TestTree
+requestStartQueryExecution =
+  req
+    "StartQueryExecution"
+    "fixture/StartQueryExecution.yaml"
+
+requestBatchGetNamedQuery :: BatchGetNamedQuery -> TestTree
+requestBatchGetNamedQuery =
+  req
+    "BatchGetNamedQuery"
+    "fixture/BatchGetNamedQuery.yaml"
+
+requestGetQueryExecution :: GetQueryExecution -> TestTree
+requestGetQueryExecution =
+  req
+    "GetQueryExecution"
+    "fixture/GetQueryExecution.yaml"
+
+requestListPreparedStatements :: ListPreparedStatements -> TestTree
+requestListPreparedStatements =
+  req
+    "ListPreparedStatements"
+    "fixture/ListPreparedStatements.yaml"
+
+requestCreateDataCatalog :: CreateDataCatalog -> TestTree
+requestCreateDataCatalog =
+  req
+    "CreateDataCatalog"
+    "fixture/CreateDataCatalog.yaml"
+
+requestListWorkGroups :: ListWorkGroups -> TestTree
+requestListWorkGroups =
+  req
+    "ListWorkGroups"
+    "fixture/ListWorkGroups.yaml"
+
+requestCreateWorkGroup :: CreateWorkGroup -> TestTree
+requestCreateWorkGroup =
+  req
+    "CreateWorkGroup"
+    "fixture/CreateWorkGroup.yaml"
+
+requestBatchGetQueryExecution :: BatchGetQueryExecution -> TestTree
+requestBatchGetQueryExecution =
+  req
+    "BatchGetQueryExecution"
+    "fixture/BatchGetQueryExecution.yaml"
+
+requestListEngineVersions :: ListEngineVersions -> TestTree
+requestListEngineVersions =
+  req
+    "ListEngineVersions"
+    "fixture/ListEngineVersions.yaml"
+
+requestGetDataCatalog :: GetDataCatalog -> TestTree
+requestGetDataCatalog =
+  req
+    "GetDataCatalog"
+    "fixture/GetDataCatalog.yaml"
+
+requestStopQueryExecution :: StopQueryExecution -> TestTree
+requestStopQueryExecution =
+  req
+    "StopQueryExecution"
+    "fixture/StopQueryExecution.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestGetWorkGroup :: GetWorkGroup -> TestTree
+requestGetWorkGroup =
+  req
+    "GetWorkGroup"
+    "fixture/GetWorkGroup.yaml"
+
+requestGetDatabase :: GetDatabase -> TestTree
+requestGetDatabase =
+  req
+    "GetDatabase"
+    "fixture/GetDatabase.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestGetPreparedStatement :: GetPreparedStatement -> TestTree
+requestGetPreparedStatement =
+  req
+    "GetPreparedStatement"
+    "fixture/GetPreparedStatement.yaml"
+
+requestGetQueryResults :: GetQueryResults -> TestTree
+requestGetQueryResults =
+  req
+    "GetQueryResults"
+    "fixture/GetQueryResults.yaml"
+
+requestListTableMetadata :: ListTableMetadata -> TestTree
+requestListTableMetadata =
+  req
+    "ListTableMetadata"
+    "fixture/ListTableMetadata.yaml"
+
+requestListQueryExecutions :: ListQueryExecutions -> TestTree
+requestListQueryExecutions =
+  req
+    "ListQueryExecutions"
+    "fixture/ListQueryExecutions.yaml"
+
+requestDeletePreparedStatement :: DeletePreparedStatement -> TestTree
+requestDeletePreparedStatement =
+  req
+    "DeletePreparedStatement"
+    "fixture/DeletePreparedStatement.yaml"
+
+requestUpdatePreparedStatement :: UpdatePreparedStatement -> TestTree
+requestUpdatePreparedStatement =
+  req
+    "UpdatePreparedStatement"
+    "fixture/UpdatePreparedStatement.yaml"
+
 -- Responses
-
-responseCreateDataCatalog :: CreateDataCatalogResponse -> TestTree
-responseCreateDataCatalog =
-  res
-    "CreateDataCatalogResponse"
-    "fixture/CreateDataCatalogResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDataCatalog)
-
-responseListQueryExecutions :: ListQueryExecutionsResponse -> TestTree
-responseListQueryExecutions =
-  res
-    "ListQueryExecutionsResponse"
-    "fixture/ListQueryExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListQueryExecutions)
-
-responseDeletePreparedStatement :: DeletePreparedStatementResponse -> TestTree
-responseDeletePreparedStatement =
-  res
-    "DeletePreparedStatementResponse"
-    "fixture/DeletePreparedStatementResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeletePreparedStatement)
-
-responseListTableMetadata :: ListTableMetadataResponse -> TestTree
-responseListTableMetadata =
-  res
-    "ListTableMetadataResponse"
-    "fixture/ListTableMetadataResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTableMetadata)
-
-responseUpdatePreparedStatement :: UpdatePreparedStatementResponse -> TestTree
-responseUpdatePreparedStatement =
-  res
-    "UpdatePreparedStatementResponse"
-    "fixture/UpdatePreparedStatementResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdatePreparedStatement)
-
-responseListPreparedStatements :: ListPreparedStatementsResponse -> TestTree
-responseListPreparedStatements =
-  res
-    "ListPreparedStatementsResponse"
-    "fixture/ListPreparedStatementsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPreparedStatements)
-
-responseGetPreparedStatement :: GetPreparedStatementResponse -> TestTree
-responseGetPreparedStatement =
-  res
-    "GetPreparedStatementResponse"
-    "fixture/GetPreparedStatementResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetPreparedStatement)
-
-responseGetQueryExecution :: GetQueryExecutionResponse -> TestTree
-responseGetQueryExecution =
-  res
-    "GetQueryExecutionResponse"
-    "fixture/GetQueryExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetQueryExecution)
-
-responseGetDatabase :: GetDatabaseResponse -> TestTree
-responseGetDatabase =
-  res
-    "GetDatabaseResponse"
-    "fixture/GetDatabaseResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDatabase)
-
-responseBatchGetNamedQuery :: BatchGetNamedQueryResponse -> TestTree
-responseBatchGetNamedQuery =
-  res
-    "BatchGetNamedQueryResponse"
-    "fixture/BatchGetNamedQueryResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchGetNamedQuery)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
-responseDeleteNamedQuery :: DeleteNamedQueryResponse -> TestTree
-responseDeleteNamedQuery =
-  res
-    "DeleteNamedQueryResponse"
-    "fixture/DeleteNamedQueryResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteNamedQuery)
-
-responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
-responseGetDataCatalog =
-  res
-    "GetDataCatalogResponse"
-    "fixture/GetDataCatalogResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDataCatalog)
-
-responseListEngineVersions :: ListEngineVersionsResponse -> TestTree
-responseListEngineVersions =
-  res
-    "ListEngineVersionsResponse"
-    "fixture/ListEngineVersionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListEngineVersions)
-
-responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
-responseCreateWorkGroup =
-  res
-    "CreateWorkGroupResponse"
-    "fixture/CreateWorkGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateWorkGroup)
-
-responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
-responseListDataCatalogs =
-  res
-    "ListDataCatalogsResponse"
-    "fixture/ListDataCatalogsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDataCatalogs)
-
-responseUpdateWorkGroup :: UpdateWorkGroupResponse -> TestTree
-responseUpdateWorkGroup =
-  res
-    "UpdateWorkGroupResponse"
-    "fixture/UpdateWorkGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateWorkGroup)
-
-responseGetNamedQuery :: GetNamedQueryResponse -> TestTree
-responseGetNamedQuery =
-  res
-    "GetNamedQueryResponse"
-    "fixture/GetNamedQueryResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetNamedQuery)
-
-responseListWorkGroups :: ListWorkGroupsResponse -> TestTree
-responseListWorkGroups =
-  res
-    "ListWorkGroupsResponse"
-    "fixture/ListWorkGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListWorkGroups)
-
-responseDeleteWorkGroup :: DeleteWorkGroupResponse -> TestTree
-responseDeleteWorkGroup =
-  res
-    "DeleteWorkGroupResponse"
-    "fixture/DeleteWorkGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteWorkGroup)
 
 responseListDatabases :: ListDatabasesResponse -> TestTree
 responseListDatabases =
@@ -629,77 +461,29 @@ responseCreatePreparedStatement =
     defaultService
     (Proxy :: Proxy CreatePreparedStatement)
 
-responseGetQueryResults :: GetQueryResultsResponse -> TestTree
-responseGetQueryResults =
+responseDeleteWorkGroup :: DeleteWorkGroupResponse -> TestTree
+responseDeleteWorkGroup =
   res
-    "GetQueryResultsResponse"
-    "fixture/GetQueryResultsResponse.proto"
+    "DeleteWorkGroupResponse"
+    "fixture/DeleteWorkGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetQueryResults)
+    (Proxy :: Proxy DeleteWorkGroup)
 
-responseGetWorkGroup :: GetWorkGroupResponse -> TestTree
-responseGetWorkGroup =
+responseUpdateWorkGroup :: UpdateWorkGroupResponse -> TestTree
+responseUpdateWorkGroup =
   res
-    "GetWorkGroupResponse"
-    "fixture/GetWorkGroupResponse.proto"
+    "UpdateWorkGroupResponse"
+    "fixture/UpdateWorkGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy GetWorkGroup)
+    (Proxy :: Proxy UpdateWorkGroup)
 
-responseStopQueryExecution :: StopQueryExecutionResponse -> TestTree
-responseStopQueryExecution =
+responseGetNamedQuery :: GetNamedQueryResponse -> TestTree
+responseGetNamedQuery =
   res
-    "StopQueryExecutionResponse"
-    "fixture/StopQueryExecutionResponse.proto"
+    "GetNamedQueryResponse"
+    "fixture/GetNamedQueryResponse.proto"
     defaultService
-    (Proxy :: Proxy StopQueryExecution)
-
-responseStartQueryExecution :: StartQueryExecutionResponse -> TestTree
-responseStartQueryExecution =
-  res
-    "StartQueryExecutionResponse"
-    "fixture/StartQueryExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartQueryExecution)
-
-responseListNamedQueries :: ListNamedQueriesResponse -> TestTree
-responseListNamedQueries =
-  res
-    "ListNamedQueriesResponse"
-    "fixture/ListNamedQueriesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListNamedQueries)
-
-responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
-responseGetTableMetadata =
-  res
-    "GetTableMetadataResponse"
-    "fixture/GetTableMetadataResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetTableMetadata)
-
-responseCreateNamedQuery :: CreateNamedQueryResponse -> TestTree
-responseCreateNamedQuery =
-  res
-    "CreateNamedQueryResponse"
-    "fixture/CreateNamedQueryResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateNamedQuery)
-
-responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
-responseBatchGetQueryExecution =
-  res
-    "BatchGetQueryExecutionResponse"
-    "fixture/BatchGetQueryExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchGetQueryExecution)
-
-responseDeleteDataCatalog :: DeleteDataCatalogResponse -> TestTree
-responseDeleteDataCatalog =
-  res
-    "DeleteDataCatalogResponse"
-    "fixture/DeleteDataCatalogResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDataCatalog)
+    (Proxy :: Proxy GetNamedQuery)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -709,6 +493,14 @@ responseListTagsForResource =
     defaultService
     (Proxy :: Proxy ListTagsForResource)
 
+responseDeleteDataCatalog :: DeleteDataCatalogResponse -> TestTree
+responseDeleteDataCatalog =
+  res
+    "DeleteDataCatalogResponse"
+    "fixture/DeleteDataCatalogResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDataCatalog)
+
 responseUpdateDataCatalog :: UpdateDataCatalogResponse -> TestTree
 responseUpdateDataCatalog =
   res
@@ -716,3 +508,211 @@ responseUpdateDataCatalog =
     "fixture/UpdateDataCatalogResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateDataCatalog)
+
+responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
+responseListDataCatalogs =
+  res
+    "ListDataCatalogsResponse"
+    "fixture/ListDataCatalogsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDataCatalogs)
+
+responseCreateNamedQuery :: CreateNamedQueryResponse -> TestTree
+responseCreateNamedQuery =
+  res
+    "CreateNamedQueryResponse"
+    "fixture/CreateNamedQueryResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateNamedQuery)
+
+responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
+responseGetTableMetadata =
+  res
+    "GetTableMetadataResponse"
+    "fixture/GetTableMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTableMetadata)
+
+responseListNamedQueries :: ListNamedQueriesResponse -> TestTree
+responseListNamedQueries =
+  res
+    "ListNamedQueriesResponse"
+    "fixture/ListNamedQueriesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListNamedQueries)
+
+responseDeleteNamedQuery :: DeleteNamedQueryResponse -> TestTree
+responseDeleteNamedQuery =
+  res
+    "DeleteNamedQueryResponse"
+    "fixture/DeleteNamedQueryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteNamedQuery)
+
+responseStartQueryExecution :: StartQueryExecutionResponse -> TestTree
+responseStartQueryExecution =
+  res
+    "StartQueryExecutionResponse"
+    "fixture/StartQueryExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartQueryExecution)
+
+responseBatchGetNamedQuery :: BatchGetNamedQueryResponse -> TestTree
+responseBatchGetNamedQuery =
+  res
+    "BatchGetNamedQueryResponse"
+    "fixture/BatchGetNamedQueryResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetNamedQuery)
+
+responseGetQueryExecution :: GetQueryExecutionResponse -> TestTree
+responseGetQueryExecution =
+  res
+    "GetQueryExecutionResponse"
+    "fixture/GetQueryExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetQueryExecution)
+
+responseListPreparedStatements :: ListPreparedStatementsResponse -> TestTree
+responseListPreparedStatements =
+  res
+    "ListPreparedStatementsResponse"
+    "fixture/ListPreparedStatementsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPreparedStatements)
+
+responseCreateDataCatalog :: CreateDataCatalogResponse -> TestTree
+responseCreateDataCatalog =
+  res
+    "CreateDataCatalogResponse"
+    "fixture/CreateDataCatalogResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDataCatalog)
+
+responseListWorkGroups :: ListWorkGroupsResponse -> TestTree
+responseListWorkGroups =
+  res
+    "ListWorkGroupsResponse"
+    "fixture/ListWorkGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListWorkGroups)
+
+responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
+responseCreateWorkGroup =
+  res
+    "CreateWorkGroupResponse"
+    "fixture/CreateWorkGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateWorkGroup)
+
+responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
+responseBatchGetQueryExecution =
+  res
+    "BatchGetQueryExecutionResponse"
+    "fixture/BatchGetQueryExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetQueryExecution)
+
+responseListEngineVersions :: ListEngineVersionsResponse -> TestTree
+responseListEngineVersions =
+  res
+    "ListEngineVersionsResponse"
+    "fixture/ListEngineVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListEngineVersions)
+
+responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
+responseGetDataCatalog =
+  res
+    "GetDataCatalogResponse"
+    "fixture/GetDataCatalogResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDataCatalog)
+
+responseStopQueryExecution :: StopQueryExecutionResponse -> TestTree
+responseStopQueryExecution =
+  res
+    "StopQueryExecutionResponse"
+    "fixture/StopQueryExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopQueryExecution)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseGetWorkGroup :: GetWorkGroupResponse -> TestTree
+responseGetWorkGroup =
+  res
+    "GetWorkGroupResponse"
+    "fixture/GetWorkGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetWorkGroup)
+
+responseGetDatabase :: GetDatabaseResponse -> TestTree
+responseGetDatabase =
+  res
+    "GetDatabaseResponse"
+    "fixture/GetDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDatabase)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseGetPreparedStatement :: GetPreparedStatementResponse -> TestTree
+responseGetPreparedStatement =
+  res
+    "GetPreparedStatementResponse"
+    "fixture/GetPreparedStatementResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPreparedStatement)
+
+responseGetQueryResults :: GetQueryResultsResponse -> TestTree
+responseGetQueryResults =
+  res
+    "GetQueryResultsResponse"
+    "fixture/GetQueryResultsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetQueryResults)
+
+responseListTableMetadata :: ListTableMetadataResponse -> TestTree
+responseListTableMetadata =
+  res
+    "ListTableMetadataResponse"
+    "fixture/ListTableMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTableMetadata)
+
+responseListQueryExecutions :: ListQueryExecutionsResponse -> TestTree
+responseListQueryExecutions =
+  res
+    "ListQueryExecutionsResponse"
+    "fixture/ListQueryExecutionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListQueryExecutions)
+
+responseDeletePreparedStatement :: DeletePreparedStatementResponse -> TestTree
+responseDeletePreparedStatement =
+  res
+    "DeletePreparedStatementResponse"
+    "fixture/DeletePreparedStatementResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePreparedStatement)
+
+responseUpdatePreparedStatement :: UpdatePreparedStatementResponse -> TestTree
+responseUpdatePreparedStatement =
+  res
+    "UpdatePreparedStatementResponse"
+    "fixture/UpdatePreparedStatementResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePreparedStatement)

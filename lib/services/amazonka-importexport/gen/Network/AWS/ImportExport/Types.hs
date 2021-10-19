@@ -17,26 +17,26 @@ module Network.AWS.ImportExport.Types
     defaultService,
 
     -- * Errors
-    _InvalidVersionException,
-    _CreateJobQuotaExceededException,
-    _UnableToCancelJobIdException,
-    _InvalidManifestFieldException,
-    _MissingCustomsException,
-    _InvalidAddressException,
-    _MissingParameterException,
-    _BucketPermissionException,
-    _InvalidParameterException,
-    _MalformedManifestException,
-    _MultipleRegionsException,
     _InvalidJobIdException,
-    _MissingManifestFieldException,
-    _UnableToUpdateJobIdException,
-    _InvalidCustomsException,
-    _InvalidAccessKeyIdException,
-    _InvalidFileSystemException,
-    _NoSuchBucketException,
-    _CanceledJobIdException,
+    _InvalidParameterException,
     _ExpiredJobIdException,
+    _InvalidFileSystemException,
+    _InvalidAccessKeyIdException,
+    _UnableToUpdateJobIdException,
+    _UnableToCancelJobIdException,
+    _MultipleRegionsException,
+    _InvalidVersionException,
+    _MalformedManifestException,
+    _MissingParameterException,
+    _CanceledJobIdException,
+    _BucketPermissionException,
+    _NoSuchBucketException,
+    _InvalidAddressException,
+    _MissingCustomsException,
+    _InvalidManifestFieldException,
+    _InvalidCustomsException,
+    _MissingManifestFieldException,
+    _CreateJobQuotaExceededException,
 
     -- * JobType
     JobType (..),
@@ -44,8 +44,8 @@ module Network.AWS.ImportExport.Types
     -- * Artifact
     Artifact (..),
     newArtifact,
-    artifact_description,
     artifact_url,
+    artifact_description,
 
     -- * Job
     Job (..),
@@ -91,37 +91,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -134,87 +111,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The client tool version is invalid.
-_InvalidVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidVersionException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidVersionException"
-
--- | Each account can create only a certain number of jobs per day. If you
--- need to create more than this, please contact
--- awsimportexport\@amazon.com to explain your particular use case.
-_CreateJobQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CreateJobQuotaExceededException =
-  Core._MatchServiceError
-    defaultService
-    "CreateJobQuotaExceededException"
-
--- | AWS Import\/Export cannot cancel the job
-_UnableToCancelJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnableToCancelJobIdException =
-  Core._MatchServiceError
-    defaultService
-    "UnableToCancelJobIdException"
-
--- | One or more manifest fields was invalid. Please correct and resubmit.
-_InvalidManifestFieldException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidManifestFieldException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidManifestFieldException"
-
--- | One or more required customs parameters was missing from the manifest.
-_MissingCustomsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingCustomsException =
-  Core._MatchServiceError
-    defaultService
-    "MissingCustomsException"
-
--- | The address specified in the manifest is invalid.
-_InvalidAddressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAddressException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAddressException"
-
--- | One or more required parameters was missing from the request.
-_MissingParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingParameterException =
-  Core._MatchServiceError
-    defaultService
-    "MissingParameterException"
-
--- | The account specified does not have the appropriate bucket permissions.
-_BucketPermissionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BucketPermissionException =
-  Core._MatchServiceError
-    defaultService
-    "BucketPermissionException"
-
--- | One or more parameters had an invalid value.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidParameterException"
-
--- | Your manifest is not well-formed.
-_MalformedManifestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MalformedManifestException =
-  Core._MatchServiceError
-    defaultService
-    "MalformedManifestException"
-
--- | Your manifest file contained buckets from multiple regions. A job is
--- restricted to buckets from one region. Please correct and resubmit.
-_MultipleRegionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MultipleRegionsException =
-  Core._MatchServiceError
-    defaultService
-    "MultipleRegionsException"
 
 -- | The JOBID was missing, not found, or not associated with the AWS
 -- account.
@@ -224,27 +144,26 @@ _InvalidJobIdException =
     defaultService
     "InvalidJobIdException"
 
--- | One or more required fields were missing from the manifest file. Please
--- correct and resubmit.
-_MissingManifestFieldException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingManifestFieldException =
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
   Core._MatchServiceError
     defaultService
-    "MissingManifestFieldException"
+    "InvalidParameterException"
 
--- | AWS Import\/Export cannot update the job
-_UnableToUpdateJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnableToUpdateJobIdException =
+-- | Indicates that the specified job has expired out of the system.
+_ExpiredJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExpiredJobIdException =
   Core._MatchServiceError
     defaultService
-    "UnableToUpdateJobIdException"
+    "ExpiredJobIdException"
 
--- | One or more customs parameters was invalid. Please correct and resubmit.
-_InvalidCustomsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCustomsException =
+-- | File system specified in export manifest is invalid.
+_InvalidFileSystemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFileSystemException =
   Core._MatchServiceError
     defaultService
-    "InvalidCustomsException"
+    "InvalidFileSystemException"
 
 -- | The AWS Access Key ID specified in the request did not match the
 -- manifest\'s accessKeyId value. The manifest and the request
@@ -255,12 +174,62 @@ _InvalidAccessKeyIdException =
     defaultService
     "InvalidAccessKeyIdException"
 
--- | File system specified in export manifest is invalid.
-_InvalidFileSystemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFileSystemException =
+-- | AWS Import\/Export cannot update the job
+_UnableToUpdateJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnableToUpdateJobIdException =
   Core._MatchServiceError
     defaultService
-    "InvalidFileSystemException"
+    "UnableToUpdateJobIdException"
+
+-- | AWS Import\/Export cannot cancel the job
+_UnableToCancelJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnableToCancelJobIdException =
+  Core._MatchServiceError
+    defaultService
+    "UnableToCancelJobIdException"
+
+-- | Your manifest file contained buckets from multiple regions. A job is
+-- restricted to buckets from one region. Please correct and resubmit.
+_MultipleRegionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MultipleRegionsException =
+  Core._MatchServiceError
+    defaultService
+    "MultipleRegionsException"
+
+-- | The client tool version is invalid.
+_InvalidVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidVersionException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidVersionException"
+
+-- | Your manifest is not well-formed.
+_MalformedManifestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedManifestException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedManifestException"
+
+-- | One or more required parameters was missing from the request.
+_MissingParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingParameterException =
+  Core._MatchServiceError
+    defaultService
+    "MissingParameterException"
+
+-- | The specified job ID has been canceled and is no longer valid.
+_CanceledJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CanceledJobIdException =
+  Core._MatchServiceError
+    defaultService
+    "CanceledJobIdException"
+
+-- | The account specified does not have the appropriate bucket permissions.
+_BucketPermissionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BucketPermissionException =
+  Core._MatchServiceError
+    defaultService
+    "BucketPermissionException"
 
 -- | The specified bucket does not exist. Create the specified bucket or
 -- change the manifest\'s bucket, exportBucket, or logBucket field to a
@@ -272,16 +241,47 @@ _NoSuchBucketException =
     defaultService
     "NoSuchBucketException"
 
--- | The specified job ID has been canceled and is no longer valid.
-_CanceledJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CanceledJobIdException =
+-- | The address specified in the manifest is invalid.
+_InvalidAddressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAddressException =
   Core._MatchServiceError
     defaultService
-    "CanceledJobIdException"
+    "InvalidAddressException"
 
--- | Indicates that the specified job has expired out of the system.
-_ExpiredJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExpiredJobIdException =
+-- | One or more required customs parameters was missing from the manifest.
+_MissingCustomsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingCustomsException =
   Core._MatchServiceError
     defaultService
-    "ExpiredJobIdException"
+    "MissingCustomsException"
+
+-- | One or more manifest fields was invalid. Please correct and resubmit.
+_InvalidManifestFieldException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidManifestFieldException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidManifestFieldException"
+
+-- | One or more customs parameters was invalid. Please correct and resubmit.
+_InvalidCustomsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCustomsException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCustomsException"
+
+-- | One or more required fields were missing from the manifest file. Please
+-- correct and resubmit.
+_MissingManifestFieldException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingManifestFieldException =
+  Core._MatchServiceError
+    defaultService
+    "MissingManifestFieldException"
+
+-- | Each account can create only a certain number of jobs per day. If you
+-- need to create more than this, please contact
+-- awsimportexport\@amazon.com to explain your particular use case.
+_CreateJobQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CreateJobQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "CreateJobQuotaExceededException"

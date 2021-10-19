@@ -48,7 +48,7 @@ newConnectionsList =
 
 -- | A list of connections used by the job.
 connectionsList_connections :: Lens.Lens' ConnectionsList (Prelude.Maybe [Prelude.Text])
-connectionsList_connections = Lens.lens (\ConnectionsList' {connections} -> connections) (\s@ConnectionsList' {} a -> s {connections = a} :: ConnectionsList) Prelude.. Lens.mapping Lens._Coerce
+connectionsList_connections = Lens.lens (\ConnectionsList' {connections} -> connections) (\s@ConnectionsList' {} a -> s {connections = a} :: ConnectionsList) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ConnectionsList where
   parseJSON =

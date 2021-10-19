@@ -87,14 +87,14 @@ haskell_library(
         "gen/Network/AWS/Route53AutoNaming/Waiters.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_route53_autonaming=\"1.6.1\"",
         "-Wall",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
         "-funbox-strict-fields",
+        "-DVERSION_amazonka_route53_autonaming=\"2.0\"",
     ],
     hidden_modules = [],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         "//lib/amazonka",
@@ -112,11 +112,11 @@ haskell_test(
         "test/Test/AWS/Route53AutoNaming/Internal.hs",
     ],
     compiler_flags = [
-        "-DVERSION_amazonka_route53_autonaming=\"1.6.1\"",
         "-Wall",
         "-threaded",
+        "-DVERSION_amazonka_route53_autonaming=\"2.0\"",
     ],
-    version = "1.6.1",
+    version = "2.0",
     visibility = ["//visibility:public"],
     deps = [
         ":amazonka-route53-autonaming",

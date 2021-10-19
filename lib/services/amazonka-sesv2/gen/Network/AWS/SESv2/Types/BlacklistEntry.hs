@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBlacklistEntry' smart constructor.
 data BlacklistEntry = BlacklistEntry'
-  { -- | The name of the blacklist that the IP address appears on.
-    rblName :: Prelude.Maybe Prelude.Text,
-    -- | The time when the blacklisting event occurred, shown in Unix time
+  { -- | The time when the blacklisting event occurred, shown in Unix time
     -- format.
     listingTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the blacklist that the IP address appears on.
+    rblName :: Prelude.Maybe Prelude.Text,
     -- | Additional information about the blacklisting event, as provided by the
     -- blacklist maintainer.
     description :: Prelude.Maybe Prelude.Text
@@ -48,10 +48,10 @@ data BlacklistEntry = BlacklistEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rblName', 'blacklistEntry_rblName' - The name of the blacklist that the IP address appears on.
---
 -- 'listingTime', 'blacklistEntry_listingTime' - The time when the blacklisting event occurred, shown in Unix time
 -- format.
+--
+-- 'rblName', 'blacklistEntry_rblName' - The name of the blacklist that the IP address appears on.
 --
 -- 'description', 'blacklistEntry_description' - Additional information about the blacklisting event, as provided by the
 -- blacklist maintainer.
@@ -59,19 +59,19 @@ newBlacklistEntry ::
   BlacklistEntry
 newBlacklistEntry =
   BlacklistEntry'
-    { rblName = Prelude.Nothing,
-      listingTime = Prelude.Nothing,
+    { listingTime = Prelude.Nothing,
+      rblName = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The name of the blacklist that the IP address appears on.
-blacklistEntry_rblName :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.Text)
-blacklistEntry_rblName = Lens.lens (\BlacklistEntry' {rblName} -> rblName) (\s@BlacklistEntry' {} a -> s {rblName = a} :: BlacklistEntry)
 
 -- | The time when the blacklisting event occurred, shown in Unix time
 -- format.
 blacklistEntry_listingTime :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.UTCTime)
 blacklistEntry_listingTime = Lens.lens (\BlacklistEntry' {listingTime} -> listingTime) (\s@BlacklistEntry' {} a -> s {listingTime = a} :: BlacklistEntry) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the blacklist that the IP address appears on.
+blacklistEntry_rblName :: Lens.Lens' BlacklistEntry (Prelude.Maybe Prelude.Text)
+blacklistEntry_rblName = Lens.lens (\BlacklistEntry' {rblName} -> rblName) (\s@BlacklistEntry' {} a -> s {rblName = a} :: BlacklistEntry)
 
 -- | Additional information about the blacklisting event, as provided by the
 -- blacklist maintainer.
@@ -84,8 +84,8 @@ instance Core.FromJSON BlacklistEntry where
       "BlacklistEntry"
       ( \x ->
           BlacklistEntry'
-            Prelude.<$> (x Core..:? "RblName")
-            Prelude.<*> (x Core..:? "ListingTime")
+            Prelude.<$> (x Core..:? "ListingTime")
+            Prelude.<*> (x Core..:? "RblName")
             Prelude.<*> (x Core..:? "Description")
       )
 

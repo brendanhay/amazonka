@@ -29,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerMetadata' smart constructor.
 data EntityRecognizerMetadata = EntityRecognizerMetadata'
-  { -- | The number of documents in the input data that were used to test the
-    -- entity recognizer. Typically this is 10 to 20 percent of the input
-    -- documents.
-    numberOfTestDocuments :: Prelude.Maybe Prelude.Int,
+  { -- | Entity types from the metadata of an entity recognizer.
+    entityTypes :: Prelude.Maybe [EntityRecognizerMetadataEntityTypesListItem],
+    -- | Detailed information about the accuracy of an entity recognizer.
+    evaluationMetrics :: Prelude.Maybe EntityRecognizerEvaluationMetrics,
     -- | The number of documents in the input data that were used to train the
     -- entity recognizer. Typically this is 80 to 90 percent of the input
     -- documents.
     numberOfTrainedDocuments :: Prelude.Maybe Prelude.Int,
-    -- | Detailed information about the accuracy of an entity recognizer.
-    evaluationMetrics :: Prelude.Maybe EntityRecognizerEvaluationMetrics,
-    -- | Entity types from the metadata of an entity recognizer.
-    entityTypes :: Prelude.Maybe [EntityRecognizerMetadataEntityTypesListItem]
+    -- | The number of documents in the input data that were used to test the
+    -- entity recognizer. Typically this is 10 to 20 percent of the input
+    -- documents.
+    numberOfTestDocuments :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -52,33 +52,35 @@ data EntityRecognizerMetadata = EntityRecognizerMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfTestDocuments', 'entityRecognizerMetadata_numberOfTestDocuments' - The number of documents in the input data that were used to test the
--- entity recognizer. Typically this is 10 to 20 percent of the input
--- documents.
+-- 'entityTypes', 'entityRecognizerMetadata_entityTypes' - Entity types from the metadata of an entity recognizer.
+--
+-- 'evaluationMetrics', 'entityRecognizerMetadata_evaluationMetrics' - Detailed information about the accuracy of an entity recognizer.
 --
 -- 'numberOfTrainedDocuments', 'entityRecognizerMetadata_numberOfTrainedDocuments' - The number of documents in the input data that were used to train the
 -- entity recognizer. Typically this is 80 to 90 percent of the input
 -- documents.
 --
--- 'evaluationMetrics', 'entityRecognizerMetadata_evaluationMetrics' - Detailed information about the accuracy of an entity recognizer.
---
--- 'entityTypes', 'entityRecognizerMetadata_entityTypes' - Entity types from the metadata of an entity recognizer.
+-- 'numberOfTestDocuments', 'entityRecognizerMetadata_numberOfTestDocuments' - The number of documents in the input data that were used to test the
+-- entity recognizer. Typically this is 10 to 20 percent of the input
+-- documents.
 newEntityRecognizerMetadata ::
   EntityRecognizerMetadata
 newEntityRecognizerMetadata =
   EntityRecognizerMetadata'
-    { numberOfTestDocuments =
+    { entityTypes =
         Prelude.Nothing,
-      numberOfTrainedDocuments = Prelude.Nothing,
       evaluationMetrics = Prelude.Nothing,
-      entityTypes = Prelude.Nothing
+      numberOfTrainedDocuments = Prelude.Nothing,
+      numberOfTestDocuments = Prelude.Nothing
     }
 
--- | The number of documents in the input data that were used to test the
--- entity recognizer. Typically this is 10 to 20 percent of the input
--- documents.
-entityRecognizerMetadata_numberOfTestDocuments :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe Prelude.Int)
-entityRecognizerMetadata_numberOfTestDocuments = Lens.lens (\EntityRecognizerMetadata' {numberOfTestDocuments} -> numberOfTestDocuments) (\s@EntityRecognizerMetadata' {} a -> s {numberOfTestDocuments = a} :: EntityRecognizerMetadata)
+-- | Entity types from the metadata of an entity recognizer.
+entityRecognizerMetadata_entityTypes :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe [EntityRecognizerMetadataEntityTypesListItem])
+entityRecognizerMetadata_entityTypes = Lens.lens (\EntityRecognizerMetadata' {entityTypes} -> entityTypes) (\s@EntityRecognizerMetadata' {} a -> s {entityTypes = a} :: EntityRecognizerMetadata) Prelude.. Lens.mapping Lens.coerced
+
+-- | Detailed information about the accuracy of an entity recognizer.
+entityRecognizerMetadata_evaluationMetrics :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe EntityRecognizerEvaluationMetrics)
+entityRecognizerMetadata_evaluationMetrics = Lens.lens (\EntityRecognizerMetadata' {evaluationMetrics} -> evaluationMetrics) (\s@EntityRecognizerMetadata' {} a -> s {evaluationMetrics = a} :: EntityRecognizerMetadata)
 
 -- | The number of documents in the input data that were used to train the
 -- entity recognizer. Typically this is 80 to 90 percent of the input
@@ -86,13 +88,11 @@ entityRecognizerMetadata_numberOfTestDocuments = Lens.lens (\EntityRecognizerMet
 entityRecognizerMetadata_numberOfTrainedDocuments :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe Prelude.Int)
 entityRecognizerMetadata_numberOfTrainedDocuments = Lens.lens (\EntityRecognizerMetadata' {numberOfTrainedDocuments} -> numberOfTrainedDocuments) (\s@EntityRecognizerMetadata' {} a -> s {numberOfTrainedDocuments = a} :: EntityRecognizerMetadata)
 
--- | Detailed information about the accuracy of an entity recognizer.
-entityRecognizerMetadata_evaluationMetrics :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe EntityRecognizerEvaluationMetrics)
-entityRecognizerMetadata_evaluationMetrics = Lens.lens (\EntityRecognizerMetadata' {evaluationMetrics} -> evaluationMetrics) (\s@EntityRecognizerMetadata' {} a -> s {evaluationMetrics = a} :: EntityRecognizerMetadata)
-
--- | Entity types from the metadata of an entity recognizer.
-entityRecognizerMetadata_entityTypes :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe [EntityRecognizerMetadataEntityTypesListItem])
-entityRecognizerMetadata_entityTypes = Lens.lens (\EntityRecognizerMetadata' {entityTypes} -> entityTypes) (\s@EntityRecognizerMetadata' {} a -> s {entityTypes = a} :: EntityRecognizerMetadata) Prelude.. Lens.mapping Lens._Coerce
+-- | The number of documents in the input data that were used to test the
+-- entity recognizer. Typically this is 10 to 20 percent of the input
+-- documents.
+entityRecognizerMetadata_numberOfTestDocuments :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe Prelude.Int)
+entityRecognizerMetadata_numberOfTestDocuments = Lens.lens (\EntityRecognizerMetadata' {numberOfTestDocuments} -> numberOfTestDocuments) (\s@EntityRecognizerMetadata' {} a -> s {numberOfTestDocuments = a} :: EntityRecognizerMetadata)
 
 instance Core.FromJSON EntityRecognizerMetadata where
   parseJSON =
@@ -100,10 +100,10 @@ instance Core.FromJSON EntityRecognizerMetadata where
       "EntityRecognizerMetadata"
       ( \x ->
           EntityRecognizerMetadata'
-            Prelude.<$> (x Core..:? "NumberOfTestDocuments")
-            Prelude.<*> (x Core..:? "NumberOfTrainedDocuments")
+            Prelude.<$> (x Core..:? "EntityTypes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "EvaluationMetrics")
-            Prelude.<*> (x Core..:? "EntityTypes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "NumberOfTrainedDocuments")
+            Prelude.<*> (x Core..:? "NumberOfTestDocuments")
       )
 
 instance Prelude.Hashable EntityRecognizerMetadata

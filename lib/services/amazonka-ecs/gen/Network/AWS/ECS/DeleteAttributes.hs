@@ -96,7 +96,7 @@ deleteAttributes_cluster = Lens.lens (\DeleteAttributes' {cluster} -> cluster) (
 -- name and target ID, but do not specify the value. If you specify the
 -- target ID using the short form, you must also specify the target type.
 deleteAttributes_attributes :: Lens.Lens' DeleteAttributes [Attribute]
-deleteAttributes_attributes = Lens.lens (\DeleteAttributes' {attributes} -> attributes) (\s@DeleteAttributes' {} a -> s {attributes = a} :: DeleteAttributes) Prelude.. Lens._Coerce
+deleteAttributes_attributes = Lens.lens (\DeleteAttributes' {attributes} -> attributes) (\s@DeleteAttributes' {} a -> s {attributes = a} :: DeleteAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteAttributes where
   type
@@ -181,7 +181,7 @@ newDeleteAttributesResponse pHttpStatus_ =
 -- | A list of attribute objects that were successfully deleted from your
 -- resource.
 deleteAttributesResponse_attributes :: Lens.Lens' DeleteAttributesResponse (Prelude.Maybe [Attribute])
-deleteAttributesResponse_attributes = Lens.lens (\DeleteAttributesResponse' {attributes} -> attributes) (\s@DeleteAttributesResponse' {} a -> s {attributes = a} :: DeleteAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteAttributesResponse_attributes = Lens.lens (\DeleteAttributesResponse' {attributes} -> attributes) (\s@DeleteAttributesResponse' {} a -> s {attributes = a} :: DeleteAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteAttributesResponse_httpStatus :: Lens.Lens' DeleteAttributesResponse Prelude.Int

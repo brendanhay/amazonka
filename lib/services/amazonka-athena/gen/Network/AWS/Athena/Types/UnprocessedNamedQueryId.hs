@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
   { -- | The unique identifier of the named query.
     namedQueryId :: Prelude.Maybe Prelude.Text,
-    -- | The error message returned when the processing request for the named
-    -- query failed, if applicable.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code returned when the processing request for the named query
     -- failed, if applicable.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message returned when the processing request for the named
+    -- query failed, if applicable.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,34 +48,34 @@ data UnprocessedNamedQueryId = UnprocessedNamedQueryId'
 --
 -- 'namedQueryId', 'unprocessedNamedQueryId_namedQueryId' - The unique identifier of the named query.
 --
--- 'errorMessage', 'unprocessedNamedQueryId_errorMessage' - The error message returned when the processing request for the named
--- query failed, if applicable.
---
 -- 'errorCode', 'unprocessedNamedQueryId_errorCode' - The error code returned when the processing request for the named query
 -- failed, if applicable.
+--
+-- 'errorMessage', 'unprocessedNamedQueryId_errorMessage' - The error message returned when the processing request for the named
+-- query failed, if applicable.
 newUnprocessedNamedQueryId ::
   UnprocessedNamedQueryId
 newUnprocessedNamedQueryId =
   UnprocessedNamedQueryId'
     { namedQueryId =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | The unique identifier of the named query.
 unprocessedNamedQueryId_namedQueryId :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
 unprocessedNamedQueryId_namedQueryId = Lens.lens (\UnprocessedNamedQueryId' {namedQueryId} -> namedQueryId) (\s@UnprocessedNamedQueryId' {} a -> s {namedQueryId = a} :: UnprocessedNamedQueryId)
 
--- | The error message returned when the processing request for the named
--- query failed, if applicable.
-unprocessedNamedQueryId_errorMessage :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
-unprocessedNamedQueryId_errorMessage = Lens.lens (\UnprocessedNamedQueryId' {errorMessage} -> errorMessage) (\s@UnprocessedNamedQueryId' {} a -> s {errorMessage = a} :: UnprocessedNamedQueryId)
-
 -- | The error code returned when the processing request for the named query
 -- failed, if applicable.
 unprocessedNamedQueryId_errorCode :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
 unprocessedNamedQueryId_errorCode = Lens.lens (\UnprocessedNamedQueryId' {errorCode} -> errorCode) (\s@UnprocessedNamedQueryId' {} a -> s {errorCode = a} :: UnprocessedNamedQueryId)
+
+-- | The error message returned when the processing request for the named
+-- query failed, if applicable.
+unprocessedNamedQueryId_errorMessage :: Lens.Lens' UnprocessedNamedQueryId (Prelude.Maybe Prelude.Text)
+unprocessedNamedQueryId_errorMessage = Lens.lens (\UnprocessedNamedQueryId' {errorMessage} -> errorMessage) (\s@UnprocessedNamedQueryId' {} a -> s {errorMessage = a} :: UnprocessedNamedQueryId)
 
 instance Core.FromJSON UnprocessedNamedQueryId where
   parseJSON =
@@ -84,8 +84,8 @@ instance Core.FromJSON UnprocessedNamedQueryId where
       ( \x ->
           UnprocessedNamedQueryId'
             Prelude.<$> (x Core..:? "NamedQueryId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable UnprocessedNamedQueryId

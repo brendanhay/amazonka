@@ -14,55 +14,22 @@
 module Network.AWS.Shield.Lens
   ( -- * Operations
 
+    -- ** AssociateDRTLogBucket
+    associateDRTLogBucket_logBucket,
+    associateDRTLogBucketResponse_httpStatus,
+
+    -- ** DisassociateDRTRole
+    disassociateDRTRoleResponse_httpStatus,
+
     -- ** CreateSubscription
     createSubscriptionResponse_httpStatus,
 
-    -- ** DescribeProtectionGroup
-    describeProtectionGroup_protectionGroupId,
-    describeProtectionGroupResponse_httpStatus,
-    describeProtectionGroupResponse_protectionGroup,
-
-    -- ** DescribeEmergencyContactSettings
-    describeEmergencyContactSettingsResponse_emergencyContactList,
-    describeEmergencyContactSettingsResponse_httpStatus,
-
-    -- ** AssociateHealthCheck
-    associateHealthCheck_protectionId,
-    associateHealthCheck_healthCheckArn,
-    associateHealthCheckResponse_httpStatus,
-
-    -- ** DescribeSubscription
-    describeSubscriptionResponse_subscription,
-    describeSubscriptionResponse_httpStatus,
-
-    -- ** DescribeDRTAccess
-    describeDRTAccessResponse_roleArn,
-    describeDRTAccessResponse_logBucketList,
-    describeDRTAccessResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceARN,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DisableProactiveEngagement
-    disableProactiveEngagementResponse_httpStatus,
-
-    -- ** ListResourcesInProtectionGroup
-    listResourcesInProtectionGroup_nextToken,
-    listResourcesInProtectionGroup_maxResults,
-    listResourcesInProtectionGroup_protectionGroupId,
-    listResourcesInProtectionGroupResponse_nextToken,
-    listResourcesInProtectionGroupResponse_httpStatus,
-    listResourcesInProtectionGroupResponse_resourceArns,
-
-    -- ** EnableProactiveEngagement
-    enableProactiveEngagementResponse_httpStatus,
+    -- ** ListProtections
+    listProtections_nextToken,
+    listProtections_maxResults,
+    listProtectionsResponse_protections,
+    listProtectionsResponse_nextToken,
+    listProtectionsResponse_httpStatus,
 
     -- ** AssociateDRTRole
     associateDRTRole_roleArn,
@@ -72,79 +39,23 @@ module Network.AWS.Shield.Lens
     updateSubscription_autoRenew,
     updateSubscriptionResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** DisassociateDRTLogBucket
     disassociateDRTLogBucket_logBucket,
     disassociateDRTLogBucketResponse_httpStatus,
 
-    -- ** CreateProtection
-    createProtection_tags,
-    createProtection_name,
-    createProtection_resourceArn,
-    createProtectionResponse_protectionId,
-    createProtectionResponse_httpStatus,
-
-    -- ** AssociateDRTLogBucket
-    associateDRTLogBucket_logBucket,
-    associateDRTLogBucketResponse_httpStatus,
-
-    -- ** DisassociateDRTRole
-    disassociateDRTRoleResponse_httpStatus,
-
-    -- ** ListAttacks
-    listAttacks_nextToken,
-    listAttacks_maxResults,
-    listAttacks_startTime,
-    listAttacks_endTime,
-    listAttacks_resourceArns,
-    listAttacksResponse_nextToken,
-    listAttacksResponse_attackSummaries,
-    listAttacksResponse_httpStatus,
-
-    -- ** DescribeProtection
-    describeProtection_resourceArn,
-    describeProtection_protectionId,
-    describeProtectionResponse_protection,
-    describeProtectionResponse_httpStatus,
-
-    -- ** DescribeAttackStatistics
-    describeAttackStatisticsResponse_httpStatus,
-    describeAttackStatisticsResponse_timeRange,
-    describeAttackStatisticsResponse_dataItems,
-
-    -- ** DisassociateHealthCheck
-    disassociateHealthCheck_protectionId,
-    disassociateHealthCheck_healthCheckArn,
-    disassociateHealthCheckResponse_httpStatus,
-
-    -- ** CreateProtectionGroup
-    createProtectionGroup_resourceType,
-    createProtectionGroup_tags,
-    createProtectionGroup_members,
-    createProtectionGroup_protectionGroupId,
-    createProtectionGroup_aggregation,
-    createProtectionGroup_pattern,
-    createProtectionGroupResponse_httpStatus,
+    -- ** AssociateProactiveEngagementDetails
+    associateProactiveEngagementDetails_emergencyContactList,
+    associateProactiveEngagementDetailsResponse_httpStatus,
 
     -- ** DescribeAttack
     describeAttack_attackId,
     describeAttackResponse_attack,
     describeAttackResponse_httpStatus,
-
-    -- ** DeleteProtectionGroup
-    deleteProtectionGroup_protectionGroupId,
-    deleteProtectionGroupResponse_httpStatus,
-
-    -- ** UpdateEmergencyContactSettings
-    updateEmergencyContactSettings_emergencyContactList,
-    updateEmergencyContactSettingsResponse_httpStatus,
-
-    -- ** UpdateProtectionGroup
-    updateProtectionGroup_resourceType,
-    updateProtectionGroup_members,
-    updateProtectionGroup_protectionGroupId,
-    updateProtectionGroup_aggregation,
-    updateProtectionGroup_pattern,
-    updateProtectionGroupResponse_httpStatus,
 
     -- ** ListProtectionGroups
     listProtectionGroups_nextToken,
@@ -153,21 +64,64 @@ module Network.AWS.Shield.Lens
     listProtectionGroupsResponse_httpStatus,
     listProtectionGroupsResponse_protectionGroups,
 
-    -- ** AssociateProactiveEngagementDetails
-    associateProactiveEngagementDetails_emergencyContactList,
-    associateProactiveEngagementDetailsResponse_httpStatus,
+    -- ** EnableProactiveEngagement
+    enableProactiveEngagementResponse_httpStatus,
 
-    -- ** ListProtections
-    listProtections_nextToken,
-    listProtections_maxResults,
-    listProtectionsResponse_nextToken,
-    listProtectionsResponse_protections,
-    listProtectionsResponse_httpStatus,
+    -- ** UpdateEmergencyContactSettings
+    updateEmergencyContactSettings_emergencyContactList,
+    updateEmergencyContactSettingsResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** CreateProtectionGroup
+    createProtectionGroup_resourceType,
+    createProtectionGroup_members,
+    createProtectionGroup_tags,
+    createProtectionGroup_protectionGroupId,
+    createProtectionGroup_aggregation,
+    createProtectionGroup_pattern,
+    createProtectionGroupResponse_httpStatus,
+
+    -- ** DisableProactiveEngagement
+    disableProactiveEngagementResponse_httpStatus,
+
+    -- ** DisassociateHealthCheck
+    disassociateHealthCheck_protectionId,
+    disassociateHealthCheck_healthCheckArn,
+    disassociateHealthCheckResponse_httpStatus,
+
+    -- ** ListResourcesInProtectionGroup
+    listResourcesInProtectionGroup_nextToken,
+    listResourcesInProtectionGroup_maxResults,
+    listResourcesInProtectionGroup_protectionGroupId,
+    listResourcesInProtectionGroupResponse_nextToken,
+    listResourcesInProtectionGroupResponse_httpStatus,
+    listResourcesInProtectionGroupResponse_resourceArns,
+
+    -- ** DescribeProtection
+    describeProtection_protectionId,
+    describeProtection_resourceArn,
+    describeProtectionResponse_protection,
+    describeProtectionResponse_httpStatus,
+
+    -- ** ListAttacks
+    listAttacks_startTime,
+    listAttacks_resourceArns,
+    listAttacks_nextToken,
+    listAttacks_endTime,
+    listAttacks_maxResults,
+    listAttacksResponse_attackSummaries,
+    listAttacksResponse_nextToken,
+    listAttacksResponse_httpStatus,
+
+    -- ** DescribeEmergencyContactSettings
+    describeEmergencyContactSettingsResponse_emergencyContactList,
+    describeEmergencyContactSettingsResponse_httpStatus,
+
+    -- ** CreateProtection
+    createProtection_tags,
+    createProtection_name,
+    createProtection_resourceArn,
+    createProtectionResponse_protectionId,
+    createProtectionResponse_httpStatus,
 
     -- ** DeleteProtection
     deleteProtection_protectionId,
@@ -177,50 +131,96 @@ module Network.AWS.Shield.Lens
     getSubscriptionStateResponse_httpStatus,
     getSubscriptionStateResponse_subscriptionState,
 
+    -- ** DeleteProtectionGroup
+    deleteProtectionGroup_protectionGroupId,
+    deleteProtectionGroupResponse_httpStatus,
+
+    -- ** UpdateProtectionGroup
+    updateProtectionGroup_resourceType,
+    updateProtectionGroup_members,
+    updateProtectionGroup_protectionGroupId,
+    updateProtectionGroup_aggregation,
+    updateProtectionGroup_pattern,
+    updateProtectionGroupResponse_httpStatus,
+
+    -- ** DescribeAttackStatistics
+    describeAttackStatisticsResponse_httpStatus,
+    describeAttackStatisticsResponse_timeRange,
+    describeAttackStatisticsResponse_dataItems,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** DescribeDRTAccess
+    describeDRTAccessResponse_logBucketList,
+    describeDRTAccessResponse_roleArn,
+    describeDRTAccessResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** DescribeSubscription
+    describeSubscriptionResponse_subscription,
+    describeSubscriptionResponse_httpStatus,
+
+    -- ** AssociateHealthCheck
+    associateHealthCheck_protectionId,
+    associateHealthCheck_healthCheckArn,
+    associateHealthCheckResponse_httpStatus,
+
+    -- ** DescribeProtectionGroup
+    describeProtectionGroup_protectionGroupId,
+    describeProtectionGroupResponse_httpStatus,
+    describeProtectionGroupResponse_protectionGroup,
+
     -- * Types
 
     -- ** AttackDetail
-    attackDetail_resourceArn,
-    attackDetail_attackProperties,
-    attackDetail_startTime,
-    attackDetail_endTime,
-    attackDetail_attackCounters,
-    attackDetail_mitigations,
     attackDetail_attackId,
+    attackDetail_startTime,
     attackDetail_subResources,
+    attackDetail_mitigations,
+    attackDetail_attackProperties,
+    attackDetail_attackCounters,
+    attackDetail_resourceArn,
+    attackDetail_endTime,
 
     -- ** AttackProperty
-    attackProperty_unit,
-    attackProperty_total,
-    attackProperty_attackPropertyIdentifier,
-    attackProperty_topContributors,
     attackProperty_attackLayer,
+    attackProperty_topContributors,
+    attackProperty_attackPropertyIdentifier,
+    attackProperty_total,
+    attackProperty_unit,
 
     -- ** AttackStatisticsDataItem
     attackStatisticsDataItem_attackVolume,
     attackStatisticsDataItem_attackCount,
 
     -- ** AttackSummary
-    attackSummary_resourceArn,
-    attackSummary_startTime,
-    attackSummary_endTime,
-    attackSummary_attackId,
     attackSummary_attackVectors,
+    attackSummary_attackId,
+    attackSummary_startTime,
+    attackSummary_resourceArn,
+    attackSummary_endTime,
 
     -- ** AttackVectorDescription
     attackVectorDescription_vectorType,
 
     -- ** AttackVolume
     attackVolume_packetsPerSecond,
-    attackVolume_bitsPerSecond,
     attackVolume_requestsPerSecond,
+    attackVolume_bitsPerSecond,
 
     -- ** AttackVolumeStatistics
     attackVolumeStatistics_max,
 
     -- ** Contributor
-    contributor_name,
     contributor_value,
+    contributor_name,
 
     -- ** EmergencyContact
     emergencyContact_phoneNumber,
@@ -235,11 +235,11 @@ module Network.AWS.Shield.Lens
     mitigation_mitigationName,
 
     -- ** Protection
-    protection_resourceArn,
     protection_protectionArn,
-    protection_id,
-    protection_name,
     protection_healthCheckIds,
+    protection_resourceArn,
+    protection_name,
+    protection_id,
 
     -- ** ProtectionGroup
     protectionGroup_resourceType,
@@ -264,18 +264,18 @@ module Network.AWS.Shield.Lens
 
     -- ** SubResourceSummary
     subResourceSummary_counters,
+    subResourceSummary_attackVectors,
     subResourceSummary_id,
     subResourceSummary_type,
-    subResourceSummary_attackVectors,
 
     -- ** Subscription
-    subscription_autoRenew,
-    subscription_proactiveEngagementStatus,
-    subscription_startTime,
-    subscription_endTime,
-    subscription_limits,
-    subscription_subscriptionArn,
     subscription_timeCommitmentInSeconds,
+    subscription_startTime,
+    subscription_limits,
+    subscription_autoRenew,
+    subscription_endTime,
+    subscription_proactiveEngagementStatus,
+    subscription_subscriptionArn,
     subscription_subscriptionLimits,
 
     -- ** SubscriptionLimits
@@ -287,16 +287,16 @@ module Network.AWS.Shield.Lens
     summarizedAttackVector_vectorType,
 
     -- ** SummarizedCounter
-    summarizedCounter_n,
-    summarizedCounter_unit,
-    summarizedCounter_sum,
-    summarizedCounter_name,
     summarizedCounter_max,
     summarizedCounter_average,
+    summarizedCounter_n,
+    summarizedCounter_name,
+    summarizedCounter_sum,
+    summarizedCounter_unit,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** TimeRange
     timeRange_fromInclusive,

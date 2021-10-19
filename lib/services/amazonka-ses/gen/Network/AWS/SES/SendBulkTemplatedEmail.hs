@@ -63,13 +63,13 @@ module Network.AWS.SES.SendBulkTemplatedEmail
 
     -- * Request Lenses
     sendBulkTemplatedEmail_returnPath,
-    sendBulkTemplatedEmail_defaultTemplateData,
-    sendBulkTemplatedEmail_returnPathArn,
-    sendBulkTemplatedEmail_defaultTags,
-    sendBulkTemplatedEmail_replyToAddresses,
-    sendBulkTemplatedEmail_sourceArn,
     sendBulkTemplatedEmail_configurationSetName,
+    sendBulkTemplatedEmail_sourceArn,
+    sendBulkTemplatedEmail_defaultTags,
+    sendBulkTemplatedEmail_returnPathArn,
     sendBulkTemplatedEmail_templateArn,
+    sendBulkTemplatedEmail_defaultTemplateData,
+    sendBulkTemplatedEmail_replyToAddresses,
     sendBulkTemplatedEmail_source,
     sendBulkTemplatedEmail_template,
     sendBulkTemplatedEmail_destinations,
@@ -106,35 +106,9 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
     returnPath :: Prelude.Maybe Prelude.Text,
-    -- | A list of replacement values to apply to the template when replacement
-    -- data is not specified in a Destination object. These values act as a
-    -- default or fallback option when no other data is available.
-    --
-    -- The template data is a JSON object, typically consisting of key-value
-    -- pairs in which the keys correspond to replacement tags in the email
-    -- template.
-    defaultTemplateData :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to use the email address specified in the @ReturnPath@
-    -- parameter.
-    --
-    -- For example, if the owner of @example.com@ (which has ARN
-    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
-    -- policy to it that authorizes you to use @feedback\@example.com@, then
-    -- you would specify the @ReturnPathArn@ to be
-    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
-    -- @ReturnPath@ to be @feedback\@example.com@.
-    --
-    -- For more information about sending authorization, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    returnPathArn :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags, in the form of name\/value pairs, to apply to an email
-    -- that you send to a destination using @SendBulkTemplatedEmail@.
-    defaultTags :: Prelude.Maybe [MessageTag],
-    -- | The reply-to email address(es) for the message. If the recipient replies
-    -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the configuration set to use when you send an email using
+    -- @SendBulkTemplatedEmail@.
+    configurationSetName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -150,11 +124,37 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
     sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the configuration set to use when you send an email using
-    -- @SendBulkTemplatedEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags, in the form of name\/value pairs, to apply to an email
+    -- that you send to a destination using @SendBulkTemplatedEmail@.
+    defaultTags :: Prelude.Maybe [MessageTag],
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to use the email address specified in the @ReturnPath@
+    -- parameter.
+    --
+    -- For example, if the owner of @example.com@ (which has ARN
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+    -- policy to it that authorizes you to use @feedback\@example.com@, then
+    -- you would specify the @ReturnPathArn@ to be
+    -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+    -- @ReturnPath@ to be @feedback\@example.com@.
+    --
+    -- For more information about sending authorization, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+    returnPathArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the template to use when sending this email.
     templateArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of replacement values to apply to the template when replacement
+    -- data is not specified in a Destination object. These values act as a
+    -- default or fallback option when no other data is available.
+    --
+    -- The template data is a JSON object, typically consisting of key-value
+    -- pairs in which the keys correspond to replacement tags in the email
+    -- template.
+    defaultTemplateData :: Prelude.Maybe Prelude.Text,
+    -- | The reply-to email address(es) for the message. If the recipient replies
+    -- to the message, each reply-to address will receive the reply.
+    replyToAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -207,34 +207,8 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
 --
--- 'defaultTemplateData', 'sendBulkTemplatedEmail_defaultTemplateData' - A list of replacement values to apply to the template when replacement
--- data is not specified in a Destination object. These values act as a
--- default or fallback option when no other data is available.
---
--- The template data is a JSON object, typically consisting of key-value
--- pairs in which the keys correspond to replacement tags in the email
--- template.
---
--- 'returnPathArn', 'sendBulkTemplatedEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the @ReturnPath@
--- parameter.
---
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to use @feedback\@example.com@, then
--- you would specify the @ReturnPathArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @ReturnPath@ to be @feedback\@example.com@.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
--- 'defaultTags', 'sendBulkTemplatedEmail_defaultTags' - A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send to a destination using @SendBulkTemplatedEmail@.
---
--- 'replyToAddresses', 'sendBulkTemplatedEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
+-- 'configurationSetName', 'sendBulkTemplatedEmail_configurationSetName' - The name of the configuration set to use when you send an email using
+-- @SendBulkTemplatedEmail@.
 --
 -- 'sourceArn', 'sendBulkTemplatedEmail_sourceArn' - This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -251,10 +225,36 @@ data SendBulkTemplatedEmail = SendBulkTemplatedEmail'
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
--- 'configurationSetName', 'sendBulkTemplatedEmail_configurationSetName' - The name of the configuration set to use when you send an email using
--- @SendBulkTemplatedEmail@.
+-- 'defaultTags', 'sendBulkTemplatedEmail_defaultTags' - A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send to a destination using @SendBulkTemplatedEmail@.
+--
+-- 'returnPathArn', 'sendBulkTemplatedEmail_returnPathArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the @ReturnPath@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to use @feedback\@example.com@, then
+-- you would specify the @ReturnPathArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @ReturnPath@ to be @feedback\@example.com@.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- 'templateArn', 'sendBulkTemplatedEmail_templateArn' - The ARN of the template to use when sending this email.
+--
+-- 'defaultTemplateData', 'sendBulkTemplatedEmail_defaultTemplateData' - A list of replacement values to apply to the template when replacement
+-- data is not specified in a Destination object. These values act as a
+-- default or fallback option when no other data is available.
+--
+-- The template data is a JSON object, typically consisting of key-value
+-- pairs in which the keys correspond to replacement tags in the email
+-- template.
+--
+-- 'replyToAddresses', 'sendBulkTemplatedEmail_replyToAddresses' - The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
 --
 -- 'source', 'sendBulkTemplatedEmail_source' - The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -297,13 +297,13 @@ newSendBulkTemplatedEmail pSource_ pTemplate_ =
   SendBulkTemplatedEmail'
     { returnPath =
         Prelude.Nothing,
-      defaultTemplateData = Prelude.Nothing,
-      returnPathArn = Prelude.Nothing,
-      defaultTags = Prelude.Nothing,
-      replyToAddresses = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
       configurationSetName = Prelude.Nothing,
+      sourceArn = Prelude.Nothing,
+      defaultTags = Prelude.Nothing,
+      returnPathArn = Prelude.Nothing,
       templateArn = Prelude.Nothing,
+      defaultTemplateData = Prelude.Nothing,
+      replyToAddresses = Prelude.Nothing,
       source = pSource_,
       template = pTemplate_,
       destinations = Prelude.mempty
@@ -320,42 +320,10 @@ newSendBulkTemplatedEmail pSource_ pTemplate_ =
 sendBulkTemplatedEmail_returnPath :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_returnPath = Lens.lens (\SendBulkTemplatedEmail' {returnPath} -> returnPath) (\s@SendBulkTemplatedEmail' {} a -> s {returnPath = a} :: SendBulkTemplatedEmail)
 
--- | A list of replacement values to apply to the template when replacement
--- data is not specified in a Destination object. These values act as a
--- default or fallback option when no other data is available.
---
--- The template data is a JSON object, typically consisting of key-value
--- pairs in which the keys correspond to replacement tags in the email
--- template.
-sendBulkTemplatedEmail_defaultTemplateData :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
-sendBulkTemplatedEmail_defaultTemplateData = Lens.lens (\SendBulkTemplatedEmail' {defaultTemplateData} -> defaultTemplateData) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTemplateData = a} :: SendBulkTemplatedEmail)
-
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the @ReturnPath@
--- parameter.
---
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to use @feedback\@example.com@, then
--- you would specify the @ReturnPathArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @ReturnPath@ to be @feedback\@example.com@.
---
--- For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendBulkTemplatedEmail_returnPathArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
-sendBulkTemplatedEmail_returnPathArn = Lens.lens (\SendBulkTemplatedEmail' {returnPathArn} -> returnPathArn) (\s@SendBulkTemplatedEmail' {} a -> s {returnPathArn = a} :: SendBulkTemplatedEmail)
-
--- | A list of tags, in the form of name\/value pairs, to apply to an email
--- that you send to a destination using @SendBulkTemplatedEmail@.
-sendBulkTemplatedEmail_defaultTags :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe [MessageTag])
-sendBulkTemplatedEmail_defaultTags = Lens.lens (\SendBulkTemplatedEmail' {defaultTags} -> defaultTags) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTags = a} :: SendBulkTemplatedEmail) Prelude.. Lens.mapping Lens._Coerce
-
--- | The reply-to email address(es) for the message. If the recipient replies
--- to the message, each reply-to address will receive the reply.
-sendBulkTemplatedEmail_replyToAddresses :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe [Prelude.Text])
-sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendBulkTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendBulkTemplatedEmail) Prelude.. Lens.mapping Lens._Coerce
+-- | The name of the configuration set to use when you send an email using
+-- @SendBulkTemplatedEmail@.
+sendBulkTemplatedEmail_configurationSetName :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendBulkTemplatedEmail_configurationSetName = Lens.lens (\SendBulkTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendBulkTemplatedEmail' {} a -> s {configurationSetName = a} :: SendBulkTemplatedEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -374,14 +342,46 @@ sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {r
 sendBulkTemplatedEmail_sourceArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_sourceArn = Lens.lens (\SendBulkTemplatedEmail' {sourceArn} -> sourceArn) (\s@SendBulkTemplatedEmail' {} a -> s {sourceArn = a} :: SendBulkTemplatedEmail)
 
--- | The name of the configuration set to use when you send an email using
--- @SendBulkTemplatedEmail@.
-sendBulkTemplatedEmail_configurationSetName :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
-sendBulkTemplatedEmail_configurationSetName = Lens.lens (\SendBulkTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendBulkTemplatedEmail' {} a -> s {configurationSetName = a} :: SendBulkTemplatedEmail)
+-- | A list of tags, in the form of name\/value pairs, to apply to an email
+-- that you send to a destination using @SendBulkTemplatedEmail@.
+sendBulkTemplatedEmail_defaultTags :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe [MessageTag])
+sendBulkTemplatedEmail_defaultTags = Lens.lens (\SendBulkTemplatedEmail' {defaultTags} -> defaultTags) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTags = a} :: SendBulkTemplatedEmail) Prelude.. Lens.mapping Lens.coerced
+
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the email address specified in the @ReturnPath@
+-- parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
+-- policy to it that authorizes you to use @feedback\@example.com@, then
+-- you would specify the @ReturnPathArn@ to be
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
+-- @ReturnPath@ to be @feedback\@example.com@.
+--
+-- For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+sendBulkTemplatedEmail_returnPathArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendBulkTemplatedEmail_returnPathArn = Lens.lens (\SendBulkTemplatedEmail' {returnPathArn} -> returnPathArn) (\s@SendBulkTemplatedEmail' {} a -> s {returnPathArn = a} :: SendBulkTemplatedEmail)
 
 -- | The ARN of the template to use when sending this email.
 sendBulkTemplatedEmail_templateArn :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
 sendBulkTemplatedEmail_templateArn = Lens.lens (\SendBulkTemplatedEmail' {templateArn} -> templateArn) (\s@SendBulkTemplatedEmail' {} a -> s {templateArn = a} :: SendBulkTemplatedEmail)
+
+-- | A list of replacement values to apply to the template when replacement
+-- data is not specified in a Destination object. These values act as a
+-- default or fallback option when no other data is available.
+--
+-- The template data is a JSON object, typically consisting of key-value
+-- pairs in which the keys correspond to replacement tags in the email
+-- template.
+sendBulkTemplatedEmail_defaultTemplateData :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendBulkTemplatedEmail_defaultTemplateData = Lens.lens (\SendBulkTemplatedEmail' {defaultTemplateData} -> defaultTemplateData) (\s@SendBulkTemplatedEmail' {} a -> s {defaultTemplateData = a} :: SendBulkTemplatedEmail)
+
+-- | The reply-to email address(es) for the message. If the recipient replies
+-- to the message, each reply-to address will receive the reply.
+sendBulkTemplatedEmail_replyToAddresses :: Lens.Lens' SendBulkTemplatedEmail (Prelude.Maybe [Prelude.Text])
+sendBulkTemplatedEmail_replyToAddresses = Lens.lens (\SendBulkTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendBulkTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendBulkTemplatedEmail) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -419,7 +419,7 @@ sendBulkTemplatedEmail_template = Lens.lens (\SendBulkTemplatedEmail' {template}
 -- @Destination@ will receive the same version of the email. You can
 -- specify up to 50 @Destination@ objects within a @Destinations@ array.
 sendBulkTemplatedEmail_destinations :: Lens.Lens' SendBulkTemplatedEmail [BulkEmailDestination]
-sendBulkTemplatedEmail_destinations = Lens.lens (\SendBulkTemplatedEmail' {destinations} -> destinations) (\s@SendBulkTemplatedEmail' {} a -> s {destinations = a} :: SendBulkTemplatedEmail) Prelude.. Lens._Coerce
+sendBulkTemplatedEmail_destinations = Lens.lens (\SendBulkTemplatedEmail' {destinations} -> destinations) (\s@SendBulkTemplatedEmail' {} a -> s {destinations = a} :: SendBulkTemplatedEmail) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SendBulkTemplatedEmail where
   type
@@ -455,19 +455,19 @@ instance Core.ToQuery SendBulkTemplatedEmail where
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
         "ReturnPath" Core.=: returnPath,
-        "DefaultTemplateData" Core.=: defaultTemplateData,
-        "ReturnPathArn" Core.=: returnPathArn,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "SourceArn" Core.=: sourceArn,
         "DefaultTags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> defaultTags),
+        "ReturnPathArn" Core.=: returnPathArn,
+        "TemplateArn" Core.=: templateArn,
+        "DefaultTemplateData" Core.=: defaultTemplateData,
         "ReplyToAddresses"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> replyToAddresses
             ),
-        "SourceArn" Core.=: sourceArn,
-        "ConfigurationSetName" Core.=: configurationSetName,
-        "TemplateArn" Core.=: templateArn,
         "Source" Core.=: source,
         "Template" Core.=: template,
         "Destinations"
@@ -514,7 +514,7 @@ sendBulkTemplatedEmailResponse_httpStatus = Lens.lens (\SendBulkTemplatedEmailRe
 -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
 -- action.
 sendBulkTemplatedEmailResponse_status :: Lens.Lens' SendBulkTemplatedEmailResponse [BulkEmailDestinationStatus]
-sendBulkTemplatedEmailResponse_status = Lens.lens (\SendBulkTemplatedEmailResponse' {status} -> status) (\s@SendBulkTemplatedEmailResponse' {} a -> s {status = a} :: SendBulkTemplatedEmailResponse) Prelude.. Lens._Coerce
+sendBulkTemplatedEmailResponse_status = Lens.lens (\SendBulkTemplatedEmailResponse' {status} -> status) (\s@SendBulkTemplatedEmailResponse' {} a -> s {status = a} :: SendBulkTemplatedEmailResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

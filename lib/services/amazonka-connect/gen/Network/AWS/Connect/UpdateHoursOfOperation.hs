@@ -32,8 +32,8 @@ module Network.AWS.Connect.UpdateHoursOfOperation
     -- * Request Lenses
     updateHoursOfOperation_config,
     updateHoursOfOperation_name,
-    updateHoursOfOperation_description,
     updateHoursOfOperation_timeZone,
+    updateHoursOfOperation_description,
     updateHoursOfOperation_instanceId,
     updateHoursOfOperation_hoursOfOperationId,
 
@@ -56,10 +56,10 @@ data UpdateHoursOfOperation = UpdateHoursOfOperation'
     config :: Prelude.Maybe [HoursOfOperationConfig],
     -- | The name of the hours of operation.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the hours of operation.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The time zone of the hours of operation.
     timeZone :: Prelude.Maybe Prelude.Text,
+    -- | The description of the hours of operation.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -80,9 +80,9 @@ data UpdateHoursOfOperation = UpdateHoursOfOperation'
 --
 -- 'name', 'updateHoursOfOperation_name' - The name of the hours of operation.
 --
--- 'description', 'updateHoursOfOperation_description' - The description of the hours of operation.
---
 -- 'timeZone', 'updateHoursOfOperation_timeZone' - The time zone of the hours of operation.
+--
+-- 'description', 'updateHoursOfOperation_description' - The description of the hours of operation.
 --
 -- 'instanceId', 'updateHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -100,27 +100,27 @@ newUpdateHoursOfOperation
     UpdateHoursOfOperation'
       { config = Prelude.Nothing,
         name = Prelude.Nothing,
-        description = Prelude.Nothing,
         timeZone = Prelude.Nothing,
+        description = Prelude.Nothing,
         instanceId = pInstanceId_,
         hoursOfOperationId = pHoursOfOperationId_
       }
 
 -- | Configuration information of the hours of operation.
 updateHoursOfOperation_config :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe [HoursOfOperationConfig])
-updateHoursOfOperation_config = Lens.lens (\UpdateHoursOfOperation' {config} -> config) (\s@UpdateHoursOfOperation' {} a -> s {config = a} :: UpdateHoursOfOperation) Prelude.. Lens.mapping Lens._Coerce
+updateHoursOfOperation_config = Lens.lens (\UpdateHoursOfOperation' {config} -> config) (\s@UpdateHoursOfOperation' {} a -> s {config = a} :: UpdateHoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the hours of operation.
 updateHoursOfOperation_name :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
 updateHoursOfOperation_name = Lens.lens (\UpdateHoursOfOperation' {name} -> name) (\s@UpdateHoursOfOperation' {} a -> s {name = a} :: UpdateHoursOfOperation)
 
--- | The description of the hours of operation.
-updateHoursOfOperation_description :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
-updateHoursOfOperation_description = Lens.lens (\UpdateHoursOfOperation' {description} -> description) (\s@UpdateHoursOfOperation' {} a -> s {description = a} :: UpdateHoursOfOperation)
-
 -- | The time zone of the hours of operation.
 updateHoursOfOperation_timeZone :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
 updateHoursOfOperation_timeZone = Lens.lens (\UpdateHoursOfOperation' {timeZone} -> timeZone) (\s@UpdateHoursOfOperation' {} a -> s {timeZone = a} :: UpdateHoursOfOperation)
+
+-- | The description of the hours of operation.
+updateHoursOfOperation_description :: Lens.Lens' UpdateHoursOfOperation (Prelude.Maybe Prelude.Text)
+updateHoursOfOperation_description = Lens.lens (\UpdateHoursOfOperation' {description} -> description) (\s@UpdateHoursOfOperation' {} a -> s {description = a} :: UpdateHoursOfOperation)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -161,8 +161,8 @@ instance Core.ToJSON UpdateHoursOfOperation where
       ( Prelude.catMaybes
           [ ("Config" Core..=) Prelude.<$> config,
             ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TimeZone" Core..=) Prelude.<$> timeZone
+            ("TimeZone" Core..=) Prelude.<$> timeZone,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 

@@ -47,8 +47,8 @@ module Network.AWS.LexModels.GetBots
     newGetBotsResponse,
 
     -- * Response Lenses
-    getBotsResponse_nextToken,
     getBotsResponse_bots,
+    getBotsResponse_nextToken,
     getBotsResponse_httpStatus,
   )
 where
@@ -149,8 +149,8 @@ instance Core.AWSRequest GetBots where
     Response.receiveJSON
       ( \s h x ->
           GetBotsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "bots" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "bots" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,11 +182,11 @@ instance Core.ToQuery GetBots where
 
 -- | /See:/ 'newGetBotsResponse' smart constructor.
 data GetBotsResponse = GetBotsResponse'
-  { -- | If the response is truncated, it includes a pagination token that you
+  { -- | An array of @botMetadata@ objects, with one entry for each bot.
+    bots :: Prelude.Maybe [BotMetadata],
+    -- | If the response is truncated, it includes a pagination token that you
     -- can specify in your next request to fetch the next page of bots.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @botMetadata@ objects, with one entry for each bot.
-    bots :: Prelude.Maybe [BotMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,10 +200,10 @@ data GetBotsResponse = GetBotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bots', 'getBotsResponse_bots' - An array of @botMetadata@ objects, with one entry for each bot.
+--
 -- 'nextToken', 'getBotsResponse_nextToken' - If the response is truncated, it includes a pagination token that you
 -- can specify in your next request to fetch the next page of bots.
---
--- 'bots', 'getBotsResponse_bots' - An array of @botMetadata@ objects, with one entry for each bot.
 --
 -- 'httpStatus', 'getBotsResponse_httpStatus' - The response's http status code.
 newGetBotsResponse ::
@@ -212,19 +212,19 @@ newGetBotsResponse ::
   GetBotsResponse
 newGetBotsResponse pHttpStatus_ =
   GetBotsResponse'
-    { nextToken = Prelude.Nothing,
-      bots = Prelude.Nothing,
+    { bots = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @botMetadata@ objects, with one entry for each bot.
+getBotsResponse_bots :: Lens.Lens' GetBotsResponse (Prelude.Maybe [BotMetadata])
+getBotsResponse_bots = Lens.lens (\GetBotsResponse' {bots} -> bots) (\s@GetBotsResponse' {} a -> s {bots = a} :: GetBotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the response is truncated, it includes a pagination token that you
 -- can specify in your next request to fetch the next page of bots.
 getBotsResponse_nextToken :: Lens.Lens' GetBotsResponse (Prelude.Maybe Prelude.Text)
 getBotsResponse_nextToken = Lens.lens (\GetBotsResponse' {nextToken} -> nextToken) (\s@GetBotsResponse' {} a -> s {nextToken = a} :: GetBotsResponse)
-
--- | An array of @botMetadata@ objects, with one entry for each bot.
-getBotsResponse_bots :: Lens.Lens' GetBotsResponse (Prelude.Maybe [BotMetadata])
-getBotsResponse_bots = Lens.lens (\GetBotsResponse' {bots} -> bots) (\s@GetBotsResponse' {} a -> s {bots = a} :: GetBotsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getBotsResponse_httpStatus :: Lens.Lens' GetBotsResponse Prelude.Int

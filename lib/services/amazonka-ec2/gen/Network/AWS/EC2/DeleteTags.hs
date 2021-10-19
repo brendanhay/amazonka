@@ -127,14 +127,14 @@ deleteTags_dryRun = Lens.lens (\DeleteTags' {dryRun} -> dryRun) (\s@DeleteTags' 
 -- specified resources. We do not delete Amazon Web Services-generated tags
 -- (tags that have the @aws:@ prefix).
 deleteTags_tags :: Lens.Lens' DeleteTags (Prelude.Maybe [Tag])
-deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens._Coerce
+deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
 -- request into smaller batches.
 deleteTags_resources :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_resources = Lens.lens (\DeleteTags' {resources} -> resources) (\s@DeleteTags' {} a -> s {resources = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_resources = Lens.lens (\DeleteTags' {resources} -> resources) (\s@DeleteTags' {} a -> s {resources = a} :: DeleteTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse

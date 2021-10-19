@@ -29,18 +29,18 @@ module Network.AWS.EKS.DescribeAddonVersions
     newDescribeAddonVersions,
 
     -- * Request Lenses
-    describeAddonVersions_nextToken,
-    describeAddonVersions_maxResults,
-    describeAddonVersions_kubernetesVersion,
     describeAddonVersions_addonName,
+    describeAddonVersions_nextToken,
+    describeAddonVersions_kubernetesVersion,
+    describeAddonVersions_maxResults,
 
     -- * Destructuring the Response
     DescribeAddonVersionsResponse (..),
     newDescribeAddonVersionsResponse,
 
     -- * Response Lenses
-    describeAddonVersionsResponse_nextToken,
     describeAddonVersionsResponse_addons,
+    describeAddonVersionsResponse_nextToken,
     describeAddonVersionsResponse_httpStatus,
   )
 where
@@ -54,7 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAddonVersions' smart constructor.
 data DescribeAddonVersions = DescribeAddonVersions'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | The name of the add-on. The name must match one of the names returned by
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
+    -- .
+    addonName :: Prelude.Maybe Prelude.Text,
+    -- | The @nextToken@ value returned from a previous paginated
     -- @DescribeAddonVersionsRequest@ where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
@@ -63,14 +67,10 @@ data DescribeAddonVersions = DescribeAddonVersions'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The Kubernetes versions that the add-on can be used with.
     kubernetesVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the add-on. The name must match one of the names returned by
-    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
-    -- .
-    addonName :: Prelude.Maybe Prelude.Text
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,6 +82,10 @@ data DescribeAddonVersions = DescribeAddonVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addonName', 'describeAddonVersions_addonName' - The name of the add-on. The name must match one of the names returned by
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
+-- .
+--
 -- 'nextToken', 'describeAddonVersions_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeAddonVersionsRequest@ where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
@@ -91,22 +95,24 @@ data DescribeAddonVersions = DescribeAddonVersions'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'maxResults', 'describeAddonVersions_maxResults' - The maximum number of results to return.
---
 -- 'kubernetesVersion', 'describeAddonVersions_kubernetesVersion' - The Kubernetes versions that the add-on can be used with.
 --
--- 'addonName', 'describeAddonVersions_addonName' - The name of the add-on. The name must match one of the names returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
--- .
+-- 'maxResults', 'describeAddonVersions_maxResults' - The maximum number of results to return.
 newDescribeAddonVersions ::
   DescribeAddonVersions
 newDescribeAddonVersions =
   DescribeAddonVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { addonName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       kubernetesVersion = Prelude.Nothing,
-      addonName = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | The name of the add-on. The name must match one of the names returned by
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
+-- .
+describeAddonVersions_addonName :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
+describeAddonVersions_addonName = Lens.lens (\DescribeAddonVersions' {addonName} -> addonName) (\s@DescribeAddonVersions' {} a -> s {addonName = a} :: DescribeAddonVersions)
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @DescribeAddonVersionsRequest@ where @maxResults@ was used and the
@@ -119,19 +125,13 @@ newDescribeAddonVersions =
 describeAddonVersions_nextToken :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
 describeAddonVersions_nextToken = Lens.lens (\DescribeAddonVersions' {nextToken} -> nextToken) (\s@DescribeAddonVersions' {} a -> s {nextToken = a} :: DescribeAddonVersions)
 
--- | The maximum number of results to return.
-describeAddonVersions_maxResults :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Natural)
-describeAddonVersions_maxResults = Lens.lens (\DescribeAddonVersions' {maxResults} -> maxResults) (\s@DescribeAddonVersions' {} a -> s {maxResults = a} :: DescribeAddonVersions)
-
 -- | The Kubernetes versions that the add-on can be used with.
 describeAddonVersions_kubernetesVersion :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
 describeAddonVersions_kubernetesVersion = Lens.lens (\DescribeAddonVersions' {kubernetesVersion} -> kubernetesVersion) (\s@DescribeAddonVersions' {} a -> s {kubernetesVersion = a} :: DescribeAddonVersions)
 
--- | The name of the add-on. The name must match one of the names returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
--- .
-describeAddonVersions_addonName :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Text)
-describeAddonVersions_addonName = Lens.lens (\DescribeAddonVersions' {addonName} -> addonName) (\s@DescribeAddonVersions' {} a -> s {addonName = a} :: DescribeAddonVersions)
+-- | The maximum number of results to return.
+describeAddonVersions_maxResults :: Lens.Lens' DescribeAddonVersions (Prelude.Maybe Prelude.Natural)
+describeAddonVersions_maxResults = Lens.lens (\DescribeAddonVersions' {maxResults} -> maxResults) (\s@DescribeAddonVersions' {} a -> s {maxResults = a} :: DescribeAddonVersions)
 
 instance Core.AWSPager DescribeAddonVersions where
   page rq rs
@@ -164,8 +164,8 @@ instance Core.AWSRequest DescribeAddonVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeAddonVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "addons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "addons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -190,15 +190,17 @@ instance Core.ToPath DescribeAddonVersions where
 instance Core.ToQuery DescribeAddonVersions where
   toQuery DescribeAddonVersions' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "addonName" Core.=: addonName,
+        "nextToken" Core.=: nextToken,
         "kubernetesVersion" Core.=: kubernetesVersion,
-        "addonName" Core.=: addonName
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeAddonVersionsResponse' smart constructor.
 data DescribeAddonVersionsResponse = DescribeAddonVersionsResponse'
-  { -- | The @nextToken@ value returned from a previous paginated
+  { -- | The list of available versions with Kubernetes version compatibility.
+    addons :: Prelude.Maybe [AddonInfo],
+    -- | The @nextToken@ value returned from a previous paginated
     -- @DescribeAddonVersionsResponse@ where @maxResults@ was used and the
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
@@ -207,8 +209,6 @@ data DescribeAddonVersionsResponse = DescribeAddonVersionsResponse'
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of available versions with Kubernetes version compatibility.
-    addons :: Prelude.Maybe [AddonInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,6 +222,8 @@ data DescribeAddonVersionsResponse = DescribeAddonVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addons', 'describeAddonVersionsResponse_addons' - The list of available versions with Kubernetes version compatibility.
+--
 -- 'nextToken', 'describeAddonVersionsResponse_nextToken' - The @nextToken@ value returned from a previous paginated
 -- @DescribeAddonVersionsResponse@ where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
@@ -231,8 +233,6 @@ data DescribeAddonVersionsResponse = DescribeAddonVersionsResponse'
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
 --
--- 'addons', 'describeAddonVersionsResponse_addons' - The list of available versions with Kubernetes version compatibility.
---
 -- 'httpStatus', 'describeAddonVersionsResponse_httpStatus' - The response's http status code.
 newDescribeAddonVersionsResponse ::
   -- | 'httpStatus'
@@ -240,11 +240,15 @@ newDescribeAddonVersionsResponse ::
   DescribeAddonVersionsResponse
 newDescribeAddonVersionsResponse pHttpStatus_ =
   DescribeAddonVersionsResponse'
-    { nextToken =
+    { addons =
         Prelude.Nothing,
-      addons = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of available versions with Kubernetes version compatibility.
+describeAddonVersionsResponse_addons :: Lens.Lens' DescribeAddonVersionsResponse (Prelude.Maybe [AddonInfo])
+describeAddonVersionsResponse_addons = Lens.lens (\DescribeAddonVersionsResponse' {addons} -> addons) (\s@DescribeAddonVersionsResponse' {} a -> s {addons = a} :: DescribeAddonVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @DescribeAddonVersionsResponse@ where @maxResults@ was used and the
@@ -256,10 +260,6 @@ newDescribeAddonVersionsResponse pHttpStatus_ =
 -- purposes.
 describeAddonVersionsResponse_nextToken :: Lens.Lens' DescribeAddonVersionsResponse (Prelude.Maybe Prelude.Text)
 describeAddonVersionsResponse_nextToken = Lens.lens (\DescribeAddonVersionsResponse' {nextToken} -> nextToken) (\s@DescribeAddonVersionsResponse' {} a -> s {nextToken = a} :: DescribeAddonVersionsResponse)
-
--- | The list of available versions with Kubernetes version compatibility.
-describeAddonVersionsResponse_addons :: Lens.Lens' DescribeAddonVersionsResponse (Prelude.Maybe [AddonInfo])
-describeAddonVersionsResponse_addons = Lens.lens (\DescribeAddonVersionsResponse' {addons} -> addons) (\s@DescribeAddonVersionsResponse' {} a -> s {addons = a} :: DescribeAddonVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeAddonVersionsResponse_httpStatus :: Lens.Lens' DescribeAddonVersionsResponse Prelude.Int

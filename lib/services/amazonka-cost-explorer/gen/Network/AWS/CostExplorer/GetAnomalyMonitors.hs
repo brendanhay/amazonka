@@ -29,9 +29,9 @@ module Network.AWS.CostExplorer.GetAnomalyMonitors
     newGetAnomalyMonitors,
 
     -- * Request Lenses
-    getAnomalyMonitors_maxResults,
     getAnomalyMonitors_nextPageToken,
     getAnomalyMonitors_monitorArnList,
+    getAnomalyMonitors_maxResults,
 
     -- * Destructuring the Response
     GetAnomalyMonitorsResponse (..),
@@ -53,14 +53,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAnomalyMonitors' smart constructor.
 data GetAnomalyMonitors = GetAnomalyMonitors'
-  { -- | The number of entries that a paginated response contains.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next set of results. Amazon Web Services
+  { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | A list of cost anomaly monitor ARNs.
-    monitorArnList :: Prelude.Maybe [Prelude.Text]
+    monitorArnList :: Prelude.Maybe [Prelude.Text],
+    -- | The number of entries that a paginated response contains.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,25 +72,22 @@ data GetAnomalyMonitors = GetAnomalyMonitors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'getAnomalyMonitors_maxResults' - The number of entries that a paginated response contains.
---
 -- 'nextPageToken', 'getAnomalyMonitors_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
 -- 'monitorArnList', 'getAnomalyMonitors_monitorArnList' - A list of cost anomaly monitor ARNs.
+--
+-- 'maxResults', 'getAnomalyMonitors_maxResults' - The number of entries that a paginated response contains.
 newGetAnomalyMonitors ::
   GetAnomalyMonitors
 newGetAnomalyMonitors =
   GetAnomalyMonitors'
-    { maxResults = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      monitorArnList = Prelude.Nothing
+    { nextPageToken =
+        Prelude.Nothing,
+      monitorArnList = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The number of entries that a paginated response contains.
-getAnomalyMonitors_maxResults :: Lens.Lens' GetAnomalyMonitors (Prelude.Maybe Prelude.Int)
-getAnomalyMonitors_maxResults = Lens.lens (\GetAnomalyMonitors' {maxResults} -> maxResults) (\s@GetAnomalyMonitors' {} a -> s {maxResults = a} :: GetAnomalyMonitors)
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
@@ -100,7 +97,11 @@ getAnomalyMonitors_nextPageToken = Lens.lens (\GetAnomalyMonitors' {nextPageToke
 
 -- | A list of cost anomaly monitor ARNs.
 getAnomalyMonitors_monitorArnList :: Lens.Lens' GetAnomalyMonitors (Prelude.Maybe [Prelude.Text])
-getAnomalyMonitors_monitorArnList = Lens.lens (\GetAnomalyMonitors' {monitorArnList} -> monitorArnList) (\s@GetAnomalyMonitors' {} a -> s {monitorArnList = a} :: GetAnomalyMonitors) Prelude.. Lens.mapping Lens._Coerce
+getAnomalyMonitors_monitorArnList = Lens.lens (\GetAnomalyMonitors' {monitorArnList} -> monitorArnList) (\s@GetAnomalyMonitors' {} a -> s {monitorArnList = a} :: GetAnomalyMonitors) Prelude.. Lens.mapping Lens.coerced
+
+-- | The number of entries that a paginated response contains.
+getAnomalyMonitors_maxResults :: Lens.Lens' GetAnomalyMonitors (Prelude.Maybe Prelude.Int)
+getAnomalyMonitors_maxResults = Lens.lens (\GetAnomalyMonitors' {maxResults} -> maxResults) (\s@GetAnomalyMonitors' {} a -> s {maxResults = a} :: GetAnomalyMonitors)
 
 instance Core.AWSRequest GetAnomalyMonitors where
   type
@@ -141,10 +142,10 @@ instance Core.ToJSON GetAnomalyMonitors where
   toJSON GetAnomalyMonitors' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
+          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("MonitorArnList" Core..=)
-              Prelude.<$> monitorArnList
+              Prelude.<$> monitorArnList,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -209,6 +210,6 @@ getAnomalyMonitorsResponse_httpStatus = Lens.lens (\GetAnomalyMonitorsResponse' 
 -- | A list of cost anomaly monitors that includes the detailed metadata for
 -- each monitor.
 getAnomalyMonitorsResponse_anomalyMonitors :: Lens.Lens' GetAnomalyMonitorsResponse [AnomalyMonitor]
-getAnomalyMonitorsResponse_anomalyMonitors = Lens.lens (\GetAnomalyMonitorsResponse' {anomalyMonitors} -> anomalyMonitors) (\s@GetAnomalyMonitorsResponse' {} a -> s {anomalyMonitors = a} :: GetAnomalyMonitorsResponse) Prelude.. Lens._Coerce
+getAnomalyMonitorsResponse_anomalyMonitors = Lens.lens (\GetAnomalyMonitorsResponse' {anomalyMonitors} -> anomalyMonitors) (\s@GetAnomalyMonitorsResponse' {} a -> s {anomalyMonitors = a} :: GetAnomalyMonitorsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetAnomalyMonitorsResponse

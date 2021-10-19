@@ -35,15 +35,15 @@ import Network.AWS.Transcribe.Types.SentimentValue
 --
 -- /See:/ 'newSentimentFilter' smart constructor.
 data SentimentFilter = SentimentFilter'
-  { -- | The time range, set in percentages, that correspond to proportion of the
+  { -- | A value that determines whether the sentiment belongs to the customer or
+    -- the agent.
+    participantRole :: Prelude.Maybe ParticipantRole,
+    -- | The time range, set in percentages, that correspond to proportion of the
     -- call.
     relativeTimeRange :: Prelude.Maybe RelativeTimeRange,
     -- | Set to @TRUE@ to look for sentiments that weren\'t specified in the
     -- request.
     negate :: Prelude.Maybe Prelude.Bool,
-    -- | A value that determines whether the sentiment belongs to the customer or
-    -- the agent.
-    participantRole :: Prelude.Maybe ParticipantRole,
     -- | The time range, measured in seconds, of the sentiment.
     absoluteTimeRange :: Prelude.Maybe AbsoluteTimeRange,
     -- | An array that enables you to specify sentiments for the customer or
@@ -60,14 +60,14 @@ data SentimentFilter = SentimentFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'participantRole', 'sentimentFilter_participantRole' - A value that determines whether the sentiment belongs to the customer or
+-- the agent.
+--
 -- 'relativeTimeRange', 'sentimentFilter_relativeTimeRange' - The time range, set in percentages, that correspond to proportion of the
 -- call.
 --
 -- 'negate', 'sentimentFilter_negate' - Set to @TRUE@ to look for sentiments that weren\'t specified in the
 -- request.
---
--- 'participantRole', 'sentimentFilter_participantRole' - A value that determines whether the sentiment belongs to the customer or
--- the agent.
 --
 -- 'absoluteTimeRange', 'sentimentFilter_absoluteTimeRange' - The time range, measured in seconds, of the sentiment.
 --
@@ -79,13 +79,17 @@ newSentimentFilter ::
   SentimentFilter
 newSentimentFilter pSentiments_ =
   SentimentFilter'
-    { relativeTimeRange =
-        Prelude.Nothing,
+    { participantRole = Prelude.Nothing,
+      relativeTimeRange = Prelude.Nothing,
       negate = Prelude.Nothing,
-      participantRole = Prelude.Nothing,
       absoluteTimeRange = Prelude.Nothing,
-      sentiments = Lens._Coerce Lens.# pSentiments_
+      sentiments = Lens.coerced Lens.# pSentiments_
     }
+
+-- | A value that determines whether the sentiment belongs to the customer or
+-- the agent.
+sentimentFilter_participantRole :: Lens.Lens' SentimentFilter (Prelude.Maybe ParticipantRole)
+sentimentFilter_participantRole = Lens.lens (\SentimentFilter' {participantRole} -> participantRole) (\s@SentimentFilter' {} a -> s {participantRole = a} :: SentimentFilter)
 
 -- | The time range, set in percentages, that correspond to proportion of the
 -- call.
@@ -97,11 +101,6 @@ sentimentFilter_relativeTimeRange = Lens.lens (\SentimentFilter' {relativeTimeRa
 sentimentFilter_negate :: Lens.Lens' SentimentFilter (Prelude.Maybe Prelude.Bool)
 sentimentFilter_negate = Lens.lens (\SentimentFilter' {negate} -> negate) (\s@SentimentFilter' {} a -> s {negate = a} :: SentimentFilter)
 
--- | A value that determines whether the sentiment belongs to the customer or
--- the agent.
-sentimentFilter_participantRole :: Lens.Lens' SentimentFilter (Prelude.Maybe ParticipantRole)
-sentimentFilter_participantRole = Lens.lens (\SentimentFilter' {participantRole} -> participantRole) (\s@SentimentFilter' {} a -> s {participantRole = a} :: SentimentFilter)
-
 -- | The time range, measured in seconds, of the sentiment.
 sentimentFilter_absoluteTimeRange :: Lens.Lens' SentimentFilter (Prelude.Maybe AbsoluteTimeRange)
 sentimentFilter_absoluteTimeRange = Lens.lens (\SentimentFilter' {absoluteTimeRange} -> absoluteTimeRange) (\s@SentimentFilter' {} a -> s {absoluteTimeRange = a} :: SentimentFilter)
@@ -109,7 +108,7 @@ sentimentFilter_absoluteTimeRange = Lens.lens (\SentimentFilter' {absoluteTimeRa
 -- | An array that enables you to specify sentiments for the customer or
 -- agent. You can specify one or more values.
 sentimentFilter_sentiments :: Lens.Lens' SentimentFilter (Prelude.NonEmpty SentimentValue)
-sentimentFilter_sentiments = Lens.lens (\SentimentFilter' {sentiments} -> sentiments) (\s@SentimentFilter' {} a -> s {sentiments = a} :: SentimentFilter) Prelude.. Lens._Coerce
+sentimentFilter_sentiments = Lens.lens (\SentimentFilter' {sentiments} -> sentiments) (\s@SentimentFilter' {} a -> s {sentiments = a} :: SentimentFilter) Prelude.. Lens.coerced
 
 instance Core.FromJSON SentimentFilter where
   parseJSON =
@@ -117,9 +116,9 @@ instance Core.FromJSON SentimentFilter where
       "SentimentFilter"
       ( \x ->
           SentimentFilter'
-            Prelude.<$> (x Core..:? "RelativeTimeRange")
+            Prelude.<$> (x Core..:? "ParticipantRole")
+            Prelude.<*> (x Core..:? "RelativeTimeRange")
             Prelude.<*> (x Core..:? "Negate")
-            Prelude.<*> (x Core..:? "ParticipantRole")
             Prelude.<*> (x Core..:? "AbsoluteTimeRange")
             Prelude.<*> (x Core..: "Sentiments")
       )
@@ -132,11 +131,11 @@ instance Core.ToJSON SentimentFilter where
   toJSON SentimentFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RelativeTimeRange" Core..=)
+          [ ("ParticipantRole" Core..=)
+              Prelude.<$> participantRole,
+            ("RelativeTimeRange" Core..=)
               Prelude.<$> relativeTimeRange,
             ("Negate" Core..=) Prelude.<$> negate,
-            ("ParticipantRole" Core..=)
-              Prelude.<$> participantRole,
             ("AbsoluteTimeRange" Core..=)
               Prelude.<$> absoluteTimeRange,
             Prelude.Just ("Sentiments" Core..= sentiments)

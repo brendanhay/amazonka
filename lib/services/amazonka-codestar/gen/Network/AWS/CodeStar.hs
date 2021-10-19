@@ -77,17 +77,29 @@ module Network.AWS.CodeStar
     -- ** TeamMemberAlreadyAssociatedException
     _TeamMemberAlreadyAssociatedException,
 
-    -- ** ProjectAlreadyExistsException
-    _ProjectAlreadyExistsException,
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InvalidServiceRoleException
+    _InvalidServiceRoleException,
+
+    -- ** ProjectCreationFailedException
+    _ProjectCreationFailedException,
+
+    -- ** UserProfileAlreadyExistsException
+    _UserProfileAlreadyExistsException,
 
     -- ** ProjectNotFoundException
     _ProjectNotFoundException,
 
-    -- ** UserProfileNotFoundException
-    _UserProfileNotFoundException,
+    -- ** TeamMemberNotFoundException
+    _TeamMemberNotFoundException,
 
-    -- ** ProjectCreationFailedException
-    _ProjectCreationFailedException,
+    -- ** ProjectAlreadyExistsException
+    _ProjectAlreadyExistsException,
+
+    -- ** ProjectConfigurationException
+    _ProjectConfigurationException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
@@ -95,23 +107,11 @@ module Network.AWS.CodeStar
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
-    -- ** ProjectConfigurationException
-    _ProjectConfigurationException,
-
-    -- ** InvalidServiceRoleException
-    _InvalidServiceRoleException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** TeamMemberNotFoundException
-    _TeamMemberNotFoundException,
+    -- ** UserProfileNotFoundException
+    _UserProfileNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
-
-    -- ** UserProfileAlreadyExistsException
-    _UserProfileAlreadyExistsException,
 
     -- * Waiters
     -- $waiters
@@ -119,77 +119,11 @@ module Network.AWS.CodeStar
     -- * Operations
     -- $operations
 
-    -- ** DescribeUserProfile
-    DescribeUserProfile (DescribeUserProfile'),
-    newDescribeUserProfile,
-    DescribeUserProfileResponse (DescribeUserProfileResponse'),
-    newDescribeUserProfileResponse,
-
-    -- ** TagProject
-    TagProject (TagProject'),
-    newTagProject,
-    TagProjectResponse (TagProjectResponse'),
-    newTagProjectResponse,
-
-    -- ** DisassociateTeamMember
-    DisassociateTeamMember (DisassociateTeamMember'),
-    newDisassociateTeamMember,
-    DisassociateTeamMemberResponse (DisassociateTeamMemberResponse'),
-    newDisassociateTeamMemberResponse,
-
     -- ** ListProjects (Paginated)
     ListProjects (ListProjects'),
     newListProjects,
     ListProjectsResponse (ListProjectsResponse'),
     newListProjectsResponse,
-
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
-
-    -- ** UpdateUserProfile
-    UpdateUserProfile (UpdateUserProfile'),
-    newUpdateUserProfile,
-    UpdateUserProfileResponse (UpdateUserProfileResponse'),
-    newUpdateUserProfileResponse,
-
-    -- ** ListUserProfiles (Paginated)
-    ListUserProfiles (ListUserProfiles'),
-    newListUserProfiles,
-    ListUserProfilesResponse (ListUserProfilesResponse'),
-    newListUserProfilesResponse,
-
-    -- ** DeleteUserProfile
-    DeleteUserProfile (DeleteUserProfile'),
-    newDeleteUserProfile,
-    DeleteUserProfileResponse (DeleteUserProfileResponse'),
-    newDeleteUserProfileResponse,
-
-    -- ** ListTagsForProject
-    ListTagsForProject (ListTagsForProject'),
-    newListTagsForProject,
-    ListTagsForProjectResponse (ListTagsForProjectResponse'),
-    newListTagsForProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UntagProject
-    UntagProject (UntagProject'),
-    newUntagProject,
-    UntagProjectResponse (UntagProjectResponse'),
-    newUntagProjectResponse,
 
     -- ** ListTeamMembers (Paginated)
     ListTeamMembers (ListTeamMembers'),
@@ -197,23 +131,41 @@ module Network.AWS.CodeStar
     ListTeamMembersResponse (ListTeamMembersResponse'),
     newListTeamMembersResponse,
 
-    -- ** UpdateTeamMember
-    UpdateTeamMember (UpdateTeamMember'),
-    newUpdateTeamMember,
-    UpdateTeamMemberResponse (UpdateTeamMemberResponse'),
-    newUpdateTeamMemberResponse,
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
 
-    -- ** AssociateTeamMember
-    AssociateTeamMember (AssociateTeamMember'),
-    newAssociateTeamMember,
-    AssociateTeamMemberResponse (AssociateTeamMemberResponse'),
-    newAssociateTeamMemberResponse,
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
 
-    -- ** CreateUserProfile
-    CreateUserProfile (CreateUserProfile'),
-    newCreateUserProfile,
-    CreateUserProfileResponse (CreateUserProfileResponse'),
-    newCreateUserProfileResponse,
+    -- ** DisassociateTeamMember
+    DisassociateTeamMember (DisassociateTeamMember'),
+    newDisassociateTeamMember,
+    DisassociateTeamMemberResponse (DisassociateTeamMemberResponse'),
+    newDisassociateTeamMemberResponse,
+
+    -- ** TagProject
+    TagProject (TagProject'),
+    newTagProject,
+    TagProjectResponse (TagProjectResponse'),
+    newTagProjectResponse,
+
+    -- ** DescribeProject
+    DescribeProject (DescribeProject'),
+    newDescribeProject,
+    DescribeProjectResponse (DescribeProjectResponse'),
+    newDescribeProjectResponse,
+
+    -- ** ListUserProfiles (Paginated)
+    ListUserProfiles (ListUserProfiles'),
+    newListUserProfiles,
+    ListUserProfilesResponse (ListUserProfilesResponse'),
+    newListUserProfilesResponse,
 
     -- ** ListResources (Paginated)
     ListResources (ListResources'),
@@ -221,11 +173,59 @@ module Network.AWS.CodeStar
     ListResourcesResponse (ListResourcesResponse'),
     newListResourcesResponse,
 
-    -- ** DescribeProject
-    DescribeProject (DescribeProject'),
-    newDescribeProject,
-    DescribeProjectResponse (DescribeProjectResponse'),
-    newDescribeProjectResponse,
+    -- ** AssociateTeamMember
+    AssociateTeamMember (AssociateTeamMember'),
+    newAssociateTeamMember,
+    AssociateTeamMemberResponse (AssociateTeamMemberResponse'),
+    newAssociateTeamMemberResponse,
+
+    -- ** UntagProject
+    UntagProject (UntagProject'),
+    newUntagProject,
+    UntagProjectResponse (UntagProjectResponse'),
+    newUntagProjectResponse,
+
+    -- ** UpdateTeamMember
+    UpdateTeamMember (UpdateTeamMember'),
+    newUpdateTeamMember,
+    UpdateTeamMemberResponse (UpdateTeamMemberResponse'),
+    newUpdateTeamMemberResponse,
+
+    -- ** DescribeUserProfile
+    DescribeUserProfile (DescribeUserProfile'),
+    newDescribeUserProfile,
+    DescribeUserProfileResponse (DescribeUserProfileResponse'),
+    newDescribeUserProfileResponse,
+
+    -- ** ListTagsForProject
+    ListTagsForProject (ListTagsForProject'),
+    newListTagsForProject,
+    ListTagsForProjectResponse (ListTagsForProjectResponse'),
+    newListTagsForProjectResponse,
+
+    -- ** DeleteUserProfile
+    DeleteUserProfile (DeleteUserProfile'),
+    newDeleteUserProfile,
+    DeleteUserProfileResponse (DeleteUserProfileResponse'),
+    newDeleteUserProfileResponse,
+
+    -- ** UpdateUserProfile
+    UpdateUserProfile (UpdateUserProfile'),
+    newUpdateUserProfile,
+    UpdateUserProfileResponse (UpdateUserProfileResponse'),
+    newUpdateUserProfileResponse,
+
+    -- ** CreateUserProfile
+    CreateUserProfile (CreateUserProfile'),
+    newCreateUserProfile,
+    CreateUserProfileResponse (CreateUserProfileResponse'),
+    newCreateUserProfileResponse,
+
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- * Types
 

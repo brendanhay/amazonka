@@ -104,7 +104,7 @@ newCreateLocalGatewayRouteTableVpcAssociation
 
 -- | The tags to assign to the local gateway route table VPC association.
 createLocalGatewayRouteTableVpcAssociation_tagSpecifications :: Lens.Lens' CreateLocalGatewayRouteTableVpcAssociation (Prelude.Maybe [TagSpecification])
-createLocalGatewayRouteTableVpcAssociation_tagSpecifications = Lens.lens (\CreateLocalGatewayRouteTableVpcAssociation' {tagSpecifications} -> tagSpecifications) (\s@CreateLocalGatewayRouteTableVpcAssociation' {} a -> s {tagSpecifications = a} :: CreateLocalGatewayRouteTableVpcAssociation) Prelude.. Lens.mapping Lens._Coerce
+createLocalGatewayRouteTableVpcAssociation_tagSpecifications = Lens.lens (\CreateLocalGatewayRouteTableVpcAssociation' {tagSpecifications} -> tagSpecifications) (\s@CreateLocalGatewayRouteTableVpcAssociation' {} a -> s {tagSpecifications = a} :: CreateLocalGatewayRouteTableVpcAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

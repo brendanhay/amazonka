@@ -244,7 +244,7 @@ newDescribeTapeRecoveryPointsResponse pHttpStatus_ =
 -- | An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
 describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Prelude.Maybe [TapeRecoveryPointInfo])
-describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos = Lens.lens (\DescribeTapeRecoveryPointsResponse' {tapeRecoveryPointInfos} -> tapeRecoveryPointInfos) (\s@DescribeTapeRecoveryPointsResponse' {} a -> s {tapeRecoveryPointInfos = a} :: DescribeTapeRecoveryPointsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTapeRecoveryPointsResponse_tapeRecoveryPointInfos = Lens.lens (\DescribeTapeRecoveryPointsResponse' {tapeRecoveryPointInfos} -> tapeRecoveryPointInfos) (\s@DescribeTapeRecoveryPointsResponse' {} a -> s {tapeRecoveryPointInfos = a} :: DescribeTapeRecoveryPointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeTapeRecoveryPointsResponse_gatewayARN :: Lens.Lens' DescribeTapeRecoveryPointsResponse (Prelude.Maybe Prelude.Text)

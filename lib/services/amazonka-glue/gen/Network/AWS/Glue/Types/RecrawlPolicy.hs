@@ -41,6 +41,9 @@ data RecrawlPolicy = RecrawlPolicy'
     --
     -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that
     -- were added since the last crawler run.
+    --
+    -- A value of @CRAWL_EVENT_MODE@ specifies crawling only the changes
+    -- identified by Amazon S3 events.
     recrawlBehavior :: Prelude.Maybe RecrawlBehavior
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,6 +64,9 @@ data RecrawlPolicy = RecrawlPolicy'
 --
 -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that
 -- were added since the last crawler run.
+--
+-- A value of @CRAWL_EVENT_MODE@ specifies crawling only the changes
+-- identified by Amazon S3 events.
 newRecrawlPolicy ::
   RecrawlPolicy
 newRecrawlPolicy =
@@ -74,6 +80,9 @@ newRecrawlPolicy =
 --
 -- A value of @CRAWL_NEW_FOLDERS_ONLY@ specifies crawling only folders that
 -- were added since the last crawler run.
+--
+-- A value of @CRAWL_EVENT_MODE@ specifies crawling only the changes
+-- identified by Amazon S3 events.
 recrawlPolicy_recrawlBehavior :: Lens.Lens' RecrawlPolicy (Prelude.Maybe RecrawlBehavior)
 recrawlPolicy_recrawlBehavior = Lens.lens (\RecrawlPolicy' {recrawlBehavior} -> recrawlBehavior) (\s@RecrawlPolicy' {} a -> s {recrawlBehavior = a} :: RecrawlPolicy)
 

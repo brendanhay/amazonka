@@ -60,7 +60,7 @@ resourceTag_resourceId = Lens.lens (\ResourceTag' {resourceId} -> resourceId) (\
 
 -- | A list of tags.
 resourceTag_tagsList :: Lens.Lens' ResourceTag (Prelude.Maybe [Tag])
-resourceTag_tagsList = Lens.lens (\ResourceTag' {tagsList} -> tagsList) (\s@ResourceTag' {} a -> s {tagsList = a} :: ResourceTag) Prelude.. Lens.mapping Lens._Coerce
+resourceTag_tagsList = Lens.lens (\ResourceTag' {tagsList} -> tagsList) (\s@ResourceTag' {} a -> s {tagsList = a} :: ResourceTag) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ResourceTag where
   parseJSON =

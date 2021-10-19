@@ -92,7 +92,7 @@ newDocumentReaderConfig pDocumentReadAction_ =
 
 -- | Specifies how the text in an input file should be processed:
 documentReaderConfig_featureTypes :: Lens.Lens' DocumentReaderConfig (Prelude.Maybe (Prelude.NonEmpty DocumentReadFeatureTypes))
-documentReaderConfig_featureTypes = Lens.lens (\DocumentReaderConfig' {featureTypes} -> featureTypes) (\s@DocumentReaderConfig' {} a -> s {featureTypes = a} :: DocumentReaderConfig) Prelude.. Lens.mapping Lens._Coerce
+documentReaderConfig_featureTypes = Lens.lens (\DocumentReaderConfig' {featureTypes} -> featureTypes) (\s@DocumentReaderConfig' {} a -> s {featureTypes = a} :: DocumentReaderConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | This enum field provides two values:
 --

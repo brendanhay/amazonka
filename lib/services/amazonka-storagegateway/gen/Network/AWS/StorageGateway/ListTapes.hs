@@ -118,7 +118,7 @@ listTapes_limit = Lens.lens (\ListTapes' {limit} -> limit) (\s@ListTapes' {} a -
 
 -- | Undocumented member.
 listTapes_tapeARNs :: Lens.Lens' ListTapes (Prelude.Maybe [Prelude.Text])
-listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens._Coerce
+listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListTapes where
   page rq rs
@@ -241,7 +241,7 @@ listTapesResponse_marker = Lens.lens (\ListTapesResponse' {marker} -> marker) (\
 
 -- | Undocumented member.
 listTapesResponse_tapeInfos :: Lens.Lens' ListTapesResponse (Prelude.Maybe [TapeInfo])
-listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tapeInfos) (\s@ListTapesResponse' {} a -> s {tapeInfos = a} :: ListTapesResponse) Prelude.. Lens.mapping Lens._Coerce
+listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tapeInfos) (\s@ListTapesResponse' {} a -> s {tapeInfos = a} :: ListTapesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTapesResponse_httpStatus :: Lens.Lens' ListTapesResponse Prelude.Int

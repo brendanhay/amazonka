@@ -41,8 +41,8 @@ module Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
     newAssociateQualificationWithWorker,
 
     -- * Request Lenses
-    associateQualificationWithWorker_sendNotification,
     associateQualificationWithWorker_integerValue,
+    associateQualificationWithWorker_sendNotification,
     associateQualificationWithWorker_qualificationTypeId,
     associateQualificationWithWorker_workerId,
 
@@ -64,12 +64,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateQualificationWithWorker' smart constructor.
 data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
-  { -- | Specifies whether to send a notification email message to the Worker
+  { -- | The value of the Qualification to assign.
+    integerValue :: Prelude.Maybe Prelude.Int,
+    -- | Specifies whether to send a notification email message to the Worker
     -- saying that the qualification was assigned to the Worker. Note: this is
     -- true by default.
     sendNotification :: Prelude.Maybe Prelude.Bool,
-    -- | The value of the Qualification to assign.
-    integerValue :: Prelude.Maybe Prelude.Int,
     -- | The ID of the Qualification type to use for the assigned Qualification.
     qualificationTypeId :: Prelude.Text,
     -- | The ID of the Worker to whom the Qualification is being assigned. Worker
@@ -87,11 +87,11 @@ data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'integerValue', 'associateQualificationWithWorker_integerValue' - The value of the Qualification to assign.
+--
 -- 'sendNotification', 'associateQualificationWithWorker_sendNotification' - Specifies whether to send a notification email message to the Worker
 -- saying that the qualification was assigned to the Worker. Note: this is
 -- true by default.
---
--- 'integerValue', 'associateQualificationWithWorker_integerValue' - The value of the Qualification to assign.
 --
 -- 'qualificationTypeId', 'associateQualificationWithWorker_qualificationTypeId' - The ID of the Qualification type to use for the assigned Qualification.
 --
@@ -108,23 +108,23 @@ newAssociateQualificationWithWorker
   pQualificationTypeId_
   pWorkerId_ =
     AssociateQualificationWithWorker'
-      { sendNotification =
+      { integerValue =
           Prelude.Nothing,
-        integerValue = Prelude.Nothing,
+        sendNotification = Prelude.Nothing,
         qualificationTypeId =
           pQualificationTypeId_,
         workerId = pWorkerId_
       }
+
+-- | The value of the Qualification to assign.
+associateQualificationWithWorker_integerValue :: Lens.Lens' AssociateQualificationWithWorker (Prelude.Maybe Prelude.Int)
+associateQualificationWithWorker_integerValue = Lens.lens (\AssociateQualificationWithWorker' {integerValue} -> integerValue) (\s@AssociateQualificationWithWorker' {} a -> s {integerValue = a} :: AssociateQualificationWithWorker)
 
 -- | Specifies whether to send a notification email message to the Worker
 -- saying that the qualification was assigned to the Worker. Note: this is
 -- true by default.
 associateQualificationWithWorker_sendNotification :: Lens.Lens' AssociateQualificationWithWorker (Prelude.Maybe Prelude.Bool)
 associateQualificationWithWorker_sendNotification = Lens.lens (\AssociateQualificationWithWorker' {sendNotification} -> sendNotification) (\s@AssociateQualificationWithWorker' {} a -> s {sendNotification = a} :: AssociateQualificationWithWorker)
-
--- | The value of the Qualification to assign.
-associateQualificationWithWorker_integerValue :: Lens.Lens' AssociateQualificationWithWorker (Prelude.Maybe Prelude.Int)
-associateQualificationWithWorker_integerValue = Lens.lens (\AssociateQualificationWithWorker' {integerValue} -> integerValue) (\s@AssociateQualificationWithWorker' {} a -> s {integerValue = a} :: AssociateQualificationWithWorker)
 
 -- | The ID of the Qualification type to use for the assigned Qualification.
 associateQualificationWithWorker_qualificationTypeId :: Lens.Lens' AssociateQualificationWithWorker Prelude.Text
@@ -181,9 +181,9 @@ instance Core.ToJSON AssociateQualificationWithWorker where
   toJSON AssociateQualificationWithWorker' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SendNotification" Core..=)
+          [ ("IntegerValue" Core..=) Prelude.<$> integerValue,
+            ("SendNotification" Core..=)
               Prelude.<$> sendNotification,
-            ("IntegerValue" Core..=) Prelude.<$> integerValue,
             Prelude.Just
               ("QualificationTypeId" Core..= qualificationTypeId),
             Prelude.Just ("WorkerId" Core..= workerId)

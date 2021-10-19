@@ -188,7 +188,7 @@ newListResourcesForWebACLResponse pHttpStatus_ =
 -- with the specified web ACL. An array with zero elements is returned if
 -- there are no resources associated with the web ACL.
 listResourcesForWebACLResponse_resourceArns :: Lens.Lens' ListResourcesForWebACLResponse (Prelude.Maybe [Prelude.Text])
-listResourcesForWebACLResponse_resourceArns = Lens.lens (\ListResourcesForWebACLResponse' {resourceArns} -> resourceArns) (\s@ListResourcesForWebACLResponse' {} a -> s {resourceArns = a} :: ListResourcesForWebACLResponse) Prelude.. Lens.mapping Lens._Coerce
+listResourcesForWebACLResponse_resourceArns = Lens.lens (\ListResourcesForWebACLResponse' {resourceArns} -> resourceArns) (\s@ListResourcesForWebACLResponse' {} a -> s {resourceArns = a} :: ListResourcesForWebACLResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourcesForWebACLResponse_httpStatus :: Lens.Lens' ListResourcesForWebACLResponse Prelude.Int

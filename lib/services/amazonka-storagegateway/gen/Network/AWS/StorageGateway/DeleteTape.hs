@@ -60,7 +60,8 @@ data DeleteTape = DeleteTape'
     bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
     -- tape to delete is associated with. Use the ListGateways operation to
-    -- return a list of gateways for your account and Region.
+    -- return a list of gateways for your account and Amazon Web Services
+    -- Region.
     gatewayARN :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
     tapeARN :: Prelude.Text
@@ -82,7 +83,8 @@ data DeleteTape = DeleteTape'
 --
 -- 'gatewayARN', 'deleteTape_gatewayARN' - The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
--- return a list of gateways for your account and Region.
+-- return a list of gateways for your account and Amazon Web Services
+-- Region.
 --
 -- 'tapeARN', 'deleteTape_tapeARN' - The Amazon Resource Name (ARN) of the virtual tape to delete.
 newDeleteTape ::
@@ -108,7 +110,8 @@ deleteTape_bypassGovernanceRetention = Lens.lens (\DeleteTape' {bypassGovernance
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
--- return a list of gateways for your account and Region.
+-- return a list of gateways for your account and Amazon Web Services
+-- Region.
 deleteTape_gatewayARN :: Lens.Lens' DeleteTape Prelude.Text
 deleteTape_gatewayARN = Lens.lens (\DeleteTape' {gatewayARN} -> gatewayARN) (\s@DeleteTape' {} a -> s {gatewayARN = a} :: DeleteTape)
 

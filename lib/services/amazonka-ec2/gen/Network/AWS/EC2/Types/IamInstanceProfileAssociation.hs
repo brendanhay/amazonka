@@ -31,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newIamInstanceProfileAssociation' smart constructor.
 data IamInstanceProfileAssociation = IamInstanceProfileAssociation'
-  { -- | The ID of the instance.
+  { -- | The ID of the association.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The IAM instance profile.
-    iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
     -- | The state of the association.
     state :: Prelude.Maybe IamInstanceProfileAssociationState,
-    -- | The ID of the association.
-    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The IAM instance profile.
+    iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
     -- | The time the IAM instance profile was associated with the instance.
     timestamp :: Prelude.Maybe Core.ISO8601
   }
@@ -52,42 +52,42 @@ data IamInstanceProfileAssociation = IamInstanceProfileAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'iamInstanceProfileAssociation_instanceId' - The ID of the instance.
+-- 'associationId', 'iamInstanceProfileAssociation_associationId' - The ID of the association.
 --
--- 'iamInstanceProfile', 'iamInstanceProfileAssociation_iamInstanceProfile' - The IAM instance profile.
+-- 'instanceId', 'iamInstanceProfileAssociation_instanceId' - The ID of the instance.
 --
 -- 'state', 'iamInstanceProfileAssociation_state' - The state of the association.
 --
--- 'associationId', 'iamInstanceProfileAssociation_associationId' - The ID of the association.
+-- 'iamInstanceProfile', 'iamInstanceProfileAssociation_iamInstanceProfile' - The IAM instance profile.
 --
 -- 'timestamp', 'iamInstanceProfileAssociation_timestamp' - The time the IAM instance profile was associated with the instance.
 newIamInstanceProfileAssociation ::
   IamInstanceProfileAssociation
 newIamInstanceProfileAssociation =
   IamInstanceProfileAssociation'
-    { instanceId =
+    { associationId =
         Prelude.Nothing,
-      iamInstanceProfile = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
       state = Prelude.Nothing,
-      associationId = Prelude.Nothing,
+      iamInstanceProfile = Prelude.Nothing,
       timestamp = Prelude.Nothing
     }
+
+-- | The ID of the association.
+iamInstanceProfileAssociation_associationId :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.Text)
+iamInstanceProfileAssociation_associationId = Lens.lens (\IamInstanceProfileAssociation' {associationId} -> associationId) (\s@IamInstanceProfileAssociation' {} a -> s {associationId = a} :: IamInstanceProfileAssociation)
 
 -- | The ID of the instance.
 iamInstanceProfileAssociation_instanceId :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.Text)
 iamInstanceProfileAssociation_instanceId = Lens.lens (\IamInstanceProfileAssociation' {instanceId} -> instanceId) (\s@IamInstanceProfileAssociation' {} a -> s {instanceId = a} :: IamInstanceProfileAssociation)
 
--- | The IAM instance profile.
-iamInstanceProfileAssociation_iamInstanceProfile :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe IamInstanceProfile)
-iamInstanceProfileAssociation_iamInstanceProfile = Lens.lens (\IamInstanceProfileAssociation' {iamInstanceProfile} -> iamInstanceProfile) (\s@IamInstanceProfileAssociation' {} a -> s {iamInstanceProfile = a} :: IamInstanceProfileAssociation)
-
 -- | The state of the association.
 iamInstanceProfileAssociation_state :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe IamInstanceProfileAssociationState)
 iamInstanceProfileAssociation_state = Lens.lens (\IamInstanceProfileAssociation' {state} -> state) (\s@IamInstanceProfileAssociation' {} a -> s {state = a} :: IamInstanceProfileAssociation)
 
--- | The ID of the association.
-iamInstanceProfileAssociation_associationId :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.Text)
-iamInstanceProfileAssociation_associationId = Lens.lens (\IamInstanceProfileAssociation' {associationId} -> associationId) (\s@IamInstanceProfileAssociation' {} a -> s {associationId = a} :: IamInstanceProfileAssociation)
+-- | The IAM instance profile.
+iamInstanceProfileAssociation_iamInstanceProfile :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe IamInstanceProfile)
+iamInstanceProfileAssociation_iamInstanceProfile = Lens.lens (\IamInstanceProfileAssociation' {iamInstanceProfile} -> iamInstanceProfile) (\s@IamInstanceProfileAssociation' {} a -> s {iamInstanceProfile = a} :: IamInstanceProfileAssociation)
 
 -- | The time the IAM instance profile was associated with the instance.
 iamInstanceProfileAssociation_timestamp :: Lens.Lens' IamInstanceProfileAssociation (Prelude.Maybe Prelude.UTCTime)
@@ -96,10 +96,10 @@ iamInstanceProfileAssociation_timestamp = Lens.lens (\IamInstanceProfileAssociat
 instance Core.FromXML IamInstanceProfileAssociation where
   parseXML x =
     IamInstanceProfileAssociation'
-      Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "iamInstanceProfile")
+      Prelude.<$> (x Core..@? "associationId")
+      Prelude.<*> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "state")
-      Prelude.<*> (x Core..@? "associationId")
+      Prelude.<*> (x Core..@? "iamInstanceProfile")
       Prelude.<*> (x Core..@? "timestamp")
 
 instance

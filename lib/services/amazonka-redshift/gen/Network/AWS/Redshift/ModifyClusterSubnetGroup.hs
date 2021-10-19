@@ -101,7 +101,7 @@ modifyClusterSubnetGroup_clusterSubnetGroupName = Lens.lens (\ModifyClusterSubne
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 modifyClusterSubnetGroup_subnetIds :: Lens.Lens' ModifyClusterSubnetGroup [Prelude.Text]
-modifyClusterSubnetGroup_subnetIds = Lens.lens (\ModifyClusterSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyClusterSubnetGroup' {} a -> s {subnetIds = a} :: ModifyClusterSubnetGroup) Prelude.. Lens._Coerce
+modifyClusterSubnetGroup_subnetIds = Lens.lens (\ModifyClusterSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyClusterSubnetGroup' {} a -> s {subnetIds = a} :: ModifyClusterSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyClusterSubnetGroup where
   type

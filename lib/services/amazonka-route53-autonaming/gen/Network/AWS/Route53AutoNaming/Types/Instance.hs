@@ -386,7 +386,7 @@ instance_creatorRequestId = Lens.lens (\Instance' {creatorRequestId} -> creatorR
 --     This value is required if you specified settings for an @SRV@ record
 --     or a Route 53 health check when you created the service.
 instance_attributes :: Lens.Lens' Instance (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-instance_attributes = Lens.lens (\Instance' {attributes} -> attributes) (\s@Instance' {} a -> s {attributes = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
+instance_attributes = Lens.lens (\Instance' {attributes} -> attributes) (\s@Instance' {} a -> s {attributes = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that you want to associate with the instance. Note the
 -- following:

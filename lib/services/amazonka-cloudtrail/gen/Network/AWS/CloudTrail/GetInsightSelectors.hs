@@ -233,7 +233,7 @@ getInsightSelectorsResponse_trailARN = Lens.lens (\GetInsightSelectorsResponse' 
 -- trail. In this release, only @ApiCallRateInsight@ is supported as an
 -- insight type.
 getInsightSelectorsResponse_insightSelectors :: Lens.Lens' GetInsightSelectorsResponse (Prelude.Maybe [InsightSelector])
-getInsightSelectorsResponse_insightSelectors = Lens.lens (\GetInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@GetInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: GetInsightSelectorsResponse) Prelude.. Lens.mapping Lens._Coerce
+getInsightSelectorsResponse_insightSelectors = Lens.lens (\GetInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@GetInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: GetInsightSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getInsightSelectorsResponse_httpStatus :: Lens.Lens' GetInsightSelectorsResponse Prelude.Int

@@ -328,7 +328,7 @@ newListNotebookExecutionsResponse pHttpStatus_ =
 
 -- | A list of notebook executions.
 listNotebookExecutionsResponse_notebookExecutions :: Lens.Lens' ListNotebookExecutionsResponse (Prelude.Maybe [NotebookExecutionSummary])
-listNotebookExecutionsResponse_notebookExecutions = Lens.lens (\ListNotebookExecutionsResponse' {notebookExecutions} -> notebookExecutions) (\s@ListNotebookExecutionsResponse' {} a -> s {notebookExecutions = a} :: ListNotebookExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listNotebookExecutionsResponse_notebookExecutions = Lens.lens (\ListNotebookExecutionsResponse' {notebookExecutions} -> notebookExecutions) (\s@ListNotebookExecutionsResponse' {} a -> s {notebookExecutions = a} :: ListNotebookExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that a subsequent @ListNotebookExecutions@ can use to
 -- determine the next set of results to retrieve.

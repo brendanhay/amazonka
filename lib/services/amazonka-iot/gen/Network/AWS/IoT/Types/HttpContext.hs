@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHttpContext' smart constructor.
 data HttpContext = HttpContext'
-  { -- | The query string keys and values in an HTTP authorization request.
-    queryString :: Prelude.Maybe Prelude.Text,
-    -- | The header keys and values in an HTTP authorization request.
-    headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+  { -- | The header keys and values in an HTTP authorization request.
+    headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The query string keys and values in an HTTP authorization request.
+    queryString :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data HttpContext = HttpContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'queryString', 'httpContext_queryString' - The query string keys and values in an HTTP authorization request.
---
 -- 'headers', 'httpContext_headers' - The header keys and values in an HTTP authorization request.
+--
+-- 'queryString', 'httpContext_queryString' - The query string keys and values in an HTTP authorization request.
 newHttpContext ::
   HttpContext
 newHttpContext =
   HttpContext'
-    { queryString = Prelude.Nothing,
-      headers = Prelude.Nothing
+    { headers = Prelude.Nothing,
+      queryString = Prelude.Nothing
     }
+
+-- | The header keys and values in an HTTP authorization request.
+httpContext_headers :: Lens.Lens' HttpContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+httpContext_headers = Lens.lens (\HttpContext' {headers} -> headers) (\s@HttpContext' {} a -> s {headers = a} :: HttpContext) Prelude.. Lens.mapping Lens.coerced
 
 -- | The query string keys and values in an HTTP authorization request.
 httpContext_queryString :: Lens.Lens' HttpContext (Prelude.Maybe Prelude.Text)
 httpContext_queryString = Lens.lens (\HttpContext' {queryString} -> queryString) (\s@HttpContext' {} a -> s {queryString = a} :: HttpContext)
-
--- | The header keys and values in an HTTP authorization request.
-httpContext_headers :: Lens.Lens' HttpContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-httpContext_headers = Lens.lens (\HttpContext' {headers} -> headers) (\s@HttpContext' {} a -> s {headers = a} :: HttpContext) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable HttpContext
 
@@ -69,7 +69,7 @@ instance Core.ToJSON HttpContext where
   toJSON HttpContext' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("queryString" Core..=) Prelude.<$> queryString,
-            ("headers" Core..=) Prelude.<$> headers
+          [ ("headers" Core..=) Prelude.<$> headers,
+            ("queryString" Core..=) Prelude.<$> queryString
           ]
       )

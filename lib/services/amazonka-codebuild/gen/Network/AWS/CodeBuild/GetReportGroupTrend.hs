@@ -311,7 +311,7 @@ newGetReportGroupTrendResponse pHttpStatus_ =
 
 -- | An array that contains the raw data for each report.
 getReportGroupTrendResponse_rawData :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe [ReportWithRawData])
-getReportGroupTrendResponse_rawData = Lens.lens (\GetReportGroupTrendResponse' {rawData} -> rawData) (\s@GetReportGroupTrendResponse' {} a -> s {rawData = a} :: GetReportGroupTrendResponse) Prelude.. Lens.mapping Lens._Coerce
+getReportGroupTrendResponse_rawData = Lens.lens (\GetReportGroupTrendResponse' {rawData} -> rawData) (\s@GetReportGroupTrendResponse' {} a -> s {rawData = a} :: GetReportGroupTrendResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains the accumulated trend data.
 getReportGroupTrendResponse_stats :: Lens.Lens' GetReportGroupTrendResponse (Prelude.Maybe ReportGroupTrendStats)

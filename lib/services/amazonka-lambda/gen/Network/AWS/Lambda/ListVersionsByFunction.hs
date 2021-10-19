@@ -32,8 +32,8 @@ module Network.AWS.Lambda.ListVersionsByFunction
     newListVersionsByFunction,
 
     -- * Request Lenses
-    listVersionsByFunction_maxItems,
     listVersionsByFunction_marker,
+    listVersionsByFunction_maxItems,
     listVersionsByFunction_functionName,
 
     -- * Destructuring the Response
@@ -56,13 +56,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListVersionsByFunction' smart constructor.
 data ListVersionsByFunction = ListVersionsByFunction'
-  { -- | The maximum number of versions to return. Note that
+  { -- | Specify the pagination token that\'s returned by a previous request to
+    -- retrieve the next page of results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of versions to return. Note that
     -- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
     -- even if you set the number higher.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
-    -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -88,12 +88,12 @@ data ListVersionsByFunction = ListVersionsByFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listVersionsByFunction_marker' - Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+--
 -- 'maxItems', 'listVersionsByFunction_maxItems' - The maximum number of versions to return. Note that
 -- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
 -- even if you set the number higher.
---
--- 'marker', 'listVersionsByFunction_marker' - Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
 --
 -- 'functionName', 'listVersionsByFunction_functionName' - The name of the Lambda function.
 --
@@ -114,21 +114,21 @@ newListVersionsByFunction ::
   ListVersionsByFunction
 newListVersionsByFunction pFunctionName_ =
   ListVersionsByFunction'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       functionName = pFunctionName_
     }
+
+-- | Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+listVersionsByFunction_marker :: Lens.Lens' ListVersionsByFunction (Prelude.Maybe Prelude.Text)
+listVersionsByFunction_marker = Lens.lens (\ListVersionsByFunction' {marker} -> marker) (\s@ListVersionsByFunction' {} a -> s {marker = a} :: ListVersionsByFunction)
 
 -- | The maximum number of versions to return. Note that
 -- @ListVersionsByFunction@ returns a maximum of 50 items in each response,
 -- even if you set the number higher.
 listVersionsByFunction_maxItems :: Lens.Lens' ListVersionsByFunction (Prelude.Maybe Prelude.Natural)
 listVersionsByFunction_maxItems = Lens.lens (\ListVersionsByFunction' {maxItems} -> maxItems) (\s@ListVersionsByFunction' {} a -> s {maxItems = a} :: ListVersionsByFunction)
-
--- | Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
-listVersionsByFunction_marker :: Lens.Lens' ListVersionsByFunction (Prelude.Maybe Prelude.Text)
-listVersionsByFunction_marker = Lens.lens (\ListVersionsByFunction' {marker} -> marker) (\s@ListVersionsByFunction' {} a -> s {marker = a} :: ListVersionsByFunction)
 
 -- | The name of the Lambda function.
 --
@@ -200,8 +200,8 @@ instance Core.ToPath ListVersionsByFunction where
 instance Core.ToQuery ListVersionsByFunction where
   toQuery ListVersionsByFunction' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListVersionsByFunctionResponse' smart constructor.
@@ -242,7 +242,7 @@ newListVersionsByFunctionResponse pHttpStatus_ =
 
 -- | A list of Lambda function versions.
 listVersionsByFunctionResponse_versions :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe [FunctionConfiguration])
-listVersionsByFunctionResponse_versions = Lens.lens (\ListVersionsByFunctionResponse' {versions} -> versions) (\s@ListVersionsByFunctionResponse' {} a -> s {versions = a} :: ListVersionsByFunctionResponse) Prelude.. Lens.mapping Lens._Coerce
+listVersionsByFunctionResponse_versions = Lens.lens (\ListVersionsByFunctionResponse' {versions} -> versions) (\s@ListVersionsByFunctionResponse' {} a -> s {versions = a} :: ListVersionsByFunctionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listVersionsByFunctionResponse_nextMarker :: Lens.Lens' ListVersionsByFunctionResponse (Prelude.Maybe Prelude.Text)

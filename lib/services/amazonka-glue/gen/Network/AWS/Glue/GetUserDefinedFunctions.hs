@@ -29,10 +29,10 @@ module Network.AWS.Glue.GetUserDefinedFunctions
     newGetUserDefinedFunctions,
 
     -- * Request Lenses
-    getUserDefinedFunctions_nextToken,
-    getUserDefinedFunctions_maxResults,
     getUserDefinedFunctions_catalogId,
+    getUserDefinedFunctions_nextToken,
     getUserDefinedFunctions_databaseName,
+    getUserDefinedFunctions_maxResults,
     getUserDefinedFunctions_pattern,
 
     -- * Destructuring the Response
@@ -55,18 +55,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetUserDefinedFunctions' smart constructor.
 data GetUserDefinedFunctions = GetUserDefinedFunctions'
-  { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of functions to return in one response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the Data Catalog where the functions to be retrieved are
+  { -- | The ID of the Data Catalog where the functions to be retrieved are
     -- located. If none is provided, the Amazon Web Services account ID is used
     -- by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A continuation token, if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the functions are located. If
     -- none is provided, functions from all the databases across the catalog
     -- will be returned.
     databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of functions to return in one response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An optional function-name pattern string that filters the function
     -- definitions returned.
     pattern' :: Prelude.Text
@@ -81,17 +81,17 @@ data GetUserDefinedFunctions = GetUserDefinedFunctions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getUserDefinedFunctions_nextToken' - A continuation token, if this is a continuation call.
---
--- 'maxResults', 'getUserDefinedFunctions_maxResults' - The maximum number of functions to return in one response.
---
 -- 'catalogId', 'getUserDefinedFunctions_catalogId' - The ID of the Data Catalog where the functions to be retrieved are
 -- located. If none is provided, the Amazon Web Services account ID is used
 -- by default.
 --
+-- 'nextToken', 'getUserDefinedFunctions_nextToken' - A continuation token, if this is a continuation call.
+--
 -- 'databaseName', 'getUserDefinedFunctions_databaseName' - The name of the catalog database where the functions are located. If
 -- none is provided, functions from all the databases across the catalog
 -- will be returned.
+--
+-- 'maxResults', 'getUserDefinedFunctions_maxResults' - The maximum number of functions to return in one response.
 --
 -- 'pattern'', 'getUserDefinedFunctions_pattern' - An optional function-name pattern string that filters the function
 -- definitions returned.
@@ -101,21 +101,13 @@ newGetUserDefinedFunctions ::
   GetUserDefinedFunctions
 newGetUserDefinedFunctions pPattern_ =
   GetUserDefinedFunctions'
-    { nextToken =
+    { catalogId =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       databaseName = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       pattern' = pPattern_
     }
-
--- | A continuation token, if this is a continuation call.
-getUserDefinedFunctions_nextToken :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
-getUserDefinedFunctions_nextToken = Lens.lens (\GetUserDefinedFunctions' {nextToken} -> nextToken) (\s@GetUserDefinedFunctions' {} a -> s {nextToken = a} :: GetUserDefinedFunctions)
-
--- | The maximum number of functions to return in one response.
-getUserDefinedFunctions_maxResults :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Natural)
-getUserDefinedFunctions_maxResults = Lens.lens (\GetUserDefinedFunctions' {maxResults} -> maxResults) (\s@GetUserDefinedFunctions' {} a -> s {maxResults = a} :: GetUserDefinedFunctions)
 
 -- | The ID of the Data Catalog where the functions to be retrieved are
 -- located. If none is provided, the Amazon Web Services account ID is used
@@ -123,11 +115,19 @@ getUserDefinedFunctions_maxResults = Lens.lens (\GetUserDefinedFunctions' {maxRe
 getUserDefinedFunctions_catalogId :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
 getUserDefinedFunctions_catalogId = Lens.lens (\GetUserDefinedFunctions' {catalogId} -> catalogId) (\s@GetUserDefinedFunctions' {} a -> s {catalogId = a} :: GetUserDefinedFunctions)
 
+-- | A continuation token, if this is a continuation call.
+getUserDefinedFunctions_nextToken :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
+getUserDefinedFunctions_nextToken = Lens.lens (\GetUserDefinedFunctions' {nextToken} -> nextToken) (\s@GetUserDefinedFunctions' {} a -> s {nextToken = a} :: GetUserDefinedFunctions)
+
 -- | The name of the catalog database where the functions are located. If
 -- none is provided, functions from all the databases across the catalog
 -- will be returned.
 getUserDefinedFunctions_databaseName :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
 getUserDefinedFunctions_databaseName = Lens.lens (\GetUserDefinedFunctions' {databaseName} -> databaseName) (\s@GetUserDefinedFunctions' {} a -> s {databaseName = a} :: GetUserDefinedFunctions)
+
+-- | The maximum number of functions to return in one response.
+getUserDefinedFunctions_maxResults :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Natural)
+getUserDefinedFunctions_maxResults = Lens.lens (\GetUserDefinedFunctions' {maxResults} -> maxResults) (\s@GetUserDefinedFunctions' {} a -> s {maxResults = a} :: GetUserDefinedFunctions)
 
 -- | An optional function-name pattern string that filters the function
 -- definitions returned.
@@ -195,10 +195,10 @@ instance Core.ToJSON GetUserDefinedFunctions where
   toJSON GetUserDefinedFunctions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("DatabaseName" Core..=) Prelude.<$> databaseName,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("Pattern" Core..= pattern')
           ]
       )
@@ -254,7 +254,7 @@ getUserDefinedFunctionsResponse_nextToken = Lens.lens (\GetUserDefinedFunctionsR
 
 -- | A list of requested function definitions.
 getUserDefinedFunctionsResponse_userDefinedFunctions :: Lens.Lens' GetUserDefinedFunctionsResponse (Prelude.Maybe [UserDefinedFunction])
-getUserDefinedFunctionsResponse_userDefinedFunctions = Lens.lens (\GetUserDefinedFunctionsResponse' {userDefinedFunctions} -> userDefinedFunctions) (\s@GetUserDefinedFunctionsResponse' {} a -> s {userDefinedFunctions = a} :: GetUserDefinedFunctionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getUserDefinedFunctionsResponse_userDefinedFunctions = Lens.lens (\GetUserDefinedFunctionsResponse' {userDefinedFunctions} -> userDefinedFunctions) (\s@GetUserDefinedFunctionsResponse' {} a -> s {userDefinedFunctions = a} :: GetUserDefinedFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getUserDefinedFunctionsResponse_httpStatus :: Lens.Lens' GetUserDefinedFunctionsResponse Prelude.Int

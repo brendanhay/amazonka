@@ -29,12 +29,12 @@ import Network.AWS.Redshift.Types.SupportedOperation
 --
 -- /See:/ 'newUpdateTarget' smart constructor.
 data UpdateTarget = UpdateTarget'
-  { -- | A list of operations supported by the maintenance track.
-    supportedOperations :: Prelude.Maybe [SupportedOperation],
-    -- | The cluster version for the new maintenance track.
+  { -- | The cluster version for the new maintenance track.
     databaseVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the new maintenance track.
-    maintenanceTrackName :: Prelude.Maybe Prelude.Text
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    -- | A list of operations supported by the maintenance track.
+    supportedOperations :: Prelude.Maybe [SupportedOperation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,24 +46,19 @@ data UpdateTarget = UpdateTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedOperations', 'updateTarget_supportedOperations' - A list of operations supported by the maintenance track.
---
 -- 'databaseVersion', 'updateTarget_databaseVersion' - The cluster version for the new maintenance track.
 --
 -- 'maintenanceTrackName', 'updateTarget_maintenanceTrackName' - The name of the new maintenance track.
+--
+-- 'supportedOperations', 'updateTarget_supportedOperations' - A list of operations supported by the maintenance track.
 newUpdateTarget ::
   UpdateTarget
 newUpdateTarget =
   UpdateTarget'
-    { supportedOperations =
-        Prelude.Nothing,
-      databaseVersion = Prelude.Nothing,
-      maintenanceTrackName = Prelude.Nothing
+    { databaseVersion = Prelude.Nothing,
+      maintenanceTrackName = Prelude.Nothing,
+      supportedOperations = Prelude.Nothing
     }
-
--- | A list of operations supported by the maintenance track.
-updateTarget_supportedOperations :: Lens.Lens' UpdateTarget (Prelude.Maybe [SupportedOperation])
-updateTarget_supportedOperations = Lens.lens (\UpdateTarget' {supportedOperations} -> supportedOperations) (\s@UpdateTarget' {} a -> s {supportedOperations = a} :: UpdateTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The cluster version for the new maintenance track.
 updateTarget_databaseVersion :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
@@ -73,15 +68,19 @@ updateTarget_databaseVersion = Lens.lens (\UpdateTarget' {databaseVersion} -> da
 updateTarget_maintenanceTrackName :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
 updateTarget_maintenanceTrackName = Lens.lens (\UpdateTarget' {maintenanceTrackName} -> maintenanceTrackName) (\s@UpdateTarget' {} a -> s {maintenanceTrackName = a} :: UpdateTarget)
 
+-- | A list of operations supported by the maintenance track.
+updateTarget_supportedOperations :: Lens.Lens' UpdateTarget (Prelude.Maybe [SupportedOperation])
+updateTarget_supportedOperations = Lens.lens (\UpdateTarget' {supportedOperations} -> supportedOperations) (\s@UpdateTarget' {} a -> s {supportedOperations = a} :: UpdateTarget) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML UpdateTarget where
   parseXML x =
     UpdateTarget'
-      Prelude.<$> ( x Core..@? "SupportedOperations"
+      Prelude.<$> (x Core..@? "DatabaseVersion")
+      Prelude.<*> (x Core..@? "MaintenanceTrackName")
+      Prelude.<*> ( x Core..@? "SupportedOperations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "SupportedOperation")
                   )
-      Prelude.<*> (x Core..@? "DatabaseVersion")
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
 
 instance Prelude.Hashable UpdateTarget
 

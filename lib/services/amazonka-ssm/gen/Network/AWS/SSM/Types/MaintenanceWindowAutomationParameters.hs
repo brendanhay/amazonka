@@ -27,9 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMaintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
-  { -- | The version of an Automation runbook to use during task execution.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The parameters for the @AUTOMATION@ task.
+  { -- | The parameters for the @AUTOMATION@ task.
     --
     -- For information about specifying and updating task parameters, see
     -- RegisterTaskWithMaintenanceWindow and UpdateMaintenanceWindowTask.
@@ -50,7 +48,9 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
     --
     -- For @AUTOMATION@ task types, Amazon Web Services Systems Manager ignores
     -- any values specified for these parameters.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The version of an Automation runbook to use during task execution.
+    documentVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,8 +61,6 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'documentVersion', 'maintenanceWindowAutomationParameters_documentVersion' - The version of an Automation runbook to use during task execution.
 --
 -- 'parameters', 'maintenanceWindowAutomationParameters_parameters' - The parameters for the @AUTOMATION@ task.
 --
@@ -85,18 +83,16 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
 --
 -- For @AUTOMATION@ task types, Amazon Web Services Systems Manager ignores
 -- any values specified for these parameters.
+--
+-- 'documentVersion', 'maintenanceWindowAutomationParameters_documentVersion' - The version of an Automation runbook to use during task execution.
 newMaintenanceWindowAutomationParameters ::
   MaintenanceWindowAutomationParameters
 newMaintenanceWindowAutomationParameters =
   MaintenanceWindowAutomationParameters'
-    { documentVersion =
+    { parameters =
         Prelude.Nothing,
-      parameters = Prelude.Nothing
+      documentVersion = Prelude.Nothing
     }
-
--- | The version of an Automation runbook to use during task execution.
-maintenanceWindowAutomationParameters_documentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe Prelude.Text)
-maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceWindowAutomationParameters' {documentVersion} -> documentVersion) (\s@MaintenanceWindowAutomationParameters' {} a -> s {documentVersion = a} :: MaintenanceWindowAutomationParameters)
 
 -- | The parameters for the @AUTOMATION@ task.
 --
@@ -120,7 +116,11 @@ maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceW
 -- For @AUTOMATION@ task types, Amazon Web Services Systems Manager ignores
 -- any values specified for these parameters.
 maintenanceWindowAutomationParameters_parameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-maintenanceWindowAutomationParameters_parameters = Lens.lens (\MaintenanceWindowAutomationParameters' {parameters} -> parameters) (\s@MaintenanceWindowAutomationParameters' {} a -> s {parameters = a} :: MaintenanceWindowAutomationParameters) Prelude.. Lens.mapping Lens._Coerce
+maintenanceWindowAutomationParameters_parameters = Lens.lens (\MaintenanceWindowAutomationParameters' {parameters} -> parameters) (\s@MaintenanceWindowAutomationParameters' {} a -> s {parameters = a} :: MaintenanceWindowAutomationParameters) Prelude.. Lens.mapping Lens.coerced
+
+-- | The version of an Automation runbook to use during task execution.
+maintenanceWindowAutomationParameters_documentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe Prelude.Text)
+maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceWindowAutomationParameters' {documentVersion} -> documentVersion) (\s@MaintenanceWindowAutomationParameters' {} a -> s {documentVersion = a} :: MaintenanceWindowAutomationParameters)
 
 instance
   Core.FromJSON
@@ -131,8 +131,8 @@ instance
       "MaintenanceWindowAutomationParameters"
       ( \x ->
           MaintenanceWindowAutomationParameters'
-            Prelude.<$> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DocumentVersion")
       )
 
 instance
@@ -150,8 +150,8 @@ instance
   toJSON MaintenanceWindowAutomationParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DocumentVersion" Core..=)
-              Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters
+          [ ("Parameters" Core..=) Prelude.<$> parameters,
+            ("DocumentVersion" Core..=)
+              Prelude.<$> documentVersion
           ]
       )

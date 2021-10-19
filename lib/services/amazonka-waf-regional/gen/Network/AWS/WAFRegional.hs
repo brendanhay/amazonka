@@ -42,17 +42,59 @@ module Network.AWS.WAFRegional
     -- * Errors
     -- $errors
 
+    -- ** WAFInvalidAccountException
+    _WAFInvalidAccountException,
+
     -- ** WAFSubscriptionNotFoundException
     _WAFSubscriptionNotFoundException,
+
+    -- ** WAFReferencedItemException
+    _WAFReferencedItemException,
+
+    -- ** WAFTagOperationException
+    _WAFTagOperationException,
+
+    -- ** WAFEntityMigrationException
+    _WAFEntityMigrationException,
+
+    -- ** WAFInvalidRegexPatternException
+    _WAFInvalidRegexPatternException,
+
+    -- ** WAFInvalidOperationException
+    _WAFInvalidOperationException,
+
+    -- ** WAFBadRequestException
+    _WAFBadRequestException,
+
+    -- ** WAFNonexistentItemException
+    _WAFNonexistentItemException,
+
+    -- ** WAFInvalidParameterException
+    _WAFInvalidParameterException,
 
     -- ** WAFTagOperationInternalErrorException
     _WAFTagOperationInternalErrorException,
 
-    -- ** WAFInvalidAccountException
-    _WAFInvalidAccountException,
+    -- ** WAFServiceLinkedRoleErrorException
+    _WAFServiceLinkedRoleErrorException,
 
-    -- ** WAFBadRequestException
-    _WAFBadRequestException,
+    -- ** WAFLimitsExceededException
+    _WAFLimitsExceededException,
+
+    -- ** WAFInvalidPermissionPolicyException
+    _WAFInvalidPermissionPolicyException,
+
+    -- ** WAFStaleDataException
+    _WAFStaleDataException,
+
+    -- ** WAFInternalErrorException
+    _WAFInternalErrorException,
+
+    -- ** WAFNonexistentContainerException
+    _WAFNonexistentContainerException,
+
+    -- ** WAFUnavailableEntityException
+    _WAFUnavailableEntityException,
 
     -- ** WAFDisallowedNameException
     _WAFDisallowedNameException,
@@ -60,59 +102,41 @@ module Network.AWS.WAFRegional
     -- ** WAFNonEmptyEntityException
     _WAFNonEmptyEntityException,
 
-    -- ** WAFInvalidOperationException
-    _WAFInvalidOperationException,
-
-    -- ** WAFStaleDataException
-    _WAFStaleDataException,
-
-    -- ** WAFTagOperationException
-    _WAFTagOperationException,
-
-    -- ** WAFInternalErrorException
-    _WAFInternalErrorException,
-
-    -- ** WAFServiceLinkedRoleErrorException
-    _WAFServiceLinkedRoleErrorException,
-
-    -- ** WAFInvalidParameterException
-    _WAFInvalidParameterException,
-
-    -- ** WAFNonexistentItemException
-    _WAFNonexistentItemException,
-
-    -- ** WAFUnavailableEntityException
-    _WAFUnavailableEntityException,
-
-    -- ** WAFInvalidRegexPatternException
-    _WAFInvalidRegexPatternException,
-
-    -- ** WAFNonexistentContainerException
-    _WAFNonexistentContainerException,
-
-    -- ** WAFEntityMigrationException
-    _WAFEntityMigrationException,
-
-    -- ** WAFReferencedItemException
-    _WAFReferencedItemException,
-
-    -- ** WAFInvalidPermissionPolicyException
-    _WAFInvalidPermissionPolicyException,
-
-    -- ** WAFLimitsExceededException
-    _WAFLimitsExceededException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** GetChangeTokenStatus
-    GetChangeTokenStatus (GetChangeTokenStatus'),
-    newGetChangeTokenStatus,
-    GetChangeTokenStatusResponse (GetChangeTokenStatusResponse'),
-    newGetChangeTokenStatusResponse,
+    -- ** ListActivatedRulesInRuleGroup
+    ListActivatedRulesInRuleGroup (ListActivatedRulesInRuleGroup'),
+    newListActivatedRulesInRuleGroup,
+    ListActivatedRulesInRuleGroupResponse (ListActivatedRulesInRuleGroupResponse'),
+    newListActivatedRulesInRuleGroupResponse,
+
+    -- ** ListRateBasedRules
+    ListRateBasedRules (ListRateBasedRules'),
+    newListRateBasedRules,
+    ListRateBasedRulesResponse (ListRateBasedRulesResponse'),
+    newListRateBasedRulesResponse,
+
+    -- ** GetSizeConstraintSet
+    GetSizeConstraintSet (GetSizeConstraintSet'),
+    newGetSizeConstraintSet,
+    GetSizeConstraintSetResponse (GetSizeConstraintSetResponse'),
+    newGetSizeConstraintSetResponse,
+
+    -- ** DeleteRateBasedRule
+    DeleteRateBasedRule (DeleteRateBasedRule'),
+    newDeleteRateBasedRule,
+    DeleteRateBasedRuleResponse (DeleteRateBasedRuleResponse'),
+    newDeleteRateBasedRuleResponse,
+
+    -- ** UpdateRateBasedRule
+    UpdateRateBasedRule (UpdateRateBasedRule'),
+    newUpdateRateBasedRule,
+    UpdateRateBasedRuleResponse (UpdateRateBasedRuleResponse'),
+    newUpdateRateBasedRuleResponse,
 
     -- ** UpdateRule
     UpdateRule (UpdateRule'),
@@ -126,11 +150,23 @@ module Network.AWS.WAFRegional
     DeleteRuleResponse (DeleteRuleResponse'),
     newDeleteRuleResponse,
 
+    -- ** CreateIPSet
+    CreateIPSet (CreateIPSet'),
+    newCreateIPSet,
+    CreateIPSetResponse (CreateIPSetResponse'),
+    newCreateIPSetResponse,
+
     -- ** GetRuleGroup
     GetRuleGroup (GetRuleGroup'),
     newGetRuleGroup,
     GetRuleGroupResponse (GetRuleGroupResponse'),
     newGetRuleGroupResponse,
+
+    -- ** GetChangeTokenStatus
+    GetChangeTokenStatus (GetChangeTokenStatus'),
+    newGetChangeTokenStatus,
+    GetChangeTokenStatusResponse (GetChangeTokenStatusResponse'),
+    newGetChangeTokenStatusResponse,
 
     -- ** DeleteWebACL
     DeleteWebACL (DeleteWebACL'),
@@ -144,119 +180,71 @@ module Network.AWS.WAFRegional
     UpdateWebACLResponse (UpdateWebACLResponse'),
     newUpdateWebACLResponse,
 
-    -- ** GetSizeConstraintSet
-    GetSizeConstraintSet (GetSizeConstraintSet'),
-    newGetSizeConstraintSet,
-    GetSizeConstraintSetResponse (GetSizeConstraintSetResponse'),
-    newGetSizeConstraintSetResponse,
+    -- ** ListWebACLs
+    ListWebACLs (ListWebACLs'),
+    newListWebACLs,
+    ListWebACLsResponse (ListWebACLsResponse'),
+    newListWebACLsResponse,
 
-    -- ** ListRateBasedRules
-    ListRateBasedRules (ListRateBasedRules'),
-    newListRateBasedRules,
-    ListRateBasedRulesResponse (ListRateBasedRulesResponse'),
-    newListRateBasedRulesResponse,
+    -- ** ListRules
+    ListRules (ListRules'),
+    newListRules,
+    ListRulesResponse (ListRulesResponse'),
+    newListRulesResponse,
 
-    -- ** GetWebACLForResource
-    GetWebACLForResource (GetWebACLForResource'),
-    newGetWebACLForResource,
-    GetWebACLForResourceResponse (GetWebACLForResourceResponse'),
-    newGetWebACLForResourceResponse,
+    -- ** CreateRule
+    CreateRule (CreateRule'),
+    newCreateRule,
+    CreateRuleResponse (CreateRuleResponse'),
+    newCreateRuleResponse,
 
-    -- ** CreateRateBasedRule
-    CreateRateBasedRule (CreateRateBasedRule'),
-    newCreateRateBasedRule,
-    CreateRateBasedRuleResponse (CreateRateBasedRuleResponse'),
-    newCreateRateBasedRuleResponse,
+    -- ** DeleteLoggingConfiguration
+    DeleteLoggingConfiguration (DeleteLoggingConfiguration'),
+    newDeleteLoggingConfiguration,
+    DeleteLoggingConfigurationResponse (DeleteLoggingConfigurationResponse'),
+    newDeleteLoggingConfigurationResponse,
 
-    -- ** ListSqlInjectionMatchSets
-    ListSqlInjectionMatchSets (ListSqlInjectionMatchSets'),
-    newListSqlInjectionMatchSets,
-    ListSqlInjectionMatchSetsResponse (ListSqlInjectionMatchSetsResponse'),
-    newListSqlInjectionMatchSetsResponse,
+    -- ** CreateWebACL
+    CreateWebACL (CreateWebACL'),
+    newCreateWebACL,
+    CreateWebACLResponse (CreateWebACLResponse'),
+    newCreateWebACLResponse,
 
-    -- ** ListRegexPatternSets
-    ListRegexPatternSets (ListRegexPatternSets'),
-    newListRegexPatternSets,
-    ListRegexPatternSetsResponse (ListRegexPatternSetsResponse'),
-    newListRegexPatternSetsResponse,
+    -- ** GetGeoMatchSet
+    GetGeoMatchSet (GetGeoMatchSet'),
+    newGetGeoMatchSet,
+    GetGeoMatchSetResponse (GetGeoMatchSetResponse'),
+    newGetGeoMatchSetResponse,
 
-    -- ** GetSqlInjectionMatchSet
-    GetSqlInjectionMatchSet (GetSqlInjectionMatchSet'),
-    newGetSqlInjectionMatchSet,
-    GetSqlInjectionMatchSetResponse (GetSqlInjectionMatchSetResponse'),
-    newGetSqlInjectionMatchSetResponse,
+    -- ** PutLoggingConfiguration
+    PutLoggingConfiguration (PutLoggingConfiguration'),
+    newPutLoggingConfiguration,
+    PutLoggingConfigurationResponse (PutLoggingConfigurationResponse'),
+    newPutLoggingConfigurationResponse,
 
-    -- ** ListSizeConstraintSets
-    ListSizeConstraintSets (ListSizeConstraintSets'),
-    newListSizeConstraintSets,
-    ListSizeConstraintSetsResponse (ListSizeConstraintSetsResponse'),
-    newListSizeConstraintSetsResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** UpdateSizeConstraintSet
-    UpdateSizeConstraintSet (UpdateSizeConstraintSet'),
-    newUpdateSizeConstraintSet,
-    UpdateSizeConstraintSetResponse (UpdateSizeConstraintSetResponse'),
-    newUpdateSizeConstraintSetResponse,
+    -- ** ListByteMatchSets
+    ListByteMatchSets (ListByteMatchSets'),
+    newListByteMatchSets,
+    ListByteMatchSetsResponse (ListByteMatchSetsResponse'),
+    newListByteMatchSetsResponse,
 
-    -- ** CreateRegexPatternSet
-    CreateRegexPatternSet (CreateRegexPatternSet'),
-    newCreateRegexPatternSet,
-    CreateRegexPatternSetResponse (CreateRegexPatternSetResponse'),
-    newCreateRegexPatternSetResponse,
+    -- ** ListGeoMatchSets
+    ListGeoMatchSets (ListGeoMatchSets'),
+    newListGeoMatchSets,
+    ListGeoMatchSetsResponse (ListGeoMatchSetsResponse'),
+    newListGeoMatchSetsResponse,
 
-    -- ** DeleteSizeConstraintSet
-    DeleteSizeConstraintSet (DeleteSizeConstraintSet'),
-    newDeleteSizeConstraintSet,
-    DeleteSizeConstraintSetResponse (DeleteSizeConstraintSetResponse'),
-    newDeleteSizeConstraintSetResponse,
-
-    -- ** GetChangeToken
-    GetChangeToken (GetChangeToken'),
-    newGetChangeToken,
-    GetChangeTokenResponse (GetChangeTokenResponse'),
-    newGetChangeTokenResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** CreateWebACLMigrationStack
-    CreateWebACLMigrationStack (CreateWebACLMigrationStack'),
-    newCreateWebACLMigrationStack,
-    CreateWebACLMigrationStackResponse (CreateWebACLMigrationStackResponse'),
-    newCreateWebACLMigrationStackResponse,
-
-    -- ** UpdateRuleGroup
-    UpdateRuleGroup (UpdateRuleGroup'),
-    newUpdateRuleGroup,
-    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
-    newUpdateRuleGroupResponse,
-
-    -- ** ListXssMatchSets
-    ListXssMatchSets (ListXssMatchSets'),
-    newListXssMatchSets,
-    ListXssMatchSetsResponse (ListXssMatchSetsResponse'),
-    newListXssMatchSetsResponse,
-
-    -- ** DeleteRuleGroup
-    DeleteRuleGroup (DeleteRuleGroup'),
-    newDeleteRuleGroup,
-    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
-    newDeleteRuleGroupResponse,
-
-    -- ** CreateRegexMatchSet
-    CreateRegexMatchSet (CreateRegexMatchSet'),
-    newCreateRegexMatchSet,
-    CreateRegexMatchSetResponse (CreateRegexMatchSetResponse'),
-    newCreateRegexMatchSetResponse,
+    -- ** GetLoggingConfiguration
+    GetLoggingConfiguration (GetLoggingConfiguration'),
+    newGetLoggingConfiguration,
+    GetLoggingConfigurationResponse (GetLoggingConfigurationResponse'),
+    newGetLoggingConfigurationResponse,
 
     -- ** CreateRuleGroup
     CreateRuleGroup (CreateRuleGroup'),
@@ -270,215 +258,17 @@ module Network.AWS.WAFRegional
     DeleteRegexMatchSetResponse (DeleteRegexMatchSetResponse'),
     newDeleteRegexMatchSetResponse,
 
-    -- ** ListRegexMatchSets
-    ListRegexMatchSets (ListRegexMatchSets'),
-    newListRegexMatchSets,
-    ListRegexMatchSetsResponse (ListRegexMatchSetsResponse'),
-    newListRegexMatchSetsResponse,
-
-    -- ** GetLoggingConfiguration
-    GetLoggingConfiguration (GetLoggingConfiguration'),
-    newGetLoggingConfiguration,
-    GetLoggingConfigurationResponse (GetLoggingConfigurationResponse'),
-    newGetLoggingConfigurationResponse,
-
     -- ** UpdateRegexMatchSet
     UpdateRegexMatchSet (UpdateRegexMatchSet'),
     newUpdateRegexMatchSet,
     UpdateRegexMatchSetResponse (UpdateRegexMatchSetResponse'),
     newUpdateRegexMatchSetResponse,
 
-    -- ** DeleteLoggingConfiguration
-    DeleteLoggingConfiguration (DeleteLoggingConfiguration'),
-    newDeleteLoggingConfiguration,
-    DeleteLoggingConfigurationResponse (DeleteLoggingConfigurationResponse'),
-    newDeleteLoggingConfigurationResponse,
-
-    -- ** CreateRule
-    CreateRule (CreateRule'),
-    newCreateRule,
-    CreateRuleResponse (CreateRuleResponse'),
-    newCreateRuleResponse,
-
-    -- ** AssociateWebACL
-    AssociateWebACL (AssociateWebACL'),
-    newAssociateWebACL,
-    AssociateWebACLResponse (AssociateWebACLResponse'),
-    newAssociateWebACLResponse,
-
-    -- ** ListLoggingConfigurations
-    ListLoggingConfigurations (ListLoggingConfigurations'),
-    newListLoggingConfigurations,
-    ListLoggingConfigurationsResponse (ListLoggingConfigurationsResponse'),
-    newListLoggingConfigurationsResponse,
-
-    -- ** UpdateIPSet
-    UpdateIPSet (UpdateIPSet'),
-    newUpdateIPSet,
-    UpdateIPSetResponse (UpdateIPSetResponse'),
-    newUpdateIPSetResponse,
-
-    -- ** CreateWebACL
-    CreateWebACL (CreateWebACL'),
-    newCreateWebACL,
-    CreateWebACLResponse (CreateWebACLResponse'),
-    newCreateWebACLResponse,
-
-    -- ** PutPermissionPolicy
-    PutPermissionPolicy (PutPermissionPolicy'),
-    newPutPermissionPolicy,
-    PutPermissionPolicyResponse (PutPermissionPolicyResponse'),
-    newPutPermissionPolicyResponse,
-
-    -- ** DeleteIPSet
-    DeleteIPSet (DeleteIPSet'),
-    newDeleteIPSet,
-    DeleteIPSetResponse (DeleteIPSetResponse'),
-    newDeleteIPSetResponse,
-
-    -- ** GetGeoMatchSet
-    GetGeoMatchSet (GetGeoMatchSet'),
-    newGetGeoMatchSet,
-    GetGeoMatchSetResponse (GetGeoMatchSetResponse'),
-    newGetGeoMatchSetResponse,
-
-    -- ** GetRateBasedRuleManagedKeys
-    GetRateBasedRuleManagedKeys (GetRateBasedRuleManagedKeys'),
-    newGetRateBasedRuleManagedKeys,
-    GetRateBasedRuleManagedKeysResponse (GetRateBasedRuleManagedKeysResponse'),
-    newGetRateBasedRuleManagedKeysResponse,
-
-    -- ** CreateIPSet
-    CreateIPSet (CreateIPSet'),
-    newCreateIPSet,
-    CreateIPSetResponse (CreateIPSetResponse'),
-    newCreateIPSetResponse,
-
-    -- ** ListRules
-    ListRules (ListRules'),
-    newListRules,
-    ListRulesResponse (ListRulesResponse'),
-    newListRulesResponse,
-
-    -- ** ListWebACLs
-    ListWebACLs (ListWebACLs'),
-    newListWebACLs,
-    ListWebACLsResponse (ListWebACLsResponse'),
-    newListWebACLsResponse,
-
-    -- ** CreateByteMatchSet
-    CreateByteMatchSet (CreateByteMatchSet'),
-    newCreateByteMatchSet,
-    CreateByteMatchSetResponse (CreateByteMatchSetResponse'),
-    newCreateByteMatchSetResponse,
-
-    -- ** GetXssMatchSet
-    GetXssMatchSet (GetXssMatchSet'),
-    newGetXssMatchSet,
-    GetXssMatchSetResponse (GetXssMatchSetResponse'),
-    newGetXssMatchSetResponse,
-
-    -- ** UpdateRateBasedRule
-    UpdateRateBasedRule (UpdateRateBasedRule'),
-    newUpdateRateBasedRule,
-    UpdateRateBasedRuleResponse (UpdateRateBasedRuleResponse'),
-    newUpdateRateBasedRuleResponse,
-
-    -- ** DeleteRateBasedRule
-    DeleteRateBasedRule (DeleteRateBasedRule'),
-    newDeleteRateBasedRule,
-    DeleteRateBasedRuleResponse (DeleteRateBasedRuleResponse'),
-    newDeleteRateBasedRuleResponse,
-
-    -- ** ListActivatedRulesInRuleGroup
-    ListActivatedRulesInRuleGroup (ListActivatedRulesInRuleGroup'),
-    newListActivatedRulesInRuleGroup,
-    ListActivatedRulesInRuleGroupResponse (ListActivatedRulesInRuleGroupResponse'),
-    newListActivatedRulesInRuleGroupResponse,
-
-    -- ** ListSubscribedRuleGroups
-    ListSubscribedRuleGroups (ListSubscribedRuleGroups'),
-    newListSubscribedRuleGroups,
-    ListSubscribedRuleGroupsResponse (ListSubscribedRuleGroupsResponse'),
-    newListSubscribedRuleGroupsResponse,
-
-    -- ** CreateSqlInjectionMatchSet
-    CreateSqlInjectionMatchSet (CreateSqlInjectionMatchSet'),
-    newCreateSqlInjectionMatchSet,
-    CreateSqlInjectionMatchSetResponse (CreateSqlInjectionMatchSetResponse'),
-    newCreateSqlInjectionMatchSetResponse,
-
-    -- ** DisassociateWebACL
-    DisassociateWebACL (DisassociateWebACL'),
-    newDisassociateWebACL,
-    DisassociateWebACLResponse (DisassociateWebACLResponse'),
-    newDisassociateWebACLResponse,
-
-    -- ** DeleteSqlInjectionMatchSet
-    DeleteSqlInjectionMatchSet (DeleteSqlInjectionMatchSet'),
-    newDeleteSqlInjectionMatchSet,
-    DeleteSqlInjectionMatchSetResponse (DeleteSqlInjectionMatchSetResponse'),
-    newDeleteSqlInjectionMatchSetResponse,
-
-    -- ** GetRegexPatternSet
-    GetRegexPatternSet (GetRegexPatternSet'),
-    newGetRegexPatternSet,
-    GetRegexPatternSetResponse (GetRegexPatternSetResponse'),
-    newGetRegexPatternSetResponse,
-
-    -- ** UpdateSqlInjectionMatchSet
-    UpdateSqlInjectionMatchSet (UpdateSqlInjectionMatchSet'),
-    newUpdateSqlInjectionMatchSet,
-    UpdateSqlInjectionMatchSetResponse (UpdateSqlInjectionMatchSetResponse'),
-    newUpdateSqlInjectionMatchSetResponse,
-
-    -- ** DeleteRegexPatternSet
-    DeleteRegexPatternSet (DeleteRegexPatternSet'),
-    newDeleteRegexPatternSet,
-    DeleteRegexPatternSetResponse (DeleteRegexPatternSetResponse'),
-    newDeleteRegexPatternSetResponse,
-
-    -- ** CreateSizeConstraintSet
-    CreateSizeConstraintSet (CreateSizeConstraintSet'),
-    newCreateSizeConstraintSet,
-    CreateSizeConstraintSetResponse (CreateSizeConstraintSetResponse'),
-    newCreateSizeConstraintSetResponse,
-
-    -- ** UpdateRegexPatternSet
-    UpdateRegexPatternSet (UpdateRegexPatternSet'),
-    newUpdateRegexPatternSet,
-    UpdateRegexPatternSetResponse (UpdateRegexPatternSetResponse'),
-    newUpdateRegexPatternSetResponse,
-
-    -- ** ListResourcesForWebACL
-    ListResourcesForWebACL (ListResourcesForWebACL'),
-    newListResourcesForWebACL,
-    ListResourcesForWebACLResponse (ListResourcesForWebACLResponse'),
-    newListResourcesForWebACLResponse,
-
-    -- ** GetSampledRequests
-    GetSampledRequests (GetSampledRequests'),
-    newGetSampledRequests,
-    GetSampledRequestsResponse (GetSampledRequestsResponse'),
-    newGetSampledRequestsResponse,
-
-    -- ** GetRateBasedRule
-    GetRateBasedRule (GetRateBasedRule'),
-    newGetRateBasedRule,
-    GetRateBasedRuleResponse (GetRateBasedRuleResponse'),
-    newGetRateBasedRuleResponse,
-
-    -- ** DeleteXssMatchSet
-    DeleteXssMatchSet (DeleteXssMatchSet'),
-    newDeleteXssMatchSet,
-    DeleteXssMatchSetResponse (DeleteXssMatchSetResponse'),
-    newDeleteXssMatchSetResponse,
-
-    -- ** ListRuleGroups
-    ListRuleGroups (ListRuleGroups'),
-    newListRuleGroups,
-    ListRuleGroupsResponse (ListRuleGroupsResponse'),
-    newListRuleGroupsResponse,
+    -- ** GetIPSet
+    GetIPSet (GetIPSet'),
+    newGetIPSet,
+    GetIPSetResponse (GetIPSetResponse'),
+    newGetIPSetResponse,
 
     -- ** GetWebACL
     GetWebACL (GetWebACL'),
@@ -492,11 +282,11 @@ module Network.AWS.WAFRegional
     GetRuleResponse (GetRuleResponse'),
     newGetRuleResponse,
 
-    -- ** CreateGeoMatchSet
-    CreateGeoMatchSet (CreateGeoMatchSet'),
-    newCreateGeoMatchSet,
-    CreateGeoMatchSetResponse (CreateGeoMatchSetResponse'),
-    newCreateGeoMatchSetResponse,
+    -- ** DeleteXssMatchSet
+    DeleteXssMatchSet (DeleteXssMatchSet'),
+    newDeleteXssMatchSet,
+    DeleteXssMatchSetResponse (DeleteXssMatchSetResponse'),
+    newDeleteXssMatchSetResponse,
 
     -- ** UpdateXssMatchSet
     UpdateXssMatchSet (UpdateXssMatchSet'),
@@ -504,53 +294,125 @@ module Network.AWS.WAFRegional
     UpdateXssMatchSetResponse (UpdateXssMatchSetResponse'),
     newUpdateXssMatchSetResponse,
 
-    -- ** GetIPSet
-    GetIPSet (GetIPSet'),
-    newGetIPSet,
-    GetIPSetResponse (GetIPSetResponse'),
-    newGetIPSetResponse,
+    -- ** CreateWebACLMigrationStack
+    CreateWebACLMigrationStack (CreateWebACLMigrationStack'),
+    newCreateWebACLMigrationStack,
+    CreateWebACLMigrationStackResponse (CreateWebACLMigrationStackResponse'),
+    newCreateWebACLMigrationStackResponse,
 
-    -- ** CreateXssMatchSet
-    CreateXssMatchSet (CreateXssMatchSet'),
-    newCreateXssMatchSet,
-    CreateXssMatchSetResponse (CreateXssMatchSetResponse'),
-    newCreateXssMatchSetResponse,
+    -- ** ListXssMatchSets
+    ListXssMatchSets (ListXssMatchSets'),
+    newListXssMatchSets,
+    ListXssMatchSetsResponse (ListXssMatchSetsResponse'),
+    newListXssMatchSetsResponse,
 
-    -- ** GetByteMatchSet
-    GetByteMatchSet (GetByteMatchSet'),
-    newGetByteMatchSet,
-    GetByteMatchSetResponse (GetByteMatchSetResponse'),
-    newGetByteMatchSetResponse,
+    -- ** CreateGeoMatchSet
+    CreateGeoMatchSet (CreateGeoMatchSet'),
+    newCreateGeoMatchSet,
+    CreateGeoMatchSetResponse (CreateGeoMatchSetResponse'),
+    newCreateGeoMatchSetResponse,
 
-    -- ** UpdateGeoMatchSet
-    UpdateGeoMatchSet (UpdateGeoMatchSet'),
-    newUpdateGeoMatchSet,
-    UpdateGeoMatchSetResponse (UpdateGeoMatchSetResponse'),
-    newUpdateGeoMatchSetResponse,
+    -- ** GetChangeToken
+    GetChangeToken (GetChangeToken'),
+    newGetChangeToken,
+    GetChangeTokenResponse (GetChangeTokenResponse'),
+    newGetChangeTokenResponse,
 
-    -- ** ListGeoMatchSets
-    ListGeoMatchSets (ListGeoMatchSets'),
-    newListGeoMatchSets,
-    ListGeoMatchSetsResponse (ListGeoMatchSetsResponse'),
-    newListGeoMatchSetsResponse,
+    -- ** ListSizeConstraintSets
+    ListSizeConstraintSets (ListSizeConstraintSets'),
+    newListSizeConstraintSets,
+    ListSizeConstraintSetsResponse (ListSizeConstraintSetsResponse'),
+    newListSizeConstraintSetsResponse,
 
-    -- ** DeleteGeoMatchSet
-    DeleteGeoMatchSet (DeleteGeoMatchSet'),
-    newDeleteGeoMatchSet,
-    DeleteGeoMatchSetResponse (DeleteGeoMatchSetResponse'),
-    newDeleteGeoMatchSetResponse,
+    -- ** ListResourcesForWebACL
+    ListResourcesForWebACL (ListResourcesForWebACL'),
+    newListResourcesForWebACL,
+    ListResourcesForWebACLResponse (ListResourcesForWebACLResponse'),
+    newListResourcesForWebACLResponse,
 
-    -- ** GetPermissionPolicy
-    GetPermissionPolicy (GetPermissionPolicy'),
-    newGetPermissionPolicy,
-    GetPermissionPolicyResponse (GetPermissionPolicyResponse'),
-    newGetPermissionPolicyResponse,
+    -- ** GetSampledRequests
+    GetSampledRequests (GetSampledRequests'),
+    newGetSampledRequests,
+    GetSampledRequestsResponse (GetSampledRequestsResponse'),
+    newGetSampledRequestsResponse,
+
+    -- ** GetSqlInjectionMatchSet
+    GetSqlInjectionMatchSet (GetSqlInjectionMatchSet'),
+    newGetSqlInjectionMatchSet,
+    GetSqlInjectionMatchSetResponse (GetSqlInjectionMatchSetResponse'),
+    newGetSqlInjectionMatchSetResponse,
+
+    -- ** GetWebACLForResource
+    GetWebACLForResource (GetWebACLForResource'),
+    newGetWebACLForResource,
+    GetWebACLForResourceResponse (GetWebACLForResourceResponse'),
+    newGetWebACLForResourceResponse,
+
+    -- ** DisassociateWebACL
+    DisassociateWebACL (DisassociateWebACL'),
+    newDisassociateWebACL,
+    DisassociateWebACLResponse (DisassociateWebACLResponse'),
+    newDisassociateWebACLResponse,
+
+    -- ** ListSubscribedRuleGroups
+    ListSubscribedRuleGroups (ListSubscribedRuleGroups'),
+    newListSubscribedRuleGroups,
+    ListSubscribedRuleGroupsResponse (ListSubscribedRuleGroupsResponse'),
+    newListSubscribedRuleGroupsResponse,
+
+    -- ** CreateSqlInjectionMatchSet
+    CreateSqlInjectionMatchSet (CreateSqlInjectionMatchSet'),
+    newCreateSqlInjectionMatchSet,
+    CreateSqlInjectionMatchSetResponse (CreateSqlInjectionMatchSetResponse'),
+    newCreateSqlInjectionMatchSetResponse,
+
+    -- ** GetXssMatchSet
+    GetXssMatchSet (GetXssMatchSet'),
+    newGetXssMatchSet,
+    GetXssMatchSetResponse (GetXssMatchSetResponse'),
+    newGetXssMatchSetResponse,
+
+    -- ** CreateByteMatchSet
+    CreateByteMatchSet (CreateByteMatchSet'),
+    newCreateByteMatchSet,
+    CreateByteMatchSetResponse (CreateByteMatchSetResponse'),
+    newCreateByteMatchSetResponse,
+
+    -- ** UpdateByteMatchSet
+    UpdateByteMatchSet (UpdateByteMatchSet'),
+    newUpdateByteMatchSet,
+    UpdateByteMatchSetResponse (UpdateByteMatchSetResponse'),
+    newUpdateByteMatchSetResponse,
 
     -- ** DeleteByteMatchSet
     DeleteByteMatchSet (DeleteByteMatchSet'),
     newDeleteByteMatchSet,
     DeleteByteMatchSetResponse (DeleteByteMatchSetResponse'),
     newDeleteByteMatchSetResponse,
+
+    -- ** PutPermissionPolicy
+    PutPermissionPolicy (PutPermissionPolicy'),
+    newPutPermissionPolicy,
+    PutPermissionPolicyResponse (PutPermissionPolicyResponse'),
+    newPutPermissionPolicyResponse,
+
+    -- ** ListLoggingConfigurations
+    ListLoggingConfigurations (ListLoggingConfigurations'),
+    newListLoggingConfigurations,
+    ListLoggingConfigurationsResponse (ListLoggingConfigurationsResponse'),
+    newListLoggingConfigurationsResponse,
+
+    -- ** GetRateBasedRuleManagedKeys
+    GetRateBasedRuleManagedKeys (GetRateBasedRuleManagedKeys'),
+    newGetRateBasedRuleManagedKeys,
+    GetRateBasedRuleManagedKeysResponse (GetRateBasedRuleManagedKeysResponse'),
+    newGetRateBasedRuleManagedKeysResponse,
+
+    -- ** AssociateWebACL
+    AssociateWebACL (AssociateWebACL'),
+    newAssociateWebACL,
+    AssociateWebACLResponse (AssociateWebACLResponse'),
+    newAssociateWebACLResponse,
 
     -- ** DeletePermissionPolicy
     DeletePermissionPolicy (DeletePermissionPolicy'),
@@ -564,23 +426,17 @@ module Network.AWS.WAFRegional
     GetRegexMatchSetResponse (GetRegexMatchSetResponse'),
     newGetRegexMatchSetResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DeleteIPSet
+    DeleteIPSet (DeleteIPSet'),
+    newDeleteIPSet,
+    DeleteIPSetResponse (DeleteIPSetResponse'),
+    newDeleteIPSetResponse,
 
-    -- ** UpdateByteMatchSet
-    UpdateByteMatchSet (UpdateByteMatchSet'),
-    newUpdateByteMatchSet,
-    UpdateByteMatchSetResponse (UpdateByteMatchSetResponse'),
-    newUpdateByteMatchSetResponse,
-
-    -- ** PutLoggingConfiguration
-    PutLoggingConfiguration (PutLoggingConfiguration'),
-    newPutLoggingConfiguration,
-    PutLoggingConfigurationResponse (PutLoggingConfigurationResponse'),
-    newPutLoggingConfigurationResponse,
+    -- ** UpdateIPSet
+    UpdateIPSet (UpdateIPSet'),
+    newUpdateIPSet,
+    UpdateIPSetResponse (UpdateIPSetResponse'),
+    newUpdateIPSetResponse,
 
     -- ** ListIPSets
     ListIPSets (ListIPSets'),
@@ -588,11 +444,155 @@ module Network.AWS.WAFRegional
     ListIPSetsResponse (ListIPSetsResponse'),
     newListIPSetsResponse,
 
-    -- ** ListByteMatchSets
-    ListByteMatchSets (ListByteMatchSets'),
-    newListByteMatchSets,
-    ListByteMatchSetsResponse (ListByteMatchSetsResponse'),
-    newListByteMatchSetsResponse,
+    -- ** ListRegexMatchSets
+    ListRegexMatchSets (ListRegexMatchSets'),
+    newListRegexMatchSets,
+    ListRegexMatchSetsResponse (ListRegexMatchSetsResponse'),
+    newListRegexMatchSetsResponse,
+
+    -- ** CreateXssMatchSet
+    CreateXssMatchSet (CreateXssMatchSet'),
+    newCreateXssMatchSet,
+    CreateXssMatchSetResponse (CreateXssMatchSetResponse'),
+    newCreateXssMatchSetResponse,
+
+    -- ** DeleteGeoMatchSet
+    DeleteGeoMatchSet (DeleteGeoMatchSet'),
+    newDeleteGeoMatchSet,
+    DeleteGeoMatchSetResponse (DeleteGeoMatchSetResponse'),
+    newDeleteGeoMatchSetResponse,
+
+    -- ** UpdateGeoMatchSet
+    UpdateGeoMatchSet (UpdateGeoMatchSet'),
+    newUpdateGeoMatchSet,
+    UpdateGeoMatchSetResponse (UpdateGeoMatchSetResponse'),
+    newUpdateGeoMatchSetResponse,
+
+    -- ** GetByteMatchSet
+    GetByteMatchSet (GetByteMatchSet'),
+    newGetByteMatchSet,
+    GetByteMatchSetResponse (GetByteMatchSetResponse'),
+    newGetByteMatchSetResponse,
+
+    -- ** GetPermissionPolicy
+    GetPermissionPolicy (GetPermissionPolicy'),
+    newGetPermissionPolicy,
+    GetPermissionPolicyResponse (GetPermissionPolicyResponse'),
+    newGetPermissionPolicyResponse,
+
+    -- ** ListRuleGroups
+    ListRuleGroups (ListRuleGroups'),
+    newListRuleGroups,
+    ListRuleGroupsResponse (ListRuleGroupsResponse'),
+    newListRuleGroupsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DeleteRuleGroup
+    DeleteRuleGroup (DeleteRuleGroup'),
+    newDeleteRuleGroup,
+    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
+    newDeleteRuleGroupResponse,
+
+    -- ** UpdateRuleGroup
+    UpdateRuleGroup (UpdateRuleGroup'),
+    newUpdateRuleGroup,
+    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
+    newUpdateRuleGroupResponse,
+
+    -- ** CreateRegexMatchSet
+    CreateRegexMatchSet (CreateRegexMatchSet'),
+    newCreateRegexMatchSet,
+    CreateRegexMatchSetResponse (CreateRegexMatchSetResponse'),
+    newCreateRegexMatchSetResponse,
+
+    -- ** GetRateBasedRule
+    GetRateBasedRule (GetRateBasedRule'),
+    newGetRateBasedRule,
+    GetRateBasedRuleResponse (GetRateBasedRuleResponse'),
+    newGetRateBasedRuleResponse,
+
+    -- ** CreateRegexPatternSet
+    CreateRegexPatternSet (CreateRegexPatternSet'),
+    newCreateRegexPatternSet,
+    CreateRegexPatternSetResponse (CreateRegexPatternSetResponse'),
+    newCreateRegexPatternSetResponse,
+
+    -- ** DeleteSizeConstraintSet
+    DeleteSizeConstraintSet (DeleteSizeConstraintSet'),
+    newDeleteSizeConstraintSet,
+    DeleteSizeConstraintSetResponse (DeleteSizeConstraintSetResponse'),
+    newDeleteSizeConstraintSetResponse,
+
+    -- ** UpdateSizeConstraintSet
+    UpdateSizeConstraintSet (UpdateSizeConstraintSet'),
+    newUpdateSizeConstraintSet,
+    UpdateSizeConstraintSetResponse (UpdateSizeConstraintSetResponse'),
+    newUpdateSizeConstraintSetResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeleteRegexPatternSet
+    DeleteRegexPatternSet (DeleteRegexPatternSet'),
+    newDeleteRegexPatternSet,
+    DeleteRegexPatternSetResponse (DeleteRegexPatternSetResponse'),
+    newDeleteRegexPatternSetResponse,
+
+    -- ** UpdateRegexPatternSet
+    UpdateRegexPatternSet (UpdateRegexPatternSet'),
+    newUpdateRegexPatternSet,
+    UpdateRegexPatternSetResponse (UpdateRegexPatternSetResponse'),
+    newUpdateRegexPatternSetResponse,
+
+    -- ** CreateSizeConstraintSet
+    CreateSizeConstraintSet (CreateSizeConstraintSet'),
+    newCreateSizeConstraintSet,
+    CreateSizeConstraintSetResponse (CreateSizeConstraintSetResponse'),
+    newCreateSizeConstraintSetResponse,
+
+    -- ** ListRegexPatternSets
+    ListRegexPatternSets (ListRegexPatternSets'),
+    newListRegexPatternSets,
+    ListRegexPatternSetsResponse (ListRegexPatternSetsResponse'),
+    newListRegexPatternSetsResponse,
+
+    -- ** ListSqlInjectionMatchSets
+    ListSqlInjectionMatchSets (ListSqlInjectionMatchSets'),
+    newListSqlInjectionMatchSets,
+    ListSqlInjectionMatchSetsResponse (ListSqlInjectionMatchSetsResponse'),
+    newListSqlInjectionMatchSetsResponse,
+
+    -- ** GetRegexPatternSet
+    GetRegexPatternSet (GetRegexPatternSet'),
+    newGetRegexPatternSet,
+    GetRegexPatternSetResponse (GetRegexPatternSetResponse'),
+    newGetRegexPatternSetResponse,
+
+    -- ** CreateRateBasedRule
+    CreateRateBasedRule (CreateRateBasedRule'),
+    newCreateRateBasedRule,
+    CreateRateBasedRuleResponse (CreateRateBasedRuleResponse'),
+    newCreateRateBasedRuleResponse,
+
+    -- ** DeleteSqlInjectionMatchSet
+    DeleteSqlInjectionMatchSet (DeleteSqlInjectionMatchSet'),
+    newDeleteSqlInjectionMatchSet,
+    DeleteSqlInjectionMatchSetResponse (DeleteSqlInjectionMatchSetResponse'),
+    newDeleteSqlInjectionMatchSetResponse,
+
+    -- ** UpdateSqlInjectionMatchSet
+    UpdateSqlInjectionMatchSet (UpdateSqlInjectionMatchSet'),
+    newUpdateSqlInjectionMatchSet,
+    UpdateSqlInjectionMatchSetResponse (UpdateSqlInjectionMatchSetResponse'),
+    newUpdateSqlInjectionMatchSetResponse,
 
     -- * Types
 

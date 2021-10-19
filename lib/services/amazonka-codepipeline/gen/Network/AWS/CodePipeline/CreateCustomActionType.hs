@@ -28,9 +28,9 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     newCreateCustomActionType,
 
     -- * Request Lenses
+    createCustomActionType_settings,
     createCustomActionType_configurationProperties,
     createCustomActionType_tags,
-    createCustomActionType_settings,
     createCustomActionType_category,
     createCustomActionType_provider,
     createCustomActionType_version,
@@ -59,7 +59,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateCustomActionType' smart constructor.
 data CreateCustomActionType = CreateCustomActionType'
-  { -- | The configuration properties for the custom action.
+  { -- | URLs that provide users information about this custom action.
+    settings :: Prelude.Maybe ActionTypeSettings,
+    -- | The configuration properties for the custom action.
     --
     -- You can refer to a name in the configuration properties of the custom
     -- action within the URL templates by following the format of
@@ -69,8 +71,6 @@ data CreateCustomActionType = CreateCustomActionType'
     configurationProperties :: Prelude.Maybe [ActionConfigurationProperty],
     -- | The tags for the custom action.
     tags :: Prelude.Maybe [Tag],
-    -- | URLs that provide users information about this custom action.
-    settings :: Prelude.Maybe ActionTypeSettings,
     -- | The category of the custom action, such as a build action or a test
     -- action.
     category :: ActionCategory,
@@ -94,6 +94,8 @@ data CreateCustomActionType = CreateCustomActionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'settings', 'createCustomActionType_settings' - URLs that provide users information about this custom action.
+--
 -- 'configurationProperties', 'createCustomActionType_configurationProperties' - The configuration properties for the custom action.
 --
 -- You can refer to a name in the configuration properties of the custom
@@ -103,8 +105,6 @@ data CreateCustomActionType = CreateCustomActionType'
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 --
 -- 'tags', 'createCustomActionType_tags' - The tags for the custom action.
---
--- 'settings', 'createCustomActionType_settings' - URLs that provide users information about this custom action.
 --
 -- 'category', 'createCustomActionType_category' - The category of the custom action, such as a build action or a test
 -- action.
@@ -136,16 +136,19 @@ newCreateCustomActionType
   pInputArtifactDetails_
   pOutputArtifactDetails_ =
     CreateCustomActionType'
-      { configurationProperties =
-          Prelude.Nothing,
+      { settings = Prelude.Nothing,
+        configurationProperties = Prelude.Nothing,
         tags = Prelude.Nothing,
-        settings = Prelude.Nothing,
         category = pCategory_,
         provider = pProvider_,
         version = pVersion_,
         inputArtifactDetails = pInputArtifactDetails_,
         outputArtifactDetails = pOutputArtifactDetails_
       }
+
+-- | URLs that provide users information about this custom action.
+createCustomActionType_settings :: Lens.Lens' CreateCustomActionType (Prelude.Maybe ActionTypeSettings)
+createCustomActionType_settings = Lens.lens (\CreateCustomActionType' {settings} -> settings) (\s@CreateCustomActionType' {} a -> s {settings = a} :: CreateCustomActionType)
 
 -- | The configuration properties for the custom action.
 --
@@ -155,15 +158,11 @@ newCreateCustomActionType
 -- and not secret. For more information, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/how-to-create-custom-action.html Create a Custom Action for a Pipeline>.
 createCustomActionType_configurationProperties :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [ActionConfigurationProperty])
-createCustomActionType_configurationProperties = Lens.lens (\CreateCustomActionType' {configurationProperties} -> configurationProperties) (\s@CreateCustomActionType' {} a -> s {configurationProperties = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens._Coerce
+createCustomActionType_configurationProperties = Lens.lens (\CreateCustomActionType' {configurationProperties} -> configurationProperties) (\s@CreateCustomActionType' {} a -> s {configurationProperties = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tags for the custom action.
 createCustomActionType_tags :: Lens.Lens' CreateCustomActionType (Prelude.Maybe [Tag])
-createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags) (\s@CreateCustomActionType' {} a -> s {tags = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens._Coerce
-
--- | URLs that provide users information about this custom action.
-createCustomActionType_settings :: Lens.Lens' CreateCustomActionType (Prelude.Maybe ActionTypeSettings)
-createCustomActionType_settings = Lens.lens (\CreateCustomActionType' {settings} -> settings) (\s@CreateCustomActionType' {} a -> s {settings = a} :: CreateCustomActionType)
+createCustomActionType_tags = Lens.lens (\CreateCustomActionType' {tags} -> tags) (\s@CreateCustomActionType' {} a -> s {tags = a} :: CreateCustomActionType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The category of the custom action, such as a build action or a test
 -- action.
@@ -224,10 +223,10 @@ instance Core.ToJSON CreateCustomActionType where
   toJSON CreateCustomActionType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("configurationProperties" Core..=)
+          [ ("settings" Core..=) Prelude.<$> settings,
+            ("configurationProperties" Core..=)
               Prelude.<$> configurationProperties,
             ("tags" Core..=) Prelude.<$> tags,
-            ("settings" Core..=) Prelude.<$> settings,
             Prelude.Just ("category" Core..= category),
             Prelude.Just ("provider" Core..= provider),
             Prelude.Just ("version" Core..= version),
@@ -292,7 +291,7 @@ newCreateCustomActionTypeResponse
 
 -- | Specifies the tags applied to the custom action.
 createCustomActionTypeResponse_tags :: Lens.Lens' CreateCustomActionTypeResponse (Prelude.Maybe [Tag])
-createCustomActionTypeResponse_tags = Lens.lens (\CreateCustomActionTypeResponse' {tags} -> tags) (\s@CreateCustomActionTypeResponse' {} a -> s {tags = a} :: CreateCustomActionTypeResponse) Prelude.. Lens.mapping Lens._Coerce
+createCustomActionTypeResponse_tags = Lens.lens (\CreateCustomActionTypeResponse' {tags} -> tags) (\s@CreateCustomActionTypeResponse' {} a -> s {tags = a} :: CreateCustomActionTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createCustomActionTypeResponse_httpStatus :: Lens.Lens' CreateCustomActionTypeResponse Prelude.Int

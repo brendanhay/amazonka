@@ -52,7 +52,7 @@ newGetContextKeysForPolicyResponse =
 
 -- | The list of context keys that are referenced in the input policies.
 getContextKeysForPolicyResponse_contextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Prelude.Maybe [Prelude.Text])
-getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForPolicyResponse' {contextKeyNames} -> contextKeyNames) (\s@GetContextKeysForPolicyResponse' {} a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse) Prelude.. Lens.mapping Lens._Coerce
+getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForPolicyResponse' {contextKeyNames} -> contextKeyNames) (\s@GetContextKeysForPolicyResponse' {} a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML GetContextKeysForPolicyResponse where
   parseXML x =

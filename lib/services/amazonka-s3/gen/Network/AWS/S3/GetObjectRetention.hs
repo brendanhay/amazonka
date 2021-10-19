@@ -30,9 +30,9 @@ module Network.AWS.S3.GetObjectRetention
     newGetObjectRetention,
 
     -- * Request Lenses
-    getObjectRetention_expectedBucketOwner,
     getObjectRetention_versionId,
     getObjectRetention_requestPayer,
+    getObjectRetention_expectedBucketOwner,
     getObjectRetention_bucket,
     getObjectRetention_key,
 
@@ -55,14 +55,14 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetObjectRetention' smart constructor.
 data GetObjectRetention = GetObjectRetention'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The version ID for the object whose retention settings you want to
+  { -- | The version ID for the object whose retention settings you want to
     -- retrieve.
     versionId :: Prelude.Maybe ObjectVersionId,
     requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the object whose retention settings you want
     -- to retrieve.
     --
@@ -89,14 +89,14 @@ data GetObjectRetention = GetObjectRetention'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getObjectRetention_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'versionId', 'getObjectRetention_versionId' - The version ID for the object whose retention settings you want to
 -- retrieve.
 --
 -- 'requestPayer', 'getObjectRetention_requestPayer' - Undocumented member.
+--
+-- 'expectedBucketOwner', 'getObjectRetention_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'getObjectRetention_bucket' - The bucket name containing the object whose retention settings you want
 -- to retrieve.
@@ -120,19 +120,12 @@ newGetObjectRetention ::
   GetObjectRetention
 newGetObjectRetention pBucket_ pKey_ =
   GetObjectRetention'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-getObjectRetention_expectedBucketOwner :: Lens.Lens' GetObjectRetention (Prelude.Maybe Prelude.Text)
-getObjectRetention_expectedBucketOwner = Lens.lens (\GetObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectRetention' {} a -> s {expectedBucketOwner = a} :: GetObjectRetention)
 
 -- | The version ID for the object whose retention settings you want to
 -- retrieve.
@@ -142,6 +135,12 @@ getObjectRetention_versionId = Lens.lens (\GetObjectRetention' {versionId} -> ve
 -- | Undocumented member.
 getObjectRetention_requestPayer :: Lens.Lens' GetObjectRetention (Prelude.Maybe RequestPayer)
 getObjectRetention_requestPayer = Lens.lens (\GetObjectRetention' {requestPayer} -> requestPayer) (\s@GetObjectRetention' {} a -> s {requestPayer = a} :: GetObjectRetention)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+getObjectRetention_expectedBucketOwner :: Lens.Lens' GetObjectRetention (Prelude.Maybe Prelude.Text)
+getObjectRetention_expectedBucketOwner = Lens.lens (\GetObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectRetention' {} a -> s {expectedBucketOwner = a} :: GetObjectRetention)
 
 -- | The bucket name containing the object whose retention settings you want
 -- to retrieve.
@@ -166,7 +165,9 @@ instance Core.AWSRequest GetObjectRetention where
   type
     AWSResponse GetObjectRetention =
       GetObjectRetentionResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,9 +183,9 @@ instance Prelude.NFData GetObjectRetention
 instance Core.ToHeaders GetObjectRetention where
   toHeaders GetObjectRetention' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+      [ "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetObjectRetention where

@@ -121,7 +121,7 @@ newCreateClusterSecurityGroup
 
 -- | A list of tag instances.
 createClusterSecurityGroup_tags :: Lens.Lens' CreateClusterSecurityGroup (Prelude.Maybe [Tag])
-createClusterSecurityGroup_tags = Lens.lens (\CreateClusterSecurityGroup' {tags} -> tags) (\s@CreateClusterSecurityGroup' {} a -> s {tags = a} :: CreateClusterSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
+createClusterSecurityGroup_tags = Lens.lens (\CreateClusterSecurityGroup' {tags} -> tags) (\s@CreateClusterSecurityGroup' {} a -> s {tags = a} :: CreateClusterSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.

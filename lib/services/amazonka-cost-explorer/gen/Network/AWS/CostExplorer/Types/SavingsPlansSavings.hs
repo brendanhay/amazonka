@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansSavings' smart constructor.
 data SavingsPlansSavings = SavingsPlansSavings'
-  { -- | How much the amount that the usage would have cost if it was accrued at
-    -- the On-Demand rate.
-    onDemandCostEquivalent :: Prelude.Maybe Prelude.Text,
-    -- | The savings amount that you\'re accumulating for the usage that\'s
+  { -- | The savings amount that you\'re accumulating for the usage that\'s
     -- covered by a Savings Plans, when compared to the On-Demand equivalent of
     -- the same usage.
-    netSavings :: Prelude.Maybe Prelude.Text
+    netSavings :: Prelude.Maybe Prelude.Text,
+    -- | How much the amount that the usage would have cost if it was accrued at
+    -- the On-Demand rate.
+    onDemandCostEquivalent :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,19 @@ data SavingsPlansSavings = SavingsPlansSavings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onDemandCostEquivalent', 'savingsPlansSavings_onDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at
--- the On-Demand rate.
---
 -- 'netSavings', 'savingsPlansSavings_netSavings' - The savings amount that you\'re accumulating for the usage that\'s
 -- covered by a Savings Plans, when compared to the On-Demand equivalent of
 -- the same usage.
+--
+-- 'onDemandCostEquivalent', 'savingsPlansSavings_onDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at
+-- the On-Demand rate.
 newSavingsPlansSavings ::
   SavingsPlansSavings
 newSavingsPlansSavings =
   SavingsPlansSavings'
-    { onDemandCostEquivalent =
-        Prelude.Nothing,
-      netSavings = Prelude.Nothing
+    { netSavings = Prelude.Nothing,
+      onDemandCostEquivalent = Prelude.Nothing
     }
-
--- | How much the amount that the usage would have cost if it was accrued at
--- the On-Demand rate.
-savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
-savingsPlansSavings_onDemandCostEquivalent = Lens.lens (\SavingsPlansSavings' {onDemandCostEquivalent} -> onDemandCostEquivalent) (\s@SavingsPlansSavings' {} a -> s {onDemandCostEquivalent = a} :: SavingsPlansSavings)
 
 -- | The savings amount that you\'re accumulating for the usage that\'s
 -- covered by a Savings Plans, when compared to the On-Demand equivalent of
@@ -72,14 +66,19 @@ savingsPlansSavings_onDemandCostEquivalent = Lens.lens (\SavingsPlansSavings' {o
 savingsPlansSavings_netSavings :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
 savingsPlansSavings_netSavings = Lens.lens (\SavingsPlansSavings' {netSavings} -> netSavings) (\s@SavingsPlansSavings' {} a -> s {netSavings = a} :: SavingsPlansSavings)
 
+-- | How much the amount that the usage would have cost if it was accrued at
+-- the On-Demand rate.
+savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
+savingsPlansSavings_onDemandCostEquivalent = Lens.lens (\SavingsPlansSavings' {onDemandCostEquivalent} -> onDemandCostEquivalent) (\s@SavingsPlansSavings' {} a -> s {onDemandCostEquivalent = a} :: SavingsPlansSavings)
+
 instance Core.FromJSON SavingsPlansSavings where
   parseJSON =
     Core.withObject
       "SavingsPlansSavings"
       ( \x ->
           SavingsPlansSavings'
-            Prelude.<$> (x Core..:? "OnDemandCostEquivalent")
-            Prelude.<*> (x Core..:? "NetSavings")
+            Prelude.<$> (x Core..:? "NetSavings")
+            Prelude.<*> (x Core..:? "OnDemandCostEquivalent")
       )
 
 instance Prelude.Hashable SavingsPlansSavings

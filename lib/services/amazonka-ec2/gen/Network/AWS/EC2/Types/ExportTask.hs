@@ -103,7 +103,7 @@ newExportTask
 
 -- | The tags for the export task.
 exportTask_tags :: Lens.Lens' ExportTask (Prelude.Maybe [Tag])
-exportTask_tags = Lens.lens (\ExportTask' {tags} -> tags) (\s@ExportTask' {} a -> s {tags = a} :: ExportTask) Prelude.. Lens.mapping Lens._Coerce
+exportTask_tags = Lens.lens (\ExportTask' {tags} -> tags) (\s@ExportTask' {} a -> s {tags = a} :: ExportTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the resource being exported.
 exportTask_description :: Lens.Lens' ExportTask Prelude.Text

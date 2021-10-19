@@ -106,7 +106,7 @@ deleteMessageBatch_queueUrl = Lens.lens (\DeleteMessageBatch' {queueUrl} -> queu
 
 -- | A list of receipt handles for the messages to be deleted.
 deleteMessageBatch_entries :: Lens.Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-deleteMessageBatch_entries = Lens.lens (\DeleteMessageBatch' {entries} -> entries) (\s@DeleteMessageBatch' {} a -> s {entries = a} :: DeleteMessageBatch) Prelude.. Lens._Coerce
+deleteMessageBatch_entries = Lens.lens (\DeleteMessageBatch' {entries} -> entries) (\s@DeleteMessageBatch' {} a -> s {entries = a} :: DeleteMessageBatch) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteMessageBatch where
   type
@@ -192,10 +192,10 @@ deleteMessageBatchResponse_httpStatus = Lens.lens (\DeleteMessageBatchResponse' 
 
 -- | A list of @ DeleteMessageBatchResultEntry @ items.
 deleteMessageBatchResponse_successful :: Lens.Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-deleteMessageBatchResponse_successful = Lens.lens (\DeleteMessageBatchResponse' {successful} -> successful) (\s@DeleteMessageBatchResponse' {} a -> s {successful = a} :: DeleteMessageBatchResponse) Prelude.. Lens._Coerce
+deleteMessageBatchResponse_successful = Lens.lens (\DeleteMessageBatchResponse' {successful} -> successful) (\s@DeleteMessageBatchResponse' {} a -> s {successful = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 
 -- | A list of @ BatchResultErrorEntry @ items.
 deleteMessageBatchResponse_failed :: Lens.Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-deleteMessageBatchResponse_failed = Lens.lens (\DeleteMessageBatchResponse' {failed} -> failed) (\s@DeleteMessageBatchResponse' {} a -> s {failed = a} :: DeleteMessageBatchResponse) Prelude.. Lens._Coerce
+deleteMessageBatchResponse_failed = Lens.lens (\DeleteMessageBatchResponse' {failed} -> failed) (\s@DeleteMessageBatchResponse' {} a -> s {failed = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DeleteMessageBatchResponse

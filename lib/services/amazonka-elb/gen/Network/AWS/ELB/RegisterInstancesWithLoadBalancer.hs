@@ -112,7 +112,7 @@ registerInstancesWithLoadBalancer_loadBalancerName = Lens.lens (\RegisterInstanc
 
 -- | The IDs of the instances.
 registerInstancesWithLoadBalancer_instances :: Lens.Lens' RegisterInstancesWithLoadBalancer [Instance]
-registerInstancesWithLoadBalancer_instances = Lens.lens (\RegisterInstancesWithLoadBalancer' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancer' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancer) Prelude.. Lens._Coerce
+registerInstancesWithLoadBalancer_instances = Lens.lens (\RegisterInstancesWithLoadBalancer' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancer' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -206,7 +206,7 @@ newRegisterInstancesWithLoadBalancerResponse
 
 -- | The updated list of instances for the load balancer.
 registerInstancesWithLoadBalancerResponse_instances :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse (Prelude.Maybe [Instance])
-registerInstancesWithLoadBalancerResponse_instances = Lens.lens (\RegisterInstancesWithLoadBalancerResponse' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancerResponse' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+registerInstancesWithLoadBalancerResponse_instances = Lens.lens (\RegisterInstancesWithLoadBalancerResponse' {instances} -> instances) (\s@RegisterInstancesWithLoadBalancerResponse' {} a -> s {instances = a} :: RegisterInstancesWithLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 registerInstancesWithLoadBalancerResponse_httpStatus :: Lens.Lens' RegisterInstancesWithLoadBalancerResponse Prelude.Int

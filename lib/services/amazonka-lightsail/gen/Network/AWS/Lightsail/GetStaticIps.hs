@@ -214,7 +214,7 @@ getStaticIpsResponse_nextPageToken = Lens.lens (\GetStaticIpsResponse' {nextPage
 -- | An array of key-value pairs containing information about your get static
 -- IPs request.
 getStaticIpsResponse_staticIps :: Lens.Lens' GetStaticIpsResponse (Prelude.Maybe [StaticIp])
-getStaticIpsResponse_staticIps = Lens.lens (\GetStaticIpsResponse' {staticIps} -> staticIps) (\s@GetStaticIpsResponse' {} a -> s {staticIps = a} :: GetStaticIpsResponse) Prelude.. Lens.mapping Lens._Coerce
+getStaticIpsResponse_staticIps = Lens.lens (\GetStaticIpsResponse' {staticIps} -> staticIps) (\s@GetStaticIpsResponse' {} a -> s {staticIps = a} :: GetStaticIpsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getStaticIpsResponse_httpStatus :: Lens.Lens' GetStaticIpsResponse Prelude.Int

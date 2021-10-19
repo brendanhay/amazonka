@@ -35,8 +35,8 @@ module Network.AWS.CostExplorer.GetSavingsPlansUtilization
 
     -- * Request Lenses
     getSavingsPlansUtilization_granularity,
-    getSavingsPlansUtilization_sortBy,
     getSavingsPlansUtilization_filter,
+    getSavingsPlansUtilization_sortBy,
     getSavingsPlansUtilization_timePeriod,
 
     -- * Destructuring the Response
@@ -65,22 +65,6 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
     -- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and
     -- @MONTHLY@ granularities.
     granularity :: Prelude.Maybe Granularity,
-    -- | The value by which you want to sort the data.
-    --
-    -- The following values are supported for @Key@:
-    --
-    -- -   @UtilizationPercentage@
-    --
-    -- -   @TotalCommitment@
-    --
-    -- -   @UsedCommitment@
-    --
-    -- -   @UnusedCommitment@
-    --
-    -- -   @NetSavings@
-    --
-    -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-    sortBy :: Prelude.Maybe SortDefinition,
     -- | Filters Savings Plans utilization coverage data for active Savings Plans
     -- dimensions. You can filter data with the following dimensions:
     --
@@ -101,6 +85,22 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
     -- object as the other operations, but only @AND@ is supported among each
     -- dimension.
     filter' :: Prelude.Maybe Expression,
+    -- | The value by which you want to sort the data.
+    --
+    -- The following values are supported for @Key@:
+    --
+    -- -   @UtilizationPercentage@
+    --
+    -- -   @TotalCommitment@
+    --
+    -- -   @UsedCommitment@
+    --
+    -- -   @UnusedCommitment@
+    --
+    -- -   @NetSavings@
+    --
+    -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+    sortBy :: Prelude.Maybe SortDefinition,
     -- | The time period that you want the usage and costs for. The @Start@ date
     -- must be within 13 months. The @End@ date must be after the @Start@ date,
     -- and before the current date. Future dates can\'t be used as an @End@
@@ -123,22 +123,6 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
 -- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and
 -- @MONTHLY@ granularities.
 --
--- 'sortBy', 'getSavingsPlansUtilization_sortBy' - The value by which you want to sort the data.
---
--- The following values are supported for @Key@:
---
--- -   @UtilizationPercentage@
---
--- -   @TotalCommitment@
---
--- -   @UsedCommitment@
---
--- -   @UnusedCommitment@
---
--- -   @NetSavings@
---
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
---
 -- 'filter'', 'getSavingsPlansUtilization_filter' - Filters Savings Plans utilization coverage data for active Savings Plans
 -- dimensions. You can filter data with the following dimensions:
 --
@@ -159,32 +143,7 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
 -- object as the other operations, but only @AND@ is supported among each
 -- dimension.
 --
--- 'timePeriod', 'getSavingsPlansUtilization_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
--- must be within 13 months. The @End@ date must be after the @Start@ date,
--- and before the current date. Future dates can\'t be used as an @End@
--- date.
-newGetSavingsPlansUtilization ::
-  -- | 'timePeriod'
-  DateInterval ->
-  GetSavingsPlansUtilization
-newGetSavingsPlansUtilization pTimePeriod_ =
-  GetSavingsPlansUtilization'
-    { granularity =
-        Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      timePeriod = pTimePeriod_
-    }
-
--- | The granularity of the Amazon Web Services utillization data for your
--- Savings Plans.
---
--- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and
--- @MONTHLY@ granularities.
-getSavingsPlansUtilization_granularity :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe Granularity)
-getSavingsPlansUtilization_granularity = Lens.lens (\GetSavingsPlansUtilization' {granularity} -> granularity) (\s@GetSavingsPlansUtilization' {} a -> s {granularity = a} :: GetSavingsPlansUtilization)
-
--- | The value by which you want to sort the data.
+-- 'sortBy', 'getSavingsPlansUtilization_sortBy' - The value by which you want to sort the data.
 --
 -- The following values are supported for @Key@:
 --
@@ -199,8 +158,31 @@ getSavingsPlansUtilization_granularity = Lens.lens (\GetSavingsPlansUtilization'
 -- -   @NetSavings@
 --
 -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
-getSavingsPlansUtilization_sortBy :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe SortDefinition)
-getSavingsPlansUtilization_sortBy = Lens.lens (\GetSavingsPlansUtilization' {sortBy} -> sortBy) (\s@GetSavingsPlansUtilization' {} a -> s {sortBy = a} :: GetSavingsPlansUtilization)
+--
+-- 'timePeriod', 'getSavingsPlansUtilization_timePeriod' - The time period that you want the usage and costs for. The @Start@ date
+-- must be within 13 months. The @End@ date must be after the @Start@ date,
+-- and before the current date. Future dates can\'t be used as an @End@
+-- date.
+newGetSavingsPlansUtilization ::
+  -- | 'timePeriod'
+  DateInterval ->
+  GetSavingsPlansUtilization
+newGetSavingsPlansUtilization pTimePeriod_ =
+  GetSavingsPlansUtilization'
+    { granularity =
+        Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      timePeriod = pTimePeriod_
+    }
+
+-- | The granularity of the Amazon Web Services utillization data for your
+-- Savings Plans.
+--
+-- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and
+-- @MONTHLY@ granularities.
+getSavingsPlansUtilization_granularity :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe Granularity)
+getSavingsPlansUtilization_granularity = Lens.lens (\GetSavingsPlansUtilization' {granularity} -> granularity) (\s@GetSavingsPlansUtilization' {} a -> s {granularity = a} :: GetSavingsPlansUtilization)
 
 -- | Filters Savings Plans utilization coverage data for active Savings Plans
 -- dimensions. You can filter data with the following dimensions:
@@ -223,6 +205,24 @@ getSavingsPlansUtilization_sortBy = Lens.lens (\GetSavingsPlansUtilization' {sor
 -- dimension.
 getSavingsPlansUtilization_filter :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe Expression)
 getSavingsPlansUtilization_filter = Lens.lens (\GetSavingsPlansUtilization' {filter'} -> filter') (\s@GetSavingsPlansUtilization' {} a -> s {filter' = a} :: GetSavingsPlansUtilization)
+
+-- | The value by which you want to sort the data.
+--
+-- The following values are supported for @Key@:
+--
+-- -   @UtilizationPercentage@
+--
+-- -   @TotalCommitment@
+--
+-- -   @UsedCommitment@
+--
+-- -   @UnusedCommitment@
+--
+-- -   @NetSavings@
+--
+-- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+getSavingsPlansUtilization_sortBy :: Lens.Lens' GetSavingsPlansUtilization (Prelude.Maybe SortDefinition)
+getSavingsPlansUtilization_sortBy = Lens.lens (\GetSavingsPlansUtilization' {sortBy} -> sortBy) (\s@GetSavingsPlansUtilization' {} a -> s {sortBy = a} :: GetSavingsPlansUtilization)
 
 -- | The time period that you want the usage and costs for. The @Start@ date
 -- must be within 13 months. The @End@ date must be after the @Start@ date,
@@ -271,8 +271,8 @@ instance Core.ToJSON GetSavingsPlansUtilization where
     Core.object
       ( Prelude.catMaybes
           [ ("Granularity" Core..=) Prelude.<$> granularity,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("Filter" Core..=) Prelude.<$> filter',
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
@@ -330,7 +330,7 @@ newGetSavingsPlansUtilizationResponse
 -- | The amount of cost\/commitment you used your Savings Plans. This allows
 -- you to specify date ranges.
 getSavingsPlansUtilizationResponse_savingsPlansUtilizationsByTime :: Lens.Lens' GetSavingsPlansUtilizationResponse (Prelude.Maybe [SavingsPlansUtilizationByTime])
-getSavingsPlansUtilizationResponse_savingsPlansUtilizationsByTime = Lens.lens (\GetSavingsPlansUtilizationResponse' {savingsPlansUtilizationsByTime} -> savingsPlansUtilizationsByTime) (\s@GetSavingsPlansUtilizationResponse' {} a -> s {savingsPlansUtilizationsByTime = a} :: GetSavingsPlansUtilizationResponse) Prelude.. Lens.mapping Lens._Coerce
+getSavingsPlansUtilizationResponse_savingsPlansUtilizationsByTime = Lens.lens (\GetSavingsPlansUtilizationResponse' {savingsPlansUtilizationsByTime} -> savingsPlansUtilizationsByTime) (\s@GetSavingsPlansUtilizationResponse' {} a -> s {savingsPlansUtilizationsByTime = a} :: GetSavingsPlansUtilizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSavingsPlansUtilizationResponse_httpStatus :: Lens.Lens' GetSavingsPlansUtilizationResponse Prelude.Int

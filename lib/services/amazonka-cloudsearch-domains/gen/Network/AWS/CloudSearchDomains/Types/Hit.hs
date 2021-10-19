@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHit' smart constructor.
 data Hit = Hit'
-  { -- | The document ID of a document that matches the search request.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The expressions returned from a document that matches the search
+  { -- | The expressions returned from a document that matches the search
     -- request.
     exprs :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The fields returned from a document that matches the search request.
-    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The document ID of a document that matches the search request.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The highlights returned from a document that matches the search request.
-    highlights :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    highlights :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The fields returned from a document that matches the search request.
+    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,40 +47,40 @@ data Hit = Hit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'hit_id' - The document ID of a document that matches the search request.
---
 -- 'exprs', 'hit_exprs' - The expressions returned from a document that matches the search
 -- request.
 --
--- 'fields', 'hit_fields' - The fields returned from a document that matches the search request.
+-- 'id', 'hit_id' - The document ID of a document that matches the search request.
 --
 -- 'highlights', 'hit_highlights' - The highlights returned from a document that matches the search request.
+--
+-- 'fields', 'hit_fields' - The fields returned from a document that matches the search request.
 newHit ::
   Hit
 newHit =
   Hit'
-    { id = Prelude.Nothing,
-      exprs = Prelude.Nothing,
-      fields = Prelude.Nothing,
-      highlights = Prelude.Nothing
+    { exprs = Prelude.Nothing,
+      id = Prelude.Nothing,
+      highlights = Prelude.Nothing,
+      fields = Prelude.Nothing
     }
+
+-- | The expressions returned from a document that matches the search
+-- request.
+hit_exprs :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hit_exprs = Lens.lens (\Hit' {exprs} -> exprs) (\s@Hit' {} a -> s {exprs = a} :: Hit) Prelude.. Lens.mapping Lens.coerced
 
 -- | The document ID of a document that matches the search request.
 hit_id :: Lens.Lens' Hit (Prelude.Maybe Prelude.Text)
 hit_id = Lens.lens (\Hit' {id} -> id) (\s@Hit' {} a -> s {id = a} :: Hit)
 
--- | The expressions returned from a document that matches the search
--- request.
-hit_exprs :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hit_exprs = Lens.lens (\Hit' {exprs} -> exprs) (\s@Hit' {} a -> s {exprs = a} :: Hit) Prelude.. Lens.mapping Lens._Coerce
+-- | The highlights returned from a document that matches the search request.
+hit_highlights :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hit_highlights = Lens.lens (\Hit' {highlights} -> highlights) (\s@Hit' {} a -> s {highlights = a} :: Hit) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fields returned from a document that matches the search request.
 hit_fields :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a} :: Hit) Prelude.. Lens.mapping Lens._Coerce
-
--- | The highlights returned from a document that matches the search request.
-hit_highlights :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hit_highlights = Lens.lens (\Hit' {highlights} -> highlights) (\s@Hit' {} a -> s {highlights = a} :: Hit) Prelude.. Lens.mapping Lens._Coerce
+hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a} :: Hit) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Hit where
   parseJSON =
@@ -88,10 +88,10 @@ instance Core.FromJSON Hit where
       "Hit"
       ( \x ->
           Hit'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "exprs" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "exprs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "highlights" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "fields" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Hit

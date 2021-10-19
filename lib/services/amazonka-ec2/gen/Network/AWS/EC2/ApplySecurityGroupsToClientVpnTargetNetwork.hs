@@ -127,7 +127,7 @@ applySecurityGroupsToClientVpnTargetNetwork_vpcId = Lens.lens (\ApplySecurityGro
 -- network. Up to 5 security groups can be applied to an associated target
 -- network.
 applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork [Prelude.Text]
-applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetwork) Prelude.. Lens._Coerce
+applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetwork) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -223,7 +223,7 @@ newApplySecurityGroupsToClientVpnTargetNetworkResponse
 
 -- | The IDs of the applied security groups.
 applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetworkResponse (Prelude.Maybe [Prelude.Text])
-applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetworkResponse' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetworkResponse' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetworkResponse) Prelude.. Lens.mapping Lens._Coerce
+applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetworkResponse' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetworkResponse' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetworkResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetworkResponse Prelude.Int

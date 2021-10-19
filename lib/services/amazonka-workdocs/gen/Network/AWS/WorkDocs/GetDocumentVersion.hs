@@ -27,9 +27,9 @@ module Network.AWS.WorkDocs.GetDocumentVersion
     newGetDocumentVersion,
 
     -- * Request Lenses
+    getDocumentVersion_authenticationToken,
     getDocumentVersion_includeCustomMetadata,
     getDocumentVersion_fields,
-    getDocumentVersion_authenticationToken,
     getDocumentVersion_documentId,
     getDocumentVersion_versionId,
 
@@ -38,8 +38,8 @@ module Network.AWS.WorkDocs.GetDocumentVersion
     newGetDocumentVersionResponse,
 
     -- * Response Lenses
-    getDocumentVersionResponse_metadata,
     getDocumentVersionResponse_customMetadata,
+    getDocumentVersionResponse_metadata,
     getDocumentVersionResponse_httpStatus,
   )
 where
@@ -53,14 +53,14 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newGetDocumentVersion' smart constructor.
 data GetDocumentVersion = GetDocumentVersion'
-  { -- | Set this to TRUE to include custom metadata in the response.
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Set this to TRUE to include custom metadata in the response.
     includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
     -- | A comma-separated list of values. Specify \"SOURCE\" to include a URL
     -- for the source document.
     fields :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
     -- | The version ID of the document.
@@ -76,13 +76,13 @@ data GetDocumentVersion = GetDocumentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authenticationToken', 'getDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+--
 -- 'includeCustomMetadata', 'getDocumentVersion_includeCustomMetadata' - Set this to TRUE to include custom metadata in the response.
 --
 -- 'fields', 'getDocumentVersion_fields' - A comma-separated list of values. Specify \"SOURCE\" to include a URL
 -- for the source document.
---
--- 'authenticationToken', 'getDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
 --
 -- 'documentId', 'getDocumentVersion_documentId' - The ID of the document.
 --
@@ -95,13 +95,18 @@ newGetDocumentVersion ::
   GetDocumentVersion
 newGetDocumentVersion pDocumentId_ pVersionId_ =
   GetDocumentVersion'
-    { includeCustomMetadata =
+    { authenticationToken =
         Prelude.Nothing,
+      includeCustomMetadata = Prelude.Nothing,
       fields = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_
     }
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+getDocumentVersion_authenticationToken :: Lens.Lens' GetDocumentVersion (Prelude.Maybe Prelude.Text)
+getDocumentVersion_authenticationToken = Lens.lens (\GetDocumentVersion' {authenticationToken} -> authenticationToken) (\s@GetDocumentVersion' {} a -> s {authenticationToken = a} :: GetDocumentVersion) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Set this to TRUE to include custom metadata in the response.
 getDocumentVersion_includeCustomMetadata :: Lens.Lens' GetDocumentVersion (Prelude.Maybe Prelude.Bool)
@@ -111,11 +116,6 @@ getDocumentVersion_includeCustomMetadata = Lens.lens (\GetDocumentVersion' {incl
 -- for the source document.
 getDocumentVersion_fields :: Lens.Lens' GetDocumentVersion (Prelude.Maybe Prelude.Text)
 getDocumentVersion_fields = Lens.lens (\GetDocumentVersion' {fields} -> fields) (\s@GetDocumentVersion' {} a -> s {fields = a} :: GetDocumentVersion)
-
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
-getDocumentVersion_authenticationToken :: Lens.Lens' GetDocumentVersion (Prelude.Maybe Prelude.Text)
-getDocumentVersion_authenticationToken = Lens.lens (\GetDocumentVersion' {authenticationToken} -> authenticationToken) (\s@GetDocumentVersion' {} a -> s {authenticationToken = a} :: GetDocumentVersion) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The ID of the document.
 getDocumentVersion_documentId :: Lens.Lens' GetDocumentVersion Prelude.Text
@@ -134,8 +134,8 @@ instance Core.AWSRequest GetDocumentVersion where
     Response.receiveJSON
       ( \s h x ->
           GetDocumentVersionResponse'
-            Prelude.<$> (x Core..?> "Metadata")
-            Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Metadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,10 +170,10 @@ instance Core.ToQuery GetDocumentVersion where
 
 -- | /See:/ 'newGetDocumentVersionResponse' smart constructor.
 data GetDocumentVersionResponse = GetDocumentVersionResponse'
-  { -- | The version metadata.
-    metadata :: Prelude.Maybe DocumentVersionMetadata,
-    -- | The custom metadata on the document version.
+  { -- | The custom metadata on the document version.
     customMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The version metadata.
+    metadata :: Prelude.Maybe DocumentVersionMetadata,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,9 +187,9 @@ data GetDocumentVersionResponse = GetDocumentVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metadata', 'getDocumentVersionResponse_metadata' - The version metadata.
---
 -- 'customMetadata', 'getDocumentVersionResponse_customMetadata' - The custom metadata on the document version.
+--
+-- 'metadata', 'getDocumentVersionResponse_metadata' - The version metadata.
 --
 -- 'httpStatus', 'getDocumentVersionResponse_httpStatus' - The response's http status code.
 newGetDocumentVersionResponse ::
@@ -198,19 +198,19 @@ newGetDocumentVersionResponse ::
   GetDocumentVersionResponse
 newGetDocumentVersionResponse pHttpStatus_ =
   GetDocumentVersionResponse'
-    { metadata =
+    { customMetadata =
         Prelude.Nothing,
-      customMetadata = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The custom metadata on the document version.
+getDocumentVersionResponse_customMetadata :: Lens.Lens' GetDocumentVersionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDocumentVersionResponse_customMetadata = Lens.lens (\GetDocumentVersionResponse' {customMetadata} -> customMetadata) (\s@GetDocumentVersionResponse' {} a -> s {customMetadata = a} :: GetDocumentVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version metadata.
 getDocumentVersionResponse_metadata :: Lens.Lens' GetDocumentVersionResponse (Prelude.Maybe DocumentVersionMetadata)
 getDocumentVersionResponse_metadata = Lens.lens (\GetDocumentVersionResponse' {metadata} -> metadata) (\s@GetDocumentVersionResponse' {} a -> s {metadata = a} :: GetDocumentVersionResponse)
-
--- | The custom metadata on the document version.
-getDocumentVersionResponse_customMetadata :: Lens.Lens' GetDocumentVersionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDocumentVersionResponse_customMetadata = Lens.lens (\GetDocumentVersionResponse' {customMetadata} -> customMetadata) (\s@GetDocumentVersionResponse' {} a -> s {customMetadata = a} :: GetDocumentVersionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getDocumentVersionResponse_httpStatus :: Lens.Lens' GetDocumentVersionResponse Prelude.Int

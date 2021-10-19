@@ -285,7 +285,7 @@ createProvisioningArtifactResponse_status = Lens.lens (\CreateProvisioningArtifa
 -- Use the physical id of the resource that contains the template;
 -- currently supports CloudFormation stack ARN.
 createProvisioningArtifactResponse_info :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProvisioningArtifactResponse_info = Lens.lens (\CreateProvisioningArtifactResponse' {info} -> info) (\s@CreateProvisioningArtifactResponse' {} a -> s {info = a} :: CreateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens._Coerce
+createProvisioningArtifactResponse_info = Lens.lens (\CreateProvisioningArtifactResponse' {info} -> info) (\s@CreateProvisioningArtifactResponse' {} a -> s {info = a} :: CreateProvisioningArtifactResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the provisioning artifact.
 createProvisioningArtifactResponse_provisioningArtifactDetail :: Lens.Lens' CreateProvisioningArtifactResponse (Prelude.Maybe ProvisioningArtifactDetail)

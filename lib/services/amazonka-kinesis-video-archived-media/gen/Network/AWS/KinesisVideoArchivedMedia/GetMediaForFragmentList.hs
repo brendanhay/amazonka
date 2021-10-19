@@ -119,7 +119,7 @@ newGetMediaForFragmentList pFragments_ =
     { streamARN =
         Prelude.Nothing,
       streamName = Prelude.Nothing,
-      fragments = Lens._Coerce Lens.# pFragments_
+      fragments = Lens.coerced Lens.# pFragments_
     }
 
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve
@@ -136,7 +136,7 @@ getMediaForFragmentList_streamName = Lens.lens (\GetMediaForFragmentList' {strea
 -- | A list of the numbers of fragments for which to retrieve media. You
 -- retrieve these values with ListFragments.
 getMediaForFragmentList_fragments :: Lens.Lens' GetMediaForFragmentList (Prelude.NonEmpty Prelude.Text)
-getMediaForFragmentList_fragments = Lens.lens (\GetMediaForFragmentList' {fragments} -> fragments) (\s@GetMediaForFragmentList' {} a -> s {fragments = a} :: GetMediaForFragmentList) Prelude.. Lens._Coerce
+getMediaForFragmentList_fragments = Lens.lens (\GetMediaForFragmentList' {fragments} -> fragments) (\s@GetMediaForFragmentList' {} a -> s {fragments = a} :: GetMediaForFragmentList) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetMediaForFragmentList where
   type

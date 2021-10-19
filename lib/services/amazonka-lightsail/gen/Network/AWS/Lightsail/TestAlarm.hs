@@ -209,7 +209,7 @@ newTestAlarmResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 testAlarmResponse_operations :: Lens.Lens' TestAlarmResponse (Prelude.Maybe [Operation])
-testAlarmResponse_operations = Lens.lens (\TestAlarmResponse' {operations} -> operations) (\s@TestAlarmResponse' {} a -> s {operations = a} :: TestAlarmResponse) Prelude.. Lens.mapping Lens._Coerce
+testAlarmResponse_operations = Lens.lens (\TestAlarmResponse' {operations} -> operations) (\s@TestAlarmResponse' {} a -> s {operations = a} :: TestAlarmResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 testAlarmResponse_httpStatus :: Lens.Lens' TestAlarmResponse Prelude.Int

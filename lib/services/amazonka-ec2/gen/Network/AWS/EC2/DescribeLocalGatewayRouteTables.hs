@@ -31,11 +31,11 @@ module Network.AWS.EC2.DescribeLocalGatewayRouteTables
     newDescribeLocalGatewayRouteTables,
 
     -- * Request Lenses
+    describeLocalGatewayRouteTables_filters,
     describeLocalGatewayRouteTables_nextToken,
     describeLocalGatewayRouteTables_localGatewayRouteTableIds,
-    describeLocalGatewayRouteTables_maxResults,
     describeLocalGatewayRouteTables_dryRun,
-    describeLocalGatewayRouteTables_filters,
+    describeLocalGatewayRouteTables_maxResults,
 
     -- * Destructuring the Response
     DescribeLocalGatewayRouteTablesResponse (..),
@@ -57,20 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLocalGatewayRouteTables' smart constructor.
 data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the local gateway route tables.
-    localGatewayRouteTableIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
@@ -80,7 +67,20 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
     -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
     --
     -- -   @state@ - The state of the local gateway route table.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The IDs of the local gateway route tables.
+    localGatewayRouteTableIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,19 +92,6 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeLocalGatewayRouteTables_nextToken' - The token for the next page of results.
---
--- 'localGatewayRouteTableIds', 'describeLocalGatewayRouteTables_localGatewayRouteTableIds' - The IDs of the local gateway route tables.
---
--- 'maxResults', 'describeLocalGatewayRouteTables_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeLocalGatewayRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'filters', 'describeLocalGatewayRouteTables_filters' - One or more filters.
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
@@ -115,39 +102,31 @@ data DescribeLocalGatewayRouteTables = DescribeLocalGatewayRouteTables'
 -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
 --
 -- -   @state@ - The state of the local gateway route table.
+--
+-- 'nextToken', 'describeLocalGatewayRouteTables_nextToken' - The token for the next page of results.
+--
+-- 'localGatewayRouteTableIds', 'describeLocalGatewayRouteTables_localGatewayRouteTableIds' - The IDs of the local gateway route tables.
+--
+-- 'dryRun', 'describeLocalGatewayRouteTables_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeLocalGatewayRouteTables_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeLocalGatewayRouteTables ::
   DescribeLocalGatewayRouteTables
 newDescribeLocalGatewayRouteTables =
   DescribeLocalGatewayRouteTables'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       localGatewayRouteTableIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeLocalGatewayRouteTables_nextToken :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Text)
-describeLocalGatewayRouteTables_nextToken = Lens.lens (\DescribeLocalGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeLocalGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeLocalGatewayRouteTables)
-
--- | The IDs of the local gateway route tables.
-describeLocalGatewayRouteTables_localGatewayRouteTableIds :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe [Prelude.Text])
-describeLocalGatewayRouteTables_localGatewayRouteTableIds = Lens.lens (\DescribeLocalGatewayRouteTables' {localGatewayRouteTableIds} -> localGatewayRouteTableIds) (\s@DescribeLocalGatewayRouteTables' {} a -> s {localGatewayRouteTableIds = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeLocalGatewayRouteTables_maxResults :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Natural)
-describeLocalGatewayRouteTables_maxResults = Lens.lens (\DescribeLocalGatewayRouteTables' {maxResults} -> maxResults) (\s@DescribeLocalGatewayRouteTables' {} a -> s {maxResults = a} :: DescribeLocalGatewayRouteTables)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeLocalGatewayRouteTables_dryRun :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Bool)
-describeLocalGatewayRouteTables_dryRun = Lens.lens (\DescribeLocalGatewayRouteTables' {dryRun} -> dryRun) (\s@DescribeLocalGatewayRouteTables' {} a -> s {dryRun = a} :: DescribeLocalGatewayRouteTables)
 
 -- | One or more filters.
 --
@@ -160,7 +139,28 @@ describeLocalGatewayRouteTables_dryRun = Lens.lens (\DescribeLocalGatewayRouteTa
 --
 -- -   @state@ - The state of the local gateway route table.
 describeLocalGatewayRouteTables_filters :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe [Filter])
-describeLocalGatewayRouteTables_filters = Lens.lens (\DescribeLocalGatewayRouteTables' {filters} -> filters) (\s@DescribeLocalGatewayRouteTables' {} a -> s {filters = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens._Coerce
+describeLocalGatewayRouteTables_filters = Lens.lens (\DescribeLocalGatewayRouteTables' {filters} -> filters) (\s@DescribeLocalGatewayRouteTables' {} a -> s {filters = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeLocalGatewayRouteTables_nextToken :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Text)
+describeLocalGatewayRouteTables_nextToken = Lens.lens (\DescribeLocalGatewayRouteTables' {nextToken} -> nextToken) (\s@DescribeLocalGatewayRouteTables' {} a -> s {nextToken = a} :: DescribeLocalGatewayRouteTables)
+
+-- | The IDs of the local gateway route tables.
+describeLocalGatewayRouteTables_localGatewayRouteTableIds :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe [Prelude.Text])
+describeLocalGatewayRouteTables_localGatewayRouteTableIds = Lens.lens (\DescribeLocalGatewayRouteTables' {localGatewayRouteTableIds} -> localGatewayRouteTableIds) (\s@DescribeLocalGatewayRouteTables' {} a -> s {localGatewayRouteTableIds = a} :: DescribeLocalGatewayRouteTables) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeLocalGatewayRouteTables_dryRun :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Bool)
+describeLocalGatewayRouteTables_dryRun = Lens.lens (\DescribeLocalGatewayRouteTables' {dryRun} -> dryRun) (\s@DescribeLocalGatewayRouteTables' {} a -> s {dryRun = a} :: DescribeLocalGatewayRouteTables)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeLocalGatewayRouteTables_maxResults :: Lens.Lens' DescribeLocalGatewayRouteTables (Prelude.Maybe Prelude.Natural)
+describeLocalGatewayRouteTables_maxResults = Lens.lens (\DescribeLocalGatewayRouteTables' {maxResults} -> maxResults) (\s@DescribeLocalGatewayRouteTables' {} a -> s {maxResults = a} :: DescribeLocalGatewayRouteTables)
 
 instance
   Core.AWSPager
@@ -233,15 +233,15 @@ instance Core.ToQuery DescribeLocalGatewayRouteTables where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "NextToken" Core.=: nextToken,
         Core.toQuery
           ( Core.toQueryList "LocalGatewayRouteTableId"
               Prelude.<$> localGatewayRouteTableIds
           ),
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeLocalGatewayRouteTablesResponse' smart constructor.
@@ -291,7 +291,7 @@ describeLocalGatewayRouteTablesResponse_nextToken = Lens.lens (\DescribeLocalGat
 
 -- | Information about the local gateway route tables.
 describeLocalGatewayRouteTablesResponse_localGatewayRouteTables :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse (Prelude.Maybe [LocalGatewayRouteTable])
-describeLocalGatewayRouteTablesResponse_localGatewayRouteTables = Lens.lens (\DescribeLocalGatewayRouteTablesResponse' {localGatewayRouteTables} -> localGatewayRouteTables) (\s@DescribeLocalGatewayRouteTablesResponse' {} a -> s {localGatewayRouteTables = a} :: DescribeLocalGatewayRouteTablesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLocalGatewayRouteTablesResponse_localGatewayRouteTables = Lens.lens (\DescribeLocalGatewayRouteTablesResponse' {localGatewayRouteTables} -> localGatewayRouteTables) (\s@DescribeLocalGatewayRouteTablesResponse' {} a -> s {localGatewayRouteTables = a} :: DescribeLocalGatewayRouteTablesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLocalGatewayRouteTablesResponse_httpStatus :: Lens.Lens' DescribeLocalGatewayRouteTablesResponse Prelude.Int

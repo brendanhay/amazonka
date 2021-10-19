@@ -52,7 +52,7 @@ newValidationWarning =
 
 -- | The error codes and error messages.
 validationWarning_errors :: Lens.Lens' ValidationWarning (Prelude.Maybe [ValidationError])
-validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Prelude.. Lens.mapping Lens._Coerce
+validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ValidationWarning where
   parseXML x =

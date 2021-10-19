@@ -78,7 +78,7 @@ newGetMemberDetectors ::
 newGetMemberDetectors pDetectorId_ pAccountIds_ =
   GetMemberDetectors'
     { detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | The detector ID for the administrator account.
@@ -87,7 +87,7 @@ getMemberDetectors_detectorId = Lens.lens (\GetMemberDetectors' {detectorId} -> 
 
 -- | The account ID of the member account.
 getMemberDetectors_accountIds :: Lens.Lens' GetMemberDetectors (Prelude.NonEmpty Prelude.Text)
-getMemberDetectors_accountIds = Lens.lens (\GetMemberDetectors' {accountIds} -> accountIds) (\s@GetMemberDetectors' {} a -> s {accountIds = a} :: GetMemberDetectors) Prelude.. Lens._Coerce
+getMemberDetectors_accountIds = Lens.lens (\GetMemberDetectors' {accountIds} -> accountIds) (\s@GetMemberDetectors' {} a -> s {accountIds = a} :: GetMemberDetectors) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetMemberDetectors where
   type
@@ -179,7 +179,7 @@ newGetMemberDetectorsResponse
       { httpStatus =
           pHttpStatus_,
         memberDataSourceConfigurations =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pMemberDataSourceConfigurations_,
         unprocessedAccounts = Prelude.mempty
       }
@@ -191,11 +191,11 @@ getMemberDetectorsResponse_httpStatus = Lens.lens (\GetMemberDetectorsResponse' 
 -- | An object that describes which data sources are enabled for a member
 -- account.
 getMemberDetectorsResponse_memberDataSourceConfigurations :: Lens.Lens' GetMemberDetectorsResponse (Prelude.NonEmpty MemberDataSourceConfiguration)
-getMemberDetectorsResponse_memberDataSourceConfigurations = Lens.lens (\GetMemberDetectorsResponse' {memberDataSourceConfigurations} -> memberDataSourceConfigurations) (\s@GetMemberDetectorsResponse' {} a -> s {memberDataSourceConfigurations = a} :: GetMemberDetectorsResponse) Prelude.. Lens._Coerce
+getMemberDetectorsResponse_memberDataSourceConfigurations = Lens.lens (\GetMemberDetectorsResponse' {memberDataSourceConfigurations} -> memberDataSourceConfigurations) (\s@GetMemberDetectorsResponse' {} a -> s {memberDataSourceConfigurations = a} :: GetMemberDetectorsResponse) Prelude.. Lens.coerced
 
 -- | A list of member account IDs that were unable to be processed along with
 -- an explanation for why they were not processed.
 getMemberDetectorsResponse_unprocessedAccounts :: Lens.Lens' GetMemberDetectorsResponse [UnprocessedAccount]
-getMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\GetMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: GetMemberDetectorsResponse) Prelude.. Lens._Coerce
+getMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\GetMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: GetMemberDetectorsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetMemberDetectorsResponse

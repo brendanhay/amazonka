@@ -233,7 +233,7 @@ describeSnapshotScheduleResponse_description = Lens.lens (\DescribeSnapshotSched
 -- with more than 10 tags assigned, you can view all tags using the
 -- @ListTagsForResource@ API operation.
 describeSnapshotScheduleResponse_tags :: Lens.Lens' DescribeSnapshotScheduleResponse (Prelude.Maybe [Tag])
-describeSnapshotScheduleResponse_tags = Lens.lens (\DescribeSnapshotScheduleResponse' {tags} -> tags) (\s@DescribeSnapshotScheduleResponse' {} a -> s {tags = a} :: DescribeSnapshotScheduleResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSnapshotScheduleResponse_tags = Lens.lens (\DescribeSnapshotScheduleResponse' {tags} -> tags) (\s@DescribeSnapshotScheduleResponse' {} a -> s {tags = a} :: DescribeSnapshotScheduleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSnapshotScheduleResponse_httpStatus :: Lens.Lens' DescribeSnapshotScheduleResponse Prelude.Int

@@ -62,7 +62,7 @@ serviceActionDetail_serviceActionSummary = Lens.lens (\ServiceActionDetail' {ser
 
 -- | A map that defines the self-service action.
 serviceActionDetail_definition :: Lens.Lens' ServiceActionDetail (Prelude.Maybe (Prelude.HashMap ServiceActionDefinitionKey Prelude.Text))
-serviceActionDetail_definition = Lens.lens (\ServiceActionDetail' {definition} -> definition) (\s@ServiceActionDetail' {} a -> s {definition = a} :: ServiceActionDetail) Prelude.. Lens.mapping Lens._Coerce
+serviceActionDetail_definition = Lens.lens (\ServiceActionDetail' {definition} -> definition) (\s@ServiceActionDetail' {} a -> s {definition = a} :: ServiceActionDetail) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ServiceActionDetail where
   parseJSON =

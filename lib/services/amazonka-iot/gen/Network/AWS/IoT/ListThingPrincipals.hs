@@ -44,8 +44,8 @@ module Network.AWS.IoT.ListThingPrincipals
     newListThingPrincipalsResponse,
 
     -- * Response Lenses
-    listThingPrincipalsResponse_nextToken,
     listThingPrincipalsResponse_principals,
+    listThingPrincipalsResponse_nextToken,
     listThingPrincipalsResponse_httpStatus,
   )
 where
@@ -143,8 +143,8 @@ instance Core.AWSRequest ListThingPrincipals where
     Response.receiveJSON
       ( \s h x ->
           ListThingPrincipalsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "principals" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "principals" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,11 +171,11 @@ instance Core.ToQuery ListThingPrincipals where
 --
 -- /See:/ 'newListThingPrincipalsResponse' smart constructor.
 data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
-  { -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The principals associated with the thing.
+    principals :: Prelude.Maybe [Prelude.Text],
+    -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The principals associated with the thing.
-    principals :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -189,10 +189,10 @@ data ListThingPrincipalsResponse = ListThingPrincipalsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'principals', 'listThingPrincipalsResponse_principals' - The principals associated with the thing.
+--
 -- 'nextToken', 'listThingPrincipalsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
---
--- 'principals', 'listThingPrincipalsResponse_principals' - The principals associated with the thing.
 --
 -- 'httpStatus', 'listThingPrincipalsResponse_httpStatus' - The response's http status code.
 newListThingPrincipalsResponse ::
@@ -201,20 +201,20 @@ newListThingPrincipalsResponse ::
   ListThingPrincipalsResponse
 newListThingPrincipalsResponse pHttpStatus_ =
   ListThingPrincipalsResponse'
-    { nextToken =
+    { principals =
         Prelude.Nothing,
-      principals = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The principals associated with the thing.
+listThingPrincipalsResponse_principals :: Lens.Lens' ListThingPrincipalsResponse (Prelude.Maybe [Prelude.Text])
+listThingPrincipalsResponse_principals = Lens.lens (\ListThingPrincipalsResponse' {principals} -> principals) (\s@ListThingPrincipalsResponse' {} a -> s {principals = a} :: ListThingPrincipalsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listThingPrincipalsResponse_nextToken :: Lens.Lens' ListThingPrincipalsResponse (Prelude.Maybe Prelude.Text)
 listThingPrincipalsResponse_nextToken = Lens.lens (\ListThingPrincipalsResponse' {nextToken} -> nextToken) (\s@ListThingPrincipalsResponse' {} a -> s {nextToken = a} :: ListThingPrincipalsResponse)
-
--- | The principals associated with the thing.
-listThingPrincipalsResponse_principals :: Lens.Lens' ListThingPrincipalsResponse (Prelude.Maybe [Prelude.Text])
-listThingPrincipalsResponse_principals = Lens.lens (\ListThingPrincipalsResponse' {principals} -> principals) (\s@ListThingPrincipalsResponse' {} a -> s {principals = a} :: ListThingPrincipalsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listThingPrincipalsResponse_httpStatus :: Lens.Lens' ListThingPrincipalsResponse Prelude.Int

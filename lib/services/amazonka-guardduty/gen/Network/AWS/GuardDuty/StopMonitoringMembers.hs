@@ -80,7 +80,7 @@ newStopMonitoringMembers ::
 newStopMonitoringMembers pDetectorId_ pAccountIds_ =
   StopMonitoringMembers'
     { detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | The unique ID of the detector associated with the GuardDuty
@@ -90,7 +90,7 @@ stopMonitoringMembers_detectorId = Lens.lens (\StopMonitoringMembers' {detectorI
 
 -- | A list of account IDs for the member accounts to stop monitoring.
 stopMonitoringMembers_accountIds :: Lens.Lens' StopMonitoringMembers (Prelude.NonEmpty Prelude.Text)
-stopMonitoringMembers_accountIds = Lens.lens (\StopMonitoringMembers' {accountIds} -> accountIds) (\s@StopMonitoringMembers' {} a -> s {accountIds = a} :: StopMonitoringMembers) Prelude.. Lens._Coerce
+stopMonitoringMembers_accountIds = Lens.lens (\StopMonitoringMembers' {accountIds} -> accountIds) (\s@StopMonitoringMembers' {} a -> s {accountIds = a} :: StopMonitoringMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StopMonitoringMembers where
   type
@@ -180,6 +180,6 @@ stopMonitoringMembersResponse_httpStatus = Lens.lens (\StopMonitoringMembersResp
 -- not be processed, and a result string that indicates why the account was
 -- not processed.
 stopMonitoringMembersResponse_unprocessedAccounts :: Lens.Lens' StopMonitoringMembersResponse [UnprocessedAccount]
-stopMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StopMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StopMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StopMonitoringMembersResponse) Prelude.. Lens._Coerce
+stopMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StopMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StopMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StopMonitoringMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData StopMonitoringMembersResponse

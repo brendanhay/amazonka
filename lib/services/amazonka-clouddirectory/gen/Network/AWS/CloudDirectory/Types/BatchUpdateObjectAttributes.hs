@@ -64,7 +64,7 @@ batchUpdateObjectAttributes_objectReference = Lens.lens (\BatchUpdateObjectAttri
 
 -- | Attributes update structure.
 batchUpdateObjectAttributes_attributeUpdates :: Lens.Lens' BatchUpdateObjectAttributes [ObjectAttributeUpdate]
-batchUpdateObjectAttributes_attributeUpdates = Lens.lens (\BatchUpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes) Prelude.. Lens._Coerce
+batchUpdateObjectAttributes_attributeUpdates = Lens.lens (\BatchUpdateObjectAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateObjectAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateObjectAttributes) Prelude.. Lens.coerced
 
 instance Prelude.Hashable BatchUpdateObjectAttributes
 

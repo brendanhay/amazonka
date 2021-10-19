@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data HierarchyGroupSummary = HierarchyGroupSummary'
   { -- | The Amazon Resource Name (ARN) of the hierarchy group.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the hierarchy group.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the hierarchy group.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the hierarchy group.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data HierarchyGroupSummary = HierarchyGroupSummary'
 --
 -- 'arn', 'hierarchyGroupSummary_arn' - The Amazon Resource Name (ARN) of the hierarchy group.
 --
--- 'id', 'hierarchyGroupSummary_id' - The identifier of the hierarchy group.
---
 -- 'name', 'hierarchyGroupSummary_name' - The name of the hierarchy group.
+--
+-- 'id', 'hierarchyGroupSummary_id' - The identifier of the hierarchy group.
 newHierarchyGroupSummary ::
   HierarchyGroupSummary
 newHierarchyGroupSummary =
   HierarchyGroupSummary'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the hierarchy group.
 hierarchyGroupSummary_arn :: Lens.Lens' HierarchyGroupSummary (Prelude.Maybe Prelude.Text)
 hierarchyGroupSummary_arn = Lens.lens (\HierarchyGroupSummary' {arn} -> arn) (\s@HierarchyGroupSummary' {} a -> s {arn = a} :: HierarchyGroupSummary)
 
--- | The identifier of the hierarchy group.
-hierarchyGroupSummary_id :: Lens.Lens' HierarchyGroupSummary (Prelude.Maybe Prelude.Text)
-hierarchyGroupSummary_id = Lens.lens (\HierarchyGroupSummary' {id} -> id) (\s@HierarchyGroupSummary' {} a -> s {id = a} :: HierarchyGroupSummary)
-
 -- | The name of the hierarchy group.
 hierarchyGroupSummary_name :: Lens.Lens' HierarchyGroupSummary (Prelude.Maybe Prelude.Text)
 hierarchyGroupSummary_name = Lens.lens (\HierarchyGroupSummary' {name} -> name) (\s@HierarchyGroupSummary' {} a -> s {name = a} :: HierarchyGroupSummary)
+
+-- | The identifier of the hierarchy group.
+hierarchyGroupSummary_id :: Lens.Lens' HierarchyGroupSummary (Prelude.Maybe Prelude.Text)
+hierarchyGroupSummary_id = Lens.lens (\HierarchyGroupSummary' {id} -> id) (\s@HierarchyGroupSummary' {} a -> s {id = a} :: HierarchyGroupSummary)
 
 instance Core.FromJSON HierarchyGroupSummary where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON HierarchyGroupSummary where
       ( \x ->
           HierarchyGroupSummary'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable HierarchyGroupSummary

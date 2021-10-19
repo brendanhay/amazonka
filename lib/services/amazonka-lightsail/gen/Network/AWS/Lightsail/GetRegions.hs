@@ -182,7 +182,7 @@ newGetRegionsResponse pHttpStatus_ =
 -- | An array of key-value pairs containing information about your get
 -- regions request.
 getRegionsResponse_regions :: Lens.Lens' GetRegionsResponse (Prelude.Maybe [RegionInfo])
-getRegionsResponse_regions = Lens.lens (\GetRegionsResponse' {regions} -> regions) (\s@GetRegionsResponse' {} a -> s {regions = a} :: GetRegionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRegionsResponse_regions = Lens.lens (\GetRegionsResponse' {regions} -> regions) (\s@GetRegionsResponse' {} a -> s {regions = a} :: GetRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRegionsResponse_httpStatus :: Lens.Lens' GetRegionsResponse Prelude.Int

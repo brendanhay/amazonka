@@ -193,7 +193,7 @@ listDocumentClassifierSummariesResponse_nextToken = Lens.lens (\ListDocumentClas
 
 -- | The list of summaries of document classifiers.
 listDocumentClassifierSummariesResponse_documentClassifierSummariesList :: Lens.Lens' ListDocumentClassifierSummariesResponse (Prelude.Maybe [DocumentClassifierSummary])
-listDocumentClassifierSummariesResponse_documentClassifierSummariesList = Lens.lens (\ListDocumentClassifierSummariesResponse' {documentClassifierSummariesList} -> documentClassifierSummariesList) (\s@ListDocumentClassifierSummariesResponse' {} a -> s {documentClassifierSummariesList = a} :: ListDocumentClassifierSummariesResponse) Prelude.. Lens.mapping Lens._Coerce
+listDocumentClassifierSummariesResponse_documentClassifierSummariesList = Lens.lens (\ListDocumentClassifierSummariesResponse' {documentClassifierSummariesList} -> documentClassifierSummariesList) (\s@ListDocumentClassifierSummariesResponse' {} a -> s {documentClassifierSummariesList = a} :: ListDocumentClassifierSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDocumentClassifierSummariesResponse_httpStatus :: Lens.Lens' ListDocumentClassifierSummariesResponse Prelude.Int

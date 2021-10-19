@@ -71,7 +71,7 @@ listRecommenderConfigurationsResponse_nextToken = Lens.lens (\ListRecommenderCon
 -- | An array of responses, one for each recommender model configuration
 -- that\'s associated with your Amazon Pinpoint account.
 listRecommenderConfigurationsResponse_item :: Lens.Lens' ListRecommenderConfigurationsResponse [RecommenderConfigurationResponse]
-listRecommenderConfigurationsResponse_item = Lens.lens (\ListRecommenderConfigurationsResponse' {item} -> item) (\s@ListRecommenderConfigurationsResponse' {} a -> s {item = a} :: ListRecommenderConfigurationsResponse) Prelude.. Lens._Coerce
+listRecommenderConfigurationsResponse_item = Lens.lens (\ListRecommenderConfigurationsResponse' {item} -> item) (\s@ListRecommenderConfigurationsResponse' {} a -> s {item = a} :: ListRecommenderConfigurationsResponse) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON

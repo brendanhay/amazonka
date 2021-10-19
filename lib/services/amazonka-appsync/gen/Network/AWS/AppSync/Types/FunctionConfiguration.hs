@@ -29,25 +29,25 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { -- | The @Function@ response mapping template.
-    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The version of the request mapping template. Currently only the
-    -- 2018-05-29 version of the template is supported.
-    functionVersion :: Prelude.Maybe Prelude.Text,
-    syncConfig :: Prelude.Maybe SyncConfig,
+  { -- | The ARN of the @Function@ object.
+    functionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the @DataSource@.
     dataSourceName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the @Function@ object.
-    functionArn :: Prelude.Maybe Prelude.Text,
+    -- | The @Function@ request mapping template. Functions support only the
+    -- 2018-05-29 version of the request mapping template.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The name of the @Function@ object.
     name :: Prelude.Maybe Prelude.Text,
     -- | A unique ID representing the @Function@ object.
     functionId :: Prelude.Maybe Prelude.Text,
+    -- | The @Function@ response mapping template.
+    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+    syncConfig :: Prelude.Maybe SyncConfig,
+    -- | The version of the request mapping template. Currently only the
+    -- 2018-05-29 version of the template is supported.
+    functionVersion :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ description.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The @Function@ request mapping template. Functions support only the
-    -- 2018-05-29 version of the request mapping template.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,61 +59,53 @@ data FunctionConfiguration = FunctionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'responseMappingTemplate', 'functionConfiguration_responseMappingTemplate' - The @Function@ response mapping template.
---
--- 'functionVersion', 'functionConfiguration_functionVersion' - The version of the request mapping template. Currently only the
--- 2018-05-29 version of the template is supported.
---
--- 'syncConfig', 'functionConfiguration_syncConfig' - Undocumented member.
+-- 'functionArn', 'functionConfiguration_functionArn' - The ARN of the @Function@ object.
 --
 -- 'dataSourceName', 'functionConfiguration_dataSourceName' - The name of the @DataSource@.
 --
--- 'functionArn', 'functionConfiguration_functionArn' - The ARN of the @Function@ object.
+-- 'requestMappingTemplate', 'functionConfiguration_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the
+-- 2018-05-29 version of the request mapping template.
 --
 -- 'name', 'functionConfiguration_name' - The name of the @Function@ object.
 --
 -- 'functionId', 'functionConfiguration_functionId' - A unique ID representing the @Function@ object.
 --
--- 'description', 'functionConfiguration_description' - The @Function@ description.
+-- 'responseMappingTemplate', 'functionConfiguration_responseMappingTemplate' - The @Function@ response mapping template.
 --
--- 'requestMappingTemplate', 'functionConfiguration_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the
--- 2018-05-29 version of the request mapping template.
+-- 'syncConfig', 'functionConfiguration_syncConfig' - Undocumented member.
+--
+-- 'functionVersion', 'functionConfiguration_functionVersion' - The version of the request mapping template. Currently only the
+-- 2018-05-29 version of the template is supported.
+--
+-- 'description', 'functionConfiguration_description' - The @Function@ description.
 newFunctionConfiguration ::
   FunctionConfiguration
 newFunctionConfiguration =
   FunctionConfiguration'
-    { responseMappingTemplate =
+    { functionArn =
         Prelude.Nothing,
-      functionVersion = Prelude.Nothing,
-      syncConfig = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
-      functionArn = Prelude.Nothing,
+      requestMappingTemplate = Prelude.Nothing,
       name = Prelude.Nothing,
       functionId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      requestMappingTemplate = Prelude.Nothing
+      responseMappingTemplate = Prelude.Nothing,
+      syncConfig = Prelude.Nothing,
+      functionVersion = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
--- | The @Function@ response mapping template.
-functionConfiguration_responseMappingTemplate :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_responseMappingTemplate = Lens.lens (\FunctionConfiguration' {responseMappingTemplate} -> responseMappingTemplate) (\s@FunctionConfiguration' {} a -> s {responseMappingTemplate = a} :: FunctionConfiguration)
-
--- | The version of the request mapping template. Currently only the
--- 2018-05-29 version of the template is supported.
-functionConfiguration_functionVersion :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_functionVersion = Lens.lens (\FunctionConfiguration' {functionVersion} -> functionVersion) (\s@FunctionConfiguration' {} a -> s {functionVersion = a} :: FunctionConfiguration)
-
--- | Undocumented member.
-functionConfiguration_syncConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe SyncConfig)
-functionConfiguration_syncConfig = Lens.lens (\FunctionConfiguration' {syncConfig} -> syncConfig) (\s@FunctionConfiguration' {} a -> s {syncConfig = a} :: FunctionConfiguration)
+-- | The ARN of the @Function@ object.
+functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
 
 -- | The name of the @DataSource@.
 functionConfiguration_dataSourceName :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_dataSourceName = Lens.lens (\FunctionConfiguration' {dataSourceName} -> dataSourceName) (\s@FunctionConfiguration' {} a -> s {dataSourceName = a} :: FunctionConfiguration)
 
--- | The ARN of the @Function@ object.
-functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
+-- | The @Function@ request mapping template. Functions support only the
+-- 2018-05-29 version of the request mapping template.
+functionConfiguration_requestMappingTemplate :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_requestMappingTemplate = Lens.lens (\FunctionConfiguration' {requestMappingTemplate} -> requestMappingTemplate) (\s@FunctionConfiguration' {} a -> s {requestMappingTemplate = a} :: FunctionConfiguration)
 
 -- | The name of the @Function@ object.
 functionConfiguration_name :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
@@ -123,14 +115,22 @@ functionConfiguration_name = Lens.lens (\FunctionConfiguration' {name} -> name) 
 functionConfiguration_functionId :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_functionId = Lens.lens (\FunctionConfiguration' {functionId} -> functionId) (\s@FunctionConfiguration' {} a -> s {functionId = a} :: FunctionConfiguration)
 
+-- | The @Function@ response mapping template.
+functionConfiguration_responseMappingTemplate :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_responseMappingTemplate = Lens.lens (\FunctionConfiguration' {responseMappingTemplate} -> responseMappingTemplate) (\s@FunctionConfiguration' {} a -> s {responseMappingTemplate = a} :: FunctionConfiguration)
+
+-- | Undocumented member.
+functionConfiguration_syncConfig :: Lens.Lens' FunctionConfiguration (Prelude.Maybe SyncConfig)
+functionConfiguration_syncConfig = Lens.lens (\FunctionConfiguration' {syncConfig} -> syncConfig) (\s@FunctionConfiguration' {} a -> s {syncConfig = a} :: FunctionConfiguration)
+
+-- | The version of the request mapping template. Currently only the
+-- 2018-05-29 version of the template is supported.
+functionConfiguration_functionVersion :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
+functionConfiguration_functionVersion = Lens.lens (\FunctionConfiguration' {functionVersion} -> functionVersion) (\s@FunctionConfiguration' {} a -> s {functionVersion = a} :: FunctionConfiguration)
+
 -- | The @Function@ description.
 functionConfiguration_description :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_description = Lens.lens (\FunctionConfiguration' {description} -> description) (\s@FunctionConfiguration' {} a -> s {description = a} :: FunctionConfiguration)
-
--- | The @Function@ request mapping template. Functions support only the
--- 2018-05-29 version of the request mapping template.
-functionConfiguration_requestMappingTemplate :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
-functionConfiguration_requestMappingTemplate = Lens.lens (\FunctionConfiguration' {requestMappingTemplate} -> requestMappingTemplate) (\s@FunctionConfiguration' {} a -> s {requestMappingTemplate = a} :: FunctionConfiguration)
 
 instance Core.FromJSON FunctionConfiguration where
   parseJSON =
@@ -138,15 +138,15 @@ instance Core.FromJSON FunctionConfiguration where
       "FunctionConfiguration"
       ( \x ->
           FunctionConfiguration'
-            Prelude.<$> (x Core..:? "responseMappingTemplate")
-            Prelude.<*> (x Core..:? "functionVersion")
-            Prelude.<*> (x Core..:? "syncConfig")
+            Prelude.<$> (x Core..:? "functionArn")
             Prelude.<*> (x Core..:? "dataSourceName")
-            Prelude.<*> (x Core..:? "functionArn")
+            Prelude.<*> (x Core..:? "requestMappingTemplate")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "functionId")
+            Prelude.<*> (x Core..:? "responseMappingTemplate")
+            Prelude.<*> (x Core..:? "syncConfig")
+            Prelude.<*> (x Core..:? "functionVersion")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "requestMappingTemplate")
       )
 
 instance Prelude.Hashable FunctionConfiguration

@@ -31,11 +31,11 @@ module Network.AWS.RDS.DescribeDBClusterEndpoints
     newDescribeDBClusterEndpoints,
 
     -- * Request Lenses
-    describeDBClusterEndpoints_dbClusterEndpointIdentifier,
     describeDBClusterEndpoints_dbClusterIdentifier,
     describeDBClusterEndpoints_filters,
-    describeDBClusterEndpoints_maxRecords,
+    describeDBClusterEndpoints_dbClusterEndpointIdentifier,
     describeDBClusterEndpoints_marker,
+    describeDBClusterEndpoints_maxRecords,
 
     -- * Destructuring the Response
     DescribeDBClusterEndpointsResponse (..),
@@ -57,10 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDBClusterEndpoints' smart constructor.
 data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
-  { -- | The identifier of the endpoint to describe. This parameter is stored as
-    -- a lowercase string.
-    dbClusterEndpointIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The DB cluster identifier of the DB cluster associated with the
+  { -- | The DB cluster identifier of the DB cluster associated with the
     -- endpoint. This parameter is stored as a lowercase string.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A set of name-value pairs that define which endpoints to include in the
@@ -75,6 +72,14 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
     -- @db-cluster-endpoint-status@ filter can be one or more of: @available@,
     -- @creating@, @deleting@, @inactive@, @modifying@.
     filters :: Prelude.Maybe [Filter],
+    -- | The identifier of the endpoint to describe. This parameter is stored as
+    -- a lowercase string.
+    dbClusterEndpointIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | An optional pagination token provided by a previous
+    -- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
+    -- the response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so you can retrieve the
@@ -83,12 +88,7 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
-    -- the response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,9 +99,6 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dbClusterEndpointIdentifier', 'describeDBClusterEndpoints_dbClusterEndpointIdentifier' - The identifier of the endpoint to describe. This parameter is stored as
--- a lowercase string.
 --
 -- 'dbClusterIdentifier', 'describeDBClusterEndpoints_dbClusterIdentifier' - The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -118,6 +115,14 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
 -- @db-cluster-endpoint-status@ filter can be one or more of: @available@,
 -- @creating@, @deleting@, @inactive@, @modifying@.
 --
+-- 'dbClusterEndpointIdentifier', 'describeDBClusterEndpoints_dbClusterEndpointIdentifier' - The identifier of the endpoint to describe. This parameter is stored as
+-- a lowercase string.
+--
+-- 'marker', 'describeDBClusterEndpoints_marker' - An optional pagination token provided by a previous
+-- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeDBClusterEndpoints_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so you can retrieve the
@@ -126,27 +131,17 @@ data DescribeDBClusterEndpoints = DescribeDBClusterEndpoints'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeDBClusterEndpoints_marker' - An optional pagination token provided by a previous
--- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
 newDescribeDBClusterEndpoints ::
   DescribeDBClusterEndpoints
 newDescribeDBClusterEndpoints =
   DescribeDBClusterEndpoints'
-    { dbClusterEndpointIdentifier =
+    { dbClusterIdentifier =
         Prelude.Nothing,
-      dbClusterIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      dbClusterEndpointIdentifier = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
-
--- | The identifier of the endpoint to describe. This parameter is stored as
--- a lowercase string.
-describeDBClusterEndpoints_dbClusterEndpointIdentifier :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Text)
-describeDBClusterEndpoints_dbClusterEndpointIdentifier = Lens.lens (\DescribeDBClusterEndpoints' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@DescribeDBClusterEndpoints' {} a -> s {dbClusterEndpointIdentifier = a} :: DescribeDBClusterEndpoints)
 
 -- | The DB cluster identifier of the DB cluster associated with the
 -- endpoint. This parameter is stored as a lowercase string.
@@ -165,7 +160,19 @@ describeDBClusterEndpoints_dbClusterIdentifier = Lens.lens (\DescribeDBClusterEn
 -- @db-cluster-endpoint-status@ filter can be one or more of: @available@,
 -- @creating@, @deleting@, @inactive@, @modifying@.
 describeDBClusterEndpoints_filters :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe [Filter])
-describeDBClusterEndpoints_filters = Lens.lens (\DescribeDBClusterEndpoints' {filters} -> filters) (\s@DescribeDBClusterEndpoints' {} a -> s {filters = a} :: DescribeDBClusterEndpoints) Prelude.. Lens.mapping Lens._Coerce
+describeDBClusterEndpoints_filters = Lens.lens (\DescribeDBClusterEndpoints' {filters} -> filters) (\s@DescribeDBClusterEndpoints' {} a -> s {filters = a} :: DescribeDBClusterEndpoints) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifier of the endpoint to describe. This parameter is stored as
+-- a lowercase string.
+describeDBClusterEndpoints_dbClusterEndpointIdentifier :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Text)
+describeDBClusterEndpoints_dbClusterEndpointIdentifier = Lens.lens (\DescribeDBClusterEndpoints' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@DescribeDBClusterEndpoints' {} a -> s {dbClusterEndpointIdentifier = a} :: DescribeDBClusterEndpoints)
+
+-- | An optional pagination token provided by a previous
+-- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBClusterEndpoints_marker :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Text)
+describeDBClusterEndpoints_marker = Lens.lens (\DescribeDBClusterEndpoints' {marker} -> marker) (\s@DescribeDBClusterEndpoints' {} a -> s {marker = a} :: DescribeDBClusterEndpoints)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -177,13 +184,6 @@ describeDBClusterEndpoints_filters = Lens.lens (\DescribeDBClusterEndpoints' {fi
 -- Constraints: Minimum 20, maximum 100.
 describeDBClusterEndpoints_maxRecords :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Int)
 describeDBClusterEndpoints_maxRecords = Lens.lens (\DescribeDBClusterEndpoints' {maxRecords} -> maxRecords) (\s@DescribeDBClusterEndpoints' {} a -> s {maxRecords = a} :: DescribeDBClusterEndpoints)
-
--- | An optional pagination token provided by a previous
--- @DescribeDBClusterEndpoints@ request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBClusterEndpoints_marker :: Lens.Lens' DescribeDBClusterEndpoints (Prelude.Maybe Prelude.Text)
-describeDBClusterEndpoints_marker = Lens.lens (\DescribeDBClusterEndpoints' {marker} -> marker) (\s@DescribeDBClusterEndpoints' {} a -> s {marker = a} :: DescribeDBClusterEndpoints)
 
 instance Core.AWSPager DescribeDBClusterEndpoints where
   page rq rs
@@ -242,14 +242,14 @@ instance Core.ToQuery DescribeDBClusterEndpoints where
           Core.=: ("DescribeDBClusterEndpoints" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBClusterEndpointIdentifier"
-          Core.=: dbClusterEndpointIdentifier,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "DBClusterEndpointIdentifier"
+          Core.=: dbClusterEndpointIdentifier,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeDBClusterEndpointsResponse' smart constructor.
@@ -299,7 +299,7 @@ newDescribeDBClusterEndpointsResponse pHttpStatus_ =
 -- | Contains the details of the endpoints associated with the cluster and
 -- matching any filter conditions.
 describeDBClusterEndpointsResponse_dbClusterEndpoints :: Lens.Lens' DescribeDBClusterEndpointsResponse (Prelude.Maybe [DBClusterEndpoint])
-describeDBClusterEndpointsResponse_dbClusterEndpoints = Lens.lens (\DescribeDBClusterEndpointsResponse' {dbClusterEndpoints} -> dbClusterEndpoints) (\s@DescribeDBClusterEndpointsResponse' {} a -> s {dbClusterEndpoints = a} :: DescribeDBClusterEndpointsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDBClusterEndpointsResponse_dbClusterEndpoints = Lens.lens (\DescribeDBClusterEndpointsResponse' {dbClusterEndpoints} -> dbClusterEndpoints) (\s@DescribeDBClusterEndpointsResponse' {} a -> s {dbClusterEndpoints = a} :: DescribeDBClusterEndpointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBClusterEndpoints@ request. If this parameter is specified,

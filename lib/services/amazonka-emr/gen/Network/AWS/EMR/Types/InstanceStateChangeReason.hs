@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceStateChangeReason' smart constructor.
 data InstanceStateChangeReason = InstanceStateChangeReason'
-  { -- | The status change reason description.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The programmable code for the state change reason.
-    code :: Prelude.Maybe InstanceStateChangeReasonCode
+  { -- | The programmable code for the state change reason.
+    code :: Prelude.Maybe InstanceStateChangeReasonCode,
+    -- | The status change reason description.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,24 @@ data InstanceStateChangeReason = InstanceStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'instanceStateChangeReason_message' - The status change reason description.
---
 -- 'code', 'instanceStateChangeReason_code' - The programmable code for the state change reason.
+--
+-- 'message', 'instanceStateChangeReason_message' - The status change reason description.
 newInstanceStateChangeReason ::
   InstanceStateChangeReason
 newInstanceStateChangeReason =
   InstanceStateChangeReason'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The status change reason description.
-instanceStateChangeReason_message :: Lens.Lens' InstanceStateChangeReason (Prelude.Maybe Prelude.Text)
-instanceStateChangeReason_message = Lens.lens (\InstanceStateChangeReason' {message} -> message) (\s@InstanceStateChangeReason' {} a -> s {message = a} :: InstanceStateChangeReason)
 
 -- | The programmable code for the state change reason.
 instanceStateChangeReason_code :: Lens.Lens' InstanceStateChangeReason (Prelude.Maybe InstanceStateChangeReasonCode)
 instanceStateChangeReason_code = Lens.lens (\InstanceStateChangeReason' {code} -> code) (\s@InstanceStateChangeReason' {} a -> s {code = a} :: InstanceStateChangeReason)
+
+-- | The status change reason description.
+instanceStateChangeReason_message :: Lens.Lens' InstanceStateChangeReason (Prelude.Maybe Prelude.Text)
+instanceStateChangeReason_message = Lens.lens (\InstanceStateChangeReason' {message} -> message) (\s@InstanceStateChangeReason' {} a -> s {message = a} :: InstanceStateChangeReason)
 
 instance Core.FromJSON InstanceStateChangeReason where
   parseJSON =
@@ -69,8 +68,8 @@ instance Core.FromJSON InstanceStateChangeReason where
       "InstanceStateChangeReason"
       ( \x ->
           InstanceStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable InstanceStateChangeReason

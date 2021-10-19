@@ -28,10 +28,10 @@ import Network.AWS.ServiceCatalog.Types.PrincipalType
 --
 -- /See:/ 'newPrincipal' smart constructor.
 data Principal = Principal'
-  { -- | The ARN of the principal (IAM user, role, or group).
-    principalARN :: Prelude.Maybe Prelude.Text,
-    -- | The principal type. The supported value is @IAM@.
-    principalType :: Prelude.Maybe PrincipalType
+  { -- | The principal type. The supported value is @IAM@.
+    principalType :: Prelude.Maybe PrincipalType,
+    -- | The ARN of the principal (IAM user, role, or group).
+    principalARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Principal = Principal'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalARN', 'principal_principalARN' - The ARN of the principal (IAM user, role, or group).
---
 -- 'principalType', 'principal_principalType' - The principal type. The supported value is @IAM@.
+--
+-- 'principalARN', 'principal_principalARN' - The ARN of the principal (IAM user, role, or group).
 newPrincipal ::
   Principal
 newPrincipal =
   Principal'
-    { principalARN = Prelude.Nothing,
-      principalType = Prelude.Nothing
+    { principalType = Prelude.Nothing,
+      principalARN = Prelude.Nothing
     }
-
--- | The ARN of the principal (IAM user, role, or group).
-principal_principalARN :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
-principal_principalARN = Lens.lens (\Principal' {principalARN} -> principalARN) (\s@Principal' {} a -> s {principalARN = a} :: Principal)
 
 -- | The principal type. The supported value is @IAM@.
 principal_principalType :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
 principal_principalType = Lens.lens (\Principal' {principalType} -> principalType) (\s@Principal' {} a -> s {principalType = a} :: Principal)
+
+-- | The ARN of the principal (IAM user, role, or group).
+principal_principalARN :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
+principal_principalARN = Lens.lens (\Principal' {principalARN} -> principalARN) (\s@Principal' {} a -> s {principalARN = a} :: Principal)
 
 instance Core.FromJSON Principal where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Principal where
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Core..:? "PrincipalARN")
-            Prelude.<*> (x Core..:? "PrincipalType")
+            Prelude.<$> (x Core..:? "PrincipalType")
+            Prelude.<*> (x Core..:? "PrincipalARN")
       )
 
 instance Prelude.Hashable Principal

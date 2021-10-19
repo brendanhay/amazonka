@@ -61,7 +61,7 @@ validationError_id = Lens.lens (\ValidationError' {id} -> id) (\s@ValidationErro
 
 -- | A description of the validation error.
 validationError_errors :: Lens.Lens' ValidationError (Prelude.Maybe [Prelude.Text])
-validationError_errors = Lens.lens (\ValidationError' {errors} -> errors) (\s@ValidationError' {} a -> s {errors = a} :: ValidationError) Prelude.. Lens.mapping Lens._Coerce
+validationError_errors = Lens.lens (\ValidationError' {errors} -> errors) (\s@ValidationError' {} a -> s {errors = a} :: ValidationError) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ValidationError where
   parseJSON =

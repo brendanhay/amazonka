@@ -260,14 +260,14 @@ newCreateTopic pName_ =
 --         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 createTopic_attributes :: Lens.Lens' CreateTopic (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Prelude.. Lens.mapping Lens._Coerce
+createTopic_attributes = Lens.lens (\CreateTopic' {attributes} -> attributes) (\s@CreateTopic' {} a -> s {attributes = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of tags to add to a new topic.
 --
 -- To be able to tag a topic on creation, you must have the
 -- @sns:CreateTopic@ and @sns:TagResource@ permissions.
 createTopic_tags :: Lens.Lens' CreateTopic (Prelude.Maybe [Tag])
-createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens._Coerce
+createTopic_tags = Lens.lens (\CreateTopic' {tags} -> tags) (\s@CreateTopic' {} a -> s {tags = a} :: CreateTopic) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the topic you want to create.
 --

@@ -114,7 +114,7 @@ putNotificationConfiguration_topicARN = Lens.lens (\PutNotificationConfiguration
 -- notification types supported by Amazon EC2 Auto Scaling, call the
 -- DescribeAutoScalingNotificationTypes API.
 putNotificationConfiguration_notificationTypes :: Lens.Lens' PutNotificationConfiguration [Prelude.Text]
-putNotificationConfiguration_notificationTypes = Lens.lens (\PutNotificationConfiguration' {notificationTypes} -> notificationTypes) (\s@PutNotificationConfiguration' {} a -> s {notificationTypes = a} :: PutNotificationConfiguration) Prelude.. Lens._Coerce
+putNotificationConfiguration_notificationTypes = Lens.lens (\PutNotificationConfiguration' {notificationTypes} -> notificationTypes) (\s@PutNotificationConfiguration' {} a -> s {notificationTypes = a} :: PutNotificationConfiguration) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutNotificationConfiguration where
   type

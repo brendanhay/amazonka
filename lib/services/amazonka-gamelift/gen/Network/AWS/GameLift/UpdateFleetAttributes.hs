@@ -45,11 +45,11 @@ module Network.AWS.GameLift.UpdateFleetAttributes
     newUpdateFleetAttributes,
 
     -- * Request Lenses
-    updateFleetAttributes_name,
     updateFleetAttributes_newGameSessionProtectionPolicy,
-    updateFleetAttributes_resourceCreationLimitPolicy,
-    updateFleetAttributes_description,
+    updateFleetAttributes_name,
     updateFleetAttributes_metricGroups,
+    updateFleetAttributes_description,
+    updateFleetAttributes_resourceCreationLimitPolicy,
     updateFleetAttributes_fleetId,
 
     -- * Destructuring the Response
@@ -73,10 +73,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateFleetAttributes' smart constructor.
 data UpdateFleetAttributes = UpdateFleetAttributes'
-  { -- | A descriptive label that is associated with a fleet. Fleet names do not
-    -- need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The game session protection policy to apply to all new instances created
+  { -- | The game session protection policy to apply to all new instances created
     -- in this fleet. Instances that already exist are not affected. You can
     -- set protection for individual instances using UpdateGameSession.
     --
@@ -86,16 +83,19 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
     -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
     --     it cannot be terminated during a scale-down event.
     newGameSessionProtectionPolicy' :: Prelude.Maybe ProtectionPolicy,
-    -- | Policy settings that limit the number of game sessions an individual
-    -- player can create over a span of time.
-    resourceCreationLimitPolicy :: Prelude.Maybe ResourceCreationLimitPolicy,
-    -- | A human-readable description of a fleet.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with a fleet. Fleet names do not
+    -- need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The name of a metric group to add this fleet to. Use a metric group in
     -- Amazon CloudWatch to aggregate the metrics from multiple fleets. Provide
     -- an existing metric group name, or create a new metric group by providing
     -- a new name. A fleet can only be in one metric group at a time.
     metricGroups :: Prelude.Maybe [Prelude.Text],
+    -- | A human-readable description of a fleet.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Policy settings that limit the number of game sessions an individual
+    -- player can create over a span of time.
+    resourceCreationLimitPolicy :: Prelude.Maybe ResourceCreationLimitPolicy,
     -- | A unique identifier for the fleet to update attribute metadata for. You
     -- can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text
@@ -110,9 +110,6 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateFleetAttributes_name' - A descriptive label that is associated with a fleet. Fleet names do not
--- need to be unique.
---
 -- 'newGameSessionProtectionPolicy'', 'updateFleetAttributes_newGameSessionProtectionPolicy' - The game session protection policy to apply to all new instances created
 -- in this fleet. Instances that already exist are not affected. You can
 -- set protection for individual instances using UpdateGameSession.
@@ -123,15 +120,18 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
 --     it cannot be terminated during a scale-down event.
 --
--- 'resourceCreationLimitPolicy', 'updateFleetAttributes_resourceCreationLimitPolicy' - Policy settings that limit the number of game sessions an individual
--- player can create over a span of time.
---
--- 'description', 'updateFleetAttributes_description' - A human-readable description of a fleet.
+-- 'name', 'updateFleetAttributes_name' - A descriptive label that is associated with a fleet. Fleet names do not
+-- need to be unique.
 --
 -- 'metricGroups', 'updateFleetAttributes_metricGroups' - The name of a metric group to add this fleet to. Use a metric group in
 -- Amazon CloudWatch to aggregate the metrics from multiple fleets. Provide
 -- an existing metric group name, or create a new metric group by providing
 -- a new name. A fleet can only be in one metric group at a time.
+--
+-- 'description', 'updateFleetAttributes_description' - A human-readable description of a fleet.
+--
+-- 'resourceCreationLimitPolicy', 'updateFleetAttributes_resourceCreationLimitPolicy' - Policy settings that limit the number of game sessions an individual
+-- player can create over a span of time.
 --
 -- 'fleetId', 'updateFleetAttributes_fleetId' - A unique identifier for the fleet to update attribute metadata for. You
 -- can use either the fleet ID or ARN value.
@@ -141,18 +141,14 @@ newUpdateFleetAttributes ::
   UpdateFleetAttributes
 newUpdateFleetAttributes pFleetId_ =
   UpdateFleetAttributes'
-    { name = Prelude.Nothing,
-      newGameSessionProtectionPolicy' = Prelude.Nothing,
-      resourceCreationLimitPolicy = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { newGameSessionProtectionPolicy' =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       metricGroups = Prelude.Nothing,
+      description = Prelude.Nothing,
+      resourceCreationLimitPolicy = Prelude.Nothing,
       fleetId = pFleetId_
     }
-
--- | A descriptive label that is associated with a fleet. Fleet names do not
--- need to be unique.
-updateFleetAttributes_name :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe Prelude.Text)
-updateFleetAttributes_name = Lens.lens (\UpdateFleetAttributes' {name} -> name) (\s@UpdateFleetAttributes' {} a -> s {name = a} :: UpdateFleetAttributes)
 
 -- | The game session protection policy to apply to all new instances created
 -- in this fleet. Instances that already exist are not affected. You can
@@ -166,21 +162,26 @@ updateFleetAttributes_name = Lens.lens (\UpdateFleetAttributes' {name} -> name) 
 updateFleetAttributes_newGameSessionProtectionPolicy :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe ProtectionPolicy)
 updateFleetAttributes_newGameSessionProtectionPolicy = Lens.lens (\UpdateFleetAttributes' {newGameSessionProtectionPolicy'} -> newGameSessionProtectionPolicy') (\s@UpdateFleetAttributes' {} a -> s {newGameSessionProtectionPolicy' = a} :: UpdateFleetAttributes)
 
--- | Policy settings that limit the number of game sessions an individual
--- player can create over a span of time.
-updateFleetAttributes_resourceCreationLimitPolicy :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe ResourceCreationLimitPolicy)
-updateFleetAttributes_resourceCreationLimitPolicy = Lens.lens (\UpdateFleetAttributes' {resourceCreationLimitPolicy} -> resourceCreationLimitPolicy) (\s@UpdateFleetAttributes' {} a -> s {resourceCreationLimitPolicy = a} :: UpdateFleetAttributes)
-
--- | A human-readable description of a fleet.
-updateFleetAttributes_description :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe Prelude.Text)
-updateFleetAttributes_description = Lens.lens (\UpdateFleetAttributes' {description} -> description) (\s@UpdateFleetAttributes' {} a -> s {description = a} :: UpdateFleetAttributes)
+-- | A descriptive label that is associated with a fleet. Fleet names do not
+-- need to be unique.
+updateFleetAttributes_name :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe Prelude.Text)
+updateFleetAttributes_name = Lens.lens (\UpdateFleetAttributes' {name} -> name) (\s@UpdateFleetAttributes' {} a -> s {name = a} :: UpdateFleetAttributes)
 
 -- | The name of a metric group to add this fleet to. Use a metric group in
 -- Amazon CloudWatch to aggregate the metrics from multiple fleets. Provide
 -- an existing metric group name, or create a new metric group by providing
 -- a new name. A fleet can only be in one metric group at a time.
 updateFleetAttributes_metricGroups :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe [Prelude.Text])
-updateFleetAttributes_metricGroups = Lens.lens (\UpdateFleetAttributes' {metricGroups} -> metricGroups) (\s@UpdateFleetAttributes' {} a -> s {metricGroups = a} :: UpdateFleetAttributes) Prelude.. Lens.mapping Lens._Coerce
+updateFleetAttributes_metricGroups = Lens.lens (\UpdateFleetAttributes' {metricGroups} -> metricGroups) (\s@UpdateFleetAttributes' {} a -> s {metricGroups = a} :: UpdateFleetAttributes) Prelude.. Lens.mapping Lens.coerced
+
+-- | A human-readable description of a fleet.
+updateFleetAttributes_description :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe Prelude.Text)
+updateFleetAttributes_description = Lens.lens (\UpdateFleetAttributes' {description} -> description) (\s@UpdateFleetAttributes' {} a -> s {description = a} :: UpdateFleetAttributes)
+
+-- | Policy settings that limit the number of game sessions an individual
+-- player can create over a span of time.
+updateFleetAttributes_resourceCreationLimitPolicy :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe ResourceCreationLimitPolicy)
+updateFleetAttributes_resourceCreationLimitPolicy = Lens.lens (\UpdateFleetAttributes' {resourceCreationLimitPolicy} -> resourceCreationLimitPolicy) (\s@UpdateFleetAttributes' {} a -> s {resourceCreationLimitPolicy = a} :: UpdateFleetAttributes)
 
 -- | A unique identifier for the fleet to update attribute metadata for. You
 -- can use either the fleet ID or ARN value.
@@ -223,13 +224,13 @@ instance Core.ToJSON UpdateFleetAttributes where
   toJSON UpdateFleetAttributes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("NewGameSessionProtectionPolicy" Core..=)
+          [ ("NewGameSessionProtectionPolicy" Core..=)
               Prelude.<$> newGameSessionProtectionPolicy',
+            ("Name" Core..=) Prelude.<$> name,
+            ("MetricGroups" Core..=) Prelude.<$> metricGroups,
+            ("Description" Core..=) Prelude.<$> description,
             ("ResourceCreationLimitPolicy" Core..=)
               Prelude.<$> resourceCreationLimitPolicy,
-            ("Description" Core..=) Prelude.<$> description,
-            ("MetricGroups" Core..=) Prelude.<$> metricGroups,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
       )

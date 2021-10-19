@@ -85,7 +85,7 @@ newGetMapping pSource_ =
 
 -- | A list of target tables.
 getMapping_sinks :: Lens.Lens' GetMapping (Prelude.Maybe [CatalogEntry])
-getMapping_sinks = Lens.lens (\GetMapping' {sinks} -> sinks) (\s@GetMapping' {} a -> s {sinks = a} :: GetMapping) Prelude.. Lens.mapping Lens._Coerce
+getMapping_sinks = Lens.lens (\GetMapping' {sinks} -> sinks) (\s@GetMapping' {} a -> s {sinks = a} :: GetMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | Parameters for the mapping.
 getMapping_location :: Lens.Lens' GetMapping (Prelude.Maybe Location)
@@ -175,6 +175,6 @@ getMappingResponse_httpStatus = Lens.lens (\GetMappingResponse' {httpStatus} -> 
 
 -- | A list of mappings to the specified targets.
 getMappingResponse_mapping :: Lens.Lens' GetMappingResponse [MappingEntry]
-getMappingResponse_mapping = Lens.lens (\GetMappingResponse' {mapping} -> mapping) (\s@GetMappingResponse' {} a -> s {mapping = a} :: GetMappingResponse) Prelude.. Lens._Coerce
+getMappingResponse_mapping = Lens.lens (\GetMappingResponse' {mapping} -> mapping) (\s@GetMappingResponse' {} a -> s {mapping = a} :: GetMappingResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetMappingResponse

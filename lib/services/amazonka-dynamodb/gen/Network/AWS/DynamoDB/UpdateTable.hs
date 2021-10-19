@@ -46,13 +46,13 @@ module Network.AWS.DynamoDB.UpdateTable
     newUpdateTable,
 
     -- * Request Lenses
-    updateTable_streamSpecification,
-    updateTable_sSESpecification,
-    updateTable_billingMode,
     updateTable_attributeDefinitions,
-    updateTable_globalSecondaryIndexUpdates,
-    updateTable_replicaUpdates,
     updateTable_provisionedThroughput,
+    updateTable_sSESpecification,
+    updateTable_replicaUpdates,
+    updateTable_globalSecondaryIndexUpdates,
+    updateTable_billingMode,
+    updateTable_streamSpecification,
     updateTable_tableName,
 
     -- * Destructuring the Response
@@ -76,33 +76,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateTable' smart constructor.
 data UpdateTable = UpdateTable'
-  { -- | Represents the DynamoDB Streams configuration for the table.
-    --
-    -- You receive a @ResourceInUseException@ if you try to enable a stream on
-    -- a table that already has a stream, or if you try to disable a stream on
-    -- a table that doesn\'t have a stream.
-    streamSpecification :: Prelude.Maybe StreamSpecification,
-    -- | The new server-side encryption settings for the specified table.
-    sSESpecification :: Prelude.Maybe SSESpecification,
-    -- | Controls how you are charged for read and write throughput and how you
-    -- manage capacity. When switching from pay-per-request to provisioned
-    -- capacity, initial provisioned capacity values must be set. The initial
-    -- provisioned capacity values are estimated based on the consumed read and
-    -- write capacity of your table and global secondary indexes over the past
-    -- 30 minutes.
-    --
-    -- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
-    --     workloads. @PROVISIONED@ sets the billing mode to
-    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
-    --
-    -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
-    --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
-    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-    billingMode :: Prelude.Maybe BillingMode,
-    -- | An array of attributes that describe the key schema for the table and
+  { -- | An array of attributes that describe the key schema for the table and
     -- indexes. If you are adding a new global secondary index to the table,
     -- @AttributeDefinitions@ must include the key element(s) of the new index.
     attributeDefinitions :: Prelude.Maybe [AttributeDefinition],
+    -- | The new provisioned throughput settings for the specified table or
+    -- index.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    -- | The new server-side encryption settings for the specified table.
+    sSESpecification :: Prelude.Maybe SSESpecification,
+    -- | A list of replica update actions (create, delete, or update) for the
+    -- table.
+    --
+    -- This property only applies to
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+    -- of global tables.
+    replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate),
     -- | An array of one or more global secondary indexes for the table. For each
     -- index in the array, you can request one action:
     --
@@ -120,16 +109,27 @@ data UpdateTable = UpdateTable'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
     -- in the /Amazon DynamoDB Developer Guide/.
     globalSecondaryIndexUpdates :: Prelude.Maybe [GlobalSecondaryIndexUpdate],
-    -- | A list of replica update actions (create, delete, or update) for the
-    -- table.
+    -- | Controls how you are charged for read and write throughput and how you
+    -- manage capacity. When switching from pay-per-request to provisioned
+    -- capacity, initial provisioned capacity values must be set. The initial
+    -- provisioned capacity values are estimated based on the consumed read and
+    -- write capacity of your table and global secondary indexes over the past
+    -- 30 minutes.
     --
-    -- This property only applies to
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
-    -- of global tables.
-    replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate),
-    -- | The new provisioned throughput settings for the specified table or
-    -- index.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    -- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
+    --     workloads. @PROVISIONED@ sets the billing mode to
+    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
+    --
+    -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
+    --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
+    --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
+    billingMode :: Prelude.Maybe BillingMode,
+    -- | Represents the DynamoDB Streams configuration for the table.
+    --
+    -- You receive a @ResourceInUseException@ if you try to enable a stream on
+    -- a table that already has a stream, or if you try to disable a stream on
+    -- a table that doesn\'t have a stream.
+    streamSpecification :: Prelude.Maybe StreamSpecification,
     -- | The name of the table to be updated.
     tableName :: Prelude.Text
   }
@@ -143,32 +143,21 @@ data UpdateTable = UpdateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamSpecification', 'updateTable_streamSpecification' - Represents the DynamoDB Streams configuration for the table.
---
--- You receive a @ResourceInUseException@ if you try to enable a stream on
--- a table that already has a stream, or if you try to disable a stream on
--- a table that doesn\'t have a stream.
---
--- 'sSESpecification', 'updateTable_sSESpecification' - The new server-side encryption settings for the specified table.
---
--- 'billingMode', 'updateTable_billingMode' - Controls how you are charged for read and write throughput and how you
--- manage capacity. When switching from pay-per-request to provisioned
--- capacity, initial provisioned capacity values must be set. The initial
--- provisioned capacity values are estimated based on the consumed read and
--- write capacity of your table and global secondary indexes over the past
--- 30 minutes.
---
--- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
---     workloads. @PROVISIONED@ sets the billing mode to
---     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
---
--- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
---     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
---     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
---
 -- 'attributeDefinitions', 'updateTable_attributeDefinitions' - An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- @AttributeDefinitions@ must include the key element(s) of the new index.
+--
+-- 'provisionedThroughput', 'updateTable_provisionedThroughput' - The new provisioned throughput settings for the specified table or
+-- index.
+--
+-- 'sSESpecification', 'updateTable_sSESpecification' - The new server-side encryption settings for the specified table.
+--
+-- 'replicaUpdates', 'updateTable_replicaUpdates' - A list of replica update actions (create, delete, or update) for the
+-- table.
+--
+-- This property only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+-- of global tables.
 --
 -- 'globalSecondaryIndexUpdates', 'updateTable_globalSecondaryIndexUpdates' - An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -187,46 +176,7 @@ data UpdateTable = UpdateTable'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'replicaUpdates', 'updateTable_replicaUpdates' - A list of replica update actions (create, delete, or update) for the
--- table.
---
--- This property only applies to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
--- of global tables.
---
--- 'provisionedThroughput', 'updateTable_provisionedThroughput' - The new provisioned throughput settings for the specified table or
--- index.
---
--- 'tableName', 'updateTable_tableName' - The name of the table to be updated.
-newUpdateTable ::
-  -- | 'tableName'
-  Prelude.Text ->
-  UpdateTable
-newUpdateTable pTableName_ =
-  UpdateTable'
-    { streamSpecification = Prelude.Nothing,
-      sSESpecification = Prelude.Nothing,
-      billingMode = Prelude.Nothing,
-      attributeDefinitions = Prelude.Nothing,
-      globalSecondaryIndexUpdates = Prelude.Nothing,
-      replicaUpdates = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
-      tableName = pTableName_
-    }
-
--- | Represents the DynamoDB Streams configuration for the table.
---
--- You receive a @ResourceInUseException@ if you try to enable a stream on
--- a table that already has a stream, or if you try to disable a stream on
--- a table that doesn\'t have a stream.
-updateTable_streamSpecification :: Lens.Lens' UpdateTable (Prelude.Maybe StreamSpecification)
-updateTable_streamSpecification = Lens.lens (\UpdateTable' {streamSpecification} -> streamSpecification) (\s@UpdateTable' {} a -> s {streamSpecification = a} :: UpdateTable)
-
--- | The new server-side encryption settings for the specified table.
-updateTable_sSESpecification :: Lens.Lens' UpdateTable (Prelude.Maybe SSESpecification)
-updateTable_sSESpecification = Lens.lens (\UpdateTable' {sSESpecification} -> sSESpecification) (\s@UpdateTable' {} a -> s {sSESpecification = a} :: UpdateTable)
-
--- | Controls how you are charged for read and write throughput and how you
+-- 'billingMode', 'updateTable_billingMode' - Controls how you are charged for read and write throughput and how you
 -- manage capacity. When switching from pay-per-request to provisioned
 -- capacity, initial provisioned capacity values must be set. The initial
 -- provisioned capacity values are estimated based on the consumed read and
@@ -240,14 +190,54 @@ updateTable_sSESpecification = Lens.lens (\UpdateTable' {sSESpecification} -> sS
 -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
 --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-updateTable_billingMode :: Lens.Lens' UpdateTable (Prelude.Maybe BillingMode)
-updateTable_billingMode = Lens.lens (\UpdateTable' {billingMode} -> billingMode) (\s@UpdateTable' {} a -> s {billingMode = a} :: UpdateTable)
+--
+-- 'streamSpecification', 'updateTable_streamSpecification' - Represents the DynamoDB Streams configuration for the table.
+--
+-- You receive a @ResourceInUseException@ if you try to enable a stream on
+-- a table that already has a stream, or if you try to disable a stream on
+-- a table that doesn\'t have a stream.
+--
+-- 'tableName', 'updateTable_tableName' - The name of the table to be updated.
+newUpdateTable ::
+  -- | 'tableName'
+  Prelude.Text ->
+  UpdateTable
+newUpdateTable pTableName_ =
+  UpdateTable'
+    { attributeDefinitions =
+        Prelude.Nothing,
+      provisionedThroughput = Prelude.Nothing,
+      sSESpecification = Prelude.Nothing,
+      replicaUpdates = Prelude.Nothing,
+      globalSecondaryIndexUpdates = Prelude.Nothing,
+      billingMode = Prelude.Nothing,
+      streamSpecification = Prelude.Nothing,
+      tableName = pTableName_
+    }
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- @AttributeDefinitions@ must include the key element(s) of the new index.
 updateTable_attributeDefinitions :: Lens.Lens' UpdateTable (Prelude.Maybe [AttributeDefinition])
-updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinitions} -> attributeDefinitions) (\s@UpdateTable' {} a -> s {attributeDefinitions = a} :: UpdateTable) Prelude.. Lens.mapping Lens._Coerce
+updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinitions} -> attributeDefinitions) (\s@UpdateTable' {} a -> s {attributeDefinitions = a} :: UpdateTable) Prelude.. Lens.mapping Lens.coerced
+
+-- | The new provisioned throughput settings for the specified table or
+-- index.
+updateTable_provisionedThroughput :: Lens.Lens' UpdateTable (Prelude.Maybe ProvisionedThroughput)
+updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateTable' {} a -> s {provisionedThroughput = a} :: UpdateTable)
+
+-- | The new server-side encryption settings for the specified table.
+updateTable_sSESpecification :: Lens.Lens' UpdateTable (Prelude.Maybe SSESpecification)
+updateTable_sSESpecification = Lens.lens (\UpdateTable' {sSESpecification} -> sSESpecification) (\s@UpdateTable' {} a -> s {sSESpecification = a} :: UpdateTable)
+
+-- | A list of replica update actions (create, delete, or update) for the
+-- table.
+--
+-- This property only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+-- of global tables.
+updateTable_replicaUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate))
+updateTable_replicaUpdates = Lens.lens (\UpdateTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateTable' {} a -> s {replicaUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -266,21 +256,32 @@ updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinition
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
 -- in the /Amazon DynamoDB Developer Guide/.
 updateTable_globalSecondaryIndexUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe [GlobalSecondaryIndexUpdate])
-updateTable_globalSecondaryIndexUpdates = Lens.lens (\UpdateTable' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTable' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens._Coerce
+updateTable_globalSecondaryIndexUpdates = Lens.lens (\UpdateTable' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTable' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of replica update actions (create, delete, or update) for the
--- table.
+-- | Controls how you are charged for read and write throughput and how you
+-- manage capacity. When switching from pay-per-request to provisioned
+-- capacity, initial provisioned capacity values must be set. The initial
+-- provisioned capacity values are estimated based on the consumed read and
+-- write capacity of your table and global secondary indexes over the past
+-- 30 minutes.
 --
--- This property only applies to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
--- of global tables.
-updateTable_replicaUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate))
-updateTable_replicaUpdates = Lens.lens (\UpdateTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateTable' {} a -> s {replicaUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens._Coerce
+-- -   @PROVISIONED@ - We recommend using @PROVISIONED@ for predictable
+--     workloads. @PROVISIONED@ sets the billing mode to
+--     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual Provisioned Mode>.
+--
+-- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
+--     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
+--     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
+updateTable_billingMode :: Lens.Lens' UpdateTable (Prelude.Maybe BillingMode)
+updateTable_billingMode = Lens.lens (\UpdateTable' {billingMode} -> billingMode) (\s@UpdateTable' {} a -> s {billingMode = a} :: UpdateTable)
 
--- | The new provisioned throughput settings for the specified table or
--- index.
-updateTable_provisionedThroughput :: Lens.Lens' UpdateTable (Prelude.Maybe ProvisionedThroughput)
-updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateTable' {} a -> s {provisionedThroughput = a} :: UpdateTable)
+-- | Represents the DynamoDB Streams configuration for the table.
+--
+-- You receive a @ResourceInUseException@ if you try to enable a stream on
+-- a table that already has a stream, or if you try to disable a stream on
+-- a table that doesn\'t have a stream.
+updateTable_streamSpecification :: Lens.Lens' UpdateTable (Prelude.Maybe StreamSpecification)
+updateTable_streamSpecification = Lens.lens (\UpdateTable' {streamSpecification} -> streamSpecification) (\s@UpdateTable' {} a -> s {streamSpecification = a} :: UpdateTable)
 
 -- | The name of the table to be updated.
 updateTable_tableName :: Lens.Lens' UpdateTable Prelude.Text
@@ -320,19 +321,19 @@ instance Core.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StreamSpecification" Core..=)
-              Prelude.<$> streamSpecification,
-            ("SSESpecification" Core..=)
-              Prelude.<$> sSESpecification,
-            ("BillingMode" Core..=) Prelude.<$> billingMode,
-            ("AttributeDefinitions" Core..=)
+          [ ("AttributeDefinitions" Core..=)
               Prelude.<$> attributeDefinitions,
-            ("GlobalSecondaryIndexUpdates" Core..=)
-              Prelude.<$> globalSecondaryIndexUpdates,
-            ("ReplicaUpdates" Core..=)
-              Prelude.<$> replicaUpdates,
             ("ProvisionedThroughput" Core..=)
               Prelude.<$> provisionedThroughput,
+            ("SSESpecification" Core..=)
+              Prelude.<$> sSESpecification,
+            ("ReplicaUpdates" Core..=)
+              Prelude.<$> replicaUpdates,
+            ("GlobalSecondaryIndexUpdates" Core..=)
+              Prelude.<$> globalSecondaryIndexUpdates,
+            ("BillingMode" Core..=) Prelude.<$> billingMode,
+            ("StreamSpecification" Core..=)
+              Prelude.<$> streamSpecification,
             Prelude.Just ("TableName" Core..= tableName)
           ]
       )

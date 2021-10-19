@@ -31,9 +31,9 @@ module Network.AWS.Route53Domains.ListOperations
     newListOperations,
 
     -- * Request Lenses
-    listOperations_submittedSince,
-    listOperations_maxItems,
     listOperations_marker,
+    listOperations_maxItems,
+    listOperations_submittedSince,
 
     -- * Destructuring the Response
     ListOperationsResponse (..),
@@ -57,22 +57,22 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'newListOperations' smart constructor.
 data ListOperations = ListOperations'
-  { -- | An optional parameter that lets you get information about all the
-    -- operations that you submitted after a specified date and time. Specify
-    -- the date and time in Unix time format and Coordinated Universal time
-    -- (UTC).
-    submittedSince :: Prelude.Maybe Core.POSIX,
-    -- | Number of domains to be returned.
-    --
-    -- Default: 20
-    maxItems :: Prelude.Maybe Prelude.Int,
-    -- | For an initial request for a list of operations, omit this element. If
+  { -- | For an initial request for a list of operations, omit this element. If
     -- the number of operations that are not yet complete is greater than the
     -- value that you specified for @MaxItems@, you can use @Marker@ to return
     -- additional operations. Get the value of @NextPageMarker@ from the
     -- previous response, and submit another request that includes the value of
     -- @NextPageMarker@ in the @Marker@ element.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Number of domains to be returned.
+    --
+    -- Default: 20
+    maxItems :: Prelude.Maybe Prelude.Int,
+    -- | An optional parameter that lets you get information about all the
+    -- operations that you submitted after a specified date and time. Specify
+    -- the date and time in Unix time format and Coordinated Universal time
+    -- (UTC).
+    submittedSince :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,42 +84,29 @@ data ListOperations = ListOperations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'submittedSince', 'listOperations_submittedSince' - An optional parameter that lets you get information about all the
--- operations that you submitted after a specified date and time. Specify
--- the date and time in Unix time format and Coordinated Universal time
--- (UTC).
---
--- 'maxItems', 'listOperations_maxItems' - Number of domains to be returned.
---
--- Default: 20
---
 -- 'marker', 'listOperations_marker' - For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
 -- value that you specified for @MaxItems@, you can use @Marker@ to return
 -- additional operations. Get the value of @NextPageMarker@ from the
 -- previous response, and submit another request that includes the value of
 -- @NextPageMarker@ in the @Marker@ element.
+--
+-- 'maxItems', 'listOperations_maxItems' - Number of domains to be returned.
+--
+-- Default: 20
+--
+-- 'submittedSince', 'listOperations_submittedSince' - An optional parameter that lets you get information about all the
+-- operations that you submitted after a specified date and time. Specify
+-- the date and time in Unix time format and Coordinated Universal time
+-- (UTC).
 newListOperations ::
   ListOperations
 newListOperations =
   ListOperations'
-    { submittedSince = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      submittedSince = Prelude.Nothing
     }
-
--- | An optional parameter that lets you get information about all the
--- operations that you submitted after a specified date and time. Specify
--- the date and time in Unix time format and Coordinated Universal time
--- (UTC).
-listOperations_submittedSince :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.UTCTime)
-listOperations_submittedSince = Lens.lens (\ListOperations' {submittedSince} -> submittedSince) (\s@ListOperations' {} a -> s {submittedSince = a} :: ListOperations) Prelude.. Lens.mapping Core._Time
-
--- | Number of domains to be returned.
---
--- Default: 20
-listOperations_maxItems :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Int)
-listOperations_maxItems = Lens.lens (\ListOperations' {maxItems} -> maxItems) (\s@ListOperations' {} a -> s {maxItems = a} :: ListOperations)
 
 -- | For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
@@ -129,6 +116,19 @@ listOperations_maxItems = Lens.lens (\ListOperations' {maxItems} -> maxItems) (\
 -- @NextPageMarker@ in the @Marker@ element.
 listOperations_marker :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
 listOperations_marker = Lens.lens (\ListOperations' {marker} -> marker) (\s@ListOperations' {} a -> s {marker = a} :: ListOperations)
+
+-- | Number of domains to be returned.
+--
+-- Default: 20
+listOperations_maxItems :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Int)
+listOperations_maxItems = Lens.lens (\ListOperations' {maxItems} -> maxItems) (\s@ListOperations' {} a -> s {maxItems = a} :: ListOperations)
+
+-- | An optional parameter that lets you get information about all the
+-- operations that you submitted after a specified date and time. Specify
+-- the date and time in Unix time format and Coordinated Universal time
+-- (UTC).
+listOperations_submittedSince :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.UTCTime)
+listOperations_submittedSince = Lens.lens (\ListOperations' {submittedSince} -> submittedSince) (\s@ListOperations' {} a -> s {submittedSince = a} :: ListOperations) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListOperations where
   page rq rs
@@ -186,10 +186,10 @@ instance Core.ToJSON ListOperations where
   toJSON ListOperations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubmittedSince" Core..=)
-              Prelude.<$> submittedSince,
+          [ ("Marker" Core..=) Prelude.<$> marker,
             ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("SubmittedSince" Core..=)
+              Prelude.<$> submittedSince
           ]
       )
 
@@ -253,6 +253,6 @@ listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpSta
 
 -- | Lists summaries of the operations.
 listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse [OperationSummary]
-listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens._Coerce
+listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListOperationsResponse

@@ -29,13 +29,13 @@ module Network.AWS.SageMaker.ListModelPackageGroups
     newListModelPackageGroups,
 
     -- * Request Lenses
+    listModelPackageGroups_nameContains,
+    listModelPackageGroups_creationTimeAfter,
     listModelPackageGroups_nextToken,
     listModelPackageGroups_sortOrder,
-    listModelPackageGroups_nameContains,
-    listModelPackageGroups_maxResults,
     listModelPackageGroups_creationTimeBefore,
+    listModelPackageGroups_maxResults,
     listModelPackageGroups_sortBy,
-    listModelPackageGroups_creationTimeAfter,
 
     -- * Destructuring the Response
     ListModelPackageGroupsResponse (..),
@@ -57,25 +57,25 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModelPackageGroups' smart constructor.
 data ListModelPackageGroups = ListModelPackageGroups'
-  { -- | If the result of the previous @ListModelPackageGroups@ request was
+  { -- | A string in the model group name. This filter returns only model groups
+    -- whose name contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only model groups created after the specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | If the result of the previous @ListModelPackageGroups@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of model groups, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for results. The default is @Ascending@.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A string in the model group name. This filter returns only model groups
-    -- whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only model groups created before the specified
     -- time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe ModelPackageGroupSortBy,
-    -- | A filter that returns only model groups created after the specified
-    -- time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    sortBy :: Prelude.Maybe ModelPackageGroupSortBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,37 +87,47 @@ data ListModelPackageGroups = ListModelPackageGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listModelPackageGroups_nameContains' - A string in the model group name. This filter returns only model groups
+-- whose name contains the specified string.
+--
+-- 'creationTimeAfter', 'listModelPackageGroups_creationTimeAfter' - A filter that returns only model groups created after the specified
+-- time.
+--
 -- 'nextToken', 'listModelPackageGroups_nextToken' - If the result of the previous @ListModelPackageGroups@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of model groups, use the token in the next request.
 --
 -- 'sortOrder', 'listModelPackageGroups_sortOrder' - The sort order for results. The default is @Ascending@.
 --
--- 'nameContains', 'listModelPackageGroups_nameContains' - A string in the model group name. This filter returns only model groups
--- whose name contains the specified string.
---
--- 'maxResults', 'listModelPackageGroups_maxResults' - The maximum number of results to return in the response.
---
 -- 'creationTimeBefore', 'listModelPackageGroups_creationTimeBefore' - A filter that returns only model groups created before the specified
 -- time.
 --
--- 'sortBy', 'listModelPackageGroups_sortBy' - The field to sort results by. The default is @CreationTime@.
+-- 'maxResults', 'listModelPackageGroups_maxResults' - The maximum number of results to return in the response.
 --
--- 'creationTimeAfter', 'listModelPackageGroups_creationTimeAfter' - A filter that returns only model groups created after the specified
--- time.
+-- 'sortBy', 'listModelPackageGroups_sortBy' - The field to sort results by. The default is @CreationTime@.
 newListModelPackageGroups ::
   ListModelPackageGroups
 newListModelPackageGroups =
   ListModelPackageGroups'
-    { nextToken =
+    { nameContains =
         Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A string in the model group name. This filter returns only model groups
+-- whose name contains the specified string.
+listModelPackageGroups_nameContains :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.Text)
+listModelPackageGroups_nameContains = Lens.lens (\ListModelPackageGroups' {nameContains} -> nameContains) (\s@ListModelPackageGroups' {} a -> s {nameContains = a} :: ListModelPackageGroups)
+
+-- | A filter that returns only model groups created after the specified
+-- time.
+listModelPackageGroups_creationTimeAfter :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.UTCTime)
+listModelPackageGroups_creationTimeAfter = Lens.lens (\ListModelPackageGroups' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackageGroups' {} a -> s {creationTimeAfter = a} :: ListModelPackageGroups) Prelude.. Lens.mapping Core._Time
 
 -- | If the result of the previous @ListModelPackageGroups@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
@@ -129,28 +139,18 @@ listModelPackageGroups_nextToken = Lens.lens (\ListModelPackageGroups' {nextToke
 listModelPackageGroups_sortOrder :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe SortOrder)
 listModelPackageGroups_sortOrder = Lens.lens (\ListModelPackageGroups' {sortOrder} -> sortOrder) (\s@ListModelPackageGroups' {} a -> s {sortOrder = a} :: ListModelPackageGroups)
 
--- | A string in the model group name. This filter returns only model groups
--- whose name contains the specified string.
-listModelPackageGroups_nameContains :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.Text)
-listModelPackageGroups_nameContains = Lens.lens (\ListModelPackageGroups' {nameContains} -> nameContains) (\s@ListModelPackageGroups' {} a -> s {nameContains = a} :: ListModelPackageGroups)
-
--- | The maximum number of results to return in the response.
-listModelPackageGroups_maxResults :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.Natural)
-listModelPackageGroups_maxResults = Lens.lens (\ListModelPackageGroups' {maxResults} -> maxResults) (\s@ListModelPackageGroups' {} a -> s {maxResults = a} :: ListModelPackageGroups)
-
 -- | A filter that returns only model groups created before the specified
 -- time.
 listModelPackageGroups_creationTimeBefore :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.UTCTime)
 listModelPackageGroups_creationTimeBefore = Lens.lens (\ListModelPackageGroups' {creationTimeBefore} -> creationTimeBefore) (\s@ListModelPackageGroups' {} a -> s {creationTimeBefore = a} :: ListModelPackageGroups) Prelude.. Lens.mapping Core._Time
 
+-- | The maximum number of results to return in the response.
+listModelPackageGroups_maxResults :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.Natural)
+listModelPackageGroups_maxResults = Lens.lens (\ListModelPackageGroups' {maxResults} -> maxResults) (\s@ListModelPackageGroups' {} a -> s {maxResults = a} :: ListModelPackageGroups)
+
 -- | The field to sort results by. The default is @CreationTime@.
 listModelPackageGroups_sortBy :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe ModelPackageGroupSortBy)
 listModelPackageGroups_sortBy = Lens.lens (\ListModelPackageGroups' {sortBy} -> sortBy) (\s@ListModelPackageGroups' {} a -> s {sortBy = a} :: ListModelPackageGroups)
-
--- | A filter that returns only model groups created after the specified
--- time.
-listModelPackageGroups_creationTimeAfter :: Lens.Lens' ListModelPackageGroups (Prelude.Maybe Prelude.UTCTime)
-listModelPackageGroups_creationTimeAfter = Lens.lens (\ListModelPackageGroups' {creationTimeAfter} -> creationTimeAfter) (\s@ListModelPackageGroups' {} a -> s {creationTimeAfter = a} :: ListModelPackageGroups) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListModelPackageGroups where
   page rq rs
@@ -212,15 +212,15 @@ instance Core.ToJSON ListModelPackageGroups where
   toJSON ListModelPackageGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -283,7 +283,7 @@ listModelPackageGroupsResponse_httpStatus = Lens.lens (\ListModelPackageGroupsRe
 -- | A list of summaries of the model groups in your Amazon Web Services
 -- account.
 listModelPackageGroupsResponse_modelPackageGroupSummaryList :: Lens.Lens' ListModelPackageGroupsResponse [ModelPackageGroupSummary]
-listModelPackageGroupsResponse_modelPackageGroupSummaryList = Lens.lens (\ListModelPackageGroupsResponse' {modelPackageGroupSummaryList} -> modelPackageGroupSummaryList) (\s@ListModelPackageGroupsResponse' {} a -> s {modelPackageGroupSummaryList = a} :: ListModelPackageGroupsResponse) Prelude.. Lens._Coerce
+listModelPackageGroupsResponse_modelPackageGroupSummaryList = Lens.lens (\ListModelPackageGroupsResponse' {modelPackageGroupSummaryList} -> modelPackageGroupSummaryList) (\s@ListModelPackageGroupsResponse' {} a -> s {modelPackageGroupSummaryList = a} :: ListModelPackageGroupsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

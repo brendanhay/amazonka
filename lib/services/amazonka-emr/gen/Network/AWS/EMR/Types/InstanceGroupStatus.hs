@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceGroupStatus' smart constructor.
 data InstanceGroupStatus = InstanceGroupStatus'
-  { -- | The status change reason details for the instance group.
-    stateChangeReason :: Prelude.Maybe InstanceGroupStateChangeReason,
-    -- | The current state of the instance group.
+  { -- | The current state of the instance group.
     state :: Prelude.Maybe InstanceGroupState,
+    -- | The status change reason details for the instance group.
+    stateChangeReason :: Prelude.Maybe InstanceGroupStateChangeReason,
     -- | The timeline of the instance group status over time.
     timeline :: Prelude.Maybe InstanceGroupTimeline
   }
@@ -47,28 +47,27 @@ data InstanceGroupStatus = InstanceGroupStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stateChangeReason', 'instanceGroupStatus_stateChangeReason' - The status change reason details for the instance group.
---
 -- 'state', 'instanceGroupStatus_state' - The current state of the instance group.
+--
+-- 'stateChangeReason', 'instanceGroupStatus_stateChangeReason' - The status change reason details for the instance group.
 --
 -- 'timeline', 'instanceGroupStatus_timeline' - The timeline of the instance group status over time.
 newInstanceGroupStatus ::
   InstanceGroupStatus
 newInstanceGroupStatus =
   InstanceGroupStatus'
-    { stateChangeReason =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
       timeline = Prelude.Nothing
     }
-
--- | The status change reason details for the instance group.
-instanceGroupStatus_stateChangeReason :: Lens.Lens' InstanceGroupStatus (Prelude.Maybe InstanceGroupStateChangeReason)
-instanceGroupStatus_stateChangeReason = Lens.lens (\InstanceGroupStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceGroupStatus' {} a -> s {stateChangeReason = a} :: InstanceGroupStatus)
 
 -- | The current state of the instance group.
 instanceGroupStatus_state :: Lens.Lens' InstanceGroupStatus (Prelude.Maybe InstanceGroupState)
 instanceGroupStatus_state = Lens.lens (\InstanceGroupStatus' {state} -> state) (\s@InstanceGroupStatus' {} a -> s {state = a} :: InstanceGroupStatus)
+
+-- | The status change reason details for the instance group.
+instanceGroupStatus_stateChangeReason :: Lens.Lens' InstanceGroupStatus (Prelude.Maybe InstanceGroupStateChangeReason)
+instanceGroupStatus_stateChangeReason = Lens.lens (\InstanceGroupStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceGroupStatus' {} a -> s {stateChangeReason = a} :: InstanceGroupStatus)
 
 -- | The timeline of the instance group status over time.
 instanceGroupStatus_timeline :: Lens.Lens' InstanceGroupStatus (Prelude.Maybe InstanceGroupTimeline)
@@ -80,8 +79,8 @@ instance Core.FromJSON InstanceGroupStatus where
       "InstanceGroupStatus"
       ( \x ->
           InstanceGroupStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "Timeline")
       )
 

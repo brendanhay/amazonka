@@ -57,7 +57,7 @@ newValidationWarning =
 
 -- | A description of the validation warning.
 validationWarning_warnings :: Lens.Lens' ValidationWarning (Prelude.Maybe [Prelude.Text])
-validationWarning_warnings = Lens.lens (\ValidationWarning' {warnings} -> warnings) (\s@ValidationWarning' {} a -> s {warnings = a} :: ValidationWarning) Prelude.. Lens.mapping Lens._Coerce
+validationWarning_warnings = Lens.lens (\ValidationWarning' {warnings} -> warnings) (\s@ValidationWarning' {} a -> s {warnings = a} :: ValidationWarning) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the object that contains the validation warning.
 validationWarning_id :: Lens.Lens' ValidationWarning (Prelude.Maybe Prelude.Text)

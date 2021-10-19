@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNewDeviceMetadataType' smart constructor.
 data NewDeviceMetadataType = NewDeviceMetadataType'
-  { -- | The device key.
-    deviceKey :: Prelude.Maybe Prelude.Text,
-    -- | The device group key.
-    deviceGroupKey :: Prelude.Maybe Prelude.Text
+  { -- | The device group key.
+    deviceGroupKey :: Prelude.Maybe Prelude.Text,
+    -- | The device key.
+    deviceKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,25 @@ data NewDeviceMetadataType = NewDeviceMetadataType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deviceKey', 'newDeviceMetadataType_deviceKey' - The device key.
---
 -- 'deviceGroupKey', 'newDeviceMetadataType_deviceGroupKey' - The device group key.
+--
+-- 'deviceKey', 'newDeviceMetadataType_deviceKey' - The device key.
 newNewDeviceMetadataType ::
   NewDeviceMetadataType
 newNewDeviceMetadataType =
   NewDeviceMetadataType'
-    { deviceKey = Prelude.Nothing,
-      deviceGroupKey = Prelude.Nothing
+    { deviceGroupKey =
+        Prelude.Nothing,
+      deviceKey = Prelude.Nothing
     }
-
--- | The device key.
-newDeviceMetadataType_deviceKey :: Lens.Lens' NewDeviceMetadataType (Prelude.Maybe Prelude.Text)
-newDeviceMetadataType_deviceKey = Lens.lens (\NewDeviceMetadataType' {deviceKey} -> deviceKey) (\s@NewDeviceMetadataType' {} a -> s {deviceKey = a} :: NewDeviceMetadataType)
 
 -- | The device group key.
 newDeviceMetadataType_deviceGroupKey :: Lens.Lens' NewDeviceMetadataType (Prelude.Maybe Prelude.Text)
 newDeviceMetadataType_deviceGroupKey = Lens.lens (\NewDeviceMetadataType' {deviceGroupKey} -> deviceGroupKey) (\s@NewDeviceMetadataType' {} a -> s {deviceGroupKey = a} :: NewDeviceMetadataType)
+
+-- | The device key.
+newDeviceMetadataType_deviceKey :: Lens.Lens' NewDeviceMetadataType (Prelude.Maybe Prelude.Text)
+newDeviceMetadataType_deviceKey = Lens.lens (\NewDeviceMetadataType' {deviceKey} -> deviceKey) (\s@NewDeviceMetadataType' {} a -> s {deviceKey = a} :: NewDeviceMetadataType)
 
 instance Core.FromJSON NewDeviceMetadataType where
   parseJSON =
@@ -67,8 +68,8 @@ instance Core.FromJSON NewDeviceMetadataType where
       "NewDeviceMetadataType"
       ( \x ->
           NewDeviceMetadataType'
-            Prelude.<$> (x Core..:? "DeviceKey")
-            Prelude.<*> (x Core..:? "DeviceGroupKey")
+            Prelude.<$> (x Core..:? "DeviceGroupKey")
+            Prelude.<*> (x Core..:? "DeviceKey")
       )
 
 instance Prelude.Hashable NewDeviceMetadataType

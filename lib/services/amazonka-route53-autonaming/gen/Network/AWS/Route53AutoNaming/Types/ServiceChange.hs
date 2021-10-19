@@ -29,15 +29,15 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
 --
 -- /See:/ 'newServiceChange' smart constructor.
 data ServiceChange = ServiceChange'
-  { -- | Information about the Route 53 DNS records that you want Cloud Map to
+  { -- | /Public DNS and HTTP namespaces only./ Settings for an optional health
+    -- check. If you specify settings for a health check, Cloud Map associates
+    -- the health check with the records that you specify in @DnsConfig@.
+    healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
+    -- | Information about the Route 53 DNS records that you want Cloud Map to
     -- create when you register an instance.
     dnsConfig :: Prelude.Maybe DnsConfigChange,
     -- | A description for the service.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | /Public DNS and HTTP namespaces only./ Settings for an optional health
-    -- check. If you specify settings for a health check, Cloud Map associates
-    -- the health check with the records that you specify in @DnsConfig@.
-    healthCheckConfig :: Prelude.Maybe HealthCheckConfig
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,22 +49,28 @@ data ServiceChange = ServiceChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'healthCheckConfig', 'serviceChange_healthCheckConfig' - /Public DNS and HTTP namespaces only./ Settings for an optional health
+-- check. If you specify settings for a health check, Cloud Map associates
+-- the health check with the records that you specify in @DnsConfig@.
+--
 -- 'dnsConfig', 'serviceChange_dnsConfig' - Information about the Route 53 DNS records that you want Cloud Map to
 -- create when you register an instance.
 --
 -- 'description', 'serviceChange_description' - A description for the service.
---
--- 'healthCheckConfig', 'serviceChange_healthCheckConfig' - /Public DNS and HTTP namespaces only./ Settings for an optional health
--- check. If you specify settings for a health check, Cloud Map associates
--- the health check with the records that you specify in @DnsConfig@.
 newServiceChange ::
   ServiceChange
 newServiceChange =
   ServiceChange'
-    { dnsConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
-      healthCheckConfig = Prelude.Nothing
+    { healthCheckConfig = Prelude.Nothing,
+      dnsConfig = Prelude.Nothing,
+      description = Prelude.Nothing
     }
+
+-- | /Public DNS and HTTP namespaces only./ Settings for an optional health
+-- check. If you specify settings for a health check, Cloud Map associates
+-- the health check with the records that you specify in @DnsConfig@.
+serviceChange_healthCheckConfig :: Lens.Lens' ServiceChange (Prelude.Maybe HealthCheckConfig)
+serviceChange_healthCheckConfig = Lens.lens (\ServiceChange' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceChange' {} a -> s {healthCheckConfig = a} :: ServiceChange)
 
 -- | Information about the Route 53 DNS records that you want Cloud Map to
 -- create when you register an instance.
@@ -75,12 +81,6 @@ serviceChange_dnsConfig = Lens.lens (\ServiceChange' {dnsConfig} -> dnsConfig) (
 serviceChange_description :: Lens.Lens' ServiceChange (Prelude.Maybe Prelude.Text)
 serviceChange_description = Lens.lens (\ServiceChange' {description} -> description) (\s@ServiceChange' {} a -> s {description = a} :: ServiceChange)
 
--- | /Public DNS and HTTP namespaces only./ Settings for an optional health
--- check. If you specify settings for a health check, Cloud Map associates
--- the health check with the records that you specify in @DnsConfig@.
-serviceChange_healthCheckConfig :: Lens.Lens' ServiceChange (Prelude.Maybe HealthCheckConfig)
-serviceChange_healthCheckConfig = Lens.lens (\ServiceChange' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceChange' {} a -> s {healthCheckConfig = a} :: ServiceChange)
-
 instance Prelude.Hashable ServiceChange
 
 instance Prelude.NFData ServiceChange
@@ -89,9 +89,9 @@ instance Core.ToJSON ServiceChange where
   toJSON ServiceChange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DnsConfig" Core..=) Prelude.<$> dnsConfig,
-            ("Description" Core..=) Prelude.<$> description,
-            ("HealthCheckConfig" Core..=)
-              Prelude.<$> healthCheckConfig
+          [ ("HealthCheckConfig" Core..=)
+              Prelude.<$> healthCheckConfig,
+            ("DnsConfig" Core..=) Prelude.<$> dnsConfig,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )

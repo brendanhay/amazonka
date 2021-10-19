@@ -32,10 +32,10 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     newDescribeSpotFleetRequests,
 
     -- * Request Lenses
-    describeSpotFleetRequests_nextToken,
-    describeSpotFleetRequests_maxResults,
-    describeSpotFleetRequests_dryRun,
     describeSpotFleetRequests_spotFleetRequestIds,
+    describeSpotFleetRequests_nextToken,
+    describeSpotFleetRequests_dryRun,
+    describeSpotFleetRequests_maxResults,
 
     -- * Destructuring the Response
     DescribeSpotFleetRequestsResponse (..),
@@ -59,20 +59,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeSpotFleetRequests' smart constructor.
 data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-  { -- | The token for the next set of results.
+  { -- | The IDs of the Spot Fleet requests.
+    spotFleetRequestIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and 1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of the Spot Fleet requests.
-    spotFleetRequestIds :: Prelude.Maybe [Prelude.Text]
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 1 and 1000. The default value is 1000. To retrieve the
+    -- remaining results, make another call with the returned @NextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,40 +84,37 @@ data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSpotFleetRequests_nextToken' - The token for the next set of results.
+-- 'spotFleetRequestIds', 'describeSpotFleetRequests_spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 --
--- 'maxResults', 'describeSpotFleetRequests_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- 'nextToken', 'describeSpotFleetRequests_nextToken' - The token for the next set of results.
 --
 -- 'dryRun', 'describeSpotFleetRequests_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'spotFleetRequestIds', 'describeSpotFleetRequests_spotFleetRequestIds' - The IDs of the Spot Fleet requests.
+-- 'maxResults', 'describeSpotFleetRequests_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
 newDescribeSpotFleetRequests ::
   DescribeSpotFleetRequests
 newDescribeSpotFleetRequests =
   DescribeSpotFleetRequests'
-    { nextToken =
+    { spotFleetRequestIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      spotFleetRequestIds = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | The IDs of the Spot Fleet requests.
+describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe [Prelude.Text])
+describeSpotFleetRequests_spotFleetRequestIds = Lens.lens (\DescribeSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@DescribeSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results.
 describeSpotFleetRequests_nextToken :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Text)
 describeSpotFleetRequests_nextToken = Lens.lens (\DescribeSpotFleetRequests' {nextToken} -> nextToken) (\s@DescribeSpotFleetRequests' {} a -> s {nextToken = a} :: DescribeSpotFleetRequests)
-
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
-describeSpotFleetRequests_maxResults :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Int)
-describeSpotFleetRequests_maxResults = Lens.lens (\DescribeSpotFleetRequests' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequests' {} a -> s {maxResults = a} :: DescribeSpotFleetRequests)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -126,9 +123,12 @@ describeSpotFleetRequests_maxResults = Lens.lens (\DescribeSpotFleetRequests' {m
 describeSpotFleetRequests_dryRun :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Bool)
 describeSpotFleetRequests_dryRun = Lens.lens (\DescribeSpotFleetRequests' {dryRun} -> dryRun) (\s@DescribeSpotFleetRequests' {} a -> s {dryRun = a} :: DescribeSpotFleetRequests)
 
--- | The IDs of the Spot Fleet requests.
-describeSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe [Prelude.Text])
-describeSpotFleetRequests_spotFleetRequestIds = Lens.lens (\DescribeSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@DescribeSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: DescribeSpotFleetRequests) Prelude.. Lens.mapping Lens._Coerce
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
+describeSpotFleetRequests_maxResults :: Lens.Lens' DescribeSpotFleetRequests (Prelude.Maybe Prelude.Int)
+describeSpotFleetRequests_maxResults = Lens.lens (\DescribeSpotFleetRequests' {maxResults} -> maxResults) (\s@DescribeSpotFleetRequests' {} a -> s {maxResults = a} :: DescribeSpotFleetRequests)
 
 instance Core.AWSPager DescribeSpotFleetRequests where
   page rq rs
@@ -186,13 +186,13 @@ instance Core.ToQuery DescribeSpotFleetRequests where
           Core.=: ("DescribeSpotFleetRequests" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "SpotFleetRequestId"
               Prelude.<$> spotFleetRequestIds
-          )
+          ),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | Contains the output of DescribeSpotFleetRequests.
@@ -243,7 +243,7 @@ describeSpotFleetRequestsResponse_nextToken = Lens.lens (\DescribeSpotFleetReque
 
 -- | Information about the configuration of your Spot Fleet.
 describeSpotFleetRequestsResponse_spotFleetRequestConfigs :: Lens.Lens' DescribeSpotFleetRequestsResponse (Prelude.Maybe [SpotFleetRequestConfig])
-describeSpotFleetRequestsResponse_spotFleetRequestConfigs = Lens.lens (\DescribeSpotFleetRequestsResponse' {spotFleetRequestConfigs} -> spotFleetRequestConfigs) (\s@DescribeSpotFleetRequestsResponse' {} a -> s {spotFleetRequestConfigs = a} :: DescribeSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeSpotFleetRequestsResponse_spotFleetRequestConfigs = Lens.lens (\DescribeSpotFleetRequestsResponse' {spotFleetRequestConfigs} -> spotFleetRequestConfigs) (\s@DescribeSpotFleetRequestsResponse' {} a -> s {spotFleetRequestConfigs = a} :: DescribeSpotFleetRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeSpotFleetRequestsResponse_httpStatus :: Lens.Lens' DescribeSpotFleetRequestsResponse Prelude.Int

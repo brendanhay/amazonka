@@ -27,14 +27,14 @@ module Network.AWS.Transcribe.StartMedicalTranscriptionJob
     newStartMedicalTranscriptionJob,
 
     -- * Request Lenses
+    startMedicalTranscriptionJob_settings,
     startMedicalTranscriptionJob_mediaFormat,
-    startMedicalTranscriptionJob_contentIdentificationType,
-    startMedicalTranscriptionJob_outputKey,
-    startMedicalTranscriptionJob_kmsEncryptionContext,
     startMedicalTranscriptionJob_outputEncryptionKMSKeyId,
+    startMedicalTranscriptionJob_kmsEncryptionContext,
+    startMedicalTranscriptionJob_outputKey,
+    startMedicalTranscriptionJob_contentIdentificationType,
     startMedicalTranscriptionJob_tags,
     startMedicalTranscriptionJob_mediaSampleRateHertz,
-    startMedicalTranscriptionJob_settings,
     startMedicalTranscriptionJob_medicalTranscriptionJobName,
     startMedicalTranscriptionJob_languageCode,
     startMedicalTranscriptionJob_media,
@@ -61,36 +61,10 @@ import Network.AWS.Transcribe.Types
 
 -- | /See:/ 'newStartMedicalTranscriptionJob' smart constructor.
 data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
-  { -- | The audio format of the input media file.
+  { -- | Optional settings for the medical transcription job.
+    settings :: Prelude.Maybe MedicalTranscriptionSetting,
+    -- | The audio format of the input media file.
     mediaFormat :: Prelude.Maybe MediaFormat,
-    -- | You can configure Amazon Transcribe Medical to label content in the
-    -- transcription output. If you specify @PHI@, Amazon Transcribe Medical
-    -- labels the personal health information (PHI) that it identifies in the
-    -- transcription output.
-    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
-    -- | You can specify a location in an Amazon S3 bucket to store the output of
-    -- your medical transcription job.
-    --
-    -- If you don\'t specify an output key, Amazon Transcribe Medical stores
-    -- the output of your transcription job in the Amazon S3 bucket you
-    -- specified. By default, the object key is
-    -- \"your-transcription-job-name.json\".
-    --
-    -- You can use output keys to specify the Amazon S3 prefix and file name of
-    -- the transcription output. For example, specifying the Amazon S3 prefix,
-    -- \"folder1\/folder2\/\", as an output key would lead to the output being
-    -- stored as \"folder1\/folder2\/your-transcription-job-name.json\". If you
-    -- specify \"my-other-job-name.json\" as the output key, the object key is
-    -- changed to \"my-other-job-name.json\". You can use an output key to
-    -- change both the prefix and the file name, for example
-    -- \"folder\/my-other-job-name.json\".
-    --
-    -- If you specify an output key, you must also specify an S3 bucket in the
-    -- @OutputBucketName@ parameter.
-    outputKey :: Prelude.Maybe Prelude.Text,
-    -- | A map of plain text, non-secret key:value pairs, known as encryption
-    -- context pairs, that provide an added layer of security for your data.
-    kmsEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
     -- Service (KMS) key used to encrypt the output of the transcription job.
     -- The user calling the StartMedicalTranscriptionJob operation must have
@@ -119,6 +93,34 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputBucketName@ parameter.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A map of plain text, non-secret key:value pairs, known as encryption
+    -- context pairs, that provide an added layer of security for your data.
+    kmsEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | You can specify a location in an Amazon S3 bucket to store the output of
+    -- your medical transcription job.
+    --
+    -- If you don\'t specify an output key, Amazon Transcribe Medical stores
+    -- the output of your transcription job in the Amazon S3 bucket you
+    -- specified. By default, the object key is
+    -- \"your-transcription-job-name.json\".
+    --
+    -- You can use output keys to specify the Amazon S3 prefix and file name of
+    -- the transcription output. For example, specifying the Amazon S3 prefix,
+    -- \"folder1\/folder2\/\", as an output key would lead to the output being
+    -- stored as \"folder1\/folder2\/your-transcription-job-name.json\". If you
+    -- specify \"my-other-job-name.json\" as the output key, the object key is
+    -- changed to \"my-other-job-name.json\". You can use an output key to
+    -- change both the prefix and the file name, for example
+    -- \"folder\/my-other-job-name.json\".
+    --
+    -- If you specify an output key, you must also specify an S3 bucket in the
+    -- @OutputBucketName@ parameter.
+    outputKey :: Prelude.Maybe Prelude.Text,
+    -- | You can configure Amazon Transcribe Medical to label content in the
+    -- transcription output. If you specify @PHI@, Amazon Transcribe Medical
+    -- labels the personal health information (PHI) that it identifies in the
+    -- transcription output.
+    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
     -- | Add tags to an Amazon Transcribe medical transcription job.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The sample rate, in Hertz, of the audio track in the input media file.
@@ -129,8 +131,6 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- should leave the @MediaSampleRateHertz@ field blank and let Amazon
     -- Transcribe Medical determine the sample rate.
     mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
-    -- | Optional settings for the medical transcription job.
-    settings :: Prelude.Maybe MedicalTranscriptionSetting,
     -- | The name of the medical transcription job. You can\'t use the strings
     -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
     -- unique within an Amazon Web Services account. If you try to create a
@@ -177,35 +177,9 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'settings', 'startMedicalTranscriptionJob_settings' - Optional settings for the medical transcription job.
+--
 -- 'mediaFormat', 'startMedicalTranscriptionJob_mediaFormat' - The audio format of the input media file.
---
--- 'contentIdentificationType', 'startMedicalTranscriptionJob_contentIdentificationType' - You can configure Amazon Transcribe Medical to label content in the
--- transcription output. If you specify @PHI@, Amazon Transcribe Medical
--- labels the personal health information (PHI) that it identifies in the
--- transcription output.
---
--- 'outputKey', 'startMedicalTranscriptionJob_outputKey' - You can specify a location in an Amazon S3 bucket to store the output of
--- your medical transcription job.
---
--- If you don\'t specify an output key, Amazon Transcribe Medical stores
--- the output of your transcription job in the Amazon S3 bucket you
--- specified. By default, the object key is
--- \"your-transcription-job-name.json\".
---
--- You can use output keys to specify the Amazon S3 prefix and file name of
--- the transcription output. For example, specifying the Amazon S3 prefix,
--- \"folder1\/folder2\/\", as an output key would lead to the output being
--- stored as \"folder1\/folder2\/your-transcription-job-name.json\". If you
--- specify \"my-other-job-name.json\" as the output key, the object key is
--- changed to \"my-other-job-name.json\". You can use an output key to
--- change both the prefix and the file name, for example
--- \"folder\/my-other-job-name.json\".
---
--- If you specify an output key, you must also specify an S3 bucket in the
--- @OutputBucketName@ parameter.
---
--- 'kmsEncryptionContext', 'startMedicalTranscriptionJob_kmsEncryptionContext' - A map of plain text, non-secret key:value pairs, known as encryption
--- context pairs, that provide an added layer of security for your data.
 --
 -- 'outputEncryptionKMSKeyId', 'startMedicalTranscriptionJob_outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
 -- Service (KMS) key used to encrypt the output of the transcription job.
@@ -235,6 +209,34 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputBucketName@ parameter.
 --
+-- 'kmsEncryptionContext', 'startMedicalTranscriptionJob_kmsEncryptionContext' - A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+--
+-- 'outputKey', 'startMedicalTranscriptionJob_outputKey' - You can specify a location in an Amazon S3 bucket to store the output of
+-- your medical transcription job.
+--
+-- If you don\'t specify an output key, Amazon Transcribe Medical stores
+-- the output of your transcription job in the Amazon S3 bucket you
+-- specified. By default, the object key is
+-- \"your-transcription-job-name.json\".
+--
+-- You can use output keys to specify the Amazon S3 prefix and file name of
+-- the transcription output. For example, specifying the Amazon S3 prefix,
+-- \"folder1\/folder2\/\", as an output key would lead to the output being
+-- stored as \"folder1\/folder2\/your-transcription-job-name.json\". If you
+-- specify \"my-other-job-name.json\" as the output key, the object key is
+-- changed to \"my-other-job-name.json\". You can use an output key to
+-- change both the prefix and the file name, for example
+-- \"folder\/my-other-job-name.json\".
+--
+-- If you specify an output key, you must also specify an S3 bucket in the
+-- @OutputBucketName@ parameter.
+--
+-- 'contentIdentificationType', 'startMedicalTranscriptionJob_contentIdentificationType' - You can configure Amazon Transcribe Medical to label content in the
+-- transcription output. If you specify @PHI@, Amazon Transcribe Medical
+-- labels the personal health information (PHI) that it identifies in the
+-- transcription output.
+--
 -- 'tags', 'startMedicalTranscriptionJob_tags' - Add tags to an Amazon Transcribe medical transcription job.
 --
 -- 'mediaSampleRateHertz', 'startMedicalTranscriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
@@ -244,8 +246,6 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- match the rate detected by Amazon Transcribe Medical. In most cases, you
 -- should leave the @MediaSampleRateHertz@ field blank and let Amazon
 -- Transcribe Medical determine the sample rate.
---
--- 'settings', 'startMedicalTranscriptionJob_settings' - Optional settings for the medical transcription job.
 --
 -- 'medicalTranscriptionJobName', 'startMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job. You can\'t use the strings
 -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
@@ -304,15 +304,15 @@ newStartMedicalTranscriptionJob
   pSpecialty_
   pType_ =
     StartMedicalTranscriptionJob'
-      { mediaFormat =
+      { settings =
           Prelude.Nothing,
-        contentIdentificationType = Prelude.Nothing,
-        outputKey = Prelude.Nothing,
-        kmsEncryptionContext = Prelude.Nothing,
+        mediaFormat = Prelude.Nothing,
         outputEncryptionKMSKeyId = Prelude.Nothing,
+        kmsEncryptionContext = Prelude.Nothing,
+        outputKey = Prelude.Nothing,
+        contentIdentificationType = Prelude.Nothing,
         tags = Prelude.Nothing,
         mediaSampleRateHertz = Prelude.Nothing,
-        settings = Prelude.Nothing,
         medicalTranscriptionJobName =
           pMedicalTranscriptionJobName_,
         languageCode = pLanguageCode_,
@@ -322,43 +322,13 @@ newStartMedicalTranscriptionJob
         type' = pType_
       }
 
+-- | Optional settings for the medical transcription job.
+startMedicalTranscriptionJob_settings :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MedicalTranscriptionSetting)
+startMedicalTranscriptionJob_settings = Lens.lens (\StartMedicalTranscriptionJob' {settings} -> settings) (\s@StartMedicalTranscriptionJob' {} a -> s {settings = a} :: StartMedicalTranscriptionJob)
+
 -- | The audio format of the input media file.
 startMedicalTranscriptionJob_mediaFormat :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MediaFormat)
 startMedicalTranscriptionJob_mediaFormat = Lens.lens (\StartMedicalTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@StartMedicalTranscriptionJob' {} a -> s {mediaFormat = a} :: StartMedicalTranscriptionJob)
-
--- | You can configure Amazon Transcribe Medical to label content in the
--- transcription output. If you specify @PHI@, Amazon Transcribe Medical
--- labels the personal health information (PHI) that it identifies in the
--- transcription output.
-startMedicalTranscriptionJob_contentIdentificationType :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MedicalContentIdentificationType)
-startMedicalTranscriptionJob_contentIdentificationType = Lens.lens (\StartMedicalTranscriptionJob' {contentIdentificationType} -> contentIdentificationType) (\s@StartMedicalTranscriptionJob' {} a -> s {contentIdentificationType = a} :: StartMedicalTranscriptionJob)
-
--- | You can specify a location in an Amazon S3 bucket to store the output of
--- your medical transcription job.
---
--- If you don\'t specify an output key, Amazon Transcribe Medical stores
--- the output of your transcription job in the Amazon S3 bucket you
--- specified. By default, the object key is
--- \"your-transcription-job-name.json\".
---
--- You can use output keys to specify the Amazon S3 prefix and file name of
--- the transcription output. For example, specifying the Amazon S3 prefix,
--- \"folder1\/folder2\/\", as an output key would lead to the output being
--- stored as \"folder1\/folder2\/your-transcription-job-name.json\". If you
--- specify \"my-other-job-name.json\" as the output key, the object key is
--- changed to \"my-other-job-name.json\". You can use an output key to
--- change both the prefix and the file name, for example
--- \"folder\/my-other-job-name.json\".
---
--- If you specify an output key, you must also specify an S3 bucket in the
--- @OutputBucketName@ parameter.
-startMedicalTranscriptionJob_outputKey :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
-startMedicalTranscriptionJob_outputKey = Lens.lens (\StartMedicalTranscriptionJob' {outputKey} -> outputKey) (\s@StartMedicalTranscriptionJob' {} a -> s {outputKey = a} :: StartMedicalTranscriptionJob)
-
--- | A map of plain text, non-secret key:value pairs, known as encryption
--- context pairs, that provide an added layer of security for your data.
-startMedicalTranscriptionJob_kmsEncryptionContext :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startMedicalTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartMedicalTranscriptionJob' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@StartMedicalTranscriptionJob' {} a -> s {kmsEncryptionContext = a} :: StartMedicalTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
 -- Service (KMS) key used to encrypt the output of the transcription job.
@@ -390,9 +360,43 @@ startMedicalTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartMedicalTran
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartMedicalTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartMedicalTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartMedicalTranscriptionJob)
 
+-- | A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+startMedicalTranscriptionJob_kmsEncryptionContext :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startMedicalTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartMedicalTranscriptionJob' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@StartMedicalTranscriptionJob' {} a -> s {kmsEncryptionContext = a} :: StartMedicalTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | You can specify a location in an Amazon S3 bucket to store the output of
+-- your medical transcription job.
+--
+-- If you don\'t specify an output key, Amazon Transcribe Medical stores
+-- the output of your transcription job in the Amazon S3 bucket you
+-- specified. By default, the object key is
+-- \"your-transcription-job-name.json\".
+--
+-- You can use output keys to specify the Amazon S3 prefix and file name of
+-- the transcription output. For example, specifying the Amazon S3 prefix,
+-- \"folder1\/folder2\/\", as an output key would lead to the output being
+-- stored as \"folder1\/folder2\/your-transcription-job-name.json\". If you
+-- specify \"my-other-job-name.json\" as the output key, the object key is
+-- changed to \"my-other-job-name.json\". You can use an output key to
+-- change both the prefix and the file name, for example
+-- \"folder\/my-other-job-name.json\".
+--
+-- If you specify an output key, you must also specify an S3 bucket in the
+-- @OutputBucketName@ parameter.
+startMedicalTranscriptionJob_outputKey :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
+startMedicalTranscriptionJob_outputKey = Lens.lens (\StartMedicalTranscriptionJob' {outputKey} -> outputKey) (\s@StartMedicalTranscriptionJob' {} a -> s {outputKey = a} :: StartMedicalTranscriptionJob)
+
+-- | You can configure Amazon Transcribe Medical to label content in the
+-- transcription output. If you specify @PHI@, Amazon Transcribe Medical
+-- labels the personal health information (PHI) that it identifies in the
+-- transcription output.
+startMedicalTranscriptionJob_contentIdentificationType :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MedicalContentIdentificationType)
+startMedicalTranscriptionJob_contentIdentificationType = Lens.lens (\StartMedicalTranscriptionJob' {contentIdentificationType} -> contentIdentificationType) (\s@StartMedicalTranscriptionJob' {} a -> s {contentIdentificationType = a} :: StartMedicalTranscriptionJob)
+
 -- | Add tags to an Amazon Transcribe medical transcription job.
 startMedicalTranscriptionJob_tags :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
-startMedicalTranscriptionJob_tags = Lens.lens (\StartMedicalTranscriptionJob' {tags} -> tags) (\s@StartMedicalTranscriptionJob' {} a -> s {tags = a} :: StartMedicalTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+startMedicalTranscriptionJob_tags = Lens.lens (\StartMedicalTranscriptionJob' {tags} -> tags) (\s@StartMedicalTranscriptionJob' {} a -> s {tags = a} :: StartMedicalTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The sample rate, in Hertz, of the audio track in the input media file.
 --
@@ -403,10 +407,6 @@ startMedicalTranscriptionJob_tags = Lens.lens (\StartMedicalTranscriptionJob' {t
 -- Transcribe Medical determine the sample rate.
 startMedicalTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Natural)
 startMedicalTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartMedicalTranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@StartMedicalTranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: StartMedicalTranscriptionJob)
-
--- | Optional settings for the medical transcription job.
-startMedicalTranscriptionJob_settings :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MedicalTranscriptionSetting)
-startMedicalTranscriptionJob_settings = Lens.lens (\StartMedicalTranscriptionJob' {settings} -> settings) (\s@StartMedicalTranscriptionJob' {} a -> s {settings = a} :: StartMedicalTranscriptionJob)
 
 -- | The name of the medical transcription job. You can\'t use the strings
 -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
@@ -494,18 +494,18 @@ instance Core.ToJSON StartMedicalTranscriptionJob where
   toJSON StartMedicalTranscriptionJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
-            ("ContentIdentificationType" Core..=)
-              Prelude.<$> contentIdentificationType,
-            ("OutputKey" Core..=) Prelude.<$> outputKey,
-            ("KMSEncryptionContext" Core..=)
-              Prelude.<$> kmsEncryptionContext,
+          [ ("Settings" Core..=) Prelude.<$> settings,
+            ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
             ("OutputEncryptionKMSKeyId" Core..=)
               Prelude.<$> outputEncryptionKMSKeyId,
+            ("KMSEncryptionContext" Core..=)
+              Prelude.<$> kmsEncryptionContext,
+            ("OutputKey" Core..=) Prelude.<$> outputKey,
+            ("ContentIdentificationType" Core..=)
+              Prelude.<$> contentIdentificationType,
             ("Tags" Core..=) Prelude.<$> tags,
             ("MediaSampleRateHertz" Core..=)
               Prelude.<$> mediaSampleRateHertz,
-            ("Settings" Core..=) Prelude.<$> settings,
             Prelude.Just
               ( "MedicalTranscriptionJobName"
                   Core..= medicalTranscriptionJobName

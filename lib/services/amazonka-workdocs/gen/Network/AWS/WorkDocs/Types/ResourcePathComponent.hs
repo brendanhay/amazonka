@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourcePathComponent' smart constructor.
 data ResourcePathComponent = ResourcePathComponent'
-  { -- | The ID of the resource path.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource path.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The name of the resource path.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the resource path.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data ResourcePathComponent = ResourcePathComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'resourcePathComponent_id' - The ID of the resource path.
---
 -- 'name', 'resourcePathComponent_name' - The name of the resource path.
+--
+-- 'id', 'resourcePathComponent_id' - The ID of the resource path.
 newResourcePathComponent ::
   ResourcePathComponent
 newResourcePathComponent =
   ResourcePathComponent'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
-
--- | The ID of the resource path.
-resourcePathComponent_id :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
-resourcePathComponent_id = Lens.lens (\ResourcePathComponent' {id} -> id) (\s@ResourcePathComponent' {} a -> s {id = a} :: ResourcePathComponent)
 
 -- | The name of the resource path.
 resourcePathComponent_name :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
 resourcePathComponent_name = Lens.lens (\ResourcePathComponent' {name} -> name) (\s@ResourcePathComponent' {} a -> s {name = a} :: ResourcePathComponent)
+
+-- | The ID of the resource path.
+resourcePathComponent_id :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
+resourcePathComponent_id = Lens.lens (\ResourcePathComponent' {id} -> id) (\s@ResourcePathComponent' {} a -> s {id = a} :: ResourcePathComponent)
 
 instance Core.FromJSON ResourcePathComponent where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON ResourcePathComponent where
       "ResourcePathComponent"
       ( \x ->
           ResourcePathComponent'
-            Prelude.<$> (x Core..:? "Id") Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable ResourcePathComponent

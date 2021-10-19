@@ -286,7 +286,7 @@ getMergeOptionsResponse_httpStatus = Lens.lens (\GetMergeOptionsResponse' {httpS
 
 -- | The merge option or strategy used to merge the code.
 getMergeOptionsResponse_mergeOptions :: Lens.Lens' GetMergeOptionsResponse [MergeOptionTypeEnum]
-getMergeOptionsResponse_mergeOptions = Lens.lens (\GetMergeOptionsResponse' {mergeOptions} -> mergeOptions) (\s@GetMergeOptionsResponse' {} a -> s {mergeOptions = a} :: GetMergeOptionsResponse) Prelude.. Lens._Coerce
+getMergeOptionsResponse_mergeOptions = Lens.lens (\GetMergeOptionsResponse' {mergeOptions} -> mergeOptions) (\s@GetMergeOptionsResponse' {} a -> s {mergeOptions = a} :: GetMergeOptionsResponse) Prelude.. Lens.coerced
 
 -- | The commit ID of the source commit specifier that was used in the merge
 -- evaluation.

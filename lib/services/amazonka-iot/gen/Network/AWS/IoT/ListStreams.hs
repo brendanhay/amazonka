@@ -34,16 +34,16 @@ module Network.AWS.IoT.ListStreams
 
     -- * Request Lenses
     listStreams_nextToken,
-    listStreams_maxResults,
     listStreams_ascendingOrder,
+    listStreams_maxResults,
 
     -- * Destructuring the Response
     ListStreamsResponse (..),
     newListStreamsResponse,
 
     -- * Response Lenses
-    listStreamsResponse_streams,
     listStreamsResponse_nextToken,
+    listStreamsResponse_streams,
     listStreamsResponse_httpStatus,
   )
 where
@@ -59,10 +59,10 @@ import qualified Network.AWS.Response as Response
 data ListStreams = ListStreams'
   { -- | A token used to get the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at a time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Set to true to return the list of streams in ascending order.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    ascendingOrder :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return at a time.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,29 +76,29 @@ data ListStreams = ListStreams'
 --
 -- 'nextToken', 'listStreams_nextToken' - A token used to get the next set of results.
 --
--- 'maxResults', 'listStreams_maxResults' - The maximum number of results to return at a time.
---
 -- 'ascendingOrder', 'listStreams_ascendingOrder' - Set to true to return the list of streams in ascending order.
+--
+-- 'maxResults', 'listStreams_maxResults' - The maximum number of results to return at a time.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+      ascendingOrder = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | A token used to get the next set of results.
 listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
 listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
--- | The maximum number of results to return at a time.
-listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
-listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
-
 -- | Set to true to return the list of streams in ascending order.
 listStreams_ascendingOrder :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Bool)
 listStreams_ascendingOrder = Lens.lens (\ListStreams' {ascendingOrder} -> ascendingOrder) (\s@ListStreams' {} a -> s {ascendingOrder = a} :: ListStreams)
+
+-- | The maximum number of results to return at a time.
+listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
+listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
 instance Core.AWSPager ListStreams where
   page rq rs
@@ -126,8 +126,8 @@ instance Core.AWSRequest ListStreams where
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (x Core..?> "streams" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "streams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,16 +145,16 @@ instance Core.ToQuery ListStreams where
   toQuery ListStreams' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "isAscendingOrder" Core.=: ascendingOrder
+        "isAscendingOrder" Core.=: ascendingOrder,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { -- | A list of streams.
-    streams :: Prelude.Maybe [StreamSummary],
-    -- | A token used to get the next set of results.
+  { -- | A token used to get the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of streams.
+    streams :: Prelude.Maybe [StreamSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,9 +168,9 @@ data ListStreamsResponse = ListStreamsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streams', 'listStreamsResponse_streams' - A list of streams.
---
 -- 'nextToken', 'listStreamsResponse_nextToken' - A token used to get the next set of results.
+--
+-- 'streams', 'listStreamsResponse_streams' - A list of streams.
 --
 -- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
 newListStreamsResponse ::
@@ -179,18 +179,18 @@ newListStreamsResponse ::
   ListStreamsResponse
 newListStreamsResponse pHttpStatus_ =
   ListStreamsResponse'
-    { streams = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      streams = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of streams.
-listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [StreamSummary])
-listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token used to get the next set of results.
 listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
 listStreamsResponse_nextToken = Lens.lens (\ListStreamsResponse' {nextToken} -> nextToken) (\s@ListStreamsResponse' {} a -> s {nextToken = a} :: ListStreamsResponse)
+
+-- | A list of streams.
+listStreamsResponse_streams :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [StreamSummary])
+listStreamsResponse_streams = Lens.lens (\ListStreamsResponse' {streams} -> streams) (\s@ListStreamsResponse' {} a -> s {streams = a} :: ListStreamsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int

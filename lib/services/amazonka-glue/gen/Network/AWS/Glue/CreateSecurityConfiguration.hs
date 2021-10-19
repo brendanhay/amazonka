@@ -39,8 +39,8 @@ module Network.AWS.Glue.CreateSecurityConfiguration
     newCreateSecurityConfigurationResponse,
 
     -- * Response Lenses
-    createSecurityConfigurationResponse_createdTimestamp,
     createSecurityConfigurationResponse_name,
+    createSecurityConfigurationResponse_createdTimestamp,
     createSecurityConfigurationResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest CreateSecurityConfiguration where
     Response.receiveJSON
       ( \s h x ->
           CreateSecurityConfigurationResponse'
-            Prelude.<$> (x Core..?> "CreatedTimestamp")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Core.ToQuery CreateSecurityConfiguration where
 
 -- | /See:/ 'newCreateSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-  { -- | The time at which the new security configuration was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The name assigned to the new security configuration.
+  { -- | The name assigned to the new security configuration.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the new security configuration was created.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,9 +165,9 @@ data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'createSecurityConfigurationResponse_createdTimestamp' - The time at which the new security configuration was created.
---
 -- 'name', 'createSecurityConfigurationResponse_name' - The name assigned to the new security configuration.
+--
+-- 'createdTimestamp', 'createSecurityConfigurationResponse_createdTimestamp' - The time at which the new security configuration was created.
 --
 -- 'httpStatus', 'createSecurityConfigurationResponse_httpStatus' - The response's http status code.
 newCreateSecurityConfigurationResponse ::
@@ -176,19 +176,19 @@ newCreateSecurityConfigurationResponse ::
   CreateSecurityConfigurationResponse
 newCreateSecurityConfigurationResponse pHttpStatus_ =
   CreateSecurityConfigurationResponse'
-    { createdTimestamp =
+    { name =
         Prelude.Nothing,
-      name = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time at which the new security configuration was created.
-createSecurityConfigurationResponse_createdTimestamp :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-createSecurityConfigurationResponse_createdTimestamp = Lens.lens (\CreateSecurityConfigurationResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateSecurityConfigurationResponse' {} a -> s {createdTimestamp = a} :: CreateSecurityConfigurationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The name assigned to the new security configuration.
 createSecurityConfigurationResponse_name :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
 createSecurityConfigurationResponse_name = Lens.lens (\CreateSecurityConfigurationResponse' {name} -> name) (\s@CreateSecurityConfigurationResponse' {} a -> s {name = a} :: CreateSecurityConfigurationResponse)
+
+-- | The time at which the new security configuration was created.
+createSecurityConfigurationResponse_createdTimestamp :: Lens.Lens' CreateSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+createSecurityConfigurationResponse_createdTimestamp = Lens.lens (\CreateSecurityConfigurationResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateSecurityConfigurationResponse' {} a -> s {createdTimestamp = a} :: CreateSecurityConfigurationResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 createSecurityConfigurationResponse_httpStatus :: Lens.Lens' CreateSecurityConfigurationResponse Prelude.Int

@@ -36,8 +36,8 @@ module Network.AWS.Config.ListStoredQueries
     newListStoredQueriesResponse,
 
     -- * Response Lenses
-    listStoredQueriesResponse_nextToken,
     listStoredQueriesResponse_storedQueryMetadata,
+    listStoredQueriesResponse_nextToken,
     listStoredQueriesResponse_httpStatus,
   )
 where
@@ -97,10 +97,10 @@ instance Core.AWSRequest ListStoredQueries where
     Response.receiveJSON
       ( \s h x ->
           ListStoredQueriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "StoredQueryMetadata"
+            Prelude.<$> ( x Core..?> "StoredQueryMetadata"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -140,15 +140,15 @@ instance Core.ToQuery ListStoredQueries where
 
 -- | /See:/ 'newListStoredQueriesResponse' smart constructor.
 data ListStoredQueriesResponse = ListStoredQueriesResponse'
-  { -- | If the previous paginated request didn\'t return all of the remaining
+  { -- | A list of @StoredQueryMetadata@ objects.
+    storedQueryMetadata :: Prelude.Maybe [StoredQueryMetadata],
+    -- | If the previous paginated request didn\'t return all of the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call this action again and
     -- assign that token to the request object\'s @NextToken@ parameter. If
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @StoredQueryMetadata@ objects.
-    storedQueryMetadata :: Prelude.Maybe [StoredQueryMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -162,14 +162,14 @@ data ListStoredQueriesResponse = ListStoredQueriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'storedQueryMetadata', 'listStoredQueriesResponse_storedQueryMetadata' - A list of @StoredQueryMetadata@ objects.
+--
 -- 'nextToken', 'listStoredQueriesResponse_nextToken' - If the previous paginated request didn\'t return all of the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
---
--- 'storedQueryMetadata', 'listStoredQueriesResponse_storedQueryMetadata' - A list of @StoredQueryMetadata@ objects.
 --
 -- 'httpStatus', 'listStoredQueriesResponse_httpStatus' - The response's http status code.
 newListStoredQueriesResponse ::
@@ -178,11 +178,15 @@ newListStoredQueriesResponse ::
   ListStoredQueriesResponse
 newListStoredQueriesResponse pHttpStatus_ =
   ListStoredQueriesResponse'
-    { nextToken =
+    { storedQueryMetadata =
         Prelude.Nothing,
-      storedQueryMetadata = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @StoredQueryMetadata@ objects.
+listStoredQueriesResponse_storedQueryMetadata :: Lens.Lens' ListStoredQueriesResponse (Prelude.Maybe [StoredQueryMetadata])
+listStoredQueriesResponse_storedQueryMetadata = Lens.lens (\ListStoredQueriesResponse' {storedQueryMetadata} -> storedQueryMetadata) (\s@ListStoredQueriesResponse' {} a -> s {storedQueryMetadata = a} :: ListStoredQueriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the previous paginated request didn\'t return all of the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
@@ -192,10 +196,6 @@ newListStoredQueriesResponse pHttpStatus_ =
 -- @NextToken@ parameter is set to @null@.
 listStoredQueriesResponse_nextToken :: Lens.Lens' ListStoredQueriesResponse (Prelude.Maybe Prelude.Text)
 listStoredQueriesResponse_nextToken = Lens.lens (\ListStoredQueriesResponse' {nextToken} -> nextToken) (\s@ListStoredQueriesResponse' {} a -> s {nextToken = a} :: ListStoredQueriesResponse)
-
--- | A list of @StoredQueryMetadata@ objects.
-listStoredQueriesResponse_storedQueryMetadata :: Lens.Lens' ListStoredQueriesResponse (Prelude.Maybe [StoredQueryMetadata])
-listStoredQueriesResponse_storedQueryMetadata = Lens.lens (\ListStoredQueriesResponse' {storedQueryMetadata} -> storedQueryMetadata) (\s@ListStoredQueriesResponse' {} a -> s {storedQueryMetadata = a} :: ListStoredQueriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listStoredQueriesResponse_httpStatus :: Lens.Lens' ListStoredQueriesResponse Prelude.Int

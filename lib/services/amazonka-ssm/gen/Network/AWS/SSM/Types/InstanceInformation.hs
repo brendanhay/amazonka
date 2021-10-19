@@ -37,35 +37,32 @@ data InstanceInformation = InstanceInformation'
     --
     -- The status @Inactive@ has been deprecated and is no longer in use.
     pingStatus :: Prelude.Maybe PingStatus,
-    -- | The Identity and Access Management (IAM) role assigned to the
-    -- on-premises Systems Manager managed instance. This call doesn\'t return
-    -- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To
-    -- retrieve the IAM role for an EC2 instance, use the Amazon EC2
-    -- @DescribeInstances@ operation. For information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances>
-    -- in the /Amazon EC2 API Reference/ or
-    -- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
-    -- in the /Amazon Web Services CLI Command Reference/.
-    iamRole :: Prelude.Maybe Prelude.Text,
-    -- | The activation ID created by Amazon Web Services Systems Manager when
-    -- the server or virtual machine (VM) was registered.
-    activationId :: Prelude.Maybe Prelude.Text,
-    -- | The last date the association was successfully run.
-    lastSuccessfulAssociationExecutionDate :: Prelude.Maybe Core.POSIX,
+    -- | The IP address of the managed instance.
+    iPAddress :: Prelude.Maybe Prelude.Text,
+    -- | The type of instance. Instances are either EC2 instances or managed
+    -- instances.
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | The date the server or VM was registered with Amazon Web Services as a
+    -- managed instance.
+    registrationDate :: Prelude.Maybe Core.POSIX,
+    -- | The version of the OS platform running on your instance.
+    platformVersion :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the latest version of SSM Agent is running on your
+    -- Linux Managed Instance. This field doesn\'t indicate whether or not the
+    -- latest version is installed on Windows managed instances, because some
+    -- older versions of Windows Server use the EC2Config service to process
+    -- Systems Manager requests.
+    isLatestVersion :: Prelude.Maybe Prelude.Bool,
     -- | The version of SSM Agent running on your Linux instance.
     agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the agent last pinged the Systems Manager
     -- service.
     lastPingDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of the OS platform running on your instance.
-    platformVersion :: Prelude.Maybe Prelude.Text,
-    -- | The date the association was last run.
-    lastAssociationExecutionDate :: Prelude.Maybe Core.POSIX,
-    -- | The type of instance. Instances are either EC2 instances or managed
-    -- instances.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | Information about the association.
-    associationOverview :: Prelude.Maybe InstanceAggregatedAssociationOverview,
+    -- | The last date the association was successfully run.
+    lastSuccessfulAssociationExecutionDate :: Prelude.Maybe Core.POSIX,
+    -- | The activation ID created by Amazon Web Services Systems Manager when
+    -- the server or virtual machine (VM) was registered.
+    activationId :: Prelude.Maybe Prelude.Text,
     -- | The name assigned to an on-premises server or virtual machine (VM) when
     -- it is activated as a Systems Manager managed instance. The name is
     -- specified as the @DefaultInstanceName@ property using the
@@ -82,25 +79,28 @@ data InstanceInformation = InstanceInformation'
     -- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
     -- in the /Amazon Web Services CLI Command Reference/.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the managed instance.
-    iPAddress :: Prelude.Maybe Prelude.Text,
     -- | The operating system platform type.
     platformType :: Prelude.Maybe PlatformType,
-    -- | Indicates whether the latest version of SSM Agent is running on your
-    -- Linux Managed Instance. This field doesn\'t indicate whether or not the
-    -- latest version is installed on Windows managed instances, because some
-    -- older versions of Windows Server use the EC2Config service to process
-    -- Systems Manager requests.
-    isLatestVersion :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the association.
+    associationOverview :: Prelude.Maybe InstanceAggregatedAssociationOverview,
+    -- | The status of the association.
+    associationStatus :: Prelude.Maybe Prelude.Text,
+    -- | The date the association was last run.
+    lastAssociationExecutionDate :: Prelude.Maybe Core.POSIX,
     -- | The name of the operating system platform running on your instance.
     platformName :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified host name of the managed instance.
     computerName :: Prelude.Maybe Prelude.Text,
-    -- | The status of the association.
-    associationStatus :: Prelude.Maybe Prelude.Text,
-    -- | The date the server or VM was registered with Amazon Web Services as a
-    -- managed instance.
-    registrationDate :: Prelude.Maybe Core.POSIX
+    -- | The Identity and Access Management (IAM) role assigned to the
+    -- on-premises Systems Manager managed instance. This call doesn\'t return
+    -- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To
+    -- retrieve the IAM role for an EC2 instance, use the Amazon EC2
+    -- @DescribeInstances@ operation. For information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances>
+    -- in the /Amazon EC2 API Reference/ or
+    -- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
+    -- in the /Amazon Web Services CLI Command Reference/.
+    iamRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,34 +118,31 @@ data InstanceInformation = InstanceInformation'
 --
 -- The status @Inactive@ has been deprecated and is no longer in use.
 --
--- 'iamRole', 'instanceInformation_iamRole' - The Identity and Access Management (IAM) role assigned to the
--- on-premises Systems Manager managed instance. This call doesn\'t return
--- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To
--- retrieve the IAM role for an EC2 instance, use the Amazon EC2
--- @DescribeInstances@ operation. For information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances>
--- in the /Amazon EC2 API Reference/ or
--- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
--- in the /Amazon Web Services CLI Command Reference/.
+-- 'iPAddress', 'instanceInformation_iPAddress' - The IP address of the managed instance.
 --
--- 'activationId', 'instanceInformation_activationId' - The activation ID created by Amazon Web Services Systems Manager when
--- the server or virtual machine (VM) was registered.
+-- 'resourceType', 'instanceInformation_resourceType' - The type of instance. Instances are either EC2 instances or managed
+-- instances.
 --
--- 'lastSuccessfulAssociationExecutionDate', 'instanceInformation_lastSuccessfulAssociationExecutionDate' - The last date the association was successfully run.
+-- 'registrationDate', 'instanceInformation_registrationDate' - The date the server or VM was registered with Amazon Web Services as a
+-- managed instance.
+--
+-- 'platformVersion', 'instanceInformation_platformVersion' - The version of the OS platform running on your instance.
+--
+-- 'isLatestVersion', 'instanceInformation_isLatestVersion' - Indicates whether the latest version of SSM Agent is running on your
+-- Linux Managed Instance. This field doesn\'t indicate whether or not the
+-- latest version is installed on Windows managed instances, because some
+-- older versions of Windows Server use the EC2Config service to process
+-- Systems Manager requests.
 --
 -- 'agentVersion', 'instanceInformation_agentVersion' - The version of SSM Agent running on your Linux instance.
 --
 -- 'lastPingDateTime', 'instanceInformation_lastPingDateTime' - The date and time when the agent last pinged the Systems Manager
 -- service.
 --
--- 'platformVersion', 'instanceInformation_platformVersion' - The version of the OS platform running on your instance.
+-- 'lastSuccessfulAssociationExecutionDate', 'instanceInformation_lastSuccessfulAssociationExecutionDate' - The last date the association was successfully run.
 --
--- 'lastAssociationExecutionDate', 'instanceInformation_lastAssociationExecutionDate' - The date the association was last run.
---
--- 'resourceType', 'instanceInformation_resourceType' - The type of instance. Instances are either EC2 instances or managed
--- instances.
---
--- 'associationOverview', 'instanceInformation_associationOverview' - Information about the association.
+-- 'activationId', 'instanceInformation_activationId' - The activation ID created by Amazon Web Services Systems Manager when
+-- the server or virtual machine (VM) was registered.
 --
 -- 'name', 'instanceInformation_name' - The name assigned to an on-premises server or virtual machine (VM) when
 -- it is activated as a Systems Manager managed instance. The name is
@@ -163,48 +160,51 @@ data InstanceInformation = InstanceInformation'
 -- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
 -- in the /Amazon Web Services CLI Command Reference/.
 --
--- 'iPAddress', 'instanceInformation_iPAddress' - The IP address of the managed instance.
---
 -- 'platformType', 'instanceInformation_platformType' - The operating system platform type.
 --
--- 'isLatestVersion', 'instanceInformation_isLatestVersion' - Indicates whether the latest version of SSM Agent is running on your
--- Linux Managed Instance. This field doesn\'t indicate whether or not the
--- latest version is installed on Windows managed instances, because some
--- older versions of Windows Server use the EC2Config service to process
--- Systems Manager requests.
+-- 'associationOverview', 'instanceInformation_associationOverview' - Information about the association.
+--
+-- 'associationStatus', 'instanceInformation_associationStatus' - The status of the association.
+--
+-- 'lastAssociationExecutionDate', 'instanceInformation_lastAssociationExecutionDate' - The date the association was last run.
 --
 -- 'platformName', 'instanceInformation_platformName' - The name of the operating system platform running on your instance.
 --
 -- 'computerName', 'instanceInformation_computerName' - The fully qualified host name of the managed instance.
 --
--- 'associationStatus', 'instanceInformation_associationStatus' - The status of the association.
---
--- 'registrationDate', 'instanceInformation_registrationDate' - The date the server or VM was registered with Amazon Web Services as a
--- managed instance.
+-- 'iamRole', 'instanceInformation_iamRole' - The Identity and Access Management (IAM) role assigned to the
+-- on-premises Systems Manager managed instance. This call doesn\'t return
+-- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To
+-- retrieve the IAM role for an EC2 instance, use the Amazon EC2
+-- @DescribeInstances@ operation. For information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances>
+-- in the /Amazon EC2 API Reference/ or
+-- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
+-- in the /Amazon Web Services CLI Command Reference/.
 newInstanceInformation ::
   InstanceInformation
 newInstanceInformation =
   InstanceInformation'
     { instanceId = Prelude.Nothing,
       pingStatus = Prelude.Nothing,
-      iamRole = Prelude.Nothing,
-      activationId = Prelude.Nothing,
-      lastSuccessfulAssociationExecutionDate =
-        Prelude.Nothing,
+      iPAddress = Prelude.Nothing,
+      resourceType = Prelude.Nothing,
+      registrationDate = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
+      isLatestVersion = Prelude.Nothing,
       agentVersion = Prelude.Nothing,
       lastPingDateTime = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      lastAssociationExecutionDate = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      associationOverview = Prelude.Nothing,
+      lastSuccessfulAssociationExecutionDate =
+        Prelude.Nothing,
+      activationId = Prelude.Nothing,
       name = Prelude.Nothing,
-      iPAddress = Prelude.Nothing,
       platformType = Prelude.Nothing,
-      isLatestVersion = Prelude.Nothing,
+      associationOverview = Prelude.Nothing,
+      associationStatus = Prelude.Nothing,
+      lastAssociationExecutionDate = Prelude.Nothing,
       platformName = Prelude.Nothing,
       computerName = Prelude.Nothing,
-      associationStatus = Prelude.Nothing,
-      registrationDate = Prelude.Nothing
+      iamRole = Prelude.Nothing
     }
 
 -- | The instance ID.
@@ -217,26 +217,31 @@ instanceInformation_instanceId = Lens.lens (\InstanceInformation' {instanceId} -
 instanceInformation_pingStatus :: Lens.Lens' InstanceInformation (Prelude.Maybe PingStatus)
 instanceInformation_pingStatus = Lens.lens (\InstanceInformation' {pingStatus} -> pingStatus) (\s@InstanceInformation' {} a -> s {pingStatus = a} :: InstanceInformation)
 
--- | The Identity and Access Management (IAM) role assigned to the
--- on-premises Systems Manager managed instance. This call doesn\'t return
--- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To
--- retrieve the IAM role for an EC2 instance, use the Amazon EC2
--- @DescribeInstances@ operation. For information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances>
--- in the /Amazon EC2 API Reference/ or
--- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
--- in the /Amazon Web Services CLI Command Reference/.
-instanceInformation_iamRole :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
-instanceInformation_iamRole = Lens.lens (\InstanceInformation' {iamRole} -> iamRole) (\s@InstanceInformation' {} a -> s {iamRole = a} :: InstanceInformation)
+-- | The IP address of the managed instance.
+instanceInformation_iPAddress :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
+instanceInformation_iPAddress = Lens.lens (\InstanceInformation' {iPAddress} -> iPAddress) (\s@InstanceInformation' {} a -> s {iPAddress = a} :: InstanceInformation)
 
--- | The activation ID created by Amazon Web Services Systems Manager when
--- the server or virtual machine (VM) was registered.
-instanceInformation_activationId :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
-instanceInformation_activationId = Lens.lens (\InstanceInformation' {activationId} -> activationId) (\s@InstanceInformation' {} a -> s {activationId = a} :: InstanceInformation)
+-- | The type of instance. Instances are either EC2 instances or managed
+-- instances.
+instanceInformation_resourceType :: Lens.Lens' InstanceInformation (Prelude.Maybe ResourceType)
+instanceInformation_resourceType = Lens.lens (\InstanceInformation' {resourceType} -> resourceType) (\s@InstanceInformation' {} a -> s {resourceType = a} :: InstanceInformation)
 
--- | The last date the association was successfully run.
-instanceInformation_lastSuccessfulAssociationExecutionDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_lastSuccessfulAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastSuccessfulAssociationExecutionDate} -> lastSuccessfulAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastSuccessfulAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+-- | The date the server or VM was registered with Amazon Web Services as a
+-- managed instance.
+instanceInformation_registrationDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
+instanceInformation_registrationDate = Lens.lens (\InstanceInformation' {registrationDate} -> registrationDate) (\s@InstanceInformation' {} a -> s {registrationDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+
+-- | The version of the OS platform running on your instance.
+instanceInformation_platformVersion :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
+instanceInformation_platformVersion = Lens.lens (\InstanceInformation' {platformVersion} -> platformVersion) (\s@InstanceInformation' {} a -> s {platformVersion = a} :: InstanceInformation)
+
+-- | Indicates whether the latest version of SSM Agent is running on your
+-- Linux Managed Instance. This field doesn\'t indicate whether or not the
+-- latest version is installed on Windows managed instances, because some
+-- older versions of Windows Server use the EC2Config service to process
+-- Systems Manager requests.
+instanceInformation_isLatestVersion :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Bool)
+instanceInformation_isLatestVersion = Lens.lens (\InstanceInformation' {isLatestVersion} -> isLatestVersion) (\s@InstanceInformation' {} a -> s {isLatestVersion = a} :: InstanceInformation)
 
 -- | The version of SSM Agent running on your Linux instance.
 instanceInformation_agentVersion :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
@@ -247,22 +252,14 @@ instanceInformation_agentVersion = Lens.lens (\InstanceInformation' {agentVersio
 instanceInformation_lastPingDateTime :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
 instanceInformation_lastPingDateTime = Lens.lens (\InstanceInformation' {lastPingDateTime} -> lastPingDateTime) (\s@InstanceInformation' {} a -> s {lastPingDateTime = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
 
--- | The version of the OS platform running on your instance.
-instanceInformation_platformVersion :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
-instanceInformation_platformVersion = Lens.lens (\InstanceInformation' {platformVersion} -> platformVersion) (\s@InstanceInformation' {} a -> s {platformVersion = a} :: InstanceInformation)
+-- | The last date the association was successfully run.
+instanceInformation_lastSuccessfulAssociationExecutionDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
+instanceInformation_lastSuccessfulAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastSuccessfulAssociationExecutionDate} -> lastSuccessfulAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastSuccessfulAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
 
--- | The date the association was last run.
-instanceInformation_lastAssociationExecutionDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_lastAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastAssociationExecutionDate} -> lastAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
-
--- | The type of instance. Instances are either EC2 instances or managed
--- instances.
-instanceInformation_resourceType :: Lens.Lens' InstanceInformation (Prelude.Maybe ResourceType)
-instanceInformation_resourceType = Lens.lens (\InstanceInformation' {resourceType} -> resourceType) (\s@InstanceInformation' {} a -> s {resourceType = a} :: InstanceInformation)
-
--- | Information about the association.
-instanceInformation_associationOverview :: Lens.Lens' InstanceInformation (Prelude.Maybe InstanceAggregatedAssociationOverview)
-instanceInformation_associationOverview = Lens.lens (\InstanceInformation' {associationOverview} -> associationOverview) (\s@InstanceInformation' {} a -> s {associationOverview = a} :: InstanceInformation)
+-- | The activation ID created by Amazon Web Services Systems Manager when
+-- the server or virtual machine (VM) was registered.
+instanceInformation_activationId :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
+instanceInformation_activationId = Lens.lens (\InstanceInformation' {activationId} -> activationId) (\s@InstanceInformation' {} a -> s {activationId = a} :: InstanceInformation)
 
 -- | The name assigned to an on-premises server or virtual machine (VM) when
 -- it is activated as a Systems Manager managed instance. The name is
@@ -282,21 +279,21 @@ instanceInformation_associationOverview = Lens.lens (\InstanceInformation' {asso
 instanceInformation_name :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
 instanceInformation_name = Lens.lens (\InstanceInformation' {name} -> name) (\s@InstanceInformation' {} a -> s {name = a} :: InstanceInformation)
 
--- | The IP address of the managed instance.
-instanceInformation_iPAddress :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
-instanceInformation_iPAddress = Lens.lens (\InstanceInformation' {iPAddress} -> iPAddress) (\s@InstanceInformation' {} a -> s {iPAddress = a} :: InstanceInformation)
-
 -- | The operating system platform type.
 instanceInformation_platformType :: Lens.Lens' InstanceInformation (Prelude.Maybe PlatformType)
 instanceInformation_platformType = Lens.lens (\InstanceInformation' {platformType} -> platformType) (\s@InstanceInformation' {} a -> s {platformType = a} :: InstanceInformation)
 
--- | Indicates whether the latest version of SSM Agent is running on your
--- Linux Managed Instance. This field doesn\'t indicate whether or not the
--- latest version is installed on Windows managed instances, because some
--- older versions of Windows Server use the EC2Config service to process
--- Systems Manager requests.
-instanceInformation_isLatestVersion :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Bool)
-instanceInformation_isLatestVersion = Lens.lens (\InstanceInformation' {isLatestVersion} -> isLatestVersion) (\s@InstanceInformation' {} a -> s {isLatestVersion = a} :: InstanceInformation)
+-- | Information about the association.
+instanceInformation_associationOverview :: Lens.Lens' InstanceInformation (Prelude.Maybe InstanceAggregatedAssociationOverview)
+instanceInformation_associationOverview = Lens.lens (\InstanceInformation' {associationOverview} -> associationOverview) (\s@InstanceInformation' {} a -> s {associationOverview = a} :: InstanceInformation)
+
+-- | The status of the association.
+instanceInformation_associationStatus :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
+instanceInformation_associationStatus = Lens.lens (\InstanceInformation' {associationStatus} -> associationStatus) (\s@InstanceInformation' {} a -> s {associationStatus = a} :: InstanceInformation)
+
+-- | The date the association was last run.
+instanceInformation_lastAssociationExecutionDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
+instanceInformation_lastAssociationExecutionDate = Lens.lens (\InstanceInformation' {lastAssociationExecutionDate} -> lastAssociationExecutionDate) (\s@InstanceInformation' {} a -> s {lastAssociationExecutionDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the operating system platform running on your instance.
 instanceInformation_platformName :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
@@ -306,14 +303,17 @@ instanceInformation_platformName = Lens.lens (\InstanceInformation' {platformNam
 instanceInformation_computerName :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
 instanceInformation_computerName = Lens.lens (\InstanceInformation' {computerName} -> computerName) (\s@InstanceInformation' {} a -> s {computerName = a} :: InstanceInformation)
 
--- | The status of the association.
-instanceInformation_associationStatus :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
-instanceInformation_associationStatus = Lens.lens (\InstanceInformation' {associationStatus} -> associationStatus) (\s@InstanceInformation' {} a -> s {associationStatus = a} :: InstanceInformation)
-
--- | The date the server or VM was registered with Amazon Web Services as a
--- managed instance.
-instanceInformation_registrationDate :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.UTCTime)
-instanceInformation_registrationDate = Lens.lens (\InstanceInformation' {registrationDate} -> registrationDate) (\s@InstanceInformation' {} a -> s {registrationDate = a} :: InstanceInformation) Prelude.. Lens.mapping Core._Time
+-- | The Identity and Access Management (IAM) role assigned to the
+-- on-premises Systems Manager managed instance. This call doesn\'t return
+-- the IAM role for Amazon Elastic Compute Cloud (Amazon EC2) instances. To
+-- retrieve the IAM role for an EC2 instance, use the Amazon EC2
+-- @DescribeInstances@ operation. For information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html DescribeInstances>
+-- in the /Amazon EC2 API Reference/ or
+-- <https://docs.aws.amazon.com/cli/latest/ec2/describe-instances.html describe-instances>
+-- in the /Amazon Web Services CLI Command Reference/.
+instanceInformation_iamRole :: Lens.Lens' InstanceInformation (Prelude.Maybe Prelude.Text)
+instanceInformation_iamRole = Lens.lens (\InstanceInformation' {iamRole} -> iamRole) (\s@InstanceInformation' {} a -> s {iamRole = a} :: InstanceInformation)
 
 instance Core.FromJSON InstanceInformation where
   parseJSON =
@@ -323,23 +323,23 @@ instance Core.FromJSON InstanceInformation where
           InstanceInformation'
             Prelude.<$> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "PingStatus")
-            Prelude.<*> (x Core..:? "IamRole")
-            Prelude.<*> (x Core..:? "ActivationId")
-            Prelude.<*> (x Core..:? "LastSuccessfulAssociationExecutionDate")
+            Prelude.<*> (x Core..:? "IPAddress")
+            Prelude.<*> (x Core..:? "ResourceType")
+            Prelude.<*> (x Core..:? "RegistrationDate")
+            Prelude.<*> (x Core..:? "PlatformVersion")
+            Prelude.<*> (x Core..:? "IsLatestVersion")
             Prelude.<*> (x Core..:? "AgentVersion")
             Prelude.<*> (x Core..:? "LastPingDateTime")
-            Prelude.<*> (x Core..:? "PlatformVersion")
-            Prelude.<*> (x Core..:? "LastAssociationExecutionDate")
-            Prelude.<*> (x Core..:? "ResourceType")
-            Prelude.<*> (x Core..:? "AssociationOverview")
+            Prelude.<*> (x Core..:? "LastSuccessfulAssociationExecutionDate")
+            Prelude.<*> (x Core..:? "ActivationId")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "IPAddress")
             Prelude.<*> (x Core..:? "PlatformType")
-            Prelude.<*> (x Core..:? "IsLatestVersion")
+            Prelude.<*> (x Core..:? "AssociationOverview")
+            Prelude.<*> (x Core..:? "AssociationStatus")
+            Prelude.<*> (x Core..:? "LastAssociationExecutionDate")
             Prelude.<*> (x Core..:? "PlatformName")
             Prelude.<*> (x Core..:? "ComputerName")
-            Prelude.<*> (x Core..:? "AssociationStatus")
-            Prelude.<*> (x Core..:? "RegistrationDate")
+            Prelude.<*> (x Core..:? "IamRole")
       )
 
 instance Prelude.Hashable InstanceInformation

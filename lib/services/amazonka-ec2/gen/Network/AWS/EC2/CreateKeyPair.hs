@@ -42,9 +42,9 @@ module Network.AWS.EC2.CreateKeyPair
     newCreateKeyPair,
 
     -- * Request Lenses
+    createKeyPair_keyType,
     createKeyPair_tagSpecifications,
     createKeyPair_dryRun,
-    createKeyPair_keyType,
     createKeyPair_keyName,
 
     -- * Destructuring the Response
@@ -70,18 +70,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
-  { -- | The tags to apply to the new key pair.
+  { -- | The type of key pair. Note that ED25519 keys are not supported for
+    -- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
+    --
+    -- Default: @rsa@
+    keyType :: Prelude.Maybe KeyType,
+    -- | The tags to apply to the new key pair.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The type of key pair. Note that ED25519 keys are not supported for
-    -- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
-    --
-    -- Default: @rsa@
-    keyType :: Prelude.Maybe KeyType,
     -- | A unique name for the key pair.
     --
     -- Constraints: Up to 255 ASCII characters
@@ -97,17 +97,17 @@ data CreateKeyPair = CreateKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'keyType', 'createKeyPair_keyType' - The type of key pair. Note that ED25519 keys are not supported for
+-- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
+--
+-- Default: @rsa@
+--
 -- 'tagSpecifications', 'createKeyPair_tagSpecifications' - The tags to apply to the new key pair.
 --
 -- 'dryRun', 'createKeyPair_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'keyType', 'createKeyPair_keyType' - The type of key pair. Note that ED25519 keys are not supported for
--- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
---
--- Default: @rsa@
 --
 -- 'keyName', 'createKeyPair_keyName' - A unique name for the key pair.
 --
@@ -118,22 +118,11 @@ newCreateKeyPair ::
   CreateKeyPair
 newCreateKeyPair pKeyName_ =
   CreateKeyPair'
-    { tagSpecifications = Prelude.Nothing,
+    { keyType = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      keyType = Prelude.Nothing,
       keyName = pKeyName_
     }
-
--- | The tags to apply to the new key pair.
-createKeyPair_tagSpecifications :: Lens.Lens' CreateKeyPair (Prelude.Maybe [TagSpecification])
-createKeyPair_tagSpecifications = Lens.lens (\CreateKeyPair' {tagSpecifications} -> tagSpecifications) (\s@CreateKeyPair' {} a -> s {tagSpecifications = a} :: CreateKeyPair) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createKeyPair_dryRun :: Lens.Lens' CreateKeyPair (Prelude.Maybe Prelude.Bool)
-createKeyPair_dryRun = Lens.lens (\CreateKeyPair' {dryRun} -> dryRun) (\s@CreateKeyPair' {} a -> s {dryRun = a} :: CreateKeyPair)
 
 -- | The type of key pair. Note that ED25519 keys are not supported for
 -- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
@@ -141,6 +130,17 @@ createKeyPair_dryRun = Lens.lens (\CreateKeyPair' {dryRun} -> dryRun) (\s@Create
 -- Default: @rsa@
 createKeyPair_keyType :: Lens.Lens' CreateKeyPair (Prelude.Maybe KeyType)
 createKeyPair_keyType = Lens.lens (\CreateKeyPair' {keyType} -> keyType) (\s@CreateKeyPair' {} a -> s {keyType = a} :: CreateKeyPair)
+
+-- | The tags to apply to the new key pair.
+createKeyPair_tagSpecifications :: Lens.Lens' CreateKeyPair (Prelude.Maybe [TagSpecification])
+createKeyPair_tagSpecifications = Lens.lens (\CreateKeyPair' {tagSpecifications} -> tagSpecifications) (\s@CreateKeyPair' {} a -> s {tagSpecifications = a} :: CreateKeyPair) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createKeyPair_dryRun :: Lens.Lens' CreateKeyPair (Prelude.Maybe Prelude.Bool)
+createKeyPair_dryRun = Lens.lens (\CreateKeyPair' {dryRun} -> dryRun) (\s@CreateKeyPair' {} a -> s {dryRun = a} :: CreateKeyPair)
 
 -- | A unique name for the key pair.
 --
@@ -184,12 +184,12 @@ instance Core.ToQuery CreateKeyPair where
           Core.=: ("CreateKeyPair" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "KeyType" Core.=: keyType,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "KeyType" Core.=: keyType,
         "KeyName" Core.=: keyName
       ]
 
@@ -261,7 +261,7 @@ createKeyPairResponse_keyPairId = Lens.lens (\CreateKeyPairResponse' {keyPairId}
 
 -- | Any tags applied to the key pair.
 createKeyPairResponse_tags :: Lens.Lens' CreateKeyPairResponse (Prelude.Maybe [Tag])
-createKeyPairResponse_tags = Lens.lens (\CreateKeyPairResponse' {tags} -> tags) (\s@CreateKeyPairResponse' {} a -> s {tags = a} :: CreateKeyPairResponse) Prelude.. Lens.mapping Lens._Coerce
+createKeyPairResponse_tags = Lens.lens (\CreateKeyPairResponse' {tags} -> tags) (\s@CreateKeyPairResponse' {} a -> s {tags = a} :: CreateKeyPairResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createKeyPairResponse_httpStatus :: Lens.Lens' CreateKeyPairResponse Prelude.Int

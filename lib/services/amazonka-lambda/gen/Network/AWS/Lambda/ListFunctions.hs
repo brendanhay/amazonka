@@ -39,17 +39,17 @@ module Network.AWS.Lambda.ListFunctions
 
     -- * Request Lenses
     listFunctions_masterRegion,
-    listFunctions_functionVersion,
-    listFunctions_maxItems,
     listFunctions_marker,
+    listFunctions_maxItems,
+    listFunctions_functionVersion,
 
     -- * Destructuring the Response
     ListFunctionsResponse (..),
     newListFunctionsResponse,
 
     -- * Response Lenses
-    listFunctionsResponse_functions,
     listFunctionsResponse_nextMarker,
+    listFunctionsResponse_functions,
     listFunctionsResponse_httpStatus,
   )
 where
@@ -69,16 +69,16 @@ data ListFunctions = ListFunctions'
     -- East (N. Virginia). If specified, you must set @FunctionVersion@ to
     -- @ALL@.
     masterRegion :: Prelude.Maybe Prelude.Text,
-    -- | Set to @ALL@ to include entries for all published versions of each
-    -- function.
-    functionVersion :: Prelude.Maybe FunctionVersion,
+    -- | Specify the pagination token that\'s returned by a previous request to
+    -- retrieve the next page of results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of functions to return in the response. Note that
     -- @ListFunctions@ returns a maximum of 50 items in each response, even if
     -- you set the number higher.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
-    -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | Set to @ALL@ to include entries for all published versions of each
+    -- function.
+    functionVersion :: Prelude.Maybe FunctionVersion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,23 +96,23 @@ data ListFunctions = ListFunctions'
 -- East (N. Virginia). If specified, you must set @FunctionVersion@ to
 -- @ALL@.
 --
--- 'functionVersion', 'listFunctions_functionVersion' - Set to @ALL@ to include entries for all published versions of each
--- function.
+-- 'marker', 'listFunctions_marker' - Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
 --
 -- 'maxItems', 'listFunctions_maxItems' - The maximum number of functions to return in the response. Note that
 -- @ListFunctions@ returns a maximum of 50 items in each response, even if
 -- you set the number higher.
 --
--- 'marker', 'listFunctions_marker' - Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
+-- 'functionVersion', 'listFunctions_functionVersion' - Set to @ALL@ to include entries for all published versions of each
+-- function.
 newListFunctions ::
   ListFunctions
 newListFunctions =
   ListFunctions'
     { masterRegion = Prelude.Nothing,
-      functionVersion = Prelude.Nothing,
+      marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      functionVersion = Prelude.Nothing
     }
 
 -- | For Lambda\@Edge functions, the Amazon Web Services Region of the master
@@ -123,10 +123,10 @@ newListFunctions =
 listFunctions_masterRegion :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_masterRegion = Lens.lens (\ListFunctions' {masterRegion} -> masterRegion) (\s@ListFunctions' {} a -> s {masterRegion = a} :: ListFunctions)
 
--- | Set to @ALL@ to include entries for all published versions of each
--- function.
-listFunctions_functionVersion :: Lens.Lens' ListFunctions (Prelude.Maybe FunctionVersion)
-listFunctions_functionVersion = Lens.lens (\ListFunctions' {functionVersion} -> functionVersion) (\s@ListFunctions' {} a -> s {functionVersion = a} :: ListFunctions)
+-- | Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+listFunctions_marker :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
+listFunctions_marker = Lens.lens (\ListFunctions' {marker} -> marker) (\s@ListFunctions' {} a -> s {marker = a} :: ListFunctions)
 
 -- | The maximum number of functions to return in the response. Note that
 -- @ListFunctions@ returns a maximum of 50 items in each response, even if
@@ -134,10 +134,10 @@ listFunctions_functionVersion = Lens.lens (\ListFunctions' {functionVersion} -> 
 listFunctions_maxItems :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Natural)
 listFunctions_maxItems = Lens.lens (\ListFunctions' {maxItems} -> maxItems) (\s@ListFunctions' {} a -> s {maxItems = a} :: ListFunctions)
 
--- | Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
-listFunctions_marker :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
-listFunctions_marker = Lens.lens (\ListFunctions' {marker} -> marker) (\s@ListFunctions' {} a -> s {marker = a} :: ListFunctions)
+-- | Set to @ALL@ to include entries for all published versions of each
+-- function.
+listFunctions_functionVersion :: Lens.Lens' ListFunctions (Prelude.Maybe FunctionVersion)
+listFunctions_functionVersion = Lens.lens (\ListFunctions' {functionVersion} -> functionVersion) (\s@ListFunctions' {} a -> s {functionVersion = a} :: ListFunctions)
 
 instance Core.AWSPager ListFunctions where
   page rq rs
@@ -168,8 +168,8 @@ instance Core.AWSRequest ListFunctions where
     Response.receiveJSON
       ( \s h x ->
           ListFunctionsResponse'
-            Prelude.<$> (x Core..?> "Functions" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextMarker")
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> (x Core..?> "Functions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,19 +187,19 @@ instance Core.ToQuery ListFunctions where
   toQuery ListFunctions' {..} =
     Prelude.mconcat
       [ "MasterRegion" Core.=: masterRegion,
-        "FunctionVersion" Core.=: functionVersion,
+        "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "FunctionVersion" Core.=: functionVersion
       ]
 
 -- | A list of Lambda functions.
 --
 -- /See:/ 'newListFunctionsResponse' smart constructor.
 data ListFunctionsResponse = ListFunctionsResponse'
-  { -- | A list of Lambda functions.
-    functions :: Prelude.Maybe [FunctionConfiguration],
-    -- | The pagination token that\'s included if more results are available.
+  { -- | The pagination token that\'s included if more results are available.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | A list of Lambda functions.
+    functions :: Prelude.Maybe [FunctionConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,9 +213,9 @@ data ListFunctionsResponse = ListFunctionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functions', 'listFunctionsResponse_functions' - A list of Lambda functions.
---
 -- 'nextMarker', 'listFunctionsResponse_nextMarker' - The pagination token that\'s included if more results are available.
+--
+-- 'functions', 'listFunctionsResponse_functions' - A list of Lambda functions.
 --
 -- 'httpStatus', 'listFunctionsResponse_httpStatus' - The response's http status code.
 newListFunctionsResponse ::
@@ -224,18 +224,19 @@ newListFunctionsResponse ::
   ListFunctionsResponse
 newListFunctionsResponse pHttpStatus_ =
   ListFunctionsResponse'
-    { functions = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+    { nextMarker =
+        Prelude.Nothing,
+      functions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Lambda functions.
-listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe [FunctionConfiguration])
-listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that\'s included if more results are available.
 listFunctionsResponse_nextMarker :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe Prelude.Text)
 listFunctionsResponse_nextMarker = Lens.lens (\ListFunctionsResponse' {nextMarker} -> nextMarker) (\s@ListFunctionsResponse' {} a -> s {nextMarker = a} :: ListFunctionsResponse)
+
+-- | A list of Lambda functions.
+listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe [FunctionConfiguration])
+listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFunctionsResponse_httpStatus :: Lens.Lens' ListFunctionsResponse Prelude.Int

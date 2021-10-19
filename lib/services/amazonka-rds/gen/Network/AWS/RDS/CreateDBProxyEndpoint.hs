@@ -31,9 +31,9 @@ module Network.AWS.RDS.CreateDBProxyEndpoint
     newCreateDBProxyEndpoint,
 
     -- * Request Lenses
+    createDBProxyEndpoint_targetRole,
     createDBProxyEndpoint_vpcSecurityGroupIds,
     createDBProxyEndpoint_tags,
-    createDBProxyEndpoint_targetRole,
     createDBProxyEndpoint_dbProxyName,
     createDBProxyEndpoint_dbProxyEndpointName,
     createDBProxyEndpoint_vpcSubnetIds,
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDBProxyEndpoint' smart constructor.
 data CreateDBProxyEndpoint = CreateDBProxyEndpoint'
-  { -- | The VPC security group IDs for the DB proxy endpoint that you create.
+  { -- | A value that indicates whether the DB proxy endpoint can be used for
+    -- read\/write or read-only operations. The default is @READ_WRITE@.
+    targetRole :: Prelude.Maybe DBProxyEndpointTargetRole,
+    -- | The VPC security group IDs for the DB proxy endpoint that you create.
     -- You can specify a different set of security group IDs than for the
     -- original DB proxy. The default is the default security group for the
     -- VPC.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     tags :: Prelude.Maybe [Tag],
-    -- | A value that indicates whether the DB proxy endpoint can be used for
-    -- read\/write or read-only operations. The default is @READ_WRITE@.
-    targetRole :: Prelude.Maybe DBProxyEndpointTargetRole,
     -- | The name of the DB proxy associated with the DB proxy endpoint that you
     -- create.
     dbProxyName :: Prelude.Text,
@@ -85,15 +85,15 @@ data CreateDBProxyEndpoint = CreateDBProxyEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetRole', 'createDBProxyEndpoint_targetRole' - A value that indicates whether the DB proxy endpoint can be used for
+-- read\/write or read-only operations. The default is @READ_WRITE@.
+--
 -- 'vpcSecurityGroupIds', 'createDBProxyEndpoint_vpcSecurityGroupIds' - The VPC security group IDs for the DB proxy endpoint that you create.
 -- You can specify a different set of security group IDs than for the
 -- original DB proxy. The default is the default security group for the
 -- VPC.
 --
 -- 'tags', 'createDBProxyEndpoint_tags' - Undocumented member.
---
--- 'targetRole', 'createDBProxyEndpoint_targetRole' - A value that indicates whether the DB proxy endpoint can be used for
--- read\/write or read-only operations. The default is @READ_WRITE@.
 --
 -- 'dbProxyName', 'createDBProxyEndpoint_dbProxyName' - The name of the DB proxy associated with the DB proxy endpoint that you
 -- create.
@@ -112,30 +112,30 @@ newCreateDBProxyEndpoint
   pDBProxyName_
   pDBProxyEndpointName_ =
     CreateDBProxyEndpoint'
-      { vpcSecurityGroupIds =
+      { targetRole =
           Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
         tags = Prelude.Nothing,
-        targetRole = Prelude.Nothing,
         dbProxyName = pDBProxyName_,
         dbProxyEndpointName = pDBProxyEndpointName_,
         vpcSubnetIds = Prelude.mempty
       }
+
+-- | A value that indicates whether the DB proxy endpoint can be used for
+-- read\/write or read-only operations. The default is @READ_WRITE@.
+createDBProxyEndpoint_targetRole :: Lens.Lens' CreateDBProxyEndpoint (Prelude.Maybe DBProxyEndpointTargetRole)
+createDBProxyEndpoint_targetRole = Lens.lens (\CreateDBProxyEndpoint' {targetRole} -> targetRole) (\s@CreateDBProxyEndpoint' {} a -> s {targetRole = a} :: CreateDBProxyEndpoint)
 
 -- | The VPC security group IDs for the DB proxy endpoint that you create.
 -- You can specify a different set of security group IDs than for the
 -- original DB proxy. The default is the default security group for the
 -- VPC.
 createDBProxyEndpoint_vpcSecurityGroupIds :: Lens.Lens' CreateDBProxyEndpoint (Prelude.Maybe [Prelude.Text])
-createDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\CreateDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxyEndpoint) Prelude.. Lens.mapping Lens._Coerce
+createDBProxyEndpoint_vpcSecurityGroupIds = Lens.lens (\CreateDBProxyEndpoint' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxyEndpoint' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxyEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 createDBProxyEndpoint_tags :: Lens.Lens' CreateDBProxyEndpoint (Prelude.Maybe [Tag])
-createDBProxyEndpoint_tags = Lens.lens (\CreateDBProxyEndpoint' {tags} -> tags) (\s@CreateDBProxyEndpoint' {} a -> s {tags = a} :: CreateDBProxyEndpoint) Prelude.. Lens.mapping Lens._Coerce
-
--- | A value that indicates whether the DB proxy endpoint can be used for
--- read\/write or read-only operations. The default is @READ_WRITE@.
-createDBProxyEndpoint_targetRole :: Lens.Lens' CreateDBProxyEndpoint (Prelude.Maybe DBProxyEndpointTargetRole)
-createDBProxyEndpoint_targetRole = Lens.lens (\CreateDBProxyEndpoint' {targetRole} -> targetRole) (\s@CreateDBProxyEndpoint' {} a -> s {targetRole = a} :: CreateDBProxyEndpoint)
+createDBProxyEndpoint_tags = Lens.lens (\CreateDBProxyEndpoint' {tags} -> tags) (\s@CreateDBProxyEndpoint' {} a -> s {tags = a} :: CreateDBProxyEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DB proxy associated with the DB proxy endpoint that you
 -- create.
@@ -149,7 +149,7 @@ createDBProxyEndpoint_dbProxyEndpointName = Lens.lens (\CreateDBProxyEndpoint' {
 -- | The VPC subnet IDs for the DB proxy endpoint that you create. You can
 -- specify a different set of subnet IDs than for the original DB proxy.
 createDBProxyEndpoint_vpcSubnetIds :: Lens.Lens' CreateDBProxyEndpoint [Prelude.Text]
-createDBProxyEndpoint_vpcSubnetIds = Lens.lens (\CreateDBProxyEndpoint' {vpcSubnetIds} -> vpcSubnetIds) (\s@CreateDBProxyEndpoint' {} a -> s {vpcSubnetIds = a} :: CreateDBProxyEndpoint) Prelude.. Lens._Coerce
+createDBProxyEndpoint_vpcSubnetIds = Lens.lens (\CreateDBProxyEndpoint' {vpcSubnetIds} -> vpcSubnetIds) (\s@CreateDBProxyEndpoint' {} a -> s {vpcSubnetIds = a} :: CreateDBProxyEndpoint) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateDBProxyEndpoint where
   type
@@ -182,6 +182,7 @@ instance Core.ToQuery CreateDBProxyEndpoint where
           Core.=: ("CreateDBProxyEndpoint" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "TargetRole" Core.=: targetRole,
         "VpcSecurityGroupIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
@@ -190,7 +191,6 @@ instance Core.ToQuery CreateDBProxyEndpoint where
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
-        "TargetRole" Core.=: targetRole,
         "DBProxyName" Core.=: dbProxyName,
         "DBProxyEndpointName" Core.=: dbProxyEndpointName,
         "VpcSubnetIds"

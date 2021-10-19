@@ -35,8 +35,8 @@ module Network.AWS.APIGateway.GetBasePathMapping
     newBasePathMapping,
 
     -- * Response Lenses
-    basePathMapping_basePath,
     basePathMapping_stage,
+    basePathMapping_basePath,
     basePathMapping_restApiId,
   )
 where

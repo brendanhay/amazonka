@@ -28,8 +28,8 @@ module Network.AWS.Greengrass.CreateConnectorDefinitionVersion
     newCreateConnectorDefinitionVersion,
 
     -- * Request Lenses
-    createConnectorDefinitionVersion_connectors,
     createConnectorDefinitionVersion_amznClientToken,
+    createConnectorDefinitionVersion_connectors,
     createConnectorDefinitionVersion_connectorDefinitionId,
 
     -- * Destructuring the Response
@@ -37,10 +37,10 @@ module Network.AWS.Greengrass.CreateConnectorDefinitionVersion
     newCreateConnectorDefinitionVersionResponse,
 
     -- * Response Lenses
-    createConnectorDefinitionVersionResponse_creationTimestamp,
     createConnectorDefinitionVersionResponse_arn,
-    createConnectorDefinitionVersionResponse_id,
+    createConnectorDefinitionVersionResponse_creationTimestamp,
     createConnectorDefinitionVersionResponse_version,
+    createConnectorDefinitionVersionResponse_id,
     createConnectorDefinitionVersionResponse_httpStatus,
   )
 where
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateConnectorDefinitionVersion' smart constructor.
 data CreateConnectorDefinitionVersion = CreateConnectorDefinitionVersion'
-  { -- | A list of references to connectors in this version, with their
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of references to connectors in this version, with their
     -- corresponding configuration settings.
     connectors :: Prelude.Maybe [Connector],
-    -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connector definition.
     connectorDefinitionId :: Prelude.Text
   }
@@ -72,10 +72,10 @@ data CreateConnectorDefinitionVersion = CreateConnectorDefinitionVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amznClientToken', 'createConnectorDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.
+--
 -- 'connectors', 'createConnectorDefinitionVersion_connectors' - A list of references to connectors in this version, with their
 -- corresponding configuration settings.
---
--- 'amznClientToken', 'createConnectorDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.
 --
 -- 'connectorDefinitionId', 'createConnectorDefinitionVersion_connectorDefinitionId' - The ID of the connector definition.
 newCreateConnectorDefinitionVersion ::
@@ -85,21 +85,21 @@ newCreateConnectorDefinitionVersion ::
 newCreateConnectorDefinitionVersion
   pConnectorDefinitionId_ =
     CreateConnectorDefinitionVersion'
-      { connectors =
+      { amznClientToken =
           Prelude.Nothing,
-        amznClientToken = Prelude.Nothing,
+        connectors = Prelude.Nothing,
         connectorDefinitionId =
           pConnectorDefinitionId_
       }
 
--- | A list of references to connectors in this version, with their
--- corresponding configuration settings.
-createConnectorDefinitionVersion_connectors :: Lens.Lens' CreateConnectorDefinitionVersion (Prelude.Maybe [Connector])
-createConnectorDefinitionVersion_connectors = Lens.lens (\CreateConnectorDefinitionVersion' {connectors} -> connectors) (\s@CreateConnectorDefinitionVersion' {} a -> s {connectors = a} :: CreateConnectorDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A client token used to correlate requests and responses.
 createConnectorDefinitionVersion_amznClientToken :: Lens.Lens' CreateConnectorDefinitionVersion (Prelude.Maybe Prelude.Text)
 createConnectorDefinitionVersion_amznClientToken = Lens.lens (\CreateConnectorDefinitionVersion' {amznClientToken} -> amznClientToken) (\s@CreateConnectorDefinitionVersion' {} a -> s {amznClientToken = a} :: CreateConnectorDefinitionVersion)
+
+-- | A list of references to connectors in this version, with their
+-- corresponding configuration settings.
+createConnectorDefinitionVersion_connectors :: Lens.Lens' CreateConnectorDefinitionVersion (Prelude.Maybe [Connector])
+createConnectorDefinitionVersion_connectors = Lens.lens (\CreateConnectorDefinitionVersion' {connectors} -> connectors) (\s@CreateConnectorDefinitionVersion' {} a -> s {connectors = a} :: CreateConnectorDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the connector definition.
 createConnectorDefinitionVersion_connectorDefinitionId :: Lens.Lens' CreateConnectorDefinitionVersion Prelude.Text
@@ -117,10 +117,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateConnectorDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,14 +166,14 @@ instance
 
 -- | /See:/ 'newCreateConnectorDefinitionVersionResponse' smart constructor.
 data CreateConnectorDefinitionVersionResponse = CreateConnectorDefinitionVersionResponse'
-  { -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the version.
+  { -- | The ARN of the version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent definition that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,13 +187,13 @@ data CreateConnectorDefinitionVersionResponse = CreateConnectorDefinitionVersion
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'createConnectorDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
 -- 'arn', 'createConnectorDefinitionVersionResponse_arn' - The ARN of the version.
 --
--- 'id', 'createConnectorDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
+-- 'creationTimestamp', 'createConnectorDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
 -- 'version', 'createConnectorDefinitionVersionResponse_version' - The ID of the version.
+--
+-- 'id', 'createConnectorDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
 --
 -- 'httpStatus', 'createConnectorDefinitionVersionResponse_httpStatus' - The response's http status code.
 newCreateConnectorDefinitionVersionResponse ::
@@ -203,29 +203,30 @@ newCreateConnectorDefinitionVersionResponse ::
 newCreateConnectorDefinitionVersionResponse
   pHttpStatus_ =
     CreateConnectorDefinitionVersionResponse'
-      { creationTimestamp =
+      { arn =
           Prelude.Nothing,
-        arn = Prelude.Nothing,
-        id = Prelude.Nothing,
+        creationTimestamp =
+          Prelude.Nothing,
         version = Prelude.Nothing,
+        id = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The time, in milliseconds since the epoch, when the version was created.
-createConnectorDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createConnectorDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateConnectorDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateConnectorDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateConnectorDefinitionVersionResponse)
 
 -- | The ARN of the version.
 createConnectorDefinitionVersionResponse_arn :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createConnectorDefinitionVersionResponse_arn = Lens.lens (\CreateConnectorDefinitionVersionResponse' {arn} -> arn) (\s@CreateConnectorDefinitionVersionResponse' {} a -> s {arn = a} :: CreateConnectorDefinitionVersionResponse)
 
--- | The ID of the parent definition that the version is associated with.
-createConnectorDefinitionVersionResponse_id :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createConnectorDefinitionVersionResponse_id = Lens.lens (\CreateConnectorDefinitionVersionResponse' {id} -> id) (\s@CreateConnectorDefinitionVersionResponse' {} a -> s {id = a} :: CreateConnectorDefinitionVersionResponse)
+-- | The time, in milliseconds since the epoch, when the version was created.
+createConnectorDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createConnectorDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateConnectorDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateConnectorDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateConnectorDefinitionVersionResponse)
 
 -- | The ID of the version.
 createConnectorDefinitionVersionResponse_version :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createConnectorDefinitionVersionResponse_version = Lens.lens (\CreateConnectorDefinitionVersionResponse' {version} -> version) (\s@CreateConnectorDefinitionVersionResponse' {} a -> s {version = a} :: CreateConnectorDefinitionVersionResponse)
+
+-- | The ID of the parent definition that the version is associated with.
+createConnectorDefinitionVersionResponse_id :: Lens.Lens' CreateConnectorDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createConnectorDefinitionVersionResponse_id = Lens.lens (\CreateConnectorDefinitionVersionResponse' {id} -> id) (\s@CreateConnectorDefinitionVersionResponse' {} a -> s {id = a} :: CreateConnectorDefinitionVersionResponse)
 
 -- | The response's http status code.
 createConnectorDefinitionVersionResponse_httpStatus :: Lens.Lens' CreateConnectorDefinitionVersionResponse Prelude.Int

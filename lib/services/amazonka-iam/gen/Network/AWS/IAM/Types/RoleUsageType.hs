@@ -59,7 +59,7 @@ newRoleUsageType =
 
 -- | The name of the resource that is using the service-linked role.
 roleUsageType_resources :: Lens.Lens' RoleUsageType (Prelude.Maybe [Prelude.Text])
-roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Prelude.. Lens.mapping Lens._Coerce
+roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Region where the service-linked role is being used.
 roleUsageType_region :: Lens.Lens' RoleUsageType (Prelude.Maybe Prelude.Text)

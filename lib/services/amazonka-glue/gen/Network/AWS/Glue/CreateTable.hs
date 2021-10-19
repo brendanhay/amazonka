@@ -27,8 +27,8 @@ module Network.AWS.Glue.CreateTable
     newCreateTable,
 
     -- * Request Lenses
-    createTable_catalogId,
     createTable_partitionIndexes,
+    createTable_catalogId,
     createTable_databaseName,
     createTable_tableInput,
 
@@ -50,12 +50,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { -- | The ID of the Data Catalog in which to create the @Table@. If none is
-    -- supplied, the Amazon Web Services account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A list of partition indexes, @PartitionIndex@ structures, to create in
+  { -- | A list of partition indexes, @PartitionIndex@ structures, to create in
     -- the table.
     partitionIndexes :: Prelude.Maybe [PartitionIndex],
+    -- | The ID of the Data Catalog in which to create the @Table@. If none is
+    -- supplied, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The catalog database in which to create the new table. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -73,11 +73,11 @@ data CreateTable = CreateTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is
--- supplied, the Amazon Web Services account ID is used by default.
---
 -- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in
 -- the table.
+--
+-- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is
+-- supplied, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'createTable_databaseName' - The catalog database in which to create the new table. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -92,21 +92,21 @@ newCreateTable ::
   CreateTable
 newCreateTable pDatabaseName_ pTableInput_ =
   CreateTable'
-    { catalogId = Prelude.Nothing,
-      partitionIndexes = Prelude.Nothing,
+    { partitionIndexes = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableInput = pTableInput_
     }
+
+-- | A list of partition indexes, @PartitionIndex@ structures, to create in
+-- the table.
+createTable_partitionIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [PartitionIndex])
+createTable_partitionIndexes = Lens.lens (\CreateTable' {partitionIndexes} -> partitionIndexes) (\s@CreateTable' {} a -> s {partitionIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Data Catalog in which to create the @Table@. If none is
 -- supplied, the Amazon Web Services account ID is used by default.
 createTable_catalogId :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Text)
 createTable_catalogId = Lens.lens (\CreateTable' {catalogId} -> catalogId) (\s@CreateTable' {} a -> s {catalogId = a} :: CreateTable)
-
--- | A list of partition indexes, @PartitionIndex@ structures, to create in
--- the table.
-createTable_partitionIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [PartitionIndex])
-createTable_partitionIndexes = Lens.lens (\CreateTable' {partitionIndexes} -> partitionIndexes) (\s@CreateTable' {} a -> s {partitionIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The catalog database in which to create the new table. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -149,9 +149,9 @@ instance Core.ToJSON CreateTable where
   toJSON CreateTable' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("PartitionIndexes" Core..=)
+          [ ("PartitionIndexes" Core..=)
               Prelude.<$> partitionIndexes,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableInput" Core..= tableInput)
           ]

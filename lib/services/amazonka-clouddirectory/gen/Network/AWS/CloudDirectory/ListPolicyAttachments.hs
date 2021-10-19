@@ -30,9 +30,9 @@ module Network.AWS.CloudDirectory.ListPolicyAttachments
     newListPolicyAttachments,
 
     -- * Request Lenses
+    listPolicyAttachments_consistencyLevel,
     listPolicyAttachments_nextToken,
     listPolicyAttachments_maxResults,
-    listPolicyAttachments_consistencyLevel,
     listPolicyAttachments_directoryArn,
     listPolicyAttachments_policyReference,
 
@@ -41,8 +41,8 @@ module Network.AWS.CloudDirectory.ListPolicyAttachments
     newListPolicyAttachmentsResponse,
 
     -- * Response Lenses
-    listPolicyAttachmentsResponse_nextToken,
     listPolicyAttachmentsResponse_objectIdentifiers,
+    listPolicyAttachmentsResponse_nextToken,
     listPolicyAttachmentsResponse_httpStatus,
   )
 where
@@ -56,15 +56,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListPolicyAttachments' smart constructor.
 data ListPolicyAttachments = ListPolicyAttachments'
-  { -- | The pagination token.
+  { -- | Represents the manner and timing in which the successful write or update
+    -- of an object is reflected in a subsequent read operation of that same
+    -- object.
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    -- | The pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Represents the manner and timing in which the successful write or update
-    -- of an object is reflected in a subsequent read operation of that same
-    -- object.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where objects reside. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -81,14 +81,14 @@ data ListPolicyAttachments = ListPolicyAttachments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'consistencyLevel', 'listPolicyAttachments_consistencyLevel' - Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
+--
 -- 'nextToken', 'listPolicyAttachments_nextToken' - The pagination token.
 --
 -- 'maxResults', 'listPolicyAttachments_maxResults' - The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
---
--- 'consistencyLevel', 'listPolicyAttachments_consistencyLevel' - Represents the manner and timing in which the successful write or update
--- of an object is reflected in a subsequent read operation of that same
--- object.
 --
 -- 'directoryArn', 'listPolicyAttachments_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
@@ -104,12 +104,19 @@ newListPolicyAttachments
   pDirectoryArn_
   pPolicyReference_ =
     ListPolicyAttachments'
-      { nextToken = Prelude.Nothing,
+      { consistencyLevel =
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
         directoryArn = pDirectoryArn_,
         policyReference = pPolicyReference_
       }
+
+-- | Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
+listPolicyAttachments_consistencyLevel :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe ConsistencyLevel)
+listPolicyAttachments_consistencyLevel = Lens.lens (\ListPolicyAttachments' {consistencyLevel} -> consistencyLevel) (\s@ListPolicyAttachments' {} a -> s {consistencyLevel = a} :: ListPolicyAttachments)
 
 -- | The pagination token.
 listPolicyAttachments_nextToken :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Text)
@@ -119,12 +126,6 @@ listPolicyAttachments_nextToken = Lens.lens (\ListPolicyAttachments' {nextToken}
 -- approximate number.
 listPolicyAttachments_maxResults :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe Prelude.Natural)
 listPolicyAttachments_maxResults = Lens.lens (\ListPolicyAttachments' {maxResults} -> maxResults) (\s@ListPolicyAttachments' {} a -> s {maxResults = a} :: ListPolicyAttachments)
-
--- | Represents the manner and timing in which the successful write or update
--- of an object is reflected in a subsequent read operation of that same
--- object.
-listPolicyAttachments_consistencyLevel :: Lens.Lens' ListPolicyAttachments (Prelude.Maybe ConsistencyLevel)
-listPolicyAttachments_consistencyLevel = Lens.lens (\ListPolicyAttachments' {consistencyLevel} -> consistencyLevel) (\s@ListPolicyAttachments' {} a -> s {consistencyLevel = a} :: ListPolicyAttachments)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where objects reside. For more information, see arns.
@@ -166,10 +167,10 @@ instance Core.AWSRequest ListPolicyAttachments where
     Response.receiveJSON
       ( \s h x ->
           ListPolicyAttachmentsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ObjectIdentifiers"
+            Prelude.<$> ( x Core..?> "ObjectIdentifiers"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,10 +206,10 @@ instance Core.ToQuery ListPolicyAttachments where
 
 -- | /See:/ 'newListPolicyAttachmentsResponse' smart constructor.
 data ListPolicyAttachmentsResponse = ListPolicyAttachmentsResponse'
-  { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of @ObjectIdentifiers@ to which the policy is attached.
+  { -- | A list of @ObjectIdentifiers@ to which the policy is attached.
     objectIdentifiers :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -222,9 +223,9 @@ data ListPolicyAttachmentsResponse = ListPolicyAttachmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPolicyAttachmentsResponse_nextToken' - The pagination token.
---
 -- 'objectIdentifiers', 'listPolicyAttachmentsResponse_objectIdentifiers' - A list of @ObjectIdentifiers@ to which the policy is attached.
+--
+-- 'nextToken', 'listPolicyAttachmentsResponse_nextToken' - The pagination token.
 --
 -- 'httpStatus', 'listPolicyAttachmentsResponse_httpStatus' - The response's http status code.
 newListPolicyAttachmentsResponse ::
@@ -233,19 +234,19 @@ newListPolicyAttachmentsResponse ::
   ListPolicyAttachmentsResponse
 newListPolicyAttachmentsResponse pHttpStatus_ =
   ListPolicyAttachmentsResponse'
-    { nextToken =
+    { objectIdentifiers =
         Prelude.Nothing,
-      objectIdentifiers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of @ObjectIdentifiers@ to which the policy is attached.
+listPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' ListPolicyAttachmentsResponse (Prelude.Maybe [Prelude.Text])
+listPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\ListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@ListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: ListPolicyAttachmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listPolicyAttachmentsResponse_nextToken :: Lens.Lens' ListPolicyAttachmentsResponse (Prelude.Maybe Prelude.Text)
 listPolicyAttachmentsResponse_nextToken = Lens.lens (\ListPolicyAttachmentsResponse' {nextToken} -> nextToken) (\s@ListPolicyAttachmentsResponse' {} a -> s {nextToken = a} :: ListPolicyAttachmentsResponse)
-
--- | A list of @ObjectIdentifiers@ to which the policy is attached.
-listPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' ListPolicyAttachmentsResponse (Prelude.Maybe [Prelude.Text])
-listPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\ListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@ListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: ListPolicyAttachmentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listPolicyAttachmentsResponse_httpStatus :: Lens.Lens' ListPolicyAttachmentsResponse Prelude.Int

@@ -40,15 +40,15 @@ module Network.AWS.Glue.CreateMLTransform
     newCreateMLTransform,
 
     -- * Request Lenses
-    createMLTransform_transformEncryption,
-    createMLTransform_timeout,
-    createMLTransform_maxCapacity,
     createMLTransform_numberOfWorkers,
-    createMLTransform_glueVersion,
-    createMLTransform_tags,
     createMLTransform_workerType,
-    createMLTransform_description,
+    createMLTransform_glueVersion,
     createMLTransform_maxRetries,
+    createMLTransform_maxCapacity,
+    createMLTransform_timeout,
+    createMLTransform_transformEncryption,
+    createMLTransform_description,
+    createMLTransform_tags,
     createMLTransform_name,
     createMLTransform_inputRecordTables,
     createMLTransform_parameters,
@@ -73,15 +73,48 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateMLTransform' smart constructor.
 data CreateMLTransform = CreateMLTransform'
-  { -- | The encryption-at-rest settings of the transform that apply to accessing
-    -- user data. Machine learning transforms can access user data encrypted in
-    -- Amazon S3 using KMS.
-    transformEncryption :: Prelude.Maybe TransformEncryption,
-    -- | The timeout of the task run for this transform in minutes. This is the
-    -- maximum time that a task run for this transform can consume resources
-    -- before it is terminated and enters @TIMEOUT@ status. The default is
-    -- 2,880 minutes (48 hours).
-    timeout :: Prelude.Maybe Prelude.Natural,
+  { -- | The number of workers of a defined @workerType@ that are allocated when
+    -- this task runs.
+    --
+    -- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
+    -- versa).
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    -- | The type of predefined worker that is allocated when this task runs.
+    -- Accepts a value of Standard, G.1X, or G.2X.
+    --
+    -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
+    --     of memory and a 50GB disk, and 2 executors per worker.
+    --
+    -- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
+    --     memory and a 64GB disk, and 1 executor per worker.
+    --
+    -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
+    --     memory and a 128GB disk, and 1 executor per worker.
+    --
+    -- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
+    -- @WorkerType@.
+    --
+    -- -   If either @NumberOfWorkers@ or @WorkerType@ is set, then
+    --     @MaxCapacity@ cannot be set.
+    --
+    -- -   If @MaxCapacity@ is set then neither @NumberOfWorkers@ or
+    --     @WorkerType@ can be set.
+    --
+    -- -   If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
+    --     versa).
+    --
+    -- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+    workerType :: Prelude.Maybe WorkerType,
+    -- | This value determines which version of Glue this machine learning
+    -- transform is compatible with. Glue 1.0 is recommended for most
+    -- customers. If the value is not set, the Glue compatibility defaults to
+    -- Glue 0.9. For more information, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
+    -- in the developer guide.
+    glueVersion :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of times to retry a task for this transform after a
+    -- task run fails.
+    maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The number of Glue data processing units (DPUs) that are allocated to
     -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
     -- default is 10. A DPU is a relative measure of processing power that
@@ -109,57 +142,24 @@ data CreateMLTransform = CreateMLTransform'
     -- When the @WorkerType@ field is set to a value other than @Standard@, the
     -- @MaxCapacity@ field is set automatically and becomes read-only.
     maxCapacity :: Prelude.Maybe Prelude.Double,
-    -- | The number of workers of a defined @workerType@ that are allocated when
-    -- this task runs.
-    --
-    -- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
-    -- versa).
-    numberOfWorkers :: Prelude.Maybe Prelude.Int,
-    -- | This value determines which version of Glue this machine learning
-    -- transform is compatible with. Glue 1.0 is recommended for most
-    -- customers. If the value is not set, the Glue compatibility defaults to
-    -- Glue 0.9. For more information, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
-    -- in the developer guide.
-    glueVersion :: Prelude.Maybe Prelude.Text,
+    -- | The timeout of the task run for this transform in minutes. This is the
+    -- maximum time that a task run for this transform can consume resources
+    -- before it is terminated and enters @TIMEOUT@ status. The default is
+    -- 2,880 minutes (48 hours).
+    timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The encryption-at-rest settings of the transform that apply to accessing
+    -- user data. Machine learning transforms can access user data encrypted in
+    -- Amazon S3 using KMS.
+    transformEncryption :: Prelude.Maybe TransformEncryption,
+    -- | A description of the machine learning transform that is being defined.
+    -- The default is an empty string.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The tags to use with this machine learning transform. You may use tags
     -- to limit access to the machine learning transform. For more information
     -- about tags in Glue, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
     -- in the developer guide.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The type of predefined worker that is allocated when this task runs.
-    -- Accepts a value of Standard, G.1X, or G.2X.
-    --
-    -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
-    --     of memory and a 50GB disk, and 2 executors per worker.
-    --
-    -- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
-    --     memory and a 64GB disk, and 1 executor per worker.
-    --
-    -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
-    --     memory and a 128GB disk, and 1 executor per worker.
-    --
-    -- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
-    -- @WorkerType@.
-    --
-    -- -   If either @NumberOfWorkers@ or @WorkerType@ is set, then
-    --     @MaxCapacity@ cannot be set.
-    --
-    -- -   If @MaxCapacity@ is set then neither @NumberOfWorkers@ or
-    --     @WorkerType@ can be set.
-    --
-    -- -   If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
-    --     versa).
-    --
-    -- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
-    workerType :: Prelude.Maybe WorkerType,
-    -- | A description of the machine learning transform that is being defined.
-    -- The default is an empty string.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of times to retry a task for this transform after a
-    -- task run fails.
-    maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The unique name that you give the transform when you create it.
     name :: Prelude.Text,
     -- | A list of Glue table definitions used by the transform.
@@ -191,14 +191,47 @@ data CreateMLTransform = CreateMLTransform'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transformEncryption', 'createMLTransform_transformEncryption' - The encryption-at-rest settings of the transform that apply to accessing
--- user data. Machine learning transforms can access user data encrypted in
--- Amazon S3 using KMS.
+-- 'numberOfWorkers', 'createMLTransform_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when
+-- this task runs.
 --
--- 'timeout', 'createMLTransform_timeout' - The timeout of the task run for this transform in minutes. This is the
--- maximum time that a task run for this transform can consume resources
--- before it is terminated and enters @TIMEOUT@ status. The default is
--- 2,880 minutes (48 hours).
+-- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
+-- versa).
+--
+-- 'workerType', 'createMLTransform_workerType' - The type of predefined worker that is allocated when this task runs.
+-- Accepts a value of Standard, G.1X, or G.2X.
+--
+-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
+--     of memory and a 50GB disk, and 2 executors per worker.
+--
+-- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
+--     memory and a 64GB disk, and 1 executor per worker.
+--
+-- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
+--     memory and a 128GB disk, and 1 executor per worker.
+--
+-- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
+-- @WorkerType@.
+--
+-- -   If either @NumberOfWorkers@ or @WorkerType@ is set, then
+--     @MaxCapacity@ cannot be set.
+--
+-- -   If @MaxCapacity@ is set then neither @NumberOfWorkers@ or
+--     @WorkerType@ can be set.
+--
+-- -   If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
+--     versa).
+--
+-- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+--
+-- 'glueVersion', 'createMLTransform_glueVersion' - This value determines which version of Glue this machine learning
+-- transform is compatible with. Glue 1.0 is recommended for most
+-- customers. If the value is not set, the Glue compatibility defaults to
+-- Glue 0.9. For more information, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
+-- in the developer guide.
+--
+-- 'maxRetries', 'createMLTransform_maxRetries' - The maximum number of times to retry a task for this transform after a
+-- task run fails.
 --
 -- 'maxCapacity', 'createMLTransform_maxCapacity' - The number of Glue data processing units (DPUs) that are allocated to
 -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
@@ -227,56 +260,23 @@ data CreateMLTransform = CreateMLTransform'
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
 --
--- 'numberOfWorkers', 'createMLTransform_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated when
--- this task runs.
+-- 'timeout', 'createMLTransform_timeout' - The timeout of the task run for this transform in minutes. This is the
+-- maximum time that a task run for this transform can consume resources
+-- before it is terminated and enters @TIMEOUT@ status. The default is
+-- 2,880 minutes (48 hours).
 --
--- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
--- versa).
+-- 'transformEncryption', 'createMLTransform_transformEncryption' - The encryption-at-rest settings of the transform that apply to accessing
+-- user data. Machine learning transforms can access user data encrypted in
+-- Amazon S3 using KMS.
 --
--- 'glueVersion', 'createMLTransform_glueVersion' - This value determines which version of Glue this machine learning
--- transform is compatible with. Glue 1.0 is recommended for most
--- customers. If the value is not set, the Glue compatibility defaults to
--- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
--- in the developer guide.
+-- 'description', 'createMLTransform_description' - A description of the machine learning transform that is being defined.
+-- The default is an empty string.
 --
 -- 'tags', 'createMLTransform_tags' - The tags to use with this machine learning transform. You may use tags
 -- to limit access to the machine learning transform. For more information
 -- about tags in Glue, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
---
--- 'workerType', 'createMLTransform_workerType' - The type of predefined worker that is allocated when this task runs.
--- Accepts a value of Standard, G.1X, or G.2X.
---
--- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
---     of memory and a 50GB disk, and 2 executors per worker.
---
--- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
---     memory and a 64GB disk, and 1 executor per worker.
---
--- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
---     memory and a 128GB disk, and 1 executor per worker.
---
--- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
--- @WorkerType@.
---
--- -   If either @NumberOfWorkers@ or @WorkerType@ is set, then
---     @MaxCapacity@ cannot be set.
---
--- -   If @MaxCapacity@ is set then neither @NumberOfWorkers@ or
---     @WorkerType@ can be set.
---
--- -   If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
---     versa).
---
--- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
---
--- 'description', 'createMLTransform_description' - A description of the machine learning transform that is being defined.
--- The default is an empty string.
---
--- 'maxRetries', 'createMLTransform_maxRetries' - The maximum number of times to retry a task for this transform after a
--- task run fails.
 --
 -- 'name', 'createMLTransform_name' - The unique name that you give the transform when you create it.
 --
@@ -307,34 +307,71 @@ newCreateMLTransform ::
   CreateMLTransform
 newCreateMLTransform pName_ pParameters_ pRole_ =
   CreateMLTransform'
-    { transformEncryption =
+    { numberOfWorkers =
         Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing,
-      numberOfWorkers = Prelude.Nothing,
-      glueVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
       workerType = Prelude.Nothing,
-      description = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
       maxRetries = Prelude.Nothing,
+      maxCapacity = Prelude.Nothing,
+      timeout = Prelude.Nothing,
+      transformEncryption = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       inputRecordTables = Prelude.mempty,
       parameters = pParameters_,
       role' = pRole_
     }
 
--- | The encryption-at-rest settings of the transform that apply to accessing
--- user data. Machine learning transforms can access user data encrypted in
--- Amazon S3 using KMS.
-createMLTransform_transformEncryption :: Lens.Lens' CreateMLTransform (Prelude.Maybe TransformEncryption)
-createMLTransform_transformEncryption = Lens.lens (\CreateMLTransform' {transformEncryption} -> transformEncryption) (\s@CreateMLTransform' {} a -> s {transformEncryption = a} :: CreateMLTransform)
+-- | The number of workers of a defined @workerType@ that are allocated when
+-- this task runs.
+--
+-- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
+-- versa).
+createMLTransform_numberOfWorkers :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
+createMLTransform_numberOfWorkers = Lens.lens (\CreateMLTransform' {numberOfWorkers} -> numberOfWorkers) (\s@CreateMLTransform' {} a -> s {numberOfWorkers = a} :: CreateMLTransform)
 
--- | The timeout of the task run for this transform in minutes. This is the
--- maximum time that a task run for this transform can consume resources
--- before it is terminated and enters @TIMEOUT@ status. The default is
--- 2,880 minutes (48 hours).
-createMLTransform_timeout :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Natural)
-createMLTransform_timeout = Lens.lens (\CreateMLTransform' {timeout} -> timeout) (\s@CreateMLTransform' {} a -> s {timeout = a} :: CreateMLTransform)
+-- | The type of predefined worker that is allocated when this task runs.
+-- Accepts a value of Standard, G.1X, or G.2X.
+--
+-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
+--     of memory and a 50GB disk, and 2 executors per worker.
+--
+-- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
+--     memory and a 64GB disk, and 1 executor per worker.
+--
+-- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
+--     memory and a 128GB disk, and 1 executor per worker.
+--
+-- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
+-- @WorkerType@.
+--
+-- -   If either @NumberOfWorkers@ or @WorkerType@ is set, then
+--     @MaxCapacity@ cannot be set.
+--
+-- -   If @MaxCapacity@ is set then neither @NumberOfWorkers@ or
+--     @WorkerType@ can be set.
+--
+-- -   If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
+--     versa).
+--
+-- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
+createMLTransform_workerType :: Lens.Lens' CreateMLTransform (Prelude.Maybe WorkerType)
+createMLTransform_workerType = Lens.lens (\CreateMLTransform' {workerType} -> workerType) (\s@CreateMLTransform' {} a -> s {workerType = a} :: CreateMLTransform)
+
+-- | This value determines which version of Glue this machine learning
+-- transform is compatible with. Glue 1.0 is recommended for most
+-- customers. If the value is not set, the Glue compatibility defaults to
+-- Glue 0.9. For more information, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
+-- in the developer guide.
+createMLTransform_glueVersion :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
+createMLTransform_glueVersion = Lens.lens (\CreateMLTransform' {glueVersion} -> glueVersion) (\s@CreateMLTransform' {} a -> s {glueVersion = a} :: CreateMLTransform)
+
+-- | The maximum number of times to retry a task for this transform after a
+-- task run fails.
+createMLTransform_maxRetries :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
+createMLTransform_maxRetries = Lens.lens (\CreateMLTransform' {maxRetries} -> maxRetries) (\s@CreateMLTransform' {} a -> s {maxRetries = a} :: CreateMLTransform)
 
 -- | The number of Glue data processing units (DPUs) that are allocated to
 -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
@@ -365,22 +402,23 @@ createMLTransform_timeout = Lens.lens (\CreateMLTransform' {timeout} -> timeout)
 createMLTransform_maxCapacity :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Double)
 createMLTransform_maxCapacity = Lens.lens (\CreateMLTransform' {maxCapacity} -> maxCapacity) (\s@CreateMLTransform' {} a -> s {maxCapacity = a} :: CreateMLTransform)
 
--- | The number of workers of a defined @workerType@ that are allocated when
--- this task runs.
---
--- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
--- versa).
-createMLTransform_numberOfWorkers :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
-createMLTransform_numberOfWorkers = Lens.lens (\CreateMLTransform' {numberOfWorkers} -> numberOfWorkers) (\s@CreateMLTransform' {} a -> s {numberOfWorkers = a} :: CreateMLTransform)
+-- | The timeout of the task run for this transform in minutes. This is the
+-- maximum time that a task run for this transform can consume resources
+-- before it is terminated and enters @TIMEOUT@ status. The default is
+-- 2,880 minutes (48 hours).
+createMLTransform_timeout :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Natural)
+createMLTransform_timeout = Lens.lens (\CreateMLTransform' {timeout} -> timeout) (\s@CreateMLTransform' {} a -> s {timeout = a} :: CreateMLTransform)
 
--- | This value determines which version of Glue this machine learning
--- transform is compatible with. Glue 1.0 is recommended for most
--- customers. If the value is not set, the Glue compatibility defaults to
--- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
--- in the developer guide.
-createMLTransform_glueVersion :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
-createMLTransform_glueVersion = Lens.lens (\CreateMLTransform' {glueVersion} -> glueVersion) (\s@CreateMLTransform' {} a -> s {glueVersion = a} :: CreateMLTransform)
+-- | The encryption-at-rest settings of the transform that apply to accessing
+-- user data. Machine learning transforms can access user data encrypted in
+-- Amazon S3 using KMS.
+createMLTransform_transformEncryption :: Lens.Lens' CreateMLTransform (Prelude.Maybe TransformEncryption)
+createMLTransform_transformEncryption = Lens.lens (\CreateMLTransform' {transformEncryption} -> transformEncryption) (\s@CreateMLTransform' {} a -> s {transformEncryption = a} :: CreateMLTransform)
+
+-- | A description of the machine learning transform that is being defined.
+-- The default is an empty string.
+createMLTransform_description :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
+createMLTransform_description = Lens.lens (\CreateMLTransform' {description} -> description) (\s@CreateMLTransform' {} a -> s {description = a} :: CreateMLTransform)
 
 -- | The tags to use with this machine learning transform. You may use tags
 -- to limit access to the machine learning transform. For more information
@@ -388,45 +426,7 @@ createMLTransform_glueVersion = Lens.lens (\CreateMLTransform' {glueVersion} -> 
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 createMLTransform_tags :: Lens.Lens' CreateMLTransform (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createMLTransform_tags = Lens.lens (\CreateMLTransform' {tags} -> tags) (\s@CreateMLTransform' {} a -> s {tags = a} :: CreateMLTransform) Prelude.. Lens.mapping Lens._Coerce
-
--- | The type of predefined worker that is allocated when this task runs.
--- Accepts a value of Standard, G.1X, or G.2X.
---
--- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
---     of memory and a 50GB disk, and 2 executors per worker.
---
--- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
---     memory and a 64GB disk, and 1 executor per worker.
---
--- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
---     memory and a 128GB disk, and 1 executor per worker.
---
--- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
--- @WorkerType@.
---
--- -   If either @NumberOfWorkers@ or @WorkerType@ is set, then
---     @MaxCapacity@ cannot be set.
---
--- -   If @MaxCapacity@ is set then neither @NumberOfWorkers@ or
---     @WorkerType@ can be set.
---
--- -   If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
---     versa).
---
--- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
-createMLTransform_workerType :: Lens.Lens' CreateMLTransform (Prelude.Maybe WorkerType)
-createMLTransform_workerType = Lens.lens (\CreateMLTransform' {workerType} -> workerType) (\s@CreateMLTransform' {} a -> s {workerType = a} :: CreateMLTransform)
-
--- | A description of the machine learning transform that is being defined.
--- The default is an empty string.
-createMLTransform_description :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
-createMLTransform_description = Lens.lens (\CreateMLTransform' {description} -> description) (\s@CreateMLTransform' {} a -> s {description = a} :: CreateMLTransform)
-
--- | The maximum number of times to retry a task for this transform after a
--- task run fails.
-createMLTransform_maxRetries :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
-createMLTransform_maxRetries = Lens.lens (\CreateMLTransform' {maxRetries} -> maxRetries) (\s@CreateMLTransform' {} a -> s {maxRetries = a} :: CreateMLTransform)
+createMLTransform_tags = Lens.lens (\CreateMLTransform' {tags} -> tags) (\s@CreateMLTransform' {} a -> s {tags = a} :: CreateMLTransform) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique name that you give the transform when you create it.
 createMLTransform_name :: Lens.Lens' CreateMLTransform Prelude.Text
@@ -434,7 +434,7 @@ createMLTransform_name = Lens.lens (\CreateMLTransform' {name} -> name) (\s@Crea
 
 -- | A list of Glue table definitions used by the transform.
 createMLTransform_inputRecordTables :: Lens.Lens' CreateMLTransform [GlueTable]
-createMLTransform_inputRecordTables = Lens.lens (\CreateMLTransform' {inputRecordTables} -> inputRecordTables) (\s@CreateMLTransform' {} a -> s {inputRecordTables = a} :: CreateMLTransform) Prelude.. Lens._Coerce
+createMLTransform_inputRecordTables = Lens.lens (\CreateMLTransform' {inputRecordTables} -> inputRecordTables) (\s@CreateMLTransform' {} a -> s {inputRecordTables = a} :: CreateMLTransform) Prelude.. Lens.coerced
 
 -- | The algorithmic parameters that are specific to the transform type used.
 -- Conditionally dependent on the transform type.
@@ -490,17 +490,17 @@ instance Core.ToJSON CreateMLTransform where
   toJSON CreateMLTransform' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TransformEncryption" Core..=)
-              Prelude.<$> transformEncryption,
-            ("Timeout" Core..=) Prelude.<$> timeout,
-            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
-            ("NumberOfWorkers" Core..=)
+          [ ("NumberOfWorkers" Core..=)
               Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("WorkerType" Core..=) Prelude.<$> workerType,
-            ("Description" Core..=) Prelude.<$> description,
+            ("GlueVersion" Core..=) Prelude.<$> glueVersion,
             ("MaxRetries" Core..=) Prelude.<$> maxRetries,
+            ("MaxCapacity" Core..=) Prelude.<$> maxCapacity,
+            ("Timeout" Core..=) Prelude.<$> timeout,
+            ("TransformEncryption" Core..=)
+              Prelude.<$> transformEncryption,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("InputRecordTables" Core..= inputRecordTables),

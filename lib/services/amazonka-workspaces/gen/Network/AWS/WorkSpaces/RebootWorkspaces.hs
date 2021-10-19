@@ -75,12 +75,12 @@ newRebootWorkspaces ::
 newRebootWorkspaces pRebootWorkspaceRequests_ =
   RebootWorkspaces'
     { rebootWorkspaceRequests =
-        Lens._Coerce Lens.# pRebootWorkspaceRequests_
+        Lens.coerced Lens.# pRebootWorkspaceRequests_
     }
 
 -- | The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
 rebootWorkspaces_rebootWorkspaceRequests :: Lens.Lens' RebootWorkspaces (Prelude.NonEmpty RebootRequest)
-rebootWorkspaces_rebootWorkspaceRequests = Lens.lens (\RebootWorkspaces' {rebootWorkspaceRequests} -> rebootWorkspaceRequests) (\s@RebootWorkspaces' {} a -> s {rebootWorkspaceRequests = a} :: RebootWorkspaces) Prelude.. Lens._Coerce
+rebootWorkspaces_rebootWorkspaceRequests = Lens.lens (\RebootWorkspaces' {rebootWorkspaceRequests} -> rebootWorkspaceRequests) (\s@RebootWorkspaces' {} a -> s {rebootWorkspaceRequests = a} :: RebootWorkspaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RebootWorkspaces where
   type
@@ -164,7 +164,7 @@ newRebootWorkspacesResponse pHttpStatus_ =
 
 -- | Information about the WorkSpaces that could not be rebooted.
 rebootWorkspacesResponse_failedRequests :: Lens.Lens' RebootWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-rebootWorkspacesResponse_failedRequests = Lens.lens (\RebootWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebootWorkspacesResponse' {} a -> s {failedRequests = a} :: RebootWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+rebootWorkspacesResponse_failedRequests = Lens.lens (\RebootWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebootWorkspacesResponse' {} a -> s {failedRequests = a} :: RebootWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 rebootWorkspacesResponse_httpStatus :: Lens.Lens' RebootWorkspacesResponse Prelude.Int

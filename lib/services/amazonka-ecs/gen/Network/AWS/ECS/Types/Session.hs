@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSession' smart constructor.
 data Session = Session'
-  { -- | The ID of the execute command session.
-    sessionId :: Prelude.Maybe Prelude.Text,
-    -- | A URL back to managed agent on the container that the SSM Session
+  { -- | A URL back to managed agent on the container that the SSM Session
     -- Manager client uses to send commands and receive output from the
     -- container.
     streamUrl :: Prelude.Maybe Prelude.Text,
     -- | An encrypted token value containing session and caller information. Used
     -- to authenticate the connection to the container.
-    tokenValue :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    tokenValue :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The ID of the execute command session.
+    sessionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -47,26 +47,22 @@ data Session = Session'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionId', 'session_sessionId' - The ID of the execute command session.
---
 -- 'streamUrl', 'session_streamUrl' - A URL back to managed agent on the container that the SSM Session
 -- Manager client uses to send commands and receive output from the
 -- container.
 --
 -- 'tokenValue', 'session_tokenValue' - An encrypted token value containing session and caller information. Used
 -- to authenticate the connection to the container.
+--
+-- 'sessionId', 'session_sessionId' - The ID of the execute command session.
 newSession ::
   Session
 newSession =
   Session'
-    { sessionId = Prelude.Nothing,
-      streamUrl = Prelude.Nothing,
-      tokenValue = Prelude.Nothing
+    { streamUrl = Prelude.Nothing,
+      tokenValue = Prelude.Nothing,
+      sessionId = Prelude.Nothing
     }
-
--- | The ID of the execute command session.
-session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
 
 -- | A URL back to managed agent on the container that the SSM Session
 -- Manager client uses to send commands and receive output from the
@@ -79,15 +75,19 @@ session_streamUrl = Lens.lens (\Session' {streamUrl} -> streamUrl) (\s@Session' 
 session_tokenValue :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_tokenValue = Lens.lens (\Session' {tokenValue} -> tokenValue) (\s@Session' {} a -> s {tokenValue = a} :: Session) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The ID of the execute command session.
+session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
+
 instance Core.FromJSON Session where
   parseJSON =
     Core.withObject
       "Session"
       ( \x ->
           Session'
-            Prelude.<$> (x Core..:? "sessionId")
-            Prelude.<*> (x Core..:? "streamUrl")
+            Prelude.<$> (x Core..:? "streamUrl")
             Prelude.<*> (x Core..:? "tokenValue")
+            Prelude.<*> (x Core..:? "sessionId")
       )
 
 instance Prelude.Hashable Session

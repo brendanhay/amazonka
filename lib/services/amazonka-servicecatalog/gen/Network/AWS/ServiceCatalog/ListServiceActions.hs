@@ -29,9 +29,9 @@ module Network.AWS.ServiceCatalog.ListServiceActions
     newListServiceActions,
 
     -- * Request Lenses
-    listServiceActions_pageSize,
-    listServiceActions_pageToken,
     listServiceActions_acceptLanguage,
+    listServiceActions_pageToken,
+    listServiceActions_pageSize,
 
     -- * Destructuring the Response
     ListServiceActionsResponse (..),
@@ -53,19 +53,19 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newListServiceActions' smart constructor.
 data ListServiceActions = ListServiceActions'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,11 +77,6 @@ data ListServiceActions = ListServiceActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listServiceActions_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listServiceActions_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'listServiceActions_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -89,23 +84,20 @@ data ListServiceActions = ListServiceActions'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'pageToken', 'listServiceActions_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listServiceActions_pageSize' - The maximum number of items to return with this call.
 newListServiceActions ::
   ListServiceActions
 newListServiceActions =
   ListServiceActions'
-    { pageSize = Prelude.Nothing,
+    { acceptLanguage =
+        Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
-
--- | The maximum number of items to return with this call.
-listServiceActions_pageSize :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Natural)
-listServiceActions_pageSize = Lens.lens (\ListServiceActions' {pageSize} -> pageSize) (\s@ListServiceActions' {} a -> s {pageSize = a} :: ListServiceActions)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listServiceActions_pageToken :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Text)
-listServiceActions_pageToken = Lens.lens (\ListServiceActions' {pageToken} -> pageToken) (\s@ListServiceActions' {} a -> s {pageToken = a} :: ListServiceActions)
 
 -- | The language code.
 --
@@ -116,6 +108,15 @@ listServiceActions_pageToken = Lens.lens (\ListServiceActions' {pageToken} -> pa
 -- -   @zh@ - Chinese
 listServiceActions_acceptLanguage :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Text)
 listServiceActions_acceptLanguage = Lens.lens (\ListServiceActions' {acceptLanguage} -> acceptLanguage) (\s@ListServiceActions' {} a -> s {acceptLanguage = a} :: ListServiceActions)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listServiceActions_pageToken :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Text)
+listServiceActions_pageToken = Lens.lens (\ListServiceActions' {pageToken} -> pageToken) (\s@ListServiceActions' {} a -> s {pageToken = a} :: ListServiceActions)
+
+-- | The maximum number of items to return with this call.
+listServiceActions_pageSize :: Lens.Lens' ListServiceActions (Prelude.Maybe Prelude.Natural)
+listServiceActions_pageSize = Lens.lens (\ListServiceActions' {pageSize} -> pageSize) (\s@ListServiceActions' {} a -> s {pageSize = a} :: ListServiceActions)
 
 instance Core.AWSPager ListServiceActions where
   page rq rs
@@ -178,10 +179,10 @@ instance Core.ToJSON ListServiceActions where
   toJSON ListServiceActions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
+          [ ("AcceptLanguage" Core..=)
+              Prelude.<$> acceptLanguage,
             ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Core..=)
-              Prelude.<$> acceptLanguage
+            ("PageSize" Core..=) Prelude.<$> pageSize
           ]
       )
 
@@ -239,7 +240,7 @@ listServiceActionsResponse_nextPageToken = Lens.lens (\ListServiceActionsRespons
 -- | An object containing information about the service actions associated
 -- with the provisioning artifact.
 listServiceActionsResponse_serviceActionSummaries :: Lens.Lens' ListServiceActionsResponse (Prelude.Maybe [ServiceActionSummary])
-listServiceActionsResponse_serviceActionSummaries = Lens.lens (\ListServiceActionsResponse' {serviceActionSummaries} -> serviceActionSummaries) (\s@ListServiceActionsResponse' {} a -> s {serviceActionSummaries = a} :: ListServiceActionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listServiceActionsResponse_serviceActionSummaries = Lens.lens (\ListServiceActionsResponse' {serviceActionSummaries} -> serviceActionSummaries) (\s@ListServiceActionsResponse' {} a -> s {serviceActionSummaries = a} :: ListServiceActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listServiceActionsResponse_httpStatus :: Lens.Lens' ListServiceActionsResponse Prelude.Int

@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPendingModifiedRelationalDatabaseValues' smart constructor.
 data PendingModifiedRelationalDatabaseValues = PendingModifiedRelationalDatabaseValues'
-  { -- | The password for the master user of the database.
+  { -- | The database engine version.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The password for the master user of the database.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | A Boolean value indicating whether automated backup retention is
     -- enabled.
-    backupRetentionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The database engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text
+    backupRetentionEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,27 @@ data PendingModifiedRelationalDatabaseValues = PendingModifiedRelationalDatabase
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineVersion', 'pendingModifiedRelationalDatabaseValues_engineVersion' - The database engine version.
+--
 -- 'masterUserPassword', 'pendingModifiedRelationalDatabaseValues_masterUserPassword' - The password for the master user of the database.
 --
 -- 'backupRetentionEnabled', 'pendingModifiedRelationalDatabaseValues_backupRetentionEnabled' - A Boolean value indicating whether automated backup retention is
 -- enabled.
---
--- 'engineVersion', 'pendingModifiedRelationalDatabaseValues_engineVersion' - The database engine version.
 newPendingModifiedRelationalDatabaseValues ::
   PendingModifiedRelationalDatabaseValues
 newPendingModifiedRelationalDatabaseValues =
   PendingModifiedRelationalDatabaseValues'
-    { masterUserPassword =
+    { engineVersion =
+        Prelude.Nothing,
+      masterUserPassword =
         Prelude.Nothing,
       backupRetentionEnabled =
-        Prelude.Nothing,
-      engineVersion = Prelude.Nothing
+        Prelude.Nothing
     }
+
+-- | The database engine version.
+pendingModifiedRelationalDatabaseValues_engineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Text)
+pendingModifiedRelationalDatabaseValues_engineVersion = Lens.lens (\PendingModifiedRelationalDatabaseValues' {engineVersion} -> engineVersion) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {engineVersion = a} :: PendingModifiedRelationalDatabaseValues)
 
 -- | The password for the master user of the database.
 pendingModifiedRelationalDatabaseValues_masterUserPassword :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Text)
@@ -71,10 +76,6 @@ pendingModifiedRelationalDatabaseValues_masterUserPassword = Lens.lens (\Pending
 pendingModifiedRelationalDatabaseValues_backupRetentionEnabled :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Bool)
 pendingModifiedRelationalDatabaseValues_backupRetentionEnabled = Lens.lens (\PendingModifiedRelationalDatabaseValues' {backupRetentionEnabled} -> backupRetentionEnabled) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {backupRetentionEnabled = a} :: PendingModifiedRelationalDatabaseValues)
 
--- | The database engine version.
-pendingModifiedRelationalDatabaseValues_engineVersion :: Lens.Lens' PendingModifiedRelationalDatabaseValues (Prelude.Maybe Prelude.Text)
-pendingModifiedRelationalDatabaseValues_engineVersion = Lens.lens (\PendingModifiedRelationalDatabaseValues' {engineVersion} -> engineVersion) (\s@PendingModifiedRelationalDatabaseValues' {} a -> s {engineVersion = a} :: PendingModifiedRelationalDatabaseValues)
-
 instance
   Core.FromJSON
     PendingModifiedRelationalDatabaseValues
@@ -84,9 +85,9 @@ instance
       "PendingModifiedRelationalDatabaseValues"
       ( \x ->
           PendingModifiedRelationalDatabaseValues'
-            Prelude.<$> (x Core..:? "masterUserPassword")
+            Prelude.<$> (x Core..:? "engineVersion")
+            Prelude.<*> (x Core..:? "masterUserPassword")
             Prelude.<*> (x Core..:? "backupRetentionEnabled")
-            Prelude.<*> (x Core..:? "engineVersion")
       )
 
 instance

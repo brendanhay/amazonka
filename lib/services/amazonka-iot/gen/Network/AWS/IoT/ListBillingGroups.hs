@@ -42,8 +42,8 @@ module Network.AWS.IoT.ListBillingGroups
     newListBillingGroupsResponse,
 
     -- * Response Lenses
-    listBillingGroupsResponse_billingGroups,
     listBillingGroupsResponse_nextToken,
+    listBillingGroupsResponse_billingGroups,
     listBillingGroupsResponse_httpStatus,
   )
 where
@@ -138,8 +138,8 @@ instance Core.AWSRequest ListBillingGroups where
     Response.receiveJSON
       ( \s h x ->
           ListBillingGroupsResponse'
-            Prelude.<$> (x Core..?> "billingGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "billingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,11 +163,11 @@ instance Core.ToQuery ListBillingGroups where
 
 -- | /See:/ 'newListBillingGroupsResponse' smart constructor.
 data ListBillingGroupsResponse = ListBillingGroupsResponse'
-  { -- | The list of billing groups.
-    billingGroups :: Prelude.Maybe [GroupNameAndArn],
-    -- | The token to use to get the next set of results, or __null__ if there
+  { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of billing groups.
+    billingGroups :: Prelude.Maybe [GroupNameAndArn],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,10 +181,10 @@ data ListBillingGroupsResponse = ListBillingGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingGroups', 'listBillingGroupsResponse_billingGroups' - The list of billing groups.
---
 -- 'nextToken', 'listBillingGroupsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
+--
+-- 'billingGroups', 'listBillingGroupsResponse_billingGroups' - The list of billing groups.
 --
 -- 'httpStatus', 'listBillingGroupsResponse_httpStatus' - The response's http status code.
 newListBillingGroupsResponse ::
@@ -193,20 +193,20 @@ newListBillingGroupsResponse ::
   ListBillingGroupsResponse
 newListBillingGroupsResponse pHttpStatus_ =
   ListBillingGroupsResponse'
-    { billingGroups =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      billingGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of billing groups.
-listBillingGroupsResponse_billingGroups :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe [GroupNameAndArn])
-listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse' {billingGroups} -> billingGroups) (\s@ListBillingGroupsResponse' {} a -> s {billingGroups = a} :: ListBillingGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
 listBillingGroupsResponse_nextToken :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe Prelude.Text)
 listBillingGroupsResponse_nextToken = Lens.lens (\ListBillingGroupsResponse' {nextToken} -> nextToken) (\s@ListBillingGroupsResponse' {} a -> s {nextToken = a} :: ListBillingGroupsResponse)
+
+-- | The list of billing groups.
+listBillingGroupsResponse_billingGroups :: Lens.Lens' ListBillingGroupsResponse (Prelude.Maybe [GroupNameAndArn])
+listBillingGroupsResponse_billingGroups = Lens.lens (\ListBillingGroupsResponse' {billingGroups} -> billingGroups) (\s@ListBillingGroupsResponse' {} a -> s {billingGroups = a} :: ListBillingGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBillingGroupsResponse_httpStatus :: Lens.Lens' ListBillingGroupsResponse Prelude.Int

@@ -40,8 +40,8 @@ module Network.AWS.Transcribe.UpdateMedicalVocabulary
 
     -- * Response Lenses
     updateMedicalVocabularyResponse_languageCode,
-    updateMedicalVocabularyResponse_lastModifiedTime,
     updateMedicalVocabularyResponse_vocabularyName,
+    updateMedicalVocabularyResponse_lastModifiedTime,
     updateMedicalVocabularyResponse_vocabularyState,
     updateMedicalVocabularyResponse_httpStatus,
   )
@@ -179,8 +179,8 @@ instance Core.AWSRequest UpdateMedicalVocabulary where
       ( \s h x ->
           UpdateMedicalVocabularyResponse'
             Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "VocabularyName")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -228,10 +228,10 @@ data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
     -- custom vocabulary. US English (en-US) is the only language supported in
     -- Amazon Transcribe Medical.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The date and time that the vocabulary was updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the updated vocabulary.
     vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the vocabulary was updated.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The processing state of the update to the vocabulary. When the
     -- @VocabularyState@ field is @READY@, the vocabulary is ready to be used
     -- in a @StartMedicalTranscriptionJob@ request.
@@ -253,9 +253,9 @@ data UpdateMedicalVocabularyResponse = UpdateMedicalVocabularyResponse'
 -- custom vocabulary. US English (en-US) is the only language supported in
 -- Amazon Transcribe Medical.
 --
--- 'lastModifiedTime', 'updateMedicalVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.
---
 -- 'vocabularyName', 'updateMedicalVocabularyResponse_vocabularyName' - The name of the updated vocabulary.
+--
+-- 'lastModifiedTime', 'updateMedicalVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.
 --
 -- 'vocabularyState', 'updateMedicalVocabularyResponse_vocabularyState' - The processing state of the update to the vocabulary. When the
 -- @VocabularyState@ field is @READY@, the vocabulary is ready to be used
@@ -270,8 +270,8 @@ newUpdateMedicalVocabularyResponse pHttpStatus_ =
   UpdateMedicalVocabularyResponse'
     { languageCode =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       vocabularyName = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       vocabularyState = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -282,13 +282,13 @@ newUpdateMedicalVocabularyResponse pHttpStatus_ =
 updateMedicalVocabularyResponse_languageCode :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
 updateMedicalVocabularyResponse_languageCode = Lens.lens (\UpdateMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@UpdateMedicalVocabularyResponse' {} a -> s {languageCode = a} :: UpdateMedicalVocabularyResponse)
 
--- | The date and time that the vocabulary was updated.
-updateMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
-updateMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The name of the updated vocabulary.
 updateMedicalVocabularyResponse_vocabularyName :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
 updateMedicalVocabularyResponse_vocabularyName = Lens.lens (\UpdateMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@UpdateMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: UpdateMedicalVocabularyResponse)
+
+-- | The date and time that the vocabulary was updated.
+updateMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
+updateMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The processing state of the update to the vocabulary. When the
 -- @VocabularyState@ field is @READY@, the vocabulary is ready to be used

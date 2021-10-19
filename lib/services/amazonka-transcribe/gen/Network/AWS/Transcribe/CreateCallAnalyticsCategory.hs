@@ -89,7 +89,7 @@ newCreateCallAnalyticsCategory pCategoryName_ pRules_ =
   CreateCallAnalyticsCategory'
     { categoryName =
         pCategoryName_,
-      rules = Lens._Coerce Lens.# pRules_
+      rules = Lens.coerced Lens.# pRules_
     }
 
 -- | The name that you choose for your category when you create it.
@@ -101,7 +101,7 @@ createCallAnalyticsCategory_categoryName = Lens.lens (\CreateCallAnalyticsCatego
 -- For example, you can specify a sentiment filter to detect if the
 -- customer\'s sentiment was negative or neutral.
 createCallAnalyticsCategory_rules :: Lens.Lens' CreateCallAnalyticsCategory (Prelude.NonEmpty Rule)
-createCallAnalyticsCategory_rules = Lens.lens (\CreateCallAnalyticsCategory' {rules} -> rules) (\s@CreateCallAnalyticsCategory' {} a -> s {rules = a} :: CreateCallAnalyticsCategory) Prelude.. Lens._Coerce
+createCallAnalyticsCategory_rules = Lens.lens (\CreateCallAnalyticsCategory' {rules} -> rules) (\s@CreateCallAnalyticsCategory' {} a -> s {rules = a} :: CreateCallAnalyticsCategory) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateCallAnalyticsCategory where
   type

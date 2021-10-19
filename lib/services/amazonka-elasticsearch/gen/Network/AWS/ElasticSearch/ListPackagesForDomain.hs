@@ -36,8 +36,8 @@ module Network.AWS.ElasticSearch.ListPackagesForDomain
     newListPackagesForDomainResponse,
 
     -- * Response Lenses
-    listPackagesForDomainResponse_nextToken,
     listPackagesForDomainResponse_domainPackageDetailsList,
+    listPackagesForDomainResponse_nextToken,
     listPackagesForDomainResponse_httpStatus,
   )
 where
@@ -113,10 +113,10 @@ instance Core.AWSRequest ListPackagesForDomain where
     Response.receiveJSON
       ( \s h x ->
           ListPackagesForDomainResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DomainPackageDetailsList"
+            Prelude.<$> ( x Core..?> "DomainPackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,11 +147,11 @@ instance Core.ToQuery ListPackagesForDomain where
 --
 -- /See:/ 'newListPackagesForDomainResponse' smart constructor.
 data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
-  { -- | Pagination token that needs to be supplied to the next call to get the
+  { -- | List of @DomainPackageDetails@ objects.
+    domainPackageDetailsList :: Prelude.Maybe [DomainPackageDetails],
+    -- | Pagination token that needs to be supplied to the next call to get the
     -- next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | List of @DomainPackageDetails@ objects.
-    domainPackageDetailsList :: Prelude.Maybe [DomainPackageDetails],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,10 +165,10 @@ data ListPackagesForDomainResponse = ListPackagesForDomainResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainPackageDetailsList', 'listPackagesForDomainResponse_domainPackageDetailsList' - List of @DomainPackageDetails@ objects.
+--
 -- 'nextToken', 'listPackagesForDomainResponse_nextToken' - Pagination token that needs to be supplied to the next call to get the
 -- next page of results.
---
--- 'domainPackageDetailsList', 'listPackagesForDomainResponse_domainPackageDetailsList' - List of @DomainPackageDetails@ objects.
 --
 -- 'httpStatus', 'listPackagesForDomainResponse_httpStatus' - The response's http status code.
 newListPackagesForDomainResponse ::
@@ -177,20 +177,20 @@ newListPackagesForDomainResponse ::
   ListPackagesForDomainResponse
 newListPackagesForDomainResponse pHttpStatus_ =
   ListPackagesForDomainResponse'
-    { nextToken =
+    { domainPackageDetailsList =
         Prelude.Nothing,
-      domainPackageDetailsList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | List of @DomainPackageDetails@ objects.
+listPackagesForDomainResponse_domainPackageDetailsList :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe [DomainPackageDetails])
+listPackagesForDomainResponse_domainPackageDetailsList = Lens.lens (\ListPackagesForDomainResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListPackagesForDomainResponse' {} a -> s {domainPackageDetailsList = a} :: ListPackagesForDomainResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token that needs to be supplied to the next call to get the
 -- next page of results.
 listPackagesForDomainResponse_nextToken :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe Prelude.Text)
 listPackagesForDomainResponse_nextToken = Lens.lens (\ListPackagesForDomainResponse' {nextToken} -> nextToken) (\s@ListPackagesForDomainResponse' {} a -> s {nextToken = a} :: ListPackagesForDomainResponse)
-
--- | List of @DomainPackageDetails@ objects.
-listPackagesForDomainResponse_domainPackageDetailsList :: Lens.Lens' ListPackagesForDomainResponse (Prelude.Maybe [DomainPackageDetails])
-listPackagesForDomainResponse_domainPackageDetailsList = Lens.lens (\ListPackagesForDomainResponse' {domainPackageDetailsList} -> domainPackageDetailsList) (\s@ListPackagesForDomainResponse' {} a -> s {domainPackageDetailsList = a} :: ListPackagesForDomainResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listPackagesForDomainResponse_httpStatus :: Lens.Lens' ListPackagesForDomainResponse Prelude.Int

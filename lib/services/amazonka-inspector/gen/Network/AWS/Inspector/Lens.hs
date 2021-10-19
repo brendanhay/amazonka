@@ -14,17 +14,42 @@
 module Network.AWS.Inspector.Lens
   ( -- * Operations
 
-    -- ** DeleteAssessmentTemplate
-    deleteAssessmentTemplate_assessmentTemplateArn,
+    -- ** GetTelemetryMetadata
+    getTelemetryMetadata_assessmentRunArn,
+    getTelemetryMetadataResponse_httpStatus,
+    getTelemetryMetadataResponse_telemetryMetadata,
+
+    -- ** ListFindings
+    listFindings_assessmentRunArns,
+    listFindings_nextToken,
+    listFindings_filter,
+    listFindings_maxResults,
+    listFindingsResponse_nextToken,
+    listFindingsResponse_httpStatus,
+    listFindingsResponse_findingArns,
+
+    -- ** ListAssessmentTemplates
+    listAssessmentTemplates_nextToken,
+    listAssessmentTemplates_filter,
+    listAssessmentTemplates_maxResults,
+    listAssessmentTemplates_assessmentTargetArns,
+    listAssessmentTemplatesResponse_nextToken,
+    listAssessmentTemplatesResponse_httpStatus,
+    listAssessmentTemplatesResponse_assessmentTemplateArns,
 
     -- ** SubscribeToEvent
     subscribeToEvent_resourceArn,
     subscribeToEvent_event,
     subscribeToEvent_topicArn,
 
-    -- ** StopAssessmentRun
-    stopAssessmentRun_stopAction,
-    stopAssessmentRun_assessmentRunArn,
+    -- ** ListAssessmentRunAgents
+    listAssessmentRunAgents_nextToken,
+    listAssessmentRunAgents_filter,
+    listAssessmentRunAgents_maxResults,
+    listAssessmentRunAgents_assessmentRunArn,
+    listAssessmentRunAgentsResponse_nextToken,
+    listAssessmentRunAgentsResponse_httpStatus,
+    listAssessmentRunAgentsResponse_assessmentRunAgents,
 
     -- ** StartAssessmentRun
     startAssessmentRun_assessmentRunName,
@@ -32,95 +57,8 @@ module Network.AWS.Inspector.Lens
     startAssessmentRunResponse_httpStatus,
     startAssessmentRunResponse_assessmentRunArn,
 
-    -- ** ListFindings
-    listFindings_nextToken,
-    listFindings_maxResults,
-    listFindings_assessmentRunArns,
-    listFindings_filter,
-    listFindingsResponse_nextToken,
-    listFindingsResponse_httpStatus,
-    listFindingsResponse_findingArns,
-
-    -- ** GetTelemetryMetadata
-    getTelemetryMetadata_assessmentRunArn,
-    getTelemetryMetadataResponse_httpStatus,
-    getTelemetryMetadataResponse_telemetryMetadata,
-
-    -- ** DescribeAssessmentTargets
-    describeAssessmentTargets_assessmentTargetArns,
-    describeAssessmentTargetsResponse_httpStatus,
-    describeAssessmentTargetsResponse_assessmentTargets,
-    describeAssessmentTargetsResponse_failedItems,
-
-    -- ** ListAssessmentRuns
-    listAssessmentRuns_nextToken,
-    listAssessmentRuns_maxResults,
-    listAssessmentRuns_filter,
-    listAssessmentRuns_assessmentTemplateArns,
-    listAssessmentRunsResponse_nextToken,
-    listAssessmentRunsResponse_httpStatus,
-    listAssessmentRunsResponse_assessmentRunArns,
-
-    -- ** DeleteAssessmentTarget
-    deleteAssessmentTarget_assessmentTargetArn,
-
-    -- ** ListAssessmentTargets
-    listAssessmentTargets_nextToken,
-    listAssessmentTargets_maxResults,
-    listAssessmentTargets_filter,
-    listAssessmentTargetsResponse_nextToken,
-    listAssessmentTargetsResponse_httpStatus,
-    listAssessmentTargetsResponse_assessmentTargetArns,
-
-    -- ** UpdateAssessmentTarget
-    updateAssessmentTarget_resourceGroupArn,
-    updateAssessmentTarget_assessmentTargetArn,
-    updateAssessmentTarget_assessmentTargetName,
-
-    -- ** DescribeResourceGroups
-    describeResourceGroups_resourceGroupArns,
-    describeResourceGroupsResponse_httpStatus,
-    describeResourceGroupsResponse_resourceGroups,
-    describeResourceGroupsResponse_failedItems,
-
-    -- ** GetExclusionsPreview
-    getExclusionsPreview_nextToken,
-    getExclusionsPreview_maxResults,
-    getExclusionsPreview_locale,
-    getExclusionsPreview_assessmentTemplateArn,
-    getExclusionsPreview_previewToken,
-    getExclusionsPreviewResponse_nextToken,
-    getExclusionsPreviewResponse_exclusionPreviews,
-    getExclusionsPreviewResponse_httpStatus,
-    getExclusionsPreviewResponse_previewStatus,
-
-    -- ** AddAttributesToFindings
-    addAttributesToFindings_findingArns,
-    addAttributesToFindings_attributes,
-    addAttributesToFindingsResponse_httpStatus,
-    addAttributesToFindingsResponse_failedItems,
-
-    -- ** CreateAssessmentTarget
-    createAssessmentTarget_resourceGroupArn,
-    createAssessmentTarget_assessmentTargetName,
-    createAssessmentTargetResponse_httpStatus,
-    createAssessmentTargetResponse_assessmentTargetArn,
-
-    -- ** PreviewAgents
-    previewAgents_nextToken,
-    previewAgents_maxResults,
-    previewAgents_previewAgentsArn,
-    previewAgentsResponse_nextToken,
-    previewAgentsResponse_httpStatus,
-    previewAgentsResponse_agentPreviews,
-
-    -- ** ListExclusions
-    listExclusions_nextToken,
-    listExclusions_maxResults,
-    listExclusions_assessmentRunArn,
-    listExclusionsResponse_nextToken,
-    listExclusionsResponse_httpStatus,
-    listExclusionsResponse_exclusionArns,
+    -- ** DeleteAssessmentTemplate
+    deleteAssessmentTemplate_assessmentTemplateArn,
 
     -- ** CreateAssessmentTemplate
     createAssessmentTemplate_userAttributesForFindings,
@@ -130,6 +68,18 @@ module Network.AWS.Inspector.Lens
     createAssessmentTemplate_rulesPackageArns,
     createAssessmentTemplateResponse_httpStatus,
     createAssessmentTemplateResponse_assessmentTemplateArn,
+
+    -- ** DescribeExclusions
+    describeExclusions_locale,
+    describeExclusions_exclusionArns,
+    describeExclusionsResponse_httpStatus,
+    describeExclusionsResponse_exclusions,
+    describeExclusionsResponse_failedItems,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_httpStatus,
+    listTagsForResourceResponse_tags,
 
     -- ** SetTagsForResource
     setTagsForResource_tags,
@@ -141,46 +91,63 @@ module Network.AWS.Inspector.Lens
     describeCrossAccountAccessRoleResponse_valid,
     describeCrossAccountAccessRoleResponse_registeredAt,
 
-    -- ** DescribeExclusions
-    describeExclusions_locale,
-    describeExclusions_exclusionArns,
-    describeExclusionsResponse_httpStatus,
-    describeExclusionsResponse_exclusions,
-    describeExclusionsResponse_failedItems,
+    -- ** DescribeAssessmentTemplates
+    describeAssessmentTemplates_assessmentTemplateArns,
+    describeAssessmentTemplatesResponse_httpStatus,
+    describeAssessmentTemplatesResponse_assessmentTemplates,
+    describeAssessmentTemplatesResponse_failedItems,
 
-    -- ** ListAssessmentTemplates
-    listAssessmentTemplates_nextToken,
-    listAssessmentTemplates_maxResults,
-    listAssessmentTemplates_assessmentTargetArns,
-    listAssessmentTemplates_filter,
-    listAssessmentTemplatesResponse_nextToken,
-    listAssessmentTemplatesResponse_httpStatus,
-    listAssessmentTemplatesResponse_assessmentTemplateArns,
+    -- ** DescribeResourceGroups
+    describeResourceGroups_resourceGroupArns,
+    describeResourceGroupsResponse_httpStatus,
+    describeResourceGroupsResponse_resourceGroups,
+    describeResourceGroupsResponse_failedItems,
 
-    -- ** ListAssessmentRunAgents
-    listAssessmentRunAgents_nextToken,
-    listAssessmentRunAgents_maxResults,
-    listAssessmentRunAgents_filter,
-    listAssessmentRunAgents_assessmentRunArn,
-    listAssessmentRunAgentsResponse_nextToken,
-    listAssessmentRunAgentsResponse_httpStatus,
-    listAssessmentRunAgentsResponse_assessmentRunAgents,
+    -- ** CreateAssessmentTarget
+    createAssessmentTarget_resourceGroupArn,
+    createAssessmentTarget_assessmentTargetName,
+    createAssessmentTargetResponse_httpStatus,
+    createAssessmentTargetResponse_assessmentTargetArn,
 
-    -- ** UnsubscribeFromEvent
-    unsubscribeFromEvent_resourceArn,
-    unsubscribeFromEvent_event,
-    unsubscribeFromEvent_topicArn,
+    -- ** GetExclusionsPreview
+    getExclusionsPreview_locale,
+    getExclusionsPreview_nextToken,
+    getExclusionsPreview_maxResults,
+    getExclusionsPreview_assessmentTemplateArn,
+    getExclusionsPreview_previewToken,
+    getExclusionsPreviewResponse_exclusionPreviews,
+    getExclusionsPreviewResponse_nextToken,
+    getExclusionsPreviewResponse_httpStatus,
+    getExclusionsPreviewResponse_previewStatus,
 
-    -- ** DescribeAssessmentRuns
-    describeAssessmentRuns_assessmentRunArns,
-    describeAssessmentRunsResponse_httpStatus,
-    describeAssessmentRunsResponse_assessmentRuns,
-    describeAssessmentRunsResponse_failedItems,
+    -- ** ListEventSubscriptions
+    listEventSubscriptions_nextToken,
+    listEventSubscriptions_resourceArn,
+    listEventSubscriptions_maxResults,
+    listEventSubscriptionsResponse_nextToken,
+    listEventSubscriptionsResponse_httpStatus,
+    listEventSubscriptionsResponse_subscriptions,
+
+    -- ** RegisterCrossAccountAccessRole
+    registerCrossAccountAccessRole_roleArn,
+
+    -- ** ListAssessmentTargets
+    listAssessmentTargets_nextToken,
+    listAssessmentTargets_filter,
+    listAssessmentTargets_maxResults,
+    listAssessmentTargetsResponse_nextToken,
+    listAssessmentTargetsResponse_httpStatus,
+    listAssessmentTargetsResponse_assessmentTargetArns,
 
     -- ** CreateExclusionsPreview
     createExclusionsPreview_assessmentTemplateArn,
     createExclusionsPreviewResponse_httpStatus,
     createExclusionsPreviewResponse_previewToken,
+
+    -- ** CreateResourceGroup
+    createResourceGroup_resourceGroupTags,
+    createResourceGroupResponse_httpStatus,
+    createResourceGroupResponse_resourceGroupArn,
 
     -- ** DescribeRulesPackages
     describeRulesPackages_locale,
@@ -189,16 +156,58 @@ module Network.AWS.Inspector.Lens
     describeRulesPackagesResponse_rulesPackages,
     describeRulesPackagesResponse_failedItems,
 
-    -- ** RemoveAttributesFromFindings
-    removeAttributesFromFindings_findingArns,
-    removeAttributesFromFindings_attributeKeys,
-    removeAttributesFromFindingsResponse_httpStatus,
-    removeAttributesFromFindingsResponse_failedItems,
+    -- ** StopAssessmentRun
+    stopAssessmentRun_stopAction,
+    stopAssessmentRun_assessmentRunArn,
 
-    -- ** CreateResourceGroup
-    createResourceGroup_resourceGroupTags,
-    createResourceGroupResponse_httpStatus,
-    createResourceGroupResponse_resourceGroupArn,
+    -- ** ListExclusions
+    listExclusions_nextToken,
+    listExclusions_maxResults,
+    listExclusions_assessmentRunArn,
+    listExclusionsResponse_nextToken,
+    listExclusionsResponse_httpStatus,
+    listExclusionsResponse_exclusionArns,
+
+    -- ** PreviewAgents
+    previewAgents_nextToken,
+    previewAgents_maxResults,
+    previewAgents_previewAgentsArn,
+    previewAgentsResponse_nextToken,
+    previewAgentsResponse_httpStatus,
+    previewAgentsResponse_agentPreviews,
+
+    -- ** DescribeFindings
+    describeFindings_locale,
+    describeFindings_findingArns,
+    describeFindingsResponse_httpStatus,
+    describeFindingsResponse_findings,
+    describeFindingsResponse_failedItems,
+
+    -- ** AddAttributesToFindings
+    addAttributesToFindings_findingArns,
+    addAttributesToFindings_attributes,
+    addAttributesToFindingsResponse_httpStatus,
+    addAttributesToFindingsResponse_failedItems,
+
+    -- ** UpdateAssessmentTarget
+    updateAssessmentTarget_resourceGroupArn,
+    updateAssessmentTarget_assessmentTargetArn,
+    updateAssessmentTarget_assessmentTargetName,
+
+    -- ** DeleteAssessmentTarget
+    deleteAssessmentTarget_assessmentTargetArn,
+
+    -- ** DeleteAssessmentRun
+    deleteAssessmentRun_assessmentRunArn,
+
+    -- ** ListAssessmentRuns
+    listAssessmentRuns_nextToken,
+    listAssessmentRuns_filter,
+    listAssessmentRuns_assessmentTemplateArns,
+    listAssessmentRuns_maxResults,
+    listAssessmentRunsResponse_nextToken,
+    listAssessmentRunsResponse_httpStatus,
+    listAssessmentRunsResponse_assessmentRunArns,
 
     -- ** GetAssessmentReport
     getAssessmentReport_assessmentRunArn,
@@ -208,17 +217,6 @@ module Network.AWS.Inspector.Lens
     getAssessmentReportResponse_httpStatus,
     getAssessmentReportResponse_status,
 
-    -- ** DeleteAssessmentRun
-    deleteAssessmentRun_assessmentRunArn,
-
-    -- ** ListEventSubscriptions
-    listEventSubscriptions_resourceArn,
-    listEventSubscriptions_nextToken,
-    listEventSubscriptions_maxResults,
-    listEventSubscriptionsResponse_nextToken,
-    listEventSubscriptionsResponse_httpStatus,
-    listEventSubscriptionsResponse_subscriptions,
-
     -- ** ListRulesPackages
     listRulesPackages_nextToken,
     listRulesPackages_maxResults,
@@ -226,26 +224,28 @@ module Network.AWS.Inspector.Lens
     listRulesPackagesResponse_httpStatus,
     listRulesPackagesResponse_rulesPackageArns,
 
-    -- ** RegisterCrossAccountAccessRole
-    registerCrossAccountAccessRole_roleArn,
+    -- ** DescribeAssessmentRuns
+    describeAssessmentRuns_assessmentRunArns,
+    describeAssessmentRunsResponse_httpStatus,
+    describeAssessmentRunsResponse_assessmentRuns,
+    describeAssessmentRunsResponse_failedItems,
 
-    -- ** DescribeFindings
-    describeFindings_locale,
-    describeFindings_findingArns,
-    describeFindingsResponse_httpStatus,
-    describeFindingsResponse_findings,
-    describeFindingsResponse_failedItems,
+    -- ** UnsubscribeFromEvent
+    unsubscribeFromEvent_resourceArn,
+    unsubscribeFromEvent_event,
+    unsubscribeFromEvent_topicArn,
 
-    -- ** DescribeAssessmentTemplates
-    describeAssessmentTemplates_assessmentTemplateArns,
-    describeAssessmentTemplatesResponse_httpStatus,
-    describeAssessmentTemplatesResponse_assessmentTemplates,
-    describeAssessmentTemplatesResponse_failedItems,
+    -- ** RemoveAttributesFromFindings
+    removeAttributesFromFindings_findingArns,
+    removeAttributesFromFindings_attributeKeys,
+    removeAttributesFromFindingsResponse_httpStatus,
+    removeAttributesFromFindingsResponse_failedItems,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tags,
+    -- ** DescribeAssessmentTargets
+    describeAssessmentTargets_assessmentTargetArns,
+    describeAssessmentTargetsResponse_httpStatus,
+    describeAssessmentTargetsResponse_assessmentTargets,
+    describeAssessmentTargetsResponse_failedItems,
 
     -- * Types
 
@@ -255,11 +255,11 @@ module Network.AWS.Inspector.Lens
 
     -- ** AgentPreview
     agentPreview_hostname,
+    agentPreview_autoScalingGroup,
+    agentPreview_operatingSystem,
     agentPreview_agentVersion,
     agentPreview_kernelVersion,
-    agentPreview_operatingSystem,
     agentPreview_agentHealth,
-    agentPreview_autoScalingGroup,
     agentPreview_ipv4Address,
     agentPreview_agentId,
 
@@ -281,8 +281,8 @@ module Network.AWS.Inspector.Lens
     assessmentRun_findingCounts,
 
     -- ** AssessmentRunAgent
-    assessmentRunAgent_agentHealthDetails,
     assessmentRunAgent_autoScalingGroup,
+    assessmentRunAgent_agentHealthDetails,
     assessmentRunAgent_agentId,
     assessmentRunAgent_assessmentRunArn,
     assessmentRunAgent_agentHealth,
@@ -291,17 +291,17 @@ module Network.AWS.Inspector.Lens
 
     -- ** AssessmentRunFilter
     assessmentRunFilter_states,
-    assessmentRunFilter_durationRange,
-    assessmentRunFilter_rulesPackageArns,
-    assessmentRunFilter_stateChangeTimeRange,
-    assessmentRunFilter_startTimeRange,
     assessmentRunFilter_namePattern,
+    assessmentRunFilter_startTimeRange,
+    assessmentRunFilter_stateChangeTimeRange,
+    assessmentRunFilter_rulesPackageArns,
     assessmentRunFilter_completionTimeRange,
+    assessmentRunFilter_durationRange,
 
     -- ** AssessmentRunNotification
-    assessmentRunNotification_message,
-    assessmentRunNotification_snsPublishStatusCode,
     assessmentRunNotification_snsTopicArn,
+    assessmentRunNotification_snsPublishStatusCode,
+    assessmentRunNotification_message,
     assessmentRunNotification_date,
     assessmentRunNotification_event,
     assessmentRunNotification_error,
@@ -332,18 +332,18 @@ module Network.AWS.Inspector.Lens
     assessmentTemplate_createdAt,
 
     -- ** AssessmentTemplateFilter
-    assessmentTemplateFilter_durationRange,
-    assessmentTemplateFilter_rulesPackageArns,
     assessmentTemplateFilter_namePattern,
+    assessmentTemplateFilter_rulesPackageArns,
+    assessmentTemplateFilter_durationRange,
 
     -- ** AssetAttributes
     assetAttributes_hostname,
+    assetAttributes_autoScalingGroup,
+    assetAttributes_networkInterfaces,
+    assetAttributes_ipv4Addresses,
     assetAttributes_agentId,
     assetAttributes_amiId,
     assetAttributes_tags,
-    assetAttributes_ipv4Addresses,
-    assetAttributes_networkInterfaces,
-    assetAttributes_autoScalingGroup,
     assetAttributes_schemaVersion,
 
     -- ** Attribute
@@ -378,19 +378,19 @@ module Network.AWS.Inspector.Lens
     failedItemDetails_retryable,
 
     -- ** Finding
-    finding_assetAttributes,
-    finding_severity,
-    finding_assetType,
-    finding_numericSeverity,
-    finding_title,
-    finding_id,
     finding_service,
-    finding_serviceAttributes,
+    finding_severity,
+    finding_schemaVersion,
     finding_confidence,
-    finding_recommendation,
+    finding_assetAttributes,
+    finding_serviceAttributes,
+    finding_id,
+    finding_numericSeverity,
+    finding_assetType,
+    finding_title,
     finding_indicatorOfCompromise,
     finding_description,
-    finding_schemaVersion,
+    finding_recommendation,
     finding_arn,
     finding_attributes,
     finding_userAttributes,
@@ -399,13 +399,13 @@ module Network.AWS.Inspector.Lens
 
     -- ** FindingFilter
     findingFilter_agentIds,
-    findingFilter_rulesPackageArns,
-    findingFilter_creationTimeRange,
-    findingFilter_severities,
-    findingFilter_attributes,
-    findingFilter_userAttributes,
-    findingFilter_autoScalingGroups,
     findingFilter_ruleNames,
+    findingFilter_userAttributes,
+    findingFilter_rulesPackageArns,
+    findingFilter_attributes,
+    findingFilter_severities,
+    findingFilter_creationTimeRange,
+    findingFilter_autoScalingGroups,
 
     -- ** InspectorServiceAttributes
     inspectorServiceAttributes_rulesPackageArn,
@@ -414,19 +414,19 @@ module Network.AWS.Inspector.Lens
 
     -- ** NetworkInterface
     networkInterface_privateIpAddresses,
-    networkInterface_ipv6Addresses,
-    networkInterface_securityGroups,
     networkInterface_publicDnsName,
+    networkInterface_securityGroups,
+    networkInterface_vpcId,
     networkInterface_subnetId,
     networkInterface_networkInterfaceId,
-    networkInterface_privateDnsName,
-    networkInterface_vpcId,
-    networkInterface_publicIp,
     networkInterface_privateIpAddress,
+    networkInterface_publicIp,
+    networkInterface_privateDnsName,
+    networkInterface_ipv6Addresses,
 
     -- ** PrivateIp
-    privateIp_privateDnsName,
     privateIp_privateIpAddress,
+    privateIp_privateDnsName,
 
     -- ** ResourceGroup
     resourceGroup_arn,
@@ -445,12 +445,12 @@ module Network.AWS.Inspector.Lens
     rulesPackage_provider,
 
     -- ** Scope
-    scope_key,
     scope_value,
+    scope_key,
 
     -- ** SecurityGroup
-    securityGroup_groupName,
     securityGroup_groupId,
+    securityGroup_groupName,
 
     -- ** Subscription
     subscription_resourceArn,
@@ -467,8 +467,8 @@ module Network.AWS.Inspector.Lens
     telemetryMetadata_count,
 
     -- ** TimestampRange
-    timestampRange_beginDate,
     timestampRange_endDate,
+    timestampRange_beginDate,
   )
 where
 

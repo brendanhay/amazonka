@@ -51,10 +51,10 @@ module Network.AWS.ApplicationAutoScaling.PutScheduledAction
 
     -- * Request Lenses
     putScheduledAction_startTime,
-    putScheduledAction_endTime,
-    putScheduledAction_timezone,
-    putScheduledAction_scalableTargetAction,
     putScheduledAction_schedule,
+    putScheduledAction_endTime,
+    putScheduledAction_scalableTargetAction,
+    putScheduledAction_timezone,
     putScheduledAction_serviceNamespace,
     putScheduledAction_scheduledActionName,
     putScheduledAction_resourceId,
@@ -80,22 +80,6 @@ import qualified Network.AWS.Response as Response
 data PutScheduledAction = PutScheduledAction'
   { -- | The date and time for this scheduled action to start, in UTC.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The date and time for the recurring schedule to end, in UTC.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the time zone used when setting a scheduled action by using an
-    -- at or cron expression. If a time zone is not provided, UTC is used by
-    -- default.
-    --
-    -- Valid values are the canonical names of the IANA time zones supported by
-    -- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
-    -- information, see <https://www.joda.org/joda-time/timezones.html>.
-    timezone :: Prelude.Maybe Prelude.Text,
-    -- | The new minimum and maximum capacity. You can set both values or just
-    -- one. At the scheduled time, if the current capacity is below the minimum
-    -- capacity, Application Auto Scaling scales out to the minimum capacity.
-    -- If the current capacity is above the maximum capacity, Application Auto
-    -- Scaling scales in to the maximum capacity.
-    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
     -- | The schedule for this action. The following formats are supported:
     --
     -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
@@ -121,6 +105,22 @@ data PutScheduledAction = PutScheduledAction'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
     -- in the /Application Auto Scaling User Guide/.
     schedule :: Prelude.Maybe Prelude.Text,
+    -- | The date and time for the recurring schedule to end, in UTC.
+    endTime :: Prelude.Maybe Core.POSIX,
+    -- | The new minimum and maximum capacity. You can set both values or just
+    -- one. At the scheduled time, if the current capacity is below the minimum
+    -- capacity, Application Auto Scaling scales out to the minimum capacity.
+    -- If the current capacity is above the maximum capacity, Application Auto
+    -- Scaling scales in to the maximum capacity.
+    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
+    -- | Specifies the time zone used when setting a scheduled action by using an
+    -- at or cron expression. If a time zone is not provided, UTC is used by
+    -- default.
+    --
+    -- Valid values are the canonical names of the IANA time zones supported by
+    -- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
+    -- information, see <https://www.joda.org/joda-time/timezones.html>.
+    timezone :: Prelude.Maybe Prelude.Text,
     -- | The namespace of the Amazon Web Services service that provides the
     -- resource. For a resource provided by your own application or service,
     -- use @custom-resource@ instead.
@@ -135,8 +135,8 @@ data PutScheduledAction = PutScheduledAction'
     --     identifier is the cluster name and service name. Example:
     --     @service\/default\/sample-webapp@.
     --
-    -- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
-    --     the unique identifier is the Spot Fleet request ID. Example:
+    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+    --     unique identifier is the Spot Fleet request ID. Example:
     --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
     --
     -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -156,8 +156,8 @@ data PutScheduledAction = PutScheduledAction'
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
     --
-    -- -   Amazon SageMaker endpoint variant - The resource type is @variant@
-    --     and the unique identifier is the resource ID. Example:
+    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
+    --     unique identifier is the resource ID. Example:
     --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     --
     -- -   Custom resources are not supported with a resource type. This
@@ -192,6 +192,9 @@ data PutScheduledAction = PutScheduledAction'
     -- -   Amazon ElastiCache replication group - The resource type is
     --     @replication-group@ and the unique identifier is the replication
     --     group name. Example: @replication-group\/mycluster@.
+    --
+    -- -   Neptune cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -203,7 +206,7 @@ data PutScheduledAction = PutScheduledAction'
     --     of an EMR Instance Group.
     --
     -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
+    --     Spot Fleet.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -225,7 +228,7 @@ data PutScheduledAction = PutScheduledAction'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an Amazon SageMaker model endpoint variant.
+    --     instances for an SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -255,6 +258,9 @@ data PutScheduledAction = PutScheduledAction'
     --
     -- -   @elasticache:replication-group:Replicas@ - The number of replicas
     --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -268,22 +274,6 @@ data PutScheduledAction = PutScheduledAction'
 -- for backwards compatibility:
 --
 -- 'startTime', 'putScheduledAction_startTime' - The date and time for this scheduled action to start, in UTC.
---
--- 'endTime', 'putScheduledAction_endTime' - The date and time for the recurring schedule to end, in UTC.
---
--- 'timezone', 'putScheduledAction_timezone' - Specifies the time zone used when setting a scheduled action by using an
--- at or cron expression. If a time zone is not provided, UTC is used by
--- default.
---
--- Valid values are the canonical names of the IANA time zones supported by
--- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
--- information, see <https://www.joda.org/joda-time/timezones.html>.
---
--- 'scalableTargetAction', 'putScheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
--- one. At the scheduled time, if the current capacity is below the minimum
--- capacity, Application Auto Scaling scales out to the minimum capacity.
--- If the current capacity is above the maximum capacity, Application Auto
--- Scaling scales in to the maximum capacity.
 --
 -- 'schedule', 'putScheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
@@ -310,6 +300,22 @@ data PutScheduledAction = PutScheduledAction'
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
+-- 'endTime', 'putScheduledAction_endTime' - The date and time for the recurring schedule to end, in UTC.
+--
+-- 'scalableTargetAction', 'putScheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
+-- one. At the scheduled time, if the current capacity is below the minimum
+-- capacity, Application Auto Scaling scales out to the minimum capacity.
+-- If the current capacity is above the maximum capacity, Application Auto
+-- Scaling scales in to the maximum capacity.
+--
+-- 'timezone', 'putScheduledAction_timezone' - Specifies the time zone used when setting a scheduled action by using an
+-- at or cron expression. If a time zone is not provided, UTC is used by
+-- default.
+--
+-- Valid values are the canonical names of the IANA time zones supported by
+-- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
+-- information, see <https://www.joda.org/joda-time/timezones.html>.
+--
 -- 'serviceNamespace', 'putScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
 -- use @custom-resource@ instead.
@@ -324,8 +330,8 @@ data PutScheduledAction = PutScheduledAction'
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -345,8 +351,8 @@ data PutScheduledAction = PutScheduledAction'
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -382,6 +388,9 @@ data PutScheduledAction = PutScheduledAction'
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
 --
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
+--
 -- 'scalableDimension', 'putScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -392,7 +401,7 @@ data PutScheduledAction = PutScheduledAction'
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -414,7 +423,7 @@ data PutScheduledAction = PutScheduledAction'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -444,6 +453,9 @@ data PutScheduledAction = PutScheduledAction'
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 newPutScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -461,10 +473,10 @@ newPutScheduledAction
   pScalableDimension_ =
     PutScheduledAction'
       { startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        timezone = Prelude.Nothing,
-        scalableTargetAction = Prelude.Nothing,
         schedule = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        scalableTargetAction = Prelude.Nothing,
+        timezone = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         scheduledActionName = pScheduledActionName_,
         resourceId = pResourceId_,
@@ -474,28 +486,6 @@ newPutScheduledAction
 -- | The date and time for this scheduled action to start, in UTC.
 putScheduledAction_startTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledAction_startTime = Lens.lens (\PutScheduledAction' {startTime} -> startTime) (\s@PutScheduledAction' {} a -> s {startTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
-
--- | The date and time for the recurring schedule to end, in UTC.
-putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
-putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
-
--- | Specifies the time zone used when setting a scheduled action by using an
--- at or cron expression. If a time zone is not provided, UTC is used by
--- default.
---
--- Valid values are the canonical names of the IANA time zones supported by
--- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
--- information, see <https://www.joda.org/joda-time/timezones.html>.
-putScheduledAction_timezone :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
-putScheduledAction_timezone = Lens.lens (\PutScheduledAction' {timezone} -> timezone) (\s@PutScheduledAction' {} a -> s {timezone = a} :: PutScheduledAction)
-
--- | The new minimum and maximum capacity. You can set both values or just
--- one. At the scheduled time, if the current capacity is below the minimum
--- capacity, Application Auto Scaling scales out to the minimum capacity.
--- If the current capacity is above the maximum capacity, Application Auto
--- Scaling scales in to the maximum capacity.
-putScheduledAction_scalableTargetAction :: Lens.Lens' PutScheduledAction (Prelude.Maybe ScalableTargetAction)
-putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@PutScheduledAction' {} a -> s {scalableTargetAction = a} :: PutScheduledAction)
 
 -- | The schedule for this action. The following formats are supported:
 --
@@ -524,6 +514,28 @@ putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scala
 putScheduledAction_schedule :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
 putScheduledAction_schedule = Lens.lens (\PutScheduledAction' {schedule} -> schedule) (\s@PutScheduledAction' {} a -> s {schedule = a} :: PutScheduledAction)
 
+-- | The date and time for the recurring schedule to end, in UTC.
+putScheduledAction_endTime :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.UTCTime)
+putScheduledAction_endTime = Lens.lens (\PutScheduledAction' {endTime} -> endTime) (\s@PutScheduledAction' {} a -> s {endTime = a} :: PutScheduledAction) Prelude.. Lens.mapping Core._Time
+
+-- | The new minimum and maximum capacity. You can set both values or just
+-- one. At the scheduled time, if the current capacity is below the minimum
+-- capacity, Application Auto Scaling scales out to the minimum capacity.
+-- If the current capacity is above the maximum capacity, Application Auto
+-- Scaling scales in to the maximum capacity.
+putScheduledAction_scalableTargetAction :: Lens.Lens' PutScheduledAction (Prelude.Maybe ScalableTargetAction)
+putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@PutScheduledAction' {} a -> s {scalableTargetAction = a} :: PutScheduledAction)
+
+-- | Specifies the time zone used when setting a scheduled action by using an
+-- at or cron expression. If a time zone is not provided, UTC is used by
+-- default.
+--
+-- Valid values are the canonical names of the IANA time zones supported by
+-- Joda-Time (such as @Etc\/GMT+9@ or @Pacific\/Tahiti@). For more
+-- information, see <https://www.joda.org/joda-time/timezones.html>.
+putScheduledAction_timezone :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
+putScheduledAction_timezone = Lens.lens (\PutScheduledAction' {timezone} -> timezone) (\s@PutScheduledAction' {} a -> s {timezone = a} :: PutScheduledAction)
+
 -- | The namespace of the Amazon Web Services service that provides the
 -- resource. For a resource provided by your own application or service,
 -- use @custom-resource@ instead.
@@ -542,8 +554,8 @@ putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {schedu
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -563,8 +575,8 @@ putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {schedu
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -599,6 +611,9 @@ putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {schedu
 -- -   Amazon ElastiCache replication group - The resource type is
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
+--
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
 putScheduledAction_resourceId :: Lens.Lens' PutScheduledAction Prelude.Text
 putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> resourceId) (\s@PutScheduledAction' {} a -> s {resourceId = a} :: PutScheduledAction)
 
@@ -612,7 +627,7 @@ putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> 
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -634,7 +649,7 @@ putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> 
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -664,6 +679,9 @@ putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> 
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 putScheduledAction_scalableDimension :: Lens.Lens' PutScheduledAction ScalableDimension
 putScheduledAction_scalableDimension = Lens.lens (\PutScheduledAction' {scalableDimension} -> scalableDimension) (\s@PutScheduledAction' {} a -> s {scalableDimension = a} :: PutScheduledAction)
 
@@ -703,11 +721,11 @@ instance Core.ToJSON PutScheduledAction where
     Core.object
       ( Prelude.catMaybes
           [ ("StartTime" Core..=) Prelude.<$> startTime,
+            ("Schedule" Core..=) Prelude.<$> schedule,
             ("EndTime" Core..=) Prelude.<$> endTime,
-            ("Timezone" Core..=) Prelude.<$> timezone,
             ("ScalableTargetAction" Core..=)
               Prelude.<$> scalableTargetAction,
-            ("Schedule" Core..=) Prelude.<$> schedule,
+            ("Timezone" Core..=) Prelude.<$> timezone,
             Prelude.Just
               ("ServiceNamespace" Core..= serviceNamespace),
             Prelude.Just

@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 data Item = Item'
   { -- | The ETag that represents a unique instance of the item.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The content type of the item.
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | The length of the item in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
     -- | The name of the item.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The item type (folder or object).
+    type' :: Prelude.Maybe ItemType,
     -- | The date and time that the item was last modified.
     lastModified :: Prelude.Maybe Core.POSIX,
-    -- | The item type (folder or object).
-    type' :: Prelude.Maybe ItemType
+    -- | The content type of the item.
+    contentType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,34 +53,30 @@ data Item = Item'
 --
 -- 'eTag', 'item_eTag' - The ETag that represents a unique instance of the item.
 --
--- 'contentType', 'item_contentType' - The content type of the item.
---
 -- 'contentLength', 'item_contentLength' - The length of the item in bytes.
 --
 -- 'name', 'item_name' - The name of the item.
 --
+-- 'type'', 'item_type' - The item type (folder or object).
+--
 -- 'lastModified', 'item_lastModified' - The date and time that the item was last modified.
 --
--- 'type'', 'item_type' - The item type (folder or object).
+-- 'contentType', 'item_contentType' - The content type of the item.
 newItem ::
   Item
 newItem =
   Item'
     { eTag = Prelude.Nothing,
-      contentType = Prelude.Nothing,
       contentLength = Prelude.Nothing,
       name = Prelude.Nothing,
+      type' = Prelude.Nothing,
       lastModified = Prelude.Nothing,
-      type' = Prelude.Nothing
+      contentType = Prelude.Nothing
     }
 
 -- | The ETag that represents a unique instance of the item.
 item_eTag :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_eTag = Lens.lens (\Item' {eTag} -> eTag) (\s@Item' {} a -> s {eTag = a} :: Item)
-
--- | The content type of the item.
-item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
-item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
 
 -- | The length of the item in bytes.
 item_contentLength :: Lens.Lens' Item (Prelude.Maybe Prelude.Natural)
@@ -90,13 +86,17 @@ item_contentLength = Lens.lens (\Item' {contentLength} -> contentLength) (\s@Ite
 item_name :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
 item_name = Lens.lens (\Item' {name} -> name) (\s@Item' {} a -> s {name = a} :: Item)
 
+-- | The item type (folder or object).
+item_type :: Lens.Lens' Item (Prelude.Maybe ItemType)
+item_type = Lens.lens (\Item' {type'} -> type') (\s@Item' {} a -> s {type' = a} :: Item)
+
 -- | The date and time that the item was last modified.
 item_lastModified :: Lens.Lens' Item (Prelude.Maybe Prelude.UTCTime)
 item_lastModified = Lens.lens (\Item' {lastModified} -> lastModified) (\s@Item' {} a -> s {lastModified = a} :: Item) Prelude.. Lens.mapping Core._Time
 
--- | The item type (folder or object).
-item_type :: Lens.Lens' Item (Prelude.Maybe ItemType)
-item_type = Lens.lens (\Item' {type'} -> type') (\s@Item' {} a -> s {type' = a} :: Item)
+-- | The content type of the item.
+item_contentType :: Lens.Lens' Item (Prelude.Maybe Prelude.Text)
+item_contentType = Lens.lens (\Item' {contentType} -> contentType) (\s@Item' {} a -> s {contentType = a} :: Item)
 
 instance Core.FromJSON Item where
   parseJSON =
@@ -105,11 +105,11 @@ instance Core.FromJSON Item where
       ( \x ->
           Item'
             Prelude.<$> (x Core..:? "ETag")
-            Prelude.<*> (x Core..:? "ContentType")
             Prelude.<*> (x Core..:? "ContentLength")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "LastModified")
             Prelude.<*> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "LastModified")
+            Prelude.<*> (x Core..:? "ContentType")
       )
 
 instance Prelude.Hashable Item

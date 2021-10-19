@@ -119,7 +119,7 @@ newAcceptDirectConnectGatewayAssociationProposal
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
 -- in the /Direct Connect User Guide/.
 acceptDirectConnectGatewayAssociationProposal_overrideAllowedPrefixesToDirectConnectGateway :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal (Prelude.Maybe [RouteFilterPrefix])
-acceptDirectConnectGatewayAssociationProposal_overrideAllowedPrefixesToDirectConnectGateway = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {overrideAllowedPrefixesToDirectConnectGateway} -> overrideAllowedPrefixesToDirectConnectGateway) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {overrideAllowedPrefixesToDirectConnectGateway = a} :: AcceptDirectConnectGatewayAssociationProposal) Prelude.. Lens.mapping Lens._Coerce
+acceptDirectConnectGatewayAssociationProposal_overrideAllowedPrefixesToDirectConnectGateway = Lens.lens (\AcceptDirectConnectGatewayAssociationProposal' {overrideAllowedPrefixesToDirectConnectGateway} -> overrideAllowedPrefixesToDirectConnectGateway) (\s@AcceptDirectConnectGatewayAssociationProposal' {} a -> s {overrideAllowedPrefixesToDirectConnectGateway = a} :: AcceptDirectConnectGatewayAssociationProposal) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Direct Connect gateway.
 acceptDirectConnectGatewayAssociationProposal_directConnectGatewayId :: Lens.Lens' AcceptDirectConnectGatewayAssociationProposal Prelude.Text

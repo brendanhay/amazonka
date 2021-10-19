@@ -66,7 +66,7 @@ applicationsResponse_nextToken = Lens.lens (\ApplicationsResponse' {nextToken} -
 
 -- | An array of responses, one for each application that was returned.
 applicationsResponse_item :: Lens.Lens' ApplicationsResponse (Prelude.Maybe [ApplicationResponse])
-applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
+applicationsResponse_item = Lens.lens (\ApplicationsResponse' {item} -> item) (\s@ApplicationsResponse' {} a -> s {item = a} :: ApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ApplicationsResponse where
   parseJSON =

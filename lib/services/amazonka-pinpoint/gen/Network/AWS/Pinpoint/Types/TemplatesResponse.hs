@@ -73,7 +73,7 @@ templatesResponse_nextToken = Lens.lens (\TemplatesResponse' {nextToken} -> next
 -- with your Amazon Pinpoint account and meets any filter criteria that you
 -- specified in the request.
 templatesResponse_item :: Lens.Lens' TemplatesResponse [TemplateResponse]
-templatesResponse_item = Lens.lens (\TemplatesResponse' {item} -> item) (\s@TemplatesResponse' {} a -> s {item = a} :: TemplatesResponse) Prelude.. Lens._Coerce
+templatesResponse_item = Lens.lens (\TemplatesResponse' {item} -> item) (\s@TemplatesResponse' {} a -> s {item = a} :: TemplatesResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON TemplatesResponse where
   parseJSON =

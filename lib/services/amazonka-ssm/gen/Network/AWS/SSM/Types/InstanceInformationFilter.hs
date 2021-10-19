@@ -62,7 +62,7 @@ newInstanceInformationFilter ::
 newInstanceInformationFilter pKey_ pValueSet_ =
   InstanceInformationFilter'
     { key = pKey_,
-      valueSet = Lens._Coerce Lens.# pValueSet_
+      valueSet = Lens.coerced Lens.# pValueSet_
     }
 
 -- | The name of the filter.
@@ -71,7 +71,7 @@ instanceInformationFilter_key = Lens.lens (\InstanceInformationFilter' {key} -> 
 
 -- | The filter values.
 instanceInformationFilter_valueSet :: Lens.Lens' InstanceInformationFilter (Prelude.NonEmpty Prelude.Text)
-instanceInformationFilter_valueSet = Lens.lens (\InstanceInformationFilter' {valueSet} -> valueSet) (\s@InstanceInformationFilter' {} a -> s {valueSet = a} :: InstanceInformationFilter) Prelude.. Lens._Coerce
+instanceInformationFilter_valueSet = Lens.lens (\InstanceInformationFilter' {valueSet} -> valueSet) (\s@InstanceInformationFilter' {} a -> s {valueSet = a} :: InstanceInformationFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable InstanceInformationFilter
 

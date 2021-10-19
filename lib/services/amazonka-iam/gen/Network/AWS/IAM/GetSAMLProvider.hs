@@ -40,8 +40,8 @@ module Network.AWS.IAM.GetSAMLProvider
     -- * Response Lenses
     getSAMLProviderResponse_createDate,
     getSAMLProviderResponse_validUntil,
-    getSAMLProviderResponse_sAMLMetadataDocument,
     getSAMLProviderResponse_tags,
+    getSAMLProviderResponse_sAMLMetadataDocument,
     getSAMLProviderResponse_httpStatus,
   )
 where
@@ -110,10 +110,10 @@ instance Core.AWSRequest GetSAMLProvider where
           GetSAMLProviderResponse'
             Prelude.<$> (x Core..@? "CreateDate")
             Prelude.<*> (x Core..@? "ValidUntil")
-            Prelude.<*> (x Core..@? "SAMLMetadataDocument")
             Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "SAMLMetadataDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,15 +145,15 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     createDate :: Prelude.Maybe Core.ISO8601,
     -- | The expiration date and time for the SAML provider.
     validUntil :: Prelude.Maybe Core.ISO8601,
-    -- | The XML metadata document that includes information about an identity
-    -- provider.
-    sAMLMetadataDocument :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that are attached to the specified IAM SAML provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | The XML metadata document that includes information about an identity
+    -- provider.
+    sAMLMetadataDocument :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,14 +171,14 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 --
 -- 'validUntil', 'getSAMLProviderResponse_validUntil' - The expiration date and time for the SAML provider.
 --
--- 'sAMLMetadataDocument', 'getSAMLProviderResponse_sAMLMetadataDocument' - The XML metadata document that includes information about an identity
--- provider.
---
 -- 'tags', 'getSAMLProviderResponse_tags' - A list of tags that are attached to the specified IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
+--
+-- 'sAMLMetadataDocument', 'getSAMLProviderResponse_sAMLMetadataDocument' - The XML metadata document that includes information about an identity
+-- provider.
 --
 -- 'httpStatus', 'getSAMLProviderResponse_httpStatus' - The response's http status code.
 newGetSAMLProviderResponse ::
@@ -190,8 +190,8 @@ newGetSAMLProviderResponse pHttpStatus_ =
     { createDate =
         Prelude.Nothing,
       validUntil = Prelude.Nothing,
-      sAMLMetadataDocument = Prelude.Nothing,
       tags = Prelude.Nothing,
+      sAMLMetadataDocument = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -203,18 +203,18 @@ getSAMLProviderResponse_createDate = Lens.lens (\GetSAMLProviderResponse' {creat
 getSAMLProviderResponse_validUntil :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.UTCTime)
 getSAMLProviderResponse_validUntil = Lens.lens (\GetSAMLProviderResponse' {validUntil} -> validUntil) (\s@GetSAMLProviderResponse' {} a -> s {validUntil = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Core._Time
 
--- | The XML metadata document that includes information about an identity
--- provider.
-getSAMLProviderResponse_sAMLMetadataDocument :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.Text)
-getSAMLProviderResponse_sAMLMetadataDocument = Lens.lens (\GetSAMLProviderResponse' {sAMLMetadataDocument} -> sAMLMetadataDocument) (\s@GetSAMLProviderResponse' {} a -> s {sAMLMetadataDocument = a} :: GetSAMLProviderResponse)
-
 -- | A list of tags that are attached to the specified IAM SAML provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
 getSAMLProviderResponse_tags :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe [Tag])
-getSAMLProviderResponse_tags = Lens.lens (\GetSAMLProviderResponse' {tags} -> tags) (\s@GetSAMLProviderResponse' {} a -> s {tags = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Lens._Coerce
+getSAMLProviderResponse_tags = Lens.lens (\GetSAMLProviderResponse' {tags} -> tags) (\s@GetSAMLProviderResponse' {} a -> s {tags = a} :: GetSAMLProviderResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The XML metadata document that includes information about an identity
+-- provider.
+getSAMLProviderResponse_sAMLMetadataDocument :: Lens.Lens' GetSAMLProviderResponse (Prelude.Maybe Prelude.Text)
+getSAMLProviderResponse_sAMLMetadataDocument = Lens.lens (\GetSAMLProviderResponse' {sAMLMetadataDocument} -> sAMLMetadataDocument) (\s@GetSAMLProviderResponse' {} a -> s {sAMLMetadataDocument = a} :: GetSAMLProviderResponse)
 
 -- | The response's http status code.
 getSAMLProviderResponse_httpStatus :: Lens.Lens' GetSAMLProviderResponse Prelude.Int

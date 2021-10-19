@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchDetectEntitiesItemResult' smart constructor.
 data BatchDetectEntitiesItemResult = BatchDetectEntitiesItemResult'
-  { -- | The zero-based index of the document in the input list.
-    index :: Prelude.Maybe Prelude.Int,
-    -- | One or more Entity objects, one for each entity detected in the
+  { -- | One or more Entity objects, one for each entity detected in the
     -- document.
-    entities :: Prelude.Maybe [Entity]
+    entities :: Prelude.Maybe [Entity],
+    -- | The zero-based index of the document in the input list.
+    index :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data BatchDetectEntitiesItemResult = BatchDetectEntitiesItemResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'index', 'batchDetectEntitiesItemResult_index' - The zero-based index of the document in the input list.
---
 -- 'entities', 'batchDetectEntitiesItemResult_entities' - One or more Entity objects, one for each entity detected in the
 -- document.
+--
+-- 'index', 'batchDetectEntitiesItemResult_index' - The zero-based index of the document in the input list.
 newBatchDetectEntitiesItemResult ::
   BatchDetectEntitiesItemResult
 newBatchDetectEntitiesItemResult =
   BatchDetectEntitiesItemResult'
-    { index =
+    { entities =
         Prelude.Nothing,
-      entities = Prelude.Nothing
+      index = Prelude.Nothing
     }
-
--- | The zero-based index of the document in the input list.
-batchDetectEntitiesItemResult_index :: Lens.Lens' BatchDetectEntitiesItemResult (Prelude.Maybe Prelude.Int)
-batchDetectEntitiesItemResult_index = Lens.lens (\BatchDetectEntitiesItemResult' {index} -> index) (\s@BatchDetectEntitiesItemResult' {} a -> s {index = a} :: BatchDetectEntitiesItemResult)
 
 -- | One or more Entity objects, one for each entity detected in the
 -- document.
 batchDetectEntitiesItemResult_entities :: Lens.Lens' BatchDetectEntitiesItemResult (Prelude.Maybe [Entity])
-batchDetectEntitiesItemResult_entities = Lens.lens (\BatchDetectEntitiesItemResult' {entities} -> entities) (\s@BatchDetectEntitiesItemResult' {} a -> s {entities = a} :: BatchDetectEntitiesItemResult) Prelude.. Lens.mapping Lens._Coerce
+batchDetectEntitiesItemResult_entities = Lens.lens (\BatchDetectEntitiesItemResult' {entities} -> entities) (\s@BatchDetectEntitiesItemResult' {} a -> s {entities = a} :: BatchDetectEntitiesItemResult) Prelude.. Lens.mapping Lens.coerced
+
+-- | The zero-based index of the document in the input list.
+batchDetectEntitiesItemResult_index :: Lens.Lens' BatchDetectEntitiesItemResult (Prelude.Maybe Prelude.Int)
+batchDetectEntitiesItemResult_index = Lens.lens (\BatchDetectEntitiesItemResult' {index} -> index) (\s@BatchDetectEntitiesItemResult' {} a -> s {index = a} :: BatchDetectEntitiesItemResult)
 
 instance Core.FromJSON BatchDetectEntitiesItemResult where
   parseJSON =
@@ -73,8 +73,8 @@ instance Core.FromJSON BatchDetectEntitiesItemResult where
       "BatchDetectEntitiesItemResult"
       ( \x ->
           BatchDetectEntitiesItemResult'
-            Prelude.<$> (x Core..:? "Index")
-            Prelude.<*> (x Core..:? "Entities" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Entities" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Index")
       )
 
 instance

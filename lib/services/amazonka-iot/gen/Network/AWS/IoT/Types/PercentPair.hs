@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPercentPair' smart constructor.
 data PercentPair = PercentPair'
-  { -- | The percentile.
-    percent :: Prelude.Maybe Prelude.Double,
-    -- | The value of the percentile.
-    value :: Prelude.Maybe Prelude.Double
+  { -- | The value of the percentile.
+    value :: Prelude.Maybe Prelude.Double,
+    -- | The percentile.
+    percent :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data PercentPair = PercentPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'percent', 'percentPair_percent' - The percentile.
---
 -- 'value', 'percentPair_value' - The value of the percentile.
+--
+-- 'percent', 'percentPair_percent' - The percentile.
 newPercentPair ::
   PercentPair
 newPercentPair =
   PercentPair'
-    { percent = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      percent = Prelude.Nothing
     }
-
--- | The percentile.
-percentPair_percent :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
-percentPair_percent = Lens.lens (\PercentPair' {percent} -> percent) (\s@PercentPair' {} a -> s {percent = a} :: PercentPair)
 
 -- | The value of the percentile.
 percentPair_value :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
 percentPair_value = Lens.lens (\PercentPair' {value} -> value) (\s@PercentPair' {} a -> s {value = a} :: PercentPair)
+
+-- | The percentile.
+percentPair_percent :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
+percentPair_percent = Lens.lens (\PercentPair' {percent} -> percent) (\s@PercentPair' {} a -> s {percent = a} :: PercentPair)
 
 instance Core.FromJSON PercentPair where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON PercentPair where
       "PercentPair"
       ( \x ->
           PercentPair'
-            Prelude.<$> (x Core..:? "percent")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "percent")
       )
 
 instance Prelude.Hashable PercentPair

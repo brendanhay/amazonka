@@ -160,7 +160,7 @@ newListMobileDeviceAccessRulesResponse pHttpStatus_ =
 -- | The list of mobile device access rules that exist under the specified
 -- Amazon WorkMail organization.
 listMobileDeviceAccessRulesResponse_rules :: Lens.Lens' ListMobileDeviceAccessRulesResponse (Prelude.Maybe [MobileDeviceAccessRule])
-listMobileDeviceAccessRulesResponse_rules = Lens.lens (\ListMobileDeviceAccessRulesResponse' {rules} -> rules) (\s@ListMobileDeviceAccessRulesResponse' {} a -> s {rules = a} :: ListMobileDeviceAccessRulesResponse) Prelude.. Lens.mapping Lens._Coerce
+listMobileDeviceAccessRulesResponse_rules = Lens.lens (\ListMobileDeviceAccessRulesResponse' {rules} -> rules) (\s@ListMobileDeviceAccessRulesResponse' {} a -> s {rules = a} :: ListMobileDeviceAccessRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listMobileDeviceAccessRulesResponse_httpStatus :: Lens.Lens' ListMobileDeviceAccessRulesResponse Prelude.Int

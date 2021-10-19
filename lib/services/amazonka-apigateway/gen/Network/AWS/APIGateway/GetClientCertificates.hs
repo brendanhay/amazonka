@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetClientCertificates
     newGetClientCertificates,
 
     -- * Request Lenses
-    getClientCertificates_position,
     getClientCertificates_limit,
+    getClientCertificates_position,
 
     -- * Destructuring the Response
     GetClientCertificatesResponse (..),
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetClientCertificates' smart constructor.
 data GetClientCertificates = GetClientCertificates'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data GetClientCertificates = GetClientCertificates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getClientCertificates_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getClientCertificates_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getClientCertificates_position' - The current pagination position in the paged result set.
 newGetClientCertificates ::
   GetClientCertificates
 newGetClientCertificates =
   GetClientCertificates'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing
     }
-
--- | The current pagination position in the paged result set.
-getClientCertificates_position :: Lens.Lens' GetClientCertificates (Prelude.Maybe Prelude.Text)
-getClientCertificates_position = Lens.lens (\GetClientCertificates' {position} -> position) (\s@GetClientCertificates' {} a -> s {position = a} :: GetClientCertificates)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getClientCertificates_limit :: Lens.Lens' GetClientCertificates (Prelude.Maybe Prelude.Int)
 getClientCertificates_limit = Lens.lens (\GetClientCertificates' {limit} -> limit) (\s@GetClientCertificates' {} a -> s {limit = a} :: GetClientCertificates)
+
+-- | The current pagination position in the paged result set.
+getClientCertificates_position :: Lens.Lens' GetClientCertificates (Prelude.Maybe Prelude.Text)
+getClientCertificates_position = Lens.lens (\GetClientCertificates' {position} -> position) (\s@GetClientCertificates' {} a -> s {position = a} :: GetClientCertificates)
 
 instance Core.AWSPager GetClientCertificates where
   page rq rs
@@ -147,7 +147,7 @@ instance Core.ToPath GetClientCertificates where
 instance Core.ToQuery GetClientCertificates where
   toQuery GetClientCertificates' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of ClientCertificate resources.
 --
@@ -190,7 +190,7 @@ newGetClientCertificatesResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getClientCertificatesResponse_items :: Lens.Lens' GetClientCertificatesResponse (Prelude.Maybe [ClientCertificate])
-getClientCertificatesResponse_items = Lens.lens (\GetClientCertificatesResponse' {items} -> items) (\s@GetClientCertificatesResponse' {} a -> s {items = a} :: GetClientCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
+getClientCertificatesResponse_items = Lens.lens (\GetClientCertificatesResponse' {items} -> items) (\s@GetClientCertificatesResponse' {} a -> s {items = a} :: GetClientCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getClientCertificatesResponse_position :: Lens.Lens' GetClientCertificatesResponse (Prelude.Maybe Prelude.Text)

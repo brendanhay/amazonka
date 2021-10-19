@@ -213,7 +213,7 @@ newListGroupsResponse pHttpStatus_ =
 
 -- | The group objects for the groups.
 listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [GroupType])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the

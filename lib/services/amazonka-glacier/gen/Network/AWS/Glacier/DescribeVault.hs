@@ -57,11 +57,11 @@ module Network.AWS.Glacier.DescribeVault
     newDescribeVaultOutput,
 
     -- * Response Lenses
-    describeVaultOutput_lastInventoryDate,
-    describeVaultOutput_creationDate,
     describeVaultOutput_vaultName,
-    describeVaultOutput_vaultARN,
     describeVaultOutput_sizeInBytes,
+    describeVaultOutput_lastInventoryDate,
+    describeVaultOutput_vaultARN,
+    describeVaultOutput_creationDate,
     describeVaultOutput_numberOfArchives,
   )
 where

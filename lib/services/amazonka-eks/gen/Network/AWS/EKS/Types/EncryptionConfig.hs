@@ -61,7 +61,7 @@ newEncryptionConfig =
 -- | Specifies the resources to be encrypted. The only supported value is
 -- \"secrets\".
 encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
-encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens._Coerce
+encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | Key Management Service (KMS) key. Either the ARN or the alias can be
 -- used.

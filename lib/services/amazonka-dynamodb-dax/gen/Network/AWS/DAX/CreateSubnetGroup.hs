@@ -93,7 +93,7 @@ createSubnetGroup_subnetGroupName = Lens.lens (\CreateSubnetGroup' {subnetGroupN
 
 -- | A list of VPC subnet IDs for the subnet group.
 createSubnetGroup_subnetIds :: Lens.Lens' CreateSubnetGroup [Prelude.Text]
-createSubnetGroup_subnetIds = Lens.lens (\CreateSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateSubnetGroup' {} a -> s {subnetIds = a} :: CreateSubnetGroup) Prelude.. Lens._Coerce
+createSubnetGroup_subnetIds = Lens.lens (\CreateSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateSubnetGroup' {} a -> s {subnetIds = a} :: CreateSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateSubnetGroup where
   type

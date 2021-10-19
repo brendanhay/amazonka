@@ -207,7 +207,7 @@ newListOfferingTransactionsResponse pHttpStatus_ =
 -- | The audit log of subscriptions you have purchased and modified through
 -- AWS Device Farm.
 listOfferingTransactionsResponse_offeringTransactions :: Lens.Lens' ListOfferingTransactionsResponse (Prelude.Maybe [OfferingTransaction])
-listOfferingTransactionsResponse_offeringTransactions = Lens.lens (\ListOfferingTransactionsResponse' {offeringTransactions} -> offeringTransactions) (\s@ListOfferingTransactionsResponse' {} a -> s {offeringTransactions = a} :: ListOfferingTransactionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listOfferingTransactionsResponse_offeringTransactions = Lens.lens (\ListOfferingTransactionsResponse' {offeringTransactions} -> offeringTransactions) (\s@ListOfferingTransactionsResponse' {} a -> s {offeringTransactions = a} :: ListOfferingTransactionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the

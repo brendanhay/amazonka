@@ -254,7 +254,7 @@ describeNotificationsForBudgetResponse_nextToken = Lens.lens (\DescribeNotificat
 
 -- | A list of notifications that are associated with a budget.
 describeNotificationsForBudgetResponse_notifications :: Lens.Lens' DescribeNotificationsForBudgetResponse (Prelude.Maybe [Notification])
-describeNotificationsForBudgetResponse_notifications = Lens.lens (\DescribeNotificationsForBudgetResponse' {notifications} -> notifications) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse) Prelude.. Lens.mapping Lens._Coerce
+describeNotificationsForBudgetResponse_notifications = Lens.lens (\DescribeNotificationsForBudgetResponse' {notifications} -> notifications) (\s@DescribeNotificationsForBudgetResponse' {} a -> s {notifications = a} :: DescribeNotificationsForBudgetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNotificationsForBudgetResponse_httpStatus :: Lens.Lens' DescribeNotificationsForBudgetResponse Prelude.Int

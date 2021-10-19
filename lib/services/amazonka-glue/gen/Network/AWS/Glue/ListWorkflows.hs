@@ -171,7 +171,7 @@ listWorkflowsResponse_nextToken = Lens.lens (\ListWorkflowsResponse' {nextToken}
 
 -- | List of names of workflows in the account.
 listWorkflowsResponse_workflows :: Lens.Lens' ListWorkflowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listWorkflowsResponse_workflows = Lens.lens (\ListWorkflowsResponse' {workflows} -> workflows) (\s@ListWorkflowsResponse' {} a -> s {workflows = a} :: ListWorkflowsResponse) Prelude.. Lens.mapping Lens._Coerce
+listWorkflowsResponse_workflows = Lens.lens (\ListWorkflowsResponse' {workflows} -> workflows) (\s@ListWorkflowsResponse' {} a -> s {workflows = a} :: ListWorkflowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWorkflowsResponse_httpStatus :: Lens.Lens' ListWorkflowsResponse Prelude.Int

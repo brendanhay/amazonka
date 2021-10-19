@@ -34,10 +34,10 @@ data Variable = Variable'
   { -- | The value of the variable as a structure that specifies an output file
     -- URI.
     outputFileUriValue :: Prelude.Maybe OutputFileUriValue,
-    -- | The value of the variable as a string.
-    stringValue :: Prelude.Maybe Prelude.Text,
     -- | The value of the variable as a double (numeric).
     doubleValue :: Prelude.Maybe Prelude.Double,
+    -- | The value of the variable as a string.
+    stringValue :: Prelude.Maybe Prelude.Text,
     -- | The value of the variable as a structure that specifies a dataset
     -- content version.
     datasetContentVersionValue :: Prelude.Maybe DatasetContentVersionValue,
@@ -57,9 +57,9 @@ data Variable = Variable'
 -- 'outputFileUriValue', 'variable_outputFileUriValue' - The value of the variable as a structure that specifies an output file
 -- URI.
 --
--- 'stringValue', 'variable_stringValue' - The value of the variable as a string.
---
 -- 'doubleValue', 'variable_doubleValue' - The value of the variable as a double (numeric).
+--
+-- 'stringValue', 'variable_stringValue' - The value of the variable as a string.
 --
 -- 'datasetContentVersionValue', 'variable_datasetContentVersionValue' - The value of the variable as a structure that specifies a dataset
 -- content version.
@@ -72,8 +72,8 @@ newVariable ::
 newVariable pName_ =
   Variable'
     { outputFileUriValue = Prelude.Nothing,
-      stringValue = Prelude.Nothing,
       doubleValue = Prelude.Nothing,
+      stringValue = Prelude.Nothing,
       datasetContentVersionValue = Prelude.Nothing,
       name = pName_
     }
@@ -83,13 +83,13 @@ newVariable pName_ =
 variable_outputFileUriValue :: Lens.Lens' Variable (Prelude.Maybe OutputFileUriValue)
 variable_outputFileUriValue = Lens.lens (\Variable' {outputFileUriValue} -> outputFileUriValue) (\s@Variable' {} a -> s {outputFileUriValue = a} :: Variable)
 
--- | The value of the variable as a string.
-variable_stringValue :: Lens.Lens' Variable (Prelude.Maybe Prelude.Text)
-variable_stringValue = Lens.lens (\Variable' {stringValue} -> stringValue) (\s@Variable' {} a -> s {stringValue = a} :: Variable)
-
 -- | The value of the variable as a double (numeric).
 variable_doubleValue :: Lens.Lens' Variable (Prelude.Maybe Prelude.Double)
 variable_doubleValue = Lens.lens (\Variable' {doubleValue} -> doubleValue) (\s@Variable' {} a -> s {doubleValue = a} :: Variable)
+
+-- | The value of the variable as a string.
+variable_stringValue :: Lens.Lens' Variable (Prelude.Maybe Prelude.Text)
+variable_stringValue = Lens.lens (\Variable' {stringValue} -> stringValue) (\s@Variable' {} a -> s {stringValue = a} :: Variable)
 
 -- | The value of the variable as a structure that specifies a dataset
 -- content version.
@@ -107,8 +107,8 @@ instance Core.FromJSON Variable where
       ( \x ->
           Variable'
             Prelude.<$> (x Core..:? "outputFileUriValue")
-            Prelude.<*> (x Core..:? "stringValue")
             Prelude.<*> (x Core..:? "doubleValue")
+            Prelude.<*> (x Core..:? "stringValue")
             Prelude.<*> (x Core..:? "datasetContentVersionValue")
             Prelude.<*> (x Core..: "name")
       )
@@ -123,8 +123,8 @@ instance Core.ToJSON Variable where
       ( Prelude.catMaybes
           [ ("outputFileUriValue" Core..=)
               Prelude.<$> outputFileUriValue,
-            ("stringValue" Core..=) Prelude.<$> stringValue,
             ("doubleValue" Core..=) Prelude.<$> doubleValue,
+            ("stringValue" Core..=) Prelude.<$> stringValue,
             ("datasetContentVersionValue" Core..=)
               Prelude.<$> datasetContentVersionValue,
             Prelude.Just ("name" Core..= name)

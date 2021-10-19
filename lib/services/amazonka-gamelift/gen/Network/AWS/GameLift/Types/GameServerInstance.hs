@@ -48,6 +48,10 @@ data GameServerInstance = GameServerInstance'
     -- This ID is available in the instance metadata. EC2 instance IDs use a
     -- 17-character format, for example: @i-1234567890abcdef0@.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | A developer-defined identifier for the game server group that includes
+    -- the game server instance. The name is unique for each Region in each AWS
+    -- account.
+    gameServerGroupName :: Prelude.Maybe Prelude.Text,
     -- | Current status of the game server instance.
     --
     -- -   __ACTIVE__ -- The instance is viable for hosting game servers.
@@ -65,11 +69,7 @@ data GameServerInstance = GameServerInstance'
     instanceStatus :: Prelude.Maybe GameServerInstanceStatus,
     -- | A generated unique identifier for the game server group that includes
     -- the game server instance.
-    gameServerGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | A developer-defined identifier for the game server group that includes
-    -- the game server instance. The name is unique for each Region in each AWS
-    -- account.
-    gameServerGroupName :: Prelude.Maybe Prelude.Text
+    gameServerGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,6 +84,10 @@ data GameServerInstance = GameServerInstance'
 -- 'instanceId', 'gameServerInstance_instanceId' - The unique identifier for the instance where the game server is running.
 -- This ID is available in the instance metadata. EC2 instance IDs use a
 -- 17-character format, for example: @i-1234567890abcdef0@.
+--
+-- 'gameServerGroupName', 'gameServerInstance_gameServerGroupName' - A developer-defined identifier for the game server group that includes
+-- the game server instance. The name is unique for each Region in each AWS
+-- account.
 --
 -- 'instanceStatus', 'gameServerInstance_instanceStatus' - Current status of the game server instance.
 --
@@ -102,18 +106,14 @@ data GameServerInstance = GameServerInstance'
 --
 -- 'gameServerGroupArn', 'gameServerInstance_gameServerGroupArn' - A generated unique identifier for the game server group that includes
 -- the game server instance.
---
--- 'gameServerGroupName', 'gameServerInstance_gameServerGroupName' - A developer-defined identifier for the game server group that includes
--- the game server instance. The name is unique for each Region in each AWS
--- account.
 newGameServerInstance ::
   GameServerInstance
 newGameServerInstance =
   GameServerInstance'
     { instanceId = Prelude.Nothing,
+      gameServerGroupName = Prelude.Nothing,
       instanceStatus = Prelude.Nothing,
-      gameServerGroupArn = Prelude.Nothing,
-      gameServerGroupName = Prelude.Nothing
+      gameServerGroupArn = Prelude.Nothing
     }
 
 -- | The unique identifier for the instance where the game server is running.
@@ -121,6 +121,12 @@ newGameServerInstance =
 -- 17-character format, for example: @i-1234567890abcdef0@.
 gameServerInstance_instanceId :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
 gameServerInstance_instanceId = Lens.lens (\GameServerInstance' {instanceId} -> instanceId) (\s@GameServerInstance' {} a -> s {instanceId = a} :: GameServerInstance)
+
+-- | A developer-defined identifier for the game server group that includes
+-- the game server instance. The name is unique for each Region in each AWS
+-- account.
+gameServerInstance_gameServerGroupName :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
+gameServerInstance_gameServerGroupName = Lens.lens (\GameServerInstance' {gameServerGroupName} -> gameServerGroupName) (\s@GameServerInstance' {} a -> s {gameServerGroupName = a} :: GameServerInstance)
 
 -- | Current status of the game server instance.
 --
@@ -144,12 +150,6 @@ gameServerInstance_instanceStatus = Lens.lens (\GameServerInstance' {instanceSta
 gameServerInstance_gameServerGroupArn :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
 gameServerInstance_gameServerGroupArn = Lens.lens (\GameServerInstance' {gameServerGroupArn} -> gameServerGroupArn) (\s@GameServerInstance' {} a -> s {gameServerGroupArn = a} :: GameServerInstance)
 
--- | A developer-defined identifier for the game server group that includes
--- the game server instance. The name is unique for each Region in each AWS
--- account.
-gameServerInstance_gameServerGroupName :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
-gameServerInstance_gameServerGroupName = Lens.lens (\GameServerInstance' {gameServerGroupName} -> gameServerGroupName) (\s@GameServerInstance' {} a -> s {gameServerGroupName = a} :: GameServerInstance)
-
 instance Core.FromJSON GameServerInstance where
   parseJSON =
     Core.withObject
@@ -157,9 +157,9 @@ instance Core.FromJSON GameServerInstance where
       ( \x ->
           GameServerInstance'
             Prelude.<$> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "GameServerGroupName")
             Prelude.<*> (x Core..:? "InstanceStatus")
             Prelude.<*> (x Core..:? "GameServerGroupArn")
-            Prelude.<*> (x Core..:? "GameServerGroupName")
       )
 
 instance Prelude.Hashable GameServerInstance

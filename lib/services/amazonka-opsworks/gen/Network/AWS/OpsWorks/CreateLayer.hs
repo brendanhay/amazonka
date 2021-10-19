@@ -278,7 +278,7 @@ createLayer_customInstanceProfileArn = Lens.lens (\CreateLayer' {customInstanceP
 
 -- | An array containing the layer custom security group IDs.
 createLayer_customSecurityGroupIds :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
-createLayer_customSecurityGroupIds = Lens.lens (\CreateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@CreateLayer' {} a -> s {customSecurityGroupIds = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+createLayer_customSecurityGroupIds = Lens.lens (\CreateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@CreateLayer' {} a -> s {customSecurityGroupIds = a} :: CreateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -318,7 +318,7 @@ createLayer_customJson = Lens.lens (\CreateLayer' {customJson} -> customJson) (\
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 createLayer_volumeConfigurations :: Lens.Lens' CreateLayer (Prelude.Maybe [VolumeConfiguration])
-createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@CreateLayer' {} a -> s {volumeConfigurations = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@CreateLayer' {} a -> s {volumeConfigurations = a} :: CreateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to disable auto healing for the layer.
 createLayer_enableAutoHealing :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
@@ -326,7 +326,7 @@ createLayer_enableAutoHealing = Lens.lens (\CreateLayer' {enableAutoHealing} -> 
 
 -- | An array of @Package@ objects that describes the layer packages.
 createLayer_packages :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
-createLayer_packages = Lens.lens (\CreateLayer' {packages} -> packages) (\s@CreateLayer' {} a -> s {packages = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+createLayer_packages = Lens.lens (\CreateLayer' {packages} -> packages) (\s@CreateLayer' {} a -> s {packages = a} :: CreateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
@@ -334,7 +334,7 @@ createLayer_packages = Lens.lens (\CreateLayer' {packages} -> packages) (\s@Crea
 -- To create a cluster layer, set the @EcsClusterArn@ attribute to the
 -- cluster\'s ARN.
 createLayer_attributes :: Lens.Lens' CreateLayer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
-createLayer_attributes = Lens.lens (\CreateLayer' {attributes} -> attributes) (\s@CreateLayer' {} a -> s {attributes = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+createLayer_attributes = Lens.lens (\CreateLayer' {attributes} -> attributes) (\s@CreateLayer' {} a -> s {attributes = a} :: CreateLayer) Prelude.. Lens.mapping Lens.coerced
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see

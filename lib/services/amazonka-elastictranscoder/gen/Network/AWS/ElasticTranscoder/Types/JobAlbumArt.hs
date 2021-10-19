@@ -108,7 +108,7 @@ jobAlbumArt_mergePolicy = Lens.lens (\JobAlbumArt' {mergePolicy} -> mergePolicy)
 -- associated with an audio file, to a maximum of 20. Valid formats are
 -- @.jpg@ and @.png@
 jobAlbumArt_artwork :: Lens.Lens' JobAlbumArt (Prelude.Maybe [Artwork])
-jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Prelude.. Lens.mapping Lens._Coerce
+jobAlbumArt_artwork = Lens.lens (\JobAlbumArt' {artwork} -> artwork) (\s@JobAlbumArt' {} a -> s {artwork = a} :: JobAlbumArt) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON JobAlbumArt where
   parseJSON =

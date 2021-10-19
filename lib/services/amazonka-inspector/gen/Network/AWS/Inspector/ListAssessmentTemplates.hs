@@ -31,9 +31,9 @@ module Network.AWS.Inspector.ListAssessmentTemplates
 
     -- * Request Lenses
     listAssessmentTemplates_nextToken,
+    listAssessmentTemplates_filter,
     listAssessmentTemplates_maxResults,
     listAssessmentTemplates_assessmentTargetArns,
-    listAssessmentTemplates_filter,
 
     -- * Destructuring the Response
     ListAssessmentTemplatesResponse (..),
@@ -61,19 +61,19 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
     -- __nextToken__ in the request with the value of __NextToken__ from the
     -- previous response to continue listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | A list of ARNs that specifies the assessment targets whose assessment
-    -- templates you want to list.
-    assessmentTargetArns :: Prelude.Maybe [Prelude.Text],
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
     -- For a record to match a filter, all specified filter attributes must
     -- match. When multiple values are specified for a filter attribute, any of
     -- the values can match.
-    filter' :: Prelude.Maybe AssessmentTemplateFilter
+    filter' :: Prelude.Maybe AssessmentTemplateFilter,
+    -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | A list of ARNs that specifies the assessment targets whose assessment
+    -- templates you want to list.
+    assessmentTargetArns :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,27 +91,27 @@ data ListAssessmentTemplates = ListAssessmentTemplates'
 -- __nextToken__ in the request with the value of __NextToken__ from the
 -- previous response to continue listing data.
 --
--- 'maxResults', 'listAssessmentTemplates_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
---
--- 'assessmentTargetArns', 'listAssessmentTemplates_assessmentTargetArns' - A list of ARNs that specifies the assessment targets whose assessment
--- templates you want to list.
---
 -- 'filter'', 'listAssessmentTemplates_filter' - You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
 -- For a record to match a filter, all specified filter attributes must
 -- match. When multiple values are specified for a filter attribute, any of
 -- the values can match.
+--
+-- 'maxResults', 'listAssessmentTemplates_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+--
+-- 'assessmentTargetArns', 'listAssessmentTemplates_assessmentTargetArns' - A list of ARNs that specifies the assessment targets whose assessment
+-- templates you want to list.
 newListAssessmentTemplates ::
   ListAssessmentTemplates
 newListAssessmentTemplates =
   ListAssessmentTemplates'
     { nextToken =
         Prelude.Nothing,
+      filter' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      assessmentTargetArns = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      assessmentTargetArns = Prelude.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -122,16 +122,6 @@ newListAssessmentTemplates =
 listAssessmentTemplates_nextToken :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe Prelude.Text)
 listAssessmentTemplates_nextToken = Lens.lens (\ListAssessmentTemplates' {nextToken} -> nextToken) (\s@ListAssessmentTemplates' {} a -> s {nextToken = a} :: ListAssessmentTemplates)
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
-listAssessmentTemplates_maxResults :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe Prelude.Int)
-listAssessmentTemplates_maxResults = Lens.lens (\ListAssessmentTemplates' {maxResults} -> maxResults) (\s@ListAssessmentTemplates' {} a -> s {maxResults = a} :: ListAssessmentTemplates)
-
--- | A list of ARNs that specifies the assessment targets whose assessment
--- templates you want to list.
-listAssessmentTemplates_assessmentTargetArns :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe [Prelude.Text])
-listAssessmentTemplates_assessmentTargetArns = Lens.lens (\ListAssessmentTemplates' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTemplates' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTemplates) Prelude.. Lens.mapping Lens._Coerce
-
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
@@ -140,6 +130,16 @@ listAssessmentTemplates_assessmentTargetArns = Lens.lens (\ListAssessmentTemplat
 -- the values can match.
 listAssessmentTemplates_filter :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe AssessmentTemplateFilter)
 listAssessmentTemplates_filter = Lens.lens (\ListAssessmentTemplates' {filter'} -> filter') (\s@ListAssessmentTemplates' {} a -> s {filter' = a} :: ListAssessmentTemplates)
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+listAssessmentTemplates_maxResults :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe Prelude.Int)
+listAssessmentTemplates_maxResults = Lens.lens (\ListAssessmentTemplates' {maxResults} -> maxResults) (\s@ListAssessmentTemplates' {} a -> s {maxResults = a} :: ListAssessmentTemplates)
+
+-- | A list of ARNs that specifies the assessment targets whose assessment
+-- templates you want to list.
+listAssessmentTemplates_assessmentTargetArns :: Lens.Lens' ListAssessmentTemplates (Prelude.Maybe [Prelude.Text])
+listAssessmentTemplates_assessmentTargetArns = Lens.lens (\ListAssessmentTemplates' {assessmentTargetArns} -> assessmentTargetArns) (\s@ListAssessmentTemplates' {} a -> s {assessmentTargetArns = a} :: ListAssessmentTemplates) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSPager ListAssessmentTemplates where
   page rq rs
@@ -202,10 +202,10 @@ instance Core.ToJSON ListAssessmentTemplates where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filter" Core..=) Prelude.<$> filter',
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("assessmentTargetArns" Core..=)
-              Prelude.<$> assessmentTargetArns,
-            ("filter" Core..=) Prelude.<$> filter'
+              Prelude.<$> assessmentTargetArns
           ]
       )
 
@@ -273,7 +273,7 @@ listAssessmentTemplatesResponse_httpStatus = Lens.lens (\ListAssessmentTemplates
 -- | A list of ARNs that specifies the assessment templates returned by the
 -- action.
 listAssessmentTemplatesResponse_assessmentTemplateArns :: Lens.Lens' ListAssessmentTemplatesResponse [Prelude.Text]
-listAssessmentTemplatesResponse_assessmentTemplateArns = Lens.lens (\ListAssessmentTemplatesResponse' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@ListAssessmentTemplatesResponse' {} a -> s {assessmentTemplateArns = a} :: ListAssessmentTemplatesResponse) Prelude.. Lens._Coerce
+listAssessmentTemplatesResponse_assessmentTemplateArns = Lens.lens (\ListAssessmentTemplatesResponse' {assessmentTemplateArns} -> assessmentTemplateArns) (\s@ListAssessmentTemplatesResponse' {} a -> s {assessmentTemplateArns = a} :: ListAssessmentTemplatesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

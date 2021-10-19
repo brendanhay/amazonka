@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEC2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
-  { -- | The tag filter key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The tag filter value.
+  { -- | The tag filter value.
     value :: Prelude.Maybe Prelude.Text,
+    -- | The tag filter key.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The tag filter type:
     --
     -- -   @KEY_ONLY@: Key only.
@@ -51,9 +51,9 @@ data EC2TagFilter = EC2TagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'eC2TagFilter_key' - The tag filter key.
---
 -- 'value', 'eC2TagFilter_value' - The tag filter value.
+--
+-- 'key', 'eC2TagFilter_key' - The tag filter key.
 --
 -- 'type'', 'eC2TagFilter_type' - The tag filter type:
 --
@@ -66,18 +66,18 @@ newEC2TagFilter ::
   EC2TagFilter
 newEC2TagFilter =
   EC2TagFilter'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing,
       type' = Prelude.Nothing
     }
-
--- | The tag filter key.
-eC2TagFilter_key :: Lens.Lens' EC2TagFilter (Prelude.Maybe Prelude.Text)
-eC2TagFilter_key = Lens.lens (\EC2TagFilter' {key} -> key) (\s@EC2TagFilter' {} a -> s {key = a} :: EC2TagFilter)
 
 -- | The tag filter value.
 eC2TagFilter_value :: Lens.Lens' EC2TagFilter (Prelude.Maybe Prelude.Text)
 eC2TagFilter_value = Lens.lens (\EC2TagFilter' {value} -> value) (\s@EC2TagFilter' {} a -> s {value = a} :: EC2TagFilter)
+
+-- | The tag filter key.
+eC2TagFilter_key :: Lens.Lens' EC2TagFilter (Prelude.Maybe Prelude.Text)
+eC2TagFilter_key = Lens.lens (\EC2TagFilter' {key} -> key) (\s@EC2TagFilter' {} a -> s {key = a} :: EC2TagFilter)
 
 -- | The tag filter type:
 --
@@ -95,8 +95,8 @@ instance Core.FromJSON EC2TagFilter where
       "EC2TagFilter"
       ( \x ->
           EC2TagFilter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "Type")
       )
 
@@ -108,8 +108,8 @@ instance Core.ToJSON EC2TagFilter where
   toJSON EC2TagFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value,
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key,
             ("Type" Core..=) Prelude.<$> type'
           ]
       )

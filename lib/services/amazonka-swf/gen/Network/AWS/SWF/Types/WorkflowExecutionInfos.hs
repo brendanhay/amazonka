@@ -79,7 +79,7 @@ workflowExecutionInfos_nextPageToken = Lens.lens (\WorkflowExecutionInfos' {next
 
 -- | The list of workflow information structures.
 workflowExecutionInfos_executionInfos :: Lens.Lens' WorkflowExecutionInfos [WorkflowExecutionInfo]
-workflowExecutionInfos_executionInfos = Lens.lens (\WorkflowExecutionInfos' {executionInfos} -> executionInfos) (\s@WorkflowExecutionInfos' {} a -> s {executionInfos = a} :: WorkflowExecutionInfos) Prelude.. Lens._Coerce
+workflowExecutionInfos_executionInfos = Lens.lens (\WorkflowExecutionInfos' {executionInfos} -> executionInfos) (\s@WorkflowExecutionInfos' {} a -> s {executionInfos = a} :: WorkflowExecutionInfos) Prelude.. Lens.coerced
 
 instance Core.FromJSON WorkflowExecutionInfos where
   parseJSON =

@@ -77,7 +77,7 @@ newDescribeFindings ::
 newDescribeFindings pFindingArns_ =
   DescribeFindings'
     { locale = Prelude.Nothing,
-      findingArns = Lens._Coerce Lens.# pFindingArns_
+      findingArns = Lens.coerced Lens.# pFindingArns_
     }
 
 -- | The locale into which you want to translate a finding description,
@@ -87,7 +87,7 @@ describeFindings_locale = Lens.lens (\DescribeFindings' {locale} -> locale) (\s@
 
 -- | The ARN that specifies the finding that you want to describe.
 describeFindings_findingArns :: Lens.Lens' DescribeFindings (Prelude.NonEmpty Prelude.Text)
-describeFindings_findingArns = Lens.lens (\DescribeFindings' {findingArns} -> findingArns) (\s@DescribeFindings' {} a -> s {findingArns = a} :: DescribeFindings) Prelude.. Lens._Coerce
+describeFindings_findingArns = Lens.lens (\DescribeFindings' {findingArns} -> findingArns) (\s@DescribeFindings' {} a -> s {findingArns = a} :: DescribeFindings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeFindings where
   type
@@ -181,11 +181,11 @@ describeFindingsResponse_httpStatus = Lens.lens (\DescribeFindingsResponse' {htt
 
 -- | Information about the finding.
 describeFindingsResponse_findings :: Lens.Lens' DescribeFindingsResponse [Finding]
-describeFindingsResponse_findings = Lens.lens (\DescribeFindingsResponse' {findings} -> findings) (\s@DescribeFindingsResponse' {} a -> s {findings = a} :: DescribeFindingsResponse) Prelude.. Lens._Coerce
+describeFindingsResponse_findings = Lens.lens (\DescribeFindingsResponse' {findings} -> findings) (\s@DescribeFindingsResponse' {} a -> s {findings = a} :: DescribeFindingsResponse) Prelude.. Lens.coerced
 
 -- | Finding details that cannot be described. An error code is provided for
 -- each failed item.
 describeFindingsResponse_failedItems :: Lens.Lens' DescribeFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeFindingsResponse_failedItems = Lens.lens (\DescribeFindingsResponse' {failedItems} -> failedItems) (\s@DescribeFindingsResponse' {} a -> s {failedItems = a} :: DescribeFindingsResponse) Prelude.. Lens._Coerce
+describeFindingsResponse_failedItems = Lens.lens (\DescribeFindingsResponse' {failedItems} -> failedItems) (\s@DescribeFindingsResponse' {} a -> s {failedItems = a} :: DescribeFindingsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeFindingsResponse

@@ -67,7 +67,7 @@ analyticsAndOperator_prefix = Lens.lens (\AnalyticsAndOperator' {prefix} -> pref
 
 -- | The list of tags to use when evaluating an AND predicate.
 analyticsAndOperator_tags :: Lens.Lens' AnalyticsAndOperator (Prelude.Maybe [Tag])
-analyticsAndOperator_tags = Lens.lens (\AnalyticsAndOperator' {tags} -> tags) (\s@AnalyticsAndOperator' {} a -> s {tags = a} :: AnalyticsAndOperator) Prelude.. Lens.mapping Lens._Coerce
+analyticsAndOperator_tags = Lens.lens (\AnalyticsAndOperator' {tags} -> tags) (\s@AnalyticsAndOperator' {} a -> s {tags = a} :: AnalyticsAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML AnalyticsAndOperator where
   parseXML x =

@@ -85,7 +85,7 @@ newUpdateSubnetGroup pSubnetGroupName_ =
 
 -- | A list of subnet IDs in the subnet group.
 updateSubnetGroup_subnetIds :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe [Prelude.Text])
-updateSubnetGroup_subnetIds = Lens.lens (\UpdateSubnetGroup' {subnetIds} -> subnetIds) (\s@UpdateSubnetGroup' {} a -> s {subnetIds = a} :: UpdateSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
+updateSubnetGroup_subnetIds = Lens.lens (\UpdateSubnetGroup' {subnetIds} -> subnetIds) (\s@UpdateSubnetGroup' {} a -> s {subnetIds = a} :: UpdateSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the subnet group.
 updateSubnetGroup_description :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe Prelude.Text)

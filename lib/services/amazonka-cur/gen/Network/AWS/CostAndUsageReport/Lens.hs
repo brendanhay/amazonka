@@ -14,15 +14,19 @@
 module Network.AWS.CostAndUsageReport.Lens
   ( -- * Operations
 
-    -- ** ModifyReportDefinition
-    modifyReportDefinition_reportName,
-    modifyReportDefinition_reportDefinition,
-    modifyReportDefinitionResponse_httpStatus,
+    -- ** PutReportDefinition
+    putReportDefinition_reportDefinition,
+    putReportDefinitionResponse_httpStatus,
 
     -- ** DeleteReportDefinition
     deleteReportDefinition_reportName,
     deleteReportDefinitionResponse_responseMessage,
     deleteReportDefinitionResponse_httpStatus,
+
+    -- ** ModifyReportDefinition
+    modifyReportDefinition_reportName,
+    modifyReportDefinition_reportDefinition,
+    modifyReportDefinitionResponse_httpStatus,
 
     -- ** DescribeReportDefinitions
     describeReportDefinitions_nextToken,
@@ -31,16 +35,12 @@ module Network.AWS.CostAndUsageReport.Lens
     describeReportDefinitionsResponse_reportDefinitions,
     describeReportDefinitionsResponse_httpStatus,
 
-    -- ** PutReportDefinition
-    putReportDefinition_reportDefinition,
-    putReportDefinitionResponse_httpStatus,
-
     -- * Types
 
     -- ** ReportDefinition
     reportDefinition_reportVersioning,
-    reportDefinition_additionalArtifacts,
     reportDefinition_billingViewArn,
+    reportDefinition_additionalArtifacts,
     reportDefinition_refreshClosedReports,
     reportDefinition_reportName,
     reportDefinition_timeUnit,

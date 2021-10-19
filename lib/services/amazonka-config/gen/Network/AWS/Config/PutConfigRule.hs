@@ -111,7 +111,7 @@ newPutConfigRule pConfigRule_ =
 
 -- | An array of tag object.
 putConfigRule_tags :: Lens.Lens' PutConfigRule (Prelude.Maybe [Tag])
-putConfigRule_tags = Lens.lens (\PutConfigRule' {tags} -> tags) (\s@PutConfigRule' {} a -> s {tags = a} :: PutConfigRule) Prelude.. Lens.mapping Lens._Coerce
+putConfigRule_tags = Lens.lens (\PutConfigRule' {tags} -> tags) (\s@PutConfigRule' {} a -> s {tags = a} :: PutConfigRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule that you want to add to your account.
 putConfigRule_configRule :: Lens.Lens' PutConfigRule ConfigRule

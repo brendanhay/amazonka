@@ -53,12 +53,12 @@ module Network.AWS.EC2.CopyImage
     newCopyImage,
 
     -- * Request Lenses
-    copyImage_encrypted,
-    copyImage_dryRun,
-    copyImage_kmsKeyId,
     copyImage_destinationOutpostArn,
-    copyImage_description,
     copyImage_clientToken,
+    copyImage_encrypted,
+    copyImage_kmsKeyId,
+    copyImage_description,
+    copyImage_dryRun,
     copyImage_name,
     copyImage_sourceImageId,
     copyImage_sourceRegion,
@@ -84,7 +84,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCopyImage' smart constructor.
 data CopyImage = CopyImage'
-  { -- | Specifies whether the destination snapshots of the copied image should
+  { -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
+    -- Only specify this parameter when copying an AMI from an Amazon Web
+    -- Services Region to an Outpost. The AMI must be in the Region of the
+    -- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
+    -- from one Outpost to another, or within the same Outpost.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    destinationOutpostArn :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier you provide to ensure idempotency of
+    -- the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
+    -- in the /Amazon EC2 API Reference/.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the destination snapshots of the copied image should
     -- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
     -- cannot create an unencrypted copy of an encrypted snapshot. The default
     -- KMS key for Amazon EBS is used unless you specify a non-default Key
@@ -93,11 +108,6 @@ data CopyImage = CopyImage'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the symmetric Key Management Service (KMS) KMS key to
     -- use when creating encrypted volumes. If this parameter is not specified,
     -- your Amazon Web Services managed KMS key for Amazon EBS is used. If you
@@ -123,23 +133,13 @@ data CopyImage = CopyImage'
     --
     -- Amazon EBS does not support asymmetric KMS keys.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
-    -- Only specify this parameter when copying an AMI from an Amazon Web
-    -- Services Region to an Outpost. The AMI must be in the Region of the
-    -- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
-    -- from one Outpost to another, or within the same Outpost.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    destinationOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | A description for the new AMI in the destination Region.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier you provide to ensure idempotency of
-    -- the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
-    -- in the /Amazon EC2 API Reference/.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the new AMI in the destination Region.
     name :: Prelude.Text,
     -- | The ID of the AMI to copy.
@@ -157,6 +157,21 @@ data CopyImage = CopyImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationOutpostArn', 'copyImage_destinationOutpostArn' - The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
+-- Only specify this parameter when copying an AMI from an Amazon Web
+-- Services Region to an Outpost. The AMI must be in the Region of the
+-- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
+-- from one Outpost to another, or within the same Outpost.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- 'clientToken', 'copyImage_clientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of
+-- the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
+-- in the /Amazon EC2 API Reference/.
+--
 -- 'encrypted', 'copyImage_encrypted' - Specifies whether the destination snapshots of the copied image should
 -- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
 -- cannot create an unencrypted copy of an encrypted snapshot. The default
@@ -165,11 +180,6 @@ data CopyImage = CopyImage'
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- 'dryRun', 'copyImage_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'kmsKeyId', 'copyImage_kmsKeyId' - The identifier of the symmetric Key Management Service (KMS) KMS key to
 -- use when creating encrypted volumes. If this parameter is not specified,
@@ -196,22 +206,12 @@ data CopyImage = CopyImage'
 --
 -- Amazon EBS does not support asymmetric KMS keys.
 --
--- 'destinationOutpostArn', 'copyImage_destinationOutpostArn' - The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
--- Only specify this parameter when copying an AMI from an Amazon Web
--- Services Region to an Outpost. The AMI must be in the Region of the
--- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
--- from one Outpost to another, or within the same Outpost.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
 -- 'description', 'copyImage_description' - A description for the new AMI in the destination Region.
 --
--- 'clientToken', 'copyImage_clientToken' - Unique, case-sensitive identifier you provide to ensure idempotency of
--- the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
--- in the /Amazon EC2 API Reference/.
+-- 'dryRun', 'copyImage_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'name', 'copyImage_name' - The name of the new AMI in the destination Region.
 --
@@ -228,16 +228,35 @@ newCopyImage ::
   CopyImage
 newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
   CopyImage'
-    { encrypted = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      destinationOutpostArn = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { destinationOutpostArn = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       name = pName_,
       sourceImageId = pSourceImageId_,
       sourceRegion = pSourceRegion_
     }
+
+-- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
+-- Only specify this parameter when copying an AMI from an Amazon Web
+-- Services Region to an Outpost. The AMI must be in the Region of the
+-- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
+-- from one Outpost to another, or within the same Outpost.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
+copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
+
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of
+-- the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
+-- in the /Amazon EC2 API Reference/.
+copyImage_clientToken :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
+copyImage_clientToken = Lens.lens (\CopyImage' {clientToken} -> clientToken) (\s@CopyImage' {} a -> s {clientToken = a} :: CopyImage)
 
 -- | Specifies whether the destination snapshots of the copied image should
 -- be encrypted. You can encrypt a copy of an unencrypted snapshot, but you
@@ -249,13 +268,6 @@ newCopyImage pName_ pSourceImageId_ pSourceRegion_ =
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 copyImage_encrypted :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
 copyImage_encrypted = Lens.lens (\CopyImage' {encrypted} -> encrypted) (\s@CopyImage' {} a -> s {encrypted = a} :: CopyImage)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-copyImage_dryRun :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
-copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} a -> s {dryRun = a} :: CopyImage)
 
 -- | The identifier of the symmetric Key Management Service (KMS) KMS key to
 -- use when creating encrypted volumes. If this parameter is not specified,
@@ -284,28 +296,16 @@ copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} 
 copyImage_kmsKeyId :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_kmsKeyId = Lens.lens (\CopyImage' {kmsKeyId} -> kmsKeyId) (\s@CopyImage' {} a -> s {kmsKeyId = a} :: CopyImage)
 
--- | The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI.
--- Only specify this parameter when copying an AMI from an Amazon Web
--- Services Region to an Outpost. The AMI must be in the Region of the
--- destination Outpost. You cannot copy an AMI from an Outpost to a Region,
--- from one Outpost to another, or within the same Outpost.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis Copying AMIs from an Amazon Web Services Region to an Outpost>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-copyImage_destinationOutpostArn :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
-copyImage_destinationOutpostArn = Lens.lens (\CopyImage' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopyImage' {} a -> s {destinationOutpostArn = a} :: CopyImage)
-
 -- | A description for the new AMI in the destination Region.
 copyImage_description :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
 copyImage_description = Lens.lens (\CopyImage' {description} -> description) (\s@CopyImage' {} a -> s {description = a} :: CopyImage)
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of
--- the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>
--- in the /Amazon EC2 API Reference/.
-copyImage_clientToken :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
-copyImage_clientToken = Lens.lens (\CopyImage' {clientToken} -> clientToken) (\s@CopyImage' {} a -> s {clientToken = a} :: CopyImage)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+copyImage_dryRun :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Bool)
+copyImage_dryRun = Lens.lens (\CopyImage' {dryRun} -> dryRun) (\s@CopyImage' {} a -> s {dryRun = a} :: CopyImage)
 
 -- | The name of the new AMI in the destination Region.
 copyImage_name :: Lens.Lens' CopyImage Prelude.Text
@@ -347,13 +347,13 @@ instance Core.ToQuery CopyImage where
           Core.=: ("CopyImage" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "Encrypted" Core.=: encrypted,
-        "DryRun" Core.=: dryRun,
-        "KmsKeyId" Core.=: kmsKeyId,
         "DestinationOutpostArn"
           Core.=: destinationOutpostArn,
-        "Description" Core.=: description,
         "ClientToken" Core.=: clientToken,
+        "Encrypted" Core.=: encrypted,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         "Name" Core.=: name,
         "SourceImageId" Core.=: sourceImageId,
         "SourceRegion" Core.=: sourceRegion

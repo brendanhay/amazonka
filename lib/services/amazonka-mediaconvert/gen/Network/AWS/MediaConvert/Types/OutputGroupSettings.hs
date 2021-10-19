@@ -33,7 +33,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOutputGroupSettings' smart constructor.
 data OutputGroupSettings = OutputGroupSettings'
-  { -- | Settings related to your Microsoft Smooth Streaming output package. For
+  { -- | Settings related to your File output group. MediaConvert uses this group
+    -- of settings to generate a single standalone file, rather than a
+    -- streaming package. When you work directly in your JSON job
+    -- specification, include this object and any required children when you
+    -- set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
+    fileGroupSettings :: Prelude.Maybe FileGroupSettings,
+    -- | Settings related to your CMAF output package. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
+    -- When you work directly in your JSON job specification, include this
+    -- object and any required children when you set Type, under
+    -- OutputGroupSettings, to CMAF_GROUP_SETTINGS.
+    cmafGroupSettings :: Prelude.Maybe CmafGroupSettings,
+    -- | Settings related to your Microsoft Smooth Streaming output package. For
     -- more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
     -- When you work directly in your JSON job specification, include this
@@ -46,27 +58,15 @@ data OutputGroupSettings = OutputGroupSettings'
     -- object and any required children when you set Type, under
     -- OutputGroupSettings, to HLS_GROUP_SETTINGS.
     hlsGroupSettings :: Prelude.Maybe HlsGroupSettings,
-    -- | Settings related to your File output group. MediaConvert uses this group
-    -- of settings to generate a single standalone file, rather than a
-    -- streaming package. When you work directly in your JSON job
-    -- specification, include this object and any required children when you
-    -- set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
-    fileGroupSettings :: Prelude.Maybe FileGroupSettings,
+    -- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
+    -- Streaming, CMAF)
+    type' :: Prelude.Maybe OutputGroupType,
     -- | Settings related to your DASH output package. For more information, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
     -- When you work directly in your JSON job specification, include this
     -- object and any required children when you set Type, under
     -- OutputGroupSettings, to DASH_ISO_GROUP_SETTINGS.
-    dashIsoGroupSettings :: Prelude.Maybe DashIsoGroupSettings,
-    -- | Settings related to your CMAF output package. For more information, see
-    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
-    -- When you work directly in your JSON job specification, include this
-    -- object and any required children when you set Type, under
-    -- OutputGroupSettings, to CMAF_GROUP_SETTINGS.
-    cmafGroupSettings :: Prelude.Maybe CmafGroupSettings,
-    -- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
-    -- Streaming, CMAF)
-    type' :: Prelude.Maybe OutputGroupType
+    dashIsoGroupSettings :: Prelude.Maybe DashIsoGroupSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,18 @@ data OutputGroupSettings = OutputGroupSettings'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'fileGroupSettings', 'outputGroupSettings_fileGroupSettings' - Settings related to your File output group. MediaConvert uses this group
+-- of settings to generate a single standalone file, rather than a
+-- streaming package. When you work directly in your JSON job
+-- specification, include this object and any required children when you
+-- set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
+--
+-- 'cmafGroupSettings', 'outputGroupSettings_cmafGroupSettings' - Settings related to your CMAF output package. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set Type, under
+-- OutputGroupSettings, to CMAF_GROUP_SETTINGS.
 --
 -- 'msSmoothGroupSettings', 'outputGroupSettings_msSmoothGroupSettings' - Settings related to your Microsoft Smooth Streaming output package. For
 -- more information, see
@@ -91,38 +103,42 @@ data OutputGroupSettings = OutputGroupSettings'
 -- object and any required children when you set Type, under
 -- OutputGroupSettings, to HLS_GROUP_SETTINGS.
 --
--- 'fileGroupSettings', 'outputGroupSettings_fileGroupSettings' - Settings related to your File output group. MediaConvert uses this group
--- of settings to generate a single standalone file, rather than a
--- streaming package. When you work directly in your JSON job
--- specification, include this object and any required children when you
--- set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
+-- 'type'', 'outputGroupSettings_type' - Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
+-- Streaming, CMAF)
 --
 -- 'dashIsoGroupSettings', 'outputGroupSettings_dashIsoGroupSettings' - Settings related to your DASH output package. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
 -- When you work directly in your JSON job specification, include this
 -- object and any required children when you set Type, under
 -- OutputGroupSettings, to DASH_ISO_GROUP_SETTINGS.
---
--- 'cmafGroupSettings', 'outputGroupSettings_cmafGroupSettings' - Settings related to your CMAF output package. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set Type, under
--- OutputGroupSettings, to CMAF_GROUP_SETTINGS.
---
--- 'type'', 'outputGroupSettings_type' - Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
--- Streaming, CMAF)
 newOutputGroupSettings ::
   OutputGroupSettings
 newOutputGroupSettings =
   OutputGroupSettings'
-    { msSmoothGroupSettings =
+    { fileGroupSettings =
         Prelude.Nothing,
-      hlsGroupSettings = Prelude.Nothing,
-      fileGroupSettings = Prelude.Nothing,
-      dashIsoGroupSettings = Prelude.Nothing,
       cmafGroupSettings = Prelude.Nothing,
-      type' = Prelude.Nothing
+      msSmoothGroupSettings = Prelude.Nothing,
+      hlsGroupSettings = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      dashIsoGroupSettings = Prelude.Nothing
     }
+
+-- | Settings related to your File output group. MediaConvert uses this group
+-- of settings to generate a single standalone file, rather than a
+-- streaming package. When you work directly in your JSON job
+-- specification, include this object and any required children when you
+-- set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
+outputGroupSettings_fileGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe FileGroupSettings)
+outputGroupSettings_fileGroupSettings = Lens.lens (\OutputGroupSettings' {fileGroupSettings} -> fileGroupSettings) (\s@OutputGroupSettings' {} a -> s {fileGroupSettings = a} :: OutputGroupSettings)
+
+-- | Settings related to your CMAF output package. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set Type, under
+-- OutputGroupSettings, to CMAF_GROUP_SETTINGS.
+outputGroupSettings_cmafGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe CmafGroupSettings)
+outputGroupSettings_cmafGroupSettings = Lens.lens (\OutputGroupSettings' {cmafGroupSettings} -> cmafGroupSettings) (\s@OutputGroupSettings' {} a -> s {cmafGroupSettings = a} :: OutputGroupSettings)
 
 -- | Settings related to your Microsoft Smooth Streaming output package. For
 -- more information, see
@@ -141,13 +157,10 @@ outputGroupSettings_msSmoothGroupSettings = Lens.lens (\OutputGroupSettings' {ms
 outputGroupSettings_hlsGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe HlsGroupSettings)
 outputGroupSettings_hlsGroupSettings = Lens.lens (\OutputGroupSettings' {hlsGroupSettings} -> hlsGroupSettings) (\s@OutputGroupSettings' {} a -> s {hlsGroupSettings = a} :: OutputGroupSettings)
 
--- | Settings related to your File output group. MediaConvert uses this group
--- of settings to generate a single standalone file, rather than a
--- streaming package. When you work directly in your JSON job
--- specification, include this object and any required children when you
--- set Type, under OutputGroupSettings, to FILE_GROUP_SETTINGS.
-outputGroupSettings_fileGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe FileGroupSettings)
-outputGroupSettings_fileGroupSettings = Lens.lens (\OutputGroupSettings' {fileGroupSettings} -> fileGroupSettings) (\s@OutputGroupSettings' {} a -> s {fileGroupSettings = a} :: OutputGroupSettings)
+-- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
+-- Streaming, CMAF)
+outputGroupSettings_type :: Lens.Lens' OutputGroupSettings (Prelude.Maybe OutputGroupType)
+outputGroupSettings_type = Lens.lens (\OutputGroupSettings' {type'} -> type') (\s@OutputGroupSettings' {} a -> s {type' = a} :: OutputGroupSettings)
 
 -- | Settings related to your DASH output package. For more information, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
@@ -157,31 +170,18 @@ outputGroupSettings_fileGroupSettings = Lens.lens (\OutputGroupSettings' {fileGr
 outputGroupSettings_dashIsoGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe DashIsoGroupSettings)
 outputGroupSettings_dashIsoGroupSettings = Lens.lens (\OutputGroupSettings' {dashIsoGroupSettings} -> dashIsoGroupSettings) (\s@OutputGroupSettings' {} a -> s {dashIsoGroupSettings = a} :: OutputGroupSettings)
 
--- | Settings related to your CMAF output package. For more information, see
--- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/outputs-file-ABR.html.
--- When you work directly in your JSON job specification, include this
--- object and any required children when you set Type, under
--- OutputGroupSettings, to CMAF_GROUP_SETTINGS.
-outputGroupSettings_cmafGroupSettings :: Lens.Lens' OutputGroupSettings (Prelude.Maybe CmafGroupSettings)
-outputGroupSettings_cmafGroupSettings = Lens.lens (\OutputGroupSettings' {cmafGroupSettings} -> cmafGroupSettings) (\s@OutputGroupSettings' {} a -> s {cmafGroupSettings = a} :: OutputGroupSettings)
-
--- | Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth
--- Streaming, CMAF)
-outputGroupSettings_type :: Lens.Lens' OutputGroupSettings (Prelude.Maybe OutputGroupType)
-outputGroupSettings_type = Lens.lens (\OutputGroupSettings' {type'} -> type') (\s@OutputGroupSettings' {} a -> s {type' = a} :: OutputGroupSettings)
-
 instance Core.FromJSON OutputGroupSettings where
   parseJSON =
     Core.withObject
       "OutputGroupSettings"
       ( \x ->
           OutputGroupSettings'
-            Prelude.<$> (x Core..:? "msSmoothGroupSettings")
-            Prelude.<*> (x Core..:? "hlsGroupSettings")
-            Prelude.<*> (x Core..:? "fileGroupSettings")
-            Prelude.<*> (x Core..:? "dashIsoGroupSettings")
+            Prelude.<$> (x Core..:? "fileGroupSettings")
             Prelude.<*> (x Core..:? "cmafGroupSettings")
+            Prelude.<*> (x Core..:? "msSmoothGroupSettings")
+            Prelude.<*> (x Core..:? "hlsGroupSettings")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "dashIsoGroupSettings")
       )
 
 instance Prelude.Hashable OutputGroupSettings
@@ -192,16 +192,16 @@ instance Core.ToJSON OutputGroupSettings where
   toJSON OutputGroupSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("msSmoothGroupSettings" Core..=)
+          [ ("fileGroupSettings" Core..=)
+              Prelude.<$> fileGroupSettings,
+            ("cmafGroupSettings" Core..=)
+              Prelude.<$> cmafGroupSettings,
+            ("msSmoothGroupSettings" Core..=)
               Prelude.<$> msSmoothGroupSettings,
             ("hlsGroupSettings" Core..=)
               Prelude.<$> hlsGroupSettings,
-            ("fileGroupSettings" Core..=)
-              Prelude.<$> fileGroupSettings,
+            ("type" Core..=) Prelude.<$> type',
             ("dashIsoGroupSettings" Core..=)
-              Prelude.<$> dashIsoGroupSettings,
-            ("cmafGroupSettings" Core..=)
-              Prelude.<$> cmafGroupSettings,
-            ("type" Core..=) Prelude.<$> type'
+              Prelude.<$> dashIsoGroupSettings
           ]
       )

@@ -82,7 +82,7 @@ newGetMembers ::
 newGetMembers pDetectorId_ pAccountIds_ =
   GetMembers'
     { detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | The unique ID of the detector of the GuardDuty account whose members you
@@ -93,7 +93,7 @@ getMembers_detectorId = Lens.lens (\GetMembers' {detectorId} -> detectorId) (\s@
 -- | A list of account IDs of the GuardDuty member accounts that you want to
 -- describe.
 getMembers_accountIds :: Lens.Lens' GetMembers (Prelude.NonEmpty Prelude.Text)
-getMembers_accountIds = Lens.lens (\GetMembers' {accountIds} -> accountIds) (\s@GetMembers' {} a -> s {accountIds = a} :: GetMembers) Prelude.. Lens._Coerce
+getMembers_accountIds = Lens.lens (\GetMembers' {accountIds} -> accountIds) (\s@GetMembers' {} a -> s {accountIds = a} :: GetMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetMembers where
   type AWSResponse GetMembers = GetMembersResponse
@@ -182,11 +182,11 @@ getMembersResponse_httpStatus = Lens.lens (\GetMembersResponse' {httpStatus} -> 
 
 -- | A list of members.
 getMembersResponse_members :: Lens.Lens' GetMembersResponse [Member]
-getMembersResponse_members = Lens.lens (\GetMembersResponse' {members} -> members) (\s@GetMembersResponse' {} a -> s {members = a} :: GetMembersResponse) Prelude.. Lens._Coerce
+getMembersResponse_members = Lens.lens (\GetMembersResponse' {members} -> members) (\s@GetMembersResponse' {} a -> s {members = a} :: GetMembersResponse) Prelude.. Lens.coerced
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 getMembersResponse_unprocessedAccounts :: Lens.Lens' GetMembersResponse [UnprocessedAccount]
-getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMembersResponse' {} a -> s {unprocessedAccounts = a} :: GetMembersResponse) Prelude.. Lens._Coerce
+getMembersResponse_unprocessedAccounts = Lens.lens (\GetMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMembersResponse' {} a -> s {unprocessedAccounts = a} :: GetMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetMembersResponse

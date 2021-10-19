@@ -51,9 +51,9 @@ module Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
     newDescribeAffectedEntitiesForOrganization,
 
     -- * Request Lenses
+    describeAffectedEntitiesForOrganization_locale,
     describeAffectedEntitiesForOrganization_nextToken,
     describeAffectedEntitiesForOrganization_maxResults,
-    describeAffectedEntitiesForOrganization_locale,
     describeAffectedEntitiesForOrganization_organizationEntityFilters,
 
     -- * Destructuring the Response
@@ -61,9 +61,9 @@ module Network.AWS.AWSHealth.DescribeAffectedEntitiesForOrganization
     newDescribeAffectedEntitiesForOrganizationResponse,
 
     -- * Response Lenses
-    describeAffectedEntitiesForOrganizationResponse_nextToken,
-    describeAffectedEntitiesForOrganizationResponse_failedSet,
     describeAffectedEntitiesForOrganizationResponse_entities,
+    describeAffectedEntitiesForOrganizationResponse_failedSet,
+    describeAffectedEntitiesForOrganizationResponse_nextToken,
     describeAffectedEntitiesForOrganizationResponse_httpStatus,
   )
 where
@@ -77,7 +77,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAffectedEntitiesForOrganization' smart constructor.
 data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrganization'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | The locale (language) to return information in. English (en) is the
+    -- default and the only supported value at this time.
+    locale :: Prelude.Maybe Prelude.Text,
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
@@ -86,9 +89,6 @@ data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrgani
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The locale (language) to return information in. English (en) is the
-    -- default and the only supported value at this time.
-    locale :: Prelude.Maybe Prelude.Text,
     -- | A JSON set of elements including the @awsAccountId@ and the @eventArn@.
     organizationEntityFilters :: Prelude.NonEmpty EventAccountFilter
   }
@@ -102,6 +102,9 @@ data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrgani
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'locale', 'describeAffectedEntitiesForOrganization_locale' - The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+--
 -- 'nextToken', 'describeAffectedEntitiesForOrganization_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
@@ -111,9 +114,6 @@ data DescribeAffectedEntitiesForOrganization = DescribeAffectedEntitiesForOrgani
 -- 'maxResults', 'describeAffectedEntitiesForOrganization_maxResults' - The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
 --
--- 'locale', 'describeAffectedEntitiesForOrganization_locale' - The locale (language) to return information in. English (en) is the
--- default and the only supported value at this time.
---
 -- 'organizationEntityFilters', 'describeAffectedEntitiesForOrganization_organizationEntityFilters' - A JSON set of elements including the @awsAccountId@ and the @eventArn@.
 newDescribeAffectedEntitiesForOrganization ::
   -- | 'organizationEntityFilters'
@@ -122,14 +122,19 @@ newDescribeAffectedEntitiesForOrganization ::
 newDescribeAffectedEntitiesForOrganization
   pOrganizationEntityFilters_ =
     DescribeAffectedEntitiesForOrganization'
-      { nextToken =
+      { locale =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        locale = Prelude.Nothing,
         organizationEntityFilters =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pOrganizationEntityFilters_
       }
+
+-- | The locale (language) to return information in. English (en) is the
+-- default and the only supported value at this time.
+describeAffectedEntitiesForOrganization_locale :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.Maybe Prelude.Text)
+describeAffectedEntitiesForOrganization_locale = Lens.lens (\DescribeAffectedEntitiesForOrganization' {locale} -> locale) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {locale = a} :: DescribeAffectedEntitiesForOrganization)
 
 -- | If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -144,14 +149,9 @@ describeAffectedEntitiesForOrganization_nextToken = Lens.lens (\DescribeAffected
 describeAffectedEntitiesForOrganization_maxResults :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.Maybe Prelude.Natural)
 describeAffectedEntitiesForOrganization_maxResults = Lens.lens (\DescribeAffectedEntitiesForOrganization' {maxResults} -> maxResults) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {maxResults = a} :: DescribeAffectedEntitiesForOrganization)
 
--- | The locale (language) to return information in. English (en) is the
--- default and the only supported value at this time.
-describeAffectedEntitiesForOrganization_locale :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.Maybe Prelude.Text)
-describeAffectedEntitiesForOrganization_locale = Lens.lens (\DescribeAffectedEntitiesForOrganization' {locale} -> locale) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {locale = a} :: DescribeAffectedEntitiesForOrganization)
-
 -- | A JSON set of elements including the @awsAccountId@ and the @eventArn@.
 describeAffectedEntitiesForOrganization_organizationEntityFilters :: Lens.Lens' DescribeAffectedEntitiesForOrganization (Prelude.NonEmpty EventAccountFilter)
-describeAffectedEntitiesForOrganization_organizationEntityFilters = Lens.lens (\DescribeAffectedEntitiesForOrganization' {organizationEntityFilters} -> organizationEntityFilters) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {organizationEntityFilters = a} :: DescribeAffectedEntitiesForOrganization) Prelude.. Lens._Coerce
+describeAffectedEntitiesForOrganization_organizationEntityFilters = Lens.lens (\DescribeAffectedEntitiesForOrganization' {organizationEntityFilters} -> organizationEntityFilters) (\s@DescribeAffectedEntitiesForOrganization' {} a -> s {organizationEntityFilters = a} :: DescribeAffectedEntitiesForOrganization) Prelude.. Lens.coerced
 
 instance
   Core.AWSPager
@@ -191,9 +191,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedEntitiesForOrganizationResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "entities" Core..!@ Prelude.mempty)
               Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
+              Prelude.<*> (x Core..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -230,9 +230,9 @@ instance
   toJSON DescribeAffectedEntitiesForOrganization' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("locale" Core..=) Prelude.<$> locale,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("locale" Core..=) Prelude.<$> locale,
             Prelude.Just
               ( "organizationEntityFilters"
                   Core..= organizationEntityFilters
@@ -254,18 +254,18 @@ instance
 
 -- | /See:/ 'newDescribeAffectedEntitiesForOrganizationResponse' smart constructor.
 data DescribeAffectedEntitiesForOrganizationResponse = DescribeAffectedEntitiesForOrganizationResponse'
-  { -- | If the results of a search are large, only a portion of the results are
+  { -- | A JSON set of elements including the @awsAccountId@ and its @entityArn@,
+    -- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
+    entities :: Prelude.Maybe [AffectedEntity],
+    -- | A JSON set of elements of the failed response, including the
+    -- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
+    failedSet :: Prelude.Maybe [OrganizationAffectedEntitiesErrorItem],
+    -- | If the results of a search are large, only a portion of the results are
     -- returned, and a @nextToken@ pagination token is returned in the
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A JSON set of elements of the failed response, including the
-    -- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
-    failedSet :: Prelude.Maybe [OrganizationAffectedEntitiesErrorItem],
-    -- | A JSON set of elements including the @awsAccountId@ and its @entityArn@,
-    -- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
-    entities :: Prelude.Maybe [AffectedEntity],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -279,17 +279,17 @@ data DescribeAffectedEntitiesForOrganizationResponse = DescribeAffectedEntitiesF
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'entities', 'describeAffectedEntitiesForOrganizationResponse_entities' - A JSON set of elements including the @awsAccountId@ and its @entityArn@,
+-- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
+--
+-- 'failedSet', 'describeAffectedEntitiesForOrganizationResponse_failedSet' - A JSON set of elements of the failed response, including the
+-- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
+--
 -- 'nextToken', 'describeAffectedEntitiesForOrganizationResponse_nextToken' - If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
---
--- 'failedSet', 'describeAffectedEntitiesForOrganizationResponse_failedSet' - A JSON set of elements of the failed response, including the
--- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
---
--- 'entities', 'describeAffectedEntitiesForOrganizationResponse_entities' - A JSON set of elements including the @awsAccountId@ and its @entityArn@,
--- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
 --
 -- 'httpStatus', 'describeAffectedEntitiesForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeAffectedEntitiesForOrganizationResponse ::
@@ -299,13 +299,24 @@ newDescribeAffectedEntitiesForOrganizationResponse ::
 newDescribeAffectedEntitiesForOrganizationResponse
   pHttpStatus_ =
     DescribeAffectedEntitiesForOrganizationResponse'
-      { nextToken =
+      { entities =
           Prelude.Nothing,
         failedSet =
           Prelude.Nothing,
-        entities = Prelude.Nothing,
+        nextToken =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A JSON set of elements including the @awsAccountId@ and its @entityArn@,
+-- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
+describeAffectedEntitiesForOrganizationResponse_entities :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe [AffectedEntity])
+describeAffectedEntitiesForOrganizationResponse_entities = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {entities} -> entities) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {entities = a} :: DescribeAffectedEntitiesForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A JSON set of elements of the failed response, including the
+-- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
+describeAffectedEntitiesForOrganizationResponse_failedSet :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe [OrganizationAffectedEntitiesErrorItem])
+describeAffectedEntitiesForOrganizationResponse_failedSet = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeAffectedEntitiesForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the results of a search are large, only a portion of the results are
 -- returned, and a @nextToken@ pagination token is returned in the
@@ -314,16 +325,6 @@ newDescribeAffectedEntitiesForOrganizationResponse
 -- returned, the response does not contain a pagination token value.
 describeAffectedEntitiesForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeAffectedEntitiesForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedEntitiesForOrganizationResponse)
-
--- | A JSON set of elements of the failed response, including the
--- @awsAccountId@, @errorMessage@, @errorName@, and @eventArn@.
-describeAffectedEntitiesForOrganizationResponse_failedSet :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe [OrganizationAffectedEntitiesErrorItem])
-describeAffectedEntitiesForOrganizationResponse_failedSet = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {failedSet} -> failedSet) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {failedSet = a} :: DescribeAffectedEntitiesForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A JSON set of elements including the @awsAccountId@ and its @entityArn@,
--- @entityValue@ and its @entityArn@, @lastUpdatedTime@, and @statusCode@.
-describeAffectedEntitiesForOrganizationResponse_entities :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse (Prelude.Maybe [AffectedEntity])
-describeAffectedEntitiesForOrganizationResponse_entities = Lens.lens (\DescribeAffectedEntitiesForOrganizationResponse' {entities} -> entities) (\s@DescribeAffectedEntitiesForOrganizationResponse' {} a -> s {entities = a} :: DescribeAffectedEntitiesForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeAffectedEntitiesForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedEntitiesForOrganizationResponse Prelude.Int

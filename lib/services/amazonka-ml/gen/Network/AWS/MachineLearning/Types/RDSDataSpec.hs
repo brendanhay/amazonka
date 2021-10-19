@@ -30,7 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRDSDataSpec' smart constructor.
 data RDSDataSpec = RDSDataSpec'
-  { -- | A JSON string that represents the schema for an Amazon RDS @DataSource@.
+  { -- | The Amazon S3 location of the @DataSchema@.
+    dataSchemaUri :: Prelude.Maybe Prelude.Text,
+    -- | A JSON string that represents the schema for an Amazon RDS @DataSource@.
     -- The @DataSchema@ defines the structure of the observation data in the
     -- data file(s) referenced in the @DataSource@.
     --
@@ -151,8 +153,6 @@ data RDSDataSpec = RDSDataSpec'
     --     Datasource for training:
     --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
     dataRearrangement :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 location of the @DataSchema@.
-    dataSchemaUri :: Prelude.Maybe Prelude.Text,
     -- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an Amazon RDS
     -- database.
     databaseInformation :: RDSDatabase,
@@ -196,6 +196,8 @@ data RDSDataSpec = RDSDataSpec'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataSchemaUri', 'rDSDataSpec_dataSchemaUri' - The Amazon S3 location of the @DataSchema@.
 --
 -- 'dataSchema', 'rDSDataSpec_dataSchema' - A JSON string that represents the schema for an Amazon RDS @DataSource@.
 -- The @DataSchema@ defines the structure of the observation data in the
@@ -318,8 +320,6 @@ data RDSDataSpec = RDSDataSpec'
 --     Datasource for training:
 --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
 --
--- 'dataSchemaUri', 'rDSDataSpec_dataSchemaUri' - The Amazon S3 location of the @DataSchema@.
---
 -- 'databaseInformation', 'rDSDataSpec_databaseInformation' - Describes the @DatabaseName@ and @InstanceIdentifier@ of an Amazon RDS
 -- database.
 --
@@ -377,9 +377,9 @@ newRDSDataSpec
   pServiceRole_
   pSubnetId_ =
     RDSDataSpec'
-      { dataSchema = Prelude.Nothing,
+      { dataSchemaUri = Prelude.Nothing,
+        dataSchema = Prelude.Nothing,
         dataRearrangement = Prelude.Nothing,
-        dataSchemaUri = Prelude.Nothing,
         databaseInformation = pDatabaseInformation_,
         selectSqlQuery = pSelectSqlQuery_,
         databaseCredentials = pDatabaseCredentials_,
@@ -389,6 +389,10 @@ newRDSDataSpec
         subnetId = pSubnetId_,
         securityGroupIds = Prelude.mempty
       }
+
+-- | The Amazon S3 location of the @DataSchema@.
+rDSDataSpec_dataSchemaUri :: Lens.Lens' RDSDataSpec (Prelude.Maybe Prelude.Text)
+rDSDataSpec_dataSchemaUri = Lens.lens (\RDSDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RDSDataSpec' {} a -> s {dataSchemaUri = a} :: RDSDataSpec)
 
 -- | A JSON string that represents the schema for an Amazon RDS @DataSource@.
 -- The @DataSchema@ defines the structure of the observation data in the
@@ -515,10 +519,6 @@ rDSDataSpec_dataSchema = Lens.lens (\RDSDataSpec' {dataSchema} -> dataSchema) (\
 rDSDataSpec_dataRearrangement :: Lens.Lens' RDSDataSpec (Prelude.Maybe Prelude.Text)
 rDSDataSpec_dataRearrangement = Lens.lens (\RDSDataSpec' {dataRearrangement} -> dataRearrangement) (\s@RDSDataSpec' {} a -> s {dataRearrangement = a} :: RDSDataSpec)
 
--- | The Amazon S3 location of the @DataSchema@.
-rDSDataSpec_dataSchemaUri :: Lens.Lens' RDSDataSpec (Prelude.Maybe Prelude.Text)
-rDSDataSpec_dataSchemaUri = Lens.lens (\RDSDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RDSDataSpec' {} a -> s {dataSchemaUri = a} :: RDSDataSpec)
-
 -- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an Amazon RDS
 -- database.
 rDSDataSpec_databaseInformation :: Lens.Lens' RDSDataSpec RDSDatabase
@@ -566,7 +566,7 @@ rDSDataSpec_subnetId = Lens.lens (\RDSDataSpec' {subnetId} -> subnetId) (\s@RDSD
 -- to the RDS DB instance. This attribute is used by Data Pipeline to carry
 -- out the copy operation from Amazon RDS to an Amazon S3 task.
 rDSDataSpec_securityGroupIds :: Lens.Lens' RDSDataSpec [Prelude.Text]
-rDSDataSpec_securityGroupIds = Lens.lens (\RDSDataSpec' {securityGroupIds} -> securityGroupIds) (\s@RDSDataSpec' {} a -> s {securityGroupIds = a} :: RDSDataSpec) Prelude.. Lens._Coerce
+rDSDataSpec_securityGroupIds = Lens.lens (\RDSDataSpec' {securityGroupIds} -> securityGroupIds) (\s@RDSDataSpec' {} a -> s {securityGroupIds = a} :: RDSDataSpec) Prelude.. Lens.coerced
 
 instance Prelude.Hashable RDSDataSpec
 
@@ -576,10 +576,10 @@ instance Core.ToJSON RDSDataSpec where
   toJSON RDSDataSpec' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataSchema" Core..=) Prelude.<$> dataSchema,
+          [ ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
+            ("DataSchema" Core..=) Prelude.<$> dataSchema,
             ("DataRearrangement" Core..=)
               Prelude.<$> dataRearrangement,
-            ("DataSchemaUri" Core..=) Prelude.<$> dataSchemaUri,
             Prelude.Just
               ("DatabaseInformation" Core..= databaseInformation),
             Prelude.Just

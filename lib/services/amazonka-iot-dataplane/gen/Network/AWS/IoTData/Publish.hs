@@ -38,8 +38,8 @@ module Network.AWS.IoTData.Publish
     newPublish,
 
     -- * Request Lenses
-    publish_payload,
     publish_retain,
+    publish_payload,
     publish_qos,
     publish_topic,
 
@@ -60,13 +60,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPublish' smart constructor.
 data Publish = Publish'
-  { -- | The message body. MQTT accepts text, binary, and empty (null) message
-    -- payloads.
-    --
-    -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
-    -- retained message identified by __topic__ from IoT Core.
-    payload :: Prelude.Maybe Prelude.ByteString,
-    -- | A Boolean value that determines whether to set the RETAIN flag when the
+  { -- | A Boolean value that determines whether to set the RETAIN flag when the
     -- message is published.
     --
     -- Setting the RETAIN flag causes the message to be retained and sent to
@@ -76,6 +70,12 @@ data Publish = Publish'
     --
     -- Default value: @false@
     retain :: Prelude.Maybe Prelude.Bool,
+    -- | The message body. MQTT accepts text, binary, and empty (null) message
+    -- payloads.
+    --
+    -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
+    -- retained message identified by __topic__ from IoT Core.
+    payload :: Prelude.Maybe Prelude.ByteString,
     -- | The Quality of Service (QoS) level.
     qos :: Prelude.Maybe Prelude.Natural,
     -- | The name of the MQTT topic.
@@ -91,12 +91,6 @@ data Publish = Publish'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'payload', 'publish_payload' - The message body. MQTT accepts text, binary, and empty (null) message
--- payloads.
---
--- Publishing an empty (null) payload with __retain__ = @true@ deletes the
--- retained message identified by __topic__ from IoT Core.
---
 -- 'retain', 'publish_retain' - A Boolean value that determines whether to set the RETAIN flag when the
 -- message is published.
 --
@@ -107,6 +101,12 @@ data Publish = Publish'
 --
 -- Default value: @false@
 --
+-- 'payload', 'publish_payload' - The message body. MQTT accepts text, binary, and empty (null) message
+-- payloads.
+--
+-- Publishing an empty (null) payload with __retain__ = @true@ deletes the
+-- retained message identified by __topic__ from IoT Core.
+--
 -- 'qos', 'publish_qos' - The Quality of Service (QoS) level.
 --
 -- 'topic', 'publish_topic' - The name of the MQTT topic.
@@ -116,19 +116,11 @@ newPublish ::
   Publish
 newPublish pTopic_ =
   Publish'
-    { payload = Prelude.Nothing,
-      retain = Prelude.Nothing,
+    { retain = Prelude.Nothing,
+      payload = Prelude.Nothing,
       qos = Prelude.Nothing,
       topic = pTopic_
     }
-
--- | The message body. MQTT accepts text, binary, and empty (null) message
--- payloads.
---
--- Publishing an empty (null) payload with __retain__ = @true@ deletes the
--- retained message identified by __topic__ from IoT Core.
-publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
-publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
 
 -- | A Boolean value that determines whether to set the RETAIN flag when the
 -- message is published.
@@ -141,6 +133,14 @@ publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -
 -- Default value: @false@
 publish_retain :: Lens.Lens' Publish (Prelude.Maybe Prelude.Bool)
 publish_retain = Lens.lens (\Publish' {retain} -> retain) (\s@Publish' {} a -> s {retain = a} :: Publish)
+
+-- | The message body. MQTT accepts text, binary, and empty (null) message
+-- payloads.
+--
+-- Publishing an empty (null) payload with __retain__ = @true@ deletes the
+-- retained message identified by __topic__ from IoT Core.
+publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
+publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
 
 -- | The Quality of Service (QoS) level.
 publish_qos :: Lens.Lens' Publish (Prelude.Maybe Prelude.Natural)

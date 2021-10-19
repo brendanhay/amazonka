@@ -104,62 +104,98 @@ module Network.AWS.KMS
     -- * Errors
     -- $errors
 
+    -- ** InvalidMarkerException
+    _InvalidMarkerException,
+
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
+
+    -- ** InvalidKeyUsageException
+    _InvalidKeyUsageException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** CustomKeyStoreNameInUseException
+    _CustomKeyStoreNameInUseException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** DisabledException
+    _DisabledException,
+
+    -- ** KeyUnavailableException
+    _KeyUnavailableException,
+
+    -- ** IncorrectKeyMaterialException
+    _IncorrectKeyMaterialException,
+
+    -- ** KMSInternalException
+    _KMSInternalException,
+
+    -- ** TagException
+    _TagException,
+
+    -- ** CustomKeyStoreHasCMKsException
+    _CustomKeyStoreHasCMKsException,
+
+    -- ** InvalidImportTokenException
+    _InvalidImportTokenException,
+
+    -- ** CloudHsmClusterNotRelatedException
+    _CloudHsmClusterNotRelatedException,
+
+    -- ** IncorrectTrustAnchorException
+    _IncorrectTrustAnchorException,
+
+    -- ** CloudHsmClusterInvalidConfigurationException
+    _CloudHsmClusterInvalidConfigurationException,
+
+    -- ** CloudHsmClusterNotActiveException
+    _CloudHsmClusterNotActiveException,
+
+    -- ** CloudHsmClusterNotFoundException
+    _CloudHsmClusterNotFoundException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** KMSInvalidSignatureException
+    _KMSInvalidSignatureException,
+
     -- ** InvalidAliasNameException
     _InvalidAliasNameException,
 
     -- ** CustomKeyStoreNotFoundException
     _CustomKeyStoreNotFoundException,
 
-    -- ** CustomKeyStoreNameInUseException
-    _CustomKeyStoreNameInUseException,
+    -- ** CustomKeyStoreInvalidStateException
+    _CustomKeyStoreInvalidStateException,
 
-    -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
+    -- ** InvalidGrantIdException
+    _InvalidGrantIdException,
 
-    -- ** InvalidKeyUsageException
-    _InvalidKeyUsageException,
-
-    -- ** KMSInvalidStateException
-    _KMSInvalidStateException,
-
-    -- ** InvalidMarkerException
-    _InvalidMarkerException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** CloudHsmClusterNotFoundException
-    _CloudHsmClusterNotFoundException,
-
-    -- ** IncorrectKeyException
-    _IncorrectKeyException,
-
-    -- ** InvalidCiphertextException
-    _InvalidCiphertextException,
-
-    -- ** CloudHsmClusterInvalidConfigurationException
-    _CloudHsmClusterInvalidConfigurationException,
+    -- ** InvalidGrantTokenException
+    _InvalidGrantTokenException,
 
     -- ** InvalidArnException
     _InvalidArnException,
 
-    -- ** CustomKeyStoreHasCMKsException
-    _CustomKeyStoreHasCMKsException,
+    -- ** DependencyTimeoutException
+    _DependencyTimeoutException,
 
-    -- ** CloudHsmClusterNotRelatedException
-    _CloudHsmClusterNotRelatedException,
+    -- ** ExpiredImportTokenException
+    _ExpiredImportTokenException,
 
-    -- ** CustomKeyStoreInvalidStateException
-    _CustomKeyStoreInvalidStateException,
+    -- ** InvalidCiphertextException
+    _InvalidCiphertextException,
 
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
+    -- ** CloudHsmClusterInUseException
+    _CloudHsmClusterInUseException,
 
-    -- ** KMSInvalidSignatureException
-    _KMSInvalidSignatureException,
-
-    -- ** DisabledException
-    _DisabledException,
+    -- ** IncorrectKeyException
+    _IncorrectKeyException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
@@ -167,71 +203,17 @@ module Network.AWS.KMS
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ExpiredImportTokenException
-    _ExpiredImportTokenException,
-
-    -- ** CloudHsmClusterInUseException
-    _CloudHsmClusterInUseException,
-
-    -- ** DependencyTimeoutException
-    _DependencyTimeoutException,
-
-    -- ** IncorrectTrustAnchorException
-    _IncorrectTrustAnchorException,
-
-    -- ** CloudHsmClusterNotActiveException
-    _CloudHsmClusterNotActiveException,
-
-    -- ** InvalidGrantTokenException
-    _InvalidGrantTokenException,
-
-    -- ** InvalidImportTokenException
-    _InvalidImportTokenException,
-
-    -- ** KMSInternalException
-    _KMSInternalException,
-
-    -- ** InvalidGrantIdException
-    _InvalidGrantIdException,
-
-    -- ** TagException
-    _TagException,
-
-    -- ** IncorrectKeyMaterialException
-    _IncorrectKeyMaterialException,
-
-    -- ** KeyUnavailableException
-    _KeyUnavailableException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** Verify
-    Verify (Verify'),
-    newVerify,
-    VerifyResponse (VerifyResponse'),
-    newVerifyResponse,
-
-    -- ** DisableKeyRotation
-    DisableKeyRotation (DisableKeyRotation'),
-    newDisableKeyRotation,
-    DisableKeyRotationResponse (DisableKeyRotationResponse'),
-    newDisableKeyRotationResponse,
-
-    -- ** ListGrants (Paginated)
-    ListGrants (ListGrants'),
-    newListGrants,
-    ListGrantsResponse (ListGrantsResponse'),
-    newListGrantsResponse,
-
-    -- ** DeleteAlias
-    DeleteAlias (DeleteAlias'),
-    newDeleteAlias,
-    DeleteAliasResponse (DeleteAliasResponse'),
-    newDeleteAliasResponse,
+    -- ** Encrypt
+    Encrypt (Encrypt'),
+    newEncrypt,
+    EncryptResponse (EncryptResponse'),
+    newEncryptResponse,
 
     -- ** CreateCustomKeyStore
     CreateCustomKeyStore (CreateCustomKeyStore'),
@@ -239,83 +221,89 @@ module Network.AWS.KMS
     CreateCustomKeyStoreResponse (CreateCustomKeyStoreResponse'),
     newCreateCustomKeyStoreResponse,
 
-    -- ** UpdateAlias
-    UpdateAlias (UpdateAlias'),
-    newUpdateAlias,
-    UpdateAliasResponse (UpdateAliasResponse'),
-    newUpdateAliasResponse,
+    -- ** ListGrants (Paginated)
+    ListGrants (ListGrants'),
+    newListGrants,
+    ListGrantsResponse (ListGrantsResponse'),
+    newListGrantsResponse,
 
-    -- ** GenerateDataKey
-    GenerateDataKey (GenerateDataKey'),
-    newGenerateDataKey,
-    GenerateDataKeyResponse (GenerateDataKeyResponse'),
-    newGenerateDataKeyResponse,
+    -- ** DisableKeyRotation
+    DisableKeyRotation (DisableKeyRotation'),
+    newDisableKeyRotation,
+    DisableKeyRotationResponse (DisableKeyRotationResponse'),
+    newDisableKeyRotationResponse,
 
-    -- ** DeleteImportedKeyMaterial
-    DeleteImportedKeyMaterial (DeleteImportedKeyMaterial'),
-    newDeleteImportedKeyMaterial,
-    DeleteImportedKeyMaterialResponse (DeleteImportedKeyMaterialResponse'),
-    newDeleteImportedKeyMaterialResponse,
+    -- ** Verify
+    Verify (Verify'),
+    newVerify,
+    VerifyResponse (VerifyResponse'),
+    newVerifyResponse,
 
-    -- ** ImportKeyMaterial
-    ImportKeyMaterial (ImportKeyMaterial'),
-    newImportKeyMaterial,
-    ImportKeyMaterialResponse (ImportKeyMaterialResponse'),
-    newImportKeyMaterialResponse,
+    -- ** GenerateDataKeyWithoutPlaintext
+    GenerateDataKeyWithoutPlaintext (GenerateDataKeyWithoutPlaintext'),
+    newGenerateDataKeyWithoutPlaintext,
+    GenerateDataKeyWithoutPlaintextResponse (GenerateDataKeyWithoutPlaintextResponse'),
+    newGenerateDataKeyWithoutPlaintextResponse,
 
-    -- ** GetKeyRotationStatus
-    GetKeyRotationStatus (GetKeyRotationStatus'),
-    newGetKeyRotationStatus,
-    GetKeyRotationStatusResponse (GetKeyRotationStatusResponse'),
-    newGetKeyRotationStatusResponse,
+    -- ** UpdateCustomKeyStore
+    UpdateCustomKeyStore (UpdateCustomKeyStore'),
+    newUpdateCustomKeyStore,
+    UpdateCustomKeyStoreResponse (UpdateCustomKeyStoreResponse'),
+    newUpdateCustomKeyStoreResponse,
 
-    -- ** ListResourceTags
-    ListResourceTags (ListResourceTags'),
-    newListResourceTags,
-    ListResourceTagsResponse (ListResourceTagsResponse'),
-    newListResourceTagsResponse,
+    -- ** GetParametersForImport
+    GetParametersForImport (GetParametersForImport'),
+    newGetParametersForImport,
+    GetParametersForImportResponse (GetParametersForImportResponse'),
+    newGetParametersForImportResponse,
 
-    -- ** ReplicateKey
-    ReplicateKey (ReplicateKey'),
-    newReplicateKey,
-    ReplicateKeyResponse (ReplicateKeyResponse'),
-    newReplicateKeyResponse,
+    -- ** EnableKeyRotation
+    EnableKeyRotation (EnableKeyRotation'),
+    newEnableKeyRotation,
+    EnableKeyRotationResponse (EnableKeyRotationResponse'),
+    newEnableKeyRotationResponse,
 
-    -- ** PutKeyPolicy
-    PutKeyPolicy (PutKeyPolicy'),
-    newPutKeyPolicy,
-    PutKeyPolicyResponse (PutKeyPolicyResponse'),
-    newPutKeyPolicyResponse,
+    -- ** DeleteCustomKeyStore
+    DeleteCustomKeyStore (DeleteCustomKeyStore'),
+    newDeleteCustomKeyStore,
+    DeleteCustomKeyStoreResponse (DeleteCustomKeyStoreResponse'),
+    newDeleteCustomKeyStoreResponse,
 
-    -- ** DisableKey
-    DisableKey (DisableKey'),
-    newDisableKey,
-    DisableKeyResponse (DisableKeyResponse'),
-    newDisableKeyResponse,
+    -- ** CreateAlias
+    CreateAlias (CreateAlias'),
+    newCreateAlias,
+    CreateAliasResponse (CreateAliasResponse'),
+    newCreateAliasResponse,
 
-    -- ** ListKeyPolicies (Paginated)
-    ListKeyPolicies (ListKeyPolicies'),
-    newListKeyPolicies,
-    ListKeyPoliciesResponse (ListKeyPoliciesResponse'),
-    newListKeyPoliciesResponse,
+    -- ** CreateGrant
+    CreateGrant (CreateGrant'),
+    newCreateGrant,
+    CreateGrantResponse (CreateGrantResponse'),
+    newCreateGrantResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** ListAliases (Paginated)
+    ListAliases (ListAliases'),
+    newListAliases,
+    ListAliasesResponse (ListAliasesResponse'),
+    newListAliasesResponse,
 
-    -- ** DisconnectCustomKeyStore
-    DisconnectCustomKeyStore (DisconnectCustomKeyStore'),
-    newDisconnectCustomKeyStore,
-    DisconnectCustomKeyStoreResponse (DisconnectCustomKeyStoreResponse'),
-    newDisconnectCustomKeyStoreResponse,
+    -- ** UpdatePrimaryRegion
+    UpdatePrimaryRegion (UpdatePrimaryRegion'),
+    newUpdatePrimaryRegion,
+    UpdatePrimaryRegionResponse (UpdatePrimaryRegionResponse'),
+    newUpdatePrimaryRegionResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** ConnectCustomKeyStore
+    ConnectCustomKeyStore (ConnectCustomKeyStore'),
+    newConnectCustomKeyStore,
+    ConnectCustomKeyStoreResponse (ConnectCustomKeyStoreResponse'),
+    newConnectCustomKeyStoreResponse,
+
+    -- ** ListRetirableGrants
+    ListRetirableGrants (ListRetirableGrants'),
+    newListRetirableGrants,
+    ListGrantsResponse (ListGrantsResponse'),
+    newListGrantsResponse,
 
     -- ** GetPublicKey
     GetPublicKey (GetPublicKey'),
@@ -329,101 +317,23 @@ module Network.AWS.KMS
     GenerateRandomResponse (GenerateRandomResponse'),
     newGenerateRandomResponse,
 
-    -- ** ReEncrypt
-    ReEncrypt (ReEncrypt'),
-    newReEncrypt,
-    ReEncryptResponse (ReEncryptResponse'),
-    newReEncryptResponse,
+    -- ** CreateKey
+    CreateKey (CreateKey'),
+    newCreateKey,
+    CreateKeyResponse (CreateKeyResponse'),
+    newCreateKeyResponse,
 
-    -- ** ListRetirableGrants
-    ListRetirableGrants (ListRetirableGrants'),
-    newListRetirableGrants,
-    ListGrantsResponse (ListGrantsResponse'),
-    newListGrantsResponse,
+    -- ** DisableKey
+    DisableKey (DisableKey'),
+    newDisableKey,
+    DisableKeyResponse (DisableKeyResponse'),
+    newDisableKeyResponse,
 
-    -- ** ConnectCustomKeyStore
-    ConnectCustomKeyStore (ConnectCustomKeyStore'),
-    newConnectCustomKeyStore,
-    ConnectCustomKeyStoreResponse (ConnectCustomKeyStoreResponse'),
-    newConnectCustomKeyStoreResponse,
-
-    -- ** UpdatePrimaryRegion
-    UpdatePrimaryRegion (UpdatePrimaryRegion'),
-    newUpdatePrimaryRegion,
-    UpdatePrimaryRegionResponse (UpdatePrimaryRegionResponse'),
-    newUpdatePrimaryRegionResponse,
-
-    -- ** DescribeKey
-    DescribeKey (DescribeKey'),
-    newDescribeKey,
-    DescribeKeyResponse (DescribeKeyResponse'),
-    newDescribeKeyResponse,
-
-    -- ** GetParametersForImport
-    GetParametersForImport (GetParametersForImport'),
-    newGetParametersForImport,
-    GetParametersForImportResponse (GetParametersForImportResponse'),
-    newGetParametersForImportResponse,
-
-    -- ** UpdateCustomKeyStore
-    UpdateCustomKeyStore (UpdateCustomKeyStore'),
-    newUpdateCustomKeyStore,
-    UpdateCustomKeyStoreResponse (UpdateCustomKeyStoreResponse'),
-    newUpdateCustomKeyStoreResponse,
-
-    -- ** DeleteCustomKeyStore
-    DeleteCustomKeyStore (DeleteCustomKeyStore'),
-    newDeleteCustomKeyStore,
-    DeleteCustomKeyStoreResponse (DeleteCustomKeyStoreResponse'),
-    newDeleteCustomKeyStoreResponse,
-
-    -- ** Encrypt
-    Encrypt (Encrypt'),
-    newEncrypt,
-    EncryptResponse (EncryptResponse'),
-    newEncryptResponse,
-
-    -- ** GenerateDataKeyWithoutPlaintext
-    GenerateDataKeyWithoutPlaintext (GenerateDataKeyWithoutPlaintext'),
-    newGenerateDataKeyWithoutPlaintext,
-    GenerateDataKeyWithoutPlaintextResponse (GenerateDataKeyWithoutPlaintextResponse'),
-    newGenerateDataKeyWithoutPlaintextResponse,
-
-    -- ** GetKeyPolicy
-    GetKeyPolicy (GetKeyPolicy'),
-    newGetKeyPolicy,
-    GetKeyPolicyResponse (GetKeyPolicyResponse'),
-    newGetKeyPolicyResponse,
-
-    -- ** EnableKey
-    EnableKey (EnableKey'),
-    newEnableKey,
-    EnableKeyResponse (EnableKeyResponse'),
-    newEnableKeyResponse,
-
-    -- ** GenerateDataKeyPair
-    GenerateDataKeyPair (GenerateDataKeyPair'),
-    newGenerateDataKeyPair,
-    GenerateDataKeyPairResponse (GenerateDataKeyPairResponse'),
-    newGenerateDataKeyPairResponse,
-
-    -- ** ListKeys (Paginated)
-    ListKeys (ListKeys'),
-    newListKeys,
-    ListKeysResponse (ListKeysResponse'),
-    newListKeysResponse,
-
-    -- ** RevokeGrant
-    RevokeGrant (RevokeGrant'),
-    newRevokeGrant,
-    RevokeGrantResponse (RevokeGrantResponse'),
-    newRevokeGrantResponse,
-
-    -- ** ScheduleKeyDeletion
-    ScheduleKeyDeletion (ScheduleKeyDeletion'),
-    newScheduleKeyDeletion,
-    ScheduleKeyDeletionResponse (ScheduleKeyDeletionResponse'),
-    newScheduleKeyDeletionResponse,
+    -- ** DisconnectCustomKeyStore
+    DisconnectCustomKeyStore (DisconnectCustomKeyStore'),
+    newDisconnectCustomKeyStore,
+    DisconnectCustomKeyStoreResponse (DisconnectCustomKeyStoreResponse'),
+    newDisconnectCustomKeyStoreResponse,
 
     -- ** RetireGrant
     RetireGrant (RetireGrant'),
@@ -431,29 +341,53 @@ module Network.AWS.KMS
     RetireGrantResponse (RetireGrantResponse'),
     newRetireGrantResponse,
 
-    -- ** CreateKey
-    CreateKey (CreateKey'),
-    newCreateKey,
-    CreateKeyResponse (CreateKeyResponse'),
-    newCreateKeyResponse,
+    -- ** ListKeys (Paginated)
+    ListKeys (ListKeys'),
+    newListKeys,
+    ListKeysResponse (ListKeysResponse'),
+    newListKeysResponse,
 
-    -- ** Sign
-    Sign (Sign'),
-    newSign,
-    SignResponse (SignResponse'),
-    newSignResponse,
+    -- ** ListResourceTags
+    ListResourceTags (ListResourceTags'),
+    newListResourceTags,
+    ListResourceTagsResponse (ListResourceTagsResponse'),
+    newListResourceTagsResponse,
 
-    -- ** UpdateKeyDescription
-    UpdateKeyDescription (UpdateKeyDescription'),
-    newUpdateKeyDescription,
-    UpdateKeyDescriptionResponse (UpdateKeyDescriptionResponse'),
-    newUpdateKeyDescriptionResponse,
+    -- ** GetKeyRotationStatus
+    GetKeyRotationStatus (GetKeyRotationStatus'),
+    newGetKeyRotationStatus,
+    GetKeyRotationStatusResponse (GetKeyRotationStatusResponse'),
+    newGetKeyRotationStatusResponse,
 
-    -- ** GenerateDataKeyPairWithoutPlaintext
-    GenerateDataKeyPairWithoutPlaintext (GenerateDataKeyPairWithoutPlaintext'),
-    newGenerateDataKeyPairWithoutPlaintext,
-    GenerateDataKeyPairWithoutPlaintextResponse (GenerateDataKeyPairWithoutPlaintextResponse'),
-    newGenerateDataKeyPairWithoutPlaintextResponse,
+    -- ** GenerateDataKey
+    GenerateDataKey (GenerateDataKey'),
+    newGenerateDataKey,
+    GenerateDataKeyResponse (GenerateDataKeyResponse'),
+    newGenerateDataKeyResponse,
+
+    -- ** DeleteAlias
+    DeleteAlias (DeleteAlias'),
+    newDeleteAlias,
+    DeleteAliasResponse (DeleteAliasResponse'),
+    newDeleteAliasResponse,
+
+    -- ** UpdateAlias
+    UpdateAlias (UpdateAlias'),
+    newUpdateAlias,
+    UpdateAliasResponse (UpdateAliasResponse'),
+    newUpdateAliasResponse,
+
+    -- ** DescribeKey
+    DescribeKey (DescribeKey'),
+    newDescribeKey,
+    DescribeKeyResponse (DescribeKeyResponse'),
+    newDescribeKeyResponse,
+
+    -- ** DescribeCustomKeyStores
+    DescribeCustomKeyStores (DescribeCustomKeyStores'),
+    newDescribeCustomKeyStores,
+    DescribeCustomKeyStoresResponse (DescribeCustomKeyStoresResponse'),
+    newDescribeCustomKeyStoresResponse,
 
     -- ** CancelKeyDeletion
     CancelKeyDeletion (CancelKeyDeletion'),
@@ -467,35 +401,101 @@ module Network.AWS.KMS
     DecryptResponse (DecryptResponse'),
     newDecryptResponse,
 
-    -- ** DescribeCustomKeyStores
-    DescribeCustomKeyStores (DescribeCustomKeyStores'),
-    newDescribeCustomKeyStores,
-    DescribeCustomKeyStoresResponse (DescribeCustomKeyStoresResponse'),
-    newDescribeCustomKeyStoresResponse,
+    -- ** GenerateDataKeyPairWithoutPlaintext
+    GenerateDataKeyPairWithoutPlaintext (GenerateDataKeyPairWithoutPlaintext'),
+    newGenerateDataKeyPairWithoutPlaintext,
+    GenerateDataKeyPairWithoutPlaintextResponse (GenerateDataKeyPairWithoutPlaintextResponse'),
+    newGenerateDataKeyPairWithoutPlaintextResponse,
 
-    -- ** CreateGrant
-    CreateGrant (CreateGrant'),
-    newCreateGrant,
-    CreateGrantResponse (CreateGrantResponse'),
-    newCreateGrantResponse,
+    -- ** UpdateKeyDescription
+    UpdateKeyDescription (UpdateKeyDescription'),
+    newUpdateKeyDescription,
+    UpdateKeyDescriptionResponse (UpdateKeyDescriptionResponse'),
+    newUpdateKeyDescriptionResponse,
 
-    -- ** EnableKeyRotation
-    EnableKeyRotation (EnableKeyRotation'),
-    newEnableKeyRotation,
-    EnableKeyRotationResponse (EnableKeyRotationResponse'),
-    newEnableKeyRotationResponse,
+    -- ** ReEncrypt
+    ReEncrypt (ReEncrypt'),
+    newReEncrypt,
+    ReEncryptResponse (ReEncryptResponse'),
+    newReEncryptResponse,
 
-    -- ** ListAliases (Paginated)
-    ListAliases (ListAliases'),
-    newListAliases,
-    ListAliasesResponse (ListAliasesResponse'),
-    newListAliasesResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
-    -- ** CreateAlias
-    CreateAlias (CreateAlias'),
-    newCreateAlias,
-    CreateAliasResponse (CreateAliasResponse'),
-    newCreateAliasResponse,
+    -- ** ListKeyPolicies (Paginated)
+    ListKeyPolicies (ListKeyPolicies'),
+    newListKeyPolicies,
+    ListKeyPoliciesResponse (ListKeyPoliciesResponse'),
+    newListKeyPoliciesResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** Sign
+    Sign (Sign'),
+    newSign,
+    SignResponse (SignResponse'),
+    newSignResponse,
+
+    -- ** ScheduleKeyDeletion
+    ScheduleKeyDeletion (ScheduleKeyDeletion'),
+    newScheduleKeyDeletion,
+    ScheduleKeyDeletionResponse (ScheduleKeyDeletionResponse'),
+    newScheduleKeyDeletionResponse,
+
+    -- ** GenerateDataKeyPair
+    GenerateDataKeyPair (GenerateDataKeyPair'),
+    newGenerateDataKeyPair,
+    GenerateDataKeyPairResponse (GenerateDataKeyPairResponse'),
+    newGenerateDataKeyPairResponse,
+
+    -- ** ReplicateKey
+    ReplicateKey (ReplicateKey'),
+    newReplicateKey,
+    ReplicateKeyResponse (ReplicateKeyResponse'),
+    newReplicateKeyResponse,
+
+    -- ** PutKeyPolicy
+    PutKeyPolicy (PutKeyPolicy'),
+    newPutKeyPolicy,
+    PutKeyPolicyResponse (PutKeyPolicyResponse'),
+    newPutKeyPolicyResponse,
+
+    -- ** EnableKey
+    EnableKey (EnableKey'),
+    newEnableKey,
+    EnableKeyResponse (EnableKeyResponse'),
+    newEnableKeyResponse,
+
+    -- ** RevokeGrant
+    RevokeGrant (RevokeGrant'),
+    newRevokeGrant,
+    RevokeGrantResponse (RevokeGrantResponse'),
+    newRevokeGrantResponse,
+
+    -- ** GetKeyPolicy
+    GetKeyPolicy (GetKeyPolicy'),
+    newGetKeyPolicy,
+    GetKeyPolicyResponse (GetKeyPolicyResponse'),
+    newGetKeyPolicyResponse,
+
+    -- ** ImportKeyMaterial
+    ImportKeyMaterial (ImportKeyMaterial'),
+    newImportKeyMaterial,
+    ImportKeyMaterialResponse (ImportKeyMaterialResponse'),
+    newImportKeyMaterialResponse,
+
+    -- ** DeleteImportedKeyMaterial
+    DeleteImportedKeyMaterial (DeleteImportedKeyMaterial'),
+    newDeleteImportedKeyMaterial,
+    DeleteImportedKeyMaterialResponse (DeleteImportedKeyMaterialResponse'),
+    newDeleteImportedKeyMaterialResponse,
 
     -- * Types
 

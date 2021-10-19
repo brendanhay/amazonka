@@ -62,8 +62,8 @@ module Network.AWS.EC2.DeleteFleets
     newDeleteFleetsResponse,
 
     -- * Response Lenses
-    deleteFleetsResponse_unsuccessfulFleetDeletions,
     deleteFleetsResponse_successfulFleetDeletions,
+    deleteFleetsResponse_unsuccessfulFleetDeletions,
     deleteFleetsResponse_httpStatus,
   )
 where
@@ -141,7 +141,7 @@ deleteFleets_dryRun = Lens.lens (\DeleteFleets' {dryRun} -> dryRun) (\s@DeleteFl
 
 -- | The IDs of the EC2 Fleets.
 deleteFleets_fleetIds :: Lens.Lens' DeleteFleets [Prelude.Text]
-deleteFleets_fleetIds = Lens.lens (\DeleteFleets' {fleetIds} -> fleetIds) (\s@DeleteFleets' {} a -> s {fleetIds = a} :: DeleteFleets) Prelude.. Lens._Coerce
+deleteFleets_fleetIds = Lens.lens (\DeleteFleets' {fleetIds} -> fleetIds) (\s@DeleteFleets' {} a -> s {fleetIds = a} :: DeleteFleets) Prelude.. Lens.coerced
 
 -- | Indicates whether to terminate the instances when the EC2 Fleet is
 -- deleted. The default is to terminate the instances.
@@ -162,11 +162,11 @@ instance Core.AWSRequest DeleteFleets where
     Response.receiveXML
       ( \s h x ->
           DeleteFleetsResponse'
-            Prelude.<$> ( x Core..@? "unsuccessfulFleetDeletionSet"
+            Prelude.<$> ( x Core..@? "successfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "successfulFleetDeletionSet"
+            Prelude.<*> ( x Core..@? "unsuccessfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
@@ -197,10 +197,10 @@ instance Core.ToQuery DeleteFleets where
 
 -- | /See:/ 'newDeleteFleetsResponse' smart constructor.
 data DeleteFleetsResponse = DeleteFleetsResponse'
-  { -- | Information about the EC2 Fleets that are not successfully deleted.
-    unsuccessfulFleetDeletions :: Prelude.Maybe [DeleteFleetErrorItem],
-    -- | Information about the EC2 Fleets that are successfully deleted.
+  { -- | Information about the EC2 Fleets that are successfully deleted.
     successfulFleetDeletions :: Prelude.Maybe [DeleteFleetSuccessItem],
+    -- | Information about the EC2 Fleets that are not successfully deleted.
+    unsuccessfulFleetDeletions :: Prelude.Maybe [DeleteFleetErrorItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -214,9 +214,9 @@ data DeleteFleetsResponse = DeleteFleetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unsuccessfulFleetDeletions', 'deleteFleetsResponse_unsuccessfulFleetDeletions' - Information about the EC2 Fleets that are not successfully deleted.
---
 -- 'successfulFleetDeletions', 'deleteFleetsResponse_successfulFleetDeletions' - Information about the EC2 Fleets that are successfully deleted.
+--
+-- 'unsuccessfulFleetDeletions', 'deleteFleetsResponse_unsuccessfulFleetDeletions' - Information about the EC2 Fleets that are not successfully deleted.
 --
 -- 'httpStatus', 'deleteFleetsResponse_httpStatus' - The response's http status code.
 newDeleteFleetsResponse ::
@@ -225,19 +225,19 @@ newDeleteFleetsResponse ::
   DeleteFleetsResponse
 newDeleteFleetsResponse pHttpStatus_ =
   DeleteFleetsResponse'
-    { unsuccessfulFleetDeletions =
+    { successfulFleetDeletions =
         Prelude.Nothing,
-      successfulFleetDeletions = Prelude.Nothing,
+      unsuccessfulFleetDeletions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Information about the EC2 Fleets that are not successfully deleted.
-deleteFleetsResponse_unsuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Prelude.Maybe [DeleteFleetErrorItem])
-deleteFleetsResponse_unsuccessfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {unsuccessfulFleetDeletions} -> unsuccessfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {unsuccessfulFleetDeletions = a} :: DeleteFleetsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Information about the EC2 Fleets that are successfully deleted.
 deleteFleetsResponse_successfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Prelude.Maybe [DeleteFleetSuccessItem])
-deleteFleetsResponse_successfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {successfulFleetDeletions} -> successfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {successfulFleetDeletions = a} :: DeleteFleetsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteFleetsResponse_successfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {successfulFleetDeletions} -> successfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {successfulFleetDeletions = a} :: DeleteFleetsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the EC2 Fleets that are not successfully deleted.
+deleteFleetsResponse_unsuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Prelude.Maybe [DeleteFleetErrorItem])
+deleteFleetsResponse_unsuccessfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {unsuccessfulFleetDeletions} -> unsuccessfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {unsuccessfulFleetDeletions = a} :: DeleteFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteFleetsResponse_httpStatus :: Lens.Lens' DeleteFleetsResponse Prelude.Int

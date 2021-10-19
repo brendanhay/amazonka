@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayVpcAttachmentOptions' smart constructor.
 data TransitGatewayVpcAttachmentOptions = TransitGatewayVpcAttachmentOptions'
-  { -- | Indicates whether appliance mode support is enabled.
-    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
-    -- | Indicates whether IPv6 support is disabled.
+  { -- | Indicates whether IPv6 support is disabled.
     ipv6Support :: Prelude.Maybe Ipv6SupportValue,
+    -- | Indicates whether appliance mode support is enabled.
+    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
     -- | Indicates whether DNS support is enabled.
     dnsSupport :: Prelude.Maybe DnsSupportValue
   }
@@ -48,28 +48,28 @@ data TransitGatewayVpcAttachmentOptions = TransitGatewayVpcAttachmentOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applianceModeSupport', 'transitGatewayVpcAttachmentOptions_applianceModeSupport' - Indicates whether appliance mode support is enabled.
---
 -- 'ipv6Support', 'transitGatewayVpcAttachmentOptions_ipv6Support' - Indicates whether IPv6 support is disabled.
+--
+-- 'applianceModeSupport', 'transitGatewayVpcAttachmentOptions_applianceModeSupport' - Indicates whether appliance mode support is enabled.
 --
 -- 'dnsSupport', 'transitGatewayVpcAttachmentOptions_dnsSupport' - Indicates whether DNS support is enabled.
 newTransitGatewayVpcAttachmentOptions ::
   TransitGatewayVpcAttachmentOptions
 newTransitGatewayVpcAttachmentOptions =
   TransitGatewayVpcAttachmentOptions'
-    { applianceModeSupport =
+    { ipv6Support =
         Prelude.Nothing,
-      ipv6Support = Prelude.Nothing,
+      applianceModeSupport = Prelude.Nothing,
       dnsSupport = Prelude.Nothing
     }
-
--- | Indicates whether appliance mode support is enabled.
-transitGatewayVpcAttachmentOptions_applianceModeSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe ApplianceModeSupportValue)
-transitGatewayVpcAttachmentOptions_applianceModeSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {applianceModeSupport} -> applianceModeSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {applianceModeSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
 -- | Indicates whether IPv6 support is disabled.
 transitGatewayVpcAttachmentOptions_ipv6Support :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe Ipv6SupportValue)
 transitGatewayVpcAttachmentOptions_ipv6Support = Lens.lens (\TransitGatewayVpcAttachmentOptions' {ipv6Support} -> ipv6Support) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {ipv6Support = a} :: TransitGatewayVpcAttachmentOptions)
+
+-- | Indicates whether appliance mode support is enabled.
+transitGatewayVpcAttachmentOptions_applianceModeSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe ApplianceModeSupportValue)
+transitGatewayVpcAttachmentOptions_applianceModeSupport = Lens.lens (\TransitGatewayVpcAttachmentOptions' {applianceModeSupport} -> applianceModeSupport) (\s@TransitGatewayVpcAttachmentOptions' {} a -> s {applianceModeSupport = a} :: TransitGatewayVpcAttachmentOptions)
 
 -- | Indicates whether DNS support is enabled.
 transitGatewayVpcAttachmentOptions_dnsSupport :: Lens.Lens' TransitGatewayVpcAttachmentOptions (Prelude.Maybe DnsSupportValue)
@@ -81,8 +81,8 @@ instance
   where
   parseXML x =
     TransitGatewayVpcAttachmentOptions'
-      Prelude.<$> (x Core..@? "applianceModeSupport")
-      Prelude.<*> (x Core..@? "ipv6Support")
+      Prelude.<$> (x Core..@? "ipv6Support")
+      Prelude.<*> (x Core..@? "applianceModeSupport")
       Prelude.<*> (x Core..@? "dnsSupport")
 
 instance

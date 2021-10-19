@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 data HistoryRecordEntry = HistoryRecordEntry'
   { -- | The event type.
     eventType :: Prelude.Maybe FleetEventType,
+    -- | Information about the event.
+    eventInformation :: Prelude.Maybe EventInformation,
     -- | The date and time of the event, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-    timestamp :: Prelude.Maybe Core.ISO8601,
-    -- | Information about the event.
-    eventInformation :: Prelude.Maybe EventInformation
+    timestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,38 +50,38 @@ data HistoryRecordEntry = HistoryRecordEntry'
 --
 -- 'eventType', 'historyRecordEntry_eventType' - The event type.
 --
+-- 'eventInformation', 'historyRecordEntry_eventInformation' - Information about the event.
+--
 -- 'timestamp', 'historyRecordEntry_timestamp' - The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
---
--- 'eventInformation', 'historyRecordEntry_eventInformation' - Information about the event.
 newHistoryRecordEntry ::
   HistoryRecordEntry
 newHistoryRecordEntry =
   HistoryRecordEntry'
     { eventType = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      eventInformation = Prelude.Nothing
+      eventInformation = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
 
 -- | The event type.
 historyRecordEntry_eventType :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe FleetEventType)
 historyRecordEntry_eventType = Lens.lens (\HistoryRecordEntry' {eventType} -> eventType) (\s@HistoryRecordEntry' {} a -> s {eventType = a} :: HistoryRecordEntry)
 
+-- | Information about the event.
+historyRecordEntry_eventInformation :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe EventInformation)
+historyRecordEntry_eventInformation = Lens.lens (\HistoryRecordEntry' {eventInformation} -> eventInformation) (\s@HistoryRecordEntry' {} a -> s {eventInformation = a} :: HistoryRecordEntry)
+
 -- | The date and time of the event, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 historyRecordEntry_timestamp :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe Prelude.UTCTime)
 historyRecordEntry_timestamp = Lens.lens (\HistoryRecordEntry' {timestamp} -> timestamp) (\s@HistoryRecordEntry' {} a -> s {timestamp = a} :: HistoryRecordEntry) Prelude.. Lens.mapping Core._Time
 
--- | Information about the event.
-historyRecordEntry_eventInformation :: Lens.Lens' HistoryRecordEntry (Prelude.Maybe EventInformation)
-historyRecordEntry_eventInformation = Lens.lens (\HistoryRecordEntry' {eventInformation} -> eventInformation) (\s@HistoryRecordEntry' {} a -> s {eventInformation = a} :: HistoryRecordEntry)
-
 instance Core.FromXML HistoryRecordEntry where
   parseXML x =
     HistoryRecordEntry'
       Prelude.<$> (x Core..@? "eventType")
-      Prelude.<*> (x Core..@? "timestamp")
       Prelude.<*> (x Core..@? "eventInformation")
+      Prelude.<*> (x Core..@? "timestamp")
 
 instance Prelude.Hashable HistoryRecordEntry
 

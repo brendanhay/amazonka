@@ -114,7 +114,7 @@ newCreatePlayerSessions pGameSessionId_ pPlayerIds_ =
     { playerDataMap =
         Prelude.Nothing,
       gameSessionId = pGameSessionId_,
-      playerIds = Lens._Coerce Lens.# pPlayerIds_
+      playerIds = Lens.coerced Lens.# pPlayerIds_
     }
 
 -- | Map of string pairs, each specifying a player ID and a set of
@@ -123,7 +123,7 @@ newCreatePlayerSessions pGameSessionId_ pPlayerIds_ =
 -- game. Any player data strings for player IDs that are not included in
 -- the @PlayerIds@ parameter are ignored.
 createPlayerSessions_playerDataMap :: Lens.Lens' CreatePlayerSessions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPlayerSessions_playerDataMap = Lens.lens (\CreatePlayerSessions' {playerDataMap} -> playerDataMap) (\s@CreatePlayerSessions' {} a -> s {playerDataMap = a} :: CreatePlayerSessions) Prelude.. Lens.mapping Lens._Coerce
+createPlayerSessions_playerDataMap = Lens.lens (\CreatePlayerSessions' {playerDataMap} -> playerDataMap) (\s@CreatePlayerSessions' {} a -> s {playerDataMap = a} :: CreatePlayerSessions) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the game session to add players to.
 createPlayerSessions_gameSessionId :: Lens.Lens' CreatePlayerSessions Prelude.Text
@@ -131,7 +131,7 @@ createPlayerSessions_gameSessionId = Lens.lens (\CreatePlayerSessions' {gameSess
 
 -- | List of unique identifiers for the players to be added.
 createPlayerSessions_playerIds :: Lens.Lens' CreatePlayerSessions (Prelude.NonEmpty Prelude.Text)
-createPlayerSessions_playerIds = Lens.lens (\CreatePlayerSessions' {playerIds} -> playerIds) (\s@CreatePlayerSessions' {} a -> s {playerIds = a} :: CreatePlayerSessions) Prelude.. Lens._Coerce
+createPlayerSessions_playerIds = Lens.lens (\CreatePlayerSessions' {playerIds} -> playerIds) (\s@CreatePlayerSessions' {} a -> s {playerIds = a} :: CreatePlayerSessions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreatePlayerSessions where
   type
@@ -216,7 +216,7 @@ newCreatePlayerSessionsResponse pHttpStatus_ =
 
 -- | A collection of player session objects created for the added players.
 createPlayerSessionsResponse_playerSessions :: Lens.Lens' CreatePlayerSessionsResponse (Prelude.Maybe [PlayerSession])
-createPlayerSessionsResponse_playerSessions = Lens.lens (\CreatePlayerSessionsResponse' {playerSessions} -> playerSessions) (\s@CreatePlayerSessionsResponse' {} a -> s {playerSessions = a} :: CreatePlayerSessionsResponse) Prelude.. Lens.mapping Lens._Coerce
+createPlayerSessionsResponse_playerSessions = Lens.lens (\CreatePlayerSessionsResponse' {playerSessions} -> playerSessions) (\s@CreatePlayerSessionsResponse' {} a -> s {playerSessions = a} :: CreatePlayerSessionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createPlayerSessionsResponse_httpStatus :: Lens.Lens' CreatePlayerSessionsResponse Prelude.Int

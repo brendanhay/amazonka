@@ -34,9 +34,9 @@ module Network.AWS.SageMaker.DescribeModelQualityJobDefinition
     newDescribeModelQualityJobDefinitionResponse,
 
     -- * Response Lenses
-    describeModelQualityJobDefinitionResponse_networkConfig,
     describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig,
     describeModelQualityJobDefinitionResponse_stoppingCondition,
+    describeModelQualityJobDefinitionResponse_networkConfig,
     describeModelQualityJobDefinitionResponse_httpStatus,
     describeModelQualityJobDefinitionResponse_jobDefinitionArn,
     describeModelQualityJobDefinitionResponse_jobDefinitionName,
@@ -102,9 +102,9 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeModelQualityJobDefinitionResponse'
-            Prelude.<$> (x Core..?> "NetworkConfig")
-              Prelude.<*> (x Core..?> "ModelQualityBaselineConfig")
+            Prelude.<$> (x Core..?> "ModelQualityBaselineConfig")
               Prelude.<*> (x Core..?> "StoppingCondition")
+              Prelude.<*> (x Core..?> "NetworkConfig")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "JobDefinitionArn")
               Prelude.<*> (x Core..:> "JobDefinitionName")
@@ -168,11 +168,11 @@ instance
 
 -- | /See:/ 'newDescribeModelQualityJobDefinitionResponse' smart constructor.
 data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefinitionResponse'
-  { -- | Networking options for a model quality job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
-    -- | The baseline configuration for a model quality job.
+  { -- | The baseline configuration for a model quality job.
     modelQualityBaselineConfig :: Prelude.Maybe ModelQualityBaselineConfig,
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
+    -- | Networking options for a model quality job.
+    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the model quality job.
@@ -203,11 +203,11 @@ data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefiniti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'describeModelQualityJobDefinitionResponse_networkConfig' - Networking options for a model quality job.
---
 -- 'modelQualityBaselineConfig', 'describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig' - The baseline configuration for a model quality job.
 --
 -- 'stoppingCondition', 'describeModelQualityJobDefinitionResponse_stoppingCondition' - Undocumented member.
+--
+-- 'networkConfig', 'describeModelQualityJobDefinitionResponse_networkConfig' - Networking options for a model quality job.
 --
 -- 'httpStatus', 'describeModelQualityJobDefinitionResponse_httpStatus' - The response's http status code.
 --
@@ -260,12 +260,11 @@ newDescribeModelQualityJobDefinitionResponse
   pJobResources_
   pRoleArn_ =
     DescribeModelQualityJobDefinitionResponse'
-      { networkConfig =
-          Prelude.Nothing,
-        modelQualityBaselineConfig =
+      { modelQualityBaselineConfig =
           Prelude.Nothing,
         stoppingCondition =
           Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         jobDefinitionArn =
           pJobDefinitionArn_,
@@ -284,10 +283,6 @@ newDescribeModelQualityJobDefinitionResponse
         roleArn = pRoleArn_
       }
 
--- | Networking options for a model quality job.
-describeModelQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
-describeModelQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelQualityJobDefinitionResponse)
-
 -- | The baseline configuration for a model quality job.
 describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe ModelQualityBaselineConfig)
 describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {modelQualityBaselineConfig} -> modelQualityBaselineConfig) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {modelQualityBaselineConfig = a} :: DescribeModelQualityJobDefinitionResponse)
@@ -295,6 +290,10 @@ describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig = Lens.lens
 -- | Undocumented member.
 describeModelQualityJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe MonitoringStoppingCondition)
 describeModelQualityJobDefinitionResponse_stoppingCondition = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {stoppingCondition = a} :: DescribeModelQualityJobDefinitionResponse)
+
+-- | Networking options for a model quality job.
+describeModelQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
+describeModelQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The response's http status code.
 describeModelQualityJobDefinitionResponse_httpStatus :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.Int

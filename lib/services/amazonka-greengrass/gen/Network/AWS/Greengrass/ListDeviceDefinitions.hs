@@ -196,7 +196,7 @@ listDeviceDefinitionsResponse_nextToken = Lens.lens (\ListDeviceDefinitionsRespo
 
 -- | Information about a definition.
 listDeviceDefinitionsResponse_definitions :: Lens.Lens' ListDeviceDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listDeviceDefinitionsResponse_definitions = Lens.lens (\ListDeviceDefinitionsResponse' {definitions} -> definitions) (\s@ListDeviceDefinitionsResponse' {} a -> s {definitions = a} :: ListDeviceDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDeviceDefinitionsResponse_definitions = Lens.lens (\ListDeviceDefinitionsResponse' {definitions} -> definitions) (\s@ListDeviceDefinitionsResponse' {} a -> s {definitions = a} :: ListDeviceDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDeviceDefinitionsResponse_httpStatus :: Lens.Lens' ListDeviceDefinitionsResponse Prelude.Int

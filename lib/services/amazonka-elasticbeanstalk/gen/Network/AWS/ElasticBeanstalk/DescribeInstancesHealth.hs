@@ -30,9 +30,9 @@ module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
 
     -- * Request Lenses
     describeInstancesHealth_nextToken,
-    describeInstancesHealth_environmentId,
     describeInstancesHealth_environmentName,
     describeInstancesHealth_attributeNames,
+    describeInstancesHealth_environmentId,
 
     -- * Destructuring the Response
     DescribeInstancesHealthResponse (..),
@@ -59,14 +59,14 @@ import qualified Network.AWS.Response as Response
 data DescribeInstancesHealth = DescribeInstancesHealth'
   { -- | Specify the pagination token returned by a previous call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specify the AWS Elastic Beanstalk environment by ID.
-    environmentId :: Prelude.Maybe Prelude.Text,
     -- | Specify the AWS Elastic Beanstalk environment by name.
     environmentName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the response elements you wish to receive. To retrieve all
     -- attributes, set to @All@. If no attribute names are specified, returns a
     -- list of instances.
-    attributeNames :: Prelude.Maybe [InstancesHealthAttribute]
+    attributeNames :: Prelude.Maybe [InstancesHealthAttribute],
+    -- | Specify the AWS Elastic Beanstalk environment by ID.
+    environmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,31 +80,27 @@ data DescribeInstancesHealth = DescribeInstancesHealth'
 --
 -- 'nextToken', 'describeInstancesHealth_nextToken' - Specify the pagination token returned by a previous call.
 --
--- 'environmentId', 'describeInstancesHealth_environmentId' - Specify the AWS Elastic Beanstalk environment by ID.
---
 -- 'environmentName', 'describeInstancesHealth_environmentName' - Specify the AWS Elastic Beanstalk environment by name.
 --
 -- 'attributeNames', 'describeInstancesHealth_attributeNames' - Specifies the response elements you wish to receive. To retrieve all
 -- attributes, set to @All@. If no attribute names are specified, returns a
 -- list of instances.
+--
+-- 'environmentId', 'describeInstancesHealth_environmentId' - Specify the AWS Elastic Beanstalk environment by ID.
 newDescribeInstancesHealth ::
   DescribeInstancesHealth
 newDescribeInstancesHealth =
   DescribeInstancesHealth'
     { nextToken =
         Prelude.Nothing,
-      environmentId = Prelude.Nothing,
       environmentName = Prelude.Nothing,
-      attributeNames = Prelude.Nothing
+      attributeNames = Prelude.Nothing,
+      environmentId = Prelude.Nothing
     }
 
 -- | Specify the pagination token returned by a previous call.
 describeInstancesHealth_nextToken :: Lens.Lens' DescribeInstancesHealth (Prelude.Maybe Prelude.Text)
 describeInstancesHealth_nextToken = Lens.lens (\DescribeInstancesHealth' {nextToken} -> nextToken) (\s@DescribeInstancesHealth' {} a -> s {nextToken = a} :: DescribeInstancesHealth)
-
--- | Specify the AWS Elastic Beanstalk environment by ID.
-describeInstancesHealth_environmentId :: Lens.Lens' DescribeInstancesHealth (Prelude.Maybe Prelude.Text)
-describeInstancesHealth_environmentId = Lens.lens (\DescribeInstancesHealth' {environmentId} -> environmentId) (\s@DescribeInstancesHealth' {} a -> s {environmentId = a} :: DescribeInstancesHealth)
 
 -- | Specify the AWS Elastic Beanstalk environment by name.
 describeInstancesHealth_environmentName :: Lens.Lens' DescribeInstancesHealth (Prelude.Maybe Prelude.Text)
@@ -114,7 +110,11 @@ describeInstancesHealth_environmentName = Lens.lens (\DescribeInstancesHealth' {
 -- attributes, set to @All@. If no attribute names are specified, returns a
 -- list of instances.
 describeInstancesHealth_attributeNames :: Lens.Lens' DescribeInstancesHealth (Prelude.Maybe [InstancesHealthAttribute])
-describeInstancesHealth_attributeNames = Lens.lens (\DescribeInstancesHealth' {attributeNames} -> attributeNames) (\s@DescribeInstancesHealth' {} a -> s {attributeNames = a} :: DescribeInstancesHealth) Prelude.. Lens.mapping Lens._Coerce
+describeInstancesHealth_attributeNames = Lens.lens (\DescribeInstancesHealth' {attributeNames} -> attributeNames) (\s@DescribeInstancesHealth' {} a -> s {attributeNames = a} :: DescribeInstancesHealth) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify the AWS Elastic Beanstalk environment by ID.
+describeInstancesHealth_environmentId :: Lens.Lens' DescribeInstancesHealth (Prelude.Maybe Prelude.Text)
+describeInstancesHealth_environmentId = Lens.lens (\DescribeInstancesHealth' {environmentId} -> environmentId) (\s@DescribeInstancesHealth' {} a -> s {environmentId = a} :: DescribeInstancesHealth)
 
 instance Core.AWSRequest DescribeInstancesHealth where
   type
@@ -153,13 +153,13 @@ instance Core.ToQuery DescribeInstancesHealth where
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "EnvironmentId" Core.=: environmentId,
         "EnvironmentName" Core.=: environmentName,
         "AttributeNames"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> attributeNames
-            )
+            ),
+        "EnvironmentId" Core.=: environmentId
       ]
 
 -- | Detailed health information about the Amazon EC2 instances in an AWS
@@ -220,7 +220,7 @@ newDescribeInstancesHealthResponse pHttpStatus_ =
 -- There is a difference in the members that are supported under the
 -- @\<CPUUtilization>@ type.
 describeInstancesHealthResponse_instanceHealthList :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe [SingleInstanceHealth])
-describeInstancesHealthResponse_instanceHealthList = Lens.lens (\DescribeInstancesHealthResponse' {instanceHealthList} -> instanceHealthList) (\s@DescribeInstancesHealthResponse' {} a -> s {instanceHealthList = a} :: DescribeInstancesHealthResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstancesHealthResponse_instanceHealthList = Lens.lens (\DescribeInstancesHealthResponse' {instanceHealthList} -> instanceHealthList) (\s@DescribeInstancesHealthResponse' {} a -> s {instanceHealthList = a} :: DescribeInstancesHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token for the next page of results, if available.
 describeInstancesHealthResponse_nextToken :: Lens.Lens' DescribeInstancesHealthResponse (Prelude.Maybe Prelude.Text)

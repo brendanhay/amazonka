@@ -86,14 +86,14 @@ typedLinkFacet_name = Lens.lens (\TypedLinkFacet' {name} -> name) (\s@TypedLinkF
 -- attributes also serve to distinguish the link from others of the same
 -- type between the same objects.
 typedLinkFacet_attributes :: Lens.Lens' TypedLinkFacet [TypedLinkAttributeDefinition]
-typedLinkFacet_attributes = Lens.lens (\TypedLinkFacet' {attributes} -> attributes) (\s@TypedLinkFacet' {} a -> s {attributes = a} :: TypedLinkFacet) Prelude.. Lens._Coerce
+typedLinkFacet_attributes = Lens.lens (\TypedLinkFacet' {attributes} -> attributes) (\s@TypedLinkFacet' {} a -> s {attributes = a} :: TypedLinkFacet) Prelude.. Lens.coerced
 
 -- | The set of attributes that distinguish links made from this facet from
 -- each other, in the order of significance. Listing typed links can filter
 -- on the values of these attributes. See ListOutgoingTypedLinks and
 -- ListIncomingTypedLinks for details.
 typedLinkFacet_identityAttributeOrder :: Lens.Lens' TypedLinkFacet [Prelude.Text]
-typedLinkFacet_identityAttributeOrder = Lens.lens (\TypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@TypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: TypedLinkFacet) Prelude.. Lens._Coerce
+typedLinkFacet_identityAttributeOrder = Lens.lens (\TypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@TypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: TypedLinkFacet) Prelude.. Lens.coerced
 
 instance Prelude.Hashable TypedLinkFacet
 

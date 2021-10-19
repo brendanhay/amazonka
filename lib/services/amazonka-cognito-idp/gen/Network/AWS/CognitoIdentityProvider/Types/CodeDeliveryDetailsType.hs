@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCodeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-  { -- | The delivery medium (email message or phone number).
+  { -- | The destination for the code delivery details.
+    destination :: Prelude.Maybe Prelude.Text,
+    -- | The delivery medium (email message or phone number).
     deliveryMedium :: Prelude.Maybe DeliveryMediumType,
     -- | The attribute name.
-    attributeName :: Prelude.Maybe Prelude.Text,
-    -- | The destination for the code delivery details.
-    destination :: Prelude.Maybe Prelude.Text
+    attributeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destination', 'codeDeliveryDetailsType_destination' - The destination for the code delivery details.
+--
 -- 'deliveryMedium', 'codeDeliveryDetailsType_deliveryMedium' - The delivery medium (email message or phone number).
 --
 -- 'attributeName', 'codeDeliveryDetailsType_attributeName' - The attribute name.
---
--- 'destination', 'codeDeliveryDetailsType_destination' - The destination for the code delivery details.
 newCodeDeliveryDetailsType ::
   CodeDeliveryDetailsType
 newCodeDeliveryDetailsType =
   CodeDeliveryDetailsType'
-    { deliveryMedium =
+    { destination =
         Prelude.Nothing,
-      attributeName = Prelude.Nothing,
-      destination = Prelude.Nothing
+      deliveryMedium = Prelude.Nothing,
+      attributeName = Prelude.Nothing
     }
+
+-- | The destination for the code delivery details.
+codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
+codeDeliveryDetailsType_destination = Lens.lens (\CodeDeliveryDetailsType' {destination} -> destination) (\s@CodeDeliveryDetailsType' {} a -> s {destination = a} :: CodeDeliveryDetailsType)
 
 -- | The delivery medium (email message or phone number).
 codeDeliveryDetailsType_deliveryMedium :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe DeliveryMediumType)
@@ -68,19 +72,15 @@ codeDeliveryDetailsType_deliveryMedium = Lens.lens (\CodeDeliveryDetailsType' {d
 codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
 codeDeliveryDetailsType_attributeName = Lens.lens (\CodeDeliveryDetailsType' {attributeName} -> attributeName) (\s@CodeDeliveryDetailsType' {} a -> s {attributeName = a} :: CodeDeliveryDetailsType)
 
--- | The destination for the code delivery details.
-codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
-codeDeliveryDetailsType_destination = Lens.lens (\CodeDeliveryDetailsType' {destination} -> destination) (\s@CodeDeliveryDetailsType' {} a -> s {destination = a} :: CodeDeliveryDetailsType)
-
 instance Core.FromJSON CodeDeliveryDetailsType where
   parseJSON =
     Core.withObject
       "CodeDeliveryDetailsType"
       ( \x ->
           CodeDeliveryDetailsType'
-            Prelude.<$> (x Core..:? "DeliveryMedium")
+            Prelude.<$> (x Core..:? "Destination")
+            Prelude.<*> (x Core..:? "DeliveryMedium")
             Prelude.<*> (x Core..:? "AttributeName")
-            Prelude.<*> (x Core..:? "Destination")
       )
 
 instance Prelude.Hashable CodeDeliveryDetailsType

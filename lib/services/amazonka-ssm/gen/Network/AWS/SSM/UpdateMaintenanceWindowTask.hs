@@ -65,19 +65,19 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
     newUpdateMaintenanceWindowTask,
 
     -- * Request Lenses
-    updateMaintenanceWindowTask_maxErrors,
-    updateMaintenanceWindowTask_taskParameters,
     updateMaintenanceWindowTask_serviceRoleArn,
-    updateMaintenanceWindowTask_cutoffBehavior,
-    updateMaintenanceWindowTask_targets,
-    updateMaintenanceWindowTask_priority,
-    updateMaintenanceWindowTask_name,
-    updateMaintenanceWindowTask_taskInvocationParameters,
     updateMaintenanceWindowTask_replace,
-    updateMaintenanceWindowTask_maxConcurrency,
-    updateMaintenanceWindowTask_description,
+    updateMaintenanceWindowTask_taskParameters,
+    updateMaintenanceWindowTask_priority,
     updateMaintenanceWindowTask_taskArn,
+    updateMaintenanceWindowTask_cutoffBehavior,
+    updateMaintenanceWindowTask_maxErrors,
+    updateMaintenanceWindowTask_taskInvocationParameters,
+    updateMaintenanceWindowTask_name,
+    updateMaintenanceWindowTask_targets,
     updateMaintenanceWindowTask_loggingInfo,
+    updateMaintenanceWindowTask_description,
+    updateMaintenanceWindowTask_maxConcurrency,
     updateMaintenanceWindowTask_windowId,
     updateMaintenanceWindowTask_windowTaskId,
 
@@ -86,20 +86,20 @@ module Network.AWS.SSM.UpdateMaintenanceWindowTask
     newUpdateMaintenanceWindowTaskResponse,
 
     -- * Response Lenses
-    updateMaintenanceWindowTaskResponse_maxErrors,
-    updateMaintenanceWindowTaskResponse_taskParameters,
     updateMaintenanceWindowTaskResponse_serviceRoleArn,
     updateMaintenanceWindowTaskResponse_windowTaskId,
-    updateMaintenanceWindowTaskResponse_cutoffBehavior,
-    updateMaintenanceWindowTaskResponse_targets,
+    updateMaintenanceWindowTaskResponse_taskParameters,
     updateMaintenanceWindowTaskResponse_priority,
-    updateMaintenanceWindowTaskResponse_name,
-    updateMaintenanceWindowTaskResponse_taskInvocationParameters,
-    updateMaintenanceWindowTaskResponse_windowId,
-    updateMaintenanceWindowTaskResponse_maxConcurrency,
-    updateMaintenanceWindowTaskResponse_description,
     updateMaintenanceWindowTaskResponse_taskArn,
+    updateMaintenanceWindowTaskResponse_cutoffBehavior,
+    updateMaintenanceWindowTaskResponse_maxErrors,
+    updateMaintenanceWindowTaskResponse_taskInvocationParameters,
+    updateMaintenanceWindowTaskResponse_name,
+    updateMaintenanceWindowTaskResponse_targets,
     updateMaintenanceWindowTaskResponse_loggingInfo,
+    updateMaintenanceWindowTaskResponse_description,
+    updateMaintenanceWindowTaskResponse_maxConcurrency,
+    updateMaintenanceWindowTaskResponse_windowId,
     updateMaintenanceWindowTaskResponse_httpStatus,
   )
 where
@@ -113,15 +113,24 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newUpdateMaintenanceWindowTask' smart constructor.
 data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
-  { -- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number
-    -- of errors that are allowed before the task stops being scheduled.
+  { -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
+    -- Services Systems Manager to assume when running a maintenance window
+    -- task. If you do not specify a service role ARN, Systems Manager uses
+    -- your account\'s service-linked role. If no service-linked role for
+    -- Systems Manager exists in your account, it is created when you run
+    -- @RegisterTaskWithMaintenanceWindow@.
     --
-    -- For maintenance window tasks without a target specified, you can\'t
-    -- supply a value for this option. Instead, the system inserts a
-    -- placeholder value of @1@, which may be reported in the response to this
-    -- command. This value doesn\'t affect the running of your task and can be
-    -- ignored.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    -- For more information, see the following topics in the in the /Amazon Web
+    -- Services Systems Manager User Guide/:
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+    --
+    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | If True, then all fields that are required by the
+    -- RegisterTaskWithMaintenanceWindow operation are also required for this
+    -- API request. Optional fields that aren\'t specified are set to null.
+    replace :: Prelude.Maybe Prelude.Bool,
     -- | The parameters to modify.
     --
     -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
@@ -136,20 +145,11 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     --
     -- Value: an array of strings, each string is between 1 and 255 characters
     taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
-    -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
-    -- Services Systems Manager to assume when running a maintenance window
-    -- task. If you do not specify a service role ARN, Systems Manager uses
-    -- your account\'s service-linked role. If no service-linked role for
-    -- Systems Manager exists in your account, it is created when you run
-    -- @RegisterTaskWithMaintenanceWindow@.
-    --
-    -- For more information, see the following topics in the in the /Amazon Web
-    -- Services Systems Manager User Guide/:
-    --
-    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
-    --
-    -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The new task priority to specify. The lower the number, the higher the
+    -- priority. Tasks that have the same priority are scheduled in parallel.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | The task ARN to modify.
+    taskArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether tasks should continue to run after the cutoff time
     -- specified in the maintenance windows is reached.
     --
@@ -170,24 +170,15 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     --
     --     The status for tasks that are not completed is @TIMED_OUT@.
     cutoffBehavior :: Prelude.Maybe MaintenanceWindowTaskCutoffBehavior,
-    -- | The targets (either instances or tags) to modify. Instances are
-    -- specified using the format
-    -- @Key=instanceids,Values=instanceID_1,instanceID_2@. Tags are specified
-    -- using the format @ Key=tag_name,Values=tag_value@.
+    -- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number
+    -- of errors that are allowed before the task stops being scheduled.
     --
-    -- One or more targets must be specified for maintenance window Run
-    -- Command-type tasks. Depending on the task, targets are optional for
-    -- other maintenance window task types (Automation, Lambda, and Step
-    -- Functions). For more information about running tasks that don\'t specify
-    -- targets, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    targets :: Prelude.Maybe [Target],
-    -- | The new task priority to specify. The lower the number, the higher the
-    -- priority. Tasks that have the same priority are scheduled in parallel.
-    priority :: Prelude.Maybe Prelude.Natural,
-    -- | The new task name to specify.
-    name :: Prelude.Maybe Prelude.Text,
+    -- For maintenance window tasks without a target specified, you can\'t
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@, which may be reported in the response to this
+    -- command. This value doesn\'t affect the running of your task and can be
+    -- ignored.
+    maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The parameters that the task should use during execution. Populate only
     -- the fields that match the task type. All other fields should be empty.
     --
@@ -201,23 +192,21 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- @OutputS3BucketName@ value, the values for @Comment@ and
     -- @NotificationConfig@ are removed.
     taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
-    -- | If True, then all fields that are required by the
-    -- RegisterTaskWithMaintenanceWindow operation are also required for this
-    -- API request. Optional fields that aren\'t specified are set to null.
-    replace :: Prelude.Maybe Prelude.Bool,
-    -- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
-    -- the number of targets that are allowed to run this task in parallel.
+    -- | The new task name to specify.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The targets (either instances or tags) to modify. Instances are
+    -- specified using the format
+    -- @Key=instanceids,Values=instanceID_1,instanceID_2@. Tags are specified
+    -- using the format @ Key=tag_name,Values=tag_value@.
     --
-    -- For maintenance window tasks without a target specified, you can\'t
-    -- supply a value for this option. Instead, the system inserts a
-    -- placeholder value of @1@, which may be reported in the response to this
-    -- command. This value doesn\'t affect the running of your task and can be
-    -- ignored.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | The new task description to specify.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The task ARN to modify.
-    taskArn :: Prelude.Maybe Prelude.Text,
+    -- One or more targets must be specified for maintenance window Run
+    -- Command-type tasks. Depending on the task, targets are optional for
+    -- other maintenance window task types (Automation, Lambda, and Step
+    -- Functions). For more information about running tasks that don\'t specify
+    -- targets, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    targets :: Prelude.Maybe [Target],
     -- | The new logging location in Amazon S3 to specify.
     --
     -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
@@ -228,6 +217,17 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
     loggingInfo :: Prelude.Maybe LoggingInfo,
+    -- | The new task description to specify.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
+    -- the number of targets that are allowed to run this task in parallel.
+    --
+    -- For maintenance window tasks without a target specified, you can\'t
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@, which may be reported in the response to this
+    -- command. This value doesn\'t affect the running of your task and can be
+    -- ignored.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | The maintenance window ID that contains the task to modify.
     windowId :: Prelude.Text,
     -- | The task ID to modify.
@@ -243,14 +243,23 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxErrors', 'updateMaintenanceWindowTask_maxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number
--- of errors that are allowed before the task stops being scheduled.
+-- 'serviceRoleArn', 'updateMaintenanceWindowTask_serviceRoleArn' - The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
+-- Services Systems Manager to assume when running a maintenance window
+-- task. If you do not specify a service role ARN, Systems Manager uses
+-- your account\'s service-linked role. If no service-linked role for
+-- Systems Manager exists in your account, it is created when you run
+-- @RegisterTaskWithMaintenanceWindow@.
 --
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@, which may be reported in the response to this
--- command. This value doesn\'t affect the running of your task and can be
--- ignored.
+-- For more information, see the following topics in the in the /Amazon Web
+-- Services Systems Manager User Guide/:
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
+--
+-- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+--
+-- 'replace', 'updateMaintenanceWindowTask_replace' - If True, then all fields that are required by the
+-- RegisterTaskWithMaintenanceWindow operation are also required for this
+-- API request. Optional fields that aren\'t specified are set to null.
 --
 -- 'taskParameters', 'updateMaintenanceWindowTask_taskParameters' - The parameters to modify.
 --
@@ -266,19 +275,10 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 --
 -- Value: an array of strings, each string is between 1 and 255 characters
 --
--- 'serviceRoleArn', 'updateMaintenanceWindowTask_serviceRoleArn' - The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
--- Services Systems Manager to assume when running a maintenance window
--- task. If you do not specify a service role ARN, Systems Manager uses
--- your account\'s service-linked role. If no service-linked role for
--- Systems Manager exists in your account, it is created when you run
--- @RegisterTaskWithMaintenanceWindow@.
+-- 'priority', 'updateMaintenanceWindowTask_priority' - The new task priority to specify. The lower the number, the higher the
+-- priority. Tasks that have the same priority are scheduled in parallel.
 --
--- For more information, see the following topics in the in the /Amazon Web
--- Services Systems Manager User Guide/:
---
--- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
---
--- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
+-- 'taskArn', 'updateMaintenanceWindowTask_taskArn' - The task ARN to modify.
 --
 -- 'cutoffBehavior', 'updateMaintenanceWindowTask_cutoffBehavior' - Indicates whether tasks should continue to run after the cutoff time
 -- specified in the maintenance windows is reached.
@@ -300,23 +300,14 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 --
 --     The status for tasks that are not completed is @TIMED_OUT@.
 --
--- 'targets', 'updateMaintenanceWindowTask_targets' - The targets (either instances or tags) to modify. Instances are
--- specified using the format
--- @Key=instanceids,Values=instanceID_1,instanceID_2@. Tags are specified
--- using the format @ Key=tag_name,Values=tag_value@.
+-- 'maxErrors', 'updateMaintenanceWindowTask_maxErrors' - The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number
+-- of errors that are allowed before the task stops being scheduled.
 --
--- One or more targets must be specified for maintenance window Run
--- Command-type tasks. Depending on the task, targets are optional for
--- other maintenance window task types (Automation, Lambda, and Step
--- Functions). For more information about running tasks that don\'t specify
--- targets, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- 'priority', 'updateMaintenanceWindowTask_priority' - The new task priority to specify. The lower the number, the higher the
--- priority. Tasks that have the same priority are scheduled in parallel.
---
--- 'name', 'updateMaintenanceWindowTask_name' - The new task name to specify.
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@, which may be reported in the response to this
+-- command. This value doesn\'t affect the running of your task and can be
+-- ignored.
 --
 -- 'taskInvocationParameters', 'updateMaintenanceWindowTask_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
 -- the fields that match the task type. All other fields should be empty.
@@ -331,22 +322,20 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 -- @OutputS3BucketName@ value, the values for @Comment@ and
 -- @NotificationConfig@ are removed.
 --
--- 'replace', 'updateMaintenanceWindowTask_replace' - If True, then all fields that are required by the
--- RegisterTaskWithMaintenanceWindow operation are also required for this
--- API request. Optional fields that aren\'t specified are set to null.
+-- 'name', 'updateMaintenanceWindowTask_name' - The new task name to specify.
 --
--- 'maxConcurrency', 'updateMaintenanceWindowTask_maxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
--- the number of targets that are allowed to run this task in parallel.
+-- 'targets', 'updateMaintenanceWindowTask_targets' - The targets (either instances or tags) to modify. Instances are
+-- specified using the format
+-- @Key=instanceids,Values=instanceID_1,instanceID_2@. Tags are specified
+-- using the format @ Key=tag_name,Values=tag_value@.
 --
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@, which may be reported in the response to this
--- command. This value doesn\'t affect the running of your task and can be
--- ignored.
---
--- 'description', 'updateMaintenanceWindowTask_description' - The new task description to specify.
---
--- 'taskArn', 'updateMaintenanceWindowTask_taskArn' - The task ARN to modify.
+-- One or more targets must be specified for maintenance window Run
+-- Command-type tasks. Depending on the task, targets are optional for
+-- other maintenance window task types (Automation, Lambda, and Step
+-- Functions). For more information about running tasks that don\'t specify
+-- targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'loggingInfo', 'updateMaintenanceWindowTask_loggingInfo' - The new logging location in Amazon S3 to specify.
 --
@@ -357,6 +346,17 @@ data UpdateMaintenanceWindowTask = UpdateMaintenanceWindowTask'
 -- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
+--
+-- 'description', 'updateMaintenanceWindowTask_description' - The new task description to specify.
+--
+-- 'maxConcurrency', 'updateMaintenanceWindowTask_maxConcurrency' - The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
+-- the number of targets that are allowed to run this task in parallel.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@, which may be reported in the response to this
+-- command. This value doesn\'t affect the running of your task and can be
+-- ignored.
 --
 -- 'windowId', 'updateMaintenanceWindowTask_windowId' - The maintenance window ID that contains the task to modify.
 --
@@ -371,50 +371,23 @@ newUpdateMaintenanceWindowTask
   pWindowId_
   pWindowTaskId_ =
     UpdateMaintenanceWindowTask'
-      { maxErrors =
+      { serviceRoleArn =
           Prelude.Nothing,
-        taskParameters = Prelude.Nothing,
-        serviceRoleArn = Prelude.Nothing,
-        cutoffBehavior = Prelude.Nothing,
-        targets = Prelude.Nothing,
-        priority = Prelude.Nothing,
-        name = Prelude.Nothing,
-        taskInvocationParameters = Prelude.Nothing,
         replace = Prelude.Nothing,
-        maxConcurrency = Prelude.Nothing,
-        description = Prelude.Nothing,
+        taskParameters = Prelude.Nothing,
+        priority = Prelude.Nothing,
         taskArn = Prelude.Nothing,
+        cutoffBehavior = Prelude.Nothing,
+        maxErrors = Prelude.Nothing,
+        taskInvocationParameters = Prelude.Nothing,
+        name = Prelude.Nothing,
+        targets = Prelude.Nothing,
         loggingInfo = Prelude.Nothing,
+        description = Prelude.Nothing,
+        maxConcurrency = Prelude.Nothing,
         windowId = pWindowId_,
         windowTaskId = pWindowTaskId_
       }
-
--- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number
--- of errors that are allowed before the task stops being scheduled.
---
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@, which may be reported in the response to this
--- command. This value doesn\'t affect the running of your task and can be
--- ignored.
-updateMaintenanceWindowTask_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_maxErrors = Lens.lens (\UpdateMaintenanceWindowTask' {maxErrors} -> maxErrors) (\s@UpdateMaintenanceWindowTask' {} a -> s {maxErrors = a} :: UpdateMaintenanceWindowTask)
-
--- | The parameters to modify.
---
--- @TaskParameters@ has been deprecated. To specify parameters to pass to a
--- task when it runs, instead use the @Parameters@ option in the
--- @TaskInvocationParameters@ structure. For information about how Systems
--- Manager handles these options for the supported maintenance window task
--- types, see MaintenanceWindowTaskInvocationParameters.
---
--- The map has the following format:
---
--- Key: string, between 1 and 255 characters
---
--- Value: an array of strings, each string is between 1 and 255 characters
-updateMaintenanceWindowTask_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
 -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
 -- Services Systems Manager to assume when running a maintenance window
@@ -431,6 +404,37 @@ updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindow
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
 updateMaintenanceWindowTask_serviceRoleArn :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTask_serviceRoleArn = Lens.lens (\UpdateMaintenanceWindowTask' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateMaintenanceWindowTask' {} a -> s {serviceRoleArn = a} :: UpdateMaintenanceWindowTask)
+
+-- | If True, then all fields that are required by the
+-- RegisterTaskWithMaintenanceWindow operation are also required for this
+-- API request. Optional fields that aren\'t specified are set to null.
+updateMaintenanceWindowTask_replace :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Bool)
+updateMaintenanceWindowTask_replace = Lens.lens (\UpdateMaintenanceWindowTask' {replace} -> replace) (\s@UpdateMaintenanceWindowTask' {} a -> s {replace = a} :: UpdateMaintenanceWindowTask)
+
+-- | The parameters to modify.
+--
+-- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+-- task when it runs, instead use the @Parameters@ option in the
+-- @TaskInvocationParameters@ structure. For information about how Systems
+-- Manager handles these options for the supported maintenance window task
+-- types, see MaintenanceWindowTaskInvocationParameters.
+--
+-- The map has the following format:
+--
+-- Key: string, between 1 and 255 characters
+--
+-- Value: an array of strings, each string is between 1 and 255 characters
+updateMaintenanceWindowTask_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
+updateMaintenanceWindowTask_taskParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
+
+-- | The new task priority to specify. The lower the number, the higher the
+-- priority. Tasks that have the same priority are scheduled in parallel.
+updateMaintenanceWindowTask_priority :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Natural)
+updateMaintenanceWindowTask_priority = Lens.lens (\UpdateMaintenanceWindowTask' {priority} -> priority) (\s@UpdateMaintenanceWindowTask' {} a -> s {priority = a} :: UpdateMaintenanceWindowTask)
+
+-- | The task ARN to modify.
+updateMaintenanceWindowTask_taskArn :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_taskArn = Lens.lens (\UpdateMaintenanceWindowTask' {taskArn} -> taskArn) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskArn = a} :: UpdateMaintenanceWindowTask)
 
 -- | Indicates whether tasks should continue to run after the cutoff time
 -- specified in the maintenance windows is reached.
@@ -454,29 +458,16 @@ updateMaintenanceWindowTask_serviceRoleArn = Lens.lens (\UpdateMaintenanceWindow
 updateMaintenanceWindowTask_cutoffBehavior :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe MaintenanceWindowTaskCutoffBehavior)
 updateMaintenanceWindowTask_cutoffBehavior = Lens.lens (\UpdateMaintenanceWindowTask' {cutoffBehavior} -> cutoffBehavior) (\s@UpdateMaintenanceWindowTask' {} a -> s {cutoffBehavior = a} :: UpdateMaintenanceWindowTask)
 
--- | The targets (either instances or tags) to modify. Instances are
--- specified using the format
--- @Key=instanceids,Values=instanceID_1,instanceID_2@. Tags are specified
--- using the format @ Key=tag_name,Values=tag_value@.
+-- | The new @MaxErrors@ value to specify. @MaxErrors@ is the maximum number
+-- of errors that are allowed before the task stops being scheduled.
 --
--- One or more targets must be specified for maintenance window Run
--- Command-type tasks. Depending on the task, targets are optional for
--- other maintenance window task types (Automation, Lambda, and Step
--- Functions). For more information about running tasks that don\'t specify
--- targets, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
--- in the /Amazon Web Services Systems Manager User Guide/.
-updateMaintenanceWindowTask_targets :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe [Target])
-updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {targets} -> targets) (\s@UpdateMaintenanceWindowTask' {} a -> s {targets = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Lens._Coerce
-
--- | The new task priority to specify. The lower the number, the higher the
--- priority. Tasks that have the same priority are scheduled in parallel.
-updateMaintenanceWindowTask_priority :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Natural)
-updateMaintenanceWindowTask_priority = Lens.lens (\UpdateMaintenanceWindowTask' {priority} -> priority) (\s@UpdateMaintenanceWindowTask' {} a -> s {priority = a} :: UpdateMaintenanceWindowTask)
-
--- | The new task name to specify.
-updateMaintenanceWindowTask_name :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_name = Lens.lens (\UpdateMaintenanceWindowTask' {name} -> name) (\s@UpdateMaintenanceWindowTask' {} a -> s {name = a} :: UpdateMaintenanceWindowTask)
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@, which may be reported in the response to this
+-- command. This value doesn\'t affect the running of your task and can be
+-- ignored.
+updateMaintenanceWindowTask_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_maxErrors = Lens.lens (\UpdateMaintenanceWindowTask' {maxErrors} -> maxErrors) (\s@UpdateMaintenanceWindowTask' {} a -> s {maxErrors = a} :: UpdateMaintenanceWindowTask)
 
 -- | The parameters that the task should use during execution. Populate only
 -- the fields that match the task type. All other fields should be empty.
@@ -493,30 +484,24 @@ updateMaintenanceWindowTask_name = Lens.lens (\UpdateMaintenanceWindowTask' {nam
 updateMaintenanceWindowTask_taskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
 updateMaintenanceWindowTask_taskInvocationParameters = Lens.lens (\UpdateMaintenanceWindowTask' {taskInvocationParameters} -> taskInvocationParameters) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskInvocationParameters = a} :: UpdateMaintenanceWindowTask)
 
--- | If True, then all fields that are required by the
--- RegisterTaskWithMaintenanceWindow operation are also required for this
--- API request. Optional fields that aren\'t specified are set to null.
-updateMaintenanceWindowTask_replace :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Bool)
-updateMaintenanceWindowTask_replace = Lens.lens (\UpdateMaintenanceWindowTask' {replace} -> replace) (\s@UpdateMaintenanceWindowTask' {} a -> s {replace = a} :: UpdateMaintenanceWindowTask)
+-- | The new task name to specify.
+updateMaintenanceWindowTask_name :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_name = Lens.lens (\UpdateMaintenanceWindowTask' {name} -> name) (\s@UpdateMaintenanceWindowTask' {} a -> s {name = a} :: UpdateMaintenanceWindowTask)
 
--- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
--- the number of targets that are allowed to run this task in parallel.
+-- | The targets (either instances or tags) to modify. Instances are
+-- specified using the format
+-- @Key=instanceids,Values=instanceID_1,instanceID_2@. Tags are specified
+-- using the format @ Key=tag_name,Values=tag_value@.
 --
--- For maintenance window tasks without a target specified, you can\'t
--- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@, which may be reported in the response to this
--- command. This value doesn\'t affect the running of your task and can be
--- ignored.
-updateMaintenanceWindowTask_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_maxConcurrency = Lens.lens (\UpdateMaintenanceWindowTask' {maxConcurrency} -> maxConcurrency) (\s@UpdateMaintenanceWindowTask' {} a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTask)
-
--- | The new task description to specify.
-updateMaintenanceWindowTask_description :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Core._Sensitive
-
--- | The task ARN to modify.
-updateMaintenanceWindowTask_taskArn :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTask_taskArn = Lens.lens (\UpdateMaintenanceWindowTask' {taskArn} -> taskArn) (\s@UpdateMaintenanceWindowTask' {} a -> s {taskArn = a} :: UpdateMaintenanceWindowTask)
+-- One or more targets must be specified for maintenance window Run
+-- Command-type tasks. Depending on the task, targets are optional for
+-- other maintenance window task types (Automation, Lambda, and Step
+-- Functions). For more information about running tasks that don\'t specify
+-- targets, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+updateMaintenanceWindowTask_targets :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe [Target])
+updateMaintenanceWindowTask_targets = Lens.lens (\UpdateMaintenanceWindowTask' {targets} -> targets) (\s@UpdateMaintenanceWindowTask' {} a -> s {targets = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new logging location in Amazon S3 to specify.
 --
@@ -529,6 +514,21 @@ updateMaintenanceWindowTask_taskArn = Lens.lens (\UpdateMaintenanceWindowTask' {
 -- MaintenanceWindowTaskInvocationParameters.
 updateMaintenanceWindowTask_loggingInfo :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe LoggingInfo)
 updateMaintenanceWindowTask_loggingInfo = Lens.lens (\UpdateMaintenanceWindowTask' {loggingInfo} -> loggingInfo) (\s@UpdateMaintenanceWindowTask' {} a -> s {loggingInfo = a} :: UpdateMaintenanceWindowTask)
+
+-- | The new task description to specify.
+updateMaintenanceWindowTask_description :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_description = Lens.lens (\UpdateMaintenanceWindowTask' {description} -> description) (\s@UpdateMaintenanceWindowTask' {} a -> s {description = a} :: UpdateMaintenanceWindowTask) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The new @MaxConcurrency@ value you want to specify. @MaxConcurrency@ is
+-- the number of targets that are allowed to run this task in parallel.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@, which may be reported in the response to this
+-- command. This value doesn\'t affect the running of your task and can be
+-- ignored.
+updateMaintenanceWindowTask_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTask (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTask_maxConcurrency = Lens.lens (\UpdateMaintenanceWindowTask' {maxConcurrency} -> maxConcurrency) (\s@UpdateMaintenanceWindowTask' {} a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTask)
 
 -- | The maintenance window ID that contains the task to modify.
 updateMaintenanceWindowTask_windowId :: Lens.Lens' UpdateMaintenanceWindowTask Prelude.Text
@@ -547,20 +547,20 @@ instance Core.AWSRequest UpdateMaintenanceWindowTask where
     Response.receiveJSON
       ( \s h x ->
           UpdateMaintenanceWindowTaskResponse'
-            Prelude.<$> (x Core..?> "MaxErrors")
-            Prelude.<*> (x Core..?> "TaskParameters" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ServiceRoleArn")
+            Prelude.<$> (x Core..?> "ServiceRoleArn")
             Prelude.<*> (x Core..?> "WindowTaskId")
-            Prelude.<*> (x Core..?> "CutoffBehavior")
-            Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "TaskParameters" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Priority")
-            Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "TaskInvocationParameters")
-            Prelude.<*> (x Core..?> "WindowId")
-            Prelude.<*> (x Core..?> "MaxConcurrency")
-            Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "TaskArn")
+            Prelude.<*> (x Core..?> "CutoffBehavior")
+            Prelude.<*> (x Core..?> "MaxErrors")
+            Prelude.<*> (x Core..?> "TaskInvocationParameters")
+            Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "Targets" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "LoggingInfo")
+            Prelude.<*> (x Core..?> "Description")
+            Prelude.<*> (x Core..?> "MaxConcurrency")
+            Prelude.<*> (x Core..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -587,24 +587,24 @@ instance Core.ToJSON UpdateMaintenanceWindowTask where
   toJSON UpdateMaintenanceWindowTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxErrors" Core..=) Prelude.<$> maxErrors,
+          [ ("ServiceRoleArn" Core..=)
+              Prelude.<$> serviceRoleArn,
+            ("Replace" Core..=) Prelude.<$> replace,
             ("TaskParameters" Core..=)
               Prelude.<$> taskParameters,
-            ("ServiceRoleArn" Core..=)
-              Prelude.<$> serviceRoleArn,
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("TaskArn" Core..=) Prelude.<$> taskArn,
             ("CutoffBehavior" Core..=)
               Prelude.<$> cutoffBehavior,
-            ("Targets" Core..=) Prelude.<$> targets,
-            ("Priority" Core..=) Prelude.<$> priority,
-            ("Name" Core..=) Prelude.<$> name,
+            ("MaxErrors" Core..=) Prelude.<$> maxErrors,
             ("TaskInvocationParameters" Core..=)
               Prelude.<$> taskInvocationParameters,
-            ("Replace" Core..=) Prelude.<$> replace,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Targets" Core..=) Prelude.<$> targets,
+            ("LoggingInfo" Core..=) Prelude.<$> loggingInfo,
+            ("Description" Core..=) Prelude.<$> description,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
-            ("Description" Core..=) Prelude.<$> description,
-            ("TaskArn" Core..=) Prelude.<$> taskArn,
-            ("LoggingInfo" Core..=) Prelude.<$> loggingInfo,
             Prelude.Just ("WindowId" Core..= windowId),
             Prelude.Just ("WindowTaskId" Core..= windowTaskId)
           ]
@@ -618,8 +618,12 @@ instance Core.ToQuery UpdateMaintenanceWindowTask where
 
 -- | /See:/ 'newUpdateMaintenanceWindowTaskResponse' smart constructor.
 data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
-  { -- | The updated @MaxErrors@ value.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) service role to use to publish Amazon Simple Notification Service
+    -- (Amazon SNS) notifications for maintenance window Run Command tasks.
+    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The task ID of the maintenance window that was updated.
+    windowTaskId :: Prelude.Maybe Prelude.Text,
     -- | The updated parameter values.
     --
     -- @TaskParameters@ has been deprecated. To specify parameters to pass to a
@@ -628,31 +632,21 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     -- Manager handles these options for the supported maintenance window task
     -- types, see MaintenanceWindowTaskInvocationParameters.
     taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
-    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) service role to use to publish Amazon Simple Notification Service
-    -- (Amazon SNS) notifications for maintenance window Run Command tasks.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The task ID of the maintenance window that was updated.
-    windowTaskId :: Prelude.Maybe Prelude.Text,
+    -- | The updated priority value.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | The updated task ARN value.
+    taskArn :: Prelude.Maybe Prelude.Text,
     -- | The specification for whether tasks should continue to run after the
     -- cutoff time specified in the maintenance windows is reached.
     cutoffBehavior :: Prelude.Maybe MaintenanceWindowTaskCutoffBehavior,
-    -- | The updated target values.
-    targets :: Prelude.Maybe [Target],
-    -- | The updated priority value.
-    priority :: Prelude.Maybe Prelude.Natural,
-    -- | The updated task name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | The updated @MaxErrors@ value.
+    maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The updated parameter values.
     taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
-    -- | The ID of the maintenance window that was updated.
-    windowId :: Prelude.Maybe Prelude.Text,
-    -- | The updated @MaxConcurrency@ value.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | The updated task description.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The updated task ARN value.
-    taskArn :: Prelude.Maybe Prelude.Text,
+    -- | The updated task name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The updated target values.
+    targets :: Prelude.Maybe [Target],
     -- | The updated logging information in Amazon S3.
     --
     -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
@@ -663,6 +657,12 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
     loggingInfo :: Prelude.Maybe LoggingInfo,
+    -- | The updated task description.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The updated @MaxConcurrency@ value.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the maintenance window that was updated.
+    windowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -676,7 +676,11 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxErrors', 'updateMaintenanceWindowTaskResponse_maxErrors' - The updated @MaxErrors@ value.
+-- 'serviceRoleArn', 'updateMaintenanceWindowTaskResponse_serviceRoleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) service role to use to publish Amazon Simple Notification Service
+-- (Amazon SNS) notifications for maintenance window Run Command tasks.
+--
+-- 'windowTaskId', 'updateMaintenanceWindowTaskResponse_windowTaskId' - The task ID of the maintenance window that was updated.
 --
 -- 'taskParameters', 'updateMaintenanceWindowTaskResponse_taskParameters' - The updated parameter values.
 --
@@ -686,30 +690,20 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
 --
--- 'serviceRoleArn', 'updateMaintenanceWindowTaskResponse_serviceRoleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) service role to use to publish Amazon Simple Notification Service
--- (Amazon SNS) notifications for maintenance window Run Command tasks.
+-- 'priority', 'updateMaintenanceWindowTaskResponse_priority' - The updated priority value.
 --
--- 'windowTaskId', 'updateMaintenanceWindowTaskResponse_windowTaskId' - The task ID of the maintenance window that was updated.
+-- 'taskArn', 'updateMaintenanceWindowTaskResponse_taskArn' - The updated task ARN value.
 --
 -- 'cutoffBehavior', 'updateMaintenanceWindowTaskResponse_cutoffBehavior' - The specification for whether tasks should continue to run after the
 -- cutoff time specified in the maintenance windows is reached.
 --
--- 'targets', 'updateMaintenanceWindowTaskResponse_targets' - The updated target values.
---
--- 'priority', 'updateMaintenanceWindowTaskResponse_priority' - The updated priority value.
---
--- 'name', 'updateMaintenanceWindowTaskResponse_name' - The updated task name.
+-- 'maxErrors', 'updateMaintenanceWindowTaskResponse_maxErrors' - The updated @MaxErrors@ value.
 --
 -- 'taskInvocationParameters', 'updateMaintenanceWindowTaskResponse_taskInvocationParameters' - The updated parameter values.
 --
--- 'windowId', 'updateMaintenanceWindowTaskResponse_windowId' - The ID of the maintenance window that was updated.
+-- 'name', 'updateMaintenanceWindowTaskResponse_name' - The updated task name.
 --
--- 'maxConcurrency', 'updateMaintenanceWindowTaskResponse_maxConcurrency' - The updated @MaxConcurrency@ value.
---
--- 'description', 'updateMaintenanceWindowTaskResponse_description' - The updated task description.
---
--- 'taskArn', 'updateMaintenanceWindowTaskResponse_taskArn' - The updated task ARN value.
+-- 'targets', 'updateMaintenanceWindowTaskResponse_targets' - The updated target values.
 --
 -- 'loggingInfo', 'updateMaintenanceWindowTaskResponse_loggingInfo' - The updated logging information in Amazon S3.
 --
@@ -721,6 +715,12 @@ data UpdateMaintenanceWindowTaskResponse = UpdateMaintenanceWindowTaskResponse'
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
+-- 'description', 'updateMaintenanceWindowTaskResponse_description' - The updated task description.
+--
+-- 'maxConcurrency', 'updateMaintenanceWindowTaskResponse_maxConcurrency' - The updated @MaxConcurrency@ value.
+--
+-- 'windowId', 'updateMaintenanceWindowTaskResponse_windowId' - The ID of the maintenance window that was updated.
+--
 -- 'httpStatus', 'updateMaintenanceWindowTaskResponse_httpStatus' - The response's http status code.
 newUpdateMaintenanceWindowTaskResponse ::
   -- | 'httpStatus'
@@ -728,38 +728,24 @@ newUpdateMaintenanceWindowTaskResponse ::
   UpdateMaintenanceWindowTaskResponse
 newUpdateMaintenanceWindowTaskResponse pHttpStatus_ =
   UpdateMaintenanceWindowTaskResponse'
-    { maxErrors =
+    { serviceRoleArn =
         Prelude.Nothing,
-      taskParameters = Prelude.Nothing,
-      serviceRoleArn = Prelude.Nothing,
       windowTaskId = Prelude.Nothing,
-      cutoffBehavior = Prelude.Nothing,
-      targets = Prelude.Nothing,
+      taskParameters = Prelude.Nothing,
       priority = Prelude.Nothing,
-      name = Prelude.Nothing,
+      taskArn = Prelude.Nothing,
+      cutoffBehavior = Prelude.Nothing,
+      maxErrors = Prelude.Nothing,
       taskInvocationParameters =
         Prelude.Nothing,
-      windowId = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      description = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
+      name = Prelude.Nothing,
+      targets = Prelude.Nothing,
       loggingInfo = Prelude.Nothing,
+      description = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
+      windowId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The updated @MaxErrors@ value.
-updateMaintenanceWindowTaskResponse_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_maxErrors = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {maxErrors} -> maxErrors) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {maxErrors = a} :: UpdateMaintenanceWindowTaskResponse)
-
--- | The updated parameter values.
---
--- @TaskParameters@ has been deprecated. To specify parameters to pass to a
--- task when it runs, instead use the @Parameters@ option in the
--- @TaskInvocationParameters@ structure. For information about how Systems
--- Manager handles these options for the supported maintenance window task
--- types, see MaintenanceWindowTaskInvocationParameters.
-updateMaintenanceWindowTaskResponse_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
-updateMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
 -- (IAM) service role to use to publish Amazon Simple Notification Service
@@ -771,42 +757,44 @@ updateMaintenanceWindowTaskResponse_serviceRoleArn = Lens.lens (\UpdateMaintenan
 updateMaintenanceWindowTaskResponse_windowTaskId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindowTaskResponse_windowTaskId = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {windowTaskId} -> windowTaskId) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {windowTaskId = a} :: UpdateMaintenanceWindowTaskResponse)
 
--- | The specification for whether tasks should continue to run after the
--- cutoff time specified in the maintenance windows is reached.
-updateMaintenanceWindowTaskResponse_cutoffBehavior :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe MaintenanceWindowTaskCutoffBehavior)
-updateMaintenanceWindowTaskResponse_cutoffBehavior = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {cutoffBehavior} -> cutoffBehavior) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {cutoffBehavior = a} :: UpdateMaintenanceWindowTaskResponse)
-
--- | The updated target values.
-updateMaintenanceWindowTaskResponse_targets :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe [Target])
-updateMaintenanceWindowTaskResponse_targets = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {targets} -> targets) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {targets = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The updated parameter values.
+--
+-- @TaskParameters@ has been deprecated. To specify parameters to pass to a
+-- task when it runs, instead use the @Parameters@ option in the
+-- @TaskInvocationParameters@ structure. For information about how Systems
+-- Manager handles these options for the supported maintenance window task
+-- types, see MaintenanceWindowTaskInvocationParameters.
+updateMaintenanceWindowTaskResponse_taskParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
+updateMaintenanceWindowTaskResponse_taskParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskParameters} -> taskParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskParameters = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The updated priority value.
 updateMaintenanceWindowTaskResponse_priority :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Natural)
 updateMaintenanceWindowTaskResponse_priority = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {priority} -> priority) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {priority = a} :: UpdateMaintenanceWindowTaskResponse)
 
--- | The updated task name.
-updateMaintenanceWindowTaskResponse_name :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_name = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {name} -> name) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {name = a} :: UpdateMaintenanceWindowTaskResponse)
+-- | The updated task ARN value.
+updateMaintenanceWindowTaskResponse_taskArn :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_taskArn = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskArn} -> taskArn) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskArn = a} :: UpdateMaintenanceWindowTaskResponse)
+
+-- | The specification for whether tasks should continue to run after the
+-- cutoff time specified in the maintenance windows is reached.
+updateMaintenanceWindowTaskResponse_cutoffBehavior :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe MaintenanceWindowTaskCutoffBehavior)
+updateMaintenanceWindowTaskResponse_cutoffBehavior = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {cutoffBehavior} -> cutoffBehavior) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {cutoffBehavior = a} :: UpdateMaintenanceWindowTaskResponse)
+
+-- | The updated @MaxErrors@ value.
+updateMaintenanceWindowTaskResponse_maxErrors :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_maxErrors = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {maxErrors} -> maxErrors) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {maxErrors = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The updated parameter values.
 updateMaintenanceWindowTaskResponse_taskInvocationParameters :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
 updateMaintenanceWindowTaskResponse_taskInvocationParameters = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskInvocationParameters} -> taskInvocationParameters) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskInvocationParameters = a} :: UpdateMaintenanceWindowTaskResponse)
 
--- | The ID of the maintenance window that was updated.
-updateMaintenanceWindowTaskResponse_windowId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_windowId = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {windowId} -> windowId) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {windowId = a} :: UpdateMaintenanceWindowTaskResponse)
+-- | The updated task name.
+updateMaintenanceWindowTaskResponse_name :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_name = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {name} -> name) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {name = a} :: UpdateMaintenanceWindowTaskResponse)
 
--- | The updated @MaxConcurrency@ value.
-updateMaintenanceWindowTaskResponse_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_maxConcurrency = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {maxConcurrency} -> maxConcurrency) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTaskResponse)
-
--- | The updated task description.
-updateMaintenanceWindowTaskResponse_description :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | The updated task ARN value.
-updateMaintenanceWindowTaskResponse_taskArn :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
-updateMaintenanceWindowTaskResponse_taskArn = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {taskArn} -> taskArn) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {taskArn = a} :: UpdateMaintenanceWindowTaskResponse)
+-- | The updated target values.
+updateMaintenanceWindowTaskResponse_targets :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe [Target])
+updateMaintenanceWindowTaskResponse_targets = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {targets} -> targets) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {targets = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The updated logging information in Amazon S3.
 --
@@ -819,6 +807,18 @@ updateMaintenanceWindowTaskResponse_taskArn = Lens.lens (\UpdateMaintenanceWindo
 -- MaintenanceWindowTaskInvocationParameters.
 updateMaintenanceWindowTaskResponse_loggingInfo :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe LoggingInfo)
 updateMaintenanceWindowTaskResponse_loggingInfo = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {loggingInfo} -> loggingInfo) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {loggingInfo = a} :: UpdateMaintenanceWindowTaskResponse)
+
+-- | The updated task description.
+updateMaintenanceWindowTaskResponse_description :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_description = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {description} -> description) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {description = a} :: UpdateMaintenanceWindowTaskResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The updated @MaxConcurrency@ value.
+updateMaintenanceWindowTaskResponse_maxConcurrency :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_maxConcurrency = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {maxConcurrency} -> maxConcurrency) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {maxConcurrency = a} :: UpdateMaintenanceWindowTaskResponse)
+
+-- | The ID of the maintenance window that was updated.
+updateMaintenanceWindowTaskResponse_windowId :: Lens.Lens' UpdateMaintenanceWindowTaskResponse (Prelude.Maybe Prelude.Text)
+updateMaintenanceWindowTaskResponse_windowId = Lens.lens (\UpdateMaintenanceWindowTaskResponse' {windowId} -> windowId) (\s@UpdateMaintenanceWindowTaskResponse' {} a -> s {windowId = a} :: UpdateMaintenanceWindowTaskResponse)
 
 -- | The response's http status code.
 updateMaintenanceWindowTaskResponse_httpStatus :: Lens.Lens' UpdateMaintenanceWindowTaskResponse Prelude.Int

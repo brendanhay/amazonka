@@ -39,11 +39,9 @@ import Network.AWS.SES.Types.TlsPolicy
 --
 -- /See:/ 'newReceiptRule' smart constructor.
 data ReceiptRule = ReceiptRule'
-  { -- | Specifies whether Amazon SES should require that incoming email is
-    -- delivered over a connection encrypted with Transport Layer Security
-    -- (TLS). If this parameter is set to @Require@, Amazon SES will bounce
-    -- emails that are not received over TLS. The default is @Optional@.
-    tlsPolicy :: Prelude.Maybe TlsPolicy,
+  { -- | If @true@, then messages that this receipt rule applies to are scanned
+    -- for spam and viruses. The default value is @false@.
+    scanEnabled :: Prelude.Maybe Prelude.Bool,
     -- | If @true@, the receipt rule is active. The default value is @false@.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | An ordered list of actions to perform on messages that match at least
@@ -54,9 +52,11 @@ data ReceiptRule = ReceiptRule'
     -- to. If this field is not specified, this rule will match all recipients
     -- under all verified domains.
     recipients :: Prelude.Maybe [Prelude.Text],
-    -- | If @true@, then messages that this receipt rule applies to are scanned
-    -- for spam and viruses. The default value is @false@.
-    scanEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether Amazon SES should require that incoming email is
+    -- delivered over a connection encrypted with Transport Layer Security
+    -- (TLS). If this parameter is set to @Require@, Amazon SES will bounce
+    -- emails that are not received over TLS. The default is @Optional@.
+    tlsPolicy :: Prelude.Maybe TlsPolicy,
     -- | The name of the receipt rule. The name must:
     --
     -- -   This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
@@ -77,10 +77,8 @@ data ReceiptRule = ReceiptRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tlsPolicy', 'receiptRule_tlsPolicy' - Specifies whether Amazon SES should require that incoming email is
--- delivered over a connection encrypted with Transport Layer Security
--- (TLS). If this parameter is set to @Require@, Amazon SES will bounce
--- emails that are not received over TLS. The default is @Optional@.
+-- 'scanEnabled', 'receiptRule_scanEnabled' - If @true@, then messages that this receipt rule applies to are scanned
+-- for spam and viruses. The default value is @false@.
 --
 -- 'enabled', 'receiptRule_enabled' - If @true@, the receipt rule is active. The default value is @false@.
 --
@@ -92,8 +90,10 @@ data ReceiptRule = ReceiptRule'
 -- to. If this field is not specified, this rule will match all recipients
 -- under all verified domains.
 --
--- 'scanEnabled', 'receiptRule_scanEnabled' - If @true@, then messages that this receipt rule applies to are scanned
--- for spam and viruses. The default value is @false@.
+-- 'tlsPolicy', 'receiptRule_tlsPolicy' - Specifies whether Amazon SES should require that incoming email is
+-- delivered over a connection encrypted with Transport Layer Security
+-- (TLS). If this parameter is set to @Require@, Amazon SES will bounce
+-- emails that are not received over TLS. The default is @Optional@.
 --
 -- 'name', 'receiptRule_name' - The name of the receipt rule. The name must:
 --
@@ -109,20 +109,18 @@ newReceiptRule ::
   ReceiptRule
 newReceiptRule pName_ =
   ReceiptRule'
-    { tlsPolicy = Prelude.Nothing,
+    { scanEnabled = Prelude.Nothing,
       enabled = Prelude.Nothing,
       actions = Prelude.Nothing,
       recipients = Prelude.Nothing,
-      scanEnabled = Prelude.Nothing,
+      tlsPolicy = Prelude.Nothing,
       name = pName_
     }
 
--- | Specifies whether Amazon SES should require that incoming email is
--- delivered over a connection encrypted with Transport Layer Security
--- (TLS). If this parameter is set to @Require@, Amazon SES will bounce
--- emails that are not received over TLS. The default is @Optional@.
-receiptRule_tlsPolicy :: Lens.Lens' ReceiptRule (Prelude.Maybe TlsPolicy)
-receiptRule_tlsPolicy = Lens.lens (\ReceiptRule' {tlsPolicy} -> tlsPolicy) (\s@ReceiptRule' {} a -> s {tlsPolicy = a} :: ReceiptRule)
+-- | If @true@, then messages that this receipt rule applies to are scanned
+-- for spam and viruses. The default value is @false@.
+receiptRule_scanEnabled :: Lens.Lens' ReceiptRule (Prelude.Maybe Prelude.Bool)
+receiptRule_scanEnabled = Lens.lens (\ReceiptRule' {scanEnabled} -> scanEnabled) (\s@ReceiptRule' {} a -> s {scanEnabled = a} :: ReceiptRule)
 
 -- | If @true@, the receipt rule is active. The default value is @false@.
 receiptRule_enabled :: Lens.Lens' ReceiptRule (Prelude.Maybe Prelude.Bool)
@@ -132,18 +130,20 @@ receiptRule_enabled = Lens.lens (\ReceiptRule' {enabled} -> enabled) (\s@Receipt
 -- one of the recipient email addresses or domains specified in the receipt
 -- rule.
 receiptRule_actions :: Lens.Lens' ReceiptRule (Prelude.Maybe [ReceiptAction])
-receiptRule_actions = Lens.lens (\ReceiptRule' {actions} -> actions) (\s@ReceiptRule' {} a -> s {actions = a} :: ReceiptRule) Prelude.. Lens.mapping Lens._Coerce
+receiptRule_actions = Lens.lens (\ReceiptRule' {actions} -> actions) (\s@ReceiptRule' {} a -> s {actions = a} :: ReceiptRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The recipient domains and email addresses that the receipt rule applies
 -- to. If this field is not specified, this rule will match all recipients
 -- under all verified domains.
 receiptRule_recipients :: Lens.Lens' ReceiptRule (Prelude.Maybe [Prelude.Text])
-receiptRule_recipients = Lens.lens (\ReceiptRule' {recipients} -> recipients) (\s@ReceiptRule' {} a -> s {recipients = a} :: ReceiptRule) Prelude.. Lens.mapping Lens._Coerce
+receiptRule_recipients = Lens.lens (\ReceiptRule' {recipients} -> recipients) (\s@ReceiptRule' {} a -> s {recipients = a} :: ReceiptRule) Prelude.. Lens.mapping Lens.coerced
 
--- | If @true@, then messages that this receipt rule applies to are scanned
--- for spam and viruses. The default value is @false@.
-receiptRule_scanEnabled :: Lens.Lens' ReceiptRule (Prelude.Maybe Prelude.Bool)
-receiptRule_scanEnabled = Lens.lens (\ReceiptRule' {scanEnabled} -> scanEnabled) (\s@ReceiptRule' {} a -> s {scanEnabled = a} :: ReceiptRule)
+-- | Specifies whether Amazon SES should require that incoming email is
+-- delivered over a connection encrypted with Transport Layer Security
+-- (TLS). If this parameter is set to @Require@, Amazon SES will bounce
+-- emails that are not received over TLS. The default is @Optional@.
+receiptRule_tlsPolicy :: Lens.Lens' ReceiptRule (Prelude.Maybe TlsPolicy)
+receiptRule_tlsPolicy = Lens.lens (\ReceiptRule' {tlsPolicy} -> tlsPolicy) (\s@ReceiptRule' {} a -> s {tlsPolicy = a} :: ReceiptRule)
 
 -- | The name of the receipt rule. The name must:
 --
@@ -159,7 +159,7 @@ receiptRule_name = Lens.lens (\ReceiptRule' {name} -> name) (\s@ReceiptRule' {} 
 instance Core.FromXML ReceiptRule where
   parseXML x =
     ReceiptRule'
-      Prelude.<$> (x Core..@? "TlsPolicy")
+      Prelude.<$> (x Core..@? "ScanEnabled")
       Prelude.<*> (x Core..@? "Enabled")
       Prelude.<*> ( x Core..@? "Actions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -167,7 +167,7 @@ instance Core.FromXML ReceiptRule where
       Prelude.<*> ( x Core..@? "Recipients" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "ScanEnabled")
+      Prelude.<*> (x Core..@? "TlsPolicy")
       Prelude.<*> (x Core..@ "Name")
 
 instance Prelude.Hashable ReceiptRule
@@ -177,7 +177,7 @@ instance Prelude.NFData ReceiptRule
 instance Core.ToQuery ReceiptRule where
   toQuery ReceiptRule' {..} =
     Prelude.mconcat
-      [ "TlsPolicy" Core.=: tlsPolicy,
+      [ "ScanEnabled" Core.=: scanEnabled,
         "Enabled" Core.=: enabled,
         "Actions"
           Core.=: Core.toQuery
@@ -185,6 +185,6 @@ instance Core.ToQuery ReceiptRule where
         "Recipients"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> recipients),
-        "ScanEnabled" Core.=: scanEnabled,
+        "TlsPolicy" Core.=: tlsPolicy,
         "Name" Core.=: name
       ]

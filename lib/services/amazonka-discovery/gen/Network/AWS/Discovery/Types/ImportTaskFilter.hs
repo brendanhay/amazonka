@@ -66,7 +66,7 @@ newImportTaskFilter =
 -- name, status, or import task ID to filter the results for your import
 -- task queries.
 importTaskFilter_values :: Lens.Lens' ImportTaskFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@ImportTaskFilter' {} a -> s {values = a} :: ImportTaskFilter) Prelude.. Lens.mapping Lens._Coerce
+importTaskFilter_values = Lens.lens (\ImportTaskFilter' {values} -> values) (\s@ImportTaskFilter' {} a -> s {values = a} :: ImportTaskFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name, status, or import task ID for a specific import task.
 importTaskFilter_name :: Lens.Lens' ImportTaskFilter (Prelude.Maybe ImportTaskFilterName)

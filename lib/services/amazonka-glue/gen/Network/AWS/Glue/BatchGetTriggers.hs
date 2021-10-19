@@ -38,8 +38,8 @@ module Network.AWS.Glue.BatchGetTriggers
     newBatchGetTriggersResponse,
 
     -- * Response Lenses
-    batchGetTriggersResponse_triggers,
     batchGetTriggersResponse_triggersNotFound,
+    batchGetTriggersResponse_triggers,
     batchGetTriggersResponse_httpStatus,
   )
 where
@@ -77,7 +77,7 @@ newBatchGetTriggers =
 -- | A list of trigger names, which may be the names returned from the
 -- @ListTriggers@ operation.
 batchGetTriggers_triggerNames :: Lens.Lens' BatchGetTriggers [Prelude.Text]
-batchGetTriggers_triggerNames = Lens.lens (\BatchGetTriggers' {triggerNames} -> triggerNames) (\s@BatchGetTriggers' {} a -> s {triggerNames = a} :: BatchGetTriggers) Prelude.. Lens._Coerce
+batchGetTriggers_triggerNames = Lens.lens (\BatchGetTriggers' {triggerNames} -> triggerNames) (\s@BatchGetTriggers' {} a -> s {triggerNames = a} :: BatchGetTriggers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetTriggers where
   type
@@ -88,10 +88,10 @@ instance Core.AWSRequest BatchGetTriggers where
     Response.receiveJSON
       ( \s h x ->
           BatchGetTriggersResponse'
-            Prelude.<$> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Core..?> "TriggersNotFound"
+            Prelude.<$> ( x Core..?> "TriggersNotFound"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,10 +127,10 @@ instance Core.ToQuery BatchGetTriggers where
 
 -- | /See:/ 'newBatchGetTriggersResponse' smart constructor.
 data BatchGetTriggersResponse = BatchGetTriggersResponse'
-  { -- | A list of trigger definitions.
-    triggers :: Prelude.Maybe [Trigger],
-    -- | A list of names of triggers not found.
+  { -- | A list of names of triggers not found.
     triggersNotFound :: Prelude.Maybe [Prelude.Text],
+    -- | A list of trigger definitions.
+    triggers :: Prelude.Maybe [Trigger],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,9 +144,9 @@ data BatchGetTriggersResponse = BatchGetTriggersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'triggers', 'batchGetTriggersResponse_triggers' - A list of trigger definitions.
---
 -- 'triggersNotFound', 'batchGetTriggersResponse_triggersNotFound' - A list of names of triggers not found.
+--
+-- 'triggers', 'batchGetTriggersResponse_triggers' - A list of trigger definitions.
 --
 -- 'httpStatus', 'batchGetTriggersResponse_httpStatus' - The response's http status code.
 newBatchGetTriggersResponse ::
@@ -155,19 +155,19 @@ newBatchGetTriggersResponse ::
   BatchGetTriggersResponse
 newBatchGetTriggersResponse pHttpStatus_ =
   BatchGetTriggersResponse'
-    { triggers =
+    { triggersNotFound =
         Prelude.Nothing,
-      triggersNotFound = Prelude.Nothing,
+      triggers = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A list of trigger definitions.
-batchGetTriggersResponse_triggers :: Lens.Lens' BatchGetTriggersResponse (Prelude.Maybe [Trigger])
-batchGetTriggersResponse_triggers = Lens.lens (\BatchGetTriggersResponse' {triggers} -> triggers) (\s@BatchGetTriggersResponse' {} a -> s {triggers = a} :: BatchGetTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of names of triggers not found.
 batchGetTriggersResponse_triggersNotFound :: Lens.Lens' BatchGetTriggersResponse (Prelude.Maybe [Prelude.Text])
-batchGetTriggersResponse_triggersNotFound = Lens.lens (\BatchGetTriggersResponse' {triggersNotFound} -> triggersNotFound) (\s@BatchGetTriggersResponse' {} a -> s {triggersNotFound = a} :: BatchGetTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetTriggersResponse_triggersNotFound = Lens.lens (\BatchGetTriggersResponse' {triggersNotFound} -> triggersNotFound) (\s@BatchGetTriggersResponse' {} a -> s {triggersNotFound = a} :: BatchGetTriggersResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of trigger definitions.
+batchGetTriggersResponse_triggers :: Lens.Lens' BatchGetTriggersResponse (Prelude.Maybe [Trigger])
+batchGetTriggersResponse_triggers = Lens.lens (\BatchGetTriggersResponse' {triggers} -> triggers) (\s@BatchGetTriggersResponse' {} a -> s {triggers = a} :: BatchGetTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetTriggersResponse_httpStatus :: Lens.Lens' BatchGetTriggersResponse Prelude.Int

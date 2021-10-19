@@ -27,7 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAbsoluteTimeRange' smart constructor.
 data AbsoluteTimeRange = AbsoluteTimeRange'
-  { -- | A value that indicates the beginning of the time range in seconds. To
+  { -- | A time range from the beginning of the call to the value that you\'ve
+    -- specified. For example, if you specify 100000, the time range is set to
+    -- the first 100,000 milliseconds of the call.
+    first :: Prelude.Maybe Prelude.Natural,
+    -- | A value that indicates the beginning of the time range in seconds. To
     -- set absolute time range, you must specify a start time and an end time.
     -- For example, if you specify the following values:
     --
@@ -38,6 +42,10 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
     -- The time range is set between 10,000 milliseconds and 50,000
     -- milliseconds into the call.
     startTime :: Prelude.Maybe Prelude.Natural,
+    -- | A time range from the value that you\'ve specified to the end of the
+    -- call. For example, if you specify 100000, the time range is set to the
+    -- last 100,000 milliseconds of the call.
+    last :: Prelude.Maybe Prelude.Natural,
     -- | A value that indicates the end of the time range in milliseconds. To set
     -- absolute time range, you must specify a start time and an end time. For
     -- example, if you specify the following values:
@@ -48,15 +56,7 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
     --
     -- The time range is set between 10,000 milliseconds and 50,000
     -- milliseconds into the call.
-    endTime :: Prelude.Maybe Prelude.Natural,
-    -- | A time range from the value that you\'ve specified to the end of the
-    -- call. For example, if you specify 100000, the time range is set to the
-    -- last 100,000 milliseconds of the call.
-    last :: Prelude.Maybe Prelude.Natural,
-    -- | A time range from the beginning of the call to the value that you\'ve
-    -- specified. For example, if you specify 100000, the time range is set to
-    -- the first 100,000 milliseconds of the call.
-    first :: Prelude.Maybe Prelude.Natural
+    endTime :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +67,10 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'first', 'absoluteTimeRange_first' - A time range from the beginning of the call to the value that you\'ve
+-- specified. For example, if you specify 100000, the time range is set to
+-- the first 100,000 milliseconds of the call.
 --
 -- 'startTime', 'absoluteTimeRange_startTime' - A value that indicates the beginning of the time range in seconds. To
 -- set absolute time range, you must specify a start time and an end time.
@@ -79,6 +83,10 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
 -- The time range is set between 10,000 milliseconds and 50,000
 -- milliseconds into the call.
 --
+-- 'last', 'absoluteTimeRange_last' - A time range from the value that you\'ve specified to the end of the
+-- call. For example, if you specify 100000, the time range is set to the
+-- last 100,000 milliseconds of the call.
+--
 -- 'endTime', 'absoluteTimeRange_endTime' - A value that indicates the end of the time range in milliseconds. To set
 -- absolute time range, you must specify a start time and an end time. For
 -- example, if you specify the following values:
@@ -89,23 +97,21 @@ data AbsoluteTimeRange = AbsoluteTimeRange'
 --
 -- The time range is set between 10,000 milliseconds and 50,000
 -- milliseconds into the call.
---
--- 'last', 'absoluteTimeRange_last' - A time range from the value that you\'ve specified to the end of the
--- call. For example, if you specify 100000, the time range is set to the
--- last 100,000 milliseconds of the call.
---
--- 'first', 'absoluteTimeRange_first' - A time range from the beginning of the call to the value that you\'ve
--- specified. For example, if you specify 100000, the time range is set to
--- the first 100,000 milliseconds of the call.
 newAbsoluteTimeRange ::
   AbsoluteTimeRange
 newAbsoluteTimeRange =
   AbsoluteTimeRange'
-    { startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { first = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       last = Prelude.Nothing,
-      first = Prelude.Nothing
+      endTime = Prelude.Nothing
     }
+
+-- | A time range from the beginning of the call to the value that you\'ve
+-- specified. For example, if you specify 100000, the time range is set to
+-- the first 100,000 milliseconds of the call.
+absoluteTimeRange_first :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
+absoluteTimeRange_first = Lens.lens (\AbsoluteTimeRange' {first} -> first) (\s@AbsoluteTimeRange' {} a -> s {first = a} :: AbsoluteTimeRange)
 
 -- | A value that indicates the beginning of the time range in seconds. To
 -- set absolute time range, you must specify a start time and an end time.
@@ -120,6 +126,12 @@ newAbsoluteTimeRange =
 absoluteTimeRange_startTime :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
 absoluteTimeRange_startTime = Lens.lens (\AbsoluteTimeRange' {startTime} -> startTime) (\s@AbsoluteTimeRange' {} a -> s {startTime = a} :: AbsoluteTimeRange)
 
+-- | A time range from the value that you\'ve specified to the end of the
+-- call. For example, if you specify 100000, the time range is set to the
+-- last 100,000 milliseconds of the call.
+absoluteTimeRange_last :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
+absoluteTimeRange_last = Lens.lens (\AbsoluteTimeRange' {last} -> last) (\s@AbsoluteTimeRange' {} a -> s {last = a} :: AbsoluteTimeRange)
+
 -- | A value that indicates the end of the time range in milliseconds. To set
 -- absolute time range, you must specify a start time and an end time. For
 -- example, if you specify the following values:
@@ -133,28 +145,16 @@ absoluteTimeRange_startTime = Lens.lens (\AbsoluteTimeRange' {startTime} -> star
 absoluteTimeRange_endTime :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
 absoluteTimeRange_endTime = Lens.lens (\AbsoluteTimeRange' {endTime} -> endTime) (\s@AbsoluteTimeRange' {} a -> s {endTime = a} :: AbsoluteTimeRange)
 
--- | A time range from the value that you\'ve specified to the end of the
--- call. For example, if you specify 100000, the time range is set to the
--- last 100,000 milliseconds of the call.
-absoluteTimeRange_last :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
-absoluteTimeRange_last = Lens.lens (\AbsoluteTimeRange' {last} -> last) (\s@AbsoluteTimeRange' {} a -> s {last = a} :: AbsoluteTimeRange)
-
--- | A time range from the beginning of the call to the value that you\'ve
--- specified. For example, if you specify 100000, the time range is set to
--- the first 100,000 milliseconds of the call.
-absoluteTimeRange_first :: Lens.Lens' AbsoluteTimeRange (Prelude.Maybe Prelude.Natural)
-absoluteTimeRange_first = Lens.lens (\AbsoluteTimeRange' {first} -> first) (\s@AbsoluteTimeRange' {} a -> s {first = a} :: AbsoluteTimeRange)
-
 instance Core.FromJSON AbsoluteTimeRange where
   parseJSON =
     Core.withObject
       "AbsoluteTimeRange"
       ( \x ->
           AbsoluteTimeRange'
-            Prelude.<$> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<$> (x Core..:? "First")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "Last")
-            Prelude.<*> (x Core..:? "First")
+            Prelude.<*> (x Core..:? "EndTime")
       )
 
 instance Prelude.Hashable AbsoluteTimeRange
@@ -165,9 +165,9 @@ instance Core.ToJSON AbsoluteTimeRange where
   toJSON AbsoluteTimeRange' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("StartTime" Core..=) Prelude.<$> startTime,
-            ("EndTime" Core..=) Prelude.<$> endTime,
+          [ ("First" Core..=) Prelude.<$> first,
+            ("StartTime" Core..=) Prelude.<$> startTime,
             ("Last" Core..=) Prelude.<$> last,
-            ("First" Core..=) Prelude.<$> first
+            ("EndTime" Core..=) Prelude.<$> endTime
           ]
       )

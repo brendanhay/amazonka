@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpnStaticRoute' smart constructor.
 data VpnStaticRoute = VpnStaticRoute'
-  { -- | Indicates how the routes were provided.
-    source :: Prelude.Maybe VpnStaticRouteSource,
-    -- | The current state of the static route.
+  { -- | The current state of the static route.
     state :: Prelude.Maybe VpnState,
+    -- | Indicates how the routes were provided.
+    source :: Prelude.Maybe VpnStaticRouteSource,
     -- | The CIDR block associated with the local subnet of the customer data
     -- center.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text
@@ -48,9 +48,9 @@ data VpnStaticRoute = VpnStaticRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'source', 'vpnStaticRoute_source' - Indicates how the routes were provided.
---
 -- 'state', 'vpnStaticRoute_state' - The current state of the static route.
+--
+-- 'source', 'vpnStaticRoute_source' - Indicates how the routes were provided.
 --
 -- 'destinationCidrBlock', 'vpnStaticRoute_destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data
 -- center.
@@ -58,18 +58,18 @@ newVpnStaticRoute ::
   VpnStaticRoute
 newVpnStaticRoute =
   VpnStaticRoute'
-    { source = Prelude.Nothing,
-      state = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      source = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing
     }
-
--- | Indicates how the routes were provided.
-vpnStaticRoute_source :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnStaticRouteSource)
-vpnStaticRoute_source = Lens.lens (\VpnStaticRoute' {source} -> source) (\s@VpnStaticRoute' {} a -> s {source = a} :: VpnStaticRoute)
 
 -- | The current state of the static route.
 vpnStaticRoute_state :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnState)
 vpnStaticRoute_state = Lens.lens (\VpnStaticRoute' {state} -> state) (\s@VpnStaticRoute' {} a -> s {state = a} :: VpnStaticRoute)
+
+-- | Indicates how the routes were provided.
+vpnStaticRoute_source :: Lens.Lens' VpnStaticRoute (Prelude.Maybe VpnStaticRouteSource)
+vpnStaticRoute_source = Lens.lens (\VpnStaticRoute' {source} -> source) (\s@VpnStaticRoute' {} a -> s {source = a} :: VpnStaticRoute)
 
 -- | The CIDR block associated with the local subnet of the customer data
 -- center.
@@ -79,8 +79,8 @@ vpnStaticRoute_destinationCidrBlock = Lens.lens (\VpnStaticRoute' {destinationCi
 instance Core.FromXML VpnStaticRoute where
   parseXML x =
     VpnStaticRoute'
-      Prelude.<$> (x Core..@? "source")
-      Prelude.<*> (x Core..@? "state")
+      Prelude.<$> (x Core..@? "state")
+      Prelude.<*> (x Core..@? "source")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
 
 instance Prelude.Hashable VpnStaticRoute

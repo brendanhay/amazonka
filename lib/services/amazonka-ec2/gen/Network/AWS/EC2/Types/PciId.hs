@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 data PciId = PciId'
   { -- | The ID of the subsystem.
     subsystemId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the vendor for the subsystem.
-    subsystemVendorId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the device.
     deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the vendor for the subsystem.
+    subsystemVendorId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the vendor.
     vendorId :: Prelude.Maybe Prelude.Text
   }
@@ -50,9 +50,9 @@ data PciId = PciId'
 --
 -- 'subsystemId', 'pciId_subsystemId' - The ID of the subsystem.
 --
--- 'subsystemVendorId', 'pciId_subsystemVendorId' - The ID of the vendor for the subsystem.
---
 -- 'deviceId', 'pciId_deviceId' - The ID of the device.
+--
+-- 'subsystemVendorId', 'pciId_subsystemVendorId' - The ID of the vendor for the subsystem.
 --
 -- 'vendorId', 'pciId_vendorId' - The ID of the vendor.
 newPciId ::
@@ -60,8 +60,8 @@ newPciId ::
 newPciId =
   PciId'
     { subsystemId = Prelude.Nothing,
-      subsystemVendorId = Prelude.Nothing,
       deviceId = Prelude.Nothing,
+      subsystemVendorId = Prelude.Nothing,
       vendorId = Prelude.Nothing
     }
 
@@ -69,13 +69,13 @@ newPciId =
 pciId_subsystemId :: Lens.Lens' PciId (Prelude.Maybe Prelude.Text)
 pciId_subsystemId = Lens.lens (\PciId' {subsystemId} -> subsystemId) (\s@PciId' {} a -> s {subsystemId = a} :: PciId)
 
--- | The ID of the vendor for the subsystem.
-pciId_subsystemVendorId :: Lens.Lens' PciId (Prelude.Maybe Prelude.Text)
-pciId_subsystemVendorId = Lens.lens (\PciId' {subsystemVendorId} -> subsystemVendorId) (\s@PciId' {} a -> s {subsystemVendorId = a} :: PciId)
-
 -- | The ID of the device.
 pciId_deviceId :: Lens.Lens' PciId (Prelude.Maybe Prelude.Text)
 pciId_deviceId = Lens.lens (\PciId' {deviceId} -> deviceId) (\s@PciId' {} a -> s {deviceId = a} :: PciId)
+
+-- | The ID of the vendor for the subsystem.
+pciId_subsystemVendorId :: Lens.Lens' PciId (Prelude.Maybe Prelude.Text)
+pciId_subsystemVendorId = Lens.lens (\PciId' {subsystemVendorId} -> subsystemVendorId) (\s@PciId' {} a -> s {subsystemVendorId = a} :: PciId)
 
 -- | The ID of the vendor.
 pciId_vendorId :: Lens.Lens' PciId (Prelude.Maybe Prelude.Text)
@@ -85,8 +85,8 @@ instance Core.FromXML PciId where
   parseXML x =
     PciId'
       Prelude.<$> (x Core..@? "SubsystemId")
-      Prelude.<*> (x Core..@? "SubsystemVendorId")
       Prelude.<*> (x Core..@? "DeviceId")
+      Prelude.<*> (x Core..@? "SubsystemVendorId")
       Prelude.<*> (x Core..@? "VendorId")
 
 instance Prelude.Hashable PciId

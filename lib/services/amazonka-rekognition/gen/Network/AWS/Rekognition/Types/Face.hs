@@ -31,15 +31,15 @@ import Network.AWS.Rekognition.Types.BoundingBox
 data Face = Face'
   { -- | Unique identifier that Amazon Rekognition assigns to the face.
     faceId :: Prelude.Maybe Prelude.Text,
-    -- | Unique identifier that Amazon Rekognition assigns to the input image.
-    imageId :: Prelude.Maybe Prelude.Text,
-    -- | Identifier that you assign to all the faces in the input image.
-    externalImageId :: Prelude.Maybe Prelude.Text,
     -- | Bounding box of the face.
     boundingBox :: Prelude.Maybe BoundingBox,
+    -- | Identifier that you assign to all the faces in the input image.
+    externalImageId :: Prelude.Maybe Prelude.Text,
     -- | Confidence level that the bounding box contains a face (and not a
     -- different object such as a tree).
-    confidence :: Prelude.Maybe Prelude.Double
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | Unique identifier that Amazon Rekognition assigns to the input image.
+    imageId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,45 +53,45 @@ data Face = Face'
 --
 -- 'faceId', 'face_faceId' - Unique identifier that Amazon Rekognition assigns to the face.
 --
--- 'imageId', 'face_imageId' - Unique identifier that Amazon Rekognition assigns to the input image.
+-- 'boundingBox', 'face_boundingBox' - Bounding box of the face.
 --
 -- 'externalImageId', 'face_externalImageId' - Identifier that you assign to all the faces in the input image.
 --
--- 'boundingBox', 'face_boundingBox' - Bounding box of the face.
---
 -- 'confidence', 'face_confidence' - Confidence level that the bounding box contains a face (and not a
 -- different object such as a tree).
+--
+-- 'imageId', 'face_imageId' - Unique identifier that Amazon Rekognition assigns to the input image.
 newFace ::
   Face
 newFace =
   Face'
     { faceId = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      externalImageId = Prelude.Nothing,
       boundingBox = Prelude.Nothing,
-      confidence = Prelude.Nothing
+      externalImageId = Prelude.Nothing,
+      confidence = Prelude.Nothing,
+      imageId = Prelude.Nothing
     }
 
 -- | Unique identifier that Amazon Rekognition assigns to the face.
 face_faceId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
 face_faceId = Lens.lens (\Face' {faceId} -> faceId) (\s@Face' {} a -> s {faceId = a} :: Face)
 
--- | Unique identifier that Amazon Rekognition assigns to the input image.
-face_imageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
-face_imageId = Lens.lens (\Face' {imageId} -> imageId) (\s@Face' {} a -> s {imageId = a} :: Face)
+-- | Bounding box of the face.
+face_boundingBox :: Lens.Lens' Face (Prelude.Maybe BoundingBox)
+face_boundingBox = Lens.lens (\Face' {boundingBox} -> boundingBox) (\s@Face' {} a -> s {boundingBox = a} :: Face)
 
 -- | Identifier that you assign to all the faces in the input image.
 face_externalImageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
 face_externalImageId = Lens.lens (\Face' {externalImageId} -> externalImageId) (\s@Face' {} a -> s {externalImageId = a} :: Face)
 
--- | Bounding box of the face.
-face_boundingBox :: Lens.Lens' Face (Prelude.Maybe BoundingBox)
-face_boundingBox = Lens.lens (\Face' {boundingBox} -> boundingBox) (\s@Face' {} a -> s {boundingBox = a} :: Face)
-
 -- | Confidence level that the bounding box contains a face (and not a
 -- different object such as a tree).
 face_confidence :: Lens.Lens' Face (Prelude.Maybe Prelude.Double)
 face_confidence = Lens.lens (\Face' {confidence} -> confidence) (\s@Face' {} a -> s {confidence = a} :: Face)
+
+-- | Unique identifier that Amazon Rekognition assigns to the input image.
+face_imageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
+face_imageId = Lens.lens (\Face' {imageId} -> imageId) (\s@Face' {} a -> s {imageId = a} :: Face)
 
 instance Core.FromJSON Face where
   parseJSON =
@@ -100,10 +100,10 @@ instance Core.FromJSON Face where
       ( \x ->
           Face'
             Prelude.<$> (x Core..:? "FaceId")
-            Prelude.<*> (x Core..:? "ImageId")
-            Prelude.<*> (x Core..:? "ExternalImageId")
             Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "ExternalImageId")
             Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "ImageId")
       )
 
 instance Prelude.Hashable Face

@@ -32,17 +32,17 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'newLifecycleRuleFilter' smart constructor.
 data LifecycleRuleFilter = LifecycleRuleFilter'
-  { -- | Prefix identifying one or more objects to which the rule applies.
+  { -- | This tag must exist in the object\'s tag set in order for the rule to
+    -- apply.
+    tag :: Prelude.Maybe Tag,
+    -- | Prefix identifying one or more objects to which the rule applies.
     --
     -- Replacement must be made for object keys containing special characters
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
     prefix :: Prelude.Maybe Prelude.Text,
-    and :: Prelude.Maybe LifecycleRuleAndOperator,
-    -- | This tag must exist in the object\'s tag set in order for the rule to
-    -- apply.
-    tag :: Prelude.Maybe Tag
+    and :: Prelude.Maybe LifecycleRuleAndOperator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,9 @@ data LifecycleRuleFilter = LifecycleRuleFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tag', 'lifecycleRuleFilter_tag' - This tag must exist in the object\'s tag set in order for the rule to
+-- apply.
+--
 -- 'prefix', 'lifecycleRuleFilter_prefix' - Prefix identifying one or more objects to which the rule applies.
 --
 -- Replacement must be made for object keys containing special characters
@@ -62,17 +65,19 @@ data LifecycleRuleFilter = LifecycleRuleFilter'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
 --
 -- 'and', 'lifecycleRuleFilter_and' - Undocumented member.
---
--- 'tag', 'lifecycleRuleFilter_tag' - This tag must exist in the object\'s tag set in order for the rule to
--- apply.
 newLifecycleRuleFilter ::
   LifecycleRuleFilter
 newLifecycleRuleFilter =
   LifecycleRuleFilter'
-    { prefix = Prelude.Nothing,
-      and = Prelude.Nothing,
-      tag = Prelude.Nothing
+    { tag = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      and = Prelude.Nothing
     }
+
+-- | This tag must exist in the object\'s tag set in order for the rule to
+-- apply.
+lifecycleRuleFilter_tag :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe Tag)
+lifecycleRuleFilter_tag = Lens.lens (\LifecycleRuleFilter' {tag} -> tag) (\s@LifecycleRuleFilter' {} a -> s {tag = a} :: LifecycleRuleFilter)
 
 -- | Prefix identifying one or more objects to which the rule applies.
 --
@@ -87,17 +92,12 @@ lifecycleRuleFilter_prefix = Lens.lens (\LifecycleRuleFilter' {prefix} -> prefix
 lifecycleRuleFilter_and :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe LifecycleRuleAndOperator)
 lifecycleRuleFilter_and = Lens.lens (\LifecycleRuleFilter' {and} -> and) (\s@LifecycleRuleFilter' {} a -> s {and = a} :: LifecycleRuleFilter)
 
--- | This tag must exist in the object\'s tag set in order for the rule to
--- apply.
-lifecycleRuleFilter_tag :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe Tag)
-lifecycleRuleFilter_tag = Lens.lens (\LifecycleRuleFilter' {tag} -> tag) (\s@LifecycleRuleFilter' {} a -> s {tag = a} :: LifecycleRuleFilter)
-
 instance Core.FromXML LifecycleRuleFilter where
   parseXML x =
     LifecycleRuleFilter'
-      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<$> (x Core..@? "Tag")
+      Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
-      Prelude.<*> (x Core..@? "Tag")
 
 instance Prelude.Hashable LifecycleRuleFilter
 
@@ -106,7 +106,7 @@ instance Prelude.NFData LifecycleRuleFilter
 instance Core.ToXML LifecycleRuleFilter where
   toXML LifecycleRuleFilter' {..} =
     Prelude.mconcat
-      [ "Prefix" Core.@= prefix,
-        "And" Core.@= and,
-        "Tag" Core.@= tag
+      [ "Tag" Core.@= tag,
+        "Prefix" Core.@= prefix,
+        "And" Core.@= and
       ]

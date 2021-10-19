@@ -28,10 +28,10 @@ module Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
 
     -- * Request Lenses
     listVirtualInterfaceTestHistory_bgpPeers,
-    listVirtualInterfaceTestHistory_nextToken,
     listVirtualInterfaceTestHistory_status,
-    listVirtualInterfaceTestHistory_maxResults,
     listVirtualInterfaceTestHistory_testId,
+    listVirtualInterfaceTestHistory_nextToken,
+    listVirtualInterfaceTestHistory_maxResults,
     listVirtualInterfaceTestHistory_virtualInterfaceId,
 
     -- * Destructuring the Response
@@ -57,10 +57,12 @@ data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'
   { -- | The BGP peers that were placed in the DOWN state during the virtual
     -- interface failover test.
     bgpPeers :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The status of the virtual interface failover test.
     status :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual interface failover test.
+    testId :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -68,8 +70,6 @@ data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'
     -- If @MaxResults@ is given a value larger than 100, only 100 results are
     -- returned.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the virtual interface failover test.
-    testId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual interface that was tested.
     virtualInterfaceId :: Prelude.Maybe Prelude.Text
   }
@@ -86,9 +86,11 @@ data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'
 -- 'bgpPeers', 'listVirtualInterfaceTestHistory_bgpPeers' - The BGP peers that were placed in the DOWN state during the virtual
 -- interface failover test.
 --
--- 'nextToken', 'listVirtualInterfaceTestHistory_nextToken' - The token for the next page of results.
---
 -- 'status', 'listVirtualInterfaceTestHistory_status' - The status of the virtual interface failover test.
+--
+-- 'testId', 'listVirtualInterfaceTestHistory_testId' - The ID of the virtual interface failover test.
+--
+-- 'nextToken', 'listVirtualInterfaceTestHistory_nextToken' - The token for the next page of results.
 --
 -- 'maxResults', 'listVirtualInterfaceTestHistory_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -97,8 +99,6 @@ data ListVirtualInterfaceTestHistory = ListVirtualInterfaceTestHistory'
 -- If @MaxResults@ is given a value larger than 100, only 100 results are
 -- returned.
 --
--- 'testId', 'listVirtualInterfaceTestHistory_testId' - The ID of the virtual interface failover test.
---
 -- 'virtualInterfaceId', 'listVirtualInterfaceTestHistory_virtualInterfaceId' - The ID of the virtual interface that was tested.
 newListVirtualInterfaceTestHistory ::
   ListVirtualInterfaceTestHistory
@@ -106,25 +106,29 @@ newListVirtualInterfaceTestHistory =
   ListVirtualInterfaceTestHistory'
     { bgpPeers =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       testId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       virtualInterfaceId = Prelude.Nothing
     }
 
 -- | The BGP peers that were placed in the DOWN state during the virtual
 -- interface failover test.
 listVirtualInterfaceTestHistory_bgpPeers :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe [Prelude.Text])
-listVirtualInterfaceTestHistory_bgpPeers = Lens.lens (\ListVirtualInterfaceTestHistory' {bgpPeers} -> bgpPeers) (\s@ListVirtualInterfaceTestHistory' {} a -> s {bgpPeers = a} :: ListVirtualInterfaceTestHistory) Prelude.. Lens.mapping Lens._Coerce
-
--- | The token for the next page of results.
-listVirtualInterfaceTestHistory_nextToken :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
-listVirtualInterfaceTestHistory_nextToken = Lens.lens (\ListVirtualInterfaceTestHistory' {nextToken} -> nextToken) (\s@ListVirtualInterfaceTestHistory' {} a -> s {nextToken = a} :: ListVirtualInterfaceTestHistory)
+listVirtualInterfaceTestHistory_bgpPeers = Lens.lens (\ListVirtualInterfaceTestHistory' {bgpPeers} -> bgpPeers) (\s@ListVirtualInterfaceTestHistory' {} a -> s {bgpPeers = a} :: ListVirtualInterfaceTestHistory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the virtual interface failover test.
 listVirtualInterfaceTestHistory_status :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
 listVirtualInterfaceTestHistory_status = Lens.lens (\ListVirtualInterfaceTestHistory' {status} -> status) (\s@ListVirtualInterfaceTestHistory' {} a -> s {status = a} :: ListVirtualInterfaceTestHistory)
+
+-- | The ID of the virtual interface failover test.
+listVirtualInterfaceTestHistory_testId :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
+listVirtualInterfaceTestHistory_testId = Lens.lens (\ListVirtualInterfaceTestHistory' {testId} -> testId) (\s@ListVirtualInterfaceTestHistory' {} a -> s {testId = a} :: ListVirtualInterfaceTestHistory)
+
+-- | The token for the next page of results.
+listVirtualInterfaceTestHistory_nextToken :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
+listVirtualInterfaceTestHistory_nextToken = Lens.lens (\ListVirtualInterfaceTestHistory' {nextToken} -> nextToken) (\s@ListVirtualInterfaceTestHistory' {} a -> s {nextToken = a} :: ListVirtualInterfaceTestHistory)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -134,10 +138,6 @@ listVirtualInterfaceTestHistory_status = Lens.lens (\ListVirtualInterfaceTestHis
 -- returned.
 listVirtualInterfaceTestHistory_maxResults :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Int)
 listVirtualInterfaceTestHistory_maxResults = Lens.lens (\ListVirtualInterfaceTestHistory' {maxResults} -> maxResults) (\s@ListVirtualInterfaceTestHistory' {} a -> s {maxResults = a} :: ListVirtualInterfaceTestHistory)
-
--- | The ID of the virtual interface failover test.
-listVirtualInterfaceTestHistory_testId :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
-listVirtualInterfaceTestHistory_testId = Lens.lens (\ListVirtualInterfaceTestHistory' {testId} -> testId) (\s@ListVirtualInterfaceTestHistory' {} a -> s {testId = a} :: ListVirtualInterfaceTestHistory)
 
 -- | The ID of the virtual interface that was tested.
 listVirtualInterfaceTestHistory_virtualInterfaceId :: Lens.Lens' ListVirtualInterfaceTestHistory (Prelude.Maybe Prelude.Text)
@@ -193,10 +193,10 @@ instance Core.ToJSON ListVirtualInterfaceTestHistory where
     Core.object
       ( Prelude.catMaybes
           [ ("bgpPeers" Core..=) Prelude.<$> bgpPeers,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("status" Core..=) Prelude.<$> status,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("testId" Core..=) Prelude.<$> testId,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("virtualInterfaceId" Core..=)
               Prelude.<$> virtualInterfaceId
           ]
@@ -255,7 +255,7 @@ listVirtualInterfaceTestHistoryResponse_nextToken = Lens.lens (\ListVirtualInter
 
 -- | The ID of the tested virtual interface.
 listVirtualInterfaceTestHistoryResponse_virtualInterfaceTestHistory :: Lens.Lens' ListVirtualInterfaceTestHistoryResponse (Prelude.Maybe [VirtualInterfaceTestHistory])
-listVirtualInterfaceTestHistoryResponse_virtualInterfaceTestHistory = Lens.lens (\ListVirtualInterfaceTestHistoryResponse' {virtualInterfaceTestHistory} -> virtualInterfaceTestHistory) (\s@ListVirtualInterfaceTestHistoryResponse' {} a -> s {virtualInterfaceTestHistory = a} :: ListVirtualInterfaceTestHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
+listVirtualInterfaceTestHistoryResponse_virtualInterfaceTestHistory = Lens.lens (\ListVirtualInterfaceTestHistoryResponse' {virtualInterfaceTestHistory} -> virtualInterfaceTestHistory) (\s@ListVirtualInterfaceTestHistoryResponse' {} a -> s {virtualInterfaceTestHistory = a} :: ListVirtualInterfaceTestHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVirtualInterfaceTestHistoryResponse_httpStatus :: Lens.Lens' ListVirtualInterfaceTestHistoryResponse Prelude.Int

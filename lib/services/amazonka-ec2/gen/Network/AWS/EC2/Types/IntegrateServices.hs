@@ -53,7 +53,7 @@ newIntegrateServices =
 
 -- | Information about the integration with Amazon Athena.
 integrateServices_athenaIntegrations :: Lens.Lens' IntegrateServices (Prelude.Maybe (Prelude.NonEmpty AthenaIntegration))
-integrateServices_athenaIntegrations = Lens.lens (\IntegrateServices' {athenaIntegrations} -> athenaIntegrations) (\s@IntegrateServices' {} a -> s {athenaIntegrations = a} :: IntegrateServices) Prelude.. Lens.mapping Lens._Coerce
+integrateServices_athenaIntegrations = Lens.lens (\IntegrateServices' {athenaIntegrations} -> athenaIntegrations) (\s@IntegrateServices' {} a -> s {athenaIntegrations = a} :: IntegrateServices) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable IntegrateServices
 

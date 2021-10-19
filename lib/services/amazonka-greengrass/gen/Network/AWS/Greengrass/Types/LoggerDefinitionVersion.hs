@@ -49,7 +49,7 @@ newLoggerDefinitionVersion =
 
 -- | A list of loggers.
 loggerDefinitionVersion_loggers :: Lens.Lens' LoggerDefinitionVersion (Prelude.Maybe [GreengrassLogger])
-loggerDefinitionVersion_loggers = Lens.lens (\LoggerDefinitionVersion' {loggers} -> loggers) (\s@LoggerDefinitionVersion' {} a -> s {loggers = a} :: LoggerDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
+loggerDefinitionVersion_loggers = Lens.lens (\LoggerDefinitionVersion' {loggers} -> loggers) (\s@LoggerDefinitionVersion' {} a -> s {loggers = a} :: LoggerDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LoggerDefinitionVersion where
   parseJSON =

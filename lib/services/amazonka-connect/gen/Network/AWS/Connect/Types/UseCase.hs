@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUseCase' smart constructor.
 data UseCase = UseCase'
-  { -- | The Amazon Resource Name (ARN) for the use case.
-    useCaseArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of use case to associate to the integration association. Each
+  { -- | The type of use case to associate to the integration association. Each
     -- integration association can have only one of each use case type.
     useCaseType :: Prelude.Maybe UseCaseType,
+    -- | The Amazon Resource Name (ARN) for the use case.
+    useCaseArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the use case.
     useCaseId :: Prelude.Maybe Prelude.Text
   }
@@ -46,29 +46,29 @@ data UseCase = UseCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'useCaseArn', 'useCase_useCaseArn' - The Amazon Resource Name (ARN) for the use case.
---
 -- 'useCaseType', 'useCase_useCaseType' - The type of use case to associate to the integration association. Each
 -- integration association can have only one of each use case type.
+--
+-- 'useCaseArn', 'useCase_useCaseArn' - The Amazon Resource Name (ARN) for the use case.
 --
 -- 'useCaseId', 'useCase_useCaseId' - The identifier for the use case.
 newUseCase ::
   UseCase
 newUseCase =
   UseCase'
-    { useCaseArn = Prelude.Nothing,
-      useCaseType = Prelude.Nothing,
+    { useCaseType = Prelude.Nothing,
+      useCaseArn = Prelude.Nothing,
       useCaseId = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) for the use case.
-useCase_useCaseArn :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
-useCase_useCaseArn = Lens.lens (\UseCase' {useCaseArn} -> useCaseArn) (\s@UseCase' {} a -> s {useCaseArn = a} :: UseCase)
 
 -- | The type of use case to associate to the integration association. Each
 -- integration association can have only one of each use case type.
 useCase_useCaseType :: Lens.Lens' UseCase (Prelude.Maybe UseCaseType)
 useCase_useCaseType = Lens.lens (\UseCase' {useCaseType} -> useCaseType) (\s@UseCase' {} a -> s {useCaseType = a} :: UseCase)
+
+-- | The Amazon Resource Name (ARN) for the use case.
+useCase_useCaseArn :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
+useCase_useCaseArn = Lens.lens (\UseCase' {useCaseArn} -> useCaseArn) (\s@UseCase' {} a -> s {useCaseArn = a} :: UseCase)
 
 -- | The identifier for the use case.
 useCase_useCaseId :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
@@ -80,8 +80,8 @@ instance Core.FromJSON UseCase where
       "UseCase"
       ( \x ->
           UseCase'
-            Prelude.<$> (x Core..:? "UseCaseArn")
-            Prelude.<*> (x Core..:? "UseCaseType")
+            Prelude.<$> (x Core..:? "UseCaseType")
+            Prelude.<*> (x Core..:? "UseCaseArn")
             Prelude.<*> (x Core..:? "UseCaseId")
       )
 

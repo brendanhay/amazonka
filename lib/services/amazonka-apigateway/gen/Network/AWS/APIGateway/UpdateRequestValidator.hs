@@ -36,10 +36,10 @@ module Network.AWS.APIGateway.UpdateRequestValidator
     newRequestValidator,
 
     -- * Response Lenses
-    requestValidator_validateRequestBody,
-    requestValidator_id,
     requestValidator_validateRequestParameters,
     requestValidator_name,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
   )
 where
 
@@ -97,7 +97,7 @@ newUpdateRequestValidator
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateRequestValidator_patchOperations :: Lens.Lens' UpdateRequestValidator (Prelude.Maybe [PatchOperation])
-updateRequestValidator_patchOperations = Lens.lens (\UpdateRequestValidator' {patchOperations} -> patchOperations) (\s@UpdateRequestValidator' {} a -> s {patchOperations = a} :: UpdateRequestValidator) Prelude.. Lens.mapping Lens._Coerce
+updateRequestValidator_patchOperations = Lens.lens (\UpdateRequestValidator' {patchOperations} -> patchOperations) (\s@UpdateRequestValidator' {} a -> s {patchOperations = a} :: UpdateRequestValidator) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateRequestValidator_restApiId :: Lens.Lens' UpdateRequestValidator Prelude.Text

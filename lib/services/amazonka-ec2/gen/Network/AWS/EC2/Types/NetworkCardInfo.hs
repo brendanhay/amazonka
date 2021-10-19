@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data NetworkCardInfo = NetworkCardInfo'
   { -- | The maximum number of network interfaces for the network card.
     maximumNetworkInterfaces :: Prelude.Maybe Prelude.Int,
-    -- | The index of the network card.
-    networkCardIndex :: Prelude.Maybe Prelude.Int,
     -- | The network performance of the network card.
-    networkPerformance :: Prelude.Maybe Prelude.Text
+    networkPerformance :: Prelude.Maybe Prelude.Text,
+    -- | The index of the network card.
+    networkCardIndex :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,37 +47,37 @@ data NetworkCardInfo = NetworkCardInfo'
 --
 -- 'maximumNetworkInterfaces', 'networkCardInfo_maximumNetworkInterfaces' - The maximum number of network interfaces for the network card.
 --
--- 'networkCardIndex', 'networkCardInfo_networkCardIndex' - The index of the network card.
---
 -- 'networkPerformance', 'networkCardInfo_networkPerformance' - The network performance of the network card.
+--
+-- 'networkCardIndex', 'networkCardInfo_networkCardIndex' - The index of the network card.
 newNetworkCardInfo ::
   NetworkCardInfo
 newNetworkCardInfo =
   NetworkCardInfo'
     { maximumNetworkInterfaces =
         Prelude.Nothing,
-      networkCardIndex = Prelude.Nothing,
-      networkPerformance = Prelude.Nothing
+      networkPerformance = Prelude.Nothing,
+      networkCardIndex = Prelude.Nothing
     }
 
 -- | The maximum number of network interfaces for the network card.
 networkCardInfo_maximumNetworkInterfaces :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
 networkCardInfo_maximumNetworkInterfaces = Lens.lens (\NetworkCardInfo' {maximumNetworkInterfaces} -> maximumNetworkInterfaces) (\s@NetworkCardInfo' {} a -> s {maximumNetworkInterfaces = a} :: NetworkCardInfo)
 
--- | The index of the network card.
-networkCardInfo_networkCardIndex :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
-networkCardInfo_networkCardIndex = Lens.lens (\NetworkCardInfo' {networkCardIndex} -> networkCardIndex) (\s@NetworkCardInfo' {} a -> s {networkCardIndex = a} :: NetworkCardInfo)
-
 -- | The network performance of the network card.
 networkCardInfo_networkPerformance :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Text)
 networkCardInfo_networkPerformance = Lens.lens (\NetworkCardInfo' {networkPerformance} -> networkPerformance) (\s@NetworkCardInfo' {} a -> s {networkPerformance = a} :: NetworkCardInfo)
+
+-- | The index of the network card.
+networkCardInfo_networkCardIndex :: Lens.Lens' NetworkCardInfo (Prelude.Maybe Prelude.Int)
+networkCardInfo_networkCardIndex = Lens.lens (\NetworkCardInfo' {networkCardIndex} -> networkCardIndex) (\s@NetworkCardInfo' {} a -> s {networkCardIndex = a} :: NetworkCardInfo)
 
 instance Core.FromXML NetworkCardInfo where
   parseXML x =
     NetworkCardInfo'
       Prelude.<$> (x Core..@? "maximumNetworkInterfaces")
-      Prelude.<*> (x Core..@? "networkCardIndex")
       Prelude.<*> (x Core..@? "networkPerformance")
+      Prelude.<*> (x Core..@? "networkCardIndex")
 
 instance Prelude.Hashable NetworkCardInfo
 

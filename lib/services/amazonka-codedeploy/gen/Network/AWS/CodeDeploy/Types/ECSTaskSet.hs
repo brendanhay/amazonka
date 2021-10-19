@@ -48,6 +48,8 @@ data ECSTaskSet = ECSTaskSet'
     --     and their corresponding targets are being deregistered from their
     --     target group.
     status :: Prelude.Maybe Prelude.Text,
+    -- | A unique ID of an @ECSTaskSet@.
+    identifer :: Prelude.Maybe Prelude.Text,
     -- | The number of tasks in a task set. During a deployment that uses the
     -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
     -- task set and uses this value to determine how many tasks to create.
@@ -60,16 +62,14 @@ data ECSTaskSet = ECSTaskSet'
     -- status when it launches for the first time, or when it is restarted
     -- after being in the @STOPPED@ state.
     pendingCount :: Prelude.Maybe Prelude.Integer,
-    -- | A label that identifies whether the ECS task set is an original target
-    -- (@BLUE@) or a replacement target (@GREEN@).
-    taskSetLabel :: Prelude.Maybe TargetLabel,
+    -- | The percentage of traffic served by this task set.
+    trafficWeight :: Prelude.Maybe Prelude.Double,
     -- | The target group associated with the task set. The target group is used
     -- by AWS CodeDeploy to manage traffic to a task set.
     targetGroup :: Prelude.Maybe TargetGroupInfo,
-    -- | The percentage of traffic served by this task set.
-    trafficWeight :: Prelude.Maybe Prelude.Double,
-    -- | A unique ID of an @ECSTaskSet@.
-    identifer :: Prelude.Maybe Prelude.Text
+    -- | A label that identifies whether the ECS task set is an original target
+    -- (@BLUE@) or a replacement target (@GREEN@).
+    taskSetLabel :: Prelude.Maybe TargetLabel
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,6 +95,8 @@ data ECSTaskSet = ECSTaskSet'
 --     and their corresponding targets are being deregistered from their
 --     target group.
 --
+-- 'identifer', 'eCSTaskSet_identifer' - A unique ID of an @ECSTaskSet@.
+--
 -- 'desiredCount', 'eCSTaskSet_desiredCount' - The number of tasks in a task set. During a deployment that uses the
 -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
 -- task set and uses this value to determine how many tasks to create.
@@ -107,27 +109,25 @@ data ECSTaskSet = ECSTaskSet'
 -- status when it launches for the first time, or when it is restarted
 -- after being in the @STOPPED@ state.
 --
--- 'taskSetLabel', 'eCSTaskSet_taskSetLabel' - A label that identifies whether the ECS task set is an original target
--- (@BLUE@) or a replacement target (@GREEN@).
+-- 'trafficWeight', 'eCSTaskSet_trafficWeight' - The percentage of traffic served by this task set.
 --
 -- 'targetGroup', 'eCSTaskSet_targetGroup' - The target group associated with the task set. The target group is used
 -- by AWS CodeDeploy to manage traffic to a task set.
 --
--- 'trafficWeight', 'eCSTaskSet_trafficWeight' - The percentage of traffic served by this task set.
---
--- 'identifer', 'eCSTaskSet_identifer' - A unique ID of an @ECSTaskSet@.
+-- 'taskSetLabel', 'eCSTaskSet_taskSetLabel' - A label that identifies whether the ECS task set is an original target
+-- (@BLUE@) or a replacement target (@GREEN@).
 newECSTaskSet ::
   ECSTaskSet
 newECSTaskSet =
   ECSTaskSet'
     { runningCount = Prelude.Nothing,
       status = Prelude.Nothing,
+      identifer = Prelude.Nothing,
       desiredCount = Prelude.Nothing,
       pendingCount = Prelude.Nothing,
-      taskSetLabel = Prelude.Nothing,
-      targetGroup = Prelude.Nothing,
       trafficWeight = Prelude.Nothing,
-      identifer = Prelude.Nothing
+      targetGroup = Prelude.Nothing,
+      taskSetLabel = Prelude.Nothing
     }
 
 -- | The number of tasks in the task set that are in the @RUNNING@ status
@@ -148,6 +148,10 @@ eCSTaskSet_runningCount = Lens.lens (\ECSTaskSet' {runningCount} -> runningCount
 eCSTaskSet_status :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Text)
 eCSTaskSet_status = Lens.lens (\ECSTaskSet' {status} -> status) (\s@ECSTaskSet' {} a -> s {status = a} :: ECSTaskSet)
 
+-- | A unique ID of an @ECSTaskSet@.
+eCSTaskSet_identifer :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Text)
+eCSTaskSet_identifer = Lens.lens (\ECSTaskSet' {identifer} -> identifer) (\s@ECSTaskSet' {} a -> s {identifer = a} :: ECSTaskSet)
+
 -- | The number of tasks in a task set. During a deployment that uses the
 -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
 -- task set and uses this value to determine how many tasks to create.
@@ -164,23 +168,19 @@ eCSTaskSet_desiredCount = Lens.lens (\ECSTaskSet' {desiredCount} -> desiredCount
 eCSTaskSet_pendingCount :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Integer)
 eCSTaskSet_pendingCount = Lens.lens (\ECSTaskSet' {pendingCount} -> pendingCount) (\s@ECSTaskSet' {} a -> s {pendingCount = a} :: ECSTaskSet)
 
--- | A label that identifies whether the ECS task set is an original target
--- (@BLUE@) or a replacement target (@GREEN@).
-eCSTaskSet_taskSetLabel :: Lens.Lens' ECSTaskSet (Prelude.Maybe TargetLabel)
-eCSTaskSet_taskSetLabel = Lens.lens (\ECSTaskSet' {taskSetLabel} -> taskSetLabel) (\s@ECSTaskSet' {} a -> s {taskSetLabel = a} :: ECSTaskSet)
+-- | The percentage of traffic served by this task set.
+eCSTaskSet_trafficWeight :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Double)
+eCSTaskSet_trafficWeight = Lens.lens (\ECSTaskSet' {trafficWeight} -> trafficWeight) (\s@ECSTaskSet' {} a -> s {trafficWeight = a} :: ECSTaskSet)
 
 -- | The target group associated with the task set. The target group is used
 -- by AWS CodeDeploy to manage traffic to a task set.
 eCSTaskSet_targetGroup :: Lens.Lens' ECSTaskSet (Prelude.Maybe TargetGroupInfo)
 eCSTaskSet_targetGroup = Lens.lens (\ECSTaskSet' {targetGroup} -> targetGroup) (\s@ECSTaskSet' {} a -> s {targetGroup = a} :: ECSTaskSet)
 
--- | The percentage of traffic served by this task set.
-eCSTaskSet_trafficWeight :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Double)
-eCSTaskSet_trafficWeight = Lens.lens (\ECSTaskSet' {trafficWeight} -> trafficWeight) (\s@ECSTaskSet' {} a -> s {trafficWeight = a} :: ECSTaskSet)
-
--- | A unique ID of an @ECSTaskSet@.
-eCSTaskSet_identifer :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Text)
-eCSTaskSet_identifer = Lens.lens (\ECSTaskSet' {identifer} -> identifer) (\s@ECSTaskSet' {} a -> s {identifer = a} :: ECSTaskSet)
+-- | A label that identifies whether the ECS task set is an original target
+-- (@BLUE@) or a replacement target (@GREEN@).
+eCSTaskSet_taskSetLabel :: Lens.Lens' ECSTaskSet (Prelude.Maybe TargetLabel)
+eCSTaskSet_taskSetLabel = Lens.lens (\ECSTaskSet' {taskSetLabel} -> taskSetLabel) (\s@ECSTaskSet' {} a -> s {taskSetLabel = a} :: ECSTaskSet)
 
 instance Core.FromJSON ECSTaskSet where
   parseJSON =
@@ -190,12 +190,12 @@ instance Core.FromJSON ECSTaskSet where
           ECSTaskSet'
             Prelude.<$> (x Core..:? "runningCount")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "identifer")
             Prelude.<*> (x Core..:? "desiredCount")
             Prelude.<*> (x Core..:? "pendingCount")
-            Prelude.<*> (x Core..:? "taskSetLabel")
-            Prelude.<*> (x Core..:? "targetGroup")
             Prelude.<*> (x Core..:? "trafficWeight")
-            Prelude.<*> (x Core..:? "identifer")
+            Prelude.<*> (x Core..:? "targetGroup")
+            Prelude.<*> (x Core..:? "taskSetLabel")
       )
 
 instance Prelude.Hashable ECSTaskSet

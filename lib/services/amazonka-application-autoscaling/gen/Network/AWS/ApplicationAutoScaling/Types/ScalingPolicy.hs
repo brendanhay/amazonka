@@ -58,8 +58,8 @@ data ScalingPolicy = ScalingPolicy'
     --     identifier is the cluster name and service name. Example:
     --     @service\/default\/sample-webapp@.
     --
-    -- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
-    --     the unique identifier is the Spot Fleet request ID. Example:
+    -- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+    --     unique identifier is the Spot Fleet request ID. Example:
     --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
     --
     -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -79,8 +79,8 @@ data ScalingPolicy = ScalingPolicy'
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
     --
-    -- -   Amazon SageMaker endpoint variant - The resource type is @variant@
-    --     and the unique identifier is the resource ID. Example:
+    -- -   SageMaker endpoint variant - The resource type is @variant@ and the
+    --     unique identifier is the resource ID. Example:
     --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
     --
     -- -   Custom resources are not supported with a resource type. This
@@ -115,6 +115,9 @@ data ScalingPolicy = ScalingPolicy'
     -- -   Amazon ElastiCache replication group - The resource type is
     --     @replication-group@ and the unique identifier is the replication
     --     group name. Example: @replication-group\/mycluster@.
+    --
+    -- -   Neptune cluster - The resource type is @cluster@ and the unique
+    --     identifier is the cluster name. Example: @cluster:mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -126,7 +129,7 @@ data ScalingPolicy = ScalingPolicy'
     --     of an EMR Instance Group.
     --
     -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
+    --     Spot Fleet.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -148,7 +151,7 @@ data ScalingPolicy = ScalingPolicy'
     --     Aurora PostgreSQL-compatible edition.
     --
     -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
-    --     instances for an Amazon SageMaker model endpoint variant.
+    --     instances for an SageMaker model endpoint variant.
     --
     -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
     --     a custom resource provided by your own application or service.
@@ -178,6 +181,9 @@ data ScalingPolicy = ScalingPolicy'
     --
     -- -   @elasticache:replication-group:Replicas@ - The number of replicas
     --     per node group for an Amazon ElastiCache replication group.
+    --
+    -- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+    --     an Amazon Neptune DB cluster.
     scalableDimension :: ScalableDimension,
     -- | The scaling policy type.
     policyType :: PolicyType,
@@ -214,8 +220,8 @@ data ScalingPolicy = ScalingPolicy'
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -235,8 +241,8 @@ data ScalingPolicy = ScalingPolicy'
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -272,6 +278,9 @@ data ScalingPolicy = ScalingPolicy'
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
 --
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
+--
 -- 'scalableDimension', 'scalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
@@ -282,7 +291,7 @@ data ScalingPolicy = ScalingPolicy'
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -304,7 +313,7 @@ data ScalingPolicy = ScalingPolicy'
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -334,6 +343,9 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 --
 -- 'policyType', 'scalingPolicy_policyType' - The scaling policy type.
 --
@@ -386,7 +398,7 @@ scalingPolicy_stepScalingPolicyConfiguration = Lens.lens (\ScalingPolicy' {stepS
 
 -- | The CloudWatch alarms associated with the scaling policy.
 scalingPolicy_alarms :: Lens.Lens' ScalingPolicy (Prelude.Maybe [Alarm])
-scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@ScalingPolicy' {} a -> s {alarms = a} :: ScalingPolicy) Prelude.. Lens.mapping Lens._Coerce
+scalingPolicy_alarms = Lens.lens (\ScalingPolicy' {alarms} -> alarms) (\s@ScalingPolicy' {} a -> s {alarms = a} :: ScalingPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the scaling policy.
 scalingPolicy_policyARN :: Lens.Lens' ScalingPolicy Prelude.Text
@@ -408,8 +420,8 @@ scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -
 --     identifier is the cluster name and service name. Example:
 --     @service\/default\/sample-webapp@.
 --
--- -   Spot Fleet request - The resource type is @spot-fleet-request@ and
---     the unique identifier is the Spot Fleet request ID. Example:
+-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the
+--     unique identifier is the Spot Fleet request ID. Example:
 --     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.
 --
 -- -   EMR cluster - The resource type is @instancegroup@ and the unique
@@ -429,8 +441,8 @@ scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
 --
--- -   Amazon SageMaker endpoint variant - The resource type is @variant@
---     and the unique identifier is the resource ID. Example:
+-- -   SageMaker endpoint variant - The resource type is @variant@ and the
+--     unique identifier is the resource ID. Example:
 --     @endpoint\/my-end-point\/variant\/KMeansClustering@.
 --
 -- -   Custom resources are not supported with a resource type. This
@@ -465,6 +477,9 @@ scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -
 -- -   Amazon ElastiCache replication group - The resource type is
 --     @replication-group@ and the unique identifier is the replication
 --     group name. Example: @replication-group\/mycluster@.
+--
+-- -   Neptune cluster - The resource type is @cluster@ and the unique
+--     identifier is the cluster name. Example: @cluster:mycluster@.
 scalingPolicy_resourceId :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId) (\s@ScalingPolicy' {} a -> s {resourceId = a} :: ScalingPolicy)
 
@@ -478,7 +493,7 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 --     of an EMR Instance Group.
 --
 -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
+--     Spot Fleet.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -500,7 +515,7 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 --     Aurora PostgreSQL-compatible edition.
 --
 -- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2
---     instances for an Amazon SageMaker model endpoint variant.
+--     instances for an SageMaker model endpoint variant.
 --
 -- -   @custom-resource:ResourceType:Property@ - The scalable dimension for
 --     a custom resource provided by your own application or service.
@@ -530,6 +545,9 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 --
 -- -   @elasticache:replication-group:Replicas@ - The number of replicas
 --     per node group for an Amazon ElastiCache replication group.
+--
+-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in
+--     an Amazon Neptune DB cluster.
 scalingPolicy_scalableDimension :: Lens.Lens' ScalingPolicy ScalableDimension
 scalingPolicy_scalableDimension = Lens.lens (\ScalingPolicy' {scalableDimension} -> scalableDimension) (\s@ScalingPolicy' {} a -> s {scalableDimension = a} :: ScalingPolicy)
 

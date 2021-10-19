@@ -14,16 +14,93 @@
 module Network.AWS.Support.Lens
   ( -- * Operations
 
+    -- ** RefreshTrustedAdvisorCheck
+    refreshTrustedAdvisorCheck_checkId,
+    refreshTrustedAdvisorCheckResponse_httpStatus,
+    refreshTrustedAdvisorCheckResponse_status,
+
+    -- ** DescribeCases
+    describeCases_includeResolvedCases,
+    describeCases_caseIdList,
+    describeCases_afterTime,
+    describeCases_beforeTime,
+    describeCases_nextToken,
+    describeCases_includeCommunications,
+    describeCases_displayId,
+    describeCases_language,
+    describeCases_maxResults,
+    describeCasesResponse_cases,
+    describeCasesResponse_nextToken,
+    describeCasesResponse_httpStatus,
+
+    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
+    describeTrustedAdvisorCheckRefreshStatuses_checkIds,
+    describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus,
+    describeTrustedAdvisorCheckRefreshStatusesResponse_statuses,
+
+    -- ** DescribeTrustedAdvisorCheckSummaries
+    describeTrustedAdvisorCheckSummaries_checkIds,
+    describeTrustedAdvisorCheckSummariesResponse_httpStatus,
+    describeTrustedAdvisorCheckSummariesResponse_summaries,
+
+    -- ** CreateCase
+    createCase_severityCode,
+    createCase_issueType,
+    createCase_ccEmailAddresses,
+    createCase_language,
+    createCase_categoryCode,
+    createCase_serviceCode,
+    createCase_attachmentSetId,
+    createCase_subject,
+    createCase_communicationBody,
+    createCaseResponse_caseId,
+    createCaseResponse_httpStatus,
+
+    -- ** ResolveCase
+    resolveCase_caseId,
+    resolveCaseResponse_initialCaseStatus,
+    resolveCaseResponse_finalCaseStatus,
+    resolveCaseResponse_httpStatus,
+
+    -- ** DescribeSeverityLevels
+    describeSeverityLevels_language,
+    describeSeverityLevelsResponse_severityLevels,
+    describeSeverityLevelsResponse_httpStatus,
+
     -- ** DescribeTrustedAdvisorChecks
     describeTrustedAdvisorChecks_language,
     describeTrustedAdvisorChecksResponse_httpStatus,
     describeTrustedAdvisorChecksResponse_checks,
 
+    -- ** DescribeAttachment
+    describeAttachment_attachmentId,
+    describeAttachmentResponse_attachment,
+    describeAttachmentResponse_httpStatus,
+
+    -- ** AddAttachmentsToSet
+    addAttachmentsToSet_attachmentSetId,
+    addAttachmentsToSet_attachments,
+    addAttachmentsToSetResponse_expiryTime,
+    addAttachmentsToSetResponse_attachmentSetId,
+    addAttachmentsToSetResponse_httpStatus,
+
+    -- ** DescribeTrustedAdvisorCheckResult
+    describeTrustedAdvisorCheckResult_language,
+    describeTrustedAdvisorCheckResult_checkId,
+    describeTrustedAdvisorCheckResultResponse_result,
+    describeTrustedAdvisorCheckResultResponse_httpStatus,
+
+    -- ** DescribeServices
+    describeServices_serviceCodeList,
+    describeServices_language,
+    describeServicesResponse_services,
+    describeServicesResponse_httpStatus,
+
     -- ** DescribeCommunications
+    describeCommunications_afterTime,
+    describeCommunications_beforeTime,
     describeCommunications_nextToken,
     describeCommunications_maxResults,
-    describeCommunications_beforeTime,
-    describeCommunications_afterTime,
     describeCommunications_caseId,
     describeCommunicationsResponse_nextToken,
     describeCommunicationsResponse_communications,
@@ -37,83 +114,6 @@ module Network.AWS.Support.Lens
     addCommunicationToCaseResponse_result,
     addCommunicationToCaseResponse_httpStatus,
 
-    -- ** DescribeSeverityLevels
-    describeSeverityLevels_language,
-    describeSeverityLevelsResponse_severityLevels,
-    describeSeverityLevelsResponse_httpStatus,
-
-    -- ** DescribeTrustedAdvisorCheckResult
-    describeTrustedAdvisorCheckResult_language,
-    describeTrustedAdvisorCheckResult_checkId,
-    describeTrustedAdvisorCheckResultResponse_result,
-    describeTrustedAdvisorCheckResultResponse_httpStatus,
-
-    -- ** CreateCase
-    createCase_serviceCode,
-    createCase_categoryCode,
-    createCase_ccEmailAddresses,
-    createCase_issueType,
-    createCase_attachmentSetId,
-    createCase_severityCode,
-    createCase_language,
-    createCase_subject,
-    createCase_communicationBody,
-    createCaseResponse_caseId,
-    createCaseResponse_httpStatus,
-
-    -- ** DescribeTrustedAdvisorCheckSummaries
-    describeTrustedAdvisorCheckSummaries_checkIds,
-    describeTrustedAdvisorCheckSummariesResponse_httpStatus,
-    describeTrustedAdvisorCheckSummariesResponse_summaries,
-
-    -- ** RefreshTrustedAdvisorCheck
-    refreshTrustedAdvisorCheck_checkId,
-    refreshTrustedAdvisorCheckResponse_httpStatus,
-    refreshTrustedAdvisorCheckResponse_status,
-
-    -- ** AddAttachmentsToSet
-    addAttachmentsToSet_attachmentSetId,
-    addAttachmentsToSet_attachments,
-    addAttachmentsToSetResponse_expiryTime,
-    addAttachmentsToSetResponse_attachmentSetId,
-    addAttachmentsToSetResponse_httpStatus,
-
-    -- ** DescribeAttachment
-    describeAttachment_attachmentId,
-    describeAttachmentResponse_attachment,
-    describeAttachmentResponse_httpStatus,
-
-    -- ** DescribeServices
-    describeServices_serviceCodeList,
-    describeServices_language,
-    describeServicesResponse_services,
-    describeServicesResponse_httpStatus,
-
-    -- ** ResolveCase
-    resolveCase_caseId,
-    resolveCaseResponse_finalCaseStatus,
-    resolveCaseResponse_initialCaseStatus,
-    resolveCaseResponse_httpStatus,
-
-    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
-    describeTrustedAdvisorCheckRefreshStatuses_checkIds,
-    describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus,
-    describeTrustedAdvisorCheckRefreshStatusesResponse_statuses,
-
-    -- ** DescribeCases
-    describeCases_includeCommunications,
-    describeCases_displayId,
-    describeCases_nextToken,
-    describeCases_maxResults,
-    describeCases_caseIdList,
-    describeCases_includeResolvedCases,
-    describeCases_beforeTime,
-    describeCases_afterTime,
-    describeCases_language,
-    describeCasesResponse_nextToken,
-    describeCasesResponse_cases,
-    describeCasesResponse_httpStatus,
-
     -- * Types
 
     -- ** Attachment
@@ -125,42 +125,42 @@ module Network.AWS.Support.Lens
     attachmentDetails_fileName,
 
     -- ** CaseDetails
-    caseDetails_displayId,
-    caseDetails_status,
-    caseDetails_caseId,
-    caseDetails_recentCommunications,
-    caseDetails_serviceCode,
-    caseDetails_categoryCode,
-    caseDetails_submittedBy,
     caseDetails_subject,
-    caseDetails_ccEmailAddresses,
+    caseDetails_status,
+    caseDetails_recentCommunications,
     caseDetails_severityCode,
-    caseDetails_timeCreated,
+    caseDetails_caseId,
+    caseDetails_ccEmailAddresses,
+    caseDetails_displayId,
+    caseDetails_submittedBy,
     caseDetails_language,
+    caseDetails_timeCreated,
+    caseDetails_categoryCode,
+    caseDetails_serviceCode,
 
     -- ** Category
-    category_code,
     category_name,
+    category_code,
 
     -- ** Communication
-    communication_caseId,
-    communication_attachmentSet,
     communication_body,
+    communication_caseId,
     communication_submittedBy,
     communication_timeCreated,
+    communication_attachmentSet,
 
     -- ** RecentCaseCommunications
     recentCaseCommunications_nextToken,
     recentCaseCommunications_communications,
 
     -- ** SeverityLevel
-    severityLevel_code,
     severityLevel_name,
+    severityLevel_code,
 
     -- ** SupportService
-    supportService_code,
-    supportService_name,
     supportService_categories,
+    supportService_name,
+    supportService_code,
 
     -- ** TrustedAdvisorCategorySpecificSummary
     trustedAdvisorCategorySpecificSummary_costOptimizing,

@@ -116,7 +116,7 @@ newPutMetricFilter
         filterName = pFilterName_,
         filterPattern = pFilterPattern_,
         metricTransformations =
-          Lens._Coerce Lens.# pMetricTransformations_
+          Lens.coerced Lens.# pMetricTransformations_
       }
 
 -- | The name of the log group.
@@ -133,7 +133,7 @@ putMetricFilter_filterPattern = Lens.lens (\PutMetricFilter' {filterPattern} -> 
 
 -- | A collection of information that defines how metric data gets emitted.
 putMetricFilter_metricTransformations :: Lens.Lens' PutMetricFilter (Prelude.NonEmpty MetricTransformation)
-putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Prelude.. Lens._Coerce
+putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutMetricFilter where
   type

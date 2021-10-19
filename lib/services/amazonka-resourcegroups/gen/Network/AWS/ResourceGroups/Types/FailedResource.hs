@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data FailedResource = FailedResource'
   { -- | The ARN of the resource that failed to be added or removed.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The error message text associated with the failure.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code associated with the failure.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message text associated with the failure.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data FailedResource = FailedResource'
 --
 -- 'resourceArn', 'failedResource_resourceArn' - The ARN of the resource that failed to be added or removed.
 --
--- 'errorMessage', 'failedResource_errorMessage' - The error message text associated with the failure.
---
 -- 'errorCode', 'failedResource_errorCode' - The error code associated with the failure.
+--
+-- 'errorMessage', 'failedResource_errorMessage' - The error message text associated with the failure.
 newFailedResource ::
   FailedResource
 newFailedResource =
   FailedResource'
     { resourceArn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | The ARN of the resource that failed to be added or removed.
 failedResource_resourceArn :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
 failedResource_resourceArn = Lens.lens (\FailedResource' {resourceArn} -> resourceArn) (\s@FailedResource' {} a -> s {resourceArn = a} :: FailedResource)
 
--- | The error message text associated with the failure.
-failedResource_errorMessage :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
-failedResource_errorMessage = Lens.lens (\FailedResource' {errorMessage} -> errorMessage) (\s@FailedResource' {} a -> s {errorMessage = a} :: FailedResource)
-
 -- | The error code associated with the failure.
 failedResource_errorCode :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
 failedResource_errorCode = Lens.lens (\FailedResource' {errorCode} -> errorCode) (\s@FailedResource' {} a -> s {errorCode = a} :: FailedResource)
+
+-- | The error message text associated with the failure.
+failedResource_errorMessage :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
+failedResource_errorMessage = Lens.lens (\FailedResource' {errorMessage} -> errorMessage) (\s@FailedResource' {} a -> s {errorMessage = a} :: FailedResource)
 
 instance Core.FromJSON FailedResource where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON FailedResource where
       ( \x ->
           FailedResource'
             Prelude.<$> (x Core..:? "ResourceArn")
-            Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable FailedResource

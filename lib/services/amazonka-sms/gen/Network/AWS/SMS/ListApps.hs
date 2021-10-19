@@ -38,8 +38,8 @@ module Network.AWS.SMS.ListApps
     newListAppsResponse,
 
     -- * Response Lenses
-    listAppsResponse_nextToken,
     listAppsResponse_apps,
+    listAppsResponse_nextToken,
     listAppsResponse_httpStatus,
   )
 where
@@ -90,7 +90,7 @@ newListApps =
 
 -- | The unique application IDs.
 listApps_appIds :: Lens.Lens' ListApps (Prelude.Maybe [Prelude.Text])
-listApps_appIds = Lens.lens (\ListApps' {appIds} -> appIds) (\s@ListApps' {} a -> s {appIds = a} :: ListApps) Prelude.. Lens.mapping Lens._Coerce
+listApps_appIds = Lens.lens (\ListApps' {appIds} -> appIds) (\s@ListApps' {} a -> s {appIds = a} :: ListApps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results.
 listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
@@ -128,8 +128,8 @@ instance Core.AWSRequest ListApps where
     Response.receiveJSON
       ( \s h x ->
           ListAppsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "apps" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "apps" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -170,11 +170,11 @@ instance Core.ToQuery ListApps where
 
 -- | /See:/ 'newListAppsResponse' smart constructor.
 data ListAppsResponse = ListAppsResponse'
-  { -- | The token required to retrieve the next set of results. This value is
+  { -- | The application summaries.
+    apps :: Prelude.Maybe [AppSummary],
+    -- | The token required to retrieve the next set of results. This value is
     -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The application summaries.
-    apps :: Prelude.Maybe [AppSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,10 +188,10 @@ data ListAppsResponse = ListAppsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apps', 'listAppsResponse_apps' - The application summaries.
+--
 -- 'nextToken', 'listAppsResponse_nextToken' - The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
---
--- 'apps', 'listAppsResponse_apps' - The application summaries.
 --
 -- 'httpStatus', 'listAppsResponse_httpStatus' - The response's http status code.
 newListAppsResponse ::
@@ -200,19 +200,19 @@ newListAppsResponse ::
   ListAppsResponse
 newListAppsResponse pHttpStatus_ =
   ListAppsResponse'
-    { nextToken = Prelude.Nothing,
-      apps = Prelude.Nothing,
+    { apps = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The application summaries.
+listAppsResponse_apps :: Lens.Lens' ListAppsResponse (Prelude.Maybe [AppSummary])
+listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAppsResponse' {} a -> s {apps = a} :: ListAppsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to retrieve the next set of results. This value is
 -- null when there are no more results to return.
 listAppsResponse_nextToken :: Lens.Lens' ListAppsResponse (Prelude.Maybe Prelude.Text)
 listAppsResponse_nextToken = Lens.lens (\ListAppsResponse' {nextToken} -> nextToken) (\s@ListAppsResponse' {} a -> s {nextToken = a} :: ListAppsResponse)
-
--- | The application summaries.
-listAppsResponse_apps :: Lens.Lens' ListAppsResponse (Prelude.Maybe [AppSummary])
-listAppsResponse_apps = Lens.lens (\ListAppsResponse' {apps} -> apps) (\s@ListAppsResponse' {} a -> s {apps = a} :: ListAppsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listAppsResponse_httpStatus :: Lens.Lens' ListAppsResponse Prelude.Int

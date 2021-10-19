@@ -106,7 +106,9 @@ instance Core.AWSRequest GetBucketRequestPayment where
   type
     AWSResponse GetBucketRequestPayment =
       GetBucketRequestPaymentResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->

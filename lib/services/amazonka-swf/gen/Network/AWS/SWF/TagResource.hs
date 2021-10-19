@@ -90,7 +90,7 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 -- Tags may only contain unicode letters, digits, whitespace, or these
 -- symbols: @_ . : \/ = + - \@@.
 tagResource_tags :: Lens.Lens' TagResource [ResourceTag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

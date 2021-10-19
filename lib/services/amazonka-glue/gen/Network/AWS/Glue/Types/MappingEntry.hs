@@ -27,18 +27,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMappingEntry' smart constructor.
 data MappingEntry = MappingEntry'
-  { -- | The target type.
-    targetType :: Prelude.Maybe Prelude.Text,
-    -- | The target table.
+  { -- | The target table.
     targetTable :: Prelude.Maybe Prelude.Text,
-    -- | The target path.
-    targetPath :: Prelude.Maybe Prelude.Text,
+    -- | The source type.
+    sourceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the source table.
     sourceTable :: Prelude.Maybe Prelude.Text,
+    -- | The target type.
+    targetType :: Prelude.Maybe Prelude.Text,
+    -- | The target path.
+    targetPath :: Prelude.Maybe Prelude.Text,
     -- | The source path.
-    sourcePath :: Prelude.Maybe Prelude.Text,
-    -- | The source type.
-    sourceType :: Prelude.Maybe Prelude.Text
+    sourcePath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,52 +50,52 @@ data MappingEntry = MappingEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetType', 'mappingEntry_targetType' - The target type.
---
 -- 'targetTable', 'mappingEntry_targetTable' - The target table.
 --
--- 'targetPath', 'mappingEntry_targetPath' - The target path.
+-- 'sourceType', 'mappingEntry_sourceType' - The source type.
 --
 -- 'sourceTable', 'mappingEntry_sourceTable' - The name of the source table.
 --
--- 'sourcePath', 'mappingEntry_sourcePath' - The source path.
+-- 'targetType', 'mappingEntry_targetType' - The target type.
 --
--- 'sourceType', 'mappingEntry_sourceType' - The source type.
+-- 'targetPath', 'mappingEntry_targetPath' - The target path.
+--
+-- 'sourcePath', 'mappingEntry_sourcePath' - The source path.
 newMappingEntry ::
   MappingEntry
 newMappingEntry =
   MappingEntry'
-    { targetType = Prelude.Nothing,
-      targetTable = Prelude.Nothing,
-      targetPath = Prelude.Nothing,
+    { targetTable = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
       sourceTable = Prelude.Nothing,
-      sourcePath = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+      targetType = Prelude.Nothing,
+      targetPath = Prelude.Nothing,
+      sourcePath = Prelude.Nothing
     }
-
--- | The target type.
-mappingEntry_targetType :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
-mappingEntry_targetType = Lens.lens (\MappingEntry' {targetType} -> targetType) (\s@MappingEntry' {} a -> s {targetType = a} :: MappingEntry)
 
 -- | The target table.
 mappingEntry_targetTable :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_targetTable = Lens.lens (\MappingEntry' {targetTable} -> targetTable) (\s@MappingEntry' {} a -> s {targetTable = a} :: MappingEntry)
 
--- | The target path.
-mappingEntry_targetPath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
-mappingEntry_targetPath = Lens.lens (\MappingEntry' {targetPath} -> targetPath) (\s@MappingEntry' {} a -> s {targetPath = a} :: MappingEntry)
+-- | The source type.
+mappingEntry_sourceType :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
+mappingEntry_sourceType = Lens.lens (\MappingEntry' {sourceType} -> sourceType) (\s@MappingEntry' {} a -> s {sourceType = a} :: MappingEntry)
 
 -- | The name of the source table.
 mappingEntry_sourceTable :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_sourceTable = Lens.lens (\MappingEntry' {sourceTable} -> sourceTable) (\s@MappingEntry' {} a -> s {sourceTable = a} :: MappingEntry)
 
+-- | The target type.
+mappingEntry_targetType :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
+mappingEntry_targetType = Lens.lens (\MappingEntry' {targetType} -> targetType) (\s@MappingEntry' {} a -> s {targetType = a} :: MappingEntry)
+
+-- | The target path.
+mappingEntry_targetPath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
+mappingEntry_targetPath = Lens.lens (\MappingEntry' {targetPath} -> targetPath) (\s@MappingEntry' {} a -> s {targetPath = a} :: MappingEntry)
+
 -- | The source path.
 mappingEntry_sourcePath :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
 mappingEntry_sourcePath = Lens.lens (\MappingEntry' {sourcePath} -> sourcePath) (\s@MappingEntry' {} a -> s {sourcePath = a} :: MappingEntry)
-
--- | The source type.
-mappingEntry_sourceType :: Lens.Lens' MappingEntry (Prelude.Maybe Prelude.Text)
-mappingEntry_sourceType = Lens.lens (\MappingEntry' {sourceType} -> sourceType) (\s@MappingEntry' {} a -> s {sourceType = a} :: MappingEntry)
 
 instance Core.FromJSON MappingEntry where
   parseJSON =
@@ -103,12 +103,12 @@ instance Core.FromJSON MappingEntry where
       "MappingEntry"
       ( \x ->
           MappingEntry'
-            Prelude.<$> (x Core..:? "TargetType")
-            Prelude.<*> (x Core..:? "TargetTable")
-            Prelude.<*> (x Core..:? "TargetPath")
-            Prelude.<*> (x Core..:? "SourceTable")
-            Prelude.<*> (x Core..:? "SourcePath")
+            Prelude.<$> (x Core..:? "TargetTable")
             Prelude.<*> (x Core..:? "SourceType")
+            Prelude.<*> (x Core..:? "SourceTable")
+            Prelude.<*> (x Core..:? "TargetType")
+            Prelude.<*> (x Core..:? "TargetPath")
+            Prelude.<*> (x Core..:? "SourcePath")
       )
 
 instance Prelude.Hashable MappingEntry
@@ -119,11 +119,11 @@ instance Core.ToJSON MappingEntry where
   toJSON MappingEntry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetType" Core..=) Prelude.<$> targetType,
-            ("TargetTable" Core..=) Prelude.<$> targetTable,
-            ("TargetPath" Core..=) Prelude.<$> targetPath,
+          [ ("TargetTable" Core..=) Prelude.<$> targetTable,
+            ("SourceType" Core..=) Prelude.<$> sourceType,
             ("SourceTable" Core..=) Prelude.<$> sourceTable,
-            ("SourcePath" Core..=) Prelude.<$> sourcePath,
-            ("SourceType" Core..=) Prelude.<$> sourceType
+            ("TargetType" Core..=) Prelude.<$> targetType,
+            ("TargetPath" Core..=) Prelude.<$> targetPath,
+            ("SourcePath" Core..=) Prelude.<$> sourcePath
           ]
       )

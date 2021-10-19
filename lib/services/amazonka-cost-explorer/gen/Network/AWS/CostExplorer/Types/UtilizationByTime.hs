@@ -63,7 +63,7 @@ newUtilizationByTime =
 
 -- | The groups that this utilization result uses.
 utilizationByTime_groups :: Lens.Lens' UtilizationByTime (Prelude.Maybe [ReservationUtilizationGroup])
-utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Prelude.. Lens.mapping Lens._Coerce
+utilizationByTime_groups = Lens.lens (\UtilizationByTime' {groups} -> groups) (\s@UtilizationByTime' {} a -> s {groups = a} :: UtilizationByTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | The period of time that this utilization was used for.
 utilizationByTime_timePeriod :: Lens.Lens' UtilizationByTime (Prelude.Maybe DateInterval)

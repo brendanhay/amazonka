@@ -50,8 +50,8 @@ module Network.AWS.LexModels.GetSlotTypeVersions
     newGetSlotTypeVersionsResponse,
 
     -- * Response Lenses
-    getSlotTypeVersionsResponse_slotTypes,
     getSlotTypeVersionsResponse_nextToken,
+    getSlotTypeVersionsResponse_slotTypes,
     getSlotTypeVersionsResponse_httpStatus,
   )
 where
@@ -153,8 +153,8 @@ instance Core.AWSRequest GetSlotTypeVersions where
     Response.receiveJSON
       ( \s h x ->
           GetSlotTypeVersionsResponse'
-            Prelude.<$> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -187,14 +187,14 @@ instance Core.ToQuery GetSlotTypeVersions where
 
 -- | /See:/ 'newGetSlotTypeVersionsResponse' smart constructor.
 data GetSlotTypeVersionsResponse = GetSlotTypeVersionsResponse'
-  { -- | An array of @SlotTypeMetadata@ objects, one for each numbered version of
-    -- the slot type plus one for the @$LATEST@ version.
-    slotTypes :: Prelude.Maybe [SlotTypeMetadata],
-    -- | A pagination token for fetching the next page of slot type versions. If
+  { -- | A pagination token for fetching the next page of slot type versions. If
     -- the response to this call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of versions, specify the
     -- pagination token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @SlotTypeMetadata@ objects, one for each numbered version of
+    -- the slot type plus one for the @$LATEST@ version.
+    slotTypes :: Prelude.Maybe [SlotTypeMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -208,13 +208,13 @@ data GetSlotTypeVersionsResponse = GetSlotTypeVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'slotTypes', 'getSlotTypeVersionsResponse_slotTypes' - An array of @SlotTypeMetadata@ objects, one for each numbered version of
--- the slot type plus one for the @$LATEST@ version.
---
 -- 'nextToken', 'getSlotTypeVersionsResponse_nextToken' - A pagination token for fetching the next page of slot type versions. If
 -- the response to this call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of versions, specify the
 -- pagination token in the next request.
+--
+-- 'slotTypes', 'getSlotTypeVersionsResponse_slotTypes' - An array of @SlotTypeMetadata@ objects, one for each numbered version of
+-- the slot type plus one for the @$LATEST@ version.
 --
 -- 'httpStatus', 'getSlotTypeVersionsResponse_httpStatus' - The response's http status code.
 newGetSlotTypeVersionsResponse ::
@@ -223,16 +223,11 @@ newGetSlotTypeVersionsResponse ::
   GetSlotTypeVersionsResponse
 newGetSlotTypeVersionsResponse pHttpStatus_ =
   GetSlotTypeVersionsResponse'
-    { slotTypes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      slotTypes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @SlotTypeMetadata@ objects, one for each numbered version of
--- the slot type plus one for the @$LATEST@ version.
-getSlotTypeVersionsResponse_slotTypes :: Lens.Lens' GetSlotTypeVersionsResponse (Prelude.Maybe [SlotTypeMetadata])
-getSlotTypeVersionsResponse_slotTypes = Lens.lens (\GetSlotTypeVersionsResponse' {slotTypes} -> slotTypes) (\s@GetSlotTypeVersionsResponse' {} a -> s {slotTypes = a} :: GetSlotTypeVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A pagination token for fetching the next page of slot type versions. If
 -- the response to this call is truncated, Amazon Lex returns a pagination
@@ -240,6 +235,11 @@ getSlotTypeVersionsResponse_slotTypes = Lens.lens (\GetSlotTypeVersionsResponse'
 -- pagination token in the next request.
 getSlotTypeVersionsResponse_nextToken :: Lens.Lens' GetSlotTypeVersionsResponse (Prelude.Maybe Prelude.Text)
 getSlotTypeVersionsResponse_nextToken = Lens.lens (\GetSlotTypeVersionsResponse' {nextToken} -> nextToken) (\s@GetSlotTypeVersionsResponse' {} a -> s {nextToken = a} :: GetSlotTypeVersionsResponse)
+
+-- | An array of @SlotTypeMetadata@ objects, one for each numbered version of
+-- the slot type plus one for the @$LATEST@ version.
+getSlotTypeVersionsResponse_slotTypes :: Lens.Lens' GetSlotTypeVersionsResponse (Prelude.Maybe [SlotTypeMetadata])
+getSlotTypeVersionsResponse_slotTypes = Lens.lens (\GetSlotTypeVersionsResponse' {slotTypes} -> slotTypes) (\s@GetSlotTypeVersionsResponse' {} a -> s {slotTypes = a} :: GetSlotTypeVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSlotTypeVersionsResponse_httpStatus :: Lens.Lens' GetSlotTypeVersionsResponse Prelude.Int

@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCustomerManagedDatastoreS3StorageSummary' smart constructor.
 data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3StorageSummary'
-  { -- | (Optional) The prefix used to create the keys of the data store data
+  { -- | The name of the Amazon S3 bucket where your data is stored.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The prefix used to create the keys of the data store data
     -- objects. Each object in an Amazon S3 bucket has a key that is its unique
     -- identifier in the bucket. Each object in a bucket has exactly one key.
     -- The prefix must end with a forward slash (\/).
     keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role that grants IoT Analytics permission to interact
     -- with your Amazon S3 resources.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon S3 bucket where your data is stored.
-    bucket :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,6 +48,8 @@ data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3Storag
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 'customerManagedDatastoreS3StorageSummary_bucket' - The name of the Amazon S3 bucket where your data is stored.
+--
 -- 'keyPrefix', 'customerManagedDatastoreS3StorageSummary_keyPrefix' - (Optional) The prefix used to create the keys of the data store data
 -- objects. Each object in an Amazon S3 bucket has a key that is its unique
 -- identifier in the bucket. Each object in a bucket has exactly one key.
@@ -55,17 +57,19 @@ data CustomerManagedDatastoreS3StorageSummary = CustomerManagedDatastoreS3Storag
 --
 -- 'roleArn', 'customerManagedDatastoreS3StorageSummary_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
 -- with your Amazon S3 resources.
---
--- 'bucket', 'customerManagedDatastoreS3StorageSummary_bucket' - The name of the Amazon S3 bucket where your data is stored.
 newCustomerManagedDatastoreS3StorageSummary ::
   CustomerManagedDatastoreS3StorageSummary
 newCustomerManagedDatastoreS3StorageSummary =
   CustomerManagedDatastoreS3StorageSummary'
-    { keyPrefix =
+    { bucket =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      bucket = Prelude.Nothing
+      keyPrefix = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
+
+-- | The name of the Amazon S3 bucket where your data is stored.
+customerManagedDatastoreS3StorageSummary_bucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
+customerManagedDatastoreS3StorageSummary_bucket = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {bucket} -> bucket) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {bucket = a} :: CustomerManagedDatastoreS3StorageSummary)
 
 -- | (Optional) The prefix used to create the keys of the data store data
 -- objects. Each object in an Amazon S3 bucket has a key that is its unique
@@ -79,10 +83,6 @@ customerManagedDatastoreS3StorageSummary_keyPrefix = Lens.lens (\CustomerManaged
 customerManagedDatastoreS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedDatastoreS3StorageSummary_roleArn = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedDatastoreS3StorageSummary)
 
--- | The name of the Amazon S3 bucket where your data is stored.
-customerManagedDatastoreS3StorageSummary_bucket :: Lens.Lens' CustomerManagedDatastoreS3StorageSummary (Prelude.Maybe Prelude.Text)
-customerManagedDatastoreS3StorageSummary_bucket = Lens.lens (\CustomerManagedDatastoreS3StorageSummary' {bucket} -> bucket) (\s@CustomerManagedDatastoreS3StorageSummary' {} a -> s {bucket = a} :: CustomerManagedDatastoreS3StorageSummary)
-
 instance
   Core.FromJSON
     CustomerManagedDatastoreS3StorageSummary
@@ -92,9 +92,9 @@ instance
       "CustomerManagedDatastoreS3StorageSummary"
       ( \x ->
           CustomerManagedDatastoreS3StorageSummary'
-            Prelude.<$> (x Core..:? "keyPrefix")
+            Prelude.<$> (x Core..:? "bucket")
+            Prelude.<*> (x Core..:? "keyPrefix")
             Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "bucket")
       )
 
 instance

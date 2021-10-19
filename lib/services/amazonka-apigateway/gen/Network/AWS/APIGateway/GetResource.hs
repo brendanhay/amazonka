@@ -36,11 +36,11 @@ module Network.AWS.APIGateway.GetResource
     newResource,
 
     -- * Response Lenses
-    resource_id,
     resource_pathPart,
-    resource_parentId,
-    resource_resourceMethods,
     resource_path,
+    resource_id,
+    resource_resourceMethods,
+    resource_parentId,
   )
 where
 
@@ -110,7 +110,7 @@ newGetResource pRestApiId_ pResourceId_ =
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
 getResource_embed :: Lens.Lens' GetResource (Prelude.Maybe [Prelude.Text])
-getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Prelude.. Lens.mapping Lens._Coerce
+getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 getResource_restApiId :: Lens.Lens' GetResource Prelude.Text

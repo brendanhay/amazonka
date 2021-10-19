@@ -52,13 +52,13 @@ newRunCommandParameters ::
 newRunCommandParameters pRunCommandTargets_ =
   RunCommandParameters'
     { runCommandTargets =
-        Lens._Coerce Lens.# pRunCommandTargets_
+        Lens.coerced Lens.# pRunCommandTargets_
     }
 
 -- | Currently, we support including only one RunCommandTarget block, which
 -- specifies either an array of InstanceIds or a tag.
 runCommandParameters_runCommandTargets :: Lens.Lens' RunCommandParameters (Prelude.NonEmpty RunCommandTarget)
-runCommandParameters_runCommandTargets = Lens.lens (\RunCommandParameters' {runCommandTargets} -> runCommandTargets) (\s@RunCommandParameters' {} a -> s {runCommandTargets = a} :: RunCommandParameters) Prelude.. Lens._Coerce
+runCommandParameters_runCommandTargets = Lens.lens (\RunCommandParameters' {runCommandTargets} -> runCommandTargets) (\s@RunCommandParameters' {} a -> s {runCommandTargets = a} :: RunCommandParameters) Prelude.. Lens.coerced
 
 instance Core.FromJSON RunCommandParameters where
   parseJSON =

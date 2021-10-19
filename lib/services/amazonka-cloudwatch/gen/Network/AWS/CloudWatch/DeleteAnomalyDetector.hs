@@ -101,7 +101,7 @@ newDeleteAnomalyDetector
 -- | The metric dimensions associated with the anomaly detection model to
 -- delete.
 deleteAnomalyDetector_dimensions :: Lens.Lens' DeleteAnomalyDetector (Prelude.Maybe [Dimension])
-deleteAnomalyDetector_dimensions = Lens.lens (\DeleteAnomalyDetector' {dimensions} -> dimensions) (\s@DeleteAnomalyDetector' {} a -> s {dimensions = a} :: DeleteAnomalyDetector) Prelude.. Lens.mapping Lens._Coerce
+deleteAnomalyDetector_dimensions = Lens.lens (\DeleteAnomalyDetector' {dimensions} -> dimensions) (\s@DeleteAnomalyDetector' {} a -> s {dimensions = a} :: DeleteAnomalyDetector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The namespace associated with the anomaly detection model to delete.
 deleteAnomalyDetector_namespace :: Lens.Lens' DeleteAnomalyDetector Prelude.Text

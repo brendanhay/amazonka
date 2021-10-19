@@ -87,12 +87,12 @@ newExclusion
         title = pTitle_,
         description = pDescription_,
         recommendation = pRecommendation_,
-        scopes = Lens._Coerce Lens.# pScopes_
+        scopes = Lens.coerced Lens.# pScopes_
       }
 
 -- | The system-defined attributes for the exclusion.
 exclusion_attributes :: Lens.Lens' Exclusion (Prelude.Maybe [Attribute])
-exclusion_attributes = Lens.lens (\Exclusion' {attributes} -> attributes) (\s@Exclusion' {} a -> s {attributes = a} :: Exclusion) Prelude.. Lens.mapping Lens._Coerce
+exclusion_attributes = Lens.lens (\Exclusion' {attributes} -> attributes) (\s@Exclusion' {} a -> s {attributes = a} :: Exclusion) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN that specifies the exclusion.
 exclusion_arn :: Lens.Lens' Exclusion Prelude.Text
@@ -112,7 +112,7 @@ exclusion_recommendation = Lens.lens (\Exclusion' {recommendation} -> recommenda
 
 -- | The AWS resources for which the exclusion pertains.
 exclusion_scopes :: Lens.Lens' Exclusion (Prelude.NonEmpty Scope)
-exclusion_scopes = Lens.lens (\Exclusion' {scopes} -> scopes) (\s@Exclusion' {} a -> s {scopes = a} :: Exclusion) Prelude.. Lens._Coerce
+exclusion_scopes = Lens.lens (\Exclusion' {scopes} -> scopes) (\s@Exclusion' {} a -> s {scopes = a} :: Exclusion) Prelude.. Lens.coerced
 
 instance Core.FromJSON Exclusion where
   parseJSON =

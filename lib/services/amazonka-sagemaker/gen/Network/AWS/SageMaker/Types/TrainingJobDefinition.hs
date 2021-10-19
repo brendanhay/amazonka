@@ -34,15 +34,6 @@ import Network.AWS.SageMaker.Types.TrainingInputMode
 data TrainingJobDefinition = TrainingJobDefinition'
   { -- | The hyperparameters used for the training job.
     hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The input mode used by the algorithm for the training job. For the input
-    -- modes that Amazon SageMaker algorithms support, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
-    --
-    -- If an algorithm supports the @File@ input mode, Amazon SageMaker
-    -- downloads the training data from S3 to the provisioned ML storage
-    -- Volume, and mounts the directory to docker volume for training
-    -- container. If an algorithm supports the @Pipe@ input mode, Amazon
-    -- SageMaker streams data directly from S3 to the container.
     trainingInputMode :: TrainingInputMode,
     -- | An array of @Channel@ objects, each of which specifies an input source.
     inputDataConfig :: Prelude.NonEmpty Channel,
@@ -74,15 +65,7 @@ data TrainingJobDefinition = TrainingJobDefinition'
 --
 -- 'hyperParameters', 'trainingJobDefinition_hyperParameters' - The hyperparameters used for the training job.
 --
--- 'trainingInputMode', 'trainingJobDefinition_trainingInputMode' - The input mode used by the algorithm for the training job. For the input
--- modes that Amazon SageMaker algorithms support, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
---
--- If an algorithm supports the @File@ input mode, Amazon SageMaker
--- downloads the training data from S3 to the provisioned ML storage
--- Volume, and mounts the directory to docker volume for training
--- container. If an algorithm supports the @Pipe@ input mode, Amazon
--- SageMaker streams data directly from S3 to the container.
+-- 'trainingInputMode', 'trainingJobDefinition_trainingInputMode' - Undocumented member.
 --
 -- 'inputDataConfig', 'trainingJobDefinition_inputDataConfig' - An array of @Channel@ objects, each of which specifies an input source.
 --
@@ -123,7 +106,7 @@ newTrainingJobDefinition
           Prelude.Nothing,
         trainingInputMode = pTrainingInputMode_,
         inputDataConfig =
-          Lens._Coerce Lens.# pInputDataConfig_,
+          Lens.coerced Lens.# pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         resourceConfig = pResourceConfig_,
         stoppingCondition = pStoppingCondition_
@@ -131,23 +114,15 @@ newTrainingJobDefinition
 
 -- | The hyperparameters used for the training job.
 trainingJobDefinition_hyperParameters :: Lens.Lens' TrainingJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-trainingJobDefinition_hyperParameters = Lens.lens (\TrainingJobDefinition' {hyperParameters} -> hyperParameters) (\s@TrainingJobDefinition' {} a -> s {hyperParameters = a} :: TrainingJobDefinition) Prelude.. Lens.mapping Lens._Coerce
+trainingJobDefinition_hyperParameters = Lens.lens (\TrainingJobDefinition' {hyperParameters} -> hyperParameters) (\s@TrainingJobDefinition' {} a -> s {hyperParameters = a} :: TrainingJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The input mode used by the algorithm for the training job. For the input
--- modes that Amazon SageMaker algorithms support, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
---
--- If an algorithm supports the @File@ input mode, Amazon SageMaker
--- downloads the training data from S3 to the provisioned ML storage
--- Volume, and mounts the directory to docker volume for training
--- container. If an algorithm supports the @Pipe@ input mode, Amazon
--- SageMaker streams data directly from S3 to the container.
+-- | Undocumented member.
 trainingJobDefinition_trainingInputMode :: Lens.Lens' TrainingJobDefinition TrainingInputMode
 trainingJobDefinition_trainingInputMode = Lens.lens (\TrainingJobDefinition' {trainingInputMode} -> trainingInputMode) (\s@TrainingJobDefinition' {} a -> s {trainingInputMode = a} :: TrainingJobDefinition)
 
 -- | An array of @Channel@ objects, each of which specifies an input source.
 trainingJobDefinition_inputDataConfig :: Lens.Lens' TrainingJobDefinition (Prelude.NonEmpty Channel)
-trainingJobDefinition_inputDataConfig = Lens.lens (\TrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@TrainingJobDefinition' {} a -> s {inputDataConfig = a} :: TrainingJobDefinition) Prelude.. Lens._Coerce
+trainingJobDefinition_inputDataConfig = Lens.lens (\TrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@TrainingJobDefinition' {} a -> s {inputDataConfig = a} :: TrainingJobDefinition) Prelude.. Lens.coerced
 
 -- | the path to the S3 bucket where you want to store model artifacts.
 -- Amazon SageMaker creates subfolders for the artifacts.

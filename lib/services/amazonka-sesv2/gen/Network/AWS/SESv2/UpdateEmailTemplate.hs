@@ -57,7 +57,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newUpdateEmailTemplate' smart constructor.
 data UpdateEmailTemplate = UpdateEmailTemplate'
-  { -- | The name of the template you want to update.
+  { -- | The name of the template.
     templateName :: Prelude.Text,
     -- | The content of the email template, composed of a subject line, an HTML
     -- part, and a text-only part.
@@ -73,7 +73,7 @@ data UpdateEmailTemplate = UpdateEmailTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'updateEmailTemplate_templateName' - The name of the template you want to update.
+-- 'templateName', 'updateEmailTemplate_templateName' - The name of the template.
 --
 -- 'templateContent', 'updateEmailTemplate_templateContent' - The content of the email template, composed of a subject line, an HTML
 -- part, and a text-only part.
@@ -91,7 +91,7 @@ newUpdateEmailTemplate
         templateContent = pTemplateContent_
       }
 
--- | The name of the template you want to update.
+-- | The name of the template.
 updateEmailTemplate_templateName :: Lens.Lens' UpdateEmailTemplate Prelude.Text
 updateEmailTemplate_templateName = Lens.lens (\UpdateEmailTemplate' {templateName} -> templateName) (\s@UpdateEmailTemplate' {} a -> s {templateName = a} :: UpdateEmailTemplate)
 

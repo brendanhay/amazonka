@@ -198,7 +198,7 @@ listGraphqlApisResponse_nextToken = Lens.lens (\ListGraphqlApisResponse' {nextTo
 
 -- | The @GraphqlApi@ objects.
 listGraphqlApisResponse_graphqlApis :: Lens.Lens' ListGraphqlApisResponse (Prelude.Maybe [GraphqlApi])
-listGraphqlApisResponse_graphqlApis = Lens.lens (\ListGraphqlApisResponse' {graphqlApis} -> graphqlApis) (\s@ListGraphqlApisResponse' {} a -> s {graphqlApis = a} :: ListGraphqlApisResponse) Prelude.. Lens.mapping Lens._Coerce
+listGraphqlApisResponse_graphqlApis = Lens.lens (\ListGraphqlApisResponse' {graphqlApis} -> graphqlApis) (\s@ListGraphqlApisResponse' {} a -> s {graphqlApis = a} :: ListGraphqlApisResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGraphqlApisResponse_httpStatus :: Lens.Lens' ListGraphqlApisResponse Prelude.Int

@@ -135,7 +135,7 @@ newCreateDhcpOptions =
 
 -- | The tags to assign to the DHCP option.
 createDhcpOptions_tagSpecifications :: Lens.Lens' CreateDhcpOptions (Prelude.Maybe [TagSpecification])
-createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifications} -> tagSpecifications) (\s@CreateDhcpOptions' {} a -> s {tagSpecifications = a} :: CreateDhcpOptions) Prelude.. Lens.mapping Lens._Coerce
+createDhcpOptions_tagSpecifications = Lens.lens (\CreateDhcpOptions' {tagSpecifications} -> tagSpecifications) (\s@CreateDhcpOptions' {} a -> s {tagSpecifications = a} :: CreateDhcpOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -146,7 +146,7 @@ createDhcpOptions_dryRun = Lens.lens (\CreateDhcpOptions' {dryRun} -> dryRun) (\
 
 -- | A DHCP configuration option.
 createDhcpOptions_dhcpConfigurations :: Lens.Lens' CreateDhcpOptions [NewDhcpConfiguration]
-createDhcpOptions_dhcpConfigurations = Lens.lens (\CreateDhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@CreateDhcpOptions' {} a -> s {dhcpConfigurations = a} :: CreateDhcpOptions) Prelude.. Lens._Coerce
+createDhcpOptions_dhcpConfigurations = Lens.lens (\CreateDhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@CreateDhcpOptions' {} a -> s {dhcpConfigurations = a} :: CreateDhcpOptions) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateDhcpOptions where
   type

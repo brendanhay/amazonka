@@ -59,8 +59,8 @@ module Network.AWS.GameLift.DescribeInstances
 
     -- * Request Lenses
     describeInstances_instanceId,
-    describeInstances_nextToken,
     describeInstances_location,
+    describeInstances_nextToken,
     describeInstances_limit,
     describeInstances_fleetId,
 
@@ -89,13 +89,13 @@ data DescribeInstances = DescribeInstances'
   { -- | A unique identifier for an instance to retrieve. Specify an instance ID
     -- or leave blank to retrieve all instances in the fleet.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The name of a location to retrieve instance information for, in the form
+    -- of an AWS Region code such as @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of a location to retrieve instance information for, in the form
-    -- of an AWS Region code such as @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -116,12 +116,12 @@ data DescribeInstances = DescribeInstances'
 -- 'instanceId', 'describeInstances_instanceId' - A unique identifier for an instance to retrieve. Specify an instance ID
 -- or leave blank to retrieve all instances in the fleet.
 --
+-- 'location', 'describeInstances_location' - The name of a location to retrieve instance information for, in the form
+-- of an AWS Region code such as @us-west-2@.
+--
 -- 'nextToken', 'describeInstances_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
---
--- 'location', 'describeInstances_location' - The name of a location to retrieve instance information for, in the form
--- of an AWS Region code such as @us-west-2@.
 --
 -- 'limit', 'describeInstances_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -135,8 +135,8 @@ newDescribeInstances ::
 newDescribeInstances pFleetId_ =
   DescribeInstances'
     { instanceId = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       location = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       limit = Prelude.Nothing,
       fleetId = pFleetId_
     }
@@ -146,16 +146,16 @@ newDescribeInstances pFleetId_ =
 describeInstances_instanceId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_instanceId = Lens.lens (\DescribeInstances' {instanceId} -> instanceId) (\s@DescribeInstances' {} a -> s {instanceId = a} :: DescribeInstances)
 
+-- | The name of a location to retrieve instance information for, in the form
+-- of an AWS Region code such as @us-west-2@.
+describeInstances_location :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_location = Lens.lens (\DescribeInstances' {location} -> location) (\s@DescribeInstances' {} a -> s {location = a} :: DescribeInstances)
+
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
-
--- | The name of a location to retrieve instance information for, in the form
--- of an AWS Region code such as @us-west-2@.
-describeInstances_location :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
-describeInstances_location = Lens.lens (\DescribeInstances' {location} -> location) (\s@DescribeInstances' {} a -> s {location = a} :: DescribeInstances)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -225,8 +225,8 @@ instance Core.ToJSON DescribeInstances where
     Core.object
       ( Prelude.catMaybes
           [ ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Location" Core..=) Prelude.<$> location,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("FleetId" Core..= fleetId)
           ]
@@ -291,7 +291,7 @@ describeInstancesResponse_nextToken = Lens.lens (\DescribeInstancesResponse' {ne
 -- | A collection of objects containing properties for each instance
 -- returned.
 describeInstancesResponse_instances :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe [Instance])
-describeInstancesResponse_instances = Lens.lens (\DescribeInstancesResponse' {instances} -> instances) (\s@DescribeInstancesResponse' {} a -> s {instances = a} :: DescribeInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstancesResponse_instances = Lens.lens (\DescribeInstancesResponse' {instances} -> instances) (\s@DescribeInstancesResponse' {} a -> s {instances = a} :: DescribeInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstancesResponse_httpStatus :: Lens.Lens' DescribeInstancesResponse Prelude.Int

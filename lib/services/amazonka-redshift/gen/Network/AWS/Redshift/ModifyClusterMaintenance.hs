@@ -27,11 +27,11 @@ module Network.AWS.Redshift.ModifyClusterMaintenance
     newModifyClusterMaintenance,
 
     -- * Request Lenses
-    modifyClusterMaintenance_deferMaintenanceIdentifier,
-    modifyClusterMaintenance_deferMaintenanceDuration,
-    modifyClusterMaintenance_deferMaintenanceStartTime,
     modifyClusterMaintenance_deferMaintenanceEndTime,
     modifyClusterMaintenance_deferMaintenance,
+    modifyClusterMaintenance_deferMaintenanceDuration,
+    modifyClusterMaintenance_deferMaintenanceStartTime,
+    modifyClusterMaintenance_deferMaintenanceIdentifier,
     modifyClusterMaintenance_clusterIdentifier,
 
     -- * Destructuring the Response
@@ -53,8 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyClusterMaintenance' smart constructor.
 data ModifyClusterMaintenance = ModifyClusterMaintenance'
-  { -- | A unique identifier for the deferred maintenance window.
-    deferMaintenanceIdentifier :: Prelude.Maybe Prelude.Text,
+  { -- | A timestamp indicating end time for the deferred maintenance window. If
+    -- you specify an end time, you can\'t specify a duration.
+    deferMaintenanceEndTime :: Prelude.Maybe Core.ISO8601,
+    -- | A boolean indicating whether to enable the deferred maintenance window.
+    deferMaintenance :: Prelude.Maybe Prelude.Bool,
     -- | An integer indicating the duration of the maintenance window in days. If
     -- you specify a duration, you can\'t specify an end time. The duration
     -- must be 45 days or less.
@@ -62,11 +65,8 @@ data ModifyClusterMaintenance = ModifyClusterMaintenance'
     -- | A timestamp indicating the start time for the deferred maintenance
     -- window.
     deferMaintenanceStartTime :: Prelude.Maybe Core.ISO8601,
-    -- | A timestamp indicating end time for the deferred maintenance window. If
-    -- you specify an end time, you can\'t specify a duration.
-    deferMaintenanceEndTime :: Prelude.Maybe Core.ISO8601,
-    -- | A boolean indicating whether to enable the deferred maintenance window.
-    deferMaintenance :: Prelude.Maybe Prelude.Bool,
+    -- | A unique identifier for the deferred maintenance window.
+    deferMaintenanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the cluster.
     clusterIdentifier :: Prelude.Text
   }
@@ -80,7 +80,10 @@ data ModifyClusterMaintenance = ModifyClusterMaintenance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deferMaintenanceIdentifier', 'modifyClusterMaintenance_deferMaintenanceIdentifier' - A unique identifier for the deferred maintenance window.
+-- 'deferMaintenanceEndTime', 'modifyClusterMaintenance_deferMaintenanceEndTime' - A timestamp indicating end time for the deferred maintenance window. If
+-- you specify an end time, you can\'t specify a duration.
+--
+-- 'deferMaintenance', 'modifyClusterMaintenance_deferMaintenance' - A boolean indicating whether to enable the deferred maintenance window.
 --
 -- 'deferMaintenanceDuration', 'modifyClusterMaintenance_deferMaintenanceDuration' - An integer indicating the duration of the maintenance window in days. If
 -- you specify a duration, you can\'t specify an end time. The duration
@@ -89,10 +92,7 @@ data ModifyClusterMaintenance = ModifyClusterMaintenance'
 -- 'deferMaintenanceStartTime', 'modifyClusterMaintenance_deferMaintenanceStartTime' - A timestamp indicating the start time for the deferred maintenance
 -- window.
 --
--- 'deferMaintenanceEndTime', 'modifyClusterMaintenance_deferMaintenanceEndTime' - A timestamp indicating end time for the deferred maintenance window. If
--- you specify an end time, you can\'t specify a duration.
---
--- 'deferMaintenance', 'modifyClusterMaintenance_deferMaintenance' - A boolean indicating whether to enable the deferred maintenance window.
+-- 'deferMaintenanceIdentifier', 'modifyClusterMaintenance_deferMaintenanceIdentifier' - A unique identifier for the deferred maintenance window.
 --
 -- 'clusterIdentifier', 'modifyClusterMaintenance_clusterIdentifier' - A unique identifier for the cluster.
 newModifyClusterMaintenance ::
@@ -101,18 +101,23 @@ newModifyClusterMaintenance ::
   ModifyClusterMaintenance
 newModifyClusterMaintenance pClusterIdentifier_ =
   ModifyClusterMaintenance'
-    { deferMaintenanceIdentifier =
+    { deferMaintenanceEndTime =
         Prelude.Nothing,
+      deferMaintenance = Prelude.Nothing,
       deferMaintenanceDuration = Prelude.Nothing,
       deferMaintenanceStartTime = Prelude.Nothing,
-      deferMaintenanceEndTime = Prelude.Nothing,
-      deferMaintenance = Prelude.Nothing,
+      deferMaintenanceIdentifier = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
 
--- | A unique identifier for the deferred maintenance window.
-modifyClusterMaintenance_deferMaintenanceIdentifier :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.Text)
-modifyClusterMaintenance_deferMaintenanceIdentifier = Lens.lens (\ModifyClusterMaintenance' {deferMaintenanceIdentifier} -> deferMaintenanceIdentifier) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenanceIdentifier = a} :: ModifyClusterMaintenance)
+-- | A timestamp indicating end time for the deferred maintenance window. If
+-- you specify an end time, you can\'t specify a duration.
+modifyClusterMaintenance_deferMaintenanceEndTime :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.UTCTime)
+modifyClusterMaintenance_deferMaintenanceEndTime = Lens.lens (\ModifyClusterMaintenance' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenanceEndTime = a} :: ModifyClusterMaintenance) Prelude.. Lens.mapping Core._Time
+
+-- | A boolean indicating whether to enable the deferred maintenance window.
+modifyClusterMaintenance_deferMaintenance :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.Bool)
+modifyClusterMaintenance_deferMaintenance = Lens.lens (\ModifyClusterMaintenance' {deferMaintenance} -> deferMaintenance) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenance = a} :: ModifyClusterMaintenance)
 
 -- | An integer indicating the duration of the maintenance window in days. If
 -- you specify a duration, you can\'t specify an end time. The duration
@@ -125,14 +130,9 @@ modifyClusterMaintenance_deferMaintenanceDuration = Lens.lens (\ModifyClusterMai
 modifyClusterMaintenance_deferMaintenanceStartTime :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.UTCTime)
 modifyClusterMaintenance_deferMaintenanceStartTime = Lens.lens (\ModifyClusterMaintenance' {deferMaintenanceStartTime} -> deferMaintenanceStartTime) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenanceStartTime = a} :: ModifyClusterMaintenance) Prelude.. Lens.mapping Core._Time
 
--- | A timestamp indicating end time for the deferred maintenance window. If
--- you specify an end time, you can\'t specify a duration.
-modifyClusterMaintenance_deferMaintenanceEndTime :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.UTCTime)
-modifyClusterMaintenance_deferMaintenanceEndTime = Lens.lens (\ModifyClusterMaintenance' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenanceEndTime = a} :: ModifyClusterMaintenance) Prelude.. Lens.mapping Core._Time
-
--- | A boolean indicating whether to enable the deferred maintenance window.
-modifyClusterMaintenance_deferMaintenance :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.Bool)
-modifyClusterMaintenance_deferMaintenance = Lens.lens (\ModifyClusterMaintenance' {deferMaintenance} -> deferMaintenance) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenance = a} :: ModifyClusterMaintenance)
+-- | A unique identifier for the deferred maintenance window.
+modifyClusterMaintenance_deferMaintenanceIdentifier :: Lens.Lens' ModifyClusterMaintenance (Prelude.Maybe Prelude.Text)
+modifyClusterMaintenance_deferMaintenanceIdentifier = Lens.lens (\ModifyClusterMaintenance' {deferMaintenanceIdentifier} -> deferMaintenanceIdentifier) (\s@ModifyClusterMaintenance' {} a -> s {deferMaintenanceIdentifier = a} :: ModifyClusterMaintenance)
 
 -- | A unique identifier for the cluster.
 modifyClusterMaintenance_clusterIdentifier :: Lens.Lens' ModifyClusterMaintenance Prelude.Text
@@ -169,15 +169,15 @@ instance Core.ToQuery ModifyClusterMaintenance where
           Core.=: ("ModifyClusterMaintenance" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "DeferMaintenanceIdentifier"
-          Core.=: deferMaintenanceIdentifier,
+        "DeferMaintenanceEndTime"
+          Core.=: deferMaintenanceEndTime,
+        "DeferMaintenance" Core.=: deferMaintenance,
         "DeferMaintenanceDuration"
           Core.=: deferMaintenanceDuration,
         "DeferMaintenanceStartTime"
           Core.=: deferMaintenanceStartTime,
-        "DeferMaintenanceEndTime"
-          Core.=: deferMaintenanceEndTime,
-        "DeferMaintenance" Core.=: deferMaintenance,
+        "DeferMaintenanceIdentifier"
+          Core.=: deferMaintenanceIdentifier,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 

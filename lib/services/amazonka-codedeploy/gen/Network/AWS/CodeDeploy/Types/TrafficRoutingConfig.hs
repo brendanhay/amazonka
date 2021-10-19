@@ -34,6 +34,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTrafficRoutingConfig' smart constructor.
 data TrafficRoutingConfig = TrafficRoutingConfig'
   { -- | A configuration that shifts traffic from one version of a Lambda
+    -- function or ECS task set to another in two increments. The original and
+    -- target Lambda function versions or ECS task sets are specified in the
+    -- deployment\'s AppSpec file.
+    timeBasedCanary :: Prelude.Maybe TimeBasedCanary,
+    -- | A configuration that shifts traffic from one version of a Lambda
     -- function or ECS task set to another in equal increments, with an equal
     -- number of minutes between each increment. The original and target Lambda
     -- function versions or ECS task sets are specified in the deployment\'s
@@ -41,12 +46,7 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
     timeBasedLinear :: Prelude.Maybe TimeBasedLinear,
     -- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@)
     -- used by a deployment configuration.
-    type' :: Prelude.Maybe TrafficRoutingType,
-    -- | A configuration that shifts traffic from one version of a Lambda
-    -- function or ECS task set to another in two increments. The original and
-    -- target Lambda function versions or ECS task sets are specified in the
-    -- deployment\'s AppSpec file.
-    timeBasedCanary :: Prelude.Maybe TimeBasedCanary
+    type' :: Prelude.Maybe TrafficRoutingType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +58,11 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timeBasedCanary', 'trafficRoutingConfig_timeBasedCanary' - A configuration that shifts traffic from one version of a Lambda
+-- function or ECS task set to another in two increments. The original and
+-- target Lambda function versions or ECS task sets are specified in the
+-- deployment\'s AppSpec file.
+--
 -- 'timeBasedLinear', 'trafficRoutingConfig_timeBasedLinear' - A configuration that shifts traffic from one version of a Lambda
 -- function or ECS task set to another in equal increments, with an equal
 -- number of minutes between each increment. The original and target Lambda
@@ -66,20 +71,22 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
 --
 -- 'type'', 'trafficRoutingConfig_type' - The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@)
 -- used by a deployment configuration.
---
--- 'timeBasedCanary', 'trafficRoutingConfig_timeBasedCanary' - A configuration that shifts traffic from one version of a Lambda
--- function or ECS task set to another in two increments. The original and
--- target Lambda function versions or ECS task sets are specified in the
--- deployment\'s AppSpec file.
 newTrafficRoutingConfig ::
   TrafficRoutingConfig
 newTrafficRoutingConfig =
   TrafficRoutingConfig'
-    { timeBasedLinear =
+    { timeBasedCanary =
         Prelude.Nothing,
-      type' = Prelude.Nothing,
-      timeBasedCanary = Prelude.Nothing
+      timeBasedLinear = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
+
+-- | A configuration that shifts traffic from one version of a Lambda
+-- function or ECS task set to another in two increments. The original and
+-- target Lambda function versions or ECS task sets are specified in the
+-- deployment\'s AppSpec file.
+trafficRoutingConfig_timeBasedCanary :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TimeBasedCanary)
+trafficRoutingConfig_timeBasedCanary = Lens.lens (\TrafficRoutingConfig' {timeBasedCanary} -> timeBasedCanary) (\s@TrafficRoutingConfig' {} a -> s {timeBasedCanary = a} :: TrafficRoutingConfig)
 
 -- | A configuration that shifts traffic from one version of a Lambda
 -- function or ECS task set to another in equal increments, with an equal
@@ -94,22 +101,15 @@ trafficRoutingConfig_timeBasedLinear = Lens.lens (\TrafficRoutingConfig' {timeBa
 trafficRoutingConfig_type :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TrafficRoutingType)
 trafficRoutingConfig_type = Lens.lens (\TrafficRoutingConfig' {type'} -> type') (\s@TrafficRoutingConfig' {} a -> s {type' = a} :: TrafficRoutingConfig)
 
--- | A configuration that shifts traffic from one version of a Lambda
--- function or ECS task set to another in two increments. The original and
--- target Lambda function versions or ECS task sets are specified in the
--- deployment\'s AppSpec file.
-trafficRoutingConfig_timeBasedCanary :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TimeBasedCanary)
-trafficRoutingConfig_timeBasedCanary = Lens.lens (\TrafficRoutingConfig' {timeBasedCanary} -> timeBasedCanary) (\s@TrafficRoutingConfig' {} a -> s {timeBasedCanary = a} :: TrafficRoutingConfig)
-
 instance Core.FromJSON TrafficRoutingConfig where
   parseJSON =
     Core.withObject
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Prelude.<$> (x Core..:? "timeBasedLinear")
+            Prelude.<$> (x Core..:? "timeBasedCanary")
+            Prelude.<*> (x Core..:? "timeBasedLinear")
             Prelude.<*> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "timeBasedCanary")
       )
 
 instance Prelude.Hashable TrafficRoutingConfig
@@ -120,10 +120,10 @@ instance Core.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("timeBasedLinear" Core..=)
+          [ ("timeBasedCanary" Core..=)
+              Prelude.<$> timeBasedCanary,
+            ("timeBasedLinear" Core..=)
               Prelude.<$> timeBasedLinear,
-            ("type" Core..=) Prelude.<$> type',
-            ("timeBasedCanary" Core..=)
-              Prelude.<$> timeBasedCanary
+            ("type" Core..=) Prelude.<$> type'
           ]
       )

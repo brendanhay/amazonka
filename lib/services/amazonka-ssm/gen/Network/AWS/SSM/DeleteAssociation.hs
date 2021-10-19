@@ -36,9 +36,9 @@ module Network.AWS.SSM.DeleteAssociation
     newDeleteAssociation,
 
     -- * Request Lenses
+    deleteAssociation_associationId,
     deleteAssociation_instanceId,
     deleteAssociation_name,
-    deleteAssociation_associationId,
 
     -- * Destructuring the Response
     DeleteAssociationResponse (..),
@@ -58,7 +58,9 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDeleteAssociation' smart constructor.
 data DeleteAssociation = DeleteAssociation'
-  { -- | The instance ID.
+  { -- | The association ID that you want to delete.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | The instance ID.
     --
     -- @InstanceId@ has been deprecated. To specify an instance ID for an
     -- association, use the @Targets@ parameter. Requests that include the
@@ -70,9 +72,7 @@ data DeleteAssociation = DeleteAssociation'
     -- must use the @Targets@ parameter.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSM document.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The association ID that you want to delete.
-    associationId :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,6 +83,8 @@ data DeleteAssociation = DeleteAssociation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'associationId', 'deleteAssociation_associationId' - The association ID that you want to delete.
 --
 -- 'instanceId', 'deleteAssociation_instanceId' - The instance ID.
 --
@@ -96,16 +98,18 @@ data DeleteAssociation = DeleteAssociation'
 -- must use the @Targets@ parameter.
 --
 -- 'name', 'deleteAssociation_name' - The name of the SSM document.
---
--- 'associationId', 'deleteAssociation_associationId' - The association ID that you want to delete.
 newDeleteAssociation ::
   DeleteAssociation
 newDeleteAssociation =
   DeleteAssociation'
-    { instanceId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      associationId = Prelude.Nothing
+    { associationId = Prelude.Nothing,
+      instanceId = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | The association ID that you want to delete.
+deleteAssociation_associationId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
+deleteAssociation_associationId = Lens.lens (\DeleteAssociation' {associationId} -> associationId) (\s@DeleteAssociation' {} a -> s {associationId = a} :: DeleteAssociation)
 
 -- | The instance ID.
 --
@@ -123,10 +127,6 @@ deleteAssociation_instanceId = Lens.lens (\DeleteAssociation' {instanceId} -> in
 -- | The name of the SSM document.
 deleteAssociation_name :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
 deleteAssociation_name = Lens.lens (\DeleteAssociation' {name} -> name) (\s@DeleteAssociation' {} a -> s {name = a} :: DeleteAssociation)
-
--- | The association ID that you want to delete.
-deleteAssociation_associationId :: Lens.Lens' DeleteAssociation (Prelude.Maybe Prelude.Text)
-deleteAssociation_associationId = Lens.lens (\DeleteAssociation' {associationId} -> associationId) (\s@DeleteAssociation' {} a -> s {associationId = a} :: DeleteAssociation)
 
 instance Core.AWSRequest DeleteAssociation where
   type
@@ -163,9 +163,9 @@ instance Core.ToJSON DeleteAssociation where
   toJSON DeleteAssociation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
-            ("Name" Core..=) Prelude.<$> name,
-            ("AssociationId" Core..=) Prelude.<$> associationId
+          [ ("AssociationId" Core..=) Prelude.<$> associationId,
+            ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )
 

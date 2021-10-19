@@ -92,7 +92,7 @@ newUpdateArtifact pArtifactArn_ =
 
 -- | A list of properties to remove.
 updateArtifact_propertiesToRemove :: Lens.Lens' UpdateArtifact (Prelude.Maybe [Prelude.Text])
-updateArtifact_propertiesToRemove = Lens.lens (\UpdateArtifact' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateArtifact' {} a -> s {propertiesToRemove = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens._Coerce
+updateArtifact_propertiesToRemove = Lens.lens (\UpdateArtifact' {propertiesToRemove} -> propertiesToRemove) (\s@UpdateArtifact' {} a -> s {propertiesToRemove = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The new name for the artifact.
 updateArtifact_artifactName :: Lens.Lens' UpdateArtifact (Prelude.Maybe Prelude.Text)
@@ -100,7 +100,7 @@ updateArtifact_artifactName = Lens.lens (\UpdateArtifact' {artifactName} -> arti
 
 -- | The new list of properties. Overwrites the current property list.
 updateArtifact_properties :: Lens.Lens' UpdateArtifact (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateArtifact_properties = Lens.lens (\UpdateArtifact' {properties} -> properties) (\s@UpdateArtifact' {} a -> s {properties = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens._Coerce
+updateArtifact_properties = Lens.lens (\UpdateArtifact' {properties} -> properties) (\s@UpdateArtifact' {} a -> s {properties = a} :: UpdateArtifact) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the artifact to update.
 updateArtifact_artifactArn :: Lens.Lens' UpdateArtifact Prelude.Text

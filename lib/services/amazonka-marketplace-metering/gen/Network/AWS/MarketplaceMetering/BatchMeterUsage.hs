@@ -51,8 +51,8 @@ module Network.AWS.MarketplaceMetering.BatchMeterUsage
     newBatchMeterUsageResponse,
 
     -- * Response Lenses
-    batchMeterUsageResponse_unprocessedRecords,
     batchMeterUsageResponse_results,
+    batchMeterUsageResponse_unprocessedRecords,
     batchMeterUsageResponse_httpStatus,
   )
 where
@@ -106,7 +106,7 @@ newBatchMeterUsage pProductCode_ =
 -- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
 -- UsageRecords at a time.
 batchMeterUsage_usageRecords :: Lens.Lens' BatchMeterUsage [UsageRecord]
-batchMeterUsage_usageRecords = Lens.lens (\BatchMeterUsage' {usageRecords} -> usageRecords) (\s@BatchMeterUsage' {} a -> s {usageRecords = a} :: BatchMeterUsage) Prelude.. Lens._Coerce
+batchMeterUsage_usageRecords = Lens.lens (\BatchMeterUsage' {usageRecords} -> usageRecords) (\s@BatchMeterUsage' {} a -> s {usageRecords = a} :: BatchMeterUsage) Prelude.. Lens.coerced
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
@@ -123,10 +123,10 @@ instance Core.AWSRequest BatchMeterUsage where
     Response.receiveJSON
       ( \s h x ->
           BatchMeterUsageResponse'
-            Prelude.<$> ( x Core..?> "UnprocessedRecords"
+            Prelude.<$> (x Core..?> "Results" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "UnprocessedRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,14 +169,14 @@ instance Core.ToQuery BatchMeterUsage where
 --
 -- /See:/ 'newBatchMeterUsageResponse' smart constructor.
 data BatchMeterUsageResponse = BatchMeterUsageResponse'
-  { -- | Contains all UsageRecords that were not processed by BatchMeterUsage.
+  { -- | Contains all UsageRecords processed by BatchMeterUsage. These records
+    -- were either honored by AWS Marketplace Metering Service or were invalid.
+    results :: Prelude.Maybe [UsageRecordResult],
+    -- | Contains all UsageRecords that were not processed by BatchMeterUsage.
     -- This is a list of UsageRecords. You can retry the failed request by
     -- making another BatchMeterUsage call with this list as input in the
     -- BatchMeterUsageRequest.
     unprocessedRecords :: Prelude.Maybe [UsageRecord],
-    -- | Contains all UsageRecords processed by BatchMeterUsage. These records
-    -- were either honored by AWS Marketplace Metering Service or were invalid.
-    results :: Prelude.Maybe [UsageRecordResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,13 +190,13 @@ data BatchMeterUsageResponse = BatchMeterUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'results', 'batchMeterUsageResponse_results' - Contains all UsageRecords processed by BatchMeterUsage. These records
+-- were either honored by AWS Marketplace Metering Service or were invalid.
+--
 -- 'unprocessedRecords', 'batchMeterUsageResponse_unprocessedRecords' - Contains all UsageRecords that were not processed by BatchMeterUsage.
 -- This is a list of UsageRecords. You can retry the failed request by
 -- making another BatchMeterUsage call with this list as input in the
 -- BatchMeterUsageRequest.
---
--- 'results', 'batchMeterUsageResponse_results' - Contains all UsageRecords processed by BatchMeterUsage. These records
--- were either honored by AWS Marketplace Metering Service or were invalid.
 --
 -- 'httpStatus', 'batchMeterUsageResponse_httpStatus' - The response's http status code.
 newBatchMeterUsageResponse ::
@@ -205,23 +205,22 @@ newBatchMeterUsageResponse ::
   BatchMeterUsageResponse
 newBatchMeterUsageResponse pHttpStatus_ =
   BatchMeterUsageResponse'
-    { unprocessedRecords =
-        Prelude.Nothing,
-      results = Prelude.Nothing,
+    { results = Prelude.Nothing,
+      unprocessedRecords = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Contains all UsageRecords processed by BatchMeterUsage. These records
+-- were either honored by AWS Marketplace Metering Service or were invalid.
+batchMeterUsageResponse_results :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecordResult])
+batchMeterUsageResponse_results = Lens.lens (\BatchMeterUsageResponse' {results} -> results) (\s@BatchMeterUsageResponse' {} a -> s {results = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains all UsageRecords that were not processed by BatchMeterUsage.
 -- This is a list of UsageRecords. You can retry the failed request by
 -- making another BatchMeterUsage call with this list as input in the
 -- BatchMeterUsageRequest.
 batchMeterUsageResponse_unprocessedRecords :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecord])
-batchMeterUsageResponse_unprocessedRecords = Lens.lens (\BatchMeterUsageResponse' {unprocessedRecords} -> unprocessedRecords) (\s@BatchMeterUsageResponse' {} a -> s {unprocessedRecords = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Contains all UsageRecords processed by BatchMeterUsage. These records
--- were either honored by AWS Marketplace Metering Service or were invalid.
-batchMeterUsageResponse_results :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecordResult])
-batchMeterUsageResponse_results = Lens.lens (\BatchMeterUsageResponse' {results} -> results) (\s@BatchMeterUsageResponse' {} a -> s {results = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens._Coerce
+batchMeterUsageResponse_unprocessedRecords = Lens.lens (\BatchMeterUsageResponse' {unprocessedRecords} -> unprocessedRecords) (\s@BatchMeterUsageResponse' {} a -> s {unprocessedRecords = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchMeterUsageResponse_httpStatus :: Lens.Lens' BatchMeterUsageResponse Prelude.Int

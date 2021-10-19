@@ -225,7 +225,7 @@ listDeliverabilityTestReportsResponse_httpStatus = Lens.lens (\ListDeliverabilit
 -- | An object that contains a lists of predictive inbox placement tests that
 -- you\'ve performed.
 listDeliverabilityTestReportsResponse_deliverabilityTestReports :: Lens.Lens' ListDeliverabilityTestReportsResponse [DeliverabilityTestReport]
-listDeliverabilityTestReportsResponse_deliverabilityTestReports = Lens.lens (\ListDeliverabilityTestReportsResponse' {deliverabilityTestReports} -> deliverabilityTestReports) (\s@ListDeliverabilityTestReportsResponse' {} a -> s {deliverabilityTestReports = a} :: ListDeliverabilityTestReportsResponse) Prelude.. Lens._Coerce
+listDeliverabilityTestReportsResponse_deliverabilityTestReports = Lens.lens (\ListDeliverabilityTestReportsResponse' {deliverabilityTestReports} -> deliverabilityTestReports) (\s@ListDeliverabilityTestReportsResponse' {} a -> s {deliverabilityTestReports = a} :: ListDeliverabilityTestReportsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

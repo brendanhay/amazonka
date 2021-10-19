@@ -32,30 +32,30 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'newTrial' smart constructor.
 data Trial = Trial'
-  { -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Prelude.Maybe Prelude.Text,
-    -- | When the trial was created.
+  { -- | When the trial was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     metadataProperties :: Prelude.Maybe MetadataProperties,
-    source :: Prelude.Maybe TrialSource,
     -- | A list of the components associated with the trial. For each component,
     -- a summary of the component\'s properties is included.
     trialComponentSummaries :: Prelude.Maybe [TrialComponentSimpleSummary],
-    -- | The list of tags that are associated with the trial. You can use Search
-    -- API to search on the tags.
-    tags :: Prelude.Maybe [Tag],
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Prelude.Maybe Prelude.Text,
+    -- | Who created the trial.
+    createdBy :: Prelude.Maybe UserContext,
     -- | Who last modified the trial.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the experiment the trial is part of.
     experimentName :: Prelude.Maybe Prelude.Text,
-    -- | Who created the trial.
-    createdBy :: Prelude.Maybe UserContext,
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    -- | The name of the trial.
-    trialName :: Prelude.Maybe Prelude.Text,
+    source :: Prelude.Maybe TrialSource,
     -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
     -- @TrialName@ is displayed.
-    displayName :: Prelude.Maybe Prelude.Text
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the trial.
+    trialName :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Prelude.Maybe UserContext,
+    -- | The list of tags that are associated with the trial. You can use Search
+    -- API to search on the tags.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,53 +67,49 @@ data Trial = Trial'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trialArn', 'trial_trialArn' - The Amazon Resource Name (ARN) of the trial.
---
 -- 'creationTime', 'trial_creationTime' - When the trial was created.
 --
 -- 'metadataProperties', 'trial_metadataProperties' - Undocumented member.
 --
--- 'source', 'trial_source' - Undocumented member.
---
 -- 'trialComponentSummaries', 'trial_trialComponentSummaries' - A list of the components associated with the trial. For each component,
 -- a summary of the component\'s properties is included.
 --
--- 'tags', 'trial_tags' - The list of tags that are associated with the trial. You can use Search
--- API to search on the tags.
+-- 'trialArn', 'trial_trialArn' - The Amazon Resource Name (ARN) of the trial.
+--
+-- 'createdBy', 'trial_createdBy' - Who created the trial.
 --
 -- 'lastModifiedTime', 'trial_lastModifiedTime' - Who last modified the trial.
 --
 -- 'experimentName', 'trial_experimentName' - The name of the experiment the trial is part of.
 --
--- 'createdBy', 'trial_createdBy' - Who created the trial.
---
--- 'lastModifiedBy', 'trial_lastModifiedBy' - Undocumented member.
---
--- 'trialName', 'trial_trialName' - The name of the trial.
+-- 'source', 'trial_source' - Undocumented member.
 --
 -- 'displayName', 'trial_displayName' - The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
+--
+-- 'trialName', 'trial_trialName' - The name of the trial.
+--
+-- 'lastModifiedBy', 'trial_lastModifiedBy' - Undocumented member.
+--
+-- 'tags', 'trial_tags' - The list of tags that are associated with the trial. You can use Search
+-- API to search on the tags.
 newTrial ::
   Trial
 newTrial =
   Trial'
-    { trialArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
-      source = Prelude.Nothing,
       trialComponentSummaries = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      trialArn = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       experimentName = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
+      source = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       trialName = Prelude.Nothing,
-      displayName = Prelude.Nothing
+      lastModifiedBy = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the trial.
-trial_trialArn :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
-trial_trialArn = Lens.lens (\Trial' {trialArn} -> trialArn) (\s@Trial' {} a -> s {trialArn = a} :: Trial)
 
 -- | When the trial was created.
 trial_creationTime :: Lens.Lens' Trial (Prelude.Maybe Prelude.UTCTime)
@@ -123,19 +119,18 @@ trial_creationTime = Lens.lens (\Trial' {creationTime} -> creationTime) (\s@Tria
 trial_metadataProperties :: Lens.Lens' Trial (Prelude.Maybe MetadataProperties)
 trial_metadataProperties = Lens.lens (\Trial' {metadataProperties} -> metadataProperties) (\s@Trial' {} a -> s {metadataProperties = a} :: Trial)
 
--- | Undocumented member.
-trial_source :: Lens.Lens' Trial (Prelude.Maybe TrialSource)
-trial_source = Lens.lens (\Trial' {source} -> source) (\s@Trial' {} a -> s {source = a} :: Trial)
-
 -- | A list of the components associated with the trial. For each component,
 -- a summary of the component\'s properties is included.
 trial_trialComponentSummaries :: Lens.Lens' Trial (Prelude.Maybe [TrialComponentSimpleSummary])
-trial_trialComponentSummaries = Lens.lens (\Trial' {trialComponentSummaries} -> trialComponentSummaries) (\s@Trial' {} a -> s {trialComponentSummaries = a} :: Trial) Prelude.. Lens.mapping Lens._Coerce
+trial_trialComponentSummaries = Lens.lens (\Trial' {trialComponentSummaries} -> trialComponentSummaries) (\s@Trial' {} a -> s {trialComponentSummaries = a} :: Trial) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of tags that are associated with the trial. You can use Search
--- API to search on the tags.
-trial_tags :: Lens.Lens' Trial (Prelude.Maybe [Tag])
-trial_tags = Lens.lens (\Trial' {tags} -> tags) (\s@Trial' {} a -> s {tags = a} :: Trial) Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Resource Name (ARN) of the trial.
+trial_trialArn :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
+trial_trialArn = Lens.lens (\Trial' {trialArn} -> trialArn) (\s@Trial' {} a -> s {trialArn = a} :: Trial)
+
+-- | Who created the trial.
+trial_createdBy :: Lens.Lens' Trial (Prelude.Maybe UserContext)
+trial_createdBy = Lens.lens (\Trial' {createdBy} -> createdBy) (\s@Trial' {} a -> s {createdBy = a} :: Trial)
 
 -- | Who last modified the trial.
 trial_lastModifiedTime :: Lens.Lens' Trial (Prelude.Maybe Prelude.UTCTime)
@@ -145,22 +140,27 @@ trial_lastModifiedTime = Lens.lens (\Trial' {lastModifiedTime} -> lastModifiedTi
 trial_experimentName :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
 trial_experimentName = Lens.lens (\Trial' {experimentName} -> experimentName) (\s@Trial' {} a -> s {experimentName = a} :: Trial)
 
--- | Who created the trial.
-trial_createdBy :: Lens.Lens' Trial (Prelude.Maybe UserContext)
-trial_createdBy = Lens.lens (\Trial' {createdBy} -> createdBy) (\s@Trial' {} a -> s {createdBy = a} :: Trial)
-
 -- | Undocumented member.
-trial_lastModifiedBy :: Lens.Lens' Trial (Prelude.Maybe UserContext)
-trial_lastModifiedBy = Lens.lens (\Trial' {lastModifiedBy} -> lastModifiedBy) (\s@Trial' {} a -> s {lastModifiedBy = a} :: Trial)
-
--- | The name of the trial.
-trial_trialName :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
-trial_trialName = Lens.lens (\Trial' {trialName} -> trialName) (\s@Trial' {} a -> s {trialName = a} :: Trial)
+trial_source :: Lens.Lens' Trial (Prelude.Maybe TrialSource)
+trial_source = Lens.lens (\Trial' {source} -> source) (\s@Trial' {} a -> s {source = a} :: Trial)
 
 -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
 trial_displayName :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
 trial_displayName = Lens.lens (\Trial' {displayName} -> displayName) (\s@Trial' {} a -> s {displayName = a} :: Trial)
+
+-- | The name of the trial.
+trial_trialName :: Lens.Lens' Trial (Prelude.Maybe Prelude.Text)
+trial_trialName = Lens.lens (\Trial' {trialName} -> trialName) (\s@Trial' {} a -> s {trialName = a} :: Trial)
+
+-- | Undocumented member.
+trial_lastModifiedBy :: Lens.Lens' Trial (Prelude.Maybe UserContext)
+trial_lastModifiedBy = Lens.lens (\Trial' {lastModifiedBy} -> lastModifiedBy) (\s@Trial' {} a -> s {lastModifiedBy = a} :: Trial)
+
+-- | The list of tags that are associated with the trial. You can use Search
+-- API to search on the tags.
+trial_tags :: Lens.Lens' Trial (Prelude.Maybe [Tag])
+trial_tags = Lens.lens (\Trial' {tags} -> tags) (\s@Trial' {} a -> s {tags = a} :: Trial) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Trial where
   parseJSON =
@@ -168,20 +168,20 @@ instance Core.FromJSON Trial where
       "Trial"
       ( \x ->
           Trial'
-            Prelude.<$> (x Core..:? "TrialArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "MetadataProperties")
-            Prelude.<*> (x Core..:? "Source")
             Prelude.<*> ( x Core..:? "TrialComponentSummaries"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "TrialArn")
+            Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "ExperimentName")
-            Prelude.<*> (x Core..:? "CreatedBy")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
-            Prelude.<*> (x Core..:? "TrialName")
+            Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "TrialName")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Trial

@@ -95,8 +95,8 @@ module Network.AWS.KMS.ImportKeyMaterial
     newImportKeyMaterial,
 
     -- * Request Lenses
-    importKeyMaterial_validTo,
     importKeyMaterial_expirationModel,
+    importKeyMaterial_validTo,
     importKeyMaterial_keyId,
     importKeyMaterial_importToken,
     importKeyMaterial_encryptedKeyMaterial,
@@ -119,17 +119,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportKeyMaterial' smart constructor.
 data ImportKeyMaterial = ImportKeyMaterial'
-  { -- | The time at which the imported key material expires. When the key
+  { -- | Specifies whether the key material expires. The default is
+    -- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
+    -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
+    -- you must omit the @ValidTo@ parameter.
+    expirationModel :: Prelude.Maybe ExpirationModelType,
+    -- | The time at which the imported key material expires. When the key
     -- material expires, KMS deletes the key material and the KMS key becomes
     -- unusable. You must omit this parameter when the @ExpirationModel@
     -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
     -- required.
     validTo :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the key material expires. The default is
-    -- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
-    -- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
-    -- you must omit the @ValidTo@ parameter.
-    expirationModel :: Prelude.Maybe ExpirationModelType,
     -- | The identifier of the symmetric KMS key that receives the imported key
     -- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
     -- same KMS key specified in the @KeyID@ parameter of the corresponding
@@ -167,16 +167,16 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'expirationModel', 'importKeyMaterial_expirationModel' - Specifies whether the key material expires. The default is
+-- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
+-- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
+-- you must omit the @ValidTo@ parameter.
+--
 -- 'validTo', 'importKeyMaterial_validTo' - The time at which the imported key material expires. When the key
 -- material expires, KMS deletes the key material and the KMS key becomes
 -- unusable. You must omit this parameter when the @ExpirationModel@
 -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
 -- required.
---
--- 'expirationModel', 'importKeyMaterial_expirationModel' - Specifies whether the key material expires. The default is
--- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
--- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
--- you must omit the @ValidTo@ parameter.
 --
 -- 'keyId', 'importKeyMaterial_keyId' - The identifier of the symmetric KMS key that receives the imported key
 -- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
@@ -224,13 +224,21 @@ newImportKeyMaterial
   pImportToken_
   pEncryptedKeyMaterial_ =
     ImportKeyMaterial'
-      { validTo = Prelude.Nothing,
-        expirationModel = Prelude.Nothing,
+      { expirationModel =
+          Prelude.Nothing,
+        validTo = Prelude.Nothing,
         keyId = pKeyId_,
         importToken = Core._Base64 Lens.# pImportToken_,
         encryptedKeyMaterial =
           Core._Base64 Lens.# pEncryptedKeyMaterial_
       }
+
+-- | Specifies whether the key material expires. The default is
+-- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
+-- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
+-- you must omit the @ValidTo@ parameter.
+importKeyMaterial_expirationModel :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe ExpirationModelType)
+importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationModel} -> expirationModel) (\s@ImportKeyMaterial' {} a -> s {expirationModel = a} :: ImportKeyMaterial)
 
 -- | The time at which the imported key material expires. When the key
 -- material expires, KMS deletes the key material and the KMS key becomes
@@ -239,13 +247,6 @@ newImportKeyMaterial
 -- required.
 importKeyMaterial_validTo :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe Prelude.UTCTime)
 importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Prelude.. Lens.mapping Core._Time
-
--- | Specifies whether the key material expires. The default is
--- @KEY_MATERIAL_EXPIRES@, in which case you must include the @ValidTo@
--- parameter. When this parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@,
--- you must omit the @ValidTo@ parameter.
-importKeyMaterial_expirationModel :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe ExpirationModelType)
-importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationModel} -> expirationModel) (\s@ImportKeyMaterial' {} a -> s {expirationModel = a} :: ImportKeyMaterial)
 
 -- | The identifier of the symmetric KMS key that receives the imported key
 -- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
@@ -322,9 +323,9 @@ instance Core.ToJSON ImportKeyMaterial where
   toJSON ImportKeyMaterial' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ValidTo" Core..=) Prelude.<$> validTo,
-            ("ExpirationModel" Core..=)
+          [ ("ExpirationModel" Core..=)
               Prelude.<$> expirationModel,
+            ("ValidTo" Core..=) Prelude.<$> validTo,
             Prelude.Just ("KeyId" Core..= keyId),
             Prelude.Just ("ImportToken" Core..= importToken),
             Prelude.Just

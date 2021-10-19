@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedUpdateAction' smart constructor.
 data UnprocessedUpdateAction = UnprocessedUpdateAction'
-  { -- | The replication group ID
-    replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the cache cluster
+  { -- | The ID of the cache cluster
     cacheClusterId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of the service update
+    serviceUpdateName :: Prelude.Maybe Prelude.Text,
     -- | The error type for requests that are not processed
     errorType :: Prelude.Maybe Prelude.Text,
     -- | The error message that describes the reason the request was not
     -- processed
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The unique ID of the service update
-    serviceUpdateName :: Prelude.Maybe Prelude.Text
+    -- | The replication group ID
+    replicationGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,35 +50,35 @@ data UnprocessedUpdateAction = UnprocessedUpdateAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationGroupId', 'unprocessedUpdateAction_replicationGroupId' - The replication group ID
---
 -- 'cacheClusterId', 'unprocessedUpdateAction_cacheClusterId' - The ID of the cache cluster
+--
+-- 'serviceUpdateName', 'unprocessedUpdateAction_serviceUpdateName' - The unique ID of the service update
 --
 -- 'errorType', 'unprocessedUpdateAction_errorType' - The error type for requests that are not processed
 --
 -- 'errorMessage', 'unprocessedUpdateAction_errorMessage' - The error message that describes the reason the request was not
 -- processed
 --
--- 'serviceUpdateName', 'unprocessedUpdateAction_serviceUpdateName' - The unique ID of the service update
+-- 'replicationGroupId', 'unprocessedUpdateAction_replicationGroupId' - The replication group ID
 newUnprocessedUpdateAction ::
   UnprocessedUpdateAction
 newUnprocessedUpdateAction =
   UnprocessedUpdateAction'
-    { replicationGroupId =
+    { cacheClusterId =
         Prelude.Nothing,
-      cacheClusterId = Prelude.Nothing,
+      serviceUpdateName = Prelude.Nothing,
       errorType = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      serviceUpdateName = Prelude.Nothing
+      replicationGroupId = Prelude.Nothing
     }
-
--- | The replication group ID
-unprocessedUpdateAction_replicationGroupId :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
-unprocessedUpdateAction_replicationGroupId = Lens.lens (\UnprocessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@UnprocessedUpdateAction' {} a -> s {replicationGroupId = a} :: UnprocessedUpdateAction)
 
 -- | The ID of the cache cluster
 unprocessedUpdateAction_cacheClusterId :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
 unprocessedUpdateAction_cacheClusterId = Lens.lens (\UnprocessedUpdateAction' {cacheClusterId} -> cacheClusterId) (\s@UnprocessedUpdateAction' {} a -> s {cacheClusterId = a} :: UnprocessedUpdateAction)
+
+-- | The unique ID of the service update
+unprocessedUpdateAction_serviceUpdateName :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
+unprocessedUpdateAction_serviceUpdateName = Lens.lens (\UnprocessedUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@UnprocessedUpdateAction' {} a -> s {serviceUpdateName = a} :: UnprocessedUpdateAction)
 
 -- | The error type for requests that are not processed
 unprocessedUpdateAction_errorType :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
@@ -89,18 +89,18 @@ unprocessedUpdateAction_errorType = Lens.lens (\UnprocessedUpdateAction' {errorT
 unprocessedUpdateAction_errorMessage :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
 unprocessedUpdateAction_errorMessage = Lens.lens (\UnprocessedUpdateAction' {errorMessage} -> errorMessage) (\s@UnprocessedUpdateAction' {} a -> s {errorMessage = a} :: UnprocessedUpdateAction)
 
--- | The unique ID of the service update
-unprocessedUpdateAction_serviceUpdateName :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
-unprocessedUpdateAction_serviceUpdateName = Lens.lens (\UnprocessedUpdateAction' {serviceUpdateName} -> serviceUpdateName) (\s@UnprocessedUpdateAction' {} a -> s {serviceUpdateName = a} :: UnprocessedUpdateAction)
+-- | The replication group ID
+unprocessedUpdateAction_replicationGroupId :: Lens.Lens' UnprocessedUpdateAction (Prelude.Maybe Prelude.Text)
+unprocessedUpdateAction_replicationGroupId = Lens.lens (\UnprocessedUpdateAction' {replicationGroupId} -> replicationGroupId) (\s@UnprocessedUpdateAction' {} a -> s {replicationGroupId = a} :: UnprocessedUpdateAction)
 
 instance Core.FromXML UnprocessedUpdateAction where
   parseXML x =
     UnprocessedUpdateAction'
-      Prelude.<$> (x Core..@? "ReplicationGroupId")
-      Prelude.<*> (x Core..@? "CacheClusterId")
+      Prelude.<$> (x Core..@? "CacheClusterId")
+      Prelude.<*> (x Core..@? "ServiceUpdateName")
       Prelude.<*> (x Core..@? "ErrorType")
       Prelude.<*> (x Core..@? "ErrorMessage")
-      Prelude.<*> (x Core..@? "ServiceUpdateName")
+      Prelude.<*> (x Core..@? "ReplicationGroupId")
 
 instance Prelude.Hashable UnprocessedUpdateAction
 

@@ -29,13 +29,13 @@ module Network.AWS.APIGateway.CreateAuthorizer
     newCreateAuthorizer,
 
     -- * Request Lenses
-    createAuthorizer_identityValidationExpression,
-    createAuthorizer_authorizerCredentials,
     createAuthorizer_authorizerUri,
+    createAuthorizer_identityValidationExpression,
     createAuthorizer_providerARNs,
-    createAuthorizer_identitySource,
     createAuthorizer_authorizerResultTtlInSeconds,
     createAuthorizer_authType,
+    createAuthorizer_identitySource,
+    createAuthorizer_authorizerCredentials,
     createAuthorizer_restApiId,
     createAuthorizer_name,
     createAuthorizer_type,
@@ -45,16 +45,16 @@ module Network.AWS.APIGateway.CreateAuthorizer
     newAuthorizer,
 
     -- * Response Lenses
-    authorizer_identityValidationExpression,
-    authorizer_authorizerCredentials,
-    authorizer_id,
     authorizer_authorizerUri,
+    authorizer_identityValidationExpression,
     authorizer_providerARNs,
     authorizer_name,
-    authorizer_identitySource,
+    authorizer_id,
     authorizer_authorizerResultTtlInSeconds,
     authorizer_authType,
     authorizer_type,
+    authorizer_identitySource,
+    authorizer_authorizerCredentials,
   )
 where
 
@@ -69,21 +69,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateAuthorizer' smart constructor.
 data CreateAuthorizer = CreateAuthorizer'
-  { -- | A validation expression for the incoming identity token. For @TOKEN@
-    -- authorizers, this value is a regular expression. For
-    -- @COGNITO_USER_POOLS@ authorizers, API Gateway will match the @aud@ field
-    -- of the incoming token from the client against the specified regular
-    -- expression. It will invoke the authorizer\'s Lambda function when there
-    -- is a match. Otherwise, it will return a 401 Unauthorized response
-    -- without calling the Lambda function. The validation expression does not
-    -- apply to the @REQUEST@ authorizer.
-    identityValidationExpression :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the required credentials as an IAM role for API Gateway to
-    -- invoke the authorizer. To specify an IAM role for API Gateway to assume,
-    -- use the role\'s Amazon Resource Name (ARN). To use resource-based
-    -- permissions on the Lambda function, specify null.
-    authorizerCredentials :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
+  { -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
     -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
     -- function URI, for example,
     -- @arn:aws:apigateway:us-west-2:lambda:path\/2015-03-31\/functions\/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}\/invocations@.
@@ -95,11 +81,28 @@ data CreateAuthorizer = CreateAuthorizer'
     -- functions, this is usually of the form
     -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
     authorizerUri :: Prelude.Maybe Prelude.Text,
+    -- | A validation expression for the incoming identity token. For @TOKEN@
+    -- authorizers, this value is a regular expression. For
+    -- @COGNITO_USER_POOLS@ authorizers, API Gateway will match the @aud@ field
+    -- of the incoming token from the client against the specified regular
+    -- expression. It will invoke the authorizer\'s Lambda function when there
+    -- is a match. Otherwise, it will return a 401 Unauthorized response
+    -- without calling the Lambda function. The validation expression does not
+    -- apply to the @REQUEST@ authorizer.
+    identityValidationExpression :: Prelude.Maybe Prelude.Text,
     -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
     -- authorizer. Each element is of this format:
     -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
     -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
     providerARNs :: Prelude.Maybe [Prelude.Text],
+    -- | The TTL in seconds of cached authorizer results. If it equals 0,
+    -- authorization caching is disabled. If it is greater than 0, API Gateway
+    -- will cache authorizer responses. If this field is not set, the default
+    -- value is 300. The maximum value is 3600, or 1 hour.
+    authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Optional customer-defined field, used in OpenAPI imports and exports
+    -- without functional impact.
+    authType :: Prelude.Maybe Prelude.Text,
     -- | The identity source for which authorization is requested.
     --
     -- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
@@ -123,14 +126,11 @@ data CreateAuthorizer = CreateAuthorizer'
     --     expressions of the specified request parameters. When the
     --     authorization caching is not enabled, this property is optional.
     identitySource :: Prelude.Maybe Prelude.Text,
-    -- | The TTL in seconds of cached authorizer results. If it equals 0,
-    -- authorization caching is disabled. If it is greater than 0, API Gateway
-    -- will cache authorizer responses. If this field is not set, the default
-    -- value is 300. The maximum value is 3600, or 1 hour.
-    authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | Optional customer-defined field, used in OpenAPI imports and exports
-    -- without functional impact.
-    authType :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the required credentials as an IAM role for API Gateway to
+    -- invoke the authorizer. To specify an IAM role for API Gateway to assume,
+    -- use the role\'s Amazon Resource Name (ARN). To use resource-based
+    -- permissions on the Lambda function, specify null.
+    authorizerCredentials :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The name of the authorizer.
@@ -152,20 +152,6 @@ data CreateAuthorizer = CreateAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityValidationExpression', 'createAuthorizer_identityValidationExpression' - A validation expression for the incoming identity token. For @TOKEN@
--- authorizers, this value is a regular expression. For
--- @COGNITO_USER_POOLS@ authorizers, API Gateway will match the @aud@ field
--- of the incoming token from the client against the specified regular
--- expression. It will invoke the authorizer\'s Lambda function when there
--- is a match. Otherwise, it will return a 401 Unauthorized response
--- without calling the Lambda function. The validation expression does not
--- apply to the @REQUEST@ authorizer.
---
--- 'authorizerCredentials', 'createAuthorizer_authorizerCredentials' - Specifies the required credentials as an IAM role for API Gateway to
--- invoke the authorizer. To specify an IAM role for API Gateway to assume,
--- use the role\'s Amazon Resource Name (ARN). To use resource-based
--- permissions on the Lambda function, specify null.
---
 -- 'authorizerUri', 'createAuthorizer_authorizerUri' - Specifies the authorizer\'s Uniform Resource Identifier (URI). For
 -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
 -- function URI, for example,
@@ -178,10 +164,27 @@ data CreateAuthorizer = CreateAuthorizer'
 -- functions, this is usually of the form
 -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
 --
+-- 'identityValidationExpression', 'createAuthorizer_identityValidationExpression' - A validation expression for the incoming identity token. For @TOKEN@
+-- authorizers, this value is a regular expression. For
+-- @COGNITO_USER_POOLS@ authorizers, API Gateway will match the @aud@ field
+-- of the incoming token from the client against the specified regular
+-- expression. It will invoke the authorizer\'s Lambda function when there
+-- is a match. Otherwise, it will return a 401 Unauthorized response
+-- without calling the Lambda function. The validation expression does not
+-- apply to the @REQUEST@ authorizer.
+--
 -- 'providerARNs', 'createAuthorizer_providerARNs' - A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
 -- authorizer. Each element is of this format:
 -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
 -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
+--
+-- 'authorizerResultTtlInSeconds', 'createAuthorizer_authorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0,
+-- authorization caching is disabled. If it is greater than 0, API Gateway
+-- will cache authorizer responses. If this field is not set, the default
+-- value is 300. The maximum value is 3600, or 1 hour.
+--
+-- 'authType', 'createAuthorizer_authType' - Optional customer-defined field, used in OpenAPI imports and exports
+-- without functional impact.
 --
 -- 'identitySource', 'createAuthorizer_identitySource' - The identity source for which authorization is requested.
 --
@@ -206,13 +209,10 @@ data CreateAuthorizer = CreateAuthorizer'
 --     expressions of the specified request parameters. When the
 --     authorization caching is not enabled, this property is optional.
 --
--- 'authorizerResultTtlInSeconds', 'createAuthorizer_authorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0,
--- authorization caching is disabled. If it is greater than 0, API Gateway
--- will cache authorizer responses. If this field is not set, the default
--- value is 300. The maximum value is 3600, or 1 hour.
---
--- 'authType', 'createAuthorizer_authType' - Optional customer-defined field, used in OpenAPI imports and exports
--- without functional impact.
+-- 'authorizerCredentials', 'createAuthorizer_authorizerCredentials' - Specifies the required credentials as an IAM role for API Gateway to
+-- invoke the authorizer. To specify an IAM role for API Gateway to assume,
+-- use the role\'s Amazon Resource Name (ARN). To use resource-based
+-- permissions on the Lambda function, specify null.
 --
 -- 'restApiId', 'createAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -233,36 +233,17 @@ newCreateAuthorizer ::
   CreateAuthorizer
 newCreateAuthorizer pRestApiId_ pName_ pType_ =
   CreateAuthorizer'
-    { identityValidationExpression =
-        Prelude.Nothing,
-      authorizerCredentials = Prelude.Nothing,
-      authorizerUri = Prelude.Nothing,
+    { authorizerUri = Prelude.Nothing,
+      identityValidationExpression = Prelude.Nothing,
       providerARNs = Prelude.Nothing,
-      identitySource = Prelude.Nothing,
       authorizerResultTtlInSeconds = Prelude.Nothing,
       authType = Prelude.Nothing,
+      identitySource = Prelude.Nothing,
+      authorizerCredentials = Prelude.Nothing,
       restApiId = pRestApiId_,
       name = pName_,
       type' = pType_
     }
-
--- | A validation expression for the incoming identity token. For @TOKEN@
--- authorizers, this value is a regular expression. For
--- @COGNITO_USER_POOLS@ authorizers, API Gateway will match the @aud@ field
--- of the incoming token from the client against the specified regular
--- expression. It will invoke the authorizer\'s Lambda function when there
--- is a match. Otherwise, it will return a 401 Unauthorized response
--- without calling the Lambda function. The validation expression does not
--- apply to the @REQUEST@ authorizer.
-createAuthorizer_identityValidationExpression :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
-createAuthorizer_identityValidationExpression = Lens.lens (\CreateAuthorizer' {identityValidationExpression} -> identityValidationExpression) (\s@CreateAuthorizer' {} a -> s {identityValidationExpression = a} :: CreateAuthorizer)
-
--- | Specifies the required credentials as an IAM role for API Gateway to
--- invoke the authorizer. To specify an IAM role for API Gateway to assume,
--- use the role\'s Amazon Resource Name (ARN). To use resource-based
--- permissions on the Lambda function, specify null.
-createAuthorizer_authorizerCredentials :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
-createAuthorizer_authorizerCredentials = Lens.lens (\CreateAuthorizer' {authorizerCredentials} -> authorizerCredentials) (\s@CreateAuthorizer' {} a -> s {authorizerCredentials = a} :: CreateAuthorizer)
 
 -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
 -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
@@ -278,12 +259,35 @@ createAuthorizer_authorizerCredentials = Lens.lens (\CreateAuthorizer' {authoriz
 createAuthorizer_authorizerUri :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_authorizerUri = Lens.lens (\CreateAuthorizer' {authorizerUri} -> authorizerUri) (\s@CreateAuthorizer' {} a -> s {authorizerUri = a} :: CreateAuthorizer)
 
+-- | A validation expression for the incoming identity token. For @TOKEN@
+-- authorizers, this value is a regular expression. For
+-- @COGNITO_USER_POOLS@ authorizers, API Gateway will match the @aud@ field
+-- of the incoming token from the client against the specified regular
+-- expression. It will invoke the authorizer\'s Lambda function when there
+-- is a match. Otherwise, it will return a 401 Unauthorized response
+-- without calling the Lambda function. The validation expression does not
+-- apply to the @REQUEST@ authorizer.
+createAuthorizer_identityValidationExpression :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_identityValidationExpression = Lens.lens (\CreateAuthorizer' {identityValidationExpression} -> identityValidationExpression) (\s@CreateAuthorizer' {} a -> s {identityValidationExpression = a} :: CreateAuthorizer)
+
 -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
 -- authorizer. Each element is of this format:
 -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
 -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
 createAuthorizer_providerARNs :: Lens.Lens' CreateAuthorizer (Prelude.Maybe [Prelude.Text])
-createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> providerARNs) (\s@CreateAuthorizer' {} a -> s {providerARNs = a} :: CreateAuthorizer) Prelude.. Lens.mapping Lens._Coerce
+createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> providerARNs) (\s@CreateAuthorizer' {} a -> s {providerARNs = a} :: CreateAuthorizer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The TTL in seconds of cached authorizer results. If it equals 0,
+-- authorization caching is disabled. If it is greater than 0, API Gateway
+-- will cache authorizer responses. If this field is not set, the default
+-- value is 300. The maximum value is 3600, or 1 hour.
+createAuthorizer_authorizerResultTtlInSeconds :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Int)
+createAuthorizer_authorizerResultTtlInSeconds = Lens.lens (\CreateAuthorizer' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@CreateAuthorizer' {} a -> s {authorizerResultTtlInSeconds = a} :: CreateAuthorizer)
+
+-- | Optional customer-defined field, used in OpenAPI imports and exports
+-- without functional impact.
+createAuthorizer_authType :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_authType = Lens.lens (\CreateAuthorizer' {authType} -> authType) (\s@CreateAuthorizer' {} a -> s {authType = a} :: CreateAuthorizer)
 
 -- | The identity source for which authorization is requested.
 --
@@ -310,17 +314,12 @@ createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> 
 createAuthorizer_identitySource :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_identitySource = Lens.lens (\CreateAuthorizer' {identitySource} -> identitySource) (\s@CreateAuthorizer' {} a -> s {identitySource = a} :: CreateAuthorizer)
 
--- | The TTL in seconds of cached authorizer results. If it equals 0,
--- authorization caching is disabled. If it is greater than 0, API Gateway
--- will cache authorizer responses. If this field is not set, the default
--- value is 300. The maximum value is 3600, or 1 hour.
-createAuthorizer_authorizerResultTtlInSeconds :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Int)
-createAuthorizer_authorizerResultTtlInSeconds = Lens.lens (\CreateAuthorizer' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@CreateAuthorizer' {} a -> s {authorizerResultTtlInSeconds = a} :: CreateAuthorizer)
-
--- | Optional customer-defined field, used in OpenAPI imports and exports
--- without functional impact.
-createAuthorizer_authType :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
-createAuthorizer_authType = Lens.lens (\CreateAuthorizer' {authType} -> authType) (\s@CreateAuthorizer' {} a -> s {authType = a} :: CreateAuthorizer)
+-- | Specifies the required credentials as an IAM role for API Gateway to
+-- invoke the authorizer. To specify an IAM role for API Gateway to assume,
+-- use the role\'s Amazon Resource Name (ARN). To use resource-based
+-- permissions on the Lambda function, specify null.
+createAuthorizer_authorizerCredentials :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_authorizerCredentials = Lens.lens (\CreateAuthorizer' {authorizerCredentials} -> authorizerCredentials) (\s@CreateAuthorizer' {} a -> s {authorizerCredentials = a} :: CreateAuthorizer)
 
 -- | [Required] The string identifier of the associated RestApi.
 createAuthorizer_restApiId :: Lens.Lens' CreateAuthorizer Prelude.Text
@@ -362,17 +361,17 @@ instance Core.ToJSON CreateAuthorizer where
   toJSON CreateAuthorizer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("identityValidationExpression" Core..=)
+          [ ("authorizerUri" Core..=) Prelude.<$> authorizerUri,
+            ("identityValidationExpression" Core..=)
               Prelude.<$> identityValidationExpression,
-            ("authorizerCredentials" Core..=)
-              Prelude.<$> authorizerCredentials,
-            ("authorizerUri" Core..=) Prelude.<$> authorizerUri,
             ("providerARNs" Core..=) Prelude.<$> providerARNs,
-            ("identitySource" Core..=)
-              Prelude.<$> identitySource,
             ("authorizerResultTtlInSeconds" Core..=)
               Prelude.<$> authorizerResultTtlInSeconds,
             ("authType" Core..=) Prelude.<$> authType,
+            ("identitySource" Core..=)
+              Prelude.<$> identitySource,
+            ("authorizerCredentials" Core..=)
+              Prelude.<$> authorizerCredentials,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("type" Core..= type')
           ]

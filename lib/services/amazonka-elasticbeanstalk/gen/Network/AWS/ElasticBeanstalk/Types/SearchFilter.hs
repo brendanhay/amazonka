@@ -39,15 +39,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSearchFilter' smart constructor.
 data SearchFilter = SearchFilter'
-  { -- | The list of values applied to the @Attribute@ and @Operator@ attributes.
+  { -- | The result attribute to which the filter values are applied. Valid
+    -- values vary by API action.
+    attribute :: Prelude.Maybe Prelude.Text,
+    -- | The list of values applied to the @Attribute@ and @Operator@ attributes.
     -- Number of values and valid values vary by @Attribute@.
     values :: Prelude.Maybe [Prelude.Text],
     -- | The operator to apply to the @Attribute@ with each of the @Values@.
     -- Valid values vary by @Attribute@.
-    operator :: Prelude.Maybe Prelude.Text,
-    -- | The result attribute to which the filter values are applied. Valid
-    -- values vary by API action.
-    attribute :: Prelude.Maybe Prelude.Text
+    operator :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,37 +59,37 @@ data SearchFilter = SearchFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attribute', 'searchFilter_attribute' - The result attribute to which the filter values are applied. Valid
+-- values vary by API action.
+--
 -- 'values', 'searchFilter_values' - The list of values applied to the @Attribute@ and @Operator@ attributes.
 -- Number of values and valid values vary by @Attribute@.
 --
 -- 'operator', 'searchFilter_operator' - The operator to apply to the @Attribute@ with each of the @Values@.
 -- Valid values vary by @Attribute@.
---
--- 'attribute', 'searchFilter_attribute' - The result attribute to which the filter values are applied. Valid
--- values vary by API action.
 newSearchFilter ::
   SearchFilter
 newSearchFilter =
   SearchFilter'
-    { values = Prelude.Nothing,
-      operator = Prelude.Nothing,
-      attribute = Prelude.Nothing
+    { attribute = Prelude.Nothing,
+      values = Prelude.Nothing,
+      operator = Prelude.Nothing
     }
-
--- | The list of values applied to the @Attribute@ and @Operator@ attributes.
--- Number of values and valid values vary by @Attribute@.
-searchFilter_values :: Lens.Lens' SearchFilter (Prelude.Maybe [Prelude.Text])
-searchFilter_values = Lens.lens (\SearchFilter' {values} -> values) (\s@SearchFilter' {} a -> s {values = a} :: SearchFilter) Prelude.. Lens.mapping Lens._Coerce
-
--- | The operator to apply to the @Attribute@ with each of the @Values@.
--- Valid values vary by @Attribute@.
-searchFilter_operator :: Lens.Lens' SearchFilter (Prelude.Maybe Prelude.Text)
-searchFilter_operator = Lens.lens (\SearchFilter' {operator} -> operator) (\s@SearchFilter' {} a -> s {operator = a} :: SearchFilter)
 
 -- | The result attribute to which the filter values are applied. Valid
 -- values vary by API action.
 searchFilter_attribute :: Lens.Lens' SearchFilter (Prelude.Maybe Prelude.Text)
 searchFilter_attribute = Lens.lens (\SearchFilter' {attribute} -> attribute) (\s@SearchFilter' {} a -> s {attribute = a} :: SearchFilter)
+
+-- | The list of values applied to the @Attribute@ and @Operator@ attributes.
+-- Number of values and valid values vary by @Attribute@.
+searchFilter_values :: Lens.Lens' SearchFilter (Prelude.Maybe [Prelude.Text])
+searchFilter_values = Lens.lens (\SearchFilter' {values} -> values) (\s@SearchFilter' {} a -> s {values = a} :: SearchFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | The operator to apply to the @Attribute@ with each of the @Values@.
+-- Valid values vary by @Attribute@.
+searchFilter_operator :: Lens.Lens' SearchFilter (Prelude.Maybe Prelude.Text)
+searchFilter_operator = Lens.lens (\SearchFilter' {operator} -> operator) (\s@SearchFilter' {} a -> s {operator = a} :: SearchFilter)
 
 instance Prelude.Hashable SearchFilter
 
@@ -98,9 +98,9 @@ instance Prelude.NFData SearchFilter
 instance Core.ToQuery SearchFilter where
   toQuery SearchFilter' {..} =
     Prelude.mconcat
-      [ "Values"
+      [ "Attribute" Core.=: attribute,
+        "Values"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> values),
-        "Operator" Core.=: operator,
-        "Attribute" Core.=: attribute
+        "Operator" Core.=: operator
       ]

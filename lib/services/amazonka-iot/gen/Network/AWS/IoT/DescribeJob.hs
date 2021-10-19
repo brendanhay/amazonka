@@ -38,8 +38,8 @@ module Network.AWS.IoT.DescribeJob
     newDescribeJobResponse,
 
     -- * Response Lenses
-    describeJobResponse_job,
     describeJobResponse_documentSource,
+    describeJobResponse_job,
     describeJobResponse_httpStatus,
   )
 where
@@ -85,8 +85,8 @@ instance Core.AWSRequest DescribeJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeJobResponse'
-            Prelude.<$> (x Core..?> "job")
-            Prelude.<*> (x Core..?> "documentSource")
+            Prelude.<$> (x Core..?> "documentSource")
+            Prelude.<*> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -106,10 +106,10 @@ instance Core.ToQuery DescribeJob where
 
 -- | /See:/ 'newDescribeJobResponse' smart constructor.
 data DescribeJobResponse = DescribeJobResponse'
-  { -- | Information about the job.
-    job :: Prelude.Maybe Job,
-    -- | An S3 link to the job document.
+  { -- | An S3 link to the job document.
     documentSource :: Prelude.Maybe Prelude.Text,
+    -- | Information about the job.
+    job :: Prelude.Maybe Job,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -123,9 +123,9 @@ data DescribeJobResponse = DescribeJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'job', 'describeJobResponse_job' - Information about the job.
---
 -- 'documentSource', 'describeJobResponse_documentSource' - An S3 link to the job document.
+--
+-- 'job', 'describeJobResponse_job' - Information about the job.
 --
 -- 'httpStatus', 'describeJobResponse_httpStatus' - The response's http status code.
 newDescribeJobResponse ::
@@ -134,18 +134,19 @@ newDescribeJobResponse ::
   DescribeJobResponse
 newDescribeJobResponse pHttpStatus_ =
   DescribeJobResponse'
-    { job = Prelude.Nothing,
-      documentSource = Prelude.Nothing,
+    { documentSource =
+        Prelude.Nothing,
+      job = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the job.
-describeJobResponse_job :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Job)
-describeJobResponse_job = Lens.lens (\DescribeJobResponse' {job} -> job) (\s@DescribeJobResponse' {} a -> s {job = a} :: DescribeJobResponse)
 
 -- | An S3 link to the job document.
 describeJobResponse_documentSource :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Prelude.Text)
 describeJobResponse_documentSource = Lens.lens (\DescribeJobResponse' {documentSource} -> documentSource) (\s@DescribeJobResponse' {} a -> s {documentSource = a} :: DescribeJobResponse)
+
+-- | Information about the job.
+describeJobResponse_job :: Lens.Lens' DescribeJobResponse (Prelude.Maybe Job)
+describeJobResponse_job = Lens.lens (\DescribeJobResponse' {job} -> job) (\s@DescribeJobResponse' {} a -> s {job = a} :: DescribeJobResponse)
 
 -- | The response's http status code.
 describeJobResponse_httpStatus :: Lens.Lens' DescribeJobResponse Prelude.Int

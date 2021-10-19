@@ -33,9 +33,9 @@ module Network.AWS.IoT.UpdateAccountAuditConfiguration
     newUpdateAccountAuditConfiguration,
 
     -- * Request Lenses
-    updateAccountAuditConfiguration_roleArn,
     updateAccountAuditConfiguration_auditCheckConfigurations,
     updateAccountAuditConfiguration_auditNotificationTargetConfigurations,
+    updateAccountAuditConfiguration_roleArn,
 
     -- * Destructuring the Response
     UpdateAccountAuditConfigurationResponse (..),
@@ -55,11 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateAccountAuditConfiguration' smart constructor.
 data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
-  { -- | The Amazon Resource Name (ARN) of the role that grants permission to IoT
-    -- to access information about your devices, policies, certificates, and
-    -- other items as required when performing an audit.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies which audit checks are enabled and disabled for this account.
+  { -- | Specifies which audit checks are enabled and disabled for this account.
     -- Use @DescribeAccountAuditConfiguration@ to see the list of all checks,
     -- including those that are currently enabled.
     --
@@ -75,7 +71,11 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
     -- is required and must specify at least one enabled check.
     auditCheckConfigurations :: Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckConfiguration),
     -- | Information about the targets to which audit notifications are sent.
-    auditNotificationTargetConfigurations :: Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget)
+    auditNotificationTargetConfigurations :: Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget),
+    -- | The Amazon Resource Name (ARN) of the role that grants permission to IoT
+    -- to access information about your devices, policies, certificates, and
+    -- other items as required when performing an audit.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,10 +86,6 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'roleArn', 'updateAccountAuditConfiguration_roleArn' - The Amazon Resource Name (ARN) of the role that grants permission to IoT
--- to access information about your devices, policies, certificates, and
--- other items as required when performing an audit.
 --
 -- 'auditCheckConfigurations', 'updateAccountAuditConfiguration_auditCheckConfigurations' - Specifies which audit checks are enabled and disabled for this account.
 -- Use @DescribeAccountAuditConfiguration@ to see the list of all checks,
@@ -107,22 +103,20 @@ data UpdateAccountAuditConfiguration = UpdateAccountAuditConfiguration'
 -- is required and must specify at least one enabled check.
 --
 -- 'auditNotificationTargetConfigurations', 'updateAccountAuditConfiguration_auditNotificationTargetConfigurations' - Information about the targets to which audit notifications are sent.
+--
+-- 'roleArn', 'updateAccountAuditConfiguration_roleArn' - The Amazon Resource Name (ARN) of the role that grants permission to IoT
+-- to access information about your devices, policies, certificates, and
+-- other items as required when performing an audit.
 newUpdateAccountAuditConfiguration ::
   UpdateAccountAuditConfiguration
 newUpdateAccountAuditConfiguration =
   UpdateAccountAuditConfiguration'
-    { roleArn =
+    { auditCheckConfigurations =
         Prelude.Nothing,
-      auditCheckConfigurations = Prelude.Nothing,
       auditNotificationTargetConfigurations =
-        Prelude.Nothing
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the role that grants permission to IoT
--- to access information about your devices, policies, certificates, and
--- other items as required when performing an audit.
-updateAccountAuditConfiguration_roleArn :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe Prelude.Text)
-updateAccountAuditConfiguration_roleArn = Lens.lens (\UpdateAccountAuditConfiguration' {roleArn} -> roleArn) (\s@UpdateAccountAuditConfiguration' {} a -> s {roleArn = a} :: UpdateAccountAuditConfiguration)
 
 -- | Specifies which audit checks are enabled and disabled for this account.
 -- Use @DescribeAccountAuditConfiguration@ to see the list of all checks,
@@ -139,11 +133,17 @@ updateAccountAuditConfiguration_roleArn = Lens.lens (\UpdateAccountAuditConfigur
 -- On the first call to @UpdateAccountAuditConfiguration@, this parameter
 -- is required and must specify at least one enabled check.
 updateAccountAuditConfiguration_auditCheckConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text AuditCheckConfiguration))
-updateAccountAuditConfiguration_auditCheckConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditCheckConfigurations} -> auditCheckConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditCheckConfigurations = a} :: UpdateAccountAuditConfiguration) Prelude.. Lens.mapping Lens._Coerce
+updateAccountAuditConfiguration_auditCheckConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditCheckConfigurations} -> auditCheckConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditCheckConfigurations = a} :: UpdateAccountAuditConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the targets to which audit notifications are sent.
 updateAccountAuditConfiguration_auditNotificationTargetConfigurations :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe (Prelude.HashMap AuditNotificationType AuditNotificationTarget))
-updateAccountAuditConfiguration_auditNotificationTargetConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditNotificationTargetConfigurations} -> auditNotificationTargetConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditNotificationTargetConfigurations = a} :: UpdateAccountAuditConfiguration) Prelude.. Lens.mapping Lens._Coerce
+updateAccountAuditConfiguration_auditNotificationTargetConfigurations = Lens.lens (\UpdateAccountAuditConfiguration' {auditNotificationTargetConfigurations} -> auditNotificationTargetConfigurations) (\s@UpdateAccountAuditConfiguration' {} a -> s {auditNotificationTargetConfigurations = a} :: UpdateAccountAuditConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the role that grants permission to IoT
+-- to access information about your devices, policies, certificates, and
+-- other items as required when performing an audit.
+updateAccountAuditConfiguration_roleArn :: Lens.Lens' UpdateAccountAuditConfiguration (Prelude.Maybe Prelude.Text)
+updateAccountAuditConfiguration_roleArn = Lens.lens (\UpdateAccountAuditConfiguration' {roleArn} -> roleArn) (\s@UpdateAccountAuditConfiguration' {} a -> s {roleArn = a} :: UpdateAccountAuditConfiguration)
 
 instance
   Core.AWSRequest
@@ -178,11 +178,11 @@ instance Core.ToJSON UpdateAccountAuditConfiguration where
   toJSON UpdateAccountAuditConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("auditCheckConfigurations" Core..=)
+          [ ("auditCheckConfigurations" Core..=)
               Prelude.<$> auditCheckConfigurations,
             ("auditNotificationTargetConfigurations" Core..=)
-              Prelude.<$> auditNotificationTargetConfigurations
+              Prelude.<$> auditNotificationTargetConfigurations,
+            ("roleArn" Core..=) Prelude.<$> roleArn
           ]
       )
 

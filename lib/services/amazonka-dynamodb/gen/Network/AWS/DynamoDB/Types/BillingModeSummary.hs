@@ -28,7 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBillingModeSummary' smart constructor.
 data BillingModeSummary = BillingModeSummary'
-  { -- | Controls how you are charged for read and write throughput and how you
+  { -- | Represents the time when @PAY_PER_REQUEST@ was last set as the
+    -- read\/write capacity mode.
+    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Core.POSIX,
+    -- | Controls how you are charged for read and write throughput and how you
     -- manage capacity. This setting can be changed later.
     --
     -- -   @PROVISIONED@ - Sets the read\/write capacity mode to @PROVISIONED@.
@@ -37,10 +40,7 @@ data BillingModeSummary = BillingModeSummary'
     -- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to
     --     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for
     --     unpredictable workloads.
-    billingMode :: Prelude.Maybe BillingMode,
-    -- | Represents the time when @PAY_PER_REQUEST@ was last set as the
-    -- read\/write capacity mode.
-    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Core.POSIX
+    billingMode :: Prelude.Maybe BillingMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data BillingModeSummary = BillingModeSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastUpdateToPayPerRequestDateTime', 'billingModeSummary_lastUpdateToPayPerRequestDateTime' - Represents the time when @PAY_PER_REQUEST@ was last set as the
+-- read\/write capacity mode.
+--
 -- 'billingMode', 'billingModeSummary_billingMode' - Controls how you are charged for read and write throughput and how you
 -- manage capacity. This setting can be changed later.
 --
@@ -61,16 +64,19 @@ data BillingModeSummary = BillingModeSummary'
 -- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to
 --     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for
 --     unpredictable workloads.
---
--- 'lastUpdateToPayPerRequestDateTime', 'billingModeSummary_lastUpdateToPayPerRequestDateTime' - Represents the time when @PAY_PER_REQUEST@ was last set as the
--- read\/write capacity mode.
 newBillingModeSummary ::
   BillingModeSummary
 newBillingModeSummary =
   BillingModeSummary'
-    { billingMode = Prelude.Nothing,
-      lastUpdateToPayPerRequestDateTime = Prelude.Nothing
+    { lastUpdateToPayPerRequestDateTime =
+        Prelude.Nothing,
+      billingMode = Prelude.Nothing
     }
+
+-- | Represents the time when @PAY_PER_REQUEST@ was last set as the
+-- read\/write capacity mode.
+billingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Prelude.Maybe Prelude.UTCTime)
+billingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\BillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@BillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary) Prelude.. Lens.mapping Core._Time
 
 -- | Controls how you are charged for read and write throughput and how you
 -- manage capacity. This setting can be changed later.
@@ -84,19 +90,14 @@ newBillingModeSummary =
 billingModeSummary_billingMode :: Lens.Lens' BillingModeSummary (Prelude.Maybe BillingMode)
 billingModeSummary_billingMode = Lens.lens (\BillingModeSummary' {billingMode} -> billingMode) (\s@BillingModeSummary' {} a -> s {billingMode = a} :: BillingModeSummary)
 
--- | Represents the time when @PAY_PER_REQUEST@ was last set as the
--- read\/write capacity mode.
-billingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Prelude.Maybe Prelude.UTCTime)
-billingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\BillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@BillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON BillingModeSummary where
   parseJSON =
     Core.withObject
       "BillingModeSummary"
       ( \x ->
           BillingModeSummary'
-            Prelude.<$> (x Core..:? "BillingMode")
-            Prelude.<*> (x Core..:? "LastUpdateToPayPerRequestDateTime")
+            Prelude.<$> (x Core..:? "LastUpdateToPayPerRequestDateTime")
+            Prelude.<*> (x Core..:? "BillingMode")
       )
 
 instance Prelude.Hashable BillingModeSummary

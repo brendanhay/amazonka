@@ -29,8 +29,8 @@ module Network.AWS.Glue.GetPartitionIndexes
     newGetPartitionIndexes,
 
     -- * Request Lenses
-    getPartitionIndexes_nextToken,
     getPartitionIndexes_catalogId,
+    getPartitionIndexes_nextToken,
     getPartitionIndexes_databaseName,
     getPartitionIndexes_tableName,
 
@@ -39,8 +39,8 @@ module Network.AWS.Glue.GetPartitionIndexes
     newGetPartitionIndexesResponse,
 
     -- * Response Lenses
-    getPartitionIndexesResponse_nextToken,
     getPartitionIndexesResponse_partitionIndexDescriptorList,
+    getPartitionIndexesResponse_nextToken,
     getPartitionIndexesResponse_httpStatus,
   )
 where
@@ -54,10 +54,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetPartitionIndexes' smart constructor.
 data GetPartitionIndexes = GetPartitionIndexes'
-  { -- | A continuation token, included if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The catalog ID where the table resides.
+  { -- | The catalog ID where the table resides.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A continuation token, included if this is a continuation call.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of a database from which you want to retrieve
     -- partition indexes.
     databaseName :: Prelude.Text,
@@ -75,9 +75,9 @@ data GetPartitionIndexes = GetPartitionIndexes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getPartitionIndexes_nextToken' - A continuation token, included if this is a continuation call.
---
 -- 'catalogId', 'getPartitionIndexes_catalogId' - The catalog ID where the table resides.
+--
+-- 'nextToken', 'getPartitionIndexes_nextToken' - A continuation token, included if this is a continuation call.
 --
 -- 'databaseName', 'getPartitionIndexes_databaseName' - Specifies the name of a database from which you want to retrieve
 -- partition indexes.
@@ -92,19 +92,19 @@ newGetPartitionIndexes ::
   GetPartitionIndexes
 newGetPartitionIndexes pDatabaseName_ pTableName_ =
   GetPartitionIndexes'
-    { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { catalogId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
--- | A continuation token, included if this is a continuation call.
-getPartitionIndexes_nextToken :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
-getPartitionIndexes_nextToken = Lens.lens (\GetPartitionIndexes' {nextToken} -> nextToken) (\s@GetPartitionIndexes' {} a -> s {nextToken = a} :: GetPartitionIndexes)
-
 -- | The catalog ID where the table resides.
 getPartitionIndexes_catalogId :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
 getPartitionIndexes_catalogId = Lens.lens (\GetPartitionIndexes' {catalogId} -> catalogId) (\s@GetPartitionIndexes' {} a -> s {catalogId = a} :: GetPartitionIndexes)
+
+-- | A continuation token, included if this is a continuation call.
+getPartitionIndexes_nextToken :: Lens.Lens' GetPartitionIndexes (Prelude.Maybe Prelude.Text)
+getPartitionIndexes_nextToken = Lens.lens (\GetPartitionIndexes' {nextToken} -> nextToken) (\s@GetPartitionIndexes' {} a -> s {nextToken = a} :: GetPartitionIndexes)
 
 -- | Specifies the name of a database from which you want to retrieve
 -- partition indexes.
@@ -147,10 +147,10 @@ instance Core.AWSRequest GetPartitionIndexes where
     Response.receiveJSON
       ( \s h x ->
           GetPartitionIndexesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PartitionIndexDescriptorList"
+            Prelude.<$> ( x Core..?> "PartitionIndexDescriptorList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,8 +177,8 @@ instance Core.ToJSON GetPartitionIndexes where
   toJSON GetPartitionIndexes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableName" Core..= tableName)
           ]
@@ -192,11 +192,11 @@ instance Core.ToQuery GetPartitionIndexes where
 
 -- | /See:/ 'newGetPartitionIndexesResponse' smart constructor.
 data GetPartitionIndexesResponse = GetPartitionIndexesResponse'
-  { -- | A continuation token, present if the current list segment is not the
+  { -- | A list of index descriptors.
+    partitionIndexDescriptorList :: Prelude.Maybe [PartitionIndexDescriptor],
+    -- | A continuation token, present if the current list segment is not the
     -- last.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of index descriptors.
-    partitionIndexDescriptorList :: Prelude.Maybe [PartitionIndexDescriptor],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,10 +210,10 @@ data GetPartitionIndexesResponse = GetPartitionIndexesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'partitionIndexDescriptorList', 'getPartitionIndexesResponse_partitionIndexDescriptorList' - A list of index descriptors.
+--
 -- 'nextToken', 'getPartitionIndexesResponse_nextToken' - A continuation token, present if the current list segment is not the
 -- last.
---
--- 'partitionIndexDescriptorList', 'getPartitionIndexesResponse_partitionIndexDescriptorList' - A list of index descriptors.
 --
 -- 'httpStatus', 'getPartitionIndexesResponse_httpStatus' - The response's http status code.
 newGetPartitionIndexesResponse ::
@@ -222,20 +222,20 @@ newGetPartitionIndexesResponse ::
   GetPartitionIndexesResponse
 newGetPartitionIndexesResponse pHttpStatus_ =
   GetPartitionIndexesResponse'
-    { nextToken =
+    { partitionIndexDescriptorList =
         Prelude.Nothing,
-      partitionIndexDescriptorList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of index descriptors.
+getPartitionIndexesResponse_partitionIndexDescriptorList :: Lens.Lens' GetPartitionIndexesResponse (Prelude.Maybe [PartitionIndexDescriptor])
+getPartitionIndexesResponse_partitionIndexDescriptorList = Lens.lens (\GetPartitionIndexesResponse' {partitionIndexDescriptorList} -> partitionIndexDescriptorList) (\s@GetPartitionIndexesResponse' {} a -> s {partitionIndexDescriptorList = a} :: GetPartitionIndexesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, present if the current list segment is not the
 -- last.
 getPartitionIndexesResponse_nextToken :: Lens.Lens' GetPartitionIndexesResponse (Prelude.Maybe Prelude.Text)
 getPartitionIndexesResponse_nextToken = Lens.lens (\GetPartitionIndexesResponse' {nextToken} -> nextToken) (\s@GetPartitionIndexesResponse' {} a -> s {nextToken = a} :: GetPartitionIndexesResponse)
-
--- | A list of index descriptors.
-getPartitionIndexesResponse_partitionIndexDescriptorList :: Lens.Lens' GetPartitionIndexesResponse (Prelude.Maybe [PartitionIndexDescriptor])
-getPartitionIndexesResponse_partitionIndexDescriptorList = Lens.lens (\GetPartitionIndexesResponse' {partitionIndexDescriptorList} -> partitionIndexDescriptorList) (\s@GetPartitionIndexesResponse' {} a -> s {partitionIndexDescriptorList = a} :: GetPartitionIndexesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getPartitionIndexesResponse_httpStatus :: Lens.Lens' GetPartitionIndexesResponse Prelude.Int

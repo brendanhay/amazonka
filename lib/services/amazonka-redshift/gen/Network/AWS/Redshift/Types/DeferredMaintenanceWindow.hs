@@ -28,13 +28,13 @@ import Network.AWS.Redshift.Internal
 --
 -- /See:/ 'newDeferredMaintenanceWindow' smart constructor.
 data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
-  { -- | A unique identifier for the maintenance window.
-    deferMaintenanceIdentifier :: Prelude.Maybe Prelude.Text,
+  { -- | A timestamp for the end of the time period when we defer maintenance.
+    deferMaintenanceEndTime :: Prelude.Maybe Core.ISO8601,
     -- | A timestamp for the beginning of the time period when we defer
     -- maintenance.
     deferMaintenanceStartTime :: Prelude.Maybe Core.ISO8601,
-    -- | A timestamp for the end of the time period when we defer maintenance.
-    deferMaintenanceEndTime :: Prelude.Maybe Core.ISO8601
+    -- | A unique identifier for the maintenance window.
+    deferMaintenanceIdentifier :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,41 +46,41 @@ data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deferMaintenanceIdentifier', 'deferredMaintenanceWindow_deferMaintenanceIdentifier' - A unique identifier for the maintenance window.
+-- 'deferMaintenanceEndTime', 'deferredMaintenanceWindow_deferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.
 --
 -- 'deferMaintenanceStartTime', 'deferredMaintenanceWindow_deferMaintenanceStartTime' - A timestamp for the beginning of the time period when we defer
 -- maintenance.
 --
--- 'deferMaintenanceEndTime', 'deferredMaintenanceWindow_deferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.
+-- 'deferMaintenanceIdentifier', 'deferredMaintenanceWindow_deferMaintenanceIdentifier' - A unique identifier for the maintenance window.
 newDeferredMaintenanceWindow ::
   DeferredMaintenanceWindow
 newDeferredMaintenanceWindow =
   DeferredMaintenanceWindow'
-    { deferMaintenanceIdentifier =
+    { deferMaintenanceEndTime =
         Prelude.Nothing,
       deferMaintenanceStartTime = Prelude.Nothing,
-      deferMaintenanceEndTime = Prelude.Nothing
+      deferMaintenanceIdentifier = Prelude.Nothing
     }
 
--- | A unique identifier for the maintenance window.
-deferredMaintenanceWindow_deferMaintenanceIdentifier :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.Text)
-deferredMaintenanceWindow_deferMaintenanceIdentifier = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceIdentifier} -> deferMaintenanceIdentifier) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceIdentifier = a} :: DeferredMaintenanceWindow)
+-- | A timestamp for the end of the time period when we defer maintenance.
+deferredMaintenanceWindow_deferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.UTCTime)
+deferredMaintenanceWindow_deferMaintenanceEndTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Core._Time
 
 -- | A timestamp for the beginning of the time period when we defer
 -- maintenance.
 deferredMaintenanceWindow_deferMaintenanceStartTime :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.UTCTime)
 deferredMaintenanceWindow_deferMaintenanceStartTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceStartTime} -> deferMaintenanceStartTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceStartTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Core._Time
 
--- | A timestamp for the end of the time period when we defer maintenance.
-deferredMaintenanceWindow_deferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.UTCTime)
-deferredMaintenanceWindow_deferMaintenanceEndTime = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow) Prelude.. Lens.mapping Core._Time
+-- | A unique identifier for the maintenance window.
+deferredMaintenanceWindow_deferMaintenanceIdentifier :: Lens.Lens' DeferredMaintenanceWindow (Prelude.Maybe Prelude.Text)
+deferredMaintenanceWindow_deferMaintenanceIdentifier = Lens.lens (\DeferredMaintenanceWindow' {deferMaintenanceIdentifier} -> deferMaintenanceIdentifier) (\s@DeferredMaintenanceWindow' {} a -> s {deferMaintenanceIdentifier = a} :: DeferredMaintenanceWindow)
 
 instance Core.FromXML DeferredMaintenanceWindow where
   parseXML x =
     DeferredMaintenanceWindow'
-      Prelude.<$> (x Core..@? "DeferMaintenanceIdentifier")
+      Prelude.<$> (x Core..@? "DeferMaintenanceEndTime")
       Prelude.<*> (x Core..@? "DeferMaintenanceStartTime")
-      Prelude.<*> (x Core..@? "DeferMaintenanceEndTime")
+      Prelude.<*> (x Core..@? "DeferMaintenanceIdentifier")
 
 instance Prelude.Hashable DeferredMaintenanceWindow
 

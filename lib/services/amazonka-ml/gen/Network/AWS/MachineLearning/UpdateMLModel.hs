@@ -30,8 +30,8 @@ module Network.AWS.MachineLearning.UpdateMLModel
     newUpdateMLModel,
 
     -- * Request Lenses
-    updateMLModel_scoreThreshold,
     updateMLModel_mLModelName,
+    updateMLModel_scoreThreshold,
     updateMLModel_mLModelId,
 
     -- * Destructuring the Response
@@ -53,7 +53,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateMLModel' smart constructor.
 data UpdateMLModel = UpdateMLModel'
-  { -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks
+  { -- | A user-supplied name or description of the @MLModel@.
+    mLModelName :: Prelude.Maybe Prelude.Text,
+    -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks
     -- the boundary between a positive prediction and a negative prediction.
     --
     -- Output values greater than or equal to the @ScoreThreshold@ receive a
@@ -61,8 +63,6 @@ data UpdateMLModel = UpdateMLModel'
     -- than the @ScoreThreshold@ receive a negative response from the
     -- @MLModel@, such as @false@.
     scoreThreshold :: Prelude.Maybe Prelude.Double,
-    -- | A user-supplied name or description of the @MLModel@.
-    mLModelName :: Prelude.Maybe Prelude.Text,
     -- | The ID assigned to the @MLModel@ during creation.
     mLModelId :: Prelude.Text
   }
@@ -76,6 +76,8 @@ data UpdateMLModel = UpdateMLModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mLModelName', 'updateMLModel_mLModelName' - A user-supplied name or description of the @MLModel@.
+--
 -- 'scoreThreshold', 'updateMLModel_scoreThreshold' - The @ScoreThreshold@ used in binary classification @MLModel@ that marks
 -- the boundary between a positive prediction and a negative prediction.
 --
@@ -84,8 +86,6 @@ data UpdateMLModel = UpdateMLModel'
 -- than the @ScoreThreshold@ receive a negative response from the
 -- @MLModel@, such as @false@.
 --
--- 'mLModelName', 'updateMLModel_mLModelName' - A user-supplied name or description of the @MLModel@.
---
 -- 'mLModelId', 'updateMLModel_mLModelId' - The ID assigned to the @MLModel@ during creation.
 newUpdateMLModel ::
   -- | 'mLModelId'
@@ -93,10 +93,14 @@ newUpdateMLModel ::
   UpdateMLModel
 newUpdateMLModel pMLModelId_ =
   UpdateMLModel'
-    { scoreThreshold = Prelude.Nothing,
-      mLModelName = Prelude.Nothing,
+    { mLModelName = Prelude.Nothing,
+      scoreThreshold = Prelude.Nothing,
       mLModelId = pMLModelId_
     }
+
+-- | A user-supplied name or description of the @MLModel@.
+updateMLModel_mLModelName :: Lens.Lens' UpdateMLModel (Prelude.Maybe Prelude.Text)
+updateMLModel_mLModelName = Lens.lens (\UpdateMLModel' {mLModelName} -> mLModelName) (\s@UpdateMLModel' {} a -> s {mLModelName = a} :: UpdateMLModel)
 
 -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks
 -- the boundary between a positive prediction and a negative prediction.
@@ -107,10 +111,6 @@ newUpdateMLModel pMLModelId_ =
 -- @MLModel@, such as @false@.
 updateMLModel_scoreThreshold :: Lens.Lens' UpdateMLModel (Prelude.Maybe Prelude.Double)
 updateMLModel_scoreThreshold = Lens.lens (\UpdateMLModel' {scoreThreshold} -> scoreThreshold) (\s@UpdateMLModel' {} a -> s {scoreThreshold = a} :: UpdateMLModel)
-
--- | A user-supplied name or description of the @MLModel@.
-updateMLModel_mLModelName :: Lens.Lens' UpdateMLModel (Prelude.Maybe Prelude.Text)
-updateMLModel_mLModelName = Lens.lens (\UpdateMLModel' {mLModelName} -> mLModelName) (\s@UpdateMLModel' {} a -> s {mLModelName = a} :: UpdateMLModel)
 
 -- | The ID assigned to the @MLModel@ during creation.
 updateMLModel_mLModelId :: Lens.Lens' UpdateMLModel Prelude.Text
@@ -152,9 +152,9 @@ instance Core.ToJSON UpdateMLModel where
   toJSON UpdateMLModel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ScoreThreshold" Core..=)
+          [ ("MLModelName" Core..=) Prelude.<$> mLModelName,
+            ("ScoreThreshold" Core..=)
               Prelude.<$> scoreThreshold,
-            ("MLModelName" Core..=) Prelude.<$> mLModelName,
             Prelude.Just ("MLModelId" Core..= mLModelId)
           ]
       )

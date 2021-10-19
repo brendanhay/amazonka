@@ -28,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
-  { -- | The descriptive message including the error the Amazon EMR service has
-    -- identified as the cause of step failure. This is text from an error log
-    -- that describes the root cause of the failure.
-    message :: Prelude.Maybe Prelude.Text,
+  { -- | The path to the log file where the step failure root cause was
+    -- originally recorded.
+    logFile :: Prelude.Maybe Prelude.Text,
     -- | The reason for the step failure. In the case where the service cannot
     -- successfully determine the root cause of the failure, it returns
     -- \"Unknown Error\" as a reason.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The path to the log file where the step failure root cause was
-    -- originally recorded.
-    logFile :: Prelude.Maybe Prelude.Text
+    -- | The descriptive message including the error the Amazon EMR service has
+    -- identified as the cause of step failure. This is text from an error log
+    -- that describes the root cause of the failure.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,30 +50,29 @@ data FailureDetails = FailureDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'failureDetails_message' - The descriptive message including the error the Amazon EMR service has
--- identified as the cause of step failure. This is text from an error log
--- that describes the root cause of the failure.
+-- 'logFile', 'failureDetails_logFile' - The path to the log file where the step failure root cause was
+-- originally recorded.
 --
 -- 'reason', 'failureDetails_reason' - The reason for the step failure. In the case where the service cannot
 -- successfully determine the root cause of the failure, it returns
 -- \"Unknown Error\" as a reason.
 --
--- 'logFile', 'failureDetails_logFile' - The path to the log file where the step failure root cause was
--- originally recorded.
+-- 'message', 'failureDetails_message' - The descriptive message including the error the Amazon EMR service has
+-- identified as the cause of step failure. This is text from an error log
+-- that describes the root cause of the failure.
 newFailureDetails ::
   FailureDetails
 newFailureDetails =
   FailureDetails'
-    { message = Prelude.Nothing,
+    { logFile = Prelude.Nothing,
       reason = Prelude.Nothing,
-      logFile = Prelude.Nothing
+      message = Prelude.Nothing
     }
 
--- | The descriptive message including the error the Amazon EMR service has
--- identified as the cause of step failure. This is text from an error log
--- that describes the root cause of the failure.
-failureDetails_message :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
-failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@FailureDetails' {} a -> s {message = a} :: FailureDetails)
+-- | The path to the log file where the step failure root cause was
+-- originally recorded.
+failureDetails_logFile :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_logFile = Lens.lens (\FailureDetails' {logFile} -> logFile) (\s@FailureDetails' {} a -> s {logFile = a} :: FailureDetails)
 
 -- | The reason for the step failure. In the case where the service cannot
 -- successfully determine the root cause of the failure, it returns
@@ -81,10 +80,11 @@ failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@F
 failureDetails_reason :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
 failureDetails_reason = Lens.lens (\FailureDetails' {reason} -> reason) (\s@FailureDetails' {} a -> s {reason = a} :: FailureDetails)
 
--- | The path to the log file where the step failure root cause was
--- originally recorded.
-failureDetails_logFile :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
-failureDetails_logFile = Lens.lens (\FailureDetails' {logFile} -> logFile) (\s@FailureDetails' {} a -> s {logFile = a} :: FailureDetails)
+-- | The descriptive message including the error the Amazon EMR service has
+-- identified as the cause of step failure. This is text from an error log
+-- that describes the root cause of the failure.
+failureDetails_message :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@FailureDetails' {} a -> s {message = a} :: FailureDetails)
 
 instance Core.FromJSON FailureDetails where
   parseJSON =
@@ -92,9 +92,9 @@ instance Core.FromJSON FailureDetails where
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Prelude.<$> (x Core..:? "Message")
+            Prelude.<$> (x Core..:? "LogFile")
             Prelude.<*> (x Core..:? "Reason")
-            Prelude.<*> (x Core..:? "LogFile")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable FailureDetails

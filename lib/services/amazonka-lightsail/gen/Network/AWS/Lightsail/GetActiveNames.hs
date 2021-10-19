@@ -214,7 +214,7 @@ getActiveNamesResponse_nextPageToken = Lens.lens (\GetActiveNamesResponse' {next
 
 -- | The list of active names returned by the get active names request.
 getActiveNamesResponse_activeNames :: Lens.Lens' GetActiveNamesResponse (Prelude.Maybe [Prelude.Text])
-getActiveNamesResponse_activeNames = Lens.lens (\GetActiveNamesResponse' {activeNames} -> activeNames) (\s@GetActiveNamesResponse' {} a -> s {activeNames = a} :: GetActiveNamesResponse) Prelude.. Lens.mapping Lens._Coerce
+getActiveNamesResponse_activeNames = Lens.lens (\GetActiveNamesResponse' {activeNames} -> activeNames) (\s@GetActiveNamesResponse' {} a -> s {activeNames = a} :: GetActiveNamesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getActiveNamesResponse_httpStatus :: Lens.Lens' GetActiveNamesResponse Prelude.Int

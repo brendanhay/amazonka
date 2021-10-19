@@ -91,7 +91,7 @@ newUntagCertificateAuthority
     UntagCertificateAuthority'
       { certificateAuthorityArn =
           pCertificateAuthorityArn_,
-        tags = Lens._Coerce Lens.# pTags_
+        tags = Lens.coerced Lens.# pTags_
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
@@ -104,7 +104,7 @@ untagCertificateAuthority_certificateAuthorityArn = Lens.lens (\UntagCertificate
 
 -- | List of tags to be removed from the CA.
 untagCertificateAuthority_tags :: Lens.Lens' UntagCertificateAuthority (Prelude.NonEmpty Tag)
-untagCertificateAuthority_tags = Lens.lens (\UntagCertificateAuthority' {tags} -> tags) (\s@UntagCertificateAuthority' {} a -> s {tags = a} :: UntagCertificateAuthority) Prelude.. Lens._Coerce
+untagCertificateAuthority_tags = Lens.lens (\UntagCertificateAuthority' {tags} -> tags) (\s@UntagCertificateAuthority' {} a -> s {tags = a} :: UntagCertificateAuthority) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagCertificateAuthority where
   type

@@ -155,7 +155,7 @@ newUpdateXssMatchSet
     UpdateXssMatchSet'
       { xssMatchSetId = pXssMatchSetId_,
         changeToken = pChangeToken_,
-        updates = Lens._Coerce Lens.# pUpdates_
+        updates = Lens.coerced Lens.# pUpdates_
       }
 
 -- | The @XssMatchSetId@ of the @XssMatchSet@ that you want to update.
@@ -178,7 +178,7 @@ updateXssMatchSet_changeToken = Lens.lens (\UpdateXssMatchSet' {changeToken} -> 
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
 updateXssMatchSet_updates :: Lens.Lens' UpdateXssMatchSet (Prelude.NonEmpty XssMatchSetUpdate)
-updateXssMatchSet_updates = Lens.lens (\UpdateXssMatchSet' {updates} -> updates) (\s@UpdateXssMatchSet' {} a -> s {updates = a} :: UpdateXssMatchSet) Prelude.. Lens._Coerce
+updateXssMatchSet_updates = Lens.lens (\UpdateXssMatchSet' {updates} -> updates) (\s@UpdateXssMatchSet' {} a -> s {updates = a} :: UpdateXssMatchSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateXssMatchSet where
   type

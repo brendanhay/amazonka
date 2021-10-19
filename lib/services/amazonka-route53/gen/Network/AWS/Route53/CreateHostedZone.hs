@@ -70,9 +70,9 @@ module Network.AWS.Route53.CreateHostedZone
     newCreateHostedZone,
 
     -- * Request Lenses
-    createHostedZone_hostedZoneConfig,
     createHostedZone_delegationSetId,
     createHostedZone_vpc,
+    createHostedZone_hostedZoneConfig,
     createHostedZone_name,
     createHostedZone_callerReference,
 
@@ -102,16 +102,7 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'newCreateHostedZone' smart constructor.
 data CreateHostedZone = CreateHostedZone'
-  { -- | (Optional) A complex type that contains the following optional values:
-    --
-    -- -   For public and private hosted zones, an optional comment
-    --
-    -- -   For private hosted zones, an optional @PrivateZone@ element
-    --
-    -- If you don\'t specify a comment or the @PrivateZone@ element, omit
-    -- @HostedZoneConfig@ and the other elements.
-    hostedZoneConfig :: Prelude.Maybe HostedZoneConfig,
-    -- | If you want to associate a reusable delegation set with this hosted
+  { -- | If you want to associate a reusable delegation set with this hosted
     -- zone, the ID that Amazon Route 53 assigned to the reusable delegation
     -- set when you created it. For more information about reusable delegation
     -- sets, see
@@ -125,6 +116,15 @@ data CreateHostedZone = CreateHostedZone'
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
     -- after you create a hosted zone.
     vpc :: Prelude.Maybe VPC,
+    -- | (Optional) A complex type that contains the following optional values:
+    --
+    -- -   For public and private hosted zones, an optional comment
+    --
+    -- -   For private hosted zones, an optional @PrivateZone@ element
+    --
+    -- If you don\'t specify a comment or the @PrivateZone@ element, omit
+    -- @HostedZoneConfig@ and the other elements.
+    hostedZoneConfig :: Prelude.Maybe HostedZoneConfig,
     -- | The name of the domain. Specify a fully qualified domain name, for
     -- example, /www.example.com/. The trailing dot is optional; Amazon Route
     -- 53 assumes that the domain name is fully qualified. This means that
@@ -154,15 +154,6 @@ data CreateHostedZone = CreateHostedZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hostedZoneConfig', 'createHostedZone_hostedZoneConfig' - (Optional) A complex type that contains the following optional values:
---
--- -   For public and private hosted zones, an optional comment
---
--- -   For private hosted zones, an optional @PrivateZone@ element
---
--- If you don\'t specify a comment or the @PrivateZone@ element, omit
--- @HostedZoneConfig@ and the other elements.
---
 -- 'delegationSetId', 'createHostedZone_delegationSetId' - If you want to associate a reusable delegation set with this hosted
 -- zone, the ID that Amazon Route 53 assigned to the reusable delegation
 -- set when you created it. For more information about reusable delegation
@@ -176,6 +167,15 @@ data CreateHostedZone = CreateHostedZone'
 -- zone. To associate additional Amazon VPCs with the hosted zone, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AssociateVPCWithHostedZone>
 -- after you create a hosted zone.
+--
+-- 'hostedZoneConfig', 'createHostedZone_hostedZoneConfig' - (Optional) A complex type that contains the following optional values:
+--
+-- -   For public and private hosted zones, an optional comment
+--
+-- -   For private hosted zones, an optional @PrivateZone@ element
+--
+-- If you don\'t specify a comment or the @PrivateZone@ element, omit
+-- @HostedZoneConfig@ and the other elements.
 --
 -- 'name', 'createHostedZone_name' - The name of the domain. Specify a fully qualified domain name, for
 -- example, /www.example.com/. The trailing dot is optional; Amazon Route
@@ -202,24 +202,13 @@ newCreateHostedZone ::
   CreateHostedZone
 newCreateHostedZone pName_ pCallerReference_ =
   CreateHostedZone'
-    { hostedZoneConfig =
+    { delegationSetId =
         Prelude.Nothing,
-      delegationSetId = Prelude.Nothing,
       vpc = Prelude.Nothing,
+      hostedZoneConfig = Prelude.Nothing,
       name = pName_,
       callerReference = pCallerReference_
     }
-
--- | (Optional) A complex type that contains the following optional values:
---
--- -   For public and private hosted zones, an optional comment
---
--- -   For private hosted zones, an optional @PrivateZone@ element
---
--- If you don\'t specify a comment or the @PrivateZone@ element, omit
--- @HostedZoneConfig@ and the other elements.
-createHostedZone_hostedZoneConfig :: Lens.Lens' CreateHostedZone (Prelude.Maybe HostedZoneConfig)
-createHostedZone_hostedZoneConfig = Lens.lens (\CreateHostedZone' {hostedZoneConfig} -> hostedZoneConfig) (\s@CreateHostedZone' {} a -> s {hostedZoneConfig = a} :: CreateHostedZone)
 
 -- | If you want to associate a reusable delegation set with this hosted
 -- zone, the ID that Amazon Route 53 assigned to the reusable delegation
@@ -238,6 +227,17 @@ createHostedZone_delegationSetId = Lens.lens (\CreateHostedZone' {delegationSetI
 -- after you create a hosted zone.
 createHostedZone_vpc :: Lens.Lens' CreateHostedZone (Prelude.Maybe VPC)
 createHostedZone_vpc = Lens.lens (\CreateHostedZone' {vpc} -> vpc) (\s@CreateHostedZone' {} a -> s {vpc = a} :: CreateHostedZone)
+
+-- | (Optional) A complex type that contains the following optional values:
+--
+-- -   For public and private hosted zones, an optional comment
+--
+-- -   For private hosted zones, an optional @PrivateZone@ element
+--
+-- If you don\'t specify a comment or the @PrivateZone@ element, omit
+-- @HostedZoneConfig@ and the other elements.
+createHostedZone_hostedZoneConfig :: Lens.Lens' CreateHostedZone (Prelude.Maybe HostedZoneConfig)
+createHostedZone_hostedZoneConfig = Lens.lens (\CreateHostedZone' {hostedZoneConfig} -> hostedZoneConfig) (\s@CreateHostedZone' {} a -> s {hostedZoneConfig = a} :: CreateHostedZone)
 
 -- | The name of the domain. Specify a fully qualified domain name, for
 -- example, /www.example.com/. The trailing dot is optional; Amazon Route
@@ -299,9 +299,9 @@ instance Core.ToQuery CreateHostedZone where
 instance Core.ToXML CreateHostedZone where
   toXML CreateHostedZone' {..} =
     Prelude.mconcat
-      [ "HostedZoneConfig" Core.@= hostedZoneConfig,
-        "DelegationSetId" Core.@= delegationSetId,
+      [ "DelegationSetId" Core.@= delegationSetId,
         "VPC" Core.@= vpc,
+        "HostedZoneConfig" Core.@= hostedZoneConfig,
         "Name" Core.@= name,
         "CallerReference" Core.@= callerReference
       ]

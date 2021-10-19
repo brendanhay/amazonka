@@ -36,6 +36,13 @@ data Container = Container'
     -- creating the container, the status is @CREATING@. When the endpoint is
     -- available, the status changes to @ACTIVE@.
     status :: Prelude.Maybe ContainerStatus,
+    -- | The state of access logging on the container. This value is @false@ by
+    -- default, indicating that AWS Elemental MediaStore does not send access
+    -- logs to Amazon CloudWatch Logs. When you enable access logging on the
+    -- container, MediaStore changes this value to @true@, indicating that the
+    -- service delivers access logs for objects stored in that container to
+    -- CloudWatch Logs.
+    accessLoggingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the container. The ARN has the
     -- following format:
     --
@@ -44,13 +51,6 @@ data Container = Container'
     --
     -- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The state of access logging on the container. This value is @false@ by
-    -- default, indicating that AWS Elemental MediaStore does not send access
-    -- logs to Amazon CloudWatch Logs. When you enable access logging on the
-    -- container, MediaStore changes this value to @true@, indicating that the
-    -- service delivers access logs for objects stored in that container to
-    -- CloudWatch Logs.
-    accessLoggingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the container.
     name :: Prelude.Maybe Prelude.Text,
     -- | The DNS endpoint of the container. Use the endpoint to identify the
@@ -76,6 +76,13 @@ data Container = Container'
 -- creating the container, the status is @CREATING@. When the endpoint is
 -- available, the status changes to @ACTIVE@.
 --
+-- 'accessLoggingEnabled', 'container_accessLoggingEnabled' - The state of access logging on the container. This value is @false@ by
+-- default, indicating that AWS Elemental MediaStore does not send access
+-- logs to Amazon CloudWatch Logs. When you enable access logging on the
+-- container, MediaStore changes this value to @true@, indicating that the
+-- service delivers access logs for objects stored in that container to
+-- CloudWatch Logs.
+--
 -- 'arn', 'container_arn' - The Amazon Resource Name (ARN) of the container. The ARN has the
 -- following format:
 --
@@ -83,13 +90,6 @@ data Container = Container'
 -- of container>
 --
 -- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies
---
--- 'accessLoggingEnabled', 'container_accessLoggingEnabled' - The state of access logging on the container. This value is @false@ by
--- default, indicating that AWS Elemental MediaStore does not send access
--- logs to Amazon CloudWatch Logs. When you enable access logging on the
--- container, MediaStore changes this value to @true@, indicating that the
--- service delivers access logs for objects stored in that container to
--- CloudWatch Logs.
 --
 -- 'name', 'container_name' - The name of the container.
 --
@@ -103,8 +103,8 @@ newContainer =
   Container'
     { creationTime = Prelude.Nothing,
       status = Prelude.Nothing,
-      arn = Prelude.Nothing,
       accessLoggingEnabled = Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing,
       endpoint = Prelude.Nothing
     }
@@ -120,6 +120,15 @@ container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) 
 container_status :: Lens.Lens' Container (Prelude.Maybe ContainerStatus)
 container_status = Lens.lens (\Container' {status} -> status) (\s@Container' {} a -> s {status = a} :: Container)
 
+-- | The state of access logging on the container. This value is @false@ by
+-- default, indicating that AWS Elemental MediaStore does not send access
+-- logs to Amazon CloudWatch Logs. When you enable access logging on the
+-- container, MediaStore changes this value to @true@, indicating that the
+-- service delivers access logs for objects stored in that container to
+-- CloudWatch Logs.
+container_accessLoggingEnabled :: Lens.Lens' Container (Prelude.Maybe Prelude.Bool)
+container_accessLoggingEnabled = Lens.lens (\Container' {accessLoggingEnabled} -> accessLoggingEnabled) (\s@Container' {} a -> s {accessLoggingEnabled = a} :: Container)
+
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 -- following format:
 --
@@ -129,15 +138,6 @@ container_status = Lens.lens (\Container' {status} -> status) (\s@Container' {} 
 -- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies
 container_arn :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_arn = Lens.lens (\Container' {arn} -> arn) (\s@Container' {} a -> s {arn = a} :: Container)
-
--- | The state of access logging on the container. This value is @false@ by
--- default, indicating that AWS Elemental MediaStore does not send access
--- logs to Amazon CloudWatch Logs. When you enable access logging on the
--- container, MediaStore changes this value to @true@, indicating that the
--- service delivers access logs for objects stored in that container to
--- CloudWatch Logs.
-container_accessLoggingEnabled :: Lens.Lens' Container (Prelude.Maybe Prelude.Bool)
-container_accessLoggingEnabled = Lens.lens (\Container' {accessLoggingEnabled} -> accessLoggingEnabled) (\s@Container' {} a -> s {accessLoggingEnabled = a} :: Container)
 
 -- | The name of the container.
 container_name :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
@@ -158,8 +158,8 @@ instance Core.FromJSON Container where
           Container'
             Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "AccessLoggingEnabled")
+            Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Endpoint")
       )

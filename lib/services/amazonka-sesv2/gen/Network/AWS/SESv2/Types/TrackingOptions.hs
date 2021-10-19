@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- If your email contains links, those links are changed slightly in order
 -- to track when recipients click them.
 --
--- These images and links include references to a domain operated by AWS.
--- You can optionally configure the Amazon SES to use a domain that you
--- operate for these images and links.
+-- These images and links include references to a domain operated by Amazon
+-- Web Services. You can optionally configure the Amazon SES to use a
+-- domain that you operate for these images and links.
 --
 -- /See:/ 'newTrackingOptions' smart constructor.
 data TrackingOptions = TrackingOptions'
-  { -- | The domain that you want to use for tracking open and click events.
+  { -- | The domain to use for tracking open and click events.
     customRedirectDomain :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data TrackingOptions = TrackingOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customRedirectDomain', 'trackingOptions_customRedirectDomain' - The domain that you want to use for tracking open and click events.
+-- 'customRedirectDomain', 'trackingOptions_customRedirectDomain' - The domain to use for tracking open and click events.
 newTrackingOptions ::
   -- | 'customRedirectDomain'
   Prelude.Text ->
@@ -59,7 +59,7 @@ newTrackingOptions pCustomRedirectDomain_ =
         pCustomRedirectDomain_
     }
 
--- | The domain that you want to use for tracking open and click events.
+-- | The domain to use for tracking open and click events.
 trackingOptions_customRedirectDomain :: Lens.Lens' TrackingOptions Prelude.Text
 trackingOptions_customRedirectDomain = Lens.lens (\TrackingOptions' {customRedirectDomain} -> customRedirectDomain) (\s@TrackingOptions' {} a -> s {customRedirectDomain = a} :: TrackingOptions)
 

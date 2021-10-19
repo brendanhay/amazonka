@@ -38,12 +38,12 @@ data WriteSegmentRequest = WriteSegmentRequest'
     segmentGroups :: Prelude.Maybe SegmentGroupList,
     -- | The name of the segment.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The criteria that define the dimensions for the segment.
+    dimensions :: Prelude.Maybe SegmentDimensions,
     -- | A string-to-string map of key-value pairs that defines the tags to
     -- associate with the segment. Each tag consists of a required tag key and
     -- an associated tag value.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The criteria that define the dimensions for the segment.
-    dimensions :: Prelude.Maybe SegmentDimensions
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,11 +62,11 @@ data WriteSegmentRequest = WriteSegmentRequest'
 --
 -- 'name', 'writeSegmentRequest_name' - The name of the segment.
 --
+-- 'dimensions', 'writeSegmentRequest_dimensions' - The criteria that define the dimensions for the segment.
+--
 -- 'tags', 'writeSegmentRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
 -- associate with the segment. Each tag consists of a required tag key and
 -- an associated tag value.
---
--- 'dimensions', 'writeSegmentRequest_dimensions' - The criteria that define the dimensions for the segment.
 newWriteSegmentRequest ::
   WriteSegmentRequest
 newWriteSegmentRequest =
@@ -74,8 +74,8 @@ newWriteSegmentRequest =
     { segmentGroups =
         Prelude.Nothing,
       name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      dimensions = Prelude.Nothing
+      dimensions = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The segment group to use and the dimensions to apply to the group\'s
@@ -89,15 +89,15 @@ writeSegmentRequest_segmentGroups = Lens.lens (\WriteSegmentRequest' {segmentGro
 writeSegmentRequest_name :: Lens.Lens' WriteSegmentRequest (Prelude.Maybe Prelude.Text)
 writeSegmentRequest_name = Lens.lens (\WriteSegmentRequest' {name} -> name) (\s@WriteSegmentRequest' {} a -> s {name = a} :: WriteSegmentRequest)
 
+-- | The criteria that define the dimensions for the segment.
+writeSegmentRequest_dimensions :: Lens.Lens' WriteSegmentRequest (Prelude.Maybe SegmentDimensions)
+writeSegmentRequest_dimensions = Lens.lens (\WriteSegmentRequest' {dimensions} -> dimensions) (\s@WriteSegmentRequest' {} a -> s {dimensions = a} :: WriteSegmentRequest)
+
 -- | A string-to-string map of key-value pairs that defines the tags to
 -- associate with the segment. Each tag consists of a required tag key and
 -- an associated tag value.
 writeSegmentRequest_tags :: Lens.Lens' WriteSegmentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-writeSegmentRequest_tags = Lens.lens (\WriteSegmentRequest' {tags} -> tags) (\s@WriteSegmentRequest' {} a -> s {tags = a} :: WriteSegmentRequest) Prelude.. Lens.mapping Lens._Coerce
-
--- | The criteria that define the dimensions for the segment.
-writeSegmentRequest_dimensions :: Lens.Lens' WriteSegmentRequest (Prelude.Maybe SegmentDimensions)
-writeSegmentRequest_dimensions = Lens.lens (\WriteSegmentRequest' {dimensions} -> dimensions) (\s@WriteSegmentRequest' {} a -> s {dimensions = a} :: WriteSegmentRequest)
+writeSegmentRequest_tags = Lens.lens (\WriteSegmentRequest' {tags} -> tags) (\s@WriteSegmentRequest' {} a -> s {tags = a} :: WriteSegmentRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable WriteSegmentRequest
 
@@ -109,7 +109,7 @@ instance Core.ToJSON WriteSegmentRequest where
       ( Prelude.catMaybes
           [ ("SegmentGroups" Core..=) Prelude.<$> segmentGroups,
             ("Name" Core..=) Prelude.<$> name,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("Dimensions" Core..=) Prelude.<$> dimensions
+            ("Dimensions" Core..=) Prelude.<$> dimensions,
+            ("tags" Core..=) Prelude.<$> tags
           ]
       )

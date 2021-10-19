@@ -17,59 +17,59 @@ module Network.AWS.Config.Types
     defaultService,
 
     -- * Errors
-    _NoSuchRetentionConfigurationException,
-    _NoSuchConfigRuleException,
+    _NoSuchRemediationConfigurationException,
+    _InvalidTimeRangeException,
     _NoSuchOrganizationConformancePackException,
+    _InvalidSNSTopicARNException,
+    _InvalidRecordingGroupException,
     _InvalidExpressionException,
     _NoAvailableOrganizationException,
-    _NoSuchOrganizationConfigRuleException,
-    _InvalidResultTokenException,
-    _InvalidRecordingGroupException,
-    _InvalidS3KeyPrefixException,
-    _TooManyTagsException,
-    _MaxNumberOfDeliveryChannelsExceededException,
-    _InvalidDeliveryChannelNameException,
-    _InvalidConfigurationRecorderNameException,
-    _NoRunningConfigurationRecorderException,
-    _NoAvailableDeliveryChannelException,
-    _ConformancePackTemplateValidationException,
-    _LastDeliveryChannelDeleteFailedException,
-    _MaxNumberOfConformancePacksExceededException,
-    _OversizedConfigurationItemException,
+    _ValidationException,
+    _OrganizationAccessDeniedException,
     _NoSuchConfigurationAggregatorException,
     _InvalidRoleException,
-    _InvalidNextTokenException,
-    _OrganizationAccessDeniedException,
-    _NoSuchConformancePackException,
-    _InvalidSNSTopicARNException,
-    _NoSuchRemediationConfigurationException,
-    _InvalidParameterValueException,
-    _InvalidTimeRangeException,
-    _NoSuchConfigRuleInConformancePackException,
-    _ValidationException,
-    _NoSuchDeliveryChannelException,
-    _InvalidS3KmsKeyArnException,
-    _LimitExceededException,
-    _ResourceInUseException,
-    _NoSuchConfigurationRecorderException,
-    _MaxNumberOfOrganizationConfigRulesExceededException,
-    _MaxNumberOfOrganizationConformancePacksExceededException,
-    _ResourceNotFoundException,
-    _InsufficientDeliveryPolicyException,
-    _InvalidLimitException,
-    _OrganizationConformancePackTemplateValidationException,
-    _MaxNumberOfConfigurationRecordersExceededException,
-    _NoSuchRemediationExceptionException,
+    _OversizedConfigurationItemException,
     _ResourceConcurrentModificationException,
-    _MaxNumberOfRetentionConfigurationsExceededException,
-    _NoSuchBucketException,
-    _MaxActiveResourcesExceededException,
-    _NoAvailableConfigurationRecorderException,
-    _MaxNumberOfConfigRulesExceededException,
+    _LastDeliveryChannelDeleteFailedException,
+    _ConformancePackTemplateValidationException,
+    _NoSuchRemediationExceptionException,
+    _InvalidLimitException,
+    _MaxNumberOfOrganizationConformancePacksExceededException,
+    _InvalidDeliveryChannelNameException,
+    _TooManyTagsException,
+    _InvalidS3KmsKeyArnException,
+    _InvalidParameterValueException,
+    _InvalidResultTokenException,
+    _NoSuchConfigRuleInConformancePackException,
+    _NoSuchOrganizationConfigRuleException,
+    _NoSuchDeliveryChannelException,
+    _NoSuchConfigRuleException,
+    _NoSuchConformancePackException,
+    _NoSuchRetentionConfigurationException,
+    _RemediationInProgressException,
     _OrganizationAllFeaturesNotEnabledException,
     _InsufficientPermissionsException,
     _ResourceNotDiscoveredException,
-    _RemediationInProgressException,
+    _InvalidNextTokenException,
+    _MaxNumberOfRetentionConfigurationsExceededException,
+    _MaxNumberOfConformancePacksExceededException,
+    _MaxNumberOfConfigRulesExceededException,
+    _NoAvailableConfigurationRecorderException,
+    _NoSuchBucketException,
+    _MaxActiveResourcesExceededException,
+    _NoAvailableDeliveryChannelException,
+    _OrganizationConformancePackTemplateValidationException,
+    _InvalidConfigurationRecorderNameException,
+    _NoRunningConfigurationRecorderException,
+    _MaxNumberOfConfigurationRecordersExceededException,
+    _InsufficientDeliveryPolicyException,
+    _MaxNumberOfDeliveryChannelsExceededException,
+    _MaxNumberOfOrganizationConfigRulesExceededException,
+    _ResourceNotFoundException,
+    _NoSuchConfigurationRecorderException,
+    _InvalidS3KeyPrefixException,
+    _LimitExceededException,
+    _ResourceInUseException,
 
     -- * AggregateConformancePackComplianceSummaryGroupKey
     AggregateConformancePackComplianceSummaryGroupKey (..),
@@ -155,59 +155,59 @@ module Network.AWS.Config.Types
     -- * AccountAggregationSource
     AccountAggregationSource (..),
     newAccountAggregationSource,
-    accountAggregationSource_allAwsRegions,
     accountAggregationSource_awsRegions,
+    accountAggregationSource_allAwsRegions,
     accountAggregationSource_accountIds,
 
     -- * AggregateComplianceByConfigRule
     AggregateComplianceByConfigRule (..),
     newAggregateComplianceByConfigRule,
-    aggregateComplianceByConfigRule_accountId,
-    aggregateComplianceByConfigRule_configRuleName,
-    aggregateComplianceByConfigRule_awsRegion,
     aggregateComplianceByConfigRule_compliance,
+    aggregateComplianceByConfigRule_configRuleName,
+    aggregateComplianceByConfigRule_accountId,
+    aggregateComplianceByConfigRule_awsRegion,
 
     -- * AggregateComplianceByConformancePack
     AggregateComplianceByConformancePack (..),
     newAggregateComplianceByConformancePack,
-    aggregateComplianceByConformancePack_accountId,
-    aggregateComplianceByConformancePack_conformancePackName,
-    aggregateComplianceByConformancePack_awsRegion,
     aggregateComplianceByConformancePack_compliance,
+    aggregateComplianceByConformancePack_conformancePackName,
+    aggregateComplianceByConformancePack_accountId,
+    aggregateComplianceByConformancePack_awsRegion,
 
     -- * AggregateComplianceCount
     AggregateComplianceCount (..),
     newAggregateComplianceCount,
-    aggregateComplianceCount_complianceSummary,
     aggregateComplianceCount_groupName,
+    aggregateComplianceCount_complianceSummary,
 
     -- * AggregateConformancePackCompliance
     AggregateConformancePackCompliance (..),
     newAggregateConformancePackCompliance,
     aggregateConformancePackCompliance_totalRuleCount,
-    aggregateConformancePackCompliance_complianceType,
-    aggregateConformancePackCompliance_nonCompliantRuleCount,
     aggregateConformancePackCompliance_compliantRuleCount,
+    aggregateConformancePackCompliance_nonCompliantRuleCount,
+    aggregateConformancePackCompliance_complianceType,
 
     -- * AggregateConformancePackComplianceCount
     AggregateConformancePackComplianceCount (..),
     newAggregateConformancePackComplianceCount,
-    aggregateConformancePackComplianceCount_nonCompliantConformancePackCount,
     aggregateConformancePackComplianceCount_compliantConformancePackCount,
+    aggregateConformancePackComplianceCount_nonCompliantConformancePackCount,
 
     -- * AggregateConformancePackComplianceFilters
     AggregateConformancePackComplianceFilters (..),
     newAggregateConformancePackComplianceFilters,
+    aggregateConformancePackComplianceFilters_conformancePackName,
     aggregateConformancePackComplianceFilters_accountId,
     aggregateConformancePackComplianceFilters_complianceType,
-    aggregateConformancePackComplianceFilters_conformancePackName,
     aggregateConformancePackComplianceFilters_awsRegion,
 
     -- * AggregateConformancePackComplianceSummary
     AggregateConformancePackComplianceSummary (..),
     newAggregateConformancePackComplianceSummary,
-    aggregateConformancePackComplianceSummary_complianceSummary,
     aggregateConformancePackComplianceSummary_groupName,
+    aggregateConformancePackComplianceSummary_complianceSummary,
 
     -- * AggregateConformancePackComplianceSummaryFilters
     AggregateConformancePackComplianceSummaryFilters (..),
@@ -218,12 +218,12 @@ module Network.AWS.Config.Types
     -- * AggregateEvaluationResult
     AggregateEvaluationResult (..),
     newAggregateEvaluationResult,
-    aggregateEvaluationResult_annotation,
     aggregateEvaluationResult_evaluationResultIdentifier,
-    aggregateEvaluationResult_accountId,
-    aggregateEvaluationResult_resultRecordedTime,
-    aggregateEvaluationResult_complianceType,
+    aggregateEvaluationResult_annotation,
     aggregateEvaluationResult_configRuleInvokedTime,
+    aggregateEvaluationResult_resultRecordedTime,
+    aggregateEvaluationResult_accountId,
+    aggregateEvaluationResult_complianceType,
     aggregateEvaluationResult_awsRegion,
 
     -- * AggregateResourceIdentifier
@@ -238,51 +238,51 @@ module Network.AWS.Config.Types
     -- * AggregatedSourceStatus
     AggregatedSourceStatus (..),
     newAggregatedSourceStatus,
-    aggregatedSourceStatus_lastUpdateStatus,
-    aggregatedSourceStatus_lastErrorMessage,
-    aggregatedSourceStatus_lastUpdateTime,
-    aggregatedSourceStatus_sourceId,
     aggregatedSourceStatus_lastErrorCode,
-    aggregatedSourceStatus_awsRegion,
+    aggregatedSourceStatus_lastUpdateStatus,
     aggregatedSourceStatus_sourceType,
+    aggregatedSourceStatus_sourceId,
+    aggregatedSourceStatus_lastErrorMessage,
+    aggregatedSourceStatus_awsRegion,
+    aggregatedSourceStatus_lastUpdateTime,
 
     -- * AggregationAuthorization
     AggregationAuthorization (..),
     newAggregationAuthorization,
     aggregationAuthorization_creationTime,
-    aggregationAuthorization_authorizedAccountId,
-    aggregationAuthorization_aggregationAuthorizationArn,
     aggregationAuthorization_authorizedAwsRegion,
+    aggregationAuthorization_aggregationAuthorizationArn,
+    aggregationAuthorization_authorizedAccountId,
 
     -- * BaseConfigurationItem
     BaseConfigurationItem (..),
     newBaseConfigurationItem,
     baseConfigurationItem_resourceId,
-    baseConfigurationItem_accountId,
-    baseConfigurationItem_configuration,
-    baseConfigurationItem_arn,
-    baseConfigurationItem_configurationStateId,
-    baseConfigurationItem_version,
     baseConfigurationItem_resourceType,
+    baseConfigurationItem_configurationStateId,
+    baseConfigurationItem_arn,
+    baseConfigurationItem_resourceName,
+    baseConfigurationItem_resourceCreationTime,
+    baseConfigurationItem_configurationItemStatus,
+    baseConfigurationItem_configurationItemCaptureTime,
+    baseConfigurationItem_accountId,
     baseConfigurationItem_supplementaryConfiguration,
     baseConfigurationItem_availabilityZone,
-    baseConfigurationItem_configurationItemCaptureTime,
-    baseConfigurationItem_configurationItemStatus,
-    baseConfigurationItem_resourceCreationTime,
-    baseConfigurationItem_resourceName,
+    baseConfigurationItem_version,
     baseConfigurationItem_awsRegion,
+    baseConfigurationItem_configuration,
 
     -- * Compliance
     Compliance (..),
     newCompliance,
-    compliance_complianceType,
     compliance_complianceContributorCount,
+    compliance_complianceType,
 
     -- * ComplianceByConfigRule
     ComplianceByConfigRule (..),
     newComplianceByConfigRule,
-    complianceByConfigRule_configRuleName,
     complianceByConfigRule_compliance,
+    complianceByConfigRule_configRuleName,
 
     -- * ComplianceByResource
     ComplianceByResource (..),
@@ -294,51 +294,51 @@ module Network.AWS.Config.Types
     -- * ComplianceContributorCount
     ComplianceContributorCount (..),
     newComplianceContributorCount,
-    complianceContributorCount_capExceeded,
     complianceContributorCount_cappedCount,
+    complianceContributorCount_capExceeded,
 
     -- * ComplianceSummary
     ComplianceSummary (..),
     newComplianceSummary,
     complianceSummary_complianceSummaryTimestamp,
-    complianceSummary_nonCompliantResourceCount,
     complianceSummary_compliantResourceCount,
+    complianceSummary_nonCompliantResourceCount,
 
     -- * ComplianceSummaryByResourceType
     ComplianceSummaryByResourceType (..),
     newComplianceSummaryByResourceType,
-    complianceSummaryByResourceType_complianceSummary,
     complianceSummaryByResourceType_resourceType,
+    complianceSummaryByResourceType_complianceSummary,
 
     -- * ConfigExportDeliveryInfo
     ConfigExportDeliveryInfo (..),
     newConfigExportDeliveryInfo,
+    configExportDeliveryInfo_lastErrorCode,
+    configExportDeliveryInfo_lastAttemptTime,
+    configExportDeliveryInfo_lastSuccessfulTime,
+    configExportDeliveryInfo_lastStatus,
     configExportDeliveryInfo_lastErrorMessage,
     configExportDeliveryInfo_nextDeliveryTime,
-    configExportDeliveryInfo_lastSuccessfulTime,
-    configExportDeliveryInfo_lastErrorCode,
-    configExportDeliveryInfo_lastStatus,
-    configExportDeliveryInfo_lastAttemptTime,
 
     -- * ConfigRule
     ConfigRule (..),
     newConfigRule,
-    configRule_configRuleArn,
-    configRule_configRuleId,
-    configRule_maximumExecutionFrequency,
-    configRule_configRuleName,
-    configRule_configRuleState,
-    configRule_scope,
     configRule_inputParameters,
-    configRule_description,
+    configRule_configRuleName,
     configRule_createdBy,
+    configRule_maximumExecutionFrequency,
+    configRule_configRuleId,
+    configRule_scope,
+    configRule_configRuleState,
+    configRule_description,
+    configRule_configRuleArn,
     configRule_source,
 
     -- * ConfigRuleComplianceFilters
     ConfigRuleComplianceFilters (..),
     newConfigRuleComplianceFilters,
-    configRuleComplianceFilters_accountId,
     configRuleComplianceFilters_configRuleName,
+    configRuleComplianceFilters_accountId,
     configRuleComplianceFilters_complianceType,
     configRuleComplianceFilters_awsRegion,
 
@@ -351,18 +351,18 @@ module Network.AWS.Config.Types
     -- * ConfigRuleEvaluationStatus
     ConfigRuleEvaluationStatus (..),
     newConfigRuleEvaluationStatus,
-    configRuleEvaluationStatus_lastErrorMessage,
-    configRuleEvaluationStatus_configRuleArn,
-    configRuleEvaluationStatus_configRuleId,
-    configRuleEvaluationStatus_configRuleName,
-    configRuleEvaluationStatus_firstEvaluationStarted,
-    configRuleEvaluationStatus_firstActivatedTime,
-    configRuleEvaluationStatus_lastFailedEvaluationTime,
     configRuleEvaluationStatus_lastErrorCode,
-    configRuleEvaluationStatus_lastFailedInvocationTime,
-    configRuleEvaluationStatus_lastDeactivatedTime,
-    configRuleEvaluationStatus_lastSuccessfulInvocationTime,
+    configRuleEvaluationStatus_lastFailedEvaluationTime,
+    configRuleEvaluationStatus_firstActivatedTime,
     configRuleEvaluationStatus_lastSuccessfulEvaluationTime,
+    configRuleEvaluationStatus_lastDeactivatedTime,
+    configRuleEvaluationStatus_configRuleName,
+    configRuleEvaluationStatus_lastErrorMessage,
+    configRuleEvaluationStatus_configRuleId,
+    configRuleEvaluationStatus_lastFailedInvocationTime,
+    configRuleEvaluationStatus_firstEvaluationStarted,
+    configRuleEvaluationStatus_lastSuccessfulInvocationTime,
+    configRuleEvaluationStatus_configRuleArn,
 
     -- * ConfigSnapshotDeliveryProperties
     ConfigSnapshotDeliveryProperties (..),
@@ -372,68 +372,68 @@ module Network.AWS.Config.Types
     -- * ConfigStreamDeliveryInfo
     ConfigStreamDeliveryInfo (..),
     newConfigStreamDeliveryInfo,
-    configStreamDeliveryInfo_lastErrorMessage,
     configStreamDeliveryInfo_lastErrorCode,
-    configStreamDeliveryInfo_lastStatus,
     configStreamDeliveryInfo_lastStatusChangeTime,
+    configStreamDeliveryInfo_lastStatus,
+    configStreamDeliveryInfo_lastErrorMessage,
 
     -- * ConfigurationAggregator
     ConfigurationAggregator (..),
     newConfigurationAggregator,
-    configurationAggregator_creationTime,
     configurationAggregator_configurationAggregatorArn,
-    configurationAggregator_configurationAggregatorName,
-    configurationAggregator_createdBy,
-    configurationAggregator_accountAggregationSources,
-    configurationAggregator_lastUpdatedTime,
+    configurationAggregator_creationTime,
     configurationAggregator_organizationAggregationSource,
+    configurationAggregator_lastUpdatedTime,
+    configurationAggregator_accountAggregationSources,
+    configurationAggregator_createdBy,
+    configurationAggregator_configurationAggregatorName,
 
     -- * ConfigurationItem
     ConfigurationItem (..),
     newConfigurationItem,
-    configurationItem_relationships,
     configurationItem_resourceId,
-    configurationItem_accountId,
-    configurationItem_configuration,
-    configurationItem_relatedEvents,
-    configurationItem_arn,
-    configurationItem_configurationStateId,
-    configurationItem_version,
     configurationItem_resourceType,
+    configurationItem_configurationStateId,
+    configurationItem_arn,
+    configurationItem_resourceName,
+    configurationItem_resourceCreationTime,
+    configurationItem_configurationItemStatus,
+    configurationItem_configurationItemCaptureTime,
+    configurationItem_accountId,
     configurationItem_supplementaryConfiguration,
     configurationItem_availabilityZone,
-    configurationItem_configurationItemCaptureTime,
-    configurationItem_configurationItemStatus,
-    configurationItem_tags,
-    configurationItem_resourceCreationTime,
-    configurationItem_configurationItemMD5Hash,
-    configurationItem_resourceName,
+    configurationItem_relationships,
+    configurationItem_version,
     configurationItem_awsRegion,
+    configurationItem_relatedEvents,
+    configurationItem_configuration,
+    configurationItem_configurationItemMD5Hash,
+    configurationItem_tags,
 
     -- * ConfigurationRecorder
     ConfigurationRecorder (..),
     newConfigurationRecorder,
-    configurationRecorder_roleARN,
     configurationRecorder_name,
     configurationRecorder_recordingGroup,
+    configurationRecorder_roleARN,
 
     -- * ConfigurationRecorderStatus
     ConfigurationRecorderStatus (..),
     newConfigurationRecorderStatus,
-    configurationRecorderStatus_lastStartTime,
-    configurationRecorderStatus_lastStopTime,
-    configurationRecorderStatus_lastErrorMessage,
-    configurationRecorderStatus_recording,
     configurationRecorderStatus_lastErrorCode,
-    configurationRecorderStatus_name,
-    configurationRecorderStatus_lastStatus,
+    configurationRecorderStatus_lastStopTime,
     configurationRecorderStatus_lastStatusChangeTime,
+    configurationRecorderStatus_recording,
+    configurationRecorderStatus_lastStatus,
+    configurationRecorderStatus_lastErrorMessage,
+    configurationRecorderStatus_name,
+    configurationRecorderStatus_lastStartTime,
 
     -- * ConformancePackComplianceFilters
     ConformancePackComplianceFilters (..),
     newConformancePackComplianceFilters,
-    conformancePackComplianceFilters_complianceType,
     conformancePackComplianceFilters_configRuleNames,
+    conformancePackComplianceFilters_complianceType,
 
     -- * ConformancePackComplianceSummary
     ConformancePackComplianceSummary (..),
@@ -444,10 +444,10 @@ module Network.AWS.Config.Types
     -- * ConformancePackDetail
     ConformancePackDetail (..),
     newConformancePackDetail,
-    conformancePackDetail_lastUpdateRequestedTime,
     conformancePackDetail_deliveryS3Bucket,
-    conformancePackDetail_createdBy,
     conformancePackDetail_deliveryS3KeyPrefix,
+    conformancePackDetail_createdBy,
+    conformancePackDetail_lastUpdateRequestedTime,
     conformancePackDetail_conformancePackInputParameters,
     conformancePackDetail_conformancePackName,
     conformancePackDetail_conformancePackArn,
@@ -456,10 +456,10 @@ module Network.AWS.Config.Types
     -- * ConformancePackEvaluationFilters
     ConformancePackEvaluationFilters (..),
     newConformancePackEvaluationFilters,
-    conformancePackEvaluationFilters_complianceType,
-    conformancePackEvaluationFilters_resourceType,
     conformancePackEvaluationFilters_resourceIds,
+    conformancePackEvaluationFilters_resourceType,
     conformancePackEvaluationFilters_configRuleNames,
+    conformancePackEvaluationFilters_complianceType,
 
     -- * ConformancePackEvaluationResult
     ConformancePackEvaluationResult (..),
@@ -498,20 +498,20 @@ module Network.AWS.Config.Types
     -- * DeliveryChannel
     DeliveryChannel (..),
     newDeliveryChannel,
-    deliveryChannel_s3KmsKeyArn,
-    deliveryChannel_name,
     deliveryChannel_s3KeyPrefix,
-    deliveryChannel_s3BucketName,
-    deliveryChannel_configSnapshotDeliveryProperties,
     deliveryChannel_snsTopicARN,
+    deliveryChannel_name,
+    deliveryChannel_s3KmsKeyArn,
+    deliveryChannel_configSnapshotDeliveryProperties,
+    deliveryChannel_s3BucketName,
 
     -- * DeliveryChannelStatus
     DeliveryChannelStatus (..),
     newDeliveryChannelStatus,
-    deliveryChannelStatus_configStreamDeliveryInfo,
     deliveryChannelStatus_configSnapshotDeliveryInfo,
-    deliveryChannelStatus_name,
+    deliveryChannelStatus_configStreamDeliveryInfo,
     deliveryChannelStatus_configHistoryDeliveryInfo,
+    deliveryChannelStatus_name,
 
     -- * Evaluation
     Evaluation (..),
@@ -525,12 +525,12 @@ module Network.AWS.Config.Types
     -- * EvaluationResult
     EvaluationResult (..),
     newEvaluationResult,
-    evaluationResult_annotation,
     evaluationResult_evaluationResultIdentifier,
-    evaluationResult_resultRecordedTime,
-    evaluationResult_complianceType,
+    evaluationResult_annotation,
     evaluationResult_configRuleInvokedTime,
+    evaluationResult_resultRecordedTime,
     evaluationResult_resultToken,
+    evaluationResult_complianceType,
 
     -- * EvaluationResultIdentifier
     EvaluationResultIdentifier (..),
@@ -542,8 +542,8 @@ module Network.AWS.Config.Types
     EvaluationResultQualifier (..),
     newEvaluationResultQualifier,
     evaluationResultQualifier_resourceId,
-    evaluationResultQualifier_configRuleName,
     evaluationResultQualifier_resourceType,
+    evaluationResultQualifier_configRuleName,
 
     -- * ExecutionControls
     ExecutionControls (..),
@@ -591,9 +591,9 @@ module Network.AWS.Config.Types
     -- * MemberAccountStatus
     MemberAccountStatus (..),
     newMemberAccountStatus,
-    memberAccountStatus_lastUpdateTime,
-    memberAccountStatus_errorMessage,
     memberAccountStatus_errorCode,
+    memberAccountStatus_errorMessage,
+    memberAccountStatus_lastUpdateTime,
     memberAccountStatus_accountId,
     memberAccountStatus_configRuleName,
     memberAccountStatus_memberAccountRuleStatus,
@@ -601,26 +601,26 @@ module Network.AWS.Config.Types
     -- * OrganizationAggregationSource
     OrganizationAggregationSource (..),
     newOrganizationAggregationSource,
-    organizationAggregationSource_allAwsRegions,
     organizationAggregationSource_awsRegions,
+    organizationAggregationSource_allAwsRegions,
     organizationAggregationSource_roleArn,
 
     -- * OrganizationConfigRule
     OrganizationConfigRule (..),
     newOrganizationConfigRule,
-    organizationConfigRule_lastUpdateTime,
     organizationConfigRule_organizationManagedRuleMetadata,
-    organizationConfigRule_organizationCustomRuleMetadata,
     organizationConfigRule_excludedAccounts,
+    organizationConfigRule_organizationCustomRuleMetadata,
+    organizationConfigRule_lastUpdateTime,
     organizationConfigRule_organizationConfigRuleName,
     organizationConfigRule_organizationConfigRuleArn,
 
     -- * OrganizationConfigRuleStatus
     OrganizationConfigRuleStatus (..),
     newOrganizationConfigRuleStatus,
-    organizationConfigRuleStatus_lastUpdateTime,
-    organizationConfigRuleStatus_errorMessage,
     organizationConfigRuleStatus_errorCode,
+    organizationConfigRuleStatus_errorMessage,
+    organizationConfigRuleStatus_lastUpdateTime,
     organizationConfigRuleStatus_organizationConfigRuleName,
     organizationConfigRuleStatus_organizationRuleStatus,
 
@@ -638,9 +638,9 @@ module Network.AWS.Config.Types
     -- * OrganizationConformancePackDetailedStatus
     OrganizationConformancePackDetailedStatus (..),
     newOrganizationConformancePackDetailedStatus,
-    organizationConformancePackDetailedStatus_lastUpdateTime,
-    organizationConformancePackDetailedStatus_errorMessage,
     organizationConformancePackDetailedStatus_errorCode,
+    organizationConformancePackDetailedStatus_errorMessage,
+    organizationConformancePackDetailedStatus_lastUpdateTime,
     organizationConformancePackDetailedStatus_accountId,
     organizationConformancePackDetailedStatus_conformancePackName,
     organizationConformancePackDetailedStatus_status,
@@ -648,35 +648,35 @@ module Network.AWS.Config.Types
     -- * OrganizationConformancePackStatus
     OrganizationConformancePackStatus (..),
     newOrganizationConformancePackStatus,
-    organizationConformancePackStatus_lastUpdateTime,
-    organizationConformancePackStatus_errorMessage,
     organizationConformancePackStatus_errorCode,
+    organizationConformancePackStatus_errorMessage,
+    organizationConformancePackStatus_lastUpdateTime,
     organizationConformancePackStatus_organizationConformancePackName,
     organizationConformancePackStatus_status,
 
     -- * OrganizationCustomRuleMetadata
     OrganizationCustomRuleMetadata (..),
     newOrganizationCustomRuleMetadata,
-    organizationCustomRuleMetadata_tagKeyScope,
-    organizationCustomRuleMetadata_maximumExecutionFrequency,
-    organizationCustomRuleMetadata_resourceIdScope,
     organizationCustomRuleMetadata_inputParameters,
-    organizationCustomRuleMetadata_description,
-    organizationCustomRuleMetadata_resourceTypesScope,
+    organizationCustomRuleMetadata_resourceIdScope,
     organizationCustomRuleMetadata_tagValueScope,
+    organizationCustomRuleMetadata_maximumExecutionFrequency,
+    organizationCustomRuleMetadata_tagKeyScope,
+    organizationCustomRuleMetadata_resourceTypesScope,
+    organizationCustomRuleMetadata_description,
     organizationCustomRuleMetadata_lambdaFunctionArn,
     organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes,
 
     -- * OrganizationManagedRuleMetadata
     OrganizationManagedRuleMetadata (..),
     newOrganizationManagedRuleMetadata,
-    organizationManagedRuleMetadata_tagKeyScope,
-    organizationManagedRuleMetadata_maximumExecutionFrequency,
-    organizationManagedRuleMetadata_resourceIdScope,
     organizationManagedRuleMetadata_inputParameters,
-    organizationManagedRuleMetadata_description,
-    organizationManagedRuleMetadata_resourceTypesScope,
+    organizationManagedRuleMetadata_resourceIdScope,
     organizationManagedRuleMetadata_tagValueScope,
+    organizationManagedRuleMetadata_maximumExecutionFrequency,
+    organizationManagedRuleMetadata_tagKeyScope,
+    organizationManagedRuleMetadata_resourceTypesScope,
+    organizationManagedRuleMetadata_description,
     organizationManagedRuleMetadata_ruleIdentifier,
 
     -- * OrganizationResourceDetailedStatusFilters
@@ -688,8 +688,8 @@ module Network.AWS.Config.Types
     -- * PendingAggregationRequest
     PendingAggregationRequest (..),
     newPendingAggregationRequest,
-    pendingAggregationRequest_requesterAwsRegion,
     pendingAggregationRequest_requesterAccountId,
+    pendingAggregationRequest_requesterAwsRegion,
 
     -- * QueryInfo
     QueryInfo (..),
@@ -700,29 +700,29 @@ module Network.AWS.Config.Types
     RecordingGroup (..),
     newRecordingGroup,
     recordingGroup_allSupported,
-    recordingGroup_resourceTypes,
     recordingGroup_includeGlobalResourceTypes,
+    recordingGroup_resourceTypes,
 
     -- * Relationship
     Relationship (..),
     newRelationship,
     relationship_resourceId,
     relationship_resourceType,
-    relationship_relationshipName,
     relationship_resourceName,
+    relationship_relationshipName,
 
     -- * RemediationConfiguration
     RemediationConfiguration (..),
     newRemediationConfiguration,
-    remediationConfiguration_executionControls,
-    remediationConfiguration_retryAttemptSeconds,
-    remediationConfiguration_targetVersion,
+    remediationConfiguration_resourceType,
     remediationConfiguration_arn,
     remediationConfiguration_automatic,
-    remediationConfiguration_resourceType,
     remediationConfiguration_createdByService,
-    remediationConfiguration_maximumAutomaticAttempts,
+    remediationConfiguration_retryAttemptSeconds,
+    remediationConfiguration_executionControls,
     remediationConfiguration_parameters,
+    remediationConfiguration_maximumAutomaticAttempts,
+    remediationConfiguration_targetVersion,
     remediationConfiguration_configRuleName,
     remediationConfiguration_targetType,
     remediationConfiguration_targetId,
@@ -730,8 +730,8 @@ module Network.AWS.Config.Types
     -- * RemediationException
     RemediationException (..),
     newRemediationException,
-    remediationException_expirationTime,
     remediationException_message,
+    remediationException_expirationTime,
     remediationException_configRuleName,
     remediationException_resourceType,
     remediationException_resourceId,
@@ -745,26 +745,26 @@ module Network.AWS.Config.Types
     -- * RemediationExecutionStatus
     RemediationExecutionStatus (..),
     newRemediationExecutionStatus,
-    remediationExecutionStatus_invocationTime,
-    remediationExecutionStatus_resourceKey,
     remediationExecutionStatus_state,
-    remediationExecutionStatus_stepDetails,
     remediationExecutionStatus_lastUpdatedTime,
+    remediationExecutionStatus_resourceKey,
+    remediationExecutionStatus_stepDetails,
+    remediationExecutionStatus_invocationTime,
 
     -- * RemediationExecutionStep
     RemediationExecutionStep (..),
     newRemediationExecutionStep,
-    remediationExecutionStep_stopTime,
+    remediationExecutionStep_state,
     remediationExecutionStep_startTime,
     remediationExecutionStep_name,
-    remediationExecutionStep_state,
+    remediationExecutionStep_stopTime,
     remediationExecutionStep_errorMessage,
 
     -- * RemediationParameterValue
     RemediationParameterValue (..),
     newRemediationParameterValue,
-    remediationParameterValue_resourceValue,
     remediationParameterValue_staticValue,
+    remediationParameterValue_resourceValue,
 
     -- * ResourceCount
     ResourceCount (..),
@@ -775,25 +775,25 @@ module Network.AWS.Config.Types
     -- * ResourceCountFilters
     ResourceCountFilters (..),
     newResourceCountFilters,
-    resourceCountFilters_accountId,
     resourceCountFilters_resourceType,
+    resourceCountFilters_accountId,
     resourceCountFilters_region,
 
     -- * ResourceFilters
     ResourceFilters (..),
     newResourceFilters,
     resourceFilters_resourceId,
+    resourceFilters_resourceName,
     resourceFilters_accountId,
     resourceFilters_region,
-    resourceFilters_resourceName,
 
     -- * ResourceIdentifier
     ResourceIdentifier (..),
     newResourceIdentifier,
     resourceIdentifier_resourceId,
     resourceIdentifier_resourceType,
-    resourceIdentifier_resourceDeletionTime,
     resourceIdentifier_resourceName,
+    resourceIdentifier_resourceDeletionTime,
 
     -- * ResourceKey
     ResourceKey (..),
@@ -815,10 +815,10 @@ module Network.AWS.Config.Types
     -- * Scope
     Scope (..),
     newScope,
+    scope_complianceResourceTypes,
+    scope_complianceResourceId,
     scope_tagValue,
     scope_tagKey,
-    scope_complianceResourceId,
-    scope_complianceResourceTypes,
 
     -- * Source
     Source (..),
@@ -830,15 +830,15 @@ module Network.AWS.Config.Types
     -- * SourceDetail
     SourceDetail (..),
     newSourceDetail,
-    sourceDetail_eventSource,
-    sourceDetail_maximumExecutionFrequency,
     sourceDetail_messageType,
+    sourceDetail_maximumExecutionFrequency,
+    sourceDetail_eventSource,
 
     -- * SsmControls
     SsmControls (..),
     newSsmControls,
-    ssmControls_errorPercentage,
     ssmControls_concurrentExecutionRatePercentage,
+    ssmControls_errorPercentage,
 
     -- * StaticValue
     StaticValue (..),
@@ -848,16 +848,16 @@ module Network.AWS.Config.Types
     -- * StatusDetailFilters
     StatusDetailFilters (..),
     newStatusDetailFilters,
-    statusDetailFilters_accountId,
     statusDetailFilters_memberAccountRuleStatus,
+    statusDetailFilters_accountId,
 
     -- * StoredQuery
     StoredQuery (..),
     newStoredQuery,
-    storedQuery_queryArn,
     storedQuery_queryId,
-    storedQuery_description,
+    storedQuery_queryArn,
     storedQuery_expression,
+    storedQuery_description,
     storedQuery_queryName,
 
     -- * StoredQueryMetadata
@@ -871,8 +871,8 @@ module Network.AWS.Config.Types
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
   )
 where
 
@@ -1021,37 +1021,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -1064,22 +1041,45 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | You have specified a retention configuration that does not exist.
-_NoSuchRetentionConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchRetentionConfigurationException =
+-- | You specified an Config rule without a remediation configuration.
+_NoSuchRemediationConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchRemediationConfigurationException =
   Core._MatchServiceError
     defaultService
-    "NoSuchRetentionConfigurationException"
+    "NoSuchRemediationConfigurationException"
 
--- | One or more Config rules in the request are invalid. Verify that the
--- rule names are correct and try again.
-_NoSuchConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchConfigRuleException =
+-- | The specified time range is not valid. The earlier time is not
+-- chronologically before the later time.
+_InvalidTimeRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidTimeRangeException =
   Core._MatchServiceError
     defaultService
-    "NoSuchConfigRuleException"
+    "InvalidTimeRangeException"
 
 -- | Config organization conformance pack that you passed in the filter does
 -- not exist.
@@ -1091,6 +1091,22 @@ _NoSuchOrganizationConformancePackException =
   Core._MatchServiceError
     defaultService
     "NoSuchOrganizationConformancePackException"
+
+-- | The specified Amazon SNS topic does not exist.
+_InvalidSNSTopicARNException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSNSTopicARNException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSNSTopicARNException"
+
+-- | Config throws an exception if the recording group does not contain a
+-- valid list of resource types. Invalid values might also be incorrectly
+-- formatted.
+_InvalidRecordingGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRecordingGroupException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRecordingGroupException"
 
 -- | The syntax of the query is incorrect.
 _InvalidExpressionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1106,131 +1122,20 @@ _NoAvailableOrganizationException =
     defaultService
     "NoAvailableOrganizationException"
 
--- | You specified one or more organization config rules that do not exist.
-_NoSuchOrganizationConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchOrganizationConfigRuleException =
+-- | The requested action is not valid.
+--
+-- For PutStoredQuery, you will see this exception if there are missing
+-- required fields or if the input value fails the validation, or if you
+-- are trying to create more than 300 queries.
+--
+-- For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see
+-- this exception if there are missing required fields or if the input
+-- value fails the validation.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "NoSuchOrganizationConfigRuleException"
-
--- | The specified @ResultToken@ is invalid.
-_InvalidResultTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidResultTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidResultTokenException"
-
--- | Config throws an exception if the recording group does not contain a
--- valid list of resource types. Invalid values might also be incorrectly
--- formatted.
-_InvalidRecordingGroupException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRecordingGroupException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRecordingGroupException"
-
--- | The specified Amazon S3 key prefix is not valid.
-_InvalidS3KeyPrefixException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidS3KeyPrefixException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidS3KeyPrefixException"
-
--- | You have reached the limit of the number of tags you can use. You have
--- more than 50 tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | You have reached the limit of the number of delivery channels you can
--- create.
-_MaxNumberOfDeliveryChannelsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxNumberOfDeliveryChannelsExceededException =
-  Core._MatchServiceError
-    defaultService
-    "MaxNumberOfDeliveryChannelsExceededException"
-
--- | The specified delivery channel name is not valid.
-_InvalidDeliveryChannelNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeliveryChannelNameException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidDeliveryChannelNameException"
-
--- | You have provided a configuration recorder name that is not valid.
-_InvalidConfigurationRecorderNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidConfigurationRecorderNameException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidConfigurationRecorderNameException"
-
--- | There is no configuration recorder running.
-_NoRunningConfigurationRecorderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoRunningConfigurationRecorderException =
-  Core._MatchServiceError
-    defaultService
-    "NoRunningConfigurationRecorderException"
-
--- | There is no delivery channel available to record configurations.
-_NoAvailableDeliveryChannelException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoAvailableDeliveryChannelException =
-  Core._MatchServiceError
-    defaultService
-    "NoAvailableDeliveryChannelException"
-
--- | You have specified a template that is not valid or supported.
-_ConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConformancePackTemplateValidationException =
-  Core._MatchServiceError
-    defaultService
-    "ConformancePackTemplateValidationException"
-
--- | You cannot delete the delivery channel you specified because the
--- configuration recorder is running.
-_LastDeliveryChannelDeleteFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LastDeliveryChannelDeleteFailedException =
-  Core._MatchServiceError
-    defaultService
-    "LastDeliveryChannelDeleteFailedException"
-
--- | You have reached the limit (6) of the number of conformance packs in an
--- account (6 conformance pack with 25 Config rules per pack).
-_MaxNumberOfConformancePacksExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxNumberOfConformancePacksExceededException =
-  Core._MatchServiceError
-    defaultService
-    "MaxNumberOfConformancePacksExceededException"
-
--- | The configuration item size is outside the allowable range.
-_OversizedConfigurationItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OversizedConfigurationItemException =
-  Core._MatchServiceError
-    defaultService
-    "OversizedConfigurationItemException"
-
--- | You have specified a configuration aggregator that does not exist.
-_NoSuchConfigurationAggregatorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchConfigurationAggregatorException =
-  Core._MatchServiceError
-    defaultService
-    "NoSuchConfigurationAggregatorException"
-
--- | You have provided a null or empty role ARN.
-_InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRoleException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRoleException"
-
--- | The specified next token is invalid. Specify the @nextToken@ string that
--- was returned in the previous response to get the next page of results.
-_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextTokenException"
+    "ValidationException"
 
 -- | For @PutConfigurationAggregator@ API, you can see this exception for the
 -- following reasons:
@@ -1262,136 +1167,63 @@ _OrganizationAccessDeniedException =
     defaultService
     "OrganizationAccessDeniedException"
 
--- | You specified one or more conformance packs that do not exist.
-_NoSuchConformancePackException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchConformancePackException =
+-- | You have specified a configuration aggregator that does not exist.
+_NoSuchConfigurationAggregatorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchConfigurationAggregatorException =
   Core._MatchServiceError
     defaultService
-    "NoSuchConformancePackException"
+    "NoSuchConfigurationAggregatorException"
 
--- | The specified Amazon SNS topic does not exist.
-_InvalidSNSTopicARNException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSNSTopicARNException =
+-- | You have provided a null or empty role ARN.
+_InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRoleException =
   Core._MatchServiceError
     defaultService
-    "InvalidSNSTopicARNException"
+    "InvalidRoleException"
 
--- | You specified an Config rule without a remediation configuration.
-_NoSuchRemediationConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchRemediationConfigurationException =
+-- | The configuration item size is outside the allowable range.
+_OversizedConfigurationItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OversizedConfigurationItemException =
   Core._MatchServiceError
     defaultService
-    "NoSuchRemediationConfigurationException"
+    "OversizedConfigurationItemException"
 
--- | One or more of the specified parameters are invalid. Verify that your
--- parameters are valid and try again.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+-- | Two users are trying to modify the same query at the same time. Wait for
+-- a moment and try again.
+_ResourceConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValueException"
+    "ResourceConcurrentModificationException"
 
--- | The specified time range is not valid. The earlier time is not
--- chronologically before the later time.
-_InvalidTimeRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidTimeRangeException =
+-- | You cannot delete the delivery channel you specified because the
+-- configuration recorder is running.
+_LastDeliveryChannelDeleteFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LastDeliveryChannelDeleteFailedException =
   Core._MatchServiceError
     defaultService
-    "InvalidTimeRangeException"
+    "LastDeliveryChannelDeleteFailedException"
 
--- | Config rule that you passed in the filter does not exist.
-_NoSuchConfigRuleInConformancePackException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchConfigRuleInConformancePackException =
+-- | You have specified a template that is not valid or supported.
+_ConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConformancePackTemplateValidationException =
   Core._MatchServiceError
     defaultService
-    "NoSuchConfigRuleInConformancePackException"
+    "ConformancePackTemplateValidationException"
 
--- | The requested action is not valid.
---
--- For PutStoredQuery, you will see this exception if there are missing
--- required fields or if the input value fails the validation, or if you
--- are trying to create more than 300 queries.
---
--- For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see
--- this exception if there are missing required fields or if the input
--- value fails the validation.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | You tried to delete a remediation exception that does not exist.
+_NoSuchRemediationExceptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchRemediationExceptionException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
+    "NoSuchRemediationExceptionException"
 
--- | You have specified a delivery channel that does not exist.
-_NoSuchDeliveryChannelException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchDeliveryChannelException =
+-- | The specified limit is outside the allowable range.
+_InvalidLimitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidLimitException =
   Core._MatchServiceError
     defaultService
-    "NoSuchDeliveryChannelException"
-
--- | The specified Amazon KMS Key ARN is not valid.
-_InvalidS3KmsKeyArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidS3KmsKeyArnException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidS3KmsKeyArnException"
-
--- | For @StartConfigRulesEvaluation@ API, this exception is thrown if an
--- evaluation is in progress or if you call the StartConfigRulesEvaluation
--- API more than once per minute.
---
--- For @PutConfigurationAggregator@ API, this exception is thrown if the
--- number of accounts and aggregators exceeds the limit.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
--- | You see this exception in the following cases:
---
--- -   For DeleteConfigRule, Config is deleting this rule. Try your request
---     again later.
---
--- -   For DeleteConfigRule, the rule is deleting your evaluation results.
---     Try your request again later.
---
--- -   For DeleteConfigRule, a remediation action is associated with the
---     rule and Config cannot delete this rule. Delete the remediation
---     action associated with the rule before deleting the rule and try
---     your request again later.
---
--- -   For PutConfigOrganizationRule, organization config rule deletion is
---     in progress. Try your request again later.
---
--- -   For DeleteOrganizationConfigRule, organization config rule creation
---     is in progress. Try your request again later.
---
--- -   For PutConformancePack and PutOrganizationConformancePack, a
---     conformance pack creation, update, and deletion is in progress. Try
---     your request again later.
---
--- -   For DeleteConformancePack, a conformance pack creation, update, and
---     deletion is in progress. Try your request again later.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-
--- | You have specified a configuration recorder that does not exist.
-_NoSuchConfigurationRecorderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchConfigurationRecorderException =
-  Core._MatchServiceError
-    defaultService
-    "NoSuchConfigurationRecorderException"
-
--- | You have reached the limit of the number of organization config rules
--- you can create.
-_MaxNumberOfOrganizationConfigRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxNumberOfOrganizationConfigRulesExceededException =
-  Core._MatchServiceError
-    defaultService
-    "MaxNumberOfOrganizationConfigRulesExceededException"
+    "InvalidLimitException"
 
 -- | You have reached the limit (6) of the number of organization conformance
 -- packs in an account (6 conformance pack with 25 Config rules per pack
@@ -1402,95 +1234,93 @@ _MaxNumberOfOrganizationConformancePacksExceededException =
     defaultService
     "MaxNumberOfOrganizationConformancePacksExceededException"
 
--- | You have specified a resource that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The specified delivery channel name is not valid.
+_InvalidDeliveryChannelNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeliveryChannelNameException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
+    "InvalidDeliveryChannelNameException"
 
--- | Your Amazon S3 bucket policy does not permit Config to write to it.
-_InsufficientDeliveryPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InsufficientDeliveryPolicyException =
+-- | You have reached the limit of the number of tags you can use. You have
+-- more than 50 tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
   Core._MatchServiceError
     defaultService
-    "InsufficientDeliveryPolicyException"
+    "TooManyTagsException"
 
--- | The specified limit is outside the allowable range.
-_InvalidLimitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidLimitException =
+-- | The specified Amazon KMS Key ARN is not valid.
+_InvalidS3KmsKeyArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3KmsKeyArnException =
   Core._MatchServiceError
     defaultService
-    "InvalidLimitException"
+    "InvalidS3KmsKeyArnException"
 
--- | You have specified a template that is not valid or supported.
-_OrganizationConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationConformancePackTemplateValidationException =
+-- | One or more of the specified parameters are invalid. Verify that your
+-- parameters are valid and try again.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
-    "OrganizationConformancePackTemplateValidationException"
+    "InvalidParameterValueException"
 
--- | You have reached the limit of the number of recorders you can create.
-_MaxNumberOfConfigurationRecordersExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxNumberOfConfigurationRecordersExceededException =
+-- | The specified @ResultToken@ is invalid.
+_InvalidResultTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidResultTokenException =
   Core._MatchServiceError
     defaultService
-    "MaxNumberOfConfigurationRecordersExceededException"
+    "InvalidResultTokenException"
 
--- | You tried to delete a remediation exception that does not exist.
-_NoSuchRemediationExceptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchRemediationExceptionException =
+-- | Config rule that you passed in the filter does not exist.
+_NoSuchConfigRuleInConformancePackException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchConfigRuleInConformancePackException =
   Core._MatchServiceError
     defaultService
-    "NoSuchRemediationExceptionException"
+    "NoSuchConfigRuleInConformancePackException"
 
--- | Two users are trying to modify the same query at the same time. Wait for
--- a moment and try again.
-_ResourceConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConcurrentModificationException =
+-- | You specified one or more organization config rules that do not exist.
+_NoSuchOrganizationConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchOrganizationConfigRuleException =
   Core._MatchServiceError
     defaultService
-    "ResourceConcurrentModificationException"
+    "NoSuchOrganizationConfigRuleException"
 
--- | Failed to add the retention configuration because a retention
--- configuration with that name already exists.
-_MaxNumberOfRetentionConfigurationsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxNumberOfRetentionConfigurationsExceededException =
+-- | You have specified a delivery channel that does not exist.
+_NoSuchDeliveryChannelException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchDeliveryChannelException =
   Core._MatchServiceError
     defaultService
-    "MaxNumberOfRetentionConfigurationsExceededException"
+    "NoSuchDeliveryChannelException"
 
--- | The specified Amazon S3 bucket does not exist.
-_NoSuchBucketException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchBucketException =
+-- | One or more Config rules in the request are invalid. Verify that the
+-- rule names are correct and try again.
+_NoSuchConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchConfigRuleException =
   Core._MatchServiceError
     defaultService
-    "NoSuchBucketException"
+    "NoSuchConfigRuleException"
 
--- | You have reached the limit (100,000) of active custom resource types in
--- your account. Delete unused resources using @DeleteResourceConfig@.
-_MaxActiveResourcesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxActiveResourcesExceededException =
+-- | You specified one or more conformance packs that do not exist.
+_NoSuchConformancePackException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchConformancePackException =
   Core._MatchServiceError
     defaultService
-    "MaxActiveResourcesExceededException"
+    "NoSuchConformancePackException"
 
--- | There are no configuration recorders available to provide the role
--- needed to describe your resources. Create a configuration recorder.
-_NoAvailableConfigurationRecorderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoAvailableConfigurationRecorderException =
+-- | You have specified a retention configuration that does not exist.
+_NoSuchRetentionConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchRetentionConfigurationException =
   Core._MatchServiceError
     defaultService
-    "NoAvailableConfigurationRecorderException"
+    "NoSuchRetentionConfigurationException"
 
--- | Failed to add the Config rule because the account already contains the
--- maximum number of 150 rules. Consider deleting any deactivated rules
--- before you add new rules.
-_MaxNumberOfConfigRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MaxNumberOfConfigRulesExceededException =
+-- | Remediation action is in progress. You can either cancel execution in
+-- Amazon Web Services Systems Manager or wait and try again later.
+_RemediationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RemediationInProgressException =
   Core._MatchServiceError
     defaultService
-    "MaxNumberOfConfigRulesExceededException"
+    "RemediationInProgressException"
 
 -- | Config resource cannot be created because your organization does not
 -- have all features enabled.
@@ -1534,10 +1364,180 @@ _ResourceNotDiscoveredException =
     defaultService
     "ResourceNotDiscoveredException"
 
--- | Remediation action is in progress. You can either cancel execution in
--- Amazon Web Services Systems Manager or wait and try again later.
-_RemediationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RemediationInProgressException =
+-- | The specified next token is invalid. Specify the @nextToken@ string that
+-- was returned in the previous response to get the next page of results.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
-    "RemediationInProgressException"
+    "InvalidNextTokenException"
+
+-- | Failed to add the retention configuration because a retention
+-- configuration with that name already exists.
+_MaxNumberOfRetentionConfigurationsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxNumberOfRetentionConfigurationsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxNumberOfRetentionConfigurationsExceededException"
+
+-- | You have reached the limit (6) of the number of conformance packs in an
+-- account (6 conformance pack with 25 Config rules per pack).
+_MaxNumberOfConformancePacksExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxNumberOfConformancePacksExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxNumberOfConformancePacksExceededException"
+
+-- | Failed to add the Config rule because the account already contains the
+-- maximum number of 150 rules. Consider deleting any deactivated rules
+-- before you add new rules.
+_MaxNumberOfConfigRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxNumberOfConfigRulesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxNumberOfConfigRulesExceededException"
+
+-- | There are no configuration recorders available to provide the role
+-- needed to describe your resources. Create a configuration recorder.
+_NoAvailableConfigurationRecorderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoAvailableConfigurationRecorderException =
+  Core._MatchServiceError
+    defaultService
+    "NoAvailableConfigurationRecorderException"
+
+-- | The specified Amazon S3 bucket does not exist.
+_NoSuchBucketException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchBucketException =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchBucketException"
+
+-- | You have reached the limit (100,000) of active custom resource types in
+-- your account. Delete unused resources using @DeleteResourceConfig@.
+_MaxActiveResourcesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxActiveResourcesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxActiveResourcesExceededException"
+
+-- | There is no delivery channel available to record configurations.
+_NoAvailableDeliveryChannelException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoAvailableDeliveryChannelException =
+  Core._MatchServiceError
+    defaultService
+    "NoAvailableDeliveryChannelException"
+
+-- | You have specified a template that is not valid or supported.
+_OrganizationConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationConformancePackTemplateValidationException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationConformancePackTemplateValidationException"
+
+-- | You have provided a configuration recorder name that is not valid.
+_InvalidConfigurationRecorderNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationRecorderNameException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConfigurationRecorderNameException"
+
+-- | There is no configuration recorder running.
+_NoRunningConfigurationRecorderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoRunningConfigurationRecorderException =
+  Core._MatchServiceError
+    defaultService
+    "NoRunningConfigurationRecorderException"
+
+-- | You have reached the limit of the number of recorders you can create.
+_MaxNumberOfConfigurationRecordersExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxNumberOfConfigurationRecordersExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxNumberOfConfigurationRecordersExceededException"
+
+-- | Your Amazon S3 bucket policy does not permit Config to write to it.
+_InsufficientDeliveryPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InsufficientDeliveryPolicyException =
+  Core._MatchServiceError
+    defaultService
+    "InsufficientDeliveryPolicyException"
+
+-- | You have reached the limit of the number of delivery channels you can
+-- create.
+_MaxNumberOfDeliveryChannelsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxNumberOfDeliveryChannelsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxNumberOfDeliveryChannelsExceededException"
+
+-- | You have reached the limit of the number of organization config rules
+-- you can create.
+_MaxNumberOfOrganizationConfigRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxNumberOfOrganizationConfigRulesExceededException =
+  Core._MatchServiceError
+    defaultService
+    "MaxNumberOfOrganizationConfigRulesExceededException"
+
+-- | You have specified a resource that does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | You have specified a configuration recorder that does not exist.
+_NoSuchConfigurationRecorderException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchConfigurationRecorderException =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchConfigurationRecorderException"
+
+-- | The specified Amazon S3 key prefix is not valid.
+_InvalidS3KeyPrefixException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidS3KeyPrefixException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidS3KeyPrefixException"
+
+-- | For @StartConfigRulesEvaluation@ API, this exception is thrown if an
+-- evaluation is in progress or if you call the StartConfigRulesEvaluation
+-- API more than once per minute.
+--
+-- For @PutConfigurationAggregator@ API, this exception is thrown if the
+-- number of accounts and aggregators exceeds the limit.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+
+-- | You see this exception in the following cases:
+--
+-- -   For DeleteConfigRule, Config is deleting this rule. Try your request
+--     again later.
+--
+-- -   For DeleteConfigRule, the rule is deleting your evaluation results.
+--     Try your request again later.
+--
+-- -   For DeleteConfigRule, a remediation action is associated with the
+--     rule and Config cannot delete this rule. Delete the remediation
+--     action associated with the rule before deleting the rule and try
+--     your request again later.
+--
+-- -   For PutConfigOrganizationRule, organization config rule deletion is
+--     in progress. Try your request again later.
+--
+-- -   For DeleteOrganizationConfigRule, organization config rule creation
+--     is in progress. Try your request again later.
+--
+-- -   For PutConformancePack and PutOrganizationConformancePack, a
+--     conformance pack creation, update, and deletion is in progress. Try
+--     your request again later.
+--
+-- -   For DeleteConformancePack, a conformance pack creation, update, and
+--     deletion is in progress. Try your request again later.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"

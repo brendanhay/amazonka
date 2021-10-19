@@ -38,8 +38,8 @@ module Network.AWS.ElastiCache.BatchStopUpdateAction
     newUpdateActionResultsMessage,
 
     -- * Response Lenses
-    updateActionResultsMessage_processedUpdateActions,
     updateActionResultsMessage_unprocessedUpdateActions,
+    updateActionResultsMessage_processedUpdateActions,
   )
 where
 
@@ -88,11 +88,11 @@ newBatchStopUpdateAction pServiceUpdateName_ =
 
 -- | The cache cluster IDs
 batchStopUpdateAction_cacheClusterIds :: Lens.Lens' BatchStopUpdateAction (Prelude.Maybe [Prelude.Text])
-batchStopUpdateAction_cacheClusterIds = Lens.lens (\BatchStopUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchStopUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchStopUpdateAction) Prelude.. Lens.mapping Lens._Coerce
+batchStopUpdateAction_cacheClusterIds = Lens.lens (\BatchStopUpdateAction' {cacheClusterIds} -> cacheClusterIds) (\s@BatchStopUpdateAction' {} a -> s {cacheClusterIds = a} :: BatchStopUpdateAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The replication group IDs
 batchStopUpdateAction_replicationGroupIds :: Lens.Lens' BatchStopUpdateAction (Prelude.Maybe [Prelude.Text])
-batchStopUpdateAction_replicationGroupIds = Lens.lens (\BatchStopUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchStopUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchStopUpdateAction) Prelude.. Lens.mapping Lens._Coerce
+batchStopUpdateAction_replicationGroupIds = Lens.lens (\BatchStopUpdateAction' {replicationGroupIds} -> replicationGroupIds) (\s@BatchStopUpdateAction' {} a -> s {replicationGroupIds = a} :: BatchStopUpdateAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the service update
 batchStopUpdateAction_serviceUpdateName :: Lens.Lens' BatchStopUpdateAction Prelude.Text

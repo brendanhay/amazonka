@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContactList' smart constructor.
 data ContactList = ContactList'
-  { -- | A timestamp noting the last time the contact list was updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The name of the contact list.
-    contactListName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the contact list.
+    contactListName :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp noting the last time the contact list was updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,24 @@ data ContactList = ContactList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdatedTimestamp', 'contactList_lastUpdatedTimestamp' - A timestamp noting the last time the contact list was updated.
---
 -- 'contactListName', 'contactList_contactListName' - The name of the contact list.
+--
+-- 'lastUpdatedTimestamp', 'contactList_lastUpdatedTimestamp' - A timestamp noting the last time the contact list was updated.
 newContactList ::
   ContactList
 newContactList =
   ContactList'
-    { lastUpdatedTimestamp =
-        Prelude.Nothing,
-      contactListName = Prelude.Nothing
+    { contactListName = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing
     }
-
--- | A timestamp noting the last time the contact list was updated.
-contactList_lastUpdatedTimestamp :: Lens.Lens' ContactList (Prelude.Maybe Prelude.UTCTime)
-contactList_lastUpdatedTimestamp = Lens.lens (\ContactList' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ContactList' {} a -> s {lastUpdatedTimestamp = a} :: ContactList) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the contact list.
 contactList_contactListName :: Lens.Lens' ContactList (Prelude.Maybe Prelude.Text)
 contactList_contactListName = Lens.lens (\ContactList' {contactListName} -> contactListName) (\s@ContactList' {} a -> s {contactListName = a} :: ContactList)
+
+-- | A timestamp noting the last time the contact list was updated.
+contactList_lastUpdatedTimestamp :: Lens.Lens' ContactList (Prelude.Maybe Prelude.UTCTime)
+contactList_lastUpdatedTimestamp = Lens.lens (\ContactList' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ContactList' {} a -> s {lastUpdatedTimestamp = a} :: ContactList) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ContactList where
   parseJSON =
@@ -69,8 +68,8 @@ instance Core.FromJSON ContactList where
       "ContactList"
       ( \x ->
           ContactList'
-            Prelude.<$> (x Core..:? "LastUpdatedTimestamp")
-            Prelude.<*> (x Core..:? "ContactListName")
+            Prelude.<$> (x Core..:? "ContactListName")
+            Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
       )
 
 instance Prelude.Hashable ContactList

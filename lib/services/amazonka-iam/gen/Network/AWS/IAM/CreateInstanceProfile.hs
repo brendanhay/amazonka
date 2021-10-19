@@ -37,8 +37,8 @@ module Network.AWS.IAM.CreateInstanceProfile
     newCreateInstanceProfile,
 
     -- * Request Lenses
-    createInstanceProfile_tags,
     createInstanceProfile_path,
+    createInstanceProfile_tags,
     createInstanceProfile_instanceProfileName,
 
     -- * Destructuring the Response
@@ -60,17 +60,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-  { -- | A list of tags that you want to attach to the newly created IAM instance
-    -- profile. Each tag consists of a key name and an associated value. For
-    -- more information about tagging, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
-    -- in the /IAM User Guide/.
-    --
-    -- If any one of the tags is invalid or if you exceed the allowed maximum
-    -- number of tags, then the entire request fails and the resource is not
-    -- created.
-    tags :: Prelude.Maybe [Tag],
-    -- | The path to the instance profile. For more information about paths, see
+  { -- | The path to the instance profile. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
     --
@@ -85,6 +75,16 @@ data CreateInstanceProfile = CreateInstanceProfile'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     path :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags that you want to attach to the newly created IAM instance
+    -- profile. Each tag consists of a key name and an associated value. For
+    -- more information about tagging, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+    -- in the /IAM User Guide/.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed maximum
+    -- number of tags, then the entire request fails and the resource is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the instance profile to create.
     --
     -- This parameter allows (through its
@@ -103,16 +103,6 @@ data CreateInstanceProfile = CreateInstanceProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createInstanceProfile_tags' - A list of tags that you want to attach to the newly created IAM instance
--- profile. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
---
 -- 'path', 'createInstanceProfile_path' - The path to the instance profile. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /IAM User Guide/.
@@ -128,6 +118,16 @@ data CreateInstanceProfile = CreateInstanceProfile'
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
 --
+-- 'tags', 'createInstanceProfile_tags' - A list of tags that you want to attach to the newly created IAM instance
+-- profile. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+--
 -- 'instanceProfileName', 'createInstanceProfile_instanceProfileName' - The name of the instance profile to create.
 --
 -- This parameter allows (through its
@@ -140,22 +140,10 @@ newCreateInstanceProfile ::
   CreateInstanceProfile
 newCreateInstanceProfile pInstanceProfileName_ =
   CreateInstanceProfile'
-    { tags = Prelude.Nothing,
-      path = Prelude.Nothing,
+    { path = Prelude.Nothing,
+      tags = Prelude.Nothing,
       instanceProfileName = pInstanceProfileName_
     }
-
--- | A list of tags that you want to attach to the newly created IAM instance
--- profile. Each tag consists of a key name and an associated value. For
--- more information about tagging, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
--- in the /IAM User Guide/.
---
--- If any one of the tags is invalid or if you exceed the allowed maximum
--- number of tags, then the entire request fails and the resource is not
--- created.
-createInstanceProfile_tags :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe [Tag])
-createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) (\s@CreateInstanceProfile' {} a -> s {tags = a} :: CreateInstanceProfile) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The path to the instance profile. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -173,6 +161,18 @@ createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) 
 -- and lowercased letters.
 createInstanceProfile_path :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Text)
 createInstanceProfile_path = Lens.lens (\CreateInstanceProfile' {path} -> path) (\s@CreateInstanceProfile' {} a -> s {path = a} :: CreateInstanceProfile)
+
+-- | A list of tags that you want to attach to the newly created IAM instance
+-- profile. Each tag consists of a key name and an associated value. For
+-- more information about tagging, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
+-- in the /IAM User Guide/.
+--
+-- If any one of the tags is invalid or if you exceed the allowed maximum
+-- number of tags, then the entire request fails and the resource is not
+-- created.
+createInstanceProfile_tags :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe [Tag])
+createInstanceProfile_tags = Lens.lens (\CreateInstanceProfile' {tags} -> tags) (\s@CreateInstanceProfile' {} a -> s {tags = a} :: CreateInstanceProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the instance profile to create.
 --
@@ -214,10 +214,10 @@ instance Core.ToQuery CreateInstanceProfile where
           Core.=: ("CreateInstanceProfile" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "Path" Core.=: path,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
-        "Path" Core.=: path,
         "InstanceProfileName" Core.=: instanceProfileName
       ]
 

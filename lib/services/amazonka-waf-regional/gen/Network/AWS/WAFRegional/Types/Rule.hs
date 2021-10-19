@@ -144,7 +144,7 @@ rule_ruleId = Lens.lens (\Rule' {ruleId} -> ruleId) (\s@Rule' {} a -> s {ruleId 
 -- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
 -- include in a @Rule@.
 rule_predicates :: Lens.Lens' Rule [Predicate]
-rule_predicates = Lens.lens (\Rule' {predicates} -> predicates) (\s@Rule' {} a -> s {predicates = a} :: Rule) Prelude.. Lens._Coerce
+rule_predicates = Lens.lens (\Rule' {predicates} -> predicates) (\s@Rule' {} a -> s {predicates = a} :: Rule) Prelude.. Lens.coerced
 
 instance Core.FromJSON Rule where
   parseJSON =

@@ -87,7 +87,7 @@ newUpdateCallAnalyticsCategory pCategoryName_ pRules_ =
   UpdateCallAnalyticsCategory'
     { categoryName =
         pCategoryName_,
-      rules = Lens._Coerce Lens.# pRules_
+      rules = Lens.coerced Lens.# pRules_
     }
 
 -- | The name of the analytics category to update. The name is case
@@ -100,7 +100,7 @@ updateCallAnalyticsCategory_categoryName = Lens.lens (\UpdateCallAnalyticsCatego
 -- | The rules used for the updated analytics category. The rules that you
 -- provide in this field replace the ones that are currently being used.
 updateCallAnalyticsCategory_rules :: Lens.Lens' UpdateCallAnalyticsCategory (Prelude.NonEmpty Rule)
-updateCallAnalyticsCategory_rules = Lens.lens (\UpdateCallAnalyticsCategory' {rules} -> rules) (\s@UpdateCallAnalyticsCategory' {} a -> s {rules = a} :: UpdateCallAnalyticsCategory) Prelude.. Lens._Coerce
+updateCallAnalyticsCategory_rules = Lens.lens (\UpdateCallAnalyticsCategory' {rules} -> rules) (\s@UpdateCallAnalyticsCategory' {} a -> s {rules = a} :: UpdateCallAnalyticsCategory) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateCallAnalyticsCategory where
   type

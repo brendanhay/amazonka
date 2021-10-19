@@ -49,7 +49,7 @@ newNodegroupHealth =
 
 -- | Any issues that are associated with the node group.
 nodegroupHealth_issues :: Lens.Lens' NodegroupHealth (Prelude.Maybe [Issue])
-nodegroupHealth_issues = Lens.lens (\NodegroupHealth' {issues} -> issues) (\s@NodegroupHealth' {} a -> s {issues = a} :: NodegroupHealth) Prelude.. Lens.mapping Lens._Coerce
+nodegroupHealth_issues = Lens.lens (\NodegroupHealth' {issues} -> issues) (\s@NodegroupHealth' {} a -> s {issues = a} :: NodegroupHealth) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON NodegroupHealth where
   parseJSON =

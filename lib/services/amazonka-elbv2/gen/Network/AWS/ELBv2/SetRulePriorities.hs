@@ -73,7 +73,7 @@ newSetRulePriorities =
 
 -- | The rule priorities.
 setRulePriorities_rulePriorities :: Lens.Lens' SetRulePriorities [RulePriorityPair]
-setRulePriorities_rulePriorities = Lens.lens (\SetRulePriorities' {rulePriorities} -> rulePriorities) (\s@SetRulePriorities' {} a -> s {rulePriorities = a} :: SetRulePriorities) Prelude.. Lens._Coerce
+setRulePriorities_rulePriorities = Lens.lens (\SetRulePriorities' {rulePriorities} -> rulePriorities) (\s@SetRulePriorities' {} a -> s {rulePriorities = a} :: SetRulePriorities) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetRulePriorities where
   type
@@ -144,7 +144,7 @@ newSetRulePrioritiesResponse pHttpStatus_ =
 
 -- | Information about the rules.
 setRulePrioritiesResponse_rules :: Lens.Lens' SetRulePrioritiesResponse (Prelude.Maybe [Rule])
-setRulePrioritiesResponse_rules = Lens.lens (\SetRulePrioritiesResponse' {rules} -> rules) (\s@SetRulePrioritiesResponse' {} a -> s {rules = a} :: SetRulePrioritiesResponse) Prelude.. Lens.mapping Lens._Coerce
+setRulePrioritiesResponse_rules = Lens.lens (\SetRulePrioritiesResponse' {rules} -> rules) (\s@SetRulePrioritiesResponse' {} a -> s {rules = a} :: SetRulePrioritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 setRulePrioritiesResponse_httpStatus :: Lens.Lens' SetRulePrioritiesResponse Prelude.Int

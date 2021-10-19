@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBackendServerDescription' smart constructor.
 data BackendServerDescription = BackendServerDescription'
-  { -- | The port on which the EC2 instance is listening.
-    instancePort :: Prelude.Maybe Prelude.Natural,
-    -- | The names of the policies enabled for the EC2 instance.
-    policyNames :: Prelude.Maybe [Prelude.Text]
+  { -- | The names of the policies enabled for the EC2 instance.
+    policyNames :: Prelude.Maybe [Prelude.Text],
+    -- | The port on which the EC2 instance is listening.
+    instancePort :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,33 +43,33 @@ data BackendServerDescription = BackendServerDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instancePort', 'backendServerDescription_instancePort' - The port on which the EC2 instance is listening.
---
 -- 'policyNames', 'backendServerDescription_policyNames' - The names of the policies enabled for the EC2 instance.
+--
+-- 'instancePort', 'backendServerDescription_instancePort' - The port on which the EC2 instance is listening.
 newBackendServerDescription ::
   BackendServerDescription
 newBackendServerDescription =
   BackendServerDescription'
-    { instancePort =
+    { policyNames =
         Prelude.Nothing,
-      policyNames = Prelude.Nothing
+      instancePort = Prelude.Nothing
     }
+
+-- | The names of the policies enabled for the EC2 instance.
+backendServerDescription_policyNames :: Lens.Lens' BackendServerDescription (Prelude.Maybe [Prelude.Text])
+backendServerDescription_policyNames = Lens.lens (\BackendServerDescription' {policyNames} -> policyNames) (\s@BackendServerDescription' {} a -> s {policyNames = a} :: BackendServerDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The port on which the EC2 instance is listening.
 backendServerDescription_instancePort :: Lens.Lens' BackendServerDescription (Prelude.Maybe Prelude.Natural)
 backendServerDescription_instancePort = Lens.lens (\BackendServerDescription' {instancePort} -> instancePort) (\s@BackendServerDescription' {} a -> s {instancePort = a} :: BackendServerDescription)
 
--- | The names of the policies enabled for the EC2 instance.
-backendServerDescription_policyNames :: Lens.Lens' BackendServerDescription (Prelude.Maybe [Prelude.Text])
-backendServerDescription_policyNames = Lens.lens (\BackendServerDescription' {policyNames} -> policyNames) (\s@BackendServerDescription' {} a -> s {policyNames = a} :: BackendServerDescription) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromXML BackendServerDescription where
   parseXML x =
     BackendServerDescription'
-      Prelude.<$> (x Core..@? "InstancePort")
-      Prelude.<*> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "PolicyNames" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "InstancePort")
 
 instance Prelude.Hashable BackendServerDescription
 

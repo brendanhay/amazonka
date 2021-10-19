@@ -68,7 +68,7 @@ directoryVpcSettings_vpcId = Lens.lens (\DirectoryVpcSettings' {vpcId} -> vpcId)
 -- subnets must be in different Availability Zones. Directory Service
 -- creates a directory server and a DNS server in each of these subnets.
 directoryVpcSettings_subnetIds :: Lens.Lens' DirectoryVpcSettings [Prelude.Text]
-directoryVpcSettings_subnetIds = Lens.lens (\DirectoryVpcSettings' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettings' {} a -> s {subnetIds = a} :: DirectoryVpcSettings) Prelude.. Lens._Coerce
+directoryVpcSettings_subnetIds = Lens.lens (\DirectoryVpcSettings' {subnetIds} -> subnetIds) (\s@DirectoryVpcSettings' {} a -> s {subnetIds = a} :: DirectoryVpcSettings) Prelude.. Lens.coerced
 
 instance Core.FromJSON DirectoryVpcSettings where
   parseJSON =

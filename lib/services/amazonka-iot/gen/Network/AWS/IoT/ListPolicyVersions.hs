@@ -143,7 +143,7 @@ newListPolicyVersionsResponse pHttpStatus_ =
 
 -- | The policy versions.
 listPolicyVersionsResponse_policyVersions :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe [PolicyVersion])
-listPolicyVersionsResponse_policyVersions = Lens.lens (\ListPolicyVersionsResponse' {policyVersions} -> policyVersions) (\s@ListPolicyVersionsResponse' {} a -> s {policyVersions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listPolicyVersionsResponse_policyVersions = Lens.lens (\ListPolicyVersionsResponse' {policyVersions} -> policyVersions) (\s@ListPolicyVersionsResponse' {} a -> s {policyVersions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Prelude.Int

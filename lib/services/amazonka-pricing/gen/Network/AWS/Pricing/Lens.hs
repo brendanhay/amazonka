@@ -14,35 +14,35 @@
 module Network.AWS.Pricing.Lens
   ( -- * Operations
 
-    -- ** GetProducts
-    getProducts_nextToken,
-    getProducts_maxResults,
-    getProducts_serviceCode,
-    getProducts_formatVersion,
-    getProducts_filters,
-    getProductsResponse_priceList,
-    getProductsResponse_nextToken,
-    getProductsResponse_formatVersion,
-    getProductsResponse_httpStatus,
-
-    -- ** DescribeServices
-    describeServices_nextToken,
-    describeServices_maxResults,
-    describeServices_serviceCode,
-    describeServices_formatVersion,
-    describeServicesResponse_nextToken,
-    describeServicesResponse_services,
-    describeServicesResponse_formatVersion,
-    describeServicesResponse_httpStatus,
-
     -- ** GetAttributeValues
     getAttributeValues_nextToken,
     getAttributeValues_maxResults,
     getAttributeValues_serviceCode,
     getAttributeValues_attributeName,
-    getAttributeValuesResponse_nextToken,
     getAttributeValuesResponse_attributeValues,
+    getAttributeValuesResponse_nextToken,
     getAttributeValuesResponse_httpStatus,
+
+    -- ** DescribeServices
+    describeServices_formatVersion,
+    describeServices_nextToken,
+    describeServices_serviceCode,
+    describeServices_maxResults,
+    describeServicesResponse_formatVersion,
+    describeServicesResponse_nextToken,
+    describeServicesResponse_services,
+    describeServicesResponse_httpStatus,
+
+    -- ** GetProducts
+    getProducts_filters,
+    getProducts_formatVersion,
+    getProducts_nextToken,
+    getProducts_serviceCode,
+    getProducts_maxResults,
+    getProductsResponse_formatVersion,
+    getProductsResponse_nextToken,
+    getProductsResponse_priceList,
+    getProductsResponse_httpStatus,
 
     -- * Types
 
@@ -55,8 +55,8 @@ module Network.AWS.Pricing.Lens
     filter_value,
 
     -- ** PricingService
-    pricingService_serviceCode,
     pricingService_attributeNames,
+    pricingService_serviceCode,
   )
 where
 

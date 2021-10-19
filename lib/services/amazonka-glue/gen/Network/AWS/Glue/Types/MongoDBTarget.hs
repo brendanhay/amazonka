@@ -27,7 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMongoDBTarget' smart constructor.
 data MongoDBTarget = MongoDBTarget'
-  { -- | The name of the connection to use to connect to the Amazon DocumentDB or
+  { -- | The path of the Amazon DocumentDB or MongoDB target
+    -- (database\/collection).
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connection to use to connect to the Amazon DocumentDB or
     -- MongoDB target.
     connectionName :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to scan all the records, or to sample rows from the
@@ -37,10 +40,7 @@ data MongoDBTarget = MongoDBTarget'
     -- A value of @true@ means to scan all records, while a value of @false@
     -- means to sample the records. If no value is specified, the value
     -- defaults to @true@.
-    scanAll :: Prelude.Maybe Prelude.Bool,
-    -- | The path of the Amazon DocumentDB or MongoDB target
-    -- (database\/collection).
-    path :: Prelude.Maybe Prelude.Text
+    scanAll :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data MongoDBTarget = MongoDBTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'path', 'mongoDBTarget_path' - The path of the Amazon DocumentDB or MongoDB target
+-- (database\/collection).
+--
 -- 'connectionName', 'mongoDBTarget_connectionName' - The name of the connection to use to connect to the Amazon DocumentDB or
 -- MongoDB target.
 --
@@ -62,17 +65,19 @@ data MongoDBTarget = MongoDBTarget'
 -- A value of @true@ means to scan all records, while a value of @false@
 -- means to sample the records. If no value is specified, the value
 -- defaults to @true@.
---
--- 'path', 'mongoDBTarget_path' - The path of the Amazon DocumentDB or MongoDB target
--- (database\/collection).
 newMongoDBTarget ::
   MongoDBTarget
 newMongoDBTarget =
   MongoDBTarget'
-    { connectionName = Prelude.Nothing,
-      scanAll = Prelude.Nothing,
-      path = Prelude.Nothing
+    { path = Prelude.Nothing,
+      connectionName = Prelude.Nothing,
+      scanAll = Prelude.Nothing
     }
+
+-- | The path of the Amazon DocumentDB or MongoDB target
+-- (database\/collection).
+mongoDBTarget_path :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Text)
+mongoDBTarget_path = Lens.lens (\MongoDBTarget' {path} -> path) (\s@MongoDBTarget' {} a -> s {path = a} :: MongoDBTarget)
 
 -- | The name of the connection to use to connect to the Amazon DocumentDB or
 -- MongoDB target.
@@ -89,20 +94,15 @@ mongoDBTarget_connectionName = Lens.lens (\MongoDBTarget' {connectionName} -> co
 mongoDBTarget_scanAll :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Bool)
 mongoDBTarget_scanAll = Lens.lens (\MongoDBTarget' {scanAll} -> scanAll) (\s@MongoDBTarget' {} a -> s {scanAll = a} :: MongoDBTarget)
 
--- | The path of the Amazon DocumentDB or MongoDB target
--- (database\/collection).
-mongoDBTarget_path :: Lens.Lens' MongoDBTarget (Prelude.Maybe Prelude.Text)
-mongoDBTarget_path = Lens.lens (\MongoDBTarget' {path} -> path) (\s@MongoDBTarget' {} a -> s {path = a} :: MongoDBTarget)
-
 instance Core.FromJSON MongoDBTarget where
   parseJSON =
     Core.withObject
       "MongoDBTarget"
       ( \x ->
           MongoDBTarget'
-            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "ConnectionName")
             Prelude.<*> (x Core..:? "ScanAll")
-            Prelude.<*> (x Core..:? "Path")
       )
 
 instance Prelude.Hashable MongoDBTarget
@@ -113,9 +113,9 @@ instance Core.ToJSON MongoDBTarget where
   toJSON MongoDBTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectionName" Core..=)
+          [ ("Path" Core..=) Prelude.<$> path,
+            ("ConnectionName" Core..=)
               Prelude.<$> connectionName,
-            ("ScanAll" Core..=) Prelude.<$> scanAll,
-            ("Path" Core..=) Prelude.<$> path
+            ("ScanAll" Core..=) Prelude.<$> scanAll
           ]
       )

@@ -543,7 +543,7 @@ updateStack_defaultAvailabilityZone = Lens.lens (\UpdateStack' {defaultAvailabil
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
 updateStack_attributes :: Lens.Lens' UpdateStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-updateStack_attributes = Lens.lens (\UpdateStack' {attributes} -> attributes) (\s@UpdateStack' {} a -> s {attributes = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
+updateStack_attributes = Lens.lens (\UpdateStack' {attributes} -> attributes) (\s@UpdateStack' {} a -> s {attributes = a} :: UpdateStack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack\'s new name.
 updateStack_name :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)

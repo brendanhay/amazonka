@@ -28,11 +28,11 @@ module Network.AWS.SESv2.ListSuppressedDestinations
     newListSuppressedDestinations,
 
     -- * Request Lenses
-    listSuppressedDestinations_nextToken,
-    listSuppressedDestinations_startDate,
-    listSuppressedDestinations_pageSize,
     listSuppressedDestinations_reasons,
     listSuppressedDestinations_endDate,
+    listSuppressedDestinations_startDate,
+    listSuppressedDestinations_nextToken,
+    listSuppressedDestinations_pageSize,
 
     -- * Destructuring the Response
     ListSuppressedDestinationsResponse (..),
@@ -57,24 +57,24 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newListSuppressedDestinations' smart constructor.
 data ListSuppressedDestinations = ListSuppressedDestinations'
-  { -- | A token returned from a previous call to @ListSuppressedDestinations@ to
-    -- indicate the position in the list of suppressed email addresses.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Used to filter the list of suppressed email destinations so that it only
-    -- includes addresses that were added to the list after a specific date.
-    -- The date that you specify should be in Unix time format.
-    startDate :: Prelude.Maybe Core.POSIX,
-    -- | The number of results to show in a single call to
-    -- @ListSuppressedDestinations@. If the number of results is larger than
-    -- the number you specified in this parameter, then the response includes a
-    -- @NextToken@ element, which you can use to obtain additional results.
-    pageSize :: Prelude.Maybe Prelude.Int,
-    -- | The factors that caused the email address to be added to .
+  { -- | The factors that caused the email address to be added to .
     reasons :: Prelude.Maybe [SuppressionListReason],
     -- | Used to filter the list of suppressed email destinations so that it only
     -- includes addresses that were added to the list before a specific date.
     -- The date that you specify should be in Unix time format.
-    endDate :: Prelude.Maybe Core.POSIX
+    endDate :: Prelude.Maybe Core.POSIX,
+    -- | Used to filter the list of suppressed email destinations so that it only
+    -- includes addresses that were added to the list after a specific date.
+    -- The date that you specify should be in Unix time format.
+    startDate :: Prelude.Maybe Core.POSIX,
+    -- | A token returned from a previous call to @ListSuppressedDestinations@ to
+    -- indicate the position in the list of suppressed email addresses.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of results to show in a single call to
+    -- @ListSuppressedDestinations@. If the number of results is larger than
+    -- the number you specified in this parameter, then the response includes a
+    -- @NextToken@ element, which you can use to obtain additional results.
+    pageSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,39 +86,44 @@ data ListSuppressedDestinations = ListSuppressedDestinations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSuppressedDestinations_nextToken' - A token returned from a previous call to @ListSuppressedDestinations@ to
--- indicate the position in the list of suppressed email addresses.
---
--- 'startDate', 'listSuppressedDestinations_startDate' - Used to filter the list of suppressed email destinations so that it only
--- includes addresses that were added to the list after a specific date.
--- The date that you specify should be in Unix time format.
---
--- 'pageSize', 'listSuppressedDestinations_pageSize' - The number of results to show in a single call to
--- @ListSuppressedDestinations@. If the number of results is larger than
--- the number you specified in this parameter, then the response includes a
--- @NextToken@ element, which you can use to obtain additional results.
---
 -- 'reasons', 'listSuppressedDestinations_reasons' - The factors that caused the email address to be added to .
 --
 -- 'endDate', 'listSuppressedDestinations_endDate' - Used to filter the list of suppressed email destinations so that it only
 -- includes addresses that were added to the list before a specific date.
 -- The date that you specify should be in Unix time format.
+--
+-- 'startDate', 'listSuppressedDestinations_startDate' - Used to filter the list of suppressed email destinations so that it only
+-- includes addresses that were added to the list after a specific date.
+-- The date that you specify should be in Unix time format.
+--
+-- 'nextToken', 'listSuppressedDestinations_nextToken' - A token returned from a previous call to @ListSuppressedDestinations@ to
+-- indicate the position in the list of suppressed email addresses.
+--
+-- 'pageSize', 'listSuppressedDestinations_pageSize' - The number of results to show in a single call to
+-- @ListSuppressedDestinations@. If the number of results is larger than
+-- the number you specified in this parameter, then the response includes a
+-- @NextToken@ element, which you can use to obtain additional results.
 newListSuppressedDestinations ::
   ListSuppressedDestinations
 newListSuppressedDestinations =
   ListSuppressedDestinations'
-    { nextToken =
+    { reasons =
         Prelude.Nothing,
+      endDate = Prelude.Nothing,
       startDate = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      reasons = Prelude.Nothing,
-      endDate = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
 
--- | A token returned from a previous call to @ListSuppressedDestinations@ to
--- indicate the position in the list of suppressed email addresses.
-listSuppressedDestinations_nextToken :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.Text)
-listSuppressedDestinations_nextToken = Lens.lens (\ListSuppressedDestinations' {nextToken} -> nextToken) (\s@ListSuppressedDestinations' {} a -> s {nextToken = a} :: ListSuppressedDestinations)
+-- | The factors that caused the email address to be added to .
+listSuppressedDestinations_reasons :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe [SuppressionListReason])
+listSuppressedDestinations_reasons = Lens.lens (\ListSuppressedDestinations' {reasons} -> reasons) (\s@ListSuppressedDestinations' {} a -> s {reasons = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Lens.coerced
+
+-- | Used to filter the list of suppressed email destinations so that it only
+-- includes addresses that were added to the list before a specific date.
+-- The date that you specify should be in Unix time format.
+listSuppressedDestinations_endDate :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.UTCTime)
+listSuppressedDestinations_endDate = Lens.lens (\ListSuppressedDestinations' {endDate} -> endDate) (\s@ListSuppressedDestinations' {} a -> s {endDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Core._Time
 
 -- | Used to filter the list of suppressed email destinations so that it only
 -- includes addresses that were added to the list after a specific date.
@@ -126,22 +131,17 @@ listSuppressedDestinations_nextToken = Lens.lens (\ListSuppressedDestinations' {
 listSuppressedDestinations_startDate :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.UTCTime)
 listSuppressedDestinations_startDate = Lens.lens (\ListSuppressedDestinations' {startDate} -> startDate) (\s@ListSuppressedDestinations' {} a -> s {startDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Core._Time
 
+-- | A token returned from a previous call to @ListSuppressedDestinations@ to
+-- indicate the position in the list of suppressed email addresses.
+listSuppressedDestinations_nextToken :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.Text)
+listSuppressedDestinations_nextToken = Lens.lens (\ListSuppressedDestinations' {nextToken} -> nextToken) (\s@ListSuppressedDestinations' {} a -> s {nextToken = a} :: ListSuppressedDestinations)
+
 -- | The number of results to show in a single call to
 -- @ListSuppressedDestinations@. If the number of results is larger than
 -- the number you specified in this parameter, then the response includes a
 -- @NextToken@ element, which you can use to obtain additional results.
 listSuppressedDestinations_pageSize :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.Int)
 listSuppressedDestinations_pageSize = Lens.lens (\ListSuppressedDestinations' {pageSize} -> pageSize) (\s@ListSuppressedDestinations' {} a -> s {pageSize = a} :: ListSuppressedDestinations)
-
--- | The factors that caused the email address to be added to .
-listSuppressedDestinations_reasons :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe [SuppressionListReason])
-listSuppressedDestinations_reasons = Lens.lens (\ListSuppressedDestinations' {reasons} -> reasons) (\s@ListSuppressedDestinations' {} a -> s {reasons = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Lens._Coerce
-
--- | Used to filter the list of suppressed email destinations so that it only
--- includes addresses that were added to the list before a specific date.
--- The date that you specify should be in Unix time format.
-listSuppressedDestinations_endDate :: Lens.Lens' ListSuppressedDestinations (Prelude.Maybe Prelude.UTCTime)
-listSuppressedDestinations_endDate = Lens.lens (\ListSuppressedDestinations' {endDate} -> endDate) (\s@ListSuppressedDestinations' {} a -> s {endDate = a} :: ListSuppressedDestinations) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSRequest ListSuppressedDestinations where
   type
@@ -181,13 +181,13 @@ instance Core.ToPath ListSuppressedDestinations where
 instance Core.ToQuery ListSuppressedDestinations where
   toQuery ListSuppressedDestinations' {..} =
     Prelude.mconcat
-      [ "NextToken" Core.=: nextToken,
-        "StartDate" Core.=: startDate,
-        "PageSize" Core.=: pageSize,
-        "Reason"
+      [ "Reason"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> reasons),
-        "EndDate" Core.=: endDate
+        "EndDate" Core.=: endDate,
+        "StartDate" Core.=: startDate,
+        "NextToken" Core.=: nextToken,
+        "PageSize" Core.=: pageSize
       ]
 
 -- | A list of suppressed email addresses.
@@ -247,7 +247,7 @@ listSuppressedDestinationsResponse_nextToken = Lens.lens (\ListSuppressedDestina
 -- | A list of summaries, each containing a summary for a suppressed email
 -- destination.
 listSuppressedDestinationsResponse_suppressedDestinationSummaries :: Lens.Lens' ListSuppressedDestinationsResponse (Prelude.Maybe [SuppressedDestinationSummary])
-listSuppressedDestinationsResponse_suppressedDestinationSummaries = Lens.lens (\ListSuppressedDestinationsResponse' {suppressedDestinationSummaries} -> suppressedDestinationSummaries) (\s@ListSuppressedDestinationsResponse' {} a -> s {suppressedDestinationSummaries = a} :: ListSuppressedDestinationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listSuppressedDestinationsResponse_suppressedDestinationSummaries = Lens.lens (\ListSuppressedDestinationsResponse' {suppressedDestinationSummaries} -> suppressedDestinationSummaries) (\s@ListSuppressedDestinationsResponse' {} a -> s {suppressedDestinationSummaries = a} :: ListSuppressedDestinationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSuppressedDestinationsResponse_httpStatus :: Lens.Lens' ListSuppressedDestinationsResponse Prelude.Int

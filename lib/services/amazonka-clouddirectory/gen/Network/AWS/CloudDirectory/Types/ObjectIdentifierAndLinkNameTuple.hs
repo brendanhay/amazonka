@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newObjectIdentifierAndLinkNameTuple' smart constructor.
 data ObjectIdentifierAndLinkNameTuple = ObjectIdentifierAndLinkNameTuple'
-  { -- | The name of the link between the parent and the child object.
-    linkName :: Prelude.Maybe Prelude.Text,
-    -- | The ID that is associated with the object.
-    objectIdentifier :: Prelude.Maybe Prelude.Text
+  { -- | The ID that is associated with the object.
+    objectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the link between the parent and the child object.
+    linkName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ObjectIdentifierAndLinkNameTuple = ObjectIdentifierAndLinkNameTuple'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkName', 'objectIdentifierAndLinkNameTuple_linkName' - The name of the link between the parent and the child object.
---
 -- 'objectIdentifier', 'objectIdentifierAndLinkNameTuple_objectIdentifier' - The ID that is associated with the object.
+--
+-- 'linkName', 'objectIdentifierAndLinkNameTuple_linkName' - The name of the link between the parent and the child object.
 newObjectIdentifierAndLinkNameTuple ::
   ObjectIdentifierAndLinkNameTuple
 newObjectIdentifierAndLinkNameTuple =
   ObjectIdentifierAndLinkNameTuple'
-    { linkName =
+    { objectIdentifier =
         Prelude.Nothing,
-      objectIdentifier = Prelude.Nothing
+      linkName = Prelude.Nothing
     }
-
--- | The name of the link between the parent and the child object.
-objectIdentifierAndLinkNameTuple_linkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Prelude.Maybe Prelude.Text)
-objectIdentifierAndLinkNameTuple_linkName = Lens.lens (\ObjectIdentifierAndLinkNameTuple' {linkName} -> linkName) (\s@ObjectIdentifierAndLinkNameTuple' {} a -> s {linkName = a} :: ObjectIdentifierAndLinkNameTuple)
 
 -- | The ID that is associated with the object.
 objectIdentifierAndLinkNameTuple_objectIdentifier :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Prelude.Maybe Prelude.Text)
 objectIdentifierAndLinkNameTuple_objectIdentifier = Lens.lens (\ObjectIdentifierAndLinkNameTuple' {objectIdentifier} -> objectIdentifier) (\s@ObjectIdentifierAndLinkNameTuple' {} a -> s {objectIdentifier = a} :: ObjectIdentifierAndLinkNameTuple)
+
+-- | The name of the link between the parent and the child object.
+objectIdentifierAndLinkNameTuple_linkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Prelude.Maybe Prelude.Text)
+objectIdentifierAndLinkNameTuple_linkName = Lens.lens (\ObjectIdentifierAndLinkNameTuple' {linkName} -> linkName) (\s@ObjectIdentifierAndLinkNameTuple' {} a -> s {linkName = a} :: ObjectIdentifierAndLinkNameTuple)
 
 instance
   Core.FromJSON
@@ -71,8 +71,8 @@ instance
       "ObjectIdentifierAndLinkNameTuple"
       ( \x ->
           ObjectIdentifierAndLinkNameTuple'
-            Prelude.<$> (x Core..:? "LinkName")
-            Prelude.<*> (x Core..:? "ObjectIdentifier")
+            Prelude.<$> (x Core..:? "ObjectIdentifier")
+            Prelude.<*> (x Core..:? "LinkName")
       )
 
 instance

@@ -28,10 +28,10 @@ module Network.AWS.Lambda.UpdateAlias
     newUpdateAlias,
 
     -- * Request Lenses
-    updateAlias_revisionId,
     updateAlias_routingConfig,
     updateAlias_functionVersion,
     updateAlias_description,
+    updateAlias_revisionId,
     updateAlias_functionName,
     updateAlias_name,
 
@@ -40,12 +40,12 @@ module Network.AWS.Lambda.UpdateAlias
     newAliasConfiguration,
 
     -- * Response Lenses
-    aliasConfiguration_revisionId,
     aliasConfiguration_routingConfig,
-    aliasConfiguration_functionVersion,
     aliasConfiguration_name,
-    aliasConfiguration_description,
+    aliasConfiguration_functionVersion,
     aliasConfiguration_aliasArn,
+    aliasConfiguration_description,
+    aliasConfiguration_revisionId,
   )
 where
 
@@ -58,11 +58,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateAlias' smart constructor.
 data UpdateAlias = UpdateAlias'
-  { -- | Only update the alias if the revision ID matches the ID that\'s
-    -- specified. Use this option to avoid modifying an alias that has changed
-    -- since you last read it.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The
+  { -- | The
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
     -- of the alias.
     routingConfig :: Prelude.Maybe AliasRoutingConfiguration,
@@ -70,6 +66,10 @@ data UpdateAlias = UpdateAlias'
     functionVersion :: Prelude.Maybe Prelude.Text,
     -- | A description of the alias.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Only update the alias if the revision ID matches the ID that\'s
+    -- specified. Use this option to avoid modifying an alias that has changed
+    -- since you last read it.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -97,10 +97,6 @@ data UpdateAlias = UpdateAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'updateAlias_revisionId' - Only update the alias if the revision ID matches the ID that\'s
--- specified. Use this option to avoid modifying an alias that has changed
--- since you last read it.
---
 -- 'routingConfig', 'updateAlias_routingConfig' - The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
 -- of the alias.
@@ -108,6 +104,10 @@ data UpdateAlias = UpdateAlias'
 -- 'functionVersion', 'updateAlias_functionVersion' - The function version that the alias invokes.
 --
 -- 'description', 'updateAlias_description' - A description of the alias.
+--
+-- 'revisionId', 'updateAlias_revisionId' - Only update the alias if the revision ID matches the ID that\'s
+-- specified. Use this option to avoid modifying an alias that has changed
+-- since you last read it.
 --
 -- 'functionName', 'updateAlias_functionName' - The name of the Lambda function.
 --
@@ -132,19 +132,13 @@ newUpdateAlias ::
   UpdateAlias
 newUpdateAlias pFunctionName_ pName_ =
   UpdateAlias'
-    { revisionId = Prelude.Nothing,
-      routingConfig = Prelude.Nothing,
+    { routingConfig = Prelude.Nothing,
       functionVersion = Prelude.Nothing,
       description = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       functionName = pFunctionName_,
       name = pName_
     }
-
--- | Only update the alias if the revision ID matches the ID that\'s
--- specified. Use this option to avoid modifying an alias that has changed
--- since you last read it.
-updateAlias_revisionId :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
-updateAlias_revisionId = Lens.lens (\UpdateAlias' {revisionId} -> revisionId) (\s@UpdateAlias' {} a -> s {revisionId = a} :: UpdateAlias)
 
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing routing configuration>
@@ -159,6 +153,12 @@ updateAlias_functionVersion = Lens.lens (\UpdateAlias' {functionVersion} -> func
 -- | A description of the alias.
 updateAlias_description :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
 updateAlias_description = Lens.lens (\UpdateAlias' {description} -> description) (\s@UpdateAlias' {} a -> s {description = a} :: UpdateAlias)
+
+-- | Only update the alias if the revision ID matches the ID that\'s
+-- specified. Use this option to avoid modifying an alias that has changed
+-- since you last read it.
+updateAlias_revisionId :: Lens.Lens' UpdateAlias (Prelude.Maybe Prelude.Text)
+updateAlias_revisionId = Lens.lens (\UpdateAlias' {revisionId} -> revisionId) (\s@UpdateAlias' {} a -> s {revisionId = a} :: UpdateAlias)
 
 -- | The name of the Lambda function.
 --
@@ -198,11 +198,11 @@ instance Core.ToJSON UpdateAlias where
   toJSON UpdateAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RevisionId" Core..=) Prelude.<$> revisionId,
-            ("RoutingConfig" Core..=) Prelude.<$> routingConfig,
+          [ ("RoutingConfig" Core..=) Prelude.<$> routingConfig,
             ("FunctionVersion" Core..=)
               Prelude.<$> functionVersion,
-            ("Description" Core..=) Prelude.<$> description
+            ("Description" Core..=) Prelude.<$> description,
+            ("RevisionId" Core..=) Prelude.<$> revisionId
           ]
       )
 

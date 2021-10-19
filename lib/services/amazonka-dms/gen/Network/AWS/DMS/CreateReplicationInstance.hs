@@ -34,19 +34,19 @@ module Network.AWS.DMS.CreateReplicationInstance
     newCreateReplicationInstance,
 
     -- * Request Lenses
-    createReplicationInstance_replicationSubnetGroupIdentifier,
+    createReplicationInstance_engineVersion,
     createReplicationInstance_publiclyAccessible,
-    createReplicationInstance_multiAZ,
-    createReplicationInstance_vpcSecurityGroupIds,
+    createReplicationInstance_autoMinorVersionUpgrade,
+    createReplicationInstance_replicationSubnetGroupIdentifier,
+    createReplicationInstance_preferredMaintenanceWindow,
     createReplicationInstance_kmsKeyId,
     createReplicationInstance_availabilityZone,
-    createReplicationInstance_engineVersion,
-    createReplicationInstance_preferredMaintenanceWindow,
-    createReplicationInstance_tags,
-    createReplicationInstance_resourceIdentifier,
-    createReplicationInstance_dnsNameServers,
+    createReplicationInstance_vpcSecurityGroupIds,
+    createReplicationInstance_multiAZ,
     createReplicationInstance_allocatedStorage,
-    createReplicationInstance_autoMinorVersionUpgrade,
+    createReplicationInstance_dnsNameServers,
+    createReplicationInstance_resourceIdentifier,
+    createReplicationInstance_tags,
     createReplicationInstance_replicationInstanceIdentifier,
     createReplicationInstance_replicationInstanceClass,
 
@@ -71,21 +71,37 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateReplicationInstance' smart constructor.
 data CreateReplicationInstance = CreateReplicationInstance'
-  { -- | A subnet group to associate with the replication instance.
-    replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text,
+  { -- | The engine version number of the replication instance.
+    --
+    -- If an engine version number is not specified when a replication instance
+    -- is created, the default is the latest engine version available.
+    engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies the accessibility options for the replication instance. A
     -- value of @true@ represents an instance with a public IP address. A value
     -- of @false@ represents an instance with a private IP address. The default
     -- value is @true@.
     publiclyAccessible :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
-    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
-    -- set to @true@.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the VPC security group to be used with the replication
-    -- instance. The VPC security group must work with the VPC containing the
-    -- replication instance.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | A value that indicates whether minor engine upgrades are applied
+    -- automatically to the replication instance during the maintenance window.
+    -- This parameter defaults to @true@.
+    --
+    -- Default: @true@
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | A subnet group to associate with the replication instance.
+    replicationSubnetGroupIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The weekly time range during which system maintenance can occur, in
+    -- Universal Coordinated Time (UTC).
+    --
+    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    --
+    -- Default: A 30-minute window selected at random from an 8-hour block of
+    -- time per Amazon Web Services Region, occurring on a random day of the
+    -- week.
+    --
+    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+    --
+    -- Constraints: Minimum 30-minute window.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | An KMS key identifier that is used to encrypt the data on the
     -- replication instance.
     --
@@ -100,26 +116,24 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- The default value is a random, system-chosen Availability Zone in the
     -- endpoint\'s Amazon Web Services Region, for example: @us-east-1d@
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The engine version number of the replication instance.
-    --
-    -- If an engine version number is not specified when a replication instance
-    -- is created, the default is the latest engine version available.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The weekly time range during which system maintenance can occur, in
-    -- Universal Coordinated Time (UTC).
-    --
-    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
-    --
-    -- Default: A 30-minute window selected at random from an 8-hour block of
-    -- time per Amazon Web Services Region, occurring on a random day of the
-    -- week.
-    --
-    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
-    --
-    -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    -- | One or more tags to be assigned to the replication instance.
-    tags :: Prelude.Maybe [Tag],
+    -- | Specifies the VPC security group to be used with the replication
+    -- instance. The VPC security group must work with the VPC containing the
+    -- replication instance.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies whether the replication instance is a Multi-AZ deployment. You
+    -- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+    -- set to @true@.
+    multiAZ :: Prelude.Maybe Prelude.Bool,
+    -- | The amount of storage (in gigabytes) to be initially allocated for the
+    -- replication instance.
+    allocatedStorage :: Prelude.Maybe Prelude.Int,
+    -- | A list of custom DNS name servers supported for the replication instance
+    -- to access your on-premise source or target database. This list overrides
+    -- the default name servers supported by the replication instance. You can
+    -- specify a comma-separated list of internet addresses for up to four
+    -- on-premise DNS name servers. For example:
+    -- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
+    dnsNameServers :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the resource identifier at the end of the
     -- @EndpointArn@ response parameter that is returned in the created
     -- @Endpoint@ object. The value for this parameter can have up to 31
@@ -131,22 +145,8 @@ data CreateReplicationInstance = CreateReplicationInstance'
     -- specify a @ResourceIdentifier@ value, DMS generates a default identifier
     -- value for the end of @EndpointArn@.
     resourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A list of custom DNS name servers supported for the replication instance
-    -- to access your on-premise source or target database. This list overrides
-    -- the default name servers supported by the replication instance. You can
-    -- specify a comma-separated list of internet addresses for up to four
-    -- on-premise DNS name servers. For example:
-    -- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
-    dnsNameServers :: Prelude.Maybe Prelude.Text,
-    -- | The amount of storage (in gigabytes) to be initially allocated for the
-    -- replication instance.
-    allocatedStorage :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether minor engine upgrades are applied
-    -- automatically to the replication instance during the maintenance window.
-    -- This parameter defaults to @true@.
-    --
-    -- Default: @true@
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | One or more tags to be assigned to the replication instance.
+    tags :: Prelude.Maybe [Tag],
     -- | The replication instance identifier. This parameter is stored as a
     -- lowercase string.
     --
@@ -179,20 +179,36 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationSubnetGroupIdentifier', 'createReplicationInstance_replicationSubnetGroupIdentifier' - A subnet group to associate with the replication instance.
+-- 'engineVersion', 'createReplicationInstance_engineVersion' - The engine version number of the replication instance.
+--
+-- If an engine version number is not specified when a replication instance
+-- is created, the default is the latest engine version available.
 --
 -- 'publiclyAccessible', 'createReplicationInstance_publiclyAccessible' - Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
 -- of @false@ represents an instance with a private IP address. The default
 -- value is @true@.
 --
--- 'multiAZ', 'createReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
+-- 'autoMinorVersionUpgrade', 'createReplicationInstance_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
+-- automatically to the replication instance during the maintenance window.
+-- This parameter defaults to @true@.
 --
--- 'vpcSecurityGroupIds', 'createReplicationInstance_vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication
--- instance. The VPC security group must work with the VPC containing the
--- replication instance.
+-- Default: @true@
+--
+-- 'replicationSubnetGroupIdentifier', 'createReplicationInstance_replicationSubnetGroupIdentifier' - A subnet group to associate with the replication instance.
+--
+-- 'preferredMaintenanceWindow', 'createReplicationInstance_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per Amazon Web Services Region, occurring on a random day of the
+-- week.
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+--
+-- Constraints: Minimum 30-minute window.
 --
 -- 'kmsKeyId', 'createReplicationInstance_kmsKeyId' - An KMS key identifier that is used to encrypt the data on the
 -- replication instance.
@@ -208,25 +224,23 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- The default value is a random, system-chosen Availability Zone in the
 -- endpoint\'s Amazon Web Services Region, for example: @us-east-1d@
 --
--- 'engineVersion', 'createReplicationInstance_engineVersion' - The engine version number of the replication instance.
+-- 'vpcSecurityGroupIds', 'createReplicationInstance_vpcSecurityGroupIds' - Specifies the VPC security group to be used with the replication
+-- instance. The VPC security group must work with the VPC containing the
+-- replication instance.
 --
--- If an engine version number is not specified when a replication instance
--- is created, the default is the latest engine version available.
+-- 'multiAZ', 'createReplicationInstance_multiAZ' - Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
 --
--- 'preferredMaintenanceWindow', 'createReplicationInstance_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
+-- 'allocatedStorage', 'createReplicationInstance_allocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the
+-- replication instance.
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- Default: A 30-minute window selected at random from an 8-hour block of
--- time per Amazon Web Services Region, occurring on a random day of the
--- week.
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
---
--- Constraints: Minimum 30-minute window.
---
--- 'tags', 'createReplicationInstance_tags' - One or more tags to be assigned to the replication instance.
+-- 'dnsNameServers', 'createReplicationInstance_dnsNameServers' - A list of custom DNS name servers supported for the replication instance
+-- to access your on-premise source or target database. This list overrides
+-- the default name servers supported by the replication instance. You can
+-- specify a comma-separated list of internet addresses for up to four
+-- on-premise DNS name servers. For example:
+-- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
 --
 -- 'resourceIdentifier', 'createReplicationInstance_resourceIdentifier' - A friendly name for the resource identifier at the end of the
 -- @EndpointArn@ response parameter that is returned in the created
@@ -239,21 +253,7 @@ data CreateReplicationInstance = CreateReplicationInstance'
 -- specify a @ResourceIdentifier@ value, DMS generates a default identifier
 -- value for the end of @EndpointArn@.
 --
--- 'dnsNameServers', 'createReplicationInstance_dnsNameServers' - A list of custom DNS name servers supported for the replication instance
--- to access your on-premise source or target database. This list overrides
--- the default name servers supported by the replication instance. You can
--- specify a comma-separated list of internet addresses for up to four
--- on-premise DNS name servers. For example:
--- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
---
--- 'allocatedStorage', 'createReplicationInstance_allocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the
--- replication instance.
---
--- 'autoMinorVersionUpgrade', 'createReplicationInstance_autoMinorVersionUpgrade' - A value that indicates whether minor engine upgrades are applied
--- automatically to the replication instance during the maintenance window.
--- This parameter defaults to @true@.
---
--- Default: @true@
+-- 'tags', 'createReplicationInstance_tags' - One or more tags to be assigned to the replication instance.
 --
 -- 'replicationInstanceIdentifier', 'createReplicationInstance_replicationInstanceIdentifier' - The replication instance identifier. This parameter is stored as a
 -- lowercase string.
@@ -285,29 +285,33 @@ newCreateReplicationInstance
   pReplicationInstanceIdentifier_
   pReplicationInstanceClass_ =
     CreateReplicationInstance'
-      { replicationSubnetGroupIdentifier =
+      { engineVersion =
           Prelude.Nothing,
         publiclyAccessible = Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
+        autoMinorVersionUpgrade = Prelude.Nothing,
+        replicationSubnetGroupIdentifier =
+          Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
-        engineVersion = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        resourceIdentifier = Prelude.Nothing,
-        dnsNameServers = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
+        multiAZ = Prelude.Nothing,
         allocatedStorage = Prelude.Nothing,
-        autoMinorVersionUpgrade = Prelude.Nothing,
+        dnsNameServers = Prelude.Nothing,
+        resourceIdentifier = Prelude.Nothing,
+        tags = Prelude.Nothing,
         replicationInstanceIdentifier =
           pReplicationInstanceIdentifier_,
         replicationInstanceClass =
           pReplicationInstanceClass_
       }
 
--- | A subnet group to associate with the replication instance.
-createReplicationInstance_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
-createReplicationInstance_replicationSubnetGroupIdentifier = Lens.lens (\CreateReplicationInstance' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@CreateReplicationInstance' {} a -> s {replicationSubnetGroupIdentifier = a} :: CreateReplicationInstance)
+-- | The engine version number of the replication instance.
+--
+-- If an engine version number is not specified when a replication instance
+-- is created, the default is the latest engine version available.
+createReplicationInstance_engineVersion :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
+createReplicationInstance_engineVersion = Lens.lens (\CreateReplicationInstance' {engineVersion} -> engineVersion) (\s@CreateReplicationInstance' {} a -> s {engineVersion = a} :: CreateReplicationInstance)
 
 -- | Specifies the accessibility options for the replication instance. A
 -- value of @true@ represents an instance with a public IP address. A value
@@ -316,17 +320,32 @@ createReplicationInstance_replicationSubnetGroupIdentifier = Lens.lens (\CreateR
 createReplicationInstance_publiclyAccessible :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
 createReplicationInstance_publiclyAccessible = Lens.lens (\CreateReplicationInstance' {publiclyAccessible} -> publiclyAccessible) (\s@CreateReplicationInstance' {} a -> s {publiclyAccessible = a} :: CreateReplicationInstance)
 
--- | Specifies whether the replication instance is a Multi-AZ deployment. You
--- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
--- set to @true@.
-createReplicationInstance_multiAZ :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
-createReplicationInstance_multiAZ = Lens.lens (\CreateReplicationInstance' {multiAZ} -> multiAZ) (\s@CreateReplicationInstance' {} a -> s {multiAZ = a} :: CreateReplicationInstance)
+-- | A value that indicates whether minor engine upgrades are applied
+-- automatically to the replication instance during the maintenance window.
+-- This parameter defaults to @true@.
+--
+-- Default: @true@
+createReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
+createReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\CreateReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateReplicationInstance)
 
--- | Specifies the VPC security group to be used with the replication
--- instance. The VPC security group must work with the VPC containing the
--- replication instance.
-createReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Prelude.Text])
-createReplicationInstance_vpcSecurityGroupIds = Lens.lens (\CreateReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens._Coerce
+-- | A subnet group to associate with the replication instance.
+createReplicationInstance_replicationSubnetGroupIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
+createReplicationInstance_replicationSubnetGroupIdentifier = Lens.lens (\CreateReplicationInstance' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@CreateReplicationInstance' {} a -> s {replicationSubnetGroupIdentifier = a} :: CreateReplicationInstance)
+
+-- | The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per Amazon Web Services Region, occurring on a random day of the
+-- week.
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
+--
+-- Constraints: Minimum 30-minute window.
+createReplicationInstance_preferredMaintenanceWindow :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
+createReplicationInstance_preferredMaintenanceWindow = Lens.lens (\CreateReplicationInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateReplicationInstance' {} a -> s {preferredMaintenanceWindow = a} :: CreateReplicationInstance)
 
 -- | An KMS key identifier that is used to encrypt the data on the
 -- replication instance.
@@ -346,31 +365,31 @@ createReplicationInstance_kmsKeyId = Lens.lens (\CreateReplicationInstance' {kms
 createReplicationInstance_availabilityZone :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_availabilityZone = Lens.lens (\CreateReplicationInstance' {availabilityZone} -> availabilityZone) (\s@CreateReplicationInstance' {} a -> s {availabilityZone = a} :: CreateReplicationInstance)
 
--- | The engine version number of the replication instance.
---
--- If an engine version number is not specified when a replication instance
--- is created, the default is the latest engine version available.
-createReplicationInstance_engineVersion :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
-createReplicationInstance_engineVersion = Lens.lens (\CreateReplicationInstance' {engineVersion} -> engineVersion) (\s@CreateReplicationInstance' {} a -> s {engineVersion = a} :: CreateReplicationInstance)
+-- | Specifies the VPC security group to be used with the replication
+-- instance. The VPC security group must work with the VPC containing the
+-- replication instance.
+createReplicationInstance_vpcSecurityGroupIds :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Prelude.Text])
+createReplicationInstance_vpcSecurityGroupIds = Lens.lens (\CreateReplicationInstance' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateReplicationInstance' {} a -> s {vpcSecurityGroupIds = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- Default: A 30-minute window selected at random from an 8-hour block of
--- time per Amazon Web Services Region, occurring on a random day of the
--- week.
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
---
--- Constraints: Minimum 30-minute window.
-createReplicationInstance_preferredMaintenanceWindow :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
-createReplicationInstance_preferredMaintenanceWindow = Lens.lens (\CreateReplicationInstance' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateReplicationInstance' {} a -> s {preferredMaintenanceWindow = a} :: CreateReplicationInstance)
+-- | Specifies whether the replication instance is a Multi-AZ deployment. You
+-- can\'t set the @AvailabilityZone@ parameter if the Multi-AZ parameter is
+-- set to @true@.
+createReplicationInstance_multiAZ :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
+createReplicationInstance_multiAZ = Lens.lens (\CreateReplicationInstance' {multiAZ} -> multiAZ) (\s@CreateReplicationInstance' {} a -> s {multiAZ = a} :: CreateReplicationInstance)
 
--- | One or more tags to be assigned to the replication instance.
-createReplicationInstance_tags :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Tag])
-createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -> tags) (\s@CreateReplicationInstance' {} a -> s {tags = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens._Coerce
+-- | The amount of storage (in gigabytes) to be initially allocated for the
+-- replication instance.
+createReplicationInstance_allocatedStorage :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Int)
+createReplicationInstance_allocatedStorage = Lens.lens (\CreateReplicationInstance' {allocatedStorage} -> allocatedStorage) (\s@CreateReplicationInstance' {} a -> s {allocatedStorage = a} :: CreateReplicationInstance)
+
+-- | A list of custom DNS name servers supported for the replication instance
+-- to access your on-premise source or target database. This list overrides
+-- the default name servers supported by the replication instance. You can
+-- specify a comma-separated list of internet addresses for up to four
+-- on-premise DNS name servers. For example:
+-- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
+createReplicationInstance_dnsNameServers :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
+createReplicationInstance_dnsNameServers = Lens.lens (\CreateReplicationInstance' {dnsNameServers} -> dnsNameServers) (\s@CreateReplicationInstance' {} a -> s {dnsNameServers = a} :: CreateReplicationInstance)
 
 -- | A friendly name for the resource identifier at the end of the
 -- @EndpointArn@ response parameter that is returned in the created
@@ -385,27 +404,9 @@ createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -
 createReplicationInstance_resourceIdentifier :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
 createReplicationInstance_resourceIdentifier = Lens.lens (\CreateReplicationInstance' {resourceIdentifier} -> resourceIdentifier) (\s@CreateReplicationInstance' {} a -> s {resourceIdentifier = a} :: CreateReplicationInstance)
 
--- | A list of custom DNS name servers supported for the replication instance
--- to access your on-premise source or target database. This list overrides
--- the default name servers supported by the replication instance. You can
--- specify a comma-separated list of internet addresses for up to four
--- on-premise DNS name servers. For example:
--- @\"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4\"@
-createReplicationInstance_dnsNameServers :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Text)
-createReplicationInstance_dnsNameServers = Lens.lens (\CreateReplicationInstance' {dnsNameServers} -> dnsNameServers) (\s@CreateReplicationInstance' {} a -> s {dnsNameServers = a} :: CreateReplicationInstance)
-
--- | The amount of storage (in gigabytes) to be initially allocated for the
--- replication instance.
-createReplicationInstance_allocatedStorage :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Int)
-createReplicationInstance_allocatedStorage = Lens.lens (\CreateReplicationInstance' {allocatedStorage} -> allocatedStorage) (\s@CreateReplicationInstance' {} a -> s {allocatedStorage = a} :: CreateReplicationInstance)
-
--- | A value that indicates whether minor engine upgrades are applied
--- automatically to the replication instance during the maintenance window.
--- This parameter defaults to @true@.
---
--- Default: @true@
-createReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe Prelude.Bool)
-createReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\CreateReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateReplicationInstance)
+-- | One or more tags to be assigned to the replication instance.
+createReplicationInstance_tags :: Lens.Lens' CreateReplicationInstance (Prelude.Maybe [Tag])
+createReplicationInstance_tags = Lens.lens (\CreateReplicationInstance' {tags} -> tags) (\s@CreateReplicationInstance' {} a -> s {tags = a} :: CreateReplicationInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The replication instance identifier. This parameter is stored as a
 -- lowercase string.
@@ -468,28 +469,28 @@ instance Core.ToJSON CreateReplicationInstance where
   toJSON CreateReplicationInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReplicationSubnetGroupIdentifier" Core..=)
-              Prelude.<$> replicationSubnetGroupIdentifier,
+          [ ("EngineVersion" Core..=) Prelude.<$> engineVersion,
             ("PubliclyAccessible" Core..=)
               Prelude.<$> publiclyAccessible,
-            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
-            ("VpcSecurityGroupIds" Core..=)
-              Prelude.<$> vpcSecurityGroupIds,
+            ("AutoMinorVersionUpgrade" Core..=)
+              Prelude.<$> autoMinorVersionUpgrade,
+            ("ReplicationSubnetGroupIdentifier" Core..=)
+              Prelude.<$> replicationSubnetGroupIdentifier,
+            ("PreferredMaintenanceWindow" Core..=)
+              Prelude.<$> preferredMaintenanceWindow,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("AvailabilityZone" Core..=)
               Prelude.<$> availabilityZone,
-            ("EngineVersion" Core..=) Prelude.<$> engineVersion,
-            ("PreferredMaintenanceWindow" Core..=)
-              Prelude.<$> preferredMaintenanceWindow,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ResourceIdentifier" Core..=)
-              Prelude.<$> resourceIdentifier,
-            ("DnsNameServers" Core..=)
-              Prelude.<$> dnsNameServers,
+            ("VpcSecurityGroupIds" Core..=)
+              Prelude.<$> vpcSecurityGroupIds,
+            ("MultiAZ" Core..=) Prelude.<$> multiAZ,
             ("AllocatedStorage" Core..=)
               Prelude.<$> allocatedStorage,
-            ("AutoMinorVersionUpgrade" Core..=)
-              Prelude.<$> autoMinorVersionUpgrade,
+            ("DnsNameServers" Core..=)
+              Prelude.<$> dnsNameServers,
+            ("ResourceIdentifier" Core..=)
+              Prelude.<$> resourceIdentifier,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "ReplicationInstanceIdentifier"
                   Core..= replicationInstanceIdentifier

@@ -65,6 +65,8 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
     -- number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | A unique identifier for the matchmaking rule set
+    ruleSetName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift matchmaking rule set resource and
@@ -72,8 +74,6 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
     -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
     -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
     ruleSetArn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the matchmaking rule set
-    ruleSetName :: Prelude.Maybe Prelude.Text,
     -- | A collection of matchmaking rules, formatted as a JSON string. Comments
     -- are not allowed in JSON, but most elements support a description field.
     ruleSetBody :: Prelude.Text
@@ -92,14 +92,14 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
 -- number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
 --
+-- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for the matchmaking rule set
+--
 -- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift matchmaking rule set resource and
 -- uniquely identifies it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
---
--- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for the matchmaking rule set
 --
 -- 'ruleSetBody', 'matchmakingRuleSet_ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments
 -- are not allowed in JSON, but most elements support a description field.
@@ -110,8 +110,8 @@ newMatchmakingRuleSet ::
 newMatchmakingRuleSet pRuleSetBody_ =
   MatchmakingRuleSet'
     { creationTime = Prelude.Nothing,
-      ruleSetArn = Prelude.Nothing,
       ruleSetName = Prelude.Nothing,
+      ruleSetArn = Prelude.Nothing,
       ruleSetBody = pRuleSetBody_
     }
 
@@ -121,6 +121,10 @@ newMatchmakingRuleSet pRuleSetBody_ =
 matchmakingRuleSet_creationTime :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.UTCTime)
 matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime} -> creationTime) (\s@MatchmakingRuleSet' {} a -> s {creationTime = a} :: MatchmakingRuleSet) Prelude.. Lens.mapping Core._Time
 
+-- | A unique identifier for the matchmaking rule set
+matchmakingRuleSet_ruleSetName :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
+matchmakingRuleSet_ruleSetName = Lens.lens (\MatchmakingRuleSet' {ruleSetName} -> ruleSetName) (\s@MatchmakingRuleSet' {} a -> s {ruleSetName = a} :: MatchmakingRuleSet)
+
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift matchmaking rule set resource and
@@ -129,10 +133,6 @@ matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime}
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
 matchmakingRuleSet_ruleSetArn :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
 matchmakingRuleSet_ruleSetArn = Lens.lens (\MatchmakingRuleSet' {ruleSetArn} -> ruleSetArn) (\s@MatchmakingRuleSet' {} a -> s {ruleSetArn = a} :: MatchmakingRuleSet)
-
--- | A unique identifier for the matchmaking rule set
-matchmakingRuleSet_ruleSetName :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
-matchmakingRuleSet_ruleSetName = Lens.lens (\MatchmakingRuleSet' {ruleSetName} -> ruleSetName) (\s@MatchmakingRuleSet' {} a -> s {ruleSetName = a} :: MatchmakingRuleSet)
 
 -- | A collection of matchmaking rules, formatted as a JSON string. Comments
 -- are not allowed in JSON, but most elements support a description field.
@@ -146,8 +146,8 @@ instance Core.FromJSON MatchmakingRuleSet where
       ( \x ->
           MatchmakingRuleSet'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "RuleSetArn")
             Prelude.<*> (x Core..:? "RuleSetName")
+            Prelude.<*> (x Core..:? "RuleSetArn")
             Prelude.<*> (x Core..: "RuleSetBody")
       )
 

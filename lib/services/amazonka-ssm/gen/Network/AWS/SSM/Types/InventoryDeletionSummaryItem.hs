@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data InventoryDeletionSummaryItem = InventoryDeletionSummaryItem'
   { -- | The remaining number of items to delete.
     remainingCount :: Prelude.Maybe Prelude.Int,
-    -- | The inventory type version.
-    version :: Prelude.Maybe Prelude.Text,
     -- | A count of the number of deleted items.
-    count :: Prelude.Maybe Prelude.Int
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The inventory type version.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,30 +47,30 @@ data InventoryDeletionSummaryItem = InventoryDeletionSummaryItem'
 --
 -- 'remainingCount', 'inventoryDeletionSummaryItem_remainingCount' - The remaining number of items to delete.
 --
--- 'version', 'inventoryDeletionSummaryItem_version' - The inventory type version.
---
 -- 'count', 'inventoryDeletionSummaryItem_count' - A count of the number of deleted items.
+--
+-- 'version', 'inventoryDeletionSummaryItem_version' - The inventory type version.
 newInventoryDeletionSummaryItem ::
   InventoryDeletionSummaryItem
 newInventoryDeletionSummaryItem =
   InventoryDeletionSummaryItem'
     { remainingCount =
         Prelude.Nothing,
-      version = Prelude.Nothing,
-      count = Prelude.Nothing
+      count = Prelude.Nothing,
+      version = Prelude.Nothing
     }
 
 -- | The remaining number of items to delete.
 inventoryDeletionSummaryItem_remainingCount :: Lens.Lens' InventoryDeletionSummaryItem (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummaryItem_remainingCount = Lens.lens (\InventoryDeletionSummaryItem' {remainingCount} -> remainingCount) (\s@InventoryDeletionSummaryItem' {} a -> s {remainingCount = a} :: InventoryDeletionSummaryItem)
 
--- | The inventory type version.
-inventoryDeletionSummaryItem_version :: Lens.Lens' InventoryDeletionSummaryItem (Prelude.Maybe Prelude.Text)
-inventoryDeletionSummaryItem_version = Lens.lens (\InventoryDeletionSummaryItem' {version} -> version) (\s@InventoryDeletionSummaryItem' {} a -> s {version = a} :: InventoryDeletionSummaryItem)
-
 -- | A count of the number of deleted items.
 inventoryDeletionSummaryItem_count :: Lens.Lens' InventoryDeletionSummaryItem (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummaryItem_count = Lens.lens (\InventoryDeletionSummaryItem' {count} -> count) (\s@InventoryDeletionSummaryItem' {} a -> s {count = a} :: InventoryDeletionSummaryItem)
+
+-- | The inventory type version.
+inventoryDeletionSummaryItem_version :: Lens.Lens' InventoryDeletionSummaryItem (Prelude.Maybe Prelude.Text)
+inventoryDeletionSummaryItem_version = Lens.lens (\InventoryDeletionSummaryItem' {version} -> version) (\s@InventoryDeletionSummaryItem' {} a -> s {version = a} :: InventoryDeletionSummaryItem)
 
 instance Core.FromJSON InventoryDeletionSummaryItem where
   parseJSON =
@@ -79,8 +79,8 @@ instance Core.FromJSON InventoryDeletionSummaryItem where
       ( \x ->
           InventoryDeletionSummaryItem'
             Prelude.<$> (x Core..:? "RemainingCount")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "Count")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance

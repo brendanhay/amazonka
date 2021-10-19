@@ -37,8 +37,8 @@ module Network.AWS.Cloud9.ListEnvironments
     newListEnvironmentsResponse,
 
     -- * Response Lenses
-    listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_environmentIds,
+    listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListEnvironments where
     Response.receiveJSON
       ( \s h x ->
           ListEnvironmentsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "environmentIds" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "environmentIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -173,13 +173,13 @@ instance Core.ToQuery ListEnvironments where
 
 -- | /See:/ 'newListEnvironmentsResponse' smart constructor.
 data ListEnvironmentsResponse = ListEnvironmentsResponse'
-  { -- | If there are more than 25 items in the list, only the first 25 items are
+  { -- | The list of environment identifiers.
+    environmentIds :: Prelude.Maybe [Prelude.Text],
+    -- | If there are more than 25 items in the list, only the first 25 items are
     -- returned, along with a unique string called a /next token/. To get the
     -- next batch of items in the list, call this operation again, adding the
     -- next token to the call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of environment identifiers.
-    environmentIds :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -193,12 +193,12 @@ data ListEnvironmentsResponse = ListEnvironmentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environmentIds', 'listEnvironmentsResponse_environmentIds' - The list of environment identifiers.
+--
 -- 'nextToken', 'listEnvironmentsResponse_nextToken' - If there are more than 25 items in the list, only the first 25 items are
 -- returned, along with a unique string called a /next token/. To get the
 -- next batch of items in the list, call this operation again, adding the
 -- next token to the call.
---
--- 'environmentIds', 'listEnvironmentsResponse_environmentIds' - The list of environment identifiers.
 --
 -- 'httpStatus', 'listEnvironmentsResponse_httpStatus' - The response's http status code.
 newListEnvironmentsResponse ::
@@ -207,11 +207,15 @@ newListEnvironmentsResponse ::
   ListEnvironmentsResponse
 newListEnvironmentsResponse pHttpStatus_ =
   ListEnvironmentsResponse'
-    { nextToken =
+    { environmentIds =
         Prelude.Nothing,
-      environmentIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of environment identifiers.
+listEnvironmentsResponse_environmentIds :: Lens.Lens' ListEnvironmentsResponse (Prelude.Maybe [Prelude.Text])
+listEnvironmentsResponse_environmentIds = Lens.lens (\ListEnvironmentsResponse' {environmentIds} -> environmentIds) (\s@ListEnvironmentsResponse' {} a -> s {environmentIds = a} :: ListEnvironmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more than 25 items in the list, only the first 25 items are
 -- returned, along with a unique string called a /next token/. To get the
@@ -219,10 +223,6 @@ newListEnvironmentsResponse pHttpStatus_ =
 -- next token to the call.
 listEnvironmentsResponse_nextToken :: Lens.Lens' ListEnvironmentsResponse (Prelude.Maybe Prelude.Text)
 listEnvironmentsResponse_nextToken = Lens.lens (\ListEnvironmentsResponse' {nextToken} -> nextToken) (\s@ListEnvironmentsResponse' {} a -> s {nextToken = a} :: ListEnvironmentsResponse)
-
--- | The list of environment identifiers.
-listEnvironmentsResponse_environmentIds :: Lens.Lens' ListEnvironmentsResponse (Prelude.Maybe [Prelude.Text])
-listEnvironmentsResponse_environmentIds = Lens.lens (\ListEnvironmentsResponse' {environmentIds} -> environmentIds) (\s@ListEnvironmentsResponse' {} a -> s {environmentIds = a} :: ListEnvironmentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listEnvironmentsResponse_httpStatus :: Lens.Lens' ListEnvironmentsResponse Prelude.Int

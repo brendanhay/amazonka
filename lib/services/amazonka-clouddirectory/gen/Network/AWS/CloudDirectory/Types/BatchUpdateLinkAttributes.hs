@@ -67,7 +67,7 @@ batchUpdateLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchUpdateLinkAttrib
 
 -- | The attributes update structure.
 batchUpdateLinkAttributes_attributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [LinkAttributeUpdate]
-batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Prelude.. Lens._Coerce
+batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Prelude.. Lens.coerced
 
 instance Prelude.Hashable BatchUpdateLinkAttributes
 

@@ -79,7 +79,7 @@ newFieldLevelEncryptionProfileList
 
 -- | The field-level encryption profile items.
 fieldLevelEncryptionProfileList_items :: Lens.Lens' FieldLevelEncryptionProfileList (Prelude.Maybe [FieldLevelEncryptionProfileSummary])
-fieldLevelEncryptionProfileList_items = Lens.lens (\FieldLevelEncryptionProfileList' {items} -> items) (\s@FieldLevelEncryptionProfileList' {} a -> s {items = a} :: FieldLevelEncryptionProfileList) Prelude.. Lens.mapping Lens._Coerce
+fieldLevelEncryptionProfileList_items = Lens.lens (\FieldLevelEncryptionProfileList' {items} -> items) (\s@FieldLevelEncryptionProfileList' {} a -> s {items = a} :: FieldLevelEncryptionProfileList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are more elements to be listed, this element is present and
 -- contains the value that you can use for the @Marker@ request parameter

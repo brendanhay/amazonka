@@ -95,7 +95,7 @@ newUpdatePipeline pPipelineName_ pPipelineActivities_ =
   UpdatePipeline'
     { pipelineName = pPipelineName_,
       pipelineActivities =
-        Lens._Coerce Lens.# pPipelineActivities_
+        Lens.coerced Lens.# pPipelineActivities_
     }
 
 -- | The name of the pipeline to update.
@@ -114,7 +114,7 @@ updatePipeline_pipelineName = Lens.lens (\UpdatePipeline' {pipelineName} -> pipe
 --
 -- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
 updatePipeline_pipelineActivities :: Lens.Lens' UpdatePipeline (Prelude.NonEmpty PipelineActivity)
-updatePipeline_pipelineActivities = Lens.lens (\UpdatePipeline' {pipelineActivities} -> pipelineActivities) (\s@UpdatePipeline' {} a -> s {pipelineActivities = a} :: UpdatePipeline) Prelude.. Lens._Coerce
+updatePipeline_pipelineActivities = Lens.lens (\UpdatePipeline' {pipelineActivities} -> pipelineActivities) (\s@UpdatePipeline' {} a -> s {pipelineActivities = a} :: UpdatePipeline) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdatePipeline where
   type

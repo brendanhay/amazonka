@@ -47,182 +47,8 @@ module Network.AWS.Redshift
     -- * Errors
     -- $errors
 
-    -- ** BucketNotFoundFault
-    _BucketNotFoundFault,
-
-    -- ** InvalidSubscriptionStateFault
-    _InvalidSubscriptionStateFault,
-
-    -- ** InvalidVPCNetworkStateFault
-    _InvalidVPCNetworkStateFault,
-
-    -- ** ScheduleDefinitionTypeUnsupportedFault
-    _ScheduleDefinitionTypeUnsupportedFault,
-
-    -- ** ClusterSecurityGroupAlreadyExistsFault
-    _ClusterSecurityGroupAlreadyExistsFault,
-
-    -- ** ClusterSnapshotNotFoundFault
-    _ClusterSnapshotNotFoundFault,
-
-    -- ** InvalidEndpointStateFault
-    _InvalidEndpointStateFault,
-
-    -- ** ClusterSubnetGroupNotFoundFault
-    _ClusterSubnetGroupNotFoundFault,
-
-    -- ** InvalidScheduledActionFault
-    _InvalidScheduledActionFault,
-
     -- ** ClusterSecurityGroupQuotaExceededFault
     _ClusterSecurityGroupQuotaExceededFault,
-
-    -- ** LimitExceededFault
-    _LimitExceededFault,
-
-    -- ** SubscriptionAlreadyExistFault
-    _SubscriptionAlreadyExistFault,
-
-    -- ** HsmConfigurationQuotaExceededFault
-    _HsmConfigurationQuotaExceededFault,
-
-    -- ** EndpointAuthorizationNotFoundFault
-    _EndpointAuthorizationNotFoundFault,
-
-    -- ** EndpointsPerClusterLimitExceededFault
-    _EndpointsPerClusterLimitExceededFault,
-
-    -- ** InvalidAuthenticationProfileRequestFault
-    _InvalidAuthenticationProfileRequestFault,
-
-    -- ** InsufficientS3BucketPolicyFault
-    _InsufficientS3BucketPolicyFault,
-
-    -- ** SubscriptionSeverityNotFoundFault
-    _SubscriptionSeverityNotFoundFault,
-
-    -- ** InsufficientClusterCapacityFault
-    _InsufficientClusterCapacityFault,
-
-    -- ** UnauthorizedOperation
-    _UnauthorizedOperation,
-
-    -- ** UsageLimitNotFoundFault
-    _UsageLimitNotFoundFault,
-
-    -- ** InvalidTagFault
-    _InvalidTagFault,
-
-    -- ** SnapshotScheduleQuotaExceededFault
-    _SnapshotScheduleQuotaExceededFault,
-
-    -- ** ScheduledActionNotFoundFault
-    _ScheduledActionNotFoundFault,
-
-    -- ** HsmClientCertificateAlreadyExistsFault
-    _HsmClientCertificateAlreadyExistsFault,
-
-    -- ** SNSNoAuthorizationFault
-    _SNSNoAuthorizationFault,
-
-    -- ** InvalidRestoreFault
-    _InvalidRestoreFault,
-
-    -- ** ClusterNotFoundFault
-    _ClusterNotFoundFault,
-
-    -- ** ResourceNotFoundFault
-    _ResourceNotFoundFault,
-
-    -- ** ScheduledActionAlreadyExistsFault
-    _ScheduledActionAlreadyExistsFault,
-
-    -- ** SNSTopicArnNotFoundFault
-    _SNSTopicArnNotFoundFault,
-
-    -- ** SnapshotScheduleUpdateInProgressFault
-    _SnapshotScheduleUpdateInProgressFault,
-
-    -- ** InvalidReservedNodeStateFault
-    _InvalidReservedNodeStateFault,
-
-    -- ** SnapshotScheduleNotFoundFault
-    _SnapshotScheduleNotFoundFault,
-
-    -- ** ScheduledActionQuotaExceededFault
-    _ScheduledActionQuotaExceededFault,
-
-    -- ** EventSubscriptionQuotaExceededFault
-    _EventSubscriptionQuotaExceededFault,
-
-    -- ** ScheduledActionTypeUnsupportedFault
-    _ScheduledActionTypeUnsupportedFault,
-
-    -- ** EndpointsPerAuthorizationLimitExceededFault
-    _EndpointsPerAuthorizationLimitExceededFault,
-
-    -- ** IncompatibleOrderableOptions
-    _IncompatibleOrderableOptions,
-
-    -- ** ClusterQuotaExceededFault
-    _ClusterQuotaExceededFault,
-
-    -- ** InvalidClusterSubnetStateFault
-    _InvalidClusterSubnetStateFault,
-
-    -- ** ReservedNodeAlreadyMigratedFault
-    _ReservedNodeAlreadyMigratedFault,
-
-    -- ** BatchModifyClusterSnapshotsLimitExceededFault
-    _BatchModifyClusterSnapshotsLimitExceededFault,
-
-    -- ** UnsupportedOperationFault
-    _UnsupportedOperationFault,
-
-    -- ** HsmConfigurationAlreadyExistsFault
-    _HsmConfigurationAlreadyExistsFault,
-
-    -- ** InvalidS3BucketNameFault
-    _InvalidS3BucketNameFault,
-
-    -- ** ClusterSecurityGroupNotFoundFault
-    _ClusterSecurityGroupNotFoundFault,
-
-    -- ** InvalidClusterSubnetGroupStateFault
-    _InvalidClusterSubnetGroupStateFault,
-
-    -- ** InvalidElasticIpFault
-    _InvalidElasticIpFault,
-
-    -- ** EndpointAlreadyExistsFault
-    _EndpointAlreadyExistsFault,
-
-    -- ** InvalidAuthorizationStateFault
-    _InvalidAuthorizationStateFault,
-
-    -- ** TableRestoreNotFoundFault
-    _TableRestoreNotFoundFault,
-
-    -- ** AuthenticationProfileAlreadyExistsFault
-    _AuthenticationProfileAlreadyExistsFault,
-
-    -- ** HsmConfigurationNotFoundFault
-    _HsmConfigurationNotFoundFault,
-
-    -- ** PartnerNotFoundFault
-    _PartnerNotFoundFault,
-
-    -- ** AuthorizationAlreadyExistsFault
-    _AuthorizationAlreadyExistsFault,
-
-    -- ** InvalidClusterSecurityGroupStateFault
-    _InvalidClusterSecurityGroupStateFault,
-
-    -- ** InvalidClusterSnapshotScheduleStateFault
-    _InvalidClusterSnapshotScheduleStateFault,
-
-    -- ** EndpointAuthorizationAlreadyExistsFault
-    _EndpointAuthorizationAlreadyExistsFault,
 
     -- ** InvalidS3KeyPrefixFault
     _InvalidS3KeyPrefixFault,
@@ -230,113 +56,98 @@ module Network.AWS.Redshift
     -- ** SourceNotFoundFault
     _SourceNotFoundFault,
 
-    -- ** UsageLimitAlreadyExistsFault
-    _UsageLimitAlreadyExistsFault,
-
-    -- ** CopyToRegionDisabledFault
-    _CopyToRegionDisabledFault,
-
-    -- ** SNSInvalidTopicFault
-    _SNSInvalidTopicFault,
-
-    -- ** DependentServiceUnavailableFault
-    _DependentServiceUnavailableFault,
-
     -- ** AuthenticationProfileQuotaExceededFault
     _AuthenticationProfileQuotaExceededFault,
 
     -- ** AuthorizationQuotaExceededFault
     _AuthorizationQuotaExceededFault,
 
-    -- ** UnsupportedOptionFault
-    _UnsupportedOptionFault,
+    -- ** CopyToRegionDisabledFault
+    _CopyToRegionDisabledFault,
 
-    -- ** ClusterSnapshotQuotaExceededFault
-    _ClusterSnapshotQuotaExceededFault,
+    -- ** LimitExceededFault
+    _LimitExceededFault,
 
-    -- ** SubnetAlreadyInUse
-    _SubnetAlreadyInUse,
+    -- ** EndpointAuthorizationAlreadyExistsFault
+    _EndpointAuthorizationAlreadyExistsFault,
 
-    -- ** ClusterOnLatestRevisionFault
-    _ClusterOnLatestRevisionFault,
+    -- ** InvalidClusterSecurityGroupStateFault
+    _InvalidClusterSecurityGroupStateFault,
 
-    -- ** ClusterSubnetGroupQuotaExceededFault
-    _ClusterSubnetGroupQuotaExceededFault,
+    -- ** ClusterSecurityGroupAlreadyExistsFault
+    _ClusterSecurityGroupAlreadyExistsFault,
 
-    -- ** InvalidClusterTrackFault
-    _InvalidClusterTrackFault,
+    -- ** ClusterSnapshotNotFoundFault
+    _ClusterSnapshotNotFoundFault,
 
-    -- ** TagLimitExceededFault
-    _TagLimitExceededFault,
+    -- ** InvalidElasticIpFault
+    _InvalidElasticIpFault,
 
-    -- ** InvalidScheduleFault
-    _InvalidScheduleFault,
+    -- ** TableRestoreNotFoundFault
+    _TableRestoreNotFoundFault,
 
-    -- ** InvalidHsmClientCertificateStateFault
-    _InvalidHsmClientCertificateStateFault,
+    -- ** HsmConfigurationNotFoundFault
+    _HsmConfigurationNotFoundFault,
 
-    -- ** ClusterAlreadyExistsFault
-    _ClusterAlreadyExistsFault,
+    -- ** AuthenticationProfileAlreadyExistsFault
+    _AuthenticationProfileAlreadyExistsFault,
 
-    -- ** InvalidTableRestoreArgumentFault
-    _InvalidTableRestoreArgumentFault,
+    -- ** ScheduleDefinitionTypeUnsupportedFault
+    _ScheduleDefinitionTypeUnsupportedFault,
 
-    -- ** SnapshotCopyGrantNotFoundFault
-    _SnapshotCopyGrantNotFoundFault,
+    -- ** AuthorizationAlreadyExistsFault
+    _AuthorizationAlreadyExistsFault,
 
-    -- ** UnauthorizedPartnerIntegrationFault
-    _UnauthorizedPartnerIntegrationFault,
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
 
-    -- ** InvalidClusterStateFault
-    _InvalidClusterStateFault,
+    -- ** InvalidRetentionPeriodFault
+    _InvalidRetentionPeriodFault,
 
-    -- ** InvalidDataShareFault
-    _InvalidDataShareFault,
+    -- ** HsmConfigurationAlreadyExistsFault
+    _HsmConfigurationAlreadyExistsFault,
 
-    -- ** ClusterSubnetQuotaExceededFault
-    _ClusterSubnetQuotaExceededFault,
+    -- ** EndpointNotFoundFault
+    _EndpointNotFoundFault,
 
-    -- ** AccessToSnapshotDeniedFault
-    _AccessToSnapshotDeniedFault,
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
 
-    -- ** NumberOfNodesQuotaExceededFault
-    _NumberOfNodesQuotaExceededFault,
+    -- ** InvalidS3BucketNameFault
+    _InvalidS3BucketNameFault,
 
-    -- ** SubscriptionEventIdNotFoundFault
-    _SubscriptionEventIdNotFoundFault,
+    -- ** ClusterSnapshotAlreadyExistsFault
+    _ClusterSnapshotAlreadyExistsFault,
 
-    -- ** InvalidSnapshotCopyGrantStateFault
-    _InvalidSnapshotCopyGrantStateFault,
+    -- ** InvalidSubnet
+    _InvalidSubnet,
 
-    -- ** InProgressTableRestoreQuotaExceededFault
-    _InProgressTableRestoreQuotaExceededFault,
+    -- ** TableLimitExceededFault
+    _TableLimitExceededFault,
 
-    -- ** ClusterParameterGroupQuotaExceededFault
-    _ClusterParameterGroupQuotaExceededFault,
+    -- ** InvalidHsmConfigurationStateFault
+    _InvalidHsmConfigurationStateFault,
 
-    -- ** SnapshotCopyGrantAlreadyExistsFault
-    _SnapshotCopyGrantAlreadyExistsFault,
+    -- ** SnapshotCopyAlreadyDisabledFault
+    _SnapshotCopyAlreadyDisabledFault,
 
-    -- ** SnapshotCopyDisabledFault
-    _SnapshotCopyDisabledFault,
+    -- ** ClusterQuotaExceededFault
+    _ClusterQuotaExceededFault,
 
-    -- ** HsmClientCertificateNotFoundFault
-    _HsmClientCertificateNotFoundFault,
+    -- ** HsmClientCertificateQuotaExceededFault
+    _HsmClientCertificateQuotaExceededFault,
 
-    -- ** InvalidUsageLimitFault
-    _InvalidUsageLimitFault,
+    -- ** SnapshotScheduleAlreadyExistsFault
+    _SnapshotScheduleAlreadyExistsFault,
 
-    -- ** ResizeNotFoundFault
-    _ResizeNotFoundFault,
+    -- ** BatchModifyClusterSnapshotsLimitExceededFault
+    _BatchModifyClusterSnapshotsLimitExceededFault,
 
-    -- ** ReservedNodeQuotaExceededFault
-    _ReservedNodeQuotaExceededFault,
+    -- ** ClusterParameterGroupNotFoundFault
+    _ClusterParameterGroupNotFoundFault,
 
-    -- ** UnknownSnapshotCopyRegionFault
-    _UnknownSnapshotCopyRegionFault,
-
-    -- ** BatchDeleteRequestSizeExceededFault
-    _BatchDeleteRequestSizeExceededFault,
+    -- ** SnapshotCopyGrantQuotaExceededFault
+    _SnapshotCopyGrantQuotaExceededFault,
 
     -- ** InvalidNamespaceFault
     _InvalidNamespaceFault,
@@ -344,83 +155,272 @@ module Network.AWS.Redshift
     -- ** NumberOfNodesPerClusterLimitExceededFault
     _NumberOfNodesPerClusterLimitExceededFault,
 
-    -- ** SnapshotCopyGrantQuotaExceededFault
-    _SnapshotCopyGrantQuotaExceededFault,
-
-    -- ** InvalidClusterParameterGroupStateFault
-    _InvalidClusterParameterGroupStateFault,
-
     -- ** SnapshotCopyAlreadyEnabledFault
     _SnapshotCopyAlreadyEnabledFault,
 
     -- ** ClusterParameterGroupAlreadyExistsFault
     _ClusterParameterGroupAlreadyExistsFault,
 
-    -- ** AccessToClusterDeniedFault
-    _AccessToClusterDeniedFault,
+    -- ** BatchDeleteRequestSizeExceededFault
+    _BatchDeleteRequestSizeExceededFault,
 
-    -- ** ReservedNodeAlreadyExistsFault
-    _ReservedNodeAlreadyExistsFault,
+    -- ** SnapshotCopyDisabledFault
+    _SnapshotCopyDisabledFault,
 
-    -- ** SnapshotScheduleAlreadyExistsFault
-    _SnapshotScheduleAlreadyExistsFault,
+    -- ** ResizeNotFoundFault
+    _ResizeNotFoundFault,
 
-    -- ** ClusterParameterGroupNotFoundFault
-    _ClusterParameterGroupNotFoundFault,
+    -- ** HsmClientCertificateNotFoundFault
+    _HsmClientCertificateNotFoundFault,
 
-    -- ** ReservedNodeOfferingNotFoundFault
-    _ReservedNodeOfferingNotFoundFault,
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
 
-    -- ** ReservedNodeNotFoundFault
-    _ReservedNodeNotFoundFault,
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
 
-    -- ** SnapshotCopyAlreadyDisabledFault
-    _SnapshotCopyAlreadyDisabledFault,
+    -- ** ClusterParameterGroupQuotaExceededFault
+    _ClusterParameterGroupQuotaExceededFault,
 
-    -- ** HsmClientCertificateQuotaExceededFault
-    _HsmClientCertificateQuotaExceededFault,
+    -- ** SnapshotCopyGrantAlreadyExistsFault
+    _SnapshotCopyGrantAlreadyExistsFault,
 
-    -- ** EndpointNotFoundFault
-    _EndpointNotFoundFault,
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
 
-    -- ** SubscriptionCategoryNotFoundFault
-    _SubscriptionCategoryNotFoundFault,
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
 
-    -- ** EndpointAuthorizationsPerClusterLimitExceededFault
-    _EndpointAuthorizationsPerClusterLimitExceededFault,
+    -- ** InvalidTableRestoreArgumentFault
+    _InvalidTableRestoreArgumentFault,
 
-    -- ** InvalidClusterSnapshotStateFault
-    _InvalidClusterSnapshotStateFault,
+    -- ** SnapshotCopyGrantNotFoundFault
+    _SnapshotCopyGrantNotFoundFault,
+
+    -- ** InvalidScheduleFault
+    _InvalidScheduleFault,
+
+    -- ** InvalidClusterTrackFault
+    _InvalidClusterTrackFault,
+
+    -- ** HsmConfigurationQuotaExceededFault
+    _HsmConfigurationQuotaExceededFault,
+
+    -- ** ClusterSnapshotQuotaExceededFault
+    _ClusterSnapshotQuotaExceededFault,
+
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
+
+    -- ** InvalidAuthenticationProfileRequestFault
+    _InvalidAuthenticationProfileRequestFault,
+
+    -- ** EndpointAuthorizationNotFoundFault
+    _EndpointAuthorizationNotFoundFault,
+
+    -- ** InvalidScheduledActionFault
+    _InvalidScheduledActionFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** UsageLimitAlreadyExistsFault
+    _UsageLimitAlreadyExistsFault,
+
+    -- ** DependentServiceUnavailableFault
+    _DependentServiceUnavailableFault,
+
+    -- ** UnsupportedOptionFault
+    _UnsupportedOptionFault,
+
+    -- ** SubscriptionAlreadyExistFault
+    _SubscriptionAlreadyExistFault,
+
+    -- ** InvalidAuthorizationStateFault
+    _InvalidAuthorizationStateFault,
+
+    -- ** EndpointAlreadyExistsFault
+    _EndpointAlreadyExistsFault,
+
+    -- ** InvalidClusterSnapshotScheduleStateFault
+    _InvalidClusterSnapshotScheduleStateFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** ClusterSubnetGroupNotFoundFault
+    _ClusterSubnetGroupNotFoundFault,
+
+    -- ** BucketNotFoundFault
+    _BucketNotFoundFault,
+
+    -- ** PartnerNotFoundFault
+    _PartnerNotFoundFault,
+
+    -- ** InvalidSubscriptionStateFault
+    _InvalidSubscriptionStateFault,
+
+    -- ** InvalidEndpointStateFault
+    _InvalidEndpointStateFault,
 
     -- ** DependentServiceRequestThrottlingFault
     _DependentServiceRequestThrottlingFault,
 
-    -- ** InvalidRetentionPeriodFault
-    _InvalidRetentionPeriodFault,
-
-    -- ** ClusterSnapshotAlreadyExistsFault
-    _ClusterSnapshotAlreadyExistsFault,
-
-    -- ** InvalidHsmConfigurationStateFault
-    _InvalidHsmConfigurationStateFault,
-
-    -- ** SubscriptionNotFoundFault
-    _SubscriptionNotFoundFault,
-
     -- ** AuthorizationNotFoundFault
     _AuthorizationNotFoundFault,
 
-    -- ** TableLimitExceededFault
-    _TableLimitExceededFault,
+    -- ** InvalidClusterSubnetGroupStateFault
+    _InvalidClusterSubnetGroupStateFault,
+
+    -- ** EndpointAuthorizationsPerClusterLimitExceededFault
+    _EndpointAuthorizationsPerClusterLimitExceededFault,
 
     -- ** AuthenticationProfileNotFoundFault
     _AuthenticationProfileNotFoundFault,
 
-    -- ** InvalidSubnet
-    _InvalidSubnet,
+    -- ** UnsupportedOperationFault
+    _UnsupportedOperationFault,
 
     -- ** ClusterSubnetGroupAlreadyExistsFault
     _ClusterSubnetGroupAlreadyExistsFault,
+
+    -- ** InvalidClusterSnapshotStateFault
+    _InvalidClusterSnapshotStateFault,
+
+    -- ** ClusterSecurityGroupNotFoundFault
+    _ClusterSecurityGroupNotFoundFault,
+
+    -- ** ReservedNodeNotFoundFault
+    _ReservedNodeNotFoundFault,
+
+    -- ** ReservedNodeOfferingNotFoundFault
+    _ReservedNodeOfferingNotFoundFault,
+
+    -- ** InvalidClusterSubnetStateFault
+    _InvalidClusterSubnetStateFault,
+
+    -- ** IncompatibleOrderableOptions
+    _IncompatibleOrderableOptions,
+
+    -- ** ReservedNodeAlreadyMigratedFault
+    _ReservedNodeAlreadyMigratedFault,
+
+    -- ** EndpointsPerAuthorizationLimitExceededFault
+    _EndpointsPerAuthorizationLimitExceededFault,
+
+    -- ** AccessToClusterDeniedFault
+    _AccessToClusterDeniedFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** SnapshotScheduleNotFoundFault
+    _SnapshotScheduleNotFoundFault,
+
+    -- ** InvalidClusterParameterGroupStateFault
+    _InvalidClusterParameterGroupStateFault,
+
+    -- ** ScheduledActionQuotaExceededFault
+    _ScheduledActionQuotaExceededFault,
+
+    -- ** InvalidReservedNodeStateFault
+    _InvalidReservedNodeStateFault,
+
+    -- ** ReservedNodeAlreadyExistsFault
+    _ReservedNodeAlreadyExistsFault,
+
+    -- ** ScheduledActionTypeUnsupportedFault
+    _ScheduledActionTypeUnsupportedFault,
+
+    -- ** SnapshotScheduleUpdateInProgressFault
+    _SnapshotScheduleUpdateInProgressFault,
+
+    -- ** InProgressTableRestoreQuotaExceededFault
+    _InProgressTableRestoreQuotaExceededFault,
+
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** SubscriptionEventIdNotFoundFault
+    _SubscriptionEventIdNotFoundFault,
+
+    -- ** InvalidUsageLimitFault
+    _InvalidUsageLimitFault,
+
+    -- ** InvalidSnapshotCopyGrantStateFault
+    _InvalidSnapshotCopyGrantStateFault,
+
+    -- ** UnknownSnapshotCopyRegionFault
+    _UnknownSnapshotCopyRegionFault,
+
+    -- ** ReservedNodeQuotaExceededFault
+    _ReservedNodeQuotaExceededFault,
+
+    -- ** ScheduledActionAlreadyExistsFault
+    _ScheduledActionAlreadyExistsFault,
+
+    -- ** ClusterSubnetQuotaExceededFault
+    _ClusterSubnetQuotaExceededFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** AccessToSnapshotDeniedFault
+    _AccessToSnapshotDeniedFault,
+
+    -- ** TagLimitExceededFault
+    _TagLimitExceededFault,
+
+    -- ** NumberOfNodesQuotaExceededFault
+    _NumberOfNodesQuotaExceededFault,
+
+    -- ** ScheduledActionNotFoundFault
+    _ScheduledActionNotFoundFault,
+
+    -- ** UnauthorizedPartnerIntegrationFault
+    _UnauthorizedPartnerIntegrationFault,
+
+    -- ** HsmClientCertificateAlreadyExistsFault
+    _HsmClientCertificateAlreadyExistsFault,
+
+    -- ** SnapshotScheduleQuotaExceededFault
+    _SnapshotScheduleQuotaExceededFault,
+
+    -- ** InvalidHsmClientCertificateStateFault
+    _InvalidHsmClientCertificateStateFault,
+
+    -- ** InvalidDataShareFault
+    _InvalidDataShareFault,
+
+    -- ** ClusterOnLatestRevisionFault
+    _ClusterOnLatestRevisionFault,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** SubscriptionSeverityNotFoundFault
+    _SubscriptionSeverityNotFoundFault,
+
+    -- ** UsageLimitNotFoundFault
+    _UsageLimitNotFoundFault,
+
+    -- ** UnauthorizedOperation
+    _UnauthorizedOperation,
+
+    -- ** InvalidTagFault
+    _InvalidTagFault,
+
+    -- ** InsufficientS3BucketPolicyFault
+    _InsufficientS3BucketPolicyFault,
+
+    -- ** ClusterSubnetGroupQuotaExceededFault
+    _ClusterSubnetGroupQuotaExceededFault,
+
+    -- ** EndpointsPerClusterLimitExceededFault
+    _EndpointsPerClusterLimitExceededFault,
 
     -- * Waiters
     -- $waiters
@@ -431,20 +431,104 @@ module Network.AWS.Redshift
     -- ** ClusterDeleted
     newClusterDeleted,
 
-    -- ** ClusterAvailable
-    newClusterAvailable,
-
     -- ** SnapshotAvailable
     newSnapshotAvailable,
 
+    -- ** ClusterAvailable
+    newClusterAvailable,
+
     -- * Operations
     -- $operations
+
+    -- ** CancelResize
+    CancelResize (CancelResize'),
+    newCancelResize,
+    ResizeProgressMessage (ResizeProgressMessage'),
+    newResizeProgressMessage,
+
+    -- ** DescribeStorage
+    DescribeStorage (DescribeStorage'),
+    newDescribeStorage,
+    DescribeStorageResponse (DescribeStorageResponse'),
+    newDescribeStorageResponse,
+
+    -- ** DescribeClusters (Paginated)
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
+
+    -- ** DescribeTags (Paginated)
+    DescribeTags (DescribeTags'),
+    newDescribeTags,
+    DescribeTagsResponse (DescribeTagsResponse'),
+    newDescribeTagsResponse,
+
+    -- ** CreateUsageLimit
+    CreateUsageLimit (CreateUsageLimit'),
+    newCreateUsageLimit,
+    UsageLimit (UsageLimit'),
+    newUsageLimit,
+
+    -- ** ModifyEndpointAccess
+    ModifyEndpointAccess (ModifyEndpointAccess'),
+    newModifyEndpointAccess,
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
+    -- ** AssociateDataShareConsumer
+    AssociateDataShareConsumer (AssociateDataShareConsumer'),
+    newAssociateDataShareConsumer,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** DeleteClusterSubnetGroup
+    DeleteClusterSubnetGroup (DeleteClusterSubnetGroup'),
+    newDeleteClusterSubnetGroup,
+    DeleteClusterSubnetGroupResponse (DeleteClusterSubnetGroupResponse'),
+    newDeleteClusterSubnetGroupResponse,
+
+    -- ** ModifyScheduledAction
+    ModifyScheduledAction (ModifyScheduledAction'),
+    newModifyScheduledAction,
+    ScheduledAction (ScheduledAction'),
+    newScheduledAction,
 
     -- ** DisableLogging
     DisableLogging (DisableLogging'),
     newDisableLogging,
     LoggingStatus (LoggingStatus'),
     newLoggingStatus,
+
+    -- ** DescribeSnapshotSchedules (Paginated)
+    DescribeSnapshotSchedules (DescribeSnapshotSchedules'),
+    newDescribeSnapshotSchedules,
+    DescribeSnapshotSchedulesResponse (DescribeSnapshotSchedulesResponse'),
+    newDescribeSnapshotSchedulesResponse,
+
+    -- ** RevokeEndpointAccess
+    RevokeEndpointAccess (RevokeEndpointAccess'),
+    newRevokeEndpointAccess,
+    EndpointAuthorization (EndpointAuthorization'),
+    newEndpointAuthorization,
+
+    -- ** ModifyEventSubscription
+    ModifyEventSubscription (ModifyEventSubscription'),
+    newModifyEventSubscription,
+    ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
+    newModifyEventSubscriptionResponse,
+
+    -- ** ModifyClusterDbRevision
+    ModifyClusterDbRevision (ModifyClusterDbRevision'),
+    newModifyClusterDbRevision,
+    ModifyClusterDbRevisionResponse (ModifyClusterDbRevisionResponse'),
+    newModifyClusterDbRevisionResponse,
+
+    -- ** DeleteClusterSnapshot
+    DeleteClusterSnapshot (DeleteClusterSnapshot'),
+    newDeleteClusterSnapshot,
+    DeleteClusterSnapshotResponse (DeleteClusterSnapshotResponse'),
+    newDeleteClusterSnapshotResponse,
 
     -- ** AddPartner
     AddPartner (AddPartner'),
@@ -458,311 +542,11 @@ module Network.AWS.Redshift
     PurchaseReservedNodeOfferingResponse (PurchaseReservedNodeOfferingResponse'),
     newPurchaseReservedNodeOfferingResponse,
 
-    -- ** DescribeEventCategories
-    DescribeEventCategories (DescribeEventCategories'),
-    newDescribeEventCategories,
-    DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
-    newDescribeEventCategoriesResponse,
-
-    -- ** ModifyEndpointAccess
-    ModifyEndpointAccess (ModifyEndpointAccess'),
-    newModifyEndpointAccess,
-    EndpointAccess (EndpointAccess'),
-    newEndpointAccess,
-
-    -- ** DeleteClusterSubnetGroup
-    DeleteClusterSubnetGroup (DeleteClusterSubnetGroup'),
-    newDeleteClusterSubnetGroup,
-    DeleteClusterSubnetGroupResponse (DeleteClusterSubnetGroupResponse'),
-    newDeleteClusterSubnetGroupResponse,
-
-    -- ** AssociateDataShareConsumer
-    AssociateDataShareConsumer (AssociateDataShareConsumer'),
-    newAssociateDataShareConsumer,
-    DataShare (DataShare'),
-    newDataShare,
-
-    -- ** RevokeEndpointAccess
-    RevokeEndpointAccess (RevokeEndpointAccess'),
-    newRevokeEndpointAccess,
-    EndpointAuthorization (EndpointAuthorization'),
-    newEndpointAuthorization,
-
-    -- ** DeletePartner
-    DeletePartner (DeletePartner'),
-    newDeletePartner,
-    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
-    newPartnerIntegrationOutputMessage,
-
-    -- ** CreateAuthenticationProfile
-    CreateAuthenticationProfile (CreateAuthenticationProfile'),
-    newCreateAuthenticationProfile,
-    CreateAuthenticationProfileResponse (CreateAuthenticationProfileResponse'),
-    newCreateAuthenticationProfileResponse,
-
-    -- ** ModifyAquaConfiguration
-    ModifyAquaConfiguration (ModifyAquaConfiguration'),
-    newModifyAquaConfiguration,
-    ModifyAquaConfigurationResponse (ModifyAquaConfigurationResponse'),
-    newModifyAquaConfigurationResponse,
-
-    -- ** CreateUsageLimit
-    CreateUsageLimit (CreateUsageLimit'),
-    newCreateUsageLimit,
-    UsageLimit (UsageLimit'),
-    newUsageLimit,
-
-    -- ** AuthorizeEndpointAccess
-    AuthorizeEndpointAccess (AuthorizeEndpointAccess'),
-    newAuthorizeEndpointAccess,
-    EndpointAuthorization (EndpointAuthorization'),
-    newEndpointAuthorization,
-
-    -- ** DescribeHsmClientCertificates (Paginated)
-    DescribeHsmClientCertificates (DescribeHsmClientCertificates'),
-    newDescribeHsmClientCertificates,
-    DescribeHsmClientCertificatesResponse (DescribeHsmClientCertificatesResponse'),
-    newDescribeHsmClientCertificatesResponse,
-
-    -- ** CancelResize
-    CancelResize (CancelResize'),
-    newCancelResize,
-    ResizeProgressMessage (ResizeProgressMessage'),
-    newResizeProgressMessage,
-
-    -- ** DescribeClusters (Paginated)
-    DescribeClusters (DescribeClusters'),
-    newDescribeClusters,
-    DescribeClustersResponse (DescribeClustersResponse'),
-    newDescribeClustersResponse,
-
-    -- ** GetClusterCredentials
-    GetClusterCredentials (GetClusterCredentials'),
-    newGetClusterCredentials,
-    GetClusterCredentialsResponse (GetClusterCredentialsResponse'),
-    newGetClusterCredentialsResponse,
-
-    -- ** DescribeTags (Paginated)
-    DescribeTags (DescribeTags'),
-    newDescribeTags,
-    DescribeTagsResponse (DescribeTagsResponse'),
-    newDescribeTagsResponse,
-
-    -- ** ModifyClusterParameterGroup
-    ModifyClusterParameterGroup (ModifyClusterParameterGroup'),
-    newModifyClusterParameterGroup,
-    ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
-    newClusterParameterGroupNameMessage,
-
-    -- ** RevokeClusterSecurityGroupIngress
-    RevokeClusterSecurityGroupIngress (RevokeClusterSecurityGroupIngress'),
-    newRevokeClusterSecurityGroupIngress,
-    RevokeClusterSecurityGroupIngressResponse (RevokeClusterSecurityGroupIngressResponse'),
-    newRevokeClusterSecurityGroupIngressResponse,
-
-    -- ** ResetClusterParameterGroup
-    ResetClusterParameterGroup (ResetClusterParameterGroup'),
-    newResetClusterParameterGroup,
-    ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
-    newClusterParameterGroupNameMessage,
-
-    -- ** DeleteUsageLimit
-    DeleteUsageLimit (DeleteUsageLimit'),
-    newDeleteUsageLimit,
-    DeleteUsageLimitResponse (DeleteUsageLimitResponse'),
-    newDeleteUsageLimitResponse,
-
-    -- ** DescribeClusterDbRevisions (Paginated)
-    DescribeClusterDbRevisions (DescribeClusterDbRevisions'),
-    newDescribeClusterDbRevisions,
-    DescribeClusterDbRevisionsResponse (DescribeClusterDbRevisionsResponse'),
-    newDescribeClusterDbRevisionsResponse,
-
-    -- ** RotateEncryptionKey
-    RotateEncryptionKey (RotateEncryptionKey'),
-    newRotateEncryptionKey,
-    RotateEncryptionKeyResponse (RotateEncryptionKeyResponse'),
-    newRotateEncryptionKeyResponse,
-
-    -- ** DescribeScheduledActions (Paginated)
-    DescribeScheduledActions (DescribeScheduledActions'),
-    newDescribeScheduledActions,
-    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
-    newDescribeScheduledActionsResponse,
-
-    -- ** DescribeEventSubscriptions (Paginated)
-    DescribeEventSubscriptions (DescribeEventSubscriptions'),
-    newDescribeEventSubscriptions,
-    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
-    newDescribeEventSubscriptionsResponse,
-
-    -- ** DeleteEventSubscription
-    DeleteEventSubscription (DeleteEventSubscription'),
-    newDeleteEventSubscription,
-    DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
-    newDeleteEventSubscriptionResponse,
-
-    -- ** DescribeDataSharesForConsumer
-    DescribeDataSharesForConsumer (DescribeDataSharesForConsumer'),
-    newDescribeDataSharesForConsumer,
-    DescribeDataSharesForConsumerResponse (DescribeDataSharesForConsumerResponse'),
-    newDescribeDataSharesForConsumerResponse,
-
-    -- ** ModifyClusterSnapshot
-    ModifyClusterSnapshot (ModifyClusterSnapshot'),
-    newModifyClusterSnapshot,
-    ModifyClusterSnapshotResponse (ModifyClusterSnapshotResponse'),
-    newModifyClusterSnapshotResponse,
-
-    -- ** ModifyClusterSubnetGroup
-    ModifyClusterSubnetGroup (ModifyClusterSubnetGroup'),
-    newModifyClusterSubnetGroup,
-    ModifyClusterSubnetGroupResponse (ModifyClusterSubnetGroupResponse'),
-    newModifyClusterSubnetGroupResponse,
-
-    -- ** DeleteScheduledAction
-    DeleteScheduledAction (DeleteScheduledAction'),
-    newDeleteScheduledAction,
-    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
-    newDeleteScheduledActionResponse,
-
-    -- ** DeleteEndpointAccess
-    DeleteEndpointAccess (DeleteEndpointAccess'),
-    newDeleteEndpointAccess,
-    EndpointAccess (EndpointAccess'),
-    newEndpointAccess,
-
-    -- ** RestoreTableFromClusterSnapshot
-    RestoreTableFromClusterSnapshot (RestoreTableFromClusterSnapshot'),
-    newRestoreTableFromClusterSnapshot,
-    RestoreTableFromClusterSnapshotResponse (RestoreTableFromClusterSnapshotResponse'),
-    newRestoreTableFromClusterSnapshotResponse,
-
-    -- ** CreateCluster
-    CreateCluster (CreateCluster'),
-    newCreateCluster,
-    CreateClusterResponse (CreateClusterResponse'),
-    newCreateClusterResponse,
-
-    -- ** CreateEndpointAccess
-    CreateEndpointAccess (CreateEndpointAccess'),
-    newCreateEndpointAccess,
-    EndpointAccess (EndpointAccess'),
-    newEndpointAccess,
-
-    -- ** ModifyClusterSnapshotSchedule
-    ModifyClusterSnapshotSchedule (ModifyClusterSnapshotSchedule'),
-    newModifyClusterSnapshotSchedule,
-    ModifyClusterSnapshotScheduleResponse (ModifyClusterSnapshotScheduleResponse'),
-    newModifyClusterSnapshotScheduleResponse,
-
-    -- ** DescribeAccountAttributes
-    DescribeAccountAttributes (DescribeAccountAttributes'),
-    newDescribeAccountAttributes,
-    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
-    newDescribeAccountAttributesResponse,
-
-    -- ** ModifyAuthenticationProfile
-    ModifyAuthenticationProfile (ModifyAuthenticationProfile'),
-    newModifyAuthenticationProfile,
-    ModifyAuthenticationProfileResponse (ModifyAuthenticationProfileResponse'),
-    newModifyAuthenticationProfileResponse,
-
-    -- ** CopyClusterSnapshot
-    CopyClusterSnapshot (CopyClusterSnapshot'),
-    newCopyClusterSnapshot,
-    CopyClusterSnapshotResponse (CopyClusterSnapshotResponse'),
-    newCopyClusterSnapshotResponse,
-
-    -- ** CreateSnapshotCopyGrant
-    CreateSnapshotCopyGrant (CreateSnapshotCopyGrant'),
-    newCreateSnapshotCopyGrant,
-    CreateSnapshotCopyGrantResponse (CreateSnapshotCopyGrantResponse'),
-    newCreateSnapshotCopyGrantResponse,
-
-    -- ** UpdatePartnerStatus
-    UpdatePartnerStatus (UpdatePartnerStatus'),
-    newUpdatePartnerStatus,
-    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
-    newPartnerIntegrationOutputMessage,
-
-    -- ** DescribeDataSharesForProducer
-    DescribeDataSharesForProducer (DescribeDataSharesForProducer'),
-    newDescribeDataSharesForProducer,
-    DescribeDataSharesForProducerResponse (DescribeDataSharesForProducerResponse'),
-    newDescribeDataSharesForProducerResponse,
-
-    -- ** DescribeHsmConfigurations (Paginated)
-    DescribeHsmConfigurations (DescribeHsmConfigurations'),
-    newDescribeHsmConfigurations,
-    DescribeHsmConfigurationsResponse (DescribeHsmConfigurationsResponse'),
-    newDescribeHsmConfigurationsResponse,
-
-    -- ** DescribeClusterSnapshots (Paginated)
-    DescribeClusterSnapshots (DescribeClusterSnapshots'),
-    newDescribeClusterSnapshots,
-    DescribeClusterSnapshotsResponse (DescribeClusterSnapshotsResponse'),
-    newDescribeClusterSnapshotsResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
-
-    -- ** EnableSnapshotCopy
-    EnableSnapshotCopy (EnableSnapshotCopy'),
-    newEnableSnapshotCopy,
-    EnableSnapshotCopyResponse (EnableSnapshotCopyResponse'),
-    newEnableSnapshotCopyResponse,
-
-    -- ** ModifyUsageLimit
-    ModifyUsageLimit (ModifyUsageLimit'),
-    newModifyUsageLimit,
-    UsageLimit (UsageLimit'),
-    newUsageLimit,
-
-    -- ** CreateClusterParameterGroup
-    CreateClusterParameterGroup (CreateClusterParameterGroup'),
-    newCreateClusterParameterGroup,
-    CreateClusterParameterGroupResponse (CreateClusterParameterGroupResponse'),
-    newCreateClusterParameterGroupResponse,
-
-    -- ** CreateSnapshotSchedule
-    CreateSnapshotSchedule (CreateSnapshotSchedule'),
-    newCreateSnapshotSchedule,
-    SnapshotSchedule (SnapshotSchedule'),
-    newSnapshotSchedule,
-
-    -- ** DescribeEndpointAuthorization (Paginated)
-    DescribeEndpointAuthorization (DescribeEndpointAuthorization'),
-    newDescribeEndpointAuthorization,
-    DescribeEndpointAuthorizationResponse (DescribeEndpointAuthorizationResponse'),
-    newDescribeEndpointAuthorizationResponse,
-
-    -- ** DeleteClusterParameterGroup
-    DeleteClusterParameterGroup (DeleteClusterParameterGroup'),
-    newDeleteClusterParameterGroup,
-    DeleteClusterParameterGroupResponse (DeleteClusterParameterGroupResponse'),
-    newDeleteClusterParameterGroupResponse,
-
-    -- ** DescribeClusterSecurityGroups (Paginated)
-    DescribeClusterSecurityGroups (DescribeClusterSecurityGroups'),
-    newDescribeClusterSecurityGroups,
-    DescribeClusterSecurityGroupsResponse (DescribeClusterSecurityGroupsResponse'),
-    newDescribeClusterSecurityGroupsResponse,
-
-    -- ** DescribeNodeConfigurationOptions (Paginated)
-    DescribeNodeConfigurationOptions (DescribeNodeConfigurationOptions'),
-    newDescribeNodeConfigurationOptions,
-    DescribeNodeConfigurationOptionsResponse (DescribeNodeConfigurationOptionsResponse'),
-    newDescribeNodeConfigurationOptionsResponse,
-
-    -- ** DescribeAuthenticationProfiles
-    DescribeAuthenticationProfiles (DescribeAuthenticationProfiles'),
-    newDescribeAuthenticationProfiles,
-    DescribeAuthenticationProfilesResponse (DescribeAuthenticationProfilesResponse'),
-    newDescribeAuthenticationProfilesResponse,
+    -- ** DescribeReservedNodeOfferings (Paginated)
+    DescribeReservedNodeOfferings (DescribeReservedNodeOfferings'),
+    newDescribeReservedNodeOfferings,
+    DescribeReservedNodeOfferingsResponse (DescribeReservedNodeOfferingsResponse'),
+    newDescribeReservedNodeOfferingsResponse,
 
     -- ** DescribeEndpointAccess (Paginated)
     DescribeEndpointAccess (DescribeEndpointAccess'),
@@ -776,29 +560,11 @@ module Network.AWS.Redshift
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
 
-    -- ** CreateClusterSnapshot
-    CreateClusterSnapshot (CreateClusterSnapshot'),
-    newCreateClusterSnapshot,
-    CreateClusterSnapshotResponse (CreateClusterSnapshotResponse'),
-    newCreateClusterSnapshotResponse,
-
-    -- ** DescribeLoggingStatus
-    DescribeLoggingStatus (DescribeLoggingStatus'),
-    newDescribeLoggingStatus,
-    LoggingStatus (LoggingStatus'),
-    newLoggingStatus,
-
-    -- ** DescribeClusterParameterGroups (Paginated)
-    DescribeClusterParameterGroups (DescribeClusterParameterGroups'),
-    newDescribeClusterParameterGroups,
-    DescribeClusterParameterGroupsResponse (DescribeClusterParameterGroupsResponse'),
-    newDescribeClusterParameterGroupsResponse,
-
-    -- ** ModifyCluster
-    ModifyCluster (ModifyCluster'),
-    newModifyCluster,
-    ModifyClusterResponse (ModifyClusterResponse'),
-    newModifyClusterResponse,
+    -- ** DescribeReservedNodes (Paginated)
+    DescribeReservedNodes (DescribeReservedNodes'),
+    newDescribeReservedNodes,
+    DescribeReservedNodesResponse (DescribeReservedNodesResponse'),
+    newDescribeReservedNodesResponse,
 
     -- ** GetReservedNodeExchangeOfferings (Paginated)
     GetReservedNodeExchangeOfferings (GetReservedNodeExchangeOfferings'),
@@ -806,11 +572,23 @@ module Network.AWS.Redshift
     GetReservedNodeExchangeOfferingsResponse (GetReservedNodeExchangeOfferingsResponse'),
     newGetReservedNodeExchangeOfferingsResponse,
 
-    -- ** RejectDataShare
-    RejectDataShare (RejectDataShare'),
-    newRejectDataShare,
-    DataShare (DataShare'),
-    newDataShare,
+    -- ** DeleteAuthenticationProfile
+    DeleteAuthenticationProfile (DeleteAuthenticationProfile'),
+    newDeleteAuthenticationProfile,
+    DeleteAuthenticationProfileResponse (DeleteAuthenticationProfileResponse'),
+    newDeleteAuthenticationProfileResponse,
+
+    -- ** DescribeClusterParameterGroups (Paginated)
+    DescribeClusterParameterGroups (DescribeClusterParameterGroups'),
+    newDescribeClusterParameterGroups,
+    DescribeClusterParameterGroupsResponse (DescribeClusterParameterGroupsResponse'),
+    newDescribeClusterParameterGroupsResponse,
+
+    -- ** EnableLogging
+    EnableLogging (EnableLogging'),
+    newEnableLogging,
+    LoggingStatus (LoggingStatus'),
+    newLoggingStatus,
 
     -- ** CreateClusterSubnetGroup
     CreateClusterSubnetGroup (CreateClusterSubnetGroup'),
@@ -818,239 +596,59 @@ module Network.AWS.Redshift
     CreateClusterSubnetGroupResponse (CreateClusterSubnetGroupResponse'),
     newCreateClusterSubnetGroupResponse,
 
-    -- ** DeleteHsmConfiguration
-    DeleteHsmConfiguration (DeleteHsmConfiguration'),
-    newDeleteHsmConfiguration,
-    DeleteHsmConfigurationResponse (DeleteHsmConfigurationResponse'),
-    newDeleteHsmConfigurationResponse,
+    -- ** DeleteClusterParameterGroup
+    DeleteClusterParameterGroup (DeleteClusterParameterGroup'),
+    newDeleteClusterParameterGroup,
+    DeleteClusterParameterGroupResponse (DeleteClusterParameterGroupResponse'),
+    newDeleteClusterParameterGroupResponse,
 
-    -- ** DescribeTableRestoreStatus (Paginated)
-    DescribeTableRestoreStatus (DescribeTableRestoreStatus'),
-    newDescribeTableRestoreStatus,
-    DescribeTableRestoreStatusResponse (DescribeTableRestoreStatusResponse'),
-    newDescribeTableRestoreStatusResponse,
+    -- ** DescribeClusterSecurityGroups (Paginated)
+    DescribeClusterSecurityGroups (DescribeClusterSecurityGroups'),
+    newDescribeClusterSecurityGroups,
+    DescribeClusterSecurityGroupsResponse (DescribeClusterSecurityGroupsResponse'),
+    newDescribeClusterSecurityGroupsResponse,
 
-    -- ** DeleteClusterSnapshot
-    DeleteClusterSnapshot (DeleteClusterSnapshot'),
-    newDeleteClusterSnapshot,
-    DeleteClusterSnapshotResponse (DeleteClusterSnapshotResponse'),
-    newDeleteClusterSnapshotResponse,
+    -- ** CreateTags
+    CreateTags (CreateTags'),
+    newCreateTags,
+    CreateTagsResponse (CreateTagsResponse'),
+    newCreateTagsResponse,
 
-    -- ** ModifyClusterDbRevision
-    ModifyClusterDbRevision (ModifyClusterDbRevision'),
-    newModifyClusterDbRevision,
-    ModifyClusterDbRevisionResponse (ModifyClusterDbRevisionResponse'),
-    newModifyClusterDbRevisionResponse,
+    -- ** DescribeEndpointAuthorization (Paginated)
+    DescribeEndpointAuthorization (DescribeEndpointAuthorization'),
+    newDescribeEndpointAuthorization,
+    DescribeEndpointAuthorizationResponse (DescribeEndpointAuthorizationResponse'),
+    newDescribeEndpointAuthorizationResponse,
 
-    -- ** AuthorizeClusterSecurityGroupIngress
-    AuthorizeClusterSecurityGroupIngress (AuthorizeClusterSecurityGroupIngress'),
-    newAuthorizeClusterSecurityGroupIngress,
-    AuthorizeClusterSecurityGroupIngressResponse (AuthorizeClusterSecurityGroupIngressResponse'),
-    newAuthorizeClusterSecurityGroupIngressResponse,
+    -- ** EnableSnapshotCopy
+    EnableSnapshotCopy (EnableSnapshotCopy'),
+    newEnableSnapshotCopy,
+    EnableSnapshotCopyResponse (EnableSnapshotCopyResponse'),
+    newEnableSnapshotCopyResponse,
 
-    -- ** DeauthorizeDataShare
-    DeauthorizeDataShare (DeauthorizeDataShare'),
-    newDeauthorizeDataShare,
-    DataShare (DataShare'),
-    newDataShare,
+    -- ** DescribeClusterSnapshots (Paginated)
+    DescribeClusterSnapshots (DescribeClusterSnapshots'),
+    newDescribeClusterSnapshots,
+    DescribeClusterSnapshotsResponse (DescribeClusterSnapshotsResponse'),
+    newDescribeClusterSnapshotsResponse,
 
-    -- ** ModifyScheduledAction
-    ModifyScheduledAction (ModifyScheduledAction'),
-    newModifyScheduledAction,
-    ScheduledAction (ScheduledAction'),
-    newScheduledAction,
+    -- ** BatchDeleteClusterSnapshots
+    BatchDeleteClusterSnapshots (BatchDeleteClusterSnapshots'),
+    newBatchDeleteClusterSnapshots,
+    BatchDeleteClusterSnapshotsResponse (BatchDeleteClusterSnapshotsResponse'),
+    newBatchDeleteClusterSnapshotsResponse,
 
-    -- ** ModifyEventSubscription
-    ModifyEventSubscription (ModifyEventSubscription'),
-    newModifyEventSubscription,
-    ModifyEventSubscriptionResponse (ModifyEventSubscriptionResponse'),
-    newModifyEventSubscriptionResponse,
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
 
-    -- ** CreateClusterSecurityGroup
-    CreateClusterSecurityGroup (CreateClusterSecurityGroup'),
-    newCreateClusterSecurityGroup,
-    CreateClusterSecurityGroupResponse (CreateClusterSecurityGroupResponse'),
-    newCreateClusterSecurityGroupResponse,
-
-    -- ** DescribeResize
-    DescribeResize (DescribeResize'),
-    newDescribeResize,
-    ResizeProgressMessage (ResizeProgressMessage'),
-    newResizeProgressMessage,
-
-    -- ** AcceptReservedNodeExchange
-    AcceptReservedNodeExchange (AcceptReservedNodeExchange'),
-    newAcceptReservedNodeExchange,
-    AcceptReservedNodeExchangeResponse (AcceptReservedNodeExchangeResponse'),
-    newAcceptReservedNodeExchangeResponse,
-
-    -- ** DescribeSnapshotSchedules (Paginated)
-    DescribeSnapshotSchedules (DescribeSnapshotSchedules'),
-    newDescribeSnapshotSchedules,
-    DescribeSnapshotSchedulesResponse (DescribeSnapshotSchedulesResponse'),
-    newDescribeSnapshotSchedulesResponse,
-
-    -- ** ModifyClusterMaintenance
-    ModifyClusterMaintenance (ModifyClusterMaintenance'),
-    newModifyClusterMaintenance,
-    ModifyClusterMaintenanceResponse (ModifyClusterMaintenanceResponse'),
-    newModifyClusterMaintenanceResponse,
-
-    -- ** DescribeStorage
-    DescribeStorage (DescribeStorage'),
-    newDescribeStorage,
-    DescribeStorageResponse (DescribeStorageResponse'),
-    newDescribeStorageResponse,
-
-    -- ** DisassociateDataShareConsumer
-    DisassociateDataShareConsumer (DisassociateDataShareConsumer'),
-    newDisassociateDataShareConsumer,
-    DataShare (DataShare'),
-    newDataShare,
-
-    -- ** BatchModifyClusterSnapshots
-    BatchModifyClusterSnapshots (BatchModifyClusterSnapshots'),
-    newBatchModifyClusterSnapshots,
-    BatchModifyClusterSnapshotsResponse (BatchModifyClusterSnapshotsResponse'),
-    newBatchModifyClusterSnapshotsResponse,
-
-    -- ** DescribeSnapshotCopyGrants (Paginated)
-    DescribeSnapshotCopyGrants (DescribeSnapshotCopyGrants'),
-    newDescribeSnapshotCopyGrants,
-    DescribeSnapshotCopyGrantsResponse (DescribeSnapshotCopyGrantsResponse'),
-    newDescribeSnapshotCopyGrantsResponse,
-
-    -- ** ModifySnapshotSchedule
-    ModifySnapshotSchedule (ModifySnapshotSchedule'),
-    newModifySnapshotSchedule,
-    SnapshotSchedule (SnapshotSchedule'),
-    newSnapshotSchedule,
-
-    -- ** CreateHsmClientCertificate
-    CreateHsmClientCertificate (CreateHsmClientCertificate'),
-    newCreateHsmClientCertificate,
-    CreateHsmClientCertificateResponse (CreateHsmClientCertificateResponse'),
-    newCreateHsmClientCertificateResponse,
-
-    -- ** DescribeClusterVersions (Paginated)
-    DescribeClusterVersions (DescribeClusterVersions'),
-    newDescribeClusterVersions,
-    DescribeClusterVersionsResponse (DescribeClusterVersionsResponse'),
-    newDescribeClusterVersionsResponse,
-
-    -- ** AuthorizeDataShare
-    AuthorizeDataShare (AuthorizeDataShare'),
-    newAuthorizeDataShare,
-    DataShare (DataShare'),
-    newDataShare,
-
-    -- ** DescribeDefaultClusterParameters (Paginated)
-    DescribeDefaultClusterParameters (DescribeDefaultClusterParameters'),
-    newDescribeDefaultClusterParameters,
-    DescribeDefaultClusterParametersResponse (DescribeDefaultClusterParametersResponse'),
-    newDescribeDefaultClusterParametersResponse,
-
-    -- ** DeleteSnapshotCopyGrant
-    DeleteSnapshotCopyGrant (DeleteSnapshotCopyGrant'),
-    newDeleteSnapshotCopyGrant,
-    DeleteSnapshotCopyGrantResponse (DeleteSnapshotCopyGrantResponse'),
-    newDeleteSnapshotCopyGrantResponse,
-
-    -- ** DescribeUsageLimits (Paginated)
-    DescribeUsageLimits (DescribeUsageLimits'),
-    newDescribeUsageLimits,
-    DescribeUsageLimitsResponse (DescribeUsageLimitsResponse'),
-    newDescribeUsageLimitsResponse,
-
-    -- ** DescribeClusterTracks (Paginated)
-    DescribeClusterTracks (DescribeClusterTracks'),
-    newDescribeClusterTracks,
-    DescribeClusterTracksResponse (DescribeClusterTracksResponse'),
-    newDescribeClusterTracksResponse,
-
-    -- ** DescribeOrderableClusterOptions (Paginated)
-    DescribeOrderableClusterOptions (DescribeOrderableClusterOptions'),
-    newDescribeOrderableClusterOptions,
-    DescribeOrderableClusterOptionsResponse (DescribeOrderableClusterOptionsResponse'),
-    newDescribeOrderableClusterOptionsResponse,
-
-    -- ** CreateEventSubscription
-    CreateEventSubscription (CreateEventSubscription'),
-    newCreateEventSubscription,
-    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
-    newCreateEventSubscriptionResponse,
-
-    -- ** CreateScheduledAction
-    CreateScheduledAction (CreateScheduledAction'),
-    newCreateScheduledAction,
-    ScheduledAction (ScheduledAction'),
-    newScheduledAction,
-
-    -- ** AuthorizeSnapshotAccess
-    AuthorizeSnapshotAccess (AuthorizeSnapshotAccess'),
-    newAuthorizeSnapshotAccess,
-    AuthorizeSnapshotAccessResponse (AuthorizeSnapshotAccessResponse'),
-    newAuthorizeSnapshotAccessResponse,
-
-    -- ** DeleteHsmClientCertificate
-    DeleteHsmClientCertificate (DeleteHsmClientCertificate'),
-    newDeleteHsmClientCertificate,
-    DeleteHsmClientCertificateResponse (DeleteHsmClientCertificateResponse'),
-    newDeleteHsmClientCertificateResponse,
-
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
-    -- ** DescribeDataShares
-    DescribeDataShares (DescribeDataShares'),
-    newDescribeDataShares,
-    DescribeDataSharesResponse (DescribeDataSharesResponse'),
-    newDescribeDataSharesResponse,
-
-    -- ** RebootCluster
-    RebootCluster (RebootCluster'),
-    newRebootCluster,
-    RebootClusterResponse (RebootClusterResponse'),
-    newRebootClusterResponse,
-
-    -- ** ResumeCluster
-    ResumeCluster (ResumeCluster'),
-    newResumeCluster,
-    ResumeClusterResponse (ResumeClusterResponse'),
-    newResumeClusterResponse,
-
-    -- ** ModifyClusterIamRoles
-    ModifyClusterIamRoles (ModifyClusterIamRoles'),
-    newModifyClusterIamRoles,
-    ModifyClusterIamRolesResponse (ModifyClusterIamRolesResponse'),
-    newModifyClusterIamRolesResponse,
-
-    -- ** RestoreFromClusterSnapshot
-    RestoreFromClusterSnapshot (RestoreFromClusterSnapshot'),
-    newRestoreFromClusterSnapshot,
-    RestoreFromClusterSnapshotResponse (RestoreFromClusterSnapshotResponse'),
-    newRestoreFromClusterSnapshotResponse,
-
-    -- ** PauseCluster
-    PauseCluster (PauseCluster'),
-    newPauseCluster,
-    PauseClusterResponse (PauseClusterResponse'),
-    newPauseClusterResponse,
-
-    -- ** DeleteSnapshotSchedule
-    DeleteSnapshotSchedule (DeleteSnapshotSchedule'),
-    newDeleteSnapshotSchedule,
-    DeleteSnapshotScheduleResponse (DeleteSnapshotScheduleResponse'),
-    newDeleteSnapshotScheduleResponse,
-
-    -- ** ModifySnapshotCopyRetentionPeriod
-    ModifySnapshotCopyRetentionPeriod (ModifySnapshotCopyRetentionPeriod'),
-    newModifySnapshotCopyRetentionPeriod,
-    ModifySnapshotCopyRetentionPeriodResponse (ModifySnapshotCopyRetentionPeriodResponse'),
-    newModifySnapshotCopyRetentionPeriodResponse,
+    -- ** ModifyUsageLimit
+    ModifyUsageLimit (ModifyUsageLimit'),
+    newModifyUsageLimit,
+    UsageLimit (UsageLimit'),
+    newUsageLimit,
 
     -- ** DescribeClusterSubnetGroups (Paginated)
     DescribeClusterSubnetGroups (DescribeClusterSubnetGroups'),
@@ -1064,29 +662,323 @@ module Network.AWS.Redshift
     ResizeClusterResponse (ResizeClusterResponse'),
     newResizeClusterResponse,
 
-    -- ** BatchDeleteClusterSnapshots
-    BatchDeleteClusterSnapshots (BatchDeleteClusterSnapshots'),
-    newBatchDeleteClusterSnapshots,
-    BatchDeleteClusterSnapshotsResponse (BatchDeleteClusterSnapshotsResponse'),
-    newBatchDeleteClusterSnapshotsResponse,
+    -- ** ModifySnapshotCopyRetentionPeriod
+    ModifySnapshotCopyRetentionPeriod (ModifySnapshotCopyRetentionPeriod'),
+    newModifySnapshotCopyRetentionPeriod,
+    ModifySnapshotCopyRetentionPeriodResponse (ModifySnapshotCopyRetentionPeriodResponse'),
+    newModifySnapshotCopyRetentionPeriodResponse,
 
-    -- ** DescribePartners
-    DescribePartners (DescribePartners'),
-    newDescribePartners,
-    DescribePartnersResponse (DescribePartnersResponse'),
-    newDescribePartnersResponse,
+    -- ** ModifyClusterIamRoles
+    ModifyClusterIamRoles (ModifyClusterIamRoles'),
+    newModifyClusterIamRoles,
+    ModifyClusterIamRolesResponse (ModifyClusterIamRolesResponse'),
+    newModifyClusterIamRolesResponse,
 
-    -- ** RevokeSnapshotAccess
-    RevokeSnapshotAccess (RevokeSnapshotAccess'),
-    newRevokeSnapshotAccess,
-    RevokeSnapshotAccessResponse (RevokeSnapshotAccessResponse'),
-    newRevokeSnapshotAccessResponse,
+    -- ** AuthorizeSnapshotAccess
+    AuthorizeSnapshotAccess (AuthorizeSnapshotAccess'),
+    newAuthorizeSnapshotAccess,
+    AuthorizeSnapshotAccessResponse (AuthorizeSnapshotAccessResponse'),
+    newAuthorizeSnapshotAccessResponse,
 
-    -- ** CreateTags
-    CreateTags (CreateTags'),
-    newCreateTags,
-    CreateTagsResponse (CreateTagsResponse'),
-    newCreateTagsResponse,
+    -- ** RebootCluster
+    RebootCluster (RebootCluster'),
+    newRebootCluster,
+    RebootClusterResponse (RebootClusterResponse'),
+    newRebootClusterResponse,
+
+    -- ** ResumeCluster
+    ResumeCluster (ResumeCluster'),
+    newResumeCluster,
+    ResumeClusterResponse (ResumeClusterResponse'),
+    newResumeClusterResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** CreateEventSubscription
+    CreateEventSubscription (CreateEventSubscription'),
+    newCreateEventSubscription,
+    CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
+    newCreateEventSubscriptionResponse,
+
+    -- ** CreateScheduledAction
+    CreateScheduledAction (CreateScheduledAction'),
+    newCreateScheduledAction,
+    ScheduledAction (ScheduledAction'),
+    newScheduledAction,
+
+    -- ** DescribeOrderableClusterOptions (Paginated)
+    DescribeOrderableClusterOptions (DescribeOrderableClusterOptions'),
+    newDescribeOrderableClusterOptions,
+    DescribeOrderableClusterOptionsResponse (DescribeOrderableClusterOptionsResponse'),
+    newDescribeOrderableClusterOptionsResponse,
+
+    -- ** CreateEndpointAccess
+    CreateEndpointAccess (CreateEndpointAccess'),
+    newCreateEndpointAccess,
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
+    -- ** DescribeClusterTracks (Paginated)
+    DescribeClusterTracks (DescribeClusterTracks'),
+    newDescribeClusterTracks,
+    DescribeClusterTracksResponse (DescribeClusterTracksResponse'),
+    newDescribeClusterTracksResponse,
+
+    -- ** CreateCluster
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
+
+    -- ** CreateHsmClientCertificate
+    CreateHsmClientCertificate (CreateHsmClientCertificate'),
+    newCreateHsmClientCertificate,
+    CreateHsmClientCertificateResponse (CreateHsmClientCertificateResponse'),
+    newCreateHsmClientCertificateResponse,
+
+    -- ** RestoreTableFromClusterSnapshot
+    RestoreTableFromClusterSnapshot (RestoreTableFromClusterSnapshot'),
+    newRestoreTableFromClusterSnapshot,
+    RestoreTableFromClusterSnapshotResponse (RestoreTableFromClusterSnapshotResponse'),
+    newRestoreTableFromClusterSnapshotResponse,
+
+    -- ** DeleteScheduledAction
+    DeleteScheduledAction (DeleteScheduledAction'),
+    newDeleteScheduledAction,
+    DeleteScheduledActionResponse (DeleteScheduledActionResponse'),
+    newDeleteScheduledActionResponse,
+
+    -- ** DescribeDefaultClusterParameters (Paginated)
+    DescribeDefaultClusterParameters (DescribeDefaultClusterParameters'),
+    newDescribeDefaultClusterParameters,
+    DescribeDefaultClusterParametersResponse (DescribeDefaultClusterParametersResponse'),
+    newDescribeDefaultClusterParametersResponse,
+
+    -- ** DeleteEventSubscription
+    DeleteEventSubscription (DeleteEventSubscription'),
+    newDeleteEventSubscription,
+    DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
+    newDeleteEventSubscriptionResponse,
+
+    -- ** ModifyClusterSnapshot
+    ModifyClusterSnapshot (ModifyClusterSnapshot'),
+    newModifyClusterSnapshot,
+    ModifyClusterSnapshotResponse (ModifyClusterSnapshotResponse'),
+    newModifyClusterSnapshotResponse,
+
+    -- ** DescribeDataSharesForConsumer
+    DescribeDataSharesForConsumer (DescribeDataSharesForConsumer'),
+    newDescribeDataSharesForConsumer,
+    DescribeDataSharesForConsumerResponse (DescribeDataSharesForConsumerResponse'),
+    newDescribeDataSharesForConsumerResponse,
+
+    -- ** AuthorizeDataShare
+    AuthorizeDataShare (AuthorizeDataShare'),
+    newAuthorizeDataShare,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** ResetClusterParameterGroup
+    ResetClusterParameterGroup (ResetClusterParameterGroup'),
+    newResetClusterParameterGroup,
+    ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
+    newClusterParameterGroupNameMessage,
+
+    -- ** DescribeScheduledActions (Paginated)
+    DescribeScheduledActions (DescribeScheduledActions'),
+    newDescribeScheduledActions,
+    DescribeScheduledActionsResponse (DescribeScheduledActionsResponse'),
+    newDescribeScheduledActionsResponse,
+
+    -- ** DisassociateDataShareConsumer
+    DisassociateDataShareConsumer (DisassociateDataShareConsumer'),
+    newDisassociateDataShareConsumer,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** DescribeEventSubscriptions (Paginated)
+    DescribeEventSubscriptions (DescribeEventSubscriptions'),
+    newDescribeEventSubscriptions,
+    DescribeEventSubscriptionsResponse (DescribeEventSubscriptionsResponse'),
+    newDescribeEventSubscriptionsResponse,
+
+    -- ** DescribeClusterDbRevisions (Paginated)
+    DescribeClusterDbRevisions (DescribeClusterDbRevisions'),
+    newDescribeClusterDbRevisions,
+    DescribeClusterDbRevisionsResponse (DescribeClusterDbRevisionsResponse'),
+    newDescribeClusterDbRevisionsResponse,
+
+    -- ** BatchModifyClusterSnapshots
+    BatchModifyClusterSnapshots (BatchModifyClusterSnapshots'),
+    newBatchModifyClusterSnapshots,
+    BatchModifyClusterSnapshotsResponse (BatchModifyClusterSnapshotsResponse'),
+    newBatchModifyClusterSnapshotsResponse,
+
+    -- ** DeleteUsageLimit
+    DeleteUsageLimit (DeleteUsageLimit'),
+    newDeleteUsageLimit,
+    DeleteUsageLimitResponse (DeleteUsageLimitResponse'),
+    newDeleteUsageLimitResponse,
+
+    -- ** RevokeClusterSecurityGroupIngress
+    RevokeClusterSecurityGroupIngress (RevokeClusterSecurityGroupIngress'),
+    newRevokeClusterSecurityGroupIngress,
+    RevokeClusterSecurityGroupIngressResponse (RevokeClusterSecurityGroupIngressResponse'),
+    newRevokeClusterSecurityGroupIngressResponse,
+
+    -- ** DescribeHsmClientCertificates (Paginated)
+    DescribeHsmClientCertificates (DescribeHsmClientCertificates'),
+    newDescribeHsmClientCertificates,
+    DescribeHsmClientCertificatesResponse (DescribeHsmClientCertificatesResponse'),
+    newDescribeHsmClientCertificatesResponse,
+
+    -- ** ModifyClusterParameterGroup
+    ModifyClusterParameterGroup (ModifyClusterParameterGroup'),
+    newModifyClusterParameterGroup,
+    ClusterParameterGroupNameMessage (ClusterParameterGroupNameMessage'),
+    newClusterParameterGroupNameMessage,
+
+    -- ** AuthorizeEndpointAccess
+    AuthorizeEndpointAccess (AuthorizeEndpointAccess'),
+    newAuthorizeEndpointAccess,
+    EndpointAuthorization (EndpointAuthorization'),
+    newEndpointAuthorization,
+
+    -- ** ModifyAquaConfiguration
+    ModifyAquaConfiguration (ModifyAquaConfiguration'),
+    newModifyAquaConfiguration,
+    ModifyAquaConfigurationResponse (ModifyAquaConfigurationResponse'),
+    newModifyAquaConfigurationResponse,
+
+    -- ** GetClusterCredentials
+    GetClusterCredentials (GetClusterCredentials'),
+    newGetClusterCredentials,
+    GetClusterCredentialsResponse (GetClusterCredentialsResponse'),
+    newGetClusterCredentialsResponse,
+
+    -- ** ModifyClusterMaintenance
+    ModifyClusterMaintenance (ModifyClusterMaintenance'),
+    newModifyClusterMaintenance,
+    ModifyClusterMaintenanceResponse (ModifyClusterMaintenanceResponse'),
+    newModifyClusterMaintenanceResponse,
+
+    -- ** CreateClusterSecurityGroup
+    CreateClusterSecurityGroup (CreateClusterSecurityGroup'),
+    newCreateClusterSecurityGroup,
+    CreateClusterSecurityGroupResponse (CreateClusterSecurityGroupResponse'),
+    newCreateClusterSecurityGroupResponse,
+
+    -- ** DescribeEventCategories
+    DescribeEventCategories (DescribeEventCategories'),
+    newDescribeEventCategories,
+    DescribeEventCategoriesResponse (DescribeEventCategoriesResponse'),
+    newDescribeEventCategoriesResponse,
+
+    -- ** DescribeResize
+    DescribeResize (DescribeResize'),
+    newDescribeResize,
+    ResizeProgressMessage (ResizeProgressMessage'),
+    newResizeProgressMessage,
+
+    -- ** DeleteHsmConfiguration
+    DeleteHsmConfiguration (DeleteHsmConfiguration'),
+    newDeleteHsmConfiguration,
+    DeleteHsmConfigurationResponse (DeleteHsmConfigurationResponse'),
+    newDeleteHsmConfigurationResponse,
+
+    -- ** CreateAuthenticationProfile
+    CreateAuthenticationProfile (CreateAuthenticationProfile'),
+    newCreateAuthenticationProfile,
+    CreateAuthenticationProfileResponse (CreateAuthenticationProfileResponse'),
+    newCreateAuthenticationProfileResponse,
+
+    -- ** DeauthorizeDataShare
+    DeauthorizeDataShare (DeauthorizeDataShare'),
+    newDeauthorizeDataShare,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** AcceptReservedNodeExchange
+    AcceptReservedNodeExchange (AcceptReservedNodeExchange'),
+    newAcceptReservedNodeExchange,
+    AcceptReservedNodeExchangeResponse (AcceptReservedNodeExchangeResponse'),
+    newAcceptReservedNodeExchangeResponse,
+
+    -- ** AuthorizeClusterSecurityGroupIngress
+    AuthorizeClusterSecurityGroupIngress (AuthorizeClusterSecurityGroupIngress'),
+    newAuthorizeClusterSecurityGroupIngress,
+    AuthorizeClusterSecurityGroupIngressResponse (AuthorizeClusterSecurityGroupIngressResponse'),
+    newAuthorizeClusterSecurityGroupIngressResponse,
+
+    -- ** DeletePartner
+    DeletePartner (DeletePartner'),
+    newDeletePartner,
+    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
+    newPartnerIntegrationOutputMessage,
+
+    -- ** DescribeTableRestoreStatus (Paginated)
+    DescribeTableRestoreStatus (DescribeTableRestoreStatus'),
+    newDescribeTableRestoreStatus,
+    DescribeTableRestoreStatusResponse (DescribeTableRestoreStatusResponse'),
+    newDescribeTableRestoreStatusResponse,
+
+    -- ** CreateClusterSnapshot
+    CreateClusterSnapshot (CreateClusterSnapshot'),
+    newCreateClusterSnapshot,
+    CreateClusterSnapshotResponse (CreateClusterSnapshotResponse'),
+    newCreateClusterSnapshotResponse,
+
+    -- ** RejectDataShare
+    RejectDataShare (RejectDataShare'),
+    newRejectDataShare,
+    DataShare (DataShare'),
+    newDataShare,
+
+    -- ** CreateHsmConfiguration
+    CreateHsmConfiguration (CreateHsmConfiguration'),
+    newCreateHsmConfiguration,
+    CreateHsmConfigurationResponse (CreateHsmConfigurationResponse'),
+    newCreateHsmConfigurationResponse,
+
+    -- ** DescribeLoggingStatus
+    DescribeLoggingStatus (DescribeLoggingStatus'),
+    newDescribeLoggingStatus,
+    LoggingStatus (LoggingStatus'),
+    newLoggingStatus,
+
+    -- ** ModifyCluster
+    ModifyCluster (ModifyCluster'),
+    newModifyCluster,
+    ModifyClusterResponse (ModifyClusterResponse'),
+    newModifyClusterResponse,
+
+    -- ** DeleteClusterSecurityGroup
+    DeleteClusterSecurityGroup (DeleteClusterSecurityGroup'),
+    newDeleteClusterSecurityGroup,
+    DeleteClusterSecurityGroupResponse (DeleteClusterSecurityGroupResponse'),
+    newDeleteClusterSecurityGroupResponse,
+
+    -- ** CreateSnapshotSchedule
+    CreateSnapshotSchedule (CreateSnapshotSchedule'),
+    newCreateSnapshotSchedule,
+    SnapshotSchedule (SnapshotSchedule'),
+    newSnapshotSchedule,
+
+    -- ** DescribeAuthenticationProfiles
+    DescribeAuthenticationProfiles (DescribeAuthenticationProfiles'),
+    newDescribeAuthenticationProfiles,
+    DescribeAuthenticationProfilesResponse (DescribeAuthenticationProfilesResponse'),
+    newDescribeAuthenticationProfilesResponse,
+
+    -- ** DescribeNodeConfigurationOptions (Paginated)
+    DescribeNodeConfigurationOptions (DescribeNodeConfigurationOptions'),
+    newDescribeNodeConfigurationOptions,
+    DescribeNodeConfigurationOptionsResponse (DescribeNodeConfigurationOptionsResponse'),
+    newDescribeNodeConfigurationOptionsResponse,
 
     -- ** DisableSnapshotCopy
     DisableSnapshotCopy (DisableSnapshotCopy'),
@@ -1100,41 +992,149 @@ module Network.AWS.Redshift
     DescribeClusterParametersResponse (DescribeClusterParametersResponse'),
     newDescribeClusterParametersResponse,
 
-    -- ** DeleteAuthenticationProfile
-    DeleteAuthenticationProfile (DeleteAuthenticationProfile'),
-    newDeleteAuthenticationProfile,
-    DeleteAuthenticationProfileResponse (DeleteAuthenticationProfileResponse'),
-    newDeleteAuthenticationProfileResponse,
+    -- ** PauseCluster
+    PauseCluster (PauseCluster'),
+    newPauseCluster,
+    PauseClusterResponse (PauseClusterResponse'),
+    newPauseClusterResponse,
 
-    -- ** DeleteClusterSecurityGroup
-    DeleteClusterSecurityGroup (DeleteClusterSecurityGroup'),
-    newDeleteClusterSecurityGroup,
-    DeleteClusterSecurityGroupResponse (DeleteClusterSecurityGroupResponse'),
-    newDeleteClusterSecurityGroupResponse,
+    -- ** DescribeDataSharesForProducer
+    DescribeDataSharesForProducer (DescribeDataSharesForProducer'),
+    newDescribeDataSharesForProducer,
+    DescribeDataSharesForProducerResponse (DescribeDataSharesForProducerResponse'),
+    newDescribeDataSharesForProducerResponse,
 
-    -- ** DescribeReservedNodeOfferings (Paginated)
-    DescribeReservedNodeOfferings (DescribeReservedNodeOfferings'),
-    newDescribeReservedNodeOfferings,
-    DescribeReservedNodeOfferingsResponse (DescribeReservedNodeOfferingsResponse'),
-    newDescribeReservedNodeOfferingsResponse,
+    -- ** DeleteSnapshotSchedule
+    DeleteSnapshotSchedule (DeleteSnapshotSchedule'),
+    newDeleteSnapshotSchedule,
+    DeleteSnapshotScheduleResponse (DeleteSnapshotScheduleResponse'),
+    newDeleteSnapshotScheduleResponse,
 
-    -- ** EnableLogging
-    EnableLogging (EnableLogging'),
-    newEnableLogging,
-    LoggingStatus (LoggingStatus'),
-    newLoggingStatus,
+    -- ** RestoreFromClusterSnapshot
+    RestoreFromClusterSnapshot (RestoreFromClusterSnapshot'),
+    newRestoreFromClusterSnapshot,
+    RestoreFromClusterSnapshotResponse (RestoreFromClusterSnapshotResponse'),
+    newRestoreFromClusterSnapshotResponse,
 
-    -- ** DescribeReservedNodes (Paginated)
-    DescribeReservedNodes (DescribeReservedNodes'),
-    newDescribeReservedNodes,
-    DescribeReservedNodesResponse (DescribeReservedNodesResponse'),
-    newDescribeReservedNodesResponse,
+    -- ** CreateClusterParameterGroup
+    CreateClusterParameterGroup (CreateClusterParameterGroup'),
+    newCreateClusterParameterGroup,
+    CreateClusterParameterGroupResponse (CreateClusterParameterGroupResponse'),
+    newCreateClusterParameterGroupResponse,
 
-    -- ** CreateHsmConfiguration
-    CreateHsmConfiguration (CreateHsmConfiguration'),
-    newCreateHsmConfiguration,
-    CreateHsmConfigurationResponse (CreateHsmConfigurationResponse'),
-    newCreateHsmConfigurationResponse,
+    -- ** DescribePartners
+    DescribePartners (DescribePartners'),
+    newDescribePartners,
+    DescribePartnersResponse (DescribePartnersResponse'),
+    newDescribePartnersResponse,
+
+    -- ** RevokeSnapshotAccess
+    RevokeSnapshotAccess (RevokeSnapshotAccess'),
+    newRevokeSnapshotAccess,
+    RevokeSnapshotAccessResponse (RevokeSnapshotAccessResponse'),
+    newRevokeSnapshotAccessResponse,
+
+    -- ** DescribeHsmConfigurations (Paginated)
+    DescribeHsmConfigurations (DescribeHsmConfigurations'),
+    newDescribeHsmConfigurations,
+    DescribeHsmConfigurationsResponse (DescribeHsmConfigurationsResponse'),
+    newDescribeHsmConfigurationsResponse,
+
+    -- ** DescribeAccountAttributes
+    DescribeAccountAttributes (DescribeAccountAttributes'),
+    newDescribeAccountAttributes,
+    DescribeAccountAttributesResponse (DescribeAccountAttributesResponse'),
+    newDescribeAccountAttributesResponse,
+
+    -- ** CreateSnapshotCopyGrant
+    CreateSnapshotCopyGrant (CreateSnapshotCopyGrant'),
+    newCreateSnapshotCopyGrant,
+    CreateSnapshotCopyGrantResponse (CreateSnapshotCopyGrantResponse'),
+    newCreateSnapshotCopyGrantResponse,
+
+    -- ** CopyClusterSnapshot
+    CopyClusterSnapshot (CopyClusterSnapshot'),
+    newCopyClusterSnapshot,
+    CopyClusterSnapshotResponse (CopyClusterSnapshotResponse'),
+    newCopyClusterSnapshotResponse,
+
+    -- ** DescribeDataShares
+    DescribeDataShares (DescribeDataShares'),
+    newDescribeDataShares,
+    DescribeDataSharesResponse (DescribeDataSharesResponse'),
+    newDescribeDataSharesResponse,
+
+    -- ** DeleteHsmClientCertificate
+    DeleteHsmClientCertificate (DeleteHsmClientCertificate'),
+    newDeleteHsmClientCertificate,
+    DeleteHsmClientCertificateResponse (DeleteHsmClientCertificateResponse'),
+    newDeleteHsmClientCertificateResponse,
+
+    -- ** ModifyAuthenticationProfile
+    ModifyAuthenticationProfile (ModifyAuthenticationProfile'),
+    newModifyAuthenticationProfile,
+    ModifyAuthenticationProfileResponse (ModifyAuthenticationProfileResponse'),
+    newModifyAuthenticationProfileResponse,
+
+    -- ** UpdatePartnerStatus
+    UpdatePartnerStatus (UpdatePartnerStatus'),
+    newUpdatePartnerStatus,
+    PartnerIntegrationOutputMessage (PartnerIntegrationOutputMessage'),
+    newPartnerIntegrationOutputMessage,
+
+    -- ** ModifyClusterSnapshotSchedule
+    ModifyClusterSnapshotSchedule (ModifyClusterSnapshotSchedule'),
+    newModifyClusterSnapshotSchedule,
+    ModifyClusterSnapshotScheduleResponse (ModifyClusterSnapshotScheduleResponse'),
+    newModifyClusterSnapshotScheduleResponse,
+
+    -- ** DeleteEndpointAccess
+    DeleteEndpointAccess (DeleteEndpointAccess'),
+    newDeleteEndpointAccess,
+    EndpointAccess (EndpointAccess'),
+    newEndpointAccess,
+
+    -- ** DeleteSnapshotCopyGrant
+    DeleteSnapshotCopyGrant (DeleteSnapshotCopyGrant'),
+    newDeleteSnapshotCopyGrant,
+    DeleteSnapshotCopyGrantResponse (DeleteSnapshotCopyGrantResponse'),
+    newDeleteSnapshotCopyGrantResponse,
+
+    -- ** DescribeClusterVersions (Paginated)
+    DescribeClusterVersions (DescribeClusterVersions'),
+    newDescribeClusterVersions,
+    DescribeClusterVersionsResponse (DescribeClusterVersionsResponse'),
+    newDescribeClusterVersionsResponse,
+
+    -- ** ModifyClusterSubnetGroup
+    ModifyClusterSubnetGroup (ModifyClusterSubnetGroup'),
+    newModifyClusterSubnetGroup,
+    ModifyClusterSubnetGroupResponse (ModifyClusterSubnetGroupResponse'),
+    newModifyClusterSubnetGroupResponse,
+
+    -- ** DescribeUsageLimits (Paginated)
+    DescribeUsageLimits (DescribeUsageLimits'),
+    newDescribeUsageLimits,
+    DescribeUsageLimitsResponse (DescribeUsageLimitsResponse'),
+    newDescribeUsageLimitsResponse,
+
+    -- ** ModifySnapshotSchedule
+    ModifySnapshotSchedule (ModifySnapshotSchedule'),
+    newModifySnapshotSchedule,
+    SnapshotSchedule (SnapshotSchedule'),
+    newSnapshotSchedule,
+
+    -- ** RotateEncryptionKey
+    RotateEncryptionKey (RotateEncryptionKey'),
+    newRotateEncryptionKey,
+    RotateEncryptionKeyResponse (RotateEncryptionKeyResponse'),
+    newRotateEncryptionKeyResponse,
+
+    -- ** DescribeSnapshotCopyGrants (Paginated)
+    DescribeSnapshotCopyGrants (DescribeSnapshotCopyGrants'),
+    newDescribeSnapshotCopyGrants,
+    DescribeSnapshotCopyGrantsResponse (DescribeSnapshotCopyGrantsResponse'),
+    newDescribeSnapshotCopyGrantsResponse,
 
     -- * Types
 

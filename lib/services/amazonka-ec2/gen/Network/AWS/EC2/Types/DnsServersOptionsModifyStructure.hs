@@ -73,7 +73,7 @@ dnsServersOptionsModifyStructure_enabled = Lens.lens (\DnsServersOptionsModifySt
 -- be reached by the clients. The specified values overwrite the existing
 -- values.
 dnsServersOptionsModifyStructure_customDnsServers :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe [Prelude.Text])
-dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Prelude.. Lens.mapping Lens._Coerce
+dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable

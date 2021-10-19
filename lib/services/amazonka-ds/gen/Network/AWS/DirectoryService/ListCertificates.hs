@@ -205,7 +205,7 @@ listCertificatesResponse_nextToken = Lens.lens (\ListCertificatesResponse' {next
 -- | A list of certificates with basic details including certificate ID,
 -- certificate common name, certificate state.
 listCertificatesResponse_certificatesInfo :: Lens.Lens' ListCertificatesResponse (Prelude.Maybe [CertificateInfo])
-listCertificatesResponse_certificatesInfo = Lens.lens (\ListCertificatesResponse' {certificatesInfo} -> certificatesInfo) (\s@ListCertificatesResponse' {} a -> s {certificatesInfo = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens._Coerce
+listCertificatesResponse_certificatesInfo = Lens.lens (\ListCertificatesResponse' {certificatesInfo} -> certificatesInfo) (\s@ListCertificatesResponse' {} a -> s {certificatesInfo = a} :: ListCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCertificatesResponse_httpStatus :: Lens.Lens' ListCertificatesResponse Prelude.Int

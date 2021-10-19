@@ -221,7 +221,7 @@ describeCacheResponse_gatewayARN = Lens.lens (\DescribeCacheResponse' {gatewayAR
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 describeCacheResponse_diskIds :: Lens.Lens' DescribeCacheResponse (Prelude.Maybe [Prelude.Text])
-describeCacheResponse_diskIds = Lens.lens (\DescribeCacheResponse' {diskIds} -> diskIds) (\s@DescribeCacheResponse' {} a -> s {diskIds = a} :: DescribeCacheResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCacheResponse_diskIds = Lens.lens (\DescribeCacheResponse' {diskIds} -> diskIds) (\s@DescribeCacheResponse' {} a -> s {diskIds = a} :: DescribeCacheResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Percent use of the gateway\'s cache storage. This metric applies only to
 -- the gateway-cached volume setup. The sample is taken at the end of the

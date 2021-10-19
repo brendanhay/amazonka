@@ -45,8 +45,8 @@ module Network.AWS.ResourceGroupsTagging.GetTagKeys
     newGetTagKeysResponse,
 
     -- * Response Lenses
-    getTagKeysResponse_tagKeys,
     getTagKeysResponse_paginationToken,
+    getTagKeysResponse_tagKeys,
     getTagKeysResponse_httpStatus,
   )
 where
@@ -117,8 +117,8 @@ instance Core.AWSRequest GetTagKeys where
     Response.receiveJSON
       ( \s h x ->
           GetTagKeysResponse'
-            Prelude.<$> (x Core..?> "TagKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<$> (x Core..?> "PaginationToken")
+            Prelude.<*> (x Core..?> "TagKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,13 +158,13 @@ instance Core.ToQuery GetTagKeys where
 
 -- | /See:/ 'newGetTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
-  { -- | A list of all tag keys in the AWS account.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | A string that indicates that there is more data available than this
+  { -- | A string that indicates that there is more data available than this
     -- response contains. To receive the next part of the response, specify
     -- this response value as the @PaginationToken@ value in the request for
     -- the next page.
     paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of all tag keys in the AWS account.
+    tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -178,12 +178,12 @@ data GetTagKeysResponse = GetTagKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKeys', 'getTagKeysResponse_tagKeys' - A list of all tag keys in the AWS account.
---
 -- 'paginationToken', 'getTagKeysResponse_paginationToken' - A string that indicates that there is more data available than this
 -- response contains. To receive the next part of the response, specify
 -- this response value as the @PaginationToken@ value in the request for
 -- the next page.
+--
+-- 'tagKeys', 'getTagKeysResponse_tagKeys' - A list of all tag keys in the AWS account.
 --
 -- 'httpStatus', 'getTagKeysResponse_httpStatus' - The response's http status code.
 newGetTagKeysResponse ::
@@ -192,14 +192,11 @@ newGetTagKeysResponse ::
   GetTagKeysResponse
 newGetTagKeysResponse pHttpStatus_ =
   GetTagKeysResponse'
-    { tagKeys = Prelude.Nothing,
-      paginationToken = Prelude.Nothing,
+    { paginationToken =
+        Prelude.Nothing,
+      tagKeys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of all tag keys in the AWS account.
-getTagKeysResponse_tagKeys :: Lens.Lens' GetTagKeysResponse (Prelude.Maybe [Prelude.Text])
-getTagKeysResponse_tagKeys = Lens.lens (\GetTagKeysResponse' {tagKeys} -> tagKeys) (\s@GetTagKeysResponse' {} a -> s {tagKeys = a} :: GetTagKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates that there is more data available than this
 -- response contains. To receive the next part of the response, specify
@@ -207,6 +204,10 @@ getTagKeysResponse_tagKeys = Lens.lens (\GetTagKeysResponse' {tagKeys} -> tagKey
 -- the next page.
 getTagKeysResponse_paginationToken :: Lens.Lens' GetTagKeysResponse (Prelude.Maybe Prelude.Text)
 getTagKeysResponse_paginationToken = Lens.lens (\GetTagKeysResponse' {paginationToken} -> paginationToken) (\s@GetTagKeysResponse' {} a -> s {paginationToken = a} :: GetTagKeysResponse)
+
+-- | A list of all tag keys in the AWS account.
+getTagKeysResponse_tagKeys :: Lens.Lens' GetTagKeysResponse (Prelude.Maybe [Prelude.Text])
+getTagKeysResponse_tagKeys = Lens.lens (\GetTagKeysResponse' {tagKeys} -> tagKeys) (\s@GetTagKeysResponse' {} a -> s {tagKeys = a} :: GetTagKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTagKeysResponse_httpStatus :: Lens.Lens' GetTagKeysResponse Prelude.Int

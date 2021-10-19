@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFieldLevelEncryptionSummary' smart constructor.
 data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
-  { -- | An optional comment about the field-level encryption item. The comment
-    -- cannot be longer than 128 characters.
-    comment :: Prelude.Maybe Prelude.Text,
+  { -- | A summary of a query argument-profile mapping.
+    queryArgProfileConfig :: Prelude.Maybe QueryArgProfileConfig,
     -- | A summary of a content type-profile mapping.
     contentTypeProfileConfig :: Prelude.Maybe ContentTypeProfileConfig,
-    -- | A summary of a query argument-profile mapping.
-    queryArgProfileConfig :: Prelude.Maybe QueryArgProfileConfig,
+    -- | An optional comment about the field-level encryption item. The comment
+    -- cannot be longer than 128 characters.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of a field-level encryption item.
     id :: Prelude.Text,
     -- | The last time that the summary of field-level encryption items was
@@ -52,12 +52,12 @@ data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'fieldLevelEncryptionSummary_comment' - An optional comment about the field-level encryption item. The comment
--- cannot be longer than 128 characters.
+-- 'queryArgProfileConfig', 'fieldLevelEncryptionSummary_queryArgProfileConfig' - A summary of a query argument-profile mapping.
 --
 -- 'contentTypeProfileConfig', 'fieldLevelEncryptionSummary_contentTypeProfileConfig' - A summary of a content type-profile mapping.
 --
--- 'queryArgProfileConfig', 'fieldLevelEncryptionSummary_queryArgProfileConfig' - A summary of a query argument-profile mapping.
+-- 'comment', 'fieldLevelEncryptionSummary_comment' - An optional comment about the field-level encryption item. The comment
+-- cannot be longer than 128 characters.
 --
 -- 'id', 'fieldLevelEncryptionSummary_id' - The unique ID of a field-level encryption item.
 --
@@ -73,27 +73,27 @@ newFieldLevelEncryptionSummary
   pId_
   pLastModifiedTime_ =
     FieldLevelEncryptionSummary'
-      { comment =
+      { queryArgProfileConfig =
           Prelude.Nothing,
         contentTypeProfileConfig = Prelude.Nothing,
-        queryArgProfileConfig = Prelude.Nothing,
+        comment = Prelude.Nothing,
         id = pId_,
         lastModifiedTime =
           Core._Time Lens.# pLastModifiedTime_
       }
 
--- | An optional comment about the field-level encryption item. The comment
--- cannot be longer than 128 characters.
-fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe Prelude.Text)
-fieldLevelEncryptionSummary_comment = Lens.lens (\FieldLevelEncryptionSummary' {comment} -> comment) (\s@FieldLevelEncryptionSummary' {} a -> s {comment = a} :: FieldLevelEncryptionSummary)
+-- | A summary of a query argument-profile mapping.
+fieldLevelEncryptionSummary_queryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe QueryArgProfileConfig)
+fieldLevelEncryptionSummary_queryArgProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {queryArgProfileConfig} -> queryArgProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionSummary)
 
 -- | A summary of a content type-profile mapping.
 fieldLevelEncryptionSummary_contentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe ContentTypeProfileConfig)
 fieldLevelEncryptionSummary_contentTypeProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {contentTypeProfileConfig} -> contentTypeProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {contentTypeProfileConfig = a} :: FieldLevelEncryptionSummary)
 
--- | A summary of a query argument-profile mapping.
-fieldLevelEncryptionSummary_queryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe QueryArgProfileConfig)
-fieldLevelEncryptionSummary_queryArgProfileConfig = Lens.lens (\FieldLevelEncryptionSummary' {queryArgProfileConfig} -> queryArgProfileConfig) (\s@FieldLevelEncryptionSummary' {} a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionSummary)
+-- | An optional comment about the field-level encryption item. The comment
+-- cannot be longer than 128 characters.
+fieldLevelEncryptionSummary_comment :: Lens.Lens' FieldLevelEncryptionSummary (Prelude.Maybe Prelude.Text)
+fieldLevelEncryptionSummary_comment = Lens.lens (\FieldLevelEncryptionSummary' {comment} -> comment) (\s@FieldLevelEncryptionSummary' {} a -> s {comment = a} :: FieldLevelEncryptionSummary)
 
 -- | The unique ID of a field-level encryption item.
 fieldLevelEncryptionSummary_id :: Lens.Lens' FieldLevelEncryptionSummary Prelude.Text
@@ -107,9 +107,9 @@ fieldLevelEncryptionSummary_lastModifiedTime = Lens.lens (\FieldLevelEncryptionS
 instance Core.FromXML FieldLevelEncryptionSummary where
   parseXML x =
     FieldLevelEncryptionSummary'
-      Prelude.<$> (x Core..@? "Comment")
+      Prelude.<$> (x Core..@? "QueryArgProfileConfig")
       Prelude.<*> (x Core..@? "ContentTypeProfileConfig")
-      Prelude.<*> (x Core..@? "QueryArgProfileConfig")
+      Prelude.<*> (x Core..@? "Comment")
       Prelude.<*> (x Core..@ "Id")
       Prelude.<*> (x Core..@ "LastModifiedTime")
 

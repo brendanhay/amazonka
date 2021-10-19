@@ -63,12 +63,12 @@ newReviewReport =
 -- | A list of ReviewAction objects for each action specified in the Review
 -- Policy.
 reviewReport_reviewActions :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewActionDetail])
-reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Prelude.. Lens.mapping Lens._Coerce
+reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of ReviewResults objects for each action specified in the Review
 -- Policy.
 reviewReport_reviewResults :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewResultDetail])
-reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Prelude.. Lens.mapping Lens._Coerce
+reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ReviewReport where
   parseJSON =

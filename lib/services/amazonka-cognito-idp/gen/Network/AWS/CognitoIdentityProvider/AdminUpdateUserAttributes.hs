@@ -220,7 +220,7 @@ newAdminUpdateUserAttributes pUserPoolId_ pUsername_ =
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 adminUpdateUserAttributes_clientMetadata :: Lens.Lens' AdminUpdateUserAttributes (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminUpdateUserAttributes_clientMetadata = Lens.lens (\AdminUpdateUserAttributes' {clientMetadata} -> clientMetadata) (\s@AdminUpdateUserAttributes' {} a -> s {clientMetadata = a} :: AdminUpdateUserAttributes) Prelude.. Lens.mapping Lens._Coerce
+adminUpdateUserAttributes_clientMetadata = Lens.lens (\AdminUpdateUserAttributes' {clientMetadata} -> clientMetadata) (\s@AdminUpdateUserAttributes' {} a -> s {clientMetadata = a} :: AdminUpdateUserAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for the user pool where you want to update user
 -- attributes.
@@ -236,7 +236,7 @@ adminUpdateUserAttributes_username = Lens.lens (\AdminUpdateUserAttributes' {use
 -- For custom attributes, you must prepend the @custom:@ prefix to the
 -- attribute name.
 adminUpdateUserAttributes_userAttributes :: Lens.Lens' AdminUpdateUserAttributes [AttributeType]
-adminUpdateUserAttributes_userAttributes = Lens.lens (\AdminUpdateUserAttributes' {userAttributes} -> userAttributes) (\s@AdminUpdateUserAttributes' {} a -> s {userAttributes = a} :: AdminUpdateUserAttributes) Prelude.. Lens._Coerce
+adminUpdateUserAttributes_userAttributes = Lens.lens (\AdminUpdateUserAttributes' {userAttributes} -> userAttributes) (\s@AdminUpdateUserAttributes' {} a -> s {userAttributes = a} :: AdminUpdateUserAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AdminUpdateUserAttributes where
   type

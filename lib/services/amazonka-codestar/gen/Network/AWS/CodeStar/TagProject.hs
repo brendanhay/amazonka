@@ -80,7 +80,7 @@ tagProject_id = Lens.lens (\TagProject' {id} -> id) (\s@TagProject' {} a -> s {i
 
 -- | The tags you want to add to the project.
 tagProject_tags :: Lens.Lens' TagProject (Prelude.HashMap Prelude.Text Prelude.Text)
-tagProject_tags = Lens.lens (\TagProject' {tags} -> tags) (\s@TagProject' {} a -> s {tags = a} :: TagProject) Prelude.. Lens._Coerce
+tagProject_tags = Lens.lens (\TagProject' {tags} -> tags) (\s@TagProject' {} a -> s {tags = a} :: TagProject) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagProject where
   type AWSResponse TagProject = TagProjectResponse
@@ -159,7 +159,7 @@ newTagProjectResponse pHttpStatus_ =
 
 -- | The tags for the project.
 tagProjectResponse_tags :: Lens.Lens' TagProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-tagProjectResponse_tags = Lens.lens (\TagProjectResponse' {tags} -> tags) (\s@TagProjectResponse' {} a -> s {tags = a} :: TagProjectResponse) Prelude.. Lens.mapping Lens._Coerce
+tagProjectResponse_tags = Lens.lens (\TagProjectResponse' {tags} -> tags) (\s@TagProjectResponse' {} a -> s {tags = a} :: TagProjectResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 tagProjectResponse_httpStatus :: Lens.Lens' TagProjectResponse Prelude.Int

@@ -53,18 +53,19 @@ data Build = Build'
     -- -   __FAILED__ -- The game build upload failed. You cannot create new
     --     fleets for this build.
     status :: Prelude.Maybe BuildStatus,
+    -- | Operating system that the game server binaries are built to run on. This
+    -- value determines the type of fleet resources that you can use for this
+    -- build.
+    operatingSystem :: Prelude.Maybe OperatingSystem,
+    -- | A unique identifier for the build.
+    buildId :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with a build. Build names do not
+    -- need to be unique. It can be set using CreateBuild or UpdateBuild.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Version information that is associated with a build or script. Version
     -- strings do not need to be unique. This value can be set using
     -- CreateBuild or UpdateBuild.
     version :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive label that is associated with a build. Build names do not
-    -- need to be unique. It can be set using CreateBuild or UpdateBuild.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | File size of the uploaded game build, expressed in bytes. When the build
-    -- status is @INITIALIZED@, this value is 0.
-    sizeOnDisk :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for the build.
-    buildId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift build resource and uniquely identifies
@@ -72,10 +73,9 @@ data Build = Build'
     -- @arn:aws:gamelift:\<region>::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
     buildArn :: Prelude.Maybe Prelude.Text,
-    -- | Operating system that the game server binaries are built to run on. This
-    -- value determines the type of fleet resources that you can use for this
-    -- build.
-    operatingSystem :: Prelude.Maybe OperatingSystem
+    -- | File size of the uploaded game build, expressed in bytes. When the build
+    -- status is @INITIALIZED@, this value is 0.
+    sizeOnDisk :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,17 +106,18 @@ data Build = Build'
 -- -   __FAILED__ -- The game build upload failed. You cannot create new
 --     fleets for this build.
 --
--- 'version', 'build_version' - Version information that is associated with a build or script. Version
--- strings do not need to be unique. This value can be set using
--- CreateBuild or UpdateBuild.
+-- 'operatingSystem', 'build_operatingSystem' - Operating system that the game server binaries are built to run on. This
+-- value determines the type of fleet resources that you can use for this
+-- build.
+--
+-- 'buildId', 'build_buildId' - A unique identifier for the build.
 --
 -- 'name', 'build_name' - A descriptive label that is associated with a build. Build names do not
 -- need to be unique. It can be set using CreateBuild or UpdateBuild.
 --
--- 'sizeOnDisk', 'build_sizeOnDisk' - File size of the uploaded game build, expressed in bytes. When the build
--- status is @INITIALIZED@, this value is 0.
---
--- 'buildId', 'build_buildId' - A unique identifier for the build.
+-- 'version', 'build_version' - Version information that is associated with a build or script. Version
+-- strings do not need to be unique. This value can be set using
+-- CreateBuild or UpdateBuild.
 --
 -- 'buildArn', 'build_buildArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -125,21 +126,20 @@ data Build = Build'
 -- @arn:aws:gamelift:\<region>::build\/build-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 -- In a GameLift build ARN, the resource ID matches the /BuildId/ value.
 --
--- 'operatingSystem', 'build_operatingSystem' - Operating system that the game server binaries are built to run on. This
--- value determines the type of fleet resources that you can use for this
--- build.
+-- 'sizeOnDisk', 'build_sizeOnDisk' - File size of the uploaded game build, expressed in bytes. When the build
+-- status is @INITIALIZED@, this value is 0.
 newBuild ::
   Build
 newBuild =
   Build'
     { creationTime = Prelude.Nothing,
       status = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      sizeOnDisk = Prelude.Nothing,
+      operatingSystem = Prelude.Nothing,
       buildId = Prelude.Nothing,
+      name = Prelude.Nothing,
+      version = Prelude.Nothing,
       buildArn = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing
+      sizeOnDisk = Prelude.Nothing
     }
 
 -- | A time stamp indicating when this data object was created. Format is a
@@ -165,25 +165,26 @@ build_creationTime = Lens.lens (\Build' {creationTime} -> creationTime) (\s@Buil
 build_status :: Lens.Lens' Build (Prelude.Maybe BuildStatus)
 build_status = Lens.lens (\Build' {status} -> status) (\s@Build' {} a -> s {status = a} :: Build)
 
--- | Version information that is associated with a build or script. Version
--- strings do not need to be unique. This value can be set using
--- CreateBuild or UpdateBuild.
-build_version :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
-build_version = Lens.lens (\Build' {version} -> version) (\s@Build' {} a -> s {version = a} :: Build)
+-- | Operating system that the game server binaries are built to run on. This
+-- value determines the type of fleet resources that you can use for this
+-- build.
+build_operatingSystem :: Lens.Lens' Build (Prelude.Maybe OperatingSystem)
+build_operatingSystem = Lens.lens (\Build' {operatingSystem} -> operatingSystem) (\s@Build' {} a -> s {operatingSystem = a} :: Build)
+
+-- | A unique identifier for the build.
+build_buildId :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_buildId = Lens.lens (\Build' {buildId} -> buildId) (\s@Build' {} a -> s {buildId = a} :: Build)
 
 -- | A descriptive label that is associated with a build. Build names do not
 -- need to be unique. It can be set using CreateBuild or UpdateBuild.
 build_name :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_name = Lens.lens (\Build' {name} -> name) (\s@Build' {} a -> s {name = a} :: Build)
 
--- | File size of the uploaded game build, expressed in bytes. When the build
--- status is @INITIALIZED@, this value is 0.
-build_sizeOnDisk :: Lens.Lens' Build (Prelude.Maybe Prelude.Natural)
-build_sizeOnDisk = Lens.lens (\Build' {sizeOnDisk} -> sizeOnDisk) (\s@Build' {} a -> s {sizeOnDisk = a} :: Build)
-
--- | A unique identifier for the build.
-build_buildId :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
-build_buildId = Lens.lens (\Build' {buildId} -> buildId) (\s@Build' {} a -> s {buildId = a} :: Build)
+-- | Version information that is associated with a build or script. Version
+-- strings do not need to be unique. This value can be set using
+-- CreateBuild or UpdateBuild.
+build_version :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_version = Lens.lens (\Build' {version} -> version) (\s@Build' {} a -> s {version = a} :: Build)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -194,11 +195,10 @@ build_buildId = Lens.lens (\Build' {buildId} -> buildId) (\s@Build' {} a -> s {b
 build_buildArn :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
 build_buildArn = Lens.lens (\Build' {buildArn} -> buildArn) (\s@Build' {} a -> s {buildArn = a} :: Build)
 
--- | Operating system that the game server binaries are built to run on. This
--- value determines the type of fleet resources that you can use for this
--- build.
-build_operatingSystem :: Lens.Lens' Build (Prelude.Maybe OperatingSystem)
-build_operatingSystem = Lens.lens (\Build' {operatingSystem} -> operatingSystem) (\s@Build' {} a -> s {operatingSystem = a} :: Build)
+-- | File size of the uploaded game build, expressed in bytes. When the build
+-- status is @INITIALIZED@, this value is 0.
+build_sizeOnDisk :: Lens.Lens' Build (Prelude.Maybe Prelude.Natural)
+build_sizeOnDisk = Lens.lens (\Build' {sizeOnDisk} -> sizeOnDisk) (\s@Build' {} a -> s {sizeOnDisk = a} :: Build)
 
 instance Core.FromJSON Build where
   parseJSON =
@@ -208,12 +208,12 @@ instance Core.FromJSON Build where
           Build'
             Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "SizeOnDisk")
-            Prelude.<*> (x Core..:? "BuildId")
-            Prelude.<*> (x Core..:? "BuildArn")
             Prelude.<*> (x Core..:? "OperatingSystem")
+            Prelude.<*> (x Core..:? "BuildId")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "BuildArn")
+            Prelude.<*> (x Core..:? "SizeOnDisk")
       )
 
 instance Prelude.Hashable Build

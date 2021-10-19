@@ -40,8 +40,8 @@ module Network.AWS.DirectoryService.CreateAlias
     newCreateAliasResponse,
 
     -- * Response Lenses
-    createAliasResponse_alias,
     createAliasResponse_directoryId,
+    createAliasResponse_alias,
     createAliasResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest CreateAlias where
     Response.receiveJSON
       ( \s h x ->
           CreateAliasResponse'
-            Prelude.<$> (x Core..?> "Alias")
-            Prelude.<*> (x Core..?> "DirectoryId")
+            Prelude.<$> (x Core..?> "DirectoryId")
+            Prelude.<*> (x Core..?> "Alias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -157,10 +157,10 @@ instance Core.ToQuery CreateAlias where
 --
 -- /See:/ 'newCreateAliasResponse' smart constructor.
 data CreateAliasResponse = CreateAliasResponse'
-  { -- | The alias for the directory.
-    alias :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the directory.
+  { -- | The identifier of the directory.
     directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The alias for the directory.
+    alias :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,9 +174,9 @@ data CreateAliasResponse = CreateAliasResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alias', 'createAliasResponse_alias' - The alias for the directory.
---
 -- 'directoryId', 'createAliasResponse_directoryId' - The identifier of the directory.
+--
+-- 'alias', 'createAliasResponse_alias' - The alias for the directory.
 --
 -- 'httpStatus', 'createAliasResponse_httpStatus' - The response's http status code.
 newCreateAliasResponse ::
@@ -185,18 +185,18 @@ newCreateAliasResponse ::
   CreateAliasResponse
 newCreateAliasResponse pHttpStatus_ =
   CreateAliasResponse'
-    { alias = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
+    { directoryId = Prelude.Nothing,
+      alias = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The alias for the directory.
-createAliasResponse_alias :: Lens.Lens' CreateAliasResponse (Prelude.Maybe Prelude.Text)
-createAliasResponse_alias = Lens.lens (\CreateAliasResponse' {alias} -> alias) (\s@CreateAliasResponse' {} a -> s {alias = a} :: CreateAliasResponse)
 
 -- | The identifier of the directory.
 createAliasResponse_directoryId :: Lens.Lens' CreateAliasResponse (Prelude.Maybe Prelude.Text)
 createAliasResponse_directoryId = Lens.lens (\CreateAliasResponse' {directoryId} -> directoryId) (\s@CreateAliasResponse' {} a -> s {directoryId = a} :: CreateAliasResponse)
+
+-- | The alias for the directory.
+createAliasResponse_alias :: Lens.Lens' CreateAliasResponse (Prelude.Maybe Prelude.Text)
+createAliasResponse_alias = Lens.lens (\CreateAliasResponse' {alias} -> alias) (\s@CreateAliasResponse' {} a -> s {alias = a} :: CreateAliasResponse)
 
 -- | The response's http status code.
 createAliasResponse_httpStatus :: Lens.Lens' CreateAliasResponse Prelude.Int

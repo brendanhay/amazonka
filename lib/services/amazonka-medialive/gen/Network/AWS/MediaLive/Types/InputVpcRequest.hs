@@ -68,12 +68,12 @@ newInputVpcRequest =
 -- network interfaces. Requires subnetIds. If none are specified then the
 -- VPC default security group will be used.
 inputVpcRequest_securityGroupIds :: Lens.Lens' InputVpcRequest (Prelude.Maybe [Prelude.Text])
-inputVpcRequest_securityGroupIds = Lens.lens (\InputVpcRequest' {securityGroupIds} -> securityGroupIds) (\s@InputVpcRequest' {} a -> s {securityGroupIds = a} :: InputVpcRequest) Prelude.. Lens.mapping Lens._Coerce
+inputVpcRequest_securityGroupIds = Lens.lens (\InputVpcRequest' {securityGroupIds} -> securityGroupIds) (\s@InputVpcRequest' {} a -> s {securityGroupIds = a} :: InputVpcRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of 2 VPC subnet IDs from the same VPC. Subnet IDs must be mapped
 -- to two unique availability zones (AZ).
 inputVpcRequest_subnetIds :: Lens.Lens' InputVpcRequest [Prelude.Text]
-inputVpcRequest_subnetIds = Lens.lens (\InputVpcRequest' {subnetIds} -> subnetIds) (\s@InputVpcRequest' {} a -> s {subnetIds = a} :: InputVpcRequest) Prelude.. Lens._Coerce
+inputVpcRequest_subnetIds = Lens.lens (\InputVpcRequest' {subnetIds} -> subnetIds) (\s@InputVpcRequest' {} a -> s {subnetIds = a} :: InputVpcRequest) Prelude.. Lens.coerced
 
 instance Prelude.Hashable InputVpcRequest
 

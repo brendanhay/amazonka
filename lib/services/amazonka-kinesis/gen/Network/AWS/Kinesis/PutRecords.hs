@@ -149,13 +149,13 @@ newPutRecords ::
 newPutRecords pRecords_ pStreamName_ =
   PutRecords'
     { records =
-        Lens._Coerce Lens.# pRecords_,
+        Lens.coerced Lens.# pRecords_,
       streamName = pStreamName_
     }
 
 -- | The records associated with the request.
 putRecords_records :: Lens.Lens' PutRecords (Prelude.NonEmpty PutRecordsRequestEntry)
-putRecords_records = Lens.lens (\PutRecords' {records} -> records) (\s@PutRecords' {} a -> s {records = a} :: PutRecords) Prelude.. Lens._Coerce
+putRecords_records = Lens.lens (\PutRecords' {records} -> records) (\s@PutRecords' {} a -> s {records = a} :: PutRecords) Prelude.. Lens.coerced
 
 -- | The stream name associated with the request.
 putRecords_streamName :: Lens.Lens' PutRecords Prelude.Text
@@ -272,7 +272,7 @@ newPutRecordsResponse pHttpStatus_ pRecords_ =
         Prelude.Nothing,
       failedRecordCount = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      records = Lens._Coerce Lens.# pRecords_
+      records = Lens.coerced Lens.# pRecords_
     }
 
 -- | The encryption type used on the records. This parameter can be one of
@@ -300,6 +300,6 @@ putRecordsResponse_httpStatus = Lens.lens (\PutRecordsResponse' {httpStatus} -> 
 -- in the result. A record that fails to be added to a stream includes
 -- @ErrorCode@ and @ErrorMessage@ in the result.
 putRecordsResponse_records :: Lens.Lens' PutRecordsResponse (Prelude.NonEmpty PutRecordsResultEntry)
-putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> records) (\s@PutRecordsResponse' {} a -> s {records = a} :: PutRecordsResponse) Prelude.. Lens._Coerce
+putRecordsResponse_records = Lens.lens (\PutRecordsResponse' {records} -> records) (\s@PutRecordsResponse' {} a -> s {records = a} :: PutRecordsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData PutRecordsResponse

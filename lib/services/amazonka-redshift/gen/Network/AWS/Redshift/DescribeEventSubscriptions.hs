@@ -43,10 +43,10 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
 
     -- * Request Lenses
     describeEventSubscriptions_subscriptionName,
-    describeEventSubscriptions_tagKeys,
     describeEventSubscriptions_tagValues,
-    describeEventSubscriptions_maxRecords,
+    describeEventSubscriptions_tagKeys,
     describeEventSubscriptions_marker,
+    describeEventSubscriptions_maxRecords,
 
     -- * Destructuring the Response
     DescribeEventSubscriptionsResponse (..),
@@ -73,14 +73,6 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
   { -- | The name of the Amazon Redshift event notification subscription to be
     -- described.
     subscriptionName :: Prelude.Maybe Prelude.Text,
-    -- | A tag key or keys for which you want to return all matching event
-    -- notification subscriptions that are associated with the specified key or
-    -- keys. For example, suppose that you have subscriptions that are tagged
-    -- with keys called @owner@ and @environment@. If you specify both of these
-    -- tag keys in the request, Amazon Redshift returns a response with the
-    -- subscriptions that have either or both of these tag keys associated with
-    -- them.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | A tag value or values for which you want to return all matching event
     -- notification subscriptions that are associated with the specified tag
     -- value or values. For example, suppose that you have subscriptions that
@@ -89,6 +81,21 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- the subscriptions that have either or both of these tag values
     -- associated with them.
     tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | A tag key or keys for which you want to return all matching event
+    -- notification subscriptions that are associated with the specified key or
+    -- keys. For example, suppose that you have subscriptions that are tagged
+    -- with keys called @owner@ and @environment@. If you specify both of these
+    -- tag keys in the request, Amazon Redshift returns a response with the
+    -- subscriptions that have either or both of these tag keys associated with
+    -- them.
+    tagKeys :: Prelude.Maybe [Prelude.Text],
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a DescribeEventSubscriptions
+    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
+    -- returns a value in the @Marker@ field of the response. You can retrieve
+    -- the next set of response records by providing the returned marker value
+    -- in the @Marker@ parameter and retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -98,14 +105,7 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- Default: @100@
     --
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a DescribeEventSubscriptions
-    -- request exceed the value specified in @MaxRecords@, Amazon Web Services
-    -- returns a value in the @Marker@ field of the response. You can retrieve
-    -- the next set of response records by providing the returned marker value
-    -- in the @Marker@ parameter and retrying the request.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -120,6 +120,14 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- 'subscriptionName', 'describeEventSubscriptions_subscriptionName' - The name of the Amazon Redshift event notification subscription to be
 -- described.
 --
+-- 'tagValues', 'describeEventSubscriptions_tagValues' - A tag value or values for which you want to return all matching event
+-- notification subscriptions that are associated with the specified tag
+-- value or values. For example, suppose that you have subscriptions that
+-- are tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the subscriptions that have either or both of these tag values
+-- associated with them.
+--
 -- 'tagKeys', 'describeEventSubscriptions_tagKeys' - A tag key or keys for which you want to return all matching event
 -- notification subscriptions that are associated with the specified key or
 -- keys. For example, suppose that you have subscriptions that are tagged
@@ -128,13 +136,12 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- subscriptions that have either or both of these tag keys associated with
 -- them.
 --
--- 'tagValues', 'describeEventSubscriptions_tagValues' - A tag value or values for which you want to return all matching event
--- notification subscriptions that are associated with the specified tag
--- value or values. For example, suppose that you have subscriptions that
--- are tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the subscriptions that have either or both of these tag values
--- associated with them.
+-- 'marker', 'describeEventSubscriptions_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEventSubscriptions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
 --
 -- 'maxRecords', 'describeEventSubscriptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -145,39 +152,22 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
---
--- 'marker', 'describeEventSubscriptions_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEventSubscriptions
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
 newDescribeEventSubscriptions ::
   DescribeEventSubscriptions
 newDescribeEventSubscriptions =
   DescribeEventSubscriptions'
     { subscriptionName =
         Prelude.Nothing,
-      tagKeys = Prelude.Nothing,
       tagValues = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      tagKeys = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
 describeEventSubscriptions_subscriptionName :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
 describeEventSubscriptions_subscriptionName = Lens.lens (\DescribeEventSubscriptions' {subscriptionName} -> subscriptionName) (\s@DescribeEventSubscriptions' {} a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
-
--- | A tag key or keys for which you want to return all matching event
--- notification subscriptions that are associated with the specified key or
--- keys. For example, suppose that you have subscriptions that are tagged
--- with keys called @owner@ and @environment@. If you specify both of these
--- tag keys in the request, Amazon Redshift returns a response with the
--- subscriptions that have either or both of these tag keys associated with
--- them.
-describeEventSubscriptions_tagKeys :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Prelude.Text])
-describeEventSubscriptions_tagKeys = Lens.lens (\DescribeEventSubscriptions' {tagKeys} -> tagKeys) (\s@DescribeEventSubscriptions' {} a -> s {tagKeys = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A tag value or values for which you want to return all matching event
 -- notification subscriptions that are associated with the specified tag
@@ -187,7 +177,26 @@ describeEventSubscriptions_tagKeys = Lens.lens (\DescribeEventSubscriptions' {ta
 -- the subscriptions that have either or both of these tag values
 -- associated with them.
 describeEventSubscriptions_tagValues :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Prelude.Text])
-describeEventSubscriptions_tagValues = Lens.lens (\DescribeEventSubscriptions' {tagValues} -> tagValues) (\s@DescribeEventSubscriptions' {} a -> s {tagValues = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens._Coerce
+describeEventSubscriptions_tagValues = Lens.lens (\DescribeEventSubscriptions' {tagValues} -> tagValues) (\s@DescribeEventSubscriptions' {} a -> s {tagValues = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens.coerced
+
+-- | A tag key or keys for which you want to return all matching event
+-- notification subscriptions that are associated with the specified key or
+-- keys. For example, suppose that you have subscriptions that are tagged
+-- with keys called @owner@ and @environment@. If you specify both of these
+-- tag keys in the request, Amazon Redshift returns a response with the
+-- subscriptions that have either or both of these tag keys associated with
+-- them.
+describeEventSubscriptions_tagKeys :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Prelude.Text])
+describeEventSubscriptions_tagKeys = Lens.lens (\DescribeEventSubscriptions' {tagKeys} -> tagKeys) (\s@DescribeEventSubscriptions' {} a -> s {tagKeys = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEventSubscriptions
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
+describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -200,15 +209,6 @@ describeEventSubscriptions_tagValues = Lens.lens (\DescribeEventSubscriptions' {
 -- Constraints: minimum 20, maximum 100.
 describeEventSubscriptions_maxRecords :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Int)
 describeEventSubscriptions_maxRecords = Lens.lens (\DescribeEventSubscriptions' {maxRecords} -> maxRecords) (\s@DescribeEventSubscriptions' {} a -> s {maxRecords = a} :: DescribeEventSubscriptions)
-
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeEventSubscriptions
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
-describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
-describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
 
 instance Core.AWSPager DescribeEventSubscriptions where
   page rq rs
@@ -268,14 +268,14 @@ instance Core.ToQuery DescribeEventSubscriptions where
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "SubscriptionName" Core.=: subscriptionName,
-        "TagKeys"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "TagKeys"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- |
@@ -328,7 +328,7 @@ newDescribeEventSubscriptionsResponse pHttpStatus_ =
 
 -- | A list of event subscriptions.
 describeEventSubscriptionsResponse_eventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Prelude.Maybe [EventSubscription])
-describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\DescribeEventSubscriptionsResponse' {eventSubscriptionsList} -> eventSubscriptionsList) (\s@DescribeEventSubscriptionsResponse' {} a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\DescribeEventSubscriptionsResponse' {eventSubscriptionsList} -> eventSubscriptionsList) (\s@DescribeEventSubscriptionsResponse' {} a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

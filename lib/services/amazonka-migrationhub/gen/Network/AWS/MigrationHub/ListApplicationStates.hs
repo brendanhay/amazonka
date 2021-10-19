@@ -32,8 +32,8 @@ module Network.AWS.MigrationHub.ListApplicationStates
 
     -- * Request Lenses
     listApplicationStates_nextToken,
-    listApplicationStates_maxResults,
     listApplicationStates_applicationIds,
+    listApplicationStates_maxResults,
 
     -- * Destructuring the Response
     ListApplicationStatesResponse (..),
@@ -59,11 +59,11 @@ data ListApplicationStates = ListApplicationStates'
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of results to be returned per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The configurationIds from the Application Discovery Service that
     -- uniquely identifies your applications.
-    applicationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    applicationIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Maximum number of results to be returned per page.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,17 +79,17 @@ data ListApplicationStates = ListApplicationStates'
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
 --
--- 'maxResults', 'listApplicationStates_maxResults' - Maximum number of results to be returned per page.
---
 -- 'applicationIds', 'listApplicationStates_applicationIds' - The configurationIds from the Application Discovery Service that
 -- uniquely identifies your applications.
+--
+-- 'maxResults', 'listApplicationStates_maxResults' - Maximum number of results to be returned per page.
 newListApplicationStates ::
   ListApplicationStates
 newListApplicationStates =
   ListApplicationStates'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      applicationIds = Prelude.Nothing
+      applicationIds = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
@@ -98,14 +98,14 @@ newListApplicationStates =
 listApplicationStates_nextToken :: Lens.Lens' ListApplicationStates (Prelude.Maybe Prelude.Text)
 listApplicationStates_nextToken = Lens.lens (\ListApplicationStates' {nextToken} -> nextToken) (\s@ListApplicationStates' {} a -> s {nextToken = a} :: ListApplicationStates)
 
--- | Maximum number of results to be returned per page.
-listApplicationStates_maxResults :: Lens.Lens' ListApplicationStates (Prelude.Maybe Prelude.Natural)
-listApplicationStates_maxResults = Lens.lens (\ListApplicationStates' {maxResults} -> maxResults) (\s@ListApplicationStates' {} a -> s {maxResults = a} :: ListApplicationStates)
-
 -- | The configurationIds from the Application Discovery Service that
 -- uniquely identifies your applications.
 listApplicationStates_applicationIds :: Lens.Lens' ListApplicationStates (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listApplicationStates_applicationIds = Lens.lens (\ListApplicationStates' {applicationIds} -> applicationIds) (\s@ListApplicationStates' {} a -> s {applicationIds = a} :: ListApplicationStates) Prelude.. Lens.mapping Lens._Coerce
+listApplicationStates_applicationIds = Lens.lens (\ListApplicationStates' {applicationIds} -> applicationIds) (\s@ListApplicationStates' {} a -> s {applicationIds = a} :: ListApplicationStates) Prelude.. Lens.mapping Lens.coerced
+
+-- | Maximum number of results to be returned per page.
+listApplicationStates_maxResults :: Lens.Lens' ListApplicationStates (Prelude.Maybe Prelude.Natural)
+listApplicationStates_maxResults = Lens.lens (\ListApplicationStates' {maxResults} -> maxResults) (\s@ListApplicationStates' {} a -> s {maxResults = a} :: ListApplicationStates)
 
 instance Core.AWSPager ListApplicationStates where
   page rq rs
@@ -169,9 +169,9 @@ instance Core.ToJSON ListApplicationStates where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ApplicationIds" Core..=)
-              Prelude.<$> applicationIds
+              Prelude.<$> applicationIds,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -223,7 +223,7 @@ newListApplicationStatesResponse pHttpStatus_ =
 
 -- | A list of Applications that exist in Application Discovery Service.
 listApplicationStatesResponse_applicationStateList :: Lens.Lens' ListApplicationStatesResponse (Prelude.Maybe [ApplicationState])
-listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplicationStatesResponse' {applicationStateList} -> applicationStateList) (\s@ListApplicationStatesResponse' {} a -> s {applicationStateList = a} :: ListApplicationStatesResponse) Prelude.. Lens.mapping Lens._Coerce
+listApplicationStatesResponse_applicationStateList = Lens.lens (\ListApplicationStatesResponse' {applicationStateList} -> applicationStateList) (\s@ListApplicationStatesResponse' {} a -> s {applicationStateList = a} :: ListApplicationStatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again

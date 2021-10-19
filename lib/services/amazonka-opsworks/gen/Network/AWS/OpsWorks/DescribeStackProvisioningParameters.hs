@@ -194,7 +194,7 @@ describeStackProvisioningParametersResponse_agentInstallerUrl = Lens.lens (\Desc
 
 -- | An embedded object that contains the provisioning parameters.
 describeStackProvisioningParametersResponse_parameters :: Lens.Lens' DescribeStackProvisioningParametersResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeStackProvisioningParametersResponse_parameters = Lens.lens (\DescribeStackProvisioningParametersResponse' {parameters} -> parameters) (\s@DescribeStackProvisioningParametersResponse' {} a -> s {parameters = a} :: DescribeStackProvisioningParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeStackProvisioningParametersResponse_parameters = Lens.lens (\DescribeStackProvisioningParametersResponse' {parameters} -> parameters) (\s@DescribeStackProvisioningParametersResponse' {} a -> s {parameters = a} :: DescribeStackProvisioningParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStackProvisioningParametersResponse_httpStatus :: Lens.Lens' DescribeStackProvisioningParametersResponse Prelude.Int

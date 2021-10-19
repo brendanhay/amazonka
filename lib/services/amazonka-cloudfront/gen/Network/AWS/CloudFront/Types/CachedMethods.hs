@@ -84,7 +84,7 @@ cachedMethods_quantity = Lens.lens (\CachedMethods' {quantity} -> quantity) (\s@
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to cache responses to.
 cachedMethods_items :: Lens.Lens' CachedMethods [Method]
-cachedMethods_items = Lens.lens (\CachedMethods' {items} -> items) (\s@CachedMethods' {} a -> s {items = a} :: CachedMethods) Prelude.. Lens._Coerce
+cachedMethods_items = Lens.lens (\CachedMethods' {items} -> items) (\s@CachedMethods' {} a -> s {items = a} :: CachedMethods) Prelude.. Lens.coerced
 
 instance Core.FromXML CachedMethods where
   parseXML x =

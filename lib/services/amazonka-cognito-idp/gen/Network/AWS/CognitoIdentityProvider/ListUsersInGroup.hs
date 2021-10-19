@@ -41,8 +41,8 @@ module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
     newListUsersInGroupResponse,
 
     -- * Response Lenses
-    listUsersInGroupResponse_nextToken,
     listUsersInGroupResponse_users,
+    listUsersInGroupResponse_nextToken,
     listUsersInGroupResponse_httpStatus,
   )
 where
@@ -148,8 +148,8 @@ instance Core.AWSRequest ListUsersInGroup where
     Response.receiveJSON
       ( \s h x ->
           ListUsersInGroupResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,12 +191,12 @@ instance Core.ToQuery ListUsersInGroup where
 
 -- | /See:/ 'newListUsersInGroupResponse' smart constructor.
 data ListUsersInGroupResponse = ListUsersInGroupResponse'
-  { -- | An identifier that was returned from the previous call to this
+  { -- | The users returned in the request to list users.
+    users :: Prelude.Maybe [UserType],
+    -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The users returned in the request to list users.
-    users :: Prelude.Maybe [UserType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,11 +210,11 @@ data ListUsersInGroupResponse = ListUsersInGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'users', 'listUsersInGroupResponse_users' - The users returned in the request to list users.
+--
 -- 'nextToken', 'listUsersInGroupResponse_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
---
--- 'users', 'listUsersInGroupResponse_users' - The users returned in the request to list users.
 --
 -- 'httpStatus', 'listUsersInGroupResponse_httpStatus' - The response's http status code.
 newListUsersInGroupResponse ::
@@ -223,21 +223,20 @@ newListUsersInGroupResponse ::
   ListUsersInGroupResponse
 newListUsersInGroupResponse pHttpStatus_ =
   ListUsersInGroupResponse'
-    { nextToken =
-        Prelude.Nothing,
-      users = Prelude.Nothing,
+    { users = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The users returned in the request to list users.
+listUsersInGroupResponse_users :: Lens.Lens' ListUsersInGroupResponse (Prelude.Maybe [UserType])
+listUsersInGroupResponse_users = Lens.lens (\ListUsersInGroupResponse' {users} -> users) (\s@ListUsersInGroupResponse' {} a -> s {users = a} :: ListUsersInGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
 listUsersInGroupResponse_nextToken :: Lens.Lens' ListUsersInGroupResponse (Prelude.Maybe Prelude.Text)
 listUsersInGroupResponse_nextToken = Lens.lens (\ListUsersInGroupResponse' {nextToken} -> nextToken) (\s@ListUsersInGroupResponse' {} a -> s {nextToken = a} :: ListUsersInGroupResponse)
-
--- | The users returned in the request to list users.
-listUsersInGroupResponse_users :: Lens.Lens' ListUsersInGroupResponse (Prelude.Maybe [UserType])
-listUsersInGroupResponse_users = Lens.lens (\ListUsersInGroupResponse' {users} -> users) (\s@ListUsersInGroupResponse' {} a -> s {users = a} :: ListUsersInGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listUsersInGroupResponse_httpStatus :: Lens.Lens' ListUsersInGroupResponse Prelude.Int

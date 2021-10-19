@@ -27,10 +27,10 @@ module Network.AWS.SageMaker.UpdatePipeline
     newUpdatePipeline,
 
     -- * Request Lenses
-    updatePipeline_pipelineDescription,
-    updatePipeline_roleArn,
     updatePipeline_pipelineDisplayName,
+    updatePipeline_pipelineDescription,
     updatePipeline_pipelineDefinition,
+    updatePipeline_roleArn,
     updatePipeline_pipelineName,
 
     -- * Destructuring the Response
@@ -52,14 +52,14 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-  { -- | The description of the pipeline.
-    pipelineDescription :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the pipeline.
+  { -- | The display name of the pipeline.
     pipelineDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the pipeline.
+    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The JSON pipeline definition.
     pipelineDefinition :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the pipeline to update.
     pipelineName :: Prelude.Text
   }
@@ -73,13 +73,13 @@ data UpdatePipeline = UpdatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineDescription', 'updatePipeline_pipelineDescription' - The description of the pipeline.
---
--- 'roleArn', 'updatePipeline_roleArn' - The Amazon Resource Name (ARN) that the pipeline uses to execute.
---
 -- 'pipelineDisplayName', 'updatePipeline_pipelineDisplayName' - The display name of the pipeline.
 --
+-- 'pipelineDescription', 'updatePipeline_pipelineDescription' - The description of the pipeline.
+--
 -- 'pipelineDefinition', 'updatePipeline_pipelineDefinition' - The JSON pipeline definition.
+--
+-- 'roleArn', 'updatePipeline_roleArn' - The Amazon Resource Name (ARN) that the pipeline uses to execute.
 --
 -- 'pipelineName', 'updatePipeline_pipelineName' - The name of the pipeline to update.
 newUpdatePipeline ::
@@ -88,29 +88,29 @@ newUpdatePipeline ::
   UpdatePipeline
 newUpdatePipeline pPipelineName_ =
   UpdatePipeline'
-    { pipelineDescription =
+    { pipelineDisplayName =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      pipelineDisplayName = Prelude.Nothing,
+      pipelineDescription = Prelude.Nothing,
       pipelineDefinition = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
-
--- | The description of the pipeline.
-updatePipeline_pipelineDescription :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
-updatePipeline_pipelineDescription = Lens.lens (\UpdatePipeline' {pipelineDescription} -> pipelineDescription) (\s@UpdatePipeline' {} a -> s {pipelineDescription = a} :: UpdatePipeline)
-
--- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
-updatePipeline_roleArn :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
-updatePipeline_roleArn = Lens.lens (\UpdatePipeline' {roleArn} -> roleArn) (\s@UpdatePipeline' {} a -> s {roleArn = a} :: UpdatePipeline)
 
 -- | The display name of the pipeline.
 updatePipeline_pipelineDisplayName :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
 updatePipeline_pipelineDisplayName = Lens.lens (\UpdatePipeline' {pipelineDisplayName} -> pipelineDisplayName) (\s@UpdatePipeline' {} a -> s {pipelineDisplayName = a} :: UpdatePipeline)
 
+-- | The description of the pipeline.
+updatePipeline_pipelineDescription :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
+updatePipeline_pipelineDescription = Lens.lens (\UpdatePipeline' {pipelineDescription} -> pipelineDescription) (\s@UpdatePipeline' {} a -> s {pipelineDescription = a} :: UpdatePipeline)
+
 -- | The JSON pipeline definition.
 updatePipeline_pipelineDefinition :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
 updatePipeline_pipelineDefinition = Lens.lens (\UpdatePipeline' {pipelineDefinition} -> pipelineDefinition) (\s@UpdatePipeline' {} a -> s {pipelineDefinition = a} :: UpdatePipeline)
+
+-- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
+updatePipeline_roleArn :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
+updatePipeline_roleArn = Lens.lens (\UpdatePipeline' {roleArn} -> roleArn) (\s@UpdatePipeline' {} a -> s {roleArn = a} :: UpdatePipeline)
 
 -- | The name of the pipeline to update.
 updatePipeline_pipelineName :: Lens.Lens' UpdatePipeline Prelude.Text
@@ -150,13 +150,13 @@ instance Core.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PipelineDescription" Core..=)
-              Prelude.<$> pipelineDescription,
-            ("RoleArn" Core..=) Prelude.<$> roleArn,
-            ("PipelineDisplayName" Core..=)
+          [ ("PipelineDisplayName" Core..=)
               Prelude.<$> pipelineDisplayName,
+            ("PipelineDescription" Core..=)
+              Prelude.<$> pipelineDescription,
             ("PipelineDefinition" Core..=)
               Prelude.<$> pipelineDefinition,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
             Prelude.Just ("PipelineName" Core..= pipelineName)
           ]
       )

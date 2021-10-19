@@ -28,10 +28,10 @@ import Network.AWS.WorkDocs.Types.StorageRuleType
 --
 -- /See:/ 'newUserStorageMetadata' smart constructor.
 data UserStorageMetadata = UserStorageMetadata'
-  { -- | The storage for a user.
-    storageRule :: Prelude.Maybe StorageRuleType,
-    -- | The amount of storage used, in bytes.
-    storageUtilizedInBytes :: Prelude.Maybe Prelude.Integer
+  { -- | The amount of storage used, in bytes.
+    storageUtilizedInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The storage for a user.
+    storageRule :: Prelude.Maybe StorageRuleType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,25 @@ data UserStorageMetadata = UserStorageMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'storageRule', 'userStorageMetadata_storageRule' - The storage for a user.
---
 -- 'storageUtilizedInBytes', 'userStorageMetadata_storageUtilizedInBytes' - The amount of storage used, in bytes.
+--
+-- 'storageRule', 'userStorageMetadata_storageRule' - The storage for a user.
 newUserStorageMetadata ::
   UserStorageMetadata
 newUserStorageMetadata =
   UserStorageMetadata'
-    { storageRule = Prelude.Nothing,
-      storageUtilizedInBytes = Prelude.Nothing
+    { storageUtilizedInBytes =
+        Prelude.Nothing,
+      storageRule = Prelude.Nothing
     }
-
--- | The storage for a user.
-userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Prelude.Maybe StorageRuleType)
-userStorageMetadata_storageRule = Lens.lens (\UserStorageMetadata' {storageRule} -> storageRule) (\s@UserStorageMetadata' {} a -> s {storageRule = a} :: UserStorageMetadata)
 
 -- | The amount of storage used, in bytes.
 userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Prelude.Maybe Prelude.Integer)
 userStorageMetadata_storageUtilizedInBytes = Lens.lens (\UserStorageMetadata' {storageUtilizedInBytes} -> storageUtilizedInBytes) (\s@UserStorageMetadata' {} a -> s {storageUtilizedInBytes = a} :: UserStorageMetadata)
+
+-- | The storage for a user.
+userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Prelude.Maybe StorageRuleType)
+userStorageMetadata_storageRule = Lens.lens (\UserStorageMetadata' {storageRule} -> storageRule) (\s@UserStorageMetadata' {} a -> s {storageRule = a} :: UserStorageMetadata)
 
 instance Core.FromJSON UserStorageMetadata where
   parseJSON =
@@ -68,8 +69,8 @@ instance Core.FromJSON UserStorageMetadata where
       "UserStorageMetadata"
       ( \x ->
           UserStorageMetadata'
-            Prelude.<$> (x Core..:? "StorageRule")
-            Prelude.<*> (x Core..:? "StorageUtilizedInBytes")
+            Prelude.<$> (x Core..:? "StorageUtilizedInBytes")
+            Prelude.<*> (x Core..:? "StorageRule")
       )
 
 instance Prelude.Hashable UserStorageMetadata

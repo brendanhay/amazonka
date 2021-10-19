@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data UserSummary = UserSummary'
   { -- | The Amazon Resource Name (ARN) of the user account.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the user account.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Connect user name of the user account.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the user account.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data UserSummary = UserSummary'
 --
 -- 'arn', 'userSummary_arn' - The Amazon Resource Name (ARN) of the user account.
 --
--- 'id', 'userSummary_id' - The identifier of the user account.
---
 -- 'username', 'userSummary_username' - The Amazon Connect user name of the user account.
+--
+-- 'id', 'userSummary_id' - The identifier of the user account.
 newUserSummary ::
   UserSummary
 newUserSummary =
   UserSummary'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      username = Prelude.Nothing
+      username = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user account.
 userSummary_arn :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_arn = Lens.lens (\UserSummary' {arn} -> arn) (\s@UserSummary' {} a -> s {arn = a} :: UserSummary)
 
--- | The identifier of the user account.
-userSummary_id :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
-userSummary_id = Lens.lens (\UserSummary' {id} -> id) (\s@UserSummary' {} a -> s {id = a} :: UserSummary)
-
 -- | The Amazon Connect user name of the user account.
 userSummary_username :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
 userSummary_username = Lens.lens (\UserSummary' {username} -> username) (\s@UserSummary' {} a -> s {username = a} :: UserSummary)
+
+-- | The identifier of the user account.
+userSummary_id :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
+userSummary_id = Lens.lens (\UserSummary' {id} -> id) (\s@UserSummary' {} a -> s {id = a} :: UserSummary)
 
 instance Core.FromJSON UserSummary where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON UserSummary where
       ( \x ->
           UserSummary'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Username")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable UserSummary

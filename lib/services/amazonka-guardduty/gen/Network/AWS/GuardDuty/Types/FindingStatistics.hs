@@ -51,7 +51,7 @@ newFindingStatistics =
 
 -- | Represents a map of severity to count statistics for a set of findings.
 findingStatistics_countBySeverity :: Lens.Lens' FindingStatistics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Prelude.. Lens.mapping Lens._Coerce
+findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FindingStatistics where
   parseJSON =

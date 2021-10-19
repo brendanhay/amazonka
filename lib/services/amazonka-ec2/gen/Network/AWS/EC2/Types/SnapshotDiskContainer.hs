@@ -33,13 +33,13 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
     --
     -- Valid values: @VHD@ | @VMDK@ | @RAW@
     format :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the Amazon S3-based disk image being imported. It can either
+    -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
+    url :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket for the disk image.
     userBucket :: Prelude.Maybe UserBucket,
     -- | The description of the disk image being imported.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the Amazon S3-based disk image being imported. It can either
-    -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
-    url :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +55,20 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
 --
 -- Valid values: @VHD@ | @VMDK@ | @RAW@
 --
+-- 'url', 'snapshotDiskContainer_url' - The URL to the Amazon S3-based disk image being imported. It can either
+-- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
+--
 -- 'userBucket', 'snapshotDiskContainer_userBucket' - The Amazon S3 bucket for the disk image.
 --
 -- 'description', 'snapshotDiskContainer_description' - The description of the disk image being imported.
---
--- 'url', 'snapshotDiskContainer_url' - The URL to the Amazon S3-based disk image being imported. It can either
--- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
 newSnapshotDiskContainer ::
   SnapshotDiskContainer
 newSnapshotDiskContainer =
   SnapshotDiskContainer'
     { format = Prelude.Nothing,
+      url = Prelude.Nothing,
       userBucket = Prelude.Nothing,
-      description = Prelude.Nothing,
-      url = Prelude.Nothing
+      description = Prelude.Nothing
     }
 
 -- | The format of the disk image being imported.
@@ -76,6 +76,11 @@ newSnapshotDiskContainer =
 -- Valid values: @VHD@ | @VMDK@ | @RAW@
 snapshotDiskContainer_format :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
 snapshotDiskContainer_format = Lens.lens (\SnapshotDiskContainer' {format} -> format) (\s@SnapshotDiskContainer' {} a -> s {format = a} :: SnapshotDiskContainer)
+
+-- | The URL to the Amazon S3-based disk image being imported. It can either
+-- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
+snapshotDiskContainer_url :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
+snapshotDiskContainer_url = Lens.lens (\SnapshotDiskContainer' {url} -> url) (\s@SnapshotDiskContainer' {} a -> s {url = a} :: SnapshotDiskContainer)
 
 -- | The Amazon S3 bucket for the disk image.
 snapshotDiskContainer_userBucket :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe UserBucket)
@@ -85,11 +90,6 @@ snapshotDiskContainer_userBucket = Lens.lens (\SnapshotDiskContainer' {userBucke
 snapshotDiskContainer_description :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
 snapshotDiskContainer_description = Lens.lens (\SnapshotDiskContainer' {description} -> description) (\s@SnapshotDiskContainer' {} a -> s {description = a} :: SnapshotDiskContainer)
 
--- | The URL to the Amazon S3-based disk image being imported. It can either
--- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
-snapshotDiskContainer_url :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
-snapshotDiskContainer_url = Lens.lens (\SnapshotDiskContainer' {url} -> url) (\s@SnapshotDiskContainer' {} a -> s {url = a} :: SnapshotDiskContainer)
-
 instance Prelude.Hashable SnapshotDiskContainer
 
 instance Prelude.NFData SnapshotDiskContainer
@@ -98,7 +98,7 @@ instance Core.ToQuery SnapshotDiskContainer where
   toQuery SnapshotDiskContainer' {..} =
     Prelude.mconcat
       [ "Format" Core.=: format,
+        "Url" Core.=: url,
         "UserBucket" Core.=: userBucket,
-        "Description" Core.=: description,
-        "Url" Core.=: url
+        "Description" Core.=: description
       ]

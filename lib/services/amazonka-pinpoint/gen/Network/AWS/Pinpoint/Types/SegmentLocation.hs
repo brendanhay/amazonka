@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSegmentLocation' smart constructor.
 data SegmentLocation = SegmentLocation'
-  { -- | The GPS location and range for the segment.
-    gPSPoint :: Prelude.Maybe GPSPointDimension,
-    -- | The country or region code, in ISO 3166-1 alpha-2 format, for the
+  { -- | The country or region code, in ISO 3166-1 alpha-2 format, for the
     -- segment.
-    country :: Prelude.Maybe SetDimension
+    country :: Prelude.Maybe SetDimension,
+    -- | The GPS location and range for the segment.
+    gPSPoint :: Prelude.Maybe GPSPointDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,26 +45,26 @@ data SegmentLocation = SegmentLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gPSPoint', 'segmentLocation_gPSPoint' - The GPS location and range for the segment.
---
 -- 'country', 'segmentLocation_country' - The country or region code, in ISO 3166-1 alpha-2 format, for the
 -- segment.
+--
+-- 'gPSPoint', 'segmentLocation_gPSPoint' - The GPS location and range for the segment.
 newSegmentLocation ::
   SegmentLocation
 newSegmentLocation =
   SegmentLocation'
-    { gPSPoint = Prelude.Nothing,
-      country = Prelude.Nothing
+    { country = Prelude.Nothing,
+      gPSPoint = Prelude.Nothing
     }
-
--- | The GPS location and range for the segment.
-segmentLocation_gPSPoint :: Lens.Lens' SegmentLocation (Prelude.Maybe GPSPointDimension)
-segmentLocation_gPSPoint = Lens.lens (\SegmentLocation' {gPSPoint} -> gPSPoint) (\s@SegmentLocation' {} a -> s {gPSPoint = a} :: SegmentLocation)
 
 -- | The country or region code, in ISO 3166-1 alpha-2 format, for the
 -- segment.
 segmentLocation_country :: Lens.Lens' SegmentLocation (Prelude.Maybe SetDimension)
 segmentLocation_country = Lens.lens (\SegmentLocation' {country} -> country) (\s@SegmentLocation' {} a -> s {country = a} :: SegmentLocation)
+
+-- | The GPS location and range for the segment.
+segmentLocation_gPSPoint :: Lens.Lens' SegmentLocation (Prelude.Maybe GPSPointDimension)
+segmentLocation_gPSPoint = Lens.lens (\SegmentLocation' {gPSPoint} -> gPSPoint) (\s@SegmentLocation' {} a -> s {gPSPoint = a} :: SegmentLocation)
 
 instance Core.FromJSON SegmentLocation where
   parseJSON =
@@ -72,8 +72,8 @@ instance Core.FromJSON SegmentLocation where
       "SegmentLocation"
       ( \x ->
           SegmentLocation'
-            Prelude.<$> (x Core..:? "GPSPoint")
-            Prelude.<*> (x Core..:? "Country")
+            Prelude.<$> (x Core..:? "Country")
+            Prelude.<*> (x Core..:? "GPSPoint")
       )
 
 instance Prelude.Hashable SegmentLocation
@@ -84,7 +84,7 @@ instance Core.ToJSON SegmentLocation where
   toJSON SegmentLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GPSPoint" Core..=) Prelude.<$> gPSPoint,
-            ("Country" Core..=) Prelude.<$> country
+          [ ("Country" Core..=) Prelude.<$> country,
+            ("GPSPoint" Core..=) Prelude.<$> gPSPoint
           ]
       )

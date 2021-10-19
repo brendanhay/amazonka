@@ -28,8 +28,8 @@ module Network.AWS.MQ.UpdateUser
 
     -- * Request Lenses
     updateUser_groups,
-    updateUser_password,
     updateUser_consoleAccess,
+    updateUser_password,
     updateUser_username,
     updateUser_brokerId,
 
@@ -58,12 +58,12 @@ data UpdateUser = UpdateUser'
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
+    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+    consoleAccess :: Prelude.Maybe Prelude.Bool,
     -- | The password of the user. This value must be at least 12 characters
     -- long, must contain at least 4 unique characters, and must not contain
     -- commas, colons, or equal signs (,:=).
     password :: Prelude.Maybe Prelude.Text,
-    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
     -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
@@ -86,11 +86,11 @@ data UpdateUser = UpdateUser'
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 --
+-- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+--
 -- 'password', 'updateUser_password' - The password of the user. This value must be at least 12 characters
 -- long, must contain at least 4 unique characters, and must not contain
 -- commas, colons, or equal signs (,:=).
---
--- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 --
 -- 'username', 'updateUser_username' - The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -106,8 +106,8 @@ newUpdateUser ::
 newUpdateUser pUsername_ pBrokerId_ =
   UpdateUser'
     { groups = Prelude.Nothing,
-      password = Prelude.Nothing,
       consoleAccess = Prelude.Nothing,
+      password = Prelude.Nothing,
       username = pUsername_,
       brokerId = pBrokerId_
     }
@@ -117,17 +117,17 @@ newUpdateUser pUsername_ pBrokerId_ =
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 updateUser_groups :: Lens.Lens' UpdateUser (Prelude.Maybe [Prelude.Text])
-updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' {} a -> s {groups = a} :: UpdateUser) Prelude.. Lens.mapping Lens._Coerce
+updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' {} a -> s {groups = a} :: UpdateUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+updateUser_consoleAccess :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
+updateUser_consoleAccess = Lens.lens (\UpdateUser' {consoleAccess} -> consoleAccess) (\s@UpdateUser' {} a -> s {consoleAccess = a} :: UpdateUser)
 
 -- | The password of the user. This value must be at least 12 characters
 -- long, must contain at least 4 unique characters, and must not contain
 -- commas, colons, or equal signs (,:=).
 updateUser_password :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@UpdateUser' {} a -> s {password = a} :: UpdateUser)
-
--- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-updateUser_consoleAccess :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
-updateUser_consoleAccess = Lens.lens (\UpdateUser' {consoleAccess} -> consoleAccess) (\s@UpdateUser' {} a -> s {consoleAccess = a} :: UpdateUser)
 
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -169,8 +169,8 @@ instance Core.ToJSON UpdateUser where
     Core.object
       ( Prelude.catMaybes
           [ ("groups" Core..=) Prelude.<$> groups,
-            ("password" Core..=) Prelude.<$> password,
-            ("consoleAccess" Core..=) Prelude.<$> consoleAccess
+            ("consoleAccess" Core..=) Prelude.<$> consoleAccess,
+            ("password" Core..=) Prelude.<$> password
           ]
       )
 

@@ -28,12 +28,12 @@ module Network.AWS.CostExplorer.GetTags
     newGetTags,
 
     -- * Request Lenses
-    getTags_maxResults,
+    getTags_nextPageToken,
     getTags_searchString,
     getTags_tagKey,
-    getTags_nextPageToken,
-    getTags_sortBy,
     getTags_filter,
+    getTags_maxResults,
+    getTags_sortBy,
     getTags_timePeriod,
 
     -- * Destructuring the Response
@@ -58,21 +58,22 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTags' smart constructor.
 data GetTags = GetTags'
-  { -- | This field is only used when SortBy is provided in the request. The
+  { -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The value that you want to search for.
+    searchString :: Prelude.Maybe Prelude.Text,
+    -- | The key of the tag that you want to return values for.
+    tagKey :: Prelude.Maybe Prelude.Text,
+    filter' :: Prelude.Maybe Expression,
+    -- | This field is only used when SortBy is provided in the request. The
     -- maximum number of objects that to be returned for this request. If
     -- MaxResults is not specified with SortBy, the request will return 1000
     -- results as the default value for this parameter.
     --
     -- For @GetTags@, MaxResults has an upper limit of 1000.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The value that you want to search for.
-    searchString :: Prelude.Maybe Prelude.Text,
-    -- | The key of the tag that you want to return values for.
-    tagKey :: Prelude.Maybe Prelude.Text,
-    -- | The token to retrieve the next set of results. Amazon Web Services
-    -- provides the token when the response from a previous call has more
-    -- results than the maximum page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -97,7 +98,6 @@ data GetTags = GetTags'
     -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
     -- supported.
     sortBy :: Prelude.Maybe [SortDefinition],
-    filter' :: Prelude.Maybe Expression,
     -- | The start and end dates for retrieving the dimension values. The start
     -- date is inclusive, but the end date is exclusive. For example, if
     -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -115,20 +115,22 @@ data GetTags = GetTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nextPageToken', 'getTags_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+--
+-- 'searchString', 'getTags_searchString' - The value that you want to search for.
+--
+-- 'tagKey', 'getTags_tagKey' - The key of the tag that you want to return values for.
+--
+-- 'filter'', 'getTags_filter' - Undocumented member.
+--
 -- 'maxResults', 'getTags_maxResults' - This field is only used when SortBy is provided in the request. The
 -- maximum number of objects that to be returned for this request. If
 -- MaxResults is not specified with SortBy, the request will return 1000
 -- results as the default value for this parameter.
 --
 -- For @GetTags@, MaxResults has an upper limit of 1000.
---
--- 'searchString', 'getTags_searchString' - The value that you want to search for.
---
--- 'tagKey', 'getTags_tagKey' - The key of the tag that you want to return values for.
---
--- 'nextPageToken', 'getTags_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
 --
 -- 'sortBy', 'getTags_sortBy' - The value by which you want to sort the data.
 --
@@ -154,8 +156,6 @@ data GetTags = GetTags'
 -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
 -- supported.
 --
--- 'filter'', 'getTags_filter' - Undocumented member.
---
 -- 'timePeriod', 'getTags_timePeriod' - The start and end dates for retrieving the dimension values. The start
 -- date is inclusive, but the end date is exclusive. For example, if
 -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -167,23 +167,20 @@ newGetTags ::
   GetTags
 newGetTags pTimePeriod_ =
   GetTags'
-    { maxResults = Prelude.Nothing,
+    { nextPageToken = Prelude.Nothing,
       searchString = Prelude.Nothing,
       tagKey = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       timePeriod = pTimePeriod_
     }
 
--- | This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
--- results as the default value for this parameter.
---
--- For @GetTags@, MaxResults has an upper limit of 1000.
-getTags_maxResults :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Natural)
-getTags_maxResults = Lens.lens (\GetTags' {maxResults} -> maxResults) (\s@GetTags' {} a -> s {maxResults = a} :: GetTags)
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getTags_nextPageToken :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
+getTags_nextPageToken = Lens.lens (\GetTags' {nextPageToken} -> nextPageToken) (\s@GetTags' {} a -> s {nextPageToken = a} :: GetTags)
 
 -- | The value that you want to search for.
 getTags_searchString :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
@@ -193,11 +190,18 @@ getTags_searchString = Lens.lens (\GetTags' {searchString} -> searchString) (\s@
 getTags_tagKey :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
 getTags_tagKey = Lens.lens (\GetTags' {tagKey} -> tagKey) (\s@GetTags' {} a -> s {tagKey = a} :: GetTags)
 
--- | The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
-getTags_nextPageToken :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
-getTags_nextPageToken = Lens.lens (\GetTags' {nextPageToken} -> nextPageToken) (\s@GetTags' {} a -> s {nextPageToken = a} :: GetTags)
+-- | Undocumented member.
+getTags_filter :: Lens.Lens' GetTags (Prelude.Maybe Expression)
+getTags_filter = Lens.lens (\GetTags' {filter'} -> filter') (\s@GetTags' {} a -> s {filter' = a} :: GetTags)
+
+-- | This field is only used when SortBy is provided in the request. The
+-- maximum number of objects that to be returned for this request. If
+-- MaxResults is not specified with SortBy, the request will return 1000
+-- results as the default value for this parameter.
+--
+-- For @GetTags@, MaxResults has an upper limit of 1000.
+getTags_maxResults :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Natural)
+getTags_maxResults = Lens.lens (\GetTags' {maxResults} -> maxResults) (\s@GetTags' {} a -> s {maxResults = a} :: GetTags)
 
 -- | The value by which you want to sort the data.
 --
@@ -223,11 +227,7 @@ getTags_nextPageToken = Lens.lens (\GetTags' {nextPageToken} -> nextPageToken) (
 -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
 -- supported.
 getTags_sortBy :: Lens.Lens' GetTags (Prelude.Maybe [SortDefinition])
-getTags_sortBy = Lens.lens (\GetTags' {sortBy} -> sortBy) (\s@GetTags' {} a -> s {sortBy = a} :: GetTags) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-getTags_filter :: Lens.Lens' GetTags (Prelude.Maybe Expression)
-getTags_filter = Lens.lens (\GetTags' {filter'} -> filter') (\s@GetTags' {} a -> s {filter' = a} :: GetTags)
+getTags_sortBy = Lens.lens (\GetTags' {sortBy} -> sortBy) (\s@GetTags' {} a -> s {sortBy = a} :: GetTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The start and end dates for retrieving the dimension values. The start
 -- date is inclusive, but the end date is exclusive. For example, if
@@ -274,12 +274,12 @@ instance Core.ToJSON GetTags where
   toJSON GetTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("SearchString" Core..=) Prelude.<$> searchString,
             ("TagKey" Core..=) Prelude.<$> tagKey,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             Prelude.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
@@ -358,7 +358,7 @@ getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpSt
 
 -- | The tags that match your request.
 getTagsResponse_tags :: Lens.Lens' GetTagsResponse [Prelude.Text]
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens._Coerce
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.coerced
 
 -- | The number of query results that Amazon Web Services returns at a time.
 getTagsResponse_returnSize :: Lens.Lens' GetTagsResponse Prelude.Int

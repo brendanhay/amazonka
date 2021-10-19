@@ -49,7 +49,7 @@ newOutputGroupDetail =
 
 -- | Details about the output
 outputGroupDetail_outputDetails :: Lens.Lens' OutputGroupDetail (Prelude.Maybe [OutputDetail])
-outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Prelude.. Lens.mapping Lens._Coerce
+outputGroupDetail_outputDetails = Lens.lens (\OutputGroupDetail' {outputDetails} -> outputDetails) (\s@OutputGroupDetail' {} a -> s {outputDetails = a} :: OutputGroupDetail) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON OutputGroupDetail where
   parseJSON =

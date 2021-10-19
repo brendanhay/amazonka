@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceState' smart constructor.
 data InstanceState = InstanceState'
-  { -- | The status code for the instance.
-    code :: Prelude.Maybe Prelude.Int,
-    -- | The state of the instance (e.g., @running@ or @pending@).
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The state of the instance (e.g., @running@ or @pending@).
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The status code for the instance.
+    code :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data InstanceState = InstanceState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'instanceState_code' - The status code for the instance.
---
 -- 'name', 'instanceState_name' - The state of the instance (e.g., @running@ or @pending@).
+--
+-- 'code', 'instanceState_code' - The status code for the instance.
 newInstanceState ::
   InstanceState
 newInstanceState =
   InstanceState'
-    { code = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The status code for the instance.
-instanceState_code :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Int)
-instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
 -- | The state of the instance (e.g., @running@ or @pending@).
 instanceState_name :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
 instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceState' {} a -> s {name = a} :: InstanceState)
+
+-- | The status code for the instance.
+instanceState_code :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Int)
+instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
 instance Core.FromJSON InstanceState where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON InstanceState where
       "InstanceState"
       ( \x ->
           InstanceState'
-            Prelude.<$> (x Core..:? "code") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
       )
 
 instance Prelude.Hashable InstanceState

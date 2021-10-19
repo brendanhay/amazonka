@@ -28,7 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingTargetTrackingScalingPolicyConfigurationUpdate' smart constructor.
 data AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = AutoScalingTargetTrackingScalingPolicyConfigurationUpdate'
-  { -- | Indicates whether scale in by the target tracking policy is disabled. If
+  { -- | The amount of time, in seconds, after a scale in activity completes
+    -- before another scale in activity can start. The cooldown period is used
+    -- to block subsequent scale in requests until it has expired. You should
+    -- scale in conservatively to protect your application\'s availability.
+    -- However, if another alarm triggers a scale out policy during the
+    -- cooldown period after a scale-in, application auto scaling scales out
+    -- your scalable target immediately.
+    scaleInCooldown :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether scale in by the target tracking policy is disabled. If
     -- the value is true, scale in is disabled and the target tracking policy
     -- won\'t remove capacity from the scalable resource. Otherwise, scale in
     -- is enabled and the target tracking policy can remove capacity from the
@@ -41,14 +49,6 @@ data AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = AutoScalingTarg
     -- capacity for the next scale out. You should continuously (but not
     -- excessively) scale out.
     scaleOutCooldown :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time, in seconds, after a scale in activity completes
-    -- before another scale in activity can start. The cooldown period is used
-    -- to block subsequent scale in requests until it has expired. You should
-    -- scale in conservatively to protect your application\'s availability.
-    -- However, if another alarm triggers a scale out policy during the
-    -- cooldown period after a scale-in, application auto scaling scales out
-    -- your scalable target immediately.
-    scaleInCooldown :: Prelude.Maybe Prelude.Int,
     -- | The target value for the metric. The range is 8.515920e-109 to
     -- 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
     targetValue :: Prelude.Double
@@ -63,6 +63,14 @@ data AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = AutoScalingTarg
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scaleInCooldown', 'autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown' - The amount of time, in seconds, after a scale in activity completes
+-- before another scale in activity can start. The cooldown period is used
+-- to block subsequent scale in requests until it has expired. You should
+-- scale in conservatively to protect your application\'s availability.
+-- However, if another alarm triggers a scale out policy during the
+-- cooldown period after a scale-in, application auto scaling scales out
+-- your scalable target immediately.
+--
 -- 'disableScaleIn', 'autoScalingTargetTrackingScalingPolicyConfigurationUpdate_disableScaleIn' - Indicates whether scale in by the target tracking policy is disabled. If
 -- the value is true, scale in is disabled and the target tracking policy
 -- won\'t remove capacity from the scalable resource. Otherwise, scale in
@@ -76,14 +84,6 @@ data AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = AutoScalingTarg
 -- capacity for the next scale out. You should continuously (but not
 -- excessively) scale out.
 --
--- 'scaleInCooldown', 'autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown' - The amount of time, in seconds, after a scale in activity completes
--- before another scale in activity can start. The cooldown period is used
--- to block subsequent scale in requests until it has expired. You should
--- scale in conservatively to protect your application\'s availability.
--- However, if another alarm triggers a scale out policy during the
--- cooldown period after a scale-in, application auto scaling scales out
--- your scalable target immediately.
---
 -- 'targetValue', 'autoScalingTargetTrackingScalingPolicyConfigurationUpdate_targetValue' - The target value for the metric. The range is 8.515920e-109 to
 -- 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
 newAutoScalingTargetTrackingScalingPolicyConfigurationUpdate ::
@@ -93,15 +93,25 @@ newAutoScalingTargetTrackingScalingPolicyConfigurationUpdate ::
 newAutoScalingTargetTrackingScalingPolicyConfigurationUpdate
   pTargetValue_ =
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate'
-      { disableScaleIn =
+      { scaleInCooldown =
+          Prelude.Nothing,
+        disableScaleIn =
           Prelude.Nothing,
         scaleOutCooldown =
-          Prelude.Nothing,
-        scaleInCooldown =
           Prelude.Nothing,
         targetValue =
           pTargetValue_
       }
+
+-- | The amount of time, in seconds, after a scale in activity completes
+-- before another scale in activity can start. The cooldown period is used
+-- to block subsequent scale in requests until it has expired. You should
+-- scale in conservatively to protect your application\'s availability.
+-- However, if another alarm triggers a scale out policy during the
+-- cooldown period after a scale-in, application auto scaling scales out
+-- your scalable target immediately.
+autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown :: Lens.Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (Prelude.Maybe Prelude.Int)
+autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown = Lens.lens (\AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {scaleInCooldown} -> scaleInCooldown) (\s@AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {} a -> s {scaleInCooldown = a} :: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate)
 
 -- | Indicates whether scale in by the target tracking policy is disabled. If
 -- the value is true, scale in is disabled and the target tracking policy
@@ -119,16 +129,6 @@ autoScalingTargetTrackingScalingPolicyConfigurationUpdate_disableScaleIn = Lens.
 -- excessively) scale out.
 autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleOutCooldown :: Lens.Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (Prelude.Maybe Prelude.Int)
 autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleOutCooldown = Lens.lens (\AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {scaleOutCooldown} -> scaleOutCooldown) (\s@AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {} a -> s {scaleOutCooldown = a} :: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate)
-
--- | The amount of time, in seconds, after a scale in activity completes
--- before another scale in activity can start. The cooldown period is used
--- to block subsequent scale in requests until it has expired. You should
--- scale in conservatively to protect your application\'s availability.
--- However, if another alarm triggers a scale out policy during the
--- cooldown period after a scale-in, application auto scaling scales out
--- your scalable target immediately.
-autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown :: Lens.Lens' AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (Prelude.Maybe Prelude.Int)
-autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown = Lens.lens (\AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {scaleInCooldown} -> scaleInCooldown) (\s@AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {} a -> s {scaleInCooldown = a} :: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate)
 
 -- | The target value for the metric. The range is 8.515920e-109 to
 -- 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).
@@ -151,12 +151,12 @@ instance
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("DisableScaleIn" Core..=)
+            [ ("ScaleInCooldown" Core..=)
+                Prelude.<$> scaleInCooldown,
+              ("DisableScaleIn" Core..=)
                 Prelude.<$> disableScaleIn,
               ("ScaleOutCooldown" Core..=)
                 Prelude.<$> scaleOutCooldown,
-              ("ScaleInCooldown" Core..=)
-                Prelude.<$> scaleInCooldown,
               Prelude.Just ("TargetValue" Core..= targetValue)
             ]
         )

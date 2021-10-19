@@ -150,7 +150,7 @@ createClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\CreateClusterS
 
 -- | A list of tag instances.
 createClusterSnapshot_tags :: Lens.Lens' CreateClusterSnapshot (Prelude.Maybe [Tag])
-createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
+createClusterSnapshot_tags = Lens.lens (\CreateClusterSnapshot' {tags} -> tags) (\s@CreateClusterSnapshot' {} a -> s {tags = a} :: CreateClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the Amazon Web

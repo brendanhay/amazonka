@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResultConfigurationUpdates' smart constructor.
 data ResultConfigurationUpdates = ResultConfigurationUpdates'
-  { -- | The encryption configuration for the query results.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
-    -- | If set to \"true\", indicates that the previously-specified query
+  { -- | If set to \"true\", indicates that the previously-specified query
     -- results location (also known as a client-side setting) for queries in
     -- this workgroup should be ignored and set to null. If set to \"false\" or
     -- not set, and a value is present in the @OutputLocation@ in
@@ -49,6 +47,8 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
     -- be updated with the new value. For more information, see
     -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
     removeEncryptionConfiguration :: Prelude.Maybe Prelude.Bool,
+    -- | The encryption configuration for the query results.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The location in Amazon S3 where your query results are stored, such as
     -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
     -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
@@ -70,8 +70,6 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.
---
 -- 'removeOutputLocation', 'resultConfigurationUpdates_removeOutputLocation' - If set to \"true\", indicates that the previously-specified query
 -- results location (also known as a client-side setting) for queries in
 -- this workgroup should be ignored and set to null. If set to \"false\" or
@@ -90,6 +88,8 @@ data ResultConfigurationUpdates = ResultConfigurationUpdates'
 -- be updated with the new value. For more information, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
 --
+-- 'encryptionConfiguration', 'resultConfigurationUpdates_encryptionConfiguration' - The encryption configuration for the query results.
+--
 -- 'outputLocation', 'resultConfigurationUpdates_outputLocation' - The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
@@ -103,16 +103,12 @@ newResultConfigurationUpdates ::
   ResultConfigurationUpdates
 newResultConfigurationUpdates =
   ResultConfigurationUpdates'
-    { encryptionConfiguration =
+    { removeOutputLocation =
         Prelude.Nothing,
-      removeOutputLocation = Prelude.Nothing,
       removeEncryptionConfiguration = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
       outputLocation = Prelude.Nothing
     }
-
--- | The encryption configuration for the query results.
-resultConfigurationUpdates_encryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe EncryptionConfiguration)
-resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {encryptionConfiguration = a} :: ResultConfigurationUpdates)
 
 -- | If set to \"true\", indicates that the previously-specified query
 -- results location (also known as a client-side setting) for queries in
@@ -136,6 +132,10 @@ resultConfigurationUpdates_removeOutputLocation = Lens.lens (\ResultConfiguratio
 resultConfigurationUpdates_removeEncryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe Prelude.Bool)
 resultConfigurationUpdates_removeEncryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {removeEncryptionConfiguration} -> removeEncryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {removeEncryptionConfiguration = a} :: ResultConfigurationUpdates)
 
+-- | The encryption configuration for the query results.
+resultConfigurationUpdates_encryptionConfiguration :: Lens.Lens' ResultConfigurationUpdates (Prelude.Maybe EncryptionConfiguration)
+resultConfigurationUpdates_encryptionConfiguration = Lens.lens (\ResultConfigurationUpdates' {encryptionConfiguration} -> encryptionConfiguration) (\s@ResultConfigurationUpdates' {} a -> s {encryptionConfiguration = a} :: ResultConfigurationUpdates)
+
 -- | The location in Amazon S3 where your query results are stored, such as
 -- @s3:\/\/path\/to\/query\/bucket\/@. For more information, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/querying.html Query Results>
@@ -156,12 +156,12 @@ instance Core.ToJSON ResultConfigurationUpdates where
   toJSON ResultConfigurationUpdates' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EncryptionConfiguration" Core..=)
-              Prelude.<$> encryptionConfiguration,
-            ("RemoveOutputLocation" Core..=)
+          [ ("RemoveOutputLocation" Core..=)
               Prelude.<$> removeOutputLocation,
             ("RemoveEncryptionConfiguration" Core..=)
               Prelude.<$> removeEncryptionConfiguration,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration,
             ("OutputLocation" Core..=)
               Prelude.<$> outputLocation
           ]

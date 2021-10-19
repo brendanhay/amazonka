@@ -330,7 +330,7 @@ listOrganizationalUnitsForParentResponse_nextToken = Lens.lens (\ListOrganizatio
 
 -- | A list of the OUs in the specified root or parent OU.
 listOrganizationalUnitsForParentResponse_organizationalUnits :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Prelude.Maybe [OrganizationalUnit])
-listOrganizationalUnitsForParentResponse_organizationalUnits = Lens.lens (\ListOrganizationalUnitsForParentResponse' {organizationalUnits} -> organizationalUnits) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {organizationalUnits = a} :: ListOrganizationalUnitsForParentResponse) Prelude.. Lens.mapping Lens._Coerce
+listOrganizationalUnitsForParentResponse_organizationalUnits = Lens.lens (\ListOrganizationalUnitsForParentResponse' {organizationalUnits} -> organizationalUnits) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {organizationalUnits = a} :: ListOrganizationalUnitsForParentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOrganizationalUnitsForParentResponse_httpStatus :: Lens.Lens' ListOrganizationalUnitsForParentResponse Prelude.Int

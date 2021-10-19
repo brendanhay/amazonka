@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPipelineIdName' smart constructor.
 data PipelineIdName = PipelineIdName'
-  { -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
+  { -- | The name of the pipeline.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
     -- string of the form @df-297EG78HU43EEXAMPLE@.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The name of the pipeline.
-    name :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data PipelineIdName = PipelineIdName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'pipelineIdName_name' - The name of the pipeline.
+--
 -- 'id', 'pipelineIdName_id' - The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
 -- string of the form @df-297EG78HU43EEXAMPLE@.
---
--- 'name', 'pipelineIdName_name' - The name of the pipeline.
 newPipelineIdName ::
   PipelineIdName
 newPipelineIdName =
   PipelineIdName'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | The name of the pipeline.
+pipelineIdName_name :: Lens.Lens' PipelineIdName (Prelude.Maybe Prelude.Text)
+pipelineIdName_name = Lens.lens (\PipelineIdName' {name} -> name) (\s@PipelineIdName' {} a -> s {name = a} :: PipelineIdName)
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
 -- string of the form @df-297EG78HU43EEXAMPLE@.
 pipelineIdName_id :: Lens.Lens' PipelineIdName (Prelude.Maybe Prelude.Text)
 pipelineIdName_id = Lens.lens (\PipelineIdName' {id} -> id) (\s@PipelineIdName' {} a -> s {id = a} :: PipelineIdName)
-
--- | The name of the pipeline.
-pipelineIdName_name :: Lens.Lens' PipelineIdName (Prelude.Maybe Prelude.Text)
-pipelineIdName_name = Lens.lens (\PipelineIdName' {name} -> name) (\s@PipelineIdName' {} a -> s {name = a} :: PipelineIdName)
 
 instance Core.FromJSON PipelineIdName where
   parseJSON =
@@ -70,7 +70,7 @@ instance Core.FromJSON PipelineIdName where
       "PipelineIdName"
       ( \x ->
           PipelineIdName'
-            Prelude.<$> (x Core..:? "id") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "id")
       )
 
 instance Prelude.Hashable PipelineIdName

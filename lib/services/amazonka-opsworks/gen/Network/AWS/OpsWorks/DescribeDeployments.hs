@@ -106,7 +106,7 @@ describeDeployments_appId = Lens.lens (\DescribeDeployments' {appId} -> appId) (
 -- parameter, the command returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
 describeDeployments_deploymentIds :: Lens.Lens' DescribeDeployments (Prelude.Maybe [Prelude.Text])
-describeDeployments_deploymentIds = Lens.lens (\DescribeDeployments' {deploymentIds} -> deploymentIds) (\s@DescribeDeployments' {} a -> s {deploymentIds = a} :: DescribeDeployments) Prelude.. Lens.mapping Lens._Coerce
+describeDeployments_deploymentIds = Lens.lens (\DescribeDeployments' {deploymentIds} -> deploymentIds) (\s@DescribeDeployments' {} a -> s {deploymentIds = a} :: DescribeDeployments) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack ID. If you include this parameter, the command returns a
 -- description of the commands associated with the specified stack.
@@ -196,7 +196,7 @@ newDescribeDeploymentsResponse pHttpStatus_ =
 
 -- | An array of @Deployment@ objects that describe the deployments.
 describeDeploymentsResponse_deployments :: Lens.Lens' DescribeDeploymentsResponse (Prelude.Maybe [Deployment])
-describeDeploymentsResponse_deployments = Lens.lens (\DescribeDeploymentsResponse' {deployments} -> deployments) (\s@DescribeDeploymentsResponse' {} a -> s {deployments = a} :: DescribeDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDeploymentsResponse_deployments = Lens.lens (\DescribeDeploymentsResponse' {deployments} -> deployments) (\s@DescribeDeploymentsResponse' {} a -> s {deployments = a} :: DescribeDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDeploymentsResponse_httpStatus :: Lens.Lens' DescribeDeploymentsResponse Prelude.Int

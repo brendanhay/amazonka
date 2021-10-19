@@ -364,7 +364,7 @@ getScalingPlanResourceForecastDataResponse_httpStatus = Lens.lens (\GetScalingPl
 
 -- | The data points to return.
 getScalingPlanResourceForecastDataResponse_datapoints :: Lens.Lens' GetScalingPlanResourceForecastDataResponse [Datapoint]
-getScalingPlanResourceForecastDataResponse_datapoints = Lens.lens (\GetScalingPlanResourceForecastDataResponse' {datapoints} -> datapoints) (\s@GetScalingPlanResourceForecastDataResponse' {} a -> s {datapoints = a} :: GetScalingPlanResourceForecastDataResponse) Prelude.. Lens._Coerce
+getScalingPlanResourceForecastDataResponse_datapoints = Lens.lens (\GetScalingPlanResourceForecastDataResponse' {datapoints} -> datapoints) (\s@GetScalingPlanResourceForecastDataResponse' {} a -> s {datapoints = a} :: GetScalingPlanResourceForecastDataResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -104,7 +104,7 @@ newIdentityDkimAttributes
 -- the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
 identityDkimAttributes_dkimTokens :: Lens.Lens' IdentityDkimAttributes (Prelude.Maybe [Prelude.Text])
-identityDkimAttributes_dkimTokens = Lens.lens (\IdentityDkimAttributes' {dkimTokens} -> dkimTokens) (\s@IdentityDkimAttributes' {} a -> s {dkimTokens = a} :: IdentityDkimAttributes) Prelude.. Lens.mapping Lens._Coerce
+identityDkimAttributes_dkimTokens = Lens.lens (\IdentityDkimAttributes' {dkimTokens} -> dkimTokens) (\s@IdentityDkimAttributes' {} a -> s {dkimTokens = a} :: IdentityDkimAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Is true if DKIM signing is enabled for email sent from the identity.
 -- It\'s false otherwise. The default value is true.

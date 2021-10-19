@@ -99,7 +99,7 @@ newBatchUpdatePartition
       { catalogId = Prelude.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        entries = Lens._Coerce Lens.# pEntries_
+        entries = Lens.coerced Lens.# pEntries_
       }
 
 -- | The ID of the catalog in which the partition is to be updated.
@@ -119,7 +119,7 @@ batchUpdatePartition_tableName = Lens.lens (\BatchUpdatePartition' {tableName} -
 -- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to
 -- update.
 batchUpdatePartition_entries :: Lens.Lens' BatchUpdatePartition (Prelude.NonEmpty BatchUpdatePartitionRequestEntry)
-batchUpdatePartition_entries = Lens.lens (\BatchUpdatePartition' {entries} -> entries) (\s@BatchUpdatePartition' {} a -> s {entries = a} :: BatchUpdatePartition) Prelude.. Lens._Coerce
+batchUpdatePartition_entries = Lens.lens (\BatchUpdatePartition' {entries} -> entries) (\s@BatchUpdatePartition' {} a -> s {entries = a} :: BatchUpdatePartition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchUpdatePartition where
   type
@@ -206,7 +206,7 @@ newBatchUpdatePartitionResponse pHttpStatus_ =
 -- | The errors encountered when trying to update the requested partitions. A
 -- list of @BatchUpdatePartitionFailureEntry@ objects.
 batchUpdatePartitionResponse_errors :: Lens.Lens' BatchUpdatePartitionResponse (Prelude.Maybe [BatchUpdatePartitionFailureEntry])
-batchUpdatePartitionResponse_errors = Lens.lens (\BatchUpdatePartitionResponse' {errors} -> errors) (\s@BatchUpdatePartitionResponse' {} a -> s {errors = a} :: BatchUpdatePartitionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchUpdatePartitionResponse_errors = Lens.lens (\BatchUpdatePartitionResponse' {errors} -> errors) (\s@BatchUpdatePartitionResponse' {} a -> s {errors = a} :: BatchUpdatePartitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchUpdatePartitionResponse_httpStatus :: Lens.Lens' BatchUpdatePartitionResponse Prelude.Int

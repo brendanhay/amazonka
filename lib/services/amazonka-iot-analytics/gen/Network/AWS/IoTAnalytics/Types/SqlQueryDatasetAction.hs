@@ -58,7 +58,7 @@ newSqlQueryDatasetAction pSqlQuery_ =
 
 -- | Prefilters applied to message data.
 sqlQueryDatasetAction_filters :: Lens.Lens' SqlQueryDatasetAction (Prelude.Maybe [QueryFilter])
-sqlQueryDatasetAction_filters = Lens.lens (\SqlQueryDatasetAction' {filters} -> filters) (\s@SqlQueryDatasetAction' {} a -> s {filters = a} :: SqlQueryDatasetAction) Prelude.. Lens.mapping Lens._Coerce
+sqlQueryDatasetAction_filters = Lens.lens (\SqlQueryDatasetAction' {filters} -> filters) (\s@SqlQueryDatasetAction' {} a -> s {filters = a} :: SqlQueryDatasetAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | A SQL query string.
 sqlQueryDatasetAction_sqlQuery :: Lens.Lens' SqlQueryDatasetAction Prelude.Text

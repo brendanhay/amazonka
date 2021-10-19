@@ -27,9 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionSummary' smart constructor.
 data JobExecutionSummary = JobExecutionSummary'
-  { -- | The time, in milliseconds since the epoch, when the job execution
-    -- started.
-    startedAt :: Prelude.Maybe Prelude.Integer,
+  { -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the job execution was
+    -- last updated.
+    lastUpdatedAt :: Prelude.Maybe Prelude.Integer,
     -- | The time, in milliseconds since the epoch, when the job execution was
     -- enqueued.
     queuedAt :: Prelude.Maybe Prelude.Integer,
@@ -39,11 +41,9 @@ data JobExecutionSummary = JobExecutionSummary'
     -- | The version of the job execution. Job execution versions are incremented
     -- each time AWS IoT Jobs receives an update from a device.
     versionNumber :: Prelude.Maybe Prelude.Integer,
-    -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text,
-    -- | The time, in milliseconds since the epoch, when the job execution was
-    -- last updated.
-    lastUpdatedAt :: Prelude.Maybe Prelude.Integer
+    -- | The time, in milliseconds since the epoch, when the job execution
+    -- started.
+    startedAt :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,8 +55,10 @@ data JobExecutionSummary = JobExecutionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in milliseconds since the epoch, when the job execution
--- started.
+-- 'jobId', 'jobExecutionSummary_jobId' - The unique identifier you assigned to this job when it was created.
+--
+-- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was
+-- last updated.
 --
 -- 'queuedAt', 'jobExecutionSummary_queuedAt' - The time, in milliseconds since the epoch, when the job execution was
 -- enqueued.
@@ -67,26 +69,28 @@ data JobExecutionSummary = JobExecutionSummary'
 -- 'versionNumber', 'jobExecutionSummary_versionNumber' - The version of the job execution. Job execution versions are incremented
 -- each time AWS IoT Jobs receives an update from a device.
 --
--- 'jobId', 'jobExecutionSummary_jobId' - The unique identifier you assigned to this job when it was created.
---
--- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was
--- last updated.
+-- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in milliseconds since the epoch, when the job execution
+-- started.
 newJobExecutionSummary ::
   JobExecutionSummary
 newJobExecutionSummary =
   JobExecutionSummary'
-    { startedAt = Prelude.Nothing,
+    { jobId = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       queuedAt = Prelude.Nothing,
       executionNumber = Prelude.Nothing,
       versionNumber = Prelude.Nothing,
-      jobId = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+      startedAt = Prelude.Nothing
     }
 
--- | The time, in milliseconds since the epoch, when the job execution
--- started.
-jobExecutionSummary_startedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
-jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> startedAt) (\s@JobExecutionSummary' {} a -> s {startedAt = a} :: JobExecutionSummary)
+-- | The unique identifier you assigned to this job when it was created.
+jobExecutionSummary_jobId :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Text)
+jobExecutionSummary_jobId = Lens.lens (\JobExecutionSummary' {jobId} -> jobId) (\s@JobExecutionSummary' {} a -> s {jobId = a} :: JobExecutionSummary)
+
+-- | The time, in milliseconds since the epoch, when the job execution was
+-- last updated.
+jobExecutionSummary_lastUpdatedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
+jobExecutionSummary_lastUpdatedAt = Lens.lens (\JobExecutionSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecutionSummary' {} a -> s {lastUpdatedAt = a} :: JobExecutionSummary)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 -- enqueued.
@@ -103,14 +107,10 @@ jobExecutionSummary_executionNumber = Lens.lens (\JobExecutionSummary' {executio
 jobExecutionSummary_versionNumber :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
 jobExecutionSummary_versionNumber = Lens.lens (\JobExecutionSummary' {versionNumber} -> versionNumber) (\s@JobExecutionSummary' {} a -> s {versionNumber = a} :: JobExecutionSummary)
 
--- | The unique identifier you assigned to this job when it was created.
-jobExecutionSummary_jobId :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Text)
-jobExecutionSummary_jobId = Lens.lens (\JobExecutionSummary' {jobId} -> jobId) (\s@JobExecutionSummary' {} a -> s {jobId = a} :: JobExecutionSummary)
-
--- | The time, in milliseconds since the epoch, when the job execution was
--- last updated.
-jobExecutionSummary_lastUpdatedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
-jobExecutionSummary_lastUpdatedAt = Lens.lens (\JobExecutionSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecutionSummary' {} a -> s {lastUpdatedAt = a} :: JobExecutionSummary)
+-- | The time, in milliseconds since the epoch, when the job execution
+-- started.
+jobExecutionSummary_startedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
+jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> startedAt) (\s@JobExecutionSummary' {} a -> s {startedAt = a} :: JobExecutionSummary)
 
 instance Core.FromJSON JobExecutionSummary where
   parseJSON =
@@ -118,12 +118,12 @@ instance Core.FromJSON JobExecutionSummary where
       "JobExecutionSummary"
       ( \x ->
           JobExecutionSummary'
-            Prelude.<$> (x Core..:? "startedAt")
+            Prelude.<$> (x Core..:? "jobId")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "queuedAt")
             Prelude.<*> (x Core..:? "executionNumber")
             Prelude.<*> (x Core..:? "versionNumber")
-            Prelude.<*> (x Core..:? "jobId")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "startedAt")
       )
 
 instance Prelude.Hashable JobExecutionSummary

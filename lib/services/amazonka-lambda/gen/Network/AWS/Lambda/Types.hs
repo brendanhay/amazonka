@@ -17,40 +17,43 @@ module Network.AWS.Lambda.Types
     defaultService,
 
     -- * Errors
-    _InvalidCodeSignatureException,
     _KMSInvalidStateException,
-    _KMSNotFoundException,
-    _UnsupportedMediaTypeException,
-    _EC2UnexpectedException,
-    _InvalidZipFileException,
-    _ResourceNotReadyException,
-    _ResourceConflictException,
-    _ProvisionedConcurrencyConfigNotFoundException,
-    _EC2AccessDeniedException,
-    _InvalidSubnetIDException,
-    _EFSMountFailureException,
-    _InvalidSecurityGroupIDException,
-    _RequestTooLargeException,
     _EC2ThrottledException,
     _EFSMountConnectivityException,
-    _ENILimitReachedException,
-    _InvalidParameterValueException,
-    _KMSAccessDeniedException,
-    _EFSMountTimeoutException,
-    _ResourceInUseException,
-    _EFSIOException,
-    _ResourceNotFoundException,
-    _InvalidRequestContentException,
-    _CodeVerificationFailedException,
-    _CodeStorageExceededException,
+    _InvalidRuntimeException,
+    _EFSMountFailureException,
     _PolicyLengthExceededException,
     _PreconditionFailedException,
-    _CodeSigningConfigNotFoundException,
+    _EC2AccessDeniedException,
+    _InvalidSubnetIDException,
+    _CodeVerificationFailedException,
+    _UnsupportedMediaTypeException,
+    _InvalidRequestContentException,
+    _KMSNotFoundException,
+    _ENILimitReachedException,
+    _InvalidParameterValueException,
+    _RequestTooLargeException,
+    _InvalidCodeSignatureException,
+    _TooManyRequestsException,
+    _InvalidSecurityGroupIDException,
+    _KMSDisabledException,
     _SubnetIPAddressLimitReachedException,
     _ServiceException,
-    _KMSDisabledException,
-    _InvalidRuntimeException,
-    _TooManyRequestsException,
+    _CodeStorageExceededException,
+    _CodeSigningConfigNotFoundException,
+    _InvalidZipFileException,
+    _ProvisionedConcurrencyConfigNotFoundException,
+    _ResourceConflictException,
+    _ResourceNotReadyException,
+    _EC2UnexpectedException,
+    _ResourceNotFoundException,
+    _EFSIOException,
+    _EFSMountTimeoutException,
+    _KMSAccessDeniedException,
+    _ResourceInUseException,
+
+    -- * Architecture
+    Architecture (..),
 
     -- * CodeSigningPolicy
     CodeSigningPolicy (..),
@@ -103,27 +106,27 @@ module Network.AWS.Lambda.Types
     -- * AccountLimit
     AccountLimit (..),
     newAccountLimit,
-    accountLimit_codeSizeUnzipped,
     accountLimit_concurrentExecutions,
-    accountLimit_unreservedConcurrentExecutions,
     accountLimit_totalCodeSize,
+    accountLimit_unreservedConcurrentExecutions,
+    accountLimit_codeSizeUnzipped,
     accountLimit_codeSizeZipped,
 
     -- * AccountUsage
     AccountUsage (..),
     newAccountUsage,
-    accountUsage_functionCount,
     accountUsage_totalCodeSize,
+    accountUsage_functionCount,
 
     -- * AliasConfiguration
     AliasConfiguration (..),
     newAliasConfiguration,
-    aliasConfiguration_revisionId,
     aliasConfiguration_routingConfig,
-    aliasConfiguration_functionVersion,
     aliasConfiguration_name,
-    aliasConfiguration_description,
+    aliasConfiguration_functionVersion,
     aliasConfiguration_aliasArn,
+    aliasConfiguration_description,
+    aliasConfiguration_revisionId,
 
     -- * AliasRoutingConfiguration
     AliasRoutingConfiguration (..),
@@ -163,8 +166,8 @@ module Network.AWS.Lambda.Types
     -- * DestinationConfig
     DestinationConfig (..),
     newDestinationConfig,
-    destinationConfig_onFailure,
     destinationConfig_onSuccess,
+    destinationConfig_onFailure,
 
     -- * Environment
     Environment (..),
@@ -174,8 +177,8 @@ module Network.AWS.Lambda.Types
     -- * EnvironmentError
     EnvironmentError (..),
     newEnvironmentError,
-    environmentError_message,
     environmentError_errorCode,
+    environmentError_message,
 
     -- * EnvironmentResponse
     EnvironmentResponse (..),
@@ -187,27 +190,27 @@ module Network.AWS.Lambda.Types
     EventSourceMappingConfiguration (..),
     newEventSourceMappingConfiguration,
     eventSourceMappingConfiguration_eventSourceArn,
-    eventSourceMappingConfiguration_stateTransitionReason,
-    eventSourceMappingConfiguration_lastProcessingResult,
-    eventSourceMappingConfiguration_queues,
-    eventSourceMappingConfiguration_maximumRecordAgeInSeconds,
-    eventSourceMappingConfiguration_topics,
-    eventSourceMappingConfiguration_functionResponseTypes,
-    eventSourceMappingConfiguration_tumblingWindowInSeconds,
-    eventSourceMappingConfiguration_startingPositionTimestamp,
     eventSourceMappingConfiguration_state,
+    eventSourceMappingConfiguration_startingPositionTimestamp,
     eventSourceMappingConfiguration_functionArn,
-    eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
-    eventSourceMappingConfiguration_batchSize,
-    eventSourceMappingConfiguration_startingPosition,
-    eventSourceMappingConfiguration_destinationConfig,
-    eventSourceMappingConfiguration_maximumRetryAttempts,
-    eventSourceMappingConfiguration_lastModified,
-    eventSourceMappingConfiguration_selfManagedEventSource,
-    eventSourceMappingConfiguration_parallelizationFactor,
+    eventSourceMappingConfiguration_topics,
+    eventSourceMappingConfiguration_queues,
     eventSourceMappingConfiguration_bisectBatchOnFunctionError,
     eventSourceMappingConfiguration_uuid,
+    eventSourceMappingConfiguration_parallelizationFactor,
+    eventSourceMappingConfiguration_lastProcessingResult,
+    eventSourceMappingConfiguration_maximumRetryAttempts,
+    eventSourceMappingConfiguration_batchSize,
+    eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_sourceAccessConfigurations,
+    eventSourceMappingConfiguration_maximumRecordAgeInSeconds,
+    eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_tumblingWindowInSeconds,
+    eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_lastModified,
+    eventSourceMappingConfiguration_destinationConfig,
+    eventSourceMappingConfiguration_startingPosition,
 
     -- * FileSystemConfig
     FileSystemConfig (..),
@@ -218,88 +221,90 @@ module Network.AWS.Lambda.Types
     -- * FunctionCode
     FunctionCode (..),
     newFunctionCode,
+    functionCode_s3ObjectVersion,
+    functionCode_s3Key,
+    functionCode_zipFile,
     functionCode_imageUri,
     functionCode_s3Bucket,
-    functionCode_zipFile,
-    functionCode_s3Key,
-    functionCode_s3ObjectVersion,
 
     -- * FunctionCodeLocation
     FunctionCodeLocation (..),
     newFunctionCodeLocation,
-    functionCodeLocation_imageUri,
-    functionCodeLocation_resolvedImageUri,
     functionCodeLocation_location,
+    functionCodeLocation_resolvedImageUri,
+    functionCodeLocation_imageUri,
     functionCodeLocation_repositoryType,
 
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
-    functionConfiguration_vpcConfig,
+    functionConfiguration_memorySize,
+    functionConfiguration_runtime,
+    functionConfiguration_state,
     functionConfiguration_signingProfileVersionArn,
     functionConfiguration_lastUpdateStatus,
-    functionConfiguration_memorySize,
-    functionConfiguration_masterArn,
-    functionConfiguration_revisionId,
-    functionConfiguration_lastUpdateStatusReasonCode,
-    functionConfiguration_codeSha256,
-    functionConfiguration_stateReason,
-    functionConfiguration_timeout,
-    functionConfiguration_handler,
-    functionConfiguration_deadLetterConfig,
-    functionConfiguration_environment,
-    functionConfiguration_functionName,
-    functionConfiguration_version,
-    functionConfiguration_kmsKeyArn,
-    functionConfiguration_state,
     functionConfiguration_functionArn,
-    functionConfiguration_runtime,
-    functionConfiguration_role,
-    functionConfiguration_signingJobArn,
-    functionConfiguration_stateReasonCode,
-    functionConfiguration_description,
-    functionConfiguration_imageConfigResponse,
-    functionConfiguration_tracingConfig,
-    functionConfiguration_lastUpdateStatusReason,
-    functionConfiguration_lastModified,
-    functionConfiguration_codeSize,
-    functionConfiguration_layers,
-    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_kmsKeyArn,
     functionConfiguration_packageType,
+    functionConfiguration_fileSystemConfigs,
+    functionConfiguration_environment,
+    functionConfiguration_deadLetterConfig,
+    functionConfiguration_architectures,
+    functionConfiguration_signingJobArn,
+    functionConfiguration_role,
+    functionConfiguration_vpcConfig,
+    functionConfiguration_version,
+    functionConfiguration_functionName,
+    functionConfiguration_layers,
+    functionConfiguration_codeSize,
+    functionConfiguration_handler,
+    functionConfiguration_timeout,
+    functionConfiguration_lastUpdateStatusReason,
+    functionConfiguration_stateReason,
+    functionConfiguration_lastModified,
+    functionConfiguration_codeSha256,
+    functionConfiguration_tracingConfig,
+    functionConfiguration_stateReasonCode,
+    functionConfiguration_imageConfigResponse,
+    functionConfiguration_description,
+    functionConfiguration_lastUpdateStatusReasonCode,
+    functionConfiguration_revisionId,
+    functionConfiguration_masterArn,
 
     -- * FunctionEventInvokeConfig
     FunctionEventInvokeConfig (..),
     newFunctionEventInvokeConfig,
-    functionEventInvokeConfig_maximumEventAgeInSeconds,
     functionEventInvokeConfig_functionArn,
-    functionEventInvokeConfig_destinationConfig,
+    functionEventInvokeConfig_maximumEventAgeInSeconds,
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
+    functionEventInvokeConfig_destinationConfig,
 
     -- * GetLayerVersionResponse
     GetLayerVersionResponse (..),
     newGetLayerVersionResponse,
-    getLayerVersionResponse_createdDate,
-    getLayerVersionResponse_layerArn,
-    getLayerVersionResponse_version,
     getLayerVersionResponse_layerVersionArn,
     getLayerVersionResponse_content,
-    getLayerVersionResponse_compatibleRuntimes,
-    getLayerVersionResponse_description,
+    getLayerVersionResponse_createdDate,
+    getLayerVersionResponse_version,
     getLayerVersionResponse_licenseInfo,
+    getLayerVersionResponse_compatibleArchitectures,
+    getLayerVersionResponse_layerArn,
+    getLayerVersionResponse_description,
+    getLayerVersionResponse_compatibleRuntimes,
 
     -- * ImageConfig
     ImageConfig (..),
     newImageConfig,
+    imageConfig_command,
     imageConfig_entryPoint,
     imageConfig_workingDirectory,
-    imageConfig_command,
 
     -- * ImageConfigError
     ImageConfigError (..),
     newImageConfigError,
-    imageConfigError_message,
     imageConfigError_errorCode,
+    imageConfigError_message,
 
     -- * ImageConfigResponse
     ImageConfigResponse (..),
@@ -318,36 +323,37 @@ module Network.AWS.Lambda.Types
     -- * LayerVersionContentInput
     LayerVersionContentInput (..),
     newLayerVersionContentInput,
-    layerVersionContentInput_s3Bucket,
-    layerVersionContentInput_zipFile,
-    layerVersionContentInput_s3Key,
     layerVersionContentInput_s3ObjectVersion,
+    layerVersionContentInput_s3Key,
+    layerVersionContentInput_zipFile,
+    layerVersionContentInput_s3Bucket,
 
     -- * LayerVersionContentOutput
     LayerVersionContentOutput (..),
     newLayerVersionContentOutput,
     layerVersionContentOutput_signingProfileVersionArn,
-    layerVersionContentOutput_codeSha256,
+    layerVersionContentOutput_location,
     layerVersionContentOutput_signingJobArn,
     layerVersionContentOutput_codeSize,
-    layerVersionContentOutput_location,
+    layerVersionContentOutput_codeSha256,
 
     -- * LayerVersionsListItem
     LayerVersionsListItem (..),
     newLayerVersionsListItem,
+    layerVersionsListItem_layerVersionArn,
     layerVersionsListItem_createdDate,
     layerVersionsListItem_version,
-    layerVersionsListItem_layerVersionArn,
-    layerVersionsListItem_compatibleRuntimes,
-    layerVersionsListItem_description,
     layerVersionsListItem_licenseInfo,
+    layerVersionsListItem_compatibleArchitectures,
+    layerVersionsListItem_description,
+    layerVersionsListItem_compatibleRuntimes,
 
     -- * LayersListItem
     LayersListItem (..),
     newLayersListItem,
-    layersListItem_layerArn,
     layersListItem_layerName,
     layersListItem_latestMatchingVersion,
+    layersListItem_layerArn,
 
     -- * OnFailure
     OnFailure (..),
@@ -363,12 +369,12 @@ module Network.AWS.Lambda.Types
     ProvisionedConcurrencyConfigListItem (..),
     newProvisionedConcurrencyConfigListItem,
     provisionedConcurrencyConfigListItem_status,
-    provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions,
-    provisionedConcurrencyConfigListItem_requestedProvisionedConcurrentExecutions,
     provisionedConcurrencyConfigListItem_functionArn,
+    provisionedConcurrencyConfigListItem_requestedProvisionedConcurrentExecutions,
+    provisionedConcurrencyConfigListItem_availableProvisionedConcurrentExecutions,
+    provisionedConcurrencyConfigListItem_statusReason,
     provisionedConcurrencyConfigListItem_allocatedProvisionedConcurrentExecutions,
     provisionedConcurrencyConfigListItem_lastModified,
-    provisionedConcurrencyConfigListItem_statusReason,
 
     -- * SelfManagedEventSource
     SelfManagedEventSource (..),
@@ -412,6 +418,7 @@ import Network.AWS.Lambda.Types.AccountUsage
 import Network.AWS.Lambda.Types.AliasConfiguration
 import Network.AWS.Lambda.Types.AliasRoutingConfiguration
 import Network.AWS.Lambda.Types.AllowedPublishers
+import Network.AWS.Lambda.Types.Architecture
 import Network.AWS.Lambda.Types.CodeSigningConfig
 import Network.AWS.Lambda.Types.CodeSigningPolicies
 import Network.AWS.Lambda.Types.CodeSigningPolicy
@@ -489,37 +496,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -532,17 +516,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The code signature failed the integrity check. Lambda always blocks
--- deployment if the integrity check fails, even if code signing policy is
--- set to WARN.
-_InvalidCodeSignatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCodeSignatureException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCodeSignatureException"
-    Prelude.. Core.hasStatus 400
 
 -- | Lambda was unable to decrypt the environment variables because the KMS
 -- key used is in an invalid state for Decrypt. Check the function\'s KMS
@@ -553,110 +550,6 @@ _KMSInvalidStateException =
     defaultService
     "KMSInvalidStateException"
     Prelude.. Core.hasStatus 502
-
--- | Lambda was unable to decrypt the environment variables because the KMS
--- key was not found. Check the function\'s KMS key settings.
-_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "KMSNotFoundException"
-    Prelude.. Core.hasStatus 502
-
--- | The content type of the @Invoke@ request body is not JSON.
-_UnsupportedMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedMediaTypeException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedMediaTypeException"
-    Prelude.. Core.hasStatus 415
-
--- | Lambda received an unexpected EC2 client exception while setting up for
--- the Lambda function.
-_EC2UnexpectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EC2UnexpectedException =
-  Core._MatchServiceError
-    defaultService
-    "EC2UnexpectedException"
-    Prelude.. Core.hasStatus 502
-
--- | Lambda could not unzip the deployment package.
-_InvalidZipFileException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidZipFileException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidZipFileException"
-    Prelude.. Core.hasStatus 502
-
--- | The function is inactive and its VPC connection is no longer available.
--- Wait for the VPC connection to reestablish and try again.
-_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotReadyException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotReadyException"
-    Prelude.. Core.hasStatus 502
-
--- | The resource already exists, or another operation is in progress.
-_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The specified configuration does not exist.
-_ProvisionedConcurrencyConfigNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProvisionedConcurrencyConfigNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ProvisionedConcurrencyConfigNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Need additional permissions to configure VPC settings.
-_EC2AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EC2AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "EC2AccessDeniedException"
-    Prelude.. Core.hasStatus 502
-
--- | The Subnet ID provided in the Lambda function VPC configuration is
--- invalid.
-_InvalidSubnetIDException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSubnetIDException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSubnetIDException"
-    Prelude.. Core.hasStatus 502
-
--- | The function couldn\'t mount the configured file system due to a
--- permission or configuration issue.
-_EFSMountFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EFSMountFailureException =
-  Core._MatchServiceError
-    defaultService
-    "EFSMountFailureException"
-    Prelude.. Core.hasStatus 403
-
--- | The Security Group ID provided in the Lambda function VPC configuration
--- is invalid.
-_InvalidSecurityGroupIDException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidSecurityGroupIDException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidSecurityGroupIDException"
-    Prelude.. Core.hasStatus 502
-
--- | The request payload exceeded the @Invoke@ request body JSON input limit.
--- For more information, see
--- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>.
-_RequestTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestTooLargeException =
-  Core._MatchServiceError
-    defaultService
-    "RequestTooLargeException"
-    Prelude.. Core.hasStatus 413
 
 -- | Lambda was throttled by Amazon EC2 during Lambda function initialization
 -- using the execution role provided for the Lambda function.
@@ -676,95 +569,22 @@ _EFSMountConnectivityException =
     "EFSMountConnectivityException"
     Prelude.. Core.hasStatus 408
 
--- | Lambda was not able to create an elastic network interface in the VPC,
--- specified as part of Lambda function configuration, because the limit
--- for network interfaces has been reached.
-_ENILimitReachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ENILimitReachedException =
+-- | The runtime or runtime version specified is not supported.
+_InvalidRuntimeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRuntimeException =
   Core._MatchServiceError
     defaultService
-    "ENILimitReachedException"
+    "InvalidRuntimeException"
     Prelude.. Core.hasStatus 502
 
--- | One of the parameters in the request is invalid.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+-- | The function couldn\'t mount the configured file system due to a
+-- permission or configuration issue.
+_EFSMountFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EFSMountFailureException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValueException"
-    Prelude.. Core.hasStatus 400
-
--- | Lambda was unable to decrypt the environment variables because KMS
--- access was denied. Check the Lambda function\'s KMS permissions.
-_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSAccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "KMSAccessDeniedException"
-    Prelude.. Core.hasStatus 502
-
--- | The function was able to make a network connection to the configured
--- file system, but the mount operation timed out.
-_EFSMountTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EFSMountTimeoutException =
-  Core._MatchServiceError
-    defaultService
-    "EFSMountTimeoutException"
-    Prelude.. Core.hasStatus 408
-
--- | The operation conflicts with the resource\'s availability. For example,
--- you attempted to update an EventSource Mapping in CREATING, or tried to
--- delete a EventSource mapping currently in the UPDATING state.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
-    Prelude.. Core.hasStatus 400
-
--- | An error occured when reading from or writing to a connected file
--- system.
-_EFSIOException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EFSIOException =
-  Core._MatchServiceError
-    defaultService
-    "EFSIOException"
-    Prelude.. Core.hasStatus 410
-
--- | The resource specified in the request does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The request body could not be parsed as JSON.
-_InvalidRequestContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestContentException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestContentException"
-    Prelude.. Core.hasStatus 400
-
--- | The code signature failed one or more of the validation checks for
--- signature mismatch or expiry, and the code signing policy is set to
--- ENFORCE. Lambda blocks the deployment.
-_CodeVerificationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeVerificationFailedException =
-  Core._MatchServiceError
-    defaultService
-    "CodeVerificationFailedException"
-    Prelude.. Core.hasStatus 400
-
--- | You have exceeded your maximum total code size per account.
--- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Learn more>
-_CodeStorageExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeStorageExceededException =
-  Core._MatchServiceError
-    defaultService
-    "CodeStorageExceededException"
-    Prelude.. Core.hasStatus 400
+    "EFSMountFailureException"
+    Prelude.. Core.hasStatus 403
 
 -- | The permissions policy for the resource is too large.
 -- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Learn more>
@@ -785,13 +605,121 @@ _PreconditionFailedException =
     "PreconditionFailedException"
     Prelude.. Core.hasStatus 412
 
--- | The specified code signing configuration does not exist.
-_CodeSigningConfigNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CodeSigningConfigNotFoundException =
+-- | Need additional permissions to configure VPC settings.
+_EC2AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "CodeSigningConfigNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "EC2AccessDeniedException"
+    Prelude.. Core.hasStatus 502
+
+-- | The Subnet ID provided in the Lambda function VPC configuration is
+-- invalid.
+_InvalidSubnetIDException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSubnetIDException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSubnetIDException"
+    Prelude.. Core.hasStatus 502
+
+-- | The code signature failed one or more of the validation checks for
+-- signature mismatch or expiry, and the code signing policy is set to
+-- ENFORCE. Lambda blocks the deployment.
+_CodeVerificationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeVerificationFailedException =
+  Core._MatchServiceError
+    defaultService
+    "CodeVerificationFailedException"
+    Prelude.. Core.hasStatus 400
+
+-- | The content type of the @Invoke@ request body is not JSON.
+_UnsupportedMediaTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedMediaTypeException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedMediaTypeException"
+    Prelude.. Core.hasStatus 415
+
+-- | The request body could not be parsed as JSON.
+_InvalidRequestContentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestContentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestContentException"
+    Prelude.. Core.hasStatus 400
+
+-- | Lambda was unable to decrypt the environment variables because the KMS
+-- key was not found. Check the function\'s KMS key settings.
+_KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "KMSNotFoundException"
+    Prelude.. Core.hasStatus 502
+
+-- | Lambda was not able to create an elastic network interface in the VPC,
+-- specified as part of Lambda function configuration, because the limit
+-- for network interfaces has been reached.
+_ENILimitReachedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ENILimitReachedException =
+  Core._MatchServiceError
+    defaultService
+    "ENILimitReachedException"
+    Prelude.. Core.hasStatus 502
+
+-- | One of the parameters in the request is invalid.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValueException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request payload exceeded the @Invoke@ request body JSON input limit.
+-- For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>.
+_RequestTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "RequestTooLargeException"
+    Prelude.. Core.hasStatus 413
+
+-- | The code signature failed the integrity check. Lambda always blocks
+-- deployment if the integrity check fails, even if code signing policy is
+-- set to WARN.
+_InvalidCodeSignatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCodeSignatureException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCodeSignatureException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request throughput limit was exceeded.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
+
+-- | The Security Group ID provided in the Lambda function VPC configuration
+-- is invalid.
+_InvalidSecurityGroupIDException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidSecurityGroupIDException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidSecurityGroupIDException"
+    Prelude.. Core.hasStatus 502
+
+-- | Lambda was unable to decrypt the environment variables because the KMS
+-- key used is disabled. Check the Lambda function\'s KMS key settings.
+_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSDisabledException =
+  Core._MatchServiceError
+    defaultService
+    "KMSDisabledException"
+    Prelude.. Core.hasStatus 502
 
 -- | Lambda was not able to set up VPC access for the Lambda function because
 -- one or more configured subnets has no available IP addresses.
@@ -810,27 +738,106 @@ _ServiceException =
     "ServiceException"
     Prelude.. Core.hasStatus 500
 
--- | Lambda was unable to decrypt the environment variables because the KMS
--- key used is disabled. Check the Lambda function\'s KMS key settings.
-_KMSDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSDisabledException =
+-- | You have exceeded your maximum total code size per account.
+-- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Learn more>
+_CodeStorageExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeStorageExceededException =
   Core._MatchServiceError
     defaultService
-    "KMSDisabledException"
+    "CodeStorageExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified code signing configuration does not exist.
+_CodeSigningConfigNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CodeSigningConfigNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "CodeSigningConfigNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Lambda could not unzip the deployment package.
+_InvalidZipFileException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidZipFileException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidZipFileException"
     Prelude.. Core.hasStatus 502
 
--- | The runtime or runtime version specified is not supported.
-_InvalidRuntimeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRuntimeException =
+-- | The specified configuration does not exist.
+_ProvisionedConcurrencyConfigNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProvisionedConcurrencyConfigNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidRuntimeException"
+    "ProvisionedConcurrencyConfigNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The resource already exists, or another operation is in progress.
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The function is inactive and its VPC connection is no longer available.
+-- Wait for the VPC connection to reestablish and try again.
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotReadyException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotReadyException"
     Prelude.. Core.hasStatus 502
 
--- | The request throughput limit was exceeded.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
+-- | Lambda received an unexpected EC2 client exception while setting up for
+-- the Lambda function.
+_EC2UnexpectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EC2UnexpectedException =
   Core._MatchServiceError
     defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
+    "EC2UnexpectedException"
+    Prelude.. Core.hasStatus 502
+
+-- | The resource specified in the request does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | An error occurred when reading from or writing to a connected file
+-- system.
+_EFSIOException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EFSIOException =
+  Core._MatchServiceError
+    defaultService
+    "EFSIOException"
+    Prelude.. Core.hasStatus 410
+
+-- | The function was able to make a network connection to the configured
+-- file system, but the mount operation timed out.
+_EFSMountTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EFSMountTimeoutException =
+  Core._MatchServiceError
+    defaultService
+    "EFSMountTimeoutException"
+    Prelude.. Core.hasStatus 408
+
+-- | Lambda was unable to decrypt the environment variables because KMS
+-- access was denied. Check the Lambda function\'s KMS permissions.
+_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSAccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "KMSAccessDeniedException"
+    Prelude.. Core.hasStatus 502
+
+-- | The operation conflicts with the resource\'s availability. For example,
+-- you attempted to update an EventSource Mapping in CREATING, or tried to
+-- delete a EventSource mapping currently in the UPDATING state.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+    Prelude.. Core.hasStatus 400

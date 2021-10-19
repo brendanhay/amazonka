@@ -170,7 +170,7 @@ rateBasedRule_ruleId = Lens.lens (\RateBasedRule' {ruleId} -> ruleId) (\s@RateBa
 -- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to
 -- include in a @RateBasedRule@.
 rateBasedRule_matchPredicates :: Lens.Lens' RateBasedRule [Predicate]
-rateBasedRule_matchPredicates = Lens.lens (\RateBasedRule' {matchPredicates} -> matchPredicates) (\s@RateBasedRule' {} a -> s {matchPredicates = a} :: RateBasedRule) Prelude.. Lens._Coerce
+rateBasedRule_matchPredicates = Lens.lens (\RateBasedRule' {matchPredicates} -> matchPredicates) (\s@RateBasedRule' {} a -> s {matchPredicates = a} :: RateBasedRule) Prelude.. Lens.coerced
 
 -- | The field that AWS WAF uses to determine if requests are likely arriving
 -- from single source and thus subject to rate monitoring. The only valid

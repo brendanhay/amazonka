@@ -28,14 +28,14 @@ import Network.AWS.Rekognition.Types.Summary
 --
 -- /See:/ 'newEvaluationResult' smart constructor.
 data EvaluationResult = EvaluationResult'
-  { -- | The F1 score for the evaluation of all labels. The F1 score metric
+  { -- | The S3 bucket that contains the training summary.
+    summary :: Prelude.Maybe Summary,
+    -- | The F1 score for the evaluation of all labels. The F1 score metric
     -- evaluates the overall precision and recall performance of the model as a
     -- single value. A higher value indicates better precision and recall
     -- performance. A lower score indicates that precision, recall, or both are
     -- performing poorly.
-    f1Score :: Prelude.Maybe Prelude.Double,
-    -- | The S3 bucket that contains the training summary.
-    summary :: Prelude.Maybe Summary
+    f1Score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,20 +47,24 @@ data EvaluationResult = EvaluationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'summary', 'evaluationResult_summary' - The S3 bucket that contains the training summary.
+--
 -- 'f1Score', 'evaluationResult_f1Score' - The F1 score for the evaluation of all labels. The F1 score metric
 -- evaluates the overall precision and recall performance of the model as a
 -- single value. A higher value indicates better precision and recall
 -- performance. A lower score indicates that precision, recall, or both are
 -- performing poorly.
---
--- 'summary', 'evaluationResult_summary' - The S3 bucket that contains the training summary.
 newEvaluationResult ::
   EvaluationResult
 newEvaluationResult =
   EvaluationResult'
-    { f1Score = Prelude.Nothing,
-      summary = Prelude.Nothing
+    { summary = Prelude.Nothing,
+      f1Score = Prelude.Nothing
     }
+
+-- | The S3 bucket that contains the training summary.
+evaluationResult_summary :: Lens.Lens' EvaluationResult (Prelude.Maybe Summary)
+evaluationResult_summary = Lens.lens (\EvaluationResult' {summary} -> summary) (\s@EvaluationResult' {} a -> s {summary = a} :: EvaluationResult)
 
 -- | The F1 score for the evaluation of all labels. The F1 score metric
 -- evaluates the overall precision and recall performance of the model as a
@@ -70,18 +74,14 @@ newEvaluationResult =
 evaluationResult_f1Score :: Lens.Lens' EvaluationResult (Prelude.Maybe Prelude.Double)
 evaluationResult_f1Score = Lens.lens (\EvaluationResult' {f1Score} -> f1Score) (\s@EvaluationResult' {} a -> s {f1Score = a} :: EvaluationResult)
 
--- | The S3 bucket that contains the training summary.
-evaluationResult_summary :: Lens.Lens' EvaluationResult (Prelude.Maybe Summary)
-evaluationResult_summary = Lens.lens (\EvaluationResult' {summary} -> summary) (\s@EvaluationResult' {} a -> s {summary = a} :: EvaluationResult)
-
 instance Core.FromJSON EvaluationResult where
   parseJSON =
     Core.withObject
       "EvaluationResult"
       ( \x ->
           EvaluationResult'
-            Prelude.<$> (x Core..:? "F1Score")
-            Prelude.<*> (x Core..:? "Summary")
+            Prelude.<$> (x Core..:? "Summary")
+            Prelude.<*> (x Core..:? "F1Score")
       )
 
 instance Prelude.Hashable EvaluationResult

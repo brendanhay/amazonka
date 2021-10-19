@@ -40,8 +40,8 @@ module Network.AWS.GameLift.UpdateGameSession
     newUpdateGameSession,
 
     -- * Request Lenses
-    updateGameSession_playerSessionCreationPolicy,
     updateGameSession_maximumPlayerSessionCount,
+    updateGameSession_playerSessionCreationPolicy,
     updateGameSession_name,
     updateGameSession_protectionPolicy,
     updateGameSession_gameSessionId,
@@ -67,12 +67,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateGameSession' smart constructor.
 data UpdateGameSession = UpdateGameSession'
-  { -- | A policy that determines whether the game session is accepting new
-    -- players.
-    playerSessionCreationPolicy :: Prelude.Maybe PlayerSessionCreationPolicy,
-    -- | The maximum number of players that can be connected simultaneously to
+  { -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
     maximumPlayerSessionCount :: Prelude.Maybe Prelude.Natural,
+    -- | A policy that determines whether the game session is accepting new
+    -- players.
+    playerSessionCreationPolicy :: Prelude.Maybe PlayerSessionCreationPolicy,
     -- | A descriptive label that is associated with a game session. Session
     -- names do not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
@@ -97,11 +97,11 @@ data UpdateGameSession = UpdateGameSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerSessionCreationPolicy', 'updateGameSession_playerSessionCreationPolicy' - A policy that determines whether the game session is accepting new
--- players.
---
 -- 'maximumPlayerSessionCount', 'updateGameSession_maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to
 -- the game session.
+--
+-- 'playerSessionCreationPolicy', 'updateGameSession_playerSessionCreationPolicy' - A policy that determines whether the game session is accepting new
+-- players.
 --
 -- 'name', 'updateGameSession_name' - A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
@@ -121,23 +121,23 @@ newUpdateGameSession ::
   UpdateGameSession
 newUpdateGameSession pGameSessionId_ =
   UpdateGameSession'
-    { playerSessionCreationPolicy =
+    { maximumPlayerSessionCount =
         Prelude.Nothing,
-      maximumPlayerSessionCount = Prelude.Nothing,
+      playerSessionCreationPolicy = Prelude.Nothing,
       name = Prelude.Nothing,
       protectionPolicy = Prelude.Nothing,
       gameSessionId = pGameSessionId_
     }
 
--- | A policy that determines whether the game session is accepting new
--- players.
-updateGameSession_playerSessionCreationPolicy :: Lens.Lens' UpdateGameSession (Prelude.Maybe PlayerSessionCreationPolicy)
-updateGameSession_playerSessionCreationPolicy = Lens.lens (\UpdateGameSession' {playerSessionCreationPolicy} -> playerSessionCreationPolicy) (\s@UpdateGameSession' {} a -> s {playerSessionCreationPolicy = a} :: UpdateGameSession)
-
 -- | The maximum number of players that can be connected simultaneously to
 -- the game session.
 updateGameSession_maximumPlayerSessionCount :: Lens.Lens' UpdateGameSession (Prelude.Maybe Prelude.Natural)
 updateGameSession_maximumPlayerSessionCount = Lens.lens (\UpdateGameSession' {maximumPlayerSessionCount} -> maximumPlayerSessionCount) (\s@UpdateGameSession' {} a -> s {maximumPlayerSessionCount = a} :: UpdateGameSession)
+
+-- | A policy that determines whether the game session is accepting new
+-- players.
+updateGameSession_playerSessionCreationPolicy :: Lens.Lens' UpdateGameSession (Prelude.Maybe PlayerSessionCreationPolicy)
+updateGameSession_playerSessionCreationPolicy = Lens.lens (\UpdateGameSession' {playerSessionCreationPolicy} -> playerSessionCreationPolicy) (\s@UpdateGameSession' {} a -> s {playerSessionCreationPolicy = a} :: UpdateGameSession)
 
 -- | A descriptive label that is associated with a game session. Session
 -- names do not need to be unique.
@@ -192,10 +192,10 @@ instance Core.ToJSON UpdateGameSession where
   toJSON UpdateGameSession' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PlayerSessionCreationPolicy" Core..=)
-              Prelude.<$> playerSessionCreationPolicy,
-            ("MaximumPlayerSessionCount" Core..=)
+          [ ("MaximumPlayerSessionCount" Core..=)
               Prelude.<$> maximumPlayerSessionCount,
+            ("PlayerSessionCreationPolicy" Core..=)
+              Prelude.<$> playerSessionCreationPolicy,
             ("Name" Core..=) Prelude.<$> name,
             ("ProtectionPolicy" Core..=)
               Prelude.<$> protectionPolicy,

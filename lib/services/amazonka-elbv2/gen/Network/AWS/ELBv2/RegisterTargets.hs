@@ -96,7 +96,7 @@ registerTargets_targetGroupArn = Lens.lens (\RegisterTargets' {targetGroupArn} -
 
 -- | The targets.
 registerTargets_targets :: Lens.Lens' RegisterTargets [TargetDescription]
-registerTargets_targets = Lens.lens (\RegisterTargets' {targets} -> targets) (\s@RegisterTargets' {} a -> s {targets = a} :: RegisterTargets) Prelude.. Lens._Coerce
+registerTargets_targets = Lens.lens (\RegisterTargets' {targets} -> targets) (\s@RegisterTargets' {} a -> s {targets = a} :: RegisterTargets) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RegisterTargets where
   type

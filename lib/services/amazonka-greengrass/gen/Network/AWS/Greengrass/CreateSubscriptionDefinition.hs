@@ -29,22 +29,22 @@ module Network.AWS.Greengrass.CreateSubscriptionDefinition
     newCreateSubscriptionDefinition,
 
     -- * Request Lenses
-    createSubscriptionDefinition_name,
-    createSubscriptionDefinition_initialVersion,
-    createSubscriptionDefinition_tags,
     createSubscriptionDefinition_amznClientToken,
+    createSubscriptionDefinition_initialVersion,
+    createSubscriptionDefinition_name,
+    createSubscriptionDefinition_tags,
 
     -- * Destructuring the Response
     CreateSubscriptionDefinitionResponse (..),
     newCreateSubscriptionDefinitionResponse,
 
     -- * Response Lenses
-    createSubscriptionDefinitionResponse_creationTimestamp,
     createSubscriptionDefinitionResponse_latestVersionArn,
-    createSubscriptionDefinitionResponse_latestVersion,
     createSubscriptionDefinitionResponse_arn,
-    createSubscriptionDefinitionResponse_id,
     createSubscriptionDefinitionResponse_name,
+    createSubscriptionDefinitionResponse_creationTimestamp,
+    createSubscriptionDefinitionResponse_id,
+    createSubscriptionDefinitionResponse_latestVersion,
     createSubscriptionDefinitionResponse_lastUpdatedTimestamp,
     createSubscriptionDefinitionResponse_httpStatus,
   )
@@ -59,14 +59,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSubscriptionDefinition' smart constructor.
 data CreateSubscriptionDefinition = CreateSubscriptionDefinition'
-  { -- | The name of the subscription definition.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the initial version of the subscription definition.
     initialVersion :: Prelude.Maybe SubscriptionDefinitionVersion,
+    -- | The name of the subscription definition.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,39 +78,39 @@ data CreateSubscriptionDefinition = CreateSubscriptionDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createSubscriptionDefinition_name' - The name of the subscription definition.
+-- 'amznClientToken', 'createSubscriptionDefinition_amznClientToken' - A client token used to correlate requests and responses.
 --
 -- 'initialVersion', 'createSubscriptionDefinition_initialVersion' - Information about the initial version of the subscription definition.
 --
--- 'tags', 'createSubscriptionDefinition_tags' - Tag(s) to add to the new resource.
+-- 'name', 'createSubscriptionDefinition_name' - The name of the subscription definition.
 --
--- 'amznClientToken', 'createSubscriptionDefinition_amznClientToken' - A client token used to correlate requests and responses.
+-- 'tags', 'createSubscriptionDefinition_tags' - Tag(s) to add to the new resource.
 newCreateSubscriptionDefinition ::
   CreateSubscriptionDefinition
 newCreateSubscriptionDefinition =
   CreateSubscriptionDefinition'
-    { name =
+    { amznClientToken =
         Prelude.Nothing,
       initialVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      amznClientToken = Prelude.Nothing
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | The name of the subscription definition.
-createSubscriptionDefinition_name :: Lens.Lens' CreateSubscriptionDefinition (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinition_name = Lens.lens (\CreateSubscriptionDefinition' {name} -> name) (\s@CreateSubscriptionDefinition' {} a -> s {name = a} :: CreateSubscriptionDefinition)
+-- | A client token used to correlate requests and responses.
+createSubscriptionDefinition_amznClientToken :: Lens.Lens' CreateSubscriptionDefinition (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinition_amznClientToken = Lens.lens (\CreateSubscriptionDefinition' {amznClientToken} -> amznClientToken) (\s@CreateSubscriptionDefinition' {} a -> s {amznClientToken = a} :: CreateSubscriptionDefinition)
 
 -- | Information about the initial version of the subscription definition.
 createSubscriptionDefinition_initialVersion :: Lens.Lens' CreateSubscriptionDefinition (Prelude.Maybe SubscriptionDefinitionVersion)
 createSubscriptionDefinition_initialVersion = Lens.lens (\CreateSubscriptionDefinition' {initialVersion} -> initialVersion) (\s@CreateSubscriptionDefinition' {} a -> s {initialVersion = a} :: CreateSubscriptionDefinition)
 
+-- | The name of the subscription definition.
+createSubscriptionDefinition_name :: Lens.Lens' CreateSubscriptionDefinition (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinition_name = Lens.lens (\CreateSubscriptionDefinition' {name} -> name) (\s@CreateSubscriptionDefinition' {} a -> s {name = a} :: CreateSubscriptionDefinition)
+
 -- | Tag(s) to add to the new resource.
 createSubscriptionDefinition_tags :: Lens.Lens' CreateSubscriptionDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createSubscriptionDefinition_tags = Lens.lens (\CreateSubscriptionDefinition' {tags} -> tags) (\s@CreateSubscriptionDefinition' {} a -> s {tags = a} :: CreateSubscriptionDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | A client token used to correlate requests and responses.
-createSubscriptionDefinition_amznClientToken :: Lens.Lens' CreateSubscriptionDefinition (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinition_amznClientToken = Lens.lens (\CreateSubscriptionDefinition' {amznClientToken} -> amznClientToken) (\s@CreateSubscriptionDefinition' {} a -> s {amznClientToken = a} :: CreateSubscriptionDefinition)
+createSubscriptionDefinition_tags = Lens.lens (\CreateSubscriptionDefinition' {tags} -> tags) (\s@CreateSubscriptionDefinition' {} a -> s {tags = a} :: CreateSubscriptionDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateSubscriptionDefinition where
   type
@@ -121,12 +121,12 @@ instance Core.AWSRequest CreateSubscriptionDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateSubscriptionDefinitionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
-            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<$> (x Core..?> "LatestVersionArn")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "LatestVersion")
             Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -149,9 +149,9 @@ instance Core.ToJSON CreateSubscriptionDefinition where
   toJSON CreateSubscriptionDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("InitialVersion" Core..=)
               Prelude.<$> initialVersion,
+            ("Name" Core..=) Prelude.<$> name,
             ("tags" Core..=) Prelude.<$> tags
           ]
       )
@@ -166,19 +166,19 @@ instance Core.ToQuery CreateSubscriptionDefinition where
 
 -- | /See:/ 'newCreateSubscriptionDefinitionResponse' smart constructor.
 data CreateSubscriptionDefinitionResponse = CreateSubscriptionDefinitionResponse'
-  { -- | The time, in milliseconds since the epoch, when the definition was
-    -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the latest version associated with the definition.
+  { -- | The ARN of the latest version associated with the definition.
     latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the definition.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
@@ -195,18 +195,18 @@ data CreateSubscriptionDefinitionResponse = CreateSubscriptionDefinitionResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'createSubscriptionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
--- created.
---
 -- 'latestVersionArn', 'createSubscriptionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
---
--- 'latestVersion', 'createSubscriptionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
 -- 'arn', 'createSubscriptionDefinitionResponse_arn' - The ARN of the definition.
 --
+-- 'name', 'createSubscriptionDefinitionResponse_name' - The name of the definition.
+--
+-- 'creationTimestamp', 'createSubscriptionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
+--
 -- 'id', 'createSubscriptionDefinitionResponse_id' - The ID of the definition.
 --
--- 'name', 'createSubscriptionDefinitionResponse_name' - The name of the definition.
+-- 'latestVersion', 'createSubscriptionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
 -- 'lastUpdatedTimestamp', 'createSubscriptionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
@@ -218,42 +218,42 @@ newCreateSubscriptionDefinitionResponse ::
   CreateSubscriptionDefinitionResponse
 newCreateSubscriptionDefinitionResponse pHttpStatus_ =
   CreateSubscriptionDefinitionResponse'
-    { creationTimestamp =
+    { latestVersionArn =
         Prelude.Nothing,
-      latestVersionArn = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
       arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
       lastUpdatedTimestamp =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the latest version associated with the definition.
+createSubscriptionDefinitionResponse_latestVersionArn :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinitionResponse_latestVersionArn = Lens.lens (\CreateSubscriptionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateSubscriptionDefinitionResponse)
+
+-- | The ARN of the definition.
+createSubscriptionDefinitionResponse_arn :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinitionResponse_arn = Lens.lens (\CreateSubscriptionDefinitionResponse' {arn} -> arn) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {arn = a} :: CreateSubscriptionDefinitionResponse)
+
+-- | The name of the definition.
+createSubscriptionDefinitionResponse_name :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinitionResponse_name = Lens.lens (\CreateSubscriptionDefinitionResponse' {name} -> name) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {name = a} :: CreateSubscriptionDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was
 -- created.
 createSubscriptionDefinitionResponse_creationTimestamp :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSubscriptionDefinitionResponse_creationTimestamp = Lens.lens (\CreateSubscriptionDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {creationTimestamp = a} :: CreateSubscriptionDefinitionResponse)
 
--- | The ARN of the latest version associated with the definition.
-createSubscriptionDefinitionResponse_latestVersionArn :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinitionResponse_latestVersionArn = Lens.lens (\CreateSubscriptionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateSubscriptionDefinitionResponse)
-
--- | The ID of the latest version associated with the definition.
-createSubscriptionDefinitionResponse_latestVersion :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinitionResponse_latestVersion = Lens.lens (\CreateSubscriptionDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {latestVersion = a} :: CreateSubscriptionDefinitionResponse)
-
--- | The ARN of the definition.
-createSubscriptionDefinitionResponse_arn :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinitionResponse_arn = Lens.lens (\CreateSubscriptionDefinitionResponse' {arn} -> arn) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {arn = a} :: CreateSubscriptionDefinitionResponse)
-
 -- | The ID of the definition.
 createSubscriptionDefinitionResponse_id :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSubscriptionDefinitionResponse_id = Lens.lens (\CreateSubscriptionDefinitionResponse' {id} -> id) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {id = a} :: CreateSubscriptionDefinitionResponse)
 
--- | The name of the definition.
-createSubscriptionDefinitionResponse_name :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createSubscriptionDefinitionResponse_name = Lens.lens (\CreateSubscriptionDefinitionResponse' {name} -> name) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {name = a} :: CreateSubscriptionDefinitionResponse)
+-- | The ID of the latest version associated with the definition.
+createSubscriptionDefinitionResponse_latestVersion :: Lens.Lens' CreateSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createSubscriptionDefinitionResponse_latestVersion = Lens.lens (\CreateSubscriptionDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateSubscriptionDefinitionResponse' {} a -> s {latestVersion = a} :: CreateSubscriptionDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.

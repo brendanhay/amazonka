@@ -34,8 +34,8 @@ module Network.AWS.Config.DescribeAggregateComplianceByConfigRules
     newDescribeAggregateComplianceByConfigRules,
 
     -- * Request Lenses
-    describeAggregateComplianceByConfigRules_nextToken,
     describeAggregateComplianceByConfigRules_filters,
+    describeAggregateComplianceByConfigRules_nextToken,
     describeAggregateComplianceByConfigRules_limit,
     describeAggregateComplianceByConfigRules_configurationAggregatorName,
 
@@ -59,11 +59,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAggregateComplianceByConfigRules' smart constructor.
 data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByConfigRules'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | Filters the results by ConfigRuleComplianceFilters object.
+    filters :: Prelude.Maybe ConfigRuleComplianceFilters,
+    -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Filters the results by ConfigRuleComplianceFilters object.
-    filters :: Prelude.Maybe ConfigRuleComplianceFilters,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -80,10 +80,10 @@ data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeAggregateComplianceByConfigRules_filters' - Filters the results by ConfigRuleComplianceFilters object.
+--
 -- 'nextToken', 'describeAggregateComplianceByConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
---
--- 'filters', 'describeAggregateComplianceByConfigRules_filters' - Filters the results by ConfigRuleComplianceFilters object.
 --
 -- 'limit', 'describeAggregateComplianceByConfigRules_limit' - The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, Config uses the default.
@@ -96,22 +96,22 @@ newDescribeAggregateComplianceByConfigRules ::
 newDescribeAggregateComplianceByConfigRules
   pConfigurationAggregatorName_ =
     DescribeAggregateComplianceByConfigRules'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         limit = Prelude.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_
       }
 
+-- | Filters the results by ConfigRuleComplianceFilters object.
+describeAggregateComplianceByConfigRules_filters :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe ConfigRuleComplianceFilters)
+describeAggregateComplianceByConfigRules_filters = Lens.lens (\DescribeAggregateComplianceByConfigRules' {filters} -> filters) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {filters = a} :: DescribeAggregateComplianceByConfigRules)
+
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeAggregateComplianceByConfigRules_nextToken :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe Prelude.Text)
 describeAggregateComplianceByConfigRules_nextToken = Lens.lens (\DescribeAggregateComplianceByConfigRules' {nextToken} -> nextToken) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {nextToken = a} :: DescribeAggregateComplianceByConfigRules)
-
--- | Filters the results by ConfigRuleComplianceFilters object.
-describeAggregateComplianceByConfigRules_filters :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe ConfigRuleComplianceFilters)
-describeAggregateComplianceByConfigRules_filters = Lens.lens (\DescribeAggregateComplianceByConfigRules' {filters} -> filters) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {filters = a} :: DescribeAggregateComplianceByConfigRules)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, Config uses the default.
@@ -200,8 +200,8 @@ instance
   toJSON DescribeAggregateComplianceByConfigRules' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ( "ConfigurationAggregatorName"
@@ -269,7 +269,7 @@ describeAggregateComplianceByConfigRulesResponse_nextToken = Lens.lens (\Describ
 
 -- | Returns a list of AggregateComplianceByConfigRule object.
 describeAggregateComplianceByConfigRulesResponse_aggregateComplianceByConfigRules :: Lens.Lens' DescribeAggregateComplianceByConfigRulesResponse (Prelude.Maybe [AggregateComplianceByConfigRule])
-describeAggregateComplianceByConfigRulesResponse_aggregateComplianceByConfigRules = Lens.lens (\DescribeAggregateComplianceByConfigRulesResponse' {aggregateComplianceByConfigRules} -> aggregateComplianceByConfigRules) (\s@DescribeAggregateComplianceByConfigRulesResponse' {} a -> s {aggregateComplianceByConfigRules = a} :: DescribeAggregateComplianceByConfigRulesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAggregateComplianceByConfigRulesResponse_aggregateComplianceByConfigRules = Lens.lens (\DescribeAggregateComplianceByConfigRulesResponse' {aggregateComplianceByConfigRules} -> aggregateComplianceByConfigRules) (\s@DescribeAggregateComplianceByConfigRulesResponse' {} a -> s {aggregateComplianceByConfigRules = a} :: DescribeAggregateComplianceByConfigRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAggregateComplianceByConfigRulesResponse_httpStatus :: Lens.Lens' DescribeAggregateComplianceByConfigRulesResponse Prelude.Int

@@ -56,7 +56,7 @@ newBaseKpiResult =
 -- the data for a standard metric that applies to an application, campaign,
 -- or journey.
 baseKpiResult_rows :: Lens.Lens' BaseKpiResult [ResultRow]
-baseKpiResult_rows = Lens.lens (\BaseKpiResult' {rows} -> rows) (\s@BaseKpiResult' {} a -> s {rows = a} :: BaseKpiResult) Prelude.. Lens._Coerce
+baseKpiResult_rows = Lens.lens (\BaseKpiResult' {rows} -> rows) (\s@BaseKpiResult' {} a -> s {rows = a} :: BaseKpiResult) Prelude.. Lens.coerced
 
 instance Core.FromJSON BaseKpiResult where
   parseJSON =

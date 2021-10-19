@@ -162,7 +162,7 @@ newGetGroupsResponse pHttpStatus_ =
 
 -- | The collection of all active groups.
 getGroupsResponse_groups :: Lens.Lens' GetGroupsResponse (Prelude.Maybe [GroupSummary])
-getGroupsResponse_groups = Lens.lens (\GetGroupsResponse' {groups} -> groups) (\s@GetGroupsResponse' {} a -> s {groups = a} :: GetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+getGroupsResponse_groups = Lens.lens (\GetGroupsResponse' {groups} -> groups) (\s@GetGroupsResponse' {} a -> s {groups = a} :: GetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token.
 getGroupsResponse_nextToken :: Lens.Lens' GetGroupsResponse (Prelude.Maybe Prelude.Text)

@@ -29,8 +29,8 @@ module Network.AWS.DirectoryService.ListLogSubscriptions
     newListLogSubscriptions,
 
     -- * Request Lenses
-    listLogSubscriptions_nextToken,
     listLogSubscriptions_directoryId,
+    listLogSubscriptions_nextToken,
     listLogSubscriptions_limit,
 
     -- * Destructuring the Response
@@ -53,14 +53,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListLogSubscriptions' smart constructor.
 data ListLogSubscriptions = ListLogSubscriptions'
-  { -- | The token for the next set of items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If a /DirectoryID/ is provided, lists only the log subscription
+  { -- | If a /DirectoryID/ is provided, lists only the log subscription
     -- associated with that directory. If no /DirectoryId/ is provided, lists
     -- all log subscriptions associated with your Amazon Web Services account.
     -- If there are no log subscriptions for the Amazon Web Services account or
     -- the directory, an empty list will be returned.
     directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of items to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned.
     limit :: Prelude.Maybe Prelude.Natural
   }
@@ -74,27 +74,24 @@ data ListLogSubscriptions = ListLogSubscriptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLogSubscriptions_nextToken' - The token for the next set of items to return.
---
 -- 'directoryId', 'listLogSubscriptions_directoryId' - If a /DirectoryID/ is provided, lists only the log subscription
 -- associated with that directory. If no /DirectoryId/ is provided, lists
 -- all log subscriptions associated with your Amazon Web Services account.
 -- If there are no log subscriptions for the Amazon Web Services account or
 -- the directory, an empty list will be returned.
 --
+-- 'nextToken', 'listLogSubscriptions_nextToken' - The token for the next set of items to return.
+--
 -- 'limit', 'listLogSubscriptions_limit' - The maximum number of items returned.
 newListLogSubscriptions ::
   ListLogSubscriptions
 newListLogSubscriptions =
   ListLogSubscriptions'
-    { nextToken = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
+    { directoryId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | The token for the next set of items to return.
-listLogSubscriptions_nextToken :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
-listLogSubscriptions_nextToken = Lens.lens (\ListLogSubscriptions' {nextToken} -> nextToken) (\s@ListLogSubscriptions' {} a -> s {nextToken = a} :: ListLogSubscriptions)
 
 -- | If a /DirectoryID/ is provided, lists only the log subscription
 -- associated with that directory. If no /DirectoryId/ is provided, lists
@@ -103,6 +100,10 @@ listLogSubscriptions_nextToken = Lens.lens (\ListLogSubscriptions' {nextToken} -
 -- the directory, an empty list will be returned.
 listLogSubscriptions_directoryId :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
 listLogSubscriptions_directoryId = Lens.lens (\ListLogSubscriptions' {directoryId} -> directoryId) (\s@ListLogSubscriptions' {} a -> s {directoryId = a} :: ListLogSubscriptions)
+
+-- | The token for the next set of items to return.
+listLogSubscriptions_nextToken :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
+listLogSubscriptions_nextToken = Lens.lens (\ListLogSubscriptions' {nextToken} -> nextToken) (\s@ListLogSubscriptions' {} a -> s {nextToken = a} :: ListLogSubscriptions)
 
 -- | The maximum number of items returned.
 listLogSubscriptions_limit :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Natural)
@@ -169,8 +170,8 @@ instance Core.ToJSON ListLogSubscriptions where
   toJSON ListLogSubscriptions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DirectoryId" Core..=) Prelude.<$> directoryId,
+          [ ("DirectoryId" Core..=) Prelude.<$> directoryId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -226,7 +227,7 @@ listLogSubscriptionsResponse_nextToken = Lens.lens (\ListLogSubscriptionsRespons
 -- | A list of active LogSubscription objects for calling the Amazon Web
 -- Services account.
 listLogSubscriptionsResponse_logSubscriptions :: Lens.Lens' ListLogSubscriptionsResponse (Prelude.Maybe [LogSubscription])
-listLogSubscriptionsResponse_logSubscriptions = Lens.lens (\ListLogSubscriptionsResponse' {logSubscriptions} -> logSubscriptions) (\s@ListLogSubscriptionsResponse' {} a -> s {logSubscriptions = a} :: ListLogSubscriptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listLogSubscriptionsResponse_logSubscriptions = Lens.lens (\ListLogSubscriptionsResponse' {logSubscriptions} -> logSubscriptions) (\s@ListLogSubscriptionsResponse' {} a -> s {logSubscriptions = a} :: ListLogSubscriptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLogSubscriptionsResponse_httpStatus :: Lens.Lens' ListLogSubscriptionsResponse Prelude.Int

@@ -104,7 +104,7 @@ rejectVpcEndpointConnections_serviceId = Lens.lens (\RejectVpcEndpointConnection
 
 -- | The IDs of one or more VPC endpoints.
 rejectVpcEndpointConnections_vpcEndpointIds :: Lens.Lens' RejectVpcEndpointConnections [Prelude.Text]
-rejectVpcEndpointConnections_vpcEndpointIds = Lens.lens (\RejectVpcEndpointConnections' {vpcEndpointIds} -> vpcEndpointIds) (\s@RejectVpcEndpointConnections' {} a -> s {vpcEndpointIds = a} :: RejectVpcEndpointConnections) Prelude.. Lens._Coerce
+rejectVpcEndpointConnections_vpcEndpointIds = Lens.lens (\RejectVpcEndpointConnections' {vpcEndpointIds} -> vpcEndpointIds) (\s@RejectVpcEndpointConnections' {} a -> s {vpcEndpointIds = a} :: RejectVpcEndpointConnections) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RejectVpcEndpointConnections where
   type
@@ -180,7 +180,7 @@ newRejectVpcEndpointConnectionsResponse pHttpStatus_ =
 
 -- | Information about the endpoints that were not rejected, if applicable.
 rejectVpcEndpointConnectionsResponse_unsuccessful :: Lens.Lens' RejectVpcEndpointConnectionsResponse (Prelude.Maybe [UnsuccessfulItem])
-rejectVpcEndpointConnectionsResponse_unsuccessful = Lens.lens (\RejectVpcEndpointConnectionsResponse' {unsuccessful} -> unsuccessful) (\s@RejectVpcEndpointConnectionsResponse' {} a -> s {unsuccessful = a} :: RejectVpcEndpointConnectionsResponse) Prelude.. Lens.mapping Lens._Coerce
+rejectVpcEndpointConnectionsResponse_unsuccessful = Lens.lens (\RejectVpcEndpointConnectionsResponse' {unsuccessful} -> unsuccessful) (\s@RejectVpcEndpointConnectionsResponse' {} a -> s {unsuccessful = a} :: RejectVpcEndpointConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 rejectVpcEndpointConnectionsResponse_httpStatus :: Lens.Lens' RejectVpcEndpointConnectionsResponse Prelude.Int

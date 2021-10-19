@@ -30,38 +30,38 @@ module Network.AWS.LexRuntime
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** UnsupportedMediaTypeException
-    _UnsupportedMediaTypeException,
-
     -- ** NotAcceptableException
     _NotAcceptableException,
-
-    -- ** BadGatewayException
-    _BadGatewayException,
-
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** DependencyFailedException
     _DependencyFailedException,
 
-    -- ** InternalFailureException
-    _InternalFailureException,
+    -- ** UnsupportedMediaTypeException
+    _UnsupportedMediaTypeException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
 
     -- ** LoopDetectedException
     _LoopDetectedException,
 
-    -- ** RequestTimeoutException
-    _RequestTimeoutException,
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** BadGatewayException
+    _BadGatewayException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -81,6 +81,12 @@ module Network.AWS.LexRuntime
     DeleteSessionResponse (DeleteSessionResponse'),
     newDeleteSessionResponse,
 
+    -- ** PostText
+    PostText (PostText'),
+    newPostText,
+    PostTextResponse (PostTextResponse'),
+    newPostTextResponse,
+
     -- ** PostContent
     PostContent (PostContent'),
     newPostContent,
@@ -92,12 +98,6 @@ module Network.AWS.LexRuntime
     newGetSession,
     GetSessionResponse (GetSessionResponse'),
     newGetSessionResponse,
-
-    -- ** PostText
-    PostText (PostText'),
-    newPostText,
-    PostTextResponse (PostTextResponse'),
-    newPostTextResponse,
 
     -- * Types
 

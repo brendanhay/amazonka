@@ -42,8 +42,8 @@ module Network.AWS.Config.DescribeRemediationExceptions
 
     -- * Request Lenses
     describeRemediationExceptions_nextToken,
-    describeRemediationExceptions_resourceKeys,
     describeRemediationExceptions_limit,
+    describeRemediationExceptions_resourceKeys,
     describeRemediationExceptions_configRuleName,
 
     -- * Destructuring the Response
@@ -69,13 +69,13 @@ data DescribeRemediationExceptions = DescribeRemediationExceptions'
   { -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of RemediationExceptionResourceKey returned on each
+    -- page. The default is 25. If you specify 0, Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | An exception list of resource exception keys to be processed with the
     -- current request. Config adds exception for each resource key. For
     -- example, Config adds 3 exceptions for 3 resource keys.
     resourceKeys :: Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey),
-    -- | The maximum number of RemediationExceptionResourceKey returned on each
-    -- page. The default is 25. If you specify 0, Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the Config rule.
     configRuleName :: Prelude.Text
   }
@@ -92,12 +92,12 @@ data DescribeRemediationExceptions = DescribeRemediationExceptions'
 -- 'nextToken', 'describeRemediationExceptions_nextToken' - The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
 --
+-- 'limit', 'describeRemediationExceptions_limit' - The maximum number of RemediationExceptionResourceKey returned on each
+-- page. The default is 25. If you specify 0, Config uses the default.
+--
 -- 'resourceKeys', 'describeRemediationExceptions_resourceKeys' - An exception list of resource exception keys to be processed with the
 -- current request. Config adds exception for each resource key. For
 -- example, Config adds 3 exceptions for 3 resource keys.
---
--- 'limit', 'describeRemediationExceptions_limit' - The maximum number of RemediationExceptionResourceKey returned on each
--- page. The default is 25. If you specify 0, Config uses the default.
 --
 -- 'configRuleName', 'describeRemediationExceptions_configRuleName' - The name of the Config rule.
 newDescribeRemediationExceptions ::
@@ -108,8 +108,8 @@ newDescribeRemediationExceptions pConfigRuleName_ =
   DescribeRemediationExceptions'
     { nextToken =
         Prelude.Nothing,
-      resourceKeys = Prelude.Nothing,
       limit = Prelude.Nothing,
+      resourceKeys = Prelude.Nothing,
       configRuleName = pConfigRuleName_
     }
 
@@ -118,16 +118,16 @@ newDescribeRemediationExceptions pConfigRuleName_ =
 describeRemediationExceptions_nextToken :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe Prelude.Text)
 describeRemediationExceptions_nextToken = Lens.lens (\DescribeRemediationExceptions' {nextToken} -> nextToken) (\s@DescribeRemediationExceptions' {} a -> s {nextToken = a} :: DescribeRemediationExceptions)
 
--- | An exception list of resource exception keys to be processed with the
--- current request. Config adds exception for each resource key. For
--- example, Config adds 3 exceptions for 3 resource keys.
-describeRemediationExceptions_resourceKeys :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
-describeRemediationExceptions_resourceKeys = Lens.lens (\DescribeRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExceptions' {} a -> s {resourceKeys = a} :: DescribeRemediationExceptions) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of RemediationExceptionResourceKey returned on each
 -- page. The default is 25. If you specify 0, Config uses the default.
 describeRemediationExceptions_limit :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe Prelude.Natural)
 describeRemediationExceptions_limit = Lens.lens (\DescribeRemediationExceptions' {limit} -> limit) (\s@DescribeRemediationExceptions' {} a -> s {limit = a} :: DescribeRemediationExceptions)
+
+-- | An exception list of resource exception keys to be processed with the
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
+describeRemediationExceptions_resourceKeys :: Lens.Lens' DescribeRemediationExceptions (Prelude.Maybe (Prelude.NonEmpty RemediationExceptionResourceKey))
+describeRemediationExceptions_resourceKeys = Lens.lens (\DescribeRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExceptions' {} a -> s {resourceKeys = a} :: DescribeRemediationExceptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Config rule.
 describeRemediationExceptions_configRuleName :: Lens.Lens' DescribeRemediationExceptions Prelude.Text
@@ -178,8 +178,8 @@ instance Core.ToJSON DescribeRemediationExceptions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("ResourceKeys" Core..=) Prelude.<$> resourceKeys,
             ("Limit" Core..=) Prelude.<$> limit,
+            ("ResourceKeys" Core..=) Prelude.<$> resourceKeys,
             Prelude.Just
               ("ConfigRuleName" Core..= configRuleName)
           ]
@@ -237,7 +237,7 @@ describeRemediationExceptionsResponse_nextToken = Lens.lens (\DescribeRemediatio
 
 -- | Returns a list of remediation exception objects.
 describeRemediationExceptionsResponse_remediationExceptions :: Lens.Lens' DescribeRemediationExceptionsResponse (Prelude.Maybe [RemediationException])
-describeRemediationExceptionsResponse_remediationExceptions = Lens.lens (\DescribeRemediationExceptionsResponse' {remediationExceptions} -> remediationExceptions) (\s@DescribeRemediationExceptionsResponse' {} a -> s {remediationExceptions = a} :: DescribeRemediationExceptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeRemediationExceptionsResponse_remediationExceptions = Lens.lens (\DescribeRemediationExceptionsResponse' {remediationExceptions} -> remediationExceptions) (\s@DescribeRemediationExceptionsResponse' {} a -> s {remediationExceptions = a} :: DescribeRemediationExceptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeRemediationExceptionsResponse_httpStatus :: Lens.Lens' DescribeRemediationExceptionsResponse Prelude.Int

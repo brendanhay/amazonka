@@ -78,7 +78,7 @@ newPlacementType =
 -- The instance fleet configuration is available only in Amazon EMR
 -- versions 4.8.0 and later, excluding 5.0.x versions.
 placementType_availabilityZones :: Lens.Lens' PlacementType (Prelude.Maybe [Prelude.Text])
-placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones} -> availabilityZones) (\s@PlacementType' {} a -> s {availabilityZones = a} :: PlacementType) Prelude.. Lens.mapping Lens._Coerce
+placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones} -> availabilityZones) (\s@PlacementType' {} a -> s {availabilityZones = a} :: PlacementType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is
 -- used for uniform instance groups, while @AvailabilityZones@ (plural) is

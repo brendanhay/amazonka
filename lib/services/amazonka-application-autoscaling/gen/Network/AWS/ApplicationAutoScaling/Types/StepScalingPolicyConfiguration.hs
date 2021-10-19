@@ -37,10 +37,15 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- At least one step adjustment is required if you are adding a new step
     -- scaling policy configuration.
     stepAdjustments :: Prelude.Maybe [StepAdjustment],
-    -- | The aggregation type for the CloudWatch metrics. Valid values are
-    -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
-    -- the value is treated as @Average@.
-    metricAggregationType :: Prelude.Maybe MetricAggregationType,
+    -- | Specifies how the @ScalingAdjustment@ value in a
+    -- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
+    -- is interpreted (for example, an absolute number or a percentage). The
+    -- valid values are @ChangeInCapacity@, @ExactCapacity@, and
+    -- @PercentChangeInCapacity@.
+    --
+    -- @AdjustmentType@ is required if you are adding a new step scaling policy
+    -- configuration.
+    adjustmentType :: Prelude.Maybe AdjustmentType,
     -- | The amount of time, in seconds, to wait for a previous scaling activity
     -- to take effect.
     --
@@ -71,44 +76,39 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- ElastiCache replication groups and a default value of 300 for the
     -- following scalable targets:
     --
-    -- -   ECS services
-    --
-    -- -   Spot Fleet requests
-    --
-    -- -   EMR clusters
-    --
     -- -   AppStream 2.0 fleets
     --
     -- -   Aurora DB clusters
     --
-    -- -   Amazon SageMaker endpoint variants
+    -- -   ECS services
+    --
+    -- -   EMR clusters
+    --
+    -- -   Neptune clusters
+    --
+    -- -   SageMaker endpoint variants
+    --
+    -- -   Spot Fleets
     --
     -- -   Custom resources
     --
     -- For all other scalable targets, the default value is 0:
     --
-    -- -   DynamoDB tables
-    --
-    -- -   DynamoDB global secondary indexes
-    --
     -- -   Amazon Comprehend document classification and entity recognizer
     --     endpoints
     --
-    -- -   Lambda provisioned concurrency
+    -- -   DynamoDB tables and global secondary indexes
     --
     -- -   Amazon Keyspaces tables
     --
+    -- -   Lambda provisioned concurrency
+    --
     -- -   Amazon MSK broker storage
     cooldown :: Prelude.Maybe Prelude.Int,
-    -- | Specifies how the @ScalingAdjustment@ value in a
-    -- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
-    -- is interpreted (for example, an absolute number or a percentage). The
-    -- valid values are @ChangeInCapacity@, @ExactCapacity@, and
-    -- @PercentChangeInCapacity@.
-    --
-    -- @AdjustmentType@ is required if you are adding a new step scaling policy
-    -- configuration.
-    adjustmentType :: Prelude.Maybe AdjustmentType,
+    -- | The aggregation type for the CloudWatch metrics. Valid values are
+    -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+    -- the value is treated as @Average@.
+    metricAggregationType :: Prelude.Maybe MetricAggregationType,
     -- | The minimum value to scale by when the adjustment type is
     -- @PercentChangeInCapacity@. For example, suppose that you create a step
     -- scaling policy to scale out an Amazon ECS service by 25 percent and you
@@ -134,9 +134,14 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- At least one step adjustment is required if you are adding a new step
 -- scaling policy configuration.
 --
--- 'metricAggregationType', 'stepScalingPolicyConfiguration_metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
+-- 'adjustmentType', 'stepScalingPolicyConfiguration_adjustmentType' - Specifies how the @ScalingAdjustment@ value in a
+-- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
+-- is interpreted (for example, an absolute number or a percentage). The
+-- valid values are @ChangeInCapacity@, @ExactCapacity@, and
+-- @PercentChangeInCapacity@.
+--
+-- @AdjustmentType@ is required if you are adding a new step scaling policy
+-- configuration.
 --
 -- 'cooldown', 'stepScalingPolicyConfiguration_cooldown' - The amount of time, in seconds, to wait for a previous scaling activity
 -- to take effect.
@@ -168,43 +173,38 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
--- -   ECS services
---
--- -   Spot Fleet requests
---
--- -   EMR clusters
---
 -- -   AppStream 2.0 fleets
 --
 -- -   Aurora DB clusters
 --
--- -   Amazon SageMaker endpoint variants
+-- -   ECS services
+--
+-- -   EMR clusters
+--
+-- -   Neptune clusters
+--
+-- -   SageMaker endpoint variants
+--
+-- -   Spot Fleets
 --
 -- -   Custom resources
 --
 -- For all other scalable targets, the default value is 0:
 --
--- -   DynamoDB tables
---
--- -   DynamoDB global secondary indexes
---
 -- -   Amazon Comprehend document classification and entity recognizer
 --     endpoints
 --
--- -   Lambda provisioned concurrency
+-- -   DynamoDB tables and global secondary indexes
 --
 -- -   Amazon Keyspaces tables
 --
+-- -   Lambda provisioned concurrency
+--
 -- -   Amazon MSK broker storage
 --
--- 'adjustmentType', 'stepScalingPolicyConfiguration_adjustmentType' - Specifies how the @ScalingAdjustment@ value in a
--- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
--- is interpreted (for example, an absolute number or a percentage). The
--- valid values are @ChangeInCapacity@, @ExactCapacity@, and
--- @PercentChangeInCapacity@.
---
--- @AdjustmentType@ is required if you are adding a new step scaling policy
--- configuration.
+-- 'metricAggregationType', 'stepScalingPolicyConfiguration_metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
 --
 -- 'minAdjustmentMagnitude', 'stepScalingPolicyConfiguration_minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is
 -- @PercentChangeInCapacity@. For example, suppose that you create a step
@@ -219,9 +219,9 @@ newStepScalingPolicyConfiguration =
   StepScalingPolicyConfiguration'
     { stepAdjustments =
         Prelude.Nothing,
-      metricAggregationType = Prelude.Nothing,
-      cooldown = Prelude.Nothing,
       adjustmentType = Prelude.Nothing,
+      cooldown = Prelude.Nothing,
+      metricAggregationType = Prelude.Nothing,
       minAdjustmentMagnitude = Prelude.Nothing
     }
 
@@ -231,13 +231,18 @@ newStepScalingPolicyConfiguration =
 -- At least one step adjustment is required if you are adding a new step
 -- scaling policy configuration.
 stepScalingPolicyConfiguration_stepAdjustments :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe [StepAdjustment])
-stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyConfiguration' {stepAdjustments} -> stepAdjustments) (\s@StepScalingPolicyConfiguration' {} a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration) Prelude.. Lens.mapping Lens._Coerce
+stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyConfiguration' {stepAdjustments} -> stepAdjustments) (\s@StepScalingPolicyConfiguration' {} a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The aggregation type for the CloudWatch metrics. Valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
-stepScalingPolicyConfiguration_metricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe MetricAggregationType)
-stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPolicyConfiguration' {metricAggregationType} -> metricAggregationType) (\s@StepScalingPolicyConfiguration' {} a -> s {metricAggregationType = a} :: StepScalingPolicyConfiguration)
+-- | Specifies how the @ScalingAdjustment@ value in a
+-- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
+-- is interpreted (for example, an absolute number or a percentage). The
+-- valid values are @ChangeInCapacity@, @ExactCapacity@, and
+-- @PercentChangeInCapacity@.
+--
+-- @AdjustmentType@ is required if you are adding a new step scaling policy
+-- configuration.
+stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
+stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@StepScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, to wait for a previous scaling activity
 -- to take effect.
@@ -269,47 +274,42 @@ stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPo
 -- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
--- -   ECS services
---
--- -   Spot Fleet requests
---
--- -   EMR clusters
---
 -- -   AppStream 2.0 fleets
 --
 -- -   Aurora DB clusters
 --
--- -   Amazon SageMaker endpoint variants
+-- -   ECS services
+--
+-- -   EMR clusters
+--
+-- -   Neptune clusters
+--
+-- -   SageMaker endpoint variants
+--
+-- -   Spot Fleets
 --
 -- -   Custom resources
 --
 -- For all other scalable targets, the default value is 0:
 --
--- -   DynamoDB tables
---
--- -   DynamoDB global secondary indexes
---
 -- -   Amazon Comprehend document classification and entity recognizer
 --     endpoints
 --
--- -   Lambda provisioned concurrency
+-- -   DynamoDB tables and global secondary indexes
 --
 -- -   Amazon Keyspaces tables
+--
+-- -   Lambda provisioned concurrency
 --
 -- -   Amazon MSK broker storage
 stepScalingPolicyConfiguration_cooldown :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
 stepScalingPolicyConfiguration_cooldown = Lens.lens (\StepScalingPolicyConfiguration' {cooldown} -> cooldown) (\s@StepScalingPolicyConfiguration' {} a -> s {cooldown = a} :: StepScalingPolicyConfiguration)
 
--- | Specifies how the @ScalingAdjustment@ value in a
--- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
--- is interpreted (for example, an absolute number or a percentage). The
--- valid values are @ChangeInCapacity@, @ExactCapacity@, and
--- @PercentChangeInCapacity@.
---
--- @AdjustmentType@ is required if you are adding a new step scaling policy
--- configuration.
-stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
-stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@StepScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
+-- | The aggregation type for the CloudWatch metrics. Valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
+stepScalingPolicyConfiguration_metricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe MetricAggregationType)
+stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPolicyConfiguration' {metricAggregationType} -> metricAggregationType) (\s@StepScalingPolicyConfiguration' {} a -> s {metricAggregationType = a} :: StepScalingPolicyConfiguration)
 
 -- | The minimum value to scale by when the adjustment type is
 -- @PercentChangeInCapacity@. For example, suppose that you create a step
@@ -330,9 +330,9 @@ instance Core.FromJSON StepScalingPolicyConfiguration where
             Prelude.<$> ( x Core..:? "StepAdjustments"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MetricAggregationType")
-            Prelude.<*> (x Core..:? "Cooldown")
             Prelude.<*> (x Core..:? "AdjustmentType")
+            Prelude.<*> (x Core..:? "Cooldown")
+            Prelude.<*> (x Core..:? "MetricAggregationType")
             Prelude.<*> (x Core..:? "MinAdjustmentMagnitude")
       )
 
@@ -350,11 +350,11 @@ instance Core.ToJSON StepScalingPolicyConfiguration where
       ( Prelude.catMaybes
           [ ("StepAdjustments" Core..=)
               Prelude.<$> stepAdjustments,
-            ("MetricAggregationType" Core..=)
-              Prelude.<$> metricAggregationType,
-            ("Cooldown" Core..=) Prelude.<$> cooldown,
             ("AdjustmentType" Core..=)
               Prelude.<$> adjustmentType,
+            ("Cooldown" Core..=) Prelude.<$> cooldown,
+            ("MetricAggregationType" Core..=)
+              Prelude.<$> metricAggregationType,
             ("MinAdjustmentMagnitude" Core..=)
               Prelude.<$> minAdjustmentMagnitude
           ]

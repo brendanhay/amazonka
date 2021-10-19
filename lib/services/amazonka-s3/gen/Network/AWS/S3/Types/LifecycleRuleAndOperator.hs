@@ -66,7 +66,7 @@ lifecycleRuleAndOperator_prefix = Lens.lens (\LifecycleRuleAndOperator' {prefix}
 -- | All of these tags must exist in the object\'s tag set in order for the
 -- rule to apply.
 lifecycleRuleAndOperator_tags :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe [Tag])
-lifecycleRuleAndOperator_tags = Lens.lens (\LifecycleRuleAndOperator' {tags} -> tags) (\s@LifecycleRuleAndOperator' {} a -> s {tags = a} :: LifecycleRuleAndOperator) Prelude.. Lens.mapping Lens._Coerce
+lifecycleRuleAndOperator_tags = Lens.lens (\LifecycleRuleAndOperator' {tags} -> tags) (\s@LifecycleRuleAndOperator' {} a -> s {tags = a} :: LifecycleRuleAndOperator) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML LifecycleRuleAndOperator where
   parseXML x =

@@ -27,8 +27,8 @@ module Network.AWS.EC2.AttachNetworkInterface
     newAttachNetworkInterface,
 
     -- * Request Lenses
-    attachNetworkInterface_dryRun,
     attachNetworkInterface_networkCardIndex,
+    attachNetworkInterface_dryRun,
     attachNetworkInterface_deviceIndex,
     attachNetworkInterface_instanceId,
     attachNetworkInterface_networkInterfaceId,
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newAttachNetworkInterface' smart constructor.
 data AttachNetworkInterface = AttachNetworkInterface'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The index of the network card. Some instance types support multiple
+    -- network cards. The primary network interface must be assigned to network
+    -- card index 0. The default is network card index 0.
+    networkCardIndex :: Prelude.Maybe Prelude.Int,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The index of the network card. Some instance types support multiple
-    -- network cards. The primary network interface must be assigned to network
-    -- card index 0. The default is network card index 0.
-    networkCardIndex :: Prelude.Maybe Prelude.Int,
     -- | The index of the device for the network interface attachment.
     deviceIndex :: Prelude.Int,
     -- | The ID of the instance.
@@ -81,14 +81,14 @@ data AttachNetworkInterface = AttachNetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkCardIndex', 'attachNetworkInterface_networkCardIndex' - The index of the network card. Some instance types support multiple
+-- network cards. The primary network interface must be assigned to network
+-- card index 0. The default is network card index 0.
+--
 -- 'dryRun', 'attachNetworkInterface_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'networkCardIndex', 'attachNetworkInterface_networkCardIndex' - The index of the network card. Some instance types support multiple
--- network cards. The primary network interface must be assigned to network
--- card index 0. The default is network card index 0.
 --
 -- 'deviceIndex', 'attachNetworkInterface_deviceIndex' - The index of the device for the network interface attachment.
 --
@@ -108,12 +108,19 @@ newAttachNetworkInterface
   pInstanceId_
   pNetworkInterfaceId_ =
     AttachNetworkInterface'
-      { dryRun = Prelude.Nothing,
-        networkCardIndex = Prelude.Nothing,
+      { networkCardIndex =
+          Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         deviceIndex = pDeviceIndex_,
         instanceId = pInstanceId_,
         networkInterfaceId = pNetworkInterfaceId_
       }
+
+-- | The index of the network card. Some instance types support multiple
+-- network cards. The primary network interface must be assigned to network
+-- card index 0. The default is network card index 0.
+attachNetworkInterface_networkCardIndex :: Lens.Lens' AttachNetworkInterface (Prelude.Maybe Prelude.Int)
+attachNetworkInterface_networkCardIndex = Lens.lens (\AttachNetworkInterface' {networkCardIndex} -> networkCardIndex) (\s@AttachNetworkInterface' {} a -> s {networkCardIndex = a} :: AttachNetworkInterface)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -121,12 +128,6 @@ newAttachNetworkInterface
 -- Otherwise, it is @UnauthorizedOperation@.
 attachNetworkInterface_dryRun :: Lens.Lens' AttachNetworkInterface (Prelude.Maybe Prelude.Bool)
 attachNetworkInterface_dryRun = Lens.lens (\AttachNetworkInterface' {dryRun} -> dryRun) (\s@AttachNetworkInterface' {} a -> s {dryRun = a} :: AttachNetworkInterface)
-
--- | The index of the network card. Some instance types support multiple
--- network cards. The primary network interface must be assigned to network
--- card index 0. The default is network card index 0.
-attachNetworkInterface_networkCardIndex :: Lens.Lens' AttachNetworkInterface (Prelude.Maybe Prelude.Int)
-attachNetworkInterface_networkCardIndex = Lens.lens (\AttachNetworkInterface' {networkCardIndex} -> networkCardIndex) (\s@AttachNetworkInterface' {} a -> s {networkCardIndex = a} :: AttachNetworkInterface)
 
 -- | The index of the device for the network interface attachment.
 attachNetworkInterface_deviceIndex :: Lens.Lens' AttachNetworkInterface Prelude.Int
@@ -171,8 +172,8 @@ instance Core.ToQuery AttachNetworkInterface where
           Core.=: ("AttachNetworkInterface" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "NetworkCardIndex" Core.=: networkCardIndex,
+        "DryRun" Core.=: dryRun,
         "DeviceIndex" Core.=: deviceIndex,
         "InstanceId" Core.=: instanceId,
         "NetworkInterfaceId" Core.=: networkInterfaceId

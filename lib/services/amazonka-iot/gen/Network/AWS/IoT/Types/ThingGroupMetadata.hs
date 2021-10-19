@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newThingGroupMetadata' smart constructor.
 data ThingGroupMetadata = ThingGroupMetadata'
-  { -- | The parent thing group name.
+  { -- | The root parent thing group.
+    rootToParentThingGroups :: Prelude.Maybe [GroupNameAndArn],
+    -- | The parent thing group name.
     parentGroupName :: Prelude.Maybe Prelude.Text,
     -- | The UNIX timestamp of when the thing group was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The root parent thing group.
-    rootToParentThingGroups :: Prelude.Maybe [GroupNameAndArn]
+    creationDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,20 +45,24 @@ data ThingGroupMetadata = ThingGroupMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rootToParentThingGroups', 'thingGroupMetadata_rootToParentThingGroups' - The root parent thing group.
+--
 -- 'parentGroupName', 'thingGroupMetadata_parentGroupName' - The parent thing group name.
 --
 -- 'creationDate', 'thingGroupMetadata_creationDate' - The UNIX timestamp of when the thing group was created.
---
--- 'rootToParentThingGroups', 'thingGroupMetadata_rootToParentThingGroups' - The root parent thing group.
 newThingGroupMetadata ::
   ThingGroupMetadata
 newThingGroupMetadata =
   ThingGroupMetadata'
-    { parentGroupName =
+    { rootToParentThingGroups =
         Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      rootToParentThingGroups = Prelude.Nothing
+      parentGroupName = Prelude.Nothing,
+      creationDate = Prelude.Nothing
     }
+
+-- | The root parent thing group.
+thingGroupMetadata_rootToParentThingGroups :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe [GroupNameAndArn])
+thingGroupMetadata_rootToParentThingGroups = Lens.lens (\ThingGroupMetadata' {rootToParentThingGroups} -> rootToParentThingGroups) (\s@ThingGroupMetadata' {} a -> s {rootToParentThingGroups = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | The parent thing group name.
 thingGroupMetadata_parentGroupName :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe Prelude.Text)
@@ -68,21 +72,17 @@ thingGroupMetadata_parentGroupName = Lens.lens (\ThingGroupMetadata' {parentGrou
 thingGroupMetadata_creationDate :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe Prelude.UTCTime)
 thingGroupMetadata_creationDate = Lens.lens (\ThingGroupMetadata' {creationDate} -> creationDate) (\s@ThingGroupMetadata' {} a -> s {creationDate = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The root parent thing group.
-thingGroupMetadata_rootToParentThingGroups :: Lens.Lens' ThingGroupMetadata (Prelude.Maybe [GroupNameAndArn])
-thingGroupMetadata_rootToParentThingGroups = Lens.lens (\ThingGroupMetadata' {rootToParentThingGroups} -> rootToParentThingGroups) (\s@ThingGroupMetadata' {} a -> s {rootToParentThingGroups = a} :: ThingGroupMetadata) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON ThingGroupMetadata where
   parseJSON =
     Core.withObject
       "ThingGroupMetadata"
       ( \x ->
           ThingGroupMetadata'
-            Prelude.<$> (x Core..:? "parentGroupName")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> ( x Core..:? "rootToParentThingGroups"
+            Prelude.<$> ( x Core..:? "rootToParentThingGroups"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "parentGroupName")
+            Prelude.<*> (x Core..:? "creationDate")
       )
 
 instance Prelude.Hashable ThingGroupMetadata

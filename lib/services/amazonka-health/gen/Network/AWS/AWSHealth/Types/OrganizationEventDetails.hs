@@ -35,12 +35,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationEventDetails' smart constructor.
 data OrganizationEventDetails = OrganizationEventDetails'
-  { -- | The 12-digit AWS account numbers that contains the affected entities.
+  { event :: Prelude.Maybe Event,
+    eventDescription :: Prelude.Maybe EventDescription,
+    -- | The 12-digit AWS account numbers that contains the affected entities.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Additional metadata about the event.
-    eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    eventDescription :: Prelude.Maybe EventDescription,
-    event :: Prelude.Maybe Event
+    eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,23 +52,30 @@ data OrganizationEventDetails = OrganizationEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'organizationEventDetails_awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
---
--- 'eventMetadata', 'organizationEventDetails_eventMetadata' - Additional metadata about the event.
+-- 'event', 'organizationEventDetails_event' - Undocumented member.
 --
 -- 'eventDescription', 'organizationEventDetails_eventDescription' - Undocumented member.
 --
--- 'event', 'organizationEventDetails_event' - Undocumented member.
+-- 'awsAccountId', 'organizationEventDetails_awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
+--
+-- 'eventMetadata', 'organizationEventDetails_eventMetadata' - Additional metadata about the event.
 newOrganizationEventDetails ::
   OrganizationEventDetails
 newOrganizationEventDetails =
   OrganizationEventDetails'
-    { awsAccountId =
-        Prelude.Nothing,
-      eventMetadata = Prelude.Nothing,
+    { event = Prelude.Nothing,
       eventDescription = Prelude.Nothing,
-      event = Prelude.Nothing
+      awsAccountId = Prelude.Nothing,
+      eventMetadata = Prelude.Nothing
     }
+
+-- | Undocumented member.
+organizationEventDetails_event :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe Event)
+organizationEventDetails_event = Lens.lens (\OrganizationEventDetails' {event} -> event) (\s@OrganizationEventDetails' {} a -> s {event = a} :: OrganizationEventDetails)
+
+-- | Undocumented member.
+organizationEventDetails_eventDescription :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe EventDescription)
+organizationEventDetails_eventDescription = Lens.lens (\OrganizationEventDetails' {eventDescription} -> eventDescription) (\s@OrganizationEventDetails' {} a -> s {eventDescription = a} :: OrganizationEventDetails)
 
 -- | The 12-digit AWS account numbers that contains the affected entities.
 organizationEventDetails_awsAccountId :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe Prelude.Text)
@@ -76,15 +83,7 @@ organizationEventDetails_awsAccountId = Lens.lens (\OrganizationEventDetails' {a
 
 -- | Additional metadata about the event.
 organizationEventDetails_eventMetadata :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-organizationEventDetails_eventMetadata = Lens.lens (\OrganizationEventDetails' {eventMetadata} -> eventMetadata) (\s@OrganizationEventDetails' {} a -> s {eventMetadata = a} :: OrganizationEventDetails) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-organizationEventDetails_eventDescription :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe EventDescription)
-organizationEventDetails_eventDescription = Lens.lens (\OrganizationEventDetails' {eventDescription} -> eventDescription) (\s@OrganizationEventDetails' {} a -> s {eventDescription = a} :: OrganizationEventDetails)
-
--- | Undocumented member.
-organizationEventDetails_event :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe Event)
-organizationEventDetails_event = Lens.lens (\OrganizationEventDetails' {event} -> event) (\s@OrganizationEventDetails' {} a -> s {event = a} :: OrganizationEventDetails)
+organizationEventDetails_eventMetadata = Lens.lens (\OrganizationEventDetails' {eventMetadata} -> eventMetadata) (\s@OrganizationEventDetails' {} a -> s {eventMetadata = a} :: OrganizationEventDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON OrganizationEventDetails where
   parseJSON =
@@ -92,10 +91,10 @@ instance Core.FromJSON OrganizationEventDetails where
       "OrganizationEventDetails"
       ( \x ->
           OrganizationEventDetails'
-            Prelude.<$> (x Core..:? "awsAccountId")
-            Prelude.<*> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "event")
             Prelude.<*> (x Core..:? "eventDescription")
-            Prelude.<*> (x Core..:? "event")
+            Prelude.<*> (x Core..:? "awsAccountId")
+            Prelude.<*> (x Core..:? "eventMetadata" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable OrganizationEventDetails

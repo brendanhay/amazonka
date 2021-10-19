@@ -57,7 +57,7 @@ newKeyPairIds pQuantity_ =
 
 -- | A list of CloudFront key pair identifiers.
 keyPairIds_items :: Lens.Lens' KeyPairIds (Prelude.Maybe [Prelude.Text])
-keyPairIds_items = Lens.lens (\KeyPairIds' {items} -> items) (\s@KeyPairIds' {} a -> s {items = a} :: KeyPairIds) Prelude.. Lens.mapping Lens._Coerce
+keyPairIds_items = Lens.lens (\KeyPairIds' {items} -> items) (\s@KeyPairIds' {} a -> s {items = a} :: KeyPairIds) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of key pair identifiers in the list.
 keyPairIds_quantity :: Lens.Lens' KeyPairIds Prelude.Int

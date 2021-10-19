@@ -235,6 +235,6 @@ previewAgentsResponse_httpStatus = Lens.lens (\PreviewAgentsResponse' {httpStatu
 
 -- | The resulting list of agents.
 previewAgentsResponse_agentPreviews :: Lens.Lens' PreviewAgentsResponse [AgentPreview]
-previewAgentsResponse_agentPreviews = Lens.lens (\PreviewAgentsResponse' {agentPreviews} -> agentPreviews) (\s@PreviewAgentsResponse' {} a -> s {agentPreviews = a} :: PreviewAgentsResponse) Prelude.. Lens._Coerce
+previewAgentsResponse_agentPreviews = Lens.lens (\PreviewAgentsResponse' {agentPreviews} -> agentPreviews) (\s@PreviewAgentsResponse' {} a -> s {agentPreviews = a} :: PreviewAgentsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData PreviewAgentsResponse

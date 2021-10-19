@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceExportDetails' smart constructor.
 data InstanceExportDetails = InstanceExportDetails'
-  { -- | The ID of the resource being exported.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The target virtualization environment.
-    targetEnvironment :: Prelude.Maybe ExportEnvironment
+  { -- | The target virtualization environment.
+    targetEnvironment :: Prelude.Maybe ExportEnvironment,
+    -- | The ID of the resource being exported.
+    instanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data InstanceExportDetails = InstanceExportDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'instanceExportDetails_instanceId' - The ID of the resource being exported.
---
 -- 'targetEnvironment', 'instanceExportDetails_targetEnvironment' - The target virtualization environment.
+--
+-- 'instanceId', 'instanceExportDetails_instanceId' - The ID of the resource being exported.
 newInstanceExportDetails ::
   InstanceExportDetails
 newInstanceExportDetails =
   InstanceExportDetails'
-    { instanceId =
+    { targetEnvironment =
         Prelude.Nothing,
-      targetEnvironment = Prelude.Nothing
+      instanceId = Prelude.Nothing
     }
-
--- | The ID of the resource being exported.
-instanceExportDetails_instanceId :: Lens.Lens' InstanceExportDetails (Prelude.Maybe Prelude.Text)
-instanceExportDetails_instanceId = Lens.lens (\InstanceExportDetails' {instanceId} -> instanceId) (\s@InstanceExportDetails' {} a -> s {instanceId = a} :: InstanceExportDetails)
 
 -- | The target virtualization environment.
 instanceExportDetails_targetEnvironment :: Lens.Lens' InstanceExportDetails (Prelude.Maybe ExportEnvironment)
 instanceExportDetails_targetEnvironment = Lens.lens (\InstanceExportDetails' {targetEnvironment} -> targetEnvironment) (\s@InstanceExportDetails' {} a -> s {targetEnvironment = a} :: InstanceExportDetails)
 
+-- | The ID of the resource being exported.
+instanceExportDetails_instanceId :: Lens.Lens' InstanceExportDetails (Prelude.Maybe Prelude.Text)
+instanceExportDetails_instanceId = Lens.lens (\InstanceExportDetails' {instanceId} -> instanceId) (\s@InstanceExportDetails' {} a -> s {instanceId = a} :: InstanceExportDetails)
+
 instance Core.FromXML InstanceExportDetails where
   parseXML x =
     InstanceExportDetails'
-      Prelude.<$> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "targetEnvironment")
+      Prelude.<$> (x Core..@? "targetEnvironment")
+      Prelude.<*> (x Core..@? "instanceId")
 
 instance Prelude.Hashable InstanceExportDetails
 

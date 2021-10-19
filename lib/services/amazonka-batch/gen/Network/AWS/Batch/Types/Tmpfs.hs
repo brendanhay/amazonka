@@ -99,7 +99,7 @@ newTmpfs pContainerPath_ pSize_ =
 -- \"@mode@\" | \"@uid@\" | \"@gid@\" | \"@nr_inodes@\" | \"@nr_blocks@\" |
 -- \"@mpol@\"
 tmpfs_mountOptions :: Lens.Lens' Tmpfs (Prelude.Maybe [Prelude.Text])
-tmpfs_mountOptions = Lens.lens (\Tmpfs' {mountOptions} -> mountOptions) (\s@Tmpfs' {} a -> s {mountOptions = a} :: Tmpfs) Prelude.. Lens.mapping Lens._Coerce
+tmpfs_mountOptions = Lens.lens (\Tmpfs' {mountOptions} -> mountOptions) (\s@Tmpfs' {} a -> s {mountOptions = a} :: Tmpfs) Prelude.. Lens.mapping Lens.coerced
 
 -- | The absolute file path in the container where the tmpfs volume is
 -- mounted.

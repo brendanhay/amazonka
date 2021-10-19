@@ -34,16 +34,16 @@ module Network.AWS.SageMaker.DescribeTrial
     newDescribeTrialResponse,
 
     -- * Response Lenses
-    describeTrialResponse_trialArn,
     describeTrialResponse_creationTime,
     describeTrialResponse_metadataProperties,
-    describeTrialResponse_source,
+    describeTrialResponse_trialArn,
+    describeTrialResponse_createdBy,
     describeTrialResponse_lastModifiedTime,
     describeTrialResponse_experimentName,
-    describeTrialResponse_createdBy,
-    describeTrialResponse_lastModifiedBy,
-    describeTrialResponse_trialName,
+    describeTrialResponse_source,
     describeTrialResponse_displayName,
+    describeTrialResponse_trialName,
+    describeTrialResponse_lastModifiedBy,
     describeTrialResponse_httpStatus,
   )
 where
@@ -91,16 +91,16 @@ instance Core.AWSRequest DescribeTrial where
     Response.receiveJSON
       ( \s h x ->
           DescribeTrialResponse'
-            Prelude.<$> (x Core..?> "TrialArn")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "MetadataProperties")
-            Prelude.<*> (x Core..?> "Source")
+            Prelude.<*> (x Core..?> "TrialArn")
+            Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "ExperimentName")
-            Prelude.<*> (x Core..?> "CreatedBy")
-            Prelude.<*> (x Core..?> "LastModifiedBy")
-            Prelude.<*> (x Core..?> "TrialName")
+            Prelude.<*> (x Core..?> "Source")
             Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "TrialName")
+            Prelude.<*> (x Core..?> "LastModifiedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,27 +136,27 @@ instance Core.ToQuery DescribeTrial where
 
 -- | /See:/ 'newDescribeTrialResponse' smart constructor.
 data DescribeTrialResponse = DescribeTrialResponse'
-  { -- | The Amazon Resource Name (ARN) of the trial.
-    trialArn :: Prelude.Maybe Prelude.Text,
-    -- | When the trial was created.
+  { -- | When the trial was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
-    -- type.
-    source :: Prelude.Maybe TrialSource,
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Prelude.Maybe Prelude.Text,
+    -- | Who created the trial.
+    createdBy :: Prelude.Maybe UserContext,
     -- | When the trial was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the experiment the trial is part of.
     experimentName :: Prelude.Maybe Prelude.Text,
-    -- | Who created the trial.
-    createdBy :: Prelude.Maybe UserContext,
-    -- | Who last modified the trial.
-    lastModifiedBy :: Prelude.Maybe UserContext,
-    -- | The name of the trial.
-    trialName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the source and, optionally, the job
+    -- type.
+    source :: Prelude.Maybe TrialSource,
     -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
     -- @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the trial.
+    trialName :: Prelude.Maybe Prelude.Text,
+    -- | Who last modified the trial.
+    lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,27 +170,27 @@ data DescribeTrialResponse = DescribeTrialResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'trialArn', 'describeTrialResponse_trialArn' - The Amazon Resource Name (ARN) of the trial.
---
 -- 'creationTime', 'describeTrialResponse_creationTime' - When the trial was created.
 --
 -- 'metadataProperties', 'describeTrialResponse_metadataProperties' - Undocumented member.
 --
--- 'source', 'describeTrialResponse_source' - The Amazon Resource Name (ARN) of the source and, optionally, the job
--- type.
+-- 'trialArn', 'describeTrialResponse_trialArn' - The Amazon Resource Name (ARN) of the trial.
+--
+-- 'createdBy', 'describeTrialResponse_createdBy' - Who created the trial.
 --
 -- 'lastModifiedTime', 'describeTrialResponse_lastModifiedTime' - When the trial was last modified.
 --
 -- 'experimentName', 'describeTrialResponse_experimentName' - The name of the experiment the trial is part of.
 --
--- 'createdBy', 'describeTrialResponse_createdBy' - Who created the trial.
---
--- 'lastModifiedBy', 'describeTrialResponse_lastModifiedBy' - Who last modified the trial.
---
--- 'trialName', 'describeTrialResponse_trialName' - The name of the trial.
+-- 'source', 'describeTrialResponse_source' - The Amazon Resource Name (ARN) of the source and, optionally, the job
+-- type.
 --
 -- 'displayName', 'describeTrialResponse_displayName' - The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
+--
+-- 'trialName', 'describeTrialResponse_trialName' - The name of the trial.
+--
+-- 'lastModifiedBy', 'describeTrialResponse_lastModifiedBy' - Who last modified the trial.
 --
 -- 'httpStatus', 'describeTrialResponse_httpStatus' - The response's http status code.
 newDescribeTrialResponse ::
@@ -199,22 +199,19 @@ newDescribeTrialResponse ::
   DescribeTrialResponse
 newDescribeTrialResponse pHttpStatus_ =
   DescribeTrialResponse'
-    { trialArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime =
+        Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
-      source = Prelude.Nothing,
+      trialArn = Prelude.Nothing,
+      createdBy = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       experimentName = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      trialName = Prelude.Nothing,
+      source = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      trialName = Prelude.Nothing,
+      lastModifiedBy = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the trial.
-describeTrialResponse_trialArn :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.Text)
-describeTrialResponse_trialArn = Lens.lens (\DescribeTrialResponse' {trialArn} -> trialArn) (\s@DescribeTrialResponse' {} a -> s {trialArn = a} :: DescribeTrialResponse)
 
 -- | When the trial was created.
 describeTrialResponse_creationTime :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.UTCTime)
@@ -224,10 +221,13 @@ describeTrialResponse_creationTime = Lens.lens (\DescribeTrialResponse' {creatio
 describeTrialResponse_metadataProperties :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe MetadataProperties)
 describeTrialResponse_metadataProperties = Lens.lens (\DescribeTrialResponse' {metadataProperties} -> metadataProperties) (\s@DescribeTrialResponse' {} a -> s {metadataProperties = a} :: DescribeTrialResponse)
 
--- | The Amazon Resource Name (ARN) of the source and, optionally, the job
--- type.
-describeTrialResponse_source :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe TrialSource)
-describeTrialResponse_source = Lens.lens (\DescribeTrialResponse' {source} -> source) (\s@DescribeTrialResponse' {} a -> s {source = a} :: DescribeTrialResponse)
+-- | The Amazon Resource Name (ARN) of the trial.
+describeTrialResponse_trialArn :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.Text)
+describeTrialResponse_trialArn = Lens.lens (\DescribeTrialResponse' {trialArn} -> trialArn) (\s@DescribeTrialResponse' {} a -> s {trialArn = a} :: DescribeTrialResponse)
+
+-- | Who created the trial.
+describeTrialResponse_createdBy :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe UserContext)
+describeTrialResponse_createdBy = Lens.lens (\DescribeTrialResponse' {createdBy} -> createdBy) (\s@DescribeTrialResponse' {} a -> s {createdBy = a} :: DescribeTrialResponse)
 
 -- | When the trial was last modified.
 describeTrialResponse_lastModifiedTime :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.UTCTime)
@@ -237,22 +237,23 @@ describeTrialResponse_lastModifiedTime = Lens.lens (\DescribeTrialResponse' {las
 describeTrialResponse_experimentName :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.Text)
 describeTrialResponse_experimentName = Lens.lens (\DescribeTrialResponse' {experimentName} -> experimentName) (\s@DescribeTrialResponse' {} a -> s {experimentName = a} :: DescribeTrialResponse)
 
--- | Who created the trial.
-describeTrialResponse_createdBy :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe UserContext)
-describeTrialResponse_createdBy = Lens.lens (\DescribeTrialResponse' {createdBy} -> createdBy) (\s@DescribeTrialResponse' {} a -> s {createdBy = a} :: DescribeTrialResponse)
-
--- | Who last modified the trial.
-describeTrialResponse_lastModifiedBy :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe UserContext)
-describeTrialResponse_lastModifiedBy = Lens.lens (\DescribeTrialResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeTrialResponse' {} a -> s {lastModifiedBy = a} :: DescribeTrialResponse)
-
--- | The name of the trial.
-describeTrialResponse_trialName :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.Text)
-describeTrialResponse_trialName = Lens.lens (\DescribeTrialResponse' {trialName} -> trialName) (\s@DescribeTrialResponse' {} a -> s {trialName = a} :: DescribeTrialResponse)
+-- | The Amazon Resource Name (ARN) of the source and, optionally, the job
+-- type.
+describeTrialResponse_source :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe TrialSource)
+describeTrialResponse_source = Lens.lens (\DescribeTrialResponse' {source} -> source) (\s@DescribeTrialResponse' {} a -> s {source = a} :: DescribeTrialResponse)
 
 -- | The name of the trial as displayed. If @DisplayName@ isn\'t specified,
 -- @TrialName@ is displayed.
 describeTrialResponse_displayName :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.Text)
 describeTrialResponse_displayName = Lens.lens (\DescribeTrialResponse' {displayName} -> displayName) (\s@DescribeTrialResponse' {} a -> s {displayName = a} :: DescribeTrialResponse)
+
+-- | The name of the trial.
+describeTrialResponse_trialName :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe Prelude.Text)
+describeTrialResponse_trialName = Lens.lens (\DescribeTrialResponse' {trialName} -> trialName) (\s@DescribeTrialResponse' {} a -> s {trialName = a} :: DescribeTrialResponse)
+
+-- | Who last modified the trial.
+describeTrialResponse_lastModifiedBy :: Lens.Lens' DescribeTrialResponse (Prelude.Maybe UserContext)
+describeTrialResponse_lastModifiedBy = Lens.lens (\DescribeTrialResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeTrialResponse' {} a -> s {lastModifiedBy = a} :: DescribeTrialResponse)
 
 -- | The response's http status code.
 describeTrialResponse_httpStatus :: Lens.Lens' DescribeTrialResponse Prelude.Int

@@ -34,13 +34,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyUser' smart constructor.
 data PolicyUser = PolicyUser'
-  { -- | The stable and unique string identifying the user. For more information
+  { -- | The name (friendly name, not ARN) identifying the user.
+    userName :: Prelude.Maybe Prelude.Text,
+    -- | The stable and unique string identifying the user. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The name (friendly name, not ARN) identifying the user.
-    userName :: Prelude.Maybe Prelude.Text
+    userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,19 +52,23 @@ data PolicyUser = PolicyUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userName', 'policyUser_userName' - The name (friendly name, not ARN) identifying the user.
+--
 -- 'userId', 'policyUser_userId' - The stable and unique string identifying the user. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
---
--- 'userName', 'policyUser_userName' - The name (friendly name, not ARN) identifying the user.
 newPolicyUser ::
   PolicyUser
 newPolicyUser =
   PolicyUser'
-    { userId = Prelude.Nothing,
-      userName = Prelude.Nothing
+    { userName = Prelude.Nothing,
+      userId = Prelude.Nothing
     }
+
+-- | The name (friendly name, not ARN) identifying the user.
+policyUser_userName :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
+policyUser_userName = Lens.lens (\PolicyUser' {userName} -> userName) (\s@PolicyUser' {} a -> s {userName = a} :: PolicyUser)
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see
@@ -73,15 +77,11 @@ newPolicyUser =
 policyUser_userId :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
 policyUser_userId = Lens.lens (\PolicyUser' {userId} -> userId) (\s@PolicyUser' {} a -> s {userId = a} :: PolicyUser)
 
--- | The name (friendly name, not ARN) identifying the user.
-policyUser_userName :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
-policyUser_userName = Lens.lens (\PolicyUser' {userName} -> userName) (\s@PolicyUser' {} a -> s {userName = a} :: PolicyUser)
-
 instance Core.FromXML PolicyUser where
   parseXML x =
     PolicyUser'
-      Prelude.<$> (x Core..@? "UserId")
-      Prelude.<*> (x Core..@? "UserName")
+      Prelude.<$> (x Core..@? "UserName")
+      Prelude.<*> (x Core..@? "UserId")
 
 instance Prelude.Hashable PolicyUser
 

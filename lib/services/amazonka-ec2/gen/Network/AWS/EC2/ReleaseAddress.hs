@@ -45,10 +45,10 @@ module Network.AWS.EC2.ReleaseAddress
     newReleaseAddress,
 
     -- * Request Lenses
-    releaseAddress_dryRun,
-    releaseAddress_publicIp,
     releaseAddress_allocationId,
     releaseAddress_networkBorderGroup,
+    releaseAddress_publicIp,
+    releaseAddress_dryRun,
 
     -- * Destructuring the Response
     ReleaseAddressResponse (..),
@@ -65,27 +65,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newReleaseAddress' smart constructor.
 data ReleaseAddress = ReleaseAddress'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
+    allocationId :: Prelude.Maybe Prelude.Text,
+    -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
+    -- which Amazon Web Services advertises IP addresses.
+    --
+    -- If you provide an incorrect network border group, you receive an
+    -- @InvalidAddress.NotFound@ error.
+    --
+    -- You cannot use a network border group with EC2 Classic. If you attempt
+    -- this operation on EC2 classic, you receive an
+    -- @InvalidParameterCombination@ error.
+    networkBorderGroup :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+    publicIp :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-    publicIp :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-    allocationId :: Prelude.Maybe Prelude.Text,
-    -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
-    -- which AWS advertises IP addresses.
-    --
-    -- If you provide an incorrect network border group, you will receive an
-    -- @InvalidAddress.NotFound@ error. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-    --
-    -- You cannot use a network border group with EC2 Classic. If you attempt
-    -- this operation on EC2 classic, you will receive an
-    -- @InvalidParameterCombination@ error. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-    networkBorderGroup :: Prelude.Maybe Prelude.Text
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,35 +95,53 @@ data ReleaseAddress = ReleaseAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'allocationId', 'releaseAddress_allocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.
+--
+-- 'networkBorderGroup', 'releaseAddress_networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from
+-- which Amazon Web Services advertises IP addresses.
+--
+-- If you provide an incorrect network border group, you receive an
+-- @InvalidAddress.NotFound@ error.
+--
+-- You cannot use a network border group with EC2 Classic. If you attempt
+-- this operation on EC2 classic, you receive an
+-- @InvalidParameterCombination@ error.
+--
+-- 'publicIp', 'releaseAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+--
 -- 'dryRun', 'releaseAddress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'publicIp', 'releaseAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
---
--- 'allocationId', 'releaseAddress_allocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.
---
--- 'networkBorderGroup', 'releaseAddress_networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from
--- which AWS advertises IP addresses.
---
--- If you provide an incorrect network border group, you will receive an
--- @InvalidAddress.NotFound@ error. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
---
--- You cannot use a network border group with EC2 Classic. If you attempt
--- this operation on EC2 classic, you will receive an
--- @InvalidParameterCombination@ error. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
 newReleaseAddress ::
   ReleaseAddress
 newReleaseAddress =
   ReleaseAddress'
-    { dryRun = Prelude.Nothing,
+    { allocationId = Prelude.Nothing,
+      networkBorderGroup = Prelude.Nothing,
       publicIp = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
-      networkBorderGroup = Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
+
+-- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
+releaseAddress_allocationId :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
+releaseAddress_allocationId = Lens.lens (\ReleaseAddress' {allocationId} -> allocationId) (\s@ReleaseAddress' {} a -> s {allocationId = a} :: ReleaseAddress)
+
+-- | The set of Availability Zones, Local Zones, or Wavelength Zones from
+-- which Amazon Web Services advertises IP addresses.
+--
+-- If you provide an incorrect network border group, you receive an
+-- @InvalidAddress.NotFound@ error.
+--
+-- You cannot use a network border group with EC2 Classic. If you attempt
+-- this operation on EC2 classic, you receive an
+-- @InvalidParameterCombination@ error.
+releaseAddress_networkBorderGroup :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
+releaseAddress_networkBorderGroup = Lens.lens (\ReleaseAddress' {networkBorderGroup} -> networkBorderGroup) (\s@ReleaseAddress' {} a -> s {networkBorderGroup = a} :: ReleaseAddress)
+
+-- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+releaseAddress_publicIp :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
+releaseAddress_publicIp = Lens.lens (\ReleaseAddress' {publicIp} -> publicIp) (\s@ReleaseAddress' {} a -> s {publicIp = a} :: ReleaseAddress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -133,28 +149,6 @@ newReleaseAddress =
 -- Otherwise, it is @UnauthorizedOperation@.
 releaseAddress_dryRun :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Bool)
 releaseAddress_dryRun = Lens.lens (\ReleaseAddress' {dryRun} -> dryRun) (\s@ReleaseAddress' {} a -> s {dryRun = a} :: ReleaseAddress)
-
--- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-releaseAddress_publicIp :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
-releaseAddress_publicIp = Lens.lens (\ReleaseAddress' {publicIp} -> publicIp) (\s@ReleaseAddress' {} a -> s {publicIp = a} :: ReleaseAddress)
-
--- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-releaseAddress_allocationId :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
-releaseAddress_allocationId = Lens.lens (\ReleaseAddress' {allocationId} -> allocationId) (\s@ReleaseAddress' {} a -> s {allocationId = a} :: ReleaseAddress)
-
--- | The set of Availability Zones, Local Zones, or Wavelength Zones from
--- which AWS advertises IP addresses.
---
--- If you provide an incorrect network border group, you will receive an
--- @InvalidAddress.NotFound@ error. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
---
--- You cannot use a network border group with EC2 Classic. If you attempt
--- this operation on EC2 classic, you will receive an
--- @InvalidParameterCombination@ error. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-releaseAddress_networkBorderGroup :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
-releaseAddress_networkBorderGroup = Lens.lens (\ReleaseAddress' {networkBorderGroup} -> networkBorderGroup) (\s@ReleaseAddress' {} a -> s {networkBorderGroup = a} :: ReleaseAddress)
 
 instance Core.AWSRequest ReleaseAddress where
   type
@@ -181,10 +175,10 @@ instance Core.ToQuery ReleaseAddress where
           Core.=: ("ReleaseAddress" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "PublicIp" Core.=: publicIp,
         "AllocationId" Core.=: allocationId,
-        "NetworkBorderGroup" Core.=: networkBorderGroup
+        "NetworkBorderGroup" Core.=: networkBorderGroup,
+        "PublicIp" Core.=: publicIp,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newReleaseAddressResponse' smart constructor.

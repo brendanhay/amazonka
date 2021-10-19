@@ -15,32 +15,16 @@ module Network.AWS.ResourceGroupsTagging.Lens
   ( -- * Operations
 
     -- ** GetComplianceSummary
-    getComplianceSummary_maxResults,
-    getComplianceSummary_regionFilters,
+    getComplianceSummary_groupBy,
     getComplianceSummary_paginationToken,
     getComplianceSummary_targetIdFilters,
-    getComplianceSummary_groupBy,
     getComplianceSummary_resourceTypeFilters,
+    getComplianceSummary_regionFilters,
     getComplianceSummary_tagKeyFilters,
+    getComplianceSummary_maxResults,
     getComplianceSummaryResponse_paginationToken,
     getComplianceSummaryResponse_summaryList,
     getComplianceSummaryResponse_httpStatus,
-
-    -- ** StartReportCreation
-    startReportCreation_s3Bucket,
-    startReportCreationResponse_httpStatus,
-
-    -- ** TagResources
-    tagResources_resourceARNList,
-    tagResources_tags,
-    tagResourcesResponse_failedResourcesMap,
-    tagResourcesResponse_httpStatus,
-
-    -- ** GetTagKeys
-    getTagKeys_paginationToken,
-    getTagKeysResponse_tagKeys,
-    getTagKeysResponse_paginationToken,
-    getTagKeysResponse_httpStatus,
 
     -- ** DescribeReportCreation
     describeReportCreationResponse_status,
@@ -48,18 +32,17 @@ module Network.AWS.ResourceGroupsTagging.Lens
     describeReportCreationResponse_errorMessage,
     describeReportCreationResponse_httpStatus,
 
-    -- ** GetResources
-    getResources_tagFilters,
-    getResources_includeComplianceDetails,
-    getResources_paginationToken,
-    getResources_resourceTypeFilters,
-    getResources_excludeCompliantResources,
-    getResources_tagsPerPage,
-    getResources_resourcesPerPage,
-    getResources_resourceARNList,
-    getResourcesResponse_resourceTagMappingList,
-    getResourcesResponse_paginationToken,
-    getResourcesResponse_httpStatus,
+    -- ** GetTagKeys
+    getTagKeys_paginationToken,
+    getTagKeysResponse_paginationToken,
+    getTagKeysResponse_tagKeys,
+    getTagKeysResponse_httpStatus,
+
+    -- ** TagResources
+    tagResources_resourceARNList,
+    tagResources_tags,
+    tagResourcesResponse_failedResourcesMap,
+    tagResourcesResponse_httpStatus,
 
     -- ** GetTagValues
     getTagValues_paginationToken,
@@ -67,6 +50,23 @@ module Network.AWS.ResourceGroupsTagging.Lens
     getTagValuesResponse_paginationToken,
     getTagValuesResponse_tagValues,
     getTagValuesResponse_httpStatus,
+
+    -- ** StartReportCreation
+    startReportCreation_s3Bucket,
+    startReportCreationResponse_httpStatus,
+
+    -- ** GetResources
+    getResources_paginationToken,
+    getResources_resourcesPerPage,
+    getResources_excludeCompliantResources,
+    getResources_includeComplianceDetails,
+    getResources_resourceTypeFilters,
+    getResources_tagFilters,
+    getResources_resourceARNList,
+    getResources_tagsPerPage,
+    getResourcesResponse_paginationToken,
+    getResourcesResponse_resourceTagMappingList,
+    getResourcesResponse_httpStatus,
 
     -- ** UntagResources
     untagResources_resourceARNList,
@@ -77,26 +77,26 @@ module Network.AWS.ResourceGroupsTagging.Lens
     -- * Types
 
     -- ** ComplianceDetails
+    complianceDetails_keysWithNoncompliantValues,
     complianceDetails_complianceStatus,
     complianceDetails_noncompliantKeys,
-    complianceDetails_keysWithNoncompliantValues,
 
     -- ** FailureInfo
-    failureInfo_statusCode,
-    failureInfo_errorMessage,
     failureInfo_errorCode,
+    failureInfo_errorMessage,
+    failureInfo_statusCode,
 
     -- ** ResourceTagMapping
-    resourceTagMapping_resourceARN,
     resourceTagMapping_complianceDetails,
+    resourceTagMapping_resourceARN,
     resourceTagMapping_tags,
 
     -- ** Summary
     summary_targetId,
-    summary_resourceType,
     summary_lastUpdated,
-    summary_targetIdType,
+    summary_resourceType,
     summary_nonCompliantResources,
+    summary_targetIdType,
     summary_region,
 
     -- ** Tag
@@ -104,8 +104,8 @@ module Network.AWS.ResourceGroupsTagging.Lens
     tag_value,
 
     -- ** TagFilter
-    tagFilter_key,
     tagFilter_values,
+    tagFilter_key,
   )
 where
 

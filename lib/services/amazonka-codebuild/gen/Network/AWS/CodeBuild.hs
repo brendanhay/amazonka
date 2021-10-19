@@ -30,11 +30,11 @@ module Network.AWS.CodeBuild
     -- * Errors
     -- $errors
 
-    -- ** OAuthProviderException
-    _OAuthProviderException,
-
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
+
+    -- ** OAuthProviderException
+    _OAuthProviderException,
 
     -- ** AccountLimitExceededException
     _AccountLimitExceededException,
@@ -51,11 +51,47 @@ module Network.AWS.CodeBuild
     -- * Operations
     -- $operations
 
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
+
+    -- ** DeleteSourceCredentials
+    DeleteSourceCredentials (DeleteSourceCredentials'),
+    newDeleteSourceCredentials,
+    DeleteSourceCredentialsResponse (DeleteSourceCredentialsResponse'),
+    newDeleteSourceCredentialsResponse,
+
     -- ** ListBuilds (Paginated)
     ListBuilds (ListBuilds'),
     newListBuilds,
     ListBuildsResponse (ListBuildsResponse'),
     newListBuildsResponse,
+
+    -- ** ListSourceCredentials
+    ListSourceCredentials (ListSourceCredentials'),
+    newListSourceCredentials,
+    ListSourceCredentialsResponse (ListSourceCredentialsResponse'),
+    newListSourceCredentialsResponse,
+
+    -- ** ListReports (Paginated)
+    ListReports (ListReports'),
+    newListReports,
+    ListReportsResponse (ListReportsResponse'),
+    newListReportsResponse,
 
     -- ** DeleteReport
     DeleteReport (DeleteReport'),
@@ -63,89 +99,23 @@ module Network.AWS.CodeBuild
     DeleteReportResponse (DeleteReportResponse'),
     newDeleteReportResponse,
 
-    -- ** BatchGetReports
-    BatchGetReports (BatchGetReports'),
-    newBatchGetReports,
-    BatchGetReportsResponse (BatchGetReportsResponse'),
-    newBatchGetReportsResponse,
+    -- ** CreateWebhook
+    CreateWebhook (CreateWebhook'),
+    newCreateWebhook,
+    CreateWebhookResponse (CreateWebhookResponse'),
+    newCreateWebhookResponse,
 
-    -- ** GetResourcePolicy
-    GetResourcePolicy (GetResourcePolicy'),
-    newGetResourcePolicy,
-    GetResourcePolicyResponse (GetResourcePolicyResponse'),
-    newGetResourcePolicyResponse,
+    -- ** StopBuildBatch
+    StopBuildBatch (StopBuildBatch'),
+    newStopBuildBatch,
+    StopBuildBatchResponse (StopBuildBatchResponse'),
+    newStopBuildBatchResponse,
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
-
-    -- ** DescribeTestCases (Paginated)
-    DescribeTestCases (DescribeTestCases'),
-    newDescribeTestCases,
-    DescribeTestCasesResponse (DescribeTestCasesResponse'),
-    newDescribeTestCasesResponse,
-
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
-
-    -- ** ListBuildsForProject (Paginated)
-    ListBuildsForProject (ListBuildsForProject'),
-    newListBuildsForProject,
-    ListBuildsForProjectResponse (ListBuildsForProjectResponse'),
-    newListBuildsForProjectResponse,
-
-    -- ** ListBuildBatches (Paginated)
-    ListBuildBatches (ListBuildBatches'),
-    newListBuildBatches,
-    ListBuildBatchesResponse (ListBuildBatchesResponse'),
-    newListBuildBatchesResponse,
-
-    -- ** PutResourcePolicy
-    PutResourcePolicy (PutResourcePolicy'),
-    newPutResourcePolicy,
-    PutResourcePolicyResponse (PutResourcePolicyResponse'),
-    newPutResourcePolicyResponse,
-
-    -- ** DeleteBuildBatch
-    DeleteBuildBatch (DeleteBuildBatch'),
-    newDeleteBuildBatch,
-    DeleteBuildBatchResponse (DeleteBuildBatchResponse'),
-    newDeleteBuildBatchResponse,
-
-    -- ** UpdateReportGroup
-    UpdateReportGroup (UpdateReportGroup'),
-    newUpdateReportGroup,
-    UpdateReportGroupResponse (UpdateReportGroupResponse'),
-    newUpdateReportGroupResponse,
-
-    -- ** ListBuildBatchesForProject (Paginated)
-    ListBuildBatchesForProject (ListBuildBatchesForProject'),
-    newListBuildBatchesForProject,
-    ListBuildBatchesForProjectResponse (ListBuildBatchesForProjectResponse'),
-    newListBuildBatchesForProjectResponse,
-
-    -- ** BatchGetReportGroups
-    BatchGetReportGroups (BatchGetReportGroups'),
-    newBatchGetReportGroups,
-    BatchGetReportGroupsResponse (BatchGetReportGroupsResponse'),
-    newBatchGetReportGroupsResponse,
-
-    -- ** BatchDeleteBuilds
-    BatchDeleteBuilds (BatchDeleteBuilds'),
-    newBatchDeleteBuilds,
-    BatchDeleteBuildsResponse (BatchDeleteBuildsResponse'),
-    newBatchDeleteBuildsResponse,
-
-    -- ** DeleteReportGroup
-    DeleteReportGroup (DeleteReportGroup'),
-    newDeleteReportGroup,
-    DeleteReportGroupResponse (DeleteReportGroupResponse'),
-    newDeleteReportGroupResponse,
+    -- ** ListSharedProjects (Paginated)
+    ListSharedProjects (ListSharedProjects'),
+    newListSharedProjects,
+    ListSharedProjectsResponse (ListSharedProjectsResponse'),
+    newListSharedProjectsResponse,
 
     -- ** CreateReportGroup
     CreateReportGroup (CreateReportGroup'),
@@ -159,113 +129,29 @@ module Network.AWS.CodeBuild
     DescribeCodeCoveragesResponse (DescribeCodeCoveragesResponse'),
     newDescribeCodeCoveragesResponse,
 
-    -- ** StartBuildBatch
-    StartBuildBatch (StartBuildBatch'),
-    newStartBuildBatch,
-    StartBuildBatchResponse (StartBuildBatchResponse'),
-    newStartBuildBatchResponse,
+    -- ** ImportSourceCredentials
+    ImportSourceCredentials (ImportSourceCredentials'),
+    newImportSourceCredentials,
+    ImportSourceCredentialsResponse (ImportSourceCredentialsResponse'),
+    newImportSourceCredentialsResponse,
 
-    -- ** DeleteWebhook
-    DeleteWebhook (DeleteWebhook'),
-    newDeleteWebhook,
-    DeleteWebhookResponse (DeleteWebhookResponse'),
-    newDeleteWebhookResponse,
+    -- ** ListBuildBatchesForProject (Paginated)
+    ListBuildBatchesForProject (ListBuildBatchesForProject'),
+    newListBuildBatchesForProject,
+    ListBuildBatchesForProjectResponse (ListBuildBatchesForProjectResponse'),
+    newListBuildBatchesForProjectResponse,
 
-    -- ** UpdateProjectVisibility
-    UpdateProjectVisibility (UpdateProjectVisibility'),
-    newUpdateProjectVisibility,
-    UpdateProjectVisibilityResponse (UpdateProjectVisibilityResponse'),
-    newUpdateProjectVisibilityResponse,
+    -- ** BatchGetReportGroups
+    BatchGetReportGroups (BatchGetReportGroups'),
+    newBatchGetReportGroups,
+    BatchGetReportGroupsResponse (BatchGetReportGroupsResponse'),
+    newBatchGetReportGroupsResponse,
 
-    -- ** RetryBuildBatch
-    RetryBuildBatch (RetryBuildBatch'),
-    newRetryBuildBatch,
-    RetryBuildBatchResponse (RetryBuildBatchResponse'),
-    newRetryBuildBatchResponse,
-
-    -- ** StopBuildBatch
-    StopBuildBatch (StopBuildBatch'),
-    newStopBuildBatch,
-    StopBuildBatchResponse (StopBuildBatchResponse'),
-    newStopBuildBatchResponse,
-
-    -- ** UpdateWebhook
-    UpdateWebhook (UpdateWebhook'),
-    newUpdateWebhook,
-    UpdateWebhookResponse (UpdateWebhookResponse'),
-    newUpdateWebhookResponse,
-
-    -- ** BatchGetBuilds
-    BatchGetBuilds (BatchGetBuilds'),
-    newBatchGetBuilds,
-    BatchGetBuildsResponse (BatchGetBuildsResponse'),
-    newBatchGetBuildsResponse,
-
-    -- ** ListReports (Paginated)
-    ListReports (ListReports'),
-    newListReports,
-    ListReportsResponse (ListReportsResponse'),
-    newListReportsResponse,
-
-    -- ** CreateWebhook
-    CreateWebhook (CreateWebhook'),
-    newCreateWebhook,
-    CreateWebhookResponse (CreateWebhookResponse'),
-    newCreateWebhookResponse,
-
-    -- ** ListSourceCredentials
-    ListSourceCredentials (ListSourceCredentials'),
-    newListSourceCredentials,
-    ListSourceCredentialsResponse (ListSourceCredentialsResponse'),
-    newListSourceCredentialsResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** DeleteSourceCredentials
-    DeleteSourceCredentials (DeleteSourceCredentials'),
-    newDeleteSourceCredentials,
-    DeleteSourceCredentialsResponse (DeleteSourceCredentialsResponse'),
-    newDeleteSourceCredentialsResponse,
-
-    -- ** BatchGetProjects
-    BatchGetProjects (BatchGetProjects'),
-    newBatchGetProjects,
-    BatchGetProjectsResponse (BatchGetProjectsResponse'),
-    newBatchGetProjectsResponse,
-
-    -- ** ListSharedReportGroups (Paginated)
-    ListSharedReportGroups (ListSharedReportGroups'),
-    newListSharedReportGroups,
-    ListSharedReportGroupsResponse (ListSharedReportGroupsResponse'),
-    newListSharedReportGroupsResponse,
-
-    -- ** RetryBuild
-    RetryBuild (RetryBuild'),
-    newRetryBuild,
-    RetryBuildResponse (RetryBuildResponse'),
-    newRetryBuildResponse,
-
-    -- ** StopBuild
-    StopBuild (StopBuild'),
-    newStopBuild,
-    StopBuildResponse (StopBuildResponse'),
-    newStopBuildResponse,
-
-    -- ** BatchGetBuildBatches
-    BatchGetBuildBatches (BatchGetBuildBatches'),
-    newBatchGetBuildBatches,
-    BatchGetBuildBatchesResponse (BatchGetBuildBatchesResponse'),
-    newBatchGetBuildBatchesResponse,
+    -- ** DeleteBuildBatch
+    DeleteBuildBatch (DeleteBuildBatch'),
+    newDeleteBuildBatch,
+    DeleteBuildBatchResponse (DeleteBuildBatchResponse'),
+    newDeleteBuildBatchResponse,
 
     -- ** StartBuild
     StartBuild (StartBuild'),
@@ -273,11 +159,125 @@ module Network.AWS.CodeBuild
     StartBuildResponse (StartBuildResponse'),
     newStartBuildResponse,
 
-    -- ** GetReportGroupTrend
-    GetReportGroupTrend (GetReportGroupTrend'),
-    newGetReportGroupTrend,
-    GetReportGroupTrendResponse (GetReportGroupTrendResponse'),
-    newGetReportGroupTrendResponse,
+    -- ** BatchGetBuildBatches
+    BatchGetBuildBatches (BatchGetBuildBatches'),
+    newBatchGetBuildBatches,
+    BatchGetBuildBatchesResponse (BatchGetBuildBatchesResponse'),
+    newBatchGetBuildBatchesResponse,
+
+    -- ** RetryBuild
+    RetryBuild (RetryBuild'),
+    newRetryBuild,
+    RetryBuildResponse (RetryBuildResponse'),
+    newRetryBuildResponse,
+
+    -- ** ListBuildsForProject (Paginated)
+    ListBuildsForProject (ListBuildsForProject'),
+    newListBuildsForProject,
+    ListBuildsForProjectResponse (ListBuildsForProjectResponse'),
+    newListBuildsForProjectResponse,
+
+    -- ** DescribeTestCases (Paginated)
+    DescribeTestCases (DescribeTestCases'),
+    newDescribeTestCases,
+    DescribeTestCasesResponse (DescribeTestCasesResponse'),
+    newDescribeTestCasesResponse,
+
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
+
+    -- ** BatchGetProjects
+    BatchGetProjects (BatchGetProjects'),
+    newBatchGetProjects,
+    BatchGetProjectsResponse (BatchGetProjectsResponse'),
+    newBatchGetProjectsResponse,
+
+    -- ** BatchGetBuilds
+    BatchGetBuilds (BatchGetBuilds'),
+    newBatchGetBuilds,
+    BatchGetBuildsResponse (BatchGetBuildsResponse'),
+    newBatchGetBuildsResponse,
+
+    -- ** BatchGetReports
+    BatchGetReports (BatchGetReports'),
+    newBatchGetReports,
+    BatchGetReportsResponse (BatchGetReportsResponse'),
+    newBatchGetReportsResponse,
+
+    -- ** UpdateWebhook
+    UpdateWebhook (UpdateWebhook'),
+    newUpdateWebhook,
+    UpdateWebhookResponse (UpdateWebhookResponse'),
+    newUpdateWebhookResponse,
+
+    -- ** DeleteWebhook
+    DeleteWebhook (DeleteWebhook'),
+    newDeleteWebhook,
+    DeleteWebhookResponse (DeleteWebhookResponse'),
+    newDeleteWebhookResponse,
+
+    -- ** StartBuildBatch
+    StartBuildBatch (StartBuildBatch'),
+    newStartBuildBatch,
+    StartBuildBatchResponse (StartBuildBatchResponse'),
+    newStartBuildBatchResponse,
+
+    -- ** RetryBuildBatch
+    RetryBuildBatch (RetryBuildBatch'),
+    newRetryBuildBatch,
+    RetryBuildBatchResponse (RetryBuildBatchResponse'),
+    newRetryBuildBatchResponse,
+
+    -- ** UpdateProjectVisibility
+    UpdateProjectVisibility (UpdateProjectVisibility'),
+    newUpdateProjectVisibility,
+    UpdateProjectVisibilityResponse (UpdateProjectVisibilityResponse'),
+    newUpdateProjectVisibilityResponse,
+
+    -- ** ListReportsForReportGroup (Paginated)
+    ListReportsForReportGroup (ListReportsForReportGroup'),
+    newListReportsForReportGroup,
+    ListReportsForReportGroupResponse (ListReportsForReportGroupResponse'),
+    newListReportsForReportGroupResponse,
+
+    -- ** InvalidateProjectCache
+    InvalidateProjectCache (InvalidateProjectCache'),
+    newInvalidateProjectCache,
+    InvalidateProjectCacheResponse (InvalidateProjectCacheResponse'),
+    newInvalidateProjectCacheResponse,
+
+    -- ** UpdateReportGroup
+    UpdateReportGroup (UpdateReportGroup'),
+    newUpdateReportGroup,
+    UpdateReportGroupResponse (UpdateReportGroupResponse'),
+    newUpdateReportGroupResponse,
+
+    -- ** DeleteReportGroup
+    DeleteReportGroup (DeleteReportGroup'),
+    newDeleteReportGroup,
+    DeleteReportGroupResponse (DeleteReportGroupResponse'),
+    newDeleteReportGroupResponse,
+
+    -- ** BatchDeleteBuilds
+    BatchDeleteBuilds (BatchDeleteBuilds'),
+    newBatchDeleteBuilds,
+    BatchDeleteBuildsResponse (BatchDeleteBuildsResponse'),
+    newBatchDeleteBuildsResponse,
+
+    -- ** ListReportGroups (Paginated)
+    ListReportGroups (ListReportGroups'),
+    newListReportGroups,
+    ListReportGroupsResponse (ListReportGroupsResponse'),
+    newListReportGroupsResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** DeleteResourcePolicy
     DeleteResourcePolicy (DeleteResourcePolicy'),
@@ -291,35 +291,35 @@ module Network.AWS.CodeBuild
     ListCuratedEnvironmentImagesResponse (ListCuratedEnvironmentImagesResponse'),
     newListCuratedEnvironmentImagesResponse,
 
-    -- ** ListReportGroups (Paginated)
-    ListReportGroups (ListReportGroups'),
-    newListReportGroups,
-    ListReportGroupsResponse (ListReportGroupsResponse'),
-    newListReportGroupsResponse,
+    -- ** GetReportGroupTrend
+    GetReportGroupTrend (GetReportGroupTrend'),
+    newGetReportGroupTrend,
+    GetReportGroupTrendResponse (GetReportGroupTrendResponse'),
+    newGetReportGroupTrendResponse,
 
-    -- ** InvalidateProjectCache
-    InvalidateProjectCache (InvalidateProjectCache'),
-    newInvalidateProjectCache,
-    InvalidateProjectCacheResponse (InvalidateProjectCacheResponse'),
-    newInvalidateProjectCacheResponse,
+    -- ** StopBuild
+    StopBuild (StopBuild'),
+    newStopBuild,
+    StopBuildResponse (StopBuildResponse'),
+    newStopBuildResponse,
 
-    -- ** ImportSourceCredentials
-    ImportSourceCredentials (ImportSourceCredentials'),
-    newImportSourceCredentials,
-    ImportSourceCredentialsResponse (ImportSourceCredentialsResponse'),
-    newImportSourceCredentialsResponse,
+    -- ** ListBuildBatches (Paginated)
+    ListBuildBatches (ListBuildBatches'),
+    newListBuildBatches,
+    ListBuildBatchesResponse (ListBuildBatchesResponse'),
+    newListBuildBatchesResponse,
 
-    -- ** ListReportsForReportGroup (Paginated)
-    ListReportsForReportGroup (ListReportsForReportGroup'),
-    newListReportsForReportGroup,
-    ListReportsForReportGroupResponse (ListReportsForReportGroupResponse'),
-    newListReportsForReportGroupResponse,
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
-    -- ** ListSharedProjects (Paginated)
-    ListSharedProjects (ListSharedProjects'),
-    newListSharedProjects,
-    ListSharedProjectsResponse (ListSharedProjectsResponse'),
-    newListSharedProjectsResponse,
+    -- ** ListSharedReportGroups (Paginated)
+    ListSharedReportGroups (ListSharedReportGroups'),
+    newListSharedReportGroups,
+    ListSharedReportGroupsResponse (ListSharedReportGroupsResponse'),
+    newListSharedReportGroupsResponse,
 
     -- * Types
 
@@ -334,6 +334,9 @@ module Network.AWS.CodeBuild
 
     -- ** AuthType
     AuthType (..),
+
+    -- ** BatchReportModeType
+    BatchReportModeType (..),
 
     -- ** BucketOwnerAccess
     BucketOwnerAccess (..),

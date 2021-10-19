@@ -31,8 +31,8 @@ module Network.AWS.ElastiCache.DecreaseReplicaCount
 
     -- * Request Lenses
     decreaseReplicaCount_newReplicaCount,
-    decreaseReplicaCount_replicasToRemove,
     decreaseReplicaCount_replicaConfiguration,
+    decreaseReplicaCount_replicasToRemove,
     decreaseReplicaCount_replicationGroupId,
     decreaseReplicaCount_applyImmediately,
 
@@ -72,14 +72,14 @@ data DecreaseReplicaCount = DecreaseReplicaCount'
     -- -   Redis (cluster mode enabled): 0 (though you will not be able to
     --     failover to a replica if your primary node fails)
     newReplicaCount' :: Prelude.Maybe Prelude.Int,
-    -- | A list of the node ids to remove from the replication group or node
-    -- group (shard).
-    replicasToRemove :: Prelude.Maybe [Prelude.Text],
     -- | A list of @ConfigureShard@ objects that can be used to configure each
     -- shard in a Redis (cluster mode enabled) replication group. The
     -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
     -- and @PreferredAvailabilityZones@.
     replicaConfiguration :: Prelude.Maybe [ConfigureShard],
+    -- | A list of the node ids to remove from the replication group or node
+    -- group (shard).
+    replicasToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The id of the replication group from which you want to remove replica
     -- nodes.
     replicationGroupId :: Prelude.Text,
@@ -114,13 +114,13 @@ data DecreaseReplicaCount = DecreaseReplicaCount'
 -- -   Redis (cluster mode enabled): 0 (though you will not be able to
 --     failover to a replica if your primary node fails)
 --
--- 'replicasToRemove', 'decreaseReplicaCount_replicasToRemove' - A list of the node ids to remove from the replication group or node
--- group (shard).
---
 -- 'replicaConfiguration', 'decreaseReplicaCount_replicaConfiguration' - A list of @ConfigureShard@ objects that can be used to configure each
 -- shard in a Redis (cluster mode enabled) replication group. The
 -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
 -- and @PreferredAvailabilityZones@.
+--
+-- 'replicasToRemove', 'decreaseReplicaCount_replicasToRemove' - A list of the node ids to remove from the replication group or node
+-- group (shard).
 --
 -- 'replicationGroupId', 'decreaseReplicaCount_replicationGroupId' - The id of the replication group from which you want to remove replica
 -- nodes.
@@ -139,8 +139,8 @@ newDecreaseReplicaCount
     DecreaseReplicaCount'
       { newReplicaCount' =
           Prelude.Nothing,
-        replicasToRemove = Prelude.Nothing,
         replicaConfiguration = Prelude.Nothing,
+        replicasToRemove = Prelude.Nothing,
         replicationGroupId = pReplicationGroupId_,
         applyImmediately = pApplyImmediately_
       }
@@ -164,17 +164,17 @@ newDecreaseReplicaCount
 decreaseReplicaCount_newReplicaCount :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe Prelude.Int)
 decreaseReplicaCount_newReplicaCount = Lens.lens (\DecreaseReplicaCount' {newReplicaCount'} -> newReplicaCount') (\s@DecreaseReplicaCount' {} a -> s {newReplicaCount' = a} :: DecreaseReplicaCount)
 
--- | A list of the node ids to remove from the replication group or node
--- group (shard).
-decreaseReplicaCount_replicasToRemove :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe [Prelude.Text])
-decreaseReplicaCount_replicasToRemove = Lens.lens (\DecreaseReplicaCount' {replicasToRemove} -> replicasToRemove) (\s@DecreaseReplicaCount' {} a -> s {replicasToRemove = a} :: DecreaseReplicaCount) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of @ConfigureShard@ objects that can be used to configure each
 -- shard in a Redis (cluster mode enabled) replication group. The
 -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
 -- and @PreferredAvailabilityZones@.
 decreaseReplicaCount_replicaConfiguration :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe [ConfigureShard])
-decreaseReplicaCount_replicaConfiguration = Lens.lens (\DecreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@DecreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: DecreaseReplicaCount) Prelude.. Lens.mapping Lens._Coerce
+decreaseReplicaCount_replicaConfiguration = Lens.lens (\DecreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@DecreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: DecreaseReplicaCount) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the node ids to remove from the replication group or node
+-- group (shard).
+decreaseReplicaCount_replicasToRemove :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe [Prelude.Text])
+decreaseReplicaCount_replicasToRemove = Lens.lens (\DecreaseReplicaCount' {replicasToRemove} -> replicasToRemove) (\s@DecreaseReplicaCount' {} a -> s {replicasToRemove = a} :: DecreaseReplicaCount) Prelude.. Lens.mapping Lens.coerced
 
 -- | The id of the replication group from which you want to remove replica
 -- nodes.
@@ -218,15 +218,15 @@ instance Core.ToQuery DecreaseReplicaCount where
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "NewReplicaCount" Core.=: newReplicaCount',
-        "ReplicasToRemove"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> replicasToRemove
-            ),
         "ReplicaConfiguration"
           Core.=: Core.toQuery
             ( Core.toQueryList "ConfigureShard"
                 Prelude.<$> replicaConfiguration
+            ),
+        "ReplicasToRemove"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> replicasToRemove
             ),
         "ReplicationGroupId" Core.=: replicationGroupId,
         "ApplyImmediately" Core.=: applyImmediately

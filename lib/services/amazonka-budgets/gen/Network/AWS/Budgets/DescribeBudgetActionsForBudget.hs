@@ -236,7 +236,7 @@ describeBudgetActionsForBudgetResponse_httpStatus = Lens.lens (\DescribeBudgetAc
 
 -- | A list of the budget action resources information.
 describeBudgetActionsForBudgetResponse_actions :: Lens.Lens' DescribeBudgetActionsForBudgetResponse [Action]
-describeBudgetActionsForBudgetResponse_actions = Lens.lens (\DescribeBudgetActionsForBudgetResponse' {actions} -> actions) (\s@DescribeBudgetActionsForBudgetResponse' {} a -> s {actions = a} :: DescribeBudgetActionsForBudgetResponse) Prelude.. Lens._Coerce
+describeBudgetActionsForBudgetResponse_actions = Lens.lens (\DescribeBudgetActionsForBudgetResponse' {actions} -> actions) (\s@DescribeBudgetActionsForBudgetResponse' {} a -> s {actions = a} :: DescribeBudgetActionsForBudgetResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

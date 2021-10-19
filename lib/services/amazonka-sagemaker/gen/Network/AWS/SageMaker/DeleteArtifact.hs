@@ -27,8 +27,8 @@ module Network.AWS.SageMaker.DeleteArtifact
     newDeleteArtifact,
 
     -- * Request Lenses
-    deleteArtifact_artifactArn,
     deleteArtifact_source,
+    deleteArtifact_artifactArn,
 
     -- * Destructuring the Response
     DeleteArtifactResponse (..),
@@ -49,10 +49,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newDeleteArtifact' smart constructor.
 data DeleteArtifact = DeleteArtifact'
-  { -- | The Amazon Resource Name (ARN) of the artifact to delete.
-    artifactArn :: Prelude.Maybe Prelude.Text,
-    -- | The URI of the source.
-    source :: Prelude.Maybe ArtifactSource
+  { -- | The URI of the source.
+    source :: Prelude.Maybe ArtifactSource,
+    -- | The Amazon Resource Name (ARN) of the artifact to delete.
+    artifactArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,24 +64,24 @@ data DeleteArtifact = DeleteArtifact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'artifactArn', 'deleteArtifact_artifactArn' - The Amazon Resource Name (ARN) of the artifact to delete.
---
 -- 'source', 'deleteArtifact_source' - The URI of the source.
+--
+-- 'artifactArn', 'deleteArtifact_artifactArn' - The Amazon Resource Name (ARN) of the artifact to delete.
 newDeleteArtifact ::
   DeleteArtifact
 newDeleteArtifact =
   DeleteArtifact'
-    { artifactArn = Prelude.Nothing,
-      source = Prelude.Nothing
+    { source = Prelude.Nothing,
+      artifactArn = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the artifact to delete.
-deleteArtifact_artifactArn :: Lens.Lens' DeleteArtifact (Prelude.Maybe Prelude.Text)
-deleteArtifact_artifactArn = Lens.lens (\DeleteArtifact' {artifactArn} -> artifactArn) (\s@DeleteArtifact' {} a -> s {artifactArn = a} :: DeleteArtifact)
 
 -- | The URI of the source.
 deleteArtifact_source :: Lens.Lens' DeleteArtifact (Prelude.Maybe ArtifactSource)
 deleteArtifact_source = Lens.lens (\DeleteArtifact' {source} -> source) (\s@DeleteArtifact' {} a -> s {source = a} :: DeleteArtifact)
+
+-- | The Amazon Resource Name (ARN) of the artifact to delete.
+deleteArtifact_artifactArn :: Lens.Lens' DeleteArtifact (Prelude.Maybe Prelude.Text)
+deleteArtifact_artifactArn = Lens.lens (\DeleteArtifact' {artifactArn} -> artifactArn) (\s@DeleteArtifact' {} a -> s {artifactArn = a} :: DeleteArtifact)
 
 instance Core.AWSRequest DeleteArtifact where
   type
@@ -117,8 +117,8 @@ instance Core.ToJSON DeleteArtifact where
   toJSON DeleteArtifact' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ArtifactArn" Core..=) Prelude.<$> artifactArn,
-            ("Source" Core..=) Prelude.<$> source
+          [ ("Source" Core..=) Prelude.<$> source,
+            ("ArtifactArn" Core..=) Prelude.<$> artifactArn
           ]
       )
 

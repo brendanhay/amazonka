@@ -42,8 +42,8 @@ module Network.AWS.MechanicalTurk.ListHITsForQualificationType
 
     -- * Response Lenses
     listHITsForQualificationTypeResponse_nextToken,
-    listHITsForQualificationTypeResponse_hITs,
     listHITsForQualificationTypeResponse_numResults,
+    listHITsForQualificationTypeResponse_hITs,
     listHITsForQualificationTypeResponse_httpStatus,
   )
 where
@@ -135,8 +135,8 @@ instance Core.AWSRequest ListHITsForQualificationType where
       ( \s h x ->
           ListHITsForQualificationTypeResponse'
             Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "NumResults")
+            Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,11 +181,11 @@ instance Core.ToQuery ListHITsForQualificationType where
 -- | /See:/ 'newListHITsForQualificationTypeResponse' smart constructor.
 data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of HIT elements returned by the query.
-    hITs :: Prelude.Maybe [HIT],
     -- | The number of HITs on this page in the filtered results list, equivalent
     -- to the number of HITs being returned by this call.
     numResults :: Prelude.Maybe Prelude.Int,
+    -- | The list of HIT elements returned by the query.
+    hITs :: Prelude.Maybe [HIT],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,10 +201,10 @@ data ListHITsForQualificationTypeResponse = ListHITsForQualificationTypeResponse
 --
 -- 'nextToken', 'listHITsForQualificationTypeResponse_nextToken' - Undocumented member.
 --
--- 'hITs', 'listHITsForQualificationTypeResponse_hITs' - The list of HIT elements returned by the query.
---
 -- 'numResults', 'listHITsForQualificationTypeResponse_numResults' - The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
+--
+-- 'hITs', 'listHITsForQualificationTypeResponse_hITs' - The list of HIT elements returned by the query.
 --
 -- 'httpStatus', 'listHITsForQualificationTypeResponse_httpStatus' - The response's http status code.
 newListHITsForQualificationTypeResponse ::
@@ -215,8 +215,8 @@ newListHITsForQualificationTypeResponse pHttpStatus_ =
   ListHITsForQualificationTypeResponse'
     { nextToken =
         Prelude.Nothing,
-      hITs = Prelude.Nothing,
       numResults = Prelude.Nothing,
+      hITs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -224,14 +224,14 @@ newListHITsForQualificationTypeResponse pHttpStatus_ =
 listHITsForQualificationTypeResponse_nextToken :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe Prelude.Text)
 listHITsForQualificationTypeResponse_nextToken = Lens.lens (\ListHITsForQualificationTypeResponse' {nextToken} -> nextToken) (\s@ListHITsForQualificationTypeResponse' {} a -> s {nextToken = a} :: ListHITsForQualificationTypeResponse)
 
--- | The list of HIT elements returned by the query.
-listHITsForQualificationTypeResponse_hITs :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe [HIT])
-listHITsForQualificationTypeResponse_hITs = Lens.lens (\ListHITsForQualificationTypeResponse' {hITs} -> hITs) (\s@ListHITsForQualificationTypeResponse' {} a -> s {hITs = a} :: ListHITsForQualificationTypeResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
 listHITsForQualificationTypeResponse_numResults :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe Prelude.Int)
 listHITsForQualificationTypeResponse_numResults = Lens.lens (\ListHITsForQualificationTypeResponse' {numResults} -> numResults) (\s@ListHITsForQualificationTypeResponse' {} a -> s {numResults = a} :: ListHITsForQualificationTypeResponse)
+
+-- | The list of HIT elements returned by the query.
+listHITsForQualificationTypeResponse_hITs :: Lens.Lens' ListHITsForQualificationTypeResponse (Prelude.Maybe [HIT])
+listHITsForQualificationTypeResponse_hITs = Lens.lens (\ListHITsForQualificationTypeResponse' {hITs} -> hITs) (\s@ListHITsForQualificationTypeResponse' {} a -> s {hITs = a} :: ListHITsForQualificationTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listHITsForQualificationTypeResponse_httpStatus :: Lens.Lens' ListHITsForQualificationTypeResponse Prelude.Int

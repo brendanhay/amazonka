@@ -46,20 +46,20 @@ module Network.AWS.Pricing
     -- * Errors
     -- $errors
 
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
     -- ** ExpiredNextTokenException
     _ExpiredNextTokenException,
 
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** InternalErrorException
-    _InternalErrorException,
-
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
 
     -- * Waiters
     -- $waiters
@@ -67,11 +67,11 @@ module Network.AWS.Pricing
     -- * Operations
     -- $operations
 
-    -- ** GetProducts (Paginated)
-    GetProducts (GetProducts'),
-    newGetProducts,
-    GetProductsResponse (GetProductsResponse'),
-    newGetProductsResponse,
+    -- ** GetAttributeValues (Paginated)
+    GetAttributeValues (GetAttributeValues'),
+    newGetAttributeValues,
+    GetAttributeValuesResponse (GetAttributeValuesResponse'),
+    newGetAttributeValuesResponse,
 
     -- ** DescribeServices (Paginated)
     DescribeServices (DescribeServices'),
@@ -79,11 +79,11 @@ module Network.AWS.Pricing
     DescribeServicesResponse (DescribeServicesResponse'),
     newDescribeServicesResponse,
 
-    -- ** GetAttributeValues (Paginated)
-    GetAttributeValues (GetAttributeValues'),
-    newGetAttributeValues,
-    GetAttributeValuesResponse (GetAttributeValuesResponse'),
-    newGetAttributeValuesResponse,
+    -- ** GetProducts (Paginated)
+    GetProducts (GetProducts'),
+    newGetProducts,
+    GetProductsResponse (GetProductsResponse'),
+    newGetProductsResponse,
 
     -- * Types
 

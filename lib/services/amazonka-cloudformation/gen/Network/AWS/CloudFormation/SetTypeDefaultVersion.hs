@@ -28,9 +28,9 @@ module Network.AWS.CloudFormation.SetTypeDefaultVersion
     newSetTypeDefaultVersion,
 
     -- * Request Lenses
+    setTypeDefaultVersion_versionId,
     setTypeDefaultVersion_typeName,
     setTypeDefaultVersion_arn,
-    setTypeDefaultVersion_versionId,
     setTypeDefaultVersion_type,
 
     -- * Destructuring the Response
@@ -51,7 +51,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetTypeDefaultVersion' smart constructor.
 data SetTypeDefaultVersion = SetTypeDefaultVersion'
-  { -- | The name of the extension.
+  { -- | The ID of a specific version of the extension. The version ID is the
+    -- value at the end of the Amazon Resource Name (ARN) assigned to the
+    -- extension version when it is registered.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
     typeName :: Prelude.Maybe Prelude.Text,
@@ -60,10 +64,6 @@ data SetTypeDefaultVersion = SetTypeDefaultVersion'
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a specific version of the extension. The version ID is the
-    -- value at the end of the Amazon Resource Name (ARN) assigned to the
-    -- extension version when it is registered.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The kind of extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
@@ -79,6 +79,10 @@ data SetTypeDefaultVersion = SetTypeDefaultVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versionId', 'setTypeDefaultVersion_versionId' - The ID of a specific version of the extension. The version ID is the
+-- value at the end of the Amazon Resource Name (ARN) assigned to the
+-- extension version when it is registered.
+--
 -- 'typeName', 'setTypeDefaultVersion_typeName' - The name of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
@@ -88,10 +92,6 @@ data SetTypeDefaultVersion = SetTypeDefaultVersion'
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 --
--- 'versionId', 'setTypeDefaultVersion_versionId' - The ID of a specific version of the extension. The version ID is the
--- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
---
 -- 'type'', 'setTypeDefaultVersion_type' - The kind of extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
@@ -99,11 +99,17 @@ newSetTypeDefaultVersion ::
   SetTypeDefaultVersion
 newSetTypeDefaultVersion =
   SetTypeDefaultVersion'
-    { typeName = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
+      typeName = Prelude.Nothing,
       arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       type' = Prelude.Nothing
     }
+
+-- | The ID of a specific version of the extension. The version ID is the
+-- value at the end of the Amazon Resource Name (ARN) assigned to the
+-- extension version when it is registered.
+setTypeDefaultVersion_versionId :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe Prelude.Text)
+setTypeDefaultVersion_versionId = Lens.lens (\SetTypeDefaultVersion' {versionId} -> versionId) (\s@SetTypeDefaultVersion' {} a -> s {versionId = a} :: SetTypeDefaultVersion)
 
 -- | The name of the extension.
 --
@@ -117,12 +123,6 @@ setTypeDefaultVersion_typeName = Lens.lens (\SetTypeDefaultVersion' {typeName} -
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
 setTypeDefaultVersion_arn :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe Prelude.Text)
 setTypeDefaultVersion_arn = Lens.lens (\SetTypeDefaultVersion' {arn} -> arn) (\s@SetTypeDefaultVersion' {} a -> s {arn = a} :: SetTypeDefaultVersion)
-
--- | The ID of a specific version of the extension. The version ID is the
--- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
-setTypeDefaultVersion_versionId :: Lens.Lens' SetTypeDefaultVersion (Prelude.Maybe Prelude.Text)
-setTypeDefaultVersion_versionId = Lens.lens (\SetTypeDefaultVersion' {versionId} -> versionId) (\s@SetTypeDefaultVersion' {} a -> s {versionId = a} :: SetTypeDefaultVersion)
 
 -- | The kind of extension.
 --
@@ -160,9 +160,9 @@ instance Core.ToQuery SetTypeDefaultVersion where
           Core.=: ("SetTypeDefaultVersion" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
+        "VersionId" Core.=: versionId,
         "TypeName" Core.=: typeName,
         "Arn" Core.=: arn,
-        "VersionId" Core.=: versionId,
         "Type" Core.=: type'
       ]
 

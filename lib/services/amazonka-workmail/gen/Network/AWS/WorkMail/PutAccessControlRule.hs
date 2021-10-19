@@ -30,12 +30,12 @@ module Network.AWS.WorkMail.PutAccessControlRule
     newPutAccessControlRule,
 
     -- * Request Lenses
-    putAccessControlRule_notIpRanges,
-    putAccessControlRule_actions,
-    putAccessControlRule_ipRanges,
     putAccessControlRule_userIds,
-    putAccessControlRule_notActions,
+    putAccessControlRule_actions,
     putAccessControlRule_notUserIds,
+    putAccessControlRule_ipRanges,
+    putAccessControlRule_notIpRanges,
+    putAccessControlRule_notActions,
     putAccessControlRule_name,
     putAccessControlRule_effect,
     putAccessControlRule_description,
@@ -59,22 +59,22 @@ import Network.AWS.WorkMail.Types
 
 -- | /See:/ 'newPutAccessControlRule' smart constructor.
 data PutAccessControlRule = PutAccessControlRule'
-  { -- | IPv4 CIDR ranges to exclude from the rule.
-    notIpRanges :: Prelude.Maybe [Prelude.Text],
+  { -- | User IDs to include in the rule.
+    userIds :: Prelude.Maybe [Prelude.Text],
     -- | Access protocol actions to include in the rule. Valid values include
     -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
     -- and @WebMail@.
     actions :: Prelude.Maybe [Prelude.Text],
+    -- | User IDs to exclude from the rule.
+    notUserIds :: Prelude.Maybe [Prelude.Text],
     -- | IPv4 CIDR ranges to include in the rule.
     ipRanges :: Prelude.Maybe [Prelude.Text],
-    -- | User IDs to include in the rule.
-    userIds :: Prelude.Maybe [Prelude.Text],
+    -- | IPv4 CIDR ranges to exclude from the rule.
+    notIpRanges :: Prelude.Maybe [Prelude.Text],
     -- | Access protocol actions to exclude from the rule. Valid values include
     -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
     -- and @WebMail@.
     notActions :: Prelude.Maybe [Prelude.Text],
-    -- | User IDs to exclude from the rule.
-    notUserIds :: Prelude.Maybe [Prelude.Text],
     -- | The rule name.
     name :: Prelude.Text,
     -- | The rule effect.
@@ -94,21 +94,21 @@ data PutAccessControlRule = PutAccessControlRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notIpRanges', 'putAccessControlRule_notIpRanges' - IPv4 CIDR ranges to exclude from the rule.
+-- 'userIds', 'putAccessControlRule_userIds' - User IDs to include in the rule.
 --
 -- 'actions', 'putAccessControlRule_actions' - Access protocol actions to include in the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
 --
+-- 'notUserIds', 'putAccessControlRule_notUserIds' - User IDs to exclude from the rule.
+--
 -- 'ipRanges', 'putAccessControlRule_ipRanges' - IPv4 CIDR ranges to include in the rule.
 --
--- 'userIds', 'putAccessControlRule_userIds' - User IDs to include in the rule.
+-- 'notIpRanges', 'putAccessControlRule_notIpRanges' - IPv4 CIDR ranges to exclude from the rule.
 --
 -- 'notActions', 'putAccessControlRule_notActions' - Access protocol actions to exclude from the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
---
--- 'notUserIds', 'putAccessControlRule_notUserIds' - User IDs to exclude from the rule.
 --
 -- 'name', 'putAccessControlRule_name' - The rule name.
 --
@@ -133,46 +133,45 @@ newPutAccessControlRule
   pDescription_
   pOrganizationId_ =
     PutAccessControlRule'
-      { notIpRanges =
-          Prelude.Nothing,
+      { userIds = Prelude.Nothing,
         actions = Prelude.Nothing,
-        ipRanges = Prelude.Nothing,
-        userIds = Prelude.Nothing,
-        notActions = Prelude.Nothing,
         notUserIds = Prelude.Nothing,
+        ipRanges = Prelude.Nothing,
+        notIpRanges = Prelude.Nothing,
+        notActions = Prelude.Nothing,
         name = pName_,
         effect = pEffect_,
         description = pDescription_,
         organizationId = pOrganizationId_
       }
 
--- | IPv4 CIDR ranges to exclude from the rule.
-putAccessControlRule_notIpRanges :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_notIpRanges = Lens.lens (\PutAccessControlRule' {notIpRanges} -> notIpRanges) (\s@PutAccessControlRule' {} a -> s {notIpRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens._Coerce
+-- | User IDs to include in the rule.
+putAccessControlRule_userIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
+putAccessControlRule_userIds = Lens.lens (\PutAccessControlRule' {userIds} -> userIds) (\s@PutAccessControlRule' {} a -> s {userIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | Access protocol actions to include in the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
 putAccessControlRule_actions :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_actions = Lens.lens (\PutAccessControlRule' {actions} -> actions) (\s@PutAccessControlRule' {} a -> s {actions = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens._Coerce
+putAccessControlRule_actions = Lens.lens (\PutAccessControlRule' {actions} -> actions) (\s@PutAccessControlRule' {} a -> s {actions = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
+
+-- | User IDs to exclude from the rule.
+putAccessControlRule_notUserIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
+putAccessControlRule_notUserIds = Lens.lens (\PutAccessControlRule' {notUserIds} -> notUserIds) (\s@PutAccessControlRule' {} a -> s {notUserIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | IPv4 CIDR ranges to include in the rule.
 putAccessControlRule_ipRanges :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_ipRanges = Lens.lens (\PutAccessControlRule' {ipRanges} -> ipRanges) (\s@PutAccessControlRule' {} a -> s {ipRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens._Coerce
+putAccessControlRule_ipRanges = Lens.lens (\PutAccessControlRule' {ipRanges} -> ipRanges) (\s@PutAccessControlRule' {} a -> s {ipRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
--- | User IDs to include in the rule.
-putAccessControlRule_userIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_userIds = Lens.lens (\PutAccessControlRule' {userIds} -> userIds) (\s@PutAccessControlRule' {} a -> s {userIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens._Coerce
+-- | IPv4 CIDR ranges to exclude from the rule.
+putAccessControlRule_notIpRanges :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
+putAccessControlRule_notIpRanges = Lens.lens (\PutAccessControlRule' {notIpRanges} -> notIpRanges) (\s@PutAccessControlRule' {} a -> s {notIpRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | Access protocol actions to exclude from the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
 putAccessControlRule_notActions :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_notActions = Lens.lens (\PutAccessControlRule' {notActions} -> notActions) (\s@PutAccessControlRule' {} a -> s {notActions = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens._Coerce
-
--- | User IDs to exclude from the rule.
-putAccessControlRule_notUserIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_notUserIds = Lens.lens (\PutAccessControlRule' {notUserIds} -> notUserIds) (\s@PutAccessControlRule' {} a -> s {notUserIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens._Coerce
+putAccessControlRule_notActions = Lens.lens (\PutAccessControlRule' {notActions} -> notActions) (\s@PutAccessControlRule' {} a -> s {notActions = a} :: PutAccessControlRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The rule name.
 putAccessControlRule_name :: Lens.Lens' PutAccessControlRule Prelude.Text
@@ -225,12 +224,12 @@ instance Core.ToJSON PutAccessControlRule where
   toJSON PutAccessControlRule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotIpRanges" Core..=) Prelude.<$> notIpRanges,
+          [ ("UserIds" Core..=) Prelude.<$> userIds,
             ("Actions" Core..=) Prelude.<$> actions,
-            ("IpRanges" Core..=) Prelude.<$> ipRanges,
-            ("UserIds" Core..=) Prelude.<$> userIds,
-            ("NotActions" Core..=) Prelude.<$> notActions,
             ("NotUserIds" Core..=) Prelude.<$> notUserIds,
+            ("IpRanges" Core..=) Prelude.<$> ipRanges,
+            ("NotIpRanges" Core..=) Prelude.<$> notIpRanges,
+            ("NotActions" Core..=) Prelude.<$> notActions,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Effect" Core..= effect),
             Prelude.Just ("Description" Core..= description),

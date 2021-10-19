@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data GatewaySummary = GatewaySummary'
   { -- | The ARN of the gateway.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the gateway group that the gateway is associated to.
-    gatewayGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the gateway.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the gateway.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the gateway group that the gateway is associated to.
+    gatewayGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The software version of the gateway. The gateway automatically updates
     -- its software version during normal operation.
-    softwareVersion :: Prelude.Maybe Prelude.Text
+    softwareVersion :: Prelude.Maybe Prelude.Text,
+    -- | The description of the gateway.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,45 +51,45 @@ data GatewaySummary = GatewaySummary'
 --
 -- 'arn', 'gatewaySummary_arn' - The ARN of the gateway.
 --
--- 'gatewayGroupArn', 'gatewaySummary_gatewayGroupArn' - The ARN of the gateway group that the gateway is associated to.
---
 -- 'name', 'gatewaySummary_name' - The name of the gateway.
 --
--- 'description', 'gatewaySummary_description' - The description of the gateway.
+-- 'gatewayGroupArn', 'gatewaySummary_gatewayGroupArn' - The ARN of the gateway group that the gateway is associated to.
 --
 -- 'softwareVersion', 'gatewaySummary_softwareVersion' - The software version of the gateway. The gateway automatically updates
 -- its software version during normal operation.
+--
+-- 'description', 'gatewaySummary_description' - The description of the gateway.
 newGatewaySummary ::
   GatewaySummary
 newGatewaySummary =
   GatewaySummary'
     { arn = Prelude.Nothing,
-      gatewayGroupArn = Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      softwareVersion = Prelude.Nothing
+      gatewayGroupArn = Prelude.Nothing,
+      softwareVersion = Prelude.Nothing,
+      description = Prelude.Nothing
     }
 
 -- | The ARN of the gateway.
 gatewaySummary_arn :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
 gatewaySummary_arn = Lens.lens (\GatewaySummary' {arn} -> arn) (\s@GatewaySummary' {} a -> s {arn = a} :: GatewaySummary)
 
--- | The ARN of the gateway group that the gateway is associated to.
-gatewaySummary_gatewayGroupArn :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
-gatewaySummary_gatewayGroupArn = Lens.lens (\GatewaySummary' {gatewayGroupArn} -> gatewayGroupArn) (\s@GatewaySummary' {} a -> s {gatewayGroupArn = a} :: GatewaySummary)
-
 -- | The name of the gateway.
 gatewaySummary_name :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
 gatewaySummary_name = Lens.lens (\GatewaySummary' {name} -> name) (\s@GatewaySummary' {} a -> s {name = a} :: GatewaySummary)
 
--- | The description of the gateway.
-gatewaySummary_description :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
-gatewaySummary_description = Lens.lens (\GatewaySummary' {description} -> description) (\s@GatewaySummary' {} a -> s {description = a} :: GatewaySummary)
+-- | The ARN of the gateway group that the gateway is associated to.
+gatewaySummary_gatewayGroupArn :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
+gatewaySummary_gatewayGroupArn = Lens.lens (\GatewaySummary' {gatewayGroupArn} -> gatewayGroupArn) (\s@GatewaySummary' {} a -> s {gatewayGroupArn = a} :: GatewaySummary)
 
 -- | The software version of the gateway. The gateway automatically updates
 -- its software version during normal operation.
 gatewaySummary_softwareVersion :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
 gatewaySummary_softwareVersion = Lens.lens (\GatewaySummary' {softwareVersion} -> softwareVersion) (\s@GatewaySummary' {} a -> s {softwareVersion = a} :: GatewaySummary)
+
+-- | The description of the gateway.
+gatewaySummary_description :: Lens.Lens' GatewaySummary (Prelude.Maybe Prelude.Text)
+gatewaySummary_description = Lens.lens (\GatewaySummary' {description} -> description) (\s@GatewaySummary' {} a -> s {description = a} :: GatewaySummary)
 
 instance Core.FromJSON GatewaySummary where
   parseJSON =
@@ -98,10 +98,10 @@ instance Core.FromJSON GatewaySummary where
       ( \x ->
           GatewaySummary'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "GatewayGroupArn")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "GatewayGroupArn")
             Prelude.<*> (x Core..:? "SoftwareVersion")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable GatewaySummary

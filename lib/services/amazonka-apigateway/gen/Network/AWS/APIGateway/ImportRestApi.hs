@@ -37,19 +37,19 @@ module Network.AWS.APIGateway.ImportRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_createdDate,
-    restApi_warnings,
-    restApi_endpointConfiguration,
-    restApi_binaryMediaTypes,
-    restApi_id,
-    restApi_version,
-    restApi_name,
-    restApi_tags,
-    restApi_description,
-    restApi_policy,
-    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
+    restApi_disableExecuteApiEndpoint,
+    restApi_binaryMediaTypes,
+    restApi_warnings,
+    restApi_createdDate,
+    restApi_name,
+    restApi_version,
     restApi_apiKeySource,
+    restApi_id,
+    restApi_policy,
+    restApi_endpointConfiguration,
+    restApi_description,
+    restApi_tags,
   )
 where
 
@@ -183,7 +183,7 @@ importRestApi_failOnWarnings = Lens.lens (\ImportRestApi' {failOnWarnings} -> fa
 --
 -- > aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'
 importRestApi_parameters :: Lens.Lens' ImportRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-importRestApi_parameters = Lens.lens (\ImportRestApi' {parameters} -> parameters) (\s@ImportRestApi' {} a -> s {parameters = a} :: ImportRestApi) Prelude.. Lens.mapping Lens._Coerce
+importRestApi_parameters = Lens.lens (\ImportRestApi' {parameters} -> parameters) (\s@ImportRestApi' {} a -> s {parameters = a} :: ImportRestApi) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The POST request body containing external API definitions.
 -- Currently, only OpenAPI definition JSON\/YAML files are supported. The

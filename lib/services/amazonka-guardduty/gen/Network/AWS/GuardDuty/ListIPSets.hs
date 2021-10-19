@@ -215,6 +215,6 @@ listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> 
 
 -- | The IDs of the IPSet resources.
 listIPSetsResponse_ipSetIds :: Lens.Lens' ListIPSetsResponse [Prelude.Text]
-listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSetIds) (\s@ListIPSetsResponse' {} a -> s {ipSetIds = a} :: ListIPSetsResponse) Prelude.. Lens._Coerce
+listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSetIds) (\s@ListIPSetsResponse' {} a -> s {ipSetIds = a} :: ListIPSetsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListIPSetsResponse

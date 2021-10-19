@@ -63,18 +63,17 @@ data PutEmailIdentityMailFromAttributes = PutEmailIdentityMailFromAttributes'
     -- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
     --     destination for feedback forwarding emails.
     mailFromDomain :: Prelude.Maybe Prelude.Text,
-    -- | The action that you want to take if the required MX record isn\'t found
-    -- when you send an email. When you set this value to @UseDefaultValue@,
-    -- the mail is sent using /amazonses.com/ as the MAIL FROM domain. When you
-    -- set this value to @RejectMessage@, the Amazon SES API v2 returns a
+    -- | The action to take if the required MX record isn\'t found when you send
+    -- an email. When you set this value to @UseDefaultValue@, the mail is sent
+    -- using /amazonses.com/ as the MAIL FROM domain. When you set this value
+    -- to @RejectMessage@, the Amazon SES API v2 returns a
     -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
     -- email.
     --
     -- These behaviors are taken when the custom MAIL FROM domain configuration
     -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
     behaviorOnMxFailure :: Prelude.Maybe BehaviorOnMxFailure,
-    -- | The verified email identity that you want to set up the custom MAIL FROM
-    -- domain for.
+    -- | The verified email identity.
     emailIdentity :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,18 +96,17 @@ data PutEmailIdentityMailFromAttributes = PutEmailIdentityMailFromAttributes'
 -- -   It can\'t be used in a \"From\" address if the MAIL FROM domain is a
 --     destination for feedback forwarding emails.
 --
--- 'behaviorOnMxFailure', 'putEmailIdentityMailFromAttributes_behaviorOnMxFailure' - The action that you want to take if the required MX record isn\'t found
--- when you send an email. When you set this value to @UseDefaultValue@,
--- the mail is sent using /amazonses.com/ as the MAIL FROM domain. When you
--- set this value to @RejectMessage@, the Amazon SES API v2 returns a
+-- 'behaviorOnMxFailure', 'putEmailIdentityMailFromAttributes_behaviorOnMxFailure' - The action to take if the required MX record isn\'t found when you send
+-- an email. When you set this value to @UseDefaultValue@, the mail is sent
+-- using /amazonses.com/ as the MAIL FROM domain. When you set this value
+-- to @RejectMessage@, the Amazon SES API v2 returns a
 -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
 -- email.
 --
 -- These behaviors are taken when the custom MAIL FROM domain configuration
 -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
 --
--- 'emailIdentity', 'putEmailIdentityMailFromAttributes_emailIdentity' - The verified email identity that you want to set up the custom MAIL FROM
--- domain for.
+-- 'emailIdentity', 'putEmailIdentityMailFromAttributes_emailIdentity' - The verified email identity.
 newPutEmailIdentityMailFromAttributes ::
   -- | 'emailIdentity'
   Prelude.Text ->
@@ -133,10 +131,10 @@ newPutEmailIdentityMailFromAttributes pEmailIdentity_ =
 putEmailIdentityMailFromAttributes_mailFromDomain :: Lens.Lens' PutEmailIdentityMailFromAttributes (Prelude.Maybe Prelude.Text)
 putEmailIdentityMailFromAttributes_mailFromDomain = Lens.lens (\PutEmailIdentityMailFromAttributes' {mailFromDomain} -> mailFromDomain) (\s@PutEmailIdentityMailFromAttributes' {} a -> s {mailFromDomain = a} :: PutEmailIdentityMailFromAttributes)
 
--- | The action that you want to take if the required MX record isn\'t found
--- when you send an email. When you set this value to @UseDefaultValue@,
--- the mail is sent using /amazonses.com/ as the MAIL FROM domain. When you
--- set this value to @RejectMessage@, the Amazon SES API v2 returns a
+-- | The action to take if the required MX record isn\'t found when you send
+-- an email. When you set this value to @UseDefaultValue@, the mail is sent
+-- using /amazonses.com/ as the MAIL FROM domain. When you set this value
+-- to @RejectMessage@, the Amazon SES API v2 returns a
 -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
 -- email.
 --
@@ -145,8 +143,7 @@ putEmailIdentityMailFromAttributes_mailFromDomain = Lens.lens (\PutEmailIdentity
 putEmailIdentityMailFromAttributes_behaviorOnMxFailure :: Lens.Lens' PutEmailIdentityMailFromAttributes (Prelude.Maybe BehaviorOnMxFailure)
 putEmailIdentityMailFromAttributes_behaviorOnMxFailure = Lens.lens (\PutEmailIdentityMailFromAttributes' {behaviorOnMxFailure} -> behaviorOnMxFailure) (\s@PutEmailIdentityMailFromAttributes' {} a -> s {behaviorOnMxFailure = a} :: PutEmailIdentityMailFromAttributes)
 
--- | The verified email identity that you want to set up the custom MAIL FROM
--- domain for.
+-- | The verified email identity.
 putEmailIdentityMailFromAttributes_emailIdentity :: Lens.Lens' PutEmailIdentityMailFromAttributes Prelude.Text
 putEmailIdentityMailFromAttributes_emailIdentity = Lens.lens (\PutEmailIdentityMailFromAttributes' {emailIdentity} -> emailIdentity) (\s@PutEmailIdentityMailFromAttributes' {} a -> s {emailIdentity = a} :: PutEmailIdentityMailFromAttributes)
 

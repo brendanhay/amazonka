@@ -21,12 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Activates the gateway you previously deployed on your host. In the
--- activation process, you specify information such as the Region that you
--- want to use for storing snapshots or tapes, the time zone for scheduled
--- snapshots the gateway snapshot schedule window, an activation key, and a
--- name for your gateway. The activation process also associates your
--- gateway with your account. For more information, see
--- UpdateGatewayInformation.
+-- activation process, you specify information such as the Amazon Web
+-- Services Region that you want to use for storing snapshots or tapes, the
+-- time zone for scheduled snapshots the gateway snapshot schedule window,
+-- an activation key, and a name for your gateway. The activation process
+-- also associates your gateway with your account. For more information,
+-- see UpdateGatewayInformation.
 --
 -- You must turn on the gateway VM before you can activate your gateway.
 module Network.AWS.StorageGateway.ActivateGateway
@@ -125,10 +125,12 @@ data ActivateGateway = ActivateGateway'
     -- example, for scheduling snapshots and your gateway\'s maintenance
     -- schedule.
     gatewayTimezone :: Prelude.Text,
-    -- | A value that indicates the Region where you want to store your data. The
-    -- gateway Region specified must be the same Region as the Region in your
-    -- @Host@ header in the request. For more information about available
-    -- Regions and endpoints for Storage Gateway, see
+    -- | A value that indicates the Amazon Web Services Region where you want to
+    -- store your data. The gateway Amazon Web Services Region specified must
+    -- be the same Amazon Web Services Region as the Amazon Web Services Region
+    -- in your @Host@ header in the request. For more information about
+    -- available Amazon Web Services Regions and endpoints for Storage Gateway,
+    -- see
     -- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
     -- in the /Amazon Web Services General Reference/.
     --
@@ -193,10 +195,12 @@ data ActivateGateway = ActivateGateway'
 -- example, for scheduling snapshots and your gateway\'s maintenance
 -- schedule.
 --
--- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the Region where you want to store your data. The
--- gateway Region specified must be the same Region as the Region in your
--- @Host@ header in the request. For more information about available
--- Regions and endpoints for Storage Gateway, see
+-- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the Amazon Web Services Region where you want to
+-- store your data. The gateway Amazon Web Services Region specified must
+-- be the same Amazon Web Services Region as the Amazon Web Services Region
+-- in your @Host@ header in the request. For more information about
+-- available Amazon Web Services Regions and endpoints for Storage Gateway,
+-- see
 -- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -260,7 +264,7 @@ activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gate
 -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
 -- characters, and the maximum length for a tag\'s value is 256 characters.
 activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
-activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens._Coerce
+activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -290,10 +294,12 @@ activateGateway_gatewayName = Lens.lens (\ActivateGateway' {gatewayName} -> gate
 activateGateway_gatewayTimezone :: Lens.Lens' ActivateGateway Prelude.Text
 activateGateway_gatewayTimezone = Lens.lens (\ActivateGateway' {gatewayTimezone} -> gatewayTimezone) (\s@ActivateGateway' {} a -> s {gatewayTimezone = a} :: ActivateGateway)
 
--- | A value that indicates the Region where you want to store your data. The
--- gateway Region specified must be the same Region as the Region in your
--- @Host@ header in the request. For more information about available
--- Regions and endpoints for Storage Gateway, see
+-- | A value that indicates the Amazon Web Services Region where you want to
+-- store your data. The gateway Amazon Web Services Region specified must
+-- be the same Amazon Web Services Region as the Amazon Web Services Region
+-- in your @Host@ header in the request. For more information about
+-- available Amazon Web Services Regions and endpoints for Storage Gateway,
+-- see
 -- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -361,8 +367,9 @@ instance Core.ToQuery ActivateGateway where
 
 -- | Storage Gateway returns the Amazon Resource Name (ARN) of the activated
 -- gateway. It is a string made of information such as your account,
--- gateway name, and Region. This ARN is used to reference the gateway in
--- other API operations as well as resource-based authorization.
+-- gateway name, and Amazon Web Services Region. This ARN is used to
+-- reference the gateway in other API operations as well as resource-based
+-- authorization.
 --
 -- For gateways activated prior to September 02, 2015, the gateway ARN
 -- contains the gateway name rather than the gateway ID. Changing the name

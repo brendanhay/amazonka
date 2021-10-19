@@ -28,8 +28,8 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 
     -- * Request Lenses
     purchaseReservedDBInstancesOffering_dbInstanceCount,
-    purchaseReservedDBInstancesOffering_tags,
     purchaseReservedDBInstancesOffering_reservedDBInstanceId,
+    purchaseReservedDBInstancesOffering_tags,
     purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId,
 
     -- * Destructuring the Response
@@ -57,11 +57,11 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
     --
     -- Default: @1@
     dbInstanceCount :: Prelude.Maybe Prelude.Int,
-    tags :: Prelude.Maybe [Tag],
     -- | Customer-specified identifier to track this reservation.
     --
     -- Example: myreservationID
     reservedDBInstanceId :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the Reserved DB instance offering to purchase.
     --
     -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
@@ -81,11 +81,11 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
 --
 -- Default: @1@
 --
--- 'tags', 'purchaseReservedDBInstancesOffering_tags' - Undocumented member.
---
 -- 'reservedDBInstanceId', 'purchaseReservedDBInstancesOffering_reservedDBInstanceId' - Customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
+--
+-- 'tags', 'purchaseReservedDBInstancesOffering_tags' - Undocumented member.
 --
 -- 'reservedDBInstancesOfferingId', 'purchaseReservedDBInstancesOffering_reservedDBInstancesOfferingId' - The ID of the Reserved DB instance offering to purchase.
 --
@@ -99,8 +99,8 @@ newPurchaseReservedDBInstancesOffering
     PurchaseReservedDBInstancesOffering'
       { dbInstanceCount =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
         reservedDBInstanceId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         reservedDBInstancesOfferingId =
           pReservedDBInstancesOfferingId_
       }
@@ -111,15 +111,15 @@ newPurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering_dbInstanceCount :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe Prelude.Int)
 purchaseReservedDBInstancesOffering_dbInstanceCount = Lens.lens (\PurchaseReservedDBInstancesOffering' {dbInstanceCount} -> dbInstanceCount) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {dbInstanceCount = a} :: PurchaseReservedDBInstancesOffering)
 
--- | Undocumented member.
-purchaseReservedDBInstancesOffering_tags :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe [Tag])
-purchaseReservedDBInstancesOffering_tags = Lens.lens (\PurchaseReservedDBInstancesOffering' {tags} -> tags) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {tags = a} :: PurchaseReservedDBInstancesOffering) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
 purchaseReservedDBInstancesOffering_reservedDBInstanceId :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe Prelude.Text)
 purchaseReservedDBInstancesOffering_reservedDBInstanceId = Lens.lens (\PurchaseReservedDBInstancesOffering' {reservedDBInstanceId} -> reservedDBInstanceId) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {reservedDBInstanceId = a} :: PurchaseReservedDBInstancesOffering)
+
+-- | Undocumented member.
+purchaseReservedDBInstancesOffering_tags :: Lens.Lens' PurchaseReservedDBInstancesOffering (Prelude.Maybe [Tag])
+purchaseReservedDBInstancesOffering_tags = Lens.lens (\PurchaseReservedDBInstancesOffering' {tags} -> tags) (\s@PurchaseReservedDBInstancesOffering' {} a -> s {tags = a} :: PurchaseReservedDBInstancesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --
@@ -177,10 +177,10 @@ instance
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
         "DBInstanceCount" Core.=: dbInstanceCount,
+        "ReservedDBInstanceId" Core.=: reservedDBInstanceId,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
-        "ReservedDBInstanceId" Core.=: reservedDBInstanceId,
         "ReservedDBInstancesOfferingId"
           Core.=: reservedDBInstancesOfferingId
       ]

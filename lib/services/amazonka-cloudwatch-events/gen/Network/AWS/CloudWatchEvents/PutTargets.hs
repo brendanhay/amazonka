@@ -221,7 +221,7 @@ newPutTargets pRule_ pTargets_ =
   PutTargets'
     { eventBusName = Prelude.Nothing,
       rule = pRule_,
-      targets = Lens._Coerce Lens.# pTargets_
+      targets = Lens.coerced Lens.# pTargets_
     }
 
 -- | The name or ARN of the event bus associated with the rule. If you omit
@@ -235,7 +235,7 @@ putTargets_rule = Lens.lens (\PutTargets' {rule} -> rule) (\s@PutTargets' {} a -
 
 -- | The targets to update or add to the rule.
 putTargets_targets :: Lens.Lens' PutTargets (Prelude.NonEmpty Target)
-putTargets_targets = Lens.lens (\PutTargets' {targets} -> targets) (\s@PutTargets' {} a -> s {targets = a} :: PutTargets) Prelude.. Lens._Coerce
+putTargets_targets = Lens.lens (\PutTargets' {targets} -> targets) (\s@PutTargets' {} a -> s {targets = a} :: PutTargets) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutTargets where
   type AWSResponse PutTargets = PutTargetsResponse
@@ -324,7 +324,7 @@ putTargetsResponse_failedEntryCount = Lens.lens (\PutTargetsResponse' {failedEnt
 
 -- | The failed target entries.
 putTargetsResponse_failedEntries :: Lens.Lens' PutTargetsResponse (Prelude.Maybe [PutTargetsResultEntry])
-putTargetsResponse_failedEntries = Lens.lens (\PutTargetsResponse' {failedEntries} -> failedEntries) (\s@PutTargetsResponse' {} a -> s {failedEntries = a} :: PutTargetsResponse) Prelude.. Lens.mapping Lens._Coerce
+putTargetsResponse_failedEntries = Lens.lens (\PutTargetsResponse' {failedEntries} -> failedEntries) (\s@PutTargetsResponse' {} a -> s {failedEntries = a} :: PutTargetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putTargetsResponse_httpStatus :: Lens.Lens' PutTargetsResponse Prelude.Int

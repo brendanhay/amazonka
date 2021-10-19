@@ -34,10 +34,10 @@ data ResourceIdentifier = ResourceIdentifier'
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The type of resource.
     resourceType :: Prelude.Maybe ResourceType,
-    -- | The time that the resource was deleted.
-    resourceDeletionTime :: Prelude.Maybe Core.POSIX,
     -- | The custom name of the resource (if available).
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The time that the resource was deleted.
+    resourceDeletionTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,17 +53,17 @@ data ResourceIdentifier = ResourceIdentifier'
 --
 -- 'resourceType', 'resourceIdentifier_resourceType' - The type of resource.
 --
--- 'resourceDeletionTime', 'resourceIdentifier_resourceDeletionTime' - The time that the resource was deleted.
---
 -- 'resourceName', 'resourceIdentifier_resourceName' - The custom name of the resource (if available).
+--
+-- 'resourceDeletionTime', 'resourceIdentifier_resourceDeletionTime' - The time that the resource was deleted.
 newResourceIdentifier ::
   ResourceIdentifier
 newResourceIdentifier =
   ResourceIdentifier'
     { resourceId = Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      resourceDeletionTime = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+      resourceName = Prelude.Nothing,
+      resourceDeletionTime = Prelude.Nothing
     }
 
 -- | The ID of the resource (for example, @sg-xxxxxx@).
@@ -74,13 +74,13 @@ resourceIdentifier_resourceId = Lens.lens (\ResourceIdentifier' {resourceId} -> 
 resourceIdentifier_resourceType :: Lens.Lens' ResourceIdentifier (Prelude.Maybe ResourceType)
 resourceIdentifier_resourceType = Lens.lens (\ResourceIdentifier' {resourceType} -> resourceType) (\s@ResourceIdentifier' {} a -> s {resourceType = a} :: ResourceIdentifier)
 
--- | The time that the resource was deleted.
-resourceIdentifier_resourceDeletionTime :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.UTCTime)
-resourceIdentifier_resourceDeletionTime = Lens.lens (\ResourceIdentifier' {resourceDeletionTime} -> resourceDeletionTime) (\s@ResourceIdentifier' {} a -> s {resourceDeletionTime = a} :: ResourceIdentifier) Prelude.. Lens.mapping Core._Time
-
 -- | The custom name of the resource (if available).
 resourceIdentifier_resourceName :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.Text)
 resourceIdentifier_resourceName = Lens.lens (\ResourceIdentifier' {resourceName} -> resourceName) (\s@ResourceIdentifier' {} a -> s {resourceName = a} :: ResourceIdentifier)
+
+-- | The time that the resource was deleted.
+resourceIdentifier_resourceDeletionTime :: Lens.Lens' ResourceIdentifier (Prelude.Maybe Prelude.UTCTime)
+resourceIdentifier_resourceDeletionTime = Lens.lens (\ResourceIdentifier' {resourceDeletionTime} -> resourceDeletionTime) (\s@ResourceIdentifier' {} a -> s {resourceDeletionTime = a} :: ResourceIdentifier) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ResourceIdentifier where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON ResourceIdentifier where
           ResourceIdentifier'
             Prelude.<$> (x Core..:? "resourceId")
             Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "resourceDeletionTime")
             Prelude.<*> (x Core..:? "resourceName")
+            Prelude.<*> (x Core..:? "resourceDeletionTime")
       )
 
 instance Prelude.Hashable ResourceIdentifier

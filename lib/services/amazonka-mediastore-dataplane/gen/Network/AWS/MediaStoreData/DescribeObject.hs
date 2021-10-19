@@ -35,10 +35,10 @@ module Network.AWS.MediaStoreData.DescribeObject
 
     -- * Response Lenses
     describeObjectResponse_eTag,
-    describeObjectResponse_contentType,
     describeObjectResponse_contentLength,
     describeObjectResponse_cacheControl,
     describeObjectResponse_lastModified,
+    describeObjectResponse_contentType,
     describeObjectResponse_httpStatus,
   )
 where
@@ -90,10 +90,10 @@ instance Core.AWSRequest DescribeObject where
       ( \s h x ->
           DescribeObjectResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (h Core..#? "Content-Length")
             Prelude.<*> (h Core..#? "Cache-Control")
             Prelude.<*> (h Core..#? "Last-Modified")
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -115,8 +115,6 @@ instance Core.ToQuery DescribeObject where
 data DescribeObjectResponse = DescribeObjectResponse'
   { -- | The ETag that represents a unique instance of the object.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The content type of the object.
-    contentType :: Prelude.Maybe Prelude.Text,
     -- | The length of the object in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
     -- | An optional @CacheControl@ header that allows the caller to control the
@@ -128,6 +126,8 @@ data DescribeObjectResponse = DescribeObjectResponse'
     cacheControl :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the object was last modified.
     lastModified :: Prelude.Maybe Core.POSIX,
+    -- | The content type of the object.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,8 +143,6 @@ data DescribeObjectResponse = DescribeObjectResponse'
 --
 -- 'eTag', 'describeObjectResponse_eTag' - The ETag that represents a unique instance of the object.
 --
--- 'contentType', 'describeObjectResponse_contentType' - The content type of the object.
---
 -- 'contentLength', 'describeObjectResponse_contentLength' - The length of the object in bytes.
 --
 -- 'cacheControl', 'describeObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
@@ -156,6 +154,8 @@ data DescribeObjectResponse = DescribeObjectResponse'
 --
 -- 'lastModified', 'describeObjectResponse_lastModified' - The date and time that the object was last modified.
 --
+-- 'contentType', 'describeObjectResponse_contentType' - The content type of the object.
+--
 -- 'httpStatus', 'describeObjectResponse_httpStatus' - The response's http status code.
 newDescribeObjectResponse ::
   -- | 'httpStatus'
@@ -164,20 +164,16 @@ newDescribeObjectResponse ::
 newDescribeObjectResponse pHttpStatus_ =
   DescribeObjectResponse'
     { eTag = Prelude.Nothing,
-      contentType = Prelude.Nothing,
       contentLength = Prelude.Nothing,
       cacheControl = Prelude.Nothing,
       lastModified = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ETag that represents a unique instance of the object.
 describeObjectResponse_eTag :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
 describeObjectResponse_eTag = Lens.lens (\DescribeObjectResponse' {eTag} -> eTag) (\s@DescribeObjectResponse' {} a -> s {eTag = a} :: DescribeObjectResponse)
-
--- | The content type of the object.
-describeObjectResponse_contentType :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
-describeObjectResponse_contentType = Lens.lens (\DescribeObjectResponse' {contentType} -> contentType) (\s@DescribeObjectResponse' {} a -> s {contentType = a} :: DescribeObjectResponse)
 
 -- | The length of the object in bytes.
 describeObjectResponse_contentLength :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Natural)
@@ -195,6 +191,10 @@ describeObjectResponse_cacheControl = Lens.lens (\DescribeObjectResponse' {cache
 -- | The date and time that the object was last modified.
 describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
 describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The content type of the object.
+describeObjectResponse_contentType :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
+describeObjectResponse_contentType = Lens.lens (\DescribeObjectResponse' {contentType} -> contentType) (\s@DescribeObjectResponse' {} a -> s {contentType = a} :: DescribeObjectResponse)
 
 -- | The response's http status code.
 describeObjectResponse_httpStatus :: Lens.Lens' DescribeObjectResponse Prelude.Int

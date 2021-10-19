@@ -29,8 +29,8 @@ module Network.AWS.GuardDuty.CreateThreatIntelSet
     newCreateThreatIntelSet,
 
     -- * Request Lenses
-    createThreatIntelSet_tags,
     createThreatIntelSet_clientToken,
+    createThreatIntelSet_tags,
     createThreatIntelSet_detectorId,
     createThreatIntelSet_name,
     createThreatIntelSet_format,
@@ -56,10 +56,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateThreatIntelSet' smart constructor.
 data CreateThreatIntelSet = CreateThreatIntelSet'
-  { -- | The tags to be added to a new threat list resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The idempotency token for the create request.
+  { -- | The idempotency token for the create request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be added to a new threat list resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique ID of the detector of the GuardDuty account that you want to
     -- create a threatIntelSet for.
     detectorId :: Prelude.Text,
@@ -86,9 +86,9 @@ data CreateThreatIntelSet = CreateThreatIntelSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createThreatIntelSet_tags' - The tags to be added to a new threat list resource.
---
 -- 'clientToken', 'createThreatIntelSet_clientToken' - The idempotency token for the create request.
+--
+-- 'tags', 'createThreatIntelSet_tags' - The tags to be added to a new threat list resource.
 --
 -- 'detectorId', 'createThreatIntelSet_detectorId' - The unique ID of the detector of the GuardDuty account that you want to
 -- create a threatIntelSet for.
@@ -123,8 +123,9 @@ newCreateThreatIntelSet
   pLocation_
   pActivate_ =
     CreateThreatIntelSet'
-      { tags = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { clientToken =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         detectorId = pDetectorId_,
         name = pName_,
         format = pFormat_,
@@ -132,13 +133,13 @@ newCreateThreatIntelSet
         activate = pActivate_
       }
 
--- | The tags to be added to a new threat list resource.
-createThreatIntelSet_tags :: Lens.Lens' CreateThreatIntelSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createThreatIntelSet_tags = Lens.lens (\CreateThreatIntelSet' {tags} -> tags) (\s@CreateThreatIntelSet' {} a -> s {tags = a} :: CreateThreatIntelSet) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The idempotency token for the create request.
 createThreatIntelSet_clientToken :: Lens.Lens' CreateThreatIntelSet (Prelude.Maybe Prelude.Text)
 createThreatIntelSet_clientToken = Lens.lens (\CreateThreatIntelSet' {clientToken} -> clientToken) (\s@CreateThreatIntelSet' {} a -> s {clientToken = a} :: CreateThreatIntelSet)
+
+-- | The tags to be added to a new threat list resource.
+createThreatIntelSet_tags :: Lens.Lens' CreateThreatIntelSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createThreatIntelSet_tags = Lens.lens (\CreateThreatIntelSet' {tags} -> tags) (\s@CreateThreatIntelSet' {} a -> s {tags = a} :: CreateThreatIntelSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- create a threatIntelSet for.
@@ -197,8 +198,8 @@ instance Core.ToJSON CreateThreatIntelSet where
   toJSON CreateThreatIntelSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("format" Core..= format),
             Prelude.Just ("location" Core..= location),

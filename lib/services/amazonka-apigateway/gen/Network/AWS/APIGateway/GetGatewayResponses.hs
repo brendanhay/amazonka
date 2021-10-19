@@ -32,8 +32,8 @@ module Network.AWS.APIGateway.GetGatewayResponses
     newGetGatewayResponses,
 
     -- * Request Lenses
-    getGatewayResponses_position,
     getGatewayResponses_limit,
+    getGatewayResponses_position,
     getGatewayResponses_restApiId,
 
     -- * Destructuring the Response
@@ -61,14 +61,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetGatewayResponses' smart constructor.
 data GetGatewayResponses = GetGatewayResponses'
-  { -- | The current pagination position in the paged result set. The
-    -- GatewayResponse collection does not support pagination and the position
-    -- does not apply here.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500. The GatewayResponses collection does not
     -- support pagination and the limit does not apply here.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set. The
+    -- GatewayResponse collection does not support pagination and the position
+    -- does not apply here.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -82,13 +82,13 @@ data GetGatewayResponses = GetGatewayResponses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getGatewayResponses_position' - The current pagination position in the paged result set. The
--- GatewayResponse collection does not support pagination and the position
--- does not apply here.
---
 -- 'limit', 'getGatewayResponses_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500. The GatewayResponses collection does not
 -- support pagination and the limit does not apply here.
+--
+-- 'position', 'getGatewayResponses_position' - The current pagination position in the paged result set. The
+-- GatewayResponse collection does not support pagination and the position
+-- does not apply here.
 --
 -- 'restApiId', 'getGatewayResponses_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetGatewayResponses ::
@@ -97,22 +97,22 @@ newGetGatewayResponses ::
   GetGatewayResponses
 newGetGatewayResponses pRestApiId_ =
   GetGatewayResponses'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set. The
--- GatewayResponse collection does not support pagination and the position
--- does not apply here.
-getGatewayResponses_position :: Lens.Lens' GetGatewayResponses (Prelude.Maybe Prelude.Text)
-getGatewayResponses_position = Lens.lens (\GetGatewayResponses' {position} -> position) (\s@GetGatewayResponses' {} a -> s {position = a} :: GetGatewayResponses)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500. The GatewayResponses collection does not
 -- support pagination and the limit does not apply here.
 getGatewayResponses_limit :: Lens.Lens' GetGatewayResponses (Prelude.Maybe Prelude.Int)
 getGatewayResponses_limit = Lens.lens (\GetGatewayResponses' {limit} -> limit) (\s@GetGatewayResponses' {} a -> s {limit = a} :: GetGatewayResponses)
+
+-- | The current pagination position in the paged result set. The
+-- GatewayResponse collection does not support pagination and the position
+-- does not apply here.
+getGatewayResponses_position :: Lens.Lens' GetGatewayResponses (Prelude.Maybe Prelude.Text)
+getGatewayResponses_position = Lens.lens (\GetGatewayResponses' {position} -> position) (\s@GetGatewayResponses' {} a -> s {position = a} :: GetGatewayResponses)
 
 -- | [Required] The string identifier of the associated RestApi.
 getGatewayResponses_restApiId :: Lens.Lens' GetGatewayResponses Prelude.Text
@@ -178,7 +178,7 @@ instance Core.ToPath GetGatewayResponses where
 instance Core.ToQuery GetGatewayResponses where
   toQuery GetGatewayResponses' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | The collection of the GatewayResponse instances of a RestApi as a
 -- @responseType@-to-GatewayResponse object map of key-value pairs. As
@@ -242,7 +242,7 @@ newGetGatewayResponsesResponse pHttpStatus_ =
 
 -- | Returns the entire collection, because of no pagination support.
 getGatewayResponsesResponse_items :: Lens.Lens' GetGatewayResponsesResponse (Prelude.Maybe [GatewayResponse])
-getGatewayResponsesResponse_items = Lens.lens (\GetGatewayResponsesResponse' {items} -> items) (\s@GetGatewayResponsesResponse' {} a -> s {items = a} :: GetGatewayResponsesResponse) Prelude.. Lens.mapping Lens._Coerce
+getGatewayResponsesResponse_items = Lens.lens (\GetGatewayResponsesResponse' {items} -> items) (\s@GetGatewayResponsesResponse' {} a -> s {items = a} :: GetGatewayResponsesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getGatewayResponsesResponse_position :: Lens.Lens' GetGatewayResponsesResponse (Prelude.Maybe Prelude.Text)

@@ -27,9 +27,9 @@ module Network.AWS.EKS.UpdateAddon
     newUpdateAddon,
 
     -- * Request Lenses
-    updateAddon_resolveConflicts,
-    updateAddon_serviceAccountRoleArn,
     updateAddon_addonVersion,
+    updateAddon_serviceAccountRoleArn,
+    updateAddon_resolveConflicts,
     updateAddon_clientRequestToken,
     updateAddon_clusterName,
     updateAddon_addonName,
@@ -53,9 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateAddon' smart constructor.
 data UpdateAddon = UpdateAddon'
-  { -- | How to resolve parameter value conflicts when applying the new version
-    -- of the add-on to the cluster.
-    resolveConflicts :: Prelude.Maybe ResolveConflicts,
+  { -- | The version of the add-on. The version must match one of the versions
+    -- returned by
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
+    -- .
+    addonVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
     -- add-on\'s service account. The role must be assigned the IAM permissions
     -- required by the add-on. If you don\'t specify an existing IAM role, then
@@ -69,11 +71,9 @@ data UpdateAddon = UpdateAddon'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
     -- in the /Amazon EKS User Guide/.
     serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The version of the add-on. The version must match one of the versions
-    -- returned by
-    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
-    -- .
-    addonVersion :: Prelude.Maybe Prelude.Text,
+    -- | How to resolve parameter value conflicts when applying the new version
+    -- of the add-on to the cluster.
+    resolveConflicts :: Prelude.Maybe ResolveConflicts,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
@@ -94,8 +94,10 @@ data UpdateAddon = UpdateAddon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve parameter value conflicts when applying the new version
--- of the add-on to the cluster.
+-- 'addonVersion', 'updateAddon_addonVersion' - The version of the add-on. The version must match one of the versions
+-- returned by
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
+-- .
 --
 -- 'serviceAccountRoleArn', 'updateAddon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of an existing IAM role to bind to the
 -- add-on\'s service account. The role must be assigned the IAM permissions
@@ -110,10 +112,8 @@ data UpdateAddon = UpdateAddon'
 -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
 -- in the /Amazon EKS User Guide/.
 --
--- 'addonVersion', 'updateAddon_addonVersion' - The version of the add-on. The version must match one of the versions
--- returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
+-- 'resolveConflicts', 'updateAddon_resolveConflicts' - How to resolve parameter value conflicts when applying the new version
+-- of the add-on to the cluster.
 --
 -- 'clientRequestToken', 'updateAddon_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -131,18 +131,20 @@ newUpdateAddon ::
   UpdateAddon
 newUpdateAddon pClusterName_ pAddonName_ =
   UpdateAddon'
-    { resolveConflicts = Prelude.Nothing,
+    { addonVersion = Prelude.Nothing,
       serviceAccountRoleArn = Prelude.Nothing,
-      addonVersion = Prelude.Nothing,
+      resolveConflicts = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
 
--- | How to resolve parameter value conflicts when applying the new version
--- of the add-on to the cluster.
-updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Prelude.Maybe ResolveConflicts)
-updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> resolveConflicts) (\s@UpdateAddon' {} a -> s {resolveConflicts = a} :: UpdateAddon)
+-- | The version of the add-on. The version must match one of the versions
+-- returned by
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
+-- .
+updateAddon_addonVersion :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_addonVersion = Lens.lens (\UpdateAddon' {addonVersion} -> addonVersion) (\s@UpdateAddon' {} a -> s {addonVersion = a} :: UpdateAddon)
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
 -- add-on\'s service account. The role must be assigned the IAM permissions
@@ -159,12 +161,10 @@ updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> re
 updateAddon_serviceAccountRoleArn :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
 updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@UpdateAddon' {} a -> s {serviceAccountRoleArn = a} :: UpdateAddon)
 
--- | The version of the add-on. The version must match one of the versions
--- returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
-updateAddon_addonVersion :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
-updateAddon_addonVersion = Lens.lens (\UpdateAddon' {addonVersion} -> addonVersion) (\s@UpdateAddon' {} a -> s {addonVersion = a} :: UpdateAddon)
+-- | How to resolve parameter value conflicts when applying the new version
+-- of the add-on to the cluster.
+updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Prelude.Maybe ResolveConflicts)
+updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> resolveConflicts) (\s@UpdateAddon' {} a -> s {resolveConflicts = a} :: UpdateAddon)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -211,11 +211,11 @@ instance Core.ToJSON UpdateAddon where
   toJSON UpdateAddon' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("resolveConflicts" Core..=)
-              Prelude.<$> resolveConflicts,
+          [ ("addonVersion" Core..=) Prelude.<$> addonVersion,
             ("serviceAccountRoleArn" Core..=)
               Prelude.<$> serviceAccountRoleArn,
-            ("addonVersion" Core..=) Prelude.<$> addonVersion,
+            ("resolveConflicts" Core..=)
+              Prelude.<$> resolveConflicts,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken
           ]

@@ -27,10 +27,10 @@ module Network.AWS.SageMaker.CreateModelExplainabilityJobDefinition
     newCreateModelExplainabilityJobDefinition,
 
     -- * Request Lenses
+    createModelExplainabilityJobDefinition_stoppingCondition,
     createModelExplainabilityJobDefinition_networkConfig,
     createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig,
     createModelExplainabilityJobDefinition_tags,
-    createModelExplainabilityJobDefinition_stoppingCondition,
     createModelExplainabilityJobDefinition_jobDefinitionName,
     createModelExplainabilityJobDefinition_modelExplainabilityAppSpecification,
     createModelExplainabilityJobDefinition_modelExplainabilityJobInput,
@@ -57,7 +57,8 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateModelExplainabilityJobDefinition' smart constructor.
 data CreateModelExplainabilityJobDefinition = CreateModelExplainabilityJobDefinition'
-  { -- | Networking options for a model explainability job.
+  { stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
+    -- | Networking options for a model explainability job.
     networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
     -- | The baseline configuration for a model explainability job.
     modelExplainabilityBaselineConfig :: Prelude.Maybe ModelExplainabilityBaselineConfig,
@@ -65,7 +66,6 @@ data CreateModelExplainabilityJobDefinition = CreateModelExplainabilityJobDefini
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
     -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
-    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name of the model explainability job definition. The name must be
     -- unique within an Amazon Web Services Region in the Amazon Web Services
     -- account.
@@ -91,6 +91,8 @@ data CreateModelExplainabilityJobDefinition = CreateModelExplainabilityJobDefini
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'stoppingCondition', 'createModelExplainabilityJobDefinition_stoppingCondition' - Undocumented member.
+--
 -- 'networkConfig', 'createModelExplainabilityJobDefinition_networkConfig' - Networking options for a model explainability job.
 --
 -- 'modelExplainabilityBaselineConfig', 'createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig' - The baseline configuration for a model explainability job.
@@ -98,8 +100,6 @@ data CreateModelExplainabilityJobDefinition = CreateModelExplainabilityJobDefini
 -- 'tags', 'createModelExplainabilityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
---
--- 'stoppingCondition', 'createModelExplainabilityJobDefinition_stoppingCondition' - Undocumented member.
 --
 -- 'jobDefinitionName', 'createModelExplainabilityJobDefinition_jobDefinitionName' - The name of the model explainability job definition. The name must be
 -- unique within an Amazon Web Services Region in the Amazon Web Services
@@ -138,12 +138,12 @@ newCreateModelExplainabilityJobDefinition
   pJobResources_
   pRoleArn_ =
     CreateModelExplainabilityJobDefinition'
-      { networkConfig =
+      { stoppingCondition =
           Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
         modelExplainabilityBaselineConfig =
           Prelude.Nothing,
         tags = Prelude.Nothing,
-        stoppingCondition = Prelude.Nothing,
         jobDefinitionName =
           pJobDefinitionName_,
         modelExplainabilityAppSpecification =
@@ -155,6 +155,10 @@ newCreateModelExplainabilityJobDefinition
         jobResources = pJobResources_,
         roleArn = pRoleArn_
       }
+
+-- | Undocumented member.
+createModelExplainabilityJobDefinition_stoppingCondition :: Lens.Lens' CreateModelExplainabilityJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
+createModelExplainabilityJobDefinition_stoppingCondition = Lens.lens (\CreateModelExplainabilityJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {stoppingCondition = a} :: CreateModelExplainabilityJobDefinition)
 
 -- | Networking options for a model explainability job.
 createModelExplainabilityJobDefinition_networkConfig :: Lens.Lens' CreateModelExplainabilityJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
@@ -168,11 +172,7 @@ createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig = Lens.
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createModelExplainabilityJobDefinition_tags :: Lens.Lens' CreateModelExplainabilityJobDefinition (Prelude.Maybe [Tag])
-createModelExplainabilityJobDefinition_tags = Lens.lens (\CreateModelExplainabilityJobDefinition' {tags} -> tags) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {tags = a} :: CreateModelExplainabilityJobDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-createModelExplainabilityJobDefinition_stoppingCondition :: Lens.Lens' CreateModelExplainabilityJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
-createModelExplainabilityJobDefinition_stoppingCondition = Lens.lens (\CreateModelExplainabilityJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {stoppingCondition = a} :: CreateModelExplainabilityJobDefinition)
+createModelExplainabilityJobDefinition_tags = Lens.lens (\CreateModelExplainabilityJobDefinition' {tags} -> tags) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {tags = a} :: CreateModelExplainabilityJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the model explainability job definition. The name must be
 -- unique within an Amazon Web Services Region in the Amazon Web Services
@@ -252,12 +252,12 @@ instance
   toJSON CreateModelExplainabilityJobDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
+          [ ("StoppingCondition" Core..=)
+              Prelude.<$> stoppingCondition,
+            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
             ("ModelExplainabilityBaselineConfig" Core..=)
               Prelude.<$> modelExplainabilityBaselineConfig,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("StoppingCondition" Core..=)
-              Prelude.<$> stoppingCondition,
             Prelude.Just
               ("JobDefinitionName" Core..= jobDefinitionName),
             Prelude.Just

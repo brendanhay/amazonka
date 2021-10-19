@@ -42,8 +42,8 @@ module Network.AWS.IAM.ListAttachedRolePolicies
 
     -- * Request Lenses
     listAttachedRolePolicies_pathPrefix,
-    listAttachedRolePolicies_maxItems,
     listAttachedRolePolicies_marker,
+    listAttachedRolePolicies_maxItems,
     listAttachedRolePolicies_roleName,
 
     -- * Destructuring the Response
@@ -51,9 +51,9 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     newListAttachedRolePoliciesResponse,
 
     -- * Response Lenses
-    listAttachedRolePoliciesResponse_isTruncated,
     listAttachedRolePoliciesResponse_attachedPolicies,
     listAttachedRolePoliciesResponse_marker,
+    listAttachedRolePoliciesResponse_isTruncated,
     listAttachedRolePoliciesResponse_httpStatus,
   )
 where
@@ -79,6 +79,11 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     pathPrefix :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -89,11 +94,6 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The name (friendly name, not ARN) of the role to list attached policies
     -- for.
     --
@@ -125,6 +125,11 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
 --
+-- 'marker', 'listAttachedRolePolicies_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'maxItems', 'listAttachedRolePolicies_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -134,11 +139,6 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
---
--- 'marker', 'listAttachedRolePolicies_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'roleName', 'listAttachedRolePolicies_roleName' - The name (friendly name, not ARN) of the role to list attached policies
 -- for.
@@ -155,8 +155,8 @@ newListAttachedRolePolicies pRoleName_ =
   ListAttachedRolePolicies'
     { pathPrefix =
         Prelude.Nothing,
-      maxItems = Prelude.Nothing,
       marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       roleName = pRoleName_
     }
 
@@ -174,6 +174,13 @@ newListAttachedRolePolicies pRoleName_ =
 listAttachedRolePolicies_pathPrefix :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Text)
 listAttachedRolePolicies_pathPrefix = Lens.lens (\ListAttachedRolePolicies' {pathPrefix} -> pathPrefix) (\s@ListAttachedRolePolicies' {} a -> s {pathPrefix = a} :: ListAttachedRolePolicies)
 
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listAttachedRolePolicies_marker :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Text)
+listAttachedRolePolicies_marker = Lens.lens (\ListAttachedRolePolicies' {marker} -> marker) (\s@ListAttachedRolePolicies' {} a -> s {marker = a} :: ListAttachedRolePolicies)
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -185,13 +192,6 @@ listAttachedRolePolicies_pathPrefix = Lens.lens (\ListAttachedRolePolicies' {pat
 -- subsequent call that tells the service where to continue from.
 listAttachedRolePolicies_maxItems :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Natural)
 listAttachedRolePolicies_maxItems = Lens.lens (\ListAttachedRolePolicies' {maxItems} -> maxItems) (\s@ListAttachedRolePolicies' {} a -> s {maxItems = a} :: ListAttachedRolePolicies)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listAttachedRolePolicies_marker :: Lens.Lens' ListAttachedRolePolicies (Prelude.Maybe Prelude.Text)
-listAttachedRolePolicies_marker = Lens.lens (\ListAttachedRolePolicies' {marker} -> marker) (\s@ListAttachedRolePolicies' {} a -> s {marker = a} :: ListAttachedRolePolicies)
 
 -- | The name (friendly name, not ARN) of the role to list attached policies
 -- for.
@@ -235,12 +235,12 @@ instance Core.AWSRequest ListAttachedRolePolicies where
       "ListAttachedRolePoliciesResult"
       ( \s h x ->
           ListAttachedRolePoliciesResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-            Prelude.<*> ( x Core..@? "AttachedPolicies"
+            Prelude.<$> ( x Core..@? "AttachedPolicies"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
             Prelude.<*> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -262,8 +262,8 @@ instance Core.ToQuery ListAttachedRolePolicies where
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PathPrefix" Core.=: pathPrefix,
-        "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
         "RoleName" Core.=: roleName
       ]
 
@@ -271,7 +271,13 @@ instance Core.ToQuery ListAttachedRolePolicies where
 --
 -- /See:/ 'newListAttachedRolePoliciesResponse' smart constructor.
 data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | A list of the attached policies.
+    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -279,12 +285,6 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | A list of the attached policies.
-    attachedPolicies :: Prelude.Maybe [AttachedPolicy],
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -298,6 +298,12 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attachedPolicies', 'listAttachedRolePoliciesResponse_attachedPolicies' - A list of the attached policies.
+--
+-- 'marker', 'listAttachedRolePoliciesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'listAttachedRolePoliciesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -306,12 +312,6 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
 --
--- 'attachedPolicies', 'listAttachedRolePoliciesResponse_attachedPolicies' - A list of the attached policies.
---
--- 'marker', 'listAttachedRolePoliciesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
---
 -- 'httpStatus', 'listAttachedRolePoliciesResponse_httpStatus' - The response's http status code.
 newListAttachedRolePoliciesResponse ::
   -- | 'httpStatus'
@@ -319,12 +319,22 @@ newListAttachedRolePoliciesResponse ::
   ListAttachedRolePoliciesResponse
 newListAttachedRolePoliciesResponse pHttpStatus_ =
   ListAttachedRolePoliciesResponse'
-    { isTruncated =
+    { attachedPolicies =
         Prelude.Nothing,
-      attachedPolicies = Prelude.Nothing,
       marker = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the attached policies.
+listAttachedRolePoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe [AttachedPolicy])
+listAttachedRolePoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedRolePoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedRolePoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedRolePoliciesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listAttachedRolePoliciesResponse_marker :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe Prelude.Text)
+listAttachedRolePoliciesResponse_marker = Lens.lens (\ListAttachedRolePoliciesResponse' {marker} -> marker) (\s@ListAttachedRolePoliciesResponse' {} a -> s {marker = a} :: ListAttachedRolePoliciesResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -335,16 +345,6 @@ newListAttachedRolePoliciesResponse pHttpStatus_ =
 -- results.
 listAttachedRolePoliciesResponse_isTruncated :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe Prelude.Bool)
 listAttachedRolePoliciesResponse_isTruncated = Lens.lens (\ListAttachedRolePoliciesResponse' {isTruncated} -> isTruncated) (\s@ListAttachedRolePoliciesResponse' {} a -> s {isTruncated = a} :: ListAttachedRolePoliciesResponse)
-
--- | A list of the attached policies.
-listAttachedRolePoliciesResponse_attachedPolicies :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe [AttachedPolicy])
-listAttachedRolePoliciesResponse_attachedPolicies = Lens.lens (\ListAttachedRolePoliciesResponse' {attachedPolicies} -> attachedPolicies) (\s@ListAttachedRolePoliciesResponse' {} a -> s {attachedPolicies = a} :: ListAttachedRolePoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listAttachedRolePoliciesResponse_marker :: Lens.Lens' ListAttachedRolePoliciesResponse (Prelude.Maybe Prelude.Text)
-listAttachedRolePoliciesResponse_marker = Lens.lens (\ListAttachedRolePoliciesResponse' {marker} -> marker) (\s@ListAttachedRolePoliciesResponse' {} a -> s {marker = a} :: ListAttachedRolePoliciesResponse)
 
 -- | The response's http status code.
 listAttachedRolePoliciesResponse_httpStatus :: Lens.Lens' ListAttachedRolePoliciesResponse Prelude.Int

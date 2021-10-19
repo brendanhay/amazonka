@@ -80,19 +80,19 @@ newRemoveAttributesFromFindings ::
 newRemoveAttributesFromFindings pFindingArns_ =
   RemoveAttributesFromFindings'
     { findingArns =
-        Lens._Coerce Lens.# pFindingArns_,
+        Lens.coerced Lens.# pFindingArns_,
       attributeKeys = Prelude.mempty
     }
 
 -- | The ARNs that specify the findings that you want to remove attributes
 -- from.
 removeAttributesFromFindings_findingArns :: Lens.Lens' RemoveAttributesFromFindings (Prelude.NonEmpty Prelude.Text)
-removeAttributesFromFindings_findingArns = Lens.lens (\RemoveAttributesFromFindings' {findingArns} -> findingArns) (\s@RemoveAttributesFromFindings' {} a -> s {findingArns = a} :: RemoveAttributesFromFindings) Prelude.. Lens._Coerce
+removeAttributesFromFindings_findingArns = Lens.lens (\RemoveAttributesFromFindings' {findingArns} -> findingArns) (\s@RemoveAttributesFromFindings' {} a -> s {findingArns = a} :: RemoveAttributesFromFindings) Prelude.. Lens.coerced
 
 -- | The array of attribute keys that you want to remove from specified
 -- findings.
 removeAttributesFromFindings_attributeKeys :: Lens.Lens' RemoveAttributesFromFindings [Prelude.Text]
-removeAttributesFromFindings_attributeKeys = Lens.lens (\RemoveAttributesFromFindings' {attributeKeys} -> attributeKeys) (\s@RemoveAttributesFromFindings' {} a -> s {attributeKeys = a} :: RemoveAttributesFromFindings) Prelude.. Lens._Coerce
+removeAttributesFromFindings_attributeKeys = Lens.lens (\RemoveAttributesFromFindings' {attributeKeys} -> attributeKeys) (\s@RemoveAttributesFromFindings' {} a -> s {attributeKeys = a} :: RemoveAttributesFromFindings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveAttributesFromFindings where
   type
@@ -184,7 +184,7 @@ removeAttributesFromFindingsResponse_httpStatus = Lens.lens (\RemoveAttributesFr
 -- | Attributes details that cannot be described. An error code is provided
 -- for each failed item.
 removeAttributesFromFindingsResponse_failedItems :: Lens.Lens' RemoveAttributesFromFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-removeAttributesFromFindingsResponse_failedItems = Lens.lens (\RemoveAttributesFromFindingsResponse' {failedItems} -> failedItems) (\s@RemoveAttributesFromFindingsResponse' {} a -> s {failedItems = a} :: RemoveAttributesFromFindingsResponse) Prelude.. Lens._Coerce
+removeAttributesFromFindingsResponse_failedItems = Lens.lens (\RemoveAttributesFromFindingsResponse' {failedItems} -> failedItems) (\s@RemoveAttributesFromFindingsResponse' {} a -> s {failedItems = a} :: RemoveAttributesFromFindingsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -85,7 +85,7 @@ untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resource
 
 -- | Tags to remove from this resource.
 untagResource_tagsToRemove :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagsToRemove = Lens.lens (\UntagResource' {tagsToRemove} -> tagsToRemove) (\s@UntagResource' {} a -> s {tagsToRemove = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagsToRemove = Lens.lens (\UntagResource' {tagsToRemove} -> tagsToRemove) (\s@UntagResource' {} a -> s {tagsToRemove = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

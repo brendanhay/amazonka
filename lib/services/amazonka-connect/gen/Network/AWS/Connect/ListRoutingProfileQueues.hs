@@ -39,8 +39,8 @@ module Network.AWS.Connect.ListRoutingProfileQueues
     newListRoutingProfileQueuesResponse,
 
     -- * Response Lenses
-    listRoutingProfileQueuesResponse_nextToken,
     listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList,
+    listRoutingProfileQueuesResponse_nextToken,
     listRoutingProfileQueuesResponse_httpStatus,
   )
 where
@@ -153,10 +153,10 @@ instance Core.AWSRequest ListRoutingProfileQueues where
     Response.receiveJSON
       ( \s h x ->
           ListRoutingProfileQueuesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RoutingProfileQueueConfigSummaryList"
+            Prelude.<$> ( x Core..?> "RoutingProfileQueueConfigSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -194,11 +194,11 @@ instance Core.ToQuery ListRoutingProfileQueues where
 
 -- | /See:/ 'newListRoutingProfileQueuesResponse' smart constructor.
 data ListRoutingProfileQueuesResponse = ListRoutingProfileQueuesResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | Information about the routing profiles.
+    routingProfileQueueConfigSummaryList :: Prelude.Maybe [RoutingProfileQueueConfigSummary],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the routing profiles.
-    routingProfileQueueConfigSummaryList :: Prelude.Maybe [RoutingProfileQueueConfigSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,10 +212,10 @@ data ListRoutingProfileQueuesResponse = ListRoutingProfileQueuesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'routingProfileQueueConfigSummaryList', 'listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList' - Information about the routing profiles.
+--
 -- 'nextToken', 'listRoutingProfileQueuesResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'routingProfileQueueConfigSummaryList', 'listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList' - Information about the routing profiles.
 --
 -- 'httpStatus', 'listRoutingProfileQueuesResponse_httpStatus' - The response's http status code.
 newListRoutingProfileQueuesResponse ::
@@ -224,21 +224,20 @@ newListRoutingProfileQueuesResponse ::
   ListRoutingProfileQueuesResponse
 newListRoutingProfileQueuesResponse pHttpStatus_ =
   ListRoutingProfileQueuesResponse'
-    { nextToken =
+    { routingProfileQueueConfigSummaryList =
         Prelude.Nothing,
-      routingProfileQueueConfigSummaryList =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the routing profiles.
+listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList :: Lens.Lens' ListRoutingProfileQueuesResponse (Prelude.Maybe [RoutingProfileQueueConfigSummary])
+listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList = Lens.lens (\ListRoutingProfileQueuesResponse' {routingProfileQueueConfigSummaryList} -> routingProfileQueueConfigSummaryList) (\s@ListRoutingProfileQueuesResponse' {} a -> s {routingProfileQueueConfigSummaryList = a} :: ListRoutingProfileQueuesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listRoutingProfileQueuesResponse_nextToken :: Lens.Lens' ListRoutingProfileQueuesResponse (Prelude.Maybe Prelude.Text)
 listRoutingProfileQueuesResponse_nextToken = Lens.lens (\ListRoutingProfileQueuesResponse' {nextToken} -> nextToken) (\s@ListRoutingProfileQueuesResponse' {} a -> s {nextToken = a} :: ListRoutingProfileQueuesResponse)
-
--- | Information about the routing profiles.
-listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList :: Lens.Lens' ListRoutingProfileQueuesResponse (Prelude.Maybe [RoutingProfileQueueConfigSummary])
-listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList = Lens.lens (\ListRoutingProfileQueuesResponse' {routingProfileQueueConfigSummaryList} -> routingProfileQueueConfigSummaryList) (\s@ListRoutingProfileQueuesResponse' {} a -> s {routingProfileQueueConfigSummaryList = a} :: ListRoutingProfileQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRoutingProfileQueuesResponse_httpStatus :: Lens.Lens' ListRoutingProfileQueuesResponse Prelude.Int

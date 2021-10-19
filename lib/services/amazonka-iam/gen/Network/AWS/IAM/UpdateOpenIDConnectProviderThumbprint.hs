@@ -129,7 +129,7 @@ updateOpenIDConnectProviderThumbprint_openIDConnectProviderArn = Lens.lens (\Upd
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
 updateOpenIDConnectProviderThumbprint_thumbprintList :: Lens.Lens' UpdateOpenIDConnectProviderThumbprint [Prelude.Text]
-updateOpenIDConnectProviderThumbprint_thumbprintList = Lens.lens (\UpdateOpenIDConnectProviderThumbprint' {thumbprintList} -> thumbprintList) (\s@UpdateOpenIDConnectProviderThumbprint' {} a -> s {thumbprintList = a} :: UpdateOpenIDConnectProviderThumbprint) Prelude.. Lens._Coerce
+updateOpenIDConnectProviderThumbprint_thumbprintList = Lens.lens (\UpdateOpenIDConnectProviderThumbprint' {thumbprintList} -> thumbprintList) (\s@UpdateOpenIDConnectProviderThumbprint' {} a -> s {thumbprintList = a} :: UpdateOpenIDConnectProviderThumbprint) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

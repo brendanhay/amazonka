@@ -101,8 +101,8 @@ newUntagResources ::
 newUntagResources pResourceARNList_ pTagKeys_ =
   UntagResources'
     { resourceARNList =
-        Lens._Coerce Lens.# pResourceARNList_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+        Lens.coerced Lens.# pResourceARNList_,
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | Specifies a list of ARNs of the resources that you want to remove tags
@@ -113,12 +113,12 @@ newUntagResources pResourceARNList_ pTagKeys_ =
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
 untagResources_resourceARNList :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
-untagResources_resourceARNList = Lens.lens (\UntagResources' {resourceARNList} -> resourceARNList) (\s@UntagResources' {} a -> s {resourceARNList = a} :: UntagResources) Prelude.. Lens._Coerce
+untagResources_resourceARNList = Lens.lens (\UntagResources' {resourceARNList} -> resourceARNList) (\s@UntagResources' {} a -> s {resourceARNList = a} :: UntagResources) Prelude.. Lens.coerced
 
 -- | Specifies a list of tag keys that you want to remove from the specified
 -- resources.
 untagResources_tagKeys :: Lens.Lens' UntagResources (Prelude.NonEmpty Prelude.Text)
-untagResources_tagKeys = Lens.lens (\UntagResources' {tagKeys} -> tagKeys) (\s@UntagResources' {} a -> s {tagKeys = a} :: UntagResources) Prelude.. Lens._Coerce
+untagResources_tagKeys = Lens.lens (\UntagResources' {tagKeys} -> tagKeys) (\s@UntagResources' {} a -> s {tagKeys = a} :: UntagResources) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResources where
   type
@@ -215,7 +215,7 @@ newUntagResourcesResponse pHttpStatus_ =
 -- error message. If there are no errors, the @FailedResourcesMap@ is
 -- empty.
 untagResourcesResponse_failedResourcesMap :: Lens.Lens' UntagResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo))
-untagResourcesResponse_failedResourcesMap = Lens.lens (\UntagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@UntagResourcesResponse' {} a -> s {failedResourcesMap = a} :: UntagResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+untagResourcesResponse_failedResourcesMap = Lens.lens (\UntagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@UntagResourcesResponse' {} a -> s {failedResourcesMap = a} :: UntagResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 untagResourcesResponse_httpStatus :: Lens.Lens' UntagResourcesResponse Prelude.Int

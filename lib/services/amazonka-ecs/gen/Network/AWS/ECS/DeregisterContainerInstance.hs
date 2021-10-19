@@ -43,8 +43,8 @@ module Network.AWS.ECS.DeregisterContainerInstance
     newDeregisterContainerInstance,
 
     -- * Request Lenses
-    deregisterContainerInstance_force,
     deregisterContainerInstance_cluster,
+    deregisterContainerInstance_force,
     deregisterContainerInstance_containerInstance,
 
     -- * Destructuring the Response
@@ -66,7 +66,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterContainerInstance' smart constructor.
 data DeregisterContainerInstance = DeregisterContainerInstance'
-  { -- | Forces the deregistration of the container instance. If you have tasks
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
+    -- hosts the container instance to deregister. If you do not specify a
+    -- cluster, the default cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | Forces the deregistration of the container instance. If you have tasks
     -- running on the container instance when you deregister it with the
     -- @force@ option, these tasks remain running until you terminate the
     -- instance or the tasks stop through some other means, but they are
@@ -80,10 +84,6 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
     -- deregistered. They begin connection draining according to the settings
     -- on the load balancer or target group.
     force :: Prelude.Maybe Prelude.Bool,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- hosts the container instance to deregister. If you do not specify a
-    -- cluster, the default cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
     -- | The container instance ID or full ARN of the container instance to
     -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
     -- the Region of the container instance, the Amazon Web Services account ID
@@ -102,6 +102,10 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cluster', 'deregisterContainerInstance_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the container instance to deregister. If you do not specify a
+-- cluster, the default cluster is assumed.
+--
 -- 'force', 'deregisterContainerInstance_force' - Forces the deregistration of the container instance. If you have tasks
 -- running on the container instance when you deregister it with the
 -- @force@ option, these tasks remain running until you terminate the
@@ -116,10 +120,6 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 -- deregistered. They begin connection draining according to the settings
 -- on the load balancer or target group.
 --
--- 'cluster', 'deregisterContainerInstance_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the container instance to deregister. If you do not specify a
--- cluster, the default cluster is assumed.
---
 -- 'containerInstance', 'deregisterContainerInstance_containerInstance' - The container instance ID or full ARN of the container instance to
 -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
 -- the Region of the container instance, the Amazon Web Services account ID
@@ -132,11 +132,17 @@ newDeregisterContainerInstance ::
   DeregisterContainerInstance
 newDeregisterContainerInstance pContainerInstance_ =
   DeregisterContainerInstance'
-    { force =
+    { cluster =
         Prelude.Nothing,
-      cluster = Prelude.Nothing,
+      force = Prelude.Nothing,
       containerInstance = pContainerInstance_
     }
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the container instance to deregister. If you do not specify a
+-- cluster, the default cluster is assumed.
+deregisterContainerInstance_cluster :: Lens.Lens' DeregisterContainerInstance (Prelude.Maybe Prelude.Text)
+deregisterContainerInstance_cluster = Lens.lens (\DeregisterContainerInstance' {cluster} -> cluster) (\s@DeregisterContainerInstance' {} a -> s {cluster = a} :: DeregisterContainerInstance)
 
 -- | Forces the deregistration of the container instance. If you have tasks
 -- running on the container instance when you deregister it with the
@@ -153,12 +159,6 @@ newDeregisterContainerInstance pContainerInstance_ =
 -- on the load balancer or target group.
 deregisterContainerInstance_force :: Lens.Lens' DeregisterContainerInstance (Prelude.Maybe Prelude.Bool)
 deregisterContainerInstance_force = Lens.lens (\DeregisterContainerInstance' {force} -> force) (\s@DeregisterContainerInstance' {} a -> s {force = a} :: DeregisterContainerInstance)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the container instance to deregister. If you do not specify a
--- cluster, the default cluster is assumed.
-deregisterContainerInstance_cluster :: Lens.Lens' DeregisterContainerInstance (Prelude.Maybe Prelude.Text)
-deregisterContainerInstance_cluster = Lens.lens (\DeregisterContainerInstance' {cluster} -> cluster) (\s@DeregisterContainerInstance' {} a -> s {cluster = a} :: DeregisterContainerInstance)
 
 -- | The container instance ID or full ARN of the container instance to
 -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
@@ -205,8 +205,8 @@ instance Core.ToJSON DeregisterContainerInstance where
   toJSON DeregisterContainerInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("force" Core..=) Prelude.<$> force,
-            ("cluster" Core..=) Prelude.<$> cluster,
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            ("force" Core..=) Prelude.<$> force,
             Prelude.Just
               ("containerInstance" Core..= containerInstance)
           ]

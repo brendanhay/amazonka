@@ -63,13 +63,13 @@ newRiskExceptionConfigurationType =
 -- | Risk detection is not performed on the IP addresses in the range list.
 -- The IP range is in CIDR notation.
 riskExceptionConfigurationType_skippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
-riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens._Coerce
+riskExceptionConfigurationType_skippedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {skippedIPRangeList} -> skippedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
 -- | Overrides the risk decision to always block the pre-authentication
 -- requests. The IP range is in CIDR notation: a compact representation of
 -- an IP address and its associated routing prefix.
 riskExceptionConfigurationType_blockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Prelude.Maybe [Prelude.Text])
-riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens._Coerce
+riskExceptionConfigurationType_blockedIPRangeList = Lens.lens (\RiskExceptionConfigurationType' {blockedIPRangeList} -> blockedIPRangeList) (\s@RiskExceptionConfigurationType' {} a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON RiskExceptionConfigurationType where
   parseJSON =

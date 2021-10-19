@@ -23,21 +23,6 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
-newVaultExists :: Core.Wait DescribeVault
-newVaultExists =
-  Core.Wait
-    { Core._waitName = "VaultExists",
-      Core._waitAttempts = 15,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
 newVaultNotExists :: Core.Wait DescribeVault
 newVaultNotExists =
   Core.Wait
@@ -49,5 +34,20 @@ newVaultNotExists =
           Core.matchError
             "ResourceNotFoundException"
             Core.AcceptSuccess
+        ]
+    }
+
+-- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
+newVaultExists :: Core.Wait DescribeVault
+newVaultExists =
+  Core.Wait
+    { Core._waitName = "VaultExists",
+      Core._waitAttempts = 15,
+      Core._waitDelay = 3,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptRetry
         ]
     }

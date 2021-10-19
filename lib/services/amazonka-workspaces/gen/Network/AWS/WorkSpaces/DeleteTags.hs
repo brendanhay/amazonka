@@ -88,7 +88,7 @@ deleteTags_resourceId = Lens.lens (\DeleteTags' {resourceId} -> resourceId) (\s@
 
 -- | The tag keys.
 deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse

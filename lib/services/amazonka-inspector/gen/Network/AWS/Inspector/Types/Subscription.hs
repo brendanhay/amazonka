@@ -71,7 +71,7 @@ newSubscription
       { resourceArn = pResourceArn_,
         topicArn = pTopicArn_,
         eventSubscriptions =
-          Lens._Coerce Lens.# pEventSubscriptions_
+          Lens.coerced Lens.# pEventSubscriptions_
       }
 
 -- | The ARN of the assessment template that is used during the event for
@@ -86,7 +86,7 @@ subscription_topicArn = Lens.lens (\Subscription' {topicArn} -> topicArn) (\s@Su
 
 -- | The list of existing event subscriptions.
 subscription_eventSubscriptions :: Lens.Lens' Subscription (Prelude.NonEmpty EventSubscription)
-subscription_eventSubscriptions = Lens.lens (\Subscription' {eventSubscriptions} -> eventSubscriptions) (\s@Subscription' {} a -> s {eventSubscriptions = a} :: Subscription) Prelude.. Lens._Coerce
+subscription_eventSubscriptions = Lens.lens (\Subscription' {eventSubscriptions} -> eventSubscriptions) (\s@Subscription' {} a -> s {eventSubscriptions = a} :: Subscription) Prelude.. Lens.coerced
 
 instance Core.FromJSON Subscription where
   parseJSON =

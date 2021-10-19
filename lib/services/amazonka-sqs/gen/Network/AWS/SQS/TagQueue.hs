@@ -103,7 +103,7 @@ tagQueue_queueUrl = Lens.lens (\TagQueue' {queueUrl} -> queueUrl) (\s@TagQueue' 
 
 -- | The list of tags to be added to the specified queue.
 tagQueue_tags :: Lens.Lens' TagQueue (Prelude.HashMap Prelude.Text Prelude.Text)
-tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {tags = a} :: TagQueue) Prelude.. Lens._Coerce
+tagQueue_tags = Lens.lens (\TagQueue' {tags} -> tags) (\s@TagQueue' {} a -> s {tags = a} :: TagQueue) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagQueue where
   type AWSResponse TagQueue = TagQueueResponse

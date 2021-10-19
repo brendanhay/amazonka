@@ -165,7 +165,7 @@ newGetLogRecordResponse pHttpStatus_ =
 
 -- | The requested log event, as a JSON string.
 getLogRecordResponse_logRecord :: Lens.Lens' GetLogRecordResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getLogRecordResponse_logRecord = Lens.lens (\GetLogRecordResponse' {logRecord} -> logRecord) (\s@GetLogRecordResponse' {} a -> s {logRecord = a} :: GetLogRecordResponse) Prelude.. Lens.mapping Lens._Coerce
+getLogRecordResponse_logRecord = Lens.lens (\GetLogRecordResponse' {logRecord} -> logRecord) (\s@GetLogRecordResponse' {} a -> s {logRecord = a} :: GetLogRecordResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLogRecordResponse_httpStatus :: Lens.Lens' GetLogRecordResponse Prelude.Int

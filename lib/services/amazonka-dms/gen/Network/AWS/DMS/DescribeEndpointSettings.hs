@@ -28,8 +28,8 @@ module Network.AWS.DMS.DescribeEndpointSettings
     newDescribeEndpointSettings,
 
     -- * Request Lenses
-    describeEndpointSettings_maxRecords,
     describeEndpointSettings_marker,
+    describeEndpointSettings_maxRecords,
     describeEndpointSettings_engineName,
 
     -- * Destructuring the Response
@@ -52,15 +52,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEndpointSettings' smart constructor.
 data DescribeEndpointSettings = DescribeEndpointSettings'
-  { -- | The maximum number of records to include in the response. If more
+  { -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The databse engine used for your source or target endpoint.
     engineName :: Prelude.Text
   }
@@ -74,14 +74,14 @@ data DescribeEndpointSettings = DescribeEndpointSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'describeEndpointSettings_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeEndpointSettings_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
---
--- 'marker', 'describeEndpointSettings_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 --
 -- 'engineName', 'describeEndpointSettings_engineName' - The databse engine used for your source or target endpoint.
 newDescribeEndpointSettings ::
@@ -90,11 +90,16 @@ newDescribeEndpointSettings ::
   DescribeEndpointSettings
 newDescribeEndpointSettings pEngineName_ =
   DescribeEndpointSettings'
-    { maxRecords =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       engineName = pEngineName_
     }
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEndpointSettings_marker :: Lens.Lens' DescribeEndpointSettings (Prelude.Maybe Prelude.Text)
+describeEndpointSettings_marker = Lens.lens (\DescribeEndpointSettings' {marker} -> marker) (\s@DescribeEndpointSettings' {} a -> s {marker = a} :: DescribeEndpointSettings)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -102,12 +107,6 @@ newDescribeEndpointSettings pEngineName_ =
 -- results can be retrieved.
 describeEndpointSettings_maxRecords :: Lens.Lens' DescribeEndpointSettings (Prelude.Maybe Prelude.Int)
 describeEndpointSettings_maxRecords = Lens.lens (\DescribeEndpointSettings' {maxRecords} -> maxRecords) (\s@DescribeEndpointSettings' {} a -> s {maxRecords = a} :: DescribeEndpointSettings)
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeEndpointSettings_marker :: Lens.Lens' DescribeEndpointSettings (Prelude.Maybe Prelude.Text)
-describeEndpointSettings_marker = Lens.lens (\DescribeEndpointSettings' {marker} -> marker) (\s@DescribeEndpointSettings' {} a -> s {marker = a} :: DescribeEndpointSettings)
 
 -- | The databse engine used for your source or target endpoint.
 describeEndpointSettings_engineName :: Lens.Lens' DescribeEndpointSettings Prelude.Text
@@ -152,8 +151,8 @@ instance Core.ToJSON DescribeEndpointSettings where
   toJSON DescribeEndpointSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
             Prelude.Just ("EngineName" Core..= engineName)
           ]
       )
@@ -209,7 +208,7 @@ newDescribeEndpointSettingsResponse pHttpStatus_ =
 -- | Descriptions of the endpoint settings available for your source or
 -- target database engine.
 describeEndpointSettingsResponse_endpointSettings :: Lens.Lens' DescribeEndpointSettingsResponse (Prelude.Maybe [EndpointSetting])
-describeEndpointSettingsResponse_endpointSettings = Lens.lens (\DescribeEndpointSettingsResponse' {endpointSettings} -> endpointSettings) (\s@DescribeEndpointSettingsResponse' {} a -> s {endpointSettings = a} :: DescribeEndpointSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEndpointSettingsResponse_endpointSettings = Lens.lens (\DescribeEndpointSettingsResponse' {endpointSettings} -> endpointSettings) (\s@DescribeEndpointSettingsResponse' {} a -> s {endpointSettings = a} :: DescribeEndpointSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

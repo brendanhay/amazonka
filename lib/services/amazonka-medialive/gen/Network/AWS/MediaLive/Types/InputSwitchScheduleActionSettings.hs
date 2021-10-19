@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputSwitchScheduleActionSettings' smart constructor.
 data InputSwitchScheduleActionSettings = InputSwitchScheduleActionSettings'
-  { -- | The value for the variable portion of the URL for the dynamic input, for
+  { -- | Settings to let you create a clip of the file input, in order to set up
+    -- the input to ingest only a portion of the file.
+    inputClippingSettings :: Prelude.Maybe InputClippingSettings,
+    -- | The value for the variable portion of the URL for the dynamic input, for
     -- this instance of the input. Each time you use the same dynamic input in
     -- an input switch action, you can provide a different value, in order to
     -- connect the input to a different content source.
     urlPath :: Prelude.Maybe [Prelude.Text],
-    -- | Settings to let you create a clip of the file input, in order to set up
-    -- the input to ingest only a portion of the file.
-    inputClippingSettings :: Prelude.Maybe InputClippingSettings,
     -- | The name of the input attachment (not the name of the input!) to switch
     -- to. The name is specified in the channel configuration.
     inputAttachmentNameReference :: Prelude.Text
@@ -51,13 +51,13 @@ data InputSwitchScheduleActionSettings = InputSwitchScheduleActionSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'inputClippingSettings', 'inputSwitchScheduleActionSettings_inputClippingSettings' - Settings to let you create a clip of the file input, in order to set up
+-- the input to ingest only a portion of the file.
+--
 -- 'urlPath', 'inputSwitchScheduleActionSettings_urlPath' - The value for the variable portion of the URL for the dynamic input, for
 -- this instance of the input. Each time you use the same dynamic input in
 -- an input switch action, you can provide a different value, in order to
 -- connect the input to a different content source.
---
--- 'inputClippingSettings', 'inputSwitchScheduleActionSettings_inputClippingSettings' - Settings to let you create a clip of the file input, in order to set up
--- the input to ingest only a portion of the file.
 --
 -- 'inputAttachmentNameReference', 'inputSwitchScheduleActionSettings_inputAttachmentNameReference' - The name of the input attachment (not the name of the input!) to switch
 -- to. The name is specified in the channel configuration.
@@ -68,24 +68,24 @@ newInputSwitchScheduleActionSettings ::
 newInputSwitchScheduleActionSettings
   pInputAttachmentNameReference_ =
     InputSwitchScheduleActionSettings'
-      { urlPath =
+      { inputClippingSettings =
           Prelude.Nothing,
-        inputClippingSettings = Prelude.Nothing,
+        urlPath = Prelude.Nothing,
         inputAttachmentNameReference =
           pInputAttachmentNameReference_
       }
+
+-- | Settings to let you create a clip of the file input, in order to set up
+-- the input to ingest only a portion of the file.
+inputSwitchScheduleActionSettings_inputClippingSettings :: Lens.Lens' InputSwitchScheduleActionSettings (Prelude.Maybe InputClippingSettings)
+inputSwitchScheduleActionSettings_inputClippingSettings = Lens.lens (\InputSwitchScheduleActionSettings' {inputClippingSettings} -> inputClippingSettings) (\s@InputSwitchScheduleActionSettings' {} a -> s {inputClippingSettings = a} :: InputSwitchScheduleActionSettings)
 
 -- | The value for the variable portion of the URL for the dynamic input, for
 -- this instance of the input. Each time you use the same dynamic input in
 -- an input switch action, you can provide a different value, in order to
 -- connect the input to a different content source.
 inputSwitchScheduleActionSettings_urlPath :: Lens.Lens' InputSwitchScheduleActionSettings (Prelude.Maybe [Prelude.Text])
-inputSwitchScheduleActionSettings_urlPath = Lens.lens (\InputSwitchScheduleActionSettings' {urlPath} -> urlPath) (\s@InputSwitchScheduleActionSettings' {} a -> s {urlPath = a} :: InputSwitchScheduleActionSettings) Prelude.. Lens.mapping Lens._Coerce
-
--- | Settings to let you create a clip of the file input, in order to set up
--- the input to ingest only a portion of the file.
-inputSwitchScheduleActionSettings_inputClippingSettings :: Lens.Lens' InputSwitchScheduleActionSettings (Prelude.Maybe InputClippingSettings)
-inputSwitchScheduleActionSettings_inputClippingSettings = Lens.lens (\InputSwitchScheduleActionSettings' {inputClippingSettings} -> inputClippingSettings) (\s@InputSwitchScheduleActionSettings' {} a -> s {inputClippingSettings = a} :: InputSwitchScheduleActionSettings)
+inputSwitchScheduleActionSettings_urlPath = Lens.lens (\InputSwitchScheduleActionSettings' {urlPath} -> urlPath) (\s@InputSwitchScheduleActionSettings' {} a -> s {urlPath = a} :: InputSwitchScheduleActionSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the input attachment (not the name of the input!) to switch
 -- to. The name is specified in the channel configuration.
@@ -101,8 +101,8 @@ instance
       "InputSwitchScheduleActionSettings"
       ( \x ->
           InputSwitchScheduleActionSettings'
-            Prelude.<$> (x Core..:? "urlPath" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "inputClippingSettings")
+            Prelude.<$> (x Core..:? "inputClippingSettings")
+            Prelude.<*> (x Core..:? "urlPath" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "inputAttachmentNameReference")
       )
 
@@ -121,9 +121,9 @@ instance
   toJSON InputSwitchScheduleActionSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("urlPath" Core..=) Prelude.<$> urlPath,
-            ("inputClippingSettings" Core..=)
+          [ ("inputClippingSettings" Core..=)
               Prelude.<$> inputClippingSettings,
+            ("urlPath" Core..=) Prelude.<$> urlPath,
             Prelude.Just
               ( "inputAttachmentNameReference"
                   Core..= inputAttachmentNameReference

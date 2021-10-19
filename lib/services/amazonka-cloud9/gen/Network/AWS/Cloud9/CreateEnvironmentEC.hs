@@ -29,15 +29,15 @@ module Network.AWS.Cloud9.CreateEnvironmentEC
     newCreateEnvironmentEC,
 
     -- * Request Lenses
-    createEnvironmentEC_dryRun,
-    createEnvironmentEC_connectionType,
-    createEnvironmentEC_imageId,
-    createEnvironmentEC_ownerArn,
-    createEnvironmentEC_tags,
-    createEnvironmentEC_subnetId,
-    createEnvironmentEC_description,
-    createEnvironmentEC_clientRequestToken,
     createEnvironmentEC_automaticStopTimeMinutes,
+    createEnvironmentEC_subnetId,
+    createEnvironmentEC_ownerArn,
+    createEnvironmentEC_imageId,
+    createEnvironmentEC_clientRequestToken,
+    createEnvironmentEC_connectionType,
+    createEnvironmentEC_description,
+    createEnvironmentEC_dryRun,
+    createEnvironmentEC_tags,
     createEnvironmentEC_name,
     createEnvironmentEC_instanceType,
 
@@ -60,19 +60,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateEnvironmentEC' smart constructor.
 data CreateEnvironmentEC = CreateEnvironmentEC'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The connection type used for connecting to an Amazon EC2 environment.
-    -- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
-    -- through Amazon EC2 Systems Manager).
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
-    -- in the /Cloud9 User Guide/.
-    connectionType :: Prelude.Maybe ConnectionType,
+  { -- | The number of minutes until the running instance is shut down after the
+    -- environment has last been used.
+    automaticStopTimeMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+    -- with the Amazon EC2 instance.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be
+    -- the ARN of any IAM principal. If this value is not specified, the ARN
+    -- defaults to this environment\'s creator.
+    ownerArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the Amazon Machine Image (AMI) that\'s used to create
     -- the EC2 instance. To choose an AMI for the instance, you must specify a
     -- valid AMI alias or a valid Amazon EC2 Systems Manager (SSM) path.
@@ -101,18 +98,6 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
     -- -   Ubuntu 18.04:
     --     @resolve:ssm:\/aws\/service\/cloud9\/amis\/ubuntu-18.04-x86_64@
     imageId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be
-    -- the ARN of any IAM principal. If this value is not specified, the ARN
-    -- defaults to this environment\'s creator.
-    ownerArn :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs that will be associated with the new Cloud9
-    -- development environment.
-    tags :: Prelude.Maybe (Core.Sensitive [Core.Sensitive Tag]),
-    -- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
-    -- with the Amazon EC2 instance.
-    subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The description of the environment to create.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A unique, case-sensitive string that helps Cloud9 to ensure this
     -- operation completes no more than one time.
     --
@@ -120,9 +105,24 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens>
     -- in the /Amazon EC2 API Reference/.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of minutes until the running instance is shut down after the
-    -- environment has last been used.
-    automaticStopTimeMinutes :: Prelude.Maybe Prelude.Int,
+    -- | The connection type used for connecting to an Amazon EC2 environment.
+    -- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
+    -- through Amazon EC2 Systems Manager).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
+    -- in the /Cloud9 User Guide/.
+    connectionType :: Prelude.Maybe ConnectionType,
+    -- | The description of the environment to create.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | An array of key-value pairs that will be associated with the new Cloud9
+    -- development environment.
+    tags :: Prelude.Maybe (Core.Sensitive [Core.Sensitive Tag]),
     -- | The name of the environment to create.
     --
     -- This name is visible to other IAM users in the same Amazon Web Services
@@ -142,18 +142,15 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'createEnvironmentEC_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'automaticStopTimeMinutes', 'createEnvironmentEC_automaticStopTimeMinutes' - The number of minutes until the running instance is shut down after the
+-- environment has last been used.
 --
--- 'connectionType', 'createEnvironmentEC_connectionType' - The connection type used for connecting to an Amazon EC2 environment.
--- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
--- through Amazon EC2 Systems Manager).
+-- 'subnetId', 'createEnvironmentEC_subnetId' - The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+-- with the Amazon EC2 instance.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
--- in the /Cloud9 User Guide/.
+-- 'ownerArn', 'createEnvironmentEC_ownerArn' - The Amazon Resource Name (ARN) of the environment owner. This ARN can be
+-- the ARN of any IAM principal. If this value is not specified, the ARN
+-- defaults to this environment\'s creator.
 --
 -- 'imageId', 'createEnvironmentEC_imageId' - The identifier for the Amazon Machine Image (AMI) that\'s used to create
 -- the EC2 instance. To choose an AMI for the instance, you must specify a
@@ -183,18 +180,6 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
 -- -   Ubuntu 18.04:
 --     @resolve:ssm:\/aws\/service\/cloud9\/amis\/ubuntu-18.04-x86_64@
 --
--- 'ownerArn', 'createEnvironmentEC_ownerArn' - The Amazon Resource Name (ARN) of the environment owner. This ARN can be
--- the ARN of any IAM principal. If this value is not specified, the ARN
--- defaults to this environment\'s creator.
---
--- 'tags', 'createEnvironmentEC_tags' - An array of key-value pairs that will be associated with the new Cloud9
--- development environment.
---
--- 'subnetId', 'createEnvironmentEC_subnetId' - The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
--- with the Amazon EC2 instance.
---
--- 'description', 'createEnvironmentEC_description' - The description of the environment to create.
---
 -- 'clientRequestToken', 'createEnvironmentEC_clientRequestToken' - A unique, case-sensitive string that helps Cloud9 to ensure this
 -- operation completes no more than one time.
 --
@@ -202,8 +187,23 @@ data CreateEnvironmentEC = CreateEnvironmentEC'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens>
 -- in the /Amazon EC2 API Reference/.
 --
--- 'automaticStopTimeMinutes', 'createEnvironmentEC_automaticStopTimeMinutes' - The number of minutes until the running instance is shut down after the
--- environment has last been used.
+-- 'connectionType', 'createEnvironmentEC_connectionType' - The connection type used for connecting to an Amazon EC2 environment.
+-- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
+-- through Amazon EC2 Systems Manager).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
+-- in the /Cloud9 User Guide/.
+--
+-- 'description', 'createEnvironmentEC_description' - The description of the environment to create.
+--
+-- 'dryRun', 'createEnvironmentEC_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'tags', 'createEnvironmentEC_tags' - An array of key-value pairs that will be associated with the new Cloud9
+-- development environment.
 --
 -- 'name', 'createEnvironmentEC_name' - The name of the environment to create.
 --
@@ -220,35 +220,35 @@ newCreateEnvironmentEC ::
   CreateEnvironmentEC
 newCreateEnvironmentEC pName_ pInstanceType_ =
   CreateEnvironmentEC'
-    { dryRun = Prelude.Nothing,
-      connectionType = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      ownerArn = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { automaticStopTimeMinutes =
+        Prelude.Nothing,
       subnetId = Prelude.Nothing,
-      description = Prelude.Nothing,
+      ownerArn = Prelude.Nothing,
+      imageId = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      automaticStopTimeMinutes = Prelude.Nothing,
+      connectionType = Prelude.Nothing,
+      description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       instanceType = pInstanceType_
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createEnvironmentEC_dryRun :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Bool)
-createEnvironmentEC_dryRun = Lens.lens (\CreateEnvironmentEC' {dryRun} -> dryRun) (\s@CreateEnvironmentEC' {} a -> s {dryRun = a} :: CreateEnvironmentEC)
+-- | The number of minutes until the running instance is shut down after the
+-- environment has last been used.
+createEnvironmentEC_automaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Int)
+createEnvironmentEC_automaticStopTimeMinutes = Lens.lens (\CreateEnvironmentEC' {automaticStopTimeMinutes} -> automaticStopTimeMinutes) (\s@CreateEnvironmentEC' {} a -> s {automaticStopTimeMinutes = a} :: CreateEnvironmentEC)
 
--- | The connection type used for connecting to an Amazon EC2 environment.
--- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
--- through Amazon EC2 Systems Manager).
---
--- For more information, see
--- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
--- in the /Cloud9 User Guide/.
-createEnvironmentEC_connectionType :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe ConnectionType)
-createEnvironmentEC_connectionType = Lens.lens (\CreateEnvironmentEC' {connectionType} -> connectionType) (\s@CreateEnvironmentEC' {} a -> s {connectionType = a} :: CreateEnvironmentEC)
+-- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+-- with the Amazon EC2 instance.
+createEnvironmentEC_subnetId :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
+createEnvironmentEC_subnetId = Lens.lens (\CreateEnvironmentEC' {subnetId} -> subnetId) (\s@CreateEnvironmentEC' {} a -> s {subnetId = a} :: CreateEnvironmentEC)
+
+-- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be
+-- the ARN of any IAM principal. If this value is not specified, the ARN
+-- defaults to this environment\'s creator.
+createEnvironmentEC_ownerArn :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
+createEnvironmentEC_ownerArn = Lens.lens (\CreateEnvironmentEC' {ownerArn} -> ownerArn) (\s@CreateEnvironmentEC' {} a -> s {ownerArn = a} :: CreateEnvironmentEC)
 
 -- | The identifier for the Amazon Machine Image (AMI) that\'s used to create
 -- the EC2 instance. To choose an AMI for the instance, you must specify a
@@ -280,26 +280,6 @@ createEnvironmentEC_connectionType = Lens.lens (\CreateEnvironmentEC' {connectio
 createEnvironmentEC_imageId :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
 createEnvironmentEC_imageId = Lens.lens (\CreateEnvironmentEC' {imageId} -> imageId) (\s@CreateEnvironmentEC' {} a -> s {imageId = a} :: CreateEnvironmentEC)
 
--- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be
--- the ARN of any IAM principal. If this value is not specified, the ARN
--- defaults to this environment\'s creator.
-createEnvironmentEC_ownerArn :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_ownerArn = Lens.lens (\CreateEnvironmentEC' {ownerArn} -> ownerArn) (\s@CreateEnvironmentEC' {} a -> s {ownerArn = a} :: CreateEnvironmentEC)
-
--- | An array of key-value pairs that will be associated with the new Cloud9
--- development environment.
-createEnvironmentEC_tags :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe [Tag])
-createEnvironmentEC_tags = Lens.lens (\CreateEnvironmentEC' {tags} -> tags) (\s@CreateEnvironmentEC' {} a -> s {tags = a} :: CreateEnvironmentEC) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
-
--- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
--- with the Amazon EC2 instance.
-createEnvironmentEC_subnetId :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_subnetId = Lens.lens (\CreateEnvironmentEC' {subnetId} -> subnetId) (\s@CreateEnvironmentEC' {} a -> s {subnetId = a} :: CreateEnvironmentEC)
-
--- | The description of the environment to create.
-createEnvironmentEC_description :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
-createEnvironmentEC_description = Lens.lens (\CreateEnvironmentEC' {description} -> description) (\s@CreateEnvironmentEC' {} a -> s {description = a} :: CreateEnvironmentEC) Prelude.. Lens.mapping Core._Sensitive
-
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 -- operation completes no more than one time.
 --
@@ -309,10 +289,31 @@ createEnvironmentEC_description = Lens.lens (\CreateEnvironmentEC' {description}
 createEnvironmentEC_clientRequestToken :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
 createEnvironmentEC_clientRequestToken = Lens.lens (\CreateEnvironmentEC' {clientRequestToken} -> clientRequestToken) (\s@CreateEnvironmentEC' {} a -> s {clientRequestToken = a} :: CreateEnvironmentEC)
 
--- | The number of minutes until the running instance is shut down after the
--- environment has last been used.
-createEnvironmentEC_automaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Int)
-createEnvironmentEC_automaticStopTimeMinutes = Lens.lens (\CreateEnvironmentEC' {automaticStopTimeMinutes} -> automaticStopTimeMinutes) (\s@CreateEnvironmentEC' {} a -> s {automaticStopTimeMinutes = a} :: CreateEnvironmentEC)
+-- | The connection type used for connecting to an Amazon EC2 environment.
+-- Valid values are @CONNECT_SSH@ (default) and @CONNECT_SSM@ (connected
+-- through Amazon EC2 Systems Manager).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html Accessing no-ingress EC2 instances with Amazon EC2 Systems Manager>
+-- in the /Cloud9 User Guide/.
+createEnvironmentEC_connectionType :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe ConnectionType)
+createEnvironmentEC_connectionType = Lens.lens (\CreateEnvironmentEC' {connectionType} -> connectionType) (\s@CreateEnvironmentEC' {} a -> s {connectionType = a} :: CreateEnvironmentEC)
+
+-- | The description of the environment to create.
+createEnvironmentEC_description :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Text)
+createEnvironmentEC_description = Lens.lens (\CreateEnvironmentEC' {description} -> description) (\s@CreateEnvironmentEC' {} a -> s {description = a} :: CreateEnvironmentEC) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createEnvironmentEC_dryRun :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe Prelude.Bool)
+createEnvironmentEC_dryRun = Lens.lens (\CreateEnvironmentEC' {dryRun} -> dryRun) (\s@CreateEnvironmentEC' {} a -> s {dryRun = a} :: CreateEnvironmentEC)
+
+-- | An array of key-value pairs that will be associated with the new Cloud9
+-- development environment.
+createEnvironmentEC_tags :: Lens.Lens' CreateEnvironmentEC (Prelude.Maybe [Tag])
+createEnvironmentEC_tags = Lens.lens (\CreateEnvironmentEC' {tags} -> tags) (\s@CreateEnvironmentEC' {} a -> s {tags = a} :: CreateEnvironmentEC) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the environment to create.
 --
@@ -362,18 +363,18 @@ instance Core.ToJSON CreateEnvironmentEC where
   toJSON CreateEnvironmentEC' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("dryRun" Core..=) Prelude.<$> dryRun,
-            ("connectionType" Core..=)
-              Prelude.<$> connectionType,
-            ("imageId" Core..=) Prelude.<$> imageId,
-            ("ownerArn" Core..=) Prelude.<$> ownerArn,
-            ("tags" Core..=) Prelude.<$> tags,
+          [ ("automaticStopTimeMinutes" Core..=)
+              Prelude.<$> automaticStopTimeMinutes,
             ("subnetId" Core..=) Prelude.<$> subnetId,
-            ("description" Core..=) Prelude.<$> description,
+            ("ownerArn" Core..=) Prelude.<$> ownerArn,
+            ("imageId" Core..=) Prelude.<$> imageId,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("automaticStopTimeMinutes" Core..=)
-              Prelude.<$> automaticStopTimeMinutes,
+            ("connectionType" Core..=)
+              Prelude.<$> connectionType,
+            ("description" Core..=) Prelude.<$> description,
+            ("dryRun" Core..=) Prelude.<$> dryRun,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("instanceType" Core..= instanceType)
           ]

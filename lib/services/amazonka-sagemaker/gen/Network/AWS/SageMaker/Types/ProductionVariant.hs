@@ -33,13 +33,7 @@ import Network.AWS.SageMaker.Types.ProductionVariantInstanceType
 --
 -- /See:/ 'newProductionVariant' smart constructor.
 data ProductionVariant = ProductionVariant'
-  { -- | Determines initial traffic distribution among all of the models that you
-    -- specify in the endpoint configuration. The traffic to a production
-    -- variant is determined by the ratio of the @VariantWeight@ to the sum of
-    -- all @VariantWeight@ values across all ProductionVariants. If
-    -- unspecified, it defaults to 1.0.
-    initialVariantWeight :: Prelude.Maybe Prelude.Double,
-    -- | The size of the Elastic Inference (EI) instance to use for the
+  { -- | The size of the Elastic Inference (EI) instance to use for the
     -- production variant. EI instances provide on-demand GPU computing for
     -- inference. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
@@ -47,6 +41,12 @@ data ProductionVariant = ProductionVariant'
     -- | Specifies configuration for a core dump from the model container when
     -- the process crashes.
     coreDumpConfig :: Prelude.Maybe ProductionVariantCoreDumpConfig,
+    -- | Determines initial traffic distribution among all of the models that you
+    -- specify in the endpoint configuration. The traffic to a production
+    -- variant is determined by the ratio of the @VariantWeight@ to the sum of
+    -- all @VariantWeight@ values across all ProductionVariants. If
+    -- unspecified, it defaults to 1.0.
+    initialVariantWeight :: Prelude.Maybe Prelude.Double,
     -- | The name of the production variant.
     variantName :: Prelude.Text,
     -- | The name of the model that you want to host. This is the name that you
@@ -67,12 +67,6 @@ data ProductionVariant = ProductionVariant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'initialVariantWeight', 'productionVariant_initialVariantWeight' - Determines initial traffic distribution among all of the models that you
--- specify in the endpoint configuration. The traffic to a production
--- variant is determined by the ratio of the @VariantWeight@ to the sum of
--- all @VariantWeight@ values across all ProductionVariants. If
--- unspecified, it defaults to 1.0.
---
 -- 'acceleratorType', 'productionVariant_acceleratorType' - The size of the Elastic Inference (EI) instance to use for the
 -- production variant. EI instances provide on-demand GPU computing for
 -- inference. For more information, see
@@ -80,6 +74,12 @@ data ProductionVariant = ProductionVariant'
 --
 -- 'coreDumpConfig', 'productionVariant_coreDumpConfig' - Specifies configuration for a core dump from the model container when
 -- the process crashes.
+--
+-- 'initialVariantWeight', 'productionVariant_initialVariantWeight' - Determines initial traffic distribution among all of the models that you
+-- specify in the endpoint configuration. The traffic to a production
+-- variant is determined by the ratio of the @VariantWeight@ to the sum of
+-- all @VariantWeight@ values across all ProductionVariants. If
+-- unspecified, it defaults to 1.0.
 --
 -- 'variantName', 'productionVariant_variantName' - The name of the production variant.
 --
@@ -105,23 +105,15 @@ newProductionVariant
   pInitialInstanceCount_
   pInstanceType_ =
     ProductionVariant'
-      { initialVariantWeight =
+      { acceleratorType =
           Prelude.Nothing,
-        acceleratorType = Prelude.Nothing,
         coreDumpConfig = Prelude.Nothing,
+        initialVariantWeight = Prelude.Nothing,
         variantName = pVariantName_,
         modelName = pModelName_,
         initialInstanceCount = pInitialInstanceCount_,
         instanceType = pInstanceType_
       }
-
--- | Determines initial traffic distribution among all of the models that you
--- specify in the endpoint configuration. The traffic to a production
--- variant is determined by the ratio of the @VariantWeight@ to the sum of
--- all @VariantWeight@ values across all ProductionVariants. If
--- unspecified, it defaults to 1.0.
-productionVariant_initialVariantWeight :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Double)
-productionVariant_initialVariantWeight = Lens.lens (\ProductionVariant' {initialVariantWeight} -> initialVariantWeight) (\s@ProductionVariant' {} a -> s {initialVariantWeight = a} :: ProductionVariant)
 
 -- | The size of the Elastic Inference (EI) instance to use for the
 -- production variant. EI instances provide on-demand GPU computing for
@@ -134,6 +126,14 @@ productionVariant_acceleratorType = Lens.lens (\ProductionVariant' {acceleratorT
 -- the process crashes.
 productionVariant_coreDumpConfig :: Lens.Lens' ProductionVariant (Prelude.Maybe ProductionVariantCoreDumpConfig)
 productionVariant_coreDumpConfig = Lens.lens (\ProductionVariant' {coreDumpConfig} -> coreDumpConfig) (\s@ProductionVariant' {} a -> s {coreDumpConfig = a} :: ProductionVariant)
+
+-- | Determines initial traffic distribution among all of the models that you
+-- specify in the endpoint configuration. The traffic to a production
+-- variant is determined by the ratio of the @VariantWeight@ to the sum of
+-- all @VariantWeight@ values across all ProductionVariants. If
+-- unspecified, it defaults to 1.0.
+productionVariant_initialVariantWeight :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Double)
+productionVariant_initialVariantWeight = Lens.lens (\ProductionVariant' {initialVariantWeight} -> initialVariantWeight) (\s@ProductionVariant' {} a -> s {initialVariantWeight = a} :: ProductionVariant)
 
 -- | The name of the production variant.
 productionVariant_variantName :: Lens.Lens' ProductionVariant Prelude.Text
@@ -158,9 +158,9 @@ instance Core.FromJSON ProductionVariant where
       "ProductionVariant"
       ( \x ->
           ProductionVariant'
-            Prelude.<$> (x Core..:? "InitialVariantWeight")
-            Prelude.<*> (x Core..:? "AcceleratorType")
+            Prelude.<$> (x Core..:? "AcceleratorType")
             Prelude.<*> (x Core..:? "CoreDumpConfig")
+            Prelude.<*> (x Core..:? "InitialVariantWeight")
             Prelude.<*> (x Core..: "VariantName")
             Prelude.<*> (x Core..: "ModelName")
             Prelude.<*> (x Core..: "InitialInstanceCount")
@@ -175,12 +175,12 @@ instance Core.ToJSON ProductionVariant where
   toJSON ProductionVariant' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InitialVariantWeight" Core..=)
-              Prelude.<$> initialVariantWeight,
-            ("AcceleratorType" Core..=)
+          [ ("AcceleratorType" Core..=)
               Prelude.<$> acceleratorType,
             ("CoreDumpConfig" Core..=)
               Prelude.<$> coreDumpConfig,
+            ("InitialVariantWeight" Core..=)
+              Prelude.<$> initialVariantWeight,
             Prelude.Just ("VariantName" Core..= variantName),
             Prelude.Just ("ModelName" Core..= modelName),
             Prelude.Just

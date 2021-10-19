@@ -40,20 +40,20 @@ module Network.AWS.EKS.CreateNodegroup
     newCreateNodegroup,
 
     -- * Request Lenses
-    createNodegroup_scalingConfig,
     createNodegroup_capacityType,
-    createNodegroup_releaseVersion,
+    createNodegroup_instanceTypes,
+    createNodegroup_taints,
     createNodegroup_remoteAccess,
     createNodegroup_diskSize,
-    createNodegroup_labels,
-    createNodegroup_launchTemplate,
+    createNodegroup_releaseVersion,
+    createNodegroup_scalingConfig,
     createNodegroup_version,
-    createNodegroup_tags,
-    createNodegroup_updateConfig,
-    createNodegroup_clientRequestToken,
+    createNodegroup_launchTemplate,
+    createNodegroup_labels,
     createNodegroup_amiType,
-    createNodegroup_taints,
-    createNodegroup_instanceTypes,
+    createNodegroup_clientRequestToken,
+    createNodegroup_updateConfig,
+    createNodegroup_tags,
     createNodegroup_clusterName,
     createNodegroup_nodegroupName,
     createNodegroup_subnets,
@@ -78,76 +78,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNodegroup' smart constructor.
 data CreateNodegroup = CreateNodegroup'
-  { -- | The scaling configuration details for the Auto Scaling group that is
-    -- created for your node group.
-    scalingConfig :: Prelude.Maybe NodegroupScalingConfig,
-    -- | The capacity type for your node group.
+  { -- | The capacity type for your node group.
     capacityType :: Prelude.Maybe CapacityTypes,
-    -- | The AMI version of the Amazon EKS optimized AMI to use with your node
-    -- group. By default, the latest available AMI version for the node
-    -- group\'s current Kubernetes version is used. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
-    -- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
-    -- your launch template uses a custom AMI, then don\'t specify
-    -- @releaseVersion@, or the node group deployment will fail. For more
-    -- information about using launch templates with Amazon EKS, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
-    releaseVersion :: Prelude.Maybe Prelude.Text,
-    -- | The remote access (SSH) configuration to use with your node group. If
-    -- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
-    -- node group deployment will fail. For more information about using launch
-    -- templates with Amazon EKS, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
-    remoteAccess :: Prelude.Maybe RemoteAccessConfig,
-    -- | The root device disk size (in GiB) for your node group instances. The
-    -- default disk size is 20 GiB. If you specify @launchTemplate@, then
-    -- don\'t specify @diskSize@, or the node group deployment will fail. For
-    -- more information about using launch templates with Amazon EKS, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
-    diskSize :: Prelude.Maybe Prelude.Int,
-    -- | The Kubernetes labels to be applied to the nodes in the node group when
-    -- they are created.
-    labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | An object representing a node group\'s launch template specification. If
-    -- specified, then do not specify @instanceTypes@, @diskSize@, or
-    -- @remoteAccess@ and make sure that the launch template meets the
-    -- requirements in @launchTemplateSpecification@.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
-    -- | The Kubernetes version to use for your managed nodes. By default, the
-    -- Kubernetes version of the cluster is used, and this is the only accepted
-    -- specified value. If you specify @launchTemplate@, and your launch
-    -- template uses a custom AMI, then don\'t specify @version@, or the node
-    -- group deployment will fail. For more information about using launch
-    -- templates with Amazon EKS, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The metadata to apply to the node group to assist with categorization
-    -- and organization. Each tag consists of a key and an optional value, both
-    -- of which you define. Node group tags do not propagate to any other
-    -- resources associated with the node group, such as the Amazon EC2
-    -- instances or subnets.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The node group update configuration.
-    updateConfig :: Prelude.Maybe NodegroupUpdateConfig,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The AMI type for your node group. GPU instance types should use the
-    -- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
-    -- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
-    -- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
-    -- @launchTemplate@, and your launch template uses a custom AMI, then
-    -- don\'t specify @amiType@, or the node group deployment will fail. For
-    -- more information about using launch templates with Amazon EKS, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
-    -- in the Amazon EKS User Guide.
-    amiType :: Prelude.Maybe AMITypes,
-    -- | The Kubernetes taints to be applied to the nodes in the node group.
-    taints :: Prelude.Maybe [Taint],
     -- | Specify the instance types for a node group. If you specify a GPU
     -- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
     -- parameter. If you specify @launchTemplate@, then you can specify zero or
@@ -164,6 +96,74 @@ data CreateNodegroup = CreateNodegroup'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
     -- in the /Amazon EKS User Guide/.
     instanceTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The Kubernetes taints to be applied to the nodes in the node group.
+    taints :: Prelude.Maybe [Taint],
+    -- | The remote access (SSH) configuration to use with your node group. If
+    -- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
+    -- node group deployment will fail. For more information about using launch
+    -- templates with Amazon EKS, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+    -- in the Amazon EKS User Guide.
+    remoteAccess :: Prelude.Maybe RemoteAccessConfig,
+    -- | The root device disk size (in GiB) for your node group instances. The
+    -- default disk size is 20 GiB. If you specify @launchTemplate@, then
+    -- don\'t specify @diskSize@, or the node group deployment will fail. For
+    -- more information about using launch templates with Amazon EKS, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+    -- in the Amazon EKS User Guide.
+    diskSize :: Prelude.Maybe Prelude.Int,
+    -- | The AMI version of the Amazon EKS optimized AMI to use with your node
+    -- group. By default, the latest available AMI version for the node
+    -- group\'s current Kubernetes version is used. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
+    -- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
+    -- your launch template uses a custom AMI, then don\'t specify
+    -- @releaseVersion@, or the node group deployment will fail. For more
+    -- information about using launch templates with Amazon EKS, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+    -- in the Amazon EKS User Guide.
+    releaseVersion :: Prelude.Maybe Prelude.Text,
+    -- | The scaling configuration details for the Auto Scaling group that is
+    -- created for your node group.
+    scalingConfig :: Prelude.Maybe NodegroupScalingConfig,
+    -- | The Kubernetes version to use for your managed nodes. By default, the
+    -- Kubernetes version of the cluster is used, and this is the only accepted
+    -- specified value. If you specify @launchTemplate@, and your launch
+    -- template uses a custom AMI, then don\'t specify @version@, or the node
+    -- group deployment will fail. For more information about using launch
+    -- templates with Amazon EKS, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+    -- in the Amazon EKS User Guide.
+    version :: Prelude.Maybe Prelude.Text,
+    -- | An object representing a node group\'s launch template specification. If
+    -- specified, then do not specify @instanceTypes@, @diskSize@, or
+    -- @remoteAccess@ and make sure that the launch template meets the
+    -- requirements in @launchTemplateSpecification@.
+    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    -- | The Kubernetes labels to be applied to the nodes in the node group when
+    -- they are created.
+    labels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The AMI type for your node group. GPU instance types should use the
+    -- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
+    -- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
+    -- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
+    -- @launchTemplate@, and your launch template uses a custom AMI, then
+    -- don\'t specify @amiType@, or the node group deployment will fail. For
+    -- more information about using launch templates with Amazon EKS, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+    -- in the Amazon EKS User Guide.
+    amiType :: Prelude.Maybe AMITypes,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The node group update configuration.
+    updateConfig :: Prelude.Maybe NodegroupUpdateConfig,
+    -- | The metadata to apply to the node group to assist with categorization
+    -- and organization. Each tag consists of a key and an optional value, both
+    -- of which you define. Node group tags do not propagate to any other
+    -- resources associated with the node group, such as the Amazon EC2
+    -- instances or subnets.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the cluster to create the node group in.
     clusterName :: Prelude.Text,
     -- | The unique name to give your node group.
@@ -203,75 +203,7 @@ data CreateNodegroup = CreateNodegroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scalingConfig', 'createNodegroup_scalingConfig' - The scaling configuration details for the Auto Scaling group that is
--- created for your node group.
---
 -- 'capacityType', 'createNodegroup_capacityType' - The capacity type for your node group.
---
--- 'releaseVersion', 'createNodegroup_releaseVersion' - The AMI version of the Amazon EKS optimized AMI to use with your node
--- group. By default, the latest available AMI version for the node
--- group\'s current Kubernetes version is used. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
--- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
--- your launch template uses a custom AMI, then don\'t specify
--- @releaseVersion@, or the node group deployment will fail. For more
--- information about using launch templates with Amazon EKS, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
---
--- 'remoteAccess', 'createNodegroup_remoteAccess' - The remote access (SSH) configuration to use with your node group. If
--- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
--- node group deployment will fail. For more information about using launch
--- templates with Amazon EKS, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
---
--- 'diskSize', 'createNodegroup_diskSize' - The root device disk size (in GiB) for your node group instances. The
--- default disk size is 20 GiB. If you specify @launchTemplate@, then
--- don\'t specify @diskSize@, or the node group deployment will fail. For
--- more information about using launch templates with Amazon EKS, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
---
--- 'labels', 'createNodegroup_labels' - The Kubernetes labels to be applied to the nodes in the node group when
--- they are created.
---
--- 'launchTemplate', 'createNodegroup_launchTemplate' - An object representing a node group\'s launch template specification. If
--- specified, then do not specify @instanceTypes@, @diskSize@, or
--- @remoteAccess@ and make sure that the launch template meets the
--- requirements in @launchTemplateSpecification@.
---
--- 'version', 'createNodegroup_version' - The Kubernetes version to use for your managed nodes. By default, the
--- Kubernetes version of the cluster is used, and this is the only accepted
--- specified value. If you specify @launchTemplate@, and your launch
--- template uses a custom AMI, then don\'t specify @version@, or the node
--- group deployment will fail. For more information about using launch
--- templates with Amazon EKS, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
---
--- 'tags', 'createNodegroup_tags' - The metadata to apply to the node group to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Node group tags do not propagate to any other
--- resources associated with the node group, such as the Amazon EC2
--- instances or subnets.
---
--- 'updateConfig', 'createNodegroup_updateConfig' - The node group update configuration.
---
--- 'clientRequestToken', 'createNodegroup_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
---
--- 'amiType', 'createNodegroup_amiType' - The AMI type for your node group. GPU instance types should use the
--- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
--- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
--- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
--- @launchTemplate@, and your launch template uses a custom AMI, then
--- don\'t specify @amiType@, or the node group deployment will fail. For
--- more information about using launch templates with Amazon EKS, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
---
--- 'taints', 'createNodegroup_taints' - The Kubernetes taints to be applied to the nodes in the node group.
 --
 -- 'instanceTypes', 'createNodegroup_instanceTypes' - Specify the instance types for a node group. If you specify a GPU
 -- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
@@ -288,6 +220,74 @@ data CreateNodegroup = CreateNodegroup'
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the /Amazon EKS User Guide/.
+--
+-- 'taints', 'createNodegroup_taints' - The Kubernetes taints to be applied to the nodes in the node group.
+--
+-- 'remoteAccess', 'createNodegroup_remoteAccess' - The remote access (SSH) configuration to use with your node group. If
+-- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
+-- node group deployment will fail. For more information about using launch
+-- templates with Amazon EKS, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+-- in the Amazon EKS User Guide.
+--
+-- 'diskSize', 'createNodegroup_diskSize' - The root device disk size (in GiB) for your node group instances. The
+-- default disk size is 20 GiB. If you specify @launchTemplate@, then
+-- don\'t specify @diskSize@, or the node group deployment will fail. For
+-- more information about using launch templates with Amazon EKS, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+-- in the Amazon EKS User Guide.
+--
+-- 'releaseVersion', 'createNodegroup_releaseVersion' - The AMI version of the Amazon EKS optimized AMI to use with your node
+-- group. By default, the latest available AMI version for the node
+-- group\'s current Kubernetes version is used. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
+-- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
+-- your launch template uses a custom AMI, then don\'t specify
+-- @releaseVersion@, or the node group deployment will fail. For more
+-- information about using launch templates with Amazon EKS, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+-- in the Amazon EKS User Guide.
+--
+-- 'scalingConfig', 'createNodegroup_scalingConfig' - The scaling configuration details for the Auto Scaling group that is
+-- created for your node group.
+--
+-- 'version', 'createNodegroup_version' - The Kubernetes version to use for your managed nodes. By default, the
+-- Kubernetes version of the cluster is used, and this is the only accepted
+-- specified value. If you specify @launchTemplate@, and your launch
+-- template uses a custom AMI, then don\'t specify @version@, or the node
+-- group deployment will fail. For more information about using launch
+-- templates with Amazon EKS, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+-- in the Amazon EKS User Guide.
+--
+-- 'launchTemplate', 'createNodegroup_launchTemplate' - An object representing a node group\'s launch template specification. If
+-- specified, then do not specify @instanceTypes@, @diskSize@, or
+-- @remoteAccess@ and make sure that the launch template meets the
+-- requirements in @launchTemplateSpecification@.
+--
+-- 'labels', 'createNodegroup_labels' - The Kubernetes labels to be applied to the nodes in the node group when
+-- they are created.
+--
+-- 'amiType', 'createNodegroup_amiType' - The AMI type for your node group. GPU instance types should use the
+-- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
+-- AMI type. Arm instances should use the @AL2_ARM_64@ AMI type. All types
+-- use the Amazon EKS optimized Amazon Linux 2 AMI. If you specify
+-- @launchTemplate@, and your launch template uses a custom AMI, then
+-- don\'t specify @amiType@, or the node group deployment will fail. For
+-- more information about using launch templates with Amazon EKS, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+-- in the Amazon EKS User Guide.
+--
+-- 'clientRequestToken', 'createNodegroup_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+--
+-- 'updateConfig', 'createNodegroup_updateConfig' - The node group update configuration.
+--
+-- 'tags', 'createNodegroup_tags' - The metadata to apply to the node group to assist with categorization
+-- and organization. Each tag consists of a key and an optional value, both
+-- of which you define. Node group tags do not propagate to any other
+-- resources associated with the node group, such as the Amazon EC2
+-- instances or subnets.
 --
 -- 'clusterName', 'createNodegroup_clusterName' - The name of the cluster to create the node group in.
 --
@@ -329,47 +329,51 @@ newCreateNodegroup
   pNodegroupName_
   pNodeRole_ =
     CreateNodegroup'
-      { scalingConfig = Prelude.Nothing,
-        capacityType = Prelude.Nothing,
-        releaseVersion = Prelude.Nothing,
+      { capacityType = Prelude.Nothing,
+        instanceTypes = Prelude.Nothing,
+        taints = Prelude.Nothing,
         remoteAccess = Prelude.Nothing,
         diskSize = Prelude.Nothing,
-        labels = Prelude.Nothing,
-        launchTemplate = Prelude.Nothing,
+        releaseVersion = Prelude.Nothing,
+        scalingConfig = Prelude.Nothing,
         version = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        updateConfig = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+        launchTemplate = Prelude.Nothing,
+        labels = Prelude.Nothing,
         amiType = Prelude.Nothing,
-        taints = Prelude.Nothing,
-        instanceTypes = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
+        updateConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         clusterName = pClusterName_,
         nodegroupName = pNodegroupName_,
         subnets = Prelude.mempty,
         nodeRole = pNodeRole_
       }
 
--- | The scaling configuration details for the Auto Scaling group that is
--- created for your node group.
-createNodegroup_scalingConfig :: Lens.Lens' CreateNodegroup (Prelude.Maybe NodegroupScalingConfig)
-createNodegroup_scalingConfig = Lens.lens (\CreateNodegroup' {scalingConfig} -> scalingConfig) (\s@CreateNodegroup' {} a -> s {scalingConfig = a} :: CreateNodegroup)
-
 -- | The capacity type for your node group.
 createNodegroup_capacityType :: Lens.Lens' CreateNodegroup (Prelude.Maybe CapacityTypes)
 createNodegroup_capacityType = Lens.lens (\CreateNodegroup' {capacityType} -> capacityType) (\s@CreateNodegroup' {} a -> s {capacityType = a} :: CreateNodegroup)
 
--- | The AMI version of the Amazon EKS optimized AMI to use with your node
--- group. By default, the latest available AMI version for the node
--- group\'s current Kubernetes version is used. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
--- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
--- your launch template uses a custom AMI, then don\'t specify
--- @releaseVersion@, or the node group deployment will fail. For more
--- information about using launch templates with Amazon EKS, see
+-- | Specify the instance types for a node group. If you specify a GPU
+-- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
+-- parameter. If you specify @launchTemplate@, then you can specify zero or
+-- one instance type in your launch template /or/ you can specify 0-20
+-- instance types for @instanceTypes@. If however, you specify an instance
+-- type in your launch template /and/ specify any @instanceTypes@, the node
+-- group deployment will fail. If you don\'t specify an instance type in a
+-- launch template or for @instanceTypes@, then @t3.medium@ is used, by
+-- default. If you specify @Spot@ for @capacityType@, then we recommend
+-- specifying multiple values for @instanceTypes@. For more information,
+-- see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types Managed node group capacity types>
+-- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
-createNodegroup_releaseVersion :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Text)
-createNodegroup_releaseVersion = Lens.lens (\CreateNodegroup' {releaseVersion} -> releaseVersion) (\s@CreateNodegroup' {} a -> s {releaseVersion = a} :: CreateNodegroup)
+-- in the /Amazon EKS User Guide/.
+createNodegroup_instanceTypes :: Lens.Lens' CreateNodegroup (Prelude.Maybe [Prelude.Text])
+createNodegroup_instanceTypes = Lens.lens (\CreateNodegroup' {instanceTypes} -> instanceTypes) (\s@CreateNodegroup' {} a -> s {instanceTypes = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Kubernetes taints to be applied to the nodes in the node group.
+createNodegroup_taints :: Lens.Lens' CreateNodegroup (Prelude.Maybe [Taint])
+createNodegroup_taints = Lens.lens (\CreateNodegroup' {taints} -> taints) (\s@CreateNodegroup' {} a -> s {taints = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The remote access (SSH) configuration to use with your node group. If
 -- you specify @launchTemplate@, then don\'t specify @remoteAccess@, or the
@@ -389,17 +393,23 @@ createNodegroup_remoteAccess = Lens.lens (\CreateNodegroup' {remoteAccess} -> re
 createNodegroup_diskSize :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Int)
 createNodegroup_diskSize = Lens.lens (\CreateNodegroup' {diskSize} -> diskSize) (\s@CreateNodegroup' {} a -> s {diskSize = a} :: CreateNodegroup)
 
--- | The Kubernetes labels to be applied to the nodes in the node group when
--- they are created.
-createNodegroup_labels :: Lens.Lens' CreateNodegroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNodegroup_labels = Lens.lens (\CreateNodegroup' {labels} -> labels) (\s@CreateNodegroup' {} a -> s {labels = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens._Coerce
+-- | The AMI version of the Amazon EKS optimized AMI to use with your node
+-- group. By default, the latest available AMI version for the node
+-- group\'s current Kubernetes version is used. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html Amazon EKS optimized Amazon Linux 2 AMI versions>
+-- in the /Amazon EKS User Guide/. If you specify @launchTemplate@, and
+-- your launch template uses a custom AMI, then don\'t specify
+-- @releaseVersion@, or the node group deployment will fail. For more
+-- information about using launch templates with Amazon EKS, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
+-- in the Amazon EKS User Guide.
+createNodegroup_releaseVersion :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Text)
+createNodegroup_releaseVersion = Lens.lens (\CreateNodegroup' {releaseVersion} -> releaseVersion) (\s@CreateNodegroup' {} a -> s {releaseVersion = a} :: CreateNodegroup)
 
--- | An object representing a node group\'s launch template specification. If
--- specified, then do not specify @instanceTypes@, @diskSize@, or
--- @remoteAccess@ and make sure that the launch template meets the
--- requirements in @launchTemplateSpecification@.
-createNodegroup_launchTemplate :: Lens.Lens' CreateNodegroup (Prelude.Maybe LaunchTemplateSpecification)
-createNodegroup_launchTemplate = Lens.lens (\CreateNodegroup' {launchTemplate} -> launchTemplate) (\s@CreateNodegroup' {} a -> s {launchTemplate = a} :: CreateNodegroup)
+-- | The scaling configuration details for the Auto Scaling group that is
+-- created for your node group.
+createNodegroup_scalingConfig :: Lens.Lens' CreateNodegroup (Prelude.Maybe NodegroupScalingConfig)
+createNodegroup_scalingConfig = Lens.lens (\CreateNodegroup' {scalingConfig} -> scalingConfig) (\s@CreateNodegroup' {} a -> s {scalingConfig = a} :: CreateNodegroup)
 
 -- | The Kubernetes version to use for your managed nodes. By default, the
 -- Kubernetes version of the cluster is used, and this is the only accepted
@@ -412,22 +422,17 @@ createNodegroup_launchTemplate = Lens.lens (\CreateNodegroup' {launchTemplate} -
 createNodegroup_version :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Text)
 createNodegroup_version = Lens.lens (\CreateNodegroup' {version} -> version) (\s@CreateNodegroup' {} a -> s {version = a} :: CreateNodegroup)
 
--- | The metadata to apply to the node group to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Node group tags do not propagate to any other
--- resources associated with the node group, such as the Amazon EC2
--- instances or subnets.
-createNodegroup_tags :: Lens.Lens' CreateNodegroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createNodegroup_tags = Lens.lens (\CreateNodegroup' {tags} -> tags) (\s@CreateNodegroup' {} a -> s {tags = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens._Coerce
+-- | An object representing a node group\'s launch template specification. If
+-- specified, then do not specify @instanceTypes@, @diskSize@, or
+-- @remoteAccess@ and make sure that the launch template meets the
+-- requirements in @launchTemplateSpecification@.
+createNodegroup_launchTemplate :: Lens.Lens' CreateNodegroup (Prelude.Maybe LaunchTemplateSpecification)
+createNodegroup_launchTemplate = Lens.lens (\CreateNodegroup' {launchTemplate} -> launchTemplate) (\s@CreateNodegroup' {} a -> s {launchTemplate = a} :: CreateNodegroup)
 
--- | The node group update configuration.
-createNodegroup_updateConfig :: Lens.Lens' CreateNodegroup (Prelude.Maybe NodegroupUpdateConfig)
-createNodegroup_updateConfig = Lens.lens (\CreateNodegroup' {updateConfig} -> updateConfig) (\s@CreateNodegroup' {} a -> s {updateConfig = a} :: CreateNodegroup)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
-createNodegroup_clientRequestToken :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Text)
-createNodegroup_clientRequestToken = Lens.lens (\CreateNodegroup' {clientRequestToken} -> clientRequestToken) (\s@CreateNodegroup' {} a -> s {clientRequestToken = a} :: CreateNodegroup)
+-- | The Kubernetes labels to be applied to the nodes in the node group when
+-- they are created.
+createNodegroup_labels :: Lens.Lens' CreateNodegroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNodegroup_labels = Lens.lens (\CreateNodegroup' {labels} -> labels) (\s@CreateNodegroup' {} a -> s {labels = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The AMI type for your node group. GPU instance types should use the
 -- @AL2_x86_64_GPU@ AMI type. Non-GPU instances should use the @AL2_x86_64@
@@ -441,27 +446,22 @@ createNodegroup_clientRequestToken = Lens.lens (\CreateNodegroup' {clientRequest
 createNodegroup_amiType :: Lens.Lens' CreateNodegroup (Prelude.Maybe AMITypes)
 createNodegroup_amiType = Lens.lens (\CreateNodegroup' {amiType} -> amiType) (\s@CreateNodegroup' {} a -> s {amiType = a} :: CreateNodegroup)
 
--- | The Kubernetes taints to be applied to the nodes in the node group.
-createNodegroup_taints :: Lens.Lens' CreateNodegroup (Prelude.Maybe [Taint])
-createNodegroup_taints = Lens.lens (\CreateNodegroup' {taints} -> taints) (\s@CreateNodegroup' {} a -> s {taints = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens._Coerce
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
+createNodegroup_clientRequestToken :: Lens.Lens' CreateNodegroup (Prelude.Maybe Prelude.Text)
+createNodegroup_clientRequestToken = Lens.lens (\CreateNodegroup' {clientRequestToken} -> clientRequestToken) (\s@CreateNodegroup' {} a -> s {clientRequestToken = a} :: CreateNodegroup)
 
--- | Specify the instance types for a node group. If you specify a GPU
--- instance type, be sure to specify @AL2_x86_64_GPU@ with the @amiType@
--- parameter. If you specify @launchTemplate@, then you can specify zero or
--- one instance type in your launch template /or/ you can specify 0-20
--- instance types for @instanceTypes@. If however, you specify an instance
--- type in your launch template /and/ specify any @instanceTypes@, the node
--- group deployment will fail. If you don\'t specify an instance type in a
--- launch template or for @instanceTypes@, then @t3.medium@ is used, by
--- default. If you specify @Spot@ for @capacityType@, then we recommend
--- specifying multiple values for @instanceTypes@. For more information,
--- see
--- <https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types Managed node group capacity types>
--- and
--- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the /Amazon EKS User Guide/.
-createNodegroup_instanceTypes :: Lens.Lens' CreateNodegroup (Prelude.Maybe [Prelude.Text])
-createNodegroup_instanceTypes = Lens.lens (\CreateNodegroup' {instanceTypes} -> instanceTypes) (\s@CreateNodegroup' {} a -> s {instanceTypes = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens._Coerce
+-- | The node group update configuration.
+createNodegroup_updateConfig :: Lens.Lens' CreateNodegroup (Prelude.Maybe NodegroupUpdateConfig)
+createNodegroup_updateConfig = Lens.lens (\CreateNodegroup' {updateConfig} -> updateConfig) (\s@CreateNodegroup' {} a -> s {updateConfig = a} :: CreateNodegroup)
+
+-- | The metadata to apply to the node group to assist with categorization
+-- and organization. Each tag consists of a key and an optional value, both
+-- of which you define. Node group tags do not propagate to any other
+-- resources associated with the node group, such as the Amazon EC2
+-- instances or subnets.
+createNodegroup_tags :: Lens.Lens' CreateNodegroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createNodegroup_tags = Lens.lens (\CreateNodegroup' {tags} -> tags) (\s@CreateNodegroup' {} a -> s {tags = a} :: CreateNodegroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster to create the node group in.
 createNodegroup_clusterName :: Lens.Lens' CreateNodegroup Prelude.Text
@@ -479,7 +479,7 @@ createNodegroup_nodegroupName = Lens.lens (\CreateNodegroup' {nodegroupName} -> 
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
 -- in the Amazon EKS User Guide.
 createNodegroup_subnets :: Lens.Lens' CreateNodegroup [Prelude.Text]
-createNodegroup_subnets = Lens.lens (\CreateNodegroup' {subnets} -> subnets) (\s@CreateNodegroup' {} a -> s {subnets = a} :: CreateNodegroup) Prelude.. Lens._Coerce
+createNodegroup_subnets = Lens.lens (\CreateNodegroup' {subnets} -> subnets) (\s@CreateNodegroup' {} a -> s {subnets = a} :: CreateNodegroup) Prelude.. Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the IAM role to associate with your
 -- node group. The Amazon EKS worker node @kubelet@ daemon makes calls to
@@ -531,23 +531,23 @@ instance Core.ToJSON CreateNodegroup where
   toJSON CreateNodegroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scalingConfig" Core..=) Prelude.<$> scalingConfig,
-            ("capacityType" Core..=) Prelude.<$> capacityType,
-            ("releaseVersion" Core..=)
-              Prelude.<$> releaseVersion,
+          [ ("capacityType" Core..=) Prelude.<$> capacityType,
+            ("instanceTypes" Core..=) Prelude.<$> instanceTypes,
+            ("taints" Core..=) Prelude.<$> taints,
             ("remoteAccess" Core..=) Prelude.<$> remoteAccess,
             ("diskSize" Core..=) Prelude.<$> diskSize,
-            ("labels" Core..=) Prelude.<$> labels,
+            ("releaseVersion" Core..=)
+              Prelude.<$> releaseVersion,
+            ("scalingConfig" Core..=) Prelude.<$> scalingConfig,
+            ("version" Core..=) Prelude.<$> version,
             ("launchTemplate" Core..=)
               Prelude.<$> launchTemplate,
-            ("version" Core..=) Prelude.<$> version,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("updateConfig" Core..=) Prelude.<$> updateConfig,
+            ("labels" Core..=) Prelude.<$> labels,
+            ("amiType" Core..=) Prelude.<$> amiType,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("amiType" Core..=) Prelude.<$> amiType,
-            ("taints" Core..=) Prelude.<$> taints,
-            ("instanceTypes" Core..=) Prelude.<$> instanceTypes,
+            ("updateConfig" Core..=) Prelude.<$> updateConfig,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("nodegroupName" Core..= nodegroupName),
             Prelude.Just ("subnets" Core..= subnets),
             Prelude.Just ("nodeRole" Core..= nodeRole)

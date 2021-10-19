@@ -77,7 +77,7 @@ newDescribeEntityAggregates =
 -- | A list of event ARNs (unique identifiers). For example:
 -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
 describeEntityAggregates_eventArns :: Lens.Lens' DescribeEntityAggregates (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeEntityAggregates_eventArns = Lens.lens (\DescribeEntityAggregates' {eventArns} -> eventArns) (\s@DescribeEntityAggregates' {} a -> s {eventArns = a} :: DescribeEntityAggregates) Prelude.. Lens.mapping Lens._Coerce
+describeEntityAggregates_eventArns = Lens.lens (\DescribeEntityAggregates' {eventArns} -> eventArns) (\s@DescribeEntityAggregates' {} a -> s {eventArns = a} :: DescribeEntityAggregates) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeEntityAggregates where
   type
@@ -162,7 +162,7 @@ newDescribeEntityAggregatesResponse pHttpStatus_ =
 -- | The number of entities that are affected by each of the specified
 -- events.
 describeEntityAggregatesResponse_entityAggregates :: Lens.Lens' DescribeEntityAggregatesResponse (Prelude.Maybe [EntityAggregate])
-describeEntityAggregatesResponse_entityAggregates = Lens.lens (\DescribeEntityAggregatesResponse' {entityAggregates} -> entityAggregates) (\s@DescribeEntityAggregatesResponse' {} a -> s {entityAggregates = a} :: DescribeEntityAggregatesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEntityAggregatesResponse_entityAggregates = Lens.lens (\DescribeEntityAggregatesResponse' {entityAggregates} -> entityAggregates) (\s@DescribeEntityAggregatesResponse' {} a -> s {entityAggregates = a} :: DescribeEntityAggregatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEntityAggregatesResponse_httpStatus :: Lens.Lens' DescribeEntityAggregatesResponse Prelude.Int

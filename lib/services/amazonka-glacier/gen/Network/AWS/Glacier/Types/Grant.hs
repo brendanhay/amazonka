@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGrant' smart constructor.
 data Grant = Grant'
-  { -- | The grantee.
-    grantee :: Prelude.Maybe Grantee,
-    -- | Specifies the permission given to the grantee.
-    permission :: Prelude.Maybe Permission
+  { -- | Specifies the permission given to the grantee.
+    permission :: Prelude.Maybe Permission,
+    -- | The grantee.
+    grantee :: Prelude.Maybe Grantee
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Grant = Grant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grantee', 'grant_grantee' - The grantee.
---
 -- 'permission', 'grant_permission' - Specifies the permission given to the grantee.
+--
+-- 'grantee', 'grant_grantee' - The grantee.
 newGrant ::
   Grant
 newGrant =
   Grant'
-    { grantee = Prelude.Nothing,
-      permission = Prelude.Nothing
+    { permission = Prelude.Nothing,
+      grantee = Prelude.Nothing
     }
-
--- | The grantee.
-grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
-grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
 
 -- | Specifies the permission given to the grantee.
 grant_permission :: Lens.Lens' Grant (Prelude.Maybe Permission)
 grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} a -> s {permission = a} :: Grant)
+
+-- | The grantee.
+grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
+grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
 
 instance Core.FromJSON Grant where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON Grant where
       "Grant"
       ( \x ->
           Grant'
-            Prelude.<$> (x Core..:? "Grantee")
-            Prelude.<*> (x Core..:? "Permission")
+            Prelude.<$> (x Core..:? "Permission")
+            Prelude.<*> (x Core..:? "Grantee")
       )
 
 instance Prelude.Hashable Grant
@@ -81,7 +81,7 @@ instance Core.ToJSON Grant where
   toJSON Grant' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Grantee" Core..=) Prelude.<$> grantee,
-            ("Permission" Core..=) Prelude.<$> permission
+          [ ("Permission" Core..=) Prelude.<$> permission,
+            ("Grantee" Core..=) Prelude.<$> grantee
           ]
       )

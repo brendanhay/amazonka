@@ -30,45 +30,25 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
-  { -- | An array of @ResourceTag@ objects.
-    resourceTags :: Prelude.Maybe [ResourceTag],
+  { -- | The ID of the Firewall Manager policy.
+    policyId :: Prelude.Maybe Prelude.Text,
     -- | An array of @ResourceType@ objects. Use this only to specify multiple
     -- resource types. To specify a single resource type, use @ResourceType@.
     resourceTypeList :: Prelude.Maybe [Prelude.Text],
+    -- | An array of @ResourceTag@ objects.
+    resourceTags :: Prelude.Maybe [ResourceTag],
     -- | A unique identifier for each update to the policy. When issuing a
     -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
     -- the @PolicyUpdateToken@ of the current policy version. To get the
     -- @PolicyUpdateToken@ of the current policy version, use a @GetPolicy@
     -- request.
     policyUpdateToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the Amazon Web Services account IDs and Organizations
-    -- organizational units (OUs) to include in the policy. Specifying an OU is
-    -- the equivalent of specifying all accounts in the OU and in any of its
-    -- child OUs, including any child OUs and accounts that are added at a
-    -- later time.
-    --
-    -- You can specify inclusions or exclusions, but not both. If you specify
-    -- an @IncludeMap@, Firewall Manager applies the policy to all accounts
-    -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
-    -- specifications. If you do not specify an @IncludeMap@, then Firewall
-    -- Manager applies the policy to all accounts except for those specified by
-    -- the @ExcludeMap@.
-    --
-    -- You can specify account IDs, OUs, or a combination:
-    --
-    -- -   Specify account IDs by setting the key to @ACCOUNT@. For example,
-    --     the following is a valid map:
-    --     @{“ACCOUNT” : [“accountID1”, “accountID2”]}@.
-    --
-    -- -   Specify OUs by setting the key to @ORG_UNIT@. For example, the
-    --     following is a valid map: @{“ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-    --
-    -- -   Specify accounts and OUs together in a single map, separated with a
-    --     comma. For example, the following is a valid map:
-    --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-    includeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
-    -- | The ID of the Firewall Manager policy.
-    policyId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether Firewall Manager should delete Firewall Manager
+    -- managed resources, such as web ACLs and security groups, when they are
+    -- not in use by the Firewall Manager policy. By default, Firewall Manager
+    -- doesn\'t delete unused Firewall Manager managed resources. This option
+    -- is not available for Shield Advanced or WAF Classic policies.
+    deleteUnusedFMManagedResources :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the Amazon Web Services account IDs and Organizations
     -- organizational units (OUs) to exclude from the policy. Specifying an OU
     -- is the equivalent of specifying all accounts in the OU and in any of its
@@ -95,12 +75,32 @@ data Policy = Policy'
     --     comma. For example, the following is a valid map:
     --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
     excludeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
-    -- | Indicates whether Firewall Manager should delete Firewall Manager
-    -- managed resources, such as web ACLs and security groups, when they are
-    -- not in use by the Firewall Manager policy. By default, Firewall Manager
-    -- doesn\'t delete unused Firewall Manager managed resources. This option
-    -- is not available for Shield Advanced or WAF Classic policies.
-    deleteUnusedFMManagedResources :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the Amazon Web Services account IDs and Organizations
+    -- organizational units (OUs) to include in the policy. Specifying an OU is
+    -- the equivalent of specifying all accounts in the OU and in any of its
+    -- child OUs, including any child OUs and accounts that are added at a
+    -- later time.
+    --
+    -- You can specify inclusions or exclusions, but not both. If you specify
+    -- an @IncludeMap@, Firewall Manager applies the policy to all accounts
+    -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
+    -- specifications. If you do not specify an @IncludeMap@, then Firewall
+    -- Manager applies the policy to all accounts except for those specified by
+    -- the @ExcludeMap@.
+    --
+    -- You can specify account IDs, OUs, or a combination:
+    --
+    -- -   Specify account IDs by setting the key to @ACCOUNT@. For example,
+    --     the following is a valid map:
+    --     @{“ACCOUNT” : [“accountID1”, “accountID2”]}@.
+    --
+    -- -   Specify OUs by setting the key to @ORG_UNIT@. For example, the
+    --     following is a valid map: @{“ORG_UNIT” : [“ouid111”, “ouid112”]}@.
+    --
+    -- -   Specify accounts and OUs together in a single map, separated with a
+    --     comma. For example, the following is a valid map:
+    --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
+    includeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
     -- | The name of the Firewall Manager policy.
     policyName :: Prelude.Text,
     -- | Details about the security service that is being used to protect the
@@ -142,10 +142,12 @@ data Policy = Policy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceTags', 'policy_resourceTags' - An array of @ResourceTag@ objects.
+-- 'policyId', 'policy_policyId' - The ID of the Firewall Manager policy.
 --
 -- 'resourceTypeList', 'policy_resourceTypeList' - An array of @ResourceType@ objects. Use this only to specify multiple
 -- resource types. To specify a single resource type, use @ResourceType@.
+--
+-- 'resourceTags', 'policy_resourceTags' - An array of @ResourceTag@ objects.
 --
 -- 'policyUpdateToken', 'policy_policyUpdateToken' - A unique identifier for each update to the policy. When issuing a
 -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
@@ -153,33 +155,11 @@ data Policy = Policy'
 -- @PolicyUpdateToken@ of the current policy version, use a @GetPolicy@
 -- request.
 --
--- 'includeMap', 'policy_includeMap' - Specifies the Amazon Web Services account IDs and Organizations
--- organizational units (OUs) to include in the policy. Specifying an OU is
--- the equivalent of specifying all accounts in the OU and in any of its
--- child OUs, including any child OUs and accounts that are added at a
--- later time.
---
--- You can specify inclusions or exclusions, but not both. If you specify
--- an @IncludeMap@, Firewall Manager applies the policy to all accounts
--- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
--- specifications. If you do not specify an @IncludeMap@, then Firewall
--- Manager applies the policy to all accounts except for those specified by
--- the @ExcludeMap@.
---
--- You can specify account IDs, OUs, or a combination:
---
--- -   Specify account IDs by setting the key to @ACCOUNT@. For example,
---     the following is a valid map:
---     @{“ACCOUNT” : [“accountID1”, “accountID2”]}@.
---
--- -   Specify OUs by setting the key to @ORG_UNIT@. For example, the
---     following is a valid map: @{“ORG_UNIT” : [“ouid111”, “ouid112”]}@.
---
--- -   Specify accounts and OUs together in a single map, separated with a
---     comma. For example, the following is a valid map:
---     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
---
--- 'policyId', 'policy_policyId' - The ID of the Firewall Manager policy.
+-- 'deleteUnusedFMManagedResources', 'policy_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should delete Firewall Manager
+-- managed resources, such as web ACLs and security groups, when they are
+-- not in use by the Firewall Manager policy. By default, Firewall Manager
+-- doesn\'t delete unused Firewall Manager managed resources. This option
+-- is not available for Shield Advanced or WAF Classic policies.
 --
 -- 'excludeMap', 'policy_excludeMap' - Specifies the Amazon Web Services account IDs and Organizations
 -- organizational units (OUs) to exclude from the policy. Specifying an OU
@@ -207,11 +187,31 @@ data Policy = Policy'
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
 --
--- 'deleteUnusedFMManagedResources', 'policy_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should delete Firewall Manager
--- managed resources, such as web ACLs and security groups, when they are
--- not in use by the Firewall Manager policy. By default, Firewall Manager
--- doesn\'t delete unused Firewall Manager managed resources. This option
--- is not available for Shield Advanced or WAF Classic policies.
+-- 'includeMap', 'policy_includeMap' - Specifies the Amazon Web Services account IDs and Organizations
+-- organizational units (OUs) to include in the policy. Specifying an OU is
+-- the equivalent of specifying all accounts in the OU and in any of its
+-- child OUs, including any child OUs and accounts that are added at a
+-- later time.
+--
+-- You can specify inclusions or exclusions, but not both. If you specify
+-- an @IncludeMap@, Firewall Manager applies the policy to all accounts
+-- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
+-- specifications. If you do not specify an @IncludeMap@, then Firewall
+-- Manager applies the policy to all accounts except for those specified by
+-- the @ExcludeMap@.
+--
+-- You can specify account IDs, OUs, or a combination:
+--
+-- -   Specify account IDs by setting the key to @ACCOUNT@. For example,
+--     the following is a valid map:
+--     @{“ACCOUNT” : [“accountID1”, “accountID2”]}@.
+--
+-- -   Specify OUs by setting the key to @ORG_UNIT@. For example, the
+--     following is a valid map: @{“ORG_UNIT” : [“ouid111”, “ouid112”]}@.
+--
+-- -   Specify accounts and OUs together in a single map, separated with a
+--     comma. For example, the following is a valid map:
+--     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
 --
 -- 'policyName', 'policy_policyName' - The name of the Firewall Manager policy.
 --
@@ -261,13 +261,13 @@ newPolicy
   pExcludeResourceTags_
   pRemediationEnabled_ =
     Policy'
-      { resourceTags = Prelude.Nothing,
+      { policyId = Prelude.Nothing,
         resourceTypeList = Prelude.Nothing,
+        resourceTags = Prelude.Nothing,
         policyUpdateToken = Prelude.Nothing,
-        includeMap = Prelude.Nothing,
-        policyId = Prelude.Nothing,
-        excludeMap = Prelude.Nothing,
         deleteUnusedFMManagedResources = Prelude.Nothing,
+        excludeMap = Prelude.Nothing,
+        includeMap = Prelude.Nothing,
         policyName = pPolicyName_,
         securityServicePolicyData =
           pSecurityServicePolicyData_,
@@ -276,14 +276,18 @@ newPolicy
         remediationEnabled = pRemediationEnabled_
       }
 
--- | An array of @ResourceTag@ objects.
-policy_resourceTags :: Lens.Lens' Policy (Prelude.Maybe [ResourceTag])
-policy_resourceTags = Lens.lens (\Policy' {resourceTags} -> resourceTags) (\s@Policy' {} a -> s {resourceTags = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
+-- | The ID of the Firewall Manager policy.
+policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
 
 -- | An array of @ResourceType@ objects. Use this only to specify multiple
 -- resource types. To specify a single resource type, use @ResourceType@.
 policy_resourceTypeList :: Lens.Lens' Policy (Prelude.Maybe [Prelude.Text])
-policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceTypeList) (\s@Policy' {} a -> s {resourceTypeList = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
+policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceTypeList) (\s@Policy' {} a -> s {resourceTypeList = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
+
+-- | An array of @ResourceTag@ objects.
+policy_resourceTags :: Lens.Lens' Policy (Prelude.Maybe [ResourceTag])
+policy_resourceTags = Lens.lens (\Policy' {resourceTags} -> resourceTags) (\s@Policy' {} a -> s {resourceTags = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique identifier for each update to the policy. When issuing a
 -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
@@ -293,37 +297,13 @@ policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceType
 policy_policyUpdateToken :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyUpdateToken = Lens.lens (\Policy' {policyUpdateToken} -> policyUpdateToken) (\s@Policy' {} a -> s {policyUpdateToken = a} :: Policy)
 
--- | Specifies the Amazon Web Services account IDs and Organizations
--- organizational units (OUs) to include in the policy. Specifying an OU is
--- the equivalent of specifying all accounts in the OU and in any of its
--- child OUs, including any child OUs and accounts that are added at a
--- later time.
---
--- You can specify inclusions or exclusions, but not both. If you specify
--- an @IncludeMap@, Firewall Manager applies the policy to all accounts
--- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
--- specifications. If you do not specify an @IncludeMap@, then Firewall
--- Manager applies the policy to all accounts except for those specified by
--- the @ExcludeMap@.
---
--- You can specify account IDs, OUs, or a combination:
---
--- -   Specify account IDs by setting the key to @ACCOUNT@. For example,
---     the following is a valid map:
---     @{“ACCOUNT” : [“accountID1”, “accountID2”]}@.
---
--- -   Specify OUs by setting the key to @ORG_UNIT@. For example, the
---     following is a valid map: @{“ORG_UNIT” : [“ouid111”, “ouid112”]}@.
---
--- -   Specify accounts and OUs together in a single map, separated with a
---     comma. For example, the following is a valid map:
---     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
-policy_includeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
-policy_includeMap = Lens.lens (\Policy' {includeMap} -> includeMap) (\s@Policy' {} a -> s {includeMap = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ID of the Firewall Manager policy.
-policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
-policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
+-- | Indicates whether Firewall Manager should delete Firewall Manager
+-- managed resources, such as web ACLs and security groups, when they are
+-- not in use by the Firewall Manager policy. By default, Firewall Manager
+-- doesn\'t delete unused Firewall Manager managed resources. This option
+-- is not available for Shield Advanced or WAF Classic policies.
+policy_deleteUnusedFMManagedResources :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
+policy_deleteUnusedFMManagedResources = Lens.lens (\Policy' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@Policy' {} a -> s {deleteUnusedFMManagedResources = a} :: Policy)
 
 -- | Specifies the Amazon Web Services account IDs and Organizations
 -- organizational units (OUs) to exclude from the policy. Specifying an OU
@@ -351,15 +331,35 @@ policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
 policy_excludeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
-policy_excludeMap = Lens.lens (\Policy' {excludeMap} -> excludeMap) (\s@Policy' {} a -> s {excludeMap = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
+policy_excludeMap = Lens.lens (\Policy' {excludeMap} -> excludeMap) (\s@Policy' {} a -> s {excludeMap = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether Firewall Manager should delete Firewall Manager
--- managed resources, such as web ACLs and security groups, when they are
--- not in use by the Firewall Manager policy. By default, Firewall Manager
--- doesn\'t delete unused Firewall Manager managed resources. This option
--- is not available for Shield Advanced or WAF Classic policies.
-policy_deleteUnusedFMManagedResources :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
-policy_deleteUnusedFMManagedResources = Lens.lens (\Policy' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@Policy' {} a -> s {deleteUnusedFMManagedResources = a} :: Policy)
+-- | Specifies the Amazon Web Services account IDs and Organizations
+-- organizational units (OUs) to include in the policy. Specifying an OU is
+-- the equivalent of specifying all accounts in the OU and in any of its
+-- child OUs, including any child OUs and accounts that are added at a
+-- later time.
+--
+-- You can specify inclusions or exclusions, but not both. If you specify
+-- an @IncludeMap@, Firewall Manager applies the policy to all accounts
+-- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
+-- specifications. If you do not specify an @IncludeMap@, then Firewall
+-- Manager applies the policy to all accounts except for those specified by
+-- the @ExcludeMap@.
+--
+-- You can specify account IDs, OUs, or a combination:
+--
+-- -   Specify account IDs by setting the key to @ACCOUNT@. For example,
+--     the following is a valid map:
+--     @{“ACCOUNT” : [“accountID1”, “accountID2”]}@.
+--
+-- -   Specify OUs by setting the key to @ORG_UNIT@. For example, the
+--     following is a valid map: @{“ORG_UNIT” : [“ouid111”, “ouid112”]}@.
+--
+-- -   Specify accounts and OUs together in a single map, separated with a
+--     comma. For example, the following is a valid map:
+--     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
+policy_includeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
+policy_includeMap = Lens.lens (\Policy' {includeMap} -> includeMap) (\s@Policy' {} a -> s {includeMap = a} :: Policy) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Firewall Manager policy.
 policy_policyName :: Lens.Lens' Policy Prelude.Text
@@ -407,15 +407,15 @@ instance Core.FromJSON Policy where
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "PolicyId")
             Prelude.<*> ( x Core..:? "ResourceTypeList"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ResourceTags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PolicyUpdateToken")
-            Prelude.<*> (x Core..:? "IncludeMap" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PolicyId")
-            Prelude.<*> (x Core..:? "ExcludeMap" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DeleteUnusedFMManagedResources")
+            Prelude.<*> (x Core..:? "ExcludeMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "IncludeMap" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "PolicyName")
             Prelude.<*> (x Core..: "SecurityServicePolicyData")
             Prelude.<*> (x Core..: "ResourceType")
@@ -431,16 +431,16 @@ instance Core.ToJSON Policy where
   toJSON Policy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceTags" Core..=) Prelude.<$> resourceTags,
+          [ ("PolicyId" Core..=) Prelude.<$> policyId,
             ("ResourceTypeList" Core..=)
               Prelude.<$> resourceTypeList,
+            ("ResourceTags" Core..=) Prelude.<$> resourceTags,
             ("PolicyUpdateToken" Core..=)
               Prelude.<$> policyUpdateToken,
-            ("IncludeMap" Core..=) Prelude.<$> includeMap,
-            ("PolicyId" Core..=) Prelude.<$> policyId,
-            ("ExcludeMap" Core..=) Prelude.<$> excludeMap,
             ("DeleteUnusedFMManagedResources" Core..=)
               Prelude.<$> deleteUnusedFMManagedResources,
+            ("ExcludeMap" Core..=) Prelude.<$> excludeMap,
+            ("IncludeMap" Core..=) Prelude.<$> includeMap,
             Prelude.Just ("PolicyName" Core..= policyName),
             Prelude.Just
               ( "SecurityServicePolicyData"

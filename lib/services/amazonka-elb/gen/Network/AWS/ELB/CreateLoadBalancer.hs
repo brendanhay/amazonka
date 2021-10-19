@@ -42,11 +42,11 @@ module Network.AWS.ELB.CreateLoadBalancer
     newCreateLoadBalancer,
 
     -- * Request Lenses
+    createLoadBalancer_securityGroups,
+    createLoadBalancer_subnets,
     createLoadBalancer_availabilityZones,
     createLoadBalancer_scheme,
-    createLoadBalancer_securityGroups,
     createLoadBalancer_tags,
-    createLoadBalancer_subnets,
     createLoadBalancer_loadBalancerName,
     createLoadBalancer_listeners,
 
@@ -71,7 +71,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | One or more Availability Zones from the same region as the load
+  { -- | The IDs of the security groups to assign to the load balancer.
+    securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The IDs of the subnets in your VPC to attach to the load balancer.
+    -- Specify one subnet per Availability Zone specified in
+    -- @AvailabilityZones@.
+    subnets :: Prelude.Maybe [Prelude.Text],
+    -- | One or more Availability Zones from the same region as the load
     -- balancer.
     --
     -- You must specify at least one Availability Zone.
@@ -90,18 +96,12 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- Specify @internal@ to create a load balancer with a DNS name that
     -- resolves to private IP addresses.
     scheme :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the security groups to assign to the load balancer.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | A list of tags to assign to the load balancer.
     --
     -- For more information about tagging your load balancer, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
     -- in the /Classic Load Balancers Guide/.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The IDs of the subnets in your VPC to attach to the load balancer.
-    -- Specify one subnet per Availability Zone specified in
-    -- @AvailabilityZones@.
-    subnets :: Prelude.Maybe [Prelude.Text],
     -- | The name of the load balancer.
     --
     -- This name must be unique within your set of load balancers for the
@@ -126,6 +126,12 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'securityGroups', 'createLoadBalancer_securityGroups' - The IDs of the security groups to assign to the load balancer.
+--
+-- 'subnets', 'createLoadBalancer_subnets' - The IDs of the subnets in your VPC to attach to the load balancer.
+-- Specify one subnet per Availability Zone specified in
+-- @AvailabilityZones@.
+--
 -- 'availabilityZones', 'createLoadBalancer_availabilityZones' - One or more Availability Zones from the same region as the load
 -- balancer.
 --
@@ -145,17 +151,11 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- Specify @internal@ to create a load balancer with a DNS name that
 -- resolves to private IP addresses.
 --
--- 'securityGroups', 'createLoadBalancer_securityGroups' - The IDs of the security groups to assign to the load balancer.
---
 -- 'tags', 'createLoadBalancer_tags' - A list of tags to assign to the load balancer.
 --
 -- For more information about tagging your load balancer, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
 -- in the /Classic Load Balancers Guide/.
---
--- 'subnets', 'createLoadBalancer_subnets' - The IDs of the subnets in your VPC to attach to the load balancer.
--- Specify one subnet per Availability Zone specified in
--- @AvailabilityZones@.
 --
 -- 'loadBalancerName', 'createLoadBalancer_loadBalancerName' - The name of the load balancer.
 --
@@ -175,15 +175,25 @@ newCreateLoadBalancer ::
   CreateLoadBalancer
 newCreateLoadBalancer pLoadBalancerName_ =
   CreateLoadBalancer'
-    { availabilityZones =
+    { securityGroups =
         Prelude.Nothing,
-      scheme = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      tags = Prelude.Nothing,
       subnets = Prelude.Nothing,
+      availabilityZones = Prelude.Nothing,
+      scheme = Prelude.Nothing,
+      tags = Prelude.Nothing,
       loadBalancerName = pLoadBalancerName_,
       listeners = Prelude.mempty
     }
+
+-- | The IDs of the security groups to assign to the load balancer.
+createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
+createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The IDs of the subnets in your VPC to attach to the load balancer.
+-- Specify one subnet per Availability Zone specified in
+-- @AvailabilityZones@.
+createLoadBalancer_subnets :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
+createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnets) (\s@CreateLoadBalancer' {} a -> s {subnets = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more Availability Zones from the same region as the load
 -- balancer.
@@ -193,7 +203,7 @@ newCreateLoadBalancer pLoadBalancerName_ =
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
 createLoadBalancer_availabilityZones :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabilityZones} -> availabilityZones) (\s@CreateLoadBalancer' {} a -> s {availabilityZones = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
+createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabilityZones} -> availabilityZones) (\s@CreateLoadBalancer' {} a -> s {availabilityZones = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
@@ -208,23 +218,13 @@ createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabi
 createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
 createLoadBalancer_scheme = Lens.lens (\CreateLoadBalancer' {scheme} -> scheme) (\s@CreateLoadBalancer' {} a -> s {scheme = a} :: CreateLoadBalancer)
 
--- | The IDs of the security groups to assign to the load balancer.
-createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of tags to assign to the load balancer.
 --
 -- For more information about tagging your load balancer, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
 -- in the /Classic Load Balancers Guide/.
 createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
-
--- | The IDs of the subnets in your VPC to attach to the load balancer.
--- Specify one subnet per Availability Zone specified in
--- @AvailabilityZones@.
-createLoadBalancer_subnets :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnets) (\s@CreateLoadBalancer' {} a -> s {subnets = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the load balancer.
 --
@@ -241,7 +241,7 @@ createLoadBalancer_loadBalancerName = Lens.lens (\CreateLoadBalancer' {loadBalan
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer>
 -- in the /Classic Load Balancers Guide/.
 createLoadBalancer_listeners :: Lens.Lens' CreateLoadBalancer [Listener]
-createLoadBalancer_listeners = Lens.lens (\CreateLoadBalancer' {listeners} -> listeners) (\s@CreateLoadBalancer' {} a -> s {listeners = a} :: CreateLoadBalancer) Prelude.. Lens._Coerce
+createLoadBalancer_listeners = Lens.lens (\CreateLoadBalancer' {listeners} -> listeners) (\s@CreateLoadBalancer' {} a -> s {listeners = a} :: CreateLoadBalancer) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateLoadBalancer where
   type
@@ -274,23 +274,23 @@ instance Core.ToQuery CreateLoadBalancer where
           Core.=: ("CreateLoadBalancer" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-06-01" :: Prelude.ByteString),
+        "SecurityGroups"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> securityGroups
+            ),
+        "Subnets"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> subnets),
         "AvailabilityZones"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> availabilityZones
             ),
         "Scheme" Core.=: scheme,
-        "SecurityGroups"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "member"
-                Prelude.<$> securityGroups
-            ),
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
-        "Subnets"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> subnets),
         "LoadBalancerName" Core.=: loadBalancerName,
         "Listeners"
           Core.=: Core.toQueryList "member" listeners

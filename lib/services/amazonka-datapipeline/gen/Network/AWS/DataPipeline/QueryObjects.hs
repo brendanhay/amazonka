@@ -31,8 +31,8 @@ module Network.AWS.DataPipeline.QueryObjects
 
     -- * Request Lenses
     queryObjects_query,
-    queryObjects_limit,
     queryObjects_marker,
+    queryObjects_limit,
     queryObjects_pipelineId,
     queryObjects_sphere,
 
@@ -41,8 +41,8 @@ module Network.AWS.DataPipeline.QueryObjects
     newQueryObjectsResponse,
 
     -- * Response Lenses
-    queryObjectsResponse_ids,
     queryObjectsResponse_hasMoreResults,
+    queryObjectsResponse_ids,
     queryObjectsResponse_marker,
     queryObjectsResponse_httpStatus,
   )
@@ -64,14 +64,14 @@ data QueryObjects = QueryObjects'
     -- limited to top-level String fields in the object. These filters can be
     -- applied to components, instances, and attempts.
     query :: Prelude.Maybe Query,
-    -- | The maximum number of object names that @QueryObjects@ will return in a
-    -- single call. The default value is 100.
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The starting point for the results to be returned. For the first call,
     -- this value should be empty. As long as there are more results, continue
     -- to call @QueryObjects@ with the marker value from the previous call to
     -- retrieve the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of object names that @QueryObjects@ will return in a
+    -- single call. The default value is 100.
+    limit :: Prelude.Maybe Prelude.Int,
     -- | The ID of the pipeline.
     pipelineId :: Prelude.Text,
     -- | Indicates whether the query applies to components or instances. The
@@ -93,13 +93,13 @@ data QueryObjects = QueryObjects'
 -- limited to top-level String fields in the object. These filters can be
 -- applied to components, instances, and attempts.
 --
--- 'limit', 'queryObjects_limit' - The maximum number of object names that @QueryObjects@ will return in a
--- single call. The default value is 100.
---
 -- 'marker', 'queryObjects_marker' - The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @QueryObjects@ with the marker value from the previous call to
 -- retrieve the next set of results.
+--
+-- 'limit', 'queryObjects_limit' - The maximum number of object names that @QueryObjects@ will return in a
+-- single call. The default value is 100.
 --
 -- 'pipelineId', 'queryObjects_pipelineId' - The ID of the pipeline.
 --
@@ -114,8 +114,8 @@ newQueryObjects ::
 newQueryObjects pPipelineId_ pSphere_ =
   QueryObjects'
     { query = Prelude.Nothing,
-      limit = Prelude.Nothing,
       marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       pipelineId = pPipelineId_,
       sphere = pSphere_
     }
@@ -127,17 +127,17 @@ newQueryObjects pPipelineId_ pSphere_ =
 queryObjects_query :: Lens.Lens' QueryObjects (Prelude.Maybe Query)
 queryObjects_query = Lens.lens (\QueryObjects' {query} -> query) (\s@QueryObjects' {} a -> s {query = a} :: QueryObjects)
 
--- | The maximum number of object names that @QueryObjects@ will return in a
--- single call. The default value is 100.
-queryObjects_limit :: Lens.Lens' QueryObjects (Prelude.Maybe Prelude.Int)
-queryObjects_limit = Lens.lens (\QueryObjects' {limit} -> limit) (\s@QueryObjects' {} a -> s {limit = a} :: QueryObjects)
-
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @QueryObjects@ with the marker value from the previous call to
 -- retrieve the next set of results.
 queryObjects_marker :: Lens.Lens' QueryObjects (Prelude.Maybe Prelude.Text)
 queryObjects_marker = Lens.lens (\QueryObjects' {marker} -> marker) (\s@QueryObjects' {} a -> s {marker = a} :: QueryObjects)
+
+-- | The maximum number of object names that @QueryObjects@ will return in a
+-- single call. The default value is 100.
+queryObjects_limit :: Lens.Lens' QueryObjects (Prelude.Maybe Prelude.Int)
+queryObjects_limit = Lens.lens (\QueryObjects' {limit} -> limit) (\s@QueryObjects' {} a -> s {limit = a} :: QueryObjects)
 
 -- | The ID of the pipeline.
 queryObjects_pipelineId :: Lens.Lens' QueryObjects Prelude.Text
@@ -175,8 +175,8 @@ instance Core.AWSRequest QueryObjects where
     Response.receiveJSON
       ( \s h x ->
           QueryObjectsResponse'
-            Prelude.<$> (x Core..?> "ids" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "hasMoreResults")
+            Prelude.<$> (x Core..?> "hasMoreResults")
+            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -203,8 +203,8 @@ instance Core.ToJSON QueryObjects where
     Core.object
       ( Prelude.catMaybes
           [ ("query" Core..=) Prelude.<$> query,
-            ("limit" Core..=) Prelude.<$> limit,
             ("marker" Core..=) Prelude.<$> marker,
+            ("limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("pipelineId" Core..= pipelineId),
             Prelude.Just ("sphere" Core..= sphere)
           ]
@@ -220,11 +220,11 @@ instance Core.ToQuery QueryObjects where
 --
 -- /See:/ 'newQueryObjectsResponse' smart constructor.
 data QueryObjectsResponse = QueryObjectsResponse'
-  { -- | The identifiers that match the query selectors.
-    ids :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether there are more results that can be obtained by a
+  { -- | Indicates whether there are more results that can be obtained by a
     -- subsequent call.
     hasMoreResults :: Prelude.Maybe Prelude.Bool,
+    -- | The identifiers that match the query selectors.
+    ids :: Prelude.Maybe [Prelude.Text],
     -- | The starting point for the next page of results. To view the next page
     -- of results, call @QueryObjects@ again with this marker value. If the
     -- value is null, there are no more results.
@@ -242,10 +242,10 @@ data QueryObjectsResponse = QueryObjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ids', 'queryObjectsResponse_ids' - The identifiers that match the query selectors.
---
 -- 'hasMoreResults', 'queryObjectsResponse_hasMoreResults' - Indicates whether there are more results that can be obtained by a
 -- subsequent call.
+--
+-- 'ids', 'queryObjectsResponse_ids' - The identifiers that match the query selectors.
 --
 -- 'marker', 'queryObjectsResponse_marker' - The starting point for the next page of results. To view the next page
 -- of results, call @QueryObjects@ again with this marker value. If the
@@ -258,20 +258,21 @@ newQueryObjectsResponse ::
   QueryObjectsResponse
 newQueryObjectsResponse pHttpStatus_ =
   QueryObjectsResponse'
-    { ids = Prelude.Nothing,
-      hasMoreResults = Prelude.Nothing,
+    { hasMoreResults =
+        Prelude.Nothing,
+      ids = Prelude.Nothing,
       marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The identifiers that match the query selectors.
-queryObjectsResponse_ids :: Lens.Lens' QueryObjectsResponse (Prelude.Maybe [Prelude.Text])
-queryObjectsResponse_ids = Lens.lens (\QueryObjectsResponse' {ids} -> ids) (\s@QueryObjectsResponse' {} a -> s {ids = a} :: QueryObjectsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
 queryObjectsResponse_hasMoreResults :: Lens.Lens' QueryObjectsResponse (Prelude.Maybe Prelude.Bool)
 queryObjectsResponse_hasMoreResults = Lens.lens (\QueryObjectsResponse' {hasMoreResults} -> hasMoreResults) (\s@QueryObjectsResponse' {} a -> s {hasMoreResults = a} :: QueryObjectsResponse)
+
+-- | The identifiers that match the query selectors.
+queryObjectsResponse_ids :: Lens.Lens' QueryObjectsResponse (Prelude.Maybe [Prelude.Text])
+queryObjectsResponse_ids = Lens.lens (\QueryObjectsResponse' {ids} -> ids) (\s@QueryObjectsResponse' {} a -> s {ids = a} :: QueryObjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @QueryObjects@ again with this marker value. If the

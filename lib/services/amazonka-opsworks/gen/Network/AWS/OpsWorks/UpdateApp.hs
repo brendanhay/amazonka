@@ -185,7 +185,7 @@ updateApp_sslConfiguration = Lens.lens (\UpdateApp' {sslConfiguration} -> sslCon
 -- If you have specified one or more environment variables, you cannot
 -- modify the stack\'s Chef version.
 updateApp_environment :: Lens.Lens' UpdateApp (Prelude.Maybe [EnvironmentVariable])
-updateApp_environment = Lens.lens (\UpdateApp' {environment} -> environment) (\s@UpdateApp' {} a -> s {environment = a} :: UpdateApp) Prelude.. Lens.mapping Lens._Coerce
+updateApp_environment = Lens.lens (\UpdateApp' {environment} -> environment) (\s@UpdateApp' {} a -> s {environment = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether SSL is enabled for the app.
 updateApp_enableSsl :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
@@ -193,7 +193,7 @@ updateApp_enableSsl = Lens.lens (\UpdateApp' {enableSsl} -> enableSsl) (\s@Updat
 
 -- | The app\'s data sources.
 updateApp_dataSources :: Lens.Lens' UpdateApp (Prelude.Maybe [DataSource])
-updateApp_dataSources = Lens.lens (\UpdateApp' {dataSources} -> dataSources) (\s@UpdateApp' {} a -> s {dataSources = a} :: UpdateApp) Prelude.. Lens.mapping Lens._Coerce
+updateApp_dataSources = Lens.lens (\UpdateApp' {dataSources} -> dataSources) (\s@UpdateApp' {} a -> s {dataSources = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @Source@ object that specifies the app repository.
 updateApp_appSource :: Lens.Lens' UpdateApp (Prelude.Maybe Source)
@@ -202,7 +202,7 @@ updateApp_appSource = Lens.lens (\UpdateApp' {appSource} -> appSource) (\s@Updat
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 updateApp_attributes :: Lens.Lens' UpdateApp (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
-updateApp_attributes = Lens.lens (\UpdateApp' {attributes} -> attributes) (\s@UpdateApp' {} a -> s {attributes = a} :: UpdateApp) Prelude.. Lens.mapping Lens._Coerce
+updateApp_attributes = Lens.lens (\UpdateApp' {attributes} -> attributes) (\s@UpdateApp' {} a -> s {attributes = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | The app name.
 updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
@@ -215,7 +215,7 @@ updateApp_type = Lens.lens (\UpdateApp' {type'} -> type') (\s@UpdateApp' {} a ->
 -- | The app\'s virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
 updateApp_domains :: Lens.Lens' UpdateApp (Prelude.Maybe [Prelude.Text])
-updateApp_domains = Lens.lens (\UpdateApp' {domains} -> domains) (\s@UpdateApp' {} a -> s {domains = a} :: UpdateApp) Prelude.. Lens.mapping Lens._Coerce
+updateApp_domains = Lens.lens (\UpdateApp' {domains} -> domains) (\s@UpdateApp' {} a -> s {domains = a} :: UpdateApp) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the app.
 updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)

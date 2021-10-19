@@ -35,16 +35,16 @@ module Network.AWS.Redshift.ModifyEndpointAccess
     newEndpointAccess,
 
     -- * Response Lenses
-    endpointAccess_vpcSecurityGroups,
     endpointAccess_endpointName,
-    endpointAccess_address,
-    endpointAccess_resourceOwner,
     endpointAccess_endpointCreateTime,
-    endpointAccess_endpointStatus,
-    endpointAccess_clusterIdentifier,
-    endpointAccess_port,
-    endpointAccess_vpcEndpoint,
     endpointAccess_subnetGroupName,
+    endpointAccess_address,
+    endpointAccess_clusterIdentifier,
+    endpointAccess_endpointStatus,
+    endpointAccess_vpcSecurityGroups,
+    endpointAccess_resourceOwner,
+    endpointAccess_vpcEndpoint,
+    endpointAccess_port,
   )
 where
 
@@ -91,7 +91,7 @@ newModifyEndpointAccess pEndpointName_ =
 -- | The complete list of VPC security groups associated with the endpoint
 -- after the endpoint is modified.
 modifyEndpointAccess_vpcSecurityGroupIds :: Lens.Lens' ModifyEndpointAccess (Prelude.Maybe [Prelude.Text])
-modifyEndpointAccess_vpcSecurityGroupIds = Lens.lens (\ModifyEndpointAccess' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyEndpointAccess' {} a -> s {vpcSecurityGroupIds = a} :: ModifyEndpointAccess) Prelude.. Lens.mapping Lens._Coerce
+modifyEndpointAccess_vpcSecurityGroupIds = Lens.lens (\ModifyEndpointAccess' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@ModifyEndpointAccess' {} a -> s {vpcSecurityGroupIds = a} :: ModifyEndpointAccess) Prelude.. Lens.mapping Lens.coerced
 
 -- | The endpoint to be modified.
 modifyEndpointAccess_endpointName :: Lens.Lens' ModifyEndpointAccess Prelude.Text

@@ -43,8 +43,8 @@ module Network.AWS.Organizations.ListDelegatedAdministrators
     newListDelegatedAdministratorsResponse,
 
     -- * Response Lenses
-    listDelegatedAdministratorsResponse_nextToken,
     listDelegatedAdministratorsResponse_delegatedAdministrators,
+    listDelegatedAdministratorsResponse_nextToken,
     listDelegatedAdministratorsResponse_httpStatus,
   )
 where
@@ -184,10 +184,10 @@ instance Core.AWSRequest ListDelegatedAdministrators where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdministratorsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "DelegatedAdministrators"
+            Prelude.<$> ( x Core..?> "DelegatedAdministrators"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -229,14 +229,14 @@ instance Core.ToQuery ListDelegatedAdministrators where
 
 -- | /See:/ 'newListDelegatedAdministratorsResponse' smart constructor.
 data ListDelegatedAdministratorsResponse = ListDelegatedAdministratorsResponse'
-  { -- | If present, indicates that more output is available than is included in
+  { -- | The list of delegated administrators in your organization.
+    delegatedAdministrators :: Prelude.Maybe [DelegatedAdministrator],
+    -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of delegated administrators in your organization.
-    delegatedAdministrators :: Prelude.Maybe [DelegatedAdministrator],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,13 +250,13 @@ data ListDelegatedAdministratorsResponse = ListDelegatedAdministratorsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'delegatedAdministrators', 'listDelegatedAdministratorsResponse_delegatedAdministrators' - The list of delegated administrators in your organization.
+--
 -- 'nextToken', 'listDelegatedAdministratorsResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
---
--- 'delegatedAdministrators', 'listDelegatedAdministratorsResponse_delegatedAdministrators' - The list of delegated administrators in your organization.
 --
 -- 'httpStatus', 'listDelegatedAdministratorsResponse_httpStatus' - The response's http status code.
 newListDelegatedAdministratorsResponse ::
@@ -265,12 +265,15 @@ newListDelegatedAdministratorsResponse ::
   ListDelegatedAdministratorsResponse
 newListDelegatedAdministratorsResponse pHttpStatus_ =
   ListDelegatedAdministratorsResponse'
-    { nextToken =
+    { delegatedAdministrators =
         Prelude.Nothing,
-      delegatedAdministrators =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of delegated administrators in your organization.
+listDelegatedAdministratorsResponse_delegatedAdministrators :: Lens.Lens' ListDelegatedAdministratorsResponse (Prelude.Maybe [DelegatedAdministrator])
+listDelegatedAdministratorsResponse_delegatedAdministrators = Lens.lens (\ListDelegatedAdministratorsResponse' {delegatedAdministrators} -> delegatedAdministrators) (\s@ListDelegatedAdministratorsResponse' {} a -> s {delegatedAdministrators = a} :: ListDelegatedAdministratorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -279,10 +282,6 @@ newListDelegatedAdministratorsResponse pHttpStatus_ =
 -- element comes back as @null@.
 listDelegatedAdministratorsResponse_nextToken :: Lens.Lens' ListDelegatedAdministratorsResponse (Prelude.Maybe Prelude.Text)
 listDelegatedAdministratorsResponse_nextToken = Lens.lens (\ListDelegatedAdministratorsResponse' {nextToken} -> nextToken) (\s@ListDelegatedAdministratorsResponse' {} a -> s {nextToken = a} :: ListDelegatedAdministratorsResponse)
-
--- | The list of delegated administrators in your organization.
-listDelegatedAdministratorsResponse_delegatedAdministrators :: Lens.Lens' ListDelegatedAdministratorsResponse (Prelude.Maybe [DelegatedAdministrator])
-listDelegatedAdministratorsResponse_delegatedAdministrators = Lens.lens (\ListDelegatedAdministratorsResponse' {delegatedAdministrators} -> delegatedAdministrators) (\s@ListDelegatedAdministratorsResponse' {} a -> s {delegatedAdministrators = a} :: ListDelegatedAdministratorsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDelegatedAdministratorsResponse_httpStatus :: Lens.Lens' ListDelegatedAdministratorsResponse Prelude.Int

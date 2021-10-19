@@ -105,7 +105,7 @@ regexPatternSet_regexPatternSetId = Lens.lens (\RegexPatternSet' {regexPatternSe
 -- | Specifies the regular expression (regex) patterns that you want AWS WAF
 -- to search for, such as @B[a\@]dB[o0]t@.
 regexPatternSet_regexPatternStrings :: Lens.Lens' RegexPatternSet [Prelude.Text]
-regexPatternSet_regexPatternStrings = Lens.lens (\RegexPatternSet' {regexPatternStrings} -> regexPatternStrings) (\s@RegexPatternSet' {} a -> s {regexPatternStrings = a} :: RegexPatternSet) Prelude.. Lens._Coerce
+regexPatternSet_regexPatternStrings = Lens.lens (\RegexPatternSet' {regexPatternStrings} -> regexPatternStrings) (\s@RegexPatternSet' {} a -> s {regexPatternStrings = a} :: RegexPatternSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON RegexPatternSet where
   parseJSON =

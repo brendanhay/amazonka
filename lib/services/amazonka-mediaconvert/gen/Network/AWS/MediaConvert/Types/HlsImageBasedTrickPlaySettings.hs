@@ -29,12 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHlsImageBasedTrickPlaySettings' smart constructor.
 data HlsImageBasedTrickPlaySettings = HlsImageBasedTrickPlaySettings'
-  { -- | The cadence MediaConvert follows for generating thumbnails. If set to
+  { -- | Number of thumbnails in each row of a tile image. Set a value between 1
+    -- and 512.
+    tileWidth :: Prelude.Maybe Prelude.Natural,
+    -- | Height of each thumbnail within each tile image, in pixels. Leave blank
+    -- to maintain aspect ratio with thumbnail width. If following the aspect
+    -- ratio would lead to a total tile height greater than 4096, then the job
+    -- will be rejected. Must be divisible by 2.
+    thumbnailHeight :: Prelude.Maybe Prelude.Natural,
+    -- | The cadence MediaConvert follows for generating thumbnails. If set to
     -- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
     -- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
     -- MediaConvert generates thumbnails according to the interval you specify
     -- in thumbnailInterval.
     intervalCadence :: Prelude.Maybe HlsIntervalCadence,
+    -- | Width of each thumbnail within each tile image, in pixels. Default is
+    -- 312. Must be divisible by 8.
+    thumbnailWidth :: Prelude.Maybe Prelude.Natural,
     -- | Enter the interval, in seconds, that MediaConvert uses to generate
     -- thumbnails. If the interval you enter doesn\'t align with the output
     -- frame rate, MediaConvert automatically rounds the interval to align with
@@ -44,18 +55,7 @@ data HlsImageBasedTrickPlaySettings = HlsImageBasedTrickPlaySettings'
     thumbnailInterval :: Prelude.Maybe Prelude.Double,
     -- | Number of thumbnails in each column of a tile image. Set a value between
     -- 2 and 2048. Must be divisible by 2.
-    tileHeight :: Prelude.Maybe Prelude.Natural,
-    -- | Height of each thumbnail within each tile image, in pixels. Leave blank
-    -- to maintain aspect ratio with thumbnail width. If following the aspect
-    -- ratio would lead to a total tile height greater than 4096, then the job
-    -- will be rejected. Must be divisible by 2.
-    thumbnailHeight :: Prelude.Maybe Prelude.Natural,
-    -- | Width of each thumbnail within each tile image, in pixels. Default is
-    -- 312. Must be divisible by 8.
-    thumbnailWidth :: Prelude.Maybe Prelude.Natural,
-    -- | Number of thumbnails in each row of a tile image. Set a value between 1
-    -- and 512.
-    tileWidth :: Prelude.Maybe Prelude.Natural
+    tileHeight :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,11 +67,22 @@ data HlsImageBasedTrickPlaySettings = HlsImageBasedTrickPlaySettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tileWidth', 'hlsImageBasedTrickPlaySettings_tileWidth' - Number of thumbnails in each row of a tile image. Set a value between 1
+-- and 512.
+--
+-- 'thumbnailHeight', 'hlsImageBasedTrickPlaySettings_thumbnailHeight' - Height of each thumbnail within each tile image, in pixels. Leave blank
+-- to maintain aspect ratio with thumbnail width. If following the aspect
+-- ratio would lead to a total tile height greater than 4096, then the job
+-- will be rejected. Must be divisible by 2.
+--
 -- 'intervalCadence', 'hlsImageBasedTrickPlaySettings_intervalCadence' - The cadence MediaConvert follows for generating thumbnails. If set to
 -- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
 -- the output (matching the GOP cadence). If set to FOLLOW_CUSTOM,
 -- MediaConvert generates thumbnails according to the interval you specify
 -- in thumbnailInterval.
+--
+-- 'thumbnailWidth', 'hlsImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is
+-- 312. Must be divisible by 8.
 --
 -- 'thumbnailInterval', 'hlsImageBasedTrickPlaySettings_thumbnailInterval' - Enter the interval, in seconds, that MediaConvert uses to generate
 -- thumbnails. If the interval you enter doesn\'t align with the output
@@ -82,29 +93,30 @@ data HlsImageBasedTrickPlaySettings = HlsImageBasedTrickPlaySettings'
 --
 -- 'tileHeight', 'hlsImageBasedTrickPlaySettings_tileHeight' - Number of thumbnails in each column of a tile image. Set a value between
 -- 2 and 2048. Must be divisible by 2.
---
--- 'thumbnailHeight', 'hlsImageBasedTrickPlaySettings_thumbnailHeight' - Height of each thumbnail within each tile image, in pixels. Leave blank
--- to maintain aspect ratio with thumbnail width. If following the aspect
--- ratio would lead to a total tile height greater than 4096, then the job
--- will be rejected. Must be divisible by 2.
---
--- 'thumbnailWidth', 'hlsImageBasedTrickPlaySettings_thumbnailWidth' - Width of each thumbnail within each tile image, in pixels. Default is
--- 312. Must be divisible by 8.
---
--- 'tileWidth', 'hlsImageBasedTrickPlaySettings_tileWidth' - Number of thumbnails in each row of a tile image. Set a value between 1
--- and 512.
 newHlsImageBasedTrickPlaySettings ::
   HlsImageBasedTrickPlaySettings
 newHlsImageBasedTrickPlaySettings =
   HlsImageBasedTrickPlaySettings'
-    { intervalCadence =
+    { tileWidth =
         Prelude.Nothing,
-      thumbnailInterval = Prelude.Nothing,
-      tileHeight = Prelude.Nothing,
       thumbnailHeight = Prelude.Nothing,
+      intervalCadence = Prelude.Nothing,
       thumbnailWidth = Prelude.Nothing,
-      tileWidth = Prelude.Nothing
+      thumbnailInterval = Prelude.Nothing,
+      tileHeight = Prelude.Nothing
     }
+
+-- | Number of thumbnails in each row of a tile image. Set a value between 1
+-- and 512.
+hlsImageBasedTrickPlaySettings_tileWidth :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
+hlsImageBasedTrickPlaySettings_tileWidth = Lens.lens (\HlsImageBasedTrickPlaySettings' {tileWidth} -> tileWidth) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {tileWidth = a} :: HlsImageBasedTrickPlaySettings)
+
+-- | Height of each thumbnail within each tile image, in pixels. Leave blank
+-- to maintain aspect ratio with thumbnail width. If following the aspect
+-- ratio would lead to a total tile height greater than 4096, then the job
+-- will be rejected. Must be divisible by 2.
+hlsImageBasedTrickPlaySettings_thumbnailHeight :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
+hlsImageBasedTrickPlaySettings_thumbnailHeight = Lens.lens (\HlsImageBasedTrickPlaySettings' {thumbnailHeight} -> thumbnailHeight) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {thumbnailHeight = a} :: HlsImageBasedTrickPlaySettings)
 
 -- | The cadence MediaConvert follows for generating thumbnails. If set to
 -- FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in
@@ -113,6 +125,11 @@ newHlsImageBasedTrickPlaySettings =
 -- in thumbnailInterval.
 hlsImageBasedTrickPlaySettings_intervalCadence :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe HlsIntervalCadence)
 hlsImageBasedTrickPlaySettings_intervalCadence = Lens.lens (\HlsImageBasedTrickPlaySettings' {intervalCadence} -> intervalCadence) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {intervalCadence = a} :: HlsImageBasedTrickPlaySettings)
+
+-- | Width of each thumbnail within each tile image, in pixels. Default is
+-- 312. Must be divisible by 8.
+hlsImageBasedTrickPlaySettings_thumbnailWidth :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
+hlsImageBasedTrickPlaySettings_thumbnailWidth = Lens.lens (\HlsImageBasedTrickPlaySettings' {thumbnailWidth} -> thumbnailWidth) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {thumbnailWidth = a} :: HlsImageBasedTrickPlaySettings)
 
 -- | Enter the interval, in seconds, that MediaConvert uses to generate
 -- thumbnails. If the interval you enter doesn\'t align with the output
@@ -128,35 +145,18 @@ hlsImageBasedTrickPlaySettings_thumbnailInterval = Lens.lens (\HlsImageBasedTric
 hlsImageBasedTrickPlaySettings_tileHeight :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
 hlsImageBasedTrickPlaySettings_tileHeight = Lens.lens (\HlsImageBasedTrickPlaySettings' {tileHeight} -> tileHeight) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {tileHeight = a} :: HlsImageBasedTrickPlaySettings)
 
--- | Height of each thumbnail within each tile image, in pixels. Leave blank
--- to maintain aspect ratio with thumbnail width. If following the aspect
--- ratio would lead to a total tile height greater than 4096, then the job
--- will be rejected. Must be divisible by 2.
-hlsImageBasedTrickPlaySettings_thumbnailHeight :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
-hlsImageBasedTrickPlaySettings_thumbnailHeight = Lens.lens (\HlsImageBasedTrickPlaySettings' {thumbnailHeight} -> thumbnailHeight) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {thumbnailHeight = a} :: HlsImageBasedTrickPlaySettings)
-
--- | Width of each thumbnail within each tile image, in pixels. Default is
--- 312. Must be divisible by 8.
-hlsImageBasedTrickPlaySettings_thumbnailWidth :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
-hlsImageBasedTrickPlaySettings_thumbnailWidth = Lens.lens (\HlsImageBasedTrickPlaySettings' {thumbnailWidth} -> thumbnailWidth) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {thumbnailWidth = a} :: HlsImageBasedTrickPlaySettings)
-
--- | Number of thumbnails in each row of a tile image. Set a value between 1
--- and 512.
-hlsImageBasedTrickPlaySettings_tileWidth :: Lens.Lens' HlsImageBasedTrickPlaySettings (Prelude.Maybe Prelude.Natural)
-hlsImageBasedTrickPlaySettings_tileWidth = Lens.lens (\HlsImageBasedTrickPlaySettings' {tileWidth} -> tileWidth) (\s@HlsImageBasedTrickPlaySettings' {} a -> s {tileWidth = a} :: HlsImageBasedTrickPlaySettings)
-
 instance Core.FromJSON HlsImageBasedTrickPlaySettings where
   parseJSON =
     Core.withObject
       "HlsImageBasedTrickPlaySettings"
       ( \x ->
           HlsImageBasedTrickPlaySettings'
-            Prelude.<$> (x Core..:? "intervalCadence")
+            Prelude.<$> (x Core..:? "tileWidth")
+            Prelude.<*> (x Core..:? "thumbnailHeight")
+            Prelude.<*> (x Core..:? "intervalCadence")
+            Prelude.<*> (x Core..:? "thumbnailWidth")
             Prelude.<*> (x Core..:? "thumbnailInterval")
             Prelude.<*> (x Core..:? "tileHeight")
-            Prelude.<*> (x Core..:? "thumbnailHeight")
-            Prelude.<*> (x Core..:? "thumbnailWidth")
-            Prelude.<*> (x Core..:? "tileWidth")
       )
 
 instance
@@ -171,15 +171,15 @@ instance Core.ToJSON HlsImageBasedTrickPlaySettings where
   toJSON HlsImageBasedTrickPlaySettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("intervalCadence" Core..=)
-              Prelude.<$> intervalCadence,
-            ("thumbnailInterval" Core..=)
-              Prelude.<$> thumbnailInterval,
-            ("tileHeight" Core..=) Prelude.<$> tileHeight,
+          [ ("tileWidth" Core..=) Prelude.<$> tileWidth,
             ("thumbnailHeight" Core..=)
               Prelude.<$> thumbnailHeight,
+            ("intervalCadence" Core..=)
+              Prelude.<$> intervalCadence,
             ("thumbnailWidth" Core..=)
               Prelude.<$> thumbnailWidth,
-            ("tileWidth" Core..=) Prelude.<$> tileWidth
+            ("thumbnailInterval" Core..=)
+              Prelude.<$> thumbnailInterval,
+            ("tileHeight" Core..=) Prelude.<$> tileHeight
           ]
       )

@@ -34,13 +34,13 @@ data AttributeValue = AttributeValue'
     -- characters. Duplicate values are not recognized; all occurrences of the
     -- repeated value after the first of a repeated value are ignored.
     sl :: Prelude.Maybe [Prelude.Text],
+    -- | For a map of up to 10 data type:value pairs. Maximum length for each
+    -- string value is 100 characters.
+    sdm :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | For number values, expressed as double.
     n :: Prelude.Maybe Prelude.Double,
     -- | For single string values. Maximum string length is 100 characters.
-    s :: Prelude.Maybe Prelude.Text,
-    -- | For a map of up to 10 data type:value pairs. Maximum length for each
-    -- string value is 100 characters.
-    sdm :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double)
+    s :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,27 +56,32 @@ data AttributeValue = AttributeValue'
 -- characters. Duplicate values are not recognized; all occurrences of the
 -- repeated value after the first of a repeated value are ignored.
 --
+-- 'sdm', 'attributeValue_sdm' - For a map of up to 10 data type:value pairs. Maximum length for each
+-- string value is 100 characters.
+--
 -- 'n', 'attributeValue_n' - For number values, expressed as double.
 --
 -- 's', 'attributeValue_s' - For single string values. Maximum string length is 100 characters.
---
--- 'sdm', 'attributeValue_sdm' - For a map of up to 10 data type:value pairs. Maximum length for each
--- string value is 100 characters.
 newAttributeValue ::
   AttributeValue
 newAttributeValue =
   AttributeValue'
     { sl = Prelude.Nothing,
+      sdm = Prelude.Nothing,
       n = Prelude.Nothing,
-      s = Prelude.Nothing,
-      sdm = Prelude.Nothing
+      s = Prelude.Nothing
     }
 
 -- | For a list of up to 10 strings. Maximum length for each string is 100
 -- characters. Duplicate values are not recognized; all occurrences of the
 -- repeated value after the first of a repeated value are ignored.
 attributeValue_sl :: Lens.Lens' AttributeValue (Prelude.Maybe [Prelude.Text])
-attributeValue_sl = Lens.lens (\AttributeValue' {sl} -> sl) (\s@AttributeValue' {} a -> s {sl = a} :: AttributeValue) Prelude.. Lens.mapping Lens._Coerce
+attributeValue_sl = Lens.lens (\AttributeValue' {sl} -> sl) (\s@AttributeValue' {} a -> s {sl = a} :: AttributeValue) Prelude.. Lens.mapping Lens.coerced
+
+-- | For a map of up to 10 data type:value pairs. Maximum length for each
+-- string value is 100 characters.
+attributeValue_sdm :: Lens.Lens' AttributeValue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+attributeValue_sdm = Lens.lens (\AttributeValue' {sdm} -> sdm) (\s@AttributeValue' {} a -> s {sdm = a} :: AttributeValue) Prelude.. Lens.mapping Lens.coerced
 
 -- | For number values, expressed as double.
 attributeValue_n :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Double)
@@ -86,11 +91,6 @@ attributeValue_n = Lens.lens (\AttributeValue' {n} -> n) (\s@AttributeValue' {} 
 attributeValue_s :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
 attributeValue_s = Lens.lens (\AttributeValue' {s} -> s) (\s@AttributeValue' {} a -> s {s = a} :: AttributeValue)
 
--- | For a map of up to 10 data type:value pairs. Maximum length for each
--- string value is 100 characters.
-attributeValue_sdm :: Lens.Lens' AttributeValue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-attributeValue_sdm = Lens.lens (\AttributeValue' {sdm} -> sdm) (\s@AttributeValue' {} a -> s {sdm = a} :: AttributeValue) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON AttributeValue where
   parseJSON =
     Core.withObject
@@ -98,9 +98,9 @@ instance Core.FromJSON AttributeValue where
       ( \x ->
           AttributeValue'
             Prelude.<$> (x Core..:? "SL" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SDM" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "N")
             Prelude.<*> (x Core..:? "S")
-            Prelude.<*> (x Core..:? "SDM" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AttributeValue
@@ -112,8 +112,8 @@ instance Core.ToJSON AttributeValue where
     Core.object
       ( Prelude.catMaybes
           [ ("SL" Core..=) Prelude.<$> sl,
+            ("SDM" Core..=) Prelude.<$> sdm,
             ("N" Core..=) Prelude.<$> n,
-            ("S" Core..=) Prelude.<$> s,
-            ("SDM" Core..=) Prelude.<$> sdm
+            ("S" Core..=) Prelude.<$> s
           ]
       )

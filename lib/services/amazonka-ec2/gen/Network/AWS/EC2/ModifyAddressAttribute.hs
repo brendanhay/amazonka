@@ -29,8 +29,8 @@ module Network.AWS.EC2.ModifyAddressAttribute
     newModifyAddressAttribute,
 
     -- * Request Lenses
-    modifyAddressAttribute_dryRun,
     modifyAddressAttribute_domainName,
+    modifyAddressAttribute_dryRun,
     modifyAddressAttribute_allocationId,
 
     -- * Destructuring the Response
@@ -52,13 +52,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyAddressAttribute' smart constructor.
 data ModifyAddressAttribute = ModifyAddressAttribute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The domain name to modify for the IP address.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The domain name to modify for the IP address.
-    domainName :: Prelude.Maybe Prelude.Text,
     -- | [EC2-VPC] The allocation ID.
     allocationId :: Prelude.Text
   }
@@ -72,12 +72,12 @@ data ModifyAddressAttribute = ModifyAddressAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domainName', 'modifyAddressAttribute_domainName' - The domain name to modify for the IP address.
+--
 -- 'dryRun', 'modifyAddressAttribute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'domainName', 'modifyAddressAttribute_domainName' - The domain name to modify for the IP address.
 --
 -- 'allocationId', 'modifyAddressAttribute_allocationId' - [EC2-VPC] The allocation ID.
 newModifyAddressAttribute ::
@@ -86,10 +86,15 @@ newModifyAddressAttribute ::
   ModifyAddressAttribute
 newModifyAddressAttribute pAllocationId_ =
   ModifyAddressAttribute'
-    { dryRun = Prelude.Nothing,
-      domainName = Prelude.Nothing,
+    { domainName =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       allocationId = pAllocationId_
     }
+
+-- | The domain name to modify for the IP address.
+modifyAddressAttribute_domainName :: Lens.Lens' ModifyAddressAttribute (Prelude.Maybe Prelude.Text)
+modifyAddressAttribute_domainName = Lens.lens (\ModifyAddressAttribute' {domainName} -> domainName) (\s@ModifyAddressAttribute' {} a -> s {domainName = a} :: ModifyAddressAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -97,10 +102,6 @@ newModifyAddressAttribute pAllocationId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyAddressAttribute_dryRun :: Lens.Lens' ModifyAddressAttribute (Prelude.Maybe Prelude.Bool)
 modifyAddressAttribute_dryRun = Lens.lens (\ModifyAddressAttribute' {dryRun} -> dryRun) (\s@ModifyAddressAttribute' {} a -> s {dryRun = a} :: ModifyAddressAttribute)
-
--- | The domain name to modify for the IP address.
-modifyAddressAttribute_domainName :: Lens.Lens' ModifyAddressAttribute (Prelude.Maybe Prelude.Text)
-modifyAddressAttribute_domainName = Lens.lens (\ModifyAddressAttribute' {domainName} -> domainName) (\s@ModifyAddressAttribute' {} a -> s {domainName = a} :: ModifyAddressAttribute)
 
 -- | [EC2-VPC] The allocation ID.
 modifyAddressAttribute_allocationId :: Lens.Lens' ModifyAddressAttribute Prelude.Text
@@ -136,8 +137,8 @@ instance Core.ToQuery ModifyAddressAttribute where
           Core.=: ("ModifyAddressAttribute" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "DomainName" Core.=: domainName,
+        "DryRun" Core.=: dryRun,
         "AllocationId" Core.=: allocationId
       ]
 

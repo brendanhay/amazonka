@@ -14,10 +14,39 @@
 module Network.AWS.WAF.Lens
   ( -- * Operations
 
-    -- ** GetChangeTokenStatus
-    getChangeTokenStatus_changeToken,
-    getChangeTokenStatusResponse_changeTokenStatus,
-    getChangeTokenStatusResponse_httpStatus,
+    -- ** ListActivatedRulesInRuleGroup
+    listActivatedRulesInRuleGroup_ruleGroupId,
+    listActivatedRulesInRuleGroup_nextMarker,
+    listActivatedRulesInRuleGroup_limit,
+    listActivatedRulesInRuleGroupResponse_nextMarker,
+    listActivatedRulesInRuleGroupResponse_activatedRules,
+    listActivatedRulesInRuleGroupResponse_httpStatus,
+
+    -- ** ListRateBasedRules
+    listRateBasedRules_nextMarker,
+    listRateBasedRules_limit,
+    listRateBasedRulesResponse_rules,
+    listRateBasedRulesResponse_nextMarker,
+    listRateBasedRulesResponse_httpStatus,
+
+    -- ** GetSizeConstraintSet
+    getSizeConstraintSet_sizeConstraintSetId,
+    getSizeConstraintSetResponse_sizeConstraintSet,
+    getSizeConstraintSetResponse_httpStatus,
+
+    -- ** DeleteRateBasedRule
+    deleteRateBasedRule_ruleId,
+    deleteRateBasedRule_changeToken,
+    deleteRateBasedRuleResponse_changeToken,
+    deleteRateBasedRuleResponse_httpStatus,
+
+    -- ** UpdateRateBasedRule
+    updateRateBasedRule_ruleId,
+    updateRateBasedRule_changeToken,
+    updateRateBasedRule_updates,
+    updateRateBasedRule_rateLimit,
+    updateRateBasedRuleResponse_changeToken,
+    updateRateBasedRuleResponse_httpStatus,
 
     -- ** UpdateRule
     updateRule_ruleId,
@@ -32,10 +61,22 @@ module Network.AWS.WAF.Lens
     deleteRuleResponse_changeToken,
     deleteRuleResponse_httpStatus,
 
+    -- ** CreateIPSet
+    createIPSet_name,
+    createIPSet_changeToken,
+    createIPSetResponse_changeToken,
+    createIPSetResponse_iPSet,
+    createIPSetResponse_httpStatus,
+
     -- ** GetRuleGroup
     getRuleGroup_ruleGroupId,
     getRuleGroupResponse_ruleGroup,
     getRuleGroupResponse_httpStatus,
+
+    -- ** GetChangeTokenStatus
+    getChangeTokenStatus_changeToken,
+    getChangeTokenStatusResponse_changeTokenStatus,
+    getChangeTokenStatusResponse_httpStatus,
 
     -- ** DeleteWebACL
     deleteWebACL_webACLId,
@@ -51,47 +92,154 @@ module Network.AWS.WAF.Lens
     updateWebACLResponse_changeToken,
     updateWebACLResponse_httpStatus,
 
-    -- ** GetSizeConstraintSet
-    getSizeConstraintSet_sizeConstraintSetId,
-    getSizeConstraintSetResponse_sizeConstraintSet,
-    getSizeConstraintSetResponse_httpStatus,
+    -- ** ListWebACLs
+    listWebACLs_nextMarker,
+    listWebACLs_limit,
+    listWebACLsResponse_webACLs,
+    listWebACLsResponse_nextMarker,
+    listWebACLsResponse_httpStatus,
 
-    -- ** ListRateBasedRules
-    listRateBasedRules_nextMarker,
-    listRateBasedRules_limit,
-    listRateBasedRulesResponse_nextMarker,
-    listRateBasedRulesResponse_rules,
-    listRateBasedRulesResponse_httpStatus,
+    -- ** ListRules
+    listRules_nextMarker,
+    listRules_limit,
+    listRulesResponse_rules,
+    listRulesResponse_nextMarker,
+    listRulesResponse_httpStatus,
 
-    -- ** CreateRateBasedRule
-    createRateBasedRule_tags,
-    createRateBasedRule_name,
-    createRateBasedRule_metricName,
-    createRateBasedRule_rateKey,
-    createRateBasedRule_rateLimit,
-    createRateBasedRule_changeToken,
-    createRateBasedRuleResponse_rule,
-    createRateBasedRuleResponse_changeToken,
-    createRateBasedRuleResponse_httpStatus,
+    -- ** CreateRule
+    createRule_tags,
+    createRule_name,
+    createRule_metricName,
+    createRule_changeToken,
+    createRuleResponse_rule,
+    createRuleResponse_changeToken,
+    createRuleResponse_httpStatus,
 
-    -- ** ListSqlInjectionMatchSets
-    listSqlInjectionMatchSets_nextMarker,
-    listSqlInjectionMatchSets_limit,
-    listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets,
-    listSqlInjectionMatchSetsResponse_nextMarker,
-    listSqlInjectionMatchSetsResponse_httpStatus,
+    -- ** DeleteLoggingConfiguration
+    deleteLoggingConfiguration_resourceArn,
+    deleteLoggingConfigurationResponse_httpStatus,
 
-    -- ** ListRegexPatternSets
-    listRegexPatternSets_nextMarker,
-    listRegexPatternSets_limit,
-    listRegexPatternSetsResponse_regexPatternSets,
-    listRegexPatternSetsResponse_nextMarker,
-    listRegexPatternSetsResponse_httpStatus,
+    -- ** CreateWebACL
+    createWebACL_tags,
+    createWebACL_name,
+    createWebACL_metricName,
+    createWebACL_defaultAction,
+    createWebACL_changeToken,
+    createWebACLResponse_webACL,
+    createWebACLResponse_changeToken,
+    createWebACLResponse_httpStatus,
 
-    -- ** GetSqlInjectionMatchSet
-    getSqlInjectionMatchSet_sqlInjectionMatchSetId,
-    getSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
-    getSqlInjectionMatchSetResponse_httpStatus,
+    -- ** GetGeoMatchSet
+    getGeoMatchSet_geoMatchSetId,
+    getGeoMatchSetResponse_geoMatchSet,
+    getGeoMatchSetResponse_httpStatus,
+
+    -- ** PutLoggingConfiguration
+    putLoggingConfiguration_loggingConfiguration,
+    putLoggingConfigurationResponse_loggingConfiguration,
+    putLoggingConfigurationResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_nextMarker,
+    listTagsForResource_limit,
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tagInfoForResource,
+    listTagsForResourceResponse_nextMarker,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** ListByteMatchSets
+    listByteMatchSets_nextMarker,
+    listByteMatchSets_limit,
+    listByteMatchSetsResponse_byteMatchSets,
+    listByteMatchSetsResponse_nextMarker,
+    listByteMatchSetsResponse_httpStatus,
+
+    -- ** ListGeoMatchSets
+    listGeoMatchSets_nextMarker,
+    listGeoMatchSets_limit,
+    listGeoMatchSetsResponse_geoMatchSets,
+    listGeoMatchSetsResponse_nextMarker,
+    listGeoMatchSetsResponse_httpStatus,
+
+    -- ** GetLoggingConfiguration
+    getLoggingConfiguration_resourceArn,
+    getLoggingConfigurationResponse_loggingConfiguration,
+    getLoggingConfigurationResponse_httpStatus,
+
+    -- ** CreateRuleGroup
+    createRuleGroup_tags,
+    createRuleGroup_name,
+    createRuleGroup_metricName,
+    createRuleGroup_changeToken,
+    createRuleGroupResponse_changeToken,
+    createRuleGroupResponse_ruleGroup,
+    createRuleGroupResponse_httpStatus,
+
+    -- ** DeleteRegexMatchSet
+    deleteRegexMatchSet_regexMatchSetId,
+    deleteRegexMatchSet_changeToken,
+    deleteRegexMatchSetResponse_changeToken,
+    deleteRegexMatchSetResponse_httpStatus,
+
+    -- ** UpdateRegexMatchSet
+    updateRegexMatchSet_regexMatchSetId,
+    updateRegexMatchSet_updates,
+    updateRegexMatchSet_changeToken,
+    updateRegexMatchSetResponse_changeToken,
+    updateRegexMatchSetResponse_httpStatus,
+
+    -- ** GetIPSet
+    getIPSet_iPSetId,
+    getIPSetResponse_iPSet,
+    getIPSetResponse_httpStatus,
+
+    -- ** GetWebACL
+    getWebACL_webACLId,
+    getWebACLResponse_webACL,
+    getWebACLResponse_httpStatus,
+
+    -- ** GetRule
+    getRule_ruleId,
+    getRuleResponse_rule,
+    getRuleResponse_httpStatus,
+
+    -- ** DeleteXssMatchSet
+    deleteXssMatchSet_xssMatchSetId,
+    deleteXssMatchSet_changeToken,
+    deleteXssMatchSetResponse_changeToken,
+    deleteXssMatchSetResponse_httpStatus,
+
+    -- ** UpdateXssMatchSet
+    updateXssMatchSet_xssMatchSetId,
+    updateXssMatchSet_changeToken,
+    updateXssMatchSet_updates,
+    updateXssMatchSetResponse_changeToken,
+    updateXssMatchSetResponse_httpStatus,
+
+    -- ** CreateWebACLMigrationStack
+    createWebACLMigrationStack_webACLId,
+    createWebACLMigrationStack_s3BucketName,
+    createWebACLMigrationStack_ignoreUnsupportedType,
+    createWebACLMigrationStackResponse_httpStatus,
+    createWebACLMigrationStackResponse_s3ObjectUrl,
+
+    -- ** ListXssMatchSets
+    listXssMatchSets_nextMarker,
+    listXssMatchSets_limit,
+    listXssMatchSetsResponse_xssMatchSets,
+    listXssMatchSetsResponse_nextMarker,
+    listXssMatchSetsResponse_httpStatus,
+
+    -- ** CreateGeoMatchSet
+    createGeoMatchSet_name,
+    createGeoMatchSet_changeToken,
+    createGeoMatchSetResponse_geoMatchSet,
+    createGeoMatchSetResponse_changeToken,
+    createGeoMatchSetResponse_httpStatus,
+
+    -- ** GetChangeToken
+    getChangeTokenResponse_changeToken,
+    getChangeTokenResponse_httpStatus,
 
     -- ** ListSizeConstraintSets
     listSizeConstraintSets_nextMarker,
@@ -100,12 +248,181 @@ module Network.AWS.WAF.Lens
     listSizeConstraintSetsResponse_nextMarker,
     listSizeConstraintSetsResponse_httpStatus,
 
-    -- ** UpdateSizeConstraintSet
-    updateSizeConstraintSet_sizeConstraintSetId,
-    updateSizeConstraintSet_changeToken,
-    updateSizeConstraintSet_updates,
-    updateSizeConstraintSetResponse_changeToken,
-    updateSizeConstraintSetResponse_httpStatus,
+    -- ** GetSampledRequests
+    getSampledRequests_webAclId,
+    getSampledRequests_ruleId,
+    getSampledRequests_timeWindow,
+    getSampledRequests_maxItems,
+    getSampledRequestsResponse_sampledRequests,
+    getSampledRequestsResponse_populationSize,
+    getSampledRequestsResponse_timeWindow,
+    getSampledRequestsResponse_httpStatus,
+
+    -- ** GetSqlInjectionMatchSet
+    getSqlInjectionMatchSet_sqlInjectionMatchSetId,
+    getSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
+    getSqlInjectionMatchSetResponse_httpStatus,
+
+    -- ** ListSubscribedRuleGroups
+    listSubscribedRuleGroups_nextMarker,
+    listSubscribedRuleGroups_limit,
+    listSubscribedRuleGroupsResponse_ruleGroups,
+    listSubscribedRuleGroupsResponse_nextMarker,
+    listSubscribedRuleGroupsResponse_httpStatus,
+
+    -- ** CreateSqlInjectionMatchSet
+    createSqlInjectionMatchSet_name,
+    createSqlInjectionMatchSet_changeToken,
+    createSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
+    createSqlInjectionMatchSetResponse_changeToken,
+    createSqlInjectionMatchSetResponse_httpStatus,
+
+    -- ** GetXssMatchSet
+    getXssMatchSet_xssMatchSetId,
+    getXssMatchSetResponse_xssMatchSet,
+    getXssMatchSetResponse_httpStatus,
+
+    -- ** CreateByteMatchSet
+    createByteMatchSet_name,
+    createByteMatchSet_changeToken,
+    createByteMatchSetResponse_byteMatchSet,
+    createByteMatchSetResponse_changeToken,
+    createByteMatchSetResponse_httpStatus,
+
+    -- ** UpdateByteMatchSet
+    updateByteMatchSet_byteMatchSetId,
+    updateByteMatchSet_changeToken,
+    updateByteMatchSet_updates,
+    updateByteMatchSetResponse_changeToken,
+    updateByteMatchSetResponse_httpStatus,
+
+    -- ** DeleteByteMatchSet
+    deleteByteMatchSet_byteMatchSetId,
+    deleteByteMatchSet_changeToken,
+    deleteByteMatchSetResponse_changeToken,
+    deleteByteMatchSetResponse_httpStatus,
+
+    -- ** PutPermissionPolicy
+    putPermissionPolicy_resourceArn,
+    putPermissionPolicy_policy,
+    putPermissionPolicyResponse_httpStatus,
+
+    -- ** ListLoggingConfigurations
+    listLoggingConfigurations_nextMarker,
+    listLoggingConfigurations_limit,
+    listLoggingConfigurationsResponse_nextMarker,
+    listLoggingConfigurationsResponse_loggingConfigurations,
+    listLoggingConfigurationsResponse_httpStatus,
+
+    -- ** GetRateBasedRuleManagedKeys
+    getRateBasedRuleManagedKeys_nextMarker,
+    getRateBasedRuleManagedKeys_ruleId,
+    getRateBasedRuleManagedKeysResponse_nextMarker,
+    getRateBasedRuleManagedKeysResponse_managedKeys,
+    getRateBasedRuleManagedKeysResponse_httpStatus,
+
+    -- ** DeletePermissionPolicy
+    deletePermissionPolicy_resourceArn,
+    deletePermissionPolicyResponse_httpStatus,
+
+    -- ** GetRegexMatchSet
+    getRegexMatchSet_regexMatchSetId,
+    getRegexMatchSetResponse_regexMatchSet,
+    getRegexMatchSetResponse_httpStatus,
+
+    -- ** DeleteIPSet
+    deleteIPSet_iPSetId,
+    deleteIPSet_changeToken,
+    deleteIPSetResponse_changeToken,
+    deleteIPSetResponse_httpStatus,
+
+    -- ** UpdateIPSet
+    updateIPSet_iPSetId,
+    updateIPSet_changeToken,
+    updateIPSet_updates,
+    updateIPSetResponse_changeToken,
+    updateIPSetResponse_httpStatus,
+
+    -- ** ListIPSets
+    listIPSets_nextMarker,
+    listIPSets_limit,
+    listIPSetsResponse_nextMarker,
+    listIPSetsResponse_iPSets,
+    listIPSetsResponse_httpStatus,
+
+    -- ** ListRegexMatchSets
+    listRegexMatchSets_nextMarker,
+    listRegexMatchSets_limit,
+    listRegexMatchSetsResponse_regexMatchSets,
+    listRegexMatchSetsResponse_nextMarker,
+    listRegexMatchSetsResponse_httpStatus,
+
+    -- ** CreateXssMatchSet
+    createXssMatchSet_name,
+    createXssMatchSet_changeToken,
+    createXssMatchSetResponse_xssMatchSet,
+    createXssMatchSetResponse_changeToken,
+    createXssMatchSetResponse_httpStatus,
+
+    -- ** DeleteGeoMatchSet
+    deleteGeoMatchSet_geoMatchSetId,
+    deleteGeoMatchSet_changeToken,
+    deleteGeoMatchSetResponse_changeToken,
+    deleteGeoMatchSetResponse_httpStatus,
+
+    -- ** UpdateGeoMatchSet
+    updateGeoMatchSet_geoMatchSetId,
+    updateGeoMatchSet_changeToken,
+    updateGeoMatchSet_updates,
+    updateGeoMatchSetResponse_changeToken,
+    updateGeoMatchSetResponse_httpStatus,
+
+    -- ** GetByteMatchSet
+    getByteMatchSet_byteMatchSetId,
+    getByteMatchSetResponse_byteMatchSet,
+    getByteMatchSetResponse_httpStatus,
+
+    -- ** GetPermissionPolicy
+    getPermissionPolicy_resourceArn,
+    getPermissionPolicyResponse_policy,
+    getPermissionPolicyResponse_httpStatus,
+
+    -- ** ListRuleGroups
+    listRuleGroups_nextMarker,
+    listRuleGroups_limit,
+    listRuleGroupsResponse_ruleGroups,
+    listRuleGroupsResponse_nextMarker,
+    listRuleGroupsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** DeleteRuleGroup
+    deleteRuleGroup_ruleGroupId,
+    deleteRuleGroup_changeToken,
+    deleteRuleGroupResponse_changeToken,
+    deleteRuleGroupResponse_httpStatus,
+
+    -- ** UpdateRuleGroup
+    updateRuleGroup_ruleGroupId,
+    updateRuleGroup_updates,
+    updateRuleGroup_changeToken,
+    updateRuleGroupResponse_changeToken,
+    updateRuleGroupResponse_httpStatus,
+
+    -- ** CreateRegexMatchSet
+    createRegexMatchSet_name,
+    createRegexMatchSet_changeToken,
+    createRegexMatchSetResponse_regexMatchSet,
+    createRegexMatchSetResponse_changeToken,
+    createRegexMatchSetResponse_httpStatus,
+
+    -- ** GetRateBasedRule
+    getRateBasedRule_ruleId,
+    getRateBasedRuleResponse_rule,
+    getRateBasedRuleResponse_httpStatus,
 
     -- ** CreateRegexPatternSet
     createRegexPatternSet_name,
@@ -120,247 +437,23 @@ module Network.AWS.WAF.Lens
     deleteSizeConstraintSetResponse_changeToken,
     deleteSizeConstraintSetResponse_httpStatus,
 
-    -- ** GetChangeToken
-    getChangeTokenResponse_changeToken,
-    getChangeTokenResponse_httpStatus,
+    -- ** UpdateSizeConstraintSet
+    updateSizeConstraintSet_sizeConstraintSetId,
+    updateSizeConstraintSet_changeToken,
+    updateSizeConstraintSet_updates,
+    updateSizeConstraintSetResponse_changeToken,
+    updateSizeConstraintSetResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceARN,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** CreateWebACLMigrationStack
-    createWebACLMigrationStack_webACLId,
-    createWebACLMigrationStack_s3BucketName,
-    createWebACLMigrationStack_ignoreUnsupportedType,
-    createWebACLMigrationStackResponse_httpStatus,
-    createWebACLMigrationStackResponse_s3ObjectUrl,
-
-    -- ** UpdateRuleGroup
-    updateRuleGroup_ruleGroupId,
-    updateRuleGroup_updates,
-    updateRuleGroup_changeToken,
-    updateRuleGroupResponse_changeToken,
-    updateRuleGroupResponse_httpStatus,
-
-    -- ** ListXssMatchSets
-    listXssMatchSets_nextMarker,
-    listXssMatchSets_limit,
-    listXssMatchSetsResponse_nextMarker,
-    listXssMatchSetsResponse_xssMatchSets,
-    listXssMatchSetsResponse_httpStatus,
-
-    -- ** DeleteRuleGroup
-    deleteRuleGroup_ruleGroupId,
-    deleteRuleGroup_changeToken,
-    deleteRuleGroupResponse_changeToken,
-    deleteRuleGroupResponse_httpStatus,
-
-    -- ** CreateRegexMatchSet
-    createRegexMatchSet_name,
-    createRegexMatchSet_changeToken,
-    createRegexMatchSetResponse_regexMatchSet,
-    createRegexMatchSetResponse_changeToken,
-    createRegexMatchSetResponse_httpStatus,
-
-    -- ** CreateRuleGroup
-    createRuleGroup_tags,
-    createRuleGroup_name,
-    createRuleGroup_metricName,
-    createRuleGroup_changeToken,
-    createRuleGroupResponse_ruleGroup,
-    createRuleGroupResponse_changeToken,
-    createRuleGroupResponse_httpStatus,
-
-    -- ** DeleteRegexMatchSet
-    deleteRegexMatchSet_regexMatchSetId,
-    deleteRegexMatchSet_changeToken,
-    deleteRegexMatchSetResponse_changeToken,
-    deleteRegexMatchSetResponse_httpStatus,
-
-    -- ** ListRegexMatchSets
-    listRegexMatchSets_nextMarker,
-    listRegexMatchSets_limit,
-    listRegexMatchSetsResponse_nextMarker,
-    listRegexMatchSetsResponse_regexMatchSets,
-    listRegexMatchSetsResponse_httpStatus,
-
-    -- ** GetLoggingConfiguration
-    getLoggingConfiguration_resourceArn,
-    getLoggingConfigurationResponse_loggingConfiguration,
-    getLoggingConfigurationResponse_httpStatus,
-
-    -- ** UpdateRegexMatchSet
-    updateRegexMatchSet_regexMatchSetId,
-    updateRegexMatchSet_updates,
-    updateRegexMatchSet_changeToken,
-    updateRegexMatchSetResponse_changeToken,
-    updateRegexMatchSetResponse_httpStatus,
-
-    -- ** DeleteLoggingConfiguration
-    deleteLoggingConfiguration_resourceArn,
-    deleteLoggingConfigurationResponse_httpStatus,
-
-    -- ** CreateRule
-    createRule_tags,
-    createRule_name,
-    createRule_metricName,
-    createRule_changeToken,
-    createRuleResponse_rule,
-    createRuleResponse_changeToken,
-    createRuleResponse_httpStatus,
-
-    -- ** ListLoggingConfigurations
-    listLoggingConfigurations_nextMarker,
-    listLoggingConfigurations_limit,
-    listLoggingConfigurationsResponse_loggingConfigurations,
-    listLoggingConfigurationsResponse_nextMarker,
-    listLoggingConfigurationsResponse_httpStatus,
-
-    -- ** UpdateIPSet
-    updateIPSet_iPSetId,
-    updateIPSet_changeToken,
-    updateIPSet_updates,
-    updateIPSetResponse_changeToken,
-    updateIPSetResponse_httpStatus,
-
-    -- ** CreateWebACL
-    createWebACL_tags,
-    createWebACL_name,
-    createWebACL_metricName,
-    createWebACL_defaultAction,
-    createWebACL_changeToken,
-    createWebACLResponse_webACL,
-    createWebACLResponse_changeToken,
-    createWebACLResponse_httpStatus,
-
-    -- ** PutPermissionPolicy
-    putPermissionPolicy_resourceArn,
-    putPermissionPolicy_policy,
-    putPermissionPolicyResponse_httpStatus,
-
-    -- ** DeleteIPSet
-    deleteIPSet_iPSetId,
-    deleteIPSet_changeToken,
-    deleteIPSetResponse_changeToken,
-    deleteIPSetResponse_httpStatus,
-
-    -- ** GetGeoMatchSet
-    getGeoMatchSet_geoMatchSetId,
-    getGeoMatchSetResponse_geoMatchSet,
-    getGeoMatchSetResponse_httpStatus,
-
-    -- ** GetRateBasedRuleManagedKeys
-    getRateBasedRuleManagedKeys_nextMarker,
-    getRateBasedRuleManagedKeys_ruleId,
-    getRateBasedRuleManagedKeysResponse_managedKeys,
-    getRateBasedRuleManagedKeysResponse_nextMarker,
-    getRateBasedRuleManagedKeysResponse_httpStatus,
-
-    -- ** CreateIPSet
-    createIPSet_name,
-    createIPSet_changeToken,
-    createIPSetResponse_iPSet,
-    createIPSetResponse_changeToken,
-    createIPSetResponse_httpStatus,
-
-    -- ** ListRules
-    listRules_nextMarker,
-    listRules_limit,
-    listRulesResponse_nextMarker,
-    listRulesResponse_rules,
-    listRulesResponse_httpStatus,
-
-    -- ** ListWebACLs
-    listWebACLs_nextMarker,
-    listWebACLs_limit,
-    listWebACLsResponse_nextMarker,
-    listWebACLsResponse_webACLs,
-    listWebACLsResponse_httpStatus,
-
-    -- ** CreateByteMatchSet
-    createByteMatchSet_name,
-    createByteMatchSet_changeToken,
-    createByteMatchSetResponse_byteMatchSet,
-    createByteMatchSetResponse_changeToken,
-    createByteMatchSetResponse_httpStatus,
-
-    -- ** GetXssMatchSet
-    getXssMatchSet_xssMatchSetId,
-    getXssMatchSetResponse_xssMatchSet,
-    getXssMatchSetResponse_httpStatus,
-
-    -- ** UpdateRateBasedRule
-    updateRateBasedRule_ruleId,
-    updateRateBasedRule_changeToken,
-    updateRateBasedRule_updates,
-    updateRateBasedRule_rateLimit,
-    updateRateBasedRuleResponse_changeToken,
-    updateRateBasedRuleResponse_httpStatus,
-
-    -- ** DeleteRateBasedRule
-    deleteRateBasedRule_ruleId,
-    deleteRateBasedRule_changeToken,
-    deleteRateBasedRuleResponse_changeToken,
-    deleteRateBasedRuleResponse_httpStatus,
-
-    -- ** ListActivatedRulesInRuleGroup
-    listActivatedRulesInRuleGroup_nextMarker,
-    listActivatedRulesInRuleGroup_ruleGroupId,
-    listActivatedRulesInRuleGroup_limit,
-    listActivatedRulesInRuleGroupResponse_nextMarker,
-    listActivatedRulesInRuleGroupResponse_activatedRules,
-    listActivatedRulesInRuleGroupResponse_httpStatus,
-
-    -- ** ListSubscribedRuleGroups
-    listSubscribedRuleGroups_nextMarker,
-    listSubscribedRuleGroups_limit,
-    listSubscribedRuleGroupsResponse_nextMarker,
-    listSubscribedRuleGroupsResponse_ruleGroups,
-    listSubscribedRuleGroupsResponse_httpStatus,
-
-    -- ** CreateSqlInjectionMatchSet
-    createSqlInjectionMatchSet_name,
-    createSqlInjectionMatchSet_changeToken,
-    createSqlInjectionMatchSetResponse_sqlInjectionMatchSet,
-    createSqlInjectionMatchSetResponse_changeToken,
-    createSqlInjectionMatchSetResponse_httpStatus,
-
-    -- ** DeleteSqlInjectionMatchSet
-    deleteSqlInjectionMatchSet_sqlInjectionMatchSetId,
-    deleteSqlInjectionMatchSet_changeToken,
-    deleteSqlInjectionMatchSetResponse_changeToken,
-    deleteSqlInjectionMatchSetResponse_httpStatus,
-
-    -- ** GetRegexPatternSet
-    getRegexPatternSet_regexPatternSetId,
-    getRegexPatternSetResponse_regexPatternSet,
-    getRegexPatternSetResponse_httpStatus,
-
-    -- ** UpdateSqlInjectionMatchSet
-    updateSqlInjectionMatchSet_sqlInjectionMatchSetId,
-    updateSqlInjectionMatchSet_changeToken,
-    updateSqlInjectionMatchSet_updates,
-    updateSqlInjectionMatchSetResponse_changeToken,
-    updateSqlInjectionMatchSetResponse_httpStatus,
-
     -- ** DeleteRegexPatternSet
     deleteRegexPatternSet_regexPatternSetId,
     deleteRegexPatternSet_changeToken,
     deleteRegexPatternSetResponse_changeToken,
     deleteRegexPatternSetResponse_httpStatus,
-
-    -- ** CreateSizeConstraintSet
-    createSizeConstraintSet_name,
-    createSizeConstraintSet_changeToken,
-    createSizeConstraintSetResponse_sizeConstraintSet,
-    createSizeConstraintSetResponse_changeToken,
-    createSizeConstraintSetResponse_httpStatus,
 
     -- ** UpdateRegexPatternSet
     updateRegexPatternSet_regexPatternSetId,
@@ -369,155 +462,62 @@ module Network.AWS.WAF.Lens
     updateRegexPatternSetResponse_changeToken,
     updateRegexPatternSetResponse_httpStatus,
 
-    -- ** GetSampledRequests
-    getSampledRequests_webAclId,
-    getSampledRequests_ruleId,
-    getSampledRequests_timeWindow,
-    getSampledRequests_maxItems,
-    getSampledRequestsResponse_timeWindow,
-    getSampledRequestsResponse_populationSize,
-    getSampledRequestsResponse_sampledRequests,
-    getSampledRequestsResponse_httpStatus,
+    -- ** CreateSizeConstraintSet
+    createSizeConstraintSet_name,
+    createSizeConstraintSet_changeToken,
+    createSizeConstraintSetResponse_sizeConstraintSet,
+    createSizeConstraintSetResponse_changeToken,
+    createSizeConstraintSetResponse_httpStatus,
 
-    -- ** GetRateBasedRule
-    getRateBasedRule_ruleId,
-    getRateBasedRuleResponse_rule,
-    getRateBasedRuleResponse_httpStatus,
+    -- ** ListRegexPatternSets
+    listRegexPatternSets_nextMarker,
+    listRegexPatternSets_limit,
+    listRegexPatternSetsResponse_regexPatternSets,
+    listRegexPatternSetsResponse_nextMarker,
+    listRegexPatternSetsResponse_httpStatus,
 
-    -- ** DeleteXssMatchSet
-    deleteXssMatchSet_xssMatchSetId,
-    deleteXssMatchSet_changeToken,
-    deleteXssMatchSetResponse_changeToken,
-    deleteXssMatchSetResponse_httpStatus,
+    -- ** ListSqlInjectionMatchSets
+    listSqlInjectionMatchSets_nextMarker,
+    listSqlInjectionMatchSets_limit,
+    listSqlInjectionMatchSetsResponse_nextMarker,
+    listSqlInjectionMatchSetsResponse_sqlInjectionMatchSets,
+    listSqlInjectionMatchSetsResponse_httpStatus,
 
-    -- ** ListRuleGroups
-    listRuleGroups_nextMarker,
-    listRuleGroups_limit,
-    listRuleGroupsResponse_nextMarker,
-    listRuleGroupsResponse_ruleGroups,
-    listRuleGroupsResponse_httpStatus,
+    -- ** GetRegexPatternSet
+    getRegexPatternSet_regexPatternSetId,
+    getRegexPatternSetResponse_regexPatternSet,
+    getRegexPatternSetResponse_httpStatus,
 
-    -- ** GetWebACL
-    getWebACL_webACLId,
-    getWebACLResponse_webACL,
-    getWebACLResponse_httpStatus,
+    -- ** CreateRateBasedRule
+    createRateBasedRule_tags,
+    createRateBasedRule_name,
+    createRateBasedRule_metricName,
+    createRateBasedRule_rateKey,
+    createRateBasedRule_rateLimit,
+    createRateBasedRule_changeToken,
+    createRateBasedRuleResponse_rule,
+    createRateBasedRuleResponse_changeToken,
+    createRateBasedRuleResponse_httpStatus,
 
-    -- ** GetRule
-    getRule_ruleId,
-    getRuleResponse_rule,
-    getRuleResponse_httpStatus,
+    -- ** DeleteSqlInjectionMatchSet
+    deleteSqlInjectionMatchSet_sqlInjectionMatchSetId,
+    deleteSqlInjectionMatchSet_changeToken,
+    deleteSqlInjectionMatchSetResponse_changeToken,
+    deleteSqlInjectionMatchSetResponse_httpStatus,
 
-    -- ** CreateGeoMatchSet
-    createGeoMatchSet_name,
-    createGeoMatchSet_changeToken,
-    createGeoMatchSetResponse_geoMatchSet,
-    createGeoMatchSetResponse_changeToken,
-    createGeoMatchSetResponse_httpStatus,
-
-    -- ** UpdateXssMatchSet
-    updateXssMatchSet_xssMatchSetId,
-    updateXssMatchSet_changeToken,
-    updateXssMatchSet_updates,
-    updateXssMatchSetResponse_changeToken,
-    updateXssMatchSetResponse_httpStatus,
-
-    -- ** GetIPSet
-    getIPSet_iPSetId,
-    getIPSetResponse_iPSet,
-    getIPSetResponse_httpStatus,
-
-    -- ** CreateXssMatchSet
-    createXssMatchSet_name,
-    createXssMatchSet_changeToken,
-    createXssMatchSetResponse_xssMatchSet,
-    createXssMatchSetResponse_changeToken,
-    createXssMatchSetResponse_httpStatus,
-
-    -- ** GetByteMatchSet
-    getByteMatchSet_byteMatchSetId,
-    getByteMatchSetResponse_byteMatchSet,
-    getByteMatchSetResponse_httpStatus,
-
-    -- ** UpdateGeoMatchSet
-    updateGeoMatchSet_geoMatchSetId,
-    updateGeoMatchSet_changeToken,
-    updateGeoMatchSet_updates,
-    updateGeoMatchSetResponse_changeToken,
-    updateGeoMatchSetResponse_httpStatus,
-
-    -- ** ListGeoMatchSets
-    listGeoMatchSets_nextMarker,
-    listGeoMatchSets_limit,
-    listGeoMatchSetsResponse_geoMatchSets,
-    listGeoMatchSetsResponse_nextMarker,
-    listGeoMatchSetsResponse_httpStatus,
-
-    -- ** DeleteGeoMatchSet
-    deleteGeoMatchSet_geoMatchSetId,
-    deleteGeoMatchSet_changeToken,
-    deleteGeoMatchSetResponse_changeToken,
-    deleteGeoMatchSetResponse_httpStatus,
-
-    -- ** GetPermissionPolicy
-    getPermissionPolicy_resourceArn,
-    getPermissionPolicyResponse_policy,
-    getPermissionPolicyResponse_httpStatus,
-
-    -- ** DeleteByteMatchSet
-    deleteByteMatchSet_byteMatchSetId,
-    deleteByteMatchSet_changeToken,
-    deleteByteMatchSetResponse_changeToken,
-    deleteByteMatchSetResponse_httpStatus,
-
-    -- ** DeletePermissionPolicy
-    deletePermissionPolicy_resourceArn,
-    deletePermissionPolicyResponse_httpStatus,
-
-    -- ** GetRegexMatchSet
-    getRegexMatchSet_regexMatchSetId,
-    getRegexMatchSetResponse_regexMatchSet,
-    getRegexMatchSetResponse_httpStatus,
-
-    -- ** ListTagsForResource
-    listTagsForResource_nextMarker,
-    listTagsForResource_limit,
-    listTagsForResource_resourceARN,
-    listTagsForResourceResponse_nextMarker,
-    listTagsForResourceResponse_tagInfoForResource,
-    listTagsForResourceResponse_httpStatus,
-
-    -- ** UpdateByteMatchSet
-    updateByteMatchSet_byteMatchSetId,
-    updateByteMatchSet_changeToken,
-    updateByteMatchSet_updates,
-    updateByteMatchSetResponse_changeToken,
-    updateByteMatchSetResponse_httpStatus,
-
-    -- ** PutLoggingConfiguration
-    putLoggingConfiguration_loggingConfiguration,
-    putLoggingConfigurationResponse_loggingConfiguration,
-    putLoggingConfigurationResponse_httpStatus,
-
-    -- ** ListIPSets
-    listIPSets_nextMarker,
-    listIPSets_limit,
-    listIPSetsResponse_nextMarker,
-    listIPSetsResponse_iPSets,
-    listIPSetsResponse_httpStatus,
-
-    -- ** ListByteMatchSets
-    listByteMatchSets_nextMarker,
-    listByteMatchSets_limit,
-    listByteMatchSetsResponse_nextMarker,
-    listByteMatchSetsResponse_byteMatchSets,
-    listByteMatchSetsResponse_httpStatus,
+    -- ** UpdateSqlInjectionMatchSet
+    updateSqlInjectionMatchSet_sqlInjectionMatchSetId,
+    updateSqlInjectionMatchSet_changeToken,
+    updateSqlInjectionMatchSet_updates,
+    updateSqlInjectionMatchSetResponse_changeToken,
+    updateSqlInjectionMatchSetResponse_httpStatus,
 
     -- * Types
 
     -- ** ActivatedRule
-    activatedRule_excludedRules,
     activatedRule_overrideAction,
     activatedRule_action,
+    activatedRule_excludedRules,
     activatedRule_type,
     activatedRule_priority,
     activatedRule_ruleId,
@@ -566,16 +566,16 @@ module Network.AWS.WAF.Lens
     geoMatchSetUpdate_geoMatchConstraint,
 
     -- ** HTTPHeader
-    hTTPHeader_name,
     hTTPHeader_value,
+    hTTPHeader_name,
 
     -- ** HTTPRequest
-    hTTPRequest_headers,
-    hTTPRequest_uri,
-    hTTPRequest_method,
-    hTTPRequest_country,
-    hTTPRequest_clientIP,
     hTTPRequest_hTTPVersion,
+    hTTPRequest_country,
+    hTTPRequest_uri,
+    hTTPRequest_headers,
+    hTTPRequest_method,
+    hTTPRequest_clientIP,
 
     -- ** IPSet
     iPSet_name,
@@ -613,9 +613,9 @@ module Network.AWS.WAF.Lens
     rateBasedRule_rateLimit,
 
     -- ** RegexMatchSet
-    regexMatchSet_regexMatchSetId,
-    regexMatchSet_regexMatchTuples,
     regexMatchSet_name,
+    regexMatchSet_regexMatchTuples,
+    regexMatchSet_regexMatchSetId,
 
     -- ** RegexMatchSetSummary
     regexMatchSetSummary_regexMatchSetId,
@@ -671,9 +671,9 @@ module Network.AWS.WAF.Lens
     ruleUpdate_predicate,
 
     -- ** SampledHTTPRequest
+    sampledHTTPRequest_ruleWithinRuleGroup,
     sampledHTTPRequest_action,
     sampledHTTPRequest_timestamp,
-    sampledHTTPRequest_ruleWithinRuleGroup,
     sampledHTTPRequest_request,
     sampledHTTPRequest_weight,
 
@@ -723,8 +723,8 @@ module Network.AWS.WAF.Lens
     tag_value,
 
     -- ** TagInfoForResource
-    tagInfoForResource_resourceARN,
     tagInfoForResource_tagList,
+    tagInfoForResource_resourceARN,
 
     -- ** TimeWindow
     timeWindow_startTime,
@@ -738,8 +738,8 @@ module Network.AWS.WAF.Lens
 
     -- ** WebACL
     webACL_metricName,
-    webACL_webACLArn,
     webACL_name,
+    webACL_webACLArn,
     webACL_webACLId,
     webACL_defaultAction,
     webACL_rules,

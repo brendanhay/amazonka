@@ -248,7 +248,7 @@ newDeleteRelationalDatabaseResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteRelationalDatabaseResponse_operations :: Lens.Lens' DeleteRelationalDatabaseResponse (Prelude.Maybe [Operation])
-deleteRelationalDatabaseResponse_operations = Lens.lens (\DeleteRelationalDatabaseResponse' {operations} -> operations) (\s@DeleteRelationalDatabaseResponse' {} a -> s {operations = a} :: DeleteRelationalDatabaseResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteRelationalDatabaseResponse_operations = Lens.lens (\DeleteRelationalDatabaseResponse' {operations} -> operations) (\s@DeleteRelationalDatabaseResponse' {} a -> s {operations = a} :: DeleteRelationalDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteRelationalDatabaseResponse_httpStatus :: Lens.Lens' DeleteRelationalDatabaseResponse Prelude.Int

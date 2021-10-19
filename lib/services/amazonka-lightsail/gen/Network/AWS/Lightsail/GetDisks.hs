@@ -211,7 +211,7 @@ getDisksResponse_nextPageToken = Lens.lens (\GetDisksResponse' {nextPageToken} -
 -- | An array of objects containing information about all block storage
 -- disks.
 getDisksResponse_disks :: Lens.Lens' GetDisksResponse (Prelude.Maybe [Disk])
-getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Prelude.. Lens.mapping Lens._Coerce
+getDisksResponse_disks = Lens.lens (\GetDisksResponse' {disks} -> disks) (\s@GetDisksResponse' {} a -> s {disks = a} :: GetDisksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDisksResponse_httpStatus :: Lens.Lens' GetDisksResponse Prelude.Int

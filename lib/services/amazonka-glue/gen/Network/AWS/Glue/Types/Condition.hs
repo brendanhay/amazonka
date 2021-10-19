@@ -32,18 +32,18 @@ import qualified Network.AWS.Prelude as Prelude
 data Condition = Condition'
   { -- | The state of the crawler to which this condition applies.
     crawlState :: Prelude.Maybe CrawlState,
-    -- | The name of the crawler to which this condition applies.
-    crawlerName :: Prelude.Maybe Prelude.Text,
     -- | The condition state. Currently, the only job states that a trigger can
     -- listen for are @SUCCEEDED@, @STOPPED@, @FAILED@, and @TIMEOUT@. The only
     -- crawler states that a trigger can listen for are @SUCCEEDED@, @FAILED@,
     -- and @CANCELLED@.
     state :: Prelude.Maybe JobRunState,
-    -- | A logical operator.
-    logicalOperator :: Prelude.Maybe LogicalOperator,
     -- | The name of the job whose @JobRuns@ this condition applies to, and on
     -- which this trigger waits.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | A logical operator.
+    logicalOperator :: Prelude.Maybe LogicalOperator,
+    -- | The name of the crawler to which this condition applies.
+    crawlerName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,35 +57,31 @@ data Condition = Condition'
 --
 -- 'crawlState', 'condition_crawlState' - The state of the crawler to which this condition applies.
 --
--- 'crawlerName', 'condition_crawlerName' - The name of the crawler to which this condition applies.
---
 -- 'state', 'condition_state' - The condition state. Currently, the only job states that a trigger can
 -- listen for are @SUCCEEDED@, @STOPPED@, @FAILED@, and @TIMEOUT@. The only
 -- crawler states that a trigger can listen for are @SUCCEEDED@, @FAILED@,
 -- and @CANCELLED@.
 --
--- 'logicalOperator', 'condition_logicalOperator' - A logical operator.
---
 -- 'jobName', 'condition_jobName' - The name of the job whose @JobRuns@ this condition applies to, and on
 -- which this trigger waits.
+--
+-- 'logicalOperator', 'condition_logicalOperator' - A logical operator.
+--
+-- 'crawlerName', 'condition_crawlerName' - The name of the crawler to which this condition applies.
 newCondition ::
   Condition
 newCondition =
   Condition'
     { crawlState = Prelude.Nothing,
-      crawlerName = Prelude.Nothing,
       state = Prelude.Nothing,
+      jobName = Prelude.Nothing,
       logicalOperator = Prelude.Nothing,
-      jobName = Prelude.Nothing
+      crawlerName = Prelude.Nothing
     }
 
 -- | The state of the crawler to which this condition applies.
 condition_crawlState :: Lens.Lens' Condition (Prelude.Maybe CrawlState)
 condition_crawlState = Lens.lens (\Condition' {crawlState} -> crawlState) (\s@Condition' {} a -> s {crawlState = a} :: Condition)
-
--- | The name of the crawler to which this condition applies.
-condition_crawlerName :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
-condition_crawlerName = Lens.lens (\Condition' {crawlerName} -> crawlerName) (\s@Condition' {} a -> s {crawlerName = a} :: Condition)
 
 -- | The condition state. Currently, the only job states that a trigger can
 -- listen for are @SUCCEEDED@, @STOPPED@, @FAILED@, and @TIMEOUT@. The only
@@ -94,14 +90,18 @@ condition_crawlerName = Lens.lens (\Condition' {crawlerName} -> crawlerName) (\s
 condition_state :: Lens.Lens' Condition (Prelude.Maybe JobRunState)
 condition_state = Lens.lens (\Condition' {state} -> state) (\s@Condition' {} a -> s {state = a} :: Condition)
 
--- | A logical operator.
-condition_logicalOperator :: Lens.Lens' Condition (Prelude.Maybe LogicalOperator)
-condition_logicalOperator = Lens.lens (\Condition' {logicalOperator} -> logicalOperator) (\s@Condition' {} a -> s {logicalOperator = a} :: Condition)
-
 -- | The name of the job whose @JobRuns@ this condition applies to, and on
 -- which this trigger waits.
 condition_jobName :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
 condition_jobName = Lens.lens (\Condition' {jobName} -> jobName) (\s@Condition' {} a -> s {jobName = a} :: Condition)
+
+-- | A logical operator.
+condition_logicalOperator :: Lens.Lens' Condition (Prelude.Maybe LogicalOperator)
+condition_logicalOperator = Lens.lens (\Condition' {logicalOperator} -> logicalOperator) (\s@Condition' {} a -> s {logicalOperator = a} :: Condition)
+
+-- | The name of the crawler to which this condition applies.
+condition_crawlerName :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
+condition_crawlerName = Lens.lens (\Condition' {crawlerName} -> crawlerName) (\s@Condition' {} a -> s {crawlerName = a} :: Condition)
 
 instance Core.FromJSON Condition where
   parseJSON =
@@ -110,10 +110,10 @@ instance Core.FromJSON Condition where
       ( \x ->
           Condition'
             Prelude.<$> (x Core..:? "CrawlState")
-            Prelude.<*> (x Core..:? "CrawlerName")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "LogicalOperator")
             Prelude.<*> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "LogicalOperator")
+            Prelude.<*> (x Core..:? "CrawlerName")
       )
 
 instance Prelude.Hashable Condition
@@ -125,10 +125,10 @@ instance Core.ToJSON Condition where
     Core.object
       ( Prelude.catMaybes
           [ ("CrawlState" Core..=) Prelude.<$> crawlState,
-            ("CrawlerName" Core..=) Prelude.<$> crawlerName,
             ("State" Core..=) Prelude.<$> state,
+            ("JobName" Core..=) Prelude.<$> jobName,
             ("LogicalOperator" Core..=)
               Prelude.<$> logicalOperator,
-            ("JobName" Core..=) Prelude.<$> jobName
+            ("CrawlerName" Core..=) Prelude.<$> crawlerName
           ]
       )

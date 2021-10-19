@@ -34,8 +34,8 @@ module Network.AWS.CodeBuild.BatchGetProjects
     newBatchGetProjectsResponse,
 
     -- * Response Lenses
-    batchGetProjectsResponse_projects,
     batchGetProjectsResponse_projectsNotFound,
+    batchGetProjectsResponse_projects,
     batchGetProjectsResponse_httpStatus,
   )
 where
@@ -74,14 +74,14 @@ newBatchGetProjects ::
 newBatchGetProjects pNames_ =
   BatchGetProjects'
     { names =
-        Lens._Coerce Lens.# pNames_
+        Lens.coerced Lens.# pNames_
     }
 
 -- | The names or ARNs of the build projects. To get information about a
 -- project shared with your Amazon Web Services account, its ARN must be
 -- specified. You cannot specify a shared project using its name.
 batchGetProjects_names :: Lens.Lens' BatchGetProjects (Prelude.NonEmpty Prelude.Text)
-batchGetProjects_names = Lens.lens (\BatchGetProjects' {names} -> names) (\s@BatchGetProjects' {} a -> s {names = a} :: BatchGetProjects) Prelude.. Lens._Coerce
+batchGetProjects_names = Lens.lens (\BatchGetProjects' {names} -> names) (\s@BatchGetProjects' {} a -> s {names = a} :: BatchGetProjects) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetProjects where
   type
@@ -92,8 +92,8 @@ instance Core.AWSRequest BatchGetProjects where
     Response.receiveJSON
       ( \s h x ->
           BatchGetProjectsResponse'
-            Prelude.<$> (x Core..?> "projects" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "projectsNotFound")
+            Prelude.<$> (x Core..?> "projectsNotFound")
+            Prelude.<*> (x Core..?> "projects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -131,10 +131,10 @@ instance Core.ToQuery BatchGetProjects where
 
 -- | /See:/ 'newBatchGetProjectsResponse' smart constructor.
 data BatchGetProjectsResponse = BatchGetProjectsResponse'
-  { -- | Information about the requested build projects.
-    projects :: Prelude.Maybe [Project],
-    -- | The names of build projects for which information could not be found.
+  { -- | The names of build projects for which information could not be found.
     projectsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Information about the requested build projects.
+    projects :: Prelude.Maybe [Project],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -148,9 +148,9 @@ data BatchGetProjectsResponse = BatchGetProjectsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projects', 'batchGetProjectsResponse_projects' - Information about the requested build projects.
---
 -- 'projectsNotFound', 'batchGetProjectsResponse_projectsNotFound' - The names of build projects for which information could not be found.
+--
+-- 'projects', 'batchGetProjectsResponse_projects' - Information about the requested build projects.
 --
 -- 'httpStatus', 'batchGetProjectsResponse_httpStatus' - The response's http status code.
 newBatchGetProjectsResponse ::
@@ -159,19 +159,19 @@ newBatchGetProjectsResponse ::
   BatchGetProjectsResponse
 newBatchGetProjectsResponse pHttpStatus_ =
   BatchGetProjectsResponse'
-    { projects =
+    { projectsNotFound =
         Prelude.Nothing,
-      projectsNotFound = Prelude.Nothing,
+      projects = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Information about the requested build projects.
-batchGetProjectsResponse_projects :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe [Project])
-batchGetProjectsResponse_projects = Lens.lens (\BatchGetProjectsResponse' {projects} -> projects) (\s@BatchGetProjectsResponse' {} a -> s {projects = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The names of build projects for which information could not be found.
 batchGetProjectsResponse_projectsNotFound :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchGetProjectsResponse_projectsNotFound = Lens.lens (\BatchGetProjectsResponse' {projectsNotFound} -> projectsNotFound) (\s@BatchGetProjectsResponse' {} a -> s {projectsNotFound = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetProjectsResponse_projectsNotFound = Lens.lens (\BatchGetProjectsResponse' {projectsNotFound} -> projectsNotFound) (\s@BatchGetProjectsResponse' {} a -> s {projectsNotFound = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the requested build projects.
+batchGetProjectsResponse_projects :: Lens.Lens' BatchGetProjectsResponse (Prelude.Maybe [Project])
+batchGetProjectsResponse_projects = Lens.lens (\BatchGetProjectsResponse' {projects} -> projects) (\s@BatchGetProjectsResponse' {} a -> s {projects = a} :: BatchGetProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetProjectsResponse_httpStatus :: Lens.Lens' BatchGetProjectsResponse Prelude.Int

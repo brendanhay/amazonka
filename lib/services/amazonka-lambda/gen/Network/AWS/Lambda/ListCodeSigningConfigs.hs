@@ -32,16 +32,16 @@ module Network.AWS.Lambda.ListCodeSigningConfigs
     newListCodeSigningConfigs,
 
     -- * Request Lenses
-    listCodeSigningConfigs_maxItems,
     listCodeSigningConfigs_marker,
+    listCodeSigningConfigs_maxItems,
 
     -- * Destructuring the Response
     ListCodeSigningConfigsResponse (..),
     newListCodeSigningConfigsResponse,
 
     -- * Response Lenses
-    listCodeSigningConfigsResponse_nextMarker,
     listCodeSigningConfigsResponse_codeSigningConfigs,
+    listCodeSigningConfigsResponse_nextMarker,
     listCodeSigningConfigsResponse_httpStatus,
   )
 where
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListCodeSigningConfigs' smart constructor.
 data ListCodeSigningConfigs = ListCodeSigningConfigs'
-  { -- | Maximum number of items to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of items to return.
+    maxItems :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,26 +71,26 @@ data ListCodeSigningConfigs = ListCodeSigningConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listCodeSigningConfigs_maxItems' - Maximum number of items to return.
---
 -- 'marker', 'listCodeSigningConfigs_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
+--
+-- 'maxItems', 'listCodeSigningConfigs_maxItems' - Maximum number of items to return.
 newListCodeSigningConfigs ::
   ListCodeSigningConfigs
 newListCodeSigningConfigs =
   ListCodeSigningConfigs'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | Maximum number of items to return.
-listCodeSigningConfigs_maxItems :: Lens.Lens' ListCodeSigningConfigs (Prelude.Maybe Prelude.Natural)
-listCodeSigningConfigs_maxItems = Lens.lens (\ListCodeSigningConfigs' {maxItems} -> maxItems) (\s@ListCodeSigningConfigs' {} a -> s {maxItems = a} :: ListCodeSigningConfigs)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listCodeSigningConfigs_marker :: Lens.Lens' ListCodeSigningConfigs (Prelude.Maybe Prelude.Text)
 listCodeSigningConfigs_marker = Lens.lens (\ListCodeSigningConfigs' {marker} -> marker) (\s@ListCodeSigningConfigs' {} a -> s {marker = a} :: ListCodeSigningConfigs)
+
+-- | Maximum number of items to return.
+listCodeSigningConfigs_maxItems :: Lens.Lens' ListCodeSigningConfigs (Prelude.Maybe Prelude.Natural)
+listCodeSigningConfigs_maxItems = Lens.lens (\ListCodeSigningConfigs' {maxItems} -> maxItems) (\s@ListCodeSigningConfigs' {} a -> s {maxItems = a} :: ListCodeSigningConfigs)
 
 instance Core.AWSPager ListCodeSigningConfigs where
   page rq rs
@@ -123,10 +123,10 @@ instance Core.AWSRequest ListCodeSigningConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListCodeSigningConfigsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> ( x Core..?> "CodeSigningConfigs"
+            Prelude.<$> ( x Core..?> "CodeSigningConfigs"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,16 +144,16 @@ instance Core.ToPath ListCodeSigningConfigs where
 instance Core.ToQuery ListCodeSigningConfigs where
   toQuery ListCodeSigningConfigs' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListCodeSigningConfigsResponse' smart constructor.
 data ListCodeSigningConfigsResponse = ListCodeSigningConfigsResponse'
-  { -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The code signing configurations
+  { -- | The code signing configurations
     codeSigningConfigs :: Prelude.Maybe [CodeSigningConfig],
+    -- | The pagination token that\'s included if more results are available.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,9 +167,9 @@ data ListCodeSigningConfigsResponse = ListCodeSigningConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listCodeSigningConfigsResponse_nextMarker' - The pagination token that\'s included if more results are available.
---
 -- 'codeSigningConfigs', 'listCodeSigningConfigsResponse_codeSigningConfigs' - The code signing configurations
+--
+-- 'nextMarker', 'listCodeSigningConfigsResponse_nextMarker' - The pagination token that\'s included if more results are available.
 --
 -- 'httpStatus', 'listCodeSigningConfigsResponse_httpStatus' - The response's http status code.
 newListCodeSigningConfigsResponse ::
@@ -178,19 +178,19 @@ newListCodeSigningConfigsResponse ::
   ListCodeSigningConfigsResponse
 newListCodeSigningConfigsResponse pHttpStatus_ =
   ListCodeSigningConfigsResponse'
-    { nextMarker =
+    { codeSigningConfigs =
         Prelude.Nothing,
-      codeSigningConfigs = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The code signing configurations
+listCodeSigningConfigsResponse_codeSigningConfigs :: Lens.Lens' ListCodeSigningConfigsResponse (Prelude.Maybe [CodeSigningConfig])
+listCodeSigningConfigsResponse_codeSigningConfigs = Lens.lens (\ListCodeSigningConfigsResponse' {codeSigningConfigs} -> codeSigningConfigs) (\s@ListCodeSigningConfigsResponse' {} a -> s {codeSigningConfigs = a} :: ListCodeSigningConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listCodeSigningConfigsResponse_nextMarker :: Lens.Lens' ListCodeSigningConfigsResponse (Prelude.Maybe Prelude.Text)
 listCodeSigningConfigsResponse_nextMarker = Lens.lens (\ListCodeSigningConfigsResponse' {nextMarker} -> nextMarker) (\s@ListCodeSigningConfigsResponse' {} a -> s {nextMarker = a} :: ListCodeSigningConfigsResponse)
-
--- | The code signing configurations
-listCodeSigningConfigsResponse_codeSigningConfigs :: Lens.Lens' ListCodeSigningConfigsResponse (Prelude.Maybe [CodeSigningConfig])
-listCodeSigningConfigsResponse_codeSigningConfigs = Lens.lens (\ListCodeSigningConfigsResponse' {codeSigningConfigs} -> codeSigningConfigs) (\s@ListCodeSigningConfigsResponse' {} a -> s {codeSigningConfigs = a} :: ListCodeSigningConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listCodeSigningConfigsResponse_httpStatus :: Lens.Lens' ListCodeSigningConfigsResponse Prelude.Int

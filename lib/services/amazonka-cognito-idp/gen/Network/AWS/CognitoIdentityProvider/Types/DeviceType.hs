@@ -30,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 data DeviceType = DeviceType'
   { -- | The last modified date of the device.
     deviceLastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The device key.
-    deviceKey :: Prelude.Maybe Prelude.Text,
-    -- | The date in which the device was last authenticated.
-    deviceLastAuthenticatedDate :: Prelude.Maybe Core.POSIX,
     -- | The creation date of the device.
     deviceCreateDate :: Prelude.Maybe Core.POSIX,
     -- | The device attributes.
-    deviceAttributes :: Prelude.Maybe [AttributeType]
+    deviceAttributes :: Prelude.Maybe [AttributeType],
+    -- | The device key.
+    deviceKey :: Prelude.Maybe Prelude.Text,
+    -- | The date in which the device was last authenticated.
+    deviceLastAuthenticatedDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -51,28 +51,36 @@ data DeviceType = DeviceType'
 --
 -- 'deviceLastModifiedDate', 'deviceType_deviceLastModifiedDate' - The last modified date of the device.
 --
--- 'deviceKey', 'deviceType_deviceKey' - The device key.
---
--- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date in which the device was last authenticated.
---
 -- 'deviceCreateDate', 'deviceType_deviceCreateDate' - The creation date of the device.
 --
 -- 'deviceAttributes', 'deviceType_deviceAttributes' - The device attributes.
+--
+-- 'deviceKey', 'deviceType_deviceKey' - The device key.
+--
+-- 'deviceLastAuthenticatedDate', 'deviceType_deviceLastAuthenticatedDate' - The date in which the device was last authenticated.
 newDeviceType ::
   DeviceType
 newDeviceType =
   DeviceType'
     { deviceLastModifiedDate =
         Prelude.Nothing,
-      deviceKey = Prelude.Nothing,
-      deviceLastAuthenticatedDate = Prelude.Nothing,
       deviceCreateDate = Prelude.Nothing,
-      deviceAttributes = Prelude.Nothing
+      deviceAttributes = Prelude.Nothing,
+      deviceKey = Prelude.Nothing,
+      deviceLastAuthenticatedDate = Prelude.Nothing
     }
 
 -- | The last modified date of the device.
 deviceType_deviceLastModifiedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
 deviceType_deviceLastModifiedDate = Lens.lens (\DeviceType' {deviceLastModifiedDate} -> deviceLastModifiedDate) (\s@DeviceType' {} a -> s {deviceLastModifiedDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
+
+-- | The creation date of the device.
+deviceType_deviceCreateDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
+deviceType_deviceCreateDate = Lens.lens (\DeviceType' {deviceCreateDate} -> deviceCreateDate) (\s@DeviceType' {} a -> s {deviceCreateDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
+
+-- | The device attributes.
+deviceType_deviceAttributes :: Lens.Lens' DeviceType (Prelude.Maybe [AttributeType])
+deviceType_deviceAttributes = Lens.lens (\DeviceType' {deviceAttributes} -> deviceAttributes) (\s@DeviceType' {} a -> s {deviceAttributes = a} :: DeviceType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The device key.
 deviceType_deviceKey :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.Text)
@@ -82,14 +90,6 @@ deviceType_deviceKey = Lens.lens (\DeviceType' {deviceKey} -> deviceKey) (\s@Dev
 deviceType_deviceLastAuthenticatedDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
 deviceType_deviceLastAuthenticatedDate = Lens.lens (\DeviceType' {deviceLastAuthenticatedDate} -> deviceLastAuthenticatedDate) (\s@DeviceType' {} a -> s {deviceLastAuthenticatedDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
 
--- | The creation date of the device.
-deviceType_deviceCreateDate :: Lens.Lens' DeviceType (Prelude.Maybe Prelude.UTCTime)
-deviceType_deviceCreateDate = Lens.lens (\DeviceType' {deviceCreateDate} -> deviceCreateDate) (\s@DeviceType' {} a -> s {deviceCreateDate = a} :: DeviceType) Prelude.. Lens.mapping Core._Time
-
--- | The device attributes.
-deviceType_deviceAttributes :: Lens.Lens' DeviceType (Prelude.Maybe [AttributeType])
-deviceType_deviceAttributes = Lens.lens (\DeviceType' {deviceAttributes} -> deviceAttributes) (\s@DeviceType' {} a -> s {deviceAttributes = a} :: DeviceType) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON DeviceType where
   parseJSON =
     Core.withObject
@@ -97,12 +97,12 @@ instance Core.FromJSON DeviceType where
       ( \x ->
           DeviceType'
             Prelude.<$> (x Core..:? "DeviceLastModifiedDate")
-            Prelude.<*> (x Core..:? "DeviceKey")
-            Prelude.<*> (x Core..:? "DeviceLastAuthenticatedDate")
             Prelude.<*> (x Core..:? "DeviceCreateDate")
             Prelude.<*> ( x Core..:? "DeviceAttributes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DeviceKey")
+            Prelude.<*> (x Core..:? "DeviceLastAuthenticatedDate")
       )
 
 instance Prelude.Hashable DeviceType

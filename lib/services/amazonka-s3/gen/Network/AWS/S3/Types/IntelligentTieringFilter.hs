@@ -31,7 +31,8 @@ import Network.AWS.S3.Types.Tag
 --
 -- /See:/ 'newIntelligentTieringFilter' smart constructor.
 data IntelligentTieringFilter = IntelligentTieringFilter'
-  { -- | An object key name prefix that identifies the subset of objects to which
+  { tag :: Prelude.Maybe Tag,
+    -- | An object key name prefix that identifies the subset of objects to which
     -- the rule applies.
     --
     -- Replacement must be made for object keys containing special characters
@@ -43,8 +44,7 @@ data IntelligentTieringFilter = IntelligentTieringFilter'
     -- metrics filter. The operator must have at least two predicates, and an
     -- object must match all of the predicates in order for the filter to
     -- apply.
-    and :: Prelude.Maybe IntelligentTieringAndOperator,
-    tag :: Prelude.Maybe Tag
+    and :: Prelude.Maybe IntelligentTieringAndOperator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,6 +55,8 @@ data IntelligentTieringFilter = IntelligentTieringFilter'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tag', 'intelligentTieringFilter_tag' - Undocumented member.
 --
 -- 'prefix', 'intelligentTieringFilter_prefix' - An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
@@ -68,16 +70,18 @@ data IntelligentTieringFilter = IntelligentTieringFilter'
 -- metrics filter. The operator must have at least two predicates, and an
 -- object must match all of the predicates in order for the filter to
 -- apply.
---
--- 'tag', 'intelligentTieringFilter_tag' - Undocumented member.
 newIntelligentTieringFilter ::
   IntelligentTieringFilter
 newIntelligentTieringFilter =
   IntelligentTieringFilter'
-    { prefix = Prelude.Nothing,
-      and = Prelude.Nothing,
-      tag = Prelude.Nothing
+    { tag = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      and = Prelude.Nothing
     }
+
+-- | Undocumented member.
+intelligentTieringFilter_tag :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe Tag)
+intelligentTieringFilter_tag = Lens.lens (\IntelligentTieringFilter' {tag} -> tag) (\s@IntelligentTieringFilter' {} a -> s {tag = a} :: IntelligentTieringFilter)
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the rule applies.
@@ -96,16 +100,12 @@ intelligentTieringFilter_prefix = Lens.lens (\IntelligentTieringFilter' {prefix}
 intelligentTieringFilter_and :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe IntelligentTieringAndOperator)
 intelligentTieringFilter_and = Lens.lens (\IntelligentTieringFilter' {and} -> and) (\s@IntelligentTieringFilter' {} a -> s {and = a} :: IntelligentTieringFilter)
 
--- | Undocumented member.
-intelligentTieringFilter_tag :: Lens.Lens' IntelligentTieringFilter (Prelude.Maybe Tag)
-intelligentTieringFilter_tag = Lens.lens (\IntelligentTieringFilter' {tag} -> tag) (\s@IntelligentTieringFilter' {} a -> s {tag = a} :: IntelligentTieringFilter)
-
 instance Core.FromXML IntelligentTieringFilter where
   parseXML x =
     IntelligentTieringFilter'
-      Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<$> (x Core..@? "Tag")
+      Prelude.<*> (x Core..@? "Prefix")
       Prelude.<*> (x Core..@? "And")
-      Prelude.<*> (x Core..@? "Tag")
 
 instance Prelude.Hashable IntelligentTieringFilter
 
@@ -114,7 +114,7 @@ instance Prelude.NFData IntelligentTieringFilter
 instance Core.ToXML IntelligentTieringFilter where
   toXML IntelligentTieringFilter' {..} =
     Prelude.mconcat
-      [ "Prefix" Core.@= prefix,
-        "And" Core.@= and,
-        "Tag" Core.@= tag
+      [ "Tag" Core.@= tag,
+        "Prefix" Core.@= prefix,
+        "And" Core.@= and
       ]

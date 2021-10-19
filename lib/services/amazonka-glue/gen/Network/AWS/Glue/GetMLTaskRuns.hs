@@ -35,9 +35,9 @@ module Network.AWS.Glue.GetMLTaskRuns
 
     -- * Request Lenses
     getMLTaskRuns_nextToken,
-    getMLTaskRuns_maxResults,
-    getMLTaskRuns_filter,
     getMLTaskRuns_sort,
+    getMLTaskRuns_filter,
+    getMLTaskRuns_maxResults,
     getMLTaskRuns_transformId,
 
     -- * Destructuring the Response
@@ -62,14 +62,14 @@ import qualified Network.AWS.Response as Response
 data GetMLTaskRuns = GetMLTaskRuns'
   { -- | A token for pagination of the results. The default is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the
-    -- task run.
-    filter' :: Prelude.Maybe TaskRunFilterCriteria,
     -- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
     -- task run.
     sort :: Prelude.Maybe TaskRunSortCriteria,
+    -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the
+    -- task run.
+    filter' :: Prelude.Maybe TaskRunFilterCriteria,
+    -- | The maximum number of results to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier of the machine learning transform.
     transformId :: Prelude.Text
   }
@@ -85,13 +85,13 @@ data GetMLTaskRuns = GetMLTaskRuns'
 --
 -- 'nextToken', 'getMLTaskRuns_nextToken' - A token for pagination of the results. The default is empty.
 --
--- 'maxResults', 'getMLTaskRuns_maxResults' - The maximum number of results to return.
+-- 'sort', 'getMLTaskRuns_sort' - The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
+-- task run.
 --
 -- 'filter'', 'getMLTaskRuns_filter' - The filter criteria, in the @TaskRunFilterCriteria@ structure, for the
 -- task run.
 --
--- 'sort', 'getMLTaskRuns_sort' - The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
--- task run.
+-- 'maxResults', 'getMLTaskRuns_maxResults' - The maximum number of results to return.
 --
 -- 'transformId', 'getMLTaskRuns_transformId' - The unique identifier of the machine learning transform.
 newGetMLTaskRuns ::
@@ -101,9 +101,9 @@ newGetMLTaskRuns ::
 newGetMLTaskRuns pTransformId_ =
   GetMLTaskRuns'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing,
       sort = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       transformId = pTransformId_
     }
 
@@ -111,19 +111,19 @@ newGetMLTaskRuns pTransformId_ =
 getMLTaskRuns_nextToken :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe Prelude.Text)
 getMLTaskRuns_nextToken = Lens.lens (\GetMLTaskRuns' {nextToken} -> nextToken) (\s@GetMLTaskRuns' {} a -> s {nextToken = a} :: GetMLTaskRuns)
 
--- | The maximum number of results to return.
-getMLTaskRuns_maxResults :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe Prelude.Natural)
-getMLTaskRuns_maxResults = Lens.lens (\GetMLTaskRuns' {maxResults} -> maxResults) (\s@GetMLTaskRuns' {} a -> s {maxResults = a} :: GetMLTaskRuns)
+-- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
+-- task run.
+getMLTaskRuns_sort :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe TaskRunSortCriteria)
+getMLTaskRuns_sort = Lens.lens (\GetMLTaskRuns' {sort} -> sort) (\s@GetMLTaskRuns' {} a -> s {sort = a} :: GetMLTaskRuns)
 
 -- | The filter criteria, in the @TaskRunFilterCriteria@ structure, for the
 -- task run.
 getMLTaskRuns_filter :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe TaskRunFilterCriteria)
 getMLTaskRuns_filter = Lens.lens (\GetMLTaskRuns' {filter'} -> filter') (\s@GetMLTaskRuns' {} a -> s {filter' = a} :: GetMLTaskRuns)
 
--- | The sorting criteria, in the @TaskRunSortCriteria@ structure, for the
--- task run.
-getMLTaskRuns_sort :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe TaskRunSortCriteria)
-getMLTaskRuns_sort = Lens.lens (\GetMLTaskRuns' {sort} -> sort) (\s@GetMLTaskRuns' {} a -> s {sort = a} :: GetMLTaskRuns)
+-- | The maximum number of results to return.
+getMLTaskRuns_maxResults :: Lens.Lens' GetMLTaskRuns (Prelude.Maybe Prelude.Natural)
+getMLTaskRuns_maxResults = Lens.lens (\GetMLTaskRuns' {maxResults} -> maxResults) (\s@GetMLTaskRuns' {} a -> s {maxResults = a} :: GetMLTaskRuns)
 
 -- | The unique identifier of the machine learning transform.
 getMLTaskRuns_transformId :: Lens.Lens' GetMLTaskRuns Prelude.Text
@@ -165,9 +165,9 @@ instance Core.ToJSON GetMLTaskRuns where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter',
             ("Sort" Core..=) Prelude.<$> sort,
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("TransformId" Core..= transformId)
           ]
       )
@@ -219,7 +219,7 @@ getMLTaskRunsResponse_nextToken = Lens.lens (\GetMLTaskRunsResponse' {nextToken}
 
 -- | A list of task runs that are associated with the transform.
 getMLTaskRunsResponse_taskRuns :: Lens.Lens' GetMLTaskRunsResponse (Prelude.Maybe [TaskRun])
-getMLTaskRunsResponse_taskRuns = Lens.lens (\GetMLTaskRunsResponse' {taskRuns} -> taskRuns) (\s@GetMLTaskRunsResponse' {} a -> s {taskRuns = a} :: GetMLTaskRunsResponse) Prelude.. Lens.mapping Lens._Coerce
+getMLTaskRunsResponse_taskRuns = Lens.lens (\GetMLTaskRunsResponse' {taskRuns} -> taskRuns) (\s@GetMLTaskRunsResponse' {} a -> s {taskRuns = a} :: GetMLTaskRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getMLTaskRunsResponse_httpStatus :: Lens.Lens' GetMLTaskRunsResponse Prelude.Int

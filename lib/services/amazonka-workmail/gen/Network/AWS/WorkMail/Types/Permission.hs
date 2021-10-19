@@ -96,7 +96,7 @@ permission_granteeType = Lens.lens (\Permission' {granteeType} -> granteeType) (
 -- access to the mailbox, irrespective of other folder-level permissions
 -- set on the mailbox.
 permission_permissionValues :: Lens.Lens' Permission [PermissionType]
-permission_permissionValues = Lens.lens (\Permission' {permissionValues} -> permissionValues) (\s@Permission' {} a -> s {permissionValues = a} :: Permission) Prelude.. Lens._Coerce
+permission_permissionValues = Lens.lens (\Permission' {permissionValues} -> permissionValues) (\s@Permission' {} a -> s {permissionValues = a} :: Permission) Prelude.. Lens.coerced
 
 instance Core.FromJSON Permission where
   parseJSON =

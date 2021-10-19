@@ -38,8 +38,8 @@ module Network.AWS.MechanicalTurk.ListWorkerBlocks
     newListWorkerBlocksResponse,
 
     -- * Response Lenses
-    listWorkerBlocksResponse_nextToken,
     listWorkerBlocksResponse_workerBlocks,
+    listWorkerBlocksResponse_nextToken,
     listWorkerBlocksResponse_numResults,
     listWorkerBlocksResponse_httpStatus,
   )
@@ -118,8 +118,8 @@ instance Core.AWSRequest ListWorkerBlocks where
     Response.receiveJSON
       ( \s h x ->
           ListWorkerBlocksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "WorkerBlocks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "WorkerBlocks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "NumResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -160,10 +160,10 @@ instance Core.ToQuery ListWorkerBlocks where
 
 -- | /See:/ 'newListWorkerBlocksResponse' smart constructor.
 data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of WorkerBlocks, containing the collection of Worker IDs and
+  { -- | The list of WorkerBlocks, containing the collection of Worker IDs and
     -- reasons for blocking.
     workerBlocks :: Prelude.Maybe [WorkerBlock],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of assignments on the page in the filtered results list,
     -- equivalent to the number of assignments returned by this call.
     numResults :: Prelude.Maybe Prelude.Int,
@@ -180,10 +180,10 @@ data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listWorkerBlocksResponse_nextToken' - Undocumented member.
---
 -- 'workerBlocks', 'listWorkerBlocksResponse_workerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and
 -- reasons for blocking.
+--
+-- 'nextToken', 'listWorkerBlocksResponse_nextToken' - Undocumented member.
 --
 -- 'numResults', 'listWorkerBlocksResponse_numResults' - The number of assignments on the page in the filtered results list,
 -- equivalent to the number of assignments returned by this call.
@@ -195,21 +195,21 @@ newListWorkerBlocksResponse ::
   ListWorkerBlocksResponse
 newListWorkerBlocksResponse pHttpStatus_ =
   ListWorkerBlocksResponse'
-    { nextToken =
+    { workerBlocks =
         Prelude.Nothing,
-      workerBlocks = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       numResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-listWorkerBlocksResponse_nextToken :: Lens.Lens' ListWorkerBlocksResponse (Prelude.Maybe Prelude.Text)
-listWorkerBlocksResponse_nextToken = Lens.lens (\ListWorkerBlocksResponse' {nextToken} -> nextToken) (\s@ListWorkerBlocksResponse' {} a -> s {nextToken = a} :: ListWorkerBlocksResponse)
-
 -- | The list of WorkerBlocks, containing the collection of Worker IDs and
 -- reasons for blocking.
 listWorkerBlocksResponse_workerBlocks :: Lens.Lens' ListWorkerBlocksResponse (Prelude.Maybe [WorkerBlock])
-listWorkerBlocksResponse_workerBlocks = Lens.lens (\ListWorkerBlocksResponse' {workerBlocks} -> workerBlocks) (\s@ListWorkerBlocksResponse' {} a -> s {workerBlocks = a} :: ListWorkerBlocksResponse) Prelude.. Lens.mapping Lens._Coerce
+listWorkerBlocksResponse_workerBlocks = Lens.lens (\ListWorkerBlocksResponse' {workerBlocks} -> workerBlocks) (\s@ListWorkerBlocksResponse' {} a -> s {workerBlocks = a} :: ListWorkerBlocksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+listWorkerBlocksResponse_nextToken :: Lens.Lens' ListWorkerBlocksResponse (Prelude.Maybe Prelude.Text)
+listWorkerBlocksResponse_nextToken = Lens.lens (\ListWorkerBlocksResponse' {nextToken} -> nextToken) (\s@ListWorkerBlocksResponse' {} a -> s {nextToken = a} :: ListWorkerBlocksResponse)
 
 -- | The number of assignments on the page in the filtered results list,
 -- equivalent to the number of assignments returned by this call.

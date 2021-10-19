@@ -89,7 +89,7 @@ addTagsToStream_streamName = Lens.lens (\AddTagsToStream' {streamName} -> stream
 
 -- | A set of up to 10 key-value pairs to use to create the tags.
 addTagsToStream_tags :: Lens.Lens' AddTagsToStream (Prelude.HashMap Prelude.Text Prelude.Text)
-addTagsToStream_tags = Lens.lens (\AddTagsToStream' {tags} -> tags) (\s@AddTagsToStream' {} a -> s {tags = a} :: AddTagsToStream) Prelude.. Lens._Coerce
+addTagsToStream_tags = Lens.lens (\AddTagsToStream' {tags} -> tags) (\s@AddTagsToStream' {} a -> s {tags = a} :: AddTagsToStream) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToStream where
   type

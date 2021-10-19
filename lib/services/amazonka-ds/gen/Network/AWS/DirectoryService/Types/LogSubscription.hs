@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLogSubscription' smart constructor.
 data LogSubscription = LogSubscription'
-  { -- | The date and time that the log subscription was created.
-    subscriptionCreatedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | Identifier (ID) of the directory that you want to associate with the log
+  { -- | Identifier (ID) of the directory that you want to associate with the log
     -- subscription.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the log subscription was created.
+    subscriptionCreatedDateTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,20 @@ data LogSubscription = LogSubscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptionCreatedDateTime', 'logSubscription_subscriptionCreatedDateTime' - The date and time that the log subscription was created.
---
 -- 'directoryId', 'logSubscription_directoryId' - Identifier (ID) of the directory that you want to associate with the log
 -- subscription.
 --
 -- 'logGroupName', 'logSubscription_logGroupName' - The name of the log group.
+--
+-- 'subscriptionCreatedDateTime', 'logSubscription_subscriptionCreatedDateTime' - The date and time that the log subscription was created.
 newLogSubscription ::
   LogSubscription
 newLogSubscription =
   LogSubscription'
-    { subscriptionCreatedDateTime =
-        Prelude.Nothing,
-      directoryId = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+    { directoryId = Prelude.Nothing,
+      logGroupName = Prelude.Nothing,
+      subscriptionCreatedDateTime = Prelude.Nothing
     }
-
--- | The date and time that the log subscription was created.
-logSubscription_subscriptionCreatedDateTime :: Lens.Lens' LogSubscription (Prelude.Maybe Prelude.UTCTime)
-logSubscription_subscriptionCreatedDateTime = Lens.lens (\LogSubscription' {subscriptionCreatedDateTime} -> subscriptionCreatedDateTime) (\s@LogSubscription' {} a -> s {subscriptionCreatedDateTime = a} :: LogSubscription) Prelude.. Lens.mapping Core._Time
 
 -- | Identifier (ID) of the directory that you want to associate with the log
 -- subscription.
@@ -75,15 +70,19 @@ logSubscription_directoryId = Lens.lens (\LogSubscription' {directoryId} -> dire
 logSubscription_logGroupName :: Lens.Lens' LogSubscription (Prelude.Maybe Prelude.Text)
 logSubscription_logGroupName = Lens.lens (\LogSubscription' {logGroupName} -> logGroupName) (\s@LogSubscription' {} a -> s {logGroupName = a} :: LogSubscription)
 
+-- | The date and time that the log subscription was created.
+logSubscription_subscriptionCreatedDateTime :: Lens.Lens' LogSubscription (Prelude.Maybe Prelude.UTCTime)
+logSubscription_subscriptionCreatedDateTime = Lens.lens (\LogSubscription' {subscriptionCreatedDateTime} -> subscriptionCreatedDateTime) (\s@LogSubscription' {} a -> s {subscriptionCreatedDateTime = a} :: LogSubscription) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromJSON LogSubscription where
   parseJSON =
     Core.withObject
       "LogSubscription"
       ( \x ->
           LogSubscription'
-            Prelude.<$> (x Core..:? "SubscriptionCreatedDateTime")
-            Prelude.<*> (x Core..:? "DirectoryId")
+            Prelude.<$> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Core..:? "SubscriptionCreatedDateTime")
       )
 
 instance Prelude.Hashable LogSubscription

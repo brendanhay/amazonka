@@ -55,7 +55,7 @@ newClassicLoadBalancersConfig =
 
 -- | One or more Classic Load Balancers.
 classicLoadBalancersConfig_classicLoadBalancers :: Lens.Lens' ClassicLoadBalancersConfig (Prelude.Maybe (Prelude.NonEmpty ClassicLoadBalancer))
-classicLoadBalancersConfig_classicLoadBalancers = Lens.lens (\ClassicLoadBalancersConfig' {classicLoadBalancers} -> classicLoadBalancers) (\s@ClassicLoadBalancersConfig' {} a -> s {classicLoadBalancers = a} :: ClassicLoadBalancersConfig) Prelude.. Lens.mapping Lens._Coerce
+classicLoadBalancersConfig_classicLoadBalancers = Lens.lens (\ClassicLoadBalancersConfig' {classicLoadBalancers} -> classicLoadBalancers) (\s@ClassicLoadBalancersConfig' {} a -> s {classicLoadBalancers = a} :: ClassicLoadBalancersConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ClassicLoadBalancersConfig where
   parseXML x =

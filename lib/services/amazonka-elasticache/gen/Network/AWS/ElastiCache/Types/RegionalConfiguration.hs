@@ -79,7 +79,7 @@ regionalConfiguration_replicationGroupRegion = Lens.lens (\RegionalConfiguration
 -- | A list of @PreferredAvailabilityZones@ objects that specifies the
 -- configuration of a node group in the resharded cluster.
 regionalConfiguration_reshardingConfiguration :: Lens.Lens' RegionalConfiguration [ReshardingConfiguration]
-regionalConfiguration_reshardingConfiguration = Lens.lens (\RegionalConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@RegionalConfiguration' {} a -> s {reshardingConfiguration = a} :: RegionalConfiguration) Prelude.. Lens._Coerce
+regionalConfiguration_reshardingConfiguration = Lens.lens (\RegionalConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@RegionalConfiguration' {} a -> s {reshardingConfiguration = a} :: RegionalConfiguration) Prelude.. Lens.coerced
 
 instance Prelude.Hashable RegionalConfiguration
 

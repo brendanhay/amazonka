@@ -34,16 +34,16 @@ module Network.AWS.Config.DescribeRetentionConfigurations
     newDescribeRetentionConfigurations,
 
     -- * Request Lenses
-    describeRetentionConfigurations_nextToken,
     describeRetentionConfigurations_retentionConfigurationNames,
+    describeRetentionConfigurations_nextToken,
 
     -- * Destructuring the Response
     DescribeRetentionConfigurationsResponse (..),
     newDescribeRetentionConfigurationsResponse,
 
     -- * Response Lenses
-    describeRetentionConfigurationsResponse_nextToken,
     describeRetentionConfigurationsResponse_retentionConfigurations,
+    describeRetentionConfigurationsResponse_nextToken,
     describeRetentionConfigurationsResponse_httpStatus,
   )
 where
@@ -57,16 +57,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRetentionConfigurations' smart constructor.
 data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
-    -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of names of retention configurations for which you want details.
+  { -- | A list of names of retention configurations for which you want details.
     -- If you do not specify a name, Config returns details for all the
     -- retention configurations for that account.
     --
     -- Currently, Config supports only one retention configuration per region
     -- in your account.
-    retentionConfigurationNames :: Prelude.Maybe [Prelude.Text]
+    retentionConfigurationNames :: Prelude.Maybe [Prelude.Text],
+    -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,29 +78,23 @@ data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeRetentionConfigurations_nextToken' - The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
---
 -- 'retentionConfigurationNames', 'describeRetentionConfigurations_retentionConfigurationNames' - A list of names of retention configurations for which you want details.
 -- If you do not specify a name, Config returns details for all the
 -- retention configurations for that account.
 --
 -- Currently, Config supports only one retention configuration per region
 -- in your account.
+--
+-- 'nextToken', 'describeRetentionConfigurations_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
 newDescribeRetentionConfigurations ::
   DescribeRetentionConfigurations
 newDescribeRetentionConfigurations =
   DescribeRetentionConfigurations'
-    { nextToken =
+    { retentionConfigurationNames =
         Prelude.Nothing,
-      retentionConfigurationNames =
-        Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get
--- the next page of results in a paginated response.
-describeRetentionConfigurations_nextToken :: Lens.Lens' DescribeRetentionConfigurations (Prelude.Maybe Prelude.Text)
-describeRetentionConfigurations_nextToken = Lens.lens (\DescribeRetentionConfigurations' {nextToken} -> nextToken) (\s@DescribeRetentionConfigurations' {} a -> s {nextToken = a} :: DescribeRetentionConfigurations)
 
 -- | A list of names of retention configurations for which you want details.
 -- If you do not specify a name, Config returns details for all the
@@ -109,7 +103,12 @@ describeRetentionConfigurations_nextToken = Lens.lens (\DescribeRetentionConfigu
 -- Currently, Config supports only one retention configuration per region
 -- in your account.
 describeRetentionConfigurations_retentionConfigurationNames :: Lens.Lens' DescribeRetentionConfigurations (Prelude.Maybe [Prelude.Text])
-describeRetentionConfigurations_retentionConfigurationNames = Lens.lens (\DescribeRetentionConfigurations' {retentionConfigurationNames} -> retentionConfigurationNames) (\s@DescribeRetentionConfigurations' {} a -> s {retentionConfigurationNames = a} :: DescribeRetentionConfigurations) Prelude.. Lens.mapping Lens._Coerce
+describeRetentionConfigurations_retentionConfigurationNames = Lens.lens (\DescribeRetentionConfigurations' {retentionConfigurationNames} -> retentionConfigurationNames) (\s@DescribeRetentionConfigurations' {} a -> s {retentionConfigurationNames = a} :: DescribeRetentionConfigurations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeRetentionConfigurations_nextToken :: Lens.Lens' DescribeRetentionConfigurations (Prelude.Maybe Prelude.Text)
+describeRetentionConfigurations_nextToken = Lens.lens (\DescribeRetentionConfigurations' {nextToken} -> nextToken) (\s@DescribeRetentionConfigurations' {} a -> s {nextToken = a} :: DescribeRetentionConfigurations)
 
 instance
   Core.AWSPager
@@ -148,10 +147,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRetentionConfigurationsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "RetentionConfigurations"
+            Prelude.<$> ( x Core..?> "RetentionConfigurations"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,9 +184,9 @@ instance Core.ToJSON DescribeRetentionConfigurations where
   toJSON DescribeRetentionConfigurations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("RetentionConfigurationNames" Core..=)
-              Prelude.<$> retentionConfigurationNames
+          [ ("RetentionConfigurationNames" Core..=)
+              Prelude.<$> retentionConfigurationNames,
+            ("NextToken" Core..=) Prelude.<$> nextToken
           ]
       )
 
@@ -199,11 +198,11 @@ instance Core.ToQuery DescribeRetentionConfigurations where
 
 -- | /See:/ 'newDescribeRetentionConfigurationsResponse' smart constructor.
 data DescribeRetentionConfigurationsResponse = DescribeRetentionConfigurationsResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get
+  { -- | Returns a retention configuration object.
+    retentionConfigurations :: Prelude.Maybe [RetentionConfiguration],
+    -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a retention configuration object.
-    retentionConfigurations :: Prelude.Maybe [RetentionConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,10 +216,10 @@ data DescribeRetentionConfigurationsResponse = DescribeRetentionConfigurationsRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'retentionConfigurations', 'describeRetentionConfigurationsResponse_retentionConfigurations' - Returns a retention configuration object.
+--
 -- 'nextToken', 'describeRetentionConfigurationsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
---
--- 'retentionConfigurations', 'describeRetentionConfigurationsResponse_retentionConfigurations' - Returns a retention configuration object.
 --
 -- 'httpStatus', 'describeRetentionConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeRetentionConfigurationsResponse ::
@@ -230,21 +229,20 @@ newDescribeRetentionConfigurationsResponse ::
 newDescribeRetentionConfigurationsResponse
   pHttpStatus_ =
     DescribeRetentionConfigurationsResponse'
-      { nextToken =
+      { retentionConfigurations =
           Prelude.Nothing,
-        retentionConfigurations =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Returns a retention configuration object.
+describeRetentionConfigurationsResponse_retentionConfigurations :: Lens.Lens' DescribeRetentionConfigurationsResponse (Prelude.Maybe [RetentionConfiguration])
+describeRetentionConfigurationsResponse_retentionConfigurations = Lens.lens (\DescribeRetentionConfigurationsResponse' {retentionConfigurations} -> retentionConfigurations) (\s@DescribeRetentionConfigurationsResponse' {} a -> s {retentionConfigurations = a} :: DescribeRetentionConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 describeRetentionConfigurationsResponse_nextToken :: Lens.Lens' DescribeRetentionConfigurationsResponse (Prelude.Maybe Prelude.Text)
 describeRetentionConfigurationsResponse_nextToken = Lens.lens (\DescribeRetentionConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeRetentionConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeRetentionConfigurationsResponse)
-
--- | Returns a retention configuration object.
-describeRetentionConfigurationsResponse_retentionConfigurations :: Lens.Lens' DescribeRetentionConfigurationsResponse (Prelude.Maybe [RetentionConfiguration])
-describeRetentionConfigurationsResponse_retentionConfigurations = Lens.lens (\DescribeRetentionConfigurationsResponse' {retentionConfigurations} -> retentionConfigurations) (\s@DescribeRetentionConfigurationsResponse' {} a -> s {retentionConfigurations = a} :: DescribeRetentionConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeRetentionConfigurationsResponse_httpStatus :: Lens.Lens' DescribeRetentionConfigurationsResponse Prelude.Int

@@ -68,7 +68,7 @@ newOrderableClusterOption =
 
 -- | A list of availability zones for the orderable cluster.
 orderableClusterOption_availabilityZones :: Lens.Lens' OrderableClusterOption (Prelude.Maybe [AvailabilityZone])
-orderableClusterOption_availabilityZones = Lens.lens (\OrderableClusterOption' {availabilityZones} -> availabilityZones) (\s@OrderableClusterOption' {} a -> s {availabilityZones = a} :: OrderableClusterOption) Prelude.. Lens.mapping Lens._Coerce
+orderableClusterOption_availabilityZones = Lens.lens (\OrderableClusterOption' {availabilityZones} -> availabilityZones) (\s@OrderableClusterOption' {} a -> s {availabilityZones = a} :: OrderableClusterOption) Prelude.. Lens.mapping Lens.coerced
 
 -- | The cluster type, for example @multi-node@.
 orderableClusterOption_clusterType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)

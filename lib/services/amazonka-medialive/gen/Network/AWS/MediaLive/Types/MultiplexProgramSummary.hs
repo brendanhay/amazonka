@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexProgramSummary' smart constructor.
 data MultiplexProgramSummary = MultiplexProgramSummary'
-  { -- | The MediaLive Channel associated with the program.
-    channelId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the multiplex program.
-    programName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the multiplex program.
+    programName :: Prelude.Maybe Prelude.Text,
+    -- | The MediaLive Channel associated with the program.
+    channelId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data MultiplexProgramSummary = MultiplexProgramSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'channelId', 'multiplexProgramSummary_channelId' - The MediaLive Channel associated with the program.
---
 -- 'programName', 'multiplexProgramSummary_programName' - The name of the multiplex program.
+--
+-- 'channelId', 'multiplexProgramSummary_channelId' - The MediaLive Channel associated with the program.
 newMultiplexProgramSummary ::
   MultiplexProgramSummary
 newMultiplexProgramSummary =
   MultiplexProgramSummary'
-    { channelId =
+    { programName =
         Prelude.Nothing,
-      programName = Prelude.Nothing
+      channelId = Prelude.Nothing
     }
-
--- | The MediaLive Channel associated with the program.
-multiplexProgramSummary_channelId :: Lens.Lens' MultiplexProgramSummary (Prelude.Maybe Prelude.Text)
-multiplexProgramSummary_channelId = Lens.lens (\MultiplexProgramSummary' {channelId} -> channelId) (\s@MultiplexProgramSummary' {} a -> s {channelId = a} :: MultiplexProgramSummary)
 
 -- | The name of the multiplex program.
 multiplexProgramSummary_programName :: Lens.Lens' MultiplexProgramSummary (Prelude.Maybe Prelude.Text)
 multiplexProgramSummary_programName = Lens.lens (\MultiplexProgramSummary' {programName} -> programName) (\s@MultiplexProgramSummary' {} a -> s {programName = a} :: MultiplexProgramSummary)
+
+-- | The MediaLive Channel associated with the program.
+multiplexProgramSummary_channelId :: Lens.Lens' MultiplexProgramSummary (Prelude.Maybe Prelude.Text)
+multiplexProgramSummary_channelId = Lens.lens (\MultiplexProgramSummary' {channelId} -> channelId) (\s@MultiplexProgramSummary' {} a -> s {channelId = a} :: MultiplexProgramSummary)
 
 instance Core.FromJSON MultiplexProgramSummary where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON MultiplexProgramSummary where
       "MultiplexProgramSummary"
       ( \x ->
           MultiplexProgramSummary'
-            Prelude.<$> (x Core..:? "channelId")
-            Prelude.<*> (x Core..:? "programName")
+            Prelude.<$> (x Core..:? "programName")
+            Prelude.<*> (x Core..:? "channelId")
       )
 
 instance Prelude.Hashable MultiplexProgramSummary

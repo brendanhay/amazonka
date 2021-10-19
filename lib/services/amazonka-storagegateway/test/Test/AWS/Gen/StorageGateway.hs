@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestDescribeFileSystemAssociations $
 --             newDescribeFileSystemAssociations
 --
+--         , requestUpdateSMBLocalGroups $
+--             newUpdateSMBLocalGroups
+--
 --         , requestCreateNFSFileShare $
 --             newCreateNFSFileShare
 --
@@ -305,6 +308,9 @@ import Test.Tasty
 --
 --         , responseDescribeFileSystemAssociations $
 --             newDescribeFileSystemAssociationsResponse
+--
+--         , responseUpdateSMBLocalGroups $
+--             newUpdateSMBLocalGroupsResponse
 --
 --         , responseCreateNFSFileShare $
 --             newCreateNFSFileShareResponse
@@ -586,6 +592,12 @@ requestDescribeFileSystemAssociations =
   req
     "DescribeFileSystemAssociations"
     "fixture/DescribeFileSystemAssociations.yaml"
+
+requestUpdateSMBLocalGroups :: UpdateSMBLocalGroups -> TestTree
+requestUpdateSMBLocalGroups =
+  req
+    "UpdateSMBLocalGroups"
+    "fixture/UpdateSMBLocalGroups.yaml"
 
 requestCreateNFSFileShare :: CreateNFSFileShare -> TestTree
 requestCreateNFSFileShare =
@@ -1128,6 +1140,14 @@ responseDescribeFileSystemAssociations =
     "fixture/DescribeFileSystemAssociationsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeFileSystemAssociations)
+
+responseUpdateSMBLocalGroups :: UpdateSMBLocalGroupsResponse -> TestTree
+responseUpdateSMBLocalGroups =
+  res
+    "UpdateSMBLocalGroupsResponse"
+    "fixture/UpdateSMBLocalGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSMBLocalGroups)
 
 responseCreateNFSFileShare :: CreateNFSFileShareResponse -> TestTree
 responseCreateNFSFileShare =

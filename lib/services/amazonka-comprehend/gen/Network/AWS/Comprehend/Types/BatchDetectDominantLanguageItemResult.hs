@@ -61,7 +61,7 @@ newBatchDetectDominantLanguageItemResult =
 -- | One or more DominantLanguage objects describing the dominant languages
 -- in the document.
 batchDetectDominantLanguageItemResult_languages :: Lens.Lens' BatchDetectDominantLanguageItemResult (Prelude.Maybe [DominantLanguage])
-batchDetectDominantLanguageItemResult_languages = Lens.lens (\BatchDetectDominantLanguageItemResult' {languages} -> languages) (\s@BatchDetectDominantLanguageItemResult' {} a -> s {languages = a} :: BatchDetectDominantLanguageItemResult) Prelude.. Lens.mapping Lens._Coerce
+batchDetectDominantLanguageItemResult_languages = Lens.lens (\BatchDetectDominantLanguageItemResult' {languages} -> languages) (\s@BatchDetectDominantLanguageItemResult' {} a -> s {languages = a} :: BatchDetectDominantLanguageItemResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The zero-based index of the document in the input list.
 batchDetectDominantLanguageItemResult_index :: Lens.Lens' BatchDetectDominantLanguageItemResult (Prelude.Maybe Prelude.Int)

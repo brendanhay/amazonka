@@ -37,17 +37,17 @@ module Network.AWS.APIGateway.UpdateMethod
     newMethod,
 
     -- * Response Lenses
-    method_httpMethod,
-    method_methodIntegration,
-    method_apiKeyRequired,
-    method_authorizationType,
-    method_requestModels,
-    method_requestValidatorId,
-    method_operationName,
     method_methodResponses,
-    method_authorizerId,
-    method_requestParameters,
+    method_httpMethod,
     method_authorizationScopes,
+    method_requestValidatorId,
+    method_requestModels,
+    method_requestParameters,
+    method_authorizerId,
+    method_operationName,
+    method_authorizationType,
+    method_apiKeyRequired,
+    method_methodIntegration,
   )
 where
 
@@ -109,7 +109,7 @@ newUpdateMethod pRestApiId_ pResourceId_ pHttpMethod_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateMethod_patchOperations :: Lens.Lens' UpdateMethod (Prelude.Maybe [PatchOperation])
-updateMethod_patchOperations = Lens.lens (\UpdateMethod' {patchOperations} -> patchOperations) (\s@UpdateMethod' {} a -> s {patchOperations = a} :: UpdateMethod) Prelude.. Lens.mapping Lens._Coerce
+updateMethod_patchOperations = Lens.lens (\UpdateMethod' {patchOperations} -> patchOperations) (\s@UpdateMethod' {} a -> s {patchOperations = a} :: UpdateMethod) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateMethod_restApiId :: Lens.Lens' UpdateMethod Prelude.Text

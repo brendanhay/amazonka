@@ -33,9 +33,6 @@ data EmailMessageActivity = EmailMessageActivity'
     -- specified, this value must match the name of an existing message
     -- template.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the sender address for an email message that\'s sent to
-    -- participants in the journey.
-    messageConfig :: Prelude.Maybe JourneyEmailMessage,
     -- | The unique identifier for the version of the email template to use for
     -- the message. If specified, this value must match the identifier for an
     -- existing template version. To retrieve a list of versions and version
@@ -49,7 +46,10 @@ data EmailMessageActivity = EmailMessageActivity'
     templateVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the next activity to perform, after the
     -- message is sent.
-    nextActivity :: Prelude.Maybe Prelude.Text
+    nextActivity :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the sender address for an email message that\'s sent to
+    -- participants in the journey.
+    messageConfig :: Prelude.Maybe JourneyEmailMessage
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,9 +65,6 @@ data EmailMessageActivity = EmailMessageActivity'
 -- specified, this value must match the name of an existing message
 -- template.
 --
--- 'messageConfig', 'emailMessageActivity_messageConfig' - Specifies the sender address for an email message that\'s sent to
--- participants in the journey.
---
 -- 'templateVersion', 'emailMessageActivity_templateVersion' - The unique identifier for the version of the email template to use for
 -- the message. If specified, this value must match the identifier for an
 -- existing template version. To retrieve a list of versions and version
@@ -81,15 +78,18 @@ data EmailMessageActivity = EmailMessageActivity'
 --
 -- 'nextActivity', 'emailMessageActivity_nextActivity' - The unique identifier for the next activity to perform, after the
 -- message is sent.
+--
+-- 'messageConfig', 'emailMessageActivity_messageConfig' - Specifies the sender address for an email message that\'s sent to
+-- participants in the journey.
 newEmailMessageActivity ::
   EmailMessageActivity
 newEmailMessageActivity =
   EmailMessageActivity'
     { templateName =
         Prelude.Nothing,
-      messageConfig = Prelude.Nothing,
       templateVersion = Prelude.Nothing,
-      nextActivity = Prelude.Nothing
+      nextActivity = Prelude.Nothing,
+      messageConfig = Prelude.Nothing
     }
 
 -- | The name of the email message template to use for the message. If
@@ -97,11 +97,6 @@ newEmailMessageActivity =
 -- template.
 emailMessageActivity_templateName :: Lens.Lens' EmailMessageActivity (Prelude.Maybe Prelude.Text)
 emailMessageActivity_templateName = Lens.lens (\EmailMessageActivity' {templateName} -> templateName) (\s@EmailMessageActivity' {} a -> s {templateName = a} :: EmailMessageActivity)
-
--- | Specifies the sender address for an email message that\'s sent to
--- participants in the journey.
-emailMessageActivity_messageConfig :: Lens.Lens' EmailMessageActivity (Prelude.Maybe JourneyEmailMessage)
-emailMessageActivity_messageConfig = Lens.lens (\EmailMessageActivity' {messageConfig} -> messageConfig) (\s@EmailMessageActivity' {} a -> s {messageConfig = a} :: EmailMessageActivity)
 
 -- | The unique identifier for the version of the email template to use for
 -- the message. If specified, this value must match the identifier for an
@@ -121,6 +116,11 @@ emailMessageActivity_templateVersion = Lens.lens (\EmailMessageActivity' {templa
 emailMessageActivity_nextActivity :: Lens.Lens' EmailMessageActivity (Prelude.Maybe Prelude.Text)
 emailMessageActivity_nextActivity = Lens.lens (\EmailMessageActivity' {nextActivity} -> nextActivity) (\s@EmailMessageActivity' {} a -> s {nextActivity = a} :: EmailMessageActivity)
 
+-- | Specifies the sender address for an email message that\'s sent to
+-- participants in the journey.
+emailMessageActivity_messageConfig :: Lens.Lens' EmailMessageActivity (Prelude.Maybe JourneyEmailMessage)
+emailMessageActivity_messageConfig = Lens.lens (\EmailMessageActivity' {messageConfig} -> messageConfig) (\s@EmailMessageActivity' {} a -> s {messageConfig = a} :: EmailMessageActivity)
+
 instance Core.FromJSON EmailMessageActivity where
   parseJSON =
     Core.withObject
@@ -128,9 +128,9 @@ instance Core.FromJSON EmailMessageActivity where
       ( \x ->
           EmailMessageActivity'
             Prelude.<$> (x Core..:? "TemplateName")
-            Prelude.<*> (x Core..:? "MessageConfig")
             Prelude.<*> (x Core..:? "TemplateVersion")
             Prelude.<*> (x Core..:? "NextActivity")
+            Prelude.<*> (x Core..:? "MessageConfig")
       )
 
 instance Prelude.Hashable EmailMessageActivity
@@ -142,9 +142,9 @@ instance Core.ToJSON EmailMessageActivity where
     Core.object
       ( Prelude.catMaybes
           [ ("TemplateName" Core..=) Prelude.<$> templateName,
-            ("MessageConfig" Core..=) Prelude.<$> messageConfig,
             ("TemplateVersion" Core..=)
               Prelude.<$> templateVersion,
-            ("NextActivity" Core..=) Prelude.<$> nextActivity
+            ("NextActivity" Core..=) Prelude.<$> nextActivity,
+            ("MessageConfig" Core..=) Prelude.<$> messageConfig
           ]
       )

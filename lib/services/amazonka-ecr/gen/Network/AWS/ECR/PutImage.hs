@@ -35,10 +35,10 @@ module Network.AWS.ECR.PutImage
     newPutImage,
 
     -- * Request Lenses
-    putImage_imageDigest,
     putImage_registryId,
-    putImage_imageTag,
     putImage_imageManifestMediaType,
+    putImage_imageDigest,
+    putImage_imageTag,
     putImage_repositoryName,
     putImage_imageManifest,
 
@@ -61,20 +61,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutImage' smart constructor.
 data PutImage = PutImage'
-  { -- | The image digest of the image manifest corresponding to the image.
-    imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account ID associated with the registry that
+  { -- | The Amazon Web Services account ID associated with the registry that
     -- contains the repository in which to put the image. If you do not specify
     -- a registry, the default registry is assumed.
     registryId :: Prelude.Maybe Prelude.Text,
-    -- | The tag to associate with the image. This parameter is required for
-    -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
-    -- Initiative (OCI) formats.
-    imageTag :: Prelude.Maybe Prelude.Text,
     -- | The media type of the image manifest. If you push an image manifest that
     -- does not contain the @mediaType@ field, you must specify the
     -- @imageManifestMediaType@ in the request.
     imageManifestMediaType :: Prelude.Maybe Prelude.Text,
+    -- | The image digest of the image manifest corresponding to the image.
+    imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The tag to associate with the image. This parameter is required for
+    -- images that use the Docker Image Manifest V2 Schema 2 or Open Container
+    -- Initiative (OCI) formats.
+    imageTag :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository in which to put the image.
     repositoryName :: Prelude.Text,
     -- | The image manifest corresponding to the image to be uploaded.
@@ -90,19 +90,19 @@ data PutImage = PutImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
---
 -- 'registryId', 'putImage_registryId' - The Amazon Web Services account ID associated with the registry that
 -- contains the repository in which to put the image. If you do not specify
 -- a registry, the default registry is assumed.
 --
--- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
--- images that use the Docker Image Manifest V2 Schema 2 or Open Container
--- Initiative (OCI) formats.
---
 -- 'imageManifestMediaType', 'putImage_imageManifestMediaType' - The media type of the image manifest. If you push an image manifest that
 -- does not contain the @mediaType@ field, you must specify the
 -- @imageManifestMediaType@ in the request.
+--
+-- 'imageDigest', 'putImage_imageDigest' - The image digest of the image manifest corresponding to the image.
+--
+-- 'imageTag', 'putImage_imageTag' - The tag to associate with the image. This parameter is required for
+-- images that use the Docker Image Manifest V2 Schema 2 or Open Container
+-- Initiative (OCI) formats.
 --
 -- 'repositoryName', 'putImage_repositoryName' - The name of the repository in which to put the image.
 --
@@ -115,17 +115,13 @@ newPutImage ::
   PutImage
 newPutImage pRepositoryName_ pImageManifest_ =
   PutImage'
-    { imageDigest = Prelude.Nothing,
-      registryId = Prelude.Nothing,
-      imageTag = Prelude.Nothing,
+    { registryId = Prelude.Nothing,
       imageManifestMediaType = Prelude.Nothing,
+      imageDigest = Prelude.Nothing,
+      imageTag = Prelude.Nothing,
       repositoryName = pRepositoryName_,
       imageManifest = pImageManifest_
     }
-
--- | The image digest of the image manifest corresponding to the image.
-putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
-putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
 
 -- | The Amazon Web Services account ID associated with the registry that
 -- contains the repository in which to put the image. If you do not specify
@@ -133,17 +129,21 @@ putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@P
 putImage_registryId :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_registryId = Lens.lens (\PutImage' {registryId} -> registryId) (\s@PutImage' {} a -> s {registryId = a} :: PutImage)
 
--- | The tag to associate with the image. This parameter is required for
--- images that use the Docker Image Manifest V2 Schema 2 or Open Container
--- Initiative (OCI) formats.
-putImage_imageTag :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
-putImage_imageTag = Lens.lens (\PutImage' {imageTag} -> imageTag) (\s@PutImage' {} a -> s {imageTag = a} :: PutImage)
-
 -- | The media type of the image manifest. If you push an image manifest that
 -- does not contain the @mediaType@ field, you must specify the
 -- @imageManifestMediaType@ in the request.
 putImage_imageManifestMediaType :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
 putImage_imageManifestMediaType = Lens.lens (\PutImage' {imageManifestMediaType} -> imageManifestMediaType) (\s@PutImage' {} a -> s {imageManifestMediaType = a} :: PutImage)
+
+-- | The image digest of the image manifest corresponding to the image.
+putImage_imageDigest :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
+putImage_imageDigest = Lens.lens (\PutImage' {imageDigest} -> imageDigest) (\s@PutImage' {} a -> s {imageDigest = a} :: PutImage)
+
+-- | The tag to associate with the image. This parameter is required for
+-- images that use the Docker Image Manifest V2 Schema 2 or Open Container
+-- Initiative (OCI) formats.
+putImage_imageTag :: Lens.Lens' PutImage (Prelude.Maybe Prelude.Text)
+putImage_imageTag = Lens.lens (\PutImage' {imageTag} -> imageTag) (\s@PutImage' {} a -> s {imageTag = a} :: PutImage)
 
 -- | The name of the repository in which to put the image.
 putImage_repositoryName :: Lens.Lens' PutImage Prelude.Text
@@ -187,11 +187,11 @@ instance Core.ToJSON PutImage where
   toJSON PutImage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("imageDigest" Core..=) Prelude.<$> imageDigest,
-            ("registryId" Core..=) Prelude.<$> registryId,
-            ("imageTag" Core..=) Prelude.<$> imageTag,
+          [ ("registryId" Core..=) Prelude.<$> registryId,
             ("imageManifestMediaType" Core..=)
               Prelude.<$> imageManifestMediaType,
+            ("imageDigest" Core..=) Prelude.<$> imageDigest,
+            ("imageTag" Core..=) Prelude.<$> imageTag,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just

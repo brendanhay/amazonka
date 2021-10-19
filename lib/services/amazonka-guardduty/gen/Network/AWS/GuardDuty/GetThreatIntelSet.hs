@@ -209,7 +209,7 @@ newGetThreatIntelSetResponse
 
 -- | The tags of the threat list resource.
 getThreatIntelSetResponse_tags :: Lens.Lens' GetThreatIntelSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getThreatIntelSetResponse_tags = Lens.lens (\GetThreatIntelSetResponse' {tags} -> tags) (\s@GetThreatIntelSetResponse' {} a -> s {tags = a} :: GetThreatIntelSetResponse) Prelude.. Lens.mapping Lens._Coerce
+getThreatIntelSetResponse_tags = Lens.lens (\GetThreatIntelSetResponse' {tags} -> tags) (\s@GetThreatIntelSetResponse' {} a -> s {tags = a} :: GetThreatIntelSetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getThreatIntelSetResponse_httpStatus :: Lens.Lens' GetThreatIntelSetResponse Prelude.Int

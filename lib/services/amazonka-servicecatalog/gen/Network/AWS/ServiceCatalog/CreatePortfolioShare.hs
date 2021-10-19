@@ -45,10 +45,10 @@ module Network.AWS.ServiceCatalog.CreatePortfolioShare
     newCreatePortfolioShare,
 
     -- * Request Lenses
-    createPortfolioShare_shareTagOptions,
     createPortfolioShare_accountId,
-    createPortfolioShare_organizationNode,
+    createPortfolioShare_shareTagOptions,
     createPortfolioShare_acceptLanguage,
+    createPortfolioShare_organizationNode,
     createPortfolioShare_portfolioId,
 
     -- * Destructuring the Response
@@ -70,18 +70,11 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newCreatePortfolioShare' smart constructor.
 data CreatePortfolioShare = CreatePortfolioShare'
-  { -- | Enables or disables @TagOptions @ sharing when creating the portfolio
+  { -- | The AWS account ID. For example, @123456789012@.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | Enables or disables @TagOptions @ sharing when creating the portfolio
     -- share. If this flag is not provided, TagOptions sharing is disabled.
     shareTagOptions :: Prelude.Maybe Prelude.Bool,
-    -- | The AWS account ID. For example, @123456789012@.
-    accountId :: Prelude.Maybe Prelude.Text,
-    -- | The organization node to whom you are going to share. If
-    -- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
-    -- the node an ListOrganizationPortfolioAccessd its children (when
-    -- applies), and a @PortfolioShareToken@ will be returned in the output in
-    -- order for the administrator to monitor the status of the
-    -- @PortfolioShare@ creation process.
-    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -90,6 +83,13 @@ data CreatePortfolioShare = CreatePortfolioShare'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The organization node to whom you are going to share. If
+    -- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
+    -- the node an ListOrganizationPortfolioAccessd its children (when
+    -- applies), and a @PortfolioShareToken@ will be returned in the output in
+    -- order for the administrator to monitor the status of the
+    -- @PortfolioShare@ creation process.
+    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -103,17 +103,10 @@ data CreatePortfolioShare = CreatePortfolioShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'shareTagOptions', 'createPortfolioShare_shareTagOptions' - Enables or disables @TagOptions @ sharing when creating the portfolio
--- share. If this flag is not provided, TagOptions sharing is disabled.
---
 -- 'accountId', 'createPortfolioShare_accountId' - The AWS account ID. For example, @123456789012@.
 --
--- 'organizationNode', 'createPortfolioShare_organizationNode' - The organization node to whom you are going to share. If
--- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
--- the node an ListOrganizationPortfolioAccessd its children (when
--- applies), and a @PortfolioShareToken@ will be returned in the output in
--- order for the administrator to monitor the status of the
--- @PortfolioShare@ creation process.
+-- 'shareTagOptions', 'createPortfolioShare_shareTagOptions' - Enables or disables @TagOptions @ sharing when creating the portfolio
+-- share. If this flag is not provided, TagOptions sharing is disabled.
 --
 -- 'acceptLanguage', 'createPortfolioShare_acceptLanguage' - The language code.
 --
@@ -123,6 +116,13 @@ data CreatePortfolioShare = CreatePortfolioShare'
 --
 -- -   @zh@ - Chinese
 --
+-- 'organizationNode', 'createPortfolioShare_organizationNode' - The organization node to whom you are going to share. If
+-- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
+-- the node an ListOrganizationPortfolioAccessd its children (when
+-- applies), and a @PortfolioShareToken@ will be returned in the output in
+-- order for the administrator to monitor the status of the
+-- @PortfolioShare@ creation process.
+--
 -- 'portfolioId', 'createPortfolioShare_portfolioId' - The portfolio identifier.
 newCreatePortfolioShare ::
   -- | 'portfolioId'
@@ -130,31 +130,21 @@ newCreatePortfolioShare ::
   CreatePortfolioShare
 newCreatePortfolioShare pPortfolioId_ =
   CreatePortfolioShare'
-    { shareTagOptions =
-        Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      organizationNode = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      shareTagOptions = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
+      organizationNode = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
-
--- | Enables or disables @TagOptions @ sharing when creating the portfolio
--- share. If this flag is not provided, TagOptions sharing is disabled.
-createPortfolioShare_shareTagOptions :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Bool)
-createPortfolioShare_shareTagOptions = Lens.lens (\CreatePortfolioShare' {shareTagOptions} -> shareTagOptions) (\s@CreatePortfolioShare' {} a -> s {shareTagOptions = a} :: CreatePortfolioShare)
 
 -- | The AWS account ID. For example, @123456789012@.
 createPortfolioShare_accountId :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
 createPortfolioShare_accountId = Lens.lens (\CreatePortfolioShare' {accountId} -> accountId) (\s@CreatePortfolioShare' {} a -> s {accountId = a} :: CreatePortfolioShare)
 
--- | The organization node to whom you are going to share. If
--- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
--- the node an ListOrganizationPortfolioAccessd its children (when
--- applies), and a @PortfolioShareToken@ will be returned in the output in
--- order for the administrator to monitor the status of the
--- @PortfolioShare@ creation process.
-createPortfolioShare_organizationNode :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe OrganizationNode)
-createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organizationNode} -> organizationNode) (\s@CreatePortfolioShare' {} a -> s {organizationNode = a} :: CreatePortfolioShare)
+-- | Enables or disables @TagOptions @ sharing when creating the portfolio
+-- share. If this flag is not provided, TagOptions sharing is disabled.
+createPortfolioShare_shareTagOptions :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Bool)
+createPortfolioShare_shareTagOptions = Lens.lens (\CreatePortfolioShare' {shareTagOptions} -> shareTagOptions) (\s@CreatePortfolioShare' {} a -> s {shareTagOptions = a} :: CreatePortfolioShare)
 
 -- | The language code.
 --
@@ -165,6 +155,15 @@ createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organ
 -- -   @zh@ - Chinese
 createPortfolioShare_acceptLanguage :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe Prelude.Text)
 createPortfolioShare_acceptLanguage = Lens.lens (\CreatePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@CreatePortfolioShare' {} a -> s {acceptLanguage = a} :: CreatePortfolioShare)
+
+-- | The organization node to whom you are going to share. If
+-- @OrganizationNode@ is passed in, @PortfolioShare@ will be created for
+-- the node an ListOrganizationPortfolioAccessd its children (when
+-- applies), and a @PortfolioShareToken@ will be returned in the output in
+-- order for the administrator to monitor the status of the
+-- @PortfolioShare@ creation process.
+createPortfolioShare_organizationNode :: Lens.Lens' CreatePortfolioShare (Prelude.Maybe OrganizationNode)
+createPortfolioShare_organizationNode = Lens.lens (\CreatePortfolioShare' {organizationNode} -> organizationNode) (\s@CreatePortfolioShare' {} a -> s {organizationNode = a} :: CreatePortfolioShare)
 
 -- | The portfolio identifier.
 createPortfolioShare_portfolioId :: Lens.Lens' CreatePortfolioShare Prelude.Text
@@ -206,13 +205,13 @@ instance Core.ToJSON CreatePortfolioShare where
   toJSON CreatePortfolioShare' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ShareTagOptions" Core..=)
+          [ ("AccountId" Core..=) Prelude.<$> accountId,
+            ("ShareTagOptions" Core..=)
               Prelude.<$> shareTagOptions,
-            ("AccountId" Core..=) Prelude.<$> accountId,
-            ("OrganizationNode" Core..=)
-              Prelude.<$> organizationNode,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("OrganizationNode" Core..=)
+              Prelude.<$> organizationNode,
             Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )

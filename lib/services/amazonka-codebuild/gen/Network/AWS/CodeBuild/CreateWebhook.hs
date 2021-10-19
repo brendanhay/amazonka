@@ -140,7 +140,7 @@ createWebhook_branchFilter = Lens.lens (\CreateWebhook' {branchFilter} -> branch
 -- @filterGroups@ array must pass. For a filter group to pass, each of its
 -- filters must pass.
 createWebhook_filterGroups :: Lens.Lens' CreateWebhook (Prelude.Maybe [[WebhookFilter]])
-createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filterGroups) (\s@CreateWebhook' {} a -> s {filterGroups = a} :: CreateWebhook) Prelude.. Lens.mapping Lens._Coerce
+createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filterGroups) (\s@CreateWebhook' {} a -> s {filterGroups = a} :: CreateWebhook) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the type of build this webhook will trigger.
 createWebhook_buildType :: Lens.Lens' CreateWebhook (Prelude.Maybe WebhookBuildType)

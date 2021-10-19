@@ -184,7 +184,7 @@ newDeleteAutoSnapshotResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteAutoSnapshotResponse_operations :: Lens.Lens' DeleteAutoSnapshotResponse (Prelude.Maybe [Operation])
-deleteAutoSnapshotResponse_operations = Lens.lens (\DeleteAutoSnapshotResponse' {operations} -> operations) (\s@DeleteAutoSnapshotResponse' {} a -> s {operations = a} :: DeleteAutoSnapshotResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteAutoSnapshotResponse_operations = Lens.lens (\DeleteAutoSnapshotResponse' {operations} -> operations) (\s@DeleteAutoSnapshotResponse' {} a -> s {operations = a} :: DeleteAutoSnapshotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteAutoSnapshotResponse_httpStatus :: Lens.Lens' DeleteAutoSnapshotResponse Prelude.Int

@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetRequestValidators
     newGetRequestValidators,
 
     -- * Request Lenses
-    getRequestValidators_position,
     getRequestValidators_limit,
+    getRequestValidators_position,
     getRequestValidators_restApiId,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetRequestValidators' smart constructor.
 data GetRequestValidators = GetRequestValidators'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data GetRequestValidators = GetRequestValidators'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getRequestValidators_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getRequestValidators_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getRequestValidators_position' - The current pagination position in the paged result set.
 --
 -- 'restApiId', 'getRequestValidators_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetRequestValidators ::
@@ -85,19 +85,19 @@ newGetRequestValidators ::
   GetRequestValidators
 newGetRequestValidators pRestApiId_ =
   GetRequestValidators'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       restApiId = pRestApiId_
     }
-
--- | The current pagination position in the paged result set.
-getRequestValidators_position :: Lens.Lens' GetRequestValidators (Prelude.Maybe Prelude.Text)
-getRequestValidators_position = Lens.lens (\GetRequestValidators' {position} -> position) (\s@GetRequestValidators' {} a -> s {position = a} :: GetRequestValidators)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getRequestValidators_limit :: Lens.Lens' GetRequestValidators (Prelude.Maybe Prelude.Int)
 getRequestValidators_limit = Lens.lens (\GetRequestValidators' {limit} -> limit) (\s@GetRequestValidators' {} a -> s {limit = a} :: GetRequestValidators)
+
+-- | The current pagination position in the paged result set.
+getRequestValidators_position :: Lens.Lens' GetRequestValidators (Prelude.Maybe Prelude.Text)
+getRequestValidators_position = Lens.lens (\GetRequestValidators' {position} -> position) (\s@GetRequestValidators' {} a -> s {position = a} :: GetRequestValidators)
 
 -- | [Required] The string identifier of the associated RestApi.
 getRequestValidators_restApiId :: Lens.Lens' GetRequestValidators Prelude.Text
@@ -163,7 +163,7 @@ instance Core.ToPath GetRequestValidators where
 instance Core.ToQuery GetRequestValidators where
   toQuery GetRequestValidators' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | A collection of RequestValidator resources of a given RestApi.
 --
@@ -210,7 +210,7 @@ newGetRequestValidatorsResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getRequestValidatorsResponse_items :: Lens.Lens' GetRequestValidatorsResponse (Prelude.Maybe [RequestValidator])
-getRequestValidatorsResponse_items = Lens.lens (\GetRequestValidatorsResponse' {items} -> items) (\s@GetRequestValidatorsResponse' {} a -> s {items = a} :: GetRequestValidatorsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRequestValidatorsResponse_items = Lens.lens (\GetRequestValidatorsResponse' {items} -> items) (\s@GetRequestValidatorsResponse' {} a -> s {items = a} :: GetRequestValidatorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getRequestValidatorsResponse_position :: Lens.Lens' GetRequestValidatorsResponse (Prelude.Maybe Prelude.Text)

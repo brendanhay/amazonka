@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConflictResolution' smart constructor.
 data ConflictResolution = ConflictResolution'
-  { -- | Files to be deleted as part of the merge conflict resolution.
-    deleteFiles :: Prelude.Maybe [DeleteFileEntry],
-    -- | File modes that are set as part of the merge conflict resolution.
+  { -- | File modes that are set as part of the merge conflict resolution.
     setFileModes :: Prelude.Maybe [SetFileModeEntry],
+    -- | Files to be deleted as part of the merge conflict resolution.
+    deleteFiles :: Prelude.Maybe [DeleteFileEntry],
     -- | Files to have content replaced as part of the merge conflict resolution.
     replaceContents :: Prelude.Maybe [ReplaceContentEntry]
   }
@@ -48,31 +48,31 @@ data ConflictResolution = ConflictResolution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteFiles', 'conflictResolution_deleteFiles' - Files to be deleted as part of the merge conflict resolution.
---
 -- 'setFileModes', 'conflictResolution_setFileModes' - File modes that are set as part of the merge conflict resolution.
+--
+-- 'deleteFiles', 'conflictResolution_deleteFiles' - Files to be deleted as part of the merge conflict resolution.
 --
 -- 'replaceContents', 'conflictResolution_replaceContents' - Files to have content replaced as part of the merge conflict resolution.
 newConflictResolution ::
   ConflictResolution
 newConflictResolution =
   ConflictResolution'
-    { deleteFiles = Prelude.Nothing,
-      setFileModes = Prelude.Nothing,
+    { setFileModes = Prelude.Nothing,
+      deleteFiles = Prelude.Nothing,
       replaceContents = Prelude.Nothing
     }
 
--- | Files to be deleted as part of the merge conflict resolution.
-conflictResolution_deleteFiles :: Lens.Lens' ConflictResolution (Prelude.Maybe [DeleteFileEntry])
-conflictResolution_deleteFiles = Lens.lens (\ConflictResolution' {deleteFiles} -> deleteFiles) (\s@ConflictResolution' {} a -> s {deleteFiles = a} :: ConflictResolution) Prelude.. Lens.mapping Lens._Coerce
-
 -- | File modes that are set as part of the merge conflict resolution.
 conflictResolution_setFileModes :: Lens.Lens' ConflictResolution (Prelude.Maybe [SetFileModeEntry])
-conflictResolution_setFileModes = Lens.lens (\ConflictResolution' {setFileModes} -> setFileModes) (\s@ConflictResolution' {} a -> s {setFileModes = a} :: ConflictResolution) Prelude.. Lens.mapping Lens._Coerce
+conflictResolution_setFileModes = Lens.lens (\ConflictResolution' {setFileModes} -> setFileModes) (\s@ConflictResolution' {} a -> s {setFileModes = a} :: ConflictResolution) Prelude.. Lens.mapping Lens.coerced
+
+-- | Files to be deleted as part of the merge conflict resolution.
+conflictResolution_deleteFiles :: Lens.Lens' ConflictResolution (Prelude.Maybe [DeleteFileEntry])
+conflictResolution_deleteFiles = Lens.lens (\ConflictResolution' {deleteFiles} -> deleteFiles) (\s@ConflictResolution' {} a -> s {deleteFiles = a} :: ConflictResolution) Prelude.. Lens.mapping Lens.coerced
 
 -- | Files to have content replaced as part of the merge conflict resolution.
 conflictResolution_replaceContents :: Lens.Lens' ConflictResolution (Prelude.Maybe [ReplaceContentEntry])
-conflictResolution_replaceContents = Lens.lens (\ConflictResolution' {replaceContents} -> replaceContents) (\s@ConflictResolution' {} a -> s {replaceContents = a} :: ConflictResolution) Prelude.. Lens.mapping Lens._Coerce
+conflictResolution_replaceContents = Lens.lens (\ConflictResolution' {replaceContents} -> replaceContents) (\s@ConflictResolution' {} a -> s {replaceContents = a} :: ConflictResolution) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable ConflictResolution
 
@@ -82,8 +82,8 @@ instance Core.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deleteFiles" Core..=) Prelude.<$> deleteFiles,
-            ("setFileModes" Core..=) Prelude.<$> setFileModes,
+          [ ("setFileModes" Core..=) Prelude.<$> setFileModes,
+            ("deleteFiles" Core..=) Prelude.<$> deleteFiles,
             ("replaceContents" Core..=)
               Prelude.<$> replaceContents
           ]

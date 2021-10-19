@@ -73,7 +73,7 @@ batchAddFacetToObject_schemaFacet = Lens.lens (\BatchAddFacetToObject' {schemaFa
 
 -- | The attributes to set on the object.
 batchAddFacetToObject_objectAttributeList :: Lens.Lens' BatchAddFacetToObject [AttributeKeyAndValue]
-batchAddFacetToObject_objectAttributeList = Lens.lens (\BatchAddFacetToObject' {objectAttributeList} -> objectAttributeList) (\s@BatchAddFacetToObject' {} a -> s {objectAttributeList = a} :: BatchAddFacetToObject) Prelude.. Lens._Coerce
+batchAddFacetToObject_objectAttributeList = Lens.lens (\BatchAddFacetToObject' {objectAttributeList} -> objectAttributeList) (\s@BatchAddFacetToObject' {} a -> s {objectAttributeList = a} :: BatchAddFacetToObject) Prelude.. Lens.coerced
 
 -- | A reference to the object being mutated.
 batchAddFacetToObject_objectReference :: Lens.Lens' BatchAddFacetToObject ObjectReference

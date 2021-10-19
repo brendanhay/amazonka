@@ -29,19 +29,19 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     newDescribeNetworkInterfaces,
 
     -- * Request Lenses
-    describeNetworkInterfaces_nextToken,
-    describeNetworkInterfaces_maxResults,
-    describeNetworkInterfaces_dryRun,
     describeNetworkInterfaces_networkInterfaceIds,
     describeNetworkInterfaces_filters,
+    describeNetworkInterfaces_nextToken,
+    describeNetworkInterfaces_dryRun,
+    describeNetworkInterfaces_maxResults,
 
     -- * Destructuring the Response
     DescribeNetworkInterfacesResponse (..),
     newDescribeNetworkInterfacesResponse,
 
     -- * Response Lenses
-    describeNetworkInterfacesResponse_nextToken,
     describeNetworkInterfacesResponse_networkInterfaces,
+    describeNetworkInterfacesResponse_nextToken,
     describeNetworkInterfacesResponse_httpStatus,
   )
 where
@@ -57,19 +57,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeNetworkInterfaces' smart constructor.
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to return for this request. The request
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results. You cannot specify this parameter and the network
-    -- interface IDs parameter in the same request.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more network interface IDs.
+  { -- | One or more network interface IDs.
     --
     -- Default: Describes all your network interfaces.
     networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
@@ -181,7 +169,19 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     --     regardless of the tag value.
     --
     -- -   @vpc-id@ - The ID of the VPC for the network interface.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of items to return for this request. The request
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results. You cannot specify this parameter and the network
+    -- interface IDs parameter in the same request.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -192,18 +192,6 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeNetworkInterfaces_nextToken' - The token to retrieve the next page of results.
---
--- 'maxResults', 'describeNetworkInterfaces_maxResults' - The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results. You cannot specify this parameter and the network
--- interface IDs parameter in the same request.
---
--- 'dryRun', 'describeNetworkInterfaces_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'networkInterfaceIds', 'describeNetworkInterfaces_networkInterfaceIds' - One or more network interface IDs.
 --
@@ -317,41 +305,35 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 --     regardless of the tag value.
 --
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
+--
+-- 'nextToken', 'describeNetworkInterfaces_nextToken' - The token to retrieve the next page of results.
+--
+-- 'dryRun', 'describeNetworkInterfaces_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeNetworkInterfaces_maxResults' - The maximum number of items to return for this request. The request
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results. You cannot specify this parameter and the network
+-- interface IDs parameter in the same request.
 newDescribeNetworkInterfaces ::
   DescribeNetworkInterfaces
 newDescribeNetworkInterfaces =
   DescribeNetworkInterfaces'
-    { nextToken =
+    { networkInterfaceIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      networkInterfaceIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | The token to retrieve the next page of results.
-describeNetworkInterfaces_nextToken :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Text)
-describeNetworkInterfaces_nextToken = Lens.lens (\DescribeNetworkInterfaces' {nextToken} -> nextToken) (\s@DescribeNetworkInterfaces' {} a -> s {nextToken = a} :: DescribeNetworkInterfaces)
-
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results. You cannot specify this parameter and the network
--- interface IDs parameter in the same request.
-describeNetworkInterfaces_maxResults :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Natural)
-describeNetworkInterfaces_maxResults = Lens.lens (\DescribeNetworkInterfaces' {maxResults} -> maxResults) (\s@DescribeNetworkInterfaces' {} a -> s {maxResults = a} :: DescribeNetworkInterfaces)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeNetworkInterfaces_dryRun :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Bool)
-describeNetworkInterfaces_dryRun = Lens.lens (\DescribeNetworkInterfaces' {dryRun} -> dryRun) (\s@DescribeNetworkInterfaces' {} a -> s {dryRun = a} :: DescribeNetworkInterfaces)
 
 -- | One or more network interface IDs.
 --
 -- Default: Describes all your network interfaces.
 describeNetworkInterfaces_networkInterfaceIds :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe [Prelude.Text])
-describeNetworkInterfaces_networkInterfaceIds = Lens.lens (\DescribeNetworkInterfaces' {networkInterfaceIds} -> networkInterfaceIds) (\s@DescribeNetworkInterfaces' {} a -> s {networkInterfaceIds = a} :: DescribeNetworkInterfaces) Prelude.. Lens.mapping Lens._Coerce
+describeNetworkInterfaces_networkInterfaceIds = Lens.lens (\DescribeNetworkInterfaces' {networkInterfaceIds} -> networkInterfaceIds) (\s@DescribeNetworkInterfaces' {} a -> s {networkInterfaceIds = a} :: DescribeNetworkInterfaces) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters.
 --
@@ -462,7 +444,25 @@ describeNetworkInterfaces_networkInterfaceIds = Lens.lens (\DescribeNetworkInter
 --
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
 describeNetworkInterfaces_filters :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe [Filter])
-describeNetworkInterfaces_filters = Lens.lens (\DescribeNetworkInterfaces' {filters} -> filters) (\s@DescribeNetworkInterfaces' {} a -> s {filters = a} :: DescribeNetworkInterfaces) Prelude.. Lens.mapping Lens._Coerce
+describeNetworkInterfaces_filters = Lens.lens (\DescribeNetworkInterfaces' {filters} -> filters) (\s@DescribeNetworkInterfaces' {} a -> s {filters = a} :: DescribeNetworkInterfaces) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next page of results.
+describeNetworkInterfaces_nextToken :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Text)
+describeNetworkInterfaces_nextToken = Lens.lens (\DescribeNetworkInterfaces' {nextToken} -> nextToken) (\s@DescribeNetworkInterfaces' {} a -> s {nextToken = a} :: DescribeNetworkInterfaces)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeNetworkInterfaces_dryRun :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Bool)
+describeNetworkInterfaces_dryRun = Lens.lens (\DescribeNetworkInterfaces' {dryRun} -> dryRun) (\s@DescribeNetworkInterfaces' {} a -> s {dryRun = a} :: DescribeNetworkInterfaces)
+
+-- | The maximum number of items to return for this request. The request
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results. You cannot specify this parameter and the network
+-- interface IDs parameter in the same request.
+describeNetworkInterfaces_maxResults :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Natural)
+describeNetworkInterfaces_maxResults = Lens.lens (\DescribeNetworkInterfaces' {maxResults} -> maxResults) (\s@DescribeNetworkInterfaces' {} a -> s {maxResults = a} :: DescribeNetworkInterfaces)
 
 instance Core.AWSPager DescribeNetworkInterfaces where
   page rq rs
@@ -495,11 +495,11 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInterfacesResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "networkInterfaceSet"
+            Prelude.<$> ( x Core..@? "networkInterfaceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -520,26 +520,26 @@ instance Core.ToQuery DescribeNetworkInterfaces where
           Core.=: ("DescribeNetworkInterfaces" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NetworkInterfaceId"
               Prelude.<$> networkInterfaceIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | Contains the output of DescribeNetworkInterfaces.
 --
 -- /See:/ 'newDescribeNetworkInterfacesResponse' smart constructor.
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about one or more network interfaces.
+    networkInterfaces :: Prelude.Maybe [NetworkInterface],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about one or more network interfaces.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -553,10 +553,10 @@ data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'networkInterfaces', 'describeNetworkInterfacesResponse_networkInterfaces' - Information about one or more network interfaces.
+--
 -- 'nextToken', 'describeNetworkInterfacesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'networkInterfaces', 'describeNetworkInterfacesResponse_networkInterfaces' - Information about one or more network interfaces.
 --
 -- 'httpStatus', 'describeNetworkInterfacesResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInterfacesResponse ::
@@ -565,20 +565,20 @@ newDescribeNetworkInterfacesResponse ::
   DescribeNetworkInterfacesResponse
 newDescribeNetworkInterfacesResponse pHttpStatus_ =
   DescribeNetworkInterfacesResponse'
-    { nextToken =
+    { networkInterfaces =
         Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about one or more network interfaces.
+describeNetworkInterfacesResponse_networkInterfaces :: Lens.Lens' DescribeNetworkInterfacesResponse (Prelude.Maybe [NetworkInterface])
+describeNetworkInterfacesResponse_networkInterfaces = Lens.lens (\DescribeNetworkInterfacesResponse' {networkInterfaces} -> networkInterfaces) (\s@DescribeNetworkInterfacesResponse' {} a -> s {networkInterfaces = a} :: DescribeNetworkInterfacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeNetworkInterfacesResponse_nextToken :: Lens.Lens' DescribeNetworkInterfacesResponse (Prelude.Maybe Prelude.Text)
 describeNetworkInterfacesResponse_nextToken = Lens.lens (\DescribeNetworkInterfacesResponse' {nextToken} -> nextToken) (\s@DescribeNetworkInterfacesResponse' {} a -> s {nextToken = a} :: DescribeNetworkInterfacesResponse)
-
--- | Information about one or more network interfaces.
-describeNetworkInterfacesResponse_networkInterfaces :: Lens.Lens' DescribeNetworkInterfacesResponse (Prelude.Maybe [NetworkInterface])
-describeNetworkInterfacesResponse_networkInterfaces = Lens.lens (\DescribeNetworkInterfacesResponse' {networkInterfaces} -> networkInterfaces) (\s@DescribeNetworkInterfacesResponse' {} a -> s {networkInterfaces = a} :: DescribeNetworkInterfacesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeNetworkInterfacesResponse_httpStatus :: Lens.Lens' DescribeNetworkInterfacesResponse Prelude.Int

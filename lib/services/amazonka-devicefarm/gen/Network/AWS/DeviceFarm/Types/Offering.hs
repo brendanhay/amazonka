@@ -34,12 +34,12 @@ data Offering = Offering'
     platform :: Prelude.Maybe DevicePlatform,
     -- | The ID that corresponds to a device offering.
     id :: Prelude.Maybe Prelude.Text,
-    -- | A string that describes the offering.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether there are recurring charges for the offering.
+    recurringCharges :: Prelude.Maybe [RecurringCharge],
     -- | The type of offering (for example, @RECURRING@) for a device.
     type' :: Prelude.Maybe OfferingType,
-    -- | Specifies whether there are recurring charges for the offering.
-    recurringCharges :: Prelude.Maybe [RecurringCharge]
+    -- | A string that describes the offering.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,20 +55,20 @@ data Offering = Offering'
 --
 -- 'id', 'offering_id' - The ID that corresponds to a device offering.
 --
--- 'description', 'offering_description' - A string that describes the offering.
+-- 'recurringCharges', 'offering_recurringCharges' - Specifies whether there are recurring charges for the offering.
 --
 -- 'type'', 'offering_type' - The type of offering (for example, @RECURRING@) for a device.
 --
--- 'recurringCharges', 'offering_recurringCharges' - Specifies whether there are recurring charges for the offering.
+-- 'description', 'offering_description' - A string that describes the offering.
 newOffering ::
   Offering
 newOffering =
   Offering'
     { platform = Prelude.Nothing,
       id = Prelude.Nothing,
-      description = Prelude.Nothing,
+      recurringCharges = Prelude.Nothing,
       type' = Prelude.Nothing,
-      recurringCharges = Prelude.Nothing
+      description = Prelude.Nothing
     }
 
 -- | The platform of the device (for example, @ANDROID@ or @IOS@).
@@ -79,17 +79,17 @@ offering_platform = Lens.lens (\Offering' {platform} -> platform) (\s@Offering' 
 offering_id :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
 offering_id = Lens.lens (\Offering' {id} -> id) (\s@Offering' {} a -> s {id = a} :: Offering)
 
--- | A string that describes the offering.
-offering_description :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
-offering_description = Lens.lens (\Offering' {description} -> description) (\s@Offering' {} a -> s {description = a} :: Offering)
+-- | Specifies whether there are recurring charges for the offering.
+offering_recurringCharges :: Lens.Lens' Offering (Prelude.Maybe [RecurringCharge])
+offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of offering (for example, @RECURRING@) for a device.
 offering_type :: Lens.Lens' Offering (Prelude.Maybe OfferingType)
 offering_type = Lens.lens (\Offering' {type'} -> type') (\s@Offering' {} a -> s {type' = a} :: Offering)
 
--- | Specifies whether there are recurring charges for the offering.
-offering_recurringCharges :: Lens.Lens' Offering (Prelude.Maybe [RecurringCharge])
-offering_recurringCharges = Lens.lens (\Offering' {recurringCharges} -> recurringCharges) (\s@Offering' {} a -> s {recurringCharges = a} :: Offering) Prelude.. Lens.mapping Lens._Coerce
+-- | A string that describes the offering.
+offering_description :: Lens.Lens' Offering (Prelude.Maybe Prelude.Text)
+offering_description = Lens.lens (\Offering' {description} -> description) (\s@Offering' {} a -> s {description = a} :: Offering)
 
 instance Core.FromJSON Offering where
   parseJSON =
@@ -99,11 +99,11 @@ instance Core.FromJSON Offering where
           Offering'
             Prelude.<$> (x Core..:? "platform")
             Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "type")
             Prelude.<*> ( x Core..:? "recurringCharges"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable Offering

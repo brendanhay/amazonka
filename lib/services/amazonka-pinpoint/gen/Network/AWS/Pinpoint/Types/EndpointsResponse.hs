@@ -53,7 +53,7 @@ newEndpointsResponse =
 -- | An array of responses, one for each endpoint that\'s associated with the
 -- user ID.
 endpointsResponse_item :: Lens.Lens' EndpointsResponse [EndpointResponse]
-endpointsResponse_item = Lens.lens (\EndpointsResponse' {item} -> item) (\s@EndpointsResponse' {} a -> s {item = a} :: EndpointsResponse) Prelude.. Lens._Coerce
+endpointsResponse_item = Lens.lens (\EndpointsResponse' {item} -> item) (\s@EndpointsResponse' {} a -> s {item = a} :: EndpointsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON EndpointsResponse where
   parseJSON =

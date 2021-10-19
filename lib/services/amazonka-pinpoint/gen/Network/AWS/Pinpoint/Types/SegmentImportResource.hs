@@ -117,7 +117,7 @@ newSegmentImportResource
 -- | The number of channel types in the endpoint definitions that were
 -- imported to create the segment.
 segmentImportResource_channelCounts :: Lens.Lens' SegmentImportResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-segmentImportResource_channelCounts = Lens.lens (\SegmentImportResource' {channelCounts} -> channelCounts) (\s@SegmentImportResource' {} a -> s {channelCounts = a} :: SegmentImportResource) Prelude.. Lens.mapping Lens._Coerce
+segmentImportResource_channelCounts = Lens.lens (\SegmentImportResource' {channelCounts} -> channelCounts) (\s@SegmentImportResource' {} a -> s {channelCounts = a} :: SegmentImportResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The format of the files that were imported to create the segment. Valid
 -- values are: CSV, for comma-separated values format; and, JSON, for

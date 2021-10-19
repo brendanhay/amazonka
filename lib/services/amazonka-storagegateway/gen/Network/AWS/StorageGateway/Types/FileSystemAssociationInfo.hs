@@ -24,6 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StorageGateway.Types.CacheAttributes
 import Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration
+import Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail
 import Network.AWS.StorageGateway.Types.Tag
 
 -- | Describes the object returned by @DescribeFileSystemAssociations@ that
@@ -37,6 +38,9 @@ data FileSystemAssociationInfo = FileSystemAssociationInfo'
     fileSystemAssociationARN :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Maybe Prelude.Text,
     cacheAttributes :: Prelude.Maybe CacheAttributes,
+    -- | An array containing the FileSystemAssociationStatusDetail data type,
+    -- which provides detailed information on file system association status.
+    fileSystemAssociationStatusDetails :: Prelude.Maybe [FileSystemAssociationStatusDetail],
     -- | Specifies network configuration information for the gateway associated
     -- with the Amazon FSx file system.
     --
@@ -73,6 +77,9 @@ data FileSystemAssociationInfo = FileSystemAssociationInfo'
 --
 -- 'cacheAttributes', 'fileSystemAssociationInfo_cacheAttributes' - Undocumented member.
 --
+-- 'fileSystemAssociationStatusDetails', 'fileSystemAssociationInfo_fileSystemAssociationStatusDetails' - An array containing the FileSystemAssociationStatusDetail data type,
+-- which provides detailed information on file system association status.
+--
 -- 'endpointNetworkConfiguration', 'fileSystemAssociationInfo_endpointNetworkConfiguration' - Specifies network configuration information for the gateway associated
 -- with the Amazon FSx file system.
 --
@@ -98,6 +105,8 @@ newFileSystemAssociationInfo =
       fileSystemAssociationARN = Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
       cacheAttributes = Prelude.Nothing,
+      fileSystemAssociationStatusDetails =
+        Prelude.Nothing,
       endpointNetworkConfiguration = Prelude.Nothing,
       locationARN = Prelude.Nothing,
       fileSystemAssociationStatus = Prelude.Nothing,
@@ -119,6 +128,11 @@ fileSystemAssociationInfo_gatewayARN = Lens.lens (\FileSystemAssociationInfo' {g
 -- | Undocumented member.
 fileSystemAssociationInfo_cacheAttributes :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe CacheAttributes)
 fileSystemAssociationInfo_cacheAttributes = Lens.lens (\FileSystemAssociationInfo' {cacheAttributes} -> cacheAttributes) (\s@FileSystemAssociationInfo' {} a -> s {cacheAttributes = a} :: FileSystemAssociationInfo)
+
+-- | An array containing the FileSystemAssociationStatusDetail data type,
+-- which provides detailed information on file system association status.
+fileSystemAssociationInfo_fileSystemAssociationStatusDetails :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe [FileSystemAssociationStatusDetail])
+fileSystemAssociationInfo_fileSystemAssociationStatusDetails = Lens.lens (\FileSystemAssociationInfo' {fileSystemAssociationStatusDetails} -> fileSystemAssociationStatusDetails) (\s@FileSystemAssociationInfo' {} a -> s {fileSystemAssociationStatusDetails = a} :: FileSystemAssociationInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies network configuration information for the gateway associated
 -- with the Amazon FSx file system.
@@ -143,7 +157,7 @@ fileSystemAssociationInfo_fileSystemAssociationStatus = Lens.lens (\FileSystemAs
 -- | A list of up to 50 tags assigned to the SMB file share, sorted
 -- alphabetically by key name. Each tag is a key-value pair.
 fileSystemAssociationInfo_tags :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe [Tag])
-fileSystemAssociationInfo_tags = Lens.lens (\FileSystemAssociationInfo' {tags} -> tags) (\s@FileSystemAssociationInfo' {} a -> s {tags = a} :: FileSystemAssociationInfo) Prelude.. Lens.mapping Lens._Coerce
+fileSystemAssociationInfo_tags = Lens.lens (\FileSystemAssociationInfo' {tags} -> tags) (\s@FileSystemAssociationInfo' {} a -> s {tags = a} :: FileSystemAssociationInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FileSystemAssociationInfo where
   parseJSON =
@@ -155,6 +169,9 @@ instance Core.FromJSON FileSystemAssociationInfo where
             Prelude.<*> (x Core..:? "FileSystemAssociationARN")
             Prelude.<*> (x Core..:? "GatewayARN")
             Prelude.<*> (x Core..:? "CacheAttributes")
+            Prelude.<*> ( x Core..:? "FileSystemAssociationStatusDetails"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "EndpointNetworkConfiguration")
             Prelude.<*> (x Core..:? "LocationARN")
             Prelude.<*> (x Core..:? "FileSystemAssociationStatus")

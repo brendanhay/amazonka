@@ -206,7 +206,7 @@ listPipelinesResponse_nextPageToken = Lens.lens (\ListPipelinesResponse' {nextPa
 
 -- | An array of @Pipeline@ objects.
 listPipelinesResponse_pipelines :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe [Pipeline])
-listPipelinesResponse_pipelines = Lens.lens (\ListPipelinesResponse' {pipelines} -> pipelines) (\s@ListPipelinesResponse' {} a -> s {pipelines = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens._Coerce
+listPipelinesResponse_pipelines = Lens.lens (\ListPipelinesResponse' {pipelines} -> pipelines) (\s@ListPipelinesResponse' {} a -> s {pipelines = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int

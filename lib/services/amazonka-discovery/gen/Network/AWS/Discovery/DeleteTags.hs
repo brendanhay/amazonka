@@ -89,11 +89,11 @@ newDeleteTags =
 --
 -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
 deleteTags_tags :: Lens.Lens' DeleteTags (Prelude.Maybe [Tag])
-deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens._Coerce
+deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of configuration items with tags that you want to delete.
 deleteTags_configurationIds :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_configurationIds = Lens.lens (\DeleteTags' {configurationIds} -> configurationIds) (\s@DeleteTags' {} a -> s {configurationIds = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_configurationIds = Lens.lens (\DeleteTags' {configurationIds} -> configurationIds) (\s@DeleteTags' {} a -> s {configurationIds = a} :: DeleteTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse

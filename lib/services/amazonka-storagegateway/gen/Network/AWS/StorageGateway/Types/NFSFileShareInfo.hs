@@ -33,7 +33,9 @@ import Network.AWS.StorageGateway.Types.Tag
 --
 -- /See:/ 'newNFSFileShareInfo' smart constructor.
 data NFSFileShareInfo = NFSFileShareInfo'
-  { fileShareStatus :: Prelude.Maybe Prelude.Text,
+  { -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    fileShareStatus :: Prelude.Maybe Prelude.Text,
     kmsKey :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Maybe Prelude.Text,
     path :: Prelude.Maybe Prelude.Text,
@@ -64,7 +66,7 @@ data NFSFileShareInfo = NFSFileShareInfo'
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@.
+    -- @LocationARN@, or if an access point or access point alias is used.
     fileShareName :: Prelude.Maybe Prelude.Text,
     role' :: Prelude.Maybe Prelude.Text,
     -- | The notification policy of the file share. @SettlingTimeInSeconds@
@@ -135,6 +137,8 @@ data NFSFileShareInfo = NFSFileShareInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'auditDestinationARN', 'nFSFileShareInfo_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for audit logs.
+--
 -- 'fileShareStatus', 'nFSFileShareInfo_fileShareStatus' - Undocumented member.
 --
 -- 'kmsKey', 'nFSFileShareInfo_kmsKey' - Undocumented member.
@@ -173,7 +177,7 @@ data NFSFileShareInfo = NFSFileShareInfo'
 -- 'fileShareName', 'nFSFileShareInfo_fileShareName' - The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'role'', 'nFSFileShareInfo_role' - Undocumented member.
 --
@@ -241,8 +245,9 @@ newNFSFileShareInfo ::
   NFSFileShareInfo
 newNFSFileShareInfo =
   NFSFileShareInfo'
-    { fileShareStatus =
+    { auditDestinationARN =
         Prelude.Nothing,
+      fileShareStatus = Prelude.Nothing,
       kmsKey = Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
       path = Prelude.Nothing,
@@ -266,6 +271,10 @@ newNFSFileShareInfo =
       bucketRegion = Prelude.Nothing,
       tags = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+nFSFileShareInfo_auditDestinationARN :: Lens.Lens' NFSFileShareInfo (Prelude.Maybe Prelude.Text)
+nFSFileShareInfo_auditDestinationARN = Lens.lens (\NFSFileShareInfo' {auditDestinationARN} -> auditDestinationARN) (\s@NFSFileShareInfo' {} a -> s {auditDestinationARN = a} :: NFSFileShareInfo)
 
 -- | Undocumented member.
 nFSFileShareInfo_fileShareStatus :: Lens.Lens' NFSFileShareInfo (Prelude.Maybe Prelude.Text)
@@ -327,7 +336,7 @@ nFSFileShareInfo_defaultStorageClass = Lens.lens (\NFSFileShareInfo' {defaultSto
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 nFSFileShareInfo_fileShareName :: Lens.Lens' NFSFileShareInfo (Prelude.Maybe Prelude.Text)
 nFSFileShareInfo_fileShareName = Lens.lens (\NFSFileShareInfo' {fileShareName} -> fileShareName) (\s@NFSFileShareInfo' {} a -> s {fileShareName = a} :: NFSFileShareInfo)
 
@@ -383,7 +392,7 @@ nFSFileShareInfo_locationARN = Lens.lens (\NFSFileShareInfo' {locationARN} -> lo
 
 -- | Undocumented member.
 nFSFileShareInfo_clientList :: Lens.Lens' NFSFileShareInfo (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-nFSFileShareInfo_clientList = Lens.lens (\NFSFileShareInfo' {clientList} -> clientList) (\s@NFSFileShareInfo' {} a -> s {clientList = a} :: NFSFileShareInfo) Prelude.. Lens.mapping Lens._Coerce
+nFSFileShareInfo_clientList = Lens.lens (\NFSFileShareInfo' {clientList} -> clientList) (\s@NFSFileShareInfo' {} a -> s {clientList = a} :: NFSFileShareInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
@@ -414,7 +423,7 @@ nFSFileShareInfo_bucketRegion = Lens.lens (\NFSFileShareInfo' {bucketRegion} -> 
 -- with more than 10 tags assigned, you can view all tags using the
 -- @ListTagsForResource@ API operation.
 nFSFileShareInfo_tags :: Lens.Lens' NFSFileShareInfo (Prelude.Maybe [Tag])
-nFSFileShareInfo_tags = Lens.lens (\NFSFileShareInfo' {tags} -> tags) (\s@NFSFileShareInfo' {} a -> s {tags = a} :: NFSFileShareInfo) Prelude.. Lens.mapping Lens._Coerce
+nFSFileShareInfo_tags = Lens.lens (\NFSFileShareInfo' {tags} -> tags) (\s@NFSFileShareInfo' {} a -> s {tags = a} :: NFSFileShareInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON NFSFileShareInfo where
   parseJSON =
@@ -422,7 +431,8 @@ instance Core.FromJSON NFSFileShareInfo where
       "NFSFileShareInfo"
       ( \x ->
           NFSFileShareInfo'
-            Prelude.<$> (x Core..:? "FileShareStatus")
+            Prelude.<$> (x Core..:? "AuditDestinationARN")
+            Prelude.<*> (x Core..:? "FileShareStatus")
             Prelude.<*> (x Core..:? "KMSKey")
             Prelude.<*> (x Core..:? "GatewayARN")
             Prelude.<*> (x Core..:? "Path")

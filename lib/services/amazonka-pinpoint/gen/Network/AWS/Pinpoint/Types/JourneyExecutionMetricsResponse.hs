@@ -85,7 +85,7 @@ newJourneyExecutionMetricsResponse
 -- about the structure and contents of the results, see the
 -- <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
 journeyExecutionMetricsResponse_metrics :: Lens.Lens' JourneyExecutionMetricsResponse (Prelude.HashMap Prelude.Text Prelude.Text)
-journeyExecutionMetricsResponse_metrics = Lens.lens (\JourneyExecutionMetricsResponse' {metrics} -> metrics) (\s@JourneyExecutionMetricsResponse' {} a -> s {metrics = a} :: JourneyExecutionMetricsResponse) Prelude.. Lens._Coerce
+journeyExecutionMetricsResponse_metrics = Lens.lens (\JourneyExecutionMetricsResponse' {metrics} -> metrics) (\s@JourneyExecutionMetricsResponse' {} a -> s {metrics = a} :: JourneyExecutionMetricsResponse) Prelude.. Lens.coerced
 
 -- | The unique identifier for the journey that the metric applies to.
 journeyExecutionMetricsResponse_journeyId :: Lens.Lens' JourneyExecutionMetricsResponse Prelude.Text

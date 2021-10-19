@@ -74,7 +74,7 @@ newSlotDefaultValueSpec =
 -- fixed value in that order, Amazon Lex uses the context variable if it is
 -- available, else it uses the fixed value.
 slotDefaultValueSpec_defaultValueList :: Lens.Lens' SlotDefaultValueSpec [SlotDefaultValue]
-slotDefaultValueSpec_defaultValueList = Lens.lens (\SlotDefaultValueSpec' {defaultValueList} -> defaultValueList) (\s@SlotDefaultValueSpec' {} a -> s {defaultValueList = a} :: SlotDefaultValueSpec) Prelude.. Lens._Coerce
+slotDefaultValueSpec_defaultValueList = Lens.lens (\SlotDefaultValueSpec' {defaultValueList} -> defaultValueList) (\s@SlotDefaultValueSpec' {} a -> s {defaultValueList = a} :: SlotDefaultValueSpec) Prelude.. Lens.coerced
 
 instance Core.FromJSON SlotDefaultValueSpec where
   parseJSON =

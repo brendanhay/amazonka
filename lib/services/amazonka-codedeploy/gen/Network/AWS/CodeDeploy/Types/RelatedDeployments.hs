@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRelatedDeployments' smart constructor.
 data RelatedDeployments = RelatedDeployments'
-  { -- | The deployment ID of the root deployment that triggered this deployment.
-    autoUpdateOutdatedInstancesRootDeploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The deployment IDs of \'auto-update outdated instances\' deployments
+  { -- | The deployment IDs of \'auto-update outdated instances\' deployments
     -- triggered by this deployment.
-    autoUpdateOutdatedInstancesDeploymentIds :: Prelude.Maybe [Prelude.Text]
+    autoUpdateOutdatedInstancesDeploymentIds :: Prelude.Maybe [Prelude.Text],
+    -- | The deployment ID of the root deployment that triggered this deployment.
+    autoUpdateOutdatedInstancesRootDeploymentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,28 +43,28 @@ data RelatedDeployments = RelatedDeployments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoUpdateOutdatedInstancesRootDeploymentId', 'relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId' - The deployment ID of the root deployment that triggered this deployment.
---
 -- 'autoUpdateOutdatedInstancesDeploymentIds', 'relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds' - The deployment IDs of \'auto-update outdated instances\' deployments
 -- triggered by this deployment.
+--
+-- 'autoUpdateOutdatedInstancesRootDeploymentId', 'relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId' - The deployment ID of the root deployment that triggered this deployment.
 newRelatedDeployments ::
   RelatedDeployments
 newRelatedDeployments =
   RelatedDeployments'
-    { autoUpdateOutdatedInstancesRootDeploymentId =
+    { autoUpdateOutdatedInstancesDeploymentIds =
         Prelude.Nothing,
-      autoUpdateOutdatedInstancesDeploymentIds =
+      autoUpdateOutdatedInstancesRootDeploymentId =
         Prelude.Nothing
     }
-
--- | The deployment ID of the root deployment that triggered this deployment.
-relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId :: Lens.Lens' RelatedDeployments (Prelude.Maybe Prelude.Text)
-relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId = Lens.lens (\RelatedDeployments' {autoUpdateOutdatedInstancesRootDeploymentId} -> autoUpdateOutdatedInstancesRootDeploymentId) (\s@RelatedDeployments' {} a -> s {autoUpdateOutdatedInstancesRootDeploymentId = a} :: RelatedDeployments)
 
 -- | The deployment IDs of \'auto-update outdated instances\' deployments
 -- triggered by this deployment.
 relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds :: Lens.Lens' RelatedDeployments (Prelude.Maybe [Prelude.Text])
-relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds = Lens.lens (\RelatedDeployments' {autoUpdateOutdatedInstancesDeploymentIds} -> autoUpdateOutdatedInstancesDeploymentIds) (\s@RelatedDeployments' {} a -> s {autoUpdateOutdatedInstancesDeploymentIds = a} :: RelatedDeployments) Prelude.. Lens.mapping Lens._Coerce
+relatedDeployments_autoUpdateOutdatedInstancesDeploymentIds = Lens.lens (\RelatedDeployments' {autoUpdateOutdatedInstancesDeploymentIds} -> autoUpdateOutdatedInstancesDeploymentIds) (\s@RelatedDeployments' {} a -> s {autoUpdateOutdatedInstancesDeploymentIds = a} :: RelatedDeployments) Prelude.. Lens.mapping Lens.coerced
+
+-- | The deployment ID of the root deployment that triggered this deployment.
+relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId :: Lens.Lens' RelatedDeployments (Prelude.Maybe Prelude.Text)
+relatedDeployments_autoUpdateOutdatedInstancesRootDeploymentId = Lens.lens (\RelatedDeployments' {autoUpdateOutdatedInstancesRootDeploymentId} -> autoUpdateOutdatedInstancesRootDeploymentId) (\s@RelatedDeployments' {} a -> s {autoUpdateOutdatedInstancesRootDeploymentId = a} :: RelatedDeployments)
 
 instance Core.FromJSON RelatedDeployments where
   parseJSON =
@@ -73,11 +73,11 @@ instance Core.FromJSON RelatedDeployments where
       ( \x ->
           RelatedDeployments'
             Prelude.<$> ( x
-                            Core..:? "autoUpdateOutdatedInstancesRootDeploymentId"
-                        )
-            Prelude.<*> ( x
                             Core..:? "autoUpdateOutdatedInstancesDeploymentIds"
                             Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Core..:? "autoUpdateOutdatedInstancesRootDeploymentId"
                         )
       )
 

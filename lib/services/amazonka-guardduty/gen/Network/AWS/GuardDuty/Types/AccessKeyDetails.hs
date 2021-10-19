@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data AccessKeyDetails = AccessKeyDetails'
   { -- | The principal ID of the user.
     principalId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the user.
-    userType :: Prelude.Maybe Prelude.Text,
     -- | The name of the user.
     userName :: Prelude.Maybe Prelude.Text,
     -- | The access key ID of the user.
-    accessKeyId :: Prelude.Maybe Prelude.Text
+    accessKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the user.
+    userType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,28 +48,24 @@ data AccessKeyDetails = AccessKeyDetails'
 --
 -- 'principalId', 'accessKeyDetails_principalId' - The principal ID of the user.
 --
--- 'userType', 'accessKeyDetails_userType' - The type of the user.
---
 -- 'userName', 'accessKeyDetails_userName' - The name of the user.
 --
 -- 'accessKeyId', 'accessKeyDetails_accessKeyId' - The access key ID of the user.
+--
+-- 'userType', 'accessKeyDetails_userType' - The type of the user.
 newAccessKeyDetails ::
   AccessKeyDetails
 newAccessKeyDetails =
   AccessKeyDetails'
     { principalId = Prelude.Nothing,
-      userType = Prelude.Nothing,
       userName = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing
+      accessKeyId = Prelude.Nothing,
+      userType = Prelude.Nothing
     }
 
 -- | The principal ID of the user.
 accessKeyDetails_principalId :: Lens.Lens' AccessKeyDetails (Prelude.Maybe Prelude.Text)
 accessKeyDetails_principalId = Lens.lens (\AccessKeyDetails' {principalId} -> principalId) (\s@AccessKeyDetails' {} a -> s {principalId = a} :: AccessKeyDetails)
-
--- | The type of the user.
-accessKeyDetails_userType :: Lens.Lens' AccessKeyDetails (Prelude.Maybe Prelude.Text)
-accessKeyDetails_userType = Lens.lens (\AccessKeyDetails' {userType} -> userType) (\s@AccessKeyDetails' {} a -> s {userType = a} :: AccessKeyDetails)
 
 -- | The name of the user.
 accessKeyDetails_userName :: Lens.Lens' AccessKeyDetails (Prelude.Maybe Prelude.Text)
@@ -79,6 +75,10 @@ accessKeyDetails_userName = Lens.lens (\AccessKeyDetails' {userName} -> userName
 accessKeyDetails_accessKeyId :: Lens.Lens' AccessKeyDetails (Prelude.Maybe Prelude.Text)
 accessKeyDetails_accessKeyId = Lens.lens (\AccessKeyDetails' {accessKeyId} -> accessKeyId) (\s@AccessKeyDetails' {} a -> s {accessKeyId = a} :: AccessKeyDetails)
 
+-- | The type of the user.
+accessKeyDetails_userType :: Lens.Lens' AccessKeyDetails (Prelude.Maybe Prelude.Text)
+accessKeyDetails_userType = Lens.lens (\AccessKeyDetails' {userType} -> userType) (\s@AccessKeyDetails' {} a -> s {userType = a} :: AccessKeyDetails)
+
 instance Core.FromJSON AccessKeyDetails where
   parseJSON =
     Core.withObject
@@ -86,9 +86,9 @@ instance Core.FromJSON AccessKeyDetails where
       ( \x ->
           AccessKeyDetails'
             Prelude.<$> (x Core..:? "principalId")
-            Prelude.<*> (x Core..:? "userType")
             Prelude.<*> (x Core..:? "userName")
             Prelude.<*> (x Core..:? "accessKeyId")
+            Prelude.<*> (x Core..:? "userType")
       )
 
 instance Prelude.Hashable AccessKeyDetails

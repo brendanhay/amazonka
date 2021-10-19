@@ -32,11 +32,11 @@ module Network.AWS.MarketplaceEntitlement
     -- * Errors
     -- $errors
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,

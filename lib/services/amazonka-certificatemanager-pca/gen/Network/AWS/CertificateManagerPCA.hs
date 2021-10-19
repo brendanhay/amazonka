@@ -43,65 +43,68 @@ module Network.AWS.CertificateManagerPCA
     -- * Errors
     -- $errors
 
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** InvalidStateException
-    _InvalidStateException,
-
-    -- ** InvalidArgsException
-    _InvalidArgsException,
-
-    -- ** InvalidPolicyException
-    _InvalidPolicyException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
-
-    -- ** MalformedCertificateException
-    _MalformedCertificateException,
-
-    -- ** PermissionAlreadyExistsException
-    _PermissionAlreadyExistsException,
-
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
-    -- ** RequestAlreadyProcessedException
-    _RequestAlreadyProcessedException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** InvalidTagException
+    _InvalidTagException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** InvalidTagException
-    _InvalidTagException,
-
-    -- ** RequestInProgressException
-    _RequestInProgressException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** CertificateMismatchException
-    _CertificateMismatchException,
-
-    -- ** RequestFailedException
-    _RequestFailedException,
-
-    -- ** LockoutPreventedException
-    _LockoutPreventedException,
+    -- ** PermissionAlreadyExistsException
+    _PermissionAlreadyExistsException,
 
     -- ** MalformedCSRException
     _MalformedCSRException,
 
+    -- ** RequestAlreadyProcessedException
+    _RequestAlreadyProcessedException,
+
+    -- ** MalformedCertificateException
+    _MalformedCertificateException,
+
+    -- ** RequestFailedException
+    _RequestFailedException,
+
+    -- ** CertificateMismatchException
+    _CertificateMismatchException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** InvalidArgsException
+    _InvalidArgsException,
+
+    -- ** RequestInProgressException
+    _RequestInProgressException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** LockoutPreventedException
+    _LockoutPreventedException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- * Waiters
     -- $waiters
+
+    -- ** CertificateIssued
+    newCertificateIssued,
 
     -- ** AuditReportCreated
     newAuditReportCreated,
@@ -109,11 +112,14 @@ module Network.AWS.CertificateManagerPCA
     -- ** CertificateAuthorityCSRCreated
     newCertificateAuthorityCSRCreated,
 
-    -- ** CertificateIssued
-    newCertificateIssued,
-
     -- * Operations
     -- $operations
+
+    -- ** ImportCertificateAuthorityCertificate
+    ImportCertificateAuthorityCertificate (ImportCertificateAuthorityCertificate'),
+    newImportCertificateAuthorityCertificate,
+    ImportCertificateAuthorityCertificateResponse (ImportCertificateAuthorityCertificateResponse'),
+    newImportCertificateAuthorityCertificateResponse,
 
     -- ** CreatePermission
     CreatePermission (CreatePermission'),
@@ -121,41 +127,41 @@ module Network.AWS.CertificateManagerPCA
     CreatePermissionResponse (CreatePermissionResponse'),
     newCreatePermissionResponse,
 
-    -- ** RestoreCertificateAuthority
-    RestoreCertificateAuthority (RestoreCertificateAuthority'),
-    newRestoreCertificateAuthority,
-    RestoreCertificateAuthorityResponse (RestoreCertificateAuthorityResponse'),
-    newRestoreCertificateAuthorityResponse,
+    -- ** DescribeCertificateAuthorityAuditReport
+    DescribeCertificateAuthorityAuditReport (DescribeCertificateAuthorityAuditReport'),
+    newDescribeCertificateAuthorityAuditReport,
+    DescribeCertificateAuthorityAuditReportResponse (DescribeCertificateAuthorityAuditReportResponse'),
+    newDescribeCertificateAuthorityAuditReportResponse,
 
-    -- ** DeletePolicy
-    DeletePolicy (DeletePolicy'),
-    newDeletePolicy,
-    DeletePolicyResponse (DeletePolicyResponse'),
-    newDeletePolicyResponse,
+    -- ** DeletePermission
+    DeletePermission (DeletePermission'),
+    newDeletePermission,
+    DeletePermissionResponse (DeletePermissionResponse'),
+    newDeletePermissionResponse,
 
-    -- ** DescribeCertificateAuthority
-    DescribeCertificateAuthority (DescribeCertificateAuthority'),
-    newDescribeCertificateAuthority,
-    DescribeCertificateAuthorityResponse (DescribeCertificateAuthorityResponse'),
-    newDescribeCertificateAuthorityResponse,
+    -- ** RevokeCertificate
+    RevokeCertificate (RevokeCertificate'),
+    newRevokeCertificate,
+    RevokeCertificateResponse (RevokeCertificateResponse'),
+    newRevokeCertificateResponse,
 
-    -- ** TagCertificateAuthority
-    TagCertificateAuthority (TagCertificateAuthority'),
-    newTagCertificateAuthority,
-    TagCertificateAuthorityResponse (TagCertificateAuthorityResponse'),
-    newTagCertificateAuthorityResponse,
+    -- ** UpdateCertificateAuthority
+    UpdateCertificateAuthority (UpdateCertificateAuthority'),
+    newUpdateCertificateAuthority,
+    UpdateCertificateAuthorityResponse (UpdateCertificateAuthorityResponse'),
+    newUpdateCertificateAuthorityResponse,
 
-    -- ** CreateCertificateAuthorityAuditReport
-    CreateCertificateAuthorityAuditReport (CreateCertificateAuthorityAuditReport'),
-    newCreateCertificateAuthorityAuditReport,
-    CreateCertificateAuthorityAuditReportResponse (CreateCertificateAuthorityAuditReportResponse'),
-    newCreateCertificateAuthorityAuditReportResponse,
+    -- ** DeleteCertificateAuthority
+    DeleteCertificateAuthority (DeleteCertificateAuthority'),
+    newDeleteCertificateAuthority,
+    DeleteCertificateAuthorityResponse (DeleteCertificateAuthorityResponse'),
+    newDeleteCertificateAuthorityResponse,
 
-    -- ** GetCertificate
-    GetCertificate (GetCertificate'),
-    newGetCertificate,
-    GetCertificateResponse (GetCertificateResponse'),
-    newGetCertificateResponse,
+    -- ** GetCertificateAuthorityCsr
+    GetCertificateAuthorityCsr (GetCertificateAuthorityCsr'),
+    newGetCertificateAuthorityCsr,
+    GetCertificateAuthorityCsrResponse (GetCertificateAuthorityCsrResponse'),
+    newGetCertificateAuthorityCsrResponse,
 
     -- ** CreateCertificateAuthority
     CreateCertificateAuthority (CreateCertificateAuthority'),
@@ -169,47 +175,17 @@ module Network.AWS.CertificateManagerPCA
     ListCertificateAuthoritiesResponse (ListCertificateAuthoritiesResponse'),
     newListCertificateAuthoritiesResponse,
 
-    -- ** GetCertificateAuthorityCsr
-    GetCertificateAuthorityCsr (GetCertificateAuthorityCsr'),
-    newGetCertificateAuthorityCsr,
-    GetCertificateAuthorityCsrResponse (GetCertificateAuthorityCsrResponse'),
-    newGetCertificateAuthorityCsrResponse,
+    -- ** GetCertificate
+    GetCertificate (GetCertificate'),
+    newGetCertificate,
+    GetCertificateResponse (GetCertificateResponse'),
+    newGetCertificateResponse,
 
-    -- ** RevokeCertificate
-    RevokeCertificate (RevokeCertificate'),
-    newRevokeCertificate,
-    RevokeCertificateResponse (RevokeCertificateResponse'),
-    newRevokeCertificateResponse,
-
-    -- ** DeletePermission
-    DeletePermission (DeletePermission'),
-    newDeletePermission,
-    DeletePermissionResponse (DeletePermissionResponse'),
-    newDeletePermissionResponse,
-
-    -- ** ListPermissions (Paginated)
-    ListPermissions (ListPermissions'),
-    newListPermissions,
-    ListPermissionsResponse (ListPermissionsResponse'),
-    newListPermissionsResponse,
-
-    -- ** GetCertificateAuthorityCertificate
-    GetCertificateAuthorityCertificate (GetCertificateAuthorityCertificate'),
-    newGetCertificateAuthorityCertificate,
-    GetCertificateAuthorityCertificateResponse (GetCertificateAuthorityCertificateResponse'),
-    newGetCertificateAuthorityCertificateResponse,
-
-    -- ** IssueCertificate
-    IssueCertificate (IssueCertificate'),
-    newIssueCertificate,
-    IssueCertificateResponse (IssueCertificateResponse'),
-    newIssueCertificateResponse,
-
-    -- ** ImportCertificateAuthorityCertificate
-    ImportCertificateAuthorityCertificate (ImportCertificateAuthorityCertificate'),
-    newImportCertificateAuthorityCertificate,
-    ImportCertificateAuthorityCertificateResponse (ImportCertificateAuthorityCertificateResponse'),
-    newImportCertificateAuthorityCertificateResponse,
+    -- ** TagCertificateAuthority
+    TagCertificateAuthority (TagCertificateAuthority'),
+    newTagCertificateAuthority,
+    TagCertificateAuthorityResponse (TagCertificateAuthorityResponse'),
+    newTagCertificateAuthorityResponse,
 
     -- ** PutPolicy
     PutPolicy (PutPolicy'),
@@ -217,23 +193,41 @@ module Network.AWS.CertificateManagerPCA
     PutPolicyResponse (PutPolicyResponse'),
     newPutPolicyResponse,
 
-    -- ** GetPolicy
-    GetPolicy (GetPolicy'),
-    newGetPolicy,
-    GetPolicyResponse (GetPolicyResponse'),
-    newGetPolicyResponse,
+    -- ** DeletePolicy
+    DeletePolicy (DeletePolicy'),
+    newDeletePolicy,
+    DeletePolicyResponse (DeletePolicyResponse'),
+    newDeletePolicyResponse,
 
-    -- ** ListTags (Paginated)
-    ListTags (ListTags'),
-    newListTags,
-    ListTagsResponse (ListTagsResponse'),
-    newListTagsResponse,
+    -- ** DescribeCertificateAuthority
+    DescribeCertificateAuthority (DescribeCertificateAuthority'),
+    newDescribeCertificateAuthority,
+    DescribeCertificateAuthorityResponse (DescribeCertificateAuthorityResponse'),
+    newDescribeCertificateAuthorityResponse,
 
-    -- ** DeleteCertificateAuthority
-    DeleteCertificateAuthority (DeleteCertificateAuthority'),
-    newDeleteCertificateAuthority,
-    DeleteCertificateAuthorityResponse (DeleteCertificateAuthorityResponse'),
-    newDeleteCertificateAuthorityResponse,
+    -- ** RestoreCertificateAuthority
+    RestoreCertificateAuthority (RestoreCertificateAuthority'),
+    newRestoreCertificateAuthority,
+    RestoreCertificateAuthorityResponse (RestoreCertificateAuthorityResponse'),
+    newRestoreCertificateAuthorityResponse,
+
+    -- ** IssueCertificate
+    IssueCertificate (IssueCertificate'),
+    newIssueCertificate,
+    IssueCertificateResponse (IssueCertificateResponse'),
+    newIssueCertificateResponse,
+
+    -- ** GetCertificateAuthorityCertificate
+    GetCertificateAuthorityCertificate (GetCertificateAuthorityCertificate'),
+    newGetCertificateAuthorityCertificate,
+    GetCertificateAuthorityCertificateResponse (GetCertificateAuthorityCertificateResponse'),
+    newGetCertificateAuthorityCertificateResponse,
+
+    -- ** ListPermissions (Paginated)
+    ListPermissions (ListPermissions'),
+    newListPermissions,
+    ListPermissionsResponse (ListPermissionsResponse'),
+    newListPermissionsResponse,
 
     -- ** UntagCertificateAuthority
     UntagCertificateAuthority (UntagCertificateAuthority'),
@@ -241,17 +235,23 @@ module Network.AWS.CertificateManagerPCA
     UntagCertificateAuthorityResponse (UntagCertificateAuthorityResponse'),
     newUntagCertificateAuthorityResponse,
 
-    -- ** UpdateCertificateAuthority
-    UpdateCertificateAuthority (UpdateCertificateAuthority'),
-    newUpdateCertificateAuthority,
-    UpdateCertificateAuthorityResponse (UpdateCertificateAuthorityResponse'),
-    newUpdateCertificateAuthorityResponse,
+    -- ** CreateCertificateAuthorityAuditReport
+    CreateCertificateAuthorityAuditReport (CreateCertificateAuthorityAuditReport'),
+    newCreateCertificateAuthorityAuditReport,
+    CreateCertificateAuthorityAuditReportResponse (CreateCertificateAuthorityAuditReportResponse'),
+    newCreateCertificateAuthorityAuditReportResponse,
 
-    -- ** DescribeCertificateAuthorityAuditReport
-    DescribeCertificateAuthorityAuditReport (DescribeCertificateAuthorityAuditReport'),
-    newDescribeCertificateAuthorityAuditReport,
-    DescribeCertificateAuthorityAuditReportResponse (DescribeCertificateAuthorityAuditReportResponse'),
-    newDescribeCertificateAuthorityAuditReportResponse,
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** GetPolicy
+    GetPolicy (GetPolicy'),
+    newGetPolicy,
+    GetPolicyResponse (GetPolicyResponse'),
+    newGetPolicyResponse,
 
     -- * Types
 

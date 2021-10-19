@@ -72,47 +72,47 @@ module Network.AWS.GameLift
     -- ** OutOfCapacityException
     _OutOfCapacityException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** TaggingFailedException
-    _TaggingFailedException,
-
-    -- ** FleetCapacityExceededException
-    _FleetCapacityExceededException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** InvalidGameSessionStatusException
-    _InvalidGameSessionStatusException,
+    -- ** InvalidFleetStatusException
+    _InvalidFleetStatusException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** TaggingFailedException
+    _TaggingFailedException,
+
     -- ** TerminalRoutingStrategyException
     _TerminalRoutingStrategyException,
+
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** GameSessionFullException
     _GameSessionFullException,
 
-    -- ** InvalidFleetStatusException
-    _InvalidFleetStatusException,
+    -- ** UnsupportedRegionException
+    _UnsupportedRegionException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** InvalidGameSessionStatusException
+    _InvalidGameSessionStatusException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
 
-    -- ** UnsupportedRegionException
-    _UnsupportedRegionException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** FleetCapacityExceededException
+    _FleetCapacityExceededException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -120,353 +120,11 @@ module Network.AWS.GameLift
     -- * Operations
     -- $operations
 
-    -- ** DescribeVpcPeeringConnections
-    DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
-    newDescribeVpcPeeringConnections,
-    DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
-    newDescribeVpcPeeringConnectionsResponse,
-
-    -- ** DescribeFleetCapacity (Paginated)
-    DescribeFleetCapacity (DescribeFleetCapacity'),
-    newDescribeFleetCapacity,
-    DescribeFleetCapacityResponse (DescribeFleetCapacityResponse'),
-    newDescribeFleetCapacityResponse,
-
-    -- ** ListBuilds (Paginated)
-    ListBuilds (ListBuilds'),
-    newListBuilds,
-    ListBuildsResponse (ListBuildsResponse'),
-    newListBuildsResponse,
-
-    -- ** DeleteBuild
-    DeleteBuild (DeleteBuild'),
-    newDeleteBuild,
-    DeleteBuildResponse (DeleteBuildResponse'),
-    newDeleteBuildResponse,
-
-    -- ** DescribeGameSessionQueues (Paginated)
-    DescribeGameSessionQueues (DescribeGameSessionQueues'),
-    newDescribeGameSessionQueues,
-    DescribeGameSessionQueuesResponse (DescribeGameSessionQueuesResponse'),
-    newDescribeGameSessionQueuesResponse,
-
-    -- ** DeleteAlias
-    DeleteAlias (DeleteAlias'),
-    newDeleteAlias,
-    DeleteAliasResponse (DeleteAliasResponse'),
-    newDeleteAliasResponse,
-
-    -- ** DescribeFleetPortSettings
-    DescribeFleetPortSettings (DescribeFleetPortSettings'),
-    newDescribeFleetPortSettings,
-    DescribeFleetPortSettingsResponse (DescribeFleetPortSettingsResponse'),
-    newDescribeFleetPortSettingsResponse,
-
-    -- ** UpdateBuild
-    UpdateBuild (UpdateBuild'),
-    newUpdateBuild,
-    UpdateBuildResponse (UpdateBuildResponse'),
-    newUpdateBuildResponse,
-
-    -- ** DescribeInstances (Paginated)
-    DescribeInstances (DescribeInstances'),
-    newDescribeInstances,
-    DescribeInstancesResponse (DescribeInstancesResponse'),
-    newDescribeInstancesResponse,
-
-    -- ** UpdateAlias
-    UpdateAlias (UpdateAlias'),
-    newUpdateAlias,
-    UpdateAliasResponse (UpdateAliasResponse'),
-    newUpdateAliasResponse,
-
-    -- ** DescribeFleetAttributes (Paginated)
-    DescribeFleetAttributes (DescribeFleetAttributes'),
-    newDescribeFleetAttributes,
-    DescribeFleetAttributesResponse (DescribeFleetAttributesResponse'),
-    newDescribeFleetAttributesResponse,
-
-    -- ** DescribeFleetEvents (Paginated)
-    DescribeFleetEvents (DescribeFleetEvents'),
-    newDescribeFleetEvents,
-    DescribeFleetEventsResponse (DescribeFleetEventsResponse'),
-    newDescribeFleetEventsResponse,
-
-    -- ** PutScalingPolicy
-    PutScalingPolicy (PutScalingPolicy'),
-    newPutScalingPolicy,
-    PutScalingPolicyResponse (PutScalingPolicyResponse'),
-    newPutScalingPolicyResponse,
-
-    -- ** DescribeFleetUtilization (Paginated)
-    DescribeFleetUtilization (DescribeFleetUtilization'),
-    newDescribeFleetUtilization,
-    DescribeFleetUtilizationResponse (DescribeFleetUtilizationResponse'),
-    newDescribeFleetUtilizationResponse,
-
-    -- ** DescribeRuntimeConfiguration
-    DescribeRuntimeConfiguration (DescribeRuntimeConfiguration'),
-    newDescribeRuntimeConfiguration,
-    DescribeRuntimeConfigurationResponse (DescribeRuntimeConfigurationResponse'),
-    newDescribeRuntimeConfigurationResponse,
-
-    -- ** ClaimGameServer
-    ClaimGameServer (ClaimGameServer'),
-    newClaimGameServer,
-    ClaimGameServerResponse (ClaimGameServerResponse'),
-    newClaimGameServerResponse,
-
-    -- ** UpdateGameSession
-    UpdateGameSession (UpdateGameSession'),
-    newUpdateGameSession,
-    UpdateGameSessionResponse (UpdateGameSessionResponse'),
-    newUpdateGameSessionResponse,
-
-    -- ** DescribeGameServerGroup
-    DescribeGameServerGroup (DescribeGameServerGroup'),
-    newDescribeGameServerGroup,
-    DescribeGameServerGroupResponse (DescribeGameServerGroupResponse'),
-    newDescribeGameServerGroupResponse,
-
-    -- ** CreatePlayerSession
-    CreatePlayerSession (CreatePlayerSession'),
-    newCreatePlayerSession,
-    CreatePlayerSessionResponse (CreatePlayerSessionResponse'),
-    newCreatePlayerSessionResponse,
-
-    -- ** DescribeFleetLocationAttributes
-    DescribeFleetLocationAttributes (DescribeFleetLocationAttributes'),
-    newDescribeFleetLocationAttributes,
-    DescribeFleetLocationAttributesResponse (DescribeFleetLocationAttributesResponse'),
-    newDescribeFleetLocationAttributesResponse,
-
-    -- ** DescribeMatchmaking
-    DescribeMatchmaking (DescribeMatchmaking'),
-    newDescribeMatchmaking,
-    DescribeMatchmakingResponse (DescribeMatchmakingResponse'),
-    newDescribeMatchmakingResponse,
-
-    -- ** GetGameSessionLogUrl
-    GetGameSessionLogUrl (GetGameSessionLogUrl'),
-    newGetGameSessionLogUrl,
-    GetGameSessionLogUrlResponse (GetGameSessionLogUrlResponse'),
-    newGetGameSessionLogUrlResponse,
-
-    -- ** DescribeMatchmakingRuleSets (Paginated)
-    DescribeMatchmakingRuleSets (DescribeMatchmakingRuleSets'),
-    newDescribeMatchmakingRuleSets,
-    DescribeMatchmakingRuleSetsResponse (DescribeMatchmakingRuleSetsResponse'),
-    newDescribeMatchmakingRuleSetsResponse,
-
-    -- ** SuspendGameServerGroup
-    SuspendGameServerGroup (SuspendGameServerGroup'),
-    newSuspendGameServerGroup,
-    SuspendGameServerGroupResponse (SuspendGameServerGroupResponse'),
-    newSuspendGameServerGroupResponse,
-
-    -- ** DescribeScalingPolicies (Paginated)
-    DescribeScalingPolicies (DescribeScalingPolicies'),
-    newDescribeScalingPolicies,
-    DescribeScalingPoliciesResponse (DescribeScalingPoliciesResponse'),
-    newDescribeScalingPoliciesResponse,
-
-    -- ** ValidateMatchmakingRuleSet
-    ValidateMatchmakingRuleSet (ValidateMatchmakingRuleSet'),
-    newValidateMatchmakingRuleSet,
-    ValidateMatchmakingRuleSetResponse (ValidateMatchmakingRuleSetResponse'),
-    newValidateMatchmakingRuleSetResponse,
-
-    -- ** DescribeBuild
-    DescribeBuild (DescribeBuild'),
-    newDescribeBuild,
-    DescribeBuildResponse (DescribeBuildResponse'),
-    newDescribeBuildResponse,
-
-    -- ** DeregisterGameServer
-    DeregisterGameServer (DeregisterGameServer'),
-    newDeregisterGameServer,
-    DeregisterGameServerResponse (DeregisterGameServerResponse'),
-    newDeregisterGameServerResponse,
-
-    -- ** UpdateFleetPortSettings
-    UpdateFleetPortSettings (UpdateFleetPortSettings'),
-    newUpdateFleetPortSettings,
-    UpdateFleetPortSettingsResponse (UpdateFleetPortSettingsResponse'),
-    newUpdateFleetPortSettingsResponse,
-
-    -- ** AcceptMatch
-    AcceptMatch (AcceptMatch'),
-    newAcceptMatch,
-    AcceptMatchResponse (AcceptMatchResponse'),
-    newAcceptMatchResponse,
-
-    -- ** UpdateFleetCapacity
-    UpdateFleetCapacity (UpdateFleetCapacity'),
-    newUpdateFleetCapacity,
-    UpdateFleetCapacityResponse (UpdateFleetCapacityResponse'),
-    newUpdateFleetCapacityResponse,
-
-    -- ** DescribeAlias
-    DescribeAlias (DescribeAlias'),
-    newDescribeAlias,
-    DescribeAliasResponse (DescribeAliasResponse'),
-    newDescribeAliasResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** UpdateFleetAttributes
-    UpdateFleetAttributes (UpdateFleetAttributes'),
-    newUpdateFleetAttributes,
-    UpdateFleetAttributesResponse (UpdateFleetAttributesResponse'),
-    newUpdateFleetAttributesResponse,
-
-    -- ** UpdateGameSessionQueue
-    UpdateGameSessionQueue (UpdateGameSessionQueue'),
-    newUpdateGameSessionQueue,
-    UpdateGameSessionQueueResponse (UpdateGameSessionQueueResponse'),
-    newUpdateGameSessionQueueResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeleteVpcPeeringConnection
-    DeleteVpcPeeringConnection (DeleteVpcPeeringConnection'),
-    newDeleteVpcPeeringConnection,
-    DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
-    newDeleteVpcPeeringConnectionResponse,
-
-    -- ** DeleteGameSessionQueue
-    DeleteGameSessionQueue (DeleteGameSessionQueue'),
-    newDeleteGameSessionQueue,
-    DeleteGameSessionQueueResponse (DeleteGameSessionQueueResponse'),
-    newDeleteGameSessionQueueResponse,
-
-    -- ** DeleteMatchmakingConfiguration
-    DeleteMatchmakingConfiguration (DeleteMatchmakingConfiguration'),
-    newDeleteMatchmakingConfiguration,
-    DeleteMatchmakingConfigurationResponse (DeleteMatchmakingConfigurationResponse'),
-    newDeleteMatchmakingConfigurationResponse,
-
-    -- ** UpdateMatchmakingConfiguration
-    UpdateMatchmakingConfiguration (UpdateMatchmakingConfiguration'),
-    newUpdateMatchmakingConfiguration,
-    UpdateMatchmakingConfigurationResponse (UpdateMatchmakingConfigurationResponse'),
-    newUpdateMatchmakingConfigurationResponse,
-
-    -- ** RequestUploadCredentials
-    RequestUploadCredentials (RequestUploadCredentials'),
-    newRequestUploadCredentials,
-    RequestUploadCredentialsResponse (RequestUploadCredentialsResponse'),
-    newRequestUploadCredentialsResponse,
-
-    -- ** DescribeFleetLocationCapacity
-    DescribeFleetLocationCapacity (DescribeFleetLocationCapacity'),
-    newDescribeFleetLocationCapacity,
-    DescribeFleetLocationCapacityResponse (DescribeFleetLocationCapacityResponse'),
-    newDescribeFleetLocationCapacityResponse,
-
-    -- ** RegisterGameServer
-    RegisterGameServer (RegisterGameServer'),
-    newRegisterGameServer,
-    RegisterGameServerResponse (RegisterGameServerResponse'),
-    newRegisterGameServerResponse,
-
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** DescribeMatchmakingConfigurations (Paginated)
-    DescribeMatchmakingConfigurations (DescribeMatchmakingConfigurations'),
-    newDescribeMatchmakingConfigurations,
-    DescribeMatchmakingConfigurationsResponse (DescribeMatchmakingConfigurationsResponse'),
-    newDescribeMatchmakingConfigurationsResponse,
-
-    -- ** ResolveAlias
-    ResolveAlias (ResolveAlias'),
-    newResolveAlias,
-    ResolveAliasResponse (ResolveAliasResponse'),
-    newResolveAliasResponse,
-
-    -- ** DeleteFleet
-    DeleteFleet (DeleteFleet'),
-    newDeleteFleet,
-    DeleteFleetResponse (DeleteFleetResponse'),
-    newDeleteFleetResponse,
-
-    -- ** DescribeGameSessionDetails (Paginated)
-    DescribeGameSessionDetails (DescribeGameSessionDetails'),
-    newDescribeGameSessionDetails,
-    DescribeGameSessionDetailsResponse (DescribeGameSessionDetailsResponse'),
-    newDescribeGameSessionDetailsResponse,
-
-    -- ** ListFleets (Paginated)
-    ListFleets (ListFleets'),
-    newListFleets,
-    ListFleetsResponse (ListFleetsResponse'),
-    newListFleetsResponse,
-
-    -- ** StartMatchBackfill
-    StartMatchBackfill (StartMatchBackfill'),
-    newStartMatchBackfill,
-    StartMatchBackfillResponse (StartMatchBackfillResponse'),
-    newStartMatchBackfillResponse,
-
     -- ** StopMatchmaking
     StopMatchmaking (StopMatchmaking'),
     newStopMatchmaking,
     StopMatchmakingResponse (StopMatchmakingResponse'),
     newStopMatchmakingResponse,
-
-    -- ** CreateFleetLocations
-    CreateFleetLocations (CreateFleetLocations'),
-    newCreateFleetLocations,
-    CreateFleetLocationsResponse (CreateFleetLocationsResponse'),
-    newCreateFleetLocationsResponse,
-
-    -- ** CreateMatchmakingRuleSet
-    CreateMatchmakingRuleSet (CreateMatchmakingRuleSet'),
-    newCreateMatchmakingRuleSet,
-    CreateMatchmakingRuleSetResponse (CreateMatchmakingRuleSetResponse'),
-    newCreateMatchmakingRuleSetResponse,
-
-    -- ** DescribeGameSessionPlacement
-    DescribeGameSessionPlacement (DescribeGameSessionPlacement'),
-    newDescribeGameSessionPlacement,
-    DescribeGameSessionPlacementResponse (DescribeGameSessionPlacementResponse'),
-    newDescribeGameSessionPlacementResponse,
-
-    -- ** CreateGameSession
-    CreateGameSession (CreateGameSession'),
-    newCreateGameSession,
-    CreateGameSessionResponse (CreateGameSessionResponse'),
-    newCreateGameSessionResponse,
-
-    -- ** StartMatchmaking
-    StartMatchmaking (StartMatchmaking'),
-    newStartMatchmaking,
-    StartMatchmakingResponse (StartMatchmakingResponse'),
-    newStartMatchmakingResponse,
-
-    -- ** DeleteScalingPolicy
-    DeleteScalingPolicy (DeleteScalingPolicy'),
-    newDeleteScalingPolicy,
-    DeleteScalingPolicyResponse (DeleteScalingPolicyResponse'),
-    newDeleteScalingPolicyResponse,
-
-    -- ** DescribeFleetLocationUtilization
-    DescribeFleetLocationUtilization (DescribeFleetLocationUtilization'),
-    newDescribeFleetLocationUtilization,
-    DescribeFleetLocationUtilizationResponse (DescribeFleetLocationUtilizationResponse'),
-    newDescribeFleetLocationUtilizationResponse,
 
     -- ** DescribeGameServerInstances (Paginated)
     DescribeGameServerInstances (DescribeGameServerInstances'),
@@ -474,173 +132,35 @@ module Network.AWS.GameLift
     DescribeGameServerInstancesResponse (DescribeGameServerInstancesResponse'),
     newDescribeGameServerInstancesResponse,
 
-    -- ** StartGameSessionPlacement
-    StartGameSessionPlacement (StartGameSessionPlacement'),
-    newStartGameSessionPlacement,
-    StartGameSessionPlacementResponse (StartGameSessionPlacementResponse'),
-    newStartGameSessionPlacementResponse,
+    -- ** CreateGameSession
+    CreateGameSession (CreateGameSession'),
+    newCreateGameSession,
+    CreateGameSessionResponse (CreateGameSessionResponse'),
+    newCreateGameSessionResponse,
 
-    -- ** DeleteMatchmakingRuleSet
-    DeleteMatchmakingRuleSet (DeleteMatchmakingRuleSet'),
-    newDeleteMatchmakingRuleSet,
-    DeleteMatchmakingRuleSetResponse (DeleteMatchmakingRuleSetResponse'),
-    newDeleteMatchmakingRuleSetResponse,
+    -- ** DeleteScalingPolicy
+    DeleteScalingPolicy (DeleteScalingPolicy'),
+    newDeleteScalingPolicy,
+    DeleteScalingPolicyResponse (DeleteScalingPolicyResponse'),
+    newDeleteScalingPolicyResponse,
 
-    -- ** DeleteFleetLocations
-    DeleteFleetLocations (DeleteFleetLocations'),
-    newDeleteFleetLocations,
-    DeleteFleetLocationsResponse (DeleteFleetLocationsResponse'),
-    newDeleteFleetLocationsResponse,
+    -- ** PutScalingPolicy
+    PutScalingPolicy (PutScalingPolicy'),
+    newPutScalingPolicy,
+    PutScalingPolicyResponse (PutScalingPolicyResponse'),
+    newPutScalingPolicyResponse,
 
-    -- ** StopGameSessionPlacement
-    StopGameSessionPlacement (StopGameSessionPlacement'),
-    newStopGameSessionPlacement,
-    StopGameSessionPlacementResponse (StopGameSessionPlacementResponse'),
-    newStopGameSessionPlacementResponse,
+    -- ** ListBuilds (Paginated)
+    ListBuilds (ListBuilds'),
+    newListBuilds,
+    ListBuildsResponse (ListBuildsResponse'),
+    newListBuildsResponse,
 
-    -- ** UpdateScript
-    UpdateScript (UpdateScript'),
-    newUpdateScript,
-    UpdateScriptResponse (UpdateScriptResponse'),
-    newUpdateScriptResponse,
-
-    -- ** DescribeGameSessions (Paginated)
-    DescribeGameSessions (DescribeGameSessions'),
-    newDescribeGameSessions,
-    DescribeGameSessionsResponse (DescribeGameSessionsResponse'),
-    newDescribeGameSessionsResponse,
-
-    -- ** DeleteScript
-    DeleteScript (DeleteScript'),
-    newDeleteScript,
-    DeleteScriptResponse (DeleteScriptResponse'),
-    newDeleteScriptResponse,
-
-    -- ** DescribeGameServer
-    DescribeGameServer (DescribeGameServer'),
-    newDescribeGameServer,
-    DescribeGameServerResponse (DescribeGameServerResponse'),
-    newDescribeGameServerResponse,
-
-    -- ** ListScripts (Paginated)
-    ListScripts (ListScripts'),
-    newListScripts,
-    ListScriptsResponse (ListScriptsResponse'),
-    newListScriptsResponse,
-
-    -- ** DescribeEC2InstanceLimits
-    DescribeEC2InstanceLimits (DescribeEC2InstanceLimits'),
-    newDescribeEC2InstanceLimits,
-    DescribeEC2InstanceLimitsResponse (DescribeEC2InstanceLimitsResponse'),
-    newDescribeEC2InstanceLimitsResponse,
-
-    -- ** CreateScript
-    CreateScript (CreateScript'),
-    newCreateScript,
-    CreateScriptResponse (CreateScriptResponse'),
-    newCreateScriptResponse,
-
-    -- ** StartFleetActions
-    StartFleetActions (StartFleetActions'),
-    newStartFleetActions,
-    StartFleetActionsResponse (StartFleetActionsResponse'),
-    newStartFleetActionsResponse,
-
-    -- ** GetInstanceAccess
-    GetInstanceAccess (GetInstanceAccess'),
-    newGetInstanceAccess,
-    GetInstanceAccessResponse (GetInstanceAccessResponse'),
-    newGetInstanceAccessResponse,
-
-    -- ** DescribePlayerSessions (Paginated)
-    DescribePlayerSessions (DescribePlayerSessions'),
-    newDescribePlayerSessions,
-    DescribePlayerSessionsResponse (DescribePlayerSessionsResponse'),
-    newDescribePlayerSessionsResponse,
-
-    -- ** StopFleetActions
-    StopFleetActions (StopFleetActions'),
-    newStopFleetActions,
-    StopFleetActionsResponse (StopFleetActionsResponse'),
-    newStopFleetActionsResponse,
-
-    -- ** CreateMatchmakingConfiguration
-    CreateMatchmakingConfiguration (CreateMatchmakingConfiguration'),
-    newCreateMatchmakingConfiguration,
-    CreateMatchmakingConfigurationResponse (CreateMatchmakingConfigurationResponse'),
-    newCreateMatchmakingConfigurationResponse,
-
-    -- ** CreateGameServerGroup
-    CreateGameServerGroup (CreateGameServerGroup'),
-    newCreateGameServerGroup,
-    CreateGameServerGroupResponse (CreateGameServerGroupResponse'),
-    newCreateGameServerGroupResponse,
-
-    -- ** CreateVpcPeeringAuthorization
-    CreateVpcPeeringAuthorization (CreateVpcPeeringAuthorization'),
-    newCreateVpcPeeringAuthorization,
-    CreateVpcPeeringAuthorizationResponse (CreateVpcPeeringAuthorizationResponse'),
-    newCreateVpcPeeringAuthorizationResponse,
-
-    -- ** CreateVpcPeeringConnection
-    CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
-    newCreateVpcPeeringConnection,
-    CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
-    newCreateVpcPeeringConnectionResponse,
-
-    -- ** ResumeGameServerGroup
-    ResumeGameServerGroup (ResumeGameServerGroup'),
-    newResumeGameServerGroup,
-    ResumeGameServerGroupResponse (ResumeGameServerGroupResponse'),
-    newResumeGameServerGroupResponse,
-
-    -- ** DeleteGameServerGroup
-    DeleteGameServerGroup (DeleteGameServerGroup'),
-    newDeleteGameServerGroup,
-    DeleteGameServerGroupResponse (DeleteGameServerGroupResponse'),
-    newDeleteGameServerGroupResponse,
-
-    -- ** UpdateGameServerGroup
-    UpdateGameServerGroup (UpdateGameServerGroup'),
-    newUpdateGameServerGroup,
-    UpdateGameServerGroupResponse (UpdateGameServerGroupResponse'),
-    newUpdateGameServerGroupResponse,
-
-    -- ** UpdateRuntimeConfiguration
-    UpdateRuntimeConfiguration (UpdateRuntimeConfiguration'),
-    newUpdateRuntimeConfiguration,
-    UpdateRuntimeConfigurationResponse (UpdateRuntimeConfigurationResponse'),
-    newUpdateRuntimeConfigurationResponse,
-
-    -- ** DeleteVpcPeeringAuthorization
-    DeleteVpcPeeringAuthorization (DeleteVpcPeeringAuthorization'),
-    newDeleteVpcPeeringAuthorization,
-    DeleteVpcPeeringAuthorizationResponse (DeleteVpcPeeringAuthorizationResponse'),
-    newDeleteVpcPeeringAuthorizationResponse,
-
-    -- ** CreateGameSessionQueue
-    CreateGameSessionQueue (CreateGameSessionQueue'),
-    newCreateGameSessionQueue,
-    CreateGameSessionQueueResponse (CreateGameSessionQueueResponse'),
-    newCreateGameSessionQueueResponse,
-
-    -- ** SearchGameSessions (Paginated)
-    SearchGameSessions (SearchGameSessions'),
-    newSearchGameSessions,
-    SearchGameSessionsResponse (SearchGameSessionsResponse'),
-    newSearchGameSessionsResponse,
-
-    -- ** ListGameServerGroups (Paginated)
-    ListGameServerGroups (ListGameServerGroups'),
-    newListGameServerGroups,
-    ListGameServerGroupsResponse (ListGameServerGroupsResponse'),
-    newListGameServerGroupsResponse,
-
-    -- ** CreatePlayerSessions
-    CreatePlayerSessions (CreatePlayerSessions'),
-    newCreatePlayerSessions,
-    CreatePlayerSessionsResponse (CreatePlayerSessionsResponse'),
-    newCreatePlayerSessionsResponse,
+    -- ** DeleteFleet
+    DeleteFleet (DeleteFleet'),
+    newDeleteFleet,
+    DeleteFleetResponse (DeleteFleetResponse'),
+    newDeleteFleetResponse,
 
     -- ** CreateBuild
     CreateBuild (CreateBuild'),
@@ -648,29 +168,11 @@ module Network.AWS.GameLift
     CreateBuildResponse (CreateBuildResponse'),
     newCreateBuildResponse,
 
-    -- ** ListAliases (Paginated)
-    ListAliases (ListAliases'),
-    newListAliases,
-    ListAliasesResponse (ListAliasesResponse'),
-    newListAliasesResponse,
-
-    -- ** DescribeScript
-    DescribeScript (DescribeScript'),
-    newDescribeScript,
-    DescribeScriptResponse (DescribeScriptResponse'),
-    newDescribeScriptResponse,
-
-    -- ** DescribeVpcPeeringAuthorizations
-    DescribeVpcPeeringAuthorizations (DescribeVpcPeeringAuthorizations'),
-    newDescribeVpcPeeringAuthorizations,
-    DescribeVpcPeeringAuthorizationsResponse (DescribeVpcPeeringAuthorizationsResponse'),
-    newDescribeVpcPeeringAuthorizationsResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** RequestUploadCredentials
+    RequestUploadCredentials (RequestUploadCredentials'),
+    newRequestUploadCredentials,
+    RequestUploadCredentialsResponse (RequestUploadCredentialsResponse'),
+    newRequestUploadCredentialsResponse,
 
     -- ** CreateAlias
     CreateAlias (CreateAlias'),
@@ -684,11 +186,509 @@ module Network.AWS.GameLift
     ListGameServersResponse (ListGameServersResponse'),
     newListGameServersResponse,
 
+    -- ** ResolveAlias
+    ResolveAlias (ResolveAlias'),
+    newResolveAlias,
+    ResolveAliasResponse (ResolveAliasResponse'),
+    newResolveAliasResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** RegisterGameServer
+    RegisterGameServer (RegisterGameServer'),
+    newRegisterGameServer,
+    RegisterGameServerResponse (RegisterGameServerResponse'),
+    newRegisterGameServerResponse,
+
+    -- ** ListAliases (Paginated)
+    ListAliases (ListAliases'),
+    newListAliases,
+    ListAliasesResponse (ListAliasesResponse'),
+    newListAliasesResponse,
+
+    -- ** UpdateRuntimeConfiguration
+    UpdateRuntimeConfiguration (UpdateRuntimeConfiguration'),
+    newUpdateRuntimeConfiguration,
+    UpdateRuntimeConfigurationResponse (UpdateRuntimeConfigurationResponse'),
+    newUpdateRuntimeConfigurationResponse,
+
+    -- ** CreateVpcPeeringConnection
+    CreateVpcPeeringConnection (CreateVpcPeeringConnection'),
+    newCreateVpcPeeringConnection,
+    CreateVpcPeeringConnectionResponse (CreateVpcPeeringConnectionResponse'),
+    newCreateVpcPeeringConnectionResponse,
+
+    -- ** ListGameServerGroups (Paginated)
+    ListGameServerGroups (ListGameServerGroups'),
+    newListGameServerGroups,
+    ListGameServerGroupsResponse (ListGameServerGroupsResponse'),
+    newListGameServerGroupsResponse,
+
+    -- ** CreateGameSessionQueue
+    CreateGameSessionQueue (CreateGameSessionQueue'),
+    newCreateGameSessionQueue,
+    CreateGameSessionQueueResponse (CreateGameSessionQueueResponse'),
+    newCreateGameSessionQueueResponse,
+
+    -- ** SearchGameSessions (Paginated)
+    SearchGameSessions (SearchGameSessions'),
+    newSearchGameSessions,
+    SearchGameSessionsResponse (SearchGameSessionsResponse'),
+    newSearchGameSessionsResponse,
+
+    -- ** CreateVpcPeeringAuthorization
+    CreateVpcPeeringAuthorization (CreateVpcPeeringAuthorization'),
+    newCreateVpcPeeringAuthorization,
+    CreateVpcPeeringAuthorizationResponse (CreateVpcPeeringAuthorizationResponse'),
+    newCreateVpcPeeringAuthorizationResponse,
+
+    -- ** UpdateGameSessionQueue
+    UpdateGameSessionQueue (UpdateGameSessionQueue'),
+    newUpdateGameSessionQueue,
+    UpdateGameSessionQueueResponse (UpdateGameSessionQueueResponse'),
+    newUpdateGameSessionQueueResponse,
+
+    -- ** DeleteGameSessionQueue
+    DeleteGameSessionQueue (DeleteGameSessionQueue'),
+    newDeleteGameSessionQueue,
+    DeleteGameSessionQueueResponse (DeleteGameSessionQueueResponse'),
+    newDeleteGameSessionQueueResponse,
+
+    -- ** CreateGameServerGroup
+    CreateGameServerGroup (CreateGameServerGroup'),
+    newCreateGameServerGroup,
+    CreateGameServerGroupResponse (CreateGameServerGroupResponse'),
+    newCreateGameServerGroupResponse,
+
+    -- ** DeleteVpcPeeringConnection
+    DeleteVpcPeeringConnection (DeleteVpcPeeringConnection'),
+    newDeleteVpcPeeringConnection,
+    DeleteVpcPeeringConnectionResponse (DeleteVpcPeeringConnectionResponse'),
+    newDeleteVpcPeeringConnectionResponse,
+
+    -- ** StartFleetActions
+    StartFleetActions (StartFleetActions'),
+    newStartFleetActions,
+    StartFleetActionsResponse (StartFleetActionsResponse'),
+    newStartFleetActionsResponse,
+
+    -- ** DeregisterGameServer
+    DeregisterGameServer (DeregisterGameServer'),
+    newDeregisterGameServer,
+    DeregisterGameServerResponse (DeregisterGameServerResponse'),
+    newDeregisterGameServerResponse,
+
+    -- ** GetInstanceAccess
+    GetInstanceAccess (GetInstanceAccess'),
+    newGetInstanceAccess,
+    GetInstanceAccessResponse (GetInstanceAccessResponse'),
+    newGetInstanceAccessResponse,
+
+    -- ** DescribeScalingPolicies (Paginated)
+    DescribeScalingPolicies (DescribeScalingPolicies'),
+    newDescribeScalingPolicies,
+    DescribeScalingPoliciesResponse (DescribeScalingPoliciesResponse'),
+    newDescribeScalingPoliciesResponse,
+
+    -- ** DescribeMatchmakingRuleSets (Paginated)
+    DescribeMatchmakingRuleSets (DescribeMatchmakingRuleSets'),
+    newDescribeMatchmakingRuleSets,
+    DescribeMatchmakingRuleSetsResponse (DescribeMatchmakingRuleSetsResponse'),
+    newDescribeMatchmakingRuleSetsResponse,
+
+    -- ** DescribeGameSessions (Paginated)
+    DescribeGameSessions (DescribeGameSessions'),
+    newDescribeGameSessions,
+    DescribeGameSessionsResponse (DescribeGameSessionsResponse'),
+    newDescribeGameSessionsResponse,
+
+    -- ** DescribeGameServer
+    DescribeGameServer (DescribeGameServer'),
+    newDescribeGameServer,
+    DescribeGameServerResponse (DescribeGameServerResponse'),
+    newDescribeGameServerResponse,
+
+    -- ** UpdateScript
+    UpdateScript (UpdateScript'),
+    newUpdateScript,
+    UpdateScriptResponse (UpdateScriptResponse'),
+    newUpdateScriptResponse,
+
+    -- ** DeleteScript
+    DeleteScript (DeleteScript'),
+    newDeleteScript,
+    DeleteScriptResponse (DeleteScriptResponse'),
+    newDeleteScriptResponse,
+
+    -- ** StartGameSessionPlacement
+    StartGameSessionPlacement (StartGameSessionPlacement'),
+    newStartGameSessionPlacement,
+    StartGameSessionPlacementResponse (StartGameSessionPlacementResponse'),
+    newStartGameSessionPlacementResponse,
+
+    -- ** DescribeFleetUtilization (Paginated)
+    DescribeFleetUtilization (DescribeFleetUtilization'),
+    newDescribeFleetUtilization,
+    DescribeFleetUtilizationResponse (DescribeFleetUtilizationResponse'),
+    newDescribeFleetUtilizationResponse,
+
+    -- ** DescribeRuntimeConfiguration
+    DescribeRuntimeConfiguration (DescribeRuntimeConfiguration'),
+    newDescribeRuntimeConfiguration,
+    DescribeRuntimeConfigurationResponse (DescribeRuntimeConfigurationResponse'),
+    newDescribeRuntimeConfigurationResponse,
+
+    -- ** GetGameSessionLogUrl
+    GetGameSessionLogUrl (GetGameSessionLogUrl'),
+    newGetGameSessionLogUrl,
+    GetGameSessionLogUrlResponse (GetGameSessionLogUrlResponse'),
+    newGetGameSessionLogUrlResponse,
+
+    -- ** DescribeFleetAttributes (Paginated)
+    DescribeFleetAttributes (DescribeFleetAttributes'),
+    newDescribeFleetAttributes,
+    DescribeFleetAttributesResponse (DescribeFleetAttributesResponse'),
+    newDescribeFleetAttributesResponse,
+
+    -- ** DescribeGameSessionPlacement
+    DescribeGameSessionPlacement (DescribeGameSessionPlacement'),
+    newDescribeGameSessionPlacement,
+    DescribeGameSessionPlacementResponse (DescribeGameSessionPlacementResponse'),
+    newDescribeGameSessionPlacementResponse,
+
+    -- ** DescribeFleetEvents (Paginated)
+    DescribeFleetEvents (DescribeFleetEvents'),
+    newDescribeFleetEvents,
+    DescribeFleetEventsResponse (DescribeFleetEventsResponse'),
+    newDescribeFleetEventsResponse,
+
+    -- ** CreateFleetLocations
+    CreateFleetLocations (CreateFleetLocations'),
+    newCreateFleetLocations,
+    CreateFleetLocationsResponse (CreateFleetLocationsResponse'),
+    newCreateFleetLocationsResponse,
+
+    -- ** StartMatchmaking
+    StartMatchmaking (StartMatchmaking'),
+    newStartMatchmaking,
+    StartMatchmakingResponse (StartMatchmakingResponse'),
+    newStartMatchmakingResponse,
+
+    -- ** CreateMatchmakingRuleSet
+    CreateMatchmakingRuleSet (CreateMatchmakingRuleSet'),
+    newCreateMatchmakingRuleSet,
+    CreateMatchmakingRuleSetResponse (CreateMatchmakingRuleSetResponse'),
+    newCreateMatchmakingRuleSetResponse,
+
+    -- ** DescribeFleetLocationUtilization
+    DescribeFleetLocationUtilization (DescribeFleetLocationUtilization'),
+    newDescribeFleetLocationUtilization,
+    DescribeFleetLocationUtilizationResponse (DescribeFleetLocationUtilizationResponse'),
+    newDescribeFleetLocationUtilizationResponse,
+
+    -- ** DescribeFleetCapacity (Paginated)
+    DescribeFleetCapacity (DescribeFleetCapacity'),
+    newDescribeFleetCapacity,
+    DescribeFleetCapacityResponse (DescribeFleetCapacityResponse'),
+    newDescribeFleetCapacityResponse,
+
+    -- ** DeleteBuild
+    DeleteBuild (DeleteBuild'),
+    newDeleteBuild,
+    DeleteBuildResponse (DeleteBuildResponse'),
+    newDeleteBuildResponse,
+
+    -- ** UpdateBuild
+    UpdateBuild (UpdateBuild'),
+    newUpdateBuild,
+    UpdateBuildResponse (UpdateBuildResponse'),
+    newUpdateBuildResponse,
+
+    -- ** ListFleets (Paginated)
+    ListFleets (ListFleets'),
+    newListFleets,
+    ListFleetsResponse (ListFleetsResponse'),
+    newListFleetsResponse,
+
+    -- ** DeleteAlias
+    DeleteAlias (DeleteAlias'),
+    newDeleteAlias,
+    DeleteAliasResponse (DeleteAliasResponse'),
+    newDeleteAliasResponse,
+
+    -- ** UpdateAlias
+    UpdateAlias (UpdateAlias'),
+    newUpdateAlias,
+    UpdateAliasResponse (UpdateAliasResponse'),
+    newUpdateAliasResponse,
+
+    -- ** StartMatchBackfill
+    StartMatchBackfill (StartMatchBackfill'),
+    newStartMatchBackfill,
+    StartMatchBackfillResponse (StartMatchBackfillResponse'),
+    newStartMatchBackfillResponse,
+
+    -- ** DescribeInstances (Paginated)
+    DescribeInstances (DescribeInstances'),
+    newDescribeInstances,
+    DescribeInstancesResponse (DescribeInstancesResponse'),
+    newDescribeInstancesResponse,
+
+    -- ** DescribeGameSessionDetails (Paginated)
+    DescribeGameSessionDetails (DescribeGameSessionDetails'),
+    newDescribeGameSessionDetails,
+    DescribeGameSessionDetailsResponse (DescribeGameSessionDetailsResponse'),
+    newDescribeGameSessionDetailsResponse,
+
+    -- ** DescribeFleetPortSettings
+    DescribeFleetPortSettings (DescribeFleetPortSettings'),
+    newDescribeFleetPortSettings,
+    DescribeFleetPortSettingsResponse (DescribeFleetPortSettingsResponse'),
+    newDescribeFleetPortSettingsResponse,
+
+    -- ** DescribeGameSessionQueues (Paginated)
+    DescribeGameSessionQueues (DescribeGameSessionQueues'),
+    newDescribeGameSessionQueues,
+    DescribeGameSessionQueuesResponse (DescribeGameSessionQueuesResponse'),
+    newDescribeGameSessionQueuesResponse,
+
+    -- ** DescribeVpcPeeringConnections
+    DescribeVpcPeeringConnections (DescribeVpcPeeringConnections'),
+    newDescribeVpcPeeringConnections,
+    DescribeVpcPeeringConnectionsResponse (DescribeVpcPeeringConnectionsResponse'),
+    newDescribeVpcPeeringConnectionsResponse,
+
+    -- ** DescribeScript
+    DescribeScript (DescribeScript'),
+    newDescribeScript,
+    DescribeScriptResponse (DescribeScriptResponse'),
+    newDescribeScriptResponse,
+
+    -- ** CreatePlayerSessions
+    CreatePlayerSessions (CreatePlayerSessions'),
+    newCreatePlayerSessions,
+    CreatePlayerSessionsResponse (CreatePlayerSessionsResponse'),
+    newCreatePlayerSessionsResponse,
+
+    -- ** DescribeMatchmakingConfigurations (Paginated)
+    DescribeMatchmakingConfigurations (DescribeMatchmakingConfigurations'),
+    newDescribeMatchmakingConfigurations,
+    DescribeMatchmakingConfigurationsResponse (DescribeMatchmakingConfigurationsResponse'),
+    newDescribeMatchmakingConfigurationsResponse,
+
+    -- ** DescribeVpcPeeringAuthorizations
+    DescribeVpcPeeringAuthorizations (DescribeVpcPeeringAuthorizations'),
+    newDescribeVpcPeeringAuthorizations,
+    DescribeVpcPeeringAuthorizationsResponse (DescribeVpcPeeringAuthorizationsResponse'),
+    newDescribeVpcPeeringAuthorizationsResponse,
+
     -- ** UpdateGameServer
     UpdateGameServer (UpdateGameServer'),
     newUpdateGameServer,
     UpdateGameServerResponse (UpdateGameServerResponse'),
     newUpdateGameServerResponse,
+
+    -- ** CreateFleet
+    CreateFleet (CreateFleet'),
+    newCreateFleet,
+    CreateFleetResponse (CreateFleetResponse'),
+    newCreateFleetResponse,
+
+    -- ** DescribeFleetLocationCapacity
+    DescribeFleetLocationCapacity (DescribeFleetLocationCapacity'),
+    newDescribeFleetLocationCapacity,
+    DescribeFleetLocationCapacityResponse (DescribeFleetLocationCapacityResponse'),
+    newDescribeFleetLocationCapacityResponse,
+
+    -- ** DeleteMatchmakingConfiguration
+    DeleteMatchmakingConfiguration (DeleteMatchmakingConfiguration'),
+    newDeleteMatchmakingConfiguration,
+    DeleteMatchmakingConfigurationResponse (DeleteMatchmakingConfigurationResponse'),
+    newDeleteMatchmakingConfigurationResponse,
+
+    -- ** UpdateMatchmakingConfiguration
+    UpdateMatchmakingConfiguration (UpdateMatchmakingConfiguration'),
+    newUpdateMatchmakingConfiguration,
+    UpdateMatchmakingConfigurationResponse (UpdateMatchmakingConfigurationResponse'),
+    newUpdateMatchmakingConfigurationResponse,
+
+    -- ** DeleteGameServerGroup
+    DeleteGameServerGroup (DeleteGameServerGroup'),
+    newDeleteGameServerGroup,
+    DeleteGameServerGroupResponse (DeleteGameServerGroupResponse'),
+    newDeleteGameServerGroupResponse,
+
+    -- ** UpdateGameServerGroup
+    UpdateGameServerGroup (UpdateGameServerGroup'),
+    newUpdateGameServerGroup,
+    UpdateGameServerGroupResponse (UpdateGameServerGroupResponse'),
+    newUpdateGameServerGroupResponse,
+
+    -- ** ResumeGameServerGroup
+    ResumeGameServerGroup (ResumeGameServerGroup'),
+    newResumeGameServerGroup,
+    ResumeGameServerGroupResponse (ResumeGameServerGroupResponse'),
+    newResumeGameServerGroupResponse,
+
+    -- ** DeleteVpcPeeringAuthorization
+    DeleteVpcPeeringAuthorization (DeleteVpcPeeringAuthorization'),
+    newDeleteVpcPeeringAuthorization,
+    DeleteVpcPeeringAuthorizationResponse (DeleteVpcPeeringAuthorizationResponse'),
+    newDeleteVpcPeeringAuthorizationResponse,
+
+    -- ** UpdateFleetAttributes
+    UpdateFleetAttributes (UpdateFleetAttributes'),
+    newUpdateFleetAttributes,
+    UpdateFleetAttributesResponse (UpdateFleetAttributesResponse'),
+    newUpdateFleetAttributesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** CreateMatchmakingConfiguration
+    CreateMatchmakingConfiguration (CreateMatchmakingConfiguration'),
+    newCreateMatchmakingConfiguration,
+    CreateMatchmakingConfigurationResponse (CreateMatchmakingConfigurationResponse'),
+    newCreateMatchmakingConfigurationResponse,
+
+    -- ** DescribePlayerSessions (Paginated)
+    DescribePlayerSessions (DescribePlayerSessions'),
+    newDescribePlayerSessions,
+    DescribePlayerSessionsResponse (DescribePlayerSessionsResponse'),
+    newDescribePlayerSessionsResponse,
+
+    -- ** StopFleetActions
+    StopFleetActions (StopFleetActions'),
+    newStopFleetActions,
+    StopFleetActionsResponse (StopFleetActionsResponse'),
+    newStopFleetActionsResponse,
+
+    -- ** DescribeBuild
+    DescribeBuild (DescribeBuild'),
+    newDescribeBuild,
+    DescribeBuildResponse (DescribeBuildResponse'),
+    newDescribeBuildResponse,
+
+    -- ** UpdateFleetPortSettings
+    UpdateFleetPortSettings (UpdateFleetPortSettings'),
+    newUpdateFleetPortSettings,
+    UpdateFleetPortSettingsResponse (UpdateFleetPortSettingsResponse'),
+    newUpdateFleetPortSettingsResponse,
+
+    -- ** UpdateFleetCapacity
+    UpdateFleetCapacity (UpdateFleetCapacity'),
+    newUpdateFleetCapacity,
+    UpdateFleetCapacityResponse (UpdateFleetCapacityResponse'),
+    newUpdateFleetCapacityResponse,
+
+    -- ** CreateScript
+    CreateScript (CreateScript'),
+    newCreateScript,
+    CreateScriptResponse (CreateScriptResponse'),
+    newCreateScriptResponse,
+
+    -- ** AcceptMatch
+    AcceptMatch (AcceptMatch'),
+    newAcceptMatch,
+    AcceptMatchResponse (AcceptMatchResponse'),
+    newAcceptMatchResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DescribeAlias
+    DescribeAlias (DescribeAlias'),
+    newDescribeAlias,
+    DescribeAliasResponse (DescribeAliasResponse'),
+    newDescribeAliasResponse,
+
+    -- ** ValidateMatchmakingRuleSet
+    ValidateMatchmakingRuleSet (ValidateMatchmakingRuleSet'),
+    newValidateMatchmakingRuleSet,
+    ValidateMatchmakingRuleSetResponse (ValidateMatchmakingRuleSetResponse'),
+    newValidateMatchmakingRuleSetResponse,
+
+    -- ** ListScripts (Paginated)
+    ListScripts (ListScripts'),
+    newListScripts,
+    ListScriptsResponse (ListScriptsResponse'),
+    newListScriptsResponse,
+
+    -- ** DescribeEC2InstanceLimits
+    DescribeEC2InstanceLimits (DescribeEC2InstanceLimits'),
+    newDescribeEC2InstanceLimits,
+    DescribeEC2InstanceLimitsResponse (DescribeEC2InstanceLimitsResponse'),
+    newDescribeEC2InstanceLimitsResponse,
+
+    -- ** SuspendGameServerGroup
+    SuspendGameServerGroup (SuspendGameServerGroup'),
+    newSuspendGameServerGroup,
+    SuspendGameServerGroupResponse (SuspendGameServerGroupResponse'),
+    newSuspendGameServerGroupResponse,
+
+    -- ** DeleteFleetLocations
+    DeleteFleetLocations (DeleteFleetLocations'),
+    newDeleteFleetLocations,
+    DeleteFleetLocationsResponse (DeleteFleetLocationsResponse'),
+    newDeleteFleetLocationsResponse,
+
+    -- ** DeleteMatchmakingRuleSet
+    DeleteMatchmakingRuleSet (DeleteMatchmakingRuleSet'),
+    newDeleteMatchmakingRuleSet,
+    DeleteMatchmakingRuleSetResponse (DeleteMatchmakingRuleSetResponse'),
+    newDeleteMatchmakingRuleSetResponse,
+
+    -- ** StopGameSessionPlacement
+    StopGameSessionPlacement (StopGameSessionPlacement'),
+    newStopGameSessionPlacement,
+    StopGameSessionPlacementResponse (StopGameSessionPlacementResponse'),
+    newStopGameSessionPlacementResponse,
+
+    -- ** ClaimGameServer
+    ClaimGameServer (ClaimGameServer'),
+    newClaimGameServer,
+    ClaimGameServerResponse (ClaimGameServerResponse'),
+    newClaimGameServerResponse,
+
+    -- ** UpdateGameSession
+    UpdateGameSession (UpdateGameSession'),
+    newUpdateGameSession,
+    UpdateGameSessionResponse (UpdateGameSessionResponse'),
+    newUpdateGameSessionResponse,
+
+    -- ** DescribeFleetLocationAttributes
+    DescribeFleetLocationAttributes (DescribeFleetLocationAttributes'),
+    newDescribeFleetLocationAttributes,
+    DescribeFleetLocationAttributesResponse (DescribeFleetLocationAttributesResponse'),
+    newDescribeFleetLocationAttributesResponse,
+
+    -- ** DescribeMatchmaking
+    DescribeMatchmaking (DescribeMatchmaking'),
+    newDescribeMatchmaking,
+    DescribeMatchmakingResponse (DescribeMatchmakingResponse'),
+    newDescribeMatchmakingResponse,
+
+    -- ** CreatePlayerSession
+    CreatePlayerSession (CreatePlayerSession'),
+    newCreatePlayerSession,
+    CreatePlayerSessionResponse (CreatePlayerSessionResponse'),
+    newCreatePlayerSessionResponse,
+
+    -- ** DescribeGameServerGroup
+    DescribeGameServerGroup (DescribeGameServerGroup'),
+    newDescribeGameServerGroup,
+    DescribeGameServerGroupResponse (DescribeGameServerGroupResponse'),
+    newDescribeGameServerGroupResponse,
 
     -- * Types
 

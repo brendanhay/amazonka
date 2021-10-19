@@ -34,10 +34,10 @@ data ImportSnapshotTask = ImportSnapshotTask'
     snapshotTaskDetail :: Prelude.Maybe SnapshotTaskDetail,
     -- | The ID of the import snapshot task.
     importTaskId :: Prelude.Maybe Prelude.Text,
-    -- | The tags for the import snapshot task.
-    tags :: Prelude.Maybe [Tag],
     -- | A description of the import snapshot task.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags for the import snapshot task.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,9 +53,9 @@ data ImportSnapshotTask = ImportSnapshotTask'
 --
 -- 'importTaskId', 'importSnapshotTask_importTaskId' - The ID of the import snapshot task.
 --
--- 'tags', 'importSnapshotTask_tags' - The tags for the import snapshot task.
---
 -- 'description', 'importSnapshotTask_description' - A description of the import snapshot task.
+--
+-- 'tags', 'importSnapshotTask_tags' - The tags for the import snapshot task.
 newImportSnapshotTask ::
   ImportSnapshotTask
 newImportSnapshotTask =
@@ -63,8 +63,8 @@ newImportSnapshotTask =
     { snapshotTaskDetail =
         Prelude.Nothing,
       importTaskId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | Describes an import snapshot task.
@@ -75,23 +75,23 @@ importSnapshotTask_snapshotTaskDetail = Lens.lens (\ImportSnapshotTask' {snapsho
 importSnapshotTask_importTaskId :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
 importSnapshotTask_importTaskId = Lens.lens (\ImportSnapshotTask' {importTaskId} -> importTaskId) (\s@ImportSnapshotTask' {} a -> s {importTaskId = a} :: ImportSnapshotTask)
 
--- | The tags for the import snapshot task.
-importSnapshotTask_tags :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe [Tag])
-importSnapshotTask_tags = Lens.lens (\ImportSnapshotTask' {tags} -> tags) (\s@ImportSnapshotTask' {} a -> s {tags = a} :: ImportSnapshotTask) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A description of the import snapshot task.
 importSnapshotTask_description :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe Prelude.Text)
 importSnapshotTask_description = Lens.lens (\ImportSnapshotTask' {description} -> description) (\s@ImportSnapshotTask' {} a -> s {description = a} :: ImportSnapshotTask)
+
+-- | The tags for the import snapshot task.
+importSnapshotTask_tags :: Lens.Lens' ImportSnapshotTask (Prelude.Maybe [Tag])
+importSnapshotTask_tags = Lens.lens (\ImportSnapshotTask' {tags} -> tags) (\s@ImportSnapshotTask' {} a -> s {tags = a} :: ImportSnapshotTask) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ImportSnapshotTask where
   parseXML x =
     ImportSnapshotTask'
       Prelude.<$> (x Core..@? "snapshotTaskDetail")
       Prelude.<*> (x Core..@? "importTaskId")
+      Prelude.<*> (x Core..@? "description")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
 
 instance Prelude.Hashable ImportSnapshotTask
 

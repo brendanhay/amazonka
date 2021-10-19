@@ -127,13 +127,13 @@ newDescribeClusters =
 -- If @TAGS@ is specified, the metadata tags associated with the cluster
 -- are included.
 describeClusters_include :: Lens.Lens' DescribeClusters (Prelude.Maybe [ClusterField])
-describeClusters_include = Lens.lens (\DescribeClusters' {include} -> include) (\s@DescribeClusters' {} a -> s {include = a} :: DescribeClusters) Prelude.. Lens.mapping Lens._Coerce
+describeClusters_include = Lens.lens (\DescribeClusters' {include} -> include) (\s@DescribeClusters' {} a -> s {include = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of up to 100 cluster names or full cluster Amazon Resource Name
 -- (ARN) entries. If you do not specify a cluster, the default cluster is
 -- assumed.
 describeClusters_clusters :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
-describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters) (\s@DescribeClusters' {} a -> s {clusters = a} :: DescribeClusters) Prelude.. Lens.mapping Lens._Coerce
+describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters) (\s@DescribeClusters' {} a -> s {clusters = a} :: DescribeClusters) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeClusters where
   type
@@ -221,11 +221,11 @@ newDescribeClustersResponse pHttpStatus_ =
 
 -- | Any failures associated with the call.
 describeClustersResponse_failures :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Failure])
-describeClustersResponse_failures = Lens.lens (\DescribeClustersResponse' {failures} -> failures) (\s@DescribeClustersResponse' {} a -> s {failures = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeClustersResponse_failures = Lens.lens (\DescribeClustersResponse' {failures} -> failures) (\s@DescribeClustersResponse' {} a -> s {failures = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The list of clusters.
 describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Cluster])
-describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens._Coerce
+describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Prelude.Int

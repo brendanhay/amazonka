@@ -50,7 +50,7 @@ newOwnershipControls =
 
 -- | The container element for an ownership control rule.
 ownershipControls_rules :: Lens.Lens' OwnershipControls [OwnershipControlsRule]
-ownershipControls_rules = Lens.lens (\OwnershipControls' {rules} -> rules) (\s@OwnershipControls' {} a -> s {rules = a} :: OwnershipControls) Prelude.. Lens._Coerce
+ownershipControls_rules = Lens.lens (\OwnershipControls' {rules} -> rules) (\s@OwnershipControls' {} a -> s {rules = a} :: OwnershipControls) Prelude.. Lens.coerced
 
 instance Core.FromXML OwnershipControls where
   parseXML x =

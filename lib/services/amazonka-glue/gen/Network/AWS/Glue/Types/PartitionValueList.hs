@@ -48,7 +48,7 @@ newPartitionValueList =
 
 -- | The list of values.
 partitionValueList_values :: Lens.Lens' PartitionValueList [Prelude.Text]
-partitionValueList_values = Lens.lens (\PartitionValueList' {values} -> values) (\s@PartitionValueList' {} a -> s {values = a} :: PartitionValueList) Prelude.. Lens._Coerce
+partitionValueList_values = Lens.lens (\PartitionValueList' {values} -> values) (\s@PartitionValueList' {} a -> s {values = a} :: PartitionValueList) Prelude.. Lens.coerced
 
 instance Core.FromJSON PartitionValueList where
   parseJSON =

@@ -186,6 +186,6 @@ listIdentityPoliciesResponse_httpStatus = Lens.lens (\ListIdentityPoliciesRespon
 
 -- | A list of names of policies that apply to the specified identity.
 listIdentityPoliciesResponse_policyNames :: Lens.Lens' ListIdentityPoliciesResponse [Prelude.Text]
-listIdentityPoliciesResponse_policyNames = Lens.lens (\ListIdentityPoliciesResponse' {policyNames} -> policyNames) (\s@ListIdentityPoliciesResponse' {} a -> s {policyNames = a} :: ListIdentityPoliciesResponse) Prelude.. Lens._Coerce
+listIdentityPoliciesResponse_policyNames = Lens.lens (\ListIdentityPoliciesResponse' {policyNames} -> policyNames) (\s@ListIdentityPoliciesResponse' {} a -> s {policyNames = a} :: ListIdentityPoliciesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListIdentityPoliciesResponse

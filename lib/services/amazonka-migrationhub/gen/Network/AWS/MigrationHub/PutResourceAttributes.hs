@@ -153,7 +153,7 @@ newPutResourceAttributes
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
         resourceAttributeList =
-          Lens._Coerce Lens.# pResourceAttributeList_
+          Lens.coerced Lens.# pResourceAttributeList_
       }
 
 -- | Optional boolean flag to indicate whether any effect should take place.
@@ -192,7 +192,7 @@ putResourceAttributes_migrationTaskName = Lens.lens (\PutResourceAttributes' {mi
 --     type\/value pairs passed to the @ResourceAttributeList@ parameter to
 --     maximize the chances of matching.
 putResourceAttributes_resourceAttributeList :: Lens.Lens' PutResourceAttributes (Prelude.NonEmpty ResourceAttribute)
-putResourceAttributes_resourceAttributeList = Lens.lens (\PutResourceAttributes' {resourceAttributeList} -> resourceAttributeList) (\s@PutResourceAttributes' {} a -> s {resourceAttributeList = a} :: PutResourceAttributes) Prelude.. Lens._Coerce
+putResourceAttributes_resourceAttributeList = Lens.lens (\PutResourceAttributes' {resourceAttributeList} -> resourceAttributeList) (\s@PutResourceAttributes' {} a -> s {resourceAttributeList = a} :: PutResourceAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutResourceAttributes where
   type

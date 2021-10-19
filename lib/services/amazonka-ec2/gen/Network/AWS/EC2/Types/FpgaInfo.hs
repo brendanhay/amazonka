@@ -61,7 +61,7 @@ fpgaInfo_totalFpgaMemoryInMiB = Lens.lens (\FpgaInfo' {totalFpgaMemoryInMiB} -> 
 
 -- | Describes the FPGAs for the instance type.
 fpgaInfo_fpgas :: Lens.Lens' FpgaInfo (Prelude.Maybe [FpgaDeviceInfo])
-fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Prelude.. Lens.mapping Lens._Coerce
+fpgaInfo_fpgas = Lens.lens (\FpgaInfo' {fpgas} -> fpgas) (\s@FpgaInfo' {} a -> s {fpgas = a} :: FpgaInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML FpgaInfo where
   parseXML x =

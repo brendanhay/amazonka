@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReactionValueFormats' smart constructor.
 data ReactionValueFormats = ReactionValueFormats'
-  { -- | The emoji short code for the reaction. Short codes are interpreted
+  { -- | The Emoji Version 1.0 graphic of the reaction. These graphics are
+    -- interpreted slightly differently on different operating systems.
+    emoji :: Prelude.Maybe Prelude.Text,
+    -- | The emoji short code for the reaction. Short codes are interpreted
     -- slightly differently on different operating systems.
     shortCode :: Prelude.Maybe Prelude.Text,
     -- | The Unicode codepoint for the reaction.
-    unicode :: Prelude.Maybe Prelude.Text,
-    -- | The Emoji Version 1.0 graphic of the reaction. These graphics are
-    -- interpreted slightly differently on different operating systems.
-    emoji :: Prelude.Maybe Prelude.Text
+    unicode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +47,26 @@ data ReactionValueFormats = ReactionValueFormats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'emoji', 'reactionValueFormats_emoji' - The Emoji Version 1.0 graphic of the reaction. These graphics are
+-- interpreted slightly differently on different operating systems.
+--
 -- 'shortCode', 'reactionValueFormats_shortCode' - The emoji short code for the reaction. Short codes are interpreted
 -- slightly differently on different operating systems.
 --
 -- 'unicode', 'reactionValueFormats_unicode' - The Unicode codepoint for the reaction.
---
--- 'emoji', 'reactionValueFormats_emoji' - The Emoji Version 1.0 graphic of the reaction. These graphics are
--- interpreted slightly differently on different operating systems.
 newReactionValueFormats ::
   ReactionValueFormats
 newReactionValueFormats =
   ReactionValueFormats'
-    { shortCode = Prelude.Nothing,
-      unicode = Prelude.Nothing,
-      emoji = Prelude.Nothing
+    { emoji = Prelude.Nothing,
+      shortCode = Prelude.Nothing,
+      unicode = Prelude.Nothing
     }
+
+-- | The Emoji Version 1.0 graphic of the reaction. These graphics are
+-- interpreted slightly differently on different operating systems.
+reactionValueFormats_emoji :: Lens.Lens' ReactionValueFormats (Prelude.Maybe Prelude.Text)
+reactionValueFormats_emoji = Lens.lens (\ReactionValueFormats' {emoji} -> emoji) (\s@ReactionValueFormats' {} a -> s {emoji = a} :: ReactionValueFormats)
 
 -- | The emoji short code for the reaction. Short codes are interpreted
 -- slightly differently on different operating systems.
@@ -72,20 +77,15 @@ reactionValueFormats_shortCode = Lens.lens (\ReactionValueFormats' {shortCode} -
 reactionValueFormats_unicode :: Lens.Lens' ReactionValueFormats (Prelude.Maybe Prelude.Text)
 reactionValueFormats_unicode = Lens.lens (\ReactionValueFormats' {unicode} -> unicode) (\s@ReactionValueFormats' {} a -> s {unicode = a} :: ReactionValueFormats)
 
--- | The Emoji Version 1.0 graphic of the reaction. These graphics are
--- interpreted slightly differently on different operating systems.
-reactionValueFormats_emoji :: Lens.Lens' ReactionValueFormats (Prelude.Maybe Prelude.Text)
-reactionValueFormats_emoji = Lens.lens (\ReactionValueFormats' {emoji} -> emoji) (\s@ReactionValueFormats' {} a -> s {emoji = a} :: ReactionValueFormats)
-
 instance Core.FromJSON ReactionValueFormats where
   parseJSON =
     Core.withObject
       "ReactionValueFormats"
       ( \x ->
           ReactionValueFormats'
-            Prelude.<$> (x Core..:? "shortCode")
+            Prelude.<$> (x Core..:? "emoji")
+            Prelude.<*> (x Core..:? "shortCode")
             Prelude.<*> (x Core..:? "unicode")
-            Prelude.<*> (x Core..:? "emoji")
       )
 
 instance Prelude.Hashable ReactionValueFormats

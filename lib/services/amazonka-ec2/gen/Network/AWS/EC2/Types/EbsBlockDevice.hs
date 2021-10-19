@@ -29,52 +29,32 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEbsBlockDevice' smart constructor.
 data EbsBlockDevice = EbsBlockDevice'
-  { -- | Indicates whether the encryption state of an EBS volume is changed while
-    -- being restored from a backing snapshot. The effect of setting the
-    -- encryption state to @true@ depends on the volume origin (new or from a
-    -- snapshot), starting encryption state, ownership, and whether encryption
-    -- by default is enabled. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters Amazon EBS encryption>
+  { -- | Indicates whether the EBS volume is deleted on instance termination. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
     -- in the /Amazon EC2 User Guide/.
-    --
-    -- In no case can you remove encryption from an encrypted volume.
-    --
-    -- Encrypted volumes can only be attached to instances that support Amazon
-    -- EBS encryption. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
-    --
-    -- This parameter is not returned by .
-    encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the Outpost on which the snapshot is stored.
-    outpostArn :: Prelude.Maybe Prelude.Text,
+    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
     -- | The throughput that the volume supports, in MiB\/s.
     --
     -- This parameter is valid only for @gp3@ volumes.
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
     throughput :: Prelude.Maybe Prelude.Int,
-    -- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
-    -- managed CMK under which the EBS volume is encrypted.
+    -- | The size of the volume, in GiBs. You must specify either a snapshot ID
+    -- or a volume size. If you specify a snapshot, the default is the snapshot
+    -- size. You can specify a volume size that is equal to or larger than the
+    -- snapshot size.
     --
-    -- This parameter is only supported on @BlockDeviceMapping@ objects called
-    -- by
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>,
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
-    -- and
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the EBS volume is deleted on instance termination. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
-    -- in the /Amazon EC2 User Guide/.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | The volume type. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
-    -- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
-    -- you must specify the IOPS that the volume supports.
-    volumeType :: Prelude.Maybe VolumeType,
+    -- The following are the supported volumes sizes for each volume type:
+    --
+    -- -   @gp2@ and @gp3@:1-16,384
+    --
+    -- -   @io1@ and @io2@: 4-16,384
+    --
+    -- -   @st1@ and @sc1@: 125-16,384
+    --
+    -- -   @standard@: 1-1,024
+    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
     -- @io2@ volumes, this represents the number of IOPS that are provisioned
     -- for the volume. For @gp2@ volumes, this represents the baseline
@@ -97,21 +77,41 @@ data EbsBlockDevice = EbsBlockDevice'
     -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
     -- @st1@, @sc1@, or @standard@ volumes.
     iops :: Prelude.Maybe Prelude.Int,
-    -- | The size of the volume, in GiBs. You must specify either a snapshot ID
-    -- or a volume size. If you specify a snapshot, the default is the snapshot
-    -- size. You can specify a volume size that is equal to or larger than the
-    -- snapshot size.
+    -- | The ARN of the Outpost on which the snapshot is stored.
+    outpostArn :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the encryption state of an EBS volume is changed while
+    -- being restored from a backing snapshot. The effect of setting the
+    -- encryption state to @true@ depends on the volume origin (new or from a
+    -- snapshot), starting encryption state, ownership, and whether encryption
+    -- by default is enabled. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters Amazon EBS encryption>
+    -- in the /Amazon EC2 User Guide/.
     --
-    -- The following are the supported volumes sizes for each volume type:
+    -- In no case can you remove encryption from an encrypted volume.
     --
-    -- -   @gp2@ and @gp3@:1-16,384
+    -- Encrypted volumes can only be attached to instances that support Amazon
+    -- EBS encryption. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
     --
-    -- -   @io1@ and @io2@: 4-16,384
+    -- This parameter is not returned by .
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
+    -- managed CMK under which the EBS volume is encrypted.
     --
-    -- -   @st1@ and @sc1@: 125-16,384
-    --
-    -- -   @standard@: 1-1,024
-    volumeSize :: Prelude.Maybe Prelude.Int
+    -- This parameter is only supported on @BlockDeviceMapping@ objects called
+    -- by
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>,
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
+    -- and
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The volume type. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+    -- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
+    -- you must specify the IOPS that the volume supports.
+    volumeType :: Prelude.Maybe VolumeType,
+    -- | The ID of the snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -123,23 +123,10 @@ data EbsBlockDevice = EbsBlockDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encrypted', 'ebsBlockDevice_encrypted' - Indicates whether the encryption state of an EBS volume is changed while
--- being restored from a backing snapshot. The effect of setting the
--- encryption state to @true@ depends on the volume origin (new or from a
--- snapshot), starting encryption state, ownership, and whether encryption
--- by default is enabled. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters Amazon EBS encryption>
+-- 'deleteOnTermination', 'ebsBlockDevice_deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
 -- in the /Amazon EC2 User Guide/.
---
--- In no case can you remove encryption from an encrypted volume.
---
--- Encrypted volumes can only be attached to instances that support Amazon
--- EBS encryption. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
---
--- This parameter is not returned by .
---
--- 'outpostArn', 'ebsBlockDevice_outpostArn' - The ARN of the Outpost on which the snapshot is stored.
 --
 -- 'throughput', 'ebsBlockDevice_throughput' - The throughput that the volume supports, in MiB\/s.
 --
@@ -147,27 +134,20 @@ data EbsBlockDevice = EbsBlockDevice'
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
 --
--- 'kmsKeyId', 'ebsBlockDevice_kmsKeyId' - Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
--- managed CMK under which the EBS volume is encrypted.
+-- 'volumeSize', 'ebsBlockDevice_volumeSize' - The size of the volume, in GiBs. You must specify either a snapshot ID
+-- or a volume size. If you specify a snapshot, the default is the snapshot
+-- size. You can specify a volume size that is equal to or larger than the
+-- snapshot size.
 --
--- This parameter is only supported on @BlockDeviceMapping@ objects called
--- by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>,
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
--- and
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
+-- The following are the supported volumes sizes for each volume type:
 --
--- 'deleteOnTermination', 'ebsBlockDevice_deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
--- in the /Amazon EC2 User Guide/.
+-- -   @gp2@ and @gp3@:1-16,384
 --
--- 'snapshotId', 'ebsBlockDevice_snapshotId' - The ID of the snapshot.
+-- -   @io1@ and @io2@: 4-16,384
 --
--- 'volumeType', 'ebsBlockDevice_volumeType' - The volume type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
--- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
--- you must specify the IOPS that the volume supports.
+-- -   @st1@ and @sc1@: 125-16,384
+--
+-- -   @standard@: 1-1,024
 --
 -- 'iops', 'ebsBlockDevice_iops' - The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
 -- @io2@ volumes, this represents the number of IOPS that are provisioned
@@ -191,36 +171,9 @@ data EbsBlockDevice = EbsBlockDevice'
 -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
 -- @st1@, @sc1@, or @standard@ volumes.
 --
--- 'volumeSize', 'ebsBlockDevice_volumeSize' - The size of the volume, in GiBs. You must specify either a snapshot ID
--- or a volume size. If you specify a snapshot, the default is the snapshot
--- size. You can specify a volume size that is equal to or larger than the
--- snapshot size.
+-- 'outpostArn', 'ebsBlockDevice_outpostArn' - The ARN of the Outpost on which the snapshot is stored.
 --
--- The following are the supported volumes sizes for each volume type:
---
--- -   @gp2@ and @gp3@:1-16,384
---
--- -   @io1@ and @io2@: 4-16,384
---
--- -   @st1@ and @sc1@: 125-16,384
---
--- -   @standard@: 1-1,024
-newEbsBlockDevice ::
-  EbsBlockDevice
-newEbsBlockDevice =
-  EbsBlockDevice'
-    { encrypted = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
-      throughput = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      deleteOnTermination = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      iops = Prelude.Nothing,
-      volumeSize = Prelude.Nothing
-    }
-
--- | Indicates whether the encryption state of an EBS volume is changed while
+-- 'encrypted', 'ebsBlockDevice_encrypted' - Indicates whether the encryption state of an EBS volume is changed while
 -- being restored from a backing snapshot. The effect of setting the
 -- encryption state to @true@ depends on the volume origin (new or from a
 -- snapshot), starting encryption state, ownership, and whether encryption
@@ -235,12 +188,45 @@ newEbsBlockDevice =
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
 -- This parameter is not returned by .
-ebsBlockDevice_encrypted :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
-ebsBlockDevice_encrypted = Lens.lens (\EbsBlockDevice' {encrypted} -> encrypted) (\s@EbsBlockDevice' {} a -> s {encrypted = a} :: EbsBlockDevice)
+--
+-- 'kmsKeyId', 'ebsBlockDevice_kmsKeyId' - Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
+-- managed CMK under which the EBS volume is encrypted.
+--
+-- This parameter is only supported on @BlockDeviceMapping@ objects called
+-- by
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>,
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
+-- and
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
+--
+-- 'volumeType', 'ebsBlockDevice_volumeType' - The volume type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+-- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
+-- you must specify the IOPS that the volume supports.
+--
+-- 'snapshotId', 'ebsBlockDevice_snapshotId' - The ID of the snapshot.
+newEbsBlockDevice ::
+  EbsBlockDevice
+newEbsBlockDevice =
+  EbsBlockDevice'
+    { deleteOnTermination =
+        Prelude.Nothing,
+      throughput = Prelude.Nothing,
+      volumeSize = Prelude.Nothing,
+      iops = Prelude.Nothing,
+      outpostArn = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
+      snapshotId = Prelude.Nothing
+    }
 
--- | The ARN of the Outpost on which the snapshot is stored.
-ebsBlockDevice_outpostArn :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
-ebsBlockDevice_outpostArn = Lens.lens (\EbsBlockDevice' {outpostArn} -> outpostArn) (\s@EbsBlockDevice' {} a -> s {outpostArn = a} :: EbsBlockDevice)
+-- | Indicates whether the EBS volume is deleted on instance termination. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
+-- in the /Amazon EC2 User Guide/.
+ebsBlockDevice_deleteOnTermination :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
+ebsBlockDevice_deleteOnTermination = Lens.lens (\EbsBlockDevice' {deleteOnTermination} -> deleteOnTermination) (\s@EbsBlockDevice' {} a -> s {deleteOnTermination = a} :: EbsBlockDevice)
 
 -- | The throughput that the volume supports, in MiB\/s.
 --
@@ -250,35 +236,22 @@ ebsBlockDevice_outpostArn = Lens.lens (\EbsBlockDevice' {outpostArn} -> outpostA
 ebsBlockDevice_throughput :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_throughput = Lens.lens (\EbsBlockDevice' {throughput} -> throughput) (\s@EbsBlockDevice' {} a -> s {throughput = a} :: EbsBlockDevice)
 
--- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
--- managed CMK under which the EBS volume is encrypted.
+-- | The size of the volume, in GiBs. You must specify either a snapshot ID
+-- or a volume size. If you specify a snapshot, the default is the snapshot
+-- size. You can specify a volume size that is equal to or larger than the
+-- snapshot size.
 --
--- This parameter is only supported on @BlockDeviceMapping@ objects called
--- by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>,
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
--- and
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
-ebsBlockDevice_kmsKeyId :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
-ebsBlockDevice_kmsKeyId = Lens.lens (\EbsBlockDevice' {kmsKeyId} -> kmsKeyId) (\s@EbsBlockDevice' {} a -> s {kmsKeyId = a} :: EbsBlockDevice)
-
--- | Indicates whether the EBS volume is deleted on instance termination. For
--- more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
--- in the /Amazon EC2 User Guide/.
-ebsBlockDevice_deleteOnTermination :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
-ebsBlockDevice_deleteOnTermination = Lens.lens (\EbsBlockDevice' {deleteOnTermination} -> deleteOnTermination) (\s@EbsBlockDevice' {} a -> s {deleteOnTermination = a} :: EbsBlockDevice)
-
--- | The ID of the snapshot.
-ebsBlockDevice_snapshotId :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
-ebsBlockDevice_snapshotId = Lens.lens (\EbsBlockDevice' {snapshotId} -> snapshotId) (\s@EbsBlockDevice' {} a -> s {snapshotId = a} :: EbsBlockDevice)
-
--- | The volume type. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
--- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
--- you must specify the IOPS that the volume supports.
-ebsBlockDevice_volumeType :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeType)
-ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeType) (\s@EbsBlockDevice' {} a -> s {volumeType = a} :: EbsBlockDevice)
+-- The following are the supported volumes sizes for each volume type:
+--
+-- -   @gp2@ and @gp3@:1-16,384
+--
+-- -   @io1@ and @io2@: 4-16,384
+--
+-- -   @st1@ and @sc1@: 125-16,384
+--
+-- -   @standard@: 1-1,024
+ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
+ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
 
 -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
 -- @io2@ volumes, this represents the number of IOPS that are provisioned
@@ -304,35 +277,63 @@ ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeTy
 ebsBlockDevice_iops :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
 ebsBlockDevice_iops = Lens.lens (\EbsBlockDevice' {iops} -> iops) (\s@EbsBlockDevice' {} a -> s {iops = a} :: EbsBlockDevice)
 
--- | The size of the volume, in GiBs. You must specify either a snapshot ID
--- or a volume size. If you specify a snapshot, the default is the snapshot
--- size. You can specify a volume size that is equal to or larger than the
--- snapshot size.
+-- | The ARN of the Outpost on which the snapshot is stored.
+ebsBlockDevice_outpostArn :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
+ebsBlockDevice_outpostArn = Lens.lens (\EbsBlockDevice' {outpostArn} -> outpostArn) (\s@EbsBlockDevice' {} a -> s {outpostArn = a} :: EbsBlockDevice)
+
+-- | Indicates whether the encryption state of an EBS volume is changed while
+-- being restored from a backing snapshot. The effect of setting the
+-- encryption state to @true@ depends on the volume origin (new or from a
+-- snapshot), starting encryption state, ownership, and whether encryption
+-- by default is enabled. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters Amazon EBS encryption>
+-- in the /Amazon EC2 User Guide/.
 --
--- The following are the supported volumes sizes for each volume type:
+-- In no case can you remove encryption from an encrypted volume.
 --
--- -   @gp2@ and @gp3@:1-16,384
+-- Encrypted volumes can only be attached to instances that support Amazon
+-- EBS encryption. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
--- -   @io1@ and @io2@: 4-16,384
+-- This parameter is not returned by .
+ebsBlockDevice_encrypted :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
+ebsBlockDevice_encrypted = Lens.lens (\EbsBlockDevice' {encrypted} -> encrypted) (\s@EbsBlockDevice' {} a -> s {encrypted = a} :: EbsBlockDevice)
+
+-- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
+-- managed CMK under which the EBS volume is encrypted.
 --
--- -   @st1@ and @sc1@: 125-16,384
---
--- -   @standard@: 1-1,024
-ebsBlockDevice_volumeSize :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Int)
-ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSize) (\s@EbsBlockDevice' {} a -> s {volumeSize = a} :: EbsBlockDevice)
+-- This parameter is only supported on @BlockDeviceMapping@ objects called
+-- by
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html RunInstances>,
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html RequestSpotFleet>,
+-- and
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html RequestSpotInstances>.
+ebsBlockDevice_kmsKeyId :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
+ebsBlockDevice_kmsKeyId = Lens.lens (\EbsBlockDevice' {kmsKeyId} -> kmsKeyId) (\s@EbsBlockDevice' {} a -> s {kmsKeyId = a} :: EbsBlockDevice)
+
+-- | The volume type. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
+-- in the /Amazon EC2 User Guide/. If the volume type is @io1@ or @io2@,
+-- you must specify the IOPS that the volume supports.
+ebsBlockDevice_volumeType :: Lens.Lens' EbsBlockDevice (Prelude.Maybe VolumeType)
+ebsBlockDevice_volumeType = Lens.lens (\EbsBlockDevice' {volumeType} -> volumeType) (\s@EbsBlockDevice' {} a -> s {volumeType = a} :: EbsBlockDevice)
+
+-- | The ID of the snapshot.
+ebsBlockDevice_snapshotId :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
+ebsBlockDevice_snapshotId = Lens.lens (\EbsBlockDevice' {snapshotId} -> snapshotId) (\s@EbsBlockDevice' {} a -> s {snapshotId = a} :: EbsBlockDevice)
 
 instance Core.FromXML EbsBlockDevice where
   parseXML x =
     EbsBlockDevice'
-      Prelude.<$> (x Core..@? "encrypted")
-      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<$> (x Core..@? "deleteOnTermination")
       Prelude.<*> (x Core..@? "throughput")
-      Prelude.<*> (x Core..@? "KmsKeyId")
-      Prelude.<*> (x Core..@? "deleteOnTermination")
-      Prelude.<*> (x Core..@? "snapshotId")
-      Prelude.<*> (x Core..@? "volumeType")
-      Prelude.<*> (x Core..@? "iops")
       Prelude.<*> (x Core..@? "volumeSize")
+      Prelude.<*> (x Core..@? "iops")
+      Prelude.<*> (x Core..@? "outpostArn")
+      Prelude.<*> (x Core..@? "encrypted")
+      Prelude.<*> (x Core..@? "KmsKeyId")
+      Prelude.<*> (x Core..@? "volumeType")
+      Prelude.<*> (x Core..@? "snapshotId")
 
 instance Prelude.Hashable EbsBlockDevice
 
@@ -341,13 +342,13 @@ instance Prelude.NFData EbsBlockDevice
 instance Core.ToQuery EbsBlockDevice where
   toQuery EbsBlockDevice' {..} =
     Prelude.mconcat
-      [ "Encrypted" Core.=: encrypted,
-        "OutpostArn" Core.=: outpostArn,
+      [ "DeleteOnTermination" Core.=: deleteOnTermination,
         "Throughput" Core.=: throughput,
-        "KmsKeyId" Core.=: kmsKeyId,
-        "DeleteOnTermination" Core.=: deleteOnTermination,
-        "SnapshotId" Core.=: snapshotId,
-        "VolumeType" Core.=: volumeType,
+        "VolumeSize" Core.=: volumeSize,
         "Iops" Core.=: iops,
-        "VolumeSize" Core.=: volumeSize
+        "OutpostArn" Core.=: outpostArn,
+        "Encrypted" Core.=: encrypted,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "VolumeType" Core.=: volumeType,
+        "SnapshotId" Core.=: snapshotId
       ]

@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeviceSelectionResult' smart constructor.
 data DeviceSelectionResult = DeviceSelectionResult'
-  { -- | The maximum number of devices to be selected by a device filter and
-    -- included in a test run.
-    maxDevices :: Prelude.Maybe Prelude.Int,
+  { -- | The number of devices that matched the device filter selection criteria.
+    matchedDevicesCount :: Prelude.Maybe Prelude.Int,
     -- | The filters in a device selection result.
     filters :: Prelude.Maybe [DeviceFilter],
-    -- | The number of devices that matched the device filter selection criteria.
-    matchedDevicesCount :: Prelude.Maybe Prelude.Int
+    -- | The maximum number of devices to be selected by a device filter and
+    -- included in a test run.
+    maxDevices :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,34 +48,34 @@ data DeviceSelectionResult = DeviceSelectionResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxDevices', 'deviceSelectionResult_maxDevices' - The maximum number of devices to be selected by a device filter and
--- included in a test run.
+-- 'matchedDevicesCount', 'deviceSelectionResult_matchedDevicesCount' - The number of devices that matched the device filter selection criteria.
 --
 -- 'filters', 'deviceSelectionResult_filters' - The filters in a device selection result.
 --
--- 'matchedDevicesCount', 'deviceSelectionResult_matchedDevicesCount' - The number of devices that matched the device filter selection criteria.
+-- 'maxDevices', 'deviceSelectionResult_maxDevices' - The maximum number of devices to be selected by a device filter and
+-- included in a test run.
 newDeviceSelectionResult ::
   DeviceSelectionResult
 newDeviceSelectionResult =
   DeviceSelectionResult'
-    { maxDevices =
+    { matchedDevicesCount =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      matchedDevicesCount = Prelude.Nothing
+      maxDevices = Prelude.Nothing
     }
+
+-- | The number of devices that matched the device filter selection criteria.
+deviceSelectionResult_matchedDevicesCount :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
+deviceSelectionResult_matchedDevicesCount = Lens.lens (\DeviceSelectionResult' {matchedDevicesCount} -> matchedDevicesCount) (\s@DeviceSelectionResult' {} a -> s {matchedDevicesCount = a} :: DeviceSelectionResult)
+
+-- | The filters in a device selection result.
+deviceSelectionResult_filters :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe [DeviceFilter])
+deviceSelectionResult_filters = Lens.lens (\DeviceSelectionResult' {filters} -> filters) (\s@DeviceSelectionResult' {} a -> s {filters = a} :: DeviceSelectionResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of devices to be selected by a device filter and
 -- included in a test run.
 deviceSelectionResult_maxDevices :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
 deviceSelectionResult_maxDevices = Lens.lens (\DeviceSelectionResult' {maxDevices} -> maxDevices) (\s@DeviceSelectionResult' {} a -> s {maxDevices = a} :: DeviceSelectionResult)
-
--- | The filters in a device selection result.
-deviceSelectionResult_filters :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe [DeviceFilter])
-deviceSelectionResult_filters = Lens.lens (\DeviceSelectionResult' {filters} -> filters) (\s@DeviceSelectionResult' {} a -> s {filters = a} :: DeviceSelectionResult) Prelude.. Lens.mapping Lens._Coerce
-
--- | The number of devices that matched the device filter selection criteria.
-deviceSelectionResult_matchedDevicesCount :: Lens.Lens' DeviceSelectionResult (Prelude.Maybe Prelude.Int)
-deviceSelectionResult_matchedDevicesCount = Lens.lens (\DeviceSelectionResult' {matchedDevicesCount} -> matchedDevicesCount) (\s@DeviceSelectionResult' {} a -> s {matchedDevicesCount = a} :: DeviceSelectionResult)
 
 instance Core.FromJSON DeviceSelectionResult where
   parseJSON =
@@ -83,9 +83,9 @@ instance Core.FromJSON DeviceSelectionResult where
       "DeviceSelectionResult"
       ( \x ->
           DeviceSelectionResult'
-            Prelude.<$> (x Core..:? "maxDevices")
+            Prelude.<$> (x Core..:? "matchedDevicesCount")
             Prelude.<*> (x Core..:? "filters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "matchedDevicesCount")
+            Prelude.<*> (x Core..:? "maxDevices")
       )
 
 instance Prelude.Hashable DeviceSelectionResult

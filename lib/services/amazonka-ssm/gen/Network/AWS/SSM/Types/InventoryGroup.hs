@@ -63,7 +63,7 @@ newInventoryGroup ::
 newInventoryGroup pName_ pFilters_ =
   InventoryGroup'
     { name = pName_,
-      filters = Lens._Coerce Lens.# pFilters_
+      filters = Lens.coerced Lens.# pFilters_
     }
 
 -- | The name of the group.
@@ -75,7 +75,7 @@ inventoryGroup_name = Lens.lens (\InventoryGroup' {name} -> name) (\s@InventoryG
 -- @notMatchingCount@ field displays the number of resources that don\'t
 -- match the criteria.
 inventoryGroup_filters :: Lens.Lens' InventoryGroup (Prelude.NonEmpty InventoryFilter)
-inventoryGroup_filters = Lens.lens (\InventoryGroup' {filters} -> filters) (\s@InventoryGroup' {} a -> s {filters = a} :: InventoryGroup) Prelude.. Lens._Coerce
+inventoryGroup_filters = Lens.lens (\InventoryGroup' {filters} -> filters) (\s@InventoryGroup' {} a -> s {filters = a} :: InventoryGroup) Prelude.. Lens.coerced
 
 instance Prelude.Hashable InventoryGroup
 

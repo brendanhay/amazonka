@@ -105,7 +105,7 @@ newListTapePools =
 -- to list. If you don\'t specify a custom tape pool ARN, the response
 -- lists all custom tape pools.
 listTapePools_poolARNs :: Lens.Lens' ListTapePools (Prelude.Maybe [Prelude.Text])
-listTapePools_poolARNs = Lens.lens (\ListTapePools' {poolARNs} -> poolARNs) (\s@ListTapePools' {} a -> s {poolARNs = a} :: ListTapePools) Prelude.. Lens.mapping Lens._Coerce
+listTapePools_poolARNs = Lens.lens (\ListTapePools' {poolARNs} -> poolARNs) (\s@ListTapePools' {} a -> s {poolARNs = a} :: ListTapePools) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that indicates the position at which to begin the returned list
 -- of tape pools.
@@ -234,7 +234,7 @@ newListTapePoolsResponse pHttpStatus_ =
 -- custom tape pool. If there are no custom tape pools, the @PoolInfos@ is
 -- an empty array.
 listTapePoolsResponse_poolInfos :: Lens.Lens' ListTapePoolsResponse (Prelude.Maybe [PoolInfo])
-listTapePoolsResponse_poolInfos = Lens.lens (\ListTapePoolsResponse' {poolInfos} -> poolInfos) (\s@ListTapePoolsResponse' {} a -> s {poolInfos = a} :: ListTapePoolsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTapePoolsResponse_poolInfos = Lens.lens (\ListTapePoolsResponse' {poolInfos} -> poolInfos) (\s@ListTapePoolsResponse' {} a -> s {poolInfos = a} :: ListTapePoolsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string that indicates the position at which to begin the returned list
 -- of tape pools. Use the marker in your next request to continue

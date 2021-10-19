@@ -32,20 +32,20 @@ import Network.AWS.Redshift.Types.Tag
 --
 -- /See:/ 'newSnapshotSchedule' smart constructor.
 data SnapshotSchedule = SnapshotSchedule'
-  { nextInvocations :: Prelude.Maybe [Core.ISO8601],
-    -- | A list of clusters associated with the schedule. A maximum of 100
+  { -- | A list of clusters associated with the schedule. A maximum of 100
     -- clusters is returned.
     associatedClusters :: Prelude.Maybe [ClusterAssociatedToSchedule],
-    -- | A unique identifier for the schedule.
-    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The description of the schedule.
-    scheduleDescription :: Prelude.Maybe Prelude.Text,
+    nextInvocations :: Prelude.Maybe [Core.ISO8601],
     -- | A list of ScheduleDefinitions.
     scheduleDefinitions :: Prelude.Maybe [Prelude.Text],
-    -- | An optional set of tags describing the schedule.
-    tags :: Prelude.Maybe [Tag],
+    -- | The description of the schedule.
+    scheduleDescription :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the schedule.
+    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The number of clusters associated with the schedule.
-    associatedClusterCount :: Prelude.Maybe Prelude.Int
+    associatedClusterCount :: Prelude.Maybe Prelude.Int,
+    -- | An optional set of tags describing the schedule.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,84 +57,84 @@ data SnapshotSchedule = SnapshotSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextInvocations', 'snapshotSchedule_nextInvocations' -
---
 -- 'associatedClusters', 'snapshotSchedule_associatedClusters' - A list of clusters associated with the schedule. A maximum of 100
 -- clusters is returned.
 --
--- 'scheduleIdentifier', 'snapshotSchedule_scheduleIdentifier' - A unique identifier for the schedule.
---
--- 'scheduleDescription', 'snapshotSchedule_scheduleDescription' - The description of the schedule.
+-- 'nextInvocations', 'snapshotSchedule_nextInvocations' -
 --
 -- 'scheduleDefinitions', 'snapshotSchedule_scheduleDefinitions' - A list of ScheduleDefinitions.
 --
--- 'tags', 'snapshotSchedule_tags' - An optional set of tags describing the schedule.
+-- 'scheduleDescription', 'snapshotSchedule_scheduleDescription' - The description of the schedule.
+--
+-- 'scheduleIdentifier', 'snapshotSchedule_scheduleIdentifier' - A unique identifier for the schedule.
 --
 -- 'associatedClusterCount', 'snapshotSchedule_associatedClusterCount' - The number of clusters associated with the schedule.
+--
+-- 'tags', 'snapshotSchedule_tags' - An optional set of tags describing the schedule.
 newSnapshotSchedule ::
   SnapshotSchedule
 newSnapshotSchedule =
   SnapshotSchedule'
-    { nextInvocations =
+    { associatedClusters =
         Prelude.Nothing,
-      associatedClusters = Prelude.Nothing,
-      scheduleIdentifier = Prelude.Nothing,
-      scheduleDescription = Prelude.Nothing,
+      nextInvocations = Prelude.Nothing,
       scheduleDefinitions = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      associatedClusterCount = Prelude.Nothing
+      scheduleDescription = Prelude.Nothing,
+      scheduleIdentifier = Prelude.Nothing,
+      associatedClusterCount = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- |
-snapshotSchedule_nextInvocations :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.UTCTime])
-snapshotSchedule_nextInvocations = Lens.lens (\SnapshotSchedule' {nextInvocations} -> nextInvocations) (\s@SnapshotSchedule' {} a -> s {nextInvocations = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of clusters associated with the schedule. A maximum of 100
 -- clusters is returned.
 snapshotSchedule_associatedClusters :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [ClusterAssociatedToSchedule])
-snapshotSchedule_associatedClusters = Lens.lens (\SnapshotSchedule' {associatedClusters} -> associatedClusters) (\s@SnapshotSchedule' {} a -> s {associatedClusters = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
+snapshotSchedule_associatedClusters = Lens.lens (\SnapshotSchedule' {associatedClusters} -> associatedClusters) (\s@SnapshotSchedule' {} a -> s {associatedClusters = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
 
--- | A unique identifier for the schedule.
-snapshotSchedule_scheduleIdentifier :: Lens.Lens' SnapshotSchedule (Prelude.Maybe Prelude.Text)
-snapshotSchedule_scheduleIdentifier = Lens.lens (\SnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@SnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: SnapshotSchedule)
+-- |
+snapshotSchedule_nextInvocations :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.UTCTime])
+snapshotSchedule_nextInvocations = Lens.lens (\SnapshotSchedule' {nextInvocations} -> nextInvocations) (\s@SnapshotSchedule' {} a -> s {nextInvocations = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of ScheduleDefinitions.
+snapshotSchedule_scheduleDefinitions :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.Text])
+snapshotSchedule_scheduleDefinitions = Lens.lens (\SnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@SnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the schedule.
 snapshotSchedule_scheduleDescription :: Lens.Lens' SnapshotSchedule (Prelude.Maybe Prelude.Text)
 snapshotSchedule_scheduleDescription = Lens.lens (\SnapshotSchedule' {scheduleDescription} -> scheduleDescription) (\s@SnapshotSchedule' {} a -> s {scheduleDescription = a} :: SnapshotSchedule)
 
--- | A list of ScheduleDefinitions.
-snapshotSchedule_scheduleDefinitions :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Prelude.Text])
-snapshotSchedule_scheduleDefinitions = Lens.lens (\SnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@SnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional set of tags describing the schedule.
-snapshotSchedule_tags :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Tag])
-snapshotSchedule_tags = Lens.lens (\SnapshotSchedule' {tags} -> tags) (\s@SnapshotSchedule' {} a -> s {tags = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
+-- | A unique identifier for the schedule.
+snapshotSchedule_scheduleIdentifier :: Lens.Lens' SnapshotSchedule (Prelude.Maybe Prelude.Text)
+snapshotSchedule_scheduleIdentifier = Lens.lens (\SnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@SnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: SnapshotSchedule)
 
 -- | The number of clusters associated with the schedule.
 snapshotSchedule_associatedClusterCount :: Lens.Lens' SnapshotSchedule (Prelude.Maybe Prelude.Int)
 snapshotSchedule_associatedClusterCount = Lens.lens (\SnapshotSchedule' {associatedClusterCount} -> associatedClusterCount) (\s@SnapshotSchedule' {} a -> s {associatedClusterCount = a} :: SnapshotSchedule)
 
+-- | An optional set of tags describing the schedule.
+snapshotSchedule_tags :: Lens.Lens' SnapshotSchedule (Prelude.Maybe [Tag])
+snapshotSchedule_tags = Lens.lens (\SnapshotSchedule' {tags} -> tags) (\s@SnapshotSchedule' {} a -> s {tags = a} :: SnapshotSchedule) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML SnapshotSchedule where
   parseXML x =
     SnapshotSchedule'
-      Prelude.<$> ( x Core..@? "NextInvocations" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Core.parseXMLList "SnapshotTime")
-                  )
-      Prelude.<*> ( x Core..@? "AssociatedClusters"
+      Prelude.<$> ( x Core..@? "AssociatedClusters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Core.parseXMLList "ClusterAssociatedToSchedule")
                   )
-      Prelude.<*> (x Core..@? "ScheduleIdentifier")
-      Prelude.<*> (x Core..@? "ScheduleDescription")
+      Prelude.<*> ( x Core..@? "NextInvocations" Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "SnapshotTime")
+                  )
       Prelude.<*> ( x Core..@? "ScheduleDefinitions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "ScheduleDefinition")
                   )
+      Prelude.<*> (x Core..@? "ScheduleDescription")
+      Prelude.<*> (x Core..@? "ScheduleIdentifier")
+      Prelude.<*> (x Core..@? "AssociatedClusterCount")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
-      Prelude.<*> (x Core..@? "AssociatedClusterCount")
 
 instance Prelude.Hashable SnapshotSchedule
 

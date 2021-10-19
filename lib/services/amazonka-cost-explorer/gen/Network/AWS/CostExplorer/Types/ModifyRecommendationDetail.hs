@@ -55,7 +55,7 @@ newModifyRecommendationDetail =
 -- | Determines whether this instance type is the Amazon Web Services default
 -- recommendation.
 modifyRecommendationDetail_targetInstances :: Lens.Lens' ModifyRecommendationDetail (Prelude.Maybe [TargetInstance])
-modifyRecommendationDetail_targetInstances = Lens.lens (\ModifyRecommendationDetail' {targetInstances} -> targetInstances) (\s@ModifyRecommendationDetail' {} a -> s {targetInstances = a} :: ModifyRecommendationDetail) Prelude.. Lens.mapping Lens._Coerce
+modifyRecommendationDetail_targetInstances = Lens.lens (\ModifyRecommendationDetail' {targetInstances} -> targetInstances) (\s@ModifyRecommendationDetail' {} a -> s {targetInstances = a} :: ModifyRecommendationDetail) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ModifyRecommendationDetail where
   parseJSON =

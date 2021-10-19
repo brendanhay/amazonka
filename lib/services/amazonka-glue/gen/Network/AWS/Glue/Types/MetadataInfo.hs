@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetadataInfo' smart constructor.
 data MetadataInfo = MetadataInfo'
-  { -- | Other metadata belonging to the same metadata key.
-    otherMetadataValueList :: Prelude.Maybe [OtherMetadataValueListItem],
-    -- | The time at which the entry was created.
+  { -- | The time at which the entry was created.
     createdTime :: Prelude.Maybe Prelude.Text,
+    -- | Other metadata belonging to the same metadata key.
+    otherMetadataValueList :: Prelude.Maybe [OtherMetadataValueListItem],
     -- | The metadata key’s corresponding value.
     metadataValue :: Prelude.Maybe Prelude.Text
   }
@@ -45,28 +45,27 @@ data MetadataInfo = MetadataInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.
---
 -- 'createdTime', 'metadataInfo_createdTime' - The time at which the entry was created.
+--
+-- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.
 --
 -- 'metadataValue', 'metadataInfo_metadataValue' - The metadata key’s corresponding value.
 newMetadataInfo ::
   MetadataInfo
 newMetadataInfo =
   MetadataInfo'
-    { otherMetadataValueList =
-        Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
+      otherMetadataValueList = Prelude.Nothing,
       metadataValue = Prelude.Nothing
     }
-
--- | Other metadata belonging to the same metadata key.
-metadataInfo_otherMetadataValueList :: Lens.Lens' MetadataInfo (Prelude.Maybe [OtherMetadataValueListItem])
-metadataInfo_otherMetadataValueList = Lens.lens (\MetadataInfo' {otherMetadataValueList} -> otherMetadataValueList) (\s@MetadataInfo' {} a -> s {otherMetadataValueList = a} :: MetadataInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time at which the entry was created.
 metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
 metadataInfo_createdTime = Lens.lens (\MetadataInfo' {createdTime} -> createdTime) (\s@MetadataInfo' {} a -> s {createdTime = a} :: MetadataInfo)
+
+-- | Other metadata belonging to the same metadata key.
+metadataInfo_otherMetadataValueList :: Lens.Lens' MetadataInfo (Prelude.Maybe [OtherMetadataValueListItem])
+metadataInfo_otherMetadataValueList = Lens.lens (\MetadataInfo' {otherMetadataValueList} -> otherMetadataValueList) (\s@MetadataInfo' {} a -> s {otherMetadataValueList = a} :: MetadataInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata key’s corresponding value.
 metadataInfo_metadataValue :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
@@ -78,10 +77,10 @@ instance Core.FromJSON MetadataInfo where
       "MetadataInfo"
       ( \x ->
           MetadataInfo'
-            Prelude.<$> ( x Core..:? "OtherMetadataValueList"
+            Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> ( x Core..:? "OtherMetadataValueList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "MetadataValue")
       )
 

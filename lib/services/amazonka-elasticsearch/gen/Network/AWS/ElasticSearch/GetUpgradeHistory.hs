@@ -211,7 +211,7 @@ getUpgradeHistoryResponse_nextToken = Lens.lens (\GetUpgradeHistoryResponse' {ne
 -- Upgrade Eligibility Check performed on a domain returned as part of
 -- @ GetUpgradeHistoryResponse @ object.
 getUpgradeHistoryResponse_upgradeHistories :: Lens.Lens' GetUpgradeHistoryResponse (Prelude.Maybe [UpgradeHistory])
-getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryResponse' {upgradeHistories} -> upgradeHistories) (\s@GetUpgradeHistoryResponse' {} a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
+getUpgradeHistoryResponse_upgradeHistories = Lens.lens (\GetUpgradeHistoryResponse' {upgradeHistories} -> upgradeHistories) (\s@GetUpgradeHistoryResponse' {} a -> s {upgradeHistories = a} :: GetUpgradeHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getUpgradeHistoryResponse_httpStatus :: Lens.Lens' GetUpgradeHistoryResponse Prelude.Int

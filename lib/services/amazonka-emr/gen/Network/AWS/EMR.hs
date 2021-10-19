@@ -23,11 +23,11 @@ module Network.AWS.EMR
     -- * Errors
     -- $errors
 
-    -- ** InternalServerError
-    _InternalServerError,
-
     -- ** InvalidRequestException
     _InvalidRequestException,
+
+    -- ** InternalServerError
+    _InternalServerError,
 
     -- ** InternalServerException
     _InternalServerException,
@@ -35,11 +35,11 @@ module Network.AWS.EMR
     -- * Waiters
     -- $waiters
 
-    -- ** ClusterTerminated
-    newClusterTerminated,
-
     -- ** StepComplete
     newStepComplete,
+
+    -- ** ClusterTerminated
+    newClusterTerminated,
 
     -- ** ClusterRunning
     newClusterRunning,
@@ -47,23 +47,35 @@ module Network.AWS.EMR
     -- * Operations
     -- $operations
 
-    -- ** ModifyInstanceFleet
-    ModifyInstanceFleet (ModifyInstanceFleet'),
-    newModifyInstanceFleet,
-    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
-    newModifyInstanceFleetResponse,
+    -- ** RunJobFlow
+    RunJobFlow (RunJobFlow'),
+    newRunJobFlow,
+    RunJobFlowResponse (RunJobFlowResponse'),
+    newRunJobFlowResponse,
 
-    -- ** DeleteSecurityConfiguration
-    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
-    newDeleteSecurityConfiguration,
-    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
-    newDeleteSecurityConfigurationResponse,
+    -- ** RemoveAutoScalingPolicy
+    RemoveAutoScalingPolicy (RemoveAutoScalingPolicy'),
+    newRemoveAutoScalingPolicy,
+    RemoveAutoScalingPolicyResponse (RemoveAutoScalingPolicyResponse'),
+    newRemoveAutoScalingPolicyResponse,
 
-    -- ** ListSecurityConfigurations (Paginated)
-    ListSecurityConfigurations (ListSecurityConfigurations'),
-    newListSecurityConfigurations,
-    ListSecurityConfigurationsResponse (ListSecurityConfigurationsResponse'),
-    newListSecurityConfigurationsResponse,
+    -- ** CreateStudio
+    CreateStudio (CreateStudio'),
+    newCreateStudio,
+    CreateStudioResponse (CreateStudioResponse'),
+    newCreateStudioResponse,
+
+    -- ** SetVisibleToAllUsers
+    SetVisibleToAllUsers (SetVisibleToAllUsers'),
+    newSetVisibleToAllUsers,
+    SetVisibleToAllUsersResponse (SetVisibleToAllUsersResponse'),
+    newSetVisibleToAllUsersResponse,
+
+    -- ** TerminateJobFlows
+    TerminateJobFlows (TerminateJobFlows'),
+    newTerminateJobFlows,
+    TerminateJobFlowsResponse (TerminateJobFlowsResponse'),
+    newTerminateJobFlowsResponse,
 
     -- ** DescribeStep
     DescribeStep (DescribeStep'),
@@ -77,167 +89,17 @@ module Network.AWS.EMR
     RemoveTagsResponse (RemoveTagsResponse'),
     newRemoveTagsResponse,
 
-    -- ** GetStudioSessionMapping
-    GetStudioSessionMapping (GetStudioSessionMapping'),
-    newGetStudioSessionMapping,
-    GetStudioSessionMappingResponse (GetStudioSessionMappingResponse'),
-    newGetStudioSessionMappingResponse,
-
-    -- ** SetVisibleToAllUsers
-    SetVisibleToAllUsers (SetVisibleToAllUsers'),
-    newSetVisibleToAllUsers,
-    SetVisibleToAllUsersResponse (SetVisibleToAllUsersResponse'),
-    newSetVisibleToAllUsersResponse,
-
-    -- ** RunJobFlow
-    RunJobFlow (RunJobFlow'),
-    newRunJobFlow,
-    RunJobFlowResponse (RunJobFlowResponse'),
-    newRunJobFlowResponse,
-
-    -- ** CreateStudio
-    CreateStudio (CreateStudio'),
-    newCreateStudio,
-    CreateStudioResponse (CreateStudioResponse'),
-    newCreateStudioResponse,
-
-    -- ** AddInstanceGroups
-    AddInstanceGroups (AddInstanceGroups'),
-    newAddInstanceGroups,
-    AddInstanceGroupsResponse (AddInstanceGroupsResponse'),
-    newAddInstanceGroupsResponse,
-
-    -- ** DeleteStudio
-    DeleteStudio (DeleteStudio'),
-    newDeleteStudio,
-    DeleteStudioResponse (DeleteStudioResponse'),
-    newDeleteStudioResponse,
-
-    -- ** UpdateStudio
-    UpdateStudio (UpdateStudio'),
-    newUpdateStudio,
-    UpdateStudioResponse (UpdateStudioResponse'),
-    newUpdateStudioResponse,
-
-    -- ** ListInstanceFleets (Paginated)
-    ListInstanceFleets (ListInstanceFleets'),
-    newListInstanceFleets,
-    ListInstanceFleetsResponse (ListInstanceFleetsResponse'),
-    newListInstanceFleetsResponse,
-
-    -- ** RemoveManagedScalingPolicy
-    RemoveManagedScalingPolicy (RemoveManagedScalingPolicy'),
-    newRemoveManagedScalingPolicy,
-    RemoveManagedScalingPolicyResponse (RemoveManagedScalingPolicyResponse'),
-    newRemoveManagedScalingPolicyResponse,
-
-    -- ** ListReleaseLabels
-    ListReleaseLabels (ListReleaseLabels'),
-    newListReleaseLabels,
-    ListReleaseLabelsResponse (ListReleaseLabelsResponse'),
-    newListReleaseLabelsResponse,
-
-    -- ** StopNotebookExecution
-    StopNotebookExecution (StopNotebookExecution'),
-    newStopNotebookExecution,
-    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
-    newStopNotebookExecutionResponse,
-
-    -- ** DescribeSecurityConfiguration
-    DescribeSecurityConfiguration (DescribeSecurityConfiguration'),
-    newDescribeSecurityConfiguration,
-    DescribeSecurityConfigurationResponse (DescribeSecurityConfigurationResponse'),
-    newDescribeSecurityConfigurationResponse,
-
-    -- ** StartNotebookExecution
-    StartNotebookExecution (StartNotebookExecution'),
-    newStartNotebookExecution,
-    StartNotebookExecutionResponse (StartNotebookExecutionResponse'),
-    newStartNotebookExecutionResponse,
-
-    -- ** ListStudioSessionMappings (Paginated)
-    ListStudioSessionMappings (ListStudioSessionMappings'),
-    newListStudioSessionMappings,
-    ListStudioSessionMappingsResponse (ListStudioSessionMappingsResponse'),
-    newListStudioSessionMappingsResponse,
-
-    -- ** ListInstances (Paginated)
-    ListInstances (ListInstances'),
-    newListInstances,
-    ListInstancesResponse (ListInstancesResponse'),
-    newListInstancesResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
-
-    -- ** AddJobFlowSteps
-    AddJobFlowSteps (AddJobFlowSteps'),
-    newAddJobFlowSteps,
-    AddJobFlowStepsResponse (AddJobFlowStepsResponse'),
-    newAddJobFlowStepsResponse,
-
-    -- ** ListBootstrapActions (Paginated)
-    ListBootstrapActions (ListBootstrapActions'),
-    newListBootstrapActions,
-    ListBootstrapActionsResponse (ListBootstrapActionsResponse'),
-    newListBootstrapActionsResponse,
-
-    -- ** GetAutoTerminationPolicy
-    GetAutoTerminationPolicy (GetAutoTerminationPolicy'),
-    newGetAutoTerminationPolicy,
-    GetAutoTerminationPolicyResponse (GetAutoTerminationPolicyResponse'),
-    newGetAutoTerminationPolicyResponse,
-
-    -- ** DescribeReleaseLabel
-    DescribeReleaseLabel (DescribeReleaseLabel'),
-    newDescribeReleaseLabel,
-    DescribeReleaseLabelResponse (DescribeReleaseLabelResponse'),
-    newDescribeReleaseLabelResponse,
-
-    -- ** GetBlockPublicAccessConfiguration
-    GetBlockPublicAccessConfiguration (GetBlockPublicAccessConfiguration'),
-    newGetBlockPublicAccessConfiguration,
-    GetBlockPublicAccessConfigurationResponse (GetBlockPublicAccessConfigurationResponse'),
-    newGetBlockPublicAccessConfigurationResponse,
-
-    -- ** ModifyCluster
-    ModifyCluster (ModifyCluster'),
-    newModifyCluster,
-    ModifyClusterResponse (ModifyClusterResponse'),
-    newModifyClusterResponse,
-
-    -- ** PutAutoTerminationPolicy
-    PutAutoTerminationPolicy (PutAutoTerminationPolicy'),
-    newPutAutoTerminationPolicy,
-    PutAutoTerminationPolicyResponse (PutAutoTerminationPolicyResponse'),
-    newPutAutoTerminationPolicyResponse,
-
-    -- ** ListNotebookExecutions (Paginated)
-    ListNotebookExecutions (ListNotebookExecutions'),
-    newListNotebookExecutions,
-    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
-    newListNotebookExecutionsResponse,
-
-    -- ** ListInstanceGroups (Paginated)
-    ListInstanceGroups (ListInstanceGroups'),
-    newListInstanceGroups,
-    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
-    newListInstanceGroupsResponse,
-
-    -- ** TerminateJobFlows
-    TerminateJobFlows (TerminateJobFlows'),
-    newTerminateJobFlows,
-    TerminateJobFlowsResponse (TerminateJobFlowsResponse'),
-    newTerminateJobFlowsResponse,
-
     -- ** DescribeCluster
     DescribeCluster (DescribeCluster'),
     newDescribeCluster,
     DescribeClusterResponse (DescribeClusterResponse'),
     newDescribeClusterResponse,
+
+    -- ** ListSecurityConfigurations (Paginated)
+    ListSecurityConfigurations (ListSecurityConfigurations'),
+    newListSecurityConfigurations,
+    ListSecurityConfigurationsResponse (ListSecurityConfigurationsResponse'),
+    newListSecurityConfigurationsResponse,
 
     -- ** CancelSteps
     CancelSteps (CancelSteps'),
@@ -245,77 +107,41 @@ module Network.AWS.EMR
     CancelStepsResponse (CancelStepsResponse'),
     newCancelStepsResponse,
 
-    -- ** RemoveAutoScalingPolicy
-    RemoveAutoScalingPolicy (RemoveAutoScalingPolicy'),
-    newRemoveAutoScalingPolicy,
-    RemoveAutoScalingPolicyResponse (RemoveAutoScalingPolicyResponse'),
-    newRemoveAutoScalingPolicyResponse,
+    -- ** ListNotebookExecutions (Paginated)
+    ListNotebookExecutions (ListNotebookExecutions'),
+    newListNotebookExecutions,
+    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
+    newListNotebookExecutionsResponse,
 
-    -- ** PutManagedScalingPolicy
-    PutManagedScalingPolicy (PutManagedScalingPolicy'),
-    newPutManagedScalingPolicy,
-    PutManagedScalingPolicyResponse (PutManagedScalingPolicyResponse'),
-    newPutManagedScalingPolicyResponse,
+    -- ** PutAutoTerminationPolicy
+    PutAutoTerminationPolicy (PutAutoTerminationPolicy'),
+    newPutAutoTerminationPolicy,
+    PutAutoTerminationPolicyResponse (PutAutoTerminationPolicyResponse'),
+    newPutAutoTerminationPolicyResponse,
 
-    -- ** ListStudios (Paginated)
-    ListStudios (ListStudios'),
-    newListStudios,
-    ListStudiosResponse (ListStudiosResponse'),
-    newListStudiosResponse,
+    -- ** CreateSecurityConfiguration
+    CreateSecurityConfiguration (CreateSecurityConfiguration'),
+    newCreateSecurityConfiguration,
+    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
+    newCreateSecurityConfigurationResponse,
 
-    -- ** GetManagedScalingPolicy
-    GetManagedScalingPolicy (GetManagedScalingPolicy'),
-    newGetManagedScalingPolicy,
-    GetManagedScalingPolicyResponse (GetManagedScalingPolicyResponse'),
-    newGetManagedScalingPolicyResponse,
+    -- ** DescribeReleaseLabel
+    DescribeReleaseLabel (DescribeReleaseLabel'),
+    newDescribeReleaseLabel,
+    DescribeReleaseLabelResponse (DescribeReleaseLabelResponse'),
+    newDescribeReleaseLabelResponse,
 
-    -- ** CreateStudioSessionMapping
-    CreateStudioSessionMapping (CreateStudioSessionMapping'),
-    newCreateStudioSessionMapping,
-    CreateStudioSessionMappingResponse (CreateStudioSessionMappingResponse'),
-    newCreateStudioSessionMappingResponse,
+    -- ** SetTerminationProtection
+    SetTerminationProtection (SetTerminationProtection'),
+    newSetTerminationProtection,
+    SetTerminationProtectionResponse (SetTerminationProtectionResponse'),
+    newSetTerminationProtectionResponse,
 
-    -- ** AddInstanceFleet
-    AddInstanceFleet (AddInstanceFleet'),
-    newAddInstanceFleet,
-    AddInstanceFleetResponse (AddInstanceFleetResponse'),
-    newAddInstanceFleetResponse,
-
-    -- ** DescribeNotebookExecution
-    DescribeNotebookExecution (DescribeNotebookExecution'),
-    newDescribeNotebookExecution,
-    DescribeNotebookExecutionResponse (DescribeNotebookExecutionResponse'),
-    newDescribeNotebookExecutionResponse,
-
-    -- ** UpdateStudioSessionMapping
-    UpdateStudioSessionMapping (UpdateStudioSessionMapping'),
-    newUpdateStudioSessionMapping,
-    UpdateStudioSessionMappingResponse (UpdateStudioSessionMappingResponse'),
-    newUpdateStudioSessionMappingResponse,
-
-    -- ** DeleteStudioSessionMapping
-    DeleteStudioSessionMapping (DeleteStudioSessionMapping'),
-    newDeleteStudioSessionMapping,
-    DeleteStudioSessionMappingResponse (DeleteStudioSessionMappingResponse'),
-    newDeleteStudioSessionMappingResponse,
-
-    -- ** ListSteps (Paginated)
-    ListSteps (ListSteps'),
-    newListSteps,
-    ListStepsResponse (ListStepsResponse'),
-    newListStepsResponse,
-
-    -- ** PutAutoScalingPolicy
-    PutAutoScalingPolicy (PutAutoScalingPolicy'),
-    newPutAutoScalingPolicy,
-    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
-    newPutAutoScalingPolicyResponse,
-
-    -- ** ListClusters (Paginated)
-    ListClusters (ListClusters'),
-    newListClusters,
-    ListClustersResponse (ListClustersResponse'),
-    newListClustersResponse,
+    -- ** AddJobFlowSteps
+    AddJobFlowSteps (AddJobFlowSteps'),
+    newAddJobFlowSteps,
+    AddJobFlowStepsResponse (AddJobFlowStepsResponse'),
+    newAddJobFlowStepsResponse,
 
     -- ** DescribeStudio
     DescribeStudio (DescribeStudio'),
@@ -329,11 +155,107 @@ module Network.AWS.EMR
     ModifyInstanceGroupsResponse (ModifyInstanceGroupsResponse'),
     newModifyInstanceGroupsResponse,
 
-    -- ** SetTerminationProtection
-    SetTerminationProtection (SetTerminationProtection'),
-    newSetTerminationProtection,
-    SetTerminationProtectionResponse (SetTerminationProtectionResponse'),
-    newSetTerminationProtectionResponse,
+    -- ** StartNotebookExecution
+    StartNotebookExecution (StartNotebookExecution'),
+    newStartNotebookExecution,
+    StartNotebookExecutionResponse (StartNotebookExecutionResponse'),
+    newStartNotebookExecutionResponse,
+
+    -- ** ListSteps (Paginated)
+    ListSteps (ListSteps'),
+    newListSteps,
+    ListStepsResponse (ListStepsResponse'),
+    newListStepsResponse,
+
+    -- ** ListReleaseLabels
+    ListReleaseLabels (ListReleaseLabels'),
+    newListReleaseLabels,
+    ListReleaseLabelsResponse (ListReleaseLabelsResponse'),
+    newListReleaseLabelsResponse,
+
+    -- ** CreateStudioSessionMapping
+    CreateStudioSessionMapping (CreateStudioSessionMapping'),
+    newCreateStudioSessionMapping,
+    CreateStudioSessionMappingResponse (CreateStudioSessionMappingResponse'),
+    newCreateStudioSessionMappingResponse,
+
+    -- ** AddInstanceFleet
+    AddInstanceFleet (AddInstanceFleet'),
+    newAddInstanceFleet,
+    AddInstanceFleetResponse (AddInstanceFleetResponse'),
+    newAddInstanceFleetResponse,
+
+    -- ** DeleteStudio
+    DeleteStudio (DeleteStudio'),
+    newDeleteStudio,
+    DeleteStudioResponse (DeleteStudioResponse'),
+    newDeleteStudioResponse,
+
+    -- ** UpdateStudio
+    UpdateStudio (UpdateStudio'),
+    newUpdateStudio,
+    UpdateStudioResponse (UpdateStudioResponse'),
+    newUpdateStudioResponse,
+
+    -- ** ListStudios (Paginated)
+    ListStudios (ListStudios'),
+    newListStudios,
+    ListStudiosResponse (ListStudiosResponse'),
+    newListStudiosResponse,
+
+    -- ** PutManagedScalingPolicy
+    PutManagedScalingPolicy (PutManagedScalingPolicy'),
+    newPutManagedScalingPolicy,
+    PutManagedScalingPolicyResponse (PutManagedScalingPolicyResponse'),
+    newPutManagedScalingPolicyResponse,
+
+    -- ** AddInstanceGroups
+    AddInstanceGroups (AddInstanceGroups'),
+    newAddInstanceGroups,
+    AddInstanceGroupsResponse (AddInstanceGroupsResponse'),
+    newAddInstanceGroupsResponse,
+
+    -- ** GetStudioSessionMapping
+    GetStudioSessionMapping (GetStudioSessionMapping'),
+    newGetStudioSessionMapping,
+    GetStudioSessionMappingResponse (GetStudioSessionMappingResponse'),
+    newGetStudioSessionMappingResponse,
+
+    -- ** DeleteSecurityConfiguration
+    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
+    newDeleteSecurityConfiguration,
+    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
+    newDeleteSecurityConfigurationResponse,
+
+    -- ** ModifyInstanceFleet
+    ModifyInstanceFleet (ModifyInstanceFleet'),
+    newModifyInstanceFleet,
+    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
+    newModifyInstanceFleetResponse,
+
+    -- ** ListInstanceGroups (Paginated)
+    ListInstanceGroups (ListInstanceGroups'),
+    newListInstanceGroups,
+    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
+    newListInstanceGroupsResponse,
+
+    -- ** GetBlockPublicAccessConfiguration
+    GetBlockPublicAccessConfiguration (GetBlockPublicAccessConfiguration'),
+    newGetBlockPublicAccessConfiguration,
+    GetBlockPublicAccessConfigurationResponse (GetBlockPublicAccessConfigurationResponse'),
+    newGetBlockPublicAccessConfigurationResponse,
+
+    -- ** ModifyCluster
+    ModifyCluster (ModifyCluster'),
+    newModifyCluster,
+    ModifyClusterResponse (ModifyClusterResponse'),
+    newModifyClusterResponse,
+
+    -- ** GetAutoTerminationPolicy
+    GetAutoTerminationPolicy (GetAutoTerminationPolicy'),
+    newGetAutoTerminationPolicy,
+    GetAutoTerminationPolicyResponse (GetAutoTerminationPolicyResponse'),
+    newGetAutoTerminationPolicyResponse,
 
     -- ** PutBlockPublicAccessConfiguration
     PutBlockPublicAccessConfiguration (PutBlockPublicAccessConfiguration'),
@@ -341,17 +263,95 @@ module Network.AWS.EMR
     PutBlockPublicAccessConfigurationResponse (PutBlockPublicAccessConfigurationResponse'),
     newPutBlockPublicAccessConfigurationResponse,
 
+    -- ** ListBootstrapActions (Paginated)
+    ListBootstrapActions (ListBootstrapActions'),
+    newListBootstrapActions,
+    ListBootstrapActionsResponse (ListBootstrapActionsResponse'),
+    newListBootstrapActionsResponse,
+
     -- ** RemoveAutoTerminationPolicy
     RemoveAutoTerminationPolicy (RemoveAutoTerminationPolicy'),
     newRemoveAutoTerminationPolicy,
     RemoveAutoTerminationPolicyResponse (RemoveAutoTerminationPolicyResponse'),
     newRemoveAutoTerminationPolicyResponse,
 
-    -- ** CreateSecurityConfiguration
-    CreateSecurityConfiguration (CreateSecurityConfiguration'),
-    newCreateSecurityConfiguration,
-    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
-    newCreateSecurityConfigurationResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
+
+    -- ** ListInstances (Paginated)
+    ListInstances (ListInstances'),
+    newListInstances,
+    ListInstancesResponse (ListInstancesResponse'),
+    newListInstancesResponse,
+
+    -- ** PutAutoScalingPolicy
+    PutAutoScalingPolicy (PutAutoScalingPolicy'),
+    newPutAutoScalingPolicy,
+    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
+    newPutAutoScalingPolicyResponse,
+
+    -- ** DeleteStudioSessionMapping
+    DeleteStudioSessionMapping (DeleteStudioSessionMapping'),
+    newDeleteStudioSessionMapping,
+    DeleteStudioSessionMappingResponse (DeleteStudioSessionMappingResponse'),
+    newDeleteStudioSessionMappingResponse,
+
+    -- ** UpdateStudioSessionMapping
+    UpdateStudioSessionMapping (UpdateStudioSessionMapping'),
+    newUpdateStudioSessionMapping,
+    UpdateStudioSessionMappingResponse (UpdateStudioSessionMappingResponse'),
+    newUpdateStudioSessionMappingResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** DescribeSecurityConfiguration
+    DescribeSecurityConfiguration (DescribeSecurityConfiguration'),
+    newDescribeSecurityConfiguration,
+    DescribeSecurityConfigurationResponse (DescribeSecurityConfigurationResponse'),
+    newDescribeSecurityConfigurationResponse,
+
+    -- ** StopNotebookExecution
+    StopNotebookExecution (StopNotebookExecution'),
+    newStopNotebookExecution,
+    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
+    newStopNotebookExecutionResponse,
+
+    -- ** ListStudioSessionMappings (Paginated)
+    ListStudioSessionMappings (ListStudioSessionMappings'),
+    newListStudioSessionMappings,
+    ListStudioSessionMappingsResponse (ListStudioSessionMappingsResponse'),
+    newListStudioSessionMappingsResponse,
+
+    -- ** GetManagedScalingPolicy
+    GetManagedScalingPolicy (GetManagedScalingPolicy'),
+    newGetManagedScalingPolicy,
+    GetManagedScalingPolicyResponse (GetManagedScalingPolicyResponse'),
+    newGetManagedScalingPolicyResponse,
+
+    -- ** ListInstanceFleets (Paginated)
+    ListInstanceFleets (ListInstanceFleets'),
+    newListInstanceFleets,
+    ListInstanceFleetsResponse (ListInstanceFleetsResponse'),
+    newListInstanceFleetsResponse,
+
+    -- ** RemoveManagedScalingPolicy
+    RemoveManagedScalingPolicy (RemoveManagedScalingPolicy'),
+    newRemoveManagedScalingPolicy,
+    RemoveManagedScalingPolicyResponse (RemoveManagedScalingPolicyResponse'),
+    newRemoveManagedScalingPolicyResponse,
+
+    -- ** DescribeNotebookExecution
+    DescribeNotebookExecution (DescribeNotebookExecution'),
+    newDescribeNotebookExecution,
+    DescribeNotebookExecutionResponse (DescribeNotebookExecutionResponse'),
+    newDescribeNotebookExecutionResponse,
 
     -- * Types
 

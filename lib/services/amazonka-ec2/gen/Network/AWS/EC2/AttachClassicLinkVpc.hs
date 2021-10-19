@@ -123,7 +123,7 @@ attachClassicLinkVpc_dryRun = Lens.lens (\AttachClassicLinkVpc' {dryRun} -> dryR
 -- | The ID of one or more of the VPC\'s security groups. You cannot specify
 -- security groups from a different VPC.
 attachClassicLinkVpc_groups :: Lens.Lens' AttachClassicLinkVpc [Prelude.Text]
-attachClassicLinkVpc_groups = Lens.lens (\AttachClassicLinkVpc' {groups} -> groups) (\s@AttachClassicLinkVpc' {} a -> s {groups = a} :: AttachClassicLinkVpc) Prelude.. Lens._Coerce
+attachClassicLinkVpc_groups = Lens.lens (\AttachClassicLinkVpc' {groups} -> groups) (\s@AttachClassicLinkVpc' {} a -> s {groups = a} :: AttachClassicLinkVpc) Prelude.. Lens.coerced
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled
 -- VPC.

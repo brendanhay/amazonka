@@ -17,13 +17,13 @@ module Network.AWS.IoTAnalytics.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
-    _ServiceUnavailableException,
-    _ThrottlingException,
     _InvalidRequestException,
-    _LimitExceededException,
-    _ResourceNotFoundException,
+    _ResourceAlreadyExistsException,
+    _ThrottlingException,
     _InternalFailureException,
+    _ServiceUnavailableException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
 
     -- * ChannelStatus
     ChannelStatus (..),
@@ -62,21 +62,21 @@ module Network.AWS.IoTAnalytics.Types
     -- * BatchPutMessageErrorEntry
     BatchPutMessageErrorEntry (..),
     newBatchPutMessageErrorEntry,
-    batchPutMessageErrorEntry_messageId,
-    batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_errorCode,
+    batchPutMessageErrorEntry_errorMessage,
+    batchPutMessageErrorEntry_messageId,
 
     -- * Channel
     Channel (..),
     newChannel,
-    channel_lastMessageArrivalTime,
-    channel_status,
     channel_creationTime,
-    channel_lastUpdateTime,
+    channel_status,
+    channel_lastMessageArrivalTime,
     channel_arn,
-    channel_name,
-    channel_retentionPeriod,
     channel_storage,
+    channel_retentionPeriod,
+    channel_name,
+    channel_lastUpdateTime,
 
     -- * ChannelActivity
     ChannelActivity (..),
@@ -110,12 +110,12 @@ module Network.AWS.IoTAnalytics.Types
     -- * ChannelSummary
     ChannelSummary (..),
     newChannelSummary,
-    channelSummary_lastMessageArrivalTime,
-    channelSummary_status,
-    channelSummary_channelName,
     channelSummary_creationTime,
-    channelSummary_lastUpdateTime,
+    channelSummary_status,
+    channelSummary_lastMessageArrivalTime,
+    channelSummary_channelName,
     channelSummary_channelStorage,
+    channelSummary_lastUpdateTime,
 
     -- * Column
     Column (..),
@@ -141,9 +141,9 @@ module Network.AWS.IoTAnalytics.Types
     -- * CustomerManagedChannelS3StorageSummary
     CustomerManagedChannelS3StorageSummary (..),
     newCustomerManagedChannelS3StorageSummary,
+    customerManagedChannelS3StorageSummary_bucket,
     customerManagedChannelS3StorageSummary_keyPrefix,
     customerManagedChannelS3StorageSummary_roleArn,
-    customerManagedChannelS3StorageSummary_bucket,
 
     -- * CustomerManagedDatastoreS3Storage
     CustomerManagedDatastoreS3Storage (..),
@@ -155,30 +155,30 @@ module Network.AWS.IoTAnalytics.Types
     -- * CustomerManagedDatastoreS3StorageSummary
     CustomerManagedDatastoreS3StorageSummary (..),
     newCustomerManagedDatastoreS3StorageSummary,
+    customerManagedDatastoreS3StorageSummary_bucket,
     customerManagedDatastoreS3StorageSummary_keyPrefix,
     customerManagedDatastoreS3StorageSummary_roleArn,
-    customerManagedDatastoreS3StorageSummary_bucket,
 
     -- * Dataset
     Dataset (..),
     newDataset,
-    dataset_status,
     dataset_creationTime,
-    dataset_lastUpdateTime,
-    dataset_triggers,
+    dataset_status,
+    dataset_versioningConfiguration,
     dataset_arn,
     dataset_actions,
-    dataset_name,
-    dataset_lateDataRules,
+    dataset_triggers,
     dataset_retentionPeriod,
+    dataset_lateDataRules,
+    dataset_name,
     dataset_contentDeliveryRules,
-    dataset_versioningConfiguration,
+    dataset_lastUpdateTime,
 
     -- * DatasetAction
     DatasetAction (..),
     newDatasetAction,
-    datasetAction_actionName,
     datasetAction_queryAction,
+    datasetAction_actionName,
     datasetAction_containerAction,
 
     -- * DatasetActionSummary
@@ -208,10 +208,10 @@ module Network.AWS.IoTAnalytics.Types
     -- * DatasetContentSummary
     DatasetContentSummary (..),
     newDatasetContentSummary,
-    datasetContentSummary_status,
     datasetContentSummary_creationTime,
-    datasetContentSummary_completionTime,
+    datasetContentSummary_status,
     datasetContentSummary_scheduleTime,
+    datasetContentSummary_completionTime,
     datasetContentSummary_version,
 
     -- * DatasetContentVersionValue
@@ -222,38 +222,38 @@ module Network.AWS.IoTAnalytics.Types
     -- * DatasetEntry
     DatasetEntry (..),
     newDatasetEntry,
-    datasetEntry_dataURI,
     datasetEntry_entryName,
+    datasetEntry_dataURI,
 
     -- * DatasetSummary
     DatasetSummary (..),
     newDatasetSummary,
-    datasetSummary_status,
     datasetSummary_creationTime,
-    datasetSummary_lastUpdateTime,
-    datasetSummary_triggers,
+    datasetSummary_status,
     datasetSummary_actions,
+    datasetSummary_triggers,
     datasetSummary_datasetName,
+    datasetSummary_lastUpdateTime,
 
     -- * DatasetTrigger
     DatasetTrigger (..),
     newDatasetTrigger,
-    datasetTrigger_schedule,
     datasetTrigger_dataset,
+    datasetTrigger_schedule,
 
     -- * Datastore
     Datastore (..),
     newDatastore,
-    datastore_lastMessageArrivalTime,
-    datastore_status,
     datastore_creationTime,
-    datastore_datastorePartitions,
-    datastore_lastUpdateTime,
-    datastore_fileFormatConfiguration,
+    datastore_status,
+    datastore_lastMessageArrivalTime,
     datastore_arn,
-    datastore_name,
-    datastore_retentionPeriod,
+    datastore_fileFormatConfiguration,
+    datastore_datastorePartitions,
     datastore_storage,
+    datastore_retentionPeriod,
+    datastore_name,
+    datastore_lastUpdateTime,
 
     -- * DatastoreActivity
     DatastoreActivity (..),
@@ -274,8 +274,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * DatastorePartition
     DatastorePartition (..),
     newDatastorePartition,
-    datastorePartition_timestampPartition,
     datastorePartition_attributePartition,
+    datastorePartition_timestampPartition,
 
     -- * DatastorePartitions
     DatastorePartitions (..),
@@ -304,14 +304,14 @@ module Network.AWS.IoTAnalytics.Types
     -- * DatastoreSummary
     DatastoreSummary (..),
     newDatastoreSummary,
-    datastoreSummary_lastMessageArrivalTime,
-    datastoreSummary_status,
     datastoreSummary_creationTime,
-    datastoreSummary_datastoreStorage,
-    datastoreSummary_datastorePartitions,
-    datastoreSummary_lastUpdateTime,
-    datastoreSummary_fileFormatType,
+    datastoreSummary_status,
+    datastoreSummary_lastMessageArrivalTime,
     datastoreSummary_datastoreName,
+    datastoreSummary_datastorePartitions,
+    datastoreSummary_fileFormatType,
+    datastoreSummary_lastUpdateTime,
+    datastoreSummary_datastoreStorage,
 
     -- * DeltaTime
     DeltaTime (..),
@@ -345,14 +345,14 @@ module Network.AWS.IoTAnalytics.Types
     -- * EstimatedResourceSize
     EstimatedResourceSize (..),
     newEstimatedResourceSize,
-    estimatedResourceSize_estimatedSizeInBytes,
     estimatedResourceSize_estimatedOn,
+    estimatedResourceSize_estimatedSizeInBytes,
 
     -- * FileFormatConfiguration
     FileFormatConfiguration (..),
     newFileFormatConfiguration,
-    fileFormatConfiguration_parquetConfiguration,
     fileFormatConfiguration_jsonConfiguration,
+    fileFormatConfiguration_parquetConfiguration,
 
     -- * FilterActivity
     FilterActivity (..),
@@ -382,8 +382,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * IotSiteWiseCustomerManagedDatastoreS3StorageSummary
     IotSiteWiseCustomerManagedDatastoreS3StorageSummary (..),
     newIotSiteWiseCustomerManagedDatastoreS3StorageSummary,
-    iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix,
     iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket,
+    iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix,
 
     -- * JsonConfiguration
     JsonConfiguration (..),
@@ -448,33 +448,33 @@ module Network.AWS.IoTAnalytics.Types
     Pipeline (..),
     newPipeline,
     pipeline_creationTime,
-    pipeline_lastUpdateTime,
-    pipeline_activities,
     pipeline_arn,
+    pipeline_activities,
     pipeline_name,
     pipeline_reprocessingSummaries,
+    pipeline_lastUpdateTime,
 
     -- * PipelineActivity
     PipelineActivity (..),
     newPipelineActivity,
     pipelineActivity_selectAttributes,
-    pipelineActivity_datastore,
-    pipelineActivity_removeAttributes,
-    pipelineActivity_addAttributes,
-    pipelineActivity_deviceShadowEnrich,
-    pipelineActivity_lambda,
-    pipelineActivity_deviceRegistryEnrich,
     pipelineActivity_channel,
-    pipelineActivity_math,
+    pipelineActivity_addAttributes,
+    pipelineActivity_deviceRegistryEnrich,
+    pipelineActivity_removeAttributes,
+    pipelineActivity_lambda,
+    pipelineActivity_datastore,
+    pipelineActivity_deviceShadowEnrich,
     pipelineActivity_filter,
+    pipelineActivity_math,
 
     -- * PipelineSummary
     PipelineSummary (..),
     newPipelineSummary,
     pipelineSummary_creationTime,
-    pipelineSummary_lastUpdateTime,
-    pipelineSummary_reprocessingSummaries,
     pipelineSummary_pipelineName,
+    pipelineSummary_reprocessingSummaries,
+    pipelineSummary_lastUpdateTime,
 
     -- * QueryFilter
     QueryFilter (..),
@@ -491,8 +491,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * ReprocessingSummary
     ReprocessingSummary (..),
     newReprocessingSummary,
-    reprocessingSummary_status,
     reprocessingSummary_creationTime,
+    reprocessingSummary_status,
     reprocessingSummary_id,
 
     -- * ResourceConfiguration
@@ -504,8 +504,8 @@ module Network.AWS.IoTAnalytics.Types
     -- * RetentionPeriod
     RetentionPeriod (..),
     newRetentionPeriod,
-    retentionPeriod_numberOfDays,
     retentionPeriod_unlimited,
+    retentionPeriod_numberOfDays,
 
     -- * S3DestinationConfiguration
     S3DestinationConfiguration (..),
@@ -575,16 +575,16 @@ module Network.AWS.IoTAnalytics.Types
     Variable (..),
     newVariable,
     variable_outputFileUriValue,
-    variable_stringValue,
     variable_doubleValue,
+    variable_stringValue,
     variable_datasetContentVersionValue,
     variable_name,
 
     -- * VersioningConfiguration
     VersioningConfiguration (..),
     newVersioningConfiguration,
-    versioningConfiguration_maxVersions,
     versioningConfiguration_unlimited,
+    versioningConfiguration_maxVersions,
   )
 where
 
@@ -707,37 +707,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -750,31 +727,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | A resource with the same name already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 503
-
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
-  Core._MatchServiceError
-    defaultService
-    "ThrottlingException"
-    Prelude.. Core.hasStatus 429
 
 -- | The request was not valid.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -784,13 +760,37 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | The command caused an internal limit to be exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | A resource with the same name already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 410
+    "ResourceAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
+-- | There was an internal failure.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 503
 
 -- | A resource with the specified name could not be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -800,10 +800,10 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | There was an internal failure.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
+-- | The command caused an internal limit to be exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InternalFailureException"
-    Prelude.. Core.hasStatus 500
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 410

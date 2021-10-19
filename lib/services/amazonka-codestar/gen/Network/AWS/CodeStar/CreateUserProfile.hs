@@ -41,11 +41,11 @@ module Network.AWS.CodeStar.CreateUserProfile
     newCreateUserProfileResponse,
 
     -- * Response Lenses
-    createUserProfileResponse_createdTimestamp,
     createUserProfileResponse_lastModifiedTimestamp,
     createUserProfileResponse_sshPublicKey,
-    createUserProfileResponse_displayName,
     createUserProfileResponse_emailAddress,
+    createUserProfileResponse_displayName,
+    createUserProfileResponse_createdTimestamp,
     createUserProfileResponse_httpStatus,
     createUserProfileResponse_userArn,
   )
@@ -145,11 +145,11 @@ instance Core.AWSRequest CreateUserProfile where
     Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Prelude.<$> (x Core..?> "createdTimestamp")
-            Prelude.<*> (x Core..?> "lastModifiedTimestamp")
+            Prelude.<$> (x Core..?> "lastModifiedTimestamp")
             Prelude.<*> (x Core..?> "sshPublicKey")
-            Prelude.<*> (x Core..?> "displayName")
             Prelude.<*> (x Core..?> "emailAddress")
+            Prelude.<*> (x Core..?> "displayName")
+            Prelude.<*> (x Core..?> "createdTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userArn")
       )
@@ -192,21 +192,21 @@ instance Core.ToQuery CreateUserProfile where
 
 -- | /See:/ 'newCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
-  { -- | The date the user profile was created, in timestamp format.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The date the user profile was last modified, in timestamp format.
+  { -- | The date the user profile was last modified, in timestamp format.
     lastModifiedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The SSH public key associated with the user in AWS CodeStar. This is the
     -- public portion of the public\/private keypair the user can use to access
     -- project resources if a project owner allows the user remote access to
     -- those resources.
     sshPublicKey :: Prelude.Maybe Prelude.Text,
-    -- | The name that is displayed as the friendly name for the user in AWS
-    -- CodeStar.
-    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The email address that is displayed as part of the user\'s profile in
     -- AWS CodeStar.
     emailAddress :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The name that is displayed as the friendly name for the user in AWS
+    -- CodeStar.
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The date the user profile was created, in timestamp format.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the user in IAM.
@@ -222,8 +222,6 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'createUserProfileResponse_createdTimestamp' - The date the user profile was created, in timestamp format.
---
 -- 'lastModifiedTimestamp', 'createUserProfileResponse_lastModifiedTimestamp' - The date the user profile was last modified, in timestamp format.
 --
 -- 'sshPublicKey', 'createUserProfileResponse_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. This is the
@@ -231,11 +229,13 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 -- project resources if a project owner allows the user remote access to
 -- those resources.
 --
+-- 'emailAddress', 'createUserProfileResponse_emailAddress' - The email address that is displayed as part of the user\'s profile in
+-- AWS CodeStar.
+--
 -- 'displayName', 'createUserProfileResponse_displayName' - The name that is displayed as the friendly name for the user in AWS
 -- CodeStar.
 --
--- 'emailAddress', 'createUserProfileResponse_emailAddress' - The email address that is displayed as part of the user\'s profile in
--- AWS CodeStar.
+-- 'createdTimestamp', 'createUserProfileResponse_createdTimestamp' - The date the user profile was created, in timestamp format.
 --
 -- 'httpStatus', 'createUserProfileResponse_httpStatus' - The response's http status code.
 --
@@ -248,19 +248,15 @@ newCreateUserProfileResponse ::
   CreateUserProfileResponse
 newCreateUserProfileResponse pHttpStatus_ pUserArn_ =
   CreateUserProfileResponse'
-    { createdTimestamp =
+    { lastModifiedTimestamp =
         Prelude.Nothing,
-      lastModifiedTimestamp = Prelude.Nothing,
       sshPublicKey = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       userArn = pUserArn_
     }
-
--- | The date the user profile was created, in timestamp format.
-createUserProfileResponse_createdTimestamp :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
-createUserProfileResponse_createdTimestamp = Lens.lens (\CreateUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateUserProfileResponse' {} a -> s {createdTimestamp = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The date the user profile was last modified, in timestamp format.
 createUserProfileResponse_lastModifiedTimestamp :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
@@ -273,15 +269,19 @@ createUserProfileResponse_lastModifiedTimestamp = Lens.lens (\CreateUserProfileR
 createUserProfileResponse_sshPublicKey :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
 createUserProfileResponse_sshPublicKey = Lens.lens (\CreateUserProfileResponse' {sshPublicKey} -> sshPublicKey) (\s@CreateUserProfileResponse' {} a -> s {sshPublicKey = a} :: CreateUserProfileResponse)
 
+-- | The email address that is displayed as part of the user\'s profile in
+-- AWS CodeStar.
+createUserProfileResponse_emailAddress :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
+createUserProfileResponse_emailAddress = Lens.lens (\CreateUserProfileResponse' {emailAddress} -> emailAddress) (\s@CreateUserProfileResponse' {} a -> s {emailAddress = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The name that is displayed as the friendly name for the user in AWS
 -- CodeStar.
 createUserProfileResponse_displayName :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
 createUserProfileResponse_displayName = Lens.lens (\CreateUserProfileResponse' {displayName} -> displayName) (\s@CreateUserProfileResponse' {} a -> s {displayName = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The email address that is displayed as part of the user\'s profile in
--- AWS CodeStar.
-createUserProfileResponse_emailAddress :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
-createUserProfileResponse_emailAddress = Lens.lens (\CreateUserProfileResponse' {emailAddress} -> emailAddress) (\s@CreateUserProfileResponse' {} a -> s {emailAddress = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Sensitive
+-- | The date the user profile was created, in timestamp format.
+createUserProfileResponse_createdTimestamp :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.UTCTime)
+createUserProfileResponse_createdTimestamp = Lens.lens (\CreateUserProfileResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateUserProfileResponse' {} a -> s {createdTimestamp = a} :: CreateUserProfileResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Prelude.Int

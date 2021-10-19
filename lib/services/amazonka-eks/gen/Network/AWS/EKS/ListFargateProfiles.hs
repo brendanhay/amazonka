@@ -254,7 +254,7 @@ listFargateProfilesResponse_nextToken = Lens.lens (\ListFargateProfilesResponse'
 -- | A list of all of the Fargate profiles associated with the specified
 -- cluster.
 listFargateProfilesResponse_fargateProfileNames :: Lens.Lens' ListFargateProfilesResponse (Prelude.Maybe [Prelude.Text])
-listFargateProfilesResponse_fargateProfileNames = Lens.lens (\ListFargateProfilesResponse' {fargateProfileNames} -> fargateProfileNames) (\s@ListFargateProfilesResponse' {} a -> s {fargateProfileNames = a} :: ListFargateProfilesResponse) Prelude.. Lens.mapping Lens._Coerce
+listFargateProfilesResponse_fargateProfileNames = Lens.lens (\ListFargateProfilesResponse' {fargateProfileNames} -> fargateProfileNames) (\s@ListFargateProfilesResponse' {} a -> s {fargateProfileNames = a} :: ListFargateProfilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFargateProfilesResponse_httpStatus :: Lens.Lens' ListFargateProfilesResponse Prelude.Int

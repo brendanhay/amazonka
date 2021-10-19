@@ -31,22 +31,22 @@ module Network.AWS.Greengrass.CreateFunctionDefinition
     newCreateFunctionDefinition,
 
     -- * Request Lenses
-    createFunctionDefinition_name,
-    createFunctionDefinition_initialVersion,
-    createFunctionDefinition_tags,
     createFunctionDefinition_amznClientToken,
+    createFunctionDefinition_initialVersion,
+    createFunctionDefinition_name,
+    createFunctionDefinition_tags,
 
     -- * Destructuring the Response
     CreateFunctionDefinitionResponse (..),
     newCreateFunctionDefinitionResponse,
 
     -- * Response Lenses
-    createFunctionDefinitionResponse_creationTimestamp,
     createFunctionDefinitionResponse_latestVersionArn,
-    createFunctionDefinitionResponse_latestVersion,
     createFunctionDefinitionResponse_arn,
-    createFunctionDefinitionResponse_id,
     createFunctionDefinitionResponse_name,
+    createFunctionDefinitionResponse_creationTimestamp,
+    createFunctionDefinitionResponse_id,
+    createFunctionDefinitionResponse_latestVersion,
     createFunctionDefinitionResponse_lastUpdatedTimestamp,
     createFunctionDefinitionResponse_httpStatus,
   )
@@ -61,14 +61,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFunctionDefinition' smart constructor.
 data CreateFunctionDefinition = CreateFunctionDefinition'
-  { -- | The name of the function definition.
-    name :: Prelude.Maybe Prelude.Text,
+  { -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the initial version of the function definition.
     initialVersion :: Prelude.Maybe FunctionDefinitionVersion,
+    -- | The name of the function definition.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,38 +80,39 @@ data CreateFunctionDefinition = CreateFunctionDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createFunctionDefinition_name' - The name of the function definition.
+-- 'amznClientToken', 'createFunctionDefinition_amznClientToken' - A client token used to correlate requests and responses.
 --
 -- 'initialVersion', 'createFunctionDefinition_initialVersion' - Information about the initial version of the function definition.
 --
--- 'tags', 'createFunctionDefinition_tags' - Tag(s) to add to the new resource.
+-- 'name', 'createFunctionDefinition_name' - The name of the function definition.
 --
--- 'amznClientToken', 'createFunctionDefinition_amznClientToken' - A client token used to correlate requests and responses.
+-- 'tags', 'createFunctionDefinition_tags' - Tag(s) to add to the new resource.
 newCreateFunctionDefinition ::
   CreateFunctionDefinition
 newCreateFunctionDefinition =
   CreateFunctionDefinition'
-    { name = Prelude.Nothing,
+    { amznClientToken =
+        Prelude.Nothing,
       initialVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      amznClientToken = Prelude.Nothing
+      name = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
--- | The name of the function definition.
-createFunctionDefinition_name :: Lens.Lens' CreateFunctionDefinition (Prelude.Maybe Prelude.Text)
-createFunctionDefinition_name = Lens.lens (\CreateFunctionDefinition' {name} -> name) (\s@CreateFunctionDefinition' {} a -> s {name = a} :: CreateFunctionDefinition)
+-- | A client token used to correlate requests and responses.
+createFunctionDefinition_amznClientToken :: Lens.Lens' CreateFunctionDefinition (Prelude.Maybe Prelude.Text)
+createFunctionDefinition_amznClientToken = Lens.lens (\CreateFunctionDefinition' {amznClientToken} -> amznClientToken) (\s@CreateFunctionDefinition' {} a -> s {amznClientToken = a} :: CreateFunctionDefinition)
 
 -- | Information about the initial version of the function definition.
 createFunctionDefinition_initialVersion :: Lens.Lens' CreateFunctionDefinition (Prelude.Maybe FunctionDefinitionVersion)
 createFunctionDefinition_initialVersion = Lens.lens (\CreateFunctionDefinition' {initialVersion} -> initialVersion) (\s@CreateFunctionDefinition' {} a -> s {initialVersion = a} :: CreateFunctionDefinition)
 
+-- | The name of the function definition.
+createFunctionDefinition_name :: Lens.Lens' CreateFunctionDefinition (Prelude.Maybe Prelude.Text)
+createFunctionDefinition_name = Lens.lens (\CreateFunctionDefinition' {name} -> name) (\s@CreateFunctionDefinition' {} a -> s {name = a} :: CreateFunctionDefinition)
+
 -- | Tag(s) to add to the new resource.
 createFunctionDefinition_tags :: Lens.Lens' CreateFunctionDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFunctionDefinition_tags = Lens.lens (\CreateFunctionDefinition' {tags} -> tags) (\s@CreateFunctionDefinition' {} a -> s {tags = a} :: CreateFunctionDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | A client token used to correlate requests and responses.
-createFunctionDefinition_amznClientToken :: Lens.Lens' CreateFunctionDefinition (Prelude.Maybe Prelude.Text)
-createFunctionDefinition_amznClientToken = Lens.lens (\CreateFunctionDefinition' {amznClientToken} -> amznClientToken) (\s@CreateFunctionDefinition' {} a -> s {amznClientToken = a} :: CreateFunctionDefinition)
+createFunctionDefinition_tags = Lens.lens (\CreateFunctionDefinition' {tags} -> tags) (\s@CreateFunctionDefinition' {} a -> s {tags = a} :: CreateFunctionDefinition) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateFunctionDefinition where
   type
@@ -122,12 +123,12 @@ instance Core.AWSRequest CreateFunctionDefinition where
     Response.receiveJSON
       ( \s h x ->
           CreateFunctionDefinitionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "LatestVersionArn")
-            Prelude.<*> (x Core..?> "LatestVersion")
+            Prelude.<$> (x Core..?> "LatestVersionArn")
             Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
+            Prelude.<*> (x Core..?> "Id")
+            Prelude.<*> (x Core..?> "LatestVersion")
             Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -148,9 +149,9 @@ instance Core.ToJSON CreateFunctionDefinition where
   toJSON CreateFunctionDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("InitialVersion" Core..=)
+          [ ("InitialVersion" Core..=)
               Prelude.<$> initialVersion,
+            ("Name" Core..=) Prelude.<$> name,
             ("tags" Core..=) Prelude.<$> tags
           ]
       )
@@ -164,19 +165,19 @@ instance Core.ToQuery CreateFunctionDefinition where
 
 -- | /See:/ 'newCreateFunctionDefinitionResponse' smart constructor.
 data CreateFunctionDefinitionResponse = CreateFunctionDefinitionResponse'
-  { -- | The time, in milliseconds since the epoch, when the definition was
-    -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the latest version associated with the definition.
+  { -- | The ARN of the latest version associated with the definition.
     latestVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the definition.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
@@ -193,18 +194,18 @@ data CreateFunctionDefinitionResponse = CreateFunctionDefinitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'createFunctionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
--- created.
---
 -- 'latestVersionArn', 'createFunctionDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
---
--- 'latestVersion', 'createFunctionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
 -- 'arn', 'createFunctionDefinitionResponse_arn' - The ARN of the definition.
 --
+-- 'name', 'createFunctionDefinitionResponse_name' - The name of the definition.
+--
+-- 'creationTimestamp', 'createFunctionDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
+--
 -- 'id', 'createFunctionDefinitionResponse_id' - The ID of the definition.
 --
--- 'name', 'createFunctionDefinitionResponse_name' - The name of the definition.
+-- 'latestVersion', 'createFunctionDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
 -- 'lastUpdatedTimestamp', 'createFunctionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
@@ -216,41 +217,41 @@ newCreateFunctionDefinitionResponse ::
   CreateFunctionDefinitionResponse
 newCreateFunctionDefinitionResponse pHttpStatus_ =
   CreateFunctionDefinitionResponse'
-    { creationTimestamp =
+    { latestVersionArn =
         Prelude.Nothing,
-      latestVersionArn = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
       arn = Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
+      id = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ARN of the latest version associated with the definition.
+createFunctionDefinitionResponse_latestVersionArn :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionResponse_latestVersionArn = Lens.lens (\CreateFunctionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateFunctionDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateFunctionDefinitionResponse)
+
+-- | The ARN of the definition.
+createFunctionDefinitionResponse_arn :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionResponse_arn = Lens.lens (\CreateFunctionDefinitionResponse' {arn} -> arn) (\s@CreateFunctionDefinitionResponse' {} a -> s {arn = a} :: CreateFunctionDefinitionResponse)
+
+-- | The name of the definition.
+createFunctionDefinitionResponse_name :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionResponse_name = Lens.lens (\CreateFunctionDefinitionResponse' {name} -> name) (\s@CreateFunctionDefinitionResponse' {} a -> s {name = a} :: CreateFunctionDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was
 -- created.
 createFunctionDefinitionResponse_creationTimestamp :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
 createFunctionDefinitionResponse_creationTimestamp = Lens.lens (\CreateFunctionDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateFunctionDefinitionResponse' {} a -> s {creationTimestamp = a} :: CreateFunctionDefinitionResponse)
 
--- | The ARN of the latest version associated with the definition.
-createFunctionDefinitionResponse_latestVersionArn :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionResponse_latestVersionArn = Lens.lens (\CreateFunctionDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateFunctionDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateFunctionDefinitionResponse)
-
--- | The ID of the latest version associated with the definition.
-createFunctionDefinitionResponse_latestVersion :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionResponse_latestVersion = Lens.lens (\CreateFunctionDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateFunctionDefinitionResponse' {} a -> s {latestVersion = a} :: CreateFunctionDefinitionResponse)
-
--- | The ARN of the definition.
-createFunctionDefinitionResponse_arn :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionResponse_arn = Lens.lens (\CreateFunctionDefinitionResponse' {arn} -> arn) (\s@CreateFunctionDefinitionResponse' {} a -> s {arn = a} :: CreateFunctionDefinitionResponse)
-
 -- | The ID of the definition.
 createFunctionDefinitionResponse_id :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
 createFunctionDefinitionResponse_id = Lens.lens (\CreateFunctionDefinitionResponse' {id} -> id) (\s@CreateFunctionDefinitionResponse' {} a -> s {id = a} :: CreateFunctionDefinitionResponse)
 
--- | The name of the definition.
-createFunctionDefinitionResponse_name :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
-createFunctionDefinitionResponse_name = Lens.lens (\CreateFunctionDefinitionResponse' {name} -> name) (\s@CreateFunctionDefinitionResponse' {} a -> s {name = a} :: CreateFunctionDefinitionResponse)
+-- | The ID of the latest version associated with the definition.
+createFunctionDefinitionResponse_latestVersion :: Lens.Lens' CreateFunctionDefinitionResponse (Prelude.Maybe Prelude.Text)
+createFunctionDefinitionResponse_latestVersion = Lens.lens (\CreateFunctionDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateFunctionDefinitionResponse' {} a -> s {latestVersion = a} :: CreateFunctionDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.

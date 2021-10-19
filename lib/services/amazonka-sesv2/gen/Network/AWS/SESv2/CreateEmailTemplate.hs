@@ -57,7 +57,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newCreateEmailTemplate' smart constructor.
 data CreateEmailTemplate = CreateEmailTemplate'
-  { -- | The name of the template you want to create.
+  { -- | The name of the template.
     templateName :: Prelude.Text,
     -- | The content of the email template, composed of a subject line, an HTML
     -- part, and a text-only part.
@@ -73,7 +73,7 @@ data CreateEmailTemplate = CreateEmailTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'createEmailTemplate_templateName' - The name of the template you want to create.
+-- 'templateName', 'createEmailTemplate_templateName' - The name of the template.
 --
 -- 'templateContent', 'createEmailTemplate_templateContent' - The content of the email template, composed of a subject line, an HTML
 -- part, and a text-only part.
@@ -91,7 +91,7 @@ newCreateEmailTemplate
         templateContent = pTemplateContent_
       }
 
--- | The name of the template you want to create.
+-- | The name of the template.
 createEmailTemplate_templateName :: Lens.Lens' CreateEmailTemplate Prelude.Text
 createEmailTemplate_templateName = Lens.lens (\CreateEmailTemplate' {templateName} -> templateName) (\s@CreateEmailTemplate' {} a -> s {templateName = a} :: CreateEmailTemplate)
 

@@ -272,7 +272,7 @@ newGetDomainSuggestionsResponse pHttpStatus_ =
 -- @OnlyAvailable@ in the request, the list contains only domains that are
 -- available for registration.
 getDomainSuggestionsResponse_suggestionsList :: Lens.Lens' GetDomainSuggestionsResponse (Prelude.Maybe [DomainSuggestion])
-getDomainSuggestionsResponse_suggestionsList = Lens.lens (\GetDomainSuggestionsResponse' {suggestionsList} -> suggestionsList) (\s@GetDomainSuggestionsResponse' {} a -> s {suggestionsList = a} :: GetDomainSuggestionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDomainSuggestionsResponse_suggestionsList = Lens.lens (\GetDomainSuggestionsResponse' {suggestionsList} -> suggestionsList) (\s@GetDomainSuggestionsResponse' {} a -> s {suggestionsList = a} :: GetDomainSuggestionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDomainSuggestionsResponse_httpStatus :: Lens.Lens' GetDomainSuggestionsResponse Prelude.Int

@@ -35,10 +35,10 @@ module Network.AWS.EC2.CreateTransitGatewayConnectPeer
     newCreateTransitGatewayConnectPeer,
 
     -- * Request Lenses
+    createTransitGatewayConnectPeer_bgpOptions,
+    createTransitGatewayConnectPeer_transitGatewayAddress,
     createTransitGatewayConnectPeer_tagSpecifications,
     createTransitGatewayConnectPeer_dryRun,
-    createTransitGatewayConnectPeer_transitGatewayAddress,
-    createTransitGatewayConnectPeer_bgpOptions,
     createTransitGatewayConnectPeer_transitGatewayAttachmentId,
     createTransitGatewayConnectPeer_peerAddress,
     createTransitGatewayConnectPeer_insideCidrBlocks,
@@ -62,20 +62,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayConnectPeer' smart constructor.
 data CreateTransitGatewayConnectPeer = CreateTransitGatewayConnectPeer'
-  { -- | The tags to apply to the Connect peer.
+  { -- | The BGP options for the Connect peer.
+    bgpOptions :: Prelude.Maybe TransitGatewayConnectRequestBgpOptions,
+    -- | The peer IP address (GRE outer IP address) on the transit gateway side
+    -- of the Connect peer, which must be specified from a transit gateway CIDR
+    -- block. If not specified, Amazon automatically assigns the first
+    -- available IP address from the transit gateway CIDR block.
+    transitGatewayAddress :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the Connect peer.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The peer IP address (GRE outer IP address) on the transit gateway side
-    -- of the Connect peer, which must be specified from a transit gateway CIDR
-    -- block. If not specified, Amazon automatically assigns the first
-    -- available IP address from the transit gateway CIDR block.
-    transitGatewayAddress :: Prelude.Maybe Prelude.Text,
-    -- | The BGP options for the Connect peer.
-    bgpOptions :: Prelude.Maybe TransitGatewayConnectRequestBgpOptions,
     -- | The ID of the Connect attachment.
     transitGatewayAttachmentId :: Prelude.Text,
     -- | The peer IP address (GRE outer IP address) on the appliance side of the
@@ -98,19 +98,19 @@ data CreateTransitGatewayConnectPeer = CreateTransitGatewayConnectPeer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createTransitGatewayConnectPeer_tagSpecifications' - The tags to apply to the Connect peer.
---
--- 'dryRun', 'createTransitGatewayConnectPeer_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'bgpOptions', 'createTransitGatewayConnectPeer_bgpOptions' - The BGP options for the Connect peer.
 --
 -- 'transitGatewayAddress', 'createTransitGatewayConnectPeer_transitGatewayAddress' - The peer IP address (GRE outer IP address) on the transit gateway side
 -- of the Connect peer, which must be specified from a transit gateway CIDR
 -- block. If not specified, Amazon automatically assigns the first
 -- available IP address from the transit gateway CIDR block.
 --
--- 'bgpOptions', 'createTransitGatewayConnectPeer_bgpOptions' - The BGP options for the Connect peer.
+-- 'tagSpecifications', 'createTransitGatewayConnectPeer_tagSpecifications' - The tags to apply to the Connect peer.
+--
+-- 'dryRun', 'createTransitGatewayConnectPeer_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'transitGatewayAttachmentId', 'createTransitGatewayConnectPeer_transitGatewayAttachmentId' - The ID of the Connect attachment.
 --
@@ -132,27 +132,20 @@ newCreateTransitGatewayConnectPeer
   pTransitGatewayAttachmentId_
   pPeerAddress_ =
     CreateTransitGatewayConnectPeer'
-      { tagSpecifications =
+      { bgpOptions =
           Prelude.Nothing,
-        dryRun = Prelude.Nothing,
         transitGatewayAddress = Prelude.Nothing,
-        bgpOptions = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         transitGatewayAttachmentId =
           pTransitGatewayAttachmentId_,
         peerAddress = pPeerAddress_,
         insideCidrBlocks = Prelude.mempty
       }
 
--- | The tags to apply to the Connect peer.
-createTransitGatewayConnectPeer_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe [TagSpecification])
-createTransitGatewayConnectPeer_tagSpecifications = Lens.lens (\CreateTransitGatewayConnectPeer' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnectPeer' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnectPeer) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createTransitGatewayConnectPeer_dryRun :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe Prelude.Bool)
-createTransitGatewayConnectPeer_dryRun = Lens.lens (\CreateTransitGatewayConnectPeer' {dryRun} -> dryRun) (\s@CreateTransitGatewayConnectPeer' {} a -> s {dryRun = a} :: CreateTransitGatewayConnectPeer)
+-- | The BGP options for the Connect peer.
+createTransitGatewayConnectPeer_bgpOptions :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe TransitGatewayConnectRequestBgpOptions)
+createTransitGatewayConnectPeer_bgpOptions = Lens.lens (\CreateTransitGatewayConnectPeer' {bgpOptions} -> bgpOptions) (\s@CreateTransitGatewayConnectPeer' {} a -> s {bgpOptions = a} :: CreateTransitGatewayConnectPeer)
 
 -- | The peer IP address (GRE outer IP address) on the transit gateway side
 -- of the Connect peer, which must be specified from a transit gateway CIDR
@@ -161,9 +154,16 @@ createTransitGatewayConnectPeer_dryRun = Lens.lens (\CreateTransitGatewayConnect
 createTransitGatewayConnectPeer_transitGatewayAddress :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe Prelude.Text)
 createTransitGatewayConnectPeer_transitGatewayAddress = Lens.lens (\CreateTransitGatewayConnectPeer' {transitGatewayAddress} -> transitGatewayAddress) (\s@CreateTransitGatewayConnectPeer' {} a -> s {transitGatewayAddress = a} :: CreateTransitGatewayConnectPeer)
 
--- | The BGP options for the Connect peer.
-createTransitGatewayConnectPeer_bgpOptions :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe TransitGatewayConnectRequestBgpOptions)
-createTransitGatewayConnectPeer_bgpOptions = Lens.lens (\CreateTransitGatewayConnectPeer' {bgpOptions} -> bgpOptions) (\s@CreateTransitGatewayConnectPeer' {} a -> s {bgpOptions = a} :: CreateTransitGatewayConnectPeer)
+-- | The tags to apply to the Connect peer.
+createTransitGatewayConnectPeer_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe [TagSpecification])
+createTransitGatewayConnectPeer_tagSpecifications = Lens.lens (\CreateTransitGatewayConnectPeer' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnectPeer' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnectPeer) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createTransitGatewayConnectPeer_dryRun :: Lens.Lens' CreateTransitGatewayConnectPeer (Prelude.Maybe Prelude.Bool)
+createTransitGatewayConnectPeer_dryRun = Lens.lens (\CreateTransitGatewayConnectPeer' {dryRun} -> dryRun) (\s@CreateTransitGatewayConnectPeer' {} a -> s {dryRun = a} :: CreateTransitGatewayConnectPeer)
 
 -- | The ID of the Connect attachment.
 createTransitGatewayConnectPeer_transitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayConnectPeer Prelude.Text
@@ -180,7 +180,7 @@ createTransitGatewayConnectPeer_peerAddress = Lens.lens (\CreateTransitGatewayCo
 -- the BGP IP address. You can also optionally specify a size \/125 IPv6
 -- CIDR block from the @fd00::\/8@ range.
 createTransitGatewayConnectPeer_insideCidrBlocks :: Lens.Lens' CreateTransitGatewayConnectPeer [Prelude.Text]
-createTransitGatewayConnectPeer_insideCidrBlocks = Lens.lens (\CreateTransitGatewayConnectPeer' {insideCidrBlocks} -> insideCidrBlocks) (\s@CreateTransitGatewayConnectPeer' {} a -> s {insideCidrBlocks = a} :: CreateTransitGatewayConnectPeer) Prelude.. Lens._Coerce
+createTransitGatewayConnectPeer_insideCidrBlocks = Lens.lens (\CreateTransitGatewayConnectPeer' {insideCidrBlocks} -> insideCidrBlocks) (\s@CreateTransitGatewayConnectPeer' {} a -> s {insideCidrBlocks = a} :: CreateTransitGatewayConnectPeer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -224,14 +224,14 @@ instance Core.ToQuery CreateTransitGatewayConnectPeer where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "BgpOptions" Core.=: bgpOptions,
+        "TransitGatewayAddress"
+          Core.=: transitGatewayAddress,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "TransitGatewayAddress"
-          Core.=: transitGatewayAddress,
-        "BgpOptions" Core.=: bgpOptions,
         "TransitGatewayAttachmentId"
           Core.=: transitGatewayAttachmentId,
         "PeerAddress" Core.=: peerAddress,

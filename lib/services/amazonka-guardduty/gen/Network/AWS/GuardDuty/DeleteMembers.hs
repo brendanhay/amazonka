@@ -81,7 +81,7 @@ newDeleteMembers ::
 newDeleteMembers pDetectorId_ pAccountIds_ =
   DeleteMembers'
     { detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | The unique ID of the detector of the GuardDuty account whose members you
@@ -92,7 +92,7 @@ deleteMembers_detectorId = Lens.lens (\DeleteMembers' {detectorId} -> detectorId
 -- | A list of account IDs of the GuardDuty member accounts that you want to
 -- delete.
 deleteMembers_accountIds :: Lens.Lens' DeleteMembers (Prelude.NonEmpty Prelude.Text)
-deleteMembers_accountIds = Lens.lens (\DeleteMembers' {accountIds} -> accountIds) (\s@DeleteMembers' {} a -> s {accountIds = a} :: DeleteMembers) Prelude.. Lens._Coerce
+deleteMembers_accountIds = Lens.lens (\DeleteMembers' {accountIds} -> accountIds) (\s@DeleteMembers' {} a -> s {accountIds = a} :: DeleteMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteMembers where
   type
@@ -178,6 +178,6 @@ deleteMembersResponse_httpStatus = Lens.lens (\DeleteMembersResponse' {httpStatu
 
 -- | The accounts that could not be processed.
 deleteMembersResponse_unprocessedAccounts :: Lens.Lens' DeleteMembersResponse [UnprocessedAccount]
-deleteMembersResponse_unprocessedAccounts = Lens.lens (\DeleteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteMembersResponse' {} a -> s {unprocessedAccounts = a} :: DeleteMembersResponse) Prelude.. Lens._Coerce
+deleteMembersResponse_unprocessedAccounts = Lens.lens (\DeleteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteMembersResponse' {} a -> s {unprocessedAccounts = a} :: DeleteMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DeleteMembersResponse

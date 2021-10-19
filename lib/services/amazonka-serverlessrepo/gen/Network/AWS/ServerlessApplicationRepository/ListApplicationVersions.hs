@@ -38,8 +38,8 @@ module Network.AWS.ServerlessApplicationRepository.ListApplicationVersions
     newListApplicationVersionsResponse,
 
     -- * Response Lenses
-    listApplicationVersionsResponse_nextToken,
     listApplicationVersionsResponse_versions,
+    listApplicationVersionsResponse_nextToken,
     listApplicationVersionsResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest ListApplicationVersions where
     Response.receiveJSON
       ( \s h x ->
           ListApplicationVersionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "versions" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "versions" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,10 +167,10 @@ instance Core.ToQuery ListApplicationVersions where
 
 -- | /See:/ 'newListApplicationVersionsResponse' smart constructor.
 data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
-  { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of version summaries for the application.
+  { -- | An array of version summaries for the application.
     versions :: Prelude.Maybe [VersionSummary],
+    -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,9 +184,9 @@ data ListApplicationVersionsResponse = ListApplicationVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listApplicationVersionsResponse_nextToken' - The token to request the next page of results.
---
 -- 'versions', 'listApplicationVersionsResponse_versions' - An array of version summaries for the application.
+--
+-- 'nextToken', 'listApplicationVersionsResponse_nextToken' - The token to request the next page of results.
 --
 -- 'httpStatus', 'listApplicationVersionsResponse_httpStatus' - The response's http status code.
 newListApplicationVersionsResponse ::
@@ -195,19 +195,19 @@ newListApplicationVersionsResponse ::
   ListApplicationVersionsResponse
 newListApplicationVersionsResponse pHttpStatus_ =
   ListApplicationVersionsResponse'
-    { nextToken =
+    { versions =
         Prelude.Nothing,
-      versions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of version summaries for the application.
+listApplicationVersionsResponse_versions :: Lens.Lens' ListApplicationVersionsResponse (Prelude.Maybe [VersionSummary])
+listApplicationVersionsResponse_versions = Lens.lens (\ListApplicationVersionsResponse' {versions} -> versions) (\s@ListApplicationVersionsResponse' {} a -> s {versions = a} :: ListApplicationVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to request the next page of results.
 listApplicationVersionsResponse_nextToken :: Lens.Lens' ListApplicationVersionsResponse (Prelude.Maybe Prelude.Text)
 listApplicationVersionsResponse_nextToken = Lens.lens (\ListApplicationVersionsResponse' {nextToken} -> nextToken) (\s@ListApplicationVersionsResponse' {} a -> s {nextToken = a} :: ListApplicationVersionsResponse)
-
--- | An array of version summaries for the application.
-listApplicationVersionsResponse_versions :: Lens.Lens' ListApplicationVersionsResponse (Prelude.Maybe [VersionSummary])
-listApplicationVersionsResponse_versions = Lens.lens (\ListApplicationVersionsResponse' {versions} -> versions) (\s@ListApplicationVersionsResponse' {} a -> s {versions = a} :: ListApplicationVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listApplicationVersionsResponse_httpStatus :: Lens.Lens' ListApplicationVersionsResponse Prelude.Int

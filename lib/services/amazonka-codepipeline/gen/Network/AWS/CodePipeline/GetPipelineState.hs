@@ -39,10 +39,10 @@ module Network.AWS.CodePipeline.GetPipelineState
     newGetPipelineStateResponse,
 
     -- * Response Lenses
+    getPipelineStateResponse_pipelineName,
+    getPipelineStateResponse_created,
     getPipelineStateResponse_stageStates,
     getPipelineStateResponse_pipelineVersion,
-    getPipelineStateResponse_created,
-    getPipelineStateResponse_pipelineName,
     getPipelineStateResponse_updated,
     getPipelineStateResponse_httpStatus,
   )
@@ -93,10 +93,10 @@ instance Core.AWSRequest GetPipelineState where
     Response.receiveJSON
       ( \s h x ->
           GetPipelineStateResponse'
-            Prelude.<$> (x Core..?> "stageStates" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "pipelineVersion")
+            Prelude.<$> (x Core..?> "pipelineName")
             Prelude.<*> (x Core..?> "created")
-            Prelude.<*> (x Core..?> "pipelineName")
+            Prelude.<*> (x Core..?> "stageStates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "pipelineVersion")
             Prelude.<*> (x Core..?> "updated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -137,7 +137,11 @@ instance Core.ToQuery GetPipelineState where
 --
 -- /See:/ 'newGetPipelineStateResponse' smart constructor.
 data GetPipelineStateResponse = GetPipelineStateResponse'
-  { -- | A list of the pipeline stage output information, including stage name,
+  { -- | The name of the pipeline for which you want to get the state.
+    pipelineName :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the pipeline was created, in timestamp format.
+    created :: Prelude.Maybe Core.POSIX,
+    -- | A list of the pipeline stage output information, including stage name,
     -- state, most recent run details, whether the stage is disabled, and other
     -- data.
     stageStates :: Prelude.Maybe [StageState],
@@ -145,10 +149,6 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
     --
     -- A newly created pipeline is always assigned a version number of @1@.
     pipelineVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time the pipeline was created, in timestamp format.
-    created :: Prelude.Maybe Core.POSIX,
-    -- | The name of the pipeline for which you want to get the state.
-    pipelineName :: Prelude.Maybe Prelude.Text,
     -- | The date and time the pipeline was last updated, in timestamp format.
     updated :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
@@ -164,6 +164,10 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pipelineName', 'getPipelineStateResponse_pipelineName' - The name of the pipeline for which you want to get the state.
+--
+-- 'created', 'getPipelineStateResponse_created' - The date and time the pipeline was created, in timestamp format.
+--
 -- 'stageStates', 'getPipelineStateResponse_stageStates' - A list of the pipeline stage output information, including stage name,
 -- state, most recent run details, whether the stage is disabled, and other
 -- data.
@@ -171,10 +175,6 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
 -- 'pipelineVersion', 'getPipelineStateResponse_pipelineVersion' - The version number of the pipeline.
 --
 -- A newly created pipeline is always assigned a version number of @1@.
---
--- 'created', 'getPipelineStateResponse_created' - The date and time the pipeline was created, in timestamp format.
---
--- 'pipelineName', 'getPipelineStateResponse_pipelineName' - The name of the pipeline for which you want to get the state.
 --
 -- 'updated', 'getPipelineStateResponse_updated' - The date and time the pipeline was last updated, in timestamp format.
 --
@@ -185,34 +185,34 @@ newGetPipelineStateResponse ::
   GetPipelineStateResponse
 newGetPipelineStateResponse pHttpStatus_ =
   GetPipelineStateResponse'
-    { stageStates =
+    { pipelineName =
         Prelude.Nothing,
-      pipelineVersion = Prelude.Nothing,
       created = Prelude.Nothing,
-      pipelineName = Prelude.Nothing,
+      stageStates = Prelude.Nothing,
+      pipelineVersion = Prelude.Nothing,
       updated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The name of the pipeline for which you want to get the state.
+getPipelineStateResponse_pipelineName :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.Text)
+getPipelineStateResponse_pipelineName = Lens.lens (\GetPipelineStateResponse' {pipelineName} -> pipelineName) (\s@GetPipelineStateResponse' {} a -> s {pipelineName = a} :: GetPipelineStateResponse)
+
+-- | The date and time the pipeline was created, in timestamp format.
+getPipelineStateResponse_created :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.UTCTime)
+getPipelineStateResponse_created = Lens.lens (\GetPipelineStateResponse' {created} -> created) (\s@GetPipelineStateResponse' {} a -> s {created = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Core._Time
 
 -- | A list of the pipeline stage output information, including stage name,
 -- state, most recent run details, whether the stage is disabled, and other
 -- data.
 getPipelineStateResponse_stageStates :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe [StageState])
-getPipelineStateResponse_stageStates = Lens.lens (\GetPipelineStateResponse' {stageStates} -> stageStates) (\s@GetPipelineStateResponse' {} a -> s {stageStates = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Lens._Coerce
+getPipelineStateResponse_stageStates = Lens.lens (\GetPipelineStateResponse' {stageStates} -> stageStates) (\s@GetPipelineStateResponse' {} a -> s {stageStates = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version number of the pipeline.
 --
 -- A newly created pipeline is always assigned a version number of @1@.
 getPipelineStateResponse_pipelineVersion :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.Natural)
 getPipelineStateResponse_pipelineVersion = Lens.lens (\GetPipelineStateResponse' {pipelineVersion} -> pipelineVersion) (\s@GetPipelineStateResponse' {} a -> s {pipelineVersion = a} :: GetPipelineStateResponse)
-
--- | The date and time the pipeline was created, in timestamp format.
-getPipelineStateResponse_created :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.UTCTime)
-getPipelineStateResponse_created = Lens.lens (\GetPipelineStateResponse' {created} -> created) (\s@GetPipelineStateResponse' {} a -> s {created = a} :: GetPipelineStateResponse) Prelude.. Lens.mapping Core._Time
-
--- | The name of the pipeline for which you want to get the state.
-getPipelineStateResponse_pipelineName :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.Text)
-getPipelineStateResponse_pipelineName = Lens.lens (\GetPipelineStateResponse' {pipelineName} -> pipelineName) (\s@GetPipelineStateResponse' {} a -> s {pipelineName = a} :: GetPipelineStateResponse)
 
 -- | The date and time the pipeline was last updated, in timestamp format.
 getPipelineStateResponse_updated :: Lens.Lens' GetPipelineStateResponse (Prelude.Maybe Prelude.UTCTime)

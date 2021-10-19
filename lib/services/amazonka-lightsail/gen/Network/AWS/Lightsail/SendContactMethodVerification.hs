@@ -180,7 +180,7 @@ newSendContactMethodVerificationResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 sendContactMethodVerificationResponse_operations :: Lens.Lens' SendContactMethodVerificationResponse (Prelude.Maybe [Operation])
-sendContactMethodVerificationResponse_operations = Lens.lens (\SendContactMethodVerificationResponse' {operations} -> operations) (\s@SendContactMethodVerificationResponse' {} a -> s {operations = a} :: SendContactMethodVerificationResponse) Prelude.. Lens.mapping Lens._Coerce
+sendContactMethodVerificationResponse_operations = Lens.lens (\SendContactMethodVerificationResponse' {operations} -> operations) (\s@SendContactMethodVerificationResponse' {} a -> s {operations = a} :: SendContactMethodVerificationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 sendContactMethodVerificationResponse_httpStatus :: Lens.Lens' SendContactMethodVerificationResponse Prelude.Int

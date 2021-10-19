@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceEndpointListItem' smart constructor.
 data ResourceEndpointListItem = ResourceEndpointListItem'
-  { -- | The endpoint of the signaling channel returned by the
+  { -- | The protocol of the signaling channel returned by the
     -- @GetSignalingChannelEndpoint@ API.
-    resourceEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The protocol of the signaling channel returned by the
+    protocol :: Prelude.Maybe ChannelProtocol,
+    -- | The endpoint of the signaling channel returned by the
     -- @GetSignalingChannelEndpoint@ API.
-    protocol :: Prelude.Maybe ChannelProtocol
+    resourceEndpoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data ResourceEndpointListItem = ResourceEndpointListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceEndpoint', 'resourceEndpointListItem_resourceEndpoint' - The endpoint of the signaling channel returned by the
+-- 'protocol', 'resourceEndpointListItem_protocol' - The protocol of the signaling channel returned by the
 -- @GetSignalingChannelEndpoint@ API.
 --
--- 'protocol', 'resourceEndpointListItem_protocol' - The protocol of the signaling channel returned by the
+-- 'resourceEndpoint', 'resourceEndpointListItem_resourceEndpoint' - The endpoint of the signaling channel returned by the
 -- @GetSignalingChannelEndpoint@ API.
 newResourceEndpointListItem ::
   ResourceEndpointListItem
 newResourceEndpointListItem =
   ResourceEndpointListItem'
-    { resourceEndpoint =
+    { protocol =
         Prelude.Nothing,
-      protocol = Prelude.Nothing
+      resourceEndpoint = Prelude.Nothing
     }
-
--- | The endpoint of the signaling channel returned by the
--- @GetSignalingChannelEndpoint@ API.
-resourceEndpointListItem_resourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Prelude.Maybe Prelude.Text)
-resourceEndpointListItem_resourceEndpoint = Lens.lens (\ResourceEndpointListItem' {resourceEndpoint} -> resourceEndpoint) (\s@ResourceEndpointListItem' {} a -> s {resourceEndpoint = a} :: ResourceEndpointListItem)
 
 -- | The protocol of the signaling channel returned by the
 -- @GetSignalingChannelEndpoint@ API.
 resourceEndpointListItem_protocol :: Lens.Lens' ResourceEndpointListItem (Prelude.Maybe ChannelProtocol)
 resourceEndpointListItem_protocol = Lens.lens (\ResourceEndpointListItem' {protocol} -> protocol) (\s@ResourceEndpointListItem' {} a -> s {protocol = a} :: ResourceEndpointListItem)
+
+-- | The endpoint of the signaling channel returned by the
+-- @GetSignalingChannelEndpoint@ API.
+resourceEndpointListItem_resourceEndpoint :: Lens.Lens' ResourceEndpointListItem (Prelude.Maybe Prelude.Text)
+resourceEndpointListItem_resourceEndpoint = Lens.lens (\ResourceEndpointListItem' {resourceEndpoint} -> resourceEndpoint) (\s@ResourceEndpointListItem' {} a -> s {resourceEndpoint = a} :: ResourceEndpointListItem)
 
 instance Core.FromJSON ResourceEndpointListItem where
   parseJSON =
@@ -76,8 +76,8 @@ instance Core.FromJSON ResourceEndpointListItem where
       "ResourceEndpointListItem"
       ( \x ->
           ResourceEndpointListItem'
-            Prelude.<$> (x Core..:? "ResourceEndpoint")
-            Prelude.<*> (x Core..:? "Protocol")
+            Prelude.<$> (x Core..:? "Protocol")
+            Prelude.<*> (x Core..:? "ResourceEndpoint")
       )
 
 instance Prelude.Hashable ResourceEndpointListItem

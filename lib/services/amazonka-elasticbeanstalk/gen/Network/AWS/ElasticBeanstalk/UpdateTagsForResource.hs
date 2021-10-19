@@ -122,14 +122,14 @@ newUpdateTagsForResource pResourceArn_ =
 --
 -- Specify at least one of these parameters: @TagsToAdd@, @TagsToRemove@.
 updateTagsForResource_tagsToRemove :: Lens.Lens' UpdateTagsForResource (Prelude.Maybe [Prelude.Text])
-updateTagsForResource_tagsToRemove = Lens.lens (\UpdateTagsForResource' {tagsToRemove} -> tagsToRemove) (\s@UpdateTagsForResource' {} a -> s {tagsToRemove = a} :: UpdateTagsForResource) Prelude.. Lens.mapping Lens._Coerce
+updateTagsForResource_tagsToRemove = Lens.lens (\UpdateTagsForResource' {tagsToRemove} -> tagsToRemove) (\s@UpdateTagsForResource' {} a -> s {tagsToRemove = a} :: UpdateTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of tags to add or update. If a key of an existing tag is added,
 -- the tag\'s value is updated.
 --
 -- Specify at least one of these parameters: @TagsToAdd@, @TagsToRemove@.
 updateTagsForResource_tagsToAdd :: Lens.Lens' UpdateTagsForResource (Prelude.Maybe [Tag])
-updateTagsForResource_tagsToAdd = Lens.lens (\UpdateTagsForResource' {tagsToAdd} -> tagsToAdd) (\s@UpdateTagsForResource' {} a -> s {tagsToAdd = a} :: UpdateTagsForResource) Prelude.. Lens.mapping Lens._Coerce
+updateTagsForResource_tagsToAdd = Lens.lens (\UpdateTagsForResource' {tagsToAdd} -> tagsToAdd) (\s@UpdateTagsForResource' {} a -> s {tagsToAdd = a} :: UpdateTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resouce to be updated.
 --

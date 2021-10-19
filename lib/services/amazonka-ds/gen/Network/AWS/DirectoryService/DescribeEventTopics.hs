@@ -105,7 +105,7 @@ describeEventTopics_directoryId = Lens.lens (\DescribeEventTopics' {directoryId}
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
 describeEventTopics_topicNames :: Lens.Lens' DescribeEventTopics (Prelude.Maybe [Prelude.Text])
-describeEventTopics_topicNames = Lens.lens (\DescribeEventTopics' {topicNames} -> topicNames) (\s@DescribeEventTopics' {} a -> s {topicNames = a} :: DescribeEventTopics) Prelude.. Lens.mapping Lens._Coerce
+describeEventTopics_topicNames = Lens.lens (\DescribeEventTopics' {topicNames} -> topicNames) (\s@DescribeEventTopics' {} a -> s {topicNames = a} :: DescribeEventTopics) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeEventTopics where
   type
@@ -192,7 +192,7 @@ newDescribeEventTopicsResponse pHttpStatus_ =
 -- | A list of Amazon SNS topic names that receive status messages from the
 -- specified Directory ID.
 describeEventTopicsResponse_eventTopics :: Lens.Lens' DescribeEventTopicsResponse (Prelude.Maybe [EventTopic])
-describeEventTopicsResponse_eventTopics = Lens.lens (\DescribeEventTopicsResponse' {eventTopics} -> eventTopics) (\s@DescribeEventTopicsResponse' {} a -> s {eventTopics = a} :: DescribeEventTopicsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventTopicsResponse_eventTopics = Lens.lens (\DescribeEventTopicsResponse' {eventTopics} -> eventTopics) (\s@DescribeEventTopicsResponse' {} a -> s {eventTopics = a} :: DescribeEventTopicsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventTopicsResponse_httpStatus :: Lens.Lens' DescribeEventTopicsResponse Prelude.Int

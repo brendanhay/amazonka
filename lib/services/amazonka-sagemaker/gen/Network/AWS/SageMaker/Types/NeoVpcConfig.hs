@@ -63,20 +63,20 @@ newNeoVpcConfig ::
 newNeoVpcConfig pSecurityGroupIds_ pSubnets_ =
   NeoVpcConfig'
     { securityGroupIds =
-        Lens._Coerce Lens.# pSecurityGroupIds_,
-      subnets = Lens._Coerce Lens.# pSubnets_
+        Lens.coerced Lens.# pSecurityGroupIds_,
+      subnets = Lens.coerced Lens.# pSubnets_
     }
 
 -- | The VPC security group IDs. IDs have the form of @sg-xxxxxxxx@. Specify
 -- the security groups for the VPC that is specified in the @Subnets@
 -- field.
 neoVpcConfig_securityGroupIds :: Lens.Lens' NeoVpcConfig (Prelude.NonEmpty Prelude.Text)
-neoVpcConfig_securityGroupIds = Lens.lens (\NeoVpcConfig' {securityGroupIds} -> securityGroupIds) (\s@NeoVpcConfig' {} a -> s {securityGroupIds = a} :: NeoVpcConfig) Prelude.. Lens._Coerce
+neoVpcConfig_securityGroupIds = Lens.lens (\NeoVpcConfig' {securityGroupIds} -> securityGroupIds) (\s@NeoVpcConfig' {} a -> s {securityGroupIds = a} :: NeoVpcConfig) Prelude.. Lens.coerced
 
 -- | The ID of the subnets in the VPC that you want to connect the
 -- compilation job to for accessing the model in Amazon S3.
 neoVpcConfig_subnets :: Lens.Lens' NeoVpcConfig (Prelude.NonEmpty Prelude.Text)
-neoVpcConfig_subnets = Lens.lens (\NeoVpcConfig' {subnets} -> subnets) (\s@NeoVpcConfig' {} a -> s {subnets = a} :: NeoVpcConfig) Prelude.. Lens._Coerce
+neoVpcConfig_subnets = Lens.lens (\NeoVpcConfig' {subnets} -> subnets) (\s@NeoVpcConfig' {} a -> s {subnets = a} :: NeoVpcConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON NeoVpcConfig where
   parseJSON =

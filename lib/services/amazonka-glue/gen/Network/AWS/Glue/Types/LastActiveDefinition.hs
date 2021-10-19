@@ -29,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLastActiveDefinition' smart constructor.
 data LastActiveDefinition = LastActiveDefinition'
-  { -- | The date and time the blueprint was last modified.
+  { -- | A JSON string specifying the parameters for the blueprint.
+    parameterSpec :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a path in Amazon S3 where the blueprint is published by the
+    -- Glue developer.
+    blueprintLocation :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the blueprint was last modified.
     lastModifiedOn :: Prelude.Maybe Core.POSIX,
     -- | Specifies a path in Amazon S3 where the blueprint is copied when you
     -- create or update the blueprint.
     blueprintServiceLocation :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string specifying the parameters for the blueprint.
-    parameterSpec :: Prelude.Maybe Prelude.Text,
     -- | The description of the blueprint.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a path in Amazon S3 where the blueprint is published by the
-    -- Glue developer.
-    blueprintLocation :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,37 @@ data LastActiveDefinition = LastActiveDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parameterSpec', 'lastActiveDefinition_parameterSpec' - A JSON string specifying the parameters for the blueprint.
+--
+-- 'blueprintLocation', 'lastActiveDefinition_blueprintLocation' - Specifies a path in Amazon S3 where the blueprint is published by the
+-- Glue developer.
+--
 -- 'lastModifiedOn', 'lastActiveDefinition_lastModifiedOn' - The date and time the blueprint was last modified.
 --
 -- 'blueprintServiceLocation', 'lastActiveDefinition_blueprintServiceLocation' - Specifies a path in Amazon S3 where the blueprint is copied when you
 -- create or update the blueprint.
 --
--- 'parameterSpec', 'lastActiveDefinition_parameterSpec' - A JSON string specifying the parameters for the blueprint.
---
 -- 'description', 'lastActiveDefinition_description' - The description of the blueprint.
---
--- 'blueprintLocation', 'lastActiveDefinition_blueprintLocation' - Specifies a path in Amazon S3 where the blueprint is published by the
--- Glue developer.
 newLastActiveDefinition ::
   LastActiveDefinition
 newLastActiveDefinition =
   LastActiveDefinition'
-    { lastModifiedOn =
+    { parameterSpec =
         Prelude.Nothing,
+      blueprintLocation = Prelude.Nothing,
+      lastModifiedOn = Prelude.Nothing,
       blueprintServiceLocation = Prelude.Nothing,
-      parameterSpec = Prelude.Nothing,
-      description = Prelude.Nothing,
-      blueprintLocation = Prelude.Nothing
+      description = Prelude.Nothing
     }
+
+-- | A JSON string specifying the parameters for the blueprint.
+lastActiveDefinition_parameterSpec :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
+lastActiveDefinition_parameterSpec = Lens.lens (\LastActiveDefinition' {parameterSpec} -> parameterSpec) (\s@LastActiveDefinition' {} a -> s {parameterSpec = a} :: LastActiveDefinition)
+
+-- | Specifies a path in Amazon S3 where the blueprint is published by the
+-- Glue developer.
+lastActiveDefinition_blueprintLocation :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
+lastActiveDefinition_blueprintLocation = Lens.lens (\LastActiveDefinition' {blueprintLocation} -> blueprintLocation) (\s@LastActiveDefinition' {} a -> s {blueprintLocation = a} :: LastActiveDefinition)
 
 -- | The date and time the blueprint was last modified.
 lastActiveDefinition_lastModifiedOn :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.UTCTime)
@@ -84,18 +93,9 @@ lastActiveDefinition_lastModifiedOn = Lens.lens (\LastActiveDefinition' {lastMod
 lastActiveDefinition_blueprintServiceLocation :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
 lastActiveDefinition_blueprintServiceLocation = Lens.lens (\LastActiveDefinition' {blueprintServiceLocation} -> blueprintServiceLocation) (\s@LastActiveDefinition' {} a -> s {blueprintServiceLocation = a} :: LastActiveDefinition)
 
--- | A JSON string specifying the parameters for the blueprint.
-lastActiveDefinition_parameterSpec :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
-lastActiveDefinition_parameterSpec = Lens.lens (\LastActiveDefinition' {parameterSpec} -> parameterSpec) (\s@LastActiveDefinition' {} a -> s {parameterSpec = a} :: LastActiveDefinition)
-
 -- | The description of the blueprint.
 lastActiveDefinition_description :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
 lastActiveDefinition_description = Lens.lens (\LastActiveDefinition' {description} -> description) (\s@LastActiveDefinition' {} a -> s {description = a} :: LastActiveDefinition)
-
--- | Specifies a path in Amazon S3 where the blueprint is published by the
--- Glue developer.
-lastActiveDefinition_blueprintLocation :: Lens.Lens' LastActiveDefinition (Prelude.Maybe Prelude.Text)
-lastActiveDefinition_blueprintLocation = Lens.lens (\LastActiveDefinition' {blueprintLocation} -> blueprintLocation) (\s@LastActiveDefinition' {} a -> s {blueprintLocation = a} :: LastActiveDefinition)
 
 instance Core.FromJSON LastActiveDefinition where
   parseJSON =
@@ -103,11 +103,11 @@ instance Core.FromJSON LastActiveDefinition where
       "LastActiveDefinition"
       ( \x ->
           LastActiveDefinition'
-            Prelude.<$> (x Core..:? "LastModifiedOn")
-            Prelude.<*> (x Core..:? "BlueprintServiceLocation")
-            Prelude.<*> (x Core..:? "ParameterSpec")
-            Prelude.<*> (x Core..:? "Description")
+            Prelude.<$> (x Core..:? "ParameterSpec")
             Prelude.<*> (x Core..:? "BlueprintLocation")
+            Prelude.<*> (x Core..:? "LastModifiedOn")
+            Prelude.<*> (x Core..:? "BlueprintServiceLocation")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable LastActiveDefinition

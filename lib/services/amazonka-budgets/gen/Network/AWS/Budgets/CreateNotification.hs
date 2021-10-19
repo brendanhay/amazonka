@@ -106,7 +106,7 @@ newCreateNotification
       { accountId = pAccountId_,
         budgetName = pBudgetName_,
         notification = pNotification_,
-        subscribers = Lens._Coerce Lens.# pSubscribers_
+        subscribers = Lens.coerced Lens.# pSubscribers_
       }
 
 -- | The @accountId@ that is associated with the budget that you want to
@@ -127,7 +127,7 @@ createNotification_notification = Lens.lens (\CreateNotification' {notification}
 -- Each notification can have one SNS subscriber and up to 10 email
 -- subscribers.
 createNotification_subscribers :: Lens.Lens' CreateNotification (Prelude.NonEmpty Subscriber)
-createNotification_subscribers = Lens.lens (\CreateNotification' {subscribers} -> subscribers) (\s@CreateNotification' {} a -> s {subscribers = a} :: CreateNotification) Prelude.. Lens._Coerce
+createNotification_subscribers = Lens.lens (\CreateNotification' {subscribers} -> subscribers) (\s@CreateNotification' {} a -> s {subscribers = a} :: CreateNotification) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateNotification where
   type

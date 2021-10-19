@@ -20,27 +20,20 @@ module Network.AWS.IoTData.Lens
     getThingShadowResponse_payload,
     getThingShadowResponse_httpStatus,
 
-    -- ** Publish
-    publish_payload,
-    publish_retain,
-    publish_qos,
-    publish_topic,
-
-    -- ** ListRetainedMessages
-    listRetainedMessages_nextToken,
-    listRetainedMessages_maxResults,
-    listRetainedMessagesResponse_nextToken,
-    listRetainedMessagesResponse_retainedTopics,
-    listRetainedMessagesResponse_httpStatus,
-
     -- ** ListNamedShadowsForThing
     listNamedShadowsForThing_nextToken,
     listNamedShadowsForThing_pageSize,
     listNamedShadowsForThing_thingName,
+    listNamedShadowsForThingResponse_results,
     listNamedShadowsForThingResponse_nextToken,
     listNamedShadowsForThingResponse_timestamp,
-    listNamedShadowsForThingResponse_results,
     listNamedShadowsForThingResponse_httpStatus,
+
+    -- ** DeleteThingShadow
+    deleteThingShadow_shadowName,
+    deleteThingShadow_thingName,
+    deleteThingShadowResponse_httpStatus,
+    deleteThingShadowResponse_payload,
 
     -- ** UpdateThingShadow
     updateThingShadow_shadowName,
@@ -49,27 +42,34 @@ module Network.AWS.IoTData.Lens
     updateThingShadowResponse_payload,
     updateThingShadowResponse_httpStatus,
 
-    -- ** DeleteThingShadow
-    deleteThingShadow_shadowName,
-    deleteThingShadow_thingName,
-    deleteThingShadowResponse_httpStatus,
-    deleteThingShadowResponse_payload,
+    -- ** ListRetainedMessages
+    listRetainedMessages_nextToken,
+    listRetainedMessages_maxResults,
+    listRetainedMessagesResponse_retainedTopics,
+    listRetainedMessagesResponse_nextToken,
+    listRetainedMessagesResponse_httpStatus,
 
     -- ** GetRetainedMessage
     getRetainedMessage_topic,
+    getRetainedMessageResponse_lastModifiedTime,
     getRetainedMessageResponse_payload,
     getRetainedMessageResponse_topic,
-    getRetainedMessageResponse_lastModifiedTime,
     getRetainedMessageResponse_qos,
     getRetainedMessageResponse_httpStatus,
+
+    -- ** Publish
+    publish_retain,
+    publish_payload,
+    publish_qos,
+    publish_topic,
 
     -- * Types
 
     -- ** RetainedMessageSummary
-    retainedMessageSummary_payloadSize,
-    retainedMessageSummary_topic,
     retainedMessageSummary_lastModifiedTime,
+    retainedMessageSummary_topic,
     retainedMessageSummary_qos,
+    retainedMessageSummary_payloadSize,
   )
 where
 

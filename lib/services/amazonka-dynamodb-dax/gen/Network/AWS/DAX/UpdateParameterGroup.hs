@@ -101,7 +101,7 @@ updateParameterGroup_parameterGroupName = Lens.lens (\UpdateParameterGroup' {par
 -- parameter names. For more details, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.cluster-management.html#DAX.cluster-management.custom-settings.ttl Configuring TTL Settings>.
 updateParameterGroup_parameterNameValues :: Lens.Lens' UpdateParameterGroup [ParameterNameValue]
-updateParameterGroup_parameterNameValues = Lens.lens (\UpdateParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@UpdateParameterGroup' {} a -> s {parameterNameValues = a} :: UpdateParameterGroup) Prelude.. Lens._Coerce
+updateParameterGroup_parameterNameValues = Lens.lens (\UpdateParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@UpdateParameterGroup' {} a -> s {parameterNameValues = a} :: UpdateParameterGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateParameterGroup where
   type

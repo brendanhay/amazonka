@@ -34,10 +34,10 @@ data ResultByTime = ResultByTime'
     groups :: Prelude.Maybe [Group],
     -- | The time period that the result covers.
     timePeriod :: Prelude.Maybe DateInterval,
-    -- | Determines whether the result is estimated.
-    estimated :: Prelude.Maybe Prelude.Bool,
     -- | The total amount of cost or usage accrued during the time period.
-    total :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue)
+    total :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue),
+    -- | Determines whether the result is estimated.
+    estimated :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,34 +53,34 @@ data ResultByTime = ResultByTime'
 --
 -- 'timePeriod', 'resultByTime_timePeriod' - The time period that the result covers.
 --
--- 'estimated', 'resultByTime_estimated' - Determines whether the result is estimated.
---
 -- 'total', 'resultByTime_total' - The total amount of cost or usage accrued during the time period.
+--
+-- 'estimated', 'resultByTime_estimated' - Determines whether the result is estimated.
 newResultByTime ::
   ResultByTime
 newResultByTime =
   ResultByTime'
     { groups = Prelude.Nothing,
       timePeriod = Prelude.Nothing,
-      estimated = Prelude.Nothing,
-      total = Prelude.Nothing
+      total = Prelude.Nothing,
+      estimated = Prelude.Nothing
     }
 
 -- | The groups that this time period includes.
 resultByTime_groups :: Lens.Lens' ResultByTime (Prelude.Maybe [Group])
-resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Prelude.. Lens.mapping Lens._Coerce
+resultByTime_groups = Lens.lens (\ResultByTime' {groups} -> groups) (\s@ResultByTime' {} a -> s {groups = a} :: ResultByTime) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time period that the result covers.
 resultByTime_timePeriod :: Lens.Lens' ResultByTime (Prelude.Maybe DateInterval)
 resultByTime_timePeriod = Lens.lens (\ResultByTime' {timePeriod} -> timePeriod) (\s@ResultByTime' {} a -> s {timePeriod = a} :: ResultByTime)
 
+-- | The total amount of cost or usage accrued during the time period.
+resultByTime_total :: Lens.Lens' ResultByTime (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
+resultByTime_total = Lens.lens (\ResultByTime' {total} -> total) (\s@ResultByTime' {} a -> s {total = a} :: ResultByTime) Prelude.. Lens.mapping Lens.coerced
+
 -- | Determines whether the result is estimated.
 resultByTime_estimated :: Lens.Lens' ResultByTime (Prelude.Maybe Prelude.Bool)
 resultByTime_estimated = Lens.lens (\ResultByTime' {estimated} -> estimated) (\s@ResultByTime' {} a -> s {estimated = a} :: ResultByTime)
-
--- | The total amount of cost or usage accrued during the time period.
-resultByTime_total :: Lens.Lens' ResultByTime (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
-resultByTime_total = Lens.lens (\ResultByTime' {total} -> total) (\s@ResultByTime' {} a -> s {total = a} :: ResultByTime) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ResultByTime where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON ResultByTime where
           ResultByTime'
             Prelude.<$> (x Core..:? "Groups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "TimePeriod")
-            Prelude.<*> (x Core..:? "Estimated")
             Prelude.<*> (x Core..:? "Total" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Estimated")
       )
 
 instance Prelude.Hashable ResultByTime

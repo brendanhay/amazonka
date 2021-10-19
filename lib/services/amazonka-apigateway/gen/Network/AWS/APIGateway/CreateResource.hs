@@ -36,11 +36,11 @@ module Network.AWS.APIGateway.CreateResource
     newResource,
 
     -- * Response Lenses
-    resource_id,
     resource_pathPart,
-    resource_parentId,
-    resource_resourceMethods,
     resource_path,
+    resource_id,
+    resource_resourceMethods,
+    resource_parentId,
   )
 where
 

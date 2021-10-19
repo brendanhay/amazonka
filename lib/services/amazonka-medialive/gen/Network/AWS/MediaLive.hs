@@ -19,101 +19,107 @@ module Network.AWS.MediaLive
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** BadGatewayException
-    _BadGatewayException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
-
-    -- ** ForbiddenException
-    _ForbiddenException,
-
     -- ** GatewayTimeoutException
     _GatewayTimeoutException,
-
-    -- ** ConflictException
-    _ConflictException,
 
     -- ** UnprocessableEntityException
     _UnprocessableEntityException,
 
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** BadGatewayException
+    _BadGatewayException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** MultiplexRunning
-    newMultiplexRunning,
-
     -- ** ChannelRunning
     newChannelRunning,
-
-    -- ** ChannelDeleted
-    newChannelDeleted,
-
-    -- ** InputDeleted
-    newInputDeleted,
 
     -- ** InputAttached
     newInputAttached,
 
-    -- ** MultiplexStopped
-    newMultiplexStopped,
-
-    -- ** ChannelCreated
-    newChannelCreated,
-
-    -- ** InputDetached
-    newInputDetached,
-
-    -- ** MultiplexCreated
-    newMultiplexCreated,
+    -- ** MultiplexRunning
+    newMultiplexRunning,
 
     -- ** MultiplexDeleted
     newMultiplexDeleted,
 
+    -- ** InputDetached
+    newInputDetached,
+
+    -- ** InputDeleted
+    newInputDeleted,
+
     -- ** ChannelStopped
     newChannelStopped,
 
+    -- ** MultiplexCreated
+    newMultiplexCreated,
+
+    -- ** ChannelCreated
+    newChannelCreated,
+
+    -- ** ChannelDeleted
+    newChannelDeleted,
+
+    -- ** MultiplexStopped
+    newMultiplexStopped,
+
     -- * Operations
     -- $operations
+
+    -- ** UpdateChannelClass
+    UpdateChannelClass' (UpdateChannelClass''),
+    newUpdateChannelClass',
+    UpdateChannelClassResponse (UpdateChannelClassResponse'),
+    newUpdateChannelClassResponse,
+
+    -- ** ListMultiplexes (Paginated)
+    ListMultiplexes (ListMultiplexes'),
+    newListMultiplexes,
+    ListMultiplexesResponse (ListMultiplexesResponse'),
+    newListMultiplexesResponse,
+
+    -- ** BatchStart
+    BatchStart' (BatchStart''),
+    newBatchStart',
+    BatchStartResponse (BatchStartResponse'),
+    newBatchStartResponse,
+
+    -- ** CreateMultiplex
+    CreateMultiplex' (CreateMultiplex''),
+    newCreateMultiplex',
+    CreateMultiplexResponse (CreateMultiplexResponse'),
+    newCreateMultiplexResponse,
+
+    -- ** ListInputDeviceTransfers (Paginated)
+    ListInputDeviceTransfers (ListInputDeviceTransfers'),
+    newListInputDeviceTransfers,
+    ListInputDeviceTransfersResponse (ListInputDeviceTransfersResponse'),
+    newListInputDeviceTransfersResponse,
 
     -- ** ListInputDevices (Paginated)
     ListInputDevices (ListInputDevices'),
     newListInputDevices,
     ListInputDevicesResponse (ListInputDevicesResponse'),
     newListInputDevicesResponse,
-
-    -- ** DeleteInput
-    DeleteInput (DeleteInput'),
-    newDeleteInput,
-    DeleteInputResponse (DeleteInputResponse'),
-    newDeleteInputResponse,
-
-    -- ** UpdateInputDevice
-    UpdateInputDevice' (UpdateInputDevice''),
-    newUpdateInputDevice',
-    UpdateInputDeviceResponse (UpdateInputDeviceResponse'),
-    newUpdateInputDeviceResponse,
-
-    -- ** CreateChannel
-    CreateChannel' (CreateChannel''),
-    newCreateChannel',
-    CreateChannelResponse (CreateChannelResponse'),
-    newCreateChannelResponse,
-
-    -- ** UpdateInput
-    UpdateInput' (UpdateInput''),
-    newUpdateInput',
-    UpdateInputResponse (UpdateInputResponse'),
-    newUpdateInputResponse,
 
     -- ** ListInputs (Paginated)
     ListInputs (ListInputs'),
@@ -127,143 +133,11 @@ module Network.AWS.MediaLive
     DescribeInputDeviceThumbnailResponse (DescribeInputDeviceThumbnailResponse'),
     newDescribeInputDeviceThumbnailResponse,
 
-    -- ** BatchStop
-    BatchStop' (BatchStop''),
-    newBatchStop',
-    BatchStopResponse (BatchStopResponse'),
-    newBatchStopResponse,
-
-    -- ** UpdateChannelClass
-    UpdateChannelClass' (UpdateChannelClass''),
-    newUpdateChannelClass',
-    UpdateChannelClassResponse (UpdateChannelClassResponse'),
-    newUpdateChannelClassResponse,
-
-    -- ** BatchStart
-    BatchStart' (BatchStart''),
-    newBatchStart',
-    BatchStartResponse (BatchStartResponse'),
-    newBatchStartResponse,
-
-    -- ** ListInputDeviceTransfers (Paginated)
-    ListInputDeviceTransfers (ListInputDeviceTransfers'),
-    newListInputDeviceTransfers,
-    ListInputDeviceTransfersResponse (ListInputDeviceTransfersResponse'),
-    newListInputDeviceTransfersResponse,
-
-    -- ** ListOfferings (Paginated)
-    ListOfferings (ListOfferings'),
-    newListOfferings,
-    ListOfferingsResponse (ListOfferingsResponse'),
-    newListOfferingsResponse,
-
-    -- ** DeleteMultiplex
-    DeleteMultiplex (DeleteMultiplex'),
-    newDeleteMultiplex,
-    DeleteMultiplexResponse (DeleteMultiplexResponse'),
-    newDeleteMultiplexResponse,
-
-    -- ** UpdateMultiplex
-    UpdateMultiplex' (UpdateMultiplex''),
-    newUpdateMultiplex',
-    UpdateMultiplexResponse (UpdateMultiplexResponse'),
-    newUpdateMultiplexResponse,
-
-    -- ** UpdateInputSecurityGroup
-    UpdateInputSecurityGroup (UpdateInputSecurityGroup'),
-    newUpdateInputSecurityGroup,
-    UpdateInputSecurityGroupResponse (UpdateInputSecurityGroupResponse'),
-    newUpdateInputSecurityGroupResponse,
-
-    -- ** ListInputSecurityGroups (Paginated)
-    ListInputSecurityGroups (ListInputSecurityGroups'),
-    newListInputSecurityGroups,
-    ListInputSecurityGroupsResponse (ListInputSecurityGroupsResponse'),
-    newListInputSecurityGroupsResponse,
-
-    -- ** DeleteInputSecurityGroup
-    DeleteInputSecurityGroup (DeleteInputSecurityGroup'),
-    newDeleteInputSecurityGroup,
-    DeleteInputSecurityGroupResponse (DeleteInputSecurityGroupResponse'),
-    newDeleteInputSecurityGroupResponse,
-
-    -- ** StartChannel
-    StartChannel (StartChannel'),
-    newStartChannel,
-    StartChannelResponse (StartChannelResponse'),
-    newStartChannelResponse,
-
-    -- ** CreateInputSecurityGroup
-    CreateInputSecurityGroup (CreateInputSecurityGroup'),
-    newCreateInputSecurityGroup,
-    CreateInputSecurityGroupResponse (CreateInputSecurityGroupResponse'),
-    newCreateInputSecurityGroupResponse,
-
-    -- ** DescribeInputDevice
-    DescribeInputDevice (DescribeInputDevice'),
-    newDescribeInputDevice,
-    DescribeInputDeviceResponse (DescribeInputDeviceResponse'),
-    newDescribeInputDeviceResponse,
-
-    -- ** StopChannel
-    StopChannel (StopChannel'),
-    newStopChannel,
-    StopChannelResponse (StopChannelResponse'),
-    newStopChannelResponse,
-
-    -- ** DescribeInput
-    DescribeInput (DescribeInput'),
-    newDescribeInput,
-    DescribeInputResponse (DescribeInputResponse'),
-    newDescribeInputResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
-
-    -- ** BatchUpdateSchedule
-    BatchUpdateSchedule (BatchUpdateSchedule'),
-    newBatchUpdateSchedule,
-    BatchUpdateScheduleResponse (BatchUpdateScheduleResponse'),
-    newBatchUpdateScheduleResponse,
-
-    -- ** DescribeReservation
-    DescribeReservation (DescribeReservation'),
-    newDescribeReservation,
-    DescribeReservationResponse (DescribeReservationResponse'),
-    newDescribeReservationResponse,
-
-    -- ** UpdateMultiplexProgram
-    UpdateMultiplexProgram' (UpdateMultiplexProgram''),
-    newUpdateMultiplexProgram',
-    UpdateMultiplexProgramResponse (UpdateMultiplexProgramResponse'),
-    newUpdateMultiplexProgramResponse,
-
-    -- ** AcceptInputDeviceTransfer
-    AcceptInputDeviceTransfer (AcceptInputDeviceTransfer'),
-    newAcceptInputDeviceTransfer,
-    AcceptInputDeviceTransferResponse (AcceptInputDeviceTransferResponse'),
-    newAcceptInputDeviceTransferResponse,
-
-    -- ** DeleteMultiplexProgram
-    DeleteMultiplexProgram (DeleteMultiplexProgram'),
-    newDeleteMultiplexProgram,
-    DeleteMultiplexProgramResponse (DeleteMultiplexProgramResponse'),
-    newDeleteMultiplexProgramResponse,
-
-    -- ** DescribeOffering
-    DescribeOffering (DescribeOffering'),
-    newDescribeOffering,
-    DescribeOfferingResponse (DescribeOfferingResponse'),
-    newDescribeOfferingResponse,
-
-    -- ** RejectInputDeviceTransfer
-    RejectInputDeviceTransfer (RejectInputDeviceTransfer'),
-    newRejectInputDeviceTransfer,
-    RejectInputDeviceTransferResponse (RejectInputDeviceTransferResponse'),
-    newRejectInputDeviceTransferResponse,
+    -- ** ListChannels (Paginated)
+    ListChannels (ListChannels'),
+    newListChannels,
+    ListChannelsResponse (ListChannelsResponse'),
+    newListChannelsResponse,
 
     -- ** DescribeInputSecurityGroup
     DescribeInputSecurityGroup (DescribeInputSecurityGroup'),
@@ -271,35 +145,83 @@ module Network.AWS.MediaLive
     DescribeInputSecurityGroupResponse (DescribeInputSecurityGroupResponse'),
     newDescribeInputSecurityGroupResponse,
 
-    -- ** ListChannels (Paginated)
-    ListChannels (ListChannels'),
-    newListChannels,
-    ListChannelsResponse (ListChannelsResponse'),
-    newListChannelsResponse,
+    -- ** CreateInput
+    CreateInput' (CreateInput''),
+    newCreateInput',
+    CreateInputResponse (CreateInputResponse'),
+    newCreateInputResponse,
 
-    -- ** DeleteSchedule
-    DeleteSchedule (DeleteSchedule'),
-    newDeleteSchedule,
-    DeleteScheduleResponse (DeleteScheduleResponse'),
-    newDeleteScheduleResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** CreatePartnerInput
-    CreatePartnerInput' (CreatePartnerInput''),
-    newCreatePartnerInput',
-    CreatePartnerInputResponse (CreatePartnerInputResponse'),
-    newCreatePartnerInputResponse,
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
 
-    -- ** ListMultiplexes (Paginated)
-    ListMultiplexes (ListMultiplexes'),
-    newListMultiplexes,
-    ListMultiplexesResponse (ListMultiplexesResponse'),
-    newListMultiplexesResponse,
+    -- ** UpdateChannel
+    UpdateChannel' (UpdateChannel''),
+    newUpdateChannel',
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
-    -- ** CreateMultiplex
-    CreateMultiplex' (CreateMultiplex''),
-    newCreateMultiplex',
-    CreateMultiplexResponse (CreateMultiplexResponse'),
-    newCreateMultiplexResponse,
+    -- ** AcceptInputDeviceTransfer
+    AcceptInputDeviceTransfer (AcceptInputDeviceTransfer'),
+    newAcceptInputDeviceTransfer,
+    AcceptInputDeviceTransferResponse (AcceptInputDeviceTransferResponse'),
+    newAcceptInputDeviceTransferResponse,
+
+    -- ** DescribeReservation
+    DescribeReservation (DescribeReservation'),
+    newDescribeReservation,
+    DescribeReservationResponse (DescribeReservationResponse'),
+    newDescribeReservationResponse,
+
+    -- ** CreateTags
+    CreateTags (CreateTags'),
+    newCreateTags,
+    CreateTagsResponse (CreateTagsResponse'),
+    newCreateTagsResponse,
+
+    -- ** StopMultiplex
+    StopMultiplex (StopMultiplex'),
+    newStopMultiplex,
+    StopMultiplexResponse (StopMultiplexResponse'),
+    newStopMultiplexResponse,
+
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** CreateInputSecurityGroup
+    CreateInputSecurityGroup (CreateInputSecurityGroup'),
+    newCreateInputSecurityGroup,
+    CreateInputSecurityGroupResponse (CreateInputSecurityGroupResponse'),
+    newCreateInputSecurityGroupResponse,
+
+    -- ** StartChannel
+    StartChannel (StartChannel'),
+    newStartChannel,
+    StartChannelResponse (StartChannelResponse'),
+    newStartChannelResponse,
+
+    -- ** CancelInputDeviceTransfer
+    CancelInputDeviceTransfer (CancelInputDeviceTransfer'),
+    newCancelInputDeviceTransfer,
+    CancelInputDeviceTransferResponse (CancelInputDeviceTransferResponse'),
+    newCancelInputDeviceTransferResponse,
+
+    -- ** ListInputSecurityGroups (Paginated)
+    ListInputSecurityGroups (ListInputSecurityGroups'),
+    newListInputSecurityGroups,
+    ListInputSecurityGroupsResponse (ListInputSecurityGroupsResponse'),
+    newListInputSecurityGroupsResponse,
 
     -- ** DeleteReservation
     DeleteReservation (DeleteReservation'),
@@ -313,47 +235,107 @@ module Network.AWS.MediaLive
     UpdateReservationResponse (UpdateReservationResponse'),
     newUpdateReservationResponse,
 
-    -- ** DescribeMultiplexProgram
-    DescribeMultiplexProgram (DescribeMultiplexProgram'),
-    newDescribeMultiplexProgram,
-    DescribeMultiplexProgramResponse (DescribeMultiplexProgramResponse'),
-    newDescribeMultiplexProgramResponse,
+    -- ** BatchStop
+    BatchStop' (BatchStop''),
+    newBatchStop',
+    BatchStopResponse (BatchStopResponse'),
+    newBatchStopResponse,
 
-    -- ** ListReservations (Paginated)
-    ListReservations (ListReservations'),
-    newListReservations,
-    ListReservationsResponse (ListReservationsResponse'),
-    newListReservationsResponse,
+    -- ** DeleteSchedule
+    DeleteSchedule (DeleteSchedule'),
+    newDeleteSchedule,
+    DeleteScheduleResponse (DeleteScheduleResponse'),
+    newDeleteScheduleResponse,
 
-    -- ** DescribeChannel
-    DescribeChannel (DescribeChannel'),
-    newDescribeChannel,
-    DescribeChannelResponse (DescribeChannelResponse'),
-    newDescribeChannelResponse,
+    -- ** CreatePartnerInput
+    CreatePartnerInput' (CreatePartnerInput''),
+    newCreatePartnerInput',
+    CreatePartnerInputResponse (CreatePartnerInputResponse'),
+    newCreatePartnerInputResponse,
 
-    -- ** CancelInputDeviceTransfer
-    CancelInputDeviceTransfer (CancelInputDeviceTransfer'),
-    newCancelInputDeviceTransfer,
-    CancelInputDeviceTransferResponse (CancelInputDeviceTransferResponse'),
-    newCancelInputDeviceTransferResponse,
+    -- ** CreateChannel
+    CreateChannel' (CreateChannel''),
+    newCreateChannel',
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
 
-    -- ** PurchaseOffering
-    PurchaseOffering' (PurchaseOffering''),
-    newPurchaseOffering',
-    PurchaseOfferingResponse (PurchaseOfferingResponse'),
-    newPurchaseOfferingResponse,
+    -- ** DeleteInput
+    DeleteInput (DeleteInput'),
+    newDeleteInput,
+    DeleteInputResponse (DeleteInputResponse'),
+    newDeleteInputResponse,
 
-    -- ** StartMultiplex
-    StartMultiplex (StartMultiplex'),
-    newStartMultiplex,
-    StartMultiplexResponse (StartMultiplexResponse'),
-    newStartMultiplexResponse,
+    -- ** UpdateInput
+    UpdateInput' (UpdateInput''),
+    newUpdateInput',
+    UpdateInputResponse (UpdateInputResponse'),
+    newUpdateInputResponse,
 
-    -- ** StopMultiplex
-    StopMultiplex (StopMultiplex'),
-    newStopMultiplex,
-    StopMultiplexResponse (StopMultiplexResponse'),
-    newStopMultiplexResponse,
+    -- ** UpdateInputDevice
+    UpdateInputDevice' (UpdateInputDevice''),
+    newUpdateInputDevice',
+    UpdateInputDeviceResponse (UpdateInputDeviceResponse'),
+    newUpdateInputDeviceResponse,
+
+    -- ** RejectInputDeviceTransfer
+    RejectInputDeviceTransfer (RejectInputDeviceTransfer'),
+    newRejectInputDeviceTransfer,
+    RejectInputDeviceTransferResponse (RejectInputDeviceTransferResponse'),
+    newRejectInputDeviceTransferResponse,
+
+    -- ** ClaimDevice
+    ClaimDevice (ClaimDevice'),
+    newClaimDevice,
+    ClaimDeviceResponse (ClaimDeviceResponse'),
+    newClaimDeviceResponse,
+
+    -- ** DescribeOffering
+    DescribeOffering (DescribeOffering'),
+    newDescribeOffering,
+    DescribeOfferingResponse (DescribeOfferingResponse'),
+    newDescribeOfferingResponse,
+
+    -- ** TransferInputDevice
+    TransferInputDevice' (TransferInputDevice''),
+    newTransferInputDevice',
+    TransferInputDeviceResponse (TransferInputDeviceResponse'),
+    newTransferInputDeviceResponse,
+
+    -- ** DeleteMultiplexProgram
+    DeleteMultiplexProgram (DeleteMultiplexProgram'),
+    newDeleteMultiplexProgram,
+    DeleteMultiplexProgramResponse (DeleteMultiplexProgramResponse'),
+    newDeleteMultiplexProgramResponse,
+
+    -- ** UpdateMultiplexProgram
+    UpdateMultiplexProgram' (UpdateMultiplexProgram''),
+    newUpdateMultiplexProgram',
+    UpdateMultiplexProgramResponse (UpdateMultiplexProgramResponse'),
+    newUpdateMultiplexProgramResponse,
+
+    -- ** BatchDelete
+    BatchDelete' (BatchDelete''),
+    newBatchDelete',
+    BatchDeleteResponse (BatchDeleteResponse'),
+    newBatchDeleteResponse,
+
+    -- ** ListMultiplexPrograms (Paginated)
+    ListMultiplexPrograms (ListMultiplexPrograms'),
+    newListMultiplexPrograms,
+    ListMultiplexProgramsResponse (ListMultiplexProgramsResponse'),
+    newListMultiplexProgramsResponse,
+
+    -- ** DescribeMultiplex
+    DescribeMultiplex (DescribeMultiplex'),
+    newDescribeMultiplex,
+    DescribeMultiplexResponse (DescribeMultiplexResponse'),
+    newDescribeMultiplexResponse,
+
+    -- ** BatchUpdateSchedule
+    BatchUpdateSchedule (BatchUpdateSchedule'),
+    newBatchUpdateSchedule,
+    BatchUpdateScheduleResponse (BatchUpdateScheduleResponse'),
+    newBatchUpdateScheduleResponse,
 
     -- ** CreateMultiplexProgram
     CreateMultiplexProgram' (CreateMultiplexProgram''),
@@ -367,59 +349,83 @@ module Network.AWS.MediaLive
     DescribeScheduleResponse (DescribeScheduleResponse'),
     newDescribeScheduleResponse,
 
-    -- ** DescribeMultiplex
-    DescribeMultiplex (DescribeMultiplex'),
-    newDescribeMultiplex,
-    DescribeMultiplexResponse (DescribeMultiplexResponse'),
-    newDescribeMultiplexResponse,
+    -- ** StartMultiplex
+    StartMultiplex (StartMultiplex'),
+    newStartMultiplex,
+    StartMultiplexResponse (StartMultiplexResponse'),
+    newStartMultiplexResponse,
 
-    -- ** BatchDelete
-    BatchDelete' (BatchDelete''),
-    newBatchDelete',
-    BatchDeleteResponse (BatchDeleteResponse'),
-    newBatchDeleteResponse,
+    -- ** StopChannel
+    StopChannel (StopChannel'),
+    newStopChannel,
+    StopChannelResponse (StopChannelResponse'),
+    newStopChannelResponse,
 
-    -- ** CreateTags
-    CreateTags (CreateTags'),
-    newCreateTags,
-    CreateTagsResponse (CreateTagsResponse'),
-    newCreateTagsResponse,
+    -- ** DescribeInput
+    DescribeInput (DescribeInput'),
+    newDescribeInput,
+    DescribeInputResponse (DescribeInputResponse'),
+    newDescribeInputResponse,
 
-    -- ** TransferInputDevice
-    TransferInputDevice' (TransferInputDevice''),
-    newTransferInputDevice',
-    TransferInputDeviceResponse (TransferInputDeviceResponse'),
-    newTransferInputDeviceResponse,
+    -- ** PurchaseOffering
+    PurchaseOffering' (PurchaseOffering''),
+    newPurchaseOffering',
+    PurchaseOfferingResponse (PurchaseOfferingResponse'),
+    newPurchaseOfferingResponse,
 
-    -- ** ListMultiplexPrograms (Paginated)
-    ListMultiplexPrograms (ListMultiplexPrograms'),
-    newListMultiplexPrograms,
-    ListMultiplexProgramsResponse (ListMultiplexProgramsResponse'),
-    newListMultiplexProgramsResponse,
+    -- ** DescribeInputDevice
+    DescribeInputDevice (DescribeInputDevice'),
+    newDescribeInputDevice,
+    DescribeInputDeviceResponse (DescribeInputDeviceResponse'),
+    newDescribeInputDeviceResponse,
 
-    -- ** UpdateChannel
-    UpdateChannel' (UpdateChannel''),
-    newUpdateChannel',
-    UpdateChannelResponse (UpdateChannelResponse'),
-    newUpdateChannelResponse,
+    -- ** DescribeChannel
+    DescribeChannel (DescribeChannel'),
+    newDescribeChannel,
+    DescribeChannelResponse (DescribeChannelResponse'),
+    newDescribeChannelResponse,
 
-    -- ** DeleteChannel
-    DeleteChannel (DeleteChannel'),
-    newDeleteChannel,
-    DeleteChannelResponse (DeleteChannelResponse'),
-    newDeleteChannelResponse,
+    -- ** UpdateInputSecurityGroup
+    UpdateInputSecurityGroup (UpdateInputSecurityGroup'),
+    newUpdateInputSecurityGroup,
+    UpdateInputSecurityGroupResponse (UpdateInputSecurityGroupResponse'),
+    newUpdateInputSecurityGroupResponse,
 
-    -- ** CreateInput
-    CreateInput' (CreateInput''),
-    newCreateInput',
-    CreateInputResponse (CreateInputResponse'),
-    newCreateInputResponse,
+    -- ** DeleteInputSecurityGroup
+    DeleteInputSecurityGroup (DeleteInputSecurityGroup'),
+    newDeleteInputSecurityGroup,
+    DeleteInputSecurityGroupResponse (DeleteInputSecurityGroupResponse'),
+    newDeleteInputSecurityGroupResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListReservations (Paginated)
+    ListReservations (ListReservations'),
+    newListReservations,
+    ListReservationsResponse (ListReservationsResponse'),
+    newListReservationsResponse,
+
+    -- ** DeleteMultiplex
+    DeleteMultiplex (DeleteMultiplex'),
+    newDeleteMultiplex,
+    DeleteMultiplexResponse (DeleteMultiplexResponse'),
+    newDeleteMultiplexResponse,
+
+    -- ** UpdateMultiplex
+    UpdateMultiplex' (UpdateMultiplex''),
+    newUpdateMultiplex',
+    UpdateMultiplexResponse (UpdateMultiplexResponse'),
+    newUpdateMultiplexResponse,
+
+    -- ** DescribeMultiplexProgram
+    DescribeMultiplexProgram (DescribeMultiplexProgram'),
+    newDescribeMultiplexProgram,
+    DescribeMultiplexProgramResponse (DescribeMultiplexProgramResponse'),
+    newDescribeMultiplexProgramResponse,
+
+    -- ** ListOfferings (Paginated)
+    ListOfferings (ListOfferings'),
+    newListOfferings,
+    ListOfferingsResponse (ListOfferingsResponse'),
+    newListOfferingsResponse,
 
     -- * Types
 
@@ -1029,6 +1035,12 @@ module Network.AWS.MediaLive
     -- ** NielsenPcmToId3TaggingState
     NielsenPcmToId3TaggingState (..),
 
+    -- ** NielsenWatermarksCbetStepaside
+    NielsenWatermarksCbetStepaside (..),
+
+    -- ** NielsenWatermarksDistributionTypes
+    NielsenWatermarksDistributionTypes (..),
+
     -- ** OfferingDurationUnits
     OfferingDurationUnits (..),
 
@@ -1264,6 +1276,10 @@ module Network.AWS.MediaLive
     -- ** AudioTrackSelection
     AudioTrackSelection (AudioTrackSelection'),
     newAudioTrackSelection,
+
+    -- ** AudioWatermarkSettings
+    AudioWatermarkSettings (AudioWatermarkSettings'),
+    newAudioWatermarkSettings,
 
     -- ** AutomaticInputFailoverSettings
     AutomaticInputFailoverSettings (AutomaticInputFailoverSettings'),
@@ -1789,9 +1805,21 @@ module Network.AWS.MediaLive
     NetworkInputSettings (NetworkInputSettings'),
     newNetworkInputSettings,
 
+    -- ** NielsenCBET
+    NielsenCBET (NielsenCBET'),
+    newNielsenCBET,
+
     -- ** NielsenConfiguration
     NielsenConfiguration (NielsenConfiguration'),
     newNielsenConfiguration,
+
+    -- ** NielsenNaesIiNw
+    NielsenNaesIiNw (NielsenNaesIiNw'),
+    newNielsenNaesIiNw,
+
+    -- ** NielsenWatermarksSettings
+    NielsenWatermarksSettings (NielsenWatermarksSettings'),
+    newNielsenWatermarksSettings,
 
     -- ** Offering
     Offering (Offering'),
@@ -2061,6 +2089,7 @@ import Network.AWS.MediaLive.BatchStart
 import Network.AWS.MediaLive.BatchStop
 import Network.AWS.MediaLive.BatchUpdateSchedule
 import Network.AWS.MediaLive.CancelInputDeviceTransfer
+import Network.AWS.MediaLive.ClaimDevice
 import Network.AWS.MediaLive.CreateChannel
 import Network.AWS.MediaLive.CreateInput
 import Network.AWS.MediaLive.CreateInputSecurityGroup

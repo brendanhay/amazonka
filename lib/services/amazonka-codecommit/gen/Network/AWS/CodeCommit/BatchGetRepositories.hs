@@ -41,8 +41,8 @@ module Network.AWS.CodeCommit.BatchGetRepositories
     newBatchGetRepositoriesResponse,
 
     -- * Response Lenses
-    batchGetRepositoriesResponse_repositoriesNotFound,
     batchGetRepositoriesResponse_repositories,
+    batchGetRepositoriesResponse_repositoriesNotFound,
     batchGetRepositoriesResponse_httpStatus,
   )
 where
@@ -91,7 +91,7 @@ newBatchGetRepositories =
 -- The length constraint limit is for each string in the array. The array
 -- itself can be empty.
 batchGetRepositories_repositoryNames :: Lens.Lens' BatchGetRepositories [Prelude.Text]
-batchGetRepositories_repositoryNames = Lens.lens (\BatchGetRepositories' {repositoryNames} -> repositoryNames) (\s@BatchGetRepositories' {} a -> s {repositoryNames = a} :: BatchGetRepositories) Prelude.. Lens._Coerce
+batchGetRepositories_repositoryNames = Lens.lens (\BatchGetRepositories' {repositoryNames} -> repositoryNames) (\s@BatchGetRepositories' {} a -> s {repositoryNames = a} :: BatchGetRepositories) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetRepositories where
   type
@@ -102,10 +102,10 @@ instance Core.AWSRequest BatchGetRepositories where
     Response.receiveJSON
       ( \s h x ->
           BatchGetRepositoriesResponse'
-            Prelude.<$> ( x Core..?> "repositoriesNotFound"
+            Prelude.<$> (x Core..?> "repositories" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "repositoriesNotFound"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "repositories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,11 +147,11 @@ instance Core.ToQuery BatchGetRepositories where
 --
 -- /See:/ 'newBatchGetRepositoriesResponse' smart constructor.
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
-  { -- | Returns a list of repository names for which information could not be
+  { -- | A list of repositories returned by the batch get repositories operation.
+    repositories :: Prelude.Maybe [RepositoryMetadata],
+    -- | Returns a list of repository names for which information could not be
     -- found.
     repositoriesNotFound :: Prelude.Maybe [Prelude.Text],
-    -- | A list of repositories returned by the batch get repositories operation.
-    repositories :: Prelude.Maybe [RepositoryMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -165,10 +165,10 @@ data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'repositories', 'batchGetRepositoriesResponse_repositories' - A list of repositories returned by the batch get repositories operation.
+--
 -- 'repositoriesNotFound', 'batchGetRepositoriesResponse_repositoriesNotFound' - Returns a list of repository names for which information could not be
 -- found.
---
--- 'repositories', 'batchGetRepositoriesResponse_repositories' - A list of repositories returned by the batch get repositories operation.
 --
 -- 'httpStatus', 'batchGetRepositoriesResponse_httpStatus' - The response's http status code.
 newBatchGetRepositoriesResponse ::
@@ -177,20 +177,20 @@ newBatchGetRepositoriesResponse ::
   BatchGetRepositoriesResponse
 newBatchGetRepositoriesResponse pHttpStatus_ =
   BatchGetRepositoriesResponse'
-    { repositoriesNotFound =
+    { repositories =
         Prelude.Nothing,
-      repositories = Prelude.Nothing,
+      repositoriesNotFound = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of repositories returned by the batch get repositories operation.
+batchGetRepositoriesResponse_repositories :: Lens.Lens' BatchGetRepositoriesResponse (Prelude.Maybe [RepositoryMetadata])
+batchGetRepositoriesResponse_repositories = Lens.lens (\BatchGetRepositoriesResponse' {repositories} -> repositories) (\s@BatchGetRepositoriesResponse' {} a -> s {repositories = a} :: BatchGetRepositoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns a list of repository names for which information could not be
 -- found.
 batchGetRepositoriesResponse_repositoriesNotFound :: Lens.Lens' BatchGetRepositoriesResponse (Prelude.Maybe [Prelude.Text])
-batchGetRepositoriesResponse_repositoriesNotFound = Lens.lens (\BatchGetRepositoriesResponse' {repositoriesNotFound} -> repositoriesNotFound) (\s@BatchGetRepositoriesResponse' {} a -> s {repositoriesNotFound = a} :: BatchGetRepositoriesResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of repositories returned by the batch get repositories operation.
-batchGetRepositoriesResponse_repositories :: Lens.Lens' BatchGetRepositoriesResponse (Prelude.Maybe [RepositoryMetadata])
-batchGetRepositoriesResponse_repositories = Lens.lens (\BatchGetRepositoriesResponse' {repositories} -> repositories) (\s@BatchGetRepositoriesResponse' {} a -> s {repositories = a} :: BatchGetRepositoriesResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetRepositoriesResponse_repositoriesNotFound = Lens.lens (\BatchGetRepositoriesResponse' {repositoriesNotFound} -> repositoriesNotFound) (\s@BatchGetRepositoriesResponse' {} a -> s {repositoriesNotFound = a} :: BatchGetRepositoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetRepositoriesResponse_httpStatus :: Lens.Lens' BatchGetRepositoriesResponse Prelude.Int

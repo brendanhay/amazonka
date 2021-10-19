@@ -57,7 +57,7 @@ newSupportedProductConfig =
 
 -- | The list of user-supplied arguments.
 supportedProductConfig_args :: Lens.Lens' SupportedProductConfig (Prelude.Maybe [Prelude.Text])
-supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args) (\s@SupportedProductConfig' {} a -> s {args = a} :: SupportedProductConfig) Prelude.. Lens.mapping Lens._Coerce
+supportedProductConfig_args = Lens.lens (\SupportedProductConfig' {args} -> args) (\s@SupportedProductConfig' {} a -> s {args = a} :: SupportedProductConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the product configuration.
 supportedProductConfig_name :: Lens.Lens' SupportedProductConfig (Prelude.Maybe Prelude.Text)

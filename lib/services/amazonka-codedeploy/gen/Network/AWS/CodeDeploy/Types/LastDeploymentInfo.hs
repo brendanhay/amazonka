@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLastDeploymentInfo' smart constructor.
 data LastDeploymentInfo = LastDeploymentInfo'
-  { -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the most recent deployment.
+  { -- | The status of the most recent deployment.
     status :: Prelude.Maybe DeploymentStatus,
+    -- | The unique ID of a deployment.
+    deploymentId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when the most recent deployment to the
     -- deployment group was complete.
     endTime :: Prelude.Maybe Core.POSIX,
@@ -50,9 +50,9 @@ data LastDeploymentInfo = LastDeploymentInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentId', 'lastDeploymentInfo_deploymentId' - The unique ID of a deployment.
---
 -- 'status', 'lastDeploymentInfo_status' - The status of the most recent deployment.
+--
+-- 'deploymentId', 'lastDeploymentInfo_deploymentId' - The unique ID of a deployment.
 --
 -- 'endTime', 'lastDeploymentInfo_endTime' - A timestamp that indicates when the most recent deployment to the
 -- deployment group was complete.
@@ -63,19 +63,19 @@ newLastDeploymentInfo ::
   LastDeploymentInfo
 newLastDeploymentInfo =
   LastDeploymentInfo'
-    { deploymentId = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
       endTime = Prelude.Nothing,
       createTime = Prelude.Nothing
     }
 
--- | The unique ID of a deployment.
-lastDeploymentInfo_deploymentId :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe Prelude.Text)
-lastDeploymentInfo_deploymentId = Lens.lens (\LastDeploymentInfo' {deploymentId} -> deploymentId) (\s@LastDeploymentInfo' {} a -> s {deploymentId = a} :: LastDeploymentInfo)
-
 -- | The status of the most recent deployment.
 lastDeploymentInfo_status :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe DeploymentStatus)
 lastDeploymentInfo_status = Lens.lens (\LastDeploymentInfo' {status} -> status) (\s@LastDeploymentInfo' {} a -> s {status = a} :: LastDeploymentInfo)
+
+-- | The unique ID of a deployment.
+lastDeploymentInfo_deploymentId :: Lens.Lens' LastDeploymentInfo (Prelude.Maybe Prelude.Text)
+lastDeploymentInfo_deploymentId = Lens.lens (\LastDeploymentInfo' {deploymentId} -> deploymentId) (\s@LastDeploymentInfo' {} a -> s {deploymentId = a} :: LastDeploymentInfo)
 
 -- | A timestamp that indicates when the most recent deployment to the
 -- deployment group was complete.
@@ -93,8 +93,8 @@ instance Core.FromJSON LastDeploymentInfo where
       "LastDeploymentInfo"
       ( \x ->
           LastDeploymentInfo'
-            Prelude.<$> (x Core..:? "deploymentId")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "deploymentId")
             Prelude.<*> (x Core..:? "endTime")
             Prelude.<*> (x Core..:? "createTime")
       )

@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data SlotTypeMetadata = SlotTypeMetadata'
   { -- | The date that the slot type was created.
     createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the slot type.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The version of the slot type.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The date that the slot type was updated. When you create a resource, the
     -- creation date and last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
-    -- | The version of the slot type.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the slot type.
-    name :: Prelude.Maybe Prelude.Text,
     -- | A description of the slot type.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -51,12 +51,12 @@ data SlotTypeMetadata = SlotTypeMetadata'
 --
 -- 'createdDate', 'slotTypeMetadata_createdDate' - The date that the slot type was created.
 --
--- 'lastUpdatedDate', 'slotTypeMetadata_lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the
--- creation date and last updated date are the same.
+-- 'name', 'slotTypeMetadata_name' - The name of the slot type.
 --
 -- 'version', 'slotTypeMetadata_version' - The version of the slot type.
 --
--- 'name', 'slotTypeMetadata_name' - The name of the slot type.
+-- 'lastUpdatedDate', 'slotTypeMetadata_lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the
+-- creation date and last updated date are the same.
 --
 -- 'description', 'slotTypeMetadata_description' - A description of the slot type.
 newSlotTypeMetadata ::
@@ -64,9 +64,9 @@ newSlotTypeMetadata ::
 newSlotTypeMetadata =
   SlotTypeMetadata'
     { createdDate = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      version = Prelude.Nothing,
       name = Prelude.Nothing,
+      version = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
       description = Prelude.Nothing
     }
 
@@ -74,18 +74,18 @@ newSlotTypeMetadata =
 slotTypeMetadata_createdDate :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.UTCTime)
 slotTypeMetadata_createdDate = Lens.lens (\SlotTypeMetadata' {createdDate} -> createdDate) (\s@SlotTypeMetadata' {} a -> s {createdDate = a} :: SlotTypeMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The date that the slot type was updated. When you create a resource, the
--- creation date and last updated date are the same.
-slotTypeMetadata_lastUpdatedDate :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.UTCTime)
-slotTypeMetadata_lastUpdatedDate = Lens.lens (\SlotTypeMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@SlotTypeMetadata' {} a -> s {lastUpdatedDate = a} :: SlotTypeMetadata) Prelude.. Lens.mapping Core._Time
+-- | The name of the slot type.
+slotTypeMetadata_name :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.Text)
+slotTypeMetadata_name = Lens.lens (\SlotTypeMetadata' {name} -> name) (\s@SlotTypeMetadata' {} a -> s {name = a} :: SlotTypeMetadata)
 
 -- | The version of the slot type.
 slotTypeMetadata_version :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.Text)
 slotTypeMetadata_version = Lens.lens (\SlotTypeMetadata' {version} -> version) (\s@SlotTypeMetadata' {} a -> s {version = a} :: SlotTypeMetadata)
 
--- | The name of the slot type.
-slotTypeMetadata_name :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.Text)
-slotTypeMetadata_name = Lens.lens (\SlotTypeMetadata' {name} -> name) (\s@SlotTypeMetadata' {} a -> s {name = a} :: SlotTypeMetadata)
+-- | The date that the slot type was updated. When you create a resource, the
+-- creation date and last updated date are the same.
+slotTypeMetadata_lastUpdatedDate :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.UTCTime)
+slotTypeMetadata_lastUpdatedDate = Lens.lens (\SlotTypeMetadata' {lastUpdatedDate} -> lastUpdatedDate) (\s@SlotTypeMetadata' {} a -> s {lastUpdatedDate = a} :: SlotTypeMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | A description of the slot type.
 slotTypeMetadata_description :: Lens.Lens' SlotTypeMetadata (Prelude.Maybe Prelude.Text)
@@ -98,9 +98,9 @@ instance Core.FromJSON SlotTypeMetadata where
       ( \x ->
           SlotTypeMetadata'
             Prelude.<$> (x Core..:? "createdDate")
-            Prelude.<*> (x Core..:? "lastUpdatedDate")
-            Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "version")
+            Prelude.<*> (x Core..:? "lastUpdatedDate")
             Prelude.<*> (x Core..:? "description")
       )
 

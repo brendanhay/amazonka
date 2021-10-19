@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContainerSummary' smart constructor.
 data ContainerSummary = ContainerSummary'
-  { -- | The exit code to return upon completion.
-    exitCode :: Prelude.Maybe Prelude.Int,
-    -- | A short (255 max characters) human-readable string to provide additional
+  { -- | A short (255 max characters) human-readable string to provide additional
     -- details about a running or stopped container.
-    reason :: Prelude.Maybe Prelude.Text
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The exit code to return upon completion.
+    exitCode :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data ContainerSummary = ContainerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.
---
 -- 'reason', 'containerSummary_reason' - A short (255 max characters) human-readable string to provide additional
 -- details about a running or stopped container.
+--
+-- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.
 newContainerSummary ::
   ContainerSummary
 newContainerSummary =
   ContainerSummary'
-    { exitCode = Prelude.Nothing,
-      reason = Prelude.Nothing
+    { reason = Prelude.Nothing,
+      exitCode = Prelude.Nothing
     }
-
--- | The exit code to return upon completion.
-containerSummary_exitCode :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Int)
-containerSummary_exitCode = Lens.lens (\ContainerSummary' {exitCode} -> exitCode) (\s@ContainerSummary' {} a -> s {exitCode = a} :: ContainerSummary)
 
 -- | A short (255 max characters) human-readable string to provide additional
 -- details about a running or stopped container.
 containerSummary_reason :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Text)
 containerSummary_reason = Lens.lens (\ContainerSummary' {reason} -> reason) (\s@ContainerSummary' {} a -> s {reason = a} :: ContainerSummary)
+
+-- | The exit code to return upon completion.
+containerSummary_exitCode :: Lens.Lens' ContainerSummary (Prelude.Maybe Prelude.Int)
+containerSummary_exitCode = Lens.lens (\ContainerSummary' {exitCode} -> exitCode) (\s@ContainerSummary' {} a -> s {exitCode = a} :: ContainerSummary)
 
 instance Core.FromJSON ContainerSummary where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON ContainerSummary where
       "ContainerSummary"
       ( \x ->
           ContainerSummary'
-            Prelude.<$> (x Core..:? "exitCode")
-            Prelude.<*> (x Core..:? "reason")
+            Prelude.<$> (x Core..:? "reason")
+            Prelude.<*> (x Core..:? "exitCode")
       )
 
 instance Prelude.Hashable ContainerSummary

@@ -31,8 +31,8 @@ module Network.AWS.IoT.UpdateRoleAlias
     newUpdateRoleAlias,
 
     -- * Request Lenses
-    updateRoleAlias_roleArn,
     updateRoleAlias_credentialDurationSeconds,
+    updateRoleAlias_roleArn,
     updateRoleAlias_roleAlias,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoleAlias' smart constructor.
 data UpdateRoleAlias = UpdateRoleAlias'
-  { -- | The role ARN.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds the credential will be valid.
+  { -- | The number of seconds the credential will be valid.
     credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The role ARN.
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The role alias to update.
     roleAlias :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data UpdateRoleAlias = UpdateRoleAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateRoleAlias_roleArn' - The role ARN.
---
 -- 'credentialDurationSeconds', 'updateRoleAlias_credentialDurationSeconds' - The number of seconds the credential will be valid.
+--
+-- 'roleArn', 'updateRoleAlias_roleArn' - The role ARN.
 --
 -- 'roleAlias', 'updateRoleAlias_roleAlias' - The role alias to update.
 newUpdateRoleAlias ::
@@ -83,18 +83,19 @@ newUpdateRoleAlias ::
   UpdateRoleAlias
 newUpdateRoleAlias pRoleAlias_ =
   UpdateRoleAlias'
-    { roleArn = Prelude.Nothing,
-      credentialDurationSeconds = Prelude.Nothing,
+    { credentialDurationSeconds =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       roleAlias = pRoleAlias_
     }
-
--- | The role ARN.
-updateRoleAlias_roleArn :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Text)
-updateRoleAlias_roleArn = Lens.lens (\UpdateRoleAlias' {roleArn} -> roleArn) (\s@UpdateRoleAlias' {} a -> s {roleArn = a} :: UpdateRoleAlias)
 
 -- | The number of seconds the credential will be valid.
 updateRoleAlias_credentialDurationSeconds :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Natural)
 updateRoleAlias_credentialDurationSeconds = Lens.lens (\UpdateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@UpdateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: UpdateRoleAlias)
+
+-- | The role ARN.
+updateRoleAlias_roleArn :: Lens.Lens' UpdateRoleAlias (Prelude.Maybe Prelude.Text)
+updateRoleAlias_roleArn = Lens.lens (\UpdateRoleAlias' {roleArn} -> roleArn) (\s@UpdateRoleAlias' {} a -> s {roleArn = a} :: UpdateRoleAlias)
 
 -- | The role alias to update.
 updateRoleAlias_roleAlias :: Lens.Lens' UpdateRoleAlias Prelude.Text
@@ -125,9 +126,9 @@ instance Core.ToJSON UpdateRoleAlias where
   toJSON UpdateRoleAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
-            ("credentialDurationSeconds" Core..=)
-              Prelude.<$> credentialDurationSeconds
+          [ ("credentialDurationSeconds" Core..=)
+              Prelude.<$> credentialDurationSeconds,
+            ("roleArn" Core..=) Prelude.<$> roleArn
           ]
       )
 

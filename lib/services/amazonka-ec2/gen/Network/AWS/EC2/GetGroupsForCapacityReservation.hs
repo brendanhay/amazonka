@@ -31,8 +31,8 @@ module Network.AWS.EC2.GetGroupsForCapacityReservation
 
     -- * Request Lenses
     getGroupsForCapacityReservation_nextToken,
-    getGroupsForCapacityReservation_maxResults,
     getGroupsForCapacityReservation_dryRun,
+    getGroupsForCapacityReservation_maxResults,
     getGroupsForCapacityReservation_capacityReservationId,
 
     -- * Destructuring the Response
@@ -57,16 +57,16 @@ import qualified Network.AWS.Response as Response
 data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
   { -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the returned @nextToken@ value. This value can be between 5 and 500. If
-    -- @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results can be seen by sending another request with
+    -- the returned @nextToken@ value. This value can be between 5 and 500. If
+    -- @maxResults@ is given a larger value than 500, you receive an error.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the Capacity Reservation.
     capacityReservationId :: Prelude.Text
   }
@@ -82,15 +82,15 @@ data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
 --
 -- 'nextToken', 'getGroupsForCapacityReservation_nextToken' - The token to use to retrieve the next page of results.
 --
--- 'maxResults', 'getGroupsForCapacityReservation_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the returned @nextToken@ value. This value can be between 5 and 500. If
--- @maxResults@ is given a larger value than 500, you receive an error.
---
 -- 'dryRun', 'getGroupsForCapacityReservation_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'getGroupsForCapacityReservation_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the returned @nextToken@ value. This value can be between 5 and 500. If
+-- @maxResults@ is given a larger value than 500, you receive an error.
 --
 -- 'capacityReservationId', 'getGroupsForCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
 newGetGroupsForCapacityReservation ::
@@ -102,8 +102,8 @@ newGetGroupsForCapacityReservation
     GetGroupsForCapacityReservation'
       { nextToken =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         capacityReservationId =
           pCapacityReservationId_
       }
@@ -112,19 +112,19 @@ newGetGroupsForCapacityReservation
 getGroupsForCapacityReservation_nextToken :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Text)
 getGroupsForCapacityReservation_nextToken = Lens.lens (\GetGroupsForCapacityReservation' {nextToken} -> nextToken) (\s@GetGroupsForCapacityReservation' {} a -> s {nextToken = a} :: GetGroupsForCapacityReservation)
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the returned @nextToken@ value. This value can be between 5 and 500. If
--- @maxResults@ is given a larger value than 500, you receive an error.
-getGroupsForCapacityReservation_maxResults :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Natural)
-getGroupsForCapacityReservation_maxResults = Lens.lens (\GetGroupsForCapacityReservation' {maxResults} -> maxResults) (\s@GetGroupsForCapacityReservation' {} a -> s {maxResults = a} :: GetGroupsForCapacityReservation)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getGroupsForCapacityReservation_dryRun :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Bool)
 getGroupsForCapacityReservation_dryRun = Lens.lens (\GetGroupsForCapacityReservation' {dryRun} -> dryRun) (\s@GetGroupsForCapacityReservation' {} a -> s {dryRun = a} :: GetGroupsForCapacityReservation)
+
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the returned @nextToken@ value. This value can be between 5 and 500. If
+-- @maxResults@ is given a larger value than 500, you receive an error.
+getGroupsForCapacityReservation_maxResults :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Natural)
+getGroupsForCapacityReservation_maxResults = Lens.lens (\GetGroupsForCapacityReservation' {maxResults} -> maxResults) (\s@GetGroupsForCapacityReservation' {} a -> s {maxResults = a} :: GetGroupsForCapacityReservation)
 
 -- | The ID of the Capacity Reservation.
 getGroupsForCapacityReservation_capacityReservationId :: Lens.Lens' GetGroupsForCapacityReservation Prelude.Text
@@ -202,8 +202,8 @@ instance Core.ToQuery GetGroupsForCapacityReservation where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "CapacityReservationId"
           Core.=: capacityReservationId
       ]
@@ -258,7 +258,7 @@ getGroupsForCapacityReservationResponse_nextToken = Lens.lens (\GetGroupsForCapa
 -- | Information about the resource groups to which the Capacity Reservation
 -- has been added.
 getGroupsForCapacityReservationResponse_capacityReservationGroups :: Lens.Lens' GetGroupsForCapacityReservationResponse (Prelude.Maybe [CapacityReservationGroup])
-getGroupsForCapacityReservationResponse_capacityReservationGroups = Lens.lens (\GetGroupsForCapacityReservationResponse' {capacityReservationGroups} -> capacityReservationGroups) (\s@GetGroupsForCapacityReservationResponse' {} a -> s {capacityReservationGroups = a} :: GetGroupsForCapacityReservationResponse) Prelude.. Lens.mapping Lens._Coerce
+getGroupsForCapacityReservationResponse_capacityReservationGroups = Lens.lens (\GetGroupsForCapacityReservationResponse' {capacityReservationGroups} -> capacityReservationGroups) (\s@GetGroupsForCapacityReservationResponse' {} a -> s {capacityReservationGroups = a} :: GetGroupsForCapacityReservationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getGroupsForCapacityReservationResponse_httpStatus :: Lens.Lens' GetGroupsForCapacityReservationResponse Prelude.Int

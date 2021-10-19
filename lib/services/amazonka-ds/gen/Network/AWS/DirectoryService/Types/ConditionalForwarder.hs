@@ -30,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConditionalForwarder' smart constructor.
 data ConditionalForwarder = ConditionalForwarder'
-  { -- | The replication scope of the conditional forwarder. The only allowed
-    -- value is @Domain@, which will replicate the conditional forwarder to all
-    -- of the domain controllers for your Amazon Web Services directory.
-    replicationScope :: Prelude.Maybe ReplicationScope,
+  { -- | The IP addresses of the remote DNS server associated with
+    -- RemoteDomainName. This is the IP address of the DNS server that your
+    -- conditional forwarder points to.
+    dnsIpAddrs :: Prelude.Maybe [Prelude.Text],
     -- | The fully qualified domain name (FQDN) of the remote domains pointed to
     -- by the conditional forwarder.
     remoteDomainName :: Prelude.Maybe Prelude.Text,
-    -- | The IP addresses of the remote DNS server associated with
-    -- RemoteDomainName. This is the IP address of the DNS server that your
-    -- conditional forwarder points to.
-    dnsIpAddrs :: Prelude.Maybe [Prelude.Text]
+    -- | The replication scope of the conditional forwarder. The only allowed
+    -- value is @Domain@, which will replicate the conditional forwarder to all
+    -- of the domain controllers for your Amazon Web Services directory.
+    replicationScope :: Prelude.Maybe ReplicationScope
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,25 +52,35 @@ data ConditionalForwarder = ConditionalForwarder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationScope', 'conditionalForwarder_replicationScope' - The replication scope of the conditional forwarder. The only allowed
--- value is @Domain@, which will replicate the conditional forwarder to all
--- of the domain controllers for your Amazon Web Services directory.
+-- 'dnsIpAddrs', 'conditionalForwarder_dnsIpAddrs' - The IP addresses of the remote DNS server associated with
+-- RemoteDomainName. This is the IP address of the DNS server that your
+-- conditional forwarder points to.
 --
 -- 'remoteDomainName', 'conditionalForwarder_remoteDomainName' - The fully qualified domain name (FQDN) of the remote domains pointed to
 -- by the conditional forwarder.
 --
--- 'dnsIpAddrs', 'conditionalForwarder_dnsIpAddrs' - The IP addresses of the remote DNS server associated with
--- RemoteDomainName. This is the IP address of the DNS server that your
--- conditional forwarder points to.
+-- 'replicationScope', 'conditionalForwarder_replicationScope' - The replication scope of the conditional forwarder. The only allowed
+-- value is @Domain@, which will replicate the conditional forwarder to all
+-- of the domain controllers for your Amazon Web Services directory.
 newConditionalForwarder ::
   ConditionalForwarder
 newConditionalForwarder =
   ConditionalForwarder'
-    { replicationScope =
-        Prelude.Nothing,
+    { dnsIpAddrs = Prelude.Nothing,
       remoteDomainName = Prelude.Nothing,
-      dnsIpAddrs = Prelude.Nothing
+      replicationScope = Prelude.Nothing
     }
+
+-- | The IP addresses of the remote DNS server associated with
+-- RemoteDomainName. This is the IP address of the DNS server that your
+-- conditional forwarder points to.
+conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Prelude.Maybe [Prelude.Text])
+conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Prelude.. Lens.mapping Lens.coerced
+
+-- | The fully qualified domain name (FQDN) of the remote domains pointed to
+-- by the conditional forwarder.
+conditionalForwarder_remoteDomainName :: Lens.Lens' ConditionalForwarder (Prelude.Maybe Prelude.Text)
+conditionalForwarder_remoteDomainName = Lens.lens (\ConditionalForwarder' {remoteDomainName} -> remoteDomainName) (\s@ConditionalForwarder' {} a -> s {remoteDomainName = a} :: ConditionalForwarder)
 
 -- | The replication scope of the conditional forwarder. The only allowed
 -- value is @Domain@, which will replicate the conditional forwarder to all
@@ -78,26 +88,15 @@ newConditionalForwarder =
 conditionalForwarder_replicationScope :: Lens.Lens' ConditionalForwarder (Prelude.Maybe ReplicationScope)
 conditionalForwarder_replicationScope = Lens.lens (\ConditionalForwarder' {replicationScope} -> replicationScope) (\s@ConditionalForwarder' {} a -> s {replicationScope = a} :: ConditionalForwarder)
 
--- | The fully qualified domain name (FQDN) of the remote domains pointed to
--- by the conditional forwarder.
-conditionalForwarder_remoteDomainName :: Lens.Lens' ConditionalForwarder (Prelude.Maybe Prelude.Text)
-conditionalForwarder_remoteDomainName = Lens.lens (\ConditionalForwarder' {remoteDomainName} -> remoteDomainName) (\s@ConditionalForwarder' {} a -> s {remoteDomainName = a} :: ConditionalForwarder)
-
--- | The IP addresses of the remote DNS server associated with
--- RemoteDomainName. This is the IP address of the DNS server that your
--- conditional forwarder points to.
-conditionalForwarder_dnsIpAddrs :: Lens.Lens' ConditionalForwarder (Prelude.Maybe [Prelude.Text])
-conditionalForwarder_dnsIpAddrs = Lens.lens (\ConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@ConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: ConditionalForwarder) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON ConditionalForwarder where
   parseJSON =
     Core.withObject
       "ConditionalForwarder"
       ( \x ->
           ConditionalForwarder'
-            Prelude.<$> (x Core..:? "ReplicationScope")
+            Prelude.<$> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "RemoteDomainName")
-            Prelude.<*> (x Core..:? "DnsIpAddrs" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ReplicationScope")
       )
 
 instance Prelude.Hashable ConditionalForwarder

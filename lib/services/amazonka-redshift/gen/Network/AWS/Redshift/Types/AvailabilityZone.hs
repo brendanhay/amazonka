@@ -60,7 +60,7 @@ availabilityZone_name = Lens.lens (\AvailabilityZone' {name} -> name) (\s@Availa
 
 -- |
 availabilityZone_supportedPlatforms :: Lens.Lens' AvailabilityZone (Prelude.Maybe [SupportedPlatform])
-availabilityZone_supportedPlatforms = Lens.lens (\AvailabilityZone' {supportedPlatforms} -> supportedPlatforms) (\s@AvailabilityZone' {} a -> s {supportedPlatforms = a} :: AvailabilityZone) Prelude.. Lens.mapping Lens._Coerce
+availabilityZone_supportedPlatforms = Lens.lens (\AvailabilityZone' {supportedPlatforms} -> supportedPlatforms) (\s@AvailabilityZone' {} a -> s {supportedPlatforms = a} :: AvailabilityZone) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML AvailabilityZone where
   parseXML x =

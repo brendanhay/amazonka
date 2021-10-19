@@ -121,7 +121,7 @@ setLoadBalancerPoliciesForBackendServer_instancePort = Lens.lens (\SetLoadBalanc
 -- | The names of the policies. If the list is empty, then all current
 -- polices are removed from the EC2 instance.
 setLoadBalancerPoliciesForBackendServer_policyNames :: Lens.Lens' SetLoadBalancerPoliciesForBackendServer [Prelude.Text]
-setLoadBalancerPoliciesForBackendServer_policyNames = Lens.lens (\SetLoadBalancerPoliciesForBackendServer' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesForBackendServer' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer) Prelude.. Lens._Coerce
+setLoadBalancerPoliciesForBackendServer_policyNames = Lens.lens (\SetLoadBalancerPoliciesForBackendServer' {policyNames} -> policyNames) (\s@SetLoadBalancerPoliciesForBackendServer' {} a -> s {policyNames = a} :: SetLoadBalancerPoliciesForBackendServer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

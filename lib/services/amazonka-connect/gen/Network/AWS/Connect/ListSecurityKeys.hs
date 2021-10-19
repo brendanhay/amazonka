@@ -222,7 +222,7 @@ listSecurityKeysResponse_nextToken = Lens.lens (\ListSecurityKeysResponse' {next
 
 -- | The security keys.
 listSecurityKeysResponse_securityKeys :: Lens.Lens' ListSecurityKeysResponse (Prelude.Maybe [SecurityKey])
-listSecurityKeysResponse_securityKeys = Lens.lens (\ListSecurityKeysResponse' {securityKeys} -> securityKeys) (\s@ListSecurityKeysResponse' {} a -> s {securityKeys = a} :: ListSecurityKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+listSecurityKeysResponse_securityKeys = Lens.lens (\ListSecurityKeysResponse' {securityKeys} -> securityKeys) (\s@ListSecurityKeysResponse' {} a -> s {securityKeys = a} :: ListSecurityKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSecurityKeysResponse_httpStatus :: Lens.Lens' ListSecurityKeysResponse Prelude.Int

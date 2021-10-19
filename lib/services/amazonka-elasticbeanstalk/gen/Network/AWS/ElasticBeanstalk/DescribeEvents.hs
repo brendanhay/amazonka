@@ -33,18 +33,18 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     newDescribeEvents,
 
     -- * Request Lenses
-    describeEvents_templateName,
-    describeEvents_nextToken,
-    describeEvents_severity,
-    describeEvents_environmentId,
-    describeEvents_startTime,
-    describeEvents_platformArn,
-    describeEvents_endTime,
-    describeEvents_environmentName,
-    describeEvents_versionLabel,
     describeEvents_requestId,
-    describeEvents_applicationName,
+    describeEvents_templateName,
+    describeEvents_startTime,
+    describeEvents_severity,
+    describeEvents_nextToken,
+    describeEvents_versionLabel,
+    describeEvents_platformArn,
+    describeEvents_environmentName,
     describeEvents_maxRecords,
+    describeEvents_endTime,
+    describeEvents_applicationName,
+    describeEvents_environmentId,
 
     -- * Destructuring the Response
     DescribeEventsResponse (..),
@@ -68,43 +68,43 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+  { -- | If specified, AWS Elastic Beanstalk restricts the described events to
+    -- include only those associated with this request ID.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those that are associated with this environment configuration.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | Pagination token. If specified, the events return the next batch of
-    -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | If specified, limits the events returned from this call to include only
-    -- those with the specified severity or higher.
-    severity :: Prelude.Maybe EventSeverity,
-    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
-    -- to those associated with this environment.
-    environmentId :: Prelude.Maybe Prelude.Text,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those that occur on or after this time.
     startTime :: Prelude.Maybe Core.ISO8601,
+    -- | If specified, limits the events returned from this call to include only
+    -- those with the specified severity or higher.
+    severity :: Prelude.Maybe EventSeverity,
+    -- | Pagination token. If specified, the events return the next batch of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to those associated with this application version.
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a custom platform version. If specified, AWS Elastic
     -- Beanstalk restricts the returned descriptions to those associated with
     -- this custom platform version.
     platformArn :: Prelude.Maybe Prelude.Text,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to those associated with this environment.
+    environmentName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the maximum number of events that can be returned, beginning
+    -- with the most recent event.
+    maxRecords :: Prelude.Maybe Prelude.Natural,
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to those that occur up to, but not including, the @EndTime@.
     endTime :: Prelude.Maybe Core.ISO8601,
     -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
-    -- to those associated with this environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
-    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
-    -- to those associated with this application version.
-    versionLabel :: Prelude.Maybe Prelude.Text,
-    -- | If specified, AWS Elastic Beanstalk restricts the described events to
-    -- include only those associated with this request ID.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to include only those associated with this application.
     applicationName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the maximum number of events that can be returned, beginning
-    -- with the most recent event.
-    maxRecords :: Prelude.Maybe Prelude.Natural
+    -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+    -- to those associated with this environment.
+    environmentId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -116,84 +116,89 @@ data DescribeEvents = DescribeEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestId', 'describeEvents_requestId' - If specified, AWS Elastic Beanstalk restricts the described events to
+-- include only those associated with this request ID.
+--
 -- 'templateName', 'describeEvents_templateName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that are associated with this environment configuration.
 --
--- 'nextToken', 'describeEvents_nextToken' - Pagination token. If specified, the events return the next batch of
--- results.
+-- 'startTime', 'describeEvents_startTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those that occur on or after this time.
 --
 -- 'severity', 'describeEvents_severity' - If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
 --
--- 'environmentId', 'describeEvents_environmentId' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this environment.
+-- 'nextToken', 'describeEvents_nextToken' - Pagination token. If specified, the events return the next batch of
+-- results.
 --
--- 'startTime', 'describeEvents_startTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that occur on or after this time.
+-- 'versionLabel', 'describeEvents_versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this application version.
 --
 -- 'platformArn', 'describeEvents_platformArn' - The ARN of a custom platform version. If specified, AWS Elastic
 -- Beanstalk restricts the returned descriptions to those associated with
 -- this custom platform version.
 --
--- 'endTime', 'describeEvents_endTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that occur up to, but not including, the @EndTime@.
---
 -- 'environmentName', 'describeEvents_environmentName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
 --
--- 'versionLabel', 'describeEvents_versionLabel' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this application version.
+-- 'maxRecords', 'describeEvents_maxRecords' - Specifies the maximum number of events that can be returned, beginning
+-- with the most recent event.
 --
--- 'requestId', 'describeEvents_requestId' - If specified, AWS Elastic Beanstalk restricts the described events to
--- include only those associated with this request ID.
+-- 'endTime', 'describeEvents_endTime' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those that occur up to, but not including, the @EndTime@.
 --
 -- 'applicationName', 'describeEvents_applicationName' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those associated with this application.
 --
--- 'maxRecords', 'describeEvents_maxRecords' - Specifies the maximum number of events that can be returned, beginning
--- with the most recent event.
+-- 'environmentId', 'describeEvents_environmentId' - If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this environment.
 newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
   DescribeEvents'
-    { templateName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      environmentId = Prelude.Nothing,
+    { requestId = Prelude.Nothing,
+      templateName = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      platformArn = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+      severity = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       versionLabel = Prelude.Nothing,
-      requestId = Prelude.Nothing,
+      platformArn = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      endTime = Prelude.Nothing,
       applicationName = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      environmentId = Prelude.Nothing
     }
+
+-- | If specified, AWS Elastic Beanstalk restricts the described events to
+-- include only those associated with this request ID.
+describeEvents_requestId :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_requestId = Lens.lens (\DescribeEvents' {requestId} -> requestId) (\s@DescribeEvents' {} a -> s {requestId = a} :: DescribeEvents)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that are associated with this environment configuration.
 describeEvents_templateName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
 describeEvents_templateName = Lens.lens (\DescribeEvents' {templateName} -> templateName) (\s@DescribeEvents' {} a -> s {templateName = a} :: DescribeEvents)
 
--- | Pagination token. If specified, the events return the next batch of
--- results.
-describeEvents_nextToken :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_nextToken = Lens.lens (\DescribeEvents' {nextToken} -> nextToken) (\s@DescribeEvents' {} a -> s {nextToken = a} :: DescribeEvents)
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those that occur on or after this time.
+describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
 
 -- | If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
 describeEvents_severity :: Lens.Lens' DescribeEvents (Prelude.Maybe EventSeverity)
 describeEvents_severity = Lens.lens (\DescribeEvents' {severity} -> severity) (\s@DescribeEvents' {} a -> s {severity = a} :: DescribeEvents)
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this environment.
-describeEvents_environmentId :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_environmentId = Lens.lens (\DescribeEvents' {environmentId} -> environmentId) (\s@DescribeEvents' {} a -> s {environmentId = a} :: DescribeEvents)
+-- | Pagination token. If specified, the events return the next batch of
+-- results.
+describeEvents_nextToken :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_nextToken = Lens.lens (\DescribeEvents' {nextToken} -> nextToken) (\s@DescribeEvents' {} a -> s {nextToken = a} :: DescribeEvents)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that occur on or after this time.
-describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+-- to those associated with this application version.
+describeEvents_versionLabel :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_versionLabel = Lens.lens (\DescribeEvents' {versionLabel} -> versionLabel) (\s@DescribeEvents' {} a -> s {versionLabel = a} :: DescribeEvents)
 
 -- | The ARN of a custom platform version. If specified, AWS Elastic
 -- Beanstalk restricts the returned descriptions to those associated with
@@ -202,34 +207,29 @@ describeEvents_platformArn :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.T
 describeEvents_platformArn = Lens.lens (\DescribeEvents' {platformArn} -> platformArn) (\s@DescribeEvents' {} a -> s {platformArn = a} :: DescribeEvents)
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that occur up to, but not including, the @EndTime@.
-describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
 describeEvents_environmentName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
 describeEvents_environmentName = Lens.lens (\DescribeEvents' {environmentName} -> environmentName) (\s@DescribeEvents' {} a -> s {environmentName = a} :: DescribeEvents)
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this application version.
-describeEvents_versionLabel :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_versionLabel = Lens.lens (\DescribeEvents' {versionLabel} -> versionLabel) (\s@DescribeEvents' {} a -> s {versionLabel = a} :: DescribeEvents)
+-- | Specifies the maximum number of events that can be returned, beginning
+-- with the most recent event.
+describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Natural)
+describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
 
--- | If specified, AWS Elastic Beanstalk restricts the described events to
--- include only those associated with this request ID.
-describeEvents_requestId :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_requestId = Lens.lens (\DescribeEvents' {requestId} -> requestId) (\s@DescribeEvents' {} a -> s {requestId = a} :: DescribeEvents)
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those that occur up to, but not including, the @EndTime@.
+describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those associated with this application.
 describeEvents_applicationName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
 describeEvents_applicationName = Lens.lens (\DescribeEvents' {applicationName} -> applicationName) (\s@DescribeEvents' {} a -> s {applicationName = a} :: DescribeEvents)
 
--- | Specifies the maximum number of events that can be returned, beginning
--- with the most recent event.
-describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Natural)
-describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this environment.
+describeEvents_environmentId :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_environmentId = Lens.lens (\DescribeEvents' {environmentId} -> environmentId) (\s@DescribeEvents' {} a -> s {environmentId = a} :: DescribeEvents)
 
 instance Core.AWSPager DescribeEvents where
   page rq rs
@@ -285,18 +285,18 @@ instance Core.ToQuery DescribeEvents where
           Core.=: ("DescribeEvents" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Core.=: templateName,
-        "NextToken" Core.=: nextToken,
-        "Severity" Core.=: severity,
-        "EnvironmentId" Core.=: environmentId,
-        "StartTime" Core.=: startTime,
-        "PlatformArn" Core.=: platformArn,
-        "EndTime" Core.=: endTime,
-        "EnvironmentName" Core.=: environmentName,
-        "VersionLabel" Core.=: versionLabel,
         "RequestId" Core.=: requestId,
+        "TemplateName" Core.=: templateName,
+        "StartTime" Core.=: startTime,
+        "Severity" Core.=: severity,
+        "NextToken" Core.=: nextToken,
+        "VersionLabel" Core.=: versionLabel,
+        "PlatformArn" Core.=: platformArn,
+        "EnvironmentName" Core.=: environmentName,
+        "MaxRecords" Core.=: maxRecords,
+        "EndTime" Core.=: endTime,
         "ApplicationName" Core.=: applicationName,
-        "MaxRecords" Core.=: maxRecords
+        "EnvironmentId" Core.=: environmentId
       ]
 
 -- | Result message wrapping a list of event descriptions.
@@ -349,7 +349,7 @@ describeEventsResponse_nextToken = Lens.lens (\DescribeEventsResponse' {nextToke
 
 -- | A list of EventDescription.
 describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [EventDescription])
-describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int

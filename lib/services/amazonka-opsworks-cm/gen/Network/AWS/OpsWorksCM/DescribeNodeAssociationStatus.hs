@@ -225,7 +225,7 @@ newDescribeNodeAssociationStatusResponse
 -- PUPPET_NODE_CERT contains the signed certificate (the result of the
 -- CSR).
 describeNodeAssociationStatusResponse_engineAttributes :: Lens.Lens' DescribeNodeAssociationStatusResponse (Prelude.Maybe [EngineAttribute])
-describeNodeAssociationStatusResponse_engineAttributes = Lens.lens (\DescribeNodeAssociationStatusResponse' {engineAttributes} -> engineAttributes) (\s@DescribeNodeAssociationStatusResponse' {} a -> s {engineAttributes = a} :: DescribeNodeAssociationStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+describeNodeAssociationStatusResponse_engineAttributes = Lens.lens (\DescribeNodeAssociationStatusResponse' {engineAttributes} -> engineAttributes) (\s@DescribeNodeAssociationStatusResponse' {} a -> s {engineAttributes = a} :: DescribeNodeAssociationStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNodeAssociationStatusResponse_httpStatus :: Lens.Lens' DescribeNodeAssociationStatusResponse Prelude.Int

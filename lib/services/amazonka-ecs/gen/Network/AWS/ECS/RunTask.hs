@@ -58,22 +58,22 @@ module Network.AWS.ECS.RunTask
     newRunTask,
 
     -- * Request Lenses
-    runTask_referenceId,
-    runTask_capacityProviderStrategy,
-    runTask_networkConfiguration,
-    runTask_enableECSManagedTags,
-    runTask_launchType,
-    runTask_platformVersion,
-    runTask_startedBy,
-    runTask_placementStrategy,
-    runTask_placementConstraints,
-    runTask_group,
     runTask_overrides,
-    runTask_enableExecuteCommand,
-    runTask_tags,
-    runTask_count,
+    runTask_group,
     runTask_cluster,
     runTask_propagateTags,
+    runTask_platformVersion,
+    runTask_enableECSManagedTags,
+    runTask_count,
+    runTask_referenceId,
+    runTask_placementConstraints,
+    runTask_placementStrategy,
+    runTask_startedBy,
+    runTask_launchType,
+    runTask_networkConfiguration,
+    runTask_capacityProviderStrategy,
+    runTask_enableExecuteCommand,
+    runTask_tags,
     runTask_taskDefinition,
 
     -- * Destructuring the Response
@@ -81,8 +81,8 @@ module Network.AWS.ECS.RunTask
     newRunTaskResponse,
 
     -- * Response Lenses
-    runTaskResponse_tasks,
     runTaskResponse_failures,
+    runTaskResponse_tasks,
     runTaskResponse_httpStatus,
   )
 where
@@ -96,34 +96,68 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRunTask' smart constructor.
 data RunTask = RunTask'
-  { -- | The reference ID to use for the task. The reference ID can have a
-    -- maximum length of 1024 characters.
-    referenceId :: Prelude.Maybe Prelude.Text,
-    -- | The capacity provider strategy to use for the task.
+  { -- | A list of container overrides in JSON format that specify the name of a
+    -- container in the specified task definition and the overrides it should
+    -- receive. You can override the default command for a container (that is
+    -- specified in the task definition or Docker image) with a @command@
+    -- override. You can also override existing environment variables (that are
+    -- specified in the task definition or Docker image) on a container or add
+    -- new environment variables to it with an @environment@ override.
     --
-    -- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
-    -- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
-    -- specified, the @defaultCapacityProviderStrategy@ for the cluster is
-    -- used.
+    -- A total of 8192 characters are allowed for overrides. This limit
+    -- includes the JSON formatting characters of the override structure.
+    overrides :: Prelude.Maybe TaskOverride,
+    -- | The name of the task group to associate with the task. The default value
+    -- is the family name of the task definition (for example,
+    -- @family:my-family-name@).
+    group' :: Prelude.Maybe Prelude.Text,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster on
+    -- which to run your task. If you do not specify a cluster, the default
+    -- cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to propagate the tags from the task definition to the
+    -- task. If no value is specified, the tags are not propagated. Tags can
+    -- only be propagated to the task during task creation. To add tags to a
+    -- task after task creation, use the TagResource API action.
     --
-    -- When you use cluster auto scaling, you must specify
-    -- @capacityProviderStrategy@ and not @launchType@.
-    --
-    -- A capacity provider strategy may contain a maximum of 6 capacity
-    -- providers.
-    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
-    -- | The network configuration for the task. This parameter is required for
-    -- task definitions that use the @awsvpc@ network mode to receive their own
-    -- elastic network interface, and it is not supported for other network
-    -- modes. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
+    -- An error will be received if you specify the @SERVICE@ option when
+    -- running a task.
+    propagateTags :: Prelude.Maybe PropagateTags,
+    -- | The platform version the task should use. A platform version is only
+    -- specified for tasks hosted on Fargate. If one is not specified, the
+    -- @LATEST@ platform version is used by default. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    platformVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to enable Amazon ECS managed tags for the task. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
+    -- | The number of instantiations of the specified task to place on your
+    -- cluster. You can specify up to 10 tasks per call.
+    count :: Prelude.Maybe Prelude.Int,
+    -- | The reference ID to use for the task. The reference ID can have a
+    -- maximum length of 1024 characters.
+    referenceId :: Prelude.Maybe Prelude.Text,
+    -- | An array of placement constraint objects to use for the task. You can
+    -- specify up to 10 constraints per task (including constraints in the task
+    -- definition and those specified at runtime).
+    placementConstraints :: Prelude.Maybe [PlacementConstraint],
+    -- | The placement strategy objects to use for the task. You can specify a
+    -- maximum of 5 strategy rules per task.
+    placementStrategy :: Prelude.Maybe [PlacementStrategy],
+    -- | An optional tag specified when a task is started. For example, if you
+    -- automatically trigger a task to run a batch process job, you could apply
+    -- a unique identifier for that job to your task with the @startedBy@
+    -- parameter. You can then identify which tasks belong to that job by
+    -- filtering the results of a ListTasks call with the @startedBy@ value. Up
+    -- to 36 letters (uppercase and lowercase), numbers, hyphens, and
+    -- underscores are allowed.
+    --
+    -- If a task is started by an Amazon ECS service, then the @startedBy@
+    -- parameter contains the deployment ID of the service that starts it.
+    startedBy :: Prelude.Maybe Prelude.Text,
     -- | The infrastructure on which to run your standalone task. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
@@ -150,45 +184,26 @@ data RunTask = RunTask'
     -- When you use cluster auto scaling, you must specify
     -- @capacityProviderStrategy@ and not @launchType@.
     launchType :: Prelude.Maybe LaunchType,
-    -- | The platform version the task should use. A platform version is only
-    -- specified for tasks hosted on Fargate. If one is not specified, the
-    -- @LATEST@ platform version is used by default. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
+    -- | The network configuration for the task. This parameter is required for
+    -- task definitions that use the @awsvpc@ network mode to receive their own
+    -- elastic network interface, and it is not supported for other network
+    -- modes. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Prelude.Maybe Prelude.Text,
-    -- | An optional tag specified when a task is started. For example, if you
-    -- automatically trigger a task to run a batch process job, you could apply
-    -- a unique identifier for that job to your task with the @startedBy@
-    -- parameter. You can then identify which tasks belong to that job by
-    -- filtering the results of a ListTasks call with the @startedBy@ value. Up
-    -- to 36 letters (uppercase and lowercase), numbers, hyphens, and
-    -- underscores are allowed.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | The capacity provider strategy to use for the task.
     --
-    -- If a task is started by an Amazon ECS service, then the @startedBy@
-    -- parameter contains the deployment ID of the service that starts it.
-    startedBy :: Prelude.Maybe Prelude.Text,
-    -- | The placement strategy objects to use for the task. You can specify a
-    -- maximum of 5 strategy rules per task.
-    placementStrategy :: Prelude.Maybe [PlacementStrategy],
-    -- | An array of placement constraint objects to use for the task. You can
-    -- specify up to 10 constraints per task (including constraints in the task
-    -- definition and those specified at runtime).
-    placementConstraints :: Prelude.Maybe [PlacementConstraint],
-    -- | The name of the task group to associate with the task. The default value
-    -- is the family name of the task definition (for example,
-    -- @family:my-family-name@).
-    group' :: Prelude.Maybe Prelude.Text,
-    -- | A list of container overrides in JSON format that specify the name of a
-    -- container in the specified task definition and the overrides it should
-    -- receive. You can override the default command for a container (that is
-    -- specified in the task definition or Docker image) with a @command@
-    -- override. You can also override existing environment variables (that are
-    -- specified in the task definition or Docker image) on a container or add
-    -- new environment variables to it with an @environment@ override.
+    -- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
+    -- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
+    -- specified, the @defaultCapacityProviderStrategy@ for the cluster is
+    -- used.
     --
-    -- A total of 8192 characters are allowed for overrides. This limit
-    -- includes the JSON formatting characters of the override structure.
-    overrides :: Prelude.Maybe TaskOverride,
+    -- When you use cluster auto scaling, you must specify
+    -- @capacityProviderStrategy@ and not @launchType@.
+    --
+    -- A capacity provider strategy may contain a maximum of 6 capacity
+    -- providers.
+    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
     -- | Whether or not to enable the execute command functionality for the
     -- containers in this task. If @true@, this enables execute command
     -- functionality on all containers in the task.
@@ -222,24 +237,16 @@ data RunTask = RunTask'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The number of instantiations of the specified task to place on your
-    -- cluster. You can specify up to 10 tasks per call.
-    count :: Prelude.Maybe Prelude.Int,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster on
-    -- which to run your task. If you do not specify a cluster, the default
-    -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to propagate the tags from the task definition to the
-    -- task. If no value is specified, the tags are not propagated. Tags can
-    -- only be propagated to the task during task creation. To add tags to a
-    -- task after task creation, use the TagResource API action.
-    --
-    -- An error will be received if you specify the @SERVICE@ option when
-    -- running a task.
-    propagateTags :: Prelude.Maybe PropagateTags,
     -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
     -- definition to run. If a @revision@ is not specified, the latest @ACTIVE@
     -- revision is used.
+    --
+    -- The full ARN value must match the value that you specified ias the
+    -- @Resource@ of the IAM principal\'s permissions policy. For example, if
+    -- the @Resource@ is
+    -- arn:aws:ecs:us-east-1:111122223333:task-definition\/TaskFamilyName:*,
+    -- the @taskDefinition@ ARN value must be
+    -- @arn:aws:ecs:us-east-1:111122223333:task-definition\/TaskFamilyName@.
     taskDefinition :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -252,33 +259,67 @@ data RunTask = RunTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'referenceId', 'runTask_referenceId' - The reference ID to use for the task. The reference ID can have a
--- maximum length of 1024 characters.
+-- 'overrides', 'runTask_overrides' - A list of container overrides in JSON format that specify the name of a
+-- container in the specified task definition and the overrides it should
+-- receive. You can override the default command for a container (that is
+-- specified in the task definition or Docker image) with a @command@
+-- override. You can also override existing environment variables (that are
+-- specified in the task definition or Docker image) on a container or add
+-- new environment variables to it with an @environment@ override.
 --
--- 'capacityProviderStrategy', 'runTask_capacityProviderStrategy' - The capacity provider strategy to use for the task.
+-- A total of 8192 characters are allowed for overrides. This limit
+-- includes the JSON formatting characters of the override structure.
 --
--- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
--- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
--- specified, the @defaultCapacityProviderStrategy@ for the cluster is
--- used.
+-- 'group'', 'runTask_group' - The name of the task group to associate with the task. The default value
+-- is the family name of the task definition (for example,
+-- @family:my-family-name@).
 --
--- When you use cluster auto scaling, you must specify
--- @capacityProviderStrategy@ and not @launchType@.
+-- 'cluster', 'runTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to run your task. If you do not specify a cluster, the default
+-- cluster is assumed.
 --
--- A capacity provider strategy may contain a maximum of 6 capacity
--- providers.
+-- 'propagateTags', 'runTask_propagateTags' - Specifies whether to propagate the tags from the task definition to the
+-- task. If no value is specified, the tags are not propagated. Tags can
+-- only be propagated to the task during task creation. To add tags to a
+-- task after task creation, use the TagResource API action.
 --
--- 'networkConfiguration', 'runTask_networkConfiguration' - The network configuration for the task. This parameter is required for
--- task definitions that use the @awsvpc@ network mode to receive their own
--- elastic network interface, and it is not supported for other network
--- modes. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
+-- An error will be received if you specify the @SERVICE@ option when
+-- running a task.
+--
+-- 'platformVersion', 'runTask_platformVersion' - The platform version the task should use. A platform version is only
+-- specified for tasks hosted on Fargate. If one is not specified, the
+-- @LATEST@ platform version is used by default. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'enableECSManagedTags', 'runTask_enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the task. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- 'count', 'runTask_count' - The number of instantiations of the specified task to place on your
+-- cluster. You can specify up to 10 tasks per call.
+--
+-- 'referenceId', 'runTask_referenceId' - The reference ID to use for the task. The reference ID can have a
+-- maximum length of 1024 characters.
+--
+-- 'placementConstraints', 'runTask_placementConstraints' - An array of placement constraint objects to use for the task. You can
+-- specify up to 10 constraints per task (including constraints in the task
+-- definition and those specified at runtime).
+--
+-- 'placementStrategy', 'runTask_placementStrategy' - The placement strategy objects to use for the task. You can specify a
+-- maximum of 5 strategy rules per task.
+--
+-- 'startedBy', 'runTask_startedBy' - An optional tag specified when a task is started. For example, if you
+-- automatically trigger a task to run a batch process job, you could apply
+-- a unique identifier for that job to your task with the @startedBy@
+-- parameter. You can then identify which tasks belong to that job by
+-- filtering the results of a ListTasks call with the @startedBy@ value. Up
+-- to 36 letters (uppercase and lowercase), numbers, hyphens, and
+-- underscores are allowed.
+--
+-- If a task is started by an Amazon ECS service, then the @startedBy@
+-- parameter contains the deployment ID of the service that starts it.
 --
 -- 'launchType', 'runTask_launchType' - The infrastructure on which to run your standalone task. For more
 -- information, see
@@ -306,44 +347,25 @@ data RunTask = RunTask'
 -- When you use cluster auto scaling, you must specify
 -- @capacityProviderStrategy@ and not @launchType@.
 --
--- 'platformVersion', 'runTask_platformVersion' - The platform version the task should use. A platform version is only
--- specified for tasks hosted on Fargate. If one is not specified, the
--- @LATEST@ platform version is used by default. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
+-- 'networkConfiguration', 'runTask_networkConfiguration' - The network configuration for the task. This parameter is required for
+-- task definitions that use the @awsvpc@ network mode to receive their own
+-- elastic network interface, and it is not supported for other network
+-- modes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'startedBy', 'runTask_startedBy' - An optional tag specified when a task is started. For example, if you
--- automatically trigger a task to run a batch process job, you could apply
--- a unique identifier for that job to your task with the @startedBy@
--- parameter. You can then identify which tasks belong to that job by
--- filtering the results of a ListTasks call with the @startedBy@ value. Up
--- to 36 letters (uppercase and lowercase), numbers, hyphens, and
--- underscores are allowed.
+-- 'capacityProviderStrategy', 'runTask_capacityProviderStrategy' - The capacity provider strategy to use for the task.
 --
--- If a task is started by an Amazon ECS service, then the @startedBy@
--- parameter contains the deployment ID of the service that starts it.
+-- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
+-- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
+-- specified, the @defaultCapacityProviderStrategy@ for the cluster is
+-- used.
 --
--- 'placementStrategy', 'runTask_placementStrategy' - The placement strategy objects to use for the task. You can specify a
--- maximum of 5 strategy rules per task.
+-- When you use cluster auto scaling, you must specify
+-- @capacityProviderStrategy@ and not @launchType@.
 --
--- 'placementConstraints', 'runTask_placementConstraints' - An array of placement constraint objects to use for the task. You can
--- specify up to 10 constraints per task (including constraints in the task
--- definition and those specified at runtime).
---
--- 'group'', 'runTask_group' - The name of the task group to associate with the task. The default value
--- is the family name of the task definition (for example,
--- @family:my-family-name@).
---
--- 'overrides', 'runTask_overrides' - A list of container overrides in JSON format that specify the name of a
--- container in the specified task definition and the overrides it should
--- receive. You can override the default command for a container (that is
--- specified in the task definition or Docker image) with a @command@
--- override. You can also override existing environment variables (that are
--- specified in the task definition or Docker image) on a container or add
--- new environment variables to it with an @environment@ override.
---
--- A total of 8192 characters are allowed for overrides. This limit
--- includes the JSON formatting characters of the override structure.
+-- A capacity provider strategy may contain a maximum of 6 capacity
+-- providers.
 --
 -- 'enableExecuteCommand', 'runTask_enableExecuteCommand' - Whether or not to enable the execute command functionality for the
 -- containers in this task. If @true@, this enables execute command
@@ -378,77 +400,83 @@ data RunTask = RunTask'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'count', 'runTask_count' - The number of instantiations of the specified task to place on your
--- cluster. You can specify up to 10 tasks per call.
---
--- 'cluster', 'runTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on
--- which to run your task. If you do not specify a cluster, the default
--- cluster is assumed.
---
--- 'propagateTags', 'runTask_propagateTags' - Specifies whether to propagate the tags from the task definition to the
--- task. If no value is specified, the tags are not propagated. Tags can
--- only be propagated to the task during task creation. To add tags to a
--- task after task creation, use the TagResource API action.
---
--- An error will be received if you specify the @SERVICE@ option when
--- running a task.
---
 -- 'taskDefinition', 'runTask_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
 -- definition to run. If a @revision@ is not specified, the latest @ACTIVE@
 -- revision is used.
+--
+-- The full ARN value must match the value that you specified ias the
+-- @Resource@ of the IAM principal\'s permissions policy. For example, if
+-- the @Resource@ is
+-- arn:aws:ecs:us-east-1:111122223333:task-definition\/TaskFamilyName:*,
+-- the @taskDefinition@ ARN value must be
+-- @arn:aws:ecs:us-east-1:111122223333:task-definition\/TaskFamilyName@.
 newRunTask ::
   -- | 'taskDefinition'
   Prelude.Text ->
   RunTask
 newRunTask pTaskDefinition_ =
   RunTask'
-    { referenceId = Prelude.Nothing,
-      capacityProviderStrategy = Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
-      enableECSManagedTags = Prelude.Nothing,
-      launchType = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      startedBy = Prelude.Nothing,
-      placementStrategy = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
+    { overrides = Prelude.Nothing,
       group' = Prelude.Nothing,
-      overrides = Prelude.Nothing,
-      enableExecuteCommand = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      count = Prelude.Nothing,
       cluster = Prelude.Nothing,
       propagateTags = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
+      enableECSManagedTags = Prelude.Nothing,
+      count = Prelude.Nothing,
+      referenceId = Prelude.Nothing,
+      placementConstraints = Prelude.Nothing,
+      placementStrategy = Prelude.Nothing,
+      startedBy = Prelude.Nothing,
+      launchType = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      capacityProviderStrategy = Prelude.Nothing,
+      enableExecuteCommand = Prelude.Nothing,
+      tags = Prelude.Nothing,
       taskDefinition = pTaskDefinition_
     }
 
--- | The reference ID to use for the task. The reference ID can have a
--- maximum length of 1024 characters.
-runTask_referenceId :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
-runTask_referenceId = Lens.lens (\RunTask' {referenceId} -> referenceId) (\s@RunTask' {} a -> s {referenceId = a} :: RunTask)
+-- | A list of container overrides in JSON format that specify the name of a
+-- container in the specified task definition and the overrides it should
+-- receive. You can override the default command for a container (that is
+-- specified in the task definition or Docker image) with a @command@
+-- override. You can also override existing environment variables (that are
+-- specified in the task definition or Docker image) on a container or add
+-- new environment variables to it with an @environment@ override.
+--
+-- A total of 8192 characters are allowed for overrides. This limit
+-- includes the JSON formatting characters of the override structure.
+runTask_overrides :: Lens.Lens' RunTask (Prelude.Maybe TaskOverride)
+runTask_overrides = Lens.lens (\RunTask' {overrides} -> overrides) (\s@RunTask' {} a -> s {overrides = a} :: RunTask)
 
--- | The capacity provider strategy to use for the task.
---
--- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
--- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
--- specified, the @defaultCapacityProviderStrategy@ for the cluster is
--- used.
---
--- When you use cluster auto scaling, you must specify
--- @capacityProviderStrategy@ and not @launchType@.
---
--- A capacity provider strategy may contain a maximum of 6 capacity
--- providers.
-runTask_capacityProviderStrategy :: Lens.Lens' RunTask (Prelude.Maybe [CapacityProviderStrategyItem])
-runTask_capacityProviderStrategy = Lens.lens (\RunTask' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@RunTask' {} a -> s {capacityProviderStrategy = a} :: RunTask) Prelude.. Lens.mapping Lens._Coerce
+-- | The name of the task group to associate with the task. The default value
+-- is the family name of the task definition (for example,
+-- @family:my-family-name@).
+runTask_group :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
+runTask_group = Lens.lens (\RunTask' {group'} -> group') (\s@RunTask' {} a -> s {group' = a} :: RunTask)
 
--- | The network configuration for the task. This parameter is required for
--- task definitions that use the @awsvpc@ network mode to receive their own
--- elastic network interface, and it is not supported for other network
--- modes. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
+-- | The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to run your task. If you do not specify a cluster, the default
+-- cluster is assumed.
+runTask_cluster :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
+runTask_cluster = Lens.lens (\RunTask' {cluster} -> cluster) (\s@RunTask' {} a -> s {cluster = a} :: RunTask)
+
+-- | Specifies whether to propagate the tags from the task definition to the
+-- task. If no value is specified, the tags are not propagated. Tags can
+-- only be propagated to the task during task creation. To add tags to a
+-- task after task creation, use the TagResource API action.
+--
+-- An error will be received if you specify the @SERVICE@ option when
+-- running a task.
+runTask_propagateTags :: Lens.Lens' RunTask (Prelude.Maybe PropagateTags)
+runTask_propagateTags = Lens.lens (\RunTask' {propagateTags} -> propagateTags) (\s@RunTask' {} a -> s {propagateTags = a} :: RunTask)
+
+-- | The platform version the task should use. A platform version is only
+-- specified for tasks hosted on Fargate. If one is not specified, the
+-- @LATEST@ platform version is used by default. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-runTask_networkConfiguration :: Lens.Lens' RunTask (Prelude.Maybe NetworkConfiguration)
-runTask_networkConfiguration = Lens.lens (\RunTask' {networkConfiguration} -> networkConfiguration) (\s@RunTask' {} a -> s {networkConfiguration = a} :: RunTask)
+runTask_platformVersion :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
+runTask_platformVersion = Lens.lens (\RunTask' {platformVersion} -> platformVersion) (\s@RunTask' {} a -> s {platformVersion = a} :: RunTask)
 
 -- | Specifies whether to enable Amazon ECS managed tags for the task. For
 -- more information, see
@@ -456,6 +484,40 @@ runTask_networkConfiguration = Lens.lens (\RunTask' {networkConfiguration} -> ne
 -- in the /Amazon Elastic Container Service Developer Guide/.
 runTask_enableECSManagedTags :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Bool)
 runTask_enableECSManagedTags = Lens.lens (\RunTask' {enableECSManagedTags} -> enableECSManagedTags) (\s@RunTask' {} a -> s {enableECSManagedTags = a} :: RunTask)
+
+-- | The number of instantiations of the specified task to place on your
+-- cluster. You can specify up to 10 tasks per call.
+runTask_count :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Int)
+runTask_count = Lens.lens (\RunTask' {count} -> count) (\s@RunTask' {} a -> s {count = a} :: RunTask)
+
+-- | The reference ID to use for the task. The reference ID can have a
+-- maximum length of 1024 characters.
+runTask_referenceId :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
+runTask_referenceId = Lens.lens (\RunTask' {referenceId} -> referenceId) (\s@RunTask' {} a -> s {referenceId = a} :: RunTask)
+
+-- | An array of placement constraint objects to use for the task. You can
+-- specify up to 10 constraints per task (including constraints in the task
+-- definition and those specified at runtime).
+runTask_placementConstraints :: Lens.Lens' RunTask (Prelude.Maybe [PlacementConstraint])
+runTask_placementConstraints = Lens.lens (\RunTask' {placementConstraints} -> placementConstraints) (\s@RunTask' {} a -> s {placementConstraints = a} :: RunTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | The placement strategy objects to use for the task. You can specify a
+-- maximum of 5 strategy rules per task.
+runTask_placementStrategy :: Lens.Lens' RunTask (Prelude.Maybe [PlacementStrategy])
+runTask_placementStrategy = Lens.lens (\RunTask' {placementStrategy} -> placementStrategy) (\s@RunTask' {} a -> s {placementStrategy = a} :: RunTask) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional tag specified when a task is started. For example, if you
+-- automatically trigger a task to run a batch process job, you could apply
+-- a unique identifier for that job to your task with the @startedBy@
+-- parameter. You can then identify which tasks belong to that job by
+-- filtering the results of a ListTasks call with the @startedBy@ value. Up
+-- to 36 letters (uppercase and lowercase), numbers, hyphens, and
+-- underscores are allowed.
+--
+-- If a task is started by an Amazon ECS service, then the @startedBy@
+-- parameter contains the deployment ID of the service that starts it.
+runTask_startedBy :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
+runTask_startedBy = Lens.lens (\RunTask' {startedBy} -> startedBy) (\s@RunTask' {} a -> s {startedBy = a} :: RunTask)
 
 -- | The infrastructure on which to run your standalone task. For more
 -- information, see
@@ -485,56 +547,29 @@ runTask_enableECSManagedTags = Lens.lens (\RunTask' {enableECSManagedTags} -> en
 runTask_launchType :: Lens.Lens' RunTask (Prelude.Maybe LaunchType)
 runTask_launchType = Lens.lens (\RunTask' {launchType} -> launchType) (\s@RunTask' {} a -> s {launchType = a} :: RunTask)
 
--- | The platform version the task should use. A platform version is only
--- specified for tasks hosted on Fargate. If one is not specified, the
--- @LATEST@ platform version is used by default. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
+-- | The network configuration for the task. This parameter is required for
+-- task definitions that use the @awsvpc@ network mode to receive their own
+-- elastic network interface, and it is not supported for other network
+-- modes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-runTask_platformVersion :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
-runTask_platformVersion = Lens.lens (\RunTask' {platformVersion} -> platformVersion) (\s@RunTask' {} a -> s {platformVersion = a} :: RunTask)
+runTask_networkConfiguration :: Lens.Lens' RunTask (Prelude.Maybe NetworkConfiguration)
+runTask_networkConfiguration = Lens.lens (\RunTask' {networkConfiguration} -> networkConfiguration) (\s@RunTask' {} a -> s {networkConfiguration = a} :: RunTask)
 
--- | An optional tag specified when a task is started. For example, if you
--- automatically trigger a task to run a batch process job, you could apply
--- a unique identifier for that job to your task with the @startedBy@
--- parameter. You can then identify which tasks belong to that job by
--- filtering the results of a ListTasks call with the @startedBy@ value. Up
--- to 36 letters (uppercase and lowercase), numbers, hyphens, and
--- underscores are allowed.
+-- | The capacity provider strategy to use for the task.
 --
--- If a task is started by an Amazon ECS service, then the @startedBy@
--- parameter contains the deployment ID of the service that starts it.
-runTask_startedBy :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
-runTask_startedBy = Lens.lens (\RunTask' {startedBy} -> startedBy) (\s@RunTask' {} a -> s {startedBy = a} :: RunTask)
-
--- | The placement strategy objects to use for the task. You can specify a
--- maximum of 5 strategy rules per task.
-runTask_placementStrategy :: Lens.Lens' RunTask (Prelude.Maybe [PlacementStrategy])
-runTask_placementStrategy = Lens.lens (\RunTask' {placementStrategy} -> placementStrategy) (\s@RunTask' {} a -> s {placementStrategy = a} :: RunTask) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of placement constraint objects to use for the task. You can
--- specify up to 10 constraints per task (including constraints in the task
--- definition and those specified at runtime).
-runTask_placementConstraints :: Lens.Lens' RunTask (Prelude.Maybe [PlacementConstraint])
-runTask_placementConstraints = Lens.lens (\RunTask' {placementConstraints} -> placementConstraints) (\s@RunTask' {} a -> s {placementConstraints = a} :: RunTask) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the task group to associate with the task. The default value
--- is the family name of the task definition (for example,
--- @family:my-family-name@).
-runTask_group :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
-runTask_group = Lens.lens (\RunTask' {group'} -> group') (\s@RunTask' {} a -> s {group' = a} :: RunTask)
-
--- | A list of container overrides in JSON format that specify the name of a
--- container in the specified task definition and the overrides it should
--- receive. You can override the default command for a container (that is
--- specified in the task definition or Docker image) with a @command@
--- override. You can also override existing environment variables (that are
--- specified in the task definition or Docker image) on a container or add
--- new environment variables to it with an @environment@ override.
+-- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
+-- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
+-- specified, the @defaultCapacityProviderStrategy@ for the cluster is
+-- used.
 --
--- A total of 8192 characters are allowed for overrides. This limit
--- includes the JSON formatting characters of the override structure.
-runTask_overrides :: Lens.Lens' RunTask (Prelude.Maybe TaskOverride)
-runTask_overrides = Lens.lens (\RunTask' {overrides} -> overrides) (\s@RunTask' {} a -> s {overrides = a} :: RunTask)
+-- When you use cluster auto scaling, you must specify
+-- @capacityProviderStrategy@ and not @launchType@.
+--
+-- A capacity provider strategy may contain a maximum of 6 capacity
+-- providers.
+runTask_capacityProviderStrategy :: Lens.Lens' RunTask (Prelude.Maybe [CapacityProviderStrategyItem])
+runTask_capacityProviderStrategy = Lens.lens (\RunTask' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@RunTask' {} a -> s {capacityProviderStrategy = a} :: RunTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether or not to enable the execute command functionality for the
 -- containers in this task. If @true@, this enables execute command
@@ -571,32 +606,18 @@ runTask_enableExecuteCommand = Lens.lens (\RunTask' {enableExecuteCommand} -> en
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 runTask_tags :: Lens.Lens' RunTask (Prelude.Maybe [Tag])
-runTask_tags = Lens.lens (\RunTask' {tags} -> tags) (\s@RunTask' {} a -> s {tags = a} :: RunTask) Prelude.. Lens.mapping Lens._Coerce
-
--- | The number of instantiations of the specified task to place on your
--- cluster. You can specify up to 10 tasks per call.
-runTask_count :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Int)
-runTask_count = Lens.lens (\RunTask' {count} -> count) (\s@RunTask' {} a -> s {count = a} :: RunTask)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster on
--- which to run your task. If you do not specify a cluster, the default
--- cluster is assumed.
-runTask_cluster :: Lens.Lens' RunTask (Prelude.Maybe Prelude.Text)
-runTask_cluster = Lens.lens (\RunTask' {cluster} -> cluster) (\s@RunTask' {} a -> s {cluster = a} :: RunTask)
-
--- | Specifies whether to propagate the tags from the task definition to the
--- task. If no value is specified, the tags are not propagated. Tags can
--- only be propagated to the task during task creation. To add tags to a
--- task after task creation, use the TagResource API action.
---
--- An error will be received if you specify the @SERVICE@ option when
--- running a task.
-runTask_propagateTags :: Lens.Lens' RunTask (Prelude.Maybe PropagateTags)
-runTask_propagateTags = Lens.lens (\RunTask' {propagateTags} -> propagateTags) (\s@RunTask' {} a -> s {propagateTags = a} :: RunTask)
+runTask_tags = Lens.lens (\RunTask' {tags} -> tags) (\s@RunTask' {} a -> s {tags = a} :: RunTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
 -- definition to run. If a @revision@ is not specified, the latest @ACTIVE@
 -- revision is used.
+--
+-- The full ARN value must match the value that you specified ias the
+-- @Resource@ of the IAM principal\'s permissions policy. For example, if
+-- the @Resource@ is
+-- arn:aws:ecs:us-east-1:111122223333:task-definition\/TaskFamilyName:*,
+-- the @taskDefinition@ ARN value must be
+-- @arn:aws:ecs:us-east-1:111122223333:task-definition\/TaskFamilyName@.
 runTask_taskDefinition :: Lens.Lens' RunTask Prelude.Text
 runTask_taskDefinition = Lens.lens (\RunTask' {taskDefinition} -> taskDefinition) (\s@RunTask' {} a -> s {taskDefinition = a} :: RunTask)
 
@@ -607,8 +628,8 @@ instance Core.AWSRequest RunTask where
     Response.receiveJSON
       ( \s h x ->
           RunTaskResponse'
-            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "failures" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -635,29 +656,29 @@ instance Core.ToJSON RunTask where
   toJSON RunTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("referenceId" Core..=) Prelude.<$> referenceId,
-            ("capacityProviderStrategy" Core..=)
-              Prelude.<$> capacityProviderStrategy,
-            ("networkConfiguration" Core..=)
-              Prelude.<$> networkConfiguration,
-            ("enableECSManagedTags" Core..=)
-              Prelude.<$> enableECSManagedTags,
-            ("launchType" Core..=) Prelude.<$> launchType,
+          [ ("overrides" Core..=) Prelude.<$> overrides,
+            ("group" Core..=) Prelude.<$> group',
+            ("cluster" Core..=) Prelude.<$> cluster,
+            ("propagateTags" Core..=) Prelude.<$> propagateTags,
             ("platformVersion" Core..=)
               Prelude.<$> platformVersion,
-            ("startedBy" Core..=) Prelude.<$> startedBy,
-            ("placementStrategy" Core..=)
-              Prelude.<$> placementStrategy,
+            ("enableECSManagedTags" Core..=)
+              Prelude.<$> enableECSManagedTags,
+            ("count" Core..=) Prelude.<$> count,
+            ("referenceId" Core..=) Prelude.<$> referenceId,
             ("placementConstraints" Core..=)
               Prelude.<$> placementConstraints,
-            ("group" Core..=) Prelude.<$> group',
-            ("overrides" Core..=) Prelude.<$> overrides,
+            ("placementStrategy" Core..=)
+              Prelude.<$> placementStrategy,
+            ("startedBy" Core..=) Prelude.<$> startedBy,
+            ("launchType" Core..=) Prelude.<$> launchType,
+            ("networkConfiguration" Core..=)
+              Prelude.<$> networkConfiguration,
+            ("capacityProviderStrategy" Core..=)
+              Prelude.<$> capacityProviderStrategy,
             ("enableExecuteCommand" Core..=)
               Prelude.<$> enableExecuteCommand,
             ("tags" Core..=) Prelude.<$> tags,
-            ("count" Core..=) Prelude.<$> count,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
             Prelude.Just
               ("taskDefinition" Core..= taskDefinition)
           ]
@@ -671,11 +692,11 @@ instance Core.ToQuery RunTask where
 
 -- | /See:/ 'newRunTaskResponse' smart constructor.
 data RunTaskResponse = RunTaskResponse'
-  { -- | A full description of the tasks that were run. The tasks that were
+  { -- | Any failures associated with the call.
+    failures :: Prelude.Maybe [Failure],
+    -- | A full description of the tasks that were run. The tasks that were
     -- successfully placed on your cluster are described here.
     tasks :: Prelude.Maybe [Task],
-    -- | Any failures associated with the call.
-    failures :: Prelude.Maybe [Failure],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -689,10 +710,10 @@ data RunTaskResponse = RunTaskResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'failures', 'runTaskResponse_failures' - Any failures associated with the call.
+--
 -- 'tasks', 'runTaskResponse_tasks' - A full description of the tasks that were run. The tasks that were
 -- successfully placed on your cluster are described here.
---
--- 'failures', 'runTaskResponse_failures' - Any failures associated with the call.
 --
 -- 'httpStatus', 'runTaskResponse_httpStatus' - The response's http status code.
 newRunTaskResponse ::
@@ -701,19 +722,19 @@ newRunTaskResponse ::
   RunTaskResponse
 newRunTaskResponse pHttpStatus_ =
   RunTaskResponse'
-    { tasks = Prelude.Nothing,
-      failures = Prelude.Nothing,
+    { failures = Prelude.Nothing,
+      tasks = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Any failures associated with the call.
+runTaskResponse_failures :: Lens.Lens' RunTaskResponse (Prelude.Maybe [Failure])
+runTaskResponse_failures = Lens.lens (\RunTaskResponse' {failures} -> failures) (\s@RunTaskResponse' {} a -> s {failures = a} :: RunTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A full description of the tasks that were run. The tasks that were
 -- successfully placed on your cluster are described here.
 runTaskResponse_tasks :: Lens.Lens' RunTaskResponse (Prelude.Maybe [Task])
-runTaskResponse_tasks = Lens.lens (\RunTaskResponse' {tasks} -> tasks) (\s@RunTaskResponse' {} a -> s {tasks = a} :: RunTaskResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Any failures associated with the call.
-runTaskResponse_failures :: Lens.Lens' RunTaskResponse (Prelude.Maybe [Failure])
-runTaskResponse_failures = Lens.lens (\RunTaskResponse' {failures} -> failures) (\s@RunTaskResponse' {} a -> s {failures = a} :: RunTaskResponse) Prelude.. Lens.mapping Lens._Coerce
+runTaskResponse_tasks = Lens.lens (\RunTaskResponse' {tasks} -> tasks) (\s@RunTaskResponse' {} a -> s {tasks = a} :: RunTaskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 runTaskResponse_httpStatus :: Lens.Lens' RunTaskResponse Prelude.Int

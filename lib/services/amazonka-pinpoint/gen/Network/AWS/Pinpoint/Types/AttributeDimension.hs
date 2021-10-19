@@ -131,7 +131,7 @@ attributeDimension_attributeType = Lens.lens (\AttributeDimension' {attributeTyp
 -- value of the AttributeType property, endpoints are included or excluded
 -- from the segment if their attribute values match the criteria values.
 attributeDimension_values :: Lens.Lens' AttributeDimension [Prelude.Text]
-attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Prelude.. Lens._Coerce
+attributeDimension_values = Lens.lens (\AttributeDimension' {values} -> values) (\s@AttributeDimension' {} a -> s {values = a} :: AttributeDimension) Prelude.. Lens.coerced
 
 instance Core.FromJSON AttributeDimension where
   parseJSON =

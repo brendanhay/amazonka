@@ -34,9 +34,9 @@ module Network.AWS.IoT.RegisterCertificate
     newRegisterCertificate,
 
     -- * Request Lenses
+    registerCertificate_status,
     registerCertificate_caCertificatePem,
     registerCertificate_setAsActive,
-    registerCertificate_status,
     registerCertificate_certificatePem,
 
     -- * Destructuring the Response
@@ -61,12 +61,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { -- | The CA certificate used to sign the device certificate being registered.
+  { -- | The status of the register certificate request.
+    status :: Prelude.Maybe CertificateStatus,
+    -- | The CA certificate used to sign the device certificate being registered.
     caCertificatePem :: Prelude.Maybe Prelude.Text,
     -- | A boolean value that specifies if the certificate is set to active.
     setAsActive :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the register certificate request.
-    status :: Prelude.Maybe CertificateStatus,
     -- | The certificate data, in PEM format.
     certificatePem :: Prelude.Text
   }
@@ -80,11 +80,11 @@ data RegisterCertificate = RegisterCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'status', 'registerCertificate_status' - The status of the register certificate request.
+--
 -- 'caCertificatePem', 'registerCertificate_caCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
 -- 'setAsActive', 'registerCertificate_setAsActive' - A boolean value that specifies if the certificate is set to active.
---
--- 'status', 'registerCertificate_status' - The status of the register certificate request.
 --
 -- 'certificatePem', 'registerCertificate_certificatePem' - The certificate data, in PEM format.
 newRegisterCertificate ::
@@ -93,12 +93,15 @@ newRegisterCertificate ::
   RegisterCertificate
 newRegisterCertificate pCertificatePem_ =
   RegisterCertificate'
-    { caCertificatePem =
-        Prelude.Nothing,
+    { status = Prelude.Nothing,
+      caCertificatePem = Prelude.Nothing,
       setAsActive = Prelude.Nothing,
-      status = Prelude.Nothing,
       certificatePem = pCertificatePem_
     }
+
+-- | The status of the register certificate request.
+registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
+registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
 
 -- | The CA certificate used to sign the device certificate being registered.
 registerCertificate_caCertificatePem :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Text)
@@ -107,10 +110,6 @@ registerCertificate_caCertificatePem = Lens.lens (\RegisterCertificate' {caCerti
 -- | A boolean value that specifies if the certificate is set to active.
 registerCertificate_setAsActive :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Bool)
 registerCertificate_setAsActive = Lens.lens (\RegisterCertificate' {setAsActive} -> setAsActive) (\s@RegisterCertificate' {} a -> s {setAsActive = a} :: RegisterCertificate)
-
--- | The status of the register certificate request.
-registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
-registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
 
 -- | The certificate data, in PEM format.
 registerCertificate_certificatePem :: Lens.Lens' RegisterCertificate Prelude.Text
@@ -141,9 +140,9 @@ instance Core.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("caCertificatePem" Core..=)
+          [ ("status" Core..=) Prelude.<$> status,
+            ("caCertificatePem" Core..=)
               Prelude.<$> caCertificatePem,
-            ("status" Core..=) Prelude.<$> status,
             Prelude.Just
               ("certificatePem" Core..= certificatePem)
           ]

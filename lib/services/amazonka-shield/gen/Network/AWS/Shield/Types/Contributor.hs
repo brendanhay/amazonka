@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContributor' smart constructor.
 data Contributor = Contributor'
-  { -- | The name of the contributor. This is dependent on the
+  { -- | The contribution of this contributor expressed in Protection units. For
+    -- example @10,000@.
+    value :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the contributor. This is dependent on the
     -- @AttackPropertyIdentifier@. For example, if the
     -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
     -- @United States@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The contribution of this contributor expressed in Protection units. For
-    -- example @10,000@.
-    value :: Prelude.Maybe Prelude.Integer
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,20 +46,25 @@ data Contributor = Contributor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'value', 'contributor_value' - The contribution of this contributor expressed in Protection units. For
+-- example @10,000@.
+--
 -- 'name', 'contributor_name' - The name of the contributor. This is dependent on the
 -- @AttackPropertyIdentifier@. For example, if the
 -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
 -- @United States@.
---
--- 'value', 'contributor_value' - The contribution of this contributor expressed in Protection units. For
--- example @10,000@.
 newContributor ::
   Contributor
 newContributor =
   Contributor'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
+
+-- | The contribution of this contributor expressed in Protection units. For
+-- example @10,000@.
+contributor_value :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Integer)
+contributor_value = Lens.lens (\Contributor' {value} -> value) (\s@Contributor' {} a -> s {value = a} :: Contributor)
 
 -- | The name of the contributor. This is dependent on the
 -- @AttackPropertyIdentifier@. For example, if the
@@ -68,18 +73,13 @@ newContributor =
 contributor_name :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Text)
 contributor_name = Lens.lens (\Contributor' {name} -> name) (\s@Contributor' {} a -> s {name = a} :: Contributor)
 
--- | The contribution of this contributor expressed in Protection units. For
--- example @10,000@.
-contributor_value :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Integer)
-contributor_value = Lens.lens (\Contributor' {value} -> value) (\s@Contributor' {} a -> s {value = a} :: Contributor)
-
 instance Core.FromJSON Contributor where
   parseJSON =
     Core.withObject
       "Contributor"
       ( \x ->
           Contributor'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable Contributor

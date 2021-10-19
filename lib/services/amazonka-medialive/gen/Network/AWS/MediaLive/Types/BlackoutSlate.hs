@@ -30,9 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBlackoutSlate' smart constructor.
 data BlackoutSlate = BlackoutSlate'
-  { -- | Blackout slate image to be used. Leave empty for solid black. Only bmp
-    -- and png images are supported.
-    blackoutSlateImage :: Prelude.Maybe InputLocation,
+  { -- | Path to local file to use as Network End Blackout image. Image will be
+    -- scaled to fill the entire output raster.
+    networkEndBlackoutImage :: Prelude.Maybe InputLocation,
+    -- | When set to enabled, causes video, audio and captions to be blanked when
+    -- indicated by program metadata.
+    state :: Prelude.Maybe BlackoutSlateState,
     -- | Setting to enabled causes the encoder to blackout the video, audio, and
     -- captions, and raise the \"Network Blackout Image\" slate when an
     -- SCTE104\/35 Network End Segmentation Descriptor is encountered. The
@@ -40,15 +43,12 @@ data BlackoutSlate = BlackoutSlate'
     -- is encountered. The Network End and Network Start descriptors must
     -- contain a network ID that matches the value entered in \"Network ID\".
     networkEndBlackout :: Prelude.Maybe BlackoutSlateNetworkEndBlackout,
-    -- | Path to local file to use as Network End Blackout image. Image will be
-    -- scaled to fill the entire output raster.
-    networkEndBlackoutImage :: Prelude.Maybe InputLocation,
-    -- | When set to enabled, causes video, audio and captions to be blanked when
-    -- indicated by program metadata.
-    state :: Prelude.Maybe BlackoutSlateState,
     -- | Provides Network ID that matches EIDR ID format (e.g.,
     -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
-    networkId :: Prelude.Maybe Prelude.Text
+    networkId :: Prelude.Maybe Prelude.Text,
+    -- | Blackout slate image to be used. Leave empty for solid black. Only bmp
+    -- and png images are supported.
+    blackoutSlateImage :: Prelude.Maybe InputLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,8 +60,11 @@ data BlackoutSlate = BlackoutSlate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blackoutSlateImage', 'blackoutSlate_blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp
--- and png images are supported.
+-- 'networkEndBlackoutImage', 'blackoutSlate_networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be
+-- scaled to fill the entire output raster.
+--
+-- 'state', 'blackoutSlate_state' - When set to enabled, causes video, audio and captions to be blanked when
+-- indicated by program metadata.
 --
 -- 'networkEndBlackout', 'blackoutSlate_networkEndBlackout' - Setting to enabled causes the encoder to blackout the video, audio, and
 -- captions, and raise the \"Network Blackout Image\" slate when an
@@ -70,39 +73,22 @@ data BlackoutSlate = BlackoutSlate'
 -- is encountered. The Network End and Network Start descriptors must
 -- contain a network ID that matches the value entered in \"Network ID\".
 --
--- 'networkEndBlackoutImage', 'blackoutSlate_networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be
--- scaled to fill the entire output raster.
---
--- 'state', 'blackoutSlate_state' - When set to enabled, causes video, audio and captions to be blanked when
--- indicated by program metadata.
---
 -- 'networkId', 'blackoutSlate_networkId' - Provides Network ID that matches EIDR ID format (e.g.,
 -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
+--
+-- 'blackoutSlateImage', 'blackoutSlate_blackoutSlateImage' - Blackout slate image to be used. Leave empty for solid black. Only bmp
+-- and png images are supported.
 newBlackoutSlate ::
   BlackoutSlate
 newBlackoutSlate =
   BlackoutSlate'
-    { blackoutSlateImage =
+    { networkEndBlackoutImage =
         Prelude.Nothing,
-      networkEndBlackout = Prelude.Nothing,
-      networkEndBlackoutImage = Prelude.Nothing,
       state = Prelude.Nothing,
-      networkId = Prelude.Nothing
+      networkEndBlackout = Prelude.Nothing,
+      networkId = Prelude.Nothing,
+      blackoutSlateImage = Prelude.Nothing
     }
-
--- | Blackout slate image to be used. Leave empty for solid black. Only bmp
--- and png images are supported.
-blackoutSlate_blackoutSlateImage :: Lens.Lens' BlackoutSlate (Prelude.Maybe InputLocation)
-blackoutSlate_blackoutSlateImage = Lens.lens (\BlackoutSlate' {blackoutSlateImage} -> blackoutSlateImage) (\s@BlackoutSlate' {} a -> s {blackoutSlateImage = a} :: BlackoutSlate)
-
--- | Setting to enabled causes the encoder to blackout the video, audio, and
--- captions, and raise the \"Network Blackout Image\" slate when an
--- SCTE104\/35 Network End Segmentation Descriptor is encountered. The
--- blackout will be lifted when the Network Start Segmentation Descriptor
--- is encountered. The Network End and Network Start descriptors must
--- contain a network ID that matches the value entered in \"Network ID\".
-blackoutSlate_networkEndBlackout :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateNetworkEndBlackout)
-blackoutSlate_networkEndBlackout = Lens.lens (\BlackoutSlate' {networkEndBlackout} -> networkEndBlackout) (\s@BlackoutSlate' {} a -> s {networkEndBlackout = a} :: BlackoutSlate)
 
 -- | Path to local file to use as Network End Blackout image. Image will be
 -- scaled to fill the entire output raster.
@@ -114,10 +100,24 @@ blackoutSlate_networkEndBlackoutImage = Lens.lens (\BlackoutSlate' {networkEndBl
 blackoutSlate_state :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateState)
 blackoutSlate_state = Lens.lens (\BlackoutSlate' {state} -> state) (\s@BlackoutSlate' {} a -> s {state = a} :: BlackoutSlate)
 
+-- | Setting to enabled causes the encoder to blackout the video, audio, and
+-- captions, and raise the \"Network Blackout Image\" slate when an
+-- SCTE104\/35 Network End Segmentation Descriptor is encountered. The
+-- blackout will be lifted when the Network Start Segmentation Descriptor
+-- is encountered. The Network End and Network Start descriptors must
+-- contain a network ID that matches the value entered in \"Network ID\".
+blackoutSlate_networkEndBlackout :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateNetworkEndBlackout)
+blackoutSlate_networkEndBlackout = Lens.lens (\BlackoutSlate' {networkEndBlackout} -> networkEndBlackout) (\s@BlackoutSlate' {} a -> s {networkEndBlackout = a} :: BlackoutSlate)
+
 -- | Provides Network ID that matches EIDR ID format (e.g.,
 -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
 blackoutSlate_networkId :: Lens.Lens' BlackoutSlate (Prelude.Maybe Prelude.Text)
 blackoutSlate_networkId = Lens.lens (\BlackoutSlate' {networkId} -> networkId) (\s@BlackoutSlate' {} a -> s {networkId = a} :: BlackoutSlate)
+
+-- | Blackout slate image to be used. Leave empty for solid black. Only bmp
+-- and png images are supported.
+blackoutSlate_blackoutSlateImage :: Lens.Lens' BlackoutSlate (Prelude.Maybe InputLocation)
+blackoutSlate_blackoutSlateImage = Lens.lens (\BlackoutSlate' {blackoutSlateImage} -> blackoutSlateImage) (\s@BlackoutSlate' {} a -> s {blackoutSlateImage = a} :: BlackoutSlate)
 
 instance Core.FromJSON BlackoutSlate where
   parseJSON =
@@ -125,11 +125,11 @@ instance Core.FromJSON BlackoutSlate where
       "BlackoutSlate"
       ( \x ->
           BlackoutSlate'
-            Prelude.<$> (x Core..:? "blackoutSlateImage")
-            Prelude.<*> (x Core..:? "networkEndBlackout")
-            Prelude.<*> (x Core..:? "networkEndBlackoutImage")
+            Prelude.<$> (x Core..:? "networkEndBlackoutImage")
             Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "networkEndBlackout")
             Prelude.<*> (x Core..:? "networkId")
+            Prelude.<*> (x Core..:? "blackoutSlateImage")
       )
 
 instance Prelude.Hashable BlackoutSlate
@@ -140,13 +140,13 @@ instance Core.ToJSON BlackoutSlate where
   toJSON BlackoutSlate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("blackoutSlateImage" Core..=)
-              Prelude.<$> blackoutSlateImage,
-            ("networkEndBlackout" Core..=)
-              Prelude.<$> networkEndBlackout,
-            ("networkEndBlackoutImage" Core..=)
+          [ ("networkEndBlackoutImage" Core..=)
               Prelude.<$> networkEndBlackoutImage,
             ("state" Core..=) Prelude.<$> state,
-            ("networkId" Core..=) Prelude.<$> networkId
+            ("networkEndBlackout" Core..=)
+              Prelude.<$> networkEndBlackout,
+            ("networkId" Core..=) Prelude.<$> networkId,
+            ("blackoutSlateImage" Core..=)
+              Prelude.<$> blackoutSlateImage
           ]
       )

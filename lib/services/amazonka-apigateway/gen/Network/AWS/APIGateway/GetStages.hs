@@ -158,7 +158,7 @@ newGetStagesResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getStagesResponse_item :: Lens.Lens' GetStagesResponse (Prelude.Maybe [Stage])
-getStagesResponse_item = Lens.lens (\GetStagesResponse' {item} -> item) (\s@GetStagesResponse' {} a -> s {item = a} :: GetStagesResponse) Prelude.. Lens.mapping Lens._Coerce
+getStagesResponse_item = Lens.lens (\GetStagesResponse' {item} -> item) (\s@GetStagesResponse' {} a -> s {item = a} :: GetStagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getStagesResponse_httpStatus :: Lens.Lens' GetStagesResponse Prelude.Int

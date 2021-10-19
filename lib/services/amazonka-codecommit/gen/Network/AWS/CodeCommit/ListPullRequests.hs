@@ -30,10 +30,10 @@ module Network.AWS.CodeCommit.ListPullRequests
     newListPullRequests,
 
     -- * Request Lenses
-    listPullRequests_nextToken,
-    listPullRequests_maxResults,
-    listPullRequests_pullRequestStatus,
     listPullRequests_authorArn,
+    listPullRequests_nextToken,
+    listPullRequests_pullRequestStatus,
+    listPullRequests_maxResults,
     listPullRequests_repositoryName,
 
     -- * Destructuring the Response
@@ -56,19 +56,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListPullRequests' smart constructor.
 data ListPullRequests = ListPullRequests'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A non-zero, non-negative integer used to limit the number of returned
-    -- results.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | Optional. The status of the pull request. If used, this refines the
-    -- results to the pull requests that match the specified status.
-    pullRequestStatus :: Prelude.Maybe PullRequestStatusEnum,
-    -- | Optional. The Amazon Resource Name (ARN) of the user who created the
+  { -- | Optional. The Amazon Resource Name (ARN) of the user who created the
     -- pull request. If used, this filters the results to pull requests created
     -- by that user.
     authorArn :: Prelude.Maybe Prelude.Text,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional. The status of the pull request. If used, this refines the
+    -- results to the pull requests that match the specified status.
+    pullRequestStatus :: Prelude.Maybe PullRequestStatusEnum,
+    -- | A non-zero, non-negative integer used to limit the number of returned
+    -- results.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The name of the repository for which you want to list pull requests.
     repositoryName :: Prelude.Text
   }
@@ -82,18 +82,18 @@ data ListPullRequests = ListPullRequests'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'authorArn', 'listPullRequests_authorArn' - Optional. The Amazon Resource Name (ARN) of the user who created the
+-- pull request. If used, this filters the results to pull requests created
+-- by that user.
+--
 -- 'nextToken', 'listPullRequests_nextToken' - An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
---
--- 'maxResults', 'listPullRequests_maxResults' - A non-zero, non-negative integer used to limit the number of returned
--- results.
 --
 -- 'pullRequestStatus', 'listPullRequests_pullRequestStatus' - Optional. The status of the pull request. If used, this refines the
 -- results to the pull requests that match the specified status.
 --
--- 'authorArn', 'listPullRequests_authorArn' - Optional. The Amazon Resource Name (ARN) of the user who created the
--- pull request. If used, this filters the results to pull requests created
--- by that user.
+-- 'maxResults', 'listPullRequests_maxResults' - A non-zero, non-negative integer used to limit the number of returned
+-- results.
 --
 -- 'repositoryName', 'listPullRequests_repositoryName' - The name of the repository for which you want to list pull requests.
 newListPullRequests ::
@@ -102,33 +102,33 @@ newListPullRequests ::
   ListPullRequests
 newListPullRequests pRepositoryName_ =
   ListPullRequests'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { authorArn = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       pullRequestStatus = Prelude.Nothing,
-      authorArn = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       repositoryName = pRepositoryName_
     }
-
--- | An enumeration token that, when provided in a request, returns the next
--- batch of the results.
-listPullRequests_nextToken :: Lens.Lens' ListPullRequests (Prelude.Maybe Prelude.Text)
-listPullRequests_nextToken = Lens.lens (\ListPullRequests' {nextToken} -> nextToken) (\s@ListPullRequests' {} a -> s {nextToken = a} :: ListPullRequests)
-
--- | A non-zero, non-negative integer used to limit the number of returned
--- results.
-listPullRequests_maxResults :: Lens.Lens' ListPullRequests (Prelude.Maybe Prelude.Int)
-listPullRequests_maxResults = Lens.lens (\ListPullRequests' {maxResults} -> maxResults) (\s@ListPullRequests' {} a -> s {maxResults = a} :: ListPullRequests)
-
--- | Optional. The status of the pull request. If used, this refines the
--- results to the pull requests that match the specified status.
-listPullRequests_pullRequestStatus :: Lens.Lens' ListPullRequests (Prelude.Maybe PullRequestStatusEnum)
-listPullRequests_pullRequestStatus = Lens.lens (\ListPullRequests' {pullRequestStatus} -> pullRequestStatus) (\s@ListPullRequests' {} a -> s {pullRequestStatus = a} :: ListPullRequests)
 
 -- | Optional. The Amazon Resource Name (ARN) of the user who created the
 -- pull request. If used, this filters the results to pull requests created
 -- by that user.
 listPullRequests_authorArn :: Lens.Lens' ListPullRequests (Prelude.Maybe Prelude.Text)
 listPullRequests_authorArn = Lens.lens (\ListPullRequests' {authorArn} -> authorArn) (\s@ListPullRequests' {} a -> s {authorArn = a} :: ListPullRequests)
+
+-- | An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+listPullRequests_nextToken :: Lens.Lens' ListPullRequests (Prelude.Maybe Prelude.Text)
+listPullRequests_nextToken = Lens.lens (\ListPullRequests' {nextToken} -> nextToken) (\s@ListPullRequests' {} a -> s {nextToken = a} :: ListPullRequests)
+
+-- | Optional. The status of the pull request. If used, this refines the
+-- results to the pull requests that match the specified status.
+listPullRequests_pullRequestStatus :: Lens.Lens' ListPullRequests (Prelude.Maybe PullRequestStatusEnum)
+listPullRequests_pullRequestStatus = Lens.lens (\ListPullRequests' {pullRequestStatus} -> pullRequestStatus) (\s@ListPullRequests' {} a -> s {pullRequestStatus = a} :: ListPullRequests)
+
+-- | A non-zero, non-negative integer used to limit the number of returned
+-- results.
+listPullRequests_maxResults :: Lens.Lens' ListPullRequests (Prelude.Maybe Prelude.Int)
+listPullRequests_maxResults = Lens.lens (\ListPullRequests' {maxResults} -> maxResults) (\s@ListPullRequests' {} a -> s {maxResults = a} :: ListPullRequests)
 
 -- | The name of the repository for which you want to list pull requests.
 listPullRequests_repositoryName :: Lens.Lens' ListPullRequests Prelude.Text
@@ -192,11 +192,11 @@ instance Core.ToJSON ListPullRequests where
   toJSON ListPullRequests' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("authorArn" Core..=) Prelude.<$> authorArn,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("pullRequestStatus" Core..=)
               Prelude.<$> pullRequestStatus,
-            ("authorArn" Core..=) Prelude.<$> authorArn,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("repositoryName" Core..= repositoryName)
           ]
@@ -257,6 +257,6 @@ listPullRequestsResponse_httpStatus = Lens.lens (\ListPullRequestsResponse' {htt
 
 -- | The system-generated IDs of the pull requests.
 listPullRequestsResponse_pullRequestIds :: Lens.Lens' ListPullRequestsResponse [Prelude.Text]
-listPullRequestsResponse_pullRequestIds = Lens.lens (\ListPullRequestsResponse' {pullRequestIds} -> pullRequestIds) (\s@ListPullRequestsResponse' {} a -> s {pullRequestIds = a} :: ListPullRequestsResponse) Prelude.. Lens._Coerce
+listPullRequestsResponse_pullRequestIds = Lens.lens (\ListPullRequestsResponse' {pullRequestIds} -> pullRequestIds) (\s@ListPullRequestsResponse' {} a -> s {pullRequestIds = a} :: ListPullRequestsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListPullRequestsResponse

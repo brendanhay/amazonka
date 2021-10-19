@@ -17,8 +17,8 @@ module Network.AWS.AWSHealth.Types
     defaultService,
 
     -- * Errors
-    _ConcurrentModificationException,
     _InvalidPaginationToken,
+    _ConcurrentModificationException,
     _UnsupportedLocale,
 
     -- * EntityStatusCode
@@ -39,14 +39,14 @@ module Network.AWS.AWSHealth.Types
     -- * AffectedEntity
     AffectedEntity (..),
     newAffectedEntity,
+    affectedEntity_lastUpdatedTime,
+    affectedEntity_entityValue,
+    affectedEntity_entityUrl,
     affectedEntity_awsAccountId,
     affectedEntity_eventArn,
-    affectedEntity_statusCode,
-    affectedEntity_tags,
     affectedEntity_entityArn,
-    affectedEntity_entityUrl,
-    affectedEntity_entityValue,
-    affectedEntity_lastUpdatedTime,
+    affectedEntity_tags,
+    affectedEntity_statusCode,
 
     -- * DateTimeRange
     DateTimeRange (..),
@@ -57,33 +57,33 @@ module Network.AWS.AWSHealth.Types
     -- * EntityAggregate
     EntityAggregate (..),
     newEntityAggregate,
-    entityAggregate_eventArn,
     entityAggregate_count,
+    entityAggregate_eventArn,
 
     -- * EntityFilter
     EntityFilter (..),
     newEntityFilter,
-    entityFilter_entityArns,
     entityFilter_statusCodes,
-    entityFilter_lastUpdatedTimes,
-    entityFilter_tags,
+    entityFilter_entityArns,
     entityFilter_entityValues,
+    entityFilter_tags,
+    entityFilter_lastUpdatedTimes,
     entityFilter_eventArns,
 
     -- * Event
     Event (..),
     newEvent,
-    event_eventTypeCategory,
-    event_eventScopeCode,
-    event_startTime,
+    event_lastUpdatedTime,
     event_arn,
     event_service,
-    event_endTime,
-    event_availabilityZone,
-    event_statusCode,
+    event_startTime,
+    event_eventScopeCode,
     event_eventTypeCode,
+    event_eventTypeCategory,
+    event_availabilityZone,
+    event_endTime,
     event_region,
-    event_lastUpdatedTime,
+    event_statusCode,
 
     -- * EventAccountFilter
     EventAccountFilter (..),
@@ -105,100 +105,100 @@ module Network.AWS.AWSHealth.Types
     -- * EventDetails
     EventDetails (..),
     newEventDetails,
-    eventDetails_eventMetadata,
-    eventDetails_eventDescription,
     eventDetails_event,
+    eventDetails_eventDescription,
+    eventDetails_eventMetadata,
 
     -- * EventDetailsErrorItem
     EventDetailsErrorItem (..),
     newEventDetailsErrorItem,
-    eventDetailsErrorItem_errorName,
     eventDetailsErrorItem_eventArn,
+    eventDetailsErrorItem_errorName,
     eventDetailsErrorItem_errorMessage,
 
     -- * EventFilter
     EventFilter (..),
     newEventFilter,
-    eventFilter_availabilityZones,
+    eventFilter_eventArns,
+    eventFilter_eventTypeCategories,
+    eventFilter_eventTypeCodes,
+    eventFilter_regions,
+    eventFilter_eventStatusCodes,
     eventFilter_endTimes,
+    eventFilter_availabilityZones,
+    eventFilter_entityArns,
+    eventFilter_entityValues,
     eventFilter_startTimes,
     eventFilter_services,
-    eventFilter_entityArns,
-    eventFilter_eventTypeCodes,
-    eventFilter_lastUpdatedTimes,
     eventFilter_tags,
-    eventFilter_eventStatusCodes,
-    eventFilter_regions,
-    eventFilter_entityValues,
-    eventFilter_eventTypeCategories,
-    eventFilter_eventArns,
+    eventFilter_lastUpdatedTimes,
 
     -- * EventType
     EventType (..),
     newEventType,
+    eventType_service,
     eventType_category,
     eventType_code,
-    eventType_service,
 
     -- * EventTypeFilter
     EventTypeFilter (..),
     newEventTypeFilter,
-    eventTypeFilter_services,
-    eventTypeFilter_eventTypeCodes,
     eventTypeFilter_eventTypeCategories,
+    eventTypeFilter_eventTypeCodes,
+    eventTypeFilter_services,
 
     -- * OrganizationAffectedEntitiesErrorItem
     OrganizationAffectedEntitiesErrorItem (..),
     newOrganizationAffectedEntitiesErrorItem,
-    organizationAffectedEntitiesErrorItem_errorName,
     organizationAffectedEntitiesErrorItem_awsAccountId,
     organizationAffectedEntitiesErrorItem_eventArn,
+    organizationAffectedEntitiesErrorItem_errorName,
     organizationAffectedEntitiesErrorItem_errorMessage,
 
     -- * OrganizationEvent
     OrganizationEvent (..),
     newOrganizationEvent,
-    organizationEvent_eventTypeCategory,
-    organizationEvent_eventScopeCode,
-    organizationEvent_startTime,
+    organizationEvent_lastUpdatedTime,
     organizationEvent_arn,
     organizationEvent_service,
-    organizationEvent_endTime,
-    organizationEvent_statusCode,
+    organizationEvent_startTime,
+    organizationEvent_eventScopeCode,
     organizationEvent_eventTypeCode,
+    organizationEvent_eventTypeCategory,
+    organizationEvent_endTime,
     organizationEvent_region,
-    organizationEvent_lastUpdatedTime,
+    organizationEvent_statusCode,
 
     -- * OrganizationEventDetails
     OrganizationEventDetails (..),
     newOrganizationEventDetails,
+    organizationEventDetails_event,
+    organizationEventDetails_eventDescription,
     organizationEventDetails_awsAccountId,
     organizationEventDetails_eventMetadata,
-    organizationEventDetails_eventDescription,
-    organizationEventDetails_event,
 
     -- * OrganizationEventDetailsErrorItem
     OrganizationEventDetailsErrorItem (..),
     newOrganizationEventDetailsErrorItem,
-    organizationEventDetailsErrorItem_errorName,
     organizationEventDetailsErrorItem_awsAccountId,
     organizationEventDetailsErrorItem_eventArn,
+    organizationEventDetailsErrorItem_errorName,
     organizationEventDetailsErrorItem_errorMessage,
 
     -- * OrganizationEventFilter
     OrganizationEventFilter (..),
     newOrganizationEventFilter,
-    organizationEventFilter_services,
-    organizationEventFilter_startTime,
-    organizationEventFilter_entityArns,
-    organizationEventFilter_eventTypeCodes,
-    organizationEventFilter_endTime,
-    organizationEventFilter_eventStatusCodes,
-    organizationEventFilter_regions,
-    organizationEventFilter_entityValues,
-    organizationEventFilter_eventTypeCategories,
     organizationEventFilter_lastUpdatedTime,
     organizationEventFilter_awsAccountIds,
+    organizationEventFilter_eventTypeCategories,
+    organizationEventFilter_eventTypeCodes,
+    organizationEventFilter_startTime,
+    organizationEventFilter_regions,
+    organizationEventFilter_eventStatusCodes,
+    organizationEventFilter_endTime,
+    organizationEventFilter_entityArns,
+    organizationEventFilter_entityValues,
+    organizationEventFilter_services,
   )
 where
 
@@ -255,37 +255,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -298,7 +275,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The specified pagination token (@nextToken@) is not valid.
+_InvalidPaginationToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPaginationToken =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPaginationToken"
 
 -- | <https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization>
 -- is already in progress. Wait for the action to complete before trying
@@ -310,13 +317,6 @@ _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
-
--- | The specified pagination token (@nextToken@) is not valid.
-_InvalidPaginationToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPaginationToken =
-  Core._MatchServiceError
-    defaultService
-    "InvalidPaginationToken"
 
 -- | The specified locale is not supported.
 _UnsupportedLocale :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

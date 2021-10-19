@@ -33,8 +33,8 @@ module Network.AWS.IoT.CreateProvisioningTemplate
     -- * Request Lenses
     createProvisioningTemplate_preProvisioningHook,
     createProvisioningTemplate_enabled,
-    createProvisioningTemplate_tags,
     createProvisioningTemplate_description,
+    createProvisioningTemplate_tags,
     createProvisioningTemplate_templateName,
     createProvisioningTemplate_templateBody,
     createProvisioningTemplate_provisioningRoleArn,
@@ -64,6 +64,8 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
     preProvisioningHook :: Prelude.Maybe ProvisioningHook,
     -- | True to enable the fleet provisioning template, otherwise false.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the fleet provisioning template.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Metadata which can be used to manage the fleet provisioning template.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -74,8 +76,6 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
-    -- | The description of the fleet provisioning template.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the fleet provisioning template.
     templateName :: Prelude.Text,
     -- | The JSON formatted contents of the fleet provisioning template.
@@ -98,6 +98,8 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
 --
 -- 'enabled', 'createProvisioningTemplate_enabled' - True to enable the fleet provisioning template, otherwise false.
 --
+-- 'description', 'createProvisioningTemplate_description' - The description of the fleet provisioning template.
+--
 -- 'tags', 'createProvisioningTemplate_tags' - Metadata which can be used to manage the fleet provisioning template.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -107,8 +109,6 @@ data CreateProvisioningTemplate = CreateProvisioningTemplate'
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
---
--- 'description', 'createProvisioningTemplate_description' - The description of the fleet provisioning template.
 --
 -- 'templateName', 'createProvisioningTemplate_templateName' - The name of the fleet provisioning template.
 --
@@ -132,8 +132,8 @@ newCreateProvisioningTemplate
       { preProvisioningHook =
           Prelude.Nothing,
         enabled = Prelude.Nothing,
-        tags = Prelude.Nothing,
         description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         templateName = pTemplateName_,
         templateBody = pTemplateBody_,
         provisioningRoleArn = pProvisioningRoleArn_
@@ -147,6 +147,10 @@ createProvisioningTemplate_preProvisioningHook = Lens.lens (\CreateProvisioningT
 createProvisioningTemplate_enabled :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Bool)
 createProvisioningTemplate_enabled = Lens.lens (\CreateProvisioningTemplate' {enabled} -> enabled) (\s@CreateProvisioningTemplate' {} a -> s {enabled = a} :: CreateProvisioningTemplate)
 
+-- | The description of the fleet provisioning template.
+createProvisioningTemplate_description :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Text)
+createProvisioningTemplate_description = Lens.lens (\CreateProvisioningTemplate' {description} -> description) (\s@CreateProvisioningTemplate' {} a -> s {description = a} :: CreateProvisioningTemplate)
+
 -- | Metadata which can be used to manage the fleet provisioning template.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -157,11 +161,7 @@ createProvisioningTemplate_enabled = Lens.lens (\CreateProvisioningTemplate' {en
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
 createProvisioningTemplate_tags :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe [Tag])
-createProvisioningTemplate_tags = Lens.lens (\CreateProvisioningTemplate' {tags} -> tags) (\s@CreateProvisioningTemplate' {} a -> s {tags = a} :: CreateProvisioningTemplate) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description of the fleet provisioning template.
-createProvisioningTemplate_description :: Lens.Lens' CreateProvisioningTemplate (Prelude.Maybe Prelude.Text)
-createProvisioningTemplate_description = Lens.lens (\CreateProvisioningTemplate' {description} -> description) (\s@CreateProvisioningTemplate' {} a -> s {description = a} :: CreateProvisioningTemplate)
+createProvisioningTemplate_tags = Lens.lens (\CreateProvisioningTemplate' {tags} -> tags) (\s@CreateProvisioningTemplate' {} a -> s {tags = a} :: CreateProvisioningTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the fleet provisioning template.
 createProvisioningTemplate_templateName :: Lens.Lens' CreateProvisioningTemplate Prelude.Text
@@ -205,8 +205,8 @@ instance Core.ToJSON CreateProvisioningTemplate where
           [ ("preProvisioningHook" Core..=)
               Prelude.<$> preProvisioningHook,
             ("enabled" Core..=) Prelude.<$> enabled,
-            ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("templateName" Core..= templateName),
             Prelude.Just ("templateBody" Core..= templateBody),
             Prelude.Just

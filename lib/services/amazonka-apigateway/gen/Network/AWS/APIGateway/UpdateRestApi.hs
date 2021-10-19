@@ -35,19 +35,19 @@ module Network.AWS.APIGateway.UpdateRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_createdDate,
-    restApi_warnings,
-    restApi_endpointConfiguration,
-    restApi_binaryMediaTypes,
-    restApi_id,
-    restApi_version,
-    restApi_name,
-    restApi_tags,
-    restApi_description,
-    restApi_policy,
-    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
+    restApi_disableExecuteApiEndpoint,
+    restApi_binaryMediaTypes,
+    restApi_warnings,
+    restApi_createdDate,
+    restApi_name,
+    restApi_version,
     restApi_apiKeySource,
+    restApi_id,
+    restApi_policy,
+    restApi_endpointConfiguration,
+    restApi_description,
+    restApi_tags,
   )
 where
 
@@ -95,7 +95,7 @@ newUpdateRestApi pRestApiId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateRestApi_patchOperations :: Lens.Lens' UpdateRestApi (Prelude.Maybe [PatchOperation])
-updateRestApi_patchOperations = Lens.lens (\UpdateRestApi' {patchOperations} -> patchOperations) (\s@UpdateRestApi' {} a -> s {patchOperations = a} :: UpdateRestApi) Prelude.. Lens.mapping Lens._Coerce
+updateRestApi_patchOperations = Lens.lens (\UpdateRestApi' {patchOperations} -> patchOperations) (\s@UpdateRestApi' {} a -> s {patchOperations = a} :: UpdateRestApi) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateRestApi_restApiId :: Lens.Lens' UpdateRestApi Prelude.Text

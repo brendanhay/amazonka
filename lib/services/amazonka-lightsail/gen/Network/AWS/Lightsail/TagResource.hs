@@ -105,7 +105,7 @@ tagResource_resourceName = Lens.lens (\TagResource' {resourceName} -> resourceNa
 
 -- | The tag key and optional value.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
@@ -191,7 +191,7 @@ newTagResourceResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 tagResourceResponse_operations :: Lens.Lens' TagResourceResponse (Prelude.Maybe [Operation])
-tagResourceResponse_operations = Lens.lens (\TagResourceResponse' {operations} -> operations) (\s@TagResourceResponse' {} a -> s {operations = a} :: TagResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+tagResourceResponse_operations = Lens.lens (\TagResourceResponse' {operations} -> operations) (\s@TagResourceResponse' {} a -> s {operations = a} :: TagResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int

@@ -29,19 +29,19 @@ module Network.AWS.APIGateway.GetApiKeys
     newGetApiKeys,
 
     -- * Request Lenses
-    getApiKeys_customerId,
     getApiKeys_includeValues,
-    getApiKeys_position,
+    getApiKeys_customerId,
     getApiKeys_nameQuery,
     getApiKeys_limit,
+    getApiKeys_position,
 
     -- * Destructuring the Response
     GetApiKeysResponse (..),
     newGetApiKeysResponse,
 
     -- * Response Lenses
-    getApiKeysResponse_warnings,
     getApiKeysResponse_items,
+    getApiKeysResponse_warnings,
     getApiKeysResponse_position,
     getApiKeysResponse_httpStatus,
   )
@@ -58,19 +58,19 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetApiKeys' smart constructor.
 data GetApiKeys = GetApiKeys'
-  { -- | The identifier of a customer in AWS Marketplace or an external system,
-    -- such as a developer portal.
-    customerId :: Prelude.Maybe Prelude.Text,
-    -- | A boolean flag to specify whether (@true@) or not (@false@) the result
+  { -- | A boolean flag to specify whether (@true@) or not (@false@) the result
     -- contains key values.
     includeValues :: Prelude.Maybe Prelude.Bool,
-    -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of a customer in AWS Marketplace or an external system,
+    -- such as a developer portal.
+    customerId :: Prelude.Maybe Prelude.Text,
     -- | The name of queried API keys.
     nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,42 +82,38 @@ data GetApiKeys = GetApiKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customerId', 'getApiKeys_customerId' - The identifier of a customer in AWS Marketplace or an external system,
--- such as a developer portal.
---
 -- 'includeValues', 'getApiKeys_includeValues' - A boolean flag to specify whether (@true@) or not (@false@) the result
 -- contains key values.
 --
--- 'position', 'getApiKeys_position' - The current pagination position in the paged result set.
+-- 'customerId', 'getApiKeys_customerId' - The identifier of a customer in AWS Marketplace or an external system,
+-- such as a developer portal.
 --
 -- 'nameQuery', 'getApiKeys_nameQuery' - The name of queried API keys.
 --
 -- 'limit', 'getApiKeys_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getApiKeys_position' - The current pagination position in the paged result set.
 newGetApiKeys ::
   GetApiKeys
 newGetApiKeys =
   GetApiKeys'
-    { customerId = Prelude.Nothing,
-      includeValues = Prelude.Nothing,
-      position = Prelude.Nothing,
+    { includeValues = Prelude.Nothing,
+      customerId = Prelude.Nothing,
       nameQuery = Prelude.Nothing,
-      limit = Prelude.Nothing
+      limit = Prelude.Nothing,
+      position = Prelude.Nothing
     }
-
--- | The identifier of a customer in AWS Marketplace or an external system,
--- such as a developer portal.
-getApiKeys_customerId :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
-getApiKeys_customerId = Lens.lens (\GetApiKeys' {customerId} -> customerId) (\s@GetApiKeys' {} a -> s {customerId = a} :: GetApiKeys)
 
 -- | A boolean flag to specify whether (@true@) or not (@false@) the result
 -- contains key values.
 getApiKeys_includeValues :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Bool)
 getApiKeys_includeValues = Lens.lens (\GetApiKeys' {includeValues} -> includeValues) (\s@GetApiKeys' {} a -> s {includeValues = a} :: GetApiKeys)
 
--- | The current pagination position in the paged result set.
-getApiKeys_position :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
-getApiKeys_position = Lens.lens (\GetApiKeys' {position} -> position) (\s@GetApiKeys' {} a -> s {position = a} :: GetApiKeys)
+-- | The identifier of a customer in AWS Marketplace or an external system,
+-- such as a developer portal.
+getApiKeys_customerId :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
+getApiKeys_customerId = Lens.lens (\GetApiKeys' {customerId} -> customerId) (\s@GetApiKeys' {} a -> s {customerId = a} :: GetApiKeys)
 
 -- | The name of queried API keys.
 getApiKeys_nameQuery :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
@@ -127,6 +123,10 @@ getApiKeys_nameQuery = Lens.lens (\GetApiKeys' {nameQuery} -> nameQuery) (\s@Get
 -- and the maximum value is 500.
 getApiKeys_limit :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Int)
 getApiKeys_limit = Lens.lens (\GetApiKeys' {limit} -> limit) (\s@GetApiKeys' {} a -> s {limit = a} :: GetApiKeys)
+
+-- | The current pagination position in the paged result set.
+getApiKeys_position :: Lens.Lens' GetApiKeys (Prelude.Maybe Prelude.Text)
+getApiKeys_position = Lens.lens (\GetApiKeys' {position} -> position) (\s@GetApiKeys' {} a -> s {position = a} :: GetApiKeys)
 
 instance Core.AWSPager GetApiKeys where
   page rq rs
@@ -154,8 +154,8 @@ instance Core.AWSRequest GetApiKeys where
     Response.receiveJSON
       ( \s h x ->
           GetApiKeysResponse'
-            Prelude.<$> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "item" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -179,11 +179,11 @@ instance Core.ToPath GetApiKeys where
 instance Core.ToQuery GetApiKeys where
   toQuery GetApiKeys' {..} =
     Prelude.mconcat
-      [ "customerId" Core.=: customerId,
-        "includeValues" Core.=: includeValues,
-        "position" Core.=: position,
+      [ "includeValues" Core.=: includeValues,
+        "customerId" Core.=: customerId,
         "name" Core.=: nameQuery,
-        "limit" Core.=: limit
+        "limit" Core.=: limit,
+        "position" Core.=: position
       ]
 
 -- | Represents a collection of API keys as represented by an ApiKeys
@@ -193,11 +193,11 @@ instance Core.ToQuery GetApiKeys where
 --
 -- /See:/ 'newGetApiKeysResponse' smart constructor.
 data GetApiKeysResponse = GetApiKeysResponse'
-  { -- | A list of warning messages logged during the import of API keys when the
+  { -- | The current page of elements from this collection.
+    items :: Prelude.Maybe [ApiKey],
+    -- | A list of warning messages logged during the import of API keys when the
     -- @failOnWarnings@ option is set to true.
     warnings :: Prelude.Maybe [Prelude.Text],
-    -- | The current page of elements from this collection.
-    items :: Prelude.Maybe [ApiKey],
     position :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -212,10 +212,10 @@ data GetApiKeysResponse = GetApiKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'items', 'getApiKeysResponse_items' - The current page of elements from this collection.
+--
 -- 'warnings', 'getApiKeysResponse_warnings' - A list of warning messages logged during the import of API keys when the
 -- @failOnWarnings@ option is set to true.
---
--- 'items', 'getApiKeysResponse_items' - The current page of elements from this collection.
 --
 -- 'position', 'getApiKeysResponse_position' - Undocumented member.
 --
@@ -226,20 +226,20 @@ newGetApiKeysResponse ::
   GetApiKeysResponse
 newGetApiKeysResponse pHttpStatus_ =
   GetApiKeysResponse'
-    { warnings = Prelude.Nothing,
-      items = Prelude.Nothing,
+    { items = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       position = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
+-- | The current page of elements from this collection.
+getApiKeysResponse_items :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe [ApiKey])
+getApiKeysResponse_items = Lens.lens (\GetApiKeysResponse' {items} -> items) (\s@GetApiKeysResponse' {} a -> s {items = a} :: GetApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | A list of warning messages logged during the import of API keys when the
 -- @failOnWarnings@ option is set to true.
 getApiKeysResponse_warnings :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe [Prelude.Text])
-getApiKeysResponse_warnings = Lens.lens (\GetApiKeysResponse' {warnings} -> warnings) (\s@GetApiKeysResponse' {} a -> s {warnings = a} :: GetApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The current page of elements from this collection.
-getApiKeysResponse_items :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe [ApiKey])
-getApiKeysResponse_items = Lens.lens (\GetApiKeysResponse' {items} -> items) (\s@GetApiKeysResponse' {} a -> s {items = a} :: GetApiKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+getApiKeysResponse_warnings = Lens.lens (\GetApiKeysResponse' {warnings} -> warnings) (\s@GetApiKeysResponse' {} a -> s {warnings = a} :: GetApiKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getApiKeysResponse_position :: Lens.Lens' GetApiKeysResponse (Prelude.Maybe Prelude.Text)

@@ -29,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAudioNormalizationSettings' smart constructor.
 data AudioNormalizationSettings = AudioNormalizationSettings'
-  { -- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act
-    -- specification, itu17702 conforms to the EBU R-128 specification.
-    algorithm :: Prelude.Maybe AudioNormalizationAlgorithm,
+  { -- | When set to correctAudio the output audio is corrected using the chosen
+    -- algorithm. If set to measureOnly, the audio will be measured but not
+    -- adjusted.
+    algorithmControl :: Prelude.Maybe AudioNormalizationAlgorithmControl,
     -- | Target LKFS(loudness) to adjust volume to. If no value is entered, a
     -- default value will be used according to the chosen algorithm. The CALM
     -- Act (1770-1) recommends a target of -24 LKFS. The EBU R-128
     -- specification (1770-2) recommends a target of -23 LKFS.
     targetLkfs :: Prelude.Maybe Prelude.Double,
-    -- | When set to correctAudio the output audio is corrected using the chosen
-    -- algorithm. If set to measureOnly, the audio will be measured but not
-    -- adjusted.
-    algorithmControl :: Prelude.Maybe AudioNormalizationAlgorithmControl
+    -- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act
+    -- specification, itu17702 conforms to the EBU R-128 specification.
+    algorithm :: Prelude.Maybe AudioNormalizationAlgorithm
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,31 +52,32 @@ data AudioNormalizationSettings = AudioNormalizationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'algorithm', 'audioNormalizationSettings_algorithm' - Audio normalization algorithm to use. itu17701 conforms to the CALM Act
--- specification, itu17702 conforms to the EBU R-128 specification.
+-- 'algorithmControl', 'audioNormalizationSettings_algorithmControl' - When set to correctAudio the output audio is corrected using the chosen
+-- algorithm. If set to measureOnly, the audio will be measured but not
+-- adjusted.
 --
 -- 'targetLkfs', 'audioNormalizationSettings_targetLkfs' - Target LKFS(loudness) to adjust volume to. If no value is entered, a
 -- default value will be used according to the chosen algorithm. The CALM
 -- Act (1770-1) recommends a target of -24 LKFS. The EBU R-128
 -- specification (1770-2) recommends a target of -23 LKFS.
 --
--- 'algorithmControl', 'audioNormalizationSettings_algorithmControl' - When set to correctAudio the output audio is corrected using the chosen
--- algorithm. If set to measureOnly, the audio will be measured but not
--- adjusted.
+-- 'algorithm', 'audioNormalizationSettings_algorithm' - Audio normalization algorithm to use. itu17701 conforms to the CALM Act
+-- specification, itu17702 conforms to the EBU R-128 specification.
 newAudioNormalizationSettings ::
   AudioNormalizationSettings
 newAudioNormalizationSettings =
   AudioNormalizationSettings'
-    { algorithm =
+    { algorithmControl =
         Prelude.Nothing,
       targetLkfs = Prelude.Nothing,
-      algorithmControl = Prelude.Nothing
+      algorithm = Prelude.Nothing
     }
 
--- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act
--- specification, itu17702 conforms to the EBU R-128 specification.
-audioNormalizationSettings_algorithm :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithm)
-audioNormalizationSettings_algorithm = Lens.lens (\AudioNormalizationSettings' {algorithm} -> algorithm) (\s@AudioNormalizationSettings' {} a -> s {algorithm = a} :: AudioNormalizationSettings)
+-- | When set to correctAudio the output audio is corrected using the chosen
+-- algorithm. If set to measureOnly, the audio will be measured but not
+-- adjusted.
+audioNormalizationSettings_algorithmControl :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithmControl)
+audioNormalizationSettings_algorithmControl = Lens.lens (\AudioNormalizationSettings' {algorithmControl} -> algorithmControl) (\s@AudioNormalizationSettings' {} a -> s {algorithmControl = a} :: AudioNormalizationSettings)
 
 -- | Target LKFS(loudness) to adjust volume to. If no value is entered, a
 -- default value will be used according to the chosen algorithm. The CALM
@@ -85,11 +86,10 @@ audioNormalizationSettings_algorithm = Lens.lens (\AudioNormalizationSettings' {
 audioNormalizationSettings_targetLkfs :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe Prelude.Double)
 audioNormalizationSettings_targetLkfs = Lens.lens (\AudioNormalizationSettings' {targetLkfs} -> targetLkfs) (\s@AudioNormalizationSettings' {} a -> s {targetLkfs = a} :: AudioNormalizationSettings)
 
--- | When set to correctAudio the output audio is corrected using the chosen
--- algorithm. If set to measureOnly, the audio will be measured but not
--- adjusted.
-audioNormalizationSettings_algorithmControl :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithmControl)
-audioNormalizationSettings_algorithmControl = Lens.lens (\AudioNormalizationSettings' {algorithmControl} -> algorithmControl) (\s@AudioNormalizationSettings' {} a -> s {algorithmControl = a} :: AudioNormalizationSettings)
+-- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act
+-- specification, itu17702 conforms to the EBU R-128 specification.
+audioNormalizationSettings_algorithm :: Lens.Lens' AudioNormalizationSettings (Prelude.Maybe AudioNormalizationAlgorithm)
+audioNormalizationSettings_algorithm = Lens.lens (\AudioNormalizationSettings' {algorithm} -> algorithm) (\s@AudioNormalizationSettings' {} a -> s {algorithm = a} :: AudioNormalizationSettings)
 
 instance Core.FromJSON AudioNormalizationSettings where
   parseJSON =
@@ -97,9 +97,9 @@ instance Core.FromJSON AudioNormalizationSettings where
       "AudioNormalizationSettings"
       ( \x ->
           AudioNormalizationSettings'
-            Prelude.<$> (x Core..:? "algorithm")
+            Prelude.<$> (x Core..:? "algorithmControl")
             Prelude.<*> (x Core..:? "targetLkfs")
-            Prelude.<*> (x Core..:? "algorithmControl")
+            Prelude.<*> (x Core..:? "algorithm")
       )
 
 instance Prelude.Hashable AudioNormalizationSettings
@@ -110,9 +110,9 @@ instance Core.ToJSON AudioNormalizationSettings where
   toJSON AudioNormalizationSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("algorithm" Core..=) Prelude.<$> algorithm,
+          [ ("algorithmControl" Core..=)
+              Prelude.<$> algorithmControl,
             ("targetLkfs" Core..=) Prelude.<$> targetLkfs,
-            ("algorithmControl" Core..=)
-              Prelude.<$> algorithmControl
+            ("algorithm" Core..=) Prelude.<$> algorithm
           ]
       )

@@ -187,7 +187,7 @@ newDetectSyntaxResponse pHttpStatus_ =
 -- ends, and the level of confidence that Amazon Comprehend has that the
 -- token is correct. For a list of token types, see how-syntax.
 detectSyntaxResponse_syntaxTokens :: Lens.Lens' DetectSyntaxResponse (Prelude.Maybe [SyntaxToken])
-detectSyntaxResponse_syntaxTokens = Lens.lens (\DetectSyntaxResponse' {syntaxTokens} -> syntaxTokens) (\s@DetectSyntaxResponse' {} a -> s {syntaxTokens = a} :: DetectSyntaxResponse) Prelude.. Lens.mapping Lens._Coerce
+detectSyntaxResponse_syntaxTokens = Lens.lens (\DetectSyntaxResponse' {syntaxTokens} -> syntaxTokens) (\s@DetectSyntaxResponse' {} a -> s {syntaxTokens = a} :: DetectSyntaxResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detectSyntaxResponse_httpStatus :: Lens.Lens' DetectSyntaxResponse Prelude.Int

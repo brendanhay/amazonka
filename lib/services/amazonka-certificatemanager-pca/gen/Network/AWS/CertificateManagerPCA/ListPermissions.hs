@@ -289,7 +289,7 @@ listPermissionsResponse_nextToken = Lens.lens (\ListPermissionsResponse' {nextTo
 -- private CA, including the action enabled, the policy provided, and the
 -- time of creation.
 listPermissionsResponse_permissions :: Lens.Lens' ListPermissionsResponse (Prelude.Maybe [Permission])
-listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPermissionsResponse_httpStatus :: Lens.Lens' ListPermissionsResponse Prelude.Int

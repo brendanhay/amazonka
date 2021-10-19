@@ -36,8 +36,8 @@ module Network.AWS.FMS.GetAppsList
     newGetAppsListResponse,
 
     -- * Response Lenses
-    getAppsListResponse_appsList,
     getAppsListResponse_appsListArn,
+    getAppsListResponse_appsList,
     getAppsListResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest GetAppsList where
     Response.receiveJSON
       ( \s h x ->
           GetAppsListResponse'
-            Prelude.<$> (x Core..?> "AppsList")
-            Prelude.<*> (x Core..?> "AppsListArn")
+            Prelude.<$> (x Core..?> "AppsListArn")
+            Prelude.<*> (x Core..?> "AppsList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,10 +141,10 @@ instance Core.ToQuery GetAppsList where
 
 -- | /See:/ 'newGetAppsListResponse' smart constructor.
 data GetAppsListResponse = GetAppsListResponse'
-  { -- | Information about the specified Firewall Manager applications list.
-    appsList :: Prelude.Maybe AppsListData,
-    -- | The Amazon Resource Name (ARN) of the applications list.
+  { -- | The Amazon Resource Name (ARN) of the applications list.
     appsListArn :: Prelude.Maybe Prelude.Text,
+    -- | Information about the specified Firewall Manager applications list.
+    appsList :: Prelude.Maybe AppsListData,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,9 +158,9 @@ data GetAppsListResponse = GetAppsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appsList', 'getAppsListResponse_appsList' - Information about the specified Firewall Manager applications list.
---
 -- 'appsListArn', 'getAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.
+--
+-- 'appsList', 'getAppsListResponse_appsList' - Information about the specified Firewall Manager applications list.
 --
 -- 'httpStatus', 'getAppsListResponse_httpStatus' - The response's http status code.
 newGetAppsListResponse ::
@@ -169,18 +169,18 @@ newGetAppsListResponse ::
   GetAppsListResponse
 newGetAppsListResponse pHttpStatus_ =
   GetAppsListResponse'
-    { appsList = Prelude.Nothing,
-      appsListArn = Prelude.Nothing,
+    { appsListArn = Prelude.Nothing,
+      appsList = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the specified Firewall Manager applications list.
-getAppsListResponse_appsList :: Lens.Lens' GetAppsListResponse (Prelude.Maybe AppsListData)
-getAppsListResponse_appsList = Lens.lens (\GetAppsListResponse' {appsList} -> appsList) (\s@GetAppsListResponse' {} a -> s {appsList = a} :: GetAppsListResponse)
 
 -- | The Amazon Resource Name (ARN) of the applications list.
 getAppsListResponse_appsListArn :: Lens.Lens' GetAppsListResponse (Prelude.Maybe Prelude.Text)
 getAppsListResponse_appsListArn = Lens.lens (\GetAppsListResponse' {appsListArn} -> appsListArn) (\s@GetAppsListResponse' {} a -> s {appsListArn = a} :: GetAppsListResponse)
+
+-- | Information about the specified Firewall Manager applications list.
+getAppsListResponse_appsList :: Lens.Lens' GetAppsListResponse (Prelude.Maybe AppsListData)
+getAppsListResponse_appsList = Lens.lens (\GetAppsListResponse' {appsList} -> appsList) (\s@GetAppsListResponse' {} a -> s {appsList = a} :: GetAppsListResponse)
 
 -- | The response's http status code.
 getAppsListResponse_httpStatus :: Lens.Lens' GetAppsListResponse Prelude.Int

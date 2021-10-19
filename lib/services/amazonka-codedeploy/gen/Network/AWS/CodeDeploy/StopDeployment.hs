@@ -35,8 +35,8 @@ module Network.AWS.CodeDeploy.StopDeployment
     newStopDeploymentResponse,
 
     -- * Response Lenses
-    stopDeploymentResponse_statusMessage,
     stopDeploymentResponse_status,
+    stopDeploymentResponse_statusMessage,
     stopDeploymentResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest StopDeployment where
     Response.receiveJSON
       ( \s h x ->
           StopDeploymentResponse'
-            Prelude.<$> (x Core..?> "statusMessage")
-            Prelude.<*> (x Core..?> "status")
+            Prelude.<$> (x Core..?> "status")
+            Prelude.<*> (x Core..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,14 +148,14 @@ instance Core.ToQuery StopDeployment where
 --
 -- /See:/ 'newStopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
-  { -- | An accompanying status message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status of the stop deployment operation:
+  { -- | The status of the stop deployment operation:
     --
     -- -   Pending: The stop operation is pending.
     --
     -- -   Succeeded: The stop operation was successful.
     status :: Prelude.Maybe StopStatus,
+    -- | An accompanying status message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -169,13 +169,13 @@ data StopDeploymentResponse = StopDeploymentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'stopDeploymentResponse_statusMessage' - An accompanying status message.
---
 -- 'status', 'stopDeploymentResponse_status' - The status of the stop deployment operation:
 --
 -- -   Pending: The stop operation is pending.
 --
 -- -   Succeeded: The stop operation was successful.
+--
+-- 'statusMessage', 'stopDeploymentResponse_statusMessage' - An accompanying status message.
 --
 -- 'httpStatus', 'stopDeploymentResponse_httpStatus' - The response's http status code.
 newStopDeploymentResponse ::
@@ -184,15 +184,10 @@ newStopDeploymentResponse ::
   StopDeploymentResponse
 newStopDeploymentResponse pHttpStatus_ =
   StopDeploymentResponse'
-    { statusMessage =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An accompanying status message.
-stopDeploymentResponse_statusMessage :: Lens.Lens' StopDeploymentResponse (Prelude.Maybe Prelude.Text)
-stopDeploymentResponse_statusMessage = Lens.lens (\StopDeploymentResponse' {statusMessage} -> statusMessage) (\s@StopDeploymentResponse' {} a -> s {statusMessage = a} :: StopDeploymentResponse)
 
 -- | The status of the stop deployment operation:
 --
@@ -201,6 +196,10 @@ stopDeploymentResponse_statusMessage = Lens.lens (\StopDeploymentResponse' {stat
 -- -   Succeeded: The stop operation was successful.
 stopDeploymentResponse_status :: Lens.Lens' StopDeploymentResponse (Prelude.Maybe StopStatus)
 stopDeploymentResponse_status = Lens.lens (\StopDeploymentResponse' {status} -> status) (\s@StopDeploymentResponse' {} a -> s {status = a} :: StopDeploymentResponse)
+
+-- | An accompanying status message.
+stopDeploymentResponse_statusMessage :: Lens.Lens' StopDeploymentResponse (Prelude.Maybe Prelude.Text)
+stopDeploymentResponse_statusMessage = Lens.lens (\StopDeploymentResponse' {statusMessage} -> statusMessage) (\s@StopDeploymentResponse' {} a -> s {statusMessage = a} :: StopDeploymentResponse)
 
 -- | The response's http status code.
 stopDeploymentResponse_httpStatus :: Lens.Lens' StopDeploymentResponse Prelude.Int

@@ -150,7 +150,7 @@ newListAvailableZonesResponse pHttpStatus_ =
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
 listAvailableZonesResponse_aZList :: Lens.Lens' ListAvailableZonesResponse (Prelude.Maybe [Prelude.Text])
-listAvailableZonesResponse_aZList = Lens.lens (\ListAvailableZonesResponse' {aZList} -> aZList) (\s@ListAvailableZonesResponse' {} a -> s {aZList = a} :: ListAvailableZonesResponse) Prelude.. Lens.mapping Lens._Coerce
+listAvailableZonesResponse_aZList = Lens.lens (\ListAvailableZonesResponse' {aZList} -> aZList) (\s@ListAvailableZonesResponse' {} a -> s {aZList = a} :: ListAvailableZonesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAvailableZonesResponse_httpStatus :: Lens.Lens' ListAvailableZonesResponse Prelude.Int

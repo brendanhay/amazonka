@@ -37,11 +37,11 @@ module Network.AWS.APIGateway.UpdateUsage
     newUsage,
 
     -- * Response Lenses
-    usage_startDate,
-    usage_items,
-    usage_position,
-    usage_endDate,
     usage_usagePlanId,
+    usage_endDate,
+    usage_items,
+    usage_startDate,
+    usage_position,
   )
 where
 
@@ -99,7 +99,7 @@ newUpdateUsage pUsagePlanId_ pKeyId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateUsage_patchOperations :: Lens.Lens' UpdateUsage (Prelude.Maybe [PatchOperation])
-updateUsage_patchOperations = Lens.lens (\UpdateUsage' {patchOperations} -> patchOperations) (\s@UpdateUsage' {} a -> s {patchOperations = a} :: UpdateUsage) Prelude.. Lens.mapping Lens._Coerce
+updateUsage_patchOperations = Lens.lens (\UpdateUsage' {patchOperations} -> patchOperations) (\s@UpdateUsage' {} a -> s {patchOperations = a} :: UpdateUsage) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The Id of the usage plan associated with the usage data.
 updateUsage_usagePlanId :: Lens.Lens' UpdateUsage Prelude.Text

@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNumberValidateRequest' smart constructor.
 data NumberValidateRequest = NumberValidateRequest'
-  { -- | The phone number to retrieve information about. The phone number that
+  { -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
+    -- region where the phone number was originally registered.
+    isoCountryCode :: Prelude.Maybe Prelude.Text,
+    -- | The phone number to retrieve information about. The phone number that
     -- you provide should include a valid numeric country code. Otherwise, the
     -- operation might result in an error.
-    phoneNumber :: Prelude.Maybe Prelude.Text,
-    -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
-    -- region where the phone number was originally registered.
-    isoCountryCode :: Prelude.Maybe Prelude.Text
+    phoneNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,31 +45,31 @@ data NumberValidateRequest = NumberValidateRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'isoCountryCode', 'numberValidateRequest_isoCountryCode' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or
+-- region where the phone number was originally registered.
+--
 -- 'phoneNumber', 'numberValidateRequest_phoneNumber' - The phone number to retrieve information about. The phone number that
 -- you provide should include a valid numeric country code. Otherwise, the
 -- operation might result in an error.
---
--- 'isoCountryCode', 'numberValidateRequest_isoCountryCode' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or
--- region where the phone number was originally registered.
 newNumberValidateRequest ::
   NumberValidateRequest
 newNumberValidateRequest =
   NumberValidateRequest'
-    { phoneNumber =
+    { isoCountryCode =
         Prelude.Nothing,
-      isoCountryCode = Prelude.Nothing
+      phoneNumber = Prelude.Nothing
     }
+
+-- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
+-- region where the phone number was originally registered.
+numberValidateRequest_isoCountryCode :: Lens.Lens' NumberValidateRequest (Prelude.Maybe Prelude.Text)
+numberValidateRequest_isoCountryCode = Lens.lens (\NumberValidateRequest' {isoCountryCode} -> isoCountryCode) (\s@NumberValidateRequest' {} a -> s {isoCountryCode = a} :: NumberValidateRequest)
 
 -- | The phone number to retrieve information about. The phone number that
 -- you provide should include a valid numeric country code. Otherwise, the
 -- operation might result in an error.
 numberValidateRequest_phoneNumber :: Lens.Lens' NumberValidateRequest (Prelude.Maybe Prelude.Text)
 numberValidateRequest_phoneNumber = Lens.lens (\NumberValidateRequest' {phoneNumber} -> phoneNumber) (\s@NumberValidateRequest' {} a -> s {phoneNumber = a} :: NumberValidateRequest)
-
--- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
--- region where the phone number was originally registered.
-numberValidateRequest_isoCountryCode :: Lens.Lens' NumberValidateRequest (Prelude.Maybe Prelude.Text)
-numberValidateRequest_isoCountryCode = Lens.lens (\NumberValidateRequest' {isoCountryCode} -> isoCountryCode) (\s@NumberValidateRequest' {} a -> s {isoCountryCode = a} :: NumberValidateRequest)
 
 instance Prelude.Hashable NumberValidateRequest
 
@@ -79,8 +79,8 @@ instance Core.ToJSON NumberValidateRequest where
   toJSON NumberValidateRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PhoneNumber" Core..=) Prelude.<$> phoneNumber,
-            ("IsoCountryCode" Core..=)
-              Prelude.<$> isoCountryCode
+          [ ("IsoCountryCode" Core..=)
+              Prelude.<$> isoCountryCode,
+            ("PhoneNumber" Core..=) Prelude.<$> phoneNumber
           ]
       )

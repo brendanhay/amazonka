@@ -39,22 +39,22 @@ module Network.AWS.CloudTrail.GetTrailStatus
 
     -- * Response Lenses
     getTrailStatusResponse_timeLoggingStopped,
-    getTrailStatusResponse_latestDeliveryAttemptTime,
-    getTrailStatusResponse_latestDigestDeliveryError,
-    getTrailStatusResponse_latestDeliveryAttemptSucceeded,
-    getTrailStatusResponse_latestNotificationError,
-    getTrailStatusResponse_latestCloudWatchLogsDeliveryError,
-    getTrailStatusResponse_latestNotificationAttemptSucceeded,
-    getTrailStatusResponse_latestCloudWatchLogsDeliveryTime,
-    getTrailStatusResponse_latestDigestDeliveryTime,
-    getTrailStatusResponse_timeLoggingStarted,
     getTrailStatusResponse_latestDeliveryError,
-    getTrailStatusResponse_isLogging,
-    getTrailStatusResponse_latestNotificationAttemptTime,
+    getTrailStatusResponse_latestDigestDeliveryTime,
+    getTrailStatusResponse_latestNotificationAttemptSucceeded,
     getTrailStatusResponse_startLoggingTime,
-    getTrailStatusResponse_stopLoggingTime,
-    getTrailStatusResponse_latestNotificationTime,
+    getTrailStatusResponse_latestNotificationError,
+    getTrailStatusResponse_latestDeliveryAttemptSucceeded,
+    getTrailStatusResponse_isLogging,
+    getTrailStatusResponse_timeLoggingStarted,
+    getTrailStatusResponse_latestDigestDeliveryError,
+    getTrailStatusResponse_latestDeliveryAttemptTime,
     getTrailStatusResponse_latestDeliveryTime,
+    getTrailStatusResponse_latestCloudWatchLogsDeliveryTime,
+    getTrailStatusResponse_latestCloudWatchLogsDeliveryError,
+    getTrailStatusResponse_latestNotificationTime,
+    getTrailStatusResponse_latestNotificationAttemptTime,
+    getTrailStatusResponse_stopLoggingTime,
     getTrailStatusResponse_httpStatus,
   )
 where
@@ -120,22 +120,22 @@ instance Core.AWSRequest GetTrailStatus where
       ( \s h x ->
           GetTrailStatusResponse'
             Prelude.<$> (x Core..?> "TimeLoggingStopped")
-            Prelude.<*> (x Core..?> "LatestDeliveryAttemptTime")
-            Prelude.<*> (x Core..?> "LatestDigestDeliveryError")
-            Prelude.<*> (x Core..?> "LatestDeliveryAttemptSucceeded")
-            Prelude.<*> (x Core..?> "LatestNotificationError")
-            Prelude.<*> (x Core..?> "LatestCloudWatchLogsDeliveryError")
-            Prelude.<*> (x Core..?> "LatestNotificationAttemptSucceeded")
-            Prelude.<*> (x Core..?> "LatestCloudWatchLogsDeliveryTime")
-            Prelude.<*> (x Core..?> "LatestDigestDeliveryTime")
-            Prelude.<*> (x Core..?> "TimeLoggingStarted")
             Prelude.<*> (x Core..?> "LatestDeliveryError")
-            Prelude.<*> (x Core..?> "IsLogging")
-            Prelude.<*> (x Core..?> "LatestNotificationAttemptTime")
+            Prelude.<*> (x Core..?> "LatestDigestDeliveryTime")
+            Prelude.<*> (x Core..?> "LatestNotificationAttemptSucceeded")
             Prelude.<*> (x Core..?> "StartLoggingTime")
-            Prelude.<*> (x Core..?> "StopLoggingTime")
-            Prelude.<*> (x Core..?> "LatestNotificationTime")
+            Prelude.<*> (x Core..?> "LatestNotificationError")
+            Prelude.<*> (x Core..?> "LatestDeliveryAttemptSucceeded")
+            Prelude.<*> (x Core..?> "IsLogging")
+            Prelude.<*> (x Core..?> "TimeLoggingStarted")
+            Prelude.<*> (x Core..?> "LatestDigestDeliveryError")
+            Prelude.<*> (x Core..?> "LatestDeliveryAttemptTime")
             Prelude.<*> (x Core..?> "LatestDeliveryTime")
+            Prelude.<*> (x Core..?> "LatestCloudWatchLogsDeliveryTime")
+            Prelude.<*> (x Core..?> "LatestCloudWatchLogsDeliveryError")
+            Prelude.<*> (x Core..?> "LatestNotificationTime")
+            Prelude.<*> (x Core..?> "LatestNotificationAttemptTime")
+            Prelude.<*> (x Core..?> "StopLoggingTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,8 +178,37 @@ instance Core.ToQuery GetTrailStatus where
 data GetTrailStatusResponse = GetTrailStatusResponse'
   { -- | This field is no longer in use.
     timeLoggingStopped :: Prelude.Maybe Prelude.Text,
+    -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
+    -- to deliver log files to the designated bucket. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
+    -- in the Amazon S3 API Reference.
+    --
+    -- This error occurs only when there is a problem with the destination S3
+    -- bucket, and does not occur for requests that time out. To resolve the
+    -- issue, create a new bucket, and then call @UpdateTrail@ to specify the
+    -- new bucket; or fix the existing objects so that CloudTrail can again
+    -- write to the bucket.
+    latestDeliveryError :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the date and time that CloudTrail last delivered a digest file
+    -- to an account\'s Amazon S3 bucket.
+    latestDigestDeliveryTime :: Prelude.Maybe Core.POSIX,
     -- | This field is no longer in use.
-    latestDeliveryAttemptTime :: Prelude.Maybe Prelude.Text,
+    latestNotificationAttemptSucceeded :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the most recent date and time when CloudTrail started
+    -- recording API calls for an Amazon Web Services account.
+    startLoggingTime :: Prelude.Maybe Core.POSIX,
+    -- | Displays any Amazon SNS error that CloudTrail encountered when
+    -- attempting to send a notification. For more information about Amazon SNS
+    -- errors, see the
+    -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
+    latestNotificationError :: Prelude.Maybe Prelude.Text,
+    -- | This field is no longer in use.
+    latestDeliveryAttemptSucceeded :: Prelude.Maybe Prelude.Text,
+    -- | Whether the CloudTrail trail is currently logging Amazon Web Services
+    -- API calls.
+    isLogging :: Prelude.Maybe Prelude.Bool,
+    -- | This field is no longer in use.
+    timeLoggingStarted :: Prelude.Maybe Prelude.Text,
     -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
     -- to deliver a digest file to the designated bucket. For more information,
     -- see
@@ -193,54 +222,25 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
     -- write to the bucket.
     latestDigestDeliveryError :: Prelude.Maybe Prelude.Text,
     -- | This field is no longer in use.
-    latestDeliveryAttemptSucceeded :: Prelude.Maybe Prelude.Text,
-    -- | Displays any Amazon SNS error that CloudTrail encountered when
-    -- attempting to send a notification. For more information about Amazon SNS
-    -- errors, see the
-    -- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
-    latestNotificationError :: Prelude.Maybe Prelude.Text,
-    -- | Displays any CloudWatch Logs error that CloudTrail encountered when
-    -- attempting to deliver logs to CloudWatch Logs.
-    latestCloudWatchLogsDeliveryError :: Prelude.Maybe Prelude.Text,
-    -- | This field is no longer in use.
-    latestNotificationAttemptSucceeded :: Prelude.Maybe Prelude.Text,
+    latestDeliveryAttemptTime :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the date and time that CloudTrail last delivered log files to
+    -- an account\'s Amazon S3 bucket.
+    latestDeliveryTime :: Prelude.Maybe Core.POSIX,
     -- | Displays the most recent date and time when CloudTrail delivered logs to
     -- CloudWatch Logs.
     latestCloudWatchLogsDeliveryTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the date and time that CloudTrail last delivered a digest file
-    -- to an account\'s Amazon S3 bucket.
-    latestDigestDeliveryTime :: Prelude.Maybe Core.POSIX,
-    -- | This field is no longer in use.
-    timeLoggingStarted :: Prelude.Maybe Prelude.Text,
-    -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
-    -- to deliver log files to the designated bucket. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
-    -- in the Amazon S3 API Reference.
-    --
-    -- This error occurs only when there is a problem with the destination S3
-    -- bucket, and does not occur for requests that time out. To resolve the
-    -- issue, create a new bucket, and then call @UpdateTrail@ to specify the
-    -- new bucket; or fix the existing objects so that CloudTrail can again
-    -- write to the bucket.
-    latestDeliveryError :: Prelude.Maybe Prelude.Text,
-    -- | Whether the CloudTrail trail is currently logging Amazon Web Services
-    -- API calls.
-    isLogging :: Prelude.Maybe Prelude.Bool,
-    -- | This field is no longer in use.
-    latestNotificationAttemptTime :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the most recent date and time when CloudTrail started
-    -- recording API calls for an Amazon Web Services account.
-    startLoggingTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the most recent date and time when CloudTrail stopped
-    -- recording API calls for an Amazon Web Services account.
-    stopLoggingTime :: Prelude.Maybe Core.POSIX,
+    -- | Displays any CloudWatch Logs error that CloudTrail encountered when
+    -- attempting to deliver logs to CloudWatch Logs.
+    latestCloudWatchLogsDeliveryError :: Prelude.Maybe Prelude.Text,
     -- | Specifies the date and time of the most recent Amazon SNS notification
     -- that CloudTrail has written a new log file to an account\'s Amazon S3
     -- bucket.
     latestNotificationTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the date and time that CloudTrail last delivered log files to
-    -- an account\'s Amazon S3 bucket.
-    latestDeliveryTime :: Prelude.Maybe Core.POSIX,
+    -- | This field is no longer in use.
+    latestNotificationAttemptTime :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the most recent date and time when CloudTrail stopped
+    -- recording API calls for an Amazon Web Services account.
+    stopLoggingTime :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -256,7 +256,36 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
 --
 -- 'timeLoggingStopped', 'getTrailStatusResponse_timeLoggingStopped' - This field is no longer in use.
 --
--- 'latestDeliveryAttemptTime', 'getTrailStatusResponse_latestDeliveryAttemptTime' - This field is no longer in use.
+-- 'latestDeliveryError', 'getTrailStatusResponse_latestDeliveryError' - Displays any Amazon S3 error that CloudTrail encountered when attempting
+-- to deliver log files to the designated bucket. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
+-- in the Amazon S3 API Reference.
+--
+-- This error occurs only when there is a problem with the destination S3
+-- bucket, and does not occur for requests that time out. To resolve the
+-- issue, create a new bucket, and then call @UpdateTrail@ to specify the
+-- new bucket; or fix the existing objects so that CloudTrail can again
+-- write to the bucket.
+--
+-- 'latestDigestDeliveryTime', 'getTrailStatusResponse_latestDigestDeliveryTime' - Specifies the date and time that CloudTrail last delivered a digest file
+-- to an account\'s Amazon S3 bucket.
+--
+-- 'latestNotificationAttemptSucceeded', 'getTrailStatusResponse_latestNotificationAttemptSucceeded' - This field is no longer in use.
+--
+-- 'startLoggingTime', 'getTrailStatusResponse_startLoggingTime' - Specifies the most recent date and time when CloudTrail started
+-- recording API calls for an Amazon Web Services account.
+--
+-- 'latestNotificationError', 'getTrailStatusResponse_latestNotificationError' - Displays any Amazon SNS error that CloudTrail encountered when
+-- attempting to send a notification. For more information about Amazon SNS
+-- errors, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
+--
+-- 'latestDeliveryAttemptSucceeded', 'getTrailStatusResponse_latestDeliveryAttemptSucceeded' - This field is no longer in use.
+--
+-- 'isLogging', 'getTrailStatusResponse_isLogging' - Whether the CloudTrail trail is currently logging Amazon Web Services
+-- API calls.
+--
+-- 'timeLoggingStarted', 'getTrailStatusResponse_timeLoggingStarted' - This field is no longer in use.
 --
 -- 'latestDigestDeliveryError', 'getTrailStatusResponse_latestDigestDeliveryError' - Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver a digest file to the designated bucket. For more information,
@@ -270,54 +299,25 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
 -- new bucket; or fix the existing objects so that CloudTrail can again
 -- write to the bucket.
 --
--- 'latestDeliveryAttemptSucceeded', 'getTrailStatusResponse_latestDeliveryAttemptSucceeded' - This field is no longer in use.
+-- 'latestDeliveryAttemptTime', 'getTrailStatusResponse_latestDeliveryAttemptTime' - This field is no longer in use.
 --
--- 'latestNotificationError', 'getTrailStatusResponse_latestNotificationError' - Displays any Amazon SNS error that CloudTrail encountered when
--- attempting to send a notification. For more information about Amazon SNS
--- errors, see the
--- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
---
--- 'latestCloudWatchLogsDeliveryError', 'getTrailStatusResponse_latestCloudWatchLogsDeliveryError' - Displays any CloudWatch Logs error that CloudTrail encountered when
--- attempting to deliver logs to CloudWatch Logs.
---
--- 'latestNotificationAttemptSucceeded', 'getTrailStatusResponse_latestNotificationAttemptSucceeded' - This field is no longer in use.
+-- 'latestDeliveryTime', 'getTrailStatusResponse_latestDeliveryTime' - Specifies the date and time that CloudTrail last delivered log files to
+-- an account\'s Amazon S3 bucket.
 --
 -- 'latestCloudWatchLogsDeliveryTime', 'getTrailStatusResponse_latestCloudWatchLogsDeliveryTime' - Displays the most recent date and time when CloudTrail delivered logs to
 -- CloudWatch Logs.
 --
--- 'latestDigestDeliveryTime', 'getTrailStatusResponse_latestDigestDeliveryTime' - Specifies the date and time that CloudTrail last delivered a digest file
--- to an account\'s Amazon S3 bucket.
---
--- 'timeLoggingStarted', 'getTrailStatusResponse_timeLoggingStarted' - This field is no longer in use.
---
--- 'latestDeliveryError', 'getTrailStatusResponse_latestDeliveryError' - Displays any Amazon S3 error that CloudTrail encountered when attempting
--- to deliver log files to the designated bucket. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
--- in the Amazon S3 API Reference.
---
--- This error occurs only when there is a problem with the destination S3
--- bucket, and does not occur for requests that time out. To resolve the
--- issue, create a new bucket, and then call @UpdateTrail@ to specify the
--- new bucket; or fix the existing objects so that CloudTrail can again
--- write to the bucket.
---
--- 'isLogging', 'getTrailStatusResponse_isLogging' - Whether the CloudTrail trail is currently logging Amazon Web Services
--- API calls.
---
--- 'latestNotificationAttemptTime', 'getTrailStatusResponse_latestNotificationAttemptTime' - This field is no longer in use.
---
--- 'startLoggingTime', 'getTrailStatusResponse_startLoggingTime' - Specifies the most recent date and time when CloudTrail started
--- recording API calls for an Amazon Web Services account.
---
--- 'stopLoggingTime', 'getTrailStatusResponse_stopLoggingTime' - Specifies the most recent date and time when CloudTrail stopped
--- recording API calls for an Amazon Web Services account.
+-- 'latestCloudWatchLogsDeliveryError', 'getTrailStatusResponse_latestCloudWatchLogsDeliveryError' - Displays any CloudWatch Logs error that CloudTrail encountered when
+-- attempting to deliver logs to CloudWatch Logs.
 --
 -- 'latestNotificationTime', 'getTrailStatusResponse_latestNotificationTime' - Specifies the date and time of the most recent Amazon SNS notification
 -- that CloudTrail has written a new log file to an account\'s Amazon S3
 -- bucket.
 --
--- 'latestDeliveryTime', 'getTrailStatusResponse_latestDeliveryTime' - Specifies the date and time that CloudTrail last delivered log files to
--- an account\'s Amazon S3 bucket.
+-- 'latestNotificationAttemptTime', 'getTrailStatusResponse_latestNotificationAttemptTime' - This field is no longer in use.
+--
+-- 'stopLoggingTime', 'getTrailStatusResponse_stopLoggingTime' - Specifies the most recent date and time when CloudTrail stopped
+-- recording API calls for an Amazon Web Services account.
 --
 -- 'httpStatus', 'getTrailStatusResponse_httpStatus' - The response's http status code.
 newGetTrailStatusResponse ::
@@ -328,23 +328,23 @@ newGetTrailStatusResponse pHttpStatus_ =
   GetTrailStatusResponse'
     { timeLoggingStopped =
         Prelude.Nothing,
-      latestDeliveryAttemptTime = Prelude.Nothing,
-      latestDigestDeliveryError = Prelude.Nothing,
-      latestDeliveryAttemptSucceeded = Prelude.Nothing,
-      latestNotificationError = Prelude.Nothing,
-      latestCloudWatchLogsDeliveryError = Prelude.Nothing,
+      latestDeliveryError = Prelude.Nothing,
+      latestDigestDeliveryTime = Prelude.Nothing,
       latestNotificationAttemptSucceeded =
         Prelude.Nothing,
-      latestCloudWatchLogsDeliveryTime = Prelude.Nothing,
-      latestDigestDeliveryTime = Prelude.Nothing,
-      timeLoggingStarted = Prelude.Nothing,
-      latestDeliveryError = Prelude.Nothing,
-      isLogging = Prelude.Nothing,
-      latestNotificationAttemptTime = Prelude.Nothing,
       startLoggingTime = Prelude.Nothing,
-      stopLoggingTime = Prelude.Nothing,
-      latestNotificationTime = Prelude.Nothing,
+      latestNotificationError = Prelude.Nothing,
+      latestDeliveryAttemptSucceeded = Prelude.Nothing,
+      isLogging = Prelude.Nothing,
+      timeLoggingStarted = Prelude.Nothing,
+      latestDigestDeliveryError = Prelude.Nothing,
+      latestDeliveryAttemptTime = Prelude.Nothing,
       latestDeliveryTime = Prelude.Nothing,
+      latestCloudWatchLogsDeliveryTime = Prelude.Nothing,
+      latestCloudWatchLogsDeliveryError = Prelude.Nothing,
+      latestNotificationTime = Prelude.Nothing,
+      latestNotificationAttemptTime = Prelude.Nothing,
+      stopLoggingTime = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -352,9 +352,52 @@ newGetTrailStatusResponse pHttpStatus_ =
 getTrailStatusResponse_timeLoggingStopped :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
 getTrailStatusResponse_timeLoggingStopped = Lens.lens (\GetTrailStatusResponse' {timeLoggingStopped} -> timeLoggingStopped) (\s@GetTrailStatusResponse' {} a -> s {timeLoggingStopped = a} :: GetTrailStatusResponse)
 
+-- | Displays any Amazon S3 error that CloudTrail encountered when attempting
+-- to deliver log files to the designated bucket. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
+-- in the Amazon S3 API Reference.
+--
+-- This error occurs only when there is a problem with the destination S3
+-- bucket, and does not occur for requests that time out. To resolve the
+-- issue, create a new bucket, and then call @UpdateTrail@ to specify the
+-- new bucket; or fix the existing objects so that CloudTrail can again
+-- write to the bucket.
+getTrailStatusResponse_latestDeliveryError :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestDeliveryError = Lens.lens (\GetTrailStatusResponse' {latestDeliveryError} -> latestDeliveryError) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryError = a} :: GetTrailStatusResponse)
+
+-- | Specifies the date and time that CloudTrail last delivered a digest file
+-- to an account\'s Amazon S3 bucket.
+getTrailStatusResponse_latestDigestDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
+getTrailStatusResponse_latestDigestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDigestDeliveryTime} -> latestDigestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDigestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+
 -- | This field is no longer in use.
-getTrailStatusResponse_latestDeliveryAttemptTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestDeliveryAttemptTime = Lens.lens (\GetTrailStatusResponse' {latestDeliveryAttemptTime} -> latestDeliveryAttemptTime) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryAttemptTime = a} :: GetTrailStatusResponse)
+getTrailStatusResponse_latestNotificationAttemptSucceeded :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestNotificationAttemptSucceeded = Lens.lens (\GetTrailStatusResponse' {latestNotificationAttemptSucceeded} -> latestNotificationAttemptSucceeded) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationAttemptSucceeded = a} :: GetTrailStatusResponse)
+
+-- | Specifies the most recent date and time when CloudTrail started
+-- recording API calls for an Amazon Web Services account.
+getTrailStatusResponse_startLoggingTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
+getTrailStatusResponse_startLoggingTime = Lens.lens (\GetTrailStatusResponse' {startLoggingTime} -> startLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {startLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Displays any Amazon SNS error that CloudTrail encountered when
+-- attempting to send a notification. For more information about Amazon SNS
+-- errors, see the
+-- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
+getTrailStatusResponse_latestNotificationError :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestNotificationError = Lens.lens (\GetTrailStatusResponse' {latestNotificationError} -> latestNotificationError) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationError = a} :: GetTrailStatusResponse)
+
+-- | This field is no longer in use.
+getTrailStatusResponse_latestDeliveryAttemptSucceeded :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestDeliveryAttemptSucceeded = Lens.lens (\GetTrailStatusResponse' {latestDeliveryAttemptSucceeded} -> latestDeliveryAttemptSucceeded) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryAttemptSucceeded = a} :: GetTrailStatusResponse)
+
+-- | Whether the CloudTrail trail is currently logging Amazon Web Services
+-- API calls.
+getTrailStatusResponse_isLogging :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Bool)
+getTrailStatusResponse_isLogging = Lens.lens (\GetTrailStatusResponse' {isLogging} -> isLogging) (\s@GetTrailStatusResponse' {} a -> s {isLogging = a} :: GetTrailStatusResponse)
+
+-- | This field is no longer in use.
+getTrailStatusResponse_timeLoggingStarted :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_timeLoggingStarted = Lens.lens (\GetTrailStatusResponse' {timeLoggingStarted} -> timeLoggingStarted) (\s@GetTrailStatusResponse' {} a -> s {timeLoggingStarted = a} :: GetTrailStatusResponse)
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting
 -- to deliver a digest file to the designated bucket. For more information,
@@ -371,70 +414,23 @@ getTrailStatusResponse_latestDigestDeliveryError :: Lens.Lens' GetTrailStatusRes
 getTrailStatusResponse_latestDigestDeliveryError = Lens.lens (\GetTrailStatusResponse' {latestDigestDeliveryError} -> latestDigestDeliveryError) (\s@GetTrailStatusResponse' {} a -> s {latestDigestDeliveryError = a} :: GetTrailStatusResponse)
 
 -- | This field is no longer in use.
-getTrailStatusResponse_latestDeliveryAttemptSucceeded :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestDeliveryAttemptSucceeded = Lens.lens (\GetTrailStatusResponse' {latestDeliveryAttemptSucceeded} -> latestDeliveryAttemptSucceeded) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryAttemptSucceeded = a} :: GetTrailStatusResponse)
+getTrailStatusResponse_latestDeliveryAttemptTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestDeliveryAttemptTime = Lens.lens (\GetTrailStatusResponse' {latestDeliveryAttemptTime} -> latestDeliveryAttemptTime) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryAttemptTime = a} :: GetTrailStatusResponse)
 
--- | Displays any Amazon SNS error that CloudTrail encountered when
--- attempting to send a notification. For more information about Amazon SNS
--- errors, see the
--- <https://docs.aws.amazon.com/sns/latest/dg/welcome.html Amazon SNS Developer Guide>.
-getTrailStatusResponse_latestNotificationError :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestNotificationError = Lens.lens (\GetTrailStatusResponse' {latestNotificationError} -> latestNotificationError) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationError = a} :: GetTrailStatusResponse)
-
--- | Displays any CloudWatch Logs error that CloudTrail encountered when
--- attempting to deliver logs to CloudWatch Logs.
-getTrailStatusResponse_latestCloudWatchLogsDeliveryError :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestCloudWatchLogsDeliveryError = Lens.lens (\GetTrailStatusResponse' {latestCloudWatchLogsDeliveryError} -> latestCloudWatchLogsDeliveryError) (\s@GetTrailStatusResponse' {} a -> s {latestCloudWatchLogsDeliveryError = a} :: GetTrailStatusResponse)
-
--- | This field is no longer in use.
-getTrailStatusResponse_latestNotificationAttemptSucceeded :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestNotificationAttemptSucceeded = Lens.lens (\GetTrailStatusResponse' {latestNotificationAttemptSucceeded} -> latestNotificationAttemptSucceeded) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationAttemptSucceeded = a} :: GetTrailStatusResponse)
+-- | Specifies the date and time that CloudTrail last delivered log files to
+-- an account\'s Amazon S3 bucket.
+getTrailStatusResponse_latestDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
+getTrailStatusResponse_latestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDeliveryTime} -> latestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
 
 -- | Displays the most recent date and time when CloudTrail delivered logs to
 -- CloudWatch Logs.
 getTrailStatusResponse_latestCloudWatchLogsDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
 getTrailStatusResponse_latestCloudWatchLogsDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestCloudWatchLogsDeliveryTime} -> latestCloudWatchLogsDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestCloudWatchLogsDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
 
--- | Specifies the date and time that CloudTrail last delivered a digest file
--- to an account\'s Amazon S3 bucket.
-getTrailStatusResponse_latestDigestDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_latestDigestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDigestDeliveryTime} -> latestDigestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDigestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
-
--- | This field is no longer in use.
-getTrailStatusResponse_timeLoggingStarted :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_timeLoggingStarted = Lens.lens (\GetTrailStatusResponse' {timeLoggingStarted} -> timeLoggingStarted) (\s@GetTrailStatusResponse' {} a -> s {timeLoggingStarted = a} :: GetTrailStatusResponse)
-
--- | Displays any Amazon S3 error that CloudTrail encountered when attempting
--- to deliver log files to the designated bucket. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html Error Responses>
--- in the Amazon S3 API Reference.
---
--- This error occurs only when there is a problem with the destination S3
--- bucket, and does not occur for requests that time out. To resolve the
--- issue, create a new bucket, and then call @UpdateTrail@ to specify the
--- new bucket; or fix the existing objects so that CloudTrail can again
--- write to the bucket.
-getTrailStatusResponse_latestDeliveryError :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestDeliveryError = Lens.lens (\GetTrailStatusResponse' {latestDeliveryError} -> latestDeliveryError) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryError = a} :: GetTrailStatusResponse)
-
--- | Whether the CloudTrail trail is currently logging Amazon Web Services
--- API calls.
-getTrailStatusResponse_isLogging :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Bool)
-getTrailStatusResponse_isLogging = Lens.lens (\GetTrailStatusResponse' {isLogging} -> isLogging) (\s@GetTrailStatusResponse' {} a -> s {isLogging = a} :: GetTrailStatusResponse)
-
--- | This field is no longer in use.
-getTrailStatusResponse_latestNotificationAttemptTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
-getTrailStatusResponse_latestNotificationAttemptTime = Lens.lens (\GetTrailStatusResponse' {latestNotificationAttemptTime} -> latestNotificationAttemptTime) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationAttemptTime = a} :: GetTrailStatusResponse)
-
--- | Specifies the most recent date and time when CloudTrail started
--- recording API calls for an Amazon Web Services account.
-getTrailStatusResponse_startLoggingTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_startLoggingTime = Lens.lens (\GetTrailStatusResponse' {startLoggingTime} -> startLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {startLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
-
--- | Specifies the most recent date and time when CloudTrail stopped
--- recording API calls for an Amazon Web Services account.
-getTrailStatusResponse_stopLoggingTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_stopLoggingTime = Lens.lens (\GetTrailStatusResponse' {stopLoggingTime} -> stopLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {stopLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+-- | Displays any CloudWatch Logs error that CloudTrail encountered when
+-- attempting to deliver logs to CloudWatch Logs.
+getTrailStatusResponse_latestCloudWatchLogsDeliveryError :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestCloudWatchLogsDeliveryError = Lens.lens (\GetTrailStatusResponse' {latestCloudWatchLogsDeliveryError} -> latestCloudWatchLogsDeliveryError) (\s@GetTrailStatusResponse' {} a -> s {latestCloudWatchLogsDeliveryError = a} :: GetTrailStatusResponse)
 
 -- | Specifies the date and time of the most recent Amazon SNS notification
 -- that CloudTrail has written a new log file to an account\'s Amazon S3
@@ -442,10 +438,14 @@ getTrailStatusResponse_stopLoggingTime = Lens.lens (\GetTrailStatusResponse' {st
 getTrailStatusResponse_latestNotificationTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
 getTrailStatusResponse_latestNotificationTime = Lens.lens (\GetTrailStatusResponse' {latestNotificationTime} -> latestNotificationTime) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
 
--- | Specifies the date and time that CloudTrail last delivered log files to
--- an account\'s Amazon S3 bucket.
-getTrailStatusResponse_latestDeliveryTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
-getTrailStatusResponse_latestDeliveryTime = Lens.lens (\GetTrailStatusResponse' {latestDeliveryTime} -> latestDeliveryTime) (\s@GetTrailStatusResponse' {} a -> s {latestDeliveryTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
+-- | This field is no longer in use.
+getTrailStatusResponse_latestNotificationAttemptTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.Text)
+getTrailStatusResponse_latestNotificationAttemptTime = Lens.lens (\GetTrailStatusResponse' {latestNotificationAttemptTime} -> latestNotificationAttemptTime) (\s@GetTrailStatusResponse' {} a -> s {latestNotificationAttemptTime = a} :: GetTrailStatusResponse)
+
+-- | Specifies the most recent date and time when CloudTrail stopped
+-- recording API calls for an Amazon Web Services account.
+getTrailStatusResponse_stopLoggingTime :: Lens.Lens' GetTrailStatusResponse (Prelude.Maybe Prelude.UTCTime)
+getTrailStatusResponse_stopLoggingTime = Lens.lens (\GetTrailStatusResponse' {stopLoggingTime} -> stopLoggingTime) (\s@GetTrailStatusResponse' {} a -> s {stopLoggingTime = a} :: GetTrailStatusResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 getTrailStatusResponse_httpStatus :: Lens.Lens' GetTrailStatusResponse Prelude.Int

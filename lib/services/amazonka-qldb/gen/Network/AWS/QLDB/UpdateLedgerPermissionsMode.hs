@@ -41,9 +41,9 @@ module Network.AWS.QLDB.UpdateLedgerPermissionsMode
     newUpdateLedgerPermissionsModeResponse,
 
     -- * Response Lenses
-    updateLedgerPermissionsModeResponse_permissionsMode,
     updateLedgerPermissionsModeResponse_arn,
     updateLedgerPermissionsModeResponse_name,
+    updateLedgerPermissionsModeResponse_permissionsMode,
     updateLedgerPermissionsModeResponse_httpStatus,
   )
 where
@@ -181,9 +181,9 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
     Response.receiveJSON
       ( \s h x ->
           UpdateLedgerPermissionsModeResponse'
-            Prelude.<$> (x Core..?> "PermissionsMode")
-            Prelude.<*> (x Core..?> "Arn")
+            Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -221,12 +221,12 @@ instance Core.ToQuery UpdateLedgerPermissionsMode where
 
 -- | /See:/ 'newUpdateLedgerPermissionsModeResponse' smart constructor.
 data UpdateLedgerPermissionsModeResponse = UpdateLedgerPermissionsModeResponse'
-  { -- | The current permissions mode of the ledger.
-    permissionsMode :: Prelude.Maybe PermissionsMode,
-    -- | The Amazon Resource Name (ARN) for the ledger.
+  { -- | The Amazon Resource Name (ARN) for the ledger.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the ledger.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The current permissions mode of the ledger.
+    permissionsMode :: Prelude.Maybe PermissionsMode,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -240,11 +240,11 @@ data UpdateLedgerPermissionsModeResponse = UpdateLedgerPermissionsModeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'permissionsMode', 'updateLedgerPermissionsModeResponse_permissionsMode' - The current permissions mode of the ledger.
---
 -- 'arn', 'updateLedgerPermissionsModeResponse_arn' - The Amazon Resource Name (ARN) for the ledger.
 --
 -- 'name', 'updateLedgerPermissionsModeResponse_name' - The name of the ledger.
+--
+-- 'permissionsMode', 'updateLedgerPermissionsModeResponse_permissionsMode' - The current permissions mode of the ledger.
 --
 -- 'httpStatus', 'updateLedgerPermissionsModeResponse_httpStatus' - The response's http status code.
 newUpdateLedgerPermissionsModeResponse ::
@@ -253,16 +253,12 @@ newUpdateLedgerPermissionsModeResponse ::
   UpdateLedgerPermissionsModeResponse
 newUpdateLedgerPermissionsModeResponse pHttpStatus_ =
   UpdateLedgerPermissionsModeResponse'
-    { permissionsMode =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
       name = Prelude.Nothing,
+      permissionsMode = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current permissions mode of the ledger.
-updateLedgerPermissionsModeResponse_permissionsMode :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe PermissionsMode)
-updateLedgerPermissionsModeResponse_permissionsMode = Lens.lens (\UpdateLedgerPermissionsModeResponse' {permissionsMode} -> permissionsMode) (\s@UpdateLedgerPermissionsModeResponse' {} a -> s {permissionsMode = a} :: UpdateLedgerPermissionsModeResponse)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
 updateLedgerPermissionsModeResponse_arn :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe Prelude.Text)
@@ -271,6 +267,10 @@ updateLedgerPermissionsModeResponse_arn = Lens.lens (\UpdateLedgerPermissionsMod
 -- | The name of the ledger.
 updateLedgerPermissionsModeResponse_name :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe Prelude.Text)
 updateLedgerPermissionsModeResponse_name = Lens.lens (\UpdateLedgerPermissionsModeResponse' {name} -> name) (\s@UpdateLedgerPermissionsModeResponse' {} a -> s {name = a} :: UpdateLedgerPermissionsModeResponse)
+
+-- | The current permissions mode of the ledger.
+updateLedgerPermissionsModeResponse_permissionsMode :: Lens.Lens' UpdateLedgerPermissionsModeResponse (Prelude.Maybe PermissionsMode)
+updateLedgerPermissionsModeResponse_permissionsMode = Lens.lens (\UpdateLedgerPermissionsModeResponse' {permissionsMode} -> permissionsMode) (\s@UpdateLedgerPermissionsModeResponse' {} a -> s {permissionsMode = a} :: UpdateLedgerPermissionsModeResponse)
 
 -- | The response's http status code.
 updateLedgerPermissionsModeResponse_httpStatus :: Lens.Lens' UpdateLedgerPermissionsModeResponse Prelude.Int

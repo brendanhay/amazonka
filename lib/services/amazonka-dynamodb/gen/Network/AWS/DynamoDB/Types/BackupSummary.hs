@@ -29,10 +29,22 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBackupSummary' smart constructor.
 data BackupSummary = BackupSummary'
-  { -- | Name of the table.
-    tableName :: Prelude.Maybe Prelude.Text,
+  { -- | Time at which the automatic on-demand backup created by DynamoDB will
+    -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
+    -- after its creation.
+    backupExpiryDateTime :: Prelude.Maybe Core.POSIX,
+    -- | ARN associated with the table.
+    tableArn :: Prelude.Maybe Prelude.Text,
     -- | Name of the specified backup.
     backupName :: Prelude.Maybe Prelude.Text,
+    -- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+    backupStatus :: Prelude.Maybe BackupStatus,
+    -- | Size of the backup in bytes.
+    backupSizeBytes :: Prelude.Maybe Prelude.Natural,
+    -- | ARN associated with the backup.
+    backupArn :: Prelude.Maybe Prelude.Text,
+    -- | Unique identifier for the table.
+    tableId :: Prelude.Maybe Prelude.Text,
     -- | Time at which the backup was created.
     backupCreationDateTime :: Prelude.Maybe Core.POSIX,
     -- | BackupType:
@@ -49,20 +61,8 @@ data BackupSummary = BackupSummary'
     -- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
     --     service.
     backupType :: Prelude.Maybe BackupType,
-    -- | Unique identifier for the table.
-    tableId :: Prelude.Maybe Prelude.Text,
-    -- | ARN associated with the backup.
-    backupArn :: Prelude.Maybe Prelude.Text,
-    -- | ARN associated with the table.
-    tableArn :: Prelude.Maybe Prelude.Text,
-    -- | Time at which the automatic on-demand backup created by DynamoDB will
-    -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
-    -- after its creation.
-    backupExpiryDateTime :: Prelude.Maybe Core.POSIX,
-    -- | Size of the backup in bytes.
-    backupSizeBytes :: Prelude.Maybe Prelude.Natural,
-    -- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
-    backupStatus :: Prelude.Maybe BackupStatus
+    -- | Name of the table.
+    tableName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,9 +74,21 @@ data BackupSummary = BackupSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'backupSummary_tableName' - Name of the table.
+-- 'backupExpiryDateTime', 'backupSummary_backupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will
+-- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
+-- after its creation.
+--
+-- 'tableArn', 'backupSummary_tableArn' - ARN associated with the table.
 --
 -- 'backupName', 'backupSummary_backupName' - Name of the specified backup.
+--
+-- 'backupStatus', 'backupSummary_backupStatus' - Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+--
+-- 'backupSizeBytes', 'backupSummary_backupSizeBytes' - Size of the backup in bytes.
+--
+-- 'backupArn', 'backupSummary_backupArn' - ARN associated with the backup.
+--
+-- 'tableId', 'backupSummary_tableId' - Unique identifier for the table.
 --
 -- 'backupCreationDateTime', 'backupSummary_backupCreationDateTime' - Time at which the backup was created.
 --
@@ -94,42 +106,53 @@ data BackupSummary = BackupSummary'
 -- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
 --     service.
 --
--- 'tableId', 'backupSummary_tableId' - Unique identifier for the table.
---
--- 'backupArn', 'backupSummary_backupArn' - ARN associated with the backup.
---
--- 'tableArn', 'backupSummary_tableArn' - ARN associated with the table.
---
--- 'backupExpiryDateTime', 'backupSummary_backupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will
--- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
--- after its creation.
---
--- 'backupSizeBytes', 'backupSummary_backupSizeBytes' - Size of the backup in bytes.
---
--- 'backupStatus', 'backupSummary_backupStatus' - Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+-- 'tableName', 'backupSummary_tableName' - Name of the table.
 newBackupSummary ::
   BackupSummary
 newBackupSummary =
   BackupSummary'
-    { tableName = Prelude.Nothing,
+    { backupExpiryDateTime =
+        Prelude.Nothing,
+      tableArn = Prelude.Nothing,
       backupName = Prelude.Nothing,
+      backupStatus = Prelude.Nothing,
+      backupSizeBytes = Prelude.Nothing,
+      backupArn = Prelude.Nothing,
+      tableId = Prelude.Nothing,
       backupCreationDateTime = Prelude.Nothing,
       backupType = Prelude.Nothing,
-      tableId = Prelude.Nothing,
-      backupArn = Prelude.Nothing,
-      tableArn = Prelude.Nothing,
-      backupExpiryDateTime = Prelude.Nothing,
-      backupSizeBytes = Prelude.Nothing,
-      backupStatus = Prelude.Nothing
+      tableName = Prelude.Nothing
     }
 
--- | Name of the table.
-backupSummary_tableName :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
-backupSummary_tableName = Lens.lens (\BackupSummary' {tableName} -> tableName) (\s@BackupSummary' {} a -> s {tableName = a} :: BackupSummary)
+-- | Time at which the automatic on-demand backup created by DynamoDB will
+-- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
+-- after its creation.
+backupSummary_backupExpiryDateTime :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.UTCTime)
+backupSummary_backupExpiryDateTime = Lens.lens (\BackupSummary' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupSummary' {} a -> s {backupExpiryDateTime = a} :: BackupSummary) Prelude.. Lens.mapping Core._Time
+
+-- | ARN associated with the table.
+backupSummary_tableArn :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
+backupSummary_tableArn = Lens.lens (\BackupSummary' {tableArn} -> tableArn) (\s@BackupSummary' {} a -> s {tableArn = a} :: BackupSummary)
 
 -- | Name of the specified backup.
 backupSummary_backupName :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
 backupSummary_backupName = Lens.lens (\BackupSummary' {backupName} -> backupName) (\s@BackupSummary' {} a -> s {backupName = a} :: BackupSummary)
+
+-- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
+backupSummary_backupStatus :: Lens.Lens' BackupSummary (Prelude.Maybe BackupStatus)
+backupSummary_backupStatus = Lens.lens (\BackupSummary' {backupStatus} -> backupStatus) (\s@BackupSummary' {} a -> s {backupStatus = a} :: BackupSummary)
+
+-- | Size of the backup in bytes.
+backupSummary_backupSizeBytes :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Natural)
+backupSummary_backupSizeBytes = Lens.lens (\BackupSummary' {backupSizeBytes} -> backupSizeBytes) (\s@BackupSummary' {} a -> s {backupSizeBytes = a} :: BackupSummary)
+
+-- | ARN associated with the backup.
+backupSummary_backupArn :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
+backupSummary_backupArn = Lens.lens (\BackupSummary' {backupArn} -> backupArn) (\s@BackupSummary' {} a -> s {backupArn = a} :: BackupSummary)
+
+-- | Unique identifier for the table.
+backupSummary_tableId :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
+backupSummary_tableId = Lens.lens (\BackupSummary' {tableId} -> tableId) (\s@BackupSummary' {} a -> s {tableId = a} :: BackupSummary)
 
 -- | Time at which the backup was created.
 backupSummary_backupCreationDateTime :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.UTCTime)
@@ -151,31 +174,9 @@ backupSummary_backupCreationDateTime = Lens.lens (\BackupSummary' {backupCreatio
 backupSummary_backupType :: Lens.Lens' BackupSummary (Prelude.Maybe BackupType)
 backupSummary_backupType = Lens.lens (\BackupSummary' {backupType} -> backupType) (\s@BackupSummary' {} a -> s {backupType = a} :: BackupSummary)
 
--- | Unique identifier for the table.
-backupSummary_tableId :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
-backupSummary_tableId = Lens.lens (\BackupSummary' {tableId} -> tableId) (\s@BackupSummary' {} a -> s {tableId = a} :: BackupSummary)
-
--- | ARN associated with the backup.
-backupSummary_backupArn :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
-backupSummary_backupArn = Lens.lens (\BackupSummary' {backupArn} -> backupArn) (\s@BackupSummary' {} a -> s {backupArn = a} :: BackupSummary)
-
--- | ARN associated with the table.
-backupSummary_tableArn :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
-backupSummary_tableArn = Lens.lens (\BackupSummary' {tableArn} -> tableArn) (\s@BackupSummary' {} a -> s {tableArn = a} :: BackupSummary)
-
--- | Time at which the automatic on-demand backup created by DynamoDB will
--- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
--- after its creation.
-backupSummary_backupExpiryDateTime :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.UTCTime)
-backupSummary_backupExpiryDateTime = Lens.lens (\BackupSummary' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupSummary' {} a -> s {backupExpiryDateTime = a} :: BackupSummary) Prelude.. Lens.mapping Core._Time
-
--- | Size of the backup in bytes.
-backupSummary_backupSizeBytes :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Natural)
-backupSummary_backupSizeBytes = Lens.lens (\BackupSummary' {backupSizeBytes} -> backupSizeBytes) (\s@BackupSummary' {} a -> s {backupSizeBytes = a} :: BackupSummary)
-
--- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
-backupSummary_backupStatus :: Lens.Lens' BackupSummary (Prelude.Maybe BackupStatus)
-backupSummary_backupStatus = Lens.lens (\BackupSummary' {backupStatus} -> backupStatus) (\s@BackupSummary' {} a -> s {backupStatus = a} :: BackupSummary)
+-- | Name of the table.
+backupSummary_tableName :: Lens.Lens' BackupSummary (Prelude.Maybe Prelude.Text)
+backupSummary_tableName = Lens.lens (\BackupSummary' {tableName} -> tableName) (\s@BackupSummary' {} a -> s {tableName = a} :: BackupSummary)
 
 instance Core.FromJSON BackupSummary where
   parseJSON =
@@ -183,16 +184,16 @@ instance Core.FromJSON BackupSummary where
       "BackupSummary"
       ( \x ->
           BackupSummary'
-            Prelude.<$> (x Core..:? "TableName")
+            Prelude.<$> (x Core..:? "BackupExpiryDateTime")
+            Prelude.<*> (x Core..:? "TableArn")
             Prelude.<*> (x Core..:? "BackupName")
+            Prelude.<*> (x Core..:? "BackupStatus")
+            Prelude.<*> (x Core..:? "BackupSizeBytes")
+            Prelude.<*> (x Core..:? "BackupArn")
+            Prelude.<*> (x Core..:? "TableId")
             Prelude.<*> (x Core..:? "BackupCreationDateTime")
             Prelude.<*> (x Core..:? "BackupType")
-            Prelude.<*> (x Core..:? "TableId")
-            Prelude.<*> (x Core..:? "BackupArn")
-            Prelude.<*> (x Core..:? "TableArn")
-            Prelude.<*> (x Core..:? "BackupExpiryDateTime")
-            Prelude.<*> (x Core..:? "BackupSizeBytes")
-            Prelude.<*> (x Core..:? "BackupStatus")
+            Prelude.<*> (x Core..:? "TableName")
       )
 
 instance Prelude.Hashable BackupSummary

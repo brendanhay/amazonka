@@ -14,39 +14,13 @@
 module Network.AWS.SDB.Lens
   ( -- * Operations
 
-    -- ** ListDomains
-    listDomains_nextToken,
-    listDomains_maxNumberOfDomains,
-    listDomainsResponse_domainNames,
-    listDomainsResponse_nextToken,
-    listDomainsResponse_httpStatus,
-
-    -- ** DeleteAttributes
-    deleteAttributes_expected,
-    deleteAttributes_attributes,
-    deleteAttributes_domainName,
-    deleteAttributes_itemName,
-
-    -- ** DomainMetadata
-    domainMetadata_domainName,
-    domainMetadataResponse_attributeNamesSizeBytes,
-    domainMetadataResponse_attributeValueCount,
-    domainMetadataResponse_attributeNameCount,
-    domainMetadataResponse_attributeValuesSizeBytes,
-    domainMetadataResponse_timestamp,
-    domainMetadataResponse_itemCount,
-    domainMetadataResponse_itemNamesSizeBytes,
-    domainMetadataResponse_httpStatus,
+    -- ** BatchDeleteAttributes
+    batchDeleteAttributes_domainName,
+    batchDeleteAttributes_items,
 
     -- ** BatchPutAttributes
     batchPutAttributes_domainName,
     batchPutAttributes_items,
-
-    -- ** CreateDomain
-    createDomain_domainName,
-
-    -- ** DeleteDomain
-    deleteDomain_domainName,
 
     -- ** GetAttributes
     getAttributes_consistentRead,
@@ -56,29 +30,55 @@ module Network.AWS.SDB.Lens
     getAttributesResponse_attributes,
     getAttributesResponse_httpStatus,
 
+    -- ** CreateDomain
+    createDomain_domainName,
+
+    -- ** DomainMetadata
+    domainMetadata_domainName,
+    domainMetadataResponse_itemNamesSizeBytes,
+    domainMetadataResponse_attributeValuesSizeBytes,
+    domainMetadataResponse_attributeNameCount,
+    domainMetadataResponse_attributeNamesSizeBytes,
+    domainMetadataResponse_attributeValueCount,
+    domainMetadataResponse_itemCount,
+    domainMetadataResponse_timestamp,
+    domainMetadataResponse_httpStatus,
+
+    -- ** Select
+    select_consistentRead,
+    select_nextToken,
+    select_selectExpression,
+    selectResponse_items,
+    selectResponse_nextToken,
+    selectResponse_httpStatus,
+
+    -- ** DeleteAttributes
+    deleteAttributes_attributes,
+    deleteAttributes_expected,
+    deleteAttributes_domainName,
+    deleteAttributes_itemName,
+
     -- ** PutAttributes
     putAttributes_expected,
     putAttributes_domainName,
     putAttributes_itemName,
     putAttributes_attributes,
 
-    -- ** Select
-    select_nextToken,
-    select_consistentRead,
-    select_selectExpression,
-    selectResponse_nextToken,
-    selectResponse_items,
-    selectResponse_httpStatus,
+    -- ** DeleteDomain
+    deleteDomain_domainName,
 
-    -- ** BatchDeleteAttributes
-    batchDeleteAttributes_domainName,
-    batchDeleteAttributes_items,
+    -- ** ListDomains
+    listDomains_maxNumberOfDomains,
+    listDomains_nextToken,
+    listDomainsResponse_domainNames,
+    listDomainsResponse_nextToken,
+    listDomainsResponse_httpStatus,
 
     -- * Types
 
     -- ** Attribute
-    attribute_alternateNameEncoding,
     attribute_alternateValueEncoding,
+    attribute_alternateNameEncoding,
     attribute_name,
     attribute_value,
 
@@ -102,8 +102,8 @@ module Network.AWS.SDB.Lens
 
     -- ** UpdateCondition
     updateCondition_exists,
-    updateCondition_name,
     updateCondition_value,
+    updateCondition_name,
   )
 where
 

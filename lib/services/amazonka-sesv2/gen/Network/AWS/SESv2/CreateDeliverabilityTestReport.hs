@@ -129,7 +129,7 @@ createDeliverabilityTestReport_reportName = Lens.lens (\CreateDeliverabilityTest
 -- | An array of objects that define the tags (keys and values) that you want
 -- to associate with the predictive inbox placement test.
 createDeliverabilityTestReport_tags :: Lens.Lens' CreateDeliverabilityTestReport (Prelude.Maybe [Tag])
-createDeliverabilityTestReport_tags = Lens.lens (\CreateDeliverabilityTestReport' {tags} -> tags) (\s@CreateDeliverabilityTestReport' {} a -> s {tags = a} :: CreateDeliverabilityTestReport) Prelude.. Lens.mapping Lens._Coerce
+createDeliverabilityTestReport_tags = Lens.lens (\CreateDeliverabilityTestReport' {tags} -> tags) (\s@CreateDeliverabilityTestReport' {} a -> s {tags = a} :: CreateDeliverabilityTestReport) Prelude.. Lens.mapping Lens.coerced
 
 -- | The email address that the predictive inbox placement test email was
 -- sent from.

@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPortProbeDetail' smart constructor.
 data PortProbeDetail = PortProbeDetail'
-  { -- | The local port information of the connection.
-    localPortDetails :: Prelude.Maybe LocalPortDetails,
-    -- | The remote IP information of the connection.
+  { -- | The remote IP information of the connection.
     remoteIpDetails :: Prelude.Maybe RemoteIpDetails,
     -- | The local IP information of the connection.
-    localIpDetails :: Prelude.Maybe LocalIpDetails
+    localIpDetails :: Prelude.Maybe LocalIpDetails,
+    -- | The local port information of the connection.
+    localPortDetails :: Prelude.Maybe LocalPortDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,24 +47,19 @@ data PortProbeDetail = PortProbeDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'localPortDetails', 'portProbeDetail_localPortDetails' - The local port information of the connection.
---
 -- 'remoteIpDetails', 'portProbeDetail_remoteIpDetails' - The remote IP information of the connection.
 --
 -- 'localIpDetails', 'portProbeDetail_localIpDetails' - The local IP information of the connection.
+--
+-- 'localPortDetails', 'portProbeDetail_localPortDetails' - The local port information of the connection.
 newPortProbeDetail ::
   PortProbeDetail
 newPortProbeDetail =
   PortProbeDetail'
-    { localPortDetails =
-        Prelude.Nothing,
-      remoteIpDetails = Prelude.Nothing,
-      localIpDetails = Prelude.Nothing
+    { remoteIpDetails = Prelude.Nothing,
+      localIpDetails = Prelude.Nothing,
+      localPortDetails = Prelude.Nothing
     }
-
--- | The local port information of the connection.
-portProbeDetail_localPortDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe LocalPortDetails)
-portProbeDetail_localPortDetails = Lens.lens (\PortProbeDetail' {localPortDetails} -> localPortDetails) (\s@PortProbeDetail' {} a -> s {localPortDetails = a} :: PortProbeDetail)
 
 -- | The remote IP information of the connection.
 portProbeDetail_remoteIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe RemoteIpDetails)
@@ -74,15 +69,19 @@ portProbeDetail_remoteIpDetails = Lens.lens (\PortProbeDetail' {remoteIpDetails}
 portProbeDetail_localIpDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe LocalIpDetails)
 portProbeDetail_localIpDetails = Lens.lens (\PortProbeDetail' {localIpDetails} -> localIpDetails) (\s@PortProbeDetail' {} a -> s {localIpDetails = a} :: PortProbeDetail)
 
+-- | The local port information of the connection.
+portProbeDetail_localPortDetails :: Lens.Lens' PortProbeDetail (Prelude.Maybe LocalPortDetails)
+portProbeDetail_localPortDetails = Lens.lens (\PortProbeDetail' {localPortDetails} -> localPortDetails) (\s@PortProbeDetail' {} a -> s {localPortDetails = a} :: PortProbeDetail)
+
 instance Core.FromJSON PortProbeDetail where
   parseJSON =
     Core.withObject
       "PortProbeDetail"
       ( \x ->
           PortProbeDetail'
-            Prelude.<$> (x Core..:? "localPortDetails")
-            Prelude.<*> (x Core..:? "remoteIpDetails")
+            Prelude.<$> (x Core..:? "remoteIpDetails")
             Prelude.<*> (x Core..:? "localIpDetails")
+            Prelude.<*> (x Core..:? "localPortDetails")
       )
 
 instance Prelude.Hashable PortProbeDetail

@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.ProjectBuildBatchConfig where
 
+import Network.AWS.CodeBuild.Types.BatchReportModeType
 import Network.AWS.CodeBuild.Types.BatchRestrictions
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -31,14 +32,26 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
   { -- | Specifies if the build artifacts for the batch build should be combined
     -- into a single artifact location.
     combineArtifacts :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the service role ARN for the batch build project.
-    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | Specifies the maximum amount of time, in minutes, that the batch build
     -- must be completed in.
     timeoutInMins :: Prelude.Maybe Prelude.Int,
     -- | A @BatchRestrictions@ object that specifies the restrictions for the
     -- batch build.
-    restrictions :: Prelude.Maybe BatchRestrictions
+    restrictions :: Prelude.Maybe BatchRestrictions,
+    -- | Specifies how build status reports are sent to the source provider for
+    -- the batch build. This property is only used when the source provider for
+    -- your project is Bitbucket, GitHub, or GitHub Enterprise, and your
+    -- project is configured to report build statuses to the source provider.
+    --
+    -- [REPORT_AGGREGATED_BATCH]
+    --     (Default) Aggregate all of the build statuses into a single status
+    --     report.
+    --
+    -- [REPORT_INDIVIDUAL_BUILDS]
+    --     Send a separate status report for each individual build.
+    batchReportMode :: Prelude.Maybe BatchReportModeType,
+    -- | Specifies the service role ARN for the batch build project.
+    serviceRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,32 +66,41 @@ data ProjectBuildBatchConfig = ProjectBuildBatchConfig'
 -- 'combineArtifacts', 'projectBuildBatchConfig_combineArtifacts' - Specifies if the build artifacts for the batch build should be combined
 -- into a single artifact location.
 --
--- 'serviceRole', 'projectBuildBatchConfig_serviceRole' - Specifies the service role ARN for the batch build project.
---
 -- 'timeoutInMins', 'projectBuildBatchConfig_timeoutInMins' - Specifies the maximum amount of time, in minutes, that the batch build
 -- must be completed in.
 --
 -- 'restrictions', 'projectBuildBatchConfig_restrictions' - A @BatchRestrictions@ object that specifies the restrictions for the
 -- batch build.
+--
+-- 'batchReportMode', 'projectBuildBatchConfig_batchReportMode' - Specifies how build status reports are sent to the source provider for
+-- the batch build. This property is only used when the source provider for
+-- your project is Bitbucket, GitHub, or GitHub Enterprise, and your
+-- project is configured to report build statuses to the source provider.
+--
+-- [REPORT_AGGREGATED_BATCH]
+--     (Default) Aggregate all of the build statuses into a single status
+--     report.
+--
+-- [REPORT_INDIVIDUAL_BUILDS]
+--     Send a separate status report for each individual build.
+--
+-- 'serviceRole', 'projectBuildBatchConfig_serviceRole' - Specifies the service role ARN for the batch build project.
 newProjectBuildBatchConfig ::
   ProjectBuildBatchConfig
 newProjectBuildBatchConfig =
   ProjectBuildBatchConfig'
     { combineArtifacts =
         Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
       timeoutInMins = Prelude.Nothing,
-      restrictions = Prelude.Nothing
+      restrictions = Prelude.Nothing,
+      batchReportMode = Prelude.Nothing,
+      serviceRole = Prelude.Nothing
     }
 
 -- | Specifies if the build artifacts for the batch build should be combined
 -- into a single artifact location.
 projectBuildBatchConfig_combineArtifacts :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Bool)
 projectBuildBatchConfig_combineArtifacts = Lens.lens (\ProjectBuildBatchConfig' {combineArtifacts} -> combineArtifacts) (\s@ProjectBuildBatchConfig' {} a -> s {combineArtifacts = a} :: ProjectBuildBatchConfig)
-
--- | Specifies the service role ARN for the batch build project.
-projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Text)
-projectBuildBatchConfig_serviceRole = Lens.lens (\ProjectBuildBatchConfig' {serviceRole} -> serviceRole) (\s@ProjectBuildBatchConfig' {} a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
 
 -- | Specifies the maximum amount of time, in minutes, that the batch build
 -- must be completed in.
@@ -90,6 +112,24 @@ projectBuildBatchConfig_timeoutInMins = Lens.lens (\ProjectBuildBatchConfig' {ti
 projectBuildBatchConfig_restrictions :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe BatchRestrictions)
 projectBuildBatchConfig_restrictions = Lens.lens (\ProjectBuildBatchConfig' {restrictions} -> restrictions) (\s@ProjectBuildBatchConfig' {} a -> s {restrictions = a} :: ProjectBuildBatchConfig)
 
+-- | Specifies how build status reports are sent to the source provider for
+-- the batch build. This property is only used when the source provider for
+-- your project is Bitbucket, GitHub, or GitHub Enterprise, and your
+-- project is configured to report build statuses to the source provider.
+--
+-- [REPORT_AGGREGATED_BATCH]
+--     (Default) Aggregate all of the build statuses into a single status
+--     report.
+--
+-- [REPORT_INDIVIDUAL_BUILDS]
+--     Send a separate status report for each individual build.
+projectBuildBatchConfig_batchReportMode :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe BatchReportModeType)
+projectBuildBatchConfig_batchReportMode = Lens.lens (\ProjectBuildBatchConfig' {batchReportMode} -> batchReportMode) (\s@ProjectBuildBatchConfig' {} a -> s {batchReportMode = a} :: ProjectBuildBatchConfig)
+
+-- | Specifies the service role ARN for the batch build project.
+projectBuildBatchConfig_serviceRole :: Lens.Lens' ProjectBuildBatchConfig (Prelude.Maybe Prelude.Text)
+projectBuildBatchConfig_serviceRole = Lens.lens (\ProjectBuildBatchConfig' {serviceRole} -> serviceRole) (\s@ProjectBuildBatchConfig' {} a -> s {serviceRole = a} :: ProjectBuildBatchConfig)
+
 instance Core.FromJSON ProjectBuildBatchConfig where
   parseJSON =
     Core.withObject
@@ -97,9 +137,10 @@ instance Core.FromJSON ProjectBuildBatchConfig where
       ( \x ->
           ProjectBuildBatchConfig'
             Prelude.<$> (x Core..:? "combineArtifacts")
-            Prelude.<*> (x Core..:? "serviceRole")
             Prelude.<*> (x Core..:? "timeoutInMins")
             Prelude.<*> (x Core..:? "restrictions")
+            Prelude.<*> (x Core..:? "batchReportMode")
+            Prelude.<*> (x Core..:? "serviceRole")
       )
 
 instance Prelude.Hashable ProjectBuildBatchConfig
@@ -112,8 +153,10 @@ instance Core.ToJSON ProjectBuildBatchConfig where
       ( Prelude.catMaybes
           [ ("combineArtifacts" Core..=)
               Prelude.<$> combineArtifacts,
-            ("serviceRole" Core..=) Prelude.<$> serviceRole,
             ("timeoutInMins" Core..=) Prelude.<$> timeoutInMins,
-            ("restrictions" Core..=) Prelude.<$> restrictions
+            ("restrictions" Core..=) Prelude.<$> restrictions,
+            ("batchReportMode" Core..=)
+              Prelude.<$> batchReportMode,
+            ("serviceRole" Core..=) Prelude.<$> serviceRole
           ]
       )

@@ -30,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDateOptions' smart constructor.
 data DateOptions = DateOptions'
-  { -- | Whether the field can be used to sort the search results.
-    sortEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether facet information can be returned for the field.
-    facetEnabled :: Prelude.Maybe Prelude.Bool,
+  { sourceField :: Prelude.Maybe Prelude.Text,
     -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Prelude.Maybe Prelude.Bool,
-    sourceField :: Prelude.Maybe Prelude.Text,
+    -- | Whether facet information can be returned for the field.
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether the field can be used to sort the search results.
+    sortEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
     defaultValue :: Prelude.Maybe Prelude.Text
@@ -53,15 +53,15 @@ data DateOptions = DateOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortEnabled', 'dateOptions_sortEnabled' - Whether the field can be used to sort the search results.
---
--- 'facetEnabled', 'dateOptions_facetEnabled' - Whether facet information can be returned for the field.
+-- 'sourceField', 'dateOptions_sourceField' - Undocumented member.
 --
 -- 'returnEnabled', 'dateOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- 'sourceField', 'dateOptions_sourceField' - Undocumented member.
+-- 'facetEnabled', 'dateOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'dateOptions_searchEnabled' - Whether the contents of the field are searchable.
+--
+-- 'sortEnabled', 'dateOptions_sortEnabled' - Whether the field can be used to sort the search results.
 --
 -- 'defaultValue', 'dateOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
 -- document.
@@ -69,33 +69,33 @@ newDateOptions ::
   DateOptions
 newDateOptions =
   DateOptions'
-    { sortEnabled = Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
+    { sourceField = Prelude.Nothing,
       returnEnabled = Prelude.Nothing,
-      sourceField = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
+      sortEnabled = Prelude.Nothing,
       defaultValue = Prelude.Nothing
     }
-
--- | Whether the field can be used to sort the search results.
-dateOptions_sortEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
-dateOptions_sortEnabled = Lens.lens (\DateOptions' {sortEnabled} -> sortEnabled) (\s@DateOptions' {} a -> s {sortEnabled = a} :: DateOptions)
-
--- | Whether facet information can be returned for the field.
-dateOptions_facetEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
-dateOptions_facetEnabled = Lens.lens (\DateOptions' {facetEnabled} -> facetEnabled) (\s@DateOptions' {} a -> s {facetEnabled = a} :: DateOptions)
-
--- | Whether the contents of the field can be returned in the search results.
-dateOptions_returnEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
-dateOptions_returnEnabled = Lens.lens (\DateOptions' {returnEnabled} -> returnEnabled) (\s@DateOptions' {} a -> s {returnEnabled = a} :: DateOptions)
 
 -- | Undocumented member.
 dateOptions_sourceField :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Text)
 dateOptions_sourceField = Lens.lens (\DateOptions' {sourceField} -> sourceField) (\s@DateOptions' {} a -> s {sourceField = a} :: DateOptions)
 
+-- | Whether the contents of the field can be returned in the search results.
+dateOptions_returnEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
+dateOptions_returnEnabled = Lens.lens (\DateOptions' {returnEnabled} -> returnEnabled) (\s@DateOptions' {} a -> s {returnEnabled = a} :: DateOptions)
+
+-- | Whether facet information can be returned for the field.
+dateOptions_facetEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
+dateOptions_facetEnabled = Lens.lens (\DateOptions' {facetEnabled} -> facetEnabled) (\s@DateOptions' {} a -> s {facetEnabled = a} :: DateOptions)
+
 -- | Whether the contents of the field are searchable.
 dateOptions_searchEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
 dateOptions_searchEnabled = Lens.lens (\DateOptions' {searchEnabled} -> searchEnabled) (\s@DateOptions' {} a -> s {searchEnabled = a} :: DateOptions)
+
+-- | Whether the field can be used to sort the search results.
+dateOptions_sortEnabled :: Lens.Lens' DateOptions (Prelude.Maybe Prelude.Bool)
+dateOptions_sortEnabled = Lens.lens (\DateOptions' {sortEnabled} -> sortEnabled) (\s@DateOptions' {} a -> s {sortEnabled = a} :: DateOptions)
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
@@ -105,11 +105,11 @@ dateOptions_defaultValue = Lens.lens (\DateOptions' {defaultValue} -> defaultVal
 instance Core.FromXML DateOptions where
   parseXML x =
     DateOptions'
-      Prelude.<$> (x Core..@? "SortEnabled")
-      Prelude.<*> (x Core..@? "FacetEnabled")
+      Prelude.<$> (x Core..@? "SourceField")
       Prelude.<*> (x Core..@? "ReturnEnabled")
-      Prelude.<*> (x Core..@? "SourceField")
+      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
+      Prelude.<*> (x Core..@? "SortEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
 instance Prelude.Hashable DateOptions
@@ -119,10 +119,10 @@ instance Prelude.NFData DateOptions
 instance Core.ToQuery DateOptions where
   toQuery DateOptions' {..} =
     Prelude.mconcat
-      [ "SortEnabled" Core.=: sortEnabled,
-        "FacetEnabled" Core.=: facetEnabled,
+      [ "SourceField" Core.=: sourceField,
         "ReturnEnabled" Core.=: returnEnabled,
-        "SourceField" Core.=: sourceField,
+        "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
+        "SortEnabled" Core.=: sortEnabled,
         "DefaultValue" Core.=: defaultValue
       ]

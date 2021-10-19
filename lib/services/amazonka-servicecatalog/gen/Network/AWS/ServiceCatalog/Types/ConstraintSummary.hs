@@ -27,9 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConstraintSummary' smart constructor.
 data ConstraintSummary = ConstraintSummary'
-  { -- | The description of the constraint.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The type of constraint.
+  { -- | The type of constraint.
     --
     -- -   @LAUNCH@
     --
@@ -38,7 +36,9 @@ data ConstraintSummary = ConstraintSummary'
     -- -   STACKSET
     --
     -- -   @TEMPLATE@
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | The description of the constraint.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,8 +50,6 @@ data ConstraintSummary = ConstraintSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'constraintSummary_description' - The description of the constraint.
---
 -- 'type'', 'constraintSummary_type' - The type of constraint.
 --
 -- -   @LAUNCH@
@@ -61,17 +59,15 @@ data ConstraintSummary = ConstraintSummary'
 -- -   STACKSET
 --
 -- -   @TEMPLATE@
+--
+-- 'description', 'constraintSummary_description' - The description of the constraint.
 newConstraintSummary ::
   ConstraintSummary
 newConstraintSummary =
   ConstraintSummary'
-    { description = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { type' = Prelude.Nothing,
+      description = Prelude.Nothing
     }
-
--- | The description of the constraint.
-constraintSummary_description :: Lens.Lens' ConstraintSummary (Prelude.Maybe Prelude.Text)
-constraintSummary_description = Lens.lens (\ConstraintSummary' {description} -> description) (\s@ConstraintSummary' {} a -> s {description = a} :: ConstraintSummary)
 
 -- | The type of constraint.
 --
@@ -85,14 +81,18 @@ constraintSummary_description = Lens.lens (\ConstraintSummary' {description} -> 
 constraintSummary_type :: Lens.Lens' ConstraintSummary (Prelude.Maybe Prelude.Text)
 constraintSummary_type = Lens.lens (\ConstraintSummary' {type'} -> type') (\s@ConstraintSummary' {} a -> s {type' = a} :: ConstraintSummary)
 
+-- | The description of the constraint.
+constraintSummary_description :: Lens.Lens' ConstraintSummary (Prelude.Maybe Prelude.Text)
+constraintSummary_description = Lens.lens (\ConstraintSummary' {description} -> description) (\s@ConstraintSummary' {} a -> s {description = a} :: ConstraintSummary)
+
 instance Core.FromJSON ConstraintSummary where
   parseJSON =
     Core.withObject
       "ConstraintSummary"
       ( \x ->
           ConstraintSummary'
-            Prelude.<$> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Description")
       )
 
 instance Prelude.Hashable ConstraintSummary

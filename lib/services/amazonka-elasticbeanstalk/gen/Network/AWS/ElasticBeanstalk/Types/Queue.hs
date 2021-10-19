@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQueue' smart constructor.
 data Queue = Queue'
-  { -- | The name of the queue.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the queue.
-    url :: Prelude.Maybe Prelude.Text
+  { -- | The URL of the queue.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The name of the queue.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,29 +42,29 @@ data Queue = Queue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'queue_name' - The name of the queue.
---
 -- 'url', 'queue_url' - The URL of the queue.
+--
+-- 'name', 'queue_name' - The name of the queue.
 newQueue ::
   Queue
 newQueue =
   Queue'
-    { name = Prelude.Nothing,
-      url = Prelude.Nothing
+    { url = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the queue.
-queue_name :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
-queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
 
 -- | The URL of the queue.
 queue_url :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
 queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Queue)
 
+-- | The name of the queue.
+queue_name :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
+
 instance Core.FromXML Queue where
   parseXML x =
     Queue'
-      Prelude.<$> (x Core..@? "Name") Prelude.<*> (x Core..@? "URL")
+      Prelude.<$> (x Core..@? "URL") Prelude.<*> (x Core..@? "Name")
 
 instance Prelude.Hashable Queue
 

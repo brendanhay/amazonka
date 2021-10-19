@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeregisterInstanceTagAttributeRequest' smart constructor.
 data DeregisterInstanceTagAttributeRequest = DeregisterInstanceTagAttributeRequest'
-  { -- | Information about the tag keys to deregister.
-    instanceTagKeys :: Prelude.Maybe [Prelude.Text],
-    -- | Indicates whether to deregister all tag keys in the current Region.
+  { -- | Indicates whether to deregister all tag keys in the current Region.
     -- Specify @false@ to deregister all tag keys.
-    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool
+    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool,
+    -- | Information about the tag keys to deregister.
+    instanceTagKeys :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,27 @@ data DeregisterInstanceTagAttributeRequest = DeregisterInstanceTagAttributeReque
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceTagKeys', 'deregisterInstanceTagAttributeRequest_instanceTagKeys' - Information about the tag keys to deregister.
---
 -- 'includeAllTagsOfInstance', 'deregisterInstanceTagAttributeRequest_includeAllTagsOfInstance' - Indicates whether to deregister all tag keys in the current Region.
 -- Specify @false@ to deregister all tag keys.
+--
+-- 'instanceTagKeys', 'deregisterInstanceTagAttributeRequest_instanceTagKeys' - Information about the tag keys to deregister.
 newDeregisterInstanceTagAttributeRequest ::
   DeregisterInstanceTagAttributeRequest
 newDeregisterInstanceTagAttributeRequest =
   DeregisterInstanceTagAttributeRequest'
-    { instanceTagKeys =
+    { includeAllTagsOfInstance =
         Prelude.Nothing,
-      includeAllTagsOfInstance =
-        Prelude.Nothing
+      instanceTagKeys = Prelude.Nothing
     }
-
--- | Information about the tag keys to deregister.
-deregisterInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Prelude.Maybe [Prelude.Text])
-deregisterInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\DeregisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@DeregisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: DeregisterInstanceTagAttributeRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to deregister all tag keys in the current Region.
 -- Specify @false@ to deregister all tag keys.
 deregisterInstanceTagAttributeRequest_includeAllTagsOfInstance :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Prelude.Maybe Prelude.Bool)
 deregisterInstanceTagAttributeRequest_includeAllTagsOfInstance = Lens.lens (\DeregisterInstanceTagAttributeRequest' {includeAllTagsOfInstance} -> includeAllTagsOfInstance) (\s@DeregisterInstanceTagAttributeRequest' {} a -> s {includeAllTagsOfInstance = a} :: DeregisterInstanceTagAttributeRequest)
+
+-- | Information about the tag keys to deregister.
+deregisterInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Prelude.Maybe [Prelude.Text])
+deregisterInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\DeregisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@DeregisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: DeregisterInstanceTagAttributeRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -84,10 +83,10 @@ instance
   where
   toQuery DeregisterInstanceTagAttributeRequest' {..} =
     Prelude.mconcat
-      [ Core.toQuery
+      [ "IncludeAllTagsOfInstance"
+          Core.=: includeAllTagsOfInstance,
+        Core.toQuery
           ( Core.toQueryList "InstanceTagKey"
               Prelude.<$> instanceTagKeys
-          ),
-        "IncludeAllTagsOfInstance"
-          Core.=: includeAllTagsOfInstance
+          )
       ]

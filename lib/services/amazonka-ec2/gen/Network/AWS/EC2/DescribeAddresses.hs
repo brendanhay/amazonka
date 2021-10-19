@@ -33,10 +33,10 @@ module Network.AWS.EC2.DescribeAddresses
     newDescribeAddresses,
 
     -- * Request Lenses
-    describeAddresses_dryRun,
-    describeAddresses_allocationIds,
-    describeAddresses_publicIps,
     describeAddresses_filters,
+    describeAddresses_publicIps,
+    describeAddresses_allocationIds,
+    describeAddresses_dryRun,
 
     -- * Destructuring the Response
     DescribeAddressesResponse (..),
@@ -57,18 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-VPC] Information about the allocation IDs.
-    allocationIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more Elastic IP addresses.
-    --
-    -- Default: Describes all your Elastic IP addresses.
-    publicIps :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters. Filter names and values are case-sensitive.
+  { -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
     --
@@ -104,7 +93,18 @@ data DescribeAddresses = DescribeAddresses'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | One or more Elastic IP addresses.
+    --
+    -- Default: Describes all your Elastic IP addresses.
+    publicIps :: Prelude.Maybe [Prelude.Text],
+    -- | [EC2-VPC] Information about the allocation IDs.
+    allocationIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -115,17 +115,6 @@ data DescribeAddresses = DescribeAddresses'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dryRun', 'describeAddresses_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'allocationIds', 'describeAddresses_allocationIds' - [EC2-VPC] Information about the allocation IDs.
---
--- 'publicIps', 'describeAddresses_publicIps' - One or more Elastic IP addresses.
---
--- Default: Describes all your Elastic IP addresses.
 --
 -- 'filters', 'describeAddresses_filters' - One or more filters. Filter names and values are case-sensitive.
 --
@@ -163,32 +152,26 @@ data DescribeAddresses = DescribeAddresses'
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
+--
+-- 'publicIps', 'describeAddresses_publicIps' - One or more Elastic IP addresses.
+--
+-- Default: Describes all your Elastic IP addresses.
+--
+-- 'allocationIds', 'describeAddresses_allocationIds' - [EC2-VPC] Information about the allocation IDs.
+--
+-- 'dryRun', 'describeAddresses_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribeAddresses ::
   DescribeAddresses
 newDescribeAddresses =
   DescribeAddresses'
-    { dryRun = Prelude.Nothing,
-      allocationIds = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       publicIps = Prelude.Nothing,
-      filters = Prelude.Nothing
+      allocationIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeAddresses_dryRun :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Bool)
-describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\s@DescribeAddresses' {} a -> s {dryRun = a} :: DescribeAddresses)
-
--- | [EC2-VPC] Information about the allocation IDs.
-describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
-describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens._Coerce
-
--- | One or more Elastic IP addresses.
---
--- Default: Describes all your Elastic IP addresses.
-describeAddresses_publicIps :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
-describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publicIps) (\s@DescribeAddresses' {} a -> s {publicIps = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -227,7 +210,24 @@ describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publ
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 describeAddresses_filters :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Filter])
-describeAddresses_filters = Lens.lens (\DescribeAddresses' {filters} -> filters) (\s@DescribeAddresses' {} a -> s {filters = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens._Coerce
+describeAddresses_filters = Lens.lens (\DescribeAddresses' {filters} -> filters) (\s@DescribeAddresses' {} a -> s {filters = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more Elastic IP addresses.
+--
+-- Default: Describes all your Elastic IP addresses.
+describeAddresses_publicIps :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
+describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publicIps) (\s@DescribeAddresses' {} a -> s {publicIps = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
+
+-- | [EC2-VPC] Information about the allocation IDs.
+describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
+describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeAddresses_dryRun :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Bool)
+describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\s@DescribeAddresses' {} a -> s {dryRun = a} :: DescribeAddresses)
 
 instance Core.AWSRequest DescribeAddresses where
   type
@@ -261,15 +261,15 @@ instance Core.ToQuery DescribeAddresses where
           Core.=: ("DescribeAddresses" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
         Core.toQuery
           ( Core.toQueryList "AllocationId"
               Prelude.<$> allocationIds
           ),
-        Core.toQuery
-          (Core.toQueryList "PublicIp" Prelude.<$> publicIps),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.
@@ -305,7 +305,7 @@ newDescribeAddressesResponse pHttpStatus_ =
 
 -- | Information about the Elastic IP addresses.
 describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
-describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Prelude.Int

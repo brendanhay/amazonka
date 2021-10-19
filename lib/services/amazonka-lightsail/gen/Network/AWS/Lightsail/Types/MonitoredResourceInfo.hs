@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMonitoredResourceInfo' smart constructor.
 data MonitoredResourceInfo = MonitoredResourceInfo'
-  { -- | The Amazon Resource Name (ARN) of the resource being monitored.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The Lightsail resource type of the resource being monitored.
+  { -- | The Lightsail resource type of the resource being monitored.
     --
     -- Instances, load balancers, and relational databases are the only
     -- Lightsail resources that can currently be monitored by alarms.
     resourceType :: Prelude.Maybe ResourceType,
+    -- | The Amazon Resource Name (ARN) of the resource being monitored.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lightsail resource being monitored.
     name :: Prelude.Maybe Prelude.Text
   }
@@ -52,26 +52,23 @@ data MonitoredResourceInfo = MonitoredResourceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'monitoredResourceInfo_arn' - The Amazon Resource Name (ARN) of the resource being monitored.
---
 -- 'resourceType', 'monitoredResourceInfo_resourceType' - The Lightsail resource type of the resource being monitored.
 --
 -- Instances, load balancers, and relational databases are the only
 -- Lightsail resources that can currently be monitored by alarms.
+--
+-- 'arn', 'monitoredResourceInfo_arn' - The Amazon Resource Name (ARN) of the resource being monitored.
 --
 -- 'name', 'monitoredResourceInfo_name' - The name of the Lightsail resource being monitored.
 newMonitoredResourceInfo ::
   MonitoredResourceInfo
 newMonitoredResourceInfo =
   MonitoredResourceInfo'
-    { arn = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
+    { resourceType =
+        Prelude.Nothing,
+      arn = Prelude.Nothing,
       name = Prelude.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the resource being monitored.
-monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
-monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s@MonitoredResourceInfo' {} a -> s {arn = a} :: MonitoredResourceInfo)
 
 -- | The Lightsail resource type of the resource being monitored.
 --
@@ -79,6 +76,10 @@ monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s
 -- Lightsail resources that can currently be monitored by alarms.
 monitoredResourceInfo_resourceType :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe ResourceType)
 monitoredResourceInfo_resourceType = Lens.lens (\MonitoredResourceInfo' {resourceType} -> resourceType) (\s@MonitoredResourceInfo' {} a -> s {resourceType = a} :: MonitoredResourceInfo)
+
+-- | The Amazon Resource Name (ARN) of the resource being monitored.
+monitoredResourceInfo_arn :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
+monitoredResourceInfo_arn = Lens.lens (\MonitoredResourceInfo' {arn} -> arn) (\s@MonitoredResourceInfo' {} a -> s {arn = a} :: MonitoredResourceInfo)
 
 -- | The name of the Lightsail resource being monitored.
 monitoredResourceInfo_name :: Lens.Lens' MonitoredResourceInfo (Prelude.Maybe Prelude.Text)
@@ -90,8 +91,8 @@ instance Core.FromJSON MonitoredResourceInfo where
       "MonitoredResourceInfo"
       ( \x ->
           MonitoredResourceInfo'
-            Prelude.<$> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "resourceType")
+            Prelude.<$> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "name")
       )
 

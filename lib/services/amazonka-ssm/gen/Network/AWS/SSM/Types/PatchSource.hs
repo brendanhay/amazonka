@@ -92,7 +92,7 @@ newPatchSource ::
 newPatchSource pName_ pProducts_ pConfiguration_ =
   PatchSource'
     { name = pName_,
-      products = Lens._Coerce Lens.# pProducts_,
+      products = Lens.coerced Lens.# pProducts_,
       configuration =
         Core._Sensitive Lens.# pConfiguration_
     }
@@ -106,7 +106,7 @@ patchSource_name = Lens.lens (\PatchSource' {name} -> name) (\s@PatchSource' {} 
 -- \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported
 -- product values, see PatchFilter.
 patchSource_products :: Lens.Lens' PatchSource (Prelude.NonEmpty Prelude.Text)
-patchSource_products = Lens.lens (\PatchSource' {products} -> products) (\s@PatchSource' {} a -> s {products = a} :: PatchSource) Prelude.. Lens._Coerce
+patchSource_products = Lens.lens (\PatchSource' {products} -> products) (\s@PatchSource' {} a -> s {products = a} :: PatchSource) Prelude.. Lens.coerced
 
 -- | The value of the yum repo configuration. For example:
 --

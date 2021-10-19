@@ -141,7 +141,7 @@ newCopyDBClusterParameterGroup
 
 -- | Undocumented member.
 copyDBClusterParameterGroup_tags :: Lens.Lens' CopyDBClusterParameterGroup (Prelude.Maybe [Tag])
-copyDBClusterParameterGroup_tags = Lens.lens (\CopyDBClusterParameterGroup' {tags} -> tags) (\s@CopyDBClusterParameterGroup' {} a -> s {tags = a} :: CopyDBClusterParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+copyDBClusterParameterGroup_tags = Lens.lens (\CopyDBClusterParameterGroup' {tags} -> tags) (\s@CopyDBClusterParameterGroup' {} a -> s {tags = a} :: CopyDBClusterParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier or Amazon Resource Name (ARN) for the source DB cluster
 -- parameter group. For information about creating an ARN, see

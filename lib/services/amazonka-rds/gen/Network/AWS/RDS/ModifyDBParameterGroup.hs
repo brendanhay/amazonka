@@ -158,7 +158,7 @@ modifyDBParameterGroup_dbParameterGroupName = Lens.lens (\ModifyDBParameterGroup
 -- without failover to the DB instances associated with the parameter
 -- group.
 modifyDBParameterGroup_parameters :: Lens.Lens' ModifyDBParameterGroup [Parameter]
-modifyDBParameterGroup_parameters = Lens.lens (\ModifyDBParameterGroup' {parameters} -> parameters) (\s@ModifyDBParameterGroup' {} a -> s {parameters = a} :: ModifyDBParameterGroup) Prelude.. Lens._Coerce
+modifyDBParameterGroup_parameters = Lens.lens (\ModifyDBParameterGroup' {parameters} -> parameters) (\s@ModifyDBParameterGroup' {} a -> s {parameters = a} :: ModifyDBParameterGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyDBParameterGroup where
   type

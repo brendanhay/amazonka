@@ -87,7 +87,7 @@ startMigration_replicationGroupId = Lens.lens (\StartMigration' {replicationGrou
 -- | List of endpoints from which data should be migrated. For Redis (cluster
 -- mode disabled), list should have only one element.
 startMigration_customerNodeEndpointList :: Lens.Lens' StartMigration [CustomerNodeEndpoint]
-startMigration_customerNodeEndpointList = Lens.lens (\StartMigration' {customerNodeEndpointList} -> customerNodeEndpointList) (\s@StartMigration' {} a -> s {customerNodeEndpointList = a} :: StartMigration) Prelude.. Lens._Coerce
+startMigration_customerNodeEndpointList = Lens.lens (\StartMigration' {customerNodeEndpointList} -> customerNodeEndpointList) (\s@StartMigration' {} a -> s {customerNodeEndpointList = a} :: StartMigration) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartMigration where
   type

@@ -63,7 +63,7 @@ authInfo_actionType = Lens.lens (\AuthInfo' {actionType} -> actionType) (\s@Auth
 -- | The resources for which the principal is being authorized to perform the
 -- specified action.
 authInfo_resources :: Lens.Lens' AuthInfo [Prelude.Text]
-authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Prelude.. Lens._Coerce
+authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Prelude.. Lens.coerced
 
 instance Core.FromJSON AuthInfo where
   parseJSON =

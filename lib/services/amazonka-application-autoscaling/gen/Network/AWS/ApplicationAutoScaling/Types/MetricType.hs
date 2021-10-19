@@ -37,6 +37,7 @@ module Network.AWS.ApplicationAutoScaling.Types.MetricType
         MetricType_ElastiCacheReplicaEngineCPUUtilization,
         MetricType_KafkaBrokerStorageUtilization,
         MetricType_LambdaProvisionedConcurrencyUtilization,
+        MetricType_NeptuneReaderAverageCPUUtilization,
         MetricType_RDSReaderAverageCPUUtilization,
         MetricType_RDSReaderAverageDatabaseConnections,
         MetricType_SageMakerVariantInvocationsPerInstance
@@ -126,6 +127,9 @@ pattern MetricType_KafkaBrokerStorageUtilization = MetricType' "KafkaBrokerStora
 pattern MetricType_LambdaProvisionedConcurrencyUtilization :: MetricType
 pattern MetricType_LambdaProvisionedConcurrencyUtilization = MetricType' "LambdaProvisionedConcurrencyUtilization"
 
+pattern MetricType_NeptuneReaderAverageCPUUtilization :: MetricType
+pattern MetricType_NeptuneReaderAverageCPUUtilization = MetricType' "NeptuneReaderAverageCPUUtilization"
+
 pattern MetricType_RDSReaderAverageCPUUtilization :: MetricType
 pattern MetricType_RDSReaderAverageCPUUtilization = MetricType' "RDSReaderAverageCPUUtilization"
 
@@ -153,6 +157,7 @@ pattern MetricType_SageMakerVariantInvocationsPerInstance = MetricType' "SageMak
   MetricType_ElastiCacheReplicaEngineCPUUtilization,
   MetricType_KafkaBrokerStorageUtilization,
   MetricType_LambdaProvisionedConcurrencyUtilization,
+  MetricType_NeptuneReaderAverageCPUUtilization,
   MetricType_RDSReaderAverageCPUUtilization,
   MetricType_RDSReaderAverageDatabaseConnections,
   MetricType_SageMakerVariantInvocationsPerInstance,

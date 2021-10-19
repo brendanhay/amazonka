@@ -155,7 +155,7 @@ newDescribeInterconnectsResponse pHttpStatus_ =
 
 -- | The interconnects.
 describeInterconnectsResponse_interconnects :: Lens.Lens' DescribeInterconnectsResponse (Prelude.Maybe [Interconnect])
-describeInterconnectsResponse_interconnects = Lens.lens (\DescribeInterconnectsResponse' {interconnects} -> interconnects) (\s@DescribeInterconnectsResponse' {} a -> s {interconnects = a} :: DescribeInterconnectsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInterconnectsResponse_interconnects = Lens.lens (\DescribeInterconnectsResponse' {interconnects} -> interconnects) (\s@DescribeInterconnectsResponse' {} a -> s {interconnects = a} :: DescribeInterconnectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInterconnectsResponse_httpStatus :: Lens.Lens' DescribeInterconnectsResponse Prelude.Int

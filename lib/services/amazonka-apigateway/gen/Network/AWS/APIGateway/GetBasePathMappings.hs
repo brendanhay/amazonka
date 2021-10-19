@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.GetBasePathMappings
     newGetBasePathMappings,
 
     -- * Request Lenses
-    getBasePathMappings_position,
     getBasePathMappings_limit,
+    getBasePathMappings_position,
     getBasePathMappings_domainName,
 
     -- * Destructuring the Response
@@ -56,11 +56,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetBasePathMappings' smart constructor.
 data GetBasePathMappings = GetBasePathMappings'
-  { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of returned results per page. The default value is 25
+  { -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The domain name of a BasePathMapping resource.
     domainName :: Prelude.Text
   }
@@ -74,10 +74,10 @@ data GetBasePathMappings = GetBasePathMappings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getBasePathMappings_position' - The current pagination position in the paged result set.
---
 -- 'limit', 'getBasePathMappings_limit' - The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
+--
+-- 'position', 'getBasePathMappings_position' - The current pagination position in the paged result set.
 --
 -- 'domainName', 'getBasePathMappings_domainName' - [Required] The domain name of a BasePathMapping resource.
 newGetBasePathMappings ::
@@ -86,19 +86,19 @@ newGetBasePathMappings ::
   GetBasePathMappings
 newGetBasePathMappings pDomainName_ =
   GetBasePathMappings'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       domainName = pDomainName_
     }
-
--- | The current pagination position in the paged result set.
-getBasePathMappings_position :: Lens.Lens' GetBasePathMappings (Prelude.Maybe Prelude.Text)
-getBasePathMappings_position = Lens.lens (\GetBasePathMappings' {position} -> position) (\s@GetBasePathMappings' {} a -> s {position = a} :: GetBasePathMappings)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
 getBasePathMappings_limit :: Lens.Lens' GetBasePathMappings (Prelude.Maybe Prelude.Int)
 getBasePathMappings_limit = Lens.lens (\GetBasePathMappings' {limit} -> limit) (\s@GetBasePathMappings' {} a -> s {limit = a} :: GetBasePathMappings)
+
+-- | The current pagination position in the paged result set.
+getBasePathMappings_position :: Lens.Lens' GetBasePathMappings (Prelude.Maybe Prelude.Text)
+getBasePathMappings_position = Lens.lens (\GetBasePathMappings' {position} -> position) (\s@GetBasePathMappings' {} a -> s {position = a} :: GetBasePathMappings)
 
 -- | [Required] The domain name of a BasePathMapping resource.
 getBasePathMappings_domainName :: Lens.Lens' GetBasePathMappings Prelude.Text
@@ -164,7 +164,7 @@ instance Core.ToPath GetBasePathMappings where
 instance Core.ToQuery GetBasePathMappings where
   toQuery GetBasePathMappings' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of BasePathMapping resources.
 --
@@ -207,7 +207,7 @@ newGetBasePathMappingsResponse pHttpStatus_ =
 
 -- | The current page of elements from this collection.
 getBasePathMappingsResponse_items :: Lens.Lens' GetBasePathMappingsResponse (Prelude.Maybe [BasePathMapping])
-getBasePathMappingsResponse_items = Lens.lens (\GetBasePathMappingsResponse' {items} -> items) (\s@GetBasePathMappingsResponse' {} a -> s {items = a} :: GetBasePathMappingsResponse) Prelude.. Lens.mapping Lens._Coerce
+getBasePathMappingsResponse_items = Lens.lens (\GetBasePathMappingsResponse' {items} -> items) (\s@GetBasePathMappingsResponse' {} a -> s {items = a} :: GetBasePathMappingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 getBasePathMappingsResponse_position :: Lens.Lens' GetBasePathMappingsResponse (Prelude.Maybe Prelude.Text)

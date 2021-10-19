@@ -111,7 +111,7 @@ untagServerCertificate_serverCertificateName = Lens.lens (\UntagServerCertificat
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified IAM server certificate.
 untagServerCertificate_tagKeys :: Lens.Lens' UntagServerCertificate [Prelude.Text]
-untagServerCertificate_tagKeys = Lens.lens (\UntagServerCertificate' {tagKeys} -> tagKeys) (\s@UntagServerCertificate' {} a -> s {tagKeys = a} :: UntagServerCertificate) Prelude.. Lens._Coerce
+untagServerCertificate_tagKeys = Lens.lens (\UntagServerCertificate' {tagKeys} -> tagKeys) (\s@UntagServerCertificate' {} a -> s {tagKeys = a} :: UntagServerCertificate) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagServerCertificate where
   type

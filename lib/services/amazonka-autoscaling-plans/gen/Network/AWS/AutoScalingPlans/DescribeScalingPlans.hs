@@ -30,18 +30,18 @@ module Network.AWS.AutoScalingPlans.DescribeScalingPlans
 
     -- * Request Lenses
     describeScalingPlans_scalingPlanVersion,
-    describeScalingPlans_nextToken,
-    describeScalingPlans_maxResults,
     describeScalingPlans_scalingPlanNames,
+    describeScalingPlans_nextToken,
     describeScalingPlans_applicationSources,
+    describeScalingPlans_maxResults,
 
     -- * Destructuring the Response
     DescribeScalingPlansResponse (..),
     newDescribeScalingPlansResponse,
 
     -- * Response Lenses
-    describeScalingPlansResponse_nextToken,
     describeScalingPlansResponse_scalingPlans,
+    describeScalingPlansResponse_nextToken,
     describeScalingPlansResponse_httpStatus,
   )
 where
@@ -61,17 +61,17 @@ data DescribeScalingPlans = DescribeScalingPlans'
     -- If you specify a scaling plan version, you must also specify a scaling
     -- plan name.
     scalingPlanVersion :: Prelude.Maybe Prelude.Integer,
-    -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of scalable resources to return. This value can be
-    -- between 1 and 50. The default value is 50.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The names of the scaling plans (up to 10). If you specify application
     -- sources, you cannot specify scaling plan names.
     scalingPlanNames :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sources for the applications (up to 10). If you specify scaling plan
     -- names, you cannot specify application sources.
-    applicationSources :: Prelude.Maybe [ApplicationSource]
+    applicationSources :: Prelude.Maybe [ApplicationSource],
+    -- | The maximum number of scalable resources to return. This value can be
+    -- between 1 and 50. The default value is 50.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,26 +89,26 @@ data DescribeScalingPlans = DescribeScalingPlans'
 -- If you specify a scaling plan version, you must also specify a scaling
 -- plan name.
 --
--- 'nextToken', 'describeScalingPlans_nextToken' - The token for the next set of results.
---
--- 'maxResults', 'describeScalingPlans_maxResults' - The maximum number of scalable resources to return. This value can be
--- between 1 and 50. The default value is 50.
---
 -- 'scalingPlanNames', 'describeScalingPlans_scalingPlanNames' - The names of the scaling plans (up to 10). If you specify application
 -- sources, you cannot specify scaling plan names.
 --
+-- 'nextToken', 'describeScalingPlans_nextToken' - The token for the next set of results.
+--
 -- 'applicationSources', 'describeScalingPlans_applicationSources' - The sources for the applications (up to 10). If you specify scaling plan
 -- names, you cannot specify application sources.
+--
+-- 'maxResults', 'describeScalingPlans_maxResults' - The maximum number of scalable resources to return. This value can be
+-- between 1 and 50. The default value is 50.
 newDescribeScalingPlans ::
   DescribeScalingPlans
 newDescribeScalingPlans =
   DescribeScalingPlans'
     { scalingPlanVersion =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       scalingPlanNames = Prelude.Nothing,
-      applicationSources = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      applicationSources = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The version number of the scaling plan. Currently, the only valid value
@@ -119,24 +119,24 @@ newDescribeScalingPlans =
 describeScalingPlans_scalingPlanVersion :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Integer)
 describeScalingPlans_scalingPlanVersion = Lens.lens (\DescribeScalingPlans' {scalingPlanVersion} -> scalingPlanVersion) (\s@DescribeScalingPlans' {} a -> s {scalingPlanVersion = a} :: DescribeScalingPlans)
 
+-- | The names of the scaling plans (up to 10). If you specify application
+-- sources, you cannot specify scaling plan names.
+describeScalingPlans_scalingPlanNames :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe [Prelude.Text])
+describeScalingPlans_scalingPlanNames = Lens.lens (\DescribeScalingPlans' {scalingPlanNames} -> scalingPlanNames) (\s@DescribeScalingPlans' {} a -> s {scalingPlanNames = a} :: DescribeScalingPlans) Prelude.. Lens.mapping Lens.coerced
+
 -- | The token for the next set of results.
 describeScalingPlans_nextToken :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Text)
 describeScalingPlans_nextToken = Lens.lens (\DescribeScalingPlans' {nextToken} -> nextToken) (\s@DescribeScalingPlans' {} a -> s {nextToken = a} :: DescribeScalingPlans)
+
+-- | The sources for the applications (up to 10). If you specify scaling plan
+-- names, you cannot specify application sources.
+describeScalingPlans_applicationSources :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe [ApplicationSource])
+describeScalingPlans_applicationSources = Lens.lens (\DescribeScalingPlans' {applicationSources} -> applicationSources) (\s@DescribeScalingPlans' {} a -> s {applicationSources = a} :: DescribeScalingPlans) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of scalable resources to return. This value can be
 -- between 1 and 50. The default value is 50.
 describeScalingPlans_maxResults :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe Prelude.Int)
 describeScalingPlans_maxResults = Lens.lens (\DescribeScalingPlans' {maxResults} -> maxResults) (\s@DescribeScalingPlans' {} a -> s {maxResults = a} :: DescribeScalingPlans)
-
--- | The names of the scaling plans (up to 10). If you specify application
--- sources, you cannot specify scaling plan names.
-describeScalingPlans_scalingPlanNames :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe [Prelude.Text])
-describeScalingPlans_scalingPlanNames = Lens.lens (\DescribeScalingPlans' {scalingPlanNames} -> scalingPlanNames) (\s@DescribeScalingPlans' {} a -> s {scalingPlanNames = a} :: DescribeScalingPlans) Prelude.. Lens.mapping Lens._Coerce
-
--- | The sources for the applications (up to 10). If you specify scaling plan
--- names, you cannot specify application sources.
-describeScalingPlans_applicationSources :: Lens.Lens' DescribeScalingPlans (Prelude.Maybe [ApplicationSource])
-describeScalingPlans_applicationSources = Lens.lens (\DescribeScalingPlans' {applicationSources} -> applicationSources) (\s@DescribeScalingPlans' {} a -> s {applicationSources = a} :: DescribeScalingPlans) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeScalingPlans where
   page rq rs
@@ -169,8 +169,8 @@ instance Core.AWSRequest DescribeScalingPlans where
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPlansResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ScalingPlans" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ScalingPlans" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,12 +199,12 @@ instance Core.ToJSON DescribeScalingPlans where
       ( Prelude.catMaybes
           [ ("ScalingPlanVersion" Core..=)
               Prelude.<$> scalingPlanVersion,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ScalingPlanNames" Core..=)
               Prelude.<$> scalingPlanNames,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("ApplicationSources" Core..=)
-              Prelude.<$> applicationSources
+              Prelude.<$> applicationSources,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -216,11 +216,11 @@ instance Core.ToQuery DescribeScalingPlans where
 
 -- | /See:/ 'newDescribeScalingPlansResponse' smart constructor.
 data DescribeScalingPlansResponse = DescribeScalingPlansResponse'
-  { -- | The token required to get the next set of results. This value is @null@
+  { -- | Information about the scaling plans.
+    scalingPlans :: Prelude.Maybe [ScalingPlan],
+    -- | The token required to get the next set of results. This value is @null@
     -- if there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the scaling plans.
-    scalingPlans :: Prelude.Maybe [ScalingPlan],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -234,10 +234,10 @@ data DescribeScalingPlansResponse = DescribeScalingPlansResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scalingPlans', 'describeScalingPlansResponse_scalingPlans' - Information about the scaling plans.
+--
 -- 'nextToken', 'describeScalingPlansResponse_nextToken' - The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
---
--- 'scalingPlans', 'describeScalingPlansResponse_scalingPlans' - Information about the scaling plans.
 --
 -- 'httpStatus', 'describeScalingPlansResponse_httpStatus' - The response's http status code.
 newDescribeScalingPlansResponse ::
@@ -246,20 +246,20 @@ newDescribeScalingPlansResponse ::
   DescribeScalingPlansResponse
 newDescribeScalingPlansResponse pHttpStatus_ =
   DescribeScalingPlansResponse'
-    { nextToken =
+    { scalingPlans =
         Prelude.Nothing,
-      scalingPlans = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the scaling plans.
+describeScalingPlansResponse_scalingPlans :: Lens.Lens' DescribeScalingPlansResponse (Prelude.Maybe [ScalingPlan])
+describeScalingPlansResponse_scalingPlans = Lens.lens (\DescribeScalingPlansResponse' {scalingPlans} -> scalingPlans) (\s@DescribeScalingPlansResponse' {} a -> s {scalingPlans = a} :: DescribeScalingPlansResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
 describeScalingPlansResponse_nextToken :: Lens.Lens' DescribeScalingPlansResponse (Prelude.Maybe Prelude.Text)
 describeScalingPlansResponse_nextToken = Lens.lens (\DescribeScalingPlansResponse' {nextToken} -> nextToken) (\s@DescribeScalingPlansResponse' {} a -> s {nextToken = a} :: DescribeScalingPlansResponse)
-
--- | Information about the scaling plans.
-describeScalingPlansResponse_scalingPlans :: Lens.Lens' DescribeScalingPlansResponse (Prelude.Maybe [ScalingPlan])
-describeScalingPlansResponse_scalingPlans = Lens.lens (\DescribeScalingPlansResponse' {scalingPlans} -> scalingPlans) (\s@DescribeScalingPlansResponse' {} a -> s {scalingPlans = a} :: DescribeScalingPlansResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeScalingPlansResponse_httpStatus :: Lens.Lens' DescribeScalingPlansResponse Prelude.Int

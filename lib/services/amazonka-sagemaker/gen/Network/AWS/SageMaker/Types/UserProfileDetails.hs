@@ -34,10 +34,10 @@ data UserProfileDetails = UserProfileDetails'
     status :: Prelude.Maybe UserProfileStatus,
     -- | The user profile name.
     userProfileName :: Prelude.Maybe Prelude.Text,
-    -- | The domain ID.
-    domainId :: Prelude.Maybe Prelude.Text,
     -- | The last modified time.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The domain ID.
+    domainId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,9 +55,9 @@ data UserProfileDetails = UserProfileDetails'
 --
 -- 'userProfileName', 'userProfileDetails_userProfileName' - The user profile name.
 --
--- 'domainId', 'userProfileDetails_domainId' - The domain ID.
---
 -- 'lastModifiedTime', 'userProfileDetails_lastModifiedTime' - The last modified time.
+--
+-- 'domainId', 'userProfileDetails_domainId' - The domain ID.
 newUserProfileDetails ::
   UserProfileDetails
 newUserProfileDetails =
@@ -65,8 +65,8 @@ newUserProfileDetails =
     { creationTime = Prelude.Nothing,
       status = Prelude.Nothing,
       userProfileName = Prelude.Nothing,
-      domainId = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing
+      lastModifiedTime = Prelude.Nothing,
+      domainId = Prelude.Nothing
     }
 
 -- | The creation time.
@@ -81,13 +81,13 @@ userProfileDetails_status = Lens.lens (\UserProfileDetails' {status} -> status) 
 userProfileDetails_userProfileName :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
 userProfileDetails_userProfileName = Lens.lens (\UserProfileDetails' {userProfileName} -> userProfileName) (\s@UserProfileDetails' {} a -> s {userProfileName = a} :: UserProfileDetails)
 
--- | The domain ID.
-userProfileDetails_domainId :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
-userProfileDetails_domainId = Lens.lens (\UserProfileDetails' {domainId} -> domainId) (\s@UserProfileDetails' {} a -> s {domainId = a} :: UserProfileDetails)
-
 -- | The last modified time.
 userProfileDetails_lastModifiedTime :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.UTCTime)
 userProfileDetails_lastModifiedTime = Lens.lens (\UserProfileDetails' {lastModifiedTime} -> lastModifiedTime) (\s@UserProfileDetails' {} a -> s {lastModifiedTime = a} :: UserProfileDetails) Prelude.. Lens.mapping Core._Time
+
+-- | The domain ID.
+userProfileDetails_domainId :: Lens.Lens' UserProfileDetails (Prelude.Maybe Prelude.Text)
+userProfileDetails_domainId = Lens.lens (\UserProfileDetails' {domainId} -> domainId) (\s@UserProfileDetails' {} a -> s {domainId = a} :: UserProfileDetails)
 
 instance Core.FromJSON UserProfileDetails where
   parseJSON =
@@ -98,8 +98,8 @@ instance Core.FromJSON UserProfileDetails where
             Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "UserProfileName")
-            Prelude.<*> (x Core..:? "DomainId")
             Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "DomainId")
       )
 
 instance Prelude.Hashable UserProfileDetails

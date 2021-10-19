@@ -182,7 +182,7 @@ newGetSamplingStatisticSummariesResponse pHttpStatus_ =
 -- | Information about the number of requests instrumented for each sampling
 -- rule.
 getSamplingStatisticSummariesResponse_samplingStatisticSummaries :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe [SamplingStatisticSummary])
-getSamplingStatisticSummariesResponse_samplingStatisticSummaries = Lens.lens (\GetSamplingStatisticSummariesResponse' {samplingStatisticSummaries} -> samplingStatisticSummaries) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {samplingStatisticSummaries = a} :: GetSamplingStatisticSummariesResponse) Prelude.. Lens.mapping Lens._Coerce
+getSamplingStatisticSummariesResponse_samplingStatisticSummaries = Lens.lens (\GetSamplingStatisticSummariesResponse' {samplingStatisticSummaries} -> samplingStatisticSummaries) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {samplingStatisticSummaries = a} :: GetSamplingStatisticSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Pagination token.
 getSamplingStatisticSummariesResponse_nextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe Prelude.Text)

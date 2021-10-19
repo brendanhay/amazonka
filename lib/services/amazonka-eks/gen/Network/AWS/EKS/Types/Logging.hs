@@ -50,7 +50,7 @@ newLogging =
 
 -- | The cluster control plane logging configuration for your cluster.
 logging_clusterLogging :: Lens.Lens' Logging (Prelude.Maybe [LogSetup])
-logging_clusterLogging = Lens.lens (\Logging' {clusterLogging} -> clusterLogging) (\s@Logging' {} a -> s {clusterLogging = a} :: Logging) Prelude.. Lens.mapping Lens._Coerce
+logging_clusterLogging = Lens.lens (\Logging' {clusterLogging} -> clusterLogging) (\s@Logging' {} a -> s {clusterLogging = a} :: Logging) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Logging where
   parseJSON =

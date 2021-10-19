@@ -36,11 +36,11 @@ import qualified Network.AWS.Prelude as Prelude
 data InputOrigin = InputOrigin'
   { -- | The AWS Region name of the origin resource.
     regionName :: Prelude.Maybe RegionName,
+    -- | The name of the origin resource.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The protocol that your Amazon Lightsail distribution uses when
     -- establishing a connection with your origin to pull content.
-    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum,
-    -- | The name of the origin resource.
-    name :: Prelude.Maybe Prelude.Text
+    protocolPolicy :: Prelude.Maybe OriginProtocolPolicyEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,31 +54,31 @@ data InputOrigin = InputOrigin'
 --
 -- 'regionName', 'inputOrigin_regionName' - The AWS Region name of the origin resource.
 --
+-- 'name', 'inputOrigin_name' - The name of the origin resource.
+--
 -- 'protocolPolicy', 'inputOrigin_protocolPolicy' - The protocol that your Amazon Lightsail distribution uses when
 -- establishing a connection with your origin to pull content.
---
--- 'name', 'inputOrigin_name' - The name of the origin resource.
 newInputOrigin ::
   InputOrigin
 newInputOrigin =
   InputOrigin'
     { regionName = Prelude.Nothing,
-      protocolPolicy = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      protocolPolicy = Prelude.Nothing
     }
 
 -- | The AWS Region name of the origin resource.
 inputOrigin_regionName :: Lens.Lens' InputOrigin (Prelude.Maybe RegionName)
 inputOrigin_regionName = Lens.lens (\InputOrigin' {regionName} -> regionName) (\s@InputOrigin' {} a -> s {regionName = a} :: InputOrigin)
 
+-- | The name of the origin resource.
+inputOrigin_name :: Lens.Lens' InputOrigin (Prelude.Maybe Prelude.Text)
+inputOrigin_name = Lens.lens (\InputOrigin' {name} -> name) (\s@InputOrigin' {} a -> s {name = a} :: InputOrigin)
+
 -- | The protocol that your Amazon Lightsail distribution uses when
 -- establishing a connection with your origin to pull content.
 inputOrigin_protocolPolicy :: Lens.Lens' InputOrigin (Prelude.Maybe OriginProtocolPolicyEnum)
 inputOrigin_protocolPolicy = Lens.lens (\InputOrigin' {protocolPolicy} -> protocolPolicy) (\s@InputOrigin' {} a -> s {protocolPolicy = a} :: InputOrigin)
-
--- | The name of the origin resource.
-inputOrigin_name :: Lens.Lens' InputOrigin (Prelude.Maybe Prelude.Text)
-inputOrigin_name = Lens.lens (\InputOrigin' {name} -> name) (\s@InputOrigin' {} a -> s {name = a} :: InputOrigin)
 
 instance Prelude.Hashable InputOrigin
 
@@ -89,8 +89,8 @@ instance Core.ToJSON InputOrigin where
     Core.object
       ( Prelude.catMaybes
           [ ("regionName" Core..=) Prelude.<$> regionName,
+            ("name" Core..=) Prelude.<$> name,
             ("protocolPolicy" Core..=)
-              Prelude.<$> protocolPolicy,
-            ("name" Core..=) Prelude.<$> name
+              Prelude.<$> protocolPolicy
           ]
       )

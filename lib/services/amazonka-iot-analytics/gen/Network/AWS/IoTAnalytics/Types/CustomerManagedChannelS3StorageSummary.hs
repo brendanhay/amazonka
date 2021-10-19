@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCustomerManagedChannelS3StorageSummary' smart constructor.
 data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSummary'
-  { -- | (Optional) The prefix used to create the keys of the channel data
+  { -- | The name of the S3 bucket in which channel data is stored.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The prefix used to create the keys of the channel data
     -- objects. Each object in an S3 bucket has a key that is its unique
     -- identifier within the bucket (each object in a bucket has exactly one
     -- key). The prefix must end with a forward slash (\/).
     keyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the role that grants IoT Analytics permission to interact
     -- with your Amazon S3 resources.
-    roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the S3 bucket in which channel data is stored.
-    bucket :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,6 +48,8 @@ data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSum
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 'customerManagedChannelS3StorageSummary_bucket' - The name of the S3 bucket in which channel data is stored.
+--
 -- 'keyPrefix', 'customerManagedChannelS3StorageSummary_keyPrefix' - (Optional) The prefix used to create the keys of the channel data
 -- objects. Each object in an S3 bucket has a key that is its unique
 -- identifier within the bucket (each object in a bucket has exactly one
@@ -55,17 +57,19 @@ data CustomerManagedChannelS3StorageSummary = CustomerManagedChannelS3StorageSum
 --
 -- 'roleArn', 'customerManagedChannelS3StorageSummary_roleArn' - The ARN of the role that grants IoT Analytics permission to interact
 -- with your Amazon S3 resources.
---
--- 'bucket', 'customerManagedChannelS3StorageSummary_bucket' - The name of the S3 bucket in which channel data is stored.
 newCustomerManagedChannelS3StorageSummary ::
   CustomerManagedChannelS3StorageSummary
 newCustomerManagedChannelS3StorageSummary =
   CustomerManagedChannelS3StorageSummary'
-    { keyPrefix =
+    { bucket =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      bucket = Prelude.Nothing
+      keyPrefix = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
+
+-- | The name of the S3 bucket in which channel data is stored.
+customerManagedChannelS3StorageSummary_bucket :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
+customerManagedChannelS3StorageSummary_bucket = Lens.lens (\CustomerManagedChannelS3StorageSummary' {bucket} -> bucket) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {bucket = a} :: CustomerManagedChannelS3StorageSummary)
 
 -- | (Optional) The prefix used to create the keys of the channel data
 -- objects. Each object in an S3 bucket has a key that is its unique
@@ -79,10 +83,6 @@ customerManagedChannelS3StorageSummary_keyPrefix = Lens.lens (\CustomerManagedCh
 customerManagedChannelS3StorageSummary_roleArn :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
 customerManagedChannelS3StorageSummary_roleArn = Lens.lens (\CustomerManagedChannelS3StorageSummary' {roleArn} -> roleArn) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {roleArn = a} :: CustomerManagedChannelS3StorageSummary)
 
--- | The name of the S3 bucket in which channel data is stored.
-customerManagedChannelS3StorageSummary_bucket :: Lens.Lens' CustomerManagedChannelS3StorageSummary (Prelude.Maybe Prelude.Text)
-customerManagedChannelS3StorageSummary_bucket = Lens.lens (\CustomerManagedChannelS3StorageSummary' {bucket} -> bucket) (\s@CustomerManagedChannelS3StorageSummary' {} a -> s {bucket = a} :: CustomerManagedChannelS3StorageSummary)
-
 instance
   Core.FromJSON
     CustomerManagedChannelS3StorageSummary
@@ -92,9 +92,9 @@ instance
       "CustomerManagedChannelS3StorageSummary"
       ( \x ->
           CustomerManagedChannelS3StorageSummary'
-            Prelude.<$> (x Core..:? "keyPrefix")
+            Prelude.<$> (x Core..:? "bucket")
+            Prelude.<*> (x Core..:? "keyPrefix")
             Prelude.<*> (x Core..:? "roleArn")
-            Prelude.<*> (x Core..:? "bucket")
       )
 
 instance

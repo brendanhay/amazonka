@@ -37,8 +37,8 @@ module Network.AWS.EC2.DisassociateSubnetCidrBlock
     newDisassociateSubnetCidrBlockResponse,
 
     -- * Response Lenses
-    disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
     disassociateSubnetCidrBlockResponse_subnetId,
+    disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
     disassociateSubnetCidrBlockResponse_httpStatus,
   )
 where
@@ -89,8 +89,8 @@ instance Core.AWSRequest DisassociateSubnetCidrBlock where
     Response.receiveXML
       ( \s h x ->
           DisassociateSubnetCidrBlockResponse'
-            Prelude.<$> (x Core..@? "ipv6CidrBlockAssociation")
-            Prelude.<*> (x Core..@? "subnetId")
+            Prelude.<$> (x Core..@? "subnetId")
+            Prelude.<*> (x Core..@? "ipv6CidrBlockAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -118,10 +118,10 @@ instance Core.ToQuery DisassociateSubnetCidrBlock where
 
 -- | /See:/ 'newDisassociateSubnetCidrBlockResponse' smart constructor.
 data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
-  { -- | Information about the IPv6 CIDR block association.
-    ipv6CidrBlockAssociation :: Prelude.Maybe SubnetIpv6CidrBlockAssociation,
-    -- | The ID of the subnet.
+  { -- | The ID of the subnet.
     subnetId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Prelude.Maybe SubnetIpv6CidrBlockAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -135,9 +135,9 @@ data DisassociateSubnetCidrBlockResponse = DisassociateSubnetCidrBlockResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6CidrBlockAssociation', 'disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
---
 -- 'subnetId', 'disassociateSubnetCidrBlockResponse_subnetId' - The ID of the subnet.
+--
+-- 'ipv6CidrBlockAssociation', 'disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 --
 -- 'httpStatus', 'disassociateSubnetCidrBlockResponse_httpStatus' - The response's http status code.
 newDisassociateSubnetCidrBlockResponse ::
@@ -146,19 +146,20 @@ newDisassociateSubnetCidrBlockResponse ::
   DisassociateSubnetCidrBlockResponse
 newDisassociateSubnetCidrBlockResponse pHttpStatus_ =
   DisassociateSubnetCidrBlockResponse'
-    { ipv6CidrBlockAssociation =
+    { subnetId =
         Prelude.Nothing,
-      subnetId = Prelude.Nothing,
+      ipv6CidrBlockAssociation =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the IPv6 CIDR block association.
-disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Prelude.Maybe SubnetIpv6CidrBlockAssociation)
-disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\DisassociateSubnetCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@DisassociateSubnetCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: DisassociateSubnetCidrBlockResponse)
 
 -- | The ID of the subnet.
 disassociateSubnetCidrBlockResponse_subnetId :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Prelude.Maybe Prelude.Text)
 disassociateSubnetCidrBlockResponse_subnetId = Lens.lens (\DisassociateSubnetCidrBlockResponse' {subnetId} -> subnetId) (\s@DisassociateSubnetCidrBlockResponse' {} a -> s {subnetId = a} :: DisassociateSubnetCidrBlockResponse)
+
+-- | Information about the IPv6 CIDR block association.
+disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' DisassociateSubnetCidrBlockResponse (Prelude.Maybe SubnetIpv6CidrBlockAssociation)
+disassociateSubnetCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\DisassociateSubnetCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@DisassociateSubnetCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: DisassociateSubnetCidrBlockResponse)
 
 -- | The response's http status code.
 disassociateSubnetCidrBlockResponse_httpStatus :: Lens.Lens' DisassociateSubnetCidrBlockResponse Prelude.Int

@@ -70,12 +70,12 @@ newBatchExecuteStatement ::
 newBatchExecuteStatement pStatements_ =
   BatchExecuteStatement'
     { statements =
-        Lens._Coerce Lens.# pStatements_
+        Lens.coerced Lens.# pStatements_
     }
 
 -- | The list of PartiQL statements representing the batch to run.
 batchExecuteStatement_statements :: Lens.Lens' BatchExecuteStatement (Prelude.NonEmpty BatchStatementRequest)
-batchExecuteStatement_statements = Lens.lens (\BatchExecuteStatement' {statements} -> statements) (\s@BatchExecuteStatement' {} a -> s {statements = a} :: BatchExecuteStatement) Prelude.. Lens._Coerce
+batchExecuteStatement_statements = Lens.lens (\BatchExecuteStatement' {statements} -> statements) (\s@BatchExecuteStatement' {} a -> s {statements = a} :: BatchExecuteStatement) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchExecuteStatement where
   type
@@ -155,7 +155,7 @@ newBatchExecuteStatementResponse pHttpStatus_ =
 
 -- | The response to each PartiQL statement in the batch.
 batchExecuteStatementResponse_responses :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe [BatchStatementResponse])
-batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementResponse' {responses} -> responses) (\s@BatchExecuteStatementResponse' {} a -> s {responses = a} :: BatchExecuteStatementResponse) Prelude.. Lens.mapping Lens._Coerce
+batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementResponse' {responses} -> responses) (\s@BatchExecuteStatementResponse' {} a -> s {responses = a} :: BatchExecuteStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Prelude.Int

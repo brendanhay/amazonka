@@ -199,7 +199,7 @@ newListInstanceFleetsResponse pHttpStatus_ =
 
 -- | The list of instance fleets for the cluster and given filters.
 listInstanceFleetsResponse_instanceFleets :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe [InstanceFleet])
-listInstanceFleetsResponse_instanceFleets = Lens.lens (\ListInstanceFleetsResponse' {instanceFleets} -> instanceFleets) (\s@ListInstanceFleetsResponse' {} a -> s {instanceFleets = a} :: ListInstanceFleetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listInstanceFleetsResponse_instanceFleets = Lens.lens (\ListInstanceFleetsResponse' {instanceFleets} -> instanceFleets) (\s@ListInstanceFleetsResponse' {} a -> s {instanceFleets = a} :: ListInstanceFleetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listInstanceFleetsResponse_marker :: Lens.Lens' ListInstanceFleetsResponse (Prelude.Maybe Prelude.Text)

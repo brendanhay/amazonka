@@ -193,7 +193,7 @@ describeUploadBufferResponse_gatewayARN = Lens.lens (\DescribeUploadBufferRespon
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
 describeUploadBufferResponse_diskIds :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe [Prelude.Text])
-describeUploadBufferResponse_diskIds = Lens.lens (\DescribeUploadBufferResponse' {diskIds} -> diskIds) (\s@DescribeUploadBufferResponse' {} a -> s {diskIds = a} :: DescribeUploadBufferResponse) Prelude.. Lens.mapping Lens._Coerce
+describeUploadBufferResponse_diskIds = Lens.lens (\DescribeUploadBufferResponse' {diskIds} -> diskIds) (\s@DescribeUploadBufferResponse' {} a -> s {diskIds = a} :: DescribeUploadBufferResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of bytes being used in the gateway\'s upload buffer.
 describeUploadBufferResponse_uploadBufferUsedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Integer)

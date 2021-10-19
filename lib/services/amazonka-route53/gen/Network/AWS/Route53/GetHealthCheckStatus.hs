@@ -182,6 +182,6 @@ getHealthCheckStatusResponse_httpStatus = Lens.lens (\GetHealthCheckStatusRespon
 -- Amazon Route 53 health checker that is reporting a status about the
 -- health check endpoint.
 getHealthCheckStatusResponse_healthCheckObservations :: Lens.Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
-getHealthCheckStatusResponse_healthCheckObservations = Lens.lens (\GetHealthCheckStatusResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckStatusResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckStatusResponse) Prelude.. Lens._Coerce
+getHealthCheckStatusResponse_healthCheckObservations = Lens.lens (\GetHealthCheckStatusResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckStatusResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckStatusResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetHealthCheckStatusResponse

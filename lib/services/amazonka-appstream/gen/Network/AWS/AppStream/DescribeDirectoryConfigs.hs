@@ -37,8 +37,8 @@ module Network.AWS.AppStream.DescribeDirectoryConfigs
 
     -- * Request Lenses
     describeDirectoryConfigs_nextToken,
-    describeDirectoryConfigs_maxResults,
     describeDirectoryConfigs_directoryNames,
+    describeDirectoryConfigs_maxResults,
 
     -- * Destructuring the Response
     DescribeDirectoryConfigsResponse (..),
@@ -63,10 +63,10 @@ data DescribeDirectoryConfigs = DescribeDirectoryConfigs'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of each page of results.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The directory names.
-    directoryNames :: Prelude.Maybe [Prelude.Text]
+    directoryNames :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,17 +81,17 @@ data DescribeDirectoryConfigs = DescribeDirectoryConfigs'
 -- 'nextToken', 'describeDirectoryConfigs_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'maxResults', 'describeDirectoryConfigs_maxResults' - The maximum size of each page of results.
---
 -- 'directoryNames', 'describeDirectoryConfigs_directoryNames' - The directory names.
+--
+-- 'maxResults', 'describeDirectoryConfigs_maxResults' - The maximum size of each page of results.
 newDescribeDirectoryConfigs ::
   DescribeDirectoryConfigs
 newDescribeDirectoryConfigs =
   DescribeDirectoryConfigs'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      directoryNames = Prelude.Nothing
+      directoryNames = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | The pagination token to use to retrieve the next page of results for
@@ -99,13 +99,13 @@ newDescribeDirectoryConfigs =
 describeDirectoryConfigs_nextToken :: Lens.Lens' DescribeDirectoryConfigs (Prelude.Maybe Prelude.Text)
 describeDirectoryConfigs_nextToken = Lens.lens (\DescribeDirectoryConfigs' {nextToken} -> nextToken) (\s@DescribeDirectoryConfigs' {} a -> s {nextToken = a} :: DescribeDirectoryConfigs)
 
+-- | The directory names.
+describeDirectoryConfigs_directoryNames :: Lens.Lens' DescribeDirectoryConfigs (Prelude.Maybe [Prelude.Text])
+describeDirectoryConfigs_directoryNames = Lens.lens (\DescribeDirectoryConfigs' {directoryNames} -> directoryNames) (\s@DescribeDirectoryConfigs' {} a -> s {directoryNames = a} :: DescribeDirectoryConfigs) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum size of each page of results.
 describeDirectoryConfigs_maxResults :: Lens.Lens' DescribeDirectoryConfigs (Prelude.Maybe Prelude.Int)
 describeDirectoryConfigs_maxResults = Lens.lens (\DescribeDirectoryConfigs' {maxResults} -> maxResults) (\s@DescribeDirectoryConfigs' {} a -> s {maxResults = a} :: DescribeDirectoryConfigs)
-
--- | The directory names.
-describeDirectoryConfigs_directoryNames :: Lens.Lens' DescribeDirectoryConfigs (Prelude.Maybe [Prelude.Text])
-describeDirectoryConfigs_directoryNames = Lens.lens (\DescribeDirectoryConfigs' {directoryNames} -> directoryNames) (\s@DescribeDirectoryConfigs' {} a -> s {directoryNames = a} :: DescribeDirectoryConfigs) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeDirectoryConfigs where
   page rq rs
@@ -169,9 +169,9 @@ instance Core.ToJSON DescribeDirectoryConfigs where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("DirectoryNames" Core..=)
-              Prelude.<$> directoryNames
+              Prelude.<$> directoryNames,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -232,7 +232,7 @@ describeDirectoryConfigsResponse_nextToken = Lens.lens (\DescribeDirectoryConfig
 -- response syntax in this topic includes the account password, this
 -- password is not returned in the actual response.
 describeDirectoryConfigsResponse_directoryConfigs :: Lens.Lens' DescribeDirectoryConfigsResponse (Prelude.Maybe [DirectoryConfig])
-describeDirectoryConfigsResponse_directoryConfigs = Lens.lens (\DescribeDirectoryConfigsResponse' {directoryConfigs} -> directoryConfigs) (\s@DescribeDirectoryConfigsResponse' {} a -> s {directoryConfigs = a} :: DescribeDirectoryConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDirectoryConfigsResponse_directoryConfigs = Lens.lens (\DescribeDirectoryConfigsResponse' {directoryConfigs} -> directoryConfigs) (\s@DescribeDirectoryConfigsResponse' {} a -> s {directoryConfigs = a} :: DescribeDirectoryConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDirectoryConfigsResponse_httpStatus :: Lens.Lens' DescribeDirectoryConfigsResponse Prelude.Int

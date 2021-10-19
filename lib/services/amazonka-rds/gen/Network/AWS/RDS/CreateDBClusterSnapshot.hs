@@ -133,7 +133,7 @@ newCreateDBClusterSnapshot
 
 -- | The tags to be assigned to the DB cluster snapshot.
 createDBClusterSnapshot_tags :: Lens.Lens' CreateDBClusterSnapshot (Prelude.Maybe [Tag])
-createDBClusterSnapshot_tags = Lens.lens (\CreateDBClusterSnapshot' {tags} -> tags) (\s@CreateDBClusterSnapshot' {} a -> s {tags = a} :: CreateDBClusterSnapshot) Prelude.. Lens.mapping Lens._Coerce
+createDBClusterSnapshot_tags = Lens.lens (\CreateDBClusterSnapshot' {tags} -> tags) (\s@CreateDBClusterSnapshot' {} a -> s {tags = a} :: CreateDBClusterSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the DB cluster snapshot. This parameter is stored as a
 -- lowercase string.

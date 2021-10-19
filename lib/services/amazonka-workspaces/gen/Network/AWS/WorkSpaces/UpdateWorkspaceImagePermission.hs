@@ -20,20 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Shares or unshares an image with one account in the same AWS Region by
--- specifying whether that account has permission to copy the image. If the
--- copy image permission is granted, the image is shared with that account.
--- If the copy image permission is revoked, the image is unshared with the
--- account.
+-- Shares or unshares an image with one account in the same Amazon Web
+-- Services Region by specifying whether that account has permission to
+-- copy the image. If the copy image permission is granted, the image is
+-- shared with that account. If the copy image permission is revoked, the
+-- image is unshared with the account.
 --
 -- After an image has been shared, the recipient account can copy the image
--- to other AWS Regions as needed.
+-- to other Regions as needed.
 --
 -- In the China (Ningxia) Region, you can copy images only within the same
 -- Region.
 --
--- In the AWS GovCloud (US-West) Region, to copy images to and from other
--- AWS Regions, contact AWS Support.
+-- In Amazon Web Services GovCloud (US), to copy images to and from other
+-- Regions, contact Amazon Web Services Support.
 --
 -- For more information about sharing images, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html Share or Unshare a Custom WorkSpaces Image>.
@@ -41,10 +41,11 @@
 -- -   To delete an image that has been shared, you must unshare the image
 --     before you delete it.
 --
--- -   Sharing Bring Your Own License (BYOL) images across AWS accounts
---     isn\'t supported at this time in the AWS GovCloud (US-West) Region.
---     To share BYOL images across accounts in the AWS GovCloud (US-West)
---     Region, contact AWS Support.
+-- -   Sharing Bring Your Own License (BYOL) images across Amazon Web
+--     Services accounts isn\'t supported at this time in Amazon Web
+--     Services GovCloud (US). To share BYOL images across accounts in
+--     Amazon Web Services GovCloud (US), contact Amazon Web Services
+--     Support.
 module Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
   ( -- * Creating a Request
     UpdateWorkspaceImagePermission (..),
@@ -78,10 +79,11 @@ data UpdateWorkspaceImagePermission = UpdateWorkspaceImagePermission'
     -- | The permission to copy the image. This permission can be revoked only
     -- after an image has been shared.
     allowCopyImage :: Prelude.Bool,
-    -- | The identifier of the AWS account to share or unshare the image with.
+    -- | The identifier of the Amazon Web Services account to share or unshare
+    -- the image with.
     --
     -- Before sharing the image, confirm that you are sharing to the correct
-    -- AWS account ID.
+    -- Amazon Web Services account ID.
     sharedAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,10 +101,11 @@ data UpdateWorkspaceImagePermission = UpdateWorkspaceImagePermission'
 -- 'allowCopyImage', 'updateWorkspaceImagePermission_allowCopyImage' - The permission to copy the image. This permission can be revoked only
 -- after an image has been shared.
 --
--- 'sharedAccountId', 'updateWorkspaceImagePermission_sharedAccountId' - The identifier of the AWS account to share or unshare the image with.
+-- 'sharedAccountId', 'updateWorkspaceImagePermission_sharedAccountId' - The identifier of the Amazon Web Services account to share or unshare
+-- the image with.
 --
 -- Before sharing the image, confirm that you are sharing to the correct
--- AWS account ID.
+-- Amazon Web Services account ID.
 newUpdateWorkspaceImagePermission ::
   -- | 'imageId'
   Prelude.Text ->
@@ -131,10 +134,11 @@ updateWorkspaceImagePermission_imageId = Lens.lens (\UpdateWorkspaceImagePermiss
 updateWorkspaceImagePermission_allowCopyImage :: Lens.Lens' UpdateWorkspaceImagePermission Prelude.Bool
 updateWorkspaceImagePermission_allowCopyImage = Lens.lens (\UpdateWorkspaceImagePermission' {allowCopyImage} -> allowCopyImage) (\s@UpdateWorkspaceImagePermission' {} a -> s {allowCopyImage = a} :: UpdateWorkspaceImagePermission)
 
--- | The identifier of the AWS account to share or unshare the image with.
+-- | The identifier of the Amazon Web Services account to share or unshare
+-- the image with.
 --
 -- Before sharing the image, confirm that you are sharing to the correct
--- AWS account ID.
+-- Amazon Web Services account ID.
 updateWorkspaceImagePermission_sharedAccountId :: Lens.Lens' UpdateWorkspaceImagePermission Prelude.Text
 updateWorkspaceImagePermission_sharedAccountId = Lens.lens (\UpdateWorkspaceImagePermission' {sharedAccountId} -> sharedAccountId) (\s@UpdateWorkspaceImagePermission' {} a -> s {sharedAccountId = a} :: UpdateWorkspaceImagePermission)
 

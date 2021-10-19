@@ -36,8 +36,8 @@ module Network.AWS.DirectConnect.DisassociateMacSecKey
     newDisassociateMacSecKeyResponse,
 
     -- * Response Lenses
-    disassociateMacSecKeyResponse_macSecKeys,
     disassociateMacSecKeyResponse_connectionId,
+    disassociateMacSecKeyResponse_macSecKeys,
     disassociateMacSecKeyResponse_httpStatus,
   )
 where
@@ -120,8 +120,8 @@ instance Core.AWSRequest DisassociateMacSecKey where
     Response.receiveJSON
       ( \s h x ->
           DisassociateMacSecKeyResponse'
-            Prelude.<$> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "connectionId")
+            Prelude.<$> (x Core..?> "connectionId")
+            Prelude.<*> (x Core..?> "macSecKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,12 +161,12 @@ instance Core.ToQuery DisassociateMacSecKey where
 
 -- | /See:/ 'newDisassociateMacSecKeyResponse' smart constructor.
 data DisassociateMacSecKeyResponse = DisassociateMacSecKeyResponse'
-  { -- | The MAC Security (MACsec) security keys no longer associated with the
-    -- dedicated connection.
-    macSecKeys :: Prelude.Maybe [MacSecKey],
-    -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
+  { -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
     -- (dxlag-xxxx).
     connectionId :: Prelude.Maybe Prelude.Text,
+    -- | The MAC Security (MACsec) security keys no longer associated with the
+    -- dedicated connection.
+    macSecKeys :: Prelude.Maybe [MacSecKey],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,11 +180,11 @@ data DisassociateMacSecKeyResponse = DisassociateMacSecKeyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'macSecKeys', 'disassociateMacSecKeyResponse_macSecKeys' - The MAC Security (MACsec) security keys no longer associated with the
--- dedicated connection.
---
 -- 'connectionId', 'disassociateMacSecKeyResponse_connectionId' - The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
+--
+-- 'macSecKeys', 'disassociateMacSecKeyResponse_macSecKeys' - The MAC Security (MACsec) security keys no longer associated with the
+-- dedicated connection.
 --
 -- 'httpStatus', 'disassociateMacSecKeyResponse_httpStatus' - The response's http status code.
 newDisassociateMacSecKeyResponse ::
@@ -193,21 +193,21 @@ newDisassociateMacSecKeyResponse ::
   DisassociateMacSecKeyResponse
 newDisassociateMacSecKeyResponse pHttpStatus_ =
   DisassociateMacSecKeyResponse'
-    { macSecKeys =
+    { connectionId =
         Prelude.Nothing,
-      connectionId = Prelude.Nothing,
+      macSecKeys = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The MAC Security (MACsec) security keys no longer associated with the
--- dedicated connection.
-disassociateMacSecKeyResponse_macSecKeys :: Lens.Lens' DisassociateMacSecKeyResponse (Prelude.Maybe [MacSecKey])
-disassociateMacSecKeyResponse_macSecKeys = Lens.lens (\DisassociateMacSecKeyResponse' {macSecKeys} -> macSecKeys) (\s@DisassociateMacSecKeyResponse' {} a -> s {macSecKeys = a} :: DisassociateMacSecKeyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG
 -- (dxlag-xxxx).
 disassociateMacSecKeyResponse_connectionId :: Lens.Lens' DisassociateMacSecKeyResponse (Prelude.Maybe Prelude.Text)
 disassociateMacSecKeyResponse_connectionId = Lens.lens (\DisassociateMacSecKeyResponse' {connectionId} -> connectionId) (\s@DisassociateMacSecKeyResponse' {} a -> s {connectionId = a} :: DisassociateMacSecKeyResponse)
+
+-- | The MAC Security (MACsec) security keys no longer associated with the
+-- dedicated connection.
+disassociateMacSecKeyResponse_macSecKeys :: Lens.Lens' DisassociateMacSecKeyResponse (Prelude.Maybe [MacSecKey])
+disassociateMacSecKeyResponse_macSecKeys = Lens.lens (\DisassociateMacSecKeyResponse' {macSecKeys} -> macSecKeys) (\s@DisassociateMacSecKeyResponse' {} a -> s {macSecKeys = a} :: DisassociateMacSecKeyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 disassociateMacSecKeyResponse_httpStatus :: Lens.Lens' DisassociateMacSecKeyResponse Prelude.Int

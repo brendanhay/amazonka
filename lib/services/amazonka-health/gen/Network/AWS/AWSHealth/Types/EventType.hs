@@ -41,16 +41,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEventType' smart constructor.
 data EventType = EventType'
-  { -- | A list of event type category codes (@issue@, @scheduledChange@, or
+  { -- | The AWS service that is affected by the event. For example, @EC2@,
+    -- @RDS@.
+    service :: Prelude.Maybe Prelude.Text,
+    -- | A list of event type category codes (@issue@, @scheduledChange@, or
     -- @accountNotification@).
     category :: Prelude.Maybe EventTypeCategory,
     -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The AWS service that is affected by the event. For example, @EC2@,
-    -- @RDS@.
-    service :: Prelude.Maybe Prelude.Text
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,23 +62,28 @@ data EventType = EventType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'service', 'eventType_service' - The AWS service that is affected by the event. For example, @EC2@,
+-- @RDS@.
+--
 -- 'category', 'eventType_category' - A list of event type category codes (@issue@, @scheduledChange@, or
 -- @accountNotification@).
 --
 -- 'code', 'eventType_code' - The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
---
--- 'service', 'eventType_service' - The AWS service that is affected by the event. For example, @EC2@,
--- @RDS@.
 newEventType ::
   EventType
 newEventType =
   EventType'
-    { category = Prelude.Nothing,
-      code = Prelude.Nothing,
-      service = Prelude.Nothing
+    { service = Prelude.Nothing,
+      category = Prelude.Nothing,
+      code = Prelude.Nothing
     }
+
+-- | The AWS service that is affected by the event. For example, @EC2@,
+-- @RDS@.
+eventType_service :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_service = Lens.lens (\EventType' {service} -> service) (\s@EventType' {} a -> s {service = a} :: EventType)
 
 -- | A list of event type category codes (@issue@, @scheduledChange@, or
 -- @accountNotification@).
@@ -91,20 +96,15 @@ eventType_category = Lens.lens (\EventType' {category} -> category) (\s@EventTyp
 eventType_code :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
 eventType_code = Lens.lens (\EventType' {code} -> code) (\s@EventType' {} a -> s {code = a} :: EventType)
 
--- | The AWS service that is affected by the event. For example, @EC2@,
--- @RDS@.
-eventType_service :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
-eventType_service = Lens.lens (\EventType' {service} -> service) (\s@EventType' {} a -> s {service = a} :: EventType)
-
 instance Core.FromJSON EventType where
   parseJSON =
     Core.withObject
       "EventType"
       ( \x ->
           EventType'
-            Prelude.<$> (x Core..:? "category")
+            Prelude.<$> (x Core..:? "service")
+            Prelude.<*> (x Core..:? "category")
             Prelude.<*> (x Core..:? "code")
-            Prelude.<*> (x Core..:? "service")
       )
 
 instance Prelude.Hashable EventType

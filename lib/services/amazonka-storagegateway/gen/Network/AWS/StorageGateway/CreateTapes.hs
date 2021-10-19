@@ -96,7 +96,8 @@ data CreateTapes = CreateTapes'
     tags :: Prelude.Maybe [Tag],
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tapes with. Use the ListGateways operation to
-    -- return a list of gateways for your account and Region.
+    -- return a list of gateways for your account and Amazon Web Services
+    -- Region.
     gatewayARN :: Prelude.Text,
     -- | The size, in bytes, of the virtual tapes that you want to create.
     --
@@ -158,7 +159,8 @@ data CreateTapes = CreateTapes'
 --
 -- 'gatewayARN', 'createTapes_gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
--- return a list of gateways for your account and Region.
+-- return a list of gateways for your account and Amazon Web Services
+-- Region.
 --
 -- 'tapeSizeInBytes', 'createTapes_tapeSizeInBytes' - The size, in bytes, of the virtual tapes that you want to create.
 --
@@ -245,11 +247,12 @@ createTapes_worm = Lens.lens (\CreateTapes' {worm} -> worm) (\s@CreateTapes' {} 
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createTapes_tags :: Lens.Lens' CreateTapes (Prelude.Maybe [Tag])
-createTapes_tags = Lens.lens (\CreateTapes' {tags} -> tags) (\s@CreateTapes' {} a -> s {tags = a} :: CreateTapes) Prelude.. Lens.mapping Lens._Coerce
+createTapes_tags = Lens.lens (\CreateTapes' {tags} -> tags) (\s@CreateTapes' {} a -> s {tags = a} :: CreateTapes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
--- return a list of gateways for your account and Region.
+-- return a list of gateways for your account and Amazon Web Services
+-- Region.
 createTapes_gatewayARN :: Lens.Lens' CreateTapes Prelude.Text
 createTapes_gatewayARN = Lens.lens (\CreateTapes' {gatewayARN} -> gatewayARN) (\s@CreateTapes' {} a -> s {gatewayARN = a} :: CreateTapes)
 
@@ -372,7 +375,7 @@ newCreateTapesResponse pHttpStatus_ =
 -- | A list of unique Amazon Resource Names (ARNs) that represents the
 -- virtual tapes that were created.
 createTapesResponse_tapeARNs :: Lens.Lens' CreateTapesResponse (Prelude.Maybe [Prelude.Text])
-createTapesResponse_tapeARNs = Lens.lens (\CreateTapesResponse' {tapeARNs} -> tapeARNs) (\s@CreateTapesResponse' {} a -> s {tapeARNs = a} :: CreateTapesResponse) Prelude.. Lens.mapping Lens._Coerce
+createTapesResponse_tapeARNs = Lens.lens (\CreateTapesResponse' {tapeARNs} -> tapeARNs) (\s@CreateTapesResponse' {} a -> s {tapeARNs = a} :: CreateTapesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createTapesResponse_httpStatus :: Lens.Lens' CreateTapesResponse Prelude.Int

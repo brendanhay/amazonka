@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAuditMitigationActionsTaskTarget' smart constructor.
 data AuditMitigationActionsTaskTarget = AuditMitigationActionsTaskTarget'
-  { -- | If the task will apply a mitigation action to one or more listed
-    -- findings, this value uniquely identifies those findings.
-    findingIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | If the task will apply a mitigation action to findings from a specific
+  { -- | If the task will apply a mitigation action to findings from a specific
     -- audit, this value uniquely identifies the audit.
     auditTaskId :: Prelude.Maybe Prelude.Text,
+    -- | If the task will apply a mitigation action to one or more listed
+    -- findings, this value uniquely identifies those findings.
+    findingIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies a filter in the form of an audit check and set of reason codes
     -- that identify the findings from the audit to which the audit mitigation
     -- actions task apply.
@@ -50,11 +50,11 @@ data AuditMitigationActionsTaskTarget = AuditMitigationActionsTaskTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingIds', 'auditMitigationActionsTaskTarget_findingIds' - If the task will apply a mitigation action to one or more listed
--- findings, this value uniquely identifies those findings.
---
 -- 'auditTaskId', 'auditMitigationActionsTaskTarget_auditTaskId' - If the task will apply a mitigation action to findings from a specific
 -- audit, this value uniquely identifies the audit.
+--
+-- 'findingIds', 'auditMitigationActionsTaskTarget_findingIds' - If the task will apply a mitigation action to one or more listed
+-- findings, this value uniquely identifies those findings.
 --
 -- 'auditCheckToReasonCodeFilter', 'auditMitigationActionsTaskTarget_auditCheckToReasonCodeFilter' - Specifies a filter in the form of an audit check and set of reason codes
 -- that identify the findings from the audit to which the audit mitigation
@@ -63,28 +63,28 @@ newAuditMitigationActionsTaskTarget ::
   AuditMitigationActionsTaskTarget
 newAuditMitigationActionsTaskTarget =
   AuditMitigationActionsTaskTarget'
-    { findingIds =
+    { auditTaskId =
         Prelude.Nothing,
-      auditTaskId = Prelude.Nothing,
+      findingIds = Prelude.Nothing,
       auditCheckToReasonCodeFilter =
         Prelude.Nothing
     }
-
--- | If the task will apply a mitigation action to one or more listed
--- findings, this value uniquely identifies those findings.
-auditMitigationActionsTaskTarget_findingIds :: Lens.Lens' AuditMitigationActionsTaskTarget (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-auditMitigationActionsTaskTarget_findingIds = Lens.lens (\AuditMitigationActionsTaskTarget' {findingIds} -> findingIds) (\s@AuditMitigationActionsTaskTarget' {} a -> s {findingIds = a} :: AuditMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the task will apply a mitigation action to findings from a specific
 -- audit, this value uniquely identifies the audit.
 auditMitigationActionsTaskTarget_auditTaskId :: Lens.Lens' AuditMitigationActionsTaskTarget (Prelude.Maybe Prelude.Text)
 auditMitigationActionsTaskTarget_auditTaskId = Lens.lens (\AuditMitigationActionsTaskTarget' {auditTaskId} -> auditTaskId) (\s@AuditMitigationActionsTaskTarget' {} a -> s {auditTaskId = a} :: AuditMitigationActionsTaskTarget)
 
+-- | If the task will apply a mitigation action to one or more listed
+-- findings, this value uniquely identifies those findings.
+auditMitigationActionsTaskTarget_findingIds :: Lens.Lens' AuditMitigationActionsTaskTarget (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+auditMitigationActionsTaskTarget_findingIds = Lens.lens (\AuditMitigationActionsTaskTarget' {findingIds} -> findingIds) (\s@AuditMitigationActionsTaskTarget' {} a -> s {findingIds = a} :: AuditMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specifies a filter in the form of an audit check and set of reason codes
 -- that identify the findings from the audit to which the audit mitigation
 -- actions task apply.
 auditMitigationActionsTaskTarget_auditCheckToReasonCodeFilter :: Lens.Lens' AuditMitigationActionsTaskTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text)))
-auditMitigationActionsTaskTarget_auditCheckToReasonCodeFilter = Lens.lens (\AuditMitigationActionsTaskTarget' {auditCheckToReasonCodeFilter} -> auditCheckToReasonCodeFilter) (\s@AuditMitigationActionsTaskTarget' {} a -> s {auditCheckToReasonCodeFilter = a} :: AuditMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens._Coerce
+auditMitigationActionsTaskTarget_auditCheckToReasonCodeFilter = Lens.lens (\AuditMitigationActionsTaskTarget' {auditCheckToReasonCodeFilter} -> auditCheckToReasonCodeFilter) (\s@AuditMitigationActionsTaskTarget' {} a -> s {auditCheckToReasonCodeFilter = a} :: AuditMitigationActionsTaskTarget) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -95,8 +95,8 @@ instance
       "AuditMitigationActionsTaskTarget"
       ( \x ->
           AuditMitigationActionsTaskTarget'
-            Prelude.<$> (x Core..:? "findingIds")
-            Prelude.<*> (x Core..:? "auditTaskId")
+            Prelude.<$> (x Core..:? "auditTaskId")
+            Prelude.<*> (x Core..:? "findingIds")
             Prelude.<*> ( x Core..:? "auditCheckToReasonCodeFilter"
                             Core..!= Prelude.mempty
                         )
@@ -114,8 +114,8 @@ instance Core.ToJSON AuditMitigationActionsTaskTarget where
   toJSON AuditMitigationActionsTaskTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("findingIds" Core..=) Prelude.<$> findingIds,
-            ("auditTaskId" Core..=) Prelude.<$> auditTaskId,
+          [ ("auditTaskId" Core..=) Prelude.<$> auditTaskId,
+            ("findingIds" Core..=) Prelude.<$> findingIds,
             ("auditCheckToReasonCodeFilter" Core..=)
               Prelude.<$> auditCheckToReasonCodeFilter
           ]

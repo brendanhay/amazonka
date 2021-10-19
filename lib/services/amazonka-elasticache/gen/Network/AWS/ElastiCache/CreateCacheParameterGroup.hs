@@ -129,7 +129,7 @@ newCreateCacheParameterGroup
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createCacheParameterGroup_tags :: Lens.Lens' CreateCacheParameterGroup (Prelude.Maybe [Tag])
-createCacheParameterGroup_tags = Lens.lens (\CreateCacheParameterGroup' {tags} -> tags) (\s@CreateCacheParameterGroup' {} a -> s {tags = a} :: CreateCacheParameterGroup) Prelude.. Lens.mapping Lens._Coerce
+createCacheParameterGroup_tags = Lens.lens (\CreateCacheParameterGroup' {tags} -> tags) (\s@CreateCacheParameterGroup' {} a -> s {tags = a} :: CreateCacheParameterGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A user-specified name for the cache parameter group.
 createCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' CreateCacheParameterGroup Prelude.Text

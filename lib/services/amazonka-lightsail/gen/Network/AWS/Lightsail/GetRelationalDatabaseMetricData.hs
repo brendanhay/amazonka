@@ -444,7 +444,7 @@ getRelationalDatabaseMetricData_unit = Lens.lens (\GetRelationalDatabaseMetricDa
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getRelationalDatabaseMetricData_statistics :: Lens.Lens' GetRelationalDatabaseMetricData [MetricStatistic]
-getRelationalDatabaseMetricData_statistics = Lens.lens (\GetRelationalDatabaseMetricData' {statistics} -> statistics) (\s@GetRelationalDatabaseMetricData' {} a -> s {statistics = a} :: GetRelationalDatabaseMetricData) Prelude.. Lens._Coerce
+getRelationalDatabaseMetricData_statistics = Lens.lens (\GetRelationalDatabaseMetricData' {statistics} -> statistics) (\s@GetRelationalDatabaseMetricData' {} a -> s {statistics = a} :: GetRelationalDatabaseMetricData) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -555,7 +555,7 @@ getRelationalDatabaseMetricDataResponse_metricName = Lens.lens (\GetRelationalDa
 
 -- | An array of objects that describe the metric data returned.
 getRelationalDatabaseMetricDataResponse_metricData :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getRelationalDatabaseMetricDataResponse_metricData = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricData} -> metricData) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricData = a} :: GetRelationalDatabaseMetricDataResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabaseMetricDataResponse_metricData = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricData} -> metricData) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricData = a} :: GetRelationalDatabaseMetricDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRelationalDatabaseMetricDataResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseMetricDataResponse Prelude.Int

@@ -144,7 +144,7 @@ createEdgePackagingJob_resourceKey = Lens.lens (\CreateEdgePackagingJob' {resour
 
 -- | Creates tags for the packaging job.
 createEdgePackagingJob_tags :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe [Tag])
-createEdgePackagingJob_tags = Lens.lens (\CreateEdgePackagingJob' {tags} -> tags) (\s@CreateEdgePackagingJob' {} a -> s {tags = a} :: CreateEdgePackagingJob) Prelude.. Lens.mapping Lens._Coerce
+createEdgePackagingJob_tags = Lens.lens (\CreateEdgePackagingJob' {tags} -> tags) (\s@CreateEdgePackagingJob' {} a -> s {tags = a} :: CreateEdgePackagingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the edge packaging job.
 createEdgePackagingJob_edgePackagingJobName :: Lens.Lens' CreateEdgePackagingJob Prelude.Text

@@ -27,8 +27,8 @@ module Network.AWS.ElasticSearch.UpdatePackage
     newUpdatePackage,
 
     -- * Request Lenses
-    updatePackage_commitMessage,
     updatePackage_packageDescription,
+    updatePackage_commitMessage,
     updatePackage_packageID,
     updatePackage_packageSource,
 
@@ -53,11 +53,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdatePackage' smart constructor.
 data UpdatePackage = UpdatePackage'
-  { -- | An info message for the new version which will be shown as part of
+  { -- | New description of the package.
+    packageDescription :: Prelude.Maybe Prelude.Text,
+    -- | An info message for the new version which will be shown as part of
     -- @GetPackageVersionHistoryResponse@.
     commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | New description of the package.
-    packageDescription :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for the package.
     packageID :: Prelude.Text,
     packageSource :: PackageSource
@@ -72,10 +72,10 @@ data UpdatePackage = UpdatePackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'packageDescription', 'updatePackage_packageDescription' - New description of the package.
+--
 -- 'commitMessage', 'updatePackage_commitMessage' - An info message for the new version which will be shown as part of
 -- @GetPackageVersionHistoryResponse@.
---
--- 'packageDescription', 'updatePackage_packageDescription' - New description of the package.
 --
 -- 'packageID', 'updatePackage_packageID' - Unique identifier for the package.
 --
@@ -88,20 +88,21 @@ newUpdatePackage ::
   UpdatePackage
 newUpdatePackage pPackageID_ pPackageSource_ =
   UpdatePackage'
-    { commitMessage = Prelude.Nothing,
-      packageDescription = Prelude.Nothing,
+    { packageDescription =
+        Prelude.Nothing,
+      commitMessage = Prelude.Nothing,
       packageID = pPackageID_,
       packageSource = pPackageSource_
     }
+
+-- | New description of the package.
+updatePackage_packageDescription :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
+updatePackage_packageDescription = Lens.lens (\UpdatePackage' {packageDescription} -> packageDescription) (\s@UpdatePackage' {} a -> s {packageDescription = a} :: UpdatePackage)
 
 -- | An info message for the new version which will be shown as part of
 -- @GetPackageVersionHistoryResponse@.
 updatePackage_commitMessage :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
 updatePackage_commitMessage = Lens.lens (\UpdatePackage' {commitMessage} -> commitMessage) (\s@UpdatePackage' {} a -> s {commitMessage = a} :: UpdatePackage)
-
--- | New description of the package.
-updatePackage_packageDescription :: Lens.Lens' UpdatePackage (Prelude.Maybe Prelude.Text)
-updatePackage_packageDescription = Lens.lens (\UpdatePackage' {packageDescription} -> packageDescription) (\s@UpdatePackage' {} a -> s {packageDescription = a} :: UpdatePackage)
 
 -- | Unique identifier for the package.
 updatePackage_packageID :: Lens.Lens' UpdatePackage Prelude.Text
@@ -135,9 +136,9 @@ instance Core.ToJSON UpdatePackage where
   toJSON UpdatePackage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CommitMessage" Core..=) Prelude.<$> commitMessage,
-            ("PackageDescription" Core..=)
+          [ ("PackageDescription" Core..=)
               Prelude.<$> packageDescription,
+            ("CommitMessage" Core..=) Prelude.<$> commitMessage,
             Prelude.Just ("PackageID" Core..= packageID),
             Prelude.Just
               ("PackageSource" Core..= packageSource)

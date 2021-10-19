@@ -55,7 +55,7 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newGetEmailTemplate' smart constructor.
 data GetEmailTemplate = GetEmailTemplate'
-  { -- | The name of the template you want to retrieve.
+  { -- | The name of the template.
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data GetEmailTemplate = GetEmailTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateName', 'getEmailTemplate_templateName' - The name of the template you want to retrieve.
+-- 'templateName', 'getEmailTemplate_templateName' - The name of the template.
 newGetEmailTemplate ::
   -- | 'templateName'
   Prelude.Text ->
@@ -76,7 +76,7 @@ newGetEmailTemplate ::
 newGetEmailTemplate pTemplateName_ =
   GetEmailTemplate' {templateName = pTemplateName_}
 
--- | The name of the template you want to retrieve.
+-- | The name of the template.
 getEmailTemplate_templateName :: Lens.Lens' GetEmailTemplate Prelude.Text
 getEmailTemplate_templateName = Lens.lens (\GetEmailTemplate' {templateName} -> templateName) (\s@GetEmailTemplate' {} a -> s {templateName = a} :: GetEmailTemplate)
 
@@ -123,7 +123,7 @@ instance Core.ToQuery GetEmailTemplate where
 data GetEmailTemplateResponse = GetEmailTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The name of the template you want to retrieve.
+    -- | The name of the template.
     templateName :: Prelude.Text,
     -- | The content of the email template, composed of a subject line, an HTML
     -- part, and a text-only part.
@@ -141,7 +141,7 @@ data GetEmailTemplateResponse = GetEmailTemplateResponse'
 --
 -- 'httpStatus', 'getEmailTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'templateName', 'getEmailTemplateResponse_templateName' - The name of the template you want to retrieve.
+-- 'templateName', 'getEmailTemplateResponse_templateName' - The name of the template.
 --
 -- 'templateContent', 'getEmailTemplateResponse_templateContent' - The content of the email template, composed of a subject line, an HTML
 -- part, and a text-only part.
@@ -168,7 +168,7 @@ newGetEmailTemplateResponse
 getEmailTemplateResponse_httpStatus :: Lens.Lens' GetEmailTemplateResponse Prelude.Int
 getEmailTemplateResponse_httpStatus = Lens.lens (\GetEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@GetEmailTemplateResponse' {} a -> s {httpStatus = a} :: GetEmailTemplateResponse)
 
--- | The name of the template you want to retrieve.
+-- | The name of the template.
 getEmailTemplateResponse_templateName :: Lens.Lens' GetEmailTemplateResponse Prelude.Text
 getEmailTemplateResponse_templateName = Lens.lens (\GetEmailTemplateResponse' {templateName} -> templateName) (\s@GetEmailTemplateResponse' {} a -> s {templateName = a} :: GetEmailTemplateResponse)
 

@@ -136,6 +136,6 @@ getCheckerIpRangesResponse_httpStatus = Lens.lens (\GetCheckerIpRangesResponse' 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
 getCheckerIpRangesResponse_checkerIpRanges :: Lens.Lens' GetCheckerIpRangesResponse [Prelude.Text]
-getCheckerIpRangesResponse_checkerIpRanges = Lens.lens (\GetCheckerIpRangesResponse' {checkerIpRanges} -> checkerIpRanges) (\s@GetCheckerIpRangesResponse' {} a -> s {checkerIpRanges = a} :: GetCheckerIpRangesResponse) Prelude.. Lens._Coerce
+getCheckerIpRangesResponse_checkerIpRanges = Lens.lens (\GetCheckerIpRangesResponse' {checkerIpRanges} -> checkerIpRanges) (\s@GetCheckerIpRangesResponse' {} a -> s {checkerIpRanges = a} :: GetCheckerIpRangesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetCheckerIpRangesResponse

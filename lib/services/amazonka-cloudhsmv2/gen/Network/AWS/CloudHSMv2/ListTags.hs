@@ -229,6 +229,6 @@ listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> http
 
 -- | A list of tags.
 listTagsResponse_tagList :: Lens.Lens' ListTagsResponse [Tag]
-listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Lens._Coerce
+listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListTagsResponse

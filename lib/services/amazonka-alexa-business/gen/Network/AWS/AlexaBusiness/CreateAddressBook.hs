@@ -27,9 +27,9 @@ module Network.AWS.AlexaBusiness.CreateAddressBook
     newCreateAddressBook,
 
     -- * Request Lenses
-    createAddressBook_tags,
-    createAddressBook_description,
     createAddressBook_clientRequestToken,
+    createAddressBook_description,
+    createAddressBook_tags,
     createAddressBook_name,
 
     -- * Destructuring the Response
@@ -51,14 +51,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateAddressBook' smart constructor.
 data CreateAddressBook = CreateAddressBook'
-  { -- | The tags to be added to the specified resource. Do not provide system
-    -- tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | The description of the address book.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | A unique, user-specified identifier for the request that ensures
+  { -- | A unique, user-specified identifier for the request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The description of the address book.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be added to the specified resource. Do not provide system
+    -- tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the address book.
     name :: Prelude.Text
   }
@@ -72,13 +72,13 @@ data CreateAddressBook = CreateAddressBook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAddressBook_tags' - The tags to be added to the specified resource. Do not provide system
--- tags.
+-- 'clientRequestToken', 'createAddressBook_clientRequestToken' - A unique, user-specified identifier for the request that ensures
+-- idempotency.
 --
 -- 'description', 'createAddressBook_description' - The description of the address book.
 --
--- 'clientRequestToken', 'createAddressBook_clientRequestToken' - A unique, user-specified identifier for the request that ensures
--- idempotency.
+-- 'tags', 'createAddressBook_tags' - The tags to be added to the specified resource. Do not provide system
+-- tags.
 --
 -- 'name', 'createAddressBook_name' - The name of the address book.
 newCreateAddressBook ::
@@ -87,25 +87,26 @@ newCreateAddressBook ::
   CreateAddressBook
 newCreateAddressBook pName_ =
   CreateAddressBook'
-    { tags = Prelude.Nothing,
+    { clientRequestToken =
+        Prelude.Nothing,
       description = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_
     }
-
--- | The tags to be added to the specified resource. Do not provide system
--- tags.
-createAddressBook_tags :: Lens.Lens' CreateAddressBook (Prelude.Maybe [Tag])
-createAddressBook_tags = Lens.lens (\CreateAddressBook' {tags} -> tags) (\s@CreateAddressBook' {} a -> s {tags = a} :: CreateAddressBook) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description of the address book.
-createAddressBook_description :: Lens.Lens' CreateAddressBook (Prelude.Maybe Prelude.Text)
-createAddressBook_description = Lens.lens (\CreateAddressBook' {description} -> description) (\s@CreateAddressBook' {} a -> s {description = a} :: CreateAddressBook)
 
 -- | A unique, user-specified identifier for the request that ensures
 -- idempotency.
 createAddressBook_clientRequestToken :: Lens.Lens' CreateAddressBook (Prelude.Maybe Prelude.Text)
 createAddressBook_clientRequestToken = Lens.lens (\CreateAddressBook' {clientRequestToken} -> clientRequestToken) (\s@CreateAddressBook' {} a -> s {clientRequestToken = a} :: CreateAddressBook)
+
+-- | The description of the address book.
+createAddressBook_description :: Lens.Lens' CreateAddressBook (Prelude.Maybe Prelude.Text)
+createAddressBook_description = Lens.lens (\CreateAddressBook' {description} -> description) (\s@CreateAddressBook' {} a -> s {description = a} :: CreateAddressBook)
+
+-- | The tags to be added to the specified resource. Do not provide system
+-- tags.
+createAddressBook_tags :: Lens.Lens' CreateAddressBook (Prelude.Maybe [Tag])
+createAddressBook_tags = Lens.lens (\CreateAddressBook' {tags} -> tags) (\s@CreateAddressBook' {} a -> s {tags = a} :: CreateAddressBook) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the address book.
 createAddressBook_name :: Lens.Lens' CreateAddressBook Prelude.Text
@@ -147,10 +148,10 @@ instance Core.ToJSON CreateAddressBook where
   toJSON CreateAddressBook' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
-            ("ClientRequestToken" Core..=)
+          [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name)
           ]
       )

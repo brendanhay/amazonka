@@ -120,11 +120,11 @@ updateColumnStatisticsForPartition_tableName = Lens.lens (\UpdateColumnStatistic
 
 -- | A list of partition values identifying the partition.
 updateColumnStatisticsForPartition_partitionValues :: Lens.Lens' UpdateColumnStatisticsForPartition [Prelude.Text]
-updateColumnStatisticsForPartition_partitionValues = Lens.lens (\UpdateColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@UpdateColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: UpdateColumnStatisticsForPartition) Prelude.. Lens._Coerce
+updateColumnStatisticsForPartition_partitionValues = Lens.lens (\UpdateColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@UpdateColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: UpdateColumnStatisticsForPartition) Prelude.. Lens.coerced
 
 -- | A list of the column statistics.
 updateColumnStatisticsForPartition_columnStatisticsList :: Lens.Lens' UpdateColumnStatisticsForPartition [ColumnStatistics]
-updateColumnStatisticsForPartition_columnStatisticsList = Lens.lens (\UpdateColumnStatisticsForPartition' {columnStatisticsList} -> columnStatisticsList) (\s@UpdateColumnStatisticsForPartition' {} a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForPartition) Prelude.. Lens._Coerce
+updateColumnStatisticsForPartition_columnStatisticsList = Lens.lens (\UpdateColumnStatisticsForPartition' {columnStatisticsList} -> columnStatisticsList) (\s@UpdateColumnStatisticsForPartition' {} a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForPartition) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -233,7 +233,7 @@ newUpdateColumnStatisticsForPartitionResponse
 
 -- | Error occurred during updating column statistics data.
 updateColumnStatisticsForPartitionResponse_errors :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse (Prelude.Maybe [ColumnStatisticsError])
-updateColumnStatisticsForPartitionResponse_errors = Lens.lens (\UpdateColumnStatisticsForPartitionResponse' {errors} -> errors) (\s@UpdateColumnStatisticsForPartitionResponse' {} a -> s {errors = a} :: UpdateColumnStatisticsForPartitionResponse) Prelude.. Lens.mapping Lens._Coerce
+updateColumnStatisticsForPartitionResponse_errors = Lens.lens (\UpdateColumnStatisticsForPartitionResponse' {errors} -> errors) (\s@UpdateColumnStatisticsForPartitionResponse' {} a -> s {errors = a} :: UpdateColumnStatisticsForPartitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateColumnStatisticsForPartitionResponse_httpStatus :: Lens.Lens' UpdateColumnStatisticsForPartitionResponse Prelude.Int

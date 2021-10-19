@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
-  { -- | The DNS hostname of the endpoint.
-    address :: Prelude.Maybe Prelude.Text,
-    -- | The port number that applications should use to connect to the endpoint.
-    port :: Prelude.Maybe Prelude.Int,
-    -- | The URL that applications should use to connect to the endpoint. The
+  { -- | The URL that applications should use to connect to the endpoint. The
     -- default ports are 8111 for the \"dax\" protocol and 9111 for the
     -- \"daxs\" protocol.
-    url :: Prelude.Maybe Prelude.Text
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The DNS hostname of the endpoint.
+    address :: Prelude.Maybe Prelude.Text,
+    -- | The port number that applications should use to connect to the endpoint.
+    port :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +47,27 @@ data Endpoint = Endpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'address', 'endpoint_address' - The DNS hostname of the endpoint.
---
--- 'port', 'endpoint_port' - The port number that applications should use to connect to the endpoint.
---
 -- 'url', 'endpoint_url' - The URL that applications should use to connect to the endpoint. The
 -- default ports are 8111 for the \"dax\" protocol and 9111 for the
 -- \"daxs\" protocol.
+--
+-- 'address', 'endpoint_address' - The DNS hostname of the endpoint.
+--
+-- 'port', 'endpoint_port' - The port number that applications should use to connect to the endpoint.
 newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { address = Prelude.Nothing,
-      port = Prelude.Nothing,
-      url = Prelude.Nothing
+    { url = Prelude.Nothing,
+      address = Prelude.Nothing,
+      port = Prelude.Nothing
     }
+
+-- | The URL that applications should use to connect to the endpoint. The
+-- default ports are 8111 for the \"dax\" protocol and 9111 for the
+-- \"daxs\" protocol.
+endpoint_url :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url = a} :: Endpoint)
 
 -- | The DNS hostname of the endpoint.
 endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
@@ -71,21 +77,15 @@ endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} 
 endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
 endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
--- | The URL that applications should use to connect to the endpoint. The
--- default ports are 8111 for the \"dax\" protocol and 9111 for the
--- \"daxs\" protocol.
-endpoint_url :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
-endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url = a} :: Endpoint)
-
 instance Core.FromJSON Endpoint where
   parseJSON =
     Core.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Core..:? "Address")
+            Prelude.<$> (x Core..:? "URL")
+            Prelude.<*> (x Core..:? "Address")
             Prelude.<*> (x Core..:? "Port")
-            Prelude.<*> (x Core..:? "URL")
       )
 
 instance Prelude.Hashable Endpoint

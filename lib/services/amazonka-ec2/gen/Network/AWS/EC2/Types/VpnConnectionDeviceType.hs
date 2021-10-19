@@ -32,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpnConnectionDeviceType' smart constructor.
 data VpnConnectionDeviceType = VpnConnectionDeviceType'
-  { -- | Customer gateway device platform.
-    platform :: Prelude.Maybe Prelude.Text,
-    -- | Customer gateway device vendor.
+  { -- | Customer gateway device vendor.
     vendor :: Prelude.Maybe Prelude.Text,
-    -- | Customer gateway device software version.
-    software :: Prelude.Maybe Prelude.Text,
+    -- | Customer gateway device platform.
+    platform :: Prelude.Maybe Prelude.Text,
     -- | Customer gateway device identifier.
-    vpnConnectionDeviceTypeId :: Prelude.Maybe Prelude.Text
+    vpnConnectionDeviceTypeId :: Prelude.Maybe Prelude.Text,
+    -- | Customer gateway device software version.
+    software :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,47 +51,46 @@ data VpnConnectionDeviceType = VpnConnectionDeviceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platform', 'vpnConnectionDeviceType_platform' - Customer gateway device platform.
---
 -- 'vendor', 'vpnConnectionDeviceType_vendor' - Customer gateway device vendor.
 --
--- 'software', 'vpnConnectionDeviceType_software' - Customer gateway device software version.
+-- 'platform', 'vpnConnectionDeviceType_platform' - Customer gateway device platform.
 --
 -- 'vpnConnectionDeviceTypeId', 'vpnConnectionDeviceType_vpnConnectionDeviceTypeId' - Customer gateway device identifier.
+--
+-- 'software', 'vpnConnectionDeviceType_software' - Customer gateway device software version.
 newVpnConnectionDeviceType ::
   VpnConnectionDeviceType
 newVpnConnectionDeviceType =
   VpnConnectionDeviceType'
-    { platform =
-        Prelude.Nothing,
-      vendor = Prelude.Nothing,
-      software = Prelude.Nothing,
-      vpnConnectionDeviceTypeId = Prelude.Nothing
+    { vendor = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      vpnConnectionDeviceTypeId = Prelude.Nothing,
+      software = Prelude.Nothing
     }
-
--- | Customer gateway device platform.
-vpnConnectionDeviceType_platform :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
-vpnConnectionDeviceType_platform = Lens.lens (\VpnConnectionDeviceType' {platform} -> platform) (\s@VpnConnectionDeviceType' {} a -> s {platform = a} :: VpnConnectionDeviceType)
 
 -- | Customer gateway device vendor.
 vpnConnectionDeviceType_vendor :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
 vpnConnectionDeviceType_vendor = Lens.lens (\VpnConnectionDeviceType' {vendor} -> vendor) (\s@VpnConnectionDeviceType' {} a -> s {vendor = a} :: VpnConnectionDeviceType)
 
--- | Customer gateway device software version.
-vpnConnectionDeviceType_software :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
-vpnConnectionDeviceType_software = Lens.lens (\VpnConnectionDeviceType' {software} -> software) (\s@VpnConnectionDeviceType' {} a -> s {software = a} :: VpnConnectionDeviceType)
+-- | Customer gateway device platform.
+vpnConnectionDeviceType_platform :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
+vpnConnectionDeviceType_platform = Lens.lens (\VpnConnectionDeviceType' {platform} -> platform) (\s@VpnConnectionDeviceType' {} a -> s {platform = a} :: VpnConnectionDeviceType)
 
 -- | Customer gateway device identifier.
 vpnConnectionDeviceType_vpnConnectionDeviceTypeId :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
 vpnConnectionDeviceType_vpnConnectionDeviceTypeId = Lens.lens (\VpnConnectionDeviceType' {vpnConnectionDeviceTypeId} -> vpnConnectionDeviceTypeId) (\s@VpnConnectionDeviceType' {} a -> s {vpnConnectionDeviceTypeId = a} :: VpnConnectionDeviceType)
 
+-- | Customer gateway device software version.
+vpnConnectionDeviceType_software :: Lens.Lens' VpnConnectionDeviceType (Prelude.Maybe Prelude.Text)
+vpnConnectionDeviceType_software = Lens.lens (\VpnConnectionDeviceType' {software} -> software) (\s@VpnConnectionDeviceType' {} a -> s {software = a} :: VpnConnectionDeviceType)
+
 instance Core.FromXML VpnConnectionDeviceType where
   parseXML x =
     VpnConnectionDeviceType'
-      Prelude.<$> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "vendor")
-      Prelude.<*> (x Core..@? "software")
+      Prelude.<$> (x Core..@? "vendor")
+      Prelude.<*> (x Core..@? "platform")
       Prelude.<*> (x Core..@? "vpnConnectionDeviceTypeId")
+      Prelude.<*> (x Core..@? "software")
 
 instance Prelude.Hashable VpnConnectionDeviceType
 

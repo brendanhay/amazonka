@@ -106,7 +106,7 @@ newInvalidationList
 -- | A complex type that contains one @InvalidationSummary@ element for each
 -- invalidation batch created by the current account.
 invalidationList_items :: Lens.Lens' InvalidationList (Prelude.Maybe [InvalidationSummary])
-invalidationList_items = Lens.lens (\InvalidationList' {items} -> items) (\s@InvalidationList' {} a -> s {items = a} :: InvalidationList) Prelude.. Lens.mapping Lens._Coerce
+invalidationList_items = Lens.lens (\InvalidationList' {items} -> items) (\s@InvalidationList' {} a -> s {items = a} :: InvalidationList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value that you can use for the @Marker@ request parameter to continue

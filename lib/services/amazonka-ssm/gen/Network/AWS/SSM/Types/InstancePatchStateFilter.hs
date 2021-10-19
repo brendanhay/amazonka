@@ -104,7 +104,7 @@ newInstancePatchStateFilter ::
 newInstancePatchStateFilter pKey_ pValues_ pType_ =
   InstancePatchStateFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_,
+      values = Lens.coerced Lens.# pValues_,
       type' = pType_
     }
 
@@ -130,7 +130,7 @@ instancePatchStateFilter_key = Lens.lens (\InstancePatchStateFilter' {key} -> ke
 
 -- | The value for the filter. Must be an integer greater than or equal to 0.
 instancePatchStateFilter_values :: Lens.Lens' InstancePatchStateFilter (Prelude.NonEmpty Prelude.Text)
-instancePatchStateFilter_values = Lens.lens (\InstancePatchStateFilter' {values} -> values) (\s@InstancePatchStateFilter' {} a -> s {values = a} :: InstancePatchStateFilter) Prelude.. Lens._Coerce
+instancePatchStateFilter_values = Lens.lens (\InstancePatchStateFilter' {values} -> values) (\s@InstancePatchStateFilter' {} a -> s {values = a} :: InstancePatchStateFilter) Prelude.. Lens.coerced
 
 -- | The type of comparison that should be performed for the value.
 instancePatchStateFilter_type :: Lens.Lens' InstancePatchStateFilter InstancePatchStateOperatorType

@@ -29,12 +29,12 @@ module Network.AWS.RDS.DescribeDBLogFiles
     newDescribeDBLogFiles,
 
     -- * Request Lenses
-    describeDBLogFiles_fileSize,
     describeDBLogFiles_filenameContains,
-    describeDBLogFiles_fileLastWritten,
     describeDBLogFiles_filters,
-    describeDBLogFiles_maxRecords,
+    describeDBLogFiles_fileSize,
+    describeDBLogFiles_fileLastWritten,
     describeDBLogFiles_marker,
+    describeDBLogFiles_maxRecords,
     describeDBLogFiles_dbInstanceIdentifier,
 
     -- * Destructuring the Response
@@ -59,26 +59,26 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
-  { -- | Filters the available log files for files larger than the specified
-    -- size.
-    fileSize :: Prelude.Maybe Prelude.Integer,
-    -- | Filters the available log files for log file names that contain the
+  { -- | Filters the available log files for log file names that contain the
     -- specified string.
     filenameContains :: Prelude.Maybe Prelude.Text,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | Filters the available log files for files larger than the specified
+    -- size.
+    fileSize :: Prelude.Maybe Prelude.Integer,
     -- | Filters the available log files for files written since the specified
     -- date, in POSIX timestamp format with milliseconds.
     fileLastWritten :: Prelude.Maybe Prelude.Integer,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
+    -- | The pagination token provided in the previous request. If this parameter
+    -- is specified the response includes only records beyond the marker, up to
+    -- MaxRecords.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified MaxRecords value, a pagination token
     -- called a marker is included in the response so you can retrieve the
     -- remaining results.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The pagination token provided in the previous request. If this parameter
-    -- is specified the response includes only records beyond the marker, up to
-    -- MaxRecords.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The customer-assigned name of the DB instance that contains the log
     -- files you want to list.
     --
@@ -97,25 +97,25 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileSize', 'describeDBLogFiles_fileSize' - Filters the available log files for files larger than the specified
--- size.
---
 -- 'filenameContains', 'describeDBLogFiles_filenameContains' - Filters the available log files for log file names that contain the
 -- specified string.
+--
+-- 'filters', 'describeDBLogFiles_filters' - This parameter isn\'t currently supported.
+--
+-- 'fileSize', 'describeDBLogFiles_fileSize' - Filters the available log files for files larger than the specified
+-- size.
 --
 -- 'fileLastWritten', 'describeDBLogFiles_fileLastWritten' - Filters the available log files for files written since the specified
 -- date, in POSIX timestamp format with milliseconds.
 --
--- 'filters', 'describeDBLogFiles_filters' - This parameter isn\'t currently supported.
+-- 'marker', 'describeDBLogFiles_marker' - The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- MaxRecords.
 --
 -- 'maxRecords', 'describeDBLogFiles_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
 -- called a marker is included in the response so you can retrieve the
 -- remaining results.
---
--- 'marker', 'describeDBLogFiles_marker' - The pagination token provided in the previous request. If this parameter
--- is specified the response includes only records beyond the marker, up to
--- MaxRecords.
 --
 -- 'dbInstanceIdentifier', 'describeDBLogFiles_dbInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -129,33 +129,40 @@ newDescribeDBLogFiles ::
   DescribeDBLogFiles
 newDescribeDBLogFiles pDBInstanceIdentifier_ =
   DescribeDBLogFiles'
-    { fileSize = Prelude.Nothing,
-      filenameContains = Prelude.Nothing,
-      fileLastWritten = Prelude.Nothing,
+    { filenameContains =
+        Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+      fileSize = Prelude.Nothing,
+      fileLastWritten = Prelude.Nothing,
       marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
-
--- | Filters the available log files for files larger than the specified
--- size.
-describeDBLogFiles_fileSize :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
-describeDBLogFiles_fileSize = Lens.lens (\DescribeDBLogFiles' {fileSize} -> fileSize) (\s@DescribeDBLogFiles' {} a -> s {fileSize = a} :: DescribeDBLogFiles)
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
 describeDBLogFiles_filenameContains :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
 describeDBLogFiles_filenameContains = Lens.lens (\DescribeDBLogFiles' {filenameContains} -> filenameContains) (\s@DescribeDBLogFiles' {} a -> s {filenameContains = a} :: DescribeDBLogFiles)
 
+-- | This parameter isn\'t currently supported.
+describeDBLogFiles_filters :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe [Filter])
+describeDBLogFiles_filters = Lens.lens (\DescribeDBLogFiles' {filters} -> filters) (\s@DescribeDBLogFiles' {} a -> s {filters = a} :: DescribeDBLogFiles) Prelude.. Lens.mapping Lens.coerced
+
+-- | Filters the available log files for files larger than the specified
+-- size.
+describeDBLogFiles_fileSize :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
+describeDBLogFiles_fileSize = Lens.lens (\DescribeDBLogFiles' {fileSize} -> fileSize) (\s@DescribeDBLogFiles' {} a -> s {fileSize = a} :: DescribeDBLogFiles)
+
 -- | Filters the available log files for files written since the specified
 -- date, in POSIX timestamp format with milliseconds.
 describeDBLogFiles_fileLastWritten :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Integer)
 describeDBLogFiles_fileLastWritten = Lens.lens (\DescribeDBLogFiles' {fileLastWritten} -> fileLastWritten) (\s@DescribeDBLogFiles' {} a -> s {fileLastWritten = a} :: DescribeDBLogFiles)
 
--- | This parameter isn\'t currently supported.
-describeDBLogFiles_filters :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe [Filter])
-describeDBLogFiles_filters = Lens.lens (\DescribeDBLogFiles' {filters} -> filters) (\s@DescribeDBLogFiles' {} a -> s {filters = a} :: DescribeDBLogFiles) Prelude.. Lens.mapping Lens._Coerce
+-- | The pagination token provided in the previous request. If this parameter
+-- is specified the response includes only records beyond the marker, up to
+-- MaxRecords.
+describeDBLogFiles_marker :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
+describeDBLogFiles_marker = Lens.lens (\DescribeDBLogFiles' {marker} -> marker) (\s@DescribeDBLogFiles' {} a -> s {marker = a} :: DescribeDBLogFiles)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
@@ -163,12 +170,6 @@ describeDBLogFiles_filters = Lens.lens (\DescribeDBLogFiles' {filters} -> filter
 -- remaining results.
 describeDBLogFiles_maxRecords :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Int)
 describeDBLogFiles_maxRecords = Lens.lens (\DescribeDBLogFiles' {maxRecords} -> maxRecords) (\s@DescribeDBLogFiles' {} a -> s {maxRecords = a} :: DescribeDBLogFiles)
-
--- | The pagination token provided in the previous request. If this parameter
--- is specified the response includes only records beyond the marker, up to
--- MaxRecords.
-describeDBLogFiles_marker :: Lens.Lens' DescribeDBLogFiles (Prelude.Maybe Prelude.Text)
-describeDBLogFiles_marker = Lens.lens (\DescribeDBLogFiles' {marker} -> marker) (\s@DescribeDBLogFiles' {} a -> s {marker = a} :: DescribeDBLogFiles)
 
 -- | The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -237,14 +238,14 @@ instance Core.ToQuery DescribeDBLogFiles where
           Core.=: ("DescribeDBLogFiles" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "FileSize" Core.=: fileSize,
         "FilenameContains" Core.=: filenameContains,
-        "FileLastWritten" Core.=: fileLastWritten,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
+        "FileSize" Core.=: fileSize,
+        "FileLastWritten" Core.=: fileLastWritten,
         "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
@@ -290,7 +291,7 @@ newDescribeDBLogFilesResponse pHttpStatus_ =
 
 -- | The DB log files returned.
 describeDBLogFilesResponse_describeDBLogFiles :: Lens.Lens' DescribeDBLogFilesResponse (Prelude.Maybe [DescribeDBLogFilesDetails])
-describeDBLogFilesResponse_describeDBLogFiles = Lens.lens (\DescribeDBLogFilesResponse' {describeDBLogFiles} -> describeDBLogFiles) (\s@DescribeDBLogFilesResponse' {} a -> s {describeDBLogFiles = a} :: DescribeDBLogFilesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDBLogFilesResponse_describeDBLogFiles = Lens.lens (\DescribeDBLogFilesResponse' {describeDBLogFiles} -> describeDBLogFiles) (\s@DescribeDBLogFilesResponse' {} a -> s {describeDBLogFiles = a} :: DescribeDBLogFilesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that can be used in a later DescribeDBLogFiles
 -- request.

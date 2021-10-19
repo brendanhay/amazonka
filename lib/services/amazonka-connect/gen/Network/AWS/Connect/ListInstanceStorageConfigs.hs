@@ -43,8 +43,8 @@ module Network.AWS.Connect.ListInstanceStorageConfigs
     newListInstanceStorageConfigsResponse,
 
     -- * Response Lenses
-    listInstanceStorageConfigsResponse_nextToken,
     listInstanceStorageConfigsResponse_storageConfigs,
+    listInstanceStorageConfigsResponse_nextToken,
     listInstanceStorageConfigsResponse_httpStatus,
   )
 where
@@ -157,8 +157,8 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceStorageConfigsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "StorageConfigs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "StorageConfigs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,11 +195,11 @@ instance Core.ToQuery ListInstanceStorageConfigs where
 
 -- | /See:/ 'newListInstanceStorageConfigsResponse' smart constructor.
 data ListInstanceStorageConfigsResponse = ListInstanceStorageConfigsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | A valid storage type.
+    storageConfigs :: Prelude.Maybe [InstanceStorageConfig],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A valid storage type.
-    storageConfigs :: Prelude.Maybe [InstanceStorageConfig],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data ListInstanceStorageConfigsResponse = ListInstanceStorageConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'storageConfigs', 'listInstanceStorageConfigsResponse_storageConfigs' - A valid storage type.
+--
 -- 'nextToken', 'listInstanceStorageConfigsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'storageConfigs', 'listInstanceStorageConfigsResponse_storageConfigs' - A valid storage type.
 --
 -- 'httpStatus', 'listInstanceStorageConfigsResponse_httpStatus' - The response's http status code.
 newListInstanceStorageConfigsResponse ::
@@ -225,20 +225,20 @@ newListInstanceStorageConfigsResponse ::
   ListInstanceStorageConfigsResponse
 newListInstanceStorageConfigsResponse pHttpStatus_ =
   ListInstanceStorageConfigsResponse'
-    { nextToken =
+    { storageConfigs =
         Prelude.Nothing,
-      storageConfigs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A valid storage type.
+listInstanceStorageConfigsResponse_storageConfigs :: Lens.Lens' ListInstanceStorageConfigsResponse (Prelude.Maybe [InstanceStorageConfig])
+listInstanceStorageConfigsResponse_storageConfigs = Lens.lens (\ListInstanceStorageConfigsResponse' {storageConfigs} -> storageConfigs) (\s@ListInstanceStorageConfigsResponse' {} a -> s {storageConfigs = a} :: ListInstanceStorageConfigsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listInstanceStorageConfigsResponse_nextToken :: Lens.Lens' ListInstanceStorageConfigsResponse (Prelude.Maybe Prelude.Text)
 listInstanceStorageConfigsResponse_nextToken = Lens.lens (\ListInstanceStorageConfigsResponse' {nextToken} -> nextToken) (\s@ListInstanceStorageConfigsResponse' {} a -> s {nextToken = a} :: ListInstanceStorageConfigsResponse)
-
--- | A valid storage type.
-listInstanceStorageConfigsResponse_storageConfigs :: Lens.Lens' ListInstanceStorageConfigsResponse (Prelude.Maybe [InstanceStorageConfig])
-listInstanceStorageConfigsResponse_storageConfigs = Lens.lens (\ListInstanceStorageConfigsResponse' {storageConfigs} -> storageConfigs) (\s@ListInstanceStorageConfigsResponse' {} a -> s {storageConfigs = a} :: ListInstanceStorageConfigsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listInstanceStorageConfigsResponse_httpStatus :: Lens.Lens' ListInstanceStorageConfigsResponse Prelude.Int

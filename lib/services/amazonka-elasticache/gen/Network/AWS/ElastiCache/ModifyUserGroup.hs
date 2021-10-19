@@ -27,8 +27,8 @@ module Network.AWS.ElastiCache.ModifyUserGroup
     newModifyUserGroup,
 
     -- * Request Lenses
-    modifyUserGroup_userIdsToRemove,
     modifyUserGroup_userIdsToAdd,
+    modifyUserGroup_userIdsToRemove,
     modifyUserGroup_userGroupId,
 
     -- * Destructuring the Response
@@ -37,12 +37,12 @@ module Network.AWS.ElastiCache.ModifyUserGroup
 
     -- * Response Lenses
     userGroup_status,
-    userGroup_replicationGroups,
-    userGroup_arn,
     userGroup_userIds,
-    userGroup_engine,
+    userGroup_arn,
     userGroup_userGroupId,
+    userGroup_engine,
     userGroup_pendingChanges,
+    userGroup_replicationGroups,
   )
 where
 
@@ -55,10 +55,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyUserGroup' smart constructor.
 data ModifyUserGroup = ModifyUserGroup'
-  { -- | The list of user IDs to remove from the user group.
-    userIdsToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The list of user IDs to add to the user group.
+  { -- | The list of user IDs to add to the user group.
     userIdsToAdd :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The list of user IDs to remove from the user group.
+    userIdsToRemove :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The ID of the user group.
     userGroupId :: Prelude.Text
   }
@@ -72,9 +72,9 @@ data ModifyUserGroup = ModifyUserGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userIdsToRemove', 'modifyUserGroup_userIdsToRemove' - The list of user IDs to remove from the user group.
---
 -- 'userIdsToAdd', 'modifyUserGroup_userIdsToAdd' - The list of user IDs to add to the user group.
+--
+-- 'userIdsToRemove', 'modifyUserGroup_userIdsToRemove' - The list of user IDs to remove from the user group.
 --
 -- 'userGroupId', 'modifyUserGroup_userGroupId' - The ID of the user group.
 newModifyUserGroup ::
@@ -83,18 +83,18 @@ newModifyUserGroup ::
   ModifyUserGroup
 newModifyUserGroup pUserGroupId_ =
   ModifyUserGroup'
-    { userIdsToRemove = Prelude.Nothing,
-      userIdsToAdd = Prelude.Nothing,
+    { userIdsToAdd = Prelude.Nothing,
+      userIdsToRemove = Prelude.Nothing,
       userGroupId = pUserGroupId_
     }
 
--- | The list of user IDs to remove from the user group.
-modifyUserGroup_userIdsToRemove :: Lens.Lens' ModifyUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-modifyUserGroup_userIdsToRemove = Lens.lens (\ModifyUserGroup' {userIdsToRemove} -> userIdsToRemove) (\s@ModifyUserGroup' {} a -> s {userIdsToRemove = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The list of user IDs to add to the user group.
 modifyUserGroup_userIdsToAdd :: Lens.Lens' ModifyUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-modifyUserGroup_userIdsToAdd = Lens.lens (\ModifyUserGroup' {userIdsToAdd} -> userIdsToAdd) (\s@ModifyUserGroup' {} a -> s {userIdsToAdd = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens._Coerce
+modifyUserGroup_userIdsToAdd = Lens.lens (\ModifyUserGroup' {userIdsToAdd} -> userIdsToAdd) (\s@ModifyUserGroup' {} a -> s {userIdsToAdd = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | The list of user IDs to remove from the user group.
+modifyUserGroup_userIdsToRemove :: Lens.Lens' ModifyUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+modifyUserGroup_userIdsToRemove = Lens.lens (\ModifyUserGroup' {userIdsToRemove} -> userIdsToRemove) (\s@ModifyUserGroup' {} a -> s {userIdsToRemove = a} :: ModifyUserGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the user group.
 modifyUserGroup_userGroupId :: Lens.Lens' ModifyUserGroup Prelude.Text
@@ -125,13 +125,13 @@ instance Core.ToQuery ModifyUserGroup where
           Core.=: ("ModifyUserGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "UserIdsToAdd"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> userIdsToAdd),
         "UserIdsToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> userIdsToRemove
             ),
-        "UserIdsToAdd"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> userIdsToAdd),
         "UserGroupId" Core.=: userGroupId
       ]

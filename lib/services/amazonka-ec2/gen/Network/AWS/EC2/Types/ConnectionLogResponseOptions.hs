@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConnectionLogResponseOptions' smart constructor.
 data ConnectionLogResponseOptions = ConnectionLogResponseOptions'
-  { -- | The name of the Amazon CloudWatch Logs log stream to which connection
-    -- logging data is published.
-    cloudwatchLogStream :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether client connection logging is enabled for the Client
+  { -- | Indicates whether client connection logging is enabled for the Client
     -- VPN endpoint.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the Amazon CloudWatch Logs log stream to which connection
+    -- logging data is published.
+    cloudwatchLogStream :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon CloudWatch Logs log group to which connection
     -- logging data is published.
     cloudwatchLogGroup :: Prelude.Maybe Prelude.Text
@@ -49,11 +49,11 @@ data ConnectionLogResponseOptions = ConnectionLogResponseOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cloudwatchLogStream', 'connectionLogResponseOptions_cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection
--- logging data is published.
---
 -- 'enabled', 'connectionLogResponseOptions_enabled' - Indicates whether client connection logging is enabled for the Client
 -- VPN endpoint.
+--
+-- 'cloudwatchLogStream', 'connectionLogResponseOptions_cloudwatchLogStream' - The name of the Amazon CloudWatch Logs log stream to which connection
+-- logging data is published.
 --
 -- 'cloudwatchLogGroup', 'connectionLogResponseOptions_cloudwatchLogGroup' - The name of the Amazon CloudWatch Logs log group to which connection
 -- logging data is published.
@@ -61,21 +61,21 @@ newConnectionLogResponseOptions ::
   ConnectionLogResponseOptions
 newConnectionLogResponseOptions =
   ConnectionLogResponseOptions'
-    { cloudwatchLogStream =
+    { enabled =
         Prelude.Nothing,
-      enabled = Prelude.Nothing,
+      cloudwatchLogStream = Prelude.Nothing,
       cloudwatchLogGroup = Prelude.Nothing
     }
-
--- | The name of the Amazon CloudWatch Logs log stream to which connection
--- logging data is published.
-connectionLogResponseOptions_cloudwatchLogStream :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Text)
-connectionLogResponseOptions_cloudwatchLogStream = Lens.lens (\ConnectionLogResponseOptions' {cloudwatchLogStream} -> cloudwatchLogStream) (\s@ConnectionLogResponseOptions' {} a -> s {cloudwatchLogStream = a} :: ConnectionLogResponseOptions)
 
 -- | Indicates whether client connection logging is enabled for the Client
 -- VPN endpoint.
 connectionLogResponseOptions_enabled :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Bool)
 connectionLogResponseOptions_enabled = Lens.lens (\ConnectionLogResponseOptions' {enabled} -> enabled) (\s@ConnectionLogResponseOptions' {} a -> s {enabled = a} :: ConnectionLogResponseOptions)
+
+-- | The name of the Amazon CloudWatch Logs log stream to which connection
+-- logging data is published.
+connectionLogResponseOptions_cloudwatchLogStream :: Lens.Lens' ConnectionLogResponseOptions (Prelude.Maybe Prelude.Text)
+connectionLogResponseOptions_cloudwatchLogStream = Lens.lens (\ConnectionLogResponseOptions' {cloudwatchLogStream} -> cloudwatchLogStream) (\s@ConnectionLogResponseOptions' {} a -> s {cloudwatchLogStream = a} :: ConnectionLogResponseOptions)
 
 -- | The name of the Amazon CloudWatch Logs log group to which connection
 -- logging data is published.
@@ -85,8 +85,8 @@ connectionLogResponseOptions_cloudwatchLogGroup = Lens.lens (\ConnectionLogRespo
 instance Core.FromXML ConnectionLogResponseOptions where
   parseXML x =
     ConnectionLogResponseOptions'
-      Prelude.<$> (x Core..@? "CloudwatchLogStream")
-      Prelude.<*> (x Core..@? "Enabled")
+      Prelude.<$> (x Core..@? "Enabled")
+      Prelude.<*> (x Core..@? "CloudwatchLogStream")
       Prelude.<*> (x Core..@? "CloudwatchLogGroup")
 
 instance

@@ -30,11 +30,11 @@ import Network.AWS.Route53AutoNaming.Types.HttpProperties
 --
 -- /See:/ 'newNamespaceProperties' smart constructor.
 data NamespaceProperties = NamespaceProperties'
-  { -- | A complex type that contains the name of an HTTP namespace.
-    httpProperties :: Prelude.Maybe HttpProperties,
-    -- | A complex type that contains the ID for the Route 53 hosted zone that
+  { -- | A complex type that contains the ID for the Route 53 hosted zone that
     -- Cloud Map creates when you create a namespace.
-    dnsProperties :: Prelude.Maybe DnsProperties
+    dnsProperties :: Prelude.Maybe DnsProperties,
+    -- | A complex type that contains the name of an HTTP namespace.
+    httpProperties :: Prelude.Maybe HttpProperties
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data NamespaceProperties = NamespaceProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpProperties', 'namespaceProperties_httpProperties' - A complex type that contains the name of an HTTP namespace.
---
 -- 'dnsProperties', 'namespaceProperties_dnsProperties' - A complex type that contains the ID for the Route 53 hosted zone that
 -- Cloud Map creates when you create a namespace.
+--
+-- 'httpProperties', 'namespaceProperties_httpProperties' - A complex type that contains the name of an HTTP namespace.
 newNamespaceProperties ::
   NamespaceProperties
 newNamespaceProperties =
   NamespaceProperties'
-    { httpProperties =
+    { dnsProperties =
         Prelude.Nothing,
-      dnsProperties = Prelude.Nothing
+      httpProperties = Prelude.Nothing
     }
-
--- | A complex type that contains the name of an HTTP namespace.
-namespaceProperties_httpProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe HttpProperties)
-namespaceProperties_httpProperties = Lens.lens (\NamespaceProperties' {httpProperties} -> httpProperties) (\s@NamespaceProperties' {} a -> s {httpProperties = a} :: NamespaceProperties)
 
 -- | A complex type that contains the ID for the Route 53 hosted zone that
 -- Cloud Map creates when you create a namespace.
 namespaceProperties_dnsProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe DnsProperties)
 namespaceProperties_dnsProperties = Lens.lens (\NamespaceProperties' {dnsProperties} -> dnsProperties) (\s@NamespaceProperties' {} a -> s {dnsProperties = a} :: NamespaceProperties)
+
+-- | A complex type that contains the name of an HTTP namespace.
+namespaceProperties_httpProperties :: Lens.Lens' NamespaceProperties (Prelude.Maybe HttpProperties)
+namespaceProperties_httpProperties = Lens.lens (\NamespaceProperties' {httpProperties} -> httpProperties) (\s@NamespaceProperties' {} a -> s {httpProperties = a} :: NamespaceProperties)
 
 instance Core.FromJSON NamespaceProperties where
   parseJSON =
@@ -74,8 +74,8 @@ instance Core.FromJSON NamespaceProperties where
       "NamespaceProperties"
       ( \x ->
           NamespaceProperties'
-            Prelude.<$> (x Core..:? "HttpProperties")
-            Prelude.<*> (x Core..:? "DnsProperties")
+            Prelude.<$> (x Core..:? "DnsProperties")
+            Prelude.<*> (x Core..:? "HttpProperties")
       )
 
 instance Prelude.Hashable NamespaceProperties

@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFolder' smart constructor.
 data Folder = Folder'
-  { -- | The full SHA-1 pointer of the tree information for the commit that
+  { -- | The fully qualified path of the folder in the repository.
+    absolutePath :: Prelude.Maybe Prelude.Text,
+    -- | The full SHA-1 pointer of the tree information for the commit that
     -- contains the folder.
     treeId :: Prelude.Maybe Prelude.Text,
-    -- | The fully qualified path of the folder in the repository.
-    absolutePath :: Prelude.Maybe Prelude.Text,
     -- | The relative path of the specified folder from the folder where the
     -- query originated.
     relativePath :: Prelude.Maybe Prelude.Text
@@ -46,10 +46,10 @@ data Folder = Folder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'absolutePath', 'folder_absolutePath' - The fully qualified path of the folder in the repository.
+--
 -- 'treeId', 'folder_treeId' - The full SHA-1 pointer of the tree information for the commit that
 -- contains the folder.
---
--- 'absolutePath', 'folder_absolutePath' - The fully qualified path of the folder in the repository.
 --
 -- 'relativePath', 'folder_relativePath' - The relative path of the specified folder from the folder where the
 -- query originated.
@@ -57,19 +57,19 @@ newFolder ::
   Folder
 newFolder =
   Folder'
-    { treeId = Prelude.Nothing,
-      absolutePath = Prelude.Nothing,
+    { absolutePath = Prelude.Nothing,
+      treeId = Prelude.Nothing,
       relativePath = Prelude.Nothing
     }
+
+-- | The fully qualified path of the folder in the repository.
+folder_absolutePath :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
+folder_absolutePath = Lens.lens (\Folder' {absolutePath} -> absolutePath) (\s@Folder' {} a -> s {absolutePath = a} :: Folder)
 
 -- | The full SHA-1 pointer of the tree information for the commit that
 -- contains the folder.
 folder_treeId :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
 folder_treeId = Lens.lens (\Folder' {treeId} -> treeId) (\s@Folder' {} a -> s {treeId = a} :: Folder)
-
--- | The fully qualified path of the folder in the repository.
-folder_absolutePath :: Lens.Lens' Folder (Prelude.Maybe Prelude.Text)
-folder_absolutePath = Lens.lens (\Folder' {absolutePath} -> absolutePath) (\s@Folder' {} a -> s {absolutePath = a} :: Folder)
 
 -- | The relative path of the specified folder from the folder where the
 -- query originated.
@@ -82,8 +82,8 @@ instance Core.FromJSON Folder where
       "Folder"
       ( \x ->
           Folder'
-            Prelude.<$> (x Core..:? "treeId")
-            Prelude.<*> (x Core..:? "absolutePath")
+            Prelude.<$> (x Core..:? "absolutePath")
+            Prelude.<*> (x Core..:? "treeId")
             Prelude.<*> (x Core..:? "relativePath")
       )
 

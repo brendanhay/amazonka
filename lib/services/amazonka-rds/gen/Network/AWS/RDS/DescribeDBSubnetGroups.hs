@@ -36,8 +36,8 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Request Lenses
     describeDBSubnetGroups_dbSubnetGroupName,
     describeDBSubnetGroups_filters,
-    describeDBSubnetGroups_maxRecords,
     describeDBSubnetGroups_marker,
+    describeDBSubnetGroups_maxRecords,
 
     -- * Destructuring the Response
     DescribeDBSubnetGroupsResponse (..),
@@ -65,6 +65,11 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | This parameter isn\'t currently supported.
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous
+    -- DescribeDBSubnetGroups request. If this parameter is specified, the
+    -- response includes only records beyond the marker, up to the value
+    -- specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -73,12 +78,7 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- DescribeDBSubnetGroups request. If this parameter is specified, the
-    -- response includes only records beyond the marker, up to the value
-    -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,6 +94,11 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
 --
 -- 'filters', 'describeDBSubnetGroups_filters' - This parameter isn\'t currently supported.
 --
+-- 'marker', 'describeDBSubnetGroups_marker' - An optional pagination token provided by a previous
+-- DescribeDBSubnetGroups request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeDBSubnetGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
@@ -102,11 +107,6 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeDBSubnetGroups_marker' - An optional pagination token provided by a previous
--- DescribeDBSubnetGroups request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
 newDescribeDBSubnetGroups ::
   DescribeDBSubnetGroups
 newDescribeDBSubnetGroups =
@@ -114,8 +114,8 @@ newDescribeDBSubnetGroups =
     { dbSubnetGroupName =
         Prelude.Nothing,
       filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The name of the DB subnet group to return details for.
@@ -124,7 +124,14 @@ describeDBSubnetGroups_dbSubnetGroupName = Lens.lens (\DescribeDBSubnetGroups' {
 
 -- | This parameter isn\'t currently supported.
 describeDBSubnetGroups_filters :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe [Filter])
-describeDBSubnetGroups_filters = Lens.lens (\DescribeDBSubnetGroups' {filters} -> filters) (\s@DescribeDBSubnetGroups' {} a -> s {filters = a} :: DescribeDBSubnetGroups) Prelude.. Lens.mapping Lens._Coerce
+describeDBSubnetGroups_filters = Lens.lens (\DescribeDBSubnetGroups' {filters} -> filters) (\s@DescribeDBSubnetGroups' {} a -> s {filters = a} :: DescribeDBSubnetGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous
+-- DescribeDBSubnetGroups request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+describeDBSubnetGroups_marker :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe Prelude.Text)
+describeDBSubnetGroups_marker = Lens.lens (\DescribeDBSubnetGroups' {marker} -> marker) (\s@DescribeDBSubnetGroups' {} a -> s {marker = a} :: DescribeDBSubnetGroups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -136,13 +143,6 @@ describeDBSubnetGroups_filters = Lens.lens (\DescribeDBSubnetGroups' {filters} -
 -- Constraints: Minimum 20, maximum 100.
 describeDBSubnetGroups_maxRecords :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe Prelude.Int)
 describeDBSubnetGroups_maxRecords = Lens.lens (\DescribeDBSubnetGroups' {maxRecords} -> maxRecords) (\s@DescribeDBSubnetGroups' {} a -> s {maxRecords = a} :: DescribeDBSubnetGroups)
-
--- | An optional pagination token provided by a previous
--- DescribeDBSubnetGroups request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
-describeDBSubnetGroups_marker :: Lens.Lens' DescribeDBSubnetGroups (Prelude.Maybe Prelude.Text)
-describeDBSubnetGroups_marker = Lens.lens (\DescribeDBSubnetGroups' {marker} -> marker) (\s@DescribeDBSubnetGroups' {} a -> s {marker = a} :: DescribeDBSubnetGroups)
 
 instance Core.AWSPager DescribeDBSubnetGroups where
   page rq rs
@@ -204,8 +204,8 @@ instance Core.ToQuery DescribeDBSubnetGroups where
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the
@@ -253,7 +253,7 @@ newDescribeDBSubnetGroupsResponse pHttpStatus_ =
 
 -- | A list of @DBSubnetGroup@ instances.
 describeDBSubnetGroupsResponse_dbSubnetGroups :: Lens.Lens' DescribeDBSubnetGroupsResponse (Prelude.Maybe [DBSubnetGroup])
-describeDBSubnetGroupsResponse_dbSubnetGroups = Lens.lens (\DescribeDBSubnetGroupsResponse' {dbSubnetGroups} -> dbSubnetGroups) (\s@DescribeDBSubnetGroupsResponse' {} a -> s {dbSubnetGroups = a} :: DescribeDBSubnetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDBSubnetGroupsResponse_dbSubnetGroups = Lens.lens (\DescribeDBSubnetGroupsResponse' {dbSubnetGroups} -> dbSubnetGroups) (\s@DescribeDBSubnetGroupsResponse' {} a -> s {dbSubnetGroups = a} :: DescribeDBSubnetGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

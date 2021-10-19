@@ -27,17 +27,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExport' smart constructor.
 data Export = Export'
-  { -- | The name of exported output value. Use this name and the
+  { -- | The value of the exported output, such as a resource physical ID. This
+    -- value is defined in the @Export@ field in the associated stack\'s
+    -- @Outputs@ section.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The stack that contains the exported output name and value.
+    exportingStackId :: Prelude.Maybe Prelude.Text,
+    -- | The name of exported output value. Use this name and the
     -- @Fn::ImportValue@ function to import the associated value into other
     -- stacks. The name is defined in the @Export@ field in the associated
     -- stack\'s @Outputs@ section.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The stack that contains the exported output name and value.
-    exportingStackId :: Prelude.Maybe Prelude.Text,
-    -- | The value of the exported output, such as a resource physical ID. This
-    -- value is defined in the @Export@ field in the associated stack\'s
-    -- @Outputs@ section.
-    value :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,24 +49,34 @@ data Export = Export'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'value', 'export_value' - The value of the exported output, such as a resource physical ID. This
+-- value is defined in the @Export@ field in the associated stack\'s
+-- @Outputs@ section.
+--
+-- 'exportingStackId', 'export_exportingStackId' - The stack that contains the exported output name and value.
+--
 -- 'name', 'export_name' - The name of exported output value. Use this name and the
 -- @Fn::ImportValue@ function to import the associated value into other
 -- stacks. The name is defined in the @Export@ field in the associated
 -- stack\'s @Outputs@ section.
---
--- 'exportingStackId', 'export_exportingStackId' - The stack that contains the exported output name and value.
---
--- 'value', 'export_value' - The value of the exported output, such as a resource physical ID. This
--- value is defined in the @Export@ field in the associated stack\'s
--- @Outputs@ section.
 newExport ::
   Export
 newExport =
   Export'
-    { name = Prelude.Nothing,
+    { value = Prelude.Nothing,
       exportingStackId = Prelude.Nothing,
-      value = Prelude.Nothing
+      name = Prelude.Nothing
     }
+
+-- | The value of the exported output, such as a resource physical ID. This
+-- value is defined in the @Export@ field in the associated stack\'s
+-- @Outputs@ section.
+export_value :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
+export_value = Lens.lens (\Export' {value} -> value) (\s@Export' {} a -> s {value = a} :: Export)
+
+-- | The stack that contains the exported output name and value.
+export_exportingStackId :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
+export_exportingStackId = Lens.lens (\Export' {exportingStackId} -> exportingStackId) (\s@Export' {} a -> s {exportingStackId = a} :: Export)
 
 -- | The name of exported output value. Use this name and the
 -- @Fn::ImportValue@ function to import the associated value into other
@@ -75,22 +85,12 @@ newExport =
 export_name :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
 export_name = Lens.lens (\Export' {name} -> name) (\s@Export' {} a -> s {name = a} :: Export)
 
--- | The stack that contains the exported output name and value.
-export_exportingStackId :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
-export_exportingStackId = Lens.lens (\Export' {exportingStackId} -> exportingStackId) (\s@Export' {} a -> s {exportingStackId = a} :: Export)
-
--- | The value of the exported output, such as a resource physical ID. This
--- value is defined in the @Export@ field in the associated stack\'s
--- @Outputs@ section.
-export_value :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
-export_value = Lens.lens (\Export' {value} -> value) (\s@Export' {} a -> s {value = a} :: Export)
-
 instance Core.FromXML Export where
   parseXML x =
     Export'
-      Prelude.<$> (x Core..@? "Name")
+      Prelude.<$> (x Core..@? "Value")
       Prelude.<*> (x Core..@? "ExportingStackId")
-      Prelude.<*> (x Core..@? "Value")
+      Prelude.<*> (x Core..@? "Name")
 
 instance Prelude.Hashable Export
 

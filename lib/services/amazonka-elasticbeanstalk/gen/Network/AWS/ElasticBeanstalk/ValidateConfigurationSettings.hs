@@ -128,7 +128,7 @@ validateConfigurationSettings_applicationName = Lens.lens (\ValidateConfiguratio
 
 -- | A list of the options and desired values to evaluate.
 validateConfigurationSettings_optionSettings :: Lens.Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-validateConfigurationSettings_optionSettings = Lens.lens (\ValidateConfigurationSettings' {optionSettings} -> optionSettings) (\s@ValidateConfigurationSettings' {} a -> s {optionSettings = a} :: ValidateConfigurationSettings) Prelude.. Lens._Coerce
+validateConfigurationSettings_optionSettings = Lens.lens (\ValidateConfigurationSettings' {optionSettings} -> optionSettings) (\s@ValidateConfigurationSettings' {} a -> s {optionSettings = a} :: ValidateConfigurationSettings) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -212,7 +212,7 @@ newValidateConfigurationSettingsResponse pHttpStatus_ =
 
 -- | A list of ValidationMessage.
 validateConfigurationSettingsResponse_messages :: Lens.Lens' ValidateConfigurationSettingsResponse (Prelude.Maybe [ValidationMessage])
-validateConfigurationSettingsResponse_messages = Lens.lens (\ValidateConfigurationSettingsResponse' {messages} -> messages) (\s@ValidateConfigurationSettingsResponse' {} a -> s {messages = a} :: ValidateConfigurationSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
+validateConfigurationSettingsResponse_messages = Lens.lens (\ValidateConfigurationSettingsResponse' {messages} -> messages) (\s@ValidateConfigurationSettingsResponse' {} a -> s {messages = a} :: ValidateConfigurationSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 validateConfigurationSettingsResponse_httpStatus :: Lens.Lens' ValidateConfigurationSettingsResponse Prelude.Int

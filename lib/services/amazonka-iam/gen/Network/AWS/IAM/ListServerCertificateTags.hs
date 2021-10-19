@@ -38,8 +38,8 @@ module Network.AWS.IAM.ListServerCertificateTags
     newListServerCertificateTags,
 
     -- * Request Lenses
-    listServerCertificateTags_maxItems,
     listServerCertificateTags_marker,
+    listServerCertificateTags_maxItems,
     listServerCertificateTags_serverCertificateName,
 
     -- * Destructuring the Response
@@ -47,8 +47,8 @@ module Network.AWS.IAM.ListServerCertificateTags
     newListServerCertificateTagsResponse,
 
     -- * Response Lenses
-    listServerCertificateTagsResponse_isTruncated,
     listServerCertificateTagsResponse_marker,
+    listServerCertificateTagsResponse_isTruncated,
     listServerCertificateTagsResponse_httpStatus,
     listServerCertificateTagsResponse_tags,
   )
@@ -63,7 +63,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListServerCertificateTags' smart constructor.
 data ListServerCertificateTags = ListServerCertificateTags'
-  { -- | Use this only when paginating results to indicate the maximum number of
+  { -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
     --
@@ -73,11 +78,6 @@ data ListServerCertificateTags = ListServerCertificateTags'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The name of the IAM server certificate whose tags you want to see.
     --
     -- This parameter allows (through its
@@ -96,6 +96,11 @@ data ListServerCertificateTags = ListServerCertificateTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listServerCertificateTags_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'maxItems', 'listServerCertificateTags_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -105,11 +110,6 @@ data ListServerCertificateTags = ListServerCertificateTags'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
---
--- 'marker', 'listServerCertificateTags_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'serverCertificateName', 'listServerCertificateTags_serverCertificateName' - The name of the IAM server certificate whose tags you want to see.
 --
@@ -123,11 +123,18 @@ newListServerCertificateTags ::
   ListServerCertificateTags
 newListServerCertificateTags pServerCertificateName_ =
   ListServerCertificateTags'
-    { maxItems =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       serverCertificateName = pServerCertificateName_
     }
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listServerCertificateTags_marker :: Lens.Lens' ListServerCertificateTags (Prelude.Maybe Prelude.Text)
+listServerCertificateTags_marker = Lens.lens (\ListServerCertificateTags' {marker} -> marker) (\s@ListServerCertificateTags' {} a -> s {marker = a} :: ListServerCertificateTags)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -140,13 +147,6 @@ newListServerCertificateTags pServerCertificateName_ =
 -- subsequent call that tells the service where to continue from.
 listServerCertificateTags_maxItems :: Lens.Lens' ListServerCertificateTags (Prelude.Maybe Prelude.Natural)
 listServerCertificateTags_maxItems = Lens.lens (\ListServerCertificateTags' {maxItems} -> maxItems) (\s@ListServerCertificateTags' {} a -> s {maxItems = a} :: ListServerCertificateTags)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listServerCertificateTags_marker :: Lens.Lens' ListServerCertificateTags (Prelude.Maybe Prelude.Text)
-listServerCertificateTags_marker = Lens.lens (\ListServerCertificateTags' {marker} -> marker) (\s@ListServerCertificateTags' {} a -> s {marker = a} :: ListServerCertificateTags)
 
 -- | The name of the IAM server certificate whose tags you want to see.
 --
@@ -167,8 +167,8 @@ instance Core.AWSRequest ListServerCertificateTags where
       "ListServerCertificateTagsResult"
       ( \s h x ->
           ListServerCertificateTagsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.parseXMLList "member"
@@ -192,15 +192,19 @@ instance Core.ToQuery ListServerCertificateTags where
           Core.=: ("ListServerCertificateTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
         "ServerCertificateName"
           Core.=: serverCertificateName
       ]
 
 -- | /See:/ 'newListServerCertificateTagsResponse' smart constructor.
 data ListServerCertificateTagsResponse = ListServerCertificateTagsResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -208,10 +212,6 @@ data ListServerCertificateTagsResponse = ListServerCertificateTagsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the IAM server
@@ -230,6 +230,10 @@ data ListServerCertificateTagsResponse = ListServerCertificateTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listServerCertificateTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'listServerCertificateTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -237,10 +241,6 @@ data ListServerCertificateTagsResponse = ListServerCertificateTagsResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
---
--- 'marker', 'listServerCertificateTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
 --
 -- 'httpStatus', 'listServerCertificateTagsResponse_httpStatus' - The response's http status code.
 --
@@ -254,12 +254,18 @@ newListServerCertificateTagsResponse ::
   ListServerCertificateTagsResponse
 newListServerCertificateTagsResponse pHttpStatus_ =
   ListServerCertificateTagsResponse'
-    { isTruncated =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       tags = Prelude.mempty
     }
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listServerCertificateTagsResponse_marker :: Lens.Lens' ListServerCertificateTagsResponse (Prelude.Maybe Prelude.Text)
+listServerCertificateTagsResponse_marker = Lens.lens (\ListServerCertificateTagsResponse' {marker} -> marker) (\s@ListServerCertificateTagsResponse' {} a -> s {marker = a} :: ListServerCertificateTagsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -271,12 +277,6 @@ newListServerCertificateTagsResponse pHttpStatus_ =
 listServerCertificateTagsResponse_isTruncated :: Lens.Lens' ListServerCertificateTagsResponse (Prelude.Maybe Prelude.Bool)
 listServerCertificateTagsResponse_isTruncated = Lens.lens (\ListServerCertificateTagsResponse' {isTruncated} -> isTruncated) (\s@ListServerCertificateTagsResponse' {} a -> s {isTruncated = a} :: ListServerCertificateTagsResponse)
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listServerCertificateTagsResponse_marker :: Lens.Lens' ListServerCertificateTagsResponse (Prelude.Maybe Prelude.Text)
-listServerCertificateTagsResponse_marker = Lens.lens (\ListServerCertificateTagsResponse' {marker} -> marker) (\s@ListServerCertificateTagsResponse' {} a -> s {marker = a} :: ListServerCertificateTagsResponse)
-
 -- | The response's http status code.
 listServerCertificateTagsResponse_httpStatus :: Lens.Lens' ListServerCertificateTagsResponse Prelude.Int
 listServerCertificateTagsResponse_httpStatus = Lens.lens (\ListServerCertificateTagsResponse' {httpStatus} -> httpStatus) (\s@ListServerCertificateTagsResponse' {} a -> s {httpStatus = a} :: ListServerCertificateTagsResponse)
@@ -286,7 +286,7 @@ listServerCertificateTagsResponse_httpStatus = Lens.lens (\ListServerCertificate
 -- no tags are attached to the specified resource, the response contains an
 -- empty list.
 listServerCertificateTagsResponse_tags :: Lens.Lens' ListServerCertificateTagsResponse [Tag]
-listServerCertificateTagsResponse_tags = Lens.lens (\ListServerCertificateTagsResponse' {tags} -> tags) (\s@ListServerCertificateTagsResponse' {} a -> s {tags = a} :: ListServerCertificateTagsResponse) Prelude.. Lens._Coerce
+listServerCertificateTagsResponse_tags = Lens.lens (\ListServerCertificateTagsResponse' {tags} -> tags) (\s@ListServerCertificateTagsResponse' {} a -> s {tags = a} :: ListServerCertificateTagsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

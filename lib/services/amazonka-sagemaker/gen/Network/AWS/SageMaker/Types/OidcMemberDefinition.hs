@@ -55,13 +55,13 @@ newOidcMemberDefinition ::
 newOidcMemberDefinition pGroups_ =
   OidcMemberDefinition'
     { groups =
-        Lens._Coerce Lens.# pGroups_
+        Lens.coerced Lens.# pGroups_
     }
 
 -- | A list of comma seperated strings that identifies user groups in your
 -- OIDC IdP. Each user group is made up of a group of private workers.
 oidcMemberDefinition_groups :: Lens.Lens' OidcMemberDefinition (Prelude.NonEmpty Prelude.Text)
-oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Prelude.. Lens._Coerce
+oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Prelude.. Lens.coerced
 
 instance Core.FromJSON OidcMemberDefinition where
   parseJSON =

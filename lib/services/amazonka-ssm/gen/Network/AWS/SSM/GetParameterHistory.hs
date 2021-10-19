@@ -244,7 +244,7 @@ getParameterHistoryResponse_nextToken = Lens.lens (\GetParameterHistoryResponse'
 
 -- | A list of parameters returned by the request.
 getParameterHistoryResponse_parameters :: Lens.Lens' GetParameterHistoryResponse (Prelude.Maybe [ParameterHistory])
-getParameterHistoryResponse_parameters = Lens.lens (\GetParameterHistoryResponse' {parameters} -> parameters) (\s@GetParameterHistoryResponse' {} a -> s {parameters = a} :: GetParameterHistoryResponse) Prelude.. Lens.mapping Lens._Coerce
+getParameterHistoryResponse_parameters = Lens.lens (\GetParameterHistoryResponse' {parameters} -> parameters) (\s@GetParameterHistoryResponse' {} a -> s {parameters = a} :: GetParameterHistoryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getParameterHistoryResponse_httpStatus :: Lens.Lens' GetParameterHistoryResponse Prelude.Int

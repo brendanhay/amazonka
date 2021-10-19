@@ -130,7 +130,7 @@ describeObjects_pipelineId = Lens.lens (\DescribeObjects' {pipelineId} -> pipeli
 -- described. You can pass as many as 25 identifiers in a single call to
 -- @DescribeObjects@.
 describeObjects_objectIds :: Lens.Lens' DescribeObjects [Prelude.Text]
-describeObjects_objectIds = Lens.lens (\DescribeObjects' {objectIds} -> objectIds) (\s@DescribeObjects' {} a -> s {objectIds = a} :: DescribeObjects) Prelude.. Lens._Coerce
+describeObjects_objectIds = Lens.lens (\DescribeObjects' {objectIds} -> objectIds) (\s@DescribeObjects' {} a -> s {objectIds = a} :: DescribeObjects) Prelude.. Lens.coerced
 
 instance Core.AWSPager DescribeObjects where
   page rq rs
@@ -269,6 +269,6 @@ describeObjectsResponse_httpStatus = Lens.lens (\DescribeObjectsResponse' {httpS
 
 -- | An array of object definitions.
 describeObjectsResponse_pipelineObjects :: Lens.Lens' DescribeObjectsResponse [PipelineObject]
-describeObjectsResponse_pipelineObjects = Lens.lens (\DescribeObjectsResponse' {pipelineObjects} -> pipelineObjects) (\s@DescribeObjectsResponse' {} a -> s {pipelineObjects = a} :: DescribeObjectsResponse) Prelude.. Lens._Coerce
+describeObjectsResponse_pipelineObjects = Lens.lens (\DescribeObjectsResponse' {pipelineObjects} -> pipelineObjects) (\s@DescribeObjectsResponse' {} a -> s {pipelineObjects = a} :: DescribeObjectsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeObjectsResponse

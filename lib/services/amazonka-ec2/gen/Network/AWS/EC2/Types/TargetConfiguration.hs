@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetConfiguration' smart constructor.
 data TargetConfiguration = TargetConfiguration'
-  { -- | The ID of the Convertible Reserved Instance offering.
-    offeringId :: Prelude.Maybe Prelude.Text,
-    -- | The number of instances the Convertible Reserved Instance offering can
+  { -- | The number of instances the Convertible Reserved Instance offering can
     -- be applied to. This parameter is reserved and cannot be specified in a
     -- request
-    instanceCount :: Prelude.Maybe Prelude.Int
+    instanceCount :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the Convertible Reserved Instance offering.
+    offeringId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,22 +45,19 @@ data TargetConfiguration = TargetConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'offeringId', 'targetConfiguration_offeringId' - The ID of the Convertible Reserved Instance offering.
---
 -- 'instanceCount', 'targetConfiguration_instanceCount' - The number of instances the Convertible Reserved Instance offering can
 -- be applied to. This parameter is reserved and cannot be specified in a
 -- request
+--
+-- 'offeringId', 'targetConfiguration_offeringId' - The ID of the Convertible Reserved Instance offering.
 newTargetConfiguration ::
   TargetConfiguration
 newTargetConfiguration =
   TargetConfiguration'
-    { offeringId = Prelude.Nothing,
-      instanceCount = Prelude.Nothing
+    { instanceCount =
+        Prelude.Nothing,
+      offeringId = Prelude.Nothing
     }
-
--- | The ID of the Convertible Reserved Instance offering.
-targetConfiguration_offeringId :: Lens.Lens' TargetConfiguration (Prelude.Maybe Prelude.Text)
-targetConfiguration_offeringId = Lens.lens (\TargetConfiguration' {offeringId} -> offeringId) (\s@TargetConfiguration' {} a -> s {offeringId = a} :: TargetConfiguration)
 
 -- | The number of instances the Convertible Reserved Instance offering can
 -- be applied to. This parameter is reserved and cannot be specified in a
@@ -68,11 +65,15 @@ targetConfiguration_offeringId = Lens.lens (\TargetConfiguration' {offeringId} -
 targetConfiguration_instanceCount :: Lens.Lens' TargetConfiguration (Prelude.Maybe Prelude.Int)
 targetConfiguration_instanceCount = Lens.lens (\TargetConfiguration' {instanceCount} -> instanceCount) (\s@TargetConfiguration' {} a -> s {instanceCount = a} :: TargetConfiguration)
 
+-- | The ID of the Convertible Reserved Instance offering.
+targetConfiguration_offeringId :: Lens.Lens' TargetConfiguration (Prelude.Maybe Prelude.Text)
+targetConfiguration_offeringId = Lens.lens (\TargetConfiguration' {offeringId} -> offeringId) (\s@TargetConfiguration' {} a -> s {offeringId = a} :: TargetConfiguration)
+
 instance Core.FromXML TargetConfiguration where
   parseXML x =
     TargetConfiguration'
-      Prelude.<$> (x Core..@? "offeringId")
-      Prelude.<*> (x Core..@? "instanceCount")
+      Prelude.<$> (x Core..@? "instanceCount")
+      Prelude.<*> (x Core..@? "offeringId")
 
 instance Prelude.Hashable TargetConfiguration
 

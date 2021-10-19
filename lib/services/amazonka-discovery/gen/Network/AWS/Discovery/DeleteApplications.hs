@@ -72,7 +72,7 @@ newDeleteApplications =
 
 -- | Configuration ID of an application to be deleted.
 deleteApplications_configurationIds :: Lens.Lens' DeleteApplications [Prelude.Text]
-deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Prelude.. Lens._Coerce
+deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteApplications where
   type

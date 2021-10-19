@@ -29,19 +29,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatabaseInput' smart constructor.
 data DatabaseInput = DatabaseInput'
-  { -- | Creates a set of default permissions on the table for principals.
-    createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
+  { -- | The location of the database (for example, an HDFS path).
+    locationUri :: Prelude.Maybe Prelude.Text,
     -- | A @DatabaseIdentifier@ structure that describes a target database for
     -- resource linking.
     targetDatabase :: Prelude.Maybe DatabaseIdentifier,
-    -- | A description of the database.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The location of the database (for example, an HDFS path).
-    locationUri :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define parameters and properties of the database.
     --
     -- These key-value pairs define parameters and properties of the database.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A description of the database.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Creates a set of default permissions on the table for principals.
+    createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | The name of the database. For Hive compatibility, this is folded to
     -- lowercase when it is stored.
     name :: Prelude.Text
@@ -56,18 +56,18 @@ data DatabaseInput = DatabaseInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createTableDefaultPermissions', 'databaseInput_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
+-- 'locationUri', 'databaseInput_locationUri' - The location of the database (for example, an HDFS path).
 --
 -- 'targetDatabase', 'databaseInput_targetDatabase' - A @DatabaseIdentifier@ structure that describes a target database for
 -- resource linking.
 --
--- 'description', 'databaseInput_description' - A description of the database.
---
--- 'locationUri', 'databaseInput_locationUri' - The location of the database (for example, an HDFS path).
---
 -- 'parameters', 'databaseInput_parameters' - These key-value pairs define parameters and properties of the database.
 --
 -- These key-value pairs define parameters and properties of the database.
+--
+-- 'description', 'databaseInput_description' - A description of the database.
+--
+-- 'createTableDefaultPermissions', 'databaseInput_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
 --
 -- 'name', 'databaseInput_name' - The name of the database. For Hive compatibility, this is folded to
 -- lowercase when it is stored.
@@ -77,37 +77,36 @@ newDatabaseInput ::
   DatabaseInput
 newDatabaseInput pName_ =
   DatabaseInput'
-    { createTableDefaultPermissions =
-        Prelude.Nothing,
+    { locationUri = Prelude.Nothing,
       targetDatabase = Prelude.Nothing,
-      description = Prelude.Nothing,
-      locationUri = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      description = Prelude.Nothing,
+      createTableDefaultPermissions = Prelude.Nothing,
       name = pName_
     }
 
--- | Creates a set of default permissions on the table for principals.
-databaseInput_createTableDefaultPermissions :: Lens.Lens' DatabaseInput (Prelude.Maybe [PrincipalPermissions])
-databaseInput_createTableDefaultPermissions = Lens.lens (\DatabaseInput' {createTableDefaultPermissions} -> createTableDefaultPermissions) (\s@DatabaseInput' {} a -> s {createTableDefaultPermissions = a} :: DatabaseInput) Prelude.. Lens.mapping Lens._Coerce
+-- | The location of the database (for example, an HDFS path).
+databaseInput_locationUri :: Lens.Lens' DatabaseInput (Prelude.Maybe Prelude.Text)
+databaseInput_locationUri = Lens.lens (\DatabaseInput' {locationUri} -> locationUri) (\s@DatabaseInput' {} a -> s {locationUri = a} :: DatabaseInput)
 
 -- | A @DatabaseIdentifier@ structure that describes a target database for
 -- resource linking.
 databaseInput_targetDatabase :: Lens.Lens' DatabaseInput (Prelude.Maybe DatabaseIdentifier)
 databaseInput_targetDatabase = Lens.lens (\DatabaseInput' {targetDatabase} -> targetDatabase) (\s@DatabaseInput' {} a -> s {targetDatabase = a} :: DatabaseInput)
 
--- | A description of the database.
-databaseInput_description :: Lens.Lens' DatabaseInput (Prelude.Maybe Prelude.Text)
-databaseInput_description = Lens.lens (\DatabaseInput' {description} -> description) (\s@DatabaseInput' {} a -> s {description = a} :: DatabaseInput)
-
--- | The location of the database (for example, an HDFS path).
-databaseInput_locationUri :: Lens.Lens' DatabaseInput (Prelude.Maybe Prelude.Text)
-databaseInput_locationUri = Lens.lens (\DatabaseInput' {locationUri} -> locationUri) (\s@DatabaseInput' {} a -> s {locationUri = a} :: DatabaseInput)
-
 -- | These key-value pairs define parameters and properties of the database.
 --
 -- These key-value pairs define parameters and properties of the database.
 databaseInput_parameters :: Lens.Lens' DatabaseInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-databaseInput_parameters = Lens.lens (\DatabaseInput' {parameters} -> parameters) (\s@DatabaseInput' {} a -> s {parameters = a} :: DatabaseInput) Prelude.. Lens.mapping Lens._Coerce
+databaseInput_parameters = Lens.lens (\DatabaseInput' {parameters} -> parameters) (\s@DatabaseInput' {} a -> s {parameters = a} :: DatabaseInput) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description of the database.
+databaseInput_description :: Lens.Lens' DatabaseInput (Prelude.Maybe Prelude.Text)
+databaseInput_description = Lens.lens (\DatabaseInput' {description} -> description) (\s@DatabaseInput' {} a -> s {description = a} :: DatabaseInput)
+
+-- | Creates a set of default permissions on the table for principals.
+databaseInput_createTableDefaultPermissions :: Lens.Lens' DatabaseInput (Prelude.Maybe [PrincipalPermissions])
+databaseInput_createTableDefaultPermissions = Lens.lens (\DatabaseInput' {createTableDefaultPermissions} -> createTableDefaultPermissions) (\s@DatabaseInput' {} a -> s {createTableDefaultPermissions = a} :: DatabaseInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the database. For Hive compatibility, this is folded to
 -- lowercase when it is stored.
@@ -122,13 +121,13 @@ instance Core.ToJSON DatabaseInput where
   toJSON DatabaseInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreateTableDefaultPermissions" Core..=)
-              Prelude.<$> createTableDefaultPermissions,
+          [ ("LocationUri" Core..=) Prelude.<$> locationUri,
             ("TargetDatabase" Core..=)
               Prelude.<$> targetDatabase,
-            ("Description" Core..=) Prelude.<$> description,
-            ("LocationUri" Core..=) Prelude.<$> locationUri,
             ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Description" Core..=) Prelude.<$> description,
+            ("CreateTableDefaultPermissions" Core..=)
+              Prelude.<$> createTableDefaultPermissions,
             Prelude.Just ("Name" Core..= name)
           ]
       )

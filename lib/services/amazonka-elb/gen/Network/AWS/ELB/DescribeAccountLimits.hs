@@ -34,16 +34,16 @@ module Network.AWS.ELB.DescribeAccountLimits
     newDescribeAccountLimits,
 
     -- * Request Lenses
-    describeAccountLimits_pageSize,
     describeAccountLimits_marker,
+    describeAccountLimits_pageSize,
 
     -- * Destructuring the Response
     DescribeAccountLimitsResponse (..),
     newDescribeAccountLimitsResponse,
 
     -- * Response Lenses
-    describeAccountLimitsResponse_nextMarker,
     describeAccountLimitsResponse_limits,
+    describeAccountLimitsResponse_nextMarker,
     describeAccountLimitsResponse_httpStatus,
   )
 where
@@ -57,11 +57,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
-  { -- | The maximum number of results to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The marker for the next set of results. (You received this marker from a
+  { -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,26 +73,26 @@ data DescribeAccountLimits = DescribeAccountLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'describeAccountLimits_pageSize' - The maximum number of results to return with this call.
---
 -- 'marker', 'describeAccountLimits_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'pageSize', 'describeAccountLimits_pageSize' - The maximum number of results to return with this call.
 newDescribeAccountLimits ::
   DescribeAccountLimits
 newDescribeAccountLimits =
   DescribeAccountLimits'
-    { pageSize = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      pageSize = Prelude.Nothing
     }
-
--- | The maximum number of results to return with this call.
-describeAccountLimits_pageSize :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Natural)
-describeAccountLimits_pageSize = Lens.lens (\DescribeAccountLimits' {pageSize} -> pageSize) (\s@DescribeAccountLimits' {} a -> s {pageSize = a} :: DescribeAccountLimits)
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeAccountLimits_marker :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Text)
 describeAccountLimits_marker = Lens.lens (\DescribeAccountLimits' {marker} -> marker) (\s@DescribeAccountLimits' {} a -> s {marker = a} :: DescribeAccountLimits)
+
+-- | The maximum number of results to return with this call.
+describeAccountLimits_pageSize :: Lens.Lens' DescribeAccountLimits (Prelude.Maybe Prelude.Natural)
+describeAccountLimits_pageSize = Lens.lens (\DescribeAccountLimits' {pageSize} -> pageSize) (\s@DescribeAccountLimits' {} a -> s {pageSize = a} :: DescribeAccountLimits)
 
 instance Core.AWSPager DescribeAccountLimits where
   page rq rs
@@ -126,10 +126,10 @@ instance Core.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Core..@? "NextMarker")
-            Prelude.<*> ( x Core..@? "Limits" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "Limits" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -150,17 +150,17 @@ instance Core.ToQuery DescribeAccountLimits where
           Core.=: ("DescribeAccountLimits" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-06-01" :: Prelude.ByteString),
-        "PageSize" Core.=: pageSize,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "PageSize" Core.=: pageSize
       ]
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { -- | The marker to use when requesting the next set of results. If there are
+  { -- | Information about the limits.
+    limits :: Prelude.Maybe [Limit],
+    -- | The marker to use when requesting the next set of results. If there are
     -- no additional results, the string is empty.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | Information about the limits.
-    limits :: Prelude.Maybe [Limit],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limits', 'describeAccountLimitsResponse_limits' - Information about the limits.
+--
 -- 'nextMarker', 'describeAccountLimitsResponse_nextMarker' - The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
---
--- 'limits', 'describeAccountLimitsResponse_limits' - Information about the limits.
 --
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
@@ -186,20 +186,20 @@ newDescribeAccountLimitsResponse ::
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
-    { nextMarker =
+    { limits =
         Prelude.Nothing,
-      limits = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the limits.
+describeAccountLimitsResponse_limits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [Limit])
+describeAccountLimitsResponse_limits = Lens.lens (\DescribeAccountLimitsResponse' {limits} -> limits) (\s@DescribeAccountLimitsResponse' {} a -> s {limits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
 describeAccountLimitsResponse_nextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Text)
 describeAccountLimitsResponse_nextMarker = Lens.lens (\DescribeAccountLimitsResponse' {nextMarker} -> nextMarker) (\s@DescribeAccountLimitsResponse' {} a -> s {nextMarker = a} :: DescribeAccountLimitsResponse)
-
--- | Information about the limits.
-describeAccountLimitsResponse_limits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [Limit])
-describeAccountLimitsResponse_limits = Lens.lens (\DescribeAccountLimitsResponse' {limits} -> limits) (\s@DescribeAccountLimitsResponse' {} a -> s {limits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int

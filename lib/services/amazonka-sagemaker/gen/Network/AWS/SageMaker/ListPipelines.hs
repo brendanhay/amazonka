@@ -29,21 +29,21 @@ module Network.AWS.SageMaker.ListPipelines
     newListPipelines,
 
     -- * Request Lenses
+    listPipelines_createdAfter,
+    listPipelines_pipelineNamePrefix,
     listPipelines_nextToken,
     listPipelines_sortOrder,
-    listPipelines_createdAfter,
-    listPipelines_createdBefore,
     listPipelines_maxResults,
+    listPipelines_createdBefore,
     listPipelines_sortBy,
-    listPipelines_pipelineNamePrefix,
 
     -- * Destructuring the Response
     ListPipelinesResponse (..),
     newListPipelinesResponse,
 
     -- * Response Lenses
-    listPipelinesResponse_nextToken,
     listPipelinesResponse_pipelineSummaries,
+    listPipelinesResponse_nextToken,
     listPipelinesResponse_httpStatus,
   )
 where
@@ -57,24 +57,24 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListPipelines' smart constructor.
 data ListPipelines = ListPipelines'
-  { -- | If the result of the previous @ListPipelines@ request was truncated, the
+  { -- | A filter that returns the pipelines that were created after a specified
+    -- time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | The prefix of the pipeline name.
+    pipelineNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | If the result of the previous @ListPipelines@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of pipelines,
     -- use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for results.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | A filter that returns the pipelines that were created after a specified
-    -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of pipelines to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns the pipelines that were created before a specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
-    -- | The maximum number of pipelines to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The field by which to sort results. The default is @CreatedTime@.
-    sortBy :: Prelude.Maybe SortPipelinesBy,
-    -- | The prefix of the pipeline name.
-    pipelineNamePrefix :: Prelude.Maybe Prelude.Text
+    sortBy :: Prelude.Maybe SortPipelinesBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,35 +86,44 @@ data ListPipelines = ListPipelines'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdAfter', 'listPipelines_createdAfter' - A filter that returns the pipelines that were created after a specified
+-- time.
+--
+-- 'pipelineNamePrefix', 'listPipelines_pipelineNamePrefix' - The prefix of the pipeline name.
+--
 -- 'nextToken', 'listPipelines_nextToken' - If the result of the previous @ListPipelines@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of pipelines,
 -- use the token in the next request.
 --
 -- 'sortOrder', 'listPipelines_sortOrder' - The sort order for results.
 --
--- 'createdAfter', 'listPipelines_createdAfter' - A filter that returns the pipelines that were created after a specified
--- time.
+-- 'maxResults', 'listPipelines_maxResults' - The maximum number of pipelines to return in the response.
 --
 -- 'createdBefore', 'listPipelines_createdBefore' - A filter that returns the pipelines that were created before a specified
 -- time.
 --
--- 'maxResults', 'listPipelines_maxResults' - The maximum number of pipelines to return in the response.
---
 -- 'sortBy', 'listPipelines_sortBy' - The field by which to sort results. The default is @CreatedTime@.
---
--- 'pipelineNamePrefix', 'listPipelines_pipelineNamePrefix' - The prefix of the pipeline name.
 newListPipelines ::
   ListPipelines
 newListPipelines =
   ListPipelines'
-    { nextToken = Prelude.Nothing,
+    { createdAfter = Prelude.Nothing,
+      pipelineNamePrefix = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      createdAfter = Prelude.Nothing,
-      createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      pipelineNamePrefix = Prelude.Nothing
+      createdBefore = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A filter that returns the pipelines that were created after a specified
+-- time.
+listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
+listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
+
+-- | The prefix of the pipeline name.
+listPipelines_pipelineNamePrefix :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
+listPipelines_pipelineNamePrefix = Lens.lens (\ListPipelines' {pipelineNamePrefix} -> pipelineNamePrefix) (\s@ListPipelines' {} a -> s {pipelineNamePrefix = a} :: ListPipelines)
 
 -- | If the result of the previous @ListPipelines@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of pipelines,
@@ -126,27 +135,18 @@ listPipelines_nextToken = Lens.lens (\ListPipelines' {nextToken} -> nextToken) (
 listPipelines_sortOrder :: Lens.Lens' ListPipelines (Prelude.Maybe SortOrder)
 listPipelines_sortOrder = Lens.lens (\ListPipelines' {sortOrder} -> sortOrder) (\s@ListPipelines' {} a -> s {sortOrder = a} :: ListPipelines)
 
--- | A filter that returns the pipelines that were created after a specified
--- time.
-listPipelines_createdAfter :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
-listPipelines_createdAfter = Lens.lens (\ListPipelines' {createdAfter} -> createdAfter) (\s@ListPipelines' {} a -> s {createdAfter = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
+-- | The maximum number of pipelines to return in the response.
+listPipelines_maxResults :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Natural)
+listPipelines_maxResults = Lens.lens (\ListPipelines' {maxResults} -> maxResults) (\s@ListPipelines' {} a -> s {maxResults = a} :: ListPipelines)
 
 -- | A filter that returns the pipelines that were created before a specified
 -- time.
 listPipelines_createdBefore :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.UTCTime)
 listPipelines_createdBefore = Lens.lens (\ListPipelines' {createdBefore} -> createdBefore) (\s@ListPipelines' {} a -> s {createdBefore = a} :: ListPipelines) Prelude.. Lens.mapping Core._Time
 
--- | The maximum number of pipelines to return in the response.
-listPipelines_maxResults :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Natural)
-listPipelines_maxResults = Lens.lens (\ListPipelines' {maxResults} -> maxResults) (\s@ListPipelines' {} a -> s {maxResults = a} :: ListPipelines)
-
 -- | The field by which to sort results. The default is @CreatedTime@.
 listPipelines_sortBy :: Lens.Lens' ListPipelines (Prelude.Maybe SortPipelinesBy)
 listPipelines_sortBy = Lens.lens (\ListPipelines' {sortBy} -> sortBy) (\s@ListPipelines' {} a -> s {sortBy = a} :: ListPipelines)
-
--- | The prefix of the pipeline name.
-listPipelines_pipelineNamePrefix :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
-listPipelines_pipelineNamePrefix = Lens.lens (\ListPipelines' {pipelineNamePrefix} -> pipelineNamePrefix) (\s@ListPipelines' {} a -> s {pipelineNamePrefix = a} :: ListPipelines)
 
 instance Core.AWSPager ListPipelines where
   page rq rs
@@ -177,10 +177,10 @@ instance Core.AWSRequest ListPipelines where
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "PipelineSummaries"
+            Prelude.<$> ( x Core..?> "PipelineSummaries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -205,14 +205,14 @@ instance Core.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
+          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("PipelineNamePrefix" Core..=)
-              Prelude.<$> pipelineNamePrefix
+              Prelude.<$> pipelineNamePrefix,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -224,15 +224,15 @@ instance Core.ToQuery ListPipelines where
 
 -- | /See:/ 'newListPipelinesResponse' smart constructor.
 data ListPipelinesResponse = ListPipelinesResponse'
-  { -- | If the result of the previous @ListPipelines@ request was truncated, the
-    -- response includes a @NextToken@. To retrieve the next set of pipelines,
-    -- use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Contains a sorted list of @PipelineSummary@ objects matching the
+  { -- | Contains a sorted list of @PipelineSummary@ objects matching the
     -- specified filters. Each @PipelineSummary@ consists of PipelineArn,
     -- PipelineName, ExperimentName, PipelineDescription, CreationTime,
     -- LastModifiedTime, LastRunTime, and RoleArn. This list can be empty.
     pipelineSummaries :: Prelude.Maybe [PipelineSummary],
+    -- | If the result of the previous @ListPipelines@ request was truncated, the
+    -- response includes a @NextToken@. To retrieve the next set of pipelines,
+    -- use the token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,14 +246,14 @@ data ListPipelinesResponse = ListPipelinesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPipelinesResponse_nextToken' - If the result of the previous @ListPipelines@ request was truncated, the
--- response includes a @NextToken@. To retrieve the next set of pipelines,
--- use the token in the next request.
---
 -- 'pipelineSummaries', 'listPipelinesResponse_pipelineSummaries' - Contains a sorted list of @PipelineSummary@ objects matching the
 -- specified filters. Each @PipelineSummary@ consists of PipelineArn,
 -- PipelineName, ExperimentName, PipelineDescription, CreationTime,
 -- LastModifiedTime, LastRunTime, and RoleArn. This list can be empty.
+--
+-- 'nextToken', 'listPipelinesResponse_nextToken' - If the result of the previous @ListPipelines@ request was truncated, the
+-- response includes a @NextToken@. To retrieve the next set of pipelines,
+-- use the token in the next request.
 --
 -- 'httpStatus', 'listPipelinesResponse_httpStatus' - The response's http status code.
 newListPipelinesResponse ::
@@ -262,23 +262,24 @@ newListPipelinesResponse ::
   ListPipelinesResponse
 newListPipelinesResponse pHttpStatus_ =
   ListPipelinesResponse'
-    { nextToken = Prelude.Nothing,
-      pipelineSummaries = Prelude.Nothing,
+    { pipelineSummaries =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the result of the previous @ListPipelines@ request was truncated, the
--- response includes a @NextToken@. To retrieve the next set of pipelines,
--- use the token in the next request.
-listPipelinesResponse_nextToken :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
-listPipelinesResponse_nextToken = Lens.lens (\ListPipelinesResponse' {nextToken} -> nextToken) (\s@ListPipelinesResponse' {} a -> s {nextToken = a} :: ListPipelinesResponse)
 
 -- | Contains a sorted list of @PipelineSummary@ objects matching the
 -- specified filters. Each @PipelineSummary@ consists of PipelineArn,
 -- PipelineName, ExperimentName, PipelineDescription, CreationTime,
 -- LastModifiedTime, LastRunTime, and RoleArn. This list can be empty.
 listPipelinesResponse_pipelineSummaries :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe [PipelineSummary])
-listPipelinesResponse_pipelineSummaries = Lens.lens (\ListPipelinesResponse' {pipelineSummaries} -> pipelineSummaries) (\s@ListPipelinesResponse' {} a -> s {pipelineSummaries = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens._Coerce
+listPipelinesResponse_pipelineSummaries = Lens.lens (\ListPipelinesResponse' {pipelineSummaries} -> pipelineSummaries) (\s@ListPipelinesResponse' {} a -> s {pipelineSummaries = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If the result of the previous @ListPipelines@ request was truncated, the
+-- response includes a @NextToken@. To retrieve the next set of pipelines,
+-- use the token in the next request.
+listPipelinesResponse_nextToken :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
+listPipelinesResponse_nextToken = Lens.lens (\ListPipelinesResponse' {nextToken} -> nextToken) (\s@ListPipelinesResponse' {} a -> s {nextToken = a} :: ListPipelinesResponse)
 
 -- | The response's http status code.
 listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int

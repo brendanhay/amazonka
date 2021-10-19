@@ -100,7 +100,7 @@ newSetInstanceProtection
 
 -- | One or more instance IDs. You can specify up to 50 instances.
 setInstanceProtection_instanceIds :: Lens.Lens' SetInstanceProtection [Prelude.Text]
-setInstanceProtection_instanceIds = Lens.lens (\SetInstanceProtection' {instanceIds} -> instanceIds) (\s@SetInstanceProtection' {} a -> s {instanceIds = a} :: SetInstanceProtection) Prelude.. Lens._Coerce
+setInstanceProtection_instanceIds = Lens.lens (\SetInstanceProtection' {instanceIds} -> instanceIds) (\s@SetInstanceProtection' {} a -> s {instanceIds = a} :: SetInstanceProtection) Prelude.. Lens.coerced
 
 -- | The name of the Auto Scaling group.
 setInstanceProtection_autoScalingGroupName :: Lens.Lens' SetInstanceProtection Prelude.Text

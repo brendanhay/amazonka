@@ -93,7 +93,7 @@ newGetIdentityNotificationAttributes =
 -- @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 getIdentityNotificationAttributes_identities :: Lens.Lens' GetIdentityNotificationAttributes [Prelude.Text]
-getIdentityNotificationAttributes_identities = Lens.lens (\GetIdentityNotificationAttributes' {identities} -> identities) (\s@GetIdentityNotificationAttributes' {} a -> s {identities = a} :: GetIdentityNotificationAttributes) Prelude.. Lens._Coerce
+getIdentityNotificationAttributes_identities = Lens.lens (\GetIdentityNotificationAttributes' {identities} -> identities) (\s@GetIdentityNotificationAttributes' {} a -> s {identities = a} :: GetIdentityNotificationAttributes) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -192,7 +192,7 @@ getIdentityNotificationAttributesResponse_httpStatus = Lens.lens (\GetIdentityNo
 
 -- | A map of Identity to IdentityNotificationAttributes.
 getIdentityNotificationAttributesResponse_notificationAttributes :: Lens.Lens' GetIdentityNotificationAttributesResponse (Prelude.HashMap Prelude.Text IdentityNotificationAttributes)
-getIdentityNotificationAttributesResponse_notificationAttributes = Lens.lens (\GetIdentityNotificationAttributesResponse' {notificationAttributes} -> notificationAttributes) (\s@GetIdentityNotificationAttributesResponse' {} a -> s {notificationAttributes = a} :: GetIdentityNotificationAttributesResponse) Prelude.. Lens._Coerce
+getIdentityNotificationAttributesResponse_notificationAttributes = Lens.lens (\GetIdentityNotificationAttributesResponse' {notificationAttributes} -> notificationAttributes) (\s@GetIdentityNotificationAttributesResponse' {} a -> s {notificationAttributes = a} :: GetIdentityNotificationAttributesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

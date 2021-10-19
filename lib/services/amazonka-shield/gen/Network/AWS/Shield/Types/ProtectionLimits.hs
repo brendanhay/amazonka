@@ -55,7 +55,7 @@ newProtectionLimits =
 -- | The maximum number of resource types that you can specify in a
 -- protection.
 protectionLimits_protectedResourceTypeLimits :: Lens.Lens' ProtectionLimits [Limit]
-protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Prelude.. Lens._Coerce
+protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Prelude.. Lens.coerced
 
 instance Core.FromJSON ProtectionLimits where
   parseJSON =

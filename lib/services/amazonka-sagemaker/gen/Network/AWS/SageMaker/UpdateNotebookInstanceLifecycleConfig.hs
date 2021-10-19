@@ -28,8 +28,8 @@ module Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig
     newUpdateNotebookInstanceLifecycleConfig,
 
     -- * Request Lenses
-    updateNotebookInstanceLifecycleConfig_onStart,
     updateNotebookInstanceLifecycleConfig_onCreate,
+    updateNotebookInstanceLifecycleConfig_onStart,
     updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdateNotebookInstanceLifecycleConfig' smart constructor.
 data UpdateNotebookInstanceLifecycleConfig = UpdateNotebookInstanceLifecycleConfig'
-  { -- | The shell script that runs every time you start a notebook instance,
+  { -- | The shell script that runs only once, when you create a notebook
+    -- instance. The shell script must be a base64-encoded string.
+    onCreate :: Prelude.Maybe [NotebookInstanceLifecycleHook],
+    -- | The shell script that runs every time you start a notebook instance,
     -- including when you create the notebook instance. The shell script must
     -- be a base64-encoded string.
     onStart :: Prelude.Maybe [NotebookInstanceLifecycleHook],
-    -- | The shell script that runs only once, when you create a notebook
-    -- instance. The shell script must be a base64-encoded string.
-    onCreate :: Prelude.Maybe [NotebookInstanceLifecycleHook],
     -- | The name of the lifecycle configuration.
     notebookInstanceLifecycleConfigName :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data UpdateNotebookInstanceLifecycleConfig = UpdateNotebookInstanceLifecycleConf
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'onCreate', 'updateNotebookInstanceLifecycleConfig_onCreate' - The shell script that runs only once, when you create a notebook
+-- instance. The shell script must be a base64-encoded string.
+--
 -- 'onStart', 'updateNotebookInstanceLifecycleConfig_onStart' - The shell script that runs every time you start a notebook instance,
 -- including when you create the notebook instance. The shell script must
 -- be a base64-encoded string.
---
--- 'onCreate', 'updateNotebookInstanceLifecycleConfig_onCreate' - The shell script that runs only once, when you create a notebook
--- instance. The shell script must be a base64-encoded string.
 --
 -- 'notebookInstanceLifecycleConfigName', 'updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName' - The name of the lifecycle configuration.
 newUpdateNotebookInstanceLifecycleConfig ::
@@ -85,23 +85,23 @@ newUpdateNotebookInstanceLifecycleConfig ::
 newUpdateNotebookInstanceLifecycleConfig
   pNotebookInstanceLifecycleConfigName_ =
     UpdateNotebookInstanceLifecycleConfig'
-      { onStart =
+      { onCreate =
           Prelude.Nothing,
-        onCreate = Prelude.Nothing,
+        onStart = Prelude.Nothing,
         notebookInstanceLifecycleConfigName =
           pNotebookInstanceLifecycleConfigName_
       }
+
+-- | The shell script that runs only once, when you create a notebook
+-- instance. The shell script must be a base64-encoded string.
+updateNotebookInstanceLifecycleConfig_onCreate :: Lens.Lens' UpdateNotebookInstanceLifecycleConfig (Prelude.Maybe [NotebookInstanceLifecycleHook])
+updateNotebookInstanceLifecycleConfig_onCreate = Lens.lens (\UpdateNotebookInstanceLifecycleConfig' {onCreate} -> onCreate) (\s@UpdateNotebookInstanceLifecycleConfig' {} a -> s {onCreate = a} :: UpdateNotebookInstanceLifecycleConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The shell script that runs every time you start a notebook instance,
 -- including when you create the notebook instance. The shell script must
 -- be a base64-encoded string.
 updateNotebookInstanceLifecycleConfig_onStart :: Lens.Lens' UpdateNotebookInstanceLifecycleConfig (Prelude.Maybe [NotebookInstanceLifecycleHook])
-updateNotebookInstanceLifecycleConfig_onStart = Lens.lens (\UpdateNotebookInstanceLifecycleConfig' {onStart} -> onStart) (\s@UpdateNotebookInstanceLifecycleConfig' {} a -> s {onStart = a} :: UpdateNotebookInstanceLifecycleConfig) Prelude.. Lens.mapping Lens._Coerce
-
--- | The shell script that runs only once, when you create a notebook
--- instance. The shell script must be a base64-encoded string.
-updateNotebookInstanceLifecycleConfig_onCreate :: Lens.Lens' UpdateNotebookInstanceLifecycleConfig (Prelude.Maybe [NotebookInstanceLifecycleHook])
-updateNotebookInstanceLifecycleConfig_onCreate = Lens.lens (\UpdateNotebookInstanceLifecycleConfig' {onCreate} -> onCreate) (\s@UpdateNotebookInstanceLifecycleConfig' {} a -> s {onCreate = a} :: UpdateNotebookInstanceLifecycleConfig) Prelude.. Lens.mapping Lens._Coerce
+updateNotebookInstanceLifecycleConfig_onStart = Lens.lens (\UpdateNotebookInstanceLifecycleConfig' {onStart} -> onStart) (\s@UpdateNotebookInstanceLifecycleConfig' {} a -> s {onStart = a} :: UpdateNotebookInstanceLifecycleConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the lifecycle configuration.
 updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName :: Lens.Lens' UpdateNotebookInstanceLifecycleConfig Prelude.Text
@@ -156,8 +156,8 @@ instance
   toJSON UpdateNotebookInstanceLifecycleConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OnStart" Core..=) Prelude.<$> onStart,
-            ("OnCreate" Core..=) Prelude.<$> onCreate,
+          [ ("OnCreate" Core..=) Prelude.<$> onCreate,
+            ("OnStart" Core..=) Prelude.<$> onStart,
             Prelude.Just
               ( "NotebookInstanceLifecycleConfigName"
                   Core..= notebookInstanceLifecycleConfigName

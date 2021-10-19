@@ -19,23 +19,23 @@ module Network.AWS.ResourceGroupsTagging
     -- * Errors
     -- $errors
 
-    -- ** PaginationTokenExpiredException
-    _PaginationTokenExpiredException,
-
-    -- ** ThrottledException
-    _ThrottledException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** ConstraintViolationException
     _ConstraintViolationException,
 
-    -- ** InternalServiceException
-    _InternalServiceException,
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** PaginationTokenExpiredException
+    _PaginationTokenExpiredException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- * Waiters
     -- $waiters
@@ -49,17 +49,11 @@ module Network.AWS.ResourceGroupsTagging
     GetComplianceSummaryResponse (GetComplianceSummaryResponse'),
     newGetComplianceSummaryResponse,
 
-    -- ** StartReportCreation
-    StartReportCreation (StartReportCreation'),
-    newStartReportCreation,
-    StartReportCreationResponse (StartReportCreationResponse'),
-    newStartReportCreationResponse,
-
-    -- ** TagResources
-    TagResources (TagResources'),
-    newTagResources,
-    TagResourcesResponse (TagResourcesResponse'),
-    newTagResourcesResponse,
+    -- ** DescribeReportCreation
+    DescribeReportCreation (DescribeReportCreation'),
+    newDescribeReportCreation,
+    DescribeReportCreationResponse (DescribeReportCreationResponse'),
+    newDescribeReportCreationResponse,
 
     -- ** GetTagKeys (Paginated)
     GetTagKeys (GetTagKeys'),
@@ -67,23 +61,29 @@ module Network.AWS.ResourceGroupsTagging
     GetTagKeysResponse (GetTagKeysResponse'),
     newGetTagKeysResponse,
 
-    -- ** DescribeReportCreation
-    DescribeReportCreation (DescribeReportCreation'),
-    newDescribeReportCreation,
-    DescribeReportCreationResponse (DescribeReportCreationResponse'),
-    newDescribeReportCreationResponse,
-
-    -- ** GetResources (Paginated)
-    GetResources (GetResources'),
-    newGetResources,
-    GetResourcesResponse (GetResourcesResponse'),
-    newGetResourcesResponse,
+    -- ** TagResources
+    TagResources (TagResources'),
+    newTagResources,
+    TagResourcesResponse (TagResourcesResponse'),
+    newTagResourcesResponse,
 
     -- ** GetTagValues (Paginated)
     GetTagValues (GetTagValues'),
     newGetTagValues,
     GetTagValuesResponse (GetTagValuesResponse'),
     newGetTagValuesResponse,
+
+    -- ** StartReportCreation
+    StartReportCreation (StartReportCreation'),
+    newStartReportCreation,
+    StartReportCreationResponse (StartReportCreationResponse'),
+    newStartReportCreationResponse,
+
+    -- ** GetResources (Paginated)
+    GetResources (GetResources'),
+    newGetResources,
+    GetResourcesResponse (GetResourcesResponse'),
+    newGetResourcesResponse,
 
     -- ** UntagResources
     UntagResources (UntagResources'),

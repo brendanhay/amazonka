@@ -116,7 +116,7 @@ newStartMaintenance pServerName_ =
 --     the server to Chef Automate 2. For more information, see
 --     <https://docs.aws.amazon.com/opsworks/latest/userguide/opscm-a2upgrade.html Upgrade an AWS OpsWorks for Chef Automate Server to Chef Automate 2>.
 startMaintenance_engineAttributes :: Lens.Lens' StartMaintenance (Prelude.Maybe [EngineAttribute])
-startMaintenance_engineAttributes = Lens.lens (\StartMaintenance' {engineAttributes} -> engineAttributes) (\s@StartMaintenance' {} a -> s {engineAttributes = a} :: StartMaintenance) Prelude.. Lens.mapping Lens._Coerce
+startMaintenance_engineAttributes = Lens.lens (\StartMaintenance' {engineAttributes} -> engineAttributes) (\s@StartMaintenance' {} a -> s {engineAttributes = a} :: StartMaintenance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the server on which to run maintenance.
 startMaintenance_serverName :: Lens.Lens' StartMaintenance Prelude.Text

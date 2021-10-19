@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'
-  { -- | The name of the record.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The value for the DNS record.
+  { -- | The value for the DNS record.
     value :: Prelude.Maybe Prelude.Text,
+    -- | The name of the record.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The DNS record type.
     type' :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data ResourceRecord = ResourceRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'resourceRecord_name' - The name of the record.
---
 -- 'value', 'resourceRecord_value' - The value for the DNS record.
+--
+-- 'name', 'resourceRecord_name' - The name of the record.
 --
 -- 'type'', 'resourceRecord_type' - The DNS record type.
 newResourceRecord ::
   ResourceRecord
 newResourceRecord =
   ResourceRecord'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing,
       type' = Prelude.Nothing
     }
-
--- | The name of the record.
-resourceRecord_name :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
-resourceRecord_name = Lens.lens (\ResourceRecord' {name} -> name) (\s@ResourceRecord' {} a -> s {name = a} :: ResourceRecord)
 
 -- | The value for the DNS record.
 resourceRecord_value :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
+
+-- | The name of the record.
+resourceRecord_name :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
+resourceRecord_name = Lens.lens (\ResourceRecord' {name} -> name) (\s@ResourceRecord' {} a -> s {name = a} :: ResourceRecord)
 
 -- | The DNS record type.
 resourceRecord_type :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
@@ -77,8 +77,8 @@ instance Core.FromJSON ResourceRecord where
       "ResourceRecord"
       ( \x ->
           ResourceRecord'
-            Prelude.<$> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "type")
       )
 

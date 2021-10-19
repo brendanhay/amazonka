@@ -39,8 +39,8 @@ module Network.AWS.CertificateManager.GetCertificate
     newGetCertificateResponse,
 
     -- * Response Lenses
-    getCertificateResponse_certificateChain,
     getCertificateResponse_certificate,
+    getCertificateResponse_certificateChain,
     getCertificateResponse_httpStatus,
   )
 where
@@ -103,8 +103,8 @@ instance Core.AWSRequest GetCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateChain")
-            Prelude.<*> (x Core..?> "Certificate")
+            Prelude.<$> (x Core..?> "Certificate")
+            Prelude.<*> (x Core..?> "CertificateChain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,12 +144,12 @@ instance Core.ToQuery GetCertificate where
 
 -- | /See:/ 'newGetCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-  { -- | Certificates forming the requested certificate\'s chain of trust. The
+  { -- | The ACM-issued certificate corresponding to the ARN specified as input.
+    certificate :: Prelude.Maybe Prelude.Text,
+    -- | Certificates forming the requested certificate\'s chain of trust. The
     -- chain consists of the certificate of the issuing CA and the intermediate
     -- certificates of any other subordinate CAs.
     certificateChain :: Prelude.Maybe Prelude.Text,
-    -- | The ACM-issued certificate corresponding to the ARN specified as input.
-    certificate :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,11 +163,11 @@ data GetCertificateResponse = GetCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificate', 'getCertificateResponse_certificate' - The ACM-issued certificate corresponding to the ARN specified as input.
+--
 -- 'certificateChain', 'getCertificateResponse_certificateChain' - Certificates forming the requested certificate\'s chain of trust. The
 -- chain consists of the certificate of the issuing CA and the intermediate
 -- certificates of any other subordinate CAs.
---
--- 'certificate', 'getCertificateResponse_certificate' - The ACM-issued certificate corresponding to the ARN specified as input.
 --
 -- 'httpStatus', 'getCertificateResponse_httpStatus' - The response's http status code.
 newGetCertificateResponse ::
@@ -176,21 +176,21 @@ newGetCertificateResponse ::
   GetCertificateResponse
 newGetCertificateResponse pHttpStatus_ =
   GetCertificateResponse'
-    { certificateChain =
+    { certificate =
         Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      certificateChain = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The ACM-issued certificate corresponding to the ARN specified as input.
+getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateResponse_certificate = Lens.lens (\GetCertificateResponse' {certificate} -> certificate) (\s@GetCertificateResponse' {} a -> s {certificate = a} :: GetCertificateResponse)
 
 -- | Certificates forming the requested certificate\'s chain of trust. The
 -- chain consists of the certificate of the issuing CA and the intermediate
 -- certificates of any other subordinate CAs.
 getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
 getCertificateResponse_certificateChain = Lens.lens (\GetCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateResponse)
-
--- | The ACM-issued certificate corresponding to the ARN specified as input.
-getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
-getCertificateResponse_certificate = Lens.lens (\GetCertificateResponse' {certificate} -> certificate) (\s@GetCertificateResponse' {} a -> s {certificate = a} :: GetCertificateResponse)
 
 -- | The response's http status code.
 getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Prelude.Int

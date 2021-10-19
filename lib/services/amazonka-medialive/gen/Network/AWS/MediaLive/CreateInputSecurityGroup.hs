@@ -27,8 +27,8 @@ module Network.AWS.MediaLive.CreateInputSecurityGroup
     newCreateInputSecurityGroup,
 
     -- * Request Lenses
-    createInputSecurityGroup_tags,
     createInputSecurityGroup_whitelistRules,
+    createInputSecurityGroup_tags,
 
     -- * Destructuring the Response
     CreateInputSecurityGroupResponse (..),
@@ -51,10 +51,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateInputSecurityGroup' smart constructor.
 data CreateInputSecurityGroup = CreateInputSecurityGroup'
-  { -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | List of IPv4 CIDR addresses to whitelist
-    whitelistRules :: Prelude.Maybe [InputWhitelistRuleCidr]
+  { -- | List of IPv4 CIDR addresses to whitelist
+    whitelistRules :: Prelude.Maybe [InputWhitelistRuleCidr],
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,24 +66,25 @@ data CreateInputSecurityGroup = CreateInputSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createInputSecurityGroup_tags' - A collection of key-value pairs.
---
 -- 'whitelistRules', 'createInputSecurityGroup_whitelistRules' - List of IPv4 CIDR addresses to whitelist
+--
+-- 'tags', 'createInputSecurityGroup_tags' - A collection of key-value pairs.
 newCreateInputSecurityGroup ::
   CreateInputSecurityGroup
 newCreateInputSecurityGroup =
   CreateInputSecurityGroup'
-    { tags = Prelude.Nothing,
-      whitelistRules = Prelude.Nothing
+    { whitelistRules =
+        Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | A collection of key-value pairs.
-createInputSecurityGroup_tags :: Lens.Lens' CreateInputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createInputSecurityGroup_tags = Lens.lens (\CreateInputSecurityGroup' {tags} -> tags) (\s@CreateInputSecurityGroup' {} a -> s {tags = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | List of IPv4 CIDR addresses to whitelist
 createInputSecurityGroup_whitelistRules :: Lens.Lens' CreateInputSecurityGroup (Prelude.Maybe [InputWhitelistRuleCidr])
-createInputSecurityGroup_whitelistRules = Lens.lens (\CreateInputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@CreateInputSecurityGroup' {} a -> s {whitelistRules = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
+createInputSecurityGroup_whitelistRules = Lens.lens (\CreateInputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@CreateInputSecurityGroup' {} a -> s {whitelistRules = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A collection of key-value pairs.
+createInputSecurityGroup_tags :: Lens.Lens' CreateInputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createInputSecurityGroup_tags = Lens.lens (\CreateInputSecurityGroup' {tags} -> tags) (\s@CreateInputSecurityGroup' {} a -> s {tags = a} :: CreateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateInputSecurityGroup where
   type
@@ -117,9 +118,9 @@ instance Core.ToJSON CreateInputSecurityGroup where
   toJSON CreateInputSecurityGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("whitelistRules" Core..=)
-              Prelude.<$> whitelistRules
+          [ ("whitelistRules" Core..=)
+              Prelude.<$> whitelistRules,
+            ("tags" Core..=) Prelude.<$> tags
           ]
       )
 

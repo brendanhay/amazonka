@@ -168,7 +168,7 @@ newListVolumeRecoveryPointsResponse pHttpStatus_ =
 
 -- | An array of VolumeRecoveryPointInfo objects.
 listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe [VolumeRecoveryPointInfo])
-listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos = Lens.lens (\ListVolumeRecoveryPointsResponse' {volumeRecoveryPointInfos} -> volumeRecoveryPointInfos) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse) Prelude.. Lens.mapping Lens._Coerce
+listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos = Lens.lens (\ListVolumeRecoveryPointsResponse' {volumeRecoveryPointInfos} -> volumeRecoveryPointInfos) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 listVolumeRecoveryPointsResponse_gatewayARN :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe Prelude.Text)

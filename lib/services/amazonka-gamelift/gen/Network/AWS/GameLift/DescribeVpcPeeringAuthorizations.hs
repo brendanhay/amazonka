@@ -161,7 +161,7 @@ newDescribeVpcPeeringAuthorizationsResponse
 -- | A collection of objects that describe all valid VPC peering operations
 -- for the current AWS account.
 describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse (Prelude.Maybe [VpcPeeringAuthorization])
-describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations = Lens.lens (\DescribeVpcPeeringAuthorizationsResponse' {vpcPeeringAuthorizations} -> vpcPeeringAuthorizations) (\s@DescribeVpcPeeringAuthorizationsResponse' {} a -> s {vpcPeeringAuthorizations = a} :: DescribeVpcPeeringAuthorizationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVpcPeeringAuthorizationsResponse_vpcPeeringAuthorizations = Lens.lens (\DescribeVpcPeeringAuthorizationsResponse' {vpcPeeringAuthorizations} -> vpcPeeringAuthorizations) (\s@DescribeVpcPeeringAuthorizationsResponse' {} a -> s {vpcPeeringAuthorizations = a} :: DescribeVpcPeeringAuthorizationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVpcPeeringAuthorizationsResponse_httpStatus :: Lens.Lens' DescribeVpcPeeringAuthorizationsResponse Prelude.Int

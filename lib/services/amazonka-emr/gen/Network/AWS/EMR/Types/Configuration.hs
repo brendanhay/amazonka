@@ -39,10 +39,10 @@ data Configuration = Configuration'
   { -- | A list of additional configurations to apply within a configuration
     -- object.
     configurations :: Prelude.Maybe [Configuration],
-    -- | A set of properties specified within a configuration classification.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The classification within a configuration.
-    classification :: Prelude.Maybe Prelude.Text
+    classification :: Prelude.Maybe Prelude.Text,
+    -- | A set of properties specified within a configuration classification.
+    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,30 +57,30 @@ data Configuration = Configuration'
 -- 'configurations', 'configuration_configurations' - A list of additional configurations to apply within a configuration
 -- object.
 --
--- 'properties', 'configuration_properties' - A set of properties specified within a configuration classification.
---
 -- 'classification', 'configuration_classification' - The classification within a configuration.
+--
+-- 'properties', 'configuration_properties' - A set of properties specified within a configuration classification.
 newConfiguration ::
   Configuration
 newConfiguration =
   Configuration'
     { configurations = Prelude.Nothing,
-      properties = Prelude.Nothing,
-      classification = Prelude.Nothing
+      classification = Prelude.Nothing,
+      properties = Prelude.Nothing
     }
 
 -- | A list of additional configurations to apply within a configuration
 -- object.
 configuration_configurations :: Lens.Lens' Configuration (Prelude.Maybe [Configuration])
-configuration_configurations = Lens.lens (\Configuration' {configurations} -> configurations) (\s@Configuration' {} a -> s {configurations = a} :: Configuration) Prelude.. Lens.mapping Lens._Coerce
-
--- | A set of properties specified within a configuration classification.
-configuration_properties :: Lens.Lens' Configuration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-configuration_properties = Lens.lens (\Configuration' {properties} -> properties) (\s@Configuration' {} a -> s {properties = a} :: Configuration) Prelude.. Lens.mapping Lens._Coerce
+configuration_configurations = Lens.lens (\Configuration' {configurations} -> configurations) (\s@Configuration' {} a -> s {configurations = a} :: Configuration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The classification within a configuration.
 configuration_classification :: Lens.Lens' Configuration (Prelude.Maybe Prelude.Text)
 configuration_classification = Lens.lens (\Configuration' {classification} -> classification) (\s@Configuration' {} a -> s {classification = a} :: Configuration)
+
+-- | A set of properties specified within a configuration classification.
+configuration_properties :: Lens.Lens' Configuration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+configuration_properties = Lens.lens (\Configuration' {properties} -> properties) (\s@Configuration' {} a -> s {properties = a} :: Configuration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Configuration where
   parseJSON =
@@ -89,8 +89,8 @@ instance Core.FromJSON Configuration where
       ( \x ->
           Configuration'
             Prelude.<$> (x Core..:? "Configurations" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Properties" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Classification")
+            Prelude.<*> (x Core..:? "Properties" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Configuration
@@ -103,8 +103,8 @@ instance Core.ToJSON Configuration where
       ( Prelude.catMaybes
           [ ("Configurations" Core..=)
               Prelude.<$> configurations,
-            ("Properties" Core..=) Prelude.<$> properties,
             ("Classification" Core..=)
-              Prelude.<$> classification
+              Prelude.<$> classification,
+            ("Properties" Core..=) Prelude.<$> properties
           ]
       )

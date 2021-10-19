@@ -80,7 +80,7 @@ newTagResource pResourceArn_ =
 
 -- | Undocumented member.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.mapping Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the resource.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text

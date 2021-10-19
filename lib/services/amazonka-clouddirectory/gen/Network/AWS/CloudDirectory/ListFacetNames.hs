@@ -201,7 +201,7 @@ listFacetNamesResponse_nextToken = Lens.lens (\ListFacetNamesResponse' {nextToke
 
 -- | The names of facets that exist within the schema.
 listFacetNamesResponse_facetNames :: Lens.Lens' ListFacetNamesResponse (Prelude.Maybe [Prelude.Text])
-listFacetNamesResponse_facetNames = Lens.lens (\ListFacetNamesResponse' {facetNames} -> facetNames) (\s@ListFacetNamesResponse' {} a -> s {facetNames = a} :: ListFacetNamesResponse) Prelude.. Lens.mapping Lens._Coerce
+listFacetNamesResponse_facetNames = Lens.lens (\ListFacetNamesResponse' {facetNames} -> facetNames) (\s@ListFacetNamesResponse' {} a -> s {facetNames = a} :: ListFacetNamesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listFacetNamesResponse_httpStatus :: Lens.Lens' ListFacetNamesResponse Prelude.Int

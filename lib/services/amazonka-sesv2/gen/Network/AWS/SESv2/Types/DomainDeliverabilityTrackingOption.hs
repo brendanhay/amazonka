@@ -32,12 +32,13 @@ import Network.AWS.SESv2.Types.InboxPlacementTrackingOption
 --
 -- /See:/ 'newDomainDeliverabilityTrackingOption' smart constructor.
 data DomainDeliverabilityTrackingOption = DomainDeliverabilityTrackingOption'
-  { -- | The date, in Unix time format, when you enabled the Deliverability
+  { -- | A verified domain that’s associated with your Amazon Web Services
+    -- account and currently has an active Deliverability dashboard
+    -- subscription.
+    domain :: Prelude.Maybe Prelude.Text,
+    -- | The date, in Unix time format, when you enabled the Deliverability
     -- dashboard for the domain.
     subscriptionStartDate :: Prelude.Maybe Core.POSIX,
-    -- | A verified domain that’s associated with your AWS account and currently
-    -- has an active Deliverability dashboard subscription.
-    domain :: Prelude.Maybe Prelude.Text,
     -- | An object that contains information about the inbox placement data
     -- settings for the domain.
     inboxPlacementTrackingOption :: Prelude.Maybe InboxPlacementTrackingOption
@@ -52,11 +53,12 @@ data DomainDeliverabilityTrackingOption = DomainDeliverabilityTrackingOption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domain', 'domainDeliverabilityTrackingOption_domain' - A verified domain that’s associated with your Amazon Web Services
+-- account and currently has an active Deliverability dashboard
+-- subscription.
+--
 -- 'subscriptionStartDate', 'domainDeliverabilityTrackingOption_subscriptionStartDate' - The date, in Unix time format, when you enabled the Deliverability
 -- dashboard for the domain.
---
--- 'domain', 'domainDeliverabilityTrackingOption_domain' - A verified domain that’s associated with your AWS account and currently
--- has an active Deliverability dashboard subscription.
 --
 -- 'inboxPlacementTrackingOption', 'domainDeliverabilityTrackingOption_inboxPlacementTrackingOption' - An object that contains information about the inbox placement data
 -- settings for the domain.
@@ -64,22 +66,23 @@ newDomainDeliverabilityTrackingOption ::
   DomainDeliverabilityTrackingOption
 newDomainDeliverabilityTrackingOption =
   DomainDeliverabilityTrackingOption'
-    { subscriptionStartDate =
+    { domain =
         Prelude.Nothing,
-      domain = Prelude.Nothing,
+      subscriptionStartDate = Prelude.Nothing,
       inboxPlacementTrackingOption =
         Prelude.Nothing
     }
+
+-- | A verified domain that’s associated with your Amazon Web Services
+-- account and currently has an active Deliverability dashboard
+-- subscription.
+domainDeliverabilityTrackingOption_domain :: Lens.Lens' DomainDeliverabilityTrackingOption (Prelude.Maybe Prelude.Text)
+domainDeliverabilityTrackingOption_domain = Lens.lens (\DomainDeliverabilityTrackingOption' {domain} -> domain) (\s@DomainDeliverabilityTrackingOption' {} a -> s {domain = a} :: DomainDeliverabilityTrackingOption)
 
 -- | The date, in Unix time format, when you enabled the Deliverability
 -- dashboard for the domain.
 domainDeliverabilityTrackingOption_subscriptionStartDate :: Lens.Lens' DomainDeliverabilityTrackingOption (Prelude.Maybe Prelude.UTCTime)
 domainDeliverabilityTrackingOption_subscriptionStartDate = Lens.lens (\DomainDeliverabilityTrackingOption' {subscriptionStartDate} -> subscriptionStartDate) (\s@DomainDeliverabilityTrackingOption' {} a -> s {subscriptionStartDate = a} :: DomainDeliverabilityTrackingOption) Prelude.. Lens.mapping Core._Time
-
--- | A verified domain that’s associated with your AWS account and currently
--- has an active Deliverability dashboard subscription.
-domainDeliverabilityTrackingOption_domain :: Lens.Lens' DomainDeliverabilityTrackingOption (Prelude.Maybe Prelude.Text)
-domainDeliverabilityTrackingOption_domain = Lens.lens (\DomainDeliverabilityTrackingOption' {domain} -> domain) (\s@DomainDeliverabilityTrackingOption' {} a -> s {domain = a} :: DomainDeliverabilityTrackingOption)
 
 -- | An object that contains information about the inbox placement data
 -- settings for the domain.
@@ -95,8 +98,8 @@ instance
       "DomainDeliverabilityTrackingOption"
       ( \x ->
           DomainDeliverabilityTrackingOption'
-            Prelude.<$> (x Core..:? "SubscriptionStartDate")
-            Prelude.<*> (x Core..:? "Domain")
+            Prelude.<$> (x Core..:? "Domain")
+            Prelude.<*> (x Core..:? "SubscriptionStartDate")
             Prelude.<*> (x Core..:? "InboxPlacementTrackingOption")
       )
 
@@ -115,9 +118,9 @@ instance
   toJSON DomainDeliverabilityTrackingOption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SubscriptionStartDate" Core..=)
+          [ ("Domain" Core..=) Prelude.<$> domain,
+            ("SubscriptionStartDate" Core..=)
               Prelude.<$> subscriptionStartDate,
-            ("Domain" Core..=) Prelude.<$> domain,
             ("InboxPlacementTrackingOption" Core..=)
               Prelude.<$> inboxPlacementTrackingOption
           ]

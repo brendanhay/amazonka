@@ -40,8 +40,8 @@ module Network.AWS.WorkMail.DeleteOrganization
     newDeleteOrganizationResponse,
 
     -- * Response Lenses
-    deleteOrganizationResponse_organizationId,
     deleteOrganizationResponse_state,
+    deleteOrganizationResponse_organizationId,
     deleteOrganizationResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest DeleteOrganization where
     Response.receiveJSON
       ( \s h x ->
           DeleteOrganizationResponse'
-            Prelude.<$> (x Core..?> "OrganizationId")
-            Prelude.<*> (x Core..?> "State")
+            Prelude.<$> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,10 +160,10 @@ instance Core.ToQuery DeleteOrganization where
 
 -- | /See:/ 'newDeleteOrganizationResponse' smart constructor.
 data DeleteOrganizationResponse = DeleteOrganizationResponse'
-  { -- | The organization ID.
-    organizationId :: Prelude.Maybe Prelude.Text,
-    -- | The state of the organization.
+  { -- | The state of the organization.
     state :: Prelude.Maybe Prelude.Text,
+    -- | The organization ID.
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,9 +177,9 @@ data DeleteOrganizationResponse = DeleteOrganizationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'deleteOrganizationResponse_organizationId' - The organization ID.
---
 -- 'state', 'deleteOrganizationResponse_state' - The state of the organization.
+--
+-- 'organizationId', 'deleteOrganizationResponse_organizationId' - The organization ID.
 --
 -- 'httpStatus', 'deleteOrganizationResponse_httpStatus' - The response's http status code.
 newDeleteOrganizationResponse ::
@@ -188,19 +188,19 @@ newDeleteOrganizationResponse ::
   DeleteOrganizationResponse
 newDeleteOrganizationResponse pHttpStatus_ =
   DeleteOrganizationResponse'
-    { organizationId =
+    { state =
         Prelude.Nothing,
-      state = Prelude.Nothing,
+      organizationId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The organization ID.
-deleteOrganizationResponse_organizationId :: Lens.Lens' DeleteOrganizationResponse (Prelude.Maybe Prelude.Text)
-deleteOrganizationResponse_organizationId = Lens.lens (\DeleteOrganizationResponse' {organizationId} -> organizationId) (\s@DeleteOrganizationResponse' {} a -> s {organizationId = a} :: DeleteOrganizationResponse)
 
 -- | The state of the organization.
 deleteOrganizationResponse_state :: Lens.Lens' DeleteOrganizationResponse (Prelude.Maybe Prelude.Text)
 deleteOrganizationResponse_state = Lens.lens (\DeleteOrganizationResponse' {state} -> state) (\s@DeleteOrganizationResponse' {} a -> s {state = a} :: DeleteOrganizationResponse)
+
+-- | The organization ID.
+deleteOrganizationResponse_organizationId :: Lens.Lens' DeleteOrganizationResponse (Prelude.Maybe Prelude.Text)
+deleteOrganizationResponse_organizationId = Lens.lens (\DeleteOrganizationResponse' {organizationId} -> organizationId) (\s@DeleteOrganizationResponse' {} a -> s {organizationId = a} :: DeleteOrganizationResponse)
 
 -- | The response's http status code.
 deleteOrganizationResponse_httpStatus :: Lens.Lens' DeleteOrganizationResponse Prelude.Int

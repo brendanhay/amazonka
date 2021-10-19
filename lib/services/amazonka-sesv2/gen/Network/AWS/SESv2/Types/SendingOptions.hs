@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to enable or disable email sending for messages that use this
--- configuration set in the current AWS Region.
+-- configuration set in the current Amazon Web Services Region.
 --
 -- /See:/ 'newSendingOptions' smart constructor.
 data SendingOptions = SendingOptions'

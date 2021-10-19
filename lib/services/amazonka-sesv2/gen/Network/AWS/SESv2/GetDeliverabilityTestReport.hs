@@ -204,7 +204,7 @@ getDeliverabilityTestReportResponse_message = Lens.lens (\GetDeliverabilityTestR
 -- | An array of objects that define the tags (keys and values) that are
 -- associated with the predictive inbox placement test.
 getDeliverabilityTestReportResponse_tags :: Lens.Lens' GetDeliverabilityTestReportResponse (Prelude.Maybe [Tag])
-getDeliverabilityTestReportResponse_tags = Lens.lens (\GetDeliverabilityTestReportResponse' {tags} -> tags) (\s@GetDeliverabilityTestReportResponse' {} a -> s {tags = a} :: GetDeliverabilityTestReportResponse) Prelude.. Lens.mapping Lens._Coerce
+getDeliverabilityTestReportResponse_tags = Lens.lens (\GetDeliverabilityTestReportResponse' {tags} -> tags) (\s@GetDeliverabilityTestReportResponse' {} a -> s {tags = a} :: GetDeliverabilityTestReportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDeliverabilityTestReportResponse_httpStatus :: Lens.Lens' GetDeliverabilityTestReportResponse Prelude.Int
@@ -225,7 +225,7 @@ getDeliverabilityTestReportResponse_overallPlacement = Lens.lens (\GetDeliverabi
 -- | An object that describes how the test email was handled by several email
 -- providers, including Gmail, Hotmail, Yahoo, AOL, and others.
 getDeliverabilityTestReportResponse_ispPlacements :: Lens.Lens' GetDeliverabilityTestReportResponse [IspPlacement]
-getDeliverabilityTestReportResponse_ispPlacements = Lens.lens (\GetDeliverabilityTestReportResponse' {ispPlacements} -> ispPlacements) (\s@GetDeliverabilityTestReportResponse' {} a -> s {ispPlacements = a} :: GetDeliverabilityTestReportResponse) Prelude.. Lens._Coerce
+getDeliverabilityTestReportResponse_ispPlacements = Lens.lens (\GetDeliverabilityTestReportResponse' {ispPlacements} -> ispPlacements) (\s@GetDeliverabilityTestReportResponse' {} a -> s {ispPlacements = a} :: GetDeliverabilityTestReportResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

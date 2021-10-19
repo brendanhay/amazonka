@@ -33,9 +33,9 @@ module Network.AWS.IoT.GetEffectivePolicies
     newGetEffectivePolicies,
 
     -- * Request Lenses
-    getEffectivePolicies_thingName,
-    getEffectivePolicies_cognitoIdentityPoolId,
     getEffectivePolicies_principal,
+    getEffectivePolicies_cognitoIdentityPoolId,
+    getEffectivePolicies_thingName,
 
     -- * Destructuring the Response
     GetEffectivePoliciesResponse (..),
@@ -56,15 +56,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetEffectivePolicies' smart constructor.
 data GetEffectivePolicies = GetEffectivePolicies'
-  { -- | The thing name.
-    thingName :: Prelude.Maybe Prelude.Text,
-    -- | The Cognito identity pool ID.
-    cognitoIdentityPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The principal. Valid principals are CertificateArn
+  { -- | The principal. Valid principals are CertificateArn
     -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
     -- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
     -- (/region/:/id/).
-    principal :: Prelude.Maybe Prelude.Text
+    principal :: Prelude.Maybe Prelude.Text,
+    -- | The Cognito identity pool ID.
+    cognitoIdentityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The thing name.
+    thingName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,30 +76,22 @@ data GetEffectivePolicies = GetEffectivePolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'thingName', 'getEffectivePolicies_thingName' - The thing name.
---
--- 'cognitoIdentityPoolId', 'getEffectivePolicies_cognitoIdentityPoolId' - The Cognito identity pool ID.
---
 -- 'principal', 'getEffectivePolicies_principal' - The principal. Valid principals are CertificateArn
 -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
 -- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
 -- (/region/:/id/).
+--
+-- 'cognitoIdentityPoolId', 'getEffectivePolicies_cognitoIdentityPoolId' - The Cognito identity pool ID.
+--
+-- 'thingName', 'getEffectivePolicies_thingName' - The thing name.
 newGetEffectivePolicies ::
   GetEffectivePolicies
 newGetEffectivePolicies =
   GetEffectivePolicies'
-    { thingName = Prelude.Nothing,
+    { principal = Prelude.Nothing,
       cognitoIdentityPoolId = Prelude.Nothing,
-      principal = Prelude.Nothing
+      thingName = Prelude.Nothing
     }
-
--- | The thing name.
-getEffectivePolicies_thingName :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
-getEffectivePolicies_thingName = Lens.lens (\GetEffectivePolicies' {thingName} -> thingName) (\s@GetEffectivePolicies' {} a -> s {thingName = a} :: GetEffectivePolicies)
-
--- | The Cognito identity pool ID.
-getEffectivePolicies_cognitoIdentityPoolId :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
-getEffectivePolicies_cognitoIdentityPoolId = Lens.lens (\GetEffectivePolicies' {cognitoIdentityPoolId} -> cognitoIdentityPoolId) (\s@GetEffectivePolicies' {} a -> s {cognitoIdentityPoolId = a} :: GetEffectivePolicies)
 
 -- | The principal. Valid principals are CertificateArn
 -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
@@ -107,6 +99,14 @@ getEffectivePolicies_cognitoIdentityPoolId = Lens.lens (\GetEffectivePolicies' {
 -- (/region/:/id/).
 getEffectivePolicies_principal :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
 getEffectivePolicies_principal = Lens.lens (\GetEffectivePolicies' {principal} -> principal) (\s@GetEffectivePolicies' {} a -> s {principal = a} :: GetEffectivePolicies)
+
+-- | The Cognito identity pool ID.
+getEffectivePolicies_cognitoIdentityPoolId :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
+getEffectivePolicies_cognitoIdentityPoolId = Lens.lens (\GetEffectivePolicies' {cognitoIdentityPoolId} -> cognitoIdentityPoolId) (\s@GetEffectivePolicies' {} a -> s {cognitoIdentityPoolId = a} :: GetEffectivePolicies)
+
+-- | The thing name.
+getEffectivePolicies_thingName :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
+getEffectivePolicies_thingName = Lens.lens (\GetEffectivePolicies' {thingName} -> thingName) (\s@GetEffectivePolicies' {} a -> s {thingName = a} :: GetEffectivePolicies)
 
 instance Core.AWSRequest GetEffectivePolicies where
   type
@@ -134,9 +134,9 @@ instance Core.ToJSON GetEffectivePolicies where
   toJSON GetEffectivePolicies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("cognitoIdentityPoolId" Core..=)
-              Prelude.<$> cognitoIdentityPoolId,
-            ("principal" Core..=) Prelude.<$> principal
+          [ ("principal" Core..=) Prelude.<$> principal,
+            ("cognitoIdentityPoolId" Core..=)
+              Prelude.<$> cognitoIdentityPoolId
           ]
       )
 
@@ -180,7 +180,7 @@ newGetEffectivePoliciesResponse pHttpStatus_ =
 
 -- | The effective policies.
 getEffectivePoliciesResponse_effectivePolicies :: Lens.Lens' GetEffectivePoliciesResponse (Prelude.Maybe [EffectivePolicy])
-getEffectivePoliciesResponse_effectivePolicies = Lens.lens (\GetEffectivePoliciesResponse' {effectivePolicies} -> effectivePolicies) (\s@GetEffectivePoliciesResponse' {} a -> s {effectivePolicies = a} :: GetEffectivePoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+getEffectivePoliciesResponse_effectivePolicies = Lens.lens (\GetEffectivePoliciesResponse' {effectivePolicies} -> effectivePolicies) (\s@GetEffectivePoliciesResponse' {} a -> s {effectivePolicies = a} :: GetEffectivePoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEffectivePoliciesResponse_httpStatus :: Lens.Lens' GetEffectivePoliciesResponse Prelude.Int

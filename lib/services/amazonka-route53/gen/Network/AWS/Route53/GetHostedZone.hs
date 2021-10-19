@@ -35,8 +35,8 @@ module Network.AWS.Route53.GetHostedZone
     newGetHostedZoneResponse,
 
     -- * Response Lenses
-    getHostedZoneResponse_delegationSet,
     getHostedZoneResponse_vPCs,
+    getHostedZoneResponse_delegationSet,
     getHostedZoneResponse_httpStatus,
     getHostedZoneResponse_hostedZone,
   )
@@ -86,10 +86,10 @@ instance Core.AWSRequest GetHostedZone where
     Response.receiveXML
       ( \s h x ->
           GetHostedZoneResponse'
-            Prelude.<$> (x Core..@? "DelegationSet")
-            Prelude.<*> ( x Core..@? "VPCs" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "VPCs" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList1 "VPC")
                         )
+            Prelude.<*> (x Core..@? "DelegationSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "HostedZone")
       )
@@ -113,12 +113,12 @@ instance Core.ToQuery GetHostedZone where
 --
 -- /See:/ 'newGetHostedZoneResponse' smart constructor.
 data GetHostedZoneResponse = GetHostedZoneResponse'
-  { -- | A complex type that lists the Amazon Route 53 name servers for the
-    -- specified hosted zone.
-    delegationSet :: Prelude.Maybe DelegationSet,
-    -- | A complex type that contains information about the VPCs that are
+  { -- | A complex type that contains information about the VPCs that are
     -- associated with the specified hosted zone.
     vPCs :: Prelude.Maybe (Prelude.NonEmpty VPC),
+    -- | A complex type that lists the Amazon Route 53 name servers for the
+    -- specified hosted zone.
+    delegationSet :: Prelude.Maybe DelegationSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A complex type that contains general information about the specified
@@ -135,11 +135,11 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'delegationSet', 'getHostedZoneResponse_delegationSet' - A complex type that lists the Amazon Route 53 name servers for the
--- specified hosted zone.
---
 -- 'vPCs', 'getHostedZoneResponse_vPCs' - A complex type that contains information about the VPCs that are
 -- associated with the specified hosted zone.
+--
+-- 'delegationSet', 'getHostedZoneResponse_delegationSet' - A complex type that lists the Amazon Route 53 name servers for the
+-- specified hosted zone.
 --
 -- 'httpStatus', 'getHostedZoneResponse_httpStatus' - The response's http status code.
 --
@@ -153,22 +153,21 @@ newGetHostedZoneResponse ::
   GetHostedZoneResponse
 newGetHostedZoneResponse pHttpStatus_ pHostedZone_ =
   GetHostedZoneResponse'
-    { delegationSet =
-        Prelude.Nothing,
-      vPCs = Prelude.Nothing,
+    { vPCs = Prelude.Nothing,
+      delegationSet = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       hostedZone = pHostedZone_
     }
+
+-- | A complex type that contains information about the VPCs that are
+-- associated with the specified hosted zone.
+getHostedZoneResponse_vPCs :: Lens.Lens' GetHostedZoneResponse (Prelude.Maybe (Prelude.NonEmpty VPC))
+getHostedZoneResponse_vPCs = Lens.lens (\GetHostedZoneResponse' {vPCs} -> vPCs) (\s@GetHostedZoneResponse' {} a -> s {vPCs = a} :: GetHostedZoneResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A complex type that lists the Amazon Route 53 name servers for the
 -- specified hosted zone.
 getHostedZoneResponse_delegationSet :: Lens.Lens' GetHostedZoneResponse (Prelude.Maybe DelegationSet)
 getHostedZoneResponse_delegationSet = Lens.lens (\GetHostedZoneResponse' {delegationSet} -> delegationSet) (\s@GetHostedZoneResponse' {} a -> s {delegationSet = a} :: GetHostedZoneResponse)
-
--- | A complex type that contains information about the VPCs that are
--- associated with the specified hosted zone.
-getHostedZoneResponse_vPCs :: Lens.Lens' GetHostedZoneResponse (Prelude.Maybe (Prelude.NonEmpty VPC))
-getHostedZoneResponse_vPCs = Lens.lens (\GetHostedZoneResponse' {vPCs} -> vPCs) (\s@GetHostedZoneResponse' {} a -> s {vPCs = a} :: GetHostedZoneResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getHostedZoneResponse_httpStatus :: Lens.Lens' GetHostedZoneResponse Prelude.Int

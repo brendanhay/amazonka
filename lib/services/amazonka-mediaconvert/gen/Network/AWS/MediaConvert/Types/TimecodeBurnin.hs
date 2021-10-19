@@ -36,12 +36,12 @@ data TimecodeBurnin = TimecodeBurnin'
     -- through 0x7e. This includes letters, numbers, and all special characters
     -- represented on a standard English keyboard.
     prefix :: Prelude.Maybe Prelude.Text,
-    -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
-    -- specify the location the burned-in timecode on output video.
-    position :: Prelude.Maybe TimecodeBurninPosition,
     -- | Use Font Size (FontSize) to set the font size of any burned-in timecode.
     -- Valid values are 10, 16, 32, 48.
-    fontSize :: Prelude.Maybe Prelude.Natural
+    fontSize :: Prelude.Maybe Prelude.Natural,
+    -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
+    -- specify the location the burned-in timecode on output video.
+    position :: Prelude.Maybe TimecodeBurninPosition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,18 +60,18 @@ data TimecodeBurnin = TimecodeBurnin'
 -- through 0x7e. This includes letters, numbers, and all special characters
 -- represented on a standard English keyboard.
 --
--- 'position', 'timecodeBurnin_position' - Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
--- specify the location the burned-in timecode on output video.
---
 -- 'fontSize', 'timecodeBurnin_fontSize' - Use Font Size (FontSize) to set the font size of any burned-in timecode.
 -- Valid values are 10, 16, 32, 48.
+--
+-- 'position', 'timecodeBurnin_position' - Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
+-- specify the location the burned-in timecode on output video.
 newTimecodeBurnin ::
   TimecodeBurnin
 newTimecodeBurnin =
   TimecodeBurnin'
     { prefix = Prelude.Nothing,
-      position = Prelude.Nothing,
-      fontSize = Prelude.Nothing
+      fontSize = Prelude.Nothing,
+      position = Prelude.Nothing
     }
 
 -- | Use Prefix (Prefix) to place ASCII characters before any burned-in
@@ -83,15 +83,15 @@ newTimecodeBurnin =
 timecodeBurnin_prefix :: Lens.Lens' TimecodeBurnin (Prelude.Maybe Prelude.Text)
 timecodeBurnin_prefix = Lens.lens (\TimecodeBurnin' {prefix} -> prefix) (\s@TimecodeBurnin' {} a -> s {prefix = a} :: TimecodeBurnin)
 
--- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
--- specify the location the burned-in timecode on output video.
-timecodeBurnin_position :: Lens.Lens' TimecodeBurnin (Prelude.Maybe TimecodeBurninPosition)
-timecodeBurnin_position = Lens.lens (\TimecodeBurnin' {position} -> position) (\s@TimecodeBurnin' {} a -> s {position = a} :: TimecodeBurnin)
-
 -- | Use Font Size (FontSize) to set the font size of any burned-in timecode.
 -- Valid values are 10, 16, 32, 48.
 timecodeBurnin_fontSize :: Lens.Lens' TimecodeBurnin (Prelude.Maybe Prelude.Natural)
 timecodeBurnin_fontSize = Lens.lens (\TimecodeBurnin' {fontSize} -> fontSize) (\s@TimecodeBurnin' {} a -> s {fontSize = a} :: TimecodeBurnin)
+
+-- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to
+-- specify the location the burned-in timecode on output video.
+timecodeBurnin_position :: Lens.Lens' TimecodeBurnin (Prelude.Maybe TimecodeBurninPosition)
+timecodeBurnin_position = Lens.lens (\TimecodeBurnin' {position} -> position) (\s@TimecodeBurnin' {} a -> s {position = a} :: TimecodeBurnin)
 
 instance Core.FromJSON TimecodeBurnin where
   parseJSON =
@@ -100,8 +100,8 @@ instance Core.FromJSON TimecodeBurnin where
       ( \x ->
           TimecodeBurnin'
             Prelude.<$> (x Core..:? "prefix")
-            Prelude.<*> (x Core..:? "position")
             Prelude.<*> (x Core..:? "fontSize")
+            Prelude.<*> (x Core..:? "position")
       )
 
 instance Prelude.Hashable TimecodeBurnin
@@ -113,7 +113,7 @@ instance Core.ToJSON TimecodeBurnin where
     Core.object
       ( Prelude.catMaybes
           [ ("prefix" Core..=) Prelude.<$> prefix,
-            ("position" Core..=) Prelude.<$> position,
-            ("fontSize" Core..=) Prelude.<$> fontSize
+            ("fontSize" Core..=) Prelude.<$> fontSize,
+            ("position" Core..=) Prelude.<$> position
           ]
       )

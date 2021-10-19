@@ -65,7 +65,7 @@ serverGroupReplicationConfiguration_serverGroupId = Lens.lens (\ServerGroupRepli
 
 -- | The replication configuration for servers in the server group.
 serverGroupReplicationConfiguration_serverReplicationConfigurations :: Lens.Lens' ServerGroupReplicationConfiguration (Prelude.Maybe [ServerReplicationConfiguration])
-serverGroupReplicationConfiguration_serverReplicationConfigurations = Lens.lens (\ServerGroupReplicationConfiguration' {serverReplicationConfigurations} -> serverReplicationConfigurations) (\s@ServerGroupReplicationConfiguration' {} a -> s {serverReplicationConfigurations = a} :: ServerGroupReplicationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+serverGroupReplicationConfiguration_serverReplicationConfigurations = Lens.lens (\ServerGroupReplicationConfiguration' {serverReplicationConfigurations} -> serverReplicationConfigurations) (\s@ServerGroupReplicationConfiguration' {} a -> s {serverReplicationConfigurations = a} :: ServerGroupReplicationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

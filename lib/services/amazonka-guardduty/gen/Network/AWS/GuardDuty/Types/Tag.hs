@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The EC2 instance tag key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The EC2 instance tag value.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The EC2 instance tag value.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The EC2 instance tag key.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The EC2 instance tag key.
---
 -- 'value', 'tag_value' - The EC2 instance tag value.
+--
+-- 'key', 'tag_key' - The EC2 instance tag key.
 newTag ::
   Tag
 newTag =
   Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The EC2 instance tag key.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The EC2 instance tag value.
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+
+-- | The EC2 instance tag key.
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 instance Core.FromJSON Tag where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
 instance Prelude.Hashable Tag

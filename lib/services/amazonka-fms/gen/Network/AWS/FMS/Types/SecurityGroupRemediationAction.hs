@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSecurityGroupRemediationAction' smart constructor.
 data SecurityGroupRemediationAction = SecurityGroupRemediationAction'
-  { -- | The remediation action that will be performed.
-    remediationActionType :: Prelude.Maybe RemediationActionType,
+  { -- | Indicates if the current action is the default action.
+    isDefaultAction :: Prelude.Maybe Prelude.Bool,
     -- | The final state of the rule specified in the @ViolationTarget@ after it
     -- is remediated.
     remediationResult :: Prelude.Maybe SecurityGroupRuleDescription,
-    -- | Indicates if the current action is the default action.
-    isDefaultAction :: Prelude.Maybe Prelude.Bool,
     -- | Brief description of the action that will be performed.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The remediation action that will be performed.
+    remediationActionType :: Prelude.Maybe RemediationActionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,41 +49,41 @@ data SecurityGroupRemediationAction = SecurityGroupRemediationAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remediationActionType', 'securityGroupRemediationAction_remediationActionType' - The remediation action that will be performed.
+-- 'isDefaultAction', 'securityGroupRemediationAction_isDefaultAction' - Indicates if the current action is the default action.
 --
 -- 'remediationResult', 'securityGroupRemediationAction_remediationResult' - The final state of the rule specified in the @ViolationTarget@ after it
 -- is remediated.
 --
--- 'isDefaultAction', 'securityGroupRemediationAction_isDefaultAction' - Indicates if the current action is the default action.
---
 -- 'description', 'securityGroupRemediationAction_description' - Brief description of the action that will be performed.
+--
+-- 'remediationActionType', 'securityGroupRemediationAction_remediationActionType' - The remediation action that will be performed.
 newSecurityGroupRemediationAction ::
   SecurityGroupRemediationAction
 newSecurityGroupRemediationAction =
   SecurityGroupRemediationAction'
-    { remediationActionType =
+    { isDefaultAction =
         Prelude.Nothing,
       remediationResult = Prelude.Nothing,
-      isDefaultAction = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      remediationActionType = Prelude.Nothing
     }
 
--- | The remediation action that will be performed.
-securityGroupRemediationAction_remediationActionType :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe RemediationActionType)
-securityGroupRemediationAction_remediationActionType = Lens.lens (\SecurityGroupRemediationAction' {remediationActionType} -> remediationActionType) (\s@SecurityGroupRemediationAction' {} a -> s {remediationActionType = a} :: SecurityGroupRemediationAction)
+-- | Indicates if the current action is the default action.
+securityGroupRemediationAction_isDefaultAction :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe Prelude.Bool)
+securityGroupRemediationAction_isDefaultAction = Lens.lens (\SecurityGroupRemediationAction' {isDefaultAction} -> isDefaultAction) (\s@SecurityGroupRemediationAction' {} a -> s {isDefaultAction = a} :: SecurityGroupRemediationAction)
 
 -- | The final state of the rule specified in the @ViolationTarget@ after it
 -- is remediated.
 securityGroupRemediationAction_remediationResult :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe SecurityGroupRuleDescription)
 securityGroupRemediationAction_remediationResult = Lens.lens (\SecurityGroupRemediationAction' {remediationResult} -> remediationResult) (\s@SecurityGroupRemediationAction' {} a -> s {remediationResult = a} :: SecurityGroupRemediationAction)
 
--- | Indicates if the current action is the default action.
-securityGroupRemediationAction_isDefaultAction :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe Prelude.Bool)
-securityGroupRemediationAction_isDefaultAction = Lens.lens (\SecurityGroupRemediationAction' {isDefaultAction} -> isDefaultAction) (\s@SecurityGroupRemediationAction' {} a -> s {isDefaultAction = a} :: SecurityGroupRemediationAction)
-
 -- | Brief description of the action that will be performed.
 securityGroupRemediationAction_description :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe Prelude.Text)
 securityGroupRemediationAction_description = Lens.lens (\SecurityGroupRemediationAction' {description} -> description) (\s@SecurityGroupRemediationAction' {} a -> s {description = a} :: SecurityGroupRemediationAction)
+
+-- | The remediation action that will be performed.
+securityGroupRemediationAction_remediationActionType :: Lens.Lens' SecurityGroupRemediationAction (Prelude.Maybe RemediationActionType)
+securityGroupRemediationAction_remediationActionType = Lens.lens (\SecurityGroupRemediationAction' {remediationActionType} -> remediationActionType) (\s@SecurityGroupRemediationAction' {} a -> s {remediationActionType = a} :: SecurityGroupRemediationAction)
 
 instance Core.FromJSON SecurityGroupRemediationAction where
   parseJSON =
@@ -91,10 +91,10 @@ instance Core.FromJSON SecurityGroupRemediationAction where
       "SecurityGroupRemediationAction"
       ( \x ->
           SecurityGroupRemediationAction'
-            Prelude.<$> (x Core..:? "RemediationActionType")
+            Prelude.<$> (x Core..:? "IsDefaultAction")
             Prelude.<*> (x Core..:? "RemediationResult")
-            Prelude.<*> (x Core..:? "IsDefaultAction")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "RemediationActionType")
       )
 
 instance

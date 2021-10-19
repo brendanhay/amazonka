@@ -100,7 +100,7 @@ untagRole_roleName = Lens.lens (\UntagRole' {roleName} -> roleName) (\s@UntagRol
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified role.
 untagRole_tagKeys :: Lens.Lens' UntagRole [Prelude.Text]
-untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' {} a -> s {tagKeys = a} :: UntagRole) Prelude.. Lens._Coerce
+untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' {} a -> s {tagKeys = a} :: UntagRole) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagRole where
   type AWSResponse UntagRole = UntagRoleResponse

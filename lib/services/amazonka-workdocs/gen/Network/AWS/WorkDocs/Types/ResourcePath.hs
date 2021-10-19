@@ -49,7 +49,7 @@ newResourcePath =
 
 -- | The components of the resource path.
 resourcePath_components :: Lens.Lens' ResourcePath (Prelude.Maybe [ResourcePathComponent])
-resourcePath_components = Lens.lens (\ResourcePath' {components} -> components) (\s@ResourcePath' {} a -> s {components = a} :: ResourcePath) Prelude.. Lens.mapping Lens._Coerce
+resourcePath_components = Lens.lens (\ResourcePath' {components} -> components) (\s@ResourcePath' {} a -> s {components = a} :: ResourcePath) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ResourcePath where
   parseJSON =

@@ -32,8 +32,8 @@ module Network.AWS.DMS.DescribeConnections
 
     -- * Request Lenses
     describeConnections_filters,
-    describeConnections_maxRecords,
     describeConnections_marker,
+    describeConnections_maxRecords,
 
     -- * Destructuring the Response
     DescribeConnectionsResponse (..),
@@ -61,6 +61,10 @@ data DescribeConnections = DescribeConnections'
     --
     -- Valid filter names: endpoint-arn | replication-instance-arn
     filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -69,11 +73,7 @@ data DescribeConnections = DescribeConnections'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,6 +89,10 @@ data DescribeConnections = DescribeConnections'
 --
 -- Valid filter names: endpoint-arn | replication-instance-arn
 --
+-- 'marker', 'describeConnections_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'maxRecords', 'describeConnections_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -97,24 +101,26 @@ data DescribeConnections = DescribeConnections'
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
---
--- 'marker', 'describeConnections_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
 newDescribeConnections ::
   DescribeConnections
 newDescribeConnections =
   DescribeConnections'
     { filters = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The filters applied to the connection.
 --
 -- Valid filter names: endpoint-arn | replication-instance-arn
 describeConnections_filters :: Lens.Lens' DescribeConnections (Prelude.Maybe [Filter])
-describeConnections_filters = Lens.lens (\DescribeConnections' {filters} -> filters) (\s@DescribeConnections' {} a -> s {filters = a} :: DescribeConnections) Prelude.. Lens.mapping Lens._Coerce
+describeConnections_filters = Lens.lens (\DescribeConnections' {filters} -> filters) (\s@DescribeConnections' {} a -> s {filters = a} :: DescribeConnections) Prelude.. Lens.mapping Lens.coerced
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeConnections_marker :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Text)
+describeConnections_marker = Lens.lens (\DescribeConnections' {marker} -> marker) (\s@DescribeConnections' {} a -> s {marker = a} :: DescribeConnections)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -126,12 +132,6 @@ describeConnections_filters = Lens.lens (\DescribeConnections' {filters} -> filt
 -- Constraints: Minimum 20, maximum 100.
 describeConnections_maxRecords :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Int)
 describeConnections_maxRecords = Lens.lens (\DescribeConnections' {maxRecords} -> maxRecords) (\s@DescribeConnections' {} a -> s {maxRecords = a} :: DescribeConnections)
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeConnections_marker :: Lens.Lens' DescribeConnections (Prelude.Maybe Prelude.Text)
-describeConnections_marker = Lens.lens (\DescribeConnections' {marker} -> marker) (\s@DescribeConnections' {} a -> s {marker = a} :: DescribeConnections)
 
 instance Core.AWSPager DescribeConnections where
   page rq rs
@@ -193,8 +193,8 @@ instance Core.ToJSON DescribeConnections where
     Core.object
       ( Prelude.catMaybes
           [ ("Filters" Core..=) Prelude.<$> filters,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxRecords" Core..=) Prelude.<$> maxRecords
           ]
       )
 
@@ -248,7 +248,7 @@ newDescribeConnectionsResponse pHttpStatus_ =
 
 -- | A description of the connections.
 describeConnectionsResponse_connections :: Lens.Lens' DescribeConnectionsResponse (Prelude.Maybe [Connection])
-describeConnectionsResponse_connections = Lens.lens (\DescribeConnectionsResponse' {connections} -> connections) (\s@DescribeConnectionsResponse' {} a -> s {connections = a} :: DescribeConnectionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeConnectionsResponse_connections = Lens.lens (\DescribeConnectionsResponse' {connections} -> connections) (\s@DescribeConnectionsResponse' {} a -> s {connections = a} :: DescribeConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

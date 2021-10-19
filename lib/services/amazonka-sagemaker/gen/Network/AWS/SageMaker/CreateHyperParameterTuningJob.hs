@@ -32,10 +32,10 @@ module Network.AWS.SageMaker.CreateHyperParameterTuningJob
     newCreateHyperParameterTuningJob,
 
     -- * Request Lenses
+    createHyperParameterTuningJob_trainingJobDefinition,
     createHyperParameterTuningJob_warmStartConfig,
     createHyperParameterTuningJob_tags,
     createHyperParameterTuningJob_trainingJobDefinitions,
-    createHyperParameterTuningJob_trainingJobDefinition,
     createHyperParameterTuningJob_hyperParameterTuningJobName,
     createHyperParameterTuningJob_hyperParameterTuningJobConfig,
 
@@ -58,7 +58,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateHyperParameterTuningJob' smart constructor.
 data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
-  { -- | Specifies the configuration for starting the hyperparameter tuning job
+  { -- | The HyperParameterTrainingJobDefinition object that describes the
+    -- training jobs that this tuning job launches, including static
+    -- hyperparameters, input data configuration, output data configuration,
+    -- resource configuration, and stopping condition.
+    trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
+    -- | Specifies the configuration for starting the hyperparameter tuning job
     -- using one or more previous tuning jobs as a starting point. The results
     -- of previous tuning jobs are used to inform which combinations of
     -- hyperparameters to search over in the new tuning job.
@@ -86,11 +91,6 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     -- | A list of the HyperParameterTrainingJobDefinition objects launched for
     -- this tuning job.
     trainingJobDefinitions :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition),
-    -- | The HyperParameterTrainingJobDefinition object that describes the
-    -- training jobs that this tuning job launches, including static
-    -- hyperparameters, input data configuration, output data configuration,
-    -- resource configuration, and stopping condition.
-    trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
     -- | The name of the tuning job. This name is the prefix for the names of all
     -- training jobs that this tuning job launches. The name must be unique
     -- within the same Amazon Web Services account and Amazon Web Services
@@ -113,6 +113,11 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'trainingJobDefinition', 'createHyperParameterTuningJob_trainingJobDefinition' - The HyperParameterTrainingJobDefinition object that describes the
+-- training jobs that this tuning job launches, including static
+-- hyperparameters, input data configuration, output data configuration,
+-- resource configuration, and stopping condition.
 --
 -- 'warmStartConfig', 'createHyperParameterTuningJob_warmStartConfig' - Specifies the configuration for starting the hyperparameter tuning job
 -- using one or more previous tuning jobs as a starting point. The results
@@ -142,11 +147,6 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 -- 'trainingJobDefinitions', 'createHyperParameterTuningJob_trainingJobDefinitions' - A list of the HyperParameterTrainingJobDefinition objects launched for
 -- this tuning job.
 --
--- 'trainingJobDefinition', 'createHyperParameterTuningJob_trainingJobDefinition' - The HyperParameterTrainingJobDefinition object that describes the
--- training jobs that this tuning job launches, including static
--- hyperparameters, input data configuration, output data configuration,
--- resource configuration, and stopping condition.
---
 -- 'hyperParameterTuningJobName', 'createHyperParameterTuningJob_hyperParameterTuningJobName' - The name of the tuning job. This name is the prefix for the names of all
 -- training jobs that this tuning job launches. The name must be unique
 -- within the same Amazon Web Services account and Amazon Web Services
@@ -168,16 +168,23 @@ newCreateHyperParameterTuningJob
   pHyperParameterTuningJobName_
   pHyperParameterTuningJobConfig_ =
     CreateHyperParameterTuningJob'
-      { warmStartConfig =
+      { trainingJobDefinition =
           Prelude.Nothing,
+        warmStartConfig = Prelude.Nothing,
         tags = Prelude.Nothing,
         trainingJobDefinitions = Prelude.Nothing,
-        trainingJobDefinition = Prelude.Nothing,
         hyperParameterTuningJobName =
           pHyperParameterTuningJobName_,
         hyperParameterTuningJobConfig =
           pHyperParameterTuningJobConfig_
       }
+
+-- | The HyperParameterTrainingJobDefinition object that describes the
+-- training jobs that this tuning job launches, including static
+-- hyperparameters, input data configuration, output data configuration,
+-- resource configuration, and stopping condition.
+createHyperParameterTuningJob_trainingJobDefinition :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe HyperParameterTrainingJobDefinition)
+createHyperParameterTuningJob_trainingJobDefinition = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinition} -> trainingJobDefinition) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinition = a} :: CreateHyperParameterTuningJob)
 
 -- | Specifies the configuration for starting the hyperparameter tuning job
 -- using one or more previous tuning jobs as a starting point. The results
@@ -206,19 +213,12 @@ createHyperParameterTuningJob_warmStartConfig = Lens.lens (\CreateHyperParameter
 -- Tags that you specify for the tuning job are also added to all training
 -- jobs that the tuning job launches.
 createHyperParameterTuningJob_tags :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe [Tag])
-createHyperParameterTuningJob_tags = Lens.lens (\CreateHyperParameterTuningJob' {tags} -> tags) (\s@CreateHyperParameterTuningJob' {} a -> s {tags = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Lens._Coerce
+createHyperParameterTuningJob_tags = Lens.lens (\CreateHyperParameterTuningJob' {tags} -> tags) (\s@CreateHyperParameterTuningJob' {} a -> s {tags = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of the HyperParameterTrainingJobDefinition objects launched for
 -- this tuning job.
 createHyperParameterTuningJob_trainingJobDefinitions :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition))
-createHyperParameterTuningJob_trainingJobDefinitions = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinitions = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | The HyperParameterTrainingJobDefinition object that describes the
--- training jobs that this tuning job launches, including static
--- hyperparameters, input data configuration, output data configuration,
--- resource configuration, and stopping condition.
-createHyperParameterTuningJob_trainingJobDefinition :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe HyperParameterTrainingJobDefinition)
-createHyperParameterTuningJob_trainingJobDefinition = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinition} -> trainingJobDefinition) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinition = a} :: CreateHyperParameterTuningJob)
+createHyperParameterTuningJob_trainingJobDefinitions = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinitions = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the tuning job. This name is the prefix for the names of all
 -- training jobs that this tuning job launches. The name must be unique
@@ -277,13 +277,13 @@ instance Core.ToJSON CreateHyperParameterTuningJob where
   toJSON CreateHyperParameterTuningJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("WarmStartConfig" Core..=)
+          [ ("TrainingJobDefinition" Core..=)
+              Prelude.<$> trainingJobDefinition,
+            ("WarmStartConfig" Core..=)
               Prelude.<$> warmStartConfig,
             ("Tags" Core..=) Prelude.<$> tags,
             ("TrainingJobDefinitions" Core..=)
               Prelude.<$> trainingJobDefinitions,
-            ("TrainingJobDefinition" Core..=)
-              Prelude.<$> trainingJobDefinition,
             Prelude.Just
               ( "HyperParameterTuningJobName"
                   Core..= hyperParameterTuningJobName

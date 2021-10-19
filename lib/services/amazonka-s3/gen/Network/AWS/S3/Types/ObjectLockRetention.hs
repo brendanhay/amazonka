@@ -29,10 +29,10 @@ import Network.AWS.S3.Types.ObjectLockRetentionMode
 --
 -- /See:/ 'newObjectLockRetention' smart constructor.
 data ObjectLockRetention = ObjectLockRetention'
-  { -- | The date on which this Object Lock Retention will expire.
-    retainUntilDate :: Prelude.Maybe Core.ISO8601,
-    -- | Indicates the Retention mode for the specified object.
-    mode :: Prelude.Maybe ObjectLockRetentionMode
+  { -- | Indicates the Retention mode for the specified object.
+    mode :: Prelude.Maybe ObjectLockRetentionMode,
+    -- | The date on which this Object Lock Retention will expire.
+    retainUntilDate :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,30 @@ data ObjectLockRetention = ObjectLockRetention'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retainUntilDate', 'objectLockRetention_retainUntilDate' - The date on which this Object Lock Retention will expire.
---
 -- 'mode', 'objectLockRetention_mode' - Indicates the Retention mode for the specified object.
+--
+-- 'retainUntilDate', 'objectLockRetention_retainUntilDate' - The date on which this Object Lock Retention will expire.
 newObjectLockRetention ::
   ObjectLockRetention
 newObjectLockRetention =
   ObjectLockRetention'
-    { retainUntilDate =
-        Prelude.Nothing,
-      mode = Prelude.Nothing
+    { mode = Prelude.Nothing,
+      retainUntilDate = Prelude.Nothing
     }
-
--- | The date on which this Object Lock Retention will expire.
-objectLockRetention_retainUntilDate :: Lens.Lens' ObjectLockRetention (Prelude.Maybe Prelude.UTCTime)
-objectLockRetention_retainUntilDate = Lens.lens (\ObjectLockRetention' {retainUntilDate} -> retainUntilDate) (\s@ObjectLockRetention' {} a -> s {retainUntilDate = a} :: ObjectLockRetention) Prelude.. Lens.mapping Core._Time
 
 -- | Indicates the Retention mode for the specified object.
 objectLockRetention_mode :: Lens.Lens' ObjectLockRetention (Prelude.Maybe ObjectLockRetentionMode)
 objectLockRetention_mode = Lens.lens (\ObjectLockRetention' {mode} -> mode) (\s@ObjectLockRetention' {} a -> s {mode = a} :: ObjectLockRetention)
 
+-- | The date on which this Object Lock Retention will expire.
+objectLockRetention_retainUntilDate :: Lens.Lens' ObjectLockRetention (Prelude.Maybe Prelude.UTCTime)
+objectLockRetention_retainUntilDate = Lens.lens (\ObjectLockRetention' {retainUntilDate} -> retainUntilDate) (\s@ObjectLockRetention' {} a -> s {retainUntilDate = a} :: ObjectLockRetention) Prelude.. Lens.mapping Core._Time
+
 instance Core.FromXML ObjectLockRetention where
   parseXML x =
     ObjectLockRetention'
-      Prelude.<$> (x Core..@? "RetainUntilDate")
-      Prelude.<*> (x Core..@? "Mode")
+      Prelude.<$> (x Core..@? "Mode")
+      Prelude.<*> (x Core..@? "RetainUntilDate")
 
 instance Prelude.Hashable ObjectLockRetention
 
@@ -77,6 +76,6 @@ instance Prelude.NFData ObjectLockRetention
 instance Core.ToXML ObjectLockRetention where
   toXML ObjectLockRetention' {..} =
     Prelude.mconcat
-      [ "RetainUntilDate" Core.@= retainUntilDate,
-        "Mode" Core.@= mode
+      [ "Mode" Core.@= mode,
+        "RetainUntilDate" Core.@= retainUntilDate
       ]

@@ -83,7 +83,7 @@ newUpdateMemberDetectors pDetectorId_ pAccountIds_ =
     { dataSources =
         Prelude.Nothing,
       detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | Describes which data sources will be updated.
@@ -96,7 +96,7 @@ updateMemberDetectors_detectorId = Lens.lens (\UpdateMemberDetectors' {detectorI
 
 -- | A list of member account IDs to be updated.
 updateMemberDetectors_accountIds :: Lens.Lens' UpdateMemberDetectors (Prelude.NonEmpty Prelude.Text)
-updateMemberDetectors_accountIds = Lens.lens (\UpdateMemberDetectors' {accountIds} -> accountIds) (\s@UpdateMemberDetectors' {} a -> s {accountIds = a} :: UpdateMemberDetectors) Prelude.. Lens._Coerce
+updateMemberDetectors_accountIds = Lens.lens (\UpdateMemberDetectors' {accountIds} -> accountIds) (\s@UpdateMemberDetectors' {} a -> s {accountIds = a} :: UpdateMemberDetectors) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateMemberDetectors where
   type
@@ -188,6 +188,6 @@ updateMemberDetectorsResponse_httpStatus = Lens.lens (\UpdateMemberDetectorsResp
 -- | A list of member account IDs that were unable to be processed along with
 -- an explanation for why they were not processed.
 updateMemberDetectorsResponse_unprocessedAccounts :: Lens.Lens' UpdateMemberDetectorsResponse [UnprocessedAccount]
-updateMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\UpdateMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@UpdateMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: UpdateMemberDetectorsResponse) Prelude.. Lens._Coerce
+updateMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\UpdateMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@UpdateMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: UpdateMemberDetectorsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData UpdateMemberDetectorsResponse

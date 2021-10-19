@@ -133,7 +133,7 @@ newInstanceProfile
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
 instanceProfile_tags :: Lens.Lens' InstanceProfile (Prelude.Maybe [Tag])
-instanceProfile_tags = Lens.lens (\InstanceProfile' {tags} -> tags) (\s@InstanceProfile' {} a -> s {tags = a} :: InstanceProfile) Prelude.. Lens.mapping Lens._Coerce
+instanceProfile_tags = Lens.lens (\InstanceProfile' {tags} -> tags) (\s@InstanceProfile' {} a -> s {tags = a} :: InstanceProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The path to the instance profile. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -165,7 +165,7 @@ instanceProfile_createDate = Lens.lens (\InstanceProfile' {createDate} -> create
 
 -- | The role associated with the instance profile.
 instanceProfile_roles :: Lens.Lens' InstanceProfile [Role]
-instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@InstanceProfile' {} a -> s {roles = a} :: InstanceProfile) Prelude.. Lens._Coerce
+instanceProfile_roles = Lens.lens (\InstanceProfile' {roles} -> roles) (\s@InstanceProfile' {} a -> s {roles = a} :: InstanceProfile) Prelude.. Lens.coerced
 
 instance Core.FromXML InstanceProfile where
   parseXML x =

@@ -88,7 +88,7 @@ newDeleteTags ::
 newDeleteTags pResourceArn_ pTagKeys_ =
   DeleteTags'
     { resourceArn = pResourceArn_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource whose tags you want to
@@ -98,7 +98,7 @@ deleteTags_resourceArn = Lens.lens (\DeleteTags' {resourceArn} -> resourceArn) (
 
 -- | An array or one or more tag keys to delete.
 deleteTags_tagKeys :: Lens.Lens' DeleteTags (Prelude.NonEmpty Prelude.Text)
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens._Coerce
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteTags where
   type AWSResponse DeleteTags = DeleteTagsResponse

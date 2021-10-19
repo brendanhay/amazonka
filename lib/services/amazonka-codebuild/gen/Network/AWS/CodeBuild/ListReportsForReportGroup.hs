@@ -29,10 +29,10 @@ module Network.AWS.CodeBuild.ListReportsForReportGroup
     newListReportsForReportGroup,
 
     -- * Request Lenses
-    listReportsForReportGroup_nextToken,
     listReportsForReportGroup_sortOrder,
-    listReportsForReportGroup_maxResults,
+    listReportsForReportGroup_nextToken,
     listReportsForReportGroup_filter,
+    listReportsForReportGroup_maxResults,
     listReportsForReportGroup_reportGroupArn,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.CodeBuild.ListReportsForReportGroup
     newListReportsForReportGroupResponse,
 
     -- * Response Lenses
-    listReportsForReportGroupResponse_nextToken,
     listReportsForReportGroupResponse_reports,
+    listReportsForReportGroupResponse_nextToken,
     listReportsForReportGroupResponse_httpStatus,
   )
 where
@@ -55,7 +55,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListReportsForReportGroup' smart constructor.
 data ListReportsForReportGroup = ListReportsForReportGroup'
-  { -- | During a previous call, the maximum number of items that can be returned
+  { -- | Use to specify whether the results are returned in ascending or
+    -- descending order.
+    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -63,15 +66,12 @@ data ListReportsForReportGroup = ListReportsForReportGroup'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Use to specify whether the results are returned in ascending or
-    -- descending order.
-    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | A @ReportFilter@ object used to filter the returned reports.
+    filter' :: Prelude.Maybe ReportFilter,
     -- | The maximum number of paginated reports in this report group returned
     -- per response. Use @nextToken@ to iterate pages in the list of returned
     -- @Report@ objects. The default value is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A @ReportFilter@ object used to filter the returned reports.
-    filter' :: Prelude.Maybe ReportFilter,
     -- | The ARN of the report group for which you want to return report ARNs.
     reportGroupArn :: Prelude.Text
   }
@@ -85,6 +85,9 @@ data ListReportsForReportGroup = ListReportsForReportGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sortOrder', 'listReportsForReportGroup_sortOrder' - Use to specify whether the results are returned in ascending or
+-- descending order.
+--
 -- 'nextToken', 'listReportsForReportGroup_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -93,14 +96,11 @@ data ListReportsForReportGroup = ListReportsForReportGroup'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'sortOrder', 'listReportsForReportGroup_sortOrder' - Use to specify whether the results are returned in ascending or
--- descending order.
+-- 'filter'', 'listReportsForReportGroup_filter' - A @ReportFilter@ object used to filter the returned reports.
 --
 -- 'maxResults', 'listReportsForReportGroup_maxResults' - The maximum number of paginated reports in this report group returned
 -- per response. Use @nextToken@ to iterate pages in the list of returned
 -- @Report@ objects. The default value is 100.
---
--- 'filter'', 'listReportsForReportGroup_filter' - A @ReportFilter@ object used to filter the returned reports.
 --
 -- 'reportGroupArn', 'listReportsForReportGroup_reportGroupArn' - The ARN of the report group for which you want to return report ARNs.
 newListReportsForReportGroup ::
@@ -109,13 +109,18 @@ newListReportsForReportGroup ::
   ListReportsForReportGroup
 newListReportsForReportGroup pReportGroupArn_ =
   ListReportsForReportGroup'
-    { nextToken =
+    { sortOrder =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       reportGroupArn = pReportGroupArn_
     }
+
+-- | Use to specify whether the results are returned in ascending or
+-- descending order.
+listReportsForReportGroup_sortOrder :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe SortOrderType)
+listReportsForReportGroup_sortOrder = Lens.lens (\ListReportsForReportGroup' {sortOrder} -> sortOrder) (\s@ListReportsForReportGroup' {} a -> s {sortOrder = a} :: ListReportsForReportGroup)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -127,20 +132,15 @@ newListReportsForReportGroup pReportGroupArn_ =
 listReportsForReportGroup_nextToken :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe Prelude.Text)
 listReportsForReportGroup_nextToken = Lens.lens (\ListReportsForReportGroup' {nextToken} -> nextToken) (\s@ListReportsForReportGroup' {} a -> s {nextToken = a} :: ListReportsForReportGroup)
 
--- | Use to specify whether the results are returned in ascending or
--- descending order.
-listReportsForReportGroup_sortOrder :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe SortOrderType)
-listReportsForReportGroup_sortOrder = Lens.lens (\ListReportsForReportGroup' {sortOrder} -> sortOrder) (\s@ListReportsForReportGroup' {} a -> s {sortOrder = a} :: ListReportsForReportGroup)
+-- | A @ReportFilter@ object used to filter the returned reports.
+listReportsForReportGroup_filter :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe ReportFilter)
+listReportsForReportGroup_filter = Lens.lens (\ListReportsForReportGroup' {filter'} -> filter') (\s@ListReportsForReportGroup' {} a -> s {filter' = a} :: ListReportsForReportGroup)
 
 -- | The maximum number of paginated reports in this report group returned
 -- per response. Use @nextToken@ to iterate pages in the list of returned
 -- @Report@ objects. The default value is 100.
 listReportsForReportGroup_maxResults :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe Prelude.Natural)
 listReportsForReportGroup_maxResults = Lens.lens (\ListReportsForReportGroup' {maxResults} -> maxResults) (\s@ListReportsForReportGroup' {} a -> s {maxResults = a} :: ListReportsForReportGroup)
-
--- | A @ReportFilter@ object used to filter the returned reports.
-listReportsForReportGroup_filter :: Lens.Lens' ListReportsForReportGroup (Prelude.Maybe ReportFilter)
-listReportsForReportGroup_filter = Lens.lens (\ListReportsForReportGroup' {filter'} -> filter') (\s@ListReportsForReportGroup' {} a -> s {filter' = a} :: ListReportsForReportGroup)
 
 -- | The ARN of the report group for which you want to return report ARNs.
 listReportsForReportGroup_reportGroupArn :: Lens.Lens' ListReportsForReportGroup Prelude.Text
@@ -178,8 +178,8 @@ instance Core.AWSRequest ListReportsForReportGroup where
     Response.receiveJSON
       ( \s h x ->
           ListReportsForReportGroupResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "reports")
+            Prelude.<$> (x Core..?> "reports")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -206,10 +206,10 @@ instance Core.ToJSON ListReportsForReportGroup where
   toJSON ListReportsForReportGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
+          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
               ("reportGroupArn" Core..= reportGroupArn)
           ]
@@ -223,7 +223,9 @@ instance Core.ToQuery ListReportsForReportGroup where
 
 -- | /See:/ 'newListReportsForReportGroupResponse' smart constructor.
 data ListReportsForReportGroupResponse = ListReportsForReportGroupResponse'
-  { -- | During a previous call, the maximum number of items that can be returned
+  { -- | The list of report ARNs.
+    reports :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -231,8 +233,6 @@ data ListReportsForReportGroupResponse = ListReportsForReportGroupResponse'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of report ARNs.
-    reports :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -246,6 +246,8 @@ data ListReportsForReportGroupResponse = ListReportsForReportGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reports', 'listReportsForReportGroupResponse_reports' - The list of report ARNs.
+--
 -- 'nextToken', 'listReportsForReportGroupResponse_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -254,8 +256,6 @@ data ListReportsForReportGroupResponse = ListReportsForReportGroupResponse'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'reports', 'listReportsForReportGroupResponse_reports' - The list of report ARNs.
---
 -- 'httpStatus', 'listReportsForReportGroupResponse_httpStatus' - The response's http status code.
 newListReportsForReportGroupResponse ::
   -- | 'httpStatus'
@@ -263,11 +263,15 @@ newListReportsForReportGroupResponse ::
   ListReportsForReportGroupResponse
 newListReportsForReportGroupResponse pHttpStatus_ =
   ListReportsForReportGroupResponse'
-    { nextToken =
+    { reports =
         Prelude.Nothing,
-      reports = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of report ARNs.
+listReportsForReportGroupResponse_reports :: Lens.Lens' ListReportsForReportGroupResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listReportsForReportGroupResponse_reports = Lens.lens (\ListReportsForReportGroupResponse' {reports} -> reports) (\s@ListReportsForReportGroupResponse' {} a -> s {reports = a} :: ListReportsForReportGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -278,10 +282,6 @@ newListReportsForReportGroupResponse pHttpStatus_ =
 -- no more next tokens are returned.
 listReportsForReportGroupResponse_nextToken :: Lens.Lens' ListReportsForReportGroupResponse (Prelude.Maybe Prelude.Text)
 listReportsForReportGroupResponse_nextToken = Lens.lens (\ListReportsForReportGroupResponse' {nextToken} -> nextToken) (\s@ListReportsForReportGroupResponse' {} a -> s {nextToken = a} :: ListReportsForReportGroupResponse)
-
--- | The list of report ARNs.
-listReportsForReportGroupResponse_reports :: Lens.Lens' ListReportsForReportGroupResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-listReportsForReportGroupResponse_reports = Lens.lens (\ListReportsForReportGroupResponse' {reports} -> reports) (\s@ListReportsForReportGroupResponse' {} a -> s {reports = a} :: ListReportsForReportGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listReportsForReportGroupResponse_httpStatus :: Lens.Lens' ListReportsForReportGroupResponse Prelude.Int

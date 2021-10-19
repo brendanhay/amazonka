@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newKeyValuePair' smart constructor.
 data KeyValuePair = KeyValuePair'
-  { -- | The name of the key-value pair. For environment variables, this is the
-    -- name of the environment variable.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The value of the key-value pair. For environment variables, this is the
+  { -- | The value of the key-value pair. For environment variables, this is the
     -- value of the environment variable.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The name of the key-value pair. For environment variables, this is the
+    -- name of the environment variable.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,28 @@ data KeyValuePair = KeyValuePair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'keyValuePair_name' - The name of the key-value pair. For environment variables, this is the
--- name of the environment variable.
---
 -- 'value', 'keyValuePair_value' - The value of the key-value pair. For environment variables, this is the
 -- value of the environment variable.
+--
+-- 'name', 'keyValuePair_name' - The name of the key-value pair. For environment variables, this is the
+-- name of the environment variable.
 newKeyValuePair ::
   KeyValuePair
 newKeyValuePair =
   KeyValuePair'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of the key-value pair. For environment variables, this is the
--- name of the environment variable.
-keyValuePair_name :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
-keyValuePair_name = Lens.lens (\KeyValuePair' {name} -> name) (\s@KeyValuePair' {} a -> s {name = a} :: KeyValuePair)
 
 -- | The value of the key-value pair. For environment variables, this is the
 -- value of the environment variable.
 keyValuePair_value :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
 keyValuePair_value = Lens.lens (\KeyValuePair' {value} -> value) (\s@KeyValuePair' {} a -> s {value = a} :: KeyValuePair)
+
+-- | The name of the key-value pair. For environment variables, this is the
+-- name of the environment variable.
+keyValuePair_name :: Lens.Lens' KeyValuePair (Prelude.Maybe Prelude.Text)
+keyValuePair_name = Lens.lens (\KeyValuePair' {name} -> name) (\s@KeyValuePair' {} a -> s {name = a} :: KeyValuePair)
 
 instance Core.FromJSON KeyValuePair where
   parseJSON =
@@ -73,7 +73,7 @@ instance Core.FromJSON KeyValuePair where
       "KeyValuePair"
       ( \x ->
           KeyValuePair'
-            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "name")
       )
 
 instance Prelude.Hashable KeyValuePair
@@ -84,7 +84,7 @@ instance Core.ToJSON KeyValuePair where
   toJSON KeyValuePair' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
-            ("value" Core..=) Prelude.<$> value
+          [ ("value" Core..=) Prelude.<$> value,
+            ("name" Core..=) Prelude.<$> name
           ]
       )

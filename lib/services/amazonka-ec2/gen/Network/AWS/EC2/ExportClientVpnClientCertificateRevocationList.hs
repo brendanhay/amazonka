@@ -36,8 +36,8 @@ module Network.AWS.EC2.ExportClientVpnClientCertificateRevocationList
     newExportClientVpnClientCertificateRevocationListResponse,
 
     -- * Response Lenses
-    exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList,
     exportClientVpnClientCertificateRevocationListResponse_status,
+    exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList,
     exportClientVpnClientCertificateRevocationListResponse_httpStatus,
   )
 where
@@ -112,8 +112,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           ExportClientVpnClientCertificateRevocationListResponse'
-            Prelude.<$> (x Core..@? "certificateRevocationList")
-              Prelude.<*> (x Core..@? "status")
+            Prelude.<$> (x Core..@? "status")
+              Prelude.<*> (x Core..@? "certificateRevocationList")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,10 +156,10 @@ instance
 
 -- | /See:/ 'newExportClientVpnClientCertificateRevocationListResponse' smart constructor.
 data ExportClientVpnClientCertificateRevocationListResponse = ExportClientVpnClientCertificateRevocationListResponse'
-  { -- | Information about the client certificate revocation list.
-    certificateRevocationList :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the client certificate revocation list.
+  { -- | The current state of the client certificate revocation list.
     status :: Prelude.Maybe ClientCertificateRevocationListStatus,
+    -- | Information about the client certificate revocation list.
+    certificateRevocationList :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,9 +173,9 @@ data ExportClientVpnClientCertificateRevocationListResponse = ExportClientVpnCli
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateRevocationList', 'exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList' - Information about the client certificate revocation list.
---
 -- 'status', 'exportClientVpnClientCertificateRevocationListResponse_status' - The current state of the client certificate revocation list.
+--
+-- 'certificateRevocationList', 'exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList' - Information about the client certificate revocation list.
 --
 -- 'httpStatus', 'exportClientVpnClientCertificateRevocationListResponse_httpStatus' - The response's http status code.
 newExportClientVpnClientCertificateRevocationListResponse ::
@@ -185,21 +185,21 @@ newExportClientVpnClientCertificateRevocationListResponse ::
 newExportClientVpnClientCertificateRevocationListResponse
   pHttpStatus_ =
     ExportClientVpnClientCertificateRevocationListResponse'
-      { certificateRevocationList =
+      { status =
           Prelude.Nothing,
-        status =
+        certificateRevocationList =
           Prelude.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
--- | Information about the client certificate revocation list.
-exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Prelude.Maybe Prelude.Text)
-exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList = Lens.lens (\ExportClientVpnClientCertificateRevocationListResponse' {certificateRevocationList} -> certificateRevocationList) (\s@ExportClientVpnClientCertificateRevocationListResponse' {} a -> s {certificateRevocationList = a} :: ExportClientVpnClientCertificateRevocationListResponse)
-
 -- | The current state of the client certificate revocation list.
 exportClientVpnClientCertificateRevocationListResponse_status :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Prelude.Maybe ClientCertificateRevocationListStatus)
 exportClientVpnClientCertificateRevocationListResponse_status = Lens.lens (\ExportClientVpnClientCertificateRevocationListResponse' {status} -> status) (\s@ExportClientVpnClientCertificateRevocationListResponse' {} a -> s {status = a} :: ExportClientVpnClientCertificateRevocationListResponse)
+
+-- | Information about the client certificate revocation list.
+exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse (Prelude.Maybe Prelude.Text)
+exportClientVpnClientCertificateRevocationListResponse_certificateRevocationList = Lens.lens (\ExportClientVpnClientCertificateRevocationListResponse' {certificateRevocationList} -> certificateRevocationList) (\s@ExportClientVpnClientCertificateRevocationListResponse' {} a -> s {certificateRevocationList = a} :: ExportClientVpnClientCertificateRevocationListResponse)
 
 -- | The response's http status code.
 exportClientVpnClientCertificateRevocationListResponse_httpStatus :: Lens.Lens' ExportClientVpnClientCertificateRevocationListResponse Prelude.Int

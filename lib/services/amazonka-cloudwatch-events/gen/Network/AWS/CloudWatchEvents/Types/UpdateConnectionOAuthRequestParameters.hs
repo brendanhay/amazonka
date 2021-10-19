@@ -36,11 +36,11 @@ data UpdateConnectionOAuthRequestParameters = UpdateConnectionOAuthRequestParame
     -- the client parameters to use for the connection when OAuth is specified
     -- as the authorization type.
     clientParameters :: Prelude.Maybe UpdateConnectionOAuthClientRequestParameters,
+    -- | The additional HTTP parameters used for the OAuth authorization request.
+    oAuthHttpParameters :: Prelude.Maybe ConnectionHttpParameters,
     -- | The URL to the authorization endpoint when OAuth is specified as the
     -- authorization type.
-    authorizationEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The additional HTTP parameters used for the OAuth authorization request.
-    oAuthHttpParameters :: Prelude.Maybe ConnectionHttpParameters
+    authorizationEndpoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,10 +58,10 @@ data UpdateConnectionOAuthRequestParameters = UpdateConnectionOAuthRequestParame
 -- the client parameters to use for the connection when OAuth is specified
 -- as the authorization type.
 --
+-- 'oAuthHttpParameters', 'updateConnectionOAuthRequestParameters_oAuthHttpParameters' - The additional HTTP parameters used for the OAuth authorization request.
+--
 -- 'authorizationEndpoint', 'updateConnectionOAuthRequestParameters_authorizationEndpoint' - The URL to the authorization endpoint when OAuth is specified as the
 -- authorization type.
---
--- 'oAuthHttpParameters', 'updateConnectionOAuthRequestParameters_oAuthHttpParameters' - The additional HTTP parameters used for the OAuth authorization request.
 newUpdateConnectionOAuthRequestParameters ::
   UpdateConnectionOAuthRequestParameters
 newUpdateConnectionOAuthRequestParameters =
@@ -69,9 +69,9 @@ newUpdateConnectionOAuthRequestParameters =
     { httpMethod =
         Prelude.Nothing,
       clientParameters = Prelude.Nothing,
-      authorizationEndpoint =
-        Prelude.Nothing,
       oAuthHttpParameters =
+        Prelude.Nothing,
+      authorizationEndpoint =
         Prelude.Nothing
     }
 
@@ -85,14 +85,14 @@ updateConnectionOAuthRequestParameters_httpMethod = Lens.lens (\UpdateConnection
 updateConnectionOAuthRequestParameters_clientParameters :: Lens.Lens' UpdateConnectionOAuthRequestParameters (Prelude.Maybe UpdateConnectionOAuthClientRequestParameters)
 updateConnectionOAuthRequestParameters_clientParameters = Lens.lens (\UpdateConnectionOAuthRequestParameters' {clientParameters} -> clientParameters) (\s@UpdateConnectionOAuthRequestParameters' {} a -> s {clientParameters = a} :: UpdateConnectionOAuthRequestParameters)
 
+-- | The additional HTTP parameters used for the OAuth authorization request.
+updateConnectionOAuthRequestParameters_oAuthHttpParameters :: Lens.Lens' UpdateConnectionOAuthRequestParameters (Prelude.Maybe ConnectionHttpParameters)
+updateConnectionOAuthRequestParameters_oAuthHttpParameters = Lens.lens (\UpdateConnectionOAuthRequestParameters' {oAuthHttpParameters} -> oAuthHttpParameters) (\s@UpdateConnectionOAuthRequestParameters' {} a -> s {oAuthHttpParameters = a} :: UpdateConnectionOAuthRequestParameters)
+
 -- | The URL to the authorization endpoint when OAuth is specified as the
 -- authorization type.
 updateConnectionOAuthRequestParameters_authorizationEndpoint :: Lens.Lens' UpdateConnectionOAuthRequestParameters (Prelude.Maybe Prelude.Text)
 updateConnectionOAuthRequestParameters_authorizationEndpoint = Lens.lens (\UpdateConnectionOAuthRequestParameters' {authorizationEndpoint} -> authorizationEndpoint) (\s@UpdateConnectionOAuthRequestParameters' {} a -> s {authorizationEndpoint = a} :: UpdateConnectionOAuthRequestParameters)
-
--- | The additional HTTP parameters used for the OAuth authorization request.
-updateConnectionOAuthRequestParameters_oAuthHttpParameters :: Lens.Lens' UpdateConnectionOAuthRequestParameters (Prelude.Maybe ConnectionHttpParameters)
-updateConnectionOAuthRequestParameters_oAuthHttpParameters = Lens.lens (\UpdateConnectionOAuthRequestParameters' {oAuthHttpParameters} -> oAuthHttpParameters) (\s@UpdateConnectionOAuthRequestParameters' {} a -> s {oAuthHttpParameters = a} :: UpdateConnectionOAuthRequestParameters)
 
 instance
   Prelude.Hashable
@@ -112,9 +112,9 @@ instance
           [ ("HttpMethod" Core..=) Prelude.<$> httpMethod,
             ("ClientParameters" Core..=)
               Prelude.<$> clientParameters,
-            ("AuthorizationEndpoint" Core..=)
-              Prelude.<$> authorizationEndpoint,
             ("OAuthHttpParameters" Core..=)
-              Prelude.<$> oAuthHttpParameters
+              Prelude.<$> oAuthHttpParameters,
+            ("AuthorizationEndpoint" Core..=)
+              Prelude.<$> authorizationEndpoint
           ]
       )

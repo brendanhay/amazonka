@@ -33,22 +33,22 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchAlarmDefinition' smart constructor.
 data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
-  { -- | The unit of measure associated with the CloudWatch metric being watched.
+  { -- | The number of periods, in five-minute increments, during which the alarm
+    -- condition must exist before the alarm triggers automatic scaling
+    -- activity. The default value is @1@.
+    evaluationPeriods :: Prelude.Maybe Prelude.Int,
+    -- | The namespace for the CloudWatch metric. The default is
+    -- @AWS\/ElasticMapReduce@.
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | A CloudWatch metric dimension.
+    dimensions :: Prelude.Maybe [MetricDimension],
+    -- | The unit of measure associated with the CloudWatch metric being watched.
     -- The value specified for @Unit@ must correspond to the units specified in
     -- the CloudWatch metric.
     unit :: Prelude.Maybe Unit,
     -- | The statistic to apply to the metric associated with the alarm. The
     -- default is @AVERAGE@.
     statistic :: Prelude.Maybe Statistic,
-    -- | The namespace for the CloudWatch metric. The default is
-    -- @AWS\/ElasticMapReduce@.
-    namespace :: Prelude.Maybe Prelude.Text,
-    -- | A CloudWatch metric dimension.
-    dimensions :: Prelude.Maybe [MetricDimension],
-    -- | The number of periods, in five-minute increments, during which the alarm
-    -- condition must exist before the alarm triggers automatic scaling
-    -- activity. The default value is @1@.
-    evaluationPeriods :: Prelude.Maybe Prelude.Int,
     -- | Determines how the metric specified by @MetricName@ is compared to the
     -- value specified by @Threshold@.
     comparisonOperator :: ComparisonOperator,
@@ -72,21 +72,21 @@ data CloudWatchAlarmDefinition = CloudWatchAlarmDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'cloudWatchAlarmDefinition_unit' - The unit of measure associated with the CloudWatch metric being watched.
--- The value specified for @Unit@ must correspond to the units specified in
--- the CloudWatch metric.
---
--- 'statistic', 'cloudWatchAlarmDefinition_statistic' - The statistic to apply to the metric associated with the alarm. The
--- default is @AVERAGE@.
+-- 'evaluationPeriods', 'cloudWatchAlarmDefinition_evaluationPeriods' - The number of periods, in five-minute increments, during which the alarm
+-- condition must exist before the alarm triggers automatic scaling
+-- activity. The default value is @1@.
 --
 -- 'namespace', 'cloudWatchAlarmDefinition_namespace' - The namespace for the CloudWatch metric. The default is
 -- @AWS\/ElasticMapReduce@.
 --
 -- 'dimensions', 'cloudWatchAlarmDefinition_dimensions' - A CloudWatch metric dimension.
 --
--- 'evaluationPeriods', 'cloudWatchAlarmDefinition_evaluationPeriods' - The number of periods, in five-minute increments, during which the alarm
--- condition must exist before the alarm triggers automatic scaling
--- activity. The default value is @1@.
+-- 'unit', 'cloudWatchAlarmDefinition_unit' - The unit of measure associated with the CloudWatch metric being watched.
+-- The value specified for @Unit@ must correspond to the units specified in
+-- the CloudWatch metric.
+--
+-- 'statistic', 'cloudWatchAlarmDefinition_statistic' - The statistic to apply to the metric associated with the alarm. The
+-- default is @AVERAGE@.
 --
 -- 'comparisonOperator', 'cloudWatchAlarmDefinition_comparisonOperator' - Determines how the metric specified by @MetricName@ is compared to the
 -- value specified by @Threshold@.
@@ -115,16 +115,32 @@ newCloudWatchAlarmDefinition
   pPeriod_
   pThreshold_ =
     CloudWatchAlarmDefinition'
-      { unit = Prelude.Nothing,
-        statistic = Prelude.Nothing,
+      { evaluationPeriods =
+          Prelude.Nothing,
         namespace = Prelude.Nothing,
         dimensions = Prelude.Nothing,
-        evaluationPeriods = Prelude.Nothing,
+        unit = Prelude.Nothing,
+        statistic = Prelude.Nothing,
         comparisonOperator = pComparisonOperator_,
         metricName = pMetricName_,
         period = pPeriod_,
         threshold = pThreshold_
       }
+
+-- | The number of periods, in five-minute increments, during which the alarm
+-- condition must exist before the alarm triggers automatic scaling
+-- activity. The default value is @1@.
+cloudWatchAlarmDefinition_evaluationPeriods :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Prelude.Int)
+cloudWatchAlarmDefinition_evaluationPeriods = Lens.lens (\CloudWatchAlarmDefinition' {evaluationPeriods} -> evaluationPeriods) (\s@CloudWatchAlarmDefinition' {} a -> s {evaluationPeriods = a} :: CloudWatchAlarmDefinition)
+
+-- | The namespace for the CloudWatch metric. The default is
+-- @AWS\/ElasticMapReduce@.
+cloudWatchAlarmDefinition_namespace :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Prelude.Text)
+cloudWatchAlarmDefinition_namespace = Lens.lens (\CloudWatchAlarmDefinition' {namespace} -> namespace) (\s@CloudWatchAlarmDefinition' {} a -> s {namespace = a} :: CloudWatchAlarmDefinition)
+
+-- | A CloudWatch metric dimension.
+cloudWatchAlarmDefinition_dimensions :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe [MetricDimension])
+cloudWatchAlarmDefinition_dimensions = Lens.lens (\CloudWatchAlarmDefinition' {dimensions} -> dimensions) (\s@CloudWatchAlarmDefinition' {} a -> s {dimensions = a} :: CloudWatchAlarmDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The unit of measure associated with the CloudWatch metric being watched.
 -- The value specified for @Unit@ must correspond to the units specified in
@@ -136,21 +152,6 @@ cloudWatchAlarmDefinition_unit = Lens.lens (\CloudWatchAlarmDefinition' {unit} -
 -- default is @AVERAGE@.
 cloudWatchAlarmDefinition_statistic :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Statistic)
 cloudWatchAlarmDefinition_statistic = Lens.lens (\CloudWatchAlarmDefinition' {statistic} -> statistic) (\s@CloudWatchAlarmDefinition' {} a -> s {statistic = a} :: CloudWatchAlarmDefinition)
-
--- | The namespace for the CloudWatch metric. The default is
--- @AWS\/ElasticMapReduce@.
-cloudWatchAlarmDefinition_namespace :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Prelude.Text)
-cloudWatchAlarmDefinition_namespace = Lens.lens (\CloudWatchAlarmDefinition' {namespace} -> namespace) (\s@CloudWatchAlarmDefinition' {} a -> s {namespace = a} :: CloudWatchAlarmDefinition)
-
--- | A CloudWatch metric dimension.
-cloudWatchAlarmDefinition_dimensions :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe [MetricDimension])
-cloudWatchAlarmDefinition_dimensions = Lens.lens (\CloudWatchAlarmDefinition' {dimensions} -> dimensions) (\s@CloudWatchAlarmDefinition' {} a -> s {dimensions = a} :: CloudWatchAlarmDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | The number of periods, in five-minute increments, during which the alarm
--- condition must exist before the alarm triggers automatic scaling
--- activity. The default value is @1@.
-cloudWatchAlarmDefinition_evaluationPeriods :: Lens.Lens' CloudWatchAlarmDefinition (Prelude.Maybe Prelude.Int)
-cloudWatchAlarmDefinition_evaluationPeriods = Lens.lens (\CloudWatchAlarmDefinition' {evaluationPeriods} -> evaluationPeriods) (\s@CloudWatchAlarmDefinition' {} a -> s {evaluationPeriods = a} :: CloudWatchAlarmDefinition)
 
 -- | Determines how the metric specified by @MetricName@ is compared to the
 -- value specified by @Threshold@.
@@ -178,11 +179,11 @@ instance Core.FromJSON CloudWatchAlarmDefinition where
       "CloudWatchAlarmDefinition"
       ( \x ->
           CloudWatchAlarmDefinition'
-            Prelude.<$> (x Core..:? "Unit")
-            Prelude.<*> (x Core..:? "Statistic")
+            Prelude.<$> (x Core..:? "EvaluationPeriods")
             Prelude.<*> (x Core..:? "Namespace")
             Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EvaluationPeriods")
+            Prelude.<*> (x Core..:? "Unit")
+            Prelude.<*> (x Core..:? "Statistic")
             Prelude.<*> (x Core..: "ComparisonOperator")
             Prelude.<*> (x Core..: "MetricName")
             Prelude.<*> (x Core..: "Period")
@@ -197,12 +198,12 @@ instance Core.ToJSON CloudWatchAlarmDefinition where
   toJSON CloudWatchAlarmDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Unit" Core..=) Prelude.<$> unit,
-            ("Statistic" Core..=) Prelude.<$> statistic,
+          [ ("EvaluationPeriods" Core..=)
+              Prelude.<$> evaluationPeriods,
             ("Namespace" Core..=) Prelude.<$> namespace,
             ("Dimensions" Core..=) Prelude.<$> dimensions,
-            ("EvaluationPeriods" Core..=)
-              Prelude.<$> evaluationPeriods,
+            ("Unit" Core..=) Prelude.<$> unit,
+            ("Statistic" Core..=) Prelude.<$> statistic,
             Prelude.Just
               ("ComparisonOperator" Core..= comparisonOperator),
             Prelude.Just ("MetricName" Core..= metricName),

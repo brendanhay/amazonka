@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnEndpointAttributeStatus' smart constructor.
 data ClientVpnEndpointAttributeStatus = ClientVpnEndpointAttributeStatus'
-  { -- | The status message.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The status code.
-    code :: Prelude.Maybe ClientVpnEndpointAttributeStatusCode
+  { -- | The status code.
+    code :: Prelude.Maybe ClientVpnEndpointAttributeStatusCode,
+    -- | The status message.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ClientVpnEndpointAttributeStatus = ClientVpnEndpointAttributeStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'clientVpnEndpointAttributeStatus_message' - The status message.
---
 -- 'code', 'clientVpnEndpointAttributeStatus_code' - The status code.
+--
+-- 'message', 'clientVpnEndpointAttributeStatus_message' - The status message.
 newClientVpnEndpointAttributeStatus ::
   ClientVpnEndpointAttributeStatus
 newClientVpnEndpointAttributeStatus =
   ClientVpnEndpointAttributeStatus'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The status message.
-clientVpnEndpointAttributeStatus_message :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe Prelude.Text)
-clientVpnEndpointAttributeStatus_message = Lens.lens (\ClientVpnEndpointAttributeStatus' {message} -> message) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {message = a} :: ClientVpnEndpointAttributeStatus)
 
 -- | The status code.
 clientVpnEndpointAttributeStatus_code :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe ClientVpnEndpointAttributeStatusCode)
 clientVpnEndpointAttributeStatus_code = Lens.lens (\ClientVpnEndpointAttributeStatus' {code} -> code) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {code = a} :: ClientVpnEndpointAttributeStatus)
+
+-- | The status message.
+clientVpnEndpointAttributeStatus_message :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe Prelude.Text)
+clientVpnEndpointAttributeStatus_message = Lens.lens (\ClientVpnEndpointAttributeStatus' {message} -> message) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {message = a} :: ClientVpnEndpointAttributeStatus)
 
 instance
   Core.FromXML
@@ -70,8 +70,8 @@ instance
   where
   parseXML x =
     ClientVpnEndpointAttributeStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "code")
+      Prelude.<*> (x Core..@? "message")
 
 instance
   Prelude.Hashable

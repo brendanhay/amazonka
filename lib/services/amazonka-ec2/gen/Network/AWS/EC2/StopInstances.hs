@@ -73,9 +73,9 @@ module Network.AWS.EC2.StopInstances
     newStopInstances,
 
     -- * Request Lenses
-    stopInstances_dryRun,
-    stopInstances_force,
     stopInstances_hibernate,
+    stopInstances_force,
+    stopInstances_dryRun,
     stopInstances_instanceIds,
 
     -- * Destructuring the Response
@@ -97,19 +97,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopInstances' smart constructor.
 data StopInstances = StopInstances'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Forces the instances to stop. The instances do not have an opportunity
-    -- to flush file system caches or file system metadata. If you use this
-    -- option, you must perform file system check and repair procedures. This
-    -- option is not recommended for Windows instances.
-    --
-    -- Default: @false@
-    force :: Prelude.Maybe Prelude.Bool,
-    -- | Hibernates the instance if the instance was enabled for hibernation at
+  { -- | Hibernates the instance if the instance was enabled for hibernation at
     -- launch. If the instance cannot hibernate successfully, a normal shutdown
     -- occurs. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance>
@@ -117,6 +105,18 @@ data StopInstances = StopInstances'
     --
     -- Default: @false@
     hibernate :: Prelude.Maybe Prelude.Bool,
+    -- | Forces the instances to stop. The instances do not have an opportunity
+    -- to flush file system caches or file system metadata. If you use this
+    -- option, you must perform file system check and repair procedures. This
+    -- option is not recommended for Windows instances.
+    --
+    -- Default: @false@
+    force :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the instances.
     instanceIds :: [Prelude.Text]
   }
@@ -130,18 +130,6 @@ data StopInstances = StopInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'stopInstances_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'force', 'stopInstances_force' - Forces the instances to stop. The instances do not have an opportunity
--- to flush file system caches or file system metadata. If you use this
--- option, you must perform file system check and repair procedures. This
--- option is not recommended for Windows instances.
---
--- Default: @false@
---
 -- 'hibernate', 'stopInstances_hibernate' - Hibernates the instance if the instance was enabled for hibernation at
 -- launch. If the instance cannot hibernate successfully, a normal shutdown
 -- occurs. For more information, see
@@ -150,32 +138,28 @@ data StopInstances = StopInstances'
 --
 -- Default: @false@
 --
--- 'instanceIds', 'stopInstances_instanceIds' - The IDs of the instances.
-newStopInstances ::
-  StopInstances
-newStopInstances =
-  StopInstances'
-    { dryRun = Prelude.Nothing,
-      force = Prelude.Nothing,
-      hibernate = Prelude.Nothing,
-      instanceIds = Prelude.mempty
-    }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-stopInstances_dryRun :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
-stopInstances_dryRun = Lens.lens (\StopInstances' {dryRun} -> dryRun) (\s@StopInstances' {} a -> s {dryRun = a} :: StopInstances)
-
--- | Forces the instances to stop. The instances do not have an opportunity
+-- 'force', 'stopInstances_force' - Forces the instances to stop. The instances do not have an opportunity
 -- to flush file system caches or file system metadata. If you use this
 -- option, you must perform file system check and repair procedures. This
 -- option is not recommended for Windows instances.
 --
 -- Default: @false@
-stopInstances_force :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
-stopInstances_force = Lens.lens (\StopInstances' {force} -> force) (\s@StopInstances' {} a -> s {force = a} :: StopInstances)
+--
+-- 'dryRun', 'stopInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'instanceIds', 'stopInstances_instanceIds' - The IDs of the instances.
+newStopInstances ::
+  StopInstances
+newStopInstances =
+  StopInstances'
+    { hibernate = Prelude.Nothing,
+      force = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
+    }
 
 -- | Hibernates the instance if the instance was enabled for hibernation at
 -- launch. If the instance cannot hibernate successfully, a normal shutdown
@@ -187,9 +171,25 @@ stopInstances_force = Lens.lens (\StopInstances' {force} -> force) (\s@StopInsta
 stopInstances_hibernate :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
 stopInstances_hibernate = Lens.lens (\StopInstances' {hibernate} -> hibernate) (\s@StopInstances' {} a -> s {hibernate = a} :: StopInstances)
 
+-- | Forces the instances to stop. The instances do not have an opportunity
+-- to flush file system caches or file system metadata. If you use this
+-- option, you must perform file system check and repair procedures. This
+-- option is not recommended for Windows instances.
+--
+-- Default: @false@
+stopInstances_force :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
+stopInstances_force = Lens.lens (\StopInstances' {force} -> force) (\s@StopInstances' {} a -> s {force = a} :: StopInstances)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+stopInstances_dryRun :: Lens.Lens' StopInstances (Prelude.Maybe Prelude.Bool)
+stopInstances_dryRun = Lens.lens (\StopInstances' {dryRun} -> dryRun) (\s@StopInstances' {} a -> s {dryRun = a} :: StopInstances)
+
 -- | The IDs of the instances.
 stopInstances_instanceIds :: Lens.Lens' StopInstances [Prelude.Text]
-stopInstances_instanceIds = Lens.lens (\StopInstances' {instanceIds} -> instanceIds) (\s@StopInstances' {} a -> s {instanceIds = a} :: StopInstances) Prelude.. Lens._Coerce
+stopInstances_instanceIds = Lens.lens (\StopInstances' {instanceIds} -> instanceIds) (\s@StopInstances' {} a -> s {instanceIds = a} :: StopInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StopInstances where
   type
@@ -223,9 +223,9 @@ instance Core.ToQuery StopInstances where
           Core.=: ("StopInstances" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
-        "Force" Core.=: force,
         "Hibernate" Core.=: hibernate,
+        "Force" Core.=: force,
+        "DryRun" Core.=: dryRun,
         Core.toQueryList "InstanceId" instanceIds
       ]
 
@@ -262,7 +262,7 @@ newStopInstancesResponse pHttpStatus_ =
 
 -- | Information about the stopped instances.
 stopInstancesResponse_stoppingInstances :: Lens.Lens' StopInstancesResponse (Prelude.Maybe [InstanceStateChange])
-stopInstancesResponse_stoppingInstances = Lens.lens (\StopInstancesResponse' {stoppingInstances} -> stoppingInstances) (\s@StopInstancesResponse' {} a -> s {stoppingInstances = a} :: StopInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+stopInstancesResponse_stoppingInstances = Lens.lens (\StopInstancesResponse' {stoppingInstances} -> stoppingInstances) (\s@StopInstancesResponse' {} a -> s {stoppingInstances = a} :: StopInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 stopInstancesResponse_httpStatus :: Lens.Lens' StopInstancesResponse Prelude.Int

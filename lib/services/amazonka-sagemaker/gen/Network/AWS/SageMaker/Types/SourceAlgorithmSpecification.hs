@@ -49,12 +49,12 @@ newSourceAlgorithmSpecification ::
 newSourceAlgorithmSpecification pSourceAlgorithms_ =
   SourceAlgorithmSpecification'
     { sourceAlgorithms =
-        Lens._Coerce Lens.# pSourceAlgorithms_
+        Lens.coerced Lens.# pSourceAlgorithms_
     }
 
 -- | A list of the algorithms that were used to create a model package.
 sourceAlgorithmSpecification_sourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Prelude.NonEmpty SourceAlgorithm)
-sourceAlgorithmSpecification_sourceAlgorithms = Lens.lens (\SourceAlgorithmSpecification' {sourceAlgorithms} -> sourceAlgorithms) (\s@SourceAlgorithmSpecification' {} a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification) Prelude.. Lens._Coerce
+sourceAlgorithmSpecification_sourceAlgorithms = Lens.lens (\SourceAlgorithmSpecification' {sourceAlgorithms} -> sourceAlgorithms) (\s@SourceAlgorithmSpecification' {} a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification) Prelude.. Lens.coerced
 
 instance Core.FromJSON SourceAlgorithmSpecification where
   parseJSON =

@@ -17,12 +17,12 @@ module Network.AWS.QLDB.Types
     defaultService,
 
     -- * Errors
-    _ResourceAlreadyExistsException,
     _InvalidParameterException,
+    _ResourcePreconditionNotMetException,
+    _ResourceAlreadyExistsException,
+    _ResourceNotFoundException,
     _LimitExceededException,
     _ResourceInUseException,
-    _ResourceNotFoundException,
-    _ResourcePreconditionNotMetException,
 
     -- * EncryptionStatus
     EncryptionStatus (..),
@@ -49,9 +49,9 @@ module Network.AWS.QLDB.Types
     JournalKinesisStreamDescription (..),
     newJournalKinesisStreamDescription,
     journalKinesisStreamDescription_creationTime,
-    journalKinesisStreamDescription_errorCause,
-    journalKinesisStreamDescription_inclusiveStartTime,
     journalKinesisStreamDescription_arn,
+    journalKinesisStreamDescription_inclusiveStartTime,
+    journalKinesisStreamDescription_errorCause,
     journalKinesisStreamDescription_exclusiveEndTime,
     journalKinesisStreamDescription_ledgerName,
     journalKinesisStreamDescription_roleArn,
@@ -88,8 +88,8 @@ module Network.AWS.QLDB.Types
     -- * LedgerSummary
     LedgerSummary (..),
     newLedgerSummary,
-    ledgerSummary_name,
     ledgerSummary_state,
+    ledgerSummary_name,
     ledgerSummary_creationDateTime,
 
     -- * S3EncryptionConfiguration
@@ -157,37 +157,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -200,7 +177,46 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | One or more parameters in the request aren\'t valid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+    Prelude.. Core.hasStatus 400
+
+-- | The operation failed because a condition wasn\'t satisfied in advance.
+_ResourcePreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePreconditionNotMetException =
+  Core._MatchServiceError
+    defaultService
+    "ResourcePreconditionNotMetException"
+    Prelude.. Core.hasStatus 412
 
 -- | The specified resource already exists.
 _ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -210,13 +226,13 @@ _ResourceAlreadyExistsException =
     "ResourceAlreadyExistsException"
     Prelude.. Core.hasStatus 409
 
--- | One or more parameters in the request aren\'t valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The specified resource doesn\'t exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
-    Prelude.. Core.hasStatus 400
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | You have reached the limit on the maximum number of resources allowed.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -233,19 +249,3 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
     Prelude.. Core.hasStatus 409
-
--- | The specified resource doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The operation failed because a condition wasn\'t satisfied in advance.
-_ResourcePreconditionNotMetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourcePreconditionNotMetException =
-  Core._MatchServiceError
-    defaultService
-    "ResourcePreconditionNotMetException"
-    Prelude.. Core.hasStatus 412

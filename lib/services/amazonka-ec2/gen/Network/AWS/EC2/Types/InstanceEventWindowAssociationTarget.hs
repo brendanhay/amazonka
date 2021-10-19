@@ -65,16 +65,16 @@ newInstanceEventWindowAssociationTarget =
 
 -- | The IDs of the instances associated with the event window.
 instanceEventWindowAssociationTarget_instanceIds :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Prelude.Text])
-instanceEventWindowAssociationTarget_instanceIds = Lens.lens (\InstanceEventWindowAssociationTarget' {instanceIds} -> instanceIds) (\s@InstanceEventWindowAssociationTarget' {} a -> s {instanceIds = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens._Coerce
+instanceEventWindowAssociationTarget_instanceIds = Lens.lens (\InstanceEventWindowAssociationTarget' {instanceIds} -> instanceIds) (\s@InstanceEventWindowAssociationTarget' {} a -> s {instanceIds = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the Dedicated Hosts associated with the event window.
 instanceEventWindowAssociationTarget_dedicatedHostIds :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Prelude.Text])
-instanceEventWindowAssociationTarget_dedicatedHostIds = Lens.lens (\InstanceEventWindowAssociationTarget' {dedicatedHostIds} -> dedicatedHostIds) (\s@InstanceEventWindowAssociationTarget' {} a -> s {dedicatedHostIds = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens._Coerce
+instanceEventWindowAssociationTarget_dedicatedHostIds = Lens.lens (\InstanceEventWindowAssociationTarget' {dedicatedHostIds} -> dedicatedHostIds) (\s@InstanceEventWindowAssociationTarget' {} a -> s {dedicatedHostIds = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance tags associated with the event window. Any instances
 -- associated with the tags will be associated with the event window.
 instanceEventWindowAssociationTarget_tags :: Lens.Lens' InstanceEventWindowAssociationTarget (Prelude.Maybe [Tag])
-instanceEventWindowAssociationTarget_tags = Lens.lens (\InstanceEventWindowAssociationTarget' {tags} -> tags) (\s@InstanceEventWindowAssociationTarget' {} a -> s {tags = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens._Coerce
+instanceEventWindowAssociationTarget_tags = Lens.lens (\InstanceEventWindowAssociationTarget' {tags} -> tags) (\s@InstanceEventWindowAssociationTarget' {} a -> s {tags = a} :: InstanceEventWindowAssociationTarget) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromXML

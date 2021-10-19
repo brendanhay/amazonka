@@ -113,7 +113,7 @@ createConditionalForwarder_remoteDomainName = Lens.lens (\CreateConditionalForwa
 -- | The IP addresses of the remote DNS server associated with
 -- RemoteDomainName.
 createConditionalForwarder_dnsIpAddrs :: Lens.Lens' CreateConditionalForwarder [Prelude.Text]
-createConditionalForwarder_dnsIpAddrs = Lens.lens (\CreateConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@CreateConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: CreateConditionalForwarder) Prelude.. Lens._Coerce
+createConditionalForwarder_dnsIpAddrs = Lens.lens (\CreateConditionalForwarder' {dnsIpAddrs} -> dnsIpAddrs) (\s@CreateConditionalForwarder' {} a -> s {dnsIpAddrs = a} :: CreateConditionalForwarder) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateConditionalForwarder where
   type

@@ -30,7 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobParameters' smart constructor.
 data JobParameters = JobParameters'
-  { -- | When initiating a job to retrieve a vault inventory, you can optionally
+  { -- | The ID of the archive that you want to retrieve. This field is required
+    -- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
+    -- occurs if you specify this request parameter for an inventory retrieval
+    -- job request.
+    archiveId :: Prelude.Maybe Prelude.Text,
+    -- | Contains the parameters that define a job.
+    selectParameters :: Prelude.Maybe SelectParameters,
+    -- | When initiating a job to retrieve a vault inventory, you can optionally
     -- add this parameter to your request to specify the output format. If you
     -- are initiating an inventory job and do not specify a Format field, JSON
     -- is the default format. Valid values are \"CSV\" and \"JSON\".
@@ -47,36 +54,29 @@ data JobParameters = JobParameters'
     -- An error occurs if you specify this field for an inventory retrieval job
     -- request.
     retrievalByteRange :: Prelude.Maybe Prelude.Text,
-    -- | Contains the parameters that define a job.
-    selectParameters :: Prelude.Maybe SelectParameters,
+    -- | Input parameters used for range inventory retrieval.
+    inventoryRetrievalParameters :: Prelude.Maybe InventoryRetrievalJobInput,
     -- | The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
     -- when the job is completed and the output is ready for you to download.
     -- The specified topic publishes the notification to its subscribers. The
     -- SNS topic must exist.
     sNSTopic :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the archive that you want to retrieve. This field is required
-    -- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
-    -- occurs if you specify this request parameter for an inventory retrieval
-    -- job request.
-    archiveId :: Prelude.Maybe Prelude.Text,
-    -- | The optional description for the job. The description must be less than
-    -- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
-    -- without control codes-specifically, ASCII values 32-126 decimal or
-    -- 0x20-0x7E hexadecimal.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Input parameters used for range inventory retrieval.
-    inventoryRetrievalParameters :: Prelude.Maybe InventoryRetrievalJobInput,
+    -- | Contains information about the location where the select job results are
+    -- stored.
+    outputLocation :: Prelude.Maybe OutputLocation,
+    -- | The tier to use for a select or an archive retrieval job. Valid values
+    -- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
+    tier :: Prelude.Maybe Prelude.Text,
     -- | The job type. You can initiate a job to perform a select query on an
     -- archive, retrieve an archive, or get an inventory of a vault. Valid
     -- values are \"select\", \"archive-retrieval\" and
     -- \"inventory-retrieval\".
     type' :: Prelude.Maybe Prelude.Text,
-    -- | The tier to use for a select or an archive retrieval job. Valid values
-    -- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
-    tier :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the location where the select job results are
-    -- stored.
-    outputLocation :: Prelude.Maybe OutputLocation
+    -- | The optional description for the job. The description must be less than
+    -- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
+    -- without control codes-specifically, ASCII values 32-126 decimal or
+    -- 0x20-0x7E hexadecimal.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,6 +87,13 @@ data JobParameters = JobParameters'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'archiveId', 'jobParameters_archiveId' - The ID of the archive that you want to retrieve. This field is required
+-- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
+-- occurs if you specify this request parameter for an inventory retrieval
+-- job request.
+--
+-- 'selectParameters', 'jobParameters_selectParameters' - Contains the parameters that define a job.
 --
 -- 'format', 'jobParameters_format' - When initiating a job to retrieve a vault inventory, you can optionally
 -- add this parameter to your request to specify the output format. If you
@@ -105,50 +112,54 @@ data JobParameters = JobParameters'
 -- An error occurs if you specify this field for an inventory retrieval job
 -- request.
 --
--- 'selectParameters', 'jobParameters_selectParameters' - Contains the parameters that define a job.
+-- 'inventoryRetrievalParameters', 'jobParameters_inventoryRetrievalParameters' - Input parameters used for range inventory retrieval.
 --
 -- 'sNSTopic', 'jobParameters_sNSTopic' - The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
 -- when the job is completed and the output is ready for you to download.
 -- The specified topic publishes the notification to its subscribers. The
 -- SNS topic must exist.
 --
--- 'archiveId', 'jobParameters_archiveId' - The ID of the archive that you want to retrieve. This field is required
--- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
--- occurs if you specify this request parameter for an inventory retrieval
--- job request.
+-- 'outputLocation', 'jobParameters_outputLocation' - Contains information about the location where the select job results are
+-- stored.
 --
--- 'description', 'jobParameters_description' - The optional description for the job. The description must be less than
--- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
--- without control codes-specifically, ASCII values 32-126 decimal or
--- 0x20-0x7E hexadecimal.
---
--- 'inventoryRetrievalParameters', 'jobParameters_inventoryRetrievalParameters' - Input parameters used for range inventory retrieval.
+-- 'tier', 'jobParameters_tier' - The tier to use for a select or an archive retrieval job. Valid values
+-- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
 --
 -- 'type'', 'jobParameters_type' - The job type. You can initiate a job to perform a select query on an
 -- archive, retrieve an archive, or get an inventory of a vault. Valid
 -- values are \"select\", \"archive-retrieval\" and
 -- \"inventory-retrieval\".
 --
--- 'tier', 'jobParameters_tier' - The tier to use for a select or an archive retrieval job. Valid values
--- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
---
--- 'outputLocation', 'jobParameters_outputLocation' - Contains information about the location where the select job results are
--- stored.
+-- 'description', 'jobParameters_description' - The optional description for the job. The description must be less than
+-- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
+-- without control codes-specifically, ASCII values 32-126 decimal or
+-- 0x20-0x7E hexadecimal.
 newJobParameters ::
   JobParameters
 newJobParameters =
   JobParameters'
-    { format = Prelude.Nothing,
-      retrievalByteRange = Prelude.Nothing,
+    { archiveId = Prelude.Nothing,
       selectParameters = Prelude.Nothing,
-      sNSTopic = Prelude.Nothing,
-      archiveId = Prelude.Nothing,
-      description = Prelude.Nothing,
+      format = Prelude.Nothing,
+      retrievalByteRange = Prelude.Nothing,
       inventoryRetrievalParameters = Prelude.Nothing,
-      type' = Prelude.Nothing,
+      sNSTopic = Prelude.Nothing,
+      outputLocation = Prelude.Nothing,
       tier = Prelude.Nothing,
-      outputLocation = Prelude.Nothing
+      type' = Prelude.Nothing,
+      description = Prelude.Nothing
     }
+
+-- | The ID of the archive that you want to retrieve. This field is required
+-- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
+-- occurs if you specify this request parameter for an inventory retrieval
+-- job request.
+jobParameters_archiveId :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
+jobParameters_archiveId = Lens.lens (\JobParameters' {archiveId} -> archiveId) (\s@JobParameters' {} a -> s {archiveId = a} :: JobParameters)
+
+-- | Contains the parameters that define a job.
+jobParameters_selectParameters :: Lens.Lens' JobParameters (Prelude.Maybe SelectParameters)
+jobParameters_selectParameters = Lens.lens (\JobParameters' {selectParameters} -> selectParameters) (\s@JobParameters' {} a -> s {selectParameters = a} :: JobParameters)
 
 -- | When initiating a job to retrieve a vault inventory, you can optionally
 -- add this parameter to your request to specify the output format. If you
@@ -171,9 +182,9 @@ jobParameters_format = Lens.lens (\JobParameters' {format} -> format) (\s@JobPar
 jobParameters_retrievalByteRange :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_retrievalByteRange = Lens.lens (\JobParameters' {retrievalByteRange} -> retrievalByteRange) (\s@JobParameters' {} a -> s {retrievalByteRange = a} :: JobParameters)
 
--- | Contains the parameters that define a job.
-jobParameters_selectParameters :: Lens.Lens' JobParameters (Prelude.Maybe SelectParameters)
-jobParameters_selectParameters = Lens.lens (\JobParameters' {selectParameters} -> selectParameters) (\s@JobParameters' {} a -> s {selectParameters = a} :: JobParameters)
+-- | Input parameters used for range inventory retrieval.
+jobParameters_inventoryRetrievalParameters :: Lens.Lens' JobParameters (Prelude.Maybe InventoryRetrievalJobInput)
+jobParameters_inventoryRetrievalParameters = Lens.lens (\JobParameters' {inventoryRetrievalParameters} -> inventoryRetrievalParameters) (\s@JobParameters' {} a -> s {inventoryRetrievalParameters = a} :: JobParameters)
 
 -- | The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
 -- when the job is completed and the output is ready for you to download.
@@ -182,23 +193,15 @@ jobParameters_selectParameters = Lens.lens (\JobParameters' {selectParameters} -
 jobParameters_sNSTopic :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_sNSTopic = Lens.lens (\JobParameters' {sNSTopic} -> sNSTopic) (\s@JobParameters' {} a -> s {sNSTopic = a} :: JobParameters)
 
--- | The ID of the archive that you want to retrieve. This field is required
--- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
--- occurs if you specify this request parameter for an inventory retrieval
--- job request.
-jobParameters_archiveId :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
-jobParameters_archiveId = Lens.lens (\JobParameters' {archiveId} -> archiveId) (\s@JobParameters' {} a -> s {archiveId = a} :: JobParameters)
+-- | Contains information about the location where the select job results are
+-- stored.
+jobParameters_outputLocation :: Lens.Lens' JobParameters (Prelude.Maybe OutputLocation)
+jobParameters_outputLocation = Lens.lens (\JobParameters' {outputLocation} -> outputLocation) (\s@JobParameters' {} a -> s {outputLocation = a} :: JobParameters)
 
--- | The optional description for the job. The description must be less than
--- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
--- without control codes-specifically, ASCII values 32-126 decimal or
--- 0x20-0x7E hexadecimal.
-jobParameters_description :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
-jobParameters_description = Lens.lens (\JobParameters' {description} -> description) (\s@JobParameters' {} a -> s {description = a} :: JobParameters)
-
--- | Input parameters used for range inventory retrieval.
-jobParameters_inventoryRetrievalParameters :: Lens.Lens' JobParameters (Prelude.Maybe InventoryRetrievalJobInput)
-jobParameters_inventoryRetrievalParameters = Lens.lens (\JobParameters' {inventoryRetrievalParameters} -> inventoryRetrievalParameters) (\s@JobParameters' {} a -> s {inventoryRetrievalParameters = a} :: JobParameters)
+-- | The tier to use for a select or an archive retrieval job. Valid values
+-- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
+jobParameters_tier :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
+jobParameters_tier = Lens.lens (\JobParameters' {tier} -> tier) (\s@JobParameters' {} a -> s {tier = a} :: JobParameters)
 
 -- | The job type. You can initiate a job to perform a select query on an
 -- archive, retrieve an archive, or get an inventory of a vault. Valid
@@ -207,15 +210,12 @@ jobParameters_inventoryRetrievalParameters = Lens.lens (\JobParameters' {invento
 jobParameters_type :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_type = Lens.lens (\JobParameters' {type'} -> type') (\s@JobParameters' {} a -> s {type' = a} :: JobParameters)
 
--- | The tier to use for a select or an archive retrieval job. Valid values
--- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
-jobParameters_tier :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
-jobParameters_tier = Lens.lens (\JobParameters' {tier} -> tier) (\s@JobParameters' {} a -> s {tier = a} :: JobParameters)
-
--- | Contains information about the location where the select job results are
--- stored.
-jobParameters_outputLocation :: Lens.Lens' JobParameters (Prelude.Maybe OutputLocation)
-jobParameters_outputLocation = Lens.lens (\JobParameters' {outputLocation} -> outputLocation) (\s@JobParameters' {} a -> s {outputLocation = a} :: JobParameters)
+-- | The optional description for the job. The description must be less than
+-- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
+-- without control codes-specifically, ASCII values 32-126 decimal or
+-- 0x20-0x7E hexadecimal.
+jobParameters_description :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
+jobParameters_description = Lens.lens (\JobParameters' {description} -> description) (\s@JobParameters' {} a -> s {description = a} :: JobParameters)
 
 instance Prelude.Hashable JobParameters
 
@@ -225,19 +225,19 @@ instance Core.ToJSON JobParameters where
   toJSON JobParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("RetrievalByteRange" Core..=)
-              Prelude.<$> retrievalByteRange,
+          [ ("ArchiveId" Core..=) Prelude.<$> archiveId,
             ("SelectParameters" Core..=)
               Prelude.<$> selectParameters,
-            ("SNSTopic" Core..=) Prelude.<$> sNSTopic,
-            ("ArchiveId" Core..=) Prelude.<$> archiveId,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Format" Core..=) Prelude.<$> format,
+            ("RetrievalByteRange" Core..=)
+              Prelude.<$> retrievalByteRange,
             ("InventoryRetrievalParameters" Core..=)
               Prelude.<$> inventoryRetrievalParameters,
-            ("Type" Core..=) Prelude.<$> type',
-            ("Tier" Core..=) Prelude.<$> tier,
+            ("SNSTopic" Core..=) Prelude.<$> sNSTopic,
             ("OutputLocation" Core..=)
-              Prelude.<$> outputLocation
+              Prelude.<$> outputLocation,
+            ("Tier" Core..=) Prelude.<$> tier,
+            ("Type" Core..=) Prelude.<$> type',
+            ("Description" Core..=) Prelude.<$> description
           ]
       )

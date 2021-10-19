@@ -31,8 +31,8 @@ module Network.AWS.IAM.ListMFADeviceTags
     newListMFADeviceTags,
 
     -- * Request Lenses
-    listMFADeviceTags_maxItems,
     listMFADeviceTags_marker,
+    listMFADeviceTags_maxItems,
     listMFADeviceTags_serialNumber,
 
     -- * Destructuring the Response
@@ -40,8 +40,8 @@ module Network.AWS.IAM.ListMFADeviceTags
     newListMFADeviceTagsResponse,
 
     -- * Response Lenses
-    listMFADeviceTagsResponse_isTruncated,
     listMFADeviceTagsResponse_marker,
+    listMFADeviceTagsResponse_isTruncated,
     listMFADeviceTagsResponse_httpStatus,
     listMFADeviceTagsResponse_tags,
   )
@@ -56,7 +56,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListMFADeviceTags' smart constructor.
 data ListMFADeviceTags = ListMFADeviceTags'
-  { -- | Use this only when paginating results to indicate the maximum number of
+  { -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
     --
@@ -66,11 +71,6 @@ data ListMFADeviceTags = ListMFADeviceTags'
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the IAM virtual MFA device whose tags you want
     -- to see. For virtual MFA devices, the serial number is the same as the
     -- ARN.
@@ -91,6 +91,11 @@ data ListMFADeviceTags = ListMFADeviceTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listMFADeviceTags_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'maxItems', 'listMFADeviceTags_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -100,11 +105,6 @@ data ListMFADeviceTags = ListMFADeviceTags'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
---
--- 'marker', 'listMFADeviceTags_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 --
 -- 'serialNumber', 'listMFADeviceTags_serialNumber' - The unique identifier for the IAM virtual MFA device whose tags you want
 -- to see. For virtual MFA devices, the serial number is the same as the
@@ -120,10 +120,17 @@ newListMFADeviceTags ::
   ListMFADeviceTags
 newListMFADeviceTags pSerialNumber_ =
   ListMFADeviceTags'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       serialNumber = pSerialNumber_
     }
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listMFADeviceTags_marker :: Lens.Lens' ListMFADeviceTags (Prelude.Maybe Prelude.Text)
+listMFADeviceTags_marker = Lens.lens (\ListMFADeviceTags' {marker} -> marker) (\s@ListMFADeviceTags' {} a -> s {marker = a} :: ListMFADeviceTags)
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
@@ -136,13 +143,6 @@ newListMFADeviceTags pSerialNumber_ =
 -- subsequent call that tells the service where to continue from.
 listMFADeviceTags_maxItems :: Lens.Lens' ListMFADeviceTags (Prelude.Maybe Prelude.Natural)
 listMFADeviceTags_maxItems = Lens.lens (\ListMFADeviceTags' {maxItems} -> maxItems) (\s@ListMFADeviceTags' {} a -> s {maxItems = a} :: ListMFADeviceTags)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listMFADeviceTags_marker :: Lens.Lens' ListMFADeviceTags (Prelude.Maybe Prelude.Text)
-listMFADeviceTags_marker = Lens.lens (\ListMFADeviceTags' {marker} -> marker) (\s@ListMFADeviceTags' {} a -> s {marker = a} :: ListMFADeviceTags)
 
 -- | The unique identifier for the IAM virtual MFA device whose tags you want
 -- to see. For virtual MFA devices, the serial number is the same as the
@@ -165,8 +165,8 @@ instance Core.AWSRequest ListMFADeviceTags where
       "ListMFADeviceTagsResult"
       ( \s h x ->
           ListMFADeviceTagsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.parseXMLList "member"
@@ -190,14 +190,18 @@ instance Core.ToQuery ListMFADeviceTags where
           Core.=: ("ListMFADeviceTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxItems" Core.=: maxItems,
         "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
         "SerialNumber" Core.=: serialNumber
       ]
 
 -- | /See:/ 'newListMFADeviceTagsResponse' smart constructor.
 data ListMFADeviceTagsResponse = ListMFADeviceTagsResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -205,10 +209,6 @@ data ListMFADeviceTagsResponse = ListMFADeviceTagsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The list of tags that are currently attached to the virtual MFA device.
@@ -226,6 +226,10 @@ data ListMFADeviceTagsResponse = ListMFADeviceTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listMFADeviceTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'listMFADeviceTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -233,10 +237,6 @@ data ListMFADeviceTagsResponse = ListMFADeviceTagsResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
---
--- 'marker', 'listMFADeviceTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
 --
 -- 'httpStatus', 'listMFADeviceTagsResponse_httpStatus' - The response's http status code.
 --
@@ -249,12 +249,18 @@ newListMFADeviceTagsResponse ::
   ListMFADeviceTagsResponse
 newListMFADeviceTagsResponse pHttpStatus_ =
   ListMFADeviceTagsResponse'
-    { isTruncated =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       tags = Prelude.mempty
     }
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listMFADeviceTagsResponse_marker :: Lens.Lens' ListMFADeviceTagsResponse (Prelude.Maybe Prelude.Text)
+listMFADeviceTagsResponse_marker = Lens.lens (\ListMFADeviceTagsResponse' {marker} -> marker) (\s@ListMFADeviceTagsResponse' {} a -> s {marker = a} :: ListMFADeviceTagsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -266,12 +272,6 @@ newListMFADeviceTagsResponse pHttpStatus_ =
 listMFADeviceTagsResponse_isTruncated :: Lens.Lens' ListMFADeviceTagsResponse (Prelude.Maybe Prelude.Bool)
 listMFADeviceTagsResponse_isTruncated = Lens.lens (\ListMFADeviceTagsResponse' {isTruncated} -> isTruncated) (\s@ListMFADeviceTagsResponse' {} a -> s {isTruncated = a} :: ListMFADeviceTagsResponse)
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listMFADeviceTagsResponse_marker :: Lens.Lens' ListMFADeviceTagsResponse (Prelude.Maybe Prelude.Text)
-listMFADeviceTagsResponse_marker = Lens.lens (\ListMFADeviceTagsResponse' {marker} -> marker) (\s@ListMFADeviceTagsResponse' {} a -> s {marker = a} :: ListMFADeviceTagsResponse)
-
 -- | The response's http status code.
 listMFADeviceTagsResponse_httpStatus :: Lens.Lens' ListMFADeviceTagsResponse Prelude.Int
 listMFADeviceTagsResponse_httpStatus = Lens.lens (\ListMFADeviceTagsResponse' {httpStatus} -> httpStatus) (\s@ListMFADeviceTagsResponse' {} a -> s {httpStatus = a} :: ListMFADeviceTagsResponse)
@@ -280,6 +280,6 @@ listMFADeviceTagsResponse_httpStatus = Lens.lens (\ListMFADeviceTagsResponse' {h
 -- Each tag consists of a key name and an associated value. If no tags are
 -- attached to the specified resource, the response contains an empty list.
 listMFADeviceTagsResponse_tags :: Lens.Lens' ListMFADeviceTagsResponse [Tag]
-listMFADeviceTagsResponse_tags = Lens.lens (\ListMFADeviceTagsResponse' {tags} -> tags) (\s@ListMFADeviceTagsResponse' {} a -> s {tags = a} :: ListMFADeviceTagsResponse) Prelude.. Lens._Coerce
+listMFADeviceTagsResponse_tags = Lens.lens (\ListMFADeviceTagsResponse' {tags} -> tags) (\s@ListMFADeviceTagsResponse' {} a -> s {tags = a} :: ListMFADeviceTagsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListMFADeviceTagsResponse

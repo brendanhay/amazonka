@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNielsenConfiguration' smart constructor.
 data NielsenConfiguration = NielsenConfiguration'
-  { -- | Enables Nielsen PCM to ID3 tagging
-    nielsenPcmToId3Tagging :: Prelude.Maybe NielsenPcmToId3TaggingState,
-    -- | Enter the Distributor ID assigned to your organization by Nielsen.
-    distributorId :: Prelude.Maybe Prelude.Text
+  { -- | Enter the Distributor ID assigned to your organization by Nielsen.
+    distributorId :: Prelude.Maybe Prelude.Text,
+    -- | Enables Nielsen PCM to ID3 tagging
+    nielsenPcmToId3Tagging :: Prelude.Maybe NielsenPcmToId3TaggingState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data NielsenConfiguration = NielsenConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nielsenPcmToId3Tagging', 'nielsenConfiguration_nielsenPcmToId3Tagging' - Enables Nielsen PCM to ID3 tagging
---
 -- 'distributorId', 'nielsenConfiguration_distributorId' - Enter the Distributor ID assigned to your organization by Nielsen.
+--
+-- 'nielsenPcmToId3Tagging', 'nielsenConfiguration_nielsenPcmToId3Tagging' - Enables Nielsen PCM to ID3 tagging
 newNielsenConfiguration ::
   NielsenConfiguration
 newNielsenConfiguration =
   NielsenConfiguration'
-    { nielsenPcmToId3Tagging =
+    { distributorId =
         Prelude.Nothing,
-      distributorId = Prelude.Nothing
+      nielsenPcmToId3Tagging = Prelude.Nothing
     }
-
--- | Enables Nielsen PCM to ID3 tagging
-nielsenConfiguration_nielsenPcmToId3Tagging :: Lens.Lens' NielsenConfiguration (Prelude.Maybe NielsenPcmToId3TaggingState)
-nielsenConfiguration_nielsenPcmToId3Tagging = Lens.lens (\NielsenConfiguration' {nielsenPcmToId3Tagging} -> nielsenPcmToId3Tagging) (\s@NielsenConfiguration' {} a -> s {nielsenPcmToId3Tagging = a} :: NielsenConfiguration)
 
 -- | Enter the Distributor ID assigned to your organization by Nielsen.
 nielsenConfiguration_distributorId :: Lens.Lens' NielsenConfiguration (Prelude.Maybe Prelude.Text)
 nielsenConfiguration_distributorId = Lens.lens (\NielsenConfiguration' {distributorId} -> distributorId) (\s@NielsenConfiguration' {} a -> s {distributorId = a} :: NielsenConfiguration)
+
+-- | Enables Nielsen PCM to ID3 tagging
+nielsenConfiguration_nielsenPcmToId3Tagging :: Lens.Lens' NielsenConfiguration (Prelude.Maybe NielsenPcmToId3TaggingState)
+nielsenConfiguration_nielsenPcmToId3Tagging = Lens.lens (\NielsenConfiguration' {nielsenPcmToId3Tagging} -> nielsenPcmToId3Tagging) (\s@NielsenConfiguration' {} a -> s {nielsenPcmToId3Tagging = a} :: NielsenConfiguration)
 
 instance Core.FromJSON NielsenConfiguration where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON NielsenConfiguration where
       "NielsenConfiguration"
       ( \x ->
           NielsenConfiguration'
-            Prelude.<$> (x Core..:? "nielsenPcmToId3Tagging")
-            Prelude.<*> (x Core..:? "distributorId")
+            Prelude.<$> (x Core..:? "distributorId")
+            Prelude.<*> (x Core..:? "nielsenPcmToId3Tagging")
       )
 
 instance Prelude.Hashable NielsenConfiguration
@@ -81,8 +81,8 @@ instance Core.ToJSON NielsenConfiguration where
   toJSON NielsenConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nielsenPcmToId3Tagging" Core..=)
-              Prelude.<$> nielsenPcmToId3Tagging,
-            ("distributorId" Core..=) Prelude.<$> distributorId
+          [ ("distributorId" Core..=) Prelude.<$> distributorId,
+            ("nielsenPcmToId3Tagging" Core..=)
+              Prelude.<$> nielsenPcmToId3Tagging
           ]
       )

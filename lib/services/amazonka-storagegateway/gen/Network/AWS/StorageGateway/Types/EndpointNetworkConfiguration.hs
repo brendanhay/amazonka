@@ -64,7 +64,7 @@ newEndpointNetworkConfiguration =
 -- If multiple file systems are associated with this gateway, this field is
 -- required.
 endpointNetworkConfiguration_ipAddresses :: Lens.Lens' EndpointNetworkConfiguration (Prelude.Maybe [Prelude.Text])
-endpointNetworkConfiguration_ipAddresses = Lens.lens (\EndpointNetworkConfiguration' {ipAddresses} -> ipAddresses) (\s@EndpointNetworkConfiguration' {} a -> s {ipAddresses = a} :: EndpointNetworkConfiguration) Prelude.. Lens.mapping Lens._Coerce
+endpointNetworkConfiguration_ipAddresses = Lens.lens (\EndpointNetworkConfiguration' {ipAddresses} -> ipAddresses) (\s@EndpointNetworkConfiguration' {} a -> s {ipAddresses = a} :: EndpointNetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EndpointNetworkConfiguration where
   parseJSON =

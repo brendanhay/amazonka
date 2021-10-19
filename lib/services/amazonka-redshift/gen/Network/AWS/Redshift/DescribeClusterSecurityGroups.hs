@@ -45,11 +45,11 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     newDescribeClusterSecurityGroups,
 
     -- * Request Lenses
+    describeClusterSecurityGroups_tagValues,
     describeClusterSecurityGroups_tagKeys,
     describeClusterSecurityGroups_clusterSecurityGroupName,
-    describeClusterSecurityGroups_tagValues,
-    describeClusterSecurityGroups_maxRecords,
     describeClusterSecurityGroups_marker,
+    describeClusterSecurityGroups_maxRecords,
 
     -- * Destructuring the Response
     DescribeClusterSecurityGroupsResponse (..),
@@ -73,7 +73,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeClusterSecurityGroups' smart constructor.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
-  { -- | A tag key or keys for which you want to return all matching cluster
+  { -- | A tag value or values for which you want to return all matching cluster
+    -- security groups that are associated with the specified tag value or
+    -- values. For example, suppose that you have security groups that are
+    -- tagged with values called @admin@ and @test@. If you specify both of
+    -- these tag values in the request, Amazon Redshift returns a response with
+    -- the security groups that have either or both of these tag values
+    -- associated with them.
+    tagValues :: Prelude.Maybe [Prelude.Text],
+    -- | A tag key or keys for which you want to return all matching cluster
     -- security groups that are associated with the specified key or keys. For
     -- example, suppose that you have security groups that are tagged with keys
     -- called @owner@ and @environment@. If you specify both of these tag keys
@@ -86,24 +94,6 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     --
     -- Example: @securitygroup1@
     clusterSecurityGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A tag value or values for which you want to return all matching cluster
-    -- security groups that are associated with the specified tag value or
-    -- values. For example, suppose that you have security groups that are
-    -- tagged with values called @admin@ and @test@. If you specify both of
-    -- these tag values in the request, Amazon Redshift returns a response with
-    -- the security groups that have either or both of these tag values
-    -- associated with them.
-    tagValues :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of response records to return in each call. If the
-    -- number of remaining response records exceeds the specified @MaxRecords@
-    -- value, a value is returned in a @marker@ field of the response. You can
-    -- retrieve the next set of records by retrying the command with the
-    -- returned marker value.
-    --
-    -- Default: @100@
-    --
-    -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional parameter that specifies the starting point to return a set
     -- of response records. When the results of a DescribeClusterSecurityGroups
     -- request exceed the value specified in @MaxRecords@, Amazon Web Services
@@ -113,7 +103,17 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     --
     -- Constraints: You can specify either the __ClusterSecurityGroupName__
     -- parameter or the __Marker__ parameter, but not both.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of response records to return in each call. If the
+    -- number of remaining response records exceeds the specified @MaxRecords@
+    -- value, a value is returned in a @marker@ field of the response. You can
+    -- retrieve the next set of records by retrying the command with the
+    -- returned marker value.
+    --
+    -- Default: @100@
+    --
+    -- Constraints: minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,6 +124,14 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tagValues', 'describeClusterSecurityGroups_tagValues' - A tag value or values for which you want to return all matching cluster
+-- security groups that are associated with the specified tag value or
+-- values. For example, suppose that you have security groups that are
+-- tagged with values called @admin@ and @test@. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the security groups that have either or both of these tag values
+-- associated with them.
 --
 -- 'tagKeys', 'describeClusterSecurityGroups_tagKeys' - A tag key or keys for which you want to return all matching cluster
 -- security groups that are associated with the specified key or keys. For
@@ -138,13 +146,15 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 --
 -- Example: @securitygroup1@
 --
--- 'tagValues', 'describeClusterSecurityGroups_tagValues' - A tag value or values for which you want to return all matching cluster
--- security groups that are associated with the specified tag value or
--- values. For example, suppose that you have security groups that are
--- tagged with values called @admin@ and @test@. If you specify both of
--- these tag values in the request, Amazon Redshift returns a response with
--- the security groups that have either or both of these tag values
--- associated with them.
+-- 'marker', 'describeClusterSecurityGroups_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSecurityGroups
+-- request exceed the value specified in @MaxRecords@, Amazon Web Services
+-- returns a value in the @Marker@ field of the response. You can retrieve
+-- the next set of response records by providing the returned marker value
+-- in the @Marker@ parameter and retrying the request.
+--
+-- Constraints: You can specify either the __ClusterSecurityGroupName__
+-- parameter or the __Marker__ parameter, but not both.
 --
 -- 'maxRecords', 'describeClusterSecurityGroups_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -155,44 +165,17 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
---
--- 'marker', 'describeClusterSecurityGroups_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a DescribeClusterSecurityGroups
--- request exceed the value specified in @MaxRecords@, Amazon Web Services
--- returns a value in the @Marker@ field of the response. You can retrieve
--- the next set of response records by providing the returned marker value
--- in the @Marker@ parameter and retrying the request.
---
--- Constraints: You can specify either the __ClusterSecurityGroupName__
--- parameter or the __Marker__ parameter, but not both.
 newDescribeClusterSecurityGroups ::
   DescribeClusterSecurityGroups
 newDescribeClusterSecurityGroups =
   DescribeClusterSecurityGroups'
-    { tagKeys =
+    { tagValues =
         Prelude.Nothing,
+      tagKeys = Prelude.Nothing,
       clusterSecurityGroupName = Prelude.Nothing,
-      tagValues = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
-
--- | A tag key or keys for which you want to return all matching cluster
--- security groups that are associated with the specified key or keys. For
--- example, suppose that you have security groups that are tagged with keys
--- called @owner@ and @environment@. If you specify both of these tag keys
--- in the request, Amazon Redshift returns a response with the security
--- groups that have either or both of these tag keys associated with them.
-describeClusterSecurityGroups_tagKeys :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe [Prelude.Text])
-describeClusterSecurityGroups_tagKeys = Lens.lens (\DescribeClusterSecurityGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterSecurityGroups' {} a -> s {tagKeys = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of a cluster security group for which you are requesting
--- details. You can specify either the __Marker__ parameter or a
--- __ClusterSecurityGroupName__ parameter, but not both.
---
--- Example: @securitygroup1@
-describeClusterSecurityGroups_clusterSecurityGroupName :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
-describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClusterSecurityGroups' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@DescribeClusterSecurityGroups' {} a -> s {clusterSecurityGroupName = a} :: DescribeClusterSecurityGroups)
 
 -- | A tag value or values for which you want to return all matching cluster
 -- security groups that are associated with the specified tag value or
@@ -202,19 +185,24 @@ describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClu
 -- the security groups that have either or both of these tag values
 -- associated with them.
 describeClusterSecurityGroups_tagValues :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe [Prelude.Text])
-describeClusterSecurityGroups_tagValues = Lens.lens (\DescribeClusterSecurityGroups' {tagValues} -> tagValues) (\s@DescribeClusterSecurityGroups' {} a -> s {tagValues = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens._Coerce
+describeClusterSecurityGroups_tagValues = Lens.lens (\DescribeClusterSecurityGroups' {tagValues} -> tagValues) (\s@DescribeClusterSecurityGroups' {} a -> s {tagValues = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
--- retrieve the next set of records by retrying the command with the
--- returned marker value.
+-- | A tag key or keys for which you want to return all matching cluster
+-- security groups that are associated with the specified key or keys. For
+-- example, suppose that you have security groups that are tagged with keys
+-- called @owner@ and @environment@. If you specify both of these tag keys
+-- in the request, Amazon Redshift returns a response with the security
+-- groups that have either or both of these tag keys associated with them.
+describeClusterSecurityGroups_tagKeys :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe [Prelude.Text])
+describeClusterSecurityGroups_tagKeys = Lens.lens (\DescribeClusterSecurityGroups' {tagKeys} -> tagKeys) (\s@DescribeClusterSecurityGroups' {} a -> s {tagKeys = a} :: DescribeClusterSecurityGroups) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of a cluster security group for which you are requesting
+-- details. You can specify either the __Marker__ parameter or a
+-- __ClusterSecurityGroupName__ parameter, but not both.
 --
--- Default: @100@
---
--- Constraints: minimum 20, maximum 100.
-describeClusterSecurityGroups_maxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Int)
-describeClusterSecurityGroups_maxRecords = Lens.lens (\DescribeClusterSecurityGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterSecurityGroups' {} a -> s {maxRecords = a} :: DescribeClusterSecurityGroups)
+-- Example: @securitygroup1@
+describeClusterSecurityGroups_clusterSecurityGroupName :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
+describeClusterSecurityGroups_clusterSecurityGroupName = Lens.lens (\DescribeClusterSecurityGroups' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@DescribeClusterSecurityGroups' {} a -> s {clusterSecurityGroupName = a} :: DescribeClusterSecurityGroups)
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSecurityGroups
@@ -227,6 +215,18 @@ describeClusterSecurityGroups_maxRecords = Lens.lens (\DescribeClusterSecurityGr
 -- parameter or the __Marker__ parameter, but not both.
 describeClusterSecurityGroups_marker :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Text)
 describeClusterSecurityGroups_marker = Lens.lens (\DescribeClusterSecurityGroups' {marker} -> marker) (\s@DescribeClusterSecurityGroups' {} a -> s {marker = a} :: DescribeClusterSecurityGroups)
+
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+describeClusterSecurityGroups_maxRecords :: Lens.Lens' DescribeClusterSecurityGroups (Prelude.Maybe Prelude.Int)
+describeClusterSecurityGroups_maxRecords = Lens.lens (\DescribeClusterSecurityGroups' {maxRecords} -> maxRecords) (\s@DescribeClusterSecurityGroups' {} a -> s {maxRecords = a} :: DescribeClusterSecurityGroups)
 
 instance Core.AWSPager DescribeClusterSecurityGroups where
   page rq rs
@@ -292,16 +292,16 @@ instance Core.ToQuery DescribeClusterSecurityGroups where
                   ),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "TagValues"
+          Core.=: Core.toQuery
+            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
         "TagKeys"
           Core.=: Core.toQuery
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "ClusterSecurityGroupName"
           Core.=: clusterSecurityGroupName,
-        "TagValues"
-          Core.=: Core.toQuery
-            (Core.toQueryList "TagValue" Prelude.<$> tagValues),
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- |
@@ -354,7 +354,7 @@ newDescribeClusterSecurityGroupsResponse pHttpStatus_ =
 
 -- | A list of ClusterSecurityGroup instances.
 describeClusterSecurityGroupsResponse_clusterSecurityGroups :: Lens.Lens' DescribeClusterSecurityGroupsResponse (Prelude.Maybe [ClusterSecurityGroup])
-describeClusterSecurityGroupsResponse_clusterSecurityGroups = Lens.lens (\DescribeClusterSecurityGroupsResponse' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@DescribeClusterSecurityGroupsResponse' {} a -> s {clusterSecurityGroups = a} :: DescribeClusterSecurityGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeClusterSecurityGroupsResponse_clusterSecurityGroups = Lens.lens (\DescribeClusterSecurityGroupsResponse' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@DescribeClusterSecurityGroupsResponse' {} a -> s {clusterSecurityGroups = a} :: DescribeClusterSecurityGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

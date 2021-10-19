@@ -48,7 +48,7 @@ newAutoRollbackConfig =
 
 -- |
 autoRollbackConfig_alarms :: Lens.Lens' AutoRollbackConfig (Prelude.Maybe (Prelude.NonEmpty Alarm))
-autoRollbackConfig_alarms = Lens.lens (\AutoRollbackConfig' {alarms} -> alarms) (\s@AutoRollbackConfig' {} a -> s {alarms = a} :: AutoRollbackConfig) Prelude.. Lens.mapping Lens._Coerce
+autoRollbackConfig_alarms = Lens.lens (\AutoRollbackConfig' {alarms} -> alarms) (\s@AutoRollbackConfig' {} a -> s {alarms = a} :: AutoRollbackConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AutoRollbackConfig where
   parseJSON =

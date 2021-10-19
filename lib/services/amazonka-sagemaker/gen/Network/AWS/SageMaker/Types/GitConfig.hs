@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGitConfig' smart constructor.
 data GitConfig = GitConfig'
-  { -- | The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
+  { -- | The default branch for the Git repository.
+    branch :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
     -- Manager secret that contains the credentials used to access the git
     -- repository. The secret must have a staging label of @AWSCURRENT@ and
     -- must be in the following format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The default branch for the Git repository.
-    branch :: Prelude.Maybe Prelude.Text,
     -- | The URL where the Git repository is located.
     repositoryUrl :: Prelude.Text
   }
@@ -50,14 +50,14 @@ data GitConfig = GitConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'branch', 'gitConfig_branch' - The default branch for the Git repository.
+--
 -- 'secretArn', 'gitConfig_secretArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
 -- Manager secret that contains the credentials used to access the git
 -- repository. The secret must have a staging label of @AWSCURRENT@ and
 -- must be in the following format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
---
--- 'branch', 'gitConfig_branch' - The default branch for the Git repository.
 --
 -- 'repositoryUrl', 'gitConfig_repositoryUrl' - The URL where the Git repository is located.
 newGitConfig ::
@@ -66,10 +66,14 @@ newGitConfig ::
   GitConfig
 newGitConfig pRepositoryUrl_ =
   GitConfig'
-    { secretArn = Prelude.Nothing,
-      branch = Prelude.Nothing,
+    { branch = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
       repositoryUrl = pRepositoryUrl_
     }
+
+-- | The default branch for the Git repository.
+gitConfig_branch :: Lens.Lens' GitConfig (Prelude.Maybe Prelude.Text)
+gitConfig_branch = Lens.lens (\GitConfig' {branch} -> branch) (\s@GitConfig' {} a -> s {branch = a} :: GitConfig)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Web Services Secrets
 -- Manager secret that contains the credentials used to access the git
@@ -79,10 +83,6 @@ newGitConfig pRepositoryUrl_ =
 -- @{\"username\": UserName, \"password\": Password}@
 gitConfig_secretArn :: Lens.Lens' GitConfig (Prelude.Maybe Prelude.Text)
 gitConfig_secretArn = Lens.lens (\GitConfig' {secretArn} -> secretArn) (\s@GitConfig' {} a -> s {secretArn = a} :: GitConfig)
-
--- | The default branch for the Git repository.
-gitConfig_branch :: Lens.Lens' GitConfig (Prelude.Maybe Prelude.Text)
-gitConfig_branch = Lens.lens (\GitConfig' {branch} -> branch) (\s@GitConfig' {} a -> s {branch = a} :: GitConfig)
 
 -- | The URL where the Git repository is located.
 gitConfig_repositoryUrl :: Lens.Lens' GitConfig Prelude.Text
@@ -94,8 +94,8 @@ instance Core.FromJSON GitConfig where
       "GitConfig"
       ( \x ->
           GitConfig'
-            Prelude.<$> (x Core..:? "SecretArn")
-            Prelude.<*> (x Core..:? "Branch")
+            Prelude.<$> (x Core..:? "Branch")
+            Prelude.<*> (x Core..:? "SecretArn")
             Prelude.<*> (x Core..: "RepositoryUrl")
       )
 
@@ -107,8 +107,8 @@ instance Core.ToJSON GitConfig where
   toJSON GitConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecretArn" Core..=) Prelude.<$> secretArn,
-            ("Branch" Core..=) Prelude.<$> branch,
+          [ ("Branch" Core..=) Prelude.<$> branch,
+            ("SecretArn" Core..=) Prelude.<$> secretArn,
             Prelude.Just
               ("RepositoryUrl" Core..= repositoryUrl)
           ]

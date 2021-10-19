@@ -27,47 +27,47 @@ module Network.AWS.Route53AutoNaming
     -- * Errors
     -- $errors
 
-    -- ** InvalidInput
-    _InvalidInput,
-
-    -- ** TooManyTagsException
-    _TooManyTagsException,
-
-    -- ** DuplicateRequest
-    _DuplicateRequest,
-
-    -- ** ResourceInUse
-    _ResourceInUse,
-
-    -- ** ServiceAlreadyExists
-    _ServiceAlreadyExists,
-
-    -- ** RequestLimitExceeded
-    _RequestLimitExceeded,
-
-    -- ** CustomHealthNotFound
-    _CustomHealthNotFound,
-
     -- ** ResourceLimitExceeded
     _ResourceLimitExceeded,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** OperationNotFound
-    _OperationNotFound,
-
-    -- ** ServiceNotFound
-    _ServiceNotFound,
-
-    -- ** NamespaceNotFound
-    _NamespaceNotFound,
+    -- ** InvalidInput
+    _InvalidInput,
 
     -- ** NamespaceAlreadyExists
     _NamespaceAlreadyExists,
 
+    -- ** NamespaceNotFound
+    _NamespaceNotFound,
+
+    -- ** ServiceAlreadyExists
+    _ServiceAlreadyExists,
+
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** CustomHealthNotFound
+    _CustomHealthNotFound,
+
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
+
     -- ** InstanceNotFound
     _InstanceNotFound,
+
+    -- ** DuplicateRequest
+    _DuplicateRequest,
+
+    -- ** ServiceNotFound
+    _ServiceNotFound,
+
+    -- ** OperationNotFound
+    _OperationNotFound,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -75,95 +75,11 @@ module Network.AWS.Route53AutoNaming
     -- * Operations
     -- $operations
 
-    -- ** CreatePublicDnsNamespace
-    CreatePublicDnsNamespace (CreatePublicDnsNamespace'),
-    newCreatePublicDnsNamespace,
-    CreatePublicDnsNamespaceResponse (CreatePublicDnsNamespaceResponse'),
-    newCreatePublicDnsNamespaceResponse,
-
-    -- ** ListOperations (Paginated)
-    ListOperations (ListOperations'),
-    newListOperations,
-    ListOperationsResponse (ListOperationsResponse'),
-    newListOperationsResponse,
-
     -- ** ListServices (Paginated)
     ListServices (ListServices'),
     newListServices,
     ListServicesResponse (ListServicesResponse'),
     newListServicesResponse,
-
-    -- ** CreateService
-    CreateService (CreateService'),
-    newCreateService,
-    CreateServiceResponse (CreateServiceResponse'),
-    newCreateServiceResponse,
-
-    -- ** CreatePrivateDnsNamespace
-    CreatePrivateDnsNamespace (CreatePrivateDnsNamespace'),
-    newCreatePrivateDnsNamespace,
-    CreatePrivateDnsNamespaceResponse (CreatePrivateDnsNamespaceResponse'),
-    newCreatePrivateDnsNamespaceResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListInstances (Paginated)
-    ListInstances (ListInstances'),
-    newListInstances,
-    ListInstancesResponse (ListInstancesResponse'),
-    newListInstancesResponse,
-
-    -- ** GetNamespace
-    GetNamespace (GetNamespace'),
-    newGetNamespace,
-    GetNamespaceResponse (GetNamespaceResponse'),
-    newGetNamespaceResponse,
-
-    -- ** UpdatePublicDnsNamespace
-    UpdatePublicDnsNamespace (UpdatePublicDnsNamespace'),
-    newUpdatePublicDnsNamespace,
-    UpdatePublicDnsNamespaceResponse (UpdatePublicDnsNamespaceResponse'),
-    newUpdatePublicDnsNamespaceResponse,
-
-    -- ** ListNamespaces (Paginated)
-    ListNamespaces (ListNamespaces'),
-    newListNamespaces,
-    ListNamespacesResponse (ListNamespacesResponse'),
-    newListNamespacesResponse,
-
-    -- ** UpdateHttpNamespace
-    UpdateHttpNamespace (UpdateHttpNamespace'),
-    newUpdateHttpNamespace,
-    UpdateHttpNamespaceResponse (UpdateHttpNamespaceResponse'),
-    newUpdateHttpNamespaceResponse,
-
-    -- ** GetInstance
-    GetInstance (GetInstance'),
-    newGetInstance,
-    GetInstanceResponse (GetInstanceResponse'),
-    newGetInstanceResponse,
-
-    -- ** CreateHttpNamespace
-    CreateHttpNamespace (CreateHttpNamespace'),
-    newCreateHttpNamespace,
-    CreateHttpNamespaceResponse (CreateHttpNamespaceResponse'),
-    newCreateHttpNamespaceResponse,
-
-    -- ** GetInstancesHealthStatus
-    GetInstancesHealthStatus (GetInstancesHealthStatus'),
-    newGetInstancesHealthStatus,
-    GetInstancesHealthStatusResponse (GetInstancesHealthStatusResponse'),
-    newGetInstancesHealthStatusResponse,
 
     -- ** DeleteService
     DeleteService (DeleteService'),
@@ -177,23 +93,95 @@ module Network.AWS.Route53AutoNaming
     UpdateServiceResponse (UpdateServiceResponse'),
     newUpdateServiceResponse,
 
+    -- ** ListOperations (Paginated)
+    ListOperations (ListOperations'),
+    newListOperations,
+    ListOperationsResponse (ListOperationsResponse'),
+    newListOperationsResponse,
+
+    -- ** CreateHttpNamespace
+    CreateHttpNamespace (CreateHttpNamespace'),
+    newCreateHttpNamespace,
+    CreateHttpNamespaceResponse (CreateHttpNamespaceResponse'),
+    newCreateHttpNamespaceResponse,
+
+    -- ** CreatePublicDnsNamespace
+    CreatePublicDnsNamespace (CreatePublicDnsNamespace'),
+    newCreatePublicDnsNamespace,
+    CreatePublicDnsNamespaceResponse (CreatePublicDnsNamespaceResponse'),
+    newCreatePublicDnsNamespaceResponse,
+
+    -- ** GetInstance
+    GetInstance (GetInstance'),
+    newGetInstance,
+    GetInstanceResponse (GetInstanceResponse'),
+    newGetInstanceResponse,
+
+    -- ** ListNamespaces (Paginated)
+    ListNamespaces (ListNamespaces'),
+    newListNamespaces,
+    ListNamespacesResponse (ListNamespacesResponse'),
+    newListNamespacesResponse,
+
+    -- ** DeleteNamespace
+    DeleteNamespace (DeleteNamespace'),
+    newDeleteNamespace,
+    DeleteNamespaceResponse (DeleteNamespaceResponse'),
+    newDeleteNamespaceResponse,
+
+    -- ** UpdatePublicDnsNamespace
+    UpdatePublicDnsNamespace (UpdatePublicDnsNamespace'),
+    newUpdatePublicDnsNamespace,
+    UpdatePublicDnsNamespaceResponse (UpdatePublicDnsNamespaceResponse'),
+    newUpdatePublicDnsNamespaceResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** DiscoverInstances
     DiscoverInstances (DiscoverInstances'),
     newDiscoverInstances,
     DiscoverInstancesResponse (DiscoverInstancesResponse'),
     newDiscoverInstancesResponse,
 
-    -- ** DeregisterInstance
-    DeregisterInstance (DeregisterInstance'),
-    newDeregisterInstance,
-    DeregisterInstanceResponse (DeregisterInstanceResponse'),
-    newDeregisterInstanceResponse,
+    -- ** GetInstancesHealthStatus
+    GetInstancesHealthStatus (GetInstancesHealthStatus'),
+    newGetInstancesHealthStatus,
+    GetInstancesHealthStatusResponse (GetInstancesHealthStatusResponse'),
+    newGetInstancesHealthStatusResponse,
 
-    -- ** UpdatePrivateDnsNamespace
-    UpdatePrivateDnsNamespace (UpdatePrivateDnsNamespace'),
-    newUpdatePrivateDnsNamespace,
-    UpdatePrivateDnsNamespaceResponse (UpdatePrivateDnsNamespaceResponse'),
-    newUpdatePrivateDnsNamespaceResponse,
+    -- ** UpdateHttpNamespace
+    UpdateHttpNamespace (UpdateHttpNamespace'),
+    newUpdateHttpNamespace,
+    UpdateHttpNamespaceResponse (UpdateHttpNamespaceResponse'),
+    newUpdateHttpNamespaceResponse,
+
+    -- ** GetNamespace
+    GetNamespace (GetNamespace'),
+    newGetNamespace,
+    GetNamespaceResponse (GetNamespaceResponse'),
+    newGetNamespaceResponse,
+
+    -- ** RegisterInstance
+    RegisterInstance (RegisterInstance'),
+    newRegisterInstance,
+    RegisterInstanceResponse (RegisterInstanceResponse'),
+    newRegisterInstanceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** ListInstances (Paginated)
+    ListInstances (ListInstances'),
+    newListInstances,
+    ListInstancesResponse (ListInstancesResponse'),
+    newListInstancesResponse,
 
     -- ** GetOperation
     GetOperation (GetOperation'),
@@ -213,23 +201,35 @@ module Network.AWS.Route53AutoNaming
     GetServiceResponse (GetServiceResponse'),
     newGetServiceResponse,
 
-    -- ** RegisterInstance
-    RegisterInstance (RegisterInstance'),
-    newRegisterInstance,
-    RegisterInstanceResponse (RegisterInstanceResponse'),
-    newRegisterInstanceResponse,
+    -- ** CreatePrivateDnsNamespace
+    CreatePrivateDnsNamespace (CreatePrivateDnsNamespace'),
+    newCreatePrivateDnsNamespace,
+    CreatePrivateDnsNamespaceResponse (CreatePrivateDnsNamespaceResponse'),
+    newCreatePrivateDnsNamespaceResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
-    -- ** DeleteNamespace
-    DeleteNamespace (DeleteNamespace'),
-    newDeleteNamespace,
-    DeleteNamespaceResponse (DeleteNamespaceResponse'),
-    newDeleteNamespaceResponse,
+    -- ** UpdatePrivateDnsNamespace
+    UpdatePrivateDnsNamespace (UpdatePrivateDnsNamespace'),
+    newUpdatePrivateDnsNamespace,
+    UpdatePrivateDnsNamespaceResponse (UpdatePrivateDnsNamespaceResponse'),
+    newUpdatePrivateDnsNamespaceResponse,
+
+    -- ** CreateService
+    CreateService (CreateService'),
+    newCreateService,
+    CreateServiceResponse (CreateServiceResponse'),
+    newCreateServiceResponse,
+
+    -- ** DeregisterInstance
+    DeregisterInstance (DeregisterInstance'),
+    newDeregisterInstance,
+    DeregisterInstanceResponse (DeregisterInstanceResponse'),
+    newDeregisterInstanceResponse,
 
     -- * Types
 

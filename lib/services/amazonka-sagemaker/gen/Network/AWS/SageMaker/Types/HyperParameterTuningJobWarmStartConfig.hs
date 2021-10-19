@@ -136,7 +136,7 @@ newHyperParameterTuningJobWarmStartConfig
   pWarmStartType_ =
     HyperParameterTuningJobWarmStartConfig'
       { parentHyperParameterTuningJobs =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pParentHyperParameterTuningJobs_,
         warmStartType = pWarmStartType_
       }
@@ -149,7 +149,7 @@ newHyperParameterTuningJobWarmStartConfig
 -- Hyperparameter tuning jobs created before October 1, 2018 cannot be used
 -- as parent jobs for warm start tuning jobs.
 hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs :: Lens.Lens' HyperParameterTuningJobWarmStartConfig (Prelude.NonEmpty ParentHyperParameterTuningJob)
-hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {parentHyperParameterTuningJobs} -> parentHyperParameterTuningJobs) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {parentHyperParameterTuningJobs = a} :: HyperParameterTuningJobWarmStartConfig) Prelude.. Lens._Coerce
+hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {parentHyperParameterTuningJobs} -> parentHyperParameterTuningJobs) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {parentHyperParameterTuningJobs = a} :: HyperParameterTuningJobWarmStartConfig) Prelude.. Lens.coerced
 
 -- | Specifies one of the following:
 --

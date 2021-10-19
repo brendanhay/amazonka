@@ -41,16 +41,16 @@ data UpgradeStepItem = UpgradeStepItem'
     -- | The Floating point value representing progress percentage of a
     -- particular step.
     progressPercent :: Prelude.Maybe Prelude.Double,
+    -- | A list of strings containing detailed information about the errors
+    -- encountered in a particular step.
+    issues :: Prelude.Maybe [Prelude.Text],
     -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
     -- does through:
     --
     -- -   PreUpgradeCheck
     -- -   Snapshot
     -- -   Upgrade
-    upgradeStep :: Prelude.Maybe UpgradeStep,
-    -- | A list of strings containing detailed information about the errors
-    -- encountered in a particular step.
-    issues :: Prelude.Maybe [Prelude.Text]
+    upgradeStep :: Prelude.Maybe UpgradeStep
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,15 +73,15 @@ data UpgradeStepItem = UpgradeStepItem'
 -- 'progressPercent', 'upgradeStepItem_progressPercent' - The Floating point value representing progress percentage of a
 -- particular step.
 --
+-- 'issues', 'upgradeStepItem_issues' - A list of strings containing detailed information about the errors
+-- encountered in a particular step.
+--
 -- 'upgradeStep', 'upgradeStepItem_upgradeStep' - Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
 -- does through:
 --
 -- -   PreUpgradeCheck
 -- -   Snapshot
 -- -   Upgrade
---
--- 'issues', 'upgradeStepItem_issues' - A list of strings containing detailed information about the errors
--- encountered in a particular step.
 newUpgradeStepItem ::
   UpgradeStepItem
 newUpgradeStepItem =
@@ -89,8 +89,8 @@ newUpgradeStepItem =
     { upgradeStepStatus =
         Prelude.Nothing,
       progressPercent = Prelude.Nothing,
-      upgradeStep = Prelude.Nothing,
-      issues = Prelude.Nothing
+      issues = Prelude.Nothing,
+      upgradeStep = Prelude.Nothing
     }
 
 -- | The status of a particular step during an upgrade. The status can take
@@ -108,6 +108,11 @@ upgradeStepItem_upgradeStepStatus = Lens.lens (\UpgradeStepItem' {upgradeStepSta
 upgradeStepItem_progressPercent :: Lens.Lens' UpgradeStepItem (Prelude.Maybe Prelude.Double)
 upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent} -> progressPercent) (\s@UpgradeStepItem' {} a -> s {progressPercent = a} :: UpgradeStepItem)
 
+-- | A list of strings containing detailed information about the errors
+-- encountered in a particular step.
+upgradeStepItem_issues :: Lens.Lens' UpgradeStepItem (Prelude.Maybe [Prelude.Text])
+upgradeStepItem_issues = Lens.lens (\UpgradeStepItem' {issues} -> issues) (\s@UpgradeStepItem' {} a -> s {issues = a} :: UpgradeStepItem) Prelude.. Lens.mapping Lens.coerced
+
 -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
 -- does through:
 --
@@ -117,11 +122,6 @@ upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent}
 upgradeStepItem_upgradeStep :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStep)
 upgradeStepItem_upgradeStep = Lens.lens (\UpgradeStepItem' {upgradeStep} -> upgradeStep) (\s@UpgradeStepItem' {} a -> s {upgradeStep = a} :: UpgradeStepItem)
 
--- | A list of strings containing detailed information about the errors
--- encountered in a particular step.
-upgradeStepItem_issues :: Lens.Lens' UpgradeStepItem (Prelude.Maybe [Prelude.Text])
-upgradeStepItem_issues = Lens.lens (\UpgradeStepItem' {issues} -> issues) (\s@UpgradeStepItem' {} a -> s {issues = a} :: UpgradeStepItem) Prelude.. Lens.mapping Lens._Coerce
-
 instance Core.FromJSON UpgradeStepItem where
   parseJSON =
     Core.withObject
@@ -130,8 +130,8 @@ instance Core.FromJSON UpgradeStepItem where
           UpgradeStepItem'
             Prelude.<$> (x Core..:? "UpgradeStepStatus")
             Prelude.<*> (x Core..:? "ProgressPercent")
-            Prelude.<*> (x Core..:? "UpgradeStep")
             Prelude.<*> (x Core..:? "Issues" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "UpgradeStep")
       )
 
 instance Prelude.Hashable UpgradeStepItem

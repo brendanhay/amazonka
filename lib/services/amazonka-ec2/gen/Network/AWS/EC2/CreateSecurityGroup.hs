@@ -54,9 +54,9 @@ module Network.AWS.EC2.CreateSecurityGroup
     newCreateSecurityGroup,
 
     -- * Request Lenses
+    createSecurityGroup_vpcId,
     createSecurityGroup_tagSpecifications,
     createSecurityGroup_dryRun,
-    createSecurityGroup_vpcId,
     createSecurityGroup_description,
     createSecurityGroup_groupName,
 
@@ -80,15 +80,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSecurityGroup' smart constructor.
 data CreateSecurityGroup = CreateSecurityGroup'
-  { -- | The tags to assign to the security group.
+  { -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the security group.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | A description for the security group. This is informational only.
     --
     -- Constraints: Up to 255 characters in length
@@ -118,14 +118,14 @@ data CreateSecurityGroup = CreateSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcId', 'createSecurityGroup_vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+--
 -- 'tagSpecifications', 'createSecurityGroup_tagSpecifications' - The tags to assign to the security group.
 --
 -- 'dryRun', 'createSecurityGroup_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'vpcId', 'createSecurityGroup_vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 --
 -- 'description', 'createSecurityGroup_description' - A description for the security group. This is informational only.
 --
@@ -152,17 +152,20 @@ newCreateSecurityGroup ::
   CreateSecurityGroup
 newCreateSecurityGroup pDescription_ pGroupName_ =
   CreateSecurityGroup'
-    { tagSpecifications =
-        Prelude.Nothing,
+    { vpcId = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
       description = pDescription_,
       groupName = pGroupName_
     }
 
+-- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
+createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Text)
+createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (\s@CreateSecurityGroup' {} a -> s {vpcId = a} :: CreateSecurityGroup)
+
 -- | The tags to assign to the security group.
 createSecurityGroup_tagSpecifications :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe [TagSpecification])
-createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpecifications} -> tagSpecifications) (\s@CreateSecurityGroup' {} a -> s {tagSpecifications = a} :: CreateSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
+createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpecifications} -> tagSpecifications) (\s@CreateSecurityGroup' {} a -> s {tagSpecifications = a} :: CreateSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -170,10 +173,6 @@ createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpe
 -- Otherwise, it is @UnauthorizedOperation@.
 createSecurityGroup_dryRun :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Bool)
 createSecurityGroup_dryRun = Lens.lens (\CreateSecurityGroup' {dryRun} -> dryRun) (\s@CreateSecurityGroup' {} a -> s {dryRun = a} :: CreateSecurityGroup)
-
--- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Text)
-createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (\s@CreateSecurityGroup' {} a -> s {vpcId = a} :: CreateSecurityGroup)
 
 -- | A description for the security group. This is informational only.
 --
@@ -230,12 +229,12 @@ instance Core.ToQuery CreateSecurityGroup where
           Core.=: ("CreateSecurityGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "VpcId" Core.=: vpcId,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "VpcId" Core.=: vpcId,
         "GroupDescription" Core.=: description,
         "GroupName" Core.=: groupName
       ]
@@ -280,7 +279,7 @@ newCreateSecurityGroupResponse pHttpStatus_ pGroupId_ =
 
 -- | The tags assigned to the security group.
 createSecurityGroupResponse_tags :: Lens.Lens' CreateSecurityGroupResponse (Prelude.Maybe [Tag])
-createSecurityGroupResponse_tags = Lens.lens (\CreateSecurityGroupResponse' {tags} -> tags) (\s@CreateSecurityGroupResponse' {} a -> s {tags = a} :: CreateSecurityGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+createSecurityGroupResponse_tags = Lens.lens (\CreateSecurityGroupResponse' {tags} -> tags) (\s@CreateSecurityGroupResponse' {} a -> s {tags = a} :: CreateSecurityGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createSecurityGroupResponse_httpStatus :: Lens.Lens' CreateSecurityGroupResponse Prelude.Int

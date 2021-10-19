@@ -136,7 +136,7 @@ newDescribeVirtualGatewaysResponse pHttpStatus_ =
 
 -- | The virtual private gateways.
 describeVirtualGatewaysResponse_virtualGateways :: Lens.Lens' DescribeVirtualGatewaysResponse (Prelude.Maybe [VirtualGateway])
-describeVirtualGatewaysResponse_virtualGateways = Lens.lens (\DescribeVirtualGatewaysResponse' {virtualGateways} -> virtualGateways) (\s@DescribeVirtualGatewaysResponse' {} a -> s {virtualGateways = a} :: DescribeVirtualGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVirtualGatewaysResponse_virtualGateways = Lens.lens (\DescribeVirtualGatewaysResponse' {virtualGateways} -> virtualGateways) (\s@DescribeVirtualGatewaysResponse' {} a -> s {virtualGateways = a} :: DescribeVirtualGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVirtualGatewaysResponse_httpStatus :: Lens.Lens' DescribeVirtualGatewaysResponse Prelude.Int

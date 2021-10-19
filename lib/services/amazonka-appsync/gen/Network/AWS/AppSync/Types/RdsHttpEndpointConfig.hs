@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRdsHttpEndpointConfig' smart constructor.
 data RdsHttpEndpointConfig = RdsHttpEndpointConfig'
-  { -- | Logical schema name.
-    schema :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Web Services secret store ARN for database credentials.
-    awsSecretStoreArn :: Prelude.Maybe Prelude.Text,
-    -- | Amazon RDS cluster ARN.
+  { -- | Amazon RDS cluster ARN.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Logical schema name.
+    schema :: Prelude.Maybe Prelude.Text,
+    -- | Logical database name.
+    databaseName :: Prelude.Maybe Prelude.Text,
     -- | Amazon Web Services Region for RDS HTTP endpoint.
     awsRegion :: Prelude.Maybe Prelude.Text,
-    -- | Logical database name.
-    databaseName :: Prelude.Maybe Prelude.Text
+    -- | Amazon Web Services secret store ARN for database credentials.
+    awsSecretStoreArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,45 +48,46 @@ data RdsHttpEndpointConfig = RdsHttpEndpointConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dbClusterIdentifier', 'rdsHttpEndpointConfig_dbClusterIdentifier' - Amazon RDS cluster ARN.
+--
 -- 'schema', 'rdsHttpEndpointConfig_schema' - Logical schema name.
 --
--- 'awsSecretStoreArn', 'rdsHttpEndpointConfig_awsSecretStoreArn' - Amazon Web Services secret store ARN for database credentials.
---
--- 'dbClusterIdentifier', 'rdsHttpEndpointConfig_dbClusterIdentifier' - Amazon RDS cluster ARN.
+-- 'databaseName', 'rdsHttpEndpointConfig_databaseName' - Logical database name.
 --
 -- 'awsRegion', 'rdsHttpEndpointConfig_awsRegion' - Amazon Web Services Region for RDS HTTP endpoint.
 --
--- 'databaseName', 'rdsHttpEndpointConfig_databaseName' - Logical database name.
+-- 'awsSecretStoreArn', 'rdsHttpEndpointConfig_awsSecretStoreArn' - Amazon Web Services secret store ARN for database credentials.
 newRdsHttpEndpointConfig ::
   RdsHttpEndpointConfig
 newRdsHttpEndpointConfig =
   RdsHttpEndpointConfig'
-    { schema = Prelude.Nothing,
-      awsSecretStoreArn = Prelude.Nothing,
-      dbClusterIdentifier = Prelude.Nothing,
+    { dbClusterIdentifier =
+        Prelude.Nothing,
+      schema = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
       awsRegion = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+      awsSecretStoreArn = Prelude.Nothing
     }
-
--- | Logical schema name.
-rdsHttpEndpointConfig_schema :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
-rdsHttpEndpointConfig_schema = Lens.lens (\RdsHttpEndpointConfig' {schema} -> schema) (\s@RdsHttpEndpointConfig' {} a -> s {schema = a} :: RdsHttpEndpointConfig)
-
--- | Amazon Web Services secret store ARN for database credentials.
-rdsHttpEndpointConfig_awsSecretStoreArn :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
-rdsHttpEndpointConfig_awsSecretStoreArn = Lens.lens (\RdsHttpEndpointConfig' {awsSecretStoreArn} -> awsSecretStoreArn) (\s@RdsHttpEndpointConfig' {} a -> s {awsSecretStoreArn = a} :: RdsHttpEndpointConfig)
 
 -- | Amazon RDS cluster ARN.
 rdsHttpEndpointConfig_dbClusterIdentifier :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_dbClusterIdentifier = Lens.lens (\RdsHttpEndpointConfig' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@RdsHttpEndpointConfig' {} a -> s {dbClusterIdentifier = a} :: RdsHttpEndpointConfig)
 
--- | Amazon Web Services Region for RDS HTTP endpoint.
-rdsHttpEndpointConfig_awsRegion :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
-rdsHttpEndpointConfig_awsRegion = Lens.lens (\RdsHttpEndpointConfig' {awsRegion} -> awsRegion) (\s@RdsHttpEndpointConfig' {} a -> s {awsRegion = a} :: RdsHttpEndpointConfig)
+-- | Logical schema name.
+rdsHttpEndpointConfig_schema :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
+rdsHttpEndpointConfig_schema = Lens.lens (\RdsHttpEndpointConfig' {schema} -> schema) (\s@RdsHttpEndpointConfig' {} a -> s {schema = a} :: RdsHttpEndpointConfig)
 
 -- | Logical database name.
 rdsHttpEndpointConfig_databaseName :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
 rdsHttpEndpointConfig_databaseName = Lens.lens (\RdsHttpEndpointConfig' {databaseName} -> databaseName) (\s@RdsHttpEndpointConfig' {} a -> s {databaseName = a} :: RdsHttpEndpointConfig)
+
+-- | Amazon Web Services Region for RDS HTTP endpoint.
+rdsHttpEndpointConfig_awsRegion :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
+rdsHttpEndpointConfig_awsRegion = Lens.lens (\RdsHttpEndpointConfig' {awsRegion} -> awsRegion) (\s@RdsHttpEndpointConfig' {} a -> s {awsRegion = a} :: RdsHttpEndpointConfig)
+
+-- | Amazon Web Services secret store ARN for database credentials.
+rdsHttpEndpointConfig_awsSecretStoreArn :: Lens.Lens' RdsHttpEndpointConfig (Prelude.Maybe Prelude.Text)
+rdsHttpEndpointConfig_awsSecretStoreArn = Lens.lens (\RdsHttpEndpointConfig' {awsSecretStoreArn} -> awsSecretStoreArn) (\s@RdsHttpEndpointConfig' {} a -> s {awsSecretStoreArn = a} :: RdsHttpEndpointConfig)
 
 instance Core.FromJSON RdsHttpEndpointConfig where
   parseJSON =
@@ -94,11 +95,11 @@ instance Core.FromJSON RdsHttpEndpointConfig where
       "RdsHttpEndpointConfig"
       ( \x ->
           RdsHttpEndpointConfig'
-            Prelude.<$> (x Core..:? "schema")
-            Prelude.<*> (x Core..:? "awsSecretStoreArn")
-            Prelude.<*> (x Core..:? "dbClusterIdentifier")
-            Prelude.<*> (x Core..:? "awsRegion")
+            Prelude.<$> (x Core..:? "dbClusterIdentifier")
+            Prelude.<*> (x Core..:? "schema")
             Prelude.<*> (x Core..:? "databaseName")
+            Prelude.<*> (x Core..:? "awsRegion")
+            Prelude.<*> (x Core..:? "awsSecretStoreArn")
       )
 
 instance Prelude.Hashable RdsHttpEndpointConfig
@@ -109,12 +110,12 @@ instance Core.ToJSON RdsHttpEndpointConfig where
   toJSON RdsHttpEndpointConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("schema" Core..=) Prelude.<$> schema,
-            ("awsSecretStoreArn" Core..=)
-              Prelude.<$> awsSecretStoreArn,
-            ("dbClusterIdentifier" Core..=)
+          [ ("dbClusterIdentifier" Core..=)
               Prelude.<$> dbClusterIdentifier,
+            ("schema" Core..=) Prelude.<$> schema,
+            ("databaseName" Core..=) Prelude.<$> databaseName,
             ("awsRegion" Core..=) Prelude.<$> awsRegion,
-            ("databaseName" Core..=) Prelude.<$> databaseName
+            ("awsSecretStoreArn" Core..=)
+              Prelude.<$> awsSecretStoreArn
           ]
       )

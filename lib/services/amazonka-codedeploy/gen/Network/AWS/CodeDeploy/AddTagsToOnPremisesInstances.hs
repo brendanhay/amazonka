@@ -86,11 +86,11 @@ newAddTagsToOnPremisesInstances =
 -- Keys and values are both required. Keys cannot be null or empty strings.
 -- Value-only tags are not allowed.
 addTagsToOnPremisesInstances_tags :: Lens.Lens' AddTagsToOnPremisesInstances [Tag]
-addTagsToOnPremisesInstances_tags = Lens.lens (\AddTagsToOnPremisesInstances' {tags} -> tags) (\s@AddTagsToOnPremisesInstances' {} a -> s {tags = a} :: AddTagsToOnPremisesInstances) Prelude.. Lens._Coerce
+addTagsToOnPremisesInstances_tags = Lens.lens (\AddTagsToOnPremisesInstances' {tags} -> tags) (\s@AddTagsToOnPremisesInstances' {} a -> s {tags = a} :: AddTagsToOnPremisesInstances) Prelude.. Lens.coerced
 
 -- | The names of the on-premises instances to which to add tags.
 addTagsToOnPremisesInstances_instanceNames :: Lens.Lens' AddTagsToOnPremisesInstances [Prelude.Text]
-addTagsToOnPremisesInstances_instanceNames = Lens.lens (\AddTagsToOnPremisesInstances' {instanceNames} -> instanceNames) (\s@AddTagsToOnPremisesInstances' {} a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances) Prelude.. Lens._Coerce
+addTagsToOnPremisesInstances_instanceNames = Lens.lens (\AddTagsToOnPremisesInstances' {instanceNames} -> instanceNames) (\s@AddTagsToOnPremisesInstances' {} a -> s {instanceNames = a} :: AddTagsToOnPremisesInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToOnPremisesInstances where
   type

@@ -31,10 +31,10 @@ import Network.AWS.ServiceCatalog.Types.Tag
 data LaunchPathSummary = LaunchPathSummary'
   { -- | The constraints on the portfolio-product relationship.
     constraintSummaries :: Prelude.Maybe [ConstraintSummary],
-    -- | The identifier of the product path.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the portfolio to which the user was assigned.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the product path.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The tags associated with this product path.
     tags :: Prelude.Maybe [Tag]
   }
@@ -50,9 +50,9 @@ data LaunchPathSummary = LaunchPathSummary'
 --
 -- 'constraintSummaries', 'launchPathSummary_constraintSummaries' - The constraints on the portfolio-product relationship.
 --
--- 'id', 'launchPathSummary_id' - The identifier of the product path.
---
 -- 'name', 'launchPathSummary_name' - The name of the portfolio to which the user was assigned.
+--
+-- 'id', 'launchPathSummary_id' - The identifier of the product path.
 --
 -- 'tags', 'launchPathSummary_tags' - The tags associated with this product path.
 newLaunchPathSummary ::
@@ -61,26 +61,26 @@ newLaunchPathSummary =
   LaunchPathSummary'
     { constraintSummaries =
         Prelude.Nothing,
-      id = Prelude.Nothing,
       name = Prelude.Nothing,
+      id = Prelude.Nothing,
       tags = Prelude.Nothing
     }
 
 -- | The constraints on the portfolio-product relationship.
 launchPathSummary_constraintSummaries :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [ConstraintSummary])
-launchPathSummary_constraintSummaries = Lens.lens (\LaunchPathSummary' {constraintSummaries} -> constraintSummaries) (\s@LaunchPathSummary' {} a -> s {constraintSummaries = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifier of the product path.
-launchPathSummary_id :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
-launchPathSummary_id = Lens.lens (\LaunchPathSummary' {id} -> id) (\s@LaunchPathSummary' {} a -> s {id = a} :: LaunchPathSummary)
+launchPathSummary_constraintSummaries = Lens.lens (\LaunchPathSummary' {constraintSummaries} -> constraintSummaries) (\s@LaunchPathSummary' {} a -> s {constraintSummaries = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the portfolio to which the user was assigned.
 launchPathSummary_name :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
 launchPathSummary_name = Lens.lens (\LaunchPathSummary' {name} -> name) (\s@LaunchPathSummary' {} a -> s {name = a} :: LaunchPathSummary)
 
+-- | The identifier of the product path.
+launchPathSummary_id :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
+launchPathSummary_id = Lens.lens (\LaunchPathSummary' {id} -> id) (\s@LaunchPathSummary' {} a -> s {id = a} :: LaunchPathSummary)
+
 -- | The tags associated with this product path.
 launchPathSummary_tags :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [Tag])
-launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@LaunchPathSummary' {} a -> s {tags = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens._Coerce
+launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@LaunchPathSummary' {} a -> s {tags = a} :: LaunchPathSummary) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LaunchPathSummary where
   parseJSON =
@@ -91,8 +91,8 @@ instance Core.FromJSON LaunchPathSummary where
             Prelude.<$> ( x Core..:? "ConstraintSummaries"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 

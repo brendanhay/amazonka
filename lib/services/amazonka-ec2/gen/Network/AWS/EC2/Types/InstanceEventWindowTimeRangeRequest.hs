@@ -30,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceEventWindowTimeRangeRequest' smart constructor.
 data InstanceEventWindowTimeRangeRequest = InstanceEventWindowTimeRangeRequest'
-  { -- | The hour when the time range begins.
-    startHour :: Prelude.Maybe Prelude.Natural,
+  { -- | The hour when the time range ends.
+    endHour :: Prelude.Maybe Prelude.Natural,
     -- | The day on which the time range ends.
     endWeekDay :: Prelude.Maybe WeekDay,
-    -- | The hour when the time range ends.
-    endHour :: Prelude.Maybe Prelude.Natural,
     -- | The day on which the time range begins.
-    startWeekDay :: Prelude.Maybe WeekDay
+    startWeekDay :: Prelude.Maybe WeekDay,
+    -- | The hour when the time range begins.
+    startHour :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,39 +49,39 @@ data InstanceEventWindowTimeRangeRequest = InstanceEventWindowTimeRangeRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startHour', 'instanceEventWindowTimeRangeRequest_startHour' - The hour when the time range begins.
+-- 'endHour', 'instanceEventWindowTimeRangeRequest_endHour' - The hour when the time range ends.
 --
 -- 'endWeekDay', 'instanceEventWindowTimeRangeRequest_endWeekDay' - The day on which the time range ends.
 --
--- 'endHour', 'instanceEventWindowTimeRangeRequest_endHour' - The hour when the time range ends.
---
 -- 'startWeekDay', 'instanceEventWindowTimeRangeRequest_startWeekDay' - The day on which the time range begins.
+--
+-- 'startHour', 'instanceEventWindowTimeRangeRequest_startHour' - The hour when the time range begins.
 newInstanceEventWindowTimeRangeRequest ::
   InstanceEventWindowTimeRangeRequest
 newInstanceEventWindowTimeRangeRequest =
   InstanceEventWindowTimeRangeRequest'
-    { startHour =
+    { endHour =
         Prelude.Nothing,
       endWeekDay = Prelude.Nothing,
-      endHour = Prelude.Nothing,
-      startWeekDay = Prelude.Nothing
+      startWeekDay = Prelude.Nothing,
+      startHour = Prelude.Nothing
     }
-
--- | The hour when the time range begins.
-instanceEventWindowTimeRangeRequest_startHour :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe Prelude.Natural)
-instanceEventWindowTimeRangeRequest_startHour = Lens.lens (\InstanceEventWindowTimeRangeRequest' {startHour} -> startHour) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {startHour = a} :: InstanceEventWindowTimeRangeRequest)
-
--- | The day on which the time range ends.
-instanceEventWindowTimeRangeRequest_endWeekDay :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe WeekDay)
-instanceEventWindowTimeRangeRequest_endWeekDay = Lens.lens (\InstanceEventWindowTimeRangeRequest' {endWeekDay} -> endWeekDay) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {endWeekDay = a} :: InstanceEventWindowTimeRangeRequest)
 
 -- | The hour when the time range ends.
 instanceEventWindowTimeRangeRequest_endHour :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe Prelude.Natural)
 instanceEventWindowTimeRangeRequest_endHour = Lens.lens (\InstanceEventWindowTimeRangeRequest' {endHour} -> endHour) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {endHour = a} :: InstanceEventWindowTimeRangeRequest)
 
+-- | The day on which the time range ends.
+instanceEventWindowTimeRangeRequest_endWeekDay :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe WeekDay)
+instanceEventWindowTimeRangeRequest_endWeekDay = Lens.lens (\InstanceEventWindowTimeRangeRequest' {endWeekDay} -> endWeekDay) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {endWeekDay = a} :: InstanceEventWindowTimeRangeRequest)
+
 -- | The day on which the time range begins.
 instanceEventWindowTimeRangeRequest_startWeekDay :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe WeekDay)
 instanceEventWindowTimeRangeRequest_startWeekDay = Lens.lens (\InstanceEventWindowTimeRangeRequest' {startWeekDay} -> startWeekDay) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {startWeekDay = a} :: InstanceEventWindowTimeRangeRequest)
+
+-- | The hour when the time range begins.
+instanceEventWindowTimeRangeRequest_startHour :: Lens.Lens' InstanceEventWindowTimeRangeRequest (Prelude.Maybe Prelude.Natural)
+instanceEventWindowTimeRangeRequest_startHour = Lens.lens (\InstanceEventWindowTimeRangeRequest' {startHour} -> startHour) (\s@InstanceEventWindowTimeRangeRequest' {} a -> s {startHour = a} :: InstanceEventWindowTimeRangeRequest)
 
 instance
   Prelude.Hashable
@@ -97,8 +97,8 @@ instance
   where
   toQuery InstanceEventWindowTimeRangeRequest' {..} =
     Prelude.mconcat
-      [ "StartHour" Core.=: startHour,
+      [ "EndHour" Core.=: endHour,
         "EndWeekDay" Core.=: endWeekDay,
-        "EndHour" Core.=: endHour,
-        "StartWeekDay" Core.=: startWeekDay
+        "StartWeekDay" Core.=: startWeekDay,
+        "StartHour" Core.=: startHour
       ]

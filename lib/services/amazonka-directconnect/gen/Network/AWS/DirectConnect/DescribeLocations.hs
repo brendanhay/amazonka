@@ -133,7 +133,7 @@ newDescribeLocationsResponse pHttpStatus_ =
 
 -- | The locations.
 describeLocationsResponse_locations :: Lens.Lens' DescribeLocationsResponse (Prelude.Maybe [Location])
-describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Prelude.Int

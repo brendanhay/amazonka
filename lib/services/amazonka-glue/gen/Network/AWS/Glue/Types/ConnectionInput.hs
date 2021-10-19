@@ -30,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConnectionInput' smart constructor.
 data ConnectionInput = ConnectionInput'
-  { -- | A map of physical connection requirements, such as virtual private cloud
+  { -- | A list of criteria that can be used in selecting this connection.
+    matchCriteria :: Prelude.Maybe [Prelude.Text],
+    -- | A map of physical connection requirements, such as virtual private cloud
     -- (VPC) and @SecurityGroup@, that are needed to successfully make this
     -- connection.
     physicalConnectionRequirements :: Prelude.Maybe PhysicalConnectionRequirements,
     -- | The description of the connection.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A list of criteria that can be used in selecting this connection.
-    matchCriteria :: Prelude.Maybe [Prelude.Text],
     -- | The name of the connection.
     name :: Prelude.Text,
     -- | The type of the connection. Currently, these types are supported:
@@ -76,13 +76,13 @@ data ConnectionInput = ConnectionInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'matchCriteria', 'connectionInput_matchCriteria' - A list of criteria that can be used in selecting this connection.
+--
 -- 'physicalConnectionRequirements', 'connectionInput_physicalConnectionRequirements' - A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to successfully make this
 -- connection.
 --
 -- 'description', 'connectionInput_description' - The description of the connection.
---
--- 'matchCriteria', 'connectionInput_matchCriteria' - A list of criteria that can be used in selecting this connection.
 --
 -- 'name', 'connectionInput_name' - The name of the connection.
 --
@@ -118,14 +118,17 @@ newConnectionInput ::
   ConnectionInput
 newConnectionInput pName_ pConnectionType_ =
   ConnectionInput'
-    { physicalConnectionRequirements =
-        Prelude.Nothing,
+    { matchCriteria = Prelude.Nothing,
+      physicalConnectionRequirements = Prelude.Nothing,
       description = Prelude.Nothing,
-      matchCriteria = Prelude.Nothing,
       name = pName_,
       connectionType = pConnectionType_,
       connectionProperties = Prelude.mempty
     }
+
+-- | A list of criteria that can be used in selecting this connection.
+connectionInput_matchCriteria :: Lens.Lens' ConnectionInput (Prelude.Maybe [Prelude.Text])
+connectionInput_matchCriteria = Lens.lens (\ConnectionInput' {matchCriteria} -> matchCriteria) (\s@ConnectionInput' {} a -> s {matchCriteria = a} :: ConnectionInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | A map of physical connection requirements, such as virtual private cloud
 -- (VPC) and @SecurityGroup@, that are needed to successfully make this
@@ -136,10 +139,6 @@ connectionInput_physicalConnectionRequirements = Lens.lens (\ConnectionInput' {p
 -- | The description of the connection.
 connectionInput_description :: Lens.Lens' ConnectionInput (Prelude.Maybe Prelude.Text)
 connectionInput_description = Lens.lens (\ConnectionInput' {description} -> description) (\s@ConnectionInput' {} a -> s {description = a} :: ConnectionInput)
-
--- | A list of criteria that can be used in selecting this connection.
-connectionInput_matchCriteria :: Lens.Lens' ConnectionInput (Prelude.Maybe [Prelude.Text])
-connectionInput_matchCriteria = Lens.lens (\ConnectionInput' {matchCriteria} -> matchCriteria) (\s@ConnectionInput' {} a -> s {matchCriteria = a} :: ConnectionInput) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the connection.
 connectionInput_name :: Lens.Lens' ConnectionInput Prelude.Text
@@ -172,7 +171,7 @@ connectionInput_connectionType = Lens.lens (\ConnectionInput' {connectionType} -
 
 -- | These key-value pairs define parameters for the connection.
 connectionInput_connectionProperties :: Lens.Lens' ConnectionInput (Prelude.HashMap ConnectionPropertyKey Prelude.Text)
-connectionInput_connectionProperties = Lens.lens (\ConnectionInput' {connectionProperties} -> connectionProperties) (\s@ConnectionInput' {} a -> s {connectionProperties = a} :: ConnectionInput) Prelude.. Lens._Coerce
+connectionInput_connectionProperties = Lens.lens (\ConnectionInput' {connectionProperties} -> connectionProperties) (\s@ConnectionInput' {} a -> s {connectionProperties = a} :: ConnectionInput) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ConnectionInput
 
@@ -182,10 +181,10 @@ instance Core.ToJSON ConnectionInput where
   toJSON ConnectionInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PhysicalConnectionRequirements" Core..=)
+          [ ("MatchCriteria" Core..=) Prelude.<$> matchCriteria,
+            ("PhysicalConnectionRequirements" Core..=)
               Prelude.<$> physicalConnectionRequirements,
             ("Description" Core..=) Prelude.<$> description,
-            ("MatchCriteria" Core..=) Prelude.<$> matchCriteria,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("ConnectionType" Core..= connectionType),

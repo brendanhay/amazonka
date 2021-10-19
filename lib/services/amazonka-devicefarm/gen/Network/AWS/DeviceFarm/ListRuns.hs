@@ -37,8 +37,8 @@ module Network.AWS.DeviceFarm.ListRuns
     newListRunsResponse,
 
     -- * Response Lenses
-    listRunsResponse_nextToken,
     listRunsResponse_runs,
+    listRunsResponse_nextToken,
     listRunsResponse_httpStatus,
   )
 where
@@ -122,8 +122,8 @@ instance Core.AWSRequest ListRuns where
     Response.receiveJSON
       ( \s h x ->
           ListRunsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "runs" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "runs" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,12 +165,12 @@ instance Core.ToQuery ListRuns where
 --
 -- /See:/ 'newListRunsResponse' smart constructor.
 data ListRunsResponse = ListRunsResponse'
-  { -- | If the number of items that are returned is significantly large, this is
+  { -- | Information about the runs.
+    runs :: Prelude.Maybe [Run],
+    -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the runs.
-    runs :: Prelude.Maybe [Run],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,11 +184,11 @@ data ListRunsResponse = ListRunsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'runs', 'listRunsResponse_runs' - Information about the runs.
+--
 -- 'nextToken', 'listRunsResponse_nextToken' - If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
---
--- 'runs', 'listRunsResponse_runs' - Information about the runs.
 --
 -- 'httpStatus', 'listRunsResponse_httpStatus' - The response's http status code.
 newListRunsResponse ::
@@ -197,20 +197,20 @@ newListRunsResponse ::
   ListRunsResponse
 newListRunsResponse pHttpStatus_ =
   ListRunsResponse'
-    { nextToken = Prelude.Nothing,
-      runs = Prelude.Nothing,
+    { runs = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the runs.
+listRunsResponse_runs :: Lens.Lens' ListRunsResponse (Prelude.Maybe [Run])
+listRunsResponse_runs = Lens.lens (\ListRunsResponse' {runs} -> runs) (\s@ListRunsResponse' {} a -> s {runs = a} :: ListRunsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
 listRunsResponse_nextToken :: Lens.Lens' ListRunsResponse (Prelude.Maybe Prelude.Text)
 listRunsResponse_nextToken = Lens.lens (\ListRunsResponse' {nextToken} -> nextToken) (\s@ListRunsResponse' {} a -> s {nextToken = a} :: ListRunsResponse)
-
--- | Information about the runs.
-listRunsResponse_runs :: Lens.Lens' ListRunsResponse (Prelude.Maybe [Run])
-listRunsResponse_runs = Lens.lens (\ListRunsResponse' {runs} -> runs) (\s@ListRunsResponse' {} a -> s {runs = a} :: ListRunsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRunsResponse_httpStatus :: Lens.Lens' ListRunsResponse Prelude.Int

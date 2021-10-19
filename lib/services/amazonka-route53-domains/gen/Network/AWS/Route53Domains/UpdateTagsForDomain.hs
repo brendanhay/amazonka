@@ -90,7 +90,7 @@ newUpdateTagsForDomain pDomainName_ =
 -- specify a key that already exists, the corresponding value will be
 -- replaced.
 updateTagsForDomain_tagsToUpdate :: Lens.Lens' UpdateTagsForDomain (Prelude.Maybe [Tag])
-updateTagsForDomain_tagsToUpdate = Lens.lens (\UpdateTagsForDomain' {tagsToUpdate} -> tagsToUpdate) (\s@UpdateTagsForDomain' {} a -> s {tagsToUpdate = a} :: UpdateTagsForDomain) Prelude.. Lens.mapping Lens._Coerce
+updateTagsForDomain_tagsToUpdate = Lens.lens (\UpdateTagsForDomain' {tagsToUpdate} -> tagsToUpdate) (\s@UpdateTagsForDomain' {} a -> s {tagsToUpdate = a} :: UpdateTagsForDomain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The domain for which you want to add or update tags.
 updateTagsForDomain_domainName :: Lens.Lens' UpdateTagsForDomain Prelude.Text

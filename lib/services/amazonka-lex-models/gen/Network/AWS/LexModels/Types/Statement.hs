@@ -62,7 +62,7 @@ newStatement ::
 newStatement pMessages_ =
   Statement'
     { responseCard = Prelude.Nothing,
-      messages = Lens._Coerce Lens.# pMessages_
+      messages = Lens.coerced Lens.# pMessages_
     }
 
 -- | At runtime, if the client is using the
@@ -75,7 +75,7 @@ statement_responseCard = Lens.lens (\Statement' {responseCard} -> responseCard) 
 
 -- | A collection of message objects.
 statement_messages :: Lens.Lens' Statement (Prelude.NonEmpty Message)
-statement_messages = Lens.lens (\Statement' {messages} -> messages) (\s@Statement' {} a -> s {messages = a} :: Statement) Prelude.. Lens._Coerce
+statement_messages = Lens.lens (\Statement' {messages} -> messages) (\s@Statement' {} a -> s {messages = a} :: Statement) Prelude.. Lens.coerced
 
 instance Core.FromJSON Statement where
   parseJSON =

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRecurringCharge' smart constructor.
 data RecurringCharge = RecurringCharge'
-  { -- | The cost of the recurring charge.
-    cost :: Prelude.Maybe MonetaryAmount,
-    -- | The frequency in which charges recur.
-    frequency :: Prelude.Maybe RecurringChargeFrequency
+  { -- | The frequency in which charges recur.
+    frequency :: Prelude.Maybe RecurringChargeFrequency,
+    -- | The cost of the recurring charge.
+    cost :: Prelude.Maybe MonetaryAmount
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data RecurringCharge = RecurringCharge'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cost', 'recurringCharge_cost' - The cost of the recurring charge.
---
 -- 'frequency', 'recurringCharge_frequency' - The frequency in which charges recur.
+--
+-- 'cost', 'recurringCharge_cost' - The cost of the recurring charge.
 newRecurringCharge ::
   RecurringCharge
 newRecurringCharge =
   RecurringCharge'
-    { cost = Prelude.Nothing,
-      frequency = Prelude.Nothing
+    { frequency = Prelude.Nothing,
+      cost = Prelude.Nothing
     }
-
--- | The cost of the recurring charge.
-recurringCharge_cost :: Lens.Lens' RecurringCharge (Prelude.Maybe MonetaryAmount)
-recurringCharge_cost = Lens.lens (\RecurringCharge' {cost} -> cost) (\s@RecurringCharge' {} a -> s {cost = a} :: RecurringCharge)
 
 -- | The frequency in which charges recur.
 recurringCharge_frequency :: Lens.Lens' RecurringCharge (Prelude.Maybe RecurringChargeFrequency)
 recurringCharge_frequency = Lens.lens (\RecurringCharge' {frequency} -> frequency) (\s@RecurringCharge' {} a -> s {frequency = a} :: RecurringCharge)
+
+-- | The cost of the recurring charge.
+recurringCharge_cost :: Lens.Lens' RecurringCharge (Prelude.Maybe MonetaryAmount)
+recurringCharge_cost = Lens.lens (\RecurringCharge' {cost} -> cost) (\s@RecurringCharge' {} a -> s {cost = a} :: RecurringCharge)
 
 instance Core.FromJSON RecurringCharge where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON RecurringCharge where
       "RecurringCharge"
       ( \x ->
           RecurringCharge'
-            Prelude.<$> (x Core..:? "cost")
-            Prelude.<*> (x Core..:? "frequency")
+            Prelude.<$> (x Core..:? "frequency")
+            Prelude.<*> (x Core..:? "cost")
       )
 
 instance Prelude.Hashable RecurringCharge

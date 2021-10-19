@@ -181,7 +181,7 @@ newUpdateDomainEntryResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 updateDomainEntryResponse_operations :: Lens.Lens' UpdateDomainEntryResponse (Prelude.Maybe [Operation])
-updateDomainEntryResponse_operations = Lens.lens (\UpdateDomainEntryResponse' {operations} -> operations) (\s@UpdateDomainEntryResponse' {} a -> s {operations = a} :: UpdateDomainEntryResponse) Prelude.. Lens.mapping Lens._Coerce
+updateDomainEntryResponse_operations = Lens.lens (\UpdateDomainEntryResponse' {operations} -> operations) (\s@UpdateDomainEntryResponse' {} a -> s {operations = a} :: UpdateDomainEntryResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateDomainEntryResponse_httpStatus :: Lens.Lens' UpdateDomainEntryResponse Prelude.Int

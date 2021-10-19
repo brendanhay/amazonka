@@ -35,10 +35,10 @@ module Network.AWS.DirectoryService.CreateDirectory
     newCreateDirectory,
 
     -- * Request Lenses
-    createDirectory_vpcSettings,
     createDirectory_shortName,
-    createDirectory_tags,
+    createDirectory_vpcSettings,
     createDirectory_description,
+    createDirectory_tags,
     createDirectory_name,
     createDirectory_password,
     createDirectory_size,
@@ -64,15 +64,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateDirectory' smart constructor.
 data CreateDirectory = CreateDirectory'
-  { -- | A DirectoryVpcSettings object that contains additional information for
+  { -- | The NetBIOS name of the directory, such as @CORP@.
+    shortName :: Prelude.Maybe Prelude.Text,
+    -- | A DirectoryVpcSettings object that contains additional information for
     -- the operation.
     vpcSettings :: Prelude.Maybe DirectoryVpcSettings,
-    -- | The NetBIOS name of the directory, such as @CORP@.
-    shortName :: Prelude.Maybe Prelude.Text,
-    -- | The tags to be assigned to the Simple AD directory.
-    tags :: Prelude.Maybe [Tag],
     -- | A description for the directory.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags to be assigned to the Simple AD directory.
+    tags :: Prelude.Maybe [Tag],
     -- | The fully qualified name for the directory, such as @corp.example.com@.
     name :: Prelude.Text,
     -- | The password for the directory administrator. The directory creation
@@ -119,14 +119,14 @@ data CreateDirectory = CreateDirectory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'shortName', 'createDirectory_shortName' - The NetBIOS name of the directory, such as @CORP@.
+--
 -- 'vpcSettings', 'createDirectory_vpcSettings' - A DirectoryVpcSettings object that contains additional information for
 -- the operation.
 --
--- 'shortName', 'createDirectory_shortName' - The NetBIOS name of the directory, such as @CORP@.
+-- 'description', 'createDirectory_description' - A description for the directory.
 --
 -- 'tags', 'createDirectory_tags' - The tags to be assigned to the Simple AD directory.
---
--- 'description', 'createDirectory_description' - A description for the directory.
 --
 -- 'name', 'createDirectory_name' - The fully qualified name for the directory, such as @corp.example.com@.
 --
@@ -172,31 +172,31 @@ newCreateDirectory ::
   CreateDirectory
 newCreateDirectory pName_ pPassword_ pSize_ =
   CreateDirectory'
-    { vpcSettings = Prelude.Nothing,
-      shortName = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { shortName = Prelude.Nothing,
+      vpcSettings = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       password = Core._Sensitive Lens.# pPassword_,
       size = pSize_
     }
+
+-- | The NetBIOS name of the directory, such as @CORP@.
+createDirectory_shortName :: Lens.Lens' CreateDirectory (Prelude.Maybe Prelude.Text)
+createDirectory_shortName = Lens.lens (\CreateDirectory' {shortName} -> shortName) (\s@CreateDirectory' {} a -> s {shortName = a} :: CreateDirectory)
 
 -- | A DirectoryVpcSettings object that contains additional information for
 -- the operation.
 createDirectory_vpcSettings :: Lens.Lens' CreateDirectory (Prelude.Maybe DirectoryVpcSettings)
 createDirectory_vpcSettings = Lens.lens (\CreateDirectory' {vpcSettings} -> vpcSettings) (\s@CreateDirectory' {} a -> s {vpcSettings = a} :: CreateDirectory)
 
--- | The NetBIOS name of the directory, such as @CORP@.
-createDirectory_shortName :: Lens.Lens' CreateDirectory (Prelude.Maybe Prelude.Text)
-createDirectory_shortName = Lens.lens (\CreateDirectory' {shortName} -> shortName) (\s@CreateDirectory' {} a -> s {shortName = a} :: CreateDirectory)
-
--- | The tags to be assigned to the Simple AD directory.
-createDirectory_tags :: Lens.Lens' CreateDirectory (Prelude.Maybe [Tag])
-createDirectory_tags = Lens.lens (\CreateDirectory' {tags} -> tags) (\s@CreateDirectory' {} a -> s {tags = a} :: CreateDirectory) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A description for the directory.
 createDirectory_description :: Lens.Lens' CreateDirectory (Prelude.Maybe Prelude.Text)
 createDirectory_description = Lens.lens (\CreateDirectory' {description} -> description) (\s@CreateDirectory' {} a -> s {description = a} :: CreateDirectory)
+
+-- | The tags to be assigned to the Simple AD directory.
+createDirectory_tags :: Lens.Lens' CreateDirectory (Prelude.Maybe [Tag])
+createDirectory_tags = Lens.lens (\CreateDirectory' {tags} -> tags) (\s@CreateDirectory' {} a -> s {tags = a} :: CreateDirectory) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified name for the directory, such as @corp.example.com@.
 createDirectory_name :: Lens.Lens' CreateDirectory Prelude.Text
@@ -275,10 +275,10 @@ instance Core.ToJSON CreateDirectory where
   toJSON CreateDirectory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcSettings" Core..=) Prelude.<$> vpcSettings,
-            ("ShortName" Core..=) Prelude.<$> shortName,
-            ("Tags" Core..=) Prelude.<$> tags,
+          [ ("ShortName" Core..=) Prelude.<$> shortName,
+            ("VpcSettings" Core..=) Prelude.<$> vpcSettings,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Password" Core..= password),
             Prelude.Just ("Size" Core..= size)

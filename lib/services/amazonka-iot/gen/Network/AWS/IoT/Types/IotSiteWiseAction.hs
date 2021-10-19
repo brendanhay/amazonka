@@ -64,13 +64,13 @@ newIotSiteWiseAction
   pRoleArn_ =
     IotSiteWiseAction'
       { putAssetPropertyValueEntries =
-          Lens._Coerce Lens.# pPutAssetPropertyValueEntries_,
+          Lens.coerced Lens.# pPutAssetPropertyValueEntries_,
         roleArn = pRoleArn_
       }
 
 -- | A list of asset property value entries.
 iotSiteWiseAction_putAssetPropertyValueEntries :: Lens.Lens' IotSiteWiseAction (Prelude.NonEmpty PutAssetPropertyValueEntry)
-iotSiteWiseAction_putAssetPropertyValueEntries = Lens.lens (\IotSiteWiseAction' {putAssetPropertyValueEntries} -> putAssetPropertyValueEntries) (\s@IotSiteWiseAction' {} a -> s {putAssetPropertyValueEntries = a} :: IotSiteWiseAction) Prelude.. Lens._Coerce
+iotSiteWiseAction_putAssetPropertyValueEntries = Lens.lens (\IotSiteWiseAction' {putAssetPropertyValueEntries} -> putAssetPropertyValueEntries) (\s@IotSiteWiseAction' {} a -> s {putAssetPropertyValueEntries = a} :: IotSiteWiseAction) Prelude.. Lens.coerced
 
 -- | The ARN of the role that grants IoT permission to send an asset property
 -- value to IoT SiteWise.

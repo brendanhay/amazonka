@@ -92,7 +92,7 @@ detachLoadBalancerFromSubnets_loadBalancerName = Lens.lens (\DetachLoadBalancerF
 
 -- | The IDs of the subnets.
 detachLoadBalancerFromSubnets_subnets :: Lens.Lens' DetachLoadBalancerFromSubnets [Prelude.Text]
-detachLoadBalancerFromSubnets_subnets = Lens.lens (\DetachLoadBalancerFromSubnets' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnets' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnets) Prelude.. Lens._Coerce
+detachLoadBalancerFromSubnets_subnets = Lens.lens (\DetachLoadBalancerFromSubnets' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnets' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnets) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -173,7 +173,7 @@ newDetachLoadBalancerFromSubnetsResponse pHttpStatus_ =
 
 -- | The IDs of the remaining subnets for the load balancer.
 detachLoadBalancerFromSubnetsResponse_subnets :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse (Prelude.Maybe [Prelude.Text])
-detachLoadBalancerFromSubnetsResponse_subnets = Lens.lens (\DetachLoadBalancerFromSubnetsResponse' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnetsResponse' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnetsResponse) Prelude.. Lens.mapping Lens._Coerce
+detachLoadBalancerFromSubnetsResponse_subnets = Lens.lens (\DetachLoadBalancerFromSubnetsResponse' {subnets} -> subnets) (\s@DetachLoadBalancerFromSubnetsResponse' {} a -> s {subnets = a} :: DetachLoadBalancerFromSubnetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detachLoadBalancerFromSubnetsResponse_httpStatus :: Lens.Lens' DetachLoadBalancerFromSubnetsResponse Prelude.Int

@@ -161,7 +161,7 @@ newListGroupCertificateAuthoritiesResponse
 
 -- | A list of certificate authorities associated with the group.
 listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities :: Lens.Lens' ListGroupCertificateAuthoritiesResponse (Prelude.Maybe [GroupCertificateAuthorityProperties])
-listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities = Lens.lens (\ListGroupCertificateAuthoritiesResponse' {groupCertificateAuthorities} -> groupCertificateAuthorities) (\s@ListGroupCertificateAuthoritiesResponse' {} a -> s {groupCertificateAuthorities = a} :: ListGroupCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens._Coerce
+listGroupCertificateAuthoritiesResponse_groupCertificateAuthorities = Lens.lens (\ListGroupCertificateAuthoritiesResponse' {groupCertificateAuthorities} -> groupCertificateAuthorities) (\s@ListGroupCertificateAuthoritiesResponse' {} a -> s {groupCertificateAuthorities = a} :: ListGroupCertificateAuthoritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listGroupCertificateAuthoritiesResponse_httpStatus :: Lens.Lens' ListGroupCertificateAuthoritiesResponse Prelude.Int

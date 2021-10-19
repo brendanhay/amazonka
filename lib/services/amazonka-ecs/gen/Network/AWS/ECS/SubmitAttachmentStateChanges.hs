@@ -88,7 +88,7 @@ submitAttachmentStateChanges_cluster = Lens.lens (\SubmitAttachmentStateChanges'
 
 -- | Any attachments associated with the state change request.
 submitAttachmentStateChanges_attachments :: Lens.Lens' SubmitAttachmentStateChanges [AttachmentStateChange]
-submitAttachmentStateChanges_attachments = Lens.lens (\SubmitAttachmentStateChanges' {attachments} -> attachments) (\s@SubmitAttachmentStateChanges' {} a -> s {attachments = a} :: SubmitAttachmentStateChanges) Prelude.. Lens._Coerce
+submitAttachmentStateChanges_attachments = Lens.lens (\SubmitAttachmentStateChanges' {attachments} -> attachments) (\s@SubmitAttachmentStateChanges' {} a -> s {attachments = a} :: SubmitAttachmentStateChanges) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SubmitAttachmentStateChanges where
   type

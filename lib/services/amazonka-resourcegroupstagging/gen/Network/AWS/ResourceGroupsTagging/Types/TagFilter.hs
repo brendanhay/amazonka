@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | One part of a key-value pair that makes up a tag. A key is a general
-    -- label that acts like a category for more specific tag values.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | One part of a key-value pair that make up a tag. A value acts as a
+  { -- | One part of a key-value pair that make up a tag. A value acts as a
     -- descriptor within a tag category (key). The value can be empty or null.
-    values :: Prelude.Maybe [Prelude.Text]
+    values :: Prelude.Maybe [Prelude.Text],
+    -- | One part of a key-value pair that makes up a tag. A key is a general
+    -- label that acts like a category for more specific tag values.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,28 +45,28 @@ data TagFilter = TagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tagFilter_key' - One part of a key-value pair that makes up a tag. A key is a general
--- label that acts like a category for more specific tag values.
---
 -- 'values', 'tagFilter_values' - One part of a key-value pair that make up a tag. A value acts as a
 -- descriptor within a tag category (key). The value can be empty or null.
+--
+-- 'key', 'tagFilter_key' - One part of a key-value pair that makes up a tag. A key is a general
+-- label that acts like a category for more specific tag values.
 newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing
     }
+
+-- | One part of a key-value pair that make up a tag. A value acts as a
+-- descriptor within a tag category (key). The value can be empty or null.
+tagFilter_values :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
+tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | One part of a key-value pair that makes up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
 tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
-
--- | One part of a key-value pair that make up a tag. A value acts as a
--- descriptor within a tag category (key). The value can be empty or null.
-tagFilter_values :: Lens.Lens' TagFilter (Prelude.Maybe [Prelude.Text])
-tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Lens.mapping Lens._Coerce
 
 instance Prelude.Hashable TagFilter
 
@@ -76,7 +76,7 @@ instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

@@ -30,12 +30,12 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
   { -- | Contains details about the input for an execution history event.
     inputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
-    -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
-    -- Lambda tasks.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The JSON data input to the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Prelude.Maybe (Core.Sensitive Prelude.Text)
+    input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
+    -- Lambda tasks.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,34 +49,34 @@ data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
 --
 -- 'inputDetails', 'executionStartedEventDetails_inputDetails' - Contains details about the input for an execution history event.
 --
--- 'roleArn', 'executionStartedEventDetails_roleArn' - The Amazon Resource Name (ARN) of the IAM role used for executing AWS
--- Lambda tasks.
---
 -- 'input', 'executionStartedEventDetails_input' - The JSON data input to the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- 'roleArn', 'executionStartedEventDetails_roleArn' - The Amazon Resource Name (ARN) of the IAM role used for executing AWS
+-- Lambda tasks.
 newExecutionStartedEventDetails ::
   ExecutionStartedEventDetails
 newExecutionStartedEventDetails =
   ExecutionStartedEventDetails'
     { inputDetails =
         Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      input = Prelude.Nothing
+      input = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
 
 -- | Contains details about the input for an execution history event.
 executionStartedEventDetails_inputDetails :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
 executionStartedEventDetails_inputDetails = Lens.lens (\ExecutionStartedEventDetails' {inputDetails} -> inputDetails) (\s@ExecutionStartedEventDetails' {} a -> s {inputDetails = a} :: ExecutionStartedEventDetails)
 
--- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
--- Lambda tasks.
-executionStartedEventDetails_roleArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
-executionStartedEventDetails_roleArn = Lens.lens (\ExecutionStartedEventDetails' {roleArn} -> roleArn) (\s@ExecutionStartedEventDetails' {} a -> s {roleArn = a} :: ExecutionStartedEventDetails)
-
 -- | The JSON data input to the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
 executionStartedEventDetails_input :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
 executionStartedEventDetails_input = Lens.lens (\ExecutionStartedEventDetails' {input} -> input) (\s@ExecutionStartedEventDetails' {} a -> s {input = a} :: ExecutionStartedEventDetails) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS
+-- Lambda tasks.
+executionStartedEventDetails_roleArn :: Lens.Lens' ExecutionStartedEventDetails (Prelude.Maybe Prelude.Text)
+executionStartedEventDetails_roleArn = Lens.lens (\ExecutionStartedEventDetails' {roleArn} -> roleArn) (\s@ExecutionStartedEventDetails' {} a -> s {roleArn = a} :: ExecutionStartedEventDetails)
 
 instance Core.FromJSON ExecutionStartedEventDetails where
   parseJSON =
@@ -85,8 +85,8 @@ instance Core.FromJSON ExecutionStartedEventDetails where
       ( \x ->
           ExecutionStartedEventDetails'
             Prelude.<$> (x Core..:? "inputDetails")
-            Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "input")
+            Prelude.<*> (x Core..:? "roleArn")
       )
 
 instance

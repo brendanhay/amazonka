@@ -106,7 +106,7 @@ describeAnalysisSchemes_deployed = Lens.lens (\DescribeAnalysisSchemes' {deploye
 
 -- | The analysis schemes you want to describe.
 describeAnalysisSchemes_analysisSchemeNames :: Lens.Lens' DescribeAnalysisSchemes (Prelude.Maybe [Prelude.Text])
-describeAnalysisSchemes_analysisSchemeNames = Lens.lens (\DescribeAnalysisSchemes' {analysisSchemeNames} -> analysisSchemeNames) (\s@DescribeAnalysisSchemes' {} a -> s {analysisSchemeNames = a} :: DescribeAnalysisSchemes) Prelude.. Lens.mapping Lens._Coerce
+describeAnalysisSchemes_analysisSchemeNames = Lens.lens (\DescribeAnalysisSchemes' {analysisSchemeNames} -> analysisSchemeNames) (\s@DescribeAnalysisSchemes' {} a -> s {analysisSchemeNames = a} :: DescribeAnalysisSchemes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain you want to describe.
 describeAnalysisSchemes_domainName :: Lens.Lens' DescribeAnalysisSchemes Prelude.Text
@@ -194,7 +194,7 @@ describeAnalysisSchemesResponse_httpStatus = Lens.lens (\DescribeAnalysisSchemes
 
 -- | The analysis scheme descriptions.
 describeAnalysisSchemesResponse_analysisSchemes :: Lens.Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-describeAnalysisSchemesResponse_analysisSchemes = Lens.lens (\DescribeAnalysisSchemesResponse' {analysisSchemes} -> analysisSchemes) (\s@DescribeAnalysisSchemesResponse' {} a -> s {analysisSchemes = a} :: DescribeAnalysisSchemesResponse) Prelude.. Lens._Coerce
+describeAnalysisSchemesResponse_analysisSchemes = Lens.lens (\DescribeAnalysisSchemesResponse' {analysisSchemes} -> analysisSchemes) (\s@DescribeAnalysisSchemesResponse' {} a -> s {analysisSchemes = a} :: DescribeAnalysisSchemesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

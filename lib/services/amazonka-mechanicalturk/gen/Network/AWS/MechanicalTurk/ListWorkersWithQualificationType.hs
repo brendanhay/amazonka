@@ -257,7 +257,7 @@ listWorkersWithQualificationTypeResponse_numResults = Lens.lens (\ListWorkersWit
 
 -- | The list of Qualification elements returned by this call.
 listWorkersWithQualificationTypeResponse_qualifications :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe [Qualification])
-listWorkersWithQualificationTypeResponse_qualifications = Lens.lens (\ListWorkersWithQualificationTypeResponse' {qualifications} -> qualifications) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {qualifications = a} :: ListWorkersWithQualificationTypeResponse) Prelude.. Lens.mapping Lens._Coerce
+listWorkersWithQualificationTypeResponse_qualifications = Lens.lens (\ListWorkersWithQualificationTypeResponse' {qualifications} -> qualifications) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {qualifications = a} :: ListWorkersWithQualificationTypeResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listWorkersWithQualificationTypeResponse_httpStatus :: Lens.Lens' ListWorkersWithQualificationTypeResponse Prelude.Int

@@ -92,7 +92,7 @@ setUserSettings_accessToken = Lens.lens (\SetUserSettings' {accessToken} -> acce
 -- | You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
 setUserSettings_mfaOptions :: Lens.Lens' SetUserSettings [MFAOptionType]
-setUserSettings_mfaOptions = Lens.lens (\SetUserSettings' {mfaOptions} -> mfaOptions) (\s@SetUserSettings' {} a -> s {mfaOptions = a} :: SetUserSettings) Prelude.. Lens._Coerce
+setUserSettings_mfaOptions = Lens.lens (\SetUserSettings' {mfaOptions} -> mfaOptions) (\s@SetUserSettings' {} a -> s {mfaOptions = a} :: SetUserSettings) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetUserSettings where
   type

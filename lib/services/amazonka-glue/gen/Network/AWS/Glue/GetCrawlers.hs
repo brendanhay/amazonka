@@ -193,7 +193,7 @@ getCrawlersResponse_nextToken = Lens.lens (\GetCrawlersResponse' {nextToken} -> 
 
 -- | A list of crawler metadata.
 getCrawlersResponse_crawlers :: Lens.Lens' GetCrawlersResponse (Prelude.Maybe [Crawler])
-getCrawlersResponse_crawlers = Lens.lens (\GetCrawlersResponse' {crawlers} -> crawlers) (\s@GetCrawlersResponse' {} a -> s {crawlers = a} :: GetCrawlersResponse) Prelude.. Lens.mapping Lens._Coerce
+getCrawlersResponse_crawlers = Lens.lens (\GetCrawlersResponse' {crawlers} -> crawlers) (\s@GetCrawlersResponse' {} a -> s {crawlers = a} :: GetCrawlersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCrawlersResponse_httpStatus :: Lens.Lens' GetCrawlersResponse Prelude.Int

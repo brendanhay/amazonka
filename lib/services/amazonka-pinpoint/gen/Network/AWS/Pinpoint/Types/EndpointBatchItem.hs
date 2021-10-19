@@ -32,9 +32,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEndpointBatchItem' smart constructor.
 data EndpointBatchItem = EndpointBatchItem'
-  { -- | One or more custom attributes that describe the user who\'s associated
-    -- with the endpoint.
-    user :: Prelude.Maybe EndpointUser,
+  { -- | The unique identifier for the request to create or update the endpoint.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
+    -- the endpoint.
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
+    -- | The geographic information for the endpoint.
+    location :: Prelude.Maybe EndpointLocation,
+    -- | The demographic information for the endpoint, such as the time zone and
+    -- platform.
+    demographic :: Prelude.Maybe EndpointDemographic,
     -- | The destination address for messages or push notifications that you send
     -- to the endpoint. The address varies by channel. For a push-notification
     -- channel, use the token provided by the push notification service, such
@@ -43,20 +50,12 @@ data EndpointBatchItem = EndpointBatchItem'
     -- phone number in E.164 format, such as +12065550100. For the email
     -- channel, use an email address.
     address :: Prelude.Maybe Prelude.Text,
-    -- | The channel to use when sending messages or push notifications to the
-    -- endpoint.
-    channelType :: Prelude.Maybe ChannelType,
-    -- | The unique identifier for the endpoint in the context of the batch.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the user who\'s associated with the endpoint has opted
-    -- out of receiving messages and push notifications from you. Possible
-    -- values are: ALL, the user has opted out and doesn\'t want to receive any
-    -- messages or push notifications; and, NONE, the user hasn\'t opted out
-    -- and wants to receive all messages and push notifications.
-    optOut :: Prelude.Maybe Prelude.Text,
-    -- | The demographic information for the endpoint, such as the time zone and
-    -- platform.
-    demographic :: Prelude.Maybe EndpointDemographic,
+    -- | The date and time, in ISO 8601 format, when the endpoint was created or
+    -- updated.
+    effectiveDate :: Prelude.Maybe Prelude.Text,
+    -- | One or more custom attributes that describe the user who\'s associated
+    -- with the endpoint.
+    user :: Prelude.Maybe EndpointUser,
     -- | One or more custom attributes that describe the endpoint by associating
     -- a name with an array of values. For example, the value of a custom
     -- attribute named Interests might be: [\"Science\", \"Music\",
@@ -70,9 +69,6 @@ data EndpointBatchItem = EndpointBatchItem'
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
-    -- the endpoint.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | Specifies whether to send messages or push notifications to the
     -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
     -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -82,13 +78,17 @@ data EndpointBatchItem = EndpointBatchItem'
     -- automatically sets this value to INACTIVE if you update another endpoint
     -- that has the same address specified by the Address property.
     endpointStatus :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the request to create or update the endpoint.
-    requestId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in ISO 8601 format, when the endpoint was created or
-    -- updated.
-    effectiveDate :: Prelude.Maybe Prelude.Text,
-    -- | The geographic information for the endpoint.
-    location :: Prelude.Maybe EndpointLocation
+    -- | Specifies whether the user who\'s associated with the endpoint has opted
+    -- out of receiving messages and push notifications from you. Possible
+    -- values are: ALL, the user has opted out and doesn\'t want to receive any
+    -- messages or push notifications; and, NONE, the user hasn\'t opted out
+    -- and wants to receive all messages and push notifications.
+    optOut :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the endpoint in the context of the batch.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The channel to use when sending messages or push notifications to the
+    -- endpoint.
+    channelType :: Prelude.Maybe ChannelType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,8 +100,15 @@ data EndpointBatchItem = EndpointBatchItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'user', 'endpointBatchItem_user' - One or more custom attributes that describe the user who\'s associated
--- with the endpoint.
+-- 'requestId', 'endpointBatchItem_requestId' - The unique identifier for the request to create or update the endpoint.
+--
+-- 'metrics', 'endpointBatchItem_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+--
+-- 'location', 'endpointBatchItem_location' - The geographic information for the endpoint.
+--
+-- 'demographic', 'endpointBatchItem_demographic' - The demographic information for the endpoint, such as the time zone and
+-- platform.
 --
 -- 'address', 'endpointBatchItem_address' - The destination address for messages or push notifications that you send
 -- to the endpoint. The address varies by channel. For a push-notification
@@ -111,19 +118,11 @@ data EndpointBatchItem = EndpointBatchItem'
 -- phone number in E.164 format, such as +12065550100. For the email
 -- channel, use an email address.
 --
--- 'channelType', 'endpointBatchItem_channelType' - The channel to use when sending messages or push notifications to the
--- endpoint.
+-- 'effectiveDate', 'endpointBatchItem_effectiveDate' - The date and time, in ISO 8601 format, when the endpoint was created or
+-- updated.
 --
--- 'id', 'endpointBatchItem_id' - The unique identifier for the endpoint in the context of the batch.
---
--- 'optOut', 'endpointBatchItem_optOut' - Specifies whether the user who\'s associated with the endpoint has opted
--- out of receiving messages and push notifications from you. Possible
--- values are: ALL, the user has opted out and doesn\'t want to receive any
--- messages or push notifications; and, NONE, the user hasn\'t opted out
--- and wants to receive all messages and push notifications.
---
--- 'demographic', 'endpointBatchItem_demographic' - The demographic information for the endpoint, such as the time zone and
--- platform.
+-- 'user', 'endpointBatchItem_user' - One or more custom attributes that describe the user who\'s associated
+-- with the endpoint.
 --
 -- 'attributes', 'endpointBatchItem_attributes' - One or more custom attributes that describe the endpoint by associating
 -- a name with an array of values. For example, the value of a custom
@@ -138,9 +137,6 @@ data EndpointBatchItem = EndpointBatchItem'
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
 --
--- 'metrics', 'endpointBatchItem_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
---
 -- 'endpointStatus', 'endpointBatchItem_endpointStatus' - Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -150,34 +146,51 @@ data EndpointBatchItem = EndpointBatchItem'
 -- automatically sets this value to INACTIVE if you update another endpoint
 -- that has the same address specified by the Address property.
 --
--- 'requestId', 'endpointBatchItem_requestId' - The unique identifier for the request to create or update the endpoint.
+-- 'optOut', 'endpointBatchItem_optOut' - Specifies whether the user who\'s associated with the endpoint has opted
+-- out of receiving messages and push notifications from you. Possible
+-- values are: ALL, the user has opted out and doesn\'t want to receive any
+-- messages or push notifications; and, NONE, the user hasn\'t opted out
+-- and wants to receive all messages and push notifications.
 --
--- 'effectiveDate', 'endpointBatchItem_effectiveDate' - The date and time, in ISO 8601 format, when the endpoint was created or
--- updated.
+-- 'id', 'endpointBatchItem_id' - The unique identifier for the endpoint in the context of the batch.
 --
--- 'location', 'endpointBatchItem_location' - The geographic information for the endpoint.
+-- 'channelType', 'endpointBatchItem_channelType' - The channel to use when sending messages or push notifications to the
+-- endpoint.
 newEndpointBatchItem ::
   EndpointBatchItem
 newEndpointBatchItem =
   EndpointBatchItem'
-    { user = Prelude.Nothing,
-      address = Prelude.Nothing,
-      channelType = Prelude.Nothing,
-      id = Prelude.Nothing,
-      optOut = Prelude.Nothing,
-      demographic = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+    { requestId = Prelude.Nothing,
       metrics = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
-      requestId = Prelude.Nothing,
+      location = Prelude.Nothing,
+      demographic = Prelude.Nothing,
+      address = Prelude.Nothing,
       effectiveDate = Prelude.Nothing,
-      location = Prelude.Nothing
+      user = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      endpointStatus = Prelude.Nothing,
+      optOut = Prelude.Nothing,
+      id = Prelude.Nothing,
+      channelType = Prelude.Nothing
     }
 
--- | One or more custom attributes that describe the user who\'s associated
--- with the endpoint.
-endpointBatchItem_user :: Lens.Lens' EndpointBatchItem (Prelude.Maybe EndpointUser)
-endpointBatchItem_user = Lens.lens (\EndpointBatchItem' {user} -> user) (\s@EndpointBatchItem' {} a -> s {user = a} :: EndpointBatchItem)
+-- | The unique identifier for the request to create or update the endpoint.
+endpointBatchItem_requestId :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
+endpointBatchItem_requestId = Lens.lens (\EndpointBatchItem' {requestId} -> requestId) (\s@EndpointBatchItem' {} a -> s {requestId = a} :: EndpointBatchItem)
+
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+endpointBatchItem_metrics :: Lens.Lens' EndpointBatchItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+endpointBatchItem_metrics = Lens.lens (\EndpointBatchItem' {metrics} -> metrics) (\s@EndpointBatchItem' {} a -> s {metrics = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens.coerced
+
+-- | The geographic information for the endpoint.
+endpointBatchItem_location :: Lens.Lens' EndpointBatchItem (Prelude.Maybe EndpointLocation)
+endpointBatchItem_location = Lens.lens (\EndpointBatchItem' {location} -> location) (\s@EndpointBatchItem' {} a -> s {location = a} :: EndpointBatchItem)
+
+-- | The demographic information for the endpoint, such as the time zone and
+-- platform.
+endpointBatchItem_demographic :: Lens.Lens' EndpointBatchItem (Prelude.Maybe EndpointDemographic)
+endpointBatchItem_demographic = Lens.lens (\EndpointBatchItem' {demographic} -> demographic) (\s@EndpointBatchItem' {} a -> s {demographic = a} :: EndpointBatchItem)
 
 -- | The destination address for messages or push notifications that you send
 -- to the endpoint. The address varies by channel. For a push-notification
@@ -189,27 +202,15 @@ endpointBatchItem_user = Lens.lens (\EndpointBatchItem' {user} -> user) (\s@Endp
 endpointBatchItem_address :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
 endpointBatchItem_address = Lens.lens (\EndpointBatchItem' {address} -> address) (\s@EndpointBatchItem' {} a -> s {address = a} :: EndpointBatchItem)
 
--- | The channel to use when sending messages or push notifications to the
--- endpoint.
-endpointBatchItem_channelType :: Lens.Lens' EndpointBatchItem (Prelude.Maybe ChannelType)
-endpointBatchItem_channelType = Lens.lens (\EndpointBatchItem' {channelType} -> channelType) (\s@EndpointBatchItem' {} a -> s {channelType = a} :: EndpointBatchItem)
+-- | The date and time, in ISO 8601 format, when the endpoint was created or
+-- updated.
+endpointBatchItem_effectiveDate :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
+endpointBatchItem_effectiveDate = Lens.lens (\EndpointBatchItem' {effectiveDate} -> effectiveDate) (\s@EndpointBatchItem' {} a -> s {effectiveDate = a} :: EndpointBatchItem)
 
--- | The unique identifier for the endpoint in the context of the batch.
-endpointBatchItem_id :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
-endpointBatchItem_id = Lens.lens (\EndpointBatchItem' {id} -> id) (\s@EndpointBatchItem' {} a -> s {id = a} :: EndpointBatchItem)
-
--- | Specifies whether the user who\'s associated with the endpoint has opted
--- out of receiving messages and push notifications from you. Possible
--- values are: ALL, the user has opted out and doesn\'t want to receive any
--- messages or push notifications; and, NONE, the user hasn\'t opted out
--- and wants to receive all messages and push notifications.
-endpointBatchItem_optOut :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
-endpointBatchItem_optOut = Lens.lens (\EndpointBatchItem' {optOut} -> optOut) (\s@EndpointBatchItem' {} a -> s {optOut = a} :: EndpointBatchItem)
-
--- | The demographic information for the endpoint, such as the time zone and
--- platform.
-endpointBatchItem_demographic :: Lens.Lens' EndpointBatchItem (Prelude.Maybe EndpointDemographic)
-endpointBatchItem_demographic = Lens.lens (\EndpointBatchItem' {demographic} -> demographic) (\s@EndpointBatchItem' {} a -> s {demographic = a} :: EndpointBatchItem)
+-- | One or more custom attributes that describe the user who\'s associated
+-- with the endpoint.
+endpointBatchItem_user :: Lens.Lens' EndpointBatchItem (Prelude.Maybe EndpointUser)
+endpointBatchItem_user = Lens.lens (\EndpointBatchItem' {user} -> user) (\s@EndpointBatchItem' {} a -> s {user = a} :: EndpointBatchItem)
 
 -- | One or more custom attributes that describe the endpoint by associating
 -- a name with an array of values. For example, the value of a custom
@@ -224,12 +225,7 @@ endpointBatchItem_demographic = Lens.lens (\EndpointBatchItem' {demographic} -> 
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
 endpointBatchItem_attributes :: Lens.Lens' EndpointBatchItem (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-endpointBatchItem_attributes = Lens.lens (\EndpointBatchItem' {attributes} -> attributes) (\s@EndpointBatchItem' {} a -> s {attributes = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens._Coerce
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
-endpointBatchItem_metrics :: Lens.Lens' EndpointBatchItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-endpointBatchItem_metrics = Lens.lens (\EndpointBatchItem' {metrics} -> metrics) (\s@EndpointBatchItem' {} a -> s {metrics = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens._Coerce
+endpointBatchItem_attributes = Lens.lens (\EndpointBatchItem' {attributes} -> attributes) (\s@EndpointBatchItem' {} a -> s {attributes = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
@@ -242,18 +238,22 @@ endpointBatchItem_metrics = Lens.lens (\EndpointBatchItem' {metrics} -> metrics)
 endpointBatchItem_endpointStatus :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
 endpointBatchItem_endpointStatus = Lens.lens (\EndpointBatchItem' {endpointStatus} -> endpointStatus) (\s@EndpointBatchItem' {} a -> s {endpointStatus = a} :: EndpointBatchItem)
 
--- | The unique identifier for the request to create or update the endpoint.
-endpointBatchItem_requestId :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
-endpointBatchItem_requestId = Lens.lens (\EndpointBatchItem' {requestId} -> requestId) (\s@EndpointBatchItem' {} a -> s {requestId = a} :: EndpointBatchItem)
+-- | Specifies whether the user who\'s associated with the endpoint has opted
+-- out of receiving messages and push notifications from you. Possible
+-- values are: ALL, the user has opted out and doesn\'t want to receive any
+-- messages or push notifications; and, NONE, the user hasn\'t opted out
+-- and wants to receive all messages and push notifications.
+endpointBatchItem_optOut :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
+endpointBatchItem_optOut = Lens.lens (\EndpointBatchItem' {optOut} -> optOut) (\s@EndpointBatchItem' {} a -> s {optOut = a} :: EndpointBatchItem)
 
--- | The date and time, in ISO 8601 format, when the endpoint was created or
--- updated.
-endpointBatchItem_effectiveDate :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
-endpointBatchItem_effectiveDate = Lens.lens (\EndpointBatchItem' {effectiveDate} -> effectiveDate) (\s@EndpointBatchItem' {} a -> s {effectiveDate = a} :: EndpointBatchItem)
+-- | The unique identifier for the endpoint in the context of the batch.
+endpointBatchItem_id :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
+endpointBatchItem_id = Lens.lens (\EndpointBatchItem' {id} -> id) (\s@EndpointBatchItem' {} a -> s {id = a} :: EndpointBatchItem)
 
--- | The geographic information for the endpoint.
-endpointBatchItem_location :: Lens.Lens' EndpointBatchItem (Prelude.Maybe EndpointLocation)
-endpointBatchItem_location = Lens.lens (\EndpointBatchItem' {location} -> location) (\s@EndpointBatchItem' {} a -> s {location = a} :: EndpointBatchItem)
+-- | The channel to use when sending messages or push notifications to the
+-- endpoint.
+endpointBatchItem_channelType :: Lens.Lens' EndpointBatchItem (Prelude.Maybe ChannelType)
+endpointBatchItem_channelType = Lens.lens (\EndpointBatchItem' {channelType} -> channelType) (\s@EndpointBatchItem' {} a -> s {channelType = a} :: EndpointBatchItem)
 
 instance Prelude.Hashable EndpointBatchItem
 
@@ -263,18 +263,18 @@ instance Core.ToJSON EndpointBatchItem where
   toJSON EndpointBatchItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("User" Core..=) Prelude.<$> user,
-            ("Address" Core..=) Prelude.<$> address,
-            ("ChannelType" Core..=) Prelude.<$> channelType,
-            ("Id" Core..=) Prelude.<$> id,
-            ("OptOut" Core..=) Prelude.<$> optOut,
-            ("Demographic" Core..=) Prelude.<$> demographic,
-            ("Attributes" Core..=) Prelude.<$> attributes,
+          [ ("RequestId" Core..=) Prelude.<$> requestId,
             ("Metrics" Core..=) Prelude.<$> metrics,
+            ("Location" Core..=) Prelude.<$> location,
+            ("Demographic" Core..=) Prelude.<$> demographic,
+            ("Address" Core..=) Prelude.<$> address,
+            ("EffectiveDate" Core..=) Prelude.<$> effectiveDate,
+            ("User" Core..=) Prelude.<$> user,
+            ("Attributes" Core..=) Prelude.<$> attributes,
             ("EndpointStatus" Core..=)
               Prelude.<$> endpointStatus,
-            ("RequestId" Core..=) Prelude.<$> requestId,
-            ("EffectiveDate" Core..=) Prelude.<$> effectiveDate,
-            ("Location" Core..=) Prelude.<$> location
+            ("OptOut" Core..=) Prelude.<$> optOut,
+            ("Id" Core..=) Prelude.<$> id,
+            ("ChannelType" Core..=) Prelude.<$> channelType
           ]
       )

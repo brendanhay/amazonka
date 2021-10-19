@@ -33,17 +33,17 @@ module Network.AWS.IoT.ListPolicies
     newListPolicies,
 
     -- * Request Lenses
-    listPolicies_pageSize,
-    listPolicies_ascendingOrder,
     listPolicies_marker,
+    listPolicies_ascendingOrder,
+    listPolicies_pageSize,
 
     -- * Destructuring the Response
     ListPoliciesResponse (..),
     newListPoliciesResponse,
 
     -- * Response Lenses
-    listPoliciesResponse_policies,
     listPoliciesResponse_nextMarker,
+    listPoliciesResponse_policies,
     listPoliciesResponse_httpStatus,
   )
 where
@@ -59,13 +59,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListPolicies' smart constructor.
 data ListPolicies = ListPolicies'
-  { -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+  { -- | The marker for the next set of results.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Specifies the order for results. If true, the results are returned in
     -- ascending creation order.
     ascendingOrder :: Prelude.Maybe Prelude.Bool,
-    -- | The marker for the next set of results.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | The result page size.
+    pageSize :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,33 +77,33 @@ data ListPolicies = ListPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listPolicies_pageSize' - The result page size.
+-- 'marker', 'listPolicies_marker' - The marker for the next set of results.
 --
 -- 'ascendingOrder', 'listPolicies_ascendingOrder' - Specifies the order for results. If true, the results are returned in
 -- ascending creation order.
 --
--- 'marker', 'listPolicies_marker' - The marker for the next set of results.
+-- 'pageSize', 'listPolicies_pageSize' - The result page size.
 newListPolicies ::
   ListPolicies
 newListPolicies =
   ListPolicies'
-    { pageSize = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       ascendingOrder = Prelude.Nothing,
-      marker = Prelude.Nothing
+      pageSize = Prelude.Nothing
     }
 
--- | The result page size.
-listPolicies_pageSize :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
-listPolicies_pageSize = Lens.lens (\ListPolicies' {pageSize} -> pageSize) (\s@ListPolicies' {} a -> s {pageSize = a} :: ListPolicies)
+-- | The marker for the next set of results.
+listPolicies_marker :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
+listPolicies_marker = Lens.lens (\ListPolicies' {marker} -> marker) (\s@ListPolicies' {} a -> s {marker = a} :: ListPolicies)
 
 -- | Specifies the order for results. If true, the results are returned in
 -- ascending creation order.
 listPolicies_ascendingOrder :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Bool)
 listPolicies_ascendingOrder = Lens.lens (\ListPolicies' {ascendingOrder} -> ascendingOrder) (\s@ListPolicies' {} a -> s {ascendingOrder = a} :: ListPolicies)
 
--- | The marker for the next set of results.
-listPolicies_marker :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Text)
-listPolicies_marker = Lens.lens (\ListPolicies' {marker} -> marker) (\s@ListPolicies' {} a -> s {marker = a} :: ListPolicies)
+-- | The result page size.
+listPolicies_pageSize :: Lens.Lens' ListPolicies (Prelude.Maybe Prelude.Natural)
+listPolicies_pageSize = Lens.lens (\ListPolicies' {pageSize} -> pageSize) (\s@ListPolicies' {} a -> s {pageSize = a} :: ListPolicies)
 
 instance Core.AWSPager ListPolicies where
   page rq rs
@@ -131,8 +131,8 @@ instance Core.AWSRequest ListPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListPoliciesResponse'
-            Prelude.<$> (x Core..?> "policies" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextMarker")
+            Prelude.<$> (x Core..?> "nextMarker")
+            Prelude.<*> (x Core..?> "policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,20 +149,20 @@ instance Core.ToPath ListPolicies where
 instance Core.ToQuery ListPolicies where
   toQuery ListPolicies' {..} =
     Prelude.mconcat
-      [ "pageSize" Core.=: pageSize,
+      [ "marker" Core.=: marker,
         "isAscendingOrder" Core.=: ascendingOrder,
-        "marker" Core.=: marker
+        "pageSize" Core.=: pageSize
       ]
 
 -- | The output from the ListPolicies operation.
 --
 -- /See:/ 'newListPoliciesResponse' smart constructor.
 data ListPoliciesResponse = ListPoliciesResponse'
-  { -- | The descriptions of the policies.
-    policies :: Prelude.Maybe [Policy],
-    -- | The marker for the next set of results, or null if there are no
+  { -- | The marker for the next set of results, or null if there are no
     -- additional results.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The descriptions of the policies.
+    policies :: Prelude.Maybe [Policy],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,10 +176,10 @@ data ListPoliciesResponse = ListPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policies', 'listPoliciesResponse_policies' - The descriptions of the policies.
---
 -- 'nextMarker', 'listPoliciesResponse_nextMarker' - The marker for the next set of results, or null if there are no
 -- additional results.
+--
+-- 'policies', 'listPoliciesResponse_policies' - The descriptions of the policies.
 --
 -- 'httpStatus', 'listPoliciesResponse_httpStatus' - The response's http status code.
 newListPoliciesResponse ::
@@ -188,19 +188,19 @@ newListPoliciesResponse ::
   ListPoliciesResponse
 newListPoliciesResponse pHttpStatus_ =
   ListPoliciesResponse'
-    { policies = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+    { nextMarker = Prelude.Nothing,
+      policies = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The descriptions of the policies.
-listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [Policy])
-listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results, or null if there are no
 -- additional results.
 listPoliciesResponse_nextMarker :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe Prelude.Text)
 listPoliciesResponse_nextMarker = Lens.lens (\ListPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListPoliciesResponse' {} a -> s {nextMarker = a} :: ListPoliciesResponse)
+
+-- | The descriptions of the policies.
+listPoliciesResponse_policies :: Lens.Lens' ListPoliciesResponse (Prelude.Maybe [Policy])
+listPoliciesResponse_policies = Lens.lens (\ListPoliciesResponse' {policies} -> policies) (\s@ListPoliciesResponse' {} a -> s {policies = a} :: ListPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPoliciesResponse_httpStatus :: Lens.Lens' ListPoliciesResponse Prelude.Int

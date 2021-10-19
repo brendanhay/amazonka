@@ -117,7 +117,7 @@ newCreateReplicationSubnetGroup
 
 -- | One or more tags to be assigned to the subnet group.
 createReplicationSubnetGroup_tags :: Lens.Lens' CreateReplicationSubnetGroup (Prelude.Maybe [Tag])
-createReplicationSubnetGroup_tags = Lens.lens (\CreateReplicationSubnetGroup' {tags} -> tags) (\s@CreateReplicationSubnetGroup' {} a -> s {tags = a} :: CreateReplicationSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
+createReplicationSubnetGroup_tags = Lens.lens (\CreateReplicationSubnetGroup' {tags} -> tags) (\s@CreateReplicationSubnetGroup' {} a -> s {tags = a} :: CreateReplicationSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the replication subnet group. This value is stored as a
 -- lowercase string.
@@ -135,7 +135,7 @@ createReplicationSubnetGroup_replicationSubnetGroupDescription = Lens.lens (\Cre
 
 -- | One or more subnet IDs to be assigned to the subnet group.
 createReplicationSubnetGroup_subnetIds :: Lens.Lens' CreateReplicationSubnetGroup [Prelude.Text]
-createReplicationSubnetGroup_subnetIds = Lens.lens (\CreateReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateReplicationSubnetGroup' {} a -> s {subnetIds = a} :: CreateReplicationSubnetGroup) Prelude.. Lens._Coerce
+createReplicationSubnetGroup_subnetIds = Lens.lens (\CreateReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateReplicationSubnetGroup' {} a -> s {subnetIds = a} :: CreateReplicationSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateReplicationSubnetGroup where
   type

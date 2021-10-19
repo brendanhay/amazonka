@@ -753,7 +753,7 @@ newUpdatePipelineResponse pHttpStatus_ =
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
 updatePipelineResponse_warnings :: Lens.Lens' UpdatePipelineResponse (Prelude.Maybe [Warning])
-updatePipelineResponse_warnings = Lens.lens (\UpdatePipelineResponse' {warnings} -> warnings) (\s@UpdatePipelineResponse' {} a -> s {warnings = a} :: UpdatePipelineResponse) Prelude.. Lens.mapping Lens._Coerce
+updatePipelineResponse_warnings = Lens.lens (\UpdatePipelineResponse' {warnings} -> warnings) (\s@UpdatePipelineResponse' {} a -> s {warnings = a} :: UpdatePipelineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pipeline updated by this @UpdatePipelineResponse@ call.
 updatePipelineResponse_pipeline :: Lens.Lens' UpdatePipelineResponse (Prelude.Maybe Pipeline)

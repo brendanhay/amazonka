@@ -153,7 +153,7 @@ newGetAppValidationOutputResponse pHttpStatus_ =
 
 -- | The validation output.
 getAppValidationOutputResponse_validationOutputList :: Lens.Lens' GetAppValidationOutputResponse (Prelude.Maybe [ValidationOutput])
-getAppValidationOutputResponse_validationOutputList = Lens.lens (\GetAppValidationOutputResponse' {validationOutputList} -> validationOutputList) (\s@GetAppValidationOutputResponse' {} a -> s {validationOutputList = a} :: GetAppValidationOutputResponse) Prelude.. Lens.mapping Lens._Coerce
+getAppValidationOutputResponse_validationOutputList = Lens.lens (\GetAppValidationOutputResponse' {validationOutputList} -> validationOutputList) (\s@GetAppValidationOutputResponse' {} a -> s {validationOutputList = a} :: GetAppValidationOutputResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAppValidationOutputResponse_httpStatus :: Lens.Lens' GetAppValidationOutputResponse Prelude.Int

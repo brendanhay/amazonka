@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newArchiveContainerSettings' smart constructor.
 data ArchiveContainerSettings = ArchiveContainerSettings'
-  { rawSettings :: Prelude.Maybe RawSettings,
-    m2tsSettings :: Prelude.Maybe M2tsSettings
+  { m2tsSettings :: Prelude.Maybe M2tsSettings,
+    rawSettings :: Prelude.Maybe RawSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ArchiveContainerSettings = ArchiveContainerSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rawSettings', 'archiveContainerSettings_rawSettings' - Undocumented member.
---
 -- 'm2tsSettings', 'archiveContainerSettings_m2tsSettings' - Undocumented member.
+--
+-- 'rawSettings', 'archiveContainerSettings_rawSettings' - Undocumented member.
 newArchiveContainerSettings ::
   ArchiveContainerSettings
 newArchiveContainerSettings =
   ArchiveContainerSettings'
-    { rawSettings =
+    { m2tsSettings =
         Prelude.Nothing,
-      m2tsSettings = Prelude.Nothing
+      rawSettings = Prelude.Nothing
     }
-
--- | Undocumented member.
-archiveContainerSettings_rawSettings :: Lens.Lens' ArchiveContainerSettings (Prelude.Maybe RawSettings)
-archiveContainerSettings_rawSettings = Lens.lens (\ArchiveContainerSettings' {rawSettings} -> rawSettings) (\s@ArchiveContainerSettings' {} a -> s {rawSettings = a} :: ArchiveContainerSettings)
 
 -- | Undocumented member.
 archiveContainerSettings_m2tsSettings :: Lens.Lens' ArchiveContainerSettings (Prelude.Maybe M2tsSettings)
 archiveContainerSettings_m2tsSettings = Lens.lens (\ArchiveContainerSettings' {m2tsSettings} -> m2tsSettings) (\s@ArchiveContainerSettings' {} a -> s {m2tsSettings = a} :: ArchiveContainerSettings)
+
+-- | Undocumented member.
+archiveContainerSettings_rawSettings :: Lens.Lens' ArchiveContainerSettings (Prelude.Maybe RawSettings)
+archiveContainerSettings_rawSettings = Lens.lens (\ArchiveContainerSettings' {rawSettings} -> rawSettings) (\s@ArchiveContainerSettings' {} a -> s {rawSettings = a} :: ArchiveContainerSettings)
 
 instance Core.FromJSON ArchiveContainerSettings where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON ArchiveContainerSettings where
       "ArchiveContainerSettings"
       ( \x ->
           ArchiveContainerSettings'
-            Prelude.<$> (x Core..:? "rawSettings")
-            Prelude.<*> (x Core..:? "m2tsSettings")
+            Prelude.<$> (x Core..:? "m2tsSettings")
+            Prelude.<*> (x Core..:? "rawSettings")
       )
 
 instance Prelude.Hashable ArchiveContainerSettings
@@ -80,7 +80,7 @@ instance Core.ToJSON ArchiveContainerSettings where
   toJSON ArchiveContainerSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("rawSettings" Core..=) Prelude.<$> rawSettings,
-            ("m2tsSettings" Core..=) Prelude.<$> m2tsSettings
+          [ ("m2tsSettings" Core..=) Prelude.<$> m2tsSettings,
+            ("rawSettings" Core..=) Prelude.<$> rawSettings
           ]
       )

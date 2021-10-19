@@ -96,7 +96,7 @@ putInvitationConfiguration_contactEmail = Lens.lens (\PutInvitationConfiguration
 -- | The list of private skill IDs that you want to recommend to the user to
 -- enable in the invitation.
 putInvitationConfiguration_privateSkillIds :: Lens.Lens' PutInvitationConfiguration (Prelude.Maybe [Prelude.Text])
-putInvitationConfiguration_privateSkillIds = Lens.lens (\PutInvitationConfiguration' {privateSkillIds} -> privateSkillIds) (\s@PutInvitationConfiguration' {} a -> s {privateSkillIds = a} :: PutInvitationConfiguration) Prelude.. Lens.mapping Lens._Coerce
+putInvitationConfiguration_privateSkillIds = Lens.lens (\PutInvitationConfiguration' {privateSkillIds} -> privateSkillIds) (\s@PutInvitationConfiguration' {} a -> s {privateSkillIds = a} :: PutInvitationConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the organization sending the enrollment invite to a user.
 putInvitationConfiguration_organizationName :: Lens.Lens' PutInvitationConfiguration Prelude.Text

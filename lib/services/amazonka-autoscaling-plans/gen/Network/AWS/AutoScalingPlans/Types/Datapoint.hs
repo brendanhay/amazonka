@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDatapoint' smart constructor.
 data Datapoint = Datapoint'
-  { -- | The time stamp for the data point in UTC format.
-    timestamp :: Prelude.Maybe Core.POSIX,
-    -- | The value of the data point.
-    value :: Prelude.Maybe Prelude.Double
+  { -- | The value of the data point.
+    value :: Prelude.Maybe Prelude.Double,
+    -- | The time stamp for the data point in UTC format.
+    timestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Datapoint = Datapoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamp', 'datapoint_timestamp' - The time stamp for the data point in UTC format.
---
 -- 'value', 'datapoint_value' - The value of the data point.
+--
+-- 'timestamp', 'datapoint_timestamp' - The time stamp for the data point in UTC format.
 newDatapoint ::
   Datapoint
 newDatapoint =
   Datapoint'
-    { timestamp = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      timestamp = Prelude.Nothing
     }
-
--- | The time stamp for the data point in UTC format.
-datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
-datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Core._Time
 
 -- | The value of the data point.
 datapoint_value :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
 datapoint_value = Lens.lens (\Datapoint' {value} -> value) (\s@Datapoint' {} a -> s {value = a} :: Datapoint)
+
+-- | The time stamp for the data point in UTC format.
+datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
+datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Datapoint where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Datapoint where
       "Datapoint"
       ( \x ->
           Datapoint'
-            Prelude.<$> (x Core..:? "Timestamp")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Timestamp")
       )
 
 instance Prelude.Hashable Datapoint

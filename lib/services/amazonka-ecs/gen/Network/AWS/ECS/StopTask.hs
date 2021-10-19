@@ -40,8 +40,8 @@ module Network.AWS.ECS.StopTask
     newStopTask,
 
     -- * Request Lenses
-    stopTask_reason,
     stopTask_cluster,
+    stopTask_reason,
     stopTask_task,
 
     -- * Destructuring the Response
@@ -63,16 +63,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopTask' smart constructor.
 data StopTask = StopTask'
-  { -- | An optional message specified when a task is stopped. For example, if
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
+    -- hosts the task to stop. If you do not specify a cluster, the default
+    -- cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | An optional message specified when a task is stopped. For example, if
     -- you are using a custom scheduler, you can use this parameter to specify
     -- the reason for stopping the task here, and the message appears in
     -- subsequent DescribeTasks API operations on this task. Up to 255
     -- characters are allowed in this message.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- hosts the task to stop. If you do not specify a cluster, the default
-    -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
     -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
     task :: Prelude.Text
   }
@@ -86,15 +86,15 @@ data StopTask = StopTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'cluster', 'stopTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the task to stop. If you do not specify a cluster, the default
+-- cluster is assumed.
+--
 -- 'reason', 'stopTask_reason' - An optional message specified when a task is stopped. For example, if
 -- you are using a custom scheduler, you can use this parameter to specify
 -- the reason for stopping the task here, and the message appears in
 -- subsequent DescribeTasks API operations on this task. Up to 255
 -- characters are allowed in this message.
---
--- 'cluster', 'stopTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the task to stop. If you do not specify a cluster, the default
--- cluster is assumed.
 --
 -- 'task', 'stopTask_task' - The task ID or full Amazon Resource Name (ARN) of the task to stop.
 newStopTask ::
@@ -103,10 +103,16 @@ newStopTask ::
   StopTask
 newStopTask pTask_ =
   StopTask'
-    { reason = Prelude.Nothing,
-      cluster = Prelude.Nothing,
+    { cluster = Prelude.Nothing,
+      reason = Prelude.Nothing,
       task = pTask_
     }
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the task to stop. If you do not specify a cluster, the default
+-- cluster is assumed.
+stopTask_cluster :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
+stopTask_cluster = Lens.lens (\StopTask' {cluster} -> cluster) (\s@StopTask' {} a -> s {cluster = a} :: StopTask)
 
 -- | An optional message specified when a task is stopped. For example, if
 -- you are using a custom scheduler, you can use this parameter to specify
@@ -115,12 +121,6 @@ newStopTask pTask_ =
 -- characters are allowed in this message.
 stopTask_reason :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
 stopTask_reason = Lens.lens (\StopTask' {reason} -> reason) (\s@StopTask' {} a -> s {reason = a} :: StopTask)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the task to stop. If you do not specify a cluster, the default
--- cluster is assumed.
-stopTask_cluster :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
-stopTask_cluster = Lens.lens (\StopTask' {cluster} -> cluster) (\s@StopTask' {} a -> s {cluster = a} :: StopTask)
 
 -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
 stopTask_task :: Lens.Lens' StopTask Prelude.Text
@@ -160,8 +160,8 @@ instance Core.ToJSON StopTask where
   toJSON StopTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("reason" Core..=) Prelude.<$> reason,
-            ("cluster" Core..=) Prelude.<$> cluster,
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            ("reason" Core..=) Prelude.<$> reason,
             Prelude.Just ("task" Core..= task)
           ]
       )

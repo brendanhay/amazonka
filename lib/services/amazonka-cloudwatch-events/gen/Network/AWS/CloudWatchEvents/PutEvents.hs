@@ -73,13 +73,13 @@ newPutEvents ::
   Prelude.NonEmpty PutEventsRequestEntry ->
   PutEvents
 newPutEvents pEntries_ =
-  PutEvents' {entries = Lens._Coerce Lens.# pEntries_}
+  PutEvents' {entries = Lens.coerced Lens.# pEntries_}
 
 -- | The entry that defines an event in your system. You can specify several
 -- parameters for the entry such as the source and type of the event,
 -- resources associated with the event, and so on.
 putEvents_entries :: Lens.Lens' PutEvents (Prelude.NonEmpty PutEventsRequestEntry)
-putEvents_entries = Lens.lens (\PutEvents' {entries} -> entries) (\s@PutEvents' {} a -> s {entries = a} :: PutEvents) Prelude.. Lens._Coerce
+putEvents_entries = Lens.lens (\PutEvents' {entries} -> entries) (\s@PutEvents' {} a -> s {entries = a} :: PutEvents) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutEvents where
   type AWSResponse PutEvents = PutEventsResponse
@@ -174,7 +174,7 @@ putEventsResponse_failedEntryCount = Lens.lens (\PutEventsResponse' {failedEntry
 -- you can use the error code and error message to identify the problem
 -- with the entry.
 putEventsResponse_entries :: Lens.Lens' PutEventsResponse (Prelude.Maybe [PutEventsResultEntry])
-putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries) (\s@PutEventsResponse' {} a -> s {entries = a} :: PutEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+putEventsResponse_entries = Lens.lens (\PutEventsResponse' {entries} -> entries) (\s@PutEventsResponse' {} a -> s {entries = a} :: PutEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Prelude.Int

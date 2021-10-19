@@ -45,8 +45,8 @@ module Network.AWS.KMS.ListKeyPolicies
     newListKeyPolicies,
 
     -- * Request Lenses
-    listKeyPolicies_limit,
     listKeyPolicies_marker,
+    listKeyPolicies_limit,
     listKeyPolicies_keyId,
 
     -- * Destructuring the Response
@@ -54,9 +54,9 @@ module Network.AWS.KMS.ListKeyPolicies
     newListKeyPoliciesResponse,
 
     -- * Response Lenses
-    listKeyPoliciesResponse_nextMarker,
     listKeyPoliciesResponse_policyNames,
     listKeyPoliciesResponse_truncated,
+    listKeyPoliciesResponse_nextMarker,
     listKeyPoliciesResponse_httpStatus,
   )
 where
@@ -70,7 +70,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListKeyPolicies' smart constructor.
 data ListKeyPolicies = ListKeyPolicies'
-  { -- | Use this parameter to specify the maximum number of items to return.
+  { -- | Use this parameter in a subsequent request after you receive a response
+    -- with truncated results. Set it to the value of @NextMarker@ from the
+    -- truncated response you just received.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to specify the maximum number of items to return.
     -- When this value is present, KMS does not return more than the specified
     -- number of items, but it might return fewer.
     --
@@ -79,10 +83,6 @@ data ListKeyPolicies = ListKeyPolicies'
     --
     -- Only one policy can be attached to a key.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter in a subsequent request after you receive a response
-    -- with truncated results. Set it to the value of @NextMarker@ from the
-    -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | Gets the names of key policies for the specified KMS key.
     --
     -- Specify the key ID or key ARN of the KMS key.
@@ -108,6 +108,10 @@ data ListKeyPolicies = ListKeyPolicies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listKeyPolicies_marker' - Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+--
 -- 'limit', 'listKeyPolicies_limit' - Use this parameter to specify the maximum number of items to return.
 -- When this value is present, KMS does not return more than the specified
 -- number of items, but it might return fewer.
@@ -116,10 +120,6 @@ data ListKeyPolicies = ListKeyPolicies'
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
 --
 -- Only one policy can be attached to a key.
---
--- 'marker', 'listKeyPolicies_marker' - Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
 --
 -- 'keyId', 'listKeyPolicies_keyId' - Gets the names of key policies for the specified KMS key.
 --
@@ -140,10 +140,16 @@ newListKeyPolicies ::
   ListKeyPolicies
 newListKeyPolicies pKeyId_ =
   ListKeyPolicies'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       keyId = pKeyId_
     }
+
+-- | Use this parameter in a subsequent request after you receive a response
+-- with truncated results. Set it to the value of @NextMarker@ from the
+-- truncated response you just received.
+listKeyPolicies_marker :: Lens.Lens' ListKeyPolicies (Prelude.Maybe Prelude.Text)
+listKeyPolicies_marker = Lens.lens (\ListKeyPolicies' {marker} -> marker) (\s@ListKeyPolicies' {} a -> s {marker = a} :: ListKeyPolicies)
 
 -- | Use this parameter to specify the maximum number of items to return.
 -- When this value is present, KMS does not return more than the specified
@@ -155,12 +161,6 @@ newListKeyPolicies pKeyId_ =
 -- Only one policy can be attached to a key.
 listKeyPolicies_limit :: Lens.Lens' ListKeyPolicies (Prelude.Maybe Prelude.Natural)
 listKeyPolicies_limit = Lens.lens (\ListKeyPolicies' {limit} -> limit) (\s@ListKeyPolicies' {} a -> s {limit = a} :: ListKeyPolicies)
-
--- | Use this parameter in a subsequent request after you receive a response
--- with truncated results. Set it to the value of @NextMarker@ from the
--- truncated response you just received.
-listKeyPolicies_marker :: Lens.Lens' ListKeyPolicies (Prelude.Maybe Prelude.Text)
-listKeyPolicies_marker = Lens.lens (\ListKeyPolicies' {marker} -> marker) (\s@ListKeyPolicies' {} a -> s {marker = a} :: ListKeyPolicies)
 
 -- | Gets the names of key policies for the specified KMS key.
 --
@@ -209,9 +209,9 @@ instance Core.AWSRequest ListKeyPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListKeyPoliciesResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "PolicyNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "PolicyNames" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Truncated")
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -238,8 +238,8 @@ instance Core.ToJSON ListKeyPolicies where
   toJSON ListKeyPolicies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
@@ -252,16 +252,16 @@ instance Core.ToQuery ListKeyPolicies where
 
 -- | /See:/ 'newListKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-  { -- | When @Truncated@ is true, this element is present and contains the value
-    -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of key policy names. The only valid value is @default@.
+  { -- | A list of key policy names. The only valid value is @default@.
     policyNames :: Prelude.Maybe [Prelude.Text],
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
     truncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @Truncated@ is true, this element is present and contains the value
+    -- to use for the @Marker@ parameter in a subsequent request.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -275,15 +275,15 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listKeyPoliciesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
--- to use for the @Marker@ parameter in a subsequent request.
---
 -- 'policyNames', 'listKeyPoliciesResponse_policyNames' - A list of key policy names. The only valid value is @default@.
 --
 -- 'truncated', 'listKeyPoliciesResponse_truncated' - A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
+--
+-- 'nextMarker', 'listKeyPoliciesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
 --
 -- 'httpStatus', 'listKeyPoliciesResponse_httpStatus' - The response's http status code.
 newListKeyPoliciesResponse ::
@@ -292,21 +292,16 @@ newListKeyPoliciesResponse ::
   ListKeyPoliciesResponse
 newListKeyPoliciesResponse pHttpStatus_ =
   ListKeyPoliciesResponse'
-    { nextMarker =
+    { policyNames =
         Prelude.Nothing,
-      policyNames = Prelude.Nothing,
       truncated = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | When @Truncated@ is true, this element is present and contains the value
--- to use for the @Marker@ parameter in a subsequent request.
-listKeyPoliciesResponse_nextMarker :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe Prelude.Text)
-listKeyPoliciesResponse_nextMarker = Lens.lens (\ListKeyPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListKeyPoliciesResponse' {} a -> s {nextMarker = a} :: ListKeyPoliciesResponse)
-
 -- | A list of key policy names. The only valid value is @default@.
 listKeyPoliciesResponse_policyNames :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe [Prelude.Text])
-listKeyPoliciesResponse_policyNames = Lens.lens (\ListKeyPoliciesResponse' {policyNames} -> policyNames) (\s@ListKeyPoliciesResponse' {} a -> s {policyNames = a} :: ListKeyPoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
+listKeyPoliciesResponse_policyNames = Lens.lens (\ListKeyPoliciesResponse' {policyNames} -> policyNames) (\s@ListKeyPoliciesResponse' {} a -> s {policyNames = a} :: ListKeyPoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
@@ -314,6 +309,11 @@ listKeyPoliciesResponse_policyNames = Lens.lens (\ListKeyPoliciesResponse' {poli
 -- @Marker@ parameter in a subsequent request.
 listKeyPoliciesResponse_truncated :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe Prelude.Bool)
 listKeyPoliciesResponse_truncated = Lens.lens (\ListKeyPoliciesResponse' {truncated} -> truncated) (\s@ListKeyPoliciesResponse' {} a -> s {truncated = a} :: ListKeyPoliciesResponse)
+
+-- | When @Truncated@ is true, this element is present and contains the value
+-- to use for the @Marker@ parameter in a subsequent request.
+listKeyPoliciesResponse_nextMarker :: Lens.Lens' ListKeyPoliciesResponse (Prelude.Maybe Prelude.Text)
+listKeyPoliciesResponse_nextMarker = Lens.lens (\ListKeyPoliciesResponse' {nextMarker} -> nextMarker) (\s@ListKeyPoliciesResponse' {} a -> s {nextMarker = a} :: ListKeyPoliciesResponse)
 
 -- | The response's http status code.
 listKeyPoliciesResponse_httpStatus :: Lens.Lens' ListKeyPoliciesResponse Prelude.Int

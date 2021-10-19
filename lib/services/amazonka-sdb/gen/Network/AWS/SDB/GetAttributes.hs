@@ -115,7 +115,7 @@ getAttributes_consistentRead = Lens.lens (\GetAttributes' {consistentRead} -> co
 
 -- | The names of the attributes.
 getAttributes_attributeNames :: Lens.Lens' GetAttributes (Prelude.Maybe [Prelude.Text])
-getAttributes_attributeNames = Lens.lens (\GetAttributes' {attributeNames} -> attributeNames) (\s@GetAttributes' {} a -> s {attributeNames = a} :: GetAttributes) Prelude.. Lens.mapping Lens._Coerce
+getAttributes_attributeNames = Lens.lens (\GetAttributes' {attributeNames} -> attributeNames) (\s@GetAttributes' {} a -> s {attributeNames = a} :: GetAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain in which to perform the operation.
 getAttributes_domainName :: Lens.Lens' GetAttributes Prelude.Text
@@ -198,7 +198,7 @@ newGetAttributesResponse pHttpStatus_ =
 
 -- | The list of attributes returned by the operation.
 getAttributesResponse_attributes :: Lens.Lens' GetAttributesResponse (Prelude.Maybe [Attribute])
-getAttributesResponse_attributes = Lens.lens (\GetAttributesResponse' {attributes} -> attributes) (\s@GetAttributesResponse' {} a -> s {attributes = a} :: GetAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getAttributesResponse_attributes = Lens.lens (\GetAttributesResponse' {attributes} -> attributes) (\s@GetAttributesResponse' {} a -> s {attributes = a} :: GetAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getAttributesResponse_httpStatus :: Lens.Lens' GetAttributesResponse Prelude.Int

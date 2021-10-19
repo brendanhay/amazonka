@@ -28,8 +28,8 @@ module Network.AWS.SESv2.CreateContactList
 
     -- * Request Lenses
     createContactList_topics,
-    createContactList_tags,
     createContactList_description,
+    createContactList_tags,
     createContactList_contactListName,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ data CreateContactList = CreateContactList'
   { -- | An interest group, theme, or label within a list. A contact list can
     -- have multiple topics.
     topics :: Prelude.Maybe [Topic],
-    -- | The tags associated with a contact list.
-    tags :: Prelude.Maybe [Tag],
     -- | A description of what the contact list is about.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The tags associated with a contact list.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the contact list.
     contactListName :: Prelude.Text
   }
@@ -73,9 +73,9 @@ data CreateContactList = CreateContactList'
 -- 'topics', 'createContactList_topics' - An interest group, theme, or label within a list. A contact list can
 -- have multiple topics.
 --
--- 'tags', 'createContactList_tags' - The tags associated with a contact list.
---
 -- 'description', 'createContactList_description' - A description of what the contact list is about.
+--
+-- 'tags', 'createContactList_tags' - The tags associated with a contact list.
 --
 -- 'contactListName', 'createContactList_contactListName' - The name of the contact list.
 newCreateContactList ::
@@ -85,23 +85,23 @@ newCreateContactList ::
 newCreateContactList pContactListName_ =
   CreateContactList'
     { topics = Prelude.Nothing,
-      tags = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       contactListName = pContactListName_
     }
 
 -- | An interest group, theme, or label within a list. A contact list can
 -- have multiple topics.
 createContactList_topics :: Lens.Lens' CreateContactList (Prelude.Maybe [Topic])
-createContactList_topics = Lens.lens (\CreateContactList' {topics} -> topics) (\s@CreateContactList' {} a -> s {topics = a} :: CreateContactList) Prelude.. Lens.mapping Lens._Coerce
-
--- | The tags associated with a contact list.
-createContactList_tags :: Lens.Lens' CreateContactList (Prelude.Maybe [Tag])
-createContactList_tags = Lens.lens (\CreateContactList' {tags} -> tags) (\s@CreateContactList' {} a -> s {tags = a} :: CreateContactList) Prelude.. Lens.mapping Lens._Coerce
+createContactList_topics = Lens.lens (\CreateContactList' {topics} -> topics) (\s@CreateContactList' {} a -> s {topics = a} :: CreateContactList) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of what the contact list is about.
 createContactList_description :: Lens.Lens' CreateContactList (Prelude.Maybe Prelude.Text)
 createContactList_description = Lens.lens (\CreateContactList' {description} -> description) (\s@CreateContactList' {} a -> s {description = a} :: CreateContactList)
+
+-- | The tags associated with a contact list.
+createContactList_tags :: Lens.Lens' CreateContactList (Prelude.Maybe [Tag])
+createContactList_tags = Lens.lens (\CreateContactList' {tags} -> tags) (\s@CreateContactList' {} a -> s {tags = a} :: CreateContactList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the contact list.
 createContactList_contactListName :: Lens.Lens' CreateContactList Prelude.Text
@@ -139,8 +139,8 @@ instance Core.ToJSON CreateContactList where
     Core.object
       ( Prelude.catMaybes
           [ ("Topics" Core..=) Prelude.<$> topics,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ContactListName" Core..= contactListName)
           ]

@@ -18,34 +18,34 @@ module Network.AWS.DynamoDB.Types
 
     -- * Errors
     _InvalidExportTimeException,
-    _TableAlreadyExistsException,
-    _GlobalTableAlreadyExistsException,
-    _ConditionalCheckFailedException,
-    _GlobalTableNotFoundException,
-    _ReplicaAlreadyExistsException,
-    _TransactionInProgressException,
-    _InvalidRestoreTimeException,
-    _PointInTimeRecoveryUnavailableException,
-    _ExportNotFoundException,
-    _ContinuousBackupsUnavailableException,
-    _TableInUseException,
-    _DuplicateItemException,
-    _TransactionConflictException,
-    _BackupInUseException,
-    _ExportConflictException,
-    _InternalServerError,
-    _ItemCollectionSizeLimitExceededException,
-    _RequestLimitExceeded,
-    _TransactionCanceledException,
-    _ReplicaNotFoundException,
-    _LimitExceededException,
-    _ResourceInUseException,
-    _ResourceNotFoundException,
-    _ProvisionedThroughputExceededException,
-    _IdempotentParameterMismatchException,
     _BackupNotFoundException,
+    _TableInUseException,
+    _ExportConflictException,
+    _ContinuousBackupsUnavailableException,
+    _ProvisionedThroughputExceededException,
+    _GlobalTableNotFoundException,
+    _TransactionInProgressException,
+    _TransactionCanceledException,
+    _ConditionalCheckFailedException,
+    _GlobalTableAlreadyExistsException,
+    _ReplicaNotFoundException,
+    _TableAlreadyExistsException,
+    _RequestLimitExceeded,
+    _ItemCollectionSizeLimitExceededException,
+    _InternalServerError,
     _TableNotFoundException,
     _IndexNotFoundException,
+    _TransactionConflictException,
+    _BackupInUseException,
+    _DuplicateItemException,
+    _ExportNotFoundException,
+    _PointInTimeRecoveryUnavailableException,
+    _IdempotentParameterMismatchException,
+    _InvalidRestoreTimeException,
+    _ResourceNotFoundException,
+    _ReplicaAlreadyExistsException,
+    _LimitExceededException,
+    _ResourceInUseException,
 
     -- * AttributeAction
     AttributeAction (..),
@@ -146,9 +146,9 @@ module Network.AWS.DynamoDB.Types
     -- * ArchivalSummary
     ArchivalSummary (..),
     newArchivalSummary,
-    archivalSummary_archivalBackupArn,
     archivalSummary_archivalReason,
     archivalSummary_archivalDateTime,
+    archivalSummary_archivalBackupArn,
 
     -- * AttributeDefinition
     AttributeDefinition (..),
@@ -159,22 +159,22 @@ module Network.AWS.DynamoDB.Types
     -- * AttributeValue
     AttributeValue (..),
     newAttributeValue,
-    attributeValue_bs,
-    attributeValue_n,
-    attributeValue_bool,
-    attributeValue_null,
-    attributeValue_s,
-    attributeValue_m,
-    attributeValue_b,
     attributeValue_l,
-    attributeValue_ss,
     attributeValue_ns,
+    attributeValue_m,
+    attributeValue_null,
+    attributeValue_n,
+    attributeValue_bs,
+    attributeValue_b,
+    attributeValue_ss,
+    attributeValue_s,
+    attributeValue_bool,
 
     -- * AttributeValueUpdate
     AttributeValueUpdate (..),
     newAttributeValueUpdate,
-    attributeValueUpdate_action,
     attributeValueUpdate_value,
+    attributeValueUpdate_action,
 
     -- * AutoScalingPolicyDescription
     AutoScalingPolicyDescription (..),
@@ -191,42 +191,42 @@ module Network.AWS.DynamoDB.Types
     -- * AutoScalingSettingsDescription
     AutoScalingSettingsDescription (..),
     newAutoScalingSettingsDescription,
-    autoScalingSettingsDescription_minimumUnits,
-    autoScalingSettingsDescription_scalingPolicies,
-    autoScalingSettingsDescription_maximumUnits,
-    autoScalingSettingsDescription_autoScalingRoleArn,
     autoScalingSettingsDescription_autoScalingDisabled,
+    autoScalingSettingsDescription_minimumUnits,
+    autoScalingSettingsDescription_maximumUnits,
+    autoScalingSettingsDescription_scalingPolicies,
+    autoScalingSettingsDescription_autoScalingRoleArn,
 
     -- * AutoScalingSettingsUpdate
     AutoScalingSettingsUpdate (..),
     newAutoScalingSettingsUpdate,
-    autoScalingSettingsUpdate_scalingPolicyUpdate,
+    autoScalingSettingsUpdate_autoScalingDisabled,
     autoScalingSettingsUpdate_minimumUnits,
+    autoScalingSettingsUpdate_scalingPolicyUpdate,
     autoScalingSettingsUpdate_maximumUnits,
     autoScalingSettingsUpdate_autoScalingRoleArn,
-    autoScalingSettingsUpdate_autoScalingDisabled,
 
     -- * AutoScalingTargetTrackingScalingPolicyConfigurationDescription
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription (..),
     newAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+    autoScalingTargetTrackingScalingPolicyConfigurationDescription_scaleInCooldown,
     autoScalingTargetTrackingScalingPolicyConfigurationDescription_disableScaleIn,
     autoScalingTargetTrackingScalingPolicyConfigurationDescription_scaleOutCooldown,
-    autoScalingTargetTrackingScalingPolicyConfigurationDescription_scaleInCooldown,
     autoScalingTargetTrackingScalingPolicyConfigurationDescription_targetValue,
 
     -- * AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
     AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (..),
     newAutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+    autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown,
     autoScalingTargetTrackingScalingPolicyConfigurationUpdate_disableScaleIn,
     autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleOutCooldown,
-    autoScalingTargetTrackingScalingPolicyConfigurationUpdate_scaleInCooldown,
     autoScalingTargetTrackingScalingPolicyConfigurationUpdate_targetValue,
 
     -- * BackupDescription
     BackupDescription (..),
     newBackupDescription,
-    backupDescription_sourceTableDetails,
     backupDescription_backupDetails,
+    backupDescription_sourceTableDetails,
     backupDescription_sourceTableFeatureDetails,
 
     -- * BackupDetails
@@ -243,22 +243,22 @@ module Network.AWS.DynamoDB.Types
     -- * BackupSummary
     BackupSummary (..),
     newBackupSummary,
-    backupSummary_tableName,
+    backupSummary_backupExpiryDateTime,
+    backupSummary_tableArn,
     backupSummary_backupName,
+    backupSummary_backupStatus,
+    backupSummary_backupSizeBytes,
+    backupSummary_backupArn,
+    backupSummary_tableId,
     backupSummary_backupCreationDateTime,
     backupSummary_backupType,
-    backupSummary_tableId,
-    backupSummary_backupArn,
-    backupSummary_tableArn,
-    backupSummary_backupExpiryDateTime,
-    backupSummary_backupSizeBytes,
-    backupSummary_backupStatus,
+    backupSummary_tableName,
 
     -- * BatchStatementError
     BatchStatementError (..),
     newBatchStatementError,
-    batchStatementError_message,
     batchStatementError_code,
+    batchStatementError_message,
 
     -- * BatchStatementRequest
     BatchStatementRequest (..),
@@ -270,22 +270,22 @@ module Network.AWS.DynamoDB.Types
     -- * BatchStatementResponse
     BatchStatementResponse (..),
     newBatchStatementResponse,
-    batchStatementResponse_tableName,
-    batchStatementResponse_item,
     batchStatementResponse_error,
+    batchStatementResponse_item,
+    batchStatementResponse_tableName,
 
     -- * BillingModeSummary
     BillingModeSummary (..),
     newBillingModeSummary,
-    billingModeSummary_billingMode,
     billingModeSummary_lastUpdateToPayPerRequestDateTime,
+    billingModeSummary_billingMode,
 
     -- * Capacity
     Capacity (..),
     newCapacity,
-    capacity_writeCapacityUnits,
-    capacity_capacityUnits,
     capacity_readCapacityUnits,
+    capacity_capacityUnits,
+    capacity_writeCapacityUnits,
 
     -- * Condition
     Condition (..),
@@ -296,9 +296,9 @@ module Network.AWS.DynamoDB.Types
     -- * ConditionCheck
     ConditionCheck (..),
     newConditionCheck,
-    conditionCheck_returnValuesOnConditionCheckFailure,
-    conditionCheck_expressionAttributeValues,
     conditionCheck_expressionAttributeNames,
+    conditionCheck_expressionAttributeValues,
+    conditionCheck_returnValuesOnConditionCheckFailure,
     conditionCheck_key,
     conditionCheck_tableName,
     conditionCheck_conditionExpression,
@@ -306,13 +306,13 @@ module Network.AWS.DynamoDB.Types
     -- * ConsumedCapacity
     ConsumedCapacity (..),
     newConsumedCapacity,
-    consumedCapacity_localSecondaryIndexes,
-    consumedCapacity_globalSecondaryIndexes,
-    consumedCapacity_tableName,
-    consumedCapacity_writeCapacityUnits,
-    consumedCapacity_capacityUnits,
-    consumedCapacity_table,
     consumedCapacity_readCapacityUnits,
+    consumedCapacity_globalSecondaryIndexes,
+    consumedCapacity_capacityUnits,
+    consumedCapacity_writeCapacityUnits,
+    consumedCapacity_localSecondaryIndexes,
+    consumedCapacity_table,
+    consumedCapacity_tableName,
 
     -- * ContinuousBackupsDescription
     ContinuousBackupsDescription (..),
@@ -323,9 +323,9 @@ module Network.AWS.DynamoDB.Types
     -- * ContributorInsightsSummary
     ContributorInsightsSummary (..),
     newContributorInsightsSummary,
+    contributorInsightsSummary_contributorInsightsStatus,
     contributorInsightsSummary_tableName,
     contributorInsightsSummary_indexName,
-    contributorInsightsSummary_contributorInsightsStatus,
 
     -- * CreateGlobalSecondaryIndexAction
     CreateGlobalSecondaryIndexAction (..),
@@ -343,17 +343,17 @@ module Network.AWS.DynamoDB.Types
     -- * CreateReplicationGroupMemberAction
     CreateReplicationGroupMemberAction (..),
     newCreateReplicationGroupMemberAction,
-    createReplicationGroupMemberAction_globalSecondaryIndexes,
-    createReplicationGroupMemberAction_provisionedThroughputOverride,
     createReplicationGroupMemberAction_kmsMasterKeyId,
+    createReplicationGroupMemberAction_provisionedThroughputOverride,
+    createReplicationGroupMemberAction_globalSecondaryIndexes,
     createReplicationGroupMemberAction_regionName,
 
     -- * Delete
     Delete (..),
     newDelete,
-    delete_returnValuesOnConditionCheckFailure,
-    delete_expressionAttributeValues,
     delete_expressionAttributeNames,
+    delete_expressionAttributeValues,
+    delete_returnValuesOnConditionCheckFailure,
     delete_conditionExpression,
     delete_key,
     delete_tableName,
@@ -387,33 +387,33 @@ module Network.AWS.DynamoDB.Types
     -- * ExpectedAttributeValue
     ExpectedAttributeValue (..),
     newExpectedAttributeValue,
-    expectedAttributeValue_comparisonOperator,
+    expectedAttributeValue_attributeValueList,
     expectedAttributeValue_exists,
     expectedAttributeValue_value,
-    expectedAttributeValue_attributeValueList,
+    expectedAttributeValue_comparisonOperator,
 
     -- * ExportDescription
     ExportDescription (..),
     newExportDescription,
-    exportDescription_exportFormat,
-    exportDescription_exportTime,
-    exportDescription_s3Bucket,
-    exportDescription_billedSizeBytes,
-    exportDescription_failureMessage,
-    exportDescription_tableId,
-    exportDescription_tableArn,
-    exportDescription_exportStatus,
-    exportDescription_failureCode,
-    exportDescription_startTime,
-    exportDescription_endTime,
     exportDescription_s3BucketOwner,
-    exportDescription_exportArn,
-    exportDescription_itemCount,
-    exportDescription_exportManifest,
-    exportDescription_s3Prefix,
-    exportDescription_s3SseAlgorithm,
-    exportDescription_clientToken,
+    exportDescription_exportFormat,
     exportDescription_s3SseKmsKeyId,
+    exportDescription_clientToken,
+    exportDescription_startTime,
+    exportDescription_failureCode,
+    exportDescription_exportStatus,
+    exportDescription_failureMessage,
+    exportDescription_tableArn,
+    exportDescription_billedSizeBytes,
+    exportDescription_exportArn,
+    exportDescription_exportTime,
+    exportDescription_s3SseAlgorithm,
+    exportDescription_endTime,
+    exportDescription_s3Prefix,
+    exportDescription_exportManifest,
+    exportDescription_tableId,
+    exportDescription_itemCount,
+    exportDescription_s3Bucket,
 
     -- * ExportSummary
     ExportSummary (..),
@@ -446,36 +446,36 @@ module Network.AWS.DynamoDB.Types
     -- * GlobalSecondaryIndexAutoScalingUpdate
     GlobalSecondaryIndexAutoScalingUpdate (..),
     newGlobalSecondaryIndexAutoScalingUpdate,
-    globalSecondaryIndexAutoScalingUpdate_indexName,
     globalSecondaryIndexAutoScalingUpdate_provisionedWriteCapacityAutoScalingUpdate,
+    globalSecondaryIndexAutoScalingUpdate_indexName,
 
     -- * GlobalSecondaryIndexDescription
     GlobalSecondaryIndexDescription (..),
     newGlobalSecondaryIndexDescription,
-    globalSecondaryIndexDescription_indexName,
-    globalSecondaryIndexDescription_keySchema,
-    globalSecondaryIndexDescription_indexArn,
-    globalSecondaryIndexDescription_projection,
-    globalSecondaryIndexDescription_indexSizeBytes,
     globalSecondaryIndexDescription_backfilling,
-    globalSecondaryIndexDescription_itemCount,
+    globalSecondaryIndexDescription_indexSizeBytes,
     globalSecondaryIndexDescription_indexStatus,
     globalSecondaryIndexDescription_provisionedThroughput,
+    globalSecondaryIndexDescription_indexArn,
+    globalSecondaryIndexDescription_keySchema,
+    globalSecondaryIndexDescription_projection,
+    globalSecondaryIndexDescription_itemCount,
+    globalSecondaryIndexDescription_indexName,
 
     -- * GlobalSecondaryIndexInfo
     GlobalSecondaryIndexInfo (..),
     newGlobalSecondaryIndexInfo,
-    globalSecondaryIndexInfo_indexName,
+    globalSecondaryIndexInfo_provisionedThroughput,
     globalSecondaryIndexInfo_keySchema,
     globalSecondaryIndexInfo_projection,
-    globalSecondaryIndexInfo_provisionedThroughput,
+    globalSecondaryIndexInfo_indexName,
 
     -- * GlobalSecondaryIndexUpdate
     GlobalSecondaryIndexUpdate (..),
     newGlobalSecondaryIndexUpdate,
     globalSecondaryIndexUpdate_create,
-    globalSecondaryIndexUpdate_update,
     globalSecondaryIndexUpdate_delete,
+    globalSecondaryIndexUpdate_update,
 
     -- * GlobalTable
     GlobalTable (..),
@@ -486,17 +486,17 @@ module Network.AWS.DynamoDB.Types
     -- * GlobalTableDescription
     GlobalTableDescription (..),
     newGlobalTableDescription,
-    globalTableDescription_globalTableName,
     globalTableDescription_globalTableStatus,
-    globalTableDescription_replicationGroup,
-    globalTableDescription_creationDateTime,
+    globalTableDescription_globalTableName,
     globalTableDescription_globalTableArn,
+    globalTableDescription_creationDateTime,
+    globalTableDescription_replicationGroup,
 
     -- * GlobalTableGlobalSecondaryIndexSettingsUpdate
     GlobalTableGlobalSecondaryIndexSettingsUpdate (..),
     newGlobalTableGlobalSecondaryIndexSettingsUpdate,
-    globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate,
     globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityUnits,
+    globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate,
     globalTableGlobalSecondaryIndexSettingsUpdate_indexName,
 
     -- * ItemCollectionMetrics
@@ -520,17 +520,17 @@ module Network.AWS.DynamoDB.Types
     KeysAndAttributes (..),
     newKeysAndAttributes,
     keysAndAttributes_projectionExpression,
+    keysAndAttributes_attributesToGet,
     keysAndAttributes_expressionAttributeNames,
     keysAndAttributes_consistentRead,
-    keysAndAttributes_attributesToGet,
     keysAndAttributes_keys,
 
     -- * KinesisDataStreamDestination
     KinesisDataStreamDestination (..),
     newKinesisDataStreamDestination,
-    kinesisDataStreamDestination_destinationStatusDescription,
-    kinesisDataStreamDestination_streamArn,
     kinesisDataStreamDestination_destinationStatus,
+    kinesisDataStreamDestination_streamArn,
+    kinesisDataStreamDestination_destinationStatusDescription,
 
     -- * KinesisStreamingDestinationInput
     KinesisStreamingDestinationInput (..),
@@ -541,9 +541,9 @@ module Network.AWS.DynamoDB.Types
     -- * KinesisStreamingDestinationOutput
     KinesisStreamingDestinationOutput (..),
     newKinesisStreamingDestinationOutput,
-    kinesisStreamingDestinationOutput_tableName,
-    kinesisStreamingDestinationOutput_streamArn,
     kinesisStreamingDestinationOutput_destinationStatus,
+    kinesisStreamingDestinationOutput_streamArn,
+    kinesisStreamingDestinationOutput_tableName,
 
     -- * LocalSecondaryIndex
     LocalSecondaryIndex (..),
@@ -555,19 +555,19 @@ module Network.AWS.DynamoDB.Types
     -- * LocalSecondaryIndexDescription
     LocalSecondaryIndexDescription (..),
     newLocalSecondaryIndexDescription,
-    localSecondaryIndexDescription_indexName,
-    localSecondaryIndexDescription_keySchema,
-    localSecondaryIndexDescription_indexArn,
-    localSecondaryIndexDescription_projection,
     localSecondaryIndexDescription_indexSizeBytes,
+    localSecondaryIndexDescription_indexArn,
+    localSecondaryIndexDescription_keySchema,
+    localSecondaryIndexDescription_projection,
     localSecondaryIndexDescription_itemCount,
+    localSecondaryIndexDescription_indexName,
 
     -- * LocalSecondaryIndexInfo
     LocalSecondaryIndexInfo (..),
     newLocalSecondaryIndexInfo,
-    localSecondaryIndexInfo_indexName,
     localSecondaryIndexInfo_keySchema,
     localSecondaryIndexInfo_projection,
+    localSecondaryIndexInfo_indexName,
 
     -- * ParameterizedStatement
     ParameterizedStatement (..),
@@ -578,9 +578,9 @@ module Network.AWS.DynamoDB.Types
     -- * PointInTimeRecoveryDescription
     PointInTimeRecoveryDescription (..),
     newPointInTimeRecoveryDescription,
-    pointInTimeRecoveryDescription_latestRestorableDateTime,
-    pointInTimeRecoveryDescription_earliestRestorableDateTime,
     pointInTimeRecoveryDescription_pointInTimeRecoveryStatus,
+    pointInTimeRecoveryDescription_earliestRestorableDateTime,
+    pointInTimeRecoveryDescription_latestRestorableDateTime,
 
     -- * PointInTimeRecoverySpecification
     PointInTimeRecoverySpecification (..),
@@ -590,8 +590,8 @@ module Network.AWS.DynamoDB.Types
     -- * Projection
     Projection (..),
     newProjection,
-    projection_nonKeyAttributes,
     projection_projectionType,
+    projection_nonKeyAttributes,
 
     -- * ProvisionedThroughput
     ProvisionedThroughput (..),
@@ -602,11 +602,11 @@ module Network.AWS.DynamoDB.Types
     -- * ProvisionedThroughputDescription
     ProvisionedThroughputDescription (..),
     newProvisionedThroughputDescription,
+    provisionedThroughputDescription_readCapacityUnits,
     provisionedThroughputDescription_lastDecreaseDateTime,
-    provisionedThroughputDescription_lastIncreaseDateTime,
     provisionedThroughputDescription_writeCapacityUnits,
     provisionedThroughputDescription_numberOfDecreasesToday,
-    provisionedThroughputDescription_readCapacityUnits,
+    provisionedThroughputDescription_lastIncreaseDateTime,
 
     -- * ProvisionedThroughputOverride
     ProvisionedThroughputOverride (..),
@@ -616,9 +616,9 @@ module Network.AWS.DynamoDB.Types
     -- * Put
     Put (..),
     newPut,
-    put_returnValuesOnConditionCheckFailure,
-    put_expressionAttributeValues,
     put_expressionAttributeNames,
+    put_expressionAttributeValues,
+    put_returnValuesOnConditionCheckFailure,
     put_conditionExpression,
     put_item,
     put_tableName,
@@ -636,11 +636,11 @@ module Network.AWS.DynamoDB.Types
     -- * ReplicaAutoScalingDescription
     ReplicaAutoScalingDescription (..),
     newReplicaAutoScalingDescription,
+    replicaAutoScalingDescription_replicaStatus,
     replicaAutoScalingDescription_regionName,
     replicaAutoScalingDescription_globalSecondaryIndexes,
-    replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
-    replicaAutoScalingDescription_replicaStatus,
+    replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
 
     -- * ReplicaAutoScalingUpdate
     ReplicaAutoScalingUpdate (..),
@@ -652,14 +652,14 @@ module Network.AWS.DynamoDB.Types
     -- * ReplicaDescription
     ReplicaDescription (..),
     newReplicaDescription,
-    replicaDescription_regionName,
-    replicaDescription_globalSecondaryIndexes,
-    replicaDescription_provisionedThroughputOverride,
-    replicaDescription_kmsMasterKeyId,
-    replicaDescription_replicaStatusDescription,
-    replicaDescription_replicaStatusPercentProgress,
     replicaDescription_replicaStatus,
+    replicaDescription_regionName,
+    replicaDescription_replicaStatusPercentProgress,
+    replicaDescription_replicaStatusDescription,
     replicaDescription_replicaInaccessibleDateTime,
+    replicaDescription_kmsMasterKeyId,
+    replicaDescription_provisionedThroughputOverride,
+    replicaDescription_globalSecondaryIndexes,
 
     -- * ReplicaGlobalSecondaryIndex
     ReplicaGlobalSecondaryIndex (..),
@@ -670,58 +670,58 @@ module Network.AWS.DynamoDB.Types
     -- * ReplicaGlobalSecondaryIndexAutoScalingDescription
     ReplicaGlobalSecondaryIndexAutoScalingDescription (..),
     newReplicaGlobalSecondaryIndexAutoScalingDescription,
-    replicaGlobalSecondaryIndexAutoScalingDescription_indexName,
-    replicaGlobalSecondaryIndexAutoScalingDescription_provisionedReadCapacityAutoScalingSettings,
-    replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoScalingSettings,
     replicaGlobalSecondaryIndexAutoScalingDescription_indexStatus,
+    replicaGlobalSecondaryIndexAutoScalingDescription_provisionedWriteCapacityAutoScalingSettings,
+    replicaGlobalSecondaryIndexAutoScalingDescription_provisionedReadCapacityAutoScalingSettings,
+    replicaGlobalSecondaryIndexAutoScalingDescription_indexName,
 
     -- * ReplicaGlobalSecondaryIndexAutoScalingUpdate
     ReplicaGlobalSecondaryIndexAutoScalingUpdate (..),
     newReplicaGlobalSecondaryIndexAutoScalingUpdate,
-    replicaGlobalSecondaryIndexAutoScalingUpdate_indexName,
     replicaGlobalSecondaryIndexAutoScalingUpdate_provisionedReadCapacityAutoScalingUpdate,
+    replicaGlobalSecondaryIndexAutoScalingUpdate_indexName,
 
     -- * ReplicaGlobalSecondaryIndexDescription
     ReplicaGlobalSecondaryIndexDescription (..),
     newReplicaGlobalSecondaryIndexDescription,
-    replicaGlobalSecondaryIndexDescription_indexName,
     replicaGlobalSecondaryIndexDescription_provisionedThroughputOverride,
+    replicaGlobalSecondaryIndexDescription_indexName,
 
     -- * ReplicaGlobalSecondaryIndexSettingsDescription
     ReplicaGlobalSecondaryIndexSettingsDescription (..),
     newReplicaGlobalSecondaryIndexSettingsDescription,
-    replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits,
-    replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits,
-    replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings,
-    replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings,
     replicaGlobalSecondaryIndexSettingsDescription_indexStatus,
+    replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityUnits,
+    replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityUnits,
+    replicaGlobalSecondaryIndexSettingsDescription_provisionedWriteCapacityAutoScalingSettings,
+    replicaGlobalSecondaryIndexSettingsDescription_provisionedReadCapacityAutoScalingSettings,
     replicaGlobalSecondaryIndexSettingsDescription_indexName,
 
     -- * ReplicaGlobalSecondaryIndexSettingsUpdate
     ReplicaGlobalSecondaryIndexSettingsUpdate (..),
     newReplicaGlobalSecondaryIndexSettingsUpdate,
-    replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits,
     replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityAutoScalingSettingsUpdate,
+    replicaGlobalSecondaryIndexSettingsUpdate_provisionedReadCapacityUnits,
     replicaGlobalSecondaryIndexSettingsUpdate_indexName,
 
     -- * ReplicaSettingsDescription
     ReplicaSettingsDescription (..),
     newReplicaSettingsDescription,
-    replicaSettingsDescription_replicaBillingModeSummary,
-    replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings,
-    replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
-    replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
     replicaSettingsDescription_replicaStatus,
-    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaProvisionedReadCapacityUnits,
+    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
+    replicaSettingsDescription_replicaBillingModeSummary,
+    replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
+    replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
+    replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaSettingsDescription_regionName,
 
     -- * ReplicaSettingsUpdate
     ReplicaSettingsUpdate (..),
     newReplicaSettingsUpdate,
-    replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate,
-    replicaSettingsUpdate_replicaProvisionedReadCapacityUnits,
     replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+    replicaSettingsUpdate_replicaProvisionedReadCapacityUnits,
+    replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate,
     replicaSettingsUpdate_regionName,
 
     -- * ReplicaUpdate
@@ -734,14 +734,14 @@ module Network.AWS.DynamoDB.Types
     ReplicationGroupUpdate (..),
     newReplicationGroupUpdate,
     replicationGroupUpdate_create,
-    replicationGroupUpdate_update,
     replicationGroupUpdate_delete,
+    replicationGroupUpdate_update,
 
     -- * RestoreSummary
     RestoreSummary (..),
     newRestoreSummary,
-    restoreSummary_sourceBackupArn,
     restoreSummary_sourceTableArn,
+    restoreSummary_sourceBackupArn,
     restoreSummary_restoreDateTime,
     restoreSummary_restoreInProgress,
 
@@ -749,23 +749,23 @@ module Network.AWS.DynamoDB.Types
     SSEDescription (..),
     newSSEDescription,
     sSEDescription_status,
-    sSEDescription_kmsMasterKeyArn,
     sSEDescription_inaccessibleEncryptionDateTime,
     sSEDescription_sSEType,
+    sSEDescription_kmsMasterKeyArn,
 
     -- * SSESpecification
     SSESpecification (..),
     newSSESpecification,
-    sSESpecification_kmsMasterKeyId,
     sSESpecification_enabled,
+    sSESpecification_kmsMasterKeyId,
     sSESpecification_sSEType,
 
     -- * SourceTableDetails
     SourceTableDetails (..),
     newSourceTableDetails,
+    sourceTableDetails_tableSizeBytes,
     sourceTableDetails_tableArn,
     sourceTableDetails_billingMode,
-    sourceTableDetails_tableSizeBytes,
     sourceTableDetails_itemCount,
     sourceTableDetails_tableName,
     sourceTableDetails_tableId,
@@ -776,11 +776,11 @@ module Network.AWS.DynamoDB.Types
     -- * SourceTableFeatureDetails
     SourceTableFeatureDetails (..),
     newSourceTableFeatureDetails,
-    sourceTableFeatureDetails_localSecondaryIndexes,
-    sourceTableFeatureDetails_globalSecondaryIndexes,
-    sourceTableFeatureDetails_timeToLiveDescription,
-    sourceTableFeatureDetails_sSEDescription,
     sourceTableFeatureDetails_streamDescription,
+    sourceTableFeatureDetails_globalSecondaryIndexes,
+    sourceTableFeatureDetails_localSecondaryIndexes,
+    sourceTableFeatureDetails_sSEDescription,
+    sourceTableFeatureDetails_timeToLiveDescription,
 
     -- * StreamSpecification
     StreamSpecification (..),
@@ -791,34 +791,34 @@ module Network.AWS.DynamoDB.Types
     -- * TableAutoScalingDescription
     TableAutoScalingDescription (..),
     newTableAutoScalingDescription,
-    tableAutoScalingDescription_tableName,
-    tableAutoScalingDescription_replicas,
     tableAutoScalingDescription_tableStatus,
+    tableAutoScalingDescription_replicas,
+    tableAutoScalingDescription_tableName,
 
     -- * TableDescription
     TableDescription (..),
     newTableDescription,
-    tableDescription_localSecondaryIndexes,
-    tableDescription_globalTableVersion,
     tableDescription_restoreSummary,
-    tableDescription_globalSecondaryIndexes,
-    tableDescription_tableName,
-    tableDescription_streamSpecification,
-    tableDescription_keySchema,
-    tableDescription_tableId,
-    tableDescription_tableArn,
+    tableDescription_globalTableVersion,
     tableDescription_tableSizeBytes,
     tableDescription_attributeDefinitions,
-    tableDescription_billingModeSummary,
-    tableDescription_latestStreamLabel,
-    tableDescription_archivalSummary,
-    tableDescription_itemCount,
-    tableDescription_replicas,
-    tableDescription_sSEDescription,
-    tableDescription_creationDateTime,
     tableDescription_latestStreamArn,
     tableDescription_provisionedThroughput,
     tableDescription_tableStatus,
+    tableDescription_tableArn,
+    tableDescription_keySchema,
+    tableDescription_globalSecondaryIndexes,
+    tableDescription_latestStreamLabel,
+    tableDescription_billingModeSummary,
+    tableDescription_localSecondaryIndexes,
+    tableDescription_creationDateTime,
+    tableDescription_sSEDescription,
+    tableDescription_tableId,
+    tableDescription_replicas,
+    tableDescription_itemCount,
+    tableDescription_archivalSummary,
+    tableDescription_tableName,
+    tableDescription_streamSpecification,
 
     -- * Tag
     Tag (..),
@@ -846,17 +846,17 @@ module Network.AWS.DynamoDB.Types
     -- * TransactWriteItem
     TransactWriteItem (..),
     newTransactWriteItem,
-    transactWriteItem_put,
     transactWriteItem_conditionCheck,
-    transactWriteItem_update,
+    transactWriteItem_put,
     transactWriteItem_delete,
+    transactWriteItem_update,
 
     -- * Update
     Update (..),
     newUpdate,
-    update_returnValuesOnConditionCheckFailure,
-    update_expressionAttributeValues,
     update_expressionAttributeNames,
+    update_expressionAttributeValues,
+    update_returnValuesOnConditionCheckFailure,
     update_conditionExpression,
     update_key,
     update_updateExpression,
@@ -871,9 +871,9 @@ module Network.AWS.DynamoDB.Types
     -- * UpdateReplicationGroupMemberAction
     UpdateReplicationGroupMemberAction (..),
     newUpdateReplicationGroupMemberAction,
-    updateReplicationGroupMemberAction_globalSecondaryIndexes,
-    updateReplicationGroupMemberAction_provisionedThroughputOverride,
     updateReplicationGroupMemberAction_kmsMasterKeyId,
+    updateReplicationGroupMemberAction_provisionedThroughputOverride,
+    updateReplicationGroupMemberAction_globalSecondaryIndexes,
     updateReplicationGroupMemberAction_regionName,
 
     -- * WriteRequest
@@ -1041,37 +1041,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -1085,11 +1062,34 @@ defaultService =
           e =
         Prelude.Just "throttling"
       | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
           ( Core.hasCode "TransactionInProgressException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "still_processing"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified @ExportTime@ is outside of the point in time recovery
@@ -1100,76 +1100,12 @@ _InvalidExportTimeException =
     defaultService
     "InvalidExportTimeException"
 
--- | A target table with the specified name already exists.
-_TableAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TableAlreadyExistsException =
+-- | Backup not found for the given BackupARN.
+_BackupNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BackupNotFoundException =
   Core._MatchServiceError
     defaultService
-    "TableAlreadyExistsException"
-
--- | The specified global table already exists.
-_GlobalTableAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlobalTableAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "GlobalTableAlreadyExistsException"
-
--- | A condition specified in the operation could not be evaluated.
-_ConditionalCheckFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConditionalCheckFailedException =
-  Core._MatchServiceError
-    defaultService
-    "ConditionalCheckFailedException"
-
--- | The specified global table does not exist.
-_GlobalTableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlobalTableNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "GlobalTableNotFoundException"
-
--- | The specified replica is already part of the global table.
-_ReplicaAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicaAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ReplicaAlreadyExistsException"
-
--- | The transaction with the given request token is already in progress.
-_TransactionInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransactionInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "TransactionInProgressException"
-
--- | An invalid restore time was specified. RestoreDateTime must be between
--- EarliestRestorableDateTime and LatestRestorableDateTime.
-_InvalidRestoreTimeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRestoreTimeException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRestoreTimeException"
-
--- | Point in time recovery has not yet been enabled for this source table.
-_PointInTimeRecoveryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PointInTimeRecoveryUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "PointInTimeRecoveryUnavailableException"
-
--- | The specified export was not found.
-_ExportNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExportNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ExportNotFoundException"
-
--- | Backups have not yet been enabled for this table.
-_ContinuousBackupsUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ContinuousBackupsUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ContinuousBackupsUnavailableException"
+    "BackupNotFoundException"
 
 -- | A target table with the specified name is either being created or
 -- deleted.
@@ -1179,31 +1115,6 @@ _TableInUseException =
     defaultService
     "TableInUseException"
 
--- | There was an attempt to insert an item with the same primary key as an
--- item that already exists in the DynamoDB table.
-_DuplicateItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateItemException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateItemException"
-
--- | Operation was rejected because there is an ongoing transaction for the
--- item.
-_TransactionConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TransactionConflictException =
-  Core._MatchServiceError
-    defaultService
-    "TransactionConflictException"
-
--- | There is another ongoing conflicting backup control plane operation on
--- the table. The backup is either being created, deleted or restored to a
--- table.
-_BackupInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BackupInUseException =
-  Core._MatchServiceError
-    defaultService
-    "BackupInUseException"
-
 -- | There was a conflict when writing to the specified S3 bucket.
 _ExportConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ExportConflictException =
@@ -1211,29 +1122,39 @@ _ExportConflictException =
     defaultService
     "ExportConflictException"
 
--- | An error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
+-- | Backups have not yet been enabled for this table.
+_ContinuousBackupsUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContinuousBackupsUnavailableException =
   Core._MatchServiceError
     defaultService
-    "InternalServerError"
+    "ContinuousBackupsUnavailableException"
 
--- | An item collection is too large. This exception is only returned for
--- tables that have one or more local secondary indexes.
-_ItemCollectionSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ItemCollectionSizeLimitExceededException =
+-- | Your request rate is too high. The AWS SDKs for DynamoDB automatically
+-- retry requests that receive this exception. Your request is eventually
+-- successful, unless your retry queue is too large to finish. Reduce the
+-- frequency of requests and use exponential backoff. For more information,
+-- go to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff Error Retries and Exponential Backoff>
+-- in the /Amazon DynamoDB Developer Guide/.
+_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
-    "ItemCollectionSizeLimitExceededException"
+    "ProvisionedThroughputExceededException"
 
--- | Throughput exceeds the current throughput quota for your account. Please
--- contact AWS Support at <https://aws.amazon.com/support AWS Support> to
--- request a quota increase.
-_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestLimitExceeded =
+-- | The specified global table does not exist.
+_GlobalTableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalTableNotFoundException =
   Core._MatchServiceError
     defaultService
-    "RequestLimitExceeded"
+    "GlobalTableNotFoundException"
+
+-- | The transaction with the given request token is already in progress.
+_TransactionInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "TransactionInProgressException"
 
 -- | The entire transaction request was canceled.
 --
@@ -1388,12 +1309,142 @@ _TransactionCanceledException =
     defaultService
     "TransactionCanceledException"
 
+-- | A condition specified in the operation could not be evaluated.
+_ConditionalCheckFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConditionalCheckFailedException =
+  Core._MatchServiceError
+    defaultService
+    "ConditionalCheckFailedException"
+
+-- | The specified global table already exists.
+_GlobalTableAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalTableAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "GlobalTableAlreadyExistsException"
+
 -- | The specified replica is no longer part of the global table.
 _ReplicaNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReplicaNotFoundException =
   Core._MatchServiceError
     defaultService
     "ReplicaNotFoundException"
+
+-- | A target table with the specified name already exists.
+_TableAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TableAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "TableAlreadyExistsException"
+
+-- | Throughput exceeds the current throughput quota for your account. Please
+-- contact AWS Support at <https://aws.amazon.com/support AWS Support> to
+-- request a quota increase.
+_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "RequestLimitExceeded"
+
+-- | An item collection is too large. This exception is only returned for
+-- tables that have one or more local secondary indexes.
+_ItemCollectionSizeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ItemCollectionSizeLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ItemCollectionSizeLimitExceededException"
+
+-- | An error occurred on the server side.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
+
+-- | A source table with the name @TableName@ does not currently exist within
+-- the subscriber\'s account.
+_TableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TableNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "TableNotFoundException"
+
+-- | The operation tried to access a nonexistent index.
+_IndexNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IndexNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "IndexNotFoundException"
+
+-- | Operation was rejected because there is an ongoing transaction for the
+-- item.
+_TransactionConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TransactionConflictException =
+  Core._MatchServiceError
+    defaultService
+    "TransactionConflictException"
+
+-- | There is another ongoing conflicting backup control plane operation on
+-- the table. The backup is either being created, deleted or restored to a
+-- table.
+_BackupInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BackupInUseException =
+  Core._MatchServiceError
+    defaultService
+    "BackupInUseException"
+
+-- | There was an attempt to insert an item with the same primary key as an
+-- item that already exists in the DynamoDB table.
+_DuplicateItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateItemException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateItemException"
+
+-- | The specified export was not found.
+_ExportNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExportNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ExportNotFoundException"
+
+-- | Point in time recovery has not yet been enabled for this source table.
+_PointInTimeRecoveryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PointInTimeRecoveryUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "PointInTimeRecoveryUnavailableException"
+
+-- | DynamoDB rejected the request because you retried a request with a
+-- different payload but with an idempotent token that was already used.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"
+
+-- | An invalid restore time was specified. RestoreDateTime must be between
+-- EarliestRestorableDateTime and LatestRestorableDateTime.
+_InvalidRestoreTimeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRestoreTimeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRestoreTimeException"
+
+-- | The operation tried to access a nonexistent table or index. The resource
+-- might not be specified correctly, or its status might not be @ACTIVE@.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
+-- | The specified replica is already part of the global table.
+_ReplicaAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicaAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ReplicaAlreadyExistsException"
 
 -- | There is no limit to the number of daily on-demand backups that can be
 -- taken.
@@ -1423,54 +1474,3 @@ _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
-
--- | The operation tried to access a nonexistent table or index. The resource
--- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-
--- | Your request rate is too high. The AWS SDKs for DynamoDB automatically
--- retry requests that receive this exception. Your request is eventually
--- successful, unless your retry queue is too large to finish. Reduce the
--- frequency of requests and use exponential backoff. For more information,
--- go to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff Error Retries and Exponential Backoff>
--- in the /Amazon DynamoDB Developer Guide/.
-_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ProvisionedThroughputExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ProvisionedThroughputExceededException"
-
--- | DynamoDB rejected the request because you retried a request with a
--- different payload but with an idempotent token that was already used.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "IdempotentParameterMismatchException"
-
--- | Backup not found for the given BackupARN.
-_BackupNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BackupNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "BackupNotFoundException"
-
--- | A source table with the name @TableName@ does not currently exist within
--- the subscriber\'s account.
-_TableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TableNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "TableNotFoundException"
-
--- | The operation tried to access a nonexistent index.
-_IndexNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IndexNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "IndexNotFoundException"

@@ -48,8 +48,8 @@ module Network.AWS.GameLift.ListScripts
     newListScriptsResponse,
 
     -- * Response Lenses
-    listScriptsResponse_nextToken,
     listScriptsResponse_scripts,
+    listScriptsResponse_nextToken,
     listScriptsResponse_httpStatus,
   )
 where
@@ -132,8 +132,8 @@ instance Core.AWSRequest ListScripts where
     Response.receiveJSON
       ( \s h x ->
           ListScriptsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Scripts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Scripts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,12 +171,12 @@ instance Core.ToQuery ListScripts where
 
 -- | /See:/ 'newListScriptsResponse' smart constructor.
 data ListScriptsResponse = ListScriptsResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A set of properties describing the requested script.
+    scripts :: Prelude.Maybe [Script],
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A set of properties describing the requested script.
-    scripts :: Prelude.Maybe [Script],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -190,11 +190,11 @@ data ListScriptsResponse = ListScriptsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'scripts', 'listScriptsResponse_scripts' - A set of properties describing the requested script.
+--
 -- 'nextToken', 'listScriptsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'scripts', 'listScriptsResponse_scripts' - A set of properties describing the requested script.
 --
 -- 'httpStatus', 'listScriptsResponse_httpStatus' - The response's http status code.
 newListScriptsResponse ::
@@ -203,20 +203,20 @@ newListScriptsResponse ::
   ListScriptsResponse
 newListScriptsResponse pHttpStatus_ =
   ListScriptsResponse'
-    { nextToken = Prelude.Nothing,
-      scripts = Prelude.Nothing,
+    { scripts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A set of properties describing the requested script.
+listScriptsResponse_scripts :: Lens.Lens' ListScriptsResponse (Prelude.Maybe [Script])
+listScriptsResponse_scripts = Lens.lens (\ListScriptsResponse' {scripts} -> scripts) (\s@ListScriptsResponse' {} a -> s {scripts = a} :: ListScriptsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
 listScriptsResponse_nextToken :: Lens.Lens' ListScriptsResponse (Prelude.Maybe Prelude.Text)
 listScriptsResponse_nextToken = Lens.lens (\ListScriptsResponse' {nextToken} -> nextToken) (\s@ListScriptsResponse' {} a -> s {nextToken = a} :: ListScriptsResponse)
-
--- | A set of properties describing the requested script.
-listScriptsResponse_scripts :: Lens.Lens' ListScriptsResponse (Prelude.Maybe [Script])
-listScriptsResponse_scripts = Lens.lens (\ListScriptsResponse' {scripts} -> scripts) (\s@ListScriptsResponse' {} a -> s {scripts = a} :: ListScriptsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listScriptsResponse_httpStatus :: Lens.Lens' ListScriptsResponse Prelude.Int

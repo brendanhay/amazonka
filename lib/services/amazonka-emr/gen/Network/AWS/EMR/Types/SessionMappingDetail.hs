@@ -31,12 +31,8 @@ import qualified Network.AWS.Prelude as Prelude
 data SessionMappingDetail = SessionMappingDetail'
   { -- | The time the session mapping was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the user or group. For more information, see
-    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
-    -- and
-    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /Amazon Web Services SSO Identity Store API Reference/.
-    identityName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Amazon EMR Studio.
+    studioId :: Prelude.Maybe Prelude.Text,
     -- | The time the session mapping was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
@@ -47,8 +43,12 @@ data SessionMappingDetail = SessionMappingDetail'
     -- | The Amazon Resource Name (ARN) of the session policy associated with the
     -- user or group.
     sessionPolicyArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon EMR Studio.
-    studioId :: Prelude.Maybe Prelude.Text
+    -- | The name of the user or group. For more information, see
+    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
+    -- and
+    -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
+    -- in the /Amazon Web Services SSO Identity Store API Reference/.
+    identityName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,11 +62,7 @@ data SessionMappingDetail = SessionMappingDetail'
 --
 -- 'creationTime', 'sessionMappingDetail_creationTime' - The time the session mapping was created.
 --
--- 'identityName', 'sessionMappingDetail_identityName' - The name of the user or group. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
--- and
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/.
+-- 'studioId', 'sessionMappingDetail_studioId' - The ID of the Amazon EMR Studio.
 --
 -- 'lastModifiedTime', 'sessionMappingDetail_lastModifiedTime' - The time the session mapping was last modified.
 --
@@ -78,32 +74,32 @@ data SessionMappingDetail = SessionMappingDetail'
 -- 'sessionPolicyArn', 'sessionMappingDetail_sessionPolicyArn' - The Amazon Resource Name (ARN) of the session policy associated with the
 -- user or group.
 --
--- 'studioId', 'sessionMappingDetail_studioId' - The ID of the Amazon EMR Studio.
+-- 'identityName', 'sessionMappingDetail_identityName' - The name of the user or group. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
+-- and
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
+-- in the /Amazon Web Services SSO Identity Store API Reference/.
 newSessionMappingDetail ::
   SessionMappingDetail
 newSessionMappingDetail =
   SessionMappingDetail'
     { creationTime =
         Prelude.Nothing,
-      identityName = Prelude.Nothing,
+      studioId = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       identityType = Prelude.Nothing,
       identityId = Prelude.Nothing,
       sessionPolicyArn = Prelude.Nothing,
-      studioId = Prelude.Nothing
+      identityName = Prelude.Nothing
     }
 
 -- | The time the session mapping was created.
 sessionMappingDetail_creationTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
 sessionMappingDetail_creationTime = Lens.lens (\SessionMappingDetail' {creationTime} -> creationTime) (\s@SessionMappingDetail' {} a -> s {creationTime = a} :: SessionMappingDetail) Prelude.. Lens.mapping Core._Time
 
--- | The name of the user or group. For more information, see
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
--- and
--- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /Amazon Web Services SSO Identity Store API Reference/.
-sessionMappingDetail_identityName :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
-sessionMappingDetail_identityName = Lens.lens (\SessionMappingDetail' {identityName} -> identityName) (\s@SessionMappingDetail' {} a -> s {identityName = a} :: SessionMappingDetail)
+-- | The ID of the Amazon EMR Studio.
+sessionMappingDetail_studioId :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
+sessionMappingDetail_studioId = Lens.lens (\SessionMappingDetail' {studioId} -> studioId) (\s@SessionMappingDetail' {} a -> s {studioId = a} :: SessionMappingDetail)
 
 -- | The time the session mapping was last modified.
 sessionMappingDetail_lastModifiedTime :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.UTCTime)
@@ -123,9 +119,13 @@ sessionMappingDetail_identityId = Lens.lens (\SessionMappingDetail' {identityId}
 sessionMappingDetail_sessionPolicyArn :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
 sessionMappingDetail_sessionPolicyArn = Lens.lens (\SessionMappingDetail' {sessionPolicyArn} -> sessionPolicyArn) (\s@SessionMappingDetail' {} a -> s {sessionPolicyArn = a} :: SessionMappingDetail)
 
--- | The ID of the Amazon EMR Studio.
-sessionMappingDetail_studioId :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
-sessionMappingDetail_studioId = Lens.lens (\SessionMappingDetail' {studioId} -> studioId) (\s@SessionMappingDetail' {} a -> s {studioId = a} :: SessionMappingDetail)
+-- | The name of the user or group. For more information, see
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
+-- and
+-- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
+-- in the /Amazon Web Services SSO Identity Store API Reference/.
+sessionMappingDetail_identityName :: Lens.Lens' SessionMappingDetail (Prelude.Maybe Prelude.Text)
+sessionMappingDetail_identityName = Lens.lens (\SessionMappingDetail' {identityName} -> identityName) (\s@SessionMappingDetail' {} a -> s {identityName = a} :: SessionMappingDetail)
 
 instance Core.FromJSON SessionMappingDetail where
   parseJSON =
@@ -134,12 +134,12 @@ instance Core.FromJSON SessionMappingDetail where
       ( \x ->
           SessionMappingDetail'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "IdentityName")
+            Prelude.<*> (x Core..:? "StudioId")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "IdentityType")
             Prelude.<*> (x Core..:? "IdentityId")
             Prelude.<*> (x Core..:? "SessionPolicyArn")
-            Prelude.<*> (x Core..:? "StudioId")
+            Prelude.<*> (x Core..:? "IdentityName")
       )
 
 instance Prelude.Hashable SessionMappingDetail

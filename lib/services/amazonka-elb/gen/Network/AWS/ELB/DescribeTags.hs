@@ -71,12 +71,12 @@ newDescribeTags ::
 newDescribeTags pLoadBalancerNames_ =
   DescribeTags'
     { loadBalancerNames =
-        Lens._Coerce Lens.# pLoadBalancerNames_
+        Lens.coerced Lens.# pLoadBalancerNames_
     }
 
 -- | The names of the load balancers.
 describeTags_loadBalancerNames :: Lens.Lens' DescribeTags (Prelude.NonEmpty Prelude.Text)
-describeTags_loadBalancerNames = Lens.lens (\DescribeTags' {loadBalancerNames} -> loadBalancerNames) (\s@DescribeTags' {} a -> s {loadBalancerNames = a} :: DescribeTags) Prelude.. Lens._Coerce
+describeTags_loadBalancerNames = Lens.lens (\DescribeTags' {loadBalancerNames} -> loadBalancerNames) (\s@DescribeTags' {} a -> s {loadBalancerNames = a} :: DescribeTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -148,7 +148,7 @@ newDescribeTagsResponse pHttpStatus_ =
 
 -- | Information about the tags.
 describeTagsResponse_tagDescriptions :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TagDescription])
-describeTagsResponse_tagDescriptions = Lens.lens (\DescribeTagsResponse' {tagDescriptions} -> tagDescriptions) (\s@DescribeTagsResponse' {} a -> s {tagDescriptions = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_tagDescriptions = Lens.lens (\DescribeTagsResponse' {tagDescriptions} -> tagDescriptions) (\s@DescribeTagsResponse' {} a -> s {tagDescriptions = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

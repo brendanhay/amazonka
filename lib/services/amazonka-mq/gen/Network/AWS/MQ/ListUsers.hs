@@ -36,10 +36,10 @@ module Network.AWS.MQ.ListUsers
     newListUsersResponse,
 
     -- * Response Lenses
-    listUsersResponse_nextToken,
-    listUsersResponse_maxResults,
-    listUsersResponse_brokerId,
     listUsersResponse_users,
+    listUsersResponse_nextToken,
+    listUsersResponse_brokerId,
+    listUsersResponse_maxResults,
     listUsersResponse_httpStatus,
   )
 where
@@ -111,10 +111,10 @@ instance Core.AWSRequest ListUsers where
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "maxResults")
+            Prelude.<$> (x Core..?> "users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "brokerId")
-            Prelude.<*> (x Core..?> "users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -147,17 +147,17 @@ instance Core.ToQuery ListUsers where
 
 -- | /See:/ 'newListUsersResponse' smart constructor.
 data ListUsersResponse = ListUsersResponse'
-  { -- | The token that specifies the next page of results Amazon MQ should
+  { -- | Required. The list of all ActiveMQ usernames for the specified broker.
+    -- Does not apply to RabbitMQ brokers.
+    users :: Prelude.Maybe [UserSummary],
+    -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Required. The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Prelude.Maybe Prelude.Text,
     -- | Required. The maximum number of ActiveMQ users that can be returned per
     -- page (20 by default). This value must be an integer from 5 to 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Required. The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Maybe Prelude.Text,
-    -- | Required. The list of all ActiveMQ usernames for the specified broker.
-    -- Does not apply to RabbitMQ brokers.
-    users :: Prelude.Maybe [UserSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,16 +171,16 @@ data ListUsersResponse = ListUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'users', 'listUsersResponse_users' - Required. The list of all ActiveMQ usernames for the specified broker.
+-- Does not apply to RabbitMQ brokers.
+--
 -- 'nextToken', 'listUsersResponse_nextToken' - The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 --
--- 'maxResults', 'listUsersResponse_maxResults' - Required. The maximum number of ActiveMQ users that can be returned per
--- page (20 by default). This value must be an integer from 5 to 100.
---
 -- 'brokerId', 'listUsersResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
 --
--- 'users', 'listUsersResponse_users' - Required. The list of all ActiveMQ usernames for the specified broker.
--- Does not apply to RabbitMQ brokers.
+-- 'maxResults', 'listUsersResponse_maxResults' - Required. The maximum number of ActiveMQ users that can be returned per
+-- page (20 by default). This value must be an integer from 5 to 100.
 --
 -- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.
 newListUsersResponse ::
@@ -189,31 +189,31 @@ newListUsersResponse ::
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { users = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       brokerId = Prelude.Nothing,
-      users = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Required. The list of all ActiveMQ usernames for the specified broker.
+-- Does not apply to RabbitMQ brokers.
+listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserSummary])
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 listUsersResponse_nextToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
 listUsersResponse_nextToken = Lens.lens (\ListUsersResponse' {nextToken} -> nextToken) (\s@ListUsersResponse' {} a -> s {nextToken = a} :: ListUsersResponse)
 
--- | Required. The maximum number of ActiveMQ users that can be returned per
--- page (20 by default). This value must be an integer from 5 to 100.
-listUsersResponse_maxResults :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Natural)
-listUsersResponse_maxResults = Lens.lens (\ListUsersResponse' {maxResults} -> maxResults) (\s@ListUsersResponse' {} a -> s {maxResults = a} :: ListUsersResponse)
-
 -- | Required. The unique ID that Amazon MQ generates for the broker.
 listUsersResponse_brokerId :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
 listUsersResponse_brokerId = Lens.lens (\ListUsersResponse' {brokerId} -> brokerId) (\s@ListUsersResponse' {} a -> s {brokerId = a} :: ListUsersResponse)
 
--- | Required. The list of all ActiveMQ usernames for the specified broker.
--- Does not apply to RabbitMQ brokers.
-listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserSummary])
-listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | Required. The maximum number of ActiveMQ users that can be returned per
+-- page (20 by default). This value must be an integer from 5 to 100.
+listUsersResponse_maxResults :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Natural)
+listUsersResponse_maxResults = Lens.lens (\ListUsersResponse' {maxResults} -> maxResults) (\s@ListUsersResponse' {} a -> s {maxResults = a} :: ListUsersResponse)
 
 -- | The response's http status code.
 listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int

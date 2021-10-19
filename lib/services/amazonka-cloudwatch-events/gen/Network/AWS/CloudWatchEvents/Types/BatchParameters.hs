@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchParameters' smart constructor.
 data BatchParameters = BatchParameters'
-  { -- | The array properties for the submitted job, such as the size of the
-    -- array. The array size can be between 2 and 10,000. If you specify array
-    -- properties for a job, it becomes an array job. This parameter is used
-    -- only if the target is an Batch job.
-    arrayProperties :: Prelude.Maybe BatchArrayProperties,
-    -- | The retry strategy to use for failed jobs, if the target is an Batch
+  { -- | The retry strategy to use for failed jobs, if the target is an Batch
     -- job. The retry strategy is the number of times to retry the failed job
     -- execution. Valid values are 1–10. When you specify a retry strategy
     -- here, it overrides the retry strategy defined in the job definition.
     retryStrategy :: Prelude.Maybe BatchRetryStrategy,
+    -- | The array properties for the submitted job, such as the size of the
+    -- array. The array size can be between 2 and 10,000. If you specify array
+    -- properties for a job, it becomes an array job. This parameter is used
+    -- only if the target is an Batch job.
+    arrayProperties :: Prelude.Maybe BatchArrayProperties,
     -- | The ARN or name of the job definition to use if the event target is an
     -- Batch job. This job definition must already exist.
     jobDefinition :: Prelude.Text,
@@ -56,15 +56,15 @@ data BatchParameters = BatchParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arrayProperties', 'batchParameters_arrayProperties' - The array properties for the submitted job, such as the size of the
--- array. The array size can be between 2 and 10,000. If you specify array
--- properties for a job, it becomes an array job. This parameter is used
--- only if the target is an Batch job.
---
 -- 'retryStrategy', 'batchParameters_retryStrategy' - The retry strategy to use for failed jobs, if the target is an Batch
 -- job. The retry strategy is the number of times to retry the failed job
 -- execution. Valid values are 1–10. When you specify a retry strategy
 -- here, it overrides the retry strategy defined in the job definition.
+--
+-- 'arrayProperties', 'batchParameters_arrayProperties' - The array properties for the submitted job, such as the size of the
+-- array. The array size can be between 2 and 10,000. If you specify array
+-- properties for a job, it becomes an array job. This parameter is used
+-- only if the target is an Batch job.
 --
 -- 'jobDefinition', 'batchParameters_jobDefinition' - The ARN or name of the job definition to use if the event target is an
 -- Batch job. This job definition must already exist.
@@ -79,18 +79,11 @@ newBatchParameters ::
   BatchParameters
 newBatchParameters pJobDefinition_ pJobName_ =
   BatchParameters'
-    { arrayProperties = Prelude.Nothing,
-      retryStrategy = Prelude.Nothing,
+    { retryStrategy = Prelude.Nothing,
+      arrayProperties = Prelude.Nothing,
       jobDefinition = pJobDefinition_,
       jobName = pJobName_
     }
-
--- | The array properties for the submitted job, such as the size of the
--- array. The array size can be between 2 and 10,000. If you specify array
--- properties for a job, it becomes an array job. This parameter is used
--- only if the target is an Batch job.
-batchParameters_arrayProperties :: Lens.Lens' BatchParameters (Prelude.Maybe BatchArrayProperties)
-batchParameters_arrayProperties = Lens.lens (\BatchParameters' {arrayProperties} -> arrayProperties) (\s@BatchParameters' {} a -> s {arrayProperties = a} :: BatchParameters)
 
 -- | The retry strategy to use for failed jobs, if the target is an Batch
 -- job. The retry strategy is the number of times to retry the failed job
@@ -98,6 +91,13 @@ batchParameters_arrayProperties = Lens.lens (\BatchParameters' {arrayProperties}
 -- here, it overrides the retry strategy defined in the job definition.
 batchParameters_retryStrategy :: Lens.Lens' BatchParameters (Prelude.Maybe BatchRetryStrategy)
 batchParameters_retryStrategy = Lens.lens (\BatchParameters' {retryStrategy} -> retryStrategy) (\s@BatchParameters' {} a -> s {retryStrategy = a} :: BatchParameters)
+
+-- | The array properties for the submitted job, such as the size of the
+-- array. The array size can be between 2 and 10,000. If you specify array
+-- properties for a job, it becomes an array job. This parameter is used
+-- only if the target is an Batch job.
+batchParameters_arrayProperties :: Lens.Lens' BatchParameters (Prelude.Maybe BatchArrayProperties)
+batchParameters_arrayProperties = Lens.lens (\BatchParameters' {arrayProperties} -> arrayProperties) (\s@BatchParameters' {} a -> s {arrayProperties = a} :: BatchParameters)
 
 -- | The ARN or name of the job definition to use if the event target is an
 -- Batch job. This job definition must already exist.
@@ -115,8 +115,8 @@ instance Core.FromJSON BatchParameters where
       "BatchParameters"
       ( \x ->
           BatchParameters'
-            Prelude.<$> (x Core..:? "ArrayProperties")
-            Prelude.<*> (x Core..:? "RetryStrategy")
+            Prelude.<$> (x Core..:? "RetryStrategy")
+            Prelude.<*> (x Core..:? "ArrayProperties")
             Prelude.<*> (x Core..: "JobDefinition")
             Prelude.<*> (x Core..: "JobName")
       )
@@ -129,9 +129,9 @@ instance Core.ToJSON BatchParameters where
   toJSON BatchParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ArrayProperties" Core..=)
+          [ ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
+            ("ArrayProperties" Core..=)
               Prelude.<$> arrayProperties,
-            ("RetryStrategy" Core..=) Prelude.<$> retryStrategy,
             Prelude.Just ("JobDefinition" Core..= jobDefinition),
             Prelude.Just ("JobName" Core..= jobName)
           ]

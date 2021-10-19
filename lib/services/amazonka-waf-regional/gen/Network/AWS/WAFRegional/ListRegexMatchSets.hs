@@ -44,8 +44,8 @@ module Network.AWS.WAFRegional.ListRegexMatchSets
     newListRegexMatchSetsResponse,
 
     -- * Response Lenses
-    listRegexMatchSetsResponse_nextMarker,
     listRegexMatchSetsResponse_regexMatchSets,
+    listRegexMatchSetsResponse_nextMarker,
     listRegexMatchSetsResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest ListRegexMatchSets where
     Response.receiveJSON
       ( \s h x ->
           ListRegexMatchSetsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "RegexMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "RegexMatchSets" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,14 +167,14 @@ instance Core.ToQuery ListRegexMatchSets where
 
 -- | /See:/ 'newListRegexMatchSetsResponse' smart constructor.
 data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
-  { -- | If you have more @RegexMatchSet@ objects than the number that you
+  { -- | An array of RegexMatchSetSummary objects.
+    regexMatchSets :: Prelude.Maybe [RegexMatchSetSummary],
+    -- | If you have more @RegexMatchSet@ objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another
     -- @ListRegexMatchSets@ request, and specify the @NextMarker@ value from
     -- the response in the @NextMarker@ value in the next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | An array of RegexMatchSetSummary objects.
-    regexMatchSets :: Prelude.Maybe [RegexMatchSetSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,13 +188,13 @@ data ListRegexMatchSetsResponse = ListRegexMatchSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'regexMatchSets', 'listRegexMatchSetsResponse_regexMatchSets' - An array of RegexMatchSetSummary objects.
+--
 -- 'nextMarker', 'listRegexMatchSetsResponse_nextMarker' - If you have more @RegexMatchSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @RegexMatchSet@ objects, submit another
 -- @ListRegexMatchSets@ request, and specify the @NextMarker@ value from
 -- the response in the @NextMarker@ value in the next request.
---
--- 'regexMatchSets', 'listRegexMatchSetsResponse_regexMatchSets' - An array of RegexMatchSetSummary objects.
 --
 -- 'httpStatus', 'listRegexMatchSetsResponse_httpStatus' - The response's http status code.
 newListRegexMatchSetsResponse ::
@@ -203,11 +203,15 @@ newListRegexMatchSetsResponse ::
   ListRegexMatchSetsResponse
 newListRegexMatchSetsResponse pHttpStatus_ =
   ListRegexMatchSetsResponse'
-    { nextMarker =
+    { regexMatchSets =
         Prelude.Nothing,
-      regexMatchSets = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of RegexMatchSetSummary objects.
+listRegexMatchSetsResponse_regexMatchSets :: Lens.Lens' ListRegexMatchSetsResponse (Prelude.Maybe [RegexMatchSetSummary])
+listRegexMatchSetsResponse_regexMatchSets = Lens.lens (\ListRegexMatchSetsResponse' {regexMatchSets} -> regexMatchSets) (\s@ListRegexMatchSetsResponse' {} a -> s {regexMatchSets = a} :: ListRegexMatchSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @RegexMatchSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
@@ -216,10 +220,6 @@ newListRegexMatchSetsResponse pHttpStatus_ =
 -- the response in the @NextMarker@ value in the next request.
 listRegexMatchSetsResponse_nextMarker :: Lens.Lens' ListRegexMatchSetsResponse (Prelude.Maybe Prelude.Text)
 listRegexMatchSetsResponse_nextMarker = Lens.lens (\ListRegexMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListRegexMatchSetsResponse' {} a -> s {nextMarker = a} :: ListRegexMatchSetsResponse)
-
--- | An array of RegexMatchSetSummary objects.
-listRegexMatchSetsResponse_regexMatchSets :: Lens.Lens' ListRegexMatchSetsResponse (Prelude.Maybe [RegexMatchSetSummary])
-listRegexMatchSetsResponse_regexMatchSets = Lens.lens (\ListRegexMatchSetsResponse' {regexMatchSets} -> regexMatchSets) (\s@ListRegexMatchSetsResponse' {} a -> s {regexMatchSets = a} :: ListRegexMatchSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRegexMatchSetsResponse_httpStatus :: Lens.Lens' ListRegexMatchSetsResponse Prelude.Int

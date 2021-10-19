@@ -229,7 +229,7 @@ adminListUserAuthEventsResponse_nextToken = Lens.lens (\AdminListUserAuthEventsR
 -- | The response object. It includes the @EventID@, @EventType@,
 -- @CreationDate@, @EventRisk@, and @EventResponse@.
 adminListUserAuthEventsResponse_authEvents :: Lens.Lens' AdminListUserAuthEventsResponse (Prelude.Maybe [AuthEventType])
-adminListUserAuthEventsResponse_authEvents = Lens.lens (\AdminListUserAuthEventsResponse' {authEvents} -> authEvents) (\s@AdminListUserAuthEventsResponse' {} a -> s {authEvents = a} :: AdminListUserAuthEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+adminListUserAuthEventsResponse_authEvents = Lens.lens (\AdminListUserAuthEventsResponse' {authEvents} -> authEvents) (\s@AdminListUserAuthEventsResponse' {} a -> s {authEvents = a} :: AdminListUserAuthEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 adminListUserAuthEventsResponse_httpStatus :: Lens.Lens' AdminListUserAuthEventsResponse Prelude.Int

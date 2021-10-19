@@ -36,11 +36,11 @@ module Network.AWS.APIGateway.GetGatewayResponse
     newGatewayResponse,
 
     -- * Response Lenses
-    gatewayResponse_responseTemplates,
-    gatewayResponse_responseParameters,
-    gatewayResponse_statusCode,
-    gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
+    gatewayResponse_responseTemplates,
+    gatewayResponse_responseType,
+    gatewayResponse_statusCode,
+    gatewayResponse_responseParameters,
   )
 where
 

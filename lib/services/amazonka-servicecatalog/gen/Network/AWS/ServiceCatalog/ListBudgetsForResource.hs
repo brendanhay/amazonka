@@ -27,9 +27,9 @@ module Network.AWS.ServiceCatalog.ListBudgetsForResource
     newListBudgetsForResource,
 
     -- * Request Lenses
-    listBudgetsForResource_pageSize,
-    listBudgetsForResource_pageToken,
     listBudgetsForResource_acceptLanguage,
+    listBudgetsForResource_pageToken,
+    listBudgetsForResource_pageSize,
     listBudgetsForResource_resourceId,
 
     -- * Destructuring the Response
@@ -52,12 +52,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newListBudgetsForResource' smart constructor.
 data ListBudgetsForResource = ListBudgetsForResource'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -65,6 +60,11 @@ data ListBudgetsForResource = ListBudgetsForResource'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The resource identifier.
     resourceId :: Prelude.Text
   }
@@ -78,11 +78,6 @@ data ListBudgetsForResource = ListBudgetsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listBudgetsForResource_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listBudgetsForResource_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'listBudgetsForResource_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -91,6 +86,11 @@ data ListBudgetsForResource = ListBudgetsForResource'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageToken', 'listBudgetsForResource_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listBudgetsForResource_pageSize' - The maximum number of items to return with this call.
+--
 -- 'resourceId', 'listBudgetsForResource_resourceId' - The resource identifier.
 newListBudgetsForResource ::
   -- | 'resourceId'
@@ -98,20 +98,12 @@ newListBudgetsForResource ::
   ListBudgetsForResource
 newListBudgetsForResource pResourceId_ =
   ListBudgetsForResource'
-    { pageSize = Prelude.Nothing,
+    { acceptLanguage =
+        Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       resourceId = pResourceId_
     }
-
--- | The maximum number of items to return with this call.
-listBudgetsForResource_pageSize :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Natural)
-listBudgetsForResource_pageSize = Lens.lens (\ListBudgetsForResource' {pageSize} -> pageSize) (\s@ListBudgetsForResource' {} a -> s {pageSize = a} :: ListBudgetsForResource)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listBudgetsForResource_pageToken :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
-listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToken} -> pageToken) (\s@ListBudgetsForResource' {} a -> s {pageToken = a} :: ListBudgetsForResource)
 
 -- | The language code.
 --
@@ -122,6 +114,15 @@ listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToke
 -- -   @zh@ - Chinese
 listBudgetsForResource_acceptLanguage :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
 listBudgetsForResource_acceptLanguage = Lens.lens (\ListBudgetsForResource' {acceptLanguage} -> acceptLanguage) (\s@ListBudgetsForResource' {} a -> s {acceptLanguage = a} :: ListBudgetsForResource)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listBudgetsForResource_pageToken :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
+listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToken} -> pageToken) (\s@ListBudgetsForResource' {} a -> s {pageToken = a} :: ListBudgetsForResource)
+
+-- | The maximum number of items to return with this call.
+listBudgetsForResource_pageSize :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Natural)
+listBudgetsForResource_pageSize = Lens.lens (\ListBudgetsForResource' {pageSize} -> pageSize) (\s@ListBudgetsForResource' {} a -> s {pageSize = a} :: ListBudgetsForResource)
 
 -- | The resource identifier.
 listBudgetsForResource_resourceId :: Lens.Lens' ListBudgetsForResource Prelude.Text
@@ -164,10 +165,10 @@ instance Core.ToJSON ListBudgetsForResource where
   toJSON ListBudgetsForResource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
             Prelude.Just ("ResourceId" Core..= resourceId)
           ]
       )
@@ -223,7 +224,7 @@ listBudgetsForResourceResponse_nextPageToken = Lens.lens (\ListBudgetsForResourc
 
 -- | Information about the associated budgets.
 listBudgetsForResourceResponse_budgets :: Lens.Lens' ListBudgetsForResourceResponse (Prelude.Maybe [BudgetDetail])
-listBudgetsForResourceResponse_budgets = Lens.lens (\ListBudgetsForResourceResponse' {budgets} -> budgets) (\s@ListBudgetsForResourceResponse' {} a -> s {budgets = a} :: ListBudgetsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+listBudgetsForResourceResponse_budgets = Lens.lens (\ListBudgetsForResourceResponse' {budgets} -> budgets) (\s@ListBudgetsForResourceResponse' {} a -> s {budgets = a} :: ListBudgetsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBudgetsForResourceResponse_httpStatus :: Lens.Lens' ListBudgetsForResourceResponse Prelude.Int

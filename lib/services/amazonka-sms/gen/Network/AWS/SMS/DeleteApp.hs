@@ -29,9 +29,9 @@ module Network.AWS.SMS.DeleteApp
     newDeleteApp,
 
     -- * Request Lenses
+    deleteApp_forceTerminateApp,
     deleteApp_appId,
     deleteApp_forceStopAppReplication,
-    deleteApp_forceTerminateApp,
 
     -- * Destructuring the Response
     DeleteAppResponse (..),
@@ -51,14 +51,14 @@ import Network.AWS.SMS.Types
 
 -- | /See:/ 'newDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
-  { -- | The ID of the application.
+  { -- | Indicates whether to terminate the stack corresponding to the
+    -- application while deleting the application.
+    forceTerminateApp :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the application.
     appId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether to stop all replication jobs corresponding to the
     -- servers in the application while deleting the application.
-    forceStopAppReplication :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to terminate the stack corresponding to the
-    -- application while deleting the application.
-    forceTerminateApp :: Prelude.Maybe Prelude.Bool
+    forceStopAppReplication :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,21 +70,26 @@ data DeleteApp = DeleteApp'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'forceTerminateApp', 'deleteApp_forceTerminateApp' - Indicates whether to terminate the stack corresponding to the
+-- application while deleting the application.
+--
 -- 'appId', 'deleteApp_appId' - The ID of the application.
 --
 -- 'forceStopAppReplication', 'deleteApp_forceStopAppReplication' - Indicates whether to stop all replication jobs corresponding to the
 -- servers in the application while deleting the application.
---
--- 'forceTerminateApp', 'deleteApp_forceTerminateApp' - Indicates whether to terminate the stack corresponding to the
--- application while deleting the application.
 newDeleteApp ::
   DeleteApp
 newDeleteApp =
   DeleteApp'
-    { appId = Prelude.Nothing,
-      forceStopAppReplication = Prelude.Nothing,
-      forceTerminateApp = Prelude.Nothing
+    { forceTerminateApp = Prelude.Nothing,
+      appId = Prelude.Nothing,
+      forceStopAppReplication = Prelude.Nothing
     }
+
+-- | Indicates whether to terminate the stack corresponding to the
+-- application while deleting the application.
+deleteApp_forceTerminateApp :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
+deleteApp_forceTerminateApp = Lens.lens (\DeleteApp' {forceTerminateApp} -> forceTerminateApp) (\s@DeleteApp' {} a -> s {forceTerminateApp = a} :: DeleteApp)
 
 -- | The ID of the application.
 deleteApp_appId :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
@@ -94,11 +99,6 @@ deleteApp_appId = Lens.lens (\DeleteApp' {appId} -> appId) (\s@DeleteApp' {} a -
 -- servers in the application while deleting the application.
 deleteApp_forceStopAppReplication :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
 deleteApp_forceStopAppReplication = Lens.lens (\DeleteApp' {forceStopAppReplication} -> forceStopAppReplication) (\s@DeleteApp' {} a -> s {forceStopAppReplication = a} :: DeleteApp)
-
--- | Indicates whether to terminate the stack corresponding to the
--- application while deleting the application.
-deleteApp_forceTerminateApp :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
-deleteApp_forceTerminateApp = Lens.lens (\DeleteApp' {forceTerminateApp} -> forceTerminateApp) (\s@DeleteApp' {} a -> s {forceTerminateApp = a} :: DeleteApp)
 
 instance Core.AWSRequest DeleteApp where
   type AWSResponse DeleteApp = DeleteAppResponse
@@ -133,11 +133,11 @@ instance Core.ToJSON DeleteApp where
   toJSON DeleteApp' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("appId" Core..=) Prelude.<$> appId,
+          [ ("forceTerminateApp" Core..=)
+              Prelude.<$> forceTerminateApp,
+            ("appId" Core..=) Prelude.<$> appId,
             ("forceStopAppReplication" Core..=)
-              Prelude.<$> forceStopAppReplication,
-            ("forceTerminateApp" Core..=)
-              Prelude.<$> forceTerminateApp
+              Prelude.<$> forceStopAppReplication
           ]
       )
 

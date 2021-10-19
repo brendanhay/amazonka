@@ -256,7 +256,7 @@ listVolumesResponse_marker = Lens.lens (\ListVolumesResponse' {marker} -> marker
 -- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
 -- an empty array \"[]\".
 listVolumesResponse_volumeInfos :: Lens.Lens' ListVolumesResponse (Prelude.Maybe [VolumeInfo])
-listVolumesResponse_volumeInfos = Lens.lens (\ListVolumesResponse' {volumeInfos} -> volumeInfos) (\s@ListVolumesResponse' {} a -> s {volumeInfos = a} :: ListVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
+listVolumesResponse_volumeInfos = Lens.lens (\ListVolumesResponse' {volumeInfos} -> volumeInfos) (\s@ListVolumesResponse' {} a -> s {volumeInfos = a} :: ListVolumesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVolumesResponse_httpStatus :: Lens.Lens' ListVolumesResponse Prelude.Int

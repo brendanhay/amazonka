@@ -33,7 +33,153 @@ import Network.AWS.Route53.Types.ResourceRecordSetFailover
 --
 -- /See:/ 'newResourceRecordSet' smart constructor.
 data ResourceRecordSet = ResourceRecordSet'
-  { -- | If you want Amazon Route 53 to return this resource record set in
+  { -- | The resource record cache time to live (TTL), in seconds. Note the
+    -- following:
+    --
+    -- -   If you\'re creating or updating an alias resource record set, omit
+    --     @TTL@. Amazon Route 53 uses the value of @TTL@ for the alias target.
+    --
+    -- -   If you\'re associating this resource record set with a health check
+    --     (if you\'re adding a @HealthCheckId@ element), we recommend that you
+    --     specify a @TTL@ of 60 seconds or less so clients respond quickly to
+    --     changes in health status.
+    --
+    -- -   All of the resource record sets in a group of weighted resource
+    --     record sets must have the same value for @TTL@.
+    --
+    -- -   If a group of weighted resource record sets includes one or more
+    --     weighted alias resource record sets for which the alias target is an
+    --     ELB load balancer, we recommend that you specify a @TTL@ of 60
+    --     seconds for all of the non-alias weighted resource record sets that
+    --     have the same name and type. Values other than 60 seconds (the TTL
+    --     for load balancers) will change the effect of the values that you
+    --     specify for @Weight@.
+    ttl :: Prelude.Maybe Prelude.Natural,
+    -- | Information about the resource records to act upon.
+    --
+    -- If you\'re creating an alias resource record set, omit
+    -- @ResourceRecords@.
+    resourceRecords :: Prelude.Maybe (Prelude.NonEmpty ResourceRecord),
+    -- | /Alias resource record sets only:/ Information about the Amazon Web
+    -- Services resource, such as a CloudFront distribution or an Amazon S3
+    -- bucket, that you want to route traffic to.
+    --
+    -- If you\'re creating resource records sets for a private hosted zone,
+    -- note the following:
+    --
+    -- -   You can\'t create an alias resource record set in a private hosted
+    --     zone to route traffic to a CloudFront distribution.
+    --
+    -- -   Creating geolocation alias resource record sets or latency alias
+    --     resource record sets in a private hosted zone is unsupported.
+    --
+    -- -   For information about creating failover resource record sets in a
+    --     private hosted zone, see
+    --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
+    --     in the /Amazon Route 53 Developer Guide/.
+    aliasTarget :: Prelude.Maybe AliasTarget,
+    -- | /Weighted resource record sets only:/ Among resource record sets that
+    -- have the same combination of DNS name and type, a value that determines
+    -- the proportion of DNS queries that Amazon Route 53 responds to using the
+    -- current resource record set. Route 53 calculates the sum of the weights
+    -- for the resource record sets that have the same combination of DNS name
+    -- and type. Route 53 then responds to queries based on the ratio of a
+    -- resource\'s weight to the total. Note the following:
+    --
+    -- -   You must specify a value for the @Weight@ element for every weighted
+    --     resource record set.
+    --
+    -- -   You can only specify one @ResourceRecord@ per weighted resource
+    --     record set.
+    --
+    -- -   You can\'t create latency, failover, or geolocation resource record
+    --     sets that have the same values for the @Name@ and @Type@ elements as
+    --     weighted resource record sets.
+    --
+    -- -   You can create a maximum of 100 weighted resource record sets that
+    --     have the same values for the @Name@ and @Type@ elements.
+    --
+    -- -   For weighted (but not weighted alias) resource record sets, if you
+    --     set @Weight@ to @0@ for a resource record set, Route 53 never
+    --     responds to queries with the applicable value for that resource
+    --     record set. However, if you set @Weight@ to @0@ for all resource
+    --     record sets that have the same combination of DNS name and type,
+    --     traffic is routed to all resources with equal probability.
+    --
+    --     The effect of setting @Weight@ to @0@ is different when you
+    --     associate health checks with weighted resource record sets. For more
+    --     information, see
+    --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
+    --     in the /Amazon Route 53 Developer Guide/.
+    weight :: Prelude.Maybe Prelude.Natural,
+    -- | When you create a traffic policy instance, Amazon Route 53 automatically
+    -- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
+    -- the traffic policy instance that Route 53 created this resource record
+    -- set for.
+    --
+    -- To delete the resource record set that is associated with a traffic
+    -- policy instance, use @DeleteTrafficPolicyInstance@. Route 53 will delete
+    -- the resource record set automatically. If you delete the resource record
+    -- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
+    -- delete the traffic policy instance, and you\'ll continue to be charged
+    -- for it even though it\'s no longer in use.
+    trafficPolicyInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | /Resource record sets that have a routing policy other than simple:/ An
+    -- identifier that differentiates among multiple resource record sets that
+    -- have the same combination of name and type, such as multiple weighted
+    -- resource record sets named acme.example.com that have a type of A. In a
+    -- group of resource record sets that have the same name and type, the
+    -- value of @SetIdentifier@ must be unique for each resource record set.
+    --
+    -- For information about routing policies, see
+    -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
+    -- in the /Amazon Route 53 Developer Guide/.
+    setIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | /Failover resource record sets only:/ To configure failover, you add the
+    -- @Failover@ element to two resource record sets. For one resource record
+    -- set, you specify @PRIMARY@ as the value for @Failover@; for the other
+    -- resource record set, you specify @SECONDARY@. In addition, you include
+    -- the @HealthCheckId@ element and specify the health check that you want
+    -- Amazon Route 53 to perform for each resource record set.
+    --
+    -- Except where noted, the following failover behaviors assume that you
+    -- have included the @HealthCheckId@ element in both resource record sets:
+    --
+    -- -   When the primary resource record set is healthy, Route 53 responds
+    --     to DNS queries with the applicable value from the primary resource
+    --     record set regardless of the health of the secondary resource record
+    --     set.
+    --
+    -- -   When the primary resource record set is unhealthy and the secondary
+    --     resource record set is healthy, Route 53 responds to DNS queries
+    --     with the applicable value from the secondary resource record set.
+    --
+    -- -   When the secondary resource record set is unhealthy, Route 53
+    --     responds to DNS queries with the applicable value from the primary
+    --     resource record set regardless of the health of the primary resource
+    --     record set.
+    --
+    -- -   If you omit the @HealthCheckId@ element for the secondary resource
+    --     record set, and if the primary resource record set is unhealthy,
+    --     Route 53 always responds to DNS queries with the applicable value
+    --     from the secondary resource record set. This is true regardless of
+    --     the health of the associated endpoint.
+    --
+    -- You can\'t create non-failover resource record sets that have the same
+    -- values for the @Name@ and @Type@ elements as failover resource record
+    -- sets.
+    --
+    -- For failover alias resource record sets, you must also include the
+    -- @EvaluateTargetHealth@ element and set the value to true.
+    --
+    -- For more information about configuring failover for Route 53, see the
+    -- following topics in the /Amazon Route 53 Developer Guide/:
+    --
+    -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
+    --
+    -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
+    failover :: Prelude.Maybe ResourceRecordSetFailover,
+    -- | If you want Amazon Route 53 to return this resource record set in
     -- response to a DNS query only when the status of a health check is
     -- healthy, include the @HealthCheckId@ element and specify the ID of the
     -- applicable health check.
@@ -152,35 +298,38 @@ data ResourceRecordSet = ResourceRecordSet'
     --
     -- -   Associate that health check with the resource record set.
     healthCheckId :: Prelude.Maybe Prelude.Text,
-    -- | /Multivalue answer resource record sets only/: To route traffic
-    -- approximately randomly to multiple resources, such as web servers,
-    -- create one multivalue answer record for each resource and specify @true@
-    -- for @MultiValueAnswer@. Note the following:
+    -- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
+    -- you created the resource that this resource record set refers to. The
+    -- resource typically is an Amazon Web Services resource, such as an EC2
+    -- instance or an ELB load balancer, and is referred to by an IP address or
+    -- a DNS domain name, depending on the record type.
     --
-    -- -   If you associate a health check with a multivalue answer resource
-    --     record set, Amazon Route 53 responds to DNS queries with the
-    --     corresponding IP address only when the health check is healthy.
+    -- Although creating latency and latency alias resource record sets in a
+    -- private hosted zone is allowed, it\'s not supported.
     --
-    -- -   If you don\'t associate a health check with a multivalue answer
-    --     record, Route 53 always considers the record to be healthy.
+    -- When Amazon Route 53 receives a DNS query for a domain name and type for
+    -- which you have created latency resource record sets, Route 53 selects
+    -- the latency resource record set that has the lowest latency between the
+    -- end user and the associated Amazon EC2 Region. Route 53 then returns the
+    -- value that is associated with the selected resource record set.
     --
-    -- -   Route 53 responds to DNS queries with up to eight healthy records;
-    --     if you have eight or fewer healthy records, Route 53 responds to all
-    --     DNS queries with all the healthy records.
+    -- Note the following:
     --
-    -- -   If you have more than eight healthy records, Route 53 responds to
-    --     different DNS resolvers with different combinations of healthy
-    --     records.
+    -- -   You can only specify one @ResourceRecord@ per latency resource
+    --     record set.
     --
-    -- -   When all records are unhealthy, Route 53 responds to DNS queries
-    --     with up to eight unhealthy records.
+    -- -   You can only create one latency resource record set for each Amazon
+    --     EC2 Region.
     --
-    -- -   If a resource becomes unavailable after a resolver caches a
-    --     response, client software typically tries another of the IP
-    --     addresses in the response.
+    -- -   You aren\'t required to create latency resource record sets for all
+    --     Amazon EC2 Regions. Route 53 will choose the region with the best
+    --     latency from among the regions that you create latency resource
+    --     record sets for.
     --
-    -- You can\'t create multivalue answer alias records.
-    multiValueAnswer :: Prelude.Maybe Prelude.Bool,
+    -- -   You can\'t create non-latency resource record sets that have the
+    --     same values for the @Name@ and @Type@ elements as latency resource
+    --     record sets.
+    region :: Prelude.Maybe Core.Region,
     -- | /Geolocation resource record sets only:/ A complex type that lets you
     -- control how Amazon Route 53 responds to DNS queries based on the
     -- geographic origin of the query. For example, if you want all queries
@@ -221,184 +370,35 @@ data ResourceRecordSet = ResourceRecordSet'
     -- same values for the @Name@ and @Type@ elements as geolocation resource
     -- record sets.
     geoLocation :: Prelude.Maybe GeoLocation,
-    -- | /Weighted resource record sets only:/ Among resource record sets that
-    -- have the same combination of DNS name and type, a value that determines
-    -- the proportion of DNS queries that Amazon Route 53 responds to using the
-    -- current resource record set. Route 53 calculates the sum of the weights
-    -- for the resource record sets that have the same combination of DNS name
-    -- and type. Route 53 then responds to queries based on the ratio of a
-    -- resource\'s weight to the total. Note the following:
+    -- | /Multivalue answer resource record sets only/: To route traffic
+    -- approximately randomly to multiple resources, such as web servers,
+    -- create one multivalue answer record for each resource and specify @true@
+    -- for @MultiValueAnswer@. Note the following:
     --
-    -- -   You must specify a value for the @Weight@ element for every weighted
-    --     resource record set.
+    -- -   If you associate a health check with a multivalue answer resource
+    --     record set, Amazon Route 53 responds to DNS queries with the
+    --     corresponding IP address only when the health check is healthy.
     --
-    -- -   You can only specify one @ResourceRecord@ per weighted resource
-    --     record set.
+    -- -   If you don\'t associate a health check with a multivalue answer
+    --     record, Route 53 always considers the record to be healthy.
     --
-    -- -   You can\'t create latency, failover, or geolocation resource record
-    --     sets that have the same values for the @Name@ and @Type@ elements as
-    --     weighted resource record sets.
+    -- -   Route 53 responds to DNS queries with up to eight healthy records;
+    --     if you have eight or fewer healthy records, Route 53 responds to all
+    --     DNS queries with all the healthy records.
     --
-    -- -   You can create a maximum of 100 weighted resource record sets that
-    --     have the same values for the @Name@ and @Type@ elements.
+    -- -   If you have more than eight healthy records, Route 53 responds to
+    --     different DNS resolvers with different combinations of healthy
+    --     records.
     --
-    -- -   For weighted (but not weighted alias) resource record sets, if you
-    --     set @Weight@ to @0@ for a resource record set, Route 53 never
-    --     responds to queries with the applicable value for that resource
-    --     record set. However, if you set @Weight@ to @0@ for all resource
-    --     record sets that have the same combination of DNS name and type,
-    --     traffic is routed to all resources with equal probability.
+    -- -   When all records are unhealthy, Route 53 responds to DNS queries
+    --     with up to eight unhealthy records.
     --
-    --     The effect of setting @Weight@ to @0@ is different when you
-    --     associate health checks with weighted resource record sets. For more
-    --     information, see
-    --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
-    --     in the /Amazon Route 53 Developer Guide/.
-    weight :: Prelude.Maybe Prelude.Natural,
-    -- | /Alias resource record sets only:/ Information about the Amazon Web
-    -- Services resource, such as a CloudFront distribution or an Amazon S3
-    -- bucket, that you want to route traffic to.
+    -- -   If a resource becomes unavailable after a resolver caches a
+    --     response, client software typically tries another of the IP
+    --     addresses in the response.
     --
-    -- If you\'re creating resource records sets for a private hosted zone,
-    -- note the following:
-    --
-    -- -   You can\'t create an alias resource record set in a private hosted
-    --     zone to route traffic to a CloudFront distribution.
-    --
-    -- -   Creating geolocation alias resource record sets or latency alias
-    --     resource record sets in a private hosted zone is unsupported.
-    --
-    -- -   For information about creating failover resource record sets in a
-    --     private hosted zone, see
-    --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
-    --     in the /Amazon Route 53 Developer Guide/.
-    aliasTarget :: Prelude.Maybe AliasTarget,
-    -- | /Failover resource record sets only:/ To configure failover, you add the
-    -- @Failover@ element to two resource record sets. For one resource record
-    -- set, you specify @PRIMARY@ as the value for @Failover@; for the other
-    -- resource record set, you specify @SECONDARY@. In addition, you include
-    -- the @HealthCheckId@ element and specify the health check that you want
-    -- Amazon Route 53 to perform for each resource record set.
-    --
-    -- Except where noted, the following failover behaviors assume that you
-    -- have included the @HealthCheckId@ element in both resource record sets:
-    --
-    -- -   When the primary resource record set is healthy, Route 53 responds
-    --     to DNS queries with the applicable value from the primary resource
-    --     record set regardless of the health of the secondary resource record
-    --     set.
-    --
-    -- -   When the primary resource record set is unhealthy and the secondary
-    --     resource record set is healthy, Route 53 responds to DNS queries
-    --     with the applicable value from the secondary resource record set.
-    --
-    -- -   When the secondary resource record set is unhealthy, Route 53
-    --     responds to DNS queries with the applicable value from the primary
-    --     resource record set regardless of the health of the primary resource
-    --     record set.
-    --
-    -- -   If you omit the @HealthCheckId@ element for the secondary resource
-    --     record set, and if the primary resource record set is unhealthy,
-    --     Route 53 always responds to DNS queries with the applicable value
-    --     from the secondary resource record set. This is true regardless of
-    --     the health of the associated endpoint.
-    --
-    -- You can\'t create non-failover resource record sets that have the same
-    -- values for the @Name@ and @Type@ elements as failover resource record
-    -- sets.
-    --
-    -- For failover alias resource record sets, you must also include the
-    -- @EvaluateTargetHealth@ element and set the value to true.
-    --
-    -- For more information about configuring failover for Route 53, see the
-    -- following topics in the /Amazon Route 53 Developer Guide/:
-    --
-    -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
-    --
-    -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
-    failover :: Prelude.Maybe ResourceRecordSetFailover,
-    -- | Information about the resource records to act upon.
-    --
-    -- If you\'re creating an alias resource record set, omit
-    -- @ResourceRecords@.
-    resourceRecords :: Prelude.Maybe (Prelude.NonEmpty ResourceRecord),
-    -- | The resource record cache time to live (TTL), in seconds. Note the
-    -- following:
-    --
-    -- -   If you\'re creating or updating an alias resource record set, omit
-    --     @TTL@. Amazon Route 53 uses the value of @TTL@ for the alias target.
-    --
-    -- -   If you\'re associating this resource record set with a health check
-    --     (if you\'re adding a @HealthCheckId@ element), we recommend that you
-    --     specify a @TTL@ of 60 seconds or less so clients respond quickly to
-    --     changes in health status.
-    --
-    -- -   All of the resource record sets in a group of weighted resource
-    --     record sets must have the same value for @TTL@.
-    --
-    -- -   If a group of weighted resource record sets includes one or more
-    --     weighted alias resource record sets for which the alias target is an
-    --     ELB load balancer, we recommend that you specify a @TTL@ of 60
-    --     seconds for all of the non-alias weighted resource record sets that
-    --     have the same name and type. Values other than 60 seconds (the TTL
-    --     for load balancers) will change the effect of the values that you
-    --     specify for @Weight@.
-    ttl :: Prelude.Maybe Prelude.Natural,
-    -- | /Resource record sets that have a routing policy other than simple:/ An
-    -- identifier that differentiates among multiple resource record sets that
-    -- have the same combination of name and type, such as multiple weighted
-    -- resource record sets named acme.example.com that have a type of A. In a
-    -- group of resource record sets that have the same name and type, the
-    -- value of @SetIdentifier@ must be unique for each resource record set.
-    --
-    -- For information about routing policies, see
-    -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
-    -- in the /Amazon Route 53 Developer Guide/.
-    setIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | When you create a traffic policy instance, Amazon Route 53 automatically
-    -- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
-    -- the traffic policy instance that Route 53 created this resource record
-    -- set for.
-    --
-    -- To delete the resource record set that is associated with a traffic
-    -- policy instance, use @DeleteTrafficPolicyInstance@. Route 53 will delete
-    -- the resource record set automatically. If you delete the resource record
-    -- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
-    -- delete the traffic policy instance, and you\'ll continue to be charged
-    -- for it even though it\'s no longer in use.
-    trafficPolicyInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
-    -- you created the resource that this resource record set refers to. The
-    -- resource typically is an Amazon Web Services resource, such as an EC2
-    -- instance or an ELB load balancer, and is referred to by an IP address or
-    -- a DNS domain name, depending on the record type.
-    --
-    -- Although creating latency and latency alias resource record sets in a
-    -- private hosted zone is allowed, it\'s not supported.
-    --
-    -- When Amazon Route 53 receives a DNS query for a domain name and type for
-    -- which you have created latency resource record sets, Route 53 selects
-    -- the latency resource record set that has the lowest latency between the
-    -- end user and the associated Amazon EC2 Region. Route 53 then returns the
-    -- value that is associated with the selected resource record set.
-    --
-    -- Note the following:
-    --
-    -- -   You can only specify one @ResourceRecord@ per latency resource
-    --     record set.
-    --
-    -- -   You can only create one latency resource record set for each Amazon
-    --     EC2 Region.
-    --
-    -- -   You aren\'t required to create latency resource record sets for all
-    --     Amazon EC2 Regions. Route 53 will choose the region with the best
-    --     latency from among the regions that you create latency resource
-    --     record sets for.
-    --
-    -- -   You can\'t create non-latency resource record sets that have the
-    --     same values for the @Name@ and @Type@ elements as latency resource
-    --     record sets.
-    region :: Prelude.Maybe Core.Region,
+    -- You can\'t create multivalue answer alias records.
+    multiValueAnswer :: Prelude.Maybe Prelude.Bool,
     -- | For @ChangeResourceRecordSets@ requests, the name of the record that you
     -- want to create, update, or delete. For @ListResourceRecordSets@
     -- responses, the name of a record in the specified hosted zone.
@@ -507,6 +507,152 @@ data ResourceRecordSet = ResourceRecordSet'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'ttl', 'resourceRecordSet_ttl' - The resource record cache time to live (TTL), in seconds. Note the
+-- following:
+--
+-- -   If you\'re creating or updating an alias resource record set, omit
+--     @TTL@. Amazon Route 53 uses the value of @TTL@ for the alias target.
+--
+-- -   If you\'re associating this resource record set with a health check
+--     (if you\'re adding a @HealthCheckId@ element), we recommend that you
+--     specify a @TTL@ of 60 seconds or less so clients respond quickly to
+--     changes in health status.
+--
+-- -   All of the resource record sets in a group of weighted resource
+--     record sets must have the same value for @TTL@.
+--
+-- -   If a group of weighted resource record sets includes one or more
+--     weighted alias resource record sets for which the alias target is an
+--     ELB load balancer, we recommend that you specify a @TTL@ of 60
+--     seconds for all of the non-alias weighted resource record sets that
+--     have the same name and type. Values other than 60 seconds (the TTL
+--     for load balancers) will change the effect of the values that you
+--     specify for @Weight@.
+--
+-- 'resourceRecords', 'resourceRecordSet_resourceRecords' - Information about the resource records to act upon.
+--
+-- If you\'re creating an alias resource record set, omit
+-- @ResourceRecords@.
+--
+-- 'aliasTarget', 'resourceRecordSet_aliasTarget' - /Alias resource record sets only:/ Information about the Amazon Web
+-- Services resource, such as a CloudFront distribution or an Amazon S3
+-- bucket, that you want to route traffic to.
+--
+-- If you\'re creating resource records sets for a private hosted zone,
+-- note the following:
+--
+-- -   You can\'t create an alias resource record set in a private hosted
+--     zone to route traffic to a CloudFront distribution.
+--
+-- -   Creating geolocation alias resource record sets or latency alias
+--     resource record sets in a private hosted zone is unsupported.
+--
+-- -   For information about creating failover resource record sets in a
+--     private hosted zone, see
+--     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
+--     in the /Amazon Route 53 Developer Guide/.
+--
+-- 'weight', 'resourceRecordSet_weight' - /Weighted resource record sets only:/ Among resource record sets that
+-- have the same combination of DNS name and type, a value that determines
+-- the proportion of DNS queries that Amazon Route 53 responds to using the
+-- current resource record set. Route 53 calculates the sum of the weights
+-- for the resource record sets that have the same combination of DNS name
+-- and type. Route 53 then responds to queries based on the ratio of a
+-- resource\'s weight to the total. Note the following:
+--
+-- -   You must specify a value for the @Weight@ element for every weighted
+--     resource record set.
+--
+-- -   You can only specify one @ResourceRecord@ per weighted resource
+--     record set.
+--
+-- -   You can\'t create latency, failover, or geolocation resource record
+--     sets that have the same values for the @Name@ and @Type@ elements as
+--     weighted resource record sets.
+--
+-- -   You can create a maximum of 100 weighted resource record sets that
+--     have the same values for the @Name@ and @Type@ elements.
+--
+-- -   For weighted (but not weighted alias) resource record sets, if you
+--     set @Weight@ to @0@ for a resource record set, Route 53 never
+--     responds to queries with the applicable value for that resource
+--     record set. However, if you set @Weight@ to @0@ for all resource
+--     record sets that have the same combination of DNS name and type,
+--     traffic is routed to all resources with equal probability.
+--
+--     The effect of setting @Weight@ to @0@ is different when you
+--     associate health checks with weighted resource record sets. For more
+--     information, see
+--     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
+--     in the /Amazon Route 53 Developer Guide/.
+--
+-- 'trafficPolicyInstanceId', 'resourceRecordSet_trafficPolicyInstanceId' - When you create a traffic policy instance, Amazon Route 53 automatically
+-- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
+-- the traffic policy instance that Route 53 created this resource record
+-- set for.
+--
+-- To delete the resource record set that is associated with a traffic
+-- policy instance, use @DeleteTrafficPolicyInstance@. Route 53 will delete
+-- the resource record set automatically. If you delete the resource record
+-- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
+-- delete the traffic policy instance, and you\'ll continue to be charged
+-- for it even though it\'s no longer in use.
+--
+-- 'setIdentifier', 'resourceRecordSet_setIdentifier' - /Resource record sets that have a routing policy other than simple:/ An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of name and type, such as multiple weighted
+-- resource record sets named acme.example.com that have a type of A. In a
+-- group of resource record sets that have the same name and type, the
+-- value of @SetIdentifier@ must be unique for each resource record set.
+--
+-- For information about routing policies, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
+-- in the /Amazon Route 53 Developer Guide/.
+--
+-- 'failover', 'resourceRecordSet_failover' - /Failover resource record sets only:/ To configure failover, you add the
+-- @Failover@ element to two resource record sets. For one resource record
+-- set, you specify @PRIMARY@ as the value for @Failover@; for the other
+-- resource record set, you specify @SECONDARY@. In addition, you include
+-- the @HealthCheckId@ element and specify the health check that you want
+-- Amazon Route 53 to perform for each resource record set.
+--
+-- Except where noted, the following failover behaviors assume that you
+-- have included the @HealthCheckId@ element in both resource record sets:
+--
+-- -   When the primary resource record set is healthy, Route 53 responds
+--     to DNS queries with the applicable value from the primary resource
+--     record set regardless of the health of the secondary resource record
+--     set.
+--
+-- -   When the primary resource record set is unhealthy and the secondary
+--     resource record set is healthy, Route 53 responds to DNS queries
+--     with the applicable value from the secondary resource record set.
+--
+-- -   When the secondary resource record set is unhealthy, Route 53
+--     responds to DNS queries with the applicable value from the primary
+--     resource record set regardless of the health of the primary resource
+--     record set.
+--
+-- -   If you omit the @HealthCheckId@ element for the secondary resource
+--     record set, and if the primary resource record set is unhealthy,
+--     Route 53 always responds to DNS queries with the applicable value
+--     from the secondary resource record set. This is true regardless of
+--     the health of the associated endpoint.
+--
+-- You can\'t create non-failover resource record sets that have the same
+-- values for the @Name@ and @Type@ elements as failover resource record
+-- sets.
+--
+-- For failover alias resource record sets, you must also include the
+-- @EvaluateTargetHealth@ element and set the value to true.
+--
+-- For more information about configuring failover for Route 53, see the
+-- following topics in the /Amazon Route 53 Developer Guide/:
+--
+-- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
+--
+-- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
 --
 -- 'healthCheckId', 'resourceRecordSet_healthCheckId' - If you want Amazon Route 53 to return this resource record set in
 -- response to a DNS query only when the status of a health check is
@@ -627,34 +773,37 @@ data ResourceRecordSet = ResourceRecordSet'
 --
 -- -   Associate that health check with the resource record set.
 --
--- 'multiValueAnswer', 'resourceRecordSet_multiValueAnswer' - /Multivalue answer resource record sets only/: To route traffic
--- approximately randomly to multiple resources, such as web servers,
--- create one multivalue answer record for each resource and specify @true@
--- for @MultiValueAnswer@. Note the following:
+-- 'region', 'resourceRecordSet_region' - /Latency-based resource record sets only:/ The Amazon EC2 Region where
+-- you created the resource that this resource record set refers to. The
+-- resource typically is an Amazon Web Services resource, such as an EC2
+-- instance or an ELB load balancer, and is referred to by an IP address or
+-- a DNS domain name, depending on the record type.
 --
--- -   If you associate a health check with a multivalue answer resource
---     record set, Amazon Route 53 responds to DNS queries with the
---     corresponding IP address only when the health check is healthy.
+-- Although creating latency and latency alias resource record sets in a
+-- private hosted zone is allowed, it\'s not supported.
 --
--- -   If you don\'t associate a health check with a multivalue answer
---     record, Route 53 always considers the record to be healthy.
+-- When Amazon Route 53 receives a DNS query for a domain name and type for
+-- which you have created latency resource record sets, Route 53 selects
+-- the latency resource record set that has the lowest latency between the
+-- end user and the associated Amazon EC2 Region. Route 53 then returns the
+-- value that is associated with the selected resource record set.
 --
--- -   Route 53 responds to DNS queries with up to eight healthy records;
---     if you have eight or fewer healthy records, Route 53 responds to all
---     DNS queries with all the healthy records.
+-- Note the following:
 --
--- -   If you have more than eight healthy records, Route 53 responds to
---     different DNS resolvers with different combinations of healthy
---     records.
+-- -   You can only specify one @ResourceRecord@ per latency resource
+--     record set.
 --
--- -   When all records are unhealthy, Route 53 responds to DNS queries
---     with up to eight unhealthy records.
+-- -   You can only create one latency resource record set for each Amazon
+--     EC2 Region.
 --
--- -   If a resource becomes unavailable after a resolver caches a
---     response, client software typically tries another of the IP
---     addresses in the response.
+-- -   You aren\'t required to create latency resource record sets for all
+--     Amazon EC2 Regions. Route 53 will choose the region with the best
+--     latency from among the regions that you create latency resource
+--     record sets for.
 --
--- You can\'t create multivalue answer alias records.
+-- -   You can\'t create non-latency resource record sets that have the
+--     same values for the @Name@ and @Type@ elements as latency resource
+--     record sets.
 --
 -- 'geoLocation', 'resourceRecordSet_geoLocation' - /Geolocation resource record sets only:/ A complex type that lets you
 -- control how Amazon Route 53 responds to DNS queries based on the
@@ -696,183 +845,34 @@ data ResourceRecordSet = ResourceRecordSet'
 -- same values for the @Name@ and @Type@ elements as geolocation resource
 -- record sets.
 --
--- 'weight', 'resourceRecordSet_weight' - /Weighted resource record sets only:/ Among resource record sets that
--- have the same combination of DNS name and type, a value that determines
--- the proportion of DNS queries that Amazon Route 53 responds to using the
--- current resource record set. Route 53 calculates the sum of the weights
--- for the resource record sets that have the same combination of DNS name
--- and type. Route 53 then responds to queries based on the ratio of a
--- resource\'s weight to the total. Note the following:
+-- 'multiValueAnswer', 'resourceRecordSet_multiValueAnswer' - /Multivalue answer resource record sets only/: To route traffic
+-- approximately randomly to multiple resources, such as web servers,
+-- create one multivalue answer record for each resource and specify @true@
+-- for @MultiValueAnswer@. Note the following:
 --
--- -   You must specify a value for the @Weight@ element for every weighted
---     resource record set.
+-- -   If you associate a health check with a multivalue answer resource
+--     record set, Amazon Route 53 responds to DNS queries with the
+--     corresponding IP address only when the health check is healthy.
 --
--- -   You can only specify one @ResourceRecord@ per weighted resource
---     record set.
+-- -   If you don\'t associate a health check with a multivalue answer
+--     record, Route 53 always considers the record to be healthy.
 --
--- -   You can\'t create latency, failover, or geolocation resource record
---     sets that have the same values for the @Name@ and @Type@ elements as
---     weighted resource record sets.
+-- -   Route 53 responds to DNS queries with up to eight healthy records;
+--     if you have eight or fewer healthy records, Route 53 responds to all
+--     DNS queries with all the healthy records.
 --
--- -   You can create a maximum of 100 weighted resource record sets that
---     have the same values for the @Name@ and @Type@ elements.
+-- -   If you have more than eight healthy records, Route 53 responds to
+--     different DNS resolvers with different combinations of healthy
+--     records.
 --
--- -   For weighted (but not weighted alias) resource record sets, if you
---     set @Weight@ to @0@ for a resource record set, Route 53 never
---     responds to queries with the applicable value for that resource
---     record set. However, if you set @Weight@ to @0@ for all resource
---     record sets that have the same combination of DNS name and type,
---     traffic is routed to all resources with equal probability.
+-- -   When all records are unhealthy, Route 53 responds to DNS queries
+--     with up to eight unhealthy records.
 --
---     The effect of setting @Weight@ to @0@ is different when you
---     associate health checks with weighted resource record sets. For more
---     information, see
---     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
---     in the /Amazon Route 53 Developer Guide/.
+-- -   If a resource becomes unavailable after a resolver caches a
+--     response, client software typically tries another of the IP
+--     addresses in the response.
 --
--- 'aliasTarget', 'resourceRecordSet_aliasTarget' - /Alias resource record sets only:/ Information about the Amazon Web
--- Services resource, such as a CloudFront distribution or an Amazon S3
--- bucket, that you want to route traffic to.
---
--- If you\'re creating resource records sets for a private hosted zone,
--- note the following:
---
--- -   You can\'t create an alias resource record set in a private hosted
---     zone to route traffic to a CloudFront distribution.
---
--- -   Creating geolocation alias resource record sets or latency alias
---     resource record sets in a private hosted zone is unsupported.
---
--- -   For information about creating failover resource record sets in a
---     private hosted zone, see
---     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
---     in the /Amazon Route 53 Developer Guide/.
---
--- 'failover', 'resourceRecordSet_failover' - /Failover resource record sets only:/ To configure failover, you add the
--- @Failover@ element to two resource record sets. For one resource record
--- set, you specify @PRIMARY@ as the value for @Failover@; for the other
--- resource record set, you specify @SECONDARY@. In addition, you include
--- the @HealthCheckId@ element and specify the health check that you want
--- Amazon Route 53 to perform for each resource record set.
---
--- Except where noted, the following failover behaviors assume that you
--- have included the @HealthCheckId@ element in both resource record sets:
---
--- -   When the primary resource record set is healthy, Route 53 responds
---     to DNS queries with the applicable value from the primary resource
---     record set regardless of the health of the secondary resource record
---     set.
---
--- -   When the primary resource record set is unhealthy and the secondary
---     resource record set is healthy, Route 53 responds to DNS queries
---     with the applicable value from the secondary resource record set.
---
--- -   When the secondary resource record set is unhealthy, Route 53
---     responds to DNS queries with the applicable value from the primary
---     resource record set regardless of the health of the primary resource
---     record set.
---
--- -   If you omit the @HealthCheckId@ element for the secondary resource
---     record set, and if the primary resource record set is unhealthy,
---     Route 53 always responds to DNS queries with the applicable value
---     from the secondary resource record set. This is true regardless of
---     the health of the associated endpoint.
---
--- You can\'t create non-failover resource record sets that have the same
--- values for the @Name@ and @Type@ elements as failover resource record
--- sets.
---
--- For failover alias resource record sets, you must also include the
--- @EvaluateTargetHealth@ element and set the value to true.
---
--- For more information about configuring failover for Route 53, see the
--- following topics in the /Amazon Route 53 Developer Guide/:
---
--- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
---
--- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
---
--- 'resourceRecords', 'resourceRecordSet_resourceRecords' - Information about the resource records to act upon.
---
--- If you\'re creating an alias resource record set, omit
--- @ResourceRecords@.
---
--- 'ttl', 'resourceRecordSet_ttl' - The resource record cache time to live (TTL), in seconds. Note the
--- following:
---
--- -   If you\'re creating or updating an alias resource record set, omit
---     @TTL@. Amazon Route 53 uses the value of @TTL@ for the alias target.
---
--- -   If you\'re associating this resource record set with a health check
---     (if you\'re adding a @HealthCheckId@ element), we recommend that you
---     specify a @TTL@ of 60 seconds or less so clients respond quickly to
---     changes in health status.
---
--- -   All of the resource record sets in a group of weighted resource
---     record sets must have the same value for @TTL@.
---
--- -   If a group of weighted resource record sets includes one or more
---     weighted alias resource record sets for which the alias target is an
---     ELB load balancer, we recommend that you specify a @TTL@ of 60
---     seconds for all of the non-alias weighted resource record sets that
---     have the same name and type. Values other than 60 seconds (the TTL
---     for load balancers) will change the effect of the values that you
---     specify for @Weight@.
---
--- 'setIdentifier', 'resourceRecordSet_setIdentifier' - /Resource record sets that have a routing policy other than simple:/ An
--- identifier that differentiates among multiple resource record sets that
--- have the same combination of name and type, such as multiple weighted
--- resource record sets named acme.example.com that have a type of A. In a
--- group of resource record sets that have the same name and type, the
--- value of @SetIdentifier@ must be unique for each resource record set.
---
--- For information about routing policies, see
--- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
--- in the /Amazon Route 53 Developer Guide/.
---
--- 'trafficPolicyInstanceId', 'resourceRecordSet_trafficPolicyInstanceId' - When you create a traffic policy instance, Amazon Route 53 automatically
--- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
--- the traffic policy instance that Route 53 created this resource record
--- set for.
---
--- To delete the resource record set that is associated with a traffic
--- policy instance, use @DeleteTrafficPolicyInstance@. Route 53 will delete
--- the resource record set automatically. If you delete the resource record
--- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
--- delete the traffic policy instance, and you\'ll continue to be charged
--- for it even though it\'s no longer in use.
---
--- 'region', 'resourceRecordSet_region' - /Latency-based resource record sets only:/ The Amazon EC2 Region where
--- you created the resource that this resource record set refers to. The
--- resource typically is an Amazon Web Services resource, such as an EC2
--- instance or an ELB load balancer, and is referred to by an IP address or
--- a DNS domain name, depending on the record type.
---
--- Although creating latency and latency alias resource record sets in a
--- private hosted zone is allowed, it\'s not supported.
---
--- When Amazon Route 53 receives a DNS query for a domain name and type for
--- which you have created latency resource record sets, Route 53 selects
--- the latency resource record set that has the lowest latency between the
--- end user and the associated Amazon EC2 Region. Route 53 then returns the
--- value that is associated with the selected resource record set.
---
--- Note the following:
---
--- -   You can only specify one @ResourceRecord@ per latency resource
---     record set.
---
--- -   You can only create one latency resource record set for each Amazon
---     EC2 Region.
---
--- -   You aren\'t required to create latency resource record sets for all
---     Amazon EC2 Regions. Route 53 will choose the region with the best
---     latency from among the regions that you create latency resource
---     record sets for.
---
--- -   You can\'t create non-latency resource record sets that have the
---     same values for the @Name@ and @Type@ elements as latency resource
---     record sets.
+-- You can\'t create multivalue answer alias records.
 --
 -- 'name', 'resourceRecordSet_name' - For @ChangeResourceRecordSets@ requests, the name of the record that you
 -- want to create, update, or delete. For @ListResourceRecordSets@
@@ -979,20 +979,180 @@ newResourceRecordSet ::
   ResourceRecordSet
 newResourceRecordSet pName_ pType_ =
   ResourceRecordSet'
-    { healthCheckId = Prelude.Nothing,
-      multiValueAnswer = Prelude.Nothing,
-      geoLocation = Prelude.Nothing,
-      weight = Prelude.Nothing,
-      aliasTarget = Prelude.Nothing,
-      failover = Prelude.Nothing,
+    { ttl = Prelude.Nothing,
       resourceRecords = Prelude.Nothing,
-      ttl = Prelude.Nothing,
-      setIdentifier = Prelude.Nothing,
+      aliasTarget = Prelude.Nothing,
+      weight = Prelude.Nothing,
       trafficPolicyInstanceId = Prelude.Nothing,
+      setIdentifier = Prelude.Nothing,
+      failover = Prelude.Nothing,
+      healthCheckId = Prelude.Nothing,
       region = Prelude.Nothing,
+      geoLocation = Prelude.Nothing,
+      multiValueAnswer = Prelude.Nothing,
       name = pName_,
       type' = pType_
     }
+
+-- | The resource record cache time to live (TTL), in seconds. Note the
+-- following:
+--
+-- -   If you\'re creating or updating an alias resource record set, omit
+--     @TTL@. Amazon Route 53 uses the value of @TTL@ for the alias target.
+--
+-- -   If you\'re associating this resource record set with a health check
+--     (if you\'re adding a @HealthCheckId@ element), we recommend that you
+--     specify a @TTL@ of 60 seconds or less so clients respond quickly to
+--     changes in health status.
+--
+-- -   All of the resource record sets in a group of weighted resource
+--     record sets must have the same value for @TTL@.
+--
+-- -   If a group of weighted resource record sets includes one or more
+--     weighted alias resource record sets for which the alias target is an
+--     ELB load balancer, we recommend that you specify a @TTL@ of 60
+--     seconds for all of the non-alias weighted resource record sets that
+--     have the same name and type. Values other than 60 seconds (the TTL
+--     for load balancers) will change the effect of the values that you
+--     specify for @Weight@.
+resourceRecordSet_ttl :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
+resourceRecordSet_ttl = Lens.lens (\ResourceRecordSet' {ttl} -> ttl) (\s@ResourceRecordSet' {} a -> s {ttl = a} :: ResourceRecordSet)
+
+-- | Information about the resource records to act upon.
+--
+-- If you\'re creating an alias resource record set, omit
+-- @ResourceRecords@.
+resourceRecordSet_resourceRecords :: Lens.Lens' ResourceRecordSet (Prelude.Maybe (Prelude.NonEmpty ResourceRecord))
+resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceRecords} -> resourceRecords) (\s@ResourceRecordSet' {} a -> s {resourceRecords = a} :: ResourceRecordSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | /Alias resource record sets only:/ Information about the Amazon Web
+-- Services resource, such as a CloudFront distribution or an Amazon S3
+-- bucket, that you want to route traffic to.
+--
+-- If you\'re creating resource records sets for a private hosted zone,
+-- note the following:
+--
+-- -   You can\'t create an alias resource record set in a private hosted
+--     zone to route traffic to a CloudFront distribution.
+--
+-- -   Creating geolocation alias resource record sets or latency alias
+--     resource record sets in a private hosted zone is unsupported.
+--
+-- -   For information about creating failover resource record sets in a
+--     private hosted zone, see
+--     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
+--     in the /Amazon Route 53 Developer Guide/.
+resourceRecordSet_aliasTarget :: Lens.Lens' ResourceRecordSet (Prelude.Maybe AliasTarget)
+resourceRecordSet_aliasTarget = Lens.lens (\ResourceRecordSet' {aliasTarget} -> aliasTarget) (\s@ResourceRecordSet' {} a -> s {aliasTarget = a} :: ResourceRecordSet)
+
+-- | /Weighted resource record sets only:/ Among resource record sets that
+-- have the same combination of DNS name and type, a value that determines
+-- the proportion of DNS queries that Amazon Route 53 responds to using the
+-- current resource record set. Route 53 calculates the sum of the weights
+-- for the resource record sets that have the same combination of DNS name
+-- and type. Route 53 then responds to queries based on the ratio of a
+-- resource\'s weight to the total. Note the following:
+--
+-- -   You must specify a value for the @Weight@ element for every weighted
+--     resource record set.
+--
+-- -   You can only specify one @ResourceRecord@ per weighted resource
+--     record set.
+--
+-- -   You can\'t create latency, failover, or geolocation resource record
+--     sets that have the same values for the @Name@ and @Type@ elements as
+--     weighted resource record sets.
+--
+-- -   You can create a maximum of 100 weighted resource record sets that
+--     have the same values for the @Name@ and @Type@ elements.
+--
+-- -   For weighted (but not weighted alias) resource record sets, if you
+--     set @Weight@ to @0@ for a resource record set, Route 53 never
+--     responds to queries with the applicable value for that resource
+--     record set. However, if you set @Weight@ to @0@ for all resource
+--     record sets that have the same combination of DNS name and type,
+--     traffic is routed to all resources with equal probability.
+--
+--     The effect of setting @Weight@ to @0@ is different when you
+--     associate health checks with weighted resource record sets. For more
+--     information, see
+--     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
+--     in the /Amazon Route 53 Developer Guide/.
+resourceRecordSet_weight :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
+resourceRecordSet_weight = Lens.lens (\ResourceRecordSet' {weight} -> weight) (\s@ResourceRecordSet' {} a -> s {weight = a} :: ResourceRecordSet)
+
+-- | When you create a traffic policy instance, Amazon Route 53 automatically
+-- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
+-- the traffic policy instance that Route 53 created this resource record
+-- set for.
+--
+-- To delete the resource record set that is associated with a traffic
+-- policy instance, use @DeleteTrafficPolicyInstance@. Route 53 will delete
+-- the resource record set automatically. If you delete the resource record
+-- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
+-- delete the traffic policy instance, and you\'ll continue to be charged
+-- for it even though it\'s no longer in use.
+resourceRecordSet_trafficPolicyInstanceId :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
+resourceRecordSet_trafficPolicyInstanceId = Lens.lens (\ResourceRecordSet' {trafficPolicyInstanceId} -> trafficPolicyInstanceId) (\s@ResourceRecordSet' {} a -> s {trafficPolicyInstanceId = a} :: ResourceRecordSet)
+
+-- | /Resource record sets that have a routing policy other than simple:/ An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of name and type, such as multiple weighted
+-- resource record sets named acme.example.com that have a type of A. In a
+-- group of resource record sets that have the same name and type, the
+-- value of @SetIdentifier@ must be unique for each resource record set.
+--
+-- For information about routing policies, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
+-- in the /Amazon Route 53 Developer Guide/.
+resourceRecordSet_setIdentifier :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
+resourceRecordSet_setIdentifier = Lens.lens (\ResourceRecordSet' {setIdentifier} -> setIdentifier) (\s@ResourceRecordSet' {} a -> s {setIdentifier = a} :: ResourceRecordSet)
+
+-- | /Failover resource record sets only:/ To configure failover, you add the
+-- @Failover@ element to two resource record sets. For one resource record
+-- set, you specify @PRIMARY@ as the value for @Failover@; for the other
+-- resource record set, you specify @SECONDARY@. In addition, you include
+-- the @HealthCheckId@ element and specify the health check that you want
+-- Amazon Route 53 to perform for each resource record set.
+--
+-- Except where noted, the following failover behaviors assume that you
+-- have included the @HealthCheckId@ element in both resource record sets:
+--
+-- -   When the primary resource record set is healthy, Route 53 responds
+--     to DNS queries with the applicable value from the primary resource
+--     record set regardless of the health of the secondary resource record
+--     set.
+--
+-- -   When the primary resource record set is unhealthy and the secondary
+--     resource record set is healthy, Route 53 responds to DNS queries
+--     with the applicable value from the secondary resource record set.
+--
+-- -   When the secondary resource record set is unhealthy, Route 53
+--     responds to DNS queries with the applicable value from the primary
+--     resource record set regardless of the health of the primary resource
+--     record set.
+--
+-- -   If you omit the @HealthCheckId@ element for the secondary resource
+--     record set, and if the primary resource record set is unhealthy,
+--     Route 53 always responds to DNS queries with the applicable value
+--     from the secondary resource record set. This is true regardless of
+--     the health of the associated endpoint.
+--
+-- You can\'t create non-failover resource record sets that have the same
+-- values for the @Name@ and @Type@ elements as failover resource record
+-- sets.
+--
+-- For failover alias resource record sets, you must also include the
+-- @EvaluateTargetHealth@ element and set the value to true.
+--
+-- For more information about configuring failover for Route 53, see the
+-- following topics in the /Amazon Route 53 Developer Guide/:
+--
+-- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
+--
+-- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
+resourceRecordSet_failover :: Lens.Lens' ResourceRecordSet (Prelude.Maybe ResourceRecordSetFailover)
+resourceRecordSet_failover = Lens.lens (\ResourceRecordSet' {failover} -> failover) (\s@ResourceRecordSet' {} a -> s {failover = a} :: ResourceRecordSet)
 
 -- | If you want Amazon Route 53 to return this resource record set in
 -- response to a DNS query only when the status of a health check is
@@ -1115,36 +1275,39 @@ newResourceRecordSet pName_ pType_ =
 resourceRecordSet_healthCheckId :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
 resourceRecordSet_healthCheckId = Lens.lens (\ResourceRecordSet' {healthCheckId} -> healthCheckId) (\s@ResourceRecordSet' {} a -> s {healthCheckId = a} :: ResourceRecordSet)
 
--- | /Multivalue answer resource record sets only/: To route traffic
--- approximately randomly to multiple resources, such as web servers,
--- create one multivalue answer record for each resource and specify @true@
--- for @MultiValueAnswer@. Note the following:
+-- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
+-- you created the resource that this resource record set refers to. The
+-- resource typically is an Amazon Web Services resource, such as an EC2
+-- instance or an ELB load balancer, and is referred to by an IP address or
+-- a DNS domain name, depending on the record type.
 --
--- -   If you associate a health check with a multivalue answer resource
---     record set, Amazon Route 53 responds to DNS queries with the
---     corresponding IP address only when the health check is healthy.
+-- Although creating latency and latency alias resource record sets in a
+-- private hosted zone is allowed, it\'s not supported.
 --
--- -   If you don\'t associate a health check with a multivalue answer
---     record, Route 53 always considers the record to be healthy.
+-- When Amazon Route 53 receives a DNS query for a domain name and type for
+-- which you have created latency resource record sets, Route 53 selects
+-- the latency resource record set that has the lowest latency between the
+-- end user and the associated Amazon EC2 Region. Route 53 then returns the
+-- value that is associated with the selected resource record set.
 --
--- -   Route 53 responds to DNS queries with up to eight healthy records;
---     if you have eight or fewer healthy records, Route 53 responds to all
---     DNS queries with all the healthy records.
+-- Note the following:
 --
--- -   If you have more than eight healthy records, Route 53 responds to
---     different DNS resolvers with different combinations of healthy
---     records.
+-- -   You can only specify one @ResourceRecord@ per latency resource
+--     record set.
 --
--- -   When all records are unhealthy, Route 53 responds to DNS queries
---     with up to eight unhealthy records.
+-- -   You can only create one latency resource record set for each Amazon
+--     EC2 Region.
 --
--- -   If a resource becomes unavailable after a resolver caches a
---     response, client software typically tries another of the IP
---     addresses in the response.
+-- -   You aren\'t required to create latency resource record sets for all
+--     Amazon EC2 Regions. Route 53 will choose the region with the best
+--     latency from among the regions that you create latency resource
+--     record sets for.
 --
--- You can\'t create multivalue answer alias records.
-resourceRecordSet_multiValueAnswer :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Bool)
-resourceRecordSet_multiValueAnswer = Lens.lens (\ResourceRecordSet' {multiValueAnswer} -> multiValueAnswer) (\s@ResourceRecordSet' {} a -> s {multiValueAnswer = a} :: ResourceRecordSet)
+-- -   You can\'t create non-latency resource record sets that have the
+--     same values for the @Name@ and @Type@ elements as latency resource
+--     record sets.
+resourceRecordSet_region :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Core.Region)
+resourceRecordSet_region = Lens.lens (\ResourceRecordSet' {region} -> region) (\s@ResourceRecordSet' {} a -> s {region = a} :: ResourceRecordSet)
 
 -- | /Geolocation resource record sets only:/ A complex type that lets you
 -- control how Amazon Route 53 responds to DNS queries based on the
@@ -1188,199 +1351,36 @@ resourceRecordSet_multiValueAnswer = Lens.lens (\ResourceRecordSet' {multiValueA
 resourceRecordSet_geoLocation :: Lens.Lens' ResourceRecordSet (Prelude.Maybe GeoLocation)
 resourceRecordSet_geoLocation = Lens.lens (\ResourceRecordSet' {geoLocation} -> geoLocation) (\s@ResourceRecordSet' {} a -> s {geoLocation = a} :: ResourceRecordSet)
 
--- | /Weighted resource record sets only:/ Among resource record sets that
--- have the same combination of DNS name and type, a value that determines
--- the proportion of DNS queries that Amazon Route 53 responds to using the
--- current resource record set. Route 53 calculates the sum of the weights
--- for the resource record sets that have the same combination of DNS name
--- and type. Route 53 then responds to queries based on the ratio of a
--- resource\'s weight to the total. Note the following:
+-- | /Multivalue answer resource record sets only/: To route traffic
+-- approximately randomly to multiple resources, such as web servers,
+-- create one multivalue answer record for each resource and specify @true@
+-- for @MultiValueAnswer@. Note the following:
 --
--- -   You must specify a value for the @Weight@ element for every weighted
---     resource record set.
+-- -   If you associate a health check with a multivalue answer resource
+--     record set, Amazon Route 53 responds to DNS queries with the
+--     corresponding IP address only when the health check is healthy.
 --
--- -   You can only specify one @ResourceRecord@ per weighted resource
---     record set.
+-- -   If you don\'t associate a health check with a multivalue answer
+--     record, Route 53 always considers the record to be healthy.
 --
--- -   You can\'t create latency, failover, or geolocation resource record
---     sets that have the same values for the @Name@ and @Type@ elements as
---     weighted resource record sets.
+-- -   Route 53 responds to DNS queries with up to eight healthy records;
+--     if you have eight or fewer healthy records, Route 53 responds to all
+--     DNS queries with all the healthy records.
 --
--- -   You can create a maximum of 100 weighted resource record sets that
---     have the same values for the @Name@ and @Type@ elements.
+-- -   If you have more than eight healthy records, Route 53 responds to
+--     different DNS resolvers with different combinations of healthy
+--     records.
 --
--- -   For weighted (but not weighted alias) resource record sets, if you
---     set @Weight@ to @0@ for a resource record set, Route 53 never
---     responds to queries with the applicable value for that resource
---     record set. However, if you set @Weight@ to @0@ for all resource
---     record sets that have the same combination of DNS name and type,
---     traffic is routed to all resources with equal probability.
+-- -   When all records are unhealthy, Route 53 responds to DNS queries
+--     with up to eight unhealthy records.
 --
---     The effect of setting @Weight@ to @0@ is different when you
---     associate health checks with weighted resource record sets. For more
---     information, see
---     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
---     in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_weight :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
-resourceRecordSet_weight = Lens.lens (\ResourceRecordSet' {weight} -> weight) (\s@ResourceRecordSet' {} a -> s {weight = a} :: ResourceRecordSet)
-
--- | /Alias resource record sets only:/ Information about the Amazon Web
--- Services resource, such as a CloudFront distribution or an Amazon S3
--- bucket, that you want to route traffic to.
+-- -   If a resource becomes unavailable after a resolver caches a
+--     response, client software typically tries another of the IP
+--     addresses in the response.
 --
--- If you\'re creating resource records sets for a private hosted zone,
--- note the following:
---
--- -   You can\'t create an alias resource record set in a private hosted
---     zone to route traffic to a CloudFront distribution.
---
--- -   Creating geolocation alias resource record sets or latency alias
---     resource record sets in a private hosted zone is unsupported.
---
--- -   For information about creating failover resource record sets in a
---     private hosted zone, see
---     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
---     in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_aliasTarget :: Lens.Lens' ResourceRecordSet (Prelude.Maybe AliasTarget)
-resourceRecordSet_aliasTarget = Lens.lens (\ResourceRecordSet' {aliasTarget} -> aliasTarget) (\s@ResourceRecordSet' {} a -> s {aliasTarget = a} :: ResourceRecordSet)
-
--- | /Failover resource record sets only:/ To configure failover, you add the
--- @Failover@ element to two resource record sets. For one resource record
--- set, you specify @PRIMARY@ as the value for @Failover@; for the other
--- resource record set, you specify @SECONDARY@. In addition, you include
--- the @HealthCheckId@ element and specify the health check that you want
--- Amazon Route 53 to perform for each resource record set.
---
--- Except where noted, the following failover behaviors assume that you
--- have included the @HealthCheckId@ element in both resource record sets:
---
--- -   When the primary resource record set is healthy, Route 53 responds
---     to DNS queries with the applicable value from the primary resource
---     record set regardless of the health of the secondary resource record
---     set.
---
--- -   When the primary resource record set is unhealthy and the secondary
---     resource record set is healthy, Route 53 responds to DNS queries
---     with the applicable value from the secondary resource record set.
---
--- -   When the secondary resource record set is unhealthy, Route 53
---     responds to DNS queries with the applicable value from the primary
---     resource record set regardless of the health of the primary resource
---     record set.
---
--- -   If you omit the @HealthCheckId@ element for the secondary resource
---     record set, and if the primary resource record set is unhealthy,
---     Route 53 always responds to DNS queries with the applicable value
---     from the secondary resource record set. This is true regardless of
---     the health of the associated endpoint.
---
--- You can\'t create non-failover resource record sets that have the same
--- values for the @Name@ and @Type@ elements as failover resource record
--- sets.
---
--- For failover alias resource record sets, you must also include the
--- @EvaluateTargetHealth@ element and set the value to true.
---
--- For more information about configuring failover for Route 53, see the
--- following topics in the /Amazon Route 53 Developer Guide/:
---
--- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
---
--- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
-resourceRecordSet_failover :: Lens.Lens' ResourceRecordSet (Prelude.Maybe ResourceRecordSetFailover)
-resourceRecordSet_failover = Lens.lens (\ResourceRecordSet' {failover} -> failover) (\s@ResourceRecordSet' {} a -> s {failover = a} :: ResourceRecordSet)
-
--- | Information about the resource records to act upon.
---
--- If you\'re creating an alias resource record set, omit
--- @ResourceRecords@.
-resourceRecordSet_resourceRecords :: Lens.Lens' ResourceRecordSet (Prelude.Maybe (Prelude.NonEmpty ResourceRecord))
-resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceRecords} -> resourceRecords) (\s@ResourceRecordSet' {} a -> s {resourceRecords = a} :: ResourceRecordSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | The resource record cache time to live (TTL), in seconds. Note the
--- following:
---
--- -   If you\'re creating or updating an alias resource record set, omit
---     @TTL@. Amazon Route 53 uses the value of @TTL@ for the alias target.
---
--- -   If you\'re associating this resource record set with a health check
---     (if you\'re adding a @HealthCheckId@ element), we recommend that you
---     specify a @TTL@ of 60 seconds or less so clients respond quickly to
---     changes in health status.
---
--- -   All of the resource record sets in a group of weighted resource
---     record sets must have the same value for @TTL@.
---
--- -   If a group of weighted resource record sets includes one or more
---     weighted alias resource record sets for which the alias target is an
---     ELB load balancer, we recommend that you specify a @TTL@ of 60
---     seconds for all of the non-alias weighted resource record sets that
---     have the same name and type. Values other than 60 seconds (the TTL
---     for load balancers) will change the effect of the values that you
---     specify for @Weight@.
-resourceRecordSet_ttl :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
-resourceRecordSet_ttl = Lens.lens (\ResourceRecordSet' {ttl} -> ttl) (\s@ResourceRecordSet' {} a -> s {ttl = a} :: ResourceRecordSet)
-
--- | /Resource record sets that have a routing policy other than simple:/ An
--- identifier that differentiates among multiple resource record sets that
--- have the same combination of name and type, such as multiple weighted
--- resource record sets named acme.example.com that have a type of A. In a
--- group of resource record sets that have the same name and type, the
--- value of @SetIdentifier@ must be unique for each resource record set.
---
--- For information about routing policies, see
--- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
--- in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_setIdentifier :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
-resourceRecordSet_setIdentifier = Lens.lens (\ResourceRecordSet' {setIdentifier} -> setIdentifier) (\s@ResourceRecordSet' {} a -> s {setIdentifier = a} :: ResourceRecordSet)
-
--- | When you create a traffic policy instance, Amazon Route 53 automatically
--- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
--- the traffic policy instance that Route 53 created this resource record
--- set for.
---
--- To delete the resource record set that is associated with a traffic
--- policy instance, use @DeleteTrafficPolicyInstance@. Route 53 will delete
--- the resource record set automatically. If you delete the resource record
--- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
--- delete the traffic policy instance, and you\'ll continue to be charged
--- for it even though it\'s no longer in use.
-resourceRecordSet_trafficPolicyInstanceId :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
-resourceRecordSet_trafficPolicyInstanceId = Lens.lens (\ResourceRecordSet' {trafficPolicyInstanceId} -> trafficPolicyInstanceId) (\s@ResourceRecordSet' {} a -> s {trafficPolicyInstanceId = a} :: ResourceRecordSet)
-
--- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
--- you created the resource that this resource record set refers to. The
--- resource typically is an Amazon Web Services resource, such as an EC2
--- instance or an ELB load balancer, and is referred to by an IP address or
--- a DNS domain name, depending on the record type.
---
--- Although creating latency and latency alias resource record sets in a
--- private hosted zone is allowed, it\'s not supported.
---
--- When Amazon Route 53 receives a DNS query for a domain name and type for
--- which you have created latency resource record sets, Route 53 selects
--- the latency resource record set that has the lowest latency between the
--- end user and the associated Amazon EC2 Region. Route 53 then returns the
--- value that is associated with the selected resource record set.
---
--- Note the following:
---
--- -   You can only specify one @ResourceRecord@ per latency resource
---     record set.
---
--- -   You can only create one latency resource record set for each Amazon
---     EC2 Region.
---
--- -   You aren\'t required to create latency resource record sets for all
---     Amazon EC2 Regions. Route 53 will choose the region with the best
---     latency from among the regions that you create latency resource
---     record sets for.
---
--- -   You can\'t create non-latency resource record sets that have the
---     same values for the @Name@ and @Type@ elements as latency resource
---     record sets.
-resourceRecordSet_region :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Core.Region)
-resourceRecordSet_region = Lens.lens (\ResourceRecordSet' {region} -> region) (\s@ResourceRecordSet' {} a -> s {region = a} :: ResourceRecordSet)
+-- You can\'t create multivalue answer alias records.
+resourceRecordSet_multiValueAnswer :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Bool)
+resourceRecordSet_multiValueAnswer = Lens.lens (\ResourceRecordSet' {multiValueAnswer} -> multiValueAnswer) (\s@ResourceRecordSet' {} a -> s {multiValueAnswer = a} :: ResourceRecordSet)
 
 -- | For @ChangeResourceRecordSets@ requests, the name of the record that you
 -- want to create, update, or delete. For @ListResourceRecordSets@
@@ -1487,19 +1487,19 @@ resourceRecordSet_type = Lens.lens (\ResourceRecordSet' {type'} -> type') (\s@Re
 instance Core.FromXML ResourceRecordSet where
   parseXML x =
     ResourceRecordSet'
-      Prelude.<$> (x Core..@? "HealthCheckId")
-      Prelude.<*> (x Core..@? "MultiValueAnswer")
-      Prelude.<*> (x Core..@? "GeoLocation")
-      Prelude.<*> (x Core..@? "Weight")
-      Prelude.<*> (x Core..@? "AliasTarget")
-      Prelude.<*> (x Core..@? "Failover")
+      Prelude.<$> (x Core..@? "TTL")
       Prelude.<*> ( x Core..@? "ResourceRecords" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList1 "ResourceRecord")
                   )
-      Prelude.<*> (x Core..@? "TTL")
-      Prelude.<*> (x Core..@? "SetIdentifier")
+      Prelude.<*> (x Core..@? "AliasTarget")
+      Prelude.<*> (x Core..@? "Weight")
       Prelude.<*> (x Core..@? "TrafficPolicyInstanceId")
+      Prelude.<*> (x Core..@? "SetIdentifier")
+      Prelude.<*> (x Core..@? "Failover")
+      Prelude.<*> (x Core..@? "HealthCheckId")
       Prelude.<*> (x Core..@? "Region")
+      Prelude.<*> (x Core..@? "GeoLocation")
+      Prelude.<*> (x Core..@? "MultiValueAnswer")
       Prelude.<*> (x Core..@ "Name")
       Prelude.<*> (x Core..@ "Type")
 
@@ -1510,22 +1510,22 @@ instance Prelude.NFData ResourceRecordSet
 instance Core.ToXML ResourceRecordSet where
   toXML ResourceRecordSet' {..} =
     Prelude.mconcat
-      [ "HealthCheckId" Core.@= healthCheckId,
-        "MultiValueAnswer" Core.@= multiValueAnswer,
-        "GeoLocation" Core.@= geoLocation,
-        "Weight" Core.@= weight,
-        "AliasTarget" Core.@= aliasTarget,
-        "Failover" Core.@= failover,
+      [ "TTL" Core.@= ttl,
         "ResourceRecords"
           Core.@= Core.toXML
             ( Core.toXMLList "ResourceRecord"
                 Prelude.<$> resourceRecords
             ),
-        "TTL" Core.@= ttl,
-        "SetIdentifier" Core.@= setIdentifier,
+        "AliasTarget" Core.@= aliasTarget,
+        "Weight" Core.@= weight,
         "TrafficPolicyInstanceId"
           Core.@= trafficPolicyInstanceId,
+        "SetIdentifier" Core.@= setIdentifier,
+        "Failover" Core.@= failover,
+        "HealthCheckId" Core.@= healthCheckId,
         "Region" Core.@= region,
+        "GeoLocation" Core.@= geoLocation,
+        "MultiValueAnswer" Core.@= multiValueAnswer,
         "Name" Core.@= name,
         "Type" Core.@= type'
       ]

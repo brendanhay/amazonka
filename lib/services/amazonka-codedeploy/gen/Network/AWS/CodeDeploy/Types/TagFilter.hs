@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
-  { -- | The on-premises instance tag filter key.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The on-premises instance tag filter value.
+  { -- | The on-premises instance tag filter value.
     value :: Prelude.Maybe Prelude.Text,
+    -- | The on-premises instance tag filter key.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The on-premises instance tag filter type:
     --
     -- -   KEY_ONLY: Key only.
@@ -51,9 +51,9 @@ data TagFilter = TagFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tagFilter_key' - The on-premises instance tag filter key.
---
 -- 'value', 'tagFilter_value' - The on-premises instance tag filter value.
+--
+-- 'key', 'tagFilter_key' - The on-premises instance tag filter key.
 --
 -- 'type'', 'tagFilter_type' - The on-premises instance tag filter type:
 --
@@ -66,18 +66,18 @@ newTagFilter ::
   TagFilter
 newTagFilter =
   TagFilter'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing,
       type' = Prelude.Nothing
     }
-
--- | The on-premises instance tag filter key.
-tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
-tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
 
 -- | The on-premises instance tag filter value.
 tagFilter_value :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
 tagFilter_value = Lens.lens (\TagFilter' {value} -> value) (\s@TagFilter' {} a -> s {value = a} :: TagFilter)
+
+-- | The on-premises instance tag filter key.
+tagFilter_key :: Lens.Lens' TagFilter (Prelude.Maybe Prelude.Text)
+tagFilter_key = Lens.lens (\TagFilter' {key} -> key) (\s@TagFilter' {} a -> s {key = a} :: TagFilter)
 
 -- | The on-premises instance tag filter type:
 --
@@ -95,8 +95,8 @@ instance Core.FromJSON TagFilter where
       "TagFilter"
       ( \x ->
           TagFilter'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "Type")
       )
 
@@ -108,8 +108,8 @@ instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value,
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key,
             ("Type" Core..=) Prelude.<$> type'
           ]
       )

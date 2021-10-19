@@ -26,7 +26,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- | Details on an Elastic Inference accelerator task override. This
 -- parameter is used to override the Elastic Inference accelerator
 -- specified in the task definition. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html Working with Amazon Elastic Inference on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- /See:/ 'newInferenceAcceleratorOverride' smart constructor.

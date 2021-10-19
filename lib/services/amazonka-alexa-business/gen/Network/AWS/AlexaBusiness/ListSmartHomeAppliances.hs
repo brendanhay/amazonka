@@ -38,8 +38,8 @@ module Network.AWS.AlexaBusiness.ListSmartHomeAppliances
     newListSmartHomeAppliancesResponse,
 
     -- * Response Lenses
-    listSmartHomeAppliancesResponse_nextToken,
     listSmartHomeAppliancesResponse_smartHomeAppliances,
+    listSmartHomeAppliancesResponse_nextToken,
     listSmartHomeAppliancesResponse_httpStatus,
   )
 where
@@ -130,10 +130,10 @@ instance Core.AWSRequest ListSmartHomeAppliances where
     Response.receiveJSON
       ( \s h x ->
           ListSmartHomeAppliancesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "SmartHomeAppliances"
+            Prelude.<$> ( x Core..?> "SmartHomeAppliances"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,10 +174,10 @@ instance Core.ToQuery ListSmartHomeAppliances where
 
 -- | /See:/ 'newListSmartHomeAppliancesResponse' smart constructor.
 data ListSmartHomeAppliancesResponse = ListSmartHomeAppliancesResponse'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The smart home appliances.
+  { -- | The smart home appliances.
     smartHomeAppliances :: Prelude.Maybe [SmartHomeAppliance],
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,9 +191,9 @@ data ListSmartHomeAppliancesResponse = ListSmartHomeAppliancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSmartHomeAppliancesResponse_nextToken' - The tokens used for pagination.
---
 -- 'smartHomeAppliances', 'listSmartHomeAppliancesResponse_smartHomeAppliances' - The smart home appliances.
+--
+-- 'nextToken', 'listSmartHomeAppliancesResponse_nextToken' - The tokens used for pagination.
 --
 -- 'httpStatus', 'listSmartHomeAppliancesResponse_httpStatus' - The response's http status code.
 newListSmartHomeAppliancesResponse ::
@@ -202,19 +202,19 @@ newListSmartHomeAppliancesResponse ::
   ListSmartHomeAppliancesResponse
 newListSmartHomeAppliancesResponse pHttpStatus_ =
   ListSmartHomeAppliancesResponse'
-    { nextToken =
+    { smartHomeAppliances =
         Prelude.Nothing,
-      smartHomeAppliances = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The smart home appliances.
+listSmartHomeAppliancesResponse_smartHomeAppliances :: Lens.Lens' ListSmartHomeAppliancesResponse (Prelude.Maybe [SmartHomeAppliance])
+listSmartHomeAppliancesResponse_smartHomeAppliances = Lens.lens (\ListSmartHomeAppliancesResponse' {smartHomeAppliances} -> smartHomeAppliances) (\s@ListSmartHomeAppliancesResponse' {} a -> s {smartHomeAppliances = a} :: ListSmartHomeAppliancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tokens used for pagination.
 listSmartHomeAppliancesResponse_nextToken :: Lens.Lens' ListSmartHomeAppliancesResponse (Prelude.Maybe Prelude.Text)
 listSmartHomeAppliancesResponse_nextToken = Lens.lens (\ListSmartHomeAppliancesResponse' {nextToken} -> nextToken) (\s@ListSmartHomeAppliancesResponse' {} a -> s {nextToken = a} :: ListSmartHomeAppliancesResponse)
-
--- | The smart home appliances.
-listSmartHomeAppliancesResponse_smartHomeAppliances :: Lens.Lens' ListSmartHomeAppliancesResponse (Prelude.Maybe [SmartHomeAppliance])
-listSmartHomeAppliancesResponse_smartHomeAppliances = Lens.lens (\ListSmartHomeAppliancesResponse' {smartHomeAppliances} -> smartHomeAppliances) (\s@ListSmartHomeAppliancesResponse' {} a -> s {smartHomeAppliances = a} :: ListSmartHomeAppliancesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listSmartHomeAppliancesResponse_httpStatus :: Lens.Lens' ListSmartHomeAppliancesResponse Prelude.Int

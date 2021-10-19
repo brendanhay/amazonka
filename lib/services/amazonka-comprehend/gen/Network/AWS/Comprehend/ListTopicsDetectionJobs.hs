@@ -30,8 +30,8 @@ module Network.AWS.Comprehend.ListTopicsDetectionJobs
 
     -- * Request Lenses
     listTopicsDetectionJobs_nextToken,
-    listTopicsDetectionJobs_maxResults,
     listTopicsDetectionJobs_filter,
+    listTopicsDetectionJobs_maxResults,
 
     -- * Destructuring the Response
     ListTopicsDetectionJobsResponse (..),
@@ -55,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data ListTopicsDetectionJobs = ListTopicsDetectionJobs'
   { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in each page. The default is
-    -- 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the jobs that are returned. Jobs can be filtered on their name,
     -- status, or the date and time that they were submitted. You can set only
     -- one filter at a time.
-    filter' :: Prelude.Maybe TopicsDetectionJobFilter
+    filter' :: Prelude.Maybe TopicsDetectionJobFilter,
+    -- | The maximum number of results to return in each page. The default is
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,36 +75,36 @@ data ListTopicsDetectionJobs = ListTopicsDetectionJobs'
 --
 -- 'nextToken', 'listTopicsDetectionJobs_nextToken' - Identifies the next page of results to return.
 --
--- 'maxResults', 'listTopicsDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
--- 100.
---
 -- 'filter'', 'listTopicsDetectionJobs_filter' - Filters the jobs that are returned. Jobs can be filtered on their name,
 -- status, or the date and time that they were submitted. You can set only
 -- one filter at a time.
+--
+-- 'maxResults', 'listTopicsDetectionJobs_maxResults' - The maximum number of results to return in each page. The default is
+-- 100.
 newListTopicsDetectionJobs ::
   ListTopicsDetectionJobs
 newListTopicsDetectionJobs =
   ListTopicsDetectionJobs'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
 listTopicsDetectionJobs_nextToken :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe Prelude.Text)
 listTopicsDetectionJobs_nextToken = Lens.lens (\ListTopicsDetectionJobs' {nextToken} -> nextToken) (\s@ListTopicsDetectionJobs' {} a -> s {nextToken = a} :: ListTopicsDetectionJobs)
 
--- | The maximum number of results to return in each page. The default is
--- 100.
-listTopicsDetectionJobs_maxResults :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe Prelude.Natural)
-listTopicsDetectionJobs_maxResults = Lens.lens (\ListTopicsDetectionJobs' {maxResults} -> maxResults) (\s@ListTopicsDetectionJobs' {} a -> s {maxResults = a} :: ListTopicsDetectionJobs)
-
 -- | Filters the jobs that are returned. Jobs can be filtered on their name,
 -- status, or the date and time that they were submitted. You can set only
 -- one filter at a time.
 listTopicsDetectionJobs_filter :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe TopicsDetectionJobFilter)
 listTopicsDetectionJobs_filter = Lens.lens (\ListTopicsDetectionJobs' {filter'} -> filter') (\s@ListTopicsDetectionJobs' {} a -> s {filter' = a} :: ListTopicsDetectionJobs)
+
+-- | The maximum number of results to return in each page. The default is
+-- 100.
+listTopicsDetectionJobs_maxResults :: Lens.Lens' ListTopicsDetectionJobs (Prelude.Maybe Prelude.Natural)
+listTopicsDetectionJobs_maxResults = Lens.lens (\ListTopicsDetectionJobs' {maxResults} -> maxResults) (\s@ListTopicsDetectionJobs' {} a -> s {maxResults = a} :: ListTopicsDetectionJobs)
 
 instance Core.AWSPager ListTopicsDetectionJobs where
   page rq rs
@@ -168,8 +168,8 @@ instance Core.ToJSON ListTopicsDetectionJobs where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter'
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -222,7 +222,7 @@ listTopicsDetectionJobsResponse_nextToken = Lens.lens (\ListTopicsDetectionJobsR
 
 -- | A list containing the properties of each job that is returned.
 listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList :: Lens.Lens' ListTopicsDetectionJobsResponse (Prelude.Maybe [TopicsDetectionJobProperties])
-listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList = Lens.lens (\ListTopicsDetectionJobsResponse' {topicsDetectionJobPropertiesList} -> topicsDetectionJobPropertiesList) (\s@ListTopicsDetectionJobsResponse' {} a -> s {topicsDetectionJobPropertiesList = a} :: ListTopicsDetectionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList = Lens.lens (\ListTopicsDetectionJobsResponse' {topicsDetectionJobPropertiesList} -> topicsDetectionJobPropertiesList) (\s@ListTopicsDetectionJobsResponse' {} a -> s {topicsDetectionJobPropertiesList = a} :: ListTopicsDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTopicsDetectionJobsResponse_httpStatus :: Lens.Lens' ListTopicsDetectionJobsResponse Prelude.Int

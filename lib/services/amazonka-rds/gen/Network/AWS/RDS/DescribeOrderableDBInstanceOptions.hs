@@ -31,13 +31,13 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
 
     -- * Request Lenses
     describeOrderableDBInstanceOptions_engineVersion,
-    describeOrderableDBInstanceOptions_licenseModel,
-    describeOrderableDBInstanceOptions_dbInstanceClass,
-    describeOrderableDBInstanceOptions_filters,
     describeOrderableDBInstanceOptions_availabilityZoneGroup,
-    describeOrderableDBInstanceOptions_vpc,
-    describeOrderableDBInstanceOptions_maxRecords,
+    describeOrderableDBInstanceOptions_filters,
+    describeOrderableDBInstanceOptions_dbInstanceClass,
+    describeOrderableDBInstanceOptions_licenseModel,
     describeOrderableDBInstanceOptions_marker,
+    describeOrderableDBInstanceOptions_maxRecords,
+    describeOrderableDBInstanceOptions_vpc,
     describeOrderableDBInstanceOptions_engine,
 
     -- * Destructuring the Response
@@ -65,14 +65,6 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
   { -- | The engine version filter value. Specify this parameter to show only the
     -- available offerings matching the specified engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The license model filter value. Specify this parameter to show only the
-    -- available offerings matching the specified license model.
-    licenseModel :: Prelude.Maybe Prelude.Text,
-    -- | The DB instance class filter value. Specify this parameter to show only
-    -- the available offerings matching the specified DB instance class.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
-    -- | This parameter isn\'t currently supported.
-    filters :: Prelude.Maybe [Filter],
     -- | The Availability Zone group associated with a Local Zone. Specify this
     -- parameter to retrieve available offerings for the Local Zones in the
     -- group.
@@ -80,8 +72,19 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     -- Omit this parameter to show the available offerings in the specified
     -- Amazon Web Services Region.
     availabilityZoneGroup :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to show only VPC or non-VPC offerings.
-    vpc :: Prelude.Maybe Prelude.Bool,
+    -- | This parameter isn\'t currently supported.
+    filters :: Prelude.Maybe [Filter],
+    -- | The DB instance class filter value. Specify this parameter to show only
+    -- the available offerings matching the specified DB instance class.
+    dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    -- | The license model filter value. Specify this parameter to show only the
+    -- available offerings matching the specified license model.
+    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | An optional pagination token provided by a previous
+    -- DescribeOrderableDBInstanceOptions request. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@ .
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -91,11 +94,8 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     --
     -- Constraints: Minimum 20, maximum 100.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional pagination token provided by a previous
-    -- DescribeOrderableDBInstanceOptions request. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@ .
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to show only VPC or non-VPC offerings.
+    vpc :: Prelude.Maybe Prelude.Bool,
     -- | The name of the engine to retrieve DB instance options for.
     --
     -- Valid Values:
@@ -142,14 +142,6 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- 'engineVersion', 'describeOrderableDBInstanceOptions_engineVersion' - The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
 --
--- 'licenseModel', 'describeOrderableDBInstanceOptions_licenseModel' - The license model filter value. Specify this parameter to show only the
--- available offerings matching the specified license model.
---
--- 'dbInstanceClass', 'describeOrderableDBInstanceOptions_dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only
--- the available offerings matching the specified DB instance class.
---
--- 'filters', 'describeOrderableDBInstanceOptions_filters' - This parameter isn\'t currently supported.
---
 -- 'availabilityZoneGroup', 'describeOrderableDBInstanceOptions_availabilityZoneGroup' - The Availability Zone group associated with a Local Zone. Specify this
 -- parameter to retrieve available offerings for the Local Zones in the
 -- group.
@@ -157,7 +149,18 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 -- Omit this parameter to show the available offerings in the specified
 -- Amazon Web Services Region.
 --
--- 'vpc', 'describeOrderableDBInstanceOptions_vpc' - A value that indicates whether to show only VPC or non-VPC offerings.
+-- 'filters', 'describeOrderableDBInstanceOptions_filters' - This parameter isn\'t currently supported.
+--
+-- 'dbInstanceClass', 'describeOrderableDBInstanceOptions_dbInstanceClass' - The DB instance class filter value. Specify this parameter to show only
+-- the available offerings matching the specified DB instance class.
+--
+-- 'licenseModel', 'describeOrderableDBInstanceOptions_licenseModel' - The license model filter value. Specify this parameter to show only the
+-- available offerings matching the specified license model.
+--
+-- 'marker', 'describeOrderableDBInstanceOptions_marker' - An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@ .
 --
 -- 'maxRecords', 'describeOrderableDBInstanceOptions_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -168,10 +171,7 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 --
 -- Constraints: Minimum 20, maximum 100.
 --
--- 'marker', 'describeOrderableDBInstanceOptions_marker' - An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
+-- 'vpc', 'describeOrderableDBInstanceOptions_vpc' - A value that indicates whether to show only VPC or non-VPC offerings.
 --
 -- 'engine', 'describeOrderableDBInstanceOptions_engine' - The name of the engine to retrieve DB instance options for.
 --
@@ -212,13 +212,13 @@ newDescribeOrderableDBInstanceOptions pEngine_ =
   DescribeOrderableDBInstanceOptions'
     { engineVersion =
         Prelude.Nothing,
-      licenseModel = Prelude.Nothing,
-      dbInstanceClass = Prelude.Nothing,
-      filters = Prelude.Nothing,
       availabilityZoneGroup = Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      dbInstanceClass = Prelude.Nothing,
+      licenseModel = Prelude.Nothing,
       marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      vpc = Prelude.Nothing,
       engine = pEngine_
     }
 
@@ -226,20 +226,6 @@ newDescribeOrderableDBInstanceOptions pEngine_ =
 -- available offerings matching the specified engine version.
 describeOrderableDBInstanceOptions_engineVersion :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_engineVersion = Lens.lens (\DescribeOrderableDBInstanceOptions' {engineVersion} -> engineVersion) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {engineVersion = a} :: DescribeOrderableDBInstanceOptions)
-
--- | The license model filter value. Specify this parameter to show only the
--- available offerings matching the specified license model.
-describeOrderableDBInstanceOptions_licenseModel :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
-describeOrderableDBInstanceOptions_licenseModel = Lens.lens (\DescribeOrderableDBInstanceOptions' {licenseModel} -> licenseModel) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {licenseModel = a} :: DescribeOrderableDBInstanceOptions)
-
--- | The DB instance class filter value. Specify this parameter to show only
--- the available offerings matching the specified DB instance class.
-describeOrderableDBInstanceOptions_dbInstanceClass :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
-describeOrderableDBInstanceOptions_dbInstanceClass = Lens.lens (\DescribeOrderableDBInstanceOptions' {dbInstanceClass} -> dbInstanceClass) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {dbInstanceClass = a} :: DescribeOrderableDBInstanceOptions)
-
--- | This parameter isn\'t currently supported.
-describeOrderableDBInstanceOptions_filters :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe [Filter])
-describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInstanceOptions' {filters} -> filters) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {filters = a} :: DescribeOrderableDBInstanceOptions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Availability Zone group associated with a Local Zone. Specify this
 -- parameter to retrieve available offerings for the Local Zones in the
@@ -250,9 +236,26 @@ describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInst
 describeOrderableDBInstanceOptions_availabilityZoneGroup :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
 describeOrderableDBInstanceOptions_availabilityZoneGroup = Lens.lens (\DescribeOrderableDBInstanceOptions' {availabilityZoneGroup} -> availabilityZoneGroup) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {availabilityZoneGroup = a} :: DescribeOrderableDBInstanceOptions)
 
--- | A value that indicates whether to show only VPC or non-VPC offerings.
-describeOrderableDBInstanceOptions_vpc :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Bool)
-describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstanceOptions' {vpc} -> vpc) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
+-- | This parameter isn\'t currently supported.
+describeOrderableDBInstanceOptions_filters :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe [Filter])
+describeOrderableDBInstanceOptions_filters = Lens.lens (\DescribeOrderableDBInstanceOptions' {filters} -> filters) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {filters = a} :: DescribeOrderableDBInstanceOptions) Prelude.. Lens.mapping Lens.coerced
+
+-- | The DB instance class filter value. Specify this parameter to show only
+-- the available offerings matching the specified DB instance class.
+describeOrderableDBInstanceOptions_dbInstanceClass :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
+describeOrderableDBInstanceOptions_dbInstanceClass = Lens.lens (\DescribeOrderableDBInstanceOptions' {dbInstanceClass} -> dbInstanceClass) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {dbInstanceClass = a} :: DescribeOrderableDBInstanceOptions)
+
+-- | The license model filter value. Specify this parameter to show only the
+-- available offerings matching the specified license model.
+describeOrderableDBInstanceOptions_licenseModel :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
+describeOrderableDBInstanceOptions_licenseModel = Lens.lens (\DescribeOrderableDBInstanceOptions' {licenseModel} -> licenseModel) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {licenseModel = a} :: DescribeOrderableDBInstanceOptions)
+
+-- | An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@ .
+describeOrderableDBInstanceOptions_marker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
+describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInstanceOptions' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -265,12 +268,9 @@ describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstance
 describeOrderableDBInstanceOptions_maxRecords :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Int)
 describeOrderableDBInstanceOptions_maxRecords = Lens.lens (\DescribeOrderableDBInstanceOptions' {maxRecords} -> maxRecords) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {maxRecords = a} :: DescribeOrderableDBInstanceOptions)
 
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
-describeOrderableDBInstanceOptions_marker :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Text)
-describeOrderableDBInstanceOptions_marker = Lens.lens (\DescribeOrderableDBInstanceOptions' {marker} -> marker) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {marker = a} :: DescribeOrderableDBInstanceOptions)
+-- | A value that indicates whether to show only VPC or non-VPC offerings.
+describeOrderableDBInstanceOptions_vpc :: Lens.Lens' DescribeOrderableDBInstanceOptions (Prelude.Maybe Prelude.Bool)
+describeOrderableDBInstanceOptions_vpc = Lens.lens (\DescribeOrderableDBInstanceOptions' {vpc} -> vpc) (\s@DescribeOrderableDBInstanceOptions' {} a -> s {vpc = a} :: DescribeOrderableDBInstanceOptions)
 
 -- | The name of the engine to retrieve DB instance options for.
 --
@@ -386,16 +386,16 @@ instance
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
         "EngineVersion" Core.=: engineVersion,
-        "LicenseModel" Core.=: licenseModel,
-        "DBInstanceClass" Core.=: dbInstanceClass,
+        "AvailabilityZoneGroup"
+          Core.=: availabilityZoneGroup,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "Filter" Prelude.<$> filters),
-        "AvailabilityZoneGroup"
-          Core.=: availabilityZoneGroup,
-        "Vpc" Core.=: vpc,
-        "MaxRecords" Core.=: maxRecords,
+        "DBInstanceClass" Core.=: dbInstanceClass,
+        "LicenseModel" Core.=: licenseModel,
         "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
+        "Vpc" Core.=: vpc,
         "Engine" Core.=: engine
       ]
 
@@ -450,7 +450,7 @@ newDescribeOrderableDBInstanceOptionsResponse
 -- | An @OrderableDBInstanceOption@ structure containing information about
 -- orderable options for the DB instance.
 describeOrderableDBInstanceOptionsResponse_orderableDBInstanceOptions :: Lens.Lens' DescribeOrderableDBInstanceOptionsResponse (Prelude.Maybe [OrderableDBInstanceOption])
-describeOrderableDBInstanceOptionsResponse_orderableDBInstanceOptions = Lens.lens (\DescribeOrderableDBInstanceOptionsResponse' {orderableDBInstanceOptions} -> orderableDBInstanceOptions) (\s@DescribeOrderableDBInstanceOptionsResponse' {} a -> s {orderableDBInstanceOptions = a} :: DescribeOrderableDBInstanceOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeOrderableDBInstanceOptionsResponse_orderableDBInstanceOptions = Lens.lens (\DescribeOrderableDBInstanceOptionsResponse' {orderableDBInstanceOptions} -> orderableDBInstanceOptions) (\s@DescribeOrderableDBInstanceOptionsResponse' {} a -> s {orderableDBInstanceOptions = a} :: DescribeOrderableDBInstanceOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the

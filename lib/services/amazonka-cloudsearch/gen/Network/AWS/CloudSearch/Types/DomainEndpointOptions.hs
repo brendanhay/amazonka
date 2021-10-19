@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDomainEndpointOptions' smart constructor.
 data DomainEndpointOptions = DomainEndpointOptions'
-  { -- | The minimum required TLS version
-    tLSSecurityPolicy :: Prelude.Maybe TLSSecurityPolicy,
-    -- | Whether the domain is HTTPS only enabled.
-    enforceHTTPS :: Prelude.Maybe Prelude.Bool
+  { -- | Whether the domain is HTTPS only enabled.
+    enforceHTTPS :: Prelude.Maybe Prelude.Bool,
+    -- | The minimum required TLS version
+    tLSSecurityPolicy :: Prelude.Maybe TLSSecurityPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,31 +43,31 @@ data DomainEndpointOptions = DomainEndpointOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tLSSecurityPolicy', 'domainEndpointOptions_tLSSecurityPolicy' - The minimum required TLS version
---
 -- 'enforceHTTPS', 'domainEndpointOptions_enforceHTTPS' - Whether the domain is HTTPS only enabled.
+--
+-- 'tLSSecurityPolicy', 'domainEndpointOptions_tLSSecurityPolicy' - The minimum required TLS version
 newDomainEndpointOptions ::
   DomainEndpointOptions
 newDomainEndpointOptions =
   DomainEndpointOptions'
-    { tLSSecurityPolicy =
+    { enforceHTTPS =
         Prelude.Nothing,
-      enforceHTTPS = Prelude.Nothing
+      tLSSecurityPolicy = Prelude.Nothing
     }
-
--- | The minimum required TLS version
-domainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe TLSSecurityPolicy)
-domainEndpointOptions_tLSSecurityPolicy = Lens.lens (\DomainEndpointOptions' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@DomainEndpointOptions' {} a -> s {tLSSecurityPolicy = a} :: DomainEndpointOptions)
 
 -- | Whether the domain is HTTPS only enabled.
 domainEndpointOptions_enforceHTTPS :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe Prelude.Bool)
 domainEndpointOptions_enforceHTTPS = Lens.lens (\DomainEndpointOptions' {enforceHTTPS} -> enforceHTTPS) (\s@DomainEndpointOptions' {} a -> s {enforceHTTPS = a} :: DomainEndpointOptions)
 
+-- | The minimum required TLS version
+domainEndpointOptions_tLSSecurityPolicy :: Lens.Lens' DomainEndpointOptions (Prelude.Maybe TLSSecurityPolicy)
+domainEndpointOptions_tLSSecurityPolicy = Lens.lens (\DomainEndpointOptions' {tLSSecurityPolicy} -> tLSSecurityPolicy) (\s@DomainEndpointOptions' {} a -> s {tLSSecurityPolicy = a} :: DomainEndpointOptions)
+
 instance Core.FromXML DomainEndpointOptions where
   parseXML x =
     DomainEndpointOptions'
-      Prelude.<$> (x Core..@? "TLSSecurityPolicy")
-      Prelude.<*> (x Core..@? "EnforceHTTPS")
+      Prelude.<$> (x Core..@? "EnforceHTTPS")
+      Prelude.<*> (x Core..@? "TLSSecurityPolicy")
 
 instance Prelude.Hashable DomainEndpointOptions
 
@@ -76,6 +76,6 @@ instance Prelude.NFData DomainEndpointOptions
 instance Core.ToQuery DomainEndpointOptions where
   toQuery DomainEndpointOptions' {..} =
     Prelude.mconcat
-      [ "TLSSecurityPolicy" Core.=: tLSSecurityPolicy,
-        "EnforceHTTPS" Core.=: enforceHTTPS
+      [ "EnforceHTTPS" Core.=: enforceHTTPS,
+        "TLSSecurityPolicy" Core.=: tLSSecurityPolicy
       ]

@@ -40,9 +40,9 @@ module Network.AWS.IoT.CreateBillingGroup
     newCreateBillingGroupResponse,
 
     -- * Response Lenses
-    createBillingGroupResponse_billingGroupId,
     createBillingGroupResponse_billingGroupArn,
     createBillingGroupResponse_billingGroupName,
+    createBillingGroupResponse_billingGroupId,
     createBillingGroupResponse_httpStatus,
   )
 where
@@ -96,7 +96,7 @@ createBillingGroup_billingGroupProperties = Lens.lens (\CreateBillingGroup' {bil
 
 -- | Metadata which can be used to manage the billing group.
 createBillingGroup_tags :: Lens.Lens' CreateBillingGroup (Prelude.Maybe [Tag])
-createBillingGroup_tags = Lens.lens (\CreateBillingGroup' {tags} -> tags) (\s@CreateBillingGroup' {} a -> s {tags = a} :: CreateBillingGroup) Prelude.. Lens.mapping Lens._Coerce
+createBillingGroup_tags = Lens.lens (\CreateBillingGroup' {tags} -> tags) (\s@CreateBillingGroup' {} a -> s {tags = a} :: CreateBillingGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name you wish to give to the billing group.
 createBillingGroup_billingGroupName :: Lens.Lens' CreateBillingGroup Prelude.Text
@@ -111,9 +111,9 @@ instance Core.AWSRequest CreateBillingGroup where
     Response.receiveJSON
       ( \s h x ->
           CreateBillingGroupResponse'
-            Prelude.<$> (x Core..?> "billingGroupId")
-            Prelude.<*> (x Core..?> "billingGroupArn")
+            Prelude.<$> (x Core..?> "billingGroupArn")
             Prelude.<*> (x Core..?> "billingGroupName")
+            Prelude.<*> (x Core..?> "billingGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,12 +144,12 @@ instance Core.ToQuery CreateBillingGroup where
 
 -- | /See:/ 'newCreateBillingGroupResponse' smart constructor.
 data CreateBillingGroupResponse = CreateBillingGroupResponse'
-  { -- | The ID of the billing group.
-    billingGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the billing group.
+  { -- | The ARN of the billing group.
     billingGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The name you gave to the billing group.
     billingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the billing group.
+    billingGroupId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,11 +163,11 @@ data CreateBillingGroupResponse = CreateBillingGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'billingGroupId', 'createBillingGroupResponse_billingGroupId' - The ID of the billing group.
---
 -- 'billingGroupArn', 'createBillingGroupResponse_billingGroupArn' - The ARN of the billing group.
 --
 -- 'billingGroupName', 'createBillingGroupResponse_billingGroupName' - The name you gave to the billing group.
+--
+-- 'billingGroupId', 'createBillingGroupResponse_billingGroupId' - The ID of the billing group.
 --
 -- 'httpStatus', 'createBillingGroupResponse_httpStatus' - The response's http status code.
 newCreateBillingGroupResponse ::
@@ -176,16 +176,12 @@ newCreateBillingGroupResponse ::
   CreateBillingGroupResponse
 newCreateBillingGroupResponse pHttpStatus_ =
   CreateBillingGroupResponse'
-    { billingGroupId =
+    { billingGroupArn =
         Prelude.Nothing,
-      billingGroupArn = Prelude.Nothing,
       billingGroupName = Prelude.Nothing,
+      billingGroupId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The ID of the billing group.
-createBillingGroupResponse_billingGroupId :: Lens.Lens' CreateBillingGroupResponse (Prelude.Maybe Prelude.Text)
-createBillingGroupResponse_billingGroupId = Lens.lens (\CreateBillingGroupResponse' {billingGroupId} -> billingGroupId) (\s@CreateBillingGroupResponse' {} a -> s {billingGroupId = a} :: CreateBillingGroupResponse)
 
 -- | The ARN of the billing group.
 createBillingGroupResponse_billingGroupArn :: Lens.Lens' CreateBillingGroupResponse (Prelude.Maybe Prelude.Text)
@@ -194,6 +190,10 @@ createBillingGroupResponse_billingGroupArn = Lens.lens (\CreateBillingGroupRespo
 -- | The name you gave to the billing group.
 createBillingGroupResponse_billingGroupName :: Lens.Lens' CreateBillingGroupResponse (Prelude.Maybe Prelude.Text)
 createBillingGroupResponse_billingGroupName = Lens.lens (\CreateBillingGroupResponse' {billingGroupName} -> billingGroupName) (\s@CreateBillingGroupResponse' {} a -> s {billingGroupName = a} :: CreateBillingGroupResponse)
+
+-- | The ID of the billing group.
+createBillingGroupResponse_billingGroupId :: Lens.Lens' CreateBillingGroupResponse (Prelude.Maybe Prelude.Text)
+createBillingGroupResponse_billingGroupId = Lens.lens (\CreateBillingGroupResponse' {billingGroupId} -> billingGroupId) (\s@CreateBillingGroupResponse' {} a -> s {billingGroupId = a} :: CreateBillingGroupResponse)
 
 -- | The response's http status code.
 createBillingGroupResponse_httpStatus :: Lens.Lens' CreateBillingGroupResponse Prelude.Int

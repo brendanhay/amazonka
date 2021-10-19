@@ -118,7 +118,7 @@ newGetUtterancesView
   pStatusType_ =
     GetUtterancesView'
       { botName = pBotName_,
-        botVersions = Lens._Coerce Lens.# pBotVersions_,
+        botVersions = Lens.coerced Lens.# pBotVersions_,
         statusType = pStatusType_
       }
 
@@ -129,7 +129,7 @@ getUtterancesView_botName = Lens.lens (\GetUtterancesView' {botName} -> botName)
 -- | An array of bot versions for which utterance information should be
 -- returned. The limit is 5 versions per request.
 getUtterancesView_botVersions :: Lens.Lens' GetUtterancesView (Prelude.NonEmpty Prelude.Text)
-getUtterancesView_botVersions = Lens.lens (\GetUtterancesView' {botVersions} -> botVersions) (\s@GetUtterancesView' {} a -> s {botVersions = a} :: GetUtterancesView) Prelude.. Lens._Coerce
+getUtterancesView_botVersions = Lens.lens (\GetUtterancesView' {botVersions} -> botVersions) (\s@GetUtterancesView' {} a -> s {botVersions = a} :: GetUtterancesView) Prelude.. Lens.coerced
 
 -- | To return utterances that were recognized and handled, use @Detected@.
 -- To return utterances that were not recognized, use @Missed@.
@@ -233,7 +233,7 @@ getUtterancesViewResponse_botName = Lens.lens (\GetUtterancesViewResponse' {botN
 -- for each version. Amazon Lex returns the most frequent utterances
 -- received by the bot in the last 15 days.
 getUtterancesViewResponse_utterances :: Lens.Lens' GetUtterancesViewResponse (Prelude.Maybe [UtteranceList])
-getUtterancesViewResponse_utterances = Lens.lens (\GetUtterancesViewResponse' {utterances} -> utterances) (\s@GetUtterancesViewResponse' {} a -> s {utterances = a} :: GetUtterancesViewResponse) Prelude.. Lens.mapping Lens._Coerce
+getUtterancesViewResponse_utterances = Lens.lens (\GetUtterancesViewResponse' {utterances} -> utterances) (\s@GetUtterancesViewResponse' {} a -> s {utterances = a} :: GetUtterancesViewResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getUtterancesViewResponse_httpStatus :: Lens.Lens' GetUtterancesViewResponse Prelude.Int

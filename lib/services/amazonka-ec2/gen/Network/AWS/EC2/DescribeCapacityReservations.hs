@@ -31,11 +31,11 @@ module Network.AWS.EC2.DescribeCapacityReservations
     newDescribeCapacityReservations,
 
     -- * Request Lenses
-    describeCapacityReservations_nextToken,
-    describeCapacityReservations_maxResults,
-    describeCapacityReservations_dryRun,
     describeCapacityReservations_capacityReservationIds,
     describeCapacityReservations_filters,
+    describeCapacityReservations_nextToken,
+    describeCapacityReservations_dryRun,
+    describeCapacityReservations_maxResults,
 
     -- * Destructuring the Response
     DescribeCapacityReservationsResponse (..),
@@ -57,19 +57,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCapacityReservations' smart constructor.
 data DescribeCapacityReservations = DescribeCapacityReservations'
-  { -- | The token to use to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the returned @nextToken@ value. This value can be between 5 and 500. If
-    -- @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Capacity Reservation.
+  { -- | The ID of the Capacity Reservation.
     capacityReservationIds :: Prelude.Maybe [Prelude.Text],
     -- | One or more filters.
     --
@@ -155,7 +143,19 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
     --         Availability Zone), and explicitly target the Capacity
     --         Reservation. This ensures that only permitted instances can use
     --         the reserved capacity.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return for the request in a single
+    -- page. The remaining results can be seen by sending another request with
+    -- the returned @nextToken@ value. This value can be between 5 and 500. If
+    -- @maxResults@ is given a larger value than 500, you receive an error.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -166,18 +166,6 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeCapacityReservations_nextToken' - The token to use to retrieve the next page of results.
---
--- 'maxResults', 'describeCapacityReservations_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the returned @nextToken@ value. This value can be between 5 and 500. If
--- @maxResults@ is given a larger value than 500, you receive an error.
---
--- 'dryRun', 'describeCapacityReservations_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'capacityReservationIds', 'describeCapacityReservations_capacityReservationIds' - The ID of the Capacity Reservation.
 --
@@ -265,39 +253,33 @@ data DescribeCapacityReservations = DescribeCapacityReservations'
 --         Availability Zone), and explicitly target the Capacity
 --         Reservation. This ensures that only permitted instances can use
 --         the reserved capacity.
+--
+-- 'nextToken', 'describeCapacityReservations_nextToken' - The token to use to retrieve the next page of results.
+--
+-- 'dryRun', 'describeCapacityReservations_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeCapacityReservations_maxResults' - The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the returned @nextToken@ value. This value can be between 5 and 500. If
+-- @maxResults@ is given a larger value than 500, you receive an error.
 newDescribeCapacityReservations ::
   DescribeCapacityReservations
 newDescribeCapacityReservations =
   DescribeCapacityReservations'
-    { nextToken =
+    { capacityReservationIds =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      capacityReservationIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
-
--- | The token to use to retrieve the next page of results.
-describeCapacityReservations_nextToken :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Text)
-describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservations' {nextToken} -> nextToken) (\s@DescribeCapacityReservations' {} a -> s {nextToken = a} :: DescribeCapacityReservations)
-
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the returned @nextToken@ value. This value can be between 5 and 500. If
--- @maxResults@ is given a larger value than 500, you receive an error.
-describeCapacityReservations_maxResults :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Natural)
-describeCapacityReservations_maxResults = Lens.lens (\DescribeCapacityReservations' {maxResults} -> maxResults) (\s@DescribeCapacityReservations' {} a -> s {maxResults = a} :: DescribeCapacityReservations)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeCapacityReservations_dryRun :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Bool)
-describeCapacityReservations_dryRun = Lens.lens (\DescribeCapacityReservations' {dryRun} -> dryRun) (\s@DescribeCapacityReservations' {} a -> s {dryRun = a} :: DescribeCapacityReservations)
 
 -- | The ID of the Capacity Reservation.
 describeCapacityReservations_capacityReservationIds :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Prelude.Text])
-describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapacityReservations' {capacityReservationIds} -> capacityReservationIds) (\s@DescribeCapacityReservations' {} a -> s {capacityReservationIds = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens._Coerce
+describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapacityReservations' {capacityReservationIds} -> capacityReservationIds) (\s@DescribeCapacityReservations' {} a -> s {capacityReservationIds = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more filters.
 --
@@ -384,7 +366,25 @@ describeCapacityReservations_capacityReservationIds = Lens.lens (\DescribeCapaci
 --         Reservation. This ensures that only permitted instances can use
 --         the reserved capacity.
 describeCapacityReservations_filters :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe [Filter])
-describeCapacityReservations_filters = Lens.lens (\DescribeCapacityReservations' {filters} -> filters) (\s@DescribeCapacityReservations' {} a -> s {filters = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens._Coerce
+describeCapacityReservations_filters = Lens.lens (\DescribeCapacityReservations' {filters} -> filters) (\s@DescribeCapacityReservations' {} a -> s {filters = a} :: DescribeCapacityReservations) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to use to retrieve the next page of results.
+describeCapacityReservations_nextToken :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Text)
+describeCapacityReservations_nextToken = Lens.lens (\DescribeCapacityReservations' {nextToken} -> nextToken) (\s@DescribeCapacityReservations' {} a -> s {nextToken = a} :: DescribeCapacityReservations)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeCapacityReservations_dryRun :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Bool)
+describeCapacityReservations_dryRun = Lens.lens (\DescribeCapacityReservations' {dryRun} -> dryRun) (\s@DescribeCapacityReservations' {} a -> s {dryRun = a} :: DescribeCapacityReservations)
+
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results can be seen by sending another request with
+-- the returned @nextToken@ value. This value can be between 5 and 500. If
+-- @maxResults@ is given a larger value than 500, you receive an error.
+describeCapacityReservations_maxResults :: Lens.Lens' DescribeCapacityReservations (Prelude.Maybe Prelude.Natural)
+describeCapacityReservations_maxResults = Lens.lens (\DescribeCapacityReservations' {maxResults} -> maxResults) (\s@DescribeCapacityReservations' {} a -> s {maxResults = a} :: DescribeCapacityReservations)
 
 instance Core.AWSPager DescribeCapacityReservations where
   page rq rs
@@ -446,15 +446,15 @@ instance Core.ToQuery DescribeCapacityReservations where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "CapacityReservationId"
               Prelude.<$> capacityReservationIds
           ),
         Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+          (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeCapacityReservationsResponse' smart constructor.
@@ -497,7 +497,7 @@ newDescribeCapacityReservationsResponse pHttpStatus_ =
 
 -- | Information about the Capacity Reservations.
 describeCapacityReservationsResponse_capacityReservations :: Lens.Lens' DescribeCapacityReservationsResponse (Prelude.Maybe [CapacityReservation])
-describeCapacityReservationsResponse_capacityReservations = Lens.lens (\DescribeCapacityReservationsResponse' {capacityReservations} -> capacityReservations) (\s@DescribeCapacityReservationsResponse' {} a -> s {capacityReservations = a} :: DescribeCapacityReservationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCapacityReservationsResponse_capacityReservations = Lens.lens (\DescribeCapacityReservationsResponse' {capacityReservations} -> capacityReservations) (\s@DescribeCapacityReservationsResponse' {} a -> s {capacityReservations = a} :: DescribeCapacityReservationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.

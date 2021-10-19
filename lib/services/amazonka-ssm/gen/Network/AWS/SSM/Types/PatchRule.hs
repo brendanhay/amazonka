@@ -40,14 +40,14 @@ data PatchRule = PatchRule'
     --
     -- Enter dates in the format @YYYY-MM-DD@. For example, @2021-12-31@.
     approveUntilDate :: Prelude.Maybe Prelude.Text,
-    -- | A compliance severity level for all approved patches in a patch
-    -- baseline.
-    complianceLevel :: Prelude.Maybe PatchComplianceLevel,
     -- | For instances identified by the approval rule filters, enables a patch
     -- baseline to apply non-security updates available in the specified
     -- repository. The default value is @false@. Applies to Linux instances
     -- only.
     enableNonSecurity :: Prelude.Maybe Prelude.Bool,
+    -- | A compliance severity level for all approved patches in a patch
+    -- baseline.
+    complianceLevel :: Prelude.Maybe PatchComplianceLevel,
     -- | The patch filter group that defines the criteria for the rule.
     patchFilterGroup :: PatchFilterGroup
   }
@@ -72,13 +72,13 @@ data PatchRule = PatchRule'
 --
 -- Enter dates in the format @YYYY-MM-DD@. For example, @2021-12-31@.
 --
--- 'complianceLevel', 'patchRule_complianceLevel' - A compliance severity level for all approved patches in a patch
--- baseline.
---
 -- 'enableNonSecurity', 'patchRule_enableNonSecurity' - For instances identified by the approval rule filters, enables a patch
 -- baseline to apply non-security updates available in the specified
 -- repository. The default value is @false@. Applies to Linux instances
 -- only.
+--
+-- 'complianceLevel', 'patchRule_complianceLevel' - A compliance severity level for all approved patches in a patch
+-- baseline.
 --
 -- 'patchFilterGroup', 'patchRule_patchFilterGroup' - The patch filter group that defines the criteria for the rule.
 newPatchRule ::
@@ -89,8 +89,8 @@ newPatchRule pPatchFilterGroup_ =
   PatchRule'
     { approveAfterDays = Prelude.Nothing,
       approveUntilDate = Prelude.Nothing,
-      complianceLevel = Prelude.Nothing,
       enableNonSecurity = Prelude.Nothing,
+      complianceLevel = Prelude.Nothing,
       patchFilterGroup = pPatchFilterGroup_
     }
 
@@ -109,17 +109,17 @@ patchRule_approveAfterDays = Lens.lens (\PatchRule' {approveAfterDays} -> approv
 patchRule_approveUntilDate :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Text)
 patchRule_approveUntilDate = Lens.lens (\PatchRule' {approveUntilDate} -> approveUntilDate) (\s@PatchRule' {} a -> s {approveUntilDate = a} :: PatchRule)
 
--- | A compliance severity level for all approved patches in a patch
--- baseline.
-patchRule_complianceLevel :: Lens.Lens' PatchRule (Prelude.Maybe PatchComplianceLevel)
-patchRule_complianceLevel = Lens.lens (\PatchRule' {complianceLevel} -> complianceLevel) (\s@PatchRule' {} a -> s {complianceLevel = a} :: PatchRule)
-
 -- | For instances identified by the approval rule filters, enables a patch
 -- baseline to apply non-security updates available in the specified
 -- repository. The default value is @false@. Applies to Linux instances
 -- only.
 patchRule_enableNonSecurity :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Bool)
 patchRule_enableNonSecurity = Lens.lens (\PatchRule' {enableNonSecurity} -> enableNonSecurity) (\s@PatchRule' {} a -> s {enableNonSecurity = a} :: PatchRule)
+
+-- | A compliance severity level for all approved patches in a patch
+-- baseline.
+patchRule_complianceLevel :: Lens.Lens' PatchRule (Prelude.Maybe PatchComplianceLevel)
+patchRule_complianceLevel = Lens.lens (\PatchRule' {complianceLevel} -> complianceLevel) (\s@PatchRule' {} a -> s {complianceLevel = a} :: PatchRule)
 
 -- | The patch filter group that defines the criteria for the rule.
 patchRule_patchFilterGroup :: Lens.Lens' PatchRule PatchFilterGroup
@@ -133,8 +133,8 @@ instance Core.FromJSON PatchRule where
           PatchRule'
             Prelude.<$> (x Core..:? "ApproveAfterDays")
             Prelude.<*> (x Core..:? "ApproveUntilDate")
-            Prelude.<*> (x Core..:? "ComplianceLevel")
             Prelude.<*> (x Core..:? "EnableNonSecurity")
+            Prelude.<*> (x Core..:? "ComplianceLevel")
             Prelude.<*> (x Core..: "PatchFilterGroup")
       )
 
@@ -150,10 +150,10 @@ instance Core.ToJSON PatchRule where
               Prelude.<$> approveAfterDays,
             ("ApproveUntilDate" Core..=)
               Prelude.<$> approveUntilDate,
-            ("ComplianceLevel" Core..=)
-              Prelude.<$> complianceLevel,
             ("EnableNonSecurity" Core..=)
               Prelude.<$> enableNonSecurity,
+            ("ComplianceLevel" Core..=)
+              Prelude.<$> complianceLevel,
             Prelude.Just
               ("PatchFilterGroup" Core..= patchFilterGroup)
           ]

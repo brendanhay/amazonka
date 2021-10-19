@@ -29,9 +29,9 @@ module Network.AWS.CodeCommit.DeleteFile
     newDeleteFile,
 
     -- * Request Lenses
-    deleteFile_commitMessage,
-    deleteFile_name,
     deleteFile_email,
+    deleteFile_name,
+    deleteFile_commitMessage,
     deleteFile_keepEmptyFolders,
     deleteFile_repositoryName,
     deleteFile_branchName,
@@ -60,17 +60,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteFile' smart constructor.
 data DeleteFile = DeleteFile'
-  { -- | The commit message you want to include as part of deleting the file.
-    -- Commit messages are limited to 256 KB. If no message is specified, a
-    -- default message is used.
-    commitMessage :: Prelude.Maybe Prelude.Text,
+  { -- | The email address for the commit that deletes the file. If no email
+    -- address is specified, the email address is left blank.
+    email :: Prelude.Maybe Prelude.Text,
     -- | The name of the author of the commit that deletes the file. If no name
     -- is specified, the user\'s ARN is used as the author name and committer
     -- name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The email address for the commit that deletes the file. If no email
-    -- address is specified, the email address is left blank.
-    email :: Prelude.Maybe Prelude.Text,
+    -- | The commit message you want to include as part of deleting the file.
+    -- Commit messages are limited to 256 KB. If no message is specified, a
+    -- default message is used.
+    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | If a file is the only object in the folder or directory, specifies
     -- whether to delete the folder or directory that contains the file. By
     -- default, empty folders are deleted. This includes empty folders that are
@@ -103,16 +103,16 @@ data DeleteFile = DeleteFile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'commitMessage', 'deleteFile_commitMessage' - The commit message you want to include as part of deleting the file.
--- Commit messages are limited to 256 KB. If no message is specified, a
--- default message is used.
+-- 'email', 'deleteFile_email' - The email address for the commit that deletes the file. If no email
+-- address is specified, the email address is left blank.
 --
 -- 'name', 'deleteFile_name' - The name of the author of the commit that deletes the file. If no name
 -- is specified, the user\'s ARN is used as the author name and committer
 -- name.
 --
--- 'email', 'deleteFile_email' - The email address for the commit that deletes the file. If no email
--- address is specified, the email address is left blank.
+-- 'commitMessage', 'deleteFile_commitMessage' - The commit message you want to include as part of deleting the file.
+-- Commit messages are limited to 256 KB. If no message is specified, a
+-- default message is used.
 --
 -- 'keepEmptyFolders', 'deleteFile_keepEmptyFolders' - If a file is the only object in the folder or directory, specifies
 -- whether to delete the folder or directory that contains the file. By
@@ -150,9 +150,9 @@ newDeleteFile
   pFilePath_
   pParentCommitId_ =
     DeleteFile'
-      { commitMessage = Prelude.Nothing,
+      { email = Prelude.Nothing,
         name = Prelude.Nothing,
-        email = Prelude.Nothing,
+        commitMessage = Prelude.Nothing,
         keepEmptyFolders = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         branchName = pBranchName_,
@@ -160,11 +160,10 @@ newDeleteFile
         parentCommitId = pParentCommitId_
       }
 
--- | The commit message you want to include as part of deleting the file.
--- Commit messages are limited to 256 KB. If no message is specified, a
--- default message is used.
-deleteFile_commitMessage :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
-deleteFile_commitMessage = Lens.lens (\DeleteFile' {commitMessage} -> commitMessage) (\s@DeleteFile' {} a -> s {commitMessage = a} :: DeleteFile)
+-- | The email address for the commit that deletes the file. If no email
+-- address is specified, the email address is left blank.
+deleteFile_email :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
+deleteFile_email = Lens.lens (\DeleteFile' {email} -> email) (\s@DeleteFile' {} a -> s {email = a} :: DeleteFile)
 
 -- | The name of the author of the commit that deletes the file. If no name
 -- is specified, the user\'s ARN is used as the author name and committer
@@ -172,10 +171,11 @@ deleteFile_commitMessage = Lens.lens (\DeleteFile' {commitMessage} -> commitMess
 deleteFile_name :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
 deleteFile_name = Lens.lens (\DeleteFile' {name} -> name) (\s@DeleteFile' {} a -> s {name = a} :: DeleteFile)
 
--- | The email address for the commit that deletes the file. If no email
--- address is specified, the email address is left blank.
-deleteFile_email :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
-deleteFile_email = Lens.lens (\DeleteFile' {email} -> email) (\s@DeleteFile' {} a -> s {email = a} :: DeleteFile)
+-- | The commit message you want to include as part of deleting the file.
+-- Commit messages are limited to 256 KB. If no message is specified, a
+-- default message is used.
+deleteFile_commitMessage :: Lens.Lens' DeleteFile (Prelude.Maybe Prelude.Text)
+deleteFile_commitMessage = Lens.lens (\DeleteFile' {commitMessage} -> commitMessage) (\s@DeleteFile' {} a -> s {commitMessage = a} :: DeleteFile)
 
 -- | If a file is the only object in the folder or directory, specifies
 -- whether to delete the folder or directory that contains the file. By
@@ -245,9 +245,9 @@ instance Core.ToJSON DeleteFile where
   toJSON DeleteFile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("commitMessage" Core..=) Prelude.<$> commitMessage,
+          [ ("email" Core..=) Prelude.<$> email,
             ("name" Core..=) Prelude.<$> name,
-            ("email" Core..=) Prelude.<$> email,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             ("keepEmptyFolders" Core..=)
               Prelude.<$> keepEmptyFolders,
             Prelude.Just

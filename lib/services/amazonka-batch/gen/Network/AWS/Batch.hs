@@ -37,11 +37,11 @@ module Network.AWS.Batch
     -- * Errors
     -- $errors
 
-    -- ** ClientException
-    _ClientException,
-
     -- ** ServerException
     _ServerException,
+
+    -- ** ClientException
+    _ClientException,
 
     -- * Waiters
     -- $waiters
@@ -55,23 +55,41 @@ module Network.AWS.Batch
     CreateComputeEnvironmentResponse (CreateComputeEnvironmentResponse'),
     newCreateComputeEnvironmentResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** RegisterJobDefinition
+    RegisterJobDefinition (RegisterJobDefinition'),
+    newRegisterJobDefinition,
+    RegisterJobDefinitionResponse (RegisterJobDefinitionResponse'),
+    newRegisterJobDefinitionResponse,
+
+    -- ** SubmitJob
+    SubmitJob (SubmitJob'),
+    newSubmitJob,
+    SubmitJobResponse (SubmitJobResponse'),
+    newSubmitJobResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** TerminateJob
+    TerminateJob (TerminateJob'),
+    newTerminateJob,
+    TerminateJobResponse (TerminateJobResponse'),
+    newTerminateJobResponse,
+
     -- ** DescribeJobs
     DescribeJobs (DescribeJobs'),
     newDescribeJobs,
     DescribeJobsResponse (DescribeJobsResponse'),
     newDescribeJobsResponse,
-
-    -- ** UpdateComputeEnvironment
-    UpdateComputeEnvironment (UpdateComputeEnvironment'),
-    newUpdateComputeEnvironment,
-    UpdateComputeEnvironmentResponse (UpdateComputeEnvironmentResponse'),
-    newUpdateComputeEnvironmentResponse,
-
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
 
     -- ** DeleteComputeEnvironment
     DeleteComputeEnvironment (DeleteComputeEnvironment'),
@@ -79,29 +97,17 @@ module Network.AWS.Batch
     DeleteComputeEnvironmentResponse (DeleteComputeEnvironmentResponse'),
     newDeleteComputeEnvironmentResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** UpdateComputeEnvironment
+    UpdateComputeEnvironment (UpdateComputeEnvironment'),
+    newUpdateComputeEnvironment,
+    UpdateComputeEnvironmentResponse (UpdateComputeEnvironmentResponse'),
+    newUpdateComputeEnvironmentResponse,
 
-    -- ** DescribeJobQueues (Paginated)
-    DescribeJobQueues (DescribeJobQueues'),
-    newDescribeJobQueues,
-    DescribeJobQueuesResponse (DescribeJobQueuesResponse'),
-    newDescribeJobQueuesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DeregisterJobDefinition
-    DeregisterJobDefinition (DeregisterJobDefinition'),
-    newDeregisterJobDefinition,
-    DeregisterJobDefinitionResponse (DeregisterJobDefinitionResponse'),
-    newDeregisterJobDefinitionResponse,
+    -- ** DescribeJobDefinitions (Paginated)
+    DescribeJobDefinitions (DescribeJobDefinitions'),
+    newDescribeJobDefinitions,
+    DescribeJobDefinitionsResponse (DescribeJobDefinitionsResponse'),
+    newDescribeJobDefinitionsResponse,
 
     -- ** UpdateJobQueue
     UpdateJobQueue (UpdateJobQueue'),
@@ -115,17 +121,35 @@ module Network.AWS.Batch
     DeleteJobQueueResponse (DeleteJobQueueResponse'),
     newDeleteJobQueueResponse,
 
-    -- ** DescribeJobDefinitions (Paginated)
-    DescribeJobDefinitions (DescribeJobDefinitions'),
-    newDescribeJobDefinitions,
-    DescribeJobDefinitionsResponse (DescribeJobDefinitionsResponse'),
-    newDescribeJobDefinitionsResponse,
+    -- ** CreateJobQueue
+    CreateJobQueue (CreateJobQueue'),
+    newCreateJobQueue,
+    CreateJobQueueResponse (CreateJobQueueResponse'),
+    newCreateJobQueueResponse,
 
-    -- ** TerminateJob
-    TerminateJob (TerminateJob'),
-    newTerminateJob,
-    TerminateJobResponse (TerminateJobResponse'),
-    newTerminateJobResponse,
+    -- ** DeregisterJobDefinition
+    DeregisterJobDefinition (DeregisterJobDefinition'),
+    newDeregisterJobDefinition,
+    DeregisterJobDefinitionResponse (DeregisterJobDefinitionResponse'),
+    newDeregisterJobDefinitionResponse,
+
+    -- ** DescribeJobQueues (Paginated)
+    DescribeJobQueues (DescribeJobQueues'),
+    newDescribeJobQueues,
+    DescribeJobQueuesResponse (DescribeJobQueuesResponse'),
+    newDescribeJobQueuesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** DescribeComputeEnvironments (Paginated)
     DescribeComputeEnvironments (DescribeComputeEnvironments'),
@@ -133,35 +157,11 @@ module Network.AWS.Batch
     DescribeComputeEnvironmentsResponse (DescribeComputeEnvironmentsResponse'),
     newDescribeComputeEnvironmentsResponse,
 
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** SubmitJob
-    SubmitJob (SubmitJob'),
-    newSubmitJob,
-    SubmitJobResponse (SubmitJobResponse'),
-    newSubmitJobResponse,
-
-    -- ** RegisterJobDefinition
-    RegisterJobDefinition (RegisterJobDefinition'),
-    newRegisterJobDefinition,
-    RegisterJobDefinitionResponse (RegisterJobDefinitionResponse'),
-    newRegisterJobDefinitionResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateJobQueue
-    CreateJobQueue (CreateJobQueue'),
-    newCreateJobQueue,
-    CreateJobQueueResponse (CreateJobQueueResponse'),
-    newCreateJobQueueResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- * Types
 

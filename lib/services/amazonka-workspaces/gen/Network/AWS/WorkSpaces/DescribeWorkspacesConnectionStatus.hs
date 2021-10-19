@@ -29,8 +29,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspacesConnectionStatus
     newDescribeWorkspacesConnectionStatus,
 
     -- * Request Lenses
-    describeWorkspacesConnectionStatus_nextToken,
     describeWorkspacesConnectionStatus_workspaceIds,
+    describeWorkspacesConnectionStatus_nextToken,
 
     -- * Destructuring the Response
     DescribeWorkspacesConnectionStatusResponse (..),
@@ -52,11 +52,11 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeWorkspacesConnectionStatus' smart constructor.
 data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
-  { -- | If you received a @NextToken@ from a previous call that was paginated,
+  { -- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+    workspaceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
-    workspaceIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,27 +68,27 @@ data DescribeWorkspacesConnectionStatus = DescribeWorkspacesConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'workspaceIds', 'describeWorkspacesConnectionStatus_workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+--
 -- 'nextToken', 'describeWorkspacesConnectionStatus_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
---
--- 'workspaceIds', 'describeWorkspacesConnectionStatus_workspaceIds' - The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
 newDescribeWorkspacesConnectionStatus ::
   DescribeWorkspacesConnectionStatus
 newDescribeWorkspacesConnectionStatus =
   DescribeWorkspacesConnectionStatus'
-    { nextToken =
+    { workspaceIds =
         Prelude.Nothing,
-      workspaceIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
+describeWorkspacesConnectionStatus_workspaceIds :: Lens.Lens' DescribeWorkspacesConnectionStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeWorkspacesConnectionStatus_workspaceIds = Lens.lens (\DescribeWorkspacesConnectionStatus' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspacesConnectionStatus' {} a -> s {workspaceIds = a} :: DescribeWorkspacesConnectionStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
 describeWorkspacesConnectionStatus_nextToken :: Lens.Lens' DescribeWorkspacesConnectionStatus (Prelude.Maybe Prelude.Text)
 describeWorkspacesConnectionStatus_nextToken = Lens.lens (\DescribeWorkspacesConnectionStatus' {nextToken} -> nextToken) (\s@DescribeWorkspacesConnectionStatus' {} a -> s {nextToken = a} :: DescribeWorkspacesConnectionStatus)
-
--- | The identifiers of the WorkSpaces. You can specify up to 25 WorkSpaces.
-describeWorkspacesConnectionStatus_workspaceIds :: Lens.Lens' DescribeWorkspacesConnectionStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeWorkspacesConnectionStatus_workspaceIds = Lens.lens (\DescribeWorkspacesConnectionStatus' {workspaceIds} -> workspaceIds) (\s@DescribeWorkspacesConnectionStatus' {} a -> s {workspaceIds = a} :: DescribeWorkspacesConnectionStatus) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.AWSPager
@@ -167,8 +167,8 @@ instance
   toJSON DescribeWorkspacesConnectionStatus' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds
+          [ ("WorkspaceIds" Core..=) Prelude.<$> workspaceIds,
+            ("NextToken" Core..=) Prelude.<$> nextToken
           ]
       )
 
@@ -231,7 +231,7 @@ describeWorkspacesConnectionStatusResponse_nextToken = Lens.lens (\DescribeWorks
 
 -- | Information about the connection status of the WorkSpace.
 describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus :: Lens.Lens' DescribeWorkspacesConnectionStatusResponse (Prelude.Maybe [WorkspaceConnectionStatus])
-describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus = Lens.lens (\DescribeWorkspacesConnectionStatusResponse' {workspacesConnectionStatus} -> workspacesConnectionStatus) (\s@DescribeWorkspacesConnectionStatusResponse' {} a -> s {workspacesConnectionStatus = a} :: DescribeWorkspacesConnectionStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus = Lens.lens (\DescribeWorkspacesConnectionStatusResponse' {workspacesConnectionStatus} -> workspacesConnectionStatus) (\s@DescribeWorkspacesConnectionStatusResponse' {} a -> s {workspacesConnectionStatus = a} :: DescribeWorkspacesConnectionStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeWorkspacesConnectionStatusResponse_httpStatus :: Lens.Lens' DescribeWorkspacesConnectionStatusResponse Prelude.Int

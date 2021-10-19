@@ -103,7 +103,7 @@ operatingSystem_id = Lens.lens (\OperatingSystem' {id} -> id) (\s@OperatingSyste
 -- | Supported configuration manager name and versions for an AWS OpsWorks
 -- Stacks operating system.
 operatingSystem_configurationManagers :: Lens.Lens' OperatingSystem (Prelude.Maybe [OperatingSystemConfigurationManager])
-operatingSystem_configurationManagers = Lens.lens (\OperatingSystem' {configurationManagers} -> configurationManagers) (\s@OperatingSystem' {} a -> s {configurationManagers = a} :: OperatingSystem) Prelude.. Lens.mapping Lens._Coerce
+operatingSystem_configurationManagers = Lens.lens (\OperatingSystem' {configurationManagers} -> configurationManagers) (\s@OperatingSystem' {} a -> s {configurationManagers = a} :: OperatingSystem) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of a supported operating system, either @Linux@ or @Windows@.
 operatingSystem_type :: Lens.Lens' OperatingSystem (Prelude.Maybe Prelude.Text)

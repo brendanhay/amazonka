@@ -32,16 +32,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCrawlerTargets' smart constructor.
 data CrawlerTargets = CrawlerTargets'
-  { -- | Specifies Glue Data Catalog targets.
-    catalogTargets :: Prelude.Maybe [CatalogTarget],
+  { -- | Specifies Amazon DynamoDB targets.
+    dynamoDBTargets :: Prelude.Maybe [DynamoDBTarget],
+    -- | Specifies Amazon Simple Storage Service (Amazon S3) targets.
+    s3Targets :: Prelude.Maybe [S3Target],
     -- | Specifies Amazon DocumentDB or MongoDB targets.
     mongoDBTargets :: Prelude.Maybe [MongoDBTarget],
-    -- | Specifies Amazon DynamoDB targets.
-    dynamoDBTargets :: Prelude.Maybe [DynamoDBTarget],
+    -- | Specifies Glue Data Catalog targets.
+    catalogTargets :: Prelude.Maybe [CatalogTarget],
     -- | Specifies JDBC targets.
-    jdbcTargets :: Prelude.Maybe [JdbcTarget],
-    -- | Specifies Amazon Simple Storage Service (Amazon S3) targets.
-    s3Targets :: Prelude.Maybe [S3Target]
+    jdbcTargets :: Prelude.Maybe [JdbcTarget]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,45 +53,45 @@ data CrawlerTargets = CrawlerTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogTargets', 'crawlerTargets_catalogTargets' - Specifies Glue Data Catalog targets.
+-- 'dynamoDBTargets', 'crawlerTargets_dynamoDBTargets' - Specifies Amazon DynamoDB targets.
+--
+-- 's3Targets', 'crawlerTargets_s3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.
 --
 -- 'mongoDBTargets', 'crawlerTargets_mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.
 --
--- 'dynamoDBTargets', 'crawlerTargets_dynamoDBTargets' - Specifies Amazon DynamoDB targets.
+-- 'catalogTargets', 'crawlerTargets_catalogTargets' - Specifies Glue Data Catalog targets.
 --
 -- 'jdbcTargets', 'crawlerTargets_jdbcTargets' - Specifies JDBC targets.
---
--- 's3Targets', 'crawlerTargets_s3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.
 newCrawlerTargets ::
   CrawlerTargets
 newCrawlerTargets =
   CrawlerTargets'
-    { catalogTargets = Prelude.Nothing,
+    { dynamoDBTargets = Prelude.Nothing,
+      s3Targets = Prelude.Nothing,
       mongoDBTargets = Prelude.Nothing,
-      dynamoDBTargets = Prelude.Nothing,
-      jdbcTargets = Prelude.Nothing,
-      s3Targets = Prelude.Nothing
+      catalogTargets = Prelude.Nothing,
+      jdbcTargets = Prelude.Nothing
     }
-
--- | Specifies Glue Data Catalog targets.
-crawlerTargets_catalogTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [CatalogTarget])
-crawlerTargets_catalogTargets = Lens.lens (\CrawlerTargets' {catalogTargets} -> catalogTargets) (\s@CrawlerTargets' {} a -> s {catalogTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies Amazon DocumentDB or MongoDB targets.
-crawlerTargets_mongoDBTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [MongoDBTarget])
-crawlerTargets_mongoDBTargets = Lens.lens (\CrawlerTargets' {mongoDBTargets} -> mongoDBTargets) (\s@CrawlerTargets' {} a -> s {mongoDBTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies Amazon DynamoDB targets.
 crawlerTargets_dynamoDBTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [DynamoDBTarget])
-crawlerTargets_dynamoDBTargets = Lens.lens (\CrawlerTargets' {dynamoDBTargets} -> dynamoDBTargets) (\s@CrawlerTargets' {} a -> s {dynamoDBTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies JDBC targets.
-crawlerTargets_jdbcTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [JdbcTarget])
-crawlerTargets_jdbcTargets = Lens.lens (\CrawlerTargets' {jdbcTargets} -> jdbcTargets) (\s@CrawlerTargets' {} a -> s {jdbcTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens._Coerce
+crawlerTargets_dynamoDBTargets = Lens.lens (\CrawlerTargets' {dynamoDBTargets} -> dynamoDBTargets) (\s@CrawlerTargets' {} a -> s {dynamoDBTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies Amazon Simple Storage Service (Amazon S3) targets.
 crawlerTargets_s3Targets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [S3Target])
-crawlerTargets_s3Targets = Lens.lens (\CrawlerTargets' {s3Targets} -> s3Targets) (\s@CrawlerTargets' {} a -> s {s3Targets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens._Coerce
+crawlerTargets_s3Targets = Lens.lens (\CrawlerTargets' {s3Targets} -> s3Targets) (\s@CrawlerTargets' {} a -> s {s3Targets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies Amazon DocumentDB or MongoDB targets.
+crawlerTargets_mongoDBTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [MongoDBTarget])
+crawlerTargets_mongoDBTargets = Lens.lens (\CrawlerTargets' {mongoDBTargets} -> mongoDBTargets) (\s@CrawlerTargets' {} a -> s {mongoDBTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies Glue Data Catalog targets.
+crawlerTargets_catalogTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [CatalogTarget])
+crawlerTargets_catalogTargets = Lens.lens (\CrawlerTargets' {catalogTargets} -> catalogTargets) (\s@CrawlerTargets' {} a -> s {catalogTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies JDBC targets.
+crawlerTargets_jdbcTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [JdbcTarget])
+crawlerTargets_jdbcTargets = Lens.lens (\CrawlerTargets' {jdbcTargets} -> jdbcTargets) (\s@CrawlerTargets' {} a -> s {jdbcTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CrawlerTargets where
   parseJSON =
@@ -99,13 +99,13 @@ instance Core.FromJSON CrawlerTargets where
       "CrawlerTargets"
       ( \x ->
           CrawlerTargets'
-            Prelude.<$> (x Core..:? "CatalogTargets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MongoDBTargets" Core..!= Prelude.mempty)
-            Prelude.<*> ( x Core..:? "DynamoDBTargets"
+            Prelude.<$> ( x Core..:? "DynamoDBTargets"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "JdbcTargets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "S3Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "MongoDBTargets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CatalogTargets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "JdbcTargets" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable CrawlerTargets
@@ -116,13 +116,13 @@ instance Core.ToJSON CrawlerTargets where
   toJSON CrawlerTargets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogTargets" Core..=)
-              Prelude.<$> catalogTargets,
+          [ ("DynamoDBTargets" Core..=)
+              Prelude.<$> dynamoDBTargets,
+            ("S3Targets" Core..=) Prelude.<$> s3Targets,
             ("MongoDBTargets" Core..=)
               Prelude.<$> mongoDBTargets,
-            ("DynamoDBTargets" Core..=)
-              Prelude.<$> dynamoDBTargets,
-            ("JdbcTargets" Core..=) Prelude.<$> jdbcTargets,
-            ("S3Targets" Core..=) Prelude.<$> s3Targets
+            ("CatalogTargets" Core..=)
+              Prelude.<$> catalogTargets,
+            ("JdbcTargets" Core..=) Prelude.<$> jdbcTargets
           ]
       )

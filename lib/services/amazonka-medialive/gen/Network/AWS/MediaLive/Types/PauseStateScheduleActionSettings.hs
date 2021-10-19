@@ -51,7 +51,7 @@ newPauseStateScheduleActionSettings =
 
 -- | Undocumented member.
 pauseStateScheduleActionSettings_pipelines :: Lens.Lens' PauseStateScheduleActionSettings (Prelude.Maybe [PipelinePauseStateSettings])
-pauseStateScheduleActionSettings_pipelines = Lens.lens (\PauseStateScheduleActionSettings' {pipelines} -> pipelines) (\s@PauseStateScheduleActionSettings' {} a -> s {pipelines = a} :: PauseStateScheduleActionSettings) Prelude.. Lens.mapping Lens._Coerce
+pauseStateScheduleActionSettings_pipelines = Lens.lens (\PauseStateScheduleActionSettings' {pipelines} -> pipelines) (\s@PauseStateScheduleActionSettings' {} a -> s {pipelines = a} :: PauseStateScheduleActionSettings) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

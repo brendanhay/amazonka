@@ -157,7 +157,7 @@ newCreateStreamProcessor
 -- | A set of tags (key-value pairs) that you want to attach to the stream
 -- processor.
 createStreamProcessor_tags :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStreamProcessor_tags = Lens.lens (\CreateStreamProcessor' {tags} -> tags) (\s@CreateStreamProcessor' {} a -> s {tags = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens._Coerce
+createStreamProcessor_tags = Lens.lens (\CreateStreamProcessor' {tags} -> tags) (\s@CreateStreamProcessor' {} a -> s {tags = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens.coerced
 
 -- | Kinesis video stream stream that provides the source streaming video. If
 -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.

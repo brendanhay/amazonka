@@ -155,7 +155,7 @@ newDescribeTerminationPolicyTypesResponse
 -- @ClosestToNextInstanceHour@, @Default@, @OldestLaunchTemplate@, and
 -- @AllocationStrategy@.
 describeTerminationPolicyTypesResponse_terminationPolicyTypes :: Lens.Lens' DescribeTerminationPolicyTypesResponse (Prelude.Maybe [Prelude.Text])
-describeTerminationPolicyTypesResponse_terminationPolicyTypes = Lens.lens (\DescribeTerminationPolicyTypesResponse' {terminationPolicyTypes} -> terminationPolicyTypes) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {terminationPolicyTypes = a} :: DescribeTerminationPolicyTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTerminationPolicyTypesResponse_terminationPolicyTypes = Lens.lens (\DescribeTerminationPolicyTypesResponse' {terminationPolicyTypes} -> terminationPolicyTypes) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {terminationPolicyTypes = a} :: DescribeTerminationPolicyTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTerminationPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeTerminationPolicyTypesResponse Prelude.Int

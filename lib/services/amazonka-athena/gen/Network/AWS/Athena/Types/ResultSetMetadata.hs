@@ -51,7 +51,7 @@ newResultSetMetadata =
 
 -- | Information about the columns returned in a query result metadata.
 resultSetMetadata_columnInfo :: Lens.Lens' ResultSetMetadata (Prelude.Maybe [ColumnInfo])
-resultSetMetadata_columnInfo = Lens.lens (\ResultSetMetadata' {columnInfo} -> columnInfo) (\s@ResultSetMetadata' {} a -> s {columnInfo = a} :: ResultSetMetadata) Prelude.. Lens.mapping Lens._Coerce
+resultSetMetadata_columnInfo = Lens.lens (\ResultSetMetadata' {columnInfo} -> columnInfo) (\s@ResultSetMetadata' {} a -> s {columnInfo = a} :: ResultSetMetadata) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ResultSetMetadata where
   parseJSON =

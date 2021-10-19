@@ -175,7 +175,7 @@ newPollForThirdPartyJobsResponse pHttpStatus_ =
 
 -- | Information about the jobs to take action on.
 pollForThirdPartyJobsResponse_jobs :: Lens.Lens' PollForThirdPartyJobsResponse (Prelude.Maybe [ThirdPartyJob])
-pollForThirdPartyJobsResponse_jobs = Lens.lens (\PollForThirdPartyJobsResponse' {jobs} -> jobs) (\s@PollForThirdPartyJobsResponse' {} a -> s {jobs = a} :: PollForThirdPartyJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+pollForThirdPartyJobsResponse_jobs = Lens.lens (\PollForThirdPartyJobsResponse' {jobs} -> jobs) (\s@PollForThirdPartyJobsResponse' {} a -> s {jobs = a} :: PollForThirdPartyJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 pollForThirdPartyJobsResponse_httpStatus :: Lens.Lens' PollForThirdPartyJobsResponse Prelude.Int

@@ -42,8 +42,8 @@ module Network.AWS.OpsWorksCM.CreateBackup
     newCreateBackup,
 
     -- * Request Lenses
-    createBackup_tags,
     createBackup_description,
+    createBackup_tags,
     createBackup_serverName,
 
     -- * Destructuring the Response
@@ -65,7 +65,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
-  { -- | A map that contains tag keys and tag values to attach to an AWS
+  { -- | A user-defined description of the backup.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A map that contains tag keys and tag values to attach to an AWS
     -- OpsWorks-CM server backup.
     --
     -- -   The key cannot be empty.
@@ -84,8 +86,6 @@ data CreateBackup = CreateBackup'
     -- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS
     --     OpsWorks-CM resources.
     tags :: Prelude.Maybe [Tag],
-    -- | A user-defined description of the backup.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the server that you want to back up.
     serverName :: Prelude.Text
   }
@@ -98,6 +98,8 @@ data CreateBackup = CreateBackup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'createBackup_description' - A user-defined description of the backup.
 --
 -- 'tags', 'createBackup_tags' - A map that contains tag keys and tag values to attach to an AWS
 -- OpsWorks-CM server backup.
@@ -118,8 +120,6 @@ data CreateBackup = CreateBackup'
 -- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS
 --     OpsWorks-CM resources.
 --
--- 'description', 'createBackup_description' - A user-defined description of the backup.
---
 -- 'serverName', 'createBackup_serverName' - The name of the server that you want to back up.
 newCreateBackup ::
   -- | 'serverName'
@@ -127,10 +127,14 @@ newCreateBackup ::
   CreateBackup
 newCreateBackup pServerName_ =
   CreateBackup'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       serverName = pServerName_
     }
+
+-- | A user-defined description of the backup.
+createBackup_description :: Lens.Lens' CreateBackup (Prelude.Maybe Prelude.Text)
+createBackup_description = Lens.lens (\CreateBackup' {description} -> description) (\s@CreateBackup' {} a -> s {description = a} :: CreateBackup)
 
 -- | A map that contains tag keys and tag values to attach to an AWS
 -- OpsWorks-CM server backup.
@@ -151,11 +155,7 @@ newCreateBackup pServerName_ =
 -- -   A maximum of 50 user-applied tags is allowed for tag-supported AWS
 --     OpsWorks-CM resources.
 createBackup_tags :: Lens.Lens' CreateBackup (Prelude.Maybe [Tag])
-createBackup_tags = Lens.lens (\CreateBackup' {tags} -> tags) (\s@CreateBackup' {} a -> s {tags = a} :: CreateBackup) Prelude.. Lens.mapping Lens._Coerce
-
--- | A user-defined description of the backup.
-createBackup_description :: Lens.Lens' CreateBackup (Prelude.Maybe Prelude.Text)
-createBackup_description = Lens.lens (\CreateBackup' {description} -> description) (\s@CreateBackup' {} a -> s {description = a} :: CreateBackup)
+createBackup_tags = Lens.lens (\CreateBackup' {tags} -> tags) (\s@CreateBackup' {} a -> s {tags = a} :: CreateBackup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the server that you want to back up.
 createBackup_serverName :: Lens.Lens' CreateBackup Prelude.Text
@@ -195,8 +195,8 @@ instance Core.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ServerName" Core..= serverName)
           ]
       )

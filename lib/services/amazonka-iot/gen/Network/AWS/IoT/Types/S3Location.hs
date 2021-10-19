@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The S3 key.
+  { -- | The S3 bucket.
+    bucket :: Prelude.Maybe Prelude.Text,
+    -- | The S3 key.
     key :: Prelude.Maybe Prelude.Text,
     -- | The S3 bucket version.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket.
-    bucket :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,23 @@ data S3Location = S3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bucket', 's3Location_bucket' - The S3 bucket.
+--
 -- 'key', 's3Location_key' - The S3 key.
 --
 -- 'version', 's3Location_version' - The S3 bucket version.
---
--- 'bucket', 's3Location_bucket' - The S3 bucket.
 newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { key = Prelude.Nothing,
-      version = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { bucket = Prelude.Nothing,
+      key = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The S3 bucket.
+s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
 -- | The S3 key.
 s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
@@ -66,19 +70,15 @@ s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s
 s3Location_version :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_version = Lens.lens (\S3Location' {version} -> version) (\s@S3Location' {} a -> s {version = a} :: S3Location)
 
--- | The S3 bucket.
-s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
-
 instance Core.FromJSON S3Location where
   parseJSON =
     Core.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "key")
+            Prelude.<$> (x Core..:? "bucket")
+            Prelude.<*> (x Core..:? "key")
             Prelude.<*> (x Core..:? "version")
-            Prelude.<*> (x Core..:? "bucket")
       )
 
 instance Prelude.Hashable S3Location
@@ -89,8 +89,8 @@ instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("version" Core..=) Prelude.<$> version,
-            ("bucket" Core..=) Prelude.<$> bucket
+          [ ("bucket" Core..=) Prelude.<$> bucket,
+            ("key" Core..=) Prelude.<$> key,
+            ("version" Core..=) Prelude.<$> version
           ]
       )

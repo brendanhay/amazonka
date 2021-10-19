@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchUpdatePartitionFailureEntry' smart constructor.
 data BatchUpdatePartitionFailureEntry = BatchUpdatePartitionFailureEntry'
-  { -- | The details about the batch update partition error.
-    errorDetail :: Prelude.Maybe ErrorDetail,
-    -- | A list of values defining the partitions.
-    partitionValueList :: Prelude.Maybe [Prelude.Text]
+  { -- | A list of values defining the partitions.
+    partitionValueList :: Prelude.Maybe [Prelude.Text],
+    -- | The details about the batch update partition error.
+    errorDetail :: Prelude.Maybe ErrorDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data BatchUpdatePartitionFailureEntry = BatchUpdatePartitionFailureEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorDetail', 'batchUpdatePartitionFailureEntry_errorDetail' - The details about the batch update partition error.
---
 -- 'partitionValueList', 'batchUpdatePartitionFailureEntry_partitionValueList' - A list of values defining the partitions.
+--
+-- 'errorDetail', 'batchUpdatePartitionFailureEntry_errorDetail' - The details about the batch update partition error.
 newBatchUpdatePartitionFailureEntry ::
   BatchUpdatePartitionFailureEntry
 newBatchUpdatePartitionFailureEntry =
   BatchUpdatePartitionFailureEntry'
-    { errorDetail =
+    { partitionValueList =
         Prelude.Nothing,
-      partitionValueList = Prelude.Nothing
+      errorDetail = Prelude.Nothing
     }
+
+-- | A list of values defining the partitions.
+batchUpdatePartitionFailureEntry_partitionValueList :: Lens.Lens' BatchUpdatePartitionFailureEntry (Prelude.Maybe [Prelude.Text])
+batchUpdatePartitionFailureEntry_partitionValueList = Lens.lens (\BatchUpdatePartitionFailureEntry' {partitionValueList} -> partitionValueList) (\s@BatchUpdatePartitionFailureEntry' {} a -> s {partitionValueList = a} :: BatchUpdatePartitionFailureEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The details about the batch update partition error.
 batchUpdatePartitionFailureEntry_errorDetail :: Lens.Lens' BatchUpdatePartitionFailureEntry (Prelude.Maybe ErrorDetail)
 batchUpdatePartitionFailureEntry_errorDetail = Lens.lens (\BatchUpdatePartitionFailureEntry' {errorDetail} -> errorDetail) (\s@BatchUpdatePartitionFailureEntry' {} a -> s {errorDetail = a} :: BatchUpdatePartitionFailureEntry)
-
--- | A list of values defining the partitions.
-batchUpdatePartitionFailureEntry_partitionValueList :: Lens.Lens' BatchUpdatePartitionFailureEntry (Prelude.Maybe [Prelude.Text])
-batchUpdatePartitionFailureEntry_partitionValueList = Lens.lens (\BatchUpdatePartitionFailureEntry' {partitionValueList} -> partitionValueList) (\s@BatchUpdatePartitionFailureEntry' {} a -> s {partitionValueList = a} :: BatchUpdatePartitionFailureEntry) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -72,10 +72,10 @@ instance
       "BatchUpdatePartitionFailureEntry"
       ( \x ->
           BatchUpdatePartitionFailureEntry'
-            Prelude.<$> (x Core..:? "ErrorDetail")
-            Prelude.<*> ( x Core..:? "PartitionValueList"
+            Prelude.<$> ( x Core..:? "PartitionValueList"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ErrorDetail")
       )
 
 instance

@@ -32,8 +32,8 @@ module Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
 
     -- * Request Lenses
     getInstancesHealthStatus_nextToken,
-    getInstancesHealthStatus_maxResults,
     getInstancesHealthStatus_instances,
+    getInstancesHealthStatus_maxResults,
     getInstancesHealthStatus_serviceId,
 
     -- * Destructuring the Response
@@ -63,10 +63,6 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
     -- group of results. Specify the value of @NextToken@ from the previous
     -- response in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances that you want Cloud Map to return in the
-    -- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
-    -- a value for @MaxResults@, Cloud Map returns up to 100 instances.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An array that contains the IDs of all the instances that you want to get
     -- the health status for.
     --
@@ -78,6 +74,10 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
     -- request.
     instances :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The maximum number of instances that you want Cloud Map to return in the
+    -- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
+    -- a value for @MaxResults@, Cloud Map returns up to 100 instances.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the service that the instance is associated with.
     serviceId :: Prelude.Text
   }
@@ -98,10 +98,6 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
 -- group of results. Specify the value of @NextToken@ from the previous
 -- response in the next request.
 --
--- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want Cloud Map to return in the
--- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
--- a value for @MaxResults@, Cloud Map returns up to 100 instances.
---
 -- 'instances', 'getInstancesHealthStatus_instances' - An array that contains the IDs of all the instances that you want to get
 -- the health status for.
 --
@@ -113,6 +109,10 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
 -- request.
 --
+-- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want Cloud Map to return in the
+-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
+-- a value for @MaxResults@, Cloud Map returns up to 100 instances.
+--
 -- 'serviceId', 'getInstancesHealthStatus_serviceId' - The ID of the service that the instance is associated with.
 newGetInstancesHealthStatus ::
   -- | 'serviceId'
@@ -122,8 +122,8 @@ newGetInstancesHealthStatus pServiceId_ =
   GetInstancesHealthStatus'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       instances = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       serviceId = pServiceId_
     }
 
@@ -136,12 +136,6 @@ newGetInstancesHealthStatus pServiceId_ =
 getInstancesHealthStatus_nextToken :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Text)
 getInstancesHealthStatus_nextToken = Lens.lens (\GetInstancesHealthStatus' {nextToken} -> nextToken) (\s@GetInstancesHealthStatus' {} a -> s {nextToken = a} :: GetInstancesHealthStatus)
 
--- | The maximum number of instances that you want Cloud Map to return in the
--- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
--- a value for @MaxResults@, Cloud Map returns up to 100 instances.
-getInstancesHealthStatus_maxResults :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Natural)
-getInstancesHealthStatus_maxResults = Lens.lens (\GetInstancesHealthStatus' {maxResults} -> maxResults) (\s@GetInstancesHealthStatus' {} a -> s {maxResults = a} :: GetInstancesHealthStatus)
-
 -- | An array that contains the IDs of all the instances that you want to get
 -- the health status for.
 --
@@ -153,7 +147,13 @@ getInstancesHealthStatus_maxResults = Lens.lens (\GetInstancesHealthStatus' {max
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances>
 -- request.
 getInstancesHealthStatus_instances :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getInstancesHealthStatus_instances = Lens.lens (\GetInstancesHealthStatus' {instances} -> instances) (\s@GetInstancesHealthStatus' {} a -> s {instances = a} :: GetInstancesHealthStatus) Prelude.. Lens.mapping Lens._Coerce
+getInstancesHealthStatus_instances = Lens.lens (\GetInstancesHealthStatus' {instances} -> instances) (\s@GetInstancesHealthStatus' {} a -> s {instances = a} :: GetInstancesHealthStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of instances that you want Cloud Map to return in the
+-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
+-- a value for @MaxResults@, Cloud Map returns up to 100 instances.
+getInstancesHealthStatus_maxResults :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Natural)
+getInstancesHealthStatus_maxResults = Lens.lens (\GetInstancesHealthStatus' {maxResults} -> maxResults) (\s@GetInstancesHealthStatus' {} a -> s {maxResults = a} :: GetInstancesHealthStatus)
 
 -- | The ID of the service that the instance is associated with.
 getInstancesHealthStatus_serviceId :: Lens.Lens' GetInstancesHealthStatus Prelude.Text
@@ -197,8 +197,8 @@ instance Core.ToJSON GetInstancesHealthStatus where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("Instances" Core..=) Prelude.<$> instances,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("ServiceId" Core..= serviceId)
           ]
       )
@@ -256,7 +256,7 @@ newGetInstancesHealthStatusResponse pHttpStatus_ =
 -- | A complex type that contains the IDs and the health status of the
 -- instances that you specified in the @GetInstancesHealthStatus@ request.
 getInstancesHealthStatusResponse_status :: Lens.Lens' GetInstancesHealthStatusResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text HealthStatus))
-getInstancesHealthStatusResponse_status = Lens.lens (\GetInstancesHealthStatusResponse' {status} -> status) (\s@GetInstancesHealthStatusResponse' {} a -> s {status = a} :: GetInstancesHealthStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+getInstancesHealthStatusResponse_status = Lens.lens (\GetInstancesHealthStatusResponse' {status} -> status) (\s@GetInstancesHealthStatusResponse' {} a -> s {status = a} :: GetInstancesHealthStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If more than @MaxResults@ instances match the specified criteria, you
 -- can submit another @GetInstancesHealthStatus@ request to get the next

@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 data TaskObject = TaskObject'
   { -- | The ID of the pipeline that provided the task.
     pipelineId :: Prelude.Maybe Prelude.Text,
-    -- | Connection information for the location where the task runner will
-    -- publish the output of the task.
-    objects :: Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject),
+    -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
+    -- value to track how many times a task is attempted.
+    attemptId :: Prelude.Maybe Prelude.Text,
     -- | An internal identifier for the task. This ID is passed to the
     -- SetTaskStatus and ReportTaskProgress actions.
     taskId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
-    -- value to track how many times a task is attempted.
-    attemptId :: Prelude.Maybe Prelude.Text
+    -- | Connection information for the location where the task runner will
+    -- publish the output of the task.
+    objects :: Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,42 +53,42 @@ data TaskObject = TaskObject'
 --
 -- 'pipelineId', 'taskObject_pipelineId' - The ID of the pipeline that provided the task.
 --
--- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will
--- publish the output of the task.
+-- 'attemptId', 'taskObject_attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this
+-- value to track how many times a task is attempted.
 --
 -- 'taskId', 'taskObject_taskId' - An internal identifier for the task. This ID is passed to the
 -- SetTaskStatus and ReportTaskProgress actions.
 --
--- 'attemptId', 'taskObject_attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this
--- value to track how many times a task is attempted.
+-- 'objects', 'taskObject_objects' - Connection information for the location where the task runner will
+-- publish the output of the task.
 newTaskObject ::
   TaskObject
 newTaskObject =
   TaskObject'
     { pipelineId = Prelude.Nothing,
-      objects = Prelude.Nothing,
+      attemptId = Prelude.Nothing,
       taskId = Prelude.Nothing,
-      attemptId = Prelude.Nothing
+      objects = Prelude.Nothing
     }
 
 -- | The ID of the pipeline that provided the task.
 taskObject_pipelineId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_pipelineId = Lens.lens (\TaskObject' {pipelineId} -> pipelineId) (\s@TaskObject' {} a -> s {pipelineId = a} :: TaskObject)
 
--- | Connection information for the location where the task runner will
--- publish the output of the task.
-taskObject_objects :: Lens.Lens' TaskObject (Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject))
-taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Prelude.. Lens.mapping Lens._Coerce
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
+-- value to track how many times a task is attempted.
+taskObject_attemptId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
+taskObject_attemptId = Lens.lens (\TaskObject' {attemptId} -> attemptId) (\s@TaskObject' {} a -> s {attemptId = a} :: TaskObject)
 
 -- | An internal identifier for the task. This ID is passed to the
 -- SetTaskStatus and ReportTaskProgress actions.
 taskObject_taskId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
 taskObject_taskId = Lens.lens (\TaskObject' {taskId} -> taskId) (\s@TaskObject' {} a -> s {taskId = a} :: TaskObject)
 
--- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
--- value to track how many times a task is attempted.
-taskObject_attemptId :: Lens.Lens' TaskObject (Prelude.Maybe Prelude.Text)
-taskObject_attemptId = Lens.lens (\TaskObject' {attemptId} -> attemptId) (\s@TaskObject' {} a -> s {attemptId = a} :: TaskObject)
+-- | Connection information for the location where the task runner will
+-- publish the output of the task.
+taskObject_objects :: Lens.Lens' TaskObject (Prelude.Maybe (Prelude.HashMap Prelude.Text PipelineObject))
+taskObject_objects = Lens.lens (\TaskObject' {objects} -> objects) (\s@TaskObject' {} a -> s {objects = a} :: TaskObject) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON TaskObject where
   parseJSON =
@@ -97,9 +97,9 @@ instance Core.FromJSON TaskObject where
       ( \x ->
           TaskObject'
             Prelude.<$> (x Core..:? "pipelineId")
-            Prelude.<*> (x Core..:? "objects" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "taskId")
             Prelude.<*> (x Core..:? "attemptId")
+            Prelude.<*> (x Core..:? "taskId")
+            Prelude.<*> (x Core..:? "objects" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable TaskObject

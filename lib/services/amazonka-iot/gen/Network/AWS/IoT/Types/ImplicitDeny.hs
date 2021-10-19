@@ -54,7 +54,7 @@ newImplicitDeny =
 -- | Policies that don\'t contain a matching allow or deny statement for the
 -- specified action on the specified resource.
 implicitDeny_policies :: Lens.Lens' ImplicitDeny (Prelude.Maybe [Policy])
-implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Prelude.. Lens.mapping Lens._Coerce
+implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ImplicitDeny where
   parseJSON =

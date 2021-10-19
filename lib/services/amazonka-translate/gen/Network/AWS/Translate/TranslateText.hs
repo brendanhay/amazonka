@@ -131,7 +131,7 @@ newTranslateText
 -- request. You can use 1 terminology list at most in a @TranslateText@
 -- request. Terminology lists can contain a maximum of 256 terms.
 translateText_terminologyNames :: Lens.Lens' TranslateText (Prelude.Maybe [Prelude.Text])
-translateText_terminologyNames = Lens.lens (\TranslateText' {terminologyNames} -> terminologyNames) (\s@TranslateText' {} a -> s {terminologyNames = a} :: TranslateText) Prelude.. Lens.mapping Lens._Coerce
+translateText_terminologyNames = Lens.lens (\TranslateText' {terminologyNames} -> terminologyNames) (\s@TranslateText' {} a -> s {terminologyNames = a} :: TranslateText) Prelude.. Lens.mapping Lens.coerced
 
 -- | The text to translate. The text string can be a maximum of 5,000 bytes
 -- long. Depending on your character set, this may be fewer than 5,000
@@ -274,7 +274,7 @@ newTranslateTextResponse
 -- | The names of the custom terminologies applied to the input text by
 -- Amazon Translate for the translated text response.
 translateTextResponse_appliedTerminologies :: Lens.Lens' TranslateTextResponse (Prelude.Maybe [AppliedTerminology])
-translateTextResponse_appliedTerminologies = Lens.lens (\TranslateTextResponse' {appliedTerminologies} -> appliedTerminologies) (\s@TranslateTextResponse' {} a -> s {appliedTerminologies = a} :: TranslateTextResponse) Prelude.. Lens.mapping Lens._Coerce
+translateTextResponse_appliedTerminologies = Lens.lens (\TranslateTextResponse' {appliedTerminologies} -> appliedTerminologies) (\s@TranslateTextResponse' {} a -> s {appliedTerminologies = a} :: TranslateTextResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 translateTextResponse_httpStatus :: Lens.Lens' TranslateTextResponse Prelude.Int

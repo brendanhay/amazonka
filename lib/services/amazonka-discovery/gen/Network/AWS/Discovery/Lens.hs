@@ -14,145 +14,41 @@
 module Network.AWS.Discovery.Lens
   ( -- * Operations
 
-    -- ** DescribeExportTasks
-    describeExportTasks_nextToken,
-    describeExportTasks_maxResults,
-    describeExportTasks_exportIds,
-    describeExportTasks_filters,
-    describeExportTasksResponse_nextToken,
-    describeExportTasksResponse_exportsInfo,
-    describeExportTasksResponse_httpStatus,
-
     -- ** DescribeTags
+    describeTags_filters,
     describeTags_nextToken,
     describeTags_maxResults,
-    describeTags_filters,
     describeTagsResponse_nextToken,
     describeTagsResponse_tags,
     describeTagsResponse_httpStatus,
 
-    -- ** ListConfigurations
-    listConfigurations_nextToken,
-    listConfigurations_maxResults,
-    listConfigurations_orderBy,
-    listConfigurations_filters,
-    listConfigurations_configurationType,
-    listConfigurationsResponse_nextToken,
-    listConfigurationsResponse_configurations,
-    listConfigurationsResponse_httpStatus,
-
-    -- ** StartExportTask
-    startExportTask_exportDataFormat,
-    startExportTask_startTime,
-    startExportTask_endTime,
-    startExportTask_filters,
-    startExportTaskResponse_exportId,
-    startExportTaskResponse_httpStatus,
-
-    -- ** DescribeImportTasks
-    describeImportTasks_nextToken,
-    describeImportTasks_maxResults,
-    describeImportTasks_filters,
-    describeImportTasksResponse_nextToken,
-    describeImportTasksResponse_tasks,
-    describeImportTasksResponse_httpStatus,
-
-    -- ** CreateApplication
-    createApplication_description,
-    createApplication_name,
-    createApplicationResponse_configurationId,
-    createApplicationResponse_httpStatus,
-
-    -- ** DisassociateConfigurationItemsFromApplication
-    disassociateConfigurationItemsFromApplication_applicationConfigurationId,
-    disassociateConfigurationItemsFromApplication_configurationIds,
-    disassociateConfigurationItemsFromApplicationResponse_httpStatus,
-
-    -- ** DeleteTags
-    deleteTags_tags,
-    deleteTags_configurationIds,
-    deleteTagsResponse_httpStatus,
-
-    -- ** GetDiscoverySummary
-    getDiscoverySummaryResponse_servers,
-    getDiscoverySummaryResponse_agentSummary,
-    getDiscoverySummaryResponse_connectorSummary,
-    getDiscoverySummaryResponse_applications,
-    getDiscoverySummaryResponse_serversMappedToApplications,
-    getDiscoverySummaryResponse_serversMappedtoTags,
-    getDiscoverySummaryResponse_httpStatus,
-
-    -- ** DeleteApplications
-    deleteApplications_configurationIds,
-    deleteApplicationsResponse_httpStatus,
-
-    -- ** StartDataCollectionByAgentIds
-    startDataCollectionByAgentIds_agentIds,
-    startDataCollectionByAgentIdsResponse_agentsConfigurationStatus,
-    startDataCollectionByAgentIdsResponse_httpStatus,
+    -- ** DescribeContinuousExports
+    describeContinuousExports_nextToken,
+    describeContinuousExports_exportIds,
+    describeContinuousExports_maxResults,
+    describeContinuousExportsResponse_nextToken,
+    describeContinuousExportsResponse_descriptions,
+    describeContinuousExportsResponse_httpStatus,
 
     -- ** StopDataCollectionByAgentIds
     stopDataCollectionByAgentIds_agentIds,
     stopDataCollectionByAgentIdsResponse_agentsConfigurationStatus,
     stopDataCollectionByAgentIdsResponse_httpStatus,
 
-    -- ** DescribeContinuousExports
-    describeContinuousExports_nextToken,
-    describeContinuousExports_maxResults,
-    describeContinuousExports_exportIds,
-    describeContinuousExportsResponse_nextToken,
-    describeContinuousExportsResponse_descriptions,
-    describeContinuousExportsResponse_httpStatus,
+    -- ** CreateTags
+    createTags_configurationIds,
+    createTags_tags,
+    createTagsResponse_httpStatus,
 
-    -- ** DescribeAgents
-    describeAgents_agentIds,
-    describeAgents_nextToken,
-    describeAgents_maxResults,
-    describeAgents_filters,
-    describeAgentsResponse_nextToken,
-    describeAgentsResponse_agentsInfo,
-    describeAgentsResponse_httpStatus,
+    -- ** BatchDeleteImportData
+    batchDeleteImportData_importTaskIds,
+    batchDeleteImportDataResponse_errors,
+    batchDeleteImportDataResponse_httpStatus,
 
-    -- ** StartContinuousExport
-    startContinuousExportResponse_s3Bucket,
-    startContinuousExportResponse_startTime,
-    startContinuousExportResponse_dataSource,
-    startContinuousExportResponse_schemaStorageConfig,
-    startContinuousExportResponse_exportId,
-    startContinuousExportResponse_httpStatus,
-
-    -- ** StopContinuousExport
-    stopContinuousExport_exportId,
-    stopContinuousExportResponse_stopTime,
-    stopContinuousExportResponse_startTime,
-    stopContinuousExportResponse_httpStatus,
-
-    -- ** ListServerNeighbors
-    listServerNeighbors_nextToken,
-    listServerNeighbors_maxResults,
-    listServerNeighbors_portInformationNeeded,
-    listServerNeighbors_neighborConfigurationIds,
-    listServerNeighbors_configurationId,
-    listServerNeighborsResponse_nextToken,
-    listServerNeighborsResponse_knownDependencyCount,
-    listServerNeighborsResponse_httpStatus,
-    listServerNeighborsResponse_neighbors,
-
-    -- ** DescribeConfigurations
-    describeConfigurations_configurationIds,
-    describeConfigurationsResponse_configurations,
-    describeConfigurationsResponse_httpStatus,
-
-    -- ** AssociateConfigurationItemsToApplication
-    associateConfigurationItemsToApplication_applicationConfigurationId,
-    associateConfigurationItemsToApplication_configurationIds,
-    associateConfigurationItemsToApplicationResponse_httpStatus,
-
-    -- ** UpdateApplication
-    updateApplication_name,
-    updateApplication_description,
-    updateApplication_configurationId,
-    updateApplicationResponse_httpStatus,
+    -- ** DeleteTags
+    deleteTags_tags,
+    deleteTags_configurationIds,
+    deleteTagsResponse_httpStatus,
 
     -- ** StartImportTask
     startImportTask_clientRequestToken,
@@ -161,15 +57,119 @@ module Network.AWS.Discovery.Lens
     startImportTaskResponse_task,
     startImportTaskResponse_httpStatus,
 
-    -- ** BatchDeleteImportData
-    batchDeleteImportData_importTaskIds,
-    batchDeleteImportDataResponse_errors,
-    batchDeleteImportDataResponse_httpStatus,
+    -- ** DeleteApplications
+    deleteApplications_configurationIds,
+    deleteApplicationsResponse_httpStatus,
 
-    -- ** CreateTags
-    createTags_configurationIds,
-    createTags_tags,
-    createTagsResponse_httpStatus,
+    -- ** UpdateApplication
+    updateApplication_name,
+    updateApplication_description,
+    updateApplication_configurationId,
+    updateApplicationResponse_httpStatus,
+
+    -- ** DescribeConfigurations
+    describeConfigurations_configurationIds,
+    describeConfigurationsResponse_configurations,
+    describeConfigurationsResponse_httpStatus,
+
+    -- ** DescribeImportTasks
+    describeImportTasks_filters,
+    describeImportTasks_nextToken,
+    describeImportTasks_maxResults,
+    describeImportTasksResponse_tasks,
+    describeImportTasksResponse_nextToken,
+    describeImportTasksResponse_httpStatus,
+
+    -- ** CreateApplication
+    createApplication_description,
+    createApplication_name,
+    createApplicationResponse_configurationId,
+    createApplicationResponse_httpStatus,
+
+    -- ** ListConfigurations
+    listConfigurations_orderBy,
+    listConfigurations_filters,
+    listConfigurations_nextToken,
+    listConfigurations_maxResults,
+    listConfigurations_configurationType,
+    listConfigurationsResponse_configurations,
+    listConfigurationsResponse_nextToken,
+    listConfigurationsResponse_httpStatus,
+
+    -- ** StartContinuousExport
+    startContinuousExportResponse_startTime,
+    startContinuousExportResponse_schemaStorageConfig,
+    startContinuousExportResponse_dataSource,
+    startContinuousExportResponse_s3Bucket,
+    startContinuousExportResponse_exportId,
+    startContinuousExportResponse_httpStatus,
+
+    -- ** DescribeAgents
+    describeAgents_agentIds,
+    describeAgents_filters,
+    describeAgents_nextToken,
+    describeAgents_maxResults,
+    describeAgentsResponse_agentsInfo,
+    describeAgentsResponse_nextToken,
+    describeAgentsResponse_httpStatus,
+
+    -- ** DescribeExportTasks
+    describeExportTasks_filters,
+    describeExportTasks_nextToken,
+    describeExportTasks_exportIds,
+    describeExportTasks_maxResults,
+    describeExportTasksResponse_nextToken,
+    describeExportTasksResponse_exportsInfo,
+    describeExportTasksResponse_httpStatus,
+
+    -- ** StartDataCollectionByAgentIds
+    startDataCollectionByAgentIds_agentIds,
+    startDataCollectionByAgentIdsResponse_agentsConfigurationStatus,
+    startDataCollectionByAgentIdsResponse_httpStatus,
+
+    -- ** GetDiscoverySummary
+    getDiscoverySummaryResponse_servers,
+    getDiscoverySummaryResponse_serversMappedtoTags,
+    getDiscoverySummaryResponse_serversMappedToApplications,
+    getDiscoverySummaryResponse_connectorSummary,
+    getDiscoverySummaryResponse_agentSummary,
+    getDiscoverySummaryResponse_applications,
+    getDiscoverySummaryResponse_httpStatus,
+
+    -- ** DisassociateConfigurationItemsFromApplication
+    disassociateConfigurationItemsFromApplication_applicationConfigurationId,
+    disassociateConfigurationItemsFromApplication_configurationIds,
+    disassociateConfigurationItemsFromApplicationResponse_httpStatus,
+
+    -- ** AssociateConfigurationItemsToApplication
+    associateConfigurationItemsToApplication_applicationConfigurationId,
+    associateConfigurationItemsToApplication_configurationIds,
+    associateConfigurationItemsToApplicationResponse_httpStatus,
+
+    -- ** ListServerNeighbors
+    listServerNeighbors_portInformationNeeded,
+    listServerNeighbors_neighborConfigurationIds,
+    listServerNeighbors_nextToken,
+    listServerNeighbors_maxResults,
+    listServerNeighbors_configurationId,
+    listServerNeighborsResponse_nextToken,
+    listServerNeighborsResponse_knownDependencyCount,
+    listServerNeighborsResponse_httpStatus,
+    listServerNeighborsResponse_neighbors,
+
+    -- ** StopContinuousExport
+    stopContinuousExport_exportId,
+    stopContinuousExportResponse_startTime,
+    stopContinuousExportResponse_stopTime,
+    stopContinuousExportResponse_httpStatus,
+
+    -- ** StartExportTask
+    startExportTask_exportDataFormat,
+    startExportTask_startTime,
+    startExportTask_filters,
+    startExportTask_endTime,
+    startExportTaskResponse_exportId,
+    startExportTaskResponse_httpStatus,
 
     -- * Types
 
@@ -180,40 +180,40 @@ module Network.AWS.Discovery.Lens
 
     -- ** AgentInfo
     agentInfo_hostName,
-    agentInfo_agentId,
-    agentInfo_agentType,
-    agentInfo_connectorId,
     agentInfo_lastHealthPingTime,
     agentInfo_agentNetworkInfoList,
-    agentInfo_registeredTime,
-    agentInfo_version,
+    agentInfo_connectorId,
     agentInfo_health,
+    agentInfo_agentId,
+    agentInfo_version,
     agentInfo_collectionStatus,
+    agentInfo_registeredTime,
+    agentInfo_agentType,
 
     -- ** AgentNetworkInfo
-    agentNetworkInfo_macAddress,
     agentNetworkInfo_ipAddress,
+    agentNetworkInfo_macAddress,
 
     -- ** BatchDeleteImportDataError
-    batchDeleteImportDataError_errorDescription,
     batchDeleteImportDataError_importTaskId,
     batchDeleteImportDataError_errorCode,
+    batchDeleteImportDataError_errorDescription,
 
     -- ** ConfigurationTag
-    configurationTag_key,
-    configurationTag_configurationId,
-    configurationTag_value,
-    configurationTag_configurationType,
     configurationTag_timeOfCreation,
+    configurationTag_configurationId,
+    configurationTag_configurationType,
+    configurationTag_value,
+    configurationTag_key,
 
     -- ** ContinuousExportDescription
     continuousExportDescription_status,
-    continuousExportDescription_s3Bucket,
-    continuousExportDescription_stopTime,
     continuousExportDescription_startTime,
-    continuousExportDescription_dataSource,
-    continuousExportDescription_statusDetail,
     continuousExportDescription_schemaStorageConfig,
+    continuousExportDescription_statusDetail,
+    continuousExportDescription_stopTime,
+    continuousExportDescription_dataSource,
+    continuousExportDescription_s3Bucket,
     continuousExportDescription_exportId,
 
     -- ** CustomerAgentInfo
@@ -240,10 +240,10 @@ module Network.AWS.Discovery.Lens
     exportFilter_condition,
 
     -- ** ExportInfo
-    exportInfo_isTruncated,
     exportInfo_configurationsDownloadUrl,
     exportInfo_requestedStartTime,
     exportInfo_requestedEndTime,
+    exportInfo_isTruncated,
     exportInfo_exportId,
     exportInfo_exportStatus,
     exportInfo_statusMessage,
@@ -257,17 +257,17 @@ module Network.AWS.Discovery.Lens
     -- ** ImportTask
     importTask_applicationImportSuccess,
     importTask_status,
-    importTask_importRequestTime,
-    importTask_serverImportFailure,
-    importTask_importTaskId,
-    importTask_errorsAndFailedEntriesZip,
-    importTask_applicationImportFailure,
-    importTask_name,
-    importTask_importCompletionTime,
-    importTask_importUrl,
     importTask_serverImportSuccess,
-    importTask_clientRequestToken,
+    importTask_importCompletionTime,
+    importTask_name,
+    importTask_applicationImportFailure,
+    importTask_errorsAndFailedEntriesZip,
+    importTask_importTaskId,
     importTask_importDeletedTime,
+    importTask_serverImportFailure,
+    importTask_clientRequestToken,
+    importTask_importUrl,
+    importTask_importRequestTime,
 
     -- ** ImportTaskFilter
     importTaskFilter_values,

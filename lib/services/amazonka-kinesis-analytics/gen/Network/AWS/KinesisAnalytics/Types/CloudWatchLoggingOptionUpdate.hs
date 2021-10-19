@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchLoggingOptionUpdate' smart constructor.
 data CloudWatchLoggingOptionUpdate = CloudWatchLoggingOptionUpdate'
-  { -- | ARN of the CloudWatch log to receive application messages.
-    logStreamARNUpdate :: Prelude.Maybe Prelude.Text,
-    -- | IAM ARN of the role to use to send application messages. Note: To write
+  { -- | IAM ARN of the role to use to send application messages. Note: To write
     -- application messages to CloudWatch, the IAM role used must have the
     -- @PutLogEvents@ policy action enabled.
     roleARNUpdate :: Prelude.Maybe Prelude.Text,
+    -- | ARN of the CloudWatch log to receive application messages.
+    logStreamARNUpdate :: Prelude.Maybe Prelude.Text,
     -- | ID of the CloudWatch logging option to update
     cloudWatchLoggingOptionId :: Prelude.Text
   }
@@ -46,11 +46,11 @@ data CloudWatchLoggingOptionUpdate = CloudWatchLoggingOptionUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logStreamARNUpdate', 'cloudWatchLoggingOptionUpdate_logStreamARNUpdate' - ARN of the CloudWatch log to receive application messages.
---
 -- 'roleARNUpdate', 'cloudWatchLoggingOptionUpdate_roleARNUpdate' - IAM ARN of the role to use to send application messages. Note: To write
 -- application messages to CloudWatch, the IAM role used must have the
 -- @PutLogEvents@ policy action enabled.
+--
+-- 'logStreamARNUpdate', 'cloudWatchLoggingOptionUpdate_logStreamARNUpdate' - ARN of the CloudWatch log to receive application messages.
 --
 -- 'cloudWatchLoggingOptionId', 'cloudWatchLoggingOptionUpdate_cloudWatchLoggingOptionId' - ID of the CloudWatch logging option to update
 newCloudWatchLoggingOptionUpdate ::
@@ -60,22 +60,22 @@ newCloudWatchLoggingOptionUpdate ::
 newCloudWatchLoggingOptionUpdate
   pCloudWatchLoggingOptionId_ =
     CloudWatchLoggingOptionUpdate'
-      { logStreamARNUpdate =
+      { roleARNUpdate =
           Prelude.Nothing,
-        roleARNUpdate = Prelude.Nothing,
+        logStreamARNUpdate = Prelude.Nothing,
         cloudWatchLoggingOptionId =
           pCloudWatchLoggingOptionId_
       }
-
--- | ARN of the CloudWatch log to receive application messages.
-cloudWatchLoggingOptionUpdate_logStreamARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Prelude.Maybe Prelude.Text)
-cloudWatchLoggingOptionUpdate_logStreamARNUpdate = Lens.lens (\CloudWatchLoggingOptionUpdate' {logStreamARNUpdate} -> logStreamARNUpdate) (\s@CloudWatchLoggingOptionUpdate' {} a -> s {logStreamARNUpdate = a} :: CloudWatchLoggingOptionUpdate)
 
 -- | IAM ARN of the role to use to send application messages. Note: To write
 -- application messages to CloudWatch, the IAM role used must have the
 -- @PutLogEvents@ policy action enabled.
 cloudWatchLoggingOptionUpdate_roleARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Prelude.Maybe Prelude.Text)
 cloudWatchLoggingOptionUpdate_roleARNUpdate = Lens.lens (\CloudWatchLoggingOptionUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@CloudWatchLoggingOptionUpdate' {} a -> s {roleARNUpdate = a} :: CloudWatchLoggingOptionUpdate)
+
+-- | ARN of the CloudWatch log to receive application messages.
+cloudWatchLoggingOptionUpdate_logStreamARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Prelude.Maybe Prelude.Text)
+cloudWatchLoggingOptionUpdate_logStreamARNUpdate = Lens.lens (\CloudWatchLoggingOptionUpdate' {logStreamARNUpdate} -> logStreamARNUpdate) (\s@CloudWatchLoggingOptionUpdate' {} a -> s {logStreamARNUpdate = a} :: CloudWatchLoggingOptionUpdate)
 
 -- | ID of the CloudWatch logging option to update
 cloudWatchLoggingOptionUpdate_cloudWatchLoggingOptionId :: Lens.Lens' CloudWatchLoggingOptionUpdate Prelude.Text
@@ -91,9 +91,9 @@ instance Core.ToJSON CloudWatchLoggingOptionUpdate where
   toJSON CloudWatchLoggingOptionUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LogStreamARNUpdate" Core..=)
+          [ ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate,
+            ("LogStreamARNUpdate" Core..=)
               Prelude.<$> logStreamARNUpdate,
-            ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate,
             Prelude.Just
               ( "CloudWatchLoggingOptionId"
                   Core..= cloudWatchLoggingOptionId

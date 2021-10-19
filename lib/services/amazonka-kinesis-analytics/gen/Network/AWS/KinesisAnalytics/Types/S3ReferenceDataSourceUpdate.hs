@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3ReferenceDataSourceUpdate' smart constructor.
 data S3ReferenceDataSourceUpdate = S3ReferenceDataSourceUpdate'
-  { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
-    -- Amazon S3 object and populate the in-application.
-    referenceRoleARNUpdate :: Prelude.Maybe Prelude.Text,
+  { -- | Amazon Resource Name (ARN) of the S3 bucket.
+    bucketARNUpdate :: Prelude.Maybe Prelude.Text,
     -- | Object key name.
     fileKeyUpdate :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARNUpdate :: Prelude.Maybe Prelude.Text
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
+    -- Amazon S3 object and populate the in-application.
+    referenceRoleARNUpdate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,34 +47,34 @@ data S3ReferenceDataSourceUpdate = S3ReferenceDataSourceUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'referenceRoleARNUpdate', 's3ReferenceDataSourceUpdate_referenceRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
--- Amazon S3 object and populate the in-application.
+-- 'bucketARNUpdate', 's3ReferenceDataSourceUpdate_bucketARNUpdate' - Amazon Resource Name (ARN) of the S3 bucket.
 --
 -- 'fileKeyUpdate', 's3ReferenceDataSourceUpdate_fileKeyUpdate' - Object key name.
 --
--- 'bucketARNUpdate', 's3ReferenceDataSourceUpdate_bucketARNUpdate' - Amazon Resource Name (ARN) of the S3 bucket.
+-- 'referenceRoleARNUpdate', 's3ReferenceDataSourceUpdate_referenceRoleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
+-- Amazon S3 object and populate the in-application.
 newS3ReferenceDataSourceUpdate ::
   S3ReferenceDataSourceUpdate
 newS3ReferenceDataSourceUpdate =
   S3ReferenceDataSourceUpdate'
-    { referenceRoleARNUpdate =
+    { bucketARNUpdate =
         Prelude.Nothing,
       fileKeyUpdate = Prelude.Nothing,
-      bucketARNUpdate = Prelude.Nothing
+      referenceRoleARNUpdate = Prelude.Nothing
     }
 
--- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
--- Amazon S3 object and populate the in-application.
-s3ReferenceDataSourceUpdate_referenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
-s3ReferenceDataSourceUpdate_referenceRoleARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {referenceRoleARNUpdate} -> referenceRoleARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {referenceRoleARNUpdate = a} :: S3ReferenceDataSourceUpdate)
+-- | Amazon Resource Name (ARN) of the S3 bucket.
+s3ReferenceDataSourceUpdate_bucketARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
+s3ReferenceDataSourceUpdate_bucketARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {bucketARNUpdate} -> bucketARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {bucketARNUpdate = a} :: S3ReferenceDataSourceUpdate)
 
 -- | Object key name.
 s3ReferenceDataSourceUpdate_fileKeyUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
 s3ReferenceDataSourceUpdate_fileKeyUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {fileKeyUpdate} -> fileKeyUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {fileKeyUpdate = a} :: S3ReferenceDataSourceUpdate)
 
--- | Amazon Resource Name (ARN) of the S3 bucket.
-s3ReferenceDataSourceUpdate_bucketARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
-s3ReferenceDataSourceUpdate_bucketARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {bucketARNUpdate} -> bucketARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {bucketARNUpdate = a} :: S3ReferenceDataSourceUpdate)
+-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
+-- Amazon S3 object and populate the in-application.
+s3ReferenceDataSourceUpdate_referenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
+s3ReferenceDataSourceUpdate_referenceRoleARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {referenceRoleARNUpdate} -> referenceRoleARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {referenceRoleARNUpdate = a} :: S3ReferenceDataSourceUpdate)
 
 instance Prelude.Hashable S3ReferenceDataSourceUpdate
 
@@ -84,10 +84,10 @@ instance Core.ToJSON S3ReferenceDataSourceUpdate where
   toJSON S3ReferenceDataSourceUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReferenceRoleARNUpdate" Core..=)
-              Prelude.<$> referenceRoleARNUpdate,
+          [ ("BucketARNUpdate" Core..=)
+              Prelude.<$> bucketARNUpdate,
             ("FileKeyUpdate" Core..=) Prelude.<$> fileKeyUpdate,
-            ("BucketARNUpdate" Core..=)
-              Prelude.<$> bucketARNUpdate
+            ("ReferenceRoleARNUpdate" Core..=)
+              Prelude.<$> referenceRoleARNUpdate
           ]
       )

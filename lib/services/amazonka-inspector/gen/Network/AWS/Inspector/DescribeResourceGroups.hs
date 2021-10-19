@@ -71,12 +71,12 @@ newDescribeResourceGroups ::
 newDescribeResourceGroups pResourceGroupArns_ =
   DescribeResourceGroups'
     { resourceGroupArns =
-        Lens._Coerce Lens.# pResourceGroupArns_
+        Lens.coerced Lens.# pResourceGroupArns_
     }
 
 -- | The ARN that specifies the resource group that you want to describe.
 describeResourceGroups_resourceGroupArns :: Lens.Lens' DescribeResourceGroups (Prelude.NonEmpty Prelude.Text)
-describeResourceGroups_resourceGroupArns = Lens.lens (\DescribeResourceGroups' {resourceGroupArns} -> resourceGroupArns) (\s@DescribeResourceGroups' {} a -> s {resourceGroupArns = a} :: DescribeResourceGroups) Prelude.. Lens._Coerce
+describeResourceGroups_resourceGroupArns = Lens.lens (\DescribeResourceGroups' {resourceGroupArns} -> resourceGroupArns) (\s@DescribeResourceGroups' {} a -> s {resourceGroupArns = a} :: DescribeResourceGroups) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeResourceGroups where
   type
@@ -170,12 +170,12 @@ describeResourceGroupsResponse_httpStatus = Lens.lens (\DescribeResourceGroupsRe
 
 -- | Information about a resource group.
 describeResourceGroupsResponse_resourceGroups :: Lens.Lens' DescribeResourceGroupsResponse [ResourceGroup]
-describeResourceGroupsResponse_resourceGroups = Lens.lens (\DescribeResourceGroupsResponse' {resourceGroups} -> resourceGroups) (\s@DescribeResourceGroupsResponse' {} a -> s {resourceGroups = a} :: DescribeResourceGroupsResponse) Prelude.. Lens._Coerce
+describeResourceGroupsResponse_resourceGroups = Lens.lens (\DescribeResourceGroupsResponse' {resourceGroups} -> resourceGroups) (\s@DescribeResourceGroupsResponse' {} a -> s {resourceGroups = a} :: DescribeResourceGroupsResponse) Prelude.. Lens.coerced
 
 -- | Resource group details that cannot be described. An error code is
 -- provided for each failed item.
 describeResourceGroupsResponse_failedItems :: Lens.Lens' DescribeResourceGroupsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeResourceGroupsResponse_failedItems = Lens.lens (\DescribeResourceGroupsResponse' {failedItems} -> failedItems) (\s@DescribeResourceGroupsResponse' {} a -> s {failedItems = a} :: DescribeResourceGroupsResponse) Prelude.. Lens._Coerce
+describeResourceGroupsResponse_failedItems = Lens.lens (\DescribeResourceGroupsResponse' {failedItems} -> failedItems) (\s@DescribeResourceGroupsResponse' {} a -> s {failedItems = a} :: DescribeResourceGroupsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -210,7 +210,7 @@ getOpsMetadataResponse_nextToken = Lens.lens (\GetOpsMetadataResponse' {nextToke
 
 -- | OpsMetadata for an Application Manager application.
 getOpsMetadataResponse_metadata :: Lens.Lens' GetOpsMetadataResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
-getOpsMetadataResponse_metadata = Lens.lens (\GetOpsMetadataResponse' {metadata} -> metadata) (\s@GetOpsMetadataResponse' {} a -> s {metadata = a} :: GetOpsMetadataResponse) Prelude.. Lens.mapping Lens._Coerce
+getOpsMetadataResponse_metadata = Lens.lens (\GetOpsMetadataResponse' {metadata} -> metadata) (\s@GetOpsMetadataResponse' {} a -> s {metadata = a} :: GetOpsMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getOpsMetadataResponse_httpStatus :: Lens.Lens' GetOpsMetadataResponse Prelude.Int

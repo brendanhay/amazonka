@@ -31,11 +31,11 @@ module Network.AWS.Redshift.DescribeNodeConfigurationOptions
 
     -- * Request Lenses
     describeNodeConfigurationOptions_snapshotIdentifier,
-    describeNodeConfigurationOptions_clusterIdentifier,
     describeNodeConfigurationOptions_filters,
-    describeNodeConfigurationOptions_ownerAccount,
-    describeNodeConfigurationOptions_maxRecords,
+    describeNodeConfigurationOptions_clusterIdentifier,
     describeNodeConfigurationOptions_marker,
+    describeNodeConfigurationOptions_maxRecords,
+    describeNodeConfigurationOptions_ownerAccount,
     describeNodeConfigurationOptions_actionType,
 
     -- * Destructuring the Response
@@ -61,15 +61,19 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
   { -- | The identifier of the snapshot to evaluate for possible node
     -- configurations.
     snapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A set of name, operator, and value items to filter the results.
+    filters :: Prelude.Maybe [NodeConfigurationOptionsFilter],
     -- | The identifier of the cluster to evaluate for possible node
     -- configurations.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | A set of name, operator, and value items to filter the results.
-    filters :: Prelude.Maybe [NodeConfigurationOptionsFilter],
-    -- | The Amazon Web Services account used to create or copy the snapshot.
-    -- Required if you are restoring a snapshot you do not own, optional if you
-    -- own the snapshot.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that specifies the starting point to return a set
+    -- of response records. When the results of a
+    -- DescribeNodeConfigurationOptions request exceed the value specified in
+    -- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+    -- of the response. You can retrieve the next set of response records by
+    -- providing the returned marker value in the @Marker@ parameter and
+    -- retrying the request.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of response records to return in each call. If the
     -- number of remaining response records exceeds the specified @MaxRecords@
     -- value, a value is returned in a @marker@ field of the response. You can
@@ -80,14 +84,10 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
     --
     -- Constraints: minimum 100, maximum 500.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | An optional parameter that specifies the starting point to return a set
-    -- of response records. When the results of a
-    -- DescribeNodeConfigurationOptions request exceed the value specified in
-    -- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
-    -- of the response. You can retrieve the next set of response records by
-    -- providing the returned marker value in the @Marker@ parameter and
-    -- retrying the request.
-    marker :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services account used to create or copy the snapshot.
+    -- Required if you are restoring a snapshot you do not own, optional if you
+    -- own the snapshot.
+    ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The action type to evaluate for possible node configurations. Specify
     -- \"restore-cluster\" to get configuration combinations based on an
     -- existing snapshot. Specify \"recommend-node-config\" to get
@@ -109,14 +109,18 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
 -- 'snapshotIdentifier', 'describeNodeConfigurationOptions_snapshotIdentifier' - The identifier of the snapshot to evaluate for possible node
 -- configurations.
 --
+-- 'filters', 'describeNodeConfigurationOptions_filters' - A set of name, operator, and value items to filter the results.
+--
 -- 'clusterIdentifier', 'describeNodeConfigurationOptions_clusterIdentifier' - The identifier of the cluster to evaluate for possible node
 -- configurations.
 --
--- 'filters', 'describeNodeConfigurationOptions_filters' - A set of name, operator, and value items to filter the results.
---
--- 'ownerAccount', 'describeNodeConfigurationOptions_ownerAccount' - The Amazon Web Services account used to create or copy the snapshot.
--- Required if you are restoring a snapshot you do not own, optional if you
--- own the snapshot.
+-- 'marker', 'describeNodeConfigurationOptions_marker' - An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeNodeConfigurationOptions request exceed the value specified in
+-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+-- of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the @Marker@ parameter and
+-- retrying the request.
 --
 -- 'maxRecords', 'describeNodeConfigurationOptions_maxRecords' - The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -128,13 +132,9 @@ data DescribeNodeConfigurationOptions = DescribeNodeConfigurationOptions'
 --
 -- Constraints: minimum 100, maximum 500.
 --
--- 'marker', 'describeNodeConfigurationOptions_marker' - An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeNodeConfigurationOptions request exceed the value specified in
--- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
--- of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the @Marker@ parameter and
--- retrying the request.
+-- 'ownerAccount', 'describeNodeConfigurationOptions_ownerAccount' - The Amazon Web Services account used to create or copy the snapshot.
+-- Required if you are restoring a snapshot you do not own, optional if you
+-- own the snapshot.
 --
 -- 'actionType', 'describeNodeConfigurationOptions_actionType' - The action type to evaluate for possible node configurations. Specify
 -- \"restore-cluster\" to get configuration combinations based on an
@@ -150,11 +150,11 @@ newDescribeNodeConfigurationOptions pActionType_ =
   DescribeNodeConfigurationOptions'
     { snapshotIdentifier =
         Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing,
       filters = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
       marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing,
+      ownerAccount = Prelude.Nothing,
       actionType = pActionType_
     }
 
@@ -163,20 +163,24 @@ newDescribeNodeConfigurationOptions pActionType_ =
 describeNodeConfigurationOptions_snapshotIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeNodeConfigurationOptions_snapshotIdentifier = Lens.lens (\DescribeNodeConfigurationOptions' {snapshotIdentifier} -> snapshotIdentifier) (\s@DescribeNodeConfigurationOptions' {} a -> s {snapshotIdentifier = a} :: DescribeNodeConfigurationOptions)
 
+-- | A set of name, operator, and value items to filter the results.
+describeNodeConfigurationOptions_filters :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe [NodeConfigurationOptionsFilter])
+describeNodeConfigurationOptions_filters = Lens.lens (\DescribeNodeConfigurationOptions' {filters} -> filters) (\s@DescribeNodeConfigurationOptions' {} a -> s {filters = a} :: DescribeNodeConfigurationOptions) Prelude.. Lens.mapping Lens.coerced
+
 -- | The identifier of the cluster to evaluate for possible node
 -- configurations.
 describeNodeConfigurationOptions_clusterIdentifier :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
 describeNodeConfigurationOptions_clusterIdentifier = Lens.lens (\DescribeNodeConfigurationOptions' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeNodeConfigurationOptions' {} a -> s {clusterIdentifier = a} :: DescribeNodeConfigurationOptions)
 
--- | A set of name, operator, and value items to filter the results.
-describeNodeConfigurationOptions_filters :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe [NodeConfigurationOptionsFilter])
-describeNodeConfigurationOptions_filters = Lens.lens (\DescribeNodeConfigurationOptions' {filters} -> filters) (\s@DescribeNodeConfigurationOptions' {} a -> s {filters = a} :: DescribeNodeConfigurationOptions) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Web Services account used to create or copy the snapshot.
--- Required if you are restoring a snapshot you do not own, optional if you
--- own the snapshot.
-describeNodeConfigurationOptions_ownerAccount :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
-describeNodeConfigurationOptions_ownerAccount = Lens.lens (\DescribeNodeConfigurationOptions' {ownerAccount} -> ownerAccount) (\s@DescribeNodeConfigurationOptions' {} a -> s {ownerAccount = a} :: DescribeNodeConfigurationOptions)
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeNodeConfigurationOptions request exceed the value specified in
+-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
+-- of the response. You can retrieve the next set of response records by
+-- providing the returned marker value in the @Marker@ parameter and
+-- retrying the request.
+describeNodeConfigurationOptions_marker :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
+describeNodeConfigurationOptions_marker = Lens.lens (\DescribeNodeConfigurationOptions' {marker} -> marker) (\s@DescribeNodeConfigurationOptions' {} a -> s {marker = a} :: DescribeNodeConfigurationOptions)
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -190,15 +194,11 @@ describeNodeConfigurationOptions_ownerAccount = Lens.lens (\DescribeNodeConfigur
 describeNodeConfigurationOptions_maxRecords :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Int)
 describeNodeConfigurationOptions_maxRecords = Lens.lens (\DescribeNodeConfigurationOptions' {maxRecords} -> maxRecords) (\s@DescribeNodeConfigurationOptions' {} a -> s {maxRecords = a} :: DescribeNodeConfigurationOptions)
 
--- | An optional parameter that specifies the starting point to return a set
--- of response records. When the results of a
--- DescribeNodeConfigurationOptions request exceed the value specified in
--- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field
--- of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the @Marker@ parameter and
--- retrying the request.
-describeNodeConfigurationOptions_marker :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
-describeNodeConfigurationOptions_marker = Lens.lens (\DescribeNodeConfigurationOptions' {marker} -> marker) (\s@DescribeNodeConfigurationOptions' {} a -> s {marker = a} :: DescribeNodeConfigurationOptions)
+-- | The Amazon Web Services account used to create or copy the snapshot.
+-- Required if you are restoring a snapshot you do not own, optional if you
+-- own the snapshot.
+describeNodeConfigurationOptions_ownerAccount :: Lens.Lens' DescribeNodeConfigurationOptions (Prelude.Maybe Prelude.Text)
+describeNodeConfigurationOptions_ownerAccount = Lens.lens (\DescribeNodeConfigurationOptions' {ownerAccount} -> ownerAccount) (\s@DescribeNodeConfigurationOptions' {} a -> s {ownerAccount = a} :: DescribeNodeConfigurationOptions)
 
 -- | The action type to evaluate for possible node configurations. Specify
 -- \"restore-cluster\" to get configuration combinations based on an
@@ -286,15 +286,15 @@ instance
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
         "SnapshotIdentifier" Core.=: snapshotIdentifier,
-        "ClusterIdentifier" Core.=: clusterIdentifier,
         "Filter"
           Core.=: Core.toQuery
             ( Core.toQueryList "NodeConfigurationOptionsFilter"
                 Prelude.<$> filters
             ),
-        "OwnerAccount" Core.=: ownerAccount,
-        "MaxRecords" Core.=: maxRecords,
+        "ClusterIdentifier" Core.=: clusterIdentifier,
         "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords,
+        "OwnerAccount" Core.=: ownerAccount,
         "ActionType" Core.=: actionType
       ]
 
@@ -347,7 +347,7 @@ newDescribeNodeConfigurationOptionsResponse
 
 -- | A list of valid node configurations.
 describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList :: Lens.Lens' DescribeNodeConfigurationOptionsResponse (Prelude.Maybe [NodeConfigurationOption])
-describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList = Lens.lens (\DescribeNodeConfigurationOptionsResponse' {nodeConfigurationOptionList} -> nodeConfigurationOptionList) (\s@DescribeNodeConfigurationOptionsResponse' {} a -> s {nodeConfigurationOptionList = a} :: DescribeNodeConfigurationOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeNodeConfigurationOptionsResponse_nodeConfigurationOptionList = Lens.lens (\DescribeNodeConfigurationOptionsResponse' {nodeConfigurationOptionList} -> nodeConfigurationOptionList) (\s@DescribeNodeConfigurationOptionsResponse' {} a -> s {nodeConfigurationOptionList = a} :: DescribeNodeConfigurationOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

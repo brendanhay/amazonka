@@ -42,8 +42,8 @@ module Network.AWS.SageMaker.CreateTrial
 
     -- * Request Lenses
     createTrial_metadataProperties,
-    createTrial_tags,
     createTrial_displayName,
+    createTrial_tags,
     createTrial_trialName,
     createTrial_experimentName,
 
@@ -67,12 +67,12 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateTrial' smart constructor.
 data CreateTrial = CreateTrial'
   { metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | A list of tags to associate with the trial. You can use Search API to
-    -- search on the tags.
-    tags :: Prelude.Maybe [Tag],
     -- | The name of the trial as displayed. The name doesn\'t need to be unique.
     -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to associate with the trial. You can use Search API to
+    -- search on the tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the trial. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
     trialName :: Prelude.Text,
@@ -91,11 +91,11 @@ data CreateTrial = CreateTrial'
 --
 -- 'metadataProperties', 'createTrial_metadataProperties' - Undocumented member.
 --
--- 'tags', 'createTrial_tags' - A list of tags to associate with the trial. You can use Search API to
--- search on the tags.
---
 -- 'displayName', 'createTrial_displayName' - The name of the trial as displayed. The name doesn\'t need to be unique.
 -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
+--
+-- 'tags', 'createTrial_tags' - A list of tags to associate with the trial. You can use Search API to
+-- search on the tags.
 --
 -- 'trialName', 'createTrial_trialName' - The name of the trial. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -110,8 +110,8 @@ newCreateTrial ::
 newCreateTrial pTrialName_ pExperimentName_ =
   CreateTrial'
     { metadataProperties = Prelude.Nothing,
-      tags = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      tags = Prelude.Nothing,
       trialName = pTrialName_,
       experimentName = pExperimentName_
     }
@@ -120,15 +120,15 @@ newCreateTrial pTrialName_ pExperimentName_ =
 createTrial_metadataProperties :: Lens.Lens' CreateTrial (Prelude.Maybe MetadataProperties)
 createTrial_metadataProperties = Lens.lens (\CreateTrial' {metadataProperties} -> metadataProperties) (\s@CreateTrial' {} a -> s {metadataProperties = a} :: CreateTrial)
 
--- | A list of tags to associate with the trial. You can use Search API to
--- search on the tags.
-createTrial_tags :: Lens.Lens' CreateTrial (Prelude.Maybe [Tag])
-createTrial_tags = Lens.lens (\CreateTrial' {tags} -> tags) (\s@CreateTrial' {} a -> s {tags = a} :: CreateTrial) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The name of the trial as displayed. The name doesn\'t need to be unique.
 -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
 createTrial_displayName :: Lens.Lens' CreateTrial (Prelude.Maybe Prelude.Text)
 createTrial_displayName = Lens.lens (\CreateTrial' {displayName} -> displayName) (\s@CreateTrial' {} a -> s {displayName = a} :: CreateTrial)
+
+-- | A list of tags to associate with the trial. You can use Search API to
+-- search on the tags.
+createTrial_tags :: Lens.Lens' CreateTrial (Prelude.Maybe [Tag])
+createTrial_tags = Lens.lens (\CreateTrial' {tags} -> tags) (\s@CreateTrial' {} a -> s {tags = a} :: CreateTrial) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the trial. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -173,8 +173,8 @@ instance Core.ToJSON CreateTrial where
       ( Prelude.catMaybes
           [ ("MetadataProperties" Core..=)
               Prelude.<$> metadataProperties,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("TrialName" Core..= trialName),
             Prelude.Just
               ("ExperimentName" Core..= experimentName)

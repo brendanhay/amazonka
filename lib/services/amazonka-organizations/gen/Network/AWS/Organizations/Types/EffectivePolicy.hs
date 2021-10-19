@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 data EffectivePolicy = EffectivePolicy'
   { -- | The account ID of the policy target.
     targetId :: Prelude.Maybe Prelude.Text,
-    -- | The text content of the policy.
-    policyContent :: Prelude.Maybe Prelude.Text,
     -- | The policy type.
     policyType :: Prelude.Maybe EffectivePolicyType,
     -- | The time of the last update to this policy.
-    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX
+    lastUpdatedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The text content of the policy.
+    policyContent :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,28 +51,24 @@ data EffectivePolicy = EffectivePolicy'
 --
 -- 'targetId', 'effectivePolicy_targetId' - The account ID of the policy target.
 --
--- 'policyContent', 'effectivePolicy_policyContent' - The text content of the policy.
---
 -- 'policyType', 'effectivePolicy_policyType' - The policy type.
 --
 -- 'lastUpdatedTimestamp', 'effectivePolicy_lastUpdatedTimestamp' - The time of the last update to this policy.
+--
+-- 'policyContent', 'effectivePolicy_policyContent' - The text content of the policy.
 newEffectivePolicy ::
   EffectivePolicy
 newEffectivePolicy =
   EffectivePolicy'
     { targetId = Prelude.Nothing,
-      policyContent = Prelude.Nothing,
       policyType = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing
+      lastUpdatedTimestamp = Prelude.Nothing,
+      policyContent = Prelude.Nothing
     }
 
 -- | The account ID of the policy target.
 effectivePolicy_targetId :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
 effectivePolicy_targetId = Lens.lens (\EffectivePolicy' {targetId} -> targetId) (\s@EffectivePolicy' {} a -> s {targetId = a} :: EffectivePolicy)
-
--- | The text content of the policy.
-effectivePolicy_policyContent :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
-effectivePolicy_policyContent = Lens.lens (\EffectivePolicy' {policyContent} -> policyContent) (\s@EffectivePolicy' {} a -> s {policyContent = a} :: EffectivePolicy)
 
 -- | The policy type.
 effectivePolicy_policyType :: Lens.Lens' EffectivePolicy (Prelude.Maybe EffectivePolicyType)
@@ -82,6 +78,10 @@ effectivePolicy_policyType = Lens.lens (\EffectivePolicy' {policyType} -> policy
 effectivePolicy_lastUpdatedTimestamp :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.UTCTime)
 effectivePolicy_lastUpdatedTimestamp = Lens.lens (\EffectivePolicy' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@EffectivePolicy' {} a -> s {lastUpdatedTimestamp = a} :: EffectivePolicy) Prelude.. Lens.mapping Core._Time
 
+-- | The text content of the policy.
+effectivePolicy_policyContent :: Lens.Lens' EffectivePolicy (Prelude.Maybe Prelude.Text)
+effectivePolicy_policyContent = Lens.lens (\EffectivePolicy' {policyContent} -> policyContent) (\s@EffectivePolicy' {} a -> s {policyContent = a} :: EffectivePolicy)
+
 instance Core.FromJSON EffectivePolicy where
   parseJSON =
     Core.withObject
@@ -89,9 +89,9 @@ instance Core.FromJSON EffectivePolicy where
       ( \x ->
           EffectivePolicy'
             Prelude.<$> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "PolicyContent")
             Prelude.<*> (x Core..:? "PolicyType")
             Prelude.<*> (x Core..:? "LastUpdatedTimestamp")
+            Prelude.<*> (x Core..:? "PolicyContent")
       )
 
 instance Prelude.Hashable EffectivePolicy

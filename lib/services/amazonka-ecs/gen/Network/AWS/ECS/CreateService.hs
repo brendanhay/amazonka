@@ -141,27 +141,27 @@ module Network.AWS.ECS.CreateService
     newCreateService,
 
     -- * Request Lenses
-    createService_deploymentConfiguration,
-    createService_capacityProviderStrategy,
-    createService_networkConfiguration,
-    createService_desiredCount,
+    createService_cluster,
+    createService_clientToken,
+    createService_propagateTags,
+    createService_platformVersion,
     createService_enableECSManagedTags,
+    createService_desiredCount,
+    createService_loadBalancers,
+    createService_role,
+    createService_placementConstraints,
+    createService_placementStrategy,
     createService_deploymentController,
     createService_launchType,
-    createService_platformVersion,
-    createService_placementStrategy,
-    createService_placementConstraints,
-    createService_role,
-    createService_enableExecuteCommand,
-    createService_loadBalancers,
-    createService_tags,
-    createService_healthCheckGracePeriodSeconds,
-    createService_serviceRegistries,
-    createService_schedulingStrategy,
     createService_taskDefinition,
-    createService_cluster,
-    createService_propagateTags,
-    createService_clientToken,
+    createService_schedulingStrategy,
+    createService_healthCheckGracePeriodSeconds,
+    createService_networkConfiguration,
+    createService_serviceRegistries,
+    createService_capacityProviderStrategy,
+    createService_enableExecuteCommand,
+    createService_tags,
+    createService_deploymentConfiguration,
     createService_serviceName,
 
     -- * Destructuring the Response
@@ -183,64 +183,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateService' smart constructor.
 data CreateService = CreateService'
-  { -- | Optional deployment parameters that control how many tasks run during
-    -- the deployment and the ordering of stopping and starting tasks.
-    deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
-    -- | The capacity provider strategy to use for the service.
-    --
-    -- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
-    -- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
-    -- specified, the @defaultCapacityProviderStrategy@ for the cluster is
-    -- used.
-    --
-    -- A capacity provider strategy may contain a maximum of 6 capacity
-    -- providers.
-    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
-    -- | The network configuration for the service. This parameter is required
-    -- for task definitions that use the @awsvpc@ network mode to receive their
-    -- own elastic network interface, and it is not supported for other network
-    -- modes. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The number of instantiations of the specified task definition to place
-    -- and keep running on your cluster.
-    --
-    -- This is required if @schedulingStrategy@ is @REPLICA@ or is not
-    -- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
-    -- required.
-    desiredCount :: Prelude.Maybe Prelude.Int,
-    -- | Specifies whether to enable Amazon ECS managed tags for the tasks within
-    -- the service. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
-    -- | The deployment controller to use for the service. If no deployment
-    -- controller is specified, the default value of @ECS@ is used.
-    deploymentController :: Prelude.Maybe DeploymentController,
-    -- | The infrastructure on which to run your service. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    --
-    -- The @FARGATE@ launch type runs your tasks on Fargate On-Demand
-    -- infrastructure.
-    --
-    -- Fargate Spot infrastructure is available for use but a capacity provider
-    -- strategy must be used. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html Fargate capacity providers>
-    -- in the /Amazon ECS User Guide for Fargate/.
-    --
-    -- The @EC2@ launch type runs your tasks on Amazon EC2 instances registered
-    -- to your cluster.
-    --
-    -- The @EXTERNAL@ launch type runs your tasks on your on-premise server or
-    -- virtual machine (VM) capacity registered to your cluster.
-    --
-    -- A service can use either a launch type or a capacity provider strategy.
-    -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
-    -- must be omitted.
-    launchType :: Prelude.Maybe LaunchType,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster on
+    -- which to run your service. If you do not specify a cluster, the default
+    -- cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. Up to 32 ASCII characters are allowed.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether to propagate the tags from the task definition or the
+    -- service to the tasks in the service. If no value is specified, the tags
+    -- are not propagated. Tags can only be propagated to the tasks within the
+    -- service during service creation. To add tags to a task after service
+    -- creation or task creation, use the TagResource API action.
+    propagateTags :: Prelude.Maybe PropagateTags,
     -- | The platform version that your tasks in the service are running on. A
     -- platform version is specified only for tasks using the Fargate launch
     -- type. If one isn\'t specified, the @LATEST@ platform version is used by
@@ -248,43 +203,18 @@ data CreateService = CreateService'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     platformVersion :: Prelude.Maybe Prelude.Text,
-    -- | The placement strategy objects to use for tasks in your service. You can
-    -- specify a maximum of 5 strategy rules per service.
-    placementStrategy :: Prelude.Maybe [PlacementStrategy],
-    -- | An array of placement constraint objects to use for tasks in your
-    -- service. You can specify a maximum of 10 constraints per task (this
-    -- limit includes constraints in the task definition and those specified at
-    -- runtime).
-    placementConstraints :: Prelude.Maybe [PlacementConstraint],
-    -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
-    -- Amazon ECS to make calls to your load balancer on your behalf. This
-    -- parameter is only permitted if you are using a load balancer with your
-    -- service and your task definition does not use the @awsvpc@ network mode.
-    -- If you specify the @role@ parameter, you must also specify a load
-    -- balancer object with the @loadBalancers@ parameter.
-    --
-    -- If your account has already created the Amazon ECS service-linked role,
-    -- that role is used by default for your service unless you specify a role
-    -- here. The service-linked role is required if your task definition uses
-    -- the @awsvpc@ network mode or if the service is configured to use service
-    -- discovery, an external deployment controller, multiple target groups, or
-    -- Elastic Inference accelerators in which case you should not specify a
-    -- role here. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
+    -- | Specifies whether to enable Amazon ECS managed tags for the tasks within
+    -- the service. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
+    enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
+    -- | The number of instantiations of the specified task definition to place
+    -- and keep running on your cluster.
     --
-    -- If your specified role has a path other than @\/@, then you must either
-    -- specify the full role ARN (this is recommended) or prefix the role name
-    -- with the path. For example, if a role with the name @bar@ has a path of
-    -- @\/foo\/@ then you would specify @\/foo\/bar@ as the role name. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
-    -- in the /IAM User Guide/.
-    role' :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not the execute command functionality is enabled for the
-    -- service. If @true@, this enables execute command functionality on all
-    -- containers in the service tasks.
-    enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
+    -- This is required if @schedulingStrategy@ is @REPLICA@ or is not
+    -- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
+    -- required.
+    desiredCount :: Prelude.Maybe Prelude.Int,
     -- | A load balancer object representing the load balancers to use with your
     -- service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html Service Load Balancing>
@@ -339,6 +269,140 @@ data CreateService = CreateService'
     -- that use the @awsvpc@ network mode are associated with an elastic
     -- network interface, not an Amazon EC2 instance.
     loadBalancers :: Prelude.Maybe [LoadBalancer],
+    -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
+    -- Amazon ECS to make calls to your load balancer on your behalf. This
+    -- parameter is only permitted if you are using a load balancer with your
+    -- service and your task definition does not use the @awsvpc@ network mode.
+    -- If you specify the @role@ parameter, you must also specify a load
+    -- balancer object with the @loadBalancers@ parameter.
+    --
+    -- If your account has already created the Amazon ECS service-linked role,
+    -- that role is used by default for your service unless you specify a role
+    -- here. The service-linked role is required if your task definition uses
+    -- the @awsvpc@ network mode or if the service is configured to use service
+    -- discovery, an external deployment controller, multiple target groups, or
+    -- Elastic Inference accelerators in which case you should not specify a
+    -- role here. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    --
+    -- If your specified role has a path other than @\/@, then you must either
+    -- specify the full role ARN (this is recommended) or prefix the role name
+    -- with the path. For example, if a role with the name @bar@ has a path of
+    -- @\/foo\/@ then you would specify @\/foo\/bar@ as the role name. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
+    -- in the /IAM User Guide/.
+    role' :: Prelude.Maybe Prelude.Text,
+    -- | An array of placement constraint objects to use for tasks in your
+    -- service. You can specify a maximum of 10 constraints per task (this
+    -- limit includes constraints in the task definition and those specified at
+    -- runtime).
+    placementConstraints :: Prelude.Maybe [PlacementConstraint],
+    -- | The placement strategy objects to use for tasks in your service. You can
+    -- specify a maximum of 5 strategy rules per service.
+    placementStrategy :: Prelude.Maybe [PlacementStrategy],
+    -- | The deployment controller to use for the service. If no deployment
+    -- controller is specified, the default value of @ECS@ is used.
+    deploymentController :: Prelude.Maybe DeploymentController,
+    -- | The infrastructure on which to run your service. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    --
+    -- The @FARGATE@ launch type runs your tasks on Fargate On-Demand
+    -- infrastructure.
+    --
+    -- Fargate Spot infrastructure is available for use but a capacity provider
+    -- strategy must be used. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html Fargate capacity providers>
+    -- in the /Amazon ECS User Guide for Fargate/.
+    --
+    -- The @EC2@ launch type runs your tasks on Amazon EC2 instances registered
+    -- to your cluster.
+    --
+    -- The @EXTERNAL@ launch type runs your tasks on your on-premise server or
+    -- virtual machine (VM) capacity registered to your cluster.
+    --
+    -- A service can use either a launch type or a capacity provider strategy.
+    -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
+    -- must be omitted.
+    launchType :: Prelude.Maybe LaunchType,
+    -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
+    -- definition to run in your service. If a @revision@ is not specified, the
+    -- latest @ACTIVE@ revision is used.
+    --
+    -- A task definition must be specified if the service is using either the
+    -- @ECS@ or @CODE_DEPLOY@ deployment controllers.
+    taskDefinition :: Prelude.Maybe Prelude.Text,
+    -- | The scheduling strategy to use for the service. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
+    --
+    -- There are two service scheduler strategies available:
+    --
+    -- -   @REPLICA@-The replica scheduling strategy places and maintains the
+    --     desired number of tasks across your cluster. By default, the service
+    --     scheduler spreads tasks across Availability Zones. You can use task
+    --     placement strategies and constraints to customize task placement
+    --     decisions. This scheduler strategy is required if the service is
+    --     using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
+    --
+    -- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
+    --     each active container instance that meets all of the task placement
+    --     constraints that you specify in your cluster. The service scheduler
+    --     also evaluates the task placement constraints for running tasks and
+    --     will stop tasks that do not meet the placement constraints. When
+    --     you\'re using this strategy, you don\'t need to specify a desired
+    --     number of tasks, a task placement strategy, or use Service Auto
+    --     Scaling policies.
+    --
+    --     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
+    --     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
+    --     scheduling strategy.
+    schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
+    -- | The period of time, in seconds, that the Amazon ECS service scheduler
+    -- should ignore unhealthy Elastic Load Balancing target health checks
+    -- after a task has first started. This is only used when your service is
+    -- configured to use a load balancer. If your service has a load balancer
+    -- defined and you don\'t specify a health check grace period value, the
+    -- default value of @0@ is used.
+    --
+    -- If your service\'s tasks take a while to start and respond to Elastic
+    -- Load Balancing health checks, you can specify a health check grace
+    -- period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
+    -- service scheduler ignores health check status. This grace period can
+    -- prevent the service scheduler from marking tasks as unhealthy and
+    -- stopping them before they have time to come up.
+    healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The network configuration for the service. This parameter is required
+    -- for task definitions that use the @awsvpc@ network mode to receive their
+    -- own elastic network interface, and it is not supported for other network
+    -- modes. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | The details of the service discovery registry to associate with this
+    -- service. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
+    --
+    -- Each service may be associated with one service registry. Multiple
+    -- service registries per service isn\'t supported.
+    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
+    -- | The capacity provider strategy to use for the service.
+    --
+    -- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
+    -- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
+    -- specified, the @defaultCapacityProviderStrategy@ for the cluster is
+    -- used.
+    --
+    -- A capacity provider strategy may contain a maximum of 6 capacity
+    -- providers.
+    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    -- | Whether or not the execute command functionality is enabled for the
+    -- service. If @true@, this enables execute command functionality on all
+    -- containers in the service tasks.
+    enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The metadata that you apply to the service to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. When a service is deleted, the tags are deleted as
@@ -369,73 +433,9 @@ data CreateService = CreateService'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The period of time, in seconds, that the Amazon ECS service scheduler
-    -- should ignore unhealthy Elastic Load Balancing target health checks
-    -- after a task has first started. This is only used when your service is
-    -- configured to use a load balancer. If your service has a load balancer
-    -- defined and you don\'t specify a health check grace period value, the
-    -- default value of @0@ is used.
-    --
-    -- If your service\'s tasks take a while to start and respond to Elastic
-    -- Load Balancing health checks, you can specify a health check grace
-    -- period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
-    -- service scheduler ignores health check status. This grace period can
-    -- prevent the service scheduler from marking tasks as unhealthy and
-    -- stopping them before they have time to come up.
-    healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The details of the service discovery registry to associate with this
-    -- service. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
-    --
-    -- Each service may be associated with one service registry. Multiple
-    -- service registries per service isn\'t supported.
-    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
-    -- | The scheduling strategy to use for the service. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
-    --
-    -- There are two service scheduler strategies available:
-    --
-    -- -   @REPLICA@-The replica scheduling strategy places and maintains the
-    --     desired number of tasks across your cluster. By default, the service
-    --     scheduler spreads tasks across Availability Zones. You can use task
-    --     placement strategies and constraints to customize task placement
-    --     decisions. This scheduler strategy is required if the service is
-    --     using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
-    --
-    -- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
-    --     each active container instance that meets all of the task placement
-    --     constraints that you specify in your cluster. The service scheduler
-    --     also evaluates the task placement constraints for running tasks and
-    --     will stop tasks that do not meet the placement constraints. When
-    --     you\'re using this strategy, you don\'t need to specify a desired
-    --     number of tasks, a task placement strategy, or use Service Auto
-    --     Scaling policies.
-    --
-    --     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
-    --     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
-    --     scheduling strategy.
-    schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
-    -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
-    -- definition to run in your service. If a @revision@ is not specified, the
-    -- latest @ACTIVE@ revision is used.
-    --
-    -- A task definition must be specified if the service is using either the
-    -- @ECS@ or @CODE_DEPLOY@ deployment controllers.
-    taskDefinition :: Prelude.Maybe Prelude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster on
-    -- which to run your service. If you do not specify a cluster, the default
-    -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to propagate the tags from the task definition or the
-    -- service to the tasks in the service. If no value is specified, the tags
-    -- are not propagated. Tags can only be propagated to the tasks within the
-    -- service during service creation. To add tags to a task after service
-    -- creation, use the TagResource API action.
-    propagateTags :: Prelude.Maybe PropagateTags,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. Up to 32 ASCII characters are allowed.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Optional deployment parameters that control how many tasks run during
+    -- the deployment and the ordering of stopping and starting tasks.
+    deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
     -- | The name of your service. Up to 255 letters (uppercase and lowercase),
     -- numbers, underscores, and hyphens are allowed. Service names must be
     -- unique within a cluster, but you can have similarly named services in
@@ -452,63 +452,18 @@ data CreateService = CreateService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentConfiguration', 'createService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during
--- the deployment and the ordering of stopping and starting tasks.
+-- 'cluster', 'createService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to run your service. If you do not specify a cluster, the default
+-- cluster is assumed.
 --
--- 'capacityProviderStrategy', 'createService_capacityProviderStrategy' - The capacity provider strategy to use for the service.
+-- 'clientToken', 'createService_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. Up to 32 ASCII characters are allowed.
 --
--- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
--- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
--- specified, the @defaultCapacityProviderStrategy@ for the cluster is
--- used.
---
--- A capacity provider strategy may contain a maximum of 6 capacity
--- providers.
---
--- 'networkConfiguration', 'createService_networkConfiguration' - The network configuration for the service. This parameter is required
--- for task definitions that use the @awsvpc@ network mode to receive their
--- own elastic network interface, and it is not supported for other network
--- modes. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- 'desiredCount', 'createService_desiredCount' - The number of instantiations of the specified task definition to place
--- and keep running on your cluster.
---
--- This is required if @schedulingStrategy@ is @REPLICA@ or is not
--- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
--- required.
---
--- 'enableECSManagedTags', 'createService_enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks within
--- the service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- 'deploymentController', 'createService_deploymentController' - The deployment controller to use for the service. If no deployment
--- controller is specified, the default value of @ECS@ is used.
---
--- 'launchType', 'createService_launchType' - The infrastructure on which to run your service. For more information,
--- see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- The @FARGATE@ launch type runs your tasks on Fargate On-Demand
--- infrastructure.
---
--- Fargate Spot infrastructure is available for use but a capacity provider
--- strategy must be used. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html Fargate capacity providers>
--- in the /Amazon ECS User Guide for Fargate/.
---
--- The @EC2@ launch type runs your tasks on Amazon EC2 instances registered
--- to your cluster.
---
--- The @EXTERNAL@ launch type runs your tasks on your on-premise server or
--- virtual machine (VM) capacity registered to your cluster.
---
--- A service can use either a launch type or a capacity provider strategy.
--- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
--- must be omitted.
+-- 'propagateTags', 'createService_propagateTags' - Specifies whether to propagate the tags from the task definition or the
+-- service to the tasks in the service. If no value is specified, the tags
+-- are not propagated. Tags can only be propagated to the tasks within the
+-- service during service creation. To add tags to a task after service
+-- creation or task creation, use the TagResource API action.
 --
 -- 'platformVersion', 'createService_platformVersion' - The platform version that your tasks in the service are running on. A
 -- platform version is specified only for tasks using the Fargate launch
@@ -517,42 +472,17 @@ data CreateService = CreateService'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'placementStrategy', 'createService_placementStrategy' - The placement strategy objects to use for tasks in your service. You can
--- specify a maximum of 5 strategy rules per service.
---
--- 'placementConstraints', 'createService_placementConstraints' - An array of placement constraint objects to use for tasks in your
--- service. You can specify a maximum of 10 constraints per task (this
--- limit includes constraints in the task definition and those specified at
--- runtime).
---
--- 'role'', 'createService_role' - The name or full Amazon Resource Name (ARN) of the IAM role that allows
--- Amazon ECS to make calls to your load balancer on your behalf. This
--- parameter is only permitted if you are using a load balancer with your
--- service and your task definition does not use the @awsvpc@ network mode.
--- If you specify the @role@ parameter, you must also specify a load
--- balancer object with the @loadBalancers@ parameter.
---
--- If your account has already created the Amazon ECS service-linked role,
--- that role is used by default for your service unless you specify a role
--- here. The service-linked role is required if your task definition uses
--- the @awsvpc@ network mode or if the service is configured to use service
--- discovery, an external deployment controller, multiple target groups, or
--- Elastic Inference accelerators in which case you should not specify a
--- role here. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
+-- 'enableECSManagedTags', 'createService_enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks within
+-- the service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- If your specified role has a path other than @\/@, then you must either
--- specify the full role ARN (this is recommended) or prefix the role name
--- with the path. For example, if a role with the name @bar@ has a path of
--- @\/foo\/@ then you would specify @\/foo\/bar@ as the role name. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
--- in the /IAM User Guide/.
+-- 'desiredCount', 'createService_desiredCount' - The number of instantiations of the specified task definition to place
+-- and keep running on your cluster.
 --
--- 'enableExecuteCommand', 'createService_enableExecuteCommand' - Whether or not the execute command functionality is enabled for the
--- service. If @true@, this enables execute command functionality on all
--- containers in the service tasks.
+-- This is required if @schedulingStrategy@ is @REPLICA@ or is not
+-- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
+-- required.
 --
 -- 'loadBalancers', 'createService_loadBalancers' - A load balancer object representing the load balancers to use with your
 -- service. For more information, see
@@ -608,6 +538,140 @@ data CreateService = CreateService'
 -- that use the @awsvpc@ network mode are associated with an elastic
 -- network interface, not an Amazon EC2 instance.
 --
+-- 'role'', 'createService_role' - The name or full Amazon Resource Name (ARN) of the IAM role that allows
+-- Amazon ECS to make calls to your load balancer on your behalf. This
+-- parameter is only permitted if you are using a load balancer with your
+-- service and your task definition does not use the @awsvpc@ network mode.
+-- If you specify the @role@ parameter, you must also specify a load
+-- balancer object with the @loadBalancers@ parameter.
+--
+-- If your account has already created the Amazon ECS service-linked role,
+-- that role is used by default for your service unless you specify a role
+-- here. The service-linked role is required if your task definition uses
+-- the @awsvpc@ network mode or if the service is configured to use service
+-- discovery, an external deployment controller, multiple target groups, or
+-- Elastic Inference accelerators in which case you should not specify a
+-- role here. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- If your specified role has a path other than @\/@, then you must either
+-- specify the full role ARN (this is recommended) or prefix the role name
+-- with the path. For example, if a role with the name @bar@ has a path of
+-- @\/foo\/@ then you would specify @\/foo\/bar@ as the role name. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
+-- in the /IAM User Guide/.
+--
+-- 'placementConstraints', 'createService_placementConstraints' - An array of placement constraint objects to use for tasks in your
+-- service. You can specify a maximum of 10 constraints per task (this
+-- limit includes constraints in the task definition and those specified at
+-- runtime).
+--
+-- 'placementStrategy', 'createService_placementStrategy' - The placement strategy objects to use for tasks in your service. You can
+-- specify a maximum of 5 strategy rules per service.
+--
+-- 'deploymentController', 'createService_deploymentController' - The deployment controller to use for the service. If no deployment
+-- controller is specified, the default value of @ECS@ is used.
+--
+-- 'launchType', 'createService_launchType' - The infrastructure on which to run your service. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- The @FARGATE@ launch type runs your tasks on Fargate On-Demand
+-- infrastructure.
+--
+-- Fargate Spot infrastructure is available for use but a capacity provider
+-- strategy must be used. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html Fargate capacity providers>
+-- in the /Amazon ECS User Guide for Fargate/.
+--
+-- The @EC2@ launch type runs your tasks on Amazon EC2 instances registered
+-- to your cluster.
+--
+-- The @EXTERNAL@ launch type runs your tasks on your on-premise server or
+-- virtual machine (VM) capacity registered to your cluster.
+--
+-- A service can use either a launch type or a capacity provider strategy.
+-- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
+-- must be omitted.
+--
+-- 'taskDefinition', 'createService_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
+-- definition to run in your service. If a @revision@ is not specified, the
+-- latest @ACTIVE@ revision is used.
+--
+-- A task definition must be specified if the service is using either the
+-- @ECS@ or @CODE_DEPLOY@ deployment controllers.
+--
+-- 'schedulingStrategy', 'createService_schedulingStrategy' - The scheduling strategy to use for the service. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
+--
+-- There are two service scheduler strategies available:
+--
+-- -   @REPLICA@-The replica scheduling strategy places and maintains the
+--     desired number of tasks across your cluster. By default, the service
+--     scheduler spreads tasks across Availability Zones. You can use task
+--     placement strategies and constraints to customize task placement
+--     decisions. This scheduler strategy is required if the service is
+--     using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
+--
+-- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
+--     each active container instance that meets all of the task placement
+--     constraints that you specify in your cluster. The service scheduler
+--     also evaluates the task placement constraints for running tasks and
+--     will stop tasks that do not meet the placement constraints. When
+--     you\'re using this strategy, you don\'t need to specify a desired
+--     number of tasks, a task placement strategy, or use Service Auto
+--     Scaling policies.
+--
+--     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
+--     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
+--     scheduling strategy.
+--
+-- 'healthCheckGracePeriodSeconds', 'createService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler
+-- should ignore unhealthy Elastic Load Balancing target health checks
+-- after a task has first started. This is only used when your service is
+-- configured to use a load balancer. If your service has a load balancer
+-- defined and you don\'t specify a health check grace period value, the
+-- default value of @0@ is used.
+--
+-- If your service\'s tasks take a while to start and respond to Elastic
+-- Load Balancing health checks, you can specify a health check grace
+-- period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
+-- service scheduler ignores health check status. This grace period can
+-- prevent the service scheduler from marking tasks as unhealthy and
+-- stopping them before they have time to come up.
+--
+-- 'networkConfiguration', 'createService_networkConfiguration' - The network configuration for the service. This parameter is required
+-- for task definitions that use the @awsvpc@ network mode to receive their
+-- own elastic network interface, and it is not supported for other network
+-- modes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- 'serviceRegistries', 'createService_serviceRegistries' - The details of the service discovery registry to associate with this
+-- service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
+--
+-- Each service may be associated with one service registry. Multiple
+-- service registries per service isn\'t supported.
+--
+-- 'capacityProviderStrategy', 'createService_capacityProviderStrategy' - The capacity provider strategy to use for the service.
+--
+-- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
+-- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
+-- specified, the @defaultCapacityProviderStrategy@ for the cluster is
+-- used.
+--
+-- A capacity provider strategy may contain a maximum of 6 capacity
+-- providers.
+--
+-- 'enableExecuteCommand', 'createService_enableExecuteCommand' - Whether or not the execute command functionality is enabled for the
+-- service. If @true@, this enables execute command functionality on all
+-- containers in the service tasks.
+--
 -- 'tags', 'createService_tags' - The metadata that you apply to the service to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define. When a service is deleted, the tags are deleted as
@@ -638,72 +702,8 @@ data CreateService = CreateService'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'healthCheckGracePeriodSeconds', 'createService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler
--- should ignore unhealthy Elastic Load Balancing target health checks
--- after a task has first started. This is only used when your service is
--- configured to use a load balancer. If your service has a load balancer
--- defined and you don\'t specify a health check grace period value, the
--- default value of @0@ is used.
---
--- If your service\'s tasks take a while to start and respond to Elastic
--- Load Balancing health checks, you can specify a health check grace
--- period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
--- service scheduler ignores health check status. This grace period can
--- prevent the service scheduler from marking tasks as unhealthy and
--- stopping them before they have time to come up.
---
--- 'serviceRegistries', 'createService_serviceRegistries' - The details of the service discovery registry to associate with this
--- service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
---
--- Each service may be associated with one service registry. Multiple
--- service registries per service isn\'t supported.
---
--- 'schedulingStrategy', 'createService_schedulingStrategy' - The scheduling strategy to use for the service. For more information,
--- see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
---
--- There are two service scheduler strategies available:
---
--- -   @REPLICA@-The replica scheduling strategy places and maintains the
---     desired number of tasks across your cluster. By default, the service
---     scheduler spreads tasks across Availability Zones. You can use task
---     placement strategies and constraints to customize task placement
---     decisions. This scheduler strategy is required if the service is
---     using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
---
--- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
---     each active container instance that meets all of the task placement
---     constraints that you specify in your cluster. The service scheduler
---     also evaluates the task placement constraints for running tasks and
---     will stop tasks that do not meet the placement constraints. When
---     you\'re using this strategy, you don\'t need to specify a desired
---     number of tasks, a task placement strategy, or use Service Auto
---     Scaling policies.
---
---     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
---     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
---     scheduling strategy.
---
--- 'taskDefinition', 'createService_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
--- definition to run in your service. If a @revision@ is not specified, the
--- latest @ACTIVE@ revision is used.
---
--- A task definition must be specified if the service is using either the
--- @ECS@ or @CODE_DEPLOY@ deployment controllers.
---
--- 'cluster', 'createService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on
--- which to run your service. If you do not specify a cluster, the default
--- cluster is assumed.
---
--- 'propagateTags', 'createService_propagateTags' - Specifies whether to propagate the tags from the task definition or the
--- service to the tasks in the service. If no value is specified, the tags
--- are not propagated. Tags can only be propagated to the tasks within the
--- service during service creation. To add tags to a task after service
--- creation, use the TagResource API action.
---
--- 'clientToken', 'createService_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. Up to 32 ASCII characters are allowed.
+-- 'deploymentConfiguration', 'createService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
 --
 -- 'serviceName', 'createService_serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, underscores, and hyphens are allowed. Service names must be
@@ -715,102 +715,48 @@ newCreateService ::
   CreateService
 newCreateService pServiceName_ =
   CreateService'
-    { deploymentConfiguration =
-        Prelude.Nothing,
-      capacityProviderStrategy = Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
-      desiredCount = Prelude.Nothing,
+    { cluster = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      propagateTags = Prelude.Nothing,
+      platformVersion = Prelude.Nothing,
       enableECSManagedTags = Prelude.Nothing,
+      desiredCount = Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
+      role' = Prelude.Nothing,
+      placementConstraints = Prelude.Nothing,
+      placementStrategy = Prelude.Nothing,
       deploymentController = Prelude.Nothing,
       launchType = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      placementStrategy = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
-      role' = Prelude.Nothing,
-      enableExecuteCommand = Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      healthCheckGracePeriodSeconds = Prelude.Nothing,
-      serviceRegistries = Prelude.Nothing,
-      schedulingStrategy = Prelude.Nothing,
       taskDefinition = Prelude.Nothing,
-      cluster = Prelude.Nothing,
-      propagateTags = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      schedulingStrategy = Prelude.Nothing,
+      healthCheckGracePeriodSeconds = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      serviceRegistries = Prelude.Nothing,
+      capacityProviderStrategy = Prelude.Nothing,
+      enableExecuteCommand = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      deploymentConfiguration = Prelude.Nothing,
       serviceName = pServiceName_
     }
 
--- | Optional deployment parameters that control how many tasks run during
--- the deployment and the ordering of stopping and starting tasks.
-createService_deploymentConfiguration :: Lens.Lens' CreateService (Prelude.Maybe DeploymentConfiguration)
-createService_deploymentConfiguration = Lens.lens (\CreateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@CreateService' {} a -> s {deploymentConfiguration = a} :: CreateService)
+-- | The short name or full Amazon Resource Name (ARN) of the cluster on
+-- which to run your service. If you do not specify a cluster, the default
+-- cluster is assumed.
+createService_cluster :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_cluster = Lens.lens (\CreateService' {cluster} -> cluster) (\s@CreateService' {} a -> s {cluster = a} :: CreateService)
 
--- | The capacity provider strategy to use for the service.
---
--- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
--- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
--- specified, the @defaultCapacityProviderStrategy@ for the cluster is
--- used.
---
--- A capacity provider strategy may contain a maximum of 6 capacity
--- providers.
-createService_capacityProviderStrategy :: Lens.Lens' CreateService (Prelude.Maybe [CapacityProviderStrategyItem])
-createService_capacityProviderStrategy = Lens.lens (\CreateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateService' {} a -> s {capacityProviderStrategy = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. Up to 32 ASCII characters are allowed.
+createService_clientToken :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_clientToken = Lens.lens (\CreateService' {clientToken} -> clientToken) (\s@CreateService' {} a -> s {clientToken = a} :: CreateService)
 
--- | The network configuration for the service. This parameter is required
--- for task definitions that use the @awsvpc@ network mode to receive their
--- own elastic network interface, and it is not supported for other network
--- modes. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
--- in the /Amazon Elastic Container Service Developer Guide/.
-createService_networkConfiguration :: Lens.Lens' CreateService (Prelude.Maybe NetworkConfiguration)
-createService_networkConfiguration = Lens.lens (\CreateService' {networkConfiguration} -> networkConfiguration) (\s@CreateService' {} a -> s {networkConfiguration = a} :: CreateService)
-
--- | The number of instantiations of the specified task definition to place
--- and keep running on your cluster.
---
--- This is required if @schedulingStrategy@ is @REPLICA@ or is not
--- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
--- required.
-createService_desiredCount :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Int)
-createService_desiredCount = Lens.lens (\CreateService' {desiredCount} -> desiredCount) (\s@CreateService' {} a -> s {desiredCount = a} :: CreateService)
-
--- | Specifies whether to enable Amazon ECS managed tags for the tasks within
--- the service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
--- in the /Amazon Elastic Container Service Developer Guide/.
-createService_enableECSManagedTags :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
-createService_enableECSManagedTags = Lens.lens (\CreateService' {enableECSManagedTags} -> enableECSManagedTags) (\s@CreateService' {} a -> s {enableECSManagedTags = a} :: CreateService)
-
--- | The deployment controller to use for the service. If no deployment
--- controller is specified, the default value of @ECS@ is used.
-createService_deploymentController :: Lens.Lens' CreateService (Prelude.Maybe DeploymentController)
-createService_deploymentController = Lens.lens (\CreateService' {deploymentController} -> deploymentController) (\s@CreateService' {} a -> s {deploymentController = a} :: CreateService)
-
--- | The infrastructure on which to run your service. For more information,
--- see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- The @FARGATE@ launch type runs your tasks on Fargate On-Demand
--- infrastructure.
---
--- Fargate Spot infrastructure is available for use but a capacity provider
--- strategy must be used. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html Fargate capacity providers>
--- in the /Amazon ECS User Guide for Fargate/.
---
--- The @EC2@ launch type runs your tasks on Amazon EC2 instances registered
--- to your cluster.
---
--- The @EXTERNAL@ launch type runs your tasks on your on-premise server or
--- virtual machine (VM) capacity registered to your cluster.
---
--- A service can use either a launch type or a capacity provider strategy.
--- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
--- must be omitted.
-createService_launchType :: Lens.Lens' CreateService (Prelude.Maybe LaunchType)
-createService_launchType = Lens.lens (\CreateService' {launchType} -> launchType) (\s@CreateService' {} a -> s {launchType = a} :: CreateService)
+-- | Specifies whether to propagate the tags from the task definition or the
+-- service to the tasks in the service. If no value is specified, the tags
+-- are not propagated. Tags can only be propagated to the tasks within the
+-- service during service creation. To add tags to a task after service
+-- creation or task creation, use the TagResource API action.
+createService_propagateTags :: Lens.Lens' CreateService (Prelude.Maybe PropagateTags)
+createService_propagateTags = Lens.lens (\CreateService' {propagateTags} -> propagateTags) (\s@CreateService' {} a -> s {propagateTags = a} :: CreateService)
 
 -- | The platform version that your tasks in the service are running on. A
 -- platform version is specified only for tasks using the Fargate launch
@@ -821,50 +767,21 @@ createService_launchType = Lens.lens (\CreateService' {launchType} -> launchType
 createService_platformVersion :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
 createService_platformVersion = Lens.lens (\CreateService' {platformVersion} -> platformVersion) (\s@CreateService' {} a -> s {platformVersion = a} :: CreateService)
 
--- | The placement strategy objects to use for tasks in your service. You can
--- specify a maximum of 5 strategy rules per service.
-createService_placementStrategy :: Lens.Lens' CreateService (Prelude.Maybe [PlacementStrategy])
-createService_placementStrategy = Lens.lens (\CreateService' {placementStrategy} -> placementStrategy) (\s@CreateService' {} a -> s {placementStrategy = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of placement constraint objects to use for tasks in your
--- service. You can specify a maximum of 10 constraints per task (this
--- limit includes constraints in the task definition and those specified at
--- runtime).
-createService_placementConstraints :: Lens.Lens' CreateService (Prelude.Maybe [PlacementConstraint])
-createService_placementConstraints = Lens.lens (\CreateService' {placementConstraints} -> placementConstraints) (\s@CreateService' {} a -> s {placementConstraints = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
--- Amazon ECS to make calls to your load balancer on your behalf. This
--- parameter is only permitted if you are using a load balancer with your
--- service and your task definition does not use the @awsvpc@ network mode.
--- If you specify the @role@ parameter, you must also specify a load
--- balancer object with the @loadBalancers@ parameter.
---
--- If your account has already created the Amazon ECS service-linked role,
--- that role is used by default for your service unless you specify a role
--- here. The service-linked role is required if your task definition uses
--- the @awsvpc@ network mode or if the service is configured to use service
--- discovery, an external deployment controller, multiple target groups, or
--- Elastic Inference accelerators in which case you should not specify a
--- role here. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
+-- | Specifies whether to enable Amazon ECS managed tags for the tasks within
+-- the service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
---
--- If your specified role has a path other than @\/@, then you must either
--- specify the full role ARN (this is recommended) or prefix the role name
--- with the path. For example, if a role with the name @bar@ has a path of
--- @\/foo\/@ then you would specify @\/foo\/bar@ as the role name. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
--- in the /IAM User Guide/.
-createService_role :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_role = Lens.lens (\CreateService' {role'} -> role') (\s@CreateService' {} a -> s {role' = a} :: CreateService)
+createService_enableECSManagedTags :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
+createService_enableECSManagedTags = Lens.lens (\CreateService' {enableECSManagedTags} -> enableECSManagedTags) (\s@CreateService' {} a -> s {enableECSManagedTags = a} :: CreateService)
 
--- | Whether or not the execute command functionality is enabled for the
--- service. If @true@, this enables execute command functionality on all
--- containers in the service tasks.
-createService_enableExecuteCommand :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
-createService_enableExecuteCommand = Lens.lens (\CreateService' {enableExecuteCommand} -> enableExecuteCommand) (\s@CreateService' {} a -> s {enableExecuteCommand = a} :: CreateService)
+-- | The number of instantiations of the specified task definition to place
+-- and keep running on your cluster.
+--
+-- This is required if @schedulingStrategy@ is @REPLICA@ or is not
+-- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
+-- required.
+createService_desiredCount :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Int)
+createService_desiredCount = Lens.lens (\CreateService' {desiredCount} -> desiredCount) (\s@CreateService' {} a -> s {desiredCount = a} :: CreateService)
 
 -- | A load balancer object representing the load balancers to use with your
 -- service. For more information, see
@@ -920,7 +837,165 @@ createService_enableExecuteCommand = Lens.lens (\CreateService' {enableExecuteCo
 -- that use the @awsvpc@ network mode are associated with an elastic
 -- network interface, not an Amazon EC2 instance.
 createService_loadBalancers :: Lens.Lens' CreateService (Prelude.Maybe [LoadBalancer])
-createService_loadBalancers = Lens.lens (\CreateService' {loadBalancers} -> loadBalancers) (\s@CreateService' {} a -> s {loadBalancers = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
+createService_loadBalancers = Lens.lens (\CreateService' {loadBalancers} -> loadBalancers) (\s@CreateService' {} a -> s {loadBalancers = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
+-- Amazon ECS to make calls to your load balancer on your behalf. This
+-- parameter is only permitted if you are using a load balancer with your
+-- service and your task definition does not use the @awsvpc@ network mode.
+-- If you specify the @role@ parameter, you must also specify a load
+-- balancer object with the @loadBalancers@ parameter.
+--
+-- If your account has already created the Amazon ECS service-linked role,
+-- that role is used by default for your service unless you specify a role
+-- here. The service-linked role is required if your task definition uses
+-- the @awsvpc@ network mode or if the service is configured to use service
+-- discovery, an external deployment controller, multiple target groups, or
+-- Elastic Inference accelerators in which case you should not specify a
+-- role here. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using service-linked roles for Amazon ECS>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- If your specified role has a path other than @\/@, then you must either
+-- specify the full role ARN (this is recommended) or prefix the role name
+-- with the path. For example, if a role with the name @bar@ has a path of
+-- @\/foo\/@ then you would specify @\/foo\/bar@ as the role name. For more
+-- information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly names and paths>
+-- in the /IAM User Guide/.
+createService_role :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_role = Lens.lens (\CreateService' {role'} -> role') (\s@CreateService' {} a -> s {role' = a} :: CreateService)
+
+-- | An array of placement constraint objects to use for tasks in your
+-- service. You can specify a maximum of 10 constraints per task (this
+-- limit includes constraints in the task definition and those specified at
+-- runtime).
+createService_placementConstraints :: Lens.Lens' CreateService (Prelude.Maybe [PlacementConstraint])
+createService_placementConstraints = Lens.lens (\CreateService' {placementConstraints} -> placementConstraints) (\s@CreateService' {} a -> s {placementConstraints = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The placement strategy objects to use for tasks in your service. You can
+-- specify a maximum of 5 strategy rules per service.
+createService_placementStrategy :: Lens.Lens' CreateService (Prelude.Maybe [PlacementStrategy])
+createService_placementStrategy = Lens.lens (\CreateService' {placementStrategy} -> placementStrategy) (\s@CreateService' {} a -> s {placementStrategy = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The deployment controller to use for the service. If no deployment
+-- controller is specified, the default value of @ECS@ is used.
+createService_deploymentController :: Lens.Lens' CreateService (Prelude.Maybe DeploymentController)
+createService_deploymentController = Lens.lens (\CreateService' {deploymentController} -> deploymentController) (\s@CreateService' {} a -> s {deploymentController = a} :: CreateService)
+
+-- | The infrastructure on which to run your service. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- The @FARGATE@ launch type runs your tasks on Fargate On-Demand
+-- infrastructure.
+--
+-- Fargate Spot infrastructure is available for use but a capacity provider
+-- strategy must be used. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html Fargate capacity providers>
+-- in the /Amazon ECS User Guide for Fargate/.
+--
+-- The @EC2@ launch type runs your tasks on Amazon EC2 instances registered
+-- to your cluster.
+--
+-- The @EXTERNAL@ launch type runs your tasks on your on-premise server or
+-- virtual machine (VM) capacity registered to your cluster.
+--
+-- A service can use either a launch type or a capacity provider strategy.
+-- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
+-- must be omitted.
+createService_launchType :: Lens.Lens' CreateService (Prelude.Maybe LaunchType)
+createService_launchType = Lens.lens (\CreateService' {launchType} -> launchType) (\s@CreateService' {} a -> s {launchType = a} :: CreateService)
+
+-- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
+-- definition to run in your service. If a @revision@ is not specified, the
+-- latest @ACTIVE@ revision is used.
+--
+-- A task definition must be specified if the service is using either the
+-- @ECS@ or @CODE_DEPLOY@ deployment controllers.
+createService_taskDefinition :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_taskDefinition = Lens.lens (\CreateService' {taskDefinition} -> taskDefinition) (\s@CreateService' {} a -> s {taskDefinition = a} :: CreateService)
+
+-- | The scheduling strategy to use for the service. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
+--
+-- There are two service scheduler strategies available:
+--
+-- -   @REPLICA@-The replica scheduling strategy places and maintains the
+--     desired number of tasks across your cluster. By default, the service
+--     scheduler spreads tasks across Availability Zones. You can use task
+--     placement strategies and constraints to customize task placement
+--     decisions. This scheduler strategy is required if the service is
+--     using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
+--
+-- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
+--     each active container instance that meets all of the task placement
+--     constraints that you specify in your cluster. The service scheduler
+--     also evaluates the task placement constraints for running tasks and
+--     will stop tasks that do not meet the placement constraints. When
+--     you\'re using this strategy, you don\'t need to specify a desired
+--     number of tasks, a task placement strategy, or use Service Auto
+--     Scaling policies.
+--
+--     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
+--     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
+--     scheduling strategy.
+createService_schedulingStrategy :: Lens.Lens' CreateService (Prelude.Maybe SchedulingStrategy)
+createService_schedulingStrategy = Lens.lens (\CreateService' {schedulingStrategy} -> schedulingStrategy) (\s@CreateService' {} a -> s {schedulingStrategy = a} :: CreateService)
+
+-- | The period of time, in seconds, that the Amazon ECS service scheduler
+-- should ignore unhealthy Elastic Load Balancing target health checks
+-- after a task has first started. This is only used when your service is
+-- configured to use a load balancer. If your service has a load balancer
+-- defined and you don\'t specify a health check grace period value, the
+-- default value of @0@ is used.
+--
+-- If your service\'s tasks take a while to start and respond to Elastic
+-- Load Balancing health checks, you can specify a health check grace
+-- period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
+-- service scheduler ignores health check status. This grace period can
+-- prevent the service scheduler from marking tasks as unhealthy and
+-- stopping them before they have time to come up.
+createService_healthCheckGracePeriodSeconds :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Int)
+createService_healthCheckGracePeriodSeconds = Lens.lens (\CreateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@CreateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: CreateService)
+
+-- | The network configuration for the service. This parameter is required
+-- for task definitions that use the @awsvpc@ network mode to receive their
+-- own elastic network interface, and it is not supported for other network
+-- modes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task networking>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+createService_networkConfiguration :: Lens.Lens' CreateService (Prelude.Maybe NetworkConfiguration)
+createService_networkConfiguration = Lens.lens (\CreateService' {networkConfiguration} -> networkConfiguration) (\s@CreateService' {} a -> s {networkConfiguration = a} :: CreateService)
+
+-- | The details of the service discovery registry to associate with this
+-- service. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
+--
+-- Each service may be associated with one service registry. Multiple
+-- service registries per service isn\'t supported.
+createService_serviceRegistries :: Lens.Lens' CreateService (Prelude.Maybe [ServiceRegistry])
+createService_serviceRegistries = Lens.lens (\CreateService' {serviceRegistries} -> serviceRegistries) (\s@CreateService' {} a -> s {serviceRegistries = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | The capacity provider strategy to use for the service.
+--
+-- If a @capacityProviderStrategy@ is specified, the @launchType@ parameter
+-- must be omitted. If no @capacityProviderStrategy@ or @launchType@ is
+-- specified, the @defaultCapacityProviderStrategy@ for the cluster is
+-- used.
+--
+-- A capacity provider strategy may contain a maximum of 6 capacity
+-- providers.
+createService_capacityProviderStrategy :: Lens.Lens' CreateService (Prelude.Maybe [CapacityProviderStrategyItem])
+createService_capacityProviderStrategy = Lens.lens (\CreateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateService' {} a -> s {capacityProviderStrategy = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
+
+-- | Whether or not the execute command functionality is enabled for the
+-- service. If @true@, this enables execute command functionality on all
+-- containers in the service tasks.
+createService_enableExecuteCommand :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
+createService_enableExecuteCommand = Lens.lens (\CreateService' {enableExecuteCommand} -> enableExecuteCommand) (\s@CreateService' {} a -> s {enableExecuteCommand = a} :: CreateService)
 
 -- | The metadata that you apply to the service to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -952,88 +1027,12 @@ createService_loadBalancers = Lens.lens (\CreateService' {loadBalancers} -> load
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 createService_tags :: Lens.Lens' CreateService (Prelude.Maybe [Tag])
-createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
+createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Lens.coerced
 
--- | The period of time, in seconds, that the Amazon ECS service scheduler
--- should ignore unhealthy Elastic Load Balancing target health checks
--- after a task has first started. This is only used when your service is
--- configured to use a load balancer. If your service has a load balancer
--- defined and you don\'t specify a health check grace period value, the
--- default value of @0@ is used.
---
--- If your service\'s tasks take a while to start and respond to Elastic
--- Load Balancing health checks, you can specify a health check grace
--- period of up to 2,147,483,647 seconds. During that time, the Amazon ECS
--- service scheduler ignores health check status. This grace period can
--- prevent the service scheduler from marking tasks as unhealthy and
--- stopping them before they have time to come up.
-createService_healthCheckGracePeriodSeconds :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Int)
-createService_healthCheckGracePeriodSeconds = Lens.lens (\CreateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@CreateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: CreateService)
-
--- | The details of the service discovery registry to associate with this
--- service. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
---
--- Each service may be associated with one service registry. Multiple
--- service registries per service isn\'t supported.
-createService_serviceRegistries :: Lens.Lens' CreateService (Prelude.Maybe [ServiceRegistry])
-createService_serviceRegistries = Lens.lens (\CreateService' {serviceRegistries} -> serviceRegistries) (\s@CreateService' {} a -> s {serviceRegistries = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
-
--- | The scheduling strategy to use for the service. For more information,
--- see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
---
--- There are two service scheduler strategies available:
---
--- -   @REPLICA@-The replica scheduling strategy places and maintains the
---     desired number of tasks across your cluster. By default, the service
---     scheduler spreads tasks across Availability Zones. You can use task
---     placement strategies and constraints to customize task placement
---     decisions. This scheduler strategy is required if the service is
---     using the @CODE_DEPLOY@ or @EXTERNAL@ deployment controller types.
---
--- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
---     each active container instance that meets all of the task placement
---     constraints that you specify in your cluster. The service scheduler
---     also evaluates the task placement constraints for running tasks and
---     will stop tasks that do not meet the placement constraints. When
---     you\'re using this strategy, you don\'t need to specify a desired
---     number of tasks, a task placement strategy, or use Service Auto
---     Scaling policies.
---
---     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
---     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
---     scheduling strategy.
-createService_schedulingStrategy :: Lens.Lens' CreateService (Prelude.Maybe SchedulingStrategy)
-createService_schedulingStrategy = Lens.lens (\CreateService' {schedulingStrategy} -> schedulingStrategy) (\s@CreateService' {} a -> s {schedulingStrategy = a} :: CreateService)
-
--- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
--- definition to run in your service. If a @revision@ is not specified, the
--- latest @ACTIVE@ revision is used.
---
--- A task definition must be specified if the service is using either the
--- @ECS@ or @CODE_DEPLOY@ deployment controllers.
-createService_taskDefinition :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_taskDefinition = Lens.lens (\CreateService' {taskDefinition} -> taskDefinition) (\s@CreateService' {} a -> s {taskDefinition = a} :: CreateService)
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster on
--- which to run your service. If you do not specify a cluster, the default
--- cluster is assumed.
-createService_cluster :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_cluster = Lens.lens (\CreateService' {cluster} -> cluster) (\s@CreateService' {} a -> s {cluster = a} :: CreateService)
-
--- | Specifies whether to propagate the tags from the task definition or the
--- service to the tasks in the service. If no value is specified, the tags
--- are not propagated. Tags can only be propagated to the tasks within the
--- service during service creation. To add tags to a task after service
--- creation, use the TagResource API action.
-createService_propagateTags :: Lens.Lens' CreateService (Prelude.Maybe PropagateTags)
-createService_propagateTags = Lens.lens (\CreateService' {propagateTags} -> propagateTags) (\s@CreateService' {} a -> s {propagateTags = a} :: CreateService)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. Up to 32 ASCII characters are allowed.
-createService_clientToken :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
-createService_clientToken = Lens.lens (\CreateService' {clientToken} -> clientToken) (\s@CreateService' {} a -> s {clientToken = a} :: CreateService)
+-- | Optional deployment parameters that control how many tasks run during
+-- the deployment and the ordering of stopping and starting tasks.
+createService_deploymentConfiguration :: Lens.Lens' CreateService (Prelude.Maybe DeploymentConfiguration)
+createService_deploymentConfiguration = Lens.lens (\CreateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@CreateService' {} a -> s {deploymentConfiguration = a} :: CreateService)
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, underscores, and hyphens are allowed. Service names must be
@@ -1078,40 +1077,40 @@ instance Core.ToJSON CreateService where
   toJSON CreateService' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("deploymentConfiguration" Core..=)
-              Prelude.<$> deploymentConfiguration,
-            ("capacityProviderStrategy" Core..=)
-              Prelude.<$> capacityProviderStrategy,
-            ("networkConfiguration" Core..=)
-              Prelude.<$> networkConfiguration,
-            ("desiredCount" Core..=) Prelude.<$> desiredCount,
+          [ ("cluster" Core..=) Prelude.<$> cluster,
+            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("propagateTags" Core..=) Prelude.<$> propagateTags,
+            ("platformVersion" Core..=)
+              Prelude.<$> platformVersion,
             ("enableECSManagedTags" Core..=)
               Prelude.<$> enableECSManagedTags,
+            ("desiredCount" Core..=) Prelude.<$> desiredCount,
+            ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
+            ("role" Core..=) Prelude.<$> role',
+            ("placementConstraints" Core..=)
+              Prelude.<$> placementConstraints,
+            ("placementStrategy" Core..=)
+              Prelude.<$> placementStrategy,
             ("deploymentController" Core..=)
               Prelude.<$> deploymentController,
             ("launchType" Core..=) Prelude.<$> launchType,
-            ("platformVersion" Core..=)
-              Prelude.<$> platformVersion,
-            ("placementStrategy" Core..=)
-              Prelude.<$> placementStrategy,
-            ("placementConstraints" Core..=)
-              Prelude.<$> placementConstraints,
-            ("role" Core..=) Prelude.<$> role',
-            ("enableExecuteCommand" Core..=)
-              Prelude.<$> enableExecuteCommand,
-            ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("healthCheckGracePeriodSeconds" Core..=)
-              Prelude.<$> healthCheckGracePeriodSeconds,
-            ("serviceRegistries" Core..=)
-              Prelude.<$> serviceRegistries,
-            ("schedulingStrategy" Core..=)
-              Prelude.<$> schedulingStrategy,
             ("taskDefinition" Core..=)
               Prelude.<$> taskDefinition,
-            ("cluster" Core..=) Prelude.<$> cluster,
-            ("propagateTags" Core..=) Prelude.<$> propagateTags,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("schedulingStrategy" Core..=)
+              Prelude.<$> schedulingStrategy,
+            ("healthCheckGracePeriodSeconds" Core..=)
+              Prelude.<$> healthCheckGracePeriodSeconds,
+            ("networkConfiguration" Core..=)
+              Prelude.<$> networkConfiguration,
+            ("serviceRegistries" Core..=)
+              Prelude.<$> serviceRegistries,
+            ("capacityProviderStrategy" Core..=)
+              Prelude.<$> capacityProviderStrategy,
+            ("enableExecuteCommand" Core..=)
+              Prelude.<$> enableExecuteCommand,
+            ("tags" Core..=) Prelude.<$> tags,
+            ("deploymentConfiguration" Core..=)
+              Prelude.<$> deploymentConfiguration,
             Prelude.Just ("serviceName" Core..= serviceName)
           ]
       )

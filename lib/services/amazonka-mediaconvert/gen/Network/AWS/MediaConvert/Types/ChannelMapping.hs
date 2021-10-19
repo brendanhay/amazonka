@@ -66,7 +66,7 @@ newChannelMapping =
 -- each audio channel that you want in your output. Each child should
 -- contain one instance of InputChannels or InputChannelsFineTune.
 channelMapping_outputChannels :: Lens.Lens' ChannelMapping (Prelude.Maybe [OutputChannelMapping])
-channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Prelude.. Lens.mapping Lens._Coerce
+channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ChannelMapping where
   parseJSON =

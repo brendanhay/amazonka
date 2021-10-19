@@ -69,12 +69,12 @@ newDescribeEnvironments ::
 newDescribeEnvironments pEnvironmentIds_ =
   DescribeEnvironments'
     { environmentIds =
-        Lens._Coerce Lens.# pEnvironmentIds_
+        Lens.coerced Lens.# pEnvironmentIds_
     }
 
 -- | The IDs of individual environments to get information about.
 describeEnvironments_environmentIds :: Lens.Lens' DescribeEnvironments (Prelude.NonEmpty Prelude.Text)
-describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Prelude.. Lens._Coerce
+describeEnvironments_environmentIds = Lens.lens (\DescribeEnvironments' {environmentIds} -> environmentIds) (\s@DescribeEnvironments' {} a -> s {environmentIds = a} :: DescribeEnvironments) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeEnvironments where
   type
@@ -156,7 +156,7 @@ newDescribeEnvironmentsResponse pHttpStatus_ =
 
 -- | Information about the environments that are returned.
 describeEnvironmentsResponse_environments :: Lens.Lens' DescribeEnvironmentsResponse (Prelude.Maybe [Environment])
-describeEnvironmentsResponse_environments = Lens.lens (\DescribeEnvironmentsResponse' {environments} -> environments) (\s@DescribeEnvironmentsResponse' {} a -> s {environments = a} :: DescribeEnvironmentsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEnvironmentsResponse_environments = Lens.lens (\DescribeEnvironmentsResponse' {environments} -> environments) (\s@DescribeEnvironmentsResponse' {} a -> s {environments = a} :: DescribeEnvironmentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEnvironmentsResponse_httpStatus :: Lens.Lens' DescribeEnvironmentsResponse Prelude.Int

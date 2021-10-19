@@ -32,23 +32,23 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyComplianceStatus' smart constructor.
 data PolicyComplianceStatus = PolicyComplianceStatus'
-  { -- | The name of the Firewall Manager policy.
-    policyName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services account that created the Firewall Manager
-    -- policy.
-    policyOwner :: Prelude.Maybe Prelude.Text,
-    -- | The member account ID.
-    memberAccount :: Prelude.Maybe Prelude.Text,
+  { -- | An array of @EvaluationResult@ objects.
+    evaluationResults :: Prelude.Maybe [EvaluationResult],
     -- | Timestamp of the last update to the @EvaluationResult@ objects.
     lastUpdated :: Prelude.Maybe Core.POSIX,
-    -- | An array of @EvaluationResult@ objects.
-    evaluationResults :: Prelude.Maybe [EvaluationResult],
+    -- | The name of the Firewall Manager policy.
+    policyName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Firewall Manager policy.
+    policyId :: Prelude.Maybe Prelude.Text,
     -- | Details about problems with dependent services, such as WAF or Config,
     -- and the error message received that indicates the problem with the
     -- service.
     issueInfoMap :: Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text),
-    -- | The ID of the Firewall Manager policy.
-    policyId :: Prelude.Maybe Prelude.Text
+    -- | The Amazon Web Services account that created the Firewall Manager
+    -- policy.
+    policyOwner :: Prelude.Maybe Prelude.Text,
+    -- | The member account ID.
+    memberAccount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,39 +60,57 @@ data PolicyComplianceStatus = PolicyComplianceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyName', 'policyComplianceStatus_policyName' - The name of the Firewall Manager policy.
---
--- 'policyOwner', 'policyComplianceStatus_policyOwner' - The Amazon Web Services account that created the Firewall Manager
--- policy.
---
--- 'memberAccount', 'policyComplianceStatus_memberAccount' - The member account ID.
+-- 'evaluationResults', 'policyComplianceStatus_evaluationResults' - An array of @EvaluationResult@ objects.
 --
 -- 'lastUpdated', 'policyComplianceStatus_lastUpdated' - Timestamp of the last update to the @EvaluationResult@ objects.
 --
--- 'evaluationResults', 'policyComplianceStatus_evaluationResults' - An array of @EvaluationResult@ objects.
+-- 'policyName', 'policyComplianceStatus_policyName' - The name of the Firewall Manager policy.
+--
+-- 'policyId', 'policyComplianceStatus_policyId' - The ID of the Firewall Manager policy.
 --
 -- 'issueInfoMap', 'policyComplianceStatus_issueInfoMap' - Details about problems with dependent services, such as WAF or Config,
 -- and the error message received that indicates the problem with the
 -- service.
 --
--- 'policyId', 'policyComplianceStatus_policyId' - The ID of the Firewall Manager policy.
+-- 'policyOwner', 'policyComplianceStatus_policyOwner' - The Amazon Web Services account that created the Firewall Manager
+-- policy.
+--
+-- 'memberAccount', 'policyComplianceStatus_memberAccount' - The member account ID.
 newPolicyComplianceStatus ::
   PolicyComplianceStatus
 newPolicyComplianceStatus =
   PolicyComplianceStatus'
-    { policyName =
+    { evaluationResults =
         Prelude.Nothing,
-      policyOwner = Prelude.Nothing,
-      memberAccount = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
-      evaluationResults = Prelude.Nothing,
+      policyName = Prelude.Nothing,
+      policyId = Prelude.Nothing,
       issueInfoMap = Prelude.Nothing,
-      policyId = Prelude.Nothing
+      policyOwner = Prelude.Nothing,
+      memberAccount = Prelude.Nothing
     }
+
+-- | An array of @EvaluationResult@ objects.
+policyComplianceStatus_evaluationResults :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe [EvaluationResult])
+policyComplianceStatus_evaluationResults = Lens.lens (\PolicyComplianceStatus' {evaluationResults} -> evaluationResults) (\s@PolicyComplianceStatus' {} a -> s {evaluationResults = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | Timestamp of the last update to the @EvaluationResult@ objects.
+policyComplianceStatus_lastUpdated :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.UTCTime)
+policyComplianceStatus_lastUpdated = Lens.lens (\PolicyComplianceStatus' {lastUpdated} -> lastUpdated) (\s@PolicyComplianceStatus' {} a -> s {lastUpdated = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the Firewall Manager policy.
 policyComplianceStatus_policyName :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.Text)
 policyComplianceStatus_policyName = Lens.lens (\PolicyComplianceStatus' {policyName} -> policyName) (\s@PolicyComplianceStatus' {} a -> s {policyName = a} :: PolicyComplianceStatus)
+
+-- | The ID of the Firewall Manager policy.
+policyComplianceStatus_policyId :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.Text)
+policyComplianceStatus_policyId = Lens.lens (\PolicyComplianceStatus' {policyId} -> policyId) (\s@PolicyComplianceStatus' {} a -> s {policyId = a} :: PolicyComplianceStatus)
+
+-- | Details about problems with dependent services, such as WAF or Config,
+-- and the error message received that indicates the problem with the
+-- service.
+policyComplianceStatus_issueInfoMap :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text))
+policyComplianceStatus_issueInfoMap = Lens.lens (\PolicyComplianceStatus' {issueInfoMap} -> issueInfoMap) (\s@PolicyComplianceStatus' {} a -> s {issueInfoMap = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Web Services account that created the Firewall Manager
 -- policy.
@@ -103,39 +121,21 @@ policyComplianceStatus_policyOwner = Lens.lens (\PolicyComplianceStatus' {policy
 policyComplianceStatus_memberAccount :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.Text)
 policyComplianceStatus_memberAccount = Lens.lens (\PolicyComplianceStatus' {memberAccount} -> memberAccount) (\s@PolicyComplianceStatus' {} a -> s {memberAccount = a} :: PolicyComplianceStatus)
 
--- | Timestamp of the last update to the @EvaluationResult@ objects.
-policyComplianceStatus_lastUpdated :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.UTCTime)
-policyComplianceStatus_lastUpdated = Lens.lens (\PolicyComplianceStatus' {lastUpdated} -> lastUpdated) (\s@PolicyComplianceStatus' {} a -> s {lastUpdated = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Core._Time
-
--- | An array of @EvaluationResult@ objects.
-policyComplianceStatus_evaluationResults :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe [EvaluationResult])
-policyComplianceStatus_evaluationResults = Lens.lens (\PolicyComplianceStatus' {evaluationResults} -> evaluationResults) (\s@PolicyComplianceStatus' {} a -> s {evaluationResults = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Lens._Coerce
-
--- | Details about problems with dependent services, such as WAF or Config,
--- and the error message received that indicates the problem with the
--- service.
-policyComplianceStatus_issueInfoMap :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe (Prelude.HashMap DependentServiceName Prelude.Text))
-policyComplianceStatus_issueInfoMap = Lens.lens (\PolicyComplianceStatus' {issueInfoMap} -> issueInfoMap) (\s@PolicyComplianceStatus' {} a -> s {issueInfoMap = a} :: PolicyComplianceStatus) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ID of the Firewall Manager policy.
-policyComplianceStatus_policyId :: Lens.Lens' PolicyComplianceStatus (Prelude.Maybe Prelude.Text)
-policyComplianceStatus_policyId = Lens.lens (\PolicyComplianceStatus' {policyId} -> policyId) (\s@PolicyComplianceStatus' {} a -> s {policyId = a} :: PolicyComplianceStatus)
-
 instance Core.FromJSON PolicyComplianceStatus where
   parseJSON =
     Core.withObject
       "PolicyComplianceStatus"
       ( \x ->
           PolicyComplianceStatus'
-            Prelude.<$> (x Core..:? "PolicyName")
-            Prelude.<*> (x Core..:? "PolicyOwner")
-            Prelude.<*> (x Core..:? "MemberAccount")
-            Prelude.<*> (x Core..:? "LastUpdated")
-            Prelude.<*> ( x Core..:? "EvaluationResults"
+            Prelude.<$> ( x Core..:? "EvaluationResults"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IssueInfoMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..:? "PolicyName")
             Prelude.<*> (x Core..:? "PolicyId")
+            Prelude.<*> (x Core..:? "IssueInfoMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "PolicyOwner")
+            Prelude.<*> (x Core..:? "MemberAccount")
       )
 
 instance Prelude.Hashable PolicyComplianceStatus

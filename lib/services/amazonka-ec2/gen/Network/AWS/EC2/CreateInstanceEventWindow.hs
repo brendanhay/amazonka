@@ -53,10 +53,10 @@ module Network.AWS.EC2.CreateInstanceEventWindow
 
     -- * Request Lenses
     createInstanceEventWindow_tagSpecifications,
-    createInstanceEventWindow_dryRun,
     createInstanceEventWindow_name,
-    createInstanceEventWindow_timeRanges,
     createInstanceEventWindow_cronExpression,
+    createInstanceEventWindow_dryRun,
+    createInstanceEventWindow_timeRanges,
 
     -- * Destructuring the Response
     CreateInstanceEventWindowResponse (..),
@@ -79,16 +79,8 @@ import qualified Network.AWS.Response as Response
 data CreateInstanceEventWindow = CreateInstanceEventWindow'
   { -- | The tags to apply to the event window.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The name of the event window.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The time range for the event window. If you specify a time range, you
-    -- can\'t specify a cron expression.
-    timeRanges :: Prelude.Maybe [InstanceEventWindowTimeRangeRequest],
     -- | The cron expression for the event window, for example,
     -- @* 0-4,20-23 * * 1,5@. If you specify a cron expression, you can\'t
     -- specify a time range.
@@ -112,7 +104,15 @@ data CreateInstanceEventWindow = CreateInstanceEventWindow'
     --
     -- For more information about cron expressions, see
     -- <https://en.wikipedia.org/wiki/Cron cron> on the /Wikipedia website/.
-    cronExpression :: Prelude.Maybe Prelude.Text
+    cronExpression :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The time range for the event window. If you specify a time range, you
+    -- can\'t specify a cron expression.
+    timeRanges :: Prelude.Maybe [InstanceEventWindowTimeRangeRequest]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,15 +126,7 @@ data CreateInstanceEventWindow = CreateInstanceEventWindow'
 --
 -- 'tagSpecifications', 'createInstanceEventWindow_tagSpecifications' - The tags to apply to the event window.
 --
--- 'dryRun', 'createInstanceEventWindow_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'name', 'createInstanceEventWindow_name' - The name of the event window.
---
--- 'timeRanges', 'createInstanceEventWindow_timeRanges' - The time range for the event window. If you specify a time range, you
--- can\'t specify a cron expression.
 --
 -- 'cronExpression', 'createInstanceEventWindow_cronExpression' - The cron expression for the event window, for example,
 -- @* 0-4,20-23 * * 1,5@. If you specify a cron expression, you can\'t
@@ -159,37 +151,33 @@ data CreateInstanceEventWindow = CreateInstanceEventWindow'
 --
 -- For more information about cron expressions, see
 -- <https://en.wikipedia.org/wiki/Cron cron> on the /Wikipedia website/.
+--
+-- 'dryRun', 'createInstanceEventWindow_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'timeRanges', 'createInstanceEventWindow_timeRanges' - The time range for the event window. If you specify a time range, you
+-- can\'t specify a cron expression.
 newCreateInstanceEventWindow ::
   CreateInstanceEventWindow
 newCreateInstanceEventWindow =
   CreateInstanceEventWindow'
     { tagSpecifications =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       name = Prelude.Nothing,
-      timeRanges = Prelude.Nothing,
-      cronExpression = Prelude.Nothing
+      cronExpression = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      timeRanges = Prelude.Nothing
     }
 
 -- | The tags to apply to the event window.
 createInstanceEventWindow_tagSpecifications :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe [TagSpecification])
-createInstanceEventWindow_tagSpecifications = Lens.lens (\CreateInstanceEventWindow' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceEventWindow' {} a -> s {tagSpecifications = a} :: CreateInstanceEventWindow) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createInstanceEventWindow_dryRun :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe Prelude.Bool)
-createInstanceEventWindow_dryRun = Lens.lens (\CreateInstanceEventWindow' {dryRun} -> dryRun) (\s@CreateInstanceEventWindow' {} a -> s {dryRun = a} :: CreateInstanceEventWindow)
+createInstanceEventWindow_tagSpecifications = Lens.lens (\CreateInstanceEventWindow' {tagSpecifications} -> tagSpecifications) (\s@CreateInstanceEventWindow' {} a -> s {tagSpecifications = a} :: CreateInstanceEventWindow) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the event window.
 createInstanceEventWindow_name :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe Prelude.Text)
 createInstanceEventWindow_name = Lens.lens (\CreateInstanceEventWindow' {name} -> name) (\s@CreateInstanceEventWindow' {} a -> s {name = a} :: CreateInstanceEventWindow)
-
--- | The time range for the event window. If you specify a time range, you
--- can\'t specify a cron expression.
-createInstanceEventWindow_timeRanges :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe [InstanceEventWindowTimeRangeRequest])
-createInstanceEventWindow_timeRanges = Lens.lens (\CreateInstanceEventWindow' {timeRanges} -> timeRanges) (\s@CreateInstanceEventWindow' {} a -> s {timeRanges = a} :: CreateInstanceEventWindow) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The cron expression for the event window, for example,
 -- @* 0-4,20-23 * * 1,5@. If you specify a cron expression, you can\'t
@@ -216,6 +204,18 @@ createInstanceEventWindow_timeRanges = Lens.lens (\CreateInstanceEventWindow' {t
 -- <https://en.wikipedia.org/wiki/Cron cron> on the /Wikipedia website/.
 createInstanceEventWindow_cronExpression :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe Prelude.Text)
 createInstanceEventWindow_cronExpression = Lens.lens (\CreateInstanceEventWindow' {cronExpression} -> cronExpression) (\s@CreateInstanceEventWindow' {} a -> s {cronExpression = a} :: CreateInstanceEventWindow)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createInstanceEventWindow_dryRun :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe Prelude.Bool)
+createInstanceEventWindow_dryRun = Lens.lens (\CreateInstanceEventWindow' {dryRun} -> dryRun) (\s@CreateInstanceEventWindow' {} a -> s {dryRun = a} :: CreateInstanceEventWindow)
+
+-- | The time range for the event window. If you specify a time range, you
+-- can\'t specify a cron expression.
+createInstanceEventWindow_timeRanges :: Lens.Lens' CreateInstanceEventWindow (Prelude.Maybe [InstanceEventWindowTimeRangeRequest])
+createInstanceEventWindow_timeRanges = Lens.lens (\CreateInstanceEventWindow' {timeRanges} -> timeRanges) (\s@CreateInstanceEventWindow' {} a -> s {timeRanges = a} :: CreateInstanceEventWindow) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateInstanceEventWindow where
   type
@@ -251,13 +251,13 @@ instance Core.ToQuery CreateInstanceEventWindow where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "Name" Core.=: name,
+        "CronExpression" Core.=: cronExpression,
+        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "TimeRange"
               Prelude.<$> timeRanges
-          ),
-        "CronExpression" Core.=: cronExpression
+          )
       ]
 
 -- | /See:/ 'newCreateInstanceEventWindowResponse' smart constructor.

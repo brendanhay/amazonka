@@ -27,22 +27,22 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newModelPackageContainerDefinition' smart constructor.
 data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
-  { -- | An MD5 hash of the training algorithm that identifies the Docker image
-    -- used for training.
-    imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 path where the model artifacts, which result from model
+  { -- | The Amazon S3 path where the model artifacts, which result from model
     -- training, are stored. This path must point to a single @gzip@ compressed
     -- tar archive (@.tar.gz@ suffix).
     --
     -- The model artifacts must be in an S3 bucket that is in the same region
     -- as the model package.
     modelDataUrl :: Prelude.Maybe Prelude.Text,
-    -- | The DNS host name for the Docker container.
-    containerHostname :: Prelude.Maybe Prelude.Text,
     -- | The environment variables to set in the Docker container. Each key and
     -- value in the @Environment@ string to string map can have length of up to
     -- 1024. We support up to 16 entries in the map.
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | An MD5 hash of the training algorithm that identifies the Docker image
+    -- used for training.
+    imageDigest :: Prelude.Maybe Prelude.Text,
+    -- | The DNS host name for the Docker container.
+    containerHostname :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Marketplace product ID of the model package.
     productId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EC2 Container Registry (Amazon ECR) path where inference code
@@ -66,9 +66,6 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageDigest', 'modelPackageContainerDefinition_imageDigest' - An MD5 hash of the training algorithm that identifies the Docker image
--- used for training.
---
 -- 'modelDataUrl', 'modelPackageContainerDefinition_modelDataUrl' - The Amazon S3 path where the model artifacts, which result from model
 -- training, are stored. This path must point to a single @gzip@ compressed
 -- tar archive (@.tar.gz@ suffix).
@@ -76,11 +73,14 @@ data ModelPackageContainerDefinition = ModelPackageContainerDefinition'
 -- The model artifacts must be in an S3 bucket that is in the same region
 -- as the model package.
 --
--- 'containerHostname', 'modelPackageContainerDefinition_containerHostname' - The DNS host name for the Docker container.
---
 -- 'environment', 'modelPackageContainerDefinition_environment' - The environment variables to set in the Docker container. Each key and
 -- value in the @Environment@ string to string map can have length of up to
 -- 1024. We support up to 16 entries in the map.
+--
+-- 'imageDigest', 'modelPackageContainerDefinition_imageDigest' - An MD5 hash of the training algorithm that identifies the Docker image
+-- used for training.
+--
+-- 'containerHostname', 'modelPackageContainerDefinition_containerHostname' - The DNS host name for the Docker container.
 --
 -- 'productId', 'modelPackageContainerDefinition_productId' - The Amazon Web Services Marketplace product ID of the model package.
 --
@@ -99,19 +99,14 @@ newModelPackageContainerDefinition ::
   ModelPackageContainerDefinition
 newModelPackageContainerDefinition pImage_ =
   ModelPackageContainerDefinition'
-    { imageDigest =
+    { modelDataUrl =
         Prelude.Nothing,
-      modelDataUrl = Prelude.Nothing,
-      containerHostname = Prelude.Nothing,
       environment = Prelude.Nothing,
+      imageDigest = Prelude.Nothing,
+      containerHostname = Prelude.Nothing,
       productId = Prelude.Nothing,
       image = pImage_
     }
-
--- | An MD5 hash of the training algorithm that identifies the Docker image
--- used for training.
-modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerDefinition' {imageDigest} -> imageDigest) (\s@ModelPackageContainerDefinition' {} a -> s {imageDigest = a} :: ModelPackageContainerDefinition)
 
 -- | The Amazon S3 path where the model artifacts, which result from model
 -- training, are stored. This path must point to a single @gzip@ compressed
@@ -122,15 +117,20 @@ modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerD
 modelPackageContainerDefinition_modelDataUrl :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
 modelPackageContainerDefinition_modelDataUrl = Lens.lens (\ModelPackageContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@ModelPackageContainerDefinition' {} a -> s {modelDataUrl = a} :: ModelPackageContainerDefinition)
 
--- | The DNS host name for the Docker container.
-modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
-modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageContainerDefinition' {containerHostname} -> containerHostname) (\s@ModelPackageContainerDefinition' {} a -> s {containerHostname = a} :: ModelPackageContainerDefinition)
-
 -- | The environment variables to set in the Docker container. Each key and
 -- value in the @Environment@ string to string map can have length of up to
 -- 1024. We support up to 16 entries in the map.
 modelPackageContainerDefinition_environment :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-modelPackageContainerDefinition_environment = Lens.lens (\ModelPackageContainerDefinition' {environment} -> environment) (\s@ModelPackageContainerDefinition' {} a -> s {environment = a} :: ModelPackageContainerDefinition) Prelude.. Lens.mapping Lens._Coerce
+modelPackageContainerDefinition_environment = Lens.lens (\ModelPackageContainerDefinition' {environment} -> environment) (\s@ModelPackageContainerDefinition' {} a -> s {environment = a} :: ModelPackageContainerDefinition) Prelude.. Lens.mapping Lens.coerced
+
+-- | An MD5 hash of the training algorithm that identifies the Docker image
+-- used for training.
+modelPackageContainerDefinition_imageDigest :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_imageDigest = Lens.lens (\ModelPackageContainerDefinition' {imageDigest} -> imageDigest) (\s@ModelPackageContainerDefinition' {} a -> s {imageDigest = a} :: ModelPackageContainerDefinition)
+
+-- | The DNS host name for the Docker container.
+modelPackageContainerDefinition_containerHostname :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
+modelPackageContainerDefinition_containerHostname = Lens.lens (\ModelPackageContainerDefinition' {containerHostname} -> containerHostname) (\s@ModelPackageContainerDefinition' {} a -> s {containerHostname = a} :: ModelPackageContainerDefinition)
 
 -- | The Amazon Web Services Marketplace product ID of the model package.
 modelPackageContainerDefinition_productId :: Lens.Lens' ModelPackageContainerDefinition (Prelude.Maybe Prelude.Text)
@@ -157,10 +157,10 @@ instance
       "ModelPackageContainerDefinition"
       ( \x ->
           ModelPackageContainerDefinition'
-            Prelude.<$> (x Core..:? "ImageDigest")
-            Prelude.<*> (x Core..:? "ModelDataUrl")
-            Prelude.<*> (x Core..:? "ContainerHostname")
+            Prelude.<$> (x Core..:? "ModelDataUrl")
             Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ImageDigest")
+            Prelude.<*> (x Core..:? "ContainerHostname")
             Prelude.<*> (x Core..:? "ProductId")
             Prelude.<*> (x Core..: "Image")
       )
@@ -177,11 +177,11 @@ instance Core.ToJSON ModelPackageContainerDefinition where
   toJSON ModelPackageContainerDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ImageDigest" Core..=) Prelude.<$> imageDigest,
-            ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+          [ ("ModelDataUrl" Core..=) Prelude.<$> modelDataUrl,
+            ("Environment" Core..=) Prelude.<$> environment,
+            ("ImageDigest" Core..=) Prelude.<$> imageDigest,
             ("ContainerHostname" Core..=)
               Prelude.<$> containerHostname,
-            ("Environment" Core..=) Prelude.<$> environment,
             ("ProductId" Core..=) Prelude.<$> productId,
             Prelude.Just ("Image" Core..= image)
           ]

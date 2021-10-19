@@ -107,7 +107,7 @@ geoMatchSet_geoMatchSetId = Lens.lens (\GeoMatchSet' {geoMatchSetId} -> geoMatch
 -- | An array of GeoMatchConstraint objects, which contain the country that
 -- you want AWS WAF to search for.
 geoMatchSet_geoMatchConstraints :: Lens.Lens' GeoMatchSet [GeoMatchConstraint]
-geoMatchSet_geoMatchConstraints = Lens.lens (\GeoMatchSet' {geoMatchConstraints} -> geoMatchConstraints) (\s@GeoMatchSet' {} a -> s {geoMatchConstraints = a} :: GeoMatchSet) Prelude.. Lens._Coerce
+geoMatchSet_geoMatchConstraints = Lens.lens (\GeoMatchSet' {geoMatchConstraints} -> geoMatchConstraints) (\s@GeoMatchSet' {} a -> s {geoMatchConstraints = a} :: GeoMatchSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON GeoMatchSet where
   parseJSON =

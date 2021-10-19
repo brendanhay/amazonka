@@ -40,16 +40,16 @@ data DeliveryStreamEncryptionConfiguration = DeliveryStreamEncryptionConfigurati
     -- status is @ENABLING_FAILED@ or @DISABLING_FAILED@, it is the status of
     -- the most recent attempt to enable or disable SSE, respectively.
     status :: Prelude.Maybe DeliveryStreamEncryptionStatus,
-    -- | If @KeyType@ is @CUSTOMER_MANAGED_CMK@, this field contains the ARN of
-    -- the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@,
-    -- @DeliveryStreamEncryptionConfiguration@ doesn\'t contain a value for
-    -- @KeyARN@.
-    keyARN :: Prelude.Maybe Prelude.Text,
     -- | Indicates the type of customer master key (CMK) that is used for
     -- encryption. The default setting is @AWS_OWNED_CMK@. For more information
     -- about CMKs, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)>.
     keyType :: Prelude.Maybe KeyType,
+    -- | If @KeyType@ is @CUSTOMER_MANAGED_CMK@, this field contains the ARN of
+    -- the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@,
+    -- @DeliveryStreamEncryptionConfiguration@ doesn\'t contain a value for
+    -- @KeyARN@.
+    keyARN :: Prelude.Maybe Prelude.Text,
     -- | Provides details in case one of the following operations fails due to an
     -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
     -- StartDeliveryStreamEncryption, StopDeliveryStreamEncryption.
@@ -71,15 +71,15 @@ data DeliveryStreamEncryptionConfiguration = DeliveryStreamEncryptionConfigurati
 -- status is @ENABLING_FAILED@ or @DISABLING_FAILED@, it is the status of
 -- the most recent attempt to enable or disable SSE, respectively.
 --
--- 'keyARN', 'deliveryStreamEncryptionConfiguration_keyARN' - If @KeyType@ is @CUSTOMER_MANAGED_CMK@, this field contains the ARN of
--- the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@,
--- @DeliveryStreamEncryptionConfiguration@ doesn\'t contain a value for
--- @KeyARN@.
---
 -- 'keyType', 'deliveryStreamEncryptionConfiguration_keyType' - Indicates the type of customer master key (CMK) that is used for
 -- encryption. The default setting is @AWS_OWNED_CMK@. For more information
 -- about CMKs, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)>.
+--
+-- 'keyARN', 'deliveryStreamEncryptionConfiguration_keyARN' - If @KeyType@ is @CUSTOMER_MANAGED_CMK@, this field contains the ARN of
+-- the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@,
+-- @DeliveryStreamEncryptionConfiguration@ doesn\'t contain a value for
+-- @KeyARN@.
 --
 -- 'failureDescription', 'deliveryStreamEncryptionConfiguration_failureDescription' - Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
@@ -90,8 +90,8 @@ newDeliveryStreamEncryptionConfiguration =
   DeliveryStreamEncryptionConfiguration'
     { status =
         Prelude.Nothing,
-      keyARN = Prelude.Nothing,
       keyType = Prelude.Nothing,
+      keyARN = Prelude.Nothing,
       failureDescription = Prelude.Nothing
     }
 
@@ -103,19 +103,19 @@ newDeliveryStreamEncryptionConfiguration =
 deliveryStreamEncryptionConfiguration_status :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Prelude.Maybe DeliveryStreamEncryptionStatus)
 deliveryStreamEncryptionConfiguration_status = Lens.lens (\DeliveryStreamEncryptionConfiguration' {status} -> status) (\s@DeliveryStreamEncryptionConfiguration' {} a -> s {status = a} :: DeliveryStreamEncryptionConfiguration)
 
--- | If @KeyType@ is @CUSTOMER_MANAGED_CMK@, this field contains the ARN of
--- the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@,
--- @DeliveryStreamEncryptionConfiguration@ doesn\'t contain a value for
--- @KeyARN@.
-deliveryStreamEncryptionConfiguration_keyARN :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Prelude.Maybe Prelude.Text)
-deliveryStreamEncryptionConfiguration_keyARN = Lens.lens (\DeliveryStreamEncryptionConfiguration' {keyARN} -> keyARN) (\s@DeliveryStreamEncryptionConfiguration' {} a -> s {keyARN = a} :: DeliveryStreamEncryptionConfiguration)
-
 -- | Indicates the type of customer master key (CMK) that is used for
 -- encryption. The default setting is @AWS_OWNED_CMK@. For more information
 -- about CMKs, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys (CMKs)>.
 deliveryStreamEncryptionConfiguration_keyType :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Prelude.Maybe KeyType)
 deliveryStreamEncryptionConfiguration_keyType = Lens.lens (\DeliveryStreamEncryptionConfiguration' {keyType} -> keyType) (\s@DeliveryStreamEncryptionConfiguration' {} a -> s {keyType = a} :: DeliveryStreamEncryptionConfiguration)
+
+-- | If @KeyType@ is @CUSTOMER_MANAGED_CMK@, this field contains the ARN of
+-- the customer managed CMK. If @KeyType@ is @AWS_OWNED_CMK@,
+-- @DeliveryStreamEncryptionConfiguration@ doesn\'t contain a value for
+-- @KeyARN@.
+deliveryStreamEncryptionConfiguration_keyARN :: Lens.Lens' DeliveryStreamEncryptionConfiguration (Prelude.Maybe Prelude.Text)
+deliveryStreamEncryptionConfiguration_keyARN = Lens.lens (\DeliveryStreamEncryptionConfiguration' {keyARN} -> keyARN) (\s@DeliveryStreamEncryptionConfiguration' {} a -> s {keyARN = a} :: DeliveryStreamEncryptionConfiguration)
 
 -- | Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
@@ -133,8 +133,8 @@ instance
       ( \x ->
           DeliveryStreamEncryptionConfiguration'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "KeyARN")
             Prelude.<*> (x Core..:? "KeyType")
+            Prelude.<*> (x Core..:? "KeyARN")
             Prelude.<*> (x Core..:? "FailureDescription")
       )
 

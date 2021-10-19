@@ -237,11 +237,11 @@ getEventSelectorsResponse_trailARN = Lens.lens (\GetEventSelectorsResponse' {tra
 
 -- | The event selectors that are configured for the trail.
 getEventSelectorsResponse_eventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [EventSelector])
-getEventSelectorsResponse_eventSelectors = Lens.lens (\GetEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {eventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens._Coerce
+getEventSelectorsResponse_eventSelectors = Lens.lens (\GetEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {eventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The advanced event selectors that are configured for the trail.
 getEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' GetEventSelectorsResponse (Prelude.Maybe [AdvancedEventSelector])
-getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens._Coerce
+getEventSelectorsResponse_advancedEventSelectors = Lens.lens (\GetEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@GetEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: GetEventSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEventSelectorsResponse_httpStatus :: Lens.Lens' GetEventSelectorsResponse Prelude.Int

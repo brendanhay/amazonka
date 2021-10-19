@@ -118,7 +118,7 @@ batchDeleteTableVersion_tableName = Lens.lens (\BatchDeleteTableVersion' {tableN
 -- | A list of the IDs of versions to be deleted. A @VersionId@ is a string
 -- representation of an integer. Each version is incremented by 1.
 batchDeleteTableVersion_versionIds :: Lens.Lens' BatchDeleteTableVersion [Prelude.Text]
-batchDeleteTableVersion_versionIds = Lens.lens (\BatchDeleteTableVersion' {versionIds} -> versionIds) (\s@BatchDeleteTableVersion' {} a -> s {versionIds = a} :: BatchDeleteTableVersion) Prelude.. Lens._Coerce
+batchDeleteTableVersion_versionIds = Lens.lens (\BatchDeleteTableVersion' {versionIds} -> versionIds) (\s@BatchDeleteTableVersion' {} a -> s {versionIds = a} :: BatchDeleteTableVersion) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteTableVersion where
   type
@@ -205,7 +205,7 @@ newBatchDeleteTableVersionResponse pHttpStatus_ =
 -- | A list of errors encountered while trying to delete the specified table
 -- versions.
 batchDeleteTableVersionResponse_errors :: Lens.Lens' BatchDeleteTableVersionResponse (Prelude.Maybe [TableVersionError])
-batchDeleteTableVersionResponse_errors = Lens.lens (\BatchDeleteTableVersionResponse' {errors} -> errors) (\s@BatchDeleteTableVersionResponse' {} a -> s {errors = a} :: BatchDeleteTableVersionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteTableVersionResponse_errors = Lens.lens (\BatchDeleteTableVersionResponse' {errors} -> errors) (\s@BatchDeleteTableVersionResponse' {} a -> s {errors = a} :: BatchDeleteTableVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteTableVersionResponse_httpStatus :: Lens.Lens' BatchDeleteTableVersionResponse Prelude.Int

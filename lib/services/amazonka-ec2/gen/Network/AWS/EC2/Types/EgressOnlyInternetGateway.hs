@@ -32,10 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 data EgressOnlyInternetGateway = EgressOnlyInternetGateway'
   { -- | The ID of the egress-only internet gateway.
     egressOnlyInternetGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The tags assigned to the egress-only internet gateway.
-    tags :: Prelude.Maybe [Tag],
     -- | Information about the attachment of the egress-only internet gateway.
-    attachments :: Prelude.Maybe [InternetGatewayAttachment]
+    attachments :: Prelude.Maybe [InternetGatewayAttachment],
+    -- | The tags assigned to the egress-only internet gateway.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,39 +49,39 @@ data EgressOnlyInternetGateway = EgressOnlyInternetGateway'
 --
 -- 'egressOnlyInternetGatewayId', 'egressOnlyInternetGateway_egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
 --
--- 'tags', 'egressOnlyInternetGateway_tags' - The tags assigned to the egress-only internet gateway.
---
 -- 'attachments', 'egressOnlyInternetGateway_attachments' - Information about the attachment of the egress-only internet gateway.
+--
+-- 'tags', 'egressOnlyInternetGateway_tags' - The tags assigned to the egress-only internet gateway.
 newEgressOnlyInternetGateway ::
   EgressOnlyInternetGateway
 newEgressOnlyInternetGateway =
   EgressOnlyInternetGateway'
     { egressOnlyInternetGatewayId =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
-      attachments = Prelude.Nothing
+      attachments = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The ID of the egress-only internet gateway.
 egressOnlyInternetGateway_egressOnlyInternetGatewayId :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe Prelude.Text)
 egressOnlyInternetGateway_egressOnlyInternetGatewayId = Lens.lens (\EgressOnlyInternetGateway' {egressOnlyInternetGatewayId} -> egressOnlyInternetGatewayId) (\s@EgressOnlyInternetGateway' {} a -> s {egressOnlyInternetGatewayId = a} :: EgressOnlyInternetGateway)
 
--- | The tags assigned to the egress-only internet gateway.
-egressOnlyInternetGateway_tags :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe [Tag])
-egressOnlyInternetGateway_tags = Lens.lens (\EgressOnlyInternetGateway' {tags} -> tags) (\s@EgressOnlyInternetGateway' {} a -> s {tags = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Information about the attachment of the egress-only internet gateway.
 egressOnlyInternetGateway_attachments :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe [InternetGatewayAttachment])
-egressOnlyInternetGateway_attachments = Lens.lens (\EgressOnlyInternetGateway' {attachments} -> attachments) (\s@EgressOnlyInternetGateway' {} a -> s {attachments = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens._Coerce
+egressOnlyInternetGateway_attachments = Lens.lens (\EgressOnlyInternetGateway' {attachments} -> attachments) (\s@EgressOnlyInternetGateway' {} a -> s {attachments = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags assigned to the egress-only internet gateway.
+egressOnlyInternetGateway_tags :: Lens.Lens' EgressOnlyInternetGateway (Prelude.Maybe [Tag])
+egressOnlyInternetGateway_tags = Lens.lens (\EgressOnlyInternetGateway' {tags} -> tags) (\s@EgressOnlyInternetGateway' {} a -> s {tags = a} :: EgressOnlyInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML EgressOnlyInternetGateway where
   parseXML x =
     EgressOnlyInternetGateway'
       Prelude.<$> (x Core..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> ( x Core..@? "attachmentSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
 

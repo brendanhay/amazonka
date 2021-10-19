@@ -29,11 +29,11 @@ module Network.AWS.EC2.DescribeInternetGateways
     newDescribeInternetGateways,
 
     -- * Request Lenses
-    describeInternetGateways_nextToken,
-    describeInternetGateways_maxResults,
-    describeInternetGateways_dryRun,
-    describeInternetGateways_internetGatewayIds,
     describeInternetGateways_filters,
+    describeInternetGateways_nextToken,
+    describeInternetGateways_internetGatewayIds,
+    describeInternetGateways_dryRun,
+    describeInternetGateways_maxResults,
 
     -- * Destructuring the Response
     DescribeInternetGatewaysResponse (..),
@@ -55,22 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInternetGateways' smart constructor.
 data DescribeInternetGateways = DescribeInternetGateways'
-  { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more internet gateway IDs.
-    --
-    -- Default: Describes all your internet gateways.
-    internetGatewayIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @attachment.state@ - The current state of the attachment between the
     --     gateway and the VPC (@available@). Present only if a VPC is
@@ -92,7 +77,22 @@ data DescribeInternetGateways = DescribeInternetGateways'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more internet gateway IDs.
+    --
+    -- Default: Describes all your internet gateways.
+    internetGatewayIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,21 +103,6 @@ data DescribeInternetGateways = DescribeInternetGateways'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'describeInternetGateways_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'describeInternetGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeInternetGateways_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'internetGatewayIds', 'describeInternetGateways_internetGatewayIds' - One or more internet gateway IDs.
---
--- Default: Describes all your internet gateways.
 --
 -- 'filters', 'describeInternetGateways_filters' - One or more filters.
 --
@@ -141,40 +126,32 @@ data DescribeInternetGateways = DescribeInternetGateways'
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
+--
+-- 'nextToken', 'describeInternetGateways_nextToken' - The token for the next page of results.
+--
+-- 'internetGatewayIds', 'describeInternetGateways_internetGatewayIds' - One or more internet gateway IDs.
+--
+-- Default: Describes all your internet gateways.
+--
+-- 'dryRun', 'describeInternetGateways_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeInternetGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeInternetGateways ::
   DescribeInternetGateways
 newDescribeInternetGateways =
   DescribeInternetGateways'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       internetGatewayIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
--- | The token for the next page of results.
-describeInternetGateways_nextToken :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Text)
-describeInternetGateways_nextToken = Lens.lens (\DescribeInternetGateways' {nextToken} -> nextToken) (\s@DescribeInternetGateways' {} a -> s {nextToken = a} :: DescribeInternetGateways)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeInternetGateways_maxResults :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Natural)
-describeInternetGateways_maxResults = Lens.lens (\DescribeInternetGateways' {maxResults} -> maxResults) (\s@DescribeInternetGateways' {} a -> s {maxResults = a} :: DescribeInternetGateways)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeInternetGateways_dryRun :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Bool)
-describeInternetGateways_dryRun = Lens.lens (\DescribeInternetGateways' {dryRun} -> dryRun) (\s@DescribeInternetGateways' {} a -> s {dryRun = a} :: DescribeInternetGateways)
-
--- | One or more internet gateway IDs.
---
--- Default: Describes all your internet gateways.
-describeInternetGateways_internetGatewayIds :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe [Prelude.Text])
-describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGateways' {internetGatewayIds} -> internetGatewayIds) (\s@DescribeInternetGateways' {} a -> s {internetGatewayIds = a} :: DescribeInternetGateways) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -199,7 +176,30 @@ describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGatewa
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 describeInternetGateways_filters :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe [Filter])
-describeInternetGateways_filters = Lens.lens (\DescribeInternetGateways' {filters} -> filters) (\s@DescribeInternetGateways' {} a -> s {filters = a} :: DescribeInternetGateways) Prelude.. Lens.mapping Lens._Coerce
+describeInternetGateways_filters = Lens.lens (\DescribeInternetGateways' {filters} -> filters) (\s@DescribeInternetGateways' {} a -> s {filters = a} :: DescribeInternetGateways) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next page of results.
+describeInternetGateways_nextToken :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Text)
+describeInternetGateways_nextToken = Lens.lens (\DescribeInternetGateways' {nextToken} -> nextToken) (\s@DescribeInternetGateways' {} a -> s {nextToken = a} :: DescribeInternetGateways)
+
+-- | One or more internet gateway IDs.
+--
+-- Default: Describes all your internet gateways.
+describeInternetGateways_internetGatewayIds :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe [Prelude.Text])
+describeInternetGateways_internetGatewayIds = Lens.lens (\DescribeInternetGateways' {internetGatewayIds} -> internetGatewayIds) (\s@DescribeInternetGateways' {} a -> s {internetGatewayIds = a} :: DescribeInternetGateways) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeInternetGateways_dryRun :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Bool)
+describeInternetGateways_dryRun = Lens.lens (\DescribeInternetGateways' {dryRun} -> dryRun) (\s@DescribeInternetGateways' {} a -> s {dryRun = a} :: DescribeInternetGateways)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeInternetGateways_maxResults :: Lens.Lens' DescribeInternetGateways (Prelude.Maybe Prelude.Natural)
+describeInternetGateways_maxResults = Lens.lens (\DescribeInternetGateways' {maxResults} -> maxResults) (\s@DescribeInternetGateways' {} a -> s {maxResults = a} :: DescribeInternetGateways)
 
 instance Core.AWSPager DescribeInternetGateways where
   page rq rs
@@ -257,15 +257,15 @@ instance Core.ToQuery DescribeInternetGateways where
           Core.=: ("DescribeInternetGateways" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "InternetGatewayId"
               Prelude.<$> internetGatewayIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeInternetGatewaysResponse' smart constructor.
@@ -313,7 +313,7 @@ describeInternetGatewaysResponse_nextToken = Lens.lens (\DescribeInternetGateway
 
 -- | Information about one or more internet gateways.
 describeInternetGatewaysResponse_internetGateways :: Lens.Lens' DescribeInternetGatewaysResponse (Prelude.Maybe [InternetGateway])
-describeInternetGatewaysResponse_internetGateways = Lens.lens (\DescribeInternetGatewaysResponse' {internetGateways} -> internetGateways) (\s@DescribeInternetGatewaysResponse' {} a -> s {internetGateways = a} :: DescribeInternetGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInternetGatewaysResponse_internetGateways = Lens.lens (\DescribeInternetGatewaysResponse' {internetGateways} -> internetGateways) (\s@DescribeInternetGatewaysResponse' {} a -> s {internetGateways = a} :: DescribeInternetGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInternetGatewaysResponse_httpStatus :: Lens.Lens' DescribeInternetGatewaysResponse Prelude.Int

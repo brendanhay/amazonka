@@ -17,12 +17,12 @@ module Network.AWS.ServerlessApplicationRepository.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _BadRequestException,
-    _InternalServerErrorException,
-    _ForbiddenException,
     _ConflictException,
+    _ForbiddenException,
+    _NotFoundException,
     _TooManyRequestsException,
+    _InternalServerErrorException,
+    _BadRequestException,
 
     -- * Capability
     Capability (..),
@@ -48,9 +48,9 @@ module Network.AWS.ServerlessApplicationRepository.Types
     ApplicationSummary (..),
     newApplicationSummary,
     applicationSummary_creationTime,
-    applicationSummary_spdxLicenseId,
-    applicationSummary_labels,
     applicationSummary_homePageUrl,
+    applicationSummary_labels,
+    applicationSummary_spdxLicenseId,
     applicationSummary_description,
     applicationSummary_author,
     applicationSummary_applicationId,
@@ -60,16 +60,16 @@ module Network.AWS.ServerlessApplicationRepository.Types
     ParameterDefinition (..),
     newParameterDefinition,
     parameterDefinition_maxValue,
-    parameterDefinition_minLength,
-    parameterDefinition_allowedValues,
-    parameterDefinition_minValue,
-    parameterDefinition_description,
-    parameterDefinition_constraintDescription,
     parameterDefinition_maxLength,
+    parameterDefinition_constraintDescription,
+    parameterDefinition_minLength,
     parameterDefinition_defaultValue,
     parameterDefinition_allowedPattern,
-    parameterDefinition_type,
     parameterDefinition_noEcho,
+    parameterDefinition_type,
+    parameterDefinition_allowedValues,
+    parameterDefinition_description,
+    parameterDefinition_minValue,
     parameterDefinition_referencedByResources,
     parameterDefinition_name,
 
@@ -82,8 +82,8 @@ module Network.AWS.ServerlessApplicationRepository.Types
     -- * RollbackConfiguration
     RollbackConfiguration (..),
     newRollbackConfiguration,
-    rollbackConfiguration_monitoringTimeInMinutes,
     rollbackConfiguration_rollbackTriggers,
+    rollbackConfiguration_monitoringTimeInMinutes,
 
     -- * RollbackTrigger
     RollbackTrigger (..),
@@ -100,8 +100,8 @@ module Network.AWS.ServerlessApplicationRepository.Types
     -- * Version
     Version (..),
     newVersion,
-    version_sourceCodeArchiveUrl,
     version_sourceCodeUrl,
+    version_sourceCodeArchiveUrl,
     version_templateUrl,
     version_parameterDefinitions,
     version_resourcesSupported,
@@ -165,37 +165,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -208,7 +185,46 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The resource already exists.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | The client is not authenticated.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Core.hasStatus 403
 
 -- | The resource (for example, an access policy statement) specified in the
 -- request doesn\'t exist.
@@ -219,13 +235,14 @@ _NotFoundException =
     "NotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | One of the parameters in the request is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
+-- | The client is sending more than the allowed number of requests per unit
+-- of time.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
   Core._MatchServiceError
     defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
 
 -- | The AWS Serverless Application Repository service encountered an
 -- internal error.
@@ -236,27 +253,10 @@ _InternalServerErrorException =
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
 
--- | The client is not authenticated.
-_ForbiddenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ForbiddenException =
+-- | One of the parameters in the request is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
   Core._MatchServiceError
     defaultService
-    "ForbiddenException"
-    Prelude.. Core.hasStatus 403
-
--- | The resource already exists.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | The client is sending more than the allowed number of requests per unit
--- of time.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400

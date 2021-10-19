@@ -30,8 +30,8 @@ module Network.AWS.Shield.CreateProtectionGroup
 
     -- * Request Lenses
     createProtectionGroup_resourceType,
-    createProtectionGroup_tags,
     createProtectionGroup_members,
+    createProtectionGroup_tags,
     createProtectionGroup_protectionGroupId,
     createProtectionGroup_aggregation,
     createProtectionGroup_pattern,
@@ -60,12 +60,12 @@ data CreateProtectionGroup = CreateProtectionGroup'
     -- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you
     -- must not set it for any other @Pattern@ setting.
     resourceType :: Prelude.Maybe ProtectedResourceType,
-    -- | One or more tag key-value pairs for the protection group.
-    tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Names (ARNs) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
     members :: Prelude.Maybe [Prelude.Text],
+    -- | One or more tag key-value pairs for the protection group.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
@@ -108,11 +108,11 @@ data CreateProtectionGroup = CreateProtectionGroup'
 -- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you
 -- must not set it for any other @Pattern@ setting.
 --
--- 'tags', 'createProtectionGroup_tags' - One or more tag key-value pairs for the protection group.
---
 -- 'members', 'createProtectionGroup_members' - The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
+--
+-- 'tags', 'createProtectionGroup_tags' - One or more tag key-value pairs for the protection group.
 --
 -- 'protectionGroupId', 'createProtectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
@@ -153,8 +153,8 @@ newCreateProtectionGroup
     CreateProtectionGroup'
       { resourceType =
           Prelude.Nothing,
-        tags = Prelude.Nothing,
         members = Prelude.Nothing,
+        tags = Prelude.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_
@@ -168,15 +168,15 @@ newCreateProtectionGroup
 createProtectionGroup_resourceType :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe ProtectedResourceType)
 createProtectionGroup_resourceType = Lens.lens (\CreateProtectionGroup' {resourceType} -> resourceType) (\s@CreateProtectionGroup' {} a -> s {resourceType = a} :: CreateProtectionGroup)
 
--- | One or more tag key-value pairs for the protection group.
-createProtectionGroup_tags :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe [Tag])
-createProtectionGroup_tags = Lens.lens (\CreateProtectionGroup' {tags} -> tags) (\s@CreateProtectionGroup' {} a -> s {tags = a} :: CreateProtectionGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
 createProtectionGroup_members :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe [Prelude.Text])
-createProtectionGroup_members = Lens.lens (\CreateProtectionGroup' {members} -> members) (\s@CreateProtectionGroup' {} a -> s {members = a} :: CreateProtectionGroup) Prelude.. Lens.mapping Lens._Coerce
+createProtectionGroup_members = Lens.lens (\CreateProtectionGroup' {members} -> members) (\s@CreateProtectionGroup' {} a -> s {members = a} :: CreateProtectionGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more tag key-value pairs for the protection group.
+createProtectionGroup_tags :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe [Tag])
+createProtectionGroup_tags = Lens.lens (\CreateProtectionGroup' {tags} -> tags) (\s@CreateProtectionGroup' {} a -> s {tags = a} :: CreateProtectionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
@@ -245,8 +245,8 @@ instance Core.ToJSON CreateProtectionGroup where
     Core.object
       ( Prelude.catMaybes
           [ ("ResourceType" Core..=) Prelude.<$> resourceType,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("Members" Core..=) Prelude.<$> members,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ProtectionGroupId" Core..= protectionGroupId),
             Prelude.Just ("Aggregation" Core..= aggregation),

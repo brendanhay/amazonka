@@ -103,7 +103,7 @@ newAddTagsToCertificate pCertificateArn_ pTags_ =
   AddTagsToCertificate'
     { certificateArn =
         pCertificateArn_,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | String that contains the ARN of the ACM certificate to which the tag is
@@ -118,7 +118,7 @@ addTagsToCertificate_certificateArn = Lens.lens (\AddTagsToCertificate' {certifi
 
 -- | The key-value pair that defines the tag. The tag value is optional.
 addTagsToCertificate_tags :: Lens.Lens' AddTagsToCertificate (Prelude.NonEmpty Tag)
-addTagsToCertificate_tags = Lens.lens (\AddTagsToCertificate' {tags} -> tags) (\s@AddTagsToCertificate' {} a -> s {tags = a} :: AddTagsToCertificate) Prelude.. Lens._Coerce
+addTagsToCertificate_tags = Lens.lens (\AddTagsToCertificate' {tags} -> tags) (\s@AddTagsToCertificate' {} a -> s {tags = a} :: AddTagsToCertificate) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToCertificate where
   type

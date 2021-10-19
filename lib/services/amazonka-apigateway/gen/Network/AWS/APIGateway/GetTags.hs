@@ -27,8 +27,8 @@ module Network.AWS.APIGateway.GetTags
     newGetTags,
 
     -- * Request Lenses
-    getTags_position,
     getTags_limit,
+    getTags_position,
     getTags_resourceArn,
 
     -- * Destructuring the Response
@@ -52,12 +52,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newGetTags' smart constructor.
 data GetTags = GetTags'
-  { -- | (Not currently supported) The current pagination position in the paged
-    -- result set.
-    position :: Prelude.Maybe Prelude.Text,
-    -- | (Not currently supported) The maximum number of returned results per
+  { -- | (Not currently supported) The maximum number of returned results per
     -- page. The default value is 25 and the maximum value is 500.
     limit :: Prelude.Maybe Prelude.Int,
+    -- | (Not currently supported) The current pagination position in the paged
+    -- result set.
+    position :: Prelude.Maybe Prelude.Text,
     -- | [Required] The ARN of a resource that can be tagged.
     resourceArn :: Prelude.Text
   }
@@ -71,11 +71,11 @@ data GetTags = GetTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'position', 'getTags_position' - (Not currently supported) The current pagination position in the paged
--- result set.
---
 -- 'limit', 'getTags_limit' - (Not currently supported) The maximum number of returned results per
 -- page. The default value is 25 and the maximum value is 500.
+--
+-- 'position', 'getTags_position' - (Not currently supported) The current pagination position in the paged
+-- result set.
 --
 -- 'resourceArn', 'getTags_resourceArn' - [Required] The ARN of a resource that can be tagged.
 newGetTags ::
@@ -84,20 +84,20 @@ newGetTags ::
   GetTags
 newGetTags pResourceArn_ =
   GetTags'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      position = Prelude.Nothing,
       resourceArn = pResourceArn_
     }
-
--- | (Not currently supported) The current pagination position in the paged
--- result set.
-getTags_position :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
-getTags_position = Lens.lens (\GetTags' {position} -> position) (\s@GetTags' {} a -> s {position = a} :: GetTags)
 
 -- | (Not currently supported) The maximum number of returned results per
 -- page. The default value is 25 and the maximum value is 500.
 getTags_limit :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Int)
 getTags_limit = Lens.lens (\GetTags' {limit} -> limit) (\s@GetTags' {} a -> s {limit = a} :: GetTags)
+
+-- | (Not currently supported) The current pagination position in the paged
+-- result set.
+getTags_position :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
+getTags_position = Lens.lens (\GetTags' {position} -> position) (\s@GetTags' {} a -> s {position = a} :: GetTags)
 
 -- | [Required] The ARN of a resource that can be tagged.
 getTags_resourceArn :: Lens.Lens' GetTags Prelude.Text
@@ -134,7 +134,7 @@ instance Core.ToPath GetTags where
 instance Core.ToQuery GetTags where
   toQuery GetTags' {..} =
     Prelude.mconcat
-      ["position" Core.=: position, "limit" Core.=: limit]
+      ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
@@ -174,7 +174,7 @@ newGetTagsResponse pHttpStatus_ =
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
 getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int

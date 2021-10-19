@@ -79,8 +79,8 @@ newVpcConfig ::
 newVpcConfig pSecurityGroupIds_ pSubnets_ =
   VpcConfig'
     { securityGroupIds =
-        Lens._Coerce Lens.# pSecurityGroupIds_,
-      subnets = Lens._Coerce Lens.# pSubnets_
+        Lens.coerced Lens.# pSecurityGroupIds_,
+      subnets = Lens.coerced Lens.# pSubnets_
     }
 
 -- | The ID number for a security group on an instance of your private VPC.
@@ -91,7 +91,7 @@ newVpcConfig pSecurityGroupIds_ pSubnets_ =
 -- information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html Security Groups for your VPC>.
 vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
-vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens._Coerce
+vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens.coerced
 
 -- | The ID for each subnet being used in your private VPC. This subnet is a
 -- subset of the a range of IPv4 addresses used by the VPC and is specific
@@ -100,7 +100,7 @@ vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securi
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>.
 vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
-vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens._Coerce
+vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON VpcConfig where
   parseJSON =

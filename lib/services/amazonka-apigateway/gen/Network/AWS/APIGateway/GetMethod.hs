@@ -36,17 +36,17 @@ module Network.AWS.APIGateway.GetMethod
     newMethod,
 
     -- * Response Lenses
-    method_httpMethod,
-    method_methodIntegration,
-    method_apiKeyRequired,
-    method_authorizationType,
-    method_requestModels,
-    method_requestValidatorId,
-    method_operationName,
     method_methodResponses,
-    method_authorizerId,
-    method_requestParameters,
+    method_httpMethod,
     method_authorizationScopes,
+    method_requestValidatorId,
+    method_requestModels,
+    method_requestParameters,
+    method_authorizerId,
+    method_operationName,
+    method_authorizationType,
+    method_apiKeyRequired,
+    method_methodIntegration,
   )
 where
 

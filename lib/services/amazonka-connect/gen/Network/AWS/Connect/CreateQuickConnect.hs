@@ -27,8 +27,8 @@ module Network.AWS.Connect.CreateQuickConnect
     newCreateQuickConnect,
 
     -- * Request Lenses
-    createQuickConnect_tags,
     createQuickConnect_description,
+    createQuickConnect_tags,
     createQuickConnect_instanceId,
     createQuickConnect_name,
     createQuickConnect_quickConnectConfig,
@@ -53,10 +53,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateQuickConnect' smart constructor.
 data CreateQuickConnect = CreateQuickConnect'
-  { -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the quick connect.
+  { -- | The description of the quick connect.
     description :: Prelude.Maybe Prelude.Text,
+    -- | One or more tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -75,9 +75,9 @@ data CreateQuickConnect = CreateQuickConnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createQuickConnect_tags' - One or more tags.
---
 -- 'description', 'createQuickConnect_description' - The description of the quick connect.
+--
+-- 'tags', 'createQuickConnect_tags' - One or more tags.
 --
 -- 'instanceId', 'createQuickConnect_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -98,20 +98,20 @@ newCreateQuickConnect
   pName_
   pQuickConnectConfig_ =
     CreateQuickConnect'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description = Prelude.Nothing,
+        tags = Prelude.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         quickConnectConfig = pQuickConnectConfig_
       }
 
--- | One or more tags.
-createQuickConnect_tags :: Lens.Lens' CreateQuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createQuickConnect_tags = Lens.lens (\CreateQuickConnect' {tags} -> tags) (\s@CreateQuickConnect' {} a -> s {tags = a} :: CreateQuickConnect) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The description of the quick connect.
 createQuickConnect_description :: Lens.Lens' CreateQuickConnect (Prelude.Maybe Prelude.Text)
 createQuickConnect_description = Lens.lens (\CreateQuickConnect' {description} -> description) (\s@CreateQuickConnect' {} a -> s {description = a} :: CreateQuickConnect)
+
+-- | One or more tags.
+createQuickConnect_tags :: Lens.Lens' CreateQuickConnect (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQuickConnect_tags = Lens.lens (\CreateQuickConnect' {tags} -> tags) (\s@CreateQuickConnect' {} a -> s {tags = a} :: CreateQuickConnect) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -159,8 +159,8 @@ instance Core.ToJSON CreateQuickConnect where
   toJSON CreateQuickConnect' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just
               ("QuickConnectConfig" Core..= quickConnectConfig)

@@ -34,8 +34,8 @@ module Network.AWS.DataPipeline.ActivatePipeline
     newActivatePipeline,
 
     -- * Request Lenses
-    activatePipeline_parameterValues,
     activatePipeline_startTimestamp,
+    activatePipeline_parameterValues,
     activatePipeline_pipelineId,
 
     -- * Destructuring the Response
@@ -58,11 +58,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newActivatePipeline' smart constructor.
 data ActivatePipeline = ActivatePipeline'
-  { -- | A list of parameter values to pass to the pipeline at activation.
-    parameterValues :: Prelude.Maybe [ParameterValue],
-    -- | The date and time to resume the pipeline. By default, the pipeline
+  { -- | The date and time to resume the pipeline. By default, the pipeline
     -- resumes from the last completed execution.
     startTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | A list of parameter values to pass to the pipeline at activation.
+    parameterValues :: Prelude.Maybe [ParameterValue],
     -- | The ID of the pipeline.
     pipelineId :: Prelude.Text
   }
@@ -76,10 +76,10 @@ data ActivatePipeline = ActivatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterValues', 'activatePipeline_parameterValues' - A list of parameter values to pass to the pipeline at activation.
---
 -- 'startTimestamp', 'activatePipeline_startTimestamp' - The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
+--
+-- 'parameterValues', 'activatePipeline_parameterValues' - A list of parameter values to pass to the pipeline at activation.
 --
 -- 'pipelineId', 'activatePipeline_pipelineId' - The ID of the pipeline.
 newActivatePipeline ::
@@ -88,20 +88,19 @@ newActivatePipeline ::
   ActivatePipeline
 newActivatePipeline pPipelineId_ =
   ActivatePipeline'
-    { parameterValues =
-        Prelude.Nothing,
-      startTimestamp = Prelude.Nothing,
+    { startTimestamp = Prelude.Nothing,
+      parameterValues = Prelude.Nothing,
       pipelineId = pPipelineId_
     }
-
--- | A list of parameter values to pass to the pipeline at activation.
-activatePipeline_parameterValues :: Lens.Lens' ActivatePipeline (Prelude.Maybe [ParameterValue])
-activatePipeline_parameterValues = Lens.lens (\ActivatePipeline' {parameterValues} -> parameterValues) (\s@ActivatePipeline' {} a -> s {parameterValues = a} :: ActivatePipeline) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
 activatePipeline_startTimestamp :: Lens.Lens' ActivatePipeline (Prelude.Maybe Prelude.UTCTime)
 activatePipeline_startTimestamp = Lens.lens (\ActivatePipeline' {startTimestamp} -> startTimestamp) (\s@ActivatePipeline' {} a -> s {startTimestamp = a} :: ActivatePipeline) Prelude.. Lens.mapping Core._Time
+
+-- | A list of parameter values to pass to the pipeline at activation.
+activatePipeline_parameterValues :: Lens.Lens' ActivatePipeline (Prelude.Maybe [ParameterValue])
+activatePipeline_parameterValues = Lens.lens (\ActivatePipeline' {parameterValues} -> parameterValues) (\s@ActivatePipeline' {} a -> s {parameterValues = a} :: ActivatePipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the pipeline.
 activatePipeline_pipelineId :: Lens.Lens' ActivatePipeline Prelude.Text
@@ -142,10 +141,10 @@ instance Core.ToJSON ActivatePipeline where
   toJSON ActivatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("parameterValues" Core..=)
-              Prelude.<$> parameterValues,
-            ("startTimestamp" Core..=)
+          [ ("startTimestamp" Core..=)
               Prelude.<$> startTimestamp,
+            ("parameterValues" Core..=)
+              Prelude.<$> parameterValues,
             Prelude.Just ("pipelineId" Core..= pipelineId)
           ]
       )

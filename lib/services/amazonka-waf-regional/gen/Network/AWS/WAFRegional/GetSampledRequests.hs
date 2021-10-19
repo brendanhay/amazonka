@@ -57,9 +57,9 @@ module Network.AWS.WAFRegional.GetSampledRequests
     newGetSampledRequestsResponse,
 
     -- * Response Lenses
-    getSampledRequestsResponse_timeWindow,
-    getSampledRequestsResponse_populationSize,
     getSampledRequestsResponse_sampledRequests,
+    getSampledRequestsResponse_populationSize,
+    getSampledRequestsResponse_timeWindow,
     getSampledRequestsResponse_httpStatus,
   )
 where
@@ -197,11 +197,11 @@ instance Core.AWSRequest GetSampledRequests where
     Response.receiveJSON
       ( \s h x ->
           GetSampledRequestsResponse'
-            Prelude.<$> (x Core..?> "TimeWindow")
-            Prelude.<*> (x Core..?> "PopulationSize")
-            Prelude.<*> ( x Core..?> "SampledRequests"
+            Prelude.<$> ( x Core..?> "SampledRequests"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "PopulationSize")
+            Prelude.<*> (x Core..?> "TimeWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,20 +243,20 @@ instance Core.ToQuery GetSampledRequests where
 
 -- | /See:/ 'newGetSampledRequestsResponse' smart constructor.
 data GetSampledRequestsResponse = GetSampledRequestsResponse'
-  { -- | Usually, @TimeWindow@ is the time range that you specified in the
-    -- @GetSampledRequests@ request. However, if your AWS resource received
-    -- more than 5,000 requests during the time range that you specified in the
-    -- request, @GetSampledRequests@ returns the time range for the first 5,000
-    -- requests. Times are in Coordinated Universal Time (UTC) format.
-    timeWindow :: Prelude.Maybe TimeWindow,
+  { -- | A complex type that contains detailed information about each of the
+    -- requests in the sample.
+    sampledRequests :: Prelude.Maybe [SampledHTTPRequest],
     -- | The total number of requests from which @GetSampledRequests@ got a
     -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
     -- @MaxItems@, the sample includes every request that your AWS resource
     -- received during the specified time range.
     populationSize :: Prelude.Maybe Prelude.Integer,
-    -- | A complex type that contains detailed information about each of the
-    -- requests in the sample.
-    sampledRequests :: Prelude.Maybe [SampledHTTPRequest],
+    -- | Usually, @TimeWindow@ is the time range that you specified in the
+    -- @GetSampledRequests@ request. However, if your AWS resource received
+    -- more than 5,000 requests during the time range that you specified in the
+    -- request, @GetSampledRequests@ returns the time range for the first 5,000
+    -- requests. Times are in Coordinated Universal Time (UTC) format.
+    timeWindow :: Prelude.Maybe TimeWindow,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -270,19 +270,19 @@ data GetSampledRequestsResponse = GetSampledRequestsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeWindow', 'getSampledRequestsResponse_timeWindow' - Usually, @TimeWindow@ is the time range that you specified in the
--- @GetSampledRequests@ request. However, if your AWS resource received
--- more than 5,000 requests during the time range that you specified in the
--- request, @GetSampledRequests@ returns the time range for the first 5,000
--- requests. Times are in Coordinated Universal Time (UTC) format.
+-- 'sampledRequests', 'getSampledRequestsResponse_sampledRequests' - A complex type that contains detailed information about each of the
+-- requests in the sample.
 --
 -- 'populationSize', 'getSampledRequestsResponse_populationSize' - The total number of requests from which @GetSampledRequests@ got a
 -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
 -- @MaxItems@, the sample includes every request that your AWS resource
 -- received during the specified time range.
 --
--- 'sampledRequests', 'getSampledRequestsResponse_sampledRequests' - A complex type that contains detailed information about each of the
--- requests in the sample.
+-- 'timeWindow', 'getSampledRequestsResponse_timeWindow' - Usually, @TimeWindow@ is the time range that you specified in the
+-- @GetSampledRequests@ request. However, if your AWS resource received
+-- more than 5,000 requests during the time range that you specified in the
+-- request, @GetSampledRequests@ returns the time range for the first 5,000
+-- requests. Times are in Coordinated Universal Time (UTC) format.
 --
 -- 'httpStatus', 'getSampledRequestsResponse_httpStatus' - The response's http status code.
 newGetSampledRequestsResponse ::
@@ -291,20 +291,17 @@ newGetSampledRequestsResponse ::
   GetSampledRequestsResponse
 newGetSampledRequestsResponse pHttpStatus_ =
   GetSampledRequestsResponse'
-    { timeWindow =
+    { sampledRequests =
         Prelude.Nothing,
       populationSize = Prelude.Nothing,
-      sampledRequests = Prelude.Nothing,
+      timeWindow = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Usually, @TimeWindow@ is the time range that you specified in the
--- @GetSampledRequests@ request. However, if your AWS resource received
--- more than 5,000 requests during the time range that you specified in the
--- request, @GetSampledRequests@ returns the time range for the first 5,000
--- requests. Times are in Coordinated Universal Time (UTC) format.
-getSampledRequestsResponse_timeWindow :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe TimeWindow)
-getSampledRequestsResponse_timeWindow = Lens.lens (\GetSampledRequestsResponse' {timeWindow} -> timeWindow) (\s@GetSampledRequestsResponse' {} a -> s {timeWindow = a} :: GetSampledRequestsResponse)
+-- | A complex type that contains detailed information about each of the
+-- requests in the sample.
+getSampledRequestsResponse_sampledRequests :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe [SampledHTTPRequest])
+getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsResponse' {sampledRequests} -> sampledRequests) (\s@GetSampledRequestsResponse' {} a -> s {sampledRequests = a} :: GetSampledRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of requests from which @GetSampledRequests@ got a
 -- sample of @MaxItems@ requests. If @PopulationSize@ is less than
@@ -313,10 +310,13 @@ getSampledRequestsResponse_timeWindow = Lens.lens (\GetSampledRequestsResponse' 
 getSampledRequestsResponse_populationSize :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe Prelude.Integer)
 getSampledRequestsResponse_populationSize = Lens.lens (\GetSampledRequestsResponse' {populationSize} -> populationSize) (\s@GetSampledRequestsResponse' {} a -> s {populationSize = a} :: GetSampledRequestsResponse)
 
--- | A complex type that contains detailed information about each of the
--- requests in the sample.
-getSampledRequestsResponse_sampledRequests :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe [SampledHTTPRequest])
-getSampledRequestsResponse_sampledRequests = Lens.lens (\GetSampledRequestsResponse' {sampledRequests} -> sampledRequests) (\s@GetSampledRequestsResponse' {} a -> s {sampledRequests = a} :: GetSampledRequestsResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | Usually, @TimeWindow@ is the time range that you specified in the
+-- @GetSampledRequests@ request. However, if your AWS resource received
+-- more than 5,000 requests during the time range that you specified in the
+-- request, @GetSampledRequests@ returns the time range for the first 5,000
+-- requests. Times are in Coordinated Universal Time (UTC) format.
+getSampledRequestsResponse_timeWindow :: Lens.Lens' GetSampledRequestsResponse (Prelude.Maybe TimeWindow)
+getSampledRequestsResponse_timeWindow = Lens.lens (\GetSampledRequestsResponse' {timeWindow} -> timeWindow) (\s@GetSampledRequestsResponse' {} a -> s {timeWindow = a} :: GetSampledRequestsResponse)
 
 -- | The response's http status code.
 getSampledRequestsResponse_httpStatus :: Lens.Lens' GetSampledRequestsResponse Prelude.Int

@@ -36,16 +36,16 @@ data PartitionInput = PartitionInput'
     -- partition keys appearing in the Amazon S3 prefix. Otherwise Glue will
     -- add the values to the wrong keys.
     values :: Prelude.Maybe [Prelude.Text],
-    -- | Provides information about the physical location where the partition is
-    -- stored.
-    storageDescriptor :: Prelude.Maybe StorageDescriptor,
     -- | The last time at which column statistics were computed for this
     -- partition.
     lastAnalyzedTime :: Prelude.Maybe Core.POSIX,
-    -- | The last time at which the partition was accessed.
-    lastAccessTime :: Prelude.Maybe Core.POSIX,
+    -- | Provides information about the physical location where the partition is
+    -- stored.
+    storageDescriptor :: Prelude.Maybe StorageDescriptor,
     -- | These key-value pairs define partition parameters.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The last time at which the partition was accessed.
+    lastAccessTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,24 +65,24 @@ data PartitionInput = PartitionInput'
 -- partition keys appearing in the Amazon S3 prefix. Otherwise Glue will
 -- add the values to the wrong keys.
 --
--- 'storageDescriptor', 'partitionInput_storageDescriptor' - Provides information about the physical location where the partition is
--- stored.
---
 -- 'lastAnalyzedTime', 'partitionInput_lastAnalyzedTime' - The last time at which column statistics were computed for this
 -- partition.
 --
--- 'lastAccessTime', 'partitionInput_lastAccessTime' - The last time at which the partition was accessed.
+-- 'storageDescriptor', 'partitionInput_storageDescriptor' - Provides information about the physical location where the partition is
+-- stored.
 --
 -- 'parameters', 'partitionInput_parameters' - These key-value pairs define partition parameters.
+--
+-- 'lastAccessTime', 'partitionInput_lastAccessTime' - The last time at which the partition was accessed.
 newPartitionInput ::
   PartitionInput
 newPartitionInput =
   PartitionInput'
     { values = Prelude.Nothing,
-      storageDescriptor = Prelude.Nothing,
       lastAnalyzedTime = Prelude.Nothing,
-      lastAccessTime = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      storageDescriptor = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      lastAccessTime = Prelude.Nothing
     }
 
 -- | The values of the partition. Although this parameter is not required by
@@ -93,25 +93,25 @@ newPartitionInput =
 -- partition keys appearing in the Amazon S3 prefix. Otherwise Glue will
 -- add the values to the wrong keys.
 partitionInput_values :: Lens.Lens' PartitionInput (Prelude.Maybe [Prelude.Text])
-partitionInput_values = Lens.lens (\PartitionInput' {values} -> values) (\s@PartitionInput' {} a -> s {values = a} :: PartitionInput) Prelude.. Lens.mapping Lens._Coerce
-
--- | Provides information about the physical location where the partition is
--- stored.
-partitionInput_storageDescriptor :: Lens.Lens' PartitionInput (Prelude.Maybe StorageDescriptor)
-partitionInput_storageDescriptor = Lens.lens (\PartitionInput' {storageDescriptor} -> storageDescriptor) (\s@PartitionInput' {} a -> s {storageDescriptor = a} :: PartitionInput)
+partitionInput_values = Lens.lens (\PartitionInput' {values} -> values) (\s@PartitionInput' {} a -> s {values = a} :: PartitionInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | The last time at which column statistics were computed for this
 -- partition.
 partitionInput_lastAnalyzedTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
 partitionInput_lastAnalyzedTime = Lens.lens (\PartitionInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@PartitionInput' {} a -> s {lastAnalyzedTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
 
--- | The last time at which the partition was accessed.
-partitionInput_lastAccessTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
-partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
+-- | Provides information about the physical location where the partition is
+-- stored.
+partitionInput_storageDescriptor :: Lens.Lens' PartitionInput (Prelude.Maybe StorageDescriptor)
+partitionInput_storageDescriptor = Lens.lens (\PartitionInput' {storageDescriptor} -> storageDescriptor) (\s@PartitionInput' {} a -> s {storageDescriptor = a} :: PartitionInput)
 
 -- | These key-value pairs define partition parameters.
 partitionInput_parameters :: Lens.Lens' PartitionInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-partitionInput_parameters = Lens.lens (\PartitionInput' {parameters} -> parameters) (\s@PartitionInput' {} a -> s {parameters = a} :: PartitionInput) Prelude.. Lens.mapping Lens._Coerce
+partitionInput_parameters = Lens.lens (\PartitionInput' {parameters} -> parameters) (\s@PartitionInput' {} a -> s {parameters = a} :: PartitionInput) Prelude.. Lens.mapping Lens.coerced
+
+-- | The last time at which the partition was accessed.
+partitionInput_lastAccessTime :: Lens.Lens' PartitionInput (Prelude.Maybe Prelude.UTCTime)
+partitionInput_lastAccessTime = Lens.lens (\PartitionInput' {lastAccessTime} -> lastAccessTime) (\s@PartitionInput' {} a -> s {lastAccessTime = a} :: PartitionInput) Prelude.. Lens.mapping Core._Time
 
 instance Prelude.Hashable PartitionInput
 
@@ -122,12 +122,12 @@ instance Core.ToJSON PartitionInput where
     Core.object
       ( Prelude.catMaybes
           [ ("Values" Core..=) Prelude.<$> values,
-            ("StorageDescriptor" Core..=)
-              Prelude.<$> storageDescriptor,
             ("LastAnalyzedTime" Core..=)
               Prelude.<$> lastAnalyzedTime,
+            ("StorageDescriptor" Core..=)
+              Prelude.<$> storageDescriptor,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             ("LastAccessTime" Core..=)
-              Prelude.<$> lastAccessTime,
-            ("Parameters" Core..=) Prelude.<$> parameters
+              Prelude.<$> lastAccessTime
           ]
       )

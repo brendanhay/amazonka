@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGlobalTableDescription' smart constructor.
 data GlobalTableDescription = GlobalTableDescription'
-  { -- | The global table name.
-    globalTableName :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the global table:
+  { -- | The current state of the global table:
     --
     -- -   @CREATING@ - The global table is being created.
     --
@@ -41,12 +39,14 @@ data GlobalTableDescription = GlobalTableDescription'
     --
     -- -   @ACTIVE@ - The global table is ready for use.
     globalTableStatus :: Prelude.Maybe GlobalTableStatus,
-    -- | The Regions where the global table has replicas.
-    replicationGroup :: Prelude.Maybe [ReplicaDescription],
+    -- | The global table name.
+    globalTableName :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the global table.
+    globalTableArn :: Prelude.Maybe Prelude.Text,
     -- | The creation time of the global table.
     creationDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The unique identifier of the global table.
-    globalTableArn :: Prelude.Maybe Prelude.Text
+    -- | The Regions where the global table has replicas.
+    replicationGroup :: Prelude.Maybe [ReplicaDescription]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,8 +58,6 @@ data GlobalTableDescription = GlobalTableDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalTableName', 'globalTableDescription_globalTableName' - The global table name.
---
 -- 'globalTableStatus', 'globalTableDescription_globalTableStatus' - The current state of the global table:
 --
 -- -   @CREATING@ - The global table is being created.
@@ -70,26 +68,24 @@ data GlobalTableDescription = GlobalTableDescription'
 --
 -- -   @ACTIVE@ - The global table is ready for use.
 --
--- 'replicationGroup', 'globalTableDescription_replicationGroup' - The Regions where the global table has replicas.
+-- 'globalTableName', 'globalTableDescription_globalTableName' - The global table name.
+--
+-- 'globalTableArn', 'globalTableDescription_globalTableArn' - The unique identifier of the global table.
 --
 -- 'creationDateTime', 'globalTableDescription_creationDateTime' - The creation time of the global table.
 --
--- 'globalTableArn', 'globalTableDescription_globalTableArn' - The unique identifier of the global table.
+-- 'replicationGroup', 'globalTableDescription_replicationGroup' - The Regions where the global table has replicas.
 newGlobalTableDescription ::
   GlobalTableDescription
 newGlobalTableDescription =
   GlobalTableDescription'
-    { globalTableName =
+    { globalTableStatus =
         Prelude.Nothing,
-      globalTableStatus = Prelude.Nothing,
-      replicationGroup = Prelude.Nothing,
+      globalTableName = Prelude.Nothing,
+      globalTableArn = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      globalTableArn = Prelude.Nothing
+      replicationGroup = Prelude.Nothing
     }
-
--- | The global table name.
-globalTableDescription_globalTableName :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
-globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {globalTableName} -> globalTableName) (\s@GlobalTableDescription' {} a -> s {globalTableName = a} :: GlobalTableDescription)
 
 -- | The current state of the global table:
 --
@@ -103,17 +99,21 @@ globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {gl
 globalTableDescription_globalTableStatus :: Lens.Lens' GlobalTableDescription (Prelude.Maybe GlobalTableStatus)
 globalTableDescription_globalTableStatus = Lens.lens (\GlobalTableDescription' {globalTableStatus} -> globalTableStatus) (\s@GlobalTableDescription' {} a -> s {globalTableStatus = a} :: GlobalTableDescription)
 
--- | The Regions where the global table has replicas.
-globalTableDescription_replicationGroup :: Lens.Lens' GlobalTableDescription (Prelude.Maybe [ReplicaDescription])
-globalTableDescription_replicationGroup = Lens.lens (\GlobalTableDescription' {replicationGroup} -> replicationGroup) (\s@GlobalTableDescription' {} a -> s {replicationGroup = a} :: GlobalTableDescription) Prelude.. Lens.mapping Lens._Coerce
+-- | The global table name.
+globalTableDescription_globalTableName :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
+globalTableDescription_globalTableName = Lens.lens (\GlobalTableDescription' {globalTableName} -> globalTableName) (\s@GlobalTableDescription' {} a -> s {globalTableName = a} :: GlobalTableDescription)
+
+-- | The unique identifier of the global table.
+globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
+globalTableDescription_globalTableArn = Lens.lens (\GlobalTableDescription' {globalTableArn} -> globalTableArn) (\s@GlobalTableDescription' {} a -> s {globalTableArn = a} :: GlobalTableDescription)
 
 -- | The creation time of the global table.
 globalTableDescription_creationDateTime :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.UTCTime)
 globalTableDescription_creationDateTime = Lens.lens (\GlobalTableDescription' {creationDateTime} -> creationDateTime) (\s@GlobalTableDescription' {} a -> s {creationDateTime = a} :: GlobalTableDescription) Prelude.. Lens.mapping Core._Time
 
--- | The unique identifier of the global table.
-globalTableDescription_globalTableArn :: Lens.Lens' GlobalTableDescription (Prelude.Maybe Prelude.Text)
-globalTableDescription_globalTableArn = Lens.lens (\GlobalTableDescription' {globalTableArn} -> globalTableArn) (\s@GlobalTableDescription' {} a -> s {globalTableArn = a} :: GlobalTableDescription)
+-- | The Regions where the global table has replicas.
+globalTableDescription_replicationGroup :: Lens.Lens' GlobalTableDescription (Prelude.Maybe [ReplicaDescription])
+globalTableDescription_replicationGroup = Lens.lens (\GlobalTableDescription' {replicationGroup} -> replicationGroup) (\s@GlobalTableDescription' {} a -> s {replicationGroup = a} :: GlobalTableDescription) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON GlobalTableDescription where
   parseJSON =
@@ -121,13 +121,13 @@ instance Core.FromJSON GlobalTableDescription where
       "GlobalTableDescription"
       ( \x ->
           GlobalTableDescription'
-            Prelude.<$> (x Core..:? "GlobalTableName")
-            Prelude.<*> (x Core..:? "GlobalTableStatus")
+            Prelude.<$> (x Core..:? "GlobalTableStatus")
+            Prelude.<*> (x Core..:? "GlobalTableName")
+            Prelude.<*> (x Core..:? "GlobalTableArn")
+            Prelude.<*> (x Core..:? "CreationDateTime")
             Prelude.<*> ( x Core..:? "ReplicationGroup"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "GlobalTableArn")
       )
 
 instance Prelude.Hashable GlobalTableDescription

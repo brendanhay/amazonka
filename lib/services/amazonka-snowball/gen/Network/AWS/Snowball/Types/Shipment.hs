@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newShipment' smart constructor.
 data Shipment = Shipment'
-  { -- | The tracking number for this job. Using this tracking number with your
+  { -- | Status information for a shipment.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The tracking number for this job. Using this tracking number with your
     -- region\'s carrier\'s website, you can track a Snow device as the carrier
     -- transports it.
     --
     -- For India, the carrier is Amazon Logistics. For all other regions, UPS
     -- is the carrier.
-    trackingNumber :: Prelude.Maybe Prelude.Text,
-    -- | Status information for a shipment.
-    status :: Prelude.Maybe Prelude.Text
+    trackingNumber :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data Shipment = Shipment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'status', 'shipment_status' - Status information for a shipment.
+--
 -- 'trackingNumber', 'shipment_trackingNumber' - The tracking number for this job. Using this tracking number with your
 -- region\'s carrier\'s website, you can track a Snow device as the carrier
 -- transports it.
 --
 -- For India, the carrier is Amazon Logistics. For all other regions, UPS
 -- is the carrier.
---
--- 'status', 'shipment_status' - Status information for a shipment.
 newShipment ::
   Shipment
 newShipment =
   Shipment'
-    { trackingNumber = Prelude.Nothing,
-      status = Prelude.Nothing
+    { status = Prelude.Nothing,
+      trackingNumber = Prelude.Nothing
     }
+
+-- | Status information for a shipment.
+shipment_status :: Lens.Lens' Shipment (Prelude.Maybe Prelude.Text)
+shipment_status = Lens.lens (\Shipment' {status} -> status) (\s@Shipment' {} a -> s {status = a} :: Shipment)
 
 -- | The tracking number for this job. Using this tracking number with your
 -- region\'s carrier\'s website, you can track a Snow device as the carrier
@@ -73,18 +77,14 @@ newShipment =
 shipment_trackingNumber :: Lens.Lens' Shipment (Prelude.Maybe Prelude.Text)
 shipment_trackingNumber = Lens.lens (\Shipment' {trackingNumber} -> trackingNumber) (\s@Shipment' {} a -> s {trackingNumber = a} :: Shipment)
 
--- | Status information for a shipment.
-shipment_status :: Lens.Lens' Shipment (Prelude.Maybe Prelude.Text)
-shipment_status = Lens.lens (\Shipment' {status} -> status) (\s@Shipment' {} a -> s {status = a} :: Shipment)
-
 instance Core.FromJSON Shipment where
   parseJSON =
     Core.withObject
       "Shipment"
       ( \x ->
           Shipment'
-            Prelude.<$> (x Core..:? "TrackingNumber")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "TrackingNumber")
       )
 
 instance Prelude.Hashable Shipment

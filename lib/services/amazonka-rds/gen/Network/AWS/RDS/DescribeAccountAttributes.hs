@@ -143,7 +143,7 @@ newDescribeAccountAttributesResponse pHttpStatus_ =
 -- name, a count of usage toward the quota maximum, and a maximum value for
 -- the quota.
 describeAccountAttributesResponse_accountQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountQuota])
-describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAttributesResponse' {accountQuotas} -> accountQuotas) (\s@DescribeAccountAttributesResponse' {} a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAccountAttributesResponse_accountQuotas = Lens.lens (\DescribeAccountAttributesResponse' {accountQuotas} -> accountQuotas) (\s@DescribeAccountAttributesResponse' {} a -> s {accountQuotas = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int

@@ -78,7 +78,7 @@ newInventoryItemSchema pTypeName_ pAttributes_ =
     { version = Prelude.Nothing,
       displayName = Prelude.Nothing,
       typeName = pTypeName_,
-      attributes = Lens._Coerce Lens.# pAttributes_
+      attributes = Lens.coerced Lens.# pAttributes_
     }
 
 -- | The schema version for the inventory item.
@@ -101,7 +101,7 @@ inventoryItemSchema_typeName = Lens.lens (\InventoryItemSchema' {typeName} -> ty
 -- | The schema attributes for inventory. This contains data type and
 -- attribute name.
 inventoryItemSchema_attributes :: Lens.Lens' InventoryItemSchema (Prelude.NonEmpty InventoryItemAttribute)
-inventoryItemSchema_attributes = Lens.lens (\InventoryItemSchema' {attributes} -> attributes) (\s@InventoryItemSchema' {} a -> s {attributes = a} :: InventoryItemSchema) Prelude.. Lens._Coerce
+inventoryItemSchema_attributes = Lens.lens (\InventoryItemSchema' {attributes} -> attributes) (\s@InventoryItemSchema' {} a -> s {attributes = a} :: InventoryItemSchema) Prelude.. Lens.coerced
 
 instance Core.FromJSON InventoryItemSchema where
   parseJSON =

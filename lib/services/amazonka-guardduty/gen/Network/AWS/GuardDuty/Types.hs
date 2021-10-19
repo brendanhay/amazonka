@@ -17,8 +17,8 @@ module Network.AWS.GuardDuty.Types
     defaultService,
 
     -- * Errors
-    _BadRequestException,
     _InternalServerErrorException,
+    _BadRequestException,
 
     -- * AdminStatus
     AdminStatus (..),
@@ -71,16 +71,16 @@ module Network.AWS.GuardDuty.Types
     -- * AccessControlList
     AccessControlList (..),
     newAccessControlList,
-    accessControlList_allowsPublicReadAccess,
     accessControlList_allowsPublicWriteAccess,
+    accessControlList_allowsPublicReadAccess,
 
     -- * AccessKeyDetails
     AccessKeyDetails (..),
     newAccessKeyDetails,
     accessKeyDetails_principalId,
-    accessKeyDetails_userType,
     accessKeyDetails_userName,
     accessKeyDetails_accessKeyId,
+    accessKeyDetails_userType,
 
     -- * AccountDetail
     AccountDetail (..),
@@ -96,11 +96,11 @@ module Network.AWS.GuardDuty.Types
     -- * Action
     Action (..),
     newAction,
-    action_actionType,
     action_networkConnectionAction,
+    action_portProbeAction,
+    action_actionType,
     action_dnsRequestAction,
     action_awsApiCallAction,
-    action_portProbeAction,
 
     -- * AdminAccount
     AdminAccount (..),
@@ -111,12 +111,12 @@ module Network.AWS.GuardDuty.Types
     -- * AwsApiCallAction
     AwsApiCallAction (..),
     newAwsApiCallAction,
-    awsApiCallAction_api,
-    awsApiCallAction_serviceName,
-    awsApiCallAction_domainDetails,
     awsApiCallAction_remoteIpDetails,
     awsApiCallAction_callerType,
+    awsApiCallAction_domainDetails,
+    awsApiCallAction_serviceName,
     awsApiCallAction_errorCode,
+    awsApiCallAction_api,
 
     -- * BlockPublicAccess
     BlockPublicAccess (..),
@@ -129,15 +129,15 @@ module Network.AWS.GuardDuty.Types
     -- * BucketLevelPermissions
     BucketLevelPermissions (..),
     newBucketLevelPermissions,
+    bucketLevelPermissions_accessControlList,
     bucketLevelPermissions_blockPublicAccess,
     bucketLevelPermissions_bucketPolicy,
-    bucketLevelPermissions_accessControlList,
 
     -- * BucketPolicy
     BucketPolicy (..),
     newBucketPolicy,
-    bucketPolicy_allowsPublicReadAccess,
     bucketPolicy_allowsPublicWriteAccess,
+    bucketPolicy_allowsPublicReadAccess,
 
     -- * City
     City (..),
@@ -153,17 +153,17 @@ module Network.AWS.GuardDuty.Types
     Condition (..),
     newCondition,
     condition_eq,
-    condition_greaterThan,
-    condition_gt,
-    condition_greaterThanOrEqual,
-    condition_lte,
-    condition_neq,
     condition_lessThan,
-    condition_notEquals,
-    condition_equals,
-    condition_gte,
+    condition_lte,
+    condition_greaterThanOrEqual,
     condition_lessThanOrEqual,
+    condition_gt,
+    condition_equals,
+    condition_neq,
+    condition_notEquals,
     condition_lt,
+    condition_gte,
+    condition_greaterThan,
 
     -- * Country
     Country (..),
@@ -205,8 +205,8 @@ module Network.AWS.GuardDuty.Types
     -- * DestinationProperties
     DestinationProperties (..),
     newDestinationProperties,
-    destinationProperties_destinationArn,
     destinationProperties_kmsKeyArn,
+    destinationProperties_destinationArn,
 
     -- * DnsRequestAction
     DnsRequestAction (..),
@@ -226,10 +226,10 @@ module Network.AWS.GuardDuty.Types
     -- * Finding
     Finding (..),
     newFinding,
-    finding_title,
     finding_service,
-    finding_partition,
     finding_confidence,
+    finding_partition,
+    finding_title,
     finding_description,
     finding_accountId,
     finding_arn,
@@ -272,27 +272,27 @@ module Network.AWS.GuardDuty.Types
     -- * InstanceDetails
     InstanceDetails (..),
     newInstanceDetails,
-    instanceDetails_platform,
     instanceDetails_instanceId,
-    instanceDetails_instanceType,
-    instanceDetails_outpostArn,
+    instanceDetails_platform,
     instanceDetails_launchTime,
-    instanceDetails_productCodes,
-    instanceDetails_imageId,
-    instanceDetails_iamInstanceProfile,
-    instanceDetails_availabilityZone,
-    instanceDetails_imageDescription,
-    instanceDetails_tags,
-    instanceDetails_instanceState,
     instanceDetails_networkInterfaces,
+    instanceDetails_outpostArn,
+    instanceDetails_instanceType,
+    instanceDetails_availabilityZone,
+    instanceDetails_iamInstanceProfile,
+    instanceDetails_imageId,
+    instanceDetails_productCodes,
+    instanceDetails_instanceState,
+    instanceDetails_tags,
+    instanceDetails_imageDescription,
 
     -- * Invitation
     Invitation (..),
     newInvitation,
-    invitation_accountId,
+    invitation_invitedAt,
     invitation_relationshipStatus,
     invitation_invitationId,
-    invitation_invitedAt,
+    invitation_accountId,
 
     -- * LocalIpDetails
     LocalIpDetails (..),
@@ -308,16 +308,16 @@ module Network.AWS.GuardDuty.Types
     -- * Master
     Master (..),
     newMaster,
-    master_accountId,
+    master_invitedAt,
     master_relationshipStatus,
     master_invitationId,
-    master_invitedAt,
+    master_accountId,
 
     -- * Member
     Member (..),
     newMember,
-    member_detectorId,
     member_invitedAt,
+    member_detectorId,
     member_accountId,
     member_masterId,
     member_email,
@@ -333,35 +333,35 @@ module Network.AWS.GuardDuty.Types
     -- * NetworkConnectionAction
     NetworkConnectionAction (..),
     newNetworkConnectionAction,
-    networkConnectionAction_remotePortDetails,
-    networkConnectionAction_localPortDetails,
-    networkConnectionAction_connectionDirection,
-    networkConnectionAction_blocked,
     networkConnectionAction_remoteIpDetails,
     networkConnectionAction_protocol,
     networkConnectionAction_localIpDetails,
+    networkConnectionAction_remotePortDetails,
+    networkConnectionAction_blocked,
+    networkConnectionAction_connectionDirection,
+    networkConnectionAction_localPortDetails,
 
     -- * NetworkInterface
     NetworkInterface (..),
     newNetworkInterface,
     networkInterface_privateIpAddresses,
-    networkInterface_ipv6Addresses,
-    networkInterface_securityGroups,
     networkInterface_publicDnsName,
-    networkInterface_subnetId,
-    networkInterface_networkInterfaceId,
-    networkInterface_privateDnsName,
-    networkInterface_publicIp,
+    networkInterface_securityGroups,
     networkInterface_vpcId,
+    networkInterface_networkInterfaceId,
+    networkInterface_subnetId,
     networkInterface_privateIpAddress,
+    networkInterface_publicIp,
+    networkInterface_privateDnsName,
+    networkInterface_ipv6Addresses,
 
     -- * Organization
     Organization (..),
     newOrganization,
+    organization_org,
+    organization_asnOrg,
     organization_asn,
     organization_isp,
-    organization_asnOrg,
-    organization_org,
 
     -- * OrganizationDataSourceConfigurations
     OrganizationDataSourceConfigurations (..),
@@ -391,8 +391,8 @@ module Network.AWS.GuardDuty.Types
     -- * PermissionConfiguration
     PermissionConfiguration (..),
     newPermissionConfiguration,
-    permissionConfiguration_accountLevelPermissions,
     permissionConfiguration_bucketLevelPermissions,
+    permissionConfiguration_accountLevelPermissions,
 
     -- * PortProbeAction
     PortProbeAction (..),
@@ -403,21 +403,21 @@ module Network.AWS.GuardDuty.Types
     -- * PortProbeDetail
     PortProbeDetail (..),
     newPortProbeDetail,
-    portProbeDetail_localPortDetails,
     portProbeDetail_remoteIpDetails,
     portProbeDetail_localIpDetails,
+    portProbeDetail_localPortDetails,
 
     -- * PrivateIpAddressDetails
     PrivateIpAddressDetails (..),
     newPrivateIpAddressDetails,
-    privateIpAddressDetails_privateDnsName,
     privateIpAddressDetails_privateIpAddress,
+    privateIpAddressDetails_privateDnsName,
 
     -- * ProductCode
     ProductCode (..),
     newProductCode,
-    productCode_code,
     productCode_productType,
+    productCode_code,
 
     -- * PublicAccess
     PublicAccess (..),
@@ -428,11 +428,11 @@ module Network.AWS.GuardDuty.Types
     -- * RemoteIpDetails
     RemoteIpDetails (..),
     newRemoteIpDetails,
-    remoteIpDetails_geoLocation,
-    remoteIpDetails_city,
-    remoteIpDetails_organization,
     remoteIpDetails_country,
+    remoteIpDetails_city,
     remoteIpDetails_ipAddressV4,
+    remoteIpDetails_geoLocation,
+    remoteIpDetails_organization,
 
     -- * RemotePortDetails
     RemotePortDetails (..),
@@ -443,22 +443,22 @@ module Network.AWS.GuardDuty.Types
     -- * Resource
     Resource (..),
     newResource,
+    resource_resourceType,
     resource_s3BucketDetails,
     resource_instanceDetails,
-    resource_resourceType,
     resource_accessKeyDetails,
 
     -- * S3BucketDetail
     S3BucketDetail (..),
     newS3BucketDetail,
-    s3BucketDetail_createdAt,
-    s3BucketDetail_publicAccess,
     s3BucketDetail_arn,
-    s3BucketDetail_defaultServerSideEncryption,
-    s3BucketDetail_name,
-    s3BucketDetail_tags,
+    s3BucketDetail_createdAt,
     s3BucketDetail_owner,
+    s3BucketDetail_name,
+    s3BucketDetail_defaultServerSideEncryption,
+    s3BucketDetail_publicAccess,
     s3BucketDetail_type,
+    s3BucketDetail_tags,
 
     -- * S3LogsConfiguration
     S3LogsConfiguration (..),
@@ -473,34 +473,34 @@ module Network.AWS.GuardDuty.Types
     -- * SecurityGroup
     SecurityGroup (..),
     newSecurityGroup,
-    securityGroup_groupName,
     securityGroup_groupId,
+    securityGroup_groupName,
 
     -- * ServiceInfo
     ServiceInfo (..),
     newServiceInfo,
-    serviceInfo_archived,
-    serviceInfo_resourceRole,
-    serviceInfo_eventFirstSeen,
-    serviceInfo_eventLastSeen,
-    serviceInfo_serviceName,
-    serviceInfo_detectorId,
-    serviceInfo_action,
-    serviceInfo_evidence,
     serviceInfo_count,
+    serviceInfo_eventFirstSeen,
+    serviceInfo_action,
+    serviceInfo_detectorId,
+    serviceInfo_serviceName,
     serviceInfo_userFeedback,
+    serviceInfo_evidence,
+    serviceInfo_eventLastSeen,
+    serviceInfo_resourceRole,
+    serviceInfo_archived,
 
     -- * SortCriteria
     SortCriteria (..),
     newSortCriteria,
-    sortCriteria_attributeName,
     sortCriteria_orderBy,
+    sortCriteria_attributeName,
 
     -- * Tag
     Tag (..),
     newTag,
-    tag_key,
     tag_value,
+    tag_key,
 
     -- * ThreatIntelligenceDetail
     ThreatIntelligenceDetail (..),
@@ -536,8 +536,8 @@ module Network.AWS.GuardDuty.Types
     -- * UsageDataSourceResult
     UsageDataSourceResult (..),
     newUsageDataSourceResult,
-    usageDataSourceResult_dataSource,
     usageDataSourceResult_total,
+    usageDataSourceResult_dataSource,
 
     -- * UsageResourceResult
     UsageResourceResult (..),
@@ -548,10 +548,10 @@ module Network.AWS.GuardDuty.Types
     -- * UsageStatistics
     UsageStatistics (..),
     newUsageStatistics,
-    usageStatistics_sumByDataSource,
     usageStatistics_topResources,
-    usageStatistics_sumByAccount,
     usageStatistics_sumByResource,
+    usageStatistics_sumByDataSource,
+    usageStatistics_sumByAccount,
   )
 where
 
@@ -669,37 +669,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -712,15 +689,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | A bad request exception object.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | An internal server error exception object.
 _InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -729,3 +721,11 @@ _InternalServerErrorException =
     defaultService
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
+
+-- | A bad request exception object.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400

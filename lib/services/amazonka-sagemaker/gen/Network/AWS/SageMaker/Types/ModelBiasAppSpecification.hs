@@ -69,7 +69,7 @@ newModelBiasAppSpecification pImageUri_ pConfigUri_ =
 
 -- | Sets the environment variables in the Docker container.
 modelBiasAppSpecification_environment :: Lens.Lens' ModelBiasAppSpecification (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-modelBiasAppSpecification_environment = Lens.lens (\ModelBiasAppSpecification' {environment} -> environment) (\s@ModelBiasAppSpecification' {} a -> s {environment = a} :: ModelBiasAppSpecification) Prelude.. Lens.mapping Lens._Coerce
+modelBiasAppSpecification_environment = Lens.lens (\ModelBiasAppSpecification' {environment} -> environment) (\s@ModelBiasAppSpecification' {} a -> s {environment = a} :: ModelBiasAppSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The container image to be run by the model bias job.
 modelBiasAppSpecification_imageUri :: Lens.Lens' ModelBiasAppSpecification Prelude.Text

@@ -154,7 +154,7 @@ newAssessmentRun
         state = pState_,
         durationInSeconds = pDurationInSeconds_,
         rulesPackageArns =
-          Lens._Coerce Lens.# pRulesPackageArns_,
+          Lens.coerced Lens.# pRulesPackageArns_,
         userAttributesForFindings = Prelude.mempty,
         createdAt = Core._Time Lens.# pCreatedAt_,
         stateChangedAt = Core._Time Lens.# pStateChangedAt_,
@@ -196,12 +196,12 @@ assessmentRun_durationInSeconds = Lens.lens (\AssessmentRun' {durationInSeconds}
 
 -- | The rules packages selected for the assessment run.
 assessmentRun_rulesPackageArns :: Lens.Lens' AssessmentRun (Prelude.NonEmpty Prelude.Text)
-assessmentRun_rulesPackageArns = Lens.lens (\AssessmentRun' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentRun' {} a -> s {rulesPackageArns = a} :: AssessmentRun) Prelude.. Lens._Coerce
+assessmentRun_rulesPackageArns = Lens.lens (\AssessmentRun' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentRun' {} a -> s {rulesPackageArns = a} :: AssessmentRun) Prelude.. Lens.coerced
 
 -- | The user-defined attributes that are assigned to every generated
 -- finding.
 assessmentRun_userAttributesForFindings :: Lens.Lens' AssessmentRun [Attribute]
-assessmentRun_userAttributesForFindings = Lens.lens (\AssessmentRun' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentRun' {} a -> s {userAttributesForFindings = a} :: AssessmentRun) Prelude.. Lens._Coerce
+assessmentRun_userAttributesForFindings = Lens.lens (\AssessmentRun' {userAttributesForFindings} -> userAttributesForFindings) (\s@AssessmentRun' {} a -> s {userAttributesForFindings = a} :: AssessmentRun) Prelude.. Lens.coerced
 
 -- | The time when StartAssessmentRun was called.
 assessmentRun_createdAt :: Lens.Lens' AssessmentRun Prelude.UTCTime
@@ -218,16 +218,16 @@ assessmentRun_dataCollected = Lens.lens (\AssessmentRun' {dataCollected} -> data
 
 -- | A list of the assessment run state changes.
 assessmentRun_stateChanges :: Lens.Lens' AssessmentRun [AssessmentRunStateChange]
-assessmentRun_stateChanges = Lens.lens (\AssessmentRun' {stateChanges} -> stateChanges) (\s@AssessmentRun' {} a -> s {stateChanges = a} :: AssessmentRun) Prelude.. Lens._Coerce
+assessmentRun_stateChanges = Lens.lens (\AssessmentRun' {stateChanges} -> stateChanges) (\s@AssessmentRun' {} a -> s {stateChanges = a} :: AssessmentRun) Prelude.. Lens.coerced
 
 -- | A list of notifications for the event subscriptions. A notification
 -- about a particular generated finding is added to this list only once.
 assessmentRun_notifications :: Lens.Lens' AssessmentRun [AssessmentRunNotification]
-assessmentRun_notifications = Lens.lens (\AssessmentRun' {notifications} -> notifications) (\s@AssessmentRun' {} a -> s {notifications = a} :: AssessmentRun) Prelude.. Lens._Coerce
+assessmentRun_notifications = Lens.lens (\AssessmentRun' {notifications} -> notifications) (\s@AssessmentRun' {} a -> s {notifications = a} :: AssessmentRun) Prelude.. Lens.coerced
 
 -- | Provides a total count of generated findings per severity.
 assessmentRun_findingCounts :: Lens.Lens' AssessmentRun (Prelude.HashMap Severity Prelude.Int)
-assessmentRun_findingCounts = Lens.lens (\AssessmentRun' {findingCounts} -> findingCounts) (\s@AssessmentRun' {} a -> s {findingCounts = a} :: AssessmentRun) Prelude.. Lens._Coerce
+assessmentRun_findingCounts = Lens.lens (\AssessmentRun' {findingCounts} -> findingCounts) (\s@AssessmentRun' {} a -> s {findingCounts = a} :: AssessmentRun) Prelude.. Lens.coerced
 
 instance Core.FromJSON AssessmentRun where
   parseJSON =

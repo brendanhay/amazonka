@@ -98,7 +98,7 @@ newCreateNetworkAcl pVpcId_ =
 
 -- | The tags to assign to the network ACL.
 createNetworkAcl_tagSpecifications :: Lens.Lens' CreateNetworkAcl (Prelude.Maybe [TagSpecification])
-createNetworkAcl_tagSpecifications = Lens.lens (\CreateNetworkAcl' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkAcl' {} a -> s {tagSpecifications = a} :: CreateNetworkAcl) Prelude.. Lens.mapping Lens._Coerce
+createNetworkAcl_tagSpecifications = Lens.lens (\CreateNetworkAcl' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkAcl' {} a -> s {tagSpecifications = a} :: CreateNetworkAcl) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

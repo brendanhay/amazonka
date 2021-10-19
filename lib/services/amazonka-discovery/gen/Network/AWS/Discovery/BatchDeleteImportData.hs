@@ -79,12 +79,12 @@ newBatchDeleteImportData ::
 newBatchDeleteImportData pImportTaskIds_ =
   BatchDeleteImportData'
     { importTaskIds =
-        Lens._Coerce Lens.# pImportTaskIds_
+        Lens.coerced Lens.# pImportTaskIds_
     }
 
 -- | The IDs for the import tasks that you want to delete.
 batchDeleteImportData_importTaskIds :: Lens.Lens' BatchDeleteImportData (Prelude.NonEmpty Prelude.Text)
-batchDeleteImportData_importTaskIds = Lens.lens (\BatchDeleteImportData' {importTaskIds} -> importTaskIds) (\s@BatchDeleteImportData' {} a -> s {importTaskIds = a} :: BatchDeleteImportData) Prelude.. Lens._Coerce
+batchDeleteImportData_importTaskIds = Lens.lens (\BatchDeleteImportData' {importTaskIds} -> importTaskIds) (\s@BatchDeleteImportData' {} a -> s {importTaskIds = a} :: BatchDeleteImportData) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteImportData where
   type
@@ -169,7 +169,7 @@ newBatchDeleteImportDataResponse pHttpStatus_ =
 -- | Error messages returned for each import task that you deleted as a
 -- response for this command.
 batchDeleteImportDataResponse_errors :: Lens.Lens' BatchDeleteImportDataResponse (Prelude.Maybe [BatchDeleteImportDataError])
-batchDeleteImportDataResponse_errors = Lens.lens (\BatchDeleteImportDataResponse' {errors} -> errors) (\s@BatchDeleteImportDataResponse' {} a -> s {errors = a} :: BatchDeleteImportDataResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteImportDataResponse_errors = Lens.lens (\BatchDeleteImportDataResponse' {errors} -> errors) (\s@BatchDeleteImportDataResponse' {} a -> s {errors = a} :: BatchDeleteImportDataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteImportDataResponse_httpStatus :: Lens.Lens' BatchDeleteImportDataResponse Prelude.Int

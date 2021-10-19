@@ -48,8 +48,8 @@ module Network.AWS.CognitoIdentityProvider.InitiateAuth
 
     -- * Request Lenses
     initiateAuth_clientMetadata,
-    initiateAuth_userContextData,
     initiateAuth_analyticsMetadata,
+    initiateAuth_userContextData,
     initiateAuth_authParameters,
     initiateAuth_authFlow,
     initiateAuth_clientId,
@@ -59,9 +59,9 @@ module Network.AWS.CognitoIdentityProvider.InitiateAuth
     newInitiateAuthResponse,
 
     -- * Response Lenses
-    initiateAuthResponse_authenticationResult,
     initiateAuthResponse_challengeName,
     initiateAuthResponse_challengeParameters,
+    initiateAuthResponse_authenticationResult,
     initiateAuthResponse_session,
     initiateAuthResponse_httpStatus,
   )
@@ -134,13 +134,13 @@ data InitiateAuth = InitiateAuth'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @InitiateAuth@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
     userContextData :: Prelude.Maybe UserContextDataType,
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @InitiateAuth@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The authentication parameters. These are inputs corresponding to the
     -- @AuthFlow@ that you are invoking. The required values depend on the
     -- value of @AuthFlow@:
@@ -262,12 +262,12 @@ data InitiateAuth = InitiateAuth'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
+-- 'analyticsMetadata', 'initiateAuth_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @InitiateAuth@ calls.
+--
 -- 'userContextData', 'initiateAuth_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
---
--- 'analyticsMetadata', 'initiateAuth_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @InitiateAuth@ calls.
 --
 -- 'authParameters', 'initiateAuth_authParameters' - The authentication parameters. These are inputs corresponding to the
 -- @AuthFlow@ that you are invoking. The required values depend on the
@@ -331,8 +331,8 @@ newInitiateAuth ::
 newInitiateAuth pAuthFlow_ pClientId_ =
   InitiateAuth'
     { clientMetadata = Prelude.Nothing,
-      userContextData = Prelude.Nothing,
       analyticsMetadata = Prelude.Nothing,
+      userContextData = Prelude.Nothing,
       authParameters = Prelude.Nothing,
       authFlow = pAuthFlow_,
       clientId = Core._Sensitive Lens.# pClientId_
@@ -394,18 +394,18 @@ newInitiateAuth pAuthFlow_ pClientId_ =
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 initiateAuth_clientMetadata :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuth_clientMetadata = Lens.lens (\InitiateAuth' {clientMetadata} -> clientMetadata) (\s@InitiateAuth' {} a -> s {clientMetadata = a} :: InitiateAuth) Prelude.. Lens.mapping Lens._Coerce
+initiateAuth_clientMetadata = Lens.lens (\InitiateAuth' {clientMetadata} -> clientMetadata) (\s@InitiateAuth' {} a -> s {clientMetadata = a} :: InitiateAuth) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @InitiateAuth@ calls.
+initiateAuth_analyticsMetadata :: Lens.Lens' InitiateAuth (Prelude.Maybe AnalyticsMetadataType)
+initiateAuth_analyticsMetadata = Lens.lens (\InitiateAuth' {analyticsMetadata} -> analyticsMetadata) (\s@InitiateAuth' {} a -> s {analyticsMetadata = a} :: InitiateAuth)
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
 initiateAuth_userContextData :: Lens.Lens' InitiateAuth (Prelude.Maybe UserContextDataType)
 initiateAuth_userContextData = Lens.lens (\InitiateAuth' {userContextData} -> userContextData) (\s@InitiateAuth' {} a -> s {userContextData = a} :: InitiateAuth)
-
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @InitiateAuth@ calls.
-initiateAuth_analyticsMetadata :: Lens.Lens' InitiateAuth (Prelude.Maybe AnalyticsMetadataType)
-initiateAuth_analyticsMetadata = Lens.lens (\InitiateAuth' {analyticsMetadata} -> analyticsMetadata) (\s@InitiateAuth' {} a -> s {analyticsMetadata = a} :: InitiateAuth)
 
 -- | The authentication parameters. These are inputs corresponding to the
 -- @AuthFlow@ that you are invoking. The required values depend on the
@@ -424,7 +424,7 @@ initiateAuth_analyticsMetadata = Lens.lens (\InitiateAuth' {analyticsMetadata} -
 --     authentication flow with password verification, include
 --     @ChallengeName: SRP_A@ and @SRP_A: (The SRP_A Value)@.
 initiateAuth_authParameters :: Lens.Lens' InitiateAuth (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
+initiateAuth_authParameters = Lens.lens (\InitiateAuth' {authParameters} -> authParameters) (\s@InitiateAuth' {} a -> s {authParameters = a} :: InitiateAuth) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The authentication flow for this call to execute. The API action will
 -- depend on this value. For example:
@@ -474,11 +474,11 @@ instance Core.AWSRequest InitiateAuth where
     Response.receiveJSON
       ( \s h x ->
           InitiateAuthResponse'
-            Prelude.<$> (x Core..?> "AuthenticationResult")
-            Prelude.<*> (x Core..?> "ChallengeName")
+            Prelude.<$> (x Core..?> "ChallengeName")
             Prelude.<*> ( x Core..?> "ChallengeParameters"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "AuthenticationResult")
             Prelude.<*> (x Core..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -508,10 +508,10 @@ instance Core.ToJSON InitiateAuth where
       ( Prelude.catMaybes
           [ ("ClientMetadata" Core..=)
               Prelude.<$> clientMetadata,
-            ("UserContextData" Core..=)
-              Prelude.<$> userContextData,
             ("AnalyticsMetadata" Core..=)
               Prelude.<$> analyticsMetadata,
+            ("UserContextData" Core..=)
+              Prelude.<$> userContextData,
             ("AuthParameters" Core..=)
               Prelude.<$> authParameters,
             Prelude.Just ("AuthFlow" Core..= authFlow),
@@ -529,12 +529,7 @@ instance Core.ToQuery InitiateAuth where
 --
 -- /See:/ 'newInitiateAuthResponse' smart constructor.
 data InitiateAuthResponse = InitiateAuthResponse'
-  { -- | The result of the authentication response. This is only returned if the
-    -- caller does not need to pass another challenge. If the caller does need
-    -- to pass another challenge before it gets tokens, @ChallengeName@,
-    -- @ChallengeParameters@, and @Session@ are returned.
-    authenticationResult :: Prelude.Maybe AuthenticationResultType,
-    -- | The name of the challenge which you are responding to with this call.
+  { -- | The name of the challenge which you are responding to with this call.
     -- This is returned to you in the @AdminInitiateAuth@ response if you need
     -- to pass another challenge.
     --
@@ -582,6 +577,11 @@ data InitiateAuthResponse = InitiateAuthResponse'
     --
     -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
     challengeParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The result of the authentication response. This is only returned if the
+    -- caller does not need to pass another challenge. If the caller does need
+    -- to pass another challenge before it gets tokens, @ChallengeName@,
+    -- @ChallengeParameters@, and @Session@ are returned.
+    authenticationResult :: Prelude.Maybe AuthenticationResultType,
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service. If the caller needs to go through another challenge,
     -- they return a session with other challenge parameters. This session
@@ -599,11 +599,6 @@ data InitiateAuthResponse = InitiateAuthResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'authenticationResult', 'initiateAuthResponse_authenticationResult' - The result of the authentication response. This is only returned if the
--- caller does not need to pass another challenge. If the caller does need
--- to pass another challenge before it gets tokens, @ChallengeName@,
--- @ChallengeParameters@, and @Session@ are returned.
 --
 -- 'challengeName', 'initiateAuthResponse_challengeName' - The name of the challenge which you are responding to with this call.
 -- This is returned to you in the @AdminInitiateAuth@ response if you need
@@ -653,6 +648,11 @@ data InitiateAuthResponse = InitiateAuthResponse'
 --
 -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
 --
+-- 'authenticationResult', 'initiateAuthResponse_authenticationResult' - The result of the authentication response. This is only returned if the
+-- caller does not need to pass another challenge. If the caller does need
+-- to pass another challenge before it gets tokens, @ChallengeName@,
+-- @ChallengeParameters@, and @Session@ are returned.
+--
 -- 'session', 'initiateAuthResponse_session' - The session which should be passed both ways in challenge-response calls
 -- to the service. If the caller needs to go through another challenge,
 -- they return a session with other challenge parameters. This session
@@ -665,20 +665,13 @@ newInitiateAuthResponse ::
   InitiateAuthResponse
 newInitiateAuthResponse pHttpStatus_ =
   InitiateAuthResponse'
-    { authenticationResult =
+    { challengeName =
         Prelude.Nothing,
-      challengeName = Prelude.Nothing,
       challengeParameters = Prelude.Nothing,
+      authenticationResult = Prelude.Nothing,
       session = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The result of the authentication response. This is only returned if the
--- caller does not need to pass another challenge. If the caller does need
--- to pass another challenge before it gets tokens, @ChallengeName@,
--- @ChallengeParameters@, and @Session@ are returned.
-initiateAuthResponse_authenticationResult :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
-initiateAuthResponse_authenticationResult = Lens.lens (\InitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@InitiateAuthResponse' {} a -> s {authenticationResult = a} :: InitiateAuthResponse)
 
 -- | The name of the challenge which you are responding to with this call.
 -- This is returned to you in the @AdminInitiateAuth@ response if you need
@@ -730,7 +723,14 @@ initiateAuthResponse_challengeName = Lens.lens (\InitiateAuthResponse' {challeng
 --
 -- All challenges require @USERNAME@ and @SECRET_HASH@ (if applicable).
 initiateAuthResponse_challengeParameters :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-initiateAuthResponse_challengeParameters = Lens.lens (\InitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@InitiateAuthResponse' {} a -> s {challengeParameters = a} :: InitiateAuthResponse) Prelude.. Lens.mapping Lens._Coerce
+initiateAuthResponse_challengeParameters = Lens.lens (\InitiateAuthResponse' {challengeParameters} -> challengeParameters) (\s@InitiateAuthResponse' {} a -> s {challengeParameters = a} :: InitiateAuthResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The result of the authentication response. This is only returned if the
+-- caller does not need to pass another challenge. If the caller does need
+-- to pass another challenge before it gets tokens, @ChallengeName@,
+-- @ChallengeParameters@, and @Session@ are returned.
+initiateAuthResponse_authenticationResult :: Lens.Lens' InitiateAuthResponse (Prelude.Maybe AuthenticationResultType)
+initiateAuthResponse_authenticationResult = Lens.lens (\InitiateAuthResponse' {authenticationResult} -> authenticationResult) (\s@InitiateAuthResponse' {} a -> s {authenticationResult = a} :: InitiateAuthResponse)
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service. If the caller needs to go through another challenge,

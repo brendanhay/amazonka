@@ -35,11 +35,11 @@ module Network.AWS.IAM.GetOpenIDConnectProvider
     newGetOpenIDConnectProviderResponse,
 
     -- * Response Lenses
-    getOpenIDConnectProviderResponse_clientIDList,
     getOpenIDConnectProviderResponse_createDate,
-    getOpenIDConnectProviderResponse_thumbprintList,
-    getOpenIDConnectProviderResponse_tags,
     getOpenIDConnectProviderResponse_url,
+    getOpenIDConnectProviderResponse_thumbprintList,
+    getOpenIDConnectProviderResponse_clientIDList,
+    getOpenIDConnectProviderResponse_tags,
     getOpenIDConnectProviderResponse_httpStatus,
   )
 where
@@ -110,17 +110,17 @@ instance Core.AWSRequest GetOpenIDConnectProvider where
       "GetOpenIDConnectProviderResult"
       ( \s h x ->
           GetOpenIDConnectProviderResponse'
-            Prelude.<$> ( x Core..@? "ClientIDList" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "CreateDate")
+            Prelude.<*> (x Core..@? "Url")
+            Prelude.<*> ( x Core..@? "ThumbprintList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "CreateDate")
-            Prelude.<*> ( x Core..@? "ThumbprintList" Core..!@ Prelude.mempty
+            Prelude.<*> ( x Core..@? "ClientIDList" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
             Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,26 +149,26 @@ instance Core.ToQuery GetOpenIDConnectProvider where
 --
 -- /See:/ 'newGetOpenIDConnectProviderResponse' smart constructor.
 data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
-  { -- | A list of client IDs (also known as audiences) that are associated with
-    -- the specified IAM OIDC provider resource object. For more information,
-    -- see CreateOpenIDConnectProvider.
-    clientIDList :: Prelude.Maybe [Prelude.Text],
-    -- | The date and time when the IAM OIDC provider resource object was created
+  { -- | The date and time when the IAM OIDC provider resource object was created
     -- in the Amazon Web Services account.
     createDate :: Prelude.Maybe Core.ISO8601,
+    -- | The URL that the IAM OIDC provider resource object is associated with.
+    -- For more information, see CreateOpenIDConnectProvider.
+    url :: Prelude.Maybe Prelude.Text,
     -- | A list of certificate thumbprints that are associated with the specified
     -- IAM OIDC provider resource object. For more information, see
     -- CreateOpenIDConnectProvider.
     thumbprintList :: Prelude.Maybe [Prelude.Text],
+    -- | A list of client IDs (also known as audiences) that are associated with
+    -- the specified IAM OIDC provider resource object. For more information,
+    -- see CreateOpenIDConnectProvider.
+    clientIDList :: Prelude.Maybe [Prelude.Text],
     -- | A list of tags that are attached to the specified IAM OIDC provider. The
     -- returned list of tags is sorted by tag key. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The URL that the IAM OIDC provider resource object is associated with.
-    -- For more information, see CreateOpenIDConnectProvider.
-    url :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,25 +182,25 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientIDList', 'getOpenIDConnectProviderResponse_clientIDList' - A list of client IDs (also known as audiences) that are associated with
--- the specified IAM OIDC provider resource object. For more information,
--- see CreateOpenIDConnectProvider.
---
 -- 'createDate', 'getOpenIDConnectProviderResponse_createDate' - The date and time when the IAM OIDC provider resource object was created
 -- in the Amazon Web Services account.
+--
+-- 'url', 'getOpenIDConnectProviderResponse_url' - The URL that the IAM OIDC provider resource object is associated with.
+-- For more information, see CreateOpenIDConnectProvider.
 --
 -- 'thumbprintList', 'getOpenIDConnectProviderResponse_thumbprintList' - A list of certificate thumbprints that are associated with the specified
 -- IAM OIDC provider resource object. For more information, see
 -- CreateOpenIDConnectProvider.
+--
+-- 'clientIDList', 'getOpenIDConnectProviderResponse_clientIDList' - A list of client IDs (also known as audiences) that are associated with
+-- the specified IAM OIDC provider resource object. For more information,
+-- see CreateOpenIDConnectProvider.
 --
 -- 'tags', 'getOpenIDConnectProviderResponse_tags' - A list of tags that are attached to the specified IAM OIDC provider. The
 -- returned list of tags is sorted by tag key. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
---
--- 'url', 'getOpenIDConnectProviderResponse_url' - The URL that the IAM OIDC provider resource object is associated with.
--- For more information, see CreateOpenIDConnectProvider.
 --
 -- 'httpStatus', 'getOpenIDConnectProviderResponse_httpStatus' - The response's http status code.
 newGetOpenIDConnectProviderResponse ::
@@ -209,31 +209,36 @@ newGetOpenIDConnectProviderResponse ::
   GetOpenIDConnectProviderResponse
 newGetOpenIDConnectProviderResponse pHttpStatus_ =
   GetOpenIDConnectProviderResponse'
-    { clientIDList =
+    { createDate =
         Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      thumbprintList = Prelude.Nothing,
-      tags = Prelude.Nothing,
       url = Prelude.Nothing,
+      thumbprintList = Prelude.Nothing,
+      clientIDList = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of client IDs (also known as audiences) that are associated with
--- the specified IAM OIDC provider resource object. For more information,
--- see CreateOpenIDConnectProvider.
-getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
-getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time when the IAM OIDC provider resource object was created
 -- in the Amazon Web Services account.
 getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.UTCTime)
 getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The URL that the IAM OIDC provider resource object is associated with.
+-- For more information, see CreateOpenIDConnectProvider.
+getOpenIDConnectProviderResponse_url :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.Text)
+getOpenIDConnectProviderResponse_url = Lens.lens (\GetOpenIDConnectProviderResponse' {url} -> url) (\s@GetOpenIDConnectProviderResponse' {} a -> s {url = a} :: GetOpenIDConnectProviderResponse)
+
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OIDC provider resource object. For more information, see
 -- CreateOpenIDConnectProvider.
 getOpenIDConnectProviderResponse_thumbprintList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
-getOpenIDConnectProviderResponse_thumbprintList = Lens.lens (\GetOpenIDConnectProviderResponse' {thumbprintList} -> thumbprintList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {thumbprintList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
+getOpenIDConnectProviderResponse_thumbprintList = Lens.lens (\GetOpenIDConnectProviderResponse' {thumbprintList} -> thumbprintList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {thumbprintList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of client IDs (also known as audiences) that are associated with
+-- the specified IAM OIDC provider resource object. For more information,
+-- see CreateOpenIDConnectProvider.
+getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Prelude.Text])
+getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of tags that are attached to the specified IAM OIDC provider. The
 -- returned list of tags is sorted by tag key. For more information about
@@ -241,12 +246,7 @@ getOpenIDConnectProviderResponse_thumbprintList = Lens.lens (\GetOpenIDConnectPr
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
 getOpenIDConnectProviderResponse_tags :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe [Tag])
-getOpenIDConnectProviderResponse_tags = Lens.lens (\GetOpenIDConnectProviderResponse' {tags} -> tags) (\s@GetOpenIDConnectProviderResponse' {} a -> s {tags = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The URL that the IAM OIDC provider resource object is associated with.
--- For more information, see CreateOpenIDConnectProvider.
-getOpenIDConnectProviderResponse_url :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.Text)
-getOpenIDConnectProviderResponse_url = Lens.lens (\GetOpenIDConnectProviderResponse' {url} -> url) (\s@GetOpenIDConnectProviderResponse' {} a -> s {url = a} :: GetOpenIDConnectProviderResponse)
+getOpenIDConnectProviderResponse_tags = Lens.lens (\GetOpenIDConnectProviderResponse' {tags} -> tags) (\s@GetOpenIDConnectProviderResponse' {} a -> s {tags = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getOpenIDConnectProviderResponse_httpStatus :: Lens.Lens' GetOpenIDConnectProviderResponse Prelude.Int

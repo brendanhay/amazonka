@@ -32,24 +32,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAggregateEvaluationResult' smart constructor.
 data AggregateEvaluationResult = AggregateEvaluationResult'
-  { -- | Supplementary information about how the agrregate evaluation determined
+  { -- | Uniquely identifies the evaluation result.
+    evaluationResultIdentifier :: Prelude.Maybe EvaluationResultIdentifier,
+    -- | Supplementary information about how the agrregate evaluation determined
     -- the compliance.
     annotation :: Prelude.Maybe Prelude.Text,
-    -- | Uniquely identifies the evaluation result.
-    evaluationResultIdentifier :: Prelude.Maybe EvaluationResultIdentifier,
-    -- | The 12-digit account ID of the source account.
-    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The time when the Config rule evaluated the Amazon Web Services
+    -- resource.
+    configRuleInvokedTime :: Prelude.Maybe Core.POSIX,
     -- | The time when Config recorded the aggregate evaluation result.
     resultRecordedTime :: Prelude.Maybe Core.POSIX,
+    -- | The 12-digit account ID of the source account.
+    accountId :: Prelude.Maybe Prelude.Text,
     -- | The resource compliance status.
     --
     -- For the @AggregationEvaluationResult@ data type, Config supports only
     -- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
     -- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
     complianceType :: Prelude.Maybe ComplianceType,
-    -- | The time when the Config rule evaluated the Amazon Web Services
-    -- resource.
-    configRuleInvokedTime :: Prelude.Maybe Core.POSIX,
     -- | The source region from where the data is aggregated.
     awsRegion :: Prelude.Maybe Prelude.Text
   }
@@ -63,14 +63,17 @@ data AggregateEvaluationResult = AggregateEvaluationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'evaluationResultIdentifier', 'aggregateEvaluationResult_evaluationResultIdentifier' - Uniquely identifies the evaluation result.
+--
 -- 'annotation', 'aggregateEvaluationResult_annotation' - Supplementary information about how the agrregate evaluation determined
 -- the compliance.
 --
--- 'evaluationResultIdentifier', 'aggregateEvaluationResult_evaluationResultIdentifier' - Uniquely identifies the evaluation result.
---
--- 'accountId', 'aggregateEvaluationResult_accountId' - The 12-digit account ID of the source account.
+-- 'configRuleInvokedTime', 'aggregateEvaluationResult_configRuleInvokedTime' - The time when the Config rule evaluated the Amazon Web Services
+-- resource.
 --
 -- 'resultRecordedTime', 'aggregateEvaluationResult_resultRecordedTime' - The time when Config recorded the aggregate evaluation result.
+--
+-- 'accountId', 'aggregateEvaluationResult_accountId' - The 12-digit account ID of the source account.
 --
 -- 'complianceType', 'aggregateEvaluationResult_complianceType' - The resource compliance status.
 --
@@ -78,40 +81,42 @@ data AggregateEvaluationResult = AggregateEvaluationResult'
 -- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
 -- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
 --
--- 'configRuleInvokedTime', 'aggregateEvaluationResult_configRuleInvokedTime' - The time when the Config rule evaluated the Amazon Web Services
--- resource.
---
 -- 'awsRegion', 'aggregateEvaluationResult_awsRegion' - The source region from where the data is aggregated.
 newAggregateEvaluationResult ::
   AggregateEvaluationResult
 newAggregateEvaluationResult =
   AggregateEvaluationResult'
-    { annotation =
+    { evaluationResultIdentifier =
         Prelude.Nothing,
-      evaluationResultIdentifier = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      resultRecordedTime = Prelude.Nothing,
-      complianceType = Prelude.Nothing,
+      annotation = Prelude.Nothing,
       configRuleInvokedTime = Prelude.Nothing,
+      resultRecordedTime = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      complianceType = Prelude.Nothing,
       awsRegion = Prelude.Nothing
     }
+
+-- | Uniquely identifies the evaluation result.
+aggregateEvaluationResult_evaluationResultIdentifier :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe EvaluationResultIdentifier)
+aggregateEvaluationResult_evaluationResultIdentifier = Lens.lens (\AggregateEvaluationResult' {evaluationResultIdentifier} -> evaluationResultIdentifier) (\s@AggregateEvaluationResult' {} a -> s {evaluationResultIdentifier = a} :: AggregateEvaluationResult)
 
 -- | Supplementary information about how the agrregate evaluation determined
 -- the compliance.
 aggregateEvaluationResult_annotation :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.Text)
 aggregateEvaluationResult_annotation = Lens.lens (\AggregateEvaluationResult' {annotation} -> annotation) (\s@AggregateEvaluationResult' {} a -> s {annotation = a} :: AggregateEvaluationResult)
 
--- | Uniquely identifies the evaluation result.
-aggregateEvaluationResult_evaluationResultIdentifier :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe EvaluationResultIdentifier)
-aggregateEvaluationResult_evaluationResultIdentifier = Lens.lens (\AggregateEvaluationResult' {evaluationResultIdentifier} -> evaluationResultIdentifier) (\s@AggregateEvaluationResult' {} a -> s {evaluationResultIdentifier = a} :: AggregateEvaluationResult)
-
--- | The 12-digit account ID of the source account.
-aggregateEvaluationResult_accountId :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.Text)
-aggregateEvaluationResult_accountId = Lens.lens (\AggregateEvaluationResult' {accountId} -> accountId) (\s@AggregateEvaluationResult' {} a -> s {accountId = a} :: AggregateEvaluationResult)
+-- | The time when the Config rule evaluated the Amazon Web Services
+-- resource.
+aggregateEvaluationResult_configRuleInvokedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
+aggregateEvaluationResult_configRuleInvokedTime = Lens.lens (\AggregateEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@AggregateEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
 
 -- | The time when Config recorded the aggregate evaluation result.
 aggregateEvaluationResult_resultRecordedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
 aggregateEvaluationResult_resultRecordedTime = Lens.lens (\AggregateEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@AggregateEvaluationResult' {} a -> s {resultRecordedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
+
+-- | The 12-digit account ID of the source account.
+aggregateEvaluationResult_accountId :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.Text)
+aggregateEvaluationResult_accountId = Lens.lens (\AggregateEvaluationResult' {accountId} -> accountId) (\s@AggregateEvaluationResult' {} a -> s {accountId = a} :: AggregateEvaluationResult)
 
 -- | The resource compliance status.
 --
@@ -120,11 +125,6 @@ aggregateEvaluationResult_resultRecordedTime = Lens.lens (\AggregateEvaluationRe
 -- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
 aggregateEvaluationResult_complianceType :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe ComplianceType)
 aggregateEvaluationResult_complianceType = Lens.lens (\AggregateEvaluationResult' {complianceType} -> complianceType) (\s@AggregateEvaluationResult' {} a -> s {complianceType = a} :: AggregateEvaluationResult)
-
--- | The time when the Config rule evaluated the Amazon Web Services
--- resource.
-aggregateEvaluationResult_configRuleInvokedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
-aggregateEvaluationResult_configRuleInvokedTime = Lens.lens (\AggregateEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@AggregateEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
 
 -- | The source region from where the data is aggregated.
 aggregateEvaluationResult_awsRegion :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.Text)
@@ -136,12 +136,12 @@ instance Core.FromJSON AggregateEvaluationResult where
       "AggregateEvaluationResult"
       ( \x ->
           AggregateEvaluationResult'
-            Prelude.<$> (x Core..:? "Annotation")
-            Prelude.<*> (x Core..:? "EvaluationResultIdentifier")
-            Prelude.<*> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "ResultRecordedTime")
-            Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<$> (x Core..:? "EvaluationResultIdentifier")
+            Prelude.<*> (x Core..:? "Annotation")
             Prelude.<*> (x Core..:? "ConfigRuleInvokedTime")
+            Prelude.<*> (x Core..:? "ResultRecordedTime")
+            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "ComplianceType")
             Prelude.<*> (x Core..:? "AwsRegion")
       )
 

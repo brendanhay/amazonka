@@ -158,7 +158,7 @@ newReadPipelineResponse pHttpStatus_ =
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
 readPipelineResponse_warnings :: Lens.Lens' ReadPipelineResponse (Prelude.Maybe [Warning])
-readPipelineResponse_warnings = Lens.lens (\ReadPipelineResponse' {warnings} -> warnings) (\s@ReadPipelineResponse' {} a -> s {warnings = a} :: ReadPipelineResponse) Prelude.. Lens.mapping Lens._Coerce
+readPipelineResponse_warnings = Lens.lens (\ReadPipelineResponse' {warnings} -> warnings) (\s@ReadPipelineResponse' {} a -> s {warnings = a} :: ReadPipelineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the response body that provides information about the
 -- pipeline.

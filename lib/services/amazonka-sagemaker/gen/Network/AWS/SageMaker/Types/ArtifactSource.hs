@@ -58,7 +58,7 @@ newArtifactSource pSourceUri_ =
 
 -- | A list of source types.
 artifactSource_sourceTypes :: Lens.Lens' ArtifactSource (Prelude.Maybe [ArtifactSourceType])
-artifactSource_sourceTypes = Lens.lens (\ArtifactSource' {sourceTypes} -> sourceTypes) (\s@ArtifactSource' {} a -> s {sourceTypes = a} :: ArtifactSource) Prelude.. Lens.mapping Lens._Coerce
+artifactSource_sourceTypes = Lens.lens (\ArtifactSource' {sourceTypes} -> sourceTypes) (\s@ArtifactSource' {} a -> s {sourceTypes = a} :: ArtifactSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | The URI of the source.
 artifactSource_sourceUri :: Lens.Lens' ArtifactSource Prelude.Text

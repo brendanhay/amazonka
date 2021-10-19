@@ -29,18 +29,18 @@ import Network.AWS.XRay.Types.FaultStatistics
 --
 -- /See:/ 'newServiceStatistics' smart constructor.
 data ServiceStatistics = ServiceStatistics'
-  { -- | The aggregate response time of completed requests.
-    totalResponseTime :: Prelude.Maybe Prelude.Double,
-    -- | The number of requests that completed with a 2xx Success status code.
-    okCount :: Prelude.Maybe Prelude.Integer,
-    -- | Information about requests that failed with a 5xx Server Error status
+  { -- | Information about requests that failed with a 5xx Server Error status
     -- code.
     faultStatistics :: Prelude.Maybe FaultStatistics,
-    -- | The total number of completed requests.
-    totalCount :: Prelude.Maybe Prelude.Integer,
+    -- | The number of requests that completed with a 2xx Success status code.
+    okCount :: Prelude.Maybe Prelude.Integer,
+    -- | The aggregate response time of completed requests.
+    totalResponseTime :: Prelude.Maybe Prelude.Double,
     -- | Information about requests that failed with a 4xx Client Error status
     -- code.
-    errorStatistics :: Prelude.Maybe ErrorStatistics
+    errorStatistics :: Prelude.Maybe ErrorStatistics,
+    -- | The total number of completed requests.
+    totalCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,50 +52,50 @@ data ServiceStatistics = ServiceStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalResponseTime', 'serviceStatistics_totalResponseTime' - The aggregate response time of completed requests.
---
--- 'okCount', 'serviceStatistics_okCount' - The number of requests that completed with a 2xx Success status code.
---
 -- 'faultStatistics', 'serviceStatistics_faultStatistics' - Information about requests that failed with a 5xx Server Error status
 -- code.
 --
--- 'totalCount', 'serviceStatistics_totalCount' - The total number of completed requests.
+-- 'okCount', 'serviceStatistics_okCount' - The number of requests that completed with a 2xx Success status code.
+--
+-- 'totalResponseTime', 'serviceStatistics_totalResponseTime' - The aggregate response time of completed requests.
 --
 -- 'errorStatistics', 'serviceStatistics_errorStatistics' - Information about requests that failed with a 4xx Client Error status
 -- code.
+--
+-- 'totalCount', 'serviceStatistics_totalCount' - The total number of completed requests.
 newServiceStatistics ::
   ServiceStatistics
 newServiceStatistics =
   ServiceStatistics'
-    { totalResponseTime =
+    { faultStatistics =
         Prelude.Nothing,
       okCount = Prelude.Nothing,
-      faultStatistics = Prelude.Nothing,
-      totalCount = Prelude.Nothing,
-      errorStatistics = Prelude.Nothing
+      totalResponseTime = Prelude.Nothing,
+      errorStatistics = Prelude.Nothing,
+      totalCount = Prelude.Nothing
     }
-
--- | The aggregate response time of completed requests.
-serviceStatistics_totalResponseTime :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Double)
-serviceStatistics_totalResponseTime = Lens.lens (\ServiceStatistics' {totalResponseTime} -> totalResponseTime) (\s@ServiceStatistics' {} a -> s {totalResponseTime = a} :: ServiceStatistics)
-
--- | The number of requests that completed with a 2xx Success status code.
-serviceStatistics_okCount :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Integer)
-serviceStatistics_okCount = Lens.lens (\ServiceStatistics' {okCount} -> okCount) (\s@ServiceStatistics' {} a -> s {okCount = a} :: ServiceStatistics)
 
 -- | Information about requests that failed with a 5xx Server Error status
 -- code.
 serviceStatistics_faultStatistics :: Lens.Lens' ServiceStatistics (Prelude.Maybe FaultStatistics)
 serviceStatistics_faultStatistics = Lens.lens (\ServiceStatistics' {faultStatistics} -> faultStatistics) (\s@ServiceStatistics' {} a -> s {faultStatistics = a} :: ServiceStatistics)
 
--- | The total number of completed requests.
-serviceStatistics_totalCount :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Integer)
-serviceStatistics_totalCount = Lens.lens (\ServiceStatistics' {totalCount} -> totalCount) (\s@ServiceStatistics' {} a -> s {totalCount = a} :: ServiceStatistics)
+-- | The number of requests that completed with a 2xx Success status code.
+serviceStatistics_okCount :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Integer)
+serviceStatistics_okCount = Lens.lens (\ServiceStatistics' {okCount} -> okCount) (\s@ServiceStatistics' {} a -> s {okCount = a} :: ServiceStatistics)
+
+-- | The aggregate response time of completed requests.
+serviceStatistics_totalResponseTime :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Double)
+serviceStatistics_totalResponseTime = Lens.lens (\ServiceStatistics' {totalResponseTime} -> totalResponseTime) (\s@ServiceStatistics' {} a -> s {totalResponseTime = a} :: ServiceStatistics)
 
 -- | Information about requests that failed with a 4xx Client Error status
 -- code.
 serviceStatistics_errorStatistics :: Lens.Lens' ServiceStatistics (Prelude.Maybe ErrorStatistics)
 serviceStatistics_errorStatistics = Lens.lens (\ServiceStatistics' {errorStatistics} -> errorStatistics) (\s@ServiceStatistics' {} a -> s {errorStatistics = a} :: ServiceStatistics)
+
+-- | The total number of completed requests.
+serviceStatistics_totalCount :: Lens.Lens' ServiceStatistics (Prelude.Maybe Prelude.Integer)
+serviceStatistics_totalCount = Lens.lens (\ServiceStatistics' {totalCount} -> totalCount) (\s@ServiceStatistics' {} a -> s {totalCount = a} :: ServiceStatistics)
 
 instance Core.FromJSON ServiceStatistics where
   parseJSON =
@@ -103,11 +103,11 @@ instance Core.FromJSON ServiceStatistics where
       "ServiceStatistics"
       ( \x ->
           ServiceStatistics'
-            Prelude.<$> (x Core..:? "TotalResponseTime")
+            Prelude.<$> (x Core..:? "FaultStatistics")
             Prelude.<*> (x Core..:? "OkCount")
-            Prelude.<*> (x Core..:? "FaultStatistics")
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Core..:? "TotalResponseTime")
             Prelude.<*> (x Core..:? "ErrorStatistics")
+            Prelude.<*> (x Core..:? "TotalCount")
       )
 
 instance Prelude.Hashable ServiceStatistics

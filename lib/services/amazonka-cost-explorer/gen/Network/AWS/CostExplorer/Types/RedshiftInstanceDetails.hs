@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftInstanceDetails' smart constructor.
 data RedshiftInstanceDetails = RedshiftInstanceDetails'
-  { -- | Determines whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
-    -- | Determines whether the recommendation is for a current-generation
+  { -- | Determines whether the recommendation is for a current-generation
     -- instance.
     currentGeneration :: Prelude.Maybe Prelude.Bool,
     -- | The instance family of the recommended reservation.
     family :: Prelude.Maybe Prelude.Text,
+    -- | Determines whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Web Services Region of the recommended reservation.
     region :: Prelude.Maybe Prelude.Text,
     -- | The type of node that Amazon Web Services recommends.
@@ -50,12 +50,12 @@ data RedshiftInstanceDetails = RedshiftInstanceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sizeFlexEligible', 'redshiftInstanceDetails_sizeFlexEligible' - Determines whether the recommended reservation is size flexible.
---
 -- 'currentGeneration', 'redshiftInstanceDetails_currentGeneration' - Determines whether the recommendation is for a current-generation
 -- instance.
 --
 -- 'family', 'redshiftInstanceDetails_family' - The instance family of the recommended reservation.
+--
+-- 'sizeFlexEligible', 'redshiftInstanceDetails_sizeFlexEligible' - Determines whether the recommended reservation is size flexible.
 --
 -- 'region', 'redshiftInstanceDetails_region' - The Amazon Web Services Region of the recommended reservation.
 --
@@ -64,17 +64,13 @@ newRedshiftInstanceDetails ::
   RedshiftInstanceDetails
 newRedshiftInstanceDetails =
   RedshiftInstanceDetails'
-    { sizeFlexEligible =
+    { currentGeneration =
         Prelude.Nothing,
-      currentGeneration = Prelude.Nothing,
       family = Prelude.Nothing,
+      sizeFlexEligible = Prelude.Nothing,
       region = Prelude.Nothing,
       nodeType = Prelude.Nothing
     }
-
--- | Determines whether the recommended reservation is size flexible.
-redshiftInstanceDetails_sizeFlexEligible :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Bool)
-redshiftInstanceDetails_sizeFlexEligible = Lens.lens (\RedshiftInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@RedshiftInstanceDetails' {} a -> s {sizeFlexEligible = a} :: RedshiftInstanceDetails)
 
 -- | Determines whether the recommendation is for a current-generation
 -- instance.
@@ -84,6 +80,10 @@ redshiftInstanceDetails_currentGeneration = Lens.lens (\RedshiftInstanceDetails'
 -- | The instance family of the recommended reservation.
 redshiftInstanceDetails_family :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Text)
 redshiftInstanceDetails_family = Lens.lens (\RedshiftInstanceDetails' {family} -> family) (\s@RedshiftInstanceDetails' {} a -> s {family = a} :: RedshiftInstanceDetails)
+
+-- | Determines whether the recommended reservation is size flexible.
+redshiftInstanceDetails_sizeFlexEligible :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Bool)
+redshiftInstanceDetails_sizeFlexEligible = Lens.lens (\RedshiftInstanceDetails' {sizeFlexEligible} -> sizeFlexEligible) (\s@RedshiftInstanceDetails' {} a -> s {sizeFlexEligible = a} :: RedshiftInstanceDetails)
 
 -- | The Amazon Web Services Region of the recommended reservation.
 redshiftInstanceDetails_region :: Lens.Lens' RedshiftInstanceDetails (Prelude.Maybe Prelude.Text)
@@ -99,9 +99,9 @@ instance Core.FromJSON RedshiftInstanceDetails where
       "RedshiftInstanceDetails"
       ( \x ->
           RedshiftInstanceDetails'
-            Prelude.<$> (x Core..:? "SizeFlexEligible")
-            Prelude.<*> (x Core..:? "CurrentGeneration")
+            Prelude.<$> (x Core..:? "CurrentGeneration")
             Prelude.<*> (x Core..:? "Family")
+            Prelude.<*> (x Core..:? "SizeFlexEligible")
             Prelude.<*> (x Core..:? "Region")
             Prelude.<*> (x Core..:? "NodeType")
       )

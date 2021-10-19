@@ -29,18 +29,18 @@ import Network.AWS.XRay.Types.FaultStatistics
 --
 -- /See:/ 'newEdgeStatistics' smart constructor.
 data EdgeStatistics = EdgeStatistics'
-  { -- | The aggregate response time of completed requests.
-    totalResponseTime :: Prelude.Maybe Prelude.Double,
-    -- | The number of requests that completed with a 2xx Success status code.
-    okCount :: Prelude.Maybe Prelude.Integer,
-    -- | Information about requests that failed with a 5xx Server Error status
+  { -- | Information about requests that failed with a 5xx Server Error status
     -- code.
     faultStatistics :: Prelude.Maybe FaultStatistics,
-    -- | The total number of completed requests.
-    totalCount :: Prelude.Maybe Prelude.Integer,
+    -- | The number of requests that completed with a 2xx Success status code.
+    okCount :: Prelude.Maybe Prelude.Integer,
+    -- | The aggregate response time of completed requests.
+    totalResponseTime :: Prelude.Maybe Prelude.Double,
     -- | Information about requests that failed with a 4xx Client Error status
     -- code.
-    errorStatistics :: Prelude.Maybe ErrorStatistics
+    errorStatistics :: Prelude.Maybe ErrorStatistics,
+    -- | The total number of completed requests.
+    totalCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,50 +52,49 @@ data EdgeStatistics = EdgeStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalResponseTime', 'edgeStatistics_totalResponseTime' - The aggregate response time of completed requests.
---
--- 'okCount', 'edgeStatistics_okCount' - The number of requests that completed with a 2xx Success status code.
---
 -- 'faultStatistics', 'edgeStatistics_faultStatistics' - Information about requests that failed with a 5xx Server Error status
 -- code.
 --
--- 'totalCount', 'edgeStatistics_totalCount' - The total number of completed requests.
+-- 'okCount', 'edgeStatistics_okCount' - The number of requests that completed with a 2xx Success status code.
+--
+-- 'totalResponseTime', 'edgeStatistics_totalResponseTime' - The aggregate response time of completed requests.
 --
 -- 'errorStatistics', 'edgeStatistics_errorStatistics' - Information about requests that failed with a 4xx Client Error status
 -- code.
+--
+-- 'totalCount', 'edgeStatistics_totalCount' - The total number of completed requests.
 newEdgeStatistics ::
   EdgeStatistics
 newEdgeStatistics =
   EdgeStatistics'
-    { totalResponseTime =
-        Prelude.Nothing,
+    { faultStatistics = Prelude.Nothing,
       okCount = Prelude.Nothing,
-      faultStatistics = Prelude.Nothing,
-      totalCount = Prelude.Nothing,
-      errorStatistics = Prelude.Nothing
+      totalResponseTime = Prelude.Nothing,
+      errorStatistics = Prelude.Nothing,
+      totalCount = Prelude.Nothing
     }
-
--- | The aggregate response time of completed requests.
-edgeStatistics_totalResponseTime :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Double)
-edgeStatistics_totalResponseTime = Lens.lens (\EdgeStatistics' {totalResponseTime} -> totalResponseTime) (\s@EdgeStatistics' {} a -> s {totalResponseTime = a} :: EdgeStatistics)
-
--- | The number of requests that completed with a 2xx Success status code.
-edgeStatistics_okCount :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Integer)
-edgeStatistics_okCount = Lens.lens (\EdgeStatistics' {okCount} -> okCount) (\s@EdgeStatistics' {} a -> s {okCount = a} :: EdgeStatistics)
 
 -- | Information about requests that failed with a 5xx Server Error status
 -- code.
 edgeStatistics_faultStatistics :: Lens.Lens' EdgeStatistics (Prelude.Maybe FaultStatistics)
 edgeStatistics_faultStatistics = Lens.lens (\EdgeStatistics' {faultStatistics} -> faultStatistics) (\s@EdgeStatistics' {} a -> s {faultStatistics = a} :: EdgeStatistics)
 
--- | The total number of completed requests.
-edgeStatistics_totalCount :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Integer)
-edgeStatistics_totalCount = Lens.lens (\EdgeStatistics' {totalCount} -> totalCount) (\s@EdgeStatistics' {} a -> s {totalCount = a} :: EdgeStatistics)
+-- | The number of requests that completed with a 2xx Success status code.
+edgeStatistics_okCount :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Integer)
+edgeStatistics_okCount = Lens.lens (\EdgeStatistics' {okCount} -> okCount) (\s@EdgeStatistics' {} a -> s {okCount = a} :: EdgeStatistics)
+
+-- | The aggregate response time of completed requests.
+edgeStatistics_totalResponseTime :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Double)
+edgeStatistics_totalResponseTime = Lens.lens (\EdgeStatistics' {totalResponseTime} -> totalResponseTime) (\s@EdgeStatistics' {} a -> s {totalResponseTime = a} :: EdgeStatistics)
 
 -- | Information about requests that failed with a 4xx Client Error status
 -- code.
 edgeStatistics_errorStatistics :: Lens.Lens' EdgeStatistics (Prelude.Maybe ErrorStatistics)
 edgeStatistics_errorStatistics = Lens.lens (\EdgeStatistics' {errorStatistics} -> errorStatistics) (\s@EdgeStatistics' {} a -> s {errorStatistics = a} :: EdgeStatistics)
+
+-- | The total number of completed requests.
+edgeStatistics_totalCount :: Lens.Lens' EdgeStatistics (Prelude.Maybe Prelude.Integer)
+edgeStatistics_totalCount = Lens.lens (\EdgeStatistics' {totalCount} -> totalCount) (\s@EdgeStatistics' {} a -> s {totalCount = a} :: EdgeStatistics)
 
 instance Core.FromJSON EdgeStatistics where
   parseJSON =
@@ -103,11 +102,11 @@ instance Core.FromJSON EdgeStatistics where
       "EdgeStatistics"
       ( \x ->
           EdgeStatistics'
-            Prelude.<$> (x Core..:? "TotalResponseTime")
+            Prelude.<$> (x Core..:? "FaultStatistics")
             Prelude.<*> (x Core..:? "OkCount")
-            Prelude.<*> (x Core..:? "FaultStatistics")
-            Prelude.<*> (x Core..:? "TotalCount")
+            Prelude.<*> (x Core..:? "TotalResponseTime")
             Prelude.<*> (x Core..:? "ErrorStatistics")
+            Prelude.<*> (x Core..:? "TotalCount")
       )
 
 instance Prelude.Hashable EdgeStatistics

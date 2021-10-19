@@ -33,28 +33,28 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExportJobResponse' smart constructor.
 data ExportJobResponse = ExportJobResponse'
-  { -- | The total number of endpoint definitions that weren\'t processed
-    -- successfully (failed) by the export job, typically because an error,
-    -- such as a syntax error, occurred.
-    totalFailures :: Prelude.Maybe Prelude.Int,
-    -- | An array of entries, one for each of the first 100 entries that weren\'t
-    -- processed successfully (failed) by the export job, if any.
-    failures :: Prelude.Maybe [Prelude.Text],
-    -- | The total number of endpoint definitions that were processed by the
-    -- export job.
-    totalProcessed :: Prelude.Maybe Prelude.Int,
+  { -- | The number of pieces that were processed successfully (completed) by the
+    -- export job, as of the time of the request.
+    completedPieces :: Prelude.Maybe Prelude.Int,
     -- | The number of pieces that weren\'t processed successfully (failed) by
     -- the export job, as of the time of the request.
     failedPieces :: Prelude.Maybe Prelude.Int,
-    -- | The number of pieces that were processed successfully (completed) by the
-    -- export job, as of the time of the request.
-    completedPieces :: Prelude.Maybe Prelude.Int,
+    -- | The total number of endpoint definitions that were processed by the
+    -- export job.
+    totalProcessed :: Prelude.Maybe Prelude.Int,
+    -- | An array of entries, one for each of the first 100 entries that weren\'t
+    -- processed successfully (failed) by the export job, if any.
+    failures :: Prelude.Maybe [Prelude.Text],
     -- | The total number of pieces that must be processed to complete the export
     -- job. Each piece consists of an approximately equal portion of the
     -- endpoint definitions that are part of the export job.
     totalPieces :: Prelude.Maybe Prelude.Int,
     -- | The date, in ISO 8601 format, when the export job was completed.
     completionDate :: Prelude.Maybe Prelude.Text,
+    -- | The total number of endpoint definitions that weren\'t processed
+    -- successfully (failed) by the export job, typically because an error,
+    -- such as a syntax error, occurred.
+    totalFailures :: Prelude.Maybe Prelude.Int,
     -- | The status of the export job. The job status is FAILED if Amazon
     -- Pinpoint wasn\'t able to process one or more pieces in the job.
     jobStatus :: JobStatus,
@@ -80,27 +80,27 @@ data ExportJobResponse = ExportJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalFailures', 'exportJobResponse_totalFailures' - The total number of endpoint definitions that weren\'t processed
--- successfully (failed) by the export job, typically because an error,
--- such as a syntax error, occurred.
---
--- 'failures', 'exportJobResponse_failures' - An array of entries, one for each of the first 100 entries that weren\'t
--- processed successfully (failed) by the export job, if any.
---
--- 'totalProcessed', 'exportJobResponse_totalProcessed' - The total number of endpoint definitions that were processed by the
--- export job.
+-- 'completedPieces', 'exportJobResponse_completedPieces' - The number of pieces that were processed successfully (completed) by the
+-- export job, as of the time of the request.
 --
 -- 'failedPieces', 'exportJobResponse_failedPieces' - The number of pieces that weren\'t processed successfully (failed) by
 -- the export job, as of the time of the request.
 --
--- 'completedPieces', 'exportJobResponse_completedPieces' - The number of pieces that were processed successfully (completed) by the
--- export job, as of the time of the request.
+-- 'totalProcessed', 'exportJobResponse_totalProcessed' - The total number of endpoint definitions that were processed by the
+-- export job.
+--
+-- 'failures', 'exportJobResponse_failures' - An array of entries, one for each of the first 100 entries that weren\'t
+-- processed successfully (failed) by the export job, if any.
 --
 -- 'totalPieces', 'exportJobResponse_totalPieces' - The total number of pieces that must be processed to complete the export
 -- job. Each piece consists of an approximately equal portion of the
 -- endpoint definitions that are part of the export job.
 --
 -- 'completionDate', 'exportJobResponse_completionDate' - The date, in ISO 8601 format, when the export job was completed.
+--
+-- 'totalFailures', 'exportJobResponse_totalFailures' - The total number of endpoint definitions that weren\'t processed
+-- successfully (failed) by the export job, typically because an error,
+-- such as a syntax error, occurred.
 --
 -- 'jobStatus', 'exportJobResponse_jobStatus' - The status of the export job. The job status is FAILED if Amazon
 -- Pinpoint wasn\'t able to process one or more pieces in the job.
@@ -137,13 +137,14 @@ newExportJobResponse
   pId_
   pApplicationId_ =
     ExportJobResponse'
-      { totalFailures = Prelude.Nothing,
-        failures = Prelude.Nothing,
-        totalProcessed = Prelude.Nothing,
+      { completedPieces =
+          Prelude.Nothing,
         failedPieces = Prelude.Nothing,
-        completedPieces = Prelude.Nothing,
+        totalProcessed = Prelude.Nothing,
+        failures = Prelude.Nothing,
         totalPieces = Prelude.Nothing,
         completionDate = Prelude.Nothing,
+        totalFailures = Prelude.Nothing,
         jobStatus = pJobStatus_,
         creationDate = pCreationDate_,
         type' = pType_,
@@ -152,31 +153,25 @@ newExportJobResponse
         applicationId = pApplicationId_
       }
 
--- | The total number of endpoint definitions that weren\'t processed
--- successfully (failed) by the export job, typically because an error,
--- such as a syntax error, occurred.
-exportJobResponse_totalFailures :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
-exportJobResponse_totalFailures = Lens.lens (\ExportJobResponse' {totalFailures} -> totalFailures) (\s@ExportJobResponse' {} a -> s {totalFailures = a} :: ExportJobResponse)
-
--- | An array of entries, one for each of the first 100 entries that weren\'t
--- processed successfully (failed) by the export job, if any.
-exportJobResponse_failures :: Lens.Lens' ExportJobResponse (Prelude.Maybe [Prelude.Text])
-exportJobResponse_failures = Lens.lens (\ExportJobResponse' {failures} -> failures) (\s@ExportJobResponse' {} a -> s {failures = a} :: ExportJobResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The total number of endpoint definitions that were processed by the
--- export job.
-exportJobResponse_totalProcessed :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
-exportJobResponse_totalProcessed = Lens.lens (\ExportJobResponse' {totalProcessed} -> totalProcessed) (\s@ExportJobResponse' {} a -> s {totalProcessed = a} :: ExportJobResponse)
+-- | The number of pieces that were processed successfully (completed) by the
+-- export job, as of the time of the request.
+exportJobResponse_completedPieces :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
+exportJobResponse_completedPieces = Lens.lens (\ExportJobResponse' {completedPieces} -> completedPieces) (\s@ExportJobResponse' {} a -> s {completedPieces = a} :: ExportJobResponse)
 
 -- | The number of pieces that weren\'t processed successfully (failed) by
 -- the export job, as of the time of the request.
 exportJobResponse_failedPieces :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
 exportJobResponse_failedPieces = Lens.lens (\ExportJobResponse' {failedPieces} -> failedPieces) (\s@ExportJobResponse' {} a -> s {failedPieces = a} :: ExportJobResponse)
 
--- | The number of pieces that were processed successfully (completed) by the
--- export job, as of the time of the request.
-exportJobResponse_completedPieces :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
-exportJobResponse_completedPieces = Lens.lens (\ExportJobResponse' {completedPieces} -> completedPieces) (\s@ExportJobResponse' {} a -> s {completedPieces = a} :: ExportJobResponse)
+-- | The total number of endpoint definitions that were processed by the
+-- export job.
+exportJobResponse_totalProcessed :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
+exportJobResponse_totalProcessed = Lens.lens (\ExportJobResponse' {totalProcessed} -> totalProcessed) (\s@ExportJobResponse' {} a -> s {totalProcessed = a} :: ExportJobResponse)
+
+-- | An array of entries, one for each of the first 100 entries that weren\'t
+-- processed successfully (failed) by the export job, if any.
+exportJobResponse_failures :: Lens.Lens' ExportJobResponse (Prelude.Maybe [Prelude.Text])
+exportJobResponse_failures = Lens.lens (\ExportJobResponse' {failures} -> failures) (\s@ExportJobResponse' {} a -> s {failures = a} :: ExportJobResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of pieces that must be processed to complete the export
 -- job. Each piece consists of an approximately equal portion of the
@@ -187,6 +182,12 @@ exportJobResponse_totalPieces = Lens.lens (\ExportJobResponse' {totalPieces} -> 
 -- | The date, in ISO 8601 format, when the export job was completed.
 exportJobResponse_completionDate :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Text)
 exportJobResponse_completionDate = Lens.lens (\ExportJobResponse' {completionDate} -> completionDate) (\s@ExportJobResponse' {} a -> s {completionDate = a} :: ExportJobResponse)
+
+-- | The total number of endpoint definitions that weren\'t processed
+-- successfully (failed) by the export job, typically because an error,
+-- such as a syntax error, occurred.
+exportJobResponse_totalFailures :: Lens.Lens' ExportJobResponse (Prelude.Maybe Prelude.Int)
+exportJobResponse_totalFailures = Lens.lens (\ExportJobResponse' {totalFailures} -> totalFailures) (\s@ExportJobResponse' {} a -> s {totalFailures = a} :: ExportJobResponse)
 
 -- | The status of the export job. The job status is FAILED if Amazon
 -- Pinpoint wasn\'t able to process one or more pieces in the job.
@@ -220,13 +221,13 @@ instance Core.FromJSON ExportJobResponse where
       "ExportJobResponse"
       ( \x ->
           ExportJobResponse'
-            Prelude.<$> (x Core..:? "TotalFailures")
-            Prelude.<*> (x Core..:? "Failures" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "TotalProcessed")
+            Prelude.<$> (x Core..:? "CompletedPieces")
             Prelude.<*> (x Core..:? "FailedPieces")
-            Prelude.<*> (x Core..:? "CompletedPieces")
+            Prelude.<*> (x Core..:? "TotalProcessed")
+            Prelude.<*> (x Core..:? "Failures" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "TotalPieces")
             Prelude.<*> (x Core..:? "CompletionDate")
+            Prelude.<*> (x Core..:? "TotalFailures")
             Prelude.<*> (x Core..: "JobStatus")
             Prelude.<*> (x Core..: "CreationDate")
             Prelude.<*> (x Core..: "Type")

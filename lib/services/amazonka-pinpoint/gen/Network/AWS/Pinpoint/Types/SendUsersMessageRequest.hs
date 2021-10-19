@@ -31,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSendUsersMessageRequest' smart constructor.
 data SendUsersMessageRequest = SendUsersMessageRequest'
-  { -- | A map of custom attribute-value pairs. For a push notification, Amazon
+  { -- | The unique identifier for tracing the message. This identifier is
+    -- visible to message recipients.
+    traceId :: Prelude.Maybe Prelude.Text,
+    -- | A map of custom attribute-value pairs. For a push notification, Amazon
     -- Pinpoint adds these attributes to the data.pinpoint object in the body
     -- of the notification payload. Amazon Pinpoint also provides these
     -- attributes in the events that it generates for users-messages
     -- deliveries.
     context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The unique identifier for tracing the message. This identifier is
-    -- visible to message recipients.
-    traceId :: Prelude.Maybe Prelude.Text,
     -- | The message template to use for the message.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The settings and content for the default message and any default
@@ -63,14 +63,14 @@ data SendUsersMessageRequest = SendUsersMessageRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'traceId', 'sendUsersMessageRequest_traceId' - The unique identifier for tracing the message. This identifier is
+-- visible to message recipients.
+--
 -- 'context', 'sendUsersMessageRequest_context' - A map of custom attribute-value pairs. For a push notification, Amazon
 -- Pinpoint adds these attributes to the data.pinpoint object in the body
 -- of the notification payload. Amazon Pinpoint also provides these
 -- attributes in the events that it generates for users-messages
 -- deliveries.
---
--- 'traceId', 'sendUsersMessageRequest_traceId' - The unique identifier for tracing the message. This identifier is
--- visible to message recipients.
 --
 -- 'templateConfiguration', 'sendUsersMessageRequest_templateConfiguration' - The message template to use for the message.
 --
@@ -89,12 +89,17 @@ newSendUsersMessageRequest ::
   SendUsersMessageRequest
 newSendUsersMessageRequest pMessageConfiguration_ =
   SendUsersMessageRequest'
-    { context = Prelude.Nothing,
-      traceId = Prelude.Nothing,
+    { traceId = Prelude.Nothing,
+      context = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
       messageConfiguration = pMessageConfiguration_,
       users = Prelude.mempty
     }
+
+-- | The unique identifier for tracing the message. This identifier is
+-- visible to message recipients.
+sendUsersMessageRequest_traceId :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe Prelude.Text)
+sendUsersMessageRequest_traceId = Lens.lens (\SendUsersMessageRequest' {traceId} -> traceId) (\s@SendUsersMessageRequest' {} a -> s {traceId = a} :: SendUsersMessageRequest)
 
 -- | A map of custom attribute-value pairs. For a push notification, Amazon
 -- Pinpoint adds these attributes to the data.pinpoint object in the body
@@ -102,12 +107,7 @@ newSendUsersMessageRequest pMessageConfiguration_ =
 -- attributes in the events that it generates for users-messages
 -- deliveries.
 sendUsersMessageRequest_context :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-sendUsersMessageRequest_context = Lens.lens (\SendUsersMessageRequest' {context} -> context) (\s@SendUsersMessageRequest' {} a -> s {context = a} :: SendUsersMessageRequest) Prelude.. Lens.mapping Lens._Coerce
-
--- | The unique identifier for tracing the message. This identifier is
--- visible to message recipients.
-sendUsersMessageRequest_traceId :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe Prelude.Text)
-sendUsersMessageRequest_traceId = Lens.lens (\SendUsersMessageRequest' {traceId} -> traceId) (\s@SendUsersMessageRequest' {} a -> s {traceId = a} :: SendUsersMessageRequest)
+sendUsersMessageRequest_context = Lens.lens (\SendUsersMessageRequest' {context} -> context) (\s@SendUsersMessageRequest' {} a -> s {context = a} :: SendUsersMessageRequest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The message template to use for the message.
 sendUsersMessageRequest_templateConfiguration :: Lens.Lens' SendUsersMessageRequest (Prelude.Maybe TemplateConfiguration)
@@ -125,7 +125,7 @@ sendUsersMessageRequest_messageConfiguration = Lens.lens (\SendUsersMessageReque
 -- object to tailor the message for a user by specifying settings such as
 -- content overrides and message variables.
 sendUsersMessageRequest_users :: Lens.Lens' SendUsersMessageRequest (Prelude.HashMap Prelude.Text EndpointSendConfiguration)
-sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> users) (\s@SendUsersMessageRequest' {} a -> s {users = a} :: SendUsersMessageRequest) Prelude.. Lens._Coerce
+sendUsersMessageRequest_users = Lens.lens (\SendUsersMessageRequest' {users} -> users) (\s@SendUsersMessageRequest' {} a -> s {users = a} :: SendUsersMessageRequest) Prelude.. Lens.coerced
 
 instance Prelude.Hashable SendUsersMessageRequest
 
@@ -135,8 +135,8 @@ instance Core.ToJSON SendUsersMessageRequest where
   toJSON SendUsersMessageRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Context" Core..=) Prelude.<$> context,
-            ("TraceId" Core..=) Prelude.<$> traceId,
+          [ ("TraceId" Core..=) Prelude.<$> traceId,
+            ("Context" Core..=) Prelude.<$> context,
             ("TemplateConfiguration" Core..=)
               Prelude.<$> templateConfiguration,
             Prelude.Just

@@ -28,8 +28,8 @@ module Network.AWS.Firehose.ListTagsForDeliveryStream
     newListTagsForDeliveryStream,
 
     -- * Request Lenses
-    listTagsForDeliveryStream_exclusiveStartTagKey,
     listTagsForDeliveryStream_limit,
+    listTagsForDeliveryStream_exclusiveStartTagKey,
     listTagsForDeliveryStream_deliveryStreamName,
 
     -- * Destructuring the Response
@@ -52,15 +52,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForDeliveryStream' smart constructor.
 data ListTagsForDeliveryStream = ListTagsForDeliveryStream'
-  { -- | The key to use as the starting point for the list of tags. If you set
-    -- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
-    -- after @ExclusiveStartTagKey@.
-    exclusiveStartTagKey :: Prelude.Maybe Prelude.Text,
-    -- | The number of tags to return. If this number is less than the total
+  { -- | The number of tags to return. If this number is less than the total
     -- number of tags associated with the delivery stream, @HasMoreTags@ is set
     -- to @true@ in the response. To list additional tags, set
     -- @ExclusiveStartTagKey@ to the last key in the response.
     limit :: Prelude.Maybe Prelude.Natural,
+    -- | The key to use as the starting point for the list of tags. If you set
+    -- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
+    -- after @ExclusiveStartTagKey@.
+    exclusiveStartTagKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the delivery stream whose tags you want to list.
     deliveryStreamName :: Prelude.Text
   }
@@ -74,14 +74,14 @@ data ListTagsForDeliveryStream = ListTagsForDeliveryStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exclusiveStartTagKey', 'listTagsForDeliveryStream_exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If you set
--- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
--- after @ExclusiveStartTagKey@.
---
 -- 'limit', 'listTagsForDeliveryStream_limit' - The number of tags to return. If this number is less than the total
 -- number of tags associated with the delivery stream, @HasMoreTags@ is set
 -- to @true@ in the response. To list additional tags, set
 -- @ExclusiveStartTagKey@ to the last key in the response.
+--
+-- 'exclusiveStartTagKey', 'listTagsForDeliveryStream_exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If you set
+-- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
+-- after @ExclusiveStartTagKey@.
 --
 -- 'deliveryStreamName', 'listTagsForDeliveryStream_deliveryStreamName' - The name of the delivery stream whose tags you want to list.
 newListTagsForDeliveryStream ::
@@ -90,17 +90,10 @@ newListTagsForDeliveryStream ::
   ListTagsForDeliveryStream
 newListTagsForDeliveryStream pDeliveryStreamName_ =
   ListTagsForDeliveryStream'
-    { exclusiveStartTagKey =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      exclusiveStartTagKey = Prelude.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
-
--- | The key to use as the starting point for the list of tags. If you set
--- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
--- after @ExclusiveStartTagKey@.
-listTagsForDeliveryStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForDeliveryStream (Prelude.Maybe Prelude.Text)
-listTagsForDeliveryStream_exclusiveStartTagKey = Lens.lens (\ListTagsForDeliveryStream' {exclusiveStartTagKey} -> exclusiveStartTagKey) (\s@ListTagsForDeliveryStream' {} a -> s {exclusiveStartTagKey = a} :: ListTagsForDeliveryStream)
 
 -- | The number of tags to return. If this number is less than the total
 -- number of tags associated with the delivery stream, @HasMoreTags@ is set
@@ -108,6 +101,12 @@ listTagsForDeliveryStream_exclusiveStartTagKey = Lens.lens (\ListTagsForDelivery
 -- @ExclusiveStartTagKey@ to the last key in the response.
 listTagsForDeliveryStream_limit :: Lens.Lens' ListTagsForDeliveryStream (Prelude.Maybe Prelude.Natural)
 listTagsForDeliveryStream_limit = Lens.lens (\ListTagsForDeliveryStream' {limit} -> limit) (\s@ListTagsForDeliveryStream' {} a -> s {limit = a} :: ListTagsForDeliveryStream)
+
+-- | The key to use as the starting point for the list of tags. If you set
+-- this parameter, @ListTagsForDeliveryStream@ gets all tags that occur
+-- after @ExclusiveStartTagKey@.
+listTagsForDeliveryStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForDeliveryStream (Prelude.Maybe Prelude.Text)
+listTagsForDeliveryStream_exclusiveStartTagKey = Lens.lens (\ListTagsForDeliveryStream' {exclusiveStartTagKey} -> exclusiveStartTagKey) (\s@ListTagsForDeliveryStream' {} a -> s {exclusiveStartTagKey = a} :: ListTagsForDeliveryStream)
 
 -- | The name of the delivery stream whose tags you want to list.
 listTagsForDeliveryStream_deliveryStreamName :: Lens.Lens' ListTagsForDeliveryStream Prelude.Text
@@ -150,9 +149,9 @@ instance Core.ToJSON ListTagsForDeliveryStream where
   toJSON ListTagsForDeliveryStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExclusiveStartTagKey" Core..=)
+          [ ("Limit" Core..=) Prelude.<$> limit,
+            ("ExclusiveStartTagKey" Core..=)
               Prelude.<$> exclusiveStartTagKey,
-            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
@@ -217,7 +216,7 @@ listTagsForDeliveryStreamResponse_httpStatus = Lens.lens (\ListTagsForDeliverySt
 -- | A list of tags associated with @DeliveryStreamName@, starting with the
 -- first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@.
 listTagsForDeliveryStreamResponse_tags :: Lens.Lens' ListTagsForDeliveryStreamResponse [Tag]
-listTagsForDeliveryStreamResponse_tags = Lens.lens (\ListTagsForDeliveryStreamResponse' {tags} -> tags) (\s@ListTagsForDeliveryStreamResponse' {} a -> s {tags = a} :: ListTagsForDeliveryStreamResponse) Prelude.. Lens._Coerce
+listTagsForDeliveryStreamResponse_tags = Lens.lens (\ListTagsForDeliveryStreamResponse' {tags} -> tags) (\s@ListTagsForDeliveryStreamResponse' {} a -> s {tags = a} :: ListTagsForDeliveryStreamResponse) Prelude.. Lens.coerced
 
 -- | If this is @true@ in the response, more tags are available. To list the
 -- remaining tags, set @ExclusiveStartTagKey@ to the key of the last tag

@@ -98,14 +98,14 @@ newCostCategorySplitChargeRule
       { parameters =
           Prelude.Nothing,
         source = pSource_,
-        targets = Lens._Coerce Lens.# pTargets_,
+        targets = Lens.coerced Lens.# pTargets_,
         method = pMethod_
       }
 
 -- | The parameters for a split charge method. This is only required for the
 -- @FIXED@ method.
 costCategorySplitChargeRule_parameters :: Lens.Lens' CostCategorySplitChargeRule (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRuleParameter))
-costCategorySplitChargeRule_parameters = Lens.lens (\CostCategorySplitChargeRule' {parameters} -> parameters) (\s@CostCategorySplitChargeRule' {} a -> s {parameters = a} :: CostCategorySplitChargeRule) Prelude.. Lens.mapping Lens._Coerce
+costCategorySplitChargeRule_parameters = Lens.lens (\CostCategorySplitChargeRule' {parameters} -> parameters) (\s@CostCategorySplitChargeRule' {} a -> s {parameters = a} :: CostCategorySplitChargeRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Cost Category value that you want to split. That value can\'t be
 -- used as a source or a target in other split charge rules. To indicate
@@ -116,7 +116,7 @@ costCategorySplitChargeRule_source = Lens.lens (\CostCategorySplitChargeRule' {s
 -- | The Cost Category values that you want to split costs across. These
 -- values can\'t be used as a source in other split charge rules.
 costCategorySplitChargeRule_targets :: Lens.Lens' CostCategorySplitChargeRule (Prelude.NonEmpty Prelude.Text)
-costCategorySplitChargeRule_targets = Lens.lens (\CostCategorySplitChargeRule' {targets} -> targets) (\s@CostCategorySplitChargeRule' {} a -> s {targets = a} :: CostCategorySplitChargeRule) Prelude.. Lens._Coerce
+costCategorySplitChargeRule_targets = Lens.lens (\CostCategorySplitChargeRule' {targets} -> targets) (\s@CostCategorySplitChargeRule' {} a -> s {targets = a} :: CostCategorySplitChargeRule) Prelude.. Lens.coerced
 
 -- | The method that\'s used to define how to split your source costs across
 -- your targets.

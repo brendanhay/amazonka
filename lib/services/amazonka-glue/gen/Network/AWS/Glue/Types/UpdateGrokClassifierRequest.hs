@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUpdateGrokClassifierRequest' smart constructor.
 data UpdateGrokClassifierRequest = UpdateGrokClassifierRequest'
-  { -- | The grok pattern used by this classifier.
-    grokPattern :: Prelude.Maybe Prelude.Text,
-    -- | An identifier of the data format that the classifier matches, such as
+  { -- | An identifier of the data format that the classifier matches, such as
     -- Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
     classification :: Prelude.Maybe Prelude.Text,
     -- | Optional custom grok patterns used by this classifier.
     customPatterns :: Prelude.Maybe Prelude.Text,
+    -- | The grok pattern used by this classifier.
+    grokPattern :: Prelude.Maybe Prelude.Text,
     -- | The name of the @GrokClassifier@.
     name :: Prelude.Text
   }
@@ -47,12 +47,12 @@ data UpdateGrokClassifierRequest = UpdateGrokClassifierRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'grokPattern', 'updateGrokClassifierRequest_grokPattern' - The grok pattern used by this classifier.
---
 -- 'classification', 'updateGrokClassifierRequest_classification' - An identifier of the data format that the classifier matches, such as
 -- Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
 --
 -- 'customPatterns', 'updateGrokClassifierRequest_customPatterns' - Optional custom grok patterns used by this classifier.
+--
+-- 'grokPattern', 'updateGrokClassifierRequest_grokPattern' - The grok pattern used by this classifier.
 --
 -- 'name', 'updateGrokClassifierRequest_name' - The name of the @GrokClassifier@.
 newUpdateGrokClassifierRequest ::
@@ -61,16 +61,12 @@ newUpdateGrokClassifierRequest ::
   UpdateGrokClassifierRequest
 newUpdateGrokClassifierRequest pName_ =
   UpdateGrokClassifierRequest'
-    { grokPattern =
+    { classification =
         Prelude.Nothing,
-      classification = Prelude.Nothing,
       customPatterns = Prelude.Nothing,
+      grokPattern = Prelude.Nothing,
       name = pName_
     }
-
--- | The grok pattern used by this classifier.
-updateGrokClassifierRequest_grokPattern :: Lens.Lens' UpdateGrokClassifierRequest (Prelude.Maybe Prelude.Text)
-updateGrokClassifierRequest_grokPattern = Lens.lens (\UpdateGrokClassifierRequest' {grokPattern} -> grokPattern) (\s@UpdateGrokClassifierRequest' {} a -> s {grokPattern = a} :: UpdateGrokClassifierRequest)
 
 -- | An identifier of the data format that the classifier matches, such as
 -- Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
@@ -80,6 +76,10 @@ updateGrokClassifierRequest_classification = Lens.lens (\UpdateGrokClassifierReq
 -- | Optional custom grok patterns used by this classifier.
 updateGrokClassifierRequest_customPatterns :: Lens.Lens' UpdateGrokClassifierRequest (Prelude.Maybe Prelude.Text)
 updateGrokClassifierRequest_customPatterns = Lens.lens (\UpdateGrokClassifierRequest' {customPatterns} -> customPatterns) (\s@UpdateGrokClassifierRequest' {} a -> s {customPatterns = a} :: UpdateGrokClassifierRequest)
+
+-- | The grok pattern used by this classifier.
+updateGrokClassifierRequest_grokPattern :: Lens.Lens' UpdateGrokClassifierRequest (Prelude.Maybe Prelude.Text)
+updateGrokClassifierRequest_grokPattern = Lens.lens (\UpdateGrokClassifierRequest' {grokPattern} -> grokPattern) (\s@UpdateGrokClassifierRequest' {} a -> s {grokPattern = a} :: UpdateGrokClassifierRequest)
 
 -- | The name of the @GrokClassifier@.
 updateGrokClassifierRequest_name :: Lens.Lens' UpdateGrokClassifierRequest Prelude.Text
@@ -93,11 +93,11 @@ instance Core.ToJSON UpdateGrokClassifierRequest where
   toJSON UpdateGrokClassifierRequest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("GrokPattern" Core..=) Prelude.<$> grokPattern,
-            ("Classification" Core..=)
+          [ ("Classification" Core..=)
               Prelude.<$> classification,
             ("CustomPatterns" Core..=)
               Prelude.<$> customPatterns,
+            ("GrokPattern" Core..=) Prelude.<$> grokPattern,
             Prelude.Just ("Name" Core..= name)
           ]
       )

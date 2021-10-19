@@ -31,9 +31,9 @@ module Network.AWS.EC2.CreateEgressOnlyInternetGateway
     newCreateEgressOnlyInternetGateway,
 
     -- * Request Lenses
+    createEgressOnlyInternetGateway_clientToken,
     createEgressOnlyInternetGateway_tagSpecifications,
     createEgressOnlyInternetGateway_dryRun,
-    createEgressOnlyInternetGateway_clientToken,
     createEgressOnlyInternetGateway_vpcId,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Network.AWS.EC2.CreateEgressOnlyInternetGateway
     newCreateEgressOnlyInternetGatewayResponse,
 
     -- * Response Lenses
-    createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway,
     createEgressOnlyInternetGatewayResponse_clientToken,
+    createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway,
     createEgressOnlyInternetGatewayResponse_httpStatus,
   )
 where
@@ -56,17 +56,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateEgressOnlyInternetGateway' smart constructor.
 data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
-  { -- | The tags to assign to the egress-only internet gateway.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the egress-only internet gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC for which to create the egress-only internet gateway.
     vpcId :: Prelude.Text
   }
@@ -80,16 +80,16 @@ data CreateEgressOnlyInternetGateway = CreateEgressOnlyInternetGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createEgressOnlyInternetGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
 -- 'tagSpecifications', 'createEgressOnlyInternetGateway_tagSpecifications' - The tags to assign to the egress-only internet gateway.
 --
 -- 'dryRun', 'createEgressOnlyInternetGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'clientToken', 'createEgressOnlyInternetGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'vpcId', 'createEgressOnlyInternetGateway_vpcId' - The ID of the VPC for which to create the egress-only internet gateway.
 newCreateEgressOnlyInternetGateway ::
@@ -98,16 +98,22 @@ newCreateEgressOnlyInternetGateway ::
   CreateEgressOnlyInternetGateway
 newCreateEgressOnlyInternetGateway pVpcId_ =
   CreateEgressOnlyInternetGateway'
-    { tagSpecifications =
+    { clientToken =
         Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+createEgressOnlyInternetGateway_clientToken :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe Prelude.Text)
+createEgressOnlyInternetGateway_clientToken = Lens.lens (\CreateEgressOnlyInternetGateway' {clientToken} -> clientToken) (\s@CreateEgressOnlyInternetGateway' {} a -> s {clientToken = a} :: CreateEgressOnlyInternetGateway)
+
 -- | The tags to assign to the egress-only internet gateway.
 createEgressOnlyInternetGateway_tagSpecifications :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe [TagSpecification])
-createEgressOnlyInternetGateway_tagSpecifications = Lens.lens (\CreateEgressOnlyInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateEgressOnlyInternetGateway' {} a -> s {tagSpecifications = a} :: CreateEgressOnlyInternetGateway) Prelude.. Lens.mapping Lens._Coerce
+createEgressOnlyInternetGateway_tagSpecifications = Lens.lens (\CreateEgressOnlyInternetGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateEgressOnlyInternetGateway' {} a -> s {tagSpecifications = a} :: CreateEgressOnlyInternetGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -115,12 +121,6 @@ createEgressOnlyInternetGateway_tagSpecifications = Lens.lens (\CreateEgressOnly
 -- Otherwise, it is @UnauthorizedOperation@.
 createEgressOnlyInternetGateway_dryRun :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe Prelude.Bool)
 createEgressOnlyInternetGateway_dryRun = Lens.lens (\CreateEgressOnlyInternetGateway' {dryRun} -> dryRun) (\s@CreateEgressOnlyInternetGateway' {} a -> s {dryRun = a} :: CreateEgressOnlyInternetGateway)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
-createEgressOnlyInternetGateway_clientToken :: Lens.Lens' CreateEgressOnlyInternetGateway (Prelude.Maybe Prelude.Text)
-createEgressOnlyInternetGateway_clientToken = Lens.lens (\CreateEgressOnlyInternetGateway' {clientToken} -> clientToken) (\s@CreateEgressOnlyInternetGateway' {} a -> s {clientToken = a} :: CreateEgressOnlyInternetGateway)
 
 -- | The ID of the VPC for which to create the egress-only internet gateway.
 createEgressOnlyInternetGateway_vpcId :: Lens.Lens' CreateEgressOnlyInternetGateway Prelude.Text
@@ -138,8 +138,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           CreateEgressOnlyInternetGatewayResponse'
-            Prelude.<$> (x Core..@? "egressOnlyInternetGateway")
-            Prelude.<*> (x Core..@? "clientToken")
+            Prelude.<$> (x Core..@? "clientToken")
+            Prelude.<*> (x Core..@? "egressOnlyInternetGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,22 +169,22 @@ instance Core.ToQuery CreateEgressOnlyInternetGateway where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Core.=: clientToken,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "ClientToken" Core.=: clientToken,
         "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newCreateEgressOnlyInternetGatewayResponse' smart constructor.
 data CreateEgressOnlyInternetGatewayResponse = CreateEgressOnlyInternetGatewayResponse'
-  { -- | Information about the egress-only internet gateway.
-    egressOnlyInternetGateway :: Prelude.Maybe EgressOnlyInternetGateway,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the egress-only internet gateway.
+    egressOnlyInternetGateway :: Prelude.Maybe EgressOnlyInternetGateway,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,10 +198,10 @@ data CreateEgressOnlyInternetGatewayResponse = CreateEgressOnlyInternetGatewayRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'egressOnlyInternetGateway', 'createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway' - Information about the egress-only internet gateway.
---
 -- 'clientToken', 'createEgressOnlyInternetGatewayResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
+--
+-- 'egressOnlyInternetGateway', 'createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway' - Information about the egress-only internet gateway.
 --
 -- 'httpStatus', 'createEgressOnlyInternetGatewayResponse_httpStatus' - The response's http status code.
 newCreateEgressOnlyInternetGatewayResponse ::
@@ -211,20 +211,21 @@ newCreateEgressOnlyInternetGatewayResponse ::
 newCreateEgressOnlyInternetGatewayResponse
   pHttpStatus_ =
     CreateEgressOnlyInternetGatewayResponse'
-      { egressOnlyInternetGateway =
+      { clientToken =
           Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        egressOnlyInternetGateway =
+          Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | Information about the egress-only internet gateway.
-createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse (Prelude.Maybe EgressOnlyInternetGateway)
-createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway = Lens.lens (\CreateEgressOnlyInternetGatewayResponse' {egressOnlyInternetGateway} -> egressOnlyInternetGateway) (\s@CreateEgressOnlyInternetGatewayResponse' {} a -> s {egressOnlyInternetGateway = a} :: CreateEgressOnlyInternetGatewayResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createEgressOnlyInternetGatewayResponse_clientToken :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse (Prelude.Maybe Prelude.Text)
 createEgressOnlyInternetGatewayResponse_clientToken = Lens.lens (\CreateEgressOnlyInternetGatewayResponse' {clientToken} -> clientToken) (\s@CreateEgressOnlyInternetGatewayResponse' {} a -> s {clientToken = a} :: CreateEgressOnlyInternetGatewayResponse)
+
+-- | Information about the egress-only internet gateway.
+createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse (Prelude.Maybe EgressOnlyInternetGateway)
+createEgressOnlyInternetGatewayResponse_egressOnlyInternetGateway = Lens.lens (\CreateEgressOnlyInternetGatewayResponse' {egressOnlyInternetGateway} -> egressOnlyInternetGateway) (\s@CreateEgressOnlyInternetGatewayResponse' {} a -> s {egressOnlyInternetGateway = a} :: CreateEgressOnlyInternetGatewayResponse)
 
 -- | The response's http status code.
 createEgressOnlyInternetGatewayResponse_httpStatus :: Lens.Lens' CreateEgressOnlyInternetGatewayResponse Prelude.Int

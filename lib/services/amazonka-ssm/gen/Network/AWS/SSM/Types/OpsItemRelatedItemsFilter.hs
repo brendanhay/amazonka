@@ -75,7 +75,7 @@ opsItemRelatedItemsFilter_key = Lens.lens (\OpsItemRelatedItemsFilter' {key} -> 
 
 -- | The values for the filter.
 opsItemRelatedItemsFilter_values :: Lens.Lens' OpsItemRelatedItemsFilter [Prelude.Text]
-opsItemRelatedItemsFilter_values = Lens.lens (\OpsItemRelatedItemsFilter' {values} -> values) (\s@OpsItemRelatedItemsFilter' {} a -> s {values = a} :: OpsItemRelatedItemsFilter) Prelude.. Lens._Coerce
+opsItemRelatedItemsFilter_values = Lens.lens (\OpsItemRelatedItemsFilter' {values} -> values) (\s@OpsItemRelatedItemsFilter' {} a -> s {values = a} :: OpsItemRelatedItemsFilter) Prelude.. Lens.coerced
 
 -- | The operator used by the filter call. The only supported operator is
 -- @EQUAL@.

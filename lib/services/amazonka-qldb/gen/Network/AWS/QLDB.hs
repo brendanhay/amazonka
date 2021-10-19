@@ -19,11 +19,17 @@ module Network.AWS.QLDB
     -- * Errors
     -- $errors
 
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** ResourcePreconditionNotMetException
+    _ResourcePreconditionNotMetException,
+
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -31,23 +37,11 @@ module Network.AWS.QLDB
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ResourcePreconditionNotMetException
-    _ResourcePreconditionNotMetException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** UpdateLedgerPermissionsMode
-    UpdateLedgerPermissionsMode (UpdateLedgerPermissionsMode'),
-    newUpdateLedgerPermissionsMode,
-    UpdateLedgerPermissionsModeResponse (UpdateLedgerPermissionsModeResponse'),
-    newUpdateLedgerPermissionsModeResponse,
 
     -- ** UpdateLedger
     UpdateLedger (UpdateLedger'),
@@ -61,53 +55,17 @@ module Network.AWS.QLDB
     DeleteLedgerResponse (DeleteLedgerResponse'),
     newDeleteLedgerResponse,
 
-    -- ** ListLedgers
-    ListLedgers (ListLedgers'),
-    newListLedgers,
-    ListLedgersResponse (ListLedgersResponse'),
-    newListLedgersResponse,
+    -- ** ListJournalKinesisStreamsForLedger
+    ListJournalKinesisStreamsForLedger (ListJournalKinesisStreamsForLedger'),
+    newListJournalKinesisStreamsForLedger,
+    ListJournalKinesisStreamsForLedgerResponse (ListJournalKinesisStreamsForLedgerResponse'),
+    newListJournalKinesisStreamsForLedgerResponse,
 
-    -- ** CreateLedger
-    CreateLedger (CreateLedger'),
-    newCreateLedger,
-    CreateLedgerResponse (CreateLedgerResponse'),
-    newCreateLedgerResponse,
-
-    -- ** ExportJournalToS
-    ExportJournalToS (ExportJournalToS'),
-    newExportJournalToS,
-    ExportJournalToSResponse (ExportJournalToSResponse'),
-    newExportJournalToSResponse,
-
-    -- ** CancelJournalKinesisStream
-    CancelJournalKinesisStream (CancelJournalKinesisStream'),
-    newCancelJournalKinesisStream,
-    CancelJournalKinesisStreamResponse (CancelJournalKinesisStreamResponse'),
-    newCancelJournalKinesisStreamResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** DescribeLedger
-    DescribeLedger (DescribeLedger'),
-    newDescribeLedger,
-    DescribeLedgerResponse (DescribeLedgerResponse'),
-    newDescribeLedgerResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribeJournalS3Export
-    DescribeJournalS3Export (DescribeJournalS3Export'),
-    newDescribeJournalS3Export,
-    DescribeJournalS3ExportResponse (DescribeJournalS3ExportResponse'),
-    newDescribeJournalS3ExportResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** GetRevision
     GetRevision (GetRevision'),
@@ -115,29 +73,23 @@ module Network.AWS.QLDB
     GetRevisionResponse (GetRevisionResponse'),
     newGetRevisionResponse,
 
-    -- ** ListJournalS3ExportsForLedger
-    ListJournalS3ExportsForLedger (ListJournalS3ExportsForLedger'),
-    newListJournalS3ExportsForLedger,
-    ListJournalS3ExportsForLedgerResponse (ListJournalS3ExportsForLedgerResponse'),
-    newListJournalS3ExportsForLedgerResponse,
+    -- ** DescribeLedger
+    DescribeLedger (DescribeLedger'),
+    newDescribeLedger,
+    DescribeLedgerResponse (DescribeLedgerResponse'),
+    newDescribeLedgerResponse,
 
-    -- ** ListJournalKinesisStreamsForLedger
-    ListJournalKinesisStreamsForLedger (ListJournalKinesisStreamsForLedger'),
-    newListJournalKinesisStreamsForLedger,
-    ListJournalKinesisStreamsForLedgerResponse (ListJournalKinesisStreamsForLedgerResponse'),
-    newListJournalKinesisStreamsForLedgerResponse,
+    -- ** CancelJournalKinesisStream
+    CancelJournalKinesisStream (CancelJournalKinesisStream'),
+    newCancelJournalKinesisStream,
+    CancelJournalKinesisStreamResponse (CancelJournalKinesisStreamResponse'),
+    newCancelJournalKinesisStreamResponse,
 
-    -- ** GetBlock
-    GetBlock (GetBlock'),
-    newGetBlock,
-    GetBlockResponse (GetBlockResponse'),
-    newGetBlockResponse,
-
-    -- ** ListJournalS3Exports
-    ListJournalS3Exports (ListJournalS3Exports'),
-    newListJournalS3Exports,
-    ListJournalS3ExportsResponse (ListJournalS3ExportsResponse'),
-    newListJournalS3ExportsResponse,
+    -- ** ExportJournalToS
+    ExportJournalToS (ExportJournalToS'),
+    newExportJournalToS,
+    ExportJournalToSResponse (ExportJournalToSResponse'),
+    newExportJournalToSResponse,
 
     -- ** StreamJournalToKinesis
     StreamJournalToKinesis (StreamJournalToKinesis'),
@@ -145,11 +97,41 @@ module Network.AWS.QLDB
     StreamJournalToKinesisResponse (StreamJournalToKinesisResponse'),
     newStreamJournalToKinesisResponse,
 
-    -- ** GetDigest
-    GetDigest (GetDigest'),
-    newGetDigest,
-    GetDigestResponse (GetDigestResponse'),
-    newGetDigestResponse,
+    -- ** CreateLedger
+    CreateLedger (CreateLedger'),
+    newCreateLedger,
+    CreateLedgerResponse (CreateLedgerResponse'),
+    newCreateLedgerResponse,
+
+    -- ** ListLedgers
+    ListLedgers (ListLedgers'),
+    newListLedgers,
+    ListLedgersResponse (ListLedgersResponse'),
+    newListLedgersResponse,
+
+    -- ** ListJournalS3Exports
+    ListJournalS3Exports (ListJournalS3Exports'),
+    newListJournalS3Exports,
+    ListJournalS3ExportsResponse (ListJournalS3ExportsResponse'),
+    newListJournalS3ExportsResponse,
+
+    -- ** UpdateLedgerPermissionsMode
+    UpdateLedgerPermissionsMode (UpdateLedgerPermissionsMode'),
+    newUpdateLedgerPermissionsMode,
+    UpdateLedgerPermissionsModeResponse (UpdateLedgerPermissionsModeResponse'),
+    newUpdateLedgerPermissionsModeResponse,
+
+    -- ** GetBlock
+    GetBlock (GetBlock'),
+    newGetBlock,
+    GetBlockResponse (GetBlockResponse'),
+    newGetBlockResponse,
+
+    -- ** ListJournalS3ExportsForLedger
+    ListJournalS3ExportsForLedger (ListJournalS3ExportsForLedger'),
+    newListJournalS3ExportsForLedger,
+    ListJournalS3ExportsForLedgerResponse (ListJournalS3ExportsForLedgerResponse'),
+    newListJournalS3ExportsForLedgerResponse,
 
     -- ** DescribeJournalKinesisStream
     DescribeJournalKinesisStream (DescribeJournalKinesisStream'),
@@ -157,11 +139,29 @@ module Network.AWS.QLDB
     DescribeJournalKinesisStreamResponse (DescribeJournalKinesisStreamResponse'),
     newDescribeJournalKinesisStreamResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DescribeJournalS3Export
+    DescribeJournalS3Export (DescribeJournalS3Export'),
+    newDescribeJournalS3Export,
+    DescribeJournalS3ExportResponse (DescribeJournalS3ExportResponse'),
+    newDescribeJournalS3ExportResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** GetDigest
+    GetDigest (GetDigest'),
+    newGetDigest,
+    GetDigestResponse (GetDigestResponse'),
+    newGetDigestResponse,
 
     -- * Types
 

@@ -17,12 +17,12 @@ module Network.AWS.MediaStore.Types
     defaultService,
 
     -- * Errors
-    _ContainerInUseException,
-    _InternalServerError,
     _PolicyNotFoundException,
     _CorsPolicyNotFoundException,
-    _LimitExceededException,
+    _ContainerInUseException,
+    _InternalServerError,
     _ContainerNotFoundException,
+    _LimitExceededException,
 
     -- * ContainerLevelMetrics
     ContainerLevelMetrics (..),
@@ -38,8 +38,8 @@ module Network.AWS.MediaStore.Types
     newContainer,
     container_creationTime,
     container_status,
-    container_arn,
     container_accessLoggingEnabled,
+    container_arn,
     container_name,
     container_endpoint,
 
@@ -111,37 +111,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -154,7 +131,44 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The policy that you specified in the request does not exist.
+_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PolicyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PolicyNotFoundException"
+
+-- | The CORS policy that you specified in the request does not exist.
+_CorsPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CorsPolicyNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "CorsPolicyNotFoundException"
 
 -- | The container that you specified in the request already exists or is
 -- being updated.
@@ -171,19 +185,12 @@ _InternalServerError =
     defaultService
     "InternalServerError"
 
--- | The policy that you specified in the request does not exist.
-_PolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PolicyNotFoundException =
+-- | The container that you specified in the request does not exist.
+_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ContainerNotFoundException =
   Core._MatchServiceError
     defaultService
-    "PolicyNotFoundException"
-
--- | The CORS policy that you specified in the request does not exist.
-_CorsPolicyNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CorsPolicyNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "CorsPolicyNotFoundException"
+    "ContainerNotFoundException"
 
 -- | A service limit has been exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -191,10 +198,3 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | The container that you specified in the request does not exist.
-_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ContainerNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ContainerNotFoundException"

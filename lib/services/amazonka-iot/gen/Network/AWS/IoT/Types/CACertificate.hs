@@ -34,10 +34,10 @@ data CACertificate = CACertificate'
     status :: Prelude.Maybe CACertificateStatus,
     -- | The ARN of the CA certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The date the CA certificate was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the CA certificate.
-    certificateId :: Prelude.Maybe Prelude.Text
+    certificateId :: Prelude.Maybe Prelude.Text,
+    -- | The date the CA certificate was created.
+    creationDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,17 +55,17 @@ data CACertificate = CACertificate'
 --
 -- 'certificateArn', 'cACertificate_certificateArn' - The ARN of the CA certificate.
 --
--- 'creationDate', 'cACertificate_creationDate' - The date the CA certificate was created.
---
 -- 'certificateId', 'cACertificate_certificateId' - The ID of the CA certificate.
+--
+-- 'creationDate', 'cACertificate_creationDate' - The date the CA certificate was created.
 newCACertificate ::
   CACertificate
 newCACertificate =
   CACertificate'
     { status = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      certificateId = Prelude.Nothing
+      certificateId = Prelude.Nothing,
+      creationDate = Prelude.Nothing
     }
 
 -- | The status of the CA certificate.
@@ -78,13 +78,13 @@ cACertificate_status = Lens.lens (\CACertificate' {status} -> status) (\s@CACert
 cACertificate_certificateArn :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
 cACertificate_certificateArn = Lens.lens (\CACertificate' {certificateArn} -> certificateArn) (\s@CACertificate' {} a -> s {certificateArn = a} :: CACertificate)
 
--- | The date the CA certificate was created.
-cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
-cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Core._Time
-
 -- | The ID of the CA certificate.
 cACertificate_certificateId :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
 cACertificate_certificateId = Lens.lens (\CACertificate' {certificateId} -> certificateId) (\s@CACertificate' {} a -> s {certificateId = a} :: CACertificate)
+
+-- | The date the CA certificate was created.
+cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
+cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON CACertificate where
   parseJSON =
@@ -94,8 +94,8 @@ instance Core.FromJSON CACertificate where
           CACertificate'
             Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "certificateId")
+            Prelude.<*> (x Core..:? "creationDate")
       )
 
 instance Prelude.Hashable CACertificate

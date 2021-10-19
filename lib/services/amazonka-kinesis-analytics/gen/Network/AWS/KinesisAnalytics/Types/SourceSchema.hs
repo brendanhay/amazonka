@@ -65,7 +65,7 @@ newSourceSchema pRecordFormat_ pRecordColumns_ =
   SourceSchema'
     { recordEncoding = Prelude.Nothing,
       recordFormat = pRecordFormat_,
-      recordColumns = Lens._Coerce Lens.# pRecordColumns_
+      recordColumns = Lens.coerced Lens.# pRecordColumns_
     }
 
 -- | Specifies the encoding of the records in the streaming source. For
@@ -79,7 +79,7 @@ sourceSchema_recordFormat = Lens.lens (\SourceSchema' {recordFormat} -> recordFo
 
 -- | A list of @RecordColumn@ objects.
 sourceSchema_recordColumns :: Lens.Lens' SourceSchema (Prelude.NonEmpty RecordColumn)
-sourceSchema_recordColumns = Lens.lens (\SourceSchema' {recordColumns} -> recordColumns) (\s@SourceSchema' {} a -> s {recordColumns = a} :: SourceSchema) Prelude.. Lens._Coerce
+sourceSchema_recordColumns = Lens.lens (\SourceSchema' {recordColumns} -> recordColumns) (\s@SourceSchema' {} a -> s {recordColumns = a} :: SourceSchema) Prelude.. Lens.coerced
 
 instance Core.FromJSON SourceSchema where
   parseJSON =

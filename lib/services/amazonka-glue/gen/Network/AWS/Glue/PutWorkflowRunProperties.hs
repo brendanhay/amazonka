@@ -99,7 +99,7 @@ putWorkflowRunProperties_runId = Lens.lens (\PutWorkflowRunProperties' {runId} -
 
 -- | The properties to put for the specified run.
 putWorkflowRunProperties_runProperties :: Lens.Lens' PutWorkflowRunProperties (Prelude.HashMap Prelude.Text Prelude.Text)
-putWorkflowRunProperties_runProperties = Lens.lens (\PutWorkflowRunProperties' {runProperties} -> runProperties) (\s@PutWorkflowRunProperties' {} a -> s {runProperties = a} :: PutWorkflowRunProperties) Prelude.. Lens._Coerce
+putWorkflowRunProperties_runProperties = Lens.lens (\PutWorkflowRunProperties' {runProperties} -> runProperties) (\s@PutWorkflowRunProperties' {} a -> s {runProperties = a} :: PutWorkflowRunProperties) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutWorkflowRunProperties where
   type

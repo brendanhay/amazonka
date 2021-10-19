@@ -39,8 +39,8 @@ module Network.AWS.APIGateway.UpdateMethodResponse
 
     -- * Response Lenses
     methodResponse_responseModels,
-    methodResponse_responseParameters,
     methodResponse_statusCode,
+    methodResponse_responseParameters,
   )
 where
 
@@ -114,7 +114,7 @@ newUpdateMethodResponse
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateMethodResponse_patchOperations :: Lens.Lens' UpdateMethodResponse (Prelude.Maybe [PatchOperation])
-updateMethodResponse_patchOperations = Lens.lens (\UpdateMethodResponse' {patchOperations} -> patchOperations) (\s@UpdateMethodResponse' {} a -> s {patchOperations = a} :: UpdateMethodResponse) Prelude.. Lens.mapping Lens._Coerce
+updateMethodResponse_patchOperations = Lens.lens (\UpdateMethodResponse' {patchOperations} -> patchOperations) (\s@UpdateMethodResponse' {} a -> s {patchOperations = a} :: UpdateMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateMethodResponse_restApiId :: Lens.Lens' UpdateMethodResponse Prelude.Text

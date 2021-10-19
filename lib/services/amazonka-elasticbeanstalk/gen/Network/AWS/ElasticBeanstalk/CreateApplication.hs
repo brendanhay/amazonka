@@ -28,9 +28,9 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     newCreateApplication,
 
     -- * Request Lenses
-    createApplication_tags,
     createApplication_resourceLifecycleConfig,
     createApplication_description,
+    createApplication_tags,
     createApplication_applicationName,
 
     -- * Destructuring the Response
@@ -53,16 +53,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { -- | Specifies the tags applied to the application.
-    --
-    -- Elastic Beanstalk applies these tags only to the application.
-    -- Environments that you create in the application don\'t inherit the tags.
-    tags :: Prelude.Maybe [Tag],
-    -- | Specifies an application resource lifecycle configuration to prevent
+  { -- | Specifies an application resource lifecycle configuration to prevent
     -- your application from accumulating too many versions.
     resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
     -- | Your description of the application.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the tags applied to the application.
+    --
+    -- Elastic Beanstalk applies these tags only to the application.
+    -- Environments that you create in the application don\'t inherit the tags.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the application. Must be unique within your account.
     applicationName :: Prelude.Text
   }
@@ -76,15 +76,15 @@ data CreateApplication = CreateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createApplication_tags' - Specifies the tags applied to the application.
---
--- Elastic Beanstalk applies these tags only to the application.
--- Environments that you create in the application don\'t inherit the tags.
---
 -- 'resourceLifecycleConfig', 'createApplication_resourceLifecycleConfig' - Specifies an application resource lifecycle configuration to prevent
 -- your application from accumulating too many versions.
 --
 -- 'description', 'createApplication_description' - Your description of the application.
+--
+-- 'tags', 'createApplication_tags' - Specifies the tags applied to the application.
+--
+-- Elastic Beanstalk applies these tags only to the application.
+-- Environments that you create in the application don\'t inherit the tags.
 --
 -- 'applicationName', 'createApplication_applicationName' - The name of the application. Must be unique within your account.
 newCreateApplication ::
@@ -93,18 +93,12 @@ newCreateApplication ::
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { tags = Prelude.Nothing,
-      resourceLifecycleConfig = Prelude.Nothing,
+    { resourceLifecycleConfig =
+        Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       applicationName = pApplicationName_
     }
-
--- | Specifies the tags applied to the application.
---
--- Elastic Beanstalk applies these tags only to the application.
--- Environments that you create in the application don\'t inherit the tags.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies an application resource lifecycle configuration to prevent
 -- your application from accumulating too many versions.
@@ -114,6 +108,13 @@ createApplication_resourceLifecycleConfig = Lens.lens (\CreateApplication' {reso
 -- | Your description of the application.
 createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
 createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
+
+-- | Specifies the tags applied to the application.
+--
+-- Elastic Beanstalk applies these tags only to the application.
+-- Environments that you create in the application don\'t inherit the tags.
+createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the application. Must be unique within your account.
 createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
@@ -146,11 +147,11 @@ instance Core.ToQuery CreateApplication where
           Core.=: ("CreateApplication" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> tags),
         "ResourceLifecycleConfig"
           Core.=: resourceLifecycleConfig,
         "Description" Core.=: description,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> tags),
         "ApplicationName" Core.=: applicationName
       ]

@@ -48,9 +48,9 @@ module Network.AWS.CloudWatchLogs.CreateExportTask
     newCreateExportTask,
 
     -- * Request Lenses
-    createExportTask_logStreamNamePrefix,
-    createExportTask_taskName,
     createExportTask_destinationPrefix,
+    createExportTask_taskName,
+    createExportTask_logStreamNamePrefix,
     createExportTask_logGroupName,
     createExportTask_from,
     createExportTask_to,
@@ -75,14 +75,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateExportTask' smart constructor.
 data CreateExportTask = CreateExportTask'
-  { -- | Export only log streams that match the provided prefix. If you don\'t
-    -- specify a value, no prefix filter is applied.
-    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
-    -- | The name of the export task.
-    taskName :: Prelude.Maybe Prelude.Text,
-    -- | The prefix used as the start of the key for every object exported. If
+  { -- | The prefix used as the start of the key for every object exported. If
     -- you don\'t specify a value, the default is @exportedlogs@.
     destinationPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The name of the export task.
+    taskName :: Prelude.Maybe Prelude.Text,
+    -- | Export only log streams that match the provided prefix. If you don\'t
+    -- specify a value, no prefix filter is applied.
+    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the log group.
     logGroupName :: Prelude.Text,
     -- | The start time of the range for the request, expressed as the number of
@@ -107,13 +107,13 @@ data CreateExportTask = CreateExportTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logStreamNamePrefix', 'createExportTask_logStreamNamePrefix' - Export only log streams that match the provided prefix. If you don\'t
--- specify a value, no prefix filter is applied.
+-- 'destinationPrefix', 'createExportTask_destinationPrefix' - The prefix used as the start of the key for every object exported. If
+-- you don\'t specify a value, the default is @exportedlogs@.
 --
 -- 'taskName', 'createExportTask_taskName' - The name of the export task.
 --
--- 'destinationPrefix', 'createExportTask_destinationPrefix' - The prefix used as the start of the key for every object exported. If
--- you don\'t specify a value, the default is @exportedlogs@.
+-- 'logStreamNamePrefix', 'createExportTask_logStreamNamePrefix' - Export only log streams that match the provided prefix. If you don\'t
+-- specify a value, no prefix filter is applied.
 --
 -- 'logGroupName', 'createExportTask_logGroupName' - The name of the log group.
 --
@@ -143,29 +143,29 @@ newCreateExportTask
   pTo_
   pDestination_ =
     CreateExportTask'
-      { logStreamNamePrefix =
+      { destinationPrefix =
           Prelude.Nothing,
         taskName = Prelude.Nothing,
-        destinationPrefix = Prelude.Nothing,
+        logStreamNamePrefix = Prelude.Nothing,
         logGroupName = pLogGroupName_,
         from = pFrom_,
         to = pTo_,
         destination = pDestination_
       }
 
--- | Export only log streams that match the provided prefix. If you don\'t
--- specify a value, no prefix filter is applied.
-createExportTask_logStreamNamePrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
-createExportTask_logStreamNamePrefix = Lens.lens (\CreateExportTask' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@CreateExportTask' {} a -> s {logStreamNamePrefix = a} :: CreateExportTask)
+-- | The prefix used as the start of the key for every object exported. If
+-- you don\'t specify a value, the default is @exportedlogs@.
+createExportTask_destinationPrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
+createExportTask_destinationPrefix = Lens.lens (\CreateExportTask' {destinationPrefix} -> destinationPrefix) (\s@CreateExportTask' {} a -> s {destinationPrefix = a} :: CreateExportTask)
 
 -- | The name of the export task.
 createExportTask_taskName :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
 createExportTask_taskName = Lens.lens (\CreateExportTask' {taskName} -> taskName) (\s@CreateExportTask' {} a -> s {taskName = a} :: CreateExportTask)
 
--- | The prefix used as the start of the key for every object exported. If
--- you don\'t specify a value, the default is @exportedlogs@.
-createExportTask_destinationPrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
-createExportTask_destinationPrefix = Lens.lens (\CreateExportTask' {destinationPrefix} -> destinationPrefix) (\s@CreateExportTask' {} a -> s {destinationPrefix = a} :: CreateExportTask)
+-- | Export only log streams that match the provided prefix. If you don\'t
+-- specify a value, no prefix filter is applied.
+createExportTask_logStreamNamePrefix :: Lens.Lens' CreateExportTask (Prelude.Maybe Prelude.Text)
+createExportTask_logStreamNamePrefix = Lens.lens (\CreateExportTask' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@CreateExportTask' {} a -> s {logStreamNamePrefix = a} :: CreateExportTask)
 
 -- | The name of the log group.
 createExportTask_logGroupName :: Lens.Lens' CreateExportTask Prelude.Text
@@ -224,11 +224,11 @@ instance Core.ToJSON CreateExportTask where
   toJSON CreateExportTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("logStreamNamePrefix" Core..=)
-              Prelude.<$> logStreamNamePrefix,
-            ("taskName" Core..=) Prelude.<$> taskName,
-            ("destinationPrefix" Core..=)
+          [ ("destinationPrefix" Core..=)
               Prelude.<$> destinationPrefix,
+            ("taskName" Core..=) Prelude.<$> taskName,
+            ("logStreamNamePrefix" Core..=)
+              Prelude.<$> logStreamNamePrefix,
             Prelude.Just ("logGroupName" Core..= logGroupName),
             Prelude.Just ("from" Core..= from),
             Prelude.Just ("to" Core..= to),

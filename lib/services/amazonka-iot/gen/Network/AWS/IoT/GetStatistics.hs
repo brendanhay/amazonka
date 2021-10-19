@@ -34,9 +34,9 @@ module Network.AWS.IoT.GetStatistics
     newGetStatistics,
 
     -- * Request Lenses
-    getStatistics_indexName,
     getStatistics_queryVersion,
     getStatistics_aggregationField,
+    getStatistics_indexName,
     getStatistics_queryString,
 
     -- * Destructuring the Response
@@ -58,12 +58,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetStatistics' smart constructor.
 data GetStatistics = GetStatistics'
-  { -- | The name of the index to search. The default value is @AWS_Things@.
-    indexName :: Prelude.Maybe Prelude.Text,
-    -- | The version of the query used to search.
+  { -- | The version of the query used to search.
     queryVersion :: Prelude.Maybe Prelude.Text,
     -- | The aggregation field name.
     aggregationField :: Prelude.Maybe Prelude.Text,
+    -- | The name of the index to search. The default value is @AWS_Things@.
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The query used to search. You can specify \"*\" for the query string to
     -- get the count of all indexed things in your Amazon Web Services account.
     queryString :: Prelude.Text
@@ -78,11 +78,11 @@ data GetStatistics = GetStatistics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'indexName', 'getStatistics_indexName' - The name of the index to search. The default value is @AWS_Things@.
---
 -- 'queryVersion', 'getStatistics_queryVersion' - The version of the query used to search.
 --
 -- 'aggregationField', 'getStatistics_aggregationField' - The aggregation field name.
+--
+-- 'indexName', 'getStatistics_indexName' - The name of the index to search. The default value is @AWS_Things@.
 --
 -- 'queryString', 'getStatistics_queryString' - The query used to search. You can specify \"*\" for the query string to
 -- get the count of all indexed things in your Amazon Web Services account.
@@ -92,15 +92,11 @@ newGetStatistics ::
   GetStatistics
 newGetStatistics pQueryString_ =
   GetStatistics'
-    { indexName = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
+    { queryVersion = Prelude.Nothing,
       aggregationField = Prelude.Nothing,
+      indexName = Prelude.Nothing,
       queryString = pQueryString_
     }
-
--- | The name of the index to search. The default value is @AWS_Things@.
-getStatistics_indexName :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
-getStatistics_indexName = Lens.lens (\GetStatistics' {indexName} -> indexName) (\s@GetStatistics' {} a -> s {indexName = a} :: GetStatistics)
 
 -- | The version of the query used to search.
 getStatistics_queryVersion :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
@@ -109,6 +105,10 @@ getStatistics_queryVersion = Lens.lens (\GetStatistics' {queryVersion} -> queryV
 -- | The aggregation field name.
 getStatistics_aggregationField :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
 getStatistics_aggregationField = Lens.lens (\GetStatistics' {aggregationField} -> aggregationField) (\s@GetStatistics' {} a -> s {aggregationField = a} :: GetStatistics)
+
+-- | The name of the index to search. The default value is @AWS_Things@.
+getStatistics_indexName :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
+getStatistics_indexName = Lens.lens (\GetStatistics' {indexName} -> indexName) (\s@GetStatistics' {} a -> s {indexName = a} :: GetStatistics)
 
 -- | The query used to search. You can specify \"*\" for the query string to
 -- get the count of all indexed things in your Amazon Web Services account.
@@ -139,10 +139,10 @@ instance Core.ToJSON GetStatistics where
   toJSON GetStatistics' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("indexName" Core..=) Prelude.<$> indexName,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
+          [ ("queryVersion" Core..=) Prelude.<$> queryVersion,
             ("aggregationField" Core..=)
               Prelude.<$> aggregationField,
+            ("indexName" Core..=) Prelude.<$> indexName,
             Prelude.Just ("queryString" Core..= queryString)
           ]
       )

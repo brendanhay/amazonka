@@ -34,10 +34,10 @@ module Network.AWS.IoT.ListAuditMitigationActionsTasks
     newListAuditMitigationActionsTasks,
 
     -- * Request Lenses
-    listAuditMitigationActionsTasks_nextToken,
-    listAuditMitigationActionsTasks_maxResults,
-    listAuditMitigationActionsTasks_findingId,
     listAuditMitigationActionsTasks_auditTaskId,
+    listAuditMitigationActionsTasks_nextToken,
+    listAuditMitigationActionsTasks_findingId,
+    listAuditMitigationActionsTasks_maxResults,
     listAuditMitigationActionsTasks_taskStatus,
     listAuditMitigationActionsTasks_startTime,
     listAuditMitigationActionsTasks_endTime,
@@ -47,8 +47,8 @@ module Network.AWS.IoT.ListAuditMitigationActionsTasks
     newListAuditMitigationActionsTasksResponse,
 
     -- * Response Lenses
-    listAuditMitigationActionsTasksResponse_nextToken,
     listAuditMitigationActionsTasksResponse_tasks,
+    listAuditMitigationActionsTasksResponse_nextToken,
     listAuditMitigationActionsTasksResponse_httpStatus,
   )
 where
@@ -62,16 +62,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAuditMitigationActionsTasks' smart constructor.
 data ListAuditMitigationActionsTasks = ListAuditMitigationActionsTasks'
-  { -- | The token for the next set of results.
+  { -- | Specify this filter to limit results to tasks that were applied to
+    -- results for a specific audit.
+    auditTaskId :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify this filter to limit results to tasks that were applied to a
     -- specific audit finding.
     findingId :: Prelude.Maybe Prelude.Text,
-    -- | Specify this filter to limit results to tasks that were applied to
-    -- results for a specific audit.
-    auditTaskId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return at one time. The default is 25.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specify this filter to limit results to tasks that are in a specific
     -- state.
     taskStatus :: Prelude.Maybe AuditMitigationActionsTaskStatus,
@@ -92,15 +92,15 @@ data ListAuditMitigationActionsTasks = ListAuditMitigationActionsTasks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAuditMitigationActionsTasks_nextToken' - The token for the next set of results.
+-- 'auditTaskId', 'listAuditMitigationActionsTasks_auditTaskId' - Specify this filter to limit results to tasks that were applied to
+-- results for a specific audit.
 --
--- 'maxResults', 'listAuditMitigationActionsTasks_maxResults' - The maximum number of results to return at one time. The default is 25.
+-- 'nextToken', 'listAuditMitigationActionsTasks_nextToken' - The token for the next set of results.
 --
 -- 'findingId', 'listAuditMitigationActionsTasks_findingId' - Specify this filter to limit results to tasks that were applied to a
 -- specific audit finding.
 --
--- 'auditTaskId', 'listAuditMitigationActionsTasks_auditTaskId' - Specify this filter to limit results to tasks that were applied to
--- results for a specific audit.
+-- 'maxResults', 'listAuditMitigationActionsTasks_maxResults' - The maximum number of results to return at one time. The default is 25.
 --
 -- 'taskStatus', 'listAuditMitigationActionsTasks_taskStatus' - Specify this filter to limit results to tasks that are in a specific
 -- state.
@@ -120,33 +120,33 @@ newListAuditMitigationActionsTasks
   pStartTime_
   pEndTime_ =
     ListAuditMitigationActionsTasks'
-      { nextToken =
+      { auditTaskId =
           Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         findingId = Prelude.Nothing,
-        auditTaskId = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
         taskStatus = Prelude.Nothing,
         startTime = Core._Time Lens.# pStartTime_,
         endTime = Core._Time Lens.# pEndTime_
       }
 
+-- | Specify this filter to limit results to tasks that were applied to
+-- results for a specific audit.
+listAuditMitigationActionsTasks_auditTaskId :: Lens.Lens' ListAuditMitigationActionsTasks (Prelude.Maybe Prelude.Text)
+listAuditMitigationActionsTasks_auditTaskId = Lens.lens (\ListAuditMitigationActionsTasks' {auditTaskId} -> auditTaskId) (\s@ListAuditMitigationActionsTasks' {} a -> s {auditTaskId = a} :: ListAuditMitigationActionsTasks)
+
 -- | The token for the next set of results.
 listAuditMitigationActionsTasks_nextToken :: Lens.Lens' ListAuditMitigationActionsTasks (Prelude.Maybe Prelude.Text)
 listAuditMitigationActionsTasks_nextToken = Lens.lens (\ListAuditMitigationActionsTasks' {nextToken} -> nextToken) (\s@ListAuditMitigationActionsTasks' {} a -> s {nextToken = a} :: ListAuditMitigationActionsTasks)
-
--- | The maximum number of results to return at one time. The default is 25.
-listAuditMitigationActionsTasks_maxResults :: Lens.Lens' ListAuditMitigationActionsTasks (Prelude.Maybe Prelude.Natural)
-listAuditMitigationActionsTasks_maxResults = Lens.lens (\ListAuditMitigationActionsTasks' {maxResults} -> maxResults) (\s@ListAuditMitigationActionsTasks' {} a -> s {maxResults = a} :: ListAuditMitigationActionsTasks)
 
 -- | Specify this filter to limit results to tasks that were applied to a
 -- specific audit finding.
 listAuditMitigationActionsTasks_findingId :: Lens.Lens' ListAuditMitigationActionsTasks (Prelude.Maybe Prelude.Text)
 listAuditMitigationActionsTasks_findingId = Lens.lens (\ListAuditMitigationActionsTasks' {findingId} -> findingId) (\s@ListAuditMitigationActionsTasks' {} a -> s {findingId = a} :: ListAuditMitigationActionsTasks)
 
--- | Specify this filter to limit results to tasks that were applied to
--- results for a specific audit.
-listAuditMitigationActionsTasks_auditTaskId :: Lens.Lens' ListAuditMitigationActionsTasks (Prelude.Maybe Prelude.Text)
-listAuditMitigationActionsTasks_auditTaskId = Lens.lens (\ListAuditMitigationActionsTasks' {auditTaskId} -> auditTaskId) (\s@ListAuditMitigationActionsTasks' {} a -> s {auditTaskId = a} :: ListAuditMitigationActionsTasks)
+-- | The maximum number of results to return at one time. The default is 25.
+listAuditMitigationActionsTasks_maxResults :: Lens.Lens' ListAuditMitigationActionsTasks (Prelude.Maybe Prelude.Natural)
+listAuditMitigationActionsTasks_maxResults = Lens.lens (\ListAuditMitigationActionsTasks' {maxResults} -> maxResults) (\s@ListAuditMitigationActionsTasks' {} a -> s {maxResults = a} :: ListAuditMitigationActionsTasks)
 
 -- | Specify this filter to limit results to tasks that are in a specific
 -- state.
@@ -200,8 +200,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAuditMitigationActionsTasksResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "tasks" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -226,10 +226,10 @@ instance Core.ToPath ListAuditMitigationActionsTasks where
 instance Core.ToQuery ListAuditMitigationActionsTasks where
   toQuery ListAuditMitigationActionsTasks' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
+      [ "auditTaskId" Core.=: auditTaskId,
+        "nextToken" Core.=: nextToken,
         "findingId" Core.=: findingId,
-        "auditTaskId" Core.=: auditTaskId,
+        "maxResults" Core.=: maxResults,
         "taskStatus" Core.=: taskStatus,
         "startTime" Core.=: startTime,
         "endTime" Core.=: endTime
@@ -237,11 +237,11 @@ instance Core.ToQuery ListAuditMitigationActionsTasks where
 
 -- | /See:/ 'newListAuditMitigationActionsTasksResponse' smart constructor.
 data ListAuditMitigationActionsTasksResponse = ListAuditMitigationActionsTasksResponse'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The collection of audit mitigation tasks that matched the filter
+  { -- | The collection of audit mitigation tasks that matched the filter
     -- criteria.
     tasks :: Prelude.Maybe [AuditMitigationActionsTaskMetadata],
+    -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,10 +255,10 @@ data ListAuditMitigationActionsTasksResponse = ListAuditMitigationActionsTasksRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAuditMitigationActionsTasksResponse_nextToken' - The token for the next set of results.
---
 -- 'tasks', 'listAuditMitigationActionsTasksResponse_tasks' - The collection of audit mitigation tasks that matched the filter
 -- criteria.
+--
+-- 'nextToken', 'listAuditMitigationActionsTasksResponse_nextToken' - The token for the next set of results.
 --
 -- 'httpStatus', 'listAuditMitigationActionsTasksResponse_httpStatus' - The response's http status code.
 newListAuditMitigationActionsTasksResponse ::
@@ -268,20 +268,20 @@ newListAuditMitigationActionsTasksResponse ::
 newListAuditMitigationActionsTasksResponse
   pHttpStatus_ =
     ListAuditMitigationActionsTasksResponse'
-      { nextToken =
+      { tasks =
           Prelude.Nothing,
-        tasks = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
-
--- | The token for the next set of results.
-listAuditMitigationActionsTasksResponse_nextToken :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Prelude.Maybe Prelude.Text)
-listAuditMitigationActionsTasksResponse_nextToken = Lens.lens (\ListAuditMitigationActionsTasksResponse' {nextToken} -> nextToken) (\s@ListAuditMitigationActionsTasksResponse' {} a -> s {nextToken = a} :: ListAuditMitigationActionsTasksResponse)
 
 -- | The collection of audit mitigation tasks that matched the filter
 -- criteria.
 listAuditMitigationActionsTasksResponse_tasks :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Prelude.Maybe [AuditMitigationActionsTaskMetadata])
-listAuditMitigationActionsTasksResponse_tasks = Lens.lens (\ListAuditMitigationActionsTasksResponse' {tasks} -> tasks) (\s@ListAuditMitigationActionsTasksResponse' {} a -> s {tasks = a} :: ListAuditMitigationActionsTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+listAuditMitigationActionsTasksResponse_tasks = Lens.lens (\ListAuditMitigationActionsTasksResponse' {tasks} -> tasks) (\s@ListAuditMitigationActionsTasksResponse' {} a -> s {tasks = a} :: ListAuditMitigationActionsTasksResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token for the next set of results.
+listAuditMitigationActionsTasksResponse_nextToken :: Lens.Lens' ListAuditMitigationActionsTasksResponse (Prelude.Maybe Prelude.Text)
+listAuditMitigationActionsTasksResponse_nextToken = Lens.lens (\ListAuditMitigationActionsTasksResponse' {nextToken} -> nextToken) (\s@ListAuditMitigationActionsTasksResponse' {} a -> s {nextToken = a} :: ListAuditMitigationActionsTasksResponse)
 
 -- | The response's http status code.
 listAuditMitigationActionsTasksResponse_httpStatus :: Lens.Lens' ListAuditMitigationActionsTasksResponse Prelude.Int

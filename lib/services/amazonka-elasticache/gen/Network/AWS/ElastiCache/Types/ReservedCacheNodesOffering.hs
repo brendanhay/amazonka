@@ -28,11 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReservedCacheNodesOffering' smart constructor.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
-  { -- | The duration of the offering. in seconds.
-    duration :: Prelude.Maybe Prelude.Int,
-    -- | A unique identifier for the reserved cache node offering.
-    reservedCacheNodesOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | The cache node type for the reserved cache node.
+  { -- | The cache node type for the reserved cache node.
     --
     -- The following node types are supported by ElastiCache. Generally
     -- speaking, the current generation types provide more memory and
@@ -126,16 +122,20 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
     -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
     --     supported on Redis version 2.8.22 and later.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | The fixed price charged for this offering.
-    fixedPrice :: Prelude.Maybe Prelude.Double,
-    -- | The hourly price charged for this offering.
-    usagePrice :: Prelude.Maybe Prelude.Double,
-    -- | The offering type.
-    offeringType :: Prelude.Maybe Prelude.Text,
+    -- | The cache engine used by the offering.
+    productDescription :: Prelude.Maybe Prelude.Text,
     -- | The recurring price charged to run this reserved cache node.
     recurringCharges :: Prelude.Maybe [RecurringCharge],
-    -- | The cache engine used by the offering.
-    productDescription :: Prelude.Maybe Prelude.Text
+    -- | The offering type.
+    offeringType :: Prelude.Maybe Prelude.Text,
+    -- | The hourly price charged for this offering.
+    usagePrice :: Prelude.Maybe Prelude.Double,
+    -- | The fixed price charged for this offering.
+    fixedPrice :: Prelude.Maybe Prelude.Double,
+    -- | The duration of the offering. in seconds.
+    duration :: Prelude.Maybe Prelude.Int,
+    -- | A unique identifier for the reserved cache node offering.
+    reservedCacheNodesOfferingId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -146,10 +146,6 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'duration', 'reservedCacheNodesOffering_duration' - The duration of the offering. in seconds.
---
--- 'reservedCacheNodesOfferingId', 'reservedCacheNodesOffering_reservedCacheNodesOfferingId' - A unique identifier for the reserved cache node offering.
 --
 -- 'cacheNodeType', 'reservedCacheNodesOffering_cacheNodeType' - The cache node type for the reserved cache node.
 --
@@ -245,37 +241,33 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
 -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
 --     supported on Redis version 2.8.22 and later.
 --
--- 'fixedPrice', 'reservedCacheNodesOffering_fixedPrice' - The fixed price charged for this offering.
---
--- 'usagePrice', 'reservedCacheNodesOffering_usagePrice' - The hourly price charged for this offering.
---
--- 'offeringType', 'reservedCacheNodesOffering_offeringType' - The offering type.
+-- 'productDescription', 'reservedCacheNodesOffering_productDescription' - The cache engine used by the offering.
 --
 -- 'recurringCharges', 'reservedCacheNodesOffering_recurringCharges' - The recurring price charged to run this reserved cache node.
 --
--- 'productDescription', 'reservedCacheNodesOffering_productDescription' - The cache engine used by the offering.
+-- 'offeringType', 'reservedCacheNodesOffering_offeringType' - The offering type.
+--
+-- 'usagePrice', 'reservedCacheNodesOffering_usagePrice' - The hourly price charged for this offering.
+--
+-- 'fixedPrice', 'reservedCacheNodesOffering_fixedPrice' - The fixed price charged for this offering.
+--
+-- 'duration', 'reservedCacheNodesOffering_duration' - The duration of the offering. in seconds.
+--
+-- 'reservedCacheNodesOfferingId', 'reservedCacheNodesOffering_reservedCacheNodesOfferingId' - A unique identifier for the reserved cache node offering.
 newReservedCacheNodesOffering ::
   ReservedCacheNodesOffering
 newReservedCacheNodesOffering =
   ReservedCacheNodesOffering'
-    { duration =
+    { cacheNodeType =
         Prelude.Nothing,
-      reservedCacheNodesOfferingId = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
-      fixedPrice = Prelude.Nothing,
-      usagePrice = Prelude.Nothing,
-      offeringType = Prelude.Nothing,
+      productDescription = Prelude.Nothing,
       recurringCharges = Prelude.Nothing,
-      productDescription = Prelude.Nothing
+      offeringType = Prelude.Nothing,
+      usagePrice = Prelude.Nothing,
+      fixedPrice = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      reservedCacheNodesOfferingId = Prelude.Nothing
     }
-
--- | The duration of the offering. in seconds.
-reservedCacheNodesOffering_duration :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Int)
-reservedCacheNodesOffering_duration = Lens.lens (\ReservedCacheNodesOffering' {duration} -> duration) (\s@ReservedCacheNodesOffering' {} a -> s {duration = a} :: ReservedCacheNodesOffering)
-
--- | A unique identifier for the reserved cache node offering.
-reservedCacheNodesOffering_reservedCacheNodesOfferingId :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
-reservedCacheNodesOffering_reservedCacheNodesOfferingId = Lens.lens (\ReservedCacheNodesOffering' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@ReservedCacheNodesOffering' {} a -> s {reservedCacheNodesOfferingId = a} :: ReservedCacheNodesOffering)
 
 -- | The cache node type for the reserved cache node.
 --
@@ -373,40 +365,48 @@ reservedCacheNodesOffering_reservedCacheNodesOfferingId = Lens.lens (\ReservedCa
 reservedCacheNodesOffering_cacheNodeType :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
 reservedCacheNodesOffering_cacheNodeType = Lens.lens (\ReservedCacheNodesOffering' {cacheNodeType} -> cacheNodeType) (\s@ReservedCacheNodesOffering' {} a -> s {cacheNodeType = a} :: ReservedCacheNodesOffering)
 
--- | The fixed price charged for this offering.
-reservedCacheNodesOffering_fixedPrice :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Double)
-reservedCacheNodesOffering_fixedPrice = Lens.lens (\ReservedCacheNodesOffering' {fixedPrice} -> fixedPrice) (\s@ReservedCacheNodesOffering' {} a -> s {fixedPrice = a} :: ReservedCacheNodesOffering)
+-- | The cache engine used by the offering.
+reservedCacheNodesOffering_productDescription :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
+reservedCacheNodesOffering_productDescription = Lens.lens (\ReservedCacheNodesOffering' {productDescription} -> productDescription) (\s@ReservedCacheNodesOffering' {} a -> s {productDescription = a} :: ReservedCacheNodesOffering)
 
--- | The hourly price charged for this offering.
-reservedCacheNodesOffering_usagePrice :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Double)
-reservedCacheNodesOffering_usagePrice = Lens.lens (\ReservedCacheNodesOffering' {usagePrice} -> usagePrice) (\s@ReservedCacheNodesOffering' {} a -> s {usagePrice = a} :: ReservedCacheNodesOffering)
+-- | The recurring price charged to run this reserved cache node.
+reservedCacheNodesOffering_recurringCharges :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe [RecurringCharge])
+reservedCacheNodesOffering_recurringCharges = Lens.lens (\ReservedCacheNodesOffering' {recurringCharges} -> recurringCharges) (\s@ReservedCacheNodesOffering' {} a -> s {recurringCharges = a} :: ReservedCacheNodesOffering) Prelude.. Lens.mapping Lens.coerced
 
 -- | The offering type.
 reservedCacheNodesOffering_offeringType :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
 reservedCacheNodesOffering_offeringType = Lens.lens (\ReservedCacheNodesOffering' {offeringType} -> offeringType) (\s@ReservedCacheNodesOffering' {} a -> s {offeringType = a} :: ReservedCacheNodesOffering)
 
--- | The recurring price charged to run this reserved cache node.
-reservedCacheNodesOffering_recurringCharges :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe [RecurringCharge])
-reservedCacheNodesOffering_recurringCharges = Lens.lens (\ReservedCacheNodesOffering' {recurringCharges} -> recurringCharges) (\s@ReservedCacheNodesOffering' {} a -> s {recurringCharges = a} :: ReservedCacheNodesOffering) Prelude.. Lens.mapping Lens._Coerce
+-- | The hourly price charged for this offering.
+reservedCacheNodesOffering_usagePrice :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Double)
+reservedCacheNodesOffering_usagePrice = Lens.lens (\ReservedCacheNodesOffering' {usagePrice} -> usagePrice) (\s@ReservedCacheNodesOffering' {} a -> s {usagePrice = a} :: ReservedCacheNodesOffering)
 
--- | The cache engine used by the offering.
-reservedCacheNodesOffering_productDescription :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
-reservedCacheNodesOffering_productDescription = Lens.lens (\ReservedCacheNodesOffering' {productDescription} -> productDescription) (\s@ReservedCacheNodesOffering' {} a -> s {productDescription = a} :: ReservedCacheNodesOffering)
+-- | The fixed price charged for this offering.
+reservedCacheNodesOffering_fixedPrice :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Double)
+reservedCacheNodesOffering_fixedPrice = Lens.lens (\ReservedCacheNodesOffering' {fixedPrice} -> fixedPrice) (\s@ReservedCacheNodesOffering' {} a -> s {fixedPrice = a} :: ReservedCacheNodesOffering)
+
+-- | The duration of the offering. in seconds.
+reservedCacheNodesOffering_duration :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Int)
+reservedCacheNodesOffering_duration = Lens.lens (\ReservedCacheNodesOffering' {duration} -> duration) (\s@ReservedCacheNodesOffering' {} a -> s {duration = a} :: ReservedCacheNodesOffering)
+
+-- | A unique identifier for the reserved cache node offering.
+reservedCacheNodesOffering_reservedCacheNodesOfferingId :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
+reservedCacheNodesOffering_reservedCacheNodesOfferingId = Lens.lens (\ReservedCacheNodesOffering' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@ReservedCacheNodesOffering' {} a -> s {reservedCacheNodesOfferingId = a} :: ReservedCacheNodesOffering)
 
 instance Core.FromXML ReservedCacheNodesOffering where
   parseXML x =
     ReservedCacheNodesOffering'
-      Prelude.<$> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "ReservedCacheNodesOfferingId")
-      Prelude.<*> (x Core..@? "CacheNodeType")
-      Prelude.<*> (x Core..@? "FixedPrice")
-      Prelude.<*> (x Core..@? "UsagePrice")
-      Prelude.<*> (x Core..@? "OfferingType")
+      Prelude.<$> (x Core..@? "CacheNodeType")
+      Prelude.<*> (x Core..@? "ProductDescription")
       Prelude.<*> ( x Core..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "RecurringCharge")
                   )
-      Prelude.<*> (x Core..@? "ProductDescription")
+      Prelude.<*> (x Core..@? "OfferingType")
+      Prelude.<*> (x Core..@? "UsagePrice")
+      Prelude.<*> (x Core..@? "FixedPrice")
+      Prelude.<*> (x Core..@? "Duration")
+      Prelude.<*> (x Core..@? "ReservedCacheNodesOfferingId")
 
 instance Prelude.Hashable ReservedCacheNodesOffering
 

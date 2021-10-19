@@ -29,8 +29,8 @@ module Network.AWS.Lambda.RemovePermission
     newRemovePermission,
 
     -- * Request Lenses
-    removePermission_revisionId,
     removePermission_qualifier,
+    removePermission_revisionId,
     removePermission_functionName,
     removePermission_statementId,
 
@@ -49,13 +49,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemovePermission' smart constructor.
 data RemovePermission = RemovePermission'
-  { -- | Only update the policy if the revision ID matches the ID that\'s
+  { -- | Specify a version or alias to remove permissions from a published
+    -- version of the function.
+    qualifier :: Prelude.Maybe Prelude.Text,
+    -- | Only update the policy if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying a policy that has changed
     -- since you last read it.
     revisionId :: Prelude.Maybe Prelude.Text,
-    -- | Specify a version or alias to remove permissions from a published
-    -- version of the function.
-    qualifier :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -85,12 +85,12 @@ data RemovePermission = RemovePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'qualifier', 'removePermission_qualifier' - Specify a version or alias to remove permissions from a published
+-- version of the function.
+--
 -- 'revisionId', 'removePermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a policy that has changed
 -- since you last read it.
---
--- 'qualifier', 'removePermission_qualifier' - Specify a version or alias to remove permissions from a published
--- version of the function.
 --
 -- 'functionName', 'removePermission_functionName' - The name of the Lambda function, version, or alias.
 --
@@ -117,22 +117,22 @@ newRemovePermission ::
   RemovePermission
 newRemovePermission pFunctionName_ pStatementId_ =
   RemovePermission'
-    { revisionId = Prelude.Nothing,
-      qualifier = Prelude.Nothing,
+    { qualifier = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       functionName = pFunctionName_,
       statementId = pStatementId_
     }
+
+-- | Specify a version or alias to remove permissions from a published
+-- version of the function.
+removePermission_qualifier :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
+removePermission_qualifier = Lens.lens (\RemovePermission' {qualifier} -> qualifier) (\s@RemovePermission' {} a -> s {qualifier = a} :: RemovePermission)
 
 -- | Only update the policy if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a policy that has changed
 -- since you last read it.
 removePermission_revisionId :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
 removePermission_revisionId = Lens.lens (\RemovePermission' {revisionId} -> revisionId) (\s@RemovePermission' {} a -> s {revisionId = a} :: RemovePermission)
-
--- | Specify a version or alias to remove permissions from a published
--- version of the function.
-removePermission_qualifier :: Lens.Lens' RemovePermission (Prelude.Maybe Prelude.Text)
-removePermission_qualifier = Lens.lens (\RemovePermission' {qualifier} -> qualifier) (\s@RemovePermission' {} a -> s {qualifier = a} :: RemovePermission)
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -183,8 +183,8 @@ instance Core.ToPath RemovePermission where
 instance Core.ToQuery RemovePermission where
   toQuery RemovePermission' {..} =
     Prelude.mconcat
-      [ "RevisionId" Core.=: revisionId,
-        "Qualifier" Core.=: qualifier
+      [ "Qualifier" Core.=: qualifier,
+        "RevisionId" Core.=: revisionId
       ]
 
 -- | /See:/ 'newRemovePermissionResponse' smart constructor.

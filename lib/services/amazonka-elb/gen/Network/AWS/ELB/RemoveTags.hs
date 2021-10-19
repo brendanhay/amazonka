@@ -77,17 +77,17 @@ newRemoveTags ::
 newRemoveTags pTags_ =
   RemoveTags'
     { loadBalancerNames = Prelude.mempty,
-      tags = Lens._Coerce Lens.# pTags_
+      tags = Lens.coerced Lens.# pTags_
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
 removeTags_loadBalancerNames :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_loadBalancerNames = Lens.lens (\RemoveTags' {loadBalancerNames} -> loadBalancerNames) (\s@RemoveTags' {} a -> s {loadBalancerNames = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_loadBalancerNames = Lens.lens (\RemoveTags' {loadBalancerNames} -> loadBalancerNames) (\s@RemoveTags' {} a -> s {loadBalancerNames = a} :: RemoveTags) Prelude.. Lens.coerced
 
 -- | The list of tag keys to remove.
 removeTags_tags :: Lens.Lens' RemoveTags (Prelude.NonEmpty TagKeyOnly)
-removeTags_tags = Lens.lens (\RemoveTags' {tags} -> tags) (\s@RemoveTags' {} a -> s {tags = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_tags = Lens.lens (\RemoveTags' {tags} -> tags) (\s@RemoveTags' {} a -> s {tags = a} :: RemoveTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse

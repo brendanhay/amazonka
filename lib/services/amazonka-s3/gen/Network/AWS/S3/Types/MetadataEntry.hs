@@ -28,10 +28,10 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newMetadataEntry' smart constructor.
 data MetadataEntry = MetadataEntry'
-  { -- | Name of the Object.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Value of the Object.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | Value of the Object.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | Name of the Object.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data MetadataEntry = MetadataEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'metadataEntry_name' - Name of the Object.
---
 -- 'value', 'metadataEntry_value' - Value of the Object.
+--
+-- 'name', 'metadataEntry_name' - Name of the Object.
 newMetadataEntry ::
   MetadataEntry
 newMetadataEntry =
   MetadataEntry'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | Name of the Object.
-metadataEntry_name :: Lens.Lens' MetadataEntry (Prelude.Maybe Prelude.Text)
-metadataEntry_name = Lens.lens (\MetadataEntry' {name} -> name) (\s@MetadataEntry' {} a -> s {name = a} :: MetadataEntry)
 
 -- | Value of the Object.
 metadataEntry_value :: Lens.Lens' MetadataEntry (Prelude.Maybe Prelude.Text)
 metadataEntry_value = Lens.lens (\MetadataEntry' {value} -> value) (\s@MetadataEntry' {} a -> s {value = a} :: MetadataEntry)
+
+-- | Name of the Object.
+metadataEntry_name :: Lens.Lens' MetadataEntry (Prelude.Maybe Prelude.Text)
+metadataEntry_name = Lens.lens (\MetadataEntry' {name} -> name) (\s@MetadataEntry' {} a -> s {name = a} :: MetadataEntry)
 
 instance Prelude.Hashable MetadataEntry
 
@@ -69,4 +69,4 @@ instance Prelude.NFData MetadataEntry
 instance Core.ToXML MetadataEntry where
   toXML MetadataEntry' {..} =
     Prelude.mconcat
-      ["Name" Core.@= name, "Value" Core.@= value]
+      ["Value" Core.@= value, "Name" Core.@= name]

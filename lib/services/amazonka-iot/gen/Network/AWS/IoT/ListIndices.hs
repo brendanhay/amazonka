@@ -185,7 +185,7 @@ listIndicesResponse_nextToken = Lens.lens (\ListIndicesResponse' {nextToken} -> 
 
 -- | The index names.
 listIndicesResponse_indexNames :: Lens.Lens' ListIndicesResponse (Prelude.Maybe [Prelude.Text])
-listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Prelude.. Lens.mapping Lens._Coerce
+listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Prelude.Int

@@ -57,11 +57,11 @@ newVPCOptions =
 
 -- | Specifies the security groups for VPC endpoint.
 vPCOptions_securityGroupIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
-vPCOptions_securityGroupIds = Lens.lens (\VPCOptions' {securityGroupIds} -> securityGroupIds) (\s@VPCOptions' {} a -> s {securityGroupIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens._Coerce
+vPCOptions_securityGroupIds = Lens.lens (\VPCOptions' {securityGroupIds} -> securityGroupIds) (\s@VPCOptions' {} a -> s {securityGroupIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the subnets for VPC endpoint.
 vPCOptions_subnetIds :: Lens.Lens' VPCOptions (Prelude.Maybe [Prelude.Text])
-vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPCOptions' {} a -> s {subnetIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens._Coerce
+vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPCOptions' {} a -> s {subnetIds = a} :: VPCOptions) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable VPCOptions
 

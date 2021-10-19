@@ -36,9 +36,9 @@ module Network.AWS.EC2.DisassociateAddress
     newDisassociateAddress,
 
     -- * Request Lenses
-    disassociateAddress_dryRun,
     disassociateAddress_associationId,
     disassociateAddress_publicIp,
+    disassociateAddress_dryRun,
 
     -- * Destructuring the Response
     DisassociateAddressResponse (..),
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateAddress' smart constructor.
 data DisassociateAddress = DisassociateAddress'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | [EC2-VPC] The association ID. Required for EC2-VPC.
+    associationId :: Prelude.Maybe Prelude.Text,
+    -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+    publicIp :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | [EC2-VPC] The association ID. Required for EC2-VPC.
-    associationId :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-    publicIp :: Prelude.Maybe Prelude.Text
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,29 +75,23 @@ data DisassociateAddress = DisassociateAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'associationId', 'disassociateAddress_associationId' - [EC2-VPC] The association ID. Required for EC2-VPC.
+--
+-- 'publicIp', 'disassociateAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+--
 -- 'dryRun', 'disassociateAddress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'associationId', 'disassociateAddress_associationId' - [EC2-VPC] The association ID. Required for EC2-VPC.
---
--- 'publicIp', 'disassociateAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 newDisassociateAddress ::
   DisassociateAddress
 newDisassociateAddress =
   DisassociateAddress'
-    { dryRun = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      publicIp = Prelude.Nothing
+    { associationId =
+        Prelude.Nothing,
+      publicIp = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-disassociateAddress_dryRun :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Bool)
-disassociateAddress_dryRun = Lens.lens (\DisassociateAddress' {dryRun} -> dryRun) (\s@DisassociateAddress' {} a -> s {dryRun = a} :: DisassociateAddress)
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
 disassociateAddress_associationId :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Text)
@@ -106,6 +100,13 @@ disassociateAddress_associationId = Lens.lens (\DisassociateAddress' {associatio
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 disassociateAddress_publicIp :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Text)
 disassociateAddress_publicIp = Lens.lens (\DisassociateAddress' {publicIp} -> publicIp) (\s@DisassociateAddress' {} a -> s {publicIp = a} :: DisassociateAddress)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+disassociateAddress_dryRun :: Lens.Lens' DisassociateAddress (Prelude.Maybe Prelude.Bool)
+disassociateAddress_dryRun = Lens.lens (\DisassociateAddress' {dryRun} -> dryRun) (\s@DisassociateAddress' {} a -> s {dryRun = a} :: DisassociateAddress)
 
 instance Core.AWSRequest DisassociateAddress where
   type
@@ -132,9 +133,9 @@ instance Core.ToQuery DisassociateAddress where
           Core.=: ("DisassociateAddress" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "AssociationId" Core.=: associationId,
-        "PublicIp" Core.=: publicIp
+        "PublicIp" Core.=: publicIp,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDisassociateAddressResponse' smart constructor.

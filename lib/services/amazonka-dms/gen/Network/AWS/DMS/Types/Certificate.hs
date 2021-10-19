@@ -32,24 +32,24 @@ data Certificate = Certificate'
     certificateOwner :: Prelude.Maybe Prelude.Text,
     -- | The signing algorithm for the certificate.
     signingAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | The final date that the certificate is valid.
-    validToDate :: Prelude.Maybe Core.POSIX,
+    -- | The beginning date that the certificate is valid.
+    validFromDate :: Prelude.Maybe Core.POSIX,
+    -- | The contents of a @.pem@ file, which contains an X.509 certificate.
+    certificatePem :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) for the certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The date that the certificate was created.
+    certificateCreationDate :: Prelude.Maybe Core.POSIX,
     -- | A customer-assigned name for the certificate. Identifiers must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens.
     -- They can\'t end with a hyphen or contain two consecutive hyphens.
     certificateIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The key length of the cryptographic algorithm being used.
-    keyLength :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) for the certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The location of an imported Oracle Wallet certificate for use with SSL.
     certificateWallet :: Prelude.Maybe Core.Base64,
-    -- | The beginning date that the certificate is valid.
-    validFromDate :: Prelude.Maybe Core.POSIX,
-    -- | The date that the certificate was created.
-    certificateCreationDate :: Prelude.Maybe Core.POSIX,
-    -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-    certificatePem :: Prelude.Maybe Prelude.Text
+    -- | The key length of the cryptographic algorithm being used.
+    keyLength :: Prelude.Maybe Prelude.Int,
+    -- | The final date that the certificate is valid.
+    validToDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,15 +65,17 @@ data Certificate = Certificate'
 --
 -- 'signingAlgorithm', 'certificate_signingAlgorithm' - The signing algorithm for the certificate.
 --
--- 'validToDate', 'certificate_validToDate' - The final date that the certificate is valid.
+-- 'validFromDate', 'certificate_validFromDate' - The beginning date that the certificate is valid.
+--
+-- 'certificatePem', 'certificate_certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
+--
+-- 'certificateArn', 'certificate_certificateArn' - The Amazon Resource Name (ARN) for the certificate.
+--
+-- 'certificateCreationDate', 'certificate_certificateCreationDate' - The date that the certificate was created.
 --
 -- 'certificateIdentifier', 'certificate_certificateIdentifier' - A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
 -- They can\'t end with a hyphen or contain two consecutive hyphens.
---
--- 'keyLength', 'certificate_keyLength' - The key length of the cryptographic algorithm being used.
---
--- 'certificateArn', 'certificate_certificateArn' - The Amazon Resource Name (ARN) for the certificate.
 --
 -- 'certificateWallet', 'certificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -81,25 +83,23 @@ data Certificate = Certificate'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'validFromDate', 'certificate_validFromDate' - The beginning date that the certificate is valid.
+-- 'keyLength', 'certificate_keyLength' - The key length of the cryptographic algorithm being used.
 --
--- 'certificateCreationDate', 'certificate_certificateCreationDate' - The date that the certificate was created.
---
--- 'certificatePem', 'certificate_certificatePem' - The contents of a @.pem@ file, which contains an X.509 certificate.
+-- 'validToDate', 'certificate_validToDate' - The final date that the certificate is valid.
 newCertificate ::
   Certificate
 newCertificate =
   Certificate'
     { certificateOwner = Prelude.Nothing,
       signingAlgorithm = Prelude.Nothing,
-      validToDate = Prelude.Nothing,
-      certificateIdentifier = Prelude.Nothing,
-      keyLength = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      certificateWallet = Prelude.Nothing,
       validFromDate = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
       certificateCreationDate = Prelude.Nothing,
-      certificatePem = Prelude.Nothing
+      certificateIdentifier = Prelude.Nothing,
+      certificateWallet = Prelude.Nothing,
+      keyLength = Prelude.Nothing,
+      validToDate = Prelude.Nothing
     }
 
 -- | The owner of the certificate.
@@ -110,23 +110,27 @@ certificate_certificateOwner = Lens.lens (\Certificate' {certificateOwner} -> ce
 certificate_signingAlgorithm :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_signingAlgorithm = Lens.lens (\Certificate' {signingAlgorithm} -> signingAlgorithm) (\s@Certificate' {} a -> s {signingAlgorithm = a} :: Certificate)
 
--- | The final date that the certificate is valid.
-certificate_validToDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validToDate = Lens.lens (\Certificate' {validToDate} -> validToDate) (\s@Certificate' {} a -> s {validToDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+-- | The beginning date that the certificate is valid.
+certificate_validFromDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_validFromDate = Lens.lens (\Certificate' {validFromDate} -> validFromDate) (\s@Certificate' {} a -> s {validFromDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+
+-- | The contents of a @.pem@ file, which contains an X.509 certificate.
+certificate_certificatePem :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_certificatePem = Lens.lens (\Certificate' {certificatePem} -> certificatePem) (\s@Certificate' {} a -> s {certificatePem = a} :: Certificate)
+
+-- | The Amazon Resource Name (ARN) for the certificate.
+certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certificateArn) (\s@Certificate' {} a -> s {certificateArn = a} :: Certificate)
+
+-- | The date that the certificate was created.
+certificate_certificateCreationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_certificateCreationDate = Lens.lens (\Certificate' {certificateCreationDate} -> certificateCreationDate) (\s@Certificate' {} a -> s {certificateCreationDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
 
 -- | A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.
 -- They can\'t end with a hyphen or contain two consecutive hyphens.
 certificate_certificateIdentifier :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
 certificate_certificateIdentifier = Lens.lens (\Certificate' {certificateIdentifier} -> certificateIdentifier) (\s@Certificate' {} a -> s {certificateIdentifier = a} :: Certificate)
-
--- | The key length of the cryptographic algorithm being used.
-certificate_keyLength :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Int)
-certificate_keyLength = Lens.lens (\Certificate' {keyLength} -> keyLength) (\s@Certificate' {} a -> s {keyLength = a} :: Certificate)
-
--- | The Amazon Resource Name (ARN) for the certificate.
-certificate_certificateArn :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
-certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certificateArn) (\s@Certificate' {} a -> s {certificateArn = a} :: Certificate)
 
 -- | The location of an imported Oracle Wallet certificate for use with SSL.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -136,17 +140,13 @@ certificate_certificateArn = Lens.lens (\Certificate' {certificateArn} -> certif
 certificate_certificateWallet :: Lens.Lens' Certificate (Prelude.Maybe Prelude.ByteString)
 certificate_certificateWallet = Lens.lens (\Certificate' {certificateWallet} -> certificateWallet) (\s@Certificate' {} a -> s {certificateWallet = a} :: Certificate) Prelude.. Lens.mapping Core._Base64
 
--- | The beginning date that the certificate is valid.
-certificate_validFromDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_validFromDate = Lens.lens (\Certificate' {validFromDate} -> validFromDate) (\s@Certificate' {} a -> s {validFromDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
+-- | The key length of the cryptographic algorithm being used.
+certificate_keyLength :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Int)
+certificate_keyLength = Lens.lens (\Certificate' {keyLength} -> keyLength) (\s@Certificate' {} a -> s {keyLength = a} :: Certificate)
 
--- | The date that the certificate was created.
-certificate_certificateCreationDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
-certificate_certificateCreationDate = Lens.lens (\Certificate' {certificateCreationDate} -> certificateCreationDate) (\s@Certificate' {} a -> s {certificateCreationDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
-
--- | The contents of a @.pem@ file, which contains an X.509 certificate.
-certificate_certificatePem :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
-certificate_certificatePem = Lens.lens (\Certificate' {certificatePem} -> certificatePem) (\s@Certificate' {} a -> s {certificatePem = a} :: Certificate)
+-- | The final date that the certificate is valid.
+certificate_validToDate :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
+certificate_validToDate = Lens.lens (\Certificate' {validToDate} -> validToDate) (\s@Certificate' {} a -> s {validToDate = a} :: Certificate) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Certificate where
   parseJSON =
@@ -156,14 +156,14 @@ instance Core.FromJSON Certificate where
           Certificate'
             Prelude.<$> (x Core..:? "CertificateOwner")
             Prelude.<*> (x Core..:? "SigningAlgorithm")
-            Prelude.<*> (x Core..:? "ValidToDate")
-            Prelude.<*> (x Core..:? "CertificateIdentifier")
-            Prelude.<*> (x Core..:? "KeyLength")
-            Prelude.<*> (x Core..:? "CertificateArn")
-            Prelude.<*> (x Core..:? "CertificateWallet")
             Prelude.<*> (x Core..:? "ValidFromDate")
-            Prelude.<*> (x Core..:? "CertificateCreationDate")
             Prelude.<*> (x Core..:? "CertificatePem")
+            Prelude.<*> (x Core..:? "CertificateArn")
+            Prelude.<*> (x Core..:? "CertificateCreationDate")
+            Prelude.<*> (x Core..:? "CertificateIdentifier")
+            Prelude.<*> (x Core..:? "CertificateWallet")
+            Prelude.<*> (x Core..:? "KeyLength")
+            Prelude.<*> (x Core..:? "ValidToDate")
       )
 
 instance Prelude.Hashable Certificate

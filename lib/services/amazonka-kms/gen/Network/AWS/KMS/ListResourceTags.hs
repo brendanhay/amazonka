@@ -50,8 +50,8 @@ module Network.AWS.KMS.ListResourceTags
     newListResourceTags,
 
     -- * Request Lenses
-    listResourceTags_limit,
     listResourceTags_marker,
+    listResourceTags_limit,
     listResourceTags_keyId,
 
     -- * Destructuring the Response
@@ -59,9 +59,9 @@ module Network.AWS.KMS.ListResourceTags
     newListResourceTagsResponse,
 
     -- * Response Lenses
+    listResourceTagsResponse_truncated,
     listResourceTagsResponse_nextMarker,
     listResourceTagsResponse_tags,
-    listResourceTagsResponse_truncated,
     listResourceTagsResponse_httpStatus,
   )
 where
@@ -75,20 +75,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListResourceTags' smart constructor.
 data ListResourceTags = ListResourceTags'
-  { -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, KMS does not return more than the specified
-    -- number of items, but it might return fewer.
-    --
-    -- This value is optional. If you include a value, it must be between 1 and
-    -- 50, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter in a subsequent request after you receive a response
+  { -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
     --
     -- Do not attempt to construct this value. Use only the value of
     -- @NextMarker@ from the truncated response you just received.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to specify the maximum number of items to return.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
+    --
+    -- This value is optional. If you include a value, it must be between 1 and
+    -- 50, inclusive. If you do not include a value, it defaults to 50.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Gets tags on the specified KMS key.
     --
     -- Specify the key ID or key ARN of the KMS key.
@@ -114,19 +114,19 @@ data ListResourceTags = ListResourceTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'listResourceTags_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, KMS does not return more than the specified
--- number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and
--- 50, inclusive. If you do not include a value, it defaults to 50.
---
 -- 'marker', 'listResourceTags_marker' - Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
 --
 -- Do not attempt to construct this value. Use only the value of
 -- @NextMarker@ from the truncated response you just received.
+--
+-- 'limit', 'listResourceTags_limit' - Use this parameter to specify the maximum number of items to return.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 50, inclusive. If you do not include a value, it defaults to 50.
 --
 -- 'keyId', 'listResourceTags_keyId' - Gets tags on the specified KMS key.
 --
@@ -147,19 +147,10 @@ newListResourceTags ::
   ListResourceTags
 newListResourceTags pKeyId_ =
   ListResourceTags'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       keyId = pKeyId_
     }
-
--- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, KMS does not return more than the specified
--- number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and
--- 50, inclusive. If you do not include a value, it defaults to 50.
-listResourceTags_limit :: Lens.Lens' ListResourceTags (Prelude.Maybe Prelude.Natural)
-listResourceTags_limit = Lens.lens (\ListResourceTags' {limit} -> limit) (\s@ListResourceTags' {} a -> s {limit = a} :: ListResourceTags)
 
 -- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
@@ -169,6 +160,15 @@ listResourceTags_limit = Lens.lens (\ListResourceTags' {limit} -> limit) (\s@Lis
 -- @NextMarker@ from the truncated response you just received.
 listResourceTags_marker :: Lens.Lens' ListResourceTags (Prelude.Maybe Prelude.Text)
 listResourceTags_marker = Lens.lens (\ListResourceTags' {marker} -> marker) (\s@ListResourceTags' {} a -> s {marker = a} :: ListResourceTags)
+
+-- | Use this parameter to specify the maximum number of items to return.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
+--
+-- This value is optional. If you include a value, it must be between 1 and
+-- 50, inclusive. If you do not include a value, it defaults to 50.
+listResourceTags_limit :: Lens.Lens' ListResourceTags (Prelude.Maybe Prelude.Natural)
+listResourceTags_limit = Lens.lens (\ListResourceTags' {limit} -> limit) (\s@ListResourceTags' {} a -> s {limit = a} :: ListResourceTags)
 
 -- | Gets tags on the specified KMS key.
 --
@@ -195,9 +195,9 @@ instance Core.AWSRequest ListResourceTags where
     Response.receiveJSON
       ( \s h x ->
           ListResourceTagsResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<$> (x Core..?> "Truncated")
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Truncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -224,8 +224,8 @@ instance Core.ToJSON ListResourceTags where
   toJSON ListResourceTags' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("KeyId" Core..= keyId)
           ]
       )
@@ -238,7 +238,12 @@ instance Core.ToQuery ListResourceTags where
 
 -- | /See:/ 'newListResourceTagsResponse' smart constructor.
 data ListResourceTagsResponse = ListResourceTagsResponse'
-  { -- | When @Truncated@ is true, this element is present and contains the value
+  { -- | A flag that indicates whether there are more items in the list. When
+    -- this value is true, the list in this response is truncated. To get more
+    -- items, pass the value of the @NextMarker@ element in thisresponse to the
+    -- @Marker@ parameter in a subsequent request.
+    truncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
     --
     -- Do not assume or infer any information from this value.
@@ -250,11 +255,6 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
     -- in the /Key Management Service Developer Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | A flag that indicates whether there are more items in the list. When
-    -- this value is true, the list in this response is truncated. To get more
-    -- items, pass the value of the @NextMarker@ element in thisresponse to the
-    -- @Marker@ parameter in a subsequent request.
-    truncated :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -268,6 +268,11 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'truncated', 'listResourceTagsResponse_truncated' - A flag that indicates whether there are more items in the list. When
+-- this value is true, the list in this response is truncated. To get more
+-- items, pass the value of the @NextMarker@ element in thisresponse to the
+-- @Marker@ parameter in a subsequent request.
+--
 -- 'nextMarker', 'listResourceTagsResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
 --
@@ -280,11 +285,6 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'truncated', 'listResourceTagsResponse_truncated' - A flag that indicates whether there are more items in the list. When
--- this value is true, the list in this response is truncated. To get more
--- items, pass the value of the @NextMarker@ element in thisresponse to the
--- @Marker@ parameter in a subsequent request.
---
 -- 'httpStatus', 'listResourceTagsResponse_httpStatus' - The response's http status code.
 newListResourceTagsResponse ::
   -- | 'httpStatus'
@@ -292,12 +292,19 @@ newListResourceTagsResponse ::
   ListResourceTagsResponse
 newListResourceTagsResponse pHttpStatus_ =
   ListResourceTagsResponse'
-    { nextMarker =
+    { truncated =
         Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       tags = Prelude.Nothing,
-      truncated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A flag that indicates whether there are more items in the list. When
+-- this value is true, the list in this response is truncated. To get more
+-- items, pass the value of the @NextMarker@ element in thisresponse to the
+-- @Marker@ parameter in a subsequent request.
+listResourceTagsResponse_truncated :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe Prelude.Bool)
+listResourceTagsResponse_truncated = Lens.lens (\ListResourceTagsResponse' {truncated} -> truncated) (\s@ListResourceTagsResponse' {} a -> s {truncated = a} :: ListResourceTagsResponse)
 
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
@@ -313,14 +320,7 @@ listResourceTagsResponse_nextMarker = Lens.lens (\ListResourceTagsResponse' {nex
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
 -- in the /Key Management Service Developer Guide/.
 listResourceTagsResponse_tags :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe [Tag])
-listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A flag that indicates whether there are more items in the list. When
--- this value is true, the list in this response is truncated. To get more
--- items, pass the value of the @NextMarker@ element in thisresponse to the
--- @Marker@ parameter in a subsequent request.
-listResourceTagsResponse_truncated :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe Prelude.Bool)
-listResourceTagsResponse_truncated = Lens.lens (\ListResourceTagsResponse' {truncated} -> truncated) (\s@ListResourceTagsResponse' {} a -> s {truncated = a} :: ListResourceTagsResponse)
+listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listResourceTagsResponse_httpStatus :: Lens.Lens' ListResourceTagsResponse Prelude.Int

@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDirectoryConfig' smart constructor.
 data DirectoryConfig = DirectoryConfig'
-  { -- | The credentials for the service account used by the fleet or image
+  { -- | The time the directory configuration was created.
+    createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The credentials for the service account used by the fleet or image
     -- builder to connect to the directory.
     serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
-    -- | The time the directory configuration was created.
-    createdTime :: Prelude.Maybe Core.POSIX,
     -- | The distinguished names of the organizational units for computer
     -- accounts.
     organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
@@ -51,10 +51,10 @@ data DirectoryConfig = DirectoryConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.
+--
 -- 'serviceAccountCredentials', 'directoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
---
--- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.
 --
 -- 'organizationalUnitDistinguishedNames', 'directoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer
 -- accounts.
@@ -67,27 +67,26 @@ newDirectoryConfig ::
   DirectoryConfig
 newDirectoryConfig pDirectoryName_ =
   DirectoryConfig'
-    { serviceAccountCredentials =
-        Prelude.Nothing,
-      createdTime = Prelude.Nothing,
+    { createdTime = Prelude.Nothing,
+      serviceAccountCredentials = Prelude.Nothing,
       organizationalUnitDistinguishedNames =
         Prelude.Nothing,
       directoryName = pDirectoryName_
     }
+
+-- | The time the directory configuration was created.
+directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
+directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Core._Time
 
 -- | The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
 directoryConfig_serviceAccountCredentials :: Lens.Lens' DirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
 directoryConfig_serviceAccountCredentials = Lens.lens (\DirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@DirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: DirectoryConfig)
 
--- | The time the directory configuration was created.
-directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
-directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Core._Time
-
 -- | The distinguished names of the organizational units for computer
 -- accounts.
 directoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' DirectoryConfig (Prelude.Maybe [Prelude.Text])
-directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@DirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: DirectoryConfig) Prelude.. Lens.mapping Lens._Coerce
+directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@DirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: DirectoryConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The fully qualified name of the directory (for example,
 -- corp.example.com).
@@ -100,8 +99,8 @@ instance Core.FromJSON DirectoryConfig where
       "DirectoryConfig"
       ( \x ->
           DirectoryConfig'
-            Prelude.<$> (x Core..:? "ServiceAccountCredentials")
-            Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "ServiceAccountCredentials")
             Prelude.<*> ( x Core..:? "OrganizationalUnitDistinguishedNames"
                             Core..!= Prelude.mempty
                         )

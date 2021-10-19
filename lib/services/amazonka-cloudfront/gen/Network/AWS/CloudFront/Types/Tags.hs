@@ -48,7 +48,7 @@ newTags = Tags' {items = Prelude.Nothing}
 
 -- | A complex type that contains @Tag@ elements.
 tags_items :: Lens.Lens' Tags (Prelude.Maybe [Tag])
-tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Prelude.. Lens.mapping Lens._Coerce
+tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a} :: Tags) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML Tags where
   parseXML x =

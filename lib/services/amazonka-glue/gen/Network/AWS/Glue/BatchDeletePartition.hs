@@ -111,7 +111,7 @@ batchDeletePartition_tableName = Lens.lens (\BatchDeletePartition' {tableName} -
 -- | A list of @PartitionInput@ structures that define the partitions to be
 -- deleted.
 batchDeletePartition_partitionsToDelete :: Lens.Lens' BatchDeletePartition [PartitionValueList]
-batchDeletePartition_partitionsToDelete = Lens.lens (\BatchDeletePartition' {partitionsToDelete} -> partitionsToDelete) (\s@BatchDeletePartition' {} a -> s {partitionsToDelete = a} :: BatchDeletePartition) Prelude.. Lens._Coerce
+batchDeletePartition_partitionsToDelete = Lens.lens (\BatchDeletePartition' {partitionsToDelete} -> partitionsToDelete) (\s@BatchDeletePartition' {} a -> s {partitionsToDelete = a} :: BatchDeletePartition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeletePartition where
   type
@@ -196,7 +196,7 @@ newBatchDeletePartitionResponse pHttpStatus_ =
 
 -- | The errors encountered when trying to delete the requested partitions.
 batchDeletePartitionResponse_errors :: Lens.Lens' BatchDeletePartitionResponse (Prelude.Maybe [PartitionError])
-batchDeletePartitionResponse_errors = Lens.lens (\BatchDeletePartitionResponse' {errors} -> errors) (\s@BatchDeletePartitionResponse' {} a -> s {errors = a} :: BatchDeletePartitionResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeletePartitionResponse_errors = Lens.lens (\BatchDeletePartitionResponse' {errors} -> errors) (\s@BatchDeletePartitionResponse' {} a -> s {errors = a} :: BatchDeletePartitionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeletePartitionResponse_httpStatus :: Lens.Lens' BatchDeletePartitionResponse Prelude.Int

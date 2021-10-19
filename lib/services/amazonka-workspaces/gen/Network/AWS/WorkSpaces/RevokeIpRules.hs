@@ -82,7 +82,7 @@ revokeIpRules_groupId = Lens.lens (\RevokeIpRules' {groupId} -> groupId) (\s@Rev
 
 -- | The rules to remove from the group.
 revokeIpRules_userRules :: Lens.Lens' RevokeIpRules [Prelude.Text]
-revokeIpRules_userRules = Lens.lens (\RevokeIpRules' {userRules} -> userRules) (\s@RevokeIpRules' {} a -> s {userRules = a} :: RevokeIpRules) Prelude.. Lens._Coerce
+revokeIpRules_userRules = Lens.lens (\RevokeIpRules' {userRules} -> userRules) (\s@RevokeIpRules' {} a -> s {userRules = a} :: RevokeIpRules) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RevokeIpRules where
   type

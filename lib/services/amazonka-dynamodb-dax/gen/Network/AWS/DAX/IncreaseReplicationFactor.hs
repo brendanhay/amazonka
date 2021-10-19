@@ -99,7 +99,7 @@ newIncreaseReplicationFactor
 -- Zones. Use this parameter if you want to distribute the nodes across
 -- multiple AZs.
 increaseReplicationFactor_availabilityZones :: Lens.Lens' IncreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
-increaseReplicationFactor_availabilityZones = Lens.lens (\IncreaseReplicationFactor' {availabilityZones} -> availabilityZones) (\s@IncreaseReplicationFactor' {} a -> s {availabilityZones = a} :: IncreaseReplicationFactor) Prelude.. Lens.mapping Lens._Coerce
+increaseReplicationFactor_availabilityZones = Lens.lens (\IncreaseReplicationFactor' {availabilityZones} -> availabilityZones) (\s@IncreaseReplicationFactor' {} a -> s {availabilityZones = a} :: IncreaseReplicationFactor) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DAX cluster that will receive additional nodes.
 increaseReplicationFactor_clusterName :: Lens.Lens' IncreaseReplicationFactor Prelude.Text

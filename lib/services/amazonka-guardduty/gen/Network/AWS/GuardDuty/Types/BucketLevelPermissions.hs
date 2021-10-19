@@ -31,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBucketLevelPermissions' smart constructor.
 data BucketLevelPermissions = BucketLevelPermissions'
-  { -- | Contains information on which account level S3 Block Public Access
+  { -- | Contains information on how Access Control Policies are applied to the
+    -- bucket.
+    accessControlList :: Prelude.Maybe AccessControlList,
+    -- | Contains information on which account level S3 Block Public Access
     -- settings are applied to the S3 bucket.
     blockPublicAccess :: Prelude.Maybe BlockPublicAccess,
     -- | Contains information on the bucket policies for the S3 bucket.
-    bucketPolicy :: Prelude.Maybe BucketPolicy,
-    -- | Contains information on how Access Control Policies are applied to the
-    -- bucket.
-    accessControlList :: Prelude.Maybe AccessControlList
+    bucketPolicy :: Prelude.Maybe BucketPolicy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,22 +50,27 @@ data BucketLevelPermissions = BucketLevelPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accessControlList', 'bucketLevelPermissions_accessControlList' - Contains information on how Access Control Policies are applied to the
+-- bucket.
+--
 -- 'blockPublicAccess', 'bucketLevelPermissions_blockPublicAccess' - Contains information on which account level S3 Block Public Access
 -- settings are applied to the S3 bucket.
 --
 -- 'bucketPolicy', 'bucketLevelPermissions_bucketPolicy' - Contains information on the bucket policies for the S3 bucket.
---
--- 'accessControlList', 'bucketLevelPermissions_accessControlList' - Contains information on how Access Control Policies are applied to the
--- bucket.
 newBucketLevelPermissions ::
   BucketLevelPermissions
 newBucketLevelPermissions =
   BucketLevelPermissions'
-    { blockPublicAccess =
+    { accessControlList =
         Prelude.Nothing,
-      bucketPolicy = Prelude.Nothing,
-      accessControlList = Prelude.Nothing
+      blockPublicAccess = Prelude.Nothing,
+      bucketPolicy = Prelude.Nothing
     }
+
+-- | Contains information on how Access Control Policies are applied to the
+-- bucket.
+bucketLevelPermissions_accessControlList :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe AccessControlList)
+bucketLevelPermissions_accessControlList = Lens.lens (\BucketLevelPermissions' {accessControlList} -> accessControlList) (\s@BucketLevelPermissions' {} a -> s {accessControlList = a} :: BucketLevelPermissions)
 
 -- | Contains information on which account level S3 Block Public Access
 -- settings are applied to the S3 bucket.
@@ -76,20 +81,15 @@ bucketLevelPermissions_blockPublicAccess = Lens.lens (\BucketLevelPermissions' {
 bucketLevelPermissions_bucketPolicy :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe BucketPolicy)
 bucketLevelPermissions_bucketPolicy = Lens.lens (\BucketLevelPermissions' {bucketPolicy} -> bucketPolicy) (\s@BucketLevelPermissions' {} a -> s {bucketPolicy = a} :: BucketLevelPermissions)
 
--- | Contains information on how Access Control Policies are applied to the
--- bucket.
-bucketLevelPermissions_accessControlList :: Lens.Lens' BucketLevelPermissions (Prelude.Maybe AccessControlList)
-bucketLevelPermissions_accessControlList = Lens.lens (\BucketLevelPermissions' {accessControlList} -> accessControlList) (\s@BucketLevelPermissions' {} a -> s {accessControlList = a} :: BucketLevelPermissions)
-
 instance Core.FromJSON BucketLevelPermissions where
   parseJSON =
     Core.withObject
       "BucketLevelPermissions"
       ( \x ->
           BucketLevelPermissions'
-            Prelude.<$> (x Core..:? "blockPublicAccess")
+            Prelude.<$> (x Core..:? "accessControlList")
+            Prelude.<*> (x Core..:? "blockPublicAccess")
             Prelude.<*> (x Core..:? "bucketPolicy")
-            Prelude.<*> (x Core..:? "accessControlList")
       )
 
 instance Prelude.Hashable BucketLevelPermissions

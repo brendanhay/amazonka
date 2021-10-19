@@ -159,7 +159,7 @@ newGetInstancePortStatesResponse pHttpStatus_ =
 -- | An array of objects that describe the firewall port states for the
 -- specified instance.
 getInstancePortStatesResponse_portStates :: Lens.Lens' GetInstancePortStatesResponse (Prelude.Maybe [InstancePortState])
-getInstancePortStatesResponse_portStates = Lens.lens (\GetInstancePortStatesResponse' {portStates} -> portStates) (\s@GetInstancePortStatesResponse' {} a -> s {portStates = a} :: GetInstancePortStatesResponse) Prelude.. Lens.mapping Lens._Coerce
+getInstancePortStatesResponse_portStates = Lens.lens (\GetInstancePortStatesResponse' {portStates} -> portStates) (\s@GetInstancePortStatesResponse' {} a -> s {portStates = a} :: GetInstancePortStatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getInstancePortStatesResponse_httpStatus :: Lens.Lens' GetInstancePortStatesResponse Prelude.Int

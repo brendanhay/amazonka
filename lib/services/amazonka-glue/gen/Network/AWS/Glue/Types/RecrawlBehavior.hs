@@ -20,6 +20,7 @@
 module Network.AWS.Glue.Types.RecrawlBehavior
   ( RecrawlBehavior
       ( ..,
+        RecrawlBehavior_CRAWL_EVENT_MODE,
         RecrawlBehavior_CRAWL_EVERYTHING,
         RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY
       ),
@@ -57,6 +58,9 @@ newtype RecrawlBehavior = RecrawlBehavior'
       Core.ToXML
     )
 
+pattern RecrawlBehavior_CRAWL_EVENT_MODE :: RecrawlBehavior
+pattern RecrawlBehavior_CRAWL_EVENT_MODE = RecrawlBehavior' "CRAWL_EVENT_MODE"
+
 pattern RecrawlBehavior_CRAWL_EVERYTHING :: RecrawlBehavior
 pattern RecrawlBehavior_CRAWL_EVERYTHING = RecrawlBehavior' "CRAWL_EVERYTHING"
 
@@ -64,6 +68,7 @@ pattern RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY :: RecrawlBehavior
 pattern RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY = RecrawlBehavior' "CRAWL_NEW_FOLDERS_ONLY"
 
 {-# COMPLETE
+  RecrawlBehavior_CRAWL_EVENT_MODE,
   RecrawlBehavior_CRAWL_EVERYTHING,
   RecrawlBehavior_CRAWL_NEW_FOLDERS_ONLY,
   RecrawlBehavior'

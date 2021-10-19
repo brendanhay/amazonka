@@ -31,9 +31,9 @@ module Network.AWS.Lambda.ListAliases
     newListAliases,
 
     -- * Request Lenses
-    listAliases_functionVersion,
-    listAliases_maxItems,
     listAliases_marker,
+    listAliases_maxItems,
+    listAliases_functionVersion,
     listAliases_functionName,
 
     -- * Destructuring the Response
@@ -41,8 +41,8 @@ module Network.AWS.Lambda.ListAliases
     newListAliasesResponse,
 
     -- * Response Lenses
-    listAliasesResponse_nextMarker,
     listAliasesResponse_aliases,
+    listAliasesResponse_nextMarker,
     listAliasesResponse_httpStatus,
   )
 where
@@ -56,14 +56,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | Specify a function version to only list aliases that invoke that
-    -- version.
-    functionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Limit the number of aliases returned.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Limit the number of aliases returned.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Specify a function version to only list aliases that invoke that
+    -- version.
+    functionVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -89,13 +89,13 @@ data ListAliases = ListAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functionVersion', 'listAliases_functionVersion' - Specify a function version to only list aliases that invoke that
--- version.
+-- 'marker', 'listAliases_marker' - Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
 --
 -- 'maxItems', 'listAliases_maxItems' - Limit the number of aliases returned.
 --
--- 'marker', 'listAliases_marker' - Specify the pagination token that\'s returned by a previous request to
--- retrieve the next page of results.
+-- 'functionVersion', 'listAliases_functionVersion' - Specify a function version to only list aliases that invoke that
+-- version.
 --
 -- 'functionName', 'listAliases_functionName' - The name of the Lambda function.
 --
@@ -116,25 +116,25 @@ newListAliases ::
   ListAliases
 newListAliases pFunctionName_ =
   ListAliases'
-    { functionVersion = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+      functionVersion = Prelude.Nothing,
       functionName = pFunctionName_
     }
-
--- | Specify a function version to only list aliases that invoke that
--- version.
-listAliases_functionVersion :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_functionVersion = Lens.lens (\ListAliases' {functionVersion} -> functionVersion) (\s@ListAliases' {} a -> s {functionVersion = a} :: ListAliases)
-
--- | Limit the number of aliases returned.
-listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
-listAliases_maxItems = Lens.lens (\ListAliases' {maxItems} -> maxItems) (\s@ListAliases' {} a -> s {maxItems = a} :: ListAliases)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
+
+-- | Limit the number of aliases returned.
+listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_maxItems = Lens.lens (\ListAliases' {maxItems} -> maxItems) (\s@ListAliases' {} a -> s {maxItems = a} :: ListAliases)
+
+-- | Specify a function version to only list aliases that invoke that
+-- version.
+listAliases_functionVersion :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_functionVersion = Lens.lens (\ListAliases' {functionVersion} -> functionVersion) (\s@ListAliases' {} a -> s {functionVersion = a} :: ListAliases)
 
 -- | The name of the Lambda function.
 --
@@ -178,8 +178,8 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -201,17 +201,17 @@ instance Core.ToPath ListAliases where
 instance Core.ToQuery ListAliases where
   toQuery ListAliases' {..} =
     Prelude.mconcat
-      [ "FunctionVersion" Core.=: functionVersion,
+      [ "Marker" Core.=: marker,
         "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "FunctionVersion" Core.=: functionVersion
       ]
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of aliases.
+  { -- | A list of aliases.
     aliases :: Prelude.Maybe [AliasConfiguration],
+    -- | The pagination token that\'s included if more results are available.
+    nextMarker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,9 +225,9 @@ data ListAliasesResponse = ListAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextMarker', 'listAliasesResponse_nextMarker' - The pagination token that\'s included if more results are available.
---
 -- 'aliases', 'listAliasesResponse_aliases' - A list of aliases.
+--
+-- 'nextMarker', 'listAliasesResponse_nextMarker' - The pagination token that\'s included if more results are available.
 --
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
@@ -236,18 +236,18 @@ newListAliasesResponse ::
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextMarker = Prelude.Nothing,
-      aliases = Prelude.Nothing,
+    { aliases = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of aliases.
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasConfiguration])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
 listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -> nextMarker) (\s@ListAliasesResponse' {} a -> s {nextMarker = a} :: ListAliasesResponse)
-
--- | A list of aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasConfiguration])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int

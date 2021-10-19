@@ -35,11 +35,11 @@ module Network.AWS.SageMaker.DescribeStudioLifecycleConfig
 
     -- * Response Lenses
     describeStudioLifecycleConfigResponse_creationTime,
-    describeStudioLifecycleConfigResponse_studioLifecycleConfigArn,
-    describeStudioLifecycleConfigResponse_studioLifecycleConfigName,
-    describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType,
-    describeStudioLifecycleConfigResponse_lastModifiedTime,
     describeStudioLifecycleConfigResponse_studioLifecycleConfigContent,
+    describeStudioLifecycleConfigResponse_lastModifiedTime,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigArn,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigName,
     describeStudioLifecycleConfigResponse_httpStatus,
   )
 where
@@ -95,11 +95,11 @@ instance
       ( \s h x ->
           DescribeStudioLifecycleConfigResponse'
             Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "StudioLifecycleConfigArn")
-            Prelude.<*> (x Core..?> "StudioLifecycleConfigName")
-            Prelude.<*> (x Core..?> "StudioLifecycleConfigAppType")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "StudioLifecycleConfigContent")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "StudioLifecycleConfigArn")
+            Prelude.<*> (x Core..?> "StudioLifecycleConfigAppType")
+            Prelude.<*> (x Core..?> "StudioLifecycleConfigName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -145,17 +145,17 @@ instance Core.ToQuery DescribeStudioLifecycleConfig where
 data DescribeStudioLifecycleConfigResponse = DescribeStudioLifecycleConfigResponse'
   { -- | The creation time of the Studio Lifecycle Configuration.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The ARN of the Lifecycle Configuration to describe.
-    studioLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Studio Lifecycle Configuration that is described.
-    studioLifecycleConfigName :: Prelude.Maybe Prelude.Text,
-    -- | The App type that the Lifecycle Configuration is attached to.
-    studioLifecycleConfigAppType :: Prelude.Maybe StudioLifecycleConfigAppType,
+    -- | The content of your Studio Lifecycle Configuration script.
+    studioLifecycleConfigContent :: Prelude.Maybe Prelude.Text,
     -- | This value is equivalent to CreationTime because Studio Lifecycle
     -- Configurations are immutable.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The content of your Studio Lifecycle Configuration script.
-    studioLifecycleConfigContent :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the Lifecycle Configuration to describe.
+    studioLifecycleConfigArn :: Prelude.Maybe Prelude.Text,
+    -- | The App type that the Lifecycle Configuration is attached to.
+    studioLifecycleConfigAppType :: Prelude.Maybe StudioLifecycleConfigAppType,
+    -- | The name of the Studio Lifecycle Configuration that is described.
+    studioLifecycleConfigName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -171,16 +171,16 @@ data DescribeStudioLifecycleConfigResponse = DescribeStudioLifecycleConfigRespon
 --
 -- 'creationTime', 'describeStudioLifecycleConfigResponse_creationTime' - The creation time of the Studio Lifecycle Configuration.
 --
--- 'studioLifecycleConfigArn', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigArn' - The ARN of the Lifecycle Configuration to describe.
---
--- 'studioLifecycleConfigName', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration that is described.
---
--- 'studioLifecycleConfigAppType', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType' - The App type that the Lifecycle Configuration is attached to.
+-- 'studioLifecycleConfigContent', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigContent' - The content of your Studio Lifecycle Configuration script.
 --
 -- 'lastModifiedTime', 'describeStudioLifecycleConfigResponse_lastModifiedTime' - This value is equivalent to CreationTime because Studio Lifecycle
 -- Configurations are immutable.
 --
--- 'studioLifecycleConfigContent', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigContent' - The content of your Studio Lifecycle Configuration script.
+-- 'studioLifecycleConfigArn', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigArn' - The ARN of the Lifecycle Configuration to describe.
+--
+-- 'studioLifecycleConfigAppType', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType' - The App type that the Lifecycle Configuration is attached to.
+--
+-- 'studioLifecycleConfigName', 'describeStudioLifecycleConfigResponse_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration that is described.
 --
 -- 'httpStatus', 'describeStudioLifecycleConfigResponse_httpStatus' - The response's http status code.
 newDescribeStudioLifecycleConfigResponse ::
@@ -191,14 +191,14 @@ newDescribeStudioLifecycleConfigResponse pHttpStatus_ =
   DescribeStudioLifecycleConfigResponse'
     { creationTime =
         Prelude.Nothing,
-      studioLifecycleConfigArn =
+      studioLifecycleConfigContent =
         Prelude.Nothing,
-      studioLifecycleConfigName =
+      lastModifiedTime = Prelude.Nothing,
+      studioLifecycleConfigArn =
         Prelude.Nothing,
       studioLifecycleConfigAppType =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      studioLifecycleConfigContent =
+      studioLifecycleConfigName =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -207,26 +207,26 @@ newDescribeStudioLifecycleConfigResponse pHttpStatus_ =
 describeStudioLifecycleConfigResponse_creationTime :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
 describeStudioLifecycleConfigResponse_creationTime = Lens.lens (\DescribeStudioLifecycleConfigResponse' {creationTime} -> creationTime) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {creationTime = a} :: DescribeStudioLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
 
--- | The ARN of the Lifecycle Configuration to describe.
-describeStudioLifecycleConfigResponse_studioLifecycleConfigArn :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
-describeStudioLifecycleConfigResponse_studioLifecycleConfigArn = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigArn} -> studioLifecycleConfigArn) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigArn = a} :: DescribeStudioLifecycleConfigResponse)
-
--- | The name of the Studio Lifecycle Configuration that is described.
-describeStudioLifecycleConfigResponse_studioLifecycleConfigName :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
-describeStudioLifecycleConfigResponse_studioLifecycleConfigName = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigName} -> studioLifecycleConfigName) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigName = a} :: DescribeStudioLifecycleConfigResponse)
-
--- | The App type that the Lifecycle Configuration is attached to.
-describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe StudioLifecycleConfigAppType)
-describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigAppType} -> studioLifecycleConfigAppType) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigAppType = a} :: DescribeStudioLifecycleConfigResponse)
+-- | The content of your Studio Lifecycle Configuration script.
+describeStudioLifecycleConfigResponse_studioLifecycleConfigContent :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
+describeStudioLifecycleConfigResponse_studioLifecycleConfigContent = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigContent} -> studioLifecycleConfigContent) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigContent = a} :: DescribeStudioLifecycleConfigResponse)
 
 -- | This value is equivalent to CreationTime because Studio Lifecycle
 -- Configurations are immutable.
 describeStudioLifecycleConfigResponse_lastModifiedTime :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.UTCTime)
 describeStudioLifecycleConfigResponse_lastModifiedTime = Lens.lens (\DescribeStudioLifecycleConfigResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {lastModifiedTime = a} :: DescribeStudioLifecycleConfigResponse) Prelude.. Lens.mapping Core._Time
 
--- | The content of your Studio Lifecycle Configuration script.
-describeStudioLifecycleConfigResponse_studioLifecycleConfigContent :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
-describeStudioLifecycleConfigResponse_studioLifecycleConfigContent = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigContent} -> studioLifecycleConfigContent) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigContent = a} :: DescribeStudioLifecycleConfigResponse)
+-- | The ARN of the Lifecycle Configuration to describe.
+describeStudioLifecycleConfigResponse_studioLifecycleConfigArn :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
+describeStudioLifecycleConfigResponse_studioLifecycleConfigArn = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigArn} -> studioLifecycleConfigArn) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigArn = a} :: DescribeStudioLifecycleConfigResponse)
+
+-- | The App type that the Lifecycle Configuration is attached to.
+describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe StudioLifecycleConfigAppType)
+describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigAppType} -> studioLifecycleConfigAppType) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigAppType = a} :: DescribeStudioLifecycleConfigResponse)
+
+-- | The name of the Studio Lifecycle Configuration that is described.
+describeStudioLifecycleConfigResponse_studioLifecycleConfigName :: Lens.Lens' DescribeStudioLifecycleConfigResponse (Prelude.Maybe Prelude.Text)
+describeStudioLifecycleConfigResponse_studioLifecycleConfigName = Lens.lens (\DescribeStudioLifecycleConfigResponse' {studioLifecycleConfigName} -> studioLifecycleConfigName) (\s@DescribeStudioLifecycleConfigResponse' {} a -> s {studioLifecycleConfigName = a} :: DescribeStudioLifecycleConfigResponse)
 
 -- | The response's http status code.
 describeStudioLifecycleConfigResponse_httpStatus :: Lens.Lens' DescribeStudioLifecycleConfigResponse Prelude.Int

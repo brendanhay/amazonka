@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRole' smart constructor.
 data Role = Role'
-  { -- | The policy that grants an entity permission to assume the role.
-    assumeRolePolicyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The maximum session duration (in seconds) for the specified role. Anyone
+  { -- | The maximum session duration (in seconds) for the specified role. Anyone
     -- who uses the CLI, or API to assume the role can specify the duration
     -- using the optional @DurationSeconds@ API parameter or @duration-seconds@
     -- CLI parameter.
     maxSessionDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The policy that grants an entity permission to assume the role.
+    assumeRolePolicyDocument :: Prelude.Maybe Prelude.Text,
     -- | Contains information about the last time that an IAM role was used. This
     -- includes the date and time and the Region in which the role was last
     -- used. Activity is only reported for the trailing 400 days. This period
@@ -53,13 +53,13 @@ data Role = Role'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
     permissionsBoundary :: Prelude.Maybe AttachedPermissionsBoundary,
+    -- | A description of the role that you provide.
+    description :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that are attached to the role. For more information about
     -- tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | A description of the role that you provide.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The path to the role. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
@@ -91,12 +91,12 @@ data Role = Role'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assumeRolePolicyDocument', 'role_assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
---
 -- 'maxSessionDuration', 'role_maxSessionDuration' - The maximum session duration (in seconds) for the specified role. Anyone
 -- who uses the CLI, or API to assume the role can specify the duration
 -- using the optional @DurationSeconds@ API parameter or @duration-seconds@
 -- CLI parameter.
+--
+-- 'assumeRolePolicyDocument', 'role_assumeRolePolicyDocument' - The policy that grants an entity permission to assume the role.
 --
 -- 'roleLastUsed', 'role_roleLastUsed' - Contains information about the last time that an IAM role was used. This
 -- includes the date and time and the Region in which the role was last
@@ -113,12 +113,12 @@ data Role = Role'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
 -- in the /IAM User Guide/.
 --
+-- 'description', 'role_description' - A description of the role that you provide.
+--
 -- 'tags', 'role_tags' - A list of tags that are attached to the role. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
---
--- 'description', 'role_description' - A description of the role that you provide.
 --
 -- 'path', 'role_path' - The path to the role. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -153,12 +153,12 @@ newRole ::
   Role
 newRole pPath_ pRoleName_ pRoleId_ pArn_ pCreateDate_ =
   Role'
-    { assumeRolePolicyDocument = Prelude.Nothing,
-      maxSessionDuration = Prelude.Nothing,
+    { maxSessionDuration = Prelude.Nothing,
+      assumeRolePolicyDocument = Prelude.Nothing,
       roleLastUsed = Prelude.Nothing,
       permissionsBoundary = Prelude.Nothing,
-      tags = Prelude.Nothing,
       description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       path = pPath_,
       roleName = pRoleName_,
       roleId = pRoleId_,
@@ -166,16 +166,16 @@ newRole pPath_ pRoleName_ pRoleId_ pArn_ pCreateDate_ =
       createDate = Core._Time Lens.# pCreateDate_
     }
 
--- | The policy that grants an entity permission to assume the role.
-role_assumeRolePolicyDocument :: Lens.Lens' Role (Prelude.Maybe Prelude.Text)
-role_assumeRolePolicyDocument = Lens.lens (\Role' {assumeRolePolicyDocument} -> assumeRolePolicyDocument) (\s@Role' {} a -> s {assumeRolePolicyDocument = a} :: Role)
-
 -- | The maximum session duration (in seconds) for the specified role. Anyone
 -- who uses the CLI, or API to assume the role can specify the duration
 -- using the optional @DurationSeconds@ API parameter or @duration-seconds@
 -- CLI parameter.
 role_maxSessionDuration :: Lens.Lens' Role (Prelude.Maybe Prelude.Natural)
 role_maxSessionDuration = Lens.lens (\Role' {maxSessionDuration} -> maxSessionDuration) (\s@Role' {} a -> s {maxSessionDuration = a} :: Role)
+
+-- | The policy that grants an entity permission to assume the role.
+role_assumeRolePolicyDocument :: Lens.Lens' Role (Prelude.Maybe Prelude.Text)
+role_assumeRolePolicyDocument = Lens.lens (\Role' {assumeRolePolicyDocument} -> assumeRolePolicyDocument) (\s@Role' {} a -> s {assumeRolePolicyDocument = a} :: Role)
 
 -- | Contains information about the last time that an IAM role was used. This
 -- includes the date and time and the Region in which the role was last
@@ -196,16 +196,16 @@ role_roleLastUsed = Lens.lens (\Role' {roleLastUsed} -> roleLastUsed) (\s@Role' 
 role_permissionsBoundary :: Lens.Lens' Role (Prelude.Maybe AttachedPermissionsBoundary)
 role_permissionsBoundary = Lens.lens (\Role' {permissionsBoundary} -> permissionsBoundary) (\s@Role' {} a -> s {permissionsBoundary = a} :: Role)
 
+-- | A description of the role that you provide.
+role_description :: Lens.Lens' Role (Prelude.Maybe Prelude.Text)
+role_description = Lens.lens (\Role' {description} -> description) (\s@Role' {} a -> s {description = a} :: Role)
+
 -- | A list of tags that are attached to the role. For more information about
 -- tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
 role_tags :: Lens.Lens' Role (Prelude.Maybe [Tag])
-role_tags = Lens.lens (\Role' {tags} -> tags) (\s@Role' {} a -> s {tags = a} :: Role) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description of the role that you provide.
-role_description :: Lens.Lens' Role (Prelude.Maybe Prelude.Text)
-role_description = Lens.lens (\Role' {description} -> description) (\s@Role' {} a -> s {description = a} :: Role)
+role_tags = Lens.lens (\Role' {tags} -> tags) (\s@Role' {} a -> s {tags = a} :: Role) Prelude.. Lens.mapping Lens.coerced
 
 -- | The path to the role. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -240,14 +240,14 @@ role_createDate = Lens.lens (\Role' {createDate} -> createDate) (\s@Role' {} a -
 instance Core.FromXML Role where
   parseXML x =
     Role'
-      Prelude.<$> (x Core..@? "AssumeRolePolicyDocument")
-      Prelude.<*> (x Core..@? "MaxSessionDuration")
+      Prelude.<$> (x Core..@? "MaxSessionDuration")
+      Prelude.<*> (x Core..@? "AssumeRolePolicyDocument")
       Prelude.<*> (x Core..@? "RoleLastUsed")
       Prelude.<*> (x Core..@? "PermissionsBoundary")
+      Prelude.<*> (x Core..@? "Description")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@ "Path")
       Prelude.<*> (x Core..@ "RoleName")
       Prelude.<*> (x Core..@ "RoleId")

@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data JsonClassifier = JsonClassifier'
   { -- | The time that this classifier was registered.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of this classifier.
-    version :: Prelude.Maybe Prelude.Integer,
     -- | The time that this classifier was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
+    -- | The version of this classifier.
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The name of the classifier.
     name :: Prelude.Text,
     -- | A @JsonPath@ string defining the JSON data for the classifier to
@@ -52,9 +52,9 @@ data JsonClassifier = JsonClassifier'
 --
 -- 'creationTime', 'jsonClassifier_creationTime' - The time that this classifier was registered.
 --
--- 'version', 'jsonClassifier_version' - The version of this classifier.
---
 -- 'lastUpdated', 'jsonClassifier_lastUpdated' - The time that this classifier was last updated.
+--
+-- 'version', 'jsonClassifier_version' - The version of this classifier.
 --
 -- 'name', 'jsonClassifier_name' - The name of the classifier.
 --
@@ -70,8 +70,8 @@ newJsonClassifier ::
 newJsonClassifier pName_ pJsonPath_ =
   JsonClassifier'
     { creationTime = Prelude.Nothing,
-      version = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
+      version = Prelude.Nothing,
       name = pName_,
       jsonPath = pJsonPath_
     }
@@ -80,13 +80,13 @@ newJsonClassifier pName_ pJsonPath_ =
 jsonClassifier_creationTime :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.UTCTime)
 jsonClassifier_creationTime = Lens.lens (\JsonClassifier' {creationTime} -> creationTime) (\s@JsonClassifier' {} a -> s {creationTime = a} :: JsonClassifier) Prelude.. Lens.mapping Core._Time
 
--- | The version of this classifier.
-jsonClassifier_version :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.Integer)
-jsonClassifier_version = Lens.lens (\JsonClassifier' {version} -> version) (\s@JsonClassifier' {} a -> s {version = a} :: JsonClassifier)
-
 -- | The time that this classifier was last updated.
 jsonClassifier_lastUpdated :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.UTCTime)
 jsonClassifier_lastUpdated = Lens.lens (\JsonClassifier' {lastUpdated} -> lastUpdated) (\s@JsonClassifier' {} a -> s {lastUpdated = a} :: JsonClassifier) Prelude.. Lens.mapping Core._Time
+
+-- | The version of this classifier.
+jsonClassifier_version :: Lens.Lens' JsonClassifier (Prelude.Maybe Prelude.Integer)
+jsonClassifier_version = Lens.lens (\JsonClassifier' {version} -> version) (\s@JsonClassifier' {} a -> s {version = a} :: JsonClassifier)
 
 -- | The name of the classifier.
 jsonClassifier_name :: Lens.Lens' JsonClassifier Prelude.Text
@@ -105,8 +105,8 @@ instance Core.FromJSON JsonClassifier where
       ( \x ->
           JsonClassifier'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "JsonPath")
       )

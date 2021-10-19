@@ -48,7 +48,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCapacityProviderStrategyItem' smart constructor.
 data CapacityProviderStrategyItem = CapacityProviderStrategyItem'
-  { -- | The /weight/ value designates the relative percentage of the total
+  { -- | The /base/ value designates how many tasks, at a minimum, to run on the
+    -- specified capacity provider. Only one capacity provider in a capacity
+    -- provider strategy can have a /base/ defined. If no value is specified,
+    -- the default value of @0@ is used.
+    base :: Prelude.Maybe Prelude.Natural,
+    -- | The /weight/ value designates the relative percentage of the total
     -- number of tasks launched that should use the specified capacity
     -- provider. The @weight@ value is taken into consideration after the
     -- @base@ value, if defined, is satisfied.
@@ -69,11 +74,6 @@ data CapacityProviderStrategyItem = CapacityProviderStrategyItem'
     -- then for every one task that is run using /capacityProviderA/, four
     -- tasks would use /capacityProviderB/.
     weight :: Prelude.Maybe Prelude.Natural,
-    -- | The /base/ value designates how many tasks, at a minimum, to run on the
-    -- specified capacity provider. Only one capacity provider in a capacity
-    -- provider strategy can have a /base/ defined. If no value is specified,
-    -- the default value of @0@ is used.
-    base :: Prelude.Maybe Prelude.Natural,
     -- | The short name of the capacity provider.
     capacityProvider :: Prelude.Text
   }
@@ -86,6 +86,11 @@ data CapacityProviderStrategyItem = CapacityProviderStrategyItem'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'base', 'capacityProviderStrategyItem_base' - The /base/ value designates how many tasks, at a minimum, to run on the
+-- specified capacity provider. Only one capacity provider in a capacity
+-- provider strategy can have a /base/ defined. If no value is specified,
+-- the default value of @0@ is used.
 --
 -- 'weight', 'capacityProviderStrategyItem_weight' - The /weight/ value designates the relative percentage of the total
 -- number of tasks launched that should use the specified capacity
@@ -108,11 +113,6 @@ data CapacityProviderStrategyItem = CapacityProviderStrategyItem'
 -- then for every one task that is run using /capacityProviderA/, four
 -- tasks would use /capacityProviderB/.
 --
--- 'base', 'capacityProviderStrategyItem_base' - The /base/ value designates how many tasks, at a minimum, to run on the
--- specified capacity provider. Only one capacity provider in a capacity
--- provider strategy can have a /base/ defined. If no value is specified,
--- the default value of @0@ is used.
---
 -- 'capacityProvider', 'capacityProviderStrategyItem_capacityProvider' - The short name of the capacity provider.
 newCapacityProviderStrategyItem ::
   -- | 'capacityProvider'
@@ -120,11 +120,18 @@ newCapacityProviderStrategyItem ::
   CapacityProviderStrategyItem
 newCapacityProviderStrategyItem pCapacityProvider_ =
   CapacityProviderStrategyItem'
-    { weight =
+    { base =
         Prelude.Nothing,
-      base = Prelude.Nothing,
+      weight = Prelude.Nothing,
       capacityProvider = pCapacityProvider_
     }
+
+-- | The /base/ value designates how many tasks, at a minimum, to run on the
+-- specified capacity provider. Only one capacity provider in a capacity
+-- provider strategy can have a /base/ defined. If no value is specified,
+-- the default value of @0@ is used.
+capacityProviderStrategyItem_base :: Lens.Lens' CapacityProviderStrategyItem (Prelude.Maybe Prelude.Natural)
+capacityProviderStrategyItem_base = Lens.lens (\CapacityProviderStrategyItem' {base} -> base) (\s@CapacityProviderStrategyItem' {} a -> s {base = a} :: CapacityProviderStrategyItem)
 
 -- | The /weight/ value designates the relative percentage of the total
 -- number of tasks launched that should use the specified capacity
@@ -149,13 +156,6 @@ newCapacityProviderStrategyItem pCapacityProvider_ =
 capacityProviderStrategyItem_weight :: Lens.Lens' CapacityProviderStrategyItem (Prelude.Maybe Prelude.Natural)
 capacityProviderStrategyItem_weight = Lens.lens (\CapacityProviderStrategyItem' {weight} -> weight) (\s@CapacityProviderStrategyItem' {} a -> s {weight = a} :: CapacityProviderStrategyItem)
 
--- | The /base/ value designates how many tasks, at a minimum, to run on the
--- specified capacity provider. Only one capacity provider in a capacity
--- provider strategy can have a /base/ defined. If no value is specified,
--- the default value of @0@ is used.
-capacityProviderStrategyItem_base :: Lens.Lens' CapacityProviderStrategyItem (Prelude.Maybe Prelude.Natural)
-capacityProviderStrategyItem_base = Lens.lens (\CapacityProviderStrategyItem' {base} -> base) (\s@CapacityProviderStrategyItem' {} a -> s {base = a} :: CapacityProviderStrategyItem)
-
 -- | The short name of the capacity provider.
 capacityProviderStrategyItem_capacityProvider :: Lens.Lens' CapacityProviderStrategyItem Prelude.Text
 capacityProviderStrategyItem_capacityProvider = Lens.lens (\CapacityProviderStrategyItem' {capacityProvider} -> capacityProvider) (\s@CapacityProviderStrategyItem' {} a -> s {capacityProvider = a} :: CapacityProviderStrategyItem)
@@ -166,8 +166,8 @@ instance Core.FromJSON CapacityProviderStrategyItem where
       "CapacityProviderStrategyItem"
       ( \x ->
           CapacityProviderStrategyItem'
-            Prelude.<$> (x Core..:? "weight")
-            Prelude.<*> (x Core..:? "base")
+            Prelude.<$> (x Core..:? "base")
+            Prelude.<*> (x Core..:? "weight")
             Prelude.<*> (x Core..: "capacityProvider")
       )
 
@@ -181,8 +181,8 @@ instance Core.ToJSON CapacityProviderStrategyItem where
   toJSON CapacityProviderStrategyItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("weight" Core..=) Prelude.<$> weight,
-            ("base" Core..=) Prelude.<$> base,
+          [ ("base" Core..=) Prelude.<$> base,
+            ("weight" Core..=) Prelude.<$> weight,
             Prelude.Just
               ("capacityProvider" Core..= capacityProvider)
           ]

@@ -62,12 +62,12 @@ newJobWorkerExecutorConfiguration =
 -- | The accounts in which the job worker is configured and might poll for
 -- jobs as part of the action execution.
 jobWorkerExecutorConfiguration_pollingAccounts :: Lens.Lens' JobWorkerExecutorConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-jobWorkerExecutorConfiguration_pollingAccounts = Lens.lens (\JobWorkerExecutorConfiguration' {pollingAccounts} -> pollingAccounts) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingAccounts = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens._Coerce
+jobWorkerExecutorConfiguration_pollingAccounts = Lens.lens (\JobWorkerExecutorConfiguration' {pollingAccounts} -> pollingAccounts) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingAccounts = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The service Principals in which the job worker is configured and might
 -- poll for jobs as part of the action execution.
 jobWorkerExecutorConfiguration_pollingServicePrincipals :: Lens.Lens' JobWorkerExecutorConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-jobWorkerExecutorConfiguration_pollingServicePrincipals = Lens.lens (\JobWorkerExecutorConfiguration' {pollingServicePrincipals} -> pollingServicePrincipals) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingServicePrincipals = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens._Coerce
+jobWorkerExecutorConfiguration_pollingServicePrincipals = Lens.lens (\JobWorkerExecutorConfiguration' {pollingServicePrincipals} -> pollingServicePrincipals) (\s@JobWorkerExecutorConfiguration' {} a -> s {pollingServicePrincipals = a} :: JobWorkerExecutorConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON JobWorkerExecutorConfiguration where
   parseJSON =

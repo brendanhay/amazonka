@@ -141,7 +141,7 @@ newResumeProcesses pAutoScalingGroupName_ =
 --
 -- If you omit this parameter, all processes are specified.
 resumeProcesses_scalingProcesses :: Lens.Lens' ResumeProcesses (Prelude.Maybe [Prelude.Text])
-resumeProcesses_scalingProcesses = Lens.lens (\ResumeProcesses' {scalingProcesses} -> scalingProcesses) (\s@ResumeProcesses' {} a -> s {scalingProcesses = a} :: ResumeProcesses) Prelude.. Lens.mapping Lens._Coerce
+resumeProcesses_scalingProcesses = Lens.lens (\ResumeProcesses' {scalingProcesses} -> scalingProcesses) (\s@ResumeProcesses' {} a -> s {scalingProcesses = a} :: ResumeProcesses) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 resumeProcesses_autoScalingGroupName :: Lens.Lens' ResumeProcesses Prelude.Text

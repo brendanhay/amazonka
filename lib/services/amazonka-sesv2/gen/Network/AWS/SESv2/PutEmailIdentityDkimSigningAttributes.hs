@@ -27,6 +27,8 @@
 -- -   Update the signing attributes for an identity that uses Bring Your
 --     Own DKIM (BYODKIM).
 --
+-- -   Update the key length that should be used for Easy DKIM.
+--
 -- -   Change from using no DKIM authentication to using Easy DKIM.
 --
 -- -   Change from using no DKIM authentication to using BYODKIM.
@@ -67,14 +69,15 @@ import Network.AWS.SESv2.Types
 -- /See:/ 'newPutEmailIdentityDkimSigningAttributes' smart constructor.
 data PutEmailIdentityDkimSigningAttributes = PutEmailIdentityDkimSigningAttributes'
   { -- | An object that contains information about the private key and selector
-    -- that you want to use to configure DKIM for the identity. This object is
-    -- only required if you want to configure Bring Your Own DKIM (BYODKIM) for
-    -- the identity.
+    -- that you want to use to configure DKIM for the identity for Bring Your
+    -- Own DKIM (BYODKIM) for the identity, or, configures the key length to be
+    -- used for
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
     signingAttributes :: Prelude.Maybe DkimSigningAttributes,
-    -- | The email identity that you want to configure DKIM for.
+    -- | The email identity.
     emailIdentity :: Prelude.Text,
-    -- | The method that you want to use to configure DKIM for the identity.
-    -- There are two possible values:
+    -- | The method to use to configure DKIM for the identity. There are the
+    -- following possible values:
     --
     -- -   @AWS_SES@ – Configure DKIM for the identity by using
     --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
@@ -94,14 +97,15 @@ data PutEmailIdentityDkimSigningAttributes = PutEmailIdentityDkimSigningAttribut
 -- for backwards compatibility:
 --
 -- 'signingAttributes', 'putEmailIdentityDkimSigningAttributes_signingAttributes' - An object that contains information about the private key and selector
--- that you want to use to configure DKIM for the identity. This object is
--- only required if you want to configure Bring Your Own DKIM (BYODKIM) for
--- the identity.
+-- that you want to use to configure DKIM for the identity for Bring Your
+-- Own DKIM (BYODKIM) for the identity, or, configures the key length to be
+-- used for
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
 --
--- 'emailIdentity', 'putEmailIdentityDkimSigningAttributes_emailIdentity' - The email identity that you want to configure DKIM for.
+-- 'emailIdentity', 'putEmailIdentityDkimSigningAttributes_emailIdentity' - The email identity.
 --
--- 'signingAttributesOrigin', 'putEmailIdentityDkimSigningAttributes_signingAttributesOrigin' - The method that you want to use to configure DKIM for the identity.
--- There are two possible values:
+-- 'signingAttributesOrigin', 'putEmailIdentityDkimSigningAttributes_signingAttributesOrigin' - The method to use to configure DKIM for the identity. There are the
+-- following possible values:
 --
 -- -   @AWS_SES@ – Configure DKIM for the identity by using
 --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
@@ -126,18 +130,19 @@ newPutEmailIdentityDkimSigningAttributes
       }
 
 -- | An object that contains information about the private key and selector
--- that you want to use to configure DKIM for the identity. This object is
--- only required if you want to configure Bring Your Own DKIM (BYODKIM) for
--- the identity.
+-- that you want to use to configure DKIM for the identity for Bring Your
+-- Own DKIM (BYODKIM) for the identity, or, configures the key length to be
+-- used for
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
 putEmailIdentityDkimSigningAttributes_signingAttributes :: Lens.Lens' PutEmailIdentityDkimSigningAttributes (Prelude.Maybe DkimSigningAttributes)
 putEmailIdentityDkimSigningAttributes_signingAttributes = Lens.lens (\PutEmailIdentityDkimSigningAttributes' {signingAttributes} -> signingAttributes) (\s@PutEmailIdentityDkimSigningAttributes' {} a -> s {signingAttributes = a} :: PutEmailIdentityDkimSigningAttributes)
 
--- | The email identity that you want to configure DKIM for.
+-- | The email identity.
 putEmailIdentityDkimSigningAttributes_emailIdentity :: Lens.Lens' PutEmailIdentityDkimSigningAttributes Prelude.Text
 putEmailIdentityDkimSigningAttributes_emailIdentity = Lens.lens (\PutEmailIdentityDkimSigningAttributes' {emailIdentity} -> emailIdentity) (\s@PutEmailIdentityDkimSigningAttributes' {} a -> s {emailIdentity = a} :: PutEmailIdentityDkimSigningAttributes)
 
--- | The method that you want to use to configure DKIM for the identity.
--- There are two possible values:
+-- | The method to use to configure DKIM for the identity. There are the
+-- following possible values:
 --
 -- -   @AWS_SES@ – Configure DKIM for the identity by using
 --     <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Easy DKIM>.
@@ -394,7 +399,7 @@ putEmailIdentityDkimSigningAttributesResponse_dkimStatus = Lens.lens (\PutEmailI
 -- searches for the appropriate records in the DNS configuration of the
 -- domain for up to 72 hours.
 putEmailIdentityDkimSigningAttributesResponse_dkimTokens :: Lens.Lens' PutEmailIdentityDkimSigningAttributesResponse (Prelude.Maybe [Prelude.Text])
-putEmailIdentityDkimSigningAttributesResponse_dkimTokens = Lens.lens (\PutEmailIdentityDkimSigningAttributesResponse' {dkimTokens} -> dkimTokens) (\s@PutEmailIdentityDkimSigningAttributesResponse' {} a -> s {dkimTokens = a} :: PutEmailIdentityDkimSigningAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+putEmailIdentityDkimSigningAttributesResponse_dkimTokens = Lens.lens (\PutEmailIdentityDkimSigningAttributesResponse' {dkimTokens} -> dkimTokens) (\s@PutEmailIdentityDkimSigningAttributesResponse' {} a -> s {dkimTokens = a} :: PutEmailIdentityDkimSigningAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putEmailIdentityDkimSigningAttributesResponse_httpStatus :: Lens.Lens' PutEmailIdentityDkimSigningAttributesResponse Prelude.Int

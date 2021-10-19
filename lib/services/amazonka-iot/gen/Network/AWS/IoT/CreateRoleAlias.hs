@@ -31,8 +31,8 @@ module Network.AWS.IoT.CreateRoleAlias
     newCreateRoleAlias,
 
     -- * Request Lenses
-    createRoleAlias_tags,
     createRoleAlias_credentialDurationSeconds,
+    createRoleAlias_tags,
     createRoleAlias_roleAlias,
     createRoleAlias_roleArn,
 
@@ -56,7 +56,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateRoleAlias' smart constructor.
 data CreateRoleAlias = CreateRoleAlias'
-  { -- | Metadata which can be used to manage the role alias.
+  { -- | How long (in seconds) the credentials will be valid. The default value
+    -- is 3,600 seconds.
+    credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Metadata which can be used to manage the role alias.
     --
     -- For URI Request parameters use format: ...key1=value1&key2=value2...
     --
@@ -66,9 +69,6 @@ data CreateRoleAlias = CreateRoleAlias'
     -- For the cli-input-json file use format: \"tags\":
     -- \"key1=value1&key2=value2...\"
     tags :: Prelude.Maybe [Tag],
-    -- | How long (in seconds) the credentials will be valid. The default value
-    -- is 3,600 seconds.
-    credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The role alias that points to a role ARN. This allows you to change the
     -- role without having to update the device.
     roleAlias :: Prelude.Text,
@@ -85,6 +85,9 @@ data CreateRoleAlias = CreateRoleAlias'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid. The default value
+-- is 3,600 seconds.
+--
 -- 'tags', 'createRoleAlias_tags' - Metadata which can be used to manage the role alias.
 --
 -- For URI Request parameters use format: ...key1=value1&key2=value2...
@@ -94,9 +97,6 @@ data CreateRoleAlias = CreateRoleAlias'
 --
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
---
--- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid. The default value
--- is 3,600 seconds.
 --
 -- 'roleAlias', 'createRoleAlias_roleAlias' - The role alias that points to a role ARN. This allows you to change the
 -- role without having to update the device.
@@ -110,11 +110,17 @@ newCreateRoleAlias ::
   CreateRoleAlias
 newCreateRoleAlias pRoleAlias_ pRoleArn_ =
   CreateRoleAlias'
-    { tags = Prelude.Nothing,
-      credentialDurationSeconds = Prelude.Nothing,
+    { credentialDurationSeconds =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       roleAlias = pRoleAlias_,
       roleArn = pRoleArn_
     }
+
+-- | How long (in seconds) the credentials will be valid. The default value
+-- is 3,600 seconds.
+createRoleAlias_credentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Prelude.Maybe Prelude.Natural)
+createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@CreateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
 
 -- | Metadata which can be used to manage the role alias.
 --
@@ -126,12 +132,7 @@ newCreateRoleAlias pRoleAlias_ pRoleArn_ =
 -- For the cli-input-json file use format: \"tags\":
 -- \"key1=value1&key2=value2...\"
 createRoleAlias_tags :: Lens.Lens' CreateRoleAlias (Prelude.Maybe [Tag])
-createRoleAlias_tags = Lens.lens (\CreateRoleAlias' {tags} -> tags) (\s@CreateRoleAlias' {} a -> s {tags = a} :: CreateRoleAlias) Prelude.. Lens.mapping Lens._Coerce
-
--- | How long (in seconds) the credentials will be valid. The default value
--- is 3,600 seconds.
-createRoleAlias_credentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Prelude.Maybe Prelude.Natural)
-createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@CreateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
+createRoleAlias_tags = Lens.lens (\CreateRoleAlias' {tags} -> tags) (\s@CreateRoleAlias' {} a -> s {tags = a} :: CreateRoleAlias) Prelude.. Lens.mapping Lens.coerced
 
 -- | The role alias that points to a role ARN. This allows you to change the
 -- role without having to update the device.
@@ -167,9 +168,9 @@ instance Core.ToJSON CreateRoleAlias where
   toJSON CreateRoleAlias' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("credentialDurationSeconds" Core..=)
+          [ ("credentialDurationSeconds" Core..=)
               Prelude.<$> credentialDurationSeconds,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("roleArn" Core..= roleArn)
           ]
       )

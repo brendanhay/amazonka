@@ -74,7 +74,7 @@ newToolchain pSource_ =
 -- | The list of parameter overrides to be passed into the toolchain template
 -- during stack provisioning, if any.
 toolchain_stackParameters :: Lens.Lens' Toolchain (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-toolchain_stackParameters = Lens.lens (\Toolchain' {stackParameters} -> stackParameters) (\s@Toolchain' {} a -> s {stackParameters = a} :: Toolchain) Prelude.. Lens.mapping Lens._Coerce
+toolchain_stackParameters = Lens.lens (\Toolchain' {stackParameters} -> stackParameters) (\s@Toolchain' {} a -> s {stackParameters = a} :: Toolchain) Prelude.. Lens.mapping Lens.coerced
 
 -- | The service role ARN for AWS CodeStar to use for the toolchain template
 -- during stack provisioning.

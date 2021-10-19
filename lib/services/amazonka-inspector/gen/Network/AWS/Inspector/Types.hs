@@ -17,17 +17,17 @@ module Network.AWS.Inspector.Types
     defaultService,
 
     -- * Errors
-    _PreviewGenerationInProgressException,
-    _ServiceTemporarilyUnavailableException,
+    _AccessDeniedException,
+    _AssessmentRunInProgressException,
+    _NoSuchEntityException,
     _UnsupportedFeatureException,
+    _PreviewGenerationInProgressException,
+    _AgentsAlreadyRunningAssessmentException,
+    _InvalidCrossAccountRoleException,
     _InvalidInputException,
     _InternalException,
-    _InvalidCrossAccountRoleException,
-    _AgentsAlreadyRunningAssessmentException,
-    _AssessmentRunInProgressException,
-    _AccessDeniedException,
+    _ServiceTemporarilyUnavailableException,
     _LimitExceededException,
-    _NoSuchEntityException,
 
     -- * AgentHealth
     AgentHealth (..),
@@ -84,11 +84,11 @@ module Network.AWS.Inspector.Types
     AgentPreview (..),
     newAgentPreview,
     agentPreview_hostname,
+    agentPreview_autoScalingGroup,
+    agentPreview_operatingSystem,
     agentPreview_agentVersion,
     agentPreview_kernelVersion,
-    agentPreview_operatingSystem,
     agentPreview_agentHealth,
-    agentPreview_autoScalingGroup,
     agentPreview_ipv4Address,
     agentPreview_agentId,
 
@@ -114,8 +114,8 @@ module Network.AWS.Inspector.Types
     -- * AssessmentRunAgent
     AssessmentRunAgent (..),
     newAssessmentRunAgent,
-    assessmentRunAgent_agentHealthDetails,
     assessmentRunAgent_autoScalingGroup,
+    assessmentRunAgent_agentHealthDetails,
     assessmentRunAgent_agentId,
     assessmentRunAgent_assessmentRunArn,
     assessmentRunAgent_agentHealth,
@@ -126,19 +126,19 @@ module Network.AWS.Inspector.Types
     AssessmentRunFilter (..),
     newAssessmentRunFilter,
     assessmentRunFilter_states,
-    assessmentRunFilter_durationRange,
-    assessmentRunFilter_rulesPackageArns,
-    assessmentRunFilter_stateChangeTimeRange,
-    assessmentRunFilter_startTimeRange,
     assessmentRunFilter_namePattern,
+    assessmentRunFilter_startTimeRange,
+    assessmentRunFilter_stateChangeTimeRange,
+    assessmentRunFilter_rulesPackageArns,
     assessmentRunFilter_completionTimeRange,
+    assessmentRunFilter_durationRange,
 
     -- * AssessmentRunNotification
     AssessmentRunNotification (..),
     newAssessmentRunNotification,
-    assessmentRunNotification_message,
-    assessmentRunNotification_snsPublishStatusCode,
     assessmentRunNotification_snsTopicArn,
+    assessmentRunNotification_snsPublishStatusCode,
+    assessmentRunNotification_message,
     assessmentRunNotification_date,
     assessmentRunNotification_event,
     assessmentRunNotification_error,
@@ -179,20 +179,20 @@ module Network.AWS.Inspector.Types
     -- * AssessmentTemplateFilter
     AssessmentTemplateFilter (..),
     newAssessmentTemplateFilter,
-    assessmentTemplateFilter_durationRange,
-    assessmentTemplateFilter_rulesPackageArns,
     assessmentTemplateFilter_namePattern,
+    assessmentTemplateFilter_rulesPackageArns,
+    assessmentTemplateFilter_durationRange,
 
     -- * AssetAttributes
     AssetAttributes (..),
     newAssetAttributes,
     assetAttributes_hostname,
+    assetAttributes_autoScalingGroup,
+    assetAttributes_networkInterfaces,
+    assetAttributes_ipv4Addresses,
     assetAttributes_agentId,
     assetAttributes_amiId,
     assetAttributes_tags,
-    assetAttributes_ipv4Addresses,
-    assetAttributes_networkInterfaces,
-    assetAttributes_autoScalingGroup,
     assetAttributes_schemaVersion,
 
     -- * Attribute
@@ -241,19 +241,19 @@ module Network.AWS.Inspector.Types
     -- * Finding
     Finding (..),
     newFinding,
-    finding_assetAttributes,
-    finding_severity,
-    finding_assetType,
-    finding_numericSeverity,
-    finding_title,
-    finding_id,
     finding_service,
-    finding_serviceAttributes,
+    finding_severity,
+    finding_schemaVersion,
     finding_confidence,
-    finding_recommendation,
+    finding_assetAttributes,
+    finding_serviceAttributes,
+    finding_id,
+    finding_numericSeverity,
+    finding_assetType,
+    finding_title,
     finding_indicatorOfCompromise,
     finding_description,
-    finding_schemaVersion,
+    finding_recommendation,
     finding_arn,
     finding_attributes,
     finding_userAttributes,
@@ -264,13 +264,13 @@ module Network.AWS.Inspector.Types
     FindingFilter (..),
     newFindingFilter,
     findingFilter_agentIds,
-    findingFilter_rulesPackageArns,
-    findingFilter_creationTimeRange,
-    findingFilter_severities,
-    findingFilter_attributes,
-    findingFilter_userAttributes,
-    findingFilter_autoScalingGroups,
     findingFilter_ruleNames,
+    findingFilter_userAttributes,
+    findingFilter_rulesPackageArns,
+    findingFilter_attributes,
+    findingFilter_severities,
+    findingFilter_creationTimeRange,
+    findingFilter_autoScalingGroups,
 
     -- * InspectorServiceAttributes
     InspectorServiceAttributes (..),
@@ -283,21 +283,21 @@ module Network.AWS.Inspector.Types
     NetworkInterface (..),
     newNetworkInterface,
     networkInterface_privateIpAddresses,
-    networkInterface_ipv6Addresses,
-    networkInterface_securityGroups,
     networkInterface_publicDnsName,
+    networkInterface_securityGroups,
+    networkInterface_vpcId,
     networkInterface_subnetId,
     networkInterface_networkInterfaceId,
-    networkInterface_privateDnsName,
-    networkInterface_vpcId,
-    networkInterface_publicIp,
     networkInterface_privateIpAddress,
+    networkInterface_publicIp,
+    networkInterface_privateDnsName,
+    networkInterface_ipv6Addresses,
 
     -- * PrivateIp
     PrivateIp (..),
     newPrivateIp,
-    privateIp_privateDnsName,
     privateIp_privateIpAddress,
+    privateIp_privateDnsName,
 
     -- * ResourceGroup
     ResourceGroup (..),
@@ -324,14 +324,14 @@ module Network.AWS.Inspector.Types
     -- * Scope
     Scope (..),
     newScope,
-    scope_key,
     scope_value,
+    scope_key,
 
     -- * SecurityGroup
     SecurityGroup (..),
     newSecurityGroup,
-    securityGroup_groupName,
     securityGroup_groupId,
+    securityGroup_groupName,
 
     -- * Subscription
     Subscription (..),
@@ -356,8 +356,8 @@ module Network.AWS.Inspector.Types
     -- * TimestampRange
     TimestampRange (..),
     newTimestampRange,
-    timestampRange_beginDate,
     timestampRange_endDate,
+    timestampRange_beginDate,
   )
 where
 
@@ -438,37 +438,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -481,22 +458,53 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request is rejected. The specified assessment template is currently
--- generating an exclusions preview.
-_PreviewGenerationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PreviewGenerationInProgressException =
+-- | You do not have required permissions to access the requested resource.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "PreviewGenerationInProgressException"
+    "AccessDeniedException"
 
--- | The serice is temporary unavailable.
-_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceTemporarilyUnavailableException =
+-- | You cannot perform a specified action if an assessment run is currently
+-- in progress.
+_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssessmentRunInProgressException =
   Core._MatchServiceError
     defaultService
-    "ServiceTemporarilyUnavailableException"
+    "AssessmentRunInProgressException"
+
+-- | The request was rejected because it referenced an entity that does not
+-- exist. The error code describes the entity.
+_NoSuchEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoSuchEntityException =
+  Core._MatchServiceError
+    defaultService
+    "NoSuchEntityException"
 
 -- | Used by the GetAssessmentReport API. The request was rejected because
 -- you tried to generate a report for an assessment run that existed before
@@ -508,6 +516,30 @@ _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService
     "UnsupportedFeatureException"
+
+-- | The request is rejected. The specified assessment template is currently
+-- generating an exclusions preview.
+_PreviewGenerationInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PreviewGenerationInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "PreviewGenerationInProgressException"
+
+-- | You started an assessment run, but one of the instances is already
+-- participating in another assessment run.
+_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AgentsAlreadyRunningAssessmentException =
+  Core._MatchServiceError
+    defaultService
+    "AgentsAlreadyRunningAssessmentException"
+
+-- | Amazon Inspector cannot assume the cross-account role that it needs to
+-- list your EC2 instances during the assessment run.
+_InvalidCrossAccountRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCrossAccountRoleException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCrossAccountRoleException"
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
@@ -524,36 +556,12 @@ _InternalException =
     defaultService
     "InternalException"
 
--- | Amazon Inspector cannot assume the cross-account role that it needs to
--- list your EC2 instances during the assessment run.
-_InvalidCrossAccountRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCrossAccountRoleException =
+-- | The serice is temporary unavailable.
+_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceTemporarilyUnavailableException =
   Core._MatchServiceError
     defaultService
-    "InvalidCrossAccountRoleException"
-
--- | You started an assessment run, but one of the instances is already
--- participating in another assessment run.
-_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AgentsAlreadyRunningAssessmentException =
-  Core._MatchServiceError
-    defaultService
-    "AgentsAlreadyRunningAssessmentException"
-
--- | You cannot perform a specified action if an assessment run is currently
--- in progress.
-_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssessmentRunInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "AssessmentRunInProgressException"
-
--- | You do not have required permissions to access the requested resource.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
-  Core._MatchServiceError
-    defaultService
-    "AccessDeniedException"
+    "ServiceTemporarilyUnavailableException"
 
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error code describes the limit
@@ -563,11 +571,3 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | The request was rejected because it referenced an entity that does not
--- exist. The error code describes the entity.
-_NoSuchEntityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoSuchEntityException =
-  Core._MatchServiceError
-    defaultService
-    "NoSuchEntityException"

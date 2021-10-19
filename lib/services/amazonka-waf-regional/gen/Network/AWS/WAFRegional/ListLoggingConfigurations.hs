@@ -44,8 +44,8 @@ module Network.AWS.WAFRegional.ListLoggingConfigurations
     newListLoggingConfigurationsResponse,
 
     -- * Response Lenses
-    listLoggingConfigurationsResponse_loggingConfigurations,
     listLoggingConfigurationsResponse_nextMarker,
+    listLoggingConfigurationsResponse_loggingConfigurations,
     listLoggingConfigurationsResponse_httpStatus,
   )
 where
@@ -133,10 +133,10 @@ instance Core.AWSRequest ListLoggingConfigurations where
     Response.receiveJSON
       ( \s h x ->
           ListLoggingConfigurationsResponse'
-            Prelude.<$> ( x Core..?> "LoggingConfigurations"
+            Prelude.<$> (x Core..?> "NextMarker")
+            Prelude.<*> ( x Core..?> "LoggingConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,14 +176,14 @@ instance Core.ToQuery ListLoggingConfigurations where
 
 -- | /See:/ 'newListLoggingConfigurationsResponse' smart constructor.
 data ListLoggingConfigurationsResponse = ListLoggingConfigurationsResponse'
-  { -- | An array of LoggingConfiguration objects.
-    loggingConfigurations :: Prelude.Maybe [LoggingConfiguration],
-    -- | If you have more @LoggingConfigurations@ than the number that you
+  { -- | If you have more @LoggingConfigurations@ than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @LoggingConfigurations@, submit another
     -- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value
     -- from the response in the @NextMarker@ value in the next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of LoggingConfiguration objects.
+    loggingConfigurations :: Prelude.Maybe [LoggingConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,13 +197,13 @@ data ListLoggingConfigurationsResponse = ListLoggingConfigurationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingConfigurations', 'listLoggingConfigurationsResponse_loggingConfigurations' - An array of LoggingConfiguration objects.
---
 -- 'nextMarker', 'listLoggingConfigurationsResponse_nextMarker' - If you have more @LoggingConfigurations@ than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @LoggingConfigurations@, submit another
 -- @ListLoggingConfigurations@ request, and specify the @NextMarker@ value
 -- from the response in the @NextMarker@ value in the next request.
+--
+-- 'loggingConfigurations', 'listLoggingConfigurationsResponse_loggingConfigurations' - An array of LoggingConfiguration objects.
 --
 -- 'httpStatus', 'listLoggingConfigurationsResponse_httpStatus' - The response's http status code.
 newListLoggingConfigurationsResponse ::
@@ -212,15 +212,11 @@ newListLoggingConfigurationsResponse ::
   ListLoggingConfigurationsResponse
 newListLoggingConfigurationsResponse pHttpStatus_ =
   ListLoggingConfigurationsResponse'
-    { loggingConfigurations =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      loggingConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of LoggingConfiguration objects.
-listLoggingConfigurationsResponse_loggingConfigurations :: Lens.Lens' ListLoggingConfigurationsResponse (Prelude.Maybe [LoggingConfiguration])
-listLoggingConfigurationsResponse_loggingConfigurations = Lens.lens (\ListLoggingConfigurationsResponse' {loggingConfigurations} -> loggingConfigurations) (\s@ListLoggingConfigurationsResponse' {} a -> s {loggingConfigurations = a} :: ListLoggingConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If you have more @LoggingConfigurations@ than the number that you
 -- specified for @Limit@ in the request, the response includes a
@@ -229,6 +225,10 @@ listLoggingConfigurationsResponse_loggingConfigurations = Lens.lens (\ListLoggin
 -- from the response in the @NextMarker@ value in the next request.
 listLoggingConfigurationsResponse_nextMarker :: Lens.Lens' ListLoggingConfigurationsResponse (Prelude.Maybe Prelude.Text)
 listLoggingConfigurationsResponse_nextMarker = Lens.lens (\ListLoggingConfigurationsResponse' {nextMarker} -> nextMarker) (\s@ListLoggingConfigurationsResponse' {} a -> s {nextMarker = a} :: ListLoggingConfigurationsResponse)
+
+-- | An array of LoggingConfiguration objects.
+listLoggingConfigurationsResponse_loggingConfigurations :: Lens.Lens' ListLoggingConfigurationsResponse (Prelude.Maybe [LoggingConfiguration])
+listLoggingConfigurationsResponse_loggingConfigurations = Lens.lens (\ListLoggingConfigurationsResponse' {loggingConfigurations} -> loggingConfigurations) (\s@ListLoggingConfigurationsResponse' {} a -> s {loggingConfigurations = a} :: ListLoggingConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listLoggingConfigurationsResponse_httpStatus :: Lens.Lens' ListLoggingConfigurationsResponse Prelude.Int

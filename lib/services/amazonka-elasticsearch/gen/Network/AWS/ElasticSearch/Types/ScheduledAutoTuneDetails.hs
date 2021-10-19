@@ -31,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScheduledAutoTuneDetails' smart constructor.
 data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
-  { -- | Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
-    -- and JVM_YOUNG_GEN_TUNING.
-    actionType :: Prelude.Maybe ScheduledAutoTuneActionType,
-    -- | Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and
+  { -- | Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and
     -- HIGH.
     severity :: Prelude.Maybe ScheduledAutoTuneSeverityType,
+    -- | Specifies Auto-Tune action description.
+    action :: Prelude.Maybe Prelude.Text,
     -- | Specifies timestamp for the Auto-Tune action scheduled for the domain.
     date :: Prelude.Maybe Core.POSIX,
-    -- | Specifies Auto-Tune action description.
-    action :: Prelude.Maybe Prelude.Text
+    -- | Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
+    -- and JVM_YOUNG_GEN_TUNING.
+    actionType :: Prelude.Maybe ScheduledAutoTuneActionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,43 +52,43 @@ data ScheduledAutoTuneDetails = ScheduledAutoTuneDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionType', 'scheduledAutoTuneDetails_actionType' - Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
--- and JVM_YOUNG_GEN_TUNING.
---
 -- 'severity', 'scheduledAutoTuneDetails_severity' - Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and
 -- HIGH.
 --
+-- 'action', 'scheduledAutoTuneDetails_action' - Specifies Auto-Tune action description.
+--
 -- 'date', 'scheduledAutoTuneDetails_date' - Specifies timestamp for the Auto-Tune action scheduled for the domain.
 --
--- 'action', 'scheduledAutoTuneDetails_action' - Specifies Auto-Tune action description.
+-- 'actionType', 'scheduledAutoTuneDetails_actionType' - Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
+-- and JVM_YOUNG_GEN_TUNING.
 newScheduledAutoTuneDetails ::
   ScheduledAutoTuneDetails
 newScheduledAutoTuneDetails =
   ScheduledAutoTuneDetails'
-    { actionType =
+    { severity =
         Prelude.Nothing,
-      severity = Prelude.Nothing,
+      action = Prelude.Nothing,
       date = Prelude.Nothing,
-      action = Prelude.Nothing
+      actionType = Prelude.Nothing
     }
-
--- | Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
--- and JVM_YOUNG_GEN_TUNING.
-scheduledAutoTuneDetails_actionType :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneActionType)
-scheduledAutoTuneDetails_actionType = Lens.lens (\ScheduledAutoTuneDetails' {actionType} -> actionType) (\s@ScheduledAutoTuneDetails' {} a -> s {actionType = a} :: ScheduledAutoTuneDetails)
 
 -- | Specifies Auto-Tune action severity. Valid values are LOW, MEDIUM and
 -- HIGH.
 scheduledAutoTuneDetails_severity :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneSeverityType)
 scheduledAutoTuneDetails_severity = Lens.lens (\ScheduledAutoTuneDetails' {severity} -> severity) (\s@ScheduledAutoTuneDetails' {} a -> s {severity = a} :: ScheduledAutoTuneDetails)
 
+-- | Specifies Auto-Tune action description.
+scheduledAutoTuneDetails_action :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.Text)
+scheduledAutoTuneDetails_action = Lens.lens (\ScheduledAutoTuneDetails' {action} -> action) (\s@ScheduledAutoTuneDetails' {} a -> s {action = a} :: ScheduledAutoTuneDetails)
+
 -- | Specifies timestamp for the Auto-Tune action scheduled for the domain.
 scheduledAutoTuneDetails_date :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.UTCTime)
 scheduledAutoTuneDetails_date = Lens.lens (\ScheduledAutoTuneDetails' {date} -> date) (\s@ScheduledAutoTuneDetails' {} a -> s {date = a} :: ScheduledAutoTuneDetails) Prelude.. Lens.mapping Core._Time
 
--- | Specifies Auto-Tune action description.
-scheduledAutoTuneDetails_action :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe Prelude.Text)
-scheduledAutoTuneDetails_action = Lens.lens (\ScheduledAutoTuneDetails' {action} -> action) (\s@ScheduledAutoTuneDetails' {} a -> s {action = a} :: ScheduledAutoTuneDetails)
+-- | Specifies Auto-Tune action type. Valid values are JVM_HEAP_SIZE_TUNING
+-- and JVM_YOUNG_GEN_TUNING.
+scheduledAutoTuneDetails_actionType :: Lens.Lens' ScheduledAutoTuneDetails (Prelude.Maybe ScheduledAutoTuneActionType)
+scheduledAutoTuneDetails_actionType = Lens.lens (\ScheduledAutoTuneDetails' {actionType} -> actionType) (\s@ScheduledAutoTuneDetails' {} a -> s {actionType = a} :: ScheduledAutoTuneDetails)
 
 instance Core.FromJSON ScheduledAutoTuneDetails where
   parseJSON =
@@ -96,10 +96,10 @@ instance Core.FromJSON ScheduledAutoTuneDetails where
       "ScheduledAutoTuneDetails"
       ( \x ->
           ScheduledAutoTuneDetails'
-            Prelude.<$> (x Core..:? "ActionType")
-            Prelude.<*> (x Core..:? "Severity")
-            Prelude.<*> (x Core..:? "Date")
+            Prelude.<$> (x Core..:? "Severity")
             Prelude.<*> (x Core..:? "Action")
+            Prelude.<*> (x Core..:? "Date")
+            Prelude.<*> (x Core..:? "ActionType")
       )
 
 instance Prelude.Hashable ScheduledAutoTuneDetails

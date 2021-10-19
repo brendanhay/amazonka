@@ -49,8 +49,8 @@ module Network.AWS.Textract.DetectDocumentText
     newDetectDocumentTextResponse,
 
     -- * Response Lenses
-    detectDocumentTextResponse_blocks,
     detectDocumentTextResponse_documentMetadata,
+    detectDocumentTextResponse_blocks,
     detectDocumentTextResponse_detectDocumentTextModelVersion,
     detectDocumentTextResponse_httpStatus,
   )
@@ -114,8 +114,8 @@ instance Core.AWSRequest DetectDocumentText where
     Response.receiveJSON
       ( \s h x ->
           DetectDocumentTextResponse'
-            Prelude.<$> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "DocumentMetadata")
+            Prelude.<$> (x Core..?> "DocumentMetadata")
+            Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "DetectDocumentTextModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -154,12 +154,12 @@ instance Core.ToQuery DetectDocumentText where
 
 -- | /See:/ 'newDetectDocumentTextResponse' smart constructor.
 data DetectDocumentTextResponse = DetectDocumentTextResponse'
-  { -- | An array of @Block@ objects that contain the text that\'s detected in
-    -- the document.
-    blocks :: Prelude.Maybe [Block],
-    -- | Metadata about the document. It contains the number of pages that are
+  { -- | Metadata about the document. It contains the number of pages that are
     -- detected in the document.
     documentMetadata :: Prelude.Maybe DocumentMetadata,
+    -- | An array of @Block@ objects that contain the text that\'s detected in
+    -- the document.
+    blocks :: Prelude.Maybe [Block],
     detectDocumentTextModelVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -174,11 +174,11 @@ data DetectDocumentTextResponse = DetectDocumentTextResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'blocks', 'detectDocumentTextResponse_blocks' - An array of @Block@ objects that contain the text that\'s detected in
--- the document.
---
 -- 'documentMetadata', 'detectDocumentTextResponse_documentMetadata' - Metadata about the document. It contains the number of pages that are
 -- detected in the document.
+--
+-- 'blocks', 'detectDocumentTextResponse_blocks' - An array of @Block@ objects that contain the text that\'s detected in
+-- the document.
 --
 -- 'detectDocumentTextModelVersion', 'detectDocumentTextResponse_detectDocumentTextModelVersion' -
 --
@@ -189,23 +189,23 @@ newDetectDocumentTextResponse ::
   DetectDocumentTextResponse
 newDetectDocumentTextResponse pHttpStatus_ =
   DetectDocumentTextResponse'
-    { blocks =
+    { documentMetadata =
         Prelude.Nothing,
-      documentMetadata = Prelude.Nothing,
+      blocks = Prelude.Nothing,
       detectDocumentTextModelVersion =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | An array of @Block@ objects that contain the text that\'s detected in
--- the document.
-detectDocumentTextResponse_blocks :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe [Block])
-detectDocumentTextResponse_blocks = Lens.lens (\DetectDocumentTextResponse' {blocks} -> blocks) (\s@DetectDocumentTextResponse' {} a -> s {blocks = a} :: DetectDocumentTextResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Metadata about the document. It contains the number of pages that are
 -- detected in the document.
 detectDocumentTextResponse_documentMetadata :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe DocumentMetadata)
 detectDocumentTextResponse_documentMetadata = Lens.lens (\DetectDocumentTextResponse' {documentMetadata} -> documentMetadata) (\s@DetectDocumentTextResponse' {} a -> s {documentMetadata = a} :: DetectDocumentTextResponse)
+
+-- | An array of @Block@ objects that contain the text that\'s detected in
+-- the document.
+detectDocumentTextResponse_blocks :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe [Block])
+detectDocumentTextResponse_blocks = Lens.lens (\DetectDocumentTextResponse' {blocks} -> blocks) (\s@DetectDocumentTextResponse' {} a -> s {blocks = a} :: DetectDocumentTextResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 detectDocumentTextResponse_detectDocumentTextModelVersion :: Lens.Lens' DetectDocumentTextResponse (Prelude.Maybe Prelude.Text)

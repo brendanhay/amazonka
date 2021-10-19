@@ -80,8 +80,8 @@ module Network.AWS.Kinesis.UpdateShardCount
 
     -- * Response Lenses
     updateShardCountResponse_targetShardCount,
-    updateShardCountResponse_currentShardCount,
     updateShardCountResponse_streamName,
+    updateShardCountResponse_currentShardCount,
     updateShardCountResponse_httpStatus,
   )
 where
@@ -196,8 +196,8 @@ instance Core.AWSRequest UpdateShardCount where
       ( \s h x ->
           UpdateShardCountResponse'
             Prelude.<$> (x Core..?> "TargetShardCount")
-            Prelude.<*> (x Core..?> "CurrentShardCount")
             Prelude.<*> (x Core..?> "StreamName")
+            Prelude.<*> (x Core..?> "CurrentShardCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -241,10 +241,10 @@ instance Core.ToQuery UpdateShardCount where
 data UpdateShardCountResponse = UpdateShardCountResponse'
   { -- | The updated number of shards.
     targetShardCount :: Prelude.Maybe Prelude.Natural,
-    -- | The current number of shards.
-    currentShardCount :: Prelude.Maybe Prelude.Natural,
     -- | The name of the stream.
     streamName :: Prelude.Maybe Prelude.Text,
+    -- | The current number of shards.
+    currentShardCount :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,9 +260,9 @@ data UpdateShardCountResponse = UpdateShardCountResponse'
 --
 -- 'targetShardCount', 'updateShardCountResponse_targetShardCount' - The updated number of shards.
 --
--- 'currentShardCount', 'updateShardCountResponse_currentShardCount' - The current number of shards.
---
 -- 'streamName', 'updateShardCountResponse_streamName' - The name of the stream.
+--
+-- 'currentShardCount', 'updateShardCountResponse_currentShardCount' - The current number of shards.
 --
 -- 'httpStatus', 'updateShardCountResponse_httpStatus' - The response's http status code.
 newUpdateShardCountResponse ::
@@ -273,8 +273,8 @@ newUpdateShardCountResponse pHttpStatus_ =
   UpdateShardCountResponse'
     { targetShardCount =
         Prelude.Nothing,
-      currentShardCount = Prelude.Nothing,
       streamName = Prelude.Nothing,
+      currentShardCount = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -282,13 +282,13 @@ newUpdateShardCountResponse pHttpStatus_ =
 updateShardCountResponse_targetShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
 updateShardCountResponse_targetShardCount = Lens.lens (\UpdateShardCountResponse' {targetShardCount} -> targetShardCount) (\s@UpdateShardCountResponse' {} a -> s {targetShardCount = a} :: UpdateShardCountResponse)
 
--- | The current number of shards.
-updateShardCountResponse_currentShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
-updateShardCountResponse_currentShardCount = Lens.lens (\UpdateShardCountResponse' {currentShardCount} -> currentShardCount) (\s@UpdateShardCountResponse' {} a -> s {currentShardCount = a} :: UpdateShardCountResponse)
-
 -- | The name of the stream.
 updateShardCountResponse_streamName :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Text)
 updateShardCountResponse_streamName = Lens.lens (\UpdateShardCountResponse' {streamName} -> streamName) (\s@UpdateShardCountResponse' {} a -> s {streamName = a} :: UpdateShardCountResponse)
+
+-- | The current number of shards.
+updateShardCountResponse_currentShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
+updateShardCountResponse_currentShardCount = Lens.lens (\UpdateShardCountResponse' {currentShardCount} -> currentShardCount) (\s@UpdateShardCountResponse' {} a -> s {currentShardCount = a} :: UpdateShardCountResponse)
 
 -- | The response's http status code.
 updateShardCountResponse_httpStatus :: Lens.Lens' UpdateShardCountResponse Prelude.Int

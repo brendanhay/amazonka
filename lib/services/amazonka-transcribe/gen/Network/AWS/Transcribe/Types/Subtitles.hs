@@ -48,7 +48,7 @@ newSubtitles = Subtitles' {formats = Prelude.Nothing}
 
 -- | Specify the output format for your subtitle file.
 subtitles_formats :: Lens.Lens' Subtitles (Prelude.Maybe [SubtitleFormat])
-subtitles_formats = Lens.lens (\Subtitles' {formats} -> formats) (\s@Subtitles' {} a -> s {formats = a} :: Subtitles) Prelude.. Lens.mapping Lens._Coerce
+subtitles_formats = Lens.lens (\Subtitles' {formats} -> formats) (\s@Subtitles' {} a -> s {formats = a} :: Subtitles) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable Subtitles
 

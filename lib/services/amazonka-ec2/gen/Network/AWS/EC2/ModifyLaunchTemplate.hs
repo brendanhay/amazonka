@@ -29,11 +29,11 @@ module Network.AWS.EC2.ModifyLaunchTemplate
     newModifyLaunchTemplate,
 
     -- * Request Lenses
-    modifyLaunchTemplate_defaultVersion,
-    modifyLaunchTemplate_dryRun,
-    modifyLaunchTemplate_launchTemplateId,
     modifyLaunchTemplate_launchTemplateName,
     modifyLaunchTemplate_clientToken,
+    modifyLaunchTemplate_launchTemplateId,
+    modifyLaunchTemplate_defaultVersion,
+    modifyLaunchTemplate_dryRun,
 
     -- * Destructuring the Response
     ModifyLaunchTemplateResponse (..),
@@ -54,17 +54,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyLaunchTemplate' smart constructor.
 data ModifyLaunchTemplate = ModifyLaunchTemplate'
-  { -- | The version number of the launch template to set as the default version.
-    defaultVersion :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
-    launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. You must specify either the launch
+  { -- | The name of the launch template. You must specify either the launch
     -- template ID or launch template name in the request.
     launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -72,7 +62,17 @@ data ModifyLaunchTemplate = ModifyLaunchTemplate'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraint: Maximum 128 ASCII characters.
-    clientToken :: Prelude.Maybe Prelude.Text
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the launch template. You must specify either the launch
+    -- template ID or launch template name in the request.
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the launch template to set as the default version.
+    defaultVersion :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,16 +84,6 @@ data ModifyLaunchTemplate = ModifyLaunchTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultVersion', 'modifyLaunchTemplate_defaultVersion' - The version number of the launch template to set as the default version.
---
--- 'dryRun', 'modifyLaunchTemplate_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'launchTemplateId', 'modifyLaunchTemplate_launchTemplateId' - The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
---
 -- 'launchTemplateName', 'modifyLaunchTemplate_launchTemplateName' - The name of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
 --
@@ -102,33 +92,27 @@ data ModifyLaunchTemplate = ModifyLaunchTemplate'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
+--
+-- 'launchTemplateId', 'modifyLaunchTemplate_launchTemplateId' - The ID of the launch template. You must specify either the launch
+-- template ID or launch template name in the request.
+--
+-- 'defaultVersion', 'modifyLaunchTemplate_defaultVersion' - The version number of the launch template to set as the default version.
+--
+-- 'dryRun', 'modifyLaunchTemplate_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newModifyLaunchTemplate ::
   ModifyLaunchTemplate
 newModifyLaunchTemplate =
   ModifyLaunchTemplate'
-    { defaultVersion =
+    { launchTemplateName =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+      clientToken = Prelude.Nothing,
       launchTemplateId = Prelude.Nothing,
-      launchTemplateName = Prelude.Nothing,
-      clientToken = Prelude.Nothing
+      defaultVersion = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | The version number of the launch template to set as the default version.
-modifyLaunchTemplate_defaultVersion :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
-modifyLaunchTemplate_defaultVersion = Lens.lens (\ModifyLaunchTemplate' {defaultVersion} -> defaultVersion) (\s@ModifyLaunchTemplate' {} a -> s {defaultVersion = a} :: ModifyLaunchTemplate)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-modifyLaunchTemplate_dryRun :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Bool)
-modifyLaunchTemplate_dryRun = Lens.lens (\ModifyLaunchTemplate' {dryRun} -> dryRun) (\s@ModifyLaunchTemplate' {} a -> s {dryRun = a} :: ModifyLaunchTemplate)
-
--- | The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
-modifyLaunchTemplate_launchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
-modifyLaunchTemplate_launchTemplateId = Lens.lens (\ModifyLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@ModifyLaunchTemplate' {} a -> s {launchTemplateId = a} :: ModifyLaunchTemplate)
 
 -- | The name of the launch template. You must specify either the launch
 -- template ID or launch template name in the request.
@@ -142,6 +126,22 @@ modifyLaunchTemplate_launchTemplateName = Lens.lens (\ModifyLaunchTemplate' {lau
 -- Constraint: Maximum 128 ASCII characters.
 modifyLaunchTemplate_clientToken :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_clientToken = Lens.lens (\ModifyLaunchTemplate' {clientToken} -> clientToken) (\s@ModifyLaunchTemplate' {} a -> s {clientToken = a} :: ModifyLaunchTemplate)
+
+-- | The ID of the launch template. You must specify either the launch
+-- template ID or launch template name in the request.
+modifyLaunchTemplate_launchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
+modifyLaunchTemplate_launchTemplateId = Lens.lens (\ModifyLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@ModifyLaunchTemplate' {} a -> s {launchTemplateId = a} :: ModifyLaunchTemplate)
+
+-- | The version number of the launch template to set as the default version.
+modifyLaunchTemplate_defaultVersion :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
+modifyLaunchTemplate_defaultVersion = Lens.lens (\ModifyLaunchTemplate' {defaultVersion} -> defaultVersion) (\s@ModifyLaunchTemplate' {} a -> s {defaultVersion = a} :: ModifyLaunchTemplate)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+modifyLaunchTemplate_dryRun :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Bool)
+modifyLaunchTemplate_dryRun = Lens.lens (\ModifyLaunchTemplate' {dryRun} -> dryRun) (\s@ModifyLaunchTemplate' {} a -> s {dryRun = a} :: ModifyLaunchTemplate)
 
 instance Core.AWSRequest ModifyLaunchTemplate where
   type
@@ -173,11 +173,11 @@ instance Core.ToQuery ModifyLaunchTemplate where
           Core.=: ("ModifyLaunchTemplate" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "SetDefaultVersion" Core.=: defaultVersion,
-        "DryRun" Core.=: dryRun,
-        "LaunchTemplateId" Core.=: launchTemplateId,
         "LaunchTemplateName" Core.=: launchTemplateName,
-        "ClientToken" Core.=: clientToken
+        "ClientToken" Core.=: clientToken,
+        "LaunchTemplateId" Core.=: launchTemplateId,
+        "SetDefaultVersion" Core.=: defaultVersion,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newModifyLaunchTemplateResponse' smart constructor.

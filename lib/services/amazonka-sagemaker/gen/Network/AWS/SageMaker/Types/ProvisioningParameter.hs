@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { -- | The key that identifies a provisioning parameter.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value of the provisioning parameter.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value of the provisioning parameter.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key that identifies a provisioning parameter.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data ProvisioningParameter = ProvisioningParameter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'provisioningParameter_key' - The key that identifies a provisioning parameter.
---
 -- 'value', 'provisioningParameter_value' - The value of the provisioning parameter.
+--
+-- 'key', 'provisioningParameter_key' - The key that identifies a provisioning parameter.
 newProvisioningParameter ::
   ProvisioningParameter
 newProvisioningParameter =
   ProvisioningParameter'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key that identifies a provisioning parameter.
-provisioningParameter_key :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
-provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s@ProvisioningParameter' {} a -> s {key = a} :: ProvisioningParameter)
 
 -- | The value of the provisioning parameter.
 provisioningParameter_value :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
 provisioningParameter_value = Lens.lens (\ProvisioningParameter' {value} -> value) (\s@ProvisioningParameter' {} a -> s {value = a} :: ProvisioningParameter)
+
+-- | The key that identifies a provisioning parameter.
+provisioningParameter_key :: Lens.Lens' ProvisioningParameter (Prelude.Maybe Prelude.Text)
+provisioningParameter_key = Lens.lens (\ProvisioningParameter' {key} -> key) (\s@ProvisioningParameter' {} a -> s {key = a} :: ProvisioningParameter)
 
 instance Core.FromJSON ProvisioningParameter where
   parseJSON =
@@ -69,7 +69,7 @@ instance Core.FromJSON ProvisioningParameter where
       "ProvisioningParameter"
       ( \x ->
           ProvisioningParameter'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
 instance Prelude.Hashable ProvisioningParameter
@@ -80,7 +80,7 @@ instance Core.ToJSON ProvisioningParameter where
   toJSON ProvisioningParameter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

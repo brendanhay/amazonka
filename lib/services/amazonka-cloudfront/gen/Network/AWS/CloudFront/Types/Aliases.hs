@@ -63,7 +63,7 @@ newAliases pQuantity_ =
 -- | A complex type that contains the CNAME aliases, if any, that you want to
 -- associate with this distribution.
 aliases_items :: Lens.Lens' Aliases (Prelude.Maybe [Prelude.Text])
-aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {items = a} :: Aliases) Prelude.. Lens.mapping Lens._Coerce
+aliases_items = Lens.lens (\Aliases' {items} -> items) (\s@Aliases' {} a -> s {items = a} :: Aliases) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of CNAME aliases, if any, that you want to associate with
 -- this distribution.

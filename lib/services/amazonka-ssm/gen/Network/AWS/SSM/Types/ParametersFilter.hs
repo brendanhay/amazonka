@@ -55,7 +55,7 @@ newParametersFilter ::
 newParametersFilter pKey_ pValues_ =
   ParametersFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The name of the filter.
@@ -64,7 +64,7 @@ parametersFilter_key = Lens.lens (\ParametersFilter' {key} -> key) (\s@Parameter
 
 -- | The filter values.
 parametersFilter_values :: Lens.Lens' ParametersFilter (Prelude.NonEmpty Prelude.Text)
-parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Prelude.. Lens._Coerce
+parametersFilter_values = Lens.lens (\ParametersFilter' {values} -> values) (\s@ParametersFilter' {} a -> s {values = a} :: ParametersFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ParametersFilter
 

@@ -63,18 +63,18 @@ newTestGridVpcConfig
   pVpcId_ =
     TestGridVpcConfig'
       { securityGroupIds =
-          Lens._Coerce Lens.# pSecurityGroupIds_,
-        subnetIds = Lens._Coerce Lens.# pSubnetIds_,
+          Lens.coerced Lens.# pSecurityGroupIds_,
+        subnetIds = Lens.coerced Lens.# pSubnetIds_,
         vpcId = pVpcId_
       }
 
 -- | A list of VPC security group IDs in your Amazon VPC.
 testGridVpcConfig_securityGroupIds :: Lens.Lens' TestGridVpcConfig (Prelude.NonEmpty Prelude.Text)
-testGridVpcConfig_securityGroupIds = Lens.lens (\TestGridVpcConfig' {securityGroupIds} -> securityGroupIds) (\s@TestGridVpcConfig' {} a -> s {securityGroupIds = a} :: TestGridVpcConfig) Prelude.. Lens._Coerce
+testGridVpcConfig_securityGroupIds = Lens.lens (\TestGridVpcConfig' {securityGroupIds} -> securityGroupIds) (\s@TestGridVpcConfig' {} a -> s {securityGroupIds = a} :: TestGridVpcConfig) Prelude.. Lens.coerced
 
 -- | A list of VPC subnet IDs in your Amazon VPC.
 testGridVpcConfig_subnetIds :: Lens.Lens' TestGridVpcConfig (Prelude.NonEmpty Prelude.Text)
-testGridVpcConfig_subnetIds = Lens.lens (\TestGridVpcConfig' {subnetIds} -> subnetIds) (\s@TestGridVpcConfig' {} a -> s {subnetIds = a} :: TestGridVpcConfig) Prelude.. Lens._Coerce
+testGridVpcConfig_subnetIds = Lens.lens (\TestGridVpcConfig' {subnetIds} -> subnetIds) (\s@TestGridVpcConfig' {} a -> s {subnetIds = a} :: TestGridVpcConfig) Prelude.. Lens.coerced
 
 -- | The ID of the Amazon VPC.
 testGridVpcConfig_vpcId :: Lens.Lens' TestGridVpcConfig Prelude.Text

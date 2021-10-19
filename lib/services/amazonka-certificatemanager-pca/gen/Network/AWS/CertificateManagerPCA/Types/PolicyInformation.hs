@@ -68,7 +68,7 @@ newPolicyInformation pCertPolicyId_ =
 -- | Modifies the given @CertPolicyId@ with a qualifier. ACM Private CA
 -- supports the certification practice statement (CPS) qualifier.
 policyInformation_policyQualifiers :: Lens.Lens' PolicyInformation (Prelude.Maybe (Prelude.NonEmpty PolicyQualifierInfo))
-policyInformation_policyQualifiers = Lens.lens (\PolicyInformation' {policyQualifiers} -> policyQualifiers) (\s@PolicyInformation' {} a -> s {policyQualifiers = a} :: PolicyInformation) Prelude.. Lens.mapping Lens._Coerce
+policyInformation_policyQualifiers = Lens.lens (\PolicyInformation' {policyQualifiers} -> policyQualifiers) (\s@PolicyInformation' {} a -> s {policyQualifiers = a} :: PolicyInformation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the object identifier (OID) of the certificate policy under
 -- which the certificate was issued. For more information, see NIST\'s

@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicies' smart constructor.
 data Policies = Policies'
-  { -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
-    appCookieStickinessPolicies :: Prelude.Maybe [AppCookieStickinessPolicy],
+  { -- | The policies other than the stickiness policies.
+    otherPolicies :: Prelude.Maybe [Prelude.Text],
     -- | The stickiness policies created using CreateLBCookieStickinessPolicy.
     lBCookieStickinessPolicies :: Prelude.Maybe [LBCookieStickinessPolicy],
-    -- | The policies other than the stickiness policies.
-    otherPolicies :: Prelude.Maybe [Prelude.Text]
+    -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
+    appCookieStickinessPolicies :: Prelude.Maybe [AppCookieStickinessPolicy]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,45 +47,44 @@ data Policies = Policies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appCookieStickinessPolicies', 'policies_appCookieStickinessPolicies' - The stickiness policies created using CreateAppCookieStickinessPolicy.
+-- 'otherPolicies', 'policies_otherPolicies' - The policies other than the stickiness policies.
 --
 -- 'lBCookieStickinessPolicies', 'policies_lBCookieStickinessPolicies' - The stickiness policies created using CreateLBCookieStickinessPolicy.
 --
--- 'otherPolicies', 'policies_otherPolicies' - The policies other than the stickiness policies.
+-- 'appCookieStickinessPolicies', 'policies_appCookieStickinessPolicies' - The stickiness policies created using CreateAppCookieStickinessPolicy.
 newPolicies ::
   Policies
 newPolicies =
   Policies'
-    { appCookieStickinessPolicies =
-        Prelude.Nothing,
+    { otherPolicies = Prelude.Nothing,
       lBCookieStickinessPolicies = Prelude.Nothing,
-      otherPolicies = Prelude.Nothing
+      appCookieStickinessPolicies = Prelude.Nothing
     }
-
--- | The stickiness policies created using CreateAppCookieStickinessPolicy.
-policies_appCookieStickinessPolicies :: Lens.Lens' Policies (Prelude.Maybe [AppCookieStickinessPolicy])
-policies_appCookieStickinessPolicies = Lens.lens (\Policies' {appCookieStickinessPolicies} -> appCookieStickinessPolicies) (\s@Policies' {} a -> s {appCookieStickinessPolicies = a} :: Policies) Prelude.. Lens.mapping Lens._Coerce
-
--- | The stickiness policies created using CreateLBCookieStickinessPolicy.
-policies_lBCookieStickinessPolicies :: Lens.Lens' Policies (Prelude.Maybe [LBCookieStickinessPolicy])
-policies_lBCookieStickinessPolicies = Lens.lens (\Policies' {lBCookieStickinessPolicies} -> lBCookieStickinessPolicies) (\s@Policies' {} a -> s {lBCookieStickinessPolicies = a} :: Policies) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The policies other than the stickiness policies.
 policies_otherPolicies :: Lens.Lens' Policies (Prelude.Maybe [Prelude.Text])
-policies_otherPolicies = Lens.lens (\Policies' {otherPolicies} -> otherPolicies) (\s@Policies' {} a -> s {otherPolicies = a} :: Policies) Prelude.. Lens.mapping Lens._Coerce
+policies_otherPolicies = Lens.lens (\Policies' {otherPolicies} -> otherPolicies) (\s@Policies' {} a -> s {otherPolicies = a} :: Policies) Prelude.. Lens.mapping Lens.coerced
+
+-- | The stickiness policies created using CreateLBCookieStickinessPolicy.
+policies_lBCookieStickinessPolicies :: Lens.Lens' Policies (Prelude.Maybe [LBCookieStickinessPolicy])
+policies_lBCookieStickinessPolicies = Lens.lens (\Policies' {lBCookieStickinessPolicies} -> lBCookieStickinessPolicies) (\s@Policies' {} a -> s {lBCookieStickinessPolicies = a} :: Policies) Prelude.. Lens.mapping Lens.coerced
+
+-- | The stickiness policies created using CreateAppCookieStickinessPolicy.
+policies_appCookieStickinessPolicies :: Lens.Lens' Policies (Prelude.Maybe [AppCookieStickinessPolicy])
+policies_appCookieStickinessPolicies = Lens.lens (\Policies' {appCookieStickinessPolicies} -> appCookieStickinessPolicies) (\s@Policies' {} a -> s {appCookieStickinessPolicies = a} :: Policies) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML Policies where
   parseXML x =
     Policies'
-      Prelude.<$> ( x Core..@? "AppCookieStickinessPolicies"
-                      Core..!@ Prelude.mempty
+      Prelude.<$> ( x Core..@? "OtherPolicies" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> ( x Core..@? "LBCookieStickinessPolicies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> ( x Core..@? "OtherPolicies" Core..!@ Prelude.mempty
+      Prelude.<*> ( x Core..@? "AppCookieStickinessPolicies"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
 

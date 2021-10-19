@@ -30,11 +30,11 @@ import Network.AWS.ResourceGroupsTagging.Types.Tag
 --
 -- /See:/ 'newResourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
-  { -- | The ARN of the resource.
-    resourceARN :: Prelude.Maybe Prelude.Text,
-    -- | Information that shows whether a resource is compliant with the
+  { -- | Information that shows whether a resource is compliant with the
     -- effective tag policy, including details on any noncompliant tag keys.
     complianceDetails :: Prelude.Maybe ComplianceDetails,
+    -- | The ARN of the resource.
+    resourceARN :: Prelude.Maybe Prelude.Text,
     -- | The tags that have been applied to one or more AWS resources.
     tags :: Prelude.Maybe [Tag]
   }
@@ -48,33 +48,34 @@ data ResourceTagMapping = ResourceTagMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'resourceTagMapping_resourceARN' - The ARN of the resource.
---
 -- 'complianceDetails', 'resourceTagMapping_complianceDetails' - Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
+--
+-- 'resourceARN', 'resourceTagMapping_resourceARN' - The ARN of the resource.
 --
 -- 'tags', 'resourceTagMapping_tags' - The tags that have been applied to one or more AWS resources.
 newResourceTagMapping ::
   ResourceTagMapping
 newResourceTagMapping =
   ResourceTagMapping'
-    { resourceARN = Prelude.Nothing,
-      complianceDetails = Prelude.Nothing,
+    { complianceDetails =
+        Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
       tags = Prelude.Nothing
     }
-
--- | The ARN of the resource.
-resourceTagMapping_resourceARN :: Lens.Lens' ResourceTagMapping (Prelude.Maybe Prelude.Text)
-resourceTagMapping_resourceARN = Lens.lens (\ResourceTagMapping' {resourceARN} -> resourceARN) (\s@ResourceTagMapping' {} a -> s {resourceARN = a} :: ResourceTagMapping)
 
 -- | Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
 resourceTagMapping_complianceDetails :: Lens.Lens' ResourceTagMapping (Prelude.Maybe ComplianceDetails)
 resourceTagMapping_complianceDetails = Lens.lens (\ResourceTagMapping' {complianceDetails} -> complianceDetails) (\s@ResourceTagMapping' {} a -> s {complianceDetails = a} :: ResourceTagMapping)
 
+-- | The ARN of the resource.
+resourceTagMapping_resourceARN :: Lens.Lens' ResourceTagMapping (Prelude.Maybe Prelude.Text)
+resourceTagMapping_resourceARN = Lens.lens (\ResourceTagMapping' {resourceARN} -> resourceARN) (\s@ResourceTagMapping' {} a -> s {resourceARN = a} :: ResourceTagMapping)
+
 -- | The tags that have been applied to one or more AWS resources.
 resourceTagMapping_tags :: Lens.Lens' ResourceTagMapping (Prelude.Maybe [Tag])
-resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Prelude.. Lens.mapping Lens._Coerce
+resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ResourceTagMapping where
   parseJSON =
@@ -82,8 +83,8 @@ instance Core.FromJSON ResourceTagMapping where
       "ResourceTagMapping"
       ( \x ->
           ResourceTagMapping'
-            Prelude.<$> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "ComplianceDetails")
+            Prelude.<$> (x Core..:? "ComplianceDetails")
+            Prelude.<*> (x Core..:? "ResourceARN")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 

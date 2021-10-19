@@ -697,7 +697,7 @@ createStack_defaultAvailabilityZone = Lens.lens (\CreateStack' {defaultAvailabil
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
 createStack_attributes :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\s@CreateStack' {} a -> s {attributes = a} :: CreateStack) Prelude.. Lens.mapping Lens._Coerce
+createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\s@CreateStack' {} a -> s {attributes = a} :: CreateStack) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack\'s default operating system, which is installed on every
 -- instance unless you specify a different operating system when you create

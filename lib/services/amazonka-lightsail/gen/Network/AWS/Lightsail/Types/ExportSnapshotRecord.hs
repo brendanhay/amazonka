@@ -32,24 +32,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newExportSnapshotRecord' smart constructor.
 data ExportSnapshotRecord = ExportSnapshotRecord'
-  { -- | The date when the export snapshot record was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the export snapshot record.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The state of the export snapshot record.
+    state :: Prelude.Maybe RecordState,
+    -- | A list of objects describing the destination of the export snapshot
+    -- record.
+    destinationInfo :: Prelude.Maybe DestinationInfo,
     -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
     resourceType :: Prelude.Maybe ResourceType,
-    -- | The state of the export snapshot record.
-    state :: Prelude.Maybe RecordState,
-    -- | The export snapshot record name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A list of objects describing the source of the export snapshot record.
-    sourceInfo :: Prelude.Maybe ExportSnapshotRecordSourceInfo,
+    -- | The Amazon Resource Name (ARN) of the export snapshot record.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The date when the export snapshot record was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The AWS Region and Availability Zone where the export snapshot record is
     -- located.
     location :: Prelude.Maybe ResourceLocation,
-    -- | A list of objects describing the destination of the export snapshot
-    -- record.
-    destinationInfo :: Prelude.Maybe DestinationInfo
+    -- | The export snapshot record name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A list of objects describing the source of the export snapshot record.
+    sourceInfo :: Prelude.Maybe ExportSnapshotRecordSourceInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,52 +61,62 @@ data ExportSnapshotRecord = ExportSnapshotRecord'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAt', 'exportSnapshotRecord_createdAt' - The date when the export snapshot record was created.
+-- 'state', 'exportSnapshotRecord_state' - The state of the export snapshot record.
 --
--- 'arn', 'exportSnapshotRecord_arn' - The Amazon Resource Name (ARN) of the export snapshot record.
+-- 'destinationInfo', 'exportSnapshotRecord_destinationInfo' - A list of objects describing the destination of the export snapshot
+-- record.
 --
 -- 'resourceType', 'exportSnapshotRecord_resourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@).
 --
--- 'state', 'exportSnapshotRecord_state' - The state of the export snapshot record.
+-- 'arn', 'exportSnapshotRecord_arn' - The Amazon Resource Name (ARN) of the export snapshot record.
 --
--- 'name', 'exportSnapshotRecord_name' - The export snapshot record name.
---
--- 'sourceInfo', 'exportSnapshotRecord_sourceInfo' - A list of objects describing the source of the export snapshot record.
+-- 'createdAt', 'exportSnapshotRecord_createdAt' - The date when the export snapshot record was created.
 --
 -- 'location', 'exportSnapshotRecord_location' - The AWS Region and Availability Zone where the export snapshot record is
 -- located.
 --
--- 'destinationInfo', 'exportSnapshotRecord_destinationInfo' - A list of objects describing the destination of the export snapshot
--- record.
+-- 'name', 'exportSnapshotRecord_name' - The export snapshot record name.
+--
+-- 'sourceInfo', 'exportSnapshotRecord_sourceInfo' - A list of objects describing the source of the export snapshot record.
 newExportSnapshotRecord ::
   ExportSnapshotRecord
 newExportSnapshotRecord =
   ExportSnapshotRecord'
-    { createdAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      destinationInfo = Prelude.Nothing,
       resourceType = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      sourceInfo = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       location = Prelude.Nothing,
-      destinationInfo = Prelude.Nothing
+      name = Prelude.Nothing,
+      sourceInfo = Prelude.Nothing
     }
 
--- | The date when the export snapshot record was created.
-exportSnapshotRecord_createdAt :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe Prelude.UTCTime)
-exportSnapshotRecord_createdAt = Lens.lens (\ExportSnapshotRecord' {createdAt} -> createdAt) (\s@ExportSnapshotRecord' {} a -> s {createdAt = a} :: ExportSnapshotRecord) Prelude.. Lens.mapping Core._Time
+-- | The state of the export snapshot record.
+exportSnapshotRecord_state :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe RecordState)
+exportSnapshotRecord_state = Lens.lens (\ExportSnapshotRecord' {state} -> state) (\s@ExportSnapshotRecord' {} a -> s {state = a} :: ExportSnapshotRecord)
 
--- | The Amazon Resource Name (ARN) of the export snapshot record.
-exportSnapshotRecord_arn :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe Prelude.Text)
-exportSnapshotRecord_arn = Lens.lens (\ExportSnapshotRecord' {arn} -> arn) (\s@ExportSnapshotRecord' {} a -> s {arn = a} :: ExportSnapshotRecord)
+-- | A list of objects describing the destination of the export snapshot
+-- record.
+exportSnapshotRecord_destinationInfo :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe DestinationInfo)
+exportSnapshotRecord_destinationInfo = Lens.lens (\ExportSnapshotRecord' {destinationInfo} -> destinationInfo) (\s@ExportSnapshotRecord' {} a -> s {destinationInfo = a} :: ExportSnapshotRecord)
 
 -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
 exportSnapshotRecord_resourceType :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe ResourceType)
 exportSnapshotRecord_resourceType = Lens.lens (\ExportSnapshotRecord' {resourceType} -> resourceType) (\s@ExportSnapshotRecord' {} a -> s {resourceType = a} :: ExportSnapshotRecord)
 
--- | The state of the export snapshot record.
-exportSnapshotRecord_state :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe RecordState)
-exportSnapshotRecord_state = Lens.lens (\ExportSnapshotRecord' {state} -> state) (\s@ExportSnapshotRecord' {} a -> s {state = a} :: ExportSnapshotRecord)
+-- | The Amazon Resource Name (ARN) of the export snapshot record.
+exportSnapshotRecord_arn :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe Prelude.Text)
+exportSnapshotRecord_arn = Lens.lens (\ExportSnapshotRecord' {arn} -> arn) (\s@ExportSnapshotRecord' {} a -> s {arn = a} :: ExportSnapshotRecord)
+
+-- | The date when the export snapshot record was created.
+exportSnapshotRecord_createdAt :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe Prelude.UTCTime)
+exportSnapshotRecord_createdAt = Lens.lens (\ExportSnapshotRecord' {createdAt} -> createdAt) (\s@ExportSnapshotRecord' {} a -> s {createdAt = a} :: ExportSnapshotRecord) Prelude.. Lens.mapping Core._Time
+
+-- | The AWS Region and Availability Zone where the export snapshot record is
+-- located.
+exportSnapshotRecord_location :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe ResourceLocation)
+exportSnapshotRecord_location = Lens.lens (\ExportSnapshotRecord' {location} -> location) (\s@ExportSnapshotRecord' {} a -> s {location = a} :: ExportSnapshotRecord)
 
 -- | The export snapshot record name.
 exportSnapshotRecord_name :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe Prelude.Text)
@@ -116,30 +126,20 @@ exportSnapshotRecord_name = Lens.lens (\ExportSnapshotRecord' {name} -> name) (\
 exportSnapshotRecord_sourceInfo :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe ExportSnapshotRecordSourceInfo)
 exportSnapshotRecord_sourceInfo = Lens.lens (\ExportSnapshotRecord' {sourceInfo} -> sourceInfo) (\s@ExportSnapshotRecord' {} a -> s {sourceInfo = a} :: ExportSnapshotRecord)
 
--- | The AWS Region and Availability Zone where the export snapshot record is
--- located.
-exportSnapshotRecord_location :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe ResourceLocation)
-exportSnapshotRecord_location = Lens.lens (\ExportSnapshotRecord' {location} -> location) (\s@ExportSnapshotRecord' {} a -> s {location = a} :: ExportSnapshotRecord)
-
--- | A list of objects describing the destination of the export snapshot
--- record.
-exportSnapshotRecord_destinationInfo :: Lens.Lens' ExportSnapshotRecord (Prelude.Maybe DestinationInfo)
-exportSnapshotRecord_destinationInfo = Lens.lens (\ExportSnapshotRecord' {destinationInfo} -> destinationInfo) (\s@ExportSnapshotRecord' {} a -> s {destinationInfo = a} :: ExportSnapshotRecord)
-
 instance Core.FromJSON ExportSnapshotRecord where
   parseJSON =
     Core.withObject
       "ExportSnapshotRecord"
       ( \x ->
           ExportSnapshotRecord'
-            Prelude.<$> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "destinationInfo")
             Prelude.<*> (x Core..:? "resourceType")
-            Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "location")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "sourceInfo")
-            Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "destinationInfo")
       )
 
 instance Prelude.Hashable ExportSnapshotRecord

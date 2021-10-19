@@ -28,8 +28,8 @@ module Network.AWS.Config.GetConformancePackComplianceDetails
     newGetConformancePackComplianceDetails,
 
     -- * Request Lenses
-    getConformancePackComplianceDetails_nextToken,
     getConformancePackComplianceDetails_filters,
+    getConformancePackComplianceDetails_nextToken,
     getConformancePackComplianceDetails_limit,
     getConformancePackComplianceDetails_conformancePackName,
 
@@ -54,11 +54,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetConformancePackComplianceDetails' smart constructor.
 data GetConformancePackComplianceDetails = GetConformancePackComplianceDetails'
-  { -- | The @nextToken@ string returned in a previous request that you use to
+  { -- | A @ConformancePackEvaluationFilters@ object.
+    filters :: Prelude.Maybe ConformancePackEvaluationFilters,
+    -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A @ConformancePackEvaluationFilters@ object.
-    filters :: Prelude.Maybe ConformancePackEvaluationFilters,
     -- | The maximum number of evaluation results returned on each page. If you
     -- do no specify a number, Config uses the default. The default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -75,10 +75,10 @@ data GetConformancePackComplianceDetails = GetConformancePackComplianceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'getConformancePackComplianceDetails_filters' - A @ConformancePackEvaluationFilters@ object.
+--
 -- 'nextToken', 'getConformancePackComplianceDetails_nextToken' - The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
---
--- 'filters', 'getConformancePackComplianceDetails_filters' - A @ConformancePackEvaluationFilters@ object.
 --
 -- 'limit', 'getConformancePackComplianceDetails_limit' - The maximum number of evaluation results returned on each page. If you
 -- do no specify a number, Config uses the default. The default is 100.
@@ -91,22 +91,22 @@ newGetConformancePackComplianceDetails ::
 newGetConformancePackComplianceDetails
   pConformancePackName_ =
     GetConformancePackComplianceDetails'
-      { nextToken =
+      { filters =
           Prelude.Nothing,
-        filters = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         limit = Prelude.Nothing,
         conformancePackName =
           pConformancePackName_
       }
 
+-- | A @ConformancePackEvaluationFilters@ object.
+getConformancePackComplianceDetails_filters :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe ConformancePackEvaluationFilters)
+getConformancePackComplianceDetails_filters = Lens.lens (\GetConformancePackComplianceDetails' {filters} -> filters) (\s@GetConformancePackComplianceDetails' {} a -> s {filters = a} :: GetConformancePackComplianceDetails)
+
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
 getConformancePackComplianceDetails_nextToken :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe Prelude.Text)
 getConformancePackComplianceDetails_nextToken = Lens.lens (\GetConformancePackComplianceDetails' {nextToken} -> nextToken) (\s@GetConformancePackComplianceDetails' {} a -> s {nextToken = a} :: GetConformancePackComplianceDetails)
-
--- | A @ConformancePackEvaluationFilters@ object.
-getConformancePackComplianceDetails_filters :: Lens.Lens' GetConformancePackComplianceDetails (Prelude.Maybe ConformancePackEvaluationFilters)
-getConformancePackComplianceDetails_filters = Lens.lens (\GetConformancePackComplianceDetails' {filters} -> filters) (\s@GetConformancePackComplianceDetails' {} a -> s {filters = a} :: GetConformancePackComplianceDetails)
 
 -- | The maximum number of evaluation results returned on each page. If you
 -- do no specify a number, Config uses the default. The default is 100.
@@ -170,8 +170,8 @@ instance
   toJSON GetConformancePackComplianceDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Filters" Core..=) Prelude.<$> filters,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just
               ("ConformancePackName" Core..= conformancePackName)
@@ -246,7 +246,7 @@ getConformancePackComplianceDetailsResponse_nextToken = Lens.lens (\GetConforman
 
 -- | Returns a list of @ConformancePackEvaluationResult@ objects.
 getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults :: Lens.Lens' GetConformancePackComplianceDetailsResponse (Prelude.Maybe [ConformancePackEvaluationResult])
-getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults = Lens.lens (\GetConformancePackComplianceDetailsResponse' {conformancePackRuleEvaluationResults} -> conformancePackRuleEvaluationResults) (\s@GetConformancePackComplianceDetailsResponse' {} a -> s {conformancePackRuleEvaluationResults = a} :: GetConformancePackComplianceDetailsResponse) Prelude.. Lens.mapping Lens._Coerce
+getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults = Lens.lens (\GetConformancePackComplianceDetailsResponse' {conformancePackRuleEvaluationResults} -> conformancePackRuleEvaluationResults) (\s@GetConformancePackComplianceDetailsResponse' {} a -> s {conformancePackRuleEvaluationResults = a} :: GetConformancePackComplianceDetailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getConformancePackComplianceDetailsResponse_httpStatus :: Lens.Lens' GetConformancePackComplianceDetailsResponse Prelude.Int

@@ -39,8 +39,8 @@ module Network.AWS.SSM.GetParameters
     newGetParametersResponse,
 
     -- * Response Lenses
-    getParametersResponse_invalidParameters,
     getParametersResponse_parameters,
+    getParametersResponse_invalidParameters,
     getParametersResponse_httpStatus,
   )
 where
@@ -89,7 +89,7 @@ newGetParameters ::
 newGetParameters pNames_ =
   GetParameters'
     { withDecryption = Prelude.Nothing,
-      names = Lens._Coerce Lens.# pNames_
+      names = Lens.coerced Lens.# pNames_
     }
 
 -- | Return decrypted secure string value. Return decrypted values for secure
@@ -103,7 +103,7 @@ getParameters_withDecryption = Lens.lens (\GetParameters' {withDecryption} -> wi
 -- To query by parameter label, use @\"Name\": \"name:label\"@. To query by
 -- parameter version, use @\"Name\": \"name:version\"@.
 getParameters_names :: Lens.Lens' GetParameters (Prelude.NonEmpty Prelude.Text)
-getParameters_names = Lens.lens (\GetParameters' {names} -> names) (\s@GetParameters' {} a -> s {names = a} :: GetParameters) Prelude.. Lens._Coerce
+getParameters_names = Lens.lens (\GetParameters' {names} -> names) (\s@GetParameters' {} a -> s {names = a} :: GetParameters) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetParameters where
   type
@@ -114,10 +114,10 @@ instance Core.AWSRequest GetParameters where
     Response.receiveJSON
       ( \s h x ->
           GetParametersResponse'
-            Prelude.<$> ( x Core..?> "InvalidParameters"
+            Prelude.<$> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "InvalidParameters"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,11 +156,11 @@ instance Core.ToQuery GetParameters where
 
 -- | /See:/ 'newGetParametersResponse' smart constructor.
 data GetParametersResponse = GetParametersResponse'
-  { -- | A list of parameters that aren\'t formatted correctly or don\'t run
+  { -- | A list of details for a parameter.
+    parameters :: Prelude.Maybe [Parameter],
+    -- | A list of parameters that aren\'t formatted correctly or don\'t run
     -- during an execution.
     invalidParameters :: Prelude.Maybe [Prelude.Text],
-    -- | A list of details for a parameter.
-    parameters :: Prelude.Maybe [Parameter],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data GetParametersResponse = GetParametersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parameters', 'getParametersResponse_parameters' - A list of details for a parameter.
+--
 -- 'invalidParameters', 'getParametersResponse_invalidParameters' - A list of parameters that aren\'t formatted correctly or don\'t run
 -- during an execution.
---
--- 'parameters', 'getParametersResponse_parameters' - A list of details for a parameter.
 --
 -- 'httpStatus', 'getParametersResponse_httpStatus' - The response's http status code.
 newGetParametersResponse ::
@@ -186,20 +186,20 @@ newGetParametersResponse ::
   GetParametersResponse
 newGetParametersResponse pHttpStatus_ =
   GetParametersResponse'
-    { invalidParameters =
+    { parameters =
         Prelude.Nothing,
-      parameters = Prelude.Nothing,
+      invalidParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of details for a parameter.
+getParametersResponse_parameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Parameter])
+getParametersResponse_parameters = Lens.lens (\GetParametersResponse' {parameters} -> parameters) (\s@GetParametersResponse' {} a -> s {parameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of parameters that aren\'t formatted correctly or don\'t run
 -- during an execution.
 getParametersResponse_invalidParameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Prelude.Text])
-getParametersResponse_invalidParameters = Lens.lens (\GetParametersResponse' {invalidParameters} -> invalidParameters) (\s@GetParametersResponse' {} a -> s {invalidParameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of details for a parameter.
-getParametersResponse_parameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Parameter])
-getParametersResponse_parameters = Lens.lens (\GetParametersResponse' {parameters} -> parameters) (\s@GetParametersResponse' {} a -> s {parameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+getParametersResponse_invalidParameters = Lens.lens (\GetParametersResponse' {invalidParameters} -> invalidParameters) (\s@GetParametersResponse' {} a -> s {invalidParameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getParametersResponse_httpStatus :: Lens.Lens' GetParametersResponse Prelude.Int

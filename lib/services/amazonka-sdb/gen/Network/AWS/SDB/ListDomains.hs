@@ -35,8 +35,8 @@ module Network.AWS.SDB.ListDomains
     newListDomains,
 
     -- * Request Lenses
-    listDomains_nextToken,
     listDomains_maxNumberOfDomains,
+    listDomains_nextToken,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
@@ -58,12 +58,12 @@ import Network.AWS.SDB.Types
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | A string informing Amazon SimpleDB where to start the next list of
-    -- domain names.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of domain names you want returned. The range is 1 to
+  { -- | The maximum number of domain names you want returned. The range is 1 to
     -- 100. The default setting is 100.
-    maxNumberOfDomains :: Prelude.Maybe Prelude.Int
+    maxNumberOfDomains :: Prelude.Maybe Prelude.Int,
+    -- | A string informing Amazon SimpleDB where to start the next list of
+    -- domain names.
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,28 +75,28 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listDomains_nextToken' - A string informing Amazon SimpleDB where to start the next list of
--- domain names.
---
 -- 'maxNumberOfDomains', 'listDomains_maxNumberOfDomains' - The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
+--
+-- 'nextToken', 'listDomains_nextToken' - A string informing Amazon SimpleDB where to start the next list of
+-- domain names.
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { nextToken = Prelude.Nothing,
-      maxNumberOfDomains = Prelude.Nothing
+    { maxNumberOfDomains = Prelude.Nothing,
+      nextToken = Prelude.Nothing
     }
-
--- | A string informing Amazon SimpleDB where to start the next list of
--- domain names.
-listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
-listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
 listDomains_maxNumberOfDomains :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Int)
 listDomains_maxNumberOfDomains = Lens.lens (\ListDomains' {maxNumberOfDomains} -> maxNumberOfDomains) (\s@ListDomains' {} a -> s {maxNumberOfDomains = a} :: ListDomains)
+
+-- | A string informing Amazon SimpleDB where to start the next list of
+-- domain names.
+listDomains_nextToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
+listDomains_nextToken = Lens.lens (\ListDomains' {nextToken} -> nextToken) (\s@ListDomains' {} a -> s {nextToken = a} :: ListDomains)
 
 instance Core.AWSPager ListDomains where
   page rq rs
@@ -147,8 +147,8 @@ instance Core.ToQuery ListDomains where
           Core.=: ("ListDomains" :: Prelude.ByteString),
         "Version"
           Core.=: ("2009-04-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxNumberOfDomains" Core.=: maxNumberOfDomains
+        "MaxNumberOfDomains" Core.=: maxNumberOfDomains,
+        "NextToken" Core.=: nextToken
       ]
 
 -- | /See:/ 'newListDomainsResponse' smart constructor.
@@ -190,7 +190,7 @@ newListDomainsResponse pHttpStatus_ =
 
 -- | A list of domain names that match the expression.
 listDomainsResponse_domainNames :: Lens.Lens' ListDomainsResponse (Prelude.Maybe [Prelude.Text])
-listDomainsResponse_domainNames = Lens.lens (\ListDomainsResponse' {domainNames} -> domainNames) (\s@ListDomainsResponse' {} a -> s {domainNames = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDomainsResponse_domainNames = Lens.lens (\ListDomainsResponse' {domainNames} -> domainNames) (\s@ListDomainsResponse' {} a -> s {domainNames = a} :: ListDomainsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An opaque token indicating that there are more domains than the
 -- specified @MaxNumberOfDomains@ still available.

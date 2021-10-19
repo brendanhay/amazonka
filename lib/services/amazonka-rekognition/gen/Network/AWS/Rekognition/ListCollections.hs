@@ -45,9 +45,9 @@ module Network.AWS.Rekognition.ListCollections
     newListCollectionsResponse,
 
     -- * Response Lenses
-    listCollectionsResponse_faceModelVersions,
-    listCollectionsResponse_nextToken,
     listCollectionsResponse_collectionIds,
+    listCollectionsResponse_nextToken,
+    listCollectionsResponse_faceModelVersions,
     listCollectionsResponse_httpStatus,
   )
 where
@@ -132,11 +132,11 @@ instance Core.AWSRequest ListCollections where
     Response.receiveJSON
       ( \s h x ->
           ListCollectionsResponse'
-            Prelude.<$> ( x Core..?> "FaceModelVersions"
+            Prelude.<$> (x Core..?> "CollectionIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "FaceModelVersions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CollectionIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,17 +176,17 @@ instance Core.ToQuery ListCollections where
 
 -- | /See:/ 'newListCollectionsResponse' smart constructor.
 data ListCollectionsResponse = ListCollectionsResponse'
-  { -- | Version numbers of the face detection models associated with the
-    -- collections in the array @CollectionIds@. For example, the value of
-    -- @FaceModelVersions[2]@ is the version number for the face detection
-    -- model used by the collection in @CollectionId[2]@.
-    faceModelVersions :: Prelude.Maybe [Prelude.Text],
+  { -- | An array of collection IDs.
+    collectionIds :: Prelude.Maybe [Prelude.Text],
     -- | If the result is truncated, the response provides a @NextToken@ that you
     -- can use in the subsequent request to fetch the next set of collection
     -- IDs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of collection IDs.
-    collectionIds :: Prelude.Maybe [Prelude.Text],
+    -- | Version numbers of the face detection models associated with the
+    -- collections in the array @CollectionIds@. For example, the value of
+    -- @FaceModelVersions[2]@ is the version number for the face detection
+    -- model used by the collection in @CollectionId[2]@.
+    faceModelVersions :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,16 +200,16 @@ data ListCollectionsResponse = ListCollectionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'faceModelVersions', 'listCollectionsResponse_faceModelVersions' - Version numbers of the face detection models associated with the
--- collections in the array @CollectionIds@. For example, the value of
--- @FaceModelVersions[2]@ is the version number for the face detection
--- model used by the collection in @CollectionId[2]@.
+-- 'collectionIds', 'listCollectionsResponse_collectionIds' - An array of collection IDs.
 --
 -- 'nextToken', 'listCollectionsResponse_nextToken' - If the result is truncated, the response provides a @NextToken@ that you
 -- can use in the subsequent request to fetch the next set of collection
 -- IDs.
 --
--- 'collectionIds', 'listCollectionsResponse_collectionIds' - An array of collection IDs.
+-- 'faceModelVersions', 'listCollectionsResponse_faceModelVersions' - Version numbers of the face detection models associated with the
+-- collections in the array @CollectionIds@. For example, the value of
+-- @FaceModelVersions[2]@ is the version number for the face detection
+-- model used by the collection in @CollectionId[2]@.
 --
 -- 'httpStatus', 'listCollectionsResponse_httpStatus' - The response's http status code.
 newListCollectionsResponse ::
@@ -218,19 +218,16 @@ newListCollectionsResponse ::
   ListCollectionsResponse
 newListCollectionsResponse pHttpStatus_ =
   ListCollectionsResponse'
-    { faceModelVersions =
+    { collectionIds =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      collectionIds = Prelude.Nothing,
+      faceModelVersions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Version numbers of the face detection models associated with the
--- collections in the array @CollectionIds@. For example, the value of
--- @FaceModelVersions[2]@ is the version number for the face detection
--- model used by the collection in @CollectionId[2]@.
-listCollectionsResponse_faceModelVersions :: Lens.Lens' ListCollectionsResponse (Prelude.Maybe [Prelude.Text])
-listCollectionsResponse_faceModelVersions = Lens.lens (\ListCollectionsResponse' {faceModelVersions} -> faceModelVersions) (\s@ListCollectionsResponse' {} a -> s {faceModelVersions = a} :: ListCollectionsResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | An array of collection IDs.
+listCollectionsResponse_collectionIds :: Lens.Lens' ListCollectionsResponse (Prelude.Maybe [Prelude.Text])
+listCollectionsResponse_collectionIds = Lens.lens (\ListCollectionsResponse' {collectionIds} -> collectionIds) (\s@ListCollectionsResponse' {} a -> s {collectionIds = a} :: ListCollectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the result is truncated, the response provides a @NextToken@ that you
 -- can use in the subsequent request to fetch the next set of collection
@@ -238,9 +235,12 @@ listCollectionsResponse_faceModelVersions = Lens.lens (\ListCollectionsResponse'
 listCollectionsResponse_nextToken :: Lens.Lens' ListCollectionsResponse (Prelude.Maybe Prelude.Text)
 listCollectionsResponse_nextToken = Lens.lens (\ListCollectionsResponse' {nextToken} -> nextToken) (\s@ListCollectionsResponse' {} a -> s {nextToken = a} :: ListCollectionsResponse)
 
--- | An array of collection IDs.
-listCollectionsResponse_collectionIds :: Lens.Lens' ListCollectionsResponse (Prelude.Maybe [Prelude.Text])
-listCollectionsResponse_collectionIds = Lens.lens (\ListCollectionsResponse' {collectionIds} -> collectionIds) (\s@ListCollectionsResponse' {} a -> s {collectionIds = a} :: ListCollectionsResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | Version numbers of the face detection models associated with the
+-- collections in the array @CollectionIds@. For example, the value of
+-- @FaceModelVersions[2]@ is the version number for the face detection
+-- model used by the collection in @CollectionId[2]@.
+listCollectionsResponse_faceModelVersions :: Lens.Lens' ListCollectionsResponse (Prelude.Maybe [Prelude.Text])
+listCollectionsResponse_faceModelVersions = Lens.lens (\ListCollectionsResponse' {faceModelVersions} -> faceModelVersions) (\s@ListCollectionsResponse' {} a -> s {faceModelVersions = a} :: ListCollectionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCollectionsResponse_httpStatus :: Lens.Lens' ListCollectionsResponse Prelude.Int

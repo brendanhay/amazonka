@@ -72,7 +72,7 @@ serDeInfo_name = Lens.lens (\SerDeInfo' {name} -> name) (\s@SerDeInfo' {} a -> s
 
 -- | These key-value pairs define initialization parameters for the SerDe.
 serDeInfo_parameters :: Lens.Lens' SerDeInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Prelude.. Lens.mapping Lens._Coerce
+serDeInfo_parameters = Lens.lens (\SerDeInfo' {parameters} -> parameters) (\s@SerDeInfo' {} a -> s {parameters = a} :: SerDeInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SerDeInfo where
   parseJSON =

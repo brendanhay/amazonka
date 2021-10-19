@@ -26,12 +26,13 @@
 -- using an NFS interface. This operation is only supported for S3 File
 -- Gateways.
 --
--- S3 File gateway requires Security Token Service (STS) to be activated to
--- enable you to create a file share. Make sure STS is activated in the
--- Region you are creating your S3 File Gateway in. If STS is not activated
--- in the Region, activate it. For information about how to activate STS,
--- see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating STS in an Region>
+-- S3 File gateway requires Security Token Service (Amazon Web Services
+-- STS) to be activated to enable you to create a file share. Make sure
+-- Amazon Web Services STS is activated in the Amazon Web Services Region
+-- you are creating your S3 File Gateway in. If Amazon Web Services STS is
+-- not activated in the Amazon Web Services Region, activate it. For
+-- information about how to activate Amazon Web Services STS, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Identity and Access Management User Guide/.
 --
 -- S3 File Gateways do not support creating hard or symbolic links on a
@@ -42,6 +43,7 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
     newCreateNFSFileShare,
 
     -- * Request Lenses
+    createNFSFileShare_auditDestinationARN,
     createNFSFileShare_kmsKey,
     createNFSFileShare_vPCEndpointDNSName,
     createNFSFileShare_cacheAttributes,
@@ -84,7 +86,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newCreateNFSFileShare' smart constructor.
 data CreateNFSFileShare = CreateNFSFileShare'
-  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+  { -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
@@ -117,7 +121,7 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@.
+    -- @LocationARN@, or if an access point or access point alias is used.
     fileShareName :: Prelude.Maybe Prelude.Text,
     -- | The notification policy of the file share. @SettlingTimeInSeconds@
     -- controls the number of seconds to wait after the last point in time a
@@ -199,19 +203,29 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- | The ARN of the Identity and Access Management (IAM) role that an S3 File
     -- Gateway assumes when it accesses the underlying storage.
     role' :: Prelude.Text,
-    -- | The ARN of the backend storage used for storing file data. A prefix name
-    -- can be added to the S3 bucket name. It must end with a \"\/\".
+    -- | A custom ARN for the backend storage used for storing data for file
+    -- shares. It includes a resource ARN with an optional prefix
+    -- concatenation. The prefix must end with a forward slash (\/).
     --
-    -- You can specify a bucket attached to an access point using a complete
-    -- ARN that includes the bucket region as shown:
+    -- You can specify LocationARN as a bucket ARN, access point ARN or access
+    -- point alias, as shown in the following examples.
     --
-    -- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+    -- Bucket ARN:
     --
-    -- If you specify a bucket attached to an access point, the bucket policy
-    -- must be configured to delegate access control to the access point. For
-    -- information, see
+    -- @arn:aws:s3:::my-bucket\/prefix\/@
+    --
+    -- Access point ARN:
+    --
+    -- @arn:aws:s3:region:account-id:accesspoint\/access-point-name\/prefix\/@
+    --
+    -- If you specify an access point, the bucket policy must be configured to
+    -- delegate access control to the access point. For information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
     -- in the /Amazon S3 User Guide/.
+    --
+    -- Access point alias:
+    --
+    -- @test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias@
     locationARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -223,6 +237,8 @@ data CreateNFSFileShare = CreateNFSFileShare'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'auditDestinationARN', 'createNFSFileShare_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for audit logs.
 --
 -- 'kmsKey', 'createNFSFileShare_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -257,7 +273,7 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- 'fileShareName', 'createNFSFileShare_fileShareName' - The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'notificationPolicy', 'createNFSFileShare_notificationPolicy' - The notification policy of the file share. @SettlingTimeInSeconds@
 -- controls the number of seconds to wait after the last point in time a
@@ -339,19 +355,29 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- 'role'', 'createNFSFileShare_role' - The ARN of the Identity and Access Management (IAM) role that an S3 File
 -- Gateway assumes when it accesses the underlying storage.
 --
--- 'locationARN', 'createNFSFileShare_locationARN' - The ARN of the backend storage used for storing file data. A prefix name
--- can be added to the S3 bucket name. It must end with a \"\/\".
+-- 'locationARN', 'createNFSFileShare_locationARN' - A custom ARN for the backend storage used for storing data for file
+-- shares. It includes a resource ARN with an optional prefix
+-- concatenation. The prefix must end with a forward slash (\/).
 --
--- You can specify a bucket attached to an access point using a complete
--- ARN that includes the bucket region as shown:
+-- You can specify LocationARN as a bucket ARN, access point ARN or access
+-- point alias, as shown in the following examples.
 --
--- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+-- Bucket ARN:
 --
--- If you specify a bucket attached to an access point, the bucket policy
--- must be configured to delegate access control to the access point. For
--- information, see
+-- @arn:aws:s3:::my-bucket\/prefix\/@
+--
+-- Access point ARN:
+--
+-- @arn:aws:s3:region:account-id:accesspoint\/access-point-name\/prefix\/@
+--
+-- If you specify an access point, the bucket policy must be configured to
+-- delegate access control to the access point. For information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
 -- in the /Amazon S3 User Guide/.
+--
+-- Access point alias:
+--
+-- @test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias@
 newCreateNFSFileShare ::
   -- | 'clientToken'
   Prelude.Text ->
@@ -368,7 +394,9 @@ newCreateNFSFileShare
   pRole_
   pLocationARN_ =
     CreateNFSFileShare'
-      { kmsKey = Prelude.Nothing,
+      { auditDestinationARN =
+          Prelude.Nothing,
+        kmsKey = Prelude.Nothing,
         vPCEndpointDNSName = Prelude.Nothing,
         cacheAttributes = Prelude.Nothing,
         objectACL = Prelude.Nothing,
@@ -389,6 +417,10 @@ newCreateNFSFileShare
         role' = pRole_,
         locationARN = pLocationARN_
       }
+
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+createNFSFileShare_auditDestinationARN :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_auditDestinationARN = Lens.lens (\CreateNFSFileShare' {auditDestinationARN} -> auditDestinationARN) (\s@CreateNFSFileShare' {} a -> s {auditDestinationARN = a} :: CreateNFSFileShare)
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
@@ -435,7 +467,7 @@ createNFSFileShare_defaultStorageClass = Lens.lens (\CreateNFSFileShare' {defaul
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 createNFSFileShare_fileShareName :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
 createNFSFileShare_fileShareName = Lens.lens (\CreateNFSFileShare' {fileShareName} -> fileShareName) (\s@CreateNFSFileShare' {} a -> s {fileShareName = a} :: CreateNFSFileShare)
 
@@ -492,7 +524,7 @@ createNFSFileShare_nFSFileShareDefaults = Lens.lens (\CreateNFSFileShare' {nFSFi
 -- | The list of clients that are allowed to access the S3 File Gateway. The
 -- list must contain either valid IP addresses or valid CIDR blocks.
 createNFSFileShare_clientList :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createNFSFileShare_clientList = Lens.lens (\CreateNFSFileShare' {clientList} -> clientList) (\s@CreateNFSFileShare' {} a -> s {clientList = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Lens._Coerce
+createNFSFileShare_clientList = Lens.lens (\CreateNFSFileShare' {clientList} -> clientList) (\s@CreateNFSFileShare' {} a -> s {clientList = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
@@ -526,7 +558,7 @@ createNFSFileShare_bucketRegion = Lens.lens (\CreateNFSFileShare' {bucketRegion}
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 createNFSFileShare_tags :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe [Tag])
-createNFSFileShare_tags = Lens.lens (\CreateNFSFileShare' {tags} -> tags) (\s@CreateNFSFileShare' {} a -> s {tags = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Lens._Coerce
+createNFSFileShare_tags = Lens.lens (\CreateNFSFileShare' {tags} -> tags) (\s@CreateNFSFileShare' {} a -> s {tags = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique string value that you supply that is used by S3 File Gateway to
 -- ensure idempotent file share creation.
@@ -543,19 +575,29 @@ createNFSFileShare_gatewayARN = Lens.lens (\CreateNFSFileShare' {gatewayARN} -> 
 createNFSFileShare_role :: Lens.Lens' CreateNFSFileShare Prelude.Text
 createNFSFileShare_role = Lens.lens (\CreateNFSFileShare' {role'} -> role') (\s@CreateNFSFileShare' {} a -> s {role' = a} :: CreateNFSFileShare)
 
--- | The ARN of the backend storage used for storing file data. A prefix name
--- can be added to the S3 bucket name. It must end with a \"\/\".
+-- | A custom ARN for the backend storage used for storing data for file
+-- shares. It includes a resource ARN with an optional prefix
+-- concatenation. The prefix must end with a forward slash (\/).
 --
--- You can specify a bucket attached to an access point using a complete
--- ARN that includes the bucket region as shown:
+-- You can specify LocationARN as a bucket ARN, access point ARN or access
+-- point alias, as shown in the following examples.
 --
--- @arn:aws:s3:region:account-id:accesspoint\/access-point-name @
+-- Bucket ARN:
 --
--- If you specify a bucket attached to an access point, the bucket policy
--- must be configured to delegate access control to the access point. For
--- information, see
+-- @arn:aws:s3:::my-bucket\/prefix\/@
+--
+-- Access point ARN:
+--
+-- @arn:aws:s3:region:account-id:accesspoint\/access-point-name\/prefix\/@
+--
+-- If you specify an access point, the bucket policy must be configured to
+-- delegate access control to the access point. For information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html#access-points-delegating-control Delegating access control to access points>
 -- in the /Amazon S3 User Guide/.
+--
+-- Access point alias:
+--
+-- @test-ap-ab123cdef4gehijklmn5opqrstuvuse1a-s3alias@
 createNFSFileShare_locationARN :: Lens.Lens' CreateNFSFileShare Prelude.Text
 createNFSFileShare_locationARN = Lens.lens (\CreateNFSFileShare' {locationARN} -> locationARN) (\s@CreateNFSFileShare' {} a -> s {locationARN = a} :: CreateNFSFileShare)
 
@@ -595,7 +637,9 @@ instance Core.ToJSON CreateNFSFileShare where
   toJSON CreateNFSFileShare' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
+          [ ("AuditDestinationARN" Core..=)
+              Prelude.<$> auditDestinationARN,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
             ("VPCEndpointDNSName" Core..=)
               Prelude.<$> vPCEndpointDNSName,
             ("CacheAttributes" Core..=)

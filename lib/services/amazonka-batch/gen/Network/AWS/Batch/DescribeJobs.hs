@@ -71,7 +71,7 @@ newDescribeJobs =
 
 -- | A list of up to 100 job IDs.
 describeJobs_jobs :: Lens.Lens' DescribeJobs [Prelude.Text]
-describeJobs_jobs = Lens.lens (\DescribeJobs' {jobs} -> jobs) (\s@DescribeJobs' {} a -> s {jobs = a} :: DescribeJobs) Prelude.. Lens._Coerce
+describeJobs_jobs = Lens.lens (\DescribeJobs' {jobs} -> jobs) (\s@DescribeJobs' {} a -> s {jobs = a} :: DescribeJobs) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeJobs where
   type AWSResponse DescribeJobs = DescribeJobsResponse
@@ -144,7 +144,7 @@ newDescribeJobsResponse pHttpStatus_ =
 
 -- | The list of jobs.
 describeJobsResponse_jobs :: Lens.Lens' DescribeJobsResponse (Prelude.Maybe [JobDetail])
-describeJobsResponse_jobs = Lens.lens (\DescribeJobsResponse' {jobs} -> jobs) (\s@DescribeJobsResponse' {} a -> s {jobs = a} :: DescribeJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeJobsResponse_jobs = Lens.lens (\DescribeJobsResponse' {jobs} -> jobs) (\s@DescribeJobsResponse' {} a -> s {jobs = a} :: DescribeJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeJobsResponse_httpStatus :: Lens.Lens' DescribeJobsResponse Prelude.Int

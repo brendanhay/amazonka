@@ -28,8 +28,8 @@ module Network.AWS.Pinpoint.ListJourneys
     newListJourneys,
 
     -- * Request Lenses
-    listJourneys_pageSize,
     listJourneys_token,
+    listJourneys_pageSize,
     listJourneys_applicationId,
 
     -- * Destructuring the Response
@@ -51,13 +51,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListJourneys' smart constructor.
 data ListJourneys = ListJourneys'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text
@@ -72,12 +72,12 @@ data ListJourneys = ListJourneys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'listJourneys_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'listJourneys_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'listJourneys_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 --
 -- 'applicationId', 'listJourneys_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -87,21 +87,21 @@ newListJourneys ::
   ListJourneys
 newListJourneys pApplicationId_ =
   ListJourneys'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       applicationId = pApplicationId_
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+listJourneys_token :: Lens.Lens' ListJourneys (Prelude.Maybe Prelude.Text)
+listJourneys_token = Lens.lens (\ListJourneys' {token} -> token) (\s@ListJourneys' {} a -> s {token = a} :: ListJourneys)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 listJourneys_pageSize :: Lens.Lens' ListJourneys (Prelude.Maybe Prelude.Text)
 listJourneys_pageSize = Lens.lens (\ListJourneys' {pageSize} -> pageSize) (\s@ListJourneys' {} a -> s {pageSize = a} :: ListJourneys)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-listJourneys_token :: Lens.Lens' ListJourneys (Prelude.Maybe Prelude.Text)
-listJourneys_token = Lens.lens (\ListJourneys' {token} -> token) (\s@ListJourneys' {} a -> s {token = a} :: ListJourneys)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -142,7 +142,7 @@ instance Core.ToPath ListJourneys where
 instance Core.ToQuery ListJourneys where
   toQuery ListJourneys' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newListJourneysResponse' smart constructor.
 data ListJourneysResponse = ListJourneysResponse'

@@ -64,7 +64,7 @@ newCompromisedCredentialsRiskConfigurationType
 -- | Perform the action for these events. The default is to perform all
 -- events if no event filter is specified.
 compromisedCredentialsRiskConfigurationType_eventFilter :: Lens.Lens' CompromisedCredentialsRiskConfigurationType (Prelude.Maybe [EventFilterType])
-compromisedCredentialsRiskConfigurationType_eventFilter = Lens.lens (\CompromisedCredentialsRiskConfigurationType' {eventFilter} -> eventFilter) (\s@CompromisedCredentialsRiskConfigurationType' {} a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType) Prelude.. Lens.mapping Lens._Coerce
+compromisedCredentialsRiskConfigurationType_eventFilter = Lens.lens (\CompromisedCredentialsRiskConfigurationType' {eventFilter} -> eventFilter) (\s@CompromisedCredentialsRiskConfigurationType' {} a -> s {eventFilter = a} :: CompromisedCredentialsRiskConfigurationType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The compromised credentials risk configuration actions.
 compromisedCredentialsRiskConfigurationType_actions :: Lens.Lens' CompromisedCredentialsRiskConfigurationType CompromisedCredentialsActionsType

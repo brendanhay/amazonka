@@ -32,34 +32,34 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConflictMetadata' smart constructor.
 data ConflictMetadata = ConflictMetadata'
-  { -- | Whether an add, modify, or delete operation caused the conflict between
-    -- the source and destination of the merge.
-    mergeOperations :: Prelude.Maybe MergeOperations,
-    -- | The path of the file that contains conflicts.
-    filePath :: Prelude.Maybe Prelude.Text,
-    -- | A boolean value (true or false) indicating whether the file is binary or
-    -- textual in the source, destination, and base of the merge.
-    isBinaryFile :: Prelude.Maybe IsBinaryFile,
-    -- | A boolean value (true or false) indicating whether there are conflicts
-    -- between the branches in the object type of a file, folder, or submodule.
-    objectTypeConflict :: Prelude.Maybe Prelude.Bool,
-    -- | A boolean value indicating whether there are conflicts in the file mode
-    -- of a file.
-    fileModeConflict :: Prelude.Maybe Prelude.Bool,
-    -- | The number of conflicts, including both hunk conflicts and metadata
+  { -- | The number of conflicts, including both hunk conflicts and metadata
     -- conflicts.
     numberOfConflicts :: Prelude.Maybe Prelude.Int,
     -- | A boolean value indicating whether there are conflicts in the content of
     -- a file.
     contentConflict :: Prelude.Maybe Prelude.Bool,
-    -- | The file modes of the file in the source, destination, and base of the
-    -- merge.
-    fileModes :: Prelude.Maybe FileModes,
-    -- | Information about any object type conflicts in a merge operation.
-    objectTypes :: Prelude.Maybe ObjectTypes,
     -- | The file sizes of the file in the source, destination, and base of the
     -- merge.
-    fileSizes :: Prelude.Maybe FileSizes
+    fileSizes :: Prelude.Maybe FileSizes,
+    -- | The path of the file that contains conflicts.
+    filePath :: Prelude.Maybe Prelude.Text,
+    -- | A boolean value (true or false) indicating whether the file is binary or
+    -- textual in the source, destination, and base of the merge.
+    isBinaryFile :: Prelude.Maybe IsBinaryFile,
+    -- | A boolean value indicating whether there are conflicts in the file mode
+    -- of a file.
+    fileModeConflict :: Prelude.Maybe Prelude.Bool,
+    -- | A boolean value (true or false) indicating whether there are conflicts
+    -- between the branches in the object type of a file, folder, or submodule.
+    objectTypeConflict :: Prelude.Maybe Prelude.Bool,
+    -- | Whether an add, modify, or delete operation caused the conflict between
+    -- the source and destination of the merge.
+    mergeOperations :: Prelude.Maybe MergeOperations,
+    -- | Information about any object type conflicts in a merge operation.
+    objectTypes :: Prelude.Maybe ObjectTypes,
+    -- | The file modes of the file in the source, destination, and base of the
+    -- merge.
+    fileModes :: Prelude.Maybe FileModes
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,73 +71,49 @@ data ConflictMetadata = ConflictMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mergeOperations', 'conflictMetadata_mergeOperations' - Whether an add, modify, or delete operation caused the conflict between
--- the source and destination of the merge.
---
--- 'filePath', 'conflictMetadata_filePath' - The path of the file that contains conflicts.
---
--- 'isBinaryFile', 'conflictMetadata_isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or
--- textual in the source, destination, and base of the merge.
---
--- 'objectTypeConflict', 'conflictMetadata_objectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts
--- between the branches in the object type of a file, folder, or submodule.
---
--- 'fileModeConflict', 'conflictMetadata_fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode
--- of a file.
---
 -- 'numberOfConflicts', 'conflictMetadata_numberOfConflicts' - The number of conflicts, including both hunk conflicts and metadata
 -- conflicts.
 --
 -- 'contentConflict', 'conflictMetadata_contentConflict' - A boolean value indicating whether there are conflicts in the content of
 -- a file.
 --
--- 'fileModes', 'conflictMetadata_fileModes' - The file modes of the file in the source, destination, and base of the
+-- 'fileSizes', 'conflictMetadata_fileSizes' - The file sizes of the file in the source, destination, and base of the
 -- merge.
+--
+-- 'filePath', 'conflictMetadata_filePath' - The path of the file that contains conflicts.
+--
+-- 'isBinaryFile', 'conflictMetadata_isBinaryFile' - A boolean value (true or false) indicating whether the file is binary or
+-- textual in the source, destination, and base of the merge.
+--
+-- 'fileModeConflict', 'conflictMetadata_fileModeConflict' - A boolean value indicating whether there are conflicts in the file mode
+-- of a file.
+--
+-- 'objectTypeConflict', 'conflictMetadata_objectTypeConflict' - A boolean value (true or false) indicating whether there are conflicts
+-- between the branches in the object type of a file, folder, or submodule.
+--
+-- 'mergeOperations', 'conflictMetadata_mergeOperations' - Whether an add, modify, or delete operation caused the conflict between
+-- the source and destination of the merge.
 --
 -- 'objectTypes', 'conflictMetadata_objectTypes' - Information about any object type conflicts in a merge operation.
 --
--- 'fileSizes', 'conflictMetadata_fileSizes' - The file sizes of the file in the source, destination, and base of the
+-- 'fileModes', 'conflictMetadata_fileModes' - The file modes of the file in the source, destination, and base of the
 -- merge.
 newConflictMetadata ::
   ConflictMetadata
 newConflictMetadata =
   ConflictMetadata'
-    { mergeOperations =
+    { numberOfConflicts =
         Prelude.Nothing,
+      contentConflict = Prelude.Nothing,
+      fileSizes = Prelude.Nothing,
       filePath = Prelude.Nothing,
       isBinaryFile = Prelude.Nothing,
-      objectTypeConflict = Prelude.Nothing,
       fileModeConflict = Prelude.Nothing,
-      numberOfConflicts = Prelude.Nothing,
-      contentConflict = Prelude.Nothing,
-      fileModes = Prelude.Nothing,
+      objectTypeConflict = Prelude.Nothing,
+      mergeOperations = Prelude.Nothing,
       objectTypes = Prelude.Nothing,
-      fileSizes = Prelude.Nothing
+      fileModes = Prelude.Nothing
     }
-
--- | Whether an add, modify, or delete operation caused the conflict between
--- the source and destination of the merge.
-conflictMetadata_mergeOperations :: Lens.Lens' ConflictMetadata (Prelude.Maybe MergeOperations)
-conflictMetadata_mergeOperations = Lens.lens (\ConflictMetadata' {mergeOperations} -> mergeOperations) (\s@ConflictMetadata' {} a -> s {mergeOperations = a} :: ConflictMetadata)
-
--- | The path of the file that contains conflicts.
-conflictMetadata_filePath :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Text)
-conflictMetadata_filePath = Lens.lens (\ConflictMetadata' {filePath} -> filePath) (\s@ConflictMetadata' {} a -> s {filePath = a} :: ConflictMetadata)
-
--- | A boolean value (true or false) indicating whether the file is binary or
--- textual in the source, destination, and base of the merge.
-conflictMetadata_isBinaryFile :: Lens.Lens' ConflictMetadata (Prelude.Maybe IsBinaryFile)
-conflictMetadata_isBinaryFile = Lens.lens (\ConflictMetadata' {isBinaryFile} -> isBinaryFile) (\s@ConflictMetadata' {} a -> s {isBinaryFile = a} :: ConflictMetadata)
-
--- | A boolean value (true or false) indicating whether there are conflicts
--- between the branches in the object type of a file, folder, or submodule.
-conflictMetadata_objectTypeConflict :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Bool)
-conflictMetadata_objectTypeConflict = Lens.lens (\ConflictMetadata' {objectTypeConflict} -> objectTypeConflict) (\s@ConflictMetadata' {} a -> s {objectTypeConflict = a} :: ConflictMetadata)
-
--- | A boolean value indicating whether there are conflicts in the file mode
--- of a file.
-conflictMetadata_fileModeConflict :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Bool)
-conflictMetadata_fileModeConflict = Lens.lens (\ConflictMetadata' {fileModeConflict} -> fileModeConflict) (\s@ConflictMetadata' {} a -> s {fileModeConflict = a} :: ConflictMetadata)
 
 -- | The number of conflicts, including both hunk conflicts and metadata
 -- conflicts.
@@ -149,19 +125,43 @@ conflictMetadata_numberOfConflicts = Lens.lens (\ConflictMetadata' {numberOfConf
 conflictMetadata_contentConflict :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Bool)
 conflictMetadata_contentConflict = Lens.lens (\ConflictMetadata' {contentConflict} -> contentConflict) (\s@ConflictMetadata' {} a -> s {contentConflict = a} :: ConflictMetadata)
 
--- | The file modes of the file in the source, destination, and base of the
+-- | The file sizes of the file in the source, destination, and base of the
 -- merge.
-conflictMetadata_fileModes :: Lens.Lens' ConflictMetadata (Prelude.Maybe FileModes)
-conflictMetadata_fileModes = Lens.lens (\ConflictMetadata' {fileModes} -> fileModes) (\s@ConflictMetadata' {} a -> s {fileModes = a} :: ConflictMetadata)
+conflictMetadata_fileSizes :: Lens.Lens' ConflictMetadata (Prelude.Maybe FileSizes)
+conflictMetadata_fileSizes = Lens.lens (\ConflictMetadata' {fileSizes} -> fileSizes) (\s@ConflictMetadata' {} a -> s {fileSizes = a} :: ConflictMetadata)
+
+-- | The path of the file that contains conflicts.
+conflictMetadata_filePath :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Text)
+conflictMetadata_filePath = Lens.lens (\ConflictMetadata' {filePath} -> filePath) (\s@ConflictMetadata' {} a -> s {filePath = a} :: ConflictMetadata)
+
+-- | A boolean value (true or false) indicating whether the file is binary or
+-- textual in the source, destination, and base of the merge.
+conflictMetadata_isBinaryFile :: Lens.Lens' ConflictMetadata (Prelude.Maybe IsBinaryFile)
+conflictMetadata_isBinaryFile = Lens.lens (\ConflictMetadata' {isBinaryFile} -> isBinaryFile) (\s@ConflictMetadata' {} a -> s {isBinaryFile = a} :: ConflictMetadata)
+
+-- | A boolean value indicating whether there are conflicts in the file mode
+-- of a file.
+conflictMetadata_fileModeConflict :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Bool)
+conflictMetadata_fileModeConflict = Lens.lens (\ConflictMetadata' {fileModeConflict} -> fileModeConflict) (\s@ConflictMetadata' {} a -> s {fileModeConflict = a} :: ConflictMetadata)
+
+-- | A boolean value (true or false) indicating whether there are conflicts
+-- between the branches in the object type of a file, folder, or submodule.
+conflictMetadata_objectTypeConflict :: Lens.Lens' ConflictMetadata (Prelude.Maybe Prelude.Bool)
+conflictMetadata_objectTypeConflict = Lens.lens (\ConflictMetadata' {objectTypeConflict} -> objectTypeConflict) (\s@ConflictMetadata' {} a -> s {objectTypeConflict = a} :: ConflictMetadata)
+
+-- | Whether an add, modify, or delete operation caused the conflict between
+-- the source and destination of the merge.
+conflictMetadata_mergeOperations :: Lens.Lens' ConflictMetadata (Prelude.Maybe MergeOperations)
+conflictMetadata_mergeOperations = Lens.lens (\ConflictMetadata' {mergeOperations} -> mergeOperations) (\s@ConflictMetadata' {} a -> s {mergeOperations = a} :: ConflictMetadata)
 
 -- | Information about any object type conflicts in a merge operation.
 conflictMetadata_objectTypes :: Lens.Lens' ConflictMetadata (Prelude.Maybe ObjectTypes)
 conflictMetadata_objectTypes = Lens.lens (\ConflictMetadata' {objectTypes} -> objectTypes) (\s@ConflictMetadata' {} a -> s {objectTypes = a} :: ConflictMetadata)
 
--- | The file sizes of the file in the source, destination, and base of the
+-- | The file modes of the file in the source, destination, and base of the
 -- merge.
-conflictMetadata_fileSizes :: Lens.Lens' ConflictMetadata (Prelude.Maybe FileSizes)
-conflictMetadata_fileSizes = Lens.lens (\ConflictMetadata' {fileSizes} -> fileSizes) (\s@ConflictMetadata' {} a -> s {fileSizes = a} :: ConflictMetadata)
+conflictMetadata_fileModes :: Lens.Lens' ConflictMetadata (Prelude.Maybe FileModes)
+conflictMetadata_fileModes = Lens.lens (\ConflictMetadata' {fileModes} -> fileModes) (\s@ConflictMetadata' {} a -> s {fileModes = a} :: ConflictMetadata)
 
 instance Core.FromJSON ConflictMetadata where
   parseJSON =
@@ -169,16 +169,16 @@ instance Core.FromJSON ConflictMetadata where
       "ConflictMetadata"
       ( \x ->
           ConflictMetadata'
-            Prelude.<$> (x Core..:? "mergeOperations")
+            Prelude.<$> (x Core..:? "numberOfConflicts")
+            Prelude.<*> (x Core..:? "contentConflict")
+            Prelude.<*> (x Core..:? "fileSizes")
             Prelude.<*> (x Core..:? "filePath")
             Prelude.<*> (x Core..:? "isBinaryFile")
-            Prelude.<*> (x Core..:? "objectTypeConflict")
             Prelude.<*> (x Core..:? "fileModeConflict")
-            Prelude.<*> (x Core..:? "numberOfConflicts")
-            Prelude.<*> (x Core..:? "contentConflict")
-            Prelude.<*> (x Core..:? "fileModes")
+            Prelude.<*> (x Core..:? "objectTypeConflict")
+            Prelude.<*> (x Core..:? "mergeOperations")
             Prelude.<*> (x Core..:? "objectTypes")
-            Prelude.<*> (x Core..:? "fileSizes")
+            Prelude.<*> (x Core..:? "fileModes")
       )
 
 instance Prelude.Hashable ConflictMetadata

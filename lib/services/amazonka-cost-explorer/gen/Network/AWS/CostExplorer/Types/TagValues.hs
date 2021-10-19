@@ -35,10 +35,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTagValues' smart constructor.
 data TagValues = TagValues'
-  { -- | The key for the tag.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The specific value of the tag.
+  { -- | The specific value of the tag.
     values :: Prelude.Maybe [Prelude.Text],
+    -- | The key for the tag.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The match options that you can use to filter your results.
     -- @MatchOptions@ is only applicable for actions related to Cost Category.
     -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
@@ -54,9 +54,9 @@ data TagValues = TagValues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tagValues_key' - The key for the tag.
---
 -- 'values', 'tagValues_values' - The specific value of the tag.
+--
+-- 'key', 'tagValues_key' - The key for the tag.
 --
 -- 'matchOptions', 'tagValues_matchOptions' - The match options that you can use to filter your results.
 -- @MatchOptions@ is only applicable for actions related to Cost Category.
@@ -65,24 +65,24 @@ newTagValues ::
   TagValues
 newTagValues =
   TagValues'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing,
       matchOptions = Prelude.Nothing
     }
+
+-- | The specific value of the tag.
+tagValues_values :: Lens.Lens' TagValues (Prelude.Maybe [Prelude.Text])
+tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Prelude.. Lens.mapping Lens.coerced
 
 -- | The key for the tag.
 tagValues_key :: Lens.Lens' TagValues (Prelude.Maybe Prelude.Text)
 tagValues_key = Lens.lens (\TagValues' {key} -> key) (\s@TagValues' {} a -> s {key = a} :: TagValues)
 
--- | The specific value of the tag.
-tagValues_values :: Lens.Lens' TagValues (Prelude.Maybe [Prelude.Text])
-tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The match options that you can use to filter your results.
 -- @MatchOptions@ is only applicable for actions related to Cost Category.
 -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
 tagValues_matchOptions :: Lens.Lens' TagValues (Prelude.Maybe [MatchOption])
-tagValues_matchOptions = Lens.lens (\TagValues' {matchOptions} -> matchOptions) (\s@TagValues' {} a -> s {matchOptions = a} :: TagValues) Prelude.. Lens.mapping Lens._Coerce
+tagValues_matchOptions = Lens.lens (\TagValues' {matchOptions} -> matchOptions) (\s@TagValues' {} a -> s {matchOptions = a} :: TagValues) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON TagValues where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON TagValues where
       "TagValues"
       ( \x ->
           TagValues'
-            Prelude.<$> (x Core..:? "Key")
-            Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "MatchOptions" Core..!= Prelude.mempty)
       )
 
@@ -103,8 +103,8 @@ instance Core.ToJSON TagValues where
   toJSON TagValues' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values,
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Key" Core..=) Prelude.<$> key,
             ("MatchOptions" Core..=) Prelude.<$> matchOptions
           ]
       )

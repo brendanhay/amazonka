@@ -63,7 +63,7 @@ newLambdaResource =
 -- | The array of ARNs for S3Resource objects to trigger the LambdaResource
 -- objects associated with this job.
 lambdaResource_eventTriggers :: Lens.Lens' LambdaResource (Prelude.Maybe [EventTriggerDefinition])
-lambdaResource_eventTriggers = Lens.lens (\LambdaResource' {eventTriggers} -> eventTriggers) (\s@LambdaResource' {} a -> s {eventTriggers = a} :: LambdaResource) Prelude.. Lens.mapping Lens._Coerce
+lambdaResource_eventTriggers = Lens.lens (\LambdaResource' {eventTriggers} -> eventTriggers) (\s@LambdaResource' {} a -> s {eventTriggers = a} :: LambdaResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | An Amazon Resource Name (ARN) that represents an AWS Lambda function to
 -- be triggered by PUT object actions on the associated local Amazon S3

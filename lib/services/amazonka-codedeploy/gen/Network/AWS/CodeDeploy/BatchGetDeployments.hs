@@ -78,7 +78,7 @@ newBatchGetDeployments =
 -- | A list of deployment IDs, separated by spaces. The maximum number of
 -- deployment IDs you can specify is 25.
 batchGetDeployments_deploymentIds :: Lens.Lens' BatchGetDeployments [Prelude.Text]
-batchGetDeployments_deploymentIds = Lens.lens (\BatchGetDeployments' {deploymentIds} -> deploymentIds) (\s@BatchGetDeployments' {} a -> s {deploymentIds = a} :: BatchGetDeployments) Prelude.. Lens._Coerce
+batchGetDeployments_deploymentIds = Lens.lens (\BatchGetDeployments' {deploymentIds} -> deploymentIds) (\s@BatchGetDeployments' {} a -> s {deploymentIds = a} :: BatchGetDeployments) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetDeployments where
   type
@@ -164,7 +164,7 @@ newBatchGetDeploymentsResponse pHttpStatus_ =
 
 -- | Information about the deployments.
 batchGetDeploymentsResponse_deploymentsInfo :: Lens.Lens' BatchGetDeploymentsResponse (Prelude.Maybe [DeploymentInfo])
-batchGetDeploymentsResponse_deploymentsInfo = Lens.lens (\BatchGetDeploymentsResponse' {deploymentsInfo} -> deploymentsInfo) (\s@BatchGetDeploymentsResponse' {} a -> s {deploymentsInfo = a} :: BatchGetDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetDeploymentsResponse_deploymentsInfo = Lens.lens (\BatchGetDeploymentsResponse' {deploymentsInfo} -> deploymentsInfo) (\s@BatchGetDeploymentsResponse' {} a -> s {deploymentsInfo = a} :: BatchGetDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetDeploymentsResponse_httpStatus :: Lens.Lens' BatchGetDeploymentsResponse Prelude.Int

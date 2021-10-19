@@ -31,16 +31,16 @@ module Network.AWS.ECS.CreateTaskSet
     newCreateTaskSet,
 
     -- * Request Lenses
-    createTaskSet_capacityProviderStrategy,
-    createTaskSet_networkConfiguration,
-    createTaskSet_launchType,
-    createTaskSet_platformVersion,
-    createTaskSet_loadBalancers,
-    createTaskSet_tags,
-    createTaskSet_serviceRegistries,
-    createTaskSet_scale,
-    createTaskSet_externalId,
     createTaskSet_clientToken,
+    createTaskSet_platformVersion,
+    createTaskSet_scale,
+    createTaskSet_loadBalancers,
+    createTaskSet_launchType,
+    createTaskSet_externalId,
+    createTaskSet_networkConfiguration,
+    createTaskSet_serviceRegistries,
+    createTaskSet_capacityProviderStrategy,
+    createTaskSet_tags,
     createTaskSet_service,
     createTaskSet_cluster,
     createTaskSet_taskDefinition,
@@ -64,7 +64,42 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTaskSet' smart constructor.
 data CreateTaskSet = CreateTaskSet'
-  { -- | The capacity provider strategy to use for the task set.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. Up to 32 ASCII characters are allowed.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The platform version that the tasks in the task set should use. A
+    -- platform version is specified only for tasks using the Fargate launch
+    -- type. If one isn\'t specified, the @LATEST@ platform version is used by
+    -- default.
+    platformVersion :: Prelude.Maybe Prelude.Text,
+    -- | A floating-point percentage of the desired number of tasks to place and
+    -- keep running in the task set.
+    scale :: Prelude.Maybe Scale,
+    -- | A load balancer object representing the load balancer to use with the
+    -- task set. The supported load balancer types are either an Application
+    -- Load Balancer or a Network Load Balancer.
+    loadBalancers :: Prelude.Maybe [LoadBalancer],
+    -- | The launch type that new tasks in the task set will use. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
+    -- in the /Amazon Elastic Container Service Developer Guide/.
+    --
+    -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
+    -- must be omitted.
+    launchType :: Prelude.Maybe LaunchType,
+    -- | An optional non-unique tag that identifies this task set in external
+    -- systems. If the task set is associated with a service discovery
+    -- registry, the tasks in this task set will have the
+    -- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
+    -- value.
+    externalId :: Prelude.Maybe Prelude.Text,
+    -- | An object representing the network configuration for a task set.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    -- | The details of the service discovery registries to assign to this task
+    -- set. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
+    -- | The capacity provider strategy to use for the task set.
     --
     -- A capacity provider strategy consists of one or more capacity providers
     -- along with the @base@ and @weight@ to assign to them. A capacity
@@ -91,25 +126,6 @@ data CreateTaskSet = CreateTaskSet'
     -- of available capacity providers for a cluster after the cluster is
     -- created.
     capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
-    -- | An object representing the network configuration for a task set.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The launch type that new tasks in the task set will use. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
-    -- in the /Amazon Elastic Container Service Developer Guide/.
-    --
-    -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
-    -- must be omitted.
-    launchType :: Prelude.Maybe LaunchType,
-    -- | The platform version that the tasks in the task set should use. A
-    -- platform version is specified only for tasks using the Fargate launch
-    -- type. If one isn\'t specified, the @LATEST@ platform version is used by
-    -- default.
-    platformVersion :: Prelude.Maybe Prelude.Text,
-    -- | A load balancer object representing the load balancer to use with the
-    -- task set. The supported load balancer types are either an Application
-    -- Load Balancer or a Network Load Balancer.
-    loadBalancers :: Prelude.Maybe [LoadBalancer],
     -- | The metadata that you apply to the task set to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. When a service is deleted, the tags are deleted as
@@ -140,22 +156,6 @@ data CreateTaskSet = CreateTaskSet'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The details of the service discovery registries to assign to this task
-    -- set. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
-    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
-    -- | A floating-point percentage of the desired number of tasks to place and
-    -- keep running in the task set.
-    scale :: Prelude.Maybe Scale,
-    -- | An optional non-unique tag that identifies this task set in external
-    -- systems. If the task set is associated with a service discovery
-    -- registry, the tasks in this task set will have the
-    -- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
-    -- value.
-    externalId :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. Up to 32 ASCII characters are allowed.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service to
     -- create the task set in.
     service :: Prelude.Text,
@@ -174,6 +174,41 @@ data CreateTaskSet = CreateTaskSet'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'createTaskSet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. Up to 32 ASCII characters are allowed.
+--
+-- 'platformVersion', 'createTaskSet_platformVersion' - The platform version that the tasks in the task set should use. A
+-- platform version is specified only for tasks using the Fargate launch
+-- type. If one isn\'t specified, the @LATEST@ platform version is used by
+-- default.
+--
+-- 'scale', 'createTaskSet_scale' - A floating-point percentage of the desired number of tasks to place and
+-- keep running in the task set.
+--
+-- 'loadBalancers', 'createTaskSet_loadBalancers' - A load balancer object representing the load balancer to use with the
+-- task set. The supported load balancer types are either an Application
+-- Load Balancer or a Network Load Balancer.
+--
+-- 'launchType', 'createTaskSet_launchType' - The launch type that new tasks in the task set will use. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
+-- must be omitted.
+--
+-- 'externalId', 'createTaskSet_externalId' - An optional non-unique tag that identifies this task set in external
+-- systems. If the task set is associated with a service discovery
+-- registry, the tasks in this task set will have the
+-- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
+-- value.
+--
+-- 'networkConfiguration', 'createTaskSet_networkConfiguration' - An object representing the network configuration for a task set.
+--
+-- 'serviceRegistries', 'createTaskSet_serviceRegistries' - The details of the service discovery registries to assign to this task
+-- set. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
 --
 -- 'capacityProviderStrategy', 'createTaskSet_capacityProviderStrategy' - The capacity provider strategy to use for the task set.
 --
@@ -201,25 +236,6 @@ data CreateTaskSet = CreateTaskSet'
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
---
--- 'networkConfiguration', 'createTaskSet_networkConfiguration' - An object representing the network configuration for a task set.
---
--- 'launchType', 'createTaskSet_launchType' - The launch type that new tasks in the task set will use. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
--- must be omitted.
---
--- 'platformVersion', 'createTaskSet_platformVersion' - The platform version that the tasks in the task set should use. A
--- platform version is specified only for tasks using the Fargate launch
--- type. If one isn\'t specified, the @LATEST@ platform version is used by
--- default.
---
--- 'loadBalancers', 'createTaskSet_loadBalancers' - A load balancer object representing the load balancer to use with the
--- task set. The supported load balancer types are either an Application
--- Load Balancer or a Network Load Balancer.
 --
 -- 'tags', 'createTaskSet_tags' - The metadata that you apply to the task set to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -251,22 +267,6 @@ data CreateTaskSet = CreateTaskSet'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'serviceRegistries', 'createTaskSet_serviceRegistries' - The details of the service discovery registries to assign to this task
--- set. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
---
--- 'scale', 'createTaskSet_scale' - A floating-point percentage of the desired number of tasks to place and
--- keep running in the task set.
---
--- 'externalId', 'createTaskSet_externalId' - An optional non-unique tag that identifies this task set in external
--- systems. If the task set is associated with a service discovery
--- registry, the tasks in this task set will have the
--- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
--- value.
---
--- 'clientToken', 'createTaskSet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. Up to 32 ASCII characters are allowed.
---
 -- 'service', 'createTaskSet_service' - The short name or full Amazon Resource Name (ARN) of the service to
 -- create the task set in.
 --
@@ -284,21 +284,71 @@ newCreateTaskSet ::
   CreateTaskSet
 newCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
   CreateTaskSet'
-    { capacityProviderStrategy =
-        Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
-      launchType = Prelude.Nothing,
+    { clientToken = Prelude.Nothing,
       platformVersion = Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      serviceRegistries = Prelude.Nothing,
       scale = Prelude.Nothing,
+      loadBalancers = Prelude.Nothing,
+      launchType = Prelude.Nothing,
       externalId = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
+      serviceRegistries = Prelude.Nothing,
+      capacityProviderStrategy = Prelude.Nothing,
+      tags = Prelude.Nothing,
       service = pService_,
       cluster = pCluster_,
       taskDefinition = pTaskDefinition_
     }
+
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. Up to 32 ASCII characters are allowed.
+createTaskSet_clientToken :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
+createTaskSet_clientToken = Lens.lens (\CreateTaskSet' {clientToken} -> clientToken) (\s@CreateTaskSet' {} a -> s {clientToken = a} :: CreateTaskSet)
+
+-- | The platform version that the tasks in the task set should use. A
+-- platform version is specified only for tasks using the Fargate launch
+-- type. If one isn\'t specified, the @LATEST@ platform version is used by
+-- default.
+createTaskSet_platformVersion :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
+createTaskSet_platformVersion = Lens.lens (\CreateTaskSet' {platformVersion} -> platformVersion) (\s@CreateTaskSet' {} a -> s {platformVersion = a} :: CreateTaskSet)
+
+-- | A floating-point percentage of the desired number of tasks to place and
+-- keep running in the task set.
+createTaskSet_scale :: Lens.Lens' CreateTaskSet (Prelude.Maybe Scale)
+createTaskSet_scale = Lens.lens (\CreateTaskSet' {scale} -> scale) (\s@CreateTaskSet' {} a -> s {scale = a} :: CreateTaskSet)
+
+-- | A load balancer object representing the load balancer to use with the
+-- task set. The supported load balancer types are either an Application
+-- Load Balancer or a Network Load Balancer.
+createTaskSet_loadBalancers :: Lens.Lens' CreateTaskSet (Prelude.Maybe [LoadBalancer])
+createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> loadBalancers) (\s@CreateTaskSet' {} a -> s {loadBalancers = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | The launch type that new tasks in the task set will use. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
+-- in the /Amazon Elastic Container Service Developer Guide/.
+--
+-- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
+-- must be omitted.
+createTaskSet_launchType :: Lens.Lens' CreateTaskSet (Prelude.Maybe LaunchType)
+createTaskSet_launchType = Lens.lens (\CreateTaskSet' {launchType} -> launchType) (\s@CreateTaskSet' {} a -> s {launchType = a} :: CreateTaskSet)
+
+-- | An optional non-unique tag that identifies this task set in external
+-- systems. If the task set is associated with a service discovery
+-- registry, the tasks in this task set will have the
+-- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
+-- value.
+createTaskSet_externalId :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
+createTaskSet_externalId = Lens.lens (\CreateTaskSet' {externalId} -> externalId) (\s@CreateTaskSet' {} a -> s {externalId = a} :: CreateTaskSet)
+
+-- | An object representing the network configuration for a task set.
+createTaskSet_networkConfiguration :: Lens.Lens' CreateTaskSet (Prelude.Maybe NetworkConfiguration)
+createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfiguration} -> networkConfiguration) (\s@CreateTaskSet' {} a -> s {networkConfiguration = a} :: CreateTaskSet)
+
+-- | The details of the service discovery registries to assign to this task
+-- set. For more information, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+createTaskSet_serviceRegistries :: Lens.Lens' CreateTaskSet (Prelude.Maybe [ServiceRegistry])
+createTaskSet_serviceRegistries = Lens.lens (\CreateTaskSet' {serviceRegistries} -> serviceRegistries) (\s@CreateTaskSet' {} a -> s {serviceRegistries = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The capacity provider strategy to use for the task set.
 --
@@ -327,34 +377,7 @@ newCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
 -- of available capacity providers for a cluster after the cluster is
 -- created.
 createTaskSet_capacityProviderStrategy :: Lens.Lens' CreateTaskSet (Prelude.Maybe [CapacityProviderStrategyItem])
-createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateTaskSet' {} a -> s {capacityProviderStrategy = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | An object representing the network configuration for a task set.
-createTaskSet_networkConfiguration :: Lens.Lens' CreateTaskSet (Prelude.Maybe NetworkConfiguration)
-createTaskSet_networkConfiguration = Lens.lens (\CreateTaskSet' {networkConfiguration} -> networkConfiguration) (\s@CreateTaskSet' {} a -> s {networkConfiguration = a} :: CreateTaskSet)
-
--- | The launch type that new tasks in the task set will use. For more
--- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
--- in the /Amazon Elastic Container Service Developer Guide/.
---
--- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
--- must be omitted.
-createTaskSet_launchType :: Lens.Lens' CreateTaskSet (Prelude.Maybe LaunchType)
-createTaskSet_launchType = Lens.lens (\CreateTaskSet' {launchType} -> launchType) (\s@CreateTaskSet' {} a -> s {launchType = a} :: CreateTaskSet)
-
--- | The platform version that the tasks in the task set should use. A
--- platform version is specified only for tasks using the Fargate launch
--- type. If one isn\'t specified, the @LATEST@ platform version is used by
--- default.
-createTaskSet_platformVersion :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
-createTaskSet_platformVersion = Lens.lens (\CreateTaskSet' {platformVersion} -> platformVersion) (\s@CreateTaskSet' {} a -> s {platformVersion = a} :: CreateTaskSet)
-
--- | A load balancer object representing the load balancer to use with the
--- task set. The supported load balancer types are either an Application
--- Load Balancer or a Network Load Balancer.
-createTaskSet_loadBalancers :: Lens.Lens' CreateTaskSet (Prelude.Maybe [LoadBalancer])
-createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> loadBalancers) (\s@CreateTaskSet' {} a -> s {loadBalancers = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
+createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateTaskSet' {} a -> s {capacityProviderStrategy = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata that you apply to the task set to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -386,31 +409,7 @@ createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> load
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 createTaskSet_tags :: Lens.Lens' CreateTaskSet (Prelude.Maybe [Tag])
-createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSet' {} a -> s {tags = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | The details of the service discovery registries to assign to this task
--- set. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
-createTaskSet_serviceRegistries :: Lens.Lens' CreateTaskSet (Prelude.Maybe [ServiceRegistry])
-createTaskSet_serviceRegistries = Lens.lens (\CreateTaskSet' {serviceRegistries} -> serviceRegistries) (\s@CreateTaskSet' {} a -> s {serviceRegistries = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens._Coerce
-
--- | A floating-point percentage of the desired number of tasks to place and
--- keep running in the task set.
-createTaskSet_scale :: Lens.Lens' CreateTaskSet (Prelude.Maybe Scale)
-createTaskSet_scale = Lens.lens (\CreateTaskSet' {scale} -> scale) (\s@CreateTaskSet' {} a -> s {scale = a} :: CreateTaskSet)
-
--- | An optional non-unique tag that identifies this task set in external
--- systems. If the task set is associated with a service discovery
--- registry, the tasks in this task set will have the
--- @ECS_TASK_SET_EXTERNAL_ID@ Cloud Map attribute set to the provided
--- value.
-createTaskSet_externalId :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
-createTaskSet_externalId = Lens.lens (\CreateTaskSet' {externalId} -> externalId) (\s@CreateTaskSet' {} a -> s {externalId = a} :: CreateTaskSet)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. Up to 32 ASCII characters are allowed.
-createTaskSet_clientToken :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
-createTaskSet_clientToken = Lens.lens (\CreateTaskSet' {clientToken} -> clientToken) (\s@CreateTaskSet' {} a -> s {clientToken = a} :: CreateTaskSet)
+createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSet' {} a -> s {tags = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The short name or full Amazon Resource Name (ARN) of the service to
 -- create the task set in.
@@ -462,20 +461,20 @@ instance Core.ToJSON CreateTaskSet where
   toJSON CreateTaskSet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("capacityProviderStrategy" Core..=)
-              Prelude.<$> capacityProviderStrategy,
-            ("networkConfiguration" Core..=)
-              Prelude.<$> networkConfiguration,
-            ("launchType" Core..=) Prelude.<$> launchType,
+          [ ("clientToken" Core..=) Prelude.<$> clientToken,
             ("platformVersion" Core..=)
               Prelude.<$> platformVersion,
+            ("scale" Core..=) Prelude.<$> scale,
             ("loadBalancers" Core..=) Prelude.<$> loadBalancers,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("launchType" Core..=) Prelude.<$> launchType,
+            ("externalId" Core..=) Prelude.<$> externalId,
+            ("networkConfiguration" Core..=)
+              Prelude.<$> networkConfiguration,
             ("serviceRegistries" Core..=)
               Prelude.<$> serviceRegistries,
-            ("scale" Core..=) Prelude.<$> scale,
-            ("externalId" Core..=) Prelude.<$> externalId,
-            ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("capacityProviderStrategy" Core..=)
+              Prelude.<$> capacityProviderStrategy,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("service" Core..= service),
             Prelude.Just ("cluster" Core..= cluster),
             Prelude.Just

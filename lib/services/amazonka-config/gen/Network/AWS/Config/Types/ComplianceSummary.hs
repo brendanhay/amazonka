@@ -32,11 +32,11 @@ data ComplianceSummary = ComplianceSummary'
   { -- | The time that Config created the compliance summary.
     complianceSummaryTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The number of Config rules or Amazon Web Services resources that are
-    -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
-    nonCompliantResourceCount :: Prelude.Maybe ComplianceContributorCount,
-    -- | The number of Config rules or Amazon Web Services resources that are
     -- compliant, up to a maximum of 25 for rules and 100 for resources.
-    compliantResourceCount :: Prelude.Maybe ComplianceContributorCount
+    compliantResourceCount :: Prelude.Maybe ComplianceContributorCount,
+    -- | The number of Config rules or Amazon Web Services resources that are
+    -- noncompliant, up to a maximum of 25 for rules and 100 for resources.
+    nonCompliantResourceCount :: Prelude.Maybe ComplianceContributorCount
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,19 +50,19 @@ data ComplianceSummary = ComplianceSummary'
 --
 -- 'complianceSummaryTimestamp', 'complianceSummary_complianceSummaryTimestamp' - The time that Config created the compliance summary.
 --
--- 'nonCompliantResourceCount', 'complianceSummary_nonCompliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
--- noncompliant, up to a maximum of 25 for rules and 100 for resources.
---
 -- 'compliantResourceCount', 'complianceSummary_compliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
 -- compliant, up to a maximum of 25 for rules and 100 for resources.
+--
+-- 'nonCompliantResourceCount', 'complianceSummary_nonCompliantResourceCount' - The number of Config rules or Amazon Web Services resources that are
+-- noncompliant, up to a maximum of 25 for rules and 100 for resources.
 newComplianceSummary ::
   ComplianceSummary
 newComplianceSummary =
   ComplianceSummary'
     { complianceSummaryTimestamp =
         Prelude.Nothing,
-      nonCompliantResourceCount = Prelude.Nothing,
-      compliantResourceCount = Prelude.Nothing
+      compliantResourceCount = Prelude.Nothing,
+      nonCompliantResourceCount = Prelude.Nothing
     }
 
 -- | The time that Config created the compliance summary.
@@ -70,14 +70,14 @@ complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Pr
 complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The number of Config rules or Amazon Web Services resources that are
--- noncompliant, up to a maximum of 25 for rules and 100 for resources.
-complianceSummary_nonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
-complianceSummary_nonCompliantResourceCount = Lens.lens (\ComplianceSummary' {nonCompliantResourceCount} -> nonCompliantResourceCount) (\s@ComplianceSummary' {} a -> s {nonCompliantResourceCount = a} :: ComplianceSummary)
-
--- | The number of Config rules or Amazon Web Services resources that are
 -- compliant, up to a maximum of 25 for rules and 100 for resources.
 complianceSummary_compliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
 complianceSummary_compliantResourceCount = Lens.lens (\ComplianceSummary' {compliantResourceCount} -> compliantResourceCount) (\s@ComplianceSummary' {} a -> s {compliantResourceCount = a} :: ComplianceSummary)
+
+-- | The number of Config rules or Amazon Web Services resources that are
+-- noncompliant, up to a maximum of 25 for rules and 100 for resources.
+complianceSummary_nonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
+complianceSummary_nonCompliantResourceCount = Lens.lens (\ComplianceSummary' {nonCompliantResourceCount} -> nonCompliantResourceCount) (\s@ComplianceSummary' {} a -> s {nonCompliantResourceCount = a} :: ComplianceSummary)
 
 instance Core.FromJSON ComplianceSummary where
   parseJSON =
@@ -86,8 +86,8 @@ instance Core.FromJSON ComplianceSummary where
       ( \x ->
           ComplianceSummary'
             Prelude.<$> (x Core..:? "ComplianceSummaryTimestamp")
-            Prelude.<*> (x Core..:? "NonCompliantResourceCount")
             Prelude.<*> (x Core..:? "CompliantResourceCount")
+            Prelude.<*> (x Core..:? "NonCompliantResourceCount")
       )
 
 instance Prelude.Hashable ComplianceSummary

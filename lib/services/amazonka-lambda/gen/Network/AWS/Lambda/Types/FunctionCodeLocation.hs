@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunctionCodeLocation' smart constructor.
 data FunctionCodeLocation = FunctionCodeLocation'
-  { -- | URI of a container image in the Amazon ECR registry.
-    imageUri :: Prelude.Maybe Prelude.Text,
+  { -- | A presigned URL that you can use to download the deployment package.
+    location :: Prelude.Maybe Prelude.Text,
     -- | The resolved URI for the image.
     resolvedImageUri :: Prelude.Maybe Prelude.Text,
-    -- | A presigned URL that you can use to download the deployment package.
-    location :: Prelude.Maybe Prelude.Text,
+    -- | URI of a container image in the Amazon ECR registry.
+    imageUri :: Prelude.Maybe Prelude.Text,
     -- | The service that\'s hosting the file.
     repositoryType :: Prelude.Maybe Prelude.Text
   }
@@ -46,34 +46,34 @@ data FunctionCodeLocation = FunctionCodeLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageUri', 'functionCodeLocation_imageUri' - URI of a container image in the Amazon ECR registry.
+-- 'location', 'functionCodeLocation_location' - A presigned URL that you can use to download the deployment package.
 --
 -- 'resolvedImageUri', 'functionCodeLocation_resolvedImageUri' - The resolved URI for the image.
 --
--- 'location', 'functionCodeLocation_location' - A presigned URL that you can use to download the deployment package.
+-- 'imageUri', 'functionCodeLocation_imageUri' - URI of a container image in the Amazon ECR registry.
 --
 -- 'repositoryType', 'functionCodeLocation_repositoryType' - The service that\'s hosting the file.
 newFunctionCodeLocation ::
   FunctionCodeLocation
 newFunctionCodeLocation =
   FunctionCodeLocation'
-    { imageUri = Prelude.Nothing,
+    { location = Prelude.Nothing,
       resolvedImageUri = Prelude.Nothing,
-      location = Prelude.Nothing,
+      imageUri = Prelude.Nothing,
       repositoryType = Prelude.Nothing
     }
 
--- | URI of a container image in the Amazon ECR registry.
-functionCodeLocation_imageUri :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
-functionCodeLocation_imageUri = Lens.lens (\FunctionCodeLocation' {imageUri} -> imageUri) (\s@FunctionCodeLocation' {} a -> s {imageUri = a} :: FunctionCodeLocation)
+-- | A presigned URL that you can use to download the deployment package.
+functionCodeLocation_location :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
+functionCodeLocation_location = Lens.lens (\FunctionCodeLocation' {location} -> location) (\s@FunctionCodeLocation' {} a -> s {location = a} :: FunctionCodeLocation)
 
 -- | The resolved URI for the image.
 functionCodeLocation_resolvedImageUri :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
 functionCodeLocation_resolvedImageUri = Lens.lens (\FunctionCodeLocation' {resolvedImageUri} -> resolvedImageUri) (\s@FunctionCodeLocation' {} a -> s {resolvedImageUri = a} :: FunctionCodeLocation)
 
--- | A presigned URL that you can use to download the deployment package.
-functionCodeLocation_location :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
-functionCodeLocation_location = Lens.lens (\FunctionCodeLocation' {location} -> location) (\s@FunctionCodeLocation' {} a -> s {location = a} :: FunctionCodeLocation)
+-- | URI of a container image in the Amazon ECR registry.
+functionCodeLocation_imageUri :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
+functionCodeLocation_imageUri = Lens.lens (\FunctionCodeLocation' {imageUri} -> imageUri) (\s@FunctionCodeLocation' {} a -> s {imageUri = a} :: FunctionCodeLocation)
 
 -- | The service that\'s hosting the file.
 functionCodeLocation_repositoryType :: Lens.Lens' FunctionCodeLocation (Prelude.Maybe Prelude.Text)
@@ -85,9 +85,9 @@ instance Core.FromJSON FunctionCodeLocation where
       "FunctionCodeLocation"
       ( \x ->
           FunctionCodeLocation'
-            Prelude.<$> (x Core..:? "ImageUri")
+            Prelude.<$> (x Core..:? "Location")
             Prelude.<*> (x Core..:? "ResolvedImageUri")
-            Prelude.<*> (x Core..:? "Location")
+            Prelude.<*> (x Core..:? "ImageUri")
             Prelude.<*> (x Core..:? "RepositoryType")
       )
 

@@ -24,7 +24,7 @@
 --
 -- Terminating a WorkSpace is a permanent action and cannot be undone. The
 -- user\'s data is destroyed. If you need to archive any user data, contact
--- AWS Support before terminating the WorkSpace.
+-- Amazon Web Services Support before terminating the WorkSpace.
 --
 -- You can terminate a WorkSpace that is in any state except @SUSPENDED@.
 --
@@ -43,7 +43,7 @@
 -- Simple AD or AD Connector directory for 30 consecutive days, this
 -- directory will be automatically deregistered for use with Amazon
 -- WorkSpaces, and you will be charged for this directory as per the
--- <http://aws.amazon.com/directoryservice/pricing/ AWS Directory Services pricing terms>.
+-- <http://aws.amazon.com/directoryservice/pricing/ Directory Service pricing terms>.
 --
 -- To delete empty directories, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html Delete the Directory for Your WorkSpaces>.
@@ -97,12 +97,12 @@ newTerminateWorkspaces ::
 newTerminateWorkspaces pTerminateWorkspaceRequests_ =
   TerminateWorkspaces'
     { terminateWorkspaceRequests =
-        Lens._Coerce Lens.# pTerminateWorkspaceRequests_
+        Lens.coerced Lens.# pTerminateWorkspaceRequests_
     }
 
 -- | The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.
 terminateWorkspaces_terminateWorkspaceRequests :: Lens.Lens' TerminateWorkspaces (Prelude.NonEmpty TerminateRequest)
-terminateWorkspaces_terminateWorkspaceRequests = Lens.lens (\TerminateWorkspaces' {terminateWorkspaceRequests} -> terminateWorkspaceRequests) (\s@TerminateWorkspaces' {} a -> s {terminateWorkspaceRequests = a} :: TerminateWorkspaces) Prelude.. Lens._Coerce
+terminateWorkspaces_terminateWorkspaceRequests = Lens.lens (\TerminateWorkspaces' {terminateWorkspaceRequests} -> terminateWorkspaceRequests) (\s@TerminateWorkspaces' {} a -> s {terminateWorkspaceRequests = a} :: TerminateWorkspaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TerminateWorkspaces where
   type
@@ -186,7 +186,7 @@ newTerminateWorkspacesResponse pHttpStatus_ =
 
 -- | Information about the WorkSpaces that could not be terminated.
 terminateWorkspacesResponse_failedRequests :: Lens.Lens' TerminateWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-terminateWorkspacesResponse_failedRequests = Lens.lens (\TerminateWorkspacesResponse' {failedRequests} -> failedRequests) (\s@TerminateWorkspacesResponse' {} a -> s {failedRequests = a} :: TerminateWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+terminateWorkspacesResponse_failedRequests = Lens.lens (\TerminateWorkspacesResponse' {failedRequests} -> failedRequests) (\s@TerminateWorkspacesResponse' {} a -> s {failedRequests = a} :: TerminateWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 terminateWorkspacesResponse_httpStatus :: Lens.Lens' TerminateWorkspacesResponse Prelude.Int

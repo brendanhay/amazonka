@@ -39,8 +39,8 @@ module Network.AWS.AppSync.ListTypes
     newListTypesResponse,
 
     -- * Response Lenses
-    listTypesResponse_nextToken,
     listTypesResponse_types,
+    listTypesResponse_nextToken,
     listTypesResponse_httpStatus,
   )
 where
@@ -142,8 +142,8 @@ instance Core.AWSRequest ListTypes where
     Response.receiveJSON
       ( \s h x ->
           ListTypesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "types" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "types" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,11 +177,11 @@ instance Core.ToQuery ListTypes where
 
 -- | /See:/ 'newListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { -- | An identifier to be passed in the next request to this operation to
+  { -- | The @Type@ objects.
+    types :: Prelude.Maybe [Type],
+    -- | An identifier to be passed in the next request to this operation to
     -- return the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The @Type@ objects.
-    types :: Prelude.Maybe [Type],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,10 +195,10 @@ data ListTypesResponse = ListTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'types', 'listTypesResponse_types' - The @Type@ objects.
+--
 -- 'nextToken', 'listTypesResponse_nextToken' - An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
---
--- 'types', 'listTypesResponse_types' - The @Type@ objects.
 --
 -- 'httpStatus', 'listTypesResponse_httpStatus' - The response's http status code.
 newListTypesResponse ::
@@ -207,19 +207,19 @@ newListTypesResponse ::
   ListTypesResponse
 newListTypesResponse pHttpStatus_ =
   ListTypesResponse'
-    { nextToken = Prelude.Nothing,
-      types = Prelude.Nothing,
+    { types = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The @Type@ objects.
+listTypesResponse_types :: Lens.Lens' ListTypesResponse (Prelude.Maybe [Type])
+listTypesResponse_types = Lens.lens (\ListTypesResponse' {types} -> types) (\s@ListTypesResponse' {} a -> s {types = a} :: ListTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
 listTypesResponse_nextToken :: Lens.Lens' ListTypesResponse (Prelude.Maybe Prelude.Text)
 listTypesResponse_nextToken = Lens.lens (\ListTypesResponse' {nextToken} -> nextToken) (\s@ListTypesResponse' {} a -> s {nextToken = a} :: ListTypesResponse)
-
--- | The @Type@ objects.
-listTypesResponse_types :: Lens.Lens' ListTypesResponse (Prelude.Maybe [Type])
-listTypesResponse_types = Lens.lens (\ListTypesResponse' {types} -> types) (\s@ListTypesResponse' {} a -> s {types = a} :: ListTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTypesResponse_httpStatus :: Lens.Lens' ListTypesResponse Prelude.Int

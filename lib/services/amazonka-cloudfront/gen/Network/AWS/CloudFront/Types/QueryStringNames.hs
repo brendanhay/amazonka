@@ -57,7 +57,7 @@ newQueryStringNames pQuantity_ =
 
 -- | A list of query string names.
 queryStringNames_items :: Lens.Lens' QueryStringNames (Prelude.Maybe [Prelude.Text])
-queryStringNames_items = Lens.lens (\QueryStringNames' {items} -> items) (\s@QueryStringNames' {} a -> s {items = a} :: QueryStringNames) Prelude.. Lens.mapping Lens._Coerce
+queryStringNames_items = Lens.lens (\QueryStringNames' {items} -> items) (\s@QueryStringNames' {} a -> s {items = a} :: QueryStringNames) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of query string names in the @Items@ list.
 queryStringNames_quantity :: Lens.Lens' QueryStringNames Prelude.Int

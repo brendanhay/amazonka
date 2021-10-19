@@ -38,8 +38,8 @@ module Network.AWS.CloudFront.CreatePublicKey
 
     -- * Response Lenses
     createPublicKeyResponse_eTag,
-    createPublicKeyResponse_publicKey,
     createPublicKeyResponse_location,
+    createPublicKeyResponse_publicKey,
     createPublicKeyResponse_httpStatus,
   )
 where
@@ -91,8 +91,8 @@ instance Core.AWSRequest CreatePublicKey where
       ( \s h x ->
           CreatePublicKeyResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,10 +119,10 @@ instance Core.ToQuery CreatePublicKey where
 data CreatePublicKeyResponse = CreatePublicKeyResponse'
   { -- | The identifier for this version of the public key.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The public key.
-    publicKey :: Prelude.Maybe PublicKey,
     -- | The URL of the public key.
     location :: Prelude.Maybe Prelude.Text,
+    -- | The public key.
+    publicKey :: Prelude.Maybe PublicKey,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -138,9 +138,9 @@ data CreatePublicKeyResponse = CreatePublicKeyResponse'
 --
 -- 'eTag', 'createPublicKeyResponse_eTag' - The identifier for this version of the public key.
 --
--- 'publicKey', 'createPublicKeyResponse_publicKey' - The public key.
---
 -- 'location', 'createPublicKeyResponse_location' - The URL of the public key.
+--
+-- 'publicKey', 'createPublicKeyResponse_publicKey' - The public key.
 --
 -- 'httpStatus', 'createPublicKeyResponse_httpStatus' - The response's http status code.
 newCreatePublicKeyResponse ::
@@ -150,8 +150,8 @@ newCreatePublicKeyResponse ::
 newCreatePublicKeyResponse pHttpStatus_ =
   CreatePublicKeyResponse'
     { eTag = Prelude.Nothing,
-      publicKey = Prelude.Nothing,
       location = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -159,13 +159,13 @@ newCreatePublicKeyResponse pHttpStatus_ =
 createPublicKeyResponse_eTag :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe Prelude.Text)
 createPublicKeyResponse_eTag = Lens.lens (\CreatePublicKeyResponse' {eTag} -> eTag) (\s@CreatePublicKeyResponse' {} a -> s {eTag = a} :: CreatePublicKeyResponse)
 
--- | The public key.
-createPublicKeyResponse_publicKey :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe PublicKey)
-createPublicKeyResponse_publicKey = Lens.lens (\CreatePublicKeyResponse' {publicKey} -> publicKey) (\s@CreatePublicKeyResponse' {} a -> s {publicKey = a} :: CreatePublicKeyResponse)
-
 -- | The URL of the public key.
 createPublicKeyResponse_location :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe Prelude.Text)
 createPublicKeyResponse_location = Lens.lens (\CreatePublicKeyResponse' {location} -> location) (\s@CreatePublicKeyResponse' {} a -> s {location = a} :: CreatePublicKeyResponse)
+
+-- | The public key.
+createPublicKeyResponse_publicKey :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe PublicKey)
+createPublicKeyResponse_publicKey = Lens.lens (\CreatePublicKeyResponse' {publicKey} -> publicKey) (\s@CreatePublicKeyResponse' {} a -> s {publicKey = a} :: CreatePublicKeyResponse)
 
 -- | The response's http status code.
 createPublicKeyResponse_httpStatus :: Lens.Lens' CreatePublicKeyResponse Prelude.Int

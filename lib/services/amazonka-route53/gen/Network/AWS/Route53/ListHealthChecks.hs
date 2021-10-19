@@ -30,8 +30,8 @@ module Network.AWS.Route53.ListHealthChecks
     newListHealthChecks,
 
     -- * Request Lenses
-    listHealthChecks_maxItems,
     listHealthChecks_marker,
+    listHealthChecks_maxItems,
 
     -- * Destructuring the Response
     ListHealthChecksResponse (..),
@@ -59,12 +59,7 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'newListHealthChecks' smart constructor.
 data ListHealthChecks = ListHealthChecks'
-  { -- | The maximum number of health checks that you want @ListHealthChecks@ to
-    -- return in response to the current request. Amazon Route 53 returns a
-    -- maximum of 100 items. If you set @MaxItems@ to a value greater than 100,
-    -- Route 53 returns only the first 100 health checks.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | If the value of @IsTruncated@ in the previous response was @true@, you
+  { -- | If the value of @IsTruncated@ in the previous response was @true@, you
     -- have more health checks. To get another group, submit another
     -- @ListHealthChecks@ request.
     --
@@ -74,7 +69,12 @@ data ListHealthChecks = ListHealthChecks'
     --
     -- If the value of @IsTruncated@ in the previous response was @false@,
     -- there are no more health checks to get.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of health checks that you want @ListHealthChecks@ to
+    -- return in response to the current request. Amazon Route 53 returns a
+    -- maximum of 100 items. If you set @MaxItems@ to a value greater than 100,
+    -- Route 53 returns only the first 100 health checks.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,11 +86,6 @@ data ListHealthChecks = ListHealthChecks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listHealthChecks_maxItems' - The maximum number of health checks that you want @ListHealthChecks@ to
--- return in response to the current request. Amazon Route 53 returns a
--- maximum of 100 items. If you set @MaxItems@ to a value greater than 100,
--- Route 53 returns only the first 100 health checks.
---
 -- 'marker', 'listHealthChecks_marker' - If the value of @IsTruncated@ in the previous response was @true@, you
 -- have more health checks. To get another group, submit another
 -- @ListHealthChecks@ request.
@@ -101,20 +96,18 @@ data ListHealthChecks = ListHealthChecks'
 --
 -- If the value of @IsTruncated@ in the previous response was @false@,
 -- there are no more health checks to get.
+--
+-- 'maxItems', 'listHealthChecks_maxItems' - The maximum number of health checks that you want @ListHealthChecks@ to
+-- return in response to the current request. Amazon Route 53 returns a
+-- maximum of 100 items. If you set @MaxItems@ to a value greater than 100,
+-- Route 53 returns only the first 100 health checks.
 newListHealthChecks ::
   ListHealthChecks
 newListHealthChecks =
   ListHealthChecks'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of health checks that you want @ListHealthChecks@ to
--- return in response to the current request. Amazon Route 53 returns a
--- maximum of 100 items. If you set @MaxItems@ to a value greater than 100,
--- Route 53 returns only the first 100 health checks.
-listHealthChecks_maxItems :: Lens.Lens' ListHealthChecks (Prelude.Maybe Prelude.Text)
-listHealthChecks_maxItems = Lens.lens (\ListHealthChecks' {maxItems} -> maxItems) (\s@ListHealthChecks' {} a -> s {maxItems = a} :: ListHealthChecks)
 
 -- | If the value of @IsTruncated@ in the previous response was @true@, you
 -- have more health checks. To get another group, submit another
@@ -128,6 +121,13 @@ listHealthChecks_maxItems = Lens.lens (\ListHealthChecks' {maxItems} -> maxItems
 -- there are no more health checks to get.
 listHealthChecks_marker :: Lens.Lens' ListHealthChecks (Prelude.Maybe Prelude.Text)
 listHealthChecks_marker = Lens.lens (\ListHealthChecks' {marker} -> marker) (\s@ListHealthChecks' {} a -> s {marker = a} :: ListHealthChecks)
+
+-- | The maximum number of health checks that you want @ListHealthChecks@ to
+-- return in response to the current request. Amazon Route 53 returns a
+-- maximum of 100 items. If you set @MaxItems@ to a value greater than 100,
+-- Route 53 returns only the first 100 health checks.
+listHealthChecks_maxItems :: Lens.Lens' ListHealthChecks (Prelude.Maybe Prelude.Text)
+listHealthChecks_maxItems = Lens.lens (\ListHealthChecks' {maxItems} -> maxItems) (\s@ListHealthChecks' {} a -> s {maxItems = a} :: ListHealthChecks)
 
 instance Core.AWSPager ListHealthChecks where
   page rq rs
@@ -180,8 +180,8 @@ instance Core.ToPath ListHealthChecks where
 instance Core.ToQuery ListHealthChecks where
   toQuery ListHealthChecks' {..} =
     Prelude.mconcat
-      [ "maxitems" Core.=: maxItems,
-        "marker" Core.=: marker
+      [ "marker" Core.=: marker,
+        "maxitems" Core.=: maxItems
       ]
 
 -- | A complex type that contains the response to a @ListHealthChecks@
@@ -282,7 +282,7 @@ listHealthChecksResponse_httpStatus = Lens.lens (\ListHealthChecksResponse' {htt
 -- | A complex type that contains one @HealthCheck@ element for each health
 -- check that is associated with the current Amazon Web Services account.
 listHealthChecksResponse_healthChecks :: Lens.Lens' ListHealthChecksResponse [HealthCheck]
-listHealthChecksResponse_healthChecks = Lens.lens (\ListHealthChecksResponse' {healthChecks} -> healthChecks) (\s@ListHealthChecksResponse' {} a -> s {healthChecks = a} :: ListHealthChecksResponse) Prelude.. Lens._Coerce
+listHealthChecksResponse_healthChecks = Lens.lens (\ListHealthChecksResponse' {healthChecks} -> healthChecks) (\s@ListHealthChecksResponse' {} a -> s {healthChecks = a} :: ListHealthChecksResponse) Prelude.. Lens.coerced
 
 -- | For the second and subsequent calls to @ListHealthChecks@, @Marker@ is
 -- the value that you specified for the @marker@ parameter in the previous

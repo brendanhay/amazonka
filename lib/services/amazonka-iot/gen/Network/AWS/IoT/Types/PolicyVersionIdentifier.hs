@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPolicyVersionIdentifier' smart constructor.
 data PolicyVersionIdentifier = PolicyVersionIdentifier'
-  { -- | The ID of the version of the policy associated with the resource.
-    policyVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the policy.
-    policyName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the policy.
+    policyName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the version of the policy associated with the resource.
+    policyVersionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data PolicyVersionIdentifier = PolicyVersionIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyVersionId', 'policyVersionIdentifier_policyVersionId' - The ID of the version of the policy associated with the resource.
---
 -- 'policyName', 'policyVersionIdentifier_policyName' - The name of the policy.
+--
+-- 'policyVersionId', 'policyVersionIdentifier_policyVersionId' - The ID of the version of the policy associated with the resource.
 newPolicyVersionIdentifier ::
   PolicyVersionIdentifier
 newPolicyVersionIdentifier =
   PolicyVersionIdentifier'
-    { policyVersionId =
+    { policyName =
         Prelude.Nothing,
-      policyName = Prelude.Nothing
+      policyVersionId = Prelude.Nothing
     }
-
--- | The ID of the version of the policy associated with the resource.
-policyVersionIdentifier_policyVersionId :: Lens.Lens' PolicyVersionIdentifier (Prelude.Maybe Prelude.Text)
-policyVersionIdentifier_policyVersionId = Lens.lens (\PolicyVersionIdentifier' {policyVersionId} -> policyVersionId) (\s@PolicyVersionIdentifier' {} a -> s {policyVersionId = a} :: PolicyVersionIdentifier)
 
 -- | The name of the policy.
 policyVersionIdentifier_policyName :: Lens.Lens' PolicyVersionIdentifier (Prelude.Maybe Prelude.Text)
 policyVersionIdentifier_policyName = Lens.lens (\PolicyVersionIdentifier' {policyName} -> policyName) (\s@PolicyVersionIdentifier' {} a -> s {policyName = a} :: PolicyVersionIdentifier)
+
+-- | The ID of the version of the policy associated with the resource.
+policyVersionIdentifier_policyVersionId :: Lens.Lens' PolicyVersionIdentifier (Prelude.Maybe Prelude.Text)
+policyVersionIdentifier_policyVersionId = Lens.lens (\PolicyVersionIdentifier' {policyVersionId} -> policyVersionId) (\s@PolicyVersionIdentifier' {} a -> s {policyVersionId = a} :: PolicyVersionIdentifier)
 
 instance Core.FromJSON PolicyVersionIdentifier where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON PolicyVersionIdentifier where
       "PolicyVersionIdentifier"
       ( \x ->
           PolicyVersionIdentifier'
-            Prelude.<$> (x Core..:? "policyVersionId")
-            Prelude.<*> (x Core..:? "policyName")
+            Prelude.<$> (x Core..:? "policyName")
+            Prelude.<*> (x Core..:? "policyVersionId")
       )
 
 instance Prelude.Hashable PolicyVersionIdentifier
@@ -81,8 +81,8 @@ instance Core.ToJSON PolicyVersionIdentifier where
   toJSON PolicyVersionIdentifier' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("policyVersionId" Core..=)
-              Prelude.<$> policyVersionId,
-            ("policyName" Core..=) Prelude.<$> policyName
+          [ ("policyName" Core..=) Prelude.<$> policyName,
+            ("policyVersionId" Core..=)
+              Prelude.<$> policyVersionId
           ]
       )

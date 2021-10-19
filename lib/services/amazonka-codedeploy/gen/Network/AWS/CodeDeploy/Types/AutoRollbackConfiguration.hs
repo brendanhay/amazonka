@@ -66,7 +66,7 @@ autoRollbackConfiguration_enabled = Lens.lens (\AutoRollbackConfiguration' {enab
 
 -- | The event type or types that trigger a rollback.
 autoRollbackConfiguration_events :: Lens.Lens' AutoRollbackConfiguration (Prelude.Maybe [AutoRollbackEvent])
-autoRollbackConfiguration_events = Lens.lens (\AutoRollbackConfiguration' {events} -> events) (\s@AutoRollbackConfiguration' {} a -> s {events = a} :: AutoRollbackConfiguration) Prelude.. Lens.mapping Lens._Coerce
+autoRollbackConfiguration_events = Lens.lens (\AutoRollbackConfiguration' {events} -> events) (\s@AutoRollbackConfiguration' {} a -> s {events = a} :: AutoRollbackConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AutoRollbackConfiguration where
   parseJSON =

@@ -79,7 +79,7 @@ newCreateResourceGroup ::
 newCreateResourceGroup pResourceGroupTags_ =
   CreateResourceGroup'
     { resourceGroupTags =
-        Lens._Coerce Lens.# pResourceGroupTags_
+        Lens.coerced Lens.# pResourceGroupTags_
     }
 
 -- | A collection of keys and an array of possible values,
@@ -87,7 +87,7 @@ newCreateResourceGroup pResourceGroupTags_ =
 --
 -- For example,\'[{\"key\":\"Name\",\"values\":[\"TestEC2Instance\"]}]\'.
 createResourceGroup_resourceGroupTags :: Lens.Lens' CreateResourceGroup (Prelude.NonEmpty ResourceGroupTag)
-createResourceGroup_resourceGroupTags = Lens.lens (\CreateResourceGroup' {resourceGroupTags} -> resourceGroupTags) (\s@CreateResourceGroup' {} a -> s {resourceGroupTags = a} :: CreateResourceGroup) Prelude.. Lens._Coerce
+createResourceGroup_resourceGroupTags = Lens.lens (\CreateResourceGroup' {resourceGroupTags} -> resourceGroupTags) (\s@CreateResourceGroup' {} a -> s {resourceGroupTags = a} :: CreateResourceGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateResourceGroup where
   type

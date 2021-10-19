@@ -30,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTextArrayOptions' smart constructor.
 data TextArrayOptions = TextArrayOptions'
-  { -- | The name of an analysis scheme for a @text-array@ field.
-    analysisScheme :: Prelude.Maybe Prelude.Text,
-    -- | A list of source fields to map to the field.
+  { -- | A list of source fields to map to the field.
     sourceFields :: Prelude.Maybe Prelude.Text,
     -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The name of an analysis scheme for a @text-array@ field.
+    analysisScheme :: Prelude.Maybe Prelude.Text,
+    -- | Whether highlights can be returned for the field.
+    highlightEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Prelude.Maybe Prelude.Text,
-    -- | Whether highlights can be returned for the field.
-    highlightEnabled :: Prelude.Maybe Prelude.Bool
+    defaultValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,26 @@ data TextArrayOptions = TextArrayOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'analysisScheme', 'textArrayOptions_analysisScheme' - The name of an analysis scheme for a @text-array@ field.
---
 -- 'sourceFields', 'textArrayOptions_sourceFields' - A list of source fields to map to the field.
 --
 -- 'returnEnabled', 'textArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
 --
--- 'defaultValue', 'textArrayOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
--- document.
+-- 'analysisScheme', 'textArrayOptions_analysisScheme' - The name of an analysis scheme for a @text-array@ field.
 --
 -- 'highlightEnabled', 'textArrayOptions_highlightEnabled' - Whether highlights can be returned for the field.
+--
+-- 'defaultValue', 'textArrayOptions_defaultValue' - A value to use for the field if the field isn\'t specified for a
+-- document.
 newTextArrayOptions ::
   TextArrayOptions
 newTextArrayOptions =
   TextArrayOptions'
-    { analysisScheme = Prelude.Nothing,
-      sourceFields = Prelude.Nothing,
+    { sourceFields = Prelude.Nothing,
       returnEnabled = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      highlightEnabled = Prelude.Nothing
+      analysisScheme = Prelude.Nothing,
+      highlightEnabled = Prelude.Nothing,
+      defaultValue = Prelude.Nothing
     }
-
--- | The name of an analysis scheme for a @text-array@ field.
-textArrayOptions_analysisScheme :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Text)
-textArrayOptions_analysisScheme = Lens.lens (\TextArrayOptions' {analysisScheme} -> analysisScheme) (\s@TextArrayOptions' {} a -> s {analysisScheme = a} :: TextArrayOptions)
 
 -- | A list of source fields to map to the field.
 textArrayOptions_sourceFields :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Text)
@@ -85,23 +81,27 @@ textArrayOptions_sourceFields = Lens.lens (\TextArrayOptions' {sourceFields} -> 
 textArrayOptions_returnEnabled :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Bool)
 textArrayOptions_returnEnabled = Lens.lens (\TextArrayOptions' {returnEnabled} -> returnEnabled) (\s@TextArrayOptions' {} a -> s {returnEnabled = a} :: TextArrayOptions)
 
--- | A value to use for the field if the field isn\'t specified for a
--- document.
-textArrayOptions_defaultValue :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Text)
-textArrayOptions_defaultValue = Lens.lens (\TextArrayOptions' {defaultValue} -> defaultValue) (\s@TextArrayOptions' {} a -> s {defaultValue = a} :: TextArrayOptions)
+-- | The name of an analysis scheme for a @text-array@ field.
+textArrayOptions_analysisScheme :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Text)
+textArrayOptions_analysisScheme = Lens.lens (\TextArrayOptions' {analysisScheme} -> analysisScheme) (\s@TextArrayOptions' {} a -> s {analysisScheme = a} :: TextArrayOptions)
 
 -- | Whether highlights can be returned for the field.
 textArrayOptions_highlightEnabled :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Bool)
 textArrayOptions_highlightEnabled = Lens.lens (\TextArrayOptions' {highlightEnabled} -> highlightEnabled) (\s@TextArrayOptions' {} a -> s {highlightEnabled = a} :: TextArrayOptions)
 
+-- | A value to use for the field if the field isn\'t specified for a
+-- document.
+textArrayOptions_defaultValue :: Lens.Lens' TextArrayOptions (Prelude.Maybe Prelude.Text)
+textArrayOptions_defaultValue = Lens.lens (\TextArrayOptions' {defaultValue} -> defaultValue) (\s@TextArrayOptions' {} a -> s {defaultValue = a} :: TextArrayOptions)
+
 instance Core.FromXML TextArrayOptions where
   parseXML x =
     TextArrayOptions'
-      Prelude.<$> (x Core..@? "AnalysisScheme")
-      Prelude.<*> (x Core..@? "SourceFields")
+      Prelude.<$> (x Core..@? "SourceFields")
       Prelude.<*> (x Core..@? "ReturnEnabled")
-      Prelude.<*> (x Core..@? "DefaultValue")
+      Prelude.<*> (x Core..@? "AnalysisScheme")
       Prelude.<*> (x Core..@? "HighlightEnabled")
+      Prelude.<*> (x Core..@? "DefaultValue")
 
 instance Prelude.Hashable TextArrayOptions
 
@@ -110,9 +110,9 @@ instance Prelude.NFData TextArrayOptions
 instance Core.ToQuery TextArrayOptions where
   toQuery TextArrayOptions' {..} =
     Prelude.mconcat
-      [ "AnalysisScheme" Core.=: analysisScheme,
-        "SourceFields" Core.=: sourceFields,
+      [ "SourceFields" Core.=: sourceFields,
         "ReturnEnabled" Core.=: returnEnabled,
-        "DefaultValue" Core.=: defaultValue,
-        "HighlightEnabled" Core.=: highlightEnabled
+        "AnalysisScheme" Core.=: analysisScheme,
+        "HighlightEnabled" Core.=: highlightEnabled,
+        "DefaultValue" Core.=: defaultValue
       ]

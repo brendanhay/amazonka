@@ -117,7 +117,7 @@ getLinkAttributes_typedLinkSpecifier = Lens.lens (\GetLinkAttributes' {typedLink
 
 -- | A list of attribute names whose values will be retrieved.
 getLinkAttributes_attributeNames :: Lens.Lens' GetLinkAttributes [Prelude.Text]
-getLinkAttributes_attributeNames = Lens.lens (\GetLinkAttributes' {attributeNames} -> attributeNames) (\s@GetLinkAttributes' {} a -> s {attributeNames = a} :: GetLinkAttributes) Prelude.. Lens._Coerce
+getLinkAttributes_attributeNames = Lens.lens (\GetLinkAttributes' {attributeNames} -> attributeNames) (\s@GetLinkAttributes' {} a -> s {attributeNames = a} :: GetLinkAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetLinkAttributes where
   type
@@ -195,7 +195,7 @@ newGetLinkAttributesResponse pHttpStatus_ =
 
 -- | The attributes that are associated with the typed link.
 getLinkAttributesResponse_attributes :: Lens.Lens' GetLinkAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-getLinkAttributesResponse_attributes = Lens.lens (\GetLinkAttributesResponse' {attributes} -> attributes) (\s@GetLinkAttributesResponse' {} a -> s {attributes = a} :: GetLinkAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getLinkAttributesResponse_attributes = Lens.lens (\GetLinkAttributesResponse' {attributes} -> attributes) (\s@GetLinkAttributesResponse' {} a -> s {attributes = a} :: GetLinkAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getLinkAttributesResponse_httpStatus :: Lens.Lens' GetLinkAttributesResponse Prelude.Int

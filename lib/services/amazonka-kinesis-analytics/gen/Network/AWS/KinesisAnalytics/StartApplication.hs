@@ -117,7 +117,7 @@ startApplication_applicationName = Lens.lens (\StartApplication' {applicationNam
 -- associated with the input. You can also specify where in the streaming
 -- source you want Amazon Kinesis Analytics to start reading.
 startApplication_inputConfigurations :: Lens.Lens' StartApplication [InputConfiguration]
-startApplication_inputConfigurations = Lens.lens (\StartApplication' {inputConfigurations} -> inputConfigurations) (\s@StartApplication' {} a -> s {inputConfigurations = a} :: StartApplication) Prelude.. Lens._Coerce
+startApplication_inputConfigurations = Lens.lens (\StartApplication' {inputConfigurations} -> inputConfigurations) (\s@StartApplication' {} a -> s {inputConfigurations = a} :: StartApplication) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartApplication where
   type

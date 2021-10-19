@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCreateVolumePermissionModifications' smart constructor.
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
-  { -- | Adds the specified Amazon Web Services account ID or group to the list.
-    add :: Prelude.Maybe [CreateVolumePermission],
-    -- | Removes the specified Amazon Web Services account ID or group from the
+  { -- | Removes the specified Amazon Web Services account ID or group from the
     -- list.
-    remove :: Prelude.Maybe [CreateVolumePermission]
+    remove :: Prelude.Maybe [CreateVolumePermission],
+    -- | Adds the specified Amazon Web Services account ID or group to the list.
+    add :: Prelude.Maybe [CreateVolumePermission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,27 +46,27 @@ data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'add', 'createVolumePermissionModifications_add' - Adds the specified Amazon Web Services account ID or group to the list.
---
 -- 'remove', 'createVolumePermissionModifications_remove' - Removes the specified Amazon Web Services account ID or group from the
 -- list.
+--
+-- 'add', 'createVolumePermissionModifications_add' - Adds the specified Amazon Web Services account ID or group to the list.
 newCreateVolumePermissionModifications ::
   CreateVolumePermissionModifications
 newCreateVolumePermissionModifications =
   CreateVolumePermissionModifications'
-    { add =
+    { remove =
         Prelude.Nothing,
-      remove = Prelude.Nothing
+      add = Prelude.Nothing
     }
-
--- | Adds the specified Amazon Web Services account ID or group to the list.
-createVolumePermissionModifications_add :: Lens.Lens' CreateVolumePermissionModifications (Prelude.Maybe [CreateVolumePermission])
-createVolumePermissionModifications_add = Lens.lens (\CreateVolumePermissionModifications' {add} -> add) (\s@CreateVolumePermissionModifications' {} a -> s {add = a} :: CreateVolumePermissionModifications) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Removes the specified Amazon Web Services account ID or group from the
 -- list.
 createVolumePermissionModifications_remove :: Lens.Lens' CreateVolumePermissionModifications (Prelude.Maybe [CreateVolumePermission])
-createVolumePermissionModifications_remove = Lens.lens (\CreateVolumePermissionModifications' {remove} -> remove) (\s@CreateVolumePermissionModifications' {} a -> s {remove = a} :: CreateVolumePermissionModifications) Prelude.. Lens.mapping Lens._Coerce
+createVolumePermissionModifications_remove = Lens.lens (\CreateVolumePermissionModifications' {remove} -> remove) (\s@CreateVolumePermissionModifications' {} a -> s {remove = a} :: CreateVolumePermissionModifications) Prelude.. Lens.mapping Lens.coerced
+
+-- | Adds the specified Amazon Web Services account ID or group to the list.
+createVolumePermissionModifications_add :: Lens.Lens' CreateVolumePermissionModifications (Prelude.Maybe [CreateVolumePermission])
+createVolumePermissionModifications_add = Lens.lens (\CreateVolumePermissionModifications' {add} -> add) (\s@CreateVolumePermissionModifications' {} a -> s {add = a} :: CreateVolumePermissionModifications) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable
@@ -83,7 +83,7 @@ instance
   toQuery CreateVolumePermissionModifications' {..} =
     Prelude.mconcat
       [ Core.toQuery
-          (Core.toQueryList "Add" Prelude.<$> add),
+          (Core.toQueryList "Remove" Prelude.<$> remove),
         Core.toQuery
-          (Core.toQueryList "Remove" Prelude.<$> remove)
+          (Core.toQueryList "Add" Prelude.<$> add)
       ]

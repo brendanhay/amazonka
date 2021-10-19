@@ -444,7 +444,7 @@ instance_sshHostRsaKeyFingerprint = Lens.lens (\Instance' {sshHostRsaKeyFingerpr
 
 -- | An array containing the instance security group IDs.
 instance_securityGroupIds :: Lens.Lens' Instance (Prelude.Maybe [Prelude.Text])
-instance_securityGroupIds = Lens.lens (\Instance' {securityGroupIds} -> securityGroupIds) (\s@Instance' {} a -> s {securityGroupIds = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
+instance_securityGroupIds = Lens.lens (\Instance' {securityGroupIds} -> securityGroupIds) (\s@Instance' {} a -> s {securityGroupIds = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
 -- | For container instances, the Amazon ECS cluster\'s ARN.
 instance_ecsClusterArn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
@@ -528,7 +528,7 @@ instance_autoScalingType = Lens.lens (\Instance' {autoScalingType} -> autoScalin
 
 -- | An array containing the instance layer IDs.
 instance_layerIds :: Lens.Lens' Instance (Prelude.Maybe [Prelude.Text])
-instance_layerIds = Lens.lens (\Instance' {layerIds} -> layerIds) (\s@Instance' {} a -> s {layerIds = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
+instance_layerIds = Lens.lens (\Instance' {layerIds} -> layerIds) (\s@Instance' {} a -> s {layerIds = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance architecture: \"i386\" or \"x86_64\".
 instance_architecture :: Lens.Lens' Instance (Prelude.Maybe Architecture)
@@ -572,7 +572,7 @@ instance_ecsContainerInstanceArn = Lens.lens (\Instance' {ecsContainerInstanceAr
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block device mappings.
 instance_blockDeviceMappings :: Lens.Lens' Instance (Prelude.Maybe [BlockDeviceMapping])
-instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
+instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Instance where
   parseJSON =

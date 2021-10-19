@@ -37,8 +37,8 @@ module Network.AWS.CognitoIdentityProvider.SetUserMFAPreference
     newSetUserMFAPreference,
 
     -- * Request Lenses
-    setUserMFAPreference_softwareTokenMfaSettings,
     setUserMFAPreference_sMSMfaSettings,
+    setUserMFAPreference_softwareTokenMfaSettings,
     setUserMFAPreference_accessToken,
 
     -- * Destructuring the Response
@@ -59,10 +59,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetUserMFAPreference' smart constructor.
 data SetUserMFAPreference = SetUserMFAPreference'
-  { -- | The time-based one-time password software token MFA settings.
-    softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
-    -- | The SMS text message multi-factor authentication (MFA) settings.
+  { -- | The SMS text message multi-factor authentication (MFA) settings.
     sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
+    -- | The time-based one-time password software token MFA settings.
+    softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
     -- | The access token for the user.
     accessToken :: Core.Sensitive Prelude.Text
   }
@@ -76,9 +76,9 @@ data SetUserMFAPreference = SetUserMFAPreference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'softwareTokenMfaSettings', 'setUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.
---
 -- 'sMSMfaSettings', 'setUserMFAPreference_sMSMfaSettings' - The SMS text message multi-factor authentication (MFA) settings.
+--
+-- 'softwareTokenMfaSettings', 'setUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.
 --
 -- 'accessToken', 'setUserMFAPreference_accessToken' - The access token for the user.
 newSetUserMFAPreference ::
@@ -87,19 +87,19 @@ newSetUserMFAPreference ::
   SetUserMFAPreference
 newSetUserMFAPreference pAccessToken_ =
   SetUserMFAPreference'
-    { softwareTokenMfaSettings =
+    { sMSMfaSettings =
         Prelude.Nothing,
-      sMSMfaSettings = Prelude.Nothing,
+      softwareTokenMfaSettings = Prelude.Nothing,
       accessToken = Core._Sensitive Lens.# pAccessToken_
     }
-
--- | The time-based one-time password software token MFA settings.
-setUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
-setUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\SetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@SetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: SetUserMFAPreference)
 
 -- | The SMS text message multi-factor authentication (MFA) settings.
 setUserMFAPreference_sMSMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SMSMfaSettingsType)
 setUserMFAPreference_sMSMfaSettings = Lens.lens (\SetUserMFAPreference' {sMSMfaSettings} -> sMSMfaSettings) (\s@SetUserMFAPreference' {} a -> s {sMSMfaSettings = a} :: SetUserMFAPreference)
+
+-- | The time-based one-time password software token MFA settings.
+setUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' SetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
+setUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\SetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@SetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: SetUserMFAPreference)
 
 -- | The access token for the user.
 setUserMFAPreference_accessToken :: Lens.Lens' SetUserMFAPreference Prelude.Text
@@ -140,10 +140,10 @@ instance Core.ToJSON SetUserMFAPreference where
   toJSON SetUserMFAPreference' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SoftwareTokenMfaSettings" Core..=)
-              Prelude.<$> softwareTokenMfaSettings,
-            ("SMSMfaSettings" Core..=)
+          [ ("SMSMfaSettings" Core..=)
               Prelude.<$> sMSMfaSettings,
+            ("SoftwareTokenMfaSettings" Core..=)
+              Prelude.<$> softwareTokenMfaSettings,
             Prelude.Just ("AccessToken" Core..= accessToken)
           ]
       )

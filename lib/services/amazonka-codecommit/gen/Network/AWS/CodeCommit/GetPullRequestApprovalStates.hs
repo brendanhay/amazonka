@@ -175,7 +175,7 @@ newGetPullRequestApprovalStatesResponse pHttpStatus_ =
 
 -- | Information about users who have approved the pull request.
 getPullRequestApprovalStatesResponse_approvals :: Lens.Lens' GetPullRequestApprovalStatesResponse (Prelude.Maybe [Approval])
-getPullRequestApprovalStatesResponse_approvals = Lens.lens (\GetPullRequestApprovalStatesResponse' {approvals} -> approvals) (\s@GetPullRequestApprovalStatesResponse' {} a -> s {approvals = a} :: GetPullRequestApprovalStatesResponse) Prelude.. Lens.mapping Lens._Coerce
+getPullRequestApprovalStatesResponse_approvals = Lens.lens (\GetPullRequestApprovalStatesResponse' {approvals} -> approvals) (\s@GetPullRequestApprovalStatesResponse' {} a -> s {approvals = a} :: GetPullRequestApprovalStatesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getPullRequestApprovalStatesResponse_httpStatus :: Lens.Lens' GetPullRequestApprovalStatesResponse Prelude.Int

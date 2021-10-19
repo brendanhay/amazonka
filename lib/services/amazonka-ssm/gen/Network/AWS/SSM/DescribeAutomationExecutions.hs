@@ -29,9 +29,9 @@ module Network.AWS.SSM.DescribeAutomationExecutions
     newDescribeAutomationExecutions,
 
     -- * Request Lenses
+    describeAutomationExecutions_filters,
     describeAutomationExecutions_nextToken,
     describeAutomationExecutions_maxResults,
-    describeAutomationExecutions_filters,
 
     -- * Destructuring the Response
     DescribeAutomationExecutionsResponse (..),
@@ -53,15 +53,15 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDescribeAutomationExecutions' smart constructor.
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
-  { -- | The token for the next set of items to return. (You received this token
+  { -- | Filters used to limit the scope of executions that are requested.
+    filters :: Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter),
+    -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters used to limit the scope of executions that are requested.
-    filters :: Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter)
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,23 +73,27 @@ data DescribeAutomationExecutions = DescribeAutomationExecutions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeAutomationExecutions_filters' - Filters used to limit the scope of executions that are requested.
+--
 -- 'nextToken', 'describeAutomationExecutions_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
 -- 'maxResults', 'describeAutomationExecutions_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'filters', 'describeAutomationExecutions_filters' - Filters used to limit the scope of executions that are requested.
 newDescribeAutomationExecutions ::
   DescribeAutomationExecutions
 newDescribeAutomationExecutions =
   DescribeAutomationExecutions'
-    { nextToken =
+    { filters =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Filters used to limit the scope of executions that are requested.
+describeAutomationExecutions_filters :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter))
+describeAutomationExecutions_filters = Lens.lens (\DescribeAutomationExecutions' {filters} -> filters) (\s@DescribeAutomationExecutions' {} a -> s {filters = a} :: DescribeAutomationExecutions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -101,10 +105,6 @@ describeAutomationExecutions_nextToken = Lens.lens (\DescribeAutomationExecution
 -- next set of results.
 describeAutomationExecutions_maxResults :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe Prelude.Natural)
 describeAutomationExecutions_maxResults = Lens.lens (\DescribeAutomationExecutions' {maxResults} -> maxResults) (\s@DescribeAutomationExecutions' {} a -> s {maxResults = a} :: DescribeAutomationExecutions)
-
--- | Filters used to limit the scope of executions that are requested.
-describeAutomationExecutions_filters :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter))
-describeAutomationExecutions_filters = Lens.lens (\DescribeAutomationExecutions' {filters} -> filters) (\s@DescribeAutomationExecutions' {} a -> s {filters = a} :: DescribeAutomationExecutions) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeAutomationExecutions where
   page rq rs
@@ -169,9 +169,9 @@ instance Core.ToJSON DescribeAutomationExecutions where
   toJSON DescribeAutomationExecutions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -230,7 +230,7 @@ describeAutomationExecutionsResponse_nextToken = Lens.lens (\DescribeAutomationE
 -- | The list of details about each automation execution which has occurred
 -- which matches the filter specification, if any.
 describeAutomationExecutionsResponse_automationExecutionMetadataList :: Lens.Lens' DescribeAutomationExecutionsResponse (Prelude.Maybe [AutomationExecutionMetadata])
-describeAutomationExecutionsResponse_automationExecutionMetadataList = Lens.lens (\DescribeAutomationExecutionsResponse' {automationExecutionMetadataList} -> automationExecutionMetadataList) (\s@DescribeAutomationExecutionsResponse' {} a -> s {automationExecutionMetadataList = a} :: DescribeAutomationExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAutomationExecutionsResponse_automationExecutionMetadataList = Lens.lens (\DescribeAutomationExecutionsResponse' {automationExecutionMetadataList} -> automationExecutionMetadataList) (\s@DescribeAutomationExecutionsResponse' {} a -> s {automationExecutionMetadataList = a} :: DescribeAutomationExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAutomationExecutionsResponse_httpStatus :: Lens.Lens' DescribeAutomationExecutionsResponse Prelude.Int

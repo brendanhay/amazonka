@@ -221,7 +221,7 @@ newSetResourceAccessForBucketResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 setResourceAccessForBucketResponse_operations :: Lens.Lens' SetResourceAccessForBucketResponse (Prelude.Maybe [Operation])
-setResourceAccessForBucketResponse_operations = Lens.lens (\SetResourceAccessForBucketResponse' {operations} -> operations) (\s@SetResourceAccessForBucketResponse' {} a -> s {operations = a} :: SetResourceAccessForBucketResponse) Prelude.. Lens.mapping Lens._Coerce
+setResourceAccessForBucketResponse_operations = Lens.lens (\SetResourceAccessForBucketResponse' {operations} -> operations) (\s@SetResourceAccessForBucketResponse' {} a -> s {operations = a} :: SetResourceAccessForBucketResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 setResourceAccessForBucketResponse_httpStatus :: Lens.Lens' SetResourceAccessForBucketResponse Prelude.Int

@@ -33,7 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceFleetConfig' smart constructor.
 data InstanceFleetConfig = InstanceFleetConfig'
-  { -- | The target capacity of On-Demand units for the instance fleet, which
+  { -- | The instance type configurations that define the EC2 instances in the
+    -- instance fleet.
+    instanceTypeConfigs :: Prelude.Maybe [InstanceTypeConfig],
+    -- | The target capacity of On-Demand units for the instance fleet, which
     -- determines how many On-Demand Instances to provision. When the instance
     -- fleet launches, Amazon EMR tries to provision On-Demand Instances as
     -- specified by InstanceTypeConfig. Each instance configuration has a
@@ -51,6 +54,8 @@ data InstanceFleetConfig = InstanceFleetConfig'
     -- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and
     -- @TargetOnDemandCapacity@ can be specified, and its value must be 1.
     targetOnDemandCapacity :: Prelude.Maybe Prelude.Natural,
+    -- | The friendly name of the instance fleet.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The target capacity of Spot units for the instance fleet, which
     -- determines how many Spot Instances to provision. When the instance fleet
     -- launches, Amazon EMR tries to provision Spot Instances as specified by
@@ -69,13 +74,8 @@ data InstanceFleetConfig = InstanceFleetConfig'
     -- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can
     -- be specified, and its value must be 1.
     targetSpotCapacity :: Prelude.Maybe Prelude.Natural,
-    -- | The friendly name of the instance fleet.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The launch specification for the instance fleet.
     launchSpecifications :: Prelude.Maybe InstanceFleetProvisioningSpecifications,
-    -- | The instance type configurations that define the EC2 instances in the
-    -- instance fleet.
-    instanceTypeConfigs :: Prelude.Maybe [InstanceTypeConfig],
     -- | The node type that the instance fleet hosts. Valid values are MASTER,
     -- CORE, and TASK.
     instanceFleetType :: InstanceFleetType
@@ -89,6 +89,9 @@ data InstanceFleetConfig = InstanceFleetConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'instanceTypeConfigs', 'instanceFleetConfig_instanceTypeConfigs' - The instance type configurations that define the EC2 instances in the
+-- instance fleet.
 --
 -- 'targetOnDemandCapacity', 'instanceFleetConfig_targetOnDemandCapacity' - The target capacity of On-Demand units for the instance fleet, which
 -- determines how many On-Demand Instances to provision. When the instance
@@ -108,6 +111,8 @@ data InstanceFleetConfig = InstanceFleetConfig'
 -- 0. For a master instance fleet, only one of @TargetSpotCapacity@ and
 -- @TargetOnDemandCapacity@ can be specified, and its value must be 1.
 --
+-- 'name', 'instanceFleetConfig_name' - The friendly name of the instance fleet.
+--
 -- 'targetSpotCapacity', 'instanceFleetConfig_targetSpotCapacity' - The target capacity of Spot units for the instance fleet, which
 -- determines how many Spot Instances to provision. When the instance fleet
 -- launches, Amazon EMR tries to provision Spot Instances as specified by
@@ -126,12 +131,7 @@ data InstanceFleetConfig = InstanceFleetConfig'
 -- fleet, only one of @TargetSpotCapacity@ and @TargetOnDemandCapacity@ can
 -- be specified, and its value must be 1.
 --
--- 'name', 'instanceFleetConfig_name' - The friendly name of the instance fleet.
---
 -- 'launchSpecifications', 'instanceFleetConfig_launchSpecifications' - The launch specification for the instance fleet.
---
--- 'instanceTypeConfigs', 'instanceFleetConfig_instanceTypeConfigs' - The instance type configurations that define the EC2 instances in the
--- instance fleet.
 --
 -- 'instanceFleetType', 'instanceFleetConfig_instanceFleetType' - The node type that the instance fleet hosts. Valid values are MASTER,
 -- CORE, and TASK.
@@ -141,14 +141,19 @@ newInstanceFleetConfig ::
   InstanceFleetConfig
 newInstanceFleetConfig pInstanceFleetType_ =
   InstanceFleetConfig'
-    { targetOnDemandCapacity =
+    { instanceTypeConfigs =
         Prelude.Nothing,
-      targetSpotCapacity = Prelude.Nothing,
+      targetOnDemandCapacity = Prelude.Nothing,
       name = Prelude.Nothing,
+      targetSpotCapacity = Prelude.Nothing,
       launchSpecifications = Prelude.Nothing,
-      instanceTypeConfigs = Prelude.Nothing,
       instanceFleetType = pInstanceFleetType_
     }
+
+-- | The instance type configurations that define the EC2 instances in the
+-- instance fleet.
+instanceFleetConfig_instanceTypeConfigs :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe [InstanceTypeConfig])
+instanceFleetConfig_instanceTypeConfigs = Lens.lens (\InstanceFleetConfig' {instanceTypeConfigs} -> instanceTypeConfigs) (\s@InstanceFleetConfig' {} a -> s {instanceTypeConfigs = a} :: InstanceFleetConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The target capacity of On-Demand units for the instance fleet, which
 -- determines how many On-Demand Instances to provision. When the instance
@@ -170,6 +175,10 @@ newInstanceFleetConfig pInstanceFleetType_ =
 instanceFleetConfig_targetOnDemandCapacity :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe Prelude.Natural)
 instanceFleetConfig_targetOnDemandCapacity = Lens.lens (\InstanceFleetConfig' {targetOnDemandCapacity} -> targetOnDemandCapacity) (\s@InstanceFleetConfig' {} a -> s {targetOnDemandCapacity = a} :: InstanceFleetConfig)
 
+-- | The friendly name of the instance fleet.
+instanceFleetConfig_name :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe Prelude.Text)
+instanceFleetConfig_name = Lens.lens (\InstanceFleetConfig' {name} -> name) (\s@InstanceFleetConfig' {} a -> s {name = a} :: InstanceFleetConfig)
+
 -- | The target capacity of Spot units for the instance fleet, which
 -- determines how many Spot Instances to provision. When the instance fleet
 -- launches, Amazon EMR tries to provision Spot Instances as specified by
@@ -190,18 +199,9 @@ instanceFleetConfig_targetOnDemandCapacity = Lens.lens (\InstanceFleetConfig' {t
 instanceFleetConfig_targetSpotCapacity :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe Prelude.Natural)
 instanceFleetConfig_targetSpotCapacity = Lens.lens (\InstanceFleetConfig' {targetSpotCapacity} -> targetSpotCapacity) (\s@InstanceFleetConfig' {} a -> s {targetSpotCapacity = a} :: InstanceFleetConfig)
 
--- | The friendly name of the instance fleet.
-instanceFleetConfig_name :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe Prelude.Text)
-instanceFleetConfig_name = Lens.lens (\InstanceFleetConfig' {name} -> name) (\s@InstanceFleetConfig' {} a -> s {name = a} :: InstanceFleetConfig)
-
 -- | The launch specification for the instance fleet.
 instanceFleetConfig_launchSpecifications :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe InstanceFleetProvisioningSpecifications)
 instanceFleetConfig_launchSpecifications = Lens.lens (\InstanceFleetConfig' {launchSpecifications} -> launchSpecifications) (\s@InstanceFleetConfig' {} a -> s {launchSpecifications = a} :: InstanceFleetConfig)
-
--- | The instance type configurations that define the EC2 instances in the
--- instance fleet.
-instanceFleetConfig_instanceTypeConfigs :: Lens.Lens' InstanceFleetConfig (Prelude.Maybe [InstanceTypeConfig])
-instanceFleetConfig_instanceTypeConfigs = Lens.lens (\InstanceFleetConfig' {instanceTypeConfigs} -> instanceTypeConfigs) (\s@InstanceFleetConfig' {} a -> s {instanceTypeConfigs = a} :: InstanceFleetConfig) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The node type that the instance fleet hosts. Valid values are MASTER,
 -- CORE, and TASK.
@@ -216,15 +216,15 @@ instance Core.ToJSON InstanceFleetConfig where
   toJSON InstanceFleetConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TargetOnDemandCapacity" Core..=)
+          [ ("InstanceTypeConfigs" Core..=)
+              Prelude.<$> instanceTypeConfigs,
+            ("TargetOnDemandCapacity" Core..=)
               Prelude.<$> targetOnDemandCapacity,
+            ("Name" Core..=) Prelude.<$> name,
             ("TargetSpotCapacity" Core..=)
               Prelude.<$> targetSpotCapacity,
-            ("Name" Core..=) Prelude.<$> name,
             ("LaunchSpecifications" Core..=)
               Prelude.<$> launchSpecifications,
-            ("InstanceTypeConfigs" Core..=)
-              Prelude.<$> instanceTypeConfigs,
             Prelude.Just
               ("InstanceFleetType" Core..= instanceFleetType)
           ]

@@ -30,14 +30,7 @@ import Network.AWS.S3.Types.FileHeaderInfo
 --
 -- /See:/ 'newCSVInput' smart constructor.
 data CSVInput = CSVInput'
-  { -- | Specifies that CSV field values may contain quoted record delimiters and
-    -- such records should be allowed. Default value is FALSE. Setting this
-    -- value to TRUE may lower performance.
-    allowQuotedRecordDelimiter :: Prelude.Maybe Prelude.Bool,
-    -- | A single character used to separate individual records in the input.
-    -- Instead of the default value, you can specify an arbitrary delimiter.
-    recordDelimiter :: Prelude.Maybe Prelude.Text,
-    -- | A single character used for escaping when the field delimiter is part of
+  { -- | A single character used for escaping when the field delimiter is part of
     -- the value. For example, if the value is @a, b@, Amazon S3 wraps this
     -- field value in quotation marks, as follows: @\" a , b \"@.
     --
@@ -47,6 +40,13 @@ data CSVInput = CSVInput'
     --
     -- Ancestors: @CSV@
     quoteCharacter :: Prelude.Maybe Prelude.Text,
+    -- | A single character used to separate individual records in the input.
+    -- Instead of the default value, you can specify an arbitrary delimiter.
+    recordDelimiter :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that CSV field values may contain quoted record delimiters and
+    -- such records should be allowed. Default value is FALSE. Setting this
+    -- value to TRUE may lower performance.
+    allowQuotedRecordDelimiter :: Prelude.Maybe Prelude.Bool,
     -- | Describes the first line of input. Valid values are:
     --
     -- -   @NONE@: First line is not a header.
@@ -59,17 +59,17 @@ data CSVInput = CSVInput'
     -- -   @Use@: First line is a header, and you can use the header value to
     --     identify a column in an expression (@SELECT \"name\" FROM OBJECT@).
     fileHeaderInfo :: Prelude.Maybe FileHeaderInfo,
-    -- | A single character used to separate individual fields in a record. You
-    -- can specify an arbitrary delimiter.
-    fieldDelimiter :: Prelude.Maybe Prelude.Text,
+    -- | A single character used for escaping the quotation mark character inside
+    -- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
+    -- parsed as \" a , b \".
+    quoteEscapeCharacter :: Prelude.Maybe Prelude.Text,
     -- | A single character used to indicate that a row should be ignored when
     -- the character is present at the start of that row. You can specify any
     -- character to indicate a comment line.
     comments :: Prelude.Maybe Prelude.Text,
-    -- | A single character used for escaping the quotation mark character inside
-    -- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
-    -- parsed as \" a , b \".
-    quoteEscapeCharacter :: Prelude.Maybe Prelude.Text
+    -- | A single character used to separate individual fields in a record. You
+    -- can specify an arbitrary delimiter.
+    fieldDelimiter :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,13 +81,6 @@ data CSVInput = CSVInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowQuotedRecordDelimiter', 'cSVInput_allowQuotedRecordDelimiter' - Specifies that CSV field values may contain quoted record delimiters and
--- such records should be allowed. Default value is FALSE. Setting this
--- value to TRUE may lower performance.
---
--- 'recordDelimiter', 'cSVInput_recordDelimiter' - A single character used to separate individual records in the input.
--- Instead of the default value, you can specify an arbitrary delimiter.
---
 -- 'quoteCharacter', 'cSVInput_quoteCharacter' - A single character used for escaping when the field delimiter is part of
 -- the value. For example, if the value is @a, b@, Amazon S3 wraps this
 -- field value in quotation marks, as follows: @\" a , b \"@.
@@ -97,6 +90,13 @@ data CSVInput = CSVInput'
 -- Default: @\"@
 --
 -- Ancestors: @CSV@
+--
+-- 'recordDelimiter', 'cSVInput_recordDelimiter' - A single character used to separate individual records in the input.
+-- Instead of the default value, you can specify an arbitrary delimiter.
+--
+-- 'allowQuotedRecordDelimiter', 'cSVInput_allowQuotedRecordDelimiter' - Specifies that CSV field values may contain quoted record delimiters and
+-- such records should be allowed. Default value is FALSE. Setting this
+-- value to TRUE may lower performance.
 --
 -- 'fileHeaderInfo', 'cSVInput_fileHeaderInfo' - Describes the first line of input. Valid values are:
 --
@@ -110,40 +110,28 @@ data CSVInput = CSVInput'
 -- -   @Use@: First line is a header, and you can use the header value to
 --     identify a column in an expression (@SELECT \"name\" FROM OBJECT@).
 --
--- 'fieldDelimiter', 'cSVInput_fieldDelimiter' - A single character used to separate individual fields in a record. You
--- can specify an arbitrary delimiter.
+-- 'quoteEscapeCharacter', 'cSVInput_quoteEscapeCharacter' - A single character used for escaping the quotation mark character inside
+-- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
+-- parsed as \" a , b \".
 --
 -- 'comments', 'cSVInput_comments' - A single character used to indicate that a row should be ignored when
 -- the character is present at the start of that row. You can specify any
 -- character to indicate a comment line.
 --
--- 'quoteEscapeCharacter', 'cSVInput_quoteEscapeCharacter' - A single character used for escaping the quotation mark character inside
--- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
--- parsed as \" a , b \".
+-- 'fieldDelimiter', 'cSVInput_fieldDelimiter' - A single character used to separate individual fields in a record. You
+-- can specify an arbitrary delimiter.
 newCSVInput ::
   CSVInput
 newCSVInput =
   CSVInput'
-    { allowQuotedRecordDelimiter =
-        Prelude.Nothing,
+    { quoteCharacter = Prelude.Nothing,
       recordDelimiter = Prelude.Nothing,
-      quoteCharacter = Prelude.Nothing,
+      allowQuotedRecordDelimiter = Prelude.Nothing,
       fileHeaderInfo = Prelude.Nothing,
-      fieldDelimiter = Prelude.Nothing,
+      quoteEscapeCharacter = Prelude.Nothing,
       comments = Prelude.Nothing,
-      quoteEscapeCharacter = Prelude.Nothing
+      fieldDelimiter = Prelude.Nothing
     }
-
--- | Specifies that CSV field values may contain quoted record delimiters and
--- such records should be allowed. Default value is FALSE. Setting this
--- value to TRUE may lower performance.
-cSVInput_allowQuotedRecordDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Bool)
-cSVInput_allowQuotedRecordDelimiter = Lens.lens (\CSVInput' {allowQuotedRecordDelimiter} -> allowQuotedRecordDelimiter) (\s@CSVInput' {} a -> s {allowQuotedRecordDelimiter = a} :: CSVInput)
-
--- | A single character used to separate individual records in the input.
--- Instead of the default value, you can specify an arbitrary delimiter.
-cSVInput_recordDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
-cSVInput_recordDelimiter = Lens.lens (\CSVInput' {recordDelimiter} -> recordDelimiter) (\s@CSVInput' {} a -> s {recordDelimiter = a} :: CSVInput)
 
 -- | A single character used for escaping when the field delimiter is part of
 -- the value. For example, if the value is @a, b@, Amazon S3 wraps this
@@ -156,6 +144,17 @@ cSVInput_recordDelimiter = Lens.lens (\CSVInput' {recordDelimiter} -> recordDeli
 -- Ancestors: @CSV@
 cSVInput_quoteCharacter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
 cSVInput_quoteCharacter = Lens.lens (\CSVInput' {quoteCharacter} -> quoteCharacter) (\s@CSVInput' {} a -> s {quoteCharacter = a} :: CSVInput)
+
+-- | A single character used to separate individual records in the input.
+-- Instead of the default value, you can specify an arbitrary delimiter.
+cSVInput_recordDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_recordDelimiter = Lens.lens (\CSVInput' {recordDelimiter} -> recordDelimiter) (\s@CSVInput' {} a -> s {recordDelimiter = a} :: CSVInput)
+
+-- | Specifies that CSV field values may contain quoted record delimiters and
+-- such records should be allowed. Default value is FALSE. Setting this
+-- value to TRUE may lower performance.
+cSVInput_allowQuotedRecordDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Bool)
+cSVInput_allowQuotedRecordDelimiter = Lens.lens (\CSVInput' {allowQuotedRecordDelimiter} -> allowQuotedRecordDelimiter) (\s@CSVInput' {} a -> s {allowQuotedRecordDelimiter = a} :: CSVInput)
 
 -- | Describes the first line of input. Valid values are:
 --
@@ -171,10 +170,11 @@ cSVInput_quoteCharacter = Lens.lens (\CSVInput' {quoteCharacter} -> quoteCharact
 cSVInput_fileHeaderInfo :: Lens.Lens' CSVInput (Prelude.Maybe FileHeaderInfo)
 cSVInput_fileHeaderInfo = Lens.lens (\CSVInput' {fileHeaderInfo} -> fileHeaderInfo) (\s@CSVInput' {} a -> s {fileHeaderInfo = a} :: CSVInput)
 
--- | A single character used to separate individual fields in a record. You
--- can specify an arbitrary delimiter.
-cSVInput_fieldDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
-cSVInput_fieldDelimiter = Lens.lens (\CSVInput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVInput' {} a -> s {fieldDelimiter = a} :: CSVInput)
+-- | A single character used for escaping the quotation mark character inside
+-- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
+-- parsed as \" a , b \".
+cSVInput_quoteEscapeCharacter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_quoteEscapeCharacter = Lens.lens (\CSVInput' {quoteEscapeCharacter} -> quoteEscapeCharacter) (\s@CSVInput' {} a -> s {quoteEscapeCharacter = a} :: CSVInput)
 
 -- | A single character used to indicate that a row should be ignored when
 -- the character is present at the start of that row. You can specify any
@@ -182,11 +182,10 @@ cSVInput_fieldDelimiter = Lens.lens (\CSVInput' {fieldDelimiter} -> fieldDelimit
 cSVInput_comments :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
 cSVInput_comments = Lens.lens (\CSVInput' {comments} -> comments) (\s@CSVInput' {} a -> s {comments = a} :: CSVInput)
 
--- | A single character used for escaping the quotation mark character inside
--- an already escaped value. For example, the value \"\"\" a , b \"\"\" is
--- parsed as \" a , b \".
-cSVInput_quoteEscapeCharacter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
-cSVInput_quoteEscapeCharacter = Lens.lens (\CSVInput' {quoteEscapeCharacter} -> quoteEscapeCharacter) (\s@CSVInput' {} a -> s {quoteEscapeCharacter = a} :: CSVInput)
+-- | A single character used to separate individual fields in a record. You
+-- can specify an arbitrary delimiter.
+cSVInput_fieldDelimiter :: Lens.Lens' CSVInput (Prelude.Maybe Prelude.Text)
+cSVInput_fieldDelimiter = Lens.lens (\CSVInput' {fieldDelimiter} -> fieldDelimiter) (\s@CSVInput' {} a -> s {fieldDelimiter = a} :: CSVInput)
 
 instance Prelude.Hashable CSVInput
 
@@ -195,12 +194,12 @@ instance Prelude.NFData CSVInput
 instance Core.ToXML CSVInput where
   toXML CSVInput' {..} =
     Prelude.mconcat
-      [ "AllowQuotedRecordDelimiter"
-          Core.@= allowQuotedRecordDelimiter,
+      [ "QuoteCharacter" Core.@= quoteCharacter,
         "RecordDelimiter" Core.@= recordDelimiter,
-        "QuoteCharacter" Core.@= quoteCharacter,
+        "AllowQuotedRecordDelimiter"
+          Core.@= allowQuotedRecordDelimiter,
         "FileHeaderInfo" Core.@= fileHeaderInfo,
-        "FieldDelimiter" Core.@= fieldDelimiter,
+        "QuoteEscapeCharacter" Core.@= quoteEscapeCharacter,
         "Comments" Core.@= comments,
-        "QuoteEscapeCharacter" Core.@= quoteEscapeCharacter
+        "FieldDelimiter" Core.@= fieldDelimiter
       ]

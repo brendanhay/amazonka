@@ -34,11 +34,11 @@ data ProtectiveEquipmentBodyPart = ProtectiveEquipmentBodyPart'
   { -- | An array of Personal Protective Equipment items detected around a body
     -- part.
     equipmentDetections :: Prelude.Maybe [EquipmentDetection],
-    -- | The detected body part.
-    name :: Prelude.Maybe BodyPart,
     -- | The confidence that Amazon Rekognition has in the detection accuracy of
     -- the detected body part.
-    confidence :: Prelude.Maybe Prelude.Double
+    confidence :: Prelude.Maybe Prelude.Double,
+    -- | The detected body part.
+    name :: Prelude.Maybe BodyPart
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,33 +53,33 @@ data ProtectiveEquipmentBodyPart = ProtectiveEquipmentBodyPart'
 -- 'equipmentDetections', 'protectiveEquipmentBodyPart_equipmentDetections' - An array of Personal Protective Equipment items detected around a body
 -- part.
 --
--- 'name', 'protectiveEquipmentBodyPart_name' - The detected body part.
---
 -- 'confidence', 'protectiveEquipmentBodyPart_confidence' - The confidence that Amazon Rekognition has in the detection accuracy of
 -- the detected body part.
+--
+-- 'name', 'protectiveEquipmentBodyPart_name' - The detected body part.
 newProtectiveEquipmentBodyPart ::
   ProtectiveEquipmentBodyPart
 newProtectiveEquipmentBodyPart =
   ProtectiveEquipmentBodyPart'
     { equipmentDetections =
         Prelude.Nothing,
-      name = Prelude.Nothing,
-      confidence = Prelude.Nothing
+      confidence = Prelude.Nothing,
+      name = Prelude.Nothing
     }
 
 -- | An array of Personal Protective Equipment items detected around a body
 -- part.
 protectiveEquipmentBodyPart_equipmentDetections :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe [EquipmentDetection])
-protectiveEquipmentBodyPart_equipmentDetections = Lens.lens (\ProtectiveEquipmentBodyPart' {equipmentDetections} -> equipmentDetections) (\s@ProtectiveEquipmentBodyPart' {} a -> s {equipmentDetections = a} :: ProtectiveEquipmentBodyPart) Prelude.. Lens.mapping Lens._Coerce
-
--- | The detected body part.
-protectiveEquipmentBodyPart_name :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe BodyPart)
-protectiveEquipmentBodyPart_name = Lens.lens (\ProtectiveEquipmentBodyPart' {name} -> name) (\s@ProtectiveEquipmentBodyPart' {} a -> s {name = a} :: ProtectiveEquipmentBodyPart)
+protectiveEquipmentBodyPart_equipmentDetections = Lens.lens (\ProtectiveEquipmentBodyPart' {equipmentDetections} -> equipmentDetections) (\s@ProtectiveEquipmentBodyPart' {} a -> s {equipmentDetections = a} :: ProtectiveEquipmentBodyPart) Prelude.. Lens.mapping Lens.coerced
 
 -- | The confidence that Amazon Rekognition has in the detection accuracy of
 -- the detected body part.
 protectiveEquipmentBodyPart_confidence :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe Prelude.Double)
 protectiveEquipmentBodyPart_confidence = Lens.lens (\ProtectiveEquipmentBodyPart' {confidence} -> confidence) (\s@ProtectiveEquipmentBodyPart' {} a -> s {confidence = a} :: ProtectiveEquipmentBodyPart)
+
+-- | The detected body part.
+protectiveEquipmentBodyPart_name :: Lens.Lens' ProtectiveEquipmentBodyPart (Prelude.Maybe BodyPart)
+protectiveEquipmentBodyPart_name = Lens.lens (\ProtectiveEquipmentBodyPart' {name} -> name) (\s@ProtectiveEquipmentBodyPart' {} a -> s {name = a} :: ProtectiveEquipmentBodyPart)
 
 instance Core.FromJSON ProtectiveEquipmentBodyPart where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON ProtectiveEquipmentBodyPart where
             Prelude.<$> ( x Core..:? "EquipmentDetections"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Confidence")
+            Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable ProtectiveEquipmentBodyPart

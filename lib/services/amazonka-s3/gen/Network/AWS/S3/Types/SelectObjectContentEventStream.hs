@@ -33,16 +33,16 @@ import Network.AWS.S3.Types.StatsEvent
 --
 -- /See:/ 'newSelectObjectContentEventStream' smart constructor.
 data SelectObjectContentEventStream = SelectObjectContentEventStream'
-  { -- | The End Event.
-    end :: Prelude.Maybe EndEvent,
+  { -- | The Progress Event.
+    progress :: Prelude.Maybe ProgressEvent,
     -- | The Records Event.
     records :: Prelude.Maybe RecordsEvent,
-    -- | The Stats Event.
-    stats :: Prelude.Maybe StatsEvent,
     -- | The Continuation Event.
     cont :: Prelude.Maybe ContinuationEvent,
-    -- | The Progress Event.
-    progress :: Prelude.Maybe ProgressEvent
+    -- | The Stats Event.
+    stats :: Prelude.Maybe StatsEvent,
+    -- | The End Event.
+    end :: Prelude.Maybe EndEvent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,55 +54,55 @@ data SelectObjectContentEventStream = SelectObjectContentEventStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'end', 'selectObjectContentEventStream_end' - The End Event.
+-- 'progress', 'selectObjectContentEventStream_progress' - The Progress Event.
 --
 -- 'records', 'selectObjectContentEventStream_records' - The Records Event.
 --
--- 'stats', 'selectObjectContentEventStream_stats' - The Stats Event.
---
 -- 'cont', 'selectObjectContentEventStream_cont' - The Continuation Event.
 --
--- 'progress', 'selectObjectContentEventStream_progress' - The Progress Event.
+-- 'stats', 'selectObjectContentEventStream_stats' - The Stats Event.
+--
+-- 'end', 'selectObjectContentEventStream_end' - The End Event.
 newSelectObjectContentEventStream ::
   SelectObjectContentEventStream
 newSelectObjectContentEventStream =
   SelectObjectContentEventStream'
-    { end =
+    { progress =
         Prelude.Nothing,
       records = Prelude.Nothing,
-      stats = Prelude.Nothing,
       cont = Prelude.Nothing,
-      progress = Prelude.Nothing
+      stats = Prelude.Nothing,
+      end = Prelude.Nothing
     }
-
--- | The End Event.
-selectObjectContentEventStream_end :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe EndEvent)
-selectObjectContentEventStream_end = Lens.lens (\SelectObjectContentEventStream' {end} -> end) (\s@SelectObjectContentEventStream' {} a -> s {end = a} :: SelectObjectContentEventStream)
-
--- | The Records Event.
-selectObjectContentEventStream_records :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe RecordsEvent)
-selectObjectContentEventStream_records = Lens.lens (\SelectObjectContentEventStream' {records} -> records) (\s@SelectObjectContentEventStream' {} a -> s {records = a} :: SelectObjectContentEventStream)
-
--- | The Stats Event.
-selectObjectContentEventStream_stats :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe StatsEvent)
-selectObjectContentEventStream_stats = Lens.lens (\SelectObjectContentEventStream' {stats} -> stats) (\s@SelectObjectContentEventStream' {} a -> s {stats = a} :: SelectObjectContentEventStream)
-
--- | The Continuation Event.
-selectObjectContentEventStream_cont :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe ContinuationEvent)
-selectObjectContentEventStream_cont = Lens.lens (\SelectObjectContentEventStream' {cont} -> cont) (\s@SelectObjectContentEventStream' {} a -> s {cont = a} :: SelectObjectContentEventStream)
 
 -- | The Progress Event.
 selectObjectContentEventStream_progress :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe ProgressEvent)
 selectObjectContentEventStream_progress = Lens.lens (\SelectObjectContentEventStream' {progress} -> progress) (\s@SelectObjectContentEventStream' {} a -> s {progress = a} :: SelectObjectContentEventStream)
 
+-- | The Records Event.
+selectObjectContentEventStream_records :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe RecordsEvent)
+selectObjectContentEventStream_records = Lens.lens (\SelectObjectContentEventStream' {records} -> records) (\s@SelectObjectContentEventStream' {} a -> s {records = a} :: SelectObjectContentEventStream)
+
+-- | The Continuation Event.
+selectObjectContentEventStream_cont :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe ContinuationEvent)
+selectObjectContentEventStream_cont = Lens.lens (\SelectObjectContentEventStream' {cont} -> cont) (\s@SelectObjectContentEventStream' {} a -> s {cont = a} :: SelectObjectContentEventStream)
+
+-- | The Stats Event.
+selectObjectContentEventStream_stats :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe StatsEvent)
+selectObjectContentEventStream_stats = Lens.lens (\SelectObjectContentEventStream' {stats} -> stats) (\s@SelectObjectContentEventStream' {} a -> s {stats = a} :: SelectObjectContentEventStream)
+
+-- | The End Event.
+selectObjectContentEventStream_end :: Lens.Lens' SelectObjectContentEventStream (Prelude.Maybe EndEvent)
+selectObjectContentEventStream_end = Lens.lens (\SelectObjectContentEventStream' {end} -> end) (\s@SelectObjectContentEventStream' {} a -> s {end = a} :: SelectObjectContentEventStream)
+
 instance Core.FromXML SelectObjectContentEventStream where
   parseXML x =
     SelectObjectContentEventStream'
-      Prelude.<$> (x Core..@? "End")
+      Prelude.<$> (x Core..@? "Progress")
       Prelude.<*> (x Core..@? "Records")
-      Prelude.<*> (x Core..@? "Stats")
       Prelude.<*> (x Core..@? "Cont")
-      Prelude.<*> (x Core..@? "Progress")
+      Prelude.<*> (x Core..@? "Stats")
+      Prelude.<*> (x Core..@? "End")
 
 instance
   Prelude.Hashable

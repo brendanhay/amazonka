@@ -126,7 +126,7 @@ getIdentityPolicies_identity = Lens.lens (\GetIdentityPolicies' {identity} -> id
 -- policies that are attached to the identity, you can use
 -- @ListIdentityPolicies@.
 getIdentityPolicies_policyNames :: Lens.Lens' GetIdentityPolicies [Prelude.Text]
-getIdentityPolicies_policyNames = Lens.lens (\GetIdentityPolicies' {policyNames} -> policyNames) (\s@GetIdentityPolicies' {} a -> s {policyNames = a} :: GetIdentityPolicies) Prelude.. Lens._Coerce
+getIdentityPolicies_policyNames = Lens.lens (\GetIdentityPolicies' {policyNames} -> policyNames) (\s@GetIdentityPolicies' {} a -> s {policyNames = a} :: GetIdentityPolicies) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetIdentityPolicies where
   type
@@ -205,6 +205,6 @@ getIdentityPoliciesResponse_httpStatus = Lens.lens (\GetIdentityPoliciesResponse
 
 -- | A map of policy names to policies.
 getIdentityPoliciesResponse_policies :: Lens.Lens' GetIdentityPoliciesResponse (Prelude.HashMap Prelude.Text Prelude.Text)
-getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' {policies} -> policies) (\s@GetIdentityPoliciesResponse' {} a -> s {policies = a} :: GetIdentityPoliciesResponse) Prelude.. Lens._Coerce
+getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' {policies} -> policies) (\s@GetIdentityPoliciesResponse' {} a -> s {policies = a} :: GetIdentityPoliciesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetIdentityPoliciesResponse

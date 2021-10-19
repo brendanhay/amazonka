@@ -32,8 +32,8 @@ module Network.AWS.MarketplaceEntitlement.GetEntitlements
 
     -- * Request Lenses
     getEntitlements_nextToken,
-    getEntitlements_maxResults,
     getEntitlements_filter,
+    getEntitlements_maxResults,
     getEntitlements_productCode,
 
     -- * Destructuring the Response
@@ -62,15 +62,15 @@ data GetEntitlements = GetEntitlements'
   { -- | For paginated calls to GetEntitlements, pass the NextToken from the
     -- previous GetEntitlementsResult.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to retrieve from the GetEntitlements
-    -- operation. For pagination, use the NextToken field in subsequent calls
-    -- to GetEntitlements.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Filter is used to return entitlements for a specific customer or for a
     -- specific dimension. Filters are described as keys mapped to a lists of
     -- values. Filtered requests are /unioned/ for each value in the value
     -- list, and then /intersected/ for each filter key.
     filter' :: Prelude.Maybe (Prelude.HashMap GetEntitlementFilterName (Prelude.NonEmpty Prelude.Text)),
+    -- | The maximum number of items to retrieve from the GetEntitlements
+    -- operation. For pagination, use the NextToken field in subsequent calls
+    -- to GetEntitlements.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code will be provided by AWS Marketplace when the product
     -- listing is created.
@@ -89,14 +89,14 @@ data GetEntitlements = GetEntitlements'
 -- 'nextToken', 'getEntitlements_nextToken' - For paginated calls to GetEntitlements, pass the NextToken from the
 -- previous GetEntitlementsResult.
 --
--- 'maxResults', 'getEntitlements_maxResults' - The maximum number of items to retrieve from the GetEntitlements
--- operation. For pagination, use the NextToken field in subsequent calls
--- to GetEntitlements.
---
 -- 'filter'', 'getEntitlements_filter' - Filter is used to return entitlements for a specific customer or for a
 -- specific dimension. Filters are described as keys mapped to a lists of
 -- values. Filtered requests are /unioned/ for each value in the value
 -- list, and then /intersected/ for each filter key.
+--
+-- 'maxResults', 'getEntitlements_maxResults' - The maximum number of items to retrieve from the GetEntitlements
+-- operation. For pagination, use the NextToken field in subsequent calls
+-- to GetEntitlements.
 --
 -- 'productCode', 'getEntitlements_productCode' - Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code will be provided by AWS Marketplace when the product
@@ -108,8 +108,8 @@ newGetEntitlements ::
 newGetEntitlements pProductCode_ =
   GetEntitlements'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       productCode = pProductCode_
     }
 
@@ -118,18 +118,18 @@ newGetEntitlements pProductCode_ =
 getEntitlements_nextToken :: Lens.Lens' GetEntitlements (Prelude.Maybe Prelude.Text)
 getEntitlements_nextToken = Lens.lens (\GetEntitlements' {nextToken} -> nextToken) (\s@GetEntitlements' {} a -> s {nextToken = a} :: GetEntitlements)
 
--- | The maximum number of items to retrieve from the GetEntitlements
--- operation. For pagination, use the NextToken field in subsequent calls
--- to GetEntitlements.
-getEntitlements_maxResults :: Lens.Lens' GetEntitlements (Prelude.Maybe Prelude.Int)
-getEntitlements_maxResults = Lens.lens (\GetEntitlements' {maxResults} -> maxResults) (\s@GetEntitlements' {} a -> s {maxResults = a} :: GetEntitlements)
-
 -- | Filter is used to return entitlements for a specific customer or for a
 -- specific dimension. Filters are described as keys mapped to a lists of
 -- values. Filtered requests are /unioned/ for each value in the value
 -- list, and then /intersected/ for each filter key.
 getEntitlements_filter :: Lens.Lens' GetEntitlements (Prelude.Maybe (Prelude.HashMap GetEntitlementFilterName (Prelude.NonEmpty Prelude.Text)))
-getEntitlements_filter = Lens.lens (\GetEntitlements' {filter'} -> filter') (\s@GetEntitlements' {} a -> s {filter' = a} :: GetEntitlements) Prelude.. Lens.mapping Lens._Coerce
+getEntitlements_filter = Lens.lens (\GetEntitlements' {filter'} -> filter') (\s@GetEntitlements' {} a -> s {filter' = a} :: GetEntitlements) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of items to retrieve from the GetEntitlements
+-- operation. For pagination, use the NextToken field in subsequent calls
+-- to GetEntitlements.
+getEntitlements_maxResults :: Lens.Lens' GetEntitlements (Prelude.Maybe Prelude.Int)
+getEntitlements_maxResults = Lens.lens (\GetEntitlements' {maxResults} -> maxResults) (\s@GetEntitlements' {} a -> s {maxResults = a} :: GetEntitlements)
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code will be provided by AWS Marketplace when the product
@@ -197,8 +197,8 @@ instance Core.ToJSON GetEntitlements where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("ProductCode" Core..= productCode)
           ]
       )
@@ -266,7 +266,7 @@ getEntitlementsResponse_nextToken = Lens.lens (\GetEntitlementsResponse' {nextTo
 -- the result contains an empty set of entitlements, NextToken might still
 -- be present and should be used.
 getEntitlementsResponse_entitlements :: Lens.Lens' GetEntitlementsResponse (Prelude.Maybe [Entitlement])
-getEntitlementsResponse_entitlements = Lens.lens (\GetEntitlementsResponse' {entitlements} -> entitlements) (\s@GetEntitlementsResponse' {} a -> s {entitlements = a} :: GetEntitlementsResponse) Prelude.. Lens.mapping Lens._Coerce
+getEntitlementsResponse_entitlements = Lens.lens (\GetEntitlementsResponse' {entitlements} -> entitlements) (\s@GetEntitlementsResponse' {} a -> s {entitlements = a} :: GetEntitlementsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEntitlementsResponse_httpStatus :: Lens.Lens' GetEntitlementsResponse Prelude.Int

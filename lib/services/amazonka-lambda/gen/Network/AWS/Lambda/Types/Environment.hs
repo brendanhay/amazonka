@@ -54,7 +54,7 @@ newEnvironment =
 -- | Environment variable key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html Using Lambda environment variables>.
 environment_variables :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
+environment_variables = Lens.lens (\Environment' {variables} -> variables) (\s@Environment' {} a -> s {variables = a} :: Environment) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 instance Prelude.Hashable Environment
 

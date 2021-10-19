@@ -29,10 +29,10 @@ import Network.AWS.SSM.Types.ComplianceQueryOperatorType
 --
 -- /See:/ 'newComplianceStringFilter' smart constructor.
 data ComplianceStringFilter = ComplianceStringFilter'
-  { -- | The name of the filter.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value for which to search.
+  { -- | The value for which to search.
     values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The name of the filter.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The type of comparison that should be performed for the value: Equal,
     -- NotEqual, BeginWith, LessThan, or GreaterThan.
     type' :: Prelude.Maybe ComplianceQueryOperatorType
@@ -47,9 +47,9 @@ data ComplianceStringFilter = ComplianceStringFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'complianceStringFilter_key' - The name of the filter.
---
 -- 'values', 'complianceStringFilter_values' - The value for which to search.
+--
+-- 'key', 'complianceStringFilter_key' - The name of the filter.
 --
 -- 'type'', 'complianceStringFilter_type' - The type of comparison that should be performed for the value: Equal,
 -- NotEqual, BeginWith, LessThan, or GreaterThan.
@@ -57,18 +57,18 @@ newComplianceStringFilter ::
   ComplianceStringFilter
 newComplianceStringFilter =
   ComplianceStringFilter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
+    { values = Prelude.Nothing,
+      key = Prelude.Nothing,
       type' = Prelude.Nothing
     }
+
+-- | The value for which to search.
+complianceStringFilter_values :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+complianceStringFilter_values = Lens.lens (\ComplianceStringFilter' {values} -> values) (\s@ComplianceStringFilter' {} a -> s {values = a} :: ComplianceStringFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter.
 complianceStringFilter_key :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe Prelude.Text)
 complianceStringFilter_key = Lens.lens (\ComplianceStringFilter' {key} -> key) (\s@ComplianceStringFilter' {} a -> s {key = a} :: ComplianceStringFilter)
-
--- | The value for which to search.
-complianceStringFilter_values :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-complianceStringFilter_values = Lens.lens (\ComplianceStringFilter' {values} -> values) (\s@ComplianceStringFilter' {} a -> s {values = a} :: ComplianceStringFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of comparison that should be performed for the value: Equal,
 -- NotEqual, BeginWith, LessThan, or GreaterThan.
@@ -83,8 +83,8 @@ instance Core.ToJSON ComplianceStringFilter where
   toJSON ComplianceStringFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Values" Core..=) Prelude.<$> values,
+          [ ("Values" Core..=) Prelude.<$> values,
+            ("Key" Core..=) Prelude.<$> key,
             ("Type" Core..=) Prelude.<$> type'
           ]
       )

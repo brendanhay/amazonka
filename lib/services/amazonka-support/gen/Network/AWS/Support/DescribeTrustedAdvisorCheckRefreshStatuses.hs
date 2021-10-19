@@ -98,7 +98,7 @@ newDescribeTrustedAdvisorCheckRefreshStatuses =
 -- If you specify the check ID of a check that is automatically refreshed,
 -- you might see an @InvalidParameterValue@ error.
 describeTrustedAdvisorCheckRefreshStatuses_checkIds :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Prelude.Text]
-describeTrustedAdvisorCheckRefreshStatuses_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatuses' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckRefreshStatuses' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckRefreshStatuses) Prelude.. Lens._Coerce
+describeTrustedAdvisorCheckRefreshStatuses_checkIds = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatuses' {checkIds} -> checkIds) (\s@DescribeTrustedAdvisorCheckRefreshStatuses' {} a -> s {checkIds = a} :: DescribeTrustedAdvisorCheckRefreshStatuses) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -208,7 +208,7 @@ describeTrustedAdvisorCheckRefreshStatusesResponse_httpStatus = Lens.lens (\Desc
 
 -- | The refresh status of the specified Trusted Advisor checks.
 describeTrustedAdvisorCheckRefreshStatusesResponse_statuses :: Lens.Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-describeTrustedAdvisorCheckRefreshStatusesResponse_statuses = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatusesResponse' {statuses} -> statuses) (\s@DescribeTrustedAdvisorCheckRefreshStatusesResponse' {} a -> s {statuses = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse) Prelude.. Lens._Coerce
+describeTrustedAdvisorCheckRefreshStatusesResponse_statuses = Lens.lens (\DescribeTrustedAdvisorCheckRefreshStatusesResponse' {statuses} -> statuses) (\s@DescribeTrustedAdvisorCheckRefreshStatusesResponse' {} a -> s {statuses = a} :: DescribeTrustedAdvisorCheckRefreshStatusesResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

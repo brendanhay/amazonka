@@ -80,7 +80,7 @@ newPutProtocolsList pProtocolsList_ =
 
 -- | The tags associated with the resource.
 putProtocolsList_tagList :: Lens.Lens' PutProtocolsList (Prelude.Maybe [Tag])
-putProtocolsList_tagList = Lens.lens (\PutProtocolsList' {tagList} -> tagList) (\s@PutProtocolsList' {} a -> s {tagList = a} :: PutProtocolsList) Prelude.. Lens.mapping Lens._Coerce
+putProtocolsList_tagList = Lens.lens (\PutProtocolsList' {tagList} -> tagList) (\s@PutProtocolsList' {} a -> s {tagList = a} :: PutProtocolsList) Prelude.. Lens.mapping Lens.coerced
 
 -- | The details of the Firewall Manager protocols list to be created.
 putProtocolsList_protocolsList :: Lens.Lens' PutProtocolsList ProtocolsListData

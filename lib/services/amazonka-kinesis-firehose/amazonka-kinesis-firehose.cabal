@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-kinesis-firehose
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Kinesis Firehose SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -58,6 +58,13 @@ library
     Network.AWS.Firehose.StopDeliveryStreamEncryption
     Network.AWS.Firehose.TagDeliveryStream
     Network.AWS.Firehose.Types
+    Network.AWS.Firehose.Types.AmazonopensearchserviceBufferingHints
+    Network.AWS.Firehose.Types.AmazonopensearchserviceDestinationConfiguration
+    Network.AWS.Firehose.Types.AmazonopensearchserviceDestinationDescription
+    Network.AWS.Firehose.Types.AmazonopensearchserviceDestinationUpdate
+    Network.AWS.Firehose.Types.AmazonopensearchserviceIndexRotationPeriod
+    Network.AWS.Firehose.Types.AmazonopensearchserviceRetryOptions
+    Network.AWS.Firehose.Types.AmazonopensearchserviceS3BackupMode
     Network.AWS.Firehose.Types.BufferingHints
     Network.AWS.Firehose.Types.CloudWatchLoggingOptions
     Network.AWS.Firehose.Types.CompressionFormat
@@ -146,8 +153,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-kinesis-firehose-test
   type:             exitcode-stdio-1.0
@@ -165,9 +172,9 @@ test-suite amazonka-kinesis-firehose-test
     Test.AWS.Gen.Firehose
 
   build-depends:
-    , amazonka                   >=1.6.1 && <1.6.2
+    , amazonka                   ^>=2.0
     , amazonka-kinesis-firehose
-    , amazonka-test              >=1.6.1 && <1.6.2
+    , amazonka-test              ^>=2.0
     , base
     , bytestring
     , case-insensitive

@@ -165,7 +165,7 @@ newCreateJob pPipelineId_ =
 -- | A section of the request body that provides information about the files
 -- that are being transcoded.
 createJob_inputs :: Lens.Lens' CreateJob (Prelude.Maybe [JobInput])
-createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+createJob_inputs = Lens.lens (\CreateJob' {inputs} -> inputs) (\s@CreateJob' {} a -> s {inputs = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the request body that provides information about the file
 -- that is being transcoded.
@@ -178,13 +178,13 @@ createJob_input = Lens.lens (\CreateJob' {input} -> input) (\s@CreateJob' {} a -
 -- guarantee that @key\/value@ pairs are returned in the same order in
 -- which you specify them.
 createJob_userMetadata :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+createJob_userMetadata = Lens.lens (\CreateJob' {userMetadata} -> userMetadata) (\s@CreateJob' {} a -> s {userMetadata = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the @Outputs@
 -- syntax instead of the @Output@ syntax.
 createJob_outputs :: Lens.Lens' CreateJob (Prelude.Maybe [CreateJobOutput])
-createJob_outputs = Lens.lens (\CreateJob' {outputs} -> outputs) (\s@CreateJob' {} a -> s {outputs = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+createJob_outputs = Lens.lens (\CreateJob' {outputs} -> outputs) (\s@CreateJob' {} a -> s {outputs = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) file. We strongly recommend that you use the
@@ -198,7 +198,7 @@ createJob_output = Lens.lens (\CreateJob' {output} -> output) (\s@CreateJob' {} 
 --
 -- The maximum number of master playlists in a job is 30.
 createJob_playlists :: Lens.Lens' CreateJob (Prelude.Maybe [CreateJobPlaylist])
-createJob_playlists = Lens.lens (\CreateJob' {playlists} -> playlists) (\s@CreateJob' {} a -> s {playlists = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
+createJob_playlists = Lens.lens (\CreateJob' {playlists} -> playlists) (\s@CreateJob' {} a -> s {playlists = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the
 -- names of all files that this job creates, including output files,

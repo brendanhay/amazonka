@@ -206,7 +206,7 @@ listSpeechSynthesisTasksResponse_nextToken = Lens.lens (\ListSpeechSynthesisTask
 -- specified task in the list request, including output format, creation
 -- time, task status, and so on.
 listSpeechSynthesisTasksResponse_synthesisTasks :: Lens.Lens' ListSpeechSynthesisTasksResponse (Prelude.Maybe [SynthesisTask])
-listSpeechSynthesisTasksResponse_synthesisTasks = Lens.lens (\ListSpeechSynthesisTasksResponse' {synthesisTasks} -> synthesisTasks) (\s@ListSpeechSynthesisTasksResponse' {} a -> s {synthesisTasks = a} :: ListSpeechSynthesisTasksResponse) Prelude.. Lens.mapping Lens._Coerce
+listSpeechSynthesisTasksResponse_synthesisTasks = Lens.lens (\ListSpeechSynthesisTasksResponse' {synthesisTasks} -> synthesisTasks) (\s@ListSpeechSynthesisTasksResponse' {} a -> s {synthesisTasks = a} :: ListSpeechSynthesisTasksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSpeechSynthesisTasksResponse_httpStatus :: Lens.Lens' ListSpeechSynthesisTasksResponse Prelude.Int

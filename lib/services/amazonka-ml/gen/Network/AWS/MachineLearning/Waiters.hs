@@ -25,43 +25,6 @@ import Network.AWS.MachineLearning.Lens
 import Network.AWS.MachineLearning.Types
 import qualified Network.AWS.Prelude as Prelude
 
--- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEvaluationAvailable :: Core.Wait DescribeEvaluations
-newEvaluationAvailable =
-  Core.Wait
-    { Core._waitName = "EvaluationAvailable",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "COMPLETED"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeEvaluationsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. evaluation_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeEvaluationsResponse_results
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. evaluation_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newMLModelAvailable :: Core.Wait DescribeMLModels
 newMLModelAvailable =
@@ -93,6 +56,44 @@ newMLModelAvailable =
                     )
                 )
                 Prelude.. mLModel_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
+newBatchPredictionAvailable =
+  Core.Wait
+    { Core._waitName =
+        "BatchPredictionAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "COMPLETED"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeBatchPredictionsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. batchPrediction_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeBatchPredictionsResponse_results
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. batchPrediction_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
@@ -136,12 +137,11 @@ newDataSourceAvailable =
         ]
     }
 
--- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
-newBatchPredictionAvailable =
+-- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newEvaluationAvailable :: Core.Wait DescribeEvaluations
+newEvaluationAvailable =
   Core.Wait
-    { Core._waitName =
-        "BatchPredictionAvailable",
+    { Core._waitName = "EvaluationAvailable",
       Core._waitAttempts = 60,
       Core._waitDelay = 30,
       Core._waitAcceptors =
@@ -150,11 +150,11 @@ newBatchPredictionAvailable =
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeBatchPredictionsResponse_results
+                    ( describeEvaluationsResponse_results
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. batchPrediction_status
+                Prelude.. evaluation_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
@@ -163,11 +163,11 @@ newBatchPredictionAvailable =
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeBatchPredictionsResponse_results
+                    ( describeEvaluationsResponse_results
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. batchPrediction_status
+                Prelude.. evaluation_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

@@ -105,7 +105,7 @@ newGrantConstraints =
 -- in the request is the same as the encryption context specified in this
 -- constraint.
 grantConstraints_encryptionContextEquals :: Lens.Lens' GrantConstraints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-grantConstraints_encryptionContextEquals = Lens.lens (\GrantConstraints' {encryptionContextEquals} -> encryptionContextEquals) (\s@GrantConstraints' {} a -> s {encryptionContextEquals = a} :: GrantConstraints) Prelude.. Lens.mapping Lens._Coerce
+grantConstraints_encryptionContextEquals = Lens.lens (\GrantConstraints' {encryptionContextEquals} -> encryptionContextEquals) (\s@GrantConstraints' {} a -> s {encryptionContextEquals = a} :: GrantConstraints) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of key-value pairs that must be included in the encryption
 -- context of the
@@ -114,7 +114,7 @@ grantConstraints_encryptionContextEquals = Lens.lens (\GrantConstraints' {encryp
 -- encryption context in the request includes the key-value pairs specified
 -- in this constraint, although it can include additional key-value pairs.
 grantConstraints_encryptionContextSubset :: Lens.Lens' GrantConstraints (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-grantConstraints_encryptionContextSubset = Lens.lens (\GrantConstraints' {encryptionContextSubset} -> encryptionContextSubset) (\s@GrantConstraints' {} a -> s {encryptionContextSubset = a} :: GrantConstraints) Prelude.. Lens.mapping Lens._Coerce
+grantConstraints_encryptionContextSubset = Lens.lens (\GrantConstraints' {encryptionContextSubset} -> encryptionContextSubset) (\s@GrantConstraints' {} a -> s {encryptionContextSubset = a} :: GrantConstraints) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON GrantConstraints where
   parseJSON =

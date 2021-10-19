@@ -40,8 +40,8 @@ module Network.AWS.APIGateway.PutMethodResponse
 
     -- * Response Lenses
     methodResponse_responseModels,
-    methodResponse_responseParameters,
     methodResponse_statusCode,
+    methodResponse_responseParameters,
   )
 where
 
@@ -147,7 +147,7 @@ newPutMethodResponse
 -- Response models are represented as a key\/value map, with a content type
 -- as the key and a Model name as the value.
 putMethodResponse_responseModels :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens._Coerce
+putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModels} -> responseModels) (\s@PutMethodResponse' {} a -> s {responseModels = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A key-value map specifying required or optional response parameters that
 -- API Gateway can send back to the caller. A key defines a method response
@@ -163,7 +163,7 @@ putMethodResponse_responseModels = Lens.lens (\PutMethodResponse' {responseModel
 -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
 -- is a valid JSON expression without the @$@ prefix.)
 putMethodResponse_responseParameters :: Lens.Lens' PutMethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
-putMethodResponse_responseParameters = Lens.lens (\PutMethodResponse' {responseParameters} -> responseParameters) (\s@PutMethodResponse' {} a -> s {responseParameters = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens._Coerce
+putMethodResponse_responseParameters = Lens.lens (\PutMethodResponse' {responseParameters} -> responseParameters) (\s@PutMethodResponse' {} a -> s {responseParameters = a} :: PutMethodResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 putMethodResponse_restApiId :: Lens.Lens' PutMethodResponse Prelude.Text

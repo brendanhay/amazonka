@@ -168,8 +168,8 @@ module Network.AWS.STS.AssumeRoleWithSAML
 
     -- * Request Lenses
     assumeRoleWithSAML_policyArns,
-    assumeRoleWithSAML_policy,
     assumeRoleWithSAML_durationSeconds,
+    assumeRoleWithSAML_policy,
     assumeRoleWithSAML_roleArn,
     assumeRoleWithSAML_principalArn,
     assumeRoleWithSAML_sAMLAssertion,
@@ -179,15 +179,15 @@ module Network.AWS.STS.AssumeRoleWithSAML
     newAssumeRoleWithSAMLResponse,
 
     -- * Response Lenses
-    assumeRoleWithSAMLResponse_nameQualifier,
-    assumeRoleWithSAMLResponse_audience,
-    assumeRoleWithSAMLResponse_subjectType,
     assumeRoleWithSAMLResponse_subject,
+    assumeRoleWithSAMLResponse_audience,
+    assumeRoleWithSAMLResponse_packedPolicySize,
+    assumeRoleWithSAMLResponse_credentials,
+    assumeRoleWithSAMLResponse_subjectType,
+    assumeRoleWithSAMLResponse_nameQualifier,
+    assumeRoleWithSAMLResponse_assumedRoleUser,
     assumeRoleWithSAMLResponse_sourceIdentity,
     assumeRoleWithSAMLResponse_issuer,
-    assumeRoleWithSAMLResponse_credentials,
-    assumeRoleWithSAMLResponse_assumedRoleUser,
-    assumeRoleWithSAMLResponse_packedPolicySize,
     assumeRoleWithSAMLResponse_httpStatus,
   )
 where
@@ -230,6 +230,30 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
     -- in the /IAM User Guide/.
     policyArns :: Prelude.Maybe [PolicyDescriptorType],
+    -- | The duration, in seconds, of the role session. Your role session lasts
+    -- for the duration that you specify for the @DurationSeconds@ parameter,
+    -- or until the time specified in the SAML authentication response\'s
+    -- @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a
+    -- @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum
+    -- session duration setting for the role. This setting can have a value
+    -- from 1 hour to 12 hours. If you specify a value higher than this
+    -- setting, the operation fails. For example, if you specify a session
+    -- duration of 12 hours, but your administrator set the maximum session
+    -- duration to 6 hours, your operation fails. To learn how to view the
+    -- maximum value for your role, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+    -- in the /IAM User Guide/.
+    --
+    -- By default, the value is set to @3600@ seconds.
+    --
+    -- The @DurationSeconds@ parameter is separate from the duration of a
+    -- console session that you might request using the returned credentials.
+    -- The request to the federation endpoint for a console sign-in token takes
+    -- a @SessionDuration@ parameter that specifies the maximum length of the
+    -- console session. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+    -- in the /IAM User Guide/.
+    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | An IAM policy in JSON format that you want to use as an inline session
     -- policy.
     --
@@ -257,30 +281,6 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
     policy :: Prelude.Maybe Prelude.Text,
-    -- | The duration, in seconds, of the role session. Your role session lasts
-    -- for the duration that you specify for the @DurationSeconds@ parameter,
-    -- or until the time specified in the SAML authentication response\'s
-    -- @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a
-    -- @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum
-    -- session duration setting for the role. This setting can have a value
-    -- from 1 hour to 12 hours. If you specify a value higher than this
-    -- setting, the operation fails. For example, if you specify a session
-    -- duration of 12 hours, but your administrator set the maximum session
-    -- duration to 6 hours, your operation fails. To learn how to view the
-    -- maximum value for your role, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
-    -- in the /IAM User Guide/.
-    --
-    -- By default, the value is set to @3600@ seconds.
-    --
-    -- The @DurationSeconds@ parameter is separate from the duration of a
-    -- console session that you might request using the returned credentials.
-    -- The request to the federation endpoint for a console sign-in token takes
-    -- a @SessionDuration@ parameter that specifies the maximum length of the
-    -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
-    -- in the /IAM User Guide/.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
     roleArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that
@@ -332,6 +332,30 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
+-- 'durationSeconds', 'assumeRoleWithSAML_durationSeconds' - The duration, in seconds, of the role session. Your role session lasts
+-- for the duration that you specify for the @DurationSeconds@ parameter,
+-- or until the time specified in the SAML authentication response\'s
+-- @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a
+-- @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum
+-- session duration setting for the role. This setting can have a value
+-- from 1 hour to 12 hours. If you specify a value higher than this
+-- setting, the operation fails. For example, if you specify a session
+-- duration of 12 hours, but your administrator set the maximum session
+-- duration to 6 hours, your operation fails. To learn how to view the
+-- maximum value for your role, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+-- in the /IAM User Guide/.
+--
+-- By default, the value is set to @3600@ seconds.
+--
+-- The @DurationSeconds@ parameter is separate from the duration of a
+-- console session that you might request using the returned credentials.
+-- The request to the federation endpoint for a console sign-in token takes
+-- a @SessionDuration@ parameter that specifies the maximum length of the
+-- console session. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- in the /IAM User Guide/.
+--
 -- 'policy', 'assumeRoleWithSAML_policy' - An IAM policy in JSON format that you want to use as an inline session
 -- policy.
 --
@@ -359,30 +383,6 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
 --
--- 'durationSeconds', 'assumeRoleWithSAML_durationSeconds' - The duration, in seconds, of the role session. Your role session lasts
--- for the duration that you specify for the @DurationSeconds@ parameter,
--- or until the time specified in the SAML authentication response\'s
--- @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a
--- @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum
--- session duration setting for the role. This setting can have a value
--- from 1 hour to 12 hours. If you specify a value higher than this
--- setting, the operation fails. For example, if you specify a session
--- duration of 12 hours, but your administrator set the maximum session
--- duration to 6 hours, your operation fails. To learn how to view the
--- maximum value for your role, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
--- in the /IAM User Guide/.
---
--- By default, the value is set to @3600@ seconds.
---
--- The @DurationSeconds@ parameter is separate from the duration of a
--- console session that you might request using the returned credentials.
--- The request to the federation endpoint for a console sign-in token takes
--- a @SessionDuration@ parameter that specifies the maximum length of the
--- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
--- in the /IAM User Guide/.
---
 -- 'roleArn', 'assumeRoleWithSAML_roleArn' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
 --
 -- 'principalArn', 'assumeRoleWithSAML_principalArn' - The Amazon Resource Name (ARN) of the SAML provider in IAM that
@@ -407,8 +407,8 @@ newAssumeRoleWithSAML
   pSAMLAssertion_ =
     AssumeRoleWithSAML'
       { policyArns = Prelude.Nothing,
-        policy = Prelude.Nothing,
         durationSeconds = Prelude.Nothing,
+        policy = Prelude.Nothing,
         roleArn = pRoleArn_,
         principalArn = pPrincipalArn_,
         sAMLAssertion = pSAMLAssertion_
@@ -443,7 +443,33 @@ newAssumeRoleWithSAML
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 assumeRoleWithSAML_policyArns :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe [PolicyDescriptorType])
-assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> policyArns) (\s@AssumeRoleWithSAML' {} a -> s {policyArns = a} :: AssumeRoleWithSAML) Prelude.. Lens.mapping Lens._Coerce
+assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> policyArns) (\s@AssumeRoleWithSAML' {} a -> s {policyArns = a} :: AssumeRoleWithSAML) Prelude.. Lens.mapping Lens.coerced
+
+-- | The duration, in seconds, of the role session. Your role session lasts
+-- for the duration that you specify for the @DurationSeconds@ parameter,
+-- or until the time specified in the SAML authentication response\'s
+-- @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a
+-- @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum
+-- session duration setting for the role. This setting can have a value
+-- from 1 hour to 12 hours. If you specify a value higher than this
+-- setting, the operation fails. For example, if you specify a session
+-- duration of 12 hours, but your administrator set the maximum session
+-- duration to 6 hours, your operation fails. To learn how to view the
+-- maximum value for your role, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
+-- in the /IAM User Guide/.
+--
+-- By default, the value is set to @3600@ seconds.
+--
+-- The @DurationSeconds@ parameter is separate from the duration of a
+-- console session that you might request using the returned credentials.
+-- The request to the federation endpoint for a console sign-in token takes
+-- a @SessionDuration@ parameter that specifies the maximum length of the
+-- console session. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- in the /IAM User Guide/.
+assumeRoleWithSAML_durationSeconds :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Natural)
+assumeRoleWithSAML_durationSeconds = Lens.lens (\AssumeRoleWithSAML' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithSAML' {} a -> s {durationSeconds = a} :: AssumeRoleWithSAML)
 
 -- | An IAM policy in JSON format that you want to use as an inline session
 -- policy.
@@ -474,32 +500,6 @@ assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> 
 assumeRoleWithSAML_policy :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Text)
 assumeRoleWithSAML_policy = Lens.lens (\AssumeRoleWithSAML' {policy} -> policy) (\s@AssumeRoleWithSAML' {} a -> s {policy = a} :: AssumeRoleWithSAML)
 
--- | The duration, in seconds, of the role session. Your role session lasts
--- for the duration that you specify for the @DurationSeconds@ parameter,
--- or until the time specified in the SAML authentication response\'s
--- @SessionNotOnOrAfter@ value, whichever is shorter. You can provide a
--- @DurationSeconds@ value from 900 seconds (15 minutes) up to the maximum
--- session duration setting for the role. This setting can have a value
--- from 1 hour to 12 hours. If you specify a value higher than this
--- setting, the operation fails. For example, if you specify a session
--- duration of 12 hours, but your administrator set the maximum session
--- duration to 6 hours, your operation fails. To learn how to view the
--- maximum value for your role, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session View the Maximum Session Duration Setting for a Role>
--- in the /IAM User Guide/.
---
--- By default, the value is set to @3600@ seconds.
---
--- The @DurationSeconds@ parameter is separate from the duration of a
--- console session that you might request using the returned credentials.
--- The request to the federation endpoint for a console sign-in token takes
--- a @SessionDuration@ parameter that specifies the maximum length of the
--- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
--- in the /IAM User Guide/.
-assumeRoleWithSAML_durationSeconds :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Natural)
-assumeRoleWithSAML_durationSeconds = Lens.lens (\AssumeRoleWithSAML' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithSAML' {} a -> s {durationSeconds = a} :: AssumeRoleWithSAML)
-
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
 assumeRoleWithSAML_roleArn :: Lens.Lens' AssumeRoleWithSAML Prelude.Text
 assumeRoleWithSAML_roleArn = Lens.lens (\AssumeRoleWithSAML' {roleArn} -> roleArn) (\s@AssumeRoleWithSAML' {} a -> s {roleArn = a} :: AssumeRoleWithSAML)
@@ -527,15 +527,15 @@ instance Core.AWSRequest AssumeRoleWithSAML where
       "AssumeRoleWithSAMLResult"
       ( \s h x ->
           AssumeRoleWithSAMLResponse'
-            Prelude.<$> (x Core..@? "NameQualifier")
+            Prelude.<$> (x Core..@? "Subject")
             Prelude.<*> (x Core..@? "Audience")
+            Prelude.<*> (x Core..@? "PackedPolicySize")
+            Prelude.<*> (x Core..@? "Credentials")
             Prelude.<*> (x Core..@? "SubjectType")
-            Prelude.<*> (x Core..@? "Subject")
+            Prelude.<*> (x Core..@? "NameQualifier")
+            Prelude.<*> (x Core..@? "AssumedRoleUser")
             Prelude.<*> (x Core..@? "SourceIdentity")
             Prelude.<*> (x Core..@? "Issuer")
-            Prelude.<*> (x Core..@? "Credentials")
-            Prelude.<*> (x Core..@? "AssumedRoleUser")
-            Prelude.<*> (x Core..@? "PackedPolicySize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -559,8 +559,8 @@ instance Core.ToQuery AssumeRoleWithSAML where
         "PolicyArns"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> policyArns),
-        "Policy" Core.=: policy,
         "DurationSeconds" Core.=: durationSeconds,
+        "Policy" Core.=: policy,
         "RoleArn" Core.=: roleArn,
         "PrincipalArn" Core.=: principalArn,
         "SAMLAssertion" Core.=: sAMLAssertion
@@ -572,7 +572,35 @@ instance Core.ToQuery AssumeRoleWithSAML where
 --
 -- /See:/ 'newAssumeRoleWithSAMLResponse' smart constructor.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-  { -- | A hash value based on the concatenation of the following:
+  { -- | The value of the @NameID@ element in the @Subject@ element of the SAML
+    -- assertion.
+    subject :: Prelude.Maybe Prelude.Text,
+    -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
+    -- element of the SAML assertion.
+    audience :: Prelude.Maybe Prelude.Text,
+    -- | A percentage value that indicates the packed size of the session
+    -- policies and session tags combined passed in the request. The request
+    -- fails if the packed size is greater than 100 percent, which means the
+    -- policies and tags exceeded the allowed space.
+    packedPolicySize :: Prelude.Maybe Prelude.Natural,
+    -- | The temporary security credentials, which include an access key ID, a
+    -- secret access key, and a security (or session) token.
+    --
+    -- The size of the security token that STS API operations return is not
+    -- fixed. We strongly recommend that you make no assumptions about the
+    -- maximum size.
+    credentials :: Prelude.Maybe Core.AuthEnv,
+    -- | The format of the name ID, as defined by the @Format@ attribute in the
+    -- @NameID@ element of the SAML assertion. Typical examples of the format
+    -- are @transient@ or @persistent@.
+    --
+    -- If the format includes the prefix
+    -- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
+    -- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
+    -- returned as @transient@. If the format includes any other prefix, the
+    -- format is returned with no modifications.
+    subjectType :: Prelude.Maybe Prelude.Text,
+    -- | A hash value based on the concatenation of the following:
     --
     -- -   The @Issuer@ response value.
     --
@@ -588,22 +616,9 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     --
     -- @BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )@
     nameQualifier :: Prelude.Maybe Prelude.Text,
-    -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
-    -- element of the SAML assertion.
-    audience :: Prelude.Maybe Prelude.Text,
-    -- | The format of the name ID, as defined by the @Format@ attribute in the
-    -- @NameID@ element of the SAML assertion. Typical examples of the format
-    -- are @transient@ or @persistent@.
-    --
-    -- If the format includes the prefix
-    -- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
-    -- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
-    -- returned as @transient@. If the format includes any other prefix, the
-    -- format is returned with no modifications.
-    subjectType :: Prelude.Maybe Prelude.Text,
-    -- | The value of the @NameID@ element in the @Subject@ element of the SAML
-    -- assertion.
-    subject :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers for the temporary security credentials that the
+    -- operation returns.
+    assumedRoleUser :: Prelude.Maybe AssumedRoleUser,
     -- | The value in the @SourceIdentity@ attribute in the SAML assertion.
     --
     -- You can require users to set a source identity value when they assume a
@@ -628,21 +643,6 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     sourceIdentity :: Prelude.Maybe Prelude.Text,
     -- | The value of the @Issuer@ element of the SAML assertion.
     issuer :: Prelude.Maybe Prelude.Text,
-    -- | The temporary security credentials, which include an access key ID, a
-    -- secret access key, and a security (or session) token.
-    --
-    -- The size of the security token that STS API operations return is not
-    -- fixed. We strongly recommend that you make no assumptions about the
-    -- maximum size.
-    credentials :: Prelude.Maybe Core.AuthEnv,
-    -- | The identifiers for the temporary security credentials that the
-    -- operation returns.
-    assumedRoleUser :: Prelude.Maybe AssumedRoleUser,
-    -- | A percentage value that indicates the packed size of the session
-    -- policies and session tags combined passed in the request. The request
-    -- fails if the packed size is greater than 100 percent, which means the
-    -- policies and tags exceeded the allowed space.
-    packedPolicySize :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -655,6 +655,34 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'subject', 'assumeRoleWithSAMLResponse_subject' - The value of the @NameID@ element in the @Subject@ element of the SAML
+-- assertion.
+--
+-- 'audience', 'assumeRoleWithSAMLResponse_audience' - The value of the @Recipient@ attribute of the @SubjectConfirmationData@
+-- element of the SAML assertion.
+--
+-- 'packedPolicySize', 'assumeRoleWithSAMLResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+--
+-- 'credentials', 'assumeRoleWithSAMLResponse_credentials' - The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- The size of the security token that STS API operations return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size.
+--
+-- 'subjectType', 'assumeRoleWithSAMLResponse_subjectType' - The format of the name ID, as defined by the @Format@ attribute in the
+-- @NameID@ element of the SAML assertion. Typical examples of the format
+-- are @transient@ or @persistent@.
+--
+-- If the format includes the prefix
+-- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
+-- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
+-- returned as @transient@. If the format includes any other prefix, the
+-- format is returned with no modifications.
 --
 -- 'nameQualifier', 'assumeRoleWithSAMLResponse_nameQualifier' - A hash value based on the concatenation of the following:
 --
@@ -672,21 +700,8 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- @BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )@
 --
--- 'audience', 'assumeRoleWithSAMLResponse_audience' - The value of the @Recipient@ attribute of the @SubjectConfirmationData@
--- element of the SAML assertion.
---
--- 'subjectType', 'assumeRoleWithSAMLResponse_subjectType' - The format of the name ID, as defined by the @Format@ attribute in the
--- @NameID@ element of the SAML assertion. Typical examples of the format
--- are @transient@ or @persistent@.
---
--- If the format includes the prefix
--- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
--- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
--- returned as @transient@. If the format includes any other prefix, the
--- format is returned with no modifications.
---
--- 'subject', 'assumeRoleWithSAMLResponse_subject' - The value of the @NameID@ element in the @Subject@ element of the SAML
--- assertion.
+-- 'assumedRoleUser', 'assumeRoleWithSAMLResponse_assumedRoleUser' - The identifiers for the temporary security credentials that the
+-- operation returns.
 --
 -- 'sourceIdentity', 'assumeRoleWithSAMLResponse_sourceIdentity' - The value in the @SourceIdentity@ attribute in the SAML assertion.
 --
@@ -712,21 +727,6 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- 'issuer', 'assumeRoleWithSAMLResponse_issuer' - The value of the @Issuer@ element of the SAML assertion.
 --
--- 'credentials', 'assumeRoleWithSAMLResponse_credentials' - The temporary security credentials, which include an access key ID, a
--- secret access key, and a security (or session) token.
---
--- The size of the security token that STS API operations return is not
--- fixed. We strongly recommend that you make no assumptions about the
--- maximum size.
---
--- 'assumedRoleUser', 'assumeRoleWithSAMLResponse_assumedRoleUser' - The identifiers for the temporary security credentials that the
--- operation returns.
---
--- 'packedPolicySize', 'assumeRoleWithSAMLResponse_packedPolicySize' - A percentage value that indicates the packed size of the session
--- policies and session tags combined passed in the request. The request
--- fails if the packed size is greater than 100 percent, which means the
--- policies and tags exceeded the allowed space.
---
 -- 'httpStatus', 'assumeRoleWithSAMLResponse_httpStatus' - The response's http status code.
 newAssumeRoleWithSAMLResponse ::
   -- | 'httpStatus'
@@ -734,18 +734,56 @@ newAssumeRoleWithSAMLResponse ::
   AssumeRoleWithSAMLResponse
 newAssumeRoleWithSAMLResponse pHttpStatus_ =
   AssumeRoleWithSAMLResponse'
-    { nameQualifier =
+    { subject =
         Prelude.Nothing,
       audience = Prelude.Nothing,
+      packedPolicySize = Prelude.Nothing,
+      credentials = Prelude.Nothing,
       subjectType = Prelude.Nothing,
-      subject = Prelude.Nothing,
+      nameQualifier = Prelude.Nothing,
+      assumedRoleUser = Prelude.Nothing,
       sourceIdentity = Prelude.Nothing,
       issuer = Prelude.Nothing,
-      credentials = Prelude.Nothing,
-      assumedRoleUser = Prelude.Nothing,
-      packedPolicySize = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The value of the @NameID@ element in the @Subject@ element of the SAML
+-- assertion.
+assumeRoleWithSAMLResponse_subject :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_subject = Lens.lens (\AssumeRoleWithSAMLResponse' {subject} -> subject) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subject = a} :: AssumeRoleWithSAMLResponse)
+
+-- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
+-- element of the SAML assertion.
+assumeRoleWithSAMLResponse_audience :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_audience = Lens.lens (\AssumeRoleWithSAMLResponse' {audience} -> audience) (\s@AssumeRoleWithSAMLResponse' {} a -> s {audience = a} :: AssumeRoleWithSAMLResponse)
+
+-- | A percentage value that indicates the packed size of the session
+-- policies and session tags combined passed in the request. The request
+-- fails if the packed size is greater than 100 percent, which means the
+-- policies and tags exceeded the allowed space.
+assumeRoleWithSAMLResponse_packedPolicySize :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Natural)
+assumeRoleWithSAMLResponse_packedPolicySize = Lens.lens (\AssumeRoleWithSAMLResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleWithSAMLResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleWithSAMLResponse)
+
+-- | The temporary security credentials, which include an access key ID, a
+-- secret access key, and a security (or session) token.
+--
+-- The size of the security token that STS API operations return is not
+-- fixed. We strongly recommend that you make no assumptions about the
+-- maximum size.
+assumeRoleWithSAMLResponse_credentials :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Core.AuthEnv)
+assumeRoleWithSAMLResponse_credentials = Lens.lens (\AssumeRoleWithSAMLResponse' {credentials} -> credentials) (\s@AssumeRoleWithSAMLResponse' {} a -> s {credentials = a} :: AssumeRoleWithSAMLResponse)
+
+-- | The format of the name ID, as defined by the @Format@ attribute in the
+-- @NameID@ element of the SAML assertion. Typical examples of the format
+-- are @transient@ or @persistent@.
+--
+-- If the format includes the prefix
+-- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
+-- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
+-- returned as @transient@. If the format includes any other prefix, the
+-- format is returned with no modifications.
+assumeRoleWithSAMLResponse_subjectType :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_subjectType = Lens.lens (\AssumeRoleWithSAMLResponse' {subjectType} -> subjectType) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subjectType = a} :: AssumeRoleWithSAMLResponse)
 
 -- | A hash value based on the concatenation of the following:
 --
@@ -765,27 +803,10 @@ newAssumeRoleWithSAMLResponse pHttpStatus_ =
 assumeRoleWithSAMLResponse_nameQualifier :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
 assumeRoleWithSAMLResponse_nameQualifier = Lens.lens (\AssumeRoleWithSAMLResponse' {nameQualifier} -> nameQualifier) (\s@AssumeRoleWithSAMLResponse' {} a -> s {nameQualifier = a} :: AssumeRoleWithSAMLResponse)
 
--- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
--- element of the SAML assertion.
-assumeRoleWithSAMLResponse_audience :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
-assumeRoleWithSAMLResponse_audience = Lens.lens (\AssumeRoleWithSAMLResponse' {audience} -> audience) (\s@AssumeRoleWithSAMLResponse' {} a -> s {audience = a} :: AssumeRoleWithSAMLResponse)
-
--- | The format of the name ID, as defined by the @Format@ attribute in the
--- @NameID@ element of the SAML assertion. Typical examples of the format
--- are @transient@ or @persistent@.
---
--- If the format includes the prefix
--- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
--- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
--- returned as @transient@. If the format includes any other prefix, the
--- format is returned with no modifications.
-assumeRoleWithSAMLResponse_subjectType :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
-assumeRoleWithSAMLResponse_subjectType = Lens.lens (\AssumeRoleWithSAMLResponse' {subjectType} -> subjectType) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subjectType = a} :: AssumeRoleWithSAMLResponse)
-
--- | The value of the @NameID@ element in the @Subject@ element of the SAML
--- assertion.
-assumeRoleWithSAMLResponse_subject :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
-assumeRoleWithSAMLResponse_subject = Lens.lens (\AssumeRoleWithSAMLResponse' {subject} -> subject) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subject = a} :: AssumeRoleWithSAMLResponse)
+-- | The identifiers for the temporary security credentials that the
+-- operation returns.
+assumeRoleWithSAMLResponse_assumedRoleUser :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe AssumedRoleUser)
+assumeRoleWithSAMLResponse_assumedRoleUser = Lens.lens (\AssumeRoleWithSAMLResponse' {assumedRoleUser} -> assumedRoleUser) (\s@AssumeRoleWithSAMLResponse' {} a -> s {assumedRoleUser = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The value in the @SourceIdentity@ attribute in the SAML assertion.
 --
@@ -814,27 +835,6 @@ assumeRoleWithSAMLResponse_sourceIdentity = Lens.lens (\AssumeRoleWithSAMLRespon
 -- | The value of the @Issuer@ element of the SAML assertion.
 assumeRoleWithSAMLResponse_issuer :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
 assumeRoleWithSAMLResponse_issuer = Lens.lens (\AssumeRoleWithSAMLResponse' {issuer} -> issuer) (\s@AssumeRoleWithSAMLResponse' {} a -> s {issuer = a} :: AssumeRoleWithSAMLResponse)
-
--- | The temporary security credentials, which include an access key ID, a
--- secret access key, and a security (or session) token.
---
--- The size of the security token that STS API operations return is not
--- fixed. We strongly recommend that you make no assumptions about the
--- maximum size.
-assumeRoleWithSAMLResponse_credentials :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Core.AuthEnv)
-assumeRoleWithSAMLResponse_credentials = Lens.lens (\AssumeRoleWithSAMLResponse' {credentials} -> credentials) (\s@AssumeRoleWithSAMLResponse' {} a -> s {credentials = a} :: AssumeRoleWithSAMLResponse)
-
--- | The identifiers for the temporary security credentials that the
--- operation returns.
-assumeRoleWithSAMLResponse_assumedRoleUser :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe AssumedRoleUser)
-assumeRoleWithSAMLResponse_assumedRoleUser = Lens.lens (\AssumeRoleWithSAMLResponse' {assumedRoleUser} -> assumedRoleUser) (\s@AssumeRoleWithSAMLResponse' {} a -> s {assumedRoleUser = a} :: AssumeRoleWithSAMLResponse)
-
--- | A percentage value that indicates the packed size of the session
--- policies and session tags combined passed in the request. The request
--- fails if the packed size is greater than 100 percent, which means the
--- policies and tags exceeded the allowed space.
-assumeRoleWithSAMLResponse_packedPolicySize :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Natural)
-assumeRoleWithSAMLResponse_packedPolicySize = Lens.lens (\AssumeRoleWithSAMLResponse' {packedPolicySize} -> packedPolicySize) (\s@AssumeRoleWithSAMLResponse' {} a -> s {packedPolicySize = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The response's http status code.
 assumeRoleWithSAMLResponse_httpStatus :: Lens.Lens' AssumeRoleWithSAMLResponse Prelude.Int

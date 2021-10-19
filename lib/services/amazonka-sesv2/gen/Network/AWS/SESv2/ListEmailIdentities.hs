@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all of the email identities that are associated with
--- your AWS account. An identity can be either an email address or a
--- domain. This operation returns identities that are verified as well as
--- those that aren\'t. This operation returns identities that are
--- associated with Amazon SES and Amazon Pinpoint.
+-- your Amazon Web Services account. An identity can be either an email
+-- address or a domain. This operation returns identities that are verified
+-- as well as those that aren\'t. This operation returns identities that
+-- are associated with Amazon SES and Amazon Pinpoint.
 module Network.AWS.SESv2.ListEmailIdentities
   ( -- * Creating a Request
     ListEmailIdentities (..),
@@ -39,8 +39,8 @@ module Network.AWS.SESv2.ListEmailIdentities
     newListEmailIdentitiesResponse,
 
     -- * Response Lenses
-    listEmailIdentitiesResponse_emailIdentities,
     listEmailIdentitiesResponse_nextToken,
+    listEmailIdentitiesResponse_emailIdentities,
     listEmailIdentitiesResponse_httpStatus,
   )
 where
@@ -52,10 +52,10 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SESv2.Types
 
--- | A request to list all of the email identities associated with your AWS
--- account. This list includes identities that you\'ve already verified,
--- identities that are unverified, and identities that were verified in the
--- past, but are no longer verified.
+-- | A request to list all of the email identities associated with your
+-- Amazon Web Services account. This list includes identities that you\'ve
+-- already verified, identities that are unverified, and identities that
+-- were verified in the past, but are no longer verified.
 --
 -- /See:/ 'newListEmailIdentities' smart constructor.
 data ListEmailIdentities = ListEmailIdentities'
@@ -123,10 +123,10 @@ instance Core.AWSRequest ListEmailIdentities where
     Response.receiveJSON
       ( \s h x ->
           ListEmailIdentitiesResponse'
-            Prelude.<$> ( x Core..?> "EmailIdentities"
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> ( x Core..?> "EmailIdentities"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,13 +161,13 @@ instance Core.ToQuery ListEmailIdentities where
 --
 -- /See:/ 'newListEmailIdentitiesResponse' smart constructor.
 data ListEmailIdentitiesResponse = ListEmailIdentitiesResponse'
-  { -- | An array that includes all of the email identities associated with your
-    -- AWS account.
-    emailIdentities :: Prelude.Maybe [IdentityInfo],
-    -- | A token that indicates that there are additional configuration sets to
+  { -- | A token that indicates that there are additional configuration sets to
     -- list. To view additional configuration sets, issue another request to
     -- @ListEmailIdentities@, and pass this token in the @NextToken@ parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array that includes all of the email identities associated with your
+    -- Amazon Web Services account.
+    emailIdentities :: Prelude.Maybe [IdentityInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,12 +181,12 @@ data ListEmailIdentitiesResponse = ListEmailIdentitiesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailIdentities', 'listEmailIdentitiesResponse_emailIdentities' - An array that includes all of the email identities associated with your
--- AWS account.
---
 -- 'nextToken', 'listEmailIdentitiesResponse_nextToken' - A token that indicates that there are additional configuration sets to
 -- list. To view additional configuration sets, issue another request to
 -- @ListEmailIdentities@, and pass this token in the @NextToken@ parameter.
+--
+-- 'emailIdentities', 'listEmailIdentitiesResponse_emailIdentities' - An array that includes all of the email identities associated with your
+-- Amazon Web Services account.
 --
 -- 'httpStatus', 'listEmailIdentitiesResponse_httpStatus' - The response's http status code.
 newListEmailIdentitiesResponse ::
@@ -195,22 +195,22 @@ newListEmailIdentitiesResponse ::
   ListEmailIdentitiesResponse
 newListEmailIdentitiesResponse pHttpStatus_ =
   ListEmailIdentitiesResponse'
-    { emailIdentities =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      emailIdentities = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array that includes all of the email identities associated with your
--- AWS account.
-listEmailIdentitiesResponse_emailIdentities :: Lens.Lens' ListEmailIdentitiesResponse (Prelude.Maybe [IdentityInfo])
-listEmailIdentitiesResponse_emailIdentities = Lens.lens (\ListEmailIdentitiesResponse' {emailIdentities} -> emailIdentities) (\s@ListEmailIdentitiesResponse' {} a -> s {emailIdentities = a} :: ListEmailIdentitiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates that there are additional configuration sets to
 -- list. To view additional configuration sets, issue another request to
 -- @ListEmailIdentities@, and pass this token in the @NextToken@ parameter.
 listEmailIdentitiesResponse_nextToken :: Lens.Lens' ListEmailIdentitiesResponse (Prelude.Maybe Prelude.Text)
 listEmailIdentitiesResponse_nextToken = Lens.lens (\ListEmailIdentitiesResponse' {nextToken} -> nextToken) (\s@ListEmailIdentitiesResponse' {} a -> s {nextToken = a} :: ListEmailIdentitiesResponse)
+
+-- | An array that includes all of the email identities associated with your
+-- Amazon Web Services account.
+listEmailIdentitiesResponse_emailIdentities :: Lens.Lens' ListEmailIdentitiesResponse (Prelude.Maybe [IdentityInfo])
+listEmailIdentitiesResponse_emailIdentities = Lens.lens (\ListEmailIdentitiesResponse' {emailIdentities} -> emailIdentities) (\s@ListEmailIdentitiesResponse' {} a -> s {emailIdentities = a} :: ListEmailIdentitiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEmailIdentitiesResponse_httpStatus :: Lens.Lens' ListEmailIdentitiesResponse Prelude.Int

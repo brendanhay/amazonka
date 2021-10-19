@@ -86,7 +86,7 @@ newExitStandby pAutoScalingGroupName_ =
 
 -- | The IDs of the instances. You can specify up to 20 instances.
 exitStandby_instanceIds :: Lens.Lens' ExitStandby (Prelude.Maybe [Prelude.Text])
-exitStandby_instanceIds = Lens.lens (\ExitStandby' {instanceIds} -> instanceIds) (\s@ExitStandby' {} a -> s {instanceIds = a} :: ExitStandby) Prelude.. Lens.mapping Lens._Coerce
+exitStandby_instanceIds = Lens.lens (\ExitStandby' {instanceIds} -> instanceIds) (\s@ExitStandby' {} a -> s {instanceIds = a} :: ExitStandby) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 exitStandby_autoScalingGroupName :: Lens.Lens' ExitStandby Prelude.Text
@@ -161,7 +161,7 @@ newExitStandbyResponse pHttpStatus_ =
 
 -- | The activities related to moving instances out of @Standby@ mode.
 exitStandbyResponse_activities :: Lens.Lens' ExitStandbyResponse (Prelude.Maybe [Activity])
-exitStandbyResponse_activities = Lens.lens (\ExitStandbyResponse' {activities} -> activities) (\s@ExitStandbyResponse' {} a -> s {activities = a} :: ExitStandbyResponse) Prelude.. Lens.mapping Lens._Coerce
+exitStandbyResponse_activities = Lens.lens (\ExitStandbyResponse' {activities} -> activities) (\s@ExitStandbyResponse' {} a -> s {activities = a} :: ExitStandbyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 exitStandbyResponse_httpStatus :: Lens.Lens' ExitStandbyResponse Prelude.Int

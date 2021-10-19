@@ -61,7 +61,7 @@ recentCaseCommunications_nextToken = Lens.lens (\RecentCaseCommunications' {next
 
 -- | The five most recent communications associated with the case.
 recentCaseCommunications_communications :: Lens.Lens' RecentCaseCommunications (Prelude.Maybe [Communication])
-recentCaseCommunications_communications = Lens.lens (\RecentCaseCommunications' {communications} -> communications) (\s@RecentCaseCommunications' {} a -> s {communications = a} :: RecentCaseCommunications) Prelude.. Lens.mapping Lens._Coerce
+recentCaseCommunications_communications = Lens.lens (\RecentCaseCommunications' {communications} -> communications) (\s@RecentCaseCommunications' {} a -> s {communications = a} :: RecentCaseCommunications) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON RecentCaseCommunications where
   parseJSON =

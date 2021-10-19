@@ -42,8 +42,8 @@ module Network.AWS.SESv2.ListConfigurationSets
     newListConfigurationSetsResponse,
 
     -- * Response Lenses
-    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_configurationSets,
+    listConfigurationSetsResponse_nextToken,
     listConfigurationSetsResponse_httpStatus,
   )
 where
@@ -56,7 +56,7 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.SESv2.Types
 
 -- | A request to obtain a list of configuration sets for your Amazon SES
--- account in the current AWS Region.
+-- account in the current Amazon Web Services Region.
 --
 -- /See:/ 'newListConfigurationSets' smart constructor.
 data ListConfigurationSets = ListConfigurationSets'
@@ -115,10 +115,10 @@ instance Core.AWSRequest ListConfigurationSets where
     Response.receiveJSON
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ConfigurationSets"
+            Prelude.<$> ( x Core..?> "ConfigurationSets"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,18 +148,18 @@ instance Core.ToQuery ListConfigurationSets where
       ]
 
 -- | A list of configuration sets in your Amazon SES account in the current
--- AWS Region.
+-- Amazon Web Services Region.
 --
 -- /See:/ 'newListConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
-  { -- | A token that indicates that there are additional configuration sets to
+  { -- | An array that contains all of the configuration sets in your Amazon SES
+    -- account in the current Amazon Web Services Region.
+    configurationSets :: Prelude.Maybe [Prelude.Text],
+    -- | A token that indicates that there are additional configuration sets to
     -- list. To view additional configuration sets, issue another request to
     -- @ListConfigurationSets@, and pass this token in the @NextToken@
     -- parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array that contains all of the configuration sets in your Amazon SES
-    -- account in the current AWS Region.
-    configurationSets :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,13 +173,13 @@ data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An array that contains all of the configuration sets in your Amazon SES
+-- account in the current Amazon Web Services Region.
+--
 -- 'nextToken', 'listConfigurationSetsResponse_nextToken' - A token that indicates that there are additional configuration sets to
 -- list. To view additional configuration sets, issue another request to
 -- @ListConfigurationSets@, and pass this token in the @NextToken@
 -- parameter.
---
--- 'configurationSets', 'listConfigurationSetsResponse_configurationSets' - An array that contains all of the configuration sets in your Amazon SES
--- account in the current AWS Region.
 --
 -- 'httpStatus', 'listConfigurationSetsResponse_httpStatus' - The response's http status code.
 newListConfigurationSetsResponse ::
@@ -188,11 +188,16 @@ newListConfigurationSetsResponse ::
   ListConfigurationSetsResponse
 newListConfigurationSetsResponse pHttpStatus_ =
   ListConfigurationSetsResponse'
-    { nextToken =
+    { configurationSets =
         Prelude.Nothing,
-      configurationSets = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array that contains all of the configuration sets in your Amazon SES
+-- account in the current Amazon Web Services Region.
+listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe [Prelude.Text])
+listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates that there are additional configuration sets to
 -- list. To view additional configuration sets, issue another request to
@@ -200,11 +205,6 @@ newListConfigurationSetsResponse pHttpStatus_ =
 -- parameter.
 listConfigurationSetsResponse_nextToken :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe Prelude.Text)
 listConfigurationSetsResponse_nextToken = Lens.lens (\ListConfigurationSetsResponse' {nextToken} -> nextToken) (\s@ListConfigurationSetsResponse' {} a -> s {nextToken = a} :: ListConfigurationSetsResponse)
-
--- | An array that contains all of the configuration sets in your Amazon SES
--- account in the current AWS Region.
-listConfigurationSetsResponse_configurationSets :: Lens.Lens' ListConfigurationSetsResponse (Prelude.Maybe [Prelude.Text])
-listConfigurationSetsResponse_configurationSets = Lens.lens (\ListConfigurationSetsResponse' {configurationSets} -> configurationSets) (\s@ListConfigurationSetsResponse' {} a -> s {configurationSets = a} :: ListConfigurationSetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listConfigurationSetsResponse_httpStatus :: Lens.Lens' ListConfigurationSetsResponse Prelude.Int

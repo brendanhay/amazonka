@@ -191,7 +191,7 @@ listDimensionsResponse_nextToken = Lens.lens (\ListDimensionsResponse' {nextToke
 -- | A list of the names of the defined dimensions. Use @DescribeDimension@
 -- to get details for a dimension.
 listDimensionsResponse_dimensionNames :: Lens.Lens' ListDimensionsResponse (Prelude.Maybe [Prelude.Text])
-listDimensionsResponse_dimensionNames = Lens.lens (\ListDimensionsResponse' {dimensionNames} -> dimensionNames) (\s@ListDimensionsResponse' {} a -> s {dimensionNames = a} :: ListDimensionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDimensionsResponse_dimensionNames = Lens.lens (\ListDimensionsResponse' {dimensionNames} -> dimensionNames) (\s@ListDimensionsResponse' {} a -> s {dimensionNames = a} :: ListDimensionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDimensionsResponse_httpStatus :: Lens.Lens' ListDimensionsResponse Prelude.Int

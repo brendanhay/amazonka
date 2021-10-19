@@ -56,7 +56,7 @@ newTraceUser =
 
 -- | Services that the user\'s request hit.
 traceUser_serviceIds :: Lens.Lens' TraceUser (Prelude.Maybe [ServiceId])
-traceUser_serviceIds = Lens.lens (\TraceUser' {serviceIds} -> serviceIds) (\s@TraceUser' {} a -> s {serviceIds = a} :: TraceUser) Prelude.. Lens.mapping Lens._Coerce
+traceUser_serviceIds = Lens.lens (\TraceUser' {serviceIds} -> serviceIds) (\s@TraceUser' {} a -> s {serviceIds = a} :: TraceUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user\'s name.
 traceUser_userName :: Lens.Lens' TraceUser (Prelude.Maybe Prelude.Text)

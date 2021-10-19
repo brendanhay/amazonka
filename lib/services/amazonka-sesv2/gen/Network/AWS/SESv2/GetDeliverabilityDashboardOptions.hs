@@ -28,8 +28,9 @@
 --
 -- When you use the Deliverability dashboard, you pay a monthly
 -- subscription charge, in addition to any other fees that you accrue by
--- using Amazon SES and other AWS services. For more information about the
--- features and cost of a Deliverability dashboard subscription, see
+-- using Amazon SES and other Amazon Web Services services. For more
+-- information about the features and cost of a Deliverability dashboard
+-- subscription, see
 -- <http://aws.amazon.com/ses/pricing/ Amazon SES Pricing>.
 module Network.AWS.SESv2.GetDeliverabilityDashboardOptions
   ( -- * Creating a Request
@@ -41,8 +42,8 @@ module Network.AWS.SESv2.GetDeliverabilityDashboardOptions
     newGetDeliverabilityDashboardOptionsResponse,
 
     -- * Response Lenses
-    getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
     getDeliverabilityDashboardOptionsResponse_accountStatus,
+    getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate,
     getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains,
     getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains,
     getDeliverabilityDashboardOptionsResponse_httpStatus,
@@ -58,15 +59,16 @@ import qualified Network.AWS.Response as Response
 import Network.AWS.SESv2.Types
 
 -- | Retrieve information about the status of the Deliverability dashboard
--- for your AWS account. When the Deliverability dashboard is enabled, you
--- gain access to reputation, deliverability, and other metrics for your
--- domains. You also gain the ability to perform predictive inbox placement
--- tests.
+-- for your Amazon Web Services account. When the Deliverability dashboard
+-- is enabled, you gain access to reputation, deliverability, and other
+-- metrics for your domains. You also gain the ability to perform
+-- predictive inbox placement tests.
 --
 -- When you use the Deliverability dashboard, you pay a monthly
 -- subscription charge, in addition to any other fees that you accrue by
--- using Amazon SES and other AWS services. For more information about the
--- features and cost of a Deliverability dashboard subscription, see
+-- using Amazon SES and other Amazon Web Services services. For more
+-- information about the features and cost of a Deliverability dashboard
+-- subscription, see
 -- <http://aws.amazon.com/pinpoint/pricing/ Amazon Pinpoint Pricing>.
 --
 -- /See:/ 'newGetDeliverabilityDashboardOptions' smart constructor.
@@ -96,8 +98,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDeliverabilityDashboardOptionsResponse'
-            Prelude.<$> (x Core..?> "SubscriptionExpiryDate")
-              Prelude.<*> (x Core..?> "AccountStatus")
+            Prelude.<$> (x Core..?> "AccountStatus")
+              Prelude.<*> (x Core..?> "SubscriptionExpiryDate")
               Prelude.<*> ( x Core..?> "ActiveSubscribedDomains"
                               Core..!@ Prelude.mempty
                           )
@@ -147,16 +149,16 @@ instance
 --
 -- /See:/ 'newGetDeliverabilityDashboardOptionsResponse' smart constructor.
 data GetDeliverabilityDashboardOptionsResponse = GetDeliverabilityDashboardOptionsResponse'
-  { -- | The date, in Unix time format, when your current subscription to the
+  { -- | The current status of your Deliverability dashboard subscription. If
+    -- this value is @PENDING_EXPIRATION@, your subscription is scheduled to
+    -- expire at the end of the current calendar month.
+    accountStatus :: Prelude.Maybe DeliverabilityDashboardAccountStatus,
+    -- | The date, in Unix time format, when your current subscription to the
     -- Deliverability dashboard is scheduled to expire, if your subscription is
     -- scheduled to expire at the end of the current calendar month. This value
     -- is null if you have an active subscription that isn’t due to expire at
     -- the end of the month.
     subscriptionExpiryDate :: Prelude.Maybe Core.POSIX,
-    -- | The current status of your Deliverability dashboard subscription. If
-    -- this value is @PENDING_EXPIRATION@, your subscription is scheduled to
-    -- expire at the end of the current calendar month.
-    accountStatus :: Prelude.Maybe DeliverabilityDashboardAccountStatus,
     -- | An array of objects, one for each verified domain that you use to send
     -- email and currently has an active Deliverability dashboard subscription
     -- that isn’t scheduled to expire at the end of the current calendar month.
@@ -181,15 +183,15 @@ data GetDeliverabilityDashboardOptionsResponse = GetDeliverabilityDashboardOptio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountStatus', 'getDeliverabilityDashboardOptionsResponse_accountStatus' - The current status of your Deliverability dashboard subscription. If
+-- this value is @PENDING_EXPIRATION@, your subscription is scheduled to
+-- expire at the end of the current calendar month.
+--
 -- 'subscriptionExpiryDate', 'getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate' - The date, in Unix time format, when your current subscription to the
 -- Deliverability dashboard is scheduled to expire, if your subscription is
 -- scheduled to expire at the end of the current calendar month. This value
 -- is null if you have an active subscription that isn’t due to expire at
 -- the end of the month.
---
--- 'accountStatus', 'getDeliverabilityDashboardOptionsResponse_accountStatus' - The current status of your Deliverability dashboard subscription. If
--- this value is @PENDING_EXPIRATION@, your subscription is scheduled to
--- expire at the end of the current calendar month.
 --
 -- 'activeSubscribedDomains', 'getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains' - An array of objects, one for each verified domain that you use to send
 -- email and currently has an active Deliverability dashboard subscription
@@ -213,9 +215,10 @@ newGetDeliverabilityDashboardOptionsResponse
   pHttpStatus_
   pDashboardEnabled_ =
     GetDeliverabilityDashboardOptionsResponse'
-      { subscriptionExpiryDate =
+      { accountStatus =
           Prelude.Nothing,
-        accountStatus = Prelude.Nothing,
+        subscriptionExpiryDate =
+          Prelude.Nothing,
         activeSubscribedDomains =
           Prelude.Nothing,
         pendingExpirationSubscribedDomains =
@@ -225,6 +228,12 @@ newGetDeliverabilityDashboardOptionsResponse
           pDashboardEnabled_
       }
 
+-- | The current status of your Deliverability dashboard subscription. If
+-- this value is @PENDING_EXPIRATION@, your subscription is scheduled to
+-- expire at the end of the current calendar month.
+getDeliverabilityDashboardOptionsResponse_accountStatus :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe DeliverabilityDashboardAccountStatus)
+getDeliverabilityDashboardOptionsResponse_accountStatus = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {accountStatus} -> accountStatus) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {accountStatus = a} :: GetDeliverabilityDashboardOptionsResponse)
+
 -- | The date, in Unix time format, when your current subscription to the
 -- Deliverability dashboard is scheduled to expire, if your subscription is
 -- scheduled to expire at the end of the current calendar month. This value
@@ -233,23 +242,17 @@ newGetDeliverabilityDashboardOptionsResponse
 getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe Prelude.UTCTime)
 getDeliverabilityDashboardOptionsResponse_subscriptionExpiryDate = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {subscriptionExpiryDate} -> subscriptionExpiryDate) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {subscriptionExpiryDate = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Core._Time
 
--- | The current status of your Deliverability dashboard subscription. If
--- this value is @PENDING_EXPIRATION@, your subscription is scheduled to
--- expire at the end of the current calendar month.
-getDeliverabilityDashboardOptionsResponse_accountStatus :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe DeliverabilityDashboardAccountStatus)
-getDeliverabilityDashboardOptionsResponse_accountStatus = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {accountStatus} -> accountStatus) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {accountStatus = a} :: GetDeliverabilityDashboardOptionsResponse)
-
 -- | An array of objects, one for each verified domain that you use to send
 -- email and currently has an active Deliverability dashboard subscription
 -- that isn’t scheduled to expire at the end of the current calendar month.
 getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe [DomainDeliverabilityTrackingOption])
-getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {activeSubscribedDomains} -> activeSubscribedDomains) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {activeSubscribedDomains = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDeliverabilityDashboardOptionsResponse_activeSubscribedDomains = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {activeSubscribedDomains} -> activeSubscribedDomains) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {activeSubscribedDomains = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects, one for each verified domain that you use to send
 -- email and currently has an active Deliverability dashboard subscription
 -- that\'s scheduled to expire at the end of the current calendar month.
 getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse (Prelude.Maybe [DomainDeliverabilityTrackingOption])
-getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {pendingExpirationSubscribedDomains} -> pendingExpirationSubscribedDomains) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {pendingExpirationSubscribedDomains = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getDeliverabilityDashboardOptionsResponse_pendingExpirationSubscribedDomains = Lens.lens (\GetDeliverabilityDashboardOptionsResponse' {pendingExpirationSubscribedDomains} -> pendingExpirationSubscribedDomains) (\s@GetDeliverabilityDashboardOptionsResponse' {} a -> s {pendingExpirationSubscribedDomains = a} :: GetDeliverabilityDashboardOptionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getDeliverabilityDashboardOptionsResponse_httpStatus :: Lens.Lens' GetDeliverabilityDashboardOptionsResponse Prelude.Int

@@ -94,7 +94,7 @@ updateBandwidthRateLimitSchedule_gatewayARN = Lens.lens (\UpdateBandwidthRateLim
 -- gateway. When no bandwidth rate limit intervals have been scheduled, the
 -- array is empty.
 updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals :: Lens.Lens' UpdateBandwidthRateLimitSchedule [BandwidthRateLimitInterval]
-updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals = Lens.lens (\UpdateBandwidthRateLimitSchedule' {bandwidthRateLimitIntervals} -> bandwidthRateLimitIntervals) (\s@UpdateBandwidthRateLimitSchedule' {} a -> s {bandwidthRateLimitIntervals = a} :: UpdateBandwidthRateLimitSchedule) Prelude.. Lens._Coerce
+updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals = Lens.lens (\UpdateBandwidthRateLimitSchedule' {bandwidthRateLimitIntervals} -> bandwidthRateLimitIntervals) (\s@UpdateBandwidthRateLimitSchedule' {} a -> s {bandwidthRateLimitIntervals = a} :: UpdateBandwidthRateLimitSchedule) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

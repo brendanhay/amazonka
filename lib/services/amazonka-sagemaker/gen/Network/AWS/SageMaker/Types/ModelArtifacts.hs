@@ -27,7 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- model artifacts.
 --
 -- Model artifacts are the output that results from training a model, and
--- typically consist of trained parameters, a model defintion that
+-- typically consist of trained parameters, a model definition that
 -- describes how to compute inferences, and other metadata.
 --
 -- /See:/ 'newModelArtifacts' smart constructor.

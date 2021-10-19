@@ -32,17 +32,17 @@ module Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
     newDescribeQueryDefinitions,
 
     -- * Request Lenses
+    describeQueryDefinitions_queryDefinitionNamePrefix,
     describeQueryDefinitions_nextToken,
     describeQueryDefinitions_maxResults,
-    describeQueryDefinitions_queryDefinitionNamePrefix,
 
     -- * Destructuring the Response
     DescribeQueryDefinitionsResponse (..),
     newDescribeQueryDefinitionsResponse,
 
     -- * Response Lenses
-    describeQueryDefinitionsResponse_nextToken,
     describeQueryDefinitionsResponse_queryDefinitions,
+    describeQueryDefinitionsResponse_nextToken,
     describeQueryDefinitionsResponse_httpStatus,
   )
 where
@@ -56,12 +56,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeQueryDefinitions' smart constructor.
 data DescribeQueryDefinitions = DescribeQueryDefinitions'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Limits the number of returned query definitions to the specified number.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter to filter your results to only the query definitions
+  { -- | Use this parameter to filter your results to only the query definitions
     -- that have names that start with the prefix you specify.
-    queryDefinitionNamePrefix :: Prelude.Maybe Prelude.Text
+    queryDefinitionNamePrefix :: Prelude.Maybe Prelude.Text,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Limits the number of returned query definitions to the specified number.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,21 +73,26 @@ data DescribeQueryDefinitions = DescribeQueryDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'queryDefinitionNamePrefix', 'describeQueryDefinitions_queryDefinitionNamePrefix' - Use this parameter to filter your results to only the query definitions
+-- that have names that start with the prefix you specify.
+--
 -- 'nextToken', 'describeQueryDefinitions_nextToken' - Undocumented member.
 --
 -- 'maxResults', 'describeQueryDefinitions_maxResults' - Limits the number of returned query definitions to the specified number.
---
--- 'queryDefinitionNamePrefix', 'describeQueryDefinitions_queryDefinitionNamePrefix' - Use this parameter to filter your results to only the query definitions
--- that have names that start with the prefix you specify.
 newDescribeQueryDefinitions ::
   DescribeQueryDefinitions
 newDescribeQueryDefinitions =
   DescribeQueryDefinitions'
-    { nextToken =
+    { queryDefinitionNamePrefix =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      queryDefinitionNamePrefix = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | Use this parameter to filter your results to only the query definitions
+-- that have names that start with the prefix you specify.
+describeQueryDefinitions_queryDefinitionNamePrefix :: Lens.Lens' DescribeQueryDefinitions (Prelude.Maybe Prelude.Text)
+describeQueryDefinitions_queryDefinitionNamePrefix = Lens.lens (\DescribeQueryDefinitions' {queryDefinitionNamePrefix} -> queryDefinitionNamePrefix) (\s@DescribeQueryDefinitions' {} a -> s {queryDefinitionNamePrefix = a} :: DescribeQueryDefinitions)
 
 -- | Undocumented member.
 describeQueryDefinitions_nextToken :: Lens.Lens' DescribeQueryDefinitions (Prelude.Maybe Prelude.Text)
@@ -96,11 +101,6 @@ describeQueryDefinitions_nextToken = Lens.lens (\DescribeQueryDefinitions' {next
 -- | Limits the number of returned query definitions to the specified number.
 describeQueryDefinitions_maxResults :: Lens.Lens' DescribeQueryDefinitions (Prelude.Maybe Prelude.Natural)
 describeQueryDefinitions_maxResults = Lens.lens (\DescribeQueryDefinitions' {maxResults} -> maxResults) (\s@DescribeQueryDefinitions' {} a -> s {maxResults = a} :: DescribeQueryDefinitions)
-
--- | Use this parameter to filter your results to only the query definitions
--- that have names that start with the prefix you specify.
-describeQueryDefinitions_queryDefinitionNamePrefix :: Lens.Lens' DescribeQueryDefinitions (Prelude.Maybe Prelude.Text)
-describeQueryDefinitions_queryDefinitionNamePrefix = Lens.lens (\DescribeQueryDefinitions' {queryDefinitionNamePrefix} -> queryDefinitionNamePrefix) (\s@DescribeQueryDefinitions' {} a -> s {queryDefinitionNamePrefix = a} :: DescribeQueryDefinitions)
 
 instance Core.AWSRequest DescribeQueryDefinitions where
   type
@@ -111,10 +111,10 @@ instance Core.AWSRequest DescribeQueryDefinitions where
     Response.receiveJSON
       ( \s h x ->
           DescribeQueryDefinitionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "queryDefinitions"
+            Prelude.<$> ( x Core..?> "queryDefinitions"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,10 +141,10 @@ instance Core.ToJSON DescribeQueryDefinitions where
   toJSON DescribeQueryDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("queryDefinitionNamePrefix" Core..=)
-              Prelude.<$> queryDefinitionNamePrefix
+          [ ("queryDefinitionNamePrefix" Core..=)
+              Prelude.<$> queryDefinitionNamePrefix,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -156,9 +156,9 @@ instance Core.ToQuery DescribeQueryDefinitions where
 
 -- | /See:/ 'newDescribeQueryDefinitionsResponse' smart constructor.
 data DescribeQueryDefinitionsResponse = DescribeQueryDefinitionsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of query definitions that match your request.
+  { -- | The list of query definitions that match your request.
     queryDefinitions :: Prelude.Maybe [QueryDefinition],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,9 +172,9 @@ data DescribeQueryDefinitionsResponse = DescribeQueryDefinitionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeQueryDefinitionsResponse_nextToken' - Undocumented member.
---
 -- 'queryDefinitions', 'describeQueryDefinitionsResponse_queryDefinitions' - The list of query definitions that match your request.
+--
+-- 'nextToken', 'describeQueryDefinitionsResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeQueryDefinitionsResponse_httpStatus' - The response's http status code.
 newDescribeQueryDefinitionsResponse ::
@@ -183,19 +183,19 @@ newDescribeQueryDefinitionsResponse ::
   DescribeQueryDefinitionsResponse
 newDescribeQueryDefinitionsResponse pHttpStatus_ =
   DescribeQueryDefinitionsResponse'
-    { nextToken =
+    { queryDefinitions =
         Prelude.Nothing,
-      queryDefinitions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of query definitions that match your request.
+describeQueryDefinitionsResponse_queryDefinitions :: Lens.Lens' DescribeQueryDefinitionsResponse (Prelude.Maybe [QueryDefinition])
+describeQueryDefinitionsResponse_queryDefinitions = Lens.lens (\DescribeQueryDefinitionsResponse' {queryDefinitions} -> queryDefinitions) (\s@DescribeQueryDefinitionsResponse' {} a -> s {queryDefinitions = a} :: DescribeQueryDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeQueryDefinitionsResponse_nextToken :: Lens.Lens' DescribeQueryDefinitionsResponse (Prelude.Maybe Prelude.Text)
 describeQueryDefinitionsResponse_nextToken = Lens.lens (\DescribeQueryDefinitionsResponse' {nextToken} -> nextToken) (\s@DescribeQueryDefinitionsResponse' {} a -> s {nextToken = a} :: DescribeQueryDefinitionsResponse)
-
--- | The list of query definitions that match your request.
-describeQueryDefinitionsResponse_queryDefinitions :: Lens.Lens' DescribeQueryDefinitionsResponse (Prelude.Maybe [QueryDefinition])
-describeQueryDefinitionsResponse_queryDefinitions = Lens.lens (\DescribeQueryDefinitionsResponse' {queryDefinitions} -> queryDefinitions) (\s@DescribeQueryDefinitionsResponse' {} a -> s {queryDefinitions = a} :: DescribeQueryDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeQueryDefinitionsResponse_httpStatus :: Lens.Lens' DescribeQueryDefinitionsResponse Prelude.Int

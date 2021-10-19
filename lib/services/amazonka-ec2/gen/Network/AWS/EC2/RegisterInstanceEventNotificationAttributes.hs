@@ -30,8 +30,8 @@ module Network.AWS.EC2.RegisterInstanceEventNotificationAttributes
     newRegisterInstanceEventNotificationAttributes,
 
     -- * Request Lenses
-    registerInstanceEventNotificationAttributes_dryRun,
     registerInstanceEventNotificationAttributes_instanceTagAttribute,
+    registerInstanceEventNotificationAttributes_dryRun,
 
     -- * Destructuring the Response
     RegisterInstanceEventNotificationAttributesResponse (..),
@@ -52,13 +52,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterInstanceEventNotificationAttributes' smart constructor.
 data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotificationAttributes'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Information about the tag keys to register.
+    instanceTagAttribute :: Prelude.Maybe RegisterInstanceTagAttributeRequest,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Information about the tag keys to register.
-    instanceTagAttribute :: Prelude.Maybe RegisterInstanceTagAttributeRequest
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,21 +70,24 @@ data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotifica
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'instanceTagAttribute', 'registerInstanceEventNotificationAttributes_instanceTagAttribute' - Information about the tag keys to register.
+--
 -- 'dryRun', 'registerInstanceEventNotificationAttributes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'instanceTagAttribute', 'registerInstanceEventNotificationAttributes_instanceTagAttribute' - Information about the tag keys to register.
 newRegisterInstanceEventNotificationAttributes ::
   RegisterInstanceEventNotificationAttributes
 newRegisterInstanceEventNotificationAttributes =
   RegisterInstanceEventNotificationAttributes'
-    { dryRun =
+    { instanceTagAttribute =
         Prelude.Nothing,
-      instanceTagAttribute =
-        Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
+
+-- | Information about the tag keys to register.
+registerInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Prelude.Maybe RegisterInstanceTagAttributeRequest)
+registerInstanceEventNotificationAttributes_instanceTagAttribute = Lens.lens (\RegisterInstanceEventNotificationAttributes' {instanceTagAttribute} -> instanceTagAttribute) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributes)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -92,10 +95,6 @@ newRegisterInstanceEventNotificationAttributes =
 -- Otherwise, it is @UnauthorizedOperation@.
 registerInstanceEventNotificationAttributes_dryRun :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Prelude.Maybe Prelude.Bool)
 registerInstanceEventNotificationAttributes_dryRun = Lens.lens (\RegisterInstanceEventNotificationAttributes' {dryRun} -> dryRun) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {dryRun = a} :: RegisterInstanceEventNotificationAttributes)
-
--- | Information about the tag keys to register.
-registerInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Prelude.Maybe RegisterInstanceTagAttributeRequest)
-registerInstanceEventNotificationAttributes_instanceTagAttribute = Lens.lens (\RegisterInstanceEventNotificationAttributes' {instanceTagAttribute} -> instanceTagAttribute) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributes)
 
 instance
   Core.AWSRequest
@@ -147,8 +146,8 @@ instance
                     ),
           "Version"
             Core.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Core.=: dryRun,
-          "InstanceTagAttribute" Core.=: instanceTagAttribute
+          "InstanceTagAttribute" Core.=: instanceTagAttribute,
+          "DryRun" Core.=: dryRun
         ]
 
 -- | /See:/ 'newRegisterInstanceEventNotificationAttributesResponse' smart constructor.

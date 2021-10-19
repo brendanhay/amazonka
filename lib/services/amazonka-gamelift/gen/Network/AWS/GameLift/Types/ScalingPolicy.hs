@@ -42,9 +42,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { -- | Metric value used to trigger a scaling event.
-    threshold :: Prelude.Maybe Prelude.Double,
-    -- | Current status of the scaling policy. The scaling policy can be in force
+  { -- | Current status of the scaling policy. The scaling policy can be in force
     -- only when in an @ACTIVE@ status. Scaling policies can be suspended for
     -- individual fleets (see StopFleetActions; if suspended for a fleet, the
     -- policy status does not change. View a fleet\'s stopped actions by
@@ -68,11 +66,30 @@ data ScalingPolicy = ScalingPolicy'
     -- -   __ERROR__ -- An error occurred in creating the policy. It should be
     --     removed and recreated.
     status :: Prelude.Maybe ScalingStatusType,
-    -- | An object that contains settings for a target-based scaling policy.
-    targetConfiguration :: Prelude.Maybe TargetConfiguration,
-    -- | Comparison operator to use when measuring a metric against the threshold
-    -- value.
-    comparisonOperator :: Prelude.Maybe ComparisonOperatorType,
+    -- | The type of adjustment to make to a fleet\'s instance count (see
+    -- FleetCapacity):
+    --
+    -- -   __ChangeInCapacity__ -- add (or subtract) the scaling adjustment
+    --     value from the current instance count. Positive values scale up
+    --     while negative values scale down.
+    --
+    -- -   __ExactCapacity__ -- set the instance count to the scaling
+    --     adjustment value.
+    --
+    -- -   __PercentChangeInCapacity__ -- increase or reduce the current
+    --     instance count by the scaling adjustment, read as a percentage.
+    --     Positive values scale up while negative values scale down.
+    scalingAdjustmentType :: Prelude.Maybe ScalingAdjustmentType,
+    location :: Prelude.Maybe Prelude.Text,
+    -- | Length of time (in minutes) the metric must be at or beyond the
+    -- threshold before a scaling event is triggered.
+    evaluationPeriods :: Prelude.Maybe Prelude.Natural,
+    -- | The type of scaling policy to create. For a target-based policy, set the
+    -- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
+    -- /TargetConfiguration/. For a rule-based policy set the following
+    -- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
+    -- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
+    policyType :: Prelude.Maybe PolicyType,
     -- | Name of the Amazon GameLift-defined metric that is used to trigger a
     -- scaling adjustment. For detailed descriptions of fleet metrics, see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch>.
@@ -113,48 +130,31 @@ data ScalingPolicy = ScalingPolicy'
     --     requests, in any queue, where the current fleet is the top-priority
     --     destination.
     metricName :: Prelude.Maybe MetricName,
-    -- | A unique identifier for the fleet that is associated with this scaling
-    -- policy.
-    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift fleet resource and uniquely identifies
     -- it. ARNs are unique across all Regions. Format is
     -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
     fleetArn :: Prelude.Maybe Prelude.Text,
-    -- | The type of scaling policy to create. For a target-based policy, set the
-    -- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
-    -- /TargetConfiguration/. For a rule-based policy set the following
-    -- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
-    -- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
-    policyType :: Prelude.Maybe PolicyType,
+    -- | Comparison operator to use when measuring a metric against the threshold
+    -- value.
+    comparisonOperator :: Prelude.Maybe ComparisonOperatorType,
+    -- | A descriptive label that is associated with a fleet\'s scaling policy.
+    -- Policy names do not need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Metric value used to trigger a scaling event.
+    threshold :: Prelude.Maybe Prelude.Double,
+    -- | Amount of adjustment to make, based on the scaling adjustment type.
+    scalingAdjustment :: Prelude.Maybe Prelude.Int,
     -- | The current status of the fleet\'s scaling policies in a requested fleet
     -- location. The status @PENDING_UPDATE@ indicates that an update was
     -- requested for the fleet but has not yet been completed for the location.
     updateStatus :: Prelude.Maybe LocationUpdateStatus,
-    -- | Amount of adjustment to make, based on the scaling adjustment type.
-    scalingAdjustment :: Prelude.Maybe Prelude.Int,
-    -- | A descriptive label that is associated with a fleet\'s scaling policy.
-    -- Policy names do not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | Length of time (in minutes) the metric must be at or beyond the
-    -- threshold before a scaling event is triggered.
-    evaluationPeriods :: Prelude.Maybe Prelude.Natural,
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The type of adjustment to make to a fleet\'s instance count (see
-    -- FleetCapacity):
-    --
-    -- -   __ChangeInCapacity__ -- add (or subtract) the scaling adjustment
-    --     value from the current instance count. Positive values scale up
-    --     while negative values scale down.
-    --
-    -- -   __ExactCapacity__ -- set the instance count to the scaling
-    --     adjustment value.
-    --
-    -- -   __PercentChangeInCapacity__ -- increase or reduce the current
-    --     instance count by the scaling adjustment, read as a percentage.
-    --     Positive values scale up while negative values scale down.
-    scalingAdjustmentType :: Prelude.Maybe ScalingAdjustmentType
+    -- | A unique identifier for the fleet that is associated with this scaling
+    -- policy.
+    fleetId :: Prelude.Maybe Prelude.Text,
+    -- | An object that contains settings for a target-based scaling policy.
+    targetConfiguration :: Prelude.Maybe TargetConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -165,8 +165,6 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'threshold', 'scalingPolicy_threshold' - Metric value used to trigger a scaling event.
 --
 -- 'status', 'scalingPolicy_status' - Current status of the scaling policy. The scaling policy can be in force
 -- only when in an @ACTIVE@ status. Scaling policies can be suspended for
@@ -192,10 +190,30 @@ data ScalingPolicy = ScalingPolicy'
 -- -   __ERROR__ -- An error occurred in creating the policy. It should be
 --     removed and recreated.
 --
--- 'targetConfiguration', 'scalingPolicy_targetConfiguration' - An object that contains settings for a target-based scaling policy.
+-- 'scalingAdjustmentType', 'scalingPolicy_scalingAdjustmentType' - The type of adjustment to make to a fleet\'s instance count (see
+-- FleetCapacity):
 --
--- 'comparisonOperator', 'scalingPolicy_comparisonOperator' - Comparison operator to use when measuring a metric against the threshold
--- value.
+-- -   __ChangeInCapacity__ -- add (or subtract) the scaling adjustment
+--     value from the current instance count. Positive values scale up
+--     while negative values scale down.
+--
+-- -   __ExactCapacity__ -- set the instance count to the scaling
+--     adjustment value.
+--
+-- -   __PercentChangeInCapacity__ -- increase or reduce the current
+--     instance count by the scaling adjustment, read as a percentage.
+--     Positive values scale up while negative values scale down.
+--
+-- 'location', 'scalingPolicy_location' -
+--
+-- 'evaluationPeriods', 'scalingPolicy_evaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the
+-- threshold before a scaling event is triggered.
+--
+-- 'policyType', 'scalingPolicy_policyType' - The type of scaling policy to create. For a target-based policy, set the
+-- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
+-- /TargetConfiguration/. For a rule-based policy set the following
+-- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
+-- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
 --
 -- 'metricName', 'scalingPolicy_metricName' - Name of the Amazon GameLift-defined metric that is used to trigger a
 -- scaling adjustment. For detailed descriptions of fleet metrics, see
@@ -237,71 +255,49 @@ data ScalingPolicy = ScalingPolicy'
 --     requests, in any queue, where the current fleet is the top-priority
 --     destination.
 --
--- 'fleetId', 'scalingPolicy_fleetId' - A unique identifier for the fleet that is associated with this scaling
--- policy.
---
 -- 'fleetArn', 'scalingPolicy_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift fleet resource and uniquely identifies
 -- it. ARNs are unique across all Regions. Format is
 -- @arn:aws:gamelift:\<region>::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.
 --
--- 'policyType', 'scalingPolicy_policyType' - The type of scaling policy to create. For a target-based policy, set the
--- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
--- /TargetConfiguration/. For a rule-based policy set the following
--- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
--- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
+-- 'comparisonOperator', 'scalingPolicy_comparisonOperator' - Comparison operator to use when measuring a metric against the threshold
+-- value.
+--
+-- 'name', 'scalingPolicy_name' - A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique.
+--
+-- 'threshold', 'scalingPolicy_threshold' - Metric value used to trigger a scaling event.
+--
+-- 'scalingAdjustment', 'scalingPolicy_scalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
 --
 -- 'updateStatus', 'scalingPolicy_updateStatus' - The current status of the fleet\'s scaling policies in a requested fleet
 -- location. The status @PENDING_UPDATE@ indicates that an update was
 -- requested for the fleet but has not yet been completed for the location.
 --
--- 'scalingAdjustment', 'scalingPolicy_scalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
+-- 'fleetId', 'scalingPolicy_fleetId' - A unique identifier for the fleet that is associated with this scaling
+-- policy.
 --
--- 'name', 'scalingPolicy_name' - A descriptive label that is associated with a fleet\'s scaling policy.
--- Policy names do not need to be unique.
---
--- 'evaluationPeriods', 'scalingPolicy_evaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the
--- threshold before a scaling event is triggered.
---
--- 'location', 'scalingPolicy_location' -
---
--- 'scalingAdjustmentType', 'scalingPolicy_scalingAdjustmentType' - The type of adjustment to make to a fleet\'s instance count (see
--- FleetCapacity):
---
--- -   __ChangeInCapacity__ -- add (or subtract) the scaling adjustment
---     value from the current instance count. Positive values scale up
---     while negative values scale down.
---
--- -   __ExactCapacity__ -- set the instance count to the scaling
---     adjustment value.
---
--- -   __PercentChangeInCapacity__ -- increase or reduce the current
---     instance count by the scaling adjustment, read as a percentage.
---     Positive values scale up while negative values scale down.
+-- 'targetConfiguration', 'scalingPolicy_targetConfiguration' - An object that contains settings for a target-based scaling policy.
 newScalingPolicy ::
   ScalingPolicy
 newScalingPolicy =
   ScalingPolicy'
-    { threshold = Prelude.Nothing,
-      status = Prelude.Nothing,
-      targetConfiguration = Prelude.Nothing,
-      comparisonOperator = Prelude.Nothing,
-      metricName = Prelude.Nothing,
-      fleetId = Prelude.Nothing,
-      fleetArn = Prelude.Nothing,
-      policyType = Prelude.Nothing,
-      updateStatus = Prelude.Nothing,
-      scalingAdjustment = Prelude.Nothing,
-      name = Prelude.Nothing,
-      evaluationPeriods = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      scalingAdjustmentType = Prelude.Nothing,
       location = Prelude.Nothing,
-      scalingAdjustmentType = Prelude.Nothing
+      evaluationPeriods = Prelude.Nothing,
+      policyType = Prelude.Nothing,
+      metricName = Prelude.Nothing,
+      fleetArn = Prelude.Nothing,
+      comparisonOperator = Prelude.Nothing,
+      name = Prelude.Nothing,
+      threshold = Prelude.Nothing,
+      scalingAdjustment = Prelude.Nothing,
+      updateStatus = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
+      targetConfiguration = Prelude.Nothing
     }
-
--- | Metric value used to trigger a scaling event.
-scalingPolicy_threshold :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Double)
-scalingPolicy_threshold = Lens.lens (\ScalingPolicy' {threshold} -> threshold) (\s@ScalingPolicy' {} a -> s {threshold = a} :: ScalingPolicy)
 
 -- | Current status of the scaling policy. The scaling policy can be in force
 -- only when in an @ACTIVE@ status. Scaling policies can be suspended for
@@ -329,14 +325,38 @@ scalingPolicy_threshold = Lens.lens (\ScalingPolicy' {threshold} -> threshold) (
 scalingPolicy_status :: Lens.Lens' ScalingPolicy (Prelude.Maybe ScalingStatusType)
 scalingPolicy_status = Lens.lens (\ScalingPolicy' {status} -> status) (\s@ScalingPolicy' {} a -> s {status = a} :: ScalingPolicy)
 
--- | An object that contains settings for a target-based scaling policy.
-scalingPolicy_targetConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetConfiguration)
-scalingPolicy_targetConfiguration = Lens.lens (\ScalingPolicy' {targetConfiguration} -> targetConfiguration) (\s@ScalingPolicy' {} a -> s {targetConfiguration = a} :: ScalingPolicy)
+-- | The type of adjustment to make to a fleet\'s instance count (see
+-- FleetCapacity):
+--
+-- -   __ChangeInCapacity__ -- add (or subtract) the scaling adjustment
+--     value from the current instance count. Positive values scale up
+--     while negative values scale down.
+--
+-- -   __ExactCapacity__ -- set the instance count to the scaling
+--     adjustment value.
+--
+-- -   __PercentChangeInCapacity__ -- increase or reduce the current
+--     instance count by the scaling adjustment, read as a percentage.
+--     Positive values scale up while negative values scale down.
+scalingPolicy_scalingAdjustmentType :: Lens.Lens' ScalingPolicy (Prelude.Maybe ScalingAdjustmentType)
+scalingPolicy_scalingAdjustmentType = Lens.lens (\ScalingPolicy' {scalingAdjustmentType} -> scalingAdjustmentType) (\s@ScalingPolicy' {} a -> s {scalingAdjustmentType = a} :: ScalingPolicy)
 
--- | Comparison operator to use when measuring a metric against the threshold
--- value.
-scalingPolicy_comparisonOperator :: Lens.Lens' ScalingPolicy (Prelude.Maybe ComparisonOperatorType)
-scalingPolicy_comparisonOperator = Lens.lens (\ScalingPolicy' {comparisonOperator} -> comparisonOperator) (\s@ScalingPolicy' {} a -> s {comparisonOperator = a} :: ScalingPolicy)
+-- |
+scalingPolicy_location :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
+scalingPolicy_location = Lens.lens (\ScalingPolicy' {location} -> location) (\s@ScalingPolicy' {} a -> s {location = a} :: ScalingPolicy)
+
+-- | Length of time (in minutes) the metric must be at or beyond the
+-- threshold before a scaling event is triggered.
+scalingPolicy_evaluationPeriods :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Natural)
+scalingPolicy_evaluationPeriods = Lens.lens (\ScalingPolicy' {evaluationPeriods} -> evaluationPeriods) (\s@ScalingPolicy' {} a -> s {evaluationPeriods = a} :: ScalingPolicy)
+
+-- | The type of scaling policy to create. For a target-based policy, set the
+-- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
+-- /TargetConfiguration/. For a rule-based policy set the following
+-- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
+-- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
+scalingPolicy_policyType :: Lens.Lens' ScalingPolicy (Prelude.Maybe PolicyType)
+scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType) (\s@ScalingPolicy' {} a -> s {policyType = a} :: ScalingPolicy)
 
 -- | Name of the Amazon GameLift-defined metric that is used to trigger a
 -- scaling adjustment. For detailed descriptions of fleet metrics, see
@@ -380,11 +400,6 @@ scalingPolicy_comparisonOperator = Lens.lens (\ScalingPolicy' {comparisonOperato
 scalingPolicy_metricName :: Lens.Lens' ScalingPolicy (Prelude.Maybe MetricName)
 scalingPolicy_metricName = Lens.lens (\ScalingPolicy' {metricName} -> metricName) (\s@ScalingPolicy' {} a -> s {metricName = a} :: ScalingPolicy)
 
--- | A unique identifier for the fleet that is associated with this scaling
--- policy.
-scalingPolicy_fleetId :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
-scalingPolicy_fleetId = Lens.lens (\ScalingPolicy' {fleetId} -> fleetId) (\s@ScalingPolicy' {} a -> s {fleetId = a} :: ScalingPolicy)
-
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift fleet resource and uniquely identifies
@@ -393,13 +408,23 @@ scalingPolicy_fleetId = Lens.lens (\ScalingPolicy' {fleetId} -> fleetId) (\s@Sca
 scalingPolicy_fleetArn :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
 scalingPolicy_fleetArn = Lens.lens (\ScalingPolicy' {fleetArn} -> fleetArn) (\s@ScalingPolicy' {} a -> s {fleetArn = a} :: ScalingPolicy)
 
--- | The type of scaling policy to create. For a target-based policy, set the
--- parameter /MetricName/ to \'PercentAvailableGameSessions\' and specify a
--- /TargetConfiguration/. For a rule-based policy set the following
--- parameters: /MetricName/, /ComparisonOperator/, /Threshold/,
--- /EvaluationPeriods/, /ScalingAdjustmentType/, and /ScalingAdjustment/.
-scalingPolicy_policyType :: Lens.Lens' ScalingPolicy (Prelude.Maybe PolicyType)
-scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType) (\s@ScalingPolicy' {} a -> s {policyType = a} :: ScalingPolicy)
+-- | Comparison operator to use when measuring a metric against the threshold
+-- value.
+scalingPolicy_comparisonOperator :: Lens.Lens' ScalingPolicy (Prelude.Maybe ComparisonOperatorType)
+scalingPolicy_comparisonOperator = Lens.lens (\ScalingPolicy' {comparisonOperator} -> comparisonOperator) (\s@ScalingPolicy' {} a -> s {comparisonOperator = a} :: ScalingPolicy)
+
+-- | A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique.
+scalingPolicy_name :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
+scalingPolicy_name = Lens.lens (\ScalingPolicy' {name} -> name) (\s@ScalingPolicy' {} a -> s {name = a} :: ScalingPolicy)
+
+-- | Metric value used to trigger a scaling event.
+scalingPolicy_threshold :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Double)
+scalingPolicy_threshold = Lens.lens (\ScalingPolicy' {threshold} -> threshold) (\s@ScalingPolicy' {} a -> s {threshold = a} :: ScalingPolicy)
+
+-- | Amount of adjustment to make, based on the scaling adjustment type.
+scalingPolicy_scalingAdjustment :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Int)
+scalingPolicy_scalingAdjustment = Lens.lens (\ScalingPolicy' {scalingAdjustment} -> scalingAdjustment) (\s@ScalingPolicy' {} a -> s {scalingAdjustment = a} :: ScalingPolicy)
 
 -- | The current status of the fleet\'s scaling policies in a requested fleet
 -- location. The status @PENDING_UPDATE@ indicates that an update was
@@ -407,39 +432,14 @@ scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType
 scalingPolicy_updateStatus :: Lens.Lens' ScalingPolicy (Prelude.Maybe LocationUpdateStatus)
 scalingPolicy_updateStatus = Lens.lens (\ScalingPolicy' {updateStatus} -> updateStatus) (\s@ScalingPolicy' {} a -> s {updateStatus = a} :: ScalingPolicy)
 
--- | Amount of adjustment to make, based on the scaling adjustment type.
-scalingPolicy_scalingAdjustment :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Int)
-scalingPolicy_scalingAdjustment = Lens.lens (\ScalingPolicy' {scalingAdjustment} -> scalingAdjustment) (\s@ScalingPolicy' {} a -> s {scalingAdjustment = a} :: ScalingPolicy)
+-- | A unique identifier for the fleet that is associated with this scaling
+-- policy.
+scalingPolicy_fleetId :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
+scalingPolicy_fleetId = Lens.lens (\ScalingPolicy' {fleetId} -> fleetId) (\s@ScalingPolicy' {} a -> s {fleetId = a} :: ScalingPolicy)
 
--- | A descriptive label that is associated with a fleet\'s scaling policy.
--- Policy names do not need to be unique.
-scalingPolicy_name :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
-scalingPolicy_name = Lens.lens (\ScalingPolicy' {name} -> name) (\s@ScalingPolicy' {} a -> s {name = a} :: ScalingPolicy)
-
--- | Length of time (in minutes) the metric must be at or beyond the
--- threshold before a scaling event is triggered.
-scalingPolicy_evaluationPeriods :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Natural)
-scalingPolicy_evaluationPeriods = Lens.lens (\ScalingPolicy' {evaluationPeriods} -> evaluationPeriods) (\s@ScalingPolicy' {} a -> s {evaluationPeriods = a} :: ScalingPolicy)
-
--- |
-scalingPolicy_location :: Lens.Lens' ScalingPolicy (Prelude.Maybe Prelude.Text)
-scalingPolicy_location = Lens.lens (\ScalingPolicy' {location} -> location) (\s@ScalingPolicy' {} a -> s {location = a} :: ScalingPolicy)
-
--- | The type of adjustment to make to a fleet\'s instance count (see
--- FleetCapacity):
---
--- -   __ChangeInCapacity__ -- add (or subtract) the scaling adjustment
---     value from the current instance count. Positive values scale up
---     while negative values scale down.
---
--- -   __ExactCapacity__ -- set the instance count to the scaling
---     adjustment value.
---
--- -   __PercentChangeInCapacity__ -- increase or reduce the current
---     instance count by the scaling adjustment, read as a percentage.
---     Positive values scale up while negative values scale down.
-scalingPolicy_scalingAdjustmentType :: Lens.Lens' ScalingPolicy (Prelude.Maybe ScalingAdjustmentType)
-scalingPolicy_scalingAdjustmentType = Lens.lens (\ScalingPolicy' {scalingAdjustmentType} -> scalingAdjustmentType) (\s@ScalingPolicy' {} a -> s {scalingAdjustmentType = a} :: ScalingPolicy)
+-- | An object that contains settings for a target-based scaling policy.
+scalingPolicy_targetConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetConfiguration)
+scalingPolicy_targetConfiguration = Lens.lens (\ScalingPolicy' {targetConfiguration} -> targetConfiguration) (\s@ScalingPolicy' {} a -> s {targetConfiguration = a} :: ScalingPolicy)
 
 instance Core.FromJSON ScalingPolicy where
   parseJSON =
@@ -447,20 +447,20 @@ instance Core.FromJSON ScalingPolicy where
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Prelude.<$> (x Core..:? "Threshold")
-            Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "TargetConfiguration")
-            Prelude.<*> (x Core..:? "ComparisonOperator")
-            Prelude.<*> (x Core..:? "MetricName")
-            Prelude.<*> (x Core..:? "FleetId")
-            Prelude.<*> (x Core..:? "FleetArn")
-            Prelude.<*> (x Core..:? "PolicyType")
-            Prelude.<*> (x Core..:? "UpdateStatus")
-            Prelude.<*> (x Core..:? "ScalingAdjustment")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EvaluationPeriods")
-            Prelude.<*> (x Core..:? "Location")
+            Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ScalingAdjustmentType")
+            Prelude.<*> (x Core..:? "Location")
+            Prelude.<*> (x Core..:? "EvaluationPeriods")
+            Prelude.<*> (x Core..:? "PolicyType")
+            Prelude.<*> (x Core..:? "MetricName")
+            Prelude.<*> (x Core..:? "FleetArn")
+            Prelude.<*> (x Core..:? "ComparisonOperator")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Threshold")
+            Prelude.<*> (x Core..:? "ScalingAdjustment")
+            Prelude.<*> (x Core..:? "UpdateStatus")
+            Prelude.<*> (x Core..:? "FleetId")
+            Prelude.<*> (x Core..:? "TargetConfiguration")
       )
 
 instance Prelude.Hashable ScalingPolicy

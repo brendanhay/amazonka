@@ -24,20 +24,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
-newInvalidationCompleted :: Core.Wait GetInvalidation
-newInvalidationCompleted =
+-- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
+newStreamingDistributionDeployed :: Core.Wait GetStreamingDistribution
+newStreamingDistributionDeployed =
   Core.Wait
-    { Core._waitName = "InvalidationCompleted",
-      Core._waitAttempts = 30,
-      Core._waitDelay = 20,
+    { Core._waitName =
+        "StreamingDistributionDeployed",
+      Core._waitAttempts = 25,
+      Core._waitDelay = 60,
       Core._waitAcceptors =
         [ Core.matchAll
-            "Completed"
+            "Deployed"
             Core.AcceptSuccess
-            ( getInvalidationResponse_invalidation
+            ( getStreamingDistributionResponse_streamingDistribution
                 Prelude.. Lens._Just
-                Prelude.. invalidation_status
+                Prelude.. streamingDistribution_status
                 Prelude.. Lens.to Core.toTextCI
             )
         ]
@@ -62,21 +63,20 @@ newDistributionDeployed =
         ]
     }
 
--- | Polls 'Network.AWS.CloudFront.GetStreamingDistribution' every 60 seconds until a successful state is reached. An error is returned after 25 failed checks.
-newStreamingDistributionDeployed :: Core.Wait GetStreamingDistribution
-newStreamingDistributionDeployed =
+-- | Polls 'Network.AWS.CloudFront.GetInvalidation' every 20 seconds until a successful state is reached. An error is returned after 30 failed checks.
+newInvalidationCompleted :: Core.Wait GetInvalidation
+newInvalidationCompleted =
   Core.Wait
-    { Core._waitName =
-        "StreamingDistributionDeployed",
-      Core._waitAttempts = 25,
-      Core._waitDelay = 60,
+    { Core._waitName = "InvalidationCompleted",
+      Core._waitAttempts = 30,
+      Core._waitDelay = 20,
       Core._waitAcceptors =
         [ Core.matchAll
-            "Deployed"
+            "Completed"
             Core.AcceptSuccess
-            ( getStreamingDistributionResponse_streamingDistribution
+            ( getInvalidationResponse_invalidation
                 Prelude.. Lens._Just
-                Prelude.. streamingDistribution_status
+                Prelude.. invalidation_status
                 Prelude.. Lens.to Core.toTextCI
             )
         ]

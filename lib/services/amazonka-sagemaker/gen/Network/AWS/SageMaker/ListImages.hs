@@ -31,23 +31,23 @@ module Network.AWS.SageMaker.ListImages
     newListImages,
 
     -- * Request Lenses
+    listImages_nameContains,
     listImages_lastModifiedTimeBefore,
+    listImages_creationTimeAfter,
     listImages_nextToken,
     listImages_sortOrder,
-    listImages_nameContains,
-    listImages_maxResults,
-    listImages_creationTimeBefore,
     listImages_lastModifiedTimeAfter,
+    listImages_creationTimeBefore,
+    listImages_maxResults,
     listImages_sortBy,
-    listImages_creationTimeAfter,
 
     -- * Destructuring the Response
     ListImagesResponse (..),
     newListImagesResponse,
 
     -- * Response Lenses
-    listImagesResponse_nextToken,
     listImagesResponse_images,
+    listImagesResponse_nextToken,
     listImagesResponse_httpStatus,
   )
 where
@@ -61,31 +61,31 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListImages' smart constructor.
 data ListImages = ListImages'
-  { -- | A filter that returns only images modified on or before the specified
+  { -- | A filter that returns only images whose name contains the specified
+    -- string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only images modified on or before the specified
     -- time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | A filter that returns only images created on or after the specified
+    -- time.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | If the previous call to @ListImages@ didn\'t return the full set of
     -- images, the call returns a token for getting the next set of images.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order. The default value is @DESCENDING@.
     sortOrder :: Prelude.Maybe ImageSortOrder,
-    -- | A filter that returns only images whose name contains the specified
-    -- string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of images to return in the response. The default
-    -- value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only images created on or before the specified
-    -- time.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only images modified on or after the specified
     -- time.
     lastModifiedTimeAfter :: Prelude.Maybe Core.POSIX,
-    -- | The property used to sort results. The default value is @CREATION_TIME@.
-    sortBy :: Prelude.Maybe ImageSortBy,
-    -- | A filter that returns only images created on or after the specified
+    -- | A filter that returns only images created on or before the specified
     -- time.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of images to return in the response. The default
+    -- value is 10.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The property used to sort results. The default value is @CREATION_TIME@.
+    sortBy :: Prelude.Maybe ImageSortBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,7 +97,13 @@ data ListImages = ListImages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listImages_nameContains' - A filter that returns only images whose name contains the specified
+-- string.
+--
 -- 'lastModifiedTimeBefore', 'listImages_lastModifiedTimeBefore' - A filter that returns only images modified on or before the specified
+-- time.
+--
+-- 'creationTimeAfter', 'listImages_creationTimeAfter' - A filter that returns only images created on or after the specified
 -- time.
 --
 -- 'nextToken', 'listImages_nextToken' - If the previous call to @ListImages@ didn\'t return the full set of
@@ -105,42 +111,45 @@ data ListImages = ListImages'
 --
 -- 'sortOrder', 'listImages_sortOrder' - The sort order. The default value is @DESCENDING@.
 --
--- 'nameContains', 'listImages_nameContains' - A filter that returns only images whose name contains the specified
--- string.
---
--- 'maxResults', 'listImages_maxResults' - The maximum number of images to return in the response. The default
--- value is 10.
+-- 'lastModifiedTimeAfter', 'listImages_lastModifiedTimeAfter' - A filter that returns only images modified on or after the specified
+-- time.
 --
 -- 'creationTimeBefore', 'listImages_creationTimeBefore' - A filter that returns only images created on or before the specified
 -- time.
 --
--- 'lastModifiedTimeAfter', 'listImages_lastModifiedTimeAfter' - A filter that returns only images modified on or after the specified
--- time.
+-- 'maxResults', 'listImages_maxResults' - The maximum number of images to return in the response. The default
+-- value is 10.
 --
 -- 'sortBy', 'listImages_sortBy' - The property used to sort results. The default value is @CREATION_TIME@.
---
--- 'creationTimeAfter', 'listImages_creationTimeAfter' - A filter that returns only images created on or after the specified
--- time.
 newListImages ::
   ListImages
 newListImages =
   ListImages'
-    { lastModifiedTimeBefore =
-        Prelude.Nothing,
+    { nameContains = Prelude.Nothing,
+      lastModifiedTimeBefore = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      creationTimeBefore = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A filter that returns only images whose name contains the specified
+-- string.
+listImages_nameContains :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
+listImages_nameContains = Lens.lens (\ListImages' {nameContains} -> nameContains) (\s@ListImages' {} a -> s {nameContains = a} :: ListImages)
 
 -- | A filter that returns only images modified on or before the specified
 -- time.
 listImages_lastModifiedTimeBefore :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
 listImages_lastModifiedTimeBefore = Lens.lens (\ListImages' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImages' {} a -> s {lastModifiedTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Core._Time
+
+-- | A filter that returns only images created on or after the specified
+-- time.
+listImages_creationTimeAfter :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
+listImages_creationTimeAfter = Lens.lens (\ListImages' {creationTimeAfter} -> creationTimeAfter) (\s@ListImages' {} a -> s {creationTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Core._Time
 
 -- | If the previous call to @ListImages@ didn\'t return the full set of
 -- images, the call returns a token for getting the next set of images.
@@ -151,34 +160,24 @@ listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@Lis
 listImages_sortOrder :: Lens.Lens' ListImages (Prelude.Maybe ImageSortOrder)
 listImages_sortOrder = Lens.lens (\ListImages' {sortOrder} -> sortOrder) (\s@ListImages' {} a -> s {sortOrder = a} :: ListImages)
 
--- | A filter that returns only images whose name contains the specified
--- string.
-listImages_nameContains :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
-listImages_nameContains = Lens.lens (\ListImages' {nameContains} -> nameContains) (\s@ListImages' {} a -> s {nameContains = a} :: ListImages)
-
--- | The maximum number of images to return in the response. The default
--- value is 10.
-listImages_maxResults :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Natural)
-listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@ListImages' {} a -> s {maxResults = a} :: ListImages)
+-- | A filter that returns only images modified on or after the specified
+-- time.
+listImages_lastModifiedTimeAfter :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
+listImages_lastModifiedTimeAfter = Lens.lens (\ListImages' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListImages' {} a -> s {lastModifiedTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only images created on or before the specified
 -- time.
 listImages_creationTimeBefore :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
 listImages_creationTimeBefore = Lens.lens (\ListImages' {creationTimeBefore} -> creationTimeBefore) (\s@ListImages' {} a -> s {creationTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Core._Time
 
--- | A filter that returns only images modified on or after the specified
--- time.
-listImages_lastModifiedTimeAfter :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
-listImages_lastModifiedTimeAfter = Lens.lens (\ListImages' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListImages' {} a -> s {lastModifiedTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Core._Time
+-- | The maximum number of images to return in the response. The default
+-- value is 10.
+listImages_maxResults :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Natural)
+listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@ListImages' {} a -> s {maxResults = a} :: ListImages)
 
 -- | The property used to sort results. The default value is @CREATION_TIME@.
 listImages_sortBy :: Lens.Lens' ListImages (Prelude.Maybe ImageSortBy)
 listImages_sortBy = Lens.lens (\ListImages' {sortBy} -> sortBy) (\s@ListImages' {} a -> s {sortBy = a} :: ListImages)
-
--- | A filter that returns only images created on or after the specified
--- time.
-listImages_creationTimeAfter :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
-listImages_creationTimeAfter = Lens.lens (\ListImages' {creationTimeAfter} -> creationTimeAfter) (\s@ListImages' {} a -> s {creationTimeAfter = a} :: ListImages) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListImages where
   page rq rs
@@ -206,8 +205,8 @@ instance Core.AWSRequest ListImages where
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Images" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,19 +231,19 @@ instance Core.ToJSON ListImages where
   toJSON ListImages' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastModifiedTimeBefore" Core..=)
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
             ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("CreationTimeBefore" Core..=)
-              Prelude.<$> creationTimeBefore,
             ("LastModifiedTimeAfter" Core..=)
               Prelude.<$> lastModifiedTimeAfter,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("CreationTimeBefore" Core..=)
+              Prelude.<$> creationTimeBefore,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -256,10 +255,10 @@ instance Core.ToQuery ListImages where
 
 -- | /See:/ 'newListImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
-  { -- | A token for getting the next set of images, if there are any.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of images and their properties.
+  { -- | A list of images and their properties.
     images :: Prelude.Maybe [Image],
+    -- | A token for getting the next set of images, if there are any.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -273,9 +272,9 @@ data ListImagesResponse = ListImagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listImagesResponse_nextToken' - A token for getting the next set of images, if there are any.
---
 -- 'images', 'listImagesResponse_images' - A list of images and their properties.
+--
+-- 'nextToken', 'listImagesResponse_nextToken' - A token for getting the next set of images, if there are any.
 --
 -- 'httpStatus', 'listImagesResponse_httpStatus' - The response's http status code.
 newListImagesResponse ::
@@ -284,18 +283,18 @@ newListImagesResponse ::
   ListImagesResponse
 newListImagesResponse pHttpStatus_ =
   ListImagesResponse'
-    { nextToken = Prelude.Nothing,
-      images = Prelude.Nothing,
+    { images = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of images and their properties.
+listImagesResponse_images :: Lens.Lens' ListImagesResponse (Prelude.Maybe [Image])
+listImagesResponse_images = Lens.lens (\ListImagesResponse' {images} -> images) (\s@ListImagesResponse' {} a -> s {images = a} :: ListImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token for getting the next set of images, if there are any.
 listImagesResponse_nextToken :: Lens.Lens' ListImagesResponse (Prelude.Maybe Prelude.Text)
 listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> nextToken) (\s@ListImagesResponse' {} a -> s {nextToken = a} :: ListImagesResponse)
-
--- | A list of images and their properties.
-listImagesResponse_images :: Lens.Lens' ListImagesResponse (Prelude.Maybe [Image])
-listImagesResponse_images = Lens.lens (\ListImagesResponse' {images} -> images) (\s@ListImagesResponse' {} a -> s {images = a} :: ListImagesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listImagesResponse_httpStatus :: Lens.Lens' ListImagesResponse Prelude.Int

@@ -35,8 +35,8 @@ module Network.AWS.EC2.DeleteQueuedReservedInstances
     newDeleteQueuedReservedInstancesResponse,
 
     -- * Response Lenses
-    deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions,
     deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions,
+    deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions,
     deleteQueuedReservedInstancesResponse_httpStatus,
   )
 where
@@ -84,7 +84,7 @@ newDeleteQueuedReservedInstances
       { dryRun =
           Prelude.Nothing,
         reservedInstancesIds =
-          Lens._Coerce Lens.# pReservedInstancesIds_
+          Lens.coerced Lens.# pReservedInstancesIds_
       }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -96,7 +96,7 @@ deleteQueuedReservedInstances_dryRun = Lens.lens (\DeleteQueuedReservedInstances
 
 -- | The IDs of the Reserved Instances.
 deleteQueuedReservedInstances_reservedInstancesIds :: Lens.Lens' DeleteQueuedReservedInstances (Prelude.NonEmpty Prelude.Text)
-deleteQueuedReservedInstances_reservedInstancesIds = Lens.lens (\DeleteQueuedReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@DeleteQueuedReservedInstances' {} a -> s {reservedInstancesIds = a} :: DeleteQueuedReservedInstances) Prelude.. Lens._Coerce
+deleteQueuedReservedInstances_reservedInstancesIds = Lens.lens (\DeleteQueuedReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@DeleteQueuedReservedInstances' {} a -> s {reservedInstancesIds = a} :: DeleteQueuedReservedInstances) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -110,11 +110,11 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteQueuedReservedInstancesResponse'
-            Prelude.<$> ( x Core..@? "successfulQueuedPurchaseDeletionSet"
+            Prelude.<$> ( x Core..@? "failedQueuedPurchaseDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
-            Prelude.<*> ( x Core..@? "failedQueuedPurchaseDeletionSet"
+            Prelude.<*> ( x Core..@? "successfulQueuedPurchaseDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
@@ -150,10 +150,10 @@ instance Core.ToQuery DeleteQueuedReservedInstances where
 
 -- | /See:/ 'newDeleteQueuedReservedInstancesResponse' smart constructor.
 data DeleteQueuedReservedInstancesResponse = DeleteQueuedReservedInstancesResponse'
-  { -- | Information about the queued purchases that were successfully deleted.
-    successfulQueuedPurchaseDeletions :: Prelude.Maybe [SuccessfulQueuedPurchaseDeletion],
-    -- | Information about the queued purchases that could not be deleted.
+  { -- | Information about the queued purchases that could not be deleted.
     failedQueuedPurchaseDeletions :: Prelude.Maybe [FailedQueuedPurchaseDeletion],
+    -- | Information about the queued purchases that were successfully deleted.
+    successfulQueuedPurchaseDeletions :: Prelude.Maybe [SuccessfulQueuedPurchaseDeletion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,9 +167,9 @@ data DeleteQueuedReservedInstancesResponse = DeleteQueuedReservedInstancesRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successfulQueuedPurchaseDeletions', 'deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions' - Information about the queued purchases that were successfully deleted.
---
 -- 'failedQueuedPurchaseDeletions', 'deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions' - Information about the queued purchases that could not be deleted.
+--
+-- 'successfulQueuedPurchaseDeletions', 'deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions' - Information about the queued purchases that were successfully deleted.
 --
 -- 'httpStatus', 'deleteQueuedReservedInstancesResponse_httpStatus' - The response's http status code.
 newDeleteQueuedReservedInstancesResponse ::
@@ -178,20 +178,20 @@ newDeleteQueuedReservedInstancesResponse ::
   DeleteQueuedReservedInstancesResponse
 newDeleteQueuedReservedInstancesResponse pHttpStatus_ =
   DeleteQueuedReservedInstancesResponse'
-    { successfulQueuedPurchaseDeletions =
+    { failedQueuedPurchaseDeletions =
         Prelude.Nothing,
-      failedQueuedPurchaseDeletions =
+      successfulQueuedPurchaseDeletions =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | Information about the queued purchases that were successfully deleted.
-deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions :: Lens.Lens' DeleteQueuedReservedInstancesResponse (Prelude.Maybe [SuccessfulQueuedPurchaseDeletion])
-deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions = Lens.lens (\DeleteQueuedReservedInstancesResponse' {successfulQueuedPurchaseDeletions} -> successfulQueuedPurchaseDeletions) (\s@DeleteQueuedReservedInstancesResponse' {} a -> s {successfulQueuedPurchaseDeletions = a} :: DeleteQueuedReservedInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Information about the queued purchases that could not be deleted.
 deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions :: Lens.Lens' DeleteQueuedReservedInstancesResponse (Prelude.Maybe [FailedQueuedPurchaseDeletion])
-deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions = Lens.lens (\DeleteQueuedReservedInstancesResponse' {failedQueuedPurchaseDeletions} -> failedQueuedPurchaseDeletions) (\s@DeleteQueuedReservedInstancesResponse' {} a -> s {failedQueuedPurchaseDeletions = a} :: DeleteQueuedReservedInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteQueuedReservedInstancesResponse_failedQueuedPurchaseDeletions = Lens.lens (\DeleteQueuedReservedInstancesResponse' {failedQueuedPurchaseDeletions} -> failedQueuedPurchaseDeletions) (\s@DeleteQueuedReservedInstancesResponse' {} a -> s {failedQueuedPurchaseDeletions = a} :: DeleteQueuedReservedInstancesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the queued purchases that were successfully deleted.
+deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions :: Lens.Lens' DeleteQueuedReservedInstancesResponse (Prelude.Maybe [SuccessfulQueuedPurchaseDeletion])
+deleteQueuedReservedInstancesResponse_successfulQueuedPurchaseDeletions = Lens.lens (\DeleteQueuedReservedInstancesResponse' {successfulQueuedPurchaseDeletions} -> successfulQueuedPurchaseDeletions) (\s@DeleteQueuedReservedInstancesResponse' {} a -> s {successfulQueuedPurchaseDeletions = a} :: DeleteQueuedReservedInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteQueuedReservedInstancesResponse_httpStatus :: Lens.Lens' DeleteQueuedReservedInstancesResponse Prelude.Int

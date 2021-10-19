@@ -73,12 +73,12 @@ newCreateWorkspaces ::
 newCreateWorkspaces pWorkspaces_ =
   CreateWorkspaces'
     { workspaces =
-        Lens._Coerce Lens.# pWorkspaces_
+        Lens.coerced Lens.# pWorkspaces_
     }
 
 -- | The WorkSpaces to create. You can specify up to 25 WorkSpaces.
 createWorkspaces_workspaces :: Lens.Lens' CreateWorkspaces (Prelude.NonEmpty WorkspaceRequest)
-createWorkspaces_workspaces = Lens.lens (\CreateWorkspaces' {workspaces} -> workspaces) (\s@CreateWorkspaces' {} a -> s {workspaces = a} :: CreateWorkspaces) Prelude.. Lens._Coerce
+createWorkspaces_workspaces = Lens.lens (\CreateWorkspaces' {workspaces} -> workspaces) (\s@CreateWorkspaces' {} a -> s {workspaces = a} :: CreateWorkspaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateWorkspaces where
   type
@@ -176,7 +176,7 @@ newCreateWorkspacesResponse pHttpStatus_ =
 
 -- | Information about the WorkSpaces that could not be created.
 createWorkspacesResponse_failedRequests :: Lens.Lens' CreateWorkspacesResponse (Prelude.Maybe [FailedCreateWorkspaceRequest])
-createWorkspacesResponse_failedRequests = Lens.lens (\CreateWorkspacesResponse' {failedRequests} -> failedRequests) (\s@CreateWorkspacesResponse' {} a -> s {failedRequests = a} :: CreateWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+createWorkspacesResponse_failedRequests = Lens.lens (\CreateWorkspacesResponse' {failedRequests} -> failedRequests) (\s@CreateWorkspacesResponse' {} a -> s {failedRequests = a} :: CreateWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the WorkSpaces that were created.
 --
@@ -185,7 +185,7 @@ createWorkspacesResponse_failedRequests = Lens.lens (\CreateWorkspacesResponse' 
 -- call DescribeWorkspaces before the WorkSpace is created, the information
 -- returned can be incomplete.
 createWorkspacesResponse_pendingRequests :: Lens.Lens' CreateWorkspacesResponse (Prelude.Maybe [Workspace])
-createWorkspacesResponse_pendingRequests = Lens.lens (\CreateWorkspacesResponse' {pendingRequests} -> pendingRequests) (\s@CreateWorkspacesResponse' {} a -> s {pendingRequests = a} :: CreateWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+createWorkspacesResponse_pendingRequests = Lens.lens (\CreateWorkspacesResponse' {pendingRequests} -> pendingRequests) (\s@CreateWorkspacesResponse' {} a -> s {pendingRequests = a} :: CreateWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createWorkspacesResponse_httpStatus :: Lens.Lens' CreateWorkspacesResponse Prelude.Int

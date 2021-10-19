@@ -27,14 +27,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
-  { -- | The name of the connection to use to connect to the JDBC target.
+  { -- | The path of the JDBC target.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The name of the connection to use to connect to the JDBC target.
     connectionName :: Prelude.Maybe Prelude.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-    exclusions :: Prelude.Maybe [Prelude.Text],
-    -- | The path of the JDBC target.
-    path :: Prelude.Maybe Prelude.Text
+    exclusions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,21 +46,25 @@ data JdbcTarget = JdbcTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'path', 'jdbcTarget_path' - The path of the JDBC target.
+--
 -- 'connectionName', 'jdbcTarget_connectionName' - The name of the connection to use to connect to the JDBC target.
 --
 -- 'exclusions', 'jdbcTarget_exclusions' - A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
---
--- 'path', 'jdbcTarget_path' - The path of the JDBC target.
 newJdbcTarget ::
   JdbcTarget
 newJdbcTarget =
   JdbcTarget'
-    { connectionName = Prelude.Nothing,
-      exclusions = Prelude.Nothing,
-      path = Prelude.Nothing
+    { path = Prelude.Nothing,
+      connectionName = Prelude.Nothing,
+      exclusions = Prelude.Nothing
     }
+
+-- | The path of the JDBC target.
+jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
+jdbcTarget_path = Lens.lens (\JdbcTarget' {path} -> path) (\s@JdbcTarget' {} a -> s {path = a} :: JdbcTarget)
 
 -- | The name of the connection to use to connect to the JDBC target.
 jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
@@ -70,11 +74,7 @@ jdbcTarget_connectionName = Lens.lens (\JdbcTarget' {connectionName} -> connecti
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
 jdbcTarget_exclusions :: Lens.Lens' JdbcTarget (Prelude.Maybe [Prelude.Text])
-jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Prelude.. Lens.mapping Lens._Coerce
-
--- | The path of the JDBC target.
-jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
-jdbcTarget_path = Lens.lens (\JdbcTarget' {path} -> path) (\s@JdbcTarget' {} a -> s {path = a} :: JdbcTarget)
+jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON JdbcTarget where
   parseJSON =
@@ -82,9 +82,9 @@ instance Core.FromJSON JdbcTarget where
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<$> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "ConnectionName")
             Prelude.<*> (x Core..:? "Exclusions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Path")
       )
 
 instance Prelude.Hashable JdbcTarget
@@ -95,9 +95,9 @@ instance Core.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ConnectionName" Core..=)
+          [ ("Path" Core..=) Prelude.<$> path,
+            ("ConnectionName" Core..=)
               Prelude.<$> connectionName,
-            ("Exclusions" Core..=) Prelude.<$> exclusions,
-            ("Path" Core..=) Prelude.<$> path
+            ("Exclusions" Core..=) Prelude.<$> exclusions
           ]
       )

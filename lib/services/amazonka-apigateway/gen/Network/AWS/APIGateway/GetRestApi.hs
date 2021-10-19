@@ -34,19 +34,19 @@ module Network.AWS.APIGateway.GetRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_createdDate,
-    restApi_warnings,
-    restApi_endpointConfiguration,
-    restApi_binaryMediaTypes,
-    restApi_id,
-    restApi_version,
-    restApi_name,
-    restApi_tags,
-    restApi_description,
-    restApi_policy,
-    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
+    restApi_disableExecuteApiEndpoint,
+    restApi_binaryMediaTypes,
+    restApi_warnings,
+    restApi_createdDate,
+    restApi_name,
+    restApi_version,
     restApi_apiKeySource,
+    restApi_id,
+    restApi_policy,
+    restApi_endpointConfiguration,
+    restApi_description,
+    restApi_tags,
   )
 where
 

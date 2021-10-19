@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRestoreSummary' smart constructor.
 data RestoreSummary = RestoreSummary'
-  { -- | The Amazon Resource Name (ARN) of the backup from which the table was
+  { -- | The ARN of the source table of the backup that is being restored.
+    sourceTableArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the backup from which the table was
     -- restored.
     sourceBackupArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the source table of the backup that is being restored.
-    sourceTableArn :: Prelude.Maybe Prelude.Text,
     -- | Point in time or source backup time.
     restoreDateTime :: Core.POSIX,
     -- | Indicates if a restore is in progress or not.
@@ -47,10 +47,10 @@ data RestoreSummary = RestoreSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sourceTableArn', 'restoreSummary_sourceTableArn' - The ARN of the source table of the backup that is being restored.
+--
 -- 'sourceBackupArn', 'restoreSummary_sourceBackupArn' - The Amazon Resource Name (ARN) of the backup from which the table was
 -- restored.
---
--- 'sourceTableArn', 'restoreSummary_sourceTableArn' - The ARN of the source table of the backup that is being restored.
 --
 -- 'restoreDateTime', 'restoreSummary_restoreDateTime' - Point in time or source backup time.
 --
@@ -65,21 +65,21 @@ newRestoreSummary
   pRestoreDateTime_
   pRestoreInProgress_ =
     RestoreSummary'
-      { sourceBackupArn = Prelude.Nothing,
-        sourceTableArn = Prelude.Nothing,
+      { sourceTableArn = Prelude.Nothing,
+        sourceBackupArn = Prelude.Nothing,
         restoreDateTime =
           Core._Time Lens.# pRestoreDateTime_,
         restoreInProgress = pRestoreInProgress_
       }
 
+-- | The ARN of the source table of the backup that is being restored.
+restoreSummary_sourceTableArn :: Lens.Lens' RestoreSummary (Prelude.Maybe Prelude.Text)
+restoreSummary_sourceTableArn = Lens.lens (\RestoreSummary' {sourceTableArn} -> sourceTableArn) (\s@RestoreSummary' {} a -> s {sourceTableArn = a} :: RestoreSummary)
+
 -- | The Amazon Resource Name (ARN) of the backup from which the table was
 -- restored.
 restoreSummary_sourceBackupArn :: Lens.Lens' RestoreSummary (Prelude.Maybe Prelude.Text)
 restoreSummary_sourceBackupArn = Lens.lens (\RestoreSummary' {sourceBackupArn} -> sourceBackupArn) (\s@RestoreSummary' {} a -> s {sourceBackupArn = a} :: RestoreSummary)
-
--- | The ARN of the source table of the backup that is being restored.
-restoreSummary_sourceTableArn :: Lens.Lens' RestoreSummary (Prelude.Maybe Prelude.Text)
-restoreSummary_sourceTableArn = Lens.lens (\RestoreSummary' {sourceTableArn} -> sourceTableArn) (\s@RestoreSummary' {} a -> s {sourceTableArn = a} :: RestoreSummary)
 
 -- | Point in time or source backup time.
 restoreSummary_restoreDateTime :: Lens.Lens' RestoreSummary Prelude.UTCTime
@@ -95,8 +95,8 @@ instance Core.FromJSON RestoreSummary where
       "RestoreSummary"
       ( \x ->
           RestoreSummary'
-            Prelude.<$> (x Core..:? "SourceBackupArn")
-            Prelude.<*> (x Core..:? "SourceTableArn")
+            Prelude.<$> (x Core..:? "SourceTableArn")
+            Prelude.<*> (x Core..:? "SourceBackupArn")
             Prelude.<*> (x Core..: "RestoreDateTime")
             Prelude.<*> (x Core..: "RestoreInProgress")
       )

@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAccountQuota' smart constructor.
 data AccountQuota = AccountQuota'
-  { -- | The amount currently used toward the quota maximum.
+  { -- | The maximum allowed value for the quota.
+    max :: Prelude.Maybe Prelude.Integer,
+    -- | The amount currently used toward the quota maximum.
     used :: Prelude.Maybe Prelude.Integer,
     -- | The name of the DMS quota for this Amazon Web Services account.
-    accountQuotaName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum allowed value for the quota.
-    max :: Prelude.Maybe Prelude.Integer
+    accountQuotaName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,19 +45,23 @@ data AccountQuota = AccountQuota'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'max', 'accountQuota_max' - The maximum allowed value for the quota.
+--
 -- 'used', 'accountQuota_used' - The amount currently used toward the quota maximum.
 --
 -- 'accountQuotaName', 'accountQuota_accountQuotaName' - The name of the DMS quota for this Amazon Web Services account.
---
--- 'max', 'accountQuota_max' - The maximum allowed value for the quota.
 newAccountQuota ::
   AccountQuota
 newAccountQuota =
   AccountQuota'
-    { used = Prelude.Nothing,
-      accountQuotaName = Prelude.Nothing,
-      max = Prelude.Nothing
+    { max = Prelude.Nothing,
+      used = Prelude.Nothing,
+      accountQuotaName = Prelude.Nothing
     }
+
+-- | The maximum allowed value for the quota.
+accountQuota_max :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Integer)
+accountQuota_max = Lens.lens (\AccountQuota' {max} -> max) (\s@AccountQuota' {} a -> s {max = a} :: AccountQuota)
 
 -- | The amount currently used toward the quota maximum.
 accountQuota_used :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Integer)
@@ -67,19 +71,15 @@ accountQuota_used = Lens.lens (\AccountQuota' {used} -> used) (\s@AccountQuota' 
 accountQuota_accountQuotaName :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Text)
 accountQuota_accountQuotaName = Lens.lens (\AccountQuota' {accountQuotaName} -> accountQuotaName) (\s@AccountQuota' {} a -> s {accountQuotaName = a} :: AccountQuota)
 
--- | The maximum allowed value for the quota.
-accountQuota_max :: Lens.Lens' AccountQuota (Prelude.Maybe Prelude.Integer)
-accountQuota_max = Lens.lens (\AccountQuota' {max} -> max) (\s@AccountQuota' {} a -> s {max = a} :: AccountQuota)
-
 instance Core.FromJSON AccountQuota where
   parseJSON =
     Core.withObject
       "AccountQuota"
       ( \x ->
           AccountQuota'
-            Prelude.<$> (x Core..:? "Used")
+            Prelude.<$> (x Core..:? "Max")
+            Prelude.<*> (x Core..:? "Used")
             Prelude.<*> (x Core..:? "AccountQuotaName")
-            Prelude.<*> (x Core..:? "Max")
       )
 
 instance Prelude.Hashable AccountQuota

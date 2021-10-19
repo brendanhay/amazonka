@@ -246,7 +246,7 @@ putComplianceItems_executionSummary = Lens.lens (\PutComplianceItems' {execution
 -- example, for a patch compliance type, @Items@ includes information about
 -- the PatchSeverity, Classification, and so on.
 putComplianceItems_items :: Lens.Lens' PutComplianceItems [ComplianceItemEntry]
-putComplianceItems_items = Lens.lens (\PutComplianceItems' {items} -> items) (\s@PutComplianceItems' {} a -> s {items = a} :: PutComplianceItems) Prelude.. Lens._Coerce
+putComplianceItems_items = Lens.lens (\PutComplianceItems' {items} -> items) (\s@PutComplianceItems' {} a -> s {items = a} :: PutComplianceItems) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutComplianceItems where
   type

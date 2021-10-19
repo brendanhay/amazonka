@@ -30,19 +30,19 @@ module Network.AWS.AlexaBusiness.SearchUsers
     newSearchUsers,
 
     -- * Request Lenses
-    searchUsers_nextToken,
-    searchUsers_sortCriteria,
-    searchUsers_maxResults,
     searchUsers_filters,
+    searchUsers_sortCriteria,
+    searchUsers_nextToken,
+    searchUsers_maxResults,
 
     -- * Destructuring the Response
     SearchUsersResponse (..),
     newSearchUsersResponse,
 
     -- * Response Lenses
+    searchUsersResponse_users,
     searchUsersResponse_nextToken,
     searchUsersResponse_totalCount,
-    searchUsersResponse_users,
     searchUsersResponse_httpStatus,
   )
 where
@@ -56,24 +56,24 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSearchUsers' smart constructor.
 data SearchUsers = SearchUsers'
-  { -- | An optional token returned from a prior request. Use this token for
-    -- pagination of results from this action. If this parameter is specified,
-    -- the response includes only results beyond the token, up to the value
-    -- specified by @MaxResults@. Required.
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The filters to use for listing a specific set of users. Required.
+    -- Supported filter keys are UserId, FirstName, LastName, Email, and
+    -- EnrollmentStatus.
+    filters :: Prelude.Maybe [Filter],
     -- | The sort order to use in listing the filtered set of users. Required.
     -- Supported sort keys are UserId, FirstName, LastName, Email, and
     -- EnrollmentStatus.
     sortCriteria :: Prelude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for
+    -- pagination of results from this action. If this parameter is specified,
+    -- the response includes only results beyond the token, up to the value
+    -- specified by @MaxResults@. Required.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     -- Required.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The filters to use for listing a specific set of users. Required.
-    -- Supported filter keys are UserId, FirstName, LastName, Email, and
-    -- EnrollmentStatus.
-    filters :: Prelude.Maybe [Filter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,32 +85,44 @@ data SearchUsers = SearchUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'searchUsers_nextToken' - An optional token returned from a prior request. Use this token for
--- pagination of results from this action. If this parameter is specified,
--- the response includes only results beyond the token, up to the value
--- specified by @MaxResults@. Required.
+-- 'filters', 'searchUsers_filters' - The filters to use for listing a specific set of users. Required.
+-- Supported filter keys are UserId, FirstName, LastName, Email, and
+-- EnrollmentStatus.
 --
 -- 'sortCriteria', 'searchUsers_sortCriteria' - The sort order to use in listing the filtered set of users. Required.
 -- Supported sort keys are UserId, FirstName, LastName, Email, and
 -- EnrollmentStatus.
 --
+-- 'nextToken', 'searchUsers_nextToken' - An optional token returned from a prior request. Use this token for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only results beyond the token, up to the value
+-- specified by @MaxResults@. Required.
+--
 -- 'maxResults', 'searchUsers_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 -- Required.
---
--- 'filters', 'searchUsers_filters' - The filters to use for listing a specific set of users. Required.
--- Supported filter keys are UserId, FirstName, LastName, Email, and
--- EnrollmentStatus.
 newSearchUsers ::
   SearchUsers
 newSearchUsers =
   SearchUsers'
-    { nextToken = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       sortCriteria = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The filters to use for listing a specific set of users. Required.
+-- Supported filter keys are UserId, FirstName, LastName, Email, and
+-- EnrollmentStatus.
+searchUsers_filters :: Lens.Lens' SearchUsers (Prelude.Maybe [Filter])
+searchUsers_filters = Lens.lens (\SearchUsers' {filters} -> filters) (\s@SearchUsers' {} a -> s {filters = a} :: SearchUsers) Prelude.. Lens.mapping Lens.coerced
+
+-- | The sort order to use in listing the filtered set of users. Required.
+-- Supported sort keys are UserId, FirstName, LastName, Email, and
+-- EnrollmentStatus.
+searchUsers_sortCriteria :: Lens.Lens' SearchUsers (Prelude.Maybe [Sort])
+searchUsers_sortCriteria = Lens.lens (\SearchUsers' {sortCriteria} -> sortCriteria) (\s@SearchUsers' {} a -> s {sortCriteria = a} :: SearchUsers) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -119,24 +131,12 @@ newSearchUsers =
 searchUsers_nextToken :: Lens.Lens' SearchUsers (Prelude.Maybe Prelude.Text)
 searchUsers_nextToken = Lens.lens (\SearchUsers' {nextToken} -> nextToken) (\s@SearchUsers' {} a -> s {nextToken = a} :: SearchUsers)
 
--- | The sort order to use in listing the filtered set of users. Required.
--- Supported sort keys are UserId, FirstName, LastName, Email, and
--- EnrollmentStatus.
-searchUsers_sortCriteria :: Lens.Lens' SearchUsers (Prelude.Maybe [Sort])
-searchUsers_sortCriteria = Lens.lens (\SearchUsers' {sortCriteria} -> sortCriteria) (\s@SearchUsers' {} a -> s {sortCriteria = a} :: SearchUsers) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 -- Required.
 searchUsers_maxResults :: Lens.Lens' SearchUsers (Prelude.Maybe Prelude.Natural)
 searchUsers_maxResults = Lens.lens (\SearchUsers' {maxResults} -> maxResults) (\s@SearchUsers' {} a -> s {maxResults = a} :: SearchUsers)
-
--- | The filters to use for listing a specific set of users. Required.
--- Supported filter keys are UserId, FirstName, LastName, Email, and
--- EnrollmentStatus.
-searchUsers_filters :: Lens.Lens' SearchUsers (Prelude.Maybe [Filter])
-searchUsers_filters = Lens.lens (\SearchUsers' {filters} -> filters) (\s@SearchUsers' {} a -> s {filters = a} :: SearchUsers) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager SearchUsers where
   page rq rs
@@ -164,9 +164,9 @@ instance Core.AWSRequest SearchUsers where
     Response.receiveJSON
       ( \s h x ->
           SearchUsersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "Users" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "TotalCount")
-            Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,10 +193,10 @@ instance Core.ToJSON SearchUsers where
   toJSON SearchUsers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
             ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -208,12 +208,12 @@ instance Core.ToQuery SearchUsers where
 
 -- | /See:/ 'newSearchUsersResponse' smart constructor.
 data SearchUsersResponse = SearchUsersResponse'
-  { -- | The token returned to indicate that there is more data available.
+  { -- | The users that meet the specified set of filter criteria, in sort order.
+    users :: Prelude.Maybe [UserData],
+    -- | The token returned to indicate that there is more data available.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The total number of users returned.
     totalCount :: Prelude.Maybe Prelude.Int,
-    -- | The users that meet the specified set of filter criteria, in sort order.
-    users :: Prelude.Maybe [UserData],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -227,11 +227,11 @@ data SearchUsersResponse = SearchUsersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'users', 'searchUsersResponse_users' - The users that meet the specified set of filter criteria, in sort order.
+--
 -- 'nextToken', 'searchUsersResponse_nextToken' - The token returned to indicate that there is more data available.
 --
 -- 'totalCount', 'searchUsersResponse_totalCount' - The total number of users returned.
---
--- 'users', 'searchUsersResponse_users' - The users that meet the specified set of filter criteria, in sort order.
 --
 -- 'httpStatus', 'searchUsersResponse_httpStatus' - The response's http status code.
 newSearchUsersResponse ::
@@ -240,11 +240,15 @@ newSearchUsersResponse ::
   SearchUsersResponse
 newSearchUsersResponse pHttpStatus_ =
   SearchUsersResponse'
-    { nextToken = Prelude.Nothing,
+    { users = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       totalCount = Prelude.Nothing,
-      users = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The users that meet the specified set of filter criteria, in sort order.
+searchUsersResponse_users :: Lens.Lens' SearchUsersResponse (Prelude.Maybe [UserData])
+searchUsersResponse_users = Lens.lens (\SearchUsersResponse' {users} -> users) (\s@SearchUsersResponse' {} a -> s {users = a} :: SearchUsersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token returned to indicate that there is more data available.
 searchUsersResponse_nextToken :: Lens.Lens' SearchUsersResponse (Prelude.Maybe Prelude.Text)
@@ -253,10 +257,6 @@ searchUsersResponse_nextToken = Lens.lens (\SearchUsersResponse' {nextToken} -> 
 -- | The total number of users returned.
 searchUsersResponse_totalCount :: Lens.Lens' SearchUsersResponse (Prelude.Maybe Prelude.Int)
 searchUsersResponse_totalCount = Lens.lens (\SearchUsersResponse' {totalCount} -> totalCount) (\s@SearchUsersResponse' {} a -> s {totalCount = a} :: SearchUsersResponse)
-
--- | The users that meet the specified set of filter criteria, in sort order.
-searchUsersResponse_users :: Lens.Lens' SearchUsersResponse (Prelude.Maybe [UserData])
-searchUsersResponse_users = Lens.lens (\SearchUsersResponse' {users} -> users) (\s@SearchUsersResponse' {} a -> s {users = a} :: SearchUsersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 searchUsersResponse_httpStatus :: Lens.Lens' SearchUsersResponse Prelude.Int

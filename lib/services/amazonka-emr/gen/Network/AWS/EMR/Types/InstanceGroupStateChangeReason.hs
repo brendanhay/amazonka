@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceGroupStateChangeReason' smart constructor.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
-  { -- | The status change reason description.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The programmable code for the state change reason.
-    code :: Prelude.Maybe InstanceGroupStateChangeReasonCode
+  { -- | The programmable code for the state change reason.
+    code :: Prelude.Maybe InstanceGroupStateChangeReasonCode,
+    -- | The status change reason description.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'instanceGroupStateChangeReason_message' - The status change reason description.
---
 -- 'code', 'instanceGroupStateChangeReason_code' - The programmable code for the state change reason.
+--
+-- 'message', 'instanceGroupStateChangeReason_message' - The status change reason description.
 newInstanceGroupStateChangeReason ::
   InstanceGroupStateChangeReason
 newInstanceGroupStateChangeReason =
   InstanceGroupStateChangeReason'
-    { message =
+    { code =
         Prelude.Nothing,
-      code = Prelude.Nothing
+      message = Prelude.Nothing
     }
-
--- | The status change reason description.
-instanceGroupStateChangeReason_message :: Lens.Lens' InstanceGroupStateChangeReason (Prelude.Maybe Prelude.Text)
-instanceGroupStateChangeReason_message = Lens.lens (\InstanceGroupStateChangeReason' {message} -> message) (\s@InstanceGroupStateChangeReason' {} a -> s {message = a} :: InstanceGroupStateChangeReason)
 
 -- | The programmable code for the state change reason.
 instanceGroupStateChangeReason_code :: Lens.Lens' InstanceGroupStateChangeReason (Prelude.Maybe InstanceGroupStateChangeReasonCode)
 instanceGroupStateChangeReason_code = Lens.lens (\InstanceGroupStateChangeReason' {code} -> code) (\s@InstanceGroupStateChangeReason' {} a -> s {code = a} :: InstanceGroupStateChangeReason)
+
+-- | The status change reason description.
+instanceGroupStateChangeReason_message :: Lens.Lens' InstanceGroupStateChangeReason (Prelude.Maybe Prelude.Text)
+instanceGroupStateChangeReason_message = Lens.lens (\InstanceGroupStateChangeReason' {message} -> message) (\s@InstanceGroupStateChangeReason' {} a -> s {message = a} :: InstanceGroupStateChangeReason)
 
 instance Core.FromJSON InstanceGroupStateChangeReason where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON InstanceGroupStateChangeReason where
       "InstanceGroupStateChangeReason"
       ( \x ->
           InstanceGroupStateChangeReason'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance

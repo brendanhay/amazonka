@@ -103,7 +103,7 @@ tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN)
 -- Tag keys can have a maximum character length of 128 characters. Tag
 -- values can have a maximum length of 256 characters.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse

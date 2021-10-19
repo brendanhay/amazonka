@@ -86,7 +86,7 @@ newDescribePipelines =
 -- identifiers in a single call. To obtain pipeline IDs, call
 -- ListPipelines.
 describePipelines_pipelineIds :: Lens.Lens' DescribePipelines [Prelude.Text]
-describePipelines_pipelineIds = Lens.lens (\DescribePipelines' {pipelineIds} -> pipelineIds) (\s@DescribePipelines' {} a -> s {pipelineIds = a} :: DescribePipelines) Prelude.. Lens._Coerce
+describePipelines_pipelineIds = Lens.lens (\DescribePipelines' {pipelineIds} -> pipelineIds) (\s@DescribePipelines' {} a -> s {pipelineIds = a} :: DescribePipelines) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribePipelines where
   type
@@ -174,6 +174,6 @@ describePipelinesResponse_httpStatus = Lens.lens (\DescribePipelinesResponse' {h
 
 -- | An array of descriptions for the specified pipelines.
 describePipelinesResponse_pipelineDescriptionList :: Lens.Lens' DescribePipelinesResponse [PipelineDescription]
-describePipelinesResponse_pipelineDescriptionList = Lens.lens (\DescribePipelinesResponse' {pipelineDescriptionList} -> pipelineDescriptionList) (\s@DescribePipelinesResponse' {} a -> s {pipelineDescriptionList = a} :: DescribePipelinesResponse) Prelude.. Lens._Coerce
+describePipelinesResponse_pipelineDescriptionList = Lens.lens (\DescribePipelinesResponse' {pipelineDescriptionList} -> pipelineDescriptionList) (\s@DescribePipelinesResponse' {} a -> s {pipelineDescriptionList = a} :: DescribePipelinesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribePipelinesResponse

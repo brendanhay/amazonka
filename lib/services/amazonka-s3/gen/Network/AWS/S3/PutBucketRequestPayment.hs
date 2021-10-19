@@ -38,8 +38,8 @@ module Network.AWS.S3.PutBucketRequestPayment
     newPutBucketRequestPayment,
 
     -- * Request Lenses
-    putBucketRequestPayment_expectedBucketOwner,
     putBucketRequestPayment_contentMD5,
+    putBucketRequestPayment_expectedBucketOwner,
     putBucketRequestPayment_bucket,
     putBucketRequestPayment_requestPaymentConfiguration,
 
@@ -58,11 +58,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketRequestPayment' smart constructor.
 data PutBucketRequestPayment = PutBucketRequestPayment'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -71,6 +67,10 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for Payer.
@@ -86,10 +86,6 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketRequestPayment_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putBucketRequestPayment_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -98,6 +94,10 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putBucketRequestPayment_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketRequestPayment_bucket' - The bucket name.
 --
@@ -112,19 +112,13 @@ newPutBucketRequestPayment
   pBucket_
   pRequestPaymentConfiguration_ =
     PutBucketRequestPayment'
-      { expectedBucketOwner =
+      { contentMD5 =
           Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+        expectedBucketOwner = Prelude.Nothing,
         bucket = pBucket_,
         requestPaymentConfiguration =
           pRequestPaymentConfiguration_
       }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketRequestPayment_expectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
-putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPayment' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketRequestPayment' {} a -> s {expectedBucketOwner = a} :: PutBucketRequestPayment)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -136,6 +130,12 @@ putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPaymen
 -- automatically.
 putBucketRequestPayment_contentMD5 :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
 putBucketRequestPayment_contentMD5 = Lens.lens (\PutBucketRequestPayment' {contentMD5} -> contentMD5) (\s@PutBucketRequestPayment' {} a -> s {contentMD5 = a} :: PutBucketRequestPayment)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketRequestPayment_expectedBucketOwner :: Lens.Lens' PutBucketRequestPayment (Prelude.Maybe Prelude.Text)
+putBucketRequestPayment_expectedBucketOwner = Lens.lens (\PutBucketRequestPayment' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketRequestPayment' {} a -> s {expectedBucketOwner = a} :: PutBucketRequestPayment)
 
 -- | The bucket name.
 putBucketRequestPayment_bucket :: Lens.Lens' PutBucketRequestPayment BucketName
@@ -149,7 +149,9 @@ instance Core.AWSRequest PutBucketRequestPayment where
   type
     AWSResponse PutBucketRequestPayment =
       PutBucketRequestPaymentResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketRequestPaymentResponse'
@@ -167,9 +169,9 @@ instance Core.ToElement PutBucketRequestPayment where
 instance Core.ToHeaders PutBucketRequestPayment where
   toHeaders PutBucketRequestPayment' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketRequestPayment where

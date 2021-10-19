@@ -97,7 +97,7 @@ newDistributionIdList
 
 -- | Contains the distribution IDs in the list.
 distributionIdList_items :: Lens.Lens' DistributionIdList (Prelude.Maybe [Prelude.Text])
-distributionIdList_items = Lens.lens (\DistributionIdList' {items} -> items) (\s@DistributionIdList' {} a -> s {items = a} :: DistributionIdList) Prelude.. Lens.mapping Lens._Coerce
+distributionIdList_items = Lens.lens (\DistributionIdList' {items} -> items) (\s@DistributionIdList' {} a -> s {items = a} :: DistributionIdList) Prelude.. Lens.mapping Lens.coerced
 
 -- | Contains the value that you should use in the @Marker@ field of a
 -- subsequent request to continue listing distribution IDs where you left

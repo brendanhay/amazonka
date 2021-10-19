@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLayerFailure' smart constructor.
 data LayerFailure = LayerFailure'
-  { -- | The failure code associated with the failure.
-    failureCode :: Prelude.Maybe LayerFailureCode,
-    -- | The reason for the failure.
+  { -- | The reason for the failure.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The failure code associated with the failure.
+    failureCode :: Prelude.Maybe LayerFailureCode,
     -- | The layer digest associated with the failure.
     layerDigest :: Prelude.Maybe Prelude.Text
   }
@@ -45,27 +45,27 @@ data LayerFailure = LayerFailure'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failureCode', 'layerFailure_failureCode' - The failure code associated with the failure.
---
 -- 'failureReason', 'layerFailure_failureReason' - The reason for the failure.
+--
+-- 'failureCode', 'layerFailure_failureCode' - The failure code associated with the failure.
 --
 -- 'layerDigest', 'layerFailure_layerDigest' - The layer digest associated with the failure.
 newLayerFailure ::
   LayerFailure
 newLayerFailure =
   LayerFailure'
-    { failureCode = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
+    { failureReason = Prelude.Nothing,
+      failureCode = Prelude.Nothing,
       layerDigest = Prelude.Nothing
     }
-
--- | The failure code associated with the failure.
-layerFailure_failureCode :: Lens.Lens' LayerFailure (Prelude.Maybe LayerFailureCode)
-layerFailure_failureCode = Lens.lens (\LayerFailure' {failureCode} -> failureCode) (\s@LayerFailure' {} a -> s {failureCode = a} :: LayerFailure)
 
 -- | The reason for the failure.
 layerFailure_failureReason :: Lens.Lens' LayerFailure (Prelude.Maybe Prelude.Text)
 layerFailure_failureReason = Lens.lens (\LayerFailure' {failureReason} -> failureReason) (\s@LayerFailure' {} a -> s {failureReason = a} :: LayerFailure)
+
+-- | The failure code associated with the failure.
+layerFailure_failureCode :: Lens.Lens' LayerFailure (Prelude.Maybe LayerFailureCode)
+layerFailure_failureCode = Lens.lens (\LayerFailure' {failureCode} -> failureCode) (\s@LayerFailure' {} a -> s {failureCode = a} :: LayerFailure)
 
 -- | The layer digest associated with the failure.
 layerFailure_layerDigest :: Lens.Lens' LayerFailure (Prelude.Maybe Prelude.Text)
@@ -77,8 +77,8 @@ instance Core.FromJSON LayerFailure where
       "LayerFailure"
       ( \x ->
           LayerFailure'
-            Prelude.<$> (x Core..:? "failureCode")
-            Prelude.<*> (x Core..:? "failureReason")
+            Prelude.<$> (x Core..:? "failureReason")
+            Prelude.<*> (x Core..:? "failureCode")
             Prelude.<*> (x Core..:? "layerDigest")
       )
 

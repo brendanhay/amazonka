@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newArrayPropertiesDetail' smart constructor.
 data ArrayPropertiesDetail = ArrayPropertiesDetail'
-  { -- | The job index within the array that\'s associated with this job. This
-    -- parameter is returned for array job children.
-    index :: Prelude.Maybe Prelude.Int,
+  { -- | The size of the array job. This parameter is returned for parent array
+    -- jobs.
+    size :: Prelude.Maybe Prelude.Int,
     -- | A summary of the number of array job children in each available job
     -- status. This parameter is returned for parent array jobs.
     statusSummary :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int),
-    -- | The size of the array job. This parameter is returned for parent array
-    -- jobs.
-    size :: Prelude.Maybe Prelude.Int
+    -- | The job index within the array that\'s associated with this job. This
+    -- parameter is returned for array job children.
+    index :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,37 +47,37 @@ data ArrayPropertiesDetail = ArrayPropertiesDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'index', 'arrayPropertiesDetail_index' - The job index within the array that\'s associated with this job. This
--- parameter is returned for array job children.
+-- 'size', 'arrayPropertiesDetail_size' - The size of the array job. This parameter is returned for parent array
+-- jobs.
 --
 -- 'statusSummary', 'arrayPropertiesDetail_statusSummary' - A summary of the number of array job children in each available job
 -- status. This parameter is returned for parent array jobs.
 --
--- 'size', 'arrayPropertiesDetail_size' - The size of the array job. This parameter is returned for parent array
--- jobs.
+-- 'index', 'arrayPropertiesDetail_index' - The job index within the array that\'s associated with this job. This
+-- parameter is returned for array job children.
 newArrayPropertiesDetail ::
   ArrayPropertiesDetail
 newArrayPropertiesDetail =
   ArrayPropertiesDetail'
-    { index = Prelude.Nothing,
+    { size = Prelude.Nothing,
       statusSummary = Prelude.Nothing,
-      size = Prelude.Nothing
+      index = Prelude.Nothing
     }
-
--- | The job index within the array that\'s associated with this job. This
--- parameter is returned for array job children.
-arrayPropertiesDetail_index :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe Prelude.Int)
-arrayPropertiesDetail_index = Lens.lens (\ArrayPropertiesDetail' {index} -> index) (\s@ArrayPropertiesDetail' {} a -> s {index = a} :: ArrayPropertiesDetail)
-
--- | A summary of the number of array job children in each available job
--- status. This parameter is returned for parent array jobs.
-arrayPropertiesDetail_statusSummary :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-arrayPropertiesDetail_statusSummary = Lens.lens (\ArrayPropertiesDetail' {statusSummary} -> statusSummary) (\s@ArrayPropertiesDetail' {} a -> s {statusSummary = a} :: ArrayPropertiesDetail) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The size of the array job. This parameter is returned for parent array
 -- jobs.
 arrayPropertiesDetail_size :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe Prelude.Int)
 arrayPropertiesDetail_size = Lens.lens (\ArrayPropertiesDetail' {size} -> size) (\s@ArrayPropertiesDetail' {} a -> s {size = a} :: ArrayPropertiesDetail)
+
+-- | A summary of the number of array job children in each available job
+-- status. This parameter is returned for parent array jobs.
+arrayPropertiesDetail_statusSummary :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
+arrayPropertiesDetail_statusSummary = Lens.lens (\ArrayPropertiesDetail' {statusSummary} -> statusSummary) (\s@ArrayPropertiesDetail' {} a -> s {statusSummary = a} :: ArrayPropertiesDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The job index within the array that\'s associated with this job. This
+-- parameter is returned for array job children.
+arrayPropertiesDetail_index :: Lens.Lens' ArrayPropertiesDetail (Prelude.Maybe Prelude.Int)
+arrayPropertiesDetail_index = Lens.lens (\ArrayPropertiesDetail' {index} -> index) (\s@ArrayPropertiesDetail' {} a -> s {index = a} :: ArrayPropertiesDetail)
 
 instance Core.FromJSON ArrayPropertiesDetail where
   parseJSON =
@@ -85,9 +85,9 @@ instance Core.FromJSON ArrayPropertiesDetail where
       "ArrayPropertiesDetail"
       ( \x ->
           ArrayPropertiesDetail'
-            Prelude.<$> (x Core..:? "index")
+            Prelude.<$> (x Core..:? "size")
             Prelude.<*> (x Core..:? "statusSummary" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "size")
+            Prelude.<*> (x Core..:? "index")
       )
 
 instance Prelude.Hashable ArrayPropertiesDetail

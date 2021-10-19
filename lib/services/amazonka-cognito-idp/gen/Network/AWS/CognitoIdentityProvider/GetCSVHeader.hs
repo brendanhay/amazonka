@@ -172,7 +172,7 @@ getCSVHeaderResponse_userPoolId = Lens.lens (\GetCSVHeaderResponse' {userPoolId}
 
 -- | The header information for the .csv file for the user import job.
 getCSVHeaderResponse_cSVHeader :: Lens.Lens' GetCSVHeaderResponse (Prelude.Maybe [Prelude.Text])
-getCSVHeaderResponse_cSVHeader = Lens.lens (\GetCSVHeaderResponse' {cSVHeader} -> cSVHeader) (\s@GetCSVHeaderResponse' {} a -> s {cSVHeader = a} :: GetCSVHeaderResponse) Prelude.. Lens.mapping Lens._Coerce
+getCSVHeaderResponse_cSVHeader = Lens.lens (\GetCSVHeaderResponse' {cSVHeader} -> cSVHeader) (\s@GetCSVHeaderResponse' {} a -> s {cSVHeader = a} :: GetCSVHeaderResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCSVHeaderResponse_httpStatus :: Lens.Lens' GetCSVHeaderResponse Prelude.Int

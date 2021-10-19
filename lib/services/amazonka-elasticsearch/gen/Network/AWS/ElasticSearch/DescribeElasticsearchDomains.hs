@@ -78,7 +78,7 @@ newDescribeElasticsearchDomains =
 
 -- | The Elasticsearch domains for which you want information.
 describeElasticsearchDomains_domainNames :: Lens.Lens' DescribeElasticsearchDomains [Prelude.Text]
-describeElasticsearchDomains_domainNames = Lens.lens (\DescribeElasticsearchDomains' {domainNames} -> domainNames) (\s@DescribeElasticsearchDomains' {} a -> s {domainNames = a} :: DescribeElasticsearchDomains) Prelude.. Lens._Coerce
+describeElasticsearchDomains_domainNames = Lens.lens (\DescribeElasticsearchDomains' {domainNames} -> domainNames) (\s@DescribeElasticsearchDomains' {} a -> s {domainNames = a} :: DescribeElasticsearchDomains) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeElasticsearchDomains where
   type
@@ -160,7 +160,7 @@ describeElasticsearchDomainsResponse_httpStatus = Lens.lens (\DescribeElasticsea
 -- | The status of the domains requested in the
 -- @DescribeElasticsearchDomains@ request.
 describeElasticsearchDomainsResponse_domainStatusList :: Lens.Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
-describeElasticsearchDomainsResponse_domainStatusList = Lens.lens (\DescribeElasticsearchDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeElasticsearchDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeElasticsearchDomainsResponse) Prelude.. Lens._Coerce
+describeElasticsearchDomainsResponse_domainStatusList = Lens.lens (\DescribeElasticsearchDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeElasticsearchDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeElasticsearchDomainsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

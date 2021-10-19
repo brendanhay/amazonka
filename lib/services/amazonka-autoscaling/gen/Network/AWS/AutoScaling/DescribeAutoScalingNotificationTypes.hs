@@ -149,7 +149,7 @@ newDescribeAutoScalingNotificationTypesResponse
 
 -- | The notification types.
 describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse (Prelude.Maybe [Prelude.Text])
-describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {autoScalingNotificationTypes} -> autoScalingNotificationTypes) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {autoScalingNotificationTypes = a} :: DescribeAutoScalingNotificationTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {autoScalingNotificationTypes} -> autoScalingNotificationTypes) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {autoScalingNotificationTypes = a} :: DescribeAutoScalingNotificationTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAutoScalingNotificationTypesResponse_httpStatus :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse Prelude.Int

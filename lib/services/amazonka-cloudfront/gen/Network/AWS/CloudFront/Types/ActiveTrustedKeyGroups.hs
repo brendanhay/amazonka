@@ -77,7 +77,7 @@ newActiveTrustedKeyGroups pEnabled_ pQuantity_ =
 -- each key group that CloudFront can use to verify the signatures of
 -- signed URLs and signed cookies.
 activeTrustedKeyGroups_items :: Lens.Lens' ActiveTrustedKeyGroups (Prelude.Maybe [KGKeyPairIds])
-activeTrustedKeyGroups_items = Lens.lens (\ActiveTrustedKeyGroups' {items} -> items) (\s@ActiveTrustedKeyGroups' {} a -> s {items = a} :: ActiveTrustedKeyGroups) Prelude.. Lens.mapping Lens._Coerce
+activeTrustedKeyGroups_items = Lens.lens (\ActiveTrustedKeyGroups' {items} -> items) (\s@ActiveTrustedKeyGroups' {} a -> s {items = a} :: ActiveTrustedKeyGroups) Prelude.. Lens.mapping Lens.coerced
 
 -- | This field is @true@ if any of the key groups have public keys that
 -- CloudFront can use to verify the signatures of signed URLs and signed

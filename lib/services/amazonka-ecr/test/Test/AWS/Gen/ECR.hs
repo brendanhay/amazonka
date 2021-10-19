@@ -27,104 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUploadLayerPart $
---             newUploadLayerPart
---
---         , requestPutLifecyclePolicy $
---             newPutLifecyclePolicy
---
---         , requestPutRegistryPolicy $
---             newPutRegistryPolicy
---
---         , requestStartLifecyclePolicyPreview $
---             newStartLifecyclePolicyPreview
---
---         , requestDescribeRepositories $
---             newDescribeRepositories
---
---         , requestPutImage $
---             newPutImage
---
---         , requestListImages $
---             newListImages
---
---         , requestGetRegistryPolicy $
---             newGetRegistryPolicy
---
---         , requestInitiateLayerUpload $
---             newInitiateLayerUpload
---
---         , requestDescribeImageScanFindings $
---             newDescribeImageScanFindings
---
---         , requestDeleteRepositoryPolicy $
---             newDeleteRepositoryPolicy
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestTagResource $
---             newTagResource
---
---         , requestSetRepositoryPolicy $
---             newSetRepositoryPolicy
---
---         , requestDescribeRegistry $
---             newDescribeRegistry
---
---         , requestBatchDeleteImage $
---             newBatchDeleteImage
+--         [ requestGetRepositoryPolicy $
+--             newGetRepositoryPolicy
 --
 --         , requestPutImageScanningConfiguration $
 --             newPutImageScanningConfiguration
 --
+--         , requestPutLifecyclePolicy $
+--             newPutLifecyclePolicy
+--
 --         , requestDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicy
---
---         , requestDeleteRegistryPolicy $
---             newDeleteRegistryPolicy
---
---         , requestGetRepositoryPolicy $
---             newGetRepositoryPolicy
---
---         , requestCompleteLayerUpload $
---             newCompleteLayerUpload
---
---         , requestGetDownloadUrlForLayer $
---             newGetDownloadUrlForLayer
---
---         , requestDescribeImages $
---             newDescribeImages
---
---         , requestGetAuthorizationToken $
---             newGetAuthorizationToken
---
---         , requestCreateRepository $
---             newCreateRepository
---
---         , requestDeleteRepository $
---             newDeleteRepository
---
---         , requestGetLifecyclePolicy $
---             newGetLifecyclePolicy
---
---         , requestStartImageScan $
---             newStartImageScan
---
---         , requestBatchCheckLayerAvailability $
---             newBatchCheckLayerAvailability
---
---         , requestBatchGetImage $
---             newBatchGetImage
---
---         , requestPutReplicationConfiguration $
---             newPutReplicationConfiguration
 --
 --         , requestPutImageTagMutability $
 --             newPutImageTagMutability
 --
---         , requestDescribeImageReplicationStatus $
---             newDescribeImageReplicationStatus
+--         , requestBatchDeleteImage $
+--             newBatchDeleteImage
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -132,107 +51,107 @@ import Test.Tasty
 --         , requestGetLifecyclePolicyPreview $
 --             newGetLifecyclePolicyPreview
 --
+--         , requestBatchCheckLayerAvailability $
+--             newBatchCheckLayerAvailability
+--
+--         , requestDescribeRegistry $
+--             newDescribeRegistry
+--
+--         , requestDeleteRepositoryPolicy $
+--             newDeleteRepositoryPolicy
+--
+--         , requestCreateRepository $
+--             newCreateRepository
+--
+--         , requestCompleteLayerUpload $
+--             newCompleteLayerUpload
+--
+--         , requestDescribeRepositories $
+--             newDescribeRepositories
+--
+--         , requestStartLifecyclePolicyPreview $
+--             newStartLifecyclePolicyPreview
+--
+--         , requestDeleteRegistryPolicy $
+--             newDeleteRegistryPolicy
+--
+--         , requestPutRegistryPolicy $
+--             newPutRegistryPolicy
+--
+--         , requestUploadLayerPart $
+--             newUploadLayerPart
+--
+--         , requestDescribeImageReplicationStatus $
+--             newDescribeImageReplicationStatus
+--
+--         , requestBatchGetImage $
+--             newBatchGetImage
+--
+--         , requestPutReplicationConfiguration $
+--             newPutReplicationConfiguration
+--
+--         , requestStartImageScan $
+--             newStartImageScan
+--
+--         , requestGetLifecyclePolicy $
+--             newGetLifecyclePolicy
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestSetRepositoryPolicy $
+--             newSetRepositoryPolicy
+--
+--         , requestDescribeImageScanFindings $
+--             newDescribeImageScanFindings
+--
+--         , requestInitiateLayerUpload $
+--             newInitiateLayerUpload
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestDeleteRepository $
+--             newDeleteRepository
+--
+--         , requestGetRegistryPolicy $
+--             newGetRegistryPolicy
+--
+--         , requestPutImage $
+--             newPutImage
+--
+--         , requestListImages $
+--             newListImages
+--
+--         , requestGetAuthorizationToken $
+--             newGetAuthorizationToken
+--
+--         , requestGetDownloadUrlForLayer $
+--             newGetDownloadUrlForLayer
+--
+--         , requestDescribeImages $
+--             newDescribeImages
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUploadLayerPart $
---             newUploadLayerPartResponse
---
---         , responsePutLifecyclePolicy $
---             newPutLifecyclePolicyResponse
---
---         , responsePutRegistryPolicy $
---             newPutRegistryPolicyResponse
---
---         , responseStartLifecyclePolicyPreview $
---             newStartLifecyclePolicyPreviewResponse
---
---         , responseDescribeRepositories $
---             newDescribeRepositoriesResponse
---
---         , responsePutImage $
---             newPutImageResponse
---
---         , responseListImages $
---             newListImagesResponse
---
---         , responseGetRegistryPolicy $
---             newGetRegistryPolicyResponse
---
---         , responseInitiateLayerUpload $
---             newInitiateLayerUploadResponse
---
---         , responseDescribeImageScanFindings $
---             newDescribeImageScanFindingsResponse
---
---         , responseDeleteRepositoryPolicy $
---             newDeleteRepositoryPolicyResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseSetRepositoryPolicy $
---             newSetRepositoryPolicyResponse
---
---         , responseDescribeRegistry $
---             newDescribeRegistryResponse
---
---         , responseBatchDeleteImage $
---             newBatchDeleteImageResponse
+--         [ responseGetRepositoryPolicy $
+--             newGetRepositoryPolicyResponse
 --
 --         , responsePutImageScanningConfiguration $
 --             newPutImageScanningConfigurationResponse
 --
+--         , responsePutLifecyclePolicy $
+--             newPutLifecyclePolicyResponse
+--
 --         , responseDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicyResponse
---
---         , responseDeleteRegistryPolicy $
---             newDeleteRegistryPolicyResponse
---
---         , responseGetRepositoryPolicy $
---             newGetRepositoryPolicyResponse
---
---         , responseCompleteLayerUpload $
---             newCompleteLayerUploadResponse
---
---         , responseGetDownloadUrlForLayer $
---             newGetDownloadUrlForLayerResponse
---
---         , responseDescribeImages $
---             newDescribeImagesResponse
---
---         , responseGetAuthorizationToken $
---             newGetAuthorizationTokenResponse
---
---         , responseCreateRepository $
---             newCreateRepositoryResponse
---
---         , responseDeleteRepository $
---             newDeleteRepositoryResponse
---
---         , responseGetLifecyclePolicy $
---             newGetLifecyclePolicyResponse
---
---         , responseStartImageScan $
---             newStartImageScanResponse
---
---         , responseBatchCheckLayerAvailability $
---             newBatchCheckLayerAvailabilityResponse
---
---         , responseBatchGetImage $
---             newBatchGetImageResponse
---
---         , responsePutReplicationConfiguration $
---             newPutReplicationConfigurationResponse
 --
 --         , responsePutImageTagMutability $
 --             newPutImageTagMutabilityResponse
 --
---         , responseDescribeImageReplicationStatus $
---             newDescribeImageReplicationStatusResponse
+--         , responseBatchDeleteImage $
+--             newBatchDeleteImageResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -240,124 +159,91 @@ import Test.Tasty
 --         , responseGetLifecyclePolicyPreview $
 --             newGetLifecyclePolicyPreviewResponse
 --
+--         , responseBatchCheckLayerAvailability $
+--             newBatchCheckLayerAvailabilityResponse
+--
+--         , responseDescribeRegistry $
+--             newDescribeRegistryResponse
+--
+--         , responseDeleteRepositoryPolicy $
+--             newDeleteRepositoryPolicyResponse
+--
+--         , responseCreateRepository $
+--             newCreateRepositoryResponse
+--
+--         , responseCompleteLayerUpload $
+--             newCompleteLayerUploadResponse
+--
+--         , responseDescribeRepositories $
+--             newDescribeRepositoriesResponse
+--
+--         , responseStartLifecyclePolicyPreview $
+--             newStartLifecyclePolicyPreviewResponse
+--
+--         , responseDeleteRegistryPolicy $
+--             newDeleteRegistryPolicyResponse
+--
+--         , responsePutRegistryPolicy $
+--             newPutRegistryPolicyResponse
+--
+--         , responseUploadLayerPart $
+--             newUploadLayerPartResponse
+--
+--         , responseDescribeImageReplicationStatus $
+--             newDescribeImageReplicationStatusResponse
+--
+--         , responseBatchGetImage $
+--             newBatchGetImageResponse
+--
+--         , responsePutReplicationConfiguration $
+--             newPutReplicationConfigurationResponse
+--
+--         , responseStartImageScan $
+--             newStartImageScanResponse
+--
+--         , responseGetLifecyclePolicy $
+--             newGetLifecyclePolicyResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseSetRepositoryPolicy $
+--             newSetRepositoryPolicyResponse
+--
+--         , responseDescribeImageScanFindings $
+--             newDescribeImageScanFindingsResponse
+--
+--         , responseInitiateLayerUpload $
+--             newInitiateLayerUploadResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseDeleteRepository $
+--             newDeleteRepositoryResponse
+--
+--         , responseGetRegistryPolicy $
+--             newGetRegistryPolicyResponse
+--
+--         , responsePutImage $
+--             newPutImageResponse
+--
+--         , responseListImages $
+--             newListImagesResponse
+--
+--         , responseGetAuthorizationToken $
+--             newGetAuthorizationTokenResponse
+--
+--         , responseGetDownloadUrlForLayer $
+--             newGetDownloadUrlForLayerResponse
+--
+--         , responseDescribeImages $
+--             newDescribeImagesResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestUploadLayerPart :: UploadLayerPart -> TestTree
-requestUploadLayerPart =
-  req
-    "UploadLayerPart"
-    "fixture/UploadLayerPart.yaml"
-
-requestPutLifecyclePolicy :: PutLifecyclePolicy -> TestTree
-requestPutLifecyclePolicy =
-  req
-    "PutLifecyclePolicy"
-    "fixture/PutLifecyclePolicy.yaml"
-
-requestPutRegistryPolicy :: PutRegistryPolicy -> TestTree
-requestPutRegistryPolicy =
-  req
-    "PutRegistryPolicy"
-    "fixture/PutRegistryPolicy.yaml"
-
-requestStartLifecyclePolicyPreview :: StartLifecyclePolicyPreview -> TestTree
-requestStartLifecyclePolicyPreview =
-  req
-    "StartLifecyclePolicyPreview"
-    "fixture/StartLifecyclePolicyPreview.yaml"
-
-requestDescribeRepositories :: DescribeRepositories -> TestTree
-requestDescribeRepositories =
-  req
-    "DescribeRepositories"
-    "fixture/DescribeRepositories.yaml"
-
-requestPutImage :: PutImage -> TestTree
-requestPutImage =
-  req
-    "PutImage"
-    "fixture/PutImage.yaml"
-
-requestListImages :: ListImages -> TestTree
-requestListImages =
-  req
-    "ListImages"
-    "fixture/ListImages.yaml"
-
-requestGetRegistryPolicy :: GetRegistryPolicy -> TestTree
-requestGetRegistryPolicy =
-  req
-    "GetRegistryPolicy"
-    "fixture/GetRegistryPolicy.yaml"
-
-requestInitiateLayerUpload :: InitiateLayerUpload -> TestTree
-requestInitiateLayerUpload =
-  req
-    "InitiateLayerUpload"
-    "fixture/InitiateLayerUpload.yaml"
-
-requestDescribeImageScanFindings :: DescribeImageScanFindings -> TestTree
-requestDescribeImageScanFindings =
-  req
-    "DescribeImageScanFindings"
-    "fixture/DescribeImageScanFindings.yaml"
-
-requestDeleteRepositoryPolicy :: DeleteRepositoryPolicy -> TestTree
-requestDeleteRepositoryPolicy =
-  req
-    "DeleteRepositoryPolicy"
-    "fixture/DeleteRepositoryPolicy.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestSetRepositoryPolicy :: SetRepositoryPolicy -> TestTree
-requestSetRepositoryPolicy =
-  req
-    "SetRepositoryPolicy"
-    "fixture/SetRepositoryPolicy.yaml"
-
-requestDescribeRegistry :: DescribeRegistry -> TestTree
-requestDescribeRegistry =
-  req
-    "DescribeRegistry"
-    "fixture/DescribeRegistry.yaml"
-
-requestBatchDeleteImage :: BatchDeleteImage -> TestTree
-requestBatchDeleteImage =
-  req
-    "BatchDeleteImage"
-    "fixture/BatchDeleteImage.yaml"
-
-requestPutImageScanningConfiguration :: PutImageScanningConfiguration -> TestTree
-requestPutImageScanningConfiguration =
-  req
-    "PutImageScanningConfiguration"
-    "fixture/PutImageScanningConfiguration.yaml"
-
-requestDeleteLifecyclePolicy :: DeleteLifecyclePolicy -> TestTree
-requestDeleteLifecyclePolicy =
-  req
-    "DeleteLifecyclePolicy"
-    "fixture/DeleteLifecyclePolicy.yaml"
-
-requestDeleteRegistryPolicy :: DeleteRegistryPolicy -> TestTree
-requestDeleteRegistryPolicy =
-  req
-    "DeleteRegistryPolicy"
-    "fixture/DeleteRegistryPolicy.yaml"
 
 requestGetRepositoryPolicy :: GetRepositoryPolicy -> TestTree
 requestGetRepositoryPolicy =
@@ -365,71 +251,23 @@ requestGetRepositoryPolicy =
     "GetRepositoryPolicy"
     "fixture/GetRepositoryPolicy.yaml"
 
-requestCompleteLayerUpload :: CompleteLayerUpload -> TestTree
-requestCompleteLayerUpload =
+requestPutImageScanningConfiguration :: PutImageScanningConfiguration -> TestTree
+requestPutImageScanningConfiguration =
   req
-    "CompleteLayerUpload"
-    "fixture/CompleteLayerUpload.yaml"
+    "PutImageScanningConfiguration"
+    "fixture/PutImageScanningConfiguration.yaml"
 
-requestGetDownloadUrlForLayer :: GetDownloadUrlForLayer -> TestTree
-requestGetDownloadUrlForLayer =
+requestPutLifecyclePolicy :: PutLifecyclePolicy -> TestTree
+requestPutLifecyclePolicy =
   req
-    "GetDownloadUrlForLayer"
-    "fixture/GetDownloadUrlForLayer.yaml"
+    "PutLifecyclePolicy"
+    "fixture/PutLifecyclePolicy.yaml"
 
-requestDescribeImages :: DescribeImages -> TestTree
-requestDescribeImages =
+requestDeleteLifecyclePolicy :: DeleteLifecyclePolicy -> TestTree
+requestDeleteLifecyclePolicy =
   req
-    "DescribeImages"
-    "fixture/DescribeImages.yaml"
-
-requestGetAuthorizationToken :: GetAuthorizationToken -> TestTree
-requestGetAuthorizationToken =
-  req
-    "GetAuthorizationToken"
-    "fixture/GetAuthorizationToken.yaml"
-
-requestCreateRepository :: CreateRepository -> TestTree
-requestCreateRepository =
-  req
-    "CreateRepository"
-    "fixture/CreateRepository.yaml"
-
-requestDeleteRepository :: DeleteRepository -> TestTree
-requestDeleteRepository =
-  req
-    "DeleteRepository"
-    "fixture/DeleteRepository.yaml"
-
-requestGetLifecyclePolicy :: GetLifecyclePolicy -> TestTree
-requestGetLifecyclePolicy =
-  req
-    "GetLifecyclePolicy"
-    "fixture/GetLifecyclePolicy.yaml"
-
-requestStartImageScan :: StartImageScan -> TestTree
-requestStartImageScan =
-  req
-    "StartImageScan"
-    "fixture/StartImageScan.yaml"
-
-requestBatchCheckLayerAvailability :: BatchCheckLayerAvailability -> TestTree
-requestBatchCheckLayerAvailability =
-  req
-    "BatchCheckLayerAvailability"
-    "fixture/BatchCheckLayerAvailability.yaml"
-
-requestBatchGetImage :: BatchGetImage -> TestTree
-requestBatchGetImage =
-  req
-    "BatchGetImage"
-    "fixture/BatchGetImage.yaml"
-
-requestPutReplicationConfiguration :: PutReplicationConfiguration -> TestTree
-requestPutReplicationConfiguration =
-  req
-    "PutReplicationConfiguration"
-    "fixture/PutReplicationConfiguration.yaml"
+    "DeleteLifecyclePolicy"
+    "fixture/DeleteLifecyclePolicy.yaml"
 
 requestPutImageTagMutability :: PutImageTagMutability -> TestTree
 requestPutImageTagMutability =
@@ -437,11 +275,11 @@ requestPutImageTagMutability =
     "PutImageTagMutability"
     "fixture/PutImageTagMutability.yaml"
 
-requestDescribeImageReplicationStatus :: DescribeImageReplicationStatus -> TestTree
-requestDescribeImageReplicationStatus =
+requestBatchDeleteImage :: BatchDeleteImage -> TestTree
+requestBatchDeleteImage =
   req
-    "DescribeImageReplicationStatus"
-    "fixture/DescribeImageReplicationStatus.yaml"
+    "BatchDeleteImage"
+    "fixture/BatchDeleteImage.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -455,159 +293,169 @@ requestGetLifecyclePolicyPreview =
     "GetLifecyclePolicyPreview"
     "fixture/GetLifecyclePolicyPreview.yaml"
 
+requestBatchCheckLayerAvailability :: BatchCheckLayerAvailability -> TestTree
+requestBatchCheckLayerAvailability =
+  req
+    "BatchCheckLayerAvailability"
+    "fixture/BatchCheckLayerAvailability.yaml"
+
+requestDescribeRegistry :: DescribeRegistry -> TestTree
+requestDescribeRegistry =
+  req
+    "DescribeRegistry"
+    "fixture/DescribeRegistry.yaml"
+
+requestDeleteRepositoryPolicy :: DeleteRepositoryPolicy -> TestTree
+requestDeleteRepositoryPolicy =
+  req
+    "DeleteRepositoryPolicy"
+    "fixture/DeleteRepositoryPolicy.yaml"
+
+requestCreateRepository :: CreateRepository -> TestTree
+requestCreateRepository =
+  req
+    "CreateRepository"
+    "fixture/CreateRepository.yaml"
+
+requestCompleteLayerUpload :: CompleteLayerUpload -> TestTree
+requestCompleteLayerUpload =
+  req
+    "CompleteLayerUpload"
+    "fixture/CompleteLayerUpload.yaml"
+
+requestDescribeRepositories :: DescribeRepositories -> TestTree
+requestDescribeRepositories =
+  req
+    "DescribeRepositories"
+    "fixture/DescribeRepositories.yaml"
+
+requestStartLifecyclePolicyPreview :: StartLifecyclePolicyPreview -> TestTree
+requestStartLifecyclePolicyPreview =
+  req
+    "StartLifecyclePolicyPreview"
+    "fixture/StartLifecyclePolicyPreview.yaml"
+
+requestDeleteRegistryPolicy :: DeleteRegistryPolicy -> TestTree
+requestDeleteRegistryPolicy =
+  req
+    "DeleteRegistryPolicy"
+    "fixture/DeleteRegistryPolicy.yaml"
+
+requestPutRegistryPolicy :: PutRegistryPolicy -> TestTree
+requestPutRegistryPolicy =
+  req
+    "PutRegistryPolicy"
+    "fixture/PutRegistryPolicy.yaml"
+
+requestUploadLayerPart :: UploadLayerPart -> TestTree
+requestUploadLayerPart =
+  req
+    "UploadLayerPart"
+    "fixture/UploadLayerPart.yaml"
+
+requestDescribeImageReplicationStatus :: DescribeImageReplicationStatus -> TestTree
+requestDescribeImageReplicationStatus =
+  req
+    "DescribeImageReplicationStatus"
+    "fixture/DescribeImageReplicationStatus.yaml"
+
+requestBatchGetImage :: BatchGetImage -> TestTree
+requestBatchGetImage =
+  req
+    "BatchGetImage"
+    "fixture/BatchGetImage.yaml"
+
+requestPutReplicationConfiguration :: PutReplicationConfiguration -> TestTree
+requestPutReplicationConfiguration =
+  req
+    "PutReplicationConfiguration"
+    "fixture/PutReplicationConfiguration.yaml"
+
+requestStartImageScan :: StartImageScan -> TestTree
+requestStartImageScan =
+  req
+    "StartImageScan"
+    "fixture/StartImageScan.yaml"
+
+requestGetLifecyclePolicy :: GetLifecyclePolicy -> TestTree
+requestGetLifecyclePolicy =
+  req
+    "GetLifecyclePolicy"
+    "fixture/GetLifecyclePolicy.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestSetRepositoryPolicy :: SetRepositoryPolicy -> TestTree
+requestSetRepositoryPolicy =
+  req
+    "SetRepositoryPolicy"
+    "fixture/SetRepositoryPolicy.yaml"
+
+requestDescribeImageScanFindings :: DescribeImageScanFindings -> TestTree
+requestDescribeImageScanFindings =
+  req
+    "DescribeImageScanFindings"
+    "fixture/DescribeImageScanFindings.yaml"
+
+requestInitiateLayerUpload :: InitiateLayerUpload -> TestTree
+requestInitiateLayerUpload =
+  req
+    "InitiateLayerUpload"
+    "fixture/InitiateLayerUpload.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestDeleteRepository :: DeleteRepository -> TestTree
+requestDeleteRepository =
+  req
+    "DeleteRepository"
+    "fixture/DeleteRepository.yaml"
+
+requestGetRegistryPolicy :: GetRegistryPolicy -> TestTree
+requestGetRegistryPolicy =
+  req
+    "GetRegistryPolicy"
+    "fixture/GetRegistryPolicy.yaml"
+
+requestPutImage :: PutImage -> TestTree
+requestPutImage =
+  req
+    "PutImage"
+    "fixture/PutImage.yaml"
+
+requestListImages :: ListImages -> TestTree
+requestListImages =
+  req
+    "ListImages"
+    "fixture/ListImages.yaml"
+
+requestGetAuthorizationToken :: GetAuthorizationToken -> TestTree
+requestGetAuthorizationToken =
+  req
+    "GetAuthorizationToken"
+    "fixture/GetAuthorizationToken.yaml"
+
+requestGetDownloadUrlForLayer :: GetDownloadUrlForLayer -> TestTree
+requestGetDownloadUrlForLayer =
+  req
+    "GetDownloadUrlForLayer"
+    "fixture/GetDownloadUrlForLayer.yaml"
+
+requestDescribeImages :: DescribeImages -> TestTree
+requestDescribeImages =
+  req
+    "DescribeImages"
+    "fixture/DescribeImages.yaml"
+
 -- Responses
-
-responseUploadLayerPart :: UploadLayerPartResponse -> TestTree
-responseUploadLayerPart =
-  res
-    "UploadLayerPartResponse"
-    "fixture/UploadLayerPartResponse.proto"
-    defaultService
-    (Proxy :: Proxy UploadLayerPart)
-
-responsePutLifecyclePolicy :: PutLifecyclePolicyResponse -> TestTree
-responsePutLifecyclePolicy =
-  res
-    "PutLifecyclePolicyResponse"
-    "fixture/PutLifecyclePolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutLifecyclePolicy)
-
-responsePutRegistryPolicy :: PutRegistryPolicyResponse -> TestTree
-responsePutRegistryPolicy =
-  res
-    "PutRegistryPolicyResponse"
-    "fixture/PutRegistryPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutRegistryPolicy)
-
-responseStartLifecyclePolicyPreview :: StartLifecyclePolicyPreviewResponse -> TestTree
-responseStartLifecyclePolicyPreview =
-  res
-    "StartLifecyclePolicyPreviewResponse"
-    "fixture/StartLifecyclePolicyPreviewResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartLifecyclePolicyPreview)
-
-responseDescribeRepositories :: DescribeRepositoriesResponse -> TestTree
-responseDescribeRepositories =
-  res
-    "DescribeRepositoriesResponse"
-    "fixture/DescribeRepositoriesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeRepositories)
-
-responsePutImage :: PutImageResponse -> TestTree
-responsePutImage =
-  res
-    "PutImageResponse"
-    "fixture/PutImageResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutImage)
-
-responseListImages :: ListImagesResponse -> TestTree
-responseListImages =
-  res
-    "ListImagesResponse"
-    "fixture/ListImagesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListImages)
-
-responseGetRegistryPolicy :: GetRegistryPolicyResponse -> TestTree
-responseGetRegistryPolicy =
-  res
-    "GetRegistryPolicyResponse"
-    "fixture/GetRegistryPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetRegistryPolicy)
-
-responseInitiateLayerUpload :: InitiateLayerUploadResponse -> TestTree
-responseInitiateLayerUpload =
-  res
-    "InitiateLayerUploadResponse"
-    "fixture/InitiateLayerUploadResponse.proto"
-    defaultService
-    (Proxy :: Proxy InitiateLayerUpload)
-
-responseDescribeImageScanFindings :: DescribeImageScanFindingsResponse -> TestTree
-responseDescribeImageScanFindings =
-  res
-    "DescribeImageScanFindingsResponse"
-    "fixture/DescribeImageScanFindingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeImageScanFindings)
-
-responseDeleteRepositoryPolicy :: DeleteRepositoryPolicyResponse -> TestTree
-responseDeleteRepositoryPolicy =
-  res
-    "DeleteRepositoryPolicyResponse"
-    "fixture/DeleteRepositoryPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRepositoryPolicy)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
-responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
-responseSetRepositoryPolicy =
-  res
-    "SetRepositoryPolicyResponse"
-    "fixture/SetRepositoryPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetRepositoryPolicy)
-
-responseDescribeRegistry :: DescribeRegistryResponse -> TestTree
-responseDescribeRegistry =
-  res
-    "DescribeRegistryResponse"
-    "fixture/DescribeRegistryResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeRegistry)
-
-responseBatchDeleteImage :: BatchDeleteImageResponse -> TestTree
-responseBatchDeleteImage =
-  res
-    "BatchDeleteImageResponse"
-    "fixture/BatchDeleteImageResponse.proto"
-    defaultService
-    (Proxy :: Proxy BatchDeleteImage)
-
-responsePutImageScanningConfiguration :: PutImageScanningConfigurationResponse -> TestTree
-responsePutImageScanningConfiguration =
-  res
-    "PutImageScanningConfigurationResponse"
-    "fixture/PutImageScanningConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutImageScanningConfiguration)
-
-responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
-responseDeleteLifecyclePolicy =
-  res
-    "DeleteLifecyclePolicyResponse"
-    "fixture/DeleteLifecyclePolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteLifecyclePolicy)
-
-responseDeleteRegistryPolicy :: DeleteRegistryPolicyResponse -> TestTree
-responseDeleteRegistryPolicy =
-  res
-    "DeleteRegistryPolicyResponse"
-    "fixture/DeleteRegistryPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRegistryPolicy)
 
 responseGetRepositoryPolicy :: GetRepositoryPolicyResponse -> TestTree
 responseGetRepositoryPolicy =
@@ -617,37 +465,85 @@ responseGetRepositoryPolicy =
     defaultService
     (Proxy :: Proxy GetRepositoryPolicy)
 
-responseCompleteLayerUpload :: CompleteLayerUploadResponse -> TestTree
-responseCompleteLayerUpload =
+responsePutImageScanningConfiguration :: PutImageScanningConfigurationResponse -> TestTree
+responsePutImageScanningConfiguration =
   res
-    "CompleteLayerUploadResponse"
-    "fixture/CompleteLayerUploadResponse.proto"
+    "PutImageScanningConfigurationResponse"
+    "fixture/PutImageScanningConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy CompleteLayerUpload)
+    (Proxy :: Proxy PutImageScanningConfiguration)
 
-responseGetDownloadUrlForLayer :: GetDownloadUrlForLayerResponse -> TestTree
-responseGetDownloadUrlForLayer =
+responsePutLifecyclePolicy :: PutLifecyclePolicyResponse -> TestTree
+responsePutLifecyclePolicy =
   res
-    "GetDownloadUrlForLayerResponse"
-    "fixture/GetDownloadUrlForLayerResponse.proto"
+    "PutLifecyclePolicyResponse"
+    "fixture/PutLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetDownloadUrlForLayer)
+    (Proxy :: Proxy PutLifecyclePolicy)
 
-responseDescribeImages :: DescribeImagesResponse -> TestTree
-responseDescribeImages =
+responseDeleteLifecyclePolicy :: DeleteLifecyclePolicyResponse -> TestTree
+responseDeleteLifecyclePolicy =
   res
-    "DescribeImagesResponse"
-    "fixture/DescribeImagesResponse.proto"
+    "DeleteLifecyclePolicyResponse"
+    "fixture/DeleteLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImages)
+    (Proxy :: Proxy DeleteLifecyclePolicy)
 
-responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
-responseGetAuthorizationToken =
+responsePutImageTagMutability :: PutImageTagMutabilityResponse -> TestTree
+responsePutImageTagMutability =
   res
-    "GetAuthorizationTokenResponse"
-    "fixture/GetAuthorizationTokenResponse.proto"
+    "PutImageTagMutabilityResponse"
+    "fixture/PutImageTagMutabilityResponse.proto"
     defaultService
-    (Proxy :: Proxy GetAuthorizationToken)
+    (Proxy :: Proxy PutImageTagMutability)
+
+responseBatchDeleteImage :: BatchDeleteImageResponse -> TestTree
+responseBatchDeleteImage =
+  res
+    "BatchDeleteImageResponse"
+    "fixture/BatchDeleteImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDeleteImage)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseGetLifecyclePolicyPreview :: GetLifecyclePolicyPreviewResponse -> TestTree
+responseGetLifecyclePolicyPreview =
+  res
+    "GetLifecyclePolicyPreviewResponse"
+    "fixture/GetLifecyclePolicyPreviewResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetLifecyclePolicyPreview)
+
+responseBatchCheckLayerAvailability :: BatchCheckLayerAvailabilityResponse -> TestTree
+responseBatchCheckLayerAvailability =
+  res
+    "BatchCheckLayerAvailabilityResponse"
+    "fixture/BatchCheckLayerAvailabilityResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchCheckLayerAvailability)
+
+responseDescribeRegistry :: DescribeRegistryResponse -> TestTree
+responseDescribeRegistry =
+  res
+    "DescribeRegistryResponse"
+    "fixture/DescribeRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeRegistry)
+
+responseDeleteRepositoryPolicy :: DeleteRepositoryPolicyResponse -> TestTree
+responseDeleteRepositoryPolicy =
+  res
+    "DeleteRepositoryPolicyResponse"
+    "fixture/DeleteRepositoryPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRepositoryPolicy)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
 responseCreateRepository =
@@ -657,37 +553,61 @@ responseCreateRepository =
     defaultService
     (Proxy :: Proxy CreateRepository)
 
-responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
-responseDeleteRepository =
+responseCompleteLayerUpload :: CompleteLayerUploadResponse -> TestTree
+responseCompleteLayerUpload =
   res
-    "DeleteRepositoryResponse"
-    "fixture/DeleteRepositoryResponse.proto"
+    "CompleteLayerUploadResponse"
+    "fixture/CompleteLayerUploadResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteRepository)
+    (Proxy :: Proxy CompleteLayerUpload)
 
-responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
-responseGetLifecyclePolicy =
+responseDescribeRepositories :: DescribeRepositoriesResponse -> TestTree
+responseDescribeRepositories =
   res
-    "GetLifecyclePolicyResponse"
-    "fixture/GetLifecyclePolicyResponse.proto"
+    "DescribeRepositoriesResponse"
+    "fixture/DescribeRepositoriesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLifecyclePolicy)
+    (Proxy :: Proxy DescribeRepositories)
 
-responseStartImageScan :: StartImageScanResponse -> TestTree
-responseStartImageScan =
+responseStartLifecyclePolicyPreview :: StartLifecyclePolicyPreviewResponse -> TestTree
+responseStartLifecyclePolicyPreview =
   res
-    "StartImageScanResponse"
-    "fixture/StartImageScanResponse.proto"
+    "StartLifecyclePolicyPreviewResponse"
+    "fixture/StartLifecyclePolicyPreviewResponse.proto"
     defaultService
-    (Proxy :: Proxy StartImageScan)
+    (Proxy :: Proxy StartLifecyclePolicyPreview)
 
-responseBatchCheckLayerAvailability :: BatchCheckLayerAvailabilityResponse -> TestTree
-responseBatchCheckLayerAvailability =
+responseDeleteRegistryPolicy :: DeleteRegistryPolicyResponse -> TestTree
+responseDeleteRegistryPolicy =
   res
-    "BatchCheckLayerAvailabilityResponse"
-    "fixture/BatchCheckLayerAvailabilityResponse.proto"
+    "DeleteRegistryPolicyResponse"
+    "fixture/DeleteRegistryPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy BatchCheckLayerAvailability)
+    (Proxy :: Proxy DeleteRegistryPolicy)
+
+responsePutRegistryPolicy :: PutRegistryPolicyResponse -> TestTree
+responsePutRegistryPolicy =
+  res
+    "PutRegistryPolicyResponse"
+    "fixture/PutRegistryPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutRegistryPolicy)
+
+responseUploadLayerPart :: UploadLayerPartResponse -> TestTree
+responseUploadLayerPart =
+  res
+    "UploadLayerPartResponse"
+    "fixture/UploadLayerPartResponse.proto"
+    defaultService
+    (Proxy :: Proxy UploadLayerPart)
+
+responseDescribeImageReplicationStatus :: DescribeImageReplicationStatusResponse -> TestTree
+responseDescribeImageReplicationStatus =
+  res
+    "DescribeImageReplicationStatusResponse"
+    "fixture/DescribeImageReplicationStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeImageReplicationStatus)
 
 responseBatchGetImage :: BatchGetImageResponse -> TestTree
 responseBatchGetImage =
@@ -705,34 +625,114 @@ responsePutReplicationConfiguration =
     defaultService
     (Proxy :: Proxy PutReplicationConfiguration)
 
-responsePutImageTagMutability :: PutImageTagMutabilityResponse -> TestTree
-responsePutImageTagMutability =
+responseStartImageScan :: StartImageScanResponse -> TestTree
+responseStartImageScan =
   res
-    "PutImageTagMutabilityResponse"
-    "fixture/PutImageTagMutabilityResponse.proto"
+    "StartImageScanResponse"
+    "fixture/StartImageScanResponse.proto"
     defaultService
-    (Proxy :: Proxy PutImageTagMutability)
+    (Proxy :: Proxy StartImageScan)
 
-responseDescribeImageReplicationStatus :: DescribeImageReplicationStatusResponse -> TestTree
-responseDescribeImageReplicationStatus =
+responseGetLifecyclePolicy :: GetLifecyclePolicyResponse -> TestTree
+responseGetLifecyclePolicy =
   res
-    "DescribeImageReplicationStatusResponse"
-    "fixture/DescribeImageReplicationStatusResponse.proto"
+    "GetLifecyclePolicyResponse"
+    "fixture/GetLifecyclePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeImageReplicationStatus)
+    (Proxy :: Proxy GetLifecyclePolicy)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy TagResource)
 
-responseGetLifecyclePolicyPreview :: GetLifecyclePolicyPreviewResponse -> TestTree
-responseGetLifecyclePolicyPreview =
+responseSetRepositoryPolicy :: SetRepositoryPolicyResponse -> TestTree
+responseSetRepositoryPolicy =
   res
-    "GetLifecyclePolicyPreviewResponse"
-    "fixture/GetLifecyclePolicyPreviewResponse.proto"
+    "SetRepositoryPolicyResponse"
+    "fixture/SetRepositoryPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetLifecyclePolicyPreview)
+    (Proxy :: Proxy SetRepositoryPolicy)
+
+responseDescribeImageScanFindings :: DescribeImageScanFindingsResponse -> TestTree
+responseDescribeImageScanFindings =
+  res
+    "DescribeImageScanFindingsResponse"
+    "fixture/DescribeImageScanFindingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeImageScanFindings)
+
+responseInitiateLayerUpload :: InitiateLayerUploadResponse -> TestTree
+responseInitiateLayerUpload =
+  res
+    "InitiateLayerUploadResponse"
+    "fixture/InitiateLayerUploadResponse.proto"
+    defaultService
+    (Proxy :: Proxy InitiateLayerUpload)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
+responseDeleteRepository =
+  res
+    "DeleteRepositoryResponse"
+    "fixture/DeleteRepositoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRepository)
+
+responseGetRegistryPolicy :: GetRegistryPolicyResponse -> TestTree
+responseGetRegistryPolicy =
+  res
+    "GetRegistryPolicyResponse"
+    "fixture/GetRegistryPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRegistryPolicy)
+
+responsePutImage :: PutImageResponse -> TestTree
+responsePutImage =
+  res
+    "PutImageResponse"
+    "fixture/PutImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutImage)
+
+responseListImages :: ListImagesResponse -> TestTree
+responseListImages =
+  res
+    "ListImagesResponse"
+    "fixture/ListImagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListImages)
+
+responseGetAuthorizationToken :: GetAuthorizationTokenResponse -> TestTree
+responseGetAuthorizationToken =
+  res
+    "GetAuthorizationTokenResponse"
+    "fixture/GetAuthorizationTokenResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetAuthorizationToken)
+
+responseGetDownloadUrlForLayer :: GetDownloadUrlForLayerResponse -> TestTree
+responseGetDownloadUrlForLayer =
+  res
+    "GetDownloadUrlForLayerResponse"
+    "fixture/GetDownloadUrlForLayerResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDownloadUrlForLayer)
+
+responseDescribeImages :: DescribeImagesResponse -> TestTree
+responseDescribeImages =
+  res
+    "DescribeImagesResponse"
+    "fixture/DescribeImagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeImages)

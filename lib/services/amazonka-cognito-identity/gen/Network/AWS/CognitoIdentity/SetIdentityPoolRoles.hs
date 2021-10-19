@@ -106,7 +106,7 @@ newSetIdentityPoolRoles pIdentityPoolId_ =
 --
 -- Up to 25 rules can be specified per identity provider.
 setIdentityPoolRoles_roleMappings :: Lens.Lens' SetIdentityPoolRoles (Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping))
-setIdentityPoolRoles_roleMappings = Lens.lens (\SetIdentityPoolRoles' {roleMappings} -> roleMappings) (\s@SetIdentityPoolRoles' {} a -> s {roleMappings = a} :: SetIdentityPoolRoles) Prelude.. Lens.mapping Lens._Coerce
+setIdentityPoolRoles_roleMappings = Lens.lens (\SetIdentityPoolRoles' {roleMappings} -> roleMappings) (\s@SetIdentityPoolRoles' {} a -> s {roleMappings = a} :: SetIdentityPoolRoles) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identity pool ID in the format REGION:GUID.
 setIdentityPoolRoles_identityPoolId :: Lens.Lens' SetIdentityPoolRoles Prelude.Text
@@ -116,7 +116,7 @@ setIdentityPoolRoles_identityPoolId = Lens.lens (\SetIdentityPoolRoles' {identit
 -- will be either \"authenticated\" or \"unauthenticated\" and the value
 -- will be the Role ARN.
 setIdentityPoolRoles_roles :: Lens.Lens' SetIdentityPoolRoles (Prelude.HashMap Prelude.Text Prelude.Text)
-setIdentityPoolRoles_roles = Lens.lens (\SetIdentityPoolRoles' {roles} -> roles) (\s@SetIdentityPoolRoles' {} a -> s {roles = a} :: SetIdentityPoolRoles) Prelude.. Lens._Coerce
+setIdentityPoolRoles_roles = Lens.lens (\SetIdentityPoolRoles' {roles} -> roles) (\s@SetIdentityPoolRoles' {} a -> s {roles = a} :: SetIdentityPoolRoles) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetIdentityPoolRoles where
   type

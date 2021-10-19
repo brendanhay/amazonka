@@ -175,7 +175,7 @@ newGetSearchSuggestionsResponse pHttpStatus_ =
 -- | A list of property names for a @Resource@ that match a
 -- @SuggestionQuery@.
 getSearchSuggestionsResponse_propertyNameSuggestions :: Lens.Lens' GetSearchSuggestionsResponse (Prelude.Maybe [PropertyNameSuggestion])
-getSearchSuggestionsResponse_propertyNameSuggestions = Lens.lens (\GetSearchSuggestionsResponse' {propertyNameSuggestions} -> propertyNameSuggestions) (\s@GetSearchSuggestionsResponse' {} a -> s {propertyNameSuggestions = a} :: GetSearchSuggestionsResponse) Prelude.. Lens.mapping Lens._Coerce
+getSearchSuggestionsResponse_propertyNameSuggestions = Lens.lens (\GetSearchSuggestionsResponse' {propertyNameSuggestions} -> propertyNameSuggestions) (\s@GetSearchSuggestionsResponse' {} a -> s {propertyNameSuggestions = a} :: GetSearchSuggestionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSearchSuggestionsResponse_httpStatus :: Lens.Lens' GetSearchSuggestionsResponse Prelude.Int

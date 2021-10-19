@@ -37,8 +37,8 @@ module Network.AWS.CodeCommit.ListRepositoriesForApprovalRuleTemplate
     newListRepositoriesForApprovalRuleTemplateResponse,
 
     -- * Response Lenses
-    listRepositoriesForApprovalRuleTemplateResponse_nextToken,
     listRepositoriesForApprovalRuleTemplateResponse_repositoryNames,
+    listRepositoriesForApprovalRuleTemplateResponse_nextToken,
     listRepositoriesForApprovalRuleTemplateResponse_httpStatus,
   )
 where
@@ -122,10 +122,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListRepositoriesForApprovalRuleTemplateResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-              Prelude.<*> ( x Core..?> "repositoryNames"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "repositoryNames"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -185,12 +185,12 @@ instance
 
 -- | /See:/ 'newListRepositoriesForApprovalRuleTemplateResponse' smart constructor.
 data ListRepositoriesForApprovalRuleTemplateResponse = ListRepositoriesForApprovalRuleTemplateResponse'
-  { -- | An enumeration token that allows the operation to batch the next results
-    -- of the operation.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of repository names that are associated with the specified
+  { -- | A list of repository names that are associated with the specified
     -- approval rule template.
     repositoryNames :: Prelude.Maybe [Prelude.Text],
+    -- | An enumeration token that allows the operation to batch the next results
+    -- of the operation.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -204,11 +204,11 @@ data ListRepositoriesForApprovalRuleTemplateResponse = ListRepositoriesForApprov
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRepositoriesForApprovalRuleTemplateResponse_nextToken' - An enumeration token that allows the operation to batch the next results
--- of the operation.
---
 -- 'repositoryNames', 'listRepositoriesForApprovalRuleTemplateResponse_repositoryNames' - A list of repository names that are associated with the specified
 -- approval rule template.
+--
+-- 'nextToken', 'listRepositoriesForApprovalRuleTemplateResponse_nextToken' - An enumeration token that allows the operation to batch the next results
+-- of the operation.
 --
 -- 'httpStatus', 'listRepositoriesForApprovalRuleTemplateResponse_httpStatus' - The response's http status code.
 newListRepositoriesForApprovalRuleTemplateResponse ::
@@ -218,22 +218,22 @@ newListRepositoriesForApprovalRuleTemplateResponse ::
 newListRepositoriesForApprovalRuleTemplateResponse
   pHttpStatus_ =
     ListRepositoriesForApprovalRuleTemplateResponse'
-      { nextToken =
+      { repositoryNames =
           Prelude.Nothing,
-        repositoryNames =
+        nextToken =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A list of repository names that are associated with the specified
+-- approval rule template.
+listRepositoriesForApprovalRuleTemplateResponse_repositoryNames :: Lens.Lens' ListRepositoriesForApprovalRuleTemplateResponse (Prelude.Maybe [Prelude.Text])
+listRepositoriesForApprovalRuleTemplateResponse_repositoryNames = Lens.lens (\ListRepositoriesForApprovalRuleTemplateResponse' {repositoryNames} -> repositoryNames) (\s@ListRepositoriesForApprovalRuleTemplateResponse' {} a -> s {repositoryNames = a} :: ListRepositoriesForApprovalRuleTemplateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An enumeration token that allows the operation to batch the next results
 -- of the operation.
 listRepositoriesForApprovalRuleTemplateResponse_nextToken :: Lens.Lens' ListRepositoriesForApprovalRuleTemplateResponse (Prelude.Maybe Prelude.Text)
 listRepositoriesForApprovalRuleTemplateResponse_nextToken = Lens.lens (\ListRepositoriesForApprovalRuleTemplateResponse' {nextToken} -> nextToken) (\s@ListRepositoriesForApprovalRuleTemplateResponse' {} a -> s {nextToken = a} :: ListRepositoriesForApprovalRuleTemplateResponse)
-
--- | A list of repository names that are associated with the specified
--- approval rule template.
-listRepositoriesForApprovalRuleTemplateResponse_repositoryNames :: Lens.Lens' ListRepositoriesForApprovalRuleTemplateResponse (Prelude.Maybe [Prelude.Text])
-listRepositoriesForApprovalRuleTemplateResponse_repositoryNames = Lens.lens (\ListRepositoriesForApprovalRuleTemplateResponse' {repositoryNames} -> repositoryNames) (\s@ListRepositoriesForApprovalRuleTemplateResponse' {} a -> s {repositoryNames = a} :: ListRepositoriesForApprovalRuleTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRepositoriesForApprovalRuleTemplateResponse_httpStatus :: Lens.Lens' ListRepositoriesForApprovalRuleTemplateResponse Prelude.Int

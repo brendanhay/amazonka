@@ -17,19 +17,19 @@ module Network.AWS.KinesisVideo.Types
     defaultService,
 
     -- * Errors
-    _AccountStreamLimitExceededException,
-    _VersionMismatchException,
-    _AccountChannelLimitExceededException,
-    _ClientLimitExceededException,
-    _TagsPerResourceExceededLimitException,
-    _DeviceStreamLimitExceededException,
-    _InvalidResourceFormatException,
     _AccessDeniedException,
-    _ResourceInUseException,
-    _ResourceNotFoundException,
-    _InvalidDeviceException,
-    _NotAuthorizedException,
     _InvalidArgumentException,
+    _TagsPerResourceExceededLimitException,
+    _NotAuthorizedException,
+    _ClientLimitExceededException,
+    _AccountChannelLimitExceededException,
+    _InvalidDeviceException,
+    _VersionMismatchException,
+    _AccountStreamLimitExceededException,
+    _InvalidResourceFormatException,
+    _DeviceStreamLimitExceededException,
+    _ResourceNotFoundException,
+    _ResourceInUseException,
 
     -- * APIName
     APIName (..),
@@ -56,12 +56,12 @@ module Network.AWS.KinesisVideo.Types
     ChannelInfo (..),
     newChannelInfo,
     channelInfo_creationTime,
-    channelInfo_channelName,
-    channelInfo_singleMasterConfiguration,
-    channelInfo_channelType,
-    channelInfo_version,
     channelInfo_channelStatus,
     channelInfo_channelARN,
+    channelInfo_singleMasterConfiguration,
+    channelInfo_channelName,
+    channelInfo_version,
+    channelInfo_channelType,
 
     -- * ChannelNameCondition
     ChannelNameCondition (..),
@@ -72,8 +72,8 @@ module Network.AWS.KinesisVideo.Types
     -- * ResourceEndpointListItem
     ResourceEndpointListItem (..),
     newResourceEndpointListItem,
-    resourceEndpointListItem_resourceEndpoint,
     resourceEndpointListItem_protocol,
+    resourceEndpointListItem_resourceEndpoint,
 
     -- * SingleMasterChannelEndpointConfiguration
     SingleMasterChannelEndpointConfiguration (..),
@@ -91,12 +91,12 @@ module Network.AWS.KinesisVideo.Types
     newStreamInfo,
     streamInfo_creationTime,
     streamInfo_status,
+    streamInfo_mediaType,
     streamInfo_dataRetentionInHours,
-    streamInfo_version,
+    streamInfo_streamARN,
     streamInfo_kmsKeyId,
     streamInfo_deviceName,
-    streamInfo_mediaType,
-    streamInfo_streamARN,
+    streamInfo_version,
     streamInfo_streamName,
 
     -- * StreamNameCondition
@@ -159,37 +159,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -202,14 +179,88 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The number of streams created for the account is too high.
-_AccountStreamLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountStreamLimitExceededException =
+-- | You do not have required permissions to perform this operation.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
   Core._MatchServiceError
     defaultService
-    "AccountStreamLimitExceededException"
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 401
+
+-- | The value for this input parameter is invalid.
+_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidArgumentException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidArgumentException"
+    Prelude.. Core.hasStatus 400
+
+-- | You have exceeded the limit of tags that you can associate with the
+-- resource. Kinesis video streams support up to 50 tags.
+_TagsPerResourceExceededLimitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagsPerResourceExceededLimitException =
+  Core._MatchServiceError
+    defaultService
+    "TagsPerResourceExceededLimitException"
+    Prelude.. Core.hasStatus 400
+
+-- | The caller is not authorized to perform this operation.
+_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotAuthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "NotAuthorizedException"
+    Prelude.. Core.hasStatus 401
+
+-- | Kinesis Video Streams has throttled the request because you have
+-- exceeded the limit of allowed client calls. Try making the call later.
+_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ClientLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | You have reached the maximum limit of active signaling channels for this
+-- AWS account in this region.
+_AccountChannelLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountChannelLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "AccountChannelLimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | Not implemented.
+_InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDeviceException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDeviceException"
     Prelude.. Core.hasStatus 400
 
 -- | The stream version that you specified is not the latest version. To get
@@ -223,39 +274,12 @@ _VersionMismatchException =
     "VersionMismatchException"
     Prelude.. Core.hasStatus 400
 
--- | You have reached the maximum limit of active signaling channels for this
--- AWS account in this region.
-_AccountChannelLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccountChannelLimitExceededException =
+-- | The number of streams created for the account is too high.
+_AccountStreamLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountStreamLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "AccountChannelLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | Kinesis Video Streams has throttled the request because you have
--- exceeded the limit of allowed client calls. Try making the call later.
-_ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClientLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ClientLimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | You have exceeded the limit of tags that you can associate with the
--- resource. Kinesis video streams support up to 50 tags.
-_TagsPerResourceExceededLimitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagsPerResourceExceededLimitException =
-  Core._MatchServiceError
-    defaultService
-    "TagsPerResourceExceededLimitException"
-    Prelude.. Core.hasStatus 400
-
--- | Not implemented.
-_DeviceStreamLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DeviceStreamLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "DeviceStreamLimitExceededException"
+    "AccountStreamLimitExceededException"
     Prelude.. Core.hasStatus 400
 
 -- | The format of the @StreamARN@ is invalid.
@@ -266,20 +290,12 @@ _InvalidResourceFormatException =
     "InvalidResourceFormatException"
     Prelude.. Core.hasStatus 400
 
--- | You do not have required permissions to perform this operation.
-_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessDeniedException =
+-- | Not implemented.
+_DeviceStreamLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DeviceStreamLimitExceededException =
   Core._MatchServiceError
     defaultService
-    "AccessDeniedException"
-    Prelude.. Core.hasStatus 401
-
--- | The signaling channel is currently not available for this operation.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceInUseException"
+    "DeviceStreamLimitExceededException"
     Prelude.. Core.hasStatus 400
 
 -- | Amazon Kinesis Video Streams can\'t find the stream that you specified.
@@ -290,26 +306,10 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | Not implemented.
-_InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidDeviceException =
+-- | The signaling channel is currently not available for this operation.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "InvalidDeviceException"
-    Prelude.. Core.hasStatus 400
-
--- | The caller is not authorized to perform this operation.
-_NotAuthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotAuthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "NotAuthorizedException"
-    Prelude.. Core.hasStatus 401
-
--- | The value for this input parameter is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidArgumentException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidArgumentException"
+    "ResourceInUseException"
     Prelude.. Core.hasStatus 400

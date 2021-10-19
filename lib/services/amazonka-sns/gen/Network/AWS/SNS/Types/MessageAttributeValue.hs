@@ -40,13 +40,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMessageAttributeValue' smart constructor.
 data MessageAttributeValue = MessageAttributeValue'
-  { -- | Strings are Unicode with UTF8 binary encoding. For a list of code
+  { -- | Binary type attributes can store any binary data, for example,
+    -- compressed data, encrypted data, or images.
+    binaryValue :: Prelude.Maybe Core.Base64,
+    -- | Strings are Unicode with UTF8 binary encoding. For a list of code
     -- values, see
     -- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
     stringValue :: Prelude.Maybe Prelude.Text,
-    -- | Binary type attributes can store any binary data, for example,
-    -- compressed data, encrypted data, or images.
-    binaryValue :: Prelude.Maybe Core.Base64,
     -- | Amazon SNS supports the following logical data types: String,
     -- String.Array, Number, and Binary. For more information, see
     -- <https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.
@@ -62,16 +62,16 @@ data MessageAttributeValue = MessageAttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stringValue', 'messageAttributeValue_stringValue' - Strings are Unicode with UTF8 binary encoding. For a list of code
--- values, see
--- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
---
 -- 'binaryValue', 'messageAttributeValue_binaryValue' - Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'stringValue', 'messageAttributeValue_stringValue' - Strings are Unicode with UTF8 binary encoding. For a list of code
+-- values, see
+-- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
 --
 -- 'dataType', 'messageAttributeValue_dataType' - Amazon SNS supports the following logical data types: String,
 -- String.Array, Number, and Binary. For more information, see
@@ -82,17 +82,11 @@ newMessageAttributeValue ::
   MessageAttributeValue
 newMessageAttributeValue pDataType_ =
   MessageAttributeValue'
-    { stringValue =
+    { binaryValue =
         Prelude.Nothing,
-      binaryValue = Prelude.Nothing,
+      stringValue = Prelude.Nothing,
       dataType = pDataType_
     }
-
--- | Strings are Unicode with UTF8 binary encoding. For a list of code
--- values, see
--- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
-messageAttributeValue_stringValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.Text)
-messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringValue} -> stringValue) (\s@MessageAttributeValue' {} a -> s {stringValue = a} :: MessageAttributeValue)
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.--
@@ -102,6 +96,12 @@ messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringVa
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 messageAttributeValue_binaryValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.ByteString)
 messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryValue} -> binaryValue) (\s@MessageAttributeValue' {} a -> s {binaryValue = a} :: MessageAttributeValue) Prelude.. Lens.mapping Core._Base64
+
+-- | Strings are Unicode with UTF8 binary encoding. For a list of code
+-- values, see
+-- <https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters>.
+messageAttributeValue_stringValue :: Lens.Lens' MessageAttributeValue (Prelude.Maybe Prelude.Text)
+messageAttributeValue_stringValue = Lens.lens (\MessageAttributeValue' {stringValue} -> stringValue) (\s@MessageAttributeValue' {} a -> s {stringValue = a} :: MessageAttributeValue)
 
 -- | Amazon SNS supports the following logical data types: String,
 -- String.Array, Number, and Binary. For more information, see
@@ -116,7 +116,7 @@ instance Prelude.NFData MessageAttributeValue
 instance Core.ToQuery MessageAttributeValue where
   toQuery MessageAttributeValue' {..} =
     Prelude.mconcat
-      [ "StringValue" Core.=: stringValue,
-        "BinaryValue" Core.=: binaryValue,
+      [ "BinaryValue" Core.=: binaryValue,
+        "StringValue" Core.=: stringValue,
         "DataType" Core.=: dataType
       ]

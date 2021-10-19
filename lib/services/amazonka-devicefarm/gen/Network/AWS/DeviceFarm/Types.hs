@@ -18,16 +18,16 @@ module Network.AWS.DeviceFarm.Types
 
     -- * Errors
     _NotEligibleException,
+    _CannotDeleteException,
+    _IdempotencyException,
+    _TooManyTagsException,
     _ArgumentException,
     _NotFoundException,
-    _TooManyTagsException,
-    _InvalidOperationException,
-    _ServiceAccountException,
-    _TagOperationException,
-    _IdempotencyException,
-    _TagPolicyException,
     _InternalServiceException,
-    _CannotDeleteException,
+    _TagPolicyException,
+    _TagOperationException,
+    _ServiceAccountException,
+    _InvalidOperationException,
     _LimitExceededException,
 
     -- * ArtifactCategory
@@ -117,11 +117,11 @@ module Network.AWS.DeviceFarm.Types
     -- * AccountSettings
     AccountSettings (..),
     newAccountSettings,
+    accountSettings_skipAppResign,
     accountSettings_awsAccountNumber,
+    accountSettings_maxJobTimeoutMinutes,
     accountSettings_maxSlots,
     accountSettings_trialMinutes,
-    accountSettings_skipAppResign,
-    accountSettings_maxJobTimeoutMinutes,
     accountSettings_unmeteredDevices,
     accountSettings_unmeteredRemoteAccessDevices,
     accountSettings_defaultJobTimeoutMinutes,
@@ -130,28 +130,28 @@ module Network.AWS.DeviceFarm.Types
     Artifact (..),
     newArtifact,
     artifact_arn,
-    artifact_name,
-    artifact_extension,
     artifact_url,
+    artifact_extension,
+    artifact_name,
     artifact_type,
 
     -- * CPU
     CPU (..),
     newCPU,
-    cpu_architecture,
     cpu_frequency,
     cpu_clock,
+    cpu_architecture,
 
     -- * Counters
     Counters (..),
     newCounters,
-    counters_errored,
-    counters_warned,
     counters_passed,
-    counters_total,
-    counters_stopped,
-    counters_failed,
     counters_skipped,
+    counters_warned,
+    counters_stopped,
+    counters_total,
+    counters_failed,
+    counters_errored,
 
     -- * CreateRemoteAccessSessionConfiguration
     CreateRemoteAccessSessionConfiguration (..),
@@ -162,34 +162,34 @@ module Network.AWS.DeviceFarm.Types
     -- * CustomerArtifactPaths
     CustomerArtifactPaths (..),
     newCustomerArtifactPaths,
+    customerArtifactPaths_androidPaths,
     customerArtifactPaths_deviceHostPaths,
     customerArtifactPaths_iosPaths,
-    customerArtifactPaths_androidPaths,
 
     -- * Device
     Device (..),
     newDevice,
-    device_platform,
-    device_manufacturer,
-    device_model,
-    device_memory,
-    device_availability,
-    device_fleetName,
-    device_fleetType,
-    device_formFactor,
-    device_arn,
-    device_remoteAccessEnabled,
-    device_instances,
-    device_name,
-    device_image,
     device_carrier,
-    device_os,
-    device_heapSize,
-    device_radio,
-    device_resolution,
-    device_cpu,
-    device_remoteDebugEnabled,
+    device_image,
+    device_manufacturer,
+    device_platform,
     device_modelId,
+    device_remoteAccessEnabled,
+    device_arn,
+    device_formFactor,
+    device_fleetType,
+    device_resolution,
+    device_availability,
+    device_memory,
+    device_radio,
+    device_os,
+    device_name,
+    device_model,
+    device_instances,
+    device_remoteDebugEnabled,
+    device_cpu,
+    device_heapSize,
+    device_fleetName,
 
     -- * DeviceFilter
     DeviceFilter (..),
@@ -203,34 +203,34 @@ module Network.AWS.DeviceFarm.Types
     newDeviceInstance,
     deviceInstance_status,
     deviceInstance_udid,
-    deviceInstance_deviceArn,
-    deviceInstance_arn,
-    deviceInstance_labels,
     deviceInstance_instanceProfile,
+    deviceInstance_arn,
+    deviceInstance_deviceArn,
+    deviceInstance_labels,
 
     -- * DeviceMinutes
     DeviceMinutes (..),
     newDeviceMinutes,
-    deviceMinutes_unmetered,
     deviceMinutes_metered,
     deviceMinutes_total,
+    deviceMinutes_unmetered,
 
     -- * DevicePool
     DevicePool (..),
     newDevicePool,
     devicePool_arn,
     devicePool_rules,
-    devicePool_maxDevices,
     devicePool_name,
-    devicePool_description,
+    devicePool_maxDevices,
     devicePool_type,
+    devicePool_description,
 
     -- * DevicePoolCompatibilityResult
     DevicePoolCompatibilityResult (..),
     newDevicePoolCompatibilityResult,
-    devicePoolCompatibilityResult_incompatibilityMessages,
-    devicePoolCompatibilityResult_compatible,
     devicePoolCompatibilityResult_device,
+    devicePoolCompatibilityResult_compatible,
+    devicePoolCompatibilityResult_incompatibilityMessages,
 
     -- * DeviceSelectionConfiguration
     DeviceSelectionConfiguration (..),
@@ -241,53 +241,53 @@ module Network.AWS.DeviceFarm.Types
     -- * DeviceSelectionResult
     DeviceSelectionResult (..),
     newDeviceSelectionResult,
-    deviceSelectionResult_maxDevices,
-    deviceSelectionResult_filters,
     deviceSelectionResult_matchedDevicesCount,
+    deviceSelectionResult_filters,
+    deviceSelectionResult_maxDevices,
 
     -- * ExecutionConfiguration
     ExecutionConfiguration (..),
     newExecutionConfiguration,
-    executionConfiguration_appPackagesCleanup,
-    executionConfiguration_videoCapture,
     executionConfiguration_skipAppResign,
-    executionConfiguration_jobTimeoutMinutes,
     executionConfiguration_accountsCleanup,
+    executionConfiguration_appPackagesCleanup,
+    executionConfiguration_jobTimeoutMinutes,
+    executionConfiguration_videoCapture,
 
     -- * IncompatibilityMessage
     IncompatibilityMessage (..),
     newIncompatibilityMessage,
-    incompatibilityMessage_message,
     incompatibilityMessage_type,
+    incompatibilityMessage_message,
 
     -- * InstanceProfile
     InstanceProfile (..),
     newInstanceProfile,
-    instanceProfile_excludeAppPackagesFromCleanup,
     instanceProfile_arn,
-    instanceProfile_name,
-    instanceProfile_description,
     instanceProfile_rebootAfterUse,
+    instanceProfile_name,
     instanceProfile_packageCleanup,
+    instanceProfile_excludeAppPackagesFromCleanup,
+    instanceProfile_description,
 
     -- * Job
     Job (..),
     newJob,
-    job_counters,
-    job_status,
-    job_started,
-    job_result,
-    job_message,
-    job_device,
-    job_arn,
-    job_videoCapture,
-    job_videoEndpoint,
-    job_name,
     job_instanceArn,
-    job_stopped,
-    job_type,
+    job_status,
+    job_counters,
+    job_arn,
     job_created,
+    job_device,
+    job_stopped,
+    job_result,
+    job_name,
+    job_videoEndpoint,
     job_deviceMinutes,
+    job_videoCapture,
+    job_type,
+    job_message,
+    job_started,
 
     -- * Location
     Location (..),
@@ -305,26 +305,26 @@ module Network.AWS.DeviceFarm.Types
     NetworkProfile (..),
     newNetworkProfile,
     networkProfile_uplinkJitterMs,
-    networkProfile_downlinkBandwidthBits,
-    networkProfile_downlinkDelayMs,
-    networkProfile_downlinkJitterMs,
-    networkProfile_uplinkLossPercent,
     networkProfile_arn,
-    networkProfile_downlinkLossPercent,
+    networkProfile_uplinkLossPercent,
+    networkProfile_downlinkJitterMs,
     networkProfile_name,
-    networkProfile_uplinkBandwidthBits,
-    networkProfile_uplinkDelayMs,
-    networkProfile_description,
+    networkProfile_downlinkLossPercent,
     networkProfile_type,
+    networkProfile_uplinkDelayMs,
+    networkProfile_uplinkBandwidthBits,
+    networkProfile_description,
+    networkProfile_downlinkDelayMs,
+    networkProfile_downlinkBandwidthBits,
 
     -- * Offering
     Offering (..),
     newOffering,
     offering_platform,
     offering_id,
-    offering_description,
-    offering_type,
     offering_recurringCharges,
+    offering_type,
+    offering_description,
 
     -- * OfferingPromotion
     OfferingPromotion (..),
@@ -335,30 +335,30 @@ module Network.AWS.DeviceFarm.Types
     -- * OfferingStatus
     OfferingStatus (..),
     newOfferingStatus,
-    offeringStatus_quantity,
-    offeringStatus_offering,
     offeringStatus_effectiveOn,
+    offeringStatus_offering,
+    offeringStatus_quantity,
     offeringStatus_type,
 
     -- * OfferingTransaction
     OfferingTransaction (..),
     newOfferingTransaction,
     offeringTransaction_offeringStatus,
-    offeringTransaction_createdOn,
     offeringTransaction_cost,
     offeringTransaction_transactionId,
     offeringTransaction_offeringPromotionId,
+    offeringTransaction_createdOn,
 
     -- * Problem
     Problem (..),
     newProblem,
-    problem_job,
-    problem_result,
-    problem_message,
     problem_device,
-    problem_run,
-    problem_suite,
     problem_test,
+    problem_result,
+    problem_run,
+    problem_job,
+    problem_message,
+    problem_suite,
 
     -- * ProblemDetail
     ProblemDetail (..),
@@ -370,48 +370,48 @@ module Network.AWS.DeviceFarm.Types
     Project (..),
     newProject,
     project_arn,
-    project_name,
     project_created,
+    project_name,
     project_defaultJobTimeoutMinutes,
 
     -- * Radios
     Radios (..),
     newRadios,
-    radios_gps,
-    radios_wifi,
-    radios_bluetooth,
     radios_nfc,
+    radios_gps,
+    radios_bluetooth,
+    radios_wifi,
 
     -- * RecurringCharge
     RecurringCharge (..),
     newRecurringCharge,
-    recurringCharge_cost,
     recurringCharge_frequency,
+    recurringCharge_cost,
 
     -- * RemoteAccessSession
     RemoteAccessSession (..),
     newRemoteAccessSession,
-    remoteAccessSession_deviceUdid,
-    remoteAccessSession_status,
+    remoteAccessSession_billingMethod,
     remoteAccessSession_clientId,
+    remoteAccessSession_deviceUdid,
+    remoteAccessSession_skipAppResign,
+    remoteAccessSession_instanceArn,
+    remoteAccessSession_status,
+    remoteAccessSession_remoteRecordEnabled,
+    remoteAccessSession_arn,
+    remoteAccessSession_remoteRecordAppArn,
+    remoteAccessSession_created,
+    remoteAccessSession_device,
+    remoteAccessSession_stopped,
+    remoteAccessSession_result,
+    remoteAccessSession_name,
+    remoteAccessSession_deviceMinutes,
+    remoteAccessSession_remoteDebugEnabled,
+    remoteAccessSession_endpoint,
+    remoteAccessSession_message,
+    remoteAccessSession_hostAddress,
     remoteAccessSession_interactionMode,
     remoteAccessSession_started,
-    remoteAccessSession_result,
-    remoteAccessSession_message,
-    remoteAccessSession_device,
-    remoteAccessSession_arn,
-    remoteAccessSession_name,
-    remoteAccessSession_remoteRecordEnabled,
-    remoteAccessSession_instanceArn,
-    remoteAccessSession_billingMethod,
-    remoteAccessSession_skipAppResign,
-    remoteAccessSession_stopped,
-    remoteAccessSession_hostAddress,
-    remoteAccessSession_endpoint,
-    remoteAccessSession_remoteDebugEnabled,
-    remoteAccessSession_created,
-    remoteAccessSession_deviceMinutes,
-    remoteAccessSession_remoteRecordAppArn,
 
     -- * Resolution
     Resolution (..),
@@ -422,44 +422,44 @@ module Network.AWS.DeviceFarm.Types
     -- * Rule
     Rule (..),
     newRule,
-    rule_operator,
     rule_attribute,
+    rule_operator,
     rule_value,
 
     -- * Run
     Run (..),
     newRun,
-    run_platform,
-    run_counters,
-    run_seed,
-    run_eventCount,
+    run_billingMethod,
+    run_skipAppResign,
     run_status,
+    run_customerArtifactPaths,
+    run_eventCount,
+    run_counters,
+    run_platform,
+    run_seed,
+    run_radios,
+    run_arn,
+    run_location,
+    run_created,
+    run_locale,
+    run_testSpecArn,
+    run_stopped,
+    run_result,
+    run_jobTimeoutMinutes,
+    run_completedJobs,
+    run_resultCode,
+    run_name,
+    run_appUpload,
+    run_parsingResultUrl,
+    run_networkProfile,
+    run_deviceMinutes,
+    run_type,
+    run_message,
+    run_webUrl,
+    run_totalJobs,
+    run_devicePoolArn,
     run_started,
     run_deviceSelectionResult,
-    run_result,
-    run_devicePoolArn,
-    run_testSpecArn,
-    run_message,
-    run_locale,
-    run_networkProfile,
-    run_arn,
-    run_radios,
-    run_appUpload,
-    run_name,
-    run_billingMethod,
-    run_resultCode,
-    run_skipAppResign,
-    run_customerArtifactPaths,
-    run_completedJobs,
-    run_jobTimeoutMinutes,
-    run_stopped,
-    run_totalJobs,
-    run_webUrl,
-    run_type,
-    run_created,
-    run_deviceMinutes,
-    run_location,
-    run_parsingResultUrl,
 
     -- * Sample
     Sample (..),
@@ -471,39 +471,39 @@ module Network.AWS.DeviceFarm.Types
     -- * ScheduleRunConfiguration
     ScheduleRunConfiguration (..),
     newScheduleRunConfiguration,
-    scheduleRunConfiguration_auxiliaryApps,
-    scheduleRunConfiguration_locale,
-    scheduleRunConfiguration_radios,
     scheduleRunConfiguration_billingMethod,
     scheduleRunConfiguration_customerArtifactPaths,
-    scheduleRunConfiguration_vpceConfigurationArns,
+    scheduleRunConfiguration_radios,
+    scheduleRunConfiguration_location,
+    scheduleRunConfiguration_locale,
     scheduleRunConfiguration_networkProfileArn,
     scheduleRunConfiguration_extraDataPackageArn,
-    scheduleRunConfiguration_location,
+    scheduleRunConfiguration_auxiliaryApps,
+    scheduleRunConfiguration_vpceConfigurationArns,
 
     -- * ScheduleRunTest
     ScheduleRunTest (..),
     newScheduleRunTest,
-    scheduleRunTest_testPackageArn,
     scheduleRunTest_testSpecArn,
-    scheduleRunTest_filter,
+    scheduleRunTest_testPackageArn,
     scheduleRunTest_parameters,
+    scheduleRunTest_filter,
     scheduleRunTest_type,
 
     -- * Suite
     Suite (..),
     newSuite,
-    suite_counters,
     suite_status,
-    suite_started,
-    suite_result,
-    suite_message,
+    suite_counters,
     suite_arn,
-    suite_name,
-    suite_stopped,
-    suite_type,
     suite_created,
+    suite_stopped,
+    suite_result,
+    suite_name,
     suite_deviceMinutes,
+    suite_type,
+    suite_message,
+    suite_started,
 
     -- * Tag
     Tag (..),
@@ -514,52 +514,52 @@ module Network.AWS.DeviceFarm.Types
     -- * Test
     Test (..),
     newTest,
-    test_counters,
     test_status,
-    test_started,
-    test_result,
-    test_message,
+    test_counters,
     test_arn,
-    test_name,
-    test_stopped,
-    test_type,
     test_created,
+    test_stopped,
+    test_result,
+    test_name,
     test_deviceMinutes,
+    test_type,
+    test_message,
+    test_started,
 
     -- * TestGridProject
     TestGridProject (..),
     newTestGridProject,
-    testGridProject_vpcConfig,
     testGridProject_arn,
-    testGridProject_name,
-    testGridProject_description,
     testGridProject_created,
+    testGridProject_name,
+    testGridProject_vpcConfig,
+    testGridProject_description,
 
     -- * TestGridSession
     TestGridSession (..),
     newTestGridSession,
     testGridSession_status,
     testGridSession_arn,
-    testGridSession_seleniumProperties,
-    testGridSession_ended,
-    testGridSession_billingMinutes,
     testGridSession_created,
+    testGridSession_billingMinutes,
+    testGridSession_ended,
+    testGridSession_seleniumProperties,
 
     -- * TestGridSessionAction
     TestGridSessionAction (..),
     newTestGridSessionAction,
-    testGridSessionAction_started,
-    testGridSessionAction_duration,
-    testGridSessionAction_statusCode,
     testGridSessionAction_action,
+    testGridSessionAction_duration,
     testGridSessionAction_requestMethod,
+    testGridSessionAction_started,
+    testGridSessionAction_statusCode,
 
     -- * TestGridSessionArtifact
     TestGridSessionArtifact (..),
     newTestGridSessionArtifact,
-    testGridSessionArtifact_filename,
     testGridSessionArtifact_url,
     testGridSessionArtifact_type,
+    testGridSessionArtifact_filename,
 
     -- * TestGridVpcConfig
     TestGridVpcConfig (..),
@@ -571,37 +571,37 @@ module Network.AWS.DeviceFarm.Types
     -- * TrialMinutes
     TrialMinutes (..),
     newTrialMinutes,
-    trialMinutes_total,
     trialMinutes_remaining,
+    trialMinutes_total,
 
     -- * UniqueProblem
     UniqueProblem (..),
     newUniqueProblem,
-    uniqueProblem_message,
     uniqueProblem_problems,
+    uniqueProblem_message,
 
     -- * Upload
     Upload (..),
     newUpload,
     upload_status,
-    upload_contentType,
-    upload_message,
-    upload_category,
     upload_arn,
-    upload_metadata,
-    upload_name,
-    upload_url,
-    upload_type,
     upload_created,
+    upload_category,
+    upload_url,
+    upload_name,
+    upload_metadata,
+    upload_type,
+    upload_message,
+    upload_contentType,
 
     -- * VPCEConfiguration
     VPCEConfiguration (..),
     newVPCEConfiguration,
-    vPCEConfiguration_vpceConfigurationName,
-    vPCEConfiguration_vpceConfigurationDescription,
-    vPCEConfiguration_arn,
-    vPCEConfiguration_serviceDnsName,
     vPCEConfiguration_vpceServiceName,
+    vPCEConfiguration_arn,
+    vPCEConfiguration_vpceConfigurationName,
+    vPCEConfiguration_serviceDnsName,
+    vPCEConfiguration_vpceConfigurationDescription,
   )
 where
 
@@ -713,37 +713,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -756,6 +733,29 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Exception gets thrown when a user is not eligible to perform the
@@ -765,6 +765,28 @@ _NotEligibleException =
   Core._MatchServiceError
     defaultService
     "NotEligibleException"
+
+-- | The requested object could not be deleted.
+_CannotDeleteException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CannotDeleteException =
+  Core._MatchServiceError
+    defaultService
+    "CannotDeleteException"
+
+-- | An entity with the same name already exists.
+_IdempotencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotencyException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotencyException"
+
+-- | The list of tags on the repository is over the limit. The maximum number
+-- of tags that can be applied to a repository is 50.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
 -- | An invalid argument was specified.
 _ArgumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -780,51 +802,6 @@ _NotFoundException =
     defaultService
     "NotFoundException"
 
--- | The list of tags on the repository is over the limit. The maximum number
--- of tags that can be applied to a repository is 50.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | There was an error with the update request, or you do not have
--- sufficient permissions to update this VPC endpoint configuration.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOperationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOperationException"
-
--- | There was a problem with the service account.
-_ServiceAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceAccountException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceAccountException"
-
--- | The operation was not successful. Try again.
-_TagOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagOperationException =
-  Core._MatchServiceError
-    defaultService
-    "TagOperationException"
-
--- | An entity with the same name already exists.
-_IdempotencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotencyException =
-  Core._MatchServiceError
-    defaultService
-    "IdempotencyException"
-
--- | The request doesn\'t comply with the AWS Identity and Access Management
--- (IAM) tag policy. Correct your request and then retry it.
-_TagPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TagPolicyException =
-  Core._MatchServiceError
-    defaultService
-    "TagPolicyException"
-
 -- | An internal exception was raised in the service. Contact
 -- <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support\@amazon.com>
 -- if you see this error.
@@ -834,12 +811,35 @@ _InternalServiceException =
     defaultService
     "InternalServiceException"
 
--- | The requested object could not be deleted.
-_CannotDeleteException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CannotDeleteException =
+-- | The request doesn\'t comply with the AWS Identity and Access Management
+-- (IAM) tag policy. Correct your request and then retry it.
+_TagPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagPolicyException =
   Core._MatchServiceError
     defaultService
-    "CannotDeleteException"
+    "TagPolicyException"
+
+-- | The operation was not successful. Try again.
+_TagOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TagOperationException =
+  Core._MatchServiceError
+    defaultService
+    "TagOperationException"
+
+-- | There was a problem with the service account.
+_ServiceAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceAccountException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceAccountException"
+
+-- | There was an error with the update request, or you do not have
+-- sufficient permissions to update this VPC endpoint configuration.
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOperationException"
 
 -- | A limit was exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -94,7 +94,7 @@ modifyCacheParameterGroup_cacheParameterGroupName = Lens.lens (\ModifyCacheParam
 -- must supply at least one parameter name and value; subsequent arguments
 -- are optional. A maximum of 20 parameters may be modified per request.
 modifyCacheParameterGroup_parameterNameValues :: Lens.Lens' ModifyCacheParameterGroup [ParameterNameValue]
-modifyCacheParameterGroup_parameterNameValues = Lens.lens (\ModifyCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ModifyCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ModifyCacheParameterGroup) Prelude.. Lens._Coerce
+modifyCacheParameterGroup_parameterNameValues = Lens.lens (\ModifyCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ModifyCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ModifyCacheParameterGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyCacheParameterGroup where
   type

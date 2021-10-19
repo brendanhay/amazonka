@@ -160,7 +160,7 @@ app_sslConfiguration = Lens.lens (\App' {sslConfiguration} -> sslConfiguration) 
 -- exceed it, you will cause an exception (API) with an \"Environment: is
 -- too large (maximum is 20 KB)\" message.
 app_environment :: Lens.Lens' App (Prelude.Maybe [EnvironmentVariable])
-app_environment = Lens.lens (\App' {environment} -> environment) (\s@App' {} a -> s {environment = a} :: App) Prelude.. Lens.mapping Lens._Coerce
+app_environment = Lens.lens (\App' {environment} -> environment) (\s@App' {} a -> s {environment = a} :: App) Prelude.. Lens.mapping Lens.coerced
 
 -- | Whether to enable SSL for the app.
 app_enableSsl :: Lens.Lens' App (Prelude.Maybe Prelude.Bool)
@@ -176,7 +176,7 @@ app_shortname = Lens.lens (\App' {shortname} -> shortname) (\s@App' {} a -> s {s
 
 -- | The app\'s data sources.
 app_dataSources :: Lens.Lens' App (Prelude.Maybe [DataSource])
-app_dataSources = Lens.lens (\App' {dataSources} -> dataSources) (\s@App' {} a -> s {dataSources = a} :: App) Prelude.. Lens.mapping Lens._Coerce
+app_dataSources = Lens.lens (\App' {dataSources} -> dataSources) (\s@App' {} a -> s {dataSources = a} :: App) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @Source@ object that describes the app repository.
 app_appSource :: Lens.Lens' App (Prelude.Maybe Source)
@@ -188,7 +188,7 @@ app_appId = Lens.lens (\App' {appId} -> appId) (\s@App' {} a -> s {appId = a} ::
 
 -- | The stack attributes.
 app_attributes :: Lens.Lens' App (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
-app_attributes = Lens.lens (\App' {attributes} -> attributes) (\s@App' {} a -> s {attributes = a} :: App) Prelude.. Lens.mapping Lens._Coerce
+app_attributes = Lens.lens (\App' {attributes} -> attributes) (\s@App' {} a -> s {attributes = a} :: App) Prelude.. Lens.mapping Lens.coerced
 
 -- | The app name.
 app_name :: Lens.Lens' App (Prelude.Maybe Prelude.Text)
@@ -205,7 +205,7 @@ app_stackId = Lens.lens (\App' {stackId} -> stackId) (\s@App' {} a -> s {stackId
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: @\'www.example.com, example.com\'@
 app_domains :: Lens.Lens' App (Prelude.Maybe [Prelude.Text])
-app_domains = Lens.lens (\App' {domains} -> domains) (\s@App' {} a -> s {domains = a} :: App) Prelude.. Lens.mapping Lens._Coerce
+app_domains = Lens.lens (\App' {domains} -> domains) (\s@App' {} a -> s {domains = a} :: App) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the app.
 app_description :: Lens.Lens' App (Prelude.Maybe Prelude.Text)

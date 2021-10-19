@@ -47,8 +47,8 @@ import Network.AWS.WAF.Types.Tag
 --
 -- /See:/ 'newTagInfoForResource' smart constructor.
 data TagInfoForResource = TagInfoForResource'
-  { resourceARN :: Prelude.Maybe Prelude.Text,
-    tagList :: Prelude.Maybe (Prelude.NonEmpty Tag)
+  { tagList :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    resourceARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,24 +60,24 @@ data TagInfoForResource = TagInfoForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'tagInfoForResource_resourceARN' -
---
 -- 'tagList', 'tagInfoForResource_tagList' -
+--
+-- 'resourceARN', 'tagInfoForResource_resourceARN' -
 newTagInfoForResource ::
   TagInfoForResource
 newTagInfoForResource =
   TagInfoForResource'
-    { resourceARN = Prelude.Nothing,
-      tagList = Prelude.Nothing
+    { tagList = Prelude.Nothing,
+      resourceARN = Prelude.Nothing
     }
+
+-- |
+tagInfoForResource_tagList :: Lens.Lens' TagInfoForResource (Prelude.Maybe (Prelude.NonEmpty Tag))
+tagInfoForResource_tagList = Lens.lens (\TagInfoForResource' {tagList} -> tagList) (\s@TagInfoForResource' {} a -> s {tagList = a} :: TagInfoForResource) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 tagInfoForResource_resourceARN :: Lens.Lens' TagInfoForResource (Prelude.Maybe Prelude.Text)
 tagInfoForResource_resourceARN = Lens.lens (\TagInfoForResource' {resourceARN} -> resourceARN) (\s@TagInfoForResource' {} a -> s {resourceARN = a} :: TagInfoForResource)
-
--- |
-tagInfoForResource_tagList :: Lens.Lens' TagInfoForResource (Prelude.Maybe (Prelude.NonEmpty Tag))
-tagInfoForResource_tagList = Lens.lens (\TagInfoForResource' {tagList} -> tagList) (\s@TagInfoForResource' {} a -> s {tagList = a} :: TagInfoForResource) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON TagInfoForResource where
   parseJSON =
@@ -85,8 +85,8 @@ instance Core.FromJSON TagInfoForResource where
       "TagInfoForResource"
       ( \x ->
           TagInfoForResource'
-            Prelude.<$> (x Core..:? "ResourceARN")
-            Prelude.<*> (x Core..:? "TagList")
+            Prelude.<$> (x Core..:? "TagList")
+            Prelude.<*> (x Core..:? "ResourceARN")
       )
 
 instance Prelude.Hashable TagInfoForResource

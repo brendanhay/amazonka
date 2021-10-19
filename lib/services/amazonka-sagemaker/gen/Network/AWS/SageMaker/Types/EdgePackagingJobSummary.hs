@@ -30,14 +30,14 @@ import Network.AWS.SageMaker.Types.EdgePackagingJobStatus
 data EdgePackagingJobSummary = EdgePackagingJobSummary'
   { -- | The timestamp of when the job was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the model.
+    modelName :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of when the edge packaging job was last updated.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the SageMaker Neo compilation job.
     compilationJobName :: Prelude.Maybe Prelude.Text,
     -- | The version of the model.
     modelVersion :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of when the edge packaging job was last updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the model.
-    modelName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the edge packaging job.
     edgePackagingJobArn :: Prelude.Text,
     -- | The name of the edge packaging job.
@@ -57,13 +57,13 @@ data EdgePackagingJobSummary = EdgePackagingJobSummary'
 --
 -- 'creationTime', 'edgePackagingJobSummary_creationTime' - The timestamp of when the job was created.
 --
--- 'compilationJobName', 'edgePackagingJobSummary_compilationJobName' - The name of the SageMaker Neo compilation job.
---
--- 'modelVersion', 'edgePackagingJobSummary_modelVersion' - The version of the model.
+-- 'modelName', 'edgePackagingJobSummary_modelName' - The name of the model.
 --
 -- 'lastModifiedTime', 'edgePackagingJobSummary_lastModifiedTime' - The timestamp of when the edge packaging job was last updated.
 --
--- 'modelName', 'edgePackagingJobSummary_modelName' - The name of the model.
+-- 'compilationJobName', 'edgePackagingJobSummary_compilationJobName' - The name of the SageMaker Neo compilation job.
+--
+-- 'modelVersion', 'edgePackagingJobSummary_modelVersion' - The version of the model.
 --
 -- 'edgePackagingJobArn', 'edgePackagingJobSummary_edgePackagingJobArn' - The Amazon Resource Name (ARN) of the edge packaging job.
 --
@@ -85,10 +85,10 @@ newEdgePackagingJobSummary
     EdgePackagingJobSummary'
       { creationTime =
           Prelude.Nothing,
+        modelName = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         compilationJobName = Prelude.Nothing,
         modelVersion = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        modelName = Prelude.Nothing,
         edgePackagingJobArn = pEdgePackagingJobArn_,
         edgePackagingJobName = pEdgePackagingJobName_,
         edgePackagingJobStatus = pEdgePackagingJobStatus_
@@ -98,6 +98,14 @@ newEdgePackagingJobSummary
 edgePackagingJobSummary_creationTime :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.UTCTime)
 edgePackagingJobSummary_creationTime = Lens.lens (\EdgePackagingJobSummary' {creationTime} -> creationTime) (\s@EdgePackagingJobSummary' {} a -> s {creationTime = a} :: EdgePackagingJobSummary) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the model.
+edgePackagingJobSummary_modelName :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.Text)
+edgePackagingJobSummary_modelName = Lens.lens (\EdgePackagingJobSummary' {modelName} -> modelName) (\s@EdgePackagingJobSummary' {} a -> s {modelName = a} :: EdgePackagingJobSummary)
+
+-- | The timestamp of when the edge packaging job was last updated.
+edgePackagingJobSummary_lastModifiedTime :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.UTCTime)
+edgePackagingJobSummary_lastModifiedTime = Lens.lens (\EdgePackagingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EdgePackagingJobSummary' {} a -> s {lastModifiedTime = a} :: EdgePackagingJobSummary) Prelude.. Lens.mapping Core._Time
+
 -- | The name of the SageMaker Neo compilation job.
 edgePackagingJobSummary_compilationJobName :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.Text)
 edgePackagingJobSummary_compilationJobName = Lens.lens (\EdgePackagingJobSummary' {compilationJobName} -> compilationJobName) (\s@EdgePackagingJobSummary' {} a -> s {compilationJobName = a} :: EdgePackagingJobSummary)
@@ -105,14 +113,6 @@ edgePackagingJobSummary_compilationJobName = Lens.lens (\EdgePackagingJobSummary
 -- | The version of the model.
 edgePackagingJobSummary_modelVersion :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.Text)
 edgePackagingJobSummary_modelVersion = Lens.lens (\EdgePackagingJobSummary' {modelVersion} -> modelVersion) (\s@EdgePackagingJobSummary' {} a -> s {modelVersion = a} :: EdgePackagingJobSummary)
-
--- | The timestamp of when the edge packaging job was last updated.
-edgePackagingJobSummary_lastModifiedTime :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.UTCTime)
-edgePackagingJobSummary_lastModifiedTime = Lens.lens (\EdgePackagingJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@EdgePackagingJobSummary' {} a -> s {lastModifiedTime = a} :: EdgePackagingJobSummary) Prelude.. Lens.mapping Core._Time
-
--- | The name of the model.
-edgePackagingJobSummary_modelName :: Lens.Lens' EdgePackagingJobSummary (Prelude.Maybe Prelude.Text)
-edgePackagingJobSummary_modelName = Lens.lens (\EdgePackagingJobSummary' {modelName} -> modelName) (\s@EdgePackagingJobSummary' {} a -> s {modelName = a} :: EdgePackagingJobSummary)
 
 -- | The Amazon Resource Name (ARN) of the edge packaging job.
 edgePackagingJobSummary_edgePackagingJobArn :: Lens.Lens' EdgePackagingJobSummary Prelude.Text
@@ -133,10 +133,10 @@ instance Core.FromJSON EdgePackagingJobSummary where
       ( \x ->
           EdgePackagingJobSummary'
             Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ModelName")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "CompilationJobName")
             Prelude.<*> (x Core..:? "ModelVersion")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ModelName")
             Prelude.<*> (x Core..: "EdgePackagingJobArn")
             Prelude.<*> (x Core..: "EdgePackagingJobName")
             Prelude.<*> (x Core..: "EdgePackagingJobStatus")

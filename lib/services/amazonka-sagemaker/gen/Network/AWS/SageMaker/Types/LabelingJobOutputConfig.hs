@@ -27,7 +27,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLabelingJobOutputConfig' smart constructor.
 data LabelingJobOutputConfig = LabelingJobOutputConfig'
-  { -- | The Amazon Web Services Key Management Service ID of the key used to
+  { -- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
+    -- Provide a @SnsTopicArn@ if you want to do real time chaining to another
+    -- streaming job and receive an Amazon SNS notifications each time a data
+    -- object is submitted by a worker.
+    --
+    -- If you provide an @SnsTopicArn@ in @OutputConfig@, when workers complete
+    -- labeling tasks, Ground Truth will send labeling task output data to the
+    -- SNS output topic you specify here.
+    --
+    -- To learn more, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data Receive Output Data from a Streaming Labeling Job>.
+    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Key Management Service ID of the key used to
     -- encrypt the output data, if any.
     --
     -- If you provide your own KMS key ID, you must add the required
@@ -45,18 +57,6 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
     -- in the /Amazon Simple Storage Service Developer Guide./
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
-    -- Provide a @SnsTopicArn@ if you want to do real time chaining to another
-    -- streaming job and receive an Amazon SNS notifications each time a data
-    -- object is submitted by a worker.
-    --
-    -- If you provide an @SnsTopicArn@ in @OutputConfig@, when workers complete
-    -- labeling tasks, Ground Truth will send labeling task output data to the
-    -- SNS output topic you specify here.
-    --
-    -- To learn more, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data Receive Output Data from a Streaming Labeling Job>.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 location to write output data.
     s3OutputPath :: Prelude.Text
   }
@@ -69,6 +69,18 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'snsTopicArn', 'labelingJobOutputConfig_snsTopicArn' - An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
+-- Provide a @SnsTopicArn@ if you want to do real time chaining to another
+-- streaming job and receive an Amazon SNS notifications each time a data
+-- object is submitted by a worker.
+--
+-- If you provide an @SnsTopicArn@ in @OutputConfig@, when workers complete
+-- labeling tasks, Ground Truth will send labeling task output data to the
+-- SNS output topic you specify here.
+--
+-- To learn more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data Receive Output Data from a Streaming Labeling Job>.
 --
 -- 'kmsKeyId', 'labelingJobOutputConfig_kmsKeyId' - The Amazon Web Services Key Management Service ID of the key used to
 -- encrypt the output data, if any.
@@ -88,7 +100,20 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
 -- in the /Amazon Simple Storage Service Developer Guide./
 --
--- 'snsTopicArn', 'labelingJobOutputConfig_snsTopicArn' - An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
+-- 's3OutputPath', 'labelingJobOutputConfig_s3OutputPath' - The Amazon S3 location to write output data.
+newLabelingJobOutputConfig ::
+  -- | 's3OutputPath'
+  Prelude.Text ->
+  LabelingJobOutputConfig
+newLabelingJobOutputConfig pS3OutputPath_ =
+  LabelingJobOutputConfig'
+    { snsTopicArn =
+        Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      s3OutputPath = pS3OutputPath_
+    }
+
+-- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
 -- Provide a @SnsTopicArn@ if you want to do real time chaining to another
 -- streaming job and receive an Amazon SNS notifications each time a data
 -- object is submitted by a worker.
@@ -99,19 +124,8 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
 --
 -- To learn more, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data Receive Output Data from a Streaming Labeling Job>.
---
--- 's3OutputPath', 'labelingJobOutputConfig_s3OutputPath' - The Amazon S3 location to write output data.
-newLabelingJobOutputConfig ::
-  -- | 's3OutputPath'
-  Prelude.Text ->
-  LabelingJobOutputConfig
-newLabelingJobOutputConfig pS3OutputPath_ =
-  LabelingJobOutputConfig'
-    { kmsKeyId =
-        Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
-      s3OutputPath = pS3OutputPath_
-    }
+labelingJobOutputConfig_snsTopicArn :: Lens.Lens' LabelingJobOutputConfig (Prelude.Maybe Prelude.Text)
+labelingJobOutputConfig_snsTopicArn = Lens.lens (\LabelingJobOutputConfig' {snsTopicArn} -> snsTopicArn) (\s@LabelingJobOutputConfig' {} a -> s {snsTopicArn = a} :: LabelingJobOutputConfig)
 
 -- | The Amazon Web Services Key Management Service ID of the key used to
 -- encrypt the output data, if any.
@@ -133,20 +147,6 @@ newLabelingJobOutputConfig pS3OutputPath_ =
 labelingJobOutputConfig_kmsKeyId :: Lens.Lens' LabelingJobOutputConfig (Prelude.Maybe Prelude.Text)
 labelingJobOutputConfig_kmsKeyId = Lens.lens (\LabelingJobOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@LabelingJobOutputConfig' {} a -> s {kmsKeyId = a} :: LabelingJobOutputConfig)
 
--- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
--- Provide a @SnsTopicArn@ if you want to do real time chaining to another
--- streaming job and receive an Amazon SNS notifications each time a data
--- object is submitted by a worker.
---
--- If you provide an @SnsTopicArn@ in @OutputConfig@, when workers complete
--- labeling tasks, Ground Truth will send labeling task output data to the
--- SNS output topic you specify here.
---
--- To learn more, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data Receive Output Data from a Streaming Labeling Job>.
-labelingJobOutputConfig_snsTopicArn :: Lens.Lens' LabelingJobOutputConfig (Prelude.Maybe Prelude.Text)
-labelingJobOutputConfig_snsTopicArn = Lens.lens (\LabelingJobOutputConfig' {snsTopicArn} -> snsTopicArn) (\s@LabelingJobOutputConfig' {} a -> s {snsTopicArn = a} :: LabelingJobOutputConfig)
-
 -- | The Amazon S3 location to write output data.
 labelingJobOutputConfig_s3OutputPath :: Lens.Lens' LabelingJobOutputConfig Prelude.Text
 labelingJobOutputConfig_s3OutputPath = Lens.lens (\LabelingJobOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@LabelingJobOutputConfig' {} a -> s {s3OutputPath = a} :: LabelingJobOutputConfig)
@@ -157,8 +157,8 @@ instance Core.FromJSON LabelingJobOutputConfig where
       "LabelingJobOutputConfig"
       ( \x ->
           LabelingJobOutputConfig'
-            Prelude.<$> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "SnsTopicArn")
+            Prelude.<$> (x Core..:? "SnsTopicArn")
+            Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..: "S3OutputPath")
       )
 
@@ -170,8 +170,8 @@ instance Core.ToJSON LabelingJobOutputConfig where
   toJSON LabelingJobOutputConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
-            ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
+          [ ("SnsTopicArn" Core..=) Prelude.<$> snsTopicArn,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

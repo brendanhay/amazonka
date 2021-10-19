@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
-  { -- | The version number of the Amazon ECS container agent.
-    agentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Docker version running on the container instance.
-    dockerVersion :: Prelude.Maybe Prelude.Text,
-    -- | The Git commit hash for the Amazon ECS container agent build on the
+  { -- | The Git commit hash for the Amazon ECS container agent build on the
     -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
     -- GitHub repository.
-    agentHash :: Prelude.Maybe Prelude.Text
+    agentHash :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the Amazon ECS container agent.
+    agentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Docker version running on the container instance.
+    dockerVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,21 +47,27 @@ data VersionInfo = VersionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentVersion', 'versionInfo_agentVersion' - The version number of the Amazon ECS container agent.
---
--- 'dockerVersion', 'versionInfo_dockerVersion' - The Docker version running on the container instance.
---
 -- 'agentHash', 'versionInfo_agentHash' - The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
 -- GitHub repository.
+--
+-- 'agentVersion', 'versionInfo_agentVersion' - The version number of the Amazon ECS container agent.
+--
+-- 'dockerVersion', 'versionInfo_dockerVersion' - The Docker version running on the container instance.
 newVersionInfo ::
   VersionInfo
 newVersionInfo =
   VersionInfo'
-    { agentVersion = Prelude.Nothing,
-      dockerVersion = Prelude.Nothing,
-      agentHash = Prelude.Nothing
+    { agentHash = Prelude.Nothing,
+      agentVersion = Prelude.Nothing,
+      dockerVersion = Prelude.Nothing
     }
+
+-- | The Git commit hash for the Amazon ECS container agent build on the
+-- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
+-- GitHub repository.
+versionInfo_agentHash :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
+versionInfo_agentHash = Lens.lens (\VersionInfo' {agentHash} -> agentHash) (\s@VersionInfo' {} a -> s {agentHash = a} :: VersionInfo)
 
 -- | The version number of the Amazon ECS container agent.
 versionInfo_agentVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
@@ -71,21 +77,15 @@ versionInfo_agentVersion = Lens.lens (\VersionInfo' {agentVersion} -> agentVersi
 versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
 versionInfo_dockerVersion = Lens.lens (\VersionInfo' {dockerVersion} -> dockerVersion) (\s@VersionInfo' {} a -> s {dockerVersion = a} :: VersionInfo)
 
--- | The Git commit hash for the Amazon ECS container agent build on the
--- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
--- GitHub repository.
-versionInfo_agentHash :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
-versionInfo_agentHash = Lens.lens (\VersionInfo' {agentHash} -> agentHash) (\s@VersionInfo' {} a -> s {agentHash = a} :: VersionInfo)
-
 instance Core.FromJSON VersionInfo where
   parseJSON =
     Core.withObject
       "VersionInfo"
       ( \x ->
           VersionInfo'
-            Prelude.<$> (x Core..:? "agentVersion")
+            Prelude.<$> (x Core..:? "agentHash")
+            Prelude.<*> (x Core..:? "agentVersion")
             Prelude.<*> (x Core..:? "dockerVersion")
-            Prelude.<*> (x Core..:? "agentHash")
       )
 
 instance Prelude.Hashable VersionInfo
@@ -96,8 +96,8 @@ instance Core.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("agentVersion" Core..=) Prelude.<$> agentVersion,
-            ("dockerVersion" Core..=) Prelude.<$> dockerVersion,
-            ("agentHash" Core..=) Prelude.<$> agentHash
+          [ ("agentHash" Core..=) Prelude.<$> agentHash,
+            ("agentVersion" Core..=) Prelude.<$> agentVersion,
+            ("dockerVersion" Core..=) Prelude.<$> dockerVersion
           ]
       )

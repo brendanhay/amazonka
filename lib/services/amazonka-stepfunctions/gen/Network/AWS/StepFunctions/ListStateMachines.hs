@@ -253,6 +253,6 @@ listStateMachinesResponse_httpStatus = Lens.lens (\ListStateMachinesResponse' {h
 
 -- | Undocumented member.
 listStateMachinesResponse_stateMachines :: Lens.Lens' ListStateMachinesResponse [StateMachineListItem]
-listStateMachinesResponse_stateMachines = Lens.lens (\ListStateMachinesResponse' {stateMachines} -> stateMachines) (\s@ListStateMachinesResponse' {} a -> s {stateMachines = a} :: ListStateMachinesResponse) Prelude.. Lens._Coerce
+listStateMachinesResponse_stateMachines = Lens.lens (\ListStateMachinesResponse' {stateMachines} -> stateMachines) (\s@ListStateMachinesResponse' {} a -> s {stateMachines = a} :: ListStateMachinesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListStateMachinesResponse

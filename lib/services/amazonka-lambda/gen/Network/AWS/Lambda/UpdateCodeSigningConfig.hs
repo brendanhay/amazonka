@@ -30,8 +30,8 @@ module Network.AWS.Lambda.UpdateCodeSigningConfig
 
     -- * Request Lenses
     updateCodeSigningConfig_allowedPublishers,
-    updateCodeSigningConfig_description,
     updateCodeSigningConfig_codeSigningPolicies,
+    updateCodeSigningConfig_description,
     updateCodeSigningConfig_codeSigningConfigArn,
 
     -- * Destructuring the Response
@@ -55,10 +55,10 @@ import qualified Network.AWS.Response as Response
 data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
   { -- | Signing profiles for this code signing configuration.
     allowedPublishers :: Prelude.Maybe AllowedPublishers,
-    -- | Descriptive name for this code signing configuration.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The code signing policy.
     codeSigningPolicies :: Prelude.Maybe CodeSigningPolicies,
+    -- | Descriptive name for this code signing configuration.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
     codeSigningConfigArn :: Prelude.Text
   }
@@ -74,9 +74,9 @@ data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
 --
 -- 'allowedPublishers', 'updateCodeSigningConfig_allowedPublishers' - Signing profiles for this code signing configuration.
 --
--- 'description', 'updateCodeSigningConfig_description' - Descriptive name for this code signing configuration.
---
 -- 'codeSigningPolicies', 'updateCodeSigningConfig_codeSigningPolicies' - The code signing policy.
+--
+-- 'description', 'updateCodeSigningConfig_description' - Descriptive name for this code signing configuration.
 --
 -- 'codeSigningConfigArn', 'updateCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.
 newUpdateCodeSigningConfig ::
@@ -87,8 +87,8 @@ newUpdateCodeSigningConfig pCodeSigningConfigArn_ =
   UpdateCodeSigningConfig'
     { allowedPublishers =
         Prelude.Nothing,
-      description = Prelude.Nothing,
       codeSigningPolicies = Prelude.Nothing,
+      description = Prelude.Nothing,
       codeSigningConfigArn = pCodeSigningConfigArn_
     }
 
@@ -96,13 +96,13 @@ newUpdateCodeSigningConfig pCodeSigningConfigArn_ =
 updateCodeSigningConfig_allowedPublishers :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe AllowedPublishers)
 updateCodeSigningConfig_allowedPublishers = Lens.lens (\UpdateCodeSigningConfig' {allowedPublishers} -> allowedPublishers) (\s@UpdateCodeSigningConfig' {} a -> s {allowedPublishers = a} :: UpdateCodeSigningConfig)
 
--- | Descriptive name for this code signing configuration.
-updateCodeSigningConfig_description :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe Prelude.Text)
-updateCodeSigningConfig_description = Lens.lens (\UpdateCodeSigningConfig' {description} -> description) (\s@UpdateCodeSigningConfig' {} a -> s {description = a} :: UpdateCodeSigningConfig)
-
 -- | The code signing policy.
 updateCodeSigningConfig_codeSigningPolicies :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe CodeSigningPolicies)
 updateCodeSigningConfig_codeSigningPolicies = Lens.lens (\UpdateCodeSigningConfig' {codeSigningPolicies} -> codeSigningPolicies) (\s@UpdateCodeSigningConfig' {} a -> s {codeSigningPolicies = a} :: UpdateCodeSigningConfig)
+
+-- | Descriptive name for this code signing configuration.
+updateCodeSigningConfig_description :: Lens.Lens' UpdateCodeSigningConfig (Prelude.Maybe Prelude.Text)
+updateCodeSigningConfig_description = Lens.lens (\UpdateCodeSigningConfig' {description} -> description) (\s@UpdateCodeSigningConfig' {} a -> s {description = a} :: UpdateCodeSigningConfig)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
 updateCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' UpdateCodeSigningConfig Prelude.Text
@@ -134,9 +134,9 @@ instance Core.ToJSON UpdateCodeSigningConfig where
       ( Prelude.catMaybes
           [ ("AllowedPublishers" Core..=)
               Prelude.<$> allowedPublishers,
-            ("Description" Core..=) Prelude.<$> description,
             ("CodeSigningPolicies" Core..=)
-              Prelude.<$> codeSigningPolicies
+              Prelude.<$> codeSigningPolicies,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 

@@ -78,10 +78,10 @@ module Network.AWS.S3.PutObjectTagging
     newPutObjectTagging,
 
     -- * Request Lenses
-    putObjectTagging_expectedBucketOwner,
-    putObjectTagging_contentMD5,
     putObjectTagging_versionId,
     putObjectTagging_requestPayer,
+    putObjectTagging_contentMD5,
+    putObjectTagging_expectedBucketOwner,
     putObjectTagging_bucket,
     putObjectTagging_key,
     putObjectTagging_tagging,
@@ -105,19 +105,19 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutObjectTagging' smart constructor.
 data PutObjectTagging = PutObjectTagging'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+  { -- | The versionId of the object that the tag-set will be added to.
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
-    -- | The versionId of the object that the tag-set will be added to.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the object.
     --
     -- When using this action with an access point, you must direct requests to
@@ -154,9 +154,9 @@ data PutObjectTagging = PutObjectTagging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putObjectTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'versionId', 'putObjectTagging_versionId' - The versionId of the object that the tag-set will be added to.
+--
+-- 'requestPayer', 'putObjectTagging_requestPayer' - Undocumented member.
 --
 -- 'contentMD5', 'putObjectTagging_contentMD5' - The MD5 hash for the request body.
 --
@@ -164,9 +164,9 @@ data PutObjectTagging = PutObjectTagging'
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
 --
--- 'versionId', 'putObjectTagging_versionId' - The versionId of the object that the tag-set will be added to.
---
--- 'requestPayer', 'putObjectTagging_requestPayer' - Undocumented member.
+-- 'expectedBucketOwner', 'putObjectTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putObjectTagging_bucket' - The bucket name containing the object.
 --
@@ -202,21 +202,22 @@ newPutObjectTagging ::
   PutObjectTagging
 newPutObjectTagging pBucket_ pKey_ pTagging_ =
   PutObjectTagging'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       tagging = pTagging_
     }
 
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putObjectTagging_expectedBucketOwner :: Lens.Lens' PutObjectTagging (Prelude.Maybe Prelude.Text)
-putObjectTagging_expectedBucketOwner = Lens.lens (\PutObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectTagging' {} a -> s {expectedBucketOwner = a} :: PutObjectTagging)
+-- | The versionId of the object that the tag-set will be added to.
+putObjectTagging_versionId :: Lens.Lens' PutObjectTagging (Prelude.Maybe ObjectVersionId)
+putObjectTagging_versionId = Lens.lens (\PutObjectTagging' {versionId} -> versionId) (\s@PutObjectTagging' {} a -> s {versionId = a} :: PutObjectTagging)
+
+-- | Undocumented member.
+putObjectTagging_requestPayer :: Lens.Lens' PutObjectTagging (Prelude.Maybe RequestPayer)
+putObjectTagging_requestPayer = Lens.lens (\PutObjectTagging' {requestPayer} -> requestPayer) (\s@PutObjectTagging' {} a -> s {requestPayer = a} :: PutObjectTagging)
 
 -- | The MD5 hash for the request body.
 --
@@ -226,13 +227,11 @@ putObjectTagging_expectedBucketOwner = Lens.lens (\PutObjectTagging' {expectedBu
 putObjectTagging_contentMD5 :: Lens.Lens' PutObjectTagging (Prelude.Maybe Prelude.Text)
 putObjectTagging_contentMD5 = Lens.lens (\PutObjectTagging' {contentMD5} -> contentMD5) (\s@PutObjectTagging' {} a -> s {contentMD5 = a} :: PutObjectTagging)
 
--- | The versionId of the object that the tag-set will be added to.
-putObjectTagging_versionId :: Lens.Lens' PutObjectTagging (Prelude.Maybe ObjectVersionId)
-putObjectTagging_versionId = Lens.lens (\PutObjectTagging' {versionId} -> versionId) (\s@PutObjectTagging' {} a -> s {versionId = a} :: PutObjectTagging)
-
--- | Undocumented member.
-putObjectTagging_requestPayer :: Lens.Lens' PutObjectTagging (Prelude.Maybe RequestPayer)
-putObjectTagging_requestPayer = Lens.lens (\PutObjectTagging' {requestPayer} -> requestPayer) (\s@PutObjectTagging' {} a -> s {requestPayer = a} :: PutObjectTagging)
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putObjectTagging_expectedBucketOwner :: Lens.Lens' PutObjectTagging (Prelude.Maybe Prelude.Text)
+putObjectTagging_expectedBucketOwner = Lens.lens (\PutObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectTagging' {} a -> s {expectedBucketOwner = a} :: PutObjectTagging)
 
 -- | The bucket name containing the object.
 --
@@ -269,7 +268,9 @@ instance Core.AWSRequest PutObjectTagging where
   type
     AWSResponse PutObjectTagging =
       PutObjectTaggingResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -291,10 +292,10 @@ instance Core.ToElement PutObjectTagging where
 instance Core.ToHeaders PutObjectTagging where
   toHeaders PutObjectTagging' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+      [ "x-amz-request-payer" Core.=# requestPayer,
         "Content-MD5" Core.=# contentMD5,
-        "x-amz-request-payer" Core.=# requestPayer
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutObjectTagging where

@@ -35,6 +35,7 @@ data CostCategoryRule = CostCategoryRule'
   { -- | The value the line item is categorized as if the line item contains the
     -- matched dimension.
     inheritedValue :: Prelude.Maybe CostCategoryInheritedValueDimension,
+    value :: Prelude.Maybe Prelude.Text,
     -- | An
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
     -- object used to categorize costs. This supports dimensions, tags, and
@@ -52,7 +53,6 @@ data CostCategoryRule = CostCategoryRule'
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons>
     -- in the /Billing and Cost Management User Guide/.
     rule :: Prelude.Maybe Expression,
-    value :: Prelude.Maybe Prelude.Text,
     -- | You can define the @CostCategoryRule@ rule type as either @REGULAR@ or
     -- @INHERITED_VALUE@. The @INHERITED_VALUE@ rule type adds the flexibility
     -- of defining a rule that dynamically inherits the cost category value
@@ -76,6 +76,8 @@ data CostCategoryRule = CostCategoryRule'
 -- 'inheritedValue', 'costCategoryRule_inheritedValue' - The value the line item is categorized as if the line item contains the
 -- matched dimension.
 --
+-- 'value', 'costCategoryRule_value' - Undocumented member.
+--
 -- 'rule', 'costCategoryRule_rule' - An
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
 -- object used to categorize costs. This supports dimensions, tags, and
@@ -93,8 +95,6 @@ data CostCategoryRule = CostCategoryRule'
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons>
 -- in the /Billing and Cost Management User Guide/.
 --
--- 'value', 'costCategoryRule_value' - Undocumented member.
---
 -- 'type'', 'costCategoryRule_type' - You can define the @CostCategoryRule@ rule type as either @REGULAR@ or
 -- @INHERITED_VALUE@. The @INHERITED_VALUE@ rule type adds the flexibility
 -- of defining a rule that dynamically inherits the cost category value
@@ -108,8 +108,8 @@ newCostCategoryRule ::
 newCostCategoryRule =
   CostCategoryRule'
     { inheritedValue = Prelude.Nothing,
-      rule = Prelude.Nothing,
       value = Prelude.Nothing,
+      rule = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -117,6 +117,10 @@ newCostCategoryRule =
 -- matched dimension.
 costCategoryRule_inheritedValue :: Lens.Lens' CostCategoryRule (Prelude.Maybe CostCategoryInheritedValueDimension)
 costCategoryRule_inheritedValue = Lens.lens (\CostCategoryRule' {inheritedValue} -> inheritedValue) (\s@CostCategoryRule' {} a -> s {inheritedValue = a} :: CostCategoryRule)
+
+-- | Undocumented member.
+costCategoryRule_value :: Lens.Lens' CostCategoryRule (Prelude.Maybe Prelude.Text)
+costCategoryRule_value = Lens.lens (\CostCategoryRule' {value} -> value) (\s@CostCategoryRule' {} a -> s {value = a} :: CostCategoryRule)
 
 -- | An
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression>
@@ -137,10 +141,6 @@ costCategoryRule_inheritedValue = Lens.lens (\CostCategoryRule' {inheritedValue}
 costCategoryRule_rule :: Lens.Lens' CostCategoryRule (Prelude.Maybe Expression)
 costCategoryRule_rule = Lens.lens (\CostCategoryRule' {rule} -> rule) (\s@CostCategoryRule' {} a -> s {rule = a} :: CostCategoryRule)
 
--- | Undocumented member.
-costCategoryRule_value :: Lens.Lens' CostCategoryRule (Prelude.Maybe Prelude.Text)
-costCategoryRule_value = Lens.lens (\CostCategoryRule' {value} -> value) (\s@CostCategoryRule' {} a -> s {value = a} :: CostCategoryRule)
-
 -- | You can define the @CostCategoryRule@ rule type as either @REGULAR@ or
 -- @INHERITED_VALUE@. The @INHERITED_VALUE@ rule type adds the flexibility
 -- of defining a rule that dynamically inherits the cost category value
@@ -159,8 +159,8 @@ instance Core.FromJSON CostCategoryRule where
       ( \x ->
           CostCategoryRule'
             Prelude.<$> (x Core..:? "InheritedValue")
-            Prelude.<*> (x Core..:? "Rule")
             Prelude.<*> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Rule")
             Prelude.<*> (x Core..:? "Type")
       )
 
@@ -174,8 +174,8 @@ instance Core.ToJSON CostCategoryRule where
       ( Prelude.catMaybes
           [ ("InheritedValue" Core..=)
               Prelude.<$> inheritedValue,
-            ("Rule" Core..=) Prelude.<$> rule,
             ("Value" Core..=) Prelude.<$> value,
+            ("Rule" Core..=) Prelude.<$> rule,
             ("Type" Core..=) Prelude.<$> type'
           ]
       )

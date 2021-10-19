@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFindMatchesTaskRunProperties' smart constructor.
 data FindMatchesTaskRunProperties = FindMatchesTaskRunProperties'
-  { -- | The job run ID for the Find Matches task run.
-    jobRunId :: Prelude.Maybe Prelude.Text,
+  { -- | The job ID for the Find Matches task run.
+    jobId :: Prelude.Maybe Prelude.Text,
     -- | The name assigned to the job for the Find Matches task run.
     jobName :: Prelude.Maybe Prelude.Text,
-    -- | The job ID for the Find Matches task run.
-    jobId :: Prelude.Maybe Prelude.Text
+    -- | The job run ID for the Find Matches task run.
+    jobRunId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,32 @@ data FindMatchesTaskRunProperties = FindMatchesTaskRunProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobRunId', 'findMatchesTaskRunProperties_jobRunId' - The job run ID for the Find Matches task run.
+-- 'jobId', 'findMatchesTaskRunProperties_jobId' - The job ID for the Find Matches task run.
 --
 -- 'jobName', 'findMatchesTaskRunProperties_jobName' - The name assigned to the job for the Find Matches task run.
 --
--- 'jobId', 'findMatchesTaskRunProperties_jobId' - The job ID for the Find Matches task run.
+-- 'jobRunId', 'findMatchesTaskRunProperties_jobRunId' - The job run ID for the Find Matches task run.
 newFindMatchesTaskRunProperties ::
   FindMatchesTaskRunProperties
 newFindMatchesTaskRunProperties =
   FindMatchesTaskRunProperties'
-    { jobRunId =
+    { jobId =
         Prelude.Nothing,
       jobName = Prelude.Nothing,
-      jobId = Prelude.Nothing
+      jobRunId = Prelude.Nothing
     }
 
--- | The job run ID for the Find Matches task run.
-findMatchesTaskRunProperties_jobRunId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
-findMatchesTaskRunProperties_jobRunId = Lens.lens (\FindMatchesTaskRunProperties' {jobRunId} -> jobRunId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobRunId = a} :: FindMatchesTaskRunProperties)
+-- | The job ID for the Find Matches task run.
+findMatchesTaskRunProperties_jobId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
+findMatchesTaskRunProperties_jobId = Lens.lens (\FindMatchesTaskRunProperties' {jobId} -> jobId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobId = a} :: FindMatchesTaskRunProperties)
 
 -- | The name assigned to the job for the Find Matches task run.
 findMatchesTaskRunProperties_jobName :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
 findMatchesTaskRunProperties_jobName = Lens.lens (\FindMatchesTaskRunProperties' {jobName} -> jobName) (\s@FindMatchesTaskRunProperties' {} a -> s {jobName = a} :: FindMatchesTaskRunProperties)
 
--- | The job ID for the Find Matches task run.
-findMatchesTaskRunProperties_jobId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
-findMatchesTaskRunProperties_jobId = Lens.lens (\FindMatchesTaskRunProperties' {jobId} -> jobId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobId = a} :: FindMatchesTaskRunProperties)
+-- | The job run ID for the Find Matches task run.
+findMatchesTaskRunProperties_jobRunId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
+findMatchesTaskRunProperties_jobRunId = Lens.lens (\FindMatchesTaskRunProperties' {jobRunId} -> jobRunId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobRunId = a} :: FindMatchesTaskRunProperties)
 
 instance Core.FromJSON FindMatchesTaskRunProperties where
   parseJSON =
@@ -77,9 +77,9 @@ instance Core.FromJSON FindMatchesTaskRunProperties where
       "FindMatchesTaskRunProperties"
       ( \x ->
           FindMatchesTaskRunProperties'
-            Prelude.<$> (x Core..:? "JobRunId")
+            Prelude.<$> (x Core..:? "JobId")
             Prelude.<*> (x Core..:? "JobName")
-            Prelude.<*> (x Core..:? "JobId")
+            Prelude.<*> (x Core..:? "JobRunId")
       )
 
 instance

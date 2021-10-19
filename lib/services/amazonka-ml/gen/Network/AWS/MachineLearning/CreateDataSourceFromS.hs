@@ -58,8 +58,8 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     newCreateDataSourceFromS,
 
     -- * Request Lenses
-    createDataSourceFromS_computeStatistics,
     createDataSourceFromS_dataSourceName,
+    createDataSourceFromS_computeStatistics,
     createDataSourceFromS_dataSourceId,
     createDataSourceFromS_dataSpec,
 
@@ -82,14 +82,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDataSourceFromS' smart constructor.
 data CreateDataSourceFromS = CreateDataSourceFromS'
-  { -- | The compute statistics for a @DataSource@. The statistics are generated
+  { -- | A user-supplied name or description of the @DataSource@.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The compute statistics for a @DataSource@. The statistics are generated
     -- from the observation data referenced by a @DataSource@. Amazon ML uses
     -- the statistics internally during @MLModel@ training. This parameter must
     -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
     -- training.
     computeStatistics :: Prelude.Maybe Prelude.Bool,
-    -- | A user-supplied name or description of the @DataSource@.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied identifier that uniquely identifies the @DataSource@.
     dataSourceId :: Prelude.Text,
     -- | The data specification of a @DataSource@:
@@ -118,13 +118,13 @@ data CreateDataSourceFromS = CreateDataSourceFromS'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSourceName', 'createDataSourceFromS_dataSourceName' - A user-supplied name or description of the @DataSource@.
+--
 -- 'computeStatistics', 'createDataSourceFromS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
 -- training.
---
--- 'dataSourceName', 'createDataSourceFromS_dataSourceName' - A user-supplied name or description of the @DataSource@.
 --
 -- 'dataSourceId', 'createDataSourceFromS_dataSourceId' - A user-supplied identifier that uniquely identifies the @DataSource@.
 --
@@ -150,12 +150,16 @@ newCreateDataSourceFromS ::
   CreateDataSourceFromS
 newCreateDataSourceFromS pDataSourceId_ pDataSpec_ =
   CreateDataSourceFromS'
-    { computeStatistics =
+    { dataSourceName =
         Prelude.Nothing,
-      dataSourceName = Prelude.Nothing,
+      computeStatistics = Prelude.Nothing,
       dataSourceId = pDataSourceId_,
       dataSpec = pDataSpec_
     }
+
+-- | A user-supplied name or description of the @DataSource@.
+createDataSourceFromS_dataSourceName :: Lens.Lens' CreateDataSourceFromS (Prelude.Maybe Prelude.Text)
+createDataSourceFromS_dataSourceName = Lens.lens (\CreateDataSourceFromS' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromS' {} a -> s {dataSourceName = a} :: CreateDataSourceFromS)
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
@@ -164,10 +168,6 @@ newCreateDataSourceFromS pDataSourceId_ pDataSpec_ =
 -- training.
 createDataSourceFromS_computeStatistics :: Lens.Lens' CreateDataSourceFromS (Prelude.Maybe Prelude.Bool)
 createDataSourceFromS_computeStatistics = Lens.lens (\CreateDataSourceFromS' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromS' {} a -> s {computeStatistics = a} :: CreateDataSourceFromS)
-
--- | A user-supplied name or description of the @DataSource@.
-createDataSourceFromS_dataSourceName :: Lens.Lens' CreateDataSourceFromS (Prelude.Maybe Prelude.Text)
-createDataSourceFromS_dataSourceName = Lens.lens (\CreateDataSourceFromS' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromS' {} a -> s {dataSourceName = a} :: CreateDataSourceFromS)
 
 -- | A user-supplied identifier that uniquely identifies the @DataSource@.
 createDataSourceFromS_dataSourceId :: Lens.Lens' CreateDataSourceFromS Prelude.Text
@@ -226,10 +226,10 @@ instance Core.ToJSON CreateDataSourceFromS where
   toJSON CreateDataSourceFromS' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ComputeStatistics" Core..=)
-              Prelude.<$> computeStatistics,
-            ("DataSourceName" Core..=)
+          [ ("DataSourceName" Core..=)
               Prelude.<$> dataSourceName,
+            ("ComputeStatistics" Core..=)
+              Prelude.<$> computeStatistics,
             Prelude.Just ("DataSourceId" Core..= dataSourceId),
             Prelude.Just ("DataSpec" Core..= dataSpec)
           ]

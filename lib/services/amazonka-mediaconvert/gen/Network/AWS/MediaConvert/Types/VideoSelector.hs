@@ -34,7 +34,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVideoSelector' smart constructor.
 data VideoSelector = VideoSelector'
-  { -- | There are two sources for color metadata, the input file and the job
+  { -- | Selects a specific program from within a multi-program transport stream.
+    -- Note that Quad 4K is not currently supported.
+    programNumber :: Prelude.Maybe Prelude.Int,
+    -- | Ignore this setting unless this input is a QuickTime animation with an
+    -- alpha channel. Use this setting to create separate Key and Fill outputs.
+    -- In each output, specify which part of the input MediaConvert uses. Leave
+    -- this setting at the default value DISCARD to delete the alpha channel
+    -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
+    -- map the alpha channel to the luma channel of your outputs.
+    alphaBehavior :: Prelude.Maybe AlphaBehavior,
+    -- | There are two sources for color metadata, the input file and the job
     -- input settings Color space (ColorSpace) and HDR master display
     -- information settings(Hdr10Metadata). The Color space usage setting
     -- determines which takes precedence. Choose Force (FORCE) to use color
@@ -45,18 +55,6 @@ data VideoSelector = VideoSelector'
     -- file, the service defaults to using values you specify in the input
     -- settings.
     colorSpaceUsage :: Prelude.Maybe ColorSpaceUsage,
-    -- | Use this setting when your input video codec is AVC-Intra. Ignore this
-    -- setting for all other inputs. If the sample range metadata in your input
-    -- video is accurate, or if you don\'t know about sample range, keep the
-    -- default value, Follow (FOLLOW), for this setting. When you do, the
-    -- service automatically detects your input sample range. If your input
-    -- video has metadata indicating the wrong sample range, specify the
-    -- accurate sample range here. When you do, MediaConvert ignores any sample
-    -- range information in the input metadata. Regardless of whether
-    -- MediaConvert uses the input sample range or the sample range that you
-    -- specify, MediaConvert uses the sample range for transcoding and also
-    -- writes it to the output metadata.
-    sampleRange :: Prelude.Maybe InputSampleRange,
     -- | Use these settings to provide HDR 10 metadata that is missing or
     -- inaccurate in your input video. Appropriate values vary depending on the
     -- input video and must be provided by a color grader. The color grader
@@ -71,9 +69,12 @@ data VideoSelector = VideoSelector'
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
     hdr10Metadata :: Prelude.Maybe Hdr10Metadata,
-    -- | Selects a specific program from within a multi-program transport stream.
-    -- Note that Quad 4K is not currently supported.
-    programNumber :: Prelude.Maybe Prelude.Int,
+    -- | Use PID (Pid) to select specific video data from an input file. Specify
+    -- this value as an integer; the system automatically converts it to the
+    -- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
+    -- identifier, is an identifier for a set of data in an MPEG-2 transport
+    -- stream container.
+    pid :: Prelude.Maybe Prelude.Natural,
     -- | Use Rotate (InputRotate) to specify how the service rotates your video.
     -- You can choose automatic rotation or specify a rotation. You can specify
     -- a clockwise rotation of 0, 90, 180, or 270 degrees. If your input video
@@ -97,19 +98,18 @@ data VideoSelector = VideoSelector'
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
     colorSpace :: Prelude.Maybe ColorSpace,
-    -- | Ignore this setting unless this input is a QuickTime animation with an
-    -- alpha channel. Use this setting to create separate Key and Fill outputs.
-    -- In each output, specify which part of the input MediaConvert uses. Leave
-    -- this setting at the default value DISCARD to delete the alpha channel
-    -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
-    -- map the alpha channel to the luma channel of your outputs.
-    alphaBehavior :: Prelude.Maybe AlphaBehavior,
-    -- | Use PID (Pid) to select specific video data from an input file. Specify
-    -- this value as an integer; the system automatically converts it to the
-    -- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
-    -- identifier, is an identifier for a set of data in an MPEG-2 transport
-    -- stream container.
-    pid :: Prelude.Maybe Prelude.Natural
+    -- | Use this setting when your input video codec is AVC-Intra. Ignore this
+    -- setting for all other inputs. If the sample range metadata in your input
+    -- video is accurate, or if you don\'t know about sample range, keep the
+    -- default value, Follow (FOLLOW), for this setting. When you do, the
+    -- service automatically detects your input sample range. If your input
+    -- video has metadata indicating the wrong sample range, specify the
+    -- accurate sample range here. When you do, MediaConvert ignores any sample
+    -- range information in the input metadata. Regardless of whether
+    -- MediaConvert uses the input sample range or the sample range that you
+    -- specify, MediaConvert uses the sample range for transcoding and also
+    -- writes it to the output metadata.
+    sampleRange :: Prelude.Maybe InputSampleRange
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -121,6 +121,16 @@ data VideoSelector = VideoSelector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'programNumber', 'videoSelector_programNumber' - Selects a specific program from within a multi-program transport stream.
+-- Note that Quad 4K is not currently supported.
+--
+-- 'alphaBehavior', 'videoSelector_alphaBehavior' - Ignore this setting unless this input is a QuickTime animation with an
+-- alpha channel. Use this setting to create separate Key and Fill outputs.
+-- In each output, specify which part of the input MediaConvert uses. Leave
+-- this setting at the default value DISCARD to delete the alpha channel
+-- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
+-- map the alpha channel to the luma channel of your outputs.
+--
 -- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
 -- information settings(Hdr10Metadata). The Color space usage setting
@@ -131,18 +141,6 @@ data VideoSelector = VideoSelector'
 -- source when it is present. If there\'s no color metadata in your input
 -- file, the service defaults to using values you specify in the input
 -- settings.
---
--- 'sampleRange', 'videoSelector_sampleRange' - Use this setting when your input video codec is AVC-Intra. Ignore this
--- setting for all other inputs. If the sample range metadata in your input
--- video is accurate, or if you don\'t know about sample range, keep the
--- default value, Follow (FOLLOW), for this setting. When you do, the
--- service automatically detects your input sample range. If your input
--- video has metadata indicating the wrong sample range, specify the
--- accurate sample range here. When you do, MediaConvert ignores any sample
--- range information in the input metadata. Regardless of whether
--- MediaConvert uses the input sample range or the sample range that you
--- specify, MediaConvert uses the sample range for transcoding and also
--- writes it to the output metadata.
 --
 -- 'hdr10Metadata', 'videoSelector_hdr10Metadata' - Use these settings to provide HDR 10 metadata that is missing or
 -- inaccurate in your input video. Appropriate values vary depending on the
@@ -158,8 +156,11 @@ data VideoSelector = VideoSelector'
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
 --
--- 'programNumber', 'videoSelector_programNumber' - Selects a specific program from within a multi-program transport stream.
--- Note that Quad 4K is not currently supported.
+-- 'pid', 'videoSelector_pid' - Use PID (Pid) to select specific video data from an input file. Specify
+-- this value as an integer; the system automatically converts it to the
+-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
+-- identifier, is an identifier for a set of data in an MPEG-2 transport
+-- stream container.
 --
 -- 'rotate', 'videoSelector_rotate' - Use Rotate (InputRotate) to specify how the service rotates your video.
 -- You can choose automatic rotation or specify a rotation. You can specify
@@ -184,31 +185,44 @@ data VideoSelector = VideoSelector'
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
 --
--- 'alphaBehavior', 'videoSelector_alphaBehavior' - Ignore this setting unless this input is a QuickTime animation with an
+-- 'sampleRange', 'videoSelector_sampleRange' - Use this setting when your input video codec is AVC-Intra. Ignore this
+-- setting for all other inputs. If the sample range metadata in your input
+-- video is accurate, or if you don\'t know about sample range, keep the
+-- default value, Follow (FOLLOW), for this setting. When you do, the
+-- service automatically detects your input sample range. If your input
+-- video has metadata indicating the wrong sample range, specify the
+-- accurate sample range here. When you do, MediaConvert ignores any sample
+-- range information in the input metadata. Regardless of whether
+-- MediaConvert uses the input sample range or the sample range that you
+-- specify, MediaConvert uses the sample range for transcoding and also
+-- writes it to the output metadata.
+newVideoSelector ::
+  VideoSelector
+newVideoSelector =
+  VideoSelector'
+    { programNumber = Prelude.Nothing,
+      alphaBehavior = Prelude.Nothing,
+      colorSpaceUsage = Prelude.Nothing,
+      hdr10Metadata = Prelude.Nothing,
+      pid = Prelude.Nothing,
+      rotate = Prelude.Nothing,
+      colorSpace = Prelude.Nothing,
+      sampleRange = Prelude.Nothing
+    }
+
+-- | Selects a specific program from within a multi-program transport stream.
+-- Note that Quad 4K is not currently supported.
+videoSelector_programNumber :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Int)
+videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> programNumber) (\s@VideoSelector' {} a -> s {programNumber = a} :: VideoSelector)
+
+-- | Ignore this setting unless this input is a QuickTime animation with an
 -- alpha channel. Use this setting to create separate Key and Fill outputs.
 -- In each output, specify which part of the input MediaConvert uses. Leave
 -- this setting at the default value DISCARD to delete the alpha channel
 -- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
 -- map the alpha channel to the luma channel of your outputs.
---
--- 'pid', 'videoSelector_pid' - Use PID (Pid) to select specific video data from an input file. Specify
--- this value as an integer; the system automatically converts it to the
--- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
--- identifier, is an identifier for a set of data in an MPEG-2 transport
--- stream container.
-newVideoSelector ::
-  VideoSelector
-newVideoSelector =
-  VideoSelector'
-    { colorSpaceUsage = Prelude.Nothing,
-      sampleRange = Prelude.Nothing,
-      hdr10Metadata = Prelude.Nothing,
-      programNumber = Prelude.Nothing,
-      rotate = Prelude.Nothing,
-      colorSpace = Prelude.Nothing,
-      alphaBehavior = Prelude.Nothing,
-      pid = Prelude.Nothing
-    }
+videoSelector_alphaBehavior :: Lens.Lens' VideoSelector (Prelude.Maybe AlphaBehavior)
+videoSelector_alphaBehavior = Lens.lens (\VideoSelector' {alphaBehavior} -> alphaBehavior) (\s@VideoSelector' {} a -> s {alphaBehavior = a} :: VideoSelector)
 
 -- | There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
@@ -222,20 +236,6 @@ newVideoSelector =
 -- settings.
 videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpaceUsage)
 videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> colorSpaceUsage) (\s@VideoSelector' {} a -> s {colorSpaceUsage = a} :: VideoSelector)
-
--- | Use this setting when your input video codec is AVC-Intra. Ignore this
--- setting for all other inputs. If the sample range metadata in your input
--- video is accurate, or if you don\'t know about sample range, keep the
--- default value, Follow (FOLLOW), for this setting. When you do, the
--- service automatically detects your input sample range. If your input
--- video has metadata indicating the wrong sample range, specify the
--- accurate sample range here. When you do, MediaConvert ignores any sample
--- range information in the input metadata. Regardless of whether
--- MediaConvert uses the input sample range or the sample range that you
--- specify, MediaConvert uses the sample range for transcoding and also
--- writes it to the output metadata.
-videoSelector_sampleRange :: Lens.Lens' VideoSelector (Prelude.Maybe InputSampleRange)
-videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRange) (\s@VideoSelector' {} a -> s {sampleRange = a} :: VideoSelector)
 
 -- | Use these settings to provide HDR 10 metadata that is missing or
 -- inaccurate in your input video. Appropriate values vary depending on the
@@ -253,10 +253,13 @@ videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRa
 videoSelector_hdr10Metadata :: Lens.Lens' VideoSelector (Prelude.Maybe Hdr10Metadata)
 videoSelector_hdr10Metadata = Lens.lens (\VideoSelector' {hdr10Metadata} -> hdr10Metadata) (\s@VideoSelector' {} a -> s {hdr10Metadata = a} :: VideoSelector)
 
--- | Selects a specific program from within a multi-program transport stream.
--- Note that Quad 4K is not currently supported.
-videoSelector_programNumber :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Int)
-videoSelector_programNumber = Lens.lens (\VideoSelector' {programNumber} -> programNumber) (\s@VideoSelector' {} a -> s {programNumber = a} :: VideoSelector)
+-- | Use PID (Pid) to select specific video data from an input file. Specify
+-- this value as an integer; the system automatically converts it to the
+-- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
+-- identifier, is an identifier for a set of data in an MPEG-2 transport
+-- stream container.
+videoSelector_pid :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Natural)
+videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' {} a -> s {pid = a} :: VideoSelector)
 
 -- | Use Rotate (InputRotate) to specify how the service rotates your video.
 -- You can choose automatic rotation or specify a rotation. You can specify
@@ -285,22 +288,19 @@ videoSelector_rotate = Lens.lens (\VideoSelector' {rotate} -> rotate) (\s@VideoS
 videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
 
--- | Ignore this setting unless this input is a QuickTime animation with an
--- alpha channel. Use this setting to create separate Key and Fill outputs.
--- In each output, specify which part of the input MediaConvert uses. Leave
--- this setting at the default value DISCARD to delete the alpha channel
--- and preserve the video. Set it to REMAP_TO_LUMA to delete the video and
--- map the alpha channel to the luma channel of your outputs.
-videoSelector_alphaBehavior :: Lens.Lens' VideoSelector (Prelude.Maybe AlphaBehavior)
-videoSelector_alphaBehavior = Lens.lens (\VideoSelector' {alphaBehavior} -> alphaBehavior) (\s@VideoSelector' {} a -> s {alphaBehavior = a} :: VideoSelector)
-
--- | Use PID (Pid) to select specific video data from an input file. Specify
--- this value as an integer; the system automatically converts it to the
--- hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet
--- identifier, is an identifier for a set of data in an MPEG-2 transport
--- stream container.
-videoSelector_pid :: Lens.Lens' VideoSelector (Prelude.Maybe Prelude.Natural)
-videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' {} a -> s {pid = a} :: VideoSelector)
+-- | Use this setting when your input video codec is AVC-Intra. Ignore this
+-- setting for all other inputs. If the sample range metadata in your input
+-- video is accurate, or if you don\'t know about sample range, keep the
+-- default value, Follow (FOLLOW), for this setting. When you do, the
+-- service automatically detects your input sample range. If your input
+-- video has metadata indicating the wrong sample range, specify the
+-- accurate sample range here. When you do, MediaConvert ignores any sample
+-- range information in the input metadata. Regardless of whether
+-- MediaConvert uses the input sample range or the sample range that you
+-- specify, MediaConvert uses the sample range for transcoding and also
+-- writes it to the output metadata.
+videoSelector_sampleRange :: Lens.Lens' VideoSelector (Prelude.Maybe InputSampleRange)
+videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRange) (\s@VideoSelector' {} a -> s {sampleRange = a} :: VideoSelector)
 
 instance Core.FromJSON VideoSelector where
   parseJSON =
@@ -308,14 +308,14 @@ instance Core.FromJSON VideoSelector where
       "VideoSelector"
       ( \x ->
           VideoSelector'
-            Prelude.<$> (x Core..:? "colorSpaceUsage")
-            Prelude.<*> (x Core..:? "sampleRange")
+            Prelude.<$> (x Core..:? "programNumber")
+            Prelude.<*> (x Core..:? "alphaBehavior")
+            Prelude.<*> (x Core..:? "colorSpaceUsage")
             Prelude.<*> (x Core..:? "hdr10Metadata")
-            Prelude.<*> (x Core..:? "programNumber")
+            Prelude.<*> (x Core..:? "pid")
             Prelude.<*> (x Core..:? "rotate")
             Prelude.<*> (x Core..:? "colorSpace")
-            Prelude.<*> (x Core..:? "alphaBehavior")
-            Prelude.<*> (x Core..:? "pid")
+            Prelude.<*> (x Core..:? "sampleRange")
       )
 
 instance Prelude.Hashable VideoSelector
@@ -326,14 +326,14 @@ instance Core.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("colorSpaceUsage" Core..=)
+          [ ("programNumber" Core..=) Prelude.<$> programNumber,
+            ("alphaBehavior" Core..=) Prelude.<$> alphaBehavior,
+            ("colorSpaceUsage" Core..=)
               Prelude.<$> colorSpaceUsage,
-            ("sampleRange" Core..=) Prelude.<$> sampleRange,
             ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,
-            ("programNumber" Core..=) Prelude.<$> programNumber,
+            ("pid" Core..=) Prelude.<$> pid,
             ("rotate" Core..=) Prelude.<$> rotate,
             ("colorSpace" Core..=) Prelude.<$> colorSpace,
-            ("alphaBehavior" Core..=) Prelude.<$> alphaBehavior,
-            ("pid" Core..=) Prelude.<$> pid
+            ("sampleRange" Core..=) Prelude.<$> sampleRange
           ]
       )

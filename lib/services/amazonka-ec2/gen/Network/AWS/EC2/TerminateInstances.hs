@@ -158,7 +158,7 @@ terminateInstances_dryRun = Lens.lens (\TerminateInstances' {dryRun} -> dryRun) 
 -- Constraints: Up to 1000 instance IDs. We recommend breaking up this
 -- request into smaller batches.
 terminateInstances_instanceIds :: Lens.Lens' TerminateInstances [Prelude.Text]
-terminateInstances_instanceIds = Lens.lens (\TerminateInstances' {instanceIds} -> instanceIds) (\s@TerminateInstances' {} a -> s {instanceIds = a} :: TerminateInstances) Prelude.. Lens._Coerce
+terminateInstances_instanceIds = Lens.lens (\TerminateInstances' {instanceIds} -> instanceIds) (\s@TerminateInstances' {} a -> s {instanceIds = a} :: TerminateInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TerminateInstances where
   type
@@ -229,7 +229,7 @@ newTerminateInstancesResponse pHttpStatus_ =
 
 -- | Information about the terminated instances.
 terminateInstancesResponse_terminatingInstances :: Lens.Lens' TerminateInstancesResponse (Prelude.Maybe [InstanceStateChange])
-terminateInstancesResponse_terminatingInstances = Lens.lens (\TerminateInstancesResponse' {terminatingInstances} -> terminatingInstances) (\s@TerminateInstancesResponse' {} a -> s {terminatingInstances = a} :: TerminateInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+terminateInstancesResponse_terminatingInstances = Lens.lens (\TerminateInstancesResponse' {terminatingInstances} -> terminatingInstances) (\s@TerminateInstancesResponse' {} a -> s {terminatingInstances = a} :: TerminateInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 terminateInstancesResponse_httpStatus :: Lens.Lens' TerminateInstancesResponse Prelude.Int

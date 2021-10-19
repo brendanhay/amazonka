@@ -34,8 +34,8 @@ module Network.AWS.EC2.CancelConversionTask
     newCancelConversionTask,
 
     -- * Request Lenses
-    cancelConversionTask_dryRun,
     cancelConversionTask_reasonMessage,
+    cancelConversionTask_dryRun,
     cancelConversionTask_conversionTaskId,
 
     -- * Destructuring the Response
@@ -53,13 +53,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The reason for canceling the conversion task.
+    reasonMessage :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The reason for canceling the conversion task.
-    reasonMessage :: Prelude.Maybe Prelude.Text,
     -- | The ID of the conversion task.
     conversionTaskId :: Prelude.Text
   }
@@ -73,12 +73,12 @@ data CancelConversionTask = CancelConversionTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reasonMessage', 'cancelConversionTask_reasonMessage' - The reason for canceling the conversion task.
+--
 -- 'dryRun', 'cancelConversionTask_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'reasonMessage', 'cancelConversionTask_reasonMessage' - The reason for canceling the conversion task.
 --
 -- 'conversionTaskId', 'cancelConversionTask_conversionTaskId' - The ID of the conversion task.
 newCancelConversionTask ::
@@ -87,10 +87,15 @@ newCancelConversionTask ::
   CancelConversionTask
 newCancelConversionTask pConversionTaskId_ =
   CancelConversionTask'
-    { dryRun = Prelude.Nothing,
-      reasonMessage = Prelude.Nothing,
+    { reasonMessage =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       conversionTaskId = pConversionTaskId_
     }
+
+-- | The reason for canceling the conversion task.
+cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Text)
+cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMessage} -> reasonMessage) (\s@CancelConversionTask' {} a -> s {reasonMessage = a} :: CancelConversionTask)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,10 +103,6 @@ newCancelConversionTask pConversionTaskId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 cancelConversionTask_dryRun :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Bool)
 cancelConversionTask_dryRun = Lens.lens (\CancelConversionTask' {dryRun} -> dryRun) (\s@CancelConversionTask' {} a -> s {dryRun = a} :: CancelConversionTask)
-
--- | The reason for canceling the conversion task.
-cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Text)
-cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMessage} -> reasonMessage) (\s@CancelConversionTask' {} a -> s {reasonMessage = a} :: CancelConversionTask)
 
 -- | The ID of the conversion task.
 cancelConversionTask_conversionTaskId :: Lens.Lens' CancelConversionTask Prelude.Text
@@ -132,8 +133,8 @@ instance Core.ToQuery CancelConversionTask where
           Core.=: ("CancelConversionTask" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "ReasonMessage" Core.=: reasonMessage,
+        "DryRun" Core.=: dryRun,
         "ConversionTaskId" Core.=: conversionTaskId
       ]
 

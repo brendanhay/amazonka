@@ -227,7 +227,7 @@ listRemoteAccessSessionsResponse_nextToken = Lens.lens (\ListRemoteAccessSession
 -- | A container that represents the metadata from the service about each
 -- remote access session you are requesting.
 listRemoteAccessSessionsResponse_remoteAccessSessions :: Lens.Lens' ListRemoteAccessSessionsResponse (Prelude.Maybe [RemoteAccessSession])
-listRemoteAccessSessionsResponse_remoteAccessSessions = Lens.lens (\ListRemoteAccessSessionsResponse' {remoteAccessSessions} -> remoteAccessSessions) (\s@ListRemoteAccessSessionsResponse' {} a -> s {remoteAccessSessions = a} :: ListRemoteAccessSessionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listRemoteAccessSessionsResponse_remoteAccessSessions = Lens.lens (\ListRemoteAccessSessionsResponse' {remoteAccessSessions} -> remoteAccessSessions) (\s@ListRemoteAccessSessionsResponse' {} a -> s {remoteAccessSessions = a} :: ListRemoteAccessSessionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listRemoteAccessSessionsResponse_httpStatus :: Lens.Lens' ListRemoteAccessSessionsResponse Prelude.Int

@@ -118,7 +118,7 @@ newPlatformFilter =
 -- -   @SupportedAddon@: @Log\/S3@ | @Monitoring\/Healthd@ |
 --     @WorkerDaemon\/SQSD@
 platformFilter_values :: Lens.Lens' PlatformFilter (Prelude.Maybe [Prelude.Text])
-platformFilter_values = Lens.lens (\PlatformFilter' {values} -> values) (\s@PlatformFilter' {} a -> s {values = a} :: PlatformFilter) Prelude.. Lens.mapping Lens._Coerce
+platformFilter_values = Lens.lens (\PlatformFilter' {values} -> values) (\s@PlatformFilter' {} a -> s {values = a} :: PlatformFilter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The operator to apply to the @Type@ with each of the @Values@.
 --

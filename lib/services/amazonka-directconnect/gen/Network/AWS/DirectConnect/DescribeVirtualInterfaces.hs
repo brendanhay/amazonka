@@ -174,7 +174,7 @@ newDescribeVirtualInterfacesResponse pHttpStatus_ =
 
 -- | The virtual interfaces
 describeVirtualInterfacesResponse_virtualInterfaces :: Lens.Lens' DescribeVirtualInterfacesResponse (Prelude.Maybe [VirtualInterface])
-describeVirtualInterfacesResponse_virtualInterfaces = Lens.lens (\DescribeVirtualInterfacesResponse' {virtualInterfaces} -> virtualInterfaces) (\s@DescribeVirtualInterfacesResponse' {} a -> s {virtualInterfaces = a} :: DescribeVirtualInterfacesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVirtualInterfacesResponse_virtualInterfaces = Lens.lens (\DescribeVirtualInterfacesResponse' {virtualInterfaces} -> virtualInterfaces) (\s@DescribeVirtualInterfacesResponse' {} a -> s {virtualInterfaces = a} :: DescribeVirtualInterfacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVirtualInterfacesResponse_httpStatus :: Lens.Lens' DescribeVirtualInterfacesResponse Prelude.Int

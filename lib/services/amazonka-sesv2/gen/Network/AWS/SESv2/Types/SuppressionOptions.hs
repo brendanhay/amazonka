@@ -83,7 +83,7 @@ newSuppressionOptions =
 --     for your account when a message sent to that address results in a
 --     hard bounce.
 suppressionOptions_suppressedReasons :: Lens.Lens' SuppressionOptions (Prelude.Maybe [SuppressionListReason])
-suppressionOptions_suppressedReasons = Lens.lens (\SuppressionOptions' {suppressedReasons} -> suppressedReasons) (\s@SuppressionOptions' {} a -> s {suppressedReasons = a} :: SuppressionOptions) Prelude.. Lens.mapping Lens._Coerce
+suppressionOptions_suppressedReasons = Lens.lens (\SuppressionOptions' {suppressedReasons} -> suppressedReasons) (\s@SuppressionOptions' {} a -> s {suppressedReasons = a} :: SuppressionOptions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SuppressionOptions where
   parseJSON =

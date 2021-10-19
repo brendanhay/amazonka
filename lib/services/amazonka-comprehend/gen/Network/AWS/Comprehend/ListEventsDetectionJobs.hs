@@ -28,8 +28,8 @@ module Network.AWS.Comprehend.ListEventsDetectionJobs
 
     -- * Request Lenses
     listEventsDetectionJobs_nextToken,
-    listEventsDetectionJobs_maxResults,
     listEventsDetectionJobs_filter,
+    listEventsDetectionJobs_maxResults,
 
     -- * Destructuring the Response
     ListEventsDetectionJobsResponse (..),
@@ -53,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data ListEventsDetectionJobs = ListEventsDetectionJobs'
   { -- | Identifies the next page of results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in each page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
-    filter' :: Prelude.Maybe EventsDetectionJobFilter
+    filter' :: Prelude.Maybe EventsDetectionJobFilter,
+    -- | The maximum number of results to return in each page.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,34 +72,34 @@ data ListEventsDetectionJobs = ListEventsDetectionJobs'
 --
 -- 'nextToken', 'listEventsDetectionJobs_nextToken' - Identifies the next page of results to return.
 --
--- 'maxResults', 'listEventsDetectionJobs_maxResults' - The maximum number of results to return in each page.
---
 -- 'filter'', 'listEventsDetectionJobs_filter' - Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
+--
+-- 'maxResults', 'listEventsDetectionJobs_maxResults' - The maximum number of results to return in each page.
 newListEventsDetectionJobs ::
   ListEventsDetectionJobs
 newListEventsDetectionJobs =
   ListEventsDetectionJobs'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | Identifies the next page of results to return.
 listEventsDetectionJobs_nextToken :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe Prelude.Text)
 listEventsDetectionJobs_nextToken = Lens.lens (\ListEventsDetectionJobs' {nextToken} -> nextToken) (\s@ListEventsDetectionJobs' {} a -> s {nextToken = a} :: ListEventsDetectionJobs)
 
--- | The maximum number of results to return in each page.
-listEventsDetectionJobs_maxResults :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe Prelude.Natural)
-listEventsDetectionJobs_maxResults = Lens.lens (\ListEventsDetectionJobs' {maxResults} -> maxResults) (\s@ListEventsDetectionJobs' {} a -> s {maxResults = a} :: ListEventsDetectionJobs)
-
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
 listEventsDetectionJobs_filter :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe EventsDetectionJobFilter)
 listEventsDetectionJobs_filter = Lens.lens (\ListEventsDetectionJobs' {filter'} -> filter') (\s@ListEventsDetectionJobs' {} a -> s {filter' = a} :: ListEventsDetectionJobs)
+
+-- | The maximum number of results to return in each page.
+listEventsDetectionJobs_maxResults :: Lens.Lens' ListEventsDetectionJobs (Prelude.Maybe Prelude.Natural)
+listEventsDetectionJobs_maxResults = Lens.lens (\ListEventsDetectionJobs' {maxResults} -> maxResults) (\s@ListEventsDetectionJobs' {} a -> s {maxResults = a} :: ListEventsDetectionJobs)
 
 instance Core.AWSRequest ListEventsDetectionJobs where
   type
@@ -141,8 +141,8 @@ instance Core.ToJSON ListEventsDetectionJobs where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filter" Core..=) Prelude.<$> filter'
+            ("Filter" Core..=) Prelude.<$> filter',
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -190,7 +190,7 @@ newListEventsDetectionJobsResponse pHttpStatus_ =
 
 -- | A list containing the properties of each job that is returned.
 listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe [EventsDetectionJobProperties])
-listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList = Lens.lens (\ListEventsDetectionJobsResponse' {eventsDetectionJobPropertiesList} -> eventsDetectionJobPropertiesList) (\s@ListEventsDetectionJobsResponse' {} a -> s {eventsDetectionJobPropertiesList = a} :: ListEventsDetectionJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+listEventsDetectionJobsResponse_eventsDetectionJobPropertiesList = Lens.lens (\ListEventsDetectionJobsResponse' {eventsDetectionJobPropertiesList} -> eventsDetectionJobPropertiesList) (\s@ListEventsDetectionJobsResponse' {} a -> s {eventsDetectionJobPropertiesList = a} :: ListEventsDetectionJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies the next page of results to return.
 listEventsDetectionJobsResponse_nextToken :: Lens.Lens' ListEventsDetectionJobsResponse (Prelude.Maybe Prelude.Text)

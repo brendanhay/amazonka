@@ -58,8 +58,8 @@ module Network.AWS.SWF.SignalWorkflowExecution
     newSignalWorkflowExecution,
 
     -- * Request Lenses
-    signalWorkflowExecution_runId,
     signalWorkflowExecution_input,
+    signalWorkflowExecution_runId,
     signalWorkflowExecution_domain,
     signalWorkflowExecution_workflowId,
     signalWorkflowExecution_signalName,
@@ -79,11 +79,11 @@ import Network.AWS.SWF.Types
 
 -- | /See:/ 'newSignalWorkflowExecution' smart constructor.
 data SignalWorkflowExecution = SignalWorkflowExecution'
-  { -- | The runId of the workflow execution to signal.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
+  { -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
     -- workflow execution\'s history.
     input :: Prelude.Maybe Prelude.Text,
+    -- | The runId of the workflow execution to signal.
+    runId :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain containing the workflow execution to signal.
     domain :: Prelude.Text,
     -- | The workflowId of the workflow execution to signal.
@@ -102,10 +102,10 @@ data SignalWorkflowExecution = SignalWorkflowExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'signalWorkflowExecution_runId' - The runId of the workflow execution to signal.
---
 -- 'input', 'signalWorkflowExecution_input' - Data to attach to the @WorkflowExecutionSignaled@ event in the target
 -- workflow execution\'s history.
+--
+-- 'runId', 'signalWorkflowExecution_runId' - The runId of the workflow execution to signal.
 --
 -- 'domain', 'signalWorkflowExecution_domain' - The name of the domain containing the workflow execution to signal.
 --
@@ -126,21 +126,21 @@ newSignalWorkflowExecution
   pWorkflowId_
   pSignalName_ =
     SignalWorkflowExecution'
-      { runId = Prelude.Nothing,
-        input = Prelude.Nothing,
+      { input = Prelude.Nothing,
+        runId = Prelude.Nothing,
         domain = pDomain_,
         workflowId = pWorkflowId_,
         signalName = pSignalName_
       }
 
--- | The runId of the workflow execution to signal.
-signalWorkflowExecution_runId :: Lens.Lens' SignalWorkflowExecution (Prelude.Maybe Prelude.Text)
-signalWorkflowExecution_runId = Lens.lens (\SignalWorkflowExecution' {runId} -> runId) (\s@SignalWorkflowExecution' {} a -> s {runId = a} :: SignalWorkflowExecution)
-
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
 -- workflow execution\'s history.
 signalWorkflowExecution_input :: Lens.Lens' SignalWorkflowExecution (Prelude.Maybe Prelude.Text)
 signalWorkflowExecution_input = Lens.lens (\SignalWorkflowExecution' {input} -> input) (\s@SignalWorkflowExecution' {} a -> s {input = a} :: SignalWorkflowExecution)
+
+-- | The runId of the workflow execution to signal.
+signalWorkflowExecution_runId :: Lens.Lens' SignalWorkflowExecution (Prelude.Maybe Prelude.Text)
+signalWorkflowExecution_runId = Lens.lens (\SignalWorkflowExecution' {runId} -> runId) (\s@SignalWorkflowExecution' {} a -> s {runId = a} :: SignalWorkflowExecution)
 
 -- | The name of the domain containing the workflow execution to signal.
 signalWorkflowExecution_domain :: Lens.Lens' SignalWorkflowExecution Prelude.Text
@@ -187,8 +187,8 @@ instance Core.ToJSON SignalWorkflowExecution where
   toJSON SignalWorkflowExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("runId" Core..=) Prelude.<$> runId,
-            ("input" Core..=) Prelude.<$> input,
+          [ ("input" Core..=) Prelude.<$> input,
+            ("runId" Core..=) Prelude.<$> runId,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just ("workflowId" Core..= workflowId),
             Prelude.Just ("signalName" Core..= signalName)

@@ -60,11 +60,11 @@ newModelPackageStatusDetails =
 -- | The status of the scan of the Docker image container for the model
 -- package.
 modelPackageStatusDetails_imageScanStatuses :: Lens.Lens' ModelPackageStatusDetails (Prelude.Maybe [ModelPackageStatusItem])
-modelPackageStatusDetails_imageScanStatuses = Lens.lens (\ModelPackageStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@ModelPackageStatusDetails' {} a -> s {imageScanStatuses = a} :: ModelPackageStatusDetails) Prelude.. Lens.mapping Lens._Coerce
+modelPackageStatusDetails_imageScanStatuses = Lens.lens (\ModelPackageStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@ModelPackageStatusDetails' {} a -> s {imageScanStatuses = a} :: ModelPackageStatusDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | The validation status of the model package.
 modelPackageStatusDetails_validationStatuses :: Lens.Lens' ModelPackageStatusDetails [ModelPackageStatusItem]
-modelPackageStatusDetails_validationStatuses = Lens.lens (\ModelPackageStatusDetails' {validationStatuses} -> validationStatuses) (\s@ModelPackageStatusDetails' {} a -> s {validationStatuses = a} :: ModelPackageStatusDetails) Prelude.. Lens._Coerce
+modelPackageStatusDetails_validationStatuses = Lens.lens (\ModelPackageStatusDetails' {validationStatuses} -> validationStatuses) (\s@ModelPackageStatusDetails' {} a -> s {validationStatuses = a} :: ModelPackageStatusDetails) Prelude.. Lens.coerced
 
 instance Core.FromJSON ModelPackageStatusDetails where
   parseJSON =

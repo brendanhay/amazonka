@@ -67,9 +67,9 @@ module Network.AWS.Rekognition.RecognizeCelebrities
     newRecognizeCelebritiesResponse,
 
     -- * Response Lenses
-    recognizeCelebritiesResponse_unrecognizedFaces,
     recognizeCelebritiesResponse_celebrityFaces,
     recognizeCelebritiesResponse_orientationCorrection,
+    recognizeCelebritiesResponse_unrecognizedFaces,
     recognizeCelebritiesResponse_httpStatus,
   )
 where
@@ -135,11 +135,11 @@ instance Core.AWSRequest RecognizeCelebrities where
     Response.receiveJSON
       ( \s h x ->
           RecognizeCelebritiesResponse'
-            Prelude.<$> ( x Core..?> "UnrecognizedFaces"
+            Prelude.<$> (x Core..?> "CelebrityFaces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "OrientationCorrection")
+            Prelude.<*> ( x Core..?> "UnrecognizedFaces"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "CelebrityFaces" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,9 +177,7 @@ instance Core.ToQuery RecognizeCelebrities where
 
 -- | /See:/ 'newRecognizeCelebritiesResponse' smart constructor.
 data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
-  { -- | Details about each unrecognized face in the image.
-    unrecognizedFaces :: Prelude.Maybe [ComparedFace],
-    -- | Details about each celebrity found in the image. Amazon Rekognition can
+  { -- | Details about each celebrity found in the image. Amazon Rekognition can
     -- detect a maximum of 64 celebrities in an image. Each celebrity object
     -- includes the following attributes: @Face@, @Confidence@, @Emotions@,
     -- @Landmarks@, @Pose@, @Quality@, @Smile@, @Id@, @KnownGender@,
@@ -203,6 +201,8 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
     -- after Exif metadata is used to correct the image orientation. Images in
     -- .png format don\'t contain Exif metadata.
     orientationCorrection :: Prelude.Maybe OrientationCorrection,
+    -- | Details about each unrecognized face in the image.
+    unrecognizedFaces :: Prelude.Maybe [ComparedFace],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,8 +215,6 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'unrecognizedFaces', 'recognizeCelebritiesResponse_unrecognizedFaces' - Details about each unrecognized face in the image.
 --
 -- 'celebrityFaces', 'recognizeCelebritiesResponse_celebrityFaces' - Details about each celebrity found in the image. Amazon Rekognition can
 -- detect a maximum of 64 celebrities in an image. Each celebrity object
@@ -242,6 +240,8 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
 -- after Exif metadata is used to correct the image orientation. Images in
 -- .png format don\'t contain Exif metadata.
 --
+-- 'unrecognizedFaces', 'recognizeCelebritiesResponse_unrecognizedFaces' - Details about each unrecognized face in the image.
+--
 -- 'httpStatus', 'recognizeCelebritiesResponse_httpStatus' - The response's http status code.
 newRecognizeCelebritiesResponse ::
   -- | 'httpStatus'
@@ -249,16 +249,12 @@ newRecognizeCelebritiesResponse ::
   RecognizeCelebritiesResponse
 newRecognizeCelebritiesResponse pHttpStatus_ =
   RecognizeCelebritiesResponse'
-    { unrecognizedFaces =
+    { celebrityFaces =
         Prelude.Nothing,
-      celebrityFaces = Prelude.Nothing,
       orientationCorrection = Prelude.Nothing,
+      unrecognizedFaces = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Details about each unrecognized face in the image.
-recognizeCelebritiesResponse_unrecognizedFaces :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe [ComparedFace])
-recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritiesResponse' {unrecognizedFaces} -> unrecognizedFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {unrecognizedFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Details about each celebrity found in the image. Amazon Rekognition can
 -- detect a maximum of 64 celebrities in an image. Each celebrity object
@@ -266,7 +262,7 @@ recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritie
 -- @Landmarks@, @Pose@, @Quality@, @Smile@, @Id@, @KnownGender@,
 -- @MatchConfidence@, @Name@, @Urls@.
 recognizeCelebritiesResponse_celebrityFaces :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe [Celebrity])
-recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesResponse' {celebrityFaces} -> celebrityFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {celebrityFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Lens._Coerce
+recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesResponse' {celebrityFaces} -> celebrityFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {celebrityFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Support for estimating image orientation using the the
 -- OrientationCorrection field has ceased as of August 2021. Any returned
@@ -287,6 +283,10 @@ recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesRe
 -- .png format don\'t contain Exif metadata.
 recognizeCelebritiesResponse_orientationCorrection :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe OrientationCorrection)
 recognizeCelebritiesResponse_orientationCorrection = Lens.lens (\RecognizeCelebritiesResponse' {orientationCorrection} -> orientationCorrection) (\s@RecognizeCelebritiesResponse' {} a -> s {orientationCorrection = a} :: RecognizeCelebritiesResponse)
+
+-- | Details about each unrecognized face in the image.
+recognizeCelebritiesResponse_unrecognizedFaces :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe [ComparedFace])
+recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritiesResponse' {unrecognizedFaces} -> unrecognizedFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {unrecognizedFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 recognizeCelebritiesResponse_httpStatus :: Lens.Lens' RecognizeCelebritiesResponse Prelude.Int

@@ -159,7 +159,7 @@ newUpdateByteMatchSet
       { byteMatchSetId =
           pByteMatchSetId_,
         changeToken = pChangeToken_,
-        updates = Lens._Coerce Lens.# pUpdates_
+        updates = Lens.coerced Lens.# pUpdates_
       }
 
 -- | The @ByteMatchSetId@ of the ByteMatchSet that you want to update.
@@ -183,7 +183,7 @@ updateByteMatchSet_changeToken = Lens.lens (\UpdateByteMatchSet' {changeToken} -
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
 updateByteMatchSet_updates :: Lens.Lens' UpdateByteMatchSet (Prelude.NonEmpty ByteMatchSetUpdate)
-updateByteMatchSet_updates = Lens.lens (\UpdateByteMatchSet' {updates} -> updates) (\s@UpdateByteMatchSet' {} a -> s {updates = a} :: UpdateByteMatchSet) Prelude.. Lens._Coerce
+updateByteMatchSet_updates = Lens.lens (\UpdateByteMatchSet' {updates} -> updates) (\s@UpdateByteMatchSet' {} a -> s {updates = a} :: UpdateByteMatchSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateByteMatchSet where
   type

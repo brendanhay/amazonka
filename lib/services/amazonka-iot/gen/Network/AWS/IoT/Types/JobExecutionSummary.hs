@@ -28,19 +28,19 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobExecutionSummary' smart constructor.
 data JobExecutionSummary = JobExecutionSummary'
-  { -- | The time, in seconds since the epoch, when the job execution started.
-    startedAt :: Prelude.Maybe Core.POSIX,
-    -- | The status of the job execution.
+  { -- | The status of the job execution.
     status :: Prelude.Maybe JobExecutionStatus,
+    -- | The time, in seconds since the epoch, when the job execution was last
+    -- updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The time, in seconds since the epoch, when the job execution was queued.
     queuedAt :: Prelude.Maybe Core.POSIX,
     -- | A string (consisting of the digits \"0\" through \"9\") which identifies
     -- this particular job execution on this particular device. It can be used
     -- later in commands which return or update job execution information.
     executionNumber :: Prelude.Maybe Prelude.Integer,
-    -- | The time, in seconds since the epoch, when the job execution was last
-    -- updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX
+    -- | The time, in seconds since the epoch, when the job execution started.
+    startedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,10 @@ data JobExecutionSummary = JobExecutionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.
---
 -- 'status', 'jobExecutionSummary_status' - The status of the job execution.
+--
+-- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last
+-- updated.
 --
 -- 'queuedAt', 'jobExecutionSummary_queuedAt' - The time, in seconds since the epoch, when the job execution was queued.
 --
@@ -62,26 +63,26 @@ data JobExecutionSummary = JobExecutionSummary'
 -- this particular job execution on this particular device. It can be used
 -- later in commands which return or update job execution information.
 --
--- 'lastUpdatedAt', 'jobExecutionSummary_lastUpdatedAt' - The time, in seconds since the epoch, when the job execution was last
--- updated.
+-- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.
 newJobExecutionSummary ::
   JobExecutionSummary
 newJobExecutionSummary =
   JobExecutionSummary'
-    { startedAt = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       queuedAt = Prelude.Nothing,
       executionNumber = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+      startedAt = Prelude.Nothing
     }
-
--- | The time, in seconds since the epoch, when the job execution started.
-jobExecutionSummary_startedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> startedAt) (\s@JobExecutionSummary' {} a -> s {startedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the job execution.
 jobExecutionSummary_status :: Lens.Lens' JobExecutionSummary (Prelude.Maybe JobExecutionStatus)
 jobExecutionSummary_status = Lens.lens (\JobExecutionSummary' {status} -> status) (\s@JobExecutionSummary' {} a -> s {status = a} :: JobExecutionSummary)
+
+-- | The time, in seconds since the epoch, when the job execution was last
+-- updated.
+jobExecutionSummary_lastUpdatedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+jobExecutionSummary_lastUpdatedAt = Lens.lens (\JobExecutionSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecutionSummary' {} a -> s {lastUpdatedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The time, in seconds since the epoch, when the job execution was queued.
 jobExecutionSummary_queuedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
@@ -93,10 +94,9 @@ jobExecutionSummary_queuedAt = Lens.lens (\JobExecutionSummary' {queuedAt} -> qu
 jobExecutionSummary_executionNumber :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Integer)
 jobExecutionSummary_executionNumber = Lens.lens (\JobExecutionSummary' {executionNumber} -> executionNumber) (\s@JobExecutionSummary' {} a -> s {executionNumber = a} :: JobExecutionSummary)
 
--- | The time, in seconds since the epoch, when the job execution was last
--- updated.
-jobExecutionSummary_lastUpdatedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
-jobExecutionSummary_lastUpdatedAt = Lens.lens (\JobExecutionSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@JobExecutionSummary' {} a -> s {lastUpdatedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Core._Time
+-- | The time, in seconds since the epoch, when the job execution started.
+jobExecutionSummary_startedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
+jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> startedAt) (\s@JobExecutionSummary' {} a -> s {startedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON JobExecutionSummary where
   parseJSON =
@@ -104,11 +104,11 @@ instance Core.FromJSON JobExecutionSummary where
       "JobExecutionSummary"
       ( \x ->
           JobExecutionSummary'
-            Prelude.<$> (x Core..:? "startedAt")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "queuedAt")
             Prelude.<*> (x Core..:? "executionNumber")
-            Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> (x Core..:? "startedAt")
       )
 
 instance Prelude.Hashable JobExecutionSummary

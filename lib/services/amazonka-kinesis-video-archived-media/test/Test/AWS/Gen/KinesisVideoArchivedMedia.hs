@@ -27,67 +27,43 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListFragments $
---             newListFragments
---
---         , requestGetMediaForFragmentList $
---             newGetMediaForFragmentList
+--         [ requestGetHLSStreamingSessionURL $
+--             newGetHLSStreamingSessionURL
 --
 --         , requestGetClip $
 --             newGetClip
 --
+--         , requestGetMediaForFragmentList $
+--             newGetMediaForFragmentList
+--
+--         , requestListFragments $
+--             newListFragments
+--
 --         , requestGetDASHStreamingSessionURL $
 --             newGetDASHStreamingSessionURL
---
---         , requestGetHLSStreamingSessionURL $
---             newGetHLSStreamingSessionURL
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListFragments $
---             newListFragmentsResponse
---
---         , responseGetMediaForFragmentList $
---             newGetMediaForFragmentListResponse
+--         [ responseGetHLSStreamingSessionURL $
+--             newGetHLSStreamingSessionURLResponse
 --
 --         , responseGetClip $
 --             newGetClipResponse
 --
+--         , responseGetMediaForFragmentList $
+--             newGetMediaForFragmentListResponse
+--
+--         , responseListFragments $
+--             newListFragmentsResponse
+--
 --         , responseGetDASHStreamingSessionURL $
 --             newGetDASHStreamingSessionURLResponse
---
---         , responseGetHLSStreamingSessionURL $
---             newGetHLSStreamingSessionURLResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListFragments :: ListFragments -> TestTree
-requestListFragments =
-  req
-    "ListFragments"
-    "fixture/ListFragments.yaml"
-
-requestGetMediaForFragmentList :: GetMediaForFragmentList -> TestTree
-requestGetMediaForFragmentList =
-  req
-    "GetMediaForFragmentList"
-    "fixture/GetMediaForFragmentList.yaml"
-
-requestGetClip :: GetClip -> TestTree
-requestGetClip =
-  req
-    "GetClip"
-    "fixture/GetClip.yaml"
-
-requestGetDASHStreamingSessionURL :: GetDASHStreamingSessionURL -> TestTree
-requestGetDASHStreamingSessionURL =
-  req
-    "GetDASHStreamingSessionURL"
-    "fixture/GetDASHStreamingSessionURL.yaml"
 
 requestGetHLSStreamingSessionURL :: GetHLSStreamingSessionURL -> TestTree
 requestGetHLSStreamingSessionURL =
@@ -95,7 +71,39 @@ requestGetHLSStreamingSessionURL =
     "GetHLSStreamingSessionURL"
     "fixture/GetHLSStreamingSessionURL.yaml"
 
+requestGetClip :: GetClip -> TestTree
+requestGetClip =
+  req
+    "GetClip"
+    "fixture/GetClip.yaml"
+
+requestGetMediaForFragmentList :: GetMediaForFragmentList -> TestTree
+requestGetMediaForFragmentList =
+  req
+    "GetMediaForFragmentList"
+    "fixture/GetMediaForFragmentList.yaml"
+
+requestListFragments :: ListFragments -> TestTree
+requestListFragments =
+  req
+    "ListFragments"
+    "fixture/ListFragments.yaml"
+
+requestGetDASHStreamingSessionURL :: GetDASHStreamingSessionURL -> TestTree
+requestGetDASHStreamingSessionURL =
+  req
+    "GetDASHStreamingSessionURL"
+    "fixture/GetDASHStreamingSessionURL.yaml"
+
 -- Responses
+
+responseGetHLSStreamingSessionURL :: GetHLSStreamingSessionURLResponse -> TestTree
+responseGetHLSStreamingSessionURL =
+  res
+    "GetHLSStreamingSessionURLResponse"
+    "fixture/GetHLSStreamingSessionURLResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetHLSStreamingSessionURL)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
 responseListFragments =
@@ -112,11 +120,3 @@ responseGetDASHStreamingSessionURL =
     "fixture/GetDASHStreamingSessionURLResponse.proto"
     defaultService
     (Proxy :: Proxy GetDASHStreamingSessionURL)
-
-responseGetHLSStreamingSessionURL :: GetHLSStreamingSessionURLResponse -> TestTree
-responseGetHLSStreamingSessionURL =
-  res
-    "GetHLSStreamingSessionURLResponse"
-    "fixture/GetHLSStreamingSessionURLResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetHLSStreamingSessionURL)

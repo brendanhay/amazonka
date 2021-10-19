@@ -47,9 +47,9 @@ module Network.AWS.S3.GetObjectTagging
     newGetObjectTagging,
 
     -- * Request Lenses
-    getObjectTagging_expectedBucketOwner,
     getObjectTagging_versionId,
     getObjectTagging_requestPayer,
+    getObjectTagging_expectedBucketOwner,
     getObjectTagging_bucket,
     getObjectTagging_key,
 
@@ -73,13 +73,13 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetObjectTagging' smart constructor.
 data GetObjectTagging = GetObjectTagging'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
+  { -- | The versionId of the object for which to get the tagging information.
+    versionId :: Prelude.Maybe ObjectVersionId,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The versionId of the object for which to get the tagging information.
-    versionId :: Prelude.Maybe ObjectVersionId,
-    requestPayer :: Prelude.Maybe RequestPayer,
     -- | The bucket name containing the object for which to get the tagging
     -- information.
     --
@@ -115,13 +115,13 @@ data GetObjectTagging = GetObjectTagging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getObjectTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'versionId', 'getObjectTagging_versionId' - The versionId of the object for which to get the tagging information.
 --
 -- 'requestPayer', 'getObjectTagging_requestPayer' - Undocumented member.
+--
+-- 'expectedBucketOwner', 'getObjectTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'getObjectTagging_bucket' - The bucket name containing the object for which to get the tagging
 -- information.
@@ -154,19 +154,12 @@ newGetObjectTagging ::
   GetObjectTagging
 newGetObjectTagging pBucket_ pKey_ =
   GetObjectTagging'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      versionId = Prelude.Nothing,
+    { versionId = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-getObjectTagging_expectedBucketOwner :: Lens.Lens' GetObjectTagging (Prelude.Maybe Prelude.Text)
-getObjectTagging_expectedBucketOwner = Lens.lens (\GetObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectTagging' {} a -> s {expectedBucketOwner = a} :: GetObjectTagging)
 
 -- | The versionId of the object for which to get the tagging information.
 getObjectTagging_versionId :: Lens.Lens' GetObjectTagging (Prelude.Maybe ObjectVersionId)
@@ -175,6 +168,12 @@ getObjectTagging_versionId = Lens.lens (\GetObjectTagging' {versionId} -> versio
 -- | Undocumented member.
 getObjectTagging_requestPayer :: Lens.Lens' GetObjectTagging (Prelude.Maybe RequestPayer)
 getObjectTagging_requestPayer = Lens.lens (\GetObjectTagging' {requestPayer} -> requestPayer) (\s@GetObjectTagging' {} a -> s {requestPayer = a} :: GetObjectTagging)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+getObjectTagging_expectedBucketOwner :: Lens.Lens' GetObjectTagging (Prelude.Maybe Prelude.Text)
+getObjectTagging_expectedBucketOwner = Lens.lens (\GetObjectTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectTagging' {} a -> s {expectedBucketOwner = a} :: GetObjectTagging)
 
 -- | The bucket name containing the object for which to get the tagging
 -- information.
@@ -208,7 +207,9 @@ instance Core.AWSRequest GetObjectTagging where
   type
     AWSResponse GetObjectTagging =
       GetObjectTaggingResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
@@ -227,9 +228,9 @@ instance Prelude.NFData GetObjectTagging
 instance Core.ToHeaders GetObjectTagging where
   toHeaders GetObjectTagging' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+      [ "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath GetObjectTagging where
@@ -288,6 +289,6 @@ getObjectTaggingResponse_httpStatus = Lens.lens (\GetObjectTaggingResponse' {htt
 
 -- | Contains the tag set.
 getObjectTaggingResponse_tagSet :: Lens.Lens' GetObjectTaggingResponse [Tag]
-getObjectTaggingResponse_tagSet = Lens.lens (\GetObjectTaggingResponse' {tagSet} -> tagSet) (\s@GetObjectTaggingResponse' {} a -> s {tagSet = a} :: GetObjectTaggingResponse) Prelude.. Lens._Coerce
+getObjectTaggingResponse_tagSet = Lens.lens (\GetObjectTaggingResponse' {tagSet} -> tagSet) (\s@GetObjectTaggingResponse' {} a -> s {tagSet = a} :: GetObjectTaggingResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetObjectTaggingResponse

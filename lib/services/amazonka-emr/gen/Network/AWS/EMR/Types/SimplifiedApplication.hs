@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSimplifiedApplication' smart constructor.
 data SimplifiedApplication = SimplifiedApplication'
-  { -- | The returned release label application version. For example, @3.2.1@.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The returned release label application name. For example, @hadoop@.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The returned release label application name. For example, @hadoop@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The returned release label application version. For example, @3.2.1@.
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data SimplifiedApplication = SimplifiedApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'simplifiedApplication_version' - The returned release label application version. For example, @3.2.1@.
---
 -- 'name', 'simplifiedApplication_name' - The returned release label application name. For example, @hadoop@.
+--
+-- 'version', 'simplifiedApplication_version' - The returned release label application version. For example, @3.2.1@.
 newSimplifiedApplication ::
   SimplifiedApplication
 newSimplifiedApplication =
   SimplifiedApplication'
-    { version = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      version = Prelude.Nothing
     }
-
--- | The returned release label application version. For example, @3.2.1@.
-simplifiedApplication_version :: Lens.Lens' SimplifiedApplication (Prelude.Maybe Prelude.Text)
-simplifiedApplication_version = Lens.lens (\SimplifiedApplication' {version} -> version) (\s@SimplifiedApplication' {} a -> s {version = a} :: SimplifiedApplication)
 
 -- | The returned release label application name. For example, @hadoop@.
 simplifiedApplication_name :: Lens.Lens' SimplifiedApplication (Prelude.Maybe Prelude.Text)
 simplifiedApplication_name = Lens.lens (\SimplifiedApplication' {name} -> name) (\s@SimplifiedApplication' {} a -> s {name = a} :: SimplifiedApplication)
+
+-- | The returned release label application version. For example, @3.2.1@.
+simplifiedApplication_version :: Lens.Lens' SimplifiedApplication (Prelude.Maybe Prelude.Text)
+simplifiedApplication_version = Lens.lens (\SimplifiedApplication' {version} -> version) (\s@SimplifiedApplication' {} a -> s {version = a} :: SimplifiedApplication)
 
 instance Core.FromJSON SimplifiedApplication where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON SimplifiedApplication where
       "SimplifiedApplication"
       ( \x ->
           SimplifiedApplication'
-            Prelude.<$> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance Prelude.Hashable SimplifiedApplication

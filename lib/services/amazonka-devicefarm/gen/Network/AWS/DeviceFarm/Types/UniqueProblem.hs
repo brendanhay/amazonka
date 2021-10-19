@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUniqueProblem' smart constructor.
 data UniqueProblem = UniqueProblem'
-  { -- | A message about the unique problems\' result.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Information about the problems.
-    problems :: Prelude.Maybe [Problem]
+  { -- | Information about the problems.
+    problems :: Prelude.Maybe [Problem],
+    -- | A message about the unique problems\' result.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data UniqueProblem = UniqueProblem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'uniqueProblem_message' - A message about the unique problems\' result.
---
 -- 'problems', 'uniqueProblem_problems' - Information about the problems.
+--
+-- 'message', 'uniqueProblem_message' - A message about the unique problems\' result.
 newUniqueProblem ::
   UniqueProblem
 newUniqueProblem =
   UniqueProblem'
-    { message = Prelude.Nothing,
-      problems = Prelude.Nothing
+    { problems = Prelude.Nothing,
+      message = Prelude.Nothing
     }
+
+-- | Information about the problems.
+uniqueProblem_problems :: Lens.Lens' UniqueProblem (Prelude.Maybe [Problem])
+uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Prelude.. Lens.mapping Lens.coerced
 
 -- | A message about the unique problems\' result.
 uniqueProblem_message :: Lens.Lens' UniqueProblem (Prelude.Maybe Prelude.Text)
 uniqueProblem_message = Lens.lens (\UniqueProblem' {message} -> message) (\s@UniqueProblem' {} a -> s {message = a} :: UniqueProblem)
-
--- | Information about the problems.
-uniqueProblem_problems :: Lens.Lens' UniqueProblem (Prelude.Maybe [Problem])
-uniqueProblem_problems = Lens.lens (\UniqueProblem' {problems} -> problems) (\s@UniqueProblem' {} a -> s {problems = a} :: UniqueProblem) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON UniqueProblem where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON UniqueProblem where
       "UniqueProblem"
       ( \x ->
           UniqueProblem'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "problems" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "problems" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "message")
       )
 
 instance Prelude.Hashable UniqueProblem

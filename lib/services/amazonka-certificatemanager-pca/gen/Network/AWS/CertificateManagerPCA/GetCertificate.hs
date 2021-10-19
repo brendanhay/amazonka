@@ -44,8 +44,8 @@ module Network.AWS.CertificateManagerPCA.GetCertificate
     newGetCertificateResponse,
 
     -- * Response Lenses
-    getCertificateResponse_certificateChain,
     getCertificateResponse_certificate,
+    getCertificateResponse_certificateChain,
     getCertificateResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest GetCertificate where
     Response.receiveJSON
       ( \s h x ->
           GetCertificateResponse'
-            Prelude.<$> (x Core..?> "CertificateChain")
-            Prelude.<*> (x Core..?> "Certificate")
+            Prelude.<$> (x Core..?> "Certificate")
+            Prelude.<*> (x Core..?> "CertificateChain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -175,12 +175,12 @@ instance Core.ToQuery GetCertificate where
 
 -- | /See:/ 'newGetCertificateResponse' smart constructor.
 data GetCertificateResponse = GetCertificateResponse'
-  { -- | The base64 PEM-encoded certificate chain that chains up to the root CA
-    -- certificate that you used to sign your private CA certificate.
-    certificateChain :: Prelude.Maybe Prelude.Text,
-    -- | The base64 PEM-encoded certificate specified by the @CertificateArn@
+  { -- | The base64 PEM-encoded certificate specified by the @CertificateArn@
     -- parameter.
     certificate :: Prelude.Maybe Prelude.Text,
+    -- | The base64 PEM-encoded certificate chain that chains up to the root CA
+    -- certificate that you used to sign your private CA certificate.
+    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -194,11 +194,11 @@ data GetCertificateResponse = GetCertificateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateChain', 'getCertificateResponse_certificateChain' - The base64 PEM-encoded certificate chain that chains up to the root CA
--- certificate that you used to sign your private CA certificate.
---
 -- 'certificate', 'getCertificateResponse_certificate' - The base64 PEM-encoded certificate specified by the @CertificateArn@
 -- parameter.
+--
+-- 'certificateChain', 'getCertificateResponse_certificateChain' - The base64 PEM-encoded certificate chain that chains up to the root CA
+-- certificate that you used to sign your private CA certificate.
 --
 -- 'httpStatus', 'getCertificateResponse_httpStatus' - The response's http status code.
 newGetCertificateResponse ::
@@ -207,21 +207,21 @@ newGetCertificateResponse ::
   GetCertificateResponse
 newGetCertificateResponse pHttpStatus_ =
   GetCertificateResponse'
-    { certificateChain =
+    { certificate =
         Prelude.Nothing,
-      certificate = Prelude.Nothing,
+      certificateChain = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The base64 PEM-encoded certificate chain that chains up to the root CA
--- certificate that you used to sign your private CA certificate.
-getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
-getCertificateResponse_certificateChain = Lens.lens (\GetCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateResponse)
 
 -- | The base64 PEM-encoded certificate specified by the @CertificateArn@
 -- parameter.
 getCertificateResponse_certificate :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
 getCertificateResponse_certificate = Lens.lens (\GetCertificateResponse' {certificate} -> certificate) (\s@GetCertificateResponse' {} a -> s {certificate = a} :: GetCertificateResponse)
+
+-- | The base64 PEM-encoded certificate chain that chains up to the root CA
+-- certificate that you used to sign your private CA certificate.
+getCertificateResponse_certificateChain :: Lens.Lens' GetCertificateResponse (Prelude.Maybe Prelude.Text)
+getCertificateResponse_certificateChain = Lens.lens (\GetCertificateResponse' {certificateChain} -> certificateChain) (\s@GetCertificateResponse' {} a -> s {certificateChain = a} :: GetCertificateResponse)
 
 -- | The response's http status code.
 getCertificateResponse_httpStatus :: Lens.Lens' GetCertificateResponse Prelude.Int

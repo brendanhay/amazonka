@@ -129,7 +129,7 @@ setEndpointAttributes_endpointArn = Lens.lens (\SetEndpointAttributes' {endpoint
 --     service when an app and mobile device are registered with the
 --     notification service.
 setEndpointAttributes_attributes :: Lens.Lens' SetEndpointAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-setEndpointAttributes_attributes = Lens.lens (\SetEndpointAttributes' {attributes} -> attributes) (\s@SetEndpointAttributes' {} a -> s {attributes = a} :: SetEndpointAttributes) Prelude.. Lens._Coerce
+setEndpointAttributes_attributes = Lens.lens (\SetEndpointAttributes' {attributes} -> attributes) (\s@SetEndpointAttributes' {} a -> s {attributes = a} :: SetEndpointAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetEndpointAttributes where
   type

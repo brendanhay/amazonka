@@ -27,13 +27,13 @@ module Network.AWS.SageMaker.CreateProcessingJob
     newCreateProcessingJob,
 
     -- * Request Lenses
+    createProcessingJob_environment,
+    createProcessingJob_stoppingCondition,
+    createProcessingJob_experimentConfig,
+    createProcessingJob_processingInputs,
     createProcessingJob_networkConfig,
     createProcessingJob_processingOutputConfig,
-    createProcessingJob_experimentConfig,
-    createProcessingJob_environment,
     createProcessingJob_tags,
-    createProcessingJob_processingInputs,
-    createProcessingJob_stoppingCondition,
     createProcessingJob_processingJobName,
     createProcessingJob_processingResources,
     createProcessingJob_appSpecification,
@@ -58,26 +58,26 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateProcessingJob' smart constructor.
 data CreateProcessingJob = CreateProcessingJob'
-  { -- | Networking options for a processing job, such as whether to allow
+  { -- | The environment variables to set in the Docker container. Up to 100 key
+    -- and values entries in the map are supported.
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The time limit for how long the processing job is allowed to run.
+    stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
+    -- | An array of inputs configuring the data to download into the processing
+    -- container.
+    processingInputs :: Prelude.Maybe [ProcessingInput],
+    -- | Networking options for a processing job, such as whether to allow
     -- inbound and outbound network calls to and from processing containers,
     -- and the VPC subnets and security groups to use for VPC-enabled
     -- processing jobs.
     networkConfig :: Prelude.Maybe NetworkConfig,
     -- | Output configuration for the processing job.
     processingOutputConfig :: Prelude.Maybe ProcessingOutputConfig,
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
-    -- | The environment variables to set in the Docker container. Up to 100 key
-    -- and values entries in the map are supported.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
     -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | An array of inputs configuring the data to download into the processing
-    -- container.
-    processingInputs :: Prelude.Maybe [ProcessingInput],
-    -- | The time limit for how long the processing job is allowed to run.
-    stoppingCondition :: Prelude.Maybe ProcessingStoppingCondition,
     -- | The name of the processing job. The name must be unique within an Amazon
     -- Web Services Region in the Amazon Web Services account.
     processingJobName :: Prelude.Text,
@@ -101,6 +101,16 @@ data CreateProcessingJob = CreateProcessingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'environment', 'createProcessingJob_environment' - The environment variables to set in the Docker container. Up to 100 key
+-- and values entries in the map are supported.
+--
+-- 'stoppingCondition', 'createProcessingJob_stoppingCondition' - The time limit for how long the processing job is allowed to run.
+--
+-- 'experimentConfig', 'createProcessingJob_experimentConfig' - Undocumented member.
+--
+-- 'processingInputs', 'createProcessingJob_processingInputs' - An array of inputs configuring the data to download into the processing
+-- container.
+--
 -- 'networkConfig', 'createProcessingJob_networkConfig' - Networking options for a processing job, such as whether to allow
 -- inbound and outbound network calls to and from processing containers,
 -- and the VPC subnets and security groups to use for VPC-enabled
@@ -108,19 +118,9 @@ data CreateProcessingJob = CreateProcessingJob'
 --
 -- 'processingOutputConfig', 'createProcessingJob_processingOutputConfig' - Output configuration for the processing job.
 --
--- 'experimentConfig', 'createProcessingJob_experimentConfig' - Undocumented member.
---
--- 'environment', 'createProcessingJob_environment' - The environment variables to set in the Docker container. Up to 100 key
--- and values entries in the map are supported.
---
 -- 'tags', 'createProcessingJob_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
---
--- 'processingInputs', 'createProcessingJob_processingInputs' - An array of inputs configuring the data to download into the processing
--- container.
---
--- 'stoppingCondition', 'createProcessingJob_stoppingCondition' - The time limit for how long the processing job is allowed to run.
 --
 -- 'processingJobName', 'createProcessingJob_processingJobName' - The name of the processing job. The name must be unique within an Amazon
 -- Web Services Region in the Amazon Web Services account.
@@ -149,19 +149,36 @@ newCreateProcessingJob
   pAppSpecification_
   pRoleArn_ =
     CreateProcessingJob'
-      { networkConfig =
-          Prelude.Nothing,
-        processingOutputConfig = Prelude.Nothing,
-        experimentConfig = Prelude.Nothing,
-        environment = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        processingInputs = Prelude.Nothing,
+      { environment = Prelude.Nothing,
         stoppingCondition = Prelude.Nothing,
+        experimentConfig = Prelude.Nothing,
+        processingInputs = Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
+        processingOutputConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         processingJobName = pProcessingJobName_,
         processingResources = pProcessingResources_,
         appSpecification = pAppSpecification_,
         roleArn = pRoleArn_
       }
+
+-- | The environment variables to set in the Docker container. Up to 100 key
+-- and values entries in the map are supported.
+createProcessingJob_environment :: Lens.Lens' CreateProcessingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProcessingJob_environment = Lens.lens (\CreateProcessingJob' {environment} -> environment) (\s@CreateProcessingJob' {} a -> s {environment = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The time limit for how long the processing job is allowed to run.
+createProcessingJob_stoppingCondition :: Lens.Lens' CreateProcessingJob (Prelude.Maybe ProcessingStoppingCondition)
+createProcessingJob_stoppingCondition = Lens.lens (\CreateProcessingJob' {stoppingCondition} -> stoppingCondition) (\s@CreateProcessingJob' {} a -> s {stoppingCondition = a} :: CreateProcessingJob)
+
+-- | Undocumented member.
+createProcessingJob_experimentConfig :: Lens.Lens' CreateProcessingJob (Prelude.Maybe ExperimentConfig)
+createProcessingJob_experimentConfig = Lens.lens (\CreateProcessingJob' {experimentConfig} -> experimentConfig) (\s@CreateProcessingJob' {} a -> s {experimentConfig = a} :: CreateProcessingJob)
+
+-- | An array of inputs configuring the data to download into the processing
+-- container.
+createProcessingJob_processingInputs :: Lens.Lens' CreateProcessingJob (Prelude.Maybe [ProcessingInput])
+createProcessingJob_processingInputs = Lens.lens (\CreateProcessingJob' {processingInputs} -> processingInputs) (\s@CreateProcessingJob' {} a -> s {processingInputs = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Networking options for a processing job, such as whether to allow
 -- inbound and outbound network calls to and from processing containers,
@@ -174,29 +191,11 @@ createProcessingJob_networkConfig = Lens.lens (\CreateProcessingJob' {networkCon
 createProcessingJob_processingOutputConfig :: Lens.Lens' CreateProcessingJob (Prelude.Maybe ProcessingOutputConfig)
 createProcessingJob_processingOutputConfig = Lens.lens (\CreateProcessingJob' {processingOutputConfig} -> processingOutputConfig) (\s@CreateProcessingJob' {} a -> s {processingOutputConfig = a} :: CreateProcessingJob)
 
--- | Undocumented member.
-createProcessingJob_experimentConfig :: Lens.Lens' CreateProcessingJob (Prelude.Maybe ExperimentConfig)
-createProcessingJob_experimentConfig = Lens.lens (\CreateProcessingJob' {experimentConfig} -> experimentConfig) (\s@CreateProcessingJob' {} a -> s {experimentConfig = a} :: CreateProcessingJob)
-
--- | The environment variables to set in the Docker container. Up to 100 key
--- and values entries in the map are supported.
-createProcessingJob_environment :: Lens.Lens' CreateProcessingJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createProcessingJob_environment = Lens.lens (\CreateProcessingJob' {environment} -> environment) (\s@CreateProcessingJob' {} a -> s {environment = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens._Coerce
-
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createProcessingJob_tags :: Lens.Lens' CreateProcessingJob (Prelude.Maybe [Tag])
-createProcessingJob_tags = Lens.lens (\CreateProcessingJob' {tags} -> tags) (\s@CreateProcessingJob' {} a -> s {tags = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | An array of inputs configuring the data to download into the processing
--- container.
-createProcessingJob_processingInputs :: Lens.Lens' CreateProcessingJob (Prelude.Maybe [ProcessingInput])
-createProcessingJob_processingInputs = Lens.lens (\CreateProcessingJob' {processingInputs} -> processingInputs) (\s@CreateProcessingJob' {} a -> s {processingInputs = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | The time limit for how long the processing job is allowed to run.
-createProcessingJob_stoppingCondition :: Lens.Lens' CreateProcessingJob (Prelude.Maybe ProcessingStoppingCondition)
-createProcessingJob_stoppingCondition = Lens.lens (\CreateProcessingJob' {stoppingCondition} -> stoppingCondition) (\s@CreateProcessingJob' {} a -> s {stoppingCondition = a} :: CreateProcessingJob)
+createProcessingJob_tags = Lens.lens (\CreateProcessingJob' {tags} -> tags) (\s@CreateProcessingJob' {} a -> s {tags = a} :: CreateProcessingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the processing job. The name must be unique within an Amazon
 -- Web Services Region in the Amazon Web Services account.
@@ -254,17 +253,17 @@ instance Core.ToJSON CreateProcessingJob where
   toJSON CreateProcessingJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("ProcessingOutputConfig" Core..=)
-              Prelude.<$> processingOutputConfig,
-            ("ExperimentConfig" Core..=)
-              Prelude.<$> experimentConfig,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("Tags" Core..=) Prelude.<$> tags,
-            ("ProcessingInputs" Core..=)
-              Prelude.<$> processingInputs,
+          [ ("Environment" Core..=) Prelude.<$> environment,
             ("StoppingCondition" Core..=)
               Prelude.<$> stoppingCondition,
+            ("ExperimentConfig" Core..=)
+              Prelude.<$> experimentConfig,
+            ("ProcessingInputs" Core..=)
+              Prelude.<$> processingInputs,
+            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
+            ("ProcessingOutputConfig" Core..=)
+              Prelude.<$> processingOutputConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ProcessingJobName" Core..= processingJobName),
             Prelude.Just

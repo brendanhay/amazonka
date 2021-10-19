@@ -37,16 +37,16 @@ module Network.AWS.Config.DescribeOrganizationConformancePacks
 
     -- * Request Lenses
     describeOrganizationConformancePacks_nextToken,
-    describeOrganizationConformancePacks_organizationConformancePackNames,
     describeOrganizationConformancePacks_limit,
+    describeOrganizationConformancePacks_organizationConformancePackNames,
 
     -- * Destructuring the Response
     DescribeOrganizationConformancePacksResponse (..),
     newDescribeOrganizationConformancePacksResponse,
 
     -- * Response Lenses
-    describeOrganizationConformancePacksResponse_nextToken,
     describeOrganizationConformancePacksResponse_organizationConformancePacks,
+    describeOrganizationConformancePacksResponse_nextToken,
     describeOrganizationConformancePacksResponse_httpStatus,
   )
 where
@@ -63,12 +63,12 @@ data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks
   { -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name that you assign to an organization conformance pack.
-    organizationConformancePackNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of organization config packs returned on each page.
     -- If you do no specify a number, Config uses the default. The default is
     -- 100.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The name that you assign to an organization conformance pack.
+    organizationConformancePackNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,20 +83,20 @@ data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks
 -- 'nextToken', 'describeOrganizationConformancePacks_nextToken' - The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
 --
--- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.
---
 -- 'limit', 'describeOrganizationConformancePacks_limit' - The maximum number of organization config packs returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
+--
+-- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.
 newDescribeOrganizationConformancePacks ::
   DescribeOrganizationConformancePacks
 newDescribeOrganizationConformancePacks =
   DescribeOrganizationConformancePacks'
     { nextToken =
         Prelude.Nothing,
+      limit = Prelude.Nothing,
       organizationConformancePackNames =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+        Prelude.Nothing
     }
 
 -- | The nextToken string returned on a previous page that you use to get the
@@ -104,15 +104,15 @@ newDescribeOrganizationConformancePacks =
 describeOrganizationConformancePacks_nextToken :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe Prelude.Text)
 describeOrganizationConformancePacks_nextToken = Lens.lens (\DescribeOrganizationConformancePacks' {nextToken} -> nextToken) (\s@DescribeOrganizationConformancePacks' {} a -> s {nextToken = a} :: DescribeOrganizationConformancePacks)
 
--- | The name that you assign to an organization conformance pack.
-describeOrganizationConformancePacks_organizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe [Prelude.Text])
-describeOrganizationConformancePacks_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePacks' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePacks' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePacks) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of organization config packs returned on each page.
 -- If you do no specify a number, Config uses the default. The default is
 -- 100.
 describeOrganizationConformancePacks_limit :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe Prelude.Natural)
 describeOrganizationConformancePacks_limit = Lens.lens (\DescribeOrganizationConformancePacks' {limit} -> limit) (\s@DescribeOrganizationConformancePacks' {} a -> s {limit = a} :: DescribeOrganizationConformancePacks)
+
+-- | The name that you assign to an organization conformance pack.
+describeOrganizationConformancePacks_organizationConformancePackNames :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe [Prelude.Text])
+describeOrganizationConformancePacks_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePacks' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePacks' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePacks) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSPager
@@ -151,10 +151,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConformancePacksResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-              Prelude.<*> ( x Core..?> "OrganizationConformancePacks"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "OrganizationConformancePacks"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,9 +192,9 @@ instance
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("OrganizationConformancePackNames" Core..=)
-              Prelude.<$> organizationConformancePackNames,
-            ("Limit" Core..=) Prelude.<$> limit
+              Prelude.<$> organizationConformancePackNames
           ]
       )
 
@@ -212,11 +212,11 @@ instance
 
 -- | /See:/ 'newDescribeOrganizationConformancePacksResponse' smart constructor.
 data DescribeOrganizationConformancePacksResponse = DescribeOrganizationConformancePacksResponse'
-  { -- | The nextToken string returned on a previous page that you use to get the
+  { -- | Returns a list of OrganizationConformancePacks objects.
+    organizationConformancePacks :: Prelude.Maybe [OrganizationConformancePack],
+    -- | The nextToken string returned on a previous page that you use to get the
     -- next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list of OrganizationConformancePacks objects.
-    organizationConformancePacks :: Prelude.Maybe [OrganizationConformancePack],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -230,10 +230,10 @@ data DescribeOrganizationConformancePacksResponse = DescribeOrganizationConforma
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'organizationConformancePacks', 'describeOrganizationConformancePacksResponse_organizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.
+--
 -- 'nextToken', 'describeOrganizationConformancePacksResponse_nextToken' - The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
---
--- 'organizationConformancePacks', 'describeOrganizationConformancePacksResponse_organizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.
 --
 -- 'httpStatus', 'describeOrganizationConformancePacksResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationConformancePacksResponse ::
@@ -243,21 +243,20 @@ newDescribeOrganizationConformancePacksResponse ::
 newDescribeOrganizationConformancePacksResponse
   pHttpStatus_ =
     DescribeOrganizationConformancePacksResponse'
-      { nextToken =
+      { organizationConformancePacks =
           Prelude.Nothing,
-        organizationConformancePacks =
-          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | Returns a list of OrganizationConformancePacks objects.
+describeOrganizationConformancePacksResponse_organizationConformancePacks :: Lens.Lens' DescribeOrganizationConformancePacksResponse (Prelude.Maybe [OrganizationConformancePack])
+describeOrganizationConformancePacksResponse_organizationConformancePacks = Lens.lens (\DescribeOrganizationConformancePacksResponse' {organizationConformancePacks} -> organizationConformancePacks) (\s@DescribeOrganizationConformancePacksResponse' {} a -> s {organizationConformancePacks = a} :: DescribeOrganizationConformancePacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The nextToken string returned on a previous page that you use to get the
 -- next page of results in a paginated response.
 describeOrganizationConformancePacksResponse_nextToken :: Lens.Lens' DescribeOrganizationConformancePacksResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationConformancePacksResponse_nextToken = Lens.lens (\DescribeOrganizationConformancePacksResponse' {nextToken} -> nextToken) (\s@DescribeOrganizationConformancePacksResponse' {} a -> s {nextToken = a} :: DescribeOrganizationConformancePacksResponse)
-
--- | Returns a list of OrganizationConformancePacks objects.
-describeOrganizationConformancePacksResponse_organizationConformancePacks :: Lens.Lens' DescribeOrganizationConformancePacksResponse (Prelude.Maybe [OrganizationConformancePack])
-describeOrganizationConformancePacksResponse_organizationConformancePacks = Lens.lens (\DescribeOrganizationConformancePacksResponse' {organizationConformancePacks} -> organizationConformancePacks) (\s@DescribeOrganizationConformancePacksResponse' {} a -> s {organizationConformancePacks = a} :: DescribeOrganizationConformancePacksResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeOrganizationConformancePacksResponse_httpStatus :: Lens.Lens' DescribeOrganizationConformancePacksResponse Prelude.Int

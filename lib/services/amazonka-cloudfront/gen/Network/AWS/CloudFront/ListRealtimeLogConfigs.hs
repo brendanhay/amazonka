@@ -34,8 +34,8 @@ module Network.AWS.CloudFront.ListRealtimeLogConfigs
     newListRealtimeLogConfigs,
 
     -- * Request Lenses
-    listRealtimeLogConfigs_maxItems,
     listRealtimeLogConfigs_marker,
+    listRealtimeLogConfigs_maxItems,
 
     -- * Destructuring the Response
     ListRealtimeLogConfigsResponse (..),
@@ -56,15 +56,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListRealtimeLogConfigs' smart constructor.
 data ListRealtimeLogConfigs = ListRealtimeLogConfigs'
-  { -- | The maximum number of real-time log configurations that you want in the
-    -- response.
-    maxItems :: Prelude.Maybe Prelude.Text,
-    -- | Use this field when paginating results to indicate where to begin in
+  { -- | Use this field when paginating results to indicate where to begin in
     -- your list of real-time log configurations. The response includes
     -- real-time log configurations in the list that occur after the marker. To
     -- get the next page of the list, set this field’s value to the value of
     -- @NextMarker@ from the current page’s response.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of real-time log configurations that you want in the
+    -- response.
+    maxItems :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -76,26 +76,21 @@ data ListRealtimeLogConfigs = ListRealtimeLogConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listRealtimeLogConfigs_maxItems' - The maximum number of real-time log configurations that you want in the
--- response.
---
 -- 'marker', 'listRealtimeLogConfigs_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of real-time log configurations. The response includes
 -- real-time log configurations in the list that occur after the marker. To
 -- get the next page of the list, set this field’s value to the value of
 -- @NextMarker@ from the current page’s response.
+--
+-- 'maxItems', 'listRealtimeLogConfigs_maxItems' - The maximum number of real-time log configurations that you want in the
+-- response.
 newListRealtimeLogConfigs ::
   ListRealtimeLogConfigs
 newListRealtimeLogConfigs =
   ListRealtimeLogConfigs'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | The maximum number of real-time log configurations that you want in the
--- response.
-listRealtimeLogConfigs_maxItems :: Lens.Lens' ListRealtimeLogConfigs (Prelude.Maybe Prelude.Text)
-listRealtimeLogConfigs_maxItems = Lens.lens (\ListRealtimeLogConfigs' {maxItems} -> maxItems) (\s@ListRealtimeLogConfigs' {} a -> s {maxItems = a} :: ListRealtimeLogConfigs)
 
 -- | Use this field when paginating results to indicate where to begin in
 -- your list of real-time log configurations. The response includes
@@ -104,6 +99,11 @@ listRealtimeLogConfigs_maxItems = Lens.lens (\ListRealtimeLogConfigs' {maxItems}
 -- @NextMarker@ from the current page’s response.
 listRealtimeLogConfigs_marker :: Lens.Lens' ListRealtimeLogConfigs (Prelude.Maybe Prelude.Text)
 listRealtimeLogConfigs_marker = Lens.lens (\ListRealtimeLogConfigs' {marker} -> marker) (\s@ListRealtimeLogConfigs' {} a -> s {marker = a} :: ListRealtimeLogConfigs)
+
+-- | The maximum number of real-time log configurations that you want in the
+-- response.
+listRealtimeLogConfigs_maxItems :: Lens.Lens' ListRealtimeLogConfigs (Prelude.Maybe Prelude.Text)
+listRealtimeLogConfigs_maxItems = Lens.lens (\ListRealtimeLogConfigs' {maxItems} -> maxItems) (\s@ListRealtimeLogConfigs' {} a -> s {maxItems = a} :: ListRealtimeLogConfigs)
 
 instance Core.AWSRequest ListRealtimeLogConfigs where
   type
@@ -132,8 +132,8 @@ instance Core.ToPath ListRealtimeLogConfigs where
 instance Core.ToQuery ListRealtimeLogConfigs where
   toQuery ListRealtimeLogConfigs' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListRealtimeLogConfigsResponse' smart constructor.

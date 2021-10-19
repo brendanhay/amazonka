@@ -30,13 +30,13 @@ module Network.AWS.MediaConvert.CreateJobTemplate
 
     -- * Request Lenses
     createJobTemplate_accelerationSettings,
-    createJobTemplate_category,
-    createJobTemplate_statusUpdateInterval,
     createJobTemplate_priority,
-    createJobTemplate_queue,
-    createJobTemplate_tags,
-    createJobTemplate_description,
+    createJobTemplate_statusUpdateInterval,
+    createJobTemplate_category,
     createJobTemplate_hopDestinations,
+    createJobTemplate_queue,
+    createJobTemplate_description,
+    createJobTemplate_tags,
     createJobTemplate_settings,
     createJobTemplate_name,
 
@@ -64,34 +64,34 @@ data CreateJobTemplate = CreateJobTemplate'
     -- pricing. For information about feature limitations, see the AWS
     -- Elemental MediaConvert User Guide.
     accelerationSettings :: Prelude.Maybe AccelerationSettings,
-    -- | Optional. A category for the job template you are creating
-    category :: Prelude.Maybe Prelude.Text,
-    -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
-    -- CloudWatch Events. Set the interval, in seconds, between status updates.
-    -- MediaConvert sends an update at this interval from the time the service
-    -- begins processing your job to the time it completes the transcode or
-    -- encounters an error.
-    statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
     -- | Specify the relative priority for this job. In any given queue, the
     -- service begins processing the job with the highest value first. When
     -- more than one job has the same priority, the service begins processing
     -- the job that you submitted first. If you don\'t specify a priority, the
     -- service uses the default value 0.
     priority :: Prelude.Maybe Prelude.Int,
-    -- | Optional. The queue that jobs created from this template are assigned
-    -- to. If you don\'t specify this, jobs will go to the default queue.
-    queue :: Prelude.Maybe Prelude.Text,
-    -- | The tags that you want to add to the resource. You can tag resources
-    -- with a key-value pair or with only a key.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Optional. A description of the job template you are creating.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
+    -- CloudWatch Events. Set the interval, in seconds, between status updates.
+    -- MediaConvert sends an update at this interval from the time the service
+    -- begins processing your job to the time it completes the transcode or
+    -- encounters an error.
+    statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+    -- | Optional. A category for the job template you are creating
+    category :: Prelude.Maybe Prelude.Text,
     -- | Optional. Use queue hopping to avoid overly long waits in the backlog of
     -- the queue that you submit your job to. Specify an alternate queue and
     -- the maximum time that your job will wait in the initial queue before
     -- hopping. For more information about this feature, see the AWS Elemental
     -- MediaConvert User Guide.
     hopDestinations :: Prelude.Maybe [HopDestination],
+    -- | Optional. The queue that jobs created from this template are assigned
+    -- to. If you don\'t specify this, jobs will go to the default queue.
+    queue :: Prelude.Maybe Prelude.Text,
+    -- | Optional. A description of the job template you are creating.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The tags that you want to add to the resource. You can tag resources
+    -- with a key-value pair or with only a key.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | JobTemplateSettings contains all the transcode settings saved in the
     -- template that will be applied to jobs created from it.
     settings :: JobTemplateSettings,
@@ -113,7 +113,11 @@ data CreateJobTemplate = CreateJobTemplate'
 -- pricing. For information about feature limitations, see the AWS
 -- Elemental MediaConvert User Guide.
 --
--- 'category', 'createJobTemplate_category' - Optional. A category for the job template you are creating
+-- 'priority', 'createJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the
+-- service begins processing the job with the highest value first. When
+-- more than one job has the same priority, the service begins processing
+-- the job that you submitted first. If you don\'t specify a priority, the
+-- service uses the default value 0.
 --
 -- 'statusUpdateInterval', 'createJobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
@@ -121,25 +125,21 @@ data CreateJobTemplate = CreateJobTemplate'
 -- begins processing your job to the time it completes the transcode or
 -- encounters an error.
 --
--- 'priority', 'createJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the
--- service begins processing the job with the highest value first. When
--- more than one job has the same priority, the service begins processing
--- the job that you submitted first. If you don\'t specify a priority, the
--- service uses the default value 0.
---
--- 'queue', 'createJobTemplate_queue' - Optional. The queue that jobs created from this template are assigned
--- to. If you don\'t specify this, jobs will go to the default queue.
---
--- 'tags', 'createJobTemplate_tags' - The tags that you want to add to the resource. You can tag resources
--- with a key-value pair or with only a key.
---
--- 'description', 'createJobTemplate_description' - Optional. A description of the job template you are creating.
+-- 'category', 'createJobTemplate_category' - Optional. A category for the job template you are creating
 --
 -- 'hopDestinations', 'createJobTemplate_hopDestinations' - Optional. Use queue hopping to avoid overly long waits in the backlog of
 -- the queue that you submit your job to. Specify an alternate queue and
 -- the maximum time that your job will wait in the initial queue before
 -- hopping. For more information about this feature, see the AWS Elemental
 -- MediaConvert User Guide.
+--
+-- 'queue', 'createJobTemplate_queue' - Optional. The queue that jobs created from this template are assigned
+-- to. If you don\'t specify this, jobs will go to the default queue.
+--
+-- 'description', 'createJobTemplate_description' - Optional. A description of the job template you are creating.
+--
+-- 'tags', 'createJobTemplate_tags' - The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
 --
 -- 'settings', 'createJobTemplate_settings' - JobTemplateSettings contains all the transcode settings saved in the
 -- template that will be applied to jobs created from it.
@@ -155,13 +155,13 @@ newCreateJobTemplate pSettings_ pName_ =
   CreateJobTemplate'
     { accelerationSettings =
         Prelude.Nothing,
-      category = Prelude.Nothing,
-      statusUpdateInterval = Prelude.Nothing,
       priority = Prelude.Nothing,
-      queue = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+      statusUpdateInterval = Prelude.Nothing,
+      category = Prelude.Nothing,
       hopDestinations = Prelude.Nothing,
+      queue = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       settings = pSettings_,
       name = pName_
     }
@@ -173,9 +173,13 @@ newCreateJobTemplate pSettings_ pName_ =
 createJobTemplate_accelerationSettings :: Lens.Lens' CreateJobTemplate (Prelude.Maybe AccelerationSettings)
 createJobTemplate_accelerationSettings = Lens.lens (\CreateJobTemplate' {accelerationSettings} -> accelerationSettings) (\s@CreateJobTemplate' {} a -> s {accelerationSettings = a} :: CreateJobTemplate)
 
--- | Optional. A category for the job template you are creating
-createJobTemplate_category :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
-createJobTemplate_category = Lens.lens (\CreateJobTemplate' {category} -> category) (\s@CreateJobTemplate' {} a -> s {category = a} :: CreateJobTemplate)
+-- | Specify the relative priority for this job. In any given queue, the
+-- service begins processing the job with the highest value first. When
+-- more than one job has the same priority, the service begins processing
+-- the job that you submitted first. If you don\'t specify a priority, the
+-- service uses the default value 0.
+createJobTemplate_priority :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Int)
+createJobTemplate_priority = Lens.lens (\CreateJobTemplate' {priority} -> priority) (\s@CreateJobTemplate' {} a -> s {priority = a} :: CreateJobTemplate)
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
@@ -185,27 +189,9 @@ createJobTemplate_category = Lens.lens (\CreateJobTemplate' {category} -> catego
 createJobTemplate_statusUpdateInterval :: Lens.Lens' CreateJobTemplate (Prelude.Maybe StatusUpdateInterval)
 createJobTemplate_statusUpdateInterval = Lens.lens (\CreateJobTemplate' {statusUpdateInterval} -> statusUpdateInterval) (\s@CreateJobTemplate' {} a -> s {statusUpdateInterval = a} :: CreateJobTemplate)
 
--- | Specify the relative priority for this job. In any given queue, the
--- service begins processing the job with the highest value first. When
--- more than one job has the same priority, the service begins processing
--- the job that you submitted first. If you don\'t specify a priority, the
--- service uses the default value 0.
-createJobTemplate_priority :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Int)
-createJobTemplate_priority = Lens.lens (\CreateJobTemplate' {priority} -> priority) (\s@CreateJobTemplate' {} a -> s {priority = a} :: CreateJobTemplate)
-
--- | Optional. The queue that jobs created from this template are assigned
--- to. If you don\'t specify this, jobs will go to the default queue.
-createJobTemplate_queue :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
-createJobTemplate_queue = Lens.lens (\CreateJobTemplate' {queue} -> queue) (\s@CreateJobTemplate' {} a -> s {queue = a} :: CreateJobTemplate)
-
--- | The tags that you want to add to the resource. You can tag resources
--- with a key-value pair or with only a key.
-createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens._Coerce
-
--- | Optional. A description of the job template you are creating.
-createJobTemplate_description :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
-createJobTemplate_description = Lens.lens (\CreateJobTemplate' {description} -> description) (\s@CreateJobTemplate' {} a -> s {description = a} :: CreateJobTemplate)
+-- | Optional. A category for the job template you are creating
+createJobTemplate_category :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
+createJobTemplate_category = Lens.lens (\CreateJobTemplate' {category} -> category) (\s@CreateJobTemplate' {} a -> s {category = a} :: CreateJobTemplate)
 
 -- | Optional. Use queue hopping to avoid overly long waits in the backlog of
 -- the queue that you submit your job to. Specify an alternate queue and
@@ -213,7 +199,21 @@ createJobTemplate_description = Lens.lens (\CreateJobTemplate' {description} -> 
 -- hopping. For more information about this feature, see the AWS Elemental
 -- MediaConvert User Guide.
 createJobTemplate_hopDestinations :: Lens.Lens' CreateJobTemplate (Prelude.Maybe [HopDestination])
-createJobTemplate_hopDestinations = Lens.lens (\CreateJobTemplate' {hopDestinations} -> hopDestinations) (\s@CreateJobTemplate' {} a -> s {hopDestinations = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens._Coerce
+createJobTemplate_hopDestinations = Lens.lens (\CreateJobTemplate' {hopDestinations} -> hopDestinations) (\s@CreateJobTemplate' {} a -> s {hopDestinations = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Optional. The queue that jobs created from this template are assigned
+-- to. If you don\'t specify this, jobs will go to the default queue.
+createJobTemplate_queue :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
+createJobTemplate_queue = Lens.lens (\CreateJobTemplate' {queue} -> queue) (\s@CreateJobTemplate' {} a -> s {queue = a} :: CreateJobTemplate)
+
+-- | Optional. A description of the job template you are creating.
+createJobTemplate_description :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
+createJobTemplate_description = Lens.lens (\CreateJobTemplate' {description} -> description) (\s@CreateJobTemplate' {} a -> s {description = a} :: CreateJobTemplate)
+
+-- | The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+createJobTemplate_tags :: Lens.Lens' CreateJobTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createJobTemplate_tags = Lens.lens (\CreateJobTemplate' {tags} -> tags) (\s@CreateJobTemplate' {} a -> s {tags = a} :: CreateJobTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | JobTemplateSettings contains all the transcode settings saved in the
 -- template that will be applied to jobs created from it.
@@ -258,15 +258,15 @@ instance Core.ToJSON CreateJobTemplate where
       ( Prelude.catMaybes
           [ ("accelerationSettings" Core..=)
               Prelude.<$> accelerationSettings,
-            ("category" Core..=) Prelude.<$> category,
+            ("priority" Core..=) Prelude.<$> priority,
             ("statusUpdateInterval" Core..=)
               Prelude.<$> statusUpdateInterval,
-            ("priority" Core..=) Prelude.<$> priority,
-            ("queue" Core..=) Prelude.<$> queue,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
+            ("category" Core..=) Prelude.<$> category,
             ("hopDestinations" Core..=)
               Prelude.<$> hopDestinations,
+            ("queue" Core..=) Prelude.<$> queue,
+            ("description" Core..=) Prelude.<$> description,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("settings" Core..= settings),
             Prelude.Just ("name" Core..= name)
           ]

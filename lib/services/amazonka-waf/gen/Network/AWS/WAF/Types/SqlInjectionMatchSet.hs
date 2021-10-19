@@ -116,7 +116,7 @@ sqlInjectionMatchSet_sqlInjectionMatchSetId = Lens.lens (\SqlInjectionMatchSet' 
 -- | Specifies the parts of web requests that you want to inspect for
 -- snippets of malicious SQL code.
 sqlInjectionMatchSet_sqlInjectionMatchTuples :: Lens.Lens' SqlInjectionMatchSet [SqlInjectionMatchTuple]
-sqlInjectionMatchSet_sqlInjectionMatchTuples = Lens.lens (\SqlInjectionMatchSet' {sqlInjectionMatchTuples} -> sqlInjectionMatchTuples) (\s@SqlInjectionMatchSet' {} a -> s {sqlInjectionMatchTuples = a} :: SqlInjectionMatchSet) Prelude.. Lens._Coerce
+sqlInjectionMatchSet_sqlInjectionMatchTuples = Lens.lens (\SqlInjectionMatchSet' {sqlInjectionMatchTuples} -> sqlInjectionMatchTuples) (\s@SqlInjectionMatchSet' {} a -> s {sqlInjectionMatchTuples = a} :: SqlInjectionMatchSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON SqlInjectionMatchSet where
   parseJSON =

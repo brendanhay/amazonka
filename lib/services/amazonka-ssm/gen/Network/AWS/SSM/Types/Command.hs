@@ -31,29 +31,30 @@ import Network.AWS.SSM.Types.Target
 --
 -- /See:/ 'newCommand' smart constructor.
 data Command = Command'
-  { -- | The instance IDs against which this command was requested.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of errors allowed before the system stops sending the
-    -- command to additional targets. You can specify a number of errors, such
-    -- as 10, or a percentage or errors, such as 10%. The default value is @0@.
-    -- For more information about how to use @MaxErrors@, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
-    -- in the /Amazon Web Services Systems Manager User Guide/.
-    maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | Configurations for sending notifications about command status changes.
-    notificationConfig :: Prelude.Maybe NotificationConfig,
-    -- | The status of the command.
+  { -- | The status of the command.
     status :: Prelude.Maybe CommandStatus,
     -- | If this time is reached and the command hasn\'t already started running,
     -- it won\'t run. Calculated based on the @ExpiresAfter@ user input
     -- provided as part of the @SendCommand@ API operation.
     expiresAfter :: Prelude.Maybe Core.POSIX,
-    -- | The date and time the command was requested.
-    requestedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The Identity and Access Management (IAM) service role that Run Command,
-    -- a capability of Amazon Web Services Systems Manager, uses to act on your
-    -- behalf when sending notifications about command status changes.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | Configurations for sending notifications about command status changes.
+    notificationConfig :: Prelude.Maybe NotificationConfig,
+    -- | The number of targets for the command.
+    targetCount :: Prelude.Maybe Prelude.Int,
+    -- | Amazon CloudWatch Logs information where you want Amazon Web Services
+    -- Systems Manager to send the command output.
+    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+    -- | The number of targets for which the status is Delivery Timed Out.
+    deliveryTimedOutCount :: Prelude.Maybe Prelude.Int,
+    -- | The S3 directory path inside the bucket where the responses to the
+    -- command executions should be stored. This was requested when issuing the
+    -- command.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The name of the document requested for execution.
+    documentName :: Prelude.Maybe Prelude.Text,
+    -- | The number of targets for which the status is Failed or Execution Timed
+    -- Out.
+    errorCount :: Prelude.Maybe Prelude.Int,
     -- | A detailed status of the command execution. @StatusDetails@ includes
     -- more information than @Status@ because it includes states resulting from
     -- error and concurrency control parameters. @StatusDetails@ can show
@@ -95,6 +96,35 @@ data Command = Command'
     --     canceled the command before running it on any instance. This is a
     --     terminal state.
     statusDetails :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of errors allowed before the system stops sending the
+    -- command to additional targets. You can specify a number of errors, such
+    -- as 10, or a percentage or errors, such as 10%. The default value is @0@.
+    -- For more information about how to use @MaxErrors@, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    maxErrors :: Prelude.Maybe Prelude.Text,
+    -- | The instance IDs against which this command was requested.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | (Deprecated) You can no longer specify this parameter. The system
+    -- ignores it. Instead, Systems Manager automatically determines the Amazon
+    -- Web Services Region of the S3 bucket.
+    outputS3Region :: Prelude.Maybe Prelude.Text,
+    -- | An array of search criteria that targets instances using a Key,Value
+    -- combination that you specify. Targets is required if you don\'t provide
+    -- one or more instance IDs in the call.
+    targets :: Prelude.Maybe [Target],
+    -- | A unique identifier for this command.
+    commandId :: Prelude.Maybe Prelude.Text,
+    -- | The parameter values to be inserted in the document when running the
+    -- command.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The Systems Manager document (SSM document) version.
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The @TimeoutSeconds@ value specified for a command.
+    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | User-specified information about the command, such as a brief
+    -- description of what the command should do.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The number of targets for which the command invocation reached a
     -- terminal state. Terminal states include the following: Success, Failed,
     -- Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or
@@ -103,24 +133,6 @@ data Command = Command'
     -- | The S3 bucket where the responses to the command executions should be
     -- stored. This was requested when issuing the command.
     outputS3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | The number of targets for which the status is Failed or Execution Timed
-    -- Out.
-    errorCount :: Prelude.Maybe Prelude.Int,
-    -- | User-specified information about the command, such as a brief
-    -- description of what the command should do.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | The name of the document requested for execution.
-    documentName :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for this command.
-    commandId :: Prelude.Maybe Prelude.Text,
-    -- | An array of search criteria that targets instances using a Key,Value
-    -- combination that you specify. Targets is required if you don\'t provide
-    -- one or more instance IDs in the call.
-    targets :: Prelude.Maybe [Target],
-    -- | (Deprecated) You can no longer specify this parameter. The system
-    -- ignores it. Instead, Systems Manager automatically determines the Amazon
-    -- Web Services Region of the S3 bucket.
-    outputS3Region :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of instances that are allowed to run the command at
     -- the same time. You can specify a number of instances, such as 10, or a
     -- percentage of instances, such as 10%. The default value is 50. For more
@@ -128,24 +140,12 @@ data Command = Command'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | The number of targets for which the status is Delivery Timed Out.
-    deliveryTimedOutCount :: Prelude.Maybe Prelude.Int,
-    -- | The @TimeoutSeconds@ value specified for a command.
-    timeoutSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The S3 directory path inside the bucket where the responses to the
-    -- command executions should be stored. This was requested when issuing the
-    -- command.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Amazon CloudWatch Logs information where you want Amazon Web Services
-    -- Systems Manager to send the command output.
-    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
-    -- | The Systems Manager document (SSM document) version.
-    documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The number of targets for the command.
-    targetCount :: Prelude.Maybe Prelude.Int,
-    -- | The parameter values to be inserted in the document when running the
-    -- command.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    -- | The date and time the command was requested.
+    requestedDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Identity and Access Management (IAM) service role that Run Command,
+    -- a capability of Amazon Web Services Systems Manager, uses to act on your
+    -- behalf when sending notifications about command status changes.
+    serviceRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,28 +157,29 @@ data Command = Command'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceIds', 'command_instanceIds' - The instance IDs against which this command was requested.
---
--- 'maxErrors', 'command_maxErrors' - The maximum number of errors allowed before the system stops sending the
--- command to additional targets. You can specify a number of errors, such
--- as 10, or a percentage or errors, such as 10%. The default value is @0@.
--- For more information about how to use @MaxErrors@, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
--- in the /Amazon Web Services Systems Manager User Guide/.
---
--- 'notificationConfig', 'command_notificationConfig' - Configurations for sending notifications about command status changes.
---
 -- 'status', 'command_status' - The status of the command.
 --
 -- 'expiresAfter', 'command_expiresAfter' - If this time is reached and the command hasn\'t already started running,
 -- it won\'t run. Calculated based on the @ExpiresAfter@ user input
 -- provided as part of the @SendCommand@ API operation.
 --
--- 'requestedDateTime', 'command_requestedDateTime' - The date and time the command was requested.
+-- 'notificationConfig', 'command_notificationConfig' - Configurations for sending notifications about command status changes.
 --
--- 'serviceRole', 'command_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
--- a capability of Amazon Web Services Systems Manager, uses to act on your
--- behalf when sending notifications about command status changes.
+-- 'targetCount', 'command_targetCount' - The number of targets for the command.
+--
+-- 'cloudWatchOutputConfig', 'command_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services
+-- Systems Manager to send the command output.
+--
+-- 'deliveryTimedOutCount', 'command_deliveryTimedOutCount' - The number of targets for which the status is Delivery Timed Out.
+--
+-- 'outputS3KeyPrefix', 'command_outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the
+-- command executions should be stored. This was requested when issuing the
+-- command.
+--
+-- 'documentName', 'command_documentName' - The name of the document requested for execution.
+--
+-- 'errorCount', 'command_errorCount' - The number of targets for which the status is Failed or Execution Timed
+-- Out.
 --
 -- 'statusDetails', 'command_statusDetails' - A detailed status of the command execution. @StatusDetails@ includes
 -- more information than @Status@ because it includes states resulting from
@@ -221,6 +222,35 @@ data Command = Command'
 --     canceled the command before running it on any instance. This is a
 --     terminal state.
 --
+-- 'maxErrors', 'command_maxErrors' - The maximum number of errors allowed before the system stops sending the
+-- command to additional targets. You can specify a number of errors, such
+-- as 10, or a percentage or errors, such as 10%. The default value is @0@.
+-- For more information about how to use @MaxErrors@, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- 'instanceIds', 'command_instanceIds' - The instance IDs against which this command was requested.
+--
+-- 'outputS3Region', 'command_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Systems Manager automatically determines the Amazon
+-- Web Services Region of the S3 bucket.
+--
+-- 'targets', 'command_targets' - An array of search criteria that targets instances using a Key,Value
+-- combination that you specify. Targets is required if you don\'t provide
+-- one or more instance IDs in the call.
+--
+-- 'commandId', 'command_commandId' - A unique identifier for this command.
+--
+-- 'parameters', 'command_parameters' - The parameter values to be inserted in the document when running the
+-- command.
+--
+-- 'documentVersion', 'command_documentVersion' - The Systems Manager document (SSM document) version.
+--
+-- 'timeoutSeconds', 'command_timeoutSeconds' - The @TimeoutSeconds@ value specified for a command.
+--
+-- 'comment', 'command_comment' - User-specified information about the command, such as a brief
+-- description of what the command should do.
+--
 -- 'completedCount', 'command_completedCount' - The number of targets for which the command invocation reached a
 -- terminal state. Terminal states include the following: Success, Failed,
 -- Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or
@@ -229,24 +259,6 @@ data Command = Command'
 -- 'outputS3BucketName', 'command_outputS3BucketName' - The S3 bucket where the responses to the command executions should be
 -- stored. This was requested when issuing the command.
 --
--- 'errorCount', 'command_errorCount' - The number of targets for which the status is Failed or Execution Timed
--- Out.
---
--- 'comment', 'command_comment' - User-specified information about the command, such as a brief
--- description of what the command should do.
---
--- 'documentName', 'command_documentName' - The name of the document requested for execution.
---
--- 'commandId', 'command_commandId' - A unique identifier for this command.
---
--- 'targets', 'command_targets' - An array of search criteria that targets instances using a Key,Value
--- combination that you specify. Targets is required if you don\'t provide
--- one or more instance IDs in the call.
---
--- 'outputS3Region', 'command_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the Amazon
--- Web Services Region of the S3 bucket.
---
 -- 'maxConcurrency', 'command_maxConcurrency' - The maximum number of instances that are allowed to run the command at
 -- the same time. You can specify a number of instances, such as 10, or a
 -- percentage of instances, such as 10%. The default value is 50. For more
@@ -254,69 +266,40 @@ data Command = Command'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'deliveryTimedOutCount', 'command_deliveryTimedOutCount' - The number of targets for which the status is Delivery Timed Out.
+-- 'requestedDateTime', 'command_requestedDateTime' - The date and time the command was requested.
 --
--- 'timeoutSeconds', 'command_timeoutSeconds' - The @TimeoutSeconds@ value specified for a command.
---
--- 'outputS3KeyPrefix', 'command_outputS3KeyPrefix' - The S3 directory path inside the bucket where the responses to the
--- command executions should be stored. This was requested when issuing the
--- command.
---
--- 'cloudWatchOutputConfig', 'command_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services
--- Systems Manager to send the command output.
---
--- 'documentVersion', 'command_documentVersion' - The Systems Manager document (SSM document) version.
---
--- 'targetCount', 'command_targetCount' - The number of targets for the command.
---
--- 'parameters', 'command_parameters' - The parameter values to be inserted in the document when running the
--- command.
+-- 'serviceRole', 'command_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
+-- a capability of Amazon Web Services Systems Manager, uses to act on your
+-- behalf when sending notifications about command status changes.
 newCommand ::
   Command
 newCommand =
   Command'
-    { instanceIds = Prelude.Nothing,
-      maxErrors = Prelude.Nothing,
-      notificationConfig = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
       expiresAfter = Prelude.Nothing,
-      requestedDateTime = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
+      notificationConfig = Prelude.Nothing,
+      targetCount = Prelude.Nothing,
+      cloudWatchOutputConfig = Prelude.Nothing,
+      deliveryTimedOutCount = Prelude.Nothing,
+      outputS3KeyPrefix = Prelude.Nothing,
+      documentName = Prelude.Nothing,
+      errorCount = Prelude.Nothing,
       statusDetails = Prelude.Nothing,
+      maxErrors = Prelude.Nothing,
+      instanceIds = Prelude.Nothing,
+      outputS3Region = Prelude.Nothing,
+      targets = Prelude.Nothing,
+      commandId = Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      timeoutSeconds = Prelude.Nothing,
+      comment = Prelude.Nothing,
       completedCount = Prelude.Nothing,
       outputS3BucketName = Prelude.Nothing,
-      errorCount = Prelude.Nothing,
-      comment = Prelude.Nothing,
-      documentName = Prelude.Nothing,
-      commandId = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      outputS3Region = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
-      deliveryTimedOutCount = Prelude.Nothing,
-      timeoutSeconds = Prelude.Nothing,
-      outputS3KeyPrefix = Prelude.Nothing,
-      cloudWatchOutputConfig = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      targetCount = Prelude.Nothing,
-      parameters = Prelude.Nothing
+      requestedDateTime = Prelude.Nothing,
+      serviceRole = Prelude.Nothing
     }
-
--- | The instance IDs against which this command was requested.
-command_instanceIds :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
-command_instanceIds = Lens.lens (\Command' {instanceIds} -> instanceIds) (\s@Command' {} a -> s {instanceIds = a} :: Command) Prelude.. Lens.mapping Lens._Coerce
-
--- | The maximum number of errors allowed before the system stops sending the
--- command to additional targets. You can specify a number of errors, such
--- as 10, or a percentage or errors, such as 10%. The default value is @0@.
--- For more information about how to use @MaxErrors@, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
--- in the /Amazon Web Services Systems Manager User Guide/.
-command_maxErrors :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_maxErrors = Lens.lens (\Command' {maxErrors} -> maxErrors) (\s@Command' {} a -> s {maxErrors = a} :: Command)
-
--- | Configurations for sending notifications about command status changes.
-command_notificationConfig :: Lens.Lens' Command (Prelude.Maybe NotificationConfig)
-command_notificationConfig = Lens.lens (\Command' {notificationConfig} -> notificationConfig) (\s@Command' {} a -> s {notificationConfig = a} :: Command)
 
 -- | The status of the command.
 command_status :: Lens.Lens' Command (Prelude.Maybe CommandStatus)
@@ -328,15 +311,37 @@ command_status = Lens.lens (\Command' {status} -> status) (\s@Command' {} a -> s
 command_expiresAfter :: Lens.Lens' Command (Prelude.Maybe Prelude.UTCTime)
 command_expiresAfter = Lens.lens (\Command' {expiresAfter} -> expiresAfter) (\s@Command' {} a -> s {expiresAfter = a} :: Command) Prelude.. Lens.mapping Core._Time
 
--- | The date and time the command was requested.
-command_requestedDateTime :: Lens.Lens' Command (Prelude.Maybe Prelude.UTCTime)
-command_requestedDateTime = Lens.lens (\Command' {requestedDateTime} -> requestedDateTime) (\s@Command' {} a -> s {requestedDateTime = a} :: Command) Prelude.. Lens.mapping Core._Time
+-- | Configurations for sending notifications about command status changes.
+command_notificationConfig :: Lens.Lens' Command (Prelude.Maybe NotificationConfig)
+command_notificationConfig = Lens.lens (\Command' {notificationConfig} -> notificationConfig) (\s@Command' {} a -> s {notificationConfig = a} :: Command)
 
--- | The Identity and Access Management (IAM) service role that Run Command,
--- a capability of Amazon Web Services Systems Manager, uses to act on your
--- behalf when sending notifications about command status changes.
-command_serviceRole :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_serviceRole = Lens.lens (\Command' {serviceRole} -> serviceRole) (\s@Command' {} a -> s {serviceRole = a} :: Command)
+-- | The number of targets for the command.
+command_targetCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
+command_targetCount = Lens.lens (\Command' {targetCount} -> targetCount) (\s@Command' {} a -> s {targetCount = a} :: Command)
+
+-- | Amazon CloudWatch Logs information where you want Amazon Web Services
+-- Systems Manager to send the command output.
+command_cloudWatchOutputConfig :: Lens.Lens' Command (Prelude.Maybe CloudWatchOutputConfig)
+command_cloudWatchOutputConfig = Lens.lens (\Command' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@Command' {} a -> s {cloudWatchOutputConfig = a} :: Command)
+
+-- | The number of targets for which the status is Delivery Timed Out.
+command_deliveryTimedOutCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
+command_deliveryTimedOutCount = Lens.lens (\Command' {deliveryTimedOutCount} -> deliveryTimedOutCount) (\s@Command' {} a -> s {deliveryTimedOutCount = a} :: Command)
+
+-- | The S3 directory path inside the bucket where the responses to the
+-- command executions should be stored. This was requested when issuing the
+-- command.
+command_outputS3KeyPrefix :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_outputS3KeyPrefix = Lens.lens (\Command' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@Command' {} a -> s {outputS3KeyPrefix = a} :: Command)
+
+-- | The name of the document requested for execution.
+command_documentName :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_documentName = Lens.lens (\Command' {documentName} -> documentName) (\s@Command' {} a -> s {documentName = a} :: Command)
+
+-- | The number of targets for which the status is Failed or Execution Timed
+-- Out.
+command_errorCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
+command_errorCount = Lens.lens (\Command' {errorCount} -> errorCount) (\s@Command' {} a -> s {errorCount = a} :: Command)
 
 -- | A detailed status of the command execution. @StatusDetails@ includes
 -- more information than @Status@ because it includes states resulting from
@@ -381,6 +386,53 @@ command_serviceRole = Lens.lens (\Command' {serviceRole} -> serviceRole) (\s@Com
 command_statusDetails :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_statusDetails = Lens.lens (\Command' {statusDetails} -> statusDetails) (\s@Command' {} a -> s {statusDetails = a} :: Command)
 
+-- | The maximum number of errors allowed before the system stops sending the
+-- command to additional targets. You can specify a number of errors, such
+-- as 10, or a percentage or errors, such as 10%. The default value is @0@.
+-- For more information about how to use @MaxErrors@, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html Running commands using Systems Manager Run Command>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+command_maxErrors :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_maxErrors = Lens.lens (\Command' {maxErrors} -> maxErrors) (\s@Command' {} a -> s {maxErrors = a} :: Command)
+
+-- | The instance IDs against which this command was requested.
+command_instanceIds :: Lens.Lens' Command (Prelude.Maybe [Prelude.Text])
+command_instanceIds = Lens.lens (\Command' {instanceIds} -> instanceIds) (\s@Command' {} a -> s {instanceIds = a} :: Command) Prelude.. Lens.mapping Lens.coerced
+
+-- | (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Systems Manager automatically determines the Amazon
+-- Web Services Region of the S3 bucket.
+command_outputS3Region :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_outputS3Region = Lens.lens (\Command' {outputS3Region} -> outputS3Region) (\s@Command' {} a -> s {outputS3Region = a} :: Command)
+
+-- | An array of search criteria that targets instances using a Key,Value
+-- combination that you specify. Targets is required if you don\'t provide
+-- one or more instance IDs in the call.
+command_targets :: Lens.Lens' Command (Prelude.Maybe [Target])
+command_targets = Lens.lens (\Command' {targets} -> targets) (\s@Command' {} a -> s {targets = a} :: Command) Prelude.. Lens.mapping Lens.coerced
+
+-- | A unique identifier for this command.
+command_commandId :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_commandId = Lens.lens (\Command' {commandId} -> commandId) (\s@Command' {} a -> s {commandId = a} :: Command)
+
+-- | The parameter values to be inserted in the document when running the
+-- command.
+command_parameters :: Lens.Lens' Command (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+command_parameters = Lens.lens (\Command' {parameters} -> parameters) (\s@Command' {} a -> s {parameters = a} :: Command) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Systems Manager document (SSM document) version.
+command_documentVersion :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_documentVersion = Lens.lens (\Command' {documentVersion} -> documentVersion) (\s@Command' {} a -> s {documentVersion = a} :: Command)
+
+-- | The @TimeoutSeconds@ value specified for a command.
+command_timeoutSeconds :: Lens.Lens' Command (Prelude.Maybe Prelude.Natural)
+command_timeoutSeconds = Lens.lens (\Command' {timeoutSeconds} -> timeoutSeconds) (\s@Command' {} a -> s {timeoutSeconds = a} :: Command)
+
+-- | User-specified information about the command, such as a brief
+-- description of what the command should do.
+command_comment :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_comment = Lens.lens (\Command' {comment} -> comment) (\s@Command' {} a -> s {comment = a} :: Command)
+
 -- | The number of targets for which the command invocation reached a
 -- terminal state. Terminal states include the following: Success, Failed,
 -- Execution Timed Out, Delivery Timed Out, Canceled, Terminated, or
@@ -393,36 +445,6 @@ command_completedCount = Lens.lens (\Command' {completedCount} -> completedCount
 command_outputS3BucketName :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_outputS3BucketName = Lens.lens (\Command' {outputS3BucketName} -> outputS3BucketName) (\s@Command' {} a -> s {outputS3BucketName = a} :: Command)
 
--- | The number of targets for which the status is Failed or Execution Timed
--- Out.
-command_errorCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
-command_errorCount = Lens.lens (\Command' {errorCount} -> errorCount) (\s@Command' {} a -> s {errorCount = a} :: Command)
-
--- | User-specified information about the command, such as a brief
--- description of what the command should do.
-command_comment :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_comment = Lens.lens (\Command' {comment} -> comment) (\s@Command' {} a -> s {comment = a} :: Command)
-
--- | The name of the document requested for execution.
-command_documentName :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_documentName = Lens.lens (\Command' {documentName} -> documentName) (\s@Command' {} a -> s {documentName = a} :: Command)
-
--- | A unique identifier for this command.
-command_commandId :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_commandId = Lens.lens (\Command' {commandId} -> commandId) (\s@Command' {} a -> s {commandId = a} :: Command)
-
--- | An array of search criteria that targets instances using a Key,Value
--- combination that you specify. Targets is required if you don\'t provide
--- one or more instance IDs in the call.
-command_targets :: Lens.Lens' Command (Prelude.Maybe [Target])
-command_targets = Lens.lens (\Command' {targets} -> targets) (\s@Command' {} a -> s {targets = a} :: Command) Prelude.. Lens.mapping Lens._Coerce
-
--- | (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the Amazon
--- Web Services Region of the S3 bucket.
-command_outputS3Region :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_outputS3Region = Lens.lens (\Command' {outputS3Region} -> outputS3Region) (\s@Command' {} a -> s {outputS3Region = a} :: Command)
-
 -- | The maximum number of instances that are allowed to run the command at
 -- the same time. You can specify a number of instances, such as 10, or a
 -- percentage of instances, such as 10%. The default value is 50. For more
@@ -432,37 +454,15 @@ command_outputS3Region = Lens.lens (\Command' {outputS3Region} -> outputS3Region
 command_maxConcurrency :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
 command_maxConcurrency = Lens.lens (\Command' {maxConcurrency} -> maxConcurrency) (\s@Command' {} a -> s {maxConcurrency = a} :: Command)
 
--- | The number of targets for which the status is Delivery Timed Out.
-command_deliveryTimedOutCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
-command_deliveryTimedOutCount = Lens.lens (\Command' {deliveryTimedOutCount} -> deliveryTimedOutCount) (\s@Command' {} a -> s {deliveryTimedOutCount = a} :: Command)
+-- | The date and time the command was requested.
+command_requestedDateTime :: Lens.Lens' Command (Prelude.Maybe Prelude.UTCTime)
+command_requestedDateTime = Lens.lens (\Command' {requestedDateTime} -> requestedDateTime) (\s@Command' {} a -> s {requestedDateTime = a} :: Command) Prelude.. Lens.mapping Core._Time
 
--- | The @TimeoutSeconds@ value specified for a command.
-command_timeoutSeconds :: Lens.Lens' Command (Prelude.Maybe Prelude.Natural)
-command_timeoutSeconds = Lens.lens (\Command' {timeoutSeconds} -> timeoutSeconds) (\s@Command' {} a -> s {timeoutSeconds = a} :: Command)
-
--- | The S3 directory path inside the bucket where the responses to the
--- command executions should be stored. This was requested when issuing the
--- command.
-command_outputS3KeyPrefix :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_outputS3KeyPrefix = Lens.lens (\Command' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@Command' {} a -> s {outputS3KeyPrefix = a} :: Command)
-
--- | Amazon CloudWatch Logs information where you want Amazon Web Services
--- Systems Manager to send the command output.
-command_cloudWatchOutputConfig :: Lens.Lens' Command (Prelude.Maybe CloudWatchOutputConfig)
-command_cloudWatchOutputConfig = Lens.lens (\Command' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@Command' {} a -> s {cloudWatchOutputConfig = a} :: Command)
-
--- | The Systems Manager document (SSM document) version.
-command_documentVersion :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
-command_documentVersion = Lens.lens (\Command' {documentVersion} -> documentVersion) (\s@Command' {} a -> s {documentVersion = a} :: Command)
-
--- | The number of targets for the command.
-command_targetCount :: Lens.Lens' Command (Prelude.Maybe Prelude.Int)
-command_targetCount = Lens.lens (\Command' {targetCount} -> targetCount) (\s@Command' {} a -> s {targetCount = a} :: Command)
-
--- | The parameter values to be inserted in the document when running the
--- command.
-command_parameters :: Lens.Lens' Command (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-command_parameters = Lens.lens (\Command' {parameters} -> parameters) (\s@Command' {} a -> s {parameters = a} :: Command) Prelude.. Lens.mapping Lens._Coerce
+-- | The Identity and Access Management (IAM) service role that Run Command,
+-- a capability of Amazon Web Services Systems Manager, uses to act on your
+-- behalf when sending notifications about command status changes.
+command_serviceRole :: Lens.Lens' Command (Prelude.Maybe Prelude.Text)
+command_serviceRole = Lens.lens (\Command' {serviceRole} -> serviceRole) (\s@Command' {} a -> s {serviceRole = a} :: Command)
 
 instance Core.FromJSON Command where
   parseJSON =
@@ -470,30 +470,30 @@ instance Core.FromJSON Command where
       "Command"
       ( \x ->
           Command'
-            Prelude.<$> (x Core..:? "InstanceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MaxErrors")
-            Prelude.<*> (x Core..:? "NotificationConfig")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ExpiresAfter")
-            Prelude.<*> (x Core..:? "RequestedDateTime")
-            Prelude.<*> (x Core..:? "ServiceRole")
+            Prelude.<*> (x Core..:? "NotificationConfig")
+            Prelude.<*> (x Core..:? "TargetCount")
+            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
+            Prelude.<*> (x Core..:? "DeliveryTimedOutCount")
+            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Core..:? "DocumentName")
+            Prelude.<*> (x Core..:? "ErrorCount")
             Prelude.<*> (x Core..:? "StatusDetails")
+            Prelude.<*> (x Core..:? "MaxErrors")
+            Prelude.<*> (x Core..:? "InstanceIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "OutputS3Region")
+            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CommandId")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "TimeoutSeconds")
+            Prelude.<*> (x Core..:? "Comment")
             Prelude.<*> (x Core..:? "CompletedCount")
             Prelude.<*> (x Core..:? "OutputS3BucketName")
-            Prelude.<*> (x Core..:? "ErrorCount")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "CommandId")
-            Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "OutputS3Region")
             Prelude.<*> (x Core..:? "MaxConcurrency")
-            Prelude.<*> (x Core..:? "DeliveryTimedOutCount")
-            Prelude.<*> (x Core..:? "TimeoutSeconds")
-            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
-            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
-            Prelude.<*> (x Core..:? "DocumentVersion")
-            Prelude.<*> (x Core..:? "TargetCount")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "RequestedDateTime")
+            Prelude.<*> (x Core..:? "ServiceRole")
       )
 
 instance Prelude.Hashable Command

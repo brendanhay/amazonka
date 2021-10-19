@@ -249,7 +249,7 @@ describeEffectiveInstanceAssociationsResponse_nextToken = Lens.lens (\DescribeEf
 
 -- | The associations for the requested instance.
 describeEffectiveInstanceAssociationsResponse_associations :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Prelude.Maybe [InstanceAssociation])
-describeEffectiveInstanceAssociationsResponse_associations = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {associations} -> associations) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {associations = a} :: DescribeEffectiveInstanceAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeEffectiveInstanceAssociationsResponse_associations = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {associations} -> associations) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {associations = a} :: DescribeEffectiveInstanceAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeEffectiveInstanceAssociationsResponse_httpStatus :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse Prelude.Int

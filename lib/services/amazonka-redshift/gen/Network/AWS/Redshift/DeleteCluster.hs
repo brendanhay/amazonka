@@ -46,9 +46,9 @@ module Network.AWS.Redshift.DeleteCluster
     newDeleteCluster,
 
     -- * Request Lenses
-    deleteCluster_finalClusterSnapshotIdentifier,
     deleteCluster_skipFinalClusterSnapshot,
     deleteCluster_finalClusterSnapshotRetentionPeriod,
+    deleteCluster_finalClusterSnapshotIdentifier,
     deleteCluster_clusterIdentifier,
 
     -- * Destructuring the Response
@@ -72,19 +72,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteCluster' smart constructor.
 data DeleteCluster = DeleteCluster'
-  { -- | The identifier of the final snapshot that is to be created immediately
-    -- before deleting the cluster. If this parameter is provided,
-    -- /SkipFinalClusterSnapshot/ must be @false@.
-    --
-    -- Constraints:
-    --
-    -- -   Must be 1 to 255 alphanumeric characters.
-    --
-    -- -   First character must be a letter.
-    --
-    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    finalClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | Determines whether a final snapshot of the cluster is created before
+  { -- | Determines whether a final snapshot of the cluster is created before
     -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
     -- is not created. If @false@, a final cluster snapshot is created before
     -- the cluster is deleted.
@@ -101,6 +89,18 @@ data DeleteCluster = DeleteCluster'
     --
     -- The default value is -1.
     finalClusterSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The identifier of the final snapshot that is to be created immediately
+    -- before deleting the cluster. If this parameter is provided,
+    -- /SkipFinalClusterSnapshot/ must be @false@.
+    --
+    -- Constraints:
+    --
+    -- -   Must be 1 to 255 alphanumeric characters.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    finalClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the cluster to be deleted.
     --
     -- Constraints:
@@ -124,18 +124,6 @@ data DeleteCluster = DeleteCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'finalClusterSnapshotIdentifier', 'deleteCluster_finalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately
--- before deleting the cluster. If this parameter is provided,
--- /SkipFinalClusterSnapshot/ must be @false@.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
---
 -- 'skipFinalClusterSnapshot', 'deleteCluster_skipFinalClusterSnapshot' - Determines whether a final snapshot of the cluster is created before
 -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
 -- is not created. If @false@, a final cluster snapshot is created before
@@ -152,6 +140,18 @@ data DeleteCluster = DeleteCluster'
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
 -- The default value is -1.
+--
+-- 'finalClusterSnapshotIdentifier', 'deleteCluster_finalClusterSnapshotIdentifier' - The identifier of the final snapshot that is to be created immediately
+-- before deleting the cluster. If this parameter is provided,
+-- /SkipFinalClusterSnapshot/ must be @false@.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- 'clusterIdentifier', 'deleteCluster_clusterIdentifier' - The identifier of the cluster to be deleted.
 --
@@ -170,27 +170,13 @@ newDeleteCluster ::
   DeleteCluster
 newDeleteCluster pClusterIdentifier_ =
   DeleteCluster'
-    { finalClusterSnapshotIdentifier =
+    { skipFinalClusterSnapshot =
         Prelude.Nothing,
-      skipFinalClusterSnapshot = Prelude.Nothing,
       finalClusterSnapshotRetentionPeriod =
         Prelude.Nothing,
+      finalClusterSnapshotIdentifier = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
-
--- | The identifier of the final snapshot that is to be created immediately
--- before deleting the cluster. If this parameter is provided,
--- /SkipFinalClusterSnapshot/ must be @false@.
---
--- Constraints:
---
--- -   Must be 1 to 255 alphanumeric characters.
---
--- -   First character must be a letter.
---
--- -   Cannot end with a hyphen or contain two consecutive hyphens.
-deleteCluster_finalClusterSnapshotIdentifier :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Text)
-deleteCluster_finalClusterSnapshotIdentifier = Lens.lens (\DeleteCluster' {finalClusterSnapshotIdentifier} -> finalClusterSnapshotIdentifier) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotIdentifier = a} :: DeleteCluster)
 
 -- | Determines whether a final snapshot of the cluster is created before
 -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
@@ -212,6 +198,20 @@ deleteCluster_skipFinalClusterSnapshot = Lens.lens (\DeleteCluster' {skipFinalCl
 -- The default value is -1.
 deleteCluster_finalClusterSnapshotRetentionPeriod :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Int)
 deleteCluster_finalClusterSnapshotRetentionPeriod = Lens.lens (\DeleteCluster' {finalClusterSnapshotRetentionPeriod} -> finalClusterSnapshotRetentionPeriod) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotRetentionPeriod = a} :: DeleteCluster)
+
+-- | The identifier of the final snapshot that is to be created immediately
+-- before deleting the cluster. If this parameter is provided,
+-- /SkipFinalClusterSnapshot/ must be @false@.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+deleteCluster_finalClusterSnapshotIdentifier :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Text)
+deleteCluster_finalClusterSnapshotIdentifier = Lens.lens (\DeleteCluster' {finalClusterSnapshotIdentifier} -> finalClusterSnapshotIdentifier) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotIdentifier = a} :: DeleteCluster)
 
 -- | The identifier of the cluster to be deleted.
 --
@@ -258,12 +258,12 @@ instance Core.ToQuery DeleteCluster where
           Core.=: ("DeleteCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
-        "FinalClusterSnapshotIdentifier"
-          Core.=: finalClusterSnapshotIdentifier,
         "SkipFinalClusterSnapshot"
           Core.=: skipFinalClusterSnapshot,
         "FinalClusterSnapshotRetentionPeriod"
           Core.=: finalClusterSnapshotRetentionPeriod,
+        "FinalClusterSnapshotIdentifier"
+          Core.=: finalClusterSnapshotIdentifier,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 

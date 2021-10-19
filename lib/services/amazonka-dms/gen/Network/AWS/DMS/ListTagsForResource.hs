@@ -102,7 +102,7 @@ listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn}
 -- tag values. It also returns each tag\'s associated @ResourceArn@ value,
 -- which is the ARN of the resource for which each listed tag is created.
 listTagsForResource_resourceArnList :: Lens.Lens' ListTagsForResource (Prelude.Maybe [Prelude.Text])
-listTagsForResource_resourceArnList = Lens.lens (\ListTagsForResource' {resourceArnList} -> resourceArnList) (\s@ListTagsForResource' {} a -> s {resourceArnList = a} :: ListTagsForResource) Prelude.. Lens.mapping Lens._Coerce
+listTagsForResource_resourceArnList = Lens.lens (\ListTagsForResource' {resourceArnList} -> resourceArnList) (\s@ListTagsForResource' {} a -> s {resourceArnList = a} :: ListTagsForResource) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListTagsForResource where
   type
@@ -187,7 +187,7 @@ newListTagsForResourceResponse pHttpStatus_ =
 
 -- | A list of tags for the resource.
 listTagsForResourceResponse_tagList :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int

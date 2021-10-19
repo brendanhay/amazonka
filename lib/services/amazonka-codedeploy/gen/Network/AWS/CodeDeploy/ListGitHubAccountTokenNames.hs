@@ -36,8 +36,8 @@ module Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
     newListGitHubAccountTokenNamesResponse,
 
     -- * Response Lenses
-    listGitHubAccountTokenNamesResponse_nextToken,
     listGitHubAccountTokenNamesResponse_tokenNameList,
+    listGitHubAccountTokenNamesResponse_nextToken,
     listGitHubAccountTokenNamesResponse_httpStatus,
   )
 where
@@ -113,8 +113,8 @@ instance Core.AWSRequest ListGitHubAccountTokenNames where
     Response.receiveJSON
       ( \s h x ->
           ListGitHubAccountTokenNamesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "tokenNameList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "tokenNameList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -154,12 +154,12 @@ instance Core.ToQuery ListGitHubAccountTokenNames where
 --
 -- /See:/ 'newListGitHubAccountTokenNamesResponse' smart constructor.
 data ListGitHubAccountTokenNamesResponse = ListGitHubAccountTokenNamesResponse'
-  { -- | If a large amount of information is returned, an identifier is also
+  { -- | A list of names of connections to GitHub accounts.
+    tokenNameList :: Prelude.Maybe [Prelude.Text],
+    -- | If a large amount of information is returned, an identifier is also
     -- returned. It can be used in a subsequent @ListGitHubAccountTokenNames@
     -- call to return the next set of names in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of names of connections to GitHub accounts.
-    tokenNameList :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,11 +173,11 @@ data ListGitHubAccountTokenNamesResponse = ListGitHubAccountTokenNamesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tokenNameList', 'listGitHubAccountTokenNamesResponse_tokenNameList' - A list of names of connections to GitHub accounts.
+--
 -- 'nextToken', 'listGitHubAccountTokenNamesResponse_nextToken' - If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent @ListGitHubAccountTokenNames@
 -- call to return the next set of names in the list.
---
--- 'tokenNameList', 'listGitHubAccountTokenNamesResponse_tokenNameList' - A list of names of connections to GitHub accounts.
 --
 -- 'httpStatus', 'listGitHubAccountTokenNamesResponse_httpStatus' - The response's http status code.
 newListGitHubAccountTokenNamesResponse ::
@@ -186,21 +186,21 @@ newListGitHubAccountTokenNamesResponse ::
   ListGitHubAccountTokenNamesResponse
 newListGitHubAccountTokenNamesResponse pHttpStatus_ =
   ListGitHubAccountTokenNamesResponse'
-    { nextToken =
+    { tokenNameList =
         Prelude.Nothing,
-      tokenNameList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of names of connections to GitHub accounts.
+listGitHubAccountTokenNamesResponse_tokenNameList :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Prelude.Maybe [Prelude.Text])
+listGitHubAccountTokenNamesResponse_tokenNameList = Lens.lens (\ListGitHubAccountTokenNamesResponse' {tokenNameList} -> tokenNameList) (\s@ListGitHubAccountTokenNamesResponse' {} a -> s {tokenNameList = a} :: ListGitHubAccountTokenNamesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If a large amount of information is returned, an identifier is also
 -- returned. It can be used in a subsequent @ListGitHubAccountTokenNames@
 -- call to return the next set of names in the list.
 listGitHubAccountTokenNamesResponse_nextToken :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Prelude.Maybe Prelude.Text)
 listGitHubAccountTokenNamesResponse_nextToken = Lens.lens (\ListGitHubAccountTokenNamesResponse' {nextToken} -> nextToken) (\s@ListGitHubAccountTokenNamesResponse' {} a -> s {nextToken = a} :: ListGitHubAccountTokenNamesResponse)
-
--- | A list of names of connections to GitHub accounts.
-listGitHubAccountTokenNamesResponse_tokenNameList :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Prelude.Maybe [Prelude.Text])
-listGitHubAccountTokenNamesResponse_tokenNameList = Lens.lens (\ListGitHubAccountTokenNamesResponse' {tokenNameList} -> tokenNameList) (\s@ListGitHubAccountTokenNamesResponse' {} a -> s {tokenNameList = a} :: ListGitHubAccountTokenNamesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listGitHubAccountTokenNamesResponse_httpStatus :: Lens.Lens' ListGitHubAccountTokenNamesResponse Prelude.Int

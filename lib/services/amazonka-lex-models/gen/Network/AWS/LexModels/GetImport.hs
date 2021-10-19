@@ -35,12 +35,12 @@ module Network.AWS.LexModels.GetImport
     newGetImportResponse,
 
     -- * Response Lenses
-    getImportResponse_createdDate,
-    getImportResponse_mergeStrategy,
-    getImportResponse_importId,
-    getImportResponse_resourceType,
-    getImportResponse_name,
     getImportResponse_failureReason,
+    getImportResponse_resourceType,
+    getImportResponse_importId,
+    getImportResponse_createdDate,
+    getImportResponse_name,
+    getImportResponse_mergeStrategy,
     getImportResponse_importStatus,
     getImportResponse_httpStatus,
   )
@@ -87,12 +87,12 @@ instance Core.AWSRequest GetImport where
     Response.receiveJSON
       ( \s h x ->
           GetImportResponse'
-            Prelude.<$> (x Core..?> "createdDate")
-            Prelude.<*> (x Core..?> "mergeStrategy")
-            Prelude.<*> (x Core..?> "importId")
+            Prelude.<$> (x Core..?> "failureReason" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "resourceType")
+            Prelude.<*> (x Core..?> "importId")
+            Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "failureReason" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "mergeStrategy")
             Prelude.<*> (x Core..?> "importStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -121,19 +121,19 @@ instance Core.ToQuery GetImport where
 
 -- | /See:/ 'newGetImportResponse' smart constructor.
 data GetImportResponse = GetImportResponse'
-  { -- | A timestamp for the date and time that the import job was created.
+  { -- | A string that describes why an import job failed to complete.
+    failureReason :: Prelude.Maybe [Prelude.Text],
+    -- | The type of resource imported.
+    resourceType :: Prelude.Maybe ResourceType,
+    -- | The identifier for the specific import job.
+    importId :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp for the date and time that the import job was created.
     createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The name given to the import job.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The action taken when there was a conflict between an existing resource
     -- and a resource in the import file.
     mergeStrategy :: Prelude.Maybe MergeStrategy,
-    -- | The identifier for the specific import job.
-    importId :: Prelude.Maybe Prelude.Text,
-    -- | The type of resource imported.
-    resourceType :: Prelude.Maybe ResourceType,
-    -- | The name given to the import job.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A string that describes why an import job failed to complete.
-    failureReason :: Prelude.Maybe [Prelude.Text],
     -- | The status of the import job. If the status is @FAILED@, you can get the
     -- reason for the failure from the @failureReason@ field.
     importStatus :: Prelude.Maybe ImportStatus,
@@ -150,18 +150,18 @@ data GetImportResponse = GetImportResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdDate', 'getImportResponse_createdDate' - A timestamp for the date and time that the import job was created.
---
--- 'mergeStrategy', 'getImportResponse_mergeStrategy' - The action taken when there was a conflict between an existing resource
--- and a resource in the import file.
---
--- 'importId', 'getImportResponse_importId' - The identifier for the specific import job.
+-- 'failureReason', 'getImportResponse_failureReason' - A string that describes why an import job failed to complete.
 --
 -- 'resourceType', 'getImportResponse_resourceType' - The type of resource imported.
 --
+-- 'importId', 'getImportResponse_importId' - The identifier for the specific import job.
+--
+-- 'createdDate', 'getImportResponse_createdDate' - A timestamp for the date and time that the import job was created.
+--
 -- 'name', 'getImportResponse_name' - The name given to the import job.
 --
--- 'failureReason', 'getImportResponse_failureReason' - A string that describes why an import job failed to complete.
+-- 'mergeStrategy', 'getImportResponse_mergeStrategy' - The action taken when there was a conflict between an existing resource
+-- and a resource in the import file.
 --
 -- 'importStatus', 'getImportResponse_importStatus' - The status of the import job. If the status is @FAILED@, you can get the
 -- reason for the failure from the @failureReason@ field.
@@ -173,40 +173,40 @@ newGetImportResponse ::
   GetImportResponse
 newGetImportResponse pHttpStatus_ =
   GetImportResponse'
-    { createdDate = Prelude.Nothing,
-      mergeStrategy = Prelude.Nothing,
-      importId = Prelude.Nothing,
+    { failureReason = Prelude.Nothing,
       resourceType = Prelude.Nothing,
+      importId = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
       name = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
+      mergeStrategy = Prelude.Nothing,
       importStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A timestamp for the date and time that the import job was created.
-getImportResponse_createdDate :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
-getImportResponse_createdDate = Lens.lens (\GetImportResponse' {createdDate} -> createdDate) (\s@GetImportResponse' {} a -> s {createdDate = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
-
--- | The action taken when there was a conflict between an existing resource
--- and a resource in the import file.
-getImportResponse_mergeStrategy :: Lens.Lens' GetImportResponse (Prelude.Maybe MergeStrategy)
-getImportResponse_mergeStrategy = Lens.lens (\GetImportResponse' {mergeStrategy} -> mergeStrategy) (\s@GetImportResponse' {} a -> s {mergeStrategy = a} :: GetImportResponse)
-
--- | The identifier for the specific import job.
-getImportResponse_importId :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
-getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> importId) (\s@GetImportResponse' {} a -> s {importId = a} :: GetImportResponse)
+-- | A string that describes why an import job failed to complete.
+getImportResponse_failureReason :: Lens.Lens' GetImportResponse (Prelude.Maybe [Prelude.Text])
+getImportResponse_failureReason = Lens.lens (\GetImportResponse' {failureReason} -> failureReason) (\s@GetImportResponse' {} a -> s {failureReason = a} :: GetImportResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of resource imported.
 getImportResponse_resourceType :: Lens.Lens' GetImportResponse (Prelude.Maybe ResourceType)
 getImportResponse_resourceType = Lens.lens (\GetImportResponse' {resourceType} -> resourceType) (\s@GetImportResponse' {} a -> s {resourceType = a} :: GetImportResponse)
 
+-- | The identifier for the specific import job.
+getImportResponse_importId :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
+getImportResponse_importId = Lens.lens (\GetImportResponse' {importId} -> importId) (\s@GetImportResponse' {} a -> s {importId = a} :: GetImportResponse)
+
+-- | A timestamp for the date and time that the import job was created.
+getImportResponse_createdDate :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.UTCTime)
+getImportResponse_createdDate = Lens.lens (\GetImportResponse' {createdDate} -> createdDate) (\s@GetImportResponse' {} a -> s {createdDate = a} :: GetImportResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The name given to the import job.
 getImportResponse_name :: Lens.Lens' GetImportResponse (Prelude.Maybe Prelude.Text)
 getImportResponse_name = Lens.lens (\GetImportResponse' {name} -> name) (\s@GetImportResponse' {} a -> s {name = a} :: GetImportResponse)
 
--- | A string that describes why an import job failed to complete.
-getImportResponse_failureReason :: Lens.Lens' GetImportResponse (Prelude.Maybe [Prelude.Text])
-getImportResponse_failureReason = Lens.lens (\GetImportResponse' {failureReason} -> failureReason) (\s@GetImportResponse' {} a -> s {failureReason = a} :: GetImportResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The action taken when there was a conflict between an existing resource
+-- and a resource in the import file.
+getImportResponse_mergeStrategy :: Lens.Lens' GetImportResponse (Prelude.Maybe MergeStrategy)
+getImportResponse_mergeStrategy = Lens.lens (\GetImportResponse' {mergeStrategy} -> mergeStrategy) (\s@GetImportResponse' {} a -> s {mergeStrategy = a} :: GetImportResponse)
 
 -- | The status of the import job. If the status is @FAILED@, you can get the
 -- reason for the failure from the @failureReason@ field.

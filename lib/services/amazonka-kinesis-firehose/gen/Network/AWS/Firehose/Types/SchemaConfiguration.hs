@@ -29,14 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSchemaConfiguration' smart constructor.
 data SchemaConfiguration = SchemaConfiguration'
-  { -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
-    -- role must be in the same account you use for Kinesis Data Firehose.
-    -- Cross-account roles aren\'t allowed.
+  { -- | Specifies the table version for the output data schema. If you don\'t
+    -- specify this version ID, or if you set it to @LATEST@, Kinesis Data
+    -- Firehose uses the most recent version. This means that any updates to
+    -- the table are automatically picked up.
+    versionId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
+    -- account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the AWS Glue database that contains the schema for
+    -- the output data.
     --
     -- If the @SchemaConfiguration@ request parameter is used as part of
-    -- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
-    -- required and its value must be specified.
-    roleARN :: Prelude.Maybe Prelude.Text,
+    -- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
+    -- property is required and its value must be specified.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | If you don\'t specify an AWS Region, the default is the current Region.
+    region :: Prelude.Maybe Prelude.Text,
     -- | Specifies the AWS Glue table that contains the column information that
     -- constitutes your data schema.
     --
@@ -44,23 +53,14 @@ data SchemaConfiguration = SchemaConfiguration'
     -- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
     -- is required and its value must be specified.
     tableName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
-    -- account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the table version for the output data schema. If you don\'t
-    -- specify this version ID, or if you set it to @LATEST@, Kinesis Data
-    -- Firehose uses the most recent version. This means that any updates to
-    -- the table are automatically picked up.
-    versionId :: Prelude.Maybe Prelude.Text,
-    -- | If you don\'t specify an AWS Region, the default is the current Region.
-    region :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the AWS Glue database that contains the schema for
-    -- the output data.
+    -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
+    -- role must be in the same account you use for Kinesis Data Firehose.
+    -- Cross-account roles aren\'t allowed.
     --
     -- If the @SchemaConfiguration@ request parameter is used as part of
-    -- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
-    -- property is required and its value must be specified.
-    databaseName :: Prelude.Maybe Prelude.Text
+    -- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
+    -- required and its value must be specified.
+    roleARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,13 +72,22 @@ data SchemaConfiguration = SchemaConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleARN', 'schemaConfiguration_roleARN' - The role that Kinesis Data Firehose can use to access AWS Glue. This
--- role must be in the same account you use for Kinesis Data Firehose.
--- Cross-account roles aren\'t allowed.
+-- 'versionId', 'schemaConfiguration_versionId' - Specifies the table version for the output data schema. If you don\'t
+-- specify this version ID, or if you set it to @LATEST@, Kinesis Data
+-- Firehose uses the most recent version. This means that any updates to
+-- the table are automatically picked up.
+--
+-- 'catalogId', 'schemaConfiguration_catalogId' - The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
+-- account ID is used by default.
+--
+-- 'databaseName', 'schemaConfiguration_databaseName' - Specifies the name of the AWS Glue database that contains the schema for
+-- the output data.
 --
 -- If the @SchemaConfiguration@ request parameter is used as part of
--- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
--- required and its value must be specified.
+-- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
+-- property is required and its value must be specified.
+--
+-- 'region', 'schemaConfiguration_region' - If you don\'t specify an AWS Region, the default is the current Region.
 --
 -- 'tableName', 'schemaConfiguration_tableName' - Specifies the AWS Glue table that contains the column information that
 -- constitutes your data schema.
@@ -87,33 +96,58 @@ data SchemaConfiguration = SchemaConfiguration'
 -- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
 -- is required and its value must be specified.
 --
--- 'catalogId', 'schemaConfiguration_catalogId' - The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
--- account ID is used by default.
+-- 'roleARN', 'schemaConfiguration_roleARN' - The role that Kinesis Data Firehose can use to access AWS Glue. This
+-- role must be in the same account you use for Kinesis Data Firehose.
+-- Cross-account roles aren\'t allowed.
 --
--- 'versionId', 'schemaConfiguration_versionId' - Specifies the table version for the output data schema. If you don\'t
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @RoleARN@ property is
+-- required and its value must be specified.
+newSchemaConfiguration ::
+  SchemaConfiguration
+newSchemaConfiguration =
+  SchemaConfiguration'
+    { versionId = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
+      region = Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      roleARN = Prelude.Nothing
+    }
+
+-- | Specifies the table version for the output data schema. If you don\'t
 -- specify this version ID, or if you set it to @LATEST@, Kinesis Data
 -- Firehose uses the most recent version. This means that any updates to
 -- the table are automatically picked up.
---
--- 'region', 'schemaConfiguration_region' - If you don\'t specify an AWS Region, the default is the current Region.
---
--- 'databaseName', 'schemaConfiguration_databaseName' - Specifies the name of the AWS Glue database that contains the schema for
+schemaConfiguration_versionId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
+schemaConfiguration_versionId = Lens.lens (\SchemaConfiguration' {versionId} -> versionId) (\s@SchemaConfiguration' {} a -> s {versionId = a} :: SchemaConfiguration)
+
+-- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
+-- account ID is used by default.
+schemaConfiguration_catalogId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
+schemaConfiguration_catalogId = Lens.lens (\SchemaConfiguration' {catalogId} -> catalogId) (\s@SchemaConfiguration' {} a -> s {catalogId = a} :: SchemaConfiguration)
+
+-- | Specifies the name of the AWS Glue database that contains the schema for
 -- the output data.
 --
 -- If the @SchemaConfiguration@ request parameter is used as part of
 -- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
 -- property is required and its value must be specified.
-newSchemaConfiguration ::
-  SchemaConfiguration
-newSchemaConfiguration =
-  SchemaConfiguration'
-    { roleARN = Prelude.Nothing,
-      tableName = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      region = Prelude.Nothing,
-      databaseName = Prelude.Nothing
-    }
+schemaConfiguration_databaseName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
+schemaConfiguration_databaseName = Lens.lens (\SchemaConfiguration' {databaseName} -> databaseName) (\s@SchemaConfiguration' {} a -> s {databaseName = a} :: SchemaConfiguration)
+
+-- | If you don\'t specify an AWS Region, the default is the current Region.
+schemaConfiguration_region :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
+schemaConfiguration_region = Lens.lens (\SchemaConfiguration' {region} -> region) (\s@SchemaConfiguration' {} a -> s {region = a} :: SchemaConfiguration)
+
+-- | Specifies the AWS Glue table that contains the column information that
+-- constitutes your data schema.
+--
+-- If the @SchemaConfiguration@ request parameter is used as part of
+-- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
+-- is required and its value must be specified.
+schemaConfiguration_tableName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
+schemaConfiguration_tableName = Lens.lens (\SchemaConfiguration' {tableName} -> tableName) (\s@SchemaConfiguration' {} a -> s {tableName = a} :: SchemaConfiguration)
 
 -- | The role that Kinesis Data Firehose can use to access AWS Glue. This
 -- role must be in the same account you use for Kinesis Data Firehose.
@@ -125,52 +159,18 @@ newSchemaConfiguration =
 schemaConfiguration_roleARN :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
 schemaConfiguration_roleARN = Lens.lens (\SchemaConfiguration' {roleARN} -> roleARN) (\s@SchemaConfiguration' {} a -> s {roleARN = a} :: SchemaConfiguration)
 
--- | Specifies the AWS Glue table that contains the column information that
--- constitutes your data schema.
---
--- If the @SchemaConfiguration@ request parameter is used as part of
--- invoking the @CreateDeliveryStream@ API, then the @TableName@ property
--- is required and its value must be specified.
-schemaConfiguration_tableName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
-schemaConfiguration_tableName = Lens.lens (\SchemaConfiguration' {tableName} -> tableName) (\s@SchemaConfiguration' {} a -> s {tableName = a} :: SchemaConfiguration)
-
--- | The ID of the AWS Glue Data Catalog. If you don\'t supply this, the AWS
--- account ID is used by default.
-schemaConfiguration_catalogId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
-schemaConfiguration_catalogId = Lens.lens (\SchemaConfiguration' {catalogId} -> catalogId) (\s@SchemaConfiguration' {} a -> s {catalogId = a} :: SchemaConfiguration)
-
--- | Specifies the table version for the output data schema. If you don\'t
--- specify this version ID, or if you set it to @LATEST@, Kinesis Data
--- Firehose uses the most recent version. This means that any updates to
--- the table are automatically picked up.
-schemaConfiguration_versionId :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
-schemaConfiguration_versionId = Lens.lens (\SchemaConfiguration' {versionId} -> versionId) (\s@SchemaConfiguration' {} a -> s {versionId = a} :: SchemaConfiguration)
-
--- | If you don\'t specify an AWS Region, the default is the current Region.
-schemaConfiguration_region :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
-schemaConfiguration_region = Lens.lens (\SchemaConfiguration' {region} -> region) (\s@SchemaConfiguration' {} a -> s {region = a} :: SchemaConfiguration)
-
--- | Specifies the name of the AWS Glue database that contains the schema for
--- the output data.
---
--- If the @SchemaConfiguration@ request parameter is used as part of
--- invoking the @CreateDeliveryStream@ API, then the @DatabaseName@
--- property is required and its value must be specified.
-schemaConfiguration_databaseName :: Lens.Lens' SchemaConfiguration (Prelude.Maybe Prelude.Text)
-schemaConfiguration_databaseName = Lens.lens (\SchemaConfiguration' {databaseName} -> databaseName) (\s@SchemaConfiguration' {} a -> s {databaseName = a} :: SchemaConfiguration)
-
 instance Core.FromJSON SchemaConfiguration where
   parseJSON =
     Core.withObject
       "SchemaConfiguration"
       ( \x ->
           SchemaConfiguration'
-            Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<$> (x Core..:? "VersionId")
             Prelude.<*> (x Core..:? "CatalogId")
-            Prelude.<*> (x Core..:? "VersionId")
-            Prelude.<*> (x Core..:? "Region")
             Prelude.<*> (x Core..:? "DatabaseName")
+            Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "RoleARN")
       )
 
 instance Prelude.Hashable SchemaConfiguration
@@ -181,11 +181,11 @@ instance Core.ToJSON SchemaConfiguration where
   toJSON SchemaConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("TableName" Core..=) Prelude.<$> tableName,
+          [ ("VersionId" Core..=) Prelude.<$> versionId,
             ("CatalogId" Core..=) Prelude.<$> catalogId,
-            ("VersionId" Core..=) Prelude.<$> versionId,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName,
             ("Region" Core..=) Prelude.<$> region,
-            ("DatabaseName" Core..=) Prelude.<$> databaseName
+            ("TableName" Core..=) Prelude.<$> tableName,
+            ("RoleARN" Core..=) Prelude.<$> roleARN
           ]
       )

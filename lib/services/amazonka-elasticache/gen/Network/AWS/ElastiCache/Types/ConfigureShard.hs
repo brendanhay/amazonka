@@ -123,11 +123,11 @@ newConfigureShard pNodeGroupId_ pNewReplicaCount_ =
 -- of @ReplicaConfiguration@ is omitted, ElastiCache for Redis selects the
 -- availability zone for each of the replicas.
 configureShard_preferredAvailabilityZones :: Lens.Lens' ConfigureShard (Prelude.Maybe [Prelude.Text])
-configureShard_preferredAvailabilityZones = Lens.lens (\ConfigureShard' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ConfigureShard' {} a -> s {preferredAvailabilityZones = a} :: ConfigureShard) Prelude.. Lens.mapping Lens._Coerce
+configureShard_preferredAvailabilityZones = Lens.lens (\ConfigureShard' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ConfigureShard' {} a -> s {preferredAvailabilityZones = a} :: ConfigureShard) Prelude.. Lens.mapping Lens.coerced
 
 -- | The outpost ARNs in which the cache cluster is created.
 configureShard_preferredOutpostArns :: Lens.Lens' ConfigureShard (Prelude.Maybe [Prelude.Text])
-configureShard_preferredOutpostArns = Lens.lens (\ConfigureShard' {preferredOutpostArns} -> preferredOutpostArns) (\s@ConfigureShard' {} a -> s {preferredOutpostArns = a} :: ConfigureShard) Prelude.. Lens.mapping Lens._Coerce
+configureShard_preferredOutpostArns = Lens.lens (\ConfigureShard' {preferredOutpostArns} -> preferredOutpostArns) (\s@ConfigureShard' {} a -> s {preferredOutpostArns = a} :: ConfigureShard) Prelude.. Lens.mapping Lens.coerced
 
 -- | The 4-digit id for the node group you are configuring. For Redis
 -- (cluster mode disabled) replication groups, the node group id is always

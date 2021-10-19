@@ -76,7 +76,7 @@ redactionConfig_maskMode = Lens.lens (\RedactionConfig' {maskMode} -> maskMode) 
 -- | An array of the types of PII entities that Amazon Comprehend detects in
 -- the input text for your request.
 redactionConfig_piiEntityTypes :: Lens.Lens' RedactionConfig (Prelude.Maybe [PiiEntityType])
-redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -> piiEntityTypes) (\s@RedactionConfig' {} a -> s {piiEntityTypes = a} :: RedactionConfig) Prelude.. Lens.mapping Lens._Coerce
+redactionConfig_piiEntityTypes = Lens.lens (\RedactionConfig' {piiEntityTypes} -> piiEntityTypes) (\s@RedactionConfig' {} a -> s {piiEntityTypes = a} :: RedactionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON RedactionConfig where
   parseJSON =

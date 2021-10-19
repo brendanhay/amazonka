@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImagePermissions' smart constructor.
 data ImagePermissions = ImagePermissions'
-  { -- | Indicates whether the image can be used for an image builder.
-    allowImageBuilder :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether the image can be used for a fleet.
-    allowFleet :: Prelude.Maybe Prelude.Bool
+  { -- | Indicates whether the image can be used for a fleet.
+    allowFleet :: Prelude.Maybe Prelude.Bool,
+    -- | Indicates whether the image can be used for an image builder.
+    allowImageBuilder :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,24 @@ data ImagePermissions = ImagePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowImageBuilder', 'imagePermissions_allowImageBuilder' - Indicates whether the image can be used for an image builder.
---
 -- 'allowFleet', 'imagePermissions_allowFleet' - Indicates whether the image can be used for a fleet.
+--
+-- 'allowImageBuilder', 'imagePermissions_allowImageBuilder' - Indicates whether the image can be used for an image builder.
 newImagePermissions ::
   ImagePermissions
 newImagePermissions =
   ImagePermissions'
-    { allowImageBuilder =
-        Prelude.Nothing,
-      allowFleet = Prelude.Nothing
+    { allowFleet = Prelude.Nothing,
+      allowImageBuilder = Prelude.Nothing
     }
-
--- | Indicates whether the image can be used for an image builder.
-imagePermissions_allowImageBuilder :: Lens.Lens' ImagePermissions (Prelude.Maybe Prelude.Bool)
-imagePermissions_allowImageBuilder = Lens.lens (\ImagePermissions' {allowImageBuilder} -> allowImageBuilder) (\s@ImagePermissions' {} a -> s {allowImageBuilder = a} :: ImagePermissions)
 
 -- | Indicates whether the image can be used for a fleet.
 imagePermissions_allowFleet :: Lens.Lens' ImagePermissions (Prelude.Maybe Prelude.Bool)
 imagePermissions_allowFleet = Lens.lens (\ImagePermissions' {allowFleet} -> allowFleet) (\s@ImagePermissions' {} a -> s {allowFleet = a} :: ImagePermissions)
+
+-- | Indicates whether the image can be used for an image builder.
+imagePermissions_allowImageBuilder :: Lens.Lens' ImagePermissions (Prelude.Maybe Prelude.Bool)
+imagePermissions_allowImageBuilder = Lens.lens (\ImagePermissions' {allowImageBuilder} -> allowImageBuilder) (\s@ImagePermissions' {} a -> s {allowImageBuilder = a} :: ImagePermissions)
 
 instance Core.FromJSON ImagePermissions where
   parseJSON =
@@ -68,8 +67,8 @@ instance Core.FromJSON ImagePermissions where
       "ImagePermissions"
       ( \x ->
           ImagePermissions'
-            Prelude.<$> (x Core..:? "allowImageBuilder")
-            Prelude.<*> (x Core..:? "allowFleet")
+            Prelude.<$> (x Core..:? "allowFleet")
+            Prelude.<*> (x Core..:? "allowImageBuilder")
       )
 
 instance Prelude.Hashable ImagePermissions
@@ -80,8 +79,8 @@ instance Core.ToJSON ImagePermissions where
   toJSON ImagePermissions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("allowImageBuilder" Core..=)
-              Prelude.<$> allowImageBuilder,
-            ("allowFleet" Core..=) Prelude.<$> allowFleet
+          [ ("allowFleet" Core..=) Prelude.<$> allowFleet,
+            ("allowImageBuilder" Core..=)
+              Prelude.<$> allowImageBuilder
           ]
       )

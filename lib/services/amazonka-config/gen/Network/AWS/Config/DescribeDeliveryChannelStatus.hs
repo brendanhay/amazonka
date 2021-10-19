@@ -79,7 +79,7 @@ newDescribeDeliveryChannelStatus =
 
 -- | A list of delivery channel names.
 describeDeliveryChannelStatus_deliveryChannelNames :: Lens.Lens' DescribeDeliveryChannelStatus (Prelude.Maybe [Prelude.Text])
-describeDeliveryChannelStatus_deliveryChannelNames = Lens.lens (\DescribeDeliveryChannelStatus' {deliveryChannelNames} -> deliveryChannelNames) (\s@DescribeDeliveryChannelStatus' {} a -> s {deliveryChannelNames = a} :: DescribeDeliveryChannelStatus) Prelude.. Lens.mapping Lens._Coerce
+describeDeliveryChannelStatus_deliveryChannelNames = Lens.lens (\DescribeDeliveryChannelStatus' {deliveryChannelNames} -> deliveryChannelNames) (\s@DescribeDeliveryChannelStatus' {} a -> s {deliveryChannelNames = a} :: DescribeDeliveryChannelStatus) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.AWSRequest
@@ -170,7 +170,7 @@ newDescribeDeliveryChannelStatusResponse pHttpStatus_ =
 
 -- | A list that contains the status of a specified delivery channel.
 describeDeliveryChannelStatusResponse_deliveryChannelsStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse (Prelude.Maybe [DeliveryChannelStatus])
-describeDeliveryChannelStatusResponse_deliveryChannelsStatus = Lens.lens (\DescribeDeliveryChannelStatusResponse' {deliveryChannelsStatus} -> deliveryChannelsStatus) (\s@DescribeDeliveryChannelStatusResponse' {} a -> s {deliveryChannelsStatus = a} :: DescribeDeliveryChannelStatusResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDeliveryChannelStatusResponse_deliveryChannelsStatus = Lens.lens (\DescribeDeliveryChannelStatusResponse' {deliveryChannelsStatus} -> deliveryChannelsStatus) (\s@DescribeDeliveryChannelStatusResponse' {} a -> s {deliveryChannelsStatus = a} :: DescribeDeliveryChannelStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeDeliveryChannelStatusResponse_httpStatus :: Lens.Lens' DescribeDeliveryChannelStatusResponse Prelude.Int

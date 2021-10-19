@@ -66,7 +66,7 @@ newChannelMessages =
 -- Example path:
 -- @channel\/mychannel\/__dt=2020-02-29 00:00:00\/1582940490000_1582940520000_123456789012_mychannel_0_2118.0.json.gz@
 channelMessages_s3Paths :: Lens.Lens' ChannelMessages (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-channelMessages_s3Paths = Lens.lens (\ChannelMessages' {s3Paths} -> s3Paths) (\s@ChannelMessages' {} a -> s {s3Paths = a} :: ChannelMessages) Prelude.. Lens.mapping Lens._Coerce
+channelMessages_s3Paths = Lens.lens (\ChannelMessages' {s3Paths} -> s3Paths) (\s@ChannelMessages' {} a -> s {s3Paths = a} :: ChannelMessages) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable ChannelMessages
 

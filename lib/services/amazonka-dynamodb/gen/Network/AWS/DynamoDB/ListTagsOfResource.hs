@@ -219,7 +219,7 @@ listTagsOfResourceResponse_nextToken = Lens.lens (\ListTagsOfResourceResponse' {
 
 -- | The tags currently associated with the Amazon DynamoDB resource.
 listTagsOfResourceResponse_tags :: Lens.Lens' ListTagsOfResourceResponse (Prelude.Maybe [Tag])
-listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags} -> tags) (\s@ListTagsOfResourceResponse' {} a -> s {tags = a} :: ListTagsOfResourceResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsOfResourceResponse_tags = Lens.lens (\ListTagsOfResourceResponse' {tags} -> tags) (\s@ListTagsOfResourceResponse' {} a -> s {tags = a} :: ListTagsOfResourceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsOfResourceResponse_httpStatus :: Lens.Lens' ListTagsOfResourceResponse Prelude.Int

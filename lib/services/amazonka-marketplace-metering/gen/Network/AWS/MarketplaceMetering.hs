@@ -66,44 +66,38 @@ module Network.AWS.MarketplaceMetering
     -- * Errors
     -- $errors
 
-    -- ** TimestampOutOfBoundsException
-    _TimestampOutOfBoundsException,
-
-    -- ** CustomerNotEntitledException
-    _CustomerNotEntitledException,
-
-    -- ** InvalidRegionException
-    _InvalidRegionException,
-
-    -- ** ExpiredTokenException
-    _ExpiredTokenException,
-
-    -- ** InvalidUsageDimensionException
-    _InvalidUsageDimensionException,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** DisabledApiException
-    _DisabledApiException,
-
     -- ** InvalidTagException
     _InvalidTagException,
 
-    -- ** InvalidCustomerIdentifierException
-    _InvalidCustomerIdentifierException,
-
-    -- ** DuplicateRequestException
-    _DuplicateRequestException,
-
-    -- ** PlatformNotSupportedException
-    _PlatformNotSupportedException,
+    -- ** InvalidEndpointRegionException
+    _InvalidEndpointRegionException,
 
     -- ** InvalidProductCodeException
     _InvalidProductCodeException,
 
-    -- ** InvalidUsageAllocationsException
-    _InvalidUsageAllocationsException,
+    -- ** InvalidUsageDimensionException
+    _InvalidUsageDimensionException,
+
+    -- ** PlatformNotSupportedException
+    _PlatformNotSupportedException,
+
+    -- ** CustomerNotEntitledException
+    _CustomerNotEntitledException,
+
+    -- ** DuplicateRequestException
+    _DuplicateRequestException,
+
+    -- ** DisabledApiException
+    _DisabledApiException,
+
+    -- ** TimestampOutOfBoundsException
+    _TimestampOutOfBoundsException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidPublicKeyVersionException
+    _InvalidPublicKeyVersionException,
 
     -- ** InternalServiceErrorException
     _InternalServiceErrorException,
@@ -111,11 +105,17 @@ module Network.AWS.MarketplaceMetering
     -- ** InvalidTokenException
     _InvalidTokenException,
 
-    -- ** InvalidEndpointRegionException
-    _InvalidEndpointRegionException,
+    -- ** InvalidUsageAllocationsException
+    _InvalidUsageAllocationsException,
 
-    -- ** InvalidPublicKeyVersionException
-    _InvalidPublicKeyVersionException,
+    -- ** ExpiredTokenException
+    _ExpiredTokenException,
+
+    -- ** InvalidRegionException
+    _InvalidRegionException,
+
+    -- ** InvalidCustomerIdentifierException
+    _InvalidCustomerIdentifierException,
 
     -- * Waiters
     -- $waiters
@@ -123,17 +123,17 @@ module Network.AWS.MarketplaceMetering
     -- * Operations
     -- $operations
 
-    -- ** MeterUsage
-    MeterUsage (MeterUsage'),
-    newMeterUsage,
-    MeterUsageResponse (MeterUsageResponse'),
-    newMeterUsageResponse,
-
     -- ** RegisterUsage
     RegisterUsage (RegisterUsage'),
     newRegisterUsage,
     RegisterUsageResponse (RegisterUsageResponse'),
     newRegisterUsageResponse,
+
+    -- ** BatchMeterUsage
+    BatchMeterUsage (BatchMeterUsage'),
+    newBatchMeterUsage,
+    BatchMeterUsageResponse (BatchMeterUsageResponse'),
+    newBatchMeterUsageResponse,
 
     -- ** ResolveCustomer
     ResolveCustomer (ResolveCustomer'),
@@ -141,11 +141,11 @@ module Network.AWS.MarketplaceMetering
     ResolveCustomerResponse (ResolveCustomerResponse'),
     newResolveCustomerResponse,
 
-    -- ** BatchMeterUsage
-    BatchMeterUsage (BatchMeterUsage'),
-    newBatchMeterUsage,
-    BatchMeterUsageResponse (BatchMeterUsageResponse'),
-    newBatchMeterUsageResponse,
+    -- ** MeterUsage
+    MeterUsage (MeterUsage'),
+    newMeterUsage,
+    MeterUsageResponse (MeterUsageResponse'),
+    newMeterUsageResponse,
 
     -- * Types
 

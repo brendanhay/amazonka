@@ -61,7 +61,9 @@ newListBuckets = ListBuckets'
 
 instance Core.AWSRequest ListBuckets where
   type AWSResponse ListBuckets = ListBucketsResponse
-  request = Request.get defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
@@ -123,7 +125,7 @@ newListBucketsResponse pHttpStatus_ =
 
 -- | The list of buckets owned by the requestor.
 listBucketsResponse_buckets :: Lens.Lens' ListBucketsResponse (Prelude.Maybe [Bucket])
-listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Prelude.. Lens.mapping Lens._Coerce
+listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The owner of the buckets listed.
 listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Prelude.Maybe Owner)

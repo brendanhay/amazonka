@@ -39,9 +39,9 @@ module Network.AWS.GameLift.ListAliases
     newListAliases,
 
     -- * Request Lenses
+    listAliases_routingStrategyType,
     listAliases_nextToken,
     listAliases_name,
-    listAliases_routingStrategyType,
     listAliases_limit,
 
     -- * Destructuring the Response
@@ -49,8 +49,8 @@ module Network.AWS.GameLift.ListAliases
     newListAliasesResponse,
 
     -- * Response Lenses
-    listAliasesResponse_nextToken,
     listAliasesResponse_aliases,
+    listAliasesResponse_nextToken,
     listAliasesResponse_httpStatus,
   )
 where
@@ -66,14 +66,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { -- | A token that indicates the start of the next sequential page of results.
-    -- Use the token that is returned with a previous call to this operation.
-    -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A descriptive label that is associated with an alias. Alias names do not
-    -- need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The routing type to filter results on. Use this parameter to retrieve
+  { -- | The routing type to filter results on. Use this parameter to retrieve
     -- only aliases with a certain routing type. To retrieve all aliases, leave
     -- this parameter empty.
     --
@@ -87,6 +80,13 @@ data ListAliases = ListAliases'
     --     throws a TerminalRoutingStrategyException with the RoutingStrategy
     --     message embedded.
     routingStrategyType :: Prelude.Maybe RoutingStrategyType,
+    -- | A token that indicates the start of the next sequential page of results.
+    -- Use the token that is returned with a previous call to this operation.
+    -- To start at the beginning of the result set, do not specify a value.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with an alias. Alias names do not
+    -- need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural
@@ -100,13 +100,6 @@ data ListAliases = ListAliases'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'nextToken', 'listAliases_nextToken' - A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
---
--- 'name', 'listAliases_name' - A descriptive label that is associated with an alias. Alias names do not
--- need to be unique.
 --
 -- 'routingStrategyType', 'listAliases_routingStrategyType' - The routing type to filter results on. Use this parameter to retrieve
 -- only aliases with a certain routing type. To retrieve all aliases, leave
@@ -122,28 +115,24 @@ data ListAliases = ListAliases'
 --     throws a TerminalRoutingStrategyException with the RoutingStrategy
 --     message embedded.
 --
+-- 'nextToken', 'listAliases_nextToken' - A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+--
+-- 'name', 'listAliases_name' - A descriptive label that is associated with an alias. Alias names do not
+-- need to be unique.
+--
 -- 'limit', 'listAliases_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 newListAliases ::
   ListAliases
 newListAliases =
   ListAliases'
-    { nextToken = Prelude.Nothing,
+    { routingStrategyType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       name = Prelude.Nothing,
-      routingStrategyType = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | A token that indicates the start of the next sequential page of results.
--- Use the token that is returned with a previous call to this operation.
--- To start at the beginning of the result set, do not specify a value.
-listAliases_nextToken :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@ListAliases' {} a -> s {nextToken = a} :: ListAliases)
-
--- | A descriptive label that is associated with an alias. Alias names do not
--- need to be unique.
-listAliases_name :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_name = Lens.lens (\ListAliases' {name} -> name) (\s@ListAliases' {} a -> s {name = a} :: ListAliases)
 
 -- | The routing type to filter results on. Use this parameter to retrieve
 -- only aliases with a certain routing type. To retrieve all aliases, leave
@@ -160,6 +149,17 @@ listAliases_name = Lens.lens (\ListAliases' {name} -> name) (\s@ListAliases' {} 
 --     message embedded.
 listAliases_routingStrategyType :: Lens.Lens' ListAliases (Prelude.Maybe RoutingStrategyType)
 listAliases_routingStrategyType = Lens.lens (\ListAliases' {routingStrategyType} -> routingStrategyType) (\s@ListAliases' {} a -> s {routingStrategyType = a} :: ListAliases)
+
+-- | A token that indicates the start of the next sequential page of results.
+-- Use the token that is returned with a previous call to this operation.
+-- To start at the beginning of the result set, do not specify a value.
+listAliases_nextToken :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@ListAliases' {} a -> s {nextToken = a} :: ListAliases)
+
+-- | A descriptive label that is associated with an alias. Alias names do not
+-- need to be unique.
+listAliases_name :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_name = Lens.lens (\ListAliases' {name} -> name) (\s@ListAliases' {} a -> s {name = a} :: ListAliases)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -192,8 +192,8 @@ instance Core.AWSRequest ListAliases where
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -218,10 +218,10 @@ instance Core.ToJSON ListAliases where
   toJSON ListAliases' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Name" Core..=) Prelude.<$> name,
-            ("RoutingStrategyType" Core..=)
+          [ ("RoutingStrategyType" Core..=)
               Prelude.<$> routingStrategyType,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Name" Core..=) Prelude.<$> name,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -236,12 +236,12 @@ instance Core.ToQuery ListAliases where
 --
 -- /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { -- | A token that indicates where to resume retrieving results on the next
+  { -- | A collection of alias resources that match the request parameters.
+    aliases :: Prelude.Maybe [Alias],
+    -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of alias resources that match the request parameters.
-    aliases :: Prelude.Maybe [Alias],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -255,11 +255,11 @@ data ListAliasesResponse = ListAliasesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'aliases', 'listAliasesResponse_aliases' - A collection of alias resources that match the request parameters.
+--
 -- 'nextToken', 'listAliasesResponse_nextToken' - A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
---
--- 'aliases', 'listAliasesResponse_aliases' - A collection of alias resources that match the request parameters.
 --
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
@@ -268,20 +268,20 @@ newListAliasesResponse ::
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextToken = Prelude.Nothing,
-      aliases = Prelude.Nothing,
+    { aliases = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A collection of alias resources that match the request parameters.
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Alias])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
 listAliasesResponse_nextToken :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
 listAliasesResponse_nextToken = Lens.lens (\ListAliasesResponse' {nextToken} -> nextToken) (\s@ListAliasesResponse' {} a -> s {nextToken = a} :: ListAliasesResponse)
-
--- | A collection of alias resources that match the request parameters.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [Alias])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int

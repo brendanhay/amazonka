@@ -61,7 +61,7 @@ newCloudWatchDestination =
 -- | A list of dimensions upon which to categorize your emails when you
 -- publish email sending events to Amazon CloudWatch.
 cloudWatchDestination_dimensionConfigurations :: Lens.Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
-cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestination' {dimensionConfigurations} -> dimensionConfigurations) (\s@CloudWatchDestination' {} a -> s {dimensionConfigurations = a} :: CloudWatchDestination) Prelude.. Lens._Coerce
+cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestination' {dimensionConfigurations} -> dimensionConfigurations) (\s@CloudWatchDestination' {} a -> s {dimensionConfigurations = a} :: CloudWatchDestination) Prelude.. Lens.coerced
 
 instance Core.FromXML CloudWatchDestination where
   parseXML x =

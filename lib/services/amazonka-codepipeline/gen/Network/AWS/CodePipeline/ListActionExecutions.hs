@@ -30,8 +30,8 @@ module Network.AWS.CodePipeline.ListActionExecutions
 
     -- * Request Lenses
     listActionExecutions_nextToken,
-    listActionExecutions_maxResults,
     listActionExecutions_filter,
+    listActionExecutions_maxResults,
     listActionExecutions_pipelineName,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Network.AWS.CodePipeline.ListActionExecutions
     newListActionExecutionsResponse,
 
     -- * Response Lenses
-    listActionExecutionsResponse_nextToken,
     listActionExecutionsResponse_actionExecutionDetails,
+    listActionExecutionsResponse_nextToken,
     listActionExecutionsResponse_httpStatus,
   )
 where
@@ -58,6 +58,8 @@ data ListActionExecutions = ListActionExecutions'
     -- call, which can be used to return the next set of action executions in
     -- the list.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Input information used to filter action execution history.
+    filter' :: Prelude.Maybe ActionExecutionFilter,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned nextToken
     -- value. Action execution history is retained for up to 12 months, based
@@ -66,8 +68,6 @@ data ListActionExecutions = ListActionExecutions'
     -- Detailed execution history is available for executions run on or after
     -- February 21, 2019.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Input information used to filter action execution history.
-    filter' :: Prelude.Maybe ActionExecutionFilter,
     -- | The name of the pipeline for which you want to list action execution
     -- history.
     pipelineName :: Prelude.Text
@@ -86,6 +86,8 @@ data ListActionExecutions = ListActionExecutions'
 -- call, which can be used to return the next set of action executions in
 -- the list.
 --
+-- 'filter'', 'listActionExecutions_filter' - Input information used to filter action execution history.
+--
 -- 'maxResults', 'listActionExecutions_maxResults' - The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned nextToken
 -- value. Action execution history is retained for up to 12 months, based
@@ -93,8 +95,6 @@ data ListActionExecutions = ListActionExecutions'
 --
 -- Detailed execution history is available for executions run on or after
 -- February 21, 2019.
---
--- 'filter'', 'listActionExecutions_filter' - Input information used to filter action execution history.
 --
 -- 'pipelineName', 'listActionExecutions_pipelineName' - The name of the pipeline for which you want to list action execution
 -- history.
@@ -105,8 +105,8 @@ newListActionExecutions ::
 newListActionExecutions pPipelineName_ =
   ListActionExecutions'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
 
@@ -115,6 +115,10 @@ newListActionExecutions pPipelineName_ =
 -- the list.
 listActionExecutions_nextToken :: Lens.Lens' ListActionExecutions (Prelude.Maybe Prelude.Text)
 listActionExecutions_nextToken = Lens.lens (\ListActionExecutions' {nextToken} -> nextToken) (\s@ListActionExecutions' {} a -> s {nextToken = a} :: ListActionExecutions)
+
+-- | Input information used to filter action execution history.
+listActionExecutions_filter :: Lens.Lens' ListActionExecutions (Prelude.Maybe ActionExecutionFilter)
+listActionExecutions_filter = Lens.lens (\ListActionExecutions' {filter'} -> filter') (\s@ListActionExecutions' {} a -> s {filter' = a} :: ListActionExecutions)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned nextToken
@@ -125,10 +129,6 @@ listActionExecutions_nextToken = Lens.lens (\ListActionExecutions' {nextToken} -
 -- February 21, 2019.
 listActionExecutions_maxResults :: Lens.Lens' ListActionExecutions (Prelude.Maybe Prelude.Natural)
 listActionExecutions_maxResults = Lens.lens (\ListActionExecutions' {maxResults} -> maxResults) (\s@ListActionExecutions' {} a -> s {maxResults = a} :: ListActionExecutions)
-
--- | Input information used to filter action execution history.
-listActionExecutions_filter :: Lens.Lens' ListActionExecutions (Prelude.Maybe ActionExecutionFilter)
-listActionExecutions_filter = Lens.lens (\ListActionExecutions' {filter'} -> filter') (\s@ListActionExecutions' {} a -> s {filter' = a} :: ListActionExecutions)
 
 -- | The name of the pipeline for which you want to list action execution
 -- history.
@@ -166,10 +166,10 @@ instance Core.AWSRequest ListActionExecutions where
     Response.receiveJSON
       ( \s h x ->
           ListActionExecutionsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "actionExecutionDetails"
+            Prelude.<$> ( x Core..?> "actionExecutionDetails"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -197,8 +197,8 @@ instance Core.ToJSON ListActionExecutions where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("pipelineName" Core..= pipelineName)
           ]
       )
@@ -211,14 +211,14 @@ instance Core.ToQuery ListActionExecutions where
 
 -- | /See:/ 'newListActionExecutionsResponse' smart constructor.
 data ListActionExecutionsResponse = ListActionExecutionsResponse'
-  { -- | If the amount of returned information is significantly large, an
+  { -- | The details for a list of recent executions, such as action execution
+    -- ID.
+    actionExecutionDetails :: Prelude.Maybe [ActionExecutionDetail],
+    -- | If the amount of returned information is significantly large, an
     -- identifier is also returned and can be used in a subsequent
     -- @ListActionExecutions@ call to return the next set of action executions
     -- in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details for a list of recent executions, such as action execution
-    -- ID.
-    actionExecutionDetails :: Prelude.Maybe [ActionExecutionDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -232,13 +232,13 @@ data ListActionExecutionsResponse = ListActionExecutionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'actionExecutionDetails', 'listActionExecutionsResponse_actionExecutionDetails' - The details for a list of recent executions, such as action execution
+-- ID.
+--
 -- 'nextToken', 'listActionExecutionsResponse_nextToken' - If the amount of returned information is significantly large, an
 -- identifier is also returned and can be used in a subsequent
 -- @ListActionExecutions@ call to return the next set of action executions
 -- in the list.
---
--- 'actionExecutionDetails', 'listActionExecutionsResponse_actionExecutionDetails' - The details for a list of recent executions, such as action execution
--- ID.
 --
 -- 'httpStatus', 'listActionExecutionsResponse_httpStatus' - The response's http status code.
 newListActionExecutionsResponse ::
@@ -247,11 +247,16 @@ newListActionExecutionsResponse ::
   ListActionExecutionsResponse
 newListActionExecutionsResponse pHttpStatus_ =
   ListActionExecutionsResponse'
-    { nextToken =
+    { actionExecutionDetails =
         Prelude.Nothing,
-      actionExecutionDetails = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The details for a list of recent executions, such as action execution
+-- ID.
+listActionExecutionsResponse_actionExecutionDetails :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe [ActionExecutionDetail])
+listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExecutionsResponse' {actionExecutionDetails} -> actionExecutionDetails) (\s@ListActionExecutionsResponse' {} a -> s {actionExecutionDetails = a} :: ListActionExecutionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If the amount of returned information is significantly large, an
 -- identifier is also returned and can be used in a subsequent
@@ -259,11 +264,6 @@ newListActionExecutionsResponse pHttpStatus_ =
 -- in the list.
 listActionExecutionsResponse_nextToken :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe Prelude.Text)
 listActionExecutionsResponse_nextToken = Lens.lens (\ListActionExecutionsResponse' {nextToken} -> nextToken) (\s@ListActionExecutionsResponse' {} a -> s {nextToken = a} :: ListActionExecutionsResponse)
-
--- | The details for a list of recent executions, such as action execution
--- ID.
-listActionExecutionsResponse_actionExecutionDetails :: Lens.Lens' ListActionExecutionsResponse (Prelude.Maybe [ActionExecutionDetail])
-listActionExecutionsResponse_actionExecutionDetails = Lens.lens (\ListActionExecutionsResponse' {actionExecutionDetails} -> actionExecutionDetails) (\s@ListActionExecutionsResponse' {} a -> s {actionExecutionDetails = a} :: ListActionExecutionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listActionExecutionsResponse_httpStatus :: Lens.Lens' ListActionExecutionsResponse Prelude.Int

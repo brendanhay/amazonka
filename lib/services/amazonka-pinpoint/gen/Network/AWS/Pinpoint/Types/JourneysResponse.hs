@@ -70,7 +70,7 @@ journeysResponse_nextToken = Lens.lens (\JourneysResponse' {nextToken} -> nextTo
 -- | An array of responses, one for each journey that\'s associated with the
 -- application.
 journeysResponse_item :: Lens.Lens' JourneysResponse [JourneyResponse]
-journeysResponse_item = Lens.lens (\JourneysResponse' {item} -> item) (\s@JourneysResponse' {} a -> s {item = a} :: JourneysResponse) Prelude.. Lens._Coerce
+journeysResponse_item = Lens.lens (\JourneysResponse' {item} -> item) (\s@JourneysResponse' {} a -> s {item = a} :: JourneysResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON JourneysResponse where
   parseJSON =

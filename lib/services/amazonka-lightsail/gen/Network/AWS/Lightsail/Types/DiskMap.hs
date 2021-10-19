@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDiskMap' smart constructor.
 data DiskMap = DiskMap'
-  { -- | The original disk path exposed to the instance (for example,
+  { -- | The new disk name (e.g., @my-new-disk@).
+    newDiskName' :: Prelude.Maybe Prelude.Text,
+    -- | The original disk path exposed to the instance (for example,
     -- @\/dev\/sdh@).
-    originalDiskPath :: Prelude.Maybe Prelude.Text,
-    -- | The new disk name (e.g., @my-new-disk@).
-    newDiskName' :: Prelude.Maybe Prelude.Text
+    originalDiskPath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data DiskMap = DiskMap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'newDiskName'', 'diskMap_newDiskName' - The new disk name (e.g., @my-new-disk@).
+--
 -- 'originalDiskPath', 'diskMap_originalDiskPath' - The original disk path exposed to the instance (for example,
 -- @\/dev\/sdh@).
---
--- 'newDiskName'', 'diskMap_newDiskName' - The new disk name (e.g., @my-new-disk@).
 newDiskMap ::
   DiskMap
 newDiskMap =
   DiskMap'
-    { originalDiskPath = Prelude.Nothing,
-      newDiskName' = Prelude.Nothing
+    { newDiskName' = Prelude.Nothing,
+      originalDiskPath = Prelude.Nothing
     }
+
+-- | The new disk name (e.g., @my-new-disk@).
+diskMap_newDiskName :: Lens.Lens' DiskMap (Prelude.Maybe Prelude.Text)
+diskMap_newDiskName = Lens.lens (\DiskMap' {newDiskName'} -> newDiskName') (\s@DiskMap' {} a -> s {newDiskName' = a} :: DiskMap)
 
 -- | The original disk path exposed to the instance (for example,
 -- @\/dev\/sdh@).
 diskMap_originalDiskPath :: Lens.Lens' DiskMap (Prelude.Maybe Prelude.Text)
 diskMap_originalDiskPath = Lens.lens (\DiskMap' {originalDiskPath} -> originalDiskPath) (\s@DiskMap' {} a -> s {originalDiskPath = a} :: DiskMap)
-
--- | The new disk name (e.g., @my-new-disk@).
-diskMap_newDiskName :: Lens.Lens' DiskMap (Prelude.Maybe Prelude.Text)
-diskMap_newDiskName = Lens.lens (\DiskMap' {newDiskName'} -> newDiskName') (\s@DiskMap' {} a -> s {newDiskName' = a} :: DiskMap)
 
 instance Prelude.Hashable DiskMap
 
@@ -72,8 +72,8 @@ instance Core.ToJSON DiskMap where
   toJSON DiskMap' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("originalDiskPath" Core..=)
-              Prelude.<$> originalDiskPath,
-            ("newDiskName" Core..=) Prelude.<$> newDiskName'
+          [ ("newDiskName" Core..=) Prelude.<$> newDiskName',
+            ("originalDiskPath" Core..=)
+              Prelude.<$> originalDiskPath
           ]
       )

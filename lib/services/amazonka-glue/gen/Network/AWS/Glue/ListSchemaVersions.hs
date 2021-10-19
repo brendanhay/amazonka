@@ -41,8 +41,8 @@ module Network.AWS.Glue.ListSchemaVersions
     newListSchemaVersionsResponse,
 
     -- * Response Lenses
-    listSchemaVersionsResponse_nextToken,
     listSchemaVersionsResponse_schemas,
+    listSchemaVersionsResponse_nextToken,
     listSchemaVersionsResponse_httpStatus,
   )
 where
@@ -159,8 +159,8 @@ instance Core.AWSRequest ListSchemaVersions where
     Response.receiveJSON
       ( \s h x ->
           ListSchemaVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -199,12 +199,12 @@ instance Core.ToQuery ListSchemaVersions where
 
 -- | /See:/ 'newListSchemaVersionsResponse' smart constructor.
 data ListSchemaVersionsResponse = ListSchemaVersionsResponse'
-  { -- | A continuation token for paginating the returned list of tokens,
-    -- returned if the current segment of the list is not the last.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @SchemaVersionList@ objects containing details of each
+  { -- | An array of @SchemaVersionList@ objects containing details of each
     -- schema version.
     schemas :: Prelude.Maybe [SchemaVersionListItem],
+    -- | A continuation token for paginating the returned list of tokens,
+    -- returned if the current segment of the list is not the last.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -218,11 +218,11 @@ data ListSchemaVersionsResponse = ListSchemaVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSchemaVersionsResponse_nextToken' - A continuation token for paginating the returned list of tokens,
--- returned if the current segment of the list is not the last.
---
 -- 'schemas', 'listSchemaVersionsResponse_schemas' - An array of @SchemaVersionList@ objects containing details of each
 -- schema version.
+--
+-- 'nextToken', 'listSchemaVersionsResponse_nextToken' - A continuation token for paginating the returned list of tokens,
+-- returned if the current segment of the list is not the last.
 --
 -- 'httpStatus', 'listSchemaVersionsResponse_httpStatus' - The response's http status code.
 newListSchemaVersionsResponse ::
@@ -231,21 +231,21 @@ newListSchemaVersionsResponse ::
   ListSchemaVersionsResponse
 newListSchemaVersionsResponse pHttpStatus_ =
   ListSchemaVersionsResponse'
-    { nextToken =
+    { schemas =
         Prelude.Nothing,
-      schemas = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of @SchemaVersionList@ objects containing details of each
+-- schema version.
+listSchemaVersionsResponse_schemas :: Lens.Lens' ListSchemaVersionsResponse (Prelude.Maybe [SchemaVersionListItem])
+listSchemaVersionsResponse_schemas = Lens.lens (\ListSchemaVersionsResponse' {schemas} -> schemas) (\s@ListSchemaVersionsResponse' {} a -> s {schemas = a} :: ListSchemaVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token for paginating the returned list of tokens,
 -- returned if the current segment of the list is not the last.
 listSchemaVersionsResponse_nextToken :: Lens.Lens' ListSchemaVersionsResponse (Prelude.Maybe Prelude.Text)
 listSchemaVersionsResponse_nextToken = Lens.lens (\ListSchemaVersionsResponse' {nextToken} -> nextToken) (\s@ListSchemaVersionsResponse' {} a -> s {nextToken = a} :: ListSchemaVersionsResponse)
-
--- | An array of @SchemaVersionList@ objects containing details of each
--- schema version.
-listSchemaVersionsResponse_schemas :: Lens.Lens' ListSchemaVersionsResponse (Prelude.Maybe [SchemaVersionListItem])
-listSchemaVersionsResponse_schemas = Lens.lens (\ListSchemaVersionsResponse' {schemas} -> schemas) (\s@ListSchemaVersionsResponse' {} a -> s {schemas = a} :: ListSchemaVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listSchemaVersionsResponse_httpStatus :: Lens.Lens' ListSchemaVersionsResponse Prelude.Int

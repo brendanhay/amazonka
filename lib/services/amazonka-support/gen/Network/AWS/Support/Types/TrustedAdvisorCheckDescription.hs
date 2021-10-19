@@ -113,7 +113,7 @@ trustedAdvisorCheckDescription_category = Lens.lens (\TrustedAdvisorCheckDescrip
 -- __Metadata__ contains all the data that is shown in the Excel download,
 -- even in those cases where the UI shows just summary data.
 trustedAdvisorCheckDescription_metadata :: Lens.Lens' TrustedAdvisorCheckDescription [Prelude.Text]
-trustedAdvisorCheckDescription_metadata = Lens.lens (\TrustedAdvisorCheckDescription' {metadata} -> metadata) (\s@TrustedAdvisorCheckDescription' {} a -> s {metadata = a} :: TrustedAdvisorCheckDescription) Prelude.. Lens._Coerce
+trustedAdvisorCheckDescription_metadata = Lens.lens (\TrustedAdvisorCheckDescription' {metadata} -> metadata) (\s@TrustedAdvisorCheckDescription' {} a -> s {metadata = a} :: TrustedAdvisorCheckDescription) Prelude.. Lens.coerced
 
 instance Core.FromJSON TrustedAdvisorCheckDescription where
   parseJSON =

@@ -14,41 +14,49 @@
 module Network.AWS.CertificateManagerPCA.Lens
   ( -- * Operations
 
+    -- ** ImportCertificateAuthorityCertificate
+    importCertificateAuthorityCertificate_certificateChain,
+    importCertificateAuthorityCertificate_certificateAuthorityArn,
+    importCertificateAuthorityCertificate_certificate,
+
     -- ** CreatePermission
     createPermission_sourceAccount,
     createPermission_certificateAuthorityArn,
     createPermission_principal,
     createPermission_actions,
 
-    -- ** RestoreCertificateAuthority
-    restoreCertificateAuthority_certificateAuthorityArn,
+    -- ** DescribeCertificateAuthorityAuditReport
+    describeCertificateAuthorityAuditReport_certificateAuthorityArn,
+    describeCertificateAuthorityAuditReport_auditReportId,
+    describeCertificateAuthorityAuditReportResponse_s3Key,
+    describeCertificateAuthorityAuditReportResponse_createdAt,
+    describeCertificateAuthorityAuditReportResponse_auditReportStatus,
+    describeCertificateAuthorityAuditReportResponse_s3BucketName,
+    describeCertificateAuthorityAuditReportResponse_httpStatus,
 
-    -- ** DeletePolicy
-    deletePolicy_resourceArn,
+    -- ** DeletePermission
+    deletePermission_sourceAccount,
+    deletePermission_certificateAuthorityArn,
+    deletePermission_principal,
 
-    -- ** DescribeCertificateAuthority
-    describeCertificateAuthority_certificateAuthorityArn,
-    describeCertificateAuthorityResponse_certificateAuthority,
-    describeCertificateAuthorityResponse_httpStatus,
+    -- ** RevokeCertificate
+    revokeCertificate_certificateAuthorityArn,
+    revokeCertificate_certificateSerial,
+    revokeCertificate_revocationReason,
 
-    -- ** TagCertificateAuthority
-    tagCertificateAuthority_certificateAuthorityArn,
-    tagCertificateAuthority_tags,
+    -- ** UpdateCertificateAuthority
+    updateCertificateAuthority_status,
+    updateCertificateAuthority_revocationConfiguration,
+    updateCertificateAuthority_certificateAuthorityArn,
 
-    -- ** CreateCertificateAuthorityAuditReport
-    createCertificateAuthorityAuditReport_certificateAuthorityArn,
-    createCertificateAuthorityAuditReport_s3BucketName,
-    createCertificateAuthorityAuditReport_auditReportResponseFormat,
-    createCertificateAuthorityAuditReportResponse_s3Key,
-    createCertificateAuthorityAuditReportResponse_auditReportId,
-    createCertificateAuthorityAuditReportResponse_httpStatus,
+    -- ** DeleteCertificateAuthority
+    deleteCertificateAuthority_permanentDeletionTimeInDays,
+    deleteCertificateAuthority_certificateAuthorityArn,
 
-    -- ** GetCertificate
-    getCertificate_certificateAuthorityArn,
-    getCertificate_certificateArn,
-    getCertificateResponse_certificateChain,
-    getCertificateResponse_certificate,
-    getCertificateResponse_httpStatus,
+    -- ** GetCertificateAuthorityCsr
+    getCertificateAuthorityCsr_certificateAuthorityArn,
+    getCertificateAuthorityCsrResponse_csr,
+    getCertificateAuthorityCsrResponse_httpStatus,
 
     -- ** CreateCertificateAuthority
     createCertificateAuthority_idempotencyToken,
@@ -62,26 +70,55 @@ module Network.AWS.CertificateManagerPCA.Lens
 
     -- ** ListCertificateAuthorities
     listCertificateAuthorities_nextToken,
-    listCertificateAuthorities_maxResults,
     listCertificateAuthorities_resourceOwner,
-    listCertificateAuthoritiesResponse_nextToken,
+    listCertificateAuthorities_maxResults,
     listCertificateAuthoritiesResponse_certificateAuthorities,
+    listCertificateAuthoritiesResponse_nextToken,
     listCertificateAuthoritiesResponse_httpStatus,
 
-    -- ** GetCertificateAuthorityCsr
-    getCertificateAuthorityCsr_certificateAuthorityArn,
-    getCertificateAuthorityCsrResponse_csr,
-    getCertificateAuthorityCsrResponse_httpStatus,
+    -- ** GetCertificate
+    getCertificate_certificateAuthorityArn,
+    getCertificate_certificateArn,
+    getCertificateResponse_certificate,
+    getCertificateResponse_certificateChain,
+    getCertificateResponse_httpStatus,
 
-    -- ** RevokeCertificate
-    revokeCertificate_certificateAuthorityArn,
-    revokeCertificate_certificateSerial,
-    revokeCertificate_revocationReason,
+    -- ** TagCertificateAuthority
+    tagCertificateAuthority_certificateAuthorityArn,
+    tagCertificateAuthority_tags,
 
-    -- ** DeletePermission
-    deletePermission_sourceAccount,
-    deletePermission_certificateAuthorityArn,
-    deletePermission_principal,
+    -- ** PutPolicy
+    putPolicy_resourceArn,
+    putPolicy_policy,
+
+    -- ** DeletePolicy
+    deletePolicy_resourceArn,
+
+    -- ** DescribeCertificateAuthority
+    describeCertificateAuthority_certificateAuthorityArn,
+    describeCertificateAuthorityResponse_certificateAuthority,
+    describeCertificateAuthorityResponse_httpStatus,
+
+    -- ** RestoreCertificateAuthority
+    restoreCertificateAuthority_certificateAuthorityArn,
+
+    -- ** IssueCertificate
+    issueCertificate_idempotencyToken,
+    issueCertificate_apiPassthrough,
+    issueCertificate_templateArn,
+    issueCertificate_validityNotBefore,
+    issueCertificate_certificateAuthorityArn,
+    issueCertificate_csr,
+    issueCertificate_signingAlgorithm,
+    issueCertificate_validity,
+    issueCertificateResponse_certificateArn,
+    issueCertificateResponse_httpStatus,
+
+    -- ** GetCertificateAuthorityCertificate
+    getCertificateAuthorityCertificate_certificateAuthorityArn,
+    getCertificateAuthorityCertificateResponse_certificate,
+    getCertificateAuthorityCertificateResponse_certificateChain,
+    getCertificateAuthorityCertificateResponse_httpStatus,
 
     -- ** ListPermissions
     listPermissions_nextToken,
@@ -91,37 +128,17 @@ module Network.AWS.CertificateManagerPCA.Lens
     listPermissionsResponse_permissions,
     listPermissionsResponse_httpStatus,
 
-    -- ** GetCertificateAuthorityCertificate
-    getCertificateAuthorityCertificate_certificateAuthorityArn,
-    getCertificateAuthorityCertificateResponse_certificateChain,
-    getCertificateAuthorityCertificateResponse_certificate,
-    getCertificateAuthorityCertificateResponse_httpStatus,
+    -- ** UntagCertificateAuthority
+    untagCertificateAuthority_certificateAuthorityArn,
+    untagCertificateAuthority_tags,
 
-    -- ** IssueCertificate
-    issueCertificate_idempotencyToken,
-    issueCertificate_validityNotBefore,
-    issueCertificate_templateArn,
-    issueCertificate_apiPassthrough,
-    issueCertificate_certificateAuthorityArn,
-    issueCertificate_csr,
-    issueCertificate_signingAlgorithm,
-    issueCertificate_validity,
-    issueCertificateResponse_certificateArn,
-    issueCertificateResponse_httpStatus,
-
-    -- ** ImportCertificateAuthorityCertificate
-    importCertificateAuthorityCertificate_certificateChain,
-    importCertificateAuthorityCertificate_certificateAuthorityArn,
-    importCertificateAuthorityCertificate_certificate,
-
-    -- ** PutPolicy
-    putPolicy_resourceArn,
-    putPolicy_policy,
-
-    -- ** GetPolicy
-    getPolicy_resourceArn,
-    getPolicyResponse_policy,
-    getPolicyResponse_httpStatus,
+    -- ** CreateCertificateAuthorityAuditReport
+    createCertificateAuthorityAuditReport_certificateAuthorityArn,
+    createCertificateAuthorityAuditReport_s3BucketName,
+    createCertificateAuthorityAuditReport_auditReportResponseFormat,
+    createCertificateAuthorityAuditReportResponse_s3Key,
+    createCertificateAuthorityAuditReportResponse_auditReportId,
+    createCertificateAuthorityAuditReportResponse_httpStatus,
 
     -- ** ListTags
     listTags_nextToken,
@@ -131,45 +148,28 @@ module Network.AWS.CertificateManagerPCA.Lens
     listTagsResponse_tags,
     listTagsResponse_httpStatus,
 
-    -- ** DeleteCertificateAuthority
-    deleteCertificateAuthority_permanentDeletionTimeInDays,
-    deleteCertificateAuthority_certificateAuthorityArn,
-
-    -- ** UntagCertificateAuthority
-    untagCertificateAuthority_certificateAuthorityArn,
-    untagCertificateAuthority_tags,
-
-    -- ** UpdateCertificateAuthority
-    updateCertificateAuthority_status,
-    updateCertificateAuthority_revocationConfiguration,
-    updateCertificateAuthority_certificateAuthorityArn,
-
-    -- ** DescribeCertificateAuthorityAuditReport
-    describeCertificateAuthorityAuditReport_certificateAuthorityArn,
-    describeCertificateAuthorityAuditReport_auditReportId,
-    describeCertificateAuthorityAuditReportResponse_auditReportStatus,
-    describeCertificateAuthorityAuditReportResponse_createdAt,
-    describeCertificateAuthorityAuditReportResponse_s3Key,
-    describeCertificateAuthorityAuditReportResponse_s3BucketName,
-    describeCertificateAuthorityAuditReportResponse_httpStatus,
+    -- ** GetPolicy
+    getPolicy_resourceArn,
+    getPolicyResponse_policy,
+    getPolicyResponse_httpStatus,
 
     -- * Types
 
     -- ** ASN1Subject
-    aSN1Subject_locality,
-    aSN1Subject_generationQualifier,
-    aSN1Subject_surname,
-    aSN1Subject_organizationalUnit,
-    aSN1Subject_title,
-    aSN1Subject_initials,
-    aSN1Subject_commonName,
-    aSN1Subject_pseudonym,
-    aSN1Subject_state,
     aSN1Subject_givenName,
-    aSN1Subject_serialNumber,
-    aSN1Subject_distinguishedNameQualifier,
-    aSN1Subject_organization,
+    aSN1Subject_state,
+    aSN1Subject_commonName,
+    aSN1Subject_organizationalUnit,
     aSN1Subject_country,
+    aSN1Subject_generationQualifier,
+    aSN1Subject_locality,
+    aSN1Subject_pseudonym,
+    aSN1Subject_initials,
+    aSN1Subject_title,
+    aSN1Subject_organization,
+    aSN1Subject_serialNumber,
+    aSN1Subject_surname,
+    aSN1Subject_distinguishedNameQualifier,
 
     -- ** AccessDescription
     accessDescription_accessMethod,
@@ -180,24 +180,24 @@ module Network.AWS.CertificateManagerPCA.Lens
     accessMethod_customObjectIdentifier,
 
     -- ** ApiPassthrough
-    apiPassthrough_extensions,
     apiPassthrough_subject,
+    apiPassthrough_extensions,
 
     -- ** CertificateAuthority
     certificateAuthority_status,
-    certificateAuthority_notBefore,
-    certificateAuthority_keyStorageSecurityStandard,
-    certificateAuthority_revocationConfiguration,
-    certificateAuthority_serial,
-    certificateAuthority_createdAt,
-    certificateAuthority_arn,
-    certificateAuthority_certificateAuthorityConfiguration,
     certificateAuthority_failureReason,
-    certificateAuthority_notAfter,
-    certificateAuthority_lastStateChangeAt,
+    certificateAuthority_certificateAuthorityConfiguration,
+    certificateAuthority_arn,
+    certificateAuthority_createdAt,
+    certificateAuthority_serial,
+    certificateAuthority_keyStorageSecurityStandard,
+    certificateAuthority_notBefore,
+    certificateAuthority_restorableUntil,
     certificateAuthority_type,
     certificateAuthority_ownerAccount,
-    certificateAuthority_restorableUntil,
+    certificateAuthority_revocationConfiguration,
+    certificateAuthority_lastStateChangeAt,
+    certificateAuthority_notAfter,
 
     -- ** CertificateAuthorityConfiguration
     certificateAuthorityConfiguration_csrExtensions,
@@ -207,9 +207,9 @@ module Network.AWS.CertificateManagerPCA.Lens
 
     -- ** CrlConfiguration
     crlConfiguration_customCname,
+    crlConfiguration_expirationInDays,
     crlConfiguration_s3ObjectAcl,
     crlConfiguration_s3BucketName,
-    crlConfiguration_expirationInDays,
     crlConfiguration_enabled,
 
     -- ** CsrExtensions
@@ -221,35 +221,35 @@ module Network.AWS.CertificateManagerPCA.Lens
     ediPartyName_partyName,
 
     -- ** ExtendedKeyUsage
-    extendedKeyUsage_extendedKeyUsageObjectIdentifier,
     extendedKeyUsage_extendedKeyUsageType,
+    extendedKeyUsage_extendedKeyUsageObjectIdentifier,
 
     -- ** Extensions
-    extensions_certificatePolicies,
-    extensions_extendedKeyUsage,
     extensions_subjectAlternativeNames,
     extensions_keyUsage,
+    extensions_extendedKeyUsage,
+    extensions_certificatePolicies,
 
     -- ** GeneralName
-    generalName_ediPartyName,
-    generalName_otherName,
-    generalName_uniformResourceIdentifier,
     generalName_ipAddress,
+    generalName_uniformResourceIdentifier,
+    generalName_registeredId,
+    generalName_ediPartyName,
+    generalName_rfc822Name,
+    generalName_otherName,
     generalName_dnsName,
     generalName_directoryName,
-    generalName_rfc822Name,
-    generalName_registeredId,
 
     -- ** KeyUsage
     keyUsage_dataEncipherment,
-    keyUsage_keyCertSign,
-    keyUsage_cRLSign,
-    keyUsage_keyEncipherment,
     keyUsage_encipherOnly,
-    keyUsage_keyAgreement,
-    keyUsage_digitalSignature,
-    keyUsage_decipherOnly,
     keyUsage_nonRepudiation,
+    keyUsage_cRLSign,
+    keyUsage_digitalSignature,
+    keyUsage_keyCertSign,
+    keyUsage_decipherOnly,
+    keyUsage_keyEncipherment,
+    keyUsage_keyAgreement,
 
     -- ** OcspConfiguration
     ocspConfiguration_ocspCustomCname,
@@ -260,12 +260,12 @@ module Network.AWS.CertificateManagerPCA.Lens
     otherName_value,
 
     -- ** Permission
-    permission_certificateAuthorityArn,
-    permission_createdAt,
-    permission_actions,
-    permission_principal,
     permission_sourceAccount,
+    permission_actions,
+    permission_createdAt,
+    permission_principal,
     permission_policy,
+    permission_certificateAuthorityArn,
 
     -- ** PolicyInformation
     policyInformation_policyQualifiers,
@@ -279,8 +279,8 @@ module Network.AWS.CertificateManagerPCA.Lens
     qualifier_cpsUri,
 
     -- ** RevocationConfiguration
-    revocationConfiguration_ocspConfiguration,
     revocationConfiguration_crlConfiguration,
+    revocationConfiguration_ocspConfiguration,
 
     -- ** Tag
     tag_value,

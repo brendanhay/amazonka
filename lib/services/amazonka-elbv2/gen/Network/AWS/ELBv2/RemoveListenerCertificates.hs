@@ -87,7 +87,7 @@ removeListenerCertificates_listenerArn = Lens.lens (\RemoveListenerCertificates'
 -- | The certificate to remove. You can specify one certificate per call. Set
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 removeListenerCertificates_certificates :: Lens.Lens' RemoveListenerCertificates [Certificate]
-removeListenerCertificates_certificates = Lens.lens (\RemoveListenerCertificates' {certificates} -> certificates) (\s@RemoveListenerCertificates' {} a -> s {certificates = a} :: RemoveListenerCertificates) Prelude.. Lens._Coerce
+removeListenerCertificates_certificates = Lens.lens (\RemoveListenerCertificates' {certificates} -> certificates) (\s@RemoveListenerCertificates' {} a -> s {certificates = a} :: RemoveListenerCertificates) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveListenerCertificates where
   type

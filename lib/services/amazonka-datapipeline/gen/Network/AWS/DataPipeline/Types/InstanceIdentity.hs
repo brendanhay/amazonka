@@ -34,13 +34,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { -- | A description of an EC2 instance that is generated when the instance is
+  { -- | A signature which can be used to verify the accuracy and authenticity of
+    -- the information provided in the instance identity document.
+    signature :: Prelude.Maybe Prelude.Text,
+    -- | A description of an EC2 instance that is generated when the instance is
     -- launched and exposed to the instance via the instance metadata service
     -- in the form of a JSON representation of an object.
-    document :: Prelude.Maybe Prelude.Text,
-    -- | A signature which can be used to verify the accuracy and authenticity of
-    -- the information provided in the instance identity document.
-    signature :: Prelude.Maybe Prelude.Text
+    document :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,30 +52,30 @@ data InstanceIdentity = InstanceIdentity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'signature', 'instanceIdentity_signature' - A signature which can be used to verify the accuracy and authenticity of
+-- the information provided in the instance identity document.
+--
 -- 'document', 'instanceIdentity_document' - A description of an EC2 instance that is generated when the instance is
 -- launched and exposed to the instance via the instance metadata service
 -- in the form of a JSON representation of an object.
---
--- 'signature', 'instanceIdentity_signature' - A signature which can be used to verify the accuracy and authenticity of
--- the information provided in the instance identity document.
 newInstanceIdentity ::
   InstanceIdentity
 newInstanceIdentity =
   InstanceIdentity'
-    { document = Prelude.Nothing,
-      signature = Prelude.Nothing
+    { signature = Prelude.Nothing,
+      document = Prelude.Nothing
     }
+
+-- | A signature which can be used to verify the accuracy and authenticity of
+-- the information provided in the instance identity document.
+instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
+instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signature) (\s@InstanceIdentity' {} a -> s {signature = a} :: InstanceIdentity)
 
 -- | A description of an EC2 instance that is generated when the instance is
 -- launched and exposed to the instance via the instance metadata service
 -- in the form of a JSON representation of an object.
 instanceIdentity_document :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
 instanceIdentity_document = Lens.lens (\InstanceIdentity' {document} -> document) (\s@InstanceIdentity' {} a -> s {document = a} :: InstanceIdentity)
-
--- | A signature which can be used to verify the accuracy and authenticity of
--- the information provided in the instance identity document.
-instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
-instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signature) (\s@InstanceIdentity' {} a -> s {signature = a} :: InstanceIdentity)
 
 instance Prelude.Hashable InstanceIdentity
 
@@ -85,7 +85,7 @@ instance Core.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("document" Core..=) Prelude.<$> document,
-            ("signature" Core..=) Prelude.<$> signature
+          [ ("signature" Core..=) Prelude.<$> signature,
+            ("document" Core..=) Prelude.<$> document
           ]
       )

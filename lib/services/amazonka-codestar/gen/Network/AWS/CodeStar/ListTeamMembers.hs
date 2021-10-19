@@ -218,6 +218,6 @@ listTeamMembersResponse_httpStatus = Lens.lens (\ListTeamMembersResponse' {httpS
 
 -- | A list of team member objects for the project.
 listTeamMembersResponse_teamMembers :: Lens.Lens' ListTeamMembersResponse [TeamMember]
-listTeamMembersResponse_teamMembers = Lens.lens (\ListTeamMembersResponse' {teamMembers} -> teamMembers) (\s@ListTeamMembersResponse' {} a -> s {teamMembers = a} :: ListTeamMembersResponse) Prelude.. Lens._Coerce
+listTeamMembersResponse_teamMembers = Lens.lens (\ListTeamMembersResponse' {teamMembers} -> teamMembers) (\s@ListTeamMembersResponse' {} a -> s {teamMembers = a} :: ListTeamMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListTeamMembersResponse

@@ -32,10 +32,10 @@ module Network.AWS.WorkDocs.DescribeDocumentVersions
 
     -- * Request Lenses
     describeDocumentVersions_include,
-    describeDocumentVersions_fields,
     describeDocumentVersions_authenticationToken,
-    describeDocumentVersions_limit,
     describeDocumentVersions_marker,
+    describeDocumentVersions_limit,
+    describeDocumentVersions_fields,
     describeDocumentVersions_documentId,
 
     -- * Destructuring the Response
@@ -61,17 +61,17 @@ data DescribeDocumentVersions = DescribeDocumentVersions'
   { -- | A comma-separated list of values. Specify \"INITIALIZED\" to include
     -- incomplete versions.
     include :: Prelude.Maybe Prelude.Text,
-    -- | Specify \"SOURCE\" to include initialized versions and a URL for the
-    -- source document.
-    fields :: Prelude.Maybe Prelude.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The maximum number of versions to return with this call.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | The marker for the next set of results. (You received this marker from a
     -- previous call.)
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of versions to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | Specify \"SOURCE\" to include initialized versions and a URL for the
+    -- source document.
+    fields :: Prelude.Maybe Prelude.Text,
     -- | The ID of the document.
     documentId :: Prelude.Text
   }
@@ -88,16 +88,16 @@ data DescribeDocumentVersions = DescribeDocumentVersions'
 -- 'include', 'describeDocumentVersions_include' - A comma-separated list of values. Specify \"INITIALIZED\" to include
 -- incomplete versions.
 --
--- 'fields', 'describeDocumentVersions_fields' - Specify \"SOURCE\" to include initialized versions and a URL for the
--- source document.
---
 -- 'authenticationToken', 'describeDocumentVersions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'limit', 'describeDocumentVersions_limit' - The maximum number of versions to return with this call.
---
 -- 'marker', 'describeDocumentVersions_marker' - The marker for the next set of results. (You received this marker from a
 -- previous call.)
+--
+-- 'limit', 'describeDocumentVersions_limit' - The maximum number of versions to return with this call.
+--
+-- 'fields', 'describeDocumentVersions_fields' - Specify \"SOURCE\" to include initialized versions and a URL for the
+-- source document.
 --
 -- 'documentId', 'describeDocumentVersions_documentId' - The ID of the document.
 newDescribeDocumentVersions ::
@@ -108,10 +108,10 @@ newDescribeDocumentVersions pDocumentId_ =
   DescribeDocumentVersions'
     { include =
         Prelude.Nothing,
-      fields = Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
       marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      fields = Prelude.Nothing,
       documentId = pDocumentId_
     }
 
@@ -120,24 +120,24 @@ newDescribeDocumentVersions pDocumentId_ =
 describeDocumentVersions_include :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
 describeDocumentVersions_include = Lens.lens (\DescribeDocumentVersions' {include} -> include) (\s@DescribeDocumentVersions' {} a -> s {include = a} :: DescribeDocumentVersions)
 
--- | Specify \"SOURCE\" to include initialized versions and a URL for the
--- source document.
-describeDocumentVersions_fields :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
-describeDocumentVersions_fields = Lens.lens (\DescribeDocumentVersions' {fields} -> fields) (\s@DescribeDocumentVersions' {} a -> s {fields = a} :: DescribeDocumentVersions)
-
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 describeDocumentVersions_authenticationToken :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
 describeDocumentVersions_authenticationToken = Lens.lens (\DescribeDocumentVersions' {authenticationToken} -> authenticationToken) (\s@DescribeDocumentVersions' {} a -> s {authenticationToken = a} :: DescribeDocumentVersions) Prelude.. Lens.mapping Core._Sensitive
 
--- | The maximum number of versions to return with this call.
-describeDocumentVersions_limit :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Natural)
-describeDocumentVersions_limit = Lens.lens (\DescribeDocumentVersions' {limit} -> limit) (\s@DescribeDocumentVersions' {} a -> s {limit = a} :: DescribeDocumentVersions)
-
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 describeDocumentVersions_marker :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
 describeDocumentVersions_marker = Lens.lens (\DescribeDocumentVersions' {marker} -> marker) (\s@DescribeDocumentVersions' {} a -> s {marker = a} :: DescribeDocumentVersions)
+
+-- | The maximum number of versions to return with this call.
+describeDocumentVersions_limit :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Natural)
+describeDocumentVersions_limit = Lens.lens (\DescribeDocumentVersions' {limit} -> limit) (\s@DescribeDocumentVersions' {} a -> s {limit = a} :: DescribeDocumentVersions)
+
+-- | Specify \"SOURCE\" to include initialized versions and a URL for the
+-- source document.
+describeDocumentVersions_fields :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
+describeDocumentVersions_fields = Lens.lens (\DescribeDocumentVersions' {fields} -> fields) (\s@DescribeDocumentVersions' {} a -> s {fields = a} :: DescribeDocumentVersions)
 
 -- | The ID of the document.
 describeDocumentVersions_documentId :: Lens.Lens' DescribeDocumentVersions Prelude.Text
@@ -205,9 +205,9 @@ instance Core.ToQuery DescribeDocumentVersions where
   toQuery DescribeDocumentVersions' {..} =
     Prelude.mconcat
       [ "include" Core.=: include,
-        "fields" Core.=: fields,
+        "marker" Core.=: marker,
         "limit" Core.=: limit,
-        "marker" Core.=: marker
+        "fields" Core.=: fields
       ]
 
 -- | /See:/ 'newDescribeDocumentVersionsResponse' smart constructor.
@@ -250,7 +250,7 @@ newDescribeDocumentVersionsResponse pHttpStatus_ =
 
 -- | The document versions.
 describeDocumentVersionsResponse_documentVersions :: Lens.Lens' DescribeDocumentVersionsResponse (Prelude.Maybe [DocumentVersionMetadata])
-describeDocumentVersionsResponse_documentVersions = Lens.lens (\DescribeDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@DescribeDocumentVersionsResponse' {} a -> s {documentVersions = a} :: DescribeDocumentVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeDocumentVersionsResponse_documentVersions = Lens.lens (\DescribeDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@DescribeDocumentVersionsResponse' {} a -> s {documentVersions = a} :: DescribeDocumentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.

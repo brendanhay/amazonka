@@ -40,8 +40,8 @@ module Network.AWS.AlexaBusiness.ListBusinessReportSchedules
     newListBusinessReportSchedulesResponse,
 
     -- * Response Lenses
-    listBusinessReportSchedulesResponse_nextToken,
     listBusinessReportSchedulesResponse_businessReportSchedules,
+    listBusinessReportSchedulesResponse_nextToken,
     listBusinessReportSchedulesResponse_httpStatus,
   )
 where
@@ -124,10 +124,10 @@ instance Core.AWSRequest ListBusinessReportSchedules where
     Response.receiveJSON
       ( \s h x ->
           ListBusinessReportSchedulesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "BusinessReportSchedules"
+            Prelude.<$> ( x Core..?> "BusinessReportSchedules"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,11 +167,11 @@ instance Core.ToQuery ListBusinessReportSchedules where
 
 -- | /See:/ 'newListBusinessReportSchedulesResponse' smart constructor.
 data ListBusinessReportSchedulesResponse = ListBusinessReportSchedulesResponse'
-  { -- | The token used to list the remaining schedules from the previous API
+  { -- | The schedule of the reports.
+    businessReportSchedules :: Prelude.Maybe [BusinessReportSchedule],
+    -- | The token used to list the remaining schedules from the previous API
     -- call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The schedule of the reports.
-    businessReportSchedules :: Prelude.Maybe [BusinessReportSchedule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,10 +185,10 @@ data ListBusinessReportSchedulesResponse = ListBusinessReportSchedulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'businessReportSchedules', 'listBusinessReportSchedulesResponse_businessReportSchedules' - The schedule of the reports.
+--
 -- 'nextToken', 'listBusinessReportSchedulesResponse_nextToken' - The token used to list the remaining schedules from the previous API
 -- call.
---
--- 'businessReportSchedules', 'listBusinessReportSchedulesResponse_businessReportSchedules' - The schedule of the reports.
 --
 -- 'httpStatus', 'listBusinessReportSchedulesResponse_httpStatus' - The response's http status code.
 newListBusinessReportSchedulesResponse ::
@@ -197,21 +197,20 @@ newListBusinessReportSchedulesResponse ::
   ListBusinessReportSchedulesResponse
 newListBusinessReportSchedulesResponse pHttpStatus_ =
   ListBusinessReportSchedulesResponse'
-    { nextToken =
+    { businessReportSchedules =
         Prelude.Nothing,
-      businessReportSchedules =
-        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The schedule of the reports.
+listBusinessReportSchedulesResponse_businessReportSchedules :: Lens.Lens' ListBusinessReportSchedulesResponse (Prelude.Maybe [BusinessReportSchedule])
+listBusinessReportSchedulesResponse_businessReportSchedules = Lens.lens (\ListBusinessReportSchedulesResponse' {businessReportSchedules} -> businessReportSchedules) (\s@ListBusinessReportSchedulesResponse' {} a -> s {businessReportSchedules = a} :: ListBusinessReportSchedulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to list the remaining schedules from the previous API
 -- call.
 listBusinessReportSchedulesResponse_nextToken :: Lens.Lens' ListBusinessReportSchedulesResponse (Prelude.Maybe Prelude.Text)
 listBusinessReportSchedulesResponse_nextToken = Lens.lens (\ListBusinessReportSchedulesResponse' {nextToken} -> nextToken) (\s@ListBusinessReportSchedulesResponse' {} a -> s {nextToken = a} :: ListBusinessReportSchedulesResponse)
-
--- | The schedule of the reports.
-listBusinessReportSchedulesResponse_businessReportSchedules :: Lens.Lens' ListBusinessReportSchedulesResponse (Prelude.Maybe [BusinessReportSchedule])
-listBusinessReportSchedulesResponse_businessReportSchedules = Lens.lens (\ListBusinessReportSchedulesResponse' {businessReportSchedules} -> businessReportSchedules) (\s@ListBusinessReportSchedulesResponse' {} a -> s {businessReportSchedules = a} :: ListBusinessReportSchedulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listBusinessReportSchedulesResponse_httpStatus :: Lens.Lens' ListBusinessReportSchedulesResponse Prelude.Int

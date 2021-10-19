@@ -193,7 +193,7 @@ listEngineVersionsResponse_nextToken = Lens.lens (\ListEngineVersionsResponse' {
 
 -- | A list of engine versions that are available to choose from.
 listEngineVersionsResponse_engineVersions :: Lens.Lens' ListEngineVersionsResponse (Prelude.Maybe [EngineVersion])
-listEngineVersionsResponse_engineVersions = Lens.lens (\ListEngineVersionsResponse' {engineVersions} -> engineVersions) (\s@ListEngineVersionsResponse' {} a -> s {engineVersions = a} :: ListEngineVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listEngineVersionsResponse_engineVersions = Lens.lens (\ListEngineVersionsResponse' {engineVersions} -> engineVersions) (\s@ListEngineVersionsResponse' {} a -> s {engineVersions = a} :: ListEngineVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listEngineVersionsResponse_httpStatus :: Lens.Lens' ListEngineVersionsResponse Prelude.Int

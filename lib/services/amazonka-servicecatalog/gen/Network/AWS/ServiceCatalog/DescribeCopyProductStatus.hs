@@ -35,9 +35,9 @@ module Network.AWS.ServiceCatalog.DescribeCopyProductStatus
     newDescribeCopyProductStatusResponse,
 
     -- * Response Lenses
-    describeCopyProductStatusResponse_statusDetail,
     describeCopyProductStatusResponse_targetProductId,
     describeCopyProductStatusResponse_copyProductStatus,
+    describeCopyProductStatusResponse_statusDetail,
     describeCopyProductStatusResponse_httpStatus,
   )
 where
@@ -118,9 +118,9 @@ instance Core.AWSRequest DescribeCopyProductStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeCopyProductStatusResponse'
-            Prelude.<$> (x Core..?> "StatusDetail")
-            Prelude.<*> (x Core..?> "TargetProductId")
+            Prelude.<$> (x Core..?> "TargetProductId")
             Prelude.<*> (x Core..?> "CopyProductStatus")
+            Prelude.<*> (x Core..?> "StatusDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -162,12 +162,12 @@ instance Core.ToQuery DescribeCopyProductStatus where
 
 -- | /See:/ 'newDescribeCopyProductStatusResponse' smart constructor.
 data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
-  { -- | The status message.
-    statusDetail :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the copied product.
+  { -- | The identifier of the copied product.
     targetProductId :: Prelude.Maybe Prelude.Text,
     -- | The status of the copy product operation.
     copyProductStatus :: Prelude.Maybe CopyProductStatus,
+    -- | The status message.
+    statusDetail :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,11 +181,11 @@ data DescribeCopyProductStatusResponse = DescribeCopyProductStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusDetail', 'describeCopyProductStatusResponse_statusDetail' - The status message.
---
 -- 'targetProductId', 'describeCopyProductStatusResponse_targetProductId' - The identifier of the copied product.
 --
 -- 'copyProductStatus', 'describeCopyProductStatusResponse_copyProductStatus' - The status of the copy product operation.
+--
+-- 'statusDetail', 'describeCopyProductStatusResponse_statusDetail' - The status message.
 --
 -- 'httpStatus', 'describeCopyProductStatusResponse_httpStatus' - The response's http status code.
 newDescribeCopyProductStatusResponse ::
@@ -194,16 +194,12 @@ newDescribeCopyProductStatusResponse ::
   DescribeCopyProductStatusResponse
 newDescribeCopyProductStatusResponse pHttpStatus_ =
   DescribeCopyProductStatusResponse'
-    { statusDetail =
+    { targetProductId =
         Prelude.Nothing,
-      targetProductId = Prelude.Nothing,
       copyProductStatus = Prelude.Nothing,
+      statusDetail = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The status message.
-describeCopyProductStatusResponse_statusDetail :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
-describeCopyProductStatusResponse_statusDetail = Lens.lens (\DescribeCopyProductStatusResponse' {statusDetail} -> statusDetail) (\s@DescribeCopyProductStatusResponse' {} a -> s {statusDetail = a} :: DescribeCopyProductStatusResponse)
 
 -- | The identifier of the copied product.
 describeCopyProductStatusResponse_targetProductId :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
@@ -212,6 +208,10 @@ describeCopyProductStatusResponse_targetProductId = Lens.lens (\DescribeCopyProd
 -- | The status of the copy product operation.
 describeCopyProductStatusResponse_copyProductStatus :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe CopyProductStatus)
 describeCopyProductStatusResponse_copyProductStatus = Lens.lens (\DescribeCopyProductStatusResponse' {copyProductStatus} -> copyProductStatus) (\s@DescribeCopyProductStatusResponse' {} a -> s {copyProductStatus = a} :: DescribeCopyProductStatusResponse)
+
+-- | The status message.
+describeCopyProductStatusResponse_statusDetail :: Lens.Lens' DescribeCopyProductStatusResponse (Prelude.Maybe Prelude.Text)
+describeCopyProductStatusResponse_statusDetail = Lens.lens (\DescribeCopyProductStatusResponse' {statusDetail} -> statusDetail) (\s@DescribeCopyProductStatusResponse' {} a -> s {statusDetail = a} :: DescribeCopyProductStatusResponse)
 
 -- | The response's http status code.
 describeCopyProductStatusResponse_httpStatus :: Lens.Lens' DescribeCopyProductStatusResponse Prelude.Int

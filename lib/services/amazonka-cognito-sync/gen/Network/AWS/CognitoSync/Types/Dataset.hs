@@ -35,19 +35,19 @@ data Dataset = Dataset'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | Number of records in this dataset.
     numRecords :: Prelude.Maybe Prelude.Integer,
-    -- | Date on which the dataset was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
     -- | Total size in bytes of the records in this dataset.
     dataStorage :: Prelude.Maybe Prelude.Integer,
+    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+    -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+    datasetName :: Prelude.Maybe Prelude.Text,
+    -- | Date on which the dataset was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The device that made the last change to this dataset.
+    lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Prelude.Maybe Prelude.Text,
-    -- | The device that made the last change to this dataset.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text,
-    -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
-    -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-    datasetName :: Prelude.Maybe Prelude.Text
+    identityId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,29 +63,29 @@ data Dataset = Dataset'
 --
 -- 'numRecords', 'dataset_numRecords' - Number of records in this dataset.
 --
+-- 'dataStorage', 'dataset_dataStorage' - Total size in bytes of the records in this dataset.
+--
+-- 'datasetName', 'dataset_datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+--
 -- 'creationDate', 'dataset_creationDate' - Date on which the dataset was created.
 --
--- 'dataStorage', 'dataset_dataStorage' - Total size in bytes of the records in this dataset.
+-- 'lastModifiedBy', 'dataset_lastModifiedBy' - The device that made the last change to this dataset.
 --
 -- 'identityId', 'dataset_identityId' - A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
---
--- 'lastModifiedBy', 'dataset_lastModifiedBy' - The device that made the last change to this dataset.
---
--- 'datasetName', 'dataset_datasetName' - A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 newDataset ::
   Dataset
 newDataset =
   Dataset'
     { lastModifiedDate = Prelude.Nothing,
       numRecords = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       dataStorage = Prelude.Nothing,
-      identityId = Prelude.Nothing,
+      datasetName = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
-      datasetName = Prelude.Nothing
+      identityId = Prelude.Nothing
     }
 
 -- | Date when the dataset was last modified.
@@ -96,28 +96,28 @@ dataset_lastModifiedDate = Lens.lens (\Dataset' {lastModifiedDate} -> lastModifi
 dataset_numRecords :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Integer)
 dataset_numRecords = Lens.lens (\Dataset' {numRecords} -> numRecords) (\s@Dataset' {} a -> s {numRecords = a} :: Dataset)
 
+-- | Total size in bytes of the records in this dataset.
+dataset_dataStorage :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Integer)
+dataset_dataStorage = Lens.lens (\Dataset' {dataStorage} -> dataStorage) (\s@Dataset' {} a -> s {dataStorage = a} :: Dataset)
+
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+dataset_datasetName :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
+dataset_datasetName = Lens.lens (\Dataset' {datasetName} -> datasetName) (\s@Dataset' {} a -> s {datasetName = a} :: Dataset)
+
 -- | Date on which the dataset was created.
 dataset_creationDate :: Lens.Lens' Dataset (Prelude.Maybe Prelude.UTCTime)
 dataset_creationDate = Lens.lens (\Dataset' {creationDate} -> creationDate) (\s@Dataset' {} a -> s {creationDate = a} :: Dataset) Prelude.. Lens.mapping Core._Time
 
--- | Total size in bytes of the records in this dataset.
-dataset_dataStorage :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Integer)
-dataset_dataStorage = Lens.lens (\Dataset' {dataStorage} -> dataStorage) (\s@Dataset' {} a -> s {dataStorage = a} :: Dataset)
+-- | The device that made the last change to this dataset.
+dataset_lastModifiedBy :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
+dataset_lastModifiedBy = Lens.lens (\Dataset' {lastModifiedBy} -> lastModifiedBy) (\s@Dataset' {} a -> s {lastModifiedBy = a} :: Dataset)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
 dataset_identityId :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
 dataset_identityId = Lens.lens (\Dataset' {identityId} -> identityId) (\s@Dataset' {} a -> s {identityId = a} :: Dataset)
-
--- | The device that made the last change to this dataset.
-dataset_lastModifiedBy :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
-dataset_lastModifiedBy = Lens.lens (\Dataset' {lastModifiedBy} -> lastModifiedBy) (\s@Dataset' {} a -> s {lastModifiedBy = a} :: Dataset)
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-dataset_datasetName :: Lens.Lens' Dataset (Prelude.Maybe Prelude.Text)
-dataset_datasetName = Lens.lens (\Dataset' {datasetName} -> datasetName) (\s@Dataset' {} a -> s {datasetName = a} :: Dataset)
 
 instance Core.FromJSON Dataset where
   parseJSON =
@@ -127,11 +127,11 @@ instance Core.FromJSON Dataset where
           Dataset'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "NumRecords")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "DataStorage")
-            Prelude.<*> (x Core..:? "IdentityId")
-            Prelude.<*> (x Core..:? "LastModifiedBy")
             Prelude.<*> (x Core..:? "DatasetName")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "LastModifiedBy")
+            Prelude.<*> (x Core..:? "IdentityId")
       )
 
 instance Prelude.Hashable Dataset

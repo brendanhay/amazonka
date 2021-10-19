@@ -214,7 +214,7 @@ newDescribeKey pKeyId_ =
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 describeKey_grantTokens :: Lens.Lens' DescribeKey (Prelude.Maybe [Prelude.Text])
-describeKey_grantTokens = Lens.lens (\DescribeKey' {grantTokens} -> grantTokens) (\s@DescribeKey' {} a -> s {grantTokens = a} :: DescribeKey) Prelude.. Lens.mapping Lens._Coerce
+describeKey_grantTokens = Lens.lens (\DescribeKey' {grantTokens} -> grantTokens) (\s@DescribeKey' {} a -> s {grantTokens = a} :: DescribeKey) Prelude.. Lens.mapping Lens.coerced
 
 -- | Describes the specified KMS key.
 --

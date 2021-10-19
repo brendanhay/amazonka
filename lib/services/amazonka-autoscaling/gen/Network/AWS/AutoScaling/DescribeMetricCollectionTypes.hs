@@ -148,11 +148,11 @@ newDescribeMetricCollectionTypesResponse pHttpStatus_ =
 
 -- | One or more metrics.
 describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricCollectionType])
-describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The granularities for the metrics.
 describeMetricCollectionTypesResponse_granularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricGranularityType])
-describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeMetricCollectionTypesResponse_httpStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Prelude.Int

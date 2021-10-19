@@ -150,7 +150,7 @@ newListTagsLogGroupResponse pHttpStatus_ =
 
 -- | The tags for the log group.
 listTagsLogGroupResponse_tags :: Lens.Lens' ListTagsLogGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsLogGroupResponse_tags = Lens.lens (\ListTagsLogGroupResponse' {tags} -> tags) (\s@ListTagsLogGroupResponse' {} a -> s {tags = a} :: ListTagsLogGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsLogGroupResponse_tags = Lens.lens (\ListTagsLogGroupResponse' {tags} -> tags) (\s@ListTagsLogGroupResponse' {} a -> s {tags = a} :: ListTagsLogGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsLogGroupResponse_httpStatus :: Lens.Lens' ListTagsLogGroupResponse Prelude.Int

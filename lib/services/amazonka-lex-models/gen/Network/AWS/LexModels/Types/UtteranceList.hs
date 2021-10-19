@@ -67,7 +67,7 @@ utteranceList_botVersion = Lens.lens (\UtteranceList' {botVersion} -> botVersion
 -- utterances that have been made to a bot. The maximum number of object is
 -- 100.
 utteranceList_utterances :: Lens.Lens' UtteranceList (Prelude.Maybe [UtteranceData])
-utteranceList_utterances = Lens.lens (\UtteranceList' {utterances} -> utterances) (\s@UtteranceList' {} a -> s {utterances = a} :: UtteranceList) Prelude.. Lens.mapping Lens._Coerce
+utteranceList_utterances = Lens.lens (\UtteranceList' {utterances} -> utterances) (\s@UtteranceList' {} a -> s {utterances = a} :: UtteranceList) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON UtteranceList where
   parseJSON =

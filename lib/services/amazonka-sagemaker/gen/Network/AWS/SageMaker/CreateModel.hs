@@ -58,12 +58,12 @@ module Network.AWS.SageMaker.CreateModel
     newCreateModel,
 
     -- * Request Lenses
-    createModel_vpcConfig,
-    createModel_enableNetworkIsolation,
     createModel_primaryContainer,
+    createModel_enableNetworkIsolation,
     createModel_containers,
-    createModel_tags,
+    createModel_vpcConfig,
     createModel_inferenceExecutionConfig,
+    createModel_tags,
     createModel_modelName,
     createModel_executionRoleArn,
 
@@ -86,7 +86,16 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateModel' smart constructor.
 data CreateModel = CreateModel'
-  { -- | A VpcConfig object that specifies the VPC that you want your model to
+  { -- | The location of the primary docker image containing inference code,
+    -- associated artifacts, and custom environment map that the inference code
+    -- uses when the model is deployed for predictions.
+    primaryContainer :: Prelude.Maybe ContainerDefinition,
+    -- | Isolates the model container. No inbound or outbound network calls can
+    -- be made to or from the model container.
+    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the containers in the inference pipeline.
+    containers :: Prelude.Maybe [ContainerDefinition],
+    -- | A VpcConfig object that specifies the VPC that you want your model to
     -- connect to. Control access to and from your model container by
     -- configuring the VPC. @VpcConfig@ is used in hosting services and in
     -- batch transform. For more information, see
@@ -94,23 +103,14 @@ data CreateModel = CreateModel'
     -- and
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | Isolates the model container. No inbound or outbound network calls can
-    -- be made to or from the model container.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
-    -- | The location of the primary docker image containing inference code,
-    -- associated artifacts, and custom environment map that the inference code
-    -- uses when the model is deployed for predictions.
-    primaryContainer :: Prelude.Maybe ContainerDefinition,
-    -- | Specifies the containers in the inference pipeline.
-    containers :: Prelude.Maybe [ContainerDefinition],
+    -- | Specifies details of how containers in a multi-container endpoint are
+    -- called.
+    inferenceExecutionConfig :: Prelude.Maybe InferenceExecutionConfig,
     -- | An array of key-value pairs. You can use tags to categorize your Amazon
     -- Web Services resources in different ways, for example, by purpose,
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | Specifies details of how containers in a multi-container endpoint are
-    -- called.
-    inferenceExecutionConfig :: Prelude.Maybe InferenceExecutionConfig,
     -- | The name of the new model.
     modelName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
@@ -133,6 +133,15 @@ data CreateModel = CreateModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'primaryContainer', 'createModel_primaryContainer' - The location of the primary docker image containing inference code,
+-- associated artifacts, and custom environment map that the inference code
+-- uses when the model is deployed for predictions.
+--
+-- 'enableNetworkIsolation', 'createModel_enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can
+-- be made to or from the model container.
+--
+-- 'containers', 'createModel_containers' - Specifies the containers in the inference pipeline.
+--
 -- 'vpcConfig', 'createModel_vpcConfig' - A VpcConfig object that specifies the VPC that you want your model to
 -- connect to. Control access to and from your model container by
 -- configuring the VPC. @VpcConfig@ is used in hosting services and in
@@ -141,22 +150,13 @@ data CreateModel = CreateModel'
 -- and
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
 --
--- 'enableNetworkIsolation', 'createModel_enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can
--- be made to or from the model container.
---
--- 'primaryContainer', 'createModel_primaryContainer' - The location of the primary docker image containing inference code,
--- associated artifacts, and custom environment map that the inference code
--- uses when the model is deployed for predictions.
---
--- 'containers', 'createModel_containers' - Specifies the containers in the inference pipeline.
+-- 'inferenceExecutionConfig', 'createModel_inferenceExecutionConfig' - Specifies details of how containers in a multi-container endpoint are
+-- called.
 --
 -- 'tags', 'createModel_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
---
--- 'inferenceExecutionConfig', 'createModel_inferenceExecutionConfig' - Specifies details of how containers in a multi-container endpoint are
--- called.
 --
 -- 'modelName', 'createModel_modelName' - The name of the new model.
 --
@@ -176,15 +176,30 @@ newCreateModel ::
   CreateModel
 newCreateModel pModelName_ pExecutionRoleArn_ =
   CreateModel'
-    { vpcConfig = Prelude.Nothing,
+    { primaryContainer = Prelude.Nothing,
       enableNetworkIsolation = Prelude.Nothing,
-      primaryContainer = Prelude.Nothing,
       containers = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       inferenceExecutionConfig = Prelude.Nothing,
+      tags = Prelude.Nothing,
       modelName = pModelName_,
       executionRoleArn = pExecutionRoleArn_
     }
+
+-- | The location of the primary docker image containing inference code,
+-- associated artifacts, and custom environment map that the inference code
+-- uses when the model is deployed for predictions.
+createModel_primaryContainer :: Lens.Lens' CreateModel (Prelude.Maybe ContainerDefinition)
+createModel_primaryContainer = Lens.lens (\CreateModel' {primaryContainer} -> primaryContainer) (\s@CreateModel' {} a -> s {primaryContainer = a} :: CreateModel)
+
+-- | Isolates the model container. No inbound or outbound network calls can
+-- be made to or from the model container.
+createModel_enableNetworkIsolation :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Bool)
+createModel_enableNetworkIsolation = Lens.lens (\CreateModel' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@CreateModel' {} a -> s {enableNetworkIsolation = a} :: CreateModel)
+
+-- | Specifies the containers in the inference pipeline.
+createModel_containers :: Lens.Lens' CreateModel (Prelude.Maybe [ContainerDefinition])
+createModel_containers = Lens.lens (\CreateModel' {containers} -> containers) (\s@CreateModel' {} a -> s {containers = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | A VpcConfig object that specifies the VPC that you want your model to
 -- connect to. Control access to and from your model container by
@@ -196,32 +211,17 @@ newCreateModel pModelName_ pExecutionRoleArn_ =
 createModel_vpcConfig :: Lens.Lens' CreateModel (Prelude.Maybe VpcConfig)
 createModel_vpcConfig = Lens.lens (\CreateModel' {vpcConfig} -> vpcConfig) (\s@CreateModel' {} a -> s {vpcConfig = a} :: CreateModel)
 
--- | Isolates the model container. No inbound or outbound network calls can
--- be made to or from the model container.
-createModel_enableNetworkIsolation :: Lens.Lens' CreateModel (Prelude.Maybe Prelude.Bool)
-createModel_enableNetworkIsolation = Lens.lens (\CreateModel' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@CreateModel' {} a -> s {enableNetworkIsolation = a} :: CreateModel)
-
--- | The location of the primary docker image containing inference code,
--- associated artifacts, and custom environment map that the inference code
--- uses when the model is deployed for predictions.
-createModel_primaryContainer :: Lens.Lens' CreateModel (Prelude.Maybe ContainerDefinition)
-createModel_primaryContainer = Lens.lens (\CreateModel' {primaryContainer} -> primaryContainer) (\s@CreateModel' {} a -> s {primaryContainer = a} :: CreateModel)
-
--- | Specifies the containers in the inference pipeline.
-createModel_containers :: Lens.Lens' CreateModel (Prelude.Maybe [ContainerDefinition])
-createModel_containers = Lens.lens (\CreateModel' {containers} -> containers) (\s@CreateModel' {} a -> s {containers = a} :: CreateModel) Prelude.. Lens.mapping Lens._Coerce
+-- | Specifies details of how containers in a multi-container endpoint are
+-- called.
+createModel_inferenceExecutionConfig :: Lens.Lens' CreateModel (Prelude.Maybe InferenceExecutionConfig)
+createModel_inferenceExecutionConfig = Lens.lens (\CreateModel' {inferenceExecutionConfig} -> inferenceExecutionConfig) (\s@CreateModel' {} a -> s {inferenceExecutionConfig = a} :: CreateModel)
 
 -- | An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
-createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies details of how containers in a multi-container endpoint are
--- called.
-createModel_inferenceExecutionConfig :: Lens.Lens' CreateModel (Prelude.Maybe InferenceExecutionConfig)
-createModel_inferenceExecutionConfig = Lens.lens (\CreateModel' {inferenceExecutionConfig} -> inferenceExecutionConfig) (\s@CreateModel' {} a -> s {inferenceExecutionConfig = a} :: CreateModel)
+createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the new model.
 createModel_modelName :: Lens.Lens' CreateModel Prelude.Text
@@ -270,15 +270,15 @@ instance Core.ToJSON CreateModel where
   toJSON CreateModel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+          [ ("PrimaryContainer" Core..=)
+              Prelude.<$> primaryContainer,
             ("EnableNetworkIsolation" Core..=)
               Prelude.<$> enableNetworkIsolation,
-            ("PrimaryContainer" Core..=)
-              Prelude.<$> primaryContainer,
             ("Containers" Core..=) Prelude.<$> containers,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("InferenceExecutionConfig" Core..=)
               Prelude.<$> inferenceExecutionConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ModelName" Core..= modelName),
             Prelude.Just
               ("ExecutionRoleArn" Core..= executionRoleArn)

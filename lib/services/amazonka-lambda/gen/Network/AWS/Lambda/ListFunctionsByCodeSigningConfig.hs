@@ -31,8 +31,8 @@ module Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
     newListFunctionsByCodeSigningConfig,
 
     -- * Request Lenses
-    listFunctionsByCodeSigningConfig_maxItems,
     listFunctionsByCodeSigningConfig_marker,
+    listFunctionsByCodeSigningConfig_maxItems,
     listFunctionsByCodeSigningConfig_codeSigningConfigArn,
 
     -- * Destructuring the Response
@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFunctionsByCodeSigningConfig' smart constructor.
 data ListFunctionsByCodeSigningConfig = ListFunctionsByCodeSigningConfig'
-  { -- | Maximum number of items to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Specify the pagination token that\'s returned by a previous request to
+  { -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of items to return.
+    maxItems :: Prelude.Maybe Prelude.Natural,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
     codeSigningConfigArn :: Prelude.Text
   }
@@ -73,10 +73,10 @@ data ListFunctionsByCodeSigningConfig = ListFunctionsByCodeSigningConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listFunctionsByCodeSigningConfig_maxItems' - Maximum number of items to return.
---
 -- 'marker', 'listFunctionsByCodeSigningConfig_marker' - Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
+--
+-- 'maxItems', 'listFunctionsByCodeSigningConfig_maxItems' - Maximum number of items to return.
 --
 -- 'codeSigningConfigArn', 'listFunctionsByCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.
 newListFunctionsByCodeSigningConfig ::
@@ -86,21 +86,21 @@ newListFunctionsByCodeSigningConfig ::
 newListFunctionsByCodeSigningConfig
   pCodeSigningConfigArn_ =
     ListFunctionsByCodeSigningConfig'
-      { maxItems =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        maxItems = Prelude.Nothing,
         codeSigningConfigArn =
           pCodeSigningConfigArn_
       }
-
--- | Maximum number of items to return.
-listFunctionsByCodeSigningConfig_maxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Prelude.Maybe Prelude.Natural)
-listFunctionsByCodeSigningConfig_maxItems = Lens.lens (\ListFunctionsByCodeSigningConfig' {maxItems} -> maxItems) (\s@ListFunctionsByCodeSigningConfig' {} a -> s {maxItems = a} :: ListFunctionsByCodeSigningConfig)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
 listFunctionsByCodeSigningConfig_marker :: Lens.Lens' ListFunctionsByCodeSigningConfig (Prelude.Maybe Prelude.Text)
 listFunctionsByCodeSigningConfig_marker = Lens.lens (\ListFunctionsByCodeSigningConfig' {marker} -> marker) (\s@ListFunctionsByCodeSigningConfig' {} a -> s {marker = a} :: ListFunctionsByCodeSigningConfig)
+
+-- | Maximum number of items to return.
+listFunctionsByCodeSigningConfig_maxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Prelude.Maybe Prelude.Natural)
+listFunctionsByCodeSigningConfig_maxItems = Lens.lens (\ListFunctionsByCodeSigningConfig' {maxItems} -> maxItems) (\s@ListFunctionsByCodeSigningConfig' {} a -> s {maxItems = a} :: ListFunctionsByCodeSigningConfig)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
 listFunctionsByCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' ListFunctionsByCodeSigningConfig Prelude.Text
@@ -176,8 +176,8 @@ instance
   where
   toQuery ListFunctionsByCodeSigningConfig' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListFunctionsByCodeSigningConfigResponse' smart constructor.
@@ -219,7 +219,7 @@ newListFunctionsByCodeSigningConfigResponse
 
 -- | The function ARNs.
 listFunctionsByCodeSigningConfigResponse_functionArns :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe [Prelude.Text])
-listFunctionsByCodeSigningConfigResponse_functionArns = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {functionArns} -> functionArns) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {functionArns = a} :: ListFunctionsByCodeSigningConfigResponse) Prelude.. Lens.mapping Lens._Coerce
+listFunctionsByCodeSigningConfigResponse_functionArns = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {functionArns} -> functionArns) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {functionArns = a} :: ListFunctionsByCodeSigningConfigResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that\'s included if more results are available.
 listFunctionsByCodeSigningConfigResponse_nextMarker :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe Prelude.Text)

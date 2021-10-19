@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResolvedTargets' smart constructor.
 data ResolvedTargets = ResolvedTargets'
-  { -- | A list of parameter values sent to targets that resolved during the
-    -- Automation execution.
-    parameterValues :: Prelude.Maybe [Prelude.Text],
-    -- | A boolean value indicating whether the resolved target list is
+  { -- | A boolean value indicating whether the resolved target list is
     -- truncated.
-    truncated :: Prelude.Maybe Prelude.Bool
+    truncated :: Prelude.Maybe Prelude.Bool,
+    -- | A list of parameter values sent to targets that resolved during the
+    -- Automation execution.
+    parameterValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,28 +44,28 @@ data ResolvedTargets = ResolvedTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parameterValues', 'resolvedTargets_parameterValues' - A list of parameter values sent to targets that resolved during the
--- Automation execution.
---
 -- 'truncated', 'resolvedTargets_truncated' - A boolean value indicating whether the resolved target list is
 -- truncated.
+--
+-- 'parameterValues', 'resolvedTargets_parameterValues' - A list of parameter values sent to targets that resolved during the
+-- Automation execution.
 newResolvedTargets ::
   ResolvedTargets
 newResolvedTargets =
   ResolvedTargets'
-    { parameterValues = Prelude.Nothing,
-      truncated = Prelude.Nothing
+    { truncated = Prelude.Nothing,
+      parameterValues = Prelude.Nothing
     }
-
--- | A list of parameter values sent to targets that resolved during the
--- Automation execution.
-resolvedTargets_parameterValues :: Lens.Lens' ResolvedTargets (Prelude.Maybe [Prelude.Text])
-resolvedTargets_parameterValues = Lens.lens (\ResolvedTargets' {parameterValues} -> parameterValues) (\s@ResolvedTargets' {} a -> s {parameterValues = a} :: ResolvedTargets) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A boolean value indicating whether the resolved target list is
 -- truncated.
 resolvedTargets_truncated :: Lens.Lens' ResolvedTargets (Prelude.Maybe Prelude.Bool)
 resolvedTargets_truncated = Lens.lens (\ResolvedTargets' {truncated} -> truncated) (\s@ResolvedTargets' {} a -> s {truncated = a} :: ResolvedTargets)
+
+-- | A list of parameter values sent to targets that resolved during the
+-- Automation execution.
+resolvedTargets_parameterValues :: Lens.Lens' ResolvedTargets (Prelude.Maybe [Prelude.Text])
+resolvedTargets_parameterValues = Lens.lens (\ResolvedTargets' {parameterValues} -> parameterValues) (\s@ResolvedTargets' {} a -> s {parameterValues = a} :: ResolvedTargets) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ResolvedTargets where
   parseJSON =
@@ -73,10 +73,10 @@ instance Core.FromJSON ResolvedTargets where
       "ResolvedTargets"
       ( \x ->
           ResolvedTargets'
-            Prelude.<$> ( x Core..:? "ParameterValues"
+            Prelude.<$> (x Core..:? "Truncated")
+            Prelude.<*> ( x Core..:? "ParameterValues"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Truncated")
       )
 
 instance Prelude.Hashable ResolvedTargets

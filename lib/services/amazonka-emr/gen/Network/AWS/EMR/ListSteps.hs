@@ -113,11 +113,11 @@ newListSteps pClusterId_ =
 -- You can specify a maximum of ten Step IDs. The character constraint
 -- applies to the overall length of the array.
 listSteps_stepIds :: Lens.Lens' ListSteps (Prelude.Maybe [Prelude.Text])
-listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Prelude.. Lens.mapping Lens._Coerce
+listSteps_stepIds = Lens.lens (\ListSteps' {stepIds} -> stepIds) (\s@ListSteps' {} a -> s {stepIds = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The filter to limit the step list based on certain states.
 listSteps_stepStates :: Lens.Lens' ListSteps (Prelude.Maybe [StepState])
-listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens._Coerce
+listSteps_stepStates = Lens.lens (\ListSteps' {stepStates} -> stepStates) (\s@ListSteps' {} a -> s {stepStates = a} :: ListSteps) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of steps that a single @ListSteps@ action returns is
 -- 50. To return a longer list of steps, use multiple @ListSteps@ actions
@@ -241,7 +241,7 @@ newListStepsResponse pHttpStatus_ =
 
 -- | The filtered list of steps for the cluster.
 listStepsResponse_steps :: Lens.Lens' ListStepsResponse (Prelude.Maybe [StepSummary])
-listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Prelude.. Lens.mapping Lens._Coerce
+listStepsResponse_steps = Lens.lens (\ListStepsResponse' {steps} -> steps) (\s@ListStepsResponse' {} a -> s {steps = a} :: ListStepsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of steps that a single @ListSteps@ action returns is
 -- 50. To return a longer list of steps, use multiple @ListSteps@ actions

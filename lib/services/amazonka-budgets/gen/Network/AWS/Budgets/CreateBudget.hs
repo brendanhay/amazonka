@@ -108,7 +108,7 @@ newCreateBudget pAccountId_ pBudget_ =
 -- and subscribers in your @CreateBudget@ call, AWS creates the
 -- notifications and subscribers for you.
 createBudget_notificationsWithSubscribers :: Lens.Lens' CreateBudget (Prelude.Maybe [NotificationWithSubscribers])
-createBudget_notificationsWithSubscribers = Lens.lens (\CreateBudget' {notificationsWithSubscribers} -> notificationsWithSubscribers) (\s@CreateBudget' {} a -> s {notificationsWithSubscribers = a} :: CreateBudget) Prelude.. Lens.mapping Lens._Coerce
+createBudget_notificationsWithSubscribers = Lens.lens (\CreateBudget' {notificationsWithSubscribers} -> notificationsWithSubscribers) (\s@CreateBudget' {} a -> s {notificationsWithSubscribers = a} :: CreateBudget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The @accountId@ that is associated with the budget.
 createBudget_accountId :: Lens.Lens' CreateBudget Prelude.Text

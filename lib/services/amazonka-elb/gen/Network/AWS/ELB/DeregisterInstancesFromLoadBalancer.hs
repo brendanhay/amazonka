@@ -96,7 +96,7 @@ deregisterInstancesFromLoadBalancer_loadBalancerName = Lens.lens (\DeregisterIns
 
 -- | The IDs of the instances.
 deregisterInstancesFromLoadBalancer_instances :: Lens.Lens' DeregisterInstancesFromLoadBalancer [Instance]
-deregisterInstancesFromLoadBalancer_instances = Lens.lens (\DeregisterInstancesFromLoadBalancer' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancer' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancer) Prelude.. Lens._Coerce
+deregisterInstancesFromLoadBalancer_instances = Lens.lens (\DeregisterInstancesFromLoadBalancer' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancer' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -190,7 +190,7 @@ newDeregisterInstancesFromLoadBalancerResponse
 
 -- | The remaining instances registered with the load balancer.
 deregisterInstancesFromLoadBalancerResponse_instances :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse (Prelude.Maybe [Instance])
-deregisterInstancesFromLoadBalancerResponse_instances = Lens.lens (\DeregisterInstancesFromLoadBalancerResponse' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancerResponse' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+deregisterInstancesFromLoadBalancerResponse_instances = Lens.lens (\DeregisterInstancesFromLoadBalancerResponse' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancerResponse' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deregisterInstancesFromLoadBalancerResponse_httpStatus :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse Prelude.Int

@@ -226,7 +226,7 @@ newPutDashboardResponse pHttpStatus_ =
 -- If this result includes error messages, the input was not valid and the
 -- operation failed.
 putDashboardResponse_dashboardValidationMessages :: Lens.Lens' PutDashboardResponse (Prelude.Maybe [DashboardValidationMessage])
-putDashboardResponse_dashboardValidationMessages = Lens.lens (\PutDashboardResponse' {dashboardValidationMessages} -> dashboardValidationMessages) (\s@PutDashboardResponse' {} a -> s {dashboardValidationMessages = a} :: PutDashboardResponse) Prelude.. Lens.mapping Lens._Coerce
+putDashboardResponse_dashboardValidationMessages = Lens.lens (\PutDashboardResponse' {dashboardValidationMessages} -> dashboardValidationMessages) (\s@PutDashboardResponse' {} a -> s {dashboardValidationMessages = a} :: PutDashboardResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putDashboardResponse_httpStatus :: Lens.Lens' PutDashboardResponse Prelude.Int

@@ -37,25 +37,12 @@ data WorkspaceDirectory = WorkspaceDirectory'
     -- enter in their Amazon WorkSpaces client application to connect to the
     -- directory.
     registrationCode :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the security group that is assigned to new WorkSpaces.
-    workspaceSecurityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The directory alias.
-    alias :: Prelude.Maybe Prelude.Text,
-    -- | The devices and operating systems that users can use to access
-    -- WorkSpaces.
-    workspaceAccessProperties :: Prelude.Maybe WorkspaceAccessProperties,
-    -- | The identifiers of the IP access control groups associated with the
-    -- directory.
-    ipGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The identifiers of the subnets used with the directory.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | The user name for the service account.
-    customerUserName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the directory is dedicated or shared. To use Bring
-    -- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
-    tenancy :: Prelude.Maybe Tenancy,
+    -- | The identifier of the IAM role. This is the role that allows Amazon
+    -- WorkSpaces to make calls to other services, such as Amazon EC2, on your
+    -- behalf.
+    iamRoleId :: Prelude.Maybe Prelude.Text,
+    -- | The directory identifier.
+    directoryId :: Prelude.Maybe Prelude.Text,
     -- | The state of the directory\'s registration with Amazon WorkSpaces. After
     -- a directory is deregistered, the @DEREGISTERED@ state is returned very
     -- briefly before the directory metadata is cleaned up, so this state is
@@ -65,22 +52,35 @@ data WorkspaceDirectory = WorkspaceDirectory'
     -- If the directory ID isn\'t returned, then the directory has been
     -- successfully deregistered.
     state :: Prelude.Maybe WorkspaceDirectoryState,
-    -- | The directory identifier.
-    directoryId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the IAM role. This is the role that allows Amazon
-    -- WorkSpaces to make calls to other services, such as Amazon EC2, on your
-    -- behalf.
-    iamRoleId :: Prelude.Maybe Prelude.Text,
+    -- | The user name for the service account.
+    customerUserName :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers of the subnets used with the directory.
+    subnetIds :: Prelude.Maybe [Prelude.Text],
+    -- | The identifiers of the IP access control groups associated with the
+    -- directory.
+    ipGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The directory alias.
+    alias :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the security group that is assigned to new WorkSpaces.
+    workspaceSecurityGroupId :: Prelude.Maybe Prelude.Text,
     -- | The directory type.
     directoryType :: Prelude.Maybe WorkspaceDirectoryType,
-    -- | The default self-service permissions for WorkSpaces in the directory.
-    selfservicePermissions :: Prelude.Maybe SelfservicePermissions,
-    -- | The name of the directory.
-    directoryName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the directory is dedicated or shared. To use Bring
+    -- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
+    tenancy :: Prelude.Maybe Tenancy,
+    -- | The default creation properties for all WorkSpaces in the directory.
+    workspaceCreationProperties :: Prelude.Maybe DefaultWorkspaceCreationProperties,
     -- | The IP addresses of the DNS servers for the directory.
     dnsIpAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | The default creation properties for all WorkSpaces in the directory.
-    workspaceCreationProperties :: Prelude.Maybe DefaultWorkspaceCreationProperties
+    -- | The devices and operating systems that users can use to access
+    -- WorkSpaces.
+    workspaceAccessProperties :: Prelude.Maybe WorkspaceAccessProperties,
+    -- | The name of the directory.
+    directoryName :: Prelude.Maybe Prelude.Text,
+    -- | The default self-service permissions for WorkSpaces in the directory.
+    selfservicePermissions :: Prelude.Maybe SelfservicePermissions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,24 +96,11 @@ data WorkspaceDirectory = WorkspaceDirectory'
 -- enter in their Amazon WorkSpaces client application to connect to the
 -- directory.
 --
--- 'workspaceSecurityGroupId', 'workspaceDirectory_workspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.
+-- 'iamRoleId', 'workspaceDirectory_iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon
+-- WorkSpaces to make calls to other services, such as Amazon EC2, on your
+-- behalf.
 --
--- 'alias', 'workspaceDirectory_alias' - The directory alias.
---
--- 'workspaceAccessProperties', 'workspaceDirectory_workspaceAccessProperties' - The devices and operating systems that users can use to access
--- WorkSpaces.
---
--- 'ipGroupIds', 'workspaceDirectory_ipGroupIds' - The identifiers of the IP access control groups associated with the
--- directory.
---
--- 'subnetIds', 'workspaceDirectory_subnetIds' - The identifiers of the subnets used with the directory.
---
--- 'customerUserName', 'workspaceDirectory_customerUserName' - The user name for the service account.
---
--- 'tenancy', 'workspaceDirectory_tenancy' - Specifies whether the directory is dedicated or shared. To use Bring
--- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
--- information, see
--- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
+-- 'directoryId', 'workspaceDirectory_directoryId' - The directory identifier.
 --
 -- 'state', 'workspaceDirectory_state' - The state of the directory\'s registration with Amazon WorkSpaces. After
 -- a directory is deregistered, the @DEREGISTERED@ state is returned very
@@ -124,42 +111,55 @@ data WorkspaceDirectory = WorkspaceDirectory'
 -- If the directory ID isn\'t returned, then the directory has been
 -- successfully deregistered.
 --
--- 'directoryId', 'workspaceDirectory_directoryId' - The directory identifier.
+-- 'customerUserName', 'workspaceDirectory_customerUserName' - The user name for the service account.
 --
--- 'iamRoleId', 'workspaceDirectory_iamRoleId' - The identifier of the IAM role. This is the role that allows Amazon
--- WorkSpaces to make calls to other services, such as Amazon EC2, on your
--- behalf.
+-- 'subnetIds', 'workspaceDirectory_subnetIds' - The identifiers of the subnets used with the directory.
+--
+-- 'ipGroupIds', 'workspaceDirectory_ipGroupIds' - The identifiers of the IP access control groups associated with the
+-- directory.
+--
+-- 'alias', 'workspaceDirectory_alias' - The directory alias.
+--
+-- 'workspaceSecurityGroupId', 'workspaceDirectory_workspaceSecurityGroupId' - The identifier of the security group that is assigned to new WorkSpaces.
 --
 -- 'directoryType', 'workspaceDirectory_directoryType' - The directory type.
 --
--- 'selfservicePermissions', 'workspaceDirectory_selfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.
+-- 'tenancy', 'workspaceDirectory_tenancy' - Specifies whether the directory is dedicated or shared. To use Bring
+-- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
 --
--- 'directoryName', 'workspaceDirectory_directoryName' - The name of the directory.
+-- 'workspaceCreationProperties', 'workspaceDirectory_workspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.
 --
 -- 'dnsIpAddresses', 'workspaceDirectory_dnsIpAddresses' - The IP addresses of the DNS servers for the directory.
 --
--- 'workspaceCreationProperties', 'workspaceDirectory_workspaceCreationProperties' - The default creation properties for all WorkSpaces in the directory.
+-- 'workspaceAccessProperties', 'workspaceDirectory_workspaceAccessProperties' - The devices and operating systems that users can use to access
+-- WorkSpaces.
+--
+-- 'directoryName', 'workspaceDirectory_directoryName' - The name of the directory.
+--
+-- 'selfservicePermissions', 'workspaceDirectory_selfservicePermissions' - The default self-service permissions for WorkSpaces in the directory.
 newWorkspaceDirectory ::
   WorkspaceDirectory
 newWorkspaceDirectory =
   WorkspaceDirectory'
     { registrationCode =
         Prelude.Nothing,
-      workspaceSecurityGroupId = Prelude.Nothing,
-      alias = Prelude.Nothing,
-      workspaceAccessProperties = Prelude.Nothing,
-      ipGroupIds = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      customerUserName = Prelude.Nothing,
-      tenancy = Prelude.Nothing,
-      state = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
       iamRoleId = Prelude.Nothing,
+      directoryId = Prelude.Nothing,
+      state = Prelude.Nothing,
+      customerUserName = Prelude.Nothing,
+      subnetIds = Prelude.Nothing,
+      ipGroupIds = Prelude.Nothing,
+      alias = Prelude.Nothing,
+      workspaceSecurityGroupId = Prelude.Nothing,
       directoryType = Prelude.Nothing,
-      selfservicePermissions = Prelude.Nothing,
-      directoryName = Prelude.Nothing,
+      tenancy = Prelude.Nothing,
+      workspaceCreationProperties = Prelude.Nothing,
       dnsIpAddresses = Prelude.Nothing,
-      workspaceCreationProperties = Prelude.Nothing
+      workspaceAccessProperties = Prelude.Nothing,
+      directoryName = Prelude.Nothing,
+      selfservicePermissions = Prelude.Nothing
     }
 
 -- | The registration code for the directory. This is the code that users
@@ -168,38 +168,15 @@ newWorkspaceDirectory =
 workspaceDirectory_registrationCode :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_registrationCode = Lens.lens (\WorkspaceDirectory' {registrationCode} -> registrationCode) (\s@WorkspaceDirectory' {} a -> s {registrationCode = a} :: WorkspaceDirectory)
 
--- | The identifier of the security group that is assigned to new WorkSpaces.
-workspaceDirectory_workspaceSecurityGroupId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
-workspaceDirectory_workspaceSecurityGroupId = Lens.lens (\WorkspaceDirectory' {workspaceSecurityGroupId} -> workspaceSecurityGroupId) (\s@WorkspaceDirectory' {} a -> s {workspaceSecurityGroupId = a} :: WorkspaceDirectory)
+-- | The identifier of the IAM role. This is the role that allows Amazon
+-- WorkSpaces to make calls to other services, such as Amazon EC2, on your
+-- behalf.
+workspaceDirectory_iamRoleId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
+workspaceDirectory_iamRoleId = Lens.lens (\WorkspaceDirectory' {iamRoleId} -> iamRoleId) (\s@WorkspaceDirectory' {} a -> s {iamRoleId = a} :: WorkspaceDirectory)
 
--- | The directory alias.
-workspaceDirectory_alias :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
-workspaceDirectory_alias = Lens.lens (\WorkspaceDirectory' {alias} -> alias) (\s@WorkspaceDirectory' {} a -> s {alias = a} :: WorkspaceDirectory)
-
--- | The devices and operating systems that users can use to access
--- WorkSpaces.
-workspaceDirectory_workspaceAccessProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceAccessProperties)
-workspaceDirectory_workspaceAccessProperties = Lens.lens (\WorkspaceDirectory' {workspaceAccessProperties} -> workspaceAccessProperties) (\s@WorkspaceDirectory' {} a -> s {workspaceAccessProperties = a} :: WorkspaceDirectory)
-
--- | The identifiers of the IP access control groups associated with the
--- directory.
-workspaceDirectory_ipGroupIds :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
-workspaceDirectory_ipGroupIds = Lens.lens (\WorkspaceDirectory' {ipGroupIds} -> ipGroupIds) (\s@WorkspaceDirectory' {} a -> s {ipGroupIds = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
-
--- | The identifiers of the subnets used with the directory.
-workspaceDirectory_subnetIds :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
-workspaceDirectory_subnetIds = Lens.lens (\WorkspaceDirectory' {subnetIds} -> subnetIds) (\s@WorkspaceDirectory' {} a -> s {subnetIds = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
-
--- | The user name for the service account.
-workspaceDirectory_customerUserName :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
-workspaceDirectory_customerUserName = Lens.lens (\WorkspaceDirectory' {customerUserName} -> customerUserName) (\s@WorkspaceDirectory' {} a -> s {customerUserName = a} :: WorkspaceDirectory)
-
--- | Specifies whether the directory is dedicated or shared. To use Bring
--- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
--- information, see
--- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
-workspaceDirectory_tenancy :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Tenancy)
-workspaceDirectory_tenancy = Lens.lens (\WorkspaceDirectory' {tenancy} -> tenancy) (\s@WorkspaceDirectory' {} a -> s {tenancy = a} :: WorkspaceDirectory)
+-- | The directory identifier.
+workspaceDirectory_directoryId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
+workspaceDirectory_directoryId = Lens.lens (\WorkspaceDirectory' {directoryId} -> directoryId) (\s@WorkspaceDirectory' {} a -> s {directoryId = a} :: WorkspaceDirectory)
 
 -- | The state of the directory\'s registration with Amazon WorkSpaces. After
 -- a directory is deregistered, the @DEREGISTERED@ state is returned very
@@ -212,35 +189,58 @@ workspaceDirectory_tenancy = Lens.lens (\WorkspaceDirectory' {tenancy} -> tenanc
 workspaceDirectory_state :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceDirectoryState)
 workspaceDirectory_state = Lens.lens (\WorkspaceDirectory' {state} -> state) (\s@WorkspaceDirectory' {} a -> s {state = a} :: WorkspaceDirectory)
 
--- | The directory identifier.
-workspaceDirectory_directoryId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
-workspaceDirectory_directoryId = Lens.lens (\WorkspaceDirectory' {directoryId} -> directoryId) (\s@WorkspaceDirectory' {} a -> s {directoryId = a} :: WorkspaceDirectory)
+-- | The user name for the service account.
+workspaceDirectory_customerUserName :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
+workspaceDirectory_customerUserName = Lens.lens (\WorkspaceDirectory' {customerUserName} -> customerUserName) (\s@WorkspaceDirectory' {} a -> s {customerUserName = a} :: WorkspaceDirectory)
 
--- | The identifier of the IAM role. This is the role that allows Amazon
--- WorkSpaces to make calls to other services, such as Amazon EC2, on your
--- behalf.
-workspaceDirectory_iamRoleId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
-workspaceDirectory_iamRoleId = Lens.lens (\WorkspaceDirectory' {iamRoleId} -> iamRoleId) (\s@WorkspaceDirectory' {} a -> s {iamRoleId = a} :: WorkspaceDirectory)
+-- | The identifiers of the subnets used with the directory.
+workspaceDirectory_subnetIds :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
+workspaceDirectory_subnetIds = Lens.lens (\WorkspaceDirectory' {subnetIds} -> subnetIds) (\s@WorkspaceDirectory' {} a -> s {subnetIds = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens.coerced
+
+-- | The identifiers of the IP access control groups associated with the
+-- directory.
+workspaceDirectory_ipGroupIds :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
+workspaceDirectory_ipGroupIds = Lens.lens (\WorkspaceDirectory' {ipGroupIds} -> ipGroupIds) (\s@WorkspaceDirectory' {} a -> s {ipGroupIds = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens.coerced
+
+-- | The directory alias.
+workspaceDirectory_alias :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
+workspaceDirectory_alias = Lens.lens (\WorkspaceDirectory' {alias} -> alias) (\s@WorkspaceDirectory' {} a -> s {alias = a} :: WorkspaceDirectory)
+
+-- | The identifier of the security group that is assigned to new WorkSpaces.
+workspaceDirectory_workspaceSecurityGroupId :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
+workspaceDirectory_workspaceSecurityGroupId = Lens.lens (\WorkspaceDirectory' {workspaceSecurityGroupId} -> workspaceSecurityGroupId) (\s@WorkspaceDirectory' {} a -> s {workspaceSecurityGroupId = a} :: WorkspaceDirectory)
 
 -- | The directory type.
 workspaceDirectory_directoryType :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceDirectoryType)
 workspaceDirectory_directoryType = Lens.lens (\WorkspaceDirectory' {directoryType} -> directoryType) (\s@WorkspaceDirectory' {} a -> s {directoryType = a} :: WorkspaceDirectory)
 
--- | The default self-service permissions for WorkSpaces in the directory.
-workspaceDirectory_selfservicePermissions :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe SelfservicePermissions)
-workspaceDirectory_selfservicePermissions = Lens.lens (\WorkspaceDirectory' {selfservicePermissions} -> selfservicePermissions) (\s@WorkspaceDirectory' {} a -> s {selfservicePermissions = a} :: WorkspaceDirectory)
+-- | Specifies whether the directory is dedicated or shared. To use Bring
+-- Your Own License (BYOL), this value must be set to @DEDICATED@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html Bring Your Own Windows Desktop Images>.
+workspaceDirectory_tenancy :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Tenancy)
+workspaceDirectory_tenancy = Lens.lens (\WorkspaceDirectory' {tenancy} -> tenancy) (\s@WorkspaceDirectory' {} a -> s {tenancy = a} :: WorkspaceDirectory)
+
+-- | The default creation properties for all WorkSpaces in the directory.
+workspaceDirectory_workspaceCreationProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe DefaultWorkspaceCreationProperties)
+workspaceDirectory_workspaceCreationProperties = Lens.lens (\WorkspaceDirectory' {workspaceCreationProperties} -> workspaceCreationProperties) (\s@WorkspaceDirectory' {} a -> s {workspaceCreationProperties = a} :: WorkspaceDirectory)
+
+-- | The IP addresses of the DNS servers for the directory.
+workspaceDirectory_dnsIpAddresses :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
+workspaceDirectory_dnsIpAddresses = Lens.lens (\WorkspaceDirectory' {dnsIpAddresses} -> dnsIpAddresses) (\s@WorkspaceDirectory' {} a -> s {dnsIpAddresses = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens.coerced
+
+-- | The devices and operating systems that users can use to access
+-- WorkSpaces.
+workspaceDirectory_workspaceAccessProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe WorkspaceAccessProperties)
+workspaceDirectory_workspaceAccessProperties = Lens.lens (\WorkspaceDirectory' {workspaceAccessProperties} -> workspaceAccessProperties) (\s@WorkspaceDirectory' {} a -> s {workspaceAccessProperties = a} :: WorkspaceDirectory)
 
 -- | The name of the directory.
 workspaceDirectory_directoryName :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe Prelude.Text)
 workspaceDirectory_directoryName = Lens.lens (\WorkspaceDirectory' {directoryName} -> directoryName) (\s@WorkspaceDirectory' {} a -> s {directoryName = a} :: WorkspaceDirectory)
 
--- | The IP addresses of the DNS servers for the directory.
-workspaceDirectory_dnsIpAddresses :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe [Prelude.Text])
-workspaceDirectory_dnsIpAddresses = Lens.lens (\WorkspaceDirectory' {dnsIpAddresses} -> dnsIpAddresses) (\s@WorkspaceDirectory' {} a -> s {dnsIpAddresses = a} :: WorkspaceDirectory) Prelude.. Lens.mapping Lens._Coerce
-
--- | The default creation properties for all WorkSpaces in the directory.
-workspaceDirectory_workspaceCreationProperties :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe DefaultWorkspaceCreationProperties)
-workspaceDirectory_workspaceCreationProperties = Lens.lens (\WorkspaceDirectory' {workspaceCreationProperties} -> workspaceCreationProperties) (\s@WorkspaceDirectory' {} a -> s {workspaceCreationProperties = a} :: WorkspaceDirectory)
+-- | The default self-service permissions for WorkSpaces in the directory.
+workspaceDirectory_selfservicePermissions :: Lens.Lens' WorkspaceDirectory (Prelude.Maybe SelfservicePermissions)
+workspaceDirectory_selfservicePermissions = Lens.lens (\WorkspaceDirectory' {selfservicePermissions} -> selfservicePermissions) (\s@WorkspaceDirectory' {} a -> s {selfservicePermissions = a} :: WorkspaceDirectory)
 
 instance Core.FromJSON WorkspaceDirectory where
   parseJSON =
@@ -249,21 +249,21 @@ instance Core.FromJSON WorkspaceDirectory where
       ( \x ->
           WorkspaceDirectory'
             Prelude.<$> (x Core..:? "RegistrationCode")
-            Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
-            Prelude.<*> (x Core..:? "Alias")
-            Prelude.<*> (x Core..:? "WorkspaceAccessProperties")
-            Prelude.<*> (x Core..:? "ipGroupIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CustomerUserName")
-            Prelude.<*> (x Core..:? "Tenancy")
-            Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "IamRoleId")
+            Prelude.<*> (x Core..:? "DirectoryId")
+            Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "CustomerUserName")
+            Prelude.<*> (x Core..:? "SubnetIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ipGroupIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Alias")
+            Prelude.<*> (x Core..:? "WorkspaceSecurityGroupId")
             Prelude.<*> (x Core..:? "DirectoryType")
-            Prelude.<*> (x Core..:? "SelfservicePermissions")
-            Prelude.<*> (x Core..:? "DirectoryName")
-            Prelude.<*> (x Core..:? "DnsIpAddresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Tenancy")
             Prelude.<*> (x Core..:? "WorkspaceCreationProperties")
+            Prelude.<*> (x Core..:? "DnsIpAddresses" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "WorkspaceAccessProperties")
+            Prelude.<*> (x Core..:? "DirectoryName")
+            Prelude.<*> (x Core..:? "SelfservicePermissions")
       )
 
 instance Prelude.Hashable WorkspaceDirectory

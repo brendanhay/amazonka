@@ -35,8 +35,8 @@ module Network.AWS.SNS.Subscribe
     newSubscribe,
 
     -- * Request Lenses
-    subscribe_attributes,
     subscribe_returnSubscriptionArn,
+    subscribe_attributes,
     subscribe_endpoint,
     subscribe_topicArn,
     subscribe_protocol,
@@ -62,7 +62,19 @@ import Network.AWS.SNS.Types
 --
 -- /See:/ 'newSubscribe' smart constructor.
 data Subscribe = Subscribe'
-  { -- | A map of attributes with their corresponding values.
+  { -- | Sets whether the response from the @Subscribe@ request includes the
+    -- subscription ARN, even if the subscription is not yet confirmed.
+    --
+    -- If you set this parameter to @true@, the response includes the ARN in
+    -- all cases, even if the subscription is not yet confirmed. In addition to
+    -- the ARN for confirmed subscriptions, the response also includes the
+    -- @pending subscription@ ARN value for subscriptions that aren\'t yet
+    -- confirmed. A subscription becomes confirmed when the subscriber calls
+    -- the @ConfirmSubscription@ action with a confirmation token.
+    --
+    -- The default value is @false@.
+    returnSubscriptionArn :: Prelude.Maybe Prelude.Bool,
+    -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special
     -- request parameters that the @Subscribe@ action uses:
@@ -102,18 +114,6 @@ data Subscribe = Subscribe'
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Sets whether the response from the @Subscribe@ request includes the
-    -- subscription ARN, even if the subscription is not yet confirmed.
-    --
-    -- If you set this parameter to @true@, the response includes the ARN in
-    -- all cases, even if the subscription is not yet confirmed. In addition to
-    -- the ARN for confirmed subscriptions, the response also includes the
-    -- @pending subscription@ ARN value for subscriptions that aren\'t yet
-    -- confirmed. A subscription becomes confirmed when the subscriber calls
-    -- the @ConfirmSubscription@ action with a confirmation token.
-    --
-    -- The default value is @false@.
-    returnSubscriptionArn :: Prelude.Maybe Prelude.Bool,
     -- | The endpoint that you want to receive notifications. Endpoints vary by
     -- protocol:
     --
@@ -177,6 +177,18 @@ data Subscribe = Subscribe'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'returnSubscriptionArn', 'subscribe_returnSubscriptionArn' - Sets whether the response from the @Subscribe@ request includes the
+-- subscription ARN, even if the subscription is not yet confirmed.
+--
+-- If you set this parameter to @true@, the response includes the ARN in
+-- all cases, even if the subscription is not yet confirmed. In addition to
+-- the ARN for confirmed subscriptions, the response also includes the
+-- @pending subscription@ ARN value for subscriptions that aren\'t yet
+-- confirmed. A subscription becomes confirmed when the subscriber calls
+-- the @ConfirmSubscription@ action with a confirmation token.
+--
+-- The default value is @false@.
+--
 -- 'attributes', 'subscribe_attributes' - A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special
@@ -216,18 +228,6 @@ data Subscribe = Subscribe'
 --     see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
---
--- 'returnSubscriptionArn', 'subscribe_returnSubscriptionArn' - Sets whether the response from the @Subscribe@ request includes the
--- subscription ARN, even if the subscription is not yet confirmed.
---
--- If you set this parameter to @true@, the response includes the ARN in
--- all cases, even if the subscription is not yet confirmed. In addition to
--- the ARN for confirmed subscriptions, the response also includes the
--- @pending subscription@ ARN value for subscriptions that aren\'t yet
--- confirmed. A subscription becomes confirmed when the subscriber calls
--- the @ConfirmSubscription@ action with a confirmation token.
---
--- The default value is @false@.
 --
 -- 'endpoint', 'subscribe_endpoint' - The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol:
@@ -288,12 +288,26 @@ newSubscribe ::
   Subscribe
 newSubscribe pTopicArn_ pProtocol_ =
   Subscribe'
-    { attributes = Prelude.Nothing,
-      returnSubscriptionArn = Prelude.Nothing,
+    { returnSubscriptionArn = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       endpoint = Prelude.Nothing,
       topicArn = pTopicArn_,
       protocol = pProtocol_
     }
+
+-- | Sets whether the response from the @Subscribe@ request includes the
+-- subscription ARN, even if the subscription is not yet confirmed.
+--
+-- If you set this parameter to @true@, the response includes the ARN in
+-- all cases, even if the subscription is not yet confirmed. In addition to
+-- the ARN for confirmed subscriptions, the response also includes the
+-- @pending subscription@ ARN value for subscriptions that aren\'t yet
+-- confirmed. A subscription becomes confirmed when the subscriber calls
+-- the @ConfirmSubscription@ action with a confirmation token.
+--
+-- The default value is @false@.
+subscribe_returnSubscriptionArn :: Lens.Lens' Subscribe (Prelude.Maybe Prelude.Bool)
+subscribe_returnSubscriptionArn = Lens.lens (\Subscribe' {returnSubscriptionArn} -> returnSubscriptionArn) (\s@Subscribe' {} a -> s {returnSubscriptionArn = a} :: Subscribe)
 
 -- | A map of attributes with their corresponding values.
 --
@@ -335,21 +349,7 @@ newSubscribe pTopicArn_ pProtocol_ =
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 subscribe_attributes :: Lens.Lens' Subscribe (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Subscribe' {} a -> s {attributes = a} :: Subscribe) Prelude.. Lens.mapping Lens._Coerce
-
--- | Sets whether the response from the @Subscribe@ request includes the
--- subscription ARN, even if the subscription is not yet confirmed.
---
--- If you set this parameter to @true@, the response includes the ARN in
--- all cases, even if the subscription is not yet confirmed. In addition to
--- the ARN for confirmed subscriptions, the response also includes the
--- @pending subscription@ ARN value for subscriptions that aren\'t yet
--- confirmed. A subscription becomes confirmed when the subscriber calls
--- the @ConfirmSubscription@ action with a confirmation token.
---
--- The default value is @false@.
-subscribe_returnSubscriptionArn :: Lens.Lens' Subscribe (Prelude.Maybe Prelude.Bool)
-subscribe_returnSubscriptionArn = Lens.lens (\Subscribe' {returnSubscriptionArn} -> returnSubscriptionArn) (\s@Subscribe' {} a -> s {returnSubscriptionArn = a} :: Subscribe)
+subscribe_attributes = Lens.lens (\Subscribe' {attributes} -> attributes) (\s@Subscribe' {} a -> s {attributes = a} :: Subscribe) Prelude.. Lens.mapping Lens.coerced
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol:
@@ -438,13 +438,13 @@ instance Core.ToQuery Subscribe where
           Core.=: ("Subscribe" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-03-31" :: Prelude.ByteString),
+        "ReturnSubscriptionArn"
+          Core.=: returnSubscriptionArn,
         "Attributes"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
                 Prelude.<$> attributes
             ),
-        "ReturnSubscriptionArn"
-          Core.=: returnSubscriptionArn,
         "Endpoint" Core.=: endpoint,
         "TopicArn" Core.=: topicArn,
         "Protocol" Core.=: protocol

@@ -53,7 +53,7 @@ newDnsConfigChange =
 -- | An array that contains one @DnsRecord@ object for each Route 53 record
 -- that you want Cloud Map to create when you register an instance.
 dnsConfigChange_dnsRecords :: Lens.Lens' DnsConfigChange [DnsRecord]
-dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Prelude.. Lens._Coerce
+dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Prelude.. Lens.coerced
 
 instance Prelude.Hashable DnsConfigChange
 

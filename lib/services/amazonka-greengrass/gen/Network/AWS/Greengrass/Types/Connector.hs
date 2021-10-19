@@ -70,7 +70,7 @@ newConnector pConnectorArn_ pId_ =
 
 -- | The parameters or configuration that the connector uses.
 connector_parameters :: Lens.Lens' Connector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-connector_parameters = Lens.lens (\Connector' {parameters} -> parameters) (\s@Connector' {} a -> s {parameters = a} :: Connector) Prelude.. Lens.mapping Lens._Coerce
+connector_parameters = Lens.lens (\Connector' {parameters} -> parameters) (\s@Connector' {} a -> s {parameters = a} :: Connector) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the connector.
 connector_connectorArn :: Lens.Lens' Connector Prelude.Text

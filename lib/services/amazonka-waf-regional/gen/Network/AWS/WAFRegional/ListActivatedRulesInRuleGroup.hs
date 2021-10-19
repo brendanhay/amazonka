@@ -36,8 +36,8 @@ module Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup
     newListActivatedRulesInRuleGroup,
 
     -- * Request Lenses
-    listActivatedRulesInRuleGroup_nextMarker,
     listActivatedRulesInRuleGroup_ruleGroupId,
+    listActivatedRulesInRuleGroup_nextMarker,
     listActivatedRulesInRuleGroup_limit,
 
     -- * Destructuring the Response
@@ -60,16 +60,16 @@ import Network.AWS.WAFRegional.Types
 
 -- | /See:/ 'newListActivatedRulesInRuleGroup' smart constructor.
 data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
-  { -- | If you specify a value for @Limit@ and you have more @ActivatedRules@
+  { -- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
+    -- ActivatedRule objects.
+    ruleGroupId :: Prelude.Maybe Prelude.Text,
+    -- | If you specify a value for @Limit@ and you have more @ActivatedRules@
     -- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
     -- response that allows you to list another group of @ActivatedRules@. For
     -- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,
     -- specify the value of @NextMarker@ from the previous response to get
     -- information about another batch of @ActivatedRules@.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
-    -- ActivatedRule objects.
-    ruleGroupId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
     -- for this request. If you have more @ActivatedRules@ than the number that
     -- you specify for @Limit@, the response includes a @NextMarker@ value that
@@ -86,15 +86,15 @@ data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ruleGroupId', 'listActivatedRulesInRuleGroup_ruleGroupId' - The @RuleGroupId@ of the RuleGroup for which you want to get a list of
+-- ActivatedRule objects.
+--
 -- 'nextMarker', 'listActivatedRulesInRuleGroup_nextMarker' - If you specify a value for @Limit@ and you have more @ActivatedRules@
 -- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
 -- response that allows you to list another group of @ActivatedRules@. For
 -- the second and subsequent @ListActivatedRulesInRuleGroup@ requests,
 -- specify the value of @NextMarker@ from the previous response to get
 -- information about another batch of @ActivatedRules@.
---
--- 'ruleGroupId', 'listActivatedRulesInRuleGroup_ruleGroupId' - The @RuleGroupId@ of the RuleGroup for which you want to get a list of
--- ActivatedRule objects.
 --
 -- 'limit', 'listActivatedRulesInRuleGroup_limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return
 -- for this request. If you have more @ActivatedRules@ than the number that
@@ -104,11 +104,16 @@ newListActivatedRulesInRuleGroup ::
   ListActivatedRulesInRuleGroup
 newListActivatedRulesInRuleGroup =
   ListActivatedRulesInRuleGroup'
-    { nextMarker =
+    { ruleGroupId =
         Prelude.Nothing,
-      ruleGroupId = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       limit = Prelude.Nothing
     }
+
+-- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
+-- ActivatedRule objects.
+listActivatedRulesInRuleGroup_ruleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
+listActivatedRulesInRuleGroup_ruleGroupId = Lens.lens (\ListActivatedRulesInRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@ListActivatedRulesInRuleGroup' {} a -> s {ruleGroupId = a} :: ListActivatedRulesInRuleGroup)
 
 -- | If you specify a value for @Limit@ and you have more @ActivatedRules@
 -- than the value of @Limit@, AWS WAF returns a @NextMarker@ value in the
@@ -118,11 +123,6 @@ newListActivatedRulesInRuleGroup =
 -- information about another batch of @ActivatedRules@.
 listActivatedRulesInRuleGroup_nextMarker :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
 listActivatedRulesInRuleGroup_nextMarker = Lens.lens (\ListActivatedRulesInRuleGroup' {nextMarker} -> nextMarker) (\s@ListActivatedRulesInRuleGroup' {} a -> s {nextMarker = a} :: ListActivatedRulesInRuleGroup)
-
--- | The @RuleGroupId@ of the RuleGroup for which you want to get a list of
--- ActivatedRule objects.
-listActivatedRulesInRuleGroup_ruleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Prelude.Maybe Prelude.Text)
-listActivatedRulesInRuleGroup_ruleGroupId = Lens.lens (\ListActivatedRulesInRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@ListActivatedRulesInRuleGroup' {} a -> s {ruleGroupId = a} :: ListActivatedRulesInRuleGroup)
 
 -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return
 -- for this request. If you have more @ActivatedRules@ than the number that
@@ -173,8 +173,8 @@ instance Core.ToJSON ListActivatedRulesInRuleGroup where
   toJSON ListActivatedRulesInRuleGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextMarker" Core..=) Prelude.<$> nextMarker,
-            ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
+          [ ("RuleGroupId" Core..=) Prelude.<$> ruleGroupId,
+            ("NextMarker" Core..=) Prelude.<$> nextMarker,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -239,7 +239,7 @@ listActivatedRulesInRuleGroupResponse_nextMarker = Lens.lens (\ListActivatedRule
 
 -- | An array of @ActivatedRules@ objects.
 listActivatedRulesInRuleGroupResponse_activatedRules :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Prelude.Maybe [ActivatedRule])
-listActivatedRulesInRuleGroupResponse_activatedRules = Lens.lens (\ListActivatedRulesInRuleGroupResponse' {activatedRules} -> activatedRules) (\s@ListActivatedRulesInRuleGroupResponse' {} a -> s {activatedRules = a} :: ListActivatedRulesInRuleGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+listActivatedRulesInRuleGroupResponse_activatedRules = Lens.lens (\ListActivatedRulesInRuleGroupResponse' {activatedRules} -> activatedRules) (\s@ListActivatedRulesInRuleGroupResponse' {} a -> s {activatedRules = a} :: ListActivatedRulesInRuleGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listActivatedRulesInRuleGroupResponse_httpStatus :: Lens.Lens' ListActivatedRulesInRuleGroupResponse Prelude.Int

@@ -30,11 +30,11 @@ module Network.AWS.SageMaker.ListHumanTaskUis
     newListHumanTaskUis,
 
     -- * Request Lenses
+    listHumanTaskUis_creationTimeAfter,
     listHumanTaskUis_nextToken,
     listHumanTaskUis_sortOrder,
-    listHumanTaskUis_maxResults,
     listHumanTaskUis_creationTimeBefore,
-    listHumanTaskUis_creationTimeAfter,
+    listHumanTaskUis_maxResults,
 
     -- * Destructuring the Response
     ListHumanTaskUisResponse (..),
@@ -56,22 +56,22 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListHumanTaskUis' smart constructor.
 data ListHumanTaskUis = ListHumanTaskUis'
-  { -- | A token to resume pagination.
+  { -- | A filter that returns only human task user interfaces with a creation
+    -- time greater than or equal to the specified timestamp.
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | A token to resume pagination.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An optional value that specifies whether you want the results sorted in
     -- @Ascending@ or @Descending@ order.
     sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only human task user interfaces that were created
+    -- before the specified timestamp.
+    creationTimeBefore :: Prelude.Maybe Core.POSIX,
     -- | The total number of items to return. If the total number of available
     -- items is more than the value specified in @MaxResults@, then a
     -- @NextToken@ will be provided in the output that you can use to resume
     -- pagination.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns only human task user interfaces that were created
-    -- before the specified timestamp.
-    creationTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | A filter that returns only human task user interfaces with a creation
-    -- time greater than or equal to the specified timestamp.
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,31 +83,37 @@ data ListHumanTaskUis = ListHumanTaskUis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTimeAfter', 'listHumanTaskUis_creationTimeAfter' - A filter that returns only human task user interfaces with a creation
+-- time greater than or equal to the specified timestamp.
+--
 -- 'nextToken', 'listHumanTaskUis_nextToken' - A token to resume pagination.
 --
 -- 'sortOrder', 'listHumanTaskUis_sortOrder' - An optional value that specifies whether you want the results sorted in
 -- @Ascending@ or @Descending@ order.
 --
+-- 'creationTimeBefore', 'listHumanTaskUis_creationTimeBefore' - A filter that returns only human task user interfaces that were created
+-- before the specified timestamp.
+--
 -- 'maxResults', 'listHumanTaskUis_maxResults' - The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
 -- @NextToken@ will be provided in the output that you can use to resume
 -- pagination.
---
--- 'creationTimeBefore', 'listHumanTaskUis_creationTimeBefore' - A filter that returns only human task user interfaces that were created
--- before the specified timestamp.
---
--- 'creationTimeAfter', 'listHumanTaskUis_creationTimeAfter' - A filter that returns only human task user interfaces with a creation
--- time greater than or equal to the specified timestamp.
 newListHumanTaskUis ::
   ListHumanTaskUis
 newListHumanTaskUis =
   ListHumanTaskUis'
-    { nextToken = Prelude.Nothing,
+    { creationTimeAfter =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | A filter that returns only human task user interfaces with a creation
+-- time greater than or equal to the specified timestamp.
+listHumanTaskUis_creationTimeAfter :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.UTCTime)
+listHumanTaskUis_creationTimeAfter = Lens.lens (\ListHumanTaskUis' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanTaskUis' {} a -> s {creationTimeAfter = a} :: ListHumanTaskUis) Prelude.. Lens.mapping Core._Time
 
 -- | A token to resume pagination.
 listHumanTaskUis_nextToken :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Text)
@@ -118,22 +124,17 @@ listHumanTaskUis_nextToken = Lens.lens (\ListHumanTaskUis' {nextToken} -> nextTo
 listHumanTaskUis_sortOrder :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe SortOrder)
 listHumanTaskUis_sortOrder = Lens.lens (\ListHumanTaskUis' {sortOrder} -> sortOrder) (\s@ListHumanTaskUis' {} a -> s {sortOrder = a} :: ListHumanTaskUis)
 
+-- | A filter that returns only human task user interfaces that were created
+-- before the specified timestamp.
+listHumanTaskUis_creationTimeBefore :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.UTCTime)
+listHumanTaskUis_creationTimeBefore = Lens.lens (\ListHumanTaskUis' {creationTimeBefore} -> creationTimeBefore) (\s@ListHumanTaskUis' {} a -> s {creationTimeBefore = a} :: ListHumanTaskUis) Prelude.. Lens.mapping Core._Time
+
 -- | The total number of items to return. If the total number of available
 -- items is more than the value specified in @MaxResults@, then a
 -- @NextToken@ will be provided in the output that you can use to resume
 -- pagination.
 listHumanTaskUis_maxResults :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.Natural)
 listHumanTaskUis_maxResults = Lens.lens (\ListHumanTaskUis' {maxResults} -> maxResults) (\s@ListHumanTaskUis' {} a -> s {maxResults = a} :: ListHumanTaskUis)
-
--- | A filter that returns only human task user interfaces that were created
--- before the specified timestamp.
-listHumanTaskUis_creationTimeBefore :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.UTCTime)
-listHumanTaskUis_creationTimeBefore = Lens.lens (\ListHumanTaskUis' {creationTimeBefore} -> creationTimeBefore) (\s@ListHumanTaskUis' {} a -> s {creationTimeBefore = a} :: ListHumanTaskUis) Prelude.. Lens.mapping Core._Time
-
--- | A filter that returns only human task user interfaces with a creation
--- time greater than or equal to the specified timestamp.
-listHumanTaskUis_creationTimeAfter :: Lens.Lens' ListHumanTaskUis (Prelude.Maybe Prelude.UTCTime)
-listHumanTaskUis_creationTimeAfter = Lens.lens (\ListHumanTaskUis' {creationTimeAfter} -> creationTimeAfter) (\s@ListHumanTaskUis' {} a -> s {creationTimeAfter = a} :: ListHumanTaskUis) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListHumanTaskUis where
   page rq rs
@@ -193,13 +194,13 @@ instance Core.ToJSON ListHumanTaskUis where
   toJSON ListHumanTaskUis' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -255,6 +256,6 @@ listHumanTaskUisResponse_httpStatus = Lens.lens (\ListHumanTaskUisResponse' {htt
 
 -- | An array of objects describing the human task user interfaces.
 listHumanTaskUisResponse_humanTaskUiSummaries :: Lens.Lens' ListHumanTaskUisResponse [HumanTaskUiSummary]
-listHumanTaskUisResponse_humanTaskUiSummaries = Lens.lens (\ListHumanTaskUisResponse' {humanTaskUiSummaries} -> humanTaskUiSummaries) (\s@ListHumanTaskUisResponse' {} a -> s {humanTaskUiSummaries = a} :: ListHumanTaskUisResponse) Prelude.. Lens._Coerce
+listHumanTaskUisResponse_humanTaskUiSummaries = Lens.lens (\ListHumanTaskUisResponse' {humanTaskUiSummaries} -> humanTaskUiSummaries) (\s@ListHumanTaskUisResponse' {} a -> s {humanTaskUiSummaries = a} :: ListHumanTaskUisResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListHumanTaskUisResponse

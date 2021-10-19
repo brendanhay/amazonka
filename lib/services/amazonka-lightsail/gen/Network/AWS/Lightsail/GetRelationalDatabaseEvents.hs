@@ -275,7 +275,7 @@ getRelationalDatabaseEventsResponse_nextPageToken = Lens.lens (\GetRelationalDat
 -- | An object describing the result of your get relational database events
 -- request.
 getRelationalDatabaseEventsResponse_relationalDatabaseEvents :: Lens.Lens' GetRelationalDatabaseEventsResponse (Prelude.Maybe [RelationalDatabaseEvent])
-getRelationalDatabaseEventsResponse_relationalDatabaseEvents = Lens.lens (\GetRelationalDatabaseEventsResponse' {relationalDatabaseEvents} -> relationalDatabaseEvents) (\s@GetRelationalDatabaseEventsResponse' {} a -> s {relationalDatabaseEvents = a} :: GetRelationalDatabaseEventsResponse) Prelude.. Lens.mapping Lens._Coerce
+getRelationalDatabaseEventsResponse_relationalDatabaseEvents = Lens.lens (\GetRelationalDatabaseEventsResponse' {relationalDatabaseEvents} -> relationalDatabaseEvents) (\s@GetRelationalDatabaseEventsResponse' {} a -> s {relationalDatabaseEvents = a} :: GetRelationalDatabaseEventsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRelationalDatabaseEventsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseEventsResponse Prelude.Int

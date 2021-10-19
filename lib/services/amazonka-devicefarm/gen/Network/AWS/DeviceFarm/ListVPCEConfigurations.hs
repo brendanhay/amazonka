@@ -220,7 +220,7 @@ listVPCEConfigurationsResponse_nextToken = Lens.lens (\ListVPCEConfigurationsRes
 -- | An array of @VPCEConfiguration@ objects that contain information about
 -- your VPC endpoint configuration.
 listVPCEConfigurationsResponse_vpceConfigurations :: Lens.Lens' ListVPCEConfigurationsResponse (Prelude.Maybe [VPCEConfiguration])
-listVPCEConfigurationsResponse_vpceConfigurations = Lens.lens (\ListVPCEConfigurationsResponse' {vpceConfigurations} -> vpceConfigurations) (\s@ListVPCEConfigurationsResponse' {} a -> s {vpceConfigurations = a} :: ListVPCEConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listVPCEConfigurationsResponse_vpceConfigurations = Lens.lens (\ListVPCEConfigurationsResponse' {vpceConfigurations} -> vpceConfigurations) (\s@ListVPCEConfigurationsResponse' {} a -> s {vpceConfigurations = a} :: ListVPCEConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listVPCEConfigurationsResponse_httpStatus :: Lens.Lens' ListVPCEConfigurationsResponse Prelude.Int

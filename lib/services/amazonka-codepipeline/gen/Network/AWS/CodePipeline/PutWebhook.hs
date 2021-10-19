@@ -95,7 +95,7 @@ newPutWebhook pWebhook_ =
 
 -- | The tags for the webhook.
 putWebhook_tags :: Lens.Lens' PutWebhook (Prelude.Maybe [Tag])
-putWebhook_tags = Lens.lens (\PutWebhook' {tags} -> tags) (\s@PutWebhook' {} a -> s {tags = a} :: PutWebhook) Prelude.. Lens.mapping Lens._Coerce
+putWebhook_tags = Lens.lens (\PutWebhook' {tags} -> tags) (\s@PutWebhook' {} a -> s {tags = a} :: PutWebhook) Prelude.. Lens.mapping Lens.coerced
 
 -- | The detail provided in an input file to create the webhook, such as the
 -- webhook name, the pipeline name, and the action name. Give the webhook a

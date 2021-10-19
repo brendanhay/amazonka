@@ -263,7 +263,7 @@ newListVPCAssociationAuthorizationsResponse
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
         hostedZoneId = pHostedZoneId_,
-        vPCs = Lens._Coerce Lens.# pVPCs_
+        vPCs = Lens.coerced Lens.# pVPCs_
       }
 
 -- | When the response includes a @NextToken@ element, there are more VPCs
@@ -285,7 +285,7 @@ listVPCAssociationAuthorizationsResponse_hostedZoneId = Lens.lens (\ListVPCAssoc
 -- | The list of VPCs that are authorized to be associated with the specified
 -- hosted zone.
 listVPCAssociationAuthorizationsResponse_vPCs :: Lens.Lens' ListVPCAssociationAuthorizationsResponse (Prelude.NonEmpty VPC)
-listVPCAssociationAuthorizationsResponse_vPCs = Lens.lens (\ListVPCAssociationAuthorizationsResponse' {vPCs} -> vPCs) (\s@ListVPCAssociationAuthorizationsResponse' {} a -> s {vPCs = a} :: ListVPCAssociationAuthorizationsResponse) Prelude.. Lens._Coerce
+listVPCAssociationAuthorizationsResponse_vPCs = Lens.lens (\ListVPCAssociationAuthorizationsResponse' {vPCs} -> vPCs) (\s@ListVPCAssociationAuthorizationsResponse' {} a -> s {vPCs = a} :: ListVPCAssociationAuthorizationsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

@@ -48,15 +48,15 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 
     -- * Response Lenses
     configurationSettingsDescription_templateName,
+    configurationSettingsDescription_optionSettings,
+    configurationSettingsDescription_dateUpdated,
     configurationSettingsDescription_dateCreated,
-    configurationSettingsDescription_solutionStackName,
-    configurationSettingsDescription_deploymentStatus,
     configurationSettingsDescription_platformArn,
     configurationSettingsDescription_environmentName,
-    configurationSettingsDescription_dateUpdated,
-    configurationSettingsDescription_optionSettings,
-    configurationSettingsDescription_description,
     configurationSettingsDescription_applicationName,
+    configurationSettingsDescription_deploymentStatus,
+    configurationSettingsDescription_solutionStackName,
+    configurationSettingsDescription_description,
   )
 where
 
@@ -144,12 +144,12 @@ newUpdateConfigurationTemplate
 --
 -- Constraint: You can remove only @UserDefined@ configuration options.
 updateConfigurationTemplate_optionsToRemove :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe [OptionSpecification])
-updateConfigurationTemplate_optionsToRemove = Lens.lens (\UpdateConfigurationTemplate' {optionsToRemove} -> optionsToRemove) (\s@UpdateConfigurationTemplate' {} a -> s {optionsToRemove = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Lens._Coerce
+updateConfigurationTemplate_optionsToRemove = Lens.lens (\UpdateConfigurationTemplate' {optionsToRemove} -> optionsToRemove) (\s@UpdateConfigurationTemplate' {} a -> s {optionsToRemove = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
 updateConfigurationTemplate_optionSettings :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe [ConfigurationOptionSetting])
-updateConfigurationTemplate_optionSettings = Lens.lens (\UpdateConfigurationTemplate' {optionSettings} -> optionSettings) (\s@UpdateConfigurationTemplate' {} a -> s {optionSettings = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Lens._Coerce
+updateConfigurationTemplate_optionSettings = Lens.lens (\UpdateConfigurationTemplate' {optionSettings} -> optionSettings) (\s@UpdateConfigurationTemplate' {} a -> s {optionSettings = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | A new description for the configuration.
 updateConfigurationTemplate_description :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe Prelude.Text)

@@ -33,9 +33,8 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
   { -- | Enables or disables the IPv6 endpoint for the instance metadata service.
     httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState,
-    -- | This parameter enables or disables the HTTP metadata endpoint on your
-    -- instances. If the parameter is not specified, the default state is
-    -- @enabled@.
+    -- | Enables or disables the HTTP metadata endpoint on your instances. If the
+    -- parameter is not specified, the default state is @enabled@.
     --
     -- If you specify a value of @disabled@, you will not be able to access
     -- your instance metadata.
@@ -76,9 +75,8 @@ data InstanceMetadataOptionsRequest = InstanceMetadataOptionsRequest'
 --
 -- 'httpProtocolIpv6', 'instanceMetadataOptionsRequest_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
 --
--- 'httpEndpoint', 'instanceMetadataOptionsRequest_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
+-- 'httpEndpoint', 'instanceMetadataOptionsRequest_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If the
+-- parameter is not specified, the default state is @enabled@.
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
@@ -120,9 +118,8 @@ newInstanceMetadataOptionsRequest =
 instanceMetadataOptionsRequest_httpProtocolIpv6 :: Lens.Lens' InstanceMetadataOptionsRequest (Prelude.Maybe InstanceMetadataProtocolState)
 instanceMetadataOptionsRequest_httpProtocolIpv6 = Lens.lens (\InstanceMetadataOptionsRequest' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@InstanceMetadataOptionsRequest' {} a -> s {httpProtocolIpv6 = a} :: InstanceMetadataOptionsRequest)
 
--- | This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
+-- | Enables or disables the HTTP metadata endpoint on your instances. If the
+-- parameter is not specified, the default state is @enabled@.
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.

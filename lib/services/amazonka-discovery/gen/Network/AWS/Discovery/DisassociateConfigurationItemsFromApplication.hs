@@ -88,7 +88,7 @@ disassociateConfigurationItemsFromApplication_applicationConfigurationId = Lens.
 
 -- | Configuration ID of each item to be disassociated from an application.
 disassociateConfigurationItemsFromApplication_configurationIds :: Lens.Lens' DisassociateConfigurationItemsFromApplication [Prelude.Text]
-disassociateConfigurationItemsFromApplication_configurationIds = Lens.lens (\DisassociateConfigurationItemsFromApplication' {configurationIds} -> configurationIds) (\s@DisassociateConfigurationItemsFromApplication' {} a -> s {configurationIds = a} :: DisassociateConfigurationItemsFromApplication) Prelude.. Lens._Coerce
+disassociateConfigurationItemsFromApplication_configurationIds = Lens.lens (\DisassociateConfigurationItemsFromApplication' {configurationIds} -> configurationIds) (\s@DisassociateConfigurationItemsFromApplication' {} a -> s {configurationIds = a} :: DisassociateConfigurationItemsFromApplication) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

@@ -112,7 +112,7 @@ sendAnnouncement_timeToLiveInSeconds = Lens.lens (\SendAnnouncement' {timeToLive
 -- The supported filter keys are RoomName, ProfileName, RoomArn, and
 -- ProfileArn. To send to all rooms, specify an empty RoomFilters list.
 sendAnnouncement_roomFilters :: Lens.Lens' SendAnnouncement [Filter]
-sendAnnouncement_roomFilters = Lens.lens (\SendAnnouncement' {roomFilters} -> roomFilters) (\s@SendAnnouncement' {} a -> s {roomFilters = a} :: SendAnnouncement) Prelude.. Lens._Coerce
+sendAnnouncement_roomFilters = Lens.lens (\SendAnnouncement' {roomFilters} -> roomFilters) (\s@SendAnnouncement' {} a -> s {roomFilters = a} :: SendAnnouncement) Prelude.. Lens.coerced
 
 -- | The announcement content. This can contain only one of the three
 -- possible announcement types (text, SSML or audio).

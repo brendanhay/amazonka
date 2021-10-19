@@ -130,7 +130,7 @@ newAction
         executionRoleArn = pExecutionRoleArn_,
         approvalModel = pApprovalModel_,
         status = pStatus_,
-        subscribers = Lens._Coerce Lens.# pSubscribers_
+        subscribers = Lens.coerced Lens.# pSubscribers_
       }
 
 -- | A system-generated universally unique identifier (UUID) for the action.
@@ -174,7 +174,7 @@ action_status = Lens.lens (\Action' {status} -> status) (\s@Action' {} a -> s {s
 
 -- | Undocumented member.
 action_subscribers :: Lens.Lens' Action (Prelude.NonEmpty Subscriber)
-action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Prelude.. Lens._Coerce
+action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Prelude.. Lens.coerced
 
 instance Core.FromJSON Action where
   parseJSON =

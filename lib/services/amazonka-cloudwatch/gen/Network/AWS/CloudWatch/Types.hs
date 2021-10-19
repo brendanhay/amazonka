@@ -17,19 +17,19 @@ module Network.AWS.CloudWatch.Types
     defaultService,
 
     -- * Errors
-    _DashboardNotFoundError,
     _LimitExceededFault,
-    _InvalidParameterCombinationException,
-    _DashboardInvalidInputError,
-    _MissingRequiredParameterException,
+    _DashboardNotFoundError,
+    _InvalidNextToken,
     _InternalServiceFault,
-    _ConcurrentModificationException,
+    _DashboardInvalidInputError,
     _InvalidParameterValueException,
+    _ConcurrentModificationException,
+    _InvalidFormatFault,
+    _MissingRequiredParameterException,
+    _ResourceNotFoundException,
+    _InvalidParameterCombinationException,
     _LimitExceededException,
     _ResourceNotFound,
-    _ResourceNotFoundException,
-    _InvalidFormatFault,
-    _InvalidNextToken,
 
     -- * AlarmType
     AlarmType (..),
@@ -67,22 +67,22 @@ module Network.AWS.CloudWatch.Types
     -- * AlarmHistoryItem
     AlarmHistoryItem (..),
     newAlarmHistoryItem,
-    alarmHistoryItem_historySummary,
-    alarmHistoryItem_historyItemType,
     alarmHistoryItem_alarmName,
-    alarmHistoryItem_timestamp,
-    alarmHistoryItem_alarmType,
+    alarmHistoryItem_historyItemType,
     alarmHistoryItem_historyData,
+    alarmHistoryItem_alarmType,
+    alarmHistoryItem_historySummary,
+    alarmHistoryItem_timestamp,
 
     -- * AnomalyDetector
     AnomalyDetector (..),
     newAnomalyDetector,
     anomalyDetector_metricName,
-    anomalyDetector_configuration,
-    anomalyDetector_stateValue,
     anomalyDetector_namespace,
-    anomalyDetector_dimensions,
+    anomalyDetector_stateValue,
     anomalyDetector_stat,
+    anomalyDetector_configuration,
+    anomalyDetector_dimensions,
 
     -- * AnomalyDetectorConfiguration
     AnomalyDetectorConfiguration (..),
@@ -93,45 +93,45 @@ module Network.AWS.CloudWatch.Types
     -- * CompositeAlarm
     CompositeAlarm (..),
     newCompositeAlarm,
-    compositeAlarm_alarmActions,
-    compositeAlarm_alarmArn,
+    compositeAlarm_alarmName,
+    compositeAlarm_stateUpdatedTimestamp,
+    compositeAlarm_alarmDescription,
+    compositeAlarm_alarmRule,
+    compositeAlarm_oKActions,
+    compositeAlarm_stateValue,
+    compositeAlarm_alarmConfigurationUpdatedTimestamp,
+    compositeAlarm_actionsEnabled,
+    compositeAlarm_insufficientDataActions,
     compositeAlarm_stateReason,
     compositeAlarm_stateReasonData,
-    compositeAlarm_insufficientDataActions,
-    compositeAlarm_alarmRule,
-    compositeAlarm_alarmName,
-    compositeAlarm_stateValue,
-    compositeAlarm_stateUpdatedTimestamp,
-    compositeAlarm_oKActions,
-    compositeAlarm_actionsEnabled,
-    compositeAlarm_alarmConfigurationUpdatedTimestamp,
-    compositeAlarm_alarmDescription,
+    compositeAlarm_alarmArn,
+    compositeAlarm_alarmActions,
 
     -- * DashboardEntry
     DashboardEntry (..),
     newDashboardEntry,
-    dashboardEntry_dashboardArn,
+    dashboardEntry_size,
     dashboardEntry_dashboardName,
     dashboardEntry_lastModified,
-    dashboardEntry_size,
+    dashboardEntry_dashboardArn,
 
     -- * DashboardValidationMessage
     DashboardValidationMessage (..),
     newDashboardValidationMessage,
-    dashboardValidationMessage_message,
     dashboardValidationMessage_dataPath,
+    dashboardValidationMessage_message,
 
     -- * Datapoint
     Datapoint (..),
     newDatapoint,
-    datapoint_unit,
-    datapoint_minimum,
-    datapoint_sum,
     datapoint_sampleCount,
-    datapoint_timestamp,
-    datapoint_average,
     datapoint_maximum,
+    datapoint_average,
+    datapoint_minimum,
     datapoint_extendedStatistics,
+    datapoint_sum,
+    datapoint_unit,
+    datapoint_timestamp,
 
     -- * Dimension
     Dimension (..),
@@ -169,13 +169,13 @@ module Network.AWS.CloudWatch.Types
     -- * InsightRuleMetricDatapoint
     InsightRuleMetricDatapoint (..),
     newInsightRuleMetricDatapoint,
-    insightRuleMetricDatapoint_minimum,
-    insightRuleMetricDatapoint_sum,
-    insightRuleMetricDatapoint_sampleCount,
     insightRuleMetricDatapoint_maxContributorValue,
-    insightRuleMetricDatapoint_average,
-    insightRuleMetricDatapoint_uniqueContributors,
+    insightRuleMetricDatapoint_sampleCount,
     insightRuleMetricDatapoint_maximum,
+    insightRuleMetricDatapoint_average,
+    insightRuleMetricDatapoint_minimum,
+    insightRuleMetricDatapoint_uniqueContributors,
+    insightRuleMetricDatapoint_sum,
     insightRuleMetricDatapoint_timestamp,
 
     -- * LabelOptions
@@ -186,8 +186,8 @@ module Network.AWS.CloudWatch.Types
     -- * MessageData
     MessageData (..),
     newMessageData,
-    messageData_code,
     messageData_value,
+    messageData_code,
 
     -- * Metric
     Metric (..),
@@ -199,43 +199,43 @@ module Network.AWS.CloudWatch.Types
     -- * MetricAlarm
     MetricAlarm (..),
     newMetricAlarm,
-    metricAlarm_threshold,
-    metricAlarm_datapointsToAlarm,
-    metricAlarm_evaluateLowSampleCountPercentile,
-    metricAlarm_comparisonOperator,
-    metricAlarm_extendedStatistic,
-    metricAlarm_thresholdMetricId,
-    metricAlarm_alarmActions,
-    metricAlarm_unit,
-    metricAlarm_alarmArn,
-    metricAlarm_metricName,
-    metricAlarm_stateReason,
-    metricAlarm_stateReasonData,
-    metricAlarm_insufficientDataActions,
-    metricAlarm_treatMissingData,
-    metricAlarm_metrics,
     metricAlarm_alarmName,
-    metricAlarm_stateValue,
     metricAlarm_stateUpdatedTimestamp,
-    metricAlarm_oKActions,
-    metricAlarm_statistic,
-    metricAlarm_namespace,
-    metricAlarm_dimensions,
-    metricAlarm_evaluationPeriods,
-    metricAlarm_actionsEnabled,
-    metricAlarm_alarmConfigurationUpdatedTimestamp,
+    metricAlarm_metrics,
+    metricAlarm_treatMissingData,
     metricAlarm_period,
     metricAlarm_alarmDescription,
+    metricAlarm_evaluationPeriods,
+    metricAlarm_metricName,
+    metricAlarm_namespace,
+    metricAlarm_thresholdMetricId,
+    metricAlarm_comparisonOperator,
+    metricAlarm_oKActions,
+    metricAlarm_evaluateLowSampleCountPercentile,
+    metricAlarm_stateValue,
+    metricAlarm_datapointsToAlarm,
+    metricAlarm_threshold,
+    metricAlarm_alarmConfigurationUpdatedTimestamp,
+    metricAlarm_actionsEnabled,
+    metricAlarm_insufficientDataActions,
+    metricAlarm_stateReason,
+    metricAlarm_stateReasonData,
+    metricAlarm_dimensions,
+    metricAlarm_alarmArn,
+    metricAlarm_alarmActions,
+    metricAlarm_unit,
+    metricAlarm_statistic,
+    metricAlarm_extendedStatistic,
 
     -- * MetricDataQuery
     MetricDataQuery (..),
     newMetricDataQuery,
-    metricDataQuery_accountId,
-    metricDataQuery_metricStat,
     metricDataQuery_returnData,
-    metricDataQuery_label,
     metricDataQuery_period,
+    metricDataQuery_accountId,
     metricDataQuery_expression,
+    metricDataQuery_label,
+    metricDataQuery_metricStat,
     metricDataQuery_id,
 
     -- * MetricDataResult
@@ -244,21 +244,21 @@ module Network.AWS.CloudWatch.Types
     metricDataResult_values,
     metricDataResult_id,
     metricDataResult_timestamps,
-    metricDataResult_statusCode,
-    metricDataResult_label,
     metricDataResult_messages,
+    metricDataResult_label,
+    metricDataResult_statusCode,
 
     -- * MetricDatum
     MetricDatum (..),
     newMetricDatum,
-    metricDatum_storageResolution,
-    metricDatum_unit,
     metricDatum_values,
     metricDatum_counts,
-    metricDatum_statisticValues,
-    metricDatum_timestamp,
     metricDatum_value,
+    metricDatum_storageResolution,
     metricDatum_dimensions,
+    metricDatum_unit,
+    metricDatum_timestamp,
+    metricDatum_statisticValues,
     metricDatum_metricName,
 
     -- * MetricStat
@@ -272,13 +272,13 @@ module Network.AWS.CloudWatch.Types
     -- * MetricStreamEntry
     MetricStreamEntry (..),
     newMetricStreamEntry,
-    metricStreamEntry_firehoseArn,
-    metricStreamEntry_arn,
-    metricStreamEntry_creationDate,
-    metricStreamEntry_name,
-    metricStreamEntry_lastUpdateDate,
     metricStreamEntry_state,
+    metricStreamEntry_arn,
+    metricStreamEntry_firehoseArn,
     metricStreamEntry_outputFormat,
+    metricStreamEntry_lastUpdateDate,
+    metricStreamEntry_name,
+    metricStreamEntry_creationDate,
 
     -- * MetricStreamFilter
     MetricStreamFilter (..),
@@ -288,10 +288,10 @@ module Network.AWS.CloudWatch.Types
     -- * PartialFailure
     PartialFailure (..),
     newPartialFailure,
-    partialFailure_exceptionType,
+    partialFailure_failureResource,
     partialFailure_failureCode,
     partialFailure_failureDescription,
-    partialFailure_failureResource,
+    partialFailure_exceptionType,
 
     -- * Range
     Range (..),
@@ -383,37 +383,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -426,15 +403,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | The specified dashboard does not exist.
-_DashboardNotFoundError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DashboardNotFoundError =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFound"
-    Prelude.. Core.hasStatus 404
 
 -- | The quota for alarms for this customer has already been reached.
 _LimitExceededFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -444,28 +436,20 @@ _LimitExceededFault =
     "LimitExceeded"
     Prelude.. Core.hasStatus 400
 
--- | Parameters were used together that cannot be used together.
-_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterCombinationException =
+-- | The specified dashboard does not exist.
+_DashboardNotFoundError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DashboardNotFoundError =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterCombination"
-    Prelude.. Core.hasStatus 400
+    "ResourceNotFound"
+    Prelude.. Core.hasStatus 404
 
--- | Some part of the dashboard data is invalid.
-_DashboardInvalidInputError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DashboardInvalidInputError =
+-- | The next token specified is invalid.
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterInput"
-    Prelude.. Core.hasStatus 400
-
--- | An input parameter that is required is missing.
-_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingRequiredParameterException =
-  Core._MatchServiceError
-    defaultService
-    "MissingParameter"
+    "InvalidNextToken"
     Prelude.. Core.hasStatus 400
 
 -- | Request processing has failed due to some unknown error, exception, or
@@ -477,6 +461,22 @@ _InternalServiceFault =
     "InternalServiceError"
     Prelude.. Core.hasStatus 500
 
+-- | Some part of the dashboard data is invalid.
+_DashboardInvalidInputError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DashboardInvalidInputError =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterInput"
+    Prelude.. Core.hasStatus 400
+
+-- | The value of an input parameter is bad or out-of-range.
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterValue"
+    Prelude.. Core.hasStatus 400
+
 -- | More than one process tried to modify a resource at the same time.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
@@ -485,12 +485,36 @@ _ConcurrentModificationException =
     "ConcurrentModificationException"
     Prelude.. Core.hasStatus 429
 
--- | The value of an input parameter is bad or out-of-range.
-_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterValueException =
+-- | Data was not syntactically valid JSON.
+_InvalidFormatFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidFormatFault =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterValue"
+    "InvalidFormat"
+    Prelude.. Core.hasStatus 400
+
+-- | An input parameter that is required is missing.
+_MissingRequiredParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingRequiredParameterException =
+  Core._MatchServiceError
+    defaultService
+    "MissingParameter"
+    Prelude.. Core.hasStatus 400
+
+-- | The named resource does not exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Parameters were used together that cannot be used together.
+_InvalidParameterCombinationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterCombinationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterCombination"
     Prelude.. Core.hasStatus 400
 
 -- | The operation exceeded one or more limits.
@@ -508,27 +532,3 @@ _ResourceNotFound =
     defaultService
     "ResourceNotFound"
     Prelude.. Core.hasStatus 404
-
--- | The named resource does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | Data was not syntactically valid JSON.
-_InvalidFormatFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidFormatFault =
-  Core._MatchServiceError
-    defaultService
-    "InvalidFormat"
-    Prelude.. Core.hasStatus 400
-
--- | The next token specified is invalid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextToken =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNextToken"
-    Prelude.. Core.hasStatus 400

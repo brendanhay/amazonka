@@ -83,11 +83,11 @@ module Network.AWS.Glacier.GetJobOutput
     newGetJobOutputResponse,
 
     -- * Response Lenses
-    getJobOutputResponse_contentType,
-    getJobOutputResponse_contentRange,
+    getJobOutputResponse_checksum,
     getJobOutputResponse_acceptRanges,
     getJobOutputResponse_archiveDescription,
-    getJobOutputResponse_checksum,
+    getJobOutputResponse_contentRange,
+    getJobOutputResponse_contentType,
     getJobOutputResponse_status,
     getJobOutputResponse_body,
   )
@@ -273,11 +273,11 @@ instance Core.AWSRequest GetJobOutput where
     Response.receiveBody
       ( \s h x ->
           GetJobOutputResponse'
-            Prelude.<$> (h Core..#? "Content-Type")
-            Prelude.<*> (h Core..#? "Content-Range")
+            Prelude.<$> (h Core..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Core..#? "Accept-Ranges")
             Prelude.<*> (h Core..#? "x-amz-archive-description")
-            Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
+            Prelude.<*> (h Core..#? "Content-Range")
+            Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -309,24 +309,7 @@ instance Core.ToQuery GetJobOutput where
 --
 -- /See:/ 'newGetJobOutputResponse' smart constructor.
 data GetJobOutputResponse = GetJobOutputResponse'
-  { -- | The Content-Type depends on whether the job output is an archive or a
-    -- vault inventory. For archive data, the Content-Type is
-    -- application\/octet-stream. For vault inventory, if you requested CSV
-    -- format when you initiated the job, the Content-Type is text\/csv.
-    -- Otherwise, by default, vault inventory is returned as JSON, and the
-    -- Content-Type is application\/json.
-    contentType :: Prelude.Maybe Prelude.Text,
-    -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
-    -- is downloaded, the response provides the range of bytes Amazon S3
-    -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
-    -- first 1 MB from 8 MB.
-    contentRange :: Prelude.Maybe Prelude.Text,
-    -- | Indicates the range units accepted. For more information, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-    acceptRanges :: Prelude.Maybe Prelude.Text,
-    -- | The description of an archive.
-    archiveDescription :: Prelude.Maybe Prelude.Text,
-    -- | The checksum of the data in the response. This header is returned only
+  { -- | The checksum of the data in the response. This header is returned only
     -- when retrieving the output for an archive retrieval job. Furthermore,
     -- this header appears only under the following conditions:
     --
@@ -343,6 +326,23 @@ data GetJobOutputResponse = GetJobOutputResponse'
     --     MB and ends at 3.1 MB (the end of the archive), then the
     --     x-amz-sha256-tree-hash is returned as a response header.
     checksum :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the range units accepted. For more information, see
+    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+    acceptRanges :: Prelude.Maybe Prelude.Text,
+    -- | The description of an archive.
+    archiveDescription :: Prelude.Maybe Prelude.Text,
+    -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
+    -- is downloaded, the response provides the range of bytes Amazon S3
+    -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
+    -- first 1 MB from 8 MB.
+    contentRange :: Prelude.Maybe Prelude.Text,
+    -- | The Content-Type depends on whether the job output is an archive or a
+    -- vault inventory. For archive data, the Content-Type is
+    -- application\/octet-stream. For vault inventory, if you requested CSV
+    -- format when you initiated the job, the Content-Type is text\/csv.
+    -- Otherwise, by default, vault inventory is returned as JSON, and the
+    -- Content-Type is application\/json.
+    contentType :: Prelude.Maybe Prelude.Text,
     -- | The HTTP response code for a job output request. The value depends on
     -- whether a range was specified in the request.
     status :: Prelude.Int,
@@ -358,23 +358,6 @@ data GetJobOutputResponse = GetJobOutputResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'contentType', 'getJobOutputResponse_contentType' - The Content-Type depends on whether the job output is an archive or a
--- vault inventory. For archive data, the Content-Type is
--- application\/octet-stream. For vault inventory, if you requested CSV
--- format when you initiated the job, the Content-Type is text\/csv.
--- Otherwise, by default, vault inventory is returned as JSON, and the
--- Content-Type is application\/json.
---
--- 'contentRange', 'getJobOutputResponse_contentRange' - The range of bytes returned by Amazon S3 Glacier. If only partial output
--- is downloaded, the response provides the range of bytes Amazon S3
--- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
--- first 1 MB from 8 MB.
---
--- 'acceptRanges', 'getJobOutputResponse_acceptRanges' - Indicates the range units accepted. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
---
--- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
 --
 -- 'checksum', 'getJobOutputResponse_checksum' - The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
@@ -393,6 +376,23 @@ data GetJobOutputResponse = GetJobOutputResponse'
 --     MB and ends at 3.1 MB (the end of the archive), then the
 --     x-amz-sha256-tree-hash is returned as a response header.
 --
+-- 'acceptRanges', 'getJobOutputResponse_acceptRanges' - Indicates the range units accepted. For more information, see
+-- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+--
+-- 'archiveDescription', 'getJobOutputResponse_archiveDescription' - The description of an archive.
+--
+-- 'contentRange', 'getJobOutputResponse_contentRange' - The range of bytes returned by Amazon S3 Glacier. If only partial output
+-- is downloaded, the response provides the range of bytes Amazon S3
+-- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
+-- first 1 MB from 8 MB.
+--
+-- 'contentType', 'getJobOutputResponse_contentType' - The Content-Type depends on whether the job output is an archive or a
+-- vault inventory. For archive data, the Content-Type is
+-- application\/octet-stream. For vault inventory, if you requested CSV
+-- format when you initiated the job, the Content-Type is text\/csv.
+-- Otherwise, by default, vault inventory is returned as JSON, and the
+-- Content-Type is application\/json.
+--
 -- 'status', 'getJobOutputResponse_status' - The HTTP response code for a job output request. The value depends on
 -- whether a range was specified in the request.
 --
@@ -405,40 +405,14 @@ newGetJobOutputResponse ::
   GetJobOutputResponse
 newGetJobOutputResponse pStatus_ pBody_ =
   GetJobOutputResponse'
-    { contentType =
-        Prelude.Nothing,
-      contentRange = Prelude.Nothing,
+    { checksum = Prelude.Nothing,
       acceptRanges = Prelude.Nothing,
       archiveDescription = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+      contentRange = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       status = pStatus_,
       body = pBody_
     }
-
--- | The Content-Type depends on whether the job output is an archive or a
--- vault inventory. For archive data, the Content-Type is
--- application\/octet-stream. For vault inventory, if you requested CSV
--- format when you initiated the job, the Content-Type is text\/csv.
--- Otherwise, by default, vault inventory is returned as JSON, and the
--- Content-Type is application\/json.
-getJobOutputResponse_contentType :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_contentType = Lens.lens (\GetJobOutputResponse' {contentType} -> contentType) (\s@GetJobOutputResponse' {} a -> s {contentType = a} :: GetJobOutputResponse)
-
--- | The range of bytes returned by Amazon S3 Glacier. If only partial output
--- is downloaded, the response provides the range of bytes Amazon S3
--- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
--- first 1 MB from 8 MB.
-getJobOutputResponse_contentRange :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_contentRange = Lens.lens (\GetJobOutputResponse' {contentRange} -> contentRange) (\s@GetJobOutputResponse' {} a -> s {contentRange = a} :: GetJobOutputResponse)
-
--- | Indicates the range units accepted. For more information, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
-
--- | The description of an archive.
-getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
-getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
 
 -- | The checksum of the data in the response. This header is returned only
 -- when retrieving the output for an archive retrieval job. Furthermore,
@@ -458,6 +432,31 @@ getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {arc
 --     x-amz-sha256-tree-hash is returned as a response header.
 getJobOutputResponse_checksum :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
 getJobOutputResponse_checksum = Lens.lens (\GetJobOutputResponse' {checksum} -> checksum) (\s@GetJobOutputResponse' {} a -> s {checksum = a} :: GetJobOutputResponse)
+
+-- | Indicates the range units accepted. For more information, see
+-- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
+getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
+
+-- | The description of an archive.
+getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
+
+-- | The range of bytes returned by Amazon S3 Glacier. If only partial output
+-- is downloaded, the response provides the range of bytes Amazon S3
+-- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
+-- first 1 MB from 8 MB.
+getJobOutputResponse_contentRange :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_contentRange = Lens.lens (\GetJobOutputResponse' {contentRange} -> contentRange) (\s@GetJobOutputResponse' {} a -> s {contentRange = a} :: GetJobOutputResponse)
+
+-- | The Content-Type depends on whether the job output is an archive or a
+-- vault inventory. For archive data, the Content-Type is
+-- application\/octet-stream. For vault inventory, if you requested CSV
+-- format when you initiated the job, the Content-Type is text\/csv.
+-- Otherwise, by default, vault inventory is returned as JSON, and the
+-- Content-Type is application\/json.
+getJobOutputResponse_contentType :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_contentType = Lens.lens (\GetJobOutputResponse' {contentType} -> contentType) (\s@GetJobOutputResponse' {} a -> s {contentType = a} :: GetJobOutputResponse)
 
 -- | The HTTP response code for a job output request. The value depends on
 -- whether a range was specified in the request.

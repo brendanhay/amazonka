@@ -97,7 +97,7 @@ allowedMethods_quantity = Lens.lens (\AllowedMethods' {quantity} -> quantity) (\
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to process and forward to your origin.
 allowedMethods_items :: Lens.Lens' AllowedMethods [Method]
-allowedMethods_items = Lens.lens (\AllowedMethods' {items} -> items) (\s@AllowedMethods' {} a -> s {items = a} :: AllowedMethods) Prelude.. Lens._Coerce
+allowedMethods_items = Lens.lens (\AllowedMethods' {items} -> items) (\s@AllowedMethods' {} a -> s {items = a} :: AllowedMethods) Prelude.. Lens.coerced
 
 instance Core.FromXML AllowedMethods where
   parseXML x =

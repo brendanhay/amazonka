@@ -55,7 +55,7 @@ newTimedMetadataInsertion =
 
 -- | Id3Insertions contains the array of Id3Insertion instances.
 timedMetadataInsertion_id3Insertions :: Lens.Lens' TimedMetadataInsertion (Prelude.Maybe [Id3Insertion])
-timedMetadataInsertion_id3Insertions = Lens.lens (\TimedMetadataInsertion' {id3Insertions} -> id3Insertions) (\s@TimedMetadataInsertion' {} a -> s {id3Insertions = a} :: TimedMetadataInsertion) Prelude.. Lens.mapping Lens._Coerce
+timedMetadataInsertion_id3Insertions = Lens.lens (\TimedMetadataInsertion' {id3Insertions} -> id3Insertions) (\s@TimedMetadataInsertion' {} a -> s {id3Insertions = a} :: TimedMetadataInsertion) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON TimedMetadataInsertion where
   parseJSON =

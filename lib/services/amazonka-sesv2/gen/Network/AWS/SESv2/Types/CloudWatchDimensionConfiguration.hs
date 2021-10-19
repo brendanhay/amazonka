@@ -38,11 +38,11 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
     -- -   It can contain no more than 256 characters.
     dimensionName :: Prelude.Text,
     -- | The location where the Amazon SES API v2 finds the value of a dimension
-    -- to publish to Amazon CloudWatch. If you want to use the message tags
-    -- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to
-    -- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want
-    -- to use your own email headers, choose @emailHeader@. If you want to use
-    -- link tags, choose @linkTags@.
+    -- to publish to Amazon CloudWatch. To use the message tags that you
+    -- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the
+    -- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own
+    -- email headers, choose @emailHeader@. To use link tags, choose
+    -- @linkTags@.
     dimensionValueSource :: DimensionValueSource,
     -- | The default value of the dimension that is published to Amazon
     -- CloudWatch if you don\'t provide the value of the dimension when you
@@ -73,11 +73,11 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
 -- -   It can contain no more than 256 characters.
 --
 -- 'dimensionValueSource', 'cloudWatchDimensionConfiguration_dimensionValueSource' - The location where the Amazon SES API v2 finds the value of a dimension
--- to publish to Amazon CloudWatch. If you want to use the message tags
--- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to
--- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want
--- to use your own email headers, choose @emailHeader@. If you want to use
--- link tags, choose @linkTags@.
+-- to publish to Amazon CloudWatch. To use the message tags that you
+-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the
+-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own
+-- email headers, choose @emailHeader@. To use link tags, choose
+-- @linkTags@.
 --
 -- 'defaultDimensionValue', 'cloudWatchDimensionConfiguration_defaultDimensionValue' - The default value of the dimension that is published to Amazon
 -- CloudWatch if you don\'t provide the value of the dimension when you
@@ -119,11 +119,11 @@ cloudWatchDimensionConfiguration_dimensionName :: Lens.Lens' CloudWatchDimension
 cloudWatchDimensionConfiguration_dimensionName = Lens.lens (\CloudWatchDimensionConfiguration' {dimensionName} -> dimensionName) (\s@CloudWatchDimensionConfiguration' {} a -> s {dimensionName = a} :: CloudWatchDimensionConfiguration)
 
 -- | The location where the Amazon SES API v2 finds the value of a dimension
--- to publish to Amazon CloudWatch. If you want to use the message tags
--- that you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to
--- the @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. If you want
--- to use your own email headers, choose @emailHeader@. If you want to use
--- link tags, choose @linkTags@.
+-- to publish to Amazon CloudWatch. To use the message tags that you
+-- specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the
+-- @SendEmail@ or @SendRawEmail@ API, choose @messageTag@. To use your own
+-- email headers, choose @emailHeader@. To use link tags, choose
+-- @linkTags@.
 cloudWatchDimensionConfiguration_dimensionValueSource :: Lens.Lens' CloudWatchDimensionConfiguration DimensionValueSource
 cloudWatchDimensionConfiguration_dimensionValueSource = Lens.lens (\CloudWatchDimensionConfiguration' {dimensionValueSource} -> dimensionValueSource) (\s@CloudWatchDimensionConfiguration' {} a -> s {dimensionValueSource = a} :: CloudWatchDimensionConfiguration)
 

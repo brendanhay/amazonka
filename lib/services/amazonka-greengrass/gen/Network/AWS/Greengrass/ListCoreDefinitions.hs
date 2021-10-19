@@ -195,7 +195,7 @@ listCoreDefinitionsResponse_nextToken = Lens.lens (\ListCoreDefinitionsResponse'
 
 -- | Information about a definition.
 listCoreDefinitionsResponse_definitions :: Lens.Lens' ListCoreDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsResponse' {definitions} -> definitions) (\s@ListCoreDefinitionsResponse' {} a -> s {definitions = a} :: ListCoreDefinitionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listCoreDefinitionsResponse_definitions = Lens.lens (\ListCoreDefinitionsResponse' {definitions} -> definitions) (\s@ListCoreDefinitionsResponse' {} a -> s {definitions = a} :: ListCoreDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listCoreDefinitionsResponse_httpStatus :: Lens.Lens' ListCoreDefinitionsResponse Prelude.Int

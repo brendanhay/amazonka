@@ -76,7 +76,7 @@ keyGroupConfig_name = Lens.lens (\KeyGroupConfig' {name} -> name) (\s@KeyGroupCo
 
 -- | A list of the identifiers of the public keys in the key group.
 keyGroupConfig_items :: Lens.Lens' KeyGroupConfig [Prelude.Text]
-keyGroupConfig_items = Lens.lens (\KeyGroupConfig' {items} -> items) (\s@KeyGroupConfig' {} a -> s {items = a} :: KeyGroupConfig) Prelude.. Lens._Coerce
+keyGroupConfig_items = Lens.lens (\KeyGroupConfig' {items} -> items) (\s@KeyGroupConfig' {} a -> s {items = a} :: KeyGroupConfig) Prelude.. Lens.coerced
 
 instance Core.FromXML KeyGroupConfig where
   parseXML x =

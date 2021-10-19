@@ -29,9 +29,7 @@ import Network.AWS.SWF.Types.StartLambdaFunctionFailedCause
 --
 -- /See:/ 'newStartLambdaFunctionFailedEventAttributes' smart constructor.
 data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAttributes'
-  { -- | A description that can help diagnose the cause of the fault.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
+  { -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
     -- activity task was scheduled. To help diagnose issues, use this
     -- information to trace back the chain of events leading up to this event.
     scheduledEventId :: Prelude.Maybe Prelude.Integer,
@@ -43,7 +41,9 @@ data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAt
     -- permissions. For details and example IAM policies, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks>
     -- in the /Amazon SWF Developer Guide/.
-    cause :: Prelude.Maybe StartLambdaFunctionFailedCause
+    cause :: Prelude.Maybe StartLambdaFunctionFailedCause,
+    -- | A description that can help diagnose the cause of the fault.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,8 +54,6 @@ data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAt
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'message', 'startLambdaFunctionFailedEventAttributes_message' - A description that can help diagnose the cause of the fault.
 --
 -- 'scheduledEventId', 'startLambdaFunctionFailedEventAttributes_scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. To help diagnose issues, use this
@@ -69,20 +67,17 @@ data StartLambdaFunctionFailedEventAttributes = StartLambdaFunctionFailedEventAt
 -- permissions. For details and example IAM policies, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks>
 -- in the /Amazon SWF Developer Guide/.
+--
+-- 'message', 'startLambdaFunctionFailedEventAttributes_message' - A description that can help diagnose the cause of the fault.
 newStartLambdaFunctionFailedEventAttributes ::
   StartLambdaFunctionFailedEventAttributes
 newStartLambdaFunctionFailedEventAttributes =
   StartLambdaFunctionFailedEventAttributes'
-    { message =
+    { scheduledEventId =
         Prelude.Nothing,
-      scheduledEventId =
-        Prelude.Nothing,
-      cause = Prelude.Nothing
+      cause = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | A description that can help diagnose the cause of the fault.
-startLambdaFunctionFailedEventAttributes_message :: Lens.Lens' StartLambdaFunctionFailedEventAttributes (Prelude.Maybe Prelude.Text)
-startLambdaFunctionFailedEventAttributes_message = Lens.lens (\StartLambdaFunctionFailedEventAttributes' {message} -> message) (\s@StartLambdaFunctionFailedEventAttributes' {} a -> s {message = a} :: StartLambdaFunctionFailedEventAttributes)
 
 -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this
 -- activity task was scheduled. To help diagnose issues, use this
@@ -101,6 +96,10 @@ startLambdaFunctionFailedEventAttributes_scheduledEventId = Lens.lens (\StartLam
 startLambdaFunctionFailedEventAttributes_cause :: Lens.Lens' StartLambdaFunctionFailedEventAttributes (Prelude.Maybe StartLambdaFunctionFailedCause)
 startLambdaFunctionFailedEventAttributes_cause = Lens.lens (\StartLambdaFunctionFailedEventAttributes' {cause} -> cause) (\s@StartLambdaFunctionFailedEventAttributes' {} a -> s {cause = a} :: StartLambdaFunctionFailedEventAttributes)
 
+-- | A description that can help diagnose the cause of the fault.
+startLambdaFunctionFailedEventAttributes_message :: Lens.Lens' StartLambdaFunctionFailedEventAttributes (Prelude.Maybe Prelude.Text)
+startLambdaFunctionFailedEventAttributes_message = Lens.lens (\StartLambdaFunctionFailedEventAttributes' {message} -> message) (\s@StartLambdaFunctionFailedEventAttributes' {} a -> s {message = a} :: StartLambdaFunctionFailedEventAttributes)
+
 instance
   Core.FromJSON
     StartLambdaFunctionFailedEventAttributes
@@ -110,9 +109,9 @@ instance
       "StartLambdaFunctionFailedEventAttributes"
       ( \x ->
           StartLambdaFunctionFailedEventAttributes'
-            Prelude.<$> (x Core..:? "message")
-            Prelude.<*> (x Core..:? "scheduledEventId")
+            Prelude.<$> (x Core..:? "scheduledEventId")
             Prelude.<*> (x Core..:? "cause")
+            Prelude.<*> (x Core..:? "message")
       )
 
 instance

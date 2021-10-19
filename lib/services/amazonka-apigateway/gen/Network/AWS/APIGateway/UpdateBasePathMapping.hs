@@ -36,8 +36,8 @@ module Network.AWS.APIGateway.UpdateBasePathMapping
     newBasePathMapping,
 
     -- * Response Lenses
-    basePathMapping_basePath,
     basePathMapping_stage,
+    basePathMapping_basePath,
     basePathMapping_restApiId,
   )
 where
@@ -98,7 +98,7 @@ newUpdateBasePathMapping pDomainName_ pBasePath_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateBasePathMapping_patchOperations :: Lens.Lens' UpdateBasePathMapping (Prelude.Maybe [PatchOperation])
-updateBasePathMapping_patchOperations = Lens.lens (\UpdateBasePathMapping' {patchOperations} -> patchOperations) (\s@UpdateBasePathMapping' {} a -> s {patchOperations = a} :: UpdateBasePathMapping) Prelude.. Lens.mapping Lens._Coerce
+updateBasePathMapping_patchOperations = Lens.lens (\UpdateBasePathMapping' {patchOperations} -> patchOperations) (\s@UpdateBasePathMapping' {} a -> s {patchOperations = a} :: UpdateBasePathMapping) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The domain name of the BasePathMapping resource to change.
 updateBasePathMapping_domainName :: Lens.Lens' UpdateBasePathMapping Prelude.Text

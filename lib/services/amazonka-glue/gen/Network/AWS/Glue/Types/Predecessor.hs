@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPredecessor' smart constructor.
 data Predecessor = Predecessor'
-  { -- | The job-run ID of the predecessor job run.
-    runId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the job definition used by the predecessor job run.
-    jobName :: Prelude.Maybe Prelude.Text
+  { -- | The name of the job definition used by the predecessor job run.
+    jobName :: Prelude.Maybe Prelude.Text,
+    -- | The job-run ID of the predecessor job run.
+    runId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data Predecessor = Predecessor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'runId', 'predecessor_runId' - The job-run ID of the predecessor job run.
---
 -- 'jobName', 'predecessor_jobName' - The name of the job definition used by the predecessor job run.
+--
+-- 'runId', 'predecessor_runId' - The job-run ID of the predecessor job run.
 newPredecessor ::
   Predecessor
 newPredecessor =
   Predecessor'
-    { runId = Prelude.Nothing,
-      jobName = Prelude.Nothing
+    { jobName = Prelude.Nothing,
+      runId = Prelude.Nothing
     }
-
--- | The job-run ID of the predecessor job run.
-predecessor_runId :: Lens.Lens' Predecessor (Prelude.Maybe Prelude.Text)
-predecessor_runId = Lens.lens (\Predecessor' {runId} -> runId) (\s@Predecessor' {} a -> s {runId = a} :: Predecessor)
 
 -- | The name of the job definition used by the predecessor job run.
 predecessor_jobName :: Lens.Lens' Predecessor (Prelude.Maybe Prelude.Text)
 predecessor_jobName = Lens.lens (\Predecessor' {jobName} -> jobName) (\s@Predecessor' {} a -> s {jobName = a} :: Predecessor)
+
+-- | The job-run ID of the predecessor job run.
+predecessor_runId :: Lens.Lens' Predecessor (Prelude.Maybe Prelude.Text)
+predecessor_runId = Lens.lens (\Predecessor' {runId} -> runId) (\s@Predecessor' {} a -> s {runId = a} :: Predecessor)
 
 instance Core.FromJSON Predecessor where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON Predecessor where
       "Predecessor"
       ( \x ->
           Predecessor'
-            Prelude.<$> (x Core..:? "RunId")
-            Prelude.<*> (x Core..:? "JobName")
+            Prelude.<$> (x Core..:? "JobName")
+            Prelude.<*> (x Core..:? "RunId")
       )
 
 instance Prelude.Hashable Predecessor

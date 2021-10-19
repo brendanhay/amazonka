@@ -78,7 +78,7 @@ newBatchGetApplications =
 -- | A list of application names separated by spaces. The maximum number of
 -- application names you can specify is 100.
 batchGetApplications_applicationNames :: Lens.Lens' BatchGetApplications [Prelude.Text]
-batchGetApplications_applicationNames = Lens.lens (\BatchGetApplications' {applicationNames} -> applicationNames) (\s@BatchGetApplications' {} a -> s {applicationNames = a} :: BatchGetApplications) Prelude.. Lens._Coerce
+batchGetApplications_applicationNames = Lens.lens (\BatchGetApplications' {applicationNames} -> applicationNames) (\s@BatchGetApplications' {} a -> s {applicationNames = a} :: BatchGetApplications) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetApplications where
   type
@@ -164,7 +164,7 @@ newBatchGetApplicationsResponse pHttpStatus_ =
 
 -- | Information about the applications.
 batchGetApplicationsResponse_applicationsInfo :: Lens.Lens' BatchGetApplicationsResponse (Prelude.Maybe [ApplicationInfo])
-batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplicationsResponse' {applicationsInfo} -> applicationsInfo) (\s@BatchGetApplicationsResponse' {} a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplicationsResponse' {applicationsInfo} -> applicationsInfo) (\s@BatchGetApplicationsResponse' {} a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetApplicationsResponse_httpStatus :: Lens.Lens' BatchGetApplicationsResponse Prelude.Int

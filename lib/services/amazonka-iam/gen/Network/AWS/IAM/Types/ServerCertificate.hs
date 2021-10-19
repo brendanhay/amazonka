@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newServerCertificate' smart constructor.
 data ServerCertificate = ServerCertificate'
-  { -- | A list of tags that are attached to the server certificate. For more
+  { -- | The contents of the public key certificate chain.
+    certificateChain :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags that are attached to the server certificate. For more
     -- information about tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The contents of the public key certificate chain.
-    certificateChain :: Prelude.Maybe Prelude.Text,
     -- | The meta information of the server certificate, such as its name, path,
     -- ID, and ARN.
     serverCertificateMetadata :: ServerCertificateMetadata,
@@ -55,12 +55,12 @@ data ServerCertificate = ServerCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'certificateChain', 'serverCertificate_certificateChain' - The contents of the public key certificate chain.
+--
 -- 'tags', 'serverCertificate_tags' - A list of tags that are attached to the server certificate. For more
 -- information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
---
--- 'certificateChain', 'serverCertificate_certificateChain' - The contents of the public key certificate chain.
 --
 -- 'serverCertificateMetadata', 'serverCertificate_serverCertificateMetadata' - The meta information of the server certificate, such as its name, path,
 -- ID, and ARN.
@@ -76,23 +76,24 @@ newServerCertificate
   pServerCertificateMetadata_
   pCertificateBody_ =
     ServerCertificate'
-      { tags = Prelude.Nothing,
-        certificateChain = Prelude.Nothing,
+      { certificateChain =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         serverCertificateMetadata =
           pServerCertificateMetadata_,
         certificateBody = pCertificateBody_
       }
+
+-- | The contents of the public key certificate chain.
+serverCertificate_certificateChain :: Lens.Lens' ServerCertificate (Prelude.Maybe Prelude.Text)
+serverCertificate_certificateChain = Lens.lens (\ServerCertificate' {certificateChain} -> certificateChain) (\s@ServerCertificate' {} a -> s {certificateChain = a} :: ServerCertificate)
 
 -- | A list of tags that are attached to the server certificate. For more
 -- information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
 serverCertificate_tags :: Lens.Lens' ServerCertificate (Prelude.Maybe [Tag])
-serverCertificate_tags = Lens.lens (\ServerCertificate' {tags} -> tags) (\s@ServerCertificate' {} a -> s {tags = a} :: ServerCertificate) Prelude.. Lens.mapping Lens._Coerce
-
--- | The contents of the public key certificate chain.
-serverCertificate_certificateChain :: Lens.Lens' ServerCertificate (Prelude.Maybe Prelude.Text)
-serverCertificate_certificateChain = Lens.lens (\ServerCertificate' {certificateChain} -> certificateChain) (\s@ServerCertificate' {} a -> s {certificateChain = a} :: ServerCertificate)
+serverCertificate_tags = Lens.lens (\ServerCertificate' {tags} -> tags) (\s@ServerCertificate' {} a -> s {tags = a} :: ServerCertificate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The meta information of the server certificate, such as its name, path,
 -- ID, and ARN.
@@ -106,10 +107,10 @@ serverCertificate_certificateBody = Lens.lens (\ServerCertificate' {certificateB
 instance Core.FromXML ServerCertificate where
   parseXML x =
     ServerCertificate'
-      Prelude.<$> ( x Core..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "CertificateChain")
+      Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "CertificateChain")
       Prelude.<*> (x Core..@ "ServerCertificateMetadata")
       Prelude.<*> (x Core..@ "CertificateBody")
 

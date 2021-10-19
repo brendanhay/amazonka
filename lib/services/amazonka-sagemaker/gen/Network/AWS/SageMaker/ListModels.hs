@@ -29,13 +29,13 @@ module Network.AWS.SageMaker.ListModels
     newListModels,
 
     -- * Request Lenses
+    listModels_nameContains,
+    listModels_creationTimeAfter,
     listModels_nextToken,
     listModels_sortOrder,
-    listModels_nameContains,
-    listModels_maxResults,
     listModels_creationTimeBefore,
+    listModels_maxResults,
     listModels_sortBy,
-    listModels_creationTimeAfter,
 
     -- * Destructuring the Response
     ListModelsResponse (..),
@@ -57,25 +57,25 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModels' smart constructor.
 data ListModels = ListModels'
-  { -- | If the response to a previous @ListModels@ request was truncated, the
+  { -- | A string in the model name. This filter returns only models whose name
+    -- contains the specified string.
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only models with a creation time greater than or
+    -- equal to the specified time (timestamp).
+    creationTimeAfter :: Prelude.Maybe Core.POSIX,
+    -- | If the response to a previous @ListModels@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of models, use
     -- the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The sort order for results. The default is @Descending@.
     sortOrder :: Prelude.Maybe OrderKey,
-    -- | A string in the model name. This filter returns only models whose name
-    -- contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of models to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only models created before the specified time
     -- (timestamp).
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of models to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Sorts the list of results. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe ModelSortKey,
-    -- | A filter that returns only models with a creation time greater than or
-    -- equal to the specified time (timestamp).
-    creationTimeAfter :: Prelude.Maybe Core.POSIX
+    sortBy :: Prelude.Maybe ModelSortKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,36 +87,46 @@ data ListModels = ListModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'listModels_nameContains' - A string in the model name. This filter returns only models whose name
+-- contains the specified string.
+--
+-- 'creationTimeAfter', 'listModels_creationTimeAfter' - A filter that returns only models with a creation time greater than or
+-- equal to the specified time (timestamp).
+--
 -- 'nextToken', 'listModels_nextToken' - If the response to a previous @ListModels@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of models, use
 -- the token in the next request.
 --
 -- 'sortOrder', 'listModels_sortOrder' - The sort order for results. The default is @Descending@.
 --
--- 'nameContains', 'listModels_nameContains' - A string in the model name. This filter returns only models whose name
--- contains the specified string.
---
--- 'maxResults', 'listModels_maxResults' - The maximum number of models to return in the response.
---
 -- 'creationTimeBefore', 'listModels_creationTimeBefore' - A filter that returns only models created before the specified time
 -- (timestamp).
 --
--- 'sortBy', 'listModels_sortBy' - Sorts the list of results. The default is @CreationTime@.
+-- 'maxResults', 'listModels_maxResults' - The maximum number of models to return in the response.
 --
--- 'creationTimeAfter', 'listModels_creationTimeAfter' - A filter that returns only models with a creation time greater than or
--- equal to the specified time (timestamp).
+-- 'sortBy', 'listModels_sortBy' - Sorts the list of results. The default is @CreationTime@.
 newListModels ::
   ListModels
 newListModels =
   ListModels'
-    { nextToken = Prelude.Nothing,
+    { nameContains = Prelude.Nothing,
+      creationTimeAfter = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing
     }
+
+-- | A string in the model name. This filter returns only models whose name
+-- contains the specified string.
+listModels_nameContains :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
+listModels_nameContains = Lens.lens (\ListModels' {nameContains} -> nameContains) (\s@ListModels' {} a -> s {nameContains = a} :: ListModels)
+
+-- | A filter that returns only models with a creation time greater than or
+-- equal to the specified time (timestamp).
+listModels_creationTimeAfter :: Lens.Lens' ListModels (Prelude.Maybe Prelude.UTCTime)
+listModels_creationTimeAfter = Lens.lens (\ListModels' {creationTimeAfter} -> creationTimeAfter) (\s@ListModels' {} a -> s {creationTimeAfter = a} :: ListModels) Prelude.. Lens.mapping Core._Time
 
 -- | If the response to a previous @ListModels@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of models, use
@@ -128,28 +138,18 @@ listModels_nextToken = Lens.lens (\ListModels' {nextToken} -> nextToken) (\s@Lis
 listModels_sortOrder :: Lens.Lens' ListModels (Prelude.Maybe OrderKey)
 listModels_sortOrder = Lens.lens (\ListModels' {sortOrder} -> sortOrder) (\s@ListModels' {} a -> s {sortOrder = a} :: ListModels)
 
--- | A string in the model name. This filter returns only models whose name
--- contains the specified string.
-listModels_nameContains :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
-listModels_nameContains = Lens.lens (\ListModels' {nameContains} -> nameContains) (\s@ListModels' {} a -> s {nameContains = a} :: ListModels)
-
--- | The maximum number of models to return in the response.
-listModels_maxResults :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Natural)
-listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@ListModels' {} a -> s {maxResults = a} :: ListModels)
-
 -- | A filter that returns only models created before the specified time
 -- (timestamp).
 listModels_creationTimeBefore :: Lens.Lens' ListModels (Prelude.Maybe Prelude.UTCTime)
 listModels_creationTimeBefore = Lens.lens (\ListModels' {creationTimeBefore} -> creationTimeBefore) (\s@ListModels' {} a -> s {creationTimeBefore = a} :: ListModels) Prelude.. Lens.mapping Core._Time
 
+-- | The maximum number of models to return in the response.
+listModels_maxResults :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Natural)
+listModels_maxResults = Lens.lens (\ListModels' {maxResults} -> maxResults) (\s@ListModels' {} a -> s {maxResults = a} :: ListModels)
+
 -- | Sorts the list of results. The default is @CreationTime@.
 listModels_sortBy :: Lens.Lens' ListModels (Prelude.Maybe ModelSortKey)
 listModels_sortBy = Lens.lens (\ListModels' {sortBy} -> sortBy) (\s@ListModels' {} a -> s {sortBy = a} :: ListModels)
-
--- | A filter that returns only models with a creation time greater than or
--- equal to the specified time (timestamp).
-listModels_creationTimeAfter :: Lens.Lens' ListModels (Prelude.Maybe Prelude.UTCTime)
-listModels_creationTimeAfter = Lens.lens (\ListModels' {creationTimeAfter} -> creationTimeAfter) (\s@ListModels' {} a -> s {creationTimeAfter = a} :: ListModels) Prelude.. Lens.mapping Core._Time
 
 instance Core.AWSPager ListModels where
   page rq rs
@@ -200,15 +200,15 @@ instance Core.ToJSON ListModels where
   toJSON ListModels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NameContains" Core..=) Prelude.<$> nameContains,
+            ("CreationTimeAfter" Core..=)
+              Prelude.<$> creationTimeAfter,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NameContains" Core..=) Prelude.<$> nameContains,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Core..=)
-              Prelude.<$> creationTimeAfter
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("SortBy" Core..=) Prelude.<$> sortBy
           ]
       )
 
@@ -266,6 +266,6 @@ listModelsResponse_httpStatus = Lens.lens (\ListModelsResponse' {httpStatus} -> 
 
 -- | An array of @ModelSummary@ objects, each of which lists a model.
 listModelsResponse_models :: Lens.Lens' ListModelsResponse [ModelSummary]
-listModelsResponse_models = Lens.lens (\ListModelsResponse' {models} -> models) (\s@ListModelsResponse' {} a -> s {models = a} :: ListModelsResponse) Prelude.. Lens._Coerce
+listModelsResponse_models = Lens.lens (\ListModelsResponse' {models} -> models) (\s@ListModelsResponse' {} a -> s {models = a} :: ListModelsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListModelsResponse

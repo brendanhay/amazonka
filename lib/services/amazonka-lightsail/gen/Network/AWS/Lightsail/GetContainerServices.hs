@@ -164,7 +164,7 @@ newGetContainerServicesResponse pHttpStatus_ =
 
 -- | An array of objects that describe one or more container services.
 getContainerServicesResponse_containerServices :: Lens.Lens' GetContainerServicesResponse (Prelude.Maybe [ContainerService])
-getContainerServicesResponse_containerServices = Lens.lens (\GetContainerServicesResponse' {containerServices} -> containerServices) (\s@GetContainerServicesResponse' {} a -> s {containerServices = a} :: GetContainerServicesResponse) Prelude.. Lens.mapping Lens._Coerce
+getContainerServicesResponse_containerServices = Lens.lens (\GetContainerServicesResponse' {containerServices} -> containerServices) (\s@GetContainerServicesResponse' {} a -> s {containerServices = a} :: GetContainerServicesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getContainerServicesResponse_httpStatus :: Lens.Lens' GetContainerServicesResponse Prelude.Int

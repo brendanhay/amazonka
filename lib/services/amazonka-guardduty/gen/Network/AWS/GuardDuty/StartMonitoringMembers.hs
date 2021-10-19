@@ -82,7 +82,7 @@ newStartMonitoringMembers ::
 newStartMonitoringMembers pDetectorId_ pAccountIds_ =
   StartMonitoringMembers'
     { detectorId = pDetectorId_,
-      accountIds = Lens._Coerce Lens.# pAccountIds_
+      accountIds = Lens.coerced Lens.# pAccountIds_
     }
 
 -- | The unique ID of the detector of the GuardDuty administrator account
@@ -93,7 +93,7 @@ startMonitoringMembers_detectorId = Lens.lens (\StartMonitoringMembers' {detecto
 -- | A list of account IDs of the GuardDuty member accounts to start
 -- monitoring.
 startMonitoringMembers_accountIds :: Lens.Lens' StartMonitoringMembers (Prelude.NonEmpty Prelude.Text)
-startMonitoringMembers_accountIds = Lens.lens (\StartMonitoringMembers' {accountIds} -> accountIds) (\s@StartMonitoringMembers' {} a -> s {accountIds = a} :: StartMonitoringMembers) Prelude.. Lens._Coerce
+startMonitoringMembers_accountIds = Lens.lens (\StartMonitoringMembers' {accountIds} -> accountIds) (\s@StartMonitoringMembers' {} a -> s {accountIds = a} :: StartMonitoringMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartMonitoringMembers where
   type
@@ -180,7 +180,7 @@ startMonitoringMembersResponse_httpStatus = Lens.lens (\StartMonitoringMembersRe
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 startMonitoringMembersResponse_unprocessedAccounts :: Lens.Lens' StartMonitoringMembersResponse [UnprocessedAccount]
-startMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StartMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StartMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StartMonitoringMembersResponse) Prelude.. Lens._Coerce
+startMonitoringMembersResponse_unprocessedAccounts = Lens.lens (\StartMonitoringMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@StartMonitoringMembersResponse' {} a -> s {unprocessedAccounts = a} :: StartMonitoringMembersResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

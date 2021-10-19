@@ -33,16 +33,16 @@ module Network.AWS.IAM.ListGroups
 
     -- * Request Lenses
     listGroups_pathPrefix,
-    listGroups_maxItems,
     listGroups_marker,
+    listGroups_maxItems,
 
     -- * Destructuring the Response
     ListGroupsResponse (..),
     newListGroupsResponse,
 
     -- * Response Lenses
-    listGroupsResponse_isTruncated,
     listGroupsResponse_marker,
+    listGroupsResponse_isTruncated,
     listGroupsResponse_httpStatus,
     listGroupsResponse_groups,
   )
@@ -70,6 +70,11 @@ data ListGroups = ListGroups'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     pathPrefix :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -79,12 +84,7 @@ data ListGroups = ListGroups'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
-    -- | Use this parameter only when paginating results and only after you
-    -- receive a response indicating that the results are truncated. Set it to
-    -- the value of the @Marker@ element in the response that you received to
-    -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    maxItems :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,6 +109,11 @@ data ListGroups = ListGroups'
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
 --
+-- 'marker', 'listGroups_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
 -- 'maxItems', 'listGroups_maxItems' - Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -118,18 +123,13 @@ data ListGroups = ListGroups'
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
---
--- 'marker', 'listGroups_marker' - Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
 newListGroups ::
   ListGroups
 newListGroups =
   ListGroups'
     { pathPrefix = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -147,6 +147,13 @@ newListGroups =
 listGroups_pathPrefix :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
 listGroups_pathPrefix = Lens.lens (\ListGroups' {pathPrefix} -> pathPrefix) (\s@ListGroups' {} a -> s {pathPrefix = a} :: ListGroups)
 
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listGroups_marker :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
+listGroups_marker = Lens.lens (\ListGroups' {marker} -> marker) (\s@ListGroups' {} a -> s {marker = a} :: ListGroups)
+
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If additional items exist beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -158,13 +165,6 @@ listGroups_pathPrefix = Lens.lens (\ListGroups' {pathPrefix} -> pathPrefix) (\s@
 -- subsequent call that tells the service where to continue from.
 listGroups_maxItems :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
 listGroups_maxItems = Lens.lens (\ListGroups' {maxItems} -> maxItems) (\s@ListGroups' {} a -> s {maxItems = a} :: ListGroups)
-
--- | Use this parameter only when paginating results and only after you
--- receive a response indicating that the results are truncated. Set it to
--- the value of the @Marker@ element in the response that you received to
--- indicate where the next call should start.
-listGroups_marker :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
-listGroups_marker = Lens.lens (\ListGroups' {marker} -> marker) (\s@ListGroups' {} a -> s {marker = a} :: ListGroups)
 
 instance Core.AWSPager ListGroups where
   page rq rs
@@ -193,8 +193,8 @@ instance Core.AWSRequest ListGroups where
       "ListGroupsResult"
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-            Prelude.<*> (x Core..@? "Marker")
+            Prelude.<$> (x Core..@? "Marker")
+            Prelude.<*> (x Core..@? "IsTruncated")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..@? "Groups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.parseXMLList "member"
@@ -219,15 +219,19 @@ instance Core.ToQuery ListGroups where
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
         "PathPrefix" Core.=: pathPrefix,
-        "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | Contains the response to a successful ListGroups request.
 --
 -- /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
@@ -235,10 +239,6 @@ data ListGroupsResponse = ListGroupsResponse'
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A list of groups.
@@ -254,6 +254,10 @@ data ListGroupsResponse = ListGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listGroupsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'listGroupsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -261,10 +265,6 @@ data ListGroupsResponse = ListGroupsResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
---
--- 'marker', 'listGroupsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
 --
 -- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
 --
@@ -275,11 +275,17 @@ newListGroupsResponse ::
   ListGroupsResponse
 newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { isTruncated = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       groups = Prelude.mempty
     }
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listGroupsResponse_marker :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
+listGroupsResponse_marker = Lens.lens (\ListGroupsResponse' {marker} -> marker) (\s@ListGroupsResponse' {} a -> s {marker = a} :: ListGroupsResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -291,18 +297,12 @@ newListGroupsResponse pHttpStatus_ =
 listGroupsResponse_isTruncated :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Bool)
 listGroupsResponse_isTruncated = Lens.lens (\ListGroupsResponse' {isTruncated} -> isTruncated) (\s@ListGroupsResponse' {} a -> s {isTruncated = a} :: ListGroupsResponse)
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listGroupsResponse_marker :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
-listGroupsResponse_marker = Lens.lens (\ListGroupsResponse' {marker} -> marker) (\s@ListGroupsResponse' {} a -> s {marker = a} :: ListGroupsResponse)
-
 -- | The response's http status code.
 listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
 listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> httpStatus) (\s@ListGroupsResponse' {} a -> s {httpStatus = a} :: ListGroupsResponse)
 
 -- | A list of groups.
 listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse [Group]
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens._Coerce
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListGroupsResponse

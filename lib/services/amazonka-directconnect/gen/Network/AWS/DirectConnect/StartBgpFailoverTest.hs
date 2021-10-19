@@ -106,7 +106,7 @@ newStartBgpFailoverTest pVirtualInterfaceId_ =
 
 -- | The BGP peers to place in the DOWN state.
 startBgpFailoverTest_bgpPeers :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe [Prelude.Text])
-startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> bgpPeers) (\s@StartBgpFailoverTest' {} a -> s {bgpPeers = a} :: StartBgpFailoverTest) Prelude.. Lens.mapping Lens._Coerce
+startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> bgpPeers) (\s@StartBgpFailoverTest' {} a -> s {bgpPeers = a} :: StartBgpFailoverTest) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time in minutes that the virtual interface failover test will last.
 --

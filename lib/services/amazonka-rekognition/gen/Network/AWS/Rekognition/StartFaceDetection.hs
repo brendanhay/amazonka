@@ -41,10 +41,10 @@ module Network.AWS.Rekognition.StartFaceDetection
     newStartFaceDetection,
 
     -- * Request Lenses
-    startFaceDetection_faceAttributes,
+    startFaceDetection_jobTag,
     startFaceDetection_notificationChannel,
     startFaceDetection_clientRequestToken,
-    startFaceDetection_jobTag,
+    startFaceDetection_faceAttributes,
     startFaceDetection_video,
 
     -- * Destructuring the Response
@@ -66,13 +66,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartFaceDetection' smart constructor.
 data StartFaceDetection = StartFaceDetection'
-  { -- | The face attributes you want returned.
-    --
-    -- @DEFAULT@ - The following subset of facial attributes are returned:
-    -- BoundingBox, Confidence, Pose, Quality and Landmarks.
-    --
-    -- @ALL@ - All facial attributes are returned.
-    faceAttributes :: Prelude.Maybe FaceAttributes,
+  { -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
     -- Video to publish the completion status of the face detection operation.
     -- The Amazon SNS topic must have a topic name that begins with
@@ -84,11 +82,13 @@ data StartFaceDetection = StartFaceDetection'
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The face attributes you want returned.
+    --
+    -- @DEFAULT@ - The following subset of facial attributes are returned:
+    -- BoundingBox, Confidence, Pose, Quality and Landmarks.
+    --
+    -- @ALL@ - All facial attributes are returned.
+    faceAttributes :: Prelude.Maybe FaceAttributes,
     -- | The video in which you want to detect faces. The video must be stored in
     -- an Amazon S3 bucket.
     video :: Video
@@ -103,12 +103,10 @@ data StartFaceDetection = StartFaceDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'faceAttributes', 'startFaceDetection_faceAttributes' - The face attributes you want returned.
---
--- @DEFAULT@ - The following subset of facial attributes are returned:
--- BoundingBox, Confidence, Pose, Quality and Landmarks.
---
--- @ALL@ - All facial attributes are returned.
+-- 'jobTag', 'startFaceDetection_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
 --
 -- 'notificationChannel', 'startFaceDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the face detection operation.
@@ -121,10 +119,12 @@ data StartFaceDetection = StartFaceDetection'
 -- returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
 --
--- 'jobTag', 'startFaceDetection_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
+-- 'faceAttributes', 'startFaceDetection_faceAttributes' - The face attributes you want returned.
+--
+-- @DEFAULT@ - The following subset of facial attributes are returned:
+-- BoundingBox, Confidence, Pose, Quality and Landmarks.
+--
+-- @ALL@ - All facial attributes are returned.
 --
 -- 'video', 'startFaceDetection_video' - The video in which you want to detect faces. The video must be stored in
 -- an Amazon S3 bucket.
@@ -134,22 +134,19 @@ newStartFaceDetection ::
   StartFaceDetection
 newStartFaceDetection pVideo_ =
   StartFaceDetection'
-    { faceAttributes =
-        Prelude.Nothing,
+    { jobTag = Prelude.Nothing,
       notificationChannel = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      jobTag = Prelude.Nothing,
+      faceAttributes = Prelude.Nothing,
       video = pVideo_
     }
 
--- | The face attributes you want returned.
---
--- @DEFAULT@ - The following subset of facial attributes are returned:
--- BoundingBox, Confidence, Pose, Quality and Landmarks.
---
--- @ALL@ - All facial attributes are returned.
-startFaceDetection_faceAttributes :: Lens.Lens' StartFaceDetection (Prelude.Maybe FaceAttributes)
-startFaceDetection_faceAttributes = Lens.lens (\StartFaceDetection' {faceAttributes} -> faceAttributes) (\s@StartFaceDetection' {} a -> s {faceAttributes = a} :: StartFaceDetection)
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startFaceDetection_jobTag :: Lens.Lens' StartFaceDetection (Prelude.Maybe Prelude.Text)
+startFaceDetection_jobTag = Lens.lens (\StartFaceDetection' {jobTag} -> jobTag) (\s@StartFaceDetection' {} a -> s {jobTag = a} :: StartFaceDetection)
 
 -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the face detection operation.
@@ -166,12 +163,14 @@ startFaceDetection_notificationChannel = Lens.lens (\StartFaceDetection' {notifi
 startFaceDetection_clientRequestToken :: Lens.Lens' StartFaceDetection (Prelude.Maybe Prelude.Text)
 startFaceDetection_clientRequestToken = Lens.lens (\StartFaceDetection' {clientRequestToken} -> clientRequestToken) (\s@StartFaceDetection' {} a -> s {clientRequestToken = a} :: StartFaceDetection)
 
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startFaceDetection_jobTag :: Lens.Lens' StartFaceDetection (Prelude.Maybe Prelude.Text)
-startFaceDetection_jobTag = Lens.lens (\StartFaceDetection' {jobTag} -> jobTag) (\s@StartFaceDetection' {} a -> s {jobTag = a} :: StartFaceDetection)
+-- | The face attributes you want returned.
+--
+-- @DEFAULT@ - The following subset of facial attributes are returned:
+-- BoundingBox, Confidence, Pose, Quality and Landmarks.
+--
+-- @ALL@ - All facial attributes are returned.
+startFaceDetection_faceAttributes :: Lens.Lens' StartFaceDetection (Prelude.Maybe FaceAttributes)
+startFaceDetection_faceAttributes = Lens.lens (\StartFaceDetection' {faceAttributes} -> faceAttributes) (\s@StartFaceDetection' {} a -> s {faceAttributes = a} :: StartFaceDetection)
 
 -- | The video in which you want to detect faces. The video must be stored in
 -- an Amazon S3 bucket.
@@ -214,13 +213,13 @@ instance Core.ToJSON StartFaceDetection where
   toJSON StartFaceDetection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FaceAttributes" Core..=)
-              Prelude.<$> faceAttributes,
+          [ ("JobTag" Core..=) Prelude.<$> jobTag,
             ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("FaceAttributes" Core..=)
+              Prelude.<$> faceAttributes,
             Prelude.Just ("Video" Core..= video)
           ]
       )

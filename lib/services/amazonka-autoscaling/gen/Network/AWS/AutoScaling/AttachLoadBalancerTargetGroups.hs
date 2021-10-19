@@ -114,7 +114,7 @@ attachLoadBalancerTargetGroups_autoScalingGroupName = Lens.lens (\AttachLoadBala
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
 attachLoadBalancerTargetGroups_targetGroupARNs :: Lens.Lens' AttachLoadBalancerTargetGroups [Prelude.Text]
-attachLoadBalancerTargetGroups_targetGroupARNs = Lens.lens (\AttachLoadBalancerTargetGroups' {targetGroupARNs} -> targetGroupARNs) (\s@AttachLoadBalancerTargetGroups' {} a -> s {targetGroupARNs = a} :: AttachLoadBalancerTargetGroups) Prelude.. Lens._Coerce
+attachLoadBalancerTargetGroups_targetGroupARNs = Lens.lens (\AttachLoadBalancerTargetGroups' {targetGroupARNs} -> targetGroupARNs) (\s@AttachLoadBalancerTargetGroups' {} a -> s {targetGroupARNs = a} :: AttachLoadBalancerTargetGroups) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

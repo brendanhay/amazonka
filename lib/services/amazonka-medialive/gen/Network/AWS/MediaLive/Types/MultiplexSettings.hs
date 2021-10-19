@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMultiplexSettings' smart constructor.
 data MultiplexSettings = MultiplexSettings'
-  { -- | Transport stream reserved bit rate.
-    transportStreamReservedBitrate :: Prelude.Maybe Prelude.Natural,
-    -- | Maximum video buffer delay in milliseconds.
+  { -- | Maximum video buffer delay in milliseconds.
     maximumVideoBufferDelayMilliseconds :: Prelude.Maybe Prelude.Natural,
+    -- | Transport stream reserved bit rate.
+    transportStreamReservedBitrate :: Prelude.Maybe Prelude.Natural,
     -- | Transport stream bit rate.
     transportStreamBitrate :: Prelude.Natural,
     -- | Transport stream ID.
@@ -46,9 +46,9 @@ data MultiplexSettings = MultiplexSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transportStreamReservedBitrate', 'multiplexSettings_transportStreamReservedBitrate' - Transport stream reserved bit rate.
---
 -- 'maximumVideoBufferDelayMilliseconds', 'multiplexSettings_maximumVideoBufferDelayMilliseconds' - Maximum video buffer delay in milliseconds.
+--
+-- 'transportStreamReservedBitrate', 'multiplexSettings_transportStreamReservedBitrate' - Transport stream reserved bit rate.
 --
 -- 'transportStreamBitrate', 'multiplexSettings_transportStreamBitrate' - Transport stream bit rate.
 --
@@ -63,21 +63,20 @@ newMultiplexSettings
   pTransportStreamBitrate_
   pTransportStreamId_ =
     MultiplexSettings'
-      { transportStreamReservedBitrate =
+      { maximumVideoBufferDelayMilliseconds =
           Prelude.Nothing,
-        maximumVideoBufferDelayMilliseconds =
-          Prelude.Nothing,
+        transportStreamReservedBitrate = Prelude.Nothing,
         transportStreamBitrate = pTransportStreamBitrate_,
         transportStreamId = pTransportStreamId_
       }
 
--- | Transport stream reserved bit rate.
-multiplexSettings_transportStreamReservedBitrate :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
-multiplexSettings_transportStreamReservedBitrate = Lens.lens (\MultiplexSettings' {transportStreamReservedBitrate} -> transportStreamReservedBitrate) (\s@MultiplexSettings' {} a -> s {transportStreamReservedBitrate = a} :: MultiplexSettings)
-
 -- | Maximum video buffer delay in milliseconds.
 multiplexSettings_maximumVideoBufferDelayMilliseconds :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
 multiplexSettings_maximumVideoBufferDelayMilliseconds = Lens.lens (\MultiplexSettings' {maximumVideoBufferDelayMilliseconds} -> maximumVideoBufferDelayMilliseconds) (\s@MultiplexSettings' {} a -> s {maximumVideoBufferDelayMilliseconds = a} :: MultiplexSettings)
+
+-- | Transport stream reserved bit rate.
+multiplexSettings_transportStreamReservedBitrate :: Lens.Lens' MultiplexSettings (Prelude.Maybe Prelude.Natural)
+multiplexSettings_transportStreamReservedBitrate = Lens.lens (\MultiplexSettings' {transportStreamReservedBitrate} -> transportStreamReservedBitrate) (\s@MultiplexSettings' {} a -> s {transportStreamReservedBitrate = a} :: MultiplexSettings)
 
 -- | Transport stream bit rate.
 multiplexSettings_transportStreamBitrate :: Lens.Lens' MultiplexSettings Prelude.Natural
@@ -93,8 +92,8 @@ instance Core.FromJSON MultiplexSettings where
       "MultiplexSettings"
       ( \x ->
           MultiplexSettings'
-            Prelude.<$> (x Core..:? "transportStreamReservedBitrate")
-            Prelude.<*> (x Core..:? "maximumVideoBufferDelayMilliseconds")
+            Prelude.<$> (x Core..:? "maximumVideoBufferDelayMilliseconds")
+            Prelude.<*> (x Core..:? "transportStreamReservedBitrate")
             Prelude.<*> (x Core..: "transportStreamBitrate")
             Prelude.<*> (x Core..: "transportStreamId")
       )
@@ -107,10 +106,10 @@ instance Core.ToJSON MultiplexSettings where
   toJSON MultiplexSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("transportStreamReservedBitrate" Core..=)
-              Prelude.<$> transportStreamReservedBitrate,
-            ("maximumVideoBufferDelayMilliseconds" Core..=)
+          [ ("maximumVideoBufferDelayMilliseconds" Core..=)
               Prelude.<$> maximumVideoBufferDelayMilliseconds,
+            ("transportStreamReservedBitrate" Core..=)
+              Prelude.<$> transportStreamReservedBitrate,
             Prelude.Just
               ( "transportStreamBitrate"
                   Core..= transportStreamBitrate

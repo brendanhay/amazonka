@@ -73,7 +73,7 @@ newPosixUser pUid_ pGid_ =
 -- | Secondary POSIX group IDs used for all file system operations using this
 -- access point.
 posixUser_secondaryGids :: Lens.Lens' PosixUser (Prelude.Maybe [Prelude.Natural])
-posixUser_secondaryGids = Lens.lens (\PosixUser' {secondaryGids} -> secondaryGids) (\s@PosixUser' {} a -> s {secondaryGids = a} :: PosixUser) Prelude.. Lens.mapping Lens._Coerce
+posixUser_secondaryGids = Lens.lens (\PosixUser' {secondaryGids} -> secondaryGids) (\s@PosixUser' {} a -> s {secondaryGids = a} :: PosixUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | The POSIX user ID used for all file system operations using this access
 -- point.

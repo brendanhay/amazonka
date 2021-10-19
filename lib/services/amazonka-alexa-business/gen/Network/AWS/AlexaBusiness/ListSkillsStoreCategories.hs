@@ -37,8 +37,8 @@ module Network.AWS.AlexaBusiness.ListSkillsStoreCategories
     newListSkillsStoreCategoriesResponse,
 
     -- * Response Lenses
-    listSkillsStoreCategoriesResponse_nextToken,
     listSkillsStoreCategoriesResponse_categoryList,
+    listSkillsStoreCategoriesResponse_nextToken,
     listSkillsStoreCategoriesResponse_httpStatus,
   )
 where
@@ -118,8 +118,8 @@ instance Core.AWSRequest ListSkillsStoreCategories where
     Response.receiveJSON
       ( \s h x ->
           ListSkillsStoreCategoriesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "CategoryList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "CategoryList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -159,10 +159,10 @@ instance Core.ToQuery ListSkillsStoreCategories where
 
 -- | /See:/ 'newListSkillsStoreCategoriesResponse' smart constructor.
 data ListSkillsStoreCategoriesResponse = ListSkillsStoreCategoriesResponse'
-  { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of categories.
+  { -- | The list of categories.
     categoryList :: Prelude.Maybe [Category],
+    -- | The tokens used for pagination.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,9 +176,9 @@ data ListSkillsStoreCategoriesResponse = ListSkillsStoreCategoriesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSkillsStoreCategoriesResponse_nextToken' - The tokens used for pagination.
---
 -- 'categoryList', 'listSkillsStoreCategoriesResponse_categoryList' - The list of categories.
+--
+-- 'nextToken', 'listSkillsStoreCategoriesResponse_nextToken' - The tokens used for pagination.
 --
 -- 'httpStatus', 'listSkillsStoreCategoriesResponse_httpStatus' - The response's http status code.
 newListSkillsStoreCategoriesResponse ::
@@ -187,19 +187,19 @@ newListSkillsStoreCategoriesResponse ::
   ListSkillsStoreCategoriesResponse
 newListSkillsStoreCategoriesResponse pHttpStatus_ =
   ListSkillsStoreCategoriesResponse'
-    { nextToken =
+    { categoryList =
         Prelude.Nothing,
-      categoryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of categories.
+listSkillsStoreCategoriesResponse_categoryList :: Lens.Lens' ListSkillsStoreCategoriesResponse (Prelude.Maybe [Category])
+listSkillsStoreCategoriesResponse_categoryList = Lens.lens (\ListSkillsStoreCategoriesResponse' {categoryList} -> categoryList) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {categoryList = a} :: ListSkillsStoreCategoriesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The tokens used for pagination.
 listSkillsStoreCategoriesResponse_nextToken :: Lens.Lens' ListSkillsStoreCategoriesResponse (Prelude.Maybe Prelude.Text)
 listSkillsStoreCategoriesResponse_nextToken = Lens.lens (\ListSkillsStoreCategoriesResponse' {nextToken} -> nextToken) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {nextToken = a} :: ListSkillsStoreCategoriesResponse)
-
--- | The list of categories.
-listSkillsStoreCategoriesResponse_categoryList :: Lens.Lens' ListSkillsStoreCategoriesResponse (Prelude.Maybe [Category])
-listSkillsStoreCategoriesResponse_categoryList = Lens.lens (\ListSkillsStoreCategoriesResponse' {categoryList} -> categoryList) (\s@ListSkillsStoreCategoriesResponse' {} a -> s {categoryList = a} :: ListSkillsStoreCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listSkillsStoreCategoriesResponse_httpStatus :: Lens.Lens' ListSkillsStoreCategoriesResponse Prelude.Int

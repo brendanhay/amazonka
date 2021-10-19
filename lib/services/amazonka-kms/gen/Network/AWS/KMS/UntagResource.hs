@@ -155,7 +155,7 @@ untagResource_keyId = Lens.lens (\UntagResource' {keyId} -> keyId) (\s@UntagReso
 
 -- | One or more tag keys. Specify only the tag keys, not the tag values.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

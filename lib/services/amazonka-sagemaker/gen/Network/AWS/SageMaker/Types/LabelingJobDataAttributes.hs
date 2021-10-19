@@ -62,7 +62,7 @@ newLabelingJobDataAttributes =
 -- Mechanical Turk workers that can view your task based on this
 -- information.
 labelingJobDataAttributes_contentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Prelude.Maybe [ContentClassifier])
-labelingJobDataAttributes_contentClassifiers = Lens.lens (\LabelingJobDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@LabelingJobDataAttributes' {} a -> s {contentClassifiers = a} :: LabelingJobDataAttributes) Prelude.. Lens.mapping Lens._Coerce
+labelingJobDataAttributes_contentClassifiers = Lens.lens (\LabelingJobDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@LabelingJobDataAttributes' {} a -> s {contentClassifiers = a} :: LabelingJobDataAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LabelingJobDataAttributes where
   parseJSON =

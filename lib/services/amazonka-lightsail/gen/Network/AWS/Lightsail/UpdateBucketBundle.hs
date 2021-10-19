@@ -199,7 +199,7 @@ newUpdateBucketBundleResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 updateBucketBundleResponse_operations :: Lens.Lens' UpdateBucketBundleResponse (Prelude.Maybe [Operation])
-updateBucketBundleResponse_operations = Lens.lens (\UpdateBucketBundleResponse' {operations} -> operations) (\s@UpdateBucketBundleResponse' {} a -> s {operations = a} :: UpdateBucketBundleResponse) Prelude.. Lens.mapping Lens._Coerce
+updateBucketBundleResponse_operations = Lens.lens (\UpdateBucketBundleResponse' {operations} -> operations) (\s@UpdateBucketBundleResponse' {} a -> s {operations = a} :: UpdateBucketBundleResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 updateBucketBundleResponse_httpStatus :: Lens.Lens' UpdateBucketBundleResponse Prelude.Int

@@ -27,20 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestInvokeEndpoint $
---             newInvokeEndpoint
---
---         , requestInvokeEndpointAsync $
+--         [ requestInvokeEndpointAsync $
 --             newInvokeEndpointAsync
+--
+--         , requestInvokeEndpoint $
+--             newInvokeEndpoint
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseInvokeEndpoint $
---             newInvokeEndpointResponse
---
---         , responseInvokeEndpointAsync $
+--         [ responseInvokeEndpointAsync $
 --             newInvokeEndpointAsyncResponse
+--
+--         , responseInvokeEndpoint $
+--             newInvokeEndpointResponse
 --
 --           ]
 --     ]

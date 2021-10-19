@@ -37,9 +37,9 @@ module Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
 
     -- * Request Lenses
     createPrivateDnsNamespace_creatorRequestId,
+    createPrivateDnsNamespace_description,
     createPrivateDnsNamespace_tags,
     createPrivateDnsNamespace_properties,
-    createPrivateDnsNamespace_description,
     createPrivateDnsNamespace_name,
     createPrivateDnsNamespace_vpc,
 
@@ -67,14 +67,14 @@ data CreatePrivateDnsNamespace = CreatePrivateDnsNamespace'
     -- running the operation twice. @CreatorRequestId@ can be any unique string
     -- (for example, a date\/timestamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
+    -- | A description for the namespace.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The tags to add to the namespace. Each tag consists of a key and an
     -- optional value that you define. Tags keys can be up to 128 characters in
     -- length, and tag values can be up to 256 characters in length.
     tags :: Prelude.Maybe [Tag],
     -- | Properties for the private DNS namespace.
     properties :: Prelude.Maybe PrivateDnsNamespaceProperties,
-    -- | A description for the namespace.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The name that you want to assign to this namespace. When you create a
     -- private DNS namespace, Cloud Map automatically creates an Amazon Route
     -- 53 private hosted zone that has the same name as the namespace.
@@ -97,13 +97,13 @@ data CreatePrivateDnsNamespace = CreatePrivateDnsNamespace'
 -- running the operation twice. @CreatorRequestId@ can be any unique string
 -- (for example, a date\/timestamp).
 --
+-- 'description', 'createPrivateDnsNamespace_description' - A description for the namespace.
+--
 -- 'tags', 'createPrivateDnsNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an
 -- optional value that you define. Tags keys can be up to 128 characters in
 -- length, and tag values can be up to 256 characters in length.
 --
 -- 'properties', 'createPrivateDnsNamespace_properties' - Properties for the private DNS namespace.
---
--- 'description', 'createPrivateDnsNamespace_description' - A description for the namespace.
 --
 -- 'name', 'createPrivateDnsNamespace_name' - The name that you want to assign to this namespace. When you create a
 -- private DNS namespace, Cloud Map automatically creates an Amazon Route
@@ -120,9 +120,9 @@ newCreatePrivateDnsNamespace pName_ pVpc_ =
   CreatePrivateDnsNamespace'
     { creatorRequestId =
         Prelude.Nothing,
+      description = Prelude.Nothing,
       tags = Prelude.Nothing,
       properties = Prelude.Nothing,
-      description = Prelude.Nothing,
       name = pName_,
       vpc = pVpc_
     }
@@ -134,19 +134,19 @@ newCreatePrivateDnsNamespace pName_ pVpc_ =
 createPrivateDnsNamespace_creatorRequestId :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe Prelude.Text)
 createPrivateDnsNamespace_creatorRequestId = Lens.lens (\CreatePrivateDnsNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreatePrivateDnsNamespace' {} a -> s {creatorRequestId = a} :: CreatePrivateDnsNamespace)
 
+-- | A description for the namespace.
+createPrivateDnsNamespace_description :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe Prelude.Text)
+createPrivateDnsNamespace_description = Lens.lens (\CreatePrivateDnsNamespace' {description} -> description) (\s@CreatePrivateDnsNamespace' {} a -> s {description = a} :: CreatePrivateDnsNamespace)
+
 -- | The tags to add to the namespace. Each tag consists of a key and an
 -- optional value that you define. Tags keys can be up to 128 characters in
 -- length, and tag values can be up to 256 characters in length.
 createPrivateDnsNamespace_tags :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe [Tag])
-createPrivateDnsNamespace_tags = Lens.lens (\CreatePrivateDnsNamespace' {tags} -> tags) (\s@CreatePrivateDnsNamespace' {} a -> s {tags = a} :: CreatePrivateDnsNamespace) Prelude.. Lens.mapping Lens._Coerce
+createPrivateDnsNamespace_tags = Lens.lens (\CreatePrivateDnsNamespace' {tags} -> tags) (\s@CreatePrivateDnsNamespace' {} a -> s {tags = a} :: CreatePrivateDnsNamespace) Prelude.. Lens.mapping Lens.coerced
 
 -- | Properties for the private DNS namespace.
 createPrivateDnsNamespace_properties :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe PrivateDnsNamespaceProperties)
 createPrivateDnsNamespace_properties = Lens.lens (\CreatePrivateDnsNamespace' {properties} -> properties) (\s@CreatePrivateDnsNamespace' {} a -> s {properties = a} :: CreatePrivateDnsNamespace)
-
--- | A description for the namespace.
-createPrivateDnsNamespace_description :: Lens.Lens' CreatePrivateDnsNamespace (Prelude.Maybe Prelude.Text)
-createPrivateDnsNamespace_description = Lens.lens (\CreatePrivateDnsNamespace' {description} -> description) (\s@CreatePrivateDnsNamespace' {} a -> s {description = a} :: CreatePrivateDnsNamespace)
 
 -- | The name that you want to assign to this namespace. When you create a
 -- private DNS namespace, Cloud Map automatically creates an Amazon Route
@@ -196,9 +196,9 @@ instance Core.ToJSON CreatePrivateDnsNamespace where
       ( Prelude.catMaybes
           [ ("CreatorRequestId" Core..=)
               Prelude.<$> creatorRequestId,
+            ("Description" Core..=) Prelude.<$> description,
             ("Tags" Core..=) Prelude.<$> tags,
             ("Properties" Core..=) Prelude.<$> properties,
-            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Vpc" Core..= vpc)
           ]

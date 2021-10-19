@@ -116,7 +116,7 @@ customerGateway_deviceName = Lens.lens (\CustomerGateway' {deviceName} -> device
 
 -- | Any tags assigned to the customer gateway.
 customerGateway_tags :: Lens.Lens' CustomerGateway (Prelude.Maybe [Tag])
-customerGateway_tags = Lens.lens (\CustomerGateway' {tags} -> tags) (\s@CustomerGateway' {} a -> s {tags = a} :: CustomerGateway) Prelude.. Lens.mapping Lens._Coerce
+customerGateway_tags = Lens.lens (\CustomerGateway' {tags} -> tags) (\s@CustomerGateway' {} a -> s {tags = a} :: CustomerGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
 -- Number (ASN).

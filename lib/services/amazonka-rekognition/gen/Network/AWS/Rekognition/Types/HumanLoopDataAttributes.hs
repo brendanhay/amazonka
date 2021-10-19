@@ -56,7 +56,7 @@ newHumanLoopDataAttributes =
 -- | Sets whether the input image is free of personally identifiable
 -- information.
 humanLoopDataAttributes_contentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Prelude.Maybe [ContentClassifier])
-humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Prelude.. Lens.mapping Lens._Coerce
+humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable HumanLoopDataAttributes
 

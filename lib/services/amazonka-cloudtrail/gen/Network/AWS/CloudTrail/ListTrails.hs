@@ -205,7 +205,7 @@ listTrailsResponse_nextToken = Lens.lens (\ListTrailsResponse' {nextToken} -> ne
 
 -- | Returns the name, ARN, and home region of trails in the current account.
 listTrailsResponse_trails :: Lens.Lens' ListTrailsResponse (Prelude.Maybe [TrailInfo])
-listTrailsResponse_trails = Lens.lens (\ListTrailsResponse' {trails} -> trails) (\s@ListTrailsResponse' {} a -> s {trails = a} :: ListTrailsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTrailsResponse_trails = Lens.lens (\ListTrailsResponse' {trails} -> trails) (\s@ListTrailsResponse' {} a -> s {trails = a} :: ListTrailsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTrailsResponse_httpStatus :: Lens.Lens' ListTrailsResponse Prelude.Int

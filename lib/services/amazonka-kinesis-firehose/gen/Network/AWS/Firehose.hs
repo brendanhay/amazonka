@@ -24,14 +24,20 @@ module Network.AWS.Firehose
     -- * Errors
     -- $errors
 
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** InvalidKMSResourceException
+    _InvalidKMSResourceException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** InvalidKMSResourceException
-    _InvalidKMSResourceException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -39,65 +45,11 @@ module Network.AWS.Firehose
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** StartDeliveryStreamEncryption
-    StartDeliveryStreamEncryption (StartDeliveryStreamEncryption'),
-    newStartDeliveryStreamEncryption,
-    StartDeliveryStreamEncryptionResponse (StartDeliveryStreamEncryptionResponse'),
-    newStartDeliveryStreamEncryptionResponse,
-
-    -- ** StopDeliveryStreamEncryption
-    StopDeliveryStreamEncryption (StopDeliveryStreamEncryption'),
-    newStopDeliveryStreamEncryption,
-    StopDeliveryStreamEncryptionResponse (StopDeliveryStreamEncryptionResponse'),
-    newStopDeliveryStreamEncryptionResponse,
-
-    -- ** ListDeliveryStreams
-    ListDeliveryStreams (ListDeliveryStreams'),
-    newListDeliveryStreams,
-    ListDeliveryStreamsResponse (ListDeliveryStreamsResponse'),
-    newListDeliveryStreamsResponse,
-
-    -- ** ListTagsForDeliveryStream
-    ListTagsForDeliveryStream (ListTagsForDeliveryStream'),
-    newListTagsForDeliveryStream,
-    ListTagsForDeliveryStreamResponse (ListTagsForDeliveryStreamResponse'),
-    newListTagsForDeliveryStreamResponse,
-
-    -- ** PutRecordBatch
-    PutRecordBatch (PutRecordBatch'),
-    newPutRecordBatch,
-    PutRecordBatchResponse (PutRecordBatchResponse'),
-    newPutRecordBatchResponse,
-
-    -- ** DescribeDeliveryStream
-    DescribeDeliveryStream (DescribeDeliveryStream'),
-    newDescribeDeliveryStream,
-    DescribeDeliveryStreamResponse (DescribeDeliveryStreamResponse'),
-    newDescribeDeliveryStreamResponse,
-
-    -- ** UpdateDestination
-    UpdateDestination (UpdateDestination'),
-    newUpdateDestination,
-    UpdateDestinationResponse (UpdateDestinationResponse'),
-    newUpdateDestinationResponse,
-
-    -- ** CreateDeliveryStream
-    CreateDeliveryStream (CreateDeliveryStream'),
-    newCreateDeliveryStream,
-    CreateDeliveryStreamResponse (CreateDeliveryStreamResponse'),
-    newCreateDeliveryStreamResponse,
 
     -- ** PutRecord
     PutRecord (PutRecord'),
@@ -105,17 +57,11 @@ module Network.AWS.Firehose
     PutRecordResponse (PutRecordResponse'),
     newPutRecordResponse,
 
-    -- ** UntagDeliveryStream
-    UntagDeliveryStream (UntagDeliveryStream'),
-    newUntagDeliveryStream,
-    UntagDeliveryStreamResponse (UntagDeliveryStreamResponse'),
-    newUntagDeliveryStreamResponse,
-
-    -- ** DeleteDeliveryStream
-    DeleteDeliveryStream (DeleteDeliveryStream'),
-    newDeleteDeliveryStream,
-    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
-    newDeleteDeliveryStreamResponse,
+    -- ** StopDeliveryStreamEncryption
+    StopDeliveryStreamEncryption (StopDeliveryStreamEncryption'),
+    newStopDeliveryStreamEncryption,
+    StopDeliveryStreamEncryptionResponse (StopDeliveryStreamEncryptionResponse'),
+    newStopDeliveryStreamEncryptionResponse,
 
     -- ** TagDeliveryStream
     TagDeliveryStream (TagDeliveryStream'),
@@ -123,7 +69,67 @@ module Network.AWS.Firehose
     TagDeliveryStreamResponse (TagDeliveryStreamResponse'),
     newTagDeliveryStreamResponse,
 
+    -- ** UpdateDestination
+    UpdateDestination (UpdateDestination'),
+    newUpdateDestination,
+    UpdateDestinationResponse (UpdateDestinationResponse'),
+    newUpdateDestinationResponse,
+
+    -- ** PutRecordBatch
+    PutRecordBatch (PutRecordBatch'),
+    newPutRecordBatch,
+    PutRecordBatchResponse (PutRecordBatchResponse'),
+    newPutRecordBatchResponse,
+
+    -- ** UntagDeliveryStream
+    UntagDeliveryStream (UntagDeliveryStream'),
+    newUntagDeliveryStream,
+    UntagDeliveryStreamResponse (UntagDeliveryStreamResponse'),
+    newUntagDeliveryStreamResponse,
+
+    -- ** CreateDeliveryStream
+    CreateDeliveryStream (CreateDeliveryStream'),
+    newCreateDeliveryStream,
+    CreateDeliveryStreamResponse (CreateDeliveryStreamResponse'),
+    newCreateDeliveryStreamResponse,
+
+    -- ** StartDeliveryStreamEncryption
+    StartDeliveryStreamEncryption (StartDeliveryStreamEncryption'),
+    newStartDeliveryStreamEncryption,
+    StartDeliveryStreamEncryptionResponse (StartDeliveryStreamEncryptionResponse'),
+    newStartDeliveryStreamEncryptionResponse,
+
+    -- ** DescribeDeliveryStream
+    DescribeDeliveryStream (DescribeDeliveryStream'),
+    newDescribeDeliveryStream,
+    DescribeDeliveryStreamResponse (DescribeDeliveryStreamResponse'),
+    newDescribeDeliveryStreamResponse,
+
+    -- ** ListTagsForDeliveryStream
+    ListTagsForDeliveryStream (ListTagsForDeliveryStream'),
+    newListTagsForDeliveryStream,
+    ListTagsForDeliveryStreamResponse (ListTagsForDeliveryStreamResponse'),
+    newListTagsForDeliveryStreamResponse,
+
+    -- ** ListDeliveryStreams
+    ListDeliveryStreams (ListDeliveryStreams'),
+    newListDeliveryStreams,
+    ListDeliveryStreamsResponse (ListDeliveryStreamsResponse'),
+    newListDeliveryStreamsResponse,
+
+    -- ** DeleteDeliveryStream
+    DeleteDeliveryStream (DeleteDeliveryStream'),
+    newDeleteDeliveryStream,
+    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
+    newDeleteDeliveryStreamResponse,
+
     -- * Types
+
+    -- ** AmazonopensearchserviceIndexRotationPeriod
+    AmazonopensearchserviceIndexRotationPeriod (..),
+
+    -- ** AmazonopensearchserviceS3BackupMode
+    AmazonopensearchserviceS3BackupMode (..),
 
     -- ** CompressionFormat
     CompressionFormat (..),
@@ -187,6 +193,26 @@ module Network.AWS.Firehose
 
     -- ** SplunkS3BackupMode
     SplunkS3BackupMode (..),
+
+    -- ** AmazonopensearchserviceBufferingHints
+    AmazonopensearchserviceBufferingHints (AmazonopensearchserviceBufferingHints'),
+    newAmazonopensearchserviceBufferingHints,
+
+    -- ** AmazonopensearchserviceDestinationConfiguration
+    AmazonopensearchserviceDestinationConfiguration (AmazonopensearchserviceDestinationConfiguration'),
+    newAmazonopensearchserviceDestinationConfiguration,
+
+    -- ** AmazonopensearchserviceDestinationDescription
+    AmazonopensearchserviceDestinationDescription (AmazonopensearchserviceDestinationDescription'),
+    newAmazonopensearchserviceDestinationDescription,
+
+    -- ** AmazonopensearchserviceDestinationUpdate
+    AmazonopensearchserviceDestinationUpdate (AmazonopensearchserviceDestinationUpdate'),
+    newAmazonopensearchserviceDestinationUpdate,
+
+    -- ** AmazonopensearchserviceRetryOptions
+    AmazonopensearchserviceRetryOptions (AmazonopensearchserviceRetryOptions'),
+    newAmazonopensearchserviceRetryOptions,
 
     -- ** BufferingHints
     BufferingHints (BufferingHints'),

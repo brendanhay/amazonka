@@ -56,7 +56,7 @@ newSageMakerPipelineParameters =
 -- | List of Parameter names and values for SageMaker Model Building Pipeline
 -- execution.
 sageMakerPipelineParameters_pipelineParameterList :: Lens.Lens' SageMakerPipelineParameters (Prelude.Maybe [SageMakerPipelineParameter])
-sageMakerPipelineParameters_pipelineParameterList = Lens.lens (\SageMakerPipelineParameters' {pipelineParameterList} -> pipelineParameterList) (\s@SageMakerPipelineParameters' {} a -> s {pipelineParameterList = a} :: SageMakerPipelineParameters) Prelude.. Lens.mapping Lens._Coerce
+sageMakerPipelineParameters_pipelineParameterList = Lens.lens (\SageMakerPipelineParameters' {pipelineParameterList} -> pipelineParameterList) (\s@SageMakerPipelineParameters' {} a -> s {pipelineParameterList = a} :: SageMakerPipelineParameters) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SageMakerPipelineParameters where
   parseJSON =

@@ -155,7 +155,7 @@ createReservedInstancesListing_instanceCount = Lens.lens (\CreateReservedInstanc
 -- | A list specifying the price of the Standard Reserved Instance for each
 -- month remaining in the Reserved Instance term.
 createReservedInstancesListing_priceSchedules :: Lens.Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-createReservedInstancesListing_priceSchedules = Lens.lens (\CreateReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@CreateReservedInstancesListing' {} a -> s {priceSchedules = a} :: CreateReservedInstancesListing) Prelude.. Lens._Coerce
+createReservedInstancesListing_priceSchedules = Lens.lens (\CreateReservedInstancesListing' {priceSchedules} -> priceSchedules) (\s@CreateReservedInstancesListing' {} a -> s {priceSchedules = a} :: CreateReservedInstancesListing) Prelude.. Lens.coerced
 
 -- | The ID of the active Standard Reserved Instance.
 createReservedInstancesListing_reservedInstancesId :: Lens.Lens' CreateReservedInstancesListing Prelude.Text
@@ -248,7 +248,7 @@ newCreateReservedInstancesListingResponse
 
 -- | Information about the Standard Reserved Instance listing.
 createReservedInstancesListingResponse_reservedInstancesListings :: Lens.Lens' CreateReservedInstancesListingResponse (Prelude.Maybe [ReservedInstancesListing])
-createReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CreateReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CreateReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse) Prelude.. Lens.mapping Lens._Coerce
+createReservedInstancesListingResponse_reservedInstancesListings = Lens.lens (\CreateReservedInstancesListingResponse' {reservedInstancesListings} -> reservedInstancesListings) (\s@CreateReservedInstancesListingResponse' {} a -> s {reservedInstancesListings = a} :: CreateReservedInstancesListingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 createReservedInstancesListingResponse_httpStatus :: Lens.Lens' CreateReservedInstancesListingResponse Prelude.Int

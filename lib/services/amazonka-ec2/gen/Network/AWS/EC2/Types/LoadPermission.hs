@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data LoadPermission = LoadPermission'
   { -- | The name of the group.
     group' :: Prelude.Maybe PermissionGroup,
-    -- | The AWS account ID.
+    -- | The Amazon Web Services account ID.
     userId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data LoadPermission = LoadPermission'
 --
 -- 'group'', 'loadPermission_group' - The name of the group.
 --
--- 'userId', 'loadPermission_userId' - The AWS account ID.
+-- 'userId', 'loadPermission_userId' - The Amazon Web Services account ID.
 newLoadPermission ::
   LoadPermission
 newLoadPermission =
@@ -59,7 +59,7 @@ newLoadPermission =
 loadPermission_group :: Lens.Lens' LoadPermission (Prelude.Maybe PermissionGroup)
 loadPermission_group = Lens.lens (\LoadPermission' {group'} -> group') (\s@LoadPermission' {} a -> s {group' = a} :: LoadPermission)
 
--- | The AWS account ID.
+-- | The Amazon Web Services account ID.
 loadPermission_userId :: Lens.Lens' LoadPermission (Prelude.Maybe Prelude.Text)
 loadPermission_userId = Lens.lens (\LoadPermission' {userId} -> userId) (\s@LoadPermission' {} a -> s {userId = a} :: LoadPermission)
 

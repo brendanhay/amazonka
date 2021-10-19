@@ -31,22 +31,22 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newElasticGpus' smart constructor.
 data ElasticGpus = ElasticGpus'
-  { -- | The type of Elastic Graphics accelerator.
-    elasticGpuType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the instance to which the Elastic Graphics accelerator is
+  { -- | The ID of the instance to which the Elastic Graphics accelerator is
     -- attached.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the Elastic Graphics accelerator.
-    elasticGpuHealth :: Prelude.Maybe ElasticGpuHealth,
+    -- | The type of Elastic Graphics accelerator.
+    elasticGpuType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Elastic Graphics accelerator.
     elasticGpuId :: Prelude.Maybe Prelude.Text,
+    -- | The state of the Elastic Graphics accelerator.
+    elasticGpuState :: Prelude.Maybe ElasticGpuState,
+    -- | The status of the Elastic Graphics accelerator.
+    elasticGpuHealth :: Prelude.Maybe ElasticGpuHealth,
     -- | The Availability Zone in the which the Elastic Graphics accelerator
     -- resides.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the Elastic Graphics accelerator.
-    tags :: Prelude.Maybe [Tag],
-    -- | The state of the Elastic Graphics accelerator.
-    elasticGpuState :: Prelude.Maybe ElasticGpuState
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,50 +58,54 @@ data ElasticGpus = ElasticGpus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'elasticGpuType', 'elasticGpus_elasticGpuType' - The type of Elastic Graphics accelerator.
---
 -- 'instanceId', 'elasticGpus_instanceId' - The ID of the instance to which the Elastic Graphics accelerator is
 -- attached.
 --
--- 'elasticGpuHealth', 'elasticGpus_elasticGpuHealth' - The status of the Elastic Graphics accelerator.
+-- 'elasticGpuType', 'elasticGpus_elasticGpuType' - The type of Elastic Graphics accelerator.
 --
 -- 'elasticGpuId', 'elasticGpus_elasticGpuId' - The ID of the Elastic Graphics accelerator.
+--
+-- 'elasticGpuState', 'elasticGpus_elasticGpuState' - The state of the Elastic Graphics accelerator.
+--
+-- 'elasticGpuHealth', 'elasticGpus_elasticGpuHealth' - The status of the Elastic Graphics accelerator.
 --
 -- 'availabilityZone', 'elasticGpus_availabilityZone' - The Availability Zone in the which the Elastic Graphics accelerator
 -- resides.
 --
 -- 'tags', 'elasticGpus_tags' - The tags assigned to the Elastic Graphics accelerator.
---
--- 'elasticGpuState', 'elasticGpus_elasticGpuState' - The state of the Elastic Graphics accelerator.
 newElasticGpus ::
   ElasticGpus
 newElasticGpus =
   ElasticGpus'
-    { elasticGpuType = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      elasticGpuHealth = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      elasticGpuType = Prelude.Nothing,
       elasticGpuId = Prelude.Nothing,
+      elasticGpuState = Prelude.Nothing,
+      elasticGpuHealth = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      elasticGpuState = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | The type of Elastic Graphics accelerator.
-elasticGpus_elasticGpuType :: Lens.Lens' ElasticGpus (Prelude.Maybe Prelude.Text)
-elasticGpus_elasticGpuType = Lens.lens (\ElasticGpus' {elasticGpuType} -> elasticGpuType) (\s@ElasticGpus' {} a -> s {elasticGpuType = a} :: ElasticGpus)
 
 -- | The ID of the instance to which the Elastic Graphics accelerator is
 -- attached.
 elasticGpus_instanceId :: Lens.Lens' ElasticGpus (Prelude.Maybe Prelude.Text)
 elasticGpus_instanceId = Lens.lens (\ElasticGpus' {instanceId} -> instanceId) (\s@ElasticGpus' {} a -> s {instanceId = a} :: ElasticGpus)
 
--- | The status of the Elastic Graphics accelerator.
-elasticGpus_elasticGpuHealth :: Lens.Lens' ElasticGpus (Prelude.Maybe ElasticGpuHealth)
-elasticGpus_elasticGpuHealth = Lens.lens (\ElasticGpus' {elasticGpuHealth} -> elasticGpuHealth) (\s@ElasticGpus' {} a -> s {elasticGpuHealth = a} :: ElasticGpus)
+-- | The type of Elastic Graphics accelerator.
+elasticGpus_elasticGpuType :: Lens.Lens' ElasticGpus (Prelude.Maybe Prelude.Text)
+elasticGpus_elasticGpuType = Lens.lens (\ElasticGpus' {elasticGpuType} -> elasticGpuType) (\s@ElasticGpus' {} a -> s {elasticGpuType = a} :: ElasticGpus)
 
 -- | The ID of the Elastic Graphics accelerator.
 elasticGpus_elasticGpuId :: Lens.Lens' ElasticGpus (Prelude.Maybe Prelude.Text)
 elasticGpus_elasticGpuId = Lens.lens (\ElasticGpus' {elasticGpuId} -> elasticGpuId) (\s@ElasticGpus' {} a -> s {elasticGpuId = a} :: ElasticGpus)
+
+-- | The state of the Elastic Graphics accelerator.
+elasticGpus_elasticGpuState :: Lens.Lens' ElasticGpus (Prelude.Maybe ElasticGpuState)
+elasticGpus_elasticGpuState = Lens.lens (\ElasticGpus' {elasticGpuState} -> elasticGpuState) (\s@ElasticGpus' {} a -> s {elasticGpuState = a} :: ElasticGpus)
+
+-- | The status of the Elastic Graphics accelerator.
+elasticGpus_elasticGpuHealth :: Lens.Lens' ElasticGpus (Prelude.Maybe ElasticGpuHealth)
+elasticGpus_elasticGpuHealth = Lens.lens (\ElasticGpus' {elasticGpuHealth} -> elasticGpuHealth) (\s@ElasticGpus' {} a -> s {elasticGpuHealth = a} :: ElasticGpus)
 
 -- | The Availability Zone in the which the Elastic Graphics accelerator
 -- resides.
@@ -110,24 +114,20 @@ elasticGpus_availabilityZone = Lens.lens (\ElasticGpus' {availabilityZone} -> av
 
 -- | The tags assigned to the Elastic Graphics accelerator.
 elasticGpus_tags :: Lens.Lens' ElasticGpus (Prelude.Maybe [Tag])
-elasticGpus_tags = Lens.lens (\ElasticGpus' {tags} -> tags) (\s@ElasticGpus' {} a -> s {tags = a} :: ElasticGpus) Prelude.. Lens.mapping Lens._Coerce
-
--- | The state of the Elastic Graphics accelerator.
-elasticGpus_elasticGpuState :: Lens.Lens' ElasticGpus (Prelude.Maybe ElasticGpuState)
-elasticGpus_elasticGpuState = Lens.lens (\ElasticGpus' {elasticGpuState} -> elasticGpuState) (\s@ElasticGpus' {} a -> s {elasticGpuState = a} :: ElasticGpus)
+elasticGpus_tags = Lens.lens (\ElasticGpus' {tags} -> tags) (\s@ElasticGpus' {} a -> s {tags = a} :: ElasticGpus) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML ElasticGpus where
   parseXML x =
     ElasticGpus'
-      Prelude.<$> (x Core..@? "elasticGpuType")
-      Prelude.<*> (x Core..@? "instanceId")
-      Prelude.<*> (x Core..@? "elasticGpuHealth")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "elasticGpuType")
       Prelude.<*> (x Core..@? "elasticGpuId")
+      Prelude.<*> (x Core..@? "elasticGpuState")
+      Prelude.<*> (x Core..@? "elasticGpuHealth")
       Prelude.<*> (x Core..@? "availabilityZone")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "elasticGpuState")
 
 instance Prelude.Hashable ElasticGpus
 

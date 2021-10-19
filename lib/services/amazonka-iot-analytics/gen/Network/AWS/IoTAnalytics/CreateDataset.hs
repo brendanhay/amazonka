@@ -32,12 +32,12 @@ module Network.AWS.IoTAnalytics.CreateDataset
     newCreateDataset,
 
     -- * Request Lenses
-    createDataset_triggers,
-    createDataset_lateDataRules,
-    createDataset_retentionPeriod,
-    createDataset_tags,
-    createDataset_contentDeliveryRules,
     createDataset_versioningConfiguration,
+    createDataset_triggers,
+    createDataset_retentionPeriod,
+    createDataset_lateDataRules,
+    createDataset_contentDeliveryRules,
+    createDataset_tags,
     createDataset_datasetName,
     createDataset_actions,
 
@@ -62,16 +62,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
-  { -- | A list of triggers. A trigger causes dataset contents to be populated at
+  { -- | Optional. How many versions of dataset contents are kept. If not
+    -- specified or set to null, only the latest version plus the latest
+    -- succeeded version (if they are different) are kept for the time period
+    -- specified by the @retentionPeriod@ parameter. For more information, see
+    -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
+    -- in the /IoT Analytics User Guide/.
+    versioningConfiguration :: Prelude.Maybe VersioningConfiguration,
+    -- | A list of triggers. A trigger causes dataset contents to be populated at
     -- a specified time interval or when another dataset\'s contents are
     -- created. The list of triggers can be empty or contain up to five
     -- @DataSetTrigger@ objects.
     triggers :: Prelude.Maybe [DatasetTrigger],
-    -- | A list of data rules that send notifications to CloudWatch, when data
-    -- arrives late. To specify @lateDataRules@, the dataset must use a
-    -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
-    -- filter.
-    lateDataRules :: Prelude.Maybe (Prelude.NonEmpty LateDataRule),
     -- | Optional. How long, in days, versions of dataset contents are kept for
     -- the dataset. If not specified or set to @null@, versions of dataset
     -- contents are retained for at most 90 days. The number of versions of
@@ -80,18 +82,16 @@ data CreateDataset = CreateDataset'
     -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
     -- in the /IoT Analytics User Guide/.
     retentionPeriod :: Prelude.Maybe RetentionPeriod,
-    -- | Metadata which can be used to manage the dataset.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | A list of data rules that send notifications to CloudWatch, when data
+    -- arrives late. To specify @lateDataRules@, the dataset must use a
+    -- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
+    -- filter.
+    lateDataRules :: Prelude.Maybe (Prelude.NonEmpty LateDataRule),
     -- | When dataset contents are created, they are delivered to destinations
     -- specified here.
     contentDeliveryRules :: Prelude.Maybe [DatasetContentDeliveryRule],
-    -- | Optional. How many versions of dataset contents are kept. If not
-    -- specified or set to null, only the latest version plus the latest
-    -- succeeded version (if they are different) are kept for the time period
-    -- specified by the @retentionPeriod@ parameter. For more information, see
-    -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
-    -- in the /IoT Analytics User Guide/.
-    versioningConfiguration :: Prelude.Maybe VersioningConfiguration,
+    -- | Metadata which can be used to manage the dataset.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The name of the dataset.
     datasetName :: Prelude.Text,
     -- | A list of actions that create the dataset contents.
@@ -107,15 +107,17 @@ data CreateDataset = CreateDataset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'versioningConfiguration', 'createDataset_versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not
+-- specified or set to null, only the latest version plus the latest
+-- succeeded version (if they are different) are kept for the time period
+-- specified by the @retentionPeriod@ parameter. For more information, see
+-- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
+-- in the /IoT Analytics User Guide/.
+--
 -- 'triggers', 'createDataset_triggers' - A list of triggers. A trigger causes dataset contents to be populated at
 -- a specified time interval or when another dataset\'s contents are
 -- created. The list of triggers can be empty or contain up to five
 -- @DataSetTrigger@ objects.
---
--- 'lateDataRules', 'createDataset_lateDataRules' - A list of data rules that send notifications to CloudWatch, when data
--- arrives late. To specify @lateDataRules@, the dataset must use a
--- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
--- filter.
 --
 -- 'retentionPeriod', 'createDataset_retentionPeriod' - Optional. How long, in days, versions of dataset contents are kept for
 -- the dataset. If not specified or set to @null@, versions of dataset
@@ -125,17 +127,15 @@ data CreateDataset = CreateDataset'
 -- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
 -- in the /IoT Analytics User Guide/.
 --
--- 'tags', 'createDataset_tags' - Metadata which can be used to manage the dataset.
+-- 'lateDataRules', 'createDataset_lateDataRules' - A list of data rules that send notifications to CloudWatch, when data
+-- arrives late. To specify @lateDataRules@, the dataset must use a
+-- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
+-- filter.
 --
 -- 'contentDeliveryRules', 'createDataset_contentDeliveryRules' - When dataset contents are created, they are delivered to destinations
 -- specified here.
 --
--- 'versioningConfiguration', 'createDataset_versioningConfiguration' - Optional. How many versions of dataset contents are kept. If not
--- specified or set to null, only the latest version plus the latest
--- succeeded version (if they are different) are kept for the time period
--- specified by the @retentionPeriod@ parameter. For more information, see
--- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
--- in the /IoT Analytics User Guide/.
+-- 'tags', 'createDataset_tags' - Metadata which can be used to manage the dataset.
 --
 -- 'datasetName', 'createDataset_datasetName' - The name of the dataset.
 --
@@ -148,29 +148,32 @@ newCreateDataset ::
   CreateDataset
 newCreateDataset pDatasetName_ pActions_ =
   CreateDataset'
-    { triggers = Prelude.Nothing,
-      lateDataRules = Prelude.Nothing,
+    { versioningConfiguration =
+        Prelude.Nothing,
+      triggers = Prelude.Nothing,
       retentionPeriod = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      lateDataRules = Prelude.Nothing,
       contentDeliveryRules = Prelude.Nothing,
-      versioningConfiguration = Prelude.Nothing,
+      tags = Prelude.Nothing,
       datasetName = pDatasetName_,
-      actions = Lens._Coerce Lens.# pActions_
+      actions = Lens.coerced Lens.# pActions_
     }
+
+-- | Optional. How many versions of dataset contents are kept. If not
+-- specified or set to null, only the latest version plus the latest
+-- succeeded version (if they are different) are kept for the time period
+-- specified by the @retentionPeriod@ parameter. For more information, see
+-- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
+-- in the /IoT Analytics User Guide/.
+createDataset_versioningConfiguration :: Lens.Lens' CreateDataset (Prelude.Maybe VersioningConfiguration)
+createDataset_versioningConfiguration = Lens.lens (\CreateDataset' {versioningConfiguration} -> versioningConfiguration) (\s@CreateDataset' {} a -> s {versioningConfiguration = a} :: CreateDataset)
 
 -- | A list of triggers. A trigger causes dataset contents to be populated at
 -- a specified time interval or when another dataset\'s contents are
 -- created. The list of triggers can be empty or contain up to five
 -- @DataSetTrigger@ objects.
 createDataset_triggers :: Lens.Lens' CreateDataset (Prelude.Maybe [DatasetTrigger])
-createDataset_triggers = Lens.lens (\CreateDataset' {triggers} -> triggers) (\s@CreateDataset' {} a -> s {triggers = a} :: CreateDataset) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of data rules that send notifications to CloudWatch, when data
--- arrives late. To specify @lateDataRules@, the dataset must use a
--- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
--- filter.
-createDataset_lateDataRules :: Lens.Lens' CreateDataset (Prelude.Maybe (Prelude.NonEmpty LateDataRule))
-createDataset_lateDataRules = Lens.lens (\CreateDataset' {lateDataRules} -> lateDataRules) (\s@CreateDataset' {} a -> s {lateDataRules = a} :: CreateDataset) Prelude.. Lens.mapping Lens._Coerce
+createDataset_triggers = Lens.lens (\CreateDataset' {triggers} -> triggers) (\s@CreateDataset' {} a -> s {triggers = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | Optional. How long, in days, versions of dataset contents are kept for
 -- the dataset. If not specified or set to @null@, versions of dataset
@@ -182,23 +185,21 @@ createDataset_lateDataRules = Lens.lens (\CreateDataset' {lateDataRules} -> late
 createDataset_retentionPeriod :: Lens.Lens' CreateDataset (Prelude.Maybe RetentionPeriod)
 createDataset_retentionPeriod = Lens.lens (\CreateDataset' {retentionPeriod} -> retentionPeriod) (\s@CreateDataset' {} a -> s {retentionPeriod = a} :: CreateDataset)
 
--- | Metadata which can be used to manage the dataset.
-createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe (Prelude.NonEmpty Tag))
-createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of data rules that send notifications to CloudWatch, when data
+-- arrives late. To specify @lateDataRules@, the dataset must use a
+-- <https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html DeltaTimer>
+-- filter.
+createDataset_lateDataRules :: Lens.Lens' CreateDataset (Prelude.Maybe (Prelude.NonEmpty LateDataRule))
+createDataset_lateDataRules = Lens.lens (\CreateDataset' {lateDataRules} -> lateDataRules) (\s@CreateDataset' {} a -> s {lateDataRules = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | When dataset contents are created, they are delivered to destinations
 -- specified here.
 createDataset_contentDeliveryRules :: Lens.Lens' CreateDataset (Prelude.Maybe [DatasetContentDeliveryRule])
-createDataset_contentDeliveryRules = Lens.lens (\CreateDataset' {contentDeliveryRules} -> contentDeliveryRules) (\s@CreateDataset' {} a -> s {contentDeliveryRules = a} :: CreateDataset) Prelude.. Lens.mapping Lens._Coerce
+createDataset_contentDeliveryRules = Lens.lens (\CreateDataset' {contentDeliveryRules} -> contentDeliveryRules) (\s@CreateDataset' {} a -> s {contentDeliveryRules = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
--- | Optional. How many versions of dataset contents are kept. If not
--- specified or set to null, only the latest version plus the latest
--- succeeded version (if they are different) are kept for the time period
--- specified by the @retentionPeriod@ parameter. For more information, see
--- <https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions Keeping Multiple Versions of IoT Analytics datasets>
--- in the /IoT Analytics User Guide/.
-createDataset_versioningConfiguration :: Lens.Lens' CreateDataset (Prelude.Maybe VersioningConfiguration)
-createDataset_versioningConfiguration = Lens.lens (\CreateDataset' {versioningConfiguration} -> versioningConfiguration) (\s@CreateDataset' {} a -> s {versioningConfiguration = a} :: CreateDataset)
+-- | Metadata which can be used to manage the dataset.
+createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the dataset.
 createDataset_datasetName :: Lens.Lens' CreateDataset Prelude.Text
@@ -206,7 +207,7 @@ createDataset_datasetName = Lens.lens (\CreateDataset' {datasetName} -> datasetN
 
 -- | A list of actions that create the dataset contents.
 createDataset_actions :: Lens.Lens' CreateDataset (Prelude.NonEmpty DatasetAction)
-createDataset_actions = Lens.lens (\CreateDataset' {actions} -> actions) (\s@CreateDataset' {} a -> s {actions = a} :: CreateDataset) Prelude.. Lens._Coerce
+createDataset_actions = Lens.lens (\CreateDataset' {actions} -> actions) (\s@CreateDataset' {} a -> s {actions = a} :: CreateDataset) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateDataset where
   type
@@ -234,15 +235,15 @@ instance Core.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("triggers" Core..=) Prelude.<$> triggers,
-            ("lateDataRules" Core..=) Prelude.<$> lateDataRules,
+          [ ("versioningConfiguration" Core..=)
+              Prelude.<$> versioningConfiguration,
+            ("triggers" Core..=) Prelude.<$> triggers,
             ("retentionPeriod" Core..=)
               Prelude.<$> retentionPeriod,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("lateDataRules" Core..=) Prelude.<$> lateDataRules,
             ("contentDeliveryRules" Core..=)
               Prelude.<$> contentDeliveryRules,
-            ("versioningConfiguration" Core..=)
-              Prelude.<$> versioningConfiguration,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("datasetName" Core..= datasetName),
             Prelude.Just ("actions" Core..= actions)
           ]

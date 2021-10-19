@@ -34,20 +34,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProvisioningArtifactPreferences' smart constructor.
 data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
-  { -- | One or more AWS accounts where stack instances are deployed from the
-    -- stack set. These accounts can be scoped in
-    -- @ProvisioningPreferences$StackSetAccounts@ and
-    -- @UpdateProvisioningPreferences$StackSetAccounts@.
-    --
-    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    stackSetAccounts :: Prelude.Maybe [Prelude.Text],
-    -- | One or more AWS Regions where stack instances are deployed from the
+  { -- | One or more AWS Regions where stack instances are deployed from the
     -- stack set. These regions can be scoped in
     -- @ProvisioningPreferences$StackSetRegions@ and
     -- @UpdateProvisioningPreferences$StackSetRegions@.
     --
     -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-    stackSetRegions :: Prelude.Maybe [Prelude.Text]
+    stackSetRegions :: Prelude.Maybe [Prelude.Text],
+    -- | One or more AWS accounts where stack instances are deployed from the
+    -- stack set. These accounts can be scoped in
+    -- @ProvisioningPreferences$StackSetAccounts@ and
+    -- @UpdateProvisioningPreferences$StackSetAccounts@.
+    --
+    -- Applicable only to a @CFN_STACKSET@ provisioned product type.
+    stackSetAccounts :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,36 +59,27 @@ data ProvisioningArtifactPreferences = ProvisioningArtifactPreferences'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackSetAccounts', 'provisioningArtifactPreferences_stackSetAccounts' - One or more AWS accounts where stack instances are deployed from the
--- stack set. These accounts can be scoped in
--- @ProvisioningPreferences$StackSetAccounts@ and
--- @UpdateProvisioningPreferences$StackSetAccounts@.
---
--- Applicable only to a @CFN_STACKSET@ provisioned product type.
---
 -- 'stackSetRegions', 'provisioningArtifactPreferences_stackSetRegions' - One or more AWS Regions where stack instances are deployed from the
 -- stack set. These regions can be scoped in
 -- @ProvisioningPreferences$StackSetRegions@ and
 -- @UpdateProvisioningPreferences$StackSetRegions@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-newProvisioningArtifactPreferences ::
-  ProvisioningArtifactPreferences
-newProvisioningArtifactPreferences =
-  ProvisioningArtifactPreferences'
-    { stackSetAccounts =
-        Prelude.Nothing,
-      stackSetRegions = Prelude.Nothing
-    }
-
--- | One or more AWS accounts where stack instances are deployed from the
+--
+-- 'stackSetAccounts', 'provisioningArtifactPreferences_stackSetAccounts' - One or more AWS accounts where stack instances are deployed from the
 -- stack set. These accounts can be scoped in
 -- @ProvisioningPreferences$StackSetAccounts@ and
 -- @UpdateProvisioningPreferences$StackSetAccounts@.
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
-provisioningArtifactPreferences_stackSetAccounts :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
-provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtifactPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetAccounts = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens._Coerce
+newProvisioningArtifactPreferences ::
+  ProvisioningArtifactPreferences
+newProvisioningArtifactPreferences =
+  ProvisioningArtifactPreferences'
+    { stackSetRegions =
+        Prelude.Nothing,
+      stackSetAccounts = Prelude.Nothing
+    }
 
 -- | One or more AWS Regions where stack instances are deployed from the
 -- stack set. These regions can be scoped in
@@ -97,7 +88,16 @@ provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtif
 --
 -- Applicable only to a @CFN_STACKSET@ provisioned product type.
 provisioningArtifactPreferences_stackSetRegions :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
-provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens._Coerce
+provisioningArtifactPreferences_stackSetRegions = Lens.lens (\ProvisioningArtifactPreferences' {stackSetRegions} -> stackSetRegions) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetRegions = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
+
+-- | One or more AWS accounts where stack instances are deployed from the
+-- stack set. These accounts can be scoped in
+-- @ProvisioningPreferences$StackSetAccounts@ and
+-- @UpdateProvisioningPreferences$StackSetAccounts@.
+--
+-- Applicable only to a @CFN_STACKSET@ provisioned product type.
+provisioningArtifactPreferences_stackSetAccounts :: Lens.Lens' ProvisioningArtifactPreferences (Prelude.Maybe [Prelude.Text])
+provisioningArtifactPreferences_stackSetAccounts = Lens.lens (\ProvisioningArtifactPreferences' {stackSetAccounts} -> stackSetAccounts) (\s@ProvisioningArtifactPreferences' {} a -> s {stackSetAccounts = a} :: ProvisioningArtifactPreferences) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON
@@ -108,10 +108,10 @@ instance
       "ProvisioningArtifactPreferences"
       ( \x ->
           ProvisioningArtifactPreferences'
-            Prelude.<$> ( x Core..:? "StackSetAccounts"
+            Prelude.<$> ( x Core..:? "StackSetRegions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StackSetRegions"
+            Prelude.<*> ( x Core..:? "StackSetAccounts"
                             Core..!= Prelude.mempty
                         )
       )

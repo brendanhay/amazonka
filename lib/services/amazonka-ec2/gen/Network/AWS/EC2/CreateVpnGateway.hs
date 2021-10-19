@@ -33,10 +33,10 @@ module Network.AWS.EC2.CreateVpnGateway
     newCreateVpnGateway,
 
     -- * Request Lenses
-    createVpnGateway_tagSpecifications,
-    createVpnGateway_dryRun,
-    createVpnGateway_availabilityZone,
     createVpnGateway_amazonSideAsn,
+    createVpnGateway_tagSpecifications,
+    createVpnGateway_availabilityZone,
+    createVpnGateway_dryRun,
     createVpnGateway_type,
 
     -- * Destructuring the Response
@@ -60,22 +60,22 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateVpnGateway' smart constructor.
 data CreateVpnGateway = CreateVpnGateway'
-  { -- | The tags to apply to the virtual private gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Availability Zone for the virtual private gateway.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
+  { -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
     -- session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534
     -- range. If you\'re using a 32-bit ASN, it must be in the 4200000000 to
     -- 4294967294 range.
     --
     -- Default: 64512
     amazonSideAsn :: Prelude.Maybe Prelude.Integer,
+    -- | The tags to apply to the virtual private gateway.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The Availability Zone for the virtual private gateway.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The type of VPN connection this virtual private gateway supports.
     type' :: GatewayType
   }
@@ -89,21 +89,21 @@ data CreateVpnGateway = CreateVpnGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'createVpnGateway_tagSpecifications' - The tags to apply to the virtual private gateway.
---
--- 'dryRun', 'createVpnGateway_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
--- 'availabilityZone', 'createVpnGateway_availabilityZone' - The Availability Zone for the virtual private gateway.
---
 -- 'amazonSideAsn', 'createVpnGateway_amazonSideAsn' - A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534
 -- range. If you\'re using a 32-bit ASN, it must be in the 4200000000 to
 -- 4294967294 range.
 --
 -- Default: 64512
+--
+-- 'tagSpecifications', 'createVpnGateway_tagSpecifications' - The tags to apply to the virtual private gateway.
+--
+-- 'availabilityZone', 'createVpnGateway_availabilityZone' - The Availability Zone for the virtual private gateway.
+--
+-- 'dryRun', 'createVpnGateway_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'type'', 'createVpnGateway_type' - The type of VPN connection this virtual private gateway supports.
 newCreateVpnGateway ::
@@ -112,28 +112,12 @@ newCreateVpnGateway ::
   CreateVpnGateway
 newCreateVpnGateway pType_ =
   CreateVpnGateway'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { amazonSideAsn = Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      amazonSideAsn = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       type' = pType_
     }
-
--- | The tags to apply to the virtual private gateway.
-createVpnGateway_tagSpecifications :: Lens.Lens' CreateVpnGateway (Prelude.Maybe [TagSpecification])
-createVpnGateway_tagSpecifications = Lens.lens (\CreateVpnGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnGateway' {} a -> s {tagSpecifications = a} :: CreateVpnGateway) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createVpnGateway_dryRun :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Bool)
-createVpnGateway_dryRun = Lens.lens (\CreateVpnGateway' {dryRun} -> dryRun) (\s@CreateVpnGateway' {} a -> s {dryRun = a} :: CreateVpnGateway)
-
--- | The Availability Zone for the virtual private gateway.
-createVpnGateway_availabilityZone :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Text)
-createVpnGateway_availabilityZone = Lens.lens (\CreateVpnGateway' {availabilityZone} -> availabilityZone) (\s@CreateVpnGateway' {} a -> s {availabilityZone = a} :: CreateVpnGateway)
 
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
 -- session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534
@@ -143,6 +127,21 @@ createVpnGateway_availabilityZone = Lens.lens (\CreateVpnGateway' {availabilityZ
 -- Default: 64512
 createVpnGateway_amazonSideAsn :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Integer)
 createVpnGateway_amazonSideAsn = Lens.lens (\CreateVpnGateway' {amazonSideAsn} -> amazonSideAsn) (\s@CreateVpnGateway' {} a -> s {amazonSideAsn = a} :: CreateVpnGateway)
+
+-- | The tags to apply to the virtual private gateway.
+createVpnGateway_tagSpecifications :: Lens.Lens' CreateVpnGateway (Prelude.Maybe [TagSpecification])
+createVpnGateway_tagSpecifications = Lens.lens (\CreateVpnGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnGateway' {} a -> s {tagSpecifications = a} :: CreateVpnGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Availability Zone for the virtual private gateway.
+createVpnGateway_availabilityZone :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Text)
+createVpnGateway_availabilityZone = Lens.lens (\CreateVpnGateway' {availabilityZone} -> availabilityZone) (\s@CreateVpnGateway' {} a -> s {availabilityZone = a} :: CreateVpnGateway)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createVpnGateway_dryRun :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Bool)
+createVpnGateway_dryRun = Lens.lens (\CreateVpnGateway' {dryRun} -> dryRun) (\s@CreateVpnGateway' {} a -> s {dryRun = a} :: CreateVpnGateway)
 
 -- | The type of VPN connection this virtual private gateway supports.
 createVpnGateway_type :: Lens.Lens' CreateVpnGateway GatewayType
@@ -178,13 +177,13 @@ instance Core.ToQuery CreateVpnGateway where
           Core.=: ("CreateVpnGateway" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "AmazonSideAsn" Core.=: amazonSideAsn,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "AvailabilityZone" Core.=: availabilityZone,
-        "AmazonSideAsn" Core.=: amazonSideAsn,
+        "DryRun" Core.=: dryRun,
         "Type" Core.=: type'
       ]
 

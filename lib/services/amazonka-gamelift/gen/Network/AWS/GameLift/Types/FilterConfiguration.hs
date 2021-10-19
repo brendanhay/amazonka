@@ -60,7 +60,7 @@ newFilterConfiguration =
 -- | A list of locations to allow game session placement in, in the form of
 -- AWS Region codes such as @us-west-2@.
 filterConfiguration_allowedLocations :: Lens.Lens' FilterConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-filterConfiguration_allowedLocations = Lens.lens (\FilterConfiguration' {allowedLocations} -> allowedLocations) (\s@FilterConfiguration' {} a -> s {allowedLocations = a} :: FilterConfiguration) Prelude.. Lens.mapping Lens._Coerce
+filterConfiguration_allowedLocations = Lens.lens (\FilterConfiguration' {allowedLocations} -> allowedLocations) (\s@FilterConfiguration' {} a -> s {allowedLocations = a} :: FilterConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON FilterConfiguration where
   parseJSON =

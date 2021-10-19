@@ -31,10 +31,10 @@ module Network.AWS.Connect.UpdateAgentStatus
 
     -- * Request Lenses
     updateAgentStatus_displayOrder,
-    updateAgentStatus_name,
     updateAgentStatus_state,
-    updateAgentStatus_description,
+    updateAgentStatus_name,
     updateAgentStatus_resetOrderNumber,
+    updateAgentStatus_description,
     updateAgentStatus_instanceId,
     updateAgentStatus_agentStatusId,
 
@@ -55,14 +55,14 @@ import qualified Network.AWS.Response as Response
 data UpdateAgentStatus = UpdateAgentStatus'
   { -- | The display order of the agent status.
     displayOrder :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the agent status.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The state of the agent status.
     state :: Prelude.Maybe AgentStatusState,
-    -- | The description of the agent status.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the agent status.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A number indicating the reset order of the agent status.
     resetOrderNumber :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the agent status.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
@@ -81,13 +81,13 @@ data UpdateAgentStatus = UpdateAgentStatus'
 --
 -- 'displayOrder', 'updateAgentStatus_displayOrder' - The display order of the agent status.
 --
--- 'name', 'updateAgentStatus_name' - The name of the agent status.
---
 -- 'state', 'updateAgentStatus_state' - The state of the agent status.
 --
--- 'description', 'updateAgentStatus_description' - The description of the agent status.
+-- 'name', 'updateAgentStatus_name' - The name of the agent status.
 --
 -- 'resetOrderNumber', 'updateAgentStatus_resetOrderNumber' - A number indicating the reset order of the agent status.
+--
+-- 'description', 'updateAgentStatus_description' - The description of the agent status.
 --
 -- 'instanceId', 'updateAgentStatus_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -102,10 +102,10 @@ newUpdateAgentStatus ::
 newUpdateAgentStatus pInstanceId_ pAgentStatusId_ =
   UpdateAgentStatus'
     { displayOrder = Prelude.Nothing,
-      name = Prelude.Nothing,
       state = Prelude.Nothing,
-      description = Prelude.Nothing,
+      name = Prelude.Nothing,
       resetOrderNumber = Prelude.Nothing,
+      description = Prelude.Nothing,
       instanceId = pInstanceId_,
       agentStatusId = pAgentStatusId_
     }
@@ -114,21 +114,21 @@ newUpdateAgentStatus pInstanceId_ pAgentStatusId_ =
 updateAgentStatus_displayOrder :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe Prelude.Natural)
 updateAgentStatus_displayOrder = Lens.lens (\UpdateAgentStatus' {displayOrder} -> displayOrder) (\s@UpdateAgentStatus' {} a -> s {displayOrder = a} :: UpdateAgentStatus)
 
--- | The name of the agent status.
-updateAgentStatus_name :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe Prelude.Text)
-updateAgentStatus_name = Lens.lens (\UpdateAgentStatus' {name} -> name) (\s@UpdateAgentStatus' {} a -> s {name = a} :: UpdateAgentStatus)
-
 -- | The state of the agent status.
 updateAgentStatus_state :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe AgentStatusState)
 updateAgentStatus_state = Lens.lens (\UpdateAgentStatus' {state} -> state) (\s@UpdateAgentStatus' {} a -> s {state = a} :: UpdateAgentStatus)
 
--- | The description of the agent status.
-updateAgentStatus_description :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe Prelude.Text)
-updateAgentStatus_description = Lens.lens (\UpdateAgentStatus' {description} -> description) (\s@UpdateAgentStatus' {} a -> s {description = a} :: UpdateAgentStatus)
+-- | The name of the agent status.
+updateAgentStatus_name :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe Prelude.Text)
+updateAgentStatus_name = Lens.lens (\UpdateAgentStatus' {name} -> name) (\s@UpdateAgentStatus' {} a -> s {name = a} :: UpdateAgentStatus)
 
 -- | A number indicating the reset order of the agent status.
 updateAgentStatus_resetOrderNumber :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe Prelude.Bool)
 updateAgentStatus_resetOrderNumber = Lens.lens (\UpdateAgentStatus' {resetOrderNumber} -> resetOrderNumber) (\s@UpdateAgentStatus' {} a -> s {resetOrderNumber = a} :: UpdateAgentStatus)
+
+-- | The description of the agent status.
+updateAgentStatus_description :: Lens.Lens' UpdateAgentStatus (Prelude.Maybe Prelude.Text)
+updateAgentStatus_description = Lens.lens (\UpdateAgentStatus' {description} -> description) (\s@UpdateAgentStatus' {} a -> s {description = a} :: UpdateAgentStatus)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -167,11 +167,11 @@ instance Core.ToJSON UpdateAgentStatus where
     Core.object
       ( Prelude.catMaybes
           [ ("DisplayOrder" Core..=) Prelude.<$> displayOrder,
-            ("Name" Core..=) Prelude.<$> name,
             ("State" Core..=) Prelude.<$> state,
-            ("Description" Core..=) Prelude.<$> description,
+            ("Name" Core..=) Prelude.<$> name,
             ("ResetOrderNumber" Core..=)
-              Prelude.<$> resetOrderNumber
+              Prelude.<$> resetOrderNumber,
+            ("Description" Core..=) Prelude.<$> description
           ]
       )
 

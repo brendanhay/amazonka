@@ -109,7 +109,7 @@ startDeviceSync_roomArn = Lens.lens (\StartDeviceSync' {roomArn} -> roomArn) (\s
 
 -- | Request structure to start the device sync. Required.
 startDeviceSync_features :: Lens.Lens' StartDeviceSync [Feature]
-startDeviceSync_features = Lens.lens (\StartDeviceSync' {features} -> features) (\s@StartDeviceSync' {} a -> s {features = a} :: StartDeviceSync) Prelude.. Lens._Coerce
+startDeviceSync_features = Lens.lens (\StartDeviceSync' {features} -> features) (\s@StartDeviceSync' {} a -> s {features = a} :: StartDeviceSync) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartDeviceSync where
   type

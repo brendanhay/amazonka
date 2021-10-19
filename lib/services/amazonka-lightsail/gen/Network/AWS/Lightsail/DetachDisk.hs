@@ -164,7 +164,7 @@ newDetachDiskResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 detachDiskResponse_operations :: Lens.Lens' DetachDiskResponse (Prelude.Maybe [Operation])
-detachDiskResponse_operations = Lens.lens (\DetachDiskResponse' {operations} -> operations) (\s@DetachDiskResponse' {} a -> s {operations = a} :: DetachDiskResponse) Prelude.. Lens.mapping Lens._Coerce
+detachDiskResponse_operations = Lens.lens (\DetachDiskResponse' {operations} -> operations) (\s@DetachDiskResponse' {} a -> s {operations = a} :: DetachDiskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detachDiskResponse_httpStatus :: Lens.Lens' DetachDiskResponse Prelude.Int

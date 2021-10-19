@@ -228,7 +228,7 @@ listStackResourcesResponse_nextToken = Lens.lens (\ListStackResourcesResponse' {
 
 -- | A list of @StackResourceSummary@ structures.
 listStackResourcesResponse_stackResourceSummaries :: Lens.Lens' ListStackResourcesResponse (Prelude.Maybe [StackResourceSummary])
-listStackResourcesResponse_stackResourceSummaries = Lens.lens (\ListStackResourcesResponse' {stackResourceSummaries} -> stackResourceSummaries) (\s@ListStackResourcesResponse' {} a -> s {stackResourceSummaries = a} :: ListStackResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+listStackResourcesResponse_stackResourceSummaries = Lens.lens (\ListStackResourcesResponse' {stackResourceSummaries} -> stackResourceSummaries) (\s@ListStackResourcesResponse' {} a -> s {stackResourceSummaries = a} :: ListStackResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStackResourcesResponse_httpStatus :: Lens.Lens' ListStackResourcesResponse Prelude.Int

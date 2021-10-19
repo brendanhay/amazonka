@@ -208,7 +208,7 @@ listTypedLinkFacetNamesResponse_nextToken = Lens.lens (\ListTypedLinkFacetNamesR
 
 -- | The names of typed link facets that exist within the schema.
 listTypedLinkFacetNamesResponse_facetNames :: Lens.Lens' ListTypedLinkFacetNamesResponse (Prelude.Maybe [Prelude.Text])
-listTypedLinkFacetNamesResponse_facetNames = Lens.lens (\ListTypedLinkFacetNamesResponse' {facetNames} -> facetNames) (\s@ListTypedLinkFacetNamesResponse' {} a -> s {facetNames = a} :: ListTypedLinkFacetNamesResponse) Prelude.. Lens.mapping Lens._Coerce
+listTypedLinkFacetNamesResponse_facetNames = Lens.lens (\ListTypedLinkFacetNamesResponse' {facetNames} -> facetNames) (\s@ListTypedLinkFacetNamesResponse' {} a -> s {facetNames = a} :: ListTypedLinkFacetNamesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTypedLinkFacetNamesResponse_httpStatus :: Lens.Lens' ListTypedLinkFacetNamesResponse Prelude.Int

@@ -29,10 +29,10 @@ import Network.AWS.SageMaker.Types.ScheduleStatus
 --
 -- /See:/ 'newMonitoringScheduleSummary' smart constructor.
 data MonitoringScheduleSummary = MonitoringScheduleSummary'
-  { -- | The name of the endpoint using the monitoring schedule.
-    endpointName :: Prelude.Maybe Prelude.Text,
-    -- | The type of the monitoring job definition that the schedule is for.
+  { -- | The type of the monitoring job definition that the schedule is for.
     monitoringType :: Prelude.Maybe MonitoringType,
+    -- | The name of the endpoint using the monitoring schedule.
+    endpointName :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitoring job definition that the schedule is for.
     monitoringJobDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitoring schedule.
@@ -56,9 +56,9 @@ data MonitoringScheduleSummary = MonitoringScheduleSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointName', 'monitoringScheduleSummary_endpointName' - The name of the endpoint using the monitoring schedule.
---
 -- 'monitoringType', 'monitoringScheduleSummary_monitoringType' - The type of the monitoring job definition that the schedule is for.
+--
+-- 'endpointName', 'monitoringScheduleSummary_endpointName' - The name of the endpoint using the monitoring schedule.
 --
 -- 'monitoringJobDefinitionName', 'monitoringScheduleSummary_monitoringJobDefinitionName' - The name of the monitoring job definition that the schedule is for.
 --
@@ -90,9 +90,9 @@ newMonitoringScheduleSummary
   pLastModifiedTime_
   pMonitoringScheduleStatus_ =
     MonitoringScheduleSummary'
-      { endpointName =
+      { monitoringType =
           Prelude.Nothing,
-        monitoringType = Prelude.Nothing,
+        endpointName = Prelude.Nothing,
         monitoringJobDefinitionName = Prelude.Nothing,
         monitoringScheduleName =
           pMonitoringScheduleName_,
@@ -104,13 +104,13 @@ newMonitoringScheduleSummary
           pMonitoringScheduleStatus_
       }
 
--- | The name of the endpoint using the monitoring schedule.
-monitoringScheduleSummary_endpointName :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe Prelude.Text)
-monitoringScheduleSummary_endpointName = Lens.lens (\MonitoringScheduleSummary' {endpointName} -> endpointName) (\s@MonitoringScheduleSummary' {} a -> s {endpointName = a} :: MonitoringScheduleSummary)
-
 -- | The type of the monitoring job definition that the schedule is for.
 monitoringScheduleSummary_monitoringType :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe MonitoringType)
 monitoringScheduleSummary_monitoringType = Lens.lens (\MonitoringScheduleSummary' {monitoringType} -> monitoringType) (\s@MonitoringScheduleSummary' {} a -> s {monitoringType = a} :: MonitoringScheduleSummary)
+
+-- | The name of the endpoint using the monitoring schedule.
+monitoringScheduleSummary_endpointName :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe Prelude.Text)
+monitoringScheduleSummary_endpointName = Lens.lens (\MonitoringScheduleSummary' {endpointName} -> endpointName) (\s@MonitoringScheduleSummary' {} a -> s {endpointName = a} :: MonitoringScheduleSummary)
 
 -- | The name of the monitoring job definition that the schedule is for.
 monitoringScheduleSummary_monitoringJobDefinitionName :: Lens.Lens' MonitoringScheduleSummary (Prelude.Maybe Prelude.Text)
@@ -142,8 +142,8 @@ instance Core.FromJSON MonitoringScheduleSummary where
       "MonitoringScheduleSummary"
       ( \x ->
           MonitoringScheduleSummary'
-            Prelude.<$> (x Core..:? "EndpointName")
-            Prelude.<*> (x Core..:? "MonitoringType")
+            Prelude.<$> (x Core..:? "MonitoringType")
+            Prelude.<*> (x Core..:? "EndpointName")
             Prelude.<*> (x Core..:? "MonitoringJobDefinitionName")
             Prelude.<*> (x Core..: "MonitoringScheduleName")
             Prelude.<*> (x Core..: "MonitoringScheduleArn")

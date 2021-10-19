@@ -35,9 +35,9 @@ module Network.AWS.Transcribe.GetVocabularyFilter
 
     -- * Response Lenses
     getVocabularyFilterResponse_languageCode,
-    getVocabularyFilterResponse_vocabularyFilterName,
-    getVocabularyFilterResponse_lastModifiedTime,
     getVocabularyFilterResponse_downloadUri,
+    getVocabularyFilterResponse_lastModifiedTime,
+    getVocabularyFilterResponse_vocabularyFilterName,
     getVocabularyFilterResponse_httpStatus,
   )
 where
@@ -89,9 +89,9 @@ instance Core.AWSRequest GetVocabularyFilter where
       ( \s h x ->
           GetVocabularyFilterResponse'
             Prelude.<$> (x Core..?> "LanguageCode")
-            Prelude.<*> (x Core..?> "VocabularyFilterName")
-            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "DownloadUri")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -135,14 +135,14 @@ instance Core.ToQuery GetVocabularyFilter where
 data GetVocabularyFilterResponse = GetVocabularyFilterResponse'
   { -- | The language code of the words in the vocabulary filter.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the vocabulary filter.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the contents of the vocabulary filter were
-    -- updated.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The URI of the list of words in the vocabulary filter. You can use this
     -- URI to get the list of words.
     downloadUri :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the contents of the vocabulary filter were
+    -- updated.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the vocabulary filter.
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,13 +158,13 @@ data GetVocabularyFilterResponse = GetVocabularyFilterResponse'
 --
 -- 'languageCode', 'getVocabularyFilterResponse_languageCode' - The language code of the words in the vocabulary filter.
 --
--- 'vocabularyFilterName', 'getVocabularyFilterResponse_vocabularyFilterName' - The name of the vocabulary filter.
+-- 'downloadUri', 'getVocabularyFilterResponse_downloadUri' - The URI of the list of words in the vocabulary filter. You can use this
+-- URI to get the list of words.
 --
 -- 'lastModifiedTime', 'getVocabularyFilterResponse_lastModifiedTime' - The date and time that the contents of the vocabulary filter were
 -- updated.
 --
--- 'downloadUri', 'getVocabularyFilterResponse_downloadUri' - The URI of the list of words in the vocabulary filter. You can use this
--- URI to get the list of words.
+-- 'vocabularyFilterName', 'getVocabularyFilterResponse_vocabularyFilterName' - The name of the vocabulary filter.
 --
 -- 'httpStatus', 'getVocabularyFilterResponse_httpStatus' - The response's http status code.
 newGetVocabularyFilterResponse ::
@@ -175,9 +175,9 @@ newGetVocabularyFilterResponse pHttpStatus_ =
   GetVocabularyFilterResponse'
     { languageCode =
         Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       downloadUri = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      vocabularyFilterName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -185,19 +185,19 @@ newGetVocabularyFilterResponse pHttpStatus_ =
 getVocabularyFilterResponse_languageCode :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe LanguageCode)
 getVocabularyFilterResponse_languageCode = Lens.lens (\GetVocabularyFilterResponse' {languageCode} -> languageCode) (\s@GetVocabularyFilterResponse' {} a -> s {languageCode = a} :: GetVocabularyFilterResponse)
 
--- | The name of the vocabulary filter.
-getVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
-getVocabularyFilterResponse_vocabularyFilterName = Lens.lens (\GetVocabularyFilterResponse' {vocabularyFilterName} -> vocabularyFilterName) (\s@GetVocabularyFilterResponse' {} a -> s {vocabularyFilterName = a} :: GetVocabularyFilterResponse)
+-- | The URI of the list of words in the vocabulary filter. You can use this
+-- URI to get the list of words.
+getVocabularyFilterResponse_downloadUri :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
+getVocabularyFilterResponse_downloadUri = Lens.lens (\GetVocabularyFilterResponse' {downloadUri} -> downloadUri) (\s@GetVocabularyFilterResponse' {} a -> s {downloadUri = a} :: GetVocabularyFilterResponse)
 
 -- | The date and time that the contents of the vocabulary filter were
 -- updated.
 getVocabularyFilterResponse_lastModifiedTime :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.UTCTime)
 getVocabularyFilterResponse_lastModifiedTime = Lens.lens (\GetVocabularyFilterResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetVocabularyFilterResponse' {} a -> s {lastModifiedTime = a} :: GetVocabularyFilterResponse) Prelude.. Lens.mapping Core._Time
 
--- | The URI of the list of words in the vocabulary filter. You can use this
--- URI to get the list of words.
-getVocabularyFilterResponse_downloadUri :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
-getVocabularyFilterResponse_downloadUri = Lens.lens (\GetVocabularyFilterResponse' {downloadUri} -> downloadUri) (\s@GetVocabularyFilterResponse' {} a -> s {downloadUri = a} :: GetVocabularyFilterResponse)
+-- | The name of the vocabulary filter.
+getVocabularyFilterResponse_vocabularyFilterName :: Lens.Lens' GetVocabularyFilterResponse (Prelude.Maybe Prelude.Text)
+getVocabularyFilterResponse_vocabularyFilterName = Lens.lens (\GetVocabularyFilterResponse' {vocabularyFilterName} -> vocabularyFilterName) (\s@GetVocabularyFilterResponse' {} a -> s {vocabularyFilterName = a} :: GetVocabularyFilterResponse)
 
 -- | The response's http status code.
 getVocabularyFilterResponse_httpStatus :: Lens.Lens' GetVocabularyFilterResponse Prelude.Int

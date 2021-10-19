@@ -602,7 +602,7 @@ setQueueAttributes_queueUrl = Lens.lens (\SetQueueAttributes' {queueUrl} -> queu
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html Quotas related to messages>
 -- in the /Amazon SQS Developer Guide/.
 setQueueAttributes_attributes :: Lens.Lens' SetQueueAttributes (Prelude.HashMap QueueAttributeName Prelude.Text)
-setQueueAttributes_attributes = Lens.lens (\SetQueueAttributes' {attributes} -> attributes) (\s@SetQueueAttributes' {} a -> s {attributes = a} :: SetQueueAttributes) Prelude.. Lens._Coerce
+setQueueAttributes_attributes = Lens.lens (\SetQueueAttributes' {attributes} -> attributes) (\s@SetQueueAttributes' {} a -> s {attributes = a} :: SetQueueAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SetQueueAttributes where
   type

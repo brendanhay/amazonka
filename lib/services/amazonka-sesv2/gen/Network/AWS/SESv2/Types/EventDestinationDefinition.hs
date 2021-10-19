@@ -38,10 +38,13 @@ data EventDestinationDefinition = EventDestinationDefinition'
   { -- | An array that specifies which events the Amazon SES API v2 should send
     -- to the destinations in this @EventDestinationDefinition@.
     matchingEventTypes :: Prelude.Maybe [EventType],
-    -- | An object that defines an Amazon CloudWatch destination for email
-    -- events. You can use Amazon CloudWatch to monitor and gain insights on
-    -- your email sending metrics.
-    cloudWatchDestination :: Prelude.Maybe CloudWatchDestination,
+    -- | An object that defines an Amazon Pinpoint project destination for email
+    -- events. You can send email event data to a Amazon Pinpoint project to
+    -- view metrics using the Transactional Messaging dashboards that are built
+    -- in to Amazon Pinpoint. For more information, see
+    -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
+    -- in the /Amazon Pinpoint User Guide/.
+    pinpointDestination :: Prelude.Maybe PinpointDestination,
     -- | If @true@, the event destination is enabled. When the event destination
     -- is enabled, the specified event types are sent to the destinations in
     -- this @EventDestinationDefinition@.
@@ -50,17 +53,14 @@ data EventDestinationDefinition = EventDestinationDefinition'
     -- destination is disabled, events aren\'t sent to the specified
     -- destinations.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | An object that defines an Amazon Pinpoint project destination for email
-    -- events. You can send email event data to a Amazon Pinpoint project to
-    -- view metrics using the Transactional Messaging dashboards that are built
-    -- in to Amazon Pinpoint. For more information, see
-    -- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
-    -- in the /Amazon Pinpoint User Guide/.
-    pinpointDestination :: Prelude.Maybe PinpointDestination,
     -- | An object that defines an Amazon Kinesis Data Firehose destination for
     -- email events. You can use Amazon Kinesis Data Firehose to stream data to
     -- other services, such as Amazon S3 and Amazon Redshift.
     kinesisFirehoseDestination :: Prelude.Maybe KinesisFirehoseDestination,
+    -- | An object that defines an Amazon CloudWatch destination for email
+    -- events. You can use Amazon CloudWatch to monitor and gain insights on
+    -- your email sending metrics.
+    cloudWatchDestination :: Prelude.Maybe CloudWatchDestination,
     -- | An object that defines an Amazon SNS destination for email events. You
     -- can use Amazon SNS to send notification when certain email events occur.
     snsDestination :: Prelude.Maybe SnsDestination
@@ -78,9 +78,12 @@ data EventDestinationDefinition = EventDestinationDefinition'
 -- 'matchingEventTypes', 'eventDestinationDefinition_matchingEventTypes' - An array that specifies which events the Amazon SES API v2 should send
 -- to the destinations in this @EventDestinationDefinition@.
 --
--- 'cloudWatchDestination', 'eventDestinationDefinition_cloudWatchDestination' - An object that defines an Amazon CloudWatch destination for email
--- events. You can use Amazon CloudWatch to monitor and gain insights on
--- your email sending metrics.
+-- 'pinpointDestination', 'eventDestinationDefinition_pinpointDestination' - An object that defines an Amazon Pinpoint project destination for email
+-- events. You can send email event data to a Amazon Pinpoint project to
+-- view metrics using the Transactional Messaging dashboards that are built
+-- in to Amazon Pinpoint. For more information, see
+-- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
+-- in the /Amazon Pinpoint User Guide/.
 --
 -- 'enabled', 'eventDestinationDefinition_enabled' - If @true@, the event destination is enabled. When the event destination
 -- is enabled, the specified event types are sent to the destinations in
@@ -90,16 +93,13 @@ data EventDestinationDefinition = EventDestinationDefinition'
 -- destination is disabled, events aren\'t sent to the specified
 -- destinations.
 --
--- 'pinpointDestination', 'eventDestinationDefinition_pinpointDestination' - An object that defines an Amazon Pinpoint project destination for email
--- events. You can send email event data to a Amazon Pinpoint project to
--- view metrics using the Transactional Messaging dashboards that are built
--- in to Amazon Pinpoint. For more information, see
--- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
--- in the /Amazon Pinpoint User Guide/.
---
 -- 'kinesisFirehoseDestination', 'eventDestinationDefinition_kinesisFirehoseDestination' - An object that defines an Amazon Kinesis Data Firehose destination for
 -- email events. You can use Amazon Kinesis Data Firehose to stream data to
 -- other services, such as Amazon S3 and Amazon Redshift.
+--
+-- 'cloudWatchDestination', 'eventDestinationDefinition_cloudWatchDestination' - An object that defines an Amazon CloudWatch destination for email
+-- events. You can use Amazon CloudWatch to monitor and gain insights on
+-- your email sending metrics.
 --
 -- 'snsDestination', 'eventDestinationDefinition_snsDestination' - An object that defines an Amazon SNS destination for email events. You
 -- can use Amazon SNS to send notification when certain email events occur.
@@ -109,23 +109,26 @@ newEventDestinationDefinition =
   EventDestinationDefinition'
     { matchingEventTypes =
         Prelude.Nothing,
-      cloudWatchDestination = Prelude.Nothing,
-      enabled = Prelude.Nothing,
       pinpointDestination = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       kinesisFirehoseDestination = Prelude.Nothing,
+      cloudWatchDestination = Prelude.Nothing,
       snsDestination = Prelude.Nothing
     }
 
 -- | An array that specifies which events the Amazon SES API v2 should send
 -- to the destinations in this @EventDestinationDefinition@.
 eventDestinationDefinition_matchingEventTypes :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe [EventType])
-eventDestinationDefinition_matchingEventTypes = Lens.lens (\EventDestinationDefinition' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestinationDefinition' {} a -> s {matchingEventTypes = a} :: EventDestinationDefinition) Prelude.. Lens.mapping Lens._Coerce
+eventDestinationDefinition_matchingEventTypes = Lens.lens (\EventDestinationDefinition' {matchingEventTypes} -> matchingEventTypes) (\s@EventDestinationDefinition' {} a -> s {matchingEventTypes = a} :: EventDestinationDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | An object that defines an Amazon CloudWatch destination for email
--- events. You can use Amazon CloudWatch to monitor and gain insights on
--- your email sending metrics.
-eventDestinationDefinition_cloudWatchDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe CloudWatchDestination)
-eventDestinationDefinition_cloudWatchDestination = Lens.lens (\EventDestinationDefinition' {cloudWatchDestination} -> cloudWatchDestination) (\s@EventDestinationDefinition' {} a -> s {cloudWatchDestination = a} :: EventDestinationDefinition)
+-- | An object that defines an Amazon Pinpoint project destination for email
+-- events. You can send email event data to a Amazon Pinpoint project to
+-- view metrics using the Transactional Messaging dashboards that are built
+-- in to Amazon Pinpoint. For more information, see
+-- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
+-- in the /Amazon Pinpoint User Guide/.
+eventDestinationDefinition_pinpointDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe PinpointDestination)
+eventDestinationDefinition_pinpointDestination = Lens.lens (\EventDestinationDefinition' {pinpointDestination} -> pinpointDestination) (\s@EventDestinationDefinition' {} a -> s {pinpointDestination = a} :: EventDestinationDefinition)
 
 -- | If @true@, the event destination is enabled. When the event destination
 -- is enabled, the specified event types are sent to the destinations in
@@ -137,20 +140,17 @@ eventDestinationDefinition_cloudWatchDestination = Lens.lens (\EventDestinationD
 eventDestinationDefinition_enabled :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe Prelude.Bool)
 eventDestinationDefinition_enabled = Lens.lens (\EventDestinationDefinition' {enabled} -> enabled) (\s@EventDestinationDefinition' {} a -> s {enabled = a} :: EventDestinationDefinition)
 
--- | An object that defines an Amazon Pinpoint project destination for email
--- events. You can send email event data to a Amazon Pinpoint project to
--- view metrics using the Transactional Messaging dashboards that are built
--- in to Amazon Pinpoint. For more information, see
--- <https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html Transactional Messaging Charts>
--- in the /Amazon Pinpoint User Guide/.
-eventDestinationDefinition_pinpointDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe PinpointDestination)
-eventDestinationDefinition_pinpointDestination = Lens.lens (\EventDestinationDefinition' {pinpointDestination} -> pinpointDestination) (\s@EventDestinationDefinition' {} a -> s {pinpointDestination = a} :: EventDestinationDefinition)
-
 -- | An object that defines an Amazon Kinesis Data Firehose destination for
 -- email events. You can use Amazon Kinesis Data Firehose to stream data to
 -- other services, such as Amazon S3 and Amazon Redshift.
 eventDestinationDefinition_kinesisFirehoseDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe KinesisFirehoseDestination)
 eventDestinationDefinition_kinesisFirehoseDestination = Lens.lens (\EventDestinationDefinition' {kinesisFirehoseDestination} -> kinesisFirehoseDestination) (\s@EventDestinationDefinition' {} a -> s {kinesisFirehoseDestination = a} :: EventDestinationDefinition)
+
+-- | An object that defines an Amazon CloudWatch destination for email
+-- events. You can use Amazon CloudWatch to monitor and gain insights on
+-- your email sending metrics.
+eventDestinationDefinition_cloudWatchDestination :: Lens.Lens' EventDestinationDefinition (Prelude.Maybe CloudWatchDestination)
+eventDestinationDefinition_cloudWatchDestination = Lens.lens (\EventDestinationDefinition' {cloudWatchDestination} -> cloudWatchDestination) (\s@EventDestinationDefinition' {} a -> s {cloudWatchDestination = a} :: EventDestinationDefinition)
 
 -- | An object that defines an Amazon SNS destination for email events. You
 -- can use Amazon SNS to send notification when certain email events occur.
@@ -167,13 +167,13 @@ instance Core.ToJSON EventDestinationDefinition where
       ( Prelude.catMaybes
           [ ("MatchingEventTypes" Core..=)
               Prelude.<$> matchingEventTypes,
-            ("CloudWatchDestination" Core..=)
-              Prelude.<$> cloudWatchDestination,
-            ("Enabled" Core..=) Prelude.<$> enabled,
             ("PinpointDestination" Core..=)
               Prelude.<$> pinpointDestination,
+            ("Enabled" Core..=) Prelude.<$> enabled,
             ("KinesisFirehoseDestination" Core..=)
               Prelude.<$> kinesisFirehoseDestination,
+            ("CloudWatchDestination" Core..=)
+              Prelude.<$> cloudWatchDestination,
             ("SnsDestination" Core..=)
               Prelude.<$> snsDestination
           ]

@@ -110,7 +110,7 @@ sizeConstraintSet_sizeConstraintSetId = Lens.lens (\SizeConstraintSet' {sizeCons
 -- | Specifies the parts of web requests that you want to inspect the size
 -- of.
 sizeConstraintSet_sizeConstraints :: Lens.Lens' SizeConstraintSet [SizeConstraint]
-sizeConstraintSet_sizeConstraints = Lens.lens (\SizeConstraintSet' {sizeConstraints} -> sizeConstraints) (\s@SizeConstraintSet' {} a -> s {sizeConstraints = a} :: SizeConstraintSet) Prelude.. Lens._Coerce
+sizeConstraintSet_sizeConstraints = Lens.lens (\SizeConstraintSet' {sizeConstraints} -> sizeConstraints) (\s@SizeConstraintSet' {} a -> s {sizeConstraints = a} :: SizeConstraintSet) Prelude.. Lens.coerced
 
 instance Core.FromJSON SizeConstraintSet where
   parseJSON =

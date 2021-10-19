@@ -45,9 +45,9 @@ module Network.AWS.CloudFormation.ListStackSets
 
     -- * Request Lenses
     listStackSets_status,
+    listStackSets_callAs,
     listStackSets_nextToken,
     listStackSets_maxResults,
-    listStackSets_callAs,
 
     -- * Destructuring the Response
     ListStackSetsResponse (..),
@@ -72,18 +72,6 @@ data ListStackSets = ListStackSets'
   { -- | The status of the stack sets that you want to get summary information
     -- about.
     status :: Prelude.Maybe StackSetStatus,
-    -- | If the previous paginated request didn\'t return all of the remaining
-    -- results, the response object\'s @NextToken@ parameter value is set to a
-    -- token. To retrieve the next set of results, call @ListStackSets@ again
-    -- and assign that token to the request object\'s @NextToken@ parameter. If
-    -- there are no remaining results, the previous response object\'s
-    -- @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to be returned with a single call. If the
-    -- number of available results exceeds this maximum, the response includes
-    -- a @NextToken@ value that you can assign to the @NextToken@ request
-    -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the management account or as a delegated
     -- administrator in a member account.
@@ -100,7 +88,19 @@ data ListStackSets = ListStackSets'
     --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs
+    callAs :: Prelude.Maybe CallAs,
+    -- | If the previous paginated request didn\'t return all of the remaining
+    -- results, the response object\'s @NextToken@ parameter value is set to a
+    -- token. To retrieve the next set of results, call @ListStackSets@ again
+    -- and assign that token to the request object\'s @NextToken@ parameter. If
+    -- there are no remaining results, the previous response object\'s
+    -- @NextToken@ parameter is set to @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned with a single call. If the
+    -- number of available results exceeds this maximum, the response includes
+    -- a @NextToken@ value that you can assign to the @NextToken@ request
+    -- parameter to get the next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -114,18 +114,6 @@ data ListStackSets = ListStackSets'
 --
 -- 'status', 'listStackSets_status' - The status of the stack sets that you want to get summary information
 -- about.
---
--- 'nextToken', 'listStackSets_nextToken' - If the previous paginated request didn\'t return all of the remaining
--- results, the response object\'s @NextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListStackSets@ again
--- and assign that token to the request object\'s @NextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- @NextToken@ parameter is set to @null@.
---
--- 'maxResults', 'listStackSets_maxResults' - The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
 --
 -- 'callAs', 'listStackSets_callAs' - [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the management account or as a delegated
@@ -143,36 +131,32 @@ data ListStackSets = ListStackSets'
 --     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /CloudFormation User Guide/.
+--
+-- 'nextToken', 'listStackSets_nextToken' - If the previous paginated request didn\'t return all of the remaining
+-- results, the response object\'s @NextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListStackSets@ again
+-- and assign that token to the request object\'s @NextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- @NextToken@ parameter is set to @null@.
+--
+-- 'maxResults', 'listStackSets_maxResults' - The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
 newListStackSets ::
   ListStackSets
 newListStackSets =
   ListStackSets'
     { status = Prelude.Nothing,
+      callAs = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      callAs = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
 
 -- | The status of the stack sets that you want to get summary information
 -- about.
 listStackSets_status :: Lens.Lens' ListStackSets (Prelude.Maybe StackSetStatus)
 listStackSets_status = Lens.lens (\ListStackSets' {status} -> status) (\s@ListStackSets' {} a -> s {status = a} :: ListStackSets)
-
--- | If the previous paginated request didn\'t return all of the remaining
--- results, the response object\'s @NextToken@ parameter value is set to a
--- token. To retrieve the next set of results, call @ListStackSets@ again
--- and assign that token to the request object\'s @NextToken@ parameter. If
--- there are no remaining results, the previous response object\'s
--- @NextToken@ parameter is set to @null@.
-listStackSets_nextToken :: Lens.Lens' ListStackSets (Prelude.Maybe Prelude.Text)
-listStackSets_nextToken = Lens.lens (\ListStackSets' {nextToken} -> nextToken) (\s@ListStackSets' {} a -> s {nextToken = a} :: ListStackSets)
-
--- | The maximum number of results to be returned with a single call. If the
--- number of available results exceeds this maximum, the response includes
--- a @NextToken@ value that you can assign to the @NextToken@ request
--- parameter to get the next set of results.
-listStackSets_maxResults :: Lens.Lens' ListStackSets (Prelude.Maybe Prelude.Natural)
-listStackSets_maxResults = Lens.lens (\ListStackSets' {maxResults} -> maxResults) (\s@ListStackSets' {} a -> s {maxResults = a} :: ListStackSets)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
 -- account administrator in the management account or as a delegated
@@ -192,6 +176,22 @@ listStackSets_maxResults = Lens.lens (\ListStackSets' {maxResults} -> maxResults
 --     in the /CloudFormation User Guide/.
 listStackSets_callAs :: Lens.Lens' ListStackSets (Prelude.Maybe CallAs)
 listStackSets_callAs = Lens.lens (\ListStackSets' {callAs} -> callAs) (\s@ListStackSets' {} a -> s {callAs = a} :: ListStackSets)
+
+-- | If the previous paginated request didn\'t return all of the remaining
+-- results, the response object\'s @NextToken@ parameter value is set to a
+-- token. To retrieve the next set of results, call @ListStackSets@ again
+-- and assign that token to the request object\'s @NextToken@ parameter. If
+-- there are no remaining results, the previous response object\'s
+-- @NextToken@ parameter is set to @null@.
+listStackSets_nextToken :: Lens.Lens' ListStackSets (Prelude.Maybe Prelude.Text)
+listStackSets_nextToken = Lens.lens (\ListStackSets' {nextToken} -> nextToken) (\s@ListStackSets' {} a -> s {nextToken = a} :: ListStackSets)
+
+-- | The maximum number of results to be returned with a single call. If the
+-- number of available results exceeds this maximum, the response includes
+-- a @NextToken@ value that you can assign to the @NextToken@ request
+-- parameter to get the next set of results.
+listStackSets_maxResults :: Lens.Lens' ListStackSets (Prelude.Maybe Prelude.Natural)
+listStackSets_maxResults = Lens.lens (\ListStackSets' {maxResults} -> maxResults) (\s@ListStackSets' {} a -> s {maxResults = a} :: ListStackSets)
 
 instance Core.AWSPager ListStackSets where
   page rq rs
@@ -247,9 +247,9 @@ instance Core.ToQuery ListStackSets where
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
         "Status" Core.=: status,
+        "CallAs" Core.=: callAs,
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "CallAs" Core.=: callAs
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListStackSetsResponse' smart constructor.
@@ -308,7 +308,7 @@ listStackSetsResponse_nextToken = Lens.lens (\ListStackSetsResponse' {nextToken}
 -- | A list of @StackSetSummary@ structures that contain information about
 -- the user\'s stack sets.
 listStackSetsResponse_summaries :: Lens.Lens' ListStackSetsResponse (Prelude.Maybe [StackSetSummary])
-listStackSetsResponse_summaries = Lens.lens (\ListStackSetsResponse' {summaries} -> summaries) (\s@ListStackSetsResponse' {} a -> s {summaries = a} :: ListStackSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listStackSetsResponse_summaries = Lens.lens (\ListStackSetsResponse' {summaries} -> summaries) (\s@ListStackSetsResponse' {} a -> s {summaries = a} :: ListStackSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listStackSetsResponse_httpStatus :: Lens.Lens' ListStackSetsResponse Prelude.Int

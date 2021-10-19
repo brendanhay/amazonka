@@ -70,10 +70,10 @@ module Network.AWS.S3.DeleteObjects
     newDeleteObjects,
 
     -- * Request Lenses
-    deleteObjects_expectedBucketOwner,
-    deleteObjects_bypassGovernanceRetention,
-    deleteObjects_requestPayer,
     deleteObjects_mfa,
+    deleteObjects_requestPayer,
+    deleteObjects_bypassGovernanceRetention,
+    deleteObjects_expectedBucketOwner,
     deleteObjects_bucket,
     deleteObjects_delete,
 
@@ -83,8 +83,8 @@ module Network.AWS.S3.DeleteObjects
 
     -- * Response Lenses
     deleteObjectsResponse_requestCharged,
-    deleteObjectsResponse_errors,
     deleteObjectsResponse_deleted,
+    deleteObjectsResponse_errors,
     deleteObjectsResponse_httpStatus,
   )
 where
@@ -98,20 +98,20 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newDeleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether you want to delete this object even if it has a
-    -- Governance-type Object Lock in place. To use this header, you must have
-    -- the @s3:PutBucketPublicAccessBlock@ permission.
-    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
-    requestPayer :: Prelude.Maybe RequestPayer,
-    -- | The concatenation of the authentication device\'s serial number, a
+  { -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
     -- Required to permanently delete a versioned object if versioning is
     -- configured with MFA delete enabled.
     mfa :: Prelude.Maybe Prelude.Text,
+    requestPayer :: Prelude.Maybe RequestPayer,
+    -- | Specifies whether you want to delete this object even if it has a
+    -- Governance-type Object Lock in place. To use this header, you must have
+    -- the @s3:PutBucketPublicAccessBlock@ permission.
+    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name containing the objects to delete.
     --
     -- When using this action with an access point, you must direct requests to
@@ -146,20 +146,20 @@ data DeleteObjects = DeleteObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+-- Required to permanently delete a versioned object if versioning is
+-- configured with MFA delete enabled.
+--
+-- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
 --
 -- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a
 -- Governance-type Object Lock in place. To use this header, you must have
 -- the @s3:PutBucketPublicAccessBlock@ permission.
 --
--- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
---
--- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a
--- space, and the value that is displayed on your authentication device.
--- Required to permanently delete a versioned object if versioning is
--- configured with MFA delete enabled.
+-- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'deleteObjects_bucket' - The bucket name containing the objects to delete.
 --
@@ -191,30 +191,13 @@ newDeleteObjects ::
   DeleteObjects
 newDeleteObjects pBucket_ pDelete_ =
   DeleteObjects'
-    { expectedBucketOwner =
-        Prelude.Nothing,
-      bypassGovernanceRetention = Prelude.Nothing,
+    { mfa = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
-      mfa = Prelude.Nothing,
+      bypassGovernanceRetention = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       delete' = pDelete_
     }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
-deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
-
--- | Specifies whether you want to delete this object even if it has a
--- Governance-type Object Lock in place. To use this header, you must have
--- the @s3:PutBucketPublicAccessBlock@ permission.
-deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
-deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
-
--- | Undocumented member.
-deleteObjects_requestPayer :: Lens.Lens' DeleteObjects (Prelude.Maybe RequestPayer)
-deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> requestPayer) (\s@DeleteObjects' {} a -> s {requestPayer = a} :: DeleteObjects)
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
@@ -222,6 +205,22 @@ deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> reques
 -- configured with MFA delete enabled.
 deleteObjects_mfa :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
 deleteObjects_mfa = Lens.lens (\DeleteObjects' {mfa} -> mfa) (\s@DeleteObjects' {} a -> s {mfa = a} :: DeleteObjects)
+
+-- | Undocumented member.
+deleteObjects_requestPayer :: Lens.Lens' DeleteObjects (Prelude.Maybe RequestPayer)
+deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> requestPayer) (\s@DeleteObjects' {} a -> s {requestPayer = a} :: DeleteObjects)
+
+-- | Specifies whether you want to delete this object even if it has a
+-- Governance-type Object Lock in place. To use this header, you must have
+-- the @s3:PutBucketPublicAccessBlock@ permission.
+deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
+deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
+deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
 
 -- | The bucket name containing the objects to delete.
 --
@@ -256,14 +255,15 @@ instance Core.AWSRequest DeleteObjects where
       DeleteObjectsResponse
   request =
     Request.contentMD5Header
+      Prelude.. Request.s3vhost
       Prelude.. Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteObjectsResponse'
             Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (Core.may (Core.parseXMLList "Error") x)
             Prelude.<*> (Core.may (Core.parseXMLList "Deleted") x)
+            Prelude.<*> (Core.may (Core.parseXMLList "Error") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -280,12 +280,12 @@ instance Core.ToElement DeleteObjects where
 instance Core.ToHeaders DeleteObjects where
   toHeaders DeleteObjects' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
+      [ "x-amz-mfa" Core.=# mfa,
+        "x-amz-request-payer" Core.=# requestPayer,
         "x-amz-bypass-governance-retention"
           Core.=# bypassGovernanceRetention,
-        "x-amz-request-payer" Core.=# requestPayer,
-        "x-amz-mfa" Core.=# mfa
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath DeleteObjects where
@@ -298,12 +298,12 @@ instance Core.ToQuery DeleteObjects where
 -- | /See:/ 'newDeleteObjectsResponse' smart constructor.
 data DeleteObjectsResponse = DeleteObjectsResponse'
   { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Container for a failed delete action that describes the object that
-    -- Amazon S3 attempted to delete and the error it encountered.
-    errors :: Prelude.Maybe [S3ServiceError],
     -- | Container element for a successful delete. It identifies the object that
     -- was successfully deleted.
     deleted :: Prelude.Maybe [DeletedObject],
+    -- | Container for a failed delete action that describes the object that
+    -- Amazon S3 attempted to delete and the error it encountered.
+    errors :: Prelude.Maybe [S3ServiceError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -319,11 +319,11 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
 --
 -- 'requestCharged', 'deleteObjectsResponse_requestCharged' - Undocumented member.
 --
--- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete action that describes the object that
--- Amazon S3 attempted to delete and the error it encountered.
---
 -- 'deleted', 'deleteObjectsResponse_deleted' - Container element for a successful delete. It identifies the object that
 -- was successfully deleted.
+--
+-- 'errors', 'deleteObjectsResponse_errors' - Container for a failed delete action that describes the object that
+-- Amazon S3 attempted to delete and the error it encountered.
 --
 -- 'httpStatus', 'deleteObjectsResponse_httpStatus' - The response's http status code.
 newDeleteObjectsResponse ::
@@ -334,8 +334,8 @@ newDeleteObjectsResponse pHttpStatus_ =
   DeleteObjectsResponse'
     { requestCharged =
         Prelude.Nothing,
-      errors = Prelude.Nothing,
       deleted = Prelude.Nothing,
+      errors = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -343,15 +343,15 @@ newDeleteObjectsResponse pHttpStatus_ =
 deleteObjectsResponse_requestCharged :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe RequestCharged)
 deleteObjectsResponse_requestCharged = Lens.lens (\DeleteObjectsResponse' {requestCharged} -> requestCharged) (\s@DeleteObjectsResponse' {} a -> s {requestCharged = a} :: DeleteObjectsResponse)
 
--- | Container for a failed delete action that describes the object that
--- Amazon S3 attempted to delete and the error it encountered.
-deleteObjectsResponse_errors :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe [S3ServiceError])
-deleteObjectsResponse_errors = Lens.lens (\DeleteObjectsResponse' {errors} -> errors) (\s@DeleteObjectsResponse' {} a -> s {errors = a} :: DeleteObjectsResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Container element for a successful delete. It identifies the object that
 -- was successfully deleted.
 deleteObjectsResponse_deleted :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe [DeletedObject])
-deleteObjectsResponse_deleted = Lens.lens (\DeleteObjectsResponse' {deleted} -> deleted) (\s@DeleteObjectsResponse' {} a -> s {deleted = a} :: DeleteObjectsResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteObjectsResponse_deleted = Lens.lens (\DeleteObjectsResponse' {deleted} -> deleted) (\s@DeleteObjectsResponse' {} a -> s {deleted = a} :: DeleteObjectsResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Container for a failed delete action that describes the object that
+-- Amazon S3 attempted to delete and the error it encountered.
+deleteObjectsResponse_errors :: Lens.Lens' DeleteObjectsResponse (Prelude.Maybe [S3ServiceError])
+deleteObjectsResponse_errors = Lens.lens (\DeleteObjectsResponse' {errors} -> errors) (\s@DeleteObjectsResponse' {} a -> s {errors = a} :: DeleteObjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteObjectsResponse_httpStatus :: Lens.Lens' DeleteObjectsResponse Prelude.Int

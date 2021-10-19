@@ -36,10 +36,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key of a tag.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value of a tag.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value of a tag.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key of a tag.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,24 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key of a tag.
---
 -- 'value', 'tag_value' - The value of a tag.
+--
+-- 'key', 'tag_key' - The key of a tag.
 newTag ::
   Tag
 newTag =
   Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key of a tag.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of a tag.
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+
+-- | The key of a tag.
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 instance Core.FromJSON Tag where
   parseJSON =
@@ -76,7 +76,7 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "key") Prelude.<*> (x Core..:? "value")
+            Prelude.<$> (x Core..:? "value") Prelude.<*> (x Core..:? "key")
       )
 
 instance Prelude.Hashable Tag
@@ -87,7 +87,7 @@ instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+          [ ("value" Core..=) Prelude.<$> value,
+            ("key" Core..=) Prelude.<$> key
           ]
       )

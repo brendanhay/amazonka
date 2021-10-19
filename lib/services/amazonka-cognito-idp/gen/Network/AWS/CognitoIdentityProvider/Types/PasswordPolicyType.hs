@@ -27,29 +27,29 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPasswordPolicyType' smart constructor.
 data PasswordPolicyType = PasswordPolicyType'
-  { -- | In the password policy you have set, refers to the number of days a
-    -- temporary password is valid. If the user does not sign-in during this
-    -- time, their password will need to be reset by an administrator.
-    --
-    -- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
-    -- no longer be able to set the deprecated @UnusedAccountValidityDays@
-    -- value for that user pool.
-    temporaryPasswordValidityDays :: Prelude.Maybe Prelude.Natural,
+  { -- | In the password policy that you have set, refers to whether you have
+    -- required users to use at least one number in their password.
+    requireNumbers :: Prelude.Maybe Prelude.Bool,
     -- | In the password policy that you have set, refers to whether you have
     -- required users to use at least one uppercase letter in their password.
     requireUppercase :: Prelude.Maybe Prelude.Bool,
+    -- | In the password policy that you have set, refers to whether you have
+    -- required users to use at least one lowercase letter in their password.
+    requireLowercase :: Prelude.Maybe Prelude.Bool,
     -- | The minimum length of the password policy that you have set. Cannot be
     -- less than 6.
     minimumLength :: Prelude.Maybe Prelude.Natural,
     -- | In the password policy that you have set, refers to whether you have
     -- required users to use at least one symbol in their password.
     requireSymbols :: Prelude.Maybe Prelude.Bool,
-    -- | In the password policy that you have set, refers to whether you have
-    -- required users to use at least one number in their password.
-    requireNumbers :: Prelude.Maybe Prelude.Bool,
-    -- | In the password policy that you have set, refers to whether you have
-    -- required users to use at least one lowercase letter in their password.
-    requireLowercase :: Prelude.Maybe Prelude.Bool
+    -- | In the password policy you have set, refers to the number of days a
+    -- temporary password is valid. If the user does not sign-in during this
+    -- time, their password will need to be reset by an administrator.
+    --
+    -- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
+    -- no longer be able to set the deprecated @UnusedAccountValidityDays@
+    -- value for that user pool.
+    temporaryPasswordValidityDays :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,16 +61,14 @@ data PasswordPolicyType = PasswordPolicyType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'temporaryPasswordValidityDays', 'passwordPolicyType_temporaryPasswordValidityDays' - In the password policy you have set, refers to the number of days a
--- temporary password is valid. If the user does not sign-in during this
--- time, their password will need to be reset by an administrator.
---
--- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
--- no longer be able to set the deprecated @UnusedAccountValidityDays@
--- value for that user pool.
+-- 'requireNumbers', 'passwordPolicyType_requireNumbers' - In the password policy that you have set, refers to whether you have
+-- required users to use at least one number in their password.
 --
 -- 'requireUppercase', 'passwordPolicyType_requireUppercase' - In the password policy that you have set, refers to whether you have
 -- required users to use at least one uppercase letter in their password.
+--
+-- 'requireLowercase', 'passwordPolicyType_requireLowercase' - In the password policy that you have set, refers to whether you have
+-- required users to use at least one lowercase letter in their password.
 --
 -- 'minimumLength', 'passwordPolicyType_minimumLength' - The minimum length of the password policy that you have set. Cannot be
 -- less than 6.
@@ -78,38 +76,40 @@ data PasswordPolicyType = PasswordPolicyType'
 -- 'requireSymbols', 'passwordPolicyType_requireSymbols' - In the password policy that you have set, refers to whether you have
 -- required users to use at least one symbol in their password.
 --
--- 'requireNumbers', 'passwordPolicyType_requireNumbers' - In the password policy that you have set, refers to whether you have
--- required users to use at least one number in their password.
---
--- 'requireLowercase', 'passwordPolicyType_requireLowercase' - In the password policy that you have set, refers to whether you have
--- required users to use at least one lowercase letter in their password.
-newPasswordPolicyType ::
-  PasswordPolicyType
-newPasswordPolicyType =
-  PasswordPolicyType'
-    { temporaryPasswordValidityDays =
-        Prelude.Nothing,
-      requireUppercase = Prelude.Nothing,
-      minimumLength = Prelude.Nothing,
-      requireSymbols = Prelude.Nothing,
-      requireNumbers = Prelude.Nothing,
-      requireLowercase = Prelude.Nothing
-    }
-
--- | In the password policy you have set, refers to the number of days a
+-- 'temporaryPasswordValidityDays', 'passwordPolicyType_temporaryPasswordValidityDays' - In the password policy you have set, refers to the number of days a
 -- temporary password is valid. If the user does not sign-in during this
 -- time, their password will need to be reset by an administrator.
 --
 -- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
 -- no longer be able to set the deprecated @UnusedAccountValidityDays@
 -- value for that user pool.
-passwordPolicyType_temporaryPasswordValidityDays :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
-passwordPolicyType_temporaryPasswordValidityDays = Lens.lens (\PasswordPolicyType' {temporaryPasswordValidityDays} -> temporaryPasswordValidityDays) (\s@PasswordPolicyType' {} a -> s {temporaryPasswordValidityDays = a} :: PasswordPolicyType)
+newPasswordPolicyType ::
+  PasswordPolicyType
+newPasswordPolicyType =
+  PasswordPolicyType'
+    { requireNumbers =
+        Prelude.Nothing,
+      requireUppercase = Prelude.Nothing,
+      requireLowercase = Prelude.Nothing,
+      minimumLength = Prelude.Nothing,
+      requireSymbols = Prelude.Nothing,
+      temporaryPasswordValidityDays = Prelude.Nothing
+    }
+
+-- | In the password policy that you have set, refers to whether you have
+-- required users to use at least one number in their password.
+passwordPolicyType_requireNumbers :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
+passwordPolicyType_requireNumbers = Lens.lens (\PasswordPolicyType' {requireNumbers} -> requireNumbers) (\s@PasswordPolicyType' {} a -> s {requireNumbers = a} :: PasswordPolicyType)
 
 -- | In the password policy that you have set, refers to whether you have
 -- required users to use at least one uppercase letter in their password.
 passwordPolicyType_requireUppercase :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
 passwordPolicyType_requireUppercase = Lens.lens (\PasswordPolicyType' {requireUppercase} -> requireUppercase) (\s@PasswordPolicyType' {} a -> s {requireUppercase = a} :: PasswordPolicyType)
+
+-- | In the password policy that you have set, refers to whether you have
+-- required users to use at least one lowercase letter in their password.
+passwordPolicyType_requireLowercase :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
+passwordPolicyType_requireLowercase = Lens.lens (\PasswordPolicyType' {requireLowercase} -> requireLowercase) (\s@PasswordPolicyType' {} a -> s {requireLowercase = a} :: PasswordPolicyType)
 
 -- | The minimum length of the password policy that you have set. Cannot be
 -- less than 6.
@@ -121,15 +121,15 @@ passwordPolicyType_minimumLength = Lens.lens (\PasswordPolicyType' {minimumLengt
 passwordPolicyType_requireSymbols :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
 passwordPolicyType_requireSymbols = Lens.lens (\PasswordPolicyType' {requireSymbols} -> requireSymbols) (\s@PasswordPolicyType' {} a -> s {requireSymbols = a} :: PasswordPolicyType)
 
--- | In the password policy that you have set, refers to whether you have
--- required users to use at least one number in their password.
-passwordPolicyType_requireNumbers :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
-passwordPolicyType_requireNumbers = Lens.lens (\PasswordPolicyType' {requireNumbers} -> requireNumbers) (\s@PasswordPolicyType' {} a -> s {requireNumbers = a} :: PasswordPolicyType)
-
--- | In the password policy that you have set, refers to whether you have
--- required users to use at least one lowercase letter in their password.
-passwordPolicyType_requireLowercase :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Bool)
-passwordPolicyType_requireLowercase = Lens.lens (\PasswordPolicyType' {requireLowercase} -> requireLowercase) (\s@PasswordPolicyType' {} a -> s {requireLowercase = a} :: PasswordPolicyType)
+-- | In the password policy you have set, refers to the number of days a
+-- temporary password is valid. If the user does not sign-in during this
+-- time, their password will need to be reset by an administrator.
+--
+-- When you set @TemporaryPasswordValidityDays@ for a user pool, you will
+-- no longer be able to set the deprecated @UnusedAccountValidityDays@
+-- value for that user pool.
+passwordPolicyType_temporaryPasswordValidityDays :: Lens.Lens' PasswordPolicyType (Prelude.Maybe Prelude.Natural)
+passwordPolicyType_temporaryPasswordValidityDays = Lens.lens (\PasswordPolicyType' {temporaryPasswordValidityDays} -> temporaryPasswordValidityDays) (\s@PasswordPolicyType' {} a -> s {temporaryPasswordValidityDays = a} :: PasswordPolicyType)
 
 instance Core.FromJSON PasswordPolicyType where
   parseJSON =
@@ -137,12 +137,12 @@ instance Core.FromJSON PasswordPolicyType where
       "PasswordPolicyType"
       ( \x ->
           PasswordPolicyType'
-            Prelude.<$> (x Core..:? "TemporaryPasswordValidityDays")
+            Prelude.<$> (x Core..:? "RequireNumbers")
             Prelude.<*> (x Core..:? "RequireUppercase")
+            Prelude.<*> (x Core..:? "RequireLowercase")
             Prelude.<*> (x Core..:? "MinimumLength")
             Prelude.<*> (x Core..:? "RequireSymbols")
-            Prelude.<*> (x Core..:? "RequireNumbers")
-            Prelude.<*> (x Core..:? "RequireLowercase")
+            Prelude.<*> (x Core..:? "TemporaryPasswordValidityDays")
       )
 
 instance Prelude.Hashable PasswordPolicyType
@@ -153,16 +153,16 @@ instance Core.ToJSON PasswordPolicyType where
   toJSON PasswordPolicyType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TemporaryPasswordValidityDays" Core..=)
-              Prelude.<$> temporaryPasswordValidityDays,
+          [ ("RequireNumbers" Core..=)
+              Prelude.<$> requireNumbers,
             ("RequireUppercase" Core..=)
               Prelude.<$> requireUppercase,
+            ("RequireLowercase" Core..=)
+              Prelude.<$> requireLowercase,
             ("MinimumLength" Core..=) Prelude.<$> minimumLength,
             ("RequireSymbols" Core..=)
               Prelude.<$> requireSymbols,
-            ("RequireNumbers" Core..=)
-              Prelude.<$> requireNumbers,
-            ("RequireLowercase" Core..=)
-              Prelude.<$> requireLowercase
+            ("TemporaryPasswordValidityDays" Core..=)
+              Prelude.<$> temporaryPasswordValidityDays
           ]
       )

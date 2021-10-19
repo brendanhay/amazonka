@@ -37,8 +37,8 @@ module Network.AWS.LexModels.GetBuiltinIntent
     newGetBuiltinIntentResponse,
 
     -- * Response Lenses
-    getBuiltinIntentResponse_slots,
     getBuiltinIntentResponse_signature,
+    getBuiltinIntentResponse_slots,
     getBuiltinIntentResponse_supportedLocales,
     getBuiltinIntentResponse_httpStatus,
   )
@@ -96,8 +96,8 @@ instance Core.AWSRequest GetBuiltinIntent where
     Response.receiveJSON
       ( \s h x ->
           GetBuiltinIntentResponse'
-            Prelude.<$> (x Core..?> "slots" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "signature")
+            Prelude.<$> (x Core..?> "signature")
+            Prelude.<*> (x Core..?> "slots" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "supportedLocales"
                             Core..!@ Prelude.mempty
                         )
@@ -129,11 +129,11 @@ instance Core.ToQuery GetBuiltinIntent where
 
 -- | /See:/ 'newGetBuiltinIntentResponse' smart constructor.
 data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
-  { -- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
+  { -- | The unique identifier for a built-in intent.
+    signature :: Prelude.Maybe Prelude.Text,
+    -- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
     -- the intent.
     slots :: Prelude.Maybe [BuiltinIntentSlot],
-    -- | The unique identifier for a built-in intent.
-    signature :: Prelude.Maybe Prelude.Text,
     -- | A list of locales that the intent supports.
     supportedLocales :: Prelude.Maybe [Locale],
     -- | The response's http status code.
@@ -149,10 +149,10 @@ data GetBuiltinIntentResponse = GetBuiltinIntentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'signature', 'getBuiltinIntentResponse_signature' - The unique identifier for a built-in intent.
+--
 -- 'slots', 'getBuiltinIntentResponse_slots' - An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
 -- the intent.
---
--- 'signature', 'getBuiltinIntentResponse_signature' - The unique identifier for a built-in intent.
 --
 -- 'supportedLocales', 'getBuiltinIntentResponse_supportedLocales' - A list of locales that the intent supports.
 --
@@ -163,24 +163,25 @@ newGetBuiltinIntentResponse ::
   GetBuiltinIntentResponse
 newGetBuiltinIntentResponse pHttpStatus_ =
   GetBuiltinIntentResponse'
-    { slots = Prelude.Nothing,
-      signature = Prelude.Nothing,
+    { signature =
+        Prelude.Nothing,
+      slots = Prelude.Nothing,
       supportedLocales = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
--- the intent.
-getBuiltinIntentResponse_slots :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe [BuiltinIntentSlot])
-getBuiltinIntentResponse_slots = Lens.lens (\GetBuiltinIntentResponse' {slots} -> slots) (\s@GetBuiltinIntentResponse' {} a -> s {slots = a} :: GetBuiltinIntentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for a built-in intent.
 getBuiltinIntentResponse_signature :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe Prelude.Text)
 getBuiltinIntentResponse_signature = Lens.lens (\GetBuiltinIntentResponse' {signature} -> signature) (\s@GetBuiltinIntentResponse' {} a -> s {signature = a} :: GetBuiltinIntentResponse)
 
+-- | An array of @BuiltinIntentSlot@ objects, one entry for each slot type in
+-- the intent.
+getBuiltinIntentResponse_slots :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe [BuiltinIntentSlot])
+getBuiltinIntentResponse_slots = Lens.lens (\GetBuiltinIntentResponse' {slots} -> slots) (\s@GetBuiltinIntentResponse' {} a -> s {slots = a} :: GetBuiltinIntentResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | A list of locales that the intent supports.
 getBuiltinIntentResponse_supportedLocales :: Lens.Lens' GetBuiltinIntentResponse (Prelude.Maybe [Locale])
-getBuiltinIntentResponse_supportedLocales = Lens.lens (\GetBuiltinIntentResponse' {supportedLocales} -> supportedLocales) (\s@GetBuiltinIntentResponse' {} a -> s {supportedLocales = a} :: GetBuiltinIntentResponse) Prelude.. Lens.mapping Lens._Coerce
+getBuiltinIntentResponse_supportedLocales = Lens.lens (\GetBuiltinIntentResponse' {supportedLocales} -> supportedLocales) (\s@GetBuiltinIntentResponse' {} a -> s {supportedLocales = a} :: GetBuiltinIntentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getBuiltinIntentResponse_httpStatus :: Lens.Lens' GetBuiltinIntentResponse Prelude.Int

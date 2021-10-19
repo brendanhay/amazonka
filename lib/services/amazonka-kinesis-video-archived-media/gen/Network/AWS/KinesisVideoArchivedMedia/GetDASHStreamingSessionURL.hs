@@ -165,13 +165,13 @@ module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 
     -- * Request Lenses
     getDASHStreamingSessionURL_displayFragmentTimestamp,
-    getDASHStreamingSessionURL_displayFragmentNumber,
-    getDASHStreamingSessionURL_maxManifestFragmentResults,
-    getDASHStreamingSessionURL_dASHFragmentSelector,
-    getDASHStreamingSessionURL_playbackMode,
-    getDASHStreamingSessionURL_streamARN,
-    getDASHStreamingSessionURL_streamName,
     getDASHStreamingSessionURL_expires,
+    getDASHStreamingSessionURL_dASHFragmentSelector,
+    getDASHStreamingSessionURL_maxManifestFragmentResults,
+    getDASHStreamingSessionURL_streamARN,
+    getDASHStreamingSessionURL_playbackMode,
+    getDASHStreamingSessionURL_streamName,
+    getDASHStreamingSessionURL_displayFragmentNumber,
 
     -- * Destructuring the Response
     GetDASHStreamingSessionURLResponse (..),
@@ -208,16 +208,25 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
     -- Similarly, when DASHFragmentSelector is @PRODUCER_TIMESTAMP@, the
     -- timestamps will be the producer start timestamps.
     displayFragmentTimestamp :: Prelude.Maybe DASHDisplayFragmentTimestamp,
-    -- | Fragments are identified in the manifest file based on their sequence
-    -- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
-    -- Kinesis Video Streams fragment number is added to each S element in the
-    -- manifest file with the attribute name “kvs:fn”. These fragment numbers
-    -- can be used for logging or for use with other APIs (e.g. @GetMedia@ and
-    -- @GetMediaForFragmentList@). A custom MPEG-DASH media player is necessary
-    -- to leverage these this custom attribute.
+    -- | The time in seconds until the requested session expires. This value can
+    -- be between 300 (5 minutes) and 43200 (12 hours).
     --
-    -- The default value is @NEVER@.
-    displayFragmentNumber :: Prelude.Maybe DASHDisplayFragmentNumber,
+    -- When a session expires, no new calls to @GetDashManifest@,
+    -- @GetMP4InitFragment@, or @GetMP4MediaFragment@ can be made for that
+    -- session.
+    --
+    -- The default is 300 (5 minutes).
+    expires :: Prelude.Maybe Prelude.Natural,
+    -- | The time range of the requested fragment and the source of the
+    -- timestamps.
+    --
+    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
+    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
+    -- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
+    -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
+    -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
+    -- be set.
+    dASHFragmentSelector :: Prelude.Maybe DASHFragmentSelector,
     -- | The maximum number of fragments that are returned in the MPEG-DASH
     -- manifest.
     --
@@ -239,16 +248,11 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
     -- of video on streams with 1-second fragments, and more than 2 1\/2 hours
     -- of video on streams with 10-second fragments.
     maxManifestFragmentResults :: Prelude.Maybe Prelude.Natural,
-    -- | The time range of the requested fragment and the source of the
-    -- timestamps.
+    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+    -- MPEG-DASH manifest URL.
     --
-    -- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
-    -- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
-    -- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
-    -- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
-    -- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
-    -- be set.
-    dASHFragmentSelector :: Prelude.Maybe DASHFragmentSelector,
+    -- You must specify either the @StreamName@ or the @StreamARN@.
+    streamARN :: Prelude.Maybe Prelude.Text,
     -- | Whether to retrieve live, live replay, or archived, on-demand data.
     --
     -- Features of the three types of sessions include the following:
@@ -301,24 +305,20 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
     --
     -- The default is @LIVE@.
     playbackMode :: Prelude.Maybe DASHPlaybackMode,
-    -- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
-    -- MPEG-DASH manifest URL.
-    --
-    -- You must specify either the @StreamName@ or the @StreamARN@.
-    streamARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the stream for which to retrieve the MPEG-DASH manifest URL.
     --
     -- You must specify either the @StreamName@ or the @StreamARN@.
     streamName :: Prelude.Maybe Prelude.Text,
-    -- | The time in seconds until the requested session expires. This value can
-    -- be between 300 (5 minutes) and 43200 (12 hours).
+    -- | Fragments are identified in the manifest file based on their sequence
+    -- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
+    -- Kinesis Video Streams fragment number is added to each S element in the
+    -- manifest file with the attribute name “kvs:fn”. These fragment numbers
+    -- can be used for logging or for use with other APIs (e.g. @GetMedia@ and
+    -- @GetMediaForFragmentList@). A custom MPEG-DASH media player is necessary
+    -- to leverage these this custom attribute.
     --
-    -- When a session expires, no new calls to @GetDashManifest@,
-    -- @GetMP4InitFragment@, or @GetMP4MediaFragment@ can be made for that
-    -- session.
-    --
-    -- The default is 300 (5 minutes).
-    expires :: Prelude.Maybe Prelude.Natural
+    -- The default value is @NEVER@.
+    displayFragmentNumber :: Prelude.Maybe DASHDisplayFragmentNumber
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -346,15 +346,24 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 -- Similarly, when DASHFragmentSelector is @PRODUCER_TIMESTAMP@, the
 -- timestamps will be the producer start timestamps.
 --
--- 'displayFragmentNumber', 'getDASHStreamingSessionURL_displayFragmentNumber' - Fragments are identified in the manifest file based on their sequence
--- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
--- Kinesis Video Streams fragment number is added to each S element in the
--- manifest file with the attribute name “kvs:fn”. These fragment numbers
--- can be used for logging or for use with other APIs (e.g. @GetMedia@ and
--- @GetMediaForFragmentList@). A custom MPEG-DASH media player is necessary
--- to leverage these this custom attribute.
+-- 'expires', 'getDASHStreamingSessionURL_expires' - The time in seconds until the requested session expires. This value can
+-- be between 300 (5 minutes) and 43200 (12 hours).
 --
--- The default value is @NEVER@.
+-- When a session expires, no new calls to @GetDashManifest@,
+-- @GetMP4InitFragment@, or @GetMP4MediaFragment@ can be made for that
+-- session.
+--
+-- The default is 300 (5 minutes).
+--
+-- 'dASHFragmentSelector', 'getDASHStreamingSessionURL_dASHFragmentSelector' - The time range of the requested fragment and the source of the
+-- timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
+-- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
+-- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
+-- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
+-- be set.
 --
 -- 'maxManifestFragmentResults', 'getDASHStreamingSessionURL_maxManifestFragmentResults' - The maximum number of fragments that are returned in the MPEG-DASH
 -- manifest.
@@ -377,15 +386,10 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 -- of video on streams with 1-second fragments, and more than 2 1\/2 hours
 -- of video on streams with 10-second fragments.
 --
--- 'dASHFragmentSelector', 'getDASHStreamingSessionURL_dASHFragmentSelector' - The time range of the requested fragment and the source of the
--- timestamps.
+-- 'streamARN', 'getDASHStreamingSessionURL_streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the
+-- MPEG-DASH manifest URL.
 --
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
+-- You must specify either the @StreamName@ or the @StreamARN@.
 --
 -- 'playbackMode', 'getDASHStreamingSessionURL_playbackMode' - Whether to retrieve live, live replay, or archived, on-demand data.
 --
@@ -439,36 +443,32 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 --
 -- The default is @LIVE@.
 --
--- 'streamARN', 'getDASHStreamingSessionURL_streamARN' - The Amazon Resource Name (ARN) of the stream for which to retrieve the
--- MPEG-DASH manifest URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@.
---
 -- 'streamName', 'getDASHStreamingSessionURL_streamName' - The name of the stream for which to retrieve the MPEG-DASH manifest URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@.
 --
--- 'expires', 'getDASHStreamingSessionURL_expires' - The time in seconds until the requested session expires. This value can
--- be between 300 (5 minutes) and 43200 (12 hours).
+-- 'displayFragmentNumber', 'getDASHStreamingSessionURL_displayFragmentNumber' - Fragments are identified in the manifest file based on their sequence
+-- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
+-- Kinesis Video Streams fragment number is added to each S element in the
+-- manifest file with the attribute name “kvs:fn”. These fragment numbers
+-- can be used for logging or for use with other APIs (e.g. @GetMedia@ and
+-- @GetMediaForFragmentList@). A custom MPEG-DASH media player is necessary
+-- to leverage these this custom attribute.
 --
--- When a session expires, no new calls to @GetDashManifest@,
--- @GetMP4InitFragment@, or @GetMP4MediaFragment@ can be made for that
--- session.
---
--- The default is 300 (5 minutes).
+-- The default value is @NEVER@.
 newGetDASHStreamingSessionURL ::
   GetDASHStreamingSessionURL
 newGetDASHStreamingSessionURL =
   GetDASHStreamingSessionURL'
     { displayFragmentTimestamp =
         Prelude.Nothing,
-      displayFragmentNumber = Prelude.Nothing,
-      maxManifestFragmentResults = Prelude.Nothing,
+      expires = Prelude.Nothing,
       dASHFragmentSelector = Prelude.Nothing,
-      playbackMode = Prelude.Nothing,
+      maxManifestFragmentResults = Prelude.Nothing,
       streamARN = Prelude.Nothing,
+      playbackMode = Prelude.Nothing,
       streamName = Prelude.Nothing,
-      expires = Prelude.Nothing
+      displayFragmentNumber = Prelude.Nothing
     }
 
 -- | Per the MPEG-DASH specification, the wall-clock time of fragments in the
@@ -489,17 +489,28 @@ newGetDASHStreamingSessionURL =
 getDASHStreamingSessionURL_displayFragmentTimestamp :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHDisplayFragmentTimestamp)
 getDASHStreamingSessionURL_displayFragmentTimestamp = Lens.lens (\GetDASHStreamingSessionURL' {displayFragmentTimestamp} -> displayFragmentTimestamp) (\s@GetDASHStreamingSessionURL' {} a -> s {displayFragmentTimestamp = a} :: GetDASHStreamingSessionURL)
 
--- | Fragments are identified in the manifest file based on their sequence
--- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
--- Kinesis Video Streams fragment number is added to each S element in the
--- manifest file with the attribute name “kvs:fn”. These fragment numbers
--- can be used for logging or for use with other APIs (e.g. @GetMedia@ and
--- @GetMediaForFragmentList@). A custom MPEG-DASH media player is necessary
--- to leverage these this custom attribute.
+-- | The time in seconds until the requested session expires. This value can
+-- be between 300 (5 minutes) and 43200 (12 hours).
 --
--- The default value is @NEVER@.
-getDASHStreamingSessionURL_displayFragmentNumber :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHDisplayFragmentNumber)
-getDASHStreamingSessionURL_displayFragmentNumber = Lens.lens (\GetDASHStreamingSessionURL' {displayFragmentNumber} -> displayFragmentNumber) (\s@GetDASHStreamingSessionURL' {} a -> s {displayFragmentNumber = a} :: GetDASHStreamingSessionURL)
+-- When a session expires, no new calls to @GetDashManifest@,
+-- @GetMP4InitFragment@, or @GetMP4MediaFragment@ can be made for that
+-- session.
+--
+-- The default is 300 (5 minutes).
+getDASHStreamingSessionURL_expires :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe Prelude.Natural)
+getDASHStreamingSessionURL_expires = Lens.lens (\GetDASHStreamingSessionURL' {expires} -> expires) (\s@GetDASHStreamingSessionURL' {} a -> s {expires = a} :: GetDASHStreamingSessionURL)
+
+-- | The time range of the requested fragment and the source of the
+-- timestamps.
+--
+-- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
+-- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
+-- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
+-- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
+-- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
+-- be set.
+getDASHStreamingSessionURL_dASHFragmentSelector :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHFragmentSelector)
+getDASHStreamingSessionURL_dASHFragmentSelector = Lens.lens (\GetDASHStreamingSessionURL' {dASHFragmentSelector} -> dASHFragmentSelector) (\s@GetDASHStreamingSessionURL' {} a -> s {dASHFragmentSelector = a} :: GetDASHStreamingSessionURL)
 
 -- | The maximum number of fragments that are returned in the MPEG-DASH
 -- manifest.
@@ -524,17 +535,12 @@ getDASHStreamingSessionURL_displayFragmentNumber = Lens.lens (\GetDASHStreamingS
 getDASHStreamingSessionURL_maxManifestFragmentResults :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe Prelude.Natural)
 getDASHStreamingSessionURL_maxManifestFragmentResults = Lens.lens (\GetDASHStreamingSessionURL' {maxManifestFragmentResults} -> maxManifestFragmentResults) (\s@GetDASHStreamingSessionURL' {} a -> s {maxManifestFragmentResults = a} :: GetDASHStreamingSessionURL)
 
--- | The time range of the requested fragment and the source of the
--- timestamps.
+-- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
+-- MPEG-DASH manifest URL.
 --
--- This parameter is required if @PlaybackMode@ is @ON_DEMAND@ or
--- @LIVE_REPLAY@. This parameter is optional if PlaybackMode is@@ @LIVE@.
--- If @PlaybackMode@ is @LIVE@, the @FragmentSelectorType@ can be set, but
--- the @TimestampRange@ should not be set. If @PlaybackMode@ is @ON_DEMAND@
--- or @LIVE_REPLAY@, both @FragmentSelectorType@ and @TimestampRange@ must
--- be set.
-getDASHStreamingSessionURL_dASHFragmentSelector :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHFragmentSelector)
-getDASHStreamingSessionURL_dASHFragmentSelector = Lens.lens (\GetDASHStreamingSessionURL' {dASHFragmentSelector} -> dASHFragmentSelector) (\s@GetDASHStreamingSessionURL' {} a -> s {dASHFragmentSelector = a} :: GetDASHStreamingSessionURL)
+-- You must specify either the @StreamName@ or the @StreamARN@.
+getDASHStreamingSessionURL_streamARN :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe Prelude.Text)
+getDASHStreamingSessionURL_streamARN = Lens.lens (\GetDASHStreamingSessionURL' {streamARN} -> streamARN) (\s@GetDASHStreamingSessionURL' {} a -> s {streamARN = a} :: GetDASHStreamingSessionURL)
 
 -- | Whether to retrieve live, live replay, or archived, on-demand data.
 --
@@ -590,29 +596,23 @@ getDASHStreamingSessionURL_dASHFragmentSelector = Lens.lens (\GetDASHStreamingSe
 getDASHStreamingSessionURL_playbackMode :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHPlaybackMode)
 getDASHStreamingSessionURL_playbackMode = Lens.lens (\GetDASHStreamingSessionURL' {playbackMode} -> playbackMode) (\s@GetDASHStreamingSessionURL' {} a -> s {playbackMode = a} :: GetDASHStreamingSessionURL)
 
--- | The Amazon Resource Name (ARN) of the stream for which to retrieve the
--- MPEG-DASH manifest URL.
---
--- You must specify either the @StreamName@ or the @StreamARN@.
-getDASHStreamingSessionURL_streamARN :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe Prelude.Text)
-getDASHStreamingSessionURL_streamARN = Lens.lens (\GetDASHStreamingSessionURL' {streamARN} -> streamARN) (\s@GetDASHStreamingSessionURL' {} a -> s {streamARN = a} :: GetDASHStreamingSessionURL)
-
 -- | The name of the stream for which to retrieve the MPEG-DASH manifest URL.
 --
 -- You must specify either the @StreamName@ or the @StreamARN@.
 getDASHStreamingSessionURL_streamName :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe Prelude.Text)
 getDASHStreamingSessionURL_streamName = Lens.lens (\GetDASHStreamingSessionURL' {streamName} -> streamName) (\s@GetDASHStreamingSessionURL' {} a -> s {streamName = a} :: GetDASHStreamingSessionURL)
 
--- | The time in seconds until the requested session expires. This value can
--- be between 300 (5 minutes) and 43200 (12 hours).
+-- | Fragments are identified in the manifest file based on their sequence
+-- number in the session. If DisplayFragmentNumber is set to @ALWAYS@, the
+-- Kinesis Video Streams fragment number is added to each S element in the
+-- manifest file with the attribute name “kvs:fn”. These fragment numbers
+-- can be used for logging or for use with other APIs (e.g. @GetMedia@ and
+-- @GetMediaForFragmentList@). A custom MPEG-DASH media player is necessary
+-- to leverage these this custom attribute.
 --
--- When a session expires, no new calls to @GetDashManifest@,
--- @GetMP4InitFragment@, or @GetMP4MediaFragment@ can be made for that
--- session.
---
--- The default is 300 (5 minutes).
-getDASHStreamingSessionURL_expires :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe Prelude.Natural)
-getDASHStreamingSessionURL_expires = Lens.lens (\GetDASHStreamingSessionURL' {expires} -> expires) (\s@GetDASHStreamingSessionURL' {} a -> s {expires = a} :: GetDASHStreamingSessionURL)
+-- The default value is @NEVER@.
+getDASHStreamingSessionURL_displayFragmentNumber :: Lens.Lens' GetDASHStreamingSessionURL (Prelude.Maybe DASHDisplayFragmentNumber)
+getDASHStreamingSessionURL_displayFragmentNumber = Lens.lens (\GetDASHStreamingSessionURL' {displayFragmentNumber} -> displayFragmentNumber) (\s@GetDASHStreamingSessionURL' {} a -> s {displayFragmentNumber = a} :: GetDASHStreamingSessionURL)
 
 instance Core.AWSRequest GetDASHStreamingSessionURL where
   type
@@ -640,16 +640,16 @@ instance Core.ToJSON GetDASHStreamingSessionURL where
       ( Prelude.catMaybes
           [ ("DisplayFragmentTimestamp" Core..=)
               Prelude.<$> displayFragmentTimestamp,
-            ("DisplayFragmentNumber" Core..=)
-              Prelude.<$> displayFragmentNumber,
-            ("MaxManifestFragmentResults" Core..=)
-              Prelude.<$> maxManifestFragmentResults,
+            ("Expires" Core..=) Prelude.<$> expires,
             ("DASHFragmentSelector" Core..=)
               Prelude.<$> dASHFragmentSelector,
-            ("PlaybackMode" Core..=) Prelude.<$> playbackMode,
+            ("MaxManifestFragmentResults" Core..=)
+              Prelude.<$> maxManifestFragmentResults,
             ("StreamARN" Core..=) Prelude.<$> streamARN,
+            ("PlaybackMode" Core..=) Prelude.<$> playbackMode,
             ("StreamName" Core..=) Prelude.<$> streamName,
-            ("Expires" Core..=) Prelude.<$> expires
+            ("DisplayFragmentNumber" Core..=)
+              Prelude.<$> displayFragmentNumber
           ]
       )
 

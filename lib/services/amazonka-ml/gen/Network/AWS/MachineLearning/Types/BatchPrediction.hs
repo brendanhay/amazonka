@@ -47,43 +47,43 @@ data BatchPrediction = BatchPrediction'
     -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
     --     usable.
     status :: Prelude.Maybe EntityStatus,
-    -- | The ID assigned to the @BatchPrediction@ at creation. This value should
-    -- be identical to the value of the @BatchPredictionID@ in the request.
-    batchPredictionId :: Prelude.Maybe Prelude.Text,
-    startedAt :: Prelude.Maybe Core.POSIX,
-    -- | The location of an Amazon S3 bucket or directory to receive the
-    -- operation results. The following substrings are not allowed in the
-    -- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
-    -- \'\/..\/\'.
-    outputUri :: Prelude.Maybe Prelude.Text,
-    -- | A description of the most recent details about processing the batch
-    -- prediction request.
-    message :: Prelude.Maybe Prelude.Text,
+    -- | The time of the most recent edit to the @BatchPrediction@. The time is
+    -- expressed in epoch time.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The time that the @BatchPrediction@ was created. The time is expressed
     -- in epoch time.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | A user-supplied name or description of the @BatchPrediction@.
-    name :: Prelude.Maybe Prelude.Text,
+    computeTime :: Prelude.Maybe Prelude.Integer,
+    -- | The location of the data file or directory in Amazon Simple Storage
+    -- Service (Amazon S3).
+    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the @MLModel@ that generated predictions for the
+    -- @BatchPrediction@ request.
+    mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the @DataSource@ that points to the group of observations to
+    -- predict.
+    batchPredictionDataSourceId :: Prelude.Maybe Prelude.Text,
+    totalRecordCount :: Prelude.Maybe Prelude.Integer,
+    startedAt :: Prelude.Maybe Core.POSIX,
+    -- | The ID assigned to the @BatchPrediction@ at creation. This value should
+    -- be identical to the value of the @BatchPredictionID@ in the request.
+    batchPredictionId :: Prelude.Maybe Prelude.Text,
+    finishedAt :: Prelude.Maybe Core.POSIX,
+    invalidRecordCount :: Prelude.Maybe Prelude.Integer,
     -- | The AWS user account that invoked the @BatchPrediction@. The account
     -- type can be either an AWS root account or an AWS Identity and Access
     -- Management (IAM) user account.
     createdByIamUser :: Prelude.Maybe Prelude.Text,
-    finishedAt :: Prelude.Maybe Core.POSIX,
-    invalidRecordCount :: Prelude.Maybe Prelude.Integer,
-    totalRecordCount :: Prelude.Maybe Prelude.Integer,
-    -- | The ID of the @DataSource@ that points to the group of observations to
-    -- predict.
-    batchPredictionDataSourceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the @MLModel@ that generated predictions for the
-    -- @BatchPrediction@ request.
-    mLModelId :: Prelude.Maybe Prelude.Text,
-    -- | The location of the data file or directory in Amazon Simple Storage
-    -- Service (Amazon S3).
-    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
-    computeTime :: Prelude.Maybe Prelude.Integer,
-    -- | The time of the most recent edit to the @BatchPrediction@. The time is
-    -- expressed in epoch time.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX
+    -- | A user-supplied name or description of the @BatchPrediction@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A description of the most recent details about processing the batch
+    -- prediction request.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The location of an Amazon S3 bucket or directory to receive the
+    -- operation results. The following substrings are not allowed in the
+    -- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
+    -- \'\/..\/\'.
+    outputUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,67 +111,67 @@ data BatchPrediction = BatchPrediction'
 -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
 --     usable.
 --
--- 'batchPredictionId', 'batchPrediction_batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
---
--- 'startedAt', 'batchPrediction_startedAt' - Undocumented member.
---
--- 'outputUri', 'batchPrediction_outputUri' - The location of an Amazon S3 bucket or directory to receive the
--- operation results. The following substrings are not allowed in the
--- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
--- \'\/..\/\'.
---
--- 'message', 'batchPrediction_message' - A description of the most recent details about processing the batch
--- prediction request.
+-- 'lastUpdatedAt', 'batchPrediction_lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@. The time is
+-- expressed in epoch time.
 --
 -- 'createdAt', 'batchPrediction_createdAt' - The time that the @BatchPrediction@ was created. The time is expressed
 -- in epoch time.
 --
--- 'name', 'batchPrediction_name' - A user-supplied name or description of the @BatchPrediction@.
+-- 'computeTime', 'batchPrediction_computeTime' - Undocumented member.
 --
--- 'createdByIamUser', 'batchPrediction_createdByIamUser' - The AWS user account that invoked the @BatchPrediction@. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
+-- 'inputDataLocationS3', 'batchPrediction_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+--
+-- 'mLModelId', 'batchPrediction_mLModelId' - The ID of the @MLModel@ that generated predictions for the
+-- @BatchPrediction@ request.
+--
+-- 'batchPredictionDataSourceId', 'batchPrediction_batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to
+-- predict.
+--
+-- 'totalRecordCount', 'batchPrediction_totalRecordCount' - Undocumented member.
+--
+-- 'startedAt', 'batchPrediction_startedAt' - Undocumented member.
+--
+-- 'batchPredictionId', 'batchPrediction_batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
 --
 -- 'finishedAt', 'batchPrediction_finishedAt' - Undocumented member.
 --
 -- 'invalidRecordCount', 'batchPrediction_invalidRecordCount' - Undocumented member.
 --
--- 'totalRecordCount', 'batchPrediction_totalRecordCount' - Undocumented member.
+-- 'createdByIamUser', 'batchPrediction_createdByIamUser' - The AWS user account that invoked the @BatchPrediction@. The account
+-- type can be either an AWS root account or an AWS Identity and Access
+-- Management (IAM) user account.
 --
--- 'batchPredictionDataSourceId', 'batchPrediction_batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to
--- predict.
+-- 'name', 'batchPrediction_name' - A user-supplied name or description of the @BatchPrediction@.
 --
--- 'mLModelId', 'batchPrediction_mLModelId' - The ID of the @MLModel@ that generated predictions for the
--- @BatchPrediction@ request.
+-- 'message', 'batchPrediction_message' - A description of the most recent details about processing the batch
+-- prediction request.
 --
--- 'inputDataLocationS3', 'batchPrediction_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
---
--- 'computeTime', 'batchPrediction_computeTime' - Undocumented member.
---
--- 'lastUpdatedAt', 'batchPrediction_lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@. The time is
--- expressed in epoch time.
+-- 'outputUri', 'batchPrediction_outputUri' - The location of an Amazon S3 bucket or directory to receive the
+-- operation results. The following substrings are not allowed in the
+-- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
+-- \'\/..\/\'.
 newBatchPrediction ::
   BatchPrediction
 newBatchPrediction =
   BatchPrediction'
     { status = Prelude.Nothing,
-      batchPredictionId = Prelude.Nothing,
-      startedAt = Prelude.Nothing,
-      outputUri = Prelude.Nothing,
-      message = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      name = Prelude.Nothing,
-      createdByIamUser = Prelude.Nothing,
+      computeTime = Prelude.Nothing,
+      inputDataLocationS3 = Prelude.Nothing,
+      mLModelId = Prelude.Nothing,
+      batchPredictionDataSourceId = Prelude.Nothing,
+      totalRecordCount = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      batchPredictionId = Prelude.Nothing,
       finishedAt = Prelude.Nothing,
       invalidRecordCount = Prelude.Nothing,
-      totalRecordCount = Prelude.Nothing,
-      batchPredictionDataSourceId = Prelude.Nothing,
-      mLModelId = Prelude.Nothing,
-      inputDataLocationS3 = Prelude.Nothing,
-      computeTime = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+      createdByIamUser = Prelude.Nothing,
+      name = Prelude.Nothing,
+      message = Prelude.Nothing,
+      outputUri = Prelude.Nothing
     }
 
 -- | The status of the @BatchPrediction@. This element can have one of the
@@ -192,41 +192,47 @@ newBatchPrediction =
 batchPrediction_status :: Lens.Lens' BatchPrediction (Prelude.Maybe EntityStatus)
 batchPrediction_status = Lens.lens (\BatchPrediction' {status} -> status) (\s@BatchPrediction' {} a -> s {status = a} :: BatchPrediction)
 
--- | The ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
-batchPrediction_batchPredictionId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_batchPredictionId = Lens.lens (\BatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@BatchPrediction' {} a -> s {batchPredictionId = a} :: BatchPrediction)
-
--- | Undocumented member.
-batchPrediction_startedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_startedAt = Lens.lens (\BatchPrediction' {startedAt} -> startedAt) (\s@BatchPrediction' {} a -> s {startedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
-
--- | The location of an Amazon S3 bucket or directory to receive the
--- operation results. The following substrings are not allowed in the
--- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
--- \'\/..\/\'.
-batchPrediction_outputUri :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_outputUri = Lens.lens (\BatchPrediction' {outputUri} -> outputUri) (\s@BatchPrediction' {} a -> s {outputUri = a} :: BatchPrediction)
-
--- | A description of the most recent details about processing the batch
--- prediction request.
-batchPrediction_message :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_message = Lens.lens (\BatchPrediction' {message} -> message) (\s@BatchPrediction' {} a -> s {message = a} :: BatchPrediction)
+-- | The time of the most recent edit to the @BatchPrediction@. The time is
+-- expressed in epoch time.
+batchPrediction_lastUpdatedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
+batchPrediction_lastUpdatedAt = Lens.lens (\BatchPrediction' {lastUpdatedAt} -> lastUpdatedAt) (\s@BatchPrediction' {} a -> s {lastUpdatedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
 
 -- | The time that the @BatchPrediction@ was created. The time is expressed
 -- in epoch time.
 batchPrediction_createdAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
 batchPrediction_createdAt = Lens.lens (\BatchPrediction' {createdAt} -> createdAt) (\s@BatchPrediction' {} a -> s {createdAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
 
--- | A user-supplied name or description of the @BatchPrediction@.
-batchPrediction_name :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_name = Lens.lens (\BatchPrediction' {name} -> name) (\s@BatchPrediction' {} a -> s {name = a} :: BatchPrediction)
+-- | Undocumented member.
+batchPrediction_computeTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
+batchPrediction_computeTime = Lens.lens (\BatchPrediction' {computeTime} -> computeTime) (\s@BatchPrediction' {} a -> s {computeTime = a} :: BatchPrediction)
 
--- | The AWS user account that invoked the @BatchPrediction@. The account
--- type can be either an AWS root account or an AWS Identity and Access
--- Management (IAM) user account.
-batchPrediction_createdByIamUser :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_createdByIamUser = Lens.lens (\BatchPrediction' {createdByIamUser} -> createdByIamUser) (\s@BatchPrediction' {} a -> s {createdByIamUser = a} :: BatchPrediction)
+-- | The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+batchPrediction_inputDataLocationS3 :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_inputDataLocationS3 = Lens.lens (\BatchPrediction' {inputDataLocationS3} -> inputDataLocationS3) (\s@BatchPrediction' {} a -> s {inputDataLocationS3 = a} :: BatchPrediction)
+
+-- | The ID of the @MLModel@ that generated predictions for the
+-- @BatchPrediction@ request.
+batchPrediction_mLModelId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_mLModelId = Lens.lens (\BatchPrediction' {mLModelId} -> mLModelId) (\s@BatchPrediction' {} a -> s {mLModelId = a} :: BatchPrediction)
+
+-- | The ID of the @DataSource@ that points to the group of observations to
+-- predict.
+batchPrediction_batchPredictionDataSourceId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_batchPredictionDataSourceId = Lens.lens (\BatchPrediction' {batchPredictionDataSourceId} -> batchPredictionDataSourceId) (\s@BatchPrediction' {} a -> s {batchPredictionDataSourceId = a} :: BatchPrediction)
+
+-- | Undocumented member.
+batchPrediction_totalRecordCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
+batchPrediction_totalRecordCount = Lens.lens (\BatchPrediction' {totalRecordCount} -> totalRecordCount) (\s@BatchPrediction' {} a -> s {totalRecordCount = a} :: BatchPrediction)
+
+-- | Undocumented member.
+batchPrediction_startedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
+batchPrediction_startedAt = Lens.lens (\BatchPrediction' {startedAt} -> startedAt) (\s@BatchPrediction' {} a -> s {startedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+
+-- | The ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
+batchPrediction_batchPredictionId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_batchPredictionId = Lens.lens (\BatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@BatchPrediction' {} a -> s {batchPredictionId = a} :: BatchPrediction)
 
 -- | Undocumented member.
 batchPrediction_finishedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
@@ -236,33 +242,27 @@ batchPrediction_finishedAt = Lens.lens (\BatchPrediction' {finishedAt} -> finish
 batchPrediction_invalidRecordCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
 batchPrediction_invalidRecordCount = Lens.lens (\BatchPrediction' {invalidRecordCount} -> invalidRecordCount) (\s@BatchPrediction' {} a -> s {invalidRecordCount = a} :: BatchPrediction)
 
--- | Undocumented member.
-batchPrediction_totalRecordCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
-batchPrediction_totalRecordCount = Lens.lens (\BatchPrediction' {totalRecordCount} -> totalRecordCount) (\s@BatchPrediction' {} a -> s {totalRecordCount = a} :: BatchPrediction)
+-- | The AWS user account that invoked the @BatchPrediction@. The account
+-- type can be either an AWS root account or an AWS Identity and Access
+-- Management (IAM) user account.
+batchPrediction_createdByIamUser :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_createdByIamUser = Lens.lens (\BatchPrediction' {createdByIamUser} -> createdByIamUser) (\s@BatchPrediction' {} a -> s {createdByIamUser = a} :: BatchPrediction)
 
--- | The ID of the @DataSource@ that points to the group of observations to
--- predict.
-batchPrediction_batchPredictionDataSourceId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_batchPredictionDataSourceId = Lens.lens (\BatchPrediction' {batchPredictionDataSourceId} -> batchPredictionDataSourceId) (\s@BatchPrediction' {} a -> s {batchPredictionDataSourceId = a} :: BatchPrediction)
+-- | A user-supplied name or description of the @BatchPrediction@.
+batchPrediction_name :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_name = Lens.lens (\BatchPrediction' {name} -> name) (\s@BatchPrediction' {} a -> s {name = a} :: BatchPrediction)
 
--- | The ID of the @MLModel@ that generated predictions for the
--- @BatchPrediction@ request.
-batchPrediction_mLModelId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_mLModelId = Lens.lens (\BatchPrediction' {mLModelId} -> mLModelId) (\s@BatchPrediction' {} a -> s {mLModelId = a} :: BatchPrediction)
+-- | A description of the most recent details about processing the batch
+-- prediction request.
+batchPrediction_message :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_message = Lens.lens (\BatchPrediction' {message} -> message) (\s@BatchPrediction' {} a -> s {message = a} :: BatchPrediction)
 
--- | The location of the data file or directory in Amazon Simple Storage
--- Service (Amazon S3).
-batchPrediction_inputDataLocationS3 :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_inputDataLocationS3 = Lens.lens (\BatchPrediction' {inputDataLocationS3} -> inputDataLocationS3) (\s@BatchPrediction' {} a -> s {inputDataLocationS3 = a} :: BatchPrediction)
-
--- | Undocumented member.
-batchPrediction_computeTime :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
-batchPrediction_computeTime = Lens.lens (\BatchPrediction' {computeTime} -> computeTime) (\s@BatchPrediction' {} a -> s {computeTime = a} :: BatchPrediction)
-
--- | The time of the most recent edit to the @BatchPrediction@. The time is
--- expressed in epoch time.
-batchPrediction_lastUpdatedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_lastUpdatedAt = Lens.lens (\BatchPrediction' {lastUpdatedAt} -> lastUpdatedAt) (\s@BatchPrediction' {} a -> s {lastUpdatedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+-- | The location of an Amazon S3 bucket or directory to receive the
+-- operation results. The following substrings are not allowed in the
+-- @s3 key@ portion of the @outputURI@ field: \':\', \'\/\/\', \'\/.\/\',
+-- \'\/..\/\'.
+batchPrediction_outputUri :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_outputUri = Lens.lens (\BatchPrediction' {outputUri} -> outputUri) (\s@BatchPrediction' {} a -> s {outputUri = a} :: BatchPrediction)
 
 instance Core.FromJSON BatchPrediction where
   parseJSON =
@@ -271,21 +271,21 @@ instance Core.FromJSON BatchPrediction where
       ( \x ->
           BatchPrediction'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "BatchPredictionId")
-            Prelude.<*> (x Core..:? "StartedAt")
-            Prelude.<*> (x Core..:? "OutputUri")
-            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "LastUpdatedAt")
             Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<*> (x Core..:? "ComputeTime")
+            Prelude.<*> (x Core..:? "InputDataLocationS3")
+            Prelude.<*> (x Core..:? "MLModelId")
+            Prelude.<*> (x Core..:? "BatchPredictionDataSourceId")
+            Prelude.<*> (x Core..:? "TotalRecordCount")
+            Prelude.<*> (x Core..:? "StartedAt")
+            Prelude.<*> (x Core..:? "BatchPredictionId")
             Prelude.<*> (x Core..:? "FinishedAt")
             Prelude.<*> (x Core..:? "InvalidRecordCount")
-            Prelude.<*> (x Core..:? "TotalRecordCount")
-            Prelude.<*> (x Core..:? "BatchPredictionDataSourceId")
-            Prelude.<*> (x Core..:? "MLModelId")
-            Prelude.<*> (x Core..:? "InputDataLocationS3")
-            Prelude.<*> (x Core..:? "ComputeTime")
-            Prelude.<*> (x Core..:? "LastUpdatedAt")
+            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "OutputUri")
       )
 
 instance Prelude.Hashable BatchPrediction

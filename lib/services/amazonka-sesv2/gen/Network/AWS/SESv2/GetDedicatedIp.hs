@@ -54,7 +54,7 @@ import Network.AWS.SESv2.Types
 data GetDedicatedIp = GetDedicatedIp'
   { -- | The IP address that you want to obtain more information about. The value
     -- you specify has to be a dedicated IP address that\'s assocaited with
-    -- your AWS account.
+    -- your Amazon Web Services account.
     ip :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +69,7 @@ data GetDedicatedIp = GetDedicatedIp'
 --
 -- 'ip', 'getDedicatedIp_ip' - The IP address that you want to obtain more information about. The value
 -- you specify has to be a dedicated IP address that\'s assocaited with
--- your AWS account.
+-- your Amazon Web Services account.
 newGetDedicatedIp ::
   -- | 'ip'
   Prelude.Text ->
@@ -78,7 +78,7 @@ newGetDedicatedIp pIp_ = GetDedicatedIp' {ip = pIp_}
 
 -- | The IP address that you want to obtain more information about. The value
 -- you specify has to be a dedicated IP address that\'s assocaited with
--- your AWS account.
+-- your Amazon Web Services account.
 getDedicatedIp_ip :: Lens.Lens' GetDedicatedIp Prelude.Text
 getDedicatedIp_ip = Lens.lens (\GetDedicatedIp' {ip} -> ip) (\s@GetDedicatedIp' {} a -> s {ip = a} :: GetDedicatedIp)
 

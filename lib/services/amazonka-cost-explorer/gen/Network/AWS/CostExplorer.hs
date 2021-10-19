@@ -33,35 +33,35 @@ module Network.AWS.CostExplorer
     -- * Errors
     -- $errors
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
-
-    -- ** RequestChangedException
-    _RequestChangedException,
-
     -- ** UnknownSubscriptionException
     _UnknownSubscriptionException,
-
-    -- ** UnknownMonitorException
-    _UnknownMonitorException,
-
-    -- ** DataUnavailableException
-    _DataUnavailableException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
 
     -- ** BillExpirationException
     _BillExpirationException,
 
+    -- ** RequestChangedException
+    _RequestChangedException,
+
     -- ** UnresolvableUsageUnitException
     _UnresolvableUsageUnitException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** DataUnavailableException
+    _DataUnavailableException,
+
+    -- ** UnknownMonitorException
+    _UnknownMonitorException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -69,23 +69,65 @@ module Network.AWS.CostExplorer
     -- * Operations
     -- $operations
 
+    -- ** GetReservationUtilization
+    GetReservationUtilization (GetReservationUtilization'),
+    newGetReservationUtilization,
+    GetReservationUtilizationResponse (GetReservationUtilizationResponse'),
+    newGetReservationUtilizationResponse,
+
+    -- ** GetSavingsPlansCoverage
+    GetSavingsPlansCoverage (GetSavingsPlansCoverage'),
+    newGetSavingsPlansCoverage,
+    GetSavingsPlansCoverageResponse (GetSavingsPlansCoverageResponse'),
+    newGetSavingsPlansCoverageResponse,
+
+    -- ** GetTags
+    GetTags (GetTags'),
+    newGetTags,
+    GetTagsResponse (GetTagsResponse'),
+    newGetTagsResponse,
+
     -- ** GetRightsizingRecommendation
     GetRightsizingRecommendation (GetRightsizingRecommendation'),
     newGetRightsizingRecommendation,
     GetRightsizingRecommendationResponse (GetRightsizingRecommendationResponse'),
     newGetRightsizingRecommendationResponse,
 
-    -- ** GetAnomalySubscriptions
-    GetAnomalySubscriptions (GetAnomalySubscriptions'),
-    newGetAnomalySubscriptions,
-    GetAnomalySubscriptionsResponse (GetAnomalySubscriptionsResponse'),
-    newGetAnomalySubscriptionsResponse,
+    -- ** GetCostAndUsageWithResources
+    GetCostAndUsageWithResources (GetCostAndUsageWithResources'),
+    newGetCostAndUsageWithResources,
+    GetCostAndUsageWithResourcesResponse (GetCostAndUsageWithResourcesResponse'),
+    newGetCostAndUsageWithResourcesResponse,
 
-    -- ** ListCostCategoryDefinitions
-    ListCostCategoryDefinitions (ListCostCategoryDefinitions'),
-    newListCostCategoryDefinitions,
-    ListCostCategoryDefinitionsResponse (ListCostCategoryDefinitionsResponse'),
-    newListCostCategoryDefinitionsResponse,
+    -- ** GetUsageForecast
+    GetUsageForecast (GetUsageForecast'),
+    newGetUsageForecast,
+    GetUsageForecastResponse (GetUsageForecastResponse'),
+    newGetUsageForecastResponse,
+
+    -- ** GetReservationCoverage
+    GetReservationCoverage (GetReservationCoverage'),
+    newGetReservationCoverage,
+    GetReservationCoverageResponse (GetReservationCoverageResponse'),
+    newGetReservationCoverageResponse,
+
+    -- ** GetCostCategories
+    GetCostCategories (GetCostCategories'),
+    newGetCostCategories,
+    GetCostCategoriesResponse (GetCostCategoriesResponse'),
+    newGetCostCategoriesResponse,
+
+    -- ** GetCostForecast
+    GetCostForecast (GetCostForecast'),
+    newGetCostForecast,
+    GetCostForecastResponse (GetCostForecastResponse'),
+    newGetCostForecastResponse,
+
+    -- ** GetDimensionValues
+    GetDimensionValues (GetDimensionValues'),
+    newGetDimensionValues,
+    GetDimensionValuesResponse (GetDimensionValuesResponse'),
+    newGetDimensionValuesResponse,
 
     -- ** GetAnomalies
     GetAnomalies (GetAnomalies'),
@@ -93,17 +135,59 @@ module Network.AWS.CostExplorer
     GetAnomaliesResponse (GetAnomaliesResponse'),
     newGetAnomaliesResponse,
 
-    -- ** GetSavingsPlansUtilizationDetails
-    GetSavingsPlansUtilizationDetails (GetSavingsPlansUtilizationDetails'),
-    newGetSavingsPlansUtilizationDetails,
-    GetSavingsPlansUtilizationDetailsResponse (GetSavingsPlansUtilizationDetailsResponse'),
-    newGetSavingsPlansUtilizationDetailsResponse,
+    -- ** GetReservationPurchaseRecommendation
+    GetReservationPurchaseRecommendation (GetReservationPurchaseRecommendation'),
+    newGetReservationPurchaseRecommendation,
+    GetReservationPurchaseRecommendationResponse (GetReservationPurchaseRecommendationResponse'),
+    newGetReservationPurchaseRecommendationResponse,
 
-    -- ** GetCostForecast
-    GetCostForecast (GetCostForecast'),
-    newGetCostForecast,
-    GetCostForecastResponse (GetCostForecastResponse'),
-    newGetCostForecastResponse,
+    -- ** DeleteAnomalyMonitor
+    DeleteAnomalyMonitor (DeleteAnomalyMonitor'),
+    newDeleteAnomalyMonitor,
+    DeleteAnomalyMonitorResponse (DeleteAnomalyMonitorResponse'),
+    newDeleteAnomalyMonitorResponse,
+
+    -- ** UpdateAnomalyMonitor
+    UpdateAnomalyMonitor (UpdateAnomalyMonitor'),
+    newUpdateAnomalyMonitor,
+    UpdateAnomalyMonitorResponse (UpdateAnomalyMonitorResponse'),
+    newUpdateAnomalyMonitorResponse,
+
+    -- ** ListCostCategoryDefinitions
+    ListCostCategoryDefinitions (ListCostCategoryDefinitions'),
+    newListCostCategoryDefinitions,
+    ListCostCategoryDefinitionsResponse (ListCostCategoryDefinitionsResponse'),
+    newListCostCategoryDefinitionsResponse,
+
+    -- ** UpdateCostCategoryDefinition
+    UpdateCostCategoryDefinition (UpdateCostCategoryDefinition'),
+    newUpdateCostCategoryDefinition,
+    UpdateCostCategoryDefinitionResponse (UpdateCostCategoryDefinitionResponse'),
+    newUpdateCostCategoryDefinitionResponse,
+
+    -- ** DeleteCostCategoryDefinition
+    DeleteCostCategoryDefinition (DeleteCostCategoryDefinition'),
+    newDeleteCostCategoryDefinition,
+    DeleteCostCategoryDefinitionResponse (DeleteCostCategoryDefinitionResponse'),
+    newDeleteCostCategoryDefinitionResponse,
+
+    -- ** GetAnomalySubscriptions
+    GetAnomalySubscriptions (GetAnomalySubscriptions'),
+    newGetAnomalySubscriptions,
+    GetAnomalySubscriptionsResponse (GetAnomalySubscriptionsResponse'),
+    newGetAnomalySubscriptionsResponse,
+
+    -- ** CreateCostCategoryDefinition
+    CreateCostCategoryDefinition (CreateCostCategoryDefinition'),
+    newCreateCostCategoryDefinition,
+    CreateCostCategoryDefinitionResponse (CreateCostCategoryDefinitionResponse'),
+    newCreateCostCategoryDefinitionResponse,
+
+    -- ** GetAnomalyMonitors
+    GetAnomalyMonitors (GetAnomalyMonitors'),
+    newGetAnomalyMonitors,
+    GetAnomalyMonitorsResponse (GetAnomalyMonitorsResponse'),
+    newGetAnomalyMonitorsResponse,
 
     -- ** DeleteAnomalySubscription
     DeleteAnomalySubscription (DeleteAnomalySubscription'),
@@ -129,89 +213,11 @@ module Network.AWS.CostExplorer
     GetSavingsPlansPurchaseRecommendationResponse (GetSavingsPlansPurchaseRecommendationResponse'),
     newGetSavingsPlansPurchaseRecommendationResponse,
 
-    -- ** GetUsageForecast
-    GetUsageForecast (GetUsageForecast'),
-    newGetUsageForecast,
-    GetUsageForecastResponse (GetUsageForecastResponse'),
-    newGetUsageForecastResponse,
-
-    -- ** GetCostAndUsageWithResources
-    GetCostAndUsageWithResources (GetCostAndUsageWithResources'),
-    newGetCostAndUsageWithResources,
-    GetCostAndUsageWithResourcesResponse (GetCostAndUsageWithResourcesResponse'),
-    newGetCostAndUsageWithResourcesResponse,
-
-    -- ** GetReservationCoverage
-    GetReservationCoverage (GetReservationCoverage'),
-    newGetReservationCoverage,
-    GetReservationCoverageResponse (GetReservationCoverageResponse'),
-    newGetReservationCoverageResponse,
-
-    -- ** GetTags
-    GetTags (GetTags'),
-    newGetTags,
-    GetTagsResponse (GetTagsResponse'),
-    newGetTagsResponse,
-
-    -- ** UpdateCostCategoryDefinition
-    UpdateCostCategoryDefinition (UpdateCostCategoryDefinition'),
-    newUpdateCostCategoryDefinition,
-    UpdateCostCategoryDefinitionResponse (UpdateCostCategoryDefinitionResponse'),
-    newUpdateCostCategoryDefinitionResponse,
-
-    -- ** DeleteCostCategoryDefinition
-    DeleteCostCategoryDefinition (DeleteCostCategoryDefinition'),
-    newDeleteCostCategoryDefinition,
-    DeleteCostCategoryDefinitionResponse (DeleteCostCategoryDefinitionResponse'),
-    newDeleteCostCategoryDefinitionResponse,
-
-    -- ** GetSavingsPlansCoverage
-    GetSavingsPlansCoverage (GetSavingsPlansCoverage'),
-    newGetSavingsPlansCoverage,
-    GetSavingsPlansCoverageResponse (GetSavingsPlansCoverageResponse'),
-    newGetSavingsPlansCoverageResponse,
-
-    -- ** GetReservationUtilization
-    GetReservationUtilization (GetReservationUtilization'),
-    newGetReservationUtilization,
-    GetReservationUtilizationResponse (GetReservationUtilizationResponse'),
-    newGetReservationUtilizationResponse,
-
-    -- ** DeleteAnomalyMonitor
-    DeleteAnomalyMonitor (DeleteAnomalyMonitor'),
-    newDeleteAnomalyMonitor,
-    DeleteAnomalyMonitorResponse (DeleteAnomalyMonitorResponse'),
-    newDeleteAnomalyMonitorResponse,
-
-    -- ** UpdateAnomalyMonitor
-    UpdateAnomalyMonitor (UpdateAnomalyMonitor'),
-    newUpdateAnomalyMonitor,
-    UpdateAnomalyMonitorResponse (UpdateAnomalyMonitorResponse'),
-    newUpdateAnomalyMonitorResponse,
-
-    -- ** GetReservationPurchaseRecommendation
-    GetReservationPurchaseRecommendation (GetReservationPurchaseRecommendation'),
-    newGetReservationPurchaseRecommendation,
-    GetReservationPurchaseRecommendationResponse (GetReservationPurchaseRecommendationResponse'),
-    newGetReservationPurchaseRecommendationResponse,
-
-    -- ** CreateAnomalyMonitor
-    CreateAnomalyMonitor (CreateAnomalyMonitor'),
-    newCreateAnomalyMonitor,
-    CreateAnomalyMonitorResponse (CreateAnomalyMonitorResponse'),
-    newCreateAnomalyMonitorResponse,
-
-    -- ** CreateAnomalySubscription
-    CreateAnomalySubscription (CreateAnomalySubscription'),
-    newCreateAnomalySubscription,
-    CreateAnomalySubscriptionResponse (CreateAnomalySubscriptionResponse'),
-    newCreateAnomalySubscriptionResponse,
-
-    -- ** GetDimensionValues
-    GetDimensionValues (GetDimensionValues'),
-    newGetDimensionValues,
-    GetDimensionValuesResponse (GetDimensionValuesResponse'),
-    newGetDimensionValuesResponse,
+    -- ** ProvideAnomalyFeedback
+    ProvideAnomalyFeedback (ProvideAnomalyFeedback'),
+    newProvideAnomalyFeedback,
+    ProvideAnomalyFeedbackResponse (ProvideAnomalyFeedbackResponse'),
+    newProvideAnomalyFeedbackResponse,
 
     -- ** GetSavingsPlansUtilization
     GetSavingsPlansUtilization (GetSavingsPlansUtilization'),
@@ -225,29 +231,23 @@ module Network.AWS.CostExplorer
     DescribeCostCategoryDefinitionResponse (DescribeCostCategoryDefinitionResponse'),
     newDescribeCostCategoryDefinitionResponse,
 
-    -- ** ProvideAnomalyFeedback
-    ProvideAnomalyFeedback (ProvideAnomalyFeedback'),
-    newProvideAnomalyFeedback,
-    ProvideAnomalyFeedbackResponse (ProvideAnomalyFeedbackResponse'),
-    newProvideAnomalyFeedbackResponse,
+    -- ** CreateAnomalySubscription
+    CreateAnomalySubscription (CreateAnomalySubscription'),
+    newCreateAnomalySubscription,
+    CreateAnomalySubscriptionResponse (CreateAnomalySubscriptionResponse'),
+    newCreateAnomalySubscriptionResponse,
 
-    -- ** GetCostCategories
-    GetCostCategories (GetCostCategories'),
-    newGetCostCategories,
-    GetCostCategoriesResponse (GetCostCategoriesResponse'),
-    newGetCostCategoriesResponse,
+    -- ** CreateAnomalyMonitor
+    CreateAnomalyMonitor (CreateAnomalyMonitor'),
+    newCreateAnomalyMonitor,
+    CreateAnomalyMonitorResponse (CreateAnomalyMonitorResponse'),
+    newCreateAnomalyMonitorResponse,
 
-    -- ** GetAnomalyMonitors
-    GetAnomalyMonitors (GetAnomalyMonitors'),
-    newGetAnomalyMonitors,
-    GetAnomalyMonitorsResponse (GetAnomalyMonitorsResponse'),
-    newGetAnomalyMonitorsResponse,
-
-    -- ** CreateCostCategoryDefinition
-    CreateCostCategoryDefinition (CreateCostCategoryDefinition'),
-    newCreateCostCategoryDefinition,
-    CreateCostCategoryDefinitionResponse (CreateCostCategoryDefinitionResponse'),
-    newCreateCostCategoryDefinitionResponse,
+    -- ** GetSavingsPlansUtilizationDetails
+    GetSavingsPlansUtilizationDetails (GetSavingsPlansUtilizationDetails'),
+    newGetSavingsPlansUtilizationDetails,
+    GetSavingsPlansUtilizationDetailsResponse (GetSavingsPlansUtilizationDetailsResponse'),
+    newGetSavingsPlansUtilizationDetailsResponse,
 
     -- * Types
 

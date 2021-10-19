@@ -231,7 +231,7 @@ getTagValuesResponse_paginationToken = Lens.lens (\GetTagValuesResponse' {pagina
 -- | A list of all tag values for the specified key currently used in the
 -- specified AWS Region for the calling AWS account.
 getTagValuesResponse_tagValues :: Lens.Lens' GetTagValuesResponse (Prelude.Maybe [Prelude.Text])
-getTagValuesResponse_tagValues = Lens.lens (\GetTagValuesResponse' {tagValues} -> tagValues) (\s@GetTagValuesResponse' {} a -> s {tagValues = a} :: GetTagValuesResponse) Prelude.. Lens.mapping Lens._Coerce
+getTagValuesResponse_tagValues = Lens.lens (\GetTagValuesResponse' {tagValues} -> tagValues) (\s@GetTagValuesResponse' {} a -> s {tagValues = a} :: GetTagValuesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTagValuesResponse_httpStatus :: Lens.Lens' GetTagValuesResponse Prelude.Int

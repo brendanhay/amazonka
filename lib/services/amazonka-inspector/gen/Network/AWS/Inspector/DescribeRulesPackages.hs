@@ -77,7 +77,7 @@ newDescribeRulesPackages pRulesPackageArns_ =
   DescribeRulesPackages'
     { locale = Prelude.Nothing,
       rulesPackageArns =
-        Lens._Coerce Lens.# pRulesPackageArns_
+        Lens.coerced Lens.# pRulesPackageArns_
     }
 
 -- | The locale that you want to translate a rules package description into.
@@ -86,7 +86,7 @@ describeRulesPackages_locale = Lens.lens (\DescribeRulesPackages' {locale} -> lo
 
 -- | The ARN that specifies the rules package that you want to describe.
 describeRulesPackages_rulesPackageArns :: Lens.Lens' DescribeRulesPackages (Prelude.NonEmpty Prelude.Text)
-describeRulesPackages_rulesPackageArns = Lens.lens (\DescribeRulesPackages' {rulesPackageArns} -> rulesPackageArns) (\s@DescribeRulesPackages' {} a -> s {rulesPackageArns = a} :: DescribeRulesPackages) Prelude.. Lens._Coerce
+describeRulesPackages_rulesPackageArns = Lens.lens (\DescribeRulesPackages' {rulesPackageArns} -> rulesPackageArns) (\s@DescribeRulesPackages' {} a -> s {rulesPackageArns = a} :: DescribeRulesPackages) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeRulesPackages where
   type
@@ -181,11 +181,11 @@ describeRulesPackagesResponse_httpStatus = Lens.lens (\DescribeRulesPackagesResp
 
 -- | Information about the rules package.
 describeRulesPackagesResponse_rulesPackages :: Lens.Lens' DescribeRulesPackagesResponse [RulesPackage]
-describeRulesPackagesResponse_rulesPackages = Lens.lens (\DescribeRulesPackagesResponse' {rulesPackages} -> rulesPackages) (\s@DescribeRulesPackagesResponse' {} a -> s {rulesPackages = a} :: DescribeRulesPackagesResponse) Prelude.. Lens._Coerce
+describeRulesPackagesResponse_rulesPackages = Lens.lens (\DescribeRulesPackagesResponse' {rulesPackages} -> rulesPackages) (\s@DescribeRulesPackagesResponse' {} a -> s {rulesPackages = a} :: DescribeRulesPackagesResponse) Prelude.. Lens.coerced
 
 -- | Rules package details that cannot be described. An error code is
 -- provided for each failed item.
 describeRulesPackagesResponse_failedItems :: Lens.Lens' DescribeRulesPackagesResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeRulesPackagesResponse_failedItems = Lens.lens (\DescribeRulesPackagesResponse' {failedItems} -> failedItems) (\s@DescribeRulesPackagesResponse' {} a -> s {failedItems = a} :: DescribeRulesPackagesResponse) Prelude.. Lens._Coerce
+describeRulesPackagesResponse_failedItems = Lens.lens (\DescribeRulesPackagesResponse' {failedItems} -> failedItems) (\s@DescribeRulesPackagesResponse' {} a -> s {failedItems = a} :: DescribeRulesPackagesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeRulesPackagesResponse

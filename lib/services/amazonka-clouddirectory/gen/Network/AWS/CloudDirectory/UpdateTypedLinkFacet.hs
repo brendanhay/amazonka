@@ -122,7 +122,7 @@ updateTypedLinkFacet_name = Lens.lens (\UpdateTypedLinkFacet' {name} -> name) (\
 
 -- | Attributes update structure.
 updateTypedLinkFacet_attributeUpdates :: Lens.Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
-updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateTypedLinkFacet' {} a -> s {attributeUpdates = a} :: UpdateTypedLinkFacet) Prelude.. Lens._Coerce
+updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateTypedLinkFacet' {} a -> s {attributeUpdates = a} :: UpdateTypedLinkFacet) Prelude.. Lens.coerced
 
 -- | The order of identity attributes for the facet, from most significant to
 -- least significant. The ability to filter typed links considers the order
@@ -135,7 +135,7 @@ updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attri
 -- attributes, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 updateTypedLinkFacet_identityAttributeOrder :: Lens.Lens' UpdateTypedLinkFacet [Prelude.Text]
-updateTypedLinkFacet_identityAttributeOrder = Lens.lens (\UpdateTypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@UpdateTypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: UpdateTypedLinkFacet) Prelude.. Lens._Coerce
+updateTypedLinkFacet_identityAttributeOrder = Lens.lens (\UpdateTypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@UpdateTypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: UpdateTypedLinkFacet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateTypedLinkFacet where
   type

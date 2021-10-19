@@ -28,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | The ID of the AWS account to use when performing the job.
+  { -- | Other data about a job.
+    data' :: Prelude.Maybe JobData,
+    -- | The ID of the AWS account to use when performing the job.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | The unique system-generated ID of the job.
+    id :: Prelude.Maybe Prelude.Text,
     -- | A system-generated random number that AWS CodePipeline uses to ensure
     -- that the job is being worked on by only one job worker. Use this number
     -- in an AcknowledgeJob request.
-    nonce :: Prelude.Maybe Prelude.Text,
-    -- | Other data about a job.
-    data' :: Prelude.Maybe JobData,
-    -- | The unique system-generated ID of the job.
-    id :: Prelude.Maybe Prelude.Text
+    nonce :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -49,28 +49,36 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'data'', 'job_data' - Other data about a job.
+--
 -- 'accountId', 'job_accountId' - The ID of the AWS account to use when performing the job.
+--
+-- 'id', 'job_id' - The unique system-generated ID of the job.
 --
 -- 'nonce', 'job_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Use this number
 -- in an AcknowledgeJob request.
---
--- 'data'', 'job_data' - Other data about a job.
---
--- 'id', 'job_id' - The unique system-generated ID of the job.
 newJob ::
   Job
 newJob =
   Job'
-    { accountId = Prelude.Nothing,
-      nonce = Prelude.Nothing,
-      data' = Prelude.Nothing,
-      id = Prelude.Nothing
+    { data' = Prelude.Nothing,
+      accountId = Prelude.Nothing,
+      id = Prelude.Nothing,
+      nonce = Prelude.Nothing
     }
+
+-- | Other data about a job.
+job_data :: Lens.Lens' Job (Prelude.Maybe JobData)
+job_data = Lens.lens (\Job' {data'} -> data') (\s@Job' {} a -> s {data' = a} :: Job)
 
 -- | The ID of the AWS account to use when performing the job.
 job_accountId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_accountId = Lens.lens (\Job' {accountId} -> accountId) (\s@Job' {} a -> s {accountId = a} :: Job)
+
+-- | The unique system-generated ID of the job.
+job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Use this number
@@ -78,24 +86,16 @@ job_accountId = Lens.lens (\Job' {accountId} -> accountId) (\s@Job' {} a -> s {a
 job_nonce :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_nonce = Lens.lens (\Job' {nonce} -> nonce) (\s@Job' {} a -> s {nonce = a} :: Job)
 
--- | Other data about a job.
-job_data :: Lens.Lens' Job (Prelude.Maybe JobData)
-job_data = Lens.lens (\Job' {data'} -> data') (\s@Job' {} a -> s {data' = a} :: Job)
-
--- | The unique system-generated ID of the job.
-job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
-job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
-
 instance Core.FromJSON Job where
   parseJSON =
     Core.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "accountId")
-            Prelude.<*> (x Core..:? "nonce")
-            Prelude.<*> (x Core..:? "data")
+            Prelude.<$> (x Core..:? "data")
+            Prelude.<*> (x Core..:? "accountId")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "nonce")
       )
 
 instance Prelude.Hashable Job

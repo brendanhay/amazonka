@@ -37,8 +37,8 @@ module Network.AWS.Connect.ListContactFlows
     newListContactFlows,
 
     -- * Request Lenses
-    listContactFlows_nextToken,
     listContactFlows_contactFlowTypes,
+    listContactFlows_nextToken,
     listContactFlows_maxResults,
     listContactFlows_instanceId,
 
@@ -47,8 +47,8 @@ module Network.AWS.Connect.ListContactFlows
     newListContactFlowsResponse,
 
     -- * Response Lenses
-    listContactFlowsResponse_nextToken,
     listContactFlowsResponse_contactFlowSummaryList,
+    listContactFlowsResponse_nextToken,
     listContactFlowsResponse_httpStatus,
   )
 where
@@ -62,12 +62,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListContactFlows' smart constructor.
 data ListContactFlows = ListContactFlows'
-  { -- | The token for the next set of results. Use the value returned in the
+  { -- | The type of contact flow.
+    contactFlowTypes :: Prelude.Maybe [ContactFlowType],
+    -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The type of contact flow.
-    contactFlowTypes :: Prelude.Maybe [ContactFlowType],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
@@ -84,11 +84,11 @@ data ListContactFlows = ListContactFlows'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactFlowTypes', 'listContactFlows_contactFlowTypes' - The type of contact flow.
+--
 -- 'nextToken', 'listContactFlows_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
---
--- 'contactFlowTypes', 'listContactFlows_contactFlowTypes' - The type of contact flow.
 --
 -- 'maxResults', 'listContactFlows_maxResults' - The maximum number of results to return per page.
 --
@@ -100,21 +100,22 @@ newListContactFlows ::
   ListContactFlows
 newListContactFlows pInstanceId_ =
   ListContactFlows'
-    { nextToken = Prelude.Nothing,
-      contactFlowTypes = Prelude.Nothing,
+    { contactFlowTypes =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | The type of contact flow.
+listContactFlows_contactFlowTypes :: Lens.Lens' ListContactFlows (Prelude.Maybe [ContactFlowType])
+listContactFlows_contactFlowTypes = Lens.lens (\ListContactFlows' {contactFlowTypes} -> contactFlowTypes) (\s@ListContactFlows' {} a -> s {contactFlowTypes = a} :: ListContactFlows) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
 listContactFlows_nextToken :: Lens.Lens' ListContactFlows (Prelude.Maybe Prelude.Text)
 listContactFlows_nextToken = Lens.lens (\ListContactFlows' {nextToken} -> nextToken) (\s@ListContactFlows' {} a -> s {nextToken = a} :: ListContactFlows)
-
--- | The type of contact flow.
-listContactFlows_contactFlowTypes :: Lens.Lens' ListContactFlows (Prelude.Maybe [ContactFlowType])
-listContactFlows_contactFlowTypes = Lens.lens (\ListContactFlows' {contactFlowTypes} -> contactFlowTypes) (\s@ListContactFlows' {} a -> s {contactFlowTypes = a} :: ListContactFlows) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return per page.
 listContactFlows_maxResults :: Lens.Lens' ListContactFlows (Prelude.Maybe Prelude.Natural)
@@ -156,10 +157,10 @@ instance Core.AWSRequest ListContactFlows where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "ContactFlowSummaryList"
+            Prelude.<$> ( x Core..?> "ContactFlowSummaryList"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,22 +187,22 @@ instance Core.ToPath ListContactFlows where
 instance Core.ToQuery ListContactFlows where
   toQuery ListContactFlows' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "contactFlowTypes"
+      [ "contactFlowTypes"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> contactFlowTypes
             ),
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListContactFlowsResponse' smart constructor.
 data ListContactFlowsResponse = ListContactFlowsResponse'
-  { -- | If there are additional results, this is the token for the next set of
+  { -- | Information about the contact flows.
+    contactFlowSummaryList :: Prelude.Maybe [ContactFlowSummary],
+    -- | If there are additional results, this is the token for the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the contact flows.
-    contactFlowSummaryList :: Prelude.Maybe [ContactFlowSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -215,10 +216,10 @@ data ListContactFlowsResponse = ListContactFlowsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contactFlowSummaryList', 'listContactFlowsResponse_contactFlowSummaryList' - Information about the contact flows.
+--
 -- 'nextToken', 'listContactFlowsResponse_nextToken' - If there are additional results, this is the token for the next set of
 -- results.
---
--- 'contactFlowSummaryList', 'listContactFlowsResponse_contactFlowSummaryList' - Information about the contact flows.
 --
 -- 'httpStatus', 'listContactFlowsResponse_httpStatus' - The response's http status code.
 newListContactFlowsResponse ::
@@ -227,20 +228,20 @@ newListContactFlowsResponse ::
   ListContactFlowsResponse
 newListContactFlowsResponse pHttpStatus_ =
   ListContactFlowsResponse'
-    { nextToken =
+    { contactFlowSummaryList =
         Prelude.Nothing,
-      contactFlowSummaryList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the contact flows.
+listContactFlowsResponse_contactFlowSummaryList :: Lens.Lens' ListContactFlowsResponse (Prelude.Maybe [ContactFlowSummary])
+listContactFlowsResponse_contactFlowSummaryList = Lens.lens (\ListContactFlowsResponse' {contactFlowSummaryList} -> contactFlowSummaryList) (\s@ListContactFlowsResponse' {} a -> s {contactFlowSummaryList = a} :: ListContactFlowsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
 listContactFlowsResponse_nextToken :: Lens.Lens' ListContactFlowsResponse (Prelude.Maybe Prelude.Text)
 listContactFlowsResponse_nextToken = Lens.lens (\ListContactFlowsResponse' {nextToken} -> nextToken) (\s@ListContactFlowsResponse' {} a -> s {nextToken = a} :: ListContactFlowsResponse)
-
--- | Information about the contact flows.
-listContactFlowsResponse_contactFlowSummaryList :: Lens.Lens' ListContactFlowsResponse (Prelude.Maybe [ContactFlowSummary])
-listContactFlowsResponse_contactFlowSummaryList = Lens.lens (\ListContactFlowsResponse' {contactFlowSummaryList} -> contactFlowSummaryList) (\s@ListContactFlowsResponse' {} a -> s {contactFlowSummaryList = a} :: ListContactFlowsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listContactFlowsResponse_httpStatus :: Lens.Lens' ListContactFlowsResponse Prelude.Int

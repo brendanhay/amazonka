@@ -27,9 +27,9 @@ module Network.AWS.EC2.DescribeVpcClassicLink
     newDescribeVpcClassicLink,
 
     -- * Request Lenses
-    describeVpcClassicLink_dryRun,
     describeVpcClassicLink_filters,
     describeVpcClassicLink_vpcIds,
+    describeVpcClassicLink_dryRun,
 
     -- * Destructuring the Response
     DescribeVpcClassicLinkResponse (..),
@@ -50,12 +50,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVpcClassicLink' smart constructor.
 data DescribeVpcClassicLink = DescribeVpcClassicLink'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+  { -- | One or more filters.
     --
     -- -   @is-classic-link-enabled@ - Whether the VPC is enabled for
     --     ClassicLink (@true@ | @false@).
@@ -71,7 +66,12 @@ data DescribeVpcClassicLink = DescribeVpcClassicLink'
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
     -- | One or more VPCs for which you want to describe the ClassicLink status.
-    vpcIds :: Prelude.Maybe [Prelude.Text]
+    vpcIds :: Prelude.Maybe [Prelude.Text],
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,11 +82,6 @@ data DescribeVpcClassicLink = DescribeVpcClassicLink'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'dryRun', 'describeVpcClassicLink_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'filters', 'describeVpcClassicLink_filters' - One or more filters.
 --
@@ -104,21 +99,19 @@ data DescribeVpcClassicLink = DescribeVpcClassicLink'
 --     regardless of the tag value.
 --
 -- 'vpcIds', 'describeVpcClassicLink_vpcIds' - One or more VPCs for which you want to describe the ClassicLink status.
+--
+-- 'dryRun', 'describeVpcClassicLink_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 newDescribeVpcClassicLink ::
   DescribeVpcClassicLink
 newDescribeVpcClassicLink =
   DescribeVpcClassicLink'
-    { dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      vpcIds = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      vpcIds = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeVpcClassicLink_dryRun :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe Prelude.Bool)
-describeVpcClassicLink_dryRun = Lens.lens (\DescribeVpcClassicLink' {dryRun} -> dryRun) (\s@DescribeVpcClassicLink' {} a -> s {dryRun = a} :: DescribeVpcClassicLink)
 
 -- | One or more filters.
 --
@@ -135,11 +128,18 @@ describeVpcClassicLink_dryRun = Lens.lens (\DescribeVpcClassicLink' {dryRun} -> 
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 describeVpcClassicLink_filters :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe [Filter])
-describeVpcClassicLink_filters = Lens.lens (\DescribeVpcClassicLink' {filters} -> filters) (\s@DescribeVpcClassicLink' {} a -> s {filters = a} :: DescribeVpcClassicLink) Prelude.. Lens.mapping Lens._Coerce
+describeVpcClassicLink_filters = Lens.lens (\DescribeVpcClassicLink' {filters} -> filters) (\s@DescribeVpcClassicLink' {} a -> s {filters = a} :: DescribeVpcClassicLink) Prelude.. Lens.mapping Lens.coerced
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
 describeVpcClassicLink_vpcIds :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe [Prelude.Text])
-describeVpcClassicLink_vpcIds = Lens.lens (\DescribeVpcClassicLink' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLink' {} a -> s {vpcIds = a} :: DescribeVpcClassicLink) Prelude.. Lens.mapping Lens._Coerce
+describeVpcClassicLink_vpcIds = Lens.lens (\DescribeVpcClassicLink' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLink' {} a -> s {vpcIds = a} :: DescribeVpcClassicLink) Prelude.. Lens.mapping Lens.coerced
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeVpcClassicLink_dryRun :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe Prelude.Bool)
+describeVpcClassicLink_dryRun = Lens.lens (\DescribeVpcClassicLink' {dryRun} -> dryRun) (\s@DescribeVpcClassicLink' {} a -> s {dryRun = a} :: DescribeVpcClassicLink)
 
 instance Core.AWSRequest DescribeVpcClassicLink where
   type
@@ -173,11 +173,11 @@ instance Core.ToQuery DescribeVpcClassicLink where
           Core.=: ("DescribeVpcClassicLink" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
         Core.toQuery
-          (Core.toQueryList "VpcId" Prelude.<$> vpcIds)
+          (Core.toQueryList "VpcId" Prelude.<$> vpcIds),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeVpcClassicLinkResponse' smart constructor.
@@ -213,7 +213,7 @@ newDescribeVpcClassicLinkResponse pHttpStatus_ =
 
 -- | The ClassicLink status of one or more VPCs.
 describeVpcClassicLinkResponse_vpcs :: Lens.Lens' DescribeVpcClassicLinkResponse (Prelude.Maybe [VpcClassicLink])
-describeVpcClassicLinkResponse_vpcs = Lens.lens (\DescribeVpcClassicLinkResponse' {vpcs} -> vpcs) (\s@DescribeVpcClassicLinkResponse' {} a -> s {vpcs = a} :: DescribeVpcClassicLinkResponse) Prelude.. Lens.mapping Lens._Coerce
+describeVpcClassicLinkResponse_vpcs = Lens.lens (\DescribeVpcClassicLinkResponse' {vpcs} -> vpcs) (\s@DescribeVpcClassicLinkResponse' {} a -> s {vpcs = a} :: DescribeVpcClassicLinkResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeVpcClassicLinkResponse_httpStatus :: Lens.Lens' DescribeVpcClassicLinkResponse Prelude.Int

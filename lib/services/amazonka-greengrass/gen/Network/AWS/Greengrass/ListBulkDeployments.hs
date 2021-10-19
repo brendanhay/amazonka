@@ -197,7 +197,7 @@ listBulkDeploymentsResponse_nextToken = Lens.lens (\ListBulkDeploymentsResponse'
 
 -- | A list of bulk deployments.
 listBulkDeploymentsResponse_bulkDeployments :: Lens.Lens' ListBulkDeploymentsResponse (Prelude.Maybe [BulkDeployment])
-listBulkDeploymentsResponse_bulkDeployments = Lens.lens (\ListBulkDeploymentsResponse' {bulkDeployments} -> bulkDeployments) (\s@ListBulkDeploymentsResponse' {} a -> s {bulkDeployments = a} :: ListBulkDeploymentsResponse) Prelude.. Lens.mapping Lens._Coerce
+listBulkDeploymentsResponse_bulkDeployments = Lens.lens (\ListBulkDeploymentsResponse' {bulkDeployments} -> bulkDeployments) (\s@ListBulkDeploymentsResponse' {} a -> s {bulkDeployments = a} :: ListBulkDeploymentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listBulkDeploymentsResponse_httpStatus :: Lens.Lens' ListBulkDeploymentsResponse Prelude.Int

@@ -15,8 +15,8 @@ module Network.AWS.MarketplaceAnalytics.Lens
   ( -- * Operations
 
     -- ** StartSupportDataExport
-    startSupportDataExport_destinationS3Prefix,
     startSupportDataExport_customerDefinedValues,
+    startSupportDataExport_destinationS3Prefix,
     startSupportDataExport_dataSetType,
     startSupportDataExport_fromDate,
     startSupportDataExport_roleNameArn,
@@ -26,8 +26,8 @@ module Network.AWS.MarketplaceAnalytics.Lens
     startSupportDataExportResponse_httpStatus,
 
     -- ** GenerateDataSet
-    generateDataSet_destinationS3Prefix,
     generateDataSet_customerDefinedValues,
+    generateDataSet_destinationS3Prefix,
     generateDataSet_dataSetType,
     generateDataSet_dataSetPublicationDate,
     generateDataSet_roleNameArn,

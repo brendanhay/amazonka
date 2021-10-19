@@ -35,8 +35,8 @@ module Network.AWS.MarketplaceMetering.MeterUsage
     newMeterUsage,
 
     -- * Request Lenses
-    meterUsage_usageAllocations,
     meterUsage_usageQuantity,
+    meterUsage_usageAllocations,
     meterUsage_dryRun,
     meterUsage_productCode,
     meterUsage_timestamp,
@@ -61,14 +61,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newMeterUsage' smart constructor.
 data MeterUsage = MeterUsage'
-  { -- | The set of UsageAllocations to submit.
+  { -- | Consumption value for the hour. Defaults to @0@ if not specified.
+    usageQuantity :: Prelude.Maybe Prelude.Natural,
+    -- | The set of UsageAllocations to submit.
     --
     -- The sum of all UsageAllocation quantities must equal the UsageQuantity
     -- of the MeterUsage request, and each UsageAllocation must have a unique
     -- set of tags (include no tags).
     usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
-    -- | Consumption value for the hour. Defaults to @0@ if not specified.
-    usageQuantity :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the permissions required for the action, but
     -- does not make the request. If you have the permissions, the request
     -- returns DryRunOperation; otherwise, it returns UnauthorizedException.
@@ -96,13 +96,13 @@ data MeterUsage = MeterUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'usageQuantity', 'meterUsage_usageQuantity' - Consumption value for the hour. Defaults to @0@ if not specified.
+--
 -- 'usageAllocations', 'meterUsage_usageAllocations' - The set of UsageAllocations to submit.
 --
 -- The sum of all UsageAllocation quantities must equal the UsageQuantity
 -- of the MeterUsage request, and each UsageAllocation must have a unique
 -- set of tags (include no tags).
---
--- 'usageQuantity', 'meterUsage_usageQuantity' - Consumption value for the hour. Defaults to @0@ if not specified.
 --
 -- 'dryRun', 'meterUsage_dryRun' - Checks whether you have the permissions required for the action, but
 -- does not make the request. If you have the permissions, the request
@@ -132,13 +132,17 @@ newMeterUsage
   pTimestamp_
   pUsageDimension_ =
     MeterUsage'
-      { usageAllocations = Prelude.Nothing,
-        usageQuantity = Prelude.Nothing,
+      { usageQuantity = Prelude.Nothing,
+        usageAllocations = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         productCode = pProductCode_,
         timestamp = Core._Time Lens.# pTimestamp_,
         usageDimension = pUsageDimension_
       }
+
+-- | Consumption value for the hour. Defaults to @0@ if not specified.
+meterUsage_usageQuantity :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Natural)
+meterUsage_usageQuantity = Lens.lens (\MeterUsage' {usageQuantity} -> usageQuantity) (\s@MeterUsage' {} a -> s {usageQuantity = a} :: MeterUsage)
 
 -- | The set of UsageAllocations to submit.
 --
@@ -146,11 +150,7 @@ newMeterUsage
 -- of the MeterUsage request, and each UsageAllocation must have a unique
 -- set of tags (include no tags).
 meterUsage_usageAllocations :: Lens.Lens' MeterUsage (Prelude.Maybe (Prelude.NonEmpty UsageAllocation))
-meterUsage_usageAllocations = Lens.lens (\MeterUsage' {usageAllocations} -> usageAllocations) (\s@MeterUsage' {} a -> s {usageAllocations = a} :: MeterUsage) Prelude.. Lens.mapping Lens._Coerce
-
--- | Consumption value for the hour. Defaults to @0@ if not specified.
-meterUsage_usageQuantity :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Natural)
-meterUsage_usageQuantity = Lens.lens (\MeterUsage' {usageQuantity} -> usageQuantity) (\s@MeterUsage' {} a -> s {usageQuantity = a} :: MeterUsage)
+meterUsage_usageAllocations = Lens.lens (\MeterUsage' {usageAllocations} -> usageAllocations) (\s@MeterUsage' {} a -> s {usageAllocations = a} :: MeterUsage) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the permissions required for the action, but
 -- does not make the request. If you have the permissions, the request
@@ -210,9 +210,9 @@ instance Core.ToJSON MeterUsage where
   toJSON MeterUsage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("UsageAllocations" Core..=)
+          [ ("UsageQuantity" Core..=) Prelude.<$> usageQuantity,
+            ("UsageAllocations" Core..=)
               Prelude.<$> usageAllocations,
-            ("UsageQuantity" Core..=) Prelude.<$> usageQuantity,
             ("DryRun" Core..=) Prelude.<$> dryRun,
             Prelude.Just ("ProductCode" Core..= productCode),
             Prelude.Just ("Timestamp" Core..= timestamp),

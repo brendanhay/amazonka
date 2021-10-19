@@ -80,7 +80,7 @@ activeContext_timeToLive = Lens.lens (\ActiveContext' {timeToLive} -> timeToLive
 -- | State variables for the current context. You can use these values as
 -- default values for slots in subsequent events.
 activeContext_parameters :: Lens.Lens' ActiveContext (Prelude.HashMap Prelude.Text Prelude.Text)
-activeContext_parameters = Lens.lens (\ActiveContext' {parameters} -> parameters) (\s@ActiveContext' {} a -> s {parameters = a} :: ActiveContext) Prelude.. Lens._Coerce
+activeContext_parameters = Lens.lens (\ActiveContext' {parameters} -> parameters) (\s@ActiveContext' {} a -> s {parameters = a} :: ActiveContext) Prelude.. Lens.coerced
 
 instance Core.FromJSON ActiveContext where
   parseJSON =

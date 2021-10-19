@@ -88,29 +88,29 @@ module Network.AWS.Support
     -- ** AttachmentSetExpired
     _AttachmentSetExpired,
 
-    -- ** CaseCreationLimitExceeded
-    _CaseCreationLimitExceeded,
-
-    -- ** AttachmentSetSizeLimitExceeded
-    _AttachmentSetSizeLimitExceeded,
-
-    -- ** AttachmentSetIdNotFound
-    _AttachmentSetIdNotFound,
-
-    -- ** CaseIdNotFound
-    _CaseIdNotFound,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** AttachmentIdNotFound
-    _AttachmentIdNotFound,
-
     -- ** AttachmentLimitExceeded
     _AttachmentLimitExceeded,
 
     -- ** DescribeAttachmentLimitExceeded
     _DescribeAttachmentLimitExceeded,
+
+    -- ** CaseIdNotFound
+    _CaseIdNotFound,
+
+    -- ** AttachmentSetIdNotFound
+    _AttachmentSetIdNotFound,
+
+    -- ** AttachmentSetSizeLimitExceeded
+    _AttachmentSetSizeLimitExceeded,
+
+    -- ** AttachmentIdNotFound
+    _AttachmentIdNotFound,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** CaseCreationLimitExceeded
+    _CaseCreationLimitExceeded,
 
     -- * Waiters
     -- $waiters
@@ -118,11 +118,77 @@ module Network.AWS.Support
     -- * Operations
     -- $operations
 
+    -- ** RefreshTrustedAdvisorCheck
+    RefreshTrustedAdvisorCheck (RefreshTrustedAdvisorCheck'),
+    newRefreshTrustedAdvisorCheck,
+    RefreshTrustedAdvisorCheckResponse (RefreshTrustedAdvisorCheckResponse'),
+    newRefreshTrustedAdvisorCheckResponse,
+
+    -- ** DescribeCases (Paginated)
+    DescribeCases (DescribeCases'),
+    newDescribeCases,
+    DescribeCasesResponse (DescribeCasesResponse'),
+    newDescribeCasesResponse,
+
+    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
+    DescribeTrustedAdvisorCheckRefreshStatuses (DescribeTrustedAdvisorCheckRefreshStatuses'),
+    newDescribeTrustedAdvisorCheckRefreshStatuses,
+    DescribeTrustedAdvisorCheckRefreshStatusesResponse (DescribeTrustedAdvisorCheckRefreshStatusesResponse'),
+    newDescribeTrustedAdvisorCheckRefreshStatusesResponse,
+
+    -- ** DescribeTrustedAdvisorCheckSummaries
+    DescribeTrustedAdvisorCheckSummaries (DescribeTrustedAdvisorCheckSummaries'),
+    newDescribeTrustedAdvisorCheckSummaries,
+    DescribeTrustedAdvisorCheckSummariesResponse (DescribeTrustedAdvisorCheckSummariesResponse'),
+    newDescribeTrustedAdvisorCheckSummariesResponse,
+
+    -- ** CreateCase
+    CreateCase (CreateCase'),
+    newCreateCase,
+    CreateCaseResponse (CreateCaseResponse'),
+    newCreateCaseResponse,
+
+    -- ** ResolveCase
+    ResolveCase (ResolveCase'),
+    newResolveCase,
+    ResolveCaseResponse (ResolveCaseResponse'),
+    newResolveCaseResponse,
+
+    -- ** DescribeSeverityLevels
+    DescribeSeverityLevels (DescribeSeverityLevels'),
+    newDescribeSeverityLevels,
+    DescribeSeverityLevelsResponse (DescribeSeverityLevelsResponse'),
+    newDescribeSeverityLevelsResponse,
+
     -- ** DescribeTrustedAdvisorChecks
     DescribeTrustedAdvisorChecks (DescribeTrustedAdvisorChecks'),
     newDescribeTrustedAdvisorChecks,
     DescribeTrustedAdvisorChecksResponse (DescribeTrustedAdvisorChecksResponse'),
     newDescribeTrustedAdvisorChecksResponse,
+
+    -- ** DescribeAttachment
+    DescribeAttachment (DescribeAttachment'),
+    newDescribeAttachment,
+    DescribeAttachmentResponse (DescribeAttachmentResponse'),
+    newDescribeAttachmentResponse,
+
+    -- ** AddAttachmentsToSet
+    AddAttachmentsToSet (AddAttachmentsToSet'),
+    newAddAttachmentsToSet,
+    AddAttachmentsToSetResponse (AddAttachmentsToSetResponse'),
+    newAddAttachmentsToSetResponse,
+
+    -- ** DescribeTrustedAdvisorCheckResult
+    DescribeTrustedAdvisorCheckResult (DescribeTrustedAdvisorCheckResult'),
+    newDescribeTrustedAdvisorCheckResult,
+    DescribeTrustedAdvisorCheckResultResponse (DescribeTrustedAdvisorCheckResultResponse'),
+    newDescribeTrustedAdvisorCheckResultResponse,
+
+    -- ** DescribeServices
+    DescribeServices (DescribeServices'),
+    newDescribeServices,
+    DescribeServicesResponse (DescribeServicesResponse'),
+    newDescribeServicesResponse,
 
     -- ** DescribeCommunications (Paginated)
     DescribeCommunications (DescribeCommunications'),
@@ -135,72 +201,6 @@ module Network.AWS.Support
     newAddCommunicationToCase,
     AddCommunicationToCaseResponse (AddCommunicationToCaseResponse'),
     newAddCommunicationToCaseResponse,
-
-    -- ** DescribeSeverityLevels
-    DescribeSeverityLevels (DescribeSeverityLevels'),
-    newDescribeSeverityLevels,
-    DescribeSeverityLevelsResponse (DescribeSeverityLevelsResponse'),
-    newDescribeSeverityLevelsResponse,
-
-    -- ** DescribeTrustedAdvisorCheckResult
-    DescribeTrustedAdvisorCheckResult (DescribeTrustedAdvisorCheckResult'),
-    newDescribeTrustedAdvisorCheckResult,
-    DescribeTrustedAdvisorCheckResultResponse (DescribeTrustedAdvisorCheckResultResponse'),
-    newDescribeTrustedAdvisorCheckResultResponse,
-
-    -- ** CreateCase
-    CreateCase (CreateCase'),
-    newCreateCase,
-    CreateCaseResponse (CreateCaseResponse'),
-    newCreateCaseResponse,
-
-    -- ** DescribeTrustedAdvisorCheckSummaries
-    DescribeTrustedAdvisorCheckSummaries (DescribeTrustedAdvisorCheckSummaries'),
-    newDescribeTrustedAdvisorCheckSummaries,
-    DescribeTrustedAdvisorCheckSummariesResponse (DescribeTrustedAdvisorCheckSummariesResponse'),
-    newDescribeTrustedAdvisorCheckSummariesResponse,
-
-    -- ** RefreshTrustedAdvisorCheck
-    RefreshTrustedAdvisorCheck (RefreshTrustedAdvisorCheck'),
-    newRefreshTrustedAdvisorCheck,
-    RefreshTrustedAdvisorCheckResponse (RefreshTrustedAdvisorCheckResponse'),
-    newRefreshTrustedAdvisorCheckResponse,
-
-    -- ** AddAttachmentsToSet
-    AddAttachmentsToSet (AddAttachmentsToSet'),
-    newAddAttachmentsToSet,
-    AddAttachmentsToSetResponse (AddAttachmentsToSetResponse'),
-    newAddAttachmentsToSetResponse,
-
-    -- ** DescribeAttachment
-    DescribeAttachment (DescribeAttachment'),
-    newDescribeAttachment,
-    DescribeAttachmentResponse (DescribeAttachmentResponse'),
-    newDescribeAttachmentResponse,
-
-    -- ** DescribeServices
-    DescribeServices (DescribeServices'),
-    newDescribeServices,
-    DescribeServicesResponse (DescribeServicesResponse'),
-    newDescribeServicesResponse,
-
-    -- ** ResolveCase
-    ResolveCase (ResolveCase'),
-    newResolveCase,
-    ResolveCaseResponse (ResolveCaseResponse'),
-    newResolveCaseResponse,
-
-    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
-    DescribeTrustedAdvisorCheckRefreshStatuses (DescribeTrustedAdvisorCheckRefreshStatuses'),
-    newDescribeTrustedAdvisorCheckRefreshStatuses,
-    DescribeTrustedAdvisorCheckRefreshStatusesResponse (DescribeTrustedAdvisorCheckRefreshStatusesResponse'),
-    newDescribeTrustedAdvisorCheckRefreshStatusesResponse,
-
-    -- ** DescribeCases (Paginated)
-    DescribeCases (DescribeCases'),
-    newDescribeCases,
-    DescribeCasesResponse (DescribeCasesResponse'),
-    newDescribeCasesResponse,
 
     -- * Types
 

@@ -39,15 +39,15 @@ module Network.AWS.CloudFormation.ActivateType
 
     -- * Request Lenses
     activateType_typeName,
-    activateType_publicTypeArn,
-    activateType_loggingConfig,
-    activateType_majorVersion,
-    activateType_publisherId,
-    activateType_executionRoleArn,
-    activateType_typeNameAlias,
-    activateType_autoUpdate,
     activateType_versionBump,
+    activateType_executionRoleArn,
+    activateType_autoUpdate,
+    activateType_typeNameAlias,
+    activateType_majorVersion,
+    activateType_publicTypeArn,
     activateType_type,
+    activateType_publisherId,
+    activateType_loggingConfig,
 
     -- * Destructuring the Response
     ActivateTypeResponse (..),
@@ -73,42 +73,6 @@ data ActivateType = ActivateType'
     -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
     -- and @PublisherId@.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the public extension.
-    --
-    -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
-    -- and @PublisherId@.
-    publicTypeArn :: Prelude.Maybe Prelude.Text,
-    loggingConfig :: Prelude.Maybe LoggingConfig,
-    -- | The major version of this extension you want to activate, if multiple
-    -- major versions are available. The default is the latest major version.
-    -- CloudFormation uses the latest available /minor/ version of the major
-    -- version selected.
-    --
-    -- You can specify @MajorVersion@ or @VersionBump@, but not both.
-    majorVersion :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the extension publisher.
-    --
-    -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
-    -- and @PublisherId@.
-    publisherId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the IAM execution role to use to activate the extension.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | An alias to assign to the public extension, in this account and region.
-    -- If you specify an alias for the extension, CloudFormation treats the
-    -- alias as the extension type name within this account and region. You
-    -- must use the alias to refer to the extension in your templates, API
-    -- calls, and CloudFormation console.
-    --
-    -- An extension alias must be unique within a given account and region. You
-    -- can activate the same public resource multiple times in the same account
-    -- and region, using different type name aliases.
-    typeNameAlias :: Prelude.Maybe Prelude.Text,
-    -- | Whether to automatically update the extension in this account and region
-    -- when a new /minor/ version is published by the extension publisher.
-    -- Major versions released by the publisher must be manually updated.
-    --
-    -- The default is @true@.
-    autoUpdate :: Prelude.Maybe Prelude.Bool,
     -- | Manually updates a previously-activated type to a new major or minor
     -- version, if available. You can also use this parameter to update the
     -- value of @AutoUpdate@.
@@ -119,11 +83,47 @@ data ActivateType = ActivateType'
     -- -   @MINOR@: CloudFormation updates the extension to the newest minor
     --     version, if one is available.
     versionBump :: Prelude.Maybe VersionBump,
+    -- | The name of the IAM execution role to use to activate the extension.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether to automatically update the extension in this account and region
+    -- when a new /minor/ version is published by the extension publisher.
+    -- Major versions released by the publisher must be manually updated.
+    --
+    -- The default is @true@.
+    autoUpdate :: Prelude.Maybe Prelude.Bool,
+    -- | An alias to assign to the public extension, in this account and region.
+    -- If you specify an alias for the extension, CloudFormation treats the
+    -- alias as the extension type name within this account and region. You
+    -- must use the alias to refer to the extension in your templates, API
+    -- calls, and CloudFormation console.
+    --
+    -- An extension alias must be unique within a given account and region. You
+    -- can activate the same public resource multiple times in the same account
+    -- and region, using different type name aliases.
+    typeNameAlias :: Prelude.Maybe Prelude.Text,
+    -- | The major version of this extension you want to activate, if multiple
+    -- major versions are available. The default is the latest major version.
+    -- CloudFormation uses the latest available /minor/ version of the major
+    -- version selected.
+    --
+    -- You can specify @MajorVersion@ or @VersionBump@, but not both.
+    majorVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Number (ARN) of the public extension.
+    --
+    -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
+    -- and @PublisherId@.
+    publicTypeArn :: Prelude.Maybe Prelude.Text,
     -- | The extension type.
     --
     -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
     -- and @PublisherId@.
-    type' :: Prelude.Maybe ThirdPartyType
+    type' :: Prelude.Maybe ThirdPartyType,
+    -- | The ID of the extension publisher.
+    --
+    -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
+    -- and @PublisherId@.
+    publisherId :: Prelude.Maybe Prelude.Text,
+    loggingConfig :: Prelude.Maybe LoggingConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -140,26 +140,23 @@ data ActivateType = ActivateType'
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
 --
--- 'publicTypeArn', 'activateType_publicTypeArn' - The Amazon Resource Number (ARN) of the public extension.
+-- 'versionBump', 'activateType_versionBump' - Manually updates a previously-activated type to a new major or minor
+-- version, if available. You can also use this parameter to update the
+-- value of @AutoUpdate@.
 --
--- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
--- and @PublisherId@.
+-- -   @MAJOR@: CloudFormation updates the extension to the newest major
+--     version, if one is available.
 --
--- 'loggingConfig', 'activateType_loggingConfig' - Undocumented member.
---
--- 'majorVersion', 'activateType_majorVersion' - The major version of this extension you want to activate, if multiple
--- major versions are available. The default is the latest major version.
--- CloudFormation uses the latest available /minor/ version of the major
--- version selected.
---
--- You can specify @MajorVersion@ or @VersionBump@, but not both.
---
--- 'publisherId', 'activateType_publisherId' - The ID of the extension publisher.
---
--- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
--- and @PublisherId@.
+-- -   @MINOR@: CloudFormation updates the extension to the newest minor
+--     version, if one is available.
 --
 -- 'executionRoleArn', 'activateType_executionRoleArn' - The name of the IAM execution role to use to activate the extension.
+--
+-- 'autoUpdate', 'activateType_autoUpdate' - Whether to automatically update the extension in this account and region
+-- when a new /minor/ version is published by the extension publisher.
+-- Major versions released by the publisher must be manually updated.
+--
+-- The default is @true@.
 --
 -- 'typeNameAlias', 'activateType_typeNameAlias' - An alias to assign to the public extension, in this account and region.
 -- If you specify an alias for the extension, CloudFormation treats the
@@ -171,40 +168,43 @@ data ActivateType = ActivateType'
 -- can activate the same public resource multiple times in the same account
 -- and region, using different type name aliases.
 --
--- 'autoUpdate', 'activateType_autoUpdate' - Whether to automatically update the extension in this account and region
--- when a new /minor/ version is published by the extension publisher.
--- Major versions released by the publisher must be manually updated.
+-- 'majorVersion', 'activateType_majorVersion' - The major version of this extension you want to activate, if multiple
+-- major versions are available. The default is the latest major version.
+-- CloudFormation uses the latest available /minor/ version of the major
+-- version selected.
 --
--- The default is @true@.
+-- You can specify @MajorVersion@ or @VersionBump@, but not both.
 --
--- 'versionBump', 'activateType_versionBump' - Manually updates a previously-activated type to a new major or minor
--- version, if available. You can also use this parameter to update the
--- value of @AutoUpdate@.
+-- 'publicTypeArn', 'activateType_publicTypeArn' - The Amazon Resource Number (ARN) of the public extension.
 --
--- -   @MAJOR@: CloudFormation updates the extension to the newest major
---     version, if one is available.
---
--- -   @MINOR@: CloudFormation updates the extension to the newest minor
---     version, if one is available.
+-- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
+-- and @PublisherId@.
 --
 -- 'type'', 'activateType_type' - The extension type.
 --
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
+--
+-- 'publisherId', 'activateType_publisherId' - The ID of the extension publisher.
+--
+-- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
+-- and @PublisherId@.
+--
+-- 'loggingConfig', 'activateType_loggingConfig' - Undocumented member.
 newActivateType ::
   ActivateType
 newActivateType =
   ActivateType'
     { typeName = Prelude.Nothing,
-      publicTypeArn = Prelude.Nothing,
-      loggingConfig = Prelude.Nothing,
-      majorVersion = Prelude.Nothing,
-      publisherId = Prelude.Nothing,
-      executionRoleArn = Prelude.Nothing,
-      typeNameAlias = Prelude.Nothing,
-      autoUpdate = Prelude.Nothing,
       versionBump = Prelude.Nothing,
-      type' = Prelude.Nothing
+      executionRoleArn = Prelude.Nothing,
+      autoUpdate = Prelude.Nothing,
+      typeNameAlias = Prelude.Nothing,
+      majorVersion = Prelude.Nothing,
+      publicTypeArn = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      publisherId = Prelude.Nothing,
+      loggingConfig = Prelude.Nothing
     }
 
 -- | The name of the extension.
@@ -213,57 +213,6 @@ newActivateType =
 -- and @PublisherId@.
 activateType_typeName :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
 activateType_typeName = Lens.lens (\ActivateType' {typeName} -> typeName) (\s@ActivateType' {} a -> s {typeName = a} :: ActivateType)
-
--- | The Amazon Resource Number (ARN) of the public extension.
---
--- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
--- and @PublisherId@.
-activateType_publicTypeArn :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
-activateType_publicTypeArn = Lens.lens (\ActivateType' {publicTypeArn} -> publicTypeArn) (\s@ActivateType' {} a -> s {publicTypeArn = a} :: ActivateType)
-
--- | Undocumented member.
-activateType_loggingConfig :: Lens.Lens' ActivateType (Prelude.Maybe LoggingConfig)
-activateType_loggingConfig = Lens.lens (\ActivateType' {loggingConfig} -> loggingConfig) (\s@ActivateType' {} a -> s {loggingConfig = a} :: ActivateType)
-
--- | The major version of this extension you want to activate, if multiple
--- major versions are available. The default is the latest major version.
--- CloudFormation uses the latest available /minor/ version of the major
--- version selected.
---
--- You can specify @MajorVersion@ or @VersionBump@, but not both.
-activateType_majorVersion :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Natural)
-activateType_majorVersion = Lens.lens (\ActivateType' {majorVersion} -> majorVersion) (\s@ActivateType' {} a -> s {majorVersion = a} :: ActivateType)
-
--- | The ID of the extension publisher.
---
--- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
--- and @PublisherId@.
-activateType_publisherId :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
-activateType_publisherId = Lens.lens (\ActivateType' {publisherId} -> publisherId) (\s@ActivateType' {} a -> s {publisherId = a} :: ActivateType)
-
--- | The name of the IAM execution role to use to activate the extension.
-activateType_executionRoleArn :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
-activateType_executionRoleArn = Lens.lens (\ActivateType' {executionRoleArn} -> executionRoleArn) (\s@ActivateType' {} a -> s {executionRoleArn = a} :: ActivateType)
-
--- | An alias to assign to the public extension, in this account and region.
--- If you specify an alias for the extension, CloudFormation treats the
--- alias as the extension type name within this account and region. You
--- must use the alias to refer to the extension in your templates, API
--- calls, and CloudFormation console.
---
--- An extension alias must be unique within a given account and region. You
--- can activate the same public resource multiple times in the same account
--- and region, using different type name aliases.
-activateType_typeNameAlias :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
-activateType_typeNameAlias = Lens.lens (\ActivateType' {typeNameAlias} -> typeNameAlias) (\s@ActivateType' {} a -> s {typeNameAlias = a} :: ActivateType)
-
--- | Whether to automatically update the extension in this account and region
--- when a new /minor/ version is published by the extension publisher.
--- Major versions released by the publisher must be manually updated.
---
--- The default is @true@.
-activateType_autoUpdate :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Bool)
-activateType_autoUpdate = Lens.lens (\ActivateType' {autoUpdate} -> autoUpdate) (\s@ActivateType' {} a -> s {autoUpdate = a} :: ActivateType)
 
 -- | Manually updates a previously-activated type to a new major or minor
 -- version, if available. You can also use this parameter to update the
@@ -277,12 +226,63 @@ activateType_autoUpdate = Lens.lens (\ActivateType' {autoUpdate} -> autoUpdate) 
 activateType_versionBump :: Lens.Lens' ActivateType (Prelude.Maybe VersionBump)
 activateType_versionBump = Lens.lens (\ActivateType' {versionBump} -> versionBump) (\s@ActivateType' {} a -> s {versionBump = a} :: ActivateType)
 
+-- | The name of the IAM execution role to use to activate the extension.
+activateType_executionRoleArn :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
+activateType_executionRoleArn = Lens.lens (\ActivateType' {executionRoleArn} -> executionRoleArn) (\s@ActivateType' {} a -> s {executionRoleArn = a} :: ActivateType)
+
+-- | Whether to automatically update the extension in this account and region
+-- when a new /minor/ version is published by the extension publisher.
+-- Major versions released by the publisher must be manually updated.
+--
+-- The default is @true@.
+activateType_autoUpdate :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Bool)
+activateType_autoUpdate = Lens.lens (\ActivateType' {autoUpdate} -> autoUpdate) (\s@ActivateType' {} a -> s {autoUpdate = a} :: ActivateType)
+
+-- | An alias to assign to the public extension, in this account and region.
+-- If you specify an alias for the extension, CloudFormation treats the
+-- alias as the extension type name within this account and region. You
+-- must use the alias to refer to the extension in your templates, API
+-- calls, and CloudFormation console.
+--
+-- An extension alias must be unique within a given account and region. You
+-- can activate the same public resource multiple times in the same account
+-- and region, using different type name aliases.
+activateType_typeNameAlias :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
+activateType_typeNameAlias = Lens.lens (\ActivateType' {typeNameAlias} -> typeNameAlias) (\s@ActivateType' {} a -> s {typeNameAlias = a} :: ActivateType)
+
+-- | The major version of this extension you want to activate, if multiple
+-- major versions are available. The default is the latest major version.
+-- CloudFormation uses the latest available /minor/ version of the major
+-- version selected.
+--
+-- You can specify @MajorVersion@ or @VersionBump@, but not both.
+activateType_majorVersion :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Natural)
+activateType_majorVersion = Lens.lens (\ActivateType' {majorVersion} -> majorVersion) (\s@ActivateType' {} a -> s {majorVersion = a} :: ActivateType)
+
+-- | The Amazon Resource Number (ARN) of the public extension.
+--
+-- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
+-- and @PublisherId@.
+activateType_publicTypeArn :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
+activateType_publicTypeArn = Lens.lens (\ActivateType' {publicTypeArn} -> publicTypeArn) (\s@ActivateType' {} a -> s {publicTypeArn = a} :: ActivateType)
+
 -- | The extension type.
 --
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
 activateType_type :: Lens.Lens' ActivateType (Prelude.Maybe ThirdPartyType)
 activateType_type = Lens.lens (\ActivateType' {type'} -> type') (\s@ActivateType' {} a -> s {type' = a} :: ActivateType)
+
+-- | The ID of the extension publisher.
+--
+-- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
+-- and @PublisherId@.
+activateType_publisherId :: Lens.Lens' ActivateType (Prelude.Maybe Prelude.Text)
+activateType_publisherId = Lens.lens (\ActivateType' {publisherId} -> publisherId) (\s@ActivateType' {} a -> s {publisherId = a} :: ActivateType)
+
+-- | Undocumented member.
+activateType_loggingConfig :: Lens.Lens' ActivateType (Prelude.Maybe LoggingConfig)
+activateType_loggingConfig = Lens.lens (\ActivateType' {loggingConfig} -> loggingConfig) (\s@ActivateType' {} a -> s {loggingConfig = a} :: ActivateType)
 
 instance Core.AWSRequest ActivateType where
   type AWSResponse ActivateType = ActivateTypeResponse
@@ -314,15 +314,15 @@ instance Core.ToQuery ActivateType where
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
         "TypeName" Core.=: typeName,
-        "PublicTypeArn" Core.=: publicTypeArn,
-        "LoggingConfig" Core.=: loggingConfig,
-        "MajorVersion" Core.=: majorVersion,
-        "PublisherId" Core.=: publisherId,
-        "ExecutionRoleArn" Core.=: executionRoleArn,
-        "TypeNameAlias" Core.=: typeNameAlias,
-        "AutoUpdate" Core.=: autoUpdate,
         "VersionBump" Core.=: versionBump,
-        "Type" Core.=: type'
+        "ExecutionRoleArn" Core.=: executionRoleArn,
+        "AutoUpdate" Core.=: autoUpdate,
+        "TypeNameAlias" Core.=: typeNameAlias,
+        "MajorVersion" Core.=: majorVersion,
+        "PublicTypeArn" Core.=: publicTypeArn,
+        "Type" Core.=: type',
+        "PublisherId" Core.=: publisherId,
+        "LoggingConfig" Core.=: loggingConfig
       ]
 
 -- | /See:/ 'newActivateTypeResponse' smart constructor.

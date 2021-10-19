@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data XMLClassifier = XMLClassifier'
   { -- | The time that this classifier was registered.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The version of this classifier.
-    version :: Prelude.Maybe Prelude.Integer,
     -- | The time that this classifier was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
+    -- | The version of this classifier.
+    version :: Prelude.Maybe Prelude.Integer,
     -- | The XML tag designating the element that contains each record in an XML
     -- document being parsed. This can\'t identify a self-closing element
     -- (closed by @\/>@). An empty row element that contains only attributes
@@ -57,9 +57,9 @@ data XMLClassifier = XMLClassifier'
 --
 -- 'creationTime', 'xMLClassifier_creationTime' - The time that this classifier was registered.
 --
--- 'version', 'xMLClassifier_version' - The version of this classifier.
---
 -- 'lastUpdated', 'xMLClassifier_lastUpdated' - The time that this classifier was last updated.
+--
+-- 'version', 'xMLClassifier_version' - The version of this classifier.
 --
 -- 'rowTag', 'xMLClassifier_rowTag' - The XML tag designating the element that contains each record in an XML
 -- document being parsed. This can\'t identify a self-closing element
@@ -80,8 +80,8 @@ newXMLClassifier ::
 newXMLClassifier pName_ pClassification_ =
   XMLClassifier'
     { creationTime = Prelude.Nothing,
-      version = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
+      version = Prelude.Nothing,
       rowTag = Prelude.Nothing,
       name = pName_,
       classification = pClassification_
@@ -91,13 +91,13 @@ newXMLClassifier pName_ pClassification_ =
 xMLClassifier_creationTime :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
 xMLClassifier_creationTime = Lens.lens (\XMLClassifier' {creationTime} -> creationTime) (\s@XMLClassifier' {} a -> s {creationTime = a} :: XMLClassifier) Prelude.. Lens.mapping Core._Time
 
--- | The version of this classifier.
-xMLClassifier_version :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.Integer)
-xMLClassifier_version = Lens.lens (\XMLClassifier' {version} -> version) (\s@XMLClassifier' {} a -> s {version = a} :: XMLClassifier)
-
 -- | The time that this classifier was last updated.
 xMLClassifier_lastUpdated :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.UTCTime)
 xMLClassifier_lastUpdated = Lens.lens (\XMLClassifier' {lastUpdated} -> lastUpdated) (\s@XMLClassifier' {} a -> s {lastUpdated = a} :: XMLClassifier) Prelude.. Lens.mapping Core._Time
+
+-- | The version of this classifier.
+xMLClassifier_version :: Lens.Lens' XMLClassifier (Prelude.Maybe Prelude.Integer)
+xMLClassifier_version = Lens.lens (\XMLClassifier' {version} -> version) (\s@XMLClassifier' {} a -> s {version = a} :: XMLClassifier)
 
 -- | The XML tag designating the element that contains each record in an XML
 -- document being parsed. This can\'t identify a self-closing element
@@ -123,8 +123,8 @@ instance Core.FromJSON XMLClassifier where
       ( \x ->
           XMLClassifier'
             Prelude.<$> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "LastUpdated")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "RowTag")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Classification")

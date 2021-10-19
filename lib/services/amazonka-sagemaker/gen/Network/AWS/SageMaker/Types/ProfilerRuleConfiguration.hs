@@ -30,17 +30,17 @@ import Network.AWS.SageMaker.Types.ProcessingInstanceType
 data ProfilerRuleConfiguration = ProfilerRuleConfiguration'
   { -- | Runtime configuration for rule container.
     ruleParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The instance type to deploy a Debugger custom rule for profiling a
-    -- training job.
-    instanceType :: Prelude.Maybe ProcessingInstanceType,
     -- | Path to Amazon S3 storage location for rules.
     s3OutputPath :: Prelude.Maybe Prelude.Text,
-    -- | The size, in GB, of the ML storage volume attached to the processing
-    -- instance.
-    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | Path to local storage location for output of rules. Defaults to
     -- @\/opt\/ml\/processing\/output\/rule\/@.
     localPath :: Prelude.Maybe Prelude.Text,
+    -- | The instance type to deploy a Debugger custom rule for profiling a
+    -- training job.
+    instanceType :: Prelude.Maybe ProcessingInstanceType,
+    -- | The size, in GB, of the ML storage volume attached to the processing
+    -- instance.
+    volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | The name of the rule configuration. It must be unique relative to other
     -- rule configuration names.
     ruleConfigurationName :: Prelude.Text,
@@ -60,16 +60,16 @@ data ProfilerRuleConfiguration = ProfilerRuleConfiguration'
 --
 -- 'ruleParameters', 'profilerRuleConfiguration_ruleParameters' - Runtime configuration for rule container.
 --
--- 'instanceType', 'profilerRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for profiling a
--- training job.
---
 -- 's3OutputPath', 'profilerRuleConfiguration_s3OutputPath' - Path to Amazon S3 storage location for rules.
---
--- 'volumeSizeInGB', 'profilerRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing
--- instance.
 --
 -- 'localPath', 'profilerRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to
 -- @\/opt\/ml\/processing\/output\/rule\/@.
+--
+-- 'instanceType', 'profilerRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for profiling a
+-- training job.
+--
+-- 'volumeSizeInGB', 'profilerRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing
+-- instance.
 --
 -- 'ruleConfigurationName', 'profilerRuleConfiguration_ruleConfigurationName' - The name of the rule configuration. It must be unique relative to other
 -- rule configuration names.
@@ -88,36 +88,36 @@ newProfilerRuleConfiguration
     ProfilerRuleConfiguration'
       { ruleParameters =
           Prelude.Nothing,
-        instanceType = Prelude.Nothing,
         s3OutputPath = Prelude.Nothing,
-        volumeSizeInGB = Prelude.Nothing,
         localPath = Prelude.Nothing,
+        instanceType = Prelude.Nothing,
+        volumeSizeInGB = Prelude.Nothing,
         ruleConfigurationName = pRuleConfigurationName_,
         ruleEvaluatorImage = pRuleEvaluatorImage_
       }
 
 -- | Runtime configuration for rule container.
 profilerRuleConfiguration_ruleParameters :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-profilerRuleConfiguration_ruleParameters = Lens.lens (\ProfilerRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@ProfilerRuleConfiguration' {} a -> s {ruleParameters = a} :: ProfilerRuleConfiguration) Prelude.. Lens.mapping Lens._Coerce
+profilerRuleConfiguration_ruleParameters = Lens.lens (\ProfilerRuleConfiguration' {ruleParameters} -> ruleParameters) (\s@ProfilerRuleConfiguration' {} a -> s {ruleParameters = a} :: ProfilerRuleConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | Path to Amazon S3 storage location for rules.
+profilerRuleConfiguration_s3OutputPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
+profilerRuleConfiguration_s3OutputPath = Lens.lens (\ProfilerRuleConfiguration' {s3OutputPath} -> s3OutputPath) (\s@ProfilerRuleConfiguration' {} a -> s {s3OutputPath = a} :: ProfilerRuleConfiguration)
+
+-- | Path to local storage location for output of rules. Defaults to
+-- @\/opt\/ml\/processing\/output\/rule\/@.
+profilerRuleConfiguration_localPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
+profilerRuleConfiguration_localPath = Lens.lens (\ProfilerRuleConfiguration' {localPath} -> localPath) (\s@ProfilerRuleConfiguration' {} a -> s {localPath = a} :: ProfilerRuleConfiguration)
 
 -- | The instance type to deploy a Debugger custom rule for profiling a
 -- training job.
 profilerRuleConfiguration_instanceType :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe ProcessingInstanceType)
 profilerRuleConfiguration_instanceType = Lens.lens (\ProfilerRuleConfiguration' {instanceType} -> instanceType) (\s@ProfilerRuleConfiguration' {} a -> s {instanceType = a} :: ProfilerRuleConfiguration)
 
--- | Path to Amazon S3 storage location for rules.
-profilerRuleConfiguration_s3OutputPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
-profilerRuleConfiguration_s3OutputPath = Lens.lens (\ProfilerRuleConfiguration' {s3OutputPath} -> s3OutputPath) (\s@ProfilerRuleConfiguration' {} a -> s {s3OutputPath = a} :: ProfilerRuleConfiguration)
-
 -- | The size, in GB, of the ML storage volume attached to the processing
 -- instance.
 profilerRuleConfiguration_volumeSizeInGB :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Natural)
 profilerRuleConfiguration_volumeSizeInGB = Lens.lens (\ProfilerRuleConfiguration' {volumeSizeInGB} -> volumeSizeInGB) (\s@ProfilerRuleConfiguration' {} a -> s {volumeSizeInGB = a} :: ProfilerRuleConfiguration)
-
--- | Path to local storage location for output of rules. Defaults to
--- @\/opt\/ml\/processing\/output\/rule\/@.
-profilerRuleConfiguration_localPath :: Lens.Lens' ProfilerRuleConfiguration (Prelude.Maybe Prelude.Text)
-profilerRuleConfiguration_localPath = Lens.lens (\ProfilerRuleConfiguration' {localPath} -> localPath) (\s@ProfilerRuleConfiguration' {} a -> s {localPath = a} :: ProfilerRuleConfiguration)
 
 -- | The name of the rule configuration. It must be unique relative to other
 -- rule configuration names.
@@ -136,10 +136,10 @@ instance Core.FromJSON ProfilerRuleConfiguration where
       ( \x ->
           ProfilerRuleConfiguration'
             Prelude.<$> (x Core..:? "RuleParameters" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "S3OutputPath")
-            Prelude.<*> (x Core..:? "VolumeSizeInGB")
             Prelude.<*> (x Core..:? "LocalPath")
+            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "VolumeSizeInGB")
             Prelude.<*> (x Core..: "RuleConfigurationName")
             Prelude.<*> (x Core..: "RuleEvaluatorImage")
       )
@@ -154,11 +154,11 @@ instance Core.ToJSON ProfilerRuleConfiguration where
       ( Prelude.catMaybes
           [ ("RuleParameters" Core..=)
               Prelude.<$> ruleParameters,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("S3OutputPath" Core..=) Prelude.<$> s3OutputPath,
+            ("LocalPath" Core..=) Prelude.<$> localPath,
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("VolumeSizeInGB" Core..=)
               Prelude.<$> volumeSizeInGB,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
             Prelude.Just
               ( "RuleConfigurationName"
                   Core..= ruleConfigurationName

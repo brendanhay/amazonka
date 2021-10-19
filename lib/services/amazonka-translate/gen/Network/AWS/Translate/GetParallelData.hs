@@ -34,10 +34,10 @@ module Network.AWS.Translate.GetParallelData
     newGetParallelDataResponse,
 
     -- * Response Lenses
-    getParallelDataResponse_auxiliaryDataLocation,
     getParallelDataResponse_parallelDataProperties,
-    getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation,
     getParallelDataResponse_dataLocation,
+    getParallelDataResponse_auxiliaryDataLocation,
+    getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation,
     getParallelDataResponse_httpStatus,
   )
 where
@@ -85,12 +85,12 @@ instance Core.AWSRequest GetParallelData where
     Response.receiveJSON
       ( \s h x ->
           GetParallelDataResponse'
-            Prelude.<$> (x Core..?> "AuxiliaryDataLocation")
-            Prelude.<*> (x Core..?> "ParallelDataProperties")
+            Prelude.<$> (x Core..?> "ParallelDataProperties")
+            Prelude.<*> (x Core..?> "DataLocation")
+            Prelude.<*> (x Core..?> "AuxiliaryDataLocation")
             Prelude.<*> ( x
                             Core..?> "LatestUpdateAttemptAuxiliaryDataLocation"
                         )
-            Prelude.<*> (x Core..?> "DataLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -128,22 +128,22 @@ instance Core.ToQuery GetParallelData where
 
 -- | /See:/ 'newGetParallelDataResponse' smart constructor.
 data GetParallelDataResponse = GetParallelDataResponse'
-  { -- | The Amazon S3 location of a file that provides any errors or warnings
+  { -- | The properties of the parallel data resource that is being retrieved.
+    parallelDataProperties :: Prelude.Maybe ParallelDataProperties,
+    -- | The location of the most recent parallel data input file that was
+    -- successfully imported into Amazon Translate. The location is returned as
+    -- a presigned URL that has a 30 minute expiration.
+    dataLocation :: Prelude.Maybe ParallelDataDataLocation,
+    -- | The Amazon S3 location of a file that provides any errors or warnings
     -- that were produced by your input file. This file was created when Amazon
     -- Translate attempted to create a parallel data resource. The location is
     -- returned as a presigned URL to that has a 30 minute expiration.
     auxiliaryDataLocation :: Prelude.Maybe ParallelDataDataLocation,
-    -- | The properties of the parallel data resource that is being retrieved.
-    parallelDataProperties :: Prelude.Maybe ParallelDataProperties,
     -- | The Amazon S3 location of a file that provides any errors or warnings
     -- that were produced by your input file. This file was created when Amazon
     -- Translate attempted to update a parallel data resource. The location is
     -- returned as a presigned URL to that has a 30 minute expiration.
     latestUpdateAttemptAuxiliaryDataLocation :: Prelude.Maybe ParallelDataDataLocation,
-    -- | The location of the most recent parallel data input file that was
-    -- successfully imported into Amazon Translate. The location is returned as
-    -- a presigned URL that has a 30 minute expiration.
-    dataLocation :: Prelude.Maybe ParallelDataDataLocation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,21 +157,21 @@ data GetParallelDataResponse = GetParallelDataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parallelDataProperties', 'getParallelDataResponse_parallelDataProperties' - The properties of the parallel data resource that is being retrieved.
+--
+-- 'dataLocation', 'getParallelDataResponse_dataLocation' - The location of the most recent parallel data input file that was
+-- successfully imported into Amazon Translate. The location is returned as
+-- a presigned URL that has a 30 minute expiration.
+--
 -- 'auxiliaryDataLocation', 'getParallelDataResponse_auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to create a parallel data resource. The location is
 -- returned as a presigned URL to that has a 30 minute expiration.
 --
--- 'parallelDataProperties', 'getParallelDataResponse_parallelDataProperties' - The properties of the parallel data resource that is being retrieved.
---
 -- 'latestUpdateAttemptAuxiliaryDataLocation', 'getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to update a parallel data resource. The location is
 -- returned as a presigned URL to that has a 30 minute expiration.
---
--- 'dataLocation', 'getParallelDataResponse_dataLocation' - The location of the most recent parallel data input file that was
--- successfully imported into Amazon Translate. The location is returned as
--- a presigned URL that has a 30 minute expiration.
 --
 -- 'httpStatus', 'getParallelDataResponse_httpStatus' - The response's http status code.
 newGetParallelDataResponse ::
@@ -180,14 +180,24 @@ newGetParallelDataResponse ::
   GetParallelDataResponse
 newGetParallelDataResponse pHttpStatus_ =
   GetParallelDataResponse'
-    { auxiliaryDataLocation =
-        Prelude.Nothing,
-      parallelDataProperties = Prelude.Nothing,
-      latestUpdateAttemptAuxiliaryDataLocation =
+    { parallelDataProperties =
         Prelude.Nothing,
       dataLocation = Prelude.Nothing,
+      auxiliaryDataLocation = Prelude.Nothing,
+      latestUpdateAttemptAuxiliaryDataLocation =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The properties of the parallel data resource that is being retrieved.
+getParallelDataResponse_parallelDataProperties :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataProperties)
+getParallelDataResponse_parallelDataProperties = Lens.lens (\GetParallelDataResponse' {parallelDataProperties} -> parallelDataProperties) (\s@GetParallelDataResponse' {} a -> s {parallelDataProperties = a} :: GetParallelDataResponse)
+
+-- | The location of the most recent parallel data input file that was
+-- successfully imported into Amazon Translate. The location is returned as
+-- a presigned URL that has a 30 minute expiration.
+getParallelDataResponse_dataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
+getParallelDataResponse_dataLocation = Lens.lens (\GetParallelDataResponse' {dataLocation} -> dataLocation) (\s@GetParallelDataResponse' {} a -> s {dataLocation = a} :: GetParallelDataResponse)
 
 -- | The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
@@ -196,22 +206,12 @@ newGetParallelDataResponse pHttpStatus_ =
 getParallelDataResponse_auxiliaryDataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
 getParallelDataResponse_auxiliaryDataLocation = Lens.lens (\GetParallelDataResponse' {auxiliaryDataLocation} -> auxiliaryDataLocation) (\s@GetParallelDataResponse' {} a -> s {auxiliaryDataLocation = a} :: GetParallelDataResponse)
 
--- | The properties of the parallel data resource that is being retrieved.
-getParallelDataResponse_parallelDataProperties :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataProperties)
-getParallelDataResponse_parallelDataProperties = Lens.lens (\GetParallelDataResponse' {parallelDataProperties} -> parallelDataProperties) (\s@GetParallelDataResponse' {} a -> s {parallelDataProperties = a} :: GetParallelDataResponse)
-
 -- | The Amazon S3 location of a file that provides any errors or warnings
 -- that were produced by your input file. This file was created when Amazon
 -- Translate attempted to update a parallel data resource. The location is
 -- returned as a presigned URL to that has a 30 minute expiration.
 getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
 getParallelDataResponse_latestUpdateAttemptAuxiliaryDataLocation = Lens.lens (\GetParallelDataResponse' {latestUpdateAttemptAuxiliaryDataLocation} -> latestUpdateAttemptAuxiliaryDataLocation) (\s@GetParallelDataResponse' {} a -> s {latestUpdateAttemptAuxiliaryDataLocation = a} :: GetParallelDataResponse)
-
--- | The location of the most recent parallel data input file that was
--- successfully imported into Amazon Translate. The location is returned as
--- a presigned URL that has a 30 minute expiration.
-getParallelDataResponse_dataLocation :: Lens.Lens' GetParallelDataResponse (Prelude.Maybe ParallelDataDataLocation)
-getParallelDataResponse_dataLocation = Lens.lens (\GetParallelDataResponse' {dataLocation} -> dataLocation) (\s@GetParallelDataResponse' {} a -> s {dataLocation = a} :: GetParallelDataResponse)
 
 -- | The response's http status code.
 getParallelDataResponse_httpStatus :: Lens.Lens' GetParallelDataResponse Prelude.Int

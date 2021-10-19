@@ -60,7 +60,7 @@ resourceTags_arn = Lens.lens (\ResourceTags' {arn} -> arn) (\s@ResourceTags' {} 
 
 -- | The tags for the resource.
 resourceTags_tags :: Lens.Lens' ResourceTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Prelude.. Lens.mapping Lens._Coerce
+resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ResourceTags where
   parseJSON =

@@ -213,7 +213,7 @@ startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configur
 --     latency value, in milliseconds, for the Region that the game session
 --     is currently in. Do not include latency values for any other Region.
 startMatchBackfill_players :: Lens.Lens' StartMatchBackfill [Player]
-startMatchBackfill_players = Lens.lens (\StartMatchBackfill' {players} -> players) (\s@StartMatchBackfill' {} a -> s {players = a} :: StartMatchBackfill) Prelude.. Lens._Coerce
+startMatchBackfill_players = Lens.lens (\StartMatchBackfill' {players} -> players) (\s@StartMatchBackfill' {} a -> s {players = a} :: StartMatchBackfill) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartMatchBackfill where
   type

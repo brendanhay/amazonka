@@ -231,7 +231,7 @@ describeProjectsResponse_nextToken = Lens.lens (\DescribeProjectsResponse' {next
 -- | A list of project descriptions. The list is sorted by the date and time
 -- the projects are created.
 describeProjectsResponse_projectDescriptions :: Lens.Lens' DescribeProjectsResponse (Prelude.Maybe [ProjectDescription])
-describeProjectsResponse_projectDescriptions = Lens.lens (\DescribeProjectsResponse' {projectDescriptions} -> projectDescriptions) (\s@DescribeProjectsResponse' {} a -> s {projectDescriptions = a} :: DescribeProjectsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeProjectsResponse_projectDescriptions = Lens.lens (\DescribeProjectsResponse' {projectDescriptions} -> projectDescriptions) (\s@DescribeProjectsResponse' {} a -> s {projectDescriptions = a} :: DescribeProjectsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeProjectsResponse_httpStatus :: Lens.Lens' DescribeProjectsResponse Prelude.Int

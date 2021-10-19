@@ -31,8 +31,6 @@ data ErrorDetail = ErrorDetail'
   { -- | An optional field that contains the resource IDs associated with the
     -- error.
     resourceIds :: Prelude.Maybe [Prelude.Text],
-    -- | A more complete description of the error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the error.
     --
     -- -   __SubnetNotFound__: We couldn\'t find one of the subnets associated
@@ -56,7 +54,9 @@ data ErrorDetail = ErrorDetail'
     --
     -- -   __VpcIdNotFound__: We couldn\'t find the VPC associated with the
     --     cluster.
-    errorCode :: Prelude.Maybe EKSErrorCode
+    errorCode :: Prelude.Maybe EKSErrorCode,
+    -- | A more complete description of the error.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,8 +70,6 @@ data ErrorDetail = ErrorDetail'
 --
 -- 'resourceIds', 'errorDetail_resourceIds' - An optional field that contains the resource IDs associated with the
 -- error.
---
--- 'errorMessage', 'errorDetail_errorMessage' - A more complete description of the error.
 --
 -- 'errorCode', 'errorDetail_errorCode' - A brief description of the error.
 --
@@ -96,23 +94,21 @@ data ErrorDetail = ErrorDetail'
 --
 -- -   __VpcIdNotFound__: We couldn\'t find the VPC associated with the
 --     cluster.
+--
+-- 'errorMessage', 'errorDetail_errorMessage' - A more complete description of the error.
 newErrorDetail ::
   ErrorDetail
 newErrorDetail =
   ErrorDetail'
     { resourceIds = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | An optional field that contains the resource IDs associated with the
 -- error.
 errorDetail_resourceIds :: Lens.Lens' ErrorDetail (Prelude.Maybe [Prelude.Text])
-errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds) (\s@ErrorDetail' {} a -> s {resourceIds = a} :: ErrorDetail) Prelude.. Lens.mapping Lens._Coerce
-
--- | A more complete description of the error.
-errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
-errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
+errorDetail_resourceIds = Lens.lens (\ErrorDetail' {resourceIds} -> resourceIds) (\s@ErrorDetail' {} a -> s {resourceIds = a} :: ErrorDetail) Prelude.. Lens.mapping Lens.coerced
 
 -- | A brief description of the error.
 --
@@ -140,6 +136,10 @@ errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessa
 errorDetail_errorCode :: Lens.Lens' ErrorDetail (Prelude.Maybe EKSErrorCode)
 errorDetail_errorCode = Lens.lens (\ErrorDetail' {errorCode} -> errorCode) (\s@ErrorDetail' {} a -> s {errorCode = a} :: ErrorDetail)
 
+-- | A more complete description of the error.
+errorDetail_errorMessage :: Lens.Lens' ErrorDetail (Prelude.Maybe Prelude.Text)
+errorDetail_errorMessage = Lens.lens (\ErrorDetail' {errorMessage} -> errorMessage) (\s@ErrorDetail' {} a -> s {errorMessage = a} :: ErrorDetail)
+
 instance Core.FromJSON ErrorDetail where
   parseJSON =
     Core.withObject
@@ -147,8 +147,8 @@ instance Core.FromJSON ErrorDetail where
       ( \x ->
           ErrorDetail'
             Prelude.<$> (x Core..:? "resourceIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "errorMessage")
             Prelude.<*> (x Core..:? "errorCode")
+            Prelude.<*> (x Core..:? "errorMessage")
       )
 
 instance Prelude.Hashable ErrorDetail

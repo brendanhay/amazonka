@@ -38,8 +38,8 @@ module Network.AWS.EFS.CreateAccessPoint
     newCreateAccessPoint,
 
     -- * Request Lenses
-    createAccessPoint_rootDirectory,
     createAccessPoint_posixUser,
+    createAccessPoint_rootDirectory,
     createAccessPoint_tags,
     createAccessPoint_clientToken,
     createAccessPoint_fileSystemId,
@@ -49,16 +49,16 @@ module Network.AWS.EFS.CreateAccessPoint
     newAccessPointDescription,
 
     -- * Response Lenses
-    accessPointDescription_ownerId,
-    accessPointDescription_accessPointId,
-    accessPointDescription_accessPointArn,
-    accessPointDescription_name,
-    accessPointDescription_rootDirectory,
     accessPointDescription_posixUser,
-    accessPointDescription_tags,
-    accessPointDescription_lifeCycleState,
-    accessPointDescription_fileSystemId,
+    accessPointDescription_rootDirectory,
     accessPointDescription_clientToken,
+    accessPointDescription_accessPointId,
+    accessPointDescription_fileSystemId,
+    accessPointDescription_ownerId,
+    accessPointDescription_name,
+    accessPointDescription_accessPointArn,
+    accessPointDescription_lifeCycleState,
+    accessPointDescription_tags,
   )
 where
 
@@ -71,7 +71,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateAccessPoint' smart constructor.
 data CreateAccessPoint = CreateAccessPoint'
-  { -- | Specifies the directory on the Amazon EFS file system that the access
+  { -- | The operating system user and group applied to all file system requests
+    -- made using the access point.
+    posixUser :: Prelude.Maybe PosixUser,
+    -- | Specifies the directory on the Amazon EFS file system that the access
     -- point exposes as the root directory of your file system to NFS clients
     -- using the access point. The clients using the access point can only
     -- access the root directory and below. If the @RootDirectory@ > @Path@
@@ -85,9 +88,6 @@ data CreateAccessPoint = CreateAccessPoint'
     -- directory. If the root directory does not exist, attempts to mount using
     -- the access point will fail.
     rootDirectory :: Prelude.Maybe RootDirectory,
-    -- | The operating system user and group applied to all file system requests
-    -- made using the access point.
-    posixUser :: Prelude.Maybe PosixUser,
     -- | Creates tags associated with the access point. Each tag is a key-value
     -- pair, each key must be unique. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
@@ -109,6 +109,9 @@ data CreateAccessPoint = CreateAccessPoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'posixUser', 'createAccessPoint_posixUser' - The operating system user and group applied to all file system requests
+-- made using the access point.
+--
 -- 'rootDirectory', 'createAccessPoint_rootDirectory' - Specifies the directory on the Amazon EFS file system that the access
 -- point exposes as the root directory of your file system to NFS clients
 -- using the access point. The clients using the access point can only
@@ -122,9 +125,6 @@ data CreateAccessPoint = CreateAccessPoint'
 -- do not provide this information, Amazon EFS does not create the root
 -- directory. If the root directory does not exist, attempts to mount using
 -- the access point will fail.
---
--- 'posixUser', 'createAccessPoint_posixUser' - The operating system user and group applied to all file system requests
--- made using the access point.
 --
 -- 'tags', 'createAccessPoint_tags' - Creates tags associated with the access point. Each tag is a key-value
 -- pair, each key must be unique. For more information, see
@@ -143,12 +143,17 @@ newCreateAccessPoint ::
   CreateAccessPoint
 newCreateAccessPoint pClientToken_ pFileSystemId_ =
   CreateAccessPoint'
-    { rootDirectory = Prelude.Nothing,
-      posixUser = Prelude.Nothing,
+    { posixUser = Prelude.Nothing,
+      rootDirectory = Prelude.Nothing,
       tags = Prelude.Nothing,
       clientToken = pClientToken_,
       fileSystemId = pFileSystemId_
     }
+
+-- | The operating system user and group applied to all file system requests
+-- made using the access point.
+createAccessPoint_posixUser :: Lens.Lens' CreateAccessPoint (Prelude.Maybe PosixUser)
+createAccessPoint_posixUser = Lens.lens (\CreateAccessPoint' {posixUser} -> posixUser) (\s@CreateAccessPoint' {} a -> s {posixUser = a} :: CreateAccessPoint)
 
 -- | Specifies the directory on the Amazon EFS file system that the access
 -- point exposes as the root directory of your file system to NFS clients
@@ -166,17 +171,12 @@ newCreateAccessPoint pClientToken_ pFileSystemId_ =
 createAccessPoint_rootDirectory :: Lens.Lens' CreateAccessPoint (Prelude.Maybe RootDirectory)
 createAccessPoint_rootDirectory = Lens.lens (\CreateAccessPoint' {rootDirectory} -> rootDirectory) (\s@CreateAccessPoint' {} a -> s {rootDirectory = a} :: CreateAccessPoint)
 
--- | The operating system user and group applied to all file system requests
--- made using the access point.
-createAccessPoint_posixUser :: Lens.Lens' CreateAccessPoint (Prelude.Maybe PosixUser)
-createAccessPoint_posixUser = Lens.lens (\CreateAccessPoint' {posixUser} -> posixUser) (\s@CreateAccessPoint' {} a -> s {posixUser = a} :: CreateAccessPoint)
-
 -- | Creates tags associated with the access point. Each tag is a key-value
 -- pair, each key must be unique. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
 createAccessPoint_tags :: Lens.Lens' CreateAccessPoint (Prelude.Maybe [Tag])
-createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Prelude.. Lens.mapping Lens._Coerce
+createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
 -- idempotent creation.
@@ -207,8 +207,8 @@ instance Core.ToJSON CreateAccessPoint where
   toJSON CreateAccessPoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RootDirectory" Core..=) Prelude.<$> rootDirectory,
-            ("PosixUser" Core..=) Prelude.<$> posixUser,
+          [ ("PosixUser" Core..=) Prelude.<$> posixUser,
+            ("RootDirectory" Core..=) Prelude.<$> rootDirectory,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ClientToken" Core..= clientToken),
             Prelude.Just ("FileSystemId" Core..= fileSystemId)

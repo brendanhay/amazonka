@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVideoSelectorSettings' smart constructor.
 data VideoSelectorSettings = VideoSelectorSettings'
-  { videoSelectorPid :: Prelude.Maybe VideoSelectorPid,
-    videoSelectorProgramId :: Prelude.Maybe VideoSelectorProgramId
+  { videoSelectorProgramId :: Prelude.Maybe VideoSelectorProgramId,
+    videoSelectorPid :: Prelude.Maybe VideoSelectorPid
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data VideoSelectorSettings = VideoSelectorSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'videoSelectorPid', 'videoSelectorSettings_videoSelectorPid' - Undocumented member.
---
 -- 'videoSelectorProgramId', 'videoSelectorSettings_videoSelectorProgramId' - Undocumented member.
+--
+-- 'videoSelectorPid', 'videoSelectorSettings_videoSelectorPid' - Undocumented member.
 newVideoSelectorSettings ::
   VideoSelectorSettings
 newVideoSelectorSettings =
   VideoSelectorSettings'
-    { videoSelectorPid =
+    { videoSelectorProgramId =
         Prelude.Nothing,
-      videoSelectorProgramId = Prelude.Nothing
+      videoSelectorPid = Prelude.Nothing
     }
-
--- | Undocumented member.
-videoSelectorSettings_videoSelectorPid :: Lens.Lens' VideoSelectorSettings (Prelude.Maybe VideoSelectorPid)
-videoSelectorSettings_videoSelectorPid = Lens.lens (\VideoSelectorSettings' {videoSelectorPid} -> videoSelectorPid) (\s@VideoSelectorSettings' {} a -> s {videoSelectorPid = a} :: VideoSelectorSettings)
 
 -- | Undocumented member.
 videoSelectorSettings_videoSelectorProgramId :: Lens.Lens' VideoSelectorSettings (Prelude.Maybe VideoSelectorProgramId)
 videoSelectorSettings_videoSelectorProgramId = Lens.lens (\VideoSelectorSettings' {videoSelectorProgramId} -> videoSelectorProgramId) (\s@VideoSelectorSettings' {} a -> s {videoSelectorProgramId = a} :: VideoSelectorSettings)
+
+-- | Undocumented member.
+videoSelectorSettings_videoSelectorPid :: Lens.Lens' VideoSelectorSettings (Prelude.Maybe VideoSelectorPid)
+videoSelectorSettings_videoSelectorPid = Lens.lens (\VideoSelectorSettings' {videoSelectorPid} -> videoSelectorPid) (\s@VideoSelectorSettings' {} a -> s {videoSelectorPid = a} :: VideoSelectorSettings)
 
 instance Core.FromJSON VideoSelectorSettings where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON VideoSelectorSettings where
       "VideoSelectorSettings"
       ( \x ->
           VideoSelectorSettings'
-            Prelude.<$> (x Core..:? "videoSelectorPid")
-            Prelude.<*> (x Core..:? "videoSelectorProgramId")
+            Prelude.<$> (x Core..:? "videoSelectorProgramId")
+            Prelude.<*> (x Core..:? "videoSelectorPid")
       )
 
 instance Prelude.Hashable VideoSelectorSettings
@@ -80,9 +80,9 @@ instance Core.ToJSON VideoSelectorSettings where
   toJSON VideoSelectorSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("videoSelectorPid" Core..=)
-              Prelude.<$> videoSelectorPid,
-            ("videoSelectorProgramId" Core..=)
-              Prelude.<$> videoSelectorProgramId
+          [ ("videoSelectorProgramId" Core..=)
+              Prelude.<$> videoSelectorProgramId,
+            ("videoSelectorPid" Core..=)
+              Prelude.<$> videoSelectorPid
           ]
       )

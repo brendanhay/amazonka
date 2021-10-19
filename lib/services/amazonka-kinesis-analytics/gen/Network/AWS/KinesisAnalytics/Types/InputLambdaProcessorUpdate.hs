@@ -29,7 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInputLambdaProcessorUpdate' smart constructor.
 data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
-  { -- | The Amazon Resource Name (ARN) of the new
+  { -- | The ARN of the new IAM role that is used to access the AWS Lambda
+    -- function.
+    roleARNUpdate :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the new
     -- <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used
     -- to preprocess the records in the stream.
     --
@@ -37,10 +40,7 @@ data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
     -- include the Lambda function version in the Lambda function ARN. For more
     -- information about Lambda ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-    resourceARNUpdate :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the new IAM role that is used to access the AWS Lambda
-    -- function.
-    roleARNUpdate :: Prelude.Maybe Prelude.Text
+    resourceARNUpdate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,6 +52,9 @@ data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleARNUpdate', 'inputLambdaProcessorUpdate_roleARNUpdate' - The ARN of the new IAM role that is used to access the AWS Lambda
+-- function.
+--
 -- 'resourceARNUpdate', 'inputLambdaProcessorUpdate_resourceARNUpdate' - The Amazon Resource Name (ARN) of the new
 -- <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used
 -- to preprocess the records in the stream.
@@ -60,17 +63,19 @@ data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
 -- include the Lambda function version in the Lambda function ARN. For more
 -- information about Lambda ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
---
--- 'roleARNUpdate', 'inputLambdaProcessorUpdate_roleARNUpdate' - The ARN of the new IAM role that is used to access the AWS Lambda
--- function.
 newInputLambdaProcessorUpdate ::
   InputLambdaProcessorUpdate
 newInputLambdaProcessorUpdate =
   InputLambdaProcessorUpdate'
-    { resourceARNUpdate =
+    { roleARNUpdate =
         Prelude.Nothing,
-      roleARNUpdate = Prelude.Nothing
+      resourceARNUpdate = Prelude.Nothing
     }
+
+-- | The ARN of the new IAM role that is used to access the AWS Lambda
+-- function.
+inputLambdaProcessorUpdate_roleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Prelude.Maybe Prelude.Text)
+inputLambdaProcessorUpdate_roleARNUpdate = Lens.lens (\InputLambdaProcessorUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@InputLambdaProcessorUpdate' {} a -> s {roleARNUpdate = a} :: InputLambdaProcessorUpdate)
 
 -- | The Amazon Resource Name (ARN) of the new
 -- <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used
@@ -83,11 +88,6 @@ newInputLambdaProcessorUpdate =
 inputLambdaProcessorUpdate_resourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Prelude.Maybe Prelude.Text)
 inputLambdaProcessorUpdate_resourceARNUpdate = Lens.lens (\InputLambdaProcessorUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@InputLambdaProcessorUpdate' {} a -> s {resourceARNUpdate = a} :: InputLambdaProcessorUpdate)
 
--- | The ARN of the new IAM role that is used to access the AWS Lambda
--- function.
-inputLambdaProcessorUpdate_roleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Prelude.Maybe Prelude.Text)
-inputLambdaProcessorUpdate_roleARNUpdate = Lens.lens (\InputLambdaProcessorUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@InputLambdaProcessorUpdate' {} a -> s {roleARNUpdate = a} :: InputLambdaProcessorUpdate)
-
 instance Prelude.Hashable InputLambdaProcessorUpdate
 
 instance Prelude.NFData InputLambdaProcessorUpdate
@@ -96,8 +96,8 @@ instance Core.ToJSON InputLambdaProcessorUpdate where
   toJSON InputLambdaProcessorUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceARNUpdate" Core..=)
-              Prelude.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate
+          [ ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate,
+            ("ResourceARNUpdate" Core..=)
+              Prelude.<$> resourceARNUpdate
           ]
       )

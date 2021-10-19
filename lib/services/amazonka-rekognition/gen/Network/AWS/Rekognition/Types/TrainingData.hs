@@ -52,7 +52,7 @@ newTrainingData =
 -- | A Sagemaker GroundTruth manifest file that contains the training images
 -- (assets).
 trainingData_assets :: Lens.Lens' TrainingData (Prelude.Maybe [Asset])
-trainingData_assets = Lens.lens (\TrainingData' {assets} -> assets) (\s@TrainingData' {} a -> s {assets = a} :: TrainingData) Prelude.. Lens.mapping Lens._Coerce
+trainingData_assets = Lens.lens (\TrainingData' {assets} -> assets) (\s@TrainingData' {} a -> s {assets = a} :: TrainingData) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON TrainingData where
   parseJSON =

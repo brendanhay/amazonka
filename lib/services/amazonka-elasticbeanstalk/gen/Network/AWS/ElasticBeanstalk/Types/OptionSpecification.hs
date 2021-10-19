@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data OptionSpecification = OptionSpecification'
   { -- | The name of the configuration option.
     optionName :: Prelude.Maybe Prelude.Text,
-    -- | A unique namespace identifying the option\'s associated AWS resource.
-    namespace :: Prelude.Maybe Prelude.Text,
     -- | A unique resource name for a time-based scaling configuration option.
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | A unique namespace identifying the option\'s associated AWS resource.
+    namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data OptionSpecification = OptionSpecification'
 --
 -- 'optionName', 'optionSpecification_optionName' - The name of the configuration option.
 --
--- 'namespace', 'optionSpecification_namespace' - A unique namespace identifying the option\'s associated AWS resource.
---
 -- 'resourceName', 'optionSpecification_resourceName' - A unique resource name for a time-based scaling configuration option.
+--
+-- 'namespace', 'optionSpecification_namespace' - A unique namespace identifying the option\'s associated AWS resource.
 newOptionSpecification ::
   OptionSpecification
 newOptionSpecification =
   OptionSpecification'
     { optionName = Prelude.Nothing,
-      namespace = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+      resourceName = Prelude.Nothing,
+      namespace = Prelude.Nothing
     }
 
 -- | The name of the configuration option.
 optionSpecification_optionName :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
 optionSpecification_optionName = Lens.lens (\OptionSpecification' {optionName} -> optionName) (\s@OptionSpecification' {} a -> s {optionName = a} :: OptionSpecification)
 
--- | A unique namespace identifying the option\'s associated AWS resource.
-optionSpecification_namespace :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
-optionSpecification_namespace = Lens.lens (\OptionSpecification' {namespace} -> namespace) (\s@OptionSpecification' {} a -> s {namespace = a} :: OptionSpecification)
-
 -- | A unique resource name for a time-based scaling configuration option.
 optionSpecification_resourceName :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
 optionSpecification_resourceName = Lens.lens (\OptionSpecification' {resourceName} -> resourceName) (\s@OptionSpecification' {} a -> s {resourceName = a} :: OptionSpecification)
+
+-- | A unique namespace identifying the option\'s associated AWS resource.
+optionSpecification_namespace :: Lens.Lens' OptionSpecification (Prelude.Maybe Prelude.Text)
+optionSpecification_namespace = Lens.lens (\OptionSpecification' {namespace} -> namespace) (\s@OptionSpecification' {} a -> s {namespace = a} :: OptionSpecification)
 
 instance Prelude.Hashable OptionSpecification
 
@@ -78,6 +78,6 @@ instance Core.ToQuery OptionSpecification where
   toQuery OptionSpecification' {..} =
     Prelude.mconcat
       [ "OptionName" Core.=: optionName,
-        "Namespace" Core.=: namespace,
-        "ResourceName" Core.=: resourceName
+        "ResourceName" Core.=: resourceName,
+        "Namespace" Core.=: namespace
       ]

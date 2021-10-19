@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDestinationConfig' smart constructor.
 data DestinationConfig = DestinationConfig'
-  { -- | The destination configuration for failed invocations.
-    onFailure :: Prelude.Maybe OnFailure,
-    -- | The destination configuration for successful invocations.
-    onSuccess :: Prelude.Maybe OnSuccess
+  { -- | The destination configuration for successful invocations.
+    onSuccess :: Prelude.Maybe OnSuccess,
+    -- | The destination configuration for failed invocations.
+    onFailure :: Prelude.Maybe OnFailure
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,24 @@ data DestinationConfig = DestinationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'onFailure', 'destinationConfig_onFailure' - The destination configuration for failed invocations.
---
 -- 'onSuccess', 'destinationConfig_onSuccess' - The destination configuration for successful invocations.
+--
+-- 'onFailure', 'destinationConfig_onFailure' - The destination configuration for failed invocations.
 newDestinationConfig ::
   DestinationConfig
 newDestinationConfig =
   DestinationConfig'
-    { onFailure = Prelude.Nothing,
-      onSuccess = Prelude.Nothing
+    { onSuccess = Prelude.Nothing,
+      onFailure = Prelude.Nothing
     }
-
--- | The destination configuration for failed invocations.
-destinationConfig_onFailure :: Lens.Lens' DestinationConfig (Prelude.Maybe OnFailure)
-destinationConfig_onFailure = Lens.lens (\DestinationConfig' {onFailure} -> onFailure) (\s@DestinationConfig' {} a -> s {onFailure = a} :: DestinationConfig)
 
 -- | The destination configuration for successful invocations.
 destinationConfig_onSuccess :: Lens.Lens' DestinationConfig (Prelude.Maybe OnSuccess)
 destinationConfig_onSuccess = Lens.lens (\DestinationConfig' {onSuccess} -> onSuccess) (\s@DestinationConfig' {} a -> s {onSuccess = a} :: DestinationConfig)
+
+-- | The destination configuration for failed invocations.
+destinationConfig_onFailure :: Lens.Lens' DestinationConfig (Prelude.Maybe OnFailure)
+destinationConfig_onFailure = Lens.lens (\DestinationConfig' {onFailure} -> onFailure) (\s@DestinationConfig' {} a -> s {onFailure = a} :: DestinationConfig)
 
 instance Core.FromJSON DestinationConfig where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON DestinationConfig where
       "DestinationConfig"
       ( \x ->
           DestinationConfig'
-            Prelude.<$> (x Core..:? "OnFailure")
-            Prelude.<*> (x Core..:? "OnSuccess")
+            Prelude.<$> (x Core..:? "OnSuccess")
+            Prelude.<*> (x Core..:? "OnFailure")
       )
 
 instance Prelude.Hashable DestinationConfig
@@ -82,7 +82,7 @@ instance Core.ToJSON DestinationConfig where
   toJSON DestinationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OnFailure" Core..=) Prelude.<$> onFailure,
-            ("OnSuccess" Core..=) Prelude.<$> onSuccess
+          [ ("OnSuccess" Core..=) Prelude.<$> onSuccess,
+            ("OnFailure" Core..=) Prelude.<$> onFailure
           ]
       )

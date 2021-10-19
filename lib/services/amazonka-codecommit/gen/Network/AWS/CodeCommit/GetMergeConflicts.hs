@@ -28,9 +28,9 @@ module Network.AWS.CodeCommit.GetMergeConflicts
     newGetMergeConflicts,
 
     -- * Request Lenses
+    getMergeConflicts_conflictDetailLevel,
     getMergeConflicts_nextToken,
     getMergeConflicts_maxConflictFiles,
-    getMergeConflicts_conflictDetailLevel,
     getMergeConflicts_conflictResolutionStrategy,
     getMergeConflicts_repositoryName,
     getMergeConflicts_destinationCommitSpecifier,
@@ -42,8 +42,8 @@ module Network.AWS.CodeCommit.GetMergeConflicts
     newGetMergeConflictsResponse,
 
     -- * Response Lenses
-    getMergeConflictsResponse_nextToken,
     getMergeConflictsResponse_baseCommitId,
+    getMergeConflictsResponse_nextToken,
     getMergeConflictsResponse_httpStatus,
     getMergeConflictsResponse_mergeable,
     getMergeConflictsResponse_destinationCommitId,
@@ -61,17 +61,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMergeConflicts' smart constructor.
 data GetMergeConflicts = GetMergeConflicts'
-  { -- | An enumeration token that, when provided in a request, returns the next
-    -- batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of files to include in the output.
-    maxConflictFiles :: Prelude.Maybe Prelude.Int,
-    -- | The level of conflict detail to use. If unspecified, the default
+  { -- | The level of conflict detail to use. If unspecified, the default
     -- FILE_LEVEL is used, which returns a not-mergeable result if the same
     -- file has differences in both branches. If LINE_LEVEL is specified, a
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
     conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
+    -- | An enumeration token that, when provided in a request, returns the next
+    -- batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of files to include in the output.
+    maxConflictFiles :: Prelude.Maybe Prelude.Int,
     -- | Specifies which branch to use when resolving conflicts, or whether to
     -- attempt automatically merging two versions of a file. The default is
     -- NONE, which requires any conflicts to be resolved manually before the
@@ -98,16 +98,16 @@ data GetMergeConflicts = GetMergeConflicts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getMergeConflicts_nextToken' - An enumeration token that, when provided in a request, returns the next
--- batch of the results.
---
--- 'maxConflictFiles', 'getMergeConflicts_maxConflictFiles' - The maximum number of files to include in the output.
---
 -- 'conflictDetailLevel', 'getMergeConflicts_conflictDetailLevel' - The level of conflict detail to use. If unspecified, the default
 -- FILE_LEVEL is used, which returns a not-mergeable result if the same
 -- file has differences in both branches. If LINE_LEVEL is specified, a
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
+--
+-- 'nextToken', 'getMergeConflicts_nextToken' - An enumeration token that, when provided in a request, returns the next
+-- batch of the results.
+--
+-- 'maxConflictFiles', 'getMergeConflicts_maxConflictFiles' - The maximum number of files to include in the output.
 --
 -- 'conflictResolutionStrategy', 'getMergeConflicts_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
@@ -139,9 +139,10 @@ newGetMergeConflicts
   pSourceCommitSpecifier_
   pMergeOption_ =
     GetMergeConflicts'
-      { nextToken = Prelude.Nothing,
+      { conflictDetailLevel =
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxConflictFiles = Prelude.Nothing,
-        conflictDetailLevel = Prelude.Nothing,
         conflictResolutionStrategy = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         destinationCommitSpecifier =
@@ -149,6 +150,14 @@ newGetMergeConflicts
         sourceCommitSpecifier = pSourceCommitSpecifier_,
         mergeOption = pMergeOption_
       }
+
+-- | The level of conflict detail to use. If unspecified, the default
+-- FILE_LEVEL is used, which returns a not-mergeable result if the same
+-- file has differences in both branches. If LINE_LEVEL is specified, a
+-- conflict is considered not mergeable if the same file in both branches
+-- has differences on the same line.
+getMergeConflicts_conflictDetailLevel :: Lens.Lens' GetMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
+getMergeConflicts_conflictDetailLevel = Lens.lens (\GetMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeConflicts' {} a -> s {conflictDetailLevel = a} :: GetMergeConflicts)
 
 -- | An enumeration token that, when provided in a request, returns the next
 -- batch of the results.
@@ -158,14 +167,6 @@ getMergeConflicts_nextToken = Lens.lens (\GetMergeConflicts' {nextToken} -> next
 -- | The maximum number of files to include in the output.
 getMergeConflicts_maxConflictFiles :: Lens.Lens' GetMergeConflicts (Prelude.Maybe Prelude.Int)
 getMergeConflicts_maxConflictFiles = Lens.lens (\GetMergeConflicts' {maxConflictFiles} -> maxConflictFiles) (\s@GetMergeConflicts' {} a -> s {maxConflictFiles = a} :: GetMergeConflicts)
-
--- | The level of conflict detail to use. If unspecified, the default
--- FILE_LEVEL is used, which returns a not-mergeable result if the same
--- file has differences in both branches. If LINE_LEVEL is specified, a
--- conflict is considered not mergeable if the same file in both branches
--- has differences on the same line.
-getMergeConflicts_conflictDetailLevel :: Lens.Lens' GetMergeConflicts (Prelude.Maybe ConflictDetailLevelTypeEnum)
-getMergeConflicts_conflictDetailLevel = Lens.lens (\GetMergeConflicts' {conflictDetailLevel} -> conflictDetailLevel) (\s@GetMergeConflicts' {} a -> s {conflictDetailLevel = a} :: GetMergeConflicts)
 
 -- | Specifies which branch to use when resolving conflicts, or whether to
 -- attempt automatically merging two versions of a file. The default is
@@ -201,8 +202,8 @@ instance Core.AWSRequest GetMergeConflicts where
     Response.receiveJSON
       ( \s h x ->
           GetMergeConflictsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "baseCommitId")
+            Prelude.<$> (x Core..?> "baseCommitId")
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "mergeable")
             Prelude.<*> (x Core..:> "destinationCommitId")
@@ -235,11 +236,11 @@ instance Core.ToJSON GetMergeConflicts where
   toJSON GetMergeConflicts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("conflictDetailLevel" Core..=)
+              Prelude.<$> conflictDetailLevel,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxConflictFiles" Core..=)
               Prelude.<$> maxConflictFiles,
-            ("conflictDetailLevel" Core..=)
-              Prelude.<$> conflictDetailLevel,
             ("conflictResolutionStrategy" Core..=)
               Prelude.<$> conflictResolutionStrategy,
             Prelude.Just
@@ -264,11 +265,11 @@ instance Core.ToQuery GetMergeConflicts where
 
 -- | /See:/ 'newGetMergeConflictsResponse' smart constructor.
 data GetMergeConflictsResponse = GetMergeConflictsResponse'
-  { -- | An enumeration token that can be used in a request to return the next
+  { -- | The commit ID of the merge base.
+    baseCommitId :: Prelude.Maybe Prelude.Text,
+    -- | An enumeration token that can be used in a request to return the next
     -- batch of the results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The commit ID of the merge base.
-    baseCommitId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A Boolean value that indicates whether the code is mergeable by the
@@ -294,10 +295,10 @@ data GetMergeConflictsResponse = GetMergeConflictsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'baseCommitId', 'getMergeConflictsResponse_baseCommitId' - The commit ID of the merge base.
+--
 -- 'nextToken', 'getMergeConflictsResponse_nextToken' - An enumeration token that can be used in a request to return the next
 -- batch of the results.
---
--- 'baseCommitId', 'getMergeConflictsResponse_baseCommitId' - The commit ID of the merge base.
 --
 -- 'httpStatus', 'getMergeConflictsResponse_httpStatus' - The response's http status code.
 --
@@ -328,9 +329,9 @@ newGetMergeConflictsResponse
   pDestinationCommitId_
   pSourceCommitId_ =
     GetMergeConflictsResponse'
-      { nextToken =
+      { baseCommitId =
           Prelude.Nothing,
-        baseCommitId = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         mergeable = pMergeable_,
         destinationCommitId = pDestinationCommitId_,
@@ -338,14 +339,14 @@ newGetMergeConflictsResponse
         conflictMetadataList = Prelude.mempty
       }
 
+-- | The commit ID of the merge base.
+getMergeConflictsResponse_baseCommitId :: Lens.Lens' GetMergeConflictsResponse (Prelude.Maybe Prelude.Text)
+getMergeConflictsResponse_baseCommitId = Lens.lens (\GetMergeConflictsResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeConflictsResponse' {} a -> s {baseCommitId = a} :: GetMergeConflictsResponse)
+
 -- | An enumeration token that can be used in a request to return the next
 -- batch of the results.
 getMergeConflictsResponse_nextToken :: Lens.Lens' GetMergeConflictsResponse (Prelude.Maybe Prelude.Text)
 getMergeConflictsResponse_nextToken = Lens.lens (\GetMergeConflictsResponse' {nextToken} -> nextToken) (\s@GetMergeConflictsResponse' {} a -> s {nextToken = a} :: GetMergeConflictsResponse)
-
--- | The commit ID of the merge base.
-getMergeConflictsResponse_baseCommitId :: Lens.Lens' GetMergeConflictsResponse (Prelude.Maybe Prelude.Text)
-getMergeConflictsResponse_baseCommitId = Lens.lens (\GetMergeConflictsResponse' {baseCommitId} -> baseCommitId) (\s@GetMergeConflictsResponse' {} a -> s {baseCommitId = a} :: GetMergeConflictsResponse)
 
 -- | The response's http status code.
 getMergeConflictsResponse_httpStatus :: Lens.Lens' GetMergeConflictsResponse Prelude.Int
@@ -369,6 +370,6 @@ getMergeConflictsResponse_sourceCommitId = Lens.lens (\GetMergeConflictsResponse
 -- | A list of metadata for any conflicting files. If the specified merge
 -- strategy is FAST_FORWARD_MERGE, this list is always empty.
 getMergeConflictsResponse_conflictMetadataList :: Lens.Lens' GetMergeConflictsResponse [ConflictMetadata]
-getMergeConflictsResponse_conflictMetadataList = Lens.lens (\GetMergeConflictsResponse' {conflictMetadataList} -> conflictMetadataList) (\s@GetMergeConflictsResponse' {} a -> s {conflictMetadataList = a} :: GetMergeConflictsResponse) Prelude.. Lens._Coerce
+getMergeConflictsResponse_conflictMetadataList = Lens.lens (\GetMergeConflictsResponse' {conflictMetadataList} -> conflictMetadataList) (\s@GetMergeConflictsResponse' {} a -> s {conflictMetadataList = a} :: GetMergeConflictsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetMergeConflictsResponse

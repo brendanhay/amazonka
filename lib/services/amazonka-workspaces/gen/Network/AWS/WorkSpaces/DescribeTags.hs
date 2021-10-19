@@ -154,7 +154,7 @@ newDescribeTagsResponse pHttpStatus_ =
 
 -- | The tags.
 describeTagsResponse_tagList :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [Tag])
-describeTagsResponse_tagList = Lens.lens (\DescribeTagsResponse' {tagList} -> tagList) (\s@DescribeTagsResponse' {} a -> s {tagList = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_tagList = Lens.lens (\DescribeTagsResponse' {tagList} -> tagList) (\s@DescribeTagsResponse' {} a -> s {tagList = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

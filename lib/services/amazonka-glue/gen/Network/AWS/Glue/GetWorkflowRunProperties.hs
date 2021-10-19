@@ -167,7 +167,7 @@ newGetWorkflowRunPropertiesResponse pHttpStatus_ =
 
 -- | The workflow run properties which were set during the specified run.
 getWorkflowRunPropertiesResponse_runProperties :: Lens.Lens' GetWorkflowRunPropertiesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getWorkflowRunPropertiesResponse_runProperties = Lens.lens (\GetWorkflowRunPropertiesResponse' {runProperties} -> runProperties) (\s@GetWorkflowRunPropertiesResponse' {} a -> s {runProperties = a} :: GetWorkflowRunPropertiesResponse) Prelude.. Lens.mapping Lens._Coerce
+getWorkflowRunPropertiesResponse_runProperties = Lens.lens (\GetWorkflowRunPropertiesResponse' {runProperties} -> runProperties) (\s@GetWorkflowRunPropertiesResponse' {} a -> s {runProperties = a} :: GetWorkflowRunPropertiesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getWorkflowRunPropertiesResponse_httpStatus :: Lens.Lens' GetWorkflowRunPropertiesResponse Prelude.Int

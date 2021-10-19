@@ -49,8 +49,8 @@ module Network.AWS.IAM.UpdateServerCertificate
     newUpdateServerCertificate,
 
     -- * Request Lenses
-    updateServerCertificate_newPath,
     updateServerCertificate_newServerCertificateName,
+    updateServerCertificate_newPath,
     updateServerCertificate_serverCertificateName,
 
     -- * Destructuring the Response
@@ -68,7 +68,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateServerCertificate' smart constructor.
 data UpdateServerCertificate = UpdateServerCertificate'
-  { -- | The new path for the server certificate. Include this only if you are
+  { -- | The new name for the server certificate. Include this only if you are
+    -- updating the server certificate\'s name. The name of the certificate
+    -- cannot contain any spaces.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    newServerCertificateName' :: Prelude.Maybe Prelude.Text,
+    -- | The new path for the server certificate. Include this only if you are
     -- updating the server certificate\'s path.
     --
     -- This parameter allows (through its
@@ -79,15 +88,6 @@ data UpdateServerCertificate = UpdateServerCertificate'
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
     newPath' :: Prelude.Maybe Prelude.Text,
-    -- | The new name for the server certificate. Include this only if you are
-    -- updating the server certificate\'s name. The name of the certificate
-    -- cannot contain any spaces.
-    --
-    -- This parameter allows (through its
-    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- consisting of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: _+=,.\@-
-    newServerCertificateName' :: Prelude.Maybe Prelude.Text,
     -- | The name of the server certificate that you want to update.
     --
     -- This parameter allows (through its
@@ -106,6 +106,15 @@ data UpdateServerCertificate = UpdateServerCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'newServerCertificateName'', 'updateServerCertificate_newServerCertificateName' - The new name for the server certificate. Include this only if you are
+-- updating the server certificate\'s name. The name of the certificate
+-- cannot contain any spaces.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
 -- 'newPath'', 'updateServerCertificate_newPath' - The new path for the server certificate. Include this only if you are
 -- updating the server certificate\'s path.
 --
@@ -116,15 +125,6 @@ data UpdateServerCertificate = UpdateServerCertificate'
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
---
--- 'newServerCertificateName'', 'updateServerCertificate_newServerCertificateName' - The new name for the server certificate. Include this only if you are
--- updating the server certificate\'s name. The name of the certificate
--- cannot contain any spaces.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'serverCertificateName', 'updateServerCertificate_serverCertificateName' - The name of the server certificate that you want to update.
 --
@@ -138,11 +138,22 @@ newUpdateServerCertificate ::
   UpdateServerCertificate
 newUpdateServerCertificate pServerCertificateName_ =
   UpdateServerCertificate'
-    { newPath' =
+    { newServerCertificateName' =
         Prelude.Nothing,
-      newServerCertificateName' = Prelude.Nothing,
+      newPath' = Prelude.Nothing,
       serverCertificateName = pServerCertificateName_
     }
+
+-- | The new name for the server certificate. Include this only if you are
+-- updating the server certificate\'s name. The name of the certificate
+-- cannot contain any spaces.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+updateServerCertificate_newServerCertificateName :: Lens.Lens' UpdateServerCertificate (Prelude.Maybe Prelude.Text)
+updateServerCertificate_newServerCertificateName = Lens.lens (\UpdateServerCertificate' {newServerCertificateName'} -> newServerCertificateName') (\s@UpdateServerCertificate' {} a -> s {newServerCertificateName' = a} :: UpdateServerCertificate)
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate\'s path.
@@ -156,17 +167,6 @@ newUpdateServerCertificate pServerCertificateName_ =
 -- and lowercased letters.
 updateServerCertificate_newPath :: Lens.Lens' UpdateServerCertificate (Prelude.Maybe Prelude.Text)
 updateServerCertificate_newPath = Lens.lens (\UpdateServerCertificate' {newPath'} -> newPath') (\s@UpdateServerCertificate' {} a -> s {newPath' = a} :: UpdateServerCertificate)
-
--- | The new name for the server certificate. Include this only if you are
--- updating the server certificate\'s name. The name of the certificate
--- cannot contain any spaces.
---
--- This parameter allows (through its
--- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- consisting of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: _+=,.\@-
-updateServerCertificate_newServerCertificateName :: Lens.Lens' UpdateServerCertificate (Prelude.Maybe Prelude.Text)
-updateServerCertificate_newServerCertificateName = Lens.lens (\UpdateServerCertificate' {newServerCertificateName'} -> newServerCertificateName') (\s@UpdateServerCertificate' {} a -> s {newServerCertificateName' = a} :: UpdateServerCertificate)
 
 -- | The name of the server certificate that you want to update.
 --
@@ -203,9 +203,9 @@ instance Core.ToQuery UpdateServerCertificate where
           Core.=: ("UpdateServerCertificate" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "NewPath" Core.=: newPath',
         "NewServerCertificateName"
           Core.=: newServerCertificateName',
+        "NewPath" Core.=: newPath',
         "ServerCertificateName"
           Core.=: serverCertificateName
       ]

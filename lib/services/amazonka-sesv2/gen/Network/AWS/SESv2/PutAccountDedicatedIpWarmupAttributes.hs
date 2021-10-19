@@ -52,8 +52,8 @@ import Network.AWS.SESv2.Types
 data PutAccountDedicatedIpWarmupAttributes = PutAccountDedicatedIpWarmupAttributes'
   { -- | Enables or disables the automatic warm-up feature for dedicated IP
     -- addresses that are associated with your Amazon SES account in the
-    -- current AWS Region. Set to @true@ to enable the automatic warm-up
-    -- feature, or set to @false@ to disable it.
+    -- current Amazon Web Services Region. Set to @true@ to enable the
+    -- automatic warm-up feature, or set to @false@ to disable it.
     autoWarmupEnabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,8 +68,8 @@ data PutAccountDedicatedIpWarmupAttributes = PutAccountDedicatedIpWarmupAttribut
 --
 -- 'autoWarmupEnabled', 'putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled' - Enables or disables the automatic warm-up feature for dedicated IP
 -- addresses that are associated with your Amazon SES account in the
--- current AWS Region. Set to @true@ to enable the automatic warm-up
--- feature, or set to @false@ to disable it.
+-- current Amazon Web Services Region. Set to @true@ to enable the
+-- automatic warm-up feature, or set to @false@ to disable it.
 newPutAccountDedicatedIpWarmupAttributes ::
   PutAccountDedicatedIpWarmupAttributes
 newPutAccountDedicatedIpWarmupAttributes =
@@ -80,8 +80,8 @@ newPutAccountDedicatedIpWarmupAttributes =
 
 -- | Enables or disables the automatic warm-up feature for dedicated IP
 -- addresses that are associated with your Amazon SES account in the
--- current AWS Region. Set to @true@ to enable the automatic warm-up
--- feature, or set to @false@ to disable it.
+-- current Amazon Web Services Region. Set to @true@ to enable the
+-- automatic warm-up feature, or set to @false@ to disable it.
 putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled :: Lens.Lens' PutAccountDedicatedIpWarmupAttributes (Prelude.Maybe Prelude.Bool)
 putAccountDedicatedIpWarmupAttributes_autoWarmupEnabled = Lens.lens (\PutAccountDedicatedIpWarmupAttributes' {autoWarmupEnabled} -> autoWarmupEnabled) (\s@PutAccountDedicatedIpWarmupAttributes' {} a -> s {autoWarmupEnabled = a} :: PutAccountDedicatedIpWarmupAttributes)
 

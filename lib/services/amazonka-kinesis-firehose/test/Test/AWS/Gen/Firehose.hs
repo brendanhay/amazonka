@@ -27,133 +27,85 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartDeliveryStreamEncryption $
---             newStartDeliveryStreamEncryption
+--         [ requestPutRecord $
+--             newPutRecord
 --
 --         , requestStopDeliveryStreamEncryption $
 --             newStopDeliveryStreamEncryption
 --
---         , requestListDeliveryStreams $
---             newListDeliveryStreams
---
---         , requestListTagsForDeliveryStream $
---             newListTagsForDeliveryStream
---
---         , requestPutRecordBatch $
---             newPutRecordBatch
---
---         , requestDescribeDeliveryStream $
---             newDescribeDeliveryStream
+--         , requestTagDeliveryStream $
+--             newTagDeliveryStream
 --
 --         , requestUpdateDestination $
 --             newUpdateDestination
 --
---         , requestCreateDeliveryStream $
---             newCreateDeliveryStream
---
---         , requestPutRecord $
---             newPutRecord
+--         , requestPutRecordBatch $
+--             newPutRecordBatch
 --
 --         , requestUntagDeliveryStream $
 --             newUntagDeliveryStream
 --
+--         , requestCreateDeliveryStream $
+--             newCreateDeliveryStream
+--
+--         , requestStartDeliveryStreamEncryption $
+--             newStartDeliveryStreamEncryption
+--
+--         , requestDescribeDeliveryStream $
+--             newDescribeDeliveryStream
+--
+--         , requestListTagsForDeliveryStream $
+--             newListTagsForDeliveryStream
+--
+--         , requestListDeliveryStreams $
+--             newListDeliveryStreams
+--
 --         , requestDeleteDeliveryStream $
 --             newDeleteDeliveryStream
---
---         , requestTagDeliveryStream $
---             newTagDeliveryStream
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseStartDeliveryStreamEncryption $
---             newStartDeliveryStreamEncryptionResponse
+--         [ responsePutRecord $
+--             newPutRecordResponse
 --
 --         , responseStopDeliveryStreamEncryption $
 --             newStopDeliveryStreamEncryptionResponse
 --
---         , responseListDeliveryStreams $
---             newListDeliveryStreamsResponse
---
---         , responseListTagsForDeliveryStream $
---             newListTagsForDeliveryStreamResponse
---
---         , responsePutRecordBatch $
---             newPutRecordBatchResponse
---
---         , responseDescribeDeliveryStream $
---             newDescribeDeliveryStreamResponse
+--         , responseTagDeliveryStream $
+--             newTagDeliveryStreamResponse
 --
 --         , responseUpdateDestination $
 --             newUpdateDestinationResponse
 --
---         , responseCreateDeliveryStream $
---             newCreateDeliveryStreamResponse
---
---         , responsePutRecord $
---             newPutRecordResponse
+--         , responsePutRecordBatch $
+--             newPutRecordBatchResponse
 --
 --         , responseUntagDeliveryStream $
 --             newUntagDeliveryStreamResponse
 --
+--         , responseCreateDeliveryStream $
+--             newCreateDeliveryStreamResponse
+--
+--         , responseStartDeliveryStreamEncryption $
+--             newStartDeliveryStreamEncryptionResponse
+--
+--         , responseDescribeDeliveryStream $
+--             newDescribeDeliveryStreamResponse
+--
+--         , responseListTagsForDeliveryStream $
+--             newListTagsForDeliveryStreamResponse
+--
+--         , responseListDeliveryStreams $
+--             newListDeliveryStreamsResponse
+--
 --         , responseDeleteDeliveryStream $
 --             newDeleteDeliveryStreamResponse
---
---         , responseTagDeliveryStream $
---             newTagDeliveryStreamResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestStartDeliveryStreamEncryption :: StartDeliveryStreamEncryption -> TestTree
-requestStartDeliveryStreamEncryption =
-  req
-    "StartDeliveryStreamEncryption"
-    "fixture/StartDeliveryStreamEncryption.yaml"
-
-requestStopDeliveryStreamEncryption :: StopDeliveryStreamEncryption -> TestTree
-requestStopDeliveryStreamEncryption =
-  req
-    "StopDeliveryStreamEncryption"
-    "fixture/StopDeliveryStreamEncryption.yaml"
-
-requestListDeliveryStreams :: ListDeliveryStreams -> TestTree
-requestListDeliveryStreams =
-  req
-    "ListDeliveryStreams"
-    "fixture/ListDeliveryStreams.yaml"
-
-requestListTagsForDeliveryStream :: ListTagsForDeliveryStream -> TestTree
-requestListTagsForDeliveryStream =
-  req
-    "ListTagsForDeliveryStream"
-    "fixture/ListTagsForDeliveryStream.yaml"
-
-requestPutRecordBatch :: PutRecordBatch -> TestTree
-requestPutRecordBatch =
-  req
-    "PutRecordBatch"
-    "fixture/PutRecordBatch.yaml"
-
-requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
-requestDescribeDeliveryStream =
-  req
-    "DescribeDeliveryStream"
-    "fixture/DescribeDeliveryStream.yaml"
-
-requestUpdateDestination :: UpdateDestination -> TestTree
-requestUpdateDestination =
-  req
-    "UpdateDestination"
-    "fixture/UpdateDestination.yaml"
-
-requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
-requestCreateDeliveryStream =
-  req
-    "CreateDeliveryStream"
-    "fixture/CreateDeliveryStream.yaml"
 
 requestPutRecord :: PutRecord -> TestTree
 requestPutRecord =
@@ -161,17 +113,11 @@ requestPutRecord =
     "PutRecord"
     "fixture/PutRecord.yaml"
 
-requestUntagDeliveryStream :: UntagDeliveryStream -> TestTree
-requestUntagDeliveryStream =
+requestStopDeliveryStreamEncryption :: StopDeliveryStreamEncryption -> TestTree
+requestStopDeliveryStreamEncryption =
   req
-    "UntagDeliveryStream"
-    "fixture/UntagDeliveryStream.yaml"
-
-requestDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
-requestDeleteDeliveryStream =
-  req
-    "DeleteDeliveryStream"
-    "fixture/DeleteDeliveryStream.yaml"
+    "StopDeliveryStreamEncryption"
+    "fixture/StopDeliveryStreamEncryption.yaml"
 
 requestTagDeliveryStream :: TagDeliveryStream -> TestTree
 requestTagDeliveryStream =
@@ -179,71 +125,61 @@ requestTagDeliveryStream =
     "TagDeliveryStream"
     "fixture/TagDeliveryStream.yaml"
 
+requestUpdateDestination :: UpdateDestination -> TestTree
+requestUpdateDestination =
+  req
+    "UpdateDestination"
+    "fixture/UpdateDestination.yaml"
+
+requestPutRecordBatch :: PutRecordBatch -> TestTree
+requestPutRecordBatch =
+  req
+    "PutRecordBatch"
+    "fixture/PutRecordBatch.yaml"
+
+requestUntagDeliveryStream :: UntagDeliveryStream -> TestTree
+requestUntagDeliveryStream =
+  req
+    "UntagDeliveryStream"
+    "fixture/UntagDeliveryStream.yaml"
+
+requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
+requestCreateDeliveryStream =
+  req
+    "CreateDeliveryStream"
+    "fixture/CreateDeliveryStream.yaml"
+
+requestStartDeliveryStreamEncryption :: StartDeliveryStreamEncryption -> TestTree
+requestStartDeliveryStreamEncryption =
+  req
+    "StartDeliveryStreamEncryption"
+    "fixture/StartDeliveryStreamEncryption.yaml"
+
+requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
+requestDescribeDeliveryStream =
+  req
+    "DescribeDeliveryStream"
+    "fixture/DescribeDeliveryStream.yaml"
+
+requestListTagsForDeliveryStream :: ListTagsForDeliveryStream -> TestTree
+requestListTagsForDeliveryStream =
+  req
+    "ListTagsForDeliveryStream"
+    "fixture/ListTagsForDeliveryStream.yaml"
+
+requestListDeliveryStreams :: ListDeliveryStreams -> TestTree
+requestListDeliveryStreams =
+  req
+    "ListDeliveryStreams"
+    "fixture/ListDeliveryStreams.yaml"
+
+requestDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
+requestDeleteDeliveryStream =
+  req
+    "DeleteDeliveryStream"
+    "fixture/DeleteDeliveryStream.yaml"
+
 -- Responses
-
-responseStartDeliveryStreamEncryption :: StartDeliveryStreamEncryptionResponse -> TestTree
-responseStartDeliveryStreamEncryption =
-  res
-    "StartDeliveryStreamEncryptionResponse"
-    "fixture/StartDeliveryStreamEncryptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartDeliveryStreamEncryption)
-
-responseStopDeliveryStreamEncryption :: StopDeliveryStreamEncryptionResponse -> TestTree
-responseStopDeliveryStreamEncryption =
-  res
-    "StopDeliveryStreamEncryptionResponse"
-    "fixture/StopDeliveryStreamEncryptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopDeliveryStreamEncryption)
-
-responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
-responseListDeliveryStreams =
-  res
-    "ListDeliveryStreamsResponse"
-    "fixture/ListDeliveryStreamsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDeliveryStreams)
-
-responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
-responseListTagsForDeliveryStream =
-  res
-    "ListTagsForDeliveryStreamResponse"
-    "fixture/ListTagsForDeliveryStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForDeliveryStream)
-
-responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
-responsePutRecordBatch =
-  res
-    "PutRecordBatchResponse"
-    "fixture/PutRecordBatchResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutRecordBatch)
-
-responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
-responseDescribeDeliveryStream =
-  res
-    "DescribeDeliveryStreamResponse"
-    "fixture/DescribeDeliveryStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDeliveryStream)
-
-responseUpdateDestination :: UpdateDestinationResponse -> TestTree
-responseUpdateDestination =
-  res
-    "UpdateDestinationResponse"
-    "fixture/UpdateDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDestination)
-
-responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
-responseCreateDeliveryStream =
-  res
-    "CreateDeliveryStreamResponse"
-    "fixture/CreateDeliveryStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDeliveryStream)
 
 responsePutRecord :: PutRecordResponse -> TestTree
 responsePutRecord =
@@ -253,21 +189,13 @@ responsePutRecord =
     defaultService
     (Proxy :: Proxy PutRecord)
 
-responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
-responseUntagDeliveryStream =
+responseStopDeliveryStreamEncryption :: StopDeliveryStreamEncryptionResponse -> TestTree
+responseStopDeliveryStreamEncryption =
   res
-    "UntagDeliveryStreamResponse"
-    "fixture/UntagDeliveryStreamResponse.proto"
+    "StopDeliveryStreamEncryptionResponse"
+    "fixture/StopDeliveryStreamEncryptionResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagDeliveryStream)
-
-responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
-responseDeleteDeliveryStream =
-  res
-    "DeleteDeliveryStreamResponse"
-    "fixture/DeleteDeliveryStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDeliveryStream)
+    (Proxy :: Proxy StopDeliveryStreamEncryption)
 
 responseTagDeliveryStream :: TagDeliveryStreamResponse -> TestTree
 responseTagDeliveryStream =
@@ -276,3 +204,75 @@ responseTagDeliveryStream =
     "fixture/TagDeliveryStreamResponse.proto"
     defaultService
     (Proxy :: Proxy TagDeliveryStream)
+
+responseUpdateDestination :: UpdateDestinationResponse -> TestTree
+responseUpdateDestination =
+  res
+    "UpdateDestinationResponse"
+    "fixture/UpdateDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDestination)
+
+responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
+responsePutRecordBatch =
+  res
+    "PutRecordBatchResponse"
+    "fixture/PutRecordBatchResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutRecordBatch)
+
+responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
+responseUntagDeliveryStream =
+  res
+    "UntagDeliveryStreamResponse"
+    "fixture/UntagDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagDeliveryStream)
+
+responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
+responseCreateDeliveryStream =
+  res
+    "CreateDeliveryStreamResponse"
+    "fixture/CreateDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDeliveryStream)
+
+responseStartDeliveryStreamEncryption :: StartDeliveryStreamEncryptionResponse -> TestTree
+responseStartDeliveryStreamEncryption =
+  res
+    "StartDeliveryStreamEncryptionResponse"
+    "fixture/StartDeliveryStreamEncryptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartDeliveryStreamEncryption)
+
+responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
+responseDescribeDeliveryStream =
+  res
+    "DescribeDeliveryStreamResponse"
+    "fixture/DescribeDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDeliveryStream)
+
+responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
+responseListTagsForDeliveryStream =
+  res
+    "ListTagsForDeliveryStreamResponse"
+    "fixture/ListTagsForDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForDeliveryStream)
+
+responseListDeliveryStreams :: ListDeliveryStreamsResponse -> TestTree
+responseListDeliveryStreams =
+  res
+    "ListDeliveryStreamsResponse"
+    "fixture/ListDeliveryStreamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDeliveryStreams)
+
+responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
+responseDeleteDeliveryStream =
+  res
+    "DeleteDeliveryStreamResponse"
+    "fixture/DeleteDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDeliveryStream)

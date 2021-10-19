@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 data PromptSummary = PromptSummary'
   { -- | The Amazon Resource Name (ARN) of the prompt.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the prompt.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the prompt.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the prompt.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,29 +46,29 @@ data PromptSummary = PromptSummary'
 --
 -- 'arn', 'promptSummary_arn' - The Amazon Resource Name (ARN) of the prompt.
 --
--- 'id', 'promptSummary_id' - The identifier of the prompt.
---
 -- 'name', 'promptSummary_name' - The name of the prompt.
+--
+-- 'id', 'promptSummary_id' - The identifier of the prompt.
 newPromptSummary ::
   PromptSummary
 newPromptSummary =
   PromptSummary'
     { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the prompt.
 promptSummary_arn :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
 promptSummary_arn = Lens.lens (\PromptSummary' {arn} -> arn) (\s@PromptSummary' {} a -> s {arn = a} :: PromptSummary)
 
--- | The identifier of the prompt.
-promptSummary_id :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
-promptSummary_id = Lens.lens (\PromptSummary' {id} -> id) (\s@PromptSummary' {} a -> s {id = a} :: PromptSummary)
-
 -- | The name of the prompt.
 promptSummary_name :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
 promptSummary_name = Lens.lens (\PromptSummary' {name} -> name) (\s@PromptSummary' {} a -> s {name = a} :: PromptSummary)
+
+-- | The identifier of the prompt.
+promptSummary_id :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
+promptSummary_id = Lens.lens (\PromptSummary' {id} -> id) (\s@PromptSummary' {} a -> s {id = a} :: PromptSummary)
 
 instance Core.FromJSON PromptSummary where
   parseJSON =
@@ -77,8 +77,8 @@ instance Core.FromJSON PromptSummary where
       ( \x ->
           PromptSummary'
             Prelude.<$> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable PromptSummary

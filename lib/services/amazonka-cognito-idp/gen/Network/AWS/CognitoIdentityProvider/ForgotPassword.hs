@@ -57,9 +57,9 @@ module Network.AWS.CognitoIdentityProvider.ForgotPassword
 
     -- * Request Lenses
     forgotPassword_clientMetadata,
+    forgotPassword_analyticsMetadata,
     forgotPassword_userContextData,
     forgotPassword_secretHash,
-    forgotPassword_analyticsMetadata,
     forgotPassword_clientId,
     forgotPassword_username,
 
@@ -116,6 +116,9 @@ data ForgotPassword = ForgotPassword'
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
+    -- @ForgotPassword@ calls.
+    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
@@ -124,9 +127,6 @@ data ForgotPassword = ForgotPassword'
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
     secretHash :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The Amazon Pinpoint analytics metadata for collecting metrics for
-    -- @ForgotPassword@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
     -- | The ID of the client associated with the user pool.
     clientId :: Core.Sensitive Prelude.Text,
     -- | The user name of the user for whom you want to enter a code to reset a
@@ -175,6 +175,9 @@ data ForgotPassword = ForgotPassword'
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 --
+-- 'analyticsMetadata', 'forgotPassword_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ForgotPassword@ calls.
+--
 -- 'userContextData', 'forgotPassword_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
@@ -182,9 +185,6 @@ data ForgotPassword = ForgotPassword'
 -- 'secretHash', 'forgotPassword_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
---
--- 'analyticsMetadata', 'forgotPassword_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ForgotPassword@ calls.
 --
 -- 'clientId', 'forgotPassword_clientId' - The ID of the client associated with the user pool.
 --
@@ -199,9 +199,9 @@ newForgotPassword ::
 newForgotPassword pClientId_ pUsername_ =
   ForgotPassword'
     { clientMetadata = Prelude.Nothing,
+      analyticsMetadata = Prelude.Nothing,
       userContextData = Prelude.Nothing,
       secretHash = Prelude.Nothing,
-      analyticsMetadata = Prelude.Nothing,
       clientId = Core._Sensitive Lens.# pClientId_,
       username = Core._Sensitive Lens.# pUsername_
     }
@@ -238,7 +238,12 @@ newForgotPassword pClientId_ pUsername_ =
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 forgotPassword_clientMetadata :: Lens.Lens' ForgotPassword (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-forgotPassword_clientMetadata = Lens.lens (\ForgotPassword' {clientMetadata} -> clientMetadata) (\s@ForgotPassword' {} a -> s {clientMetadata = a} :: ForgotPassword) Prelude.. Lens.mapping Lens._Coerce
+forgotPassword_clientMetadata = Lens.lens (\ForgotPassword' {clientMetadata} -> clientMetadata) (\s@ForgotPassword' {} a -> s {clientMetadata = a} :: ForgotPassword) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Pinpoint analytics metadata for collecting metrics for
+-- @ForgotPassword@ calls.
+forgotPassword_analyticsMetadata :: Lens.Lens' ForgotPassword (Prelude.Maybe AnalyticsMetadataType)
+forgotPassword_analyticsMetadata = Lens.lens (\ForgotPassword' {analyticsMetadata} -> analyticsMetadata) (\s@ForgotPassword' {} a -> s {analyticsMetadata = a} :: ForgotPassword)
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -251,11 +256,6 @@ forgotPassword_userContextData = Lens.lens (\ForgotPassword' {userContextData} -
 -- message.
 forgotPassword_secretHash :: Lens.Lens' ForgotPassword (Prelude.Maybe Prelude.Text)
 forgotPassword_secretHash = Lens.lens (\ForgotPassword' {secretHash} -> secretHash) (\s@ForgotPassword' {} a -> s {secretHash = a} :: ForgotPassword) Prelude.. Lens.mapping Core._Sensitive
-
--- | The Amazon Pinpoint analytics metadata for collecting metrics for
--- @ForgotPassword@ calls.
-forgotPassword_analyticsMetadata :: Lens.Lens' ForgotPassword (Prelude.Maybe AnalyticsMetadataType)
-forgotPassword_analyticsMetadata = Lens.lens (\ForgotPassword' {analyticsMetadata} -> analyticsMetadata) (\s@ForgotPassword' {} a -> s {analyticsMetadata = a} :: ForgotPassword)
 
 -- | The ID of the client associated with the user pool.
 forgotPassword_clientId :: Lens.Lens' ForgotPassword Prelude.Text
@@ -304,11 +304,11 @@ instance Core.ToJSON ForgotPassword where
       ( Prelude.catMaybes
           [ ("ClientMetadata" Core..=)
               Prelude.<$> clientMetadata,
+            ("AnalyticsMetadata" Core..=)
+              Prelude.<$> analyticsMetadata,
             ("UserContextData" Core..=)
               Prelude.<$> userContextData,
             ("SecretHash" Core..=) Prelude.<$> secretHash,
-            ("AnalyticsMetadata" Core..=)
-              Prelude.<$> analyticsMetadata,
             Prelude.Just ("ClientId" Core..= clientId),
             Prelude.Just ("Username" Core..= username)
           ]

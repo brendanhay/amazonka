@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDebugSession' smart constructor.
 data DebugSession = DebugSession'
-  { -- | Contains the identifier of the Session Manager session used for the
+  { -- | Specifies if session debugging is enabled for this build.
+    sessionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Contains the identifier of the Session Manager session used for the
     -- build. To work with the paused build, you open this session to examine,
     -- control, and resume the build.
-    sessionTarget :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if session debugging is enabled for this build.
-    sessionEnabled :: Prelude.Maybe Prelude.Bool
+    sessionTarget :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,18 +46,22 @@ data DebugSession = DebugSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sessionEnabled', 'debugSession_sessionEnabled' - Specifies if session debugging is enabled for this build.
+--
 -- 'sessionTarget', 'debugSession_sessionTarget' - Contains the identifier of the Session Manager session used for the
 -- build. To work with the paused build, you open this session to examine,
 -- control, and resume the build.
---
--- 'sessionEnabled', 'debugSession_sessionEnabled' - Specifies if session debugging is enabled for this build.
 newDebugSession ::
   DebugSession
 newDebugSession =
   DebugSession'
-    { sessionTarget = Prelude.Nothing,
-      sessionEnabled = Prelude.Nothing
+    { sessionEnabled = Prelude.Nothing,
+      sessionTarget = Prelude.Nothing
     }
+
+-- | Specifies if session debugging is enabled for this build.
+debugSession_sessionEnabled :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Bool)
+debugSession_sessionEnabled = Lens.lens (\DebugSession' {sessionEnabled} -> sessionEnabled) (\s@DebugSession' {} a -> s {sessionEnabled = a} :: DebugSession)
 
 -- | Contains the identifier of the Session Manager session used for the
 -- build. To work with the paused build, you open this session to examine,
@@ -65,18 +69,14 @@ newDebugSession =
 debugSession_sessionTarget :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Text)
 debugSession_sessionTarget = Lens.lens (\DebugSession' {sessionTarget} -> sessionTarget) (\s@DebugSession' {} a -> s {sessionTarget = a} :: DebugSession)
 
--- | Specifies if session debugging is enabled for this build.
-debugSession_sessionEnabled :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Bool)
-debugSession_sessionEnabled = Lens.lens (\DebugSession' {sessionEnabled} -> sessionEnabled) (\s@DebugSession' {} a -> s {sessionEnabled = a} :: DebugSession)
-
 instance Core.FromJSON DebugSession where
   parseJSON =
     Core.withObject
       "DebugSession"
       ( \x ->
           DebugSession'
-            Prelude.<$> (x Core..:? "sessionTarget")
-            Prelude.<*> (x Core..:? "sessionEnabled")
+            Prelude.<$> (x Core..:? "sessionEnabled")
+            Prelude.<*> (x Core..:? "sessionTarget")
       )
 
 instance Prelude.Hashable DebugSession

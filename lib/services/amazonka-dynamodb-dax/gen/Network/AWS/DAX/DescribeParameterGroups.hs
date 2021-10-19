@@ -32,8 +32,8 @@ module Network.AWS.DAX.DescribeParameterGroups
 
     -- * Request Lenses
     describeParameterGroups_nextToken,
-    describeParameterGroups_maxResults,
     describeParameterGroups_parameterGroupNames,
+    describeParameterGroups_maxResults,
 
     -- * Destructuring the Response
     DescribeParameterGroupsResponse (..),
@@ -60,14 +60,14 @@ data DescribeParameterGroups = DescribeParameterGroups'
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of the parameter groups.
+    parameterGroupNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The names of the parameter groups.
-    parameterGroupNames :: Prelude.Maybe [Prelude.Text]
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,21 +84,21 @@ data DescribeParameterGroups = DescribeParameterGroups'
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
 --
+-- 'parameterGroupNames', 'describeParameterGroups_parameterGroupNames' - The names of the parameter groups.
+--
 -- 'maxResults', 'describeParameterGroups_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
---
--- 'parameterGroupNames', 'describeParameterGroups_parameterGroupNames' - The names of the parameter groups.
 newDescribeParameterGroups ::
   DescribeParameterGroups
 newDescribeParameterGroups =
   DescribeParameterGroups'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      parameterGroupNames = Prelude.Nothing
+      parameterGroupNames = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
@@ -108,6 +108,10 @@ newDescribeParameterGroups =
 describeParameterGroups_nextToken :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Text)
 describeParameterGroups_nextToken = Lens.lens (\DescribeParameterGroups' {nextToken} -> nextToken) (\s@DescribeParameterGroups' {} a -> s {nextToken = a} :: DescribeParameterGroups)
 
+-- | The names of the parameter groups.
+describeParameterGroups_parameterGroupNames :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe [Prelude.Text])
+describeParameterGroups_parameterGroupNames = Lens.lens (\DescribeParameterGroups' {parameterGroupNames} -> parameterGroupNames) (\s@DescribeParameterGroups' {} a -> s {parameterGroupNames = a} :: DescribeParameterGroups) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
@@ -115,10 +119,6 @@ describeParameterGroups_nextToken = Lens.lens (\DescribeParameterGroups' {nextTo
 -- The value for @MaxResults@ must be between 20 and 100.
 describeParameterGroups_maxResults :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Int)
 describeParameterGroups_maxResults = Lens.lens (\DescribeParameterGroups' {maxResults} -> maxResults) (\s@DescribeParameterGroups' {} a -> s {maxResults = a} :: DescribeParameterGroups)
-
--- | The names of the parameter groups.
-describeParameterGroups_parameterGroupNames :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe [Prelude.Text])
-describeParameterGroups_parameterGroupNames = Lens.lens (\DescribeParameterGroups' {parameterGroupNames} -> parameterGroupNames) (\s@DescribeParameterGroups' {} a -> s {parameterGroupNames = a} :: DescribeParameterGroups) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeParameterGroups where
   page rq rs
@@ -182,9 +182,9 @@ instance Core.ToJSON DescribeParameterGroups where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ParameterGroupNames" Core..=)
-              Prelude.<$> parameterGroupNames
+              Prelude.<$> parameterGroupNames,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -239,7 +239,7 @@ describeParameterGroupsResponse_nextToken = Lens.lens (\DescribeParameterGroupsR
 -- | An array of parameter groups. Each element in the array represents one
 -- parameter group.
 describeParameterGroupsResponse_parameterGroups :: Lens.Lens' DescribeParameterGroupsResponse (Prelude.Maybe [ParameterGroup])
-describeParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeParameterGroupsResponse' {parameterGroups} -> parameterGroups) (\s@DescribeParameterGroupsResponse' {} a -> s {parameterGroups = a} :: DescribeParameterGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeParameterGroupsResponse' {parameterGroups} -> parameterGroups) (\s@DescribeParameterGroupsResponse' {} a -> s {parameterGroups = a} :: DescribeParameterGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeParameterGroupsResponse Prelude.Int

@@ -30,12 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newScheduleRunTest' smart constructor.
 data ScheduleRunTest = ScheduleRunTest'
-  { -- | The ARN of the uploaded test to be run.
-    testPackageArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the YAML-formatted test specification.
+  { -- | The ARN of the YAML-formatted test specification.
     testSpecArn :: Prelude.Maybe Prelude.Text,
-    -- | The test\'s filter.
-    filter' :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the uploaded test to be run.
+    testPackageArn :: Prelude.Maybe Prelude.Text,
     -- | The test\'s parameters, such as test framework parameters and fixture
     -- settings. Parameters are represented by name-value pairs of strings.
     --
@@ -119,6 +117,8 @@ data ScheduleRunTest = ScheduleRunTest'
     --     -   Running multiple tests:
     --         @com.android.abc.Test1,com.android.abc.Test2@
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The test\'s filter.
+    filter' :: Prelude.Maybe Prelude.Text,
     -- | The test\'s type.
     --
     -- Must be one of the following values:
@@ -172,11 +172,9 @@ data ScheduleRunTest = ScheduleRunTest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'testPackageArn', 'scheduleRunTest_testPackageArn' - The ARN of the uploaded test to be run.
---
 -- 'testSpecArn', 'scheduleRunTest_testSpecArn' - The ARN of the YAML-formatted test specification.
 --
--- 'filter'', 'scheduleRunTest_filter' - The test\'s filter.
+-- 'testPackageArn', 'scheduleRunTest_testPackageArn' - The ARN of the uploaded test to be run.
 --
 -- 'parameters', 'scheduleRunTest_parameters' - The test\'s parameters, such as test framework parameters and fixture
 -- settings. Parameters are represented by name-value pairs of strings.
@@ -261,6 +259,8 @@ data ScheduleRunTest = ScheduleRunTest'
 --     -   Running multiple tests:
 --         @com.android.abc.Test1,com.android.abc.Test2@
 --
+-- 'filter'', 'scheduleRunTest_filter' - The test\'s filter.
+--
 -- 'type'', 'scheduleRunTest_type' - The test\'s type.
 --
 -- Must be one of the following values:
@@ -308,24 +308,20 @@ newScheduleRunTest ::
   ScheduleRunTest
 newScheduleRunTest pType_ =
   ScheduleRunTest'
-    { testPackageArn = Prelude.Nothing,
-      testSpecArn = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { testSpecArn = Prelude.Nothing,
+      testPackageArn = Prelude.Nothing,
       parameters = Prelude.Nothing,
+      filter' = Prelude.Nothing,
       type' = pType_
     }
-
--- | The ARN of the uploaded test to be run.
-scheduleRunTest_testPackageArn :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
-scheduleRunTest_testPackageArn = Lens.lens (\ScheduleRunTest' {testPackageArn} -> testPackageArn) (\s@ScheduleRunTest' {} a -> s {testPackageArn = a} :: ScheduleRunTest)
 
 -- | The ARN of the YAML-formatted test specification.
 scheduleRunTest_testSpecArn :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
 scheduleRunTest_testSpecArn = Lens.lens (\ScheduleRunTest' {testSpecArn} -> testSpecArn) (\s@ScheduleRunTest' {} a -> s {testSpecArn = a} :: ScheduleRunTest)
 
--- | The test\'s filter.
-scheduleRunTest_filter :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
-scheduleRunTest_filter = Lens.lens (\ScheduleRunTest' {filter'} -> filter') (\s@ScheduleRunTest' {} a -> s {filter' = a} :: ScheduleRunTest)
+-- | The ARN of the uploaded test to be run.
+scheduleRunTest_testPackageArn :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
+scheduleRunTest_testPackageArn = Lens.lens (\ScheduleRunTest' {testPackageArn} -> testPackageArn) (\s@ScheduleRunTest' {} a -> s {testPackageArn = a} :: ScheduleRunTest)
 
 -- | The test\'s parameters, such as test framework parameters and fixture
 -- settings. Parameters are represented by name-value pairs of strings.
@@ -410,7 +406,11 @@ scheduleRunTest_filter = Lens.lens (\ScheduleRunTest' {filter'} -> filter') (\s@
 --     -   Running multiple tests:
 --         @com.android.abc.Test1,com.android.abc.Test2@
 scheduleRunTest_parameters :: Lens.Lens' ScheduleRunTest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-scheduleRunTest_parameters = Lens.lens (\ScheduleRunTest' {parameters} -> parameters) (\s@ScheduleRunTest' {} a -> s {parameters = a} :: ScheduleRunTest) Prelude.. Lens.mapping Lens._Coerce
+scheduleRunTest_parameters = Lens.lens (\ScheduleRunTest' {parameters} -> parameters) (\s@ScheduleRunTest' {} a -> s {parameters = a} :: ScheduleRunTest) Prelude.. Lens.mapping Lens.coerced
+
+-- | The test\'s filter.
+scheduleRunTest_filter :: Lens.Lens' ScheduleRunTest (Prelude.Maybe Prelude.Text)
+scheduleRunTest_filter = Lens.lens (\ScheduleRunTest' {filter'} -> filter') (\s@ScheduleRunTest' {} a -> s {filter' = a} :: ScheduleRunTest)
 
 -- | The test\'s type.
 --
@@ -464,11 +464,11 @@ instance Core.ToJSON ScheduleRunTest where
   toJSON ScheduleRunTest' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("testPackageArn" Core..=)
+          [ ("testSpecArn" Core..=) Prelude.<$> testSpecArn,
+            ("testPackageArn" Core..=)
               Prelude.<$> testPackageArn,
-            ("testSpecArn" Core..=) Prelude.<$> testSpecArn,
-            ("filter" Core..=) Prelude.<$> filter',
             ("parameters" Core..=) Prelude.<$> parameters,
+            ("filter" Core..=) Prelude.<$> filter',
             Prelude.Just ("type" Core..= type')
           ]
       )

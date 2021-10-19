@@ -27,10 +27,10 @@ module Network.AWS.AppSync.UpdateFunction
     newUpdateFunction,
 
     -- * Request Lenses
+    updateFunction_requestMappingTemplate,
     updateFunction_responseMappingTemplate,
     updateFunction_syncConfig,
     updateFunction_description,
-    updateFunction_requestMappingTemplate,
     updateFunction_apiId,
     updateFunction_name,
     updateFunction_functionId,
@@ -56,14 +56,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFunction' smart constructor.
 data UpdateFunction = UpdateFunction'
-  { -- | The @Function@ request mapping template.
+  { -- | The @Function@ request mapping template. Functions support only the
+    -- 2018-05-29 version of the request mapping template.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The @Function@ request mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
     syncConfig :: Prelude.Maybe SyncConfig,
     -- | The @Function@ description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The @Function@ request mapping template. Functions support only the
-    -- 2018-05-29 version of the request mapping template.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
     -- | The GraphQL API ID.
     apiId :: Prelude.Text,
     -- | The @Function@ name.
@@ -86,14 +86,14 @@ data UpdateFunction = UpdateFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'requestMappingTemplate', 'updateFunction_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the
+-- 2018-05-29 version of the request mapping template.
+--
 -- 'responseMappingTemplate', 'updateFunction_responseMappingTemplate' - The @Function@ request mapping template.
 --
 -- 'syncConfig', 'updateFunction_syncConfig' - Undocumented member.
 --
 -- 'description', 'updateFunction_description' - The @Function@ description.
---
--- 'requestMappingTemplate', 'updateFunction_requestMappingTemplate' - The @Function@ request mapping template. Functions support only the
--- 2018-05-29 version of the request mapping template.
 --
 -- 'apiId', 'updateFunction_apiId' - The GraphQL API ID.
 --
@@ -124,17 +124,22 @@ newUpdateFunction
   pDataSourceName_
   pFunctionVersion_ =
     UpdateFunction'
-      { responseMappingTemplate =
+      { requestMappingTemplate =
           Prelude.Nothing,
+        responseMappingTemplate = Prelude.Nothing,
         syncConfig = Prelude.Nothing,
         description = Prelude.Nothing,
-        requestMappingTemplate = Prelude.Nothing,
         apiId = pApiId_,
         name = pName_,
         functionId = pFunctionId_,
         dataSourceName = pDataSourceName_,
         functionVersion = pFunctionVersion_
       }
+
+-- | The @Function@ request mapping template. Functions support only the
+-- 2018-05-29 version of the request mapping template.
+updateFunction_requestMappingTemplate :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
+updateFunction_requestMappingTemplate = Lens.lens (\UpdateFunction' {requestMappingTemplate} -> requestMappingTemplate) (\s@UpdateFunction' {} a -> s {requestMappingTemplate = a} :: UpdateFunction)
 
 -- | The @Function@ request mapping template.
 updateFunction_responseMappingTemplate :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
@@ -147,11 +152,6 @@ updateFunction_syncConfig = Lens.lens (\UpdateFunction' {syncConfig} -> syncConf
 -- | The @Function@ description.
 updateFunction_description :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
 updateFunction_description = Lens.lens (\UpdateFunction' {description} -> description) (\s@UpdateFunction' {} a -> s {description = a} :: UpdateFunction)
-
--- | The @Function@ request mapping template. Functions support only the
--- 2018-05-29 version of the request mapping template.
-updateFunction_requestMappingTemplate :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
-updateFunction_requestMappingTemplate = Lens.lens (\UpdateFunction' {requestMappingTemplate} -> requestMappingTemplate) (\s@UpdateFunction' {} a -> s {requestMappingTemplate = a} :: UpdateFunction)
 
 -- | The GraphQL API ID.
 updateFunction_apiId :: Lens.Lens' UpdateFunction Prelude.Text
@@ -206,12 +206,12 @@ instance Core.ToJSON UpdateFunction where
   toJSON UpdateFunction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("responseMappingTemplate" Core..=)
+          [ ("requestMappingTemplate" Core..=)
+              Prelude.<$> requestMappingTemplate,
+            ("responseMappingTemplate" Core..=)
               Prelude.<$> responseMappingTemplate,
             ("syncConfig" Core..=) Prelude.<$> syncConfig,
             ("description" Core..=) Prelude.<$> description,
-            ("requestMappingTemplate" Core..=)
-              Prelude.<$> requestMappingTemplate,
             Prelude.Just ("name" Core..= name),
             Prelude.Just
               ("dataSourceName" Core..= dataSourceName),

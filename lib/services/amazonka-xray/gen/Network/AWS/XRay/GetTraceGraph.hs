@@ -84,7 +84,7 @@ getTraceGraph_nextToken = Lens.lens (\GetTraceGraph' {nextToken} -> nextToken) (
 
 -- | Trace IDs of requests for which to generate a service graph.
 getTraceGraph_traceIds :: Lens.Lens' GetTraceGraph [Prelude.Text]
-getTraceGraph_traceIds = Lens.lens (\GetTraceGraph' {traceIds} -> traceIds) (\s@GetTraceGraph' {} a -> s {traceIds = a} :: GetTraceGraph) Prelude.. Lens._Coerce
+getTraceGraph_traceIds = Lens.lens (\GetTraceGraph' {traceIds} -> traceIds) (\s@GetTraceGraph' {} a -> s {traceIds = a} :: GetTraceGraph) Prelude.. Lens.coerced
 
 instance Core.AWSPager GetTraceGraph where
   page rq rs
@@ -182,7 +182,7 @@ getTraceGraphResponse_nextToken = Lens.lens (\GetTraceGraphResponse' {nextToken}
 
 -- | The services that have processed one of the specified requests.
 getTraceGraphResponse_services :: Lens.Lens' GetTraceGraphResponse (Prelude.Maybe [ServiceInfo])
-getTraceGraphResponse_services = Lens.lens (\GetTraceGraphResponse' {services} -> services) (\s@GetTraceGraphResponse' {} a -> s {services = a} :: GetTraceGraphResponse) Prelude.. Lens.mapping Lens._Coerce
+getTraceGraphResponse_services = Lens.lens (\GetTraceGraphResponse' {services} -> services) (\s@GetTraceGraphResponse' {} a -> s {services = a} :: GetTraceGraphResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTraceGraphResponse_httpStatus :: Lens.Lens' GetTraceGraphResponse Prelude.Int

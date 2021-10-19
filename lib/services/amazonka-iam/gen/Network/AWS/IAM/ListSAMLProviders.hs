@@ -140,7 +140,7 @@ newListSAMLProvidersResponse pHttpStatus_ =
 -- | The list of SAML provider resource objects defined in IAM for this
 -- Amazon Web Services account.
 listSAMLProvidersResponse_sAMLProviderList :: Lens.Lens' ListSAMLProvidersResponse (Prelude.Maybe [SAMLProviderListEntry])
-listSAMLProvidersResponse_sAMLProviderList = Lens.lens (\ListSAMLProvidersResponse' {sAMLProviderList} -> sAMLProviderList) (\s@ListSAMLProvidersResponse' {} a -> s {sAMLProviderList = a} :: ListSAMLProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
+listSAMLProvidersResponse_sAMLProviderList = Lens.lens (\ListSAMLProvidersResponse' {sAMLProviderList} -> sAMLProviderList) (\s@ListSAMLProvidersResponse' {} a -> s {sAMLProviderList = a} :: ListSAMLProvidersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSAMLProvidersResponse_httpStatus :: Lens.Lens' ListSAMLProvidersResponse Prelude.Int

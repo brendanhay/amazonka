@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newClientVpnRouteStatus' smart constructor.
 data ClientVpnRouteStatus = ClientVpnRouteStatus'
-  { -- | A message about the status of the Client VPN endpoint route, if
+  { -- | The state of the Client VPN endpoint route.
+    code :: Prelude.Maybe ClientVpnRouteStatusCode,
+    -- | A message about the status of the Client VPN endpoint route, if
     -- applicable.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The state of the Client VPN endpoint route.
-    code :: Prelude.Maybe ClientVpnRouteStatusCode
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,32 +45,32 @@ data ClientVpnRouteStatus = ClientVpnRouteStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'code', 'clientVpnRouteStatus_code' - The state of the Client VPN endpoint route.
+--
 -- 'message', 'clientVpnRouteStatus_message' - A message about the status of the Client VPN endpoint route, if
 -- applicable.
---
--- 'code', 'clientVpnRouteStatus_code' - The state of the Client VPN endpoint route.
 newClientVpnRouteStatus ::
   ClientVpnRouteStatus
 newClientVpnRouteStatus =
   ClientVpnRouteStatus'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
+
+-- | The state of the Client VPN endpoint route.
+clientVpnRouteStatus_code :: Lens.Lens' ClientVpnRouteStatus (Prelude.Maybe ClientVpnRouteStatusCode)
+clientVpnRouteStatus_code = Lens.lens (\ClientVpnRouteStatus' {code} -> code) (\s@ClientVpnRouteStatus' {} a -> s {code = a} :: ClientVpnRouteStatus)
 
 -- | A message about the status of the Client VPN endpoint route, if
 -- applicable.
 clientVpnRouteStatus_message :: Lens.Lens' ClientVpnRouteStatus (Prelude.Maybe Prelude.Text)
 clientVpnRouteStatus_message = Lens.lens (\ClientVpnRouteStatus' {message} -> message) (\s@ClientVpnRouteStatus' {} a -> s {message = a} :: ClientVpnRouteStatus)
 
--- | The state of the Client VPN endpoint route.
-clientVpnRouteStatus_code :: Lens.Lens' ClientVpnRouteStatus (Prelude.Maybe ClientVpnRouteStatusCode)
-clientVpnRouteStatus_code = Lens.lens (\ClientVpnRouteStatus' {code} -> code) (\s@ClientVpnRouteStatus' {} a -> s {code = a} :: ClientVpnRouteStatus)
-
 instance Core.FromXML ClientVpnRouteStatus where
   parseXML x =
     ClientVpnRouteStatus'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "code")
+      Prelude.<*> (x Core..@? "message")
 
 instance Prelude.Hashable ClientVpnRouteStatus
 

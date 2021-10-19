@@ -66,11 +66,11 @@ module Network.AWS.GameLift.DescribeFleetPortSettings
     newDescribeFleetPortSettingsResponse,
 
     -- * Response Lenses
-    describeFleetPortSettingsResponse_fleetId,
+    describeFleetPortSettingsResponse_location,
+    describeFleetPortSettingsResponse_inboundPermissions,
     describeFleetPortSettingsResponse_fleetArn,
     describeFleetPortSettingsResponse_updateStatus,
-    describeFleetPortSettingsResponse_inboundPermissions,
-    describeFleetPortSettingsResponse_location,
+    describeFleetPortSettingsResponse_fleetId,
     describeFleetPortSettingsResponse_httpStatus,
   )
 where
@@ -138,13 +138,13 @@ instance Core.AWSRequest DescribeFleetPortSettings where
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetPortSettingsResponse'
-            Prelude.<$> (x Core..?> "FleetId")
-            Prelude.<*> (x Core..?> "FleetArn")
-            Prelude.<*> (x Core..?> "UpdateStatus")
+            Prelude.<$> (x Core..?> "Location")
             Prelude.<*> ( x Core..?> "InboundPermissions"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Location")
+            Prelude.<*> (x Core..?> "FleetArn")
+            Prelude.<*> (x Core..?> "UpdateStatus")
+            Prelude.<*> (x Core..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -186,8 +186,11 @@ instance Core.ToQuery DescribeFleetPortSettings where
 --
 -- /See:/ 'newDescribeFleetPortSettingsResponse' smart constructor.
 data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
-  { -- | A unique identifier for the fleet that was requested.
-    fleetId :: Prelude.Maybe Prelude.Text,
+  { -- | The requested fleet location, expressed as an AWS Region code, such as
+    -- @us-west-2@.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The port settings for the requested fleet ID.
+    inboundPermissions :: Prelude.Maybe [IpPermission],
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift fleet resource and uniquely identifies
@@ -199,11 +202,8 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
     -- update was requested for the fleet but has not yet been completed for
     -- the location.
     updateStatus :: Prelude.Maybe LocationUpdateStatus,
-    -- | The port settings for the requested fleet ID.
-    inboundPermissions :: Prelude.Maybe [IpPermission],
-    -- | The requested fleet location, expressed as an AWS Region code, such as
-    -- @us-west-2@.
-    location :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the fleet that was requested.
+    fleetId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -217,7 +217,10 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fleetId', 'describeFleetPortSettingsResponse_fleetId' - A unique identifier for the fleet that was requested.
+-- 'location', 'describeFleetPortSettingsResponse_location' - The requested fleet location, expressed as an AWS Region code, such as
+-- @us-west-2@.
+--
+-- 'inboundPermissions', 'describeFleetPortSettingsResponse_inboundPermissions' - The port settings for the requested fleet ID.
 --
 -- 'fleetArn', 'describeFleetPortSettingsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -230,10 +233,7 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
 -- update was requested for the fleet but has not yet been completed for
 -- the location.
 --
--- 'inboundPermissions', 'describeFleetPortSettingsResponse_inboundPermissions' - The port settings for the requested fleet ID.
---
--- 'location', 'describeFleetPortSettingsResponse_location' - The requested fleet location, expressed as an AWS Region code, such as
--- @us-west-2@.
+-- 'fleetId', 'describeFleetPortSettingsResponse_fleetId' - A unique identifier for the fleet that was requested.
 --
 -- 'httpStatus', 'describeFleetPortSettingsResponse_httpStatus' - The response's http status code.
 newDescribeFleetPortSettingsResponse ::
@@ -242,18 +242,23 @@ newDescribeFleetPortSettingsResponse ::
   DescribeFleetPortSettingsResponse
 newDescribeFleetPortSettingsResponse pHttpStatus_ =
   DescribeFleetPortSettingsResponse'
-    { fleetId =
+    { location =
         Prelude.Nothing,
+      inboundPermissions = Prelude.Nothing,
       fleetArn = Prelude.Nothing,
       updateStatus = Prelude.Nothing,
-      inboundPermissions = Prelude.Nothing,
-      location = Prelude.Nothing,
+      fleetId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | A unique identifier for the fleet that was requested.
-describeFleetPortSettingsResponse_fleetId :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
-describeFleetPortSettingsResponse_fleetId = Lens.lens (\DescribeFleetPortSettingsResponse' {fleetId} -> fleetId) (\s@DescribeFleetPortSettingsResponse' {} a -> s {fleetId = a} :: DescribeFleetPortSettingsResponse)
+-- | The requested fleet location, expressed as an AWS Region code, such as
+-- @us-west-2@.
+describeFleetPortSettingsResponse_location :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
+describeFleetPortSettingsResponse_location = Lens.lens (\DescribeFleetPortSettingsResponse' {location} -> location) (\s@DescribeFleetPortSettingsResponse' {} a -> s {location = a} :: DescribeFleetPortSettingsResponse)
+
+-- | The port settings for the requested fleet ID.
+describeFleetPortSettingsResponse_inboundPermissions :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe [IpPermission])
+describeFleetPortSettingsResponse_inboundPermissions = Lens.lens (\DescribeFleetPortSettingsResponse' {inboundPermissions} -> inboundPermissions) (\s@DescribeFleetPortSettingsResponse' {} a -> s {inboundPermissions = a} :: DescribeFleetPortSettingsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -270,14 +275,9 @@ describeFleetPortSettingsResponse_fleetArn = Lens.lens (\DescribeFleetPortSettin
 describeFleetPortSettingsResponse_updateStatus :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe LocationUpdateStatus)
 describeFleetPortSettingsResponse_updateStatus = Lens.lens (\DescribeFleetPortSettingsResponse' {updateStatus} -> updateStatus) (\s@DescribeFleetPortSettingsResponse' {} a -> s {updateStatus = a} :: DescribeFleetPortSettingsResponse)
 
--- | The port settings for the requested fleet ID.
-describeFleetPortSettingsResponse_inboundPermissions :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe [IpPermission])
-describeFleetPortSettingsResponse_inboundPermissions = Lens.lens (\DescribeFleetPortSettingsResponse' {inboundPermissions} -> inboundPermissions) (\s@DescribeFleetPortSettingsResponse' {} a -> s {inboundPermissions = a} :: DescribeFleetPortSettingsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The requested fleet location, expressed as an AWS Region code, such as
--- @us-west-2@.
-describeFleetPortSettingsResponse_location :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
-describeFleetPortSettingsResponse_location = Lens.lens (\DescribeFleetPortSettingsResponse' {location} -> location) (\s@DescribeFleetPortSettingsResponse' {} a -> s {location = a} :: DescribeFleetPortSettingsResponse)
+-- | A unique identifier for the fleet that was requested.
+describeFleetPortSettingsResponse_fleetId :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
+describeFleetPortSettingsResponse_fleetId = Lens.lens (\DescribeFleetPortSettingsResponse' {fleetId} -> fleetId) (\s@DescribeFleetPortSettingsResponse' {} a -> s {fleetId = a} :: DescribeFleetPortSettingsResponse)
 
 -- | The response's http status code.
 describeFleetPortSettingsResponse_httpStatus :: Lens.Lens' DescribeFleetPortSettingsResponse Prelude.Int

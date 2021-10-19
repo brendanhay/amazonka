@@ -32,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTaskRunProperties' smart constructor.
 data TaskRunProperties = TaskRunProperties'
-  { -- | The configuration properties for an exporting labels task run.
+  { -- | The type of task run.
+    taskType :: Prelude.Maybe TaskType,
+    -- | The configuration properties for an exporting labels task run.
     exportLabelsTaskRunProperties :: Prelude.Maybe ExportLabelsTaskRunProperties,
-    -- | The configuration properties for a find matches task run.
-    findMatchesTaskRunProperties :: Prelude.Maybe FindMatchesTaskRunProperties,
     -- | The configuration properties for a labeling set generation task run.
     labelingSetGenerationTaskRunProperties :: Prelude.Maybe LabelingSetGenerationTaskRunProperties,
-    -- | The type of task run.
-    taskType :: Prelude.Maybe TaskType,
+    -- | The configuration properties for a find matches task run.
+    findMatchesTaskRunProperties :: Prelude.Maybe FindMatchesTaskRunProperties,
     -- | The configuration properties for an importing labels task run.
     importLabelsTaskRunProperties :: Prelude.Maybe ImportLabelsTaskRunProperties
   }
@@ -53,43 +53,42 @@ data TaskRunProperties = TaskRunProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportLabelsTaskRunProperties', 'taskRunProperties_exportLabelsTaskRunProperties' - The configuration properties for an exporting labels task run.
+-- 'taskType', 'taskRunProperties_taskType' - The type of task run.
 --
--- 'findMatchesTaskRunProperties', 'taskRunProperties_findMatchesTaskRunProperties' - The configuration properties for a find matches task run.
+-- 'exportLabelsTaskRunProperties', 'taskRunProperties_exportLabelsTaskRunProperties' - The configuration properties for an exporting labels task run.
 --
 -- 'labelingSetGenerationTaskRunProperties', 'taskRunProperties_labelingSetGenerationTaskRunProperties' - The configuration properties for a labeling set generation task run.
 --
--- 'taskType', 'taskRunProperties_taskType' - The type of task run.
+-- 'findMatchesTaskRunProperties', 'taskRunProperties_findMatchesTaskRunProperties' - The configuration properties for a find matches task run.
 --
 -- 'importLabelsTaskRunProperties', 'taskRunProperties_importLabelsTaskRunProperties' - The configuration properties for an importing labels task run.
 newTaskRunProperties ::
   TaskRunProperties
 newTaskRunProperties =
   TaskRunProperties'
-    { exportLabelsTaskRunProperties =
-        Prelude.Nothing,
-      findMatchesTaskRunProperties = Prelude.Nothing,
+    { taskType = Prelude.Nothing,
+      exportLabelsTaskRunProperties = Prelude.Nothing,
       labelingSetGenerationTaskRunProperties =
         Prelude.Nothing,
-      taskType = Prelude.Nothing,
+      findMatchesTaskRunProperties = Prelude.Nothing,
       importLabelsTaskRunProperties = Prelude.Nothing
     }
+
+-- | The type of task run.
+taskRunProperties_taskType :: Lens.Lens' TaskRunProperties (Prelude.Maybe TaskType)
+taskRunProperties_taskType = Lens.lens (\TaskRunProperties' {taskType} -> taskType) (\s@TaskRunProperties' {} a -> s {taskType = a} :: TaskRunProperties)
 
 -- | The configuration properties for an exporting labels task run.
 taskRunProperties_exportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe ExportLabelsTaskRunProperties)
 taskRunProperties_exportLabelsTaskRunProperties = Lens.lens (\TaskRunProperties' {exportLabelsTaskRunProperties} -> exportLabelsTaskRunProperties) (\s@TaskRunProperties' {} a -> s {exportLabelsTaskRunProperties = a} :: TaskRunProperties)
 
--- | The configuration properties for a find matches task run.
-taskRunProperties_findMatchesTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe FindMatchesTaskRunProperties)
-taskRunProperties_findMatchesTaskRunProperties = Lens.lens (\TaskRunProperties' {findMatchesTaskRunProperties} -> findMatchesTaskRunProperties) (\s@TaskRunProperties' {} a -> s {findMatchesTaskRunProperties = a} :: TaskRunProperties)
-
 -- | The configuration properties for a labeling set generation task run.
 taskRunProperties_labelingSetGenerationTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe LabelingSetGenerationTaskRunProperties)
 taskRunProperties_labelingSetGenerationTaskRunProperties = Lens.lens (\TaskRunProperties' {labelingSetGenerationTaskRunProperties} -> labelingSetGenerationTaskRunProperties) (\s@TaskRunProperties' {} a -> s {labelingSetGenerationTaskRunProperties = a} :: TaskRunProperties)
 
--- | The type of task run.
-taskRunProperties_taskType :: Lens.Lens' TaskRunProperties (Prelude.Maybe TaskType)
-taskRunProperties_taskType = Lens.lens (\TaskRunProperties' {taskType} -> taskType) (\s@TaskRunProperties' {} a -> s {taskType = a} :: TaskRunProperties)
+-- | The configuration properties for a find matches task run.
+taskRunProperties_findMatchesTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe FindMatchesTaskRunProperties)
+taskRunProperties_findMatchesTaskRunProperties = Lens.lens (\TaskRunProperties' {findMatchesTaskRunProperties} -> findMatchesTaskRunProperties) (\s@TaskRunProperties' {} a -> s {findMatchesTaskRunProperties = a} :: TaskRunProperties)
 
 -- | The configuration properties for an importing labels task run.
 taskRunProperties_importLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Prelude.Maybe ImportLabelsTaskRunProperties)
@@ -101,10 +100,10 @@ instance Core.FromJSON TaskRunProperties where
       "TaskRunProperties"
       ( \x ->
           TaskRunProperties'
-            Prelude.<$> (x Core..:? "ExportLabelsTaskRunProperties")
-            Prelude.<*> (x Core..:? "FindMatchesTaskRunProperties")
+            Prelude.<$> (x Core..:? "TaskType")
+            Prelude.<*> (x Core..:? "ExportLabelsTaskRunProperties")
             Prelude.<*> (x Core..:? "LabelingSetGenerationTaskRunProperties")
-            Prelude.<*> (x Core..:? "TaskType")
+            Prelude.<*> (x Core..:? "FindMatchesTaskRunProperties")
             Prelude.<*> (x Core..:? "ImportLabelsTaskRunProperties")
       )
 

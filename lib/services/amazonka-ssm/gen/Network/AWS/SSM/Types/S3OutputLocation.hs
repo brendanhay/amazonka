@@ -27,14 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3OutputLocation' smart constructor.
 data S3OutputLocation = S3OutputLocation'
-  { -- | The name of the S3 bucket.
-    outputS3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | (Deprecated) You can no longer specify this parameter. The system
-    -- ignores it. Instead, Amazon Web Services Systems Manager automatically
-    -- determines the Region of the S3 bucket.
+  { -- | The S3 bucket subfolder.
+    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services Region of the S3 bucket.
     outputS3Region :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket subfolder.
-    outputS3KeyPrefix :: Prelude.Maybe Prelude.Text
+    -- | The name of the S3 bucket.
+    outputS3BucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,36 +44,32 @@ data S3OutputLocation = S3OutputLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputS3BucketName', 's3OutputLocation_outputS3BucketName' - The name of the S3 bucket.
---
--- 'outputS3Region', 's3OutputLocation_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Amazon Web Services Systems Manager automatically
--- determines the Region of the S3 bucket.
---
 -- 'outputS3KeyPrefix', 's3OutputLocation_outputS3KeyPrefix' - The S3 bucket subfolder.
+--
+-- 'outputS3Region', 's3OutputLocation_outputS3Region' - The Amazon Web Services Region of the S3 bucket.
+--
+-- 'outputS3BucketName', 's3OutputLocation_outputS3BucketName' - The name of the S3 bucket.
 newS3OutputLocation ::
   S3OutputLocation
 newS3OutputLocation =
   S3OutputLocation'
-    { outputS3BucketName =
+    { outputS3KeyPrefix =
         Prelude.Nothing,
       outputS3Region = Prelude.Nothing,
-      outputS3KeyPrefix = Prelude.Nothing
+      outputS3BucketName = Prelude.Nothing
     }
-
--- | The name of the S3 bucket.
-s3OutputLocation_outputS3BucketName :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
-s3OutputLocation_outputS3BucketName = Lens.lens (\S3OutputLocation' {outputS3BucketName} -> outputS3BucketName) (\s@S3OutputLocation' {} a -> s {outputS3BucketName = a} :: S3OutputLocation)
-
--- | (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Amazon Web Services Systems Manager automatically
--- determines the Region of the S3 bucket.
-s3OutputLocation_outputS3Region :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
-s3OutputLocation_outputS3Region = Lens.lens (\S3OutputLocation' {outputS3Region} -> outputS3Region) (\s@S3OutputLocation' {} a -> s {outputS3Region = a} :: S3OutputLocation)
 
 -- | The S3 bucket subfolder.
 s3OutputLocation_outputS3KeyPrefix :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
 s3OutputLocation_outputS3KeyPrefix = Lens.lens (\S3OutputLocation' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@S3OutputLocation' {} a -> s {outputS3KeyPrefix = a} :: S3OutputLocation)
+
+-- | The Amazon Web Services Region of the S3 bucket.
+s3OutputLocation_outputS3Region :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
+s3OutputLocation_outputS3Region = Lens.lens (\S3OutputLocation' {outputS3Region} -> outputS3Region) (\s@S3OutputLocation' {} a -> s {outputS3Region = a} :: S3OutputLocation)
+
+-- | The name of the S3 bucket.
+s3OutputLocation_outputS3BucketName :: Lens.Lens' S3OutputLocation (Prelude.Maybe Prelude.Text)
+s3OutputLocation_outputS3BucketName = Lens.lens (\S3OutputLocation' {outputS3BucketName} -> outputS3BucketName) (\s@S3OutputLocation' {} a -> s {outputS3BucketName = a} :: S3OutputLocation)
 
 instance Core.FromJSON S3OutputLocation where
   parseJSON =
@@ -83,9 +77,9 @@ instance Core.FromJSON S3OutputLocation where
       "S3OutputLocation"
       ( \x ->
           S3OutputLocation'
-            Prelude.<$> (x Core..:? "OutputS3BucketName")
+            Prelude.<$> (x Core..:? "OutputS3KeyPrefix")
             Prelude.<*> (x Core..:? "OutputS3Region")
-            Prelude.<*> (x Core..:? "OutputS3KeyPrefix")
+            Prelude.<*> (x Core..:? "OutputS3BucketName")
       )
 
 instance Prelude.Hashable S3OutputLocation
@@ -96,11 +90,11 @@ instance Core.ToJSON S3OutputLocation where
   toJSON S3OutputLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OutputS3BucketName" Core..=)
-              Prelude.<$> outputS3BucketName,
+          [ ("OutputS3KeyPrefix" Core..=)
+              Prelude.<$> outputS3KeyPrefix,
             ("OutputS3Region" Core..=)
               Prelude.<$> outputS3Region,
-            ("OutputS3KeyPrefix" Core..=)
-              Prelude.<$> outputS3KeyPrefix
+            ("OutputS3BucketName" Core..=)
+              Prelude.<$> outputS3BucketName
           ]
       )

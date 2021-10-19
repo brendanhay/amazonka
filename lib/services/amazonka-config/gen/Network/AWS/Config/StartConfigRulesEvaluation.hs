@@ -106,7 +106,7 @@ newStartConfigRulesEvaluation =
 
 -- | The list of names of Config rules that you want to run evaluations for.
 startConfigRulesEvaluation_configRuleNames :: Lens.Lens' StartConfigRulesEvaluation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-startConfigRulesEvaluation_configRuleNames = Lens.lens (\StartConfigRulesEvaluation' {configRuleNames} -> configRuleNames) (\s@StartConfigRulesEvaluation' {} a -> s {configRuleNames = a} :: StartConfigRulesEvaluation) Prelude.. Lens.mapping Lens._Coerce
+startConfigRulesEvaluation_configRuleNames = Lens.lens (\StartConfigRulesEvaluation' {configRuleNames} -> configRuleNames) (\s@StartConfigRulesEvaluation' {} a -> s {configRuleNames = a} :: StartConfigRulesEvaluation) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest StartConfigRulesEvaluation where
   type

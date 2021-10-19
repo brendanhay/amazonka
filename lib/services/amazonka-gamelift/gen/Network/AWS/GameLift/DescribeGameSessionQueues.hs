@@ -44,8 +44,8 @@ module Network.AWS.GameLift.DescribeGameSessionQueues
     newDescribeGameSessionQueues,
 
     -- * Request Lenses
-    describeGameSessionQueues_names,
     describeGameSessionQueues_nextToken,
+    describeGameSessionQueues_names,
     describeGameSessionQueues_limit,
 
     -- * Destructuring the Response
@@ -70,14 +70,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeGameSessionQueues' smart constructor.
 data DescribeGameSessionQueues = DescribeGameSessionQueues'
-  { -- | A list of queue names to retrieve information for. You can use either
-    -- the queue ID or ARN value. To request settings for all queues, leave
-    -- this parameter empty.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | A token that indicates the start of the next sequential page of results.
+  { -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of queue names to retrieve information for. You can use either
+    -- the queue ID or ARN value. To request settings for all queues, leave
+    -- this parameter empty.
+    names :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. You can request
     -- up to 50 results.
@@ -93,13 +93,13 @@ data DescribeGameSessionQueues = DescribeGameSessionQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'describeGameSessionQueues_names' - A list of queue names to retrieve information for. You can use either
--- the queue ID or ARN value. To request settings for all queues, leave
--- this parameter empty.
---
 -- 'nextToken', 'describeGameSessionQueues_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
+--
+-- 'names', 'describeGameSessionQueues_names' - A list of queue names to retrieve information for. You can use either
+-- the queue ID or ARN value. To request settings for all queues, leave
+-- this parameter empty.
 --
 -- 'limit', 'describeGameSessionQueues_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. You can request
@@ -108,22 +108,23 @@ newDescribeGameSessionQueues ::
   DescribeGameSessionQueues
 newDescribeGameSessionQueues =
   DescribeGameSessionQueues'
-    { names = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken =
+        Prelude.Nothing,
+      names = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | A list of queue names to retrieve information for. You can use either
--- the queue ID or ARN value. To request settings for all queues, leave
--- this parameter empty.
-describeGameSessionQueues_names :: Lens.Lens' DescribeGameSessionQueues (Prelude.Maybe [Prelude.Text])
-describeGameSessionQueues_names = Lens.lens (\DescribeGameSessionQueues' {names} -> names) (\s@DescribeGameSessionQueues' {} a -> s {names = a} :: DescribeGameSessionQueues) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 describeGameSessionQueues_nextToken :: Lens.Lens' DescribeGameSessionQueues (Prelude.Maybe Prelude.Text)
 describeGameSessionQueues_nextToken = Lens.lens (\DescribeGameSessionQueues' {nextToken} -> nextToken) (\s@DescribeGameSessionQueues' {} a -> s {nextToken = a} :: DescribeGameSessionQueues)
+
+-- | A list of queue names to retrieve information for. You can use either
+-- the queue ID or ARN value. To request settings for all queues, leave
+-- this parameter empty.
+describeGameSessionQueues_names :: Lens.Lens' DescribeGameSessionQueues (Prelude.Maybe [Prelude.Text])
+describeGameSessionQueues_names = Lens.lens (\DescribeGameSessionQueues' {names} -> names) (\s@DescribeGameSessionQueues' {} a -> s {names = a} :: DescribeGameSessionQueues) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. You can request
@@ -192,8 +193,8 @@ instance Core.ToJSON DescribeGameSessionQueues where
   toJSON DescribeGameSessionQueues' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Names" Core..=) Prelude.<$> names,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Names" Core..=) Prelude.<$> names,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )
@@ -254,7 +255,7 @@ describeGameSessionQueuesResponse_nextToken = Lens.lens (\DescribeGameSessionQue
 
 -- | A collection of objects that describe the requested game session queues.
 describeGameSessionQueuesResponse_gameSessionQueues :: Lens.Lens' DescribeGameSessionQueuesResponse (Prelude.Maybe [GameSessionQueue])
-describeGameSessionQueuesResponse_gameSessionQueues = Lens.lens (\DescribeGameSessionQueuesResponse' {gameSessionQueues} -> gameSessionQueues) (\s@DescribeGameSessionQueuesResponse' {} a -> s {gameSessionQueues = a} :: DescribeGameSessionQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeGameSessionQueuesResponse_gameSessionQueues = Lens.lens (\DescribeGameSessionQueuesResponse' {gameSessionQueues} -> gameSessionQueues) (\s@DescribeGameSessionQueuesResponse' {} a -> s {gameSessionQueues = a} :: DescribeGameSessionQueuesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeGameSessionQueuesResponse_httpStatus :: Lens.Lens' DescribeGameSessionQueuesResponse Prelude.Int

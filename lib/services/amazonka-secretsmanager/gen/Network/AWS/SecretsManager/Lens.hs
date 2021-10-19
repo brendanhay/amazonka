@@ -14,6 +14,13 @@
 module Network.AWS.SecretsManager.Lens
   ( -- * Operations
 
+    -- ** ValidateResourcePolicy
+    validateResourcePolicy_secretId,
+    validateResourcePolicy_resourcePolicy,
+    validateResourcePolicyResponse_validationErrors,
+    validateResourcePolicyResponse_policyValidationPassed,
+    validateResourcePolicyResponse_httpStatus,
+
     -- ** DeleteSecret
     deleteSecret_recoveryWindowInDays,
     deleteSecret_forceDeleteWithoutRecovery,
@@ -23,61 +30,165 @@ module Network.AWS.SecretsManager.Lens
     deleteSecretResponse_deletionDate,
     deleteSecretResponse_httpStatus,
 
+    -- ** ListSecrets
+    listSecrets_filters,
+    listSecrets_nextToken,
+    listSecrets_sortOrder,
+    listSecrets_maxResults,
+    listSecretsResponse_nextToken,
+    listSecretsResponse_secretList,
+    listSecretsResponse_httpStatus,
+
     -- ** UpdateSecret
     updateSecret_secretBinary,
     updateSecret_kmsKeyId,
-    updateSecret_description,
     updateSecret_secretString,
     updateSecret_clientRequestToken,
+    updateSecret_description,
     updateSecret_secretId,
+    updateSecretResponse_versionId,
     updateSecretResponse_arn,
     updateSecretResponse_name,
-    updateSecretResponse_versionId,
     updateSecretResponse_httpStatus,
-
-    -- ** RotateSecret
-    rotateSecret_rotationRules,
-    rotateSecret_rotationLambdaARN,
-    rotateSecret_clientRequestToken,
-    rotateSecret_secretId,
-    rotateSecretResponse_arn,
-    rotateSecretResponse_name,
-    rotateSecretResponse_versionId,
-    rotateSecretResponse_httpStatus,
 
     -- ** RemoveRegionsFromReplication
     removeRegionsFromReplication_secretId,
     removeRegionsFromReplication_removeReplicaRegions,
-    removeRegionsFromReplicationResponse_replicationStatus,
     removeRegionsFromReplicationResponse_arn,
+    removeRegionsFromReplicationResponse_replicationStatus,
     removeRegionsFromReplicationResponse_httpStatus,
 
-    -- ** GetResourcePolicy
-    getResourcePolicy_secretId,
-    getResourcePolicyResponse_arn,
-    getResourcePolicyResponse_resourcePolicy,
-    getResourcePolicyResponse_name,
-    getResourcePolicyResponse_httpStatus,
+    -- ** RotateSecret
+    rotateSecret_rotationRules,
+    rotateSecret_clientRequestToken,
+    rotateSecret_rotationLambdaARN,
+    rotateSecret_secretId,
+    rotateSecretResponse_versionId,
+    rotateSecretResponse_arn,
+    rotateSecretResponse_name,
+    rotateSecretResponse_httpStatus,
 
-    -- ** ValidateResourcePolicy
-    validateResourcePolicy_secretId,
-    validateResourcePolicy_resourcePolicy,
-    validateResourcePolicyResponse_policyValidationPassed,
-    validateResourcePolicyResponse_validationErrors,
-    validateResourcePolicyResponse_httpStatus,
+    -- ** CreateSecret
+    createSecret_addReplicaRegions,
+    createSecret_secretBinary,
+    createSecret_kmsKeyId,
+    createSecret_forceOverwriteReplicaSecret,
+    createSecret_secretString,
+    createSecret_clientRequestToken,
+    createSecret_description,
+    createSecret_tags,
+    createSecret_name,
+    createSecretResponse_versionId,
+    createSecretResponse_arn,
+    createSecretResponse_name,
+    createSecretResponse_replicationStatus,
+    createSecretResponse_httpStatus,
 
-    -- ** CancelRotateSecret
-    cancelRotateSecret_secretId,
-    cancelRotateSecretResponse_arn,
-    cancelRotateSecretResponse_name,
-    cancelRotateSecretResponse_versionId,
-    cancelRotateSecretResponse_httpStatus,
+    -- ** GetSecretValue
+    getSecretValue_versionId,
+    getSecretValue_versionStage,
+    getSecretValue_secretId,
+    getSecretValueResponse_versionId,
+    getSecretValueResponse_arn,
+    getSecretValueResponse_versionStages,
+    getSecretValueResponse_secretBinary,
+    getSecretValueResponse_createdDate,
+    getSecretValueResponse_name,
+    getSecretValueResponse_secretString,
+    getSecretValueResponse_httpStatus,
+
+    -- ** DescribeSecret
+    describeSecret_secretId,
+    describeSecretResponse_lastChangedDate,
+    describeSecretResponse_primaryRegion,
+    describeSecretResponse_arn,
+    describeSecretResponse_rotationRules,
+    describeSecretResponse_deletedDate,
+    describeSecretResponse_rotationEnabled,
+    describeSecretResponse_createdDate,
+    describeSecretResponse_kmsKeyId,
+    describeSecretResponse_name,
+    describeSecretResponse_versionIdsToStages,
+    describeSecretResponse_replicationStatus,
+    describeSecretResponse_owningService,
+    describeSecretResponse_lastRotatedDate,
+    describeSecretResponse_lastAccessedDate,
+    describeSecretResponse_description,
+    describeSecretResponse_rotationLambdaARN,
+    describeSecretResponse_tags,
+    describeSecretResponse_httpStatus,
 
     -- ** RestoreSecret
     restoreSecret_secretId,
     restoreSecretResponse_arn,
     restoreSecretResponse_name,
     restoreSecretResponse_httpStatus,
+
+    -- ** CancelRotateSecret
+    cancelRotateSecret_secretId,
+    cancelRotateSecretResponse_versionId,
+    cancelRotateSecretResponse_arn,
+    cancelRotateSecretResponse_name,
+    cancelRotateSecretResponse_httpStatus,
+
+    -- ** GetResourcePolicy
+    getResourcePolicy_secretId,
+    getResourcePolicyResponse_resourcePolicy,
+    getResourcePolicyResponse_arn,
+    getResourcePolicyResponse_name,
+    getResourcePolicyResponse_httpStatus,
+
+    -- ** PutSecretValue
+    putSecretValue_versionStages,
+    putSecretValue_secretBinary,
+    putSecretValue_secretString,
+    putSecretValue_clientRequestToken,
+    putSecretValue_secretId,
+    putSecretValueResponse_versionId,
+    putSecretValueResponse_arn,
+    putSecretValueResponse_versionStages,
+    putSecretValueResponse_name,
+    putSecretValueResponse_httpStatus,
+
+    -- ** ReplicateSecretToRegions
+    replicateSecretToRegions_forceOverwriteReplicaSecret,
+    replicateSecretToRegions_secretId,
+    replicateSecretToRegions_addReplicaRegions,
+    replicateSecretToRegionsResponse_arn,
+    replicateSecretToRegionsResponse_replicationStatus,
+    replicateSecretToRegionsResponse_httpStatus,
+
+    -- ** StopReplicationToReplica
+    stopReplicationToReplica_secretId,
+    stopReplicationToReplicaResponse_arn,
+    stopReplicationToReplicaResponse_httpStatus,
+
+    -- ** GetRandomPassword
+    getRandomPassword_includeSpace,
+    getRandomPassword_excludeNumbers,
+    getRandomPassword_excludeLowercase,
+    getRandomPassword_excludeCharacters,
+    getRandomPassword_excludePunctuation,
+    getRandomPassword_requireEachIncludedType,
+    getRandomPassword_excludeUppercase,
+    getRandomPassword_passwordLength,
+    getRandomPasswordResponse_randomPassword,
+    getRandomPasswordResponse_httpStatus,
+
+    -- ** ListSecretVersionIds
+    listSecretVersionIds_nextToken,
+    listSecretVersionIds_includeDeprecated,
+    listSecretVersionIds_maxResults,
+    listSecretVersionIds_secretId,
+    listSecretVersionIdsResponse_arn,
+    listSecretVersionIdsResponse_versions,
+    listSecretVersionIdsResponse_nextToken,
+    listSecretVersionIdsResponse_name,
+    listSecretVersionIdsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_secretId,
+    tagResource_tags,
 
     -- ** PutResourcePolicy
     putResourcePolicy_blockPublicPolicy,
@@ -87,109 +198,15 @@ module Network.AWS.SecretsManager.Lens
     putResourcePolicyResponse_name,
     putResourcePolicyResponse_httpStatus,
 
-    -- ** DescribeSecret
-    describeSecret_secretId,
-    describeSecretResponse_createdDate,
-    describeSecretResponse_owningService,
-    describeSecretResponse_lastRotatedDate,
-    describeSecretResponse_replicationStatus,
-    describeSecretResponse_arn,
-    describeSecretResponse_kmsKeyId,
-    describeSecretResponse_name,
-    describeSecretResponse_primaryRegion,
-    describeSecretResponse_lastChangedDate,
-    describeSecretResponse_deletedDate,
-    describeSecretResponse_tags,
-    describeSecretResponse_rotationEnabled,
-    describeSecretResponse_rotationRules,
-    describeSecretResponse_description,
-    describeSecretResponse_rotationLambdaARN,
-    describeSecretResponse_lastAccessedDate,
-    describeSecretResponse_versionIdsToStages,
-    describeSecretResponse_httpStatus,
-
-    -- ** GetSecretValue
-    getSecretValue_versionId,
-    getSecretValue_versionStage,
-    getSecretValue_secretId,
-    getSecretValueResponse_createdDate,
-    getSecretValueResponse_secretBinary,
-    getSecretValueResponse_versionStages,
-    getSecretValueResponse_arn,
-    getSecretValueResponse_name,
-    getSecretValueResponse_versionId,
-    getSecretValueResponse_secretString,
-    getSecretValueResponse_httpStatus,
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_secretId,
+    deleteResourcePolicyResponse_arn,
+    deleteResourcePolicyResponse_name,
+    deleteResourcePolicyResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_secretId,
     untagResource_tagKeys,
-
-    -- ** TagResource
-    tagResource_secretId,
-    tagResource_tags,
-
-    -- ** CreateSecret
-    createSecret_secretBinary,
-    createSecret_forceOverwriteReplicaSecret,
-    createSecret_kmsKeyId,
-    createSecret_tags,
-    createSecret_description,
-    createSecret_secretString,
-    createSecret_clientRequestToken,
-    createSecret_addReplicaRegions,
-    createSecret_name,
-    createSecretResponse_replicationStatus,
-    createSecretResponse_arn,
-    createSecretResponse_name,
-    createSecretResponse_versionId,
-    createSecretResponse_httpStatus,
-
-    -- ** GetRandomPassword
-    getRandomPassword_excludeCharacters,
-    getRandomPassword_excludeLowercase,
-    getRandomPassword_includeSpace,
-    getRandomPassword_requireEachIncludedType,
-    getRandomPassword_excludeNumbers,
-    getRandomPassword_passwordLength,
-    getRandomPassword_excludeUppercase,
-    getRandomPassword_excludePunctuation,
-    getRandomPasswordResponse_randomPassword,
-    getRandomPasswordResponse_httpStatus,
-
-    -- ** ReplicateSecretToRegions
-    replicateSecretToRegions_forceOverwriteReplicaSecret,
-    replicateSecretToRegions_secretId,
-    replicateSecretToRegions_addReplicaRegions,
-    replicateSecretToRegionsResponse_replicationStatus,
-    replicateSecretToRegionsResponse_arn,
-    replicateSecretToRegionsResponse_httpStatus,
-
-    -- ** StopReplicationToReplica
-    stopReplicationToReplica_secretId,
-    stopReplicationToReplicaResponse_arn,
-    stopReplicationToReplicaResponse_httpStatus,
-
-    -- ** ListSecrets
-    listSecrets_nextToken,
-    listSecrets_sortOrder,
-    listSecrets_maxResults,
-    listSecrets_filters,
-    listSecretsResponse_nextToken,
-    listSecretsResponse_secretList,
-    listSecretsResponse_httpStatus,
-
-    -- ** PutSecretValue
-    putSecretValue_secretBinary,
-    putSecretValue_versionStages,
-    putSecretValue_secretString,
-    putSecretValue_clientRequestToken,
-    putSecretValue_secretId,
-    putSecretValueResponse_versionStages,
-    putSecretValueResponse_arn,
-    putSecretValueResponse_name,
-    putSecretValueResponse_versionId,
-    putSecretValueResponse_httpStatus,
 
     -- ** UpdateSecretVersionStage
     updateSecretVersionStage_removeFromVersionId,
@@ -200,71 +217,54 @@ module Network.AWS.SecretsManager.Lens
     updateSecretVersionStageResponse_name,
     updateSecretVersionStageResponse_httpStatus,
 
-    -- ** DeleteResourcePolicy
-    deleteResourcePolicy_secretId,
-    deleteResourcePolicyResponse_arn,
-    deleteResourcePolicyResponse_name,
-    deleteResourcePolicyResponse_httpStatus,
-
-    -- ** ListSecretVersionIds
-    listSecretVersionIds_nextToken,
-    listSecretVersionIds_maxResults,
-    listSecretVersionIds_includeDeprecated,
-    listSecretVersionIds_secretId,
-    listSecretVersionIdsResponse_nextToken,
-    listSecretVersionIdsResponse_versions,
-    listSecretVersionIdsResponse_arn,
-    listSecretVersionIdsResponse_name,
-    listSecretVersionIdsResponse_httpStatus,
-
     -- * Types
 
     -- ** Filter
-    filter_key,
     filter_values,
+    filter_key,
 
     -- ** ReplicaRegionType
     replicaRegionType_kmsKeyId,
     replicaRegionType_region,
 
     -- ** ReplicationStatusType
-    replicationStatusType_statusMessage,
     replicationStatusType_status,
     replicationStatusType_kmsKeyId,
-    replicationStatusType_lastAccessedDate,
+    replicationStatusType_statusMessage,
     replicationStatusType_region,
+    replicationStatusType_lastAccessedDate,
 
     -- ** RotationRulesType
     rotationRulesType_automaticallyAfterDays,
 
     -- ** SecretListEntry
-    secretListEntry_createdDate,
-    secretListEntry_owningService,
-    secretListEntry_secretVersionsToStages,
-    secretListEntry_lastRotatedDate,
+    secretListEntry_lastChangedDate,
+    secretListEntry_primaryRegion,
     secretListEntry_arn,
+    secretListEntry_secretVersionsToStages,
+    secretListEntry_rotationRules,
+    secretListEntry_deletedDate,
+    secretListEntry_rotationEnabled,
+    secretListEntry_createdDate,
     secretListEntry_kmsKeyId,
     secretListEntry_name,
-    secretListEntry_primaryRegion,
-    secretListEntry_lastChangedDate,
-    secretListEntry_deletedDate,
-    secretListEntry_tags,
-    secretListEntry_rotationEnabled,
-    secretListEntry_rotationRules,
+    secretListEntry_owningService,
+    secretListEntry_lastRotatedDate,
+    secretListEntry_lastAccessedDate,
     secretListEntry_description,
     secretListEntry_rotationLambdaARN,
-    secretListEntry_lastAccessedDate,
+    secretListEntry_tags,
 
     -- ** SecretVersionsListEntry
+    secretVersionsListEntry_versionId,
+    secretVersionsListEntry_versionStages,
     secretVersionsListEntry_createdDate,
     secretVersionsListEntry_kmsKeyIds,
-    secretVersionsListEntry_versionStages,
-    secretVersionsListEntry_versionId,
     secretVersionsListEntry_lastAccessedDate,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** ValidationErrorsEntry
     validationErrorsEntry_checkName,

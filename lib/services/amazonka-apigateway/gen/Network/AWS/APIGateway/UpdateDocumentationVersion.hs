@@ -98,7 +98,7 @@ newUpdateDocumentationVersion
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateDocumentationVersion_patchOperations :: Lens.Lens' UpdateDocumentationVersion (Prelude.Maybe [PatchOperation])
-updateDocumentationVersion_patchOperations = Lens.lens (\UpdateDocumentationVersion' {patchOperations} -> patchOperations) (\s@UpdateDocumentationVersion' {} a -> s {patchOperations = a} :: UpdateDocumentationVersion) Prelude.. Lens.mapping Lens._Coerce
+updateDocumentationVersion_patchOperations = Lens.lens (\UpdateDocumentationVersion' {patchOperations} -> patchOperations) (\s@UpdateDocumentationVersion' {} a -> s {patchOperations = a} :: UpdateDocumentationVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi..
 updateDocumentationVersion_restApiId :: Lens.Lens' UpdateDocumentationVersion Prelude.Text

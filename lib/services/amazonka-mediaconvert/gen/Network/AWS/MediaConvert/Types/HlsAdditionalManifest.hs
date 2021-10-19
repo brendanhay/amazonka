@@ -89,7 +89,7 @@ hlsAdditionalManifest_manifestNameModifier = Lens.lens (\HlsAdditionalManifest' 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
 hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe [Prelude.Text])
-hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Prelude.. Lens.mapping Lens._Coerce
+hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON HlsAdditionalManifest where
   parseJSON =

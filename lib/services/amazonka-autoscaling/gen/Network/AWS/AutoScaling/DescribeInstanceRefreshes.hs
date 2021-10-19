@@ -58,8 +58,8 @@ module Network.AWS.AutoScaling.DescribeInstanceRefreshes
 
     -- * Request Lenses
     describeInstanceRefreshes_nextToken,
-    describeInstanceRefreshes_instanceRefreshIds,
     describeInstanceRefreshes_maxRecords,
+    describeInstanceRefreshes_instanceRefreshIds,
     describeInstanceRefreshes_autoScalingGroupName,
 
     -- * Destructuring the Response
@@ -85,11 +85,11 @@ data DescribeInstanceRefreshes = DescribeInstanceRefreshes'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more instance refresh IDs.
-    instanceRefreshIds :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | One or more instance refresh IDs.
+    instanceRefreshIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
   }
@@ -106,10 +106,10 @@ data DescribeInstanceRefreshes = DescribeInstanceRefreshes'
 -- 'nextToken', 'describeInstanceRefreshes_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
 --
--- 'instanceRefreshIds', 'describeInstanceRefreshes_instanceRefreshIds' - One or more instance refresh IDs.
---
 -- 'maxRecords', 'describeInstanceRefreshes_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
+--
+-- 'instanceRefreshIds', 'describeInstanceRefreshes_instanceRefreshIds' - One or more instance refresh IDs.
 --
 -- 'autoScalingGroupName', 'describeInstanceRefreshes_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeInstanceRefreshes ::
@@ -120,8 +120,8 @@ newDescribeInstanceRefreshes pAutoScalingGroupName_ =
   DescribeInstanceRefreshes'
     { nextToken =
         Prelude.Nothing,
-      instanceRefreshIds = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      instanceRefreshIds = Prelude.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -130,14 +130,14 @@ newDescribeInstanceRefreshes pAutoScalingGroupName_ =
 describeInstanceRefreshes_nextToken :: Lens.Lens' DescribeInstanceRefreshes (Prelude.Maybe Prelude.Text)
 describeInstanceRefreshes_nextToken = Lens.lens (\DescribeInstanceRefreshes' {nextToken} -> nextToken) (\s@DescribeInstanceRefreshes' {} a -> s {nextToken = a} :: DescribeInstanceRefreshes)
 
--- | One or more instance refresh IDs.
-describeInstanceRefreshes_instanceRefreshIds :: Lens.Lens' DescribeInstanceRefreshes (Prelude.Maybe [Prelude.Text])
-describeInstanceRefreshes_instanceRefreshIds = Lens.lens (\DescribeInstanceRefreshes' {instanceRefreshIds} -> instanceRefreshIds) (\s@DescribeInstanceRefreshes' {} a -> s {instanceRefreshIds = a} :: DescribeInstanceRefreshes) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
 describeInstanceRefreshes_maxRecords :: Lens.Lens' DescribeInstanceRefreshes (Prelude.Maybe Prelude.Int)
 describeInstanceRefreshes_maxRecords = Lens.lens (\DescribeInstanceRefreshes' {maxRecords} -> maxRecords) (\s@DescribeInstanceRefreshes' {} a -> s {maxRecords = a} :: DescribeInstanceRefreshes)
+
+-- | One or more instance refresh IDs.
+describeInstanceRefreshes_instanceRefreshIds :: Lens.Lens' DescribeInstanceRefreshes (Prelude.Maybe [Prelude.Text])
+describeInstanceRefreshes_instanceRefreshIds = Lens.lens (\DescribeInstanceRefreshes' {instanceRefreshIds} -> instanceRefreshIds) (\s@DescribeInstanceRefreshes' {} a -> s {instanceRefreshIds = a} :: DescribeInstanceRefreshes) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 describeInstanceRefreshes_autoScalingGroupName :: Lens.Lens' DescribeInstanceRefreshes Prelude.Text
@@ -179,12 +179,12 @@ instance Core.ToQuery DescribeInstanceRefreshes where
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
+        "MaxRecords" Core.=: maxRecords,
         "InstanceRefreshIds"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> instanceRefreshIds
             ),
-        "MaxRecords" Core.=: maxRecords,
         "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
@@ -239,7 +239,7 @@ describeInstanceRefreshesResponse_nextToken = Lens.lens (\DescribeInstanceRefres
 
 -- | The instance refreshes for the specified group.
 describeInstanceRefreshesResponse_instanceRefreshes :: Lens.Lens' DescribeInstanceRefreshesResponse (Prelude.Maybe [InstanceRefresh])
-describeInstanceRefreshesResponse_instanceRefreshes = Lens.lens (\DescribeInstanceRefreshesResponse' {instanceRefreshes} -> instanceRefreshes) (\s@DescribeInstanceRefreshesResponse' {} a -> s {instanceRefreshes = a} :: DescribeInstanceRefreshesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeInstanceRefreshesResponse_instanceRefreshes = Lens.lens (\DescribeInstanceRefreshesResponse' {instanceRefreshes} -> instanceRefreshes) (\s@DescribeInstanceRefreshesResponse' {} a -> s {instanceRefreshes = a} :: DescribeInstanceRefreshesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeInstanceRefreshesResponse_httpStatus :: Lens.Lens' DescribeInstanceRefreshesResponse Prelude.Int

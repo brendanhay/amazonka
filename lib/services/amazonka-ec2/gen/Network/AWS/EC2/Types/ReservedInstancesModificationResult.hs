@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReservedInstancesModificationResult' smart constructor.
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
-  { -- | The target Reserved Instances configurations supplied as part of the
-    -- modification request.
-    targetConfiguration :: Prelude.Maybe ReservedInstancesConfiguration,
-    -- | The ID for the Reserved Instances that were created as part of the
+  { -- | The ID for the Reserved Instances that were created as part of the
     -- modification request. This field is only available when the modification
     -- is fulfilled.
-    reservedInstancesId :: Prelude.Maybe Prelude.Text
+    reservedInstancesId :: Prelude.Maybe Prelude.Text,
+    -- | The target Reserved Instances configurations supplied as part of the
+    -- modification request.
+    targetConfiguration :: Prelude.Maybe ReservedInstancesConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,25 +47,20 @@ data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetConfiguration', 'reservedInstancesModificationResult_targetConfiguration' - The target Reserved Instances configurations supplied as part of the
--- modification request.
---
 -- 'reservedInstancesId', 'reservedInstancesModificationResult_reservedInstancesId' - The ID for the Reserved Instances that were created as part of the
 -- modification request. This field is only available when the modification
 -- is fulfilled.
+--
+-- 'targetConfiguration', 'reservedInstancesModificationResult_targetConfiguration' - The target Reserved Instances configurations supplied as part of the
+-- modification request.
 newReservedInstancesModificationResult ::
   ReservedInstancesModificationResult
 newReservedInstancesModificationResult =
   ReservedInstancesModificationResult'
-    { targetConfiguration =
+    { reservedInstancesId =
         Prelude.Nothing,
-      reservedInstancesId = Prelude.Nothing
+      targetConfiguration = Prelude.Nothing
     }
-
--- | The target Reserved Instances configurations supplied as part of the
--- modification request.
-reservedInstancesModificationResult_targetConfiguration :: Lens.Lens' ReservedInstancesModificationResult (Prelude.Maybe ReservedInstancesConfiguration)
-reservedInstancesModificationResult_targetConfiguration = Lens.lens (\ReservedInstancesModificationResult' {targetConfiguration} -> targetConfiguration) (\s@ReservedInstancesModificationResult' {} a -> s {targetConfiguration = a} :: ReservedInstancesModificationResult)
 
 -- | The ID for the Reserved Instances that were created as part of the
 -- modification request. This field is only available when the modification
@@ -73,14 +68,19 @@ reservedInstancesModificationResult_targetConfiguration = Lens.lens (\ReservedIn
 reservedInstancesModificationResult_reservedInstancesId :: Lens.Lens' ReservedInstancesModificationResult (Prelude.Maybe Prelude.Text)
 reservedInstancesModificationResult_reservedInstancesId = Lens.lens (\ReservedInstancesModificationResult' {reservedInstancesId} -> reservedInstancesId) (\s@ReservedInstancesModificationResult' {} a -> s {reservedInstancesId = a} :: ReservedInstancesModificationResult)
 
+-- | The target Reserved Instances configurations supplied as part of the
+-- modification request.
+reservedInstancesModificationResult_targetConfiguration :: Lens.Lens' ReservedInstancesModificationResult (Prelude.Maybe ReservedInstancesConfiguration)
+reservedInstancesModificationResult_targetConfiguration = Lens.lens (\ReservedInstancesModificationResult' {targetConfiguration} -> targetConfiguration) (\s@ReservedInstancesModificationResult' {} a -> s {targetConfiguration = a} :: ReservedInstancesModificationResult)
+
 instance
   Core.FromXML
     ReservedInstancesModificationResult
   where
   parseXML x =
     ReservedInstancesModificationResult'
-      Prelude.<$> (x Core..@? "targetConfiguration")
-      Prelude.<*> (x Core..@? "reservedInstancesId")
+      Prelude.<$> (x Core..@? "reservedInstancesId")
+      Prelude.<*> (x Core..@? "targetConfiguration")
 
 instance
   Prelude.Hashable

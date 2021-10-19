@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSecurityGroupRuleDescription' smart constructor.
 data SecurityGroupRuleDescription = SecurityGroupRuleDescription'
-  { -- | The description of the security group rule.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the security group rule.
-    securityGroupRuleId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of the security group rule.
+    securityGroupRuleId :: Prelude.Maybe Prelude.Text,
+    -- | The description of the security group rule.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,25 @@ data SecurityGroupRuleDescription = SecurityGroupRuleDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'securityGroupRuleDescription_description' - The description of the security group rule.
---
 -- 'securityGroupRuleId', 'securityGroupRuleDescription_securityGroupRuleId' - The ID of the security group rule.
+--
+-- 'description', 'securityGroupRuleDescription_description' - The description of the security group rule.
 newSecurityGroupRuleDescription ::
   SecurityGroupRuleDescription
 newSecurityGroupRuleDescription =
   SecurityGroupRuleDescription'
-    { description =
+    { securityGroupRuleId =
         Prelude.Nothing,
-      securityGroupRuleId = Prelude.Nothing
+      description = Prelude.Nothing
     }
-
--- | The description of the security group rule.
-securityGroupRuleDescription_description :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
-securityGroupRuleDescription_description = Lens.lens (\SecurityGroupRuleDescription' {description} -> description) (\s@SecurityGroupRuleDescription' {} a -> s {description = a} :: SecurityGroupRuleDescription)
 
 -- | The ID of the security group rule.
 securityGroupRuleDescription_securityGroupRuleId :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
 securityGroupRuleDescription_securityGroupRuleId = Lens.lens (\SecurityGroupRuleDescription' {securityGroupRuleId} -> securityGroupRuleId) (\s@SecurityGroupRuleDescription' {} a -> s {securityGroupRuleId = a} :: SecurityGroupRuleDescription)
+
+-- | The description of the security group rule.
+securityGroupRuleDescription_description :: Lens.Lens' SecurityGroupRuleDescription (Prelude.Maybe Prelude.Text)
+securityGroupRuleDescription_description = Lens.lens (\SecurityGroupRuleDescription' {description} -> description) (\s@SecurityGroupRuleDescription' {} a -> s {description = a} :: SecurityGroupRuleDescription)
 
 instance
   Prelude.Hashable
@@ -75,6 +75,6 @@ instance Prelude.NFData SecurityGroupRuleDescription
 instance Core.ToQuery SecurityGroupRuleDescription where
   toQuery SecurityGroupRuleDescription' {..} =
     Prelude.mconcat
-      [ "Description" Core.=: description,
-        "SecurityGroupRuleId" Core.=: securityGroupRuleId
+      [ "SecurityGroupRuleId" Core.=: securityGroupRuleId,
+        "Description" Core.=: description
       ]

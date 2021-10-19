@@ -37,8 +37,8 @@ module Network.AWS.EMR.ListInstanceGroups
     newListInstanceGroupsResponse,
 
     -- * Response Lenses
-    listInstanceGroupsResponse_instanceGroups,
     listInstanceGroupsResponse_marker,
+    listInstanceGroupsResponse_instanceGroups,
     listInstanceGroupsResponse_httpStatus,
   )
 where
@@ -121,8 +121,8 @@ instance Core.AWSRequest ListInstanceGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInstanceGroupsResponse'
-            Prelude.<$> (x Core..?> "InstanceGroups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "InstanceGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,10 +164,10 @@ instance Core.ToQuery ListInstanceGroups where
 --
 -- /See:/ 'newListInstanceGroupsResponse' smart constructor.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-  { -- | The list of instance groups for the cluster and given filters.
-    instanceGroups :: Prelude.Maybe [InstanceGroup],
-    -- | The pagination token that indicates the next set of results to retrieve.
+  { -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The list of instance groups for the cluster and given filters.
+    instanceGroups :: Prelude.Maybe [InstanceGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,9 +181,9 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceGroups', 'listInstanceGroupsResponse_instanceGroups' - The list of instance groups for the cluster and given filters.
---
 -- 'marker', 'listInstanceGroupsResponse_marker' - The pagination token that indicates the next set of results to retrieve.
+--
+-- 'instanceGroups', 'listInstanceGroupsResponse_instanceGroups' - The list of instance groups for the cluster and given filters.
 --
 -- 'httpStatus', 'listInstanceGroupsResponse_httpStatus' - The response's http status code.
 newListInstanceGroupsResponse ::
@@ -192,19 +192,19 @@ newListInstanceGroupsResponse ::
   ListInstanceGroupsResponse
 newListInstanceGroupsResponse pHttpStatus_ =
   ListInstanceGroupsResponse'
-    { instanceGroups =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      instanceGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The list of instance groups for the cluster and given filters.
-listInstanceGroupsResponse_instanceGroups :: Lens.Lens' ListInstanceGroupsResponse (Prelude.Maybe [InstanceGroup])
-listInstanceGroupsResponse_instanceGroups = Lens.lens (\ListInstanceGroupsResponse' {instanceGroups} -> instanceGroups) (\s@ListInstanceGroupsResponse' {} a -> s {instanceGroups = a} :: ListInstanceGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listInstanceGroupsResponse_marker :: Lens.Lens' ListInstanceGroupsResponse (Prelude.Maybe Prelude.Text)
 listInstanceGroupsResponse_marker = Lens.lens (\ListInstanceGroupsResponse' {marker} -> marker) (\s@ListInstanceGroupsResponse' {} a -> s {marker = a} :: ListInstanceGroupsResponse)
+
+-- | The list of instance groups for the cluster and given filters.
+listInstanceGroupsResponse_instanceGroups :: Lens.Lens' ListInstanceGroupsResponse (Prelude.Maybe [InstanceGroup])
+listInstanceGroupsResponse_instanceGroups = Lens.lens (\ListInstanceGroupsResponse' {instanceGroups} -> instanceGroups) (\s@ListInstanceGroupsResponse' {} a -> s {instanceGroups = a} :: ListInstanceGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listInstanceGroupsResponse_httpStatus :: Lens.Lens' ListInstanceGroupsResponse Prelude.Int

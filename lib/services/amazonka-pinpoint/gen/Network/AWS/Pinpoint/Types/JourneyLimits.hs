@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJourneyLimits' smart constructor.
 data JourneyLimits = JourneyLimits'
-  { -- | Minimum time that must pass before an endpoint can re-enter a given
-    -- journey. The duration should use an ISO 8601 format, such as PT1H.
-    endpointReentryInterval :: Prelude.Maybe Prelude.Text,
+  { -- | The maximum number of messages that the journey can send each second.
+    messagesPerSecond :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of times that a participant can enter the journey.
     -- The maximum value is 100. To allow participants to enter the journey an
     -- unlimited number of times, set this value to 0.
     endpointReentryCap :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of messages that the journey can send each second.
-    messagesPerSecond :: Prelude.Maybe Prelude.Int,
+    -- | Minimum time that must pass before an endpoint can re-enter a given
+    -- journey. The duration should use an ISO 8601 format, such as PT1H.
+    endpointReentryInterval :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of messages that the journey can send to a single
     -- participant during a 24-hour period. The maximum value is 100.
     dailyCap :: Prelude.Maybe Prelude.Int
@@ -51,14 +51,14 @@ data JourneyLimits = JourneyLimits'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointReentryInterval', 'journeyLimits_endpointReentryInterval' - Minimum time that must pass before an endpoint can re-enter a given
--- journey. The duration should use an ISO 8601 format, such as PT1H.
+-- 'messagesPerSecond', 'journeyLimits_messagesPerSecond' - The maximum number of messages that the journey can send each second.
 --
 -- 'endpointReentryCap', 'journeyLimits_endpointReentryCap' - The maximum number of times that a participant can enter the journey.
 -- The maximum value is 100. To allow participants to enter the journey an
 -- unlimited number of times, set this value to 0.
 --
--- 'messagesPerSecond', 'journeyLimits_messagesPerSecond' - The maximum number of messages that the journey can send each second.
+-- 'endpointReentryInterval', 'journeyLimits_endpointReentryInterval' - Minimum time that must pass before an endpoint can re-enter a given
+-- journey. The duration should use an ISO 8601 format, such as PT1H.
 --
 -- 'dailyCap', 'journeyLimits_dailyCap' - The maximum number of messages that the journey can send to a single
 -- participant during a 24-hour period. The maximum value is 100.
@@ -66,17 +66,15 @@ newJourneyLimits ::
   JourneyLimits
 newJourneyLimits =
   JourneyLimits'
-    { endpointReentryInterval =
-        Prelude.Nothing,
+    { messagesPerSecond = Prelude.Nothing,
       endpointReentryCap = Prelude.Nothing,
-      messagesPerSecond = Prelude.Nothing,
+      endpointReentryInterval = Prelude.Nothing,
       dailyCap = Prelude.Nothing
     }
 
--- | Minimum time that must pass before an endpoint can re-enter a given
--- journey. The duration should use an ISO 8601 format, such as PT1H.
-journeyLimits_endpointReentryInterval :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Text)
-journeyLimits_endpointReentryInterval = Lens.lens (\JourneyLimits' {endpointReentryInterval} -> endpointReentryInterval) (\s@JourneyLimits' {} a -> s {endpointReentryInterval = a} :: JourneyLimits)
+-- | The maximum number of messages that the journey can send each second.
+journeyLimits_messagesPerSecond :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
+journeyLimits_messagesPerSecond = Lens.lens (\JourneyLimits' {messagesPerSecond} -> messagesPerSecond) (\s@JourneyLimits' {} a -> s {messagesPerSecond = a} :: JourneyLimits)
 
 -- | The maximum number of times that a participant can enter the journey.
 -- The maximum value is 100. To allow participants to enter the journey an
@@ -84,9 +82,10 @@ journeyLimits_endpointReentryInterval = Lens.lens (\JourneyLimits' {endpointReen
 journeyLimits_endpointReentryCap :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
 journeyLimits_endpointReentryCap = Lens.lens (\JourneyLimits' {endpointReentryCap} -> endpointReentryCap) (\s@JourneyLimits' {} a -> s {endpointReentryCap = a} :: JourneyLimits)
 
--- | The maximum number of messages that the journey can send each second.
-journeyLimits_messagesPerSecond :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Int)
-journeyLimits_messagesPerSecond = Lens.lens (\JourneyLimits' {messagesPerSecond} -> messagesPerSecond) (\s@JourneyLimits' {} a -> s {messagesPerSecond = a} :: JourneyLimits)
+-- | Minimum time that must pass before an endpoint can re-enter a given
+-- journey. The duration should use an ISO 8601 format, such as PT1H.
+journeyLimits_endpointReentryInterval :: Lens.Lens' JourneyLimits (Prelude.Maybe Prelude.Text)
+journeyLimits_endpointReentryInterval = Lens.lens (\JourneyLimits' {endpointReentryInterval} -> endpointReentryInterval) (\s@JourneyLimits' {} a -> s {endpointReentryInterval = a} :: JourneyLimits)
 
 -- | The maximum number of messages that the journey can send to a single
 -- participant during a 24-hour period. The maximum value is 100.
@@ -99,9 +98,9 @@ instance Core.FromJSON JourneyLimits where
       "JourneyLimits"
       ( \x ->
           JourneyLimits'
-            Prelude.<$> (x Core..:? "EndpointReentryInterval")
+            Prelude.<$> (x Core..:? "MessagesPerSecond")
             Prelude.<*> (x Core..:? "EndpointReentryCap")
-            Prelude.<*> (x Core..:? "MessagesPerSecond")
+            Prelude.<*> (x Core..:? "EndpointReentryInterval")
             Prelude.<*> (x Core..:? "DailyCap")
       )
 
@@ -113,12 +112,12 @@ instance Core.ToJSON JourneyLimits where
   toJSON JourneyLimits' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EndpointReentryInterval" Core..=)
-              Prelude.<$> endpointReentryInterval,
+          [ ("MessagesPerSecond" Core..=)
+              Prelude.<$> messagesPerSecond,
             ("EndpointReentryCap" Core..=)
               Prelude.<$> endpointReentryCap,
-            ("MessagesPerSecond" Core..=)
-              Prelude.<$> messagesPerSecond,
+            ("EndpointReentryInterval" Core..=)
+              Prelude.<$> endpointReentryInterval,
             ("DailyCap" Core..=) Prelude.<$> dailyCap
           ]
       )

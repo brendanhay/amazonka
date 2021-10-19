@@ -69,7 +69,7 @@ triggerConfig_triggerName = Lens.lens (\TriggerConfig' {triggerName} -> triggerN
 
 -- | The event type or types for which notifications are triggered.
 triggerConfig_triggerEvents :: Lens.Lens' TriggerConfig (Prelude.Maybe [TriggerEventType])
-triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> triggerEvents) (\s@TriggerConfig' {} a -> s {triggerEvents = a} :: TriggerConfig) Prelude.. Lens.mapping Lens._Coerce
+triggerConfig_triggerEvents = Lens.lens (\TriggerConfig' {triggerEvents} -> triggerEvents) (\s@TriggerConfig' {} a -> s {triggerEvents = a} :: TriggerConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- topic through which notifications about deployment or instance events

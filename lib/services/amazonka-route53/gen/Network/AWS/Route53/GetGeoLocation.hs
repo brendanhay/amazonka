@@ -46,9 +46,9 @@ module Network.AWS.Route53.GetGeoLocation
     newGetGeoLocation,
 
     -- * Request Lenses
-    getGeoLocation_continentCode,
     getGeoLocation_subdivisionCode,
     getGeoLocation_countryCode,
+    getGeoLocation_continentCode,
 
     -- * Destructuring the Response
     GetGeoLocationResponse (..),
@@ -72,7 +72,18 @@ import Network.AWS.Route53.Types
 --
 -- /See:/ 'newGetGeoLocation' smart constructor.
 data GetGeoLocation = GetGeoLocation'
-  { -- | For geolocation resource record sets, a two-letter abbreviation that
+  { -- | The code for the subdivision, such as a particular state within the
+    -- United States. For a list of US state abbreviations, see
+    -- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
+    -- on the United States Postal Service website. For a list of all supported
+    -- subdivision codes, use the
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
+    -- API.
+    subdivisionCode :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Route 53 uses the two-letter country codes that are specified in
+    -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
+    countryCode :: Prelude.Maybe Prelude.Text,
+    -- | For geolocation resource record sets, a two-letter abbreviation that
     -- identifies a continent. Amazon Route 53 supports the following continent
     -- codes:
     --
@@ -89,18 +100,7 @@ data GetGeoLocation = GetGeoLocation'
     -- -   __NA__: North America
     --
     -- -   __SA__: South America
-    continentCode :: Prelude.Maybe Prelude.Text,
-    -- | The code for the subdivision, such as a particular state within the
-    -- United States. For a list of US state abbreviations, see
-    -- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
-    -- on the United States Postal Service website. For a list of all supported
-    -- subdivision codes, use the
-    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
-    -- API.
-    subdivisionCode :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Route 53 uses the two-letter country codes that are specified in
-    -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-    countryCode :: Prelude.Maybe Prelude.Text
+    continentCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,6 +111,17 @@ data GetGeoLocation = GetGeoLocation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'subdivisionCode', 'getGeoLocation_subdivisionCode' - The code for the subdivision, such as a particular state within the
+-- United States. For a list of US state abbreviations, see
+-- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
+-- on the United States Postal Service website. For a list of all supported
+-- subdivision codes, use the
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
+-- API.
+--
+-- 'countryCode', 'getGeoLocation_countryCode' - Amazon Route 53 uses the two-letter country codes that are specified in
+-- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
 --
 -- 'continentCode', 'getGeoLocation_continentCode' - For geolocation resource record sets, a two-letter abbreviation that
 -- identifies a continent. Amazon Route 53 supports the following continent
@@ -129,25 +140,29 @@ data GetGeoLocation = GetGeoLocation'
 -- -   __NA__: North America
 --
 -- -   __SA__: South America
---
--- 'subdivisionCode', 'getGeoLocation_subdivisionCode' - The code for the subdivision, such as a particular state within the
+newGetGeoLocation ::
+  GetGeoLocation
+newGetGeoLocation =
+  GetGeoLocation'
+    { subdivisionCode = Prelude.Nothing,
+      countryCode = Prelude.Nothing,
+      continentCode = Prelude.Nothing
+    }
+
+-- | The code for the subdivision, such as a particular state within the
 -- United States. For a list of US state abbreviations, see
 -- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
 -- on the United States Postal Service website. For a list of all supported
 -- subdivision codes, use the
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
 -- API.
---
--- 'countryCode', 'getGeoLocation_countryCode' - Amazon Route 53 uses the two-letter country codes that are specified in
+getGeoLocation_subdivisionCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
+getGeoLocation_subdivisionCode = Lens.lens (\GetGeoLocation' {subdivisionCode} -> subdivisionCode) (\s@GetGeoLocation' {} a -> s {subdivisionCode = a} :: GetGeoLocation)
+
+-- | Amazon Route 53 uses the two-letter country codes that are specified in
 -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-newGetGeoLocation ::
-  GetGeoLocation
-newGetGeoLocation =
-  GetGeoLocation'
-    { continentCode = Prelude.Nothing,
-      subdivisionCode = Prelude.Nothing,
-      countryCode = Prelude.Nothing
-    }
+getGeoLocation_countryCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
+getGeoLocation_countryCode = Lens.lens (\GetGeoLocation' {countryCode} -> countryCode) (\s@GetGeoLocation' {} a -> s {countryCode = a} :: GetGeoLocation)
 
 -- | For geolocation resource record sets, a two-letter abbreviation that
 -- identifies a continent. Amazon Route 53 supports the following continent
@@ -168,21 +183,6 @@ newGetGeoLocation =
 -- -   __SA__: South America
 getGeoLocation_continentCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
 getGeoLocation_continentCode = Lens.lens (\GetGeoLocation' {continentCode} -> continentCode) (\s@GetGeoLocation' {} a -> s {continentCode = a} :: GetGeoLocation)
-
--- | The code for the subdivision, such as a particular state within the
--- United States. For a list of US state abbreviations, see
--- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
--- on the United States Postal Service website. For a list of all supported
--- subdivision codes, use the
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
--- API.
-getGeoLocation_subdivisionCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
-getGeoLocation_subdivisionCode = Lens.lens (\GetGeoLocation' {subdivisionCode} -> subdivisionCode) (\s@GetGeoLocation' {} a -> s {subdivisionCode = a} :: GetGeoLocation)
-
--- | Amazon Route 53 uses the two-letter country codes that are specified in
--- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-getGeoLocation_countryCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
-getGeoLocation_countryCode = Lens.lens (\GetGeoLocation' {countryCode} -> countryCode) (\s@GetGeoLocation' {} a -> s {countryCode = a} :: GetGeoLocation)
 
 instance Core.AWSRequest GetGeoLocation where
   type
@@ -210,9 +210,9 @@ instance Core.ToPath GetGeoLocation where
 instance Core.ToQuery GetGeoLocation where
   toQuery GetGeoLocation' {..} =
     Prelude.mconcat
-      [ "continentcode" Core.=: continentCode,
-        "subdivisioncode" Core.=: subdivisionCode,
-        "countrycode" Core.=: countryCode
+      [ "subdivisioncode" Core.=: subdivisionCode,
+        "countrycode" Core.=: countryCode,
+        "continentcode" Core.=: continentCode
       ]
 
 -- | A complex type that contains the response information for the specified

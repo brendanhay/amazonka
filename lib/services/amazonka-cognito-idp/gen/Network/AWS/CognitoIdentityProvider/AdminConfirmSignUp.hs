@@ -179,7 +179,7 @@ newAdminConfirmSignUp pUserPoolId_ pUsername_ =
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
 adminConfirmSignUp_clientMetadata :: Lens.Lens' AdminConfirmSignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminConfirmSignUp_clientMetadata = Lens.lens (\AdminConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@AdminConfirmSignUp' {} a -> s {clientMetadata = a} :: AdminConfirmSignUp) Prelude.. Lens.mapping Lens._Coerce
+adminConfirmSignUp_clientMetadata = Lens.lens (\AdminConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@AdminConfirmSignUp' {} a -> s {clientMetadata = a} :: AdminConfirmSignUp) Prelude.. Lens.mapping Lens.coerced
 
 -- | The user pool ID for which you want to confirm user registration.
 adminConfirmSignUp_userPoolId :: Lens.Lens' AdminConfirmSignUp Prelude.Text

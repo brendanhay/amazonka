@@ -28,10 +28,10 @@ module Network.AWS.Pinpoint.GetApplicationDateRangeKpi
     newGetApplicationDateRangeKpi,
 
     -- * Request Lenses
-    getApplicationDateRangeKpi_nextToken,
-    getApplicationDateRangeKpi_pageSize,
     getApplicationDateRangeKpi_startTime,
+    getApplicationDateRangeKpi_nextToken,
     getApplicationDateRangeKpi_endTime,
+    getApplicationDateRangeKpi_pageSize,
     getApplicationDateRangeKpi_applicationId,
     getApplicationDateRangeKpi_kpiName,
 
@@ -54,25 +54,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetApplicationDateRangeKpi' smart constructor.
 data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
-  { -- | The string that specifies which page of results to return in a paginated
-    -- response. This parameter is not supported for application, campaign, and
-    -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items to include in each page of a paginated
-    -- response. This parameter is not supported for application, campaign, and
-    -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The first date and time to retrieve data for, as part of an inclusive
+  { -- | The first date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | The string that specifies which page of results to return in a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The maximum number of items to include in each page of a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    pageSize :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
     applicationId :: Prelude.Text,
@@ -95,24 +95,24 @@ data GetApplicationDateRangeKpi = GetApplicationDateRangeKpi'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getApplicationDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
---
--- 'pageSize', 'getApplicationDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
---
 -- 'startTime', 'getApplicationDateRangeKpi_startTime' - The first date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
 --
+-- 'nextToken', 'getApplicationDateRangeKpi_nextToken' - The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+--
 -- 'endTime', 'getApplicationDateRangeKpi_endTime' - The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
+--
+-- 'pageSize', 'getApplicationDateRangeKpi_pageSize' - The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
 --
 -- 'applicationId', 'getApplicationDateRangeKpi_applicationId' - The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -134,26 +134,14 @@ newGetApplicationDateRangeKpi
   pApplicationId_
   pKpiName_ =
     GetApplicationDateRangeKpi'
-      { nextToken =
+      { startTime =
           Prelude.Nothing,
-        pageSize = Prelude.Nothing,
-        startTime = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        pageSize = Prelude.Nothing,
         applicationId = pApplicationId_,
         kpiName = pKpiName_
       }
-
--- | The string that specifies which page of results to return in a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
-getApplicationDateRangeKpi_nextToken :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
-getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {nextToken} -> nextToken) (\s@GetApplicationDateRangeKpi' {} a -> s {nextToken = a} :: GetApplicationDateRangeKpi)
-
--- | The maximum number of items to include in each page of a paginated
--- response. This parameter is not supported for application, campaign, and
--- journey metrics.
-getApplicationDateRangeKpi_pageSize :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
-getApplicationDateRangeKpi_pageSize = Lens.lens (\GetApplicationDateRangeKpi' {pageSize} -> pageSize) (\s@GetApplicationDateRangeKpi' {} a -> s {pageSize = a} :: GetApplicationDateRangeKpi)
 
 -- | The first date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
@@ -163,12 +151,24 @@ getApplicationDateRangeKpi_pageSize = Lens.lens (\GetApplicationDateRangeKpi' {p
 getApplicationDateRangeKpi_startTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
 getApplicationDateRangeKpi_startTime = Lens.lens (\GetApplicationDateRangeKpi' {startTime} -> startTime) (\s@GetApplicationDateRangeKpi' {} a -> s {startTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Core._Time
 
+-- | The string that specifies which page of results to return in a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getApplicationDateRangeKpi_nextToken :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
+getApplicationDateRangeKpi_nextToken = Lens.lens (\GetApplicationDateRangeKpi' {nextToken} -> nextToken) (\s@GetApplicationDateRangeKpi' {} a -> s {nextToken = a} :: GetApplicationDateRangeKpi)
+
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 getApplicationDateRangeKpi_endTime :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
 getApplicationDateRangeKpi_endTime = Lens.lens (\GetApplicationDateRangeKpi' {endTime} -> endTime) (\s@GetApplicationDateRangeKpi' {} a -> s {endTime = a} :: GetApplicationDateRangeKpi) Prelude.. Lens.mapping Core._Time
+
+-- | The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getApplicationDateRangeKpi_pageSize :: Lens.Lens' GetApplicationDateRangeKpi (Prelude.Maybe Prelude.Text)
+getApplicationDateRangeKpi_pageSize = Lens.lens (\GetApplicationDateRangeKpi' {pageSize} -> pageSize) (\s@GetApplicationDateRangeKpi' {} a -> s {pageSize = a} :: GetApplicationDateRangeKpi)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
@@ -225,10 +225,10 @@ instance Core.ToPath GetApplicationDateRangeKpi where
 instance Core.ToQuery GetApplicationDateRangeKpi where
   toQuery GetApplicationDateRangeKpi' {..} =
     Prelude.mconcat
-      [ "next-token" Core.=: nextToken,
-        "page-size" Core.=: pageSize,
-        "start-time" Core.=: startTime,
-        "end-time" Core.=: endTime
+      [ "start-time" Core.=: startTime,
+        "next-token" Core.=: nextToken,
+        "end-time" Core.=: endTime,
+        "page-size" Core.=: pageSize
       ]
 
 -- | /See:/ 'newGetApplicationDateRangeKpiResponse' smart constructor.

@@ -94,7 +94,7 @@ putInsightSelectors_trailName = Lens.lens (\PutInsightSelectors' {trailName} -> 
 -- | A JSON string that contains the Insights types that you want to log on a
 -- trail. The valid Insights type in this release is @ApiCallRateInsight@.
 putInsightSelectors_insightSelectors :: Lens.Lens' PutInsightSelectors [InsightSelector]
-putInsightSelectors_insightSelectors = Lens.lens (\PutInsightSelectors' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectors' {} a -> s {insightSelectors = a} :: PutInsightSelectors) Prelude.. Lens._Coerce
+putInsightSelectors_insightSelectors = Lens.lens (\PutInsightSelectors' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectors' {} a -> s {insightSelectors = a} :: PutInsightSelectors) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutInsightSelectors where
   type
@@ -198,7 +198,7 @@ putInsightSelectorsResponse_trailARN = Lens.lens (\PutInsightSelectorsResponse' 
 -- log on a trail. The valid Insights type in this release is
 -- @ApiCallRateInsight@.
 putInsightSelectorsResponse_insightSelectors :: Lens.Lens' PutInsightSelectorsResponse (Prelude.Maybe [InsightSelector])
-putInsightSelectorsResponse_insightSelectors = Lens.lens (\PutInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: PutInsightSelectorsResponse) Prelude.. Lens.mapping Lens._Coerce
+putInsightSelectorsResponse_insightSelectors = Lens.lens (\PutInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: PutInsightSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putInsightSelectorsResponse_httpStatus :: Lens.Lens' PutInsightSelectorsResponse Prelude.Int

@@ -308,7 +308,7 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 getSubscriptionAttributesResponse_attributes :: Lens.Lens' GetSubscriptionAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSubscriptionAttributesResponse_httpStatus :: Lens.Lens' GetSubscriptionAttributesResponse Prelude.Int

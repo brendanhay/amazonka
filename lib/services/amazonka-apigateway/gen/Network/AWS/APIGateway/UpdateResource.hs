@@ -36,11 +36,11 @@ module Network.AWS.APIGateway.UpdateResource
     newResource,
 
     -- * Response Lenses
-    resource_id,
     resource_pathPart,
-    resource_parentId,
-    resource_resourceMethods,
     resource_path,
+    resource_id,
+    resource_resourceMethods,
+    resource_parentId,
   )
 where
 
@@ -95,7 +95,7 @@ newUpdateResource pRestApiId_ pResourceId_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateResource_patchOperations :: Lens.Lens' UpdateResource (Prelude.Maybe [PatchOperation])
-updateResource_patchOperations = Lens.lens (\UpdateResource' {patchOperations} -> patchOperations) (\s@UpdateResource' {} a -> s {patchOperations = a} :: UpdateResource) Prelude.. Lens.mapping Lens._Coerce
+updateResource_patchOperations = Lens.lens (\UpdateResource' {patchOperations} -> patchOperations) (\s@UpdateResource' {} a -> s {patchOperations = a} :: UpdateResource) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateResource_restApiId :: Lens.Lens' UpdateResource Prelude.Text

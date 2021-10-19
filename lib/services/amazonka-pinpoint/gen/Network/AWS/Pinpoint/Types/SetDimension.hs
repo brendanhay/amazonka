@@ -75,7 +75,7 @@ setDimension_dimensionType = Lens.lens (\SetDimension' {dimensionType} -> dimens
 -- value of the DimensionType property, endpoints are included or excluded
 -- from the segment if their values match the criteria values.
 setDimension_values :: Lens.Lens' SetDimension [Prelude.Text]
-setDimension_values = Lens.lens (\SetDimension' {values} -> values) (\s@SetDimension' {} a -> s {values = a} :: SetDimension) Prelude.. Lens._Coerce
+setDimension_values = Lens.lens (\SetDimension' {values} -> values) (\s@SetDimension' {} a -> s {values = a} :: SetDimension) Prelude.. Lens.coerced
 
 instance Core.FromJSON SetDimension where
   parseJSON =

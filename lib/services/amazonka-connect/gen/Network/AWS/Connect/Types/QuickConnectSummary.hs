@@ -28,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQuickConnectSummary' smart constructor.
 data QuickConnectSummary = QuickConnectSummary'
-  { -- | The type of quick connect. In the Amazon Connect console, when you
+  { -- | The Amazon Resource Name (ARN) of the quick connect.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The type of quick connect. In the Amazon Connect console, when you
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     quickConnectType :: Prelude.Maybe QuickConnectType,
-    -- | The Amazon Resource Name (ARN) of the quick connect.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the quick connect.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the quick connect.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for the quick connect.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,25 +49,28 @@ data QuickConnectSummary = QuickConnectSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'arn', 'quickConnectSummary_arn' - The Amazon Resource Name (ARN) of the quick connect.
+--
 -- 'quickConnectType', 'quickConnectSummary_quickConnectType' - The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 --
--- 'arn', 'quickConnectSummary_arn' - The Amazon Resource Name (ARN) of the quick connect.
+-- 'name', 'quickConnectSummary_name' - The name of the quick connect.
 --
 -- 'id', 'quickConnectSummary_id' - The identifier for the quick connect.
---
--- 'name', 'quickConnectSummary_name' - The name of the quick connect.
 newQuickConnectSummary ::
   QuickConnectSummary
 newQuickConnectSummary =
   QuickConnectSummary'
-    { quickConnectType =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { arn = Prelude.Nothing,
+      quickConnectType = Prelude.Nothing,
+      name = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the quick connect.
+quickConnectSummary_arn :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
+quickConnectSummary_arn = Lens.lens (\QuickConnectSummary' {arn} -> arn) (\s@QuickConnectSummary' {} a -> s {arn = a} :: QuickConnectSummary)
 
 -- | The type of quick connect. In the Amazon Connect console, when you
 -- create a quick connect, you are prompted to assign one of the following
@@ -75,17 +78,13 @@ newQuickConnectSummary =
 quickConnectSummary_quickConnectType :: Lens.Lens' QuickConnectSummary (Prelude.Maybe QuickConnectType)
 quickConnectSummary_quickConnectType = Lens.lens (\QuickConnectSummary' {quickConnectType} -> quickConnectType) (\s@QuickConnectSummary' {} a -> s {quickConnectType = a} :: QuickConnectSummary)
 
--- | The Amazon Resource Name (ARN) of the quick connect.
-quickConnectSummary_arn :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
-quickConnectSummary_arn = Lens.lens (\QuickConnectSummary' {arn} -> arn) (\s@QuickConnectSummary' {} a -> s {arn = a} :: QuickConnectSummary)
+-- | The name of the quick connect.
+quickConnectSummary_name :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
+quickConnectSummary_name = Lens.lens (\QuickConnectSummary' {name} -> name) (\s@QuickConnectSummary' {} a -> s {name = a} :: QuickConnectSummary)
 
 -- | The identifier for the quick connect.
 quickConnectSummary_id :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
 quickConnectSummary_id = Lens.lens (\QuickConnectSummary' {id} -> id) (\s@QuickConnectSummary' {} a -> s {id = a} :: QuickConnectSummary)
-
--- | The name of the quick connect.
-quickConnectSummary_name :: Lens.Lens' QuickConnectSummary (Prelude.Maybe Prelude.Text)
-quickConnectSummary_name = Lens.lens (\QuickConnectSummary' {name} -> name) (\s@QuickConnectSummary' {} a -> s {name = a} :: QuickConnectSummary)
 
 instance Core.FromJSON QuickConnectSummary where
   parseJSON =
@@ -93,10 +92,10 @@ instance Core.FromJSON QuickConnectSummary where
       "QuickConnectSummary"
       ( \x ->
           QuickConnectSummary'
-            Prelude.<$> (x Core..:? "QuickConnectType")
-            Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
+            Prelude.<$> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "QuickConnectType")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Id")
       )
 
 instance Prelude.Hashable QuickConnectSummary

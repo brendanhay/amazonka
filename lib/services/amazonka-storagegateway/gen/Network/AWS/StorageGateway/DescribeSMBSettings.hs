@@ -39,6 +39,7 @@ module Network.AWS.StorageGateway.DescribeSMBSettings
     describeSMBSettingsResponse_fileSharesVisible,
     describeSMBSettingsResponse_activeDirectoryStatus,
     describeSMBSettingsResponse_domainName,
+    describeSMBSettingsResponse_sMBLocalGroups,
     describeSMBSettingsResponse_sMBGuestPasswordSet,
     describeSMBSettingsResponse_sMBSecurityStrategy,
     describeSMBSettingsResponse_httpStatus,
@@ -91,6 +92,7 @@ instance Core.AWSRequest DescribeSMBSettings where
             Prelude.<*> (x Core..?> "FileSharesVisible")
             Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
             Prelude.<*> (x Core..?> "DomainName")
+            Prelude.<*> (x Core..?> "SMBLocalGroups")
             Prelude.<*> (x Core..?> "SMBGuestPasswordSet")
             Prelude.<*> (x Core..?> "SMBSecurityStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -158,6 +160,9 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
     activeDirectoryStatus :: Prelude.Maybe ActiveDirectoryStatus,
     -- | The name of the domain that the gateway is joined to.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | A list of Active Directory users and groups that have special
+    -- permissions for SMB file shares on the gateway.
+    sMBLocalGroups :: Prelude.Maybe SMBLocalGroups,
     -- | This value is @true@ if a password for the guest user @smbguest@ is set,
     -- otherwise @false@. Only supported for S3 File Gateways.
     --
@@ -223,6 +228,9 @@ data DescribeSMBSettingsResponse = DescribeSMBSettingsResponse'
 --
 -- 'domainName', 'describeSMBSettingsResponse_domainName' - The name of the domain that the gateway is joined to.
 --
+-- 'sMBLocalGroups', 'describeSMBSettingsResponse_sMBLocalGroups' - A list of Active Directory users and groups that have special
+-- permissions for SMB file shares on the gateway.
+--
 -- 'sMBGuestPasswordSet', 'describeSMBSettingsResponse_sMBGuestPasswordSet' - This value is @true@ if a password for the guest user @smbguest@ is set,
 -- otherwise @false@. Only supported for S3 File Gateways.
 --
@@ -258,6 +266,7 @@ newDescribeSMBSettingsResponse pHttpStatus_ =
       fileSharesVisible = Prelude.Nothing,
       activeDirectoryStatus = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      sMBLocalGroups = Prelude.Nothing,
       sMBGuestPasswordSet = Prelude.Nothing,
       sMBSecurityStrategy = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -299,6 +308,11 @@ describeSMBSettingsResponse_activeDirectoryStatus = Lens.lens (\DescribeSMBSetti
 -- | The name of the domain that the gateway is joined to.
 describeSMBSettingsResponse_domainName :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe Prelude.Text)
 describeSMBSettingsResponse_domainName = Lens.lens (\DescribeSMBSettingsResponse' {domainName} -> domainName) (\s@DescribeSMBSettingsResponse' {} a -> s {domainName = a} :: DescribeSMBSettingsResponse)
+
+-- | A list of Active Directory users and groups that have special
+-- permissions for SMB file shares on the gateway.
+describeSMBSettingsResponse_sMBLocalGroups :: Lens.Lens' DescribeSMBSettingsResponse (Prelude.Maybe SMBLocalGroups)
+describeSMBSettingsResponse_sMBLocalGroups = Lens.lens (\DescribeSMBSettingsResponse' {sMBLocalGroups} -> sMBLocalGroups) (\s@DescribeSMBSettingsResponse' {} a -> s {sMBLocalGroups = a} :: DescribeSMBSettingsResponse)
 
 -- | This value is @true@ if a password for the guest user @smbguest@ is set,
 -- otherwise @false@. Only supported for S3 File Gateways.

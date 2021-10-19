@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDiskResourceUtilization' smart constructor.
 data DiskResourceUtilization = DiskResourceUtilization'
-  { -- | The maximum number of read operations per second.
+  { -- | The maximum number of write operations per second.
+    diskWriteOpsPerSecond :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of read operations per second.
     diskReadOpsPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The maximum read throughput operations per second.
-    diskReadBytesPerSecond :: Prelude.Maybe Prelude.Text,
     -- | The maximum write throughput operations per second.
     diskWriteBytesPerSecond :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of write operations per second.
-    diskWriteOpsPerSecond :: Prelude.Maybe Prelude.Text
+    -- | The maximum read throughput operations per second.
+    diskReadBytesPerSecond :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,39 +47,39 @@ data DiskResourceUtilization = DiskResourceUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'diskReadOpsPerSecond', 'diskResourceUtilization_diskReadOpsPerSecond' - The maximum number of read operations per second.
+-- 'diskWriteOpsPerSecond', 'diskResourceUtilization_diskWriteOpsPerSecond' - The maximum number of write operations per second.
 --
--- 'diskReadBytesPerSecond', 'diskResourceUtilization_diskReadBytesPerSecond' - The maximum read throughput operations per second.
+-- 'diskReadOpsPerSecond', 'diskResourceUtilization_diskReadOpsPerSecond' - The maximum number of read operations per second.
 --
 -- 'diskWriteBytesPerSecond', 'diskResourceUtilization_diskWriteBytesPerSecond' - The maximum write throughput operations per second.
 --
--- 'diskWriteOpsPerSecond', 'diskResourceUtilization_diskWriteOpsPerSecond' - The maximum number of write operations per second.
+-- 'diskReadBytesPerSecond', 'diskResourceUtilization_diskReadBytesPerSecond' - The maximum read throughput operations per second.
 newDiskResourceUtilization ::
   DiskResourceUtilization
 newDiskResourceUtilization =
   DiskResourceUtilization'
-    { diskReadOpsPerSecond =
+    { diskWriteOpsPerSecond =
         Prelude.Nothing,
-      diskReadBytesPerSecond = Prelude.Nothing,
+      diskReadOpsPerSecond = Prelude.Nothing,
       diskWriteBytesPerSecond = Prelude.Nothing,
-      diskWriteOpsPerSecond = Prelude.Nothing
+      diskReadBytesPerSecond = Prelude.Nothing
     }
+
+-- | The maximum number of write operations per second.
+diskResourceUtilization_diskWriteOpsPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
+diskResourceUtilization_diskWriteOpsPerSecond = Lens.lens (\DiskResourceUtilization' {diskWriteOpsPerSecond} -> diskWriteOpsPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskWriteOpsPerSecond = a} :: DiskResourceUtilization)
 
 -- | The maximum number of read operations per second.
 diskResourceUtilization_diskReadOpsPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
 diskResourceUtilization_diskReadOpsPerSecond = Lens.lens (\DiskResourceUtilization' {diskReadOpsPerSecond} -> diskReadOpsPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskReadOpsPerSecond = a} :: DiskResourceUtilization)
 
--- | The maximum read throughput operations per second.
-diskResourceUtilization_diskReadBytesPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
-diskResourceUtilization_diskReadBytesPerSecond = Lens.lens (\DiskResourceUtilization' {diskReadBytesPerSecond} -> diskReadBytesPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskReadBytesPerSecond = a} :: DiskResourceUtilization)
-
 -- | The maximum write throughput operations per second.
 diskResourceUtilization_diskWriteBytesPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
 diskResourceUtilization_diskWriteBytesPerSecond = Lens.lens (\DiskResourceUtilization' {diskWriteBytesPerSecond} -> diskWriteBytesPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskWriteBytesPerSecond = a} :: DiskResourceUtilization)
 
--- | The maximum number of write operations per second.
-diskResourceUtilization_diskWriteOpsPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
-diskResourceUtilization_diskWriteOpsPerSecond = Lens.lens (\DiskResourceUtilization' {diskWriteOpsPerSecond} -> diskWriteOpsPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskWriteOpsPerSecond = a} :: DiskResourceUtilization)
+-- | The maximum read throughput operations per second.
+diskResourceUtilization_diskReadBytesPerSecond :: Lens.Lens' DiskResourceUtilization (Prelude.Maybe Prelude.Text)
+diskResourceUtilization_diskReadBytesPerSecond = Lens.lens (\DiskResourceUtilization' {diskReadBytesPerSecond} -> diskReadBytesPerSecond) (\s@DiskResourceUtilization' {} a -> s {diskReadBytesPerSecond = a} :: DiskResourceUtilization)
 
 instance Core.FromJSON DiskResourceUtilization where
   parseJSON =
@@ -87,10 +87,10 @@ instance Core.FromJSON DiskResourceUtilization where
       "DiskResourceUtilization"
       ( \x ->
           DiskResourceUtilization'
-            Prelude.<$> (x Core..:? "DiskReadOpsPerSecond")
-            Prelude.<*> (x Core..:? "DiskReadBytesPerSecond")
+            Prelude.<$> (x Core..:? "DiskWriteOpsPerSecond")
+            Prelude.<*> (x Core..:? "DiskReadOpsPerSecond")
             Prelude.<*> (x Core..:? "DiskWriteBytesPerSecond")
-            Prelude.<*> (x Core..:? "DiskWriteOpsPerSecond")
+            Prelude.<*> (x Core..:? "DiskReadBytesPerSecond")
       )
 
 instance Prelude.Hashable DiskResourceUtilization

@@ -39,11 +39,11 @@ module Network.AWS.GuardDuty
     -- * Errors
     -- $errors
 
-    -- ** BadRequestException
-    _BadRequestException,
-
     -- ** InternalServerErrorException
     _InternalServerErrorException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -51,59 +51,11 @@ module Network.AWS.GuardDuty
     -- * Operations
     -- $operations
 
-    -- ** GetInvitationsCount
-    GetInvitationsCount (GetInvitationsCount'),
-    newGetInvitationsCount,
-    GetInvitationsCountResponse (GetInvitationsCountResponse'),
-    newGetInvitationsCountResponse,
-
-    -- ** UnarchiveFindings
-    UnarchiveFindings (UnarchiveFindings'),
-    newUnarchiveFindings,
-    UnarchiveFindingsResponse (UnarchiveFindingsResponse'),
-    newUnarchiveFindingsResponse,
-
-    -- ** UpdateThreatIntelSet
-    UpdateThreatIntelSet (UpdateThreatIntelSet'),
-    newUpdateThreatIntelSet,
-    UpdateThreatIntelSetResponse (UpdateThreatIntelSetResponse'),
-    newUpdateThreatIntelSetResponse,
-
-    -- ** DeleteThreatIntelSet
-    DeleteThreatIntelSet (DeleteThreatIntelSet'),
-    newDeleteThreatIntelSet,
-    DeleteThreatIntelSetResponse (DeleteThreatIntelSetResponse'),
-    newDeleteThreatIntelSetResponse,
-
-    -- ** CreateMembers
-    CreateMembers (CreateMembers'),
-    newCreateMembers,
-    CreateMembersResponse (CreateMembersResponse'),
-    newCreateMembersResponse,
-
-    -- ** DeletePublishingDestination
-    DeletePublishingDestination (DeletePublishingDestination'),
-    newDeletePublishingDestination,
-    DeletePublishingDestinationResponse (DeletePublishingDestinationResponse'),
-    newDeletePublishingDestinationResponse,
-
-    -- ** GetDetector
-    GetDetector (GetDetector'),
-    newGetDetector,
-    GetDetectorResponse (GetDetectorResponse'),
-    newGetDetectorResponse,
-
-    -- ** ListFindings (Paginated)
-    ListFindings (ListFindings'),
-    newListFindings,
-    ListFindingsResponse (ListFindingsResponse'),
-    newListFindingsResponse,
-
-    -- ** UpdatePublishingDestination
-    UpdatePublishingDestination (UpdatePublishingDestination'),
-    newUpdatePublishingDestination,
-    UpdatePublishingDestinationResponse (UpdatePublishingDestinationResponse'),
-    newUpdatePublishingDestinationResponse,
+    -- ** CreateFilter
+    CreateFilter (CreateFilter'),
+    newCreateFilter,
+    CreateFilterResponse (CreateFilterResponse'),
+    newCreateFilterResponse,
 
     -- ** EnableOrganizationAdminAccount
     EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
@@ -111,173 +63,11 @@ module Network.AWS.GuardDuty
     EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
     newEnableOrganizationAdminAccountResponse,
 
-    -- ** ArchiveFindings
-    ArchiveFindings (ArchiveFindings'),
-    newArchiveFindings,
-    ArchiveFindingsResponse (ArchiveFindingsResponse'),
-    newArchiveFindingsResponse,
-
-    -- ** CreateFilter
-    CreateFilter (CreateFilter'),
-    newCreateFilter,
-    CreateFilterResponse (CreateFilterResponse'),
-    newCreateFilterResponse,
-
-    -- ** DeleteFilter
-    DeleteFilter (DeleteFilter'),
-    newDeleteFilter,
-    DeleteFilterResponse (DeleteFilterResponse'),
-    newDeleteFilterResponse,
-
-    -- ** UpdateFilter
-    UpdateFilter (UpdateFilter'),
-    newUpdateFilter,
-    UpdateFilterResponse (UpdateFilterResponse'),
-    newUpdateFilterResponse,
-
-    -- ** AcceptInvitation
-    AcceptInvitation (AcceptInvitation'),
-    newAcceptInvitation,
-    AcceptInvitationResponse (AcceptInvitationResponse'),
-    newAcceptInvitationResponse,
-
-    -- ** DisableOrganizationAdminAccount
-    DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
-    newDisableOrganizationAdminAccount,
-    DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
-    newDisableOrganizationAdminAccountResponse,
-
-    -- ** UpdateFindingsFeedback
-    UpdateFindingsFeedback (UpdateFindingsFeedback'),
-    newUpdateFindingsFeedback,
-    UpdateFindingsFeedbackResponse (UpdateFindingsFeedbackResponse'),
-    newUpdateFindingsFeedbackResponse,
-
-    -- ** DescribeOrganizationConfiguration
-    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
-    newDescribeOrganizationConfiguration,
-    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
-    newDescribeOrganizationConfigurationResponse,
-
-    -- ** ListDetectors (Paginated)
-    ListDetectors (ListDetectors'),
-    newListDetectors,
-    ListDetectorsResponse (ListDetectorsResponse'),
-    newListDetectorsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** GetMasterAccount
-    GetMasterAccount (GetMasterAccount'),
-    newGetMasterAccount,
-    GetMasterAccountResponse (GetMasterAccountResponse'),
-    newGetMasterAccountResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** DescribePublishingDestination
-    DescribePublishingDestination (DescribePublishingDestination'),
-    newDescribePublishingDestination,
-    DescribePublishingDestinationResponse (DescribePublishingDestinationResponse'),
-    newDescribePublishingDestinationResponse,
-
-    -- ** GetFindings
-    GetFindings (GetFindings'),
-    newGetFindings,
-    GetFindingsResponse (GetFindingsResponse'),
-    newGetFindingsResponse,
-
-    -- ** GetFindingsStatistics
-    GetFindingsStatistics (GetFindingsStatistics'),
-    newGetFindingsStatistics,
-    GetFindingsStatisticsResponse (GetFindingsStatisticsResponse'),
-    newGetFindingsStatisticsResponse,
-
-    -- ** GetMembers
-    GetMembers (GetMembers'),
-    newGetMembers,
-    GetMembersResponse (GetMembersResponse'),
-    newGetMembersResponse,
-
-    -- ** UpdateOrganizationConfiguration
-    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
-    newUpdateOrganizationConfiguration,
-    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
-    newUpdateOrganizationConfigurationResponse,
-
-    -- ** UpdateIPSet
-    UpdateIPSet (UpdateIPSet'),
-    newUpdateIPSet,
-    UpdateIPSetResponse (UpdateIPSetResponse'),
-    newUpdateIPSetResponse,
-
-    -- ** CreateThreatIntelSet
-    CreateThreatIntelSet (CreateThreatIntelSet'),
-    newCreateThreatIntelSet,
-    CreateThreatIntelSetResponse (CreateThreatIntelSetResponse'),
-    newCreateThreatIntelSetResponse,
-
-    -- ** InviteMembers
-    InviteMembers (InviteMembers'),
-    newInviteMembers,
-    InviteMembersResponse (InviteMembersResponse'),
-    newInviteMembersResponse,
-
-    -- ** DeleteIPSet
-    DeleteIPSet (DeleteIPSet'),
-    newDeleteIPSet,
-    DeleteIPSetResponse (DeleteIPSetResponse'),
-    newDeleteIPSetResponse,
-
-    -- ** StopMonitoringMembers
-    StopMonitoringMembers (StopMonitoringMembers'),
-    newStopMonitoringMembers,
-    StopMonitoringMembersResponse (StopMonitoringMembersResponse'),
-    newStopMonitoringMembersResponse,
-
-    -- ** CreateIPSet
-    CreateIPSet (CreateIPSet'),
-    newCreateIPSet,
-    CreateIPSetResponse (CreateIPSetResponse'),
-    newCreateIPSetResponse,
-
-    -- ** ListThreatIntelSets (Paginated)
-    ListThreatIntelSets (ListThreatIntelSets'),
-    newListThreatIntelSets,
-    ListThreatIntelSetsResponse (ListThreatIntelSetsResponse'),
-    newListThreatIntelSetsResponse,
-
-    -- ** StartMonitoringMembers
-    StartMonitoringMembers (StartMonitoringMembers'),
-    newStartMonitoringMembers,
-    StartMonitoringMembersResponse (StartMonitoringMembersResponse'),
-    newStartMonitoringMembersResponse,
-
-    -- ** GetMemberDetectors
-    GetMemberDetectors (GetMemberDetectors'),
-    newGetMemberDetectors,
-    GetMemberDetectorsResponse (GetMemberDetectorsResponse'),
-    newGetMemberDetectorsResponse,
-
-    -- ** ListPublishingDestinations
-    ListPublishingDestinations (ListPublishingDestinations'),
-    newListPublishingDestinations,
-    ListPublishingDestinationsResponse (ListPublishingDestinationsResponse'),
-    newListPublishingDestinationsResponse,
-
-    -- ** CreateSampleFindings
-    CreateSampleFindings (CreateSampleFindings'),
-    newCreateSampleFindings,
-    CreateSampleFindingsResponse (CreateSampleFindingsResponse'),
-    newCreateSampleFindingsResponse,
+    -- ** ListFindings (Paginated)
+    ListFindings (ListFindings'),
+    newListFindings,
+    ListFindingsResponse (ListFindingsResponse'),
+    newListFindingsResponse,
 
     -- ** ListOrganizationAdminAccounts (Paginated)
     ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
@@ -285,41 +75,101 @@ module Network.AWS.GuardDuty
     ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
     newListOrganizationAdminAccountsResponse,
 
-    -- ** DisassociateMembers
-    DisassociateMembers (DisassociateMembers'),
-    newDisassociateMembers,
-    DisassociateMembersResponse (DisassociateMembersResponse'),
-    newDisassociateMembersResponse,
+    -- ** CreateIPSet
+    CreateIPSet (CreateIPSet'),
+    newCreateIPSet,
+    CreateIPSetResponse (CreateIPSetResponse'),
+    newCreateIPSetResponse,
 
-    -- ** CreatePublishingDestination
-    CreatePublishingDestination (CreatePublishingDestination'),
-    newCreatePublishingDestination,
-    CreatePublishingDestinationResponse (CreatePublishingDestinationResponse'),
-    newCreatePublishingDestinationResponse,
+    -- ** DeleteThreatIntelSet
+    DeleteThreatIntelSet (DeleteThreatIntelSet'),
+    newDeleteThreatIntelSet,
+    DeleteThreatIntelSetResponse (DeleteThreatIntelSetResponse'),
+    newDeleteThreatIntelSetResponse,
 
-    -- ** ListFilters (Paginated)
-    ListFilters (ListFilters'),
-    newListFilters,
-    ListFiltersResponse (ListFiltersResponse'),
-    newListFiltersResponse,
+    -- ** UpdateThreatIntelSet
+    UpdateThreatIntelSet (UpdateThreatIntelSet'),
+    newUpdateThreatIntelSet,
+    UpdateThreatIntelSetResponse (UpdateThreatIntelSetResponse'),
+    newUpdateThreatIntelSetResponse,
 
-    -- ** ListMembers (Paginated)
-    ListMembers (ListMembers'),
-    newListMembers,
-    ListMembersResponse (ListMembersResponse'),
-    newListMembersResponse,
+    -- ** StopMonitoringMembers
+    StopMonitoringMembers (StopMonitoringMembers'),
+    newStopMonitoringMembers,
+    StopMonitoringMembersResponse (StopMonitoringMembersResponse'),
+    newStopMonitoringMembersResponse,
 
-    -- ** DisassociateFromMasterAccount
-    DisassociateFromMasterAccount (DisassociateFromMasterAccount'),
-    newDisassociateFromMasterAccount,
-    DisassociateFromMasterAccountResponse (DisassociateFromMasterAccountResponse'),
-    newDisassociateFromMasterAccountResponse,
+    -- ** ListThreatIntelSets (Paginated)
+    ListThreatIntelSets (ListThreatIntelSets'),
+    newListThreatIntelSets,
+    ListThreatIntelSetsResponse (ListThreatIntelSetsResponse'),
+    newListThreatIntelSetsResponse,
 
-    -- ** GetFilter
-    GetFilter (GetFilter'),
-    newGetFilter,
-    GetFilterResponse (GetFilterResponse'),
-    newGetFilterResponse,
+    -- ** CreateThreatIntelSet
+    CreateThreatIntelSet (CreateThreatIntelSet'),
+    newCreateThreatIntelSet,
+    CreateThreatIntelSetResponse (CreateThreatIntelSetResponse'),
+    newCreateThreatIntelSetResponse,
+
+    -- ** DeleteMembers
+    DeleteMembers (DeleteMembers'),
+    newDeleteMembers,
+    DeleteMembersResponse (DeleteMembersResponse'),
+    newDeleteMembersResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** GetFindingsStatistics
+    GetFindingsStatistics (GetFindingsStatistics'),
+    newGetFindingsStatistics,
+    GetFindingsStatisticsResponse (GetFindingsStatisticsResponse'),
+    newGetFindingsStatisticsResponse,
+
+    -- ** GetIPSet
+    GetIPSet (GetIPSet'),
+    newGetIPSet,
+    GetIPSetResponse (GetIPSetResponse'),
+    newGetIPSetResponse,
+
+    -- ** ListInvitations (Paginated)
+    ListInvitations (ListInvitations'),
+    newListInvitations,
+    ListInvitationsResponse (ListInvitationsResponse'),
+    newListInvitationsResponse,
+
+    -- ** UpdateMemberDetectors
+    UpdateMemberDetectors (UpdateMemberDetectors'),
+    newUpdateMemberDetectors,
+    UpdateMemberDetectorsResponse (UpdateMemberDetectorsResponse'),
+    newUpdateMemberDetectorsResponse,
+
+    -- ** GetThreatIntelSet
+    GetThreatIntelSet (GetThreatIntelSet'),
+    newGetThreatIntelSet,
+    GetThreatIntelSetResponse (GetThreatIntelSetResponse'),
+    newGetThreatIntelSetResponse,
+
+    -- ** DeleteInvitations
+    DeleteInvitations (DeleteInvitations'),
+    newDeleteInvitations,
+    DeleteInvitationsResponse (DeleteInvitationsResponse'),
+    newDeleteInvitationsResponse,
+
+    -- ** GetMasterAccount
+    GetMasterAccount (GetMasterAccount'),
+    newGetMasterAccount,
+    GetMasterAccountResponse (GetMasterAccountResponse'),
+    newGetMasterAccountResponse,
+
+    -- ** GetUsageStatistics
+    GetUsageStatistics (GetUsageStatistics'),
+    newGetUsageStatistics,
+    GetUsageStatisticsResponse (GetUsageStatisticsResponse'),
+    newGetUsageStatisticsResponse,
 
     -- ** CreateDetector
     CreateDetector (CreateDetector'),
@@ -333,59 +183,149 @@ module Network.AWS.GuardDuty
     DeclineInvitationsResponse (DeclineInvitationsResponse'),
     newDeclineInvitationsResponse,
 
-    -- ** GetUsageStatistics
-    GetUsageStatistics (GetUsageStatistics'),
-    newGetUsageStatistics,
-    GetUsageStatisticsResponse (GetUsageStatisticsResponse'),
-    newGetUsageStatisticsResponse,
+    -- ** DescribeOrganizationConfiguration
+    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
+    newDescribeOrganizationConfiguration,
+    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
+    newDescribeOrganizationConfigurationResponse,
 
-    -- ** DeleteDetector
-    DeleteDetector (DeleteDetector'),
-    newDeleteDetector,
-    DeleteDetectorResponse (DeleteDetectorResponse'),
-    newDeleteDetectorResponse,
+    -- ** CreatePublishingDestination
+    CreatePublishingDestination (CreatePublishingDestination'),
+    newCreatePublishingDestination,
+    CreatePublishingDestinationResponse (CreatePublishingDestinationResponse'),
+    newCreatePublishingDestinationResponse,
 
-    -- ** UpdateDetector
-    UpdateDetector (UpdateDetector'),
-    newUpdateDetector,
-    UpdateDetectorResponse (UpdateDetectorResponse'),
-    newUpdateDetectorResponse,
+    -- ** UpdateFilter
+    UpdateFilter (UpdateFilter'),
+    newUpdateFilter,
+    UpdateFilterResponse (UpdateFilterResponse'),
+    newUpdateFilterResponse,
 
-    -- ** DeleteInvitations
-    DeleteInvitations (DeleteInvitations'),
-    newDeleteInvitations,
-    DeleteInvitationsResponse (DeleteInvitationsResponse'),
-    newDeleteInvitationsResponse,
+    -- ** DeleteFilter
+    DeleteFilter (DeleteFilter'),
+    newDeleteFilter,
+    DeleteFilterResponse (DeleteFilterResponse'),
+    newDeleteFilterResponse,
 
-    -- ** ListInvitations (Paginated)
-    ListInvitations (ListInvitations'),
-    newListInvitations,
-    ListInvitationsResponse (ListInvitationsResponse'),
-    newListInvitationsResponse,
+    -- ** DisassociateMembers
+    DisassociateMembers (DisassociateMembers'),
+    newDisassociateMembers,
+    DisassociateMembersResponse (DisassociateMembersResponse'),
+    newDisassociateMembersResponse,
 
-    -- ** GetThreatIntelSet
-    GetThreatIntelSet (GetThreatIntelSet'),
-    newGetThreatIntelSet,
-    GetThreatIntelSetResponse (GetThreatIntelSetResponse'),
-    newGetThreatIntelSetResponse,
+    -- ** DisassociateFromMasterAccount
+    DisassociateFromMasterAccount (DisassociateFromMasterAccount'),
+    newDisassociateFromMasterAccount,
+    DisassociateFromMasterAccountResponse (DisassociateFromMasterAccountResponse'),
+    newDisassociateFromMasterAccountResponse,
 
-    -- ** UpdateMemberDetectors
-    UpdateMemberDetectors (UpdateMemberDetectors'),
-    newUpdateMemberDetectors,
-    UpdateMemberDetectorsResponse (UpdateMemberDetectorsResponse'),
-    newUpdateMemberDetectorsResponse,
+    -- ** AcceptInvitation
+    AcceptInvitation (AcceptInvitation'),
+    newAcceptInvitation,
+    AcceptInvitationResponse (AcceptInvitationResponse'),
+    newAcceptInvitationResponse,
 
-    -- ** GetIPSet
-    GetIPSet (GetIPSet'),
-    newGetIPSet,
-    GetIPSetResponse (GetIPSetResponse'),
-    newGetIPSetResponse,
+    -- ** ListFilters (Paginated)
+    ListFilters (ListFilters'),
+    newListFilters,
+    ListFiltersResponse (ListFiltersResponse'),
+    newListFiltersResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListMembers (Paginated)
+    ListMembers (ListMembers'),
+    newListMembers,
+    ListMembersResponse (ListMembersResponse'),
+    newListMembersResponse,
+
+    -- ** ListPublishingDestinations
+    ListPublishingDestinations (ListPublishingDestinations'),
+    newListPublishingDestinations,
+    ListPublishingDestinationsResponse (ListPublishingDestinationsResponse'),
+    newListPublishingDestinationsResponse,
+
+    -- ** DeletePublishingDestination
+    DeletePublishingDestination (DeletePublishingDestination'),
+    newDeletePublishingDestination,
+    DeletePublishingDestinationResponse (DeletePublishingDestinationResponse'),
+    newDeletePublishingDestinationResponse,
+
+    -- ** UpdatePublishingDestination
+    UpdatePublishingDestination (UpdatePublishingDestination'),
+    newUpdatePublishingDestination,
+    UpdatePublishingDestinationResponse (UpdatePublishingDestinationResponse'),
+    newUpdatePublishingDestinationResponse,
+
+    -- ** GetDetector
+    GetDetector (GetDetector'),
+    newGetDetector,
+    GetDetectorResponse (GetDetectorResponse'),
+    newGetDetectorResponse,
+
+    -- ** CreateSampleFindings
+    CreateSampleFindings (CreateSampleFindings'),
+    newCreateSampleFindings,
+    CreateSampleFindingsResponse (CreateSampleFindingsResponse'),
+    newCreateSampleFindingsResponse,
+
+    -- ** ArchiveFindings
+    ArchiveFindings (ArchiveFindings'),
+    newArchiveFindings,
+    ArchiveFindingsResponse (ArchiveFindingsResponse'),
+    newArchiveFindingsResponse,
+
+    -- ** CreateMembers
+    CreateMembers (CreateMembers'),
+    newCreateMembers,
+    CreateMembersResponse (CreateMembersResponse'),
+    newCreateMembersResponse,
+
+    -- ** UnarchiveFindings
+    UnarchiveFindings (UnarchiveFindings'),
+    newUnarchiveFindings,
+    UnarchiveFindingsResponse (UnarchiveFindingsResponse'),
+    newUnarchiveFindingsResponse,
+
+    -- ** GetMemberDetectors
+    GetMemberDetectors (GetMemberDetectors'),
+    newGetMemberDetectors,
+    GetMemberDetectorsResponse (GetMemberDetectorsResponse'),
+    newGetMemberDetectorsResponse,
+
+    -- ** GetInvitationsCount
+    GetInvitationsCount (GetInvitationsCount'),
+    newGetInvitationsCount,
+    GetInvitationsCountResponse (GetInvitationsCountResponse'),
+    newGetInvitationsCountResponse,
+
+    -- ** StartMonitoringMembers
+    StartMonitoringMembers (StartMonitoringMembers'),
+    newStartMonitoringMembers,
+    StartMonitoringMembersResponse (StartMonitoringMembersResponse'),
+    newStartMonitoringMembersResponse,
+
+    -- ** UpdateOrganizationConfiguration
+    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
+    newUpdateOrganizationConfiguration,
+    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
+    newUpdateOrganizationConfigurationResponse,
+
+    -- ** InviteMembers
+    InviteMembers (InviteMembers'),
+    newInviteMembers,
+    InviteMembersResponse (InviteMembersResponse'),
+    newInviteMembersResponse,
+
+    -- ** DeleteIPSet
+    DeleteIPSet (DeleteIPSet'),
+    newDeleteIPSet,
+    DeleteIPSetResponse (DeleteIPSetResponse'),
+    newDeleteIPSetResponse,
+
+    -- ** UpdateIPSet
+    UpdateIPSet (UpdateIPSet'),
+    newUpdateIPSet,
+    UpdateIPSetResponse (UpdateIPSetResponse'),
+    newUpdateIPSetResponse,
 
     -- ** ListIPSets (Paginated)
     ListIPSets (ListIPSets'),
@@ -393,11 +333,71 @@ module Network.AWS.GuardDuty
     ListIPSetsResponse (ListIPSetsResponse'),
     newListIPSetsResponse,
 
-    -- ** DeleteMembers
-    DeleteMembers (DeleteMembers'),
-    newDeleteMembers,
-    DeleteMembersResponse (DeleteMembersResponse'),
-    newDeleteMembersResponse,
+    -- ** GetMembers
+    GetMembers (GetMembers'),
+    newGetMembers,
+    GetMembersResponse (GetMembersResponse'),
+    newGetMembersResponse,
+
+    -- ** DescribePublishingDestination
+    DescribePublishingDestination (DescribePublishingDestination'),
+    newDescribePublishingDestination,
+    DescribePublishingDestinationResponse (DescribePublishingDestinationResponse'),
+    newDescribePublishingDestinationResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetFindings
+    GetFindings (GetFindings'),
+    newGetFindings,
+    GetFindingsResponse (GetFindingsResponse'),
+    newGetFindingsResponse,
+
+    -- ** ListDetectors (Paginated)
+    ListDetectors (ListDetectors'),
+    newListDetectors,
+    ListDetectorsResponse (ListDetectorsResponse'),
+    newListDetectorsResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** UpdateDetector
+    UpdateDetector (UpdateDetector'),
+    newUpdateDetector,
+    UpdateDetectorResponse (UpdateDetectorResponse'),
+    newUpdateDetectorResponse,
+
+    -- ** DeleteDetector
+    DeleteDetector (DeleteDetector'),
+    newDeleteDetector,
+    DeleteDetectorResponse (DeleteDetectorResponse'),
+    newDeleteDetectorResponse,
+
+    -- ** UpdateFindingsFeedback
+    UpdateFindingsFeedback (UpdateFindingsFeedback'),
+    newUpdateFindingsFeedback,
+    UpdateFindingsFeedbackResponse (UpdateFindingsFeedbackResponse'),
+    newUpdateFindingsFeedbackResponse,
+
+    -- ** GetFilter
+    GetFilter (GetFilter'),
+    newGetFilter,
+    GetFilterResponse (GetFilterResponse'),
+    newGetFilterResponse,
+
+    -- ** DisableOrganizationAdminAccount
+    DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
+    newDisableOrganizationAdminAccount,
+    DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
+    newDisableOrganizationAdminAccountResponse,
 
     -- * Types
 

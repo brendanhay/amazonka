@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDestinationProperties' smart constructor.
 data DestinationProperties = DestinationProperties'
-  { -- | The ARN of the resource to publish to.
-    destinationArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the KMS key to use for encryption.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text
+  { -- | The ARN of the KMS key to use for encryption.
+    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the resource to publish to.
+    destinationArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data DestinationProperties = DestinationProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destinationArn', 'destinationProperties_destinationArn' - The ARN of the resource to publish to.
---
 -- 'kmsKeyArn', 'destinationProperties_kmsKeyArn' - The ARN of the KMS key to use for encryption.
+--
+-- 'destinationArn', 'destinationProperties_destinationArn' - The ARN of the resource to publish to.
 newDestinationProperties ::
   DestinationProperties
 newDestinationProperties =
   DestinationProperties'
-    { destinationArn =
-        Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing
+    { kmsKeyArn = Prelude.Nothing,
+      destinationArn = Prelude.Nothing
     }
-
--- | The ARN of the resource to publish to.
-destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
-destinationProperties_destinationArn = Lens.lens (\DestinationProperties' {destinationArn} -> destinationArn) (\s@DestinationProperties' {} a -> s {destinationArn = a} :: DestinationProperties)
 
 -- | The ARN of the KMS key to use for encryption.
 destinationProperties_kmsKeyArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
 destinationProperties_kmsKeyArn = Lens.lens (\DestinationProperties' {kmsKeyArn} -> kmsKeyArn) (\s@DestinationProperties' {} a -> s {kmsKeyArn = a} :: DestinationProperties)
+
+-- | The ARN of the resource to publish to.
+destinationProperties_destinationArn :: Lens.Lens' DestinationProperties (Prelude.Maybe Prelude.Text)
+destinationProperties_destinationArn = Lens.lens (\DestinationProperties' {destinationArn} -> destinationArn) (\s@DestinationProperties' {} a -> s {destinationArn = a} :: DestinationProperties)
 
 instance Core.FromJSON DestinationProperties where
   parseJSON =
@@ -70,8 +69,8 @@ instance Core.FromJSON DestinationProperties where
       "DestinationProperties"
       ( \x ->
           DestinationProperties'
-            Prelude.<$> (x Core..:? "destinationArn")
-            Prelude.<*> (x Core..:? "kmsKeyArn")
+            Prelude.<$> (x Core..:? "kmsKeyArn")
+            Prelude.<*> (x Core..:? "destinationArn")
       )
 
 instance Prelude.Hashable DestinationProperties
@@ -82,8 +81,8 @@ instance Core.ToJSON DestinationProperties where
   toJSON DestinationProperties' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("destinationArn" Core..=)
-              Prelude.<$> destinationArn,
-            ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn
+          [ ("kmsKeyArn" Core..=) Prelude.<$> kmsKeyArn,
+            ("destinationArn" Core..=)
+              Prelude.<$> destinationArn
           ]
       )

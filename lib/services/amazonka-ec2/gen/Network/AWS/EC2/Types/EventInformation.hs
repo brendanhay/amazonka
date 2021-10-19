@@ -35,69 +35,88 @@ data EventInformation = EventInformation'
     eventDescription :: Prelude.Maybe Prelude.Text,
     -- | The event.
     --
-    -- The following are the @error@ events:
+    -- @error@ events:
     --
-    -- -   @iamFleetRoleInvalid@ - The EC2 Fleet or Spot Fleet did not have the
-    --     required permissions either to launch or terminate an instance.
+    -- -   @iamFleetRoleInvalid@ - The EC2 Fleet or Spot Fleet does not have
+    --     the required permissions either to launch or terminate an instance.
     --
-    -- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
-    --     valid. For more information, see the description of the event.
+    -- -   @allLaunchSpecsTemporarilyBlacklisted@ - None of the configurations
+    --     are valid, and several attempts to launch instances have failed. For
+    --     more information, see the description of the event.
     --
     -- -   @spotInstanceCountLimitExceeded@ - You\'ve reached the limit on the
     --     number of Spot Instances that you can launch.
     --
-    -- The following are the @fleetRequestChange@ events:
+    -- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
+    --     valid. For more information, see the description of the event.
+    --
+    -- @fleetRequestChange@ events:
     --
     -- -   @active@ - The EC2 Fleet or Spot Fleet request has been validated
     --     and Amazon EC2 is attempting to maintain the target number of
-    --     running Spot Instances.
+    --     running instances.
     --
     -- -   @cancelled@ - The EC2 Fleet or Spot Fleet request is canceled and
-    --     has no running Spot Instances. The EC2 Fleet or Spot Fleet will be
-    --     deleted two days after its instances were terminated.
+    --     has no running instances. The EC2 Fleet or Spot Fleet will be
+    --     deleted two days after its instances are terminated.
     --
     -- -   @cancelled_running@ - The EC2 Fleet or Spot Fleet request is
-    --     canceled and does not launch additional Spot Instances. Existing
-    --     Spot Instances continue to run until they are interrupted or
-    --     terminated.
+    --     canceled and does not launch additional instances. Its existing
+    --     instances continue to run until they are interrupted or terminated.
+    --     The request remains in this state until all instances are
+    --     interrupted or terminated.
     --
     -- -   @cancelled_terminating@ - The EC2 Fleet or Spot Fleet request is
-    --     canceled and its Spot Instances are terminating.
+    --     canceled and its instances are terminating. The request remains in
+    --     this state until all instances are terminated.
     --
-    -- -   @expired@ - The EC2 Fleet or Spot Fleet request has expired. A
-    --     subsequent event indicates that the instances were terminated, if
-    --     the request was created with @TerminateInstancesWithExpiration@ set.
+    -- -   @expired@ - The EC2 Fleet or Spot Fleet request has expired. If the
+    --     request was created with @TerminateInstancesWithExpiration@ set, a
+    --     subsequent @terminated@ event indicates that the instances are
+    --     terminated.
     --
-    -- -   @modify_in_progress@ - A request to modify the EC2 Fleet or Spot
-    --     Fleet request was accepted and is in progress.
+    -- -   @modify_in_progress@ - The EC2 Fleet or Spot Fleet request is being
+    --     modified. The request remains in this state until the modification
+    --     is fully processed.
     --
     -- -   @modify_succeeded@ - The EC2 Fleet or Spot Fleet request was
     --     modified.
     --
     -- -   @submitted@ - The EC2 Fleet or Spot Fleet request is being evaluated
-    --     and Amazon EC2 is preparing to launch the target number of Spot
-    --     Instances.
+    --     and Amazon EC2 is preparing to launch the target number of
+    --     instances.
     --
-    -- The following are the @instanceChange@ events:
+    -- -   @progress@ - The EC2 Fleet or Spot Fleet request is in the process
+    --     of being fulfilled.
     --
-    -- -   @launched@ - A request was fulfilled and a new instance was
-    --     launched.
+    -- @instanceChange@ events:
+    --
+    -- -   @launched@ - A new instance was launched.
     --
     -- -   @terminated@ - An instance was terminated by the user.
     --
-    -- The following are the @Information@ events:
+    -- -   @termination_notified@ - An instance termination notification was
+    --     sent when a Spot Instance was terminated by Amazon EC2 during
+    --     scale-down, when the target capacity of the fleet was modified down,
+    --     for example, from a target capacity of 4 to a target capacity of 3.
+    --
+    -- @Information@ events:
+    --
+    -- -   @fleetProgressHalted@ - The price in every launch specification is
+    --     not valid because it is below the Spot price (all the launch
+    --     specifications have produced @launchSpecUnusable@ events). A launch
+    --     specification might become valid if the Spot price changes.
     --
     -- -   @launchSpecTemporarilyBlacklisted@ - The configuration is not valid
     --     and several attempts to launch instances have failed. For more
     --     information, see the description of the event.
     --
     -- -   @launchSpecUnusable@ - The price in a launch specification is not
-    --     valid because it is below the Spot price or the Spot price is above
-    --     the On-Demand price.
+    --     valid because it is below the Spot price.
     --
-    -- -   @fleetProgressHalted@ - The price in every launch specification is
-    --     not valid. A launch specification might become valid if the Spot
-    --     price changes.
+    -- -   @registerWithLoadBalancersFailed@ - An attempt to register instances
+    --     with load balancers failed. For more information, see the
+    --     description of the event.
     eventSubType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -117,69 +136,88 @@ data EventInformation = EventInformation'
 --
 -- 'eventSubType', 'eventInformation_eventSubType' - The event.
 --
--- The following are the @error@ events:
+-- @error@ events:
 --
--- -   @iamFleetRoleInvalid@ - The EC2 Fleet or Spot Fleet did not have the
---     required permissions either to launch or terminate an instance.
+-- -   @iamFleetRoleInvalid@ - The EC2 Fleet or Spot Fleet does not have
+--     the required permissions either to launch or terminate an instance.
 --
--- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
---     valid. For more information, see the description of the event.
+-- -   @allLaunchSpecsTemporarilyBlacklisted@ - None of the configurations
+--     are valid, and several attempts to launch instances have failed. For
+--     more information, see the description of the event.
 --
 -- -   @spotInstanceCountLimitExceeded@ - You\'ve reached the limit on the
 --     number of Spot Instances that you can launch.
 --
--- The following are the @fleetRequestChange@ events:
+-- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
+--     valid. For more information, see the description of the event.
+--
+-- @fleetRequestChange@ events:
 --
 -- -   @active@ - The EC2 Fleet or Spot Fleet request has been validated
 --     and Amazon EC2 is attempting to maintain the target number of
---     running Spot Instances.
+--     running instances.
 --
 -- -   @cancelled@ - The EC2 Fleet or Spot Fleet request is canceled and
---     has no running Spot Instances. The EC2 Fleet or Spot Fleet will be
---     deleted two days after its instances were terminated.
+--     has no running instances. The EC2 Fleet or Spot Fleet will be
+--     deleted two days after its instances are terminated.
 --
 -- -   @cancelled_running@ - The EC2 Fleet or Spot Fleet request is
---     canceled and does not launch additional Spot Instances. Existing
---     Spot Instances continue to run until they are interrupted or
---     terminated.
+--     canceled and does not launch additional instances. Its existing
+--     instances continue to run until they are interrupted or terminated.
+--     The request remains in this state until all instances are
+--     interrupted or terminated.
 --
 -- -   @cancelled_terminating@ - The EC2 Fleet or Spot Fleet request is
---     canceled and its Spot Instances are terminating.
+--     canceled and its instances are terminating. The request remains in
+--     this state until all instances are terminated.
 --
--- -   @expired@ - The EC2 Fleet or Spot Fleet request has expired. A
---     subsequent event indicates that the instances were terminated, if
---     the request was created with @TerminateInstancesWithExpiration@ set.
+-- -   @expired@ - The EC2 Fleet or Spot Fleet request has expired. If the
+--     request was created with @TerminateInstancesWithExpiration@ set, a
+--     subsequent @terminated@ event indicates that the instances are
+--     terminated.
 --
--- -   @modify_in_progress@ - A request to modify the EC2 Fleet or Spot
---     Fleet request was accepted and is in progress.
+-- -   @modify_in_progress@ - The EC2 Fleet or Spot Fleet request is being
+--     modified. The request remains in this state until the modification
+--     is fully processed.
 --
 -- -   @modify_succeeded@ - The EC2 Fleet or Spot Fleet request was
 --     modified.
 --
 -- -   @submitted@ - The EC2 Fleet or Spot Fleet request is being evaluated
---     and Amazon EC2 is preparing to launch the target number of Spot
---     Instances.
+--     and Amazon EC2 is preparing to launch the target number of
+--     instances.
 --
--- The following are the @instanceChange@ events:
+-- -   @progress@ - The EC2 Fleet or Spot Fleet request is in the process
+--     of being fulfilled.
 --
--- -   @launched@ - A request was fulfilled and a new instance was
---     launched.
+-- @instanceChange@ events:
+--
+-- -   @launched@ - A new instance was launched.
 --
 -- -   @terminated@ - An instance was terminated by the user.
 --
--- The following are the @Information@ events:
+-- -   @termination_notified@ - An instance termination notification was
+--     sent when a Spot Instance was terminated by Amazon EC2 during
+--     scale-down, when the target capacity of the fleet was modified down,
+--     for example, from a target capacity of 4 to a target capacity of 3.
+--
+-- @Information@ events:
+--
+-- -   @fleetProgressHalted@ - The price in every launch specification is
+--     not valid because it is below the Spot price (all the launch
+--     specifications have produced @launchSpecUnusable@ events). A launch
+--     specification might become valid if the Spot price changes.
 --
 -- -   @launchSpecTemporarilyBlacklisted@ - The configuration is not valid
 --     and several attempts to launch instances have failed. For more
 --     information, see the description of the event.
 --
 -- -   @launchSpecUnusable@ - The price in a launch specification is not
---     valid because it is below the Spot price or the Spot price is above
---     the On-Demand price.
+--     valid because it is below the Spot price.
 --
--- -   @fleetProgressHalted@ - The price in every launch specification is
---     not valid. A launch specification might become valid if the Spot
---     price changes.
+-- -   @registerWithLoadBalancersFailed@ - An attempt to register instances
+--     with load balancers failed. For more information, see the
+--     description of the event.
 newEventInformation ::
   EventInformation
 newEventInformation =
@@ -200,69 +238,88 @@ eventInformation_eventDescription = Lens.lens (\EventInformation' {eventDescript
 
 -- | The event.
 --
--- The following are the @error@ events:
+-- @error@ events:
 --
--- -   @iamFleetRoleInvalid@ - The EC2 Fleet or Spot Fleet did not have the
---     required permissions either to launch or terminate an instance.
+-- -   @iamFleetRoleInvalid@ - The EC2 Fleet or Spot Fleet does not have
+--     the required permissions either to launch or terminate an instance.
 --
--- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
---     valid. For more information, see the description of the event.
+-- -   @allLaunchSpecsTemporarilyBlacklisted@ - None of the configurations
+--     are valid, and several attempts to launch instances have failed. For
+--     more information, see the description of the event.
 --
 -- -   @spotInstanceCountLimitExceeded@ - You\'ve reached the limit on the
 --     number of Spot Instances that you can launch.
 --
--- The following are the @fleetRequestChange@ events:
+-- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
+--     valid. For more information, see the description of the event.
+--
+-- @fleetRequestChange@ events:
 --
 -- -   @active@ - The EC2 Fleet or Spot Fleet request has been validated
 --     and Amazon EC2 is attempting to maintain the target number of
---     running Spot Instances.
+--     running instances.
 --
 -- -   @cancelled@ - The EC2 Fleet or Spot Fleet request is canceled and
---     has no running Spot Instances. The EC2 Fleet or Spot Fleet will be
---     deleted two days after its instances were terminated.
+--     has no running instances. The EC2 Fleet or Spot Fleet will be
+--     deleted two days after its instances are terminated.
 --
 -- -   @cancelled_running@ - The EC2 Fleet or Spot Fleet request is
---     canceled and does not launch additional Spot Instances. Existing
---     Spot Instances continue to run until they are interrupted or
---     terminated.
+--     canceled and does not launch additional instances. Its existing
+--     instances continue to run until they are interrupted or terminated.
+--     The request remains in this state until all instances are
+--     interrupted or terminated.
 --
 -- -   @cancelled_terminating@ - The EC2 Fleet or Spot Fleet request is
---     canceled and its Spot Instances are terminating.
+--     canceled and its instances are terminating. The request remains in
+--     this state until all instances are terminated.
 --
--- -   @expired@ - The EC2 Fleet or Spot Fleet request has expired. A
---     subsequent event indicates that the instances were terminated, if
---     the request was created with @TerminateInstancesWithExpiration@ set.
+-- -   @expired@ - The EC2 Fleet or Spot Fleet request has expired. If the
+--     request was created with @TerminateInstancesWithExpiration@ set, a
+--     subsequent @terminated@ event indicates that the instances are
+--     terminated.
 --
--- -   @modify_in_progress@ - A request to modify the EC2 Fleet or Spot
---     Fleet request was accepted and is in progress.
+-- -   @modify_in_progress@ - The EC2 Fleet or Spot Fleet request is being
+--     modified. The request remains in this state until the modification
+--     is fully processed.
 --
 -- -   @modify_succeeded@ - The EC2 Fleet or Spot Fleet request was
 --     modified.
 --
 -- -   @submitted@ - The EC2 Fleet or Spot Fleet request is being evaluated
---     and Amazon EC2 is preparing to launch the target number of Spot
---     Instances.
+--     and Amazon EC2 is preparing to launch the target number of
+--     instances.
 --
--- The following are the @instanceChange@ events:
+-- -   @progress@ - The EC2 Fleet or Spot Fleet request is in the process
+--     of being fulfilled.
 --
--- -   @launched@ - A request was fulfilled and a new instance was
---     launched.
+-- @instanceChange@ events:
+--
+-- -   @launched@ - A new instance was launched.
 --
 -- -   @terminated@ - An instance was terminated by the user.
 --
--- The following are the @Information@ events:
+-- -   @termination_notified@ - An instance termination notification was
+--     sent when a Spot Instance was terminated by Amazon EC2 during
+--     scale-down, when the target capacity of the fleet was modified down,
+--     for example, from a target capacity of 4 to a target capacity of 3.
+--
+-- @Information@ events:
+--
+-- -   @fleetProgressHalted@ - The price in every launch specification is
+--     not valid because it is below the Spot price (all the launch
+--     specifications have produced @launchSpecUnusable@ events). A launch
+--     specification might become valid if the Spot price changes.
 --
 -- -   @launchSpecTemporarilyBlacklisted@ - The configuration is not valid
 --     and several attempts to launch instances have failed. For more
 --     information, see the description of the event.
 --
 -- -   @launchSpecUnusable@ - The price in a launch specification is not
---     valid because it is below the Spot price or the Spot price is above
---     the On-Demand price.
+--     valid because it is below the Spot price.
 --
--- -   @fleetProgressHalted@ - The price in every launch specification is
---     not valid. A launch specification might become valid if the Spot
---     price changes.
+-- -   @registerWithLoadBalancersFailed@ - An attempt to register instances
+--     with load balancers failed. For more information, see the
+--     description of the event.
 eventInformation_eventSubType :: Lens.Lens' EventInformation (Prelude.Maybe Prelude.Text)
 eventInformation_eventSubType = Lens.lens (\EventInformation' {eventSubType} -> eventSubType) (\s@EventInformation' {} a -> s {eventSubType = a} :: EventInformation)
 

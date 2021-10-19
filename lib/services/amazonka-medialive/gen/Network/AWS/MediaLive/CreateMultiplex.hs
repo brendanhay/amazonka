@@ -110,7 +110,7 @@ newCreateMultiplex'
 
 -- | A collection of key-value pairs.
 createMultiplex'_tags :: Lens.Lens' CreateMultiplex' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createMultiplex'_tags = Lens.lens (\CreateMultiplex'' {tags} -> tags) (\s@CreateMultiplex'' {} a -> s {tags = a} :: CreateMultiplex') Prelude.. Lens.mapping Lens._Coerce
+createMultiplex'_tags = Lens.lens (\CreateMultiplex'' {tags} -> tags) (\s@CreateMultiplex'' {} a -> s {tags = a} :: CreateMultiplex') Prelude.. Lens.mapping Lens.coerced
 
 -- | Unique request ID. This prevents retries from creating multiple
 -- resources.
@@ -124,7 +124,7 @@ createMultiplex'_multiplexSettings = Lens.lens (\CreateMultiplex'' {multiplexSet
 -- | A list of availability zones for the multiplex. You must specify exactly
 -- two.
 createMultiplex'_availabilityZones :: Lens.Lens' CreateMultiplex' [Prelude.Text]
-createMultiplex'_availabilityZones = Lens.lens (\CreateMultiplex'' {availabilityZones} -> availabilityZones) (\s@CreateMultiplex'' {} a -> s {availabilityZones = a} :: CreateMultiplex') Prelude.. Lens._Coerce
+createMultiplex'_availabilityZones = Lens.lens (\CreateMultiplex'' {availabilityZones} -> availabilityZones) (\s@CreateMultiplex'' {} a -> s {availabilityZones = a} :: CreateMultiplex') Prelude.. Lens.coerced
 
 -- | Name of multiplex.
 createMultiplex'_name :: Lens.Lens' CreateMultiplex' Prelude.Text

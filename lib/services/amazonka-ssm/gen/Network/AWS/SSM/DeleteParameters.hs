@@ -35,8 +35,8 @@ module Network.AWS.SSM.DeleteParameters
     newDeleteParametersResponse,
 
     -- * Response Lenses
-    deleteParametersResponse_invalidParameters,
     deleteParametersResponse_deletedParameters,
+    deleteParametersResponse_invalidParameters,
     deleteParametersResponse_httpStatus,
   )
 where
@@ -73,13 +73,13 @@ newDeleteParameters ::
 newDeleteParameters pNames_ =
   DeleteParameters'
     { names =
-        Lens._Coerce Lens.# pNames_
+        Lens.coerced Lens.# pNames_
     }
 
 -- | The names of the parameters to delete. After deleting a parameter, wait
 -- for at least 30 seconds to create a parameter with the same name.
 deleteParameters_names :: Lens.Lens' DeleteParameters (Prelude.NonEmpty Prelude.Text)
-deleteParameters_names = Lens.lens (\DeleteParameters' {names} -> names) (\s@DeleteParameters' {} a -> s {names = a} :: DeleteParameters) Prelude.. Lens._Coerce
+deleteParameters_names = Lens.lens (\DeleteParameters' {names} -> names) (\s@DeleteParameters' {} a -> s {names = a} :: DeleteParameters) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteParameters where
   type
@@ -90,8 +90,8 @@ instance Core.AWSRequest DeleteParameters where
     Response.receiveJSON
       ( \s h x ->
           DeleteParametersResponse'
-            Prelude.<$> (x Core..?> "InvalidParameters")
-            Prelude.<*> (x Core..?> "DeletedParameters")
+            Prelude.<$> (x Core..?> "DeletedParameters")
+            Prelude.<*> (x Core..?> "InvalidParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -127,11 +127,11 @@ instance Core.ToQuery DeleteParameters where
 
 -- | /See:/ 'newDeleteParametersResponse' smart constructor.
 data DeleteParametersResponse = DeleteParametersResponse'
-  { -- | The names of parameters that weren\'t deleted because the parameters
+  { -- | The names of the deleted parameters.
+    deletedParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The names of parameters that weren\'t deleted because the parameters
     -- aren\'t valid.
     invalidParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The names of the deleted parameters.
-    deletedParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,10 +145,10 @@ data DeleteParametersResponse = DeleteParametersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deletedParameters', 'deleteParametersResponse_deletedParameters' - The names of the deleted parameters.
+--
 -- 'invalidParameters', 'deleteParametersResponse_invalidParameters' - The names of parameters that weren\'t deleted because the parameters
 -- aren\'t valid.
---
--- 'deletedParameters', 'deleteParametersResponse_deletedParameters' - The names of the deleted parameters.
 --
 -- 'httpStatus', 'deleteParametersResponse_httpStatus' - The response's http status code.
 newDeleteParametersResponse ::
@@ -157,20 +157,20 @@ newDeleteParametersResponse ::
   DeleteParametersResponse
 newDeleteParametersResponse pHttpStatus_ =
   DeleteParametersResponse'
-    { invalidParameters =
+    { deletedParameters =
         Prelude.Nothing,
-      deletedParameters = Prelude.Nothing,
+      invalidParameters = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The names of the deleted parameters.
+deleteParametersResponse_deletedParameters :: Lens.Lens' DeleteParametersResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+deleteParametersResponse_deletedParameters = Lens.lens (\DeleteParametersResponse' {deletedParameters} -> deletedParameters) (\s@DeleteParametersResponse' {} a -> s {deletedParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The names of parameters that weren\'t deleted because the parameters
 -- aren\'t valid.
 deleteParametersResponse_invalidParameters :: Lens.Lens' DeleteParametersResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteParametersResponse_invalidParameters = Lens.lens (\DeleteParametersResponse' {invalidParameters} -> invalidParameters) (\s@DeleteParametersResponse' {} a -> s {invalidParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The names of the deleted parameters.
-deleteParametersResponse_deletedParameters :: Lens.Lens' DeleteParametersResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteParametersResponse_deletedParameters = Lens.lens (\DeleteParametersResponse' {deletedParameters} -> deletedParameters) (\s@DeleteParametersResponse' {} a -> s {deletedParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteParametersResponse_invalidParameters = Lens.lens (\DeleteParametersResponse' {invalidParameters} -> invalidParameters) (\s@DeleteParametersResponse' {} a -> s {invalidParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteParametersResponse_httpStatus :: Lens.Lens' DeleteParametersResponse Prelude.Int

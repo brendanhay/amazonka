@@ -98,7 +98,7 @@ putAttributes_cluster = Lens.lens (\PutAttributes' {cluster} -> cluster) (\s@Put
 -- custom attributes per resource. You can specify up to 10 attributes in a
 -- single call.
 putAttributes_attributes :: Lens.Lens' PutAttributes [Attribute]
-putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Lens._Coerce
+putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutAttributes where
   type
@@ -180,7 +180,7 @@ newPutAttributesResponse pHttpStatus_ =
 
 -- | The attributes applied to your resource.
 putAttributesResponse_attributes :: Lens.Lens' PutAttributesResponse (Prelude.Maybe [Attribute])
-putAttributesResponse_attributes = Lens.lens (\PutAttributesResponse' {attributes} -> attributes) (\s@PutAttributesResponse' {} a -> s {attributes = a} :: PutAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+putAttributesResponse_attributes = Lens.lens (\PutAttributesResponse' {attributes} -> attributes) (\s@PutAttributesResponse' {} a -> s {attributes = a} :: PutAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putAttributesResponse_httpStatus :: Lens.Lens' PutAttributesResponse Prelude.Int

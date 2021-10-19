@@ -143,7 +143,7 @@ newCreateBudgetAction
         definition = pDefinition_,
         executionRoleArn = pExecutionRoleArn_,
         approvalModel = pApprovalModel_,
-        subscribers = Lens._Coerce Lens.# pSubscribers_
+        subscribers = Lens.coerced Lens.# pSubscribers_
       }
 
 -- | Undocumented member.
@@ -183,7 +183,7 @@ createBudgetAction_approvalModel = Lens.lens (\CreateBudgetAction' {approvalMode
 
 -- | Undocumented member.
 createBudgetAction_subscribers :: Lens.Lens' CreateBudgetAction (Prelude.NonEmpty Subscriber)
-createBudgetAction_subscribers = Lens.lens (\CreateBudgetAction' {subscribers} -> subscribers) (\s@CreateBudgetAction' {} a -> s {subscribers = a} :: CreateBudgetAction) Prelude.. Lens._Coerce
+createBudgetAction_subscribers = Lens.lens (\CreateBudgetAction' {subscribers} -> subscribers) (\s@CreateBudgetAction' {} a -> s {subscribers = a} :: CreateBudgetAction) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateBudgetAction where
   type

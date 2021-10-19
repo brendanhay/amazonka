@@ -120,7 +120,7 @@ addTagsToResource_resourceARN = Lens.lens (\AddTagsToResource' {resourceARN} -> 
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddTagsToResource where
   type

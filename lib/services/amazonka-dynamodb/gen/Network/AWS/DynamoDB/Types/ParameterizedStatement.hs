@@ -59,7 +59,7 @@ newParameterizedStatement pStatement_ =
 
 -- | The parameter values.
 parameterizedStatement_parameters :: Lens.Lens' ParameterizedStatement (Prelude.Maybe (Prelude.NonEmpty AttributeValue))
-parameterizedStatement_parameters = Lens.lens (\ParameterizedStatement' {parameters} -> parameters) (\s@ParameterizedStatement' {} a -> s {parameters = a} :: ParameterizedStatement) Prelude.. Lens.mapping Lens._Coerce
+parameterizedStatement_parameters = Lens.lens (\ParameterizedStatement' {parameters} -> parameters) (\s@ParameterizedStatement' {} a -> s {parameters = a} :: ParameterizedStatement) Prelude.. Lens.mapping Lens.coerced
 
 -- | A PartiQL statment that uses parameters.
 parameterizedStatement_statement :: Lens.Lens' ParameterizedStatement Prelude.Text

@@ -56,11 +56,11 @@ newShareDetails =
 
 -- | List of errors.
 shareDetails_shareErrors :: Lens.Lens' ShareDetails (Prelude.Maybe [ShareError])
-shareDetails_shareErrors = Lens.lens (\ShareDetails' {shareErrors} -> shareErrors) (\s@ShareDetails' {} a -> s {shareErrors = a} :: ShareDetails) Prelude.. Lens.mapping Lens._Coerce
+shareDetails_shareErrors = Lens.lens (\ShareDetails' {shareErrors} -> shareErrors) (\s@ShareDetails' {} a -> s {shareErrors = a} :: ShareDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of accounts for whom the operation succeeded.
 shareDetails_successfulShares :: Lens.Lens' ShareDetails (Prelude.Maybe [Prelude.Text])
-shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> successfulShares) (\s@ShareDetails' {} a -> s {successfulShares = a} :: ShareDetails) Prelude.. Lens.mapping Lens._Coerce
+shareDetails_successfulShares = Lens.lens (\ShareDetails' {successfulShares} -> successfulShares) (\s@ShareDetails' {} a -> s {successfulShares = a} :: ShareDetails) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ShareDetails where
   parseJSON =

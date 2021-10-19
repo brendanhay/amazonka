@@ -161,7 +161,7 @@ describeStackResourceDrifts_maxResults = Lens.lens (\DescribeStackResourceDrifts
 --
 -- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 describeStackResourceDrifts_stackResourceDriftStatusFilters :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe (Prelude.NonEmpty StackResourceDriftStatus))
-describeStackResourceDrifts_stackResourceDriftStatusFilters = Lens.lens (\DescribeStackResourceDrifts' {stackResourceDriftStatusFilters} -> stackResourceDriftStatusFilters) (\s@DescribeStackResourceDrifts' {} a -> s {stackResourceDriftStatusFilters = a} :: DescribeStackResourceDrifts) Prelude.. Lens.mapping Lens._Coerce
+describeStackResourceDrifts_stackResourceDriftStatusFilters = Lens.lens (\DescribeStackResourceDrifts' {stackResourceDriftStatusFilters} -> stackResourceDriftStatusFilters) (\s@DescribeStackResourceDrifts' {} a -> s {stackResourceDriftStatusFilters = a} :: DescribeStackResourceDrifts) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the stack for which you want drift information.
 describeStackResourceDrifts_stackName :: Lens.Lens' DescribeStackResourceDrifts Prelude.Text
@@ -299,7 +299,7 @@ describeStackResourceDriftsResponse_httpStatus = Lens.lens (\DescribeStackResour
 -- of resources that support drift detection, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html Resources that Support Drift Detection>.
 describeStackResourceDriftsResponse_stackResourceDrifts :: Lens.Lens' DescribeStackResourceDriftsResponse [StackResourceDrift]
-describeStackResourceDriftsResponse_stackResourceDrifts = Lens.lens (\DescribeStackResourceDriftsResponse' {stackResourceDrifts} -> stackResourceDrifts) (\s@DescribeStackResourceDriftsResponse' {} a -> s {stackResourceDrifts = a} :: DescribeStackResourceDriftsResponse) Prelude.. Lens._Coerce
+describeStackResourceDriftsResponse_stackResourceDrifts = Lens.lens (\DescribeStackResourceDriftsResponse' {stackResourceDrifts} -> stackResourceDrifts) (\s@DescribeStackResourceDriftsResponse' {} a -> s {stackResourceDrifts = a} :: DescribeStackResourceDriftsResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

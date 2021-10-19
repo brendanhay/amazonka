@@ -38,8 +38,8 @@ module Network.AWS.Polly.ListLexicons
     newListLexiconsResponse,
 
     -- * Response Lenses
-    listLexiconsResponse_nextToken,
     listLexiconsResponse_lexicons,
+    listLexiconsResponse_nextToken,
     listLexiconsResponse_httpStatus,
   )
 where
@@ -105,8 +105,8 @@ instance Core.AWSRequest ListLexicons where
     Response.receiveJSON
       ( \s h x ->
           ListLexiconsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Lexicons" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Lexicons" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,11 +126,11 @@ instance Core.ToQuery ListLexicons where
 
 -- | /See:/ 'newListLexiconsResponse' smart constructor.
 data ListLexiconsResponse = ListLexiconsResponse'
-  { -- | The pagination token to use in the next request to continue the listing
+  { -- | A list of lexicon names and attributes.
+    lexicons :: Prelude.Maybe [LexiconDescription],
+    -- | The pagination token to use in the next request to continue the listing
     -- of lexicons. @NextToken@ is returned only if the response is truncated.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of lexicon names and attributes.
-    lexicons :: Prelude.Maybe [LexiconDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,10 +144,10 @@ data ListLexiconsResponse = ListLexiconsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lexicons', 'listLexiconsResponse_lexicons' - A list of lexicon names and attributes.
+--
 -- 'nextToken', 'listLexiconsResponse_nextToken' - The pagination token to use in the next request to continue the listing
 -- of lexicons. @NextToken@ is returned only if the response is truncated.
---
--- 'lexicons', 'listLexiconsResponse_lexicons' - A list of lexicon names and attributes.
 --
 -- 'httpStatus', 'listLexiconsResponse_httpStatus' - The response's http status code.
 newListLexiconsResponse ::
@@ -156,19 +156,19 @@ newListLexiconsResponse ::
   ListLexiconsResponse
 newListLexiconsResponse pHttpStatus_ =
   ListLexiconsResponse'
-    { nextToken = Prelude.Nothing,
-      lexicons = Prelude.Nothing,
+    { lexicons = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of lexicon names and attributes.
+listLexiconsResponse_lexicons :: Lens.Lens' ListLexiconsResponse (Prelude.Maybe [LexiconDescription])
+listLexiconsResponse_lexicons = Lens.lens (\ListLexiconsResponse' {lexicons} -> lexicons) (\s@ListLexiconsResponse' {} a -> s {lexicons = a} :: ListLexiconsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use in the next request to continue the listing
 -- of lexicons. @NextToken@ is returned only if the response is truncated.
 listLexiconsResponse_nextToken :: Lens.Lens' ListLexiconsResponse (Prelude.Maybe Prelude.Text)
 listLexiconsResponse_nextToken = Lens.lens (\ListLexiconsResponse' {nextToken} -> nextToken) (\s@ListLexiconsResponse' {} a -> s {nextToken = a} :: ListLexiconsResponse)
-
--- | A list of lexicon names and attributes.
-listLexiconsResponse_lexicons :: Lens.Lens' ListLexiconsResponse (Prelude.Maybe [LexiconDescription])
-listLexiconsResponse_lexicons = Lens.lens (\ListLexiconsResponse' {lexicons} -> lexicons) (\s@ListLexiconsResponse' {} a -> s {lexicons = a} :: ListLexiconsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listLexiconsResponse_httpStatus :: Lens.Lens' ListLexiconsResponse Prelude.Int

@@ -35,10 +35,10 @@ module Network.AWS.APIGateway.GetRequestValidator
     newRequestValidator,
 
     -- * Response Lenses
-    requestValidator_validateRequestBody,
-    requestValidator_id,
     requestValidator_validateRequestParameters,
     requestValidator_name,
+    requestValidator_validateRequestBody,
+    requestValidator_id,
   )
 where
 

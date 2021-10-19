@@ -115,7 +115,7 @@ describeServiceErrors_stackId = Lens.lens (\DescribeServiceErrors' {stackId} -> 
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
 describeServiceErrors_serviceErrorIds :: Lens.Lens' DescribeServiceErrors (Prelude.Maybe [Prelude.Text])
-describeServiceErrors_serviceErrorIds = Lens.lens (\DescribeServiceErrors' {serviceErrorIds} -> serviceErrorIds) (\s@DescribeServiceErrors' {} a -> s {serviceErrorIds = a} :: DescribeServiceErrors) Prelude.. Lens.mapping Lens._Coerce
+describeServiceErrors_serviceErrorIds = Lens.lens (\DescribeServiceErrors' {serviceErrorIds} -> serviceErrorIds) (\s@DescribeServiceErrors' {} a -> s {serviceErrorIds = a} :: DescribeServiceErrors) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeServiceErrors where
   type
@@ -204,7 +204,7 @@ newDescribeServiceErrorsResponse pHttpStatus_ =
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
 describeServiceErrorsResponse_serviceErrors :: Lens.Lens' DescribeServiceErrorsResponse (Prelude.Maybe [ServiceError])
-describeServiceErrorsResponse_serviceErrors = Lens.lens (\DescribeServiceErrorsResponse' {serviceErrors} -> serviceErrors) (\s@DescribeServiceErrorsResponse' {} a -> s {serviceErrors = a} :: DescribeServiceErrorsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeServiceErrorsResponse_serviceErrors = Lens.lens (\DescribeServiceErrorsResponse' {serviceErrors} -> serviceErrors) (\s@DescribeServiceErrorsResponse' {} a -> s {serviceErrors = a} :: DescribeServiceErrorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeServiceErrorsResponse_httpStatus :: Lens.Lens' DescribeServiceErrorsResponse Prelude.Int

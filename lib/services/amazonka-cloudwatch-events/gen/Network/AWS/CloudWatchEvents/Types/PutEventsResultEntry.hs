@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPutEventsResultEntry' smart constructor.
 data PutEventsResultEntry = PutEventsResultEntry'
-  { -- | The ID of the event.
-    eventId :: Prelude.Maybe Prelude.Text,
+  { -- | The error code that indicates why the event submission failed.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | The error message that explains why the event submission failed.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code that indicates why the event submission failed.
-    errorCode :: Prelude.Maybe Prelude.Text
+    -- | The ID of the event.
+    eventId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,31 +44,31 @@ data PutEventsResultEntry = PutEventsResultEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventId', 'putEventsResultEntry_eventId' - The ID of the event.
+-- 'errorCode', 'putEventsResultEntry_errorCode' - The error code that indicates why the event submission failed.
 --
 -- 'errorMessage', 'putEventsResultEntry_errorMessage' - The error message that explains why the event submission failed.
 --
--- 'errorCode', 'putEventsResultEntry_errorCode' - The error code that indicates why the event submission failed.
+-- 'eventId', 'putEventsResultEntry_eventId' - The ID of the event.
 newPutEventsResultEntry ::
   PutEventsResultEntry
 newPutEventsResultEntry =
   PutEventsResultEntry'
-    { eventId = Prelude.Nothing,
+    { errorCode = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      eventId = Prelude.Nothing
     }
 
--- | The ID of the event.
-putEventsResultEntry_eventId :: Lens.Lens' PutEventsResultEntry (Prelude.Maybe Prelude.Text)
-putEventsResultEntry_eventId = Lens.lens (\PutEventsResultEntry' {eventId} -> eventId) (\s@PutEventsResultEntry' {} a -> s {eventId = a} :: PutEventsResultEntry)
+-- | The error code that indicates why the event submission failed.
+putEventsResultEntry_errorCode :: Lens.Lens' PutEventsResultEntry (Prelude.Maybe Prelude.Text)
+putEventsResultEntry_errorCode = Lens.lens (\PutEventsResultEntry' {errorCode} -> errorCode) (\s@PutEventsResultEntry' {} a -> s {errorCode = a} :: PutEventsResultEntry)
 
 -- | The error message that explains why the event submission failed.
 putEventsResultEntry_errorMessage :: Lens.Lens' PutEventsResultEntry (Prelude.Maybe Prelude.Text)
 putEventsResultEntry_errorMessage = Lens.lens (\PutEventsResultEntry' {errorMessage} -> errorMessage) (\s@PutEventsResultEntry' {} a -> s {errorMessage = a} :: PutEventsResultEntry)
 
--- | The error code that indicates why the event submission failed.
-putEventsResultEntry_errorCode :: Lens.Lens' PutEventsResultEntry (Prelude.Maybe Prelude.Text)
-putEventsResultEntry_errorCode = Lens.lens (\PutEventsResultEntry' {errorCode} -> errorCode) (\s@PutEventsResultEntry' {} a -> s {errorCode = a} :: PutEventsResultEntry)
+-- | The ID of the event.
+putEventsResultEntry_eventId :: Lens.Lens' PutEventsResultEntry (Prelude.Maybe Prelude.Text)
+putEventsResultEntry_eventId = Lens.lens (\PutEventsResultEntry' {eventId} -> eventId) (\s@PutEventsResultEntry' {} a -> s {eventId = a} :: PutEventsResultEntry)
 
 instance Core.FromJSON PutEventsResultEntry where
   parseJSON =
@@ -76,9 +76,9 @@ instance Core.FromJSON PutEventsResultEntry where
       "PutEventsResultEntry"
       ( \x ->
           PutEventsResultEntry'
-            Prelude.<$> (x Core..:? "EventId")
+            Prelude.<$> (x Core..:? "ErrorCode")
             Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "EventId")
       )
 
 instance Prelude.Hashable PutEventsResultEntry

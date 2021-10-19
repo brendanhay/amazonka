@@ -116,7 +116,7 @@ newCreateCacheSubnetGroup
 -- | A list of tags to be added to this resource. A tag is a key-value pair.
 -- A tag key must be accompanied by a tag value, although null is accepted.
 createCacheSubnetGroup_tags :: Lens.Lens' CreateCacheSubnetGroup (Prelude.Maybe [Tag])
-createCacheSubnetGroup_tags = Lens.lens (\CreateCacheSubnetGroup' {tags} -> tags) (\s@CreateCacheSubnetGroup' {} a -> s {tags = a} :: CreateCacheSubnetGroup) Prelude.. Lens.mapping Lens._Coerce
+createCacheSubnetGroup_tags = Lens.lens (\CreateCacheSubnetGroup' {tags} -> tags) (\s@CreateCacheSubnetGroup' {} a -> s {tags = a} :: CreateCacheSubnetGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string.
@@ -134,7 +134,7 @@ createCacheSubnetGroup_cacheSubnetGroupDescription = Lens.lens (\CreateCacheSubn
 
 -- | A list of VPC subnet IDs for the cache subnet group.
 createCacheSubnetGroup_subnetIds :: Lens.Lens' CreateCacheSubnetGroup [Prelude.Text]
-createCacheSubnetGroup_subnetIds = Lens.lens (\CreateCacheSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateCacheSubnetGroup' {} a -> s {subnetIds = a} :: CreateCacheSubnetGroup) Prelude.. Lens._Coerce
+createCacheSubnetGroup_subnetIds = Lens.lens (\CreateCacheSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateCacheSubnetGroup' {} a -> s {subnetIds = a} :: CreateCacheSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateCacheSubnetGroup where
   type

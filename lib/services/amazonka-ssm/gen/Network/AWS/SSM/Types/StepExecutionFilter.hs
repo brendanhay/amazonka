@@ -60,7 +60,7 @@ newStepExecutionFilter ::
 newStepExecutionFilter pKey_ pValues_ =
   StepExecutionFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | One or more keys to limit the results. Valid filter keys include the
@@ -71,7 +71,7 @@ stepExecutionFilter_key = Lens.lens (\StepExecutionFilter' {key} -> key) (\s@Ste
 
 -- | The values of the filter key.
 stepExecutionFilter_values :: Lens.Lens' StepExecutionFilter (Prelude.NonEmpty Prelude.Text)
-stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Prelude.. Lens._Coerce
+stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable StepExecutionFilter
 

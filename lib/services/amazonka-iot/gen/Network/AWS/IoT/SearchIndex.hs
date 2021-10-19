@@ -31,10 +31,10 @@ module Network.AWS.IoT.SearchIndex
     newSearchIndex,
 
     -- * Request Lenses
-    searchIndex_nextToken,
-    searchIndex_indexName,
-    searchIndex_maxResults,
     searchIndex_queryVersion,
+    searchIndex_nextToken,
+    searchIndex_maxResults,
+    searchIndex_indexName,
     searchIndex_queryString,
 
     -- * Destructuring the Response
@@ -42,9 +42,9 @@ module Network.AWS.IoT.SearchIndex
     newSearchIndexResponse,
 
     -- * Response Lenses
+    searchIndexResponse_thingGroups,
     searchIndexResponse_nextToken,
     searchIndexResponse_things,
-    searchIndexResponse_thingGroups,
     searchIndexResponse_httpStatus,
   )
 where
@@ -58,15 +58,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSearchIndex' smart constructor.
 data SearchIndex = SearchIndex'
-  { -- | The token used to get the next set of results, or @null@ if there are no
+  { -- | The query version.
+    queryVersion :: Prelude.Maybe Prelude.Text,
+    -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The search index name.
-    indexName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The query version.
-    queryVersion :: Prelude.Maybe Prelude.Text,
+    -- | The search index name.
+    indexName :: Prelude.Maybe Prelude.Text,
     -- | The search query string.
     queryString :: Prelude.Text
   }
@@ -80,14 +80,14 @@ data SearchIndex = SearchIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'queryVersion', 'searchIndex_queryVersion' - The query version.
+--
 -- 'nextToken', 'searchIndex_nextToken' - The token used to get the next set of results, or @null@ if there are no
 -- additional results.
 --
--- 'indexName', 'searchIndex_indexName' - The search index name.
---
 -- 'maxResults', 'searchIndex_maxResults' - The maximum number of results to return at one time.
 --
--- 'queryVersion', 'searchIndex_queryVersion' - The query version.
+-- 'indexName', 'searchIndex_indexName' - The search index name.
 --
 -- 'queryString', 'searchIndex_queryString' - The search query string.
 newSearchIndex ::
@@ -96,29 +96,29 @@ newSearchIndex ::
   SearchIndex
 newSearchIndex pQueryString_ =
   SearchIndex'
-    { nextToken = Prelude.Nothing,
-      indexName = Prelude.Nothing,
+    { queryVersion = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
+      indexName = Prelude.Nothing,
       queryString = pQueryString_
     }
+
+-- | The query version.
+searchIndex_queryVersion :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
+searchIndex_queryVersion = Lens.lens (\SearchIndex' {queryVersion} -> queryVersion) (\s@SearchIndex' {} a -> s {queryVersion = a} :: SearchIndex)
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
 searchIndex_nextToken :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
 searchIndex_nextToken = Lens.lens (\SearchIndex' {nextToken} -> nextToken) (\s@SearchIndex' {} a -> s {nextToken = a} :: SearchIndex)
 
--- | The search index name.
-searchIndex_indexName :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
-searchIndex_indexName = Lens.lens (\SearchIndex' {indexName} -> indexName) (\s@SearchIndex' {} a -> s {indexName = a} :: SearchIndex)
-
 -- | The maximum number of results to return at one time.
 searchIndex_maxResults :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Natural)
 searchIndex_maxResults = Lens.lens (\SearchIndex' {maxResults} -> maxResults) (\s@SearchIndex' {} a -> s {maxResults = a} :: SearchIndex)
 
--- | The query version.
-searchIndex_queryVersion :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
-searchIndex_queryVersion = Lens.lens (\SearchIndex' {queryVersion} -> queryVersion) (\s@SearchIndex' {} a -> s {queryVersion = a} :: SearchIndex)
+-- | The search index name.
+searchIndex_indexName :: Lens.Lens' SearchIndex (Prelude.Maybe Prelude.Text)
+searchIndex_indexName = Lens.lens (\SearchIndex' {indexName} -> indexName) (\s@SearchIndex' {} a -> s {indexName = a} :: SearchIndex)
 
 -- | The search query string.
 searchIndex_queryString :: Lens.Lens' SearchIndex Prelude.Text
@@ -131,9 +131,9 @@ instance Core.AWSRequest SearchIndex where
     Response.receiveJSON
       ( \s h x ->
           SearchIndexResponse'
-            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "thingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -148,10 +148,10 @@ instance Core.ToJSON SearchIndex where
   toJSON SearchIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("indexName" Core..=) Prelude.<$> indexName,
+          [ ("queryVersion" Core..=) Prelude.<$> queryVersion,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("queryVersion" Core..=) Prelude.<$> queryVersion,
+            ("indexName" Core..=) Prelude.<$> indexName,
             Prelude.Just ("queryString" Core..= queryString)
           ]
       )
@@ -164,13 +164,13 @@ instance Core.ToQuery SearchIndex where
 
 -- | /See:/ 'newSearchIndexResponse' smart constructor.
 data SearchIndexResponse = SearchIndexResponse'
-  { -- | The token used to get the next set of results, or @null@ if there are no
+  { -- | The thing groups that match the search query.
+    thingGroups :: Prelude.Maybe [ThingGroupDocument],
+    -- | The token used to get the next set of results, or @null@ if there are no
     -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The things that match the search query.
     things :: Prelude.Maybe [ThingDocument],
-    -- | The thing groups that match the search query.
-    thingGroups :: Prelude.Maybe [ThingGroupDocument],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -184,12 +184,12 @@ data SearchIndexResponse = SearchIndexResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'thingGroups', 'searchIndexResponse_thingGroups' - The thing groups that match the search query.
+--
 -- 'nextToken', 'searchIndexResponse_nextToken' - The token used to get the next set of results, or @null@ if there are no
 -- additional results.
 --
 -- 'things', 'searchIndexResponse_things' - The things that match the search query.
---
--- 'thingGroups', 'searchIndexResponse_thingGroups' - The thing groups that match the search query.
 --
 -- 'httpStatus', 'searchIndexResponse_httpStatus' - The response's http status code.
 newSearchIndexResponse ::
@@ -198,11 +198,15 @@ newSearchIndexResponse ::
   SearchIndexResponse
 newSearchIndexResponse pHttpStatus_ =
   SearchIndexResponse'
-    { nextToken = Prelude.Nothing,
+    { thingGroups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       things = Prelude.Nothing,
-      thingGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The thing groups that match the search query.
+searchIndexResponse_thingGroups :: Lens.Lens' SearchIndexResponse (Prelude.Maybe [ThingGroupDocument])
+searchIndexResponse_thingGroups = Lens.lens (\SearchIndexResponse' {thingGroups} -> thingGroups) (\s@SearchIndexResponse' {} a -> s {thingGroups = a} :: SearchIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token used to get the next set of results, or @null@ if there are no
 -- additional results.
@@ -211,11 +215,7 @@ searchIndexResponse_nextToken = Lens.lens (\SearchIndexResponse' {nextToken} -> 
 
 -- | The things that match the search query.
 searchIndexResponse_things :: Lens.Lens' SearchIndexResponse (Prelude.Maybe [ThingDocument])
-searchIndexResponse_things = Lens.lens (\SearchIndexResponse' {things} -> things) (\s@SearchIndexResponse' {} a -> s {things = a} :: SearchIndexResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The thing groups that match the search query.
-searchIndexResponse_thingGroups :: Lens.Lens' SearchIndexResponse (Prelude.Maybe [ThingGroupDocument])
-searchIndexResponse_thingGroups = Lens.lens (\SearchIndexResponse' {thingGroups} -> thingGroups) (\s@SearchIndexResponse' {} a -> s {thingGroups = a} :: SearchIndexResponse) Prelude.. Lens.mapping Lens._Coerce
+searchIndexResponse_things = Lens.lens (\SearchIndexResponse' {things} -> things) (\s@SearchIndexResponse' {} a -> s {things = a} :: SearchIndexResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 searchIndexResponse_httpStatus :: Lens.Lens' SearchIndexResponse Prelude.Int

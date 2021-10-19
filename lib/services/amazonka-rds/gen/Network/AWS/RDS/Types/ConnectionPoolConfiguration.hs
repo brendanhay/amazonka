@@ -28,14 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConnectionPoolConfiguration' smart constructor.
 data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
-  { -- | Each item in the list represents a class of SQL operations that normally
-    -- cause all later statements in a session using a proxy to be pinned to
-    -- the same underlying database connection. Including an item in the list
-    -- exempts that class of SQL operations from the pinning behavior.
-    --
-    -- Default: no session pinning filters
-    sessionPinningFilters :: Prelude.Maybe [Prelude.Text],
-    -- | Controls how actively the proxy closes idle database connections in the
+  { -- | Controls how actively the proxy closes idle database connections in the
     -- connection pool. A high value enables the proxy to leave a high
     -- percentage of idle connections open. A low value causes the proxy to
     -- close idle client connections and return the underlying database
@@ -47,6 +40,22 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
     --
     -- Constraints: between 0 and @MaxConnectionsPercent@
     maxIdleConnectionsPercent :: Prelude.Maybe Prelude.Int,
+    -- | Each item in the list represents a class of SQL operations that normally
+    -- cause all later statements in a session using a proxy to be pinned to
+    -- the same underlying database connection. Including an item in the list
+    -- exempts that class of SQL operations from the pinning behavior.
+    --
+    -- Default: no session pinning filters
+    sessionPinningFilters :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum size of the connection pool for each target in a target
+    -- group. For Aurora MySQL, it is expressed as a percentage of the
+    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+    -- used by the target group.
+    --
+    -- Default: 100
+    --
+    -- Constraints: between 1 and 100
+    maxConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | The number of seconds for a proxy to wait for a connection to become
     -- available in the connection pool. Only applies when the proxy has opened
     -- its maximum number of connections and all connections are busy with
@@ -64,16 +73,7 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
     -- such as @SET x=1, y=2@.
     --
     -- Default: no initialization query
-    initQuery :: Prelude.Maybe Prelude.Text,
-    -- | The maximum size of the connection pool for each target in a target
-    -- group. For Aurora MySQL, it is expressed as a percentage of the
-    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
-    -- used by the target group.
-    --
-    -- Default: 100
-    --
-    -- Constraints: between 1 and 100
-    maxConnectionsPercent :: Prelude.Maybe Prelude.Int
+    initQuery :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,13 +84,6 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'sessionPinningFilters', 'connectionPoolConfiguration_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally
--- cause all later statements in a session using a proxy to be pinned to
--- the same underlying database connection. Including an item in the list
--- exempts that class of SQL operations from the pinning behavior.
---
--- Default: no session pinning filters
 --
 -- 'maxIdleConnectionsPercent', 'connectionPoolConfiguration_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the
 -- connection pool. A high value enables the proxy to leave a high
@@ -103,6 +96,22 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 -- Default: 50
 --
 -- Constraints: between 0 and @MaxConnectionsPercent@
+--
+-- 'sessionPinningFilters', 'connectionPoolConfiguration_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally
+-- cause all later statements in a session using a proxy to be pinned to
+-- the same underlying database connection. Including an item in the list
+-- exempts that class of SQL operations from the pinning behavior.
+--
+-- Default: no session pinning filters
+--
+-- 'maxConnectionsPercent', 'connectionPoolConfiguration_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target
+-- group. For Aurora MySQL, it is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group.
+--
+-- Default: 100
+--
+-- Constraints: between 1 and 100
 --
 -- 'connectionBorrowTimeout', 'connectionPoolConfiguration_connectionBorrowTimeout' - The number of seconds for a proxy to wait for a connection to become
 -- available in the connection pool. Only applies when the proxy has opened
@@ -121,35 +130,17 @@ data ConnectionPoolConfiguration = ConnectionPoolConfiguration'
 -- such as @SET x=1, y=2@.
 --
 -- Default: no initialization query
---
--- 'maxConnectionsPercent', 'connectionPoolConfiguration_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target
--- group. For Aurora MySQL, it is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group.
---
--- Default: 100
---
--- Constraints: between 1 and 100
 newConnectionPoolConfiguration ::
   ConnectionPoolConfiguration
 newConnectionPoolConfiguration =
   ConnectionPoolConfiguration'
-    { sessionPinningFilters =
+    { maxIdleConnectionsPercent =
         Prelude.Nothing,
-      maxIdleConnectionsPercent = Prelude.Nothing,
+      sessionPinningFilters = Prelude.Nothing,
+      maxConnectionsPercent = Prelude.Nothing,
       connectionBorrowTimeout = Prelude.Nothing,
-      initQuery = Prelude.Nothing,
-      maxConnectionsPercent = Prelude.Nothing
+      initQuery = Prelude.Nothing
     }
-
--- | Each item in the list represents a class of SQL operations that normally
--- cause all later statements in a session using a proxy to be pinned to
--- the same underlying database connection. Including an item in the list
--- exempts that class of SQL operations from the pinning behavior.
---
--- Default: no session pinning filters
-connectionPoolConfiguration_sessionPinningFilters :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe [Prelude.Text])
-connectionPoolConfiguration_sessionPinningFilters = Lens.lens (\ConnectionPoolConfiguration' {sessionPinningFilters} -> sessionPinningFilters) (\s@ConnectionPoolConfiguration' {} a -> s {sessionPinningFilters = a} :: ConnectionPoolConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Controls how actively the proxy closes idle database connections in the
 -- connection pool. A high value enables the proxy to leave a high
@@ -164,6 +155,26 @@ connectionPoolConfiguration_sessionPinningFilters = Lens.lens (\ConnectionPoolCo
 -- Constraints: between 0 and @MaxConnectionsPercent@
 connectionPoolConfiguration_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Int)
 connectionPoolConfiguration_maxIdleConnectionsPercent = Lens.lens (\ConnectionPoolConfiguration' {maxIdleConnectionsPercent} -> maxIdleConnectionsPercent) (\s@ConnectionPoolConfiguration' {} a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfiguration)
+
+-- | Each item in the list represents a class of SQL operations that normally
+-- cause all later statements in a session using a proxy to be pinned to
+-- the same underlying database connection. Including an item in the list
+-- exempts that class of SQL operations from the pinning behavior.
+--
+-- Default: no session pinning filters
+connectionPoolConfiguration_sessionPinningFilters :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe [Prelude.Text])
+connectionPoolConfiguration_sessionPinningFilters = Lens.lens (\ConnectionPoolConfiguration' {sessionPinningFilters} -> sessionPinningFilters) (\s@ConnectionPoolConfiguration' {} a -> s {sessionPinningFilters = a} :: ConnectionPoolConfiguration) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum size of the connection pool for each target in a target
+-- group. For Aurora MySQL, it is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group.
+--
+-- Default: 100
+--
+-- Constraints: between 1 and 100
+connectionPoolConfiguration_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Int)
+connectionPoolConfiguration_maxConnectionsPercent = Lens.lens (\ConnectionPoolConfiguration' {maxConnectionsPercent} -> maxConnectionsPercent) (\s@ConnectionPoolConfiguration' {} a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfiguration)
 
 -- | The number of seconds for a proxy to wait for a connection to become
 -- available in the connection pool. Only applies when the proxy has opened
@@ -187,17 +198,6 @@ connectionPoolConfiguration_connectionBorrowTimeout = Lens.lens (\ConnectionPool
 connectionPoolConfiguration_initQuery :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Text)
 connectionPoolConfiguration_initQuery = Lens.lens (\ConnectionPoolConfiguration' {initQuery} -> initQuery) (\s@ConnectionPoolConfiguration' {} a -> s {initQuery = a} :: ConnectionPoolConfiguration)
 
--- | The maximum size of the connection pool for each target in a target
--- group. For Aurora MySQL, it is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group.
---
--- Default: 100
---
--- Constraints: between 1 and 100
-connectionPoolConfiguration_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfiguration (Prelude.Maybe Prelude.Int)
-connectionPoolConfiguration_maxConnectionsPercent = Lens.lens (\ConnectionPoolConfiguration' {maxConnectionsPercent} -> maxConnectionsPercent) (\s@ConnectionPoolConfiguration' {} a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfiguration)
-
 instance Prelude.Hashable ConnectionPoolConfiguration
 
 instance Prelude.NFData ConnectionPoolConfiguration
@@ -205,16 +205,16 @@ instance Prelude.NFData ConnectionPoolConfiguration
 instance Core.ToQuery ConnectionPoolConfiguration where
   toQuery ConnectionPoolConfiguration' {..} =
     Prelude.mconcat
-      [ "SessionPinningFilters"
+      [ "MaxIdleConnectionsPercent"
+          Core.=: maxIdleConnectionsPercent,
+        "SessionPinningFilters"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> sessionPinningFilters
             ),
-        "MaxIdleConnectionsPercent"
-          Core.=: maxIdleConnectionsPercent,
+        "MaxConnectionsPercent"
+          Core.=: maxConnectionsPercent,
         "ConnectionBorrowTimeout"
           Core.=: connectionBorrowTimeout,
-        "InitQuery" Core.=: initQuery,
-        "MaxConnectionsPercent"
-          Core.=: maxConnectionsPercent
+        "InitQuery" Core.=: initQuery
       ]

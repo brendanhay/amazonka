@@ -70,7 +70,7 @@ campaignsResponse_nextToken = Lens.lens (\CampaignsResponse' {nextToken} -> next
 -- | An array of responses, one for each campaign that\'s associated with the
 -- application.
 campaignsResponse_item :: Lens.Lens' CampaignsResponse [CampaignResponse]
-campaignsResponse_item = Lens.lens (\CampaignsResponse' {item} -> item) (\s@CampaignsResponse' {} a -> s {item = a} :: CampaignsResponse) Prelude.. Lens._Coerce
+campaignsResponse_item = Lens.lens (\CampaignsResponse' {item} -> item) (\s@CampaignsResponse' {} a -> s {item = a} :: CampaignsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON CampaignsResponse where
   parseJSON =

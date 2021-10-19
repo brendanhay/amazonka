@@ -31,35 +31,35 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCertificateDescription' smart constructor.
 data CertificateDescription = CertificateDescription'
-  { -- | The date and time the certificate was last modified.
-    lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The status of the certificate.
+  { -- | The status of the certificate.
     status :: Prelude.Maybe CertificateStatus,
-    -- | The mode of the certificate.
-    certificateMode :: Prelude.Maybe CertificateMode,
-    -- | The ARN of the certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the certificate was created.
-    creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Amazon Web Services account that owns the certificate.
+    ownedBy :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the certificate was last modified.
+    lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The certificate ID of the CA certificate used to sign this certificate.
+    caCertificateId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account of the previous owner of the
     -- certificate.
     previousOwnedBy :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services account that owns the certificate.
-    ownedBy :: Prelude.Maybe Prelude.Text,
-    -- | The customer version of the certificate.
-    customerVersion :: Prelude.Maybe Prelude.Natural,
+    -- | The certificate data, in PEM format.
+    certificatePem :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the certificate.
+    certificateId :: Prelude.Maybe Prelude.Text,
+    -- | The mode of the certificate.
+    certificateMode :: Prelude.Maybe CertificateMode,
+    -- | When the certificate is valid.
+    validity :: Prelude.Maybe CertificateValidity,
+    -- | The date and time the certificate was created.
+    creationDate :: Prelude.Maybe Core.POSIX,
     -- | The generation ID of the certificate.
     generationId :: Prelude.Maybe Prelude.Text,
     -- | The transfer data.
     transferData :: Prelude.Maybe TransferData,
-    -- | The ID of the certificate.
-    certificateId :: Prelude.Maybe Prelude.Text,
-    -- | The certificate data, in PEM format.
-    certificatePem :: Prelude.Maybe Prelude.Text,
-    -- | The certificate ID of the CA certificate used to sign this certificate.
-    caCertificateId :: Prelude.Maybe Prelude.Text,
-    -- | When the certificate is valid.
-    validity :: Prelude.Maybe CertificateValidity
+    -- | The customer version of the certificate.
+    customerVersion :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -71,87 +71,98 @@ data CertificateDescription = CertificateDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'certificateDescription_lastModifiedDate' - The date and time the certificate was last modified.
---
 -- 'status', 'certificateDescription_status' - The status of the certificate.
 --
--- 'certificateMode', 'certificateDescription_certificateMode' - The mode of the certificate.
+-- 'ownedBy', 'certificateDescription_ownedBy' - The ID of the Amazon Web Services account that owns the certificate.
 --
--- 'certificateArn', 'certificateDescription_certificateArn' - The ARN of the certificate.
+-- 'lastModifiedDate', 'certificateDescription_lastModifiedDate' - The date and time the certificate was last modified.
 --
--- 'creationDate', 'certificateDescription_creationDate' - The date and time the certificate was created.
+-- 'caCertificateId', 'certificateDescription_caCertificateId' - The certificate ID of the CA certificate used to sign this certificate.
 --
 -- 'previousOwnedBy', 'certificateDescription_previousOwnedBy' - The ID of the Amazon Web Services account of the previous owner of the
 -- certificate.
 --
--- 'ownedBy', 'certificateDescription_ownedBy' - The ID of the Amazon Web Services account that owns the certificate.
+-- 'certificatePem', 'certificateDescription_certificatePem' - The certificate data, in PEM format.
 --
--- 'customerVersion', 'certificateDescription_customerVersion' - The customer version of the certificate.
+-- 'certificateArn', 'certificateDescription_certificateArn' - The ARN of the certificate.
+--
+-- 'certificateId', 'certificateDescription_certificateId' - The ID of the certificate.
+--
+-- 'certificateMode', 'certificateDescription_certificateMode' - The mode of the certificate.
+--
+-- 'validity', 'certificateDescription_validity' - When the certificate is valid.
+--
+-- 'creationDate', 'certificateDescription_creationDate' - The date and time the certificate was created.
 --
 -- 'generationId', 'certificateDescription_generationId' - The generation ID of the certificate.
 --
 -- 'transferData', 'certificateDescription_transferData' - The transfer data.
 --
--- 'certificateId', 'certificateDescription_certificateId' - The ID of the certificate.
---
--- 'certificatePem', 'certificateDescription_certificatePem' - The certificate data, in PEM format.
---
--- 'caCertificateId', 'certificateDescription_caCertificateId' - The certificate ID of the CA certificate used to sign this certificate.
---
--- 'validity', 'certificateDescription_validity' - When the certificate is valid.
+-- 'customerVersion', 'certificateDescription_customerVersion' - The customer version of the certificate.
 newCertificateDescription ::
   CertificateDescription
 newCertificateDescription =
   CertificateDescription'
-    { lastModifiedDate =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      certificateMode = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      previousOwnedBy = Prelude.Nothing,
+    { status = Prelude.Nothing,
       ownedBy = Prelude.Nothing,
-      customerVersion = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      caCertificateId = Prelude.Nothing,
+      previousOwnedBy = Prelude.Nothing,
+      certificatePem = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
+      certificateId = Prelude.Nothing,
+      certificateMode = Prelude.Nothing,
+      validity = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
       generationId = Prelude.Nothing,
       transferData = Prelude.Nothing,
-      certificateId = Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
-      caCertificateId = Prelude.Nothing,
-      validity = Prelude.Nothing
+      customerVersion = Prelude.Nothing
     }
-
--- | The date and time the certificate was last modified.
-certificateDescription_lastModifiedDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
-certificateDescription_lastModifiedDate = Lens.lens (\CertificateDescription' {lastModifiedDate} -> lastModifiedDate) (\s@CertificateDescription' {} a -> s {lastModifiedDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the certificate.
 certificateDescription_status :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateStatus)
 certificateDescription_status = Lens.lens (\CertificateDescription' {status} -> status) (\s@CertificateDescription' {} a -> s {status = a} :: CertificateDescription)
 
--- | The mode of the certificate.
-certificateDescription_certificateMode :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateMode)
-certificateDescription_certificateMode = Lens.lens (\CertificateDescription' {certificateMode} -> certificateMode) (\s@CertificateDescription' {} a -> s {certificateMode = a} :: CertificateDescription)
+-- | The ID of the Amazon Web Services account that owns the certificate.
+certificateDescription_ownedBy :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
+certificateDescription_ownedBy = Lens.lens (\CertificateDescription' {ownedBy} -> ownedBy) (\s@CertificateDescription' {} a -> s {ownedBy = a} :: CertificateDescription)
 
--- | The ARN of the certificate.
-certificateDescription_certificateArn :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
-certificateDescription_certificateArn = Lens.lens (\CertificateDescription' {certificateArn} -> certificateArn) (\s@CertificateDescription' {} a -> s {certificateArn = a} :: CertificateDescription)
+-- | The date and time the certificate was last modified.
+certificateDescription_lastModifiedDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
+certificateDescription_lastModifiedDate = Lens.lens (\CertificateDescription' {lastModifiedDate} -> lastModifiedDate) (\s@CertificateDescription' {} a -> s {lastModifiedDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
 
--- | The date and time the certificate was created.
-certificateDescription_creationDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
-certificateDescription_creationDate = Lens.lens (\CertificateDescription' {creationDate} -> creationDate) (\s@CertificateDescription' {} a -> s {creationDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
+-- | The certificate ID of the CA certificate used to sign this certificate.
+certificateDescription_caCertificateId :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
+certificateDescription_caCertificateId = Lens.lens (\CertificateDescription' {caCertificateId} -> caCertificateId) (\s@CertificateDescription' {} a -> s {caCertificateId = a} :: CertificateDescription)
 
 -- | The ID of the Amazon Web Services account of the previous owner of the
 -- certificate.
 certificateDescription_previousOwnedBy :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
 certificateDescription_previousOwnedBy = Lens.lens (\CertificateDescription' {previousOwnedBy} -> previousOwnedBy) (\s@CertificateDescription' {} a -> s {previousOwnedBy = a} :: CertificateDescription)
 
--- | The ID of the Amazon Web Services account that owns the certificate.
-certificateDescription_ownedBy :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
-certificateDescription_ownedBy = Lens.lens (\CertificateDescription' {ownedBy} -> ownedBy) (\s@CertificateDescription' {} a -> s {ownedBy = a} :: CertificateDescription)
+-- | The certificate data, in PEM format.
+certificateDescription_certificatePem :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
+certificateDescription_certificatePem = Lens.lens (\CertificateDescription' {certificatePem} -> certificatePem) (\s@CertificateDescription' {} a -> s {certificatePem = a} :: CertificateDescription)
 
--- | The customer version of the certificate.
-certificateDescription_customerVersion :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Natural)
-certificateDescription_customerVersion = Lens.lens (\CertificateDescription' {customerVersion} -> customerVersion) (\s@CertificateDescription' {} a -> s {customerVersion = a} :: CertificateDescription)
+-- | The ARN of the certificate.
+certificateDescription_certificateArn :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
+certificateDescription_certificateArn = Lens.lens (\CertificateDescription' {certificateArn} -> certificateArn) (\s@CertificateDescription' {} a -> s {certificateArn = a} :: CertificateDescription)
+
+-- | The ID of the certificate.
+certificateDescription_certificateId :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
+certificateDescription_certificateId = Lens.lens (\CertificateDescription' {certificateId} -> certificateId) (\s@CertificateDescription' {} a -> s {certificateId = a} :: CertificateDescription)
+
+-- | The mode of the certificate.
+certificateDescription_certificateMode :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateMode)
+certificateDescription_certificateMode = Lens.lens (\CertificateDescription' {certificateMode} -> certificateMode) (\s@CertificateDescription' {} a -> s {certificateMode = a} :: CertificateDescription)
+
+-- | When the certificate is valid.
+certificateDescription_validity :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateValidity)
+certificateDescription_validity = Lens.lens (\CertificateDescription' {validity} -> validity) (\s@CertificateDescription' {} a -> s {validity = a} :: CertificateDescription)
+
+-- | The date and time the certificate was created.
+certificateDescription_creationDate :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.UTCTime)
+certificateDescription_creationDate = Lens.lens (\CertificateDescription' {creationDate} -> creationDate) (\s@CertificateDescription' {} a -> s {creationDate = a} :: CertificateDescription) Prelude.. Lens.mapping Core._Time
 
 -- | The generation ID of the certificate.
 certificateDescription_generationId :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
@@ -161,21 +172,9 @@ certificateDescription_generationId = Lens.lens (\CertificateDescription' {gener
 certificateDescription_transferData :: Lens.Lens' CertificateDescription (Prelude.Maybe TransferData)
 certificateDescription_transferData = Lens.lens (\CertificateDescription' {transferData} -> transferData) (\s@CertificateDescription' {} a -> s {transferData = a} :: CertificateDescription)
 
--- | The ID of the certificate.
-certificateDescription_certificateId :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
-certificateDescription_certificateId = Lens.lens (\CertificateDescription' {certificateId} -> certificateId) (\s@CertificateDescription' {} a -> s {certificateId = a} :: CertificateDescription)
-
--- | The certificate data, in PEM format.
-certificateDescription_certificatePem :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
-certificateDescription_certificatePem = Lens.lens (\CertificateDescription' {certificatePem} -> certificatePem) (\s@CertificateDescription' {} a -> s {certificatePem = a} :: CertificateDescription)
-
--- | The certificate ID of the CA certificate used to sign this certificate.
-certificateDescription_caCertificateId :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Text)
-certificateDescription_caCertificateId = Lens.lens (\CertificateDescription' {caCertificateId} -> caCertificateId) (\s@CertificateDescription' {} a -> s {caCertificateId = a} :: CertificateDescription)
-
--- | When the certificate is valid.
-certificateDescription_validity :: Lens.Lens' CertificateDescription (Prelude.Maybe CertificateValidity)
-certificateDescription_validity = Lens.lens (\CertificateDescription' {validity} -> validity) (\s@CertificateDescription' {} a -> s {validity = a} :: CertificateDescription)
+-- | The customer version of the certificate.
+certificateDescription_customerVersion :: Lens.Lens' CertificateDescription (Prelude.Maybe Prelude.Natural)
+certificateDescription_customerVersion = Lens.lens (\CertificateDescription' {customerVersion} -> customerVersion) (\s@CertificateDescription' {} a -> s {customerVersion = a} :: CertificateDescription)
 
 instance Core.FromJSON CertificateDescription where
   parseJSON =
@@ -183,20 +182,20 @@ instance Core.FromJSON CertificateDescription where
       "CertificateDescription"
       ( \x ->
           CertificateDescription'
-            Prelude.<$> (x Core..:? "lastModifiedDate")
-            Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "certificateMode")
-            Prelude.<*> (x Core..:? "certificateArn")
-            Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "previousOwnedBy")
+            Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "ownedBy")
-            Prelude.<*> (x Core..:? "customerVersion")
+            Prelude.<*> (x Core..:? "lastModifiedDate")
+            Prelude.<*> (x Core..:? "caCertificateId")
+            Prelude.<*> (x Core..:? "previousOwnedBy")
+            Prelude.<*> (x Core..:? "certificatePem")
+            Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<*> (x Core..:? "certificateId")
+            Prelude.<*> (x Core..:? "certificateMode")
+            Prelude.<*> (x Core..:? "validity")
+            Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "generationId")
             Prelude.<*> (x Core..:? "transferData")
-            Prelude.<*> (x Core..:? "certificateId")
-            Prelude.<*> (x Core..:? "certificatePem")
-            Prelude.<*> (x Core..:? "caCertificateId")
-            Prelude.<*> (x Core..:? "validity")
+            Prelude.<*> (x Core..:? "customerVersion")
       )
 
 instance Prelude.Hashable CertificateDescription

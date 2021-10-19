@@ -14,15 +14,22 @@
 module Network.AWS.EFS.Lens
   ( -- * Operations
 
-    -- ** PutLifecycleConfiguration
-    putLifecycleConfiguration_fileSystemId,
-    putLifecycleConfiguration_lifecyclePolicies,
-    lifecycleConfigurationDescription_lifecyclePolicies,
-
-    -- ** PutBackupPolicy
-    putBackupPolicy_fileSystemId,
-    putBackupPolicy_backupPolicy,
-    backupPolicyDescription_backupPolicy,
+    -- ** CreateAccessPoint
+    createAccessPoint_posixUser,
+    createAccessPoint_rootDirectory,
+    createAccessPoint_tags,
+    createAccessPoint_clientToken,
+    createAccessPoint_fileSystemId,
+    accessPointDescription_posixUser,
+    accessPointDescription_rootDirectory,
+    accessPointDescription_clientToken,
+    accessPointDescription_accessPointId,
+    accessPointDescription_fileSystemId,
+    accessPointDescription_ownerId,
+    accessPointDescription_name,
+    accessPointDescription_accessPointArn,
+    accessPointDescription_lifeCycleState,
+    accessPointDescription_tags,
 
     -- ** DescribeAccountPreferences
     describeAccountPreferences_nextToken,
@@ -31,165 +38,19 @@ module Network.AWS.EFS.Lens
     describeAccountPreferencesResponse_nextToken,
     describeAccountPreferencesResponse_httpStatus,
 
-    -- ** DeleteAccessPoint
-    deleteAccessPoint_accessPointId,
-
-    -- ** DescribeFileSystemPolicy
-    describeFileSystemPolicy_fileSystemId,
-    fileSystemPolicyDescription_fileSystemId,
-    fileSystemPolicyDescription_policy,
-
-    -- ** ModifyMountTargetSecurityGroups
-    modifyMountTargetSecurityGroups_securityGroups,
-    modifyMountTargetSecurityGroups_mountTargetId,
-
-    -- ** UntagResource
-    untagResource_resourceId,
-    untagResource_tagKeys,
-
-    -- ** CreateMountTarget
-    createMountTarget_securityGroups,
-    createMountTarget_ipAddress,
-    createMountTarget_fileSystemId,
-    createMountTarget_subnetId,
-    mountTargetDescription_ownerId,
-    mountTargetDescription_availabilityZoneName,
-    mountTargetDescription_availabilityZoneId,
-    mountTargetDescription_ipAddress,
-    mountTargetDescription_networkInterfaceId,
-    mountTargetDescription_vpcId,
-    mountTargetDescription_mountTargetId,
-    mountTargetDescription_fileSystemId,
-    mountTargetDescription_subnetId,
-    mountTargetDescription_lifeCycleState,
-
-    -- ** TagResource
-    tagResource_resourceId,
-    tagResource_tags,
-
-    -- ** DeleteMountTarget
-    deleteMountTarget_mountTargetId,
-
-    -- ** DescribeFileSystems
-    describeFileSystems_creationToken,
-    describeFileSystems_fileSystemId,
-    describeFileSystems_maxItems,
-    describeFileSystems_marker,
-    describeFileSystemsResponse_nextMarker,
-    describeFileSystemsResponse_fileSystems,
-    describeFileSystemsResponse_marker,
-    describeFileSystemsResponse_httpStatus,
-
     -- ** DescribeMountTargets
-    describeMountTargets_mountTargetId,
     describeMountTargets_accessPointId,
     describeMountTargets_fileSystemId,
-    describeMountTargets_maxItems,
     describeMountTargets_marker,
-    describeMountTargetsResponse_nextMarker,
+    describeMountTargets_maxItems,
+    describeMountTargets_mountTargetId,
     describeMountTargetsResponse_mountTargets,
     describeMountTargetsResponse_marker,
+    describeMountTargetsResponse_nextMarker,
     describeMountTargetsResponse_httpStatus,
 
     -- ** DeleteFileSystemPolicy
     deleteFileSystemPolicy_fileSystemId,
-
-    -- ** CreateFileSystem
-    createFileSystem_throughputMode,
-    createFileSystem_encrypted,
-    createFileSystem_provisionedThroughputInMibps,
-    createFileSystem_availabilityZoneName,
-    createFileSystem_kmsKeyId,
-    createFileSystem_tags,
-    createFileSystem_backup,
-    createFileSystem_performanceMode,
-    createFileSystem_creationToken,
-    fileSystemDescription_throughputMode,
-    fileSystemDescription_encrypted,
-    fileSystemDescription_fileSystemArn,
-    fileSystemDescription_provisionedThroughputInMibps,
-    fileSystemDescription_availabilityZoneName,
-    fileSystemDescription_availabilityZoneId,
-    fileSystemDescription_kmsKeyId,
-    fileSystemDescription_name,
-    fileSystemDescription_ownerId,
-    fileSystemDescription_creationToken,
-    fileSystemDescription_fileSystemId,
-    fileSystemDescription_creationTime,
-    fileSystemDescription_lifeCycleState,
-    fileSystemDescription_numberOfMountTargets,
-    fileSystemDescription_sizeInBytes,
-    fileSystemDescription_performanceMode,
-    fileSystemDescription_tags,
-
-    -- ** CreateAccessPoint
-    createAccessPoint_rootDirectory,
-    createAccessPoint_posixUser,
-    createAccessPoint_tags,
-    createAccessPoint_clientToken,
-    createAccessPoint_fileSystemId,
-    accessPointDescription_ownerId,
-    accessPointDescription_accessPointId,
-    accessPointDescription_accessPointArn,
-    accessPointDescription_name,
-    accessPointDescription_rootDirectory,
-    accessPointDescription_posixUser,
-    accessPointDescription_tags,
-    accessPointDescription_lifeCycleState,
-    accessPointDescription_fileSystemId,
-    accessPointDescription_clientToken,
-
-    -- ** DescribeAccessPoints
-    describeAccessPoints_nextToken,
-    describeAccessPoints_maxResults,
-    describeAccessPoints_accessPointId,
-    describeAccessPoints_fileSystemId,
-    describeAccessPointsResponse_nextToken,
-    describeAccessPointsResponse_accessPoints,
-    describeAccessPointsResponse_httpStatus,
-
-    -- ** DescribeBackupPolicy
-    describeBackupPolicy_fileSystemId,
-    backupPolicyDescription_backupPolicy,
-
-    -- ** DescribeLifecycleConfiguration
-    describeLifecycleConfiguration_fileSystemId,
-    lifecycleConfigurationDescription_lifecyclePolicies,
-
-    -- ** DescribeMountTargetSecurityGroups
-    describeMountTargetSecurityGroups_mountTargetId,
-    describeMountTargetSecurityGroupsResponse_httpStatus,
-    describeMountTargetSecurityGroupsResponse_securityGroups,
-
-    -- ** PutAccountPreferences
-    putAccountPreferences_resourceIdType,
-    putAccountPreferencesResponse_resourceIdPreference,
-    putAccountPreferencesResponse_httpStatus,
-
-    -- ** UpdateFileSystem
-    updateFileSystem_throughputMode,
-    updateFileSystem_provisionedThroughputInMibps,
-    updateFileSystem_fileSystemId,
-    fileSystemDescription_throughputMode,
-    fileSystemDescription_encrypted,
-    fileSystemDescription_fileSystemArn,
-    fileSystemDescription_provisionedThroughputInMibps,
-    fileSystemDescription_availabilityZoneName,
-    fileSystemDescription_availabilityZoneId,
-    fileSystemDescription_kmsKeyId,
-    fileSystemDescription_name,
-    fileSystemDescription_ownerId,
-    fileSystemDescription_creationToken,
-    fileSystemDescription_fileSystemId,
-    fileSystemDescription_creationTime,
-    fileSystemDescription_lifeCycleState,
-    fileSystemDescription_numberOfMountTargets,
-    fileSystemDescription_sizeInBytes,
-    fileSystemDescription_performanceMode,
-    fileSystemDescription_tags,
-
-    -- ** DeleteFileSystem
-    deleteFileSystem_fileSystemId,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
@@ -206,19 +67,158 @@ module Network.AWS.EFS.Lens
     fileSystemPolicyDescription_fileSystemId,
     fileSystemPolicyDescription_policy,
 
+    -- ** DescribeFileSystems
+    describeFileSystems_fileSystemId,
+    describeFileSystems_creationToken,
+    describeFileSystems_marker,
+    describeFileSystems_maxItems,
+    describeFileSystemsResponse_fileSystems,
+    describeFileSystemsResponse_marker,
+    describeFileSystemsResponse_nextMarker,
+    describeFileSystemsResponse_httpStatus,
+
+    -- ** DeleteMountTarget
+    deleteMountTarget_mountTargetId,
+
+    -- ** PutAccountPreferences
+    putAccountPreferences_resourceIdType,
+    putAccountPreferencesResponse_resourceIdPreference,
+    putAccountPreferencesResponse_httpStatus,
+
+    -- ** DescribeMountTargetSecurityGroups
+    describeMountTargetSecurityGroups_mountTargetId,
+    describeMountTargetSecurityGroupsResponse_httpStatus,
+    describeMountTargetSecurityGroupsResponse_securityGroups,
+
+    -- ** DescribeAccessPoints
+    describeAccessPoints_accessPointId,
+    describeAccessPoints_fileSystemId,
+    describeAccessPoints_nextToken,
+    describeAccessPoints_maxResults,
+    describeAccessPointsResponse_accessPoints,
+    describeAccessPointsResponse_nextToken,
+    describeAccessPointsResponse_httpStatus,
+
+    -- ** ModifyMountTargetSecurityGroups
+    modifyMountTargetSecurityGroups_securityGroups,
+    modifyMountTargetSecurityGroups_mountTargetId,
+
+    -- ** CreateFileSystem
+    createFileSystem_provisionedThroughputInMibps,
+    createFileSystem_availabilityZoneName,
+    createFileSystem_performanceMode,
+    createFileSystem_backup,
+    createFileSystem_encrypted,
+    createFileSystem_throughputMode,
+    createFileSystem_kmsKeyId,
+    createFileSystem_tags,
+    createFileSystem_creationToken,
+    fileSystemDescription_availabilityZoneId,
+    fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_encrypted,
+    fileSystemDescription_throughputMode,
+    fileSystemDescription_kmsKeyId,
+    fileSystemDescription_name,
+    fileSystemDescription_ownerId,
+    fileSystemDescription_creationToken,
+    fileSystemDescription_fileSystemId,
+    fileSystemDescription_creationTime,
+    fileSystemDescription_lifeCycleState,
+    fileSystemDescription_numberOfMountTargets,
+    fileSystemDescription_sizeInBytes,
+    fileSystemDescription_performanceMode,
+    fileSystemDescription_tags,
+
+    -- ** PutLifecycleConfiguration
+    putLifecycleConfiguration_fileSystemId,
+    putLifecycleConfiguration_lifecyclePolicies,
+    lifecycleConfigurationDescription_lifecyclePolicies,
+
+    -- ** PutBackupPolicy
+    putBackupPolicy_fileSystemId,
+    putBackupPolicy_backupPolicy,
+    backupPolicyDescription_backupPolicy,
+
+    -- ** DeleteFileSystem
+    deleteFileSystem_fileSystemId,
+
+    -- ** UpdateFileSystem
+    updateFileSystem_provisionedThroughputInMibps,
+    updateFileSystem_throughputMode,
+    updateFileSystem_fileSystemId,
+    fileSystemDescription_availabilityZoneId,
+    fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_encrypted,
+    fileSystemDescription_throughputMode,
+    fileSystemDescription_kmsKeyId,
+    fileSystemDescription_name,
+    fileSystemDescription_ownerId,
+    fileSystemDescription_creationToken,
+    fileSystemDescription_fileSystemId,
+    fileSystemDescription_creationTime,
+    fileSystemDescription_lifeCycleState,
+    fileSystemDescription_numberOfMountTargets,
+    fileSystemDescription_sizeInBytes,
+    fileSystemDescription_performanceMode,
+    fileSystemDescription_tags,
+
+    -- ** CreateMountTarget
+    createMountTarget_ipAddress,
+    createMountTarget_securityGroups,
+    createMountTarget_fileSystemId,
+    createMountTarget_subnetId,
+    mountTargetDescription_ipAddress,
+    mountTargetDescription_availabilityZoneId,
+    mountTargetDescription_vpcId,
+    mountTargetDescription_availabilityZoneName,
+    mountTargetDescription_networkInterfaceId,
+    mountTargetDescription_ownerId,
+    mountTargetDescription_mountTargetId,
+    mountTargetDescription_fileSystemId,
+    mountTargetDescription_subnetId,
+    mountTargetDescription_lifeCycleState,
+
+    -- ** TagResource
+    tagResource_resourceId,
+    tagResource_tags,
+
+    -- ** DescribeBackupPolicy
+    describeBackupPolicy_fileSystemId,
+    backupPolicyDescription_backupPolicy,
+
+    -- ** DescribeLifecycleConfiguration
+    describeLifecycleConfiguration_fileSystemId,
+    lifecycleConfigurationDescription_lifecyclePolicies,
+
+    -- ** UntagResource
+    untagResource_resourceId,
+    untagResource_tagKeys,
+
+    -- ** DescribeFileSystemPolicy
+    describeFileSystemPolicy_fileSystemId,
+    fileSystemPolicyDescription_fileSystemId,
+    fileSystemPolicyDescription_policy,
+
+    -- ** DeleteAccessPoint
+    deleteAccessPoint_accessPointId,
+
     -- * Types
 
     -- ** AccessPointDescription
-    accessPointDescription_ownerId,
-    accessPointDescription_accessPointId,
-    accessPointDescription_accessPointArn,
-    accessPointDescription_name,
-    accessPointDescription_rootDirectory,
     accessPointDescription_posixUser,
-    accessPointDescription_tags,
-    accessPointDescription_lifeCycleState,
-    accessPointDescription_fileSystemId,
+    accessPointDescription_rootDirectory,
     accessPointDescription_clientToken,
+    accessPointDescription_accessPointId,
+    accessPointDescription_fileSystemId,
+    accessPointDescription_ownerId,
+    accessPointDescription_name,
+    accessPointDescription_accessPointArn,
+    accessPointDescription_lifeCycleState,
+    accessPointDescription_tags,
 
     -- ** BackupPolicy
     backupPolicy_status,
@@ -232,12 +232,12 @@ module Network.AWS.EFS.Lens
     creationInfo_permissions,
 
     -- ** FileSystemDescription
-    fileSystemDescription_throughputMode,
-    fileSystemDescription_encrypted,
-    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_provisionedThroughputInMibps,
     fileSystemDescription_availabilityZoneName,
-    fileSystemDescription_availabilityZoneId,
+    fileSystemDescription_fileSystemArn,
+    fileSystemDescription_encrypted,
+    fileSystemDescription_throughputMode,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -255,8 +255,8 @@ module Network.AWS.EFS.Lens
     fileSystemPolicyDescription_policy,
 
     -- ** FileSystemSize
-    fileSystemSize_valueInStandard,
     fileSystemSize_valueInIA,
+    fileSystemSize_valueInStandard,
     fileSystemSize_timestamp,
     fileSystemSize_value,
 
@@ -268,12 +268,12 @@ module Network.AWS.EFS.Lens
     lifecyclePolicy_transitionToPrimaryStorageClass,
 
     -- ** MountTargetDescription
-    mountTargetDescription_ownerId,
-    mountTargetDescription_availabilityZoneName,
-    mountTargetDescription_availabilityZoneId,
     mountTargetDescription_ipAddress,
-    mountTargetDescription_networkInterfaceId,
+    mountTargetDescription_availabilityZoneId,
     mountTargetDescription_vpcId,
+    mountTargetDescription_availabilityZoneName,
+    mountTargetDescription_networkInterfaceId,
+    mountTargetDescription_ownerId,
     mountTargetDescription_mountTargetId,
     mountTargetDescription_fileSystemId,
     mountTargetDescription_subnetId,
@@ -285,8 +285,8 @@ module Network.AWS.EFS.Lens
     posixUser_gid,
 
     -- ** ResourceIdPreference
-    resourceIdPreference_resourceIdType,
     resourceIdPreference_resources,
+    resourceIdPreference_resourceIdType,
 
     -- ** RootDirectory
     rootDirectory_creationInfo,

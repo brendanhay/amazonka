@@ -91,7 +91,7 @@ deregisterTargets_targetGroupArn = Lens.lens (\DeregisterTargets' {targetGroupAr
 -- target, you must specify both the target ID and the port when you
 -- deregister it.
 deregisterTargets_targets :: Lens.Lens' DeregisterTargets [TargetDescription]
-deregisterTargets_targets = Lens.lens (\DeregisterTargets' {targets} -> targets) (\s@DeregisterTargets' {} a -> s {targets = a} :: DeregisterTargets) Prelude.. Lens._Coerce
+deregisterTargets_targets = Lens.lens (\DeregisterTargets' {targets} -> targets) (\s@DeregisterTargets' {} a -> s {targets = a} :: DeregisterTargets) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeregisterTargets where
   type

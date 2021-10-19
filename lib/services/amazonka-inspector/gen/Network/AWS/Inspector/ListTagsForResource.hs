@@ -158,6 +158,6 @@ listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse
 
 -- | A collection of key and value pairs.
 listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse [Tag]
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens._Coerce
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListTagsForResourceResponse

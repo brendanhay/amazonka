@@ -29,17 +29,17 @@ import Network.AWS.SecretsManager.Types.StatusType
 --
 -- /See:/ 'newReplicationStatusType' smart constructor.
 data ReplicationStatusType = ReplicationStatusType'
-  { -- | Status message such as \"/Secret with this name already exists in this
-    -- region/\".
-    statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status can be @InProgress@, @Failed@, or @InSync@.
+  { -- | The status can be @InProgress@, @Failed@, or @InSync@.
     status :: Prelude.Maybe StatusType,
     -- | Can be an @ARN@, @Key ID@, or @Alias@.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The date that you last accessed the secret in the Region.
-    lastAccessedDate :: Prelude.Maybe Core.POSIX,
+    -- | Status message such as \"/Secret with this name already exists in this
+    -- region/\".
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The Region where replication occurs.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Prelude.Maybe Prelude.Text,
+    -- | The date that you last accessed the secret in the Region.
+    lastAccessedDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,32 +51,26 @@ data ReplicationStatusType = ReplicationStatusType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'replicationStatusType_statusMessage' - Status message such as \"/Secret with this name already exists in this
--- region/\".
---
 -- 'status', 'replicationStatusType_status' - The status can be @InProgress@, @Failed@, or @InSync@.
 --
 -- 'kmsKeyId', 'replicationStatusType_kmsKeyId' - Can be an @ARN@, @Key ID@, or @Alias@.
 --
--- 'lastAccessedDate', 'replicationStatusType_lastAccessedDate' - The date that you last accessed the secret in the Region.
+-- 'statusMessage', 'replicationStatusType_statusMessage' - Status message such as \"/Secret with this name already exists in this
+-- region/\".
 --
 -- 'region', 'replicationStatusType_region' - The Region where replication occurs.
+--
+-- 'lastAccessedDate', 'replicationStatusType_lastAccessedDate' - The date that you last accessed the secret in the Region.
 newReplicationStatusType ::
   ReplicationStatusType
 newReplicationStatusType =
   ReplicationStatusType'
-    { statusMessage =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      lastAccessedDate = Prelude.Nothing,
-      region = Prelude.Nothing
+      statusMessage = Prelude.Nothing,
+      region = Prelude.Nothing,
+      lastAccessedDate = Prelude.Nothing
     }
-
--- | Status message such as \"/Secret with this name already exists in this
--- region/\".
-replicationStatusType_statusMessage :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
-replicationStatusType_statusMessage = Lens.lens (\ReplicationStatusType' {statusMessage} -> statusMessage) (\s@ReplicationStatusType' {} a -> s {statusMessage = a} :: ReplicationStatusType)
 
 -- | The status can be @InProgress@, @Failed@, or @InSync@.
 replicationStatusType_status :: Lens.Lens' ReplicationStatusType (Prelude.Maybe StatusType)
@@ -86,13 +80,18 @@ replicationStatusType_status = Lens.lens (\ReplicationStatusType' {status} -> st
 replicationStatusType_kmsKeyId :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
 replicationStatusType_kmsKeyId = Lens.lens (\ReplicationStatusType' {kmsKeyId} -> kmsKeyId) (\s@ReplicationStatusType' {} a -> s {kmsKeyId = a} :: ReplicationStatusType)
 
--- | The date that you last accessed the secret in the Region.
-replicationStatusType_lastAccessedDate :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.UTCTime)
-replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Prelude.. Lens.mapping Core._Time
+-- | Status message such as \"/Secret with this name already exists in this
+-- region/\".
+replicationStatusType_statusMessage :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
+replicationStatusType_statusMessage = Lens.lens (\ReplicationStatusType' {statusMessage} -> statusMessage) (\s@ReplicationStatusType' {} a -> s {statusMessage = a} :: ReplicationStatusType)
 
 -- | The Region where replication occurs.
 replicationStatusType_region :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.Text)
 replicationStatusType_region = Lens.lens (\ReplicationStatusType' {region} -> region) (\s@ReplicationStatusType' {} a -> s {region = a} :: ReplicationStatusType)
+
+-- | The date that you last accessed the secret in the Region.
+replicationStatusType_lastAccessedDate :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.UTCTime)
+replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReplicationStatusType where
   parseJSON =
@@ -100,11 +99,11 @@ instance Core.FromJSON ReplicationStatusType where
       "ReplicationStatusType"
       ( \x ->
           ReplicationStatusType'
-            Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "KmsKeyId")
-            Prelude.<*> (x Core..:? "LastAccessedDate")
+            Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "Region")
+            Prelude.<*> (x Core..:? "LastAccessedDate")
       )
 
 instance Prelude.Hashable ReplicationStatusType

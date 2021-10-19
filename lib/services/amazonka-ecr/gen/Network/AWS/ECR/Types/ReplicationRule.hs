@@ -65,11 +65,11 @@ newReplicationRule =
 -- Specifying a repository filter for a replication rule provides a method
 -- for controlling which repositories in a private registry are replicated.
 replicationRule_repositoryFilters :: Lens.Lens' ReplicationRule (Prelude.Maybe (Prelude.NonEmpty RepositoryFilter))
-replicationRule_repositoryFilters = Lens.lens (\ReplicationRule' {repositoryFilters} -> repositoryFilters) (\s@ReplicationRule' {} a -> s {repositoryFilters = a} :: ReplicationRule) Prelude.. Lens.mapping Lens._Coerce
+replicationRule_repositoryFilters = Lens.lens (\ReplicationRule' {repositoryFilters} -> repositoryFilters) (\s@ReplicationRule' {} a -> s {repositoryFilters = a} :: ReplicationRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects representing the destination for a replication rule.
 replicationRule_destinations :: Lens.Lens' ReplicationRule [ReplicationDestination]
-replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Prelude.. Lens._Coerce
+replicationRule_destinations = Lens.lens (\ReplicationRule' {destinations} -> destinations) (\s@ReplicationRule' {} a -> s {destinations = a} :: ReplicationRule) Prelude.. Lens.coerced
 
 instance Core.FromJSON ReplicationRule where
   parseJSON =

@@ -28,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneStatus' smart constructor.
 data AutoTuneStatus = AutoTuneStatus'
-  { -- | Specifies the Auto-Tune options latest version.
-    updateVersion :: Prelude.Maybe Prelude.Natural,
+  { -- | Indicates whether the Elasticsearch domain is being deleted.
+    pendingDeletion :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the error message while enabling or disabling the Auto-Tune
     -- options.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the Elasticsearch domain is being deleted.
-    pendingDeletion :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the Auto-Tune options latest version.
+    updateVersion :: Prelude.Maybe Prelude.Natural,
     -- | Timestamp which tells Auto-Tune options creation date .
     creationDate :: Core.POSIX,
     -- | Timestamp which tells Auto-Tune options last updated time.
@@ -52,12 +52,12 @@ data AutoTuneStatus = AutoTuneStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateVersion', 'autoTuneStatus_updateVersion' - Specifies the Auto-Tune options latest version.
+-- 'pendingDeletion', 'autoTuneStatus_pendingDeletion' - Indicates whether the Elasticsearch domain is being deleted.
 --
 -- 'errorMessage', 'autoTuneStatus_errorMessage' - Specifies the error message while enabling or disabling the Auto-Tune
 -- options.
 --
--- 'pendingDeletion', 'autoTuneStatus_pendingDeletion' - Indicates whether the Elasticsearch domain is being deleted.
+-- 'updateVersion', 'autoTuneStatus_updateVersion' - Specifies the Auto-Tune options latest version.
 --
 -- 'creationDate', 'autoTuneStatus_creationDate' - Timestamp which tells Auto-Tune options creation date .
 --
@@ -74,26 +74,26 @@ newAutoTuneStatus ::
   AutoTuneStatus
 newAutoTuneStatus pCreationDate_ pUpdateDate_ pState_ =
   AutoTuneStatus'
-    { updateVersion = Prelude.Nothing,
+    { pendingDeletion = Prelude.Nothing,
       errorMessage = Prelude.Nothing,
-      pendingDeletion = Prelude.Nothing,
+      updateVersion = Prelude.Nothing,
       creationDate = Core._Time Lens.# pCreationDate_,
       updateDate = Core._Time Lens.# pUpdateDate_,
       state = pState_
     }
 
--- | Specifies the Auto-Tune options latest version.
-autoTuneStatus_updateVersion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Natural)
-autoTuneStatus_updateVersion = Lens.lens (\AutoTuneStatus' {updateVersion} -> updateVersion) (\s@AutoTuneStatus' {} a -> s {updateVersion = a} :: AutoTuneStatus)
+-- | Indicates whether the Elasticsearch domain is being deleted.
+autoTuneStatus_pendingDeletion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Bool)
+autoTuneStatus_pendingDeletion = Lens.lens (\AutoTuneStatus' {pendingDeletion} -> pendingDeletion) (\s@AutoTuneStatus' {} a -> s {pendingDeletion = a} :: AutoTuneStatus)
 
 -- | Specifies the error message while enabling or disabling the Auto-Tune
 -- options.
 autoTuneStatus_errorMessage :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Text)
 autoTuneStatus_errorMessage = Lens.lens (\AutoTuneStatus' {errorMessage} -> errorMessage) (\s@AutoTuneStatus' {} a -> s {errorMessage = a} :: AutoTuneStatus)
 
--- | Indicates whether the Elasticsearch domain is being deleted.
-autoTuneStatus_pendingDeletion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Bool)
-autoTuneStatus_pendingDeletion = Lens.lens (\AutoTuneStatus' {pendingDeletion} -> pendingDeletion) (\s@AutoTuneStatus' {} a -> s {pendingDeletion = a} :: AutoTuneStatus)
+-- | Specifies the Auto-Tune options latest version.
+autoTuneStatus_updateVersion :: Lens.Lens' AutoTuneStatus (Prelude.Maybe Prelude.Natural)
+autoTuneStatus_updateVersion = Lens.lens (\AutoTuneStatus' {updateVersion} -> updateVersion) (\s@AutoTuneStatus' {} a -> s {updateVersion = a} :: AutoTuneStatus)
 
 -- | Timestamp which tells Auto-Tune options creation date .
 autoTuneStatus_creationDate :: Lens.Lens' AutoTuneStatus Prelude.UTCTime
@@ -113,9 +113,9 @@ instance Core.FromJSON AutoTuneStatus where
       "AutoTuneStatus"
       ( \x ->
           AutoTuneStatus'
-            Prelude.<$> (x Core..:? "UpdateVersion")
+            Prelude.<$> (x Core..:? "PendingDeletion")
             Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "PendingDeletion")
+            Prelude.<*> (x Core..:? "UpdateVersion")
             Prelude.<*> (x Core..: "CreationDate")
             Prelude.<*> (x Core..: "UpdateDate")
             Prelude.<*> (x Core..: "State")

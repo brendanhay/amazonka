@@ -226,6 +226,6 @@ listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatu
 -- the pipelines, you can use these identifiers to call DescribePipelines
 -- and GetPipelineDefinition.
 listPipelinesResponse_pipelineIdList :: Lens.Lens' ListPipelinesResponse [PipelineIdName]
-listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipelineIdList} -> pipelineIdList) (\s@ListPipelinesResponse' {} a -> s {pipelineIdList = a} :: ListPipelinesResponse) Prelude.. Lens._Coerce
+listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipelineIdList} -> pipelineIdList) (\s@ListPipelinesResponse' {} a -> s {pipelineIdList = a} :: ListPipelinesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListPipelinesResponse

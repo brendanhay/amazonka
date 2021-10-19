@@ -44,8 +44,8 @@ module Network.AWS.WAFRegional.ListRateBasedRules
     newListRateBasedRulesResponse,
 
     -- * Response Lenses
-    listRateBasedRulesResponse_nextMarker,
     listRateBasedRulesResponse_rules,
+    listRateBasedRulesResponse_nextMarker,
     listRateBasedRulesResponse_httpStatus,
   )
 where
@@ -126,8 +126,8 @@ instance Core.AWSRequest ListRateBasedRules where
     Response.receiveJSON
       ( \s h x ->
           ListRateBasedRulesResponse'
-            Prelude.<$> (x Core..?> "NextMarker")
-            Prelude.<*> (x Core..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -167,14 +167,14 @@ instance Core.ToQuery ListRateBasedRules where
 
 -- | /See:/ 'newListRateBasedRulesResponse' smart constructor.
 data ListRateBasedRulesResponse = ListRateBasedRulesResponse'
-  { -- | If you have more @Rules@ than the number that you specified for @Limit@
+  { -- | An array of RuleSummary objects.
+    rules :: Prelude.Maybe [RuleSummary],
+    -- | If you have more @Rules@ than the number that you specified for @Limit@
     -- in the request, the response includes a @NextMarker@ value. To list more
     -- @Rules@, submit another @ListRateBasedRules@ request, and specify the
     -- @NextMarker@ value from the response in the @NextMarker@ value in the
     -- next request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | An array of RuleSummary objects.
-    rules :: Prelude.Maybe [RuleSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,13 +188,13 @@ data ListRateBasedRulesResponse = ListRateBasedRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rules', 'listRateBasedRulesResponse_rules' - An array of RuleSummary objects.
+--
 -- 'nextMarker', 'listRateBasedRulesResponse_nextMarker' - If you have more @Rules@ than the number that you specified for @Limit@
 -- in the request, the response includes a @NextMarker@ value. To list more
 -- @Rules@, submit another @ListRateBasedRules@ request, and specify the
 -- @NextMarker@ value from the response in the @NextMarker@ value in the
 -- next request.
---
--- 'rules', 'listRateBasedRulesResponse_rules' - An array of RuleSummary objects.
 --
 -- 'httpStatus', 'listRateBasedRulesResponse_httpStatus' - The response's http status code.
 newListRateBasedRulesResponse ::
@@ -203,11 +203,15 @@ newListRateBasedRulesResponse ::
   ListRateBasedRulesResponse
 newListRateBasedRulesResponse pHttpStatus_ =
   ListRateBasedRulesResponse'
-    { nextMarker =
+    { rules =
         Prelude.Nothing,
-      rules = Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | An array of RuleSummary objects.
+listRateBasedRulesResponse_rules :: Lens.Lens' ListRateBasedRulesResponse (Prelude.Maybe [RuleSummary])
+listRateBasedRulesResponse_rules = Lens.lens (\ListRateBasedRulesResponse' {rules} -> rules) (\s@ListRateBasedRulesResponse' {} a -> s {rules = a} :: ListRateBasedRulesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @Rules@ than the number that you specified for @Limit@
 -- in the request, the response includes a @NextMarker@ value. To list more
@@ -216,10 +220,6 @@ newListRateBasedRulesResponse pHttpStatus_ =
 -- next request.
 listRateBasedRulesResponse_nextMarker :: Lens.Lens' ListRateBasedRulesResponse (Prelude.Maybe Prelude.Text)
 listRateBasedRulesResponse_nextMarker = Lens.lens (\ListRateBasedRulesResponse' {nextMarker} -> nextMarker) (\s@ListRateBasedRulesResponse' {} a -> s {nextMarker = a} :: ListRateBasedRulesResponse)
-
--- | An array of RuleSummary objects.
-listRateBasedRulesResponse_rules :: Lens.Lens' ListRateBasedRulesResponse (Prelude.Maybe [RuleSummary])
-listRateBasedRulesResponse_rules = Lens.lens (\ListRateBasedRulesResponse' {rules} -> rules) (\s@ListRateBasedRulesResponse' {} a -> s {rules = a} :: ListRateBasedRulesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listRateBasedRulesResponse_httpStatus :: Lens.Lens' ListRateBasedRulesResponse Prelude.Int

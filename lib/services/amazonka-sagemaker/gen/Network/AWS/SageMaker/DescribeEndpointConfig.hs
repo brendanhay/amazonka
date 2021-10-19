@@ -214,7 +214,7 @@ newDescribeEndpointConfigResponse
         endpointConfigName = pEndpointConfigName_,
         endpointConfigArn = pEndpointConfigArn_,
         productionVariants =
-          Lens._Coerce Lens.# pProductionVariants_,
+          Lens.coerced Lens.# pProductionVariants_,
         creationTime =
           Core._Time Lens.# pCreationTime_
       }
@@ -249,7 +249,7 @@ describeEndpointConfigResponse_endpointConfigArn = Lens.lens (\DescribeEndpointC
 -- | An array of @ProductionVariant@ objects, one for each model that you
 -- want to host at this endpoint.
 describeEndpointConfigResponse_productionVariants :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.NonEmpty ProductionVariant)
-describeEndpointConfigResponse_productionVariants = Lens.lens (\DescribeEndpointConfigResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointConfigResponse' {} a -> s {productionVariants = a} :: DescribeEndpointConfigResponse) Prelude.. Lens._Coerce
+describeEndpointConfigResponse_productionVariants = Lens.lens (\DescribeEndpointConfigResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointConfigResponse' {} a -> s {productionVariants = a} :: DescribeEndpointConfigResponse) Prelude.. Lens.coerced
 
 -- | A timestamp that shows when the endpoint configuration was created.
 describeEndpointConfigResponse_creationTime :: Lens.Lens' DescribeEndpointConfigResponse Prelude.UTCTime

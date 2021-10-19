@@ -31,8 +31,8 @@ module Network.AWS.EC2.GetAssociatedIpv6PoolCidrs
 
     -- * Request Lenses
     getAssociatedIpv6PoolCidrs_nextToken,
-    getAssociatedIpv6PoolCidrs_maxResults,
     getAssociatedIpv6PoolCidrs_dryRun,
+    getAssociatedIpv6PoolCidrs_maxResults,
     getAssociatedIpv6PoolCidrs_poolId,
 
     -- * Destructuring the Response
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 data GetAssociatedIpv6PoolCidrs = GetAssociatedIpv6PoolCidrs'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the IPv6 address pool.
     poolId :: Prelude.Text
   }
@@ -81,14 +81,14 @@ data GetAssociatedIpv6PoolCidrs = GetAssociatedIpv6PoolCidrs'
 --
 -- 'nextToken', 'getAssociatedIpv6PoolCidrs_nextToken' - The token for the next page of results.
 --
--- 'maxResults', 'getAssociatedIpv6PoolCidrs_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
 -- 'dryRun', 'getAssociatedIpv6PoolCidrs_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'getAssociatedIpv6PoolCidrs_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 --
 -- 'poolId', 'getAssociatedIpv6PoolCidrs_poolId' - The ID of the IPv6 address pool.
 newGetAssociatedIpv6PoolCidrs ::
@@ -99,8 +99,8 @@ newGetAssociatedIpv6PoolCidrs pPoolId_ =
   GetAssociatedIpv6PoolCidrs'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       poolId = pPoolId_
     }
 
@@ -108,18 +108,18 @@ newGetAssociatedIpv6PoolCidrs pPoolId_ =
 getAssociatedIpv6PoolCidrs_nextToken :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Text)
 getAssociatedIpv6PoolCidrs_nextToken = Lens.lens (\GetAssociatedIpv6PoolCidrs' {nextToken} -> nextToken) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {nextToken = a} :: GetAssociatedIpv6PoolCidrs)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-getAssociatedIpv6PoolCidrs_maxResults :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Natural)
-getAssociatedIpv6PoolCidrs_maxResults = Lens.lens (\GetAssociatedIpv6PoolCidrs' {maxResults} -> maxResults) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {maxResults = a} :: GetAssociatedIpv6PoolCidrs)
-
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 getAssociatedIpv6PoolCidrs_dryRun :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Bool)
 getAssociatedIpv6PoolCidrs_dryRun = Lens.lens (\GetAssociatedIpv6PoolCidrs' {dryRun} -> dryRun) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {dryRun = a} :: GetAssociatedIpv6PoolCidrs)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+getAssociatedIpv6PoolCidrs_maxResults :: Lens.Lens' GetAssociatedIpv6PoolCidrs (Prelude.Maybe Prelude.Natural)
+getAssociatedIpv6PoolCidrs_maxResults = Lens.lens (\GetAssociatedIpv6PoolCidrs' {maxResults} -> maxResults) (\s@GetAssociatedIpv6PoolCidrs' {} a -> s {maxResults = a} :: GetAssociatedIpv6PoolCidrs)
 
 -- | The ID of the IPv6 address pool.
 getAssociatedIpv6PoolCidrs_poolId :: Lens.Lens' GetAssociatedIpv6PoolCidrs Prelude.Text
@@ -182,8 +182,8 @@ instance Core.ToQuery GetAssociatedIpv6PoolCidrs where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
         "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "PoolId" Core.=: poolId
       ]
 
@@ -227,7 +227,7 @@ newGetAssociatedIpv6PoolCidrsResponse pHttpStatus_ =
 
 -- | Information about the IPv6 CIDR block associations.
 getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations :: Lens.Lens' GetAssociatedIpv6PoolCidrsResponse (Prelude.Maybe [Ipv6CidrAssociation])
-getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {ipv6CidrAssociations} -> ipv6CidrAssociations) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {ipv6CidrAssociations = a} :: GetAssociatedIpv6PoolCidrsResponse) Prelude.. Lens.mapping Lens._Coerce
+getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations = Lens.lens (\GetAssociatedIpv6PoolCidrsResponse' {ipv6CidrAssociations} -> ipv6CidrAssociations) (\s@GetAssociatedIpv6PoolCidrsResponse' {} a -> s {ipv6CidrAssociations = a} :: GetAssociatedIpv6PoolCidrsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.

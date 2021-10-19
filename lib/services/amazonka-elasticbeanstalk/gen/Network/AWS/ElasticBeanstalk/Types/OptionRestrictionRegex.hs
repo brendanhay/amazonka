@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOptionRestrictionRegex' smart constructor.
 data OptionRestrictionRegex = OptionRestrictionRegex'
-  { -- | A unique name representing this regular expression.
-    label :: Prelude.Maybe Prelude.Text,
-    -- | The regular expression pattern that a string configuration option value
+  { -- | The regular expression pattern that a string configuration option value
     -- with this restriction must match.
-    pattern' :: Prelude.Maybe Prelude.Text
+    pattern' :: Prelude.Maybe Prelude.Text,
+    -- | A unique name representing this regular expression.
+    label :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,32 +44,32 @@ data OptionRestrictionRegex = OptionRestrictionRegex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'label', 'optionRestrictionRegex_label' - A unique name representing this regular expression.
---
 -- 'pattern'', 'optionRestrictionRegex_pattern' - The regular expression pattern that a string configuration option value
 -- with this restriction must match.
+--
+-- 'label', 'optionRestrictionRegex_label' - A unique name representing this regular expression.
 newOptionRestrictionRegex ::
   OptionRestrictionRegex
 newOptionRestrictionRegex =
   OptionRestrictionRegex'
-    { label = Prelude.Nothing,
-      pattern' = Prelude.Nothing
+    { pattern' = Prelude.Nothing,
+      label = Prelude.Nothing
     }
-
--- | A unique name representing this regular expression.
-optionRestrictionRegex_label :: Lens.Lens' OptionRestrictionRegex (Prelude.Maybe Prelude.Text)
-optionRestrictionRegex_label = Lens.lens (\OptionRestrictionRegex' {label} -> label) (\s@OptionRestrictionRegex' {} a -> s {label = a} :: OptionRestrictionRegex)
 
 -- | The regular expression pattern that a string configuration option value
 -- with this restriction must match.
 optionRestrictionRegex_pattern :: Lens.Lens' OptionRestrictionRegex (Prelude.Maybe Prelude.Text)
 optionRestrictionRegex_pattern = Lens.lens (\OptionRestrictionRegex' {pattern'} -> pattern') (\s@OptionRestrictionRegex' {} a -> s {pattern' = a} :: OptionRestrictionRegex)
 
+-- | A unique name representing this regular expression.
+optionRestrictionRegex_label :: Lens.Lens' OptionRestrictionRegex (Prelude.Maybe Prelude.Text)
+optionRestrictionRegex_label = Lens.lens (\OptionRestrictionRegex' {label} -> label) (\s@OptionRestrictionRegex' {} a -> s {label = a} :: OptionRestrictionRegex)
+
 instance Core.FromXML OptionRestrictionRegex where
   parseXML x =
     OptionRestrictionRegex'
-      Prelude.<$> (x Core..@? "Label")
-      Prelude.<*> (x Core..@? "Pattern")
+      Prelude.<$> (x Core..@? "Pattern")
+      Prelude.<*> (x Core..@? "Label")
 
 instance Prelude.Hashable OptionRestrictionRegex
 

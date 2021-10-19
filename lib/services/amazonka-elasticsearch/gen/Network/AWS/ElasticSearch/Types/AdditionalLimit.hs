@@ -28,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAdditionalLimit' smart constructor.
 data AdditionalLimit = AdditionalLimit'
-  { -- | Value for given @ AdditionalLimit$LimitName @ .
-    limitValues :: Prelude.Maybe [Prelude.Text],
-    -- | Name of Additional Limit is specific to a given InstanceType and for
+  { -- | Name of Additional Limit is specific to a given InstanceType and for
     -- each of it\'s @ InstanceRole @ etc.
     -- Attributes and their details:
     --
     -- -   MaximumNumberOfDataNodesSupported
     -- -   MaximumNumberOfDataNodesWithoutMasterNode
-    limitName :: Prelude.Maybe Prelude.Text
+    limitName :: Prelude.Maybe Prelude.Text,
+    -- | Value for given @ AdditionalLimit$LimitName @ .
+    limitValues :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,25 +48,21 @@ data AdditionalLimit = AdditionalLimit'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limitValues', 'additionalLimit_limitValues' - Value for given @ AdditionalLimit$LimitName @ .
---
 -- 'limitName', 'additionalLimit_limitName' - Name of Additional Limit is specific to a given InstanceType and for
 -- each of it\'s @ InstanceRole @ etc.
 -- Attributes and their details:
 --
 -- -   MaximumNumberOfDataNodesSupported
 -- -   MaximumNumberOfDataNodesWithoutMasterNode
+--
+-- 'limitValues', 'additionalLimit_limitValues' - Value for given @ AdditionalLimit$LimitName @ .
 newAdditionalLimit ::
   AdditionalLimit
 newAdditionalLimit =
   AdditionalLimit'
-    { limitValues = Prelude.Nothing,
-      limitName = Prelude.Nothing
+    { limitName = Prelude.Nothing,
+      limitValues = Prelude.Nothing
     }
-
--- | Value for given @ AdditionalLimit$LimitName @ .
-additionalLimit_limitValues :: Lens.Lens' AdditionalLimit (Prelude.Maybe [Prelude.Text])
-additionalLimit_limitValues = Lens.lens (\AdditionalLimit' {limitValues} -> limitValues) (\s@AdditionalLimit' {} a -> s {limitValues = a} :: AdditionalLimit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of Additional Limit is specific to a given InstanceType and for
 -- each of it\'s @ InstanceRole @ etc.
@@ -77,14 +73,18 @@ additionalLimit_limitValues = Lens.lens (\AdditionalLimit' {limitValues} -> limi
 additionalLimit_limitName :: Lens.Lens' AdditionalLimit (Prelude.Maybe Prelude.Text)
 additionalLimit_limitName = Lens.lens (\AdditionalLimit' {limitName} -> limitName) (\s@AdditionalLimit' {} a -> s {limitName = a} :: AdditionalLimit)
 
+-- | Value for given @ AdditionalLimit$LimitName @ .
+additionalLimit_limitValues :: Lens.Lens' AdditionalLimit (Prelude.Maybe [Prelude.Text])
+additionalLimit_limitValues = Lens.lens (\AdditionalLimit' {limitValues} -> limitValues) (\s@AdditionalLimit' {} a -> s {limitValues = a} :: AdditionalLimit) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON AdditionalLimit where
   parseJSON =
     Core.withObject
       "AdditionalLimit"
       ( \x ->
           AdditionalLimit'
-            Prelude.<$> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "LimitName")
+            Prelude.<$> (x Core..:? "LimitName")
+            Prelude.<*> (x Core..:? "LimitValues" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable AdditionalLimit

@@ -28,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMotionGraphicsActivateScheduleActionSettings' smart constructor.
 data MotionGraphicsActivateScheduleActionSettings = MotionGraphicsActivateScheduleActionSettings'
-  { -- | Duration (in milliseconds) that motion graphics should render on to the
-    -- video stream. Leaving out this property or setting to 0 will result in
-    -- rendering continuing until a deactivate action is processed.
-    duration :: Prelude.Maybe Prelude.Natural,
-    -- | Key used to extract the password from EC2 Parameter store
-    passwordParam :: Prelude.Maybe Prelude.Text,
+  { -- | URI of the HTML5 content to be rendered into the live stream.
+    url :: Prelude.Maybe Prelude.Text,
     -- | Documentation update needed
     username :: Prelude.Maybe Prelude.Text,
-    -- | URI of the HTML5 content to be rendered into the live stream.
-    url :: Prelude.Maybe Prelude.Text
+    -- | Key used to extract the password from EC2 Parameter store
+    passwordParam :: Prelude.Maybe Prelude.Text,
+    -- | Duration (in milliseconds) that motion graphics should render on to the
+    -- video stream. Leaving out this property or setting to 0 will result in
+    -- rendering continuing until a deactivate action is processed.
+    duration :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,44 +49,44 @@ data MotionGraphicsActivateScheduleActionSettings = MotionGraphicsActivateSchedu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'duration', 'motionGraphicsActivateScheduleActionSettings_duration' - Duration (in milliseconds) that motion graphics should render on to the
--- video stream. Leaving out this property or setting to 0 will result in
--- rendering continuing until a deactivate action is processed.
---
--- 'passwordParam', 'motionGraphicsActivateScheduleActionSettings_passwordParam' - Key used to extract the password from EC2 Parameter store
+-- 'url', 'motionGraphicsActivateScheduleActionSettings_url' - URI of the HTML5 content to be rendered into the live stream.
 --
 -- 'username', 'motionGraphicsActivateScheduleActionSettings_username' - Documentation update needed
 --
--- 'url', 'motionGraphicsActivateScheduleActionSettings_url' - URI of the HTML5 content to be rendered into the live stream.
+-- 'passwordParam', 'motionGraphicsActivateScheduleActionSettings_passwordParam' - Key used to extract the password from EC2 Parameter store
+--
+-- 'duration', 'motionGraphicsActivateScheduleActionSettings_duration' - Duration (in milliseconds) that motion graphics should render on to the
+-- video stream. Leaving out this property or setting to 0 will result in
+-- rendering continuing until a deactivate action is processed.
 newMotionGraphicsActivateScheduleActionSettings ::
   MotionGraphicsActivateScheduleActionSettings
 newMotionGraphicsActivateScheduleActionSettings =
   MotionGraphicsActivateScheduleActionSettings'
-    { duration =
-        Prelude.Nothing,
-      passwordParam =
+    { url =
         Prelude.Nothing,
       username = Prelude.Nothing,
-      url = Prelude.Nothing
+      passwordParam =
+        Prelude.Nothing,
+      duration = Prelude.Nothing
     }
+
+-- | URI of the HTML5 content to be rendered into the live stream.
+motionGraphicsActivateScheduleActionSettings_url :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
+motionGraphicsActivateScheduleActionSettings_url = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {url} -> url) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {url = a} :: MotionGraphicsActivateScheduleActionSettings)
+
+-- | Documentation update needed
+motionGraphicsActivateScheduleActionSettings_username :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
+motionGraphicsActivateScheduleActionSettings_username = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {username} -> username) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {username = a} :: MotionGraphicsActivateScheduleActionSettings)
+
+-- | Key used to extract the password from EC2 Parameter store
+motionGraphicsActivateScheduleActionSettings_passwordParam :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
+motionGraphicsActivateScheduleActionSettings_passwordParam = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {passwordParam} -> passwordParam) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {passwordParam = a} :: MotionGraphicsActivateScheduleActionSettings)
 
 -- | Duration (in milliseconds) that motion graphics should render on to the
 -- video stream. Leaving out this property or setting to 0 will result in
 -- rendering continuing until a deactivate action is processed.
 motionGraphicsActivateScheduleActionSettings_duration :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Natural)
 motionGraphicsActivateScheduleActionSettings_duration = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {duration} -> duration) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {duration = a} :: MotionGraphicsActivateScheduleActionSettings)
-
--- | Key used to extract the password from EC2 Parameter store
-motionGraphicsActivateScheduleActionSettings_passwordParam :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
-motionGraphicsActivateScheduleActionSettings_passwordParam = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {passwordParam} -> passwordParam) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {passwordParam = a} :: MotionGraphicsActivateScheduleActionSettings)
-
--- | Documentation update needed
-motionGraphicsActivateScheduleActionSettings_username :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
-motionGraphicsActivateScheduleActionSettings_username = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {username} -> username) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {username = a} :: MotionGraphicsActivateScheduleActionSettings)
-
--- | URI of the HTML5 content to be rendered into the live stream.
-motionGraphicsActivateScheduleActionSettings_url :: Lens.Lens' MotionGraphicsActivateScheduleActionSettings (Prelude.Maybe Prelude.Text)
-motionGraphicsActivateScheduleActionSettings_url = Lens.lens (\MotionGraphicsActivateScheduleActionSettings' {url} -> url) (\s@MotionGraphicsActivateScheduleActionSettings' {} a -> s {url = a} :: MotionGraphicsActivateScheduleActionSettings)
 
 instance
   Core.FromJSON
@@ -97,10 +97,10 @@ instance
       "MotionGraphicsActivateScheduleActionSettings"
       ( \x ->
           MotionGraphicsActivateScheduleActionSettings'
-            Prelude.<$> (x Core..:? "duration")
-              Prelude.<*> (x Core..:? "passwordParam")
+            Prelude.<$> (x Core..:? "url")
               Prelude.<*> (x Core..:? "username")
-              Prelude.<*> (x Core..:? "url")
+              Prelude.<*> (x Core..:? "passwordParam")
+              Prelude.<*> (x Core..:? "duration")
       )
 
 instance
@@ -119,9 +119,9 @@ instance
     MotionGraphicsActivateScheduleActionSettings' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("duration" Core..=) Prelude.<$> duration,
-              ("passwordParam" Core..=) Prelude.<$> passwordParam,
+            [ ("url" Core..=) Prelude.<$> url,
               ("username" Core..=) Prelude.<$> username,
-              ("url" Core..=) Prelude.<$> url
+              ("passwordParam" Core..=) Prelude.<$> passwordParam,
+              ("duration" Core..=) Prelude.<$> duration
             ]
         )

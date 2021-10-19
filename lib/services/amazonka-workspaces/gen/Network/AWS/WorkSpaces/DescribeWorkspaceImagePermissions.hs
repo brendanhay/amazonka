@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the permissions that the owner of an image has granted to
--- other AWS accounts for an image.
+-- other Amazon Web Services accounts for an image.
 module Network.AWS.WorkSpaces.DescribeWorkspaceImagePermissions
   ( -- * Creating a Request
     DescribeWorkspaceImagePermissions (..),
@@ -175,7 +175,8 @@ instance
 
 -- | /See:/ 'newDescribeWorkspaceImagePermissionsResponse' smart constructor.
 data DescribeWorkspaceImagePermissionsResponse = DescribeWorkspaceImagePermissionsResponse'
-  { -- | The identifiers of the AWS accounts that the image has been shared with.
+  { -- | The identifiers of the Amazon Web Services accounts that the image has
+    -- been shared with.
     imagePermissions :: Prelude.Maybe [ImagePermission],
     -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return.
@@ -195,7 +196,8 @@ data DescribeWorkspaceImagePermissionsResponse = DescribeWorkspaceImagePermissio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imagePermissions', 'describeWorkspaceImagePermissionsResponse_imagePermissions' - The identifiers of the AWS accounts that the image has been shared with.
+-- 'imagePermissions', 'describeWorkspaceImagePermissionsResponse_imagePermissions' - The identifiers of the Amazon Web Services accounts that the image has
+-- been shared with.
 --
 -- 'nextToken', 'describeWorkspaceImagePermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.
@@ -217,9 +219,10 @@ newDescribeWorkspaceImagePermissionsResponse
         httpStatus = pHttpStatus_
       }
 
--- | The identifiers of the AWS accounts that the image has been shared with.
+-- | The identifiers of the Amazon Web Services accounts that the image has
+-- been shared with.
 describeWorkspaceImagePermissionsResponse_imagePermissions :: Lens.Lens' DescribeWorkspaceImagePermissionsResponse (Prelude.Maybe [ImagePermission])
-describeWorkspaceImagePermissionsResponse_imagePermissions = Lens.lens (\DescribeWorkspaceImagePermissionsResponse' {imagePermissions} -> imagePermissions) (\s@DescribeWorkspaceImagePermissionsResponse' {} a -> s {imagePermissions = a} :: DescribeWorkspaceImagePermissionsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeWorkspaceImagePermissionsResponse_imagePermissions = Lens.lens (\DescribeWorkspaceImagePermissionsResponse' {imagePermissions} -> imagePermissions) (\s@DescribeWorkspaceImagePermissionsResponse' {} a -> s {imagePermissions = a} :: DescribeWorkspaceImagePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return.

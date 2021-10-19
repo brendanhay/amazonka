@@ -129,7 +129,7 @@ newCreateAssessmentTemplate
 -- attribute is a key and value pair (an Attribute object). Within an
 -- assessment template, each key must be unique.
 createAssessmentTemplate_userAttributesForFindings :: Lens.Lens' CreateAssessmentTemplate (Prelude.Maybe [Attribute])
-createAssessmentTemplate_userAttributesForFindings = Lens.lens (\CreateAssessmentTemplate' {userAttributesForFindings} -> userAttributesForFindings) (\s@CreateAssessmentTemplate' {} a -> s {userAttributesForFindings = a} :: CreateAssessmentTemplate) Prelude.. Lens.mapping Lens._Coerce
+createAssessmentTemplate_userAttributesForFindings = Lens.lens (\CreateAssessmentTemplate' {userAttributesForFindings} -> userAttributesForFindings) (\s@CreateAssessmentTemplate' {} a -> s {userAttributesForFindings = a} :: CreateAssessmentTemplate) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN that specifies the assessment target for which you want to
 -- create the assessment template.
@@ -150,7 +150,7 @@ createAssessmentTemplate_durationInSeconds = Lens.lens (\CreateAssessmentTemplat
 -- | The ARNs that specify the rules packages that you want to attach to the
 -- assessment template.
 createAssessmentTemplate_rulesPackageArns :: Lens.Lens' CreateAssessmentTemplate [Prelude.Text]
-createAssessmentTemplate_rulesPackageArns = Lens.lens (\CreateAssessmentTemplate' {rulesPackageArns} -> rulesPackageArns) (\s@CreateAssessmentTemplate' {} a -> s {rulesPackageArns = a} :: CreateAssessmentTemplate) Prelude.. Lens._Coerce
+createAssessmentTemplate_rulesPackageArns = Lens.lens (\CreateAssessmentTemplate' {rulesPackageArns} -> rulesPackageArns) (\s@CreateAssessmentTemplate' {} a -> s {rulesPackageArns = a} :: CreateAssessmentTemplate) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateAssessmentTemplate where
   type

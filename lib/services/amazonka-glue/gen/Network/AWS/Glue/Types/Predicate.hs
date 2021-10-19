@@ -64,7 +64,7 @@ predicate_logical = Lens.lens (\Predicate' {logical} -> logical) (\s@Predicate' 
 
 -- | A list of the conditions that determine when the trigger will fire.
 predicate_conditions :: Lens.Lens' Predicate (Prelude.Maybe [Condition])
-predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Prelude.. Lens.mapping Lens._Coerce
+predicate_conditions = Lens.lens (\Predicate' {conditions} -> conditions) (\s@Predicate' {} a -> s {conditions = a} :: Predicate) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Predicate where
   parseJSON =

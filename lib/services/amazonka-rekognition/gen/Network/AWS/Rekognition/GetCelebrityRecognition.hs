@@ -83,11 +83,11 @@ module Network.AWS.Rekognition.GetCelebrityRecognition
     newGetCelebrityRecognitionResponse,
 
     -- * Response Lenses
-    getCelebrityRecognitionResponse_statusMessage,
-    getCelebrityRecognitionResponse_videoMetadata,
     getCelebrityRecognitionResponse_nextToken,
-    getCelebrityRecognitionResponse_jobStatus,
+    getCelebrityRecognitionResponse_videoMetadata,
+    getCelebrityRecognitionResponse_statusMessage,
     getCelebrityRecognitionResponse_celebrities,
+    getCelebrityRecognitionResponse_jobStatus,
     getCelebrityRecognitionResponse_httpStatus,
   )
 where
@@ -189,11 +189,11 @@ instance Core.AWSRequest GetCelebrityRecognition where
     Response.receiveJSON
       ( \s h x ->
           GetCelebrityRecognitionResponse'
-            Prelude.<$> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "Celebrities" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -235,20 +235,20 @@ instance Core.ToQuery GetCelebrityRecognition where
 
 -- | /See:/ 'newGetCelebrityRecognitionResponse' smart constructor.
 data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
-  { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+  { -- | If the response is truncated, Amazon Rekognition Video returns this
+    -- token that you can use in the subsequent request to retrieve the next
+    -- set of celebrities.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
     videoMetadata :: Prelude.Maybe VideoMetadata,
-    -- | If the response is truncated, Amazon Rekognition Video returns this
-    -- token that you can use in the subsequent request to retrieve the next
-    -- set of celebrities.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the celebrity recognition job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | Array of celebrities recognized in the video.
     celebrities :: Prelude.Maybe [CelebrityRecognition],
+    -- | The current status of the celebrity recognition job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,19 +262,19 @@ data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'getCelebrityRecognitionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- 'nextToken', 'getCelebrityRecognitionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of celebrities.
 --
 -- 'videoMetadata', 'getCelebrityRecognitionResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
 --
--- 'nextToken', 'getCelebrityRecognitionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
--- token that you can use in the subsequent request to retrieve the next
--- set of celebrities.
---
--- 'jobStatus', 'getCelebrityRecognitionResponse_jobStatus' - The current status of the celebrity recognition job.
+-- 'statusMessage', 'getCelebrityRecognitionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'celebrities', 'getCelebrityRecognitionResponse_celebrities' - Array of celebrities recognized in the video.
+--
+-- 'jobStatus', 'getCelebrityRecognitionResponse_jobStatus' - The current status of the celebrity recognition job.
 --
 -- 'httpStatus', 'getCelebrityRecognitionResponse_httpStatus' - The response's http status code.
 newGetCelebrityRecognitionResponse ::
@@ -283,24 +283,14 @@ newGetCelebrityRecognitionResponse ::
   GetCelebrityRecognitionResponse
 newGetCelebrityRecognitionResponse pHttpStatus_ =
   GetCelebrityRecognitionResponse'
-    { statusMessage =
+    { nextToken =
         Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       celebrities = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getCelebrityRecognitionResponse_statusMessage :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
-getCelebrityRecognitionResponse_statusMessage = Lens.lens (\GetCelebrityRecognitionResponse' {statusMessage} -> statusMessage) (\s@GetCelebrityRecognitionResponse' {} a -> s {statusMessage = a} :: GetCelebrityRecognitionResponse)
-
--- | Information about a video that Amazon Rekognition Video analyzed.
--- @Videometadata@ is returned in every page of paginated responses from a
--- Amazon Rekognition Video operation.
-getCelebrityRecognitionResponse_videoMetadata :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoMetadata)
-getCelebrityRecognitionResponse_videoMetadata = Lens.lens (\GetCelebrityRecognitionResponse' {videoMetadata} -> videoMetadata) (\s@GetCelebrityRecognitionResponse' {} a -> s {videoMetadata = a} :: GetCelebrityRecognitionResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
@@ -308,13 +298,23 @@ getCelebrityRecognitionResponse_videoMetadata = Lens.lens (\GetCelebrityRecognit
 getCelebrityRecognitionResponse_nextToken :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
 getCelebrityRecognitionResponse_nextToken = Lens.lens (\GetCelebrityRecognitionResponse' {nextToken} -> nextToken) (\s@GetCelebrityRecognitionResponse' {} a -> s {nextToken = a} :: GetCelebrityRecognitionResponse)
 
--- | The current status of the celebrity recognition job.
-getCelebrityRecognitionResponse_jobStatus :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoJobStatus)
-getCelebrityRecognitionResponse_jobStatus = Lens.lens (\GetCelebrityRecognitionResponse' {jobStatus} -> jobStatus) (\s@GetCelebrityRecognitionResponse' {} a -> s {jobStatus = a} :: GetCelebrityRecognitionResponse)
+-- | Information about a video that Amazon Rekognition Video analyzed.
+-- @Videometadata@ is returned in every page of paginated responses from a
+-- Amazon Rekognition Video operation.
+getCelebrityRecognitionResponse_videoMetadata :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoMetadata)
+getCelebrityRecognitionResponse_videoMetadata = Lens.lens (\GetCelebrityRecognitionResponse' {videoMetadata} -> videoMetadata) (\s@GetCelebrityRecognitionResponse' {} a -> s {videoMetadata = a} :: GetCelebrityRecognitionResponse)
+
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getCelebrityRecognitionResponse_statusMessage :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+getCelebrityRecognitionResponse_statusMessage = Lens.lens (\GetCelebrityRecognitionResponse' {statusMessage} -> statusMessage) (\s@GetCelebrityRecognitionResponse' {} a -> s {statusMessage = a} :: GetCelebrityRecognitionResponse)
 
 -- | Array of celebrities recognized in the video.
 getCelebrityRecognitionResponse_celebrities :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe [CelebrityRecognition])
-getCelebrityRecognitionResponse_celebrities = Lens.lens (\GetCelebrityRecognitionResponse' {celebrities} -> celebrities) (\s@GetCelebrityRecognitionResponse' {} a -> s {celebrities = a} :: GetCelebrityRecognitionResponse) Prelude.. Lens.mapping Lens._Coerce
+getCelebrityRecognitionResponse_celebrities = Lens.lens (\GetCelebrityRecognitionResponse' {celebrities} -> celebrities) (\s@GetCelebrityRecognitionResponse' {} a -> s {celebrities = a} :: GetCelebrityRecognitionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current status of the celebrity recognition job.
+getCelebrityRecognitionResponse_jobStatus :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoJobStatus)
+getCelebrityRecognitionResponse_jobStatus = Lens.lens (\GetCelebrityRecognitionResponse' {jobStatus} -> jobStatus) (\s@GetCelebrityRecognitionResponse' {} a -> s {jobStatus = a} :: GetCelebrityRecognitionResponse)
 
 -- | The response's http status code.
 getCelebrityRecognitionResponse_httpStatus :: Lens.Lens' GetCelebrityRecognitionResponse Prelude.Int

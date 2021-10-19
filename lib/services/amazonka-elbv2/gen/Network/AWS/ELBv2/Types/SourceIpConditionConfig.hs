@@ -74,7 +74,7 @@ newSourceIpConditionConfig =
 -- header. To search for addresses in the X-Forwarded-For header, use
 -- HttpHeaderConditionConfig.
 sourceIpConditionConfig_values :: Lens.Lens' SourceIpConditionConfig (Prelude.Maybe [Prelude.Text])
-sourceIpConditionConfig_values = Lens.lens (\SourceIpConditionConfig' {values} -> values) (\s@SourceIpConditionConfig' {} a -> s {values = a} :: SourceIpConditionConfig) Prelude.. Lens.mapping Lens._Coerce
+sourceIpConditionConfig_values = Lens.lens (\SourceIpConditionConfig' {values} -> values) (\s@SourceIpConditionConfig' {} a -> s {values = a} :: SourceIpConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML SourceIpConditionConfig where
   parseXML x =

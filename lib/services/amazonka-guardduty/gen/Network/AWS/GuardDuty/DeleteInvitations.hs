@@ -72,13 +72,13 @@ newDeleteInvitations ::
 newDeleteInvitations pAccountIds_ =
   DeleteInvitations'
     { accountIds =
-        Lens._Coerce Lens.# pAccountIds_
+        Lens.coerced Lens.# pAccountIds_
     }
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the
 -- current member account that you want to delete invitations from.
 deleteInvitations_accountIds :: Lens.Lens' DeleteInvitations (Prelude.NonEmpty Prelude.Text)
-deleteInvitations_accountIds = Lens.lens (\DeleteInvitations' {accountIds} -> accountIds) (\s@DeleteInvitations' {} a -> s {accountIds = a} :: DeleteInvitations) Prelude.. Lens._Coerce
+deleteInvitations_accountIds = Lens.lens (\DeleteInvitations' {accountIds} -> accountIds) (\s@DeleteInvitations' {} a -> s {accountIds = a} :: DeleteInvitations) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteInvitations where
   type
@@ -163,6 +163,6 @@ deleteInvitationsResponse_httpStatus = Lens.lens (\DeleteInvitationsResponse' {h
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 deleteInvitationsResponse_unprocessedAccounts :: Lens.Lens' DeleteInvitationsResponse [UnprocessedAccount]
-deleteInvitationsResponse_unprocessedAccounts = Lens.lens (\DeleteInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeleteInvitationsResponse) Prelude.. Lens._Coerce
+deleteInvitationsResponse_unprocessedAccounts = Lens.lens (\DeleteInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeleteInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeleteInvitationsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DeleteInvitationsResponse

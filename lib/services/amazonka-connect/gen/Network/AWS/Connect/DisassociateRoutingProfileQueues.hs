@@ -97,7 +97,7 @@ disassociateRoutingProfileQueues_routingProfileId = Lens.lens (\DisassociateRout
 
 -- | The queues to disassociate from this routing profile.
 disassociateRoutingProfileQueues_queueReferences :: Lens.Lens' DisassociateRoutingProfileQueues [RoutingProfileQueueReference]
-disassociateRoutingProfileQueues_queueReferences = Lens.lens (\DisassociateRoutingProfileQueues' {queueReferences} -> queueReferences) (\s@DisassociateRoutingProfileQueues' {} a -> s {queueReferences = a} :: DisassociateRoutingProfileQueues) Prelude.. Lens._Coerce
+disassociateRoutingProfileQueues_queueReferences = Lens.lens (\DisassociateRoutingProfileQueues' {queueReferences} -> queueReferences) (\s@DisassociateRoutingProfileQueues' {} a -> s {queueReferences = a} :: DisassociateRoutingProfileQueues) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

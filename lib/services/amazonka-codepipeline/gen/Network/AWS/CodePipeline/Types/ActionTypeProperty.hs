@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActionTypeProperty' smart constructor.
 data ActionTypeProperty = ActionTypeProperty'
-  { -- | The description of the property that is displayed to users.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | Indicates that the property is used with polling. An action type can
+  { -- | Indicates that the property is used with polling. An action type can
     -- have up to one queryable property. If it has one, that property must be
     -- both required and not secret.
     queryable :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the property that is displayed to users.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The property name that is displayed to users.
     name :: Prelude.Text,
     -- | Whether the configuration property is an optional value.
@@ -56,11 +56,11 @@ data ActionTypeProperty = ActionTypeProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'actionTypeProperty_description' - The description of the property that is displayed to users.
---
 -- 'queryable', 'actionTypeProperty_queryable' - Indicates that the property is used with polling. An action type can
 -- have up to one queryable property. If it has one, that property must be
 -- both required and not secret.
+--
+-- 'description', 'actionTypeProperty_description' - The description of the property that is displayed to users.
 --
 -- 'name', 'actionTypeProperty_name' - The property name that is displayed to users.
 --
@@ -87,23 +87,23 @@ newActionTypeProperty
   pKey_
   pNoEcho_ =
     ActionTypeProperty'
-      { description = Prelude.Nothing,
-        queryable = Prelude.Nothing,
+      { queryable = Prelude.Nothing,
+        description = Prelude.Nothing,
         name = pName_,
         optional = pOptional_,
         key = pKey_,
         noEcho = pNoEcho_
       }
 
--- | The description of the property that is displayed to users.
-actionTypeProperty_description :: Lens.Lens' ActionTypeProperty (Prelude.Maybe Prelude.Text)
-actionTypeProperty_description = Lens.lens (\ActionTypeProperty' {description} -> description) (\s@ActionTypeProperty' {} a -> s {description = a} :: ActionTypeProperty)
-
 -- | Indicates that the property is used with polling. An action type can
 -- have up to one queryable property. If it has one, that property must be
 -- both required and not secret.
 actionTypeProperty_queryable :: Lens.Lens' ActionTypeProperty (Prelude.Maybe Prelude.Bool)
 actionTypeProperty_queryable = Lens.lens (\ActionTypeProperty' {queryable} -> queryable) (\s@ActionTypeProperty' {} a -> s {queryable = a} :: ActionTypeProperty)
+
+-- | The description of the property that is displayed to users.
+actionTypeProperty_description :: Lens.Lens' ActionTypeProperty (Prelude.Maybe Prelude.Text)
+actionTypeProperty_description = Lens.lens (\ActionTypeProperty' {description} -> description) (\s@ActionTypeProperty' {} a -> s {description = a} :: ActionTypeProperty)
 
 -- | The property name that is displayed to users.
 actionTypeProperty_name :: Lens.Lens' ActionTypeProperty Prelude.Text
@@ -129,8 +129,8 @@ instance Core.FromJSON ActionTypeProperty where
       "ActionTypeProperty"
       ( \x ->
           ActionTypeProperty'
-            Prelude.<$> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "queryable")
+            Prelude.<$> (x Core..:? "queryable")
+            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "optional")
             Prelude.<*> (x Core..: "key")
@@ -145,8 +145,8 @@ instance Core.ToJSON ActionTypeProperty where
   toJSON ActionTypeProperty' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
-            ("queryable" Core..=) Prelude.<$> queryable,
+          [ ("queryable" Core..=) Prelude.<$> queryable,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("optional" Core..= optional),
             Prelude.Just ("key" Core..= key),

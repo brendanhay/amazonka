@@ -81,7 +81,7 @@ deregisterDevices_deviceFleetName = Lens.lens (\DeregisterDevices' {deviceFleetN
 
 -- | The unique IDs of the devices.
 deregisterDevices_deviceNames :: Lens.Lens' DeregisterDevices [Prelude.Text]
-deregisterDevices_deviceNames = Lens.lens (\DeregisterDevices' {deviceNames} -> deviceNames) (\s@DeregisterDevices' {} a -> s {deviceNames = a} :: DeregisterDevices) Prelude.. Lens._Coerce
+deregisterDevices_deviceNames = Lens.lens (\DeregisterDevices' {deviceNames} -> deviceNames) (\s@DeregisterDevices' {} a -> s {deviceNames = a} :: DeregisterDevices) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeregisterDevices where
   type

@@ -30,10 +30,10 @@ module Network.AWS.Route53AutoNaming.DiscoverInstances
     newDiscoverInstances,
 
     -- * Request Lenses
-    discoverInstances_maxResults,
-    discoverInstances_optionalParameters,
     discoverInstances_queryParameters,
+    discoverInstances_optionalParameters,
     discoverInstances_healthStatus,
+    discoverInstances_maxResults,
     discoverInstances_namespaceName,
     discoverInstances_serviceName,
 
@@ -56,10 +56,10 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'newDiscoverInstances' smart constructor.
 data DiscoverInstances = DiscoverInstances'
-  { -- | The maximum number of instances that you want Cloud Map to return in the
-    -- response to a @DiscoverInstances@ request. If you don\'t specify a value
-    -- for @MaxResults@, Cloud Map returns up to 100 instances.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | Filters to scope the results based on custom attributes for the instance
+    -- (for example, @{version=v1, az=1a}@). Only instances that match all the
+    -- specified key-value pairs are returned.
+    queryParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Opportunistic filters to scope the results based on custom attributes.
     -- If there are instances that match both the filters specified in both the
     -- @QueryParameters@ parameter and this parameter, all of these instances
@@ -67,10 +67,6 @@ data DiscoverInstances = DiscoverInstances'
     -- that match the filters that are specified in the @QueryParameters@
     -- parameter are returned.
     optionalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Filters to scope the results based on custom attributes for the instance
-    -- (for example, @{version=v1, az=1a}@). Only instances that match all the
-    -- specified key-value pairs are returned.
-    queryParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The health status of the instances that you want to discover. This
     -- parameter is ignored for services that don\'t have a health check
     -- configured, and all instances are returned.
@@ -89,6 +85,10 @@ data DiscoverInstances = DiscoverInstances'
     --     state. In that case, return all instances. This is also called
     --     failing open.
     healthStatus :: Prelude.Maybe HealthStatusFilter,
+    -- | The maximum number of instances that you want Cloud Map to return in the
+    -- response to a @DiscoverInstances@ request. If you don\'t specify a value
+    -- for @MaxResults@, Cloud Map returns up to 100 instances.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The @HttpName@ name of the namespace. It\'s found in the
     -- @HttpProperties@ member of the @Properties@ member of the namespace.
     namespaceName :: Prelude.Text,
@@ -106,9 +106,9 @@ data DiscoverInstances = DiscoverInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'discoverInstances_maxResults' - The maximum number of instances that you want Cloud Map to return in the
--- response to a @DiscoverInstances@ request. If you don\'t specify a value
--- for @MaxResults@, Cloud Map returns up to 100 instances.
+-- 'queryParameters', 'discoverInstances_queryParameters' - Filters to scope the results based on custom attributes for the instance
+-- (for example, @{version=v1, az=1a}@). Only instances that match all the
+-- specified key-value pairs are returned.
 --
 -- 'optionalParameters', 'discoverInstances_optionalParameters' - Opportunistic filters to scope the results based on custom attributes.
 -- If there are instances that match both the filters specified in both the
@@ -116,10 +116,6 @@ data DiscoverInstances = DiscoverInstances'
 -- are returned. Otherwise, the filters are ignored, and only instances
 -- that match the filters that are specified in the @QueryParameters@
 -- parameter are returned.
---
--- 'queryParameters', 'discoverInstances_queryParameters' - Filters to scope the results based on custom attributes for the instance
--- (for example, @{version=v1, az=1a}@). Only instances that match all the
--- specified key-value pairs are returned.
 --
 -- 'healthStatus', 'discoverInstances_healthStatus' - The health status of the instances that you want to discover. This
 -- parameter is ignored for services that don\'t have a health check
@@ -139,6 +135,10 @@ data DiscoverInstances = DiscoverInstances'
 --     state. In that case, return all instances. This is also called
 --     failing open.
 --
+-- 'maxResults', 'discoverInstances_maxResults' - The maximum number of instances that you want Cloud Map to return in the
+-- response to a @DiscoverInstances@ request. If you don\'t specify a value
+-- for @MaxResults@, Cloud Map returns up to 100 instances.
+--
 -- 'namespaceName', 'discoverInstances_namespaceName' - The @HttpName@ name of the namespace. It\'s found in the
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
 --
@@ -152,19 +152,20 @@ newDiscoverInstances ::
   DiscoverInstances
 newDiscoverInstances pNamespaceName_ pServiceName_ =
   DiscoverInstances'
-    { maxResults = Prelude.Nothing,
+    { queryParameters =
+        Prelude.Nothing,
       optionalParameters = Prelude.Nothing,
-      queryParameters = Prelude.Nothing,
       healthStatus = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       namespaceName = pNamespaceName_,
       serviceName = pServiceName_
     }
 
--- | The maximum number of instances that you want Cloud Map to return in the
--- response to a @DiscoverInstances@ request. If you don\'t specify a value
--- for @MaxResults@, Cloud Map returns up to 100 instances.
-discoverInstances_maxResults :: Lens.Lens' DiscoverInstances (Prelude.Maybe Prelude.Natural)
-discoverInstances_maxResults = Lens.lens (\DiscoverInstances' {maxResults} -> maxResults) (\s@DiscoverInstances' {} a -> s {maxResults = a} :: DiscoverInstances)
+-- | Filters to scope the results based on custom attributes for the instance
+-- (for example, @{version=v1, az=1a}@). Only instances that match all the
+-- specified key-value pairs are returned.
+discoverInstances_queryParameters :: Lens.Lens' DiscoverInstances (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+discoverInstances_queryParameters = Lens.lens (\DiscoverInstances' {queryParameters} -> queryParameters) (\s@DiscoverInstances' {} a -> s {queryParameters = a} :: DiscoverInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | Opportunistic filters to scope the results based on custom attributes.
 -- If there are instances that match both the filters specified in both the
@@ -173,13 +174,7 @@ discoverInstances_maxResults = Lens.lens (\DiscoverInstances' {maxResults} -> ma
 -- that match the filters that are specified in the @QueryParameters@
 -- parameter are returned.
 discoverInstances_optionalParameters :: Lens.Lens' DiscoverInstances (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-discoverInstances_optionalParameters = Lens.lens (\DiscoverInstances' {optionalParameters} -> optionalParameters) (\s@DiscoverInstances' {} a -> s {optionalParameters = a} :: DiscoverInstances) Prelude.. Lens.mapping Lens._Coerce
-
--- | Filters to scope the results based on custom attributes for the instance
--- (for example, @{version=v1, az=1a}@). Only instances that match all the
--- specified key-value pairs are returned.
-discoverInstances_queryParameters :: Lens.Lens' DiscoverInstances (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-discoverInstances_queryParameters = Lens.lens (\DiscoverInstances' {queryParameters} -> queryParameters) (\s@DiscoverInstances' {} a -> s {queryParameters = a} :: DiscoverInstances) Prelude.. Lens.mapping Lens._Coerce
+discoverInstances_optionalParameters = Lens.lens (\DiscoverInstances' {optionalParameters} -> optionalParameters) (\s@DiscoverInstances' {} a -> s {optionalParameters = a} :: DiscoverInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The health status of the instances that you want to discover. This
 -- parameter is ignored for services that don\'t have a health check
@@ -200,6 +195,12 @@ discoverInstances_queryParameters = Lens.lens (\DiscoverInstances' {queryParamet
 --     failing open.
 discoverInstances_healthStatus :: Lens.Lens' DiscoverInstances (Prelude.Maybe HealthStatusFilter)
 discoverInstances_healthStatus = Lens.lens (\DiscoverInstances' {healthStatus} -> healthStatus) (\s@DiscoverInstances' {} a -> s {healthStatus = a} :: DiscoverInstances)
+
+-- | The maximum number of instances that you want Cloud Map to return in the
+-- response to a @DiscoverInstances@ request. If you don\'t specify a value
+-- for @MaxResults@, Cloud Map returns up to 100 instances.
+discoverInstances_maxResults :: Lens.Lens' DiscoverInstances (Prelude.Maybe Prelude.Natural)
+discoverInstances_maxResults = Lens.lens (\DiscoverInstances' {maxResults} -> maxResults) (\s@DiscoverInstances' {} a -> s {maxResults = a} :: DiscoverInstances)
 
 -- | The @HttpName@ name of the namespace. It\'s found in the
 -- @HttpProperties@ member of the @Properties@ member of the namespace.
@@ -247,12 +248,12 @@ instance Core.ToJSON DiscoverInstances where
   toJSON DiscoverInstances' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
+          [ ("QueryParameters" Core..=)
+              Prelude.<$> queryParameters,
             ("OptionalParameters" Core..=)
               Prelude.<$> optionalParameters,
-            ("QueryParameters" Core..=)
-              Prelude.<$> queryParameters,
             ("HealthStatus" Core..=) Prelude.<$> healthStatus,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just ("NamespaceName" Core..= namespaceName),
             Prelude.Just ("ServiceName" Core..= serviceName)
           ]
@@ -300,7 +301,7 @@ newDiscoverInstancesResponse pHttpStatus_ =
 -- | A complex type that contains one @HttpInstanceSummary@ for each
 -- registered instance.
 discoverInstancesResponse_instances :: Lens.Lens' DiscoverInstancesResponse (Prelude.Maybe [HttpInstanceSummary])
-discoverInstancesResponse_instances = Lens.lens (\DiscoverInstancesResponse' {instances} -> instances) (\s@DiscoverInstancesResponse' {} a -> s {instances = a} :: DiscoverInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+discoverInstancesResponse_instances = Lens.lens (\DiscoverInstancesResponse' {instances} -> instances) (\s@DiscoverInstancesResponse' {} a -> s {instances = a} :: DiscoverInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 discoverInstancesResponse_httpStatus :: Lens.Lens' DiscoverInstancesResponse Prelude.Int

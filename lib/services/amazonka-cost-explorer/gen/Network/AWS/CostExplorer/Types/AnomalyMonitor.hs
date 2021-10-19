@@ -33,17 +33,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAnomalyMonitor' smart constructor.
 data AnomalyMonitor = AnomalyMonitor'
-  { -- | The date when the monitor last evaluated for anomalies.
-    lastEvaluatedDate :: Prelude.Maybe Prelude.Text,
-    monitorSpecification :: Prelude.Maybe Expression,
-    -- | The date when the monitor was last updated.
-    lastUpdatedDate :: Prelude.Maybe Prelude.Text,
-    -- | The value for evaluated dimensions.
+  { -- | The value for evaluated dimensions.
     dimensionalValueCount :: Prelude.Maybe Prelude.Natural,
-    -- | The date when the monitor was created.
-    creationDate :: Prelude.Maybe Prelude.Text,
+    monitorSpecification :: Prelude.Maybe Expression,
     -- | The dimensions to evaluate.
     monitorDimension :: Prelude.Maybe MonitorDimension,
+    -- | The date when the monitor was created.
+    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | The date when the monitor was last updated.
+    lastUpdatedDate :: Prelude.Maybe Prelude.Text,
+    -- | The date when the monitor last evaluated for anomalies.
+    lastEvaluatedDate :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) value.
     monitorArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the monitor.
@@ -61,17 +61,17 @@ data AnomalyMonitor = AnomalyMonitor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastEvaluatedDate', 'anomalyMonitor_lastEvaluatedDate' - The date when the monitor last evaluated for anomalies.
+-- 'dimensionalValueCount', 'anomalyMonitor_dimensionalValueCount' - The value for evaluated dimensions.
 --
 -- 'monitorSpecification', 'anomalyMonitor_monitorSpecification' - Undocumented member.
 --
--- 'lastUpdatedDate', 'anomalyMonitor_lastUpdatedDate' - The date when the monitor was last updated.
---
--- 'dimensionalValueCount', 'anomalyMonitor_dimensionalValueCount' - The value for evaluated dimensions.
+-- 'monitorDimension', 'anomalyMonitor_monitorDimension' - The dimensions to evaluate.
 --
 -- 'creationDate', 'anomalyMonitor_creationDate' - The date when the monitor was created.
 --
--- 'monitorDimension', 'anomalyMonitor_monitorDimension' - The dimensions to evaluate.
+-- 'lastUpdatedDate', 'anomalyMonitor_lastUpdatedDate' - The date when the monitor was last updated.
+--
+-- 'lastEvaluatedDate', 'anomalyMonitor_lastEvaluatedDate' - The date when the monitor last evaluated for anomalies.
 --
 -- 'monitorArn', 'anomalyMonitor_monitorArn' - The Amazon Resource Name (ARN) value.
 --
@@ -86,41 +86,41 @@ newAnomalyMonitor ::
   AnomalyMonitor
 newAnomalyMonitor pMonitorName_ pMonitorType_ =
   AnomalyMonitor'
-    { lastEvaluatedDate =
+    { dimensionalValueCount =
         Prelude.Nothing,
       monitorSpecification = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      dimensionalValueCount = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       monitorDimension = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      lastEvaluatedDate = Prelude.Nothing,
       monitorArn = Prelude.Nothing,
       monitorName = pMonitorName_,
       monitorType = pMonitorType_
     }
 
--- | The date when the monitor last evaluated for anomalies.
-anomalyMonitor_lastEvaluatedDate :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Text)
-anomalyMonitor_lastEvaluatedDate = Lens.lens (\AnomalyMonitor' {lastEvaluatedDate} -> lastEvaluatedDate) (\s@AnomalyMonitor' {} a -> s {lastEvaluatedDate = a} :: AnomalyMonitor)
+-- | The value for evaluated dimensions.
+anomalyMonitor_dimensionalValueCount :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Natural)
+anomalyMonitor_dimensionalValueCount = Lens.lens (\AnomalyMonitor' {dimensionalValueCount} -> dimensionalValueCount) (\s@AnomalyMonitor' {} a -> s {dimensionalValueCount = a} :: AnomalyMonitor)
 
 -- | Undocumented member.
 anomalyMonitor_monitorSpecification :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Expression)
 anomalyMonitor_monitorSpecification = Lens.lens (\AnomalyMonitor' {monitorSpecification} -> monitorSpecification) (\s@AnomalyMonitor' {} a -> s {monitorSpecification = a} :: AnomalyMonitor)
 
--- | The date when the monitor was last updated.
-anomalyMonitor_lastUpdatedDate :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Text)
-anomalyMonitor_lastUpdatedDate = Lens.lens (\AnomalyMonitor' {lastUpdatedDate} -> lastUpdatedDate) (\s@AnomalyMonitor' {} a -> s {lastUpdatedDate = a} :: AnomalyMonitor)
-
--- | The value for evaluated dimensions.
-anomalyMonitor_dimensionalValueCount :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Natural)
-anomalyMonitor_dimensionalValueCount = Lens.lens (\AnomalyMonitor' {dimensionalValueCount} -> dimensionalValueCount) (\s@AnomalyMonitor' {} a -> s {dimensionalValueCount = a} :: AnomalyMonitor)
+-- | The dimensions to evaluate.
+anomalyMonitor_monitorDimension :: Lens.Lens' AnomalyMonitor (Prelude.Maybe MonitorDimension)
+anomalyMonitor_monitorDimension = Lens.lens (\AnomalyMonitor' {monitorDimension} -> monitorDimension) (\s@AnomalyMonitor' {} a -> s {monitorDimension = a} :: AnomalyMonitor)
 
 -- | The date when the monitor was created.
 anomalyMonitor_creationDate :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Text)
 anomalyMonitor_creationDate = Lens.lens (\AnomalyMonitor' {creationDate} -> creationDate) (\s@AnomalyMonitor' {} a -> s {creationDate = a} :: AnomalyMonitor)
 
--- | The dimensions to evaluate.
-anomalyMonitor_monitorDimension :: Lens.Lens' AnomalyMonitor (Prelude.Maybe MonitorDimension)
-anomalyMonitor_monitorDimension = Lens.lens (\AnomalyMonitor' {monitorDimension} -> monitorDimension) (\s@AnomalyMonitor' {} a -> s {monitorDimension = a} :: AnomalyMonitor)
+-- | The date when the monitor was last updated.
+anomalyMonitor_lastUpdatedDate :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Text)
+anomalyMonitor_lastUpdatedDate = Lens.lens (\AnomalyMonitor' {lastUpdatedDate} -> lastUpdatedDate) (\s@AnomalyMonitor' {} a -> s {lastUpdatedDate = a} :: AnomalyMonitor)
+
+-- | The date when the monitor last evaluated for anomalies.
+anomalyMonitor_lastEvaluatedDate :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Text)
+anomalyMonitor_lastEvaluatedDate = Lens.lens (\AnomalyMonitor' {lastEvaluatedDate} -> lastEvaluatedDate) (\s@AnomalyMonitor' {} a -> s {lastEvaluatedDate = a} :: AnomalyMonitor)
 
 -- | The Amazon Resource Name (ARN) value.
 anomalyMonitor_monitorArn :: Lens.Lens' AnomalyMonitor (Prelude.Maybe Prelude.Text)
@@ -140,12 +140,12 @@ instance Core.FromJSON AnomalyMonitor where
       "AnomalyMonitor"
       ( \x ->
           AnomalyMonitor'
-            Prelude.<$> (x Core..:? "LastEvaluatedDate")
+            Prelude.<$> (x Core..:? "DimensionalValueCount")
             Prelude.<*> (x Core..:? "MonitorSpecification")
-            Prelude.<*> (x Core..:? "LastUpdatedDate")
-            Prelude.<*> (x Core..:? "DimensionalValueCount")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "MonitorDimension")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "LastUpdatedDate")
+            Prelude.<*> (x Core..:? "LastEvaluatedDate")
             Prelude.<*> (x Core..:? "MonitorArn")
             Prelude.<*> (x Core..: "MonitorName")
             Prelude.<*> (x Core..: "MonitorType")
@@ -159,17 +159,17 @@ instance Core.ToJSON AnomalyMonitor where
   toJSON AnomalyMonitor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LastEvaluatedDate" Core..=)
-              Prelude.<$> lastEvaluatedDate,
+          [ ("DimensionalValueCount" Core..=)
+              Prelude.<$> dimensionalValueCount,
             ("MonitorSpecification" Core..=)
               Prelude.<$> monitorSpecification,
-            ("LastUpdatedDate" Core..=)
-              Prelude.<$> lastUpdatedDate,
-            ("DimensionalValueCount" Core..=)
-              Prelude.<$> dimensionalValueCount,
-            ("CreationDate" Core..=) Prelude.<$> creationDate,
             ("MonitorDimension" Core..=)
               Prelude.<$> monitorDimension,
+            ("CreationDate" Core..=) Prelude.<$> creationDate,
+            ("LastUpdatedDate" Core..=)
+              Prelude.<$> lastUpdatedDate,
+            ("LastEvaluatedDate" Core..=)
+              Prelude.<$> lastEvaluatedDate,
             ("MonitorArn" Core..=) Prelude.<$> monitorArn,
             Prelude.Just ("MonitorName" Core..= monitorName),
             Prelude.Just ("MonitorType" Core..= monitorType)

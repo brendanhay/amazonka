@@ -32,17 +32,17 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     newDescribeWorkspaceBundles,
 
     -- * Request Lenses
-    describeWorkspaceBundles_nextToken,
-    describeWorkspaceBundles_owner,
     describeWorkspaceBundles_bundleIds,
+    describeWorkspaceBundles_owner,
+    describeWorkspaceBundles_nextToken,
 
     -- * Destructuring the Response
     DescribeWorkspaceBundlesResponse (..),
     newDescribeWorkspaceBundlesResponse,
 
     -- * Response Lenses
-    describeWorkspaceBundlesResponse_nextToken,
     describeWorkspaceBundlesResponse_bundles,
+    describeWorkspaceBundlesResponse_nextToken,
     describeWorkspaceBundlesResponse_httpStatus,
   )
 where
@@ -56,18 +56,19 @@ import Network.AWS.WorkSpaces.Types
 
 -- | /See:/ 'newDescribeWorkspaceBundles' smart constructor.
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
-  { -- | The token for the next set of results. (You received this token from a
-    -- previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The identifiers of the bundles. You cannot combine this parameter with
+    -- any other filter.
+    bundleIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The owner of the bundles. You cannot combine this parameter with any
     -- other filter.
     --
-    -- To describe the bundles provided by AWS, specify @AMAZON@. To describe
-    -- the bundles that belong to your account, don\'t specify a value.
+    -- To describe the bundles provided by Amazon Web Services, specify
+    -- @AMAZON@. To describe the bundles that belong to your account, don\'t
+    -- specify a value.
     owner :: Prelude.Maybe Prelude.Text,
-    -- | The identifiers of the bundles. You cannot combine this parameter with
-    -- any other filter.
-    bundleIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    -- | The token for the next set of results. (You received this token from a
+    -- previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,44 +80,46 @@ data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeWorkspaceBundles_nextToken' - The token for the next set of results. (You received this token from a
--- previous call.)
+-- 'bundleIds', 'describeWorkspaceBundles_bundleIds' - The identifiers of the bundles. You cannot combine this parameter with
+-- any other filter.
 --
 -- 'owner', 'describeWorkspaceBundles_owner' - The owner of the bundles. You cannot combine this parameter with any
 -- other filter.
 --
--- To describe the bundles provided by AWS, specify @AMAZON@. To describe
--- the bundles that belong to your account, don\'t specify a value.
+-- To describe the bundles provided by Amazon Web Services, specify
+-- @AMAZON@. To describe the bundles that belong to your account, don\'t
+-- specify a value.
 --
--- 'bundleIds', 'describeWorkspaceBundles_bundleIds' - The identifiers of the bundles. You cannot combine this parameter with
--- any other filter.
+-- 'nextToken', 'describeWorkspaceBundles_nextToken' - The token for the next set of results. (You received this token from a
+-- previous call.)
 newDescribeWorkspaceBundles ::
   DescribeWorkspaceBundles
 newDescribeWorkspaceBundles =
   DescribeWorkspaceBundles'
-    { nextToken =
+    { bundleIds =
         Prelude.Nothing,
       owner = Prelude.Nothing,
-      bundleIds = Prelude.Nothing
+      nextToken = Prelude.Nothing
     }
+
+-- | The identifiers of the bundles. You cannot combine this parameter with
+-- any other filter.
+describeWorkspaceBundles_bundleIds :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeWorkspaceBundles_bundleIds = Lens.lens (\DescribeWorkspaceBundles' {bundleIds} -> bundleIds) (\s@DescribeWorkspaceBundles' {} a -> s {bundleIds = a} :: DescribeWorkspaceBundles) Prelude.. Lens.mapping Lens.coerced
+
+-- | The owner of the bundles. You cannot combine this parameter with any
+-- other filter.
+--
+-- To describe the bundles provided by Amazon Web Services, specify
+-- @AMAZON@. To describe the bundles that belong to your account, don\'t
+-- specify a value.
+describeWorkspaceBundles_owner :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe Prelude.Text)
+describeWorkspaceBundles_owner = Lens.lens (\DescribeWorkspaceBundles' {owner} -> owner) (\s@DescribeWorkspaceBundles' {} a -> s {owner = a} :: DescribeWorkspaceBundles)
 
 -- | The token for the next set of results. (You received this token from a
 -- previous call.)
 describeWorkspaceBundles_nextToken :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe Prelude.Text)
 describeWorkspaceBundles_nextToken = Lens.lens (\DescribeWorkspaceBundles' {nextToken} -> nextToken) (\s@DescribeWorkspaceBundles' {} a -> s {nextToken = a} :: DescribeWorkspaceBundles)
-
--- | The owner of the bundles. You cannot combine this parameter with any
--- other filter.
---
--- To describe the bundles provided by AWS, specify @AMAZON@. To describe
--- the bundles that belong to your account, don\'t specify a value.
-describeWorkspaceBundles_owner :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe Prelude.Text)
-describeWorkspaceBundles_owner = Lens.lens (\DescribeWorkspaceBundles' {owner} -> owner) (\s@DescribeWorkspaceBundles' {} a -> s {owner = a} :: DescribeWorkspaceBundles)
-
--- | The identifiers of the bundles. You cannot combine this parameter with
--- any other filter.
-describeWorkspaceBundles_bundleIds :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeWorkspaceBundles_bundleIds = Lens.lens (\DescribeWorkspaceBundles' {bundleIds} -> bundleIds) (\s@DescribeWorkspaceBundles' {} a -> s {bundleIds = a} :: DescribeWorkspaceBundles) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeWorkspaceBundles where
   page rq rs
@@ -149,8 +152,8 @@ instance Core.AWSRequest DescribeWorkspaceBundles where
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceBundlesResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Bundles" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Bundles" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -177,9 +180,9 @@ instance Core.ToJSON DescribeWorkspaceBundles where
   toJSON DescribeWorkspaceBundles' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("BundleIds" Core..=) Prelude.<$> bundleIds,
             ("Owner" Core..=) Prelude.<$> owner,
-            ("BundleIds" Core..=) Prelude.<$> bundleIds
+            ("NextToken" Core..=) Prelude.<$> nextToken
           ]
       )
 
@@ -191,12 +194,12 @@ instance Core.ToQuery DescribeWorkspaceBundles where
 
 -- | /See:/ 'newDescribeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the bundles.
+    bundles :: Prelude.Maybe [WorkspaceBundle],
+    -- | The token to use to retrieve the next page of results. This value is
     -- null when there are no more results to return. This token is valid for
     -- one day and must be used within that time frame.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the bundles.
-    bundles :: Prelude.Maybe [WorkspaceBundle],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -210,11 +213,11 @@ data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'bundles', 'describeWorkspaceBundlesResponse_bundles' - Information about the bundles.
+--
 -- 'nextToken', 'describeWorkspaceBundlesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return. This token is valid for
 -- one day and must be used within that time frame.
---
--- 'bundles', 'describeWorkspaceBundlesResponse_bundles' - Information about the bundles.
 --
 -- 'httpStatus', 'describeWorkspaceBundlesResponse_httpStatus' - The response's http status code.
 newDescribeWorkspaceBundlesResponse ::
@@ -223,21 +226,21 @@ newDescribeWorkspaceBundlesResponse ::
   DescribeWorkspaceBundlesResponse
 newDescribeWorkspaceBundlesResponse pHttpStatus_ =
   DescribeWorkspaceBundlesResponse'
-    { nextToken =
+    { bundles =
         Prelude.Nothing,
-      bundles = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the bundles.
+describeWorkspaceBundlesResponse_bundles :: Lens.Lens' DescribeWorkspaceBundlesResponse (Prelude.Maybe [WorkspaceBundle])
+describeWorkspaceBundlesResponse_bundles = Lens.lens (\DescribeWorkspaceBundlesResponse' {bundles} -> bundles) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {bundles = a} :: DescribeWorkspaceBundlesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- null when there are no more results to return. This token is valid for
 -- one day and must be used within that time frame.
 describeWorkspaceBundlesResponse_nextToken :: Lens.Lens' DescribeWorkspaceBundlesResponse (Prelude.Maybe Prelude.Text)
 describeWorkspaceBundlesResponse_nextToken = Lens.lens (\DescribeWorkspaceBundlesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceBundlesResponse)
-
--- | Information about the bundles.
-describeWorkspaceBundlesResponse_bundles :: Lens.Lens' DescribeWorkspaceBundlesResponse (Prelude.Maybe [WorkspaceBundle])
-describeWorkspaceBundlesResponse_bundles = Lens.lens (\DescribeWorkspaceBundlesResponse' {bundles} -> bundles) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {bundles = a} :: DescribeWorkspaceBundlesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeWorkspaceBundlesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceBundlesResponse Prelude.Int

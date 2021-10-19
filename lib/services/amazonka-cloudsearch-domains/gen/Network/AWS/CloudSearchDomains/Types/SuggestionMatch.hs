@@ -31,10 +31,10 @@ data SuggestionMatch = SuggestionMatch'
   { -- | The string that matches the query string specified in the
     -- @SuggestRequest@.
     suggestion :: Prelude.Maybe Prelude.Text,
-    -- | The document ID of the suggested document.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The relevance score of a suggested match.
-    score :: Prelude.Maybe Prelude.Integer
+    score :: Prelude.Maybe Prelude.Integer,
+    -- | The document ID of the suggested document.
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,16 +49,16 @@ data SuggestionMatch = SuggestionMatch'
 -- 'suggestion', 'suggestionMatch_suggestion' - The string that matches the query string specified in the
 -- @SuggestRequest@.
 --
--- 'id', 'suggestionMatch_id' - The document ID of the suggested document.
---
 -- 'score', 'suggestionMatch_score' - The relevance score of a suggested match.
+--
+-- 'id', 'suggestionMatch_id' - The document ID of the suggested document.
 newSuggestionMatch ::
   SuggestionMatch
 newSuggestionMatch =
   SuggestionMatch'
     { suggestion = Prelude.Nothing,
-      id = Prelude.Nothing,
-      score = Prelude.Nothing
+      score = Prelude.Nothing,
+      id = Prelude.Nothing
     }
 
 -- | The string that matches the query string specified in the
@@ -66,13 +66,13 @@ newSuggestionMatch =
 suggestionMatch_suggestion :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
 suggestionMatch_suggestion = Lens.lens (\SuggestionMatch' {suggestion} -> suggestion) (\s@SuggestionMatch' {} a -> s {suggestion = a} :: SuggestionMatch)
 
--- | The document ID of the suggested document.
-suggestionMatch_id :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
-suggestionMatch_id = Lens.lens (\SuggestionMatch' {id} -> id) (\s@SuggestionMatch' {} a -> s {id = a} :: SuggestionMatch)
-
 -- | The relevance score of a suggested match.
 suggestionMatch_score :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Integer)
 suggestionMatch_score = Lens.lens (\SuggestionMatch' {score} -> score) (\s@SuggestionMatch' {} a -> s {score = a} :: SuggestionMatch)
+
+-- | The document ID of the suggested document.
+suggestionMatch_id :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
+suggestionMatch_id = Lens.lens (\SuggestionMatch' {id} -> id) (\s@SuggestionMatch' {} a -> s {id = a} :: SuggestionMatch)
 
 instance Core.FromJSON SuggestionMatch where
   parseJSON =
@@ -81,8 +81,8 @@ instance Core.FromJSON SuggestionMatch where
       ( \x ->
           SuggestionMatch'
             Prelude.<$> (x Core..:? "suggestion")
-            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "score")
+            Prelude.<*> (x Core..:? "id")
       )
 
 instance Prelude.Hashable SuggestionMatch

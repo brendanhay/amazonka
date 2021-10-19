@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMssPackage' smart constructor.
 data MssPackage = MssPackage'
-  { streamSelection :: Prelude.Maybe StreamSelection,
-    -- | The time window (in seconds) contained in each manifest.
-    manifestWindowSeconds :: Prelude.Maybe Prelude.Int,
+  { -- | The duration (in seconds) of each segment.
+    segmentDurationSeconds :: Prelude.Maybe Prelude.Int,
+    streamSelection :: Prelude.Maybe StreamSelection,
     encryption :: Prelude.Maybe MssEncryption,
-    -- | The duration (in seconds) of each segment.
-    segmentDurationSeconds :: Prelude.Maybe Prelude.Int
+    -- | The time window (in seconds) contained in each manifest.
+    manifestWindowSeconds :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,38 +46,39 @@ data MssPackage = MssPackage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamSelection', 'mssPackage_streamSelection' - Undocumented member.
+-- 'segmentDurationSeconds', 'mssPackage_segmentDurationSeconds' - The duration (in seconds) of each segment.
 --
--- 'manifestWindowSeconds', 'mssPackage_manifestWindowSeconds' - The time window (in seconds) contained in each manifest.
+-- 'streamSelection', 'mssPackage_streamSelection' - Undocumented member.
 --
 -- 'encryption', 'mssPackage_encryption' - Undocumented member.
 --
--- 'segmentDurationSeconds', 'mssPackage_segmentDurationSeconds' - The duration (in seconds) of each segment.
+-- 'manifestWindowSeconds', 'mssPackage_manifestWindowSeconds' - The time window (in seconds) contained in each manifest.
 newMssPackage ::
   MssPackage
 newMssPackage =
   MssPackage'
-    { streamSelection = Prelude.Nothing,
-      manifestWindowSeconds = Prelude.Nothing,
+    { segmentDurationSeconds =
+        Prelude.Nothing,
+      streamSelection = Prelude.Nothing,
       encryption = Prelude.Nothing,
-      segmentDurationSeconds = Prelude.Nothing
+      manifestWindowSeconds = Prelude.Nothing
     }
+
+-- | The duration (in seconds) of each segment.
+mssPackage_segmentDurationSeconds :: Lens.Lens' MssPackage (Prelude.Maybe Prelude.Int)
+mssPackage_segmentDurationSeconds = Lens.lens (\MssPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@MssPackage' {} a -> s {segmentDurationSeconds = a} :: MssPackage)
 
 -- | Undocumented member.
 mssPackage_streamSelection :: Lens.Lens' MssPackage (Prelude.Maybe StreamSelection)
 mssPackage_streamSelection = Lens.lens (\MssPackage' {streamSelection} -> streamSelection) (\s@MssPackage' {} a -> s {streamSelection = a} :: MssPackage)
 
--- | The time window (in seconds) contained in each manifest.
-mssPackage_manifestWindowSeconds :: Lens.Lens' MssPackage (Prelude.Maybe Prelude.Int)
-mssPackage_manifestWindowSeconds = Lens.lens (\MssPackage' {manifestWindowSeconds} -> manifestWindowSeconds) (\s@MssPackage' {} a -> s {manifestWindowSeconds = a} :: MssPackage)
-
 -- | Undocumented member.
 mssPackage_encryption :: Lens.Lens' MssPackage (Prelude.Maybe MssEncryption)
 mssPackage_encryption = Lens.lens (\MssPackage' {encryption} -> encryption) (\s@MssPackage' {} a -> s {encryption = a} :: MssPackage)
 
--- | The duration (in seconds) of each segment.
-mssPackage_segmentDurationSeconds :: Lens.Lens' MssPackage (Prelude.Maybe Prelude.Int)
-mssPackage_segmentDurationSeconds = Lens.lens (\MssPackage' {segmentDurationSeconds} -> segmentDurationSeconds) (\s@MssPackage' {} a -> s {segmentDurationSeconds = a} :: MssPackage)
+-- | The time window (in seconds) contained in each manifest.
+mssPackage_manifestWindowSeconds :: Lens.Lens' MssPackage (Prelude.Maybe Prelude.Int)
+mssPackage_manifestWindowSeconds = Lens.lens (\MssPackage' {manifestWindowSeconds} -> manifestWindowSeconds) (\s@MssPackage' {} a -> s {manifestWindowSeconds = a} :: MssPackage)
 
 instance Core.FromJSON MssPackage where
   parseJSON =
@@ -85,10 +86,10 @@ instance Core.FromJSON MssPackage where
       "MssPackage"
       ( \x ->
           MssPackage'
-            Prelude.<$> (x Core..:? "streamSelection")
-            Prelude.<*> (x Core..:? "manifestWindowSeconds")
+            Prelude.<$> (x Core..:? "segmentDurationSeconds")
+            Prelude.<*> (x Core..:? "streamSelection")
             Prelude.<*> (x Core..:? "encryption")
-            Prelude.<*> (x Core..:? "segmentDurationSeconds")
+            Prelude.<*> (x Core..:? "manifestWindowSeconds")
       )
 
 instance Prelude.Hashable MssPackage
@@ -99,12 +100,12 @@ instance Core.ToJSON MssPackage where
   toJSON MssPackage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("streamSelection" Core..=)
+          [ ("segmentDurationSeconds" Core..=)
+              Prelude.<$> segmentDurationSeconds,
+            ("streamSelection" Core..=)
               Prelude.<$> streamSelection,
-            ("manifestWindowSeconds" Core..=)
-              Prelude.<$> manifestWindowSeconds,
             ("encryption" Core..=) Prelude.<$> encryption,
-            ("segmentDurationSeconds" Core..=)
-              Prelude.<$> segmentDurationSeconds
+            ("manifestWindowSeconds" Core..=)
+              Prelude.<$> manifestWindowSeconds
           ]
       )

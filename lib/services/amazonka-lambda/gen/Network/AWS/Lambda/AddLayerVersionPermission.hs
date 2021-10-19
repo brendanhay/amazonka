@@ -47,8 +47,8 @@ module Network.AWS.Lambda.AddLayerVersionPermission
     newAddLayerVersionPermissionResponse,
 
     -- * Response Lenses
-    addLayerVersionPermissionResponse_revisionId,
     addLayerVersionPermissionResponse_statement,
+    addLayerVersionPermissionResponse_revisionId,
     addLayerVersionPermissionResponse_httpStatus,
   )
 where
@@ -193,8 +193,8 @@ instance Core.AWSRequest AddLayerVersionPermission where
     Response.receiveJSON
       ( \s h x ->
           AddLayerVersionPermissionResponse'
-            Prelude.<$> (x Core..?> "RevisionId")
-            Prelude.<*> (x Core..?> "Statement")
+            Prelude.<$> (x Core..?> "Statement")
+            Prelude.<*> (x Core..?> "RevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -233,10 +233,10 @@ instance Core.ToQuery AddLayerVersionPermission where
 
 -- | /See:/ 'newAddLayerVersionPermissionResponse' smart constructor.
 data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'
-  { -- | A unique identifier for the current revision of the policy.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The permission statement.
+  { -- | The permission statement.
     statement :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the current revision of the policy.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -250,9 +250,9 @@ data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'addLayerVersionPermissionResponse_revisionId' - A unique identifier for the current revision of the policy.
---
 -- 'statement', 'addLayerVersionPermissionResponse_statement' - The permission statement.
+--
+-- 'revisionId', 'addLayerVersionPermissionResponse_revisionId' - A unique identifier for the current revision of the policy.
 --
 -- 'httpStatus', 'addLayerVersionPermissionResponse_httpStatus' - The response's http status code.
 newAddLayerVersionPermissionResponse ::
@@ -261,19 +261,19 @@ newAddLayerVersionPermissionResponse ::
   AddLayerVersionPermissionResponse
 newAddLayerVersionPermissionResponse pHttpStatus_ =
   AddLayerVersionPermissionResponse'
-    { revisionId =
+    { statement =
         Prelude.Nothing,
-      statement = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A unique identifier for the current revision of the policy.
-addLayerVersionPermissionResponse_revisionId :: Lens.Lens' AddLayerVersionPermissionResponse (Prelude.Maybe Prelude.Text)
-addLayerVersionPermissionResponse_revisionId = Lens.lens (\AddLayerVersionPermissionResponse' {revisionId} -> revisionId) (\s@AddLayerVersionPermissionResponse' {} a -> s {revisionId = a} :: AddLayerVersionPermissionResponse)
 
 -- | The permission statement.
 addLayerVersionPermissionResponse_statement :: Lens.Lens' AddLayerVersionPermissionResponse (Prelude.Maybe Prelude.Text)
 addLayerVersionPermissionResponse_statement = Lens.lens (\AddLayerVersionPermissionResponse' {statement} -> statement) (\s@AddLayerVersionPermissionResponse' {} a -> s {statement = a} :: AddLayerVersionPermissionResponse)
+
+-- | A unique identifier for the current revision of the policy.
+addLayerVersionPermissionResponse_revisionId :: Lens.Lens' AddLayerVersionPermissionResponse (Prelude.Maybe Prelude.Text)
+addLayerVersionPermissionResponse_revisionId = Lens.lens (\AddLayerVersionPermissionResponse' {revisionId} -> revisionId) (\s@AddLayerVersionPermissionResponse' {} a -> s {revisionId = a} :: AddLayerVersionPermissionResponse)
 
 -- | The response's http status code.
 addLayerVersionPermissionResponse_httpStatus :: Lens.Lens' AddLayerVersionPermissionResponse Prelude.Int

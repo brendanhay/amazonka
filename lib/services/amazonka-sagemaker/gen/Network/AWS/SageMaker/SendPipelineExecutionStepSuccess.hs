@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.SendPipelineExecutionStepSuccess
     newSendPipelineExecutionStepSuccess,
 
     -- * Request Lenses
-    sendPipelineExecutionStepSuccess_clientRequestToken,
     sendPipelineExecutionStepSuccess_outputParameters,
+    sendPipelineExecutionStepSuccess_clientRequestToken,
     sendPipelineExecutionStepSuccess_callbackToken,
 
     -- * Destructuring the Response
@@ -53,12 +53,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newSendPipelineExecutionStepSuccess' smart constructor.
 data SendPipelineExecutionStepSuccess = SendPipelineExecutionStepSuccess'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
+  { -- | A list of the output parameters of the callback step.
+    outputParameters :: Prelude.Maybe [OutputParameter],
+    -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the output parameters of the callback step.
-    outputParameters :: Prelude.Maybe [OutputParameter],
     -- | The pipeline generated token from the Amazon SQS queue.
     callbackToken :: Prelude.Text
   }
@@ -72,11 +72,11 @@ data SendPipelineExecutionStepSuccess = SendPipelineExecutionStepSuccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'outputParameters', 'sendPipelineExecutionStepSuccess_outputParameters' - A list of the output parameters of the callback step.
+--
 -- 'clientRequestToken', 'sendPipelineExecutionStepSuccess_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time.
---
--- 'outputParameters', 'sendPipelineExecutionStepSuccess_outputParameters' - A list of the output parameters of the callback step.
 --
 -- 'callbackToken', 'sendPipelineExecutionStepSuccess_callbackToken' - The pipeline generated token from the Amazon SQS queue.
 newSendPipelineExecutionStepSuccess ::
@@ -85,21 +85,21 @@ newSendPipelineExecutionStepSuccess ::
   SendPipelineExecutionStepSuccess
 newSendPipelineExecutionStepSuccess pCallbackToken_ =
   SendPipelineExecutionStepSuccess'
-    { clientRequestToken =
+    { outputParameters =
         Prelude.Nothing,
-      outputParameters = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       callbackToken = pCallbackToken_
     }
+
+-- | A list of the output parameters of the callback step.
+sendPipelineExecutionStepSuccess_outputParameters :: Lens.Lens' SendPipelineExecutionStepSuccess (Prelude.Maybe [OutputParameter])
+sendPipelineExecutionStepSuccess_outputParameters = Lens.lens (\SendPipelineExecutionStepSuccess' {outputParameters} -> outputParameters) (\s@SendPipelineExecutionStepSuccess' {} a -> s {outputParameters = a} :: SendPipelineExecutionStepSuccess) Prelude.. Lens.mapping Lens.coerced
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time.
 sendPipelineExecutionStepSuccess_clientRequestToken :: Lens.Lens' SendPipelineExecutionStepSuccess (Prelude.Maybe Prelude.Text)
 sendPipelineExecutionStepSuccess_clientRequestToken = Lens.lens (\SendPipelineExecutionStepSuccess' {clientRequestToken} -> clientRequestToken) (\s@SendPipelineExecutionStepSuccess' {} a -> s {clientRequestToken = a} :: SendPipelineExecutionStepSuccess)
-
--- | A list of the output parameters of the callback step.
-sendPipelineExecutionStepSuccess_outputParameters :: Lens.Lens' SendPipelineExecutionStepSuccess (Prelude.Maybe [OutputParameter])
-sendPipelineExecutionStepSuccess_outputParameters = Lens.lens (\SendPipelineExecutionStepSuccess' {outputParameters} -> outputParameters) (\s@SendPipelineExecutionStepSuccess' {} a -> s {outputParameters = a} :: SendPipelineExecutionStepSuccess) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pipeline generated token from the Amazon SQS queue.
 sendPipelineExecutionStepSuccess_callbackToken :: Lens.Lens' SendPipelineExecutionStepSuccess Prelude.Text
@@ -151,10 +151,10 @@ instance Core.ToJSON SendPipelineExecutionStepSuccess where
   toJSON SendPipelineExecutionStepSuccess' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ClientRequestToken" Core..=)
-              Prelude.<$> clientRequestToken,
-            ("OutputParameters" Core..=)
+          [ ("OutputParameters" Core..=)
               Prelude.<$> outputParameters,
+            ("ClientRequestToken" Core..=)
+              Prelude.<$> clientRequestToken,
             Prelude.Just
               ("CallbackToken" Core..= callbackToken)
           ]

@@ -61,7 +61,7 @@ principalIdFormat_arn = Lens.lens (\PrincipalIdFormat' {arn} -> arn) (\s@Princip
 
 -- | PrincipalIdFormatStatuses description
 principalIdFormat_statuses :: Lens.Lens' PrincipalIdFormat (Prelude.Maybe [IdFormat])
-principalIdFormat_statuses = Lens.lens (\PrincipalIdFormat' {statuses} -> statuses) (\s@PrincipalIdFormat' {} a -> s {statuses = a} :: PrincipalIdFormat) Prelude.. Lens.mapping Lens._Coerce
+principalIdFormat_statuses = Lens.lens (\PrincipalIdFormat' {statuses} -> statuses) (\s@PrincipalIdFormat' {} a -> s {statuses = a} :: PrincipalIdFormat) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML PrincipalIdFormat where
   parseXML x =

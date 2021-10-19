@@ -91,7 +91,7 @@ newFirelensConfiguration pType_ =
 --
 -- Tasks hosted on Fargate only support the @file@ configuration file type.
 firelensConfiguration_options :: Lens.Lens' FirelensConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Prelude.. Lens.mapping Lens._Coerce
+firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The log router to use. The valid values are @fluentd@ or @fluentbit@.
 firelensConfiguration_type :: Lens.Lens' FirelensConfiguration FirelensConfigurationType

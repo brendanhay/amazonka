@@ -193,7 +193,7 @@ newListSecurityConfigurationsResponse pHttpStatus_ =
 
 -- | The creation date and time, and name, of each security configuration.
 listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfigurationSummary])
-listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A pagination token that indicates the next set of results to retrieve.
 -- Include the marker in the next ListSecurityConfiguration call to

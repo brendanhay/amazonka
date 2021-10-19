@@ -31,7 +31,16 @@ import Network.AWS.Shield.Types.SubscriptionLimits
 --
 -- /See:/ 'newSubscription' smart constructor.
 data Subscription = Subscription'
-  { -- | If @ENABLED@, the subscription will be automatically renewed at the end
+  { -- | The length, in seconds, of the Shield Advanced subscription for the
+    -- account.
+    timeCommitmentInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The start time of the subscription, in Unix time in seconds. For more
+    -- information see
+    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | Specifies how many protections of a given type you can create.
+    limits :: Prelude.Maybe [Limit],
+    -- | If @ENABLED@, the subscription will be automatically renewed at the end
     -- of the existing subscription period.
     --
     -- When you initally create a subscription, @AutoRenew@ is set to
@@ -39,6 +48,8 @@ data Subscription = Subscription'
     -- request. If the @UpdateSubscription@ request does not included a value
     -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
     autoRenew :: Prelude.Maybe AutoRenew,
+    -- | The date and time your subscription will end.
+    endTime :: Prelude.Maybe Core.POSIX,
     -- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
     -- notify contacts about escalations to the SRT and to initiate proactive
     -- customer support.
@@ -50,19 +61,8 @@ data Subscription = Subscription'
     -- If @DISABLED@, the SRT will not proactively notify contacts about
     -- escalations or to initiate proactive customer support.
     proactiveEngagementStatus :: Prelude.Maybe ProactiveEngagementStatus,
-    -- | The start time of the subscription, in Unix time in seconds. For more
-    -- information see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The date and time your subscription will end.
-    endTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies how many protections of a given type you can create.
-    limits :: Prelude.Maybe [Limit],
     -- | The ARN (Amazon Resource Name) of the subscription.
     subscriptionArn :: Prelude.Maybe Prelude.Text,
-    -- | The length, in seconds, of the Shield Advanced subscription for the
-    -- account.
-    timeCommitmentInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Limits settings for your subscription.
     subscriptionLimits :: SubscriptionLimits
   }
@@ -76,6 +76,15 @@ data Subscription = Subscription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timeCommitmentInSeconds', 'subscription_timeCommitmentInSeconds' - The length, in seconds, of the Shield Advanced subscription for the
+-- account.
+--
+-- 'startTime', 'subscription_startTime' - The start time of the subscription, in Unix time in seconds. For more
+-- information see
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+--
+-- 'limits', 'subscription_limits' - Specifies how many protections of a given type you can create.
+--
 -- 'autoRenew', 'subscription_autoRenew' - If @ENABLED@, the subscription will be automatically renewed at the end
 -- of the existing subscription period.
 --
@@ -83,6 +92,8 @@ data Subscription = Subscription'
 -- @ENABLED@. You can change this by submitting an @UpdateSubscription@
 -- request. If the @UpdateSubscription@ request does not included a value
 -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
+--
+-- 'endTime', 'subscription_endTime' - The date and time your subscription will end.
 --
 -- 'proactiveEngagementStatus', 'subscription_proactiveEngagementStatus' - If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
 -- notify contacts about escalations to the SRT and to initiate proactive
@@ -95,18 +106,7 @@ data Subscription = Subscription'
 -- If @DISABLED@, the SRT will not proactively notify contacts about
 -- escalations or to initiate proactive customer support.
 --
--- 'startTime', 'subscription_startTime' - The start time of the subscription, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
---
--- 'endTime', 'subscription_endTime' - The date and time your subscription will end.
---
--- 'limits', 'subscription_limits' - Specifies how many protections of a given type you can create.
---
 -- 'subscriptionArn', 'subscription_subscriptionArn' - The ARN (Amazon Resource Name) of the subscription.
---
--- 'timeCommitmentInSeconds', 'subscription_timeCommitmentInSeconds' - The length, in seconds, of the Shield Advanced subscription for the
--- account.
 --
 -- 'subscriptionLimits', 'subscription_subscriptionLimits' - Limits settings for your subscription.
 newSubscription ::
@@ -115,15 +115,31 @@ newSubscription ::
   Subscription
 newSubscription pSubscriptionLimits_ =
   Subscription'
-    { autoRenew = Prelude.Nothing,
-      proactiveEngagementStatus = Prelude.Nothing,
+    { timeCommitmentInSeconds =
+        Prelude.Nothing,
       startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
       limits = Prelude.Nothing,
+      autoRenew = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      proactiveEngagementStatus = Prelude.Nothing,
       subscriptionArn = Prelude.Nothing,
-      timeCommitmentInSeconds = Prelude.Nothing,
       subscriptionLimits = pSubscriptionLimits_
     }
+
+-- | The length, in seconds, of the Shield Advanced subscription for the
+-- account.
+subscription_timeCommitmentInSeconds :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Natural)
+subscription_timeCommitmentInSeconds = Lens.lens (\Subscription' {timeCommitmentInSeconds} -> timeCommitmentInSeconds) (\s@Subscription' {} a -> s {timeCommitmentInSeconds = a} :: Subscription)
+
+-- | The start time of the subscription, in Unix time in seconds. For more
+-- information see
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+subscription_startTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
+subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
+
+-- | Specifies how many protections of a given type you can create.
+subscription_limits :: Lens.Lens' Subscription (Prelude.Maybe [Limit])
+subscription_limits = Lens.lens (\Subscription' {limits} -> limits) (\s@Subscription' {} a -> s {limits = a} :: Subscription) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @ENABLED@, the subscription will be automatically renewed at the end
 -- of the existing subscription period.
@@ -134,6 +150,10 @@ newSubscription pSubscriptionLimits_ =
 -- for @AutoRenew@, the existing value for @AutoRenew@ remains unchanged.
 subscription_autoRenew :: Lens.Lens' Subscription (Prelude.Maybe AutoRenew)
 subscription_autoRenew = Lens.lens (\Subscription' {autoRenew} -> autoRenew) (\s@Subscription' {} a -> s {autoRenew = a} :: Subscription)
+
+-- | The date and time your subscription will end.
+subscription_endTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
+subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subscription' {} a -> s {endTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
 
 -- | If @ENABLED@, the Shield Response Team (SRT) will use email and phone to
 -- notify contacts about escalations to the SRT and to initiate proactive
@@ -148,28 +168,9 @@ subscription_autoRenew = Lens.lens (\Subscription' {autoRenew} -> autoRenew) (\s
 subscription_proactiveEngagementStatus :: Lens.Lens' Subscription (Prelude.Maybe ProactiveEngagementStatus)
 subscription_proactiveEngagementStatus = Lens.lens (\Subscription' {proactiveEngagementStatus} -> proactiveEngagementStatus) (\s@Subscription' {} a -> s {proactiveEngagementStatus = a} :: Subscription)
 
--- | The start time of the subscription, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
-subscription_startTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
-subscription_startTime = Lens.lens (\Subscription' {startTime} -> startTime) (\s@Subscription' {} a -> s {startTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
-
--- | The date and time your subscription will end.
-subscription_endTime :: Lens.Lens' Subscription (Prelude.Maybe Prelude.UTCTime)
-subscription_endTime = Lens.lens (\Subscription' {endTime} -> endTime) (\s@Subscription' {} a -> s {endTime = a} :: Subscription) Prelude.. Lens.mapping Core._Time
-
--- | Specifies how many protections of a given type you can create.
-subscription_limits :: Lens.Lens' Subscription (Prelude.Maybe [Limit])
-subscription_limits = Lens.lens (\Subscription' {limits} -> limits) (\s@Subscription' {} a -> s {limits = a} :: Subscription) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The ARN (Amazon Resource Name) of the subscription.
 subscription_subscriptionArn :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Text)
 subscription_subscriptionArn = Lens.lens (\Subscription' {subscriptionArn} -> subscriptionArn) (\s@Subscription' {} a -> s {subscriptionArn = a} :: Subscription)
-
--- | The length, in seconds, of the Shield Advanced subscription for the
--- account.
-subscription_timeCommitmentInSeconds :: Lens.Lens' Subscription (Prelude.Maybe Prelude.Natural)
-subscription_timeCommitmentInSeconds = Lens.lens (\Subscription' {timeCommitmentInSeconds} -> timeCommitmentInSeconds) (\s@Subscription' {} a -> s {timeCommitmentInSeconds = a} :: Subscription)
 
 -- | Limits settings for your subscription.
 subscription_subscriptionLimits :: Lens.Lens' Subscription SubscriptionLimits
@@ -181,13 +182,13 @@ instance Core.FromJSON Subscription where
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Core..:? "AutoRenew")
-            Prelude.<*> (x Core..:? "ProactiveEngagementStatus")
+            Prelude.<$> (x Core..:? "TimeCommitmentInSeconds")
             Prelude.<*> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "Limits" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "AutoRenew")
+            Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "ProactiveEngagementStatus")
             Prelude.<*> (x Core..:? "SubscriptionArn")
-            Prelude.<*> (x Core..:? "TimeCommitmentInSeconds")
             Prelude.<*> (x Core..: "SubscriptionLimits")
       )
 

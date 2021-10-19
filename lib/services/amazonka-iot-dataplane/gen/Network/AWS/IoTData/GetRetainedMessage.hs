@@ -46,9 +46,9 @@ module Network.AWS.IoTData.GetRetainedMessage
     newGetRetainedMessageResponse,
 
     -- * Response Lenses
+    getRetainedMessageResponse_lastModifiedTime,
     getRetainedMessageResponse_payload,
     getRetainedMessageResponse_topic,
-    getRetainedMessageResponse_lastModifiedTime,
     getRetainedMessageResponse_qos,
     getRetainedMessageResponse_httpStatus,
   )
@@ -99,9 +99,9 @@ instance Core.AWSRequest GetRetainedMessage where
     Response.receiveJSON
       ( \s h x ->
           GetRetainedMessageResponse'
-            Prelude.<$> (x Core..?> "payload")
+            Prelude.<$> (x Core..?> "lastModifiedTime")
+            Prelude.<*> (x Core..?> "payload")
             Prelude.<*> (x Core..?> "topic")
-            Prelude.<*> (x Core..?> "lastModifiedTime")
             Prelude.<*> (x Core..?> "qos")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -125,13 +125,13 @@ instance Core.ToQuery GetRetainedMessage where
 --
 -- /See:/ 'newGetRetainedMessageResponse' smart constructor.
 data GetRetainedMessageResponse = GetRetainedMessageResponse'
-  { -- | The Base64-encoded message payload of the retained message body.
+  { -- | The Epoch date and time, in milliseconds, when the retained message was
+    -- stored by IoT.
+    lastModifiedTime :: Prelude.Maybe Prelude.Integer,
+    -- | The Base64-encoded message payload of the retained message body.
     payload :: Prelude.Maybe Core.Base64,
     -- | The topic name to which the retained message was published.
     topic :: Prelude.Maybe Prelude.Text,
-    -- | The Epoch date and time, in milliseconds, when the retained message was
-    -- stored by IoT.
-    lastModifiedTime :: Prelude.Maybe Prelude.Integer,
     -- | The quality of service (QoS) level used to publish the retained message.
     qos :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
@@ -147,6 +147,9 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastModifiedTime', 'getRetainedMessageResponse_lastModifiedTime' - The Epoch date and time, in milliseconds, when the retained message was
+-- stored by IoT.
+--
 -- 'payload', 'getRetainedMessageResponse_payload' - The Base64-encoded message payload of the retained message body.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
@@ -154,9 +157,6 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'topic', 'getRetainedMessageResponse_topic' - The topic name to which the retained message was published.
---
--- 'lastModifiedTime', 'getRetainedMessageResponse_lastModifiedTime' - The Epoch date and time, in milliseconds, when the retained message was
--- stored by IoT.
 --
 -- 'qos', 'getRetainedMessageResponse_qos' - The quality of service (QoS) level used to publish the retained message.
 --
@@ -167,13 +167,18 @@ newGetRetainedMessageResponse ::
   GetRetainedMessageResponse
 newGetRetainedMessageResponse pHttpStatus_ =
   GetRetainedMessageResponse'
-    { payload =
+    { lastModifiedTime =
         Prelude.Nothing,
+      payload = Prelude.Nothing,
       topic = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
       qos = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The Epoch date and time, in milliseconds, when the retained message was
+-- stored by IoT.
+getRetainedMessageResponse_lastModifiedTime :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Integer)
+getRetainedMessageResponse_lastModifiedTime = Lens.lens (\GetRetainedMessageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetRetainedMessageResponse' {} a -> s {lastModifiedTime = a} :: GetRetainedMessageResponse)
 
 -- | The Base64-encoded message payload of the retained message body.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -186,11 +191,6 @@ getRetainedMessageResponse_payload = Lens.lens (\GetRetainedMessageResponse' {pa
 -- | The topic name to which the retained message was published.
 getRetainedMessageResponse_topic :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Text)
 getRetainedMessageResponse_topic = Lens.lens (\GetRetainedMessageResponse' {topic} -> topic) (\s@GetRetainedMessageResponse' {} a -> s {topic = a} :: GetRetainedMessageResponse)
-
--- | The Epoch date and time, in milliseconds, when the retained message was
--- stored by IoT.
-getRetainedMessageResponse_lastModifiedTime :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Integer)
-getRetainedMessageResponse_lastModifiedTime = Lens.lens (\GetRetainedMessageResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetRetainedMessageResponse' {} a -> s {lastModifiedTime = a} :: GetRetainedMessageResponse)
 
 -- | The quality of service (QoS) level used to publish the retained message.
 getRetainedMessageResponse_qos :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Natural)

@@ -72,7 +72,7 @@ launchTemplateTagSpecificationRequest_resourceType = Lens.lens (\LaunchTemplateT
 
 -- | The tags to apply to the resource.
 launchTemplateTagSpecificationRequest_tags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Prelude.Maybe [Tag])
-launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Prelude.. Lens.mapping Lens._Coerce
+launchTemplateTagSpecificationRequest_tags = Lens.lens (\LaunchTemplateTagSpecificationRequest' {tags} -> tags) (\s@LaunchTemplateTagSpecificationRequest' {} a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable

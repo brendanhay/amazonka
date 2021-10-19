@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key that is associated with the tag.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The value that is associated with the tag.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value that is associated with the tag.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key that is associated with the tag.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key that is associated with the tag.
---
 -- 'value', 'tag_value' - The value that is associated with the tag.
+--
+-- 'key', 'tag_key' - The key that is associated with the tag.
 newTag ::
   Tag
 newTag =
   Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
-
--- | The key that is associated with the tag.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
-tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value that is associated with the tag.
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
+
+-- | The key that is associated with the tag.
+tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 instance Core.FromJSON Tag where
   parseJSON =
@@ -67,7 +67,7 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Key")
       )
 
 instance Prelude.Hashable Tag
@@ -78,7 +78,7 @@ instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Key" Core..=) Prelude.<$> key
           ]
       )

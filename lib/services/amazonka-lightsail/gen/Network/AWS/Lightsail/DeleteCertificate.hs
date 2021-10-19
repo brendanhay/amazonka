@@ -176,7 +176,7 @@ newDeleteCertificateResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteCertificateResponse_operations :: Lens.Lens' DeleteCertificateResponse (Prelude.Maybe [Operation])
-deleteCertificateResponse_operations = Lens.lens (\DeleteCertificateResponse' {operations} -> operations) (\s@DeleteCertificateResponse' {} a -> s {operations = a} :: DeleteCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteCertificateResponse_operations = Lens.lens (\DeleteCertificateResponse' {operations} -> operations) (\s@DeleteCertificateResponse' {} a -> s {operations = a} :: DeleteCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteCertificateResponse_httpStatus :: Lens.Lens' DeleteCertificateResponse Prelude.Int

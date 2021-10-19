@@ -225,7 +225,7 @@ newDetectTextResponse pHttpStatus_ =
 
 -- | An array of text that was detected in the input image.
 detectTextResponse_textDetections :: Lens.Lens' DetectTextResponse (Prelude.Maybe [TextDetection])
-detectTextResponse_textDetections = Lens.lens (\DetectTextResponse' {textDetections} -> textDetections) (\s@DetectTextResponse' {} a -> s {textDetections = a} :: DetectTextResponse) Prelude.. Lens.mapping Lens._Coerce
+detectTextResponse_textDetections = Lens.lens (\DetectTextResponse' {textDetections} -> textDetections) (\s@DetectTextResponse' {} a -> s {textDetections = a} :: DetectTextResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The model version used to detect text.
 detectTextResponse_textModelVersion :: Lens.Lens' DetectTextResponse (Prelude.Maybe Prelude.Text)

@@ -57,11 +57,11 @@ module Network.AWS.Rekognition.GetFaceDetection
     newGetFaceDetectionResponse,
 
     -- * Response Lenses
-    getFaceDetectionResponse_statusMessage,
-    getFaceDetectionResponse_videoMetadata,
     getFaceDetectionResponse_nextToken,
-    getFaceDetectionResponse_jobStatus,
+    getFaceDetectionResponse_videoMetadata,
+    getFaceDetectionResponse_statusMessage,
     getFaceDetectionResponse_faces,
+    getFaceDetectionResponse_jobStatus,
     getFaceDetectionResponse_httpStatus,
   )
 where
@@ -147,11 +147,11 @@ instance Core.AWSRequest GetFaceDetection where
     Response.receiveJSON
       ( \s h x ->
           GetFaceDetectionResponse'
-            Prelude.<$> (x Core..?> "StatusMessage")
+            Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "VideoMetadata")
-            Prelude.<*> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "JobStatus")
+            Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (x Core..?> "Faces" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -192,21 +192,21 @@ instance Core.ToQuery GetFaceDetection where
 
 -- | /See:/ 'newGetFaceDetectionResponse' smart constructor.
 data GetFaceDetectionResponse = GetFaceDetectionResponse'
-  { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+  { -- | If the response is truncated, Amazon Rekognition returns this token that
+    -- you can use in the subsequent request to retrieve the next set of faces.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition video operation.
     videoMetadata :: Prelude.Maybe VideoMetadata,
-    -- | If the response is truncated, Amazon Rekognition returns this token that
-    -- you can use in the subsequent request to retrieve the next set of faces.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the face detection job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
     -- | An array of faces detected in the video. Each element contains a
     -- detected face\'s details and the time, in milliseconds from the start of
     -- the video, the face was detected.
     faces :: Prelude.Maybe [FaceDetection],
+    -- | The current status of the face detection job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,20 +220,20 @@ data GetFaceDetectionResponse = GetFaceDetectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statusMessage', 'getFaceDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- 'nextToken', 'getFaceDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition returns this token that
+-- you can use in the subsequent request to retrieve the next set of faces.
 --
 -- 'videoMetadata', 'getFaceDetectionResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition video operation.
 --
--- 'nextToken', 'getFaceDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition returns this token that
--- you can use in the subsequent request to retrieve the next set of faces.
---
--- 'jobStatus', 'getFaceDetectionResponse_jobStatus' - The current status of the face detection job.
+-- 'statusMessage', 'getFaceDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
 -- 'faces', 'getFaceDetectionResponse_faces' - An array of faces detected in the video. Each element contains a
 -- detected face\'s details and the time, in milliseconds from the start of
 -- the video, the face was detected.
+--
+-- 'jobStatus', 'getFaceDetectionResponse_jobStatus' - The current status of the face detection job.
 --
 -- 'httpStatus', 'getFaceDetectionResponse_httpStatus' - The response's http status code.
 newGetFaceDetectionResponse ::
@@ -242,18 +242,19 @@ newGetFaceDetectionResponse ::
   GetFaceDetectionResponse
 newGetFaceDetectionResponse pHttpStatus_ =
   GetFaceDetectionResponse'
-    { statusMessage =
+    { nextToken =
         Prelude.Nothing,
       videoMetadata = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
+      statusMessage = Prelude.Nothing,
       faces = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getFaceDetectionResponse_statusMessage :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe Prelude.Text)
-getFaceDetectionResponse_statusMessage = Lens.lens (\GetFaceDetectionResponse' {statusMessage} -> statusMessage) (\s@GetFaceDetectionResponse' {} a -> s {statusMessage = a} :: GetFaceDetectionResponse)
+-- | If the response is truncated, Amazon Rekognition returns this token that
+-- you can use in the subsequent request to retrieve the next set of faces.
+getFaceDetectionResponse_nextToken :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe Prelude.Text)
+getFaceDetectionResponse_nextToken = Lens.lens (\GetFaceDetectionResponse' {nextToken} -> nextToken) (\s@GetFaceDetectionResponse' {} a -> s {nextToken = a} :: GetFaceDetectionResponse)
 
 -- | Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
@@ -261,20 +262,19 @@ getFaceDetectionResponse_statusMessage = Lens.lens (\GetFaceDetectionResponse' {
 getFaceDetectionResponse_videoMetadata :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe VideoMetadata)
 getFaceDetectionResponse_videoMetadata = Lens.lens (\GetFaceDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetFaceDetectionResponse' {} a -> s {videoMetadata = a} :: GetFaceDetectionResponse)
 
--- | If the response is truncated, Amazon Rekognition returns this token that
--- you can use in the subsequent request to retrieve the next set of faces.
-getFaceDetectionResponse_nextToken :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe Prelude.Text)
-getFaceDetectionResponse_nextToken = Lens.lens (\GetFaceDetectionResponse' {nextToken} -> nextToken) (\s@GetFaceDetectionResponse' {} a -> s {nextToken = a} :: GetFaceDetectionResponse)
-
--- | The current status of the face detection job.
-getFaceDetectionResponse_jobStatus :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe VideoJobStatus)
-getFaceDetectionResponse_jobStatus = Lens.lens (\GetFaceDetectionResponse' {jobStatus} -> jobStatus) (\s@GetFaceDetectionResponse' {} a -> s {jobStatus = a} :: GetFaceDetectionResponse)
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+getFaceDetectionResponse_statusMessage :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe Prelude.Text)
+getFaceDetectionResponse_statusMessage = Lens.lens (\GetFaceDetectionResponse' {statusMessage} -> statusMessage) (\s@GetFaceDetectionResponse' {} a -> s {statusMessage = a} :: GetFaceDetectionResponse)
 
 -- | An array of faces detected in the video. Each element contains a
 -- detected face\'s details and the time, in milliseconds from the start of
 -- the video, the face was detected.
 getFaceDetectionResponse_faces :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe [FaceDetection])
-getFaceDetectionResponse_faces = Lens.lens (\GetFaceDetectionResponse' {faces} -> faces) (\s@GetFaceDetectionResponse' {} a -> s {faces = a} :: GetFaceDetectionResponse) Prelude.. Lens.mapping Lens._Coerce
+getFaceDetectionResponse_faces = Lens.lens (\GetFaceDetectionResponse' {faces} -> faces) (\s@GetFaceDetectionResponse' {} a -> s {faces = a} :: GetFaceDetectionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The current status of the face detection job.
+getFaceDetectionResponse_jobStatus :: Lens.Lens' GetFaceDetectionResponse (Prelude.Maybe VideoJobStatus)
+getFaceDetectionResponse_jobStatus = Lens.lens (\GetFaceDetectionResponse' {jobStatus} -> jobStatus) (\s@GetFaceDetectionResponse' {} a -> s {jobStatus = a} :: GetFaceDetectionResponse)
 
 -- | The response's http status code.
 getFaceDetectionResponse_httpStatus :: Lens.Lens' GetFaceDetectionResponse Prelude.Int

@@ -31,8 +31,8 @@ module Network.AWS.Connect.ListIntegrationAssociations
 
     -- * Request Lenses
     listIntegrationAssociations_nextToken,
-    listIntegrationAssociations_maxResults,
     listIntegrationAssociations_integrationType,
+    listIntegrationAssociations_maxResults,
     listIntegrationAssociations_instanceId,
 
     -- * Destructuring the Response
@@ -59,9 +59,9 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    integrationType :: Prelude.Maybe IntegrationType,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    integrationType :: Prelude.Maybe IntegrationType,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -80,9 +80,9 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listIntegrationAssociations_maxResults' - The maximum number of results to return per page.
---
 -- 'integrationType', 'listIntegrationAssociations_integrationType' -
+--
+-- 'maxResults', 'listIntegrationAssociations_maxResults' - The maximum number of results to return per page.
 --
 -- 'instanceId', 'listIntegrationAssociations_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -94,8 +94,8 @@ newListIntegrationAssociations pInstanceId_ =
   ListIntegrationAssociations'
     { nextToken =
         Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       integrationType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -105,13 +105,13 @@ newListIntegrationAssociations pInstanceId_ =
 listIntegrationAssociations_nextToken :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Text)
 listIntegrationAssociations_nextToken = Lens.lens (\ListIntegrationAssociations' {nextToken} -> nextToken) (\s@ListIntegrationAssociations' {} a -> s {nextToken = a} :: ListIntegrationAssociations)
 
--- | The maximum number of results to return per page.
-listIntegrationAssociations_maxResults :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Natural)
-listIntegrationAssociations_maxResults = Lens.lens (\ListIntegrationAssociations' {maxResults} -> maxResults) (\s@ListIntegrationAssociations' {} a -> s {maxResults = a} :: ListIntegrationAssociations)
-
 -- |
 listIntegrationAssociations_integrationType :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe IntegrationType)
 listIntegrationAssociations_integrationType = Lens.lens (\ListIntegrationAssociations' {integrationType} -> integrationType) (\s@ListIntegrationAssociations' {} a -> s {integrationType = a} :: ListIntegrationAssociations)
+
+-- | The maximum number of results to return per page.
+listIntegrationAssociations_maxResults :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Natural)
+listIntegrationAssociations_maxResults = Lens.lens (\ListIntegrationAssociations' {maxResults} -> maxResults) (\s@ListIntegrationAssociations' {} a -> s {maxResults = a} :: ListIntegrationAssociations)
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -183,8 +183,8 @@ instance Core.ToQuery ListIntegrationAssociations where
   toQuery ListIntegrationAssociations' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
-        "integrationType" Core.=: integrationType
+        "integrationType" Core.=: integrationType,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListIntegrationAssociationsResponse' smart constructor.
@@ -233,7 +233,7 @@ listIntegrationAssociationsResponse_nextToken = Lens.lens (\ListIntegrationAssoc
 
 -- | The associations.
 listIntegrationAssociationsResponse_integrationAssociationSummaryList :: Lens.Lens' ListIntegrationAssociationsResponse (Prelude.Maybe [IntegrationAssociationSummary])
-listIntegrationAssociationsResponse_integrationAssociationSummaryList = Lens.lens (\ListIntegrationAssociationsResponse' {integrationAssociationSummaryList} -> integrationAssociationSummaryList) (\s@ListIntegrationAssociationsResponse' {} a -> s {integrationAssociationSummaryList = a} :: ListIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens._Coerce
+listIntegrationAssociationsResponse_integrationAssociationSummaryList = Lens.lens (\ListIntegrationAssociationsResponse' {integrationAssociationSummaryList} -> integrationAssociationSummaryList) (\s@ListIntegrationAssociationsResponse' {} a -> s {integrationAssociationSummaryList = a} :: ListIntegrationAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listIntegrationAssociationsResponse_httpStatus :: Lens.Lens' ListIntegrationAssociationsResponse Prelude.Int

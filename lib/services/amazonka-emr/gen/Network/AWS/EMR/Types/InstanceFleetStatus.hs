@@ -33,9 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceFleetStatus' smart constructor.
 data InstanceFleetStatus = InstanceFleetStatus'
-  { -- | Provides status change reason details for the instance fleet.
-    stateChangeReason :: Prelude.Maybe InstanceFleetStateChangeReason,
-    -- | A code representing the instance fleet status.
+  { -- | A code representing the instance fleet status.
     --
     -- -   @PROVISIONING@—The instance fleet is provisioning EC2 resources and
     --     is not yet ready to run jobs.
@@ -58,6 +56,8 @@ data InstanceFleetStatus = InstanceFleetStatus'
     -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
     --     instances have been terminated.
     state :: Prelude.Maybe InstanceFleetState,
+    -- | Provides status change reason details for the instance fleet.
+    stateChangeReason :: Prelude.Maybe InstanceFleetStateChangeReason,
     -- | Provides historical timestamps for the instance fleet, including the
     -- time of creation, the time it became ready to run jobs, and the time of
     -- termination.
@@ -72,8 +72,6 @@ data InstanceFleetStatus = InstanceFleetStatus'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.
 --
 -- 'state', 'instanceFleetStatus_state' - A code representing the instance fleet status.
 --
@@ -98,6 +96,8 @@ data InstanceFleetStatus = InstanceFleetStatus'
 -- -   @TERMINATED@—The instance fleet is no longer active, and all EC2
 --     instances have been terminated.
 --
+-- 'stateChangeReason', 'instanceFleetStatus_stateChangeReason' - Provides status change reason details for the instance fleet.
+--
 -- 'timeline', 'instanceFleetStatus_timeline' - Provides historical timestamps for the instance fleet, including the
 -- time of creation, the time it became ready to run jobs, and the time of
 -- termination.
@@ -105,15 +105,10 @@ newInstanceFleetStatus ::
   InstanceFleetStatus
 newInstanceFleetStatus =
   InstanceFleetStatus'
-    { stateChangeReason =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
+    { state = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
       timeline = Prelude.Nothing
     }
-
--- | Provides status change reason details for the instance fleet.
-instanceFleetStatus_stateChangeReason :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetStateChangeReason)
-instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceFleetStatus' {} a -> s {stateChangeReason = a} :: InstanceFleetStatus)
 
 -- | A code representing the instance fleet status.
 --
@@ -140,6 +135,10 @@ instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateC
 instanceFleetStatus_state :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetState)
 instanceFleetStatus_state = Lens.lens (\InstanceFleetStatus' {state} -> state) (\s@InstanceFleetStatus' {} a -> s {state = a} :: InstanceFleetStatus)
 
+-- | Provides status change reason details for the instance fleet.
+instanceFleetStatus_stateChangeReason :: Lens.Lens' InstanceFleetStatus (Prelude.Maybe InstanceFleetStateChangeReason)
+instanceFleetStatus_stateChangeReason = Lens.lens (\InstanceFleetStatus' {stateChangeReason} -> stateChangeReason) (\s@InstanceFleetStatus' {} a -> s {stateChangeReason = a} :: InstanceFleetStatus)
+
 -- | Provides historical timestamps for the instance fleet, including the
 -- time of creation, the time it became ready to run jobs, and the time of
 -- termination.
@@ -152,8 +151,8 @@ instance Core.FromJSON InstanceFleetStatus where
       "InstanceFleetStatus"
       ( \x ->
           InstanceFleetStatus'
-            Prelude.<$> (x Core..:? "StateChangeReason")
-            Prelude.<*> (x Core..:? "State")
+            Prelude.<$> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "Timeline")
       )
 

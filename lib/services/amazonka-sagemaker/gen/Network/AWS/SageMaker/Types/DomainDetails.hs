@@ -34,14 +34,14 @@ data DomainDetails = DomainDetails'
     status :: Prelude.Maybe DomainStatus,
     -- | The domain\'s Amazon Resource Name (ARN).
     domainArn :: Prelude.Maybe Prelude.Text,
-    -- | The domain ID.
-    domainId :: Prelude.Maybe Prelude.Text,
-    -- | The domain name.
-    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The domain\'s URL.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The last modified time.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The domain\'s URL.
-    url :: Prelude.Maybe Prelude.Text
+    -- | The domain name.
+    domainName :: Prelude.Maybe Prelude.Text,
+    -- | The domain ID.
+    domainId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,13 +59,13 @@ data DomainDetails = DomainDetails'
 --
 -- 'domainArn', 'domainDetails_domainArn' - The domain\'s Amazon Resource Name (ARN).
 --
--- 'domainId', 'domainDetails_domainId' - The domain ID.
---
--- 'domainName', 'domainDetails_domainName' - The domain name.
+-- 'url', 'domainDetails_url' - The domain\'s URL.
 --
 -- 'lastModifiedTime', 'domainDetails_lastModifiedTime' - The last modified time.
 --
--- 'url', 'domainDetails_url' - The domain\'s URL.
+-- 'domainName', 'domainDetails_domainName' - The domain name.
+--
+-- 'domainId', 'domainDetails_domainId' - The domain ID.
 newDomainDetails ::
   DomainDetails
 newDomainDetails =
@@ -73,10 +73,10 @@ newDomainDetails =
     { creationTime = Prelude.Nothing,
       status = Prelude.Nothing,
       domainArn = Prelude.Nothing,
-      domainId = Prelude.Nothing,
-      domainName = Prelude.Nothing,
+      url = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      url = Prelude.Nothing
+      domainName = Prelude.Nothing,
+      domainId = Prelude.Nothing
     }
 
 -- | The creation time.
@@ -91,21 +91,21 @@ domainDetails_status = Lens.lens (\DomainDetails' {status} -> status) (\s@Domain
 domainDetails_domainArn :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domainArn = Lens.lens (\DomainDetails' {domainArn} -> domainArn) (\s@DomainDetails' {} a -> s {domainArn = a} :: DomainDetails)
 
--- | The domain ID.
-domainDetails_domainId :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
-domainDetails_domainId = Lens.lens (\DomainDetails' {domainId} -> domainId) (\s@DomainDetails' {} a -> s {domainId = a} :: DomainDetails)
-
--- | The domain name.
-domainDetails_domainName :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
-domainDetails_domainName = Lens.lens (\DomainDetails' {domainName} -> domainName) (\s@DomainDetails' {} a -> s {domainName = a} :: DomainDetails)
+-- | The domain\'s URL.
+domainDetails_url :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
+domainDetails_url = Lens.lens (\DomainDetails' {url} -> url) (\s@DomainDetails' {} a -> s {url = a} :: DomainDetails)
 
 -- | The last modified time.
 domainDetails_lastModifiedTime :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.UTCTime)
 domainDetails_lastModifiedTime = Lens.lens (\DomainDetails' {lastModifiedTime} -> lastModifiedTime) (\s@DomainDetails' {} a -> s {lastModifiedTime = a} :: DomainDetails) Prelude.. Lens.mapping Core._Time
 
--- | The domain\'s URL.
-domainDetails_url :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
-domainDetails_url = Lens.lens (\DomainDetails' {url} -> url) (\s@DomainDetails' {} a -> s {url = a} :: DomainDetails)
+-- | The domain name.
+domainDetails_domainName :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
+domainDetails_domainName = Lens.lens (\DomainDetails' {domainName} -> domainName) (\s@DomainDetails' {} a -> s {domainName = a} :: DomainDetails)
+
+-- | The domain ID.
+domainDetails_domainId :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
+domainDetails_domainId = Lens.lens (\DomainDetails' {domainId} -> domainId) (\s@DomainDetails' {} a -> s {domainId = a} :: DomainDetails)
 
 instance Core.FromJSON DomainDetails where
   parseJSON =
@@ -116,10 +116,10 @@ instance Core.FromJSON DomainDetails where
             Prelude.<$> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "DomainArn")
-            Prelude.<*> (x Core..:? "DomainId")
-            Prelude.<*> (x Core..:? "DomainName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "Url")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<*> (x Core..:? "DomainId")
       )
 
 instance Prelude.Hashable DomainDetails

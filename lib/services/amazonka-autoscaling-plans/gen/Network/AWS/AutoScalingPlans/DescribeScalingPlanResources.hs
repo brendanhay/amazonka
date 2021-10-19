@@ -243,7 +243,7 @@ describeScalingPlanResourcesResponse_nextToken = Lens.lens (\DescribeScalingPlan
 
 -- | Information about the scalable resources.
 describeScalingPlanResourcesResponse_scalingPlanResources :: Lens.Lens' DescribeScalingPlanResourcesResponse (Prelude.Maybe [ScalingPlanResource])
-describeScalingPlanResourcesResponse_scalingPlanResources = Lens.lens (\DescribeScalingPlanResourcesResponse' {scalingPlanResources} -> scalingPlanResources) (\s@DescribeScalingPlanResourcesResponse' {} a -> s {scalingPlanResources = a} :: DescribeScalingPlanResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeScalingPlanResourcesResponse_scalingPlanResources = Lens.lens (\DescribeScalingPlanResourcesResponse' {scalingPlanResources} -> scalingPlanResources) (\s@DescribeScalingPlanResourcesResponse' {} a -> s {scalingPlanResources = a} :: DescribeScalingPlanResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeScalingPlanResourcesResponse_httpStatus :: Lens.Lens' DescribeScalingPlanResourcesResponse Prelude.Int

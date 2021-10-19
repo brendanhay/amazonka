@@ -45,8 +45,8 @@ module Network.AWS.EC2.GetConsoleOutput
     newGetConsoleOutput,
 
     -- * Request Lenses
-    getConsoleOutput_dryRun,
     getConsoleOutput_latest,
+    getConsoleOutput_dryRun,
     getConsoleOutput_instanceId,
 
     -- * Destructuring the Response
@@ -70,15 +70,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetConsoleOutput' smart constructor.
 data GetConsoleOutput = GetConsoleOutput'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | When enabled, retrieves the latest console output for the instance.
+    --
+    -- Default: disabled (@false@)
+    latest :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | When enabled, retrieves the latest console output for the instance.
-    --
-    -- Default: disabled (@false@)
-    latest :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
   }
@@ -92,14 +92,14 @@ data GetConsoleOutput = GetConsoleOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'latest', 'getConsoleOutput_latest' - When enabled, retrieves the latest console output for the instance.
+--
+-- Default: disabled (@false@)
+--
 -- 'dryRun', 'getConsoleOutput_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'latest', 'getConsoleOutput_latest' - When enabled, retrieves the latest console output for the instance.
---
--- Default: disabled (@false@)
 --
 -- 'instanceId', 'getConsoleOutput_instanceId' - The ID of the instance.
 newGetConsoleOutput ::
@@ -108,10 +108,16 @@ newGetConsoleOutput ::
   GetConsoleOutput
 newGetConsoleOutput pInstanceId_ =
   GetConsoleOutput'
-    { dryRun = Prelude.Nothing,
-      latest = Prelude.Nothing,
+    { latest = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       instanceId = pInstanceId_
     }
+
+-- | When enabled, retrieves the latest console output for the instance.
+--
+-- Default: disabled (@false@)
+getConsoleOutput_latest :: Lens.Lens' GetConsoleOutput (Prelude.Maybe Prelude.Bool)
+getConsoleOutput_latest = Lens.lens (\GetConsoleOutput' {latest} -> latest) (\s@GetConsoleOutput' {} a -> s {latest = a} :: GetConsoleOutput)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -119,12 +125,6 @@ newGetConsoleOutput pInstanceId_ =
 -- Otherwise, it is @UnauthorizedOperation@.
 getConsoleOutput_dryRun :: Lens.Lens' GetConsoleOutput (Prelude.Maybe Prelude.Bool)
 getConsoleOutput_dryRun = Lens.lens (\GetConsoleOutput' {dryRun} -> dryRun) (\s@GetConsoleOutput' {} a -> s {dryRun = a} :: GetConsoleOutput)
-
--- | When enabled, retrieves the latest console output for the instance.
---
--- Default: disabled (@false@)
-getConsoleOutput_latest :: Lens.Lens' GetConsoleOutput (Prelude.Maybe Prelude.Bool)
-getConsoleOutput_latest = Lens.lens (\GetConsoleOutput' {latest} -> latest) (\s@GetConsoleOutput' {} a -> s {latest = a} :: GetConsoleOutput)
 
 -- | The ID of the instance.
 getConsoleOutput_instanceId :: Lens.Lens' GetConsoleOutput Prelude.Text
@@ -162,8 +162,8 @@ instance Core.ToQuery GetConsoleOutput where
           Core.=: ("GetConsoleOutput" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "Latest" Core.=: latest,
+        "DryRun" Core.=: dryRun,
         "InstanceId" Core.=: instanceId
       ]
 

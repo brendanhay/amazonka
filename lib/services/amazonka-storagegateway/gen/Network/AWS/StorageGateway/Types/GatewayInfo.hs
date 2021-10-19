@@ -27,10 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGatewayInfo' smart constructor.
 data GatewayInfo = GatewayInfo'
-  { -- | The Region where the Amazon EC2 instance is located.
+  { -- | The Amazon Web Services Region where the Amazon EC2 instance is located.
     ec2InstanceRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
-    -- operation to return a list of gateways for your account and Region.
+    -- operation to return a list of gateways for your account and Amazon Web
+    -- Services Region.
     gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
     ec2InstanceId :: Prelude.Maybe Prelude.Text,
@@ -57,10 +58,11 @@ data GatewayInfo = GatewayInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ec2InstanceRegion', 'gatewayInfo_ec2InstanceRegion' - The Region where the Amazon EC2 instance is located.
+-- 'ec2InstanceRegion', 'gatewayInfo_ec2InstanceRegion' - The Amazon Web Services Region where the Amazon EC2 instance is located.
 --
 -- 'gatewayARN', 'gatewayInfo_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and Region.
+-- operation to return a list of gateways for your account and Amazon Web
+-- Services Region.
 --
 -- 'ec2InstanceId', 'gatewayInfo_ec2InstanceId' - The ID of the Amazon EC2 instance that was used to launch the gateway.
 --
@@ -88,12 +90,13 @@ newGatewayInfo =
       gatewayType = Prelude.Nothing
     }
 
--- | The Region where the Amazon EC2 instance is located.
+-- | The Amazon Web Services Region where the Amazon EC2 instance is located.
 gatewayInfo_ec2InstanceRegion :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_ec2InstanceRegion = Lens.lens (\GatewayInfo' {ec2InstanceRegion} -> ec2InstanceRegion) (\s@GatewayInfo' {} a -> s {ec2InstanceRegion = a} :: GatewayInfo)
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and Region.
+-- operation to return a list of gateways for your account and Amazon Web
+-- Services Region.
 gatewayInfo_gatewayARN :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_gatewayARN = Lens.lens (\GatewayInfo' {gatewayARN} -> gatewayARN) (\s@GatewayInfo' {} a -> s {gatewayARN = a} :: GatewayInfo)
 

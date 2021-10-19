@@ -32,26 +32,26 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newViolationEvent' smart constructor.
 data ViolationEvent = ViolationEvent'
-  { -- | The value of the metric (the measurement).
-    metricValue :: Prelude.Maybe MetricValue,
-    -- | The ID of the violation event.
-    violationId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the thing responsible for the violation event.
-    thingName :: Prelude.Maybe Prelude.Text,
+  { -- | The type of violation event.
+    violationEventType :: Prelude.Maybe ViolationEventType,
     -- | The description of the verification state of the violation.
     verificationStateDescription :: Prelude.Maybe Prelude.Text,
-    -- | The name of the security profile whose behavior was violated.
-    securityProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the violation event.
+    violationId :: Prelude.Maybe Prelude.Text,
     -- | The behavior that was violated.
     behavior :: Prelude.Maybe Behavior,
-    -- | The verification state of the violation (detect alarm).
-    verificationState :: Prelude.Maybe VerificationState,
+    -- | The value of the metric (the measurement).
+    metricValue :: Prelude.Maybe MetricValue,
+    -- | The name of the security profile whose behavior was violated.
+    securityProfileName :: Prelude.Maybe Prelude.Text,
+    -- | The details of a violation event.
+    violationEventAdditionalInfo :: Prelude.Maybe ViolationEventAdditionalInfo,
     -- | The time the violation event occurred.
     violationEventTime :: Prelude.Maybe Core.POSIX,
-    -- | The type of violation event.
-    violationEventType :: Prelude.Maybe ViolationEventType,
-    -- | The details of a violation event.
-    violationEventAdditionalInfo :: Prelude.Maybe ViolationEventAdditionalInfo
+    -- | The name of the thing responsible for the violation event.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The verification state of the violation (detect alarm).
+    verificationState :: Prelude.Maybe VerificationState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,80 +63,81 @@ data ViolationEvent = ViolationEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricValue', 'violationEvent_metricValue' - The value of the metric (the measurement).
---
--- 'violationId', 'violationEvent_violationId' - The ID of the violation event.
---
--- 'thingName', 'violationEvent_thingName' - The name of the thing responsible for the violation event.
+-- 'violationEventType', 'violationEvent_violationEventType' - The type of violation event.
 --
 -- 'verificationStateDescription', 'violationEvent_verificationStateDescription' - The description of the verification state of the violation.
 --
--- 'securityProfileName', 'violationEvent_securityProfileName' - The name of the security profile whose behavior was violated.
+-- 'violationId', 'violationEvent_violationId' - The ID of the violation event.
 --
 -- 'behavior', 'violationEvent_behavior' - The behavior that was violated.
 --
--- 'verificationState', 'violationEvent_verificationState' - The verification state of the violation (detect alarm).
+-- 'metricValue', 'violationEvent_metricValue' - The value of the metric (the measurement).
+--
+-- 'securityProfileName', 'violationEvent_securityProfileName' - The name of the security profile whose behavior was violated.
+--
+-- 'violationEventAdditionalInfo', 'violationEvent_violationEventAdditionalInfo' - The details of a violation event.
 --
 -- 'violationEventTime', 'violationEvent_violationEventTime' - The time the violation event occurred.
 --
--- 'violationEventType', 'violationEvent_violationEventType' - The type of violation event.
+-- 'thingName', 'violationEvent_thingName' - The name of the thing responsible for the violation event.
 --
--- 'violationEventAdditionalInfo', 'violationEvent_violationEventAdditionalInfo' - The details of a violation event.
+-- 'verificationState', 'violationEvent_verificationState' - The verification state of the violation (detect alarm).
 newViolationEvent ::
   ViolationEvent
 newViolationEvent =
   ViolationEvent'
-    { metricValue = Prelude.Nothing,
-      violationId = Prelude.Nothing,
-      thingName = Prelude.Nothing,
+    { violationEventType =
+        Prelude.Nothing,
       verificationStateDescription = Prelude.Nothing,
-      securityProfileName = Prelude.Nothing,
+      violationId = Prelude.Nothing,
       behavior = Prelude.Nothing,
-      verificationState = Prelude.Nothing,
+      metricValue = Prelude.Nothing,
+      securityProfileName = Prelude.Nothing,
+      violationEventAdditionalInfo = Prelude.Nothing,
       violationEventTime = Prelude.Nothing,
-      violationEventType = Prelude.Nothing,
-      violationEventAdditionalInfo = Prelude.Nothing
+      thingName = Prelude.Nothing,
+      verificationState = Prelude.Nothing
     }
-
--- | The value of the metric (the measurement).
-violationEvent_metricValue :: Lens.Lens' ViolationEvent (Prelude.Maybe MetricValue)
-violationEvent_metricValue = Lens.lens (\ViolationEvent' {metricValue} -> metricValue) (\s@ViolationEvent' {} a -> s {metricValue = a} :: ViolationEvent)
-
--- | The ID of the violation event.
-violationEvent_violationId :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
-violationEvent_violationId = Lens.lens (\ViolationEvent' {violationId} -> violationId) (\s@ViolationEvent' {} a -> s {violationId = a} :: ViolationEvent)
-
--- | The name of the thing responsible for the violation event.
-violationEvent_thingName :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
-violationEvent_thingName = Lens.lens (\ViolationEvent' {thingName} -> thingName) (\s@ViolationEvent' {} a -> s {thingName = a} :: ViolationEvent)
-
--- | The description of the verification state of the violation.
-violationEvent_verificationStateDescription :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
-violationEvent_verificationStateDescription = Lens.lens (\ViolationEvent' {verificationStateDescription} -> verificationStateDescription) (\s@ViolationEvent' {} a -> s {verificationStateDescription = a} :: ViolationEvent)
-
--- | The name of the security profile whose behavior was violated.
-violationEvent_securityProfileName :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
-violationEvent_securityProfileName = Lens.lens (\ViolationEvent' {securityProfileName} -> securityProfileName) (\s@ViolationEvent' {} a -> s {securityProfileName = a} :: ViolationEvent)
-
--- | The behavior that was violated.
-violationEvent_behavior :: Lens.Lens' ViolationEvent (Prelude.Maybe Behavior)
-violationEvent_behavior = Lens.lens (\ViolationEvent' {behavior} -> behavior) (\s@ViolationEvent' {} a -> s {behavior = a} :: ViolationEvent)
-
--- | The verification state of the violation (detect alarm).
-violationEvent_verificationState :: Lens.Lens' ViolationEvent (Prelude.Maybe VerificationState)
-violationEvent_verificationState = Lens.lens (\ViolationEvent' {verificationState} -> verificationState) (\s@ViolationEvent' {} a -> s {verificationState = a} :: ViolationEvent)
-
--- | The time the violation event occurred.
-violationEvent_violationEventTime :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.UTCTime)
-violationEvent_violationEventTime = Lens.lens (\ViolationEvent' {violationEventTime} -> violationEventTime) (\s@ViolationEvent' {} a -> s {violationEventTime = a} :: ViolationEvent) Prelude.. Lens.mapping Core._Time
 
 -- | The type of violation event.
 violationEvent_violationEventType :: Lens.Lens' ViolationEvent (Prelude.Maybe ViolationEventType)
 violationEvent_violationEventType = Lens.lens (\ViolationEvent' {violationEventType} -> violationEventType) (\s@ViolationEvent' {} a -> s {violationEventType = a} :: ViolationEvent)
 
+-- | The description of the verification state of the violation.
+violationEvent_verificationStateDescription :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
+violationEvent_verificationStateDescription = Lens.lens (\ViolationEvent' {verificationStateDescription} -> verificationStateDescription) (\s@ViolationEvent' {} a -> s {verificationStateDescription = a} :: ViolationEvent)
+
+-- | The ID of the violation event.
+violationEvent_violationId :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
+violationEvent_violationId = Lens.lens (\ViolationEvent' {violationId} -> violationId) (\s@ViolationEvent' {} a -> s {violationId = a} :: ViolationEvent)
+
+-- | The behavior that was violated.
+violationEvent_behavior :: Lens.Lens' ViolationEvent (Prelude.Maybe Behavior)
+violationEvent_behavior = Lens.lens (\ViolationEvent' {behavior} -> behavior) (\s@ViolationEvent' {} a -> s {behavior = a} :: ViolationEvent)
+
+-- | The value of the metric (the measurement).
+violationEvent_metricValue :: Lens.Lens' ViolationEvent (Prelude.Maybe MetricValue)
+violationEvent_metricValue = Lens.lens (\ViolationEvent' {metricValue} -> metricValue) (\s@ViolationEvent' {} a -> s {metricValue = a} :: ViolationEvent)
+
+-- | The name of the security profile whose behavior was violated.
+violationEvent_securityProfileName :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
+violationEvent_securityProfileName = Lens.lens (\ViolationEvent' {securityProfileName} -> securityProfileName) (\s@ViolationEvent' {} a -> s {securityProfileName = a} :: ViolationEvent)
+
 -- | The details of a violation event.
 violationEvent_violationEventAdditionalInfo :: Lens.Lens' ViolationEvent (Prelude.Maybe ViolationEventAdditionalInfo)
 violationEvent_violationEventAdditionalInfo = Lens.lens (\ViolationEvent' {violationEventAdditionalInfo} -> violationEventAdditionalInfo) (\s@ViolationEvent' {} a -> s {violationEventAdditionalInfo = a} :: ViolationEvent)
+
+-- | The time the violation event occurred.
+violationEvent_violationEventTime :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.UTCTime)
+violationEvent_violationEventTime = Lens.lens (\ViolationEvent' {violationEventTime} -> violationEventTime) (\s@ViolationEvent' {} a -> s {violationEventTime = a} :: ViolationEvent) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the thing responsible for the violation event.
+violationEvent_thingName :: Lens.Lens' ViolationEvent (Prelude.Maybe Prelude.Text)
+violationEvent_thingName = Lens.lens (\ViolationEvent' {thingName} -> thingName) (\s@ViolationEvent' {} a -> s {thingName = a} :: ViolationEvent)
+
+-- | The verification state of the violation (detect alarm).
+violationEvent_verificationState :: Lens.Lens' ViolationEvent (Prelude.Maybe VerificationState)
+violationEvent_verificationState = Lens.lens (\ViolationEvent' {verificationState} -> verificationState) (\s@ViolationEvent' {} a -> s {verificationState = a} :: ViolationEvent)
 
 instance Core.FromJSON ViolationEvent where
   parseJSON =
@@ -144,16 +145,16 @@ instance Core.FromJSON ViolationEvent where
       "ViolationEvent"
       ( \x ->
           ViolationEvent'
-            Prelude.<$> (x Core..:? "metricValue")
-            Prelude.<*> (x Core..:? "violationId")
-            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<$> (x Core..:? "violationEventType")
             Prelude.<*> (x Core..:? "verificationStateDescription")
-            Prelude.<*> (x Core..:? "securityProfileName")
+            Prelude.<*> (x Core..:? "violationId")
             Prelude.<*> (x Core..:? "behavior")
-            Prelude.<*> (x Core..:? "verificationState")
-            Prelude.<*> (x Core..:? "violationEventTime")
-            Prelude.<*> (x Core..:? "violationEventType")
+            Prelude.<*> (x Core..:? "metricValue")
+            Prelude.<*> (x Core..:? "securityProfileName")
             Prelude.<*> (x Core..:? "violationEventAdditionalInfo")
+            Prelude.<*> (x Core..:? "violationEventTime")
+            Prelude.<*> (x Core..:? "thingName")
+            Prelude.<*> (x Core..:? "verificationState")
       )
 
 instance Prelude.Hashable ViolationEvent

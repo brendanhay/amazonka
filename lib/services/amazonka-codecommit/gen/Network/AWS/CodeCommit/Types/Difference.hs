@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDifference' smart constructor.
 data Difference = Difference'
-  { -- | Whether the change type of the difference is an addition (A), deletion
-    -- (D), or modification (M).
-    changeType :: Prelude.Maybe ChangeTypeEnum,
-    -- | Information about an @afterBlob@ data type object, including the ID, the
+  { -- | Information about an @afterBlob@ data type object, including the ID, the
     -- file mode permission code, and the path.
     afterBlob :: Prelude.Maybe BlobMetadata,
     -- | Information about a @beforeBlob@ data type object, including the ID, the
     -- file mode permission code, and the path.
-    beforeBlob :: Prelude.Maybe BlobMetadata
+    beforeBlob :: Prelude.Maybe BlobMetadata,
+    -- | Whether the change type of the difference is an addition (A), deletion
+    -- (D), or modification (M).
+    changeType :: Prelude.Maybe ChangeTypeEnum
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,27 +49,22 @@ data Difference = Difference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'changeType', 'difference_changeType' - Whether the change type of the difference is an addition (A), deletion
--- (D), or modification (M).
---
 -- 'afterBlob', 'difference_afterBlob' - Information about an @afterBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
 --
 -- 'beforeBlob', 'difference_beforeBlob' - Information about a @beforeBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
+--
+-- 'changeType', 'difference_changeType' - Whether the change type of the difference is an addition (A), deletion
+-- (D), or modification (M).
 newDifference ::
   Difference
 newDifference =
   Difference'
-    { changeType = Prelude.Nothing,
-      afterBlob = Prelude.Nothing,
-      beforeBlob = Prelude.Nothing
+    { afterBlob = Prelude.Nothing,
+      beforeBlob = Prelude.Nothing,
+      changeType = Prelude.Nothing
     }
-
--- | Whether the change type of the difference is an addition (A), deletion
--- (D), or modification (M).
-difference_changeType :: Lens.Lens' Difference (Prelude.Maybe ChangeTypeEnum)
-difference_changeType = Lens.lens (\Difference' {changeType} -> changeType) (\s@Difference' {} a -> s {changeType = a} :: Difference)
 
 -- | Information about an @afterBlob@ data type object, including the ID, the
 -- file mode permission code, and the path.
@@ -81,15 +76,20 @@ difference_afterBlob = Lens.lens (\Difference' {afterBlob} -> afterBlob) (\s@Dif
 difference_beforeBlob :: Lens.Lens' Difference (Prelude.Maybe BlobMetadata)
 difference_beforeBlob = Lens.lens (\Difference' {beforeBlob} -> beforeBlob) (\s@Difference' {} a -> s {beforeBlob = a} :: Difference)
 
+-- | Whether the change type of the difference is an addition (A), deletion
+-- (D), or modification (M).
+difference_changeType :: Lens.Lens' Difference (Prelude.Maybe ChangeTypeEnum)
+difference_changeType = Lens.lens (\Difference' {changeType} -> changeType) (\s@Difference' {} a -> s {changeType = a} :: Difference)
+
 instance Core.FromJSON Difference where
   parseJSON =
     Core.withObject
       "Difference"
       ( \x ->
           Difference'
-            Prelude.<$> (x Core..:? "changeType")
-            Prelude.<*> (x Core..:? "afterBlob")
+            Prelude.<$> (x Core..:? "afterBlob")
             Prelude.<*> (x Core..:? "beforeBlob")
+            Prelude.<*> (x Core..:? "changeType")
       )
 
 instance Prelude.Hashable Difference

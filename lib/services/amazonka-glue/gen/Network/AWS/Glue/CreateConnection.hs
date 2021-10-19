@@ -28,6 +28,7 @@ module Network.AWS.Glue.CreateConnection
 
     -- * Request Lenses
     createConnection_catalogId,
+    createConnection_tags,
     createConnection_connectionInput,
 
     -- * Destructuring the Response
@@ -51,6 +52,8 @@ data CreateConnection = CreateConnection'
   { -- | The ID of the Data Catalog in which to create the connection. If none is
     -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The tags you assign to the connection.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A @ConnectionInput@ object defining the connection to create.
     connectionInput :: ConnectionInput
   }
@@ -67,6 +70,8 @@ data CreateConnection = CreateConnection'
 -- 'catalogId', 'createConnection_catalogId' - The ID of the Data Catalog in which to create the connection. If none is
 -- provided, the Amazon Web Services account ID is used by default.
 --
+-- 'tags', 'createConnection_tags' - The tags you assign to the connection.
+--
 -- 'connectionInput', 'createConnection_connectionInput' - A @ConnectionInput@ object defining the connection to create.
 newCreateConnection ::
   -- | 'connectionInput'
@@ -75,6 +80,7 @@ newCreateConnection ::
 newCreateConnection pConnectionInput_ =
   CreateConnection'
     { catalogId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       connectionInput = pConnectionInput_
     }
 
@@ -82,6 +88,10 @@ newCreateConnection pConnectionInput_ =
 -- provided, the Amazon Web Services account ID is used by default.
 createConnection_catalogId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
 createConnection_catalogId = Lens.lens (\CreateConnection' {catalogId} -> catalogId) (\s@CreateConnection' {} a -> s {catalogId = a} :: CreateConnection)
+
+-- | The tags you assign to the connection.
+createConnection_tags :: Lens.Lens' CreateConnection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createConnection_tags = Lens.lens (\CreateConnection' {tags} -> tags) (\s@CreateConnection' {} a -> s {tags = a} :: CreateConnection) Prelude.. Lens.mapping Lens.coerced
 
 -- | A @ConnectionInput@ object defining the connection to create.
 createConnection_connectionInput :: Lens.Lens' CreateConnection ConnectionInput
@@ -121,6 +131,7 @@ instance Core.ToJSON CreateConnection where
     Core.object
       ( Prelude.catMaybes
           [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("ConnectionInput" Core..= connectionInput)
           ]

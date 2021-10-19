@@ -29,11 +29,11 @@ import Network.AWS.SageMaker.Types.RedshiftResultFormat
 --
 -- /See:/ 'newRedshiftDatasetDefinition' smart constructor.
 data RedshiftDatasetDefinition = RedshiftDatasetDefinition'
-  { outputCompression :: Prelude.Maybe RedshiftResultCompressionType,
-    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
     -- key that Amazon SageMaker uses to encrypt data from a Redshift
     -- execution.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    outputCompression :: Prelude.Maybe RedshiftResultCompressionType,
     clusterId :: Prelude.Text,
     database :: Prelude.Text,
     dbUser :: Prelude.Text,
@@ -55,11 +55,11 @@ data RedshiftDatasetDefinition = RedshiftDatasetDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputCompression', 'redshiftDatasetDefinition_outputCompression' - Undocumented member.
---
 -- 'kmsKeyId', 'redshiftDatasetDefinition_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data from a Redshift
 -- execution.
+--
+-- 'outputCompression', 'redshiftDatasetDefinition_outputCompression' - Undocumented member.
 --
 -- 'clusterId', 'redshiftDatasetDefinition_clusterId' - Undocumented member.
 --
@@ -100,9 +100,9 @@ newRedshiftDatasetDefinition
   pOutputS3Uri_
   pOutputFormat_ =
     RedshiftDatasetDefinition'
-      { outputCompression =
+      { kmsKeyId =
           Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
+        outputCompression = Prelude.Nothing,
         clusterId = pClusterId_,
         database = pDatabase_,
         dbUser = pDbUser_,
@@ -112,15 +112,15 @@ newRedshiftDatasetDefinition
         outputFormat = pOutputFormat_
       }
 
--- | Undocumented member.
-redshiftDatasetDefinition_outputCompression :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe RedshiftResultCompressionType)
-redshiftDatasetDefinition_outputCompression = Lens.lens (\RedshiftDatasetDefinition' {outputCompression} -> outputCompression) (\s@RedshiftDatasetDefinition' {} a -> s {outputCompression = a} :: RedshiftDatasetDefinition)
-
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data from a Redshift
 -- execution.
 redshiftDatasetDefinition_kmsKeyId :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe Prelude.Text)
 redshiftDatasetDefinition_kmsKeyId = Lens.lens (\RedshiftDatasetDefinition' {kmsKeyId} -> kmsKeyId) (\s@RedshiftDatasetDefinition' {} a -> s {kmsKeyId = a} :: RedshiftDatasetDefinition)
+
+-- | Undocumented member.
+redshiftDatasetDefinition_outputCompression :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe RedshiftResultCompressionType)
+redshiftDatasetDefinition_outputCompression = Lens.lens (\RedshiftDatasetDefinition' {outputCompression} -> outputCompression) (\s@RedshiftDatasetDefinition' {} a -> s {outputCompression = a} :: RedshiftDatasetDefinition)
 
 -- | Undocumented member.
 redshiftDatasetDefinition_clusterId :: Lens.Lens' RedshiftDatasetDefinition Prelude.Text
@@ -157,8 +157,8 @@ instance Core.FromJSON RedshiftDatasetDefinition where
       "RedshiftDatasetDefinition"
       ( \x ->
           RedshiftDatasetDefinition'
-            Prelude.<$> (x Core..:? "OutputCompression")
-            Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<$> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "OutputCompression")
             Prelude.<*> (x Core..: "ClusterId")
             Prelude.<*> (x Core..: "Database")
             Prelude.<*> (x Core..: "DbUser")
@@ -176,9 +176,9 @@ instance Core.ToJSON RedshiftDatasetDefinition where
   toJSON RedshiftDatasetDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OutputCompression" Core..=)
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("OutputCompression" Core..=)
               Prelude.<$> outputCompression,
-            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("ClusterId" Core..= clusterId),
             Prelude.Just ("Database" Core..= database),
             Prelude.Just ("DbUser" Core..= dbUser),

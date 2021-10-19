@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newApplicationState' smart constructor.
 data ApplicationState = ApplicationState'
-  { -- | The configurationId from the Application Discovery Service that uniquely
+  { -- | The timestamp when the application status was last updated.
+    lastUpdatedTime :: Prelude.Maybe Core.POSIX,
+    -- | The configurationId from the Application Discovery Service that uniquely
     -- identifies an application.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The current status of an application.
-    applicationStatus :: Prelude.Maybe ApplicationStatus,
-    -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Core.POSIX
+    applicationStatus :: Prelude.Maybe ApplicationStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,20 +48,25 @@ data ApplicationState = ApplicationState'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastUpdatedTime', 'applicationState_lastUpdatedTime' - The timestamp when the application status was last updated.
+--
 -- 'applicationId', 'applicationState_applicationId' - The configurationId from the Application Discovery Service that uniquely
 -- identifies an application.
 --
 -- 'applicationStatus', 'applicationState_applicationStatus' - The current status of an application.
---
--- 'lastUpdatedTime', 'applicationState_lastUpdatedTime' - The timestamp when the application status was last updated.
 newApplicationState ::
   ApplicationState
 newApplicationState =
   ApplicationState'
-    { applicationId = Prelude.Nothing,
-      applicationStatus = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+    { lastUpdatedTime =
+        Prelude.Nothing,
+      applicationId = Prelude.Nothing,
+      applicationStatus = Prelude.Nothing
     }
+
+-- | The timestamp when the application status was last updated.
+applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.UTCTime)
+applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Prelude.. Lens.mapping Core._Time
 
 -- | The configurationId from the Application Discovery Service that uniquely
 -- identifies an application.
@@ -72,19 +77,15 @@ applicationState_applicationId = Lens.lens (\ApplicationState' {applicationId} -
 applicationState_applicationStatus :: Lens.Lens' ApplicationState (Prelude.Maybe ApplicationStatus)
 applicationState_applicationStatus = Lens.lens (\ApplicationState' {applicationStatus} -> applicationStatus) (\s@ApplicationState' {} a -> s {applicationStatus = a} :: ApplicationState)
 
--- | The timestamp when the application status was last updated.
-applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.UTCTime)
-applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromJSON ApplicationState where
   parseJSON =
     Core.withObject
       "ApplicationState"
       ( \x ->
           ApplicationState'
-            Prelude.<$> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Core..:? "LastUpdatedTime")
+            Prelude.<*> (x Core..:? "ApplicationId")
             Prelude.<*> (x Core..:? "ApplicationStatus")
-            Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 
 instance Prelude.Hashable ApplicationState

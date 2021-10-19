@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourcePolicy' smart constructor.
 data ResourcePolicy = ResourcePolicy'
-  { -- | The details of the policy.
-    policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The name of the resource policy.
+  { -- | The name of the resource policy.
     policyName :: Prelude.Maybe Prelude.Text,
+    -- | The details of the policy.
+    policyDocument :: Prelude.Maybe Prelude.Text,
     -- | Timestamp showing when this policy was last updated, expressed as the
     -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
     lastUpdatedTime :: Prelude.Maybe Prelude.Natural
@@ -46,9 +46,9 @@ data ResourcePolicy = ResourcePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'resourcePolicy_policyDocument' - The details of the policy.
---
 -- 'policyName', 'resourcePolicy_policyName' - The name of the resource policy.
+--
+-- 'policyDocument', 'resourcePolicy_policyDocument' - The details of the policy.
 --
 -- 'lastUpdatedTime', 'resourcePolicy_lastUpdatedTime' - Timestamp showing when this policy was last updated, expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
@@ -56,18 +56,18 @@ newResourcePolicy ::
   ResourcePolicy
 newResourcePolicy =
   ResourcePolicy'
-    { policyDocument = Prelude.Nothing,
-      policyName = Prelude.Nothing,
+    { policyName = Prelude.Nothing,
+      policyDocument = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing
     }
-
--- | The details of the policy.
-resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
-resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
 -- | The name of the resource policy.
 resourcePolicy_policyName :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
 resourcePolicy_policyName = Lens.lens (\ResourcePolicy' {policyName} -> policyName) (\s@ResourcePolicy' {} a -> s {policyName = a} :: ResourcePolicy)
+
+-- | The details of the policy.
+resourcePolicy_policyDocument :: Lens.Lens' ResourcePolicy (Prelude.Maybe Prelude.Text)
+resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> policyDocument) (\s@ResourcePolicy' {} a -> s {policyDocument = a} :: ResourcePolicy)
 
 -- | Timestamp showing when this policy was last updated, expressed as the
 -- number of milliseconds after Jan 1, 1970 00:00:00 UTC.
@@ -80,8 +80,8 @@ instance Core.FromJSON ResourcePolicy where
       "ResourcePolicy"
       ( \x ->
           ResourcePolicy'
-            Prelude.<$> (x Core..:? "policyDocument")
-            Prelude.<*> (x Core..:? "policyName")
+            Prelude.<$> (x Core..:? "policyName")
+            Prelude.<*> (x Core..:? "policyDocument")
             Prelude.<*> (x Core..:? "lastUpdatedTime")
       )
 

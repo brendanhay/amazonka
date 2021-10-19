@@ -29,20 +29,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSimulatePolicyResponse' smart constructor.
 data SimulatePolicyResponse = SimulatePolicyResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | The results of the simulation.
+    evaluationResults :: Prelude.Maybe [EvaluationResult],
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. Note that
     -- IAM might return fewer than the @MaxItems@ number of results even when
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | The results of the simulation.
-    evaluationResults :: Prelude.Maybe [EvaluationResult],
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text
+    isTruncated :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,6 +54,12 @@ data SimulatePolicyResponse = SimulatePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'evaluationResults', 'simulatePolicyResponse_evaluationResults' - The results of the simulation.
+--
+-- 'marker', 'simulatePolicyResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'simulatePolicyResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. Note that
@@ -61,21 +67,25 @@ data SimulatePolicyResponse = SimulatePolicyResponse'
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
---
--- 'evaluationResults', 'simulatePolicyResponse_evaluationResults' - The results of the simulation.
---
--- 'marker', 'simulatePolicyResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
 newSimulatePolicyResponse ::
   SimulatePolicyResponse
 newSimulatePolicyResponse =
   SimulatePolicyResponse'
-    { isTruncated =
+    { evaluationResults =
         Prelude.Nothing,
-      evaluationResults = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      isTruncated = Prelude.Nothing
     }
+
+-- | The results of the simulation.
+simulatePolicyResponse_evaluationResults :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe [EvaluationResult])
+simulatePolicyResponse_evaluationResults = Lens.lens (\SimulatePolicyResponse' {evaluationResults} -> evaluationResults) (\s@SimulatePolicyResponse' {} a -> s {evaluationResults = a} :: SimulatePolicyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+simulatePolicyResponse_marker :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe Prelude.Text)
+simulatePolicyResponse_marker = Lens.lens (\SimulatePolicyResponse' {marker} -> marker) (\s@SimulatePolicyResponse' {} a -> s {marker = a} :: SimulatePolicyResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -87,25 +97,15 @@ newSimulatePolicyResponse =
 simulatePolicyResponse_isTruncated :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe Prelude.Bool)
 simulatePolicyResponse_isTruncated = Lens.lens (\SimulatePolicyResponse' {isTruncated} -> isTruncated) (\s@SimulatePolicyResponse' {} a -> s {isTruncated = a} :: SimulatePolicyResponse)
 
--- | The results of the simulation.
-simulatePolicyResponse_evaluationResults :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe [EvaluationResult])
-simulatePolicyResponse_evaluationResults = Lens.lens (\SimulatePolicyResponse' {evaluationResults} -> evaluationResults) (\s@SimulatePolicyResponse' {} a -> s {evaluationResults = a} :: SimulatePolicyResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-simulatePolicyResponse_marker :: Lens.Lens' SimulatePolicyResponse (Prelude.Maybe Prelude.Text)
-simulatePolicyResponse_marker = Lens.lens (\SimulatePolicyResponse' {marker} -> marker) (\s@SimulatePolicyResponse' {} a -> s {marker = a} :: SimulatePolicyResponse)
-
 instance Core.FromXML SimulatePolicyResponse where
   parseXML x =
     SimulatePolicyResponse'
-      Prelude.<$> (x Core..@? "IsTruncated")
-      Prelude.<*> ( x Core..@? "EvaluationResults"
+      Prelude.<$> ( x Core..@? "EvaluationResults"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "Marker")
+      Prelude.<*> (x Core..@? "IsTruncated")
 
 instance Prelude.Hashable SimulatePolicyResponse
 

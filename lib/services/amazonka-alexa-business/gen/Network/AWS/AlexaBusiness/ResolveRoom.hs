@@ -190,7 +190,7 @@ newResolveRoomResponse pHttpStatus_ =
 
 -- | Response to get the room profile request. Required.
 resolveRoomResponse_roomSkillParameters :: Lens.Lens' ResolveRoomResponse (Prelude.Maybe [RoomSkillParameter])
-resolveRoomResponse_roomSkillParameters = Lens.lens (\ResolveRoomResponse' {roomSkillParameters} -> roomSkillParameters) (\s@ResolveRoomResponse' {} a -> s {roomSkillParameters = a} :: ResolveRoomResponse) Prelude.. Lens.mapping Lens._Coerce
+resolveRoomResponse_roomSkillParameters = Lens.lens (\ResolveRoomResponse' {roomSkillParameters} -> roomSkillParameters) (\s@ResolveRoomResponse' {} a -> s {roomSkillParameters = a} :: ResolveRoomResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the room from which the skill request was invoked.
 resolveRoomResponse_roomArn :: Lens.Lens' ResolveRoomResponse (Prelude.Maybe Prelude.Text)

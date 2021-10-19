@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-storagegateway
-version:            1.6.1
+version:            2.0
 synopsis:           Amazon Storage Gateway SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues
@@ -138,6 +138,7 @@ library
     Network.AWS.StorageGateway.Types.FileShareInfo
     Network.AWS.StorageGateway.Types.FileShareType
     Network.AWS.StorageGateway.Types.FileSystemAssociationInfo
+    Network.AWS.StorageGateway.Types.FileSystemAssociationStatusDetail
     Network.AWS.StorageGateway.Types.FileSystemAssociationSummary
     Network.AWS.StorageGateway.Types.GatewayCapacity
     Network.AWS.StorageGateway.Types.GatewayInfo
@@ -150,6 +151,7 @@ library
     Network.AWS.StorageGateway.Types.PoolStatus
     Network.AWS.StorageGateway.Types.RetentionLockType
     Network.AWS.StorageGateway.Types.SMBFileShareInfo
+    Network.AWS.StorageGateway.Types.SMBLocalGroups
     Network.AWS.StorageGateway.Types.SMBSecurityStrategy
     Network.AWS.StorageGateway.Types.StorediSCSIVolume
     Network.AWS.StorageGateway.Types.Tag
@@ -173,6 +175,7 @@ library
     Network.AWS.StorageGateway.UpdateNFSFileShare
     Network.AWS.StorageGateway.UpdateSMBFileShare
     Network.AWS.StorageGateway.UpdateSMBFileShareVisibility
+    Network.AWS.StorageGateway.UpdateSMBLocalGroups
     Network.AWS.StorageGateway.UpdateSMBSecurityStrategy
     Network.AWS.StorageGateway.UpdateSnapshotSchedule
     Network.AWS.StorageGateway.UpdateVTLDeviceType
@@ -180,8 +183,8 @@ library
 
   reexported-modules: Network.AWS
   build-depends:
-    , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.12  && <5
+    , amazonka  ^>=2.0
+    , base      >=4.12 && <5
 
 test-suite amazonka-storagegateway-test
   type:             exitcode-stdio-1.0
@@ -199,9 +202,9 @@ test-suite amazonka-storagegateway-test
     Test.AWS.StorageGateway.Internal
 
   build-depends:
-    , amazonka                 >=1.6.1 && <1.6.2
+    , amazonka                 ^>=2.0
     , amazonka-storagegateway
-    , amazonka-test            >=1.6.1 && <1.6.2
+    , amazonka-test            ^>=2.0
     , base
     , bytestring
     , case-insensitive

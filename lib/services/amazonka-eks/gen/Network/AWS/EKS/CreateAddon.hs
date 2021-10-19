@@ -34,11 +34,11 @@ module Network.AWS.EKS.CreateAddon
     newCreateAddon,
 
     -- * Request Lenses
-    createAddon_resolveConflicts,
-    createAddon_serviceAccountRoleArn,
     createAddon_addonVersion,
-    createAddon_tags,
+    createAddon_serviceAccountRoleArn,
+    createAddon_resolveConflicts,
     createAddon_clientRequestToken,
+    createAddon_tags,
     createAddon_clusterName,
     createAddon_addonName,
 
@@ -61,9 +61,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateAddon' smart constructor.
 data CreateAddon = CreateAddon'
-  { -- | How to resolve parameter value conflicts when migrating an existing
-    -- add-on to an Amazon EKS add-on.
-    resolveConflicts :: Prelude.Maybe ResolveConflicts,
+  { -- | The version of the add-on. The version must match one of the versions
+    -- returned by
+    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
+    -- .
+    addonVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
     -- add-on\'s service account. The role must be assigned the IAM permissions
     -- required by the add-on. If you don\'t specify an existing IAM role, then
@@ -77,18 +79,16 @@ data CreateAddon = CreateAddon'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
     -- in the /Amazon EKS User Guide/.
     serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The version of the add-on. The version must match one of the versions
-    -- returned by
-    -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
-    -- .
-    addonVersion :: Prelude.Maybe Prelude.Text,
+    -- | How to resolve parameter value conflicts when migrating an existing
+    -- add-on to an Amazon EKS add-on.
+    resolveConflicts :: Prelude.Maybe ResolveConflicts,
+    -- | A unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The metadata to apply to the cluster to assist with categorization and
     -- organization. Each tag consists of a key and an optional value, both of
     -- which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the cluster to create the add-on for.
     clusterName :: Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
@@ -106,8 +106,10 @@ data CreateAddon = CreateAddon'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolveConflicts', 'createAddon_resolveConflicts' - How to resolve parameter value conflicts when migrating an existing
--- add-on to an Amazon EKS add-on.
+-- 'addonVersion', 'createAddon_addonVersion' - The version of the add-on. The version must match one of the versions
+-- returned by
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
+-- .
 --
 -- 'serviceAccountRoleArn', 'createAddon_serviceAccountRoleArn' - The Amazon Resource Name (ARN) of an existing IAM role to bind to the
 -- add-on\'s service account. The role must be assigned the IAM permissions
@@ -122,17 +124,15 @@ data CreateAddon = CreateAddon'
 -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
 -- in the /Amazon EKS User Guide/.
 --
--- 'addonVersion', 'createAddon_addonVersion' - The version of the add-on. The version must match one of the versions
--- returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
+-- 'resolveConflicts', 'createAddon_resolveConflicts' - How to resolve parameter value conflicts when migrating an existing
+-- add-on to an Amazon EKS add-on.
+--
+-- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request.
 --
 -- 'tags', 'createAddon_tags' - The metadata to apply to the cluster to assist with categorization and
 -- organization. Each tag consists of a key and an optional value, both of
 -- which you define.
---
--- 'clientRequestToken', 'createAddon_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
 --
 -- 'clusterName', 'createAddon_clusterName' - The name of the cluster to create the add-on for.
 --
@@ -147,19 +147,21 @@ newCreateAddon ::
   CreateAddon
 newCreateAddon pClusterName_ pAddonName_ =
   CreateAddon'
-    { resolveConflicts = Prelude.Nothing,
+    { addonVersion = Prelude.Nothing,
       serviceAccountRoleArn = Prelude.Nothing,
-      addonVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      resolveConflicts = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
+      tags = Prelude.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
 
--- | How to resolve parameter value conflicts when migrating an existing
--- add-on to an Amazon EKS add-on.
-createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Prelude.Maybe ResolveConflicts)
-createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> resolveConflicts) (\s@CreateAddon' {} a -> s {resolveConflicts = a} :: CreateAddon)
+-- | The version of the add-on. The version must match one of the versions
+-- returned by
+-- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
+-- .
+createAddon_addonVersion :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
+createAddon_addonVersion = Lens.lens (\CreateAddon' {addonVersion} -> addonVersion) (\s@CreateAddon' {} a -> s {addonVersion = a} :: CreateAddon)
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
 -- add-on\'s service account. The role must be assigned the IAM permissions
@@ -176,23 +178,21 @@ createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> re
 createAddon_serviceAccountRoleArn :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
 createAddon_serviceAccountRoleArn = Lens.lens (\CreateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@CreateAddon' {} a -> s {serviceAccountRoleArn = a} :: CreateAddon)
 
--- | The version of the add-on. The version must match one of the versions
--- returned by
--- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
--- .
-createAddon_addonVersion :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
-createAddon_addonVersion = Lens.lens (\CreateAddon' {addonVersion} -> addonVersion) (\s@CreateAddon' {} a -> s {addonVersion = a} :: CreateAddon)
-
--- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
-createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens._Coerce
+-- | How to resolve parameter value conflicts when migrating an existing
+-- add-on to an Amazon EKS add-on.
+createAddon_resolveConflicts :: Lens.Lens' CreateAddon (Prelude.Maybe ResolveConflicts)
+createAddon_resolveConflicts = Lens.lens (\CreateAddon' {resolveConflicts} -> resolveConflicts) (\s@CreateAddon' {} a -> s {resolveConflicts = a} :: CreateAddon)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 createAddon_clientRequestToken :: Lens.Lens' CreateAddon (Prelude.Maybe Prelude.Text)
 createAddon_clientRequestToken = Lens.lens (\CreateAddon' {clientRequestToken} -> clientRequestToken) (\s@CreateAddon' {} a -> s {clientRequestToken = a} :: CreateAddon)
+
+-- | The metadata to apply to the cluster to assist with categorization and
+-- organization. Each tag consists of a key and an optional value, both of
+-- which you define.
+createAddon_tags :: Lens.Lens' CreateAddon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createAddon_tags = Lens.lens (\CreateAddon' {tags} -> tags) (\s@CreateAddon' {} a -> s {tags = a} :: CreateAddon) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the cluster to create the add-on for.
 createAddon_clusterName :: Lens.Lens' CreateAddon Prelude.Text
@@ -234,14 +234,14 @@ instance Core.ToJSON CreateAddon where
   toJSON CreateAddon' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("resolveConflicts" Core..=)
-              Prelude.<$> resolveConflicts,
+          [ ("addonVersion" Core..=) Prelude.<$> addonVersion,
             ("serviceAccountRoleArn" Core..=)
               Prelude.<$> serviceAccountRoleArn,
-            ("addonVersion" Core..=) Prelude.<$> addonVersion,
-            ("tags" Core..=) Prelude.<$> tags,
+            ("resolveConflicts" Core..=)
+              Prelude.<$> resolveConflicts,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("addonName" Core..= addonName)
           ]
       )

@@ -73,7 +73,7 @@ newBatchDeleteClusterSnapshots =
 
 -- | A list of identifiers for the snapshots that you want to delete.
 batchDeleteClusterSnapshots_identifiers :: Lens.Lens' BatchDeleteClusterSnapshots [DeleteClusterSnapshotMessage]
-batchDeleteClusterSnapshots_identifiers = Lens.lens (\BatchDeleteClusterSnapshots' {identifiers} -> identifiers) (\s@BatchDeleteClusterSnapshots' {} a -> s {identifiers = a} :: BatchDeleteClusterSnapshots) Prelude.. Lens._Coerce
+batchDeleteClusterSnapshots_identifiers = Lens.lens (\BatchDeleteClusterSnapshots' {identifiers} -> identifiers) (\s@BatchDeleteClusterSnapshots' {} a -> s {identifiers = a} :: BatchDeleteClusterSnapshots) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDeleteClusterSnapshots where
   type
@@ -157,11 +157,11 @@ newBatchDeleteClusterSnapshotsResponse pHttpStatus_ =
 
 -- | A list of the snapshot identifiers that were deleted.
 batchDeleteClusterSnapshotsResponse_resources :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [Prelude.Text])
-batchDeleteClusterSnapshotsResponse_resources = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {resources} -> resources) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteClusterSnapshotsResponse_resources = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {resources} -> resources) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {resources = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of any errors returned.
 batchDeleteClusterSnapshotsResponse_errors :: Lens.Lens' BatchDeleteClusterSnapshotsResponse (Prelude.Maybe [SnapshotErrorMessage])
-batchDeleteClusterSnapshotsResponse_errors = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {errors} -> errors) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {errors = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchDeleteClusterSnapshotsResponse_errors = Lens.lens (\BatchDeleteClusterSnapshotsResponse' {errors} -> errors) (\s@BatchDeleteClusterSnapshotsResponse' {} a -> s {errors = a} :: BatchDeleteClusterSnapshotsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchDeleteClusterSnapshotsResponse_httpStatus :: Lens.Lens' BatchDeleteClusterSnapshotsResponse Prelude.Int

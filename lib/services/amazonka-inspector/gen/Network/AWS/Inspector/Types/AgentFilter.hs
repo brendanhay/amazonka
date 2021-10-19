@@ -65,13 +65,13 @@ newAgentFilter =
 -- | The current health state of the agent. Values can be set to __HEALTHY__
 -- or __UNHEALTHY__.
 agentFilter_agentHealths :: Lens.Lens' AgentFilter [AgentHealth]
-agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealths) (\s@AgentFilter' {} a -> s {agentHealths = a} :: AgentFilter) Prelude.. Lens._Coerce
+agentFilter_agentHealths = Lens.lens (\AgentFilter' {agentHealths} -> agentHealths) (\s@AgentFilter' {} a -> s {agentHealths = a} :: AgentFilter) Prelude.. Lens.coerced
 
 -- | The detailed health state of the agent. Values can be set to __IDLE__,
 -- __RUNNING__, __SHUTDOWN__, __UNHEALTHY__, __THROTTLED__, and
 -- __UNKNOWN__.
 agentFilter_agentHealthCodes :: Lens.Lens' AgentFilter [AgentHealthCode]
-agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Prelude.. Lens._Coerce
+agentFilter_agentHealthCodes = Lens.lens (\AgentFilter' {agentHealthCodes} -> agentHealthCodes) (\s@AgentFilter' {} a -> s {agentHealthCodes = a} :: AgentFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable AgentFilter
 

@@ -80,7 +80,7 @@ newUntagResource ::
 newUntagResource pResourceARN_ pTagKeys_ =
   UntagResource'
     { resourceARN = pResourceARN_,
-      tagKeys = Lens._Coerce Lens.# pTagKeys_
+      tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
 -- |
@@ -89,7 +89,7 @@ untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resource
 
 -- |
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

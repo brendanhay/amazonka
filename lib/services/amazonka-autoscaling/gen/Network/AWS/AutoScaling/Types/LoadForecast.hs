@@ -66,11 +66,11 @@ newLoadForecast pMetricSpecification_ =
 
 -- | The time stamps for the data points, in UTC format.
 loadForecast_timestamps :: Lens.Lens' LoadForecast [Prelude.UTCTime]
-loadForecast_timestamps = Lens.lens (\LoadForecast' {timestamps} -> timestamps) (\s@LoadForecast' {} a -> s {timestamps = a} :: LoadForecast) Prelude.. Lens._Coerce
+loadForecast_timestamps = Lens.lens (\LoadForecast' {timestamps} -> timestamps) (\s@LoadForecast' {} a -> s {timestamps = a} :: LoadForecast) Prelude.. Lens.coerced
 
 -- | The values of the data points.
 loadForecast_values :: Lens.Lens' LoadForecast [Prelude.Double]
-loadForecast_values = Lens.lens (\LoadForecast' {values} -> values) (\s@LoadForecast' {} a -> s {values = a} :: LoadForecast) Prelude.. Lens._Coerce
+loadForecast_values = Lens.lens (\LoadForecast' {values} -> values) (\s@LoadForecast' {} a -> s {values = a} :: LoadForecast) Prelude.. Lens.coerced
 
 -- | The metric specification for the load forecast.
 loadForecast_metricSpecification :: Lens.Lens' LoadForecast PredictiveScalingMetricSpecification

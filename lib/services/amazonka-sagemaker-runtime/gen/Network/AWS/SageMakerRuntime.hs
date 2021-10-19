@@ -19,11 +19,11 @@ module Network.AWS.SageMakerRuntime
     -- * Errors
     -- $errors
 
-    -- ** ModelError
-    _ModelError,
-
     -- ** ServiceUnavailable
     _ServiceUnavailable,
+
+    -- ** ModelError
+    _ModelError,
 
     -- ** InternalFailure
     _InternalFailure,
@@ -37,17 +37,17 @@ module Network.AWS.SageMakerRuntime
     -- * Operations
     -- $operations
 
-    -- ** InvokeEndpoint
-    InvokeEndpoint (InvokeEndpoint'),
-    newInvokeEndpoint,
-    InvokeEndpointResponse (InvokeEndpointResponse'),
-    newInvokeEndpointResponse,
-
     -- ** InvokeEndpointAsync
     InvokeEndpointAsync (InvokeEndpointAsync'),
     newInvokeEndpointAsync,
     InvokeEndpointAsyncResponse (InvokeEndpointAsyncResponse'),
     newInvokeEndpointAsyncResponse,
+
+    -- ** InvokeEndpoint
+    InvokeEndpoint (InvokeEndpoint'),
+    newInvokeEndpoint,
+    InvokeEndpointResponse (InvokeEndpointResponse'),
+    newInvokeEndpointResponse,
 
     -- * Types
   )

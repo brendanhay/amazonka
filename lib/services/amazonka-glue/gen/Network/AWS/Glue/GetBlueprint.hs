@@ -27,8 +27,8 @@ module Network.AWS.Glue.GetBlueprint
     newGetBlueprint,
 
     -- * Request Lenses
-    getBlueprint_includeBlueprint,
     getBlueprint_includeParameterSpec,
+    getBlueprint_includeBlueprint,
     getBlueprint_name,
 
     -- * Destructuring the Response
@@ -50,10 +50,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBlueprint' smart constructor.
 data GetBlueprint = GetBlueprint'
-  { -- | Specifies whether or not to include the blueprint in the response.
-    includeBlueprint :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether or not to include the parameter specification.
+  { -- | Specifies whether or not to include the parameter specification.
     includeParameterSpec :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether or not to include the blueprint in the response.
+    includeBlueprint :: Prelude.Maybe Prelude.Bool,
     -- | The name of the blueprint.
     name :: Prelude.Text
   }
@@ -67,9 +67,9 @@ data GetBlueprint = GetBlueprint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeBlueprint', 'getBlueprint_includeBlueprint' - Specifies whether or not to include the blueprint in the response.
---
 -- 'includeParameterSpec', 'getBlueprint_includeParameterSpec' - Specifies whether or not to include the parameter specification.
+--
+-- 'includeBlueprint', 'getBlueprint_includeBlueprint' - Specifies whether or not to include the blueprint in the response.
 --
 -- 'name', 'getBlueprint_name' - The name of the blueprint.
 newGetBlueprint ::
@@ -78,18 +78,19 @@ newGetBlueprint ::
   GetBlueprint
 newGetBlueprint pName_ =
   GetBlueprint'
-    { includeBlueprint = Prelude.Nothing,
-      includeParameterSpec = Prelude.Nothing,
+    { includeParameterSpec =
+        Prelude.Nothing,
+      includeBlueprint = Prelude.Nothing,
       name = pName_
     }
-
--- | Specifies whether or not to include the blueprint in the response.
-getBlueprint_includeBlueprint :: Lens.Lens' GetBlueprint (Prelude.Maybe Prelude.Bool)
-getBlueprint_includeBlueprint = Lens.lens (\GetBlueprint' {includeBlueprint} -> includeBlueprint) (\s@GetBlueprint' {} a -> s {includeBlueprint = a} :: GetBlueprint)
 
 -- | Specifies whether or not to include the parameter specification.
 getBlueprint_includeParameterSpec :: Lens.Lens' GetBlueprint (Prelude.Maybe Prelude.Bool)
 getBlueprint_includeParameterSpec = Lens.lens (\GetBlueprint' {includeParameterSpec} -> includeParameterSpec) (\s@GetBlueprint' {} a -> s {includeParameterSpec = a} :: GetBlueprint)
+
+-- | Specifies whether or not to include the blueprint in the response.
+getBlueprint_includeBlueprint :: Lens.Lens' GetBlueprint (Prelude.Maybe Prelude.Bool)
+getBlueprint_includeBlueprint = Lens.lens (\GetBlueprint' {includeBlueprint} -> includeBlueprint) (\s@GetBlueprint' {} a -> s {includeBlueprint = a} :: GetBlueprint)
 
 -- | The name of the blueprint.
 getBlueprint_name :: Lens.Lens' GetBlueprint Prelude.Text
@@ -127,10 +128,10 @@ instance Core.ToJSON GetBlueprint where
   toJSON GetBlueprint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IncludeBlueprint" Core..=)
-              Prelude.<$> includeBlueprint,
-            ("IncludeParameterSpec" Core..=)
+          [ ("IncludeParameterSpec" Core..=)
               Prelude.<$> includeParameterSpec,
+            ("IncludeBlueprint" Core..=)
+              Prelude.<$> includeBlueprint,
             Prelude.Just ("Name" Core..= name)
           ]
       )

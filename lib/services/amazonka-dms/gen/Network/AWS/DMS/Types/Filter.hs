@@ -67,7 +67,7 @@ filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = 
 -- | The filter value, which can specify one or more values used to narrow
 -- the returned results.
 filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Filter
 

@@ -163,7 +163,7 @@ autoScalingThresholds_thresholdsWaitTime = Lens.lens (\AutoScalingThresholds' {t
 -- the role manually. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks Stacks to Act on Your Behalf>.
 autoScalingThresholds_alarms :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe [Prelude.Text])
-autoScalingThresholds_alarms = Lens.lens (\AutoScalingThresholds' {alarms} -> alarms) (\s@AutoScalingThresholds' {} a -> s {alarms = a} :: AutoScalingThresholds) Prelude.. Lens.mapping Lens._Coerce
+autoScalingThresholds_alarms = Lens.lens (\AutoScalingThresholds' {alarms} -> alarms) (\s@AutoScalingThresholds' {} a -> s {alarms = a} :: AutoScalingThresholds) Prelude.. Lens.mapping Lens.coerced
 
 -- | The memory utilization threshold, as a percent of the available memory.
 -- A value of -1 disables the threshold.

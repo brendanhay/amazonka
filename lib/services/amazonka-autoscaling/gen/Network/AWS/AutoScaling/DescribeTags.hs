@@ -42,8 +42,8 @@ module Network.AWS.AutoScaling.DescribeTags
     newDescribeTags,
 
     -- * Request Lenses
-    describeTags_nextToken,
     describeTags_filters,
+    describeTags_nextToken,
     describeTags_maxRecords,
 
     -- * Destructuring the Response
@@ -66,12 +66,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
-  { -- | The token for the next set of items to return. (You received this token
-    -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more filters to scope the tags to return. The maximum number of
+  { -- | One or more filters to scope the tags to return. The maximum number of
     -- filters per filter type (for example, @auto-scaling-group@) is 1000.
     filters :: Prelude.Maybe [Filter],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int
@@ -86,11 +86,11 @@ data DescribeTags = DescribeTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeTags_nextToken' - The token for the next set of items to return. (You received this token
--- from a previous call.)
---
 -- 'filters', 'describeTags_filters' - One or more filters to scope the tags to return. The maximum number of
 -- filters per filter type (for example, @auto-scaling-group@) is 1000.
+--
+-- 'nextToken', 'describeTags_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
 -- 'maxRecords', 'describeTags_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -98,20 +98,20 @@ newDescribeTags ::
   DescribeTags
 newDescribeTags =
   DescribeTags'
-    { nextToken = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxRecords = Prelude.Nothing
     }
+
+-- | One or more filters to scope the tags to return. The maximum number of
+-- filters per filter type (for example, @auto-scaling-group@) is 1000.
+describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [Filter])
+describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 describeTags_nextToken :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s@DescribeTags' {} a -> s {nextToken = a} :: DescribeTags)
-
--- | One or more filters to scope the tags to return. The maximum number of
--- filters per filter type (for example, @auto-scaling-group@) is 1000.
-describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [Filter])
-describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
@@ -169,10 +169,10 @@ instance Core.ToQuery DescribeTags where
           Core.=: ("DescribeTags" :: Prelude.ByteString),
         "Version"
           Core.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
         "Filters"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
         "MaxRecords" Core.=: maxRecords
       ]
 
@@ -226,7 +226,7 @@ describeTagsResponse_nextToken = Lens.lens (\DescribeTagsResponse' {nextToken} -
 
 -- | One or more tags.
 describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [TagDescription])
-describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int

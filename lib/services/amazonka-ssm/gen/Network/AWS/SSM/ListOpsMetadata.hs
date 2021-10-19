@@ -30,9 +30,9 @@ module Network.AWS.SSM.ListOpsMetadata
     newListOpsMetadata,
 
     -- * Request Lenses
+    listOpsMetadata_filters,
     listOpsMetadata_nextToken,
     listOpsMetadata_maxResults,
-    listOpsMetadata_filters,
 
     -- * Destructuring the Response
     ListOpsMetadataResponse (..),
@@ -54,16 +54,16 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newListOpsMetadata' smart constructor.
 data ListOpsMetadata = ListOpsMetadata'
-  { -- | A token to start the list. Use this token to get the next set of
+  { -- | One or more filters to limit the number of OpsMetadata objects returned
+    -- by the call.
+    filters :: Prelude.Maybe [OpsMetadataFilter],
+    -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more filters to limit the number of OpsMetadata objects returned
-    -- by the call.
-    filters :: Prelude.Maybe [OpsMetadataFilter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -75,23 +75,28 @@ data ListOpsMetadata = ListOpsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'listOpsMetadata_filters' - One or more filters to limit the number of OpsMetadata objects returned
+-- by the call.
+--
 -- 'nextToken', 'listOpsMetadata_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
 --
 -- 'maxResults', 'listOpsMetadata_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
---
--- 'filters', 'listOpsMetadata_filters' - One or more filters to limit the number of OpsMetadata objects returned
--- by the call.
 newListOpsMetadata ::
   ListOpsMetadata
 newListOpsMetadata =
   ListOpsMetadata'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | One or more filters to limit the number of OpsMetadata objects returned
+-- by the call.
+listOpsMetadata_filters :: Lens.Lens' ListOpsMetadata (Prelude.Maybe [OpsMetadataFilter])
+listOpsMetadata_filters = Lens.lens (\ListOpsMetadata' {filters} -> filters) (\s@ListOpsMetadata' {} a -> s {filters = a} :: ListOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
 -- | A token to start the list. Use this token to get the next set of
 -- results.
@@ -103,11 +108,6 @@ listOpsMetadata_nextToken = Lens.lens (\ListOpsMetadata' {nextToken} -> nextToke
 -- next set of results.
 listOpsMetadata_maxResults :: Lens.Lens' ListOpsMetadata (Prelude.Maybe Prelude.Natural)
 listOpsMetadata_maxResults = Lens.lens (\ListOpsMetadata' {maxResults} -> maxResults) (\s@ListOpsMetadata' {} a -> s {maxResults = a} :: ListOpsMetadata)
-
--- | One or more filters to limit the number of OpsMetadata objects returned
--- by the call.
-listOpsMetadata_filters :: Lens.Lens' ListOpsMetadata (Prelude.Maybe [OpsMetadataFilter])
-listOpsMetadata_filters = Lens.lens (\ListOpsMetadata' {filters} -> filters) (\s@ListOpsMetadata' {} a -> s {filters = a} :: ListOpsMetadata) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListOpsMetadata where
   page rq rs
@@ -167,9 +167,9 @@ instance Core.ToJSON ListOpsMetadata where
   toJSON ListOpsMetadata' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -224,7 +224,7 @@ listOpsMetadataResponse_nextToken = Lens.lens (\ListOpsMetadataResponse' {nextTo
 
 -- | Returns a list of OpsMetadata objects.
 listOpsMetadataResponse_opsMetadataList :: Lens.Lens' ListOpsMetadataResponse (Prelude.Maybe (Prelude.NonEmpty OpsMetadata))
-listOpsMetadataResponse_opsMetadataList = Lens.lens (\ListOpsMetadataResponse' {opsMetadataList} -> opsMetadataList) (\s@ListOpsMetadataResponse' {} a -> s {opsMetadataList = a} :: ListOpsMetadataResponse) Prelude.. Lens.mapping Lens._Coerce
+listOpsMetadataResponse_opsMetadataList = Lens.lens (\ListOpsMetadataResponse' {opsMetadataList} -> opsMetadataList) (\s@ListOpsMetadataResponse' {} a -> s {opsMetadataList = a} :: ListOpsMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOpsMetadataResponse_httpStatus :: Lens.Lens' ListOpsMetadataResponse Prelude.Int

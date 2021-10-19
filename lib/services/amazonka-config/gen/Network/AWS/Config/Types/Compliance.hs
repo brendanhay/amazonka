@@ -31,7 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCompliance' smart constructor.
 data Compliance = Compliance'
-  { -- | Indicates whether an Amazon Web Services resource or Config rule is
+  { -- | The number of Amazon Web Services resources or Config rules that cause a
+    -- result of @NON_COMPLIANT@, up to a maximum number.
+    complianceContributorCount :: Prelude.Maybe ComplianceContributorCount,
+    -- | Indicates whether an Amazon Web Services resource or Config rule is
     -- compliant.
     --
     -- A resource is compliant if it complies with all of the Config rules that
@@ -48,10 +51,7 @@ data Compliance = Compliance'
     -- For the @Compliance@ data type, Config supports only @COMPLIANT@,
     -- @NON_COMPLIANT@, and @INSUFFICIENT_DATA@ values. Config does not support
     -- the @NOT_APPLICABLE@ value for the @Compliance@ data type.
-    complianceType :: Prelude.Maybe ComplianceType,
-    -- | The number of Amazon Web Services resources or Config rules that cause a
-    -- result of @NON_COMPLIANT@, up to a maximum number.
-    complianceContributorCount :: Prelude.Maybe ComplianceContributorCount
+    complianceType :: Prelude.Maybe ComplianceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,6 +62,9 @@ data Compliance = Compliance'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'complianceContributorCount', 'compliance_complianceContributorCount' - The number of Amazon Web Services resources or Config rules that cause a
+-- result of @NON_COMPLIANT@, up to a maximum number.
 --
 -- 'complianceType', 'compliance_complianceType' - Indicates whether an Amazon Web Services resource or Config rule is
 -- compliant.
@@ -80,16 +83,19 @@ data Compliance = Compliance'
 -- For the @Compliance@ data type, Config supports only @COMPLIANT@,
 -- @NON_COMPLIANT@, and @INSUFFICIENT_DATA@ values. Config does not support
 -- the @NOT_APPLICABLE@ value for the @Compliance@ data type.
---
--- 'complianceContributorCount', 'compliance_complianceContributorCount' - The number of Amazon Web Services resources or Config rules that cause a
--- result of @NON_COMPLIANT@, up to a maximum number.
 newCompliance ::
   Compliance
 newCompliance =
   Compliance'
-    { complianceType = Prelude.Nothing,
-      complianceContributorCount = Prelude.Nothing
+    { complianceContributorCount =
+        Prelude.Nothing,
+      complianceType = Prelude.Nothing
     }
+
+-- | The number of Amazon Web Services resources or Config rules that cause a
+-- result of @NON_COMPLIANT@, up to a maximum number.
+compliance_complianceContributorCount :: Lens.Lens' Compliance (Prelude.Maybe ComplianceContributorCount)
+compliance_complianceContributorCount = Lens.lens (\Compliance' {complianceContributorCount} -> complianceContributorCount) (\s@Compliance' {} a -> s {complianceContributorCount = a} :: Compliance)
 
 -- | Indicates whether an Amazon Web Services resource or Config rule is
 -- compliant.
@@ -111,19 +117,14 @@ newCompliance =
 compliance_complianceType :: Lens.Lens' Compliance (Prelude.Maybe ComplianceType)
 compliance_complianceType = Lens.lens (\Compliance' {complianceType} -> complianceType) (\s@Compliance' {} a -> s {complianceType = a} :: Compliance)
 
--- | The number of Amazon Web Services resources or Config rules that cause a
--- result of @NON_COMPLIANT@, up to a maximum number.
-compliance_complianceContributorCount :: Lens.Lens' Compliance (Prelude.Maybe ComplianceContributorCount)
-compliance_complianceContributorCount = Lens.lens (\Compliance' {complianceContributorCount} -> complianceContributorCount) (\s@Compliance' {} a -> s {complianceContributorCount = a} :: Compliance)
-
 instance Core.FromJSON Compliance where
   parseJSON =
     Core.withObject
       "Compliance"
       ( \x ->
           Compliance'
-            Prelude.<$> (x Core..:? "ComplianceType")
-            Prelude.<*> (x Core..:? "ComplianceContributorCount")
+            Prelude.<$> (x Core..:? "ComplianceContributorCount")
+            Prelude.<*> (x Core..:? "ComplianceType")
       )
 
 instance Prelude.Hashable Compliance

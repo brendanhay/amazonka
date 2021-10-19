@@ -27,8 +27,8 @@ module Network.AWS.SageMaker.CreatePipeline
     newCreatePipeline,
 
     -- * Request Lenses
-    createPipeline_pipelineDescription,
     createPipeline_pipelineDisplayName,
+    createPipeline_pipelineDescription,
     createPipeline_tags,
     createPipeline_pipelineName,
     createPipeline_pipelineDefinition,
@@ -54,10 +54,10 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { -- | A description of the pipeline.
-    pipelineDescription :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the pipeline.
+  { -- | The display name of the pipeline.
     pipelineDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | A description of the pipeline.
+    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to apply to the created pipeline.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the pipeline.
@@ -82,9 +82,9 @@ data CreatePipeline = CreatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineDescription', 'createPipeline_pipelineDescription' - A description of the pipeline.
---
 -- 'pipelineDisplayName', 'createPipeline_pipelineDisplayName' - The display name of the pipeline.
+--
+-- 'pipelineDescription', 'createPipeline_pipelineDescription' - A description of the pipeline.
 --
 -- 'tags', 'createPipeline_tags' - A list of tags to apply to the created pipeline.
 --
@@ -114,9 +114,9 @@ newCreatePipeline
   pClientRequestToken_
   pRoleArn_ =
     CreatePipeline'
-      { pipelineDescription =
+      { pipelineDisplayName =
           Prelude.Nothing,
-        pipelineDisplayName = Prelude.Nothing,
+        pipelineDescription = Prelude.Nothing,
         tags = Prelude.Nothing,
         pipelineName = pPipelineName_,
         pipelineDefinition = pPipelineDefinition_,
@@ -124,17 +124,17 @@ newCreatePipeline
         roleArn = pRoleArn_
       }
 
--- | A description of the pipeline.
-createPipeline_pipelineDescription :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
-createPipeline_pipelineDescription = Lens.lens (\CreatePipeline' {pipelineDescription} -> pipelineDescription) (\s@CreatePipeline' {} a -> s {pipelineDescription = a} :: CreatePipeline)
-
 -- | The display name of the pipeline.
 createPipeline_pipelineDisplayName :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
 createPipeline_pipelineDisplayName = Lens.lens (\CreatePipeline' {pipelineDisplayName} -> pipelineDisplayName) (\s@CreatePipeline' {} a -> s {pipelineDisplayName = a} :: CreatePipeline)
 
+-- | A description of the pipeline.
+createPipeline_pipelineDescription :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
+createPipeline_pipelineDescription = Lens.lens (\CreatePipeline' {pipelineDescription} -> pipelineDescription) (\s@CreatePipeline' {} a -> s {pipelineDescription = a} :: CreatePipeline)
+
 -- | A list of tags to apply to the created pipeline.
 createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe [Tag])
-createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Lens._Coerce
+createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the pipeline.
 createPipeline_pipelineName :: Lens.Lens' CreatePipeline Prelude.Text
@@ -189,10 +189,10 @@ instance Core.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PipelineDescription" Core..=)
-              Prelude.<$> pipelineDescription,
-            ("PipelineDisplayName" Core..=)
+          [ ("PipelineDisplayName" Core..=)
               Prelude.<$> pipelineDisplayName,
+            ("PipelineDescription" Core..=)
+              Prelude.<$> pipelineDescription,
             ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("PipelineName" Core..= pipelineName),
             Prelude.Just

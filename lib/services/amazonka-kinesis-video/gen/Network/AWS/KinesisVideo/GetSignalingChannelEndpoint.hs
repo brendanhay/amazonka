@@ -177,7 +177,7 @@ newGetSignalingChannelEndpointResponse pHttpStatus_ =
 
 -- | A list of endpoints for the specified signaling channel.
 getSignalingChannelEndpointResponse_resourceEndpointList :: Lens.Lens' GetSignalingChannelEndpointResponse (Prelude.Maybe [ResourceEndpointListItem])
-getSignalingChannelEndpointResponse_resourceEndpointList = Lens.lens (\GetSignalingChannelEndpointResponse' {resourceEndpointList} -> resourceEndpointList) (\s@GetSignalingChannelEndpointResponse' {} a -> s {resourceEndpointList = a} :: GetSignalingChannelEndpointResponse) Prelude.. Lens.mapping Lens._Coerce
+getSignalingChannelEndpointResponse_resourceEndpointList = Lens.lens (\GetSignalingChannelEndpointResponse' {resourceEndpointList} -> resourceEndpointList) (\s@GetSignalingChannelEndpointResponse' {} a -> s {resourceEndpointList = a} :: GetSignalingChannelEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSignalingChannelEndpointResponse_httpStatus :: Lens.Lens' GetSignalingChannelEndpointResponse Prelude.Int

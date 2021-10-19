@@ -81,7 +81,7 @@ newDescribeStacks =
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
 describeStacks_stackIds :: Lens.Lens' DescribeStacks (Prelude.Maybe [Prelude.Text])
-describeStacks_stackIds = Lens.lens (\DescribeStacks' {stackIds} -> stackIds) (\s@DescribeStacks' {} a -> s {stackIds = a} :: DescribeStacks) Prelude.. Lens.mapping Lens._Coerce
+describeStacks_stackIds = Lens.lens (\DescribeStacks' {stackIds} -> stackIds) (\s@DescribeStacks' {} a -> s {stackIds = a} :: DescribeStacks) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeStacks where
   type
@@ -162,7 +162,7 @@ newDescribeStacksResponse pHttpStatus_ =
 
 -- | An array of @Stack@ objects that describe the stacks.
 describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens._Coerce
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int

@@ -24,14 +24,26 @@ module Network.AWS.Inspector
     -- * Errors
     -- $errors
 
-    -- ** PreviewGenerationInProgressException
-    _PreviewGenerationInProgressException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
-    -- ** ServiceTemporarilyUnavailableException
-    _ServiceTemporarilyUnavailableException,
+    -- ** AssessmentRunInProgressException
+    _AssessmentRunInProgressException,
+
+    -- ** NoSuchEntityException
+    _NoSuchEntityException,
 
     -- ** UnsupportedFeatureException
     _UnsupportedFeatureException,
+
+    -- ** PreviewGenerationInProgressException
+    _PreviewGenerationInProgressException,
+
+    -- ** AgentsAlreadyRunningAssessmentException
+    _AgentsAlreadyRunningAssessmentException,
+
+    -- ** InvalidCrossAccountRoleException
+    _InvalidCrossAccountRoleException,
 
     -- ** InvalidInputException
     _InvalidInputException,
@@ -39,23 +51,11 @@ module Network.AWS.Inspector
     -- ** InternalException
     _InternalException,
 
-    -- ** InvalidCrossAccountRoleException
-    _InvalidCrossAccountRoleException,
-
-    -- ** AgentsAlreadyRunningAssessmentException
-    _AgentsAlreadyRunningAssessmentException,
-
-    -- ** AssessmentRunInProgressException
-    _AssessmentRunInProgressException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** ServiceTemporarilyUnavailableException
+    _ServiceTemporarilyUnavailableException,
 
     -- ** LimitExceededException
     _LimitExceededException,
-
-    -- ** NoSuchEntityException
-    _NoSuchEntityException,
 
     -- * Waiters
     -- $waiters
@@ -63,29 +63,11 @@ module Network.AWS.Inspector
     -- * Operations
     -- $operations
 
-    -- ** DeleteAssessmentTemplate
-    DeleteAssessmentTemplate (DeleteAssessmentTemplate'),
-    newDeleteAssessmentTemplate,
-    DeleteAssessmentTemplateResponse (DeleteAssessmentTemplateResponse'),
-    newDeleteAssessmentTemplateResponse,
-
-    -- ** SubscribeToEvent
-    SubscribeToEvent (SubscribeToEvent'),
-    newSubscribeToEvent,
-    SubscribeToEventResponse (SubscribeToEventResponse'),
-    newSubscribeToEventResponse,
-
-    -- ** StopAssessmentRun
-    StopAssessmentRun (StopAssessmentRun'),
-    newStopAssessmentRun,
-    StopAssessmentRunResponse (StopAssessmentRunResponse'),
-    newStopAssessmentRunResponse,
-
-    -- ** StartAssessmentRun
-    StartAssessmentRun (StartAssessmentRun'),
-    newStartAssessmentRun,
-    StartAssessmentRunResponse (StartAssessmentRunResponse'),
-    newStartAssessmentRunResponse,
+    -- ** GetTelemetryMetadata
+    GetTelemetryMetadata (GetTelemetryMetadata'),
+    newGetTelemetryMetadata,
+    GetTelemetryMetadataResponse (GetTelemetryMetadataResponse'),
+    newGetTelemetryMetadataResponse,
 
     -- ** ListFindings (Paginated)
     ListFindings (ListFindings'),
@@ -93,83 +75,53 @@ module Network.AWS.Inspector
     ListFindingsResponse (ListFindingsResponse'),
     newListFindingsResponse,
 
-    -- ** GetTelemetryMetadata
-    GetTelemetryMetadata (GetTelemetryMetadata'),
-    newGetTelemetryMetadata,
-    GetTelemetryMetadataResponse (GetTelemetryMetadataResponse'),
-    newGetTelemetryMetadataResponse,
+    -- ** ListAssessmentTemplates (Paginated)
+    ListAssessmentTemplates (ListAssessmentTemplates'),
+    newListAssessmentTemplates,
+    ListAssessmentTemplatesResponse (ListAssessmentTemplatesResponse'),
+    newListAssessmentTemplatesResponse,
 
-    -- ** DescribeAssessmentTargets
-    DescribeAssessmentTargets (DescribeAssessmentTargets'),
-    newDescribeAssessmentTargets,
-    DescribeAssessmentTargetsResponse (DescribeAssessmentTargetsResponse'),
-    newDescribeAssessmentTargetsResponse,
+    -- ** SubscribeToEvent
+    SubscribeToEvent (SubscribeToEvent'),
+    newSubscribeToEvent,
+    SubscribeToEventResponse (SubscribeToEventResponse'),
+    newSubscribeToEventResponse,
 
-    -- ** ListAssessmentRuns (Paginated)
-    ListAssessmentRuns (ListAssessmentRuns'),
-    newListAssessmentRuns,
-    ListAssessmentRunsResponse (ListAssessmentRunsResponse'),
-    newListAssessmentRunsResponse,
+    -- ** ListAssessmentRunAgents (Paginated)
+    ListAssessmentRunAgents (ListAssessmentRunAgents'),
+    newListAssessmentRunAgents,
+    ListAssessmentRunAgentsResponse (ListAssessmentRunAgentsResponse'),
+    newListAssessmentRunAgentsResponse,
 
-    -- ** DeleteAssessmentTarget
-    DeleteAssessmentTarget (DeleteAssessmentTarget'),
-    newDeleteAssessmentTarget,
-    DeleteAssessmentTargetResponse (DeleteAssessmentTargetResponse'),
-    newDeleteAssessmentTargetResponse,
+    -- ** StartAssessmentRun
+    StartAssessmentRun (StartAssessmentRun'),
+    newStartAssessmentRun,
+    StartAssessmentRunResponse (StartAssessmentRunResponse'),
+    newStartAssessmentRunResponse,
 
-    -- ** ListAssessmentTargets (Paginated)
-    ListAssessmentTargets (ListAssessmentTargets'),
-    newListAssessmentTargets,
-    ListAssessmentTargetsResponse (ListAssessmentTargetsResponse'),
-    newListAssessmentTargetsResponse,
-
-    -- ** UpdateAssessmentTarget
-    UpdateAssessmentTarget (UpdateAssessmentTarget'),
-    newUpdateAssessmentTarget,
-    UpdateAssessmentTargetResponse (UpdateAssessmentTargetResponse'),
-    newUpdateAssessmentTargetResponse,
-
-    -- ** DescribeResourceGroups
-    DescribeResourceGroups (DescribeResourceGroups'),
-    newDescribeResourceGroups,
-    DescribeResourceGroupsResponse (DescribeResourceGroupsResponse'),
-    newDescribeResourceGroupsResponse,
-
-    -- ** GetExclusionsPreview
-    GetExclusionsPreview (GetExclusionsPreview'),
-    newGetExclusionsPreview,
-    GetExclusionsPreviewResponse (GetExclusionsPreviewResponse'),
-    newGetExclusionsPreviewResponse,
-
-    -- ** AddAttributesToFindings
-    AddAttributesToFindings (AddAttributesToFindings'),
-    newAddAttributesToFindings,
-    AddAttributesToFindingsResponse (AddAttributesToFindingsResponse'),
-    newAddAttributesToFindingsResponse,
-
-    -- ** CreateAssessmentTarget
-    CreateAssessmentTarget (CreateAssessmentTarget'),
-    newCreateAssessmentTarget,
-    CreateAssessmentTargetResponse (CreateAssessmentTargetResponse'),
-    newCreateAssessmentTargetResponse,
-
-    -- ** PreviewAgents (Paginated)
-    PreviewAgents (PreviewAgents'),
-    newPreviewAgents,
-    PreviewAgentsResponse (PreviewAgentsResponse'),
-    newPreviewAgentsResponse,
-
-    -- ** ListExclusions (Paginated)
-    ListExclusions (ListExclusions'),
-    newListExclusions,
-    ListExclusionsResponse (ListExclusionsResponse'),
-    newListExclusionsResponse,
+    -- ** DeleteAssessmentTemplate
+    DeleteAssessmentTemplate (DeleteAssessmentTemplate'),
+    newDeleteAssessmentTemplate,
+    DeleteAssessmentTemplateResponse (DeleteAssessmentTemplateResponse'),
+    newDeleteAssessmentTemplateResponse,
 
     -- ** CreateAssessmentTemplate
     CreateAssessmentTemplate (CreateAssessmentTemplate'),
     newCreateAssessmentTemplate,
     CreateAssessmentTemplateResponse (CreateAssessmentTemplateResponse'),
     newCreateAssessmentTemplateResponse,
+
+    -- ** DescribeExclusions
+    DescribeExclusions (DescribeExclusions'),
+    newDescribeExclusions,
+    DescribeExclusionsResponse (DescribeExclusionsResponse'),
+    newDescribeExclusionsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** SetTagsForResource
     SetTagsForResource (SetTagsForResource'),
@@ -183,71 +135,29 @@ module Network.AWS.Inspector
     DescribeCrossAccountAccessRoleResponse (DescribeCrossAccountAccessRoleResponse'),
     newDescribeCrossAccountAccessRoleResponse,
 
-    -- ** DescribeExclusions
-    DescribeExclusions (DescribeExclusions'),
-    newDescribeExclusions,
-    DescribeExclusionsResponse (DescribeExclusionsResponse'),
-    newDescribeExclusionsResponse,
+    -- ** DescribeAssessmentTemplates
+    DescribeAssessmentTemplates (DescribeAssessmentTemplates'),
+    newDescribeAssessmentTemplates,
+    DescribeAssessmentTemplatesResponse (DescribeAssessmentTemplatesResponse'),
+    newDescribeAssessmentTemplatesResponse,
 
-    -- ** ListAssessmentTemplates (Paginated)
-    ListAssessmentTemplates (ListAssessmentTemplates'),
-    newListAssessmentTemplates,
-    ListAssessmentTemplatesResponse (ListAssessmentTemplatesResponse'),
-    newListAssessmentTemplatesResponse,
+    -- ** DescribeResourceGroups
+    DescribeResourceGroups (DescribeResourceGroups'),
+    newDescribeResourceGroups,
+    DescribeResourceGroupsResponse (DescribeResourceGroupsResponse'),
+    newDescribeResourceGroupsResponse,
 
-    -- ** ListAssessmentRunAgents (Paginated)
-    ListAssessmentRunAgents (ListAssessmentRunAgents'),
-    newListAssessmentRunAgents,
-    ListAssessmentRunAgentsResponse (ListAssessmentRunAgentsResponse'),
-    newListAssessmentRunAgentsResponse,
+    -- ** CreateAssessmentTarget
+    CreateAssessmentTarget (CreateAssessmentTarget'),
+    newCreateAssessmentTarget,
+    CreateAssessmentTargetResponse (CreateAssessmentTargetResponse'),
+    newCreateAssessmentTargetResponse,
 
-    -- ** UnsubscribeFromEvent
-    UnsubscribeFromEvent (UnsubscribeFromEvent'),
-    newUnsubscribeFromEvent,
-    UnsubscribeFromEventResponse (UnsubscribeFromEventResponse'),
-    newUnsubscribeFromEventResponse,
-
-    -- ** DescribeAssessmentRuns
-    DescribeAssessmentRuns (DescribeAssessmentRuns'),
-    newDescribeAssessmentRuns,
-    DescribeAssessmentRunsResponse (DescribeAssessmentRunsResponse'),
-    newDescribeAssessmentRunsResponse,
-
-    -- ** CreateExclusionsPreview
-    CreateExclusionsPreview (CreateExclusionsPreview'),
-    newCreateExclusionsPreview,
-    CreateExclusionsPreviewResponse (CreateExclusionsPreviewResponse'),
-    newCreateExclusionsPreviewResponse,
-
-    -- ** DescribeRulesPackages
-    DescribeRulesPackages (DescribeRulesPackages'),
-    newDescribeRulesPackages,
-    DescribeRulesPackagesResponse (DescribeRulesPackagesResponse'),
-    newDescribeRulesPackagesResponse,
-
-    -- ** RemoveAttributesFromFindings
-    RemoveAttributesFromFindings (RemoveAttributesFromFindings'),
-    newRemoveAttributesFromFindings,
-    RemoveAttributesFromFindingsResponse (RemoveAttributesFromFindingsResponse'),
-    newRemoveAttributesFromFindingsResponse,
-
-    -- ** CreateResourceGroup
-    CreateResourceGroup (CreateResourceGroup'),
-    newCreateResourceGroup,
-    CreateResourceGroupResponse (CreateResourceGroupResponse'),
-    newCreateResourceGroupResponse,
-
-    -- ** GetAssessmentReport
-    GetAssessmentReport (GetAssessmentReport'),
-    newGetAssessmentReport,
-    GetAssessmentReportResponse (GetAssessmentReportResponse'),
-    newGetAssessmentReportResponse,
-
-    -- ** DeleteAssessmentRun
-    DeleteAssessmentRun (DeleteAssessmentRun'),
-    newDeleteAssessmentRun,
-    DeleteAssessmentRunResponse (DeleteAssessmentRunResponse'),
-    newDeleteAssessmentRunResponse,
+    -- ** GetExclusionsPreview
+    GetExclusionsPreview (GetExclusionsPreview'),
+    newGetExclusionsPreview,
+    GetExclusionsPreviewResponse (GetExclusionsPreviewResponse'),
+    newGetExclusionsPreviewResponse,
 
     -- ** ListEventSubscriptions (Paginated)
     ListEventSubscriptions (ListEventSubscriptions'),
@@ -255,17 +165,53 @@ module Network.AWS.Inspector
     ListEventSubscriptionsResponse (ListEventSubscriptionsResponse'),
     newListEventSubscriptionsResponse,
 
-    -- ** ListRulesPackages (Paginated)
-    ListRulesPackages (ListRulesPackages'),
-    newListRulesPackages,
-    ListRulesPackagesResponse (ListRulesPackagesResponse'),
-    newListRulesPackagesResponse,
-
     -- ** RegisterCrossAccountAccessRole
     RegisterCrossAccountAccessRole (RegisterCrossAccountAccessRole'),
     newRegisterCrossAccountAccessRole,
     RegisterCrossAccountAccessRoleResponse (RegisterCrossAccountAccessRoleResponse'),
     newRegisterCrossAccountAccessRoleResponse,
+
+    -- ** ListAssessmentTargets (Paginated)
+    ListAssessmentTargets (ListAssessmentTargets'),
+    newListAssessmentTargets,
+    ListAssessmentTargetsResponse (ListAssessmentTargetsResponse'),
+    newListAssessmentTargetsResponse,
+
+    -- ** CreateExclusionsPreview
+    CreateExclusionsPreview (CreateExclusionsPreview'),
+    newCreateExclusionsPreview,
+    CreateExclusionsPreviewResponse (CreateExclusionsPreviewResponse'),
+    newCreateExclusionsPreviewResponse,
+
+    -- ** CreateResourceGroup
+    CreateResourceGroup (CreateResourceGroup'),
+    newCreateResourceGroup,
+    CreateResourceGroupResponse (CreateResourceGroupResponse'),
+    newCreateResourceGroupResponse,
+
+    -- ** DescribeRulesPackages
+    DescribeRulesPackages (DescribeRulesPackages'),
+    newDescribeRulesPackages,
+    DescribeRulesPackagesResponse (DescribeRulesPackagesResponse'),
+    newDescribeRulesPackagesResponse,
+
+    -- ** StopAssessmentRun
+    StopAssessmentRun (StopAssessmentRun'),
+    newStopAssessmentRun,
+    StopAssessmentRunResponse (StopAssessmentRunResponse'),
+    newStopAssessmentRunResponse,
+
+    -- ** ListExclusions (Paginated)
+    ListExclusions (ListExclusions'),
+    newListExclusions,
+    ListExclusionsResponse (ListExclusionsResponse'),
+    newListExclusionsResponse,
+
+    -- ** PreviewAgents (Paginated)
+    PreviewAgents (PreviewAgents'),
+    newPreviewAgents,
+    PreviewAgentsResponse (PreviewAgentsResponse'),
+    newPreviewAgentsResponse,
 
     -- ** DescribeFindings
     DescribeFindings (DescribeFindings'),
@@ -273,17 +219,71 @@ module Network.AWS.Inspector
     DescribeFindingsResponse (DescribeFindingsResponse'),
     newDescribeFindingsResponse,
 
-    -- ** DescribeAssessmentTemplates
-    DescribeAssessmentTemplates (DescribeAssessmentTemplates'),
-    newDescribeAssessmentTemplates,
-    DescribeAssessmentTemplatesResponse (DescribeAssessmentTemplatesResponse'),
-    newDescribeAssessmentTemplatesResponse,
+    -- ** AddAttributesToFindings
+    AddAttributesToFindings (AddAttributesToFindings'),
+    newAddAttributesToFindings,
+    AddAttributesToFindingsResponse (AddAttributesToFindingsResponse'),
+    newAddAttributesToFindingsResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** UpdateAssessmentTarget
+    UpdateAssessmentTarget (UpdateAssessmentTarget'),
+    newUpdateAssessmentTarget,
+    UpdateAssessmentTargetResponse (UpdateAssessmentTargetResponse'),
+    newUpdateAssessmentTargetResponse,
+
+    -- ** DeleteAssessmentTarget
+    DeleteAssessmentTarget (DeleteAssessmentTarget'),
+    newDeleteAssessmentTarget,
+    DeleteAssessmentTargetResponse (DeleteAssessmentTargetResponse'),
+    newDeleteAssessmentTargetResponse,
+
+    -- ** DeleteAssessmentRun
+    DeleteAssessmentRun (DeleteAssessmentRun'),
+    newDeleteAssessmentRun,
+    DeleteAssessmentRunResponse (DeleteAssessmentRunResponse'),
+    newDeleteAssessmentRunResponse,
+
+    -- ** ListAssessmentRuns (Paginated)
+    ListAssessmentRuns (ListAssessmentRuns'),
+    newListAssessmentRuns,
+    ListAssessmentRunsResponse (ListAssessmentRunsResponse'),
+    newListAssessmentRunsResponse,
+
+    -- ** GetAssessmentReport
+    GetAssessmentReport (GetAssessmentReport'),
+    newGetAssessmentReport,
+    GetAssessmentReportResponse (GetAssessmentReportResponse'),
+    newGetAssessmentReportResponse,
+
+    -- ** ListRulesPackages (Paginated)
+    ListRulesPackages (ListRulesPackages'),
+    newListRulesPackages,
+    ListRulesPackagesResponse (ListRulesPackagesResponse'),
+    newListRulesPackagesResponse,
+
+    -- ** DescribeAssessmentRuns
+    DescribeAssessmentRuns (DescribeAssessmentRuns'),
+    newDescribeAssessmentRuns,
+    DescribeAssessmentRunsResponse (DescribeAssessmentRunsResponse'),
+    newDescribeAssessmentRunsResponse,
+
+    -- ** UnsubscribeFromEvent
+    UnsubscribeFromEvent (UnsubscribeFromEvent'),
+    newUnsubscribeFromEvent,
+    UnsubscribeFromEventResponse (UnsubscribeFromEventResponse'),
+    newUnsubscribeFromEventResponse,
+
+    -- ** RemoveAttributesFromFindings
+    RemoveAttributesFromFindings (RemoveAttributesFromFindings'),
+    newRemoveAttributesFromFindings,
+    RemoveAttributesFromFindingsResponse (RemoveAttributesFromFindingsResponse'),
+    newRemoveAttributesFromFindingsResponse,
+
+    -- ** DescribeAssessmentTargets
+    DescribeAssessmentTargets (DescribeAssessmentTargets'),
+    newDescribeAssessmentTargets,
+    DescribeAssessmentTargetsResponse (DescribeAssessmentTargetsResponse'),
+    newDescribeAssessmentTargetsResponse,
 
     -- * Types
 

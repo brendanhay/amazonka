@@ -53,8 +53,8 @@ module Network.AWS.Organizations.ListParents
     newListParentsResponse,
 
     -- * Response Lenses
-    listParentsResponse_parents,
     listParentsResponse_nextToken,
+    listParentsResponse_parents,
     listParentsResponse_httpStatus,
   )
 where
@@ -211,8 +211,8 @@ instance Core.AWSRequest ListParents where
     Response.receiveJSON
       ( \s h x ->
           ListParentsResponse'
-            Prelude.<$> (x Core..?> "Parents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Parents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -253,14 +253,14 @@ instance Core.ToQuery ListParents where
 
 -- | /See:/ 'newListParentsResponse' smart constructor.
 data ListParentsResponse = ListParentsResponse'
-  { -- | A list of parents for the specified child account or OU.
-    parents :: Prelude.Maybe [Parent],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of parents for the specified child account or OU.
+    parents :: Prelude.Maybe [Parent],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -274,13 +274,13 @@ data ListParentsResponse = ListParentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parents', 'listParentsResponse_parents' - A list of parents for the specified child account or OU.
---
 -- 'nextToken', 'listParentsResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'parents', 'listParentsResponse_parents' - A list of parents for the specified child account or OU.
 --
 -- 'httpStatus', 'listParentsResponse_httpStatus' - The response's http status code.
 newListParentsResponse ::
@@ -289,14 +289,10 @@ newListParentsResponse ::
   ListParentsResponse
 newListParentsResponse pHttpStatus_ =
   ListParentsResponse'
-    { parents = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      parents = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of parents for the specified child account or OU.
-listParentsResponse_parents :: Lens.Lens' ListParentsResponse (Prelude.Maybe [Parent])
-listParentsResponse_parents = Lens.lens (\ListParentsResponse' {parents} -> parents) (\s@ListParentsResponse' {} a -> s {parents = a} :: ListParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -305,6 +301,10 @@ listParentsResponse_parents = Lens.lens (\ListParentsResponse' {parents} -> pare
 -- element comes back as @null@.
 listParentsResponse_nextToken :: Lens.Lens' ListParentsResponse (Prelude.Maybe Prelude.Text)
 listParentsResponse_nextToken = Lens.lens (\ListParentsResponse' {nextToken} -> nextToken) (\s@ListParentsResponse' {} a -> s {nextToken = a} :: ListParentsResponse)
+
+-- | A list of parents for the specified child account or OU.
+listParentsResponse_parents :: Lens.Lens' ListParentsResponse (Prelude.Maybe [Parent])
+listParentsResponse_parents = Lens.lens (\ListParentsResponse' {parents} -> parents) (\s@ListParentsResponse' {} a -> s {parents = a} :: ListParentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listParentsResponse_httpStatus :: Lens.Lens' ListParentsResponse Prelude.Int

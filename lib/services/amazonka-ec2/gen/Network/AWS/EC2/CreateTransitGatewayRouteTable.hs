@@ -92,7 +92,7 @@ newCreateTransitGatewayRouteTable pTransitGatewayId_ =
 
 -- | The tags to apply to the transit gateway route table.
 createTransitGatewayRouteTable_tagSpecifications :: Lens.Lens' CreateTransitGatewayRouteTable (Prelude.Maybe [TagSpecification])
-createTransitGatewayRouteTable_tagSpecifications = Lens.lens (\CreateTransitGatewayRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayRouteTable' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayRouteTable) Prelude.. Lens.mapping Lens._Coerce
+createTransitGatewayRouteTable_tagSpecifications = Lens.lens (\CreateTransitGatewayRouteTable' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayRouteTable' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayRouteTable) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

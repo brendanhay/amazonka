@@ -27,9 +27,9 @@ module Network.AWS.WorkDocs.DeleteLabels
     newDeleteLabels,
 
     -- * Request Lenses
-    deleteLabels_labels,
-    deleteLabels_authenticationToken,
     deleteLabels_deleteAll,
+    deleteLabels_authenticationToken,
+    deleteLabels_labels,
     deleteLabels_resourceId,
 
     -- * Destructuring the Response
@@ -50,13 +50,13 @@ import Network.AWS.WorkDocs.Types
 
 -- | /See:/ 'newDeleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
-  { -- | List of labels to delete from the resource.
-    labels :: Prelude.Maybe [Prelude.Text],
+  { -- | Flag to request removal of all labels from the specified resource.
+    deleteAll :: Prelude.Maybe Prelude.Bool,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Flag to request removal of all labels from the specified resource.
-    deleteAll :: Prelude.Maybe Prelude.Bool,
+    -- | List of labels to delete from the resource.
+    labels :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the resource.
     resourceId :: Prelude.Text
   }
@@ -70,12 +70,12 @@ data DeleteLabels = DeleteLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'labels', 'deleteLabels_labels' - List of labels to delete from the resource.
+-- 'deleteAll', 'deleteLabels_deleteAll' - Flag to request removal of all labels from the specified resource.
 --
 -- 'authenticationToken', 'deleteLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 --
--- 'deleteAll', 'deleteLabels_deleteAll' - Flag to request removal of all labels from the specified resource.
+-- 'labels', 'deleteLabels_labels' - List of labels to delete from the resource.
 --
 -- 'resourceId', 'deleteLabels_resourceId' - The ID of the resource.
 newDeleteLabels ::
@@ -84,24 +84,24 @@ newDeleteLabels ::
   DeleteLabels
 newDeleteLabels pResourceId_ =
   DeleteLabels'
-    { labels = Prelude.Nothing,
+    { deleteAll = Prelude.Nothing,
       authenticationToken = Prelude.Nothing,
-      deleteAll = Prelude.Nothing,
+      labels = Prelude.Nothing,
       resourceId = pResourceId_
     }
 
--- | List of labels to delete from the resource.
-deleteLabels_labels :: Lens.Lens' DeleteLabels (Prelude.Maybe [Prelude.Text])
-deleteLabels_labels = Lens.lens (\DeleteLabels' {labels} -> labels) (\s@DeleteLabels' {} a -> s {labels = a} :: DeleteLabels) Prelude.. Lens.mapping Lens._Coerce
+-- | Flag to request removal of all labels from the specified resource.
+deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Bool)
+deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s@DeleteLabels' {} a -> s {deleteAll = a} :: DeleteLabels)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
 deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Text)
 deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Core._Sensitive
 
--- | Flag to request removal of all labels from the specified resource.
-deleteLabels_deleteAll :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Bool)
-deleteLabels_deleteAll = Lens.lens (\DeleteLabels' {deleteAll} -> deleteAll) (\s@DeleteLabels' {} a -> s {deleteAll = a} :: DeleteLabels)
+-- | List of labels to delete from the resource.
+deleteLabels_labels :: Lens.Lens' DeleteLabels (Prelude.Maybe [Prelude.Text])
+deleteLabels_labels = Lens.lens (\DeleteLabels' {labels} -> labels) (\s@DeleteLabels' {} a -> s {labels = a} :: DeleteLabels) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the resource.
 deleteLabels_resourceId :: Lens.Lens' DeleteLabels Prelude.Text
@@ -140,10 +140,10 @@ instance Core.ToPath DeleteLabels where
 instance Core.ToQuery DeleteLabels where
   toQuery DeleteLabels' {..} =
     Prelude.mconcat
-      [ "labels"
+      [ "deleteAll" Core.=: deleteAll,
+        "labels"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> labels),
-        "deleteAll" Core.=: deleteAll
+            (Core.toQueryList "member" Prelude.<$> labels)
       ]
 
 -- | /See:/ 'newDeleteLabelsResponse' smart constructor.

@@ -25,9 +25,9 @@ module Network.AWS.KinesisVideoMedia.Lens
     -- * Types
 
     -- ** StartSelector
+    startSelector_continuationToken,
     startSelector_afterFragmentNumber,
     startSelector_startTimestamp,
-    startSelector_continuationToken,
     startSelector_startSelectorType,
   )
 where

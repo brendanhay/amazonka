@@ -148,7 +148,7 @@ newBuildSuggestersResponse pHttpStatus_ =
 
 -- | Undocumented member.
 buildSuggestersResponse_fieldNames :: Lens.Lens' BuildSuggestersResponse (Prelude.Maybe [Prelude.Text])
-buildSuggestersResponse_fieldNames = Lens.lens (\BuildSuggestersResponse' {fieldNames} -> fieldNames) (\s@BuildSuggestersResponse' {} a -> s {fieldNames = a} :: BuildSuggestersResponse) Prelude.. Lens.mapping Lens._Coerce
+buildSuggestersResponse_fieldNames = Lens.lens (\BuildSuggestersResponse' {fieldNames} -> fieldNames) (\s@BuildSuggestersResponse' {} a -> s {fieldNames = a} :: BuildSuggestersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 buildSuggestersResponse_httpStatus :: Lens.Lens' BuildSuggestersResponse Prelude.Int

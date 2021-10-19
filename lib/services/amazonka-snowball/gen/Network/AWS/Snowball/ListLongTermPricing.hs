@@ -35,8 +35,8 @@ module Network.AWS.Snowball.ListLongTermPricing
     newListLongTermPricingResponse,
 
     -- * Response Lenses
-    listLongTermPricingResponse_nextToken,
     listLongTermPricingResponse_longTermPricingEntries,
+    listLongTermPricingResponse_nextToken,
     listLongTermPricingResponse_httpStatus,
   )
 where
@@ -96,10 +96,10 @@ instance Core.AWSRequest ListLongTermPricing where
     Response.receiveJSON
       ( \s h x ->
           ListLongTermPricingResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> ( x Core..?> "LongTermPricingEntries"
+            Prelude.<$> ( x Core..?> "LongTermPricingEntries"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -139,12 +139,12 @@ instance Core.ToQuery ListLongTermPricing where
 
 -- | /See:/ 'newListLongTermPricingResponse' smart constructor.
 data ListLongTermPricingResponse = ListLongTermPricingResponse'
-  { -- | Because HTTP requests are stateless, this is the starting point for your
-    -- next list of returned @ListLongTermPricing@ list.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Each @LongTermPricingEntry@ object contains a status, ID, and other
+  { -- | Each @LongTermPricingEntry@ object contains a status, ID, and other
     -- information about the @LongTermPricing@ type.
     longTermPricingEntries :: Prelude.Maybe [LongTermPricingListEntry],
+    -- | Because HTTP requests are stateless, this is the starting point for your
+    -- next list of returned @ListLongTermPricing@ list.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,11 +158,11 @@ data ListLongTermPricingResponse = ListLongTermPricingResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLongTermPricingResponse_nextToken' - Because HTTP requests are stateless, this is the starting point for your
--- next list of returned @ListLongTermPricing@ list.
---
 -- 'longTermPricingEntries', 'listLongTermPricingResponse_longTermPricingEntries' - Each @LongTermPricingEntry@ object contains a status, ID, and other
 -- information about the @LongTermPricing@ type.
+--
+-- 'nextToken', 'listLongTermPricingResponse_nextToken' - Because HTTP requests are stateless, this is the starting point for your
+-- next list of returned @ListLongTermPricing@ list.
 --
 -- 'httpStatus', 'listLongTermPricingResponse_httpStatus' - The response's http status code.
 newListLongTermPricingResponse ::
@@ -171,21 +171,21 @@ newListLongTermPricingResponse ::
   ListLongTermPricingResponse
 newListLongTermPricingResponse pHttpStatus_ =
   ListLongTermPricingResponse'
-    { nextToken =
+    { longTermPricingEntries =
         Prelude.Nothing,
-      longTermPricingEntries = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Each @LongTermPricingEntry@ object contains a status, ID, and other
+-- information about the @LongTermPricing@ type.
+listLongTermPricingResponse_longTermPricingEntries :: Lens.Lens' ListLongTermPricingResponse (Prelude.Maybe [LongTermPricingListEntry])
+listLongTermPricingResponse_longTermPricingEntries = Lens.lens (\ListLongTermPricingResponse' {longTermPricingEntries} -> longTermPricingEntries) (\s@ListLongTermPricingResponse' {} a -> s {longTermPricingEntries = a} :: ListLongTermPricingResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Because HTTP requests are stateless, this is the starting point for your
 -- next list of returned @ListLongTermPricing@ list.
 listLongTermPricingResponse_nextToken :: Lens.Lens' ListLongTermPricingResponse (Prelude.Maybe Prelude.Text)
 listLongTermPricingResponse_nextToken = Lens.lens (\ListLongTermPricingResponse' {nextToken} -> nextToken) (\s@ListLongTermPricingResponse' {} a -> s {nextToken = a} :: ListLongTermPricingResponse)
-
--- | Each @LongTermPricingEntry@ object contains a status, ID, and other
--- information about the @LongTermPricing@ type.
-listLongTermPricingResponse_longTermPricingEntries :: Lens.Lens' ListLongTermPricingResponse (Prelude.Maybe [LongTermPricingListEntry])
-listLongTermPricingResponse_longTermPricingEntries = Lens.lens (\ListLongTermPricingResponse' {longTermPricingEntries} -> longTermPricingEntries) (\s@ListLongTermPricingResponse' {} a -> s {longTermPricingEntries = a} :: ListLongTermPricingResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listLongTermPricingResponse_httpStatus :: Lens.Lens' ListLongTermPricingResponse Prelude.Int

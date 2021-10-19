@@ -103,7 +103,7 @@ newStreamingDistributionList
 -- | A complex type that contains one @StreamingDistributionSummary@ element
 -- for each distribution that was created by the current account.
 streamingDistributionList_items :: Lens.Lens' StreamingDistributionList (Prelude.Maybe [StreamingDistributionSummary])
-streamingDistributionList_items = Lens.lens (\StreamingDistributionList' {items} -> items) (\s@StreamingDistributionList' {} a -> s {items = a} :: StreamingDistributionList) Prelude.. Lens.mapping Lens._Coerce
+streamingDistributionList_items = Lens.lens (\StreamingDistributionList' {items} -> items) (\s@StreamingDistributionList' {} a -> s {items = a} :: StreamingDistributionList) Prelude.. Lens.mapping Lens.coerced
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing

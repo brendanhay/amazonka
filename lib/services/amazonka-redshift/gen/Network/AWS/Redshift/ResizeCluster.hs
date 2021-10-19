@@ -56,9 +56,9 @@ module Network.AWS.Redshift.ResizeCluster
     newResizeCluster,
 
     -- * Request Lenses
+    resizeCluster_numberOfNodes,
     resizeCluster_classic,
     resizeCluster_clusterType,
-    resizeCluster_numberOfNodes,
     resizeCluster_nodeType,
     resizeCluster_clusterIdentifier,
 
@@ -84,15 +84,15 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newResizeCluster' smart constructor.
 data ResizeCluster = ResizeCluster'
-  { -- | A boolean value indicating whether the resize operation is using the
+  { -- | The new number of nodes for the cluster. If not specified, the
+    -- cluster\'s current number of nodes is used.
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
+    -- | A boolean value indicating whether the resize operation is using the
     -- classic resize process. If you don\'t provide this parameter or set the
     -- value to @false@, the resize type is elastic.
     classic :: Prelude.Maybe Prelude.Bool,
     -- | The new cluster type for the specified cluster.
     clusterType :: Prelude.Maybe Prelude.Text,
-    -- | The new number of nodes for the cluster. If not specified, the
-    -- cluster\'s current number of nodes is used.
-    numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The new node type for the nodes you are adding. If not specified, the
     -- cluster\'s current node type is used.
     nodeType :: Prelude.Maybe Prelude.Text,
@@ -109,14 +109,14 @@ data ResizeCluster = ResizeCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'numberOfNodes', 'resizeCluster_numberOfNodes' - The new number of nodes for the cluster. If not specified, the
+-- cluster\'s current number of nodes is used.
+--
 -- 'classic', 'resizeCluster_classic' - A boolean value indicating whether the resize operation is using the
 -- classic resize process. If you don\'t provide this parameter or set the
 -- value to @false@, the resize type is elastic.
 --
 -- 'clusterType', 'resizeCluster_clusterType' - The new cluster type for the specified cluster.
---
--- 'numberOfNodes', 'resizeCluster_numberOfNodes' - The new number of nodes for the cluster. If not specified, the
--- cluster\'s current number of nodes is used.
 --
 -- 'nodeType', 'resizeCluster_nodeType' - The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
@@ -128,12 +128,17 @@ newResizeCluster ::
   ResizeCluster
 newResizeCluster pClusterIdentifier_ =
   ResizeCluster'
-    { classic = Prelude.Nothing,
+    { numberOfNodes = Prelude.Nothing,
+      classic = Prelude.Nothing,
       clusterType = Prelude.Nothing,
-      numberOfNodes = Prelude.Nothing,
       nodeType = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
+
+-- | The new number of nodes for the cluster. If not specified, the
+-- cluster\'s current number of nodes is used.
+resizeCluster_numberOfNodes :: Lens.Lens' ResizeCluster (Prelude.Maybe Prelude.Int)
+resizeCluster_numberOfNodes = Lens.lens (\ResizeCluster' {numberOfNodes} -> numberOfNodes) (\s@ResizeCluster' {} a -> s {numberOfNodes = a} :: ResizeCluster)
 
 -- | A boolean value indicating whether the resize operation is using the
 -- classic resize process. If you don\'t provide this parameter or set the
@@ -144,11 +149,6 @@ resizeCluster_classic = Lens.lens (\ResizeCluster' {classic} -> classic) (\s@Res
 -- | The new cluster type for the specified cluster.
 resizeCluster_clusterType :: Lens.Lens' ResizeCluster (Prelude.Maybe Prelude.Text)
 resizeCluster_clusterType = Lens.lens (\ResizeCluster' {clusterType} -> clusterType) (\s@ResizeCluster' {} a -> s {clusterType = a} :: ResizeCluster)
-
--- | The new number of nodes for the cluster. If not specified, the
--- cluster\'s current number of nodes is used.
-resizeCluster_numberOfNodes :: Lens.Lens' ResizeCluster (Prelude.Maybe Prelude.Int)
-resizeCluster_numberOfNodes = Lens.lens (\ResizeCluster' {numberOfNodes} -> numberOfNodes) (\s@ResizeCluster' {} a -> s {numberOfNodes = a} :: ResizeCluster)
 
 -- | The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
@@ -190,9 +190,9 @@ instance Core.ToQuery ResizeCluster where
           Core.=: ("ResizeCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "NumberOfNodes" Core.=: numberOfNodes,
         "Classic" Core.=: classic,
         "ClusterType" Core.=: clusterType,
-        "NumberOfNodes" Core.=: numberOfNodes,
         "NodeType" Core.=: nodeType,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

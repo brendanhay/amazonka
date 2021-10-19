@@ -57,7 +57,7 @@ newCurrentMetricResult =
 
 -- | The set of metrics.
 currentMetricResult_collections :: Lens.Lens' CurrentMetricResult (Prelude.Maybe [CurrentMetricData])
-currentMetricResult_collections = Lens.lens (\CurrentMetricResult' {collections} -> collections) (\s@CurrentMetricResult' {} a -> s {collections = a} :: CurrentMetricResult) Prelude.. Lens.mapping Lens._Coerce
+currentMetricResult_collections = Lens.lens (\CurrentMetricResult' {collections} -> collections) (\s@CurrentMetricResult' {} a -> s {collections = a} :: CurrentMetricResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | The dimensions for the metrics.
 currentMetricResult_dimensions :: Lens.Lens' CurrentMetricResult (Prelude.Maybe Dimensions)

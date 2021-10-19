@@ -50,10 +50,10 @@ import qualified Network.AWS.Prelude as Prelude
 data BoundingBox = BoundingBox'
   { -- | Height of the bounding box as a ratio of the overall image height.
     height :: Prelude.Maybe Prelude.Double,
-    -- | Width of the bounding box as a ratio of the overall image width.
-    width :: Prelude.Maybe Prelude.Double,
     -- | Left coordinate of the bounding box as a ratio of overall image width.
     left :: Prelude.Maybe Prelude.Double,
+    -- | Width of the bounding box as a ratio of the overall image width.
+    width :: Prelude.Maybe Prelude.Double,
     -- | Top coordinate of the bounding box as a ratio of overall image height.
     top :: Prelude.Maybe Prelude.Double
   }
@@ -69,9 +69,9 @@ data BoundingBox = BoundingBox'
 --
 -- 'height', 'boundingBox_height' - Height of the bounding box as a ratio of the overall image height.
 --
--- 'width', 'boundingBox_width' - Width of the bounding box as a ratio of the overall image width.
---
 -- 'left', 'boundingBox_left' - Left coordinate of the bounding box as a ratio of overall image width.
+--
+-- 'width', 'boundingBox_width' - Width of the bounding box as a ratio of the overall image width.
 --
 -- 'top', 'boundingBox_top' - Top coordinate of the bounding box as a ratio of overall image height.
 newBoundingBox ::
@@ -79,8 +79,8 @@ newBoundingBox ::
 newBoundingBox =
   BoundingBox'
     { height = Prelude.Nothing,
-      width = Prelude.Nothing,
       left = Prelude.Nothing,
+      width = Prelude.Nothing,
       top = Prelude.Nothing
     }
 
@@ -88,13 +88,13 @@ newBoundingBox =
 boundingBox_height :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_height = Lens.lens (\BoundingBox' {height} -> height) (\s@BoundingBox' {} a -> s {height = a} :: BoundingBox)
 
--- | Width of the bounding box as a ratio of the overall image width.
-boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
-boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
-
 -- | Left coordinate of the bounding box as a ratio of overall image width.
 boundingBox_left :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
 boundingBox_left = Lens.lens (\BoundingBox' {left} -> left) (\s@BoundingBox' {} a -> s {left = a} :: BoundingBox)
+
+-- | Width of the bounding box as a ratio of the overall image width.
+boundingBox_width :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
+boundingBox_width = Lens.lens (\BoundingBox' {width} -> width) (\s@BoundingBox' {} a -> s {width = a} :: BoundingBox)
 
 -- | Top coordinate of the bounding box as a ratio of overall image height.
 boundingBox_top :: Lens.Lens' BoundingBox (Prelude.Maybe Prelude.Double)
@@ -107,8 +107,8 @@ instance Core.FromJSON BoundingBox where
       ( \x ->
           BoundingBox'
             Prelude.<$> (x Core..:? "Height")
-            Prelude.<*> (x Core..:? "Width")
             Prelude.<*> (x Core..:? "Left")
+            Prelude.<*> (x Core..:? "Width")
             Prelude.<*> (x Core..:? "Top")
       )
 
@@ -121,8 +121,8 @@ instance Core.ToJSON BoundingBox where
     Core.object
       ( Prelude.catMaybes
           [ ("Height" Core..=) Prelude.<$> height,
-            ("Width" Core..=) Prelude.<$> width,
             ("Left" Core..=) Prelude.<$> left,
+            ("Width" Core..=) Prelude.<$> width,
             ("Top" Core..=) Prelude.<$> top
           ]
       )

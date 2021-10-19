@@ -75,13 +75,13 @@ newDescribeNFSFileShares ::
 newDescribeNFSFileShares pFileShareARNList_ =
   DescribeNFSFileShares'
     { fileShareARNList =
-        Lens._Coerce Lens.# pFileShareARNList_
+        Lens.coerced Lens.# pFileShareARNList_
     }
 
 -- | An array containing the Amazon Resource Name (ARN) of each file share to
 -- be described.
 describeNFSFileShares_fileShareARNList :: Lens.Lens' DescribeNFSFileShares (Prelude.NonEmpty Prelude.Text)
-describeNFSFileShares_fileShareARNList = Lens.lens (\DescribeNFSFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeNFSFileShares' {} a -> s {fileShareARNList = a} :: DescribeNFSFileShares) Prelude.. Lens._Coerce
+describeNFSFileShares_fileShareARNList = Lens.lens (\DescribeNFSFileShares' {fileShareARNList} -> fileShareARNList) (\s@DescribeNFSFileShares' {} a -> s {fileShareARNList = a} :: DescribeNFSFileShares) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DescribeNFSFileShares where
   type
@@ -167,7 +167,7 @@ newDescribeNFSFileSharesResponse pHttpStatus_ =
 
 -- | An array containing a description for each requested file share.
 describeNFSFileSharesResponse_nFSFileShareInfoList :: Lens.Lens' DescribeNFSFileSharesResponse (Prelude.Maybe [NFSFileShareInfo])
-describeNFSFileSharesResponse_nFSFileShareInfoList = Lens.lens (\DescribeNFSFileSharesResponse' {nFSFileShareInfoList} -> nFSFileShareInfoList) (\s@DescribeNFSFileSharesResponse' {} a -> s {nFSFileShareInfoList = a} :: DescribeNFSFileSharesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeNFSFileSharesResponse_nFSFileShareInfoList = Lens.lens (\DescribeNFSFileSharesResponse' {nFSFileShareInfoList} -> nFSFileShareInfoList) (\s@DescribeNFSFileSharesResponse' {} a -> s {nFSFileShareInfoList = a} :: DescribeNFSFileSharesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeNFSFileSharesResponse_httpStatus :: Lens.Lens' DescribeNFSFileSharesResponse Prelude.Int

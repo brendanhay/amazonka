@@ -34,16 +34,16 @@ import Network.AWS.SageMaker.Types.NetworkConfig
 --
 -- /See:/ 'newMonitoringJobDefinition' smart constructor.
 data MonitoringJobDefinition = MonitoringJobDefinition'
-  { -- | Specifies networking options for an monitoring job.
-    networkConfig :: Prelude.Maybe NetworkConfig,
-    -- | Sets the environment variables in the Docker container.
+  { -- | Sets the environment variables in the Docker container.
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Baseline configuration used to validate that the data conforms to the
-    -- specified constraints and statistics
-    baselineConfig :: Prelude.Maybe MonitoringBaselineConfig,
     -- | Specifies a time limit for how long the monitoring job is allowed to
     -- run.
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
+    -- | Specifies networking options for an monitoring job.
+    networkConfig :: Prelude.Maybe NetworkConfig,
+    -- | Baseline configuration used to validate that the data conforms to the
+    -- specified constraints and statistics
+    baselineConfig :: Prelude.Maybe MonitoringBaselineConfig,
     -- | The array of inputs for the monitoring job. Currently we support
     -- monitoring an Amazon SageMaker Endpoint.
     monitoringInputs :: Prelude.NonEmpty MonitoringInput,
@@ -70,15 +70,15 @@ data MonitoringJobDefinition = MonitoringJobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'monitoringJobDefinition_networkConfig' - Specifies networking options for an monitoring job.
---
 -- 'environment', 'monitoringJobDefinition_environment' - Sets the environment variables in the Docker container.
---
--- 'baselineConfig', 'monitoringJobDefinition_baselineConfig' - Baseline configuration used to validate that the data conforms to the
--- specified constraints and statistics
 --
 -- 'stoppingCondition', 'monitoringJobDefinition_stoppingCondition' - Specifies a time limit for how long the monitoring job is allowed to
 -- run.
+--
+-- 'networkConfig', 'monitoringJobDefinition_networkConfig' - Specifies networking options for an monitoring job.
+--
+-- 'baselineConfig', 'monitoringJobDefinition_baselineConfig' - Baseline configuration used to validate that the data conforms to the
+-- specified constraints and statistics
 --
 -- 'monitoringInputs', 'monitoringJobDefinition_monitoringInputs' - The array of inputs for the monitoring job. Currently we support
 -- monitoring an Amazon SageMaker Endpoint.
@@ -113,13 +113,13 @@ newMonitoringJobDefinition
   pMonitoringAppSpecification_
   pRoleArn_ =
     MonitoringJobDefinition'
-      { networkConfig =
+      { environment =
           Prelude.Nothing,
-        environment = Prelude.Nothing,
-        baselineConfig = Prelude.Nothing,
         stoppingCondition = Prelude.Nothing,
+        networkConfig = Prelude.Nothing,
+        baselineConfig = Prelude.Nothing,
         monitoringInputs =
-          Lens._Coerce Lens.# pMonitoringInputs_,
+          Lens.coerced Lens.# pMonitoringInputs_,
         monitoringOutputConfig = pMonitoringOutputConfig_,
         monitoringResources = pMonitoringResources_,
         monitoringAppSpecification =
@@ -127,28 +127,28 @@ newMonitoringJobDefinition
         roleArn = pRoleArn_
       }
 
--- | Specifies networking options for an monitoring job.
-monitoringJobDefinition_networkConfig :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe NetworkConfig)
-monitoringJobDefinition_networkConfig = Lens.lens (\MonitoringJobDefinition' {networkConfig} -> networkConfig) (\s@MonitoringJobDefinition' {} a -> s {networkConfig = a} :: MonitoringJobDefinition)
-
 -- | Sets the environment variables in the Docker container.
 monitoringJobDefinition_environment :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-monitoringJobDefinition_environment = Lens.lens (\MonitoringJobDefinition' {environment} -> environment) (\s@MonitoringJobDefinition' {} a -> s {environment = a} :: MonitoringJobDefinition) Prelude.. Lens.mapping Lens._Coerce
-
--- | Baseline configuration used to validate that the data conforms to the
--- specified constraints and statistics
-monitoringJobDefinition_baselineConfig :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe MonitoringBaselineConfig)
-monitoringJobDefinition_baselineConfig = Lens.lens (\MonitoringJobDefinition' {baselineConfig} -> baselineConfig) (\s@MonitoringJobDefinition' {} a -> s {baselineConfig = a} :: MonitoringJobDefinition)
+monitoringJobDefinition_environment = Lens.lens (\MonitoringJobDefinition' {environment} -> environment) (\s@MonitoringJobDefinition' {} a -> s {environment = a} :: MonitoringJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies a time limit for how long the monitoring job is allowed to
 -- run.
 monitoringJobDefinition_stoppingCondition :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
 monitoringJobDefinition_stoppingCondition = Lens.lens (\MonitoringJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@MonitoringJobDefinition' {} a -> s {stoppingCondition = a} :: MonitoringJobDefinition)
 
+-- | Specifies networking options for an monitoring job.
+monitoringJobDefinition_networkConfig :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe NetworkConfig)
+monitoringJobDefinition_networkConfig = Lens.lens (\MonitoringJobDefinition' {networkConfig} -> networkConfig) (\s@MonitoringJobDefinition' {} a -> s {networkConfig = a} :: MonitoringJobDefinition)
+
+-- | Baseline configuration used to validate that the data conforms to the
+-- specified constraints and statistics
+monitoringJobDefinition_baselineConfig :: Lens.Lens' MonitoringJobDefinition (Prelude.Maybe MonitoringBaselineConfig)
+monitoringJobDefinition_baselineConfig = Lens.lens (\MonitoringJobDefinition' {baselineConfig} -> baselineConfig) (\s@MonitoringJobDefinition' {} a -> s {baselineConfig = a} :: MonitoringJobDefinition)
+
 -- | The array of inputs for the monitoring job. Currently we support
 -- monitoring an Amazon SageMaker Endpoint.
 monitoringJobDefinition_monitoringInputs :: Lens.Lens' MonitoringJobDefinition (Prelude.NonEmpty MonitoringInput)
-monitoringJobDefinition_monitoringInputs = Lens.lens (\MonitoringJobDefinition' {monitoringInputs} -> monitoringInputs) (\s@MonitoringJobDefinition' {} a -> s {monitoringInputs = a} :: MonitoringJobDefinition) Prelude.. Lens._Coerce
+monitoringJobDefinition_monitoringInputs = Lens.lens (\MonitoringJobDefinition' {monitoringInputs} -> monitoringInputs) (\s@MonitoringJobDefinition' {} a -> s {monitoringInputs = a} :: MonitoringJobDefinition) Prelude.. Lens.coerced
 
 -- | The array of outputs from the monitoring job to be uploaded to Amazon
 -- Simple Storage Service (Amazon S3).
@@ -176,10 +176,10 @@ instance Core.FromJSON MonitoringJobDefinition where
       "MonitoringJobDefinition"
       ( \x ->
           MonitoringJobDefinition'
-            Prelude.<$> (x Core..:? "NetworkConfig")
-            Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BaselineConfig")
+            Prelude.<$> (x Core..:? "Environment" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "StoppingCondition")
+            Prelude.<*> (x Core..:? "NetworkConfig")
+            Prelude.<*> (x Core..:? "BaselineConfig")
             Prelude.<*> (x Core..: "MonitoringInputs")
             Prelude.<*> (x Core..: "MonitoringOutputConfig")
             Prelude.<*> (x Core..: "MonitoringResources")
@@ -195,12 +195,12 @@ instance Core.ToJSON MonitoringJobDefinition where
   toJSON MonitoringJobDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
-            ("Environment" Core..=) Prelude.<$> environment,
-            ("BaselineConfig" Core..=)
-              Prelude.<$> baselineConfig,
+          [ ("Environment" Core..=) Prelude.<$> environment,
             ("StoppingCondition" Core..=)
               Prelude.<$> stoppingCondition,
+            ("NetworkConfig" Core..=) Prelude.<$> networkConfig,
+            ("BaselineConfig" Core..=)
+              Prelude.<$> baselineConfig,
             Prelude.Just
               ("MonitoringInputs" Core..= monitoringInputs),
             Prelude.Just

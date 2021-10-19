@@ -53,7 +53,7 @@ newLineItemFields =
 
 -- | ExpenseFields used to show information from detected lines on a table.
 lineItemFields_lineItemExpenseFields :: Lens.Lens' LineItemFields (Prelude.Maybe [ExpenseField])
-lineItemFields_lineItemExpenseFields = Lens.lens (\LineItemFields' {lineItemExpenseFields} -> lineItemExpenseFields) (\s@LineItemFields' {} a -> s {lineItemExpenseFields = a} :: LineItemFields) Prelude.. Lens.mapping Lens._Coerce
+lineItemFields_lineItemExpenseFields = Lens.lens (\LineItemFields' {lineItemExpenseFields} -> lineItemExpenseFields) (\s@LineItemFields' {} a -> s {lineItemExpenseFields = a} :: LineItemFields) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LineItemFields where
   parseJSON =

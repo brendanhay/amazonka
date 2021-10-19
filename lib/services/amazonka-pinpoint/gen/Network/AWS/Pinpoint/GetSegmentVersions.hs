@@ -29,8 +29,8 @@ module Network.AWS.Pinpoint.GetSegmentVersions
     newGetSegmentVersions,
 
     -- * Request Lenses
-    getSegmentVersions_pageSize,
     getSegmentVersions_token,
+    getSegmentVersions_pageSize,
     getSegmentVersions_segmentId,
     getSegmentVersions_applicationId,
 
@@ -53,13 +53,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSegmentVersions' smart constructor.
 data GetSegmentVersions = GetSegmentVersions'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the segment.
     segmentId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
@@ -76,12 +76,12 @@ data GetSegmentVersions = GetSegmentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'getSegmentVersions_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'getSegmentVersions_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'getSegmentVersions_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 --
 -- 'segmentId', 'getSegmentVersions_segmentId' - The unique identifier for the segment.
 --
@@ -95,22 +95,22 @@ newGetSegmentVersions ::
   GetSegmentVersions
 newGetSegmentVersions pSegmentId_ pApplicationId_ =
   GetSegmentVersions'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       segmentId = pSegmentId_,
       applicationId = pApplicationId_
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getSegmentVersions_token :: Lens.Lens' GetSegmentVersions (Prelude.Maybe Prelude.Text)
+getSegmentVersions_token = Lens.lens (\GetSegmentVersions' {token} -> token) (\s@GetSegmentVersions' {} a -> s {token = a} :: GetSegmentVersions)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getSegmentVersions_pageSize :: Lens.Lens' GetSegmentVersions (Prelude.Maybe Prelude.Text)
 getSegmentVersions_pageSize = Lens.lens (\GetSegmentVersions' {pageSize} -> pageSize) (\s@GetSegmentVersions' {} a -> s {pageSize = a} :: GetSegmentVersions)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getSegmentVersions_token :: Lens.Lens' GetSegmentVersions (Prelude.Maybe Prelude.Text)
-getSegmentVersions_token = Lens.lens (\GetSegmentVersions' {token} -> token) (\s@GetSegmentVersions' {} a -> s {token = a} :: GetSegmentVersions)
 
 -- | The unique identifier for the segment.
 getSegmentVersions_segmentId :: Lens.Lens' GetSegmentVersions Prelude.Text
@@ -162,7 +162,7 @@ instance Core.ToPath GetSegmentVersions where
 instance Core.ToQuery GetSegmentVersions where
   toQuery GetSegmentVersions' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newGetSegmentVersionsResponse' smart constructor.
 data GetSegmentVersionsResponse = GetSegmentVersionsResponse'

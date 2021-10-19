@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSpotInstanceStateFault' smart constructor.
 data SpotInstanceStateFault = SpotInstanceStateFault'
-  { -- | The message for the Spot Instance state change.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The reason code for the Spot Instance state change.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | The reason code for the Spot Instance state change.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | The message for the Spot Instance state change.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,30 +43,30 @@ data SpotInstanceStateFault = SpotInstanceStateFault'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'spotInstanceStateFault_message' - The message for the Spot Instance state change.
---
 -- 'code', 'spotInstanceStateFault_code' - The reason code for the Spot Instance state change.
+--
+-- 'message', 'spotInstanceStateFault_message' - The message for the Spot Instance state change.
 newSpotInstanceStateFault ::
   SpotInstanceStateFault
 newSpotInstanceStateFault =
   SpotInstanceStateFault'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | The message for the Spot Instance state change.
-spotInstanceStateFault_message :: Lens.Lens' SpotInstanceStateFault (Prelude.Maybe Prelude.Text)
-spotInstanceStateFault_message = Lens.lens (\SpotInstanceStateFault' {message} -> message) (\s@SpotInstanceStateFault' {} a -> s {message = a} :: SpotInstanceStateFault)
 
 -- | The reason code for the Spot Instance state change.
 spotInstanceStateFault_code :: Lens.Lens' SpotInstanceStateFault (Prelude.Maybe Prelude.Text)
 spotInstanceStateFault_code = Lens.lens (\SpotInstanceStateFault' {code} -> code) (\s@SpotInstanceStateFault' {} a -> s {code = a} :: SpotInstanceStateFault)
 
+-- | The message for the Spot Instance state change.
+spotInstanceStateFault_message :: Lens.Lens' SpotInstanceStateFault (Prelude.Maybe Prelude.Text)
+spotInstanceStateFault_message = Lens.lens (\SpotInstanceStateFault' {message} -> message) (\s@SpotInstanceStateFault' {} a -> s {message = a} :: SpotInstanceStateFault)
+
 instance Core.FromXML SpotInstanceStateFault where
   parseXML x =
     SpotInstanceStateFault'
-      Prelude.<$> (x Core..@? "message")
-      Prelude.<*> (x Core..@? "code")
+      Prelude.<$> (x Core..@? "code")
+      Prelude.<*> (x Core..@? "message")
 
 instance Prelude.Hashable SpotInstanceStateFault
 

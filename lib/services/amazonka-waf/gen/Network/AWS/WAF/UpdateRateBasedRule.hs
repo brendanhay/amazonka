@@ -169,7 +169,7 @@ updateRateBasedRule_changeToken = Lens.lens (\UpdateRateBasedRule' {changeToken}
 -- | An array of @RuleUpdate@ objects that you want to insert into or delete
 -- from a RateBasedRule.
 updateRateBasedRule_updates :: Lens.Lens' UpdateRateBasedRule [RuleUpdate]
-updateRateBasedRule_updates = Lens.lens (\UpdateRateBasedRule' {updates} -> updates) (\s@UpdateRateBasedRule' {} a -> s {updates = a} :: UpdateRateBasedRule) Prelude.. Lens._Coerce
+updateRateBasedRule_updates = Lens.lens (\UpdateRateBasedRule' {updates} -> updates) (\s@UpdateRateBasedRule' {} a -> s {updates = a} :: UpdateRateBasedRule) Prelude.. Lens.coerced
 
 -- | The maximum number of requests, which have an identical value in the
 -- field specified by the @RateKey@, allowed in a five-minute period. If

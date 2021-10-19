@@ -31,10 +31,10 @@ module Network.AWS.EC2.DescribeFleetInstances
     newDescribeFleetInstances,
 
     -- * Request Lenses
-    describeFleetInstances_nextToken,
-    describeFleetInstances_maxResults,
-    describeFleetInstances_dryRun,
     describeFleetInstances_filters,
+    describeFleetInstances_nextToken,
+    describeFleetInstances_dryRun,
+    describeFleetInstances_maxResults,
     describeFleetInstances_fleetId,
 
     -- * Destructuring the Response
@@ -58,22 +58,22 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFleetInstances' smart constructor.
 data DescribeFleetInstances = DescribeFleetInstances'
-  { -- | The token for the next set of results.
+  { -- | The filters.
+    --
+    -- -   @instance-type@ - The instance type.
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and 1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The filters.
-    --
-    -- -   @instance-type@ - The instance type.
-    filters :: Prelude.Maybe [Filter],
+    -- | The maximum number of results to return in a single call. Specify a
+    -- value between 1 and 1000. The default value is 1000. To retrieve the
+    -- remaining results, make another call with the returned @NextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Int,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Text
   }
@@ -87,21 +87,21 @@ data DescribeFleetInstances = DescribeFleetInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFleetInstances_nextToken' - The token for the next set of results.
+-- 'filters', 'describeFleetInstances_filters' - The filters.
 --
--- 'maxResults', 'describeFleetInstances_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- -   @instance-type@ - The instance type.
+--
+-- 'nextToken', 'describeFleetInstances_nextToken' - The token for the next set of results.
 --
 -- 'dryRun', 'describeFleetInstances_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeFleetInstances_filters' - The filters.
---
--- -   @instance-type@ - The instance type.
+-- 'maxResults', 'describeFleetInstances_maxResults' - The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
 --
 -- 'fleetId', 'describeFleetInstances_fleetId' - The ID of the EC2 Fleet.
 newDescribeFleetInstances ::
@@ -110,24 +110,22 @@ newDescribeFleetInstances ::
   DescribeFleetInstances
 newDescribeFleetInstances pFleetId_ =
   DescribeFleetInstances'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       fleetId = pFleetId_
     }
+
+-- | The filters.
+--
+-- -   @instance-type@ - The instance type.
+describeFleetInstances_filters :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe [Filter])
+describeFleetInstances_filters = Lens.lens (\DescribeFleetInstances' {filters} -> filters) (\s@DescribeFleetInstances' {} a -> s {filters = a} :: DescribeFleetInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of results.
 describeFleetInstances_nextToken :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Text)
 describeFleetInstances_nextToken = Lens.lens (\DescribeFleetInstances' {nextToken} -> nextToken) (\s@DescribeFleetInstances' {} a -> s {nextToken = a} :: DescribeFleetInstances)
-
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
-describeFleetInstances_maxResults :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Int)
-describeFleetInstances_maxResults = Lens.lens (\DescribeFleetInstances' {maxResults} -> maxResults) (\s@DescribeFleetInstances' {} a -> s {maxResults = a} :: DescribeFleetInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -136,11 +134,12 @@ describeFleetInstances_maxResults = Lens.lens (\DescribeFleetInstances' {maxResu
 describeFleetInstances_dryRun :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Bool)
 describeFleetInstances_dryRun = Lens.lens (\DescribeFleetInstances' {dryRun} -> dryRun) (\s@DescribeFleetInstances' {} a -> s {dryRun = a} :: DescribeFleetInstances)
 
--- | The filters.
---
--- -   @instance-type@ - The instance type.
-describeFleetInstances_filters :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe [Filter])
-describeFleetInstances_filters = Lens.lens (\DescribeFleetInstances' {filters} -> filters) (\s@DescribeFleetInstances' {} a -> s {filters = a} :: DescribeFleetInstances) Prelude.. Lens.mapping Lens._Coerce
+-- | The maximum number of results to return in a single call. Specify a
+-- value between 1 and 1000. The default value is 1000. To retrieve the
+-- remaining results, make another call with the returned @NextToken@
+-- value.
+describeFleetInstances_maxResults :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Int)
+describeFleetInstances_maxResults = Lens.lens (\DescribeFleetInstances' {maxResults} -> maxResults) (\s@DescribeFleetInstances' {} a -> s {maxResults = a} :: DescribeFleetInstances)
 
 -- | The ID of the EC2 Fleet.
 describeFleetInstances_fleetId :: Lens.Lens' DescribeFleetInstances Prelude.Text
@@ -181,11 +180,11 @@ instance Core.ToQuery DescribeFleetInstances where
           Core.=: ("DescribeFleetInstances" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           (Core.toQueryList "Filter" Prelude.<$> filters),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
         "FleetId" Core.=: fleetId
       ]
 
@@ -243,7 +242,7 @@ describeFleetInstancesResponse_fleetId = Lens.lens (\DescribeFleetInstancesRespo
 -- | The running instances. This list is refreshed periodically and might be
 -- out of date.
 describeFleetInstancesResponse_activeInstances :: Lens.Lens' DescribeFleetInstancesResponse (Prelude.Maybe [ActiveInstance])
-describeFleetInstancesResponse_activeInstances = Lens.lens (\DescribeFleetInstancesResponse' {activeInstances} -> activeInstances) (\s@DescribeFleetInstancesResponse' {} a -> s {activeInstances = a} :: DescribeFleetInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeFleetInstancesResponse_activeInstances = Lens.lens (\DescribeFleetInstancesResponse' {activeInstances} -> activeInstances) (\s@DescribeFleetInstancesResponse' {} a -> s {activeInstances = a} :: DescribeFleetInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeFleetInstancesResponse_httpStatus :: Lens.Lens' DescribeFleetInstancesResponse Prelude.Int

@@ -48,8 +48,8 @@ module Network.AWS.MechanicalTurk.ApproveAssignment
     newApproveAssignment,
 
     -- * Request Lenses
-    approveAssignment_requesterFeedback,
     approveAssignment_overrideRejection,
+    approveAssignment_requesterFeedback,
     approveAssignment_assignmentId,
 
     -- * Destructuring the Response
@@ -70,12 +70,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newApproveAssignment' smart constructor.
 data ApproveAssignment = ApproveAssignment'
-  { -- | A message for the Worker, which the Worker can see in the Status section
-    -- of the web site.
-    requesterFeedback :: Prelude.Maybe Prelude.Text,
-    -- | A flag indicating that an assignment should be approved even if it was
+  { -- | A flag indicating that an assignment should be approved even if it was
     -- previously rejected. Defaults to @False@.
     overrideRejection :: Prelude.Maybe Prelude.Bool,
+    -- | A message for the Worker, which the Worker can see in the Status section
+    -- of the web site.
+    requesterFeedback :: Prelude.Maybe Prelude.Text,
     -- | The ID of the assignment. The assignment must correspond to a HIT
     -- created by the Requester.
     assignmentId :: Prelude.Text
@@ -90,11 +90,11 @@ data ApproveAssignment = ApproveAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requesterFeedback', 'approveAssignment_requesterFeedback' - A message for the Worker, which the Worker can see in the Status section
--- of the web site.
---
 -- 'overrideRejection', 'approveAssignment_overrideRejection' - A flag indicating that an assignment should be approved even if it was
 -- previously rejected. Defaults to @False@.
+--
+-- 'requesterFeedback', 'approveAssignment_requesterFeedback' - A message for the Worker, which the Worker can see in the Status section
+-- of the web site.
 --
 -- 'assignmentId', 'approveAssignment_assignmentId' - The ID of the assignment. The assignment must correspond to a HIT
 -- created by the Requester.
@@ -104,21 +104,21 @@ newApproveAssignment ::
   ApproveAssignment
 newApproveAssignment pAssignmentId_ =
   ApproveAssignment'
-    { requesterFeedback =
+    { overrideRejection =
         Prelude.Nothing,
-      overrideRejection = Prelude.Nothing,
+      requesterFeedback = Prelude.Nothing,
       assignmentId = pAssignmentId_
     }
-
--- | A message for the Worker, which the Worker can see in the Status section
--- of the web site.
-approveAssignment_requesterFeedback :: Lens.Lens' ApproveAssignment (Prelude.Maybe Prelude.Text)
-approveAssignment_requesterFeedback = Lens.lens (\ApproveAssignment' {requesterFeedback} -> requesterFeedback) (\s@ApproveAssignment' {} a -> s {requesterFeedback = a} :: ApproveAssignment)
 
 -- | A flag indicating that an assignment should be approved even if it was
 -- previously rejected. Defaults to @False@.
 approveAssignment_overrideRejection :: Lens.Lens' ApproveAssignment (Prelude.Maybe Prelude.Bool)
 approveAssignment_overrideRejection = Lens.lens (\ApproveAssignment' {overrideRejection} -> overrideRejection) (\s@ApproveAssignment' {} a -> s {overrideRejection = a} :: ApproveAssignment)
+
+-- | A message for the Worker, which the Worker can see in the Status section
+-- of the web site.
+approveAssignment_requesterFeedback :: Lens.Lens' ApproveAssignment (Prelude.Maybe Prelude.Text)
+approveAssignment_requesterFeedback = Lens.lens (\ApproveAssignment' {requesterFeedback} -> requesterFeedback) (\s@ApproveAssignment' {} a -> s {requesterFeedback = a} :: ApproveAssignment)
 
 -- | The ID of the assignment. The assignment must correspond to a HIT
 -- created by the Requester.
@@ -160,10 +160,10 @@ instance Core.ToJSON ApproveAssignment where
   toJSON ApproveAssignment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RequesterFeedback" Core..=)
-              Prelude.<$> requesterFeedback,
-            ("OverrideRejection" Core..=)
+          [ ("OverrideRejection" Core..=)
               Prelude.<$> overrideRejection,
+            ("RequesterFeedback" Core..=)
+              Prelude.<$> requesterFeedback,
             Prelude.Just ("AssignmentId" Core..= assignmentId)
           ]
       )

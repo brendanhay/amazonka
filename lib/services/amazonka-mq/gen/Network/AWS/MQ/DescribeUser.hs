@@ -36,10 +36,10 @@ module Network.AWS.MQ.DescribeUser
 
     -- * Response Lenses
     describeUserResponse_groups,
-    describeUserResponse_brokerId,
     describeUserResponse_pending,
-    describeUserResponse_username,
     describeUserResponse_consoleAccess,
+    describeUserResponse_username,
+    describeUserResponse_brokerId,
     describeUserResponse_httpStatus,
   )
 where
@@ -105,10 +105,10 @@ instance Core.AWSRequest DescribeUser where
       ( \s h x ->
           DescribeUserResponse'
             Prelude.<$> (x Core..?> "groups" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "brokerId")
             Prelude.<*> (x Core..?> "pending")
-            Prelude.<*> (x Core..?> "username")
             Prelude.<*> (x Core..?> "consoleAccess")
+            Prelude.<*> (x Core..?> "username")
+            Prelude.<*> (x Core..?> "brokerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,16 +146,16 @@ data DescribeUserResponse = DescribeUserResponse'
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | Required. The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Maybe Prelude.Text,
     -- | The status of the changes pending for the ActiveMQ user.
     pending :: Prelude.Maybe UserPendingChanges,
+    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+    consoleAccess :: Prelude.Maybe Prelude.Bool,
     -- | Required. The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
     username :: Prelude.Maybe Prelude.Text,
-    -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    -- | Required. The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,15 +174,15 @@ data DescribeUserResponse = DescribeUserResponse'
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 --
--- 'brokerId', 'describeUserResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
---
 -- 'pending', 'describeUserResponse_pending' - The status of the changes pending for the ActiveMQ user.
+--
+-- 'consoleAccess', 'describeUserResponse_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 --
 -- 'username', 'describeUserResponse_username' - Required. The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
 --
--- 'consoleAccess', 'describeUserResponse_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+-- 'brokerId', 'describeUserResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
 --
 -- 'httpStatus', 'describeUserResponse_httpStatus' - The response's http status code.
 newDescribeUserResponse ::
@@ -192,10 +192,10 @@ newDescribeUserResponse ::
 newDescribeUserResponse pHttpStatus_ =
   DescribeUserResponse'
     { groups = Prelude.Nothing,
-      brokerId = Prelude.Nothing,
       pending = Prelude.Nothing,
-      username = Prelude.Nothing,
       consoleAccess = Prelude.Nothing,
+      username = Prelude.Nothing,
+      brokerId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -204,15 +204,15 @@ newDescribeUserResponse pHttpStatus_ =
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 describeUserResponse_groups :: Lens.Lens' DescribeUserResponse (Prelude.Maybe [Prelude.Text])
-describeUserResponse_groups = Lens.lens (\DescribeUserResponse' {groups} -> groups) (\s@DescribeUserResponse' {} a -> s {groups = a} :: DescribeUserResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Required. The unique ID that Amazon MQ generates for the broker.
-describeUserResponse_brokerId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_brokerId = Lens.lens (\DescribeUserResponse' {brokerId} -> brokerId) (\s@DescribeUserResponse' {} a -> s {brokerId = a} :: DescribeUserResponse)
+describeUserResponse_groups = Lens.lens (\DescribeUserResponse' {groups} -> groups) (\s@DescribeUserResponse' {} a -> s {groups = a} :: DescribeUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of the changes pending for the ActiveMQ user.
 describeUserResponse_pending :: Lens.Lens' DescribeUserResponse (Prelude.Maybe UserPendingChanges)
 describeUserResponse_pending = Lens.lens (\DescribeUserResponse' {pending} -> pending) (\s@DescribeUserResponse' {} a -> s {pending = a} :: DescribeUserResponse)
+
+-- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
+describeUserResponse_consoleAccess :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Bool)
+describeUserResponse_consoleAccess = Lens.lens (\DescribeUserResponse' {consoleAccess} -> consoleAccess) (\s@DescribeUserResponse' {} a -> s {consoleAccess = a} :: DescribeUserResponse)
 
 -- | Required. The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -220,9 +220,9 @@ describeUserResponse_pending = Lens.lens (\DescribeUserResponse' {pending} -> pe
 describeUserResponse_username :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
 describeUserResponse_username = Lens.lens (\DescribeUserResponse' {username} -> username) (\s@DescribeUserResponse' {} a -> s {username = a} :: DescribeUserResponse)
 
--- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-describeUserResponse_consoleAccess :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Bool)
-describeUserResponse_consoleAccess = Lens.lens (\DescribeUserResponse' {consoleAccess} -> consoleAccess) (\s@DescribeUserResponse' {} a -> s {consoleAccess = a} :: DescribeUserResponse)
+-- | Required. The unique ID that Amazon MQ generates for the broker.
+describeUserResponse_brokerId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_brokerId = Lens.lens (\DescribeUserResponse' {brokerId} -> brokerId) (\s@DescribeUserResponse' {} a -> s {brokerId = a} :: DescribeUserResponse)
 
 -- | The response's http status code.
 describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Prelude.Int

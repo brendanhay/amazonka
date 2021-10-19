@@ -27,43 +27,37 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetPendingJobExecutions $
---             newGetPendingJobExecutions
---
---         , requestUpdateJobExecution $
+--         [ requestUpdateJobExecution $
 --             newUpdateJobExecution
---
---         , requestDescribeJobExecution $
---             newDescribeJobExecution
 --
 --         , requestStartNextPendingJobExecution $
 --             newStartNextPendingJobExecution
 --
+--         , requestDescribeJobExecution $
+--             newDescribeJobExecution
+--
+--         , requestGetPendingJobExecutions $
+--             newGetPendingJobExecutions
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseGetPendingJobExecutions $
---             newGetPendingJobExecutionsResponse
---
---         , responseUpdateJobExecution $
+--         [ responseUpdateJobExecution $
 --             newUpdateJobExecutionResponse
+--
+--         , responseStartNextPendingJobExecution $
+--             newStartNextPendingJobExecutionResponse
 --
 --         , responseDescribeJobExecution $
 --             newDescribeJobExecutionResponse
 --
---         , responseStartNextPendingJobExecution $
---             newStartNextPendingJobExecutionResponse
+--         , responseGetPendingJobExecutions $
+--             newGetPendingJobExecutionsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestGetPendingJobExecutions :: GetPendingJobExecutions -> TestTree
-requestGetPendingJobExecutions =
-  req
-    "GetPendingJobExecutions"
-    "fixture/GetPendingJobExecutions.yaml"
 
 requestUpdateJobExecution :: UpdateJobExecution -> TestTree
 requestUpdateJobExecution =
@@ -71,27 +65,25 @@ requestUpdateJobExecution =
     "UpdateJobExecution"
     "fixture/UpdateJobExecution.yaml"
 
-requestDescribeJobExecution :: DescribeJobExecution -> TestTree
-requestDescribeJobExecution =
-  req
-    "DescribeJobExecution"
-    "fixture/DescribeJobExecution.yaml"
-
 requestStartNextPendingJobExecution :: StartNextPendingJobExecution -> TestTree
 requestStartNextPendingJobExecution =
   req
     "StartNextPendingJobExecution"
     "fixture/StartNextPendingJobExecution.yaml"
 
--- Responses
+requestDescribeJobExecution :: DescribeJobExecution -> TestTree
+requestDescribeJobExecution =
+  req
+    "DescribeJobExecution"
+    "fixture/DescribeJobExecution.yaml"
 
-responseGetPendingJobExecutions :: GetPendingJobExecutionsResponse -> TestTree
-responseGetPendingJobExecutions =
-  res
-    "GetPendingJobExecutionsResponse"
-    "fixture/GetPendingJobExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetPendingJobExecutions)
+requestGetPendingJobExecutions :: GetPendingJobExecutions -> TestTree
+requestGetPendingJobExecutions =
+  req
+    "GetPendingJobExecutions"
+    "fixture/GetPendingJobExecutions.yaml"
+
+-- Responses
 
 responseUpdateJobExecution :: UpdateJobExecutionResponse -> TestTree
 responseUpdateJobExecution =
@@ -101,6 +93,14 @@ responseUpdateJobExecution =
     defaultService
     (Proxy :: Proxy UpdateJobExecution)
 
+responseStartNextPendingJobExecution :: StartNextPendingJobExecutionResponse -> TestTree
+responseStartNextPendingJobExecution =
+  res
+    "StartNextPendingJobExecutionResponse"
+    "fixture/StartNextPendingJobExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartNextPendingJobExecution)
+
 responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
 responseDescribeJobExecution =
   res
@@ -109,10 +109,10 @@ responseDescribeJobExecution =
     defaultService
     (Proxy :: Proxy DescribeJobExecution)
 
-responseStartNextPendingJobExecution :: StartNextPendingJobExecutionResponse -> TestTree
-responseStartNextPendingJobExecution =
+responseGetPendingJobExecutions :: GetPendingJobExecutionsResponse -> TestTree
+responseGetPendingJobExecutions =
   res
-    "StartNextPendingJobExecutionResponse"
-    "fixture/StartNextPendingJobExecutionResponse.proto"
+    "GetPendingJobExecutionsResponse"
+    "fixture/GetPendingJobExecutionsResponse.proto"
     defaultService
-    (Proxy :: Proxy StartNextPendingJobExecution)
+    (Proxy :: Proxy GetPendingJobExecutions)

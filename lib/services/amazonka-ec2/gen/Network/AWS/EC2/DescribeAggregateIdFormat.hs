@@ -185,7 +185,7 @@ describeAggregateIdFormatResponse_useLongIdsAggregated = Lens.lens (\DescribeAgg
 
 -- | Information about each resource\'s ID format.
 describeAggregateIdFormatResponse_statuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe [IdFormat])
-describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAggregateIdFormatResponse_httpStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Prelude.Int

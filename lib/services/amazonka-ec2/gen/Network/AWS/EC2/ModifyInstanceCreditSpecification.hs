@@ -33,8 +33,8 @@ module Network.AWS.EC2.ModifyInstanceCreditSpecification
     newModifyInstanceCreditSpecification,
 
     -- * Request Lenses
-    modifyInstanceCreditSpecification_dryRun,
     modifyInstanceCreditSpecification_clientToken,
+    modifyInstanceCreditSpecification_dryRun,
     modifyInstanceCreditSpecification_instanceCreditSpecifications,
 
     -- * Destructuring the Response
@@ -42,8 +42,8 @@ module Network.AWS.EC2.ModifyInstanceCreditSpecification
     newModifyInstanceCreditSpecificationResponse,
 
     -- * Response Lenses
-    modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications,
     modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications,
+    modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications,
     modifyInstanceCreditSpecificationResponse_httpStatus,
   )
 where
@@ -57,15 +57,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyInstanceCreditSpecification' smart constructor.
 data ModifyInstanceCreditSpecification = ModifyInstanceCreditSpecification'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | A unique, case-sensitive token that you provide to ensure idempotency of
+    -- your modification request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | A unique, case-sensitive token that you provide to ensure idempotency of
-    -- your modification request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the credit option for CPU usage.
     instanceCreditSpecifications :: [InstanceCreditSpecificationRequest]
   }
@@ -79,26 +79,32 @@ data ModifyInstanceCreditSpecification = ModifyInstanceCreditSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'modifyInstanceCreditSpecification_clientToken' - A unique, case-sensitive token that you provide to ensure idempotency of
+-- your modification request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
 -- 'dryRun', 'modifyInstanceCreditSpecification_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'clientToken', 'modifyInstanceCreditSpecification_clientToken' - A unique, case-sensitive token that you provide to ensure idempotency of
--- your modification request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- 'instanceCreditSpecifications', 'modifyInstanceCreditSpecification_instanceCreditSpecifications' - Information about the credit option for CPU usage.
 newModifyInstanceCreditSpecification ::
   ModifyInstanceCreditSpecification
 newModifyInstanceCreditSpecification =
   ModifyInstanceCreditSpecification'
-    { dryRun =
+    { clientToken =
         Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       instanceCreditSpecifications =
         Prelude.mempty
     }
+
+-- | A unique, case-sensitive token that you provide to ensure idempotency of
+-- your modification request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+modifyInstanceCreditSpecification_clientToken :: Lens.Lens' ModifyInstanceCreditSpecification (Prelude.Maybe Prelude.Text)
+modifyInstanceCreditSpecification_clientToken = Lens.lens (\ModifyInstanceCreditSpecification' {clientToken} -> clientToken) (\s@ModifyInstanceCreditSpecification' {} a -> s {clientToken = a} :: ModifyInstanceCreditSpecification)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -107,15 +113,9 @@ newModifyInstanceCreditSpecification =
 modifyInstanceCreditSpecification_dryRun :: Lens.Lens' ModifyInstanceCreditSpecification (Prelude.Maybe Prelude.Bool)
 modifyInstanceCreditSpecification_dryRun = Lens.lens (\ModifyInstanceCreditSpecification' {dryRun} -> dryRun) (\s@ModifyInstanceCreditSpecification' {} a -> s {dryRun = a} :: ModifyInstanceCreditSpecification)
 
--- | A unique, case-sensitive token that you provide to ensure idempotency of
--- your modification request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-modifyInstanceCreditSpecification_clientToken :: Lens.Lens' ModifyInstanceCreditSpecification (Prelude.Maybe Prelude.Text)
-modifyInstanceCreditSpecification_clientToken = Lens.lens (\ModifyInstanceCreditSpecification' {clientToken} -> clientToken) (\s@ModifyInstanceCreditSpecification' {} a -> s {clientToken = a} :: ModifyInstanceCreditSpecification)
-
 -- | Information about the credit option for CPU usage.
 modifyInstanceCreditSpecification_instanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecification [InstanceCreditSpecificationRequest]
-modifyInstanceCreditSpecification_instanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecification' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@ModifyInstanceCreditSpecification' {} a -> s {instanceCreditSpecifications = a} :: ModifyInstanceCreditSpecification) Prelude.. Lens._Coerce
+modifyInstanceCreditSpecification_instanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecification' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@ModifyInstanceCreditSpecification' {} a -> s {instanceCreditSpecifications = a} :: ModifyInstanceCreditSpecification) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -130,12 +130,12 @@ instance
       ( \s h x ->
           ModifyInstanceCreditSpecificationResponse'
             Prelude.<$> ( x
-                            Core..@? "successfulInstanceCreditSpecificationSet"
+                            Core..@? "unsuccessfulInstanceCreditSpecificationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
               Prelude.<*> ( x
-                              Core..@? "unsuccessfulInstanceCreditSpecificationSet"
+                              Core..@? "successfulInstanceCreditSpecificationSet"
                               Core..!@ Prelude.mempty
                               Prelude.>>= Core.may (Core.parseXMLList "item")
                           )
@@ -174,8 +174,8 @@ instance
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "ClientToken" Core.=: clientToken,
+        "DryRun" Core.=: dryRun,
         Core.toQueryList
           "InstanceCreditSpecification"
           instanceCreditSpecifications
@@ -184,11 +184,11 @@ instance
 -- | /See:/ 'newModifyInstanceCreditSpecificationResponse' smart constructor.
 data ModifyInstanceCreditSpecificationResponse = ModifyInstanceCreditSpecificationResponse'
   { -- | Information about the instances whose credit option for CPU usage was
-    -- successfully modified.
-    successfulInstanceCreditSpecifications :: Prelude.Maybe [SuccessfulInstanceCreditSpecificationItem],
-    -- | Information about the instances whose credit option for CPU usage was
     -- not modified.
     unsuccessfulInstanceCreditSpecifications :: Prelude.Maybe [UnsuccessfulInstanceCreditSpecificationItem],
+    -- | Information about the instances whose credit option for CPU usage was
+    -- successfully modified.
+    successfulInstanceCreditSpecifications :: Prelude.Maybe [SuccessfulInstanceCreditSpecificationItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -202,11 +202,11 @@ data ModifyInstanceCreditSpecificationResponse = ModifyInstanceCreditSpecificati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'successfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was
--- successfully modified.
---
 -- 'unsuccessfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was
 -- not modified.
+--
+-- 'successfulInstanceCreditSpecifications', 'modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications' - Information about the instances whose credit option for CPU usage was
+-- successfully modified.
 --
 -- 'httpStatus', 'modifyInstanceCreditSpecificationResponse_httpStatus' - The response's http status code.
 newModifyInstanceCreditSpecificationResponse ::
@@ -216,22 +216,22 @@ newModifyInstanceCreditSpecificationResponse ::
 newModifyInstanceCreditSpecificationResponse
   pHttpStatus_ =
     ModifyInstanceCreditSpecificationResponse'
-      { successfulInstanceCreditSpecifications =
+      { unsuccessfulInstanceCreditSpecifications =
           Prelude.Nothing,
-        unsuccessfulInstanceCreditSpecifications =
+        successfulInstanceCreditSpecifications =
           Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the instances whose credit option for CPU usage was
--- successfully modified.
-modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Prelude.Maybe [SuccessfulInstanceCreditSpecificationItem])
-modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {successfulInstanceCreditSpecifications} -> successfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {successfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Information about the instances whose credit option for CPU usage was
 -- not modified.
 modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Prelude.Maybe [UnsuccessfulInstanceCreditSpecificationItem])
-modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {unsuccessfulInstanceCreditSpecifications} -> unsuccessfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {unsuccessfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens._Coerce
+modifyInstanceCreditSpecificationResponse_unsuccessfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {unsuccessfulInstanceCreditSpecifications} -> unsuccessfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {unsuccessfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the instances whose credit option for CPU usage was
+-- successfully modified.
+modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications :: Lens.Lens' ModifyInstanceCreditSpecificationResponse (Prelude.Maybe [SuccessfulInstanceCreditSpecificationItem])
+modifyInstanceCreditSpecificationResponse_successfulInstanceCreditSpecifications = Lens.lens (\ModifyInstanceCreditSpecificationResponse' {successfulInstanceCreditSpecifications} -> successfulInstanceCreditSpecifications) (\s@ModifyInstanceCreditSpecificationResponse' {} a -> s {successfulInstanceCreditSpecifications = a} :: ModifyInstanceCreditSpecificationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 modifyInstanceCreditSpecificationResponse_httpStatus :: Lens.Lens' ModifyInstanceCreditSpecificationResponse Prelude.Int

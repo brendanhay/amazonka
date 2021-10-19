@@ -57,7 +57,7 @@ newFilter pName_ =
 
 -- | The filter values. Filter values are case-sensitive.
 filter_values :: Lens.Lens' Filter (Prelude.Maybe [Prelude.Text])
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter. Filter names are case-sensitive.
 filter_name :: Lens.Lens' Filter Prelude.Text

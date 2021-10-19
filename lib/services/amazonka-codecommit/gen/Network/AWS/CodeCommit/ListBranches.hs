@@ -37,8 +37,8 @@ module Network.AWS.CodeCommit.ListBranches
     newListBranchesResponse,
 
     -- * Response Lenses
-    listBranchesResponse_nextToken,
     listBranchesResponse_branches,
+    listBranchesResponse_nextToken,
     listBranchesResponse_httpStatus,
   )
 where
@@ -116,8 +116,8 @@ instance Core.AWSRequest ListBranches where
     Response.receiveJSON
       ( \s h x ->
           ListBranchesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "branches" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "branches" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -160,10 +160,10 @@ instance Core.ToQuery ListBranches where
 --
 -- /See:/ 'newListBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
-  { -- | An enumeration token that returns the batch of the results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of branch names.
+  { -- | The list of branch names.
     branches :: Prelude.Maybe [Prelude.Text],
+    -- | An enumeration token that returns the batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -177,9 +177,9 @@ data ListBranchesResponse = ListBranchesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBranchesResponse_nextToken' - An enumeration token that returns the batch of the results.
---
 -- 'branches', 'listBranchesResponse_branches' - The list of branch names.
+--
+-- 'nextToken', 'listBranchesResponse_nextToken' - An enumeration token that returns the batch of the results.
 --
 -- 'httpStatus', 'listBranchesResponse_httpStatus' - The response's http status code.
 newListBranchesResponse ::
@@ -188,18 +188,18 @@ newListBranchesResponse ::
   ListBranchesResponse
 newListBranchesResponse pHttpStatus_ =
   ListBranchesResponse'
-    { nextToken = Prelude.Nothing,
-      branches = Prelude.Nothing,
+    { branches = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The list of branch names.
+listBranchesResponse_branches :: Lens.Lens' ListBranchesResponse (Prelude.Maybe [Prelude.Text])
+listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> branches) (\s@ListBranchesResponse' {} a -> s {branches = a} :: ListBranchesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An enumeration token that returns the batch of the results.
 listBranchesResponse_nextToken :: Lens.Lens' ListBranchesResponse (Prelude.Maybe Prelude.Text)
 listBranchesResponse_nextToken = Lens.lens (\ListBranchesResponse' {nextToken} -> nextToken) (\s@ListBranchesResponse' {} a -> s {nextToken = a} :: ListBranchesResponse)
-
--- | The list of branch names.
-listBranchesResponse_branches :: Lens.Lens' ListBranchesResponse (Prelude.Maybe [Prelude.Text])
-listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> branches) (\s@ListBranchesResponse' {} a -> s {branches = a} :: ListBranchesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listBranchesResponse_httpStatus :: Lens.Lens' ListBranchesResponse Prelude.Int

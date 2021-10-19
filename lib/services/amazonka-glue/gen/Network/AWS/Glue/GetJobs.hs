@@ -190,7 +190,7 @@ getJobsResponse_nextToken = Lens.lens (\GetJobsResponse' {nextToken} -> nextToke
 
 -- | A list of job definitions.
 getJobsResponse_jobs :: Lens.Lens' GetJobsResponse (Prelude.Maybe [Job])
-getJobsResponse_jobs = Lens.lens (\GetJobsResponse' {jobs} -> jobs) (\s@GetJobsResponse' {} a -> s {jobs = a} :: GetJobsResponse) Prelude.. Lens.mapping Lens._Coerce
+getJobsResponse_jobs = Lens.lens (\GetJobsResponse' {jobs} -> jobs) (\s@GetJobsResponse' {} a -> s {jobs = a} :: GetJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getJobsResponse_httpStatus :: Lens.Lens' GetJobsResponse Prelude.Int

@@ -38,8 +38,8 @@ module Network.AWS.Glue.GetTriggers
     newGetTriggersResponse,
 
     -- * Response Lenses
-    getTriggersResponse_nextToken,
     getTriggersResponse_triggers,
+    getTriggersResponse_nextToken,
     getTriggersResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest GetTriggers where
     Response.receiveJSON
       ( \s h x ->
           GetTriggersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -169,11 +169,11 @@ instance Core.ToQuery GetTriggers where
 
 -- | /See:/ 'newGetTriggersResponse' smart constructor.
 data GetTriggersResponse = GetTriggersResponse'
-  { -- | A continuation token, if not all the requested triggers have yet been
+  { -- | A list of triggers for the specified job.
+    triggers :: Prelude.Maybe [Trigger],
+    -- | A continuation token, if not all the requested triggers have yet been
     -- returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of triggers for the specified job.
-    triggers :: Prelude.Maybe [Trigger],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,10 +187,10 @@ data GetTriggersResponse = GetTriggersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'triggers', 'getTriggersResponse_triggers' - A list of triggers for the specified job.
+--
 -- 'nextToken', 'getTriggersResponse_nextToken' - A continuation token, if not all the requested triggers have yet been
 -- returned.
---
--- 'triggers', 'getTriggersResponse_triggers' - A list of triggers for the specified job.
 --
 -- 'httpStatus', 'getTriggersResponse_httpStatus' - The response's http status code.
 newGetTriggersResponse ::
@@ -199,19 +199,19 @@ newGetTriggersResponse ::
   GetTriggersResponse
 newGetTriggersResponse pHttpStatus_ =
   GetTriggersResponse'
-    { nextToken = Prelude.Nothing,
-      triggers = Prelude.Nothing,
+    { triggers = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of triggers for the specified job.
+getTriggersResponse_triggers :: Lens.Lens' GetTriggersResponse (Prelude.Maybe [Trigger])
+getTriggersResponse_triggers = Lens.lens (\GetTriggersResponse' {triggers} -> triggers) (\s@GetTriggersResponse' {} a -> s {triggers = a} :: GetTriggersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A continuation token, if not all the requested triggers have yet been
 -- returned.
 getTriggersResponse_nextToken :: Lens.Lens' GetTriggersResponse (Prelude.Maybe Prelude.Text)
 getTriggersResponse_nextToken = Lens.lens (\GetTriggersResponse' {nextToken} -> nextToken) (\s@GetTriggersResponse' {} a -> s {nextToken = a} :: GetTriggersResponse)
-
--- | A list of triggers for the specified job.
-getTriggersResponse_triggers :: Lens.Lens' GetTriggersResponse (Prelude.Maybe [Trigger])
-getTriggersResponse_triggers = Lens.lens (\GetTriggersResponse' {triggers} -> triggers) (\s@GetTriggersResponse' {} a -> s {triggers = a} :: GetTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getTriggersResponse_httpStatus :: Lens.Lens' GetTriggersResponse Prelude.Int

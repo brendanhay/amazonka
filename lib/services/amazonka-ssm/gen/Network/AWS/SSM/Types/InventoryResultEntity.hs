@@ -60,7 +60,7 @@ newInventoryResultEntity =
 
 -- | The data section in the inventory result entity JSON.
 inventoryResultEntity_data :: Lens.Lens' InventoryResultEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text InventoryResultItem))
-inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Prelude.. Lens.mapping Lens._Coerce
+inventoryResultEntity_data = Lens.lens (\InventoryResultEntity' {data'} -> data') (\s@InventoryResultEntity' {} a -> s {data' = a} :: InventoryResultEntity) Prelude.. Lens.mapping Lens.coerced
 
 -- | ID of the inventory result entity. For example, for managed instance
 -- inventory the result will be the managed instance ID. For EC2 instance

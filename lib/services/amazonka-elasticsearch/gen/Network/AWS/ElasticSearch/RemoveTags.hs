@@ -87,7 +87,7 @@ removeTags_arn = Lens.lens (\RemoveTags' {arn} -> arn) (\s@RemoveTags' {} a -> s
 -- | Specifies the @TagKey@ list which you want to remove from the
 -- Elasticsearch domain.
 removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest RemoveTags where
   type AWSResponse RemoveTags = RemoveTagsResponse

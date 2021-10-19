@@ -70,7 +70,7 @@ newDhcpOptions =
 
 -- | One or more DHCP options in the set.
 dhcpOptions_dhcpConfigurations :: Lens.Lens' DhcpOptions (Prelude.Maybe [DhcpConfiguration])
-dhcpOptions_dhcpConfigurations = Lens.lens (\DhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@DhcpOptions' {} a -> s {dhcpConfigurations = a} :: DhcpOptions) Prelude.. Lens.mapping Lens._Coerce
+dhcpOptions_dhcpConfigurations = Lens.lens (\DhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@DhcpOptions' {} a -> s {dhcpConfigurations = a} :: DhcpOptions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Amazon Web Services account that owns the DHCP options
 -- set.
@@ -83,7 +83,7 @@ dhcpOptions_dhcpOptionsId = Lens.lens (\DhcpOptions' {dhcpOptionsId} -> dhcpOpti
 
 -- | Any tags assigned to the DHCP options set.
 dhcpOptions_tags :: Lens.Lens' DhcpOptions (Prelude.Maybe [Tag])
-dhcpOptions_tags = Lens.lens (\DhcpOptions' {tags} -> tags) (\s@DhcpOptions' {} a -> s {tags = a} :: DhcpOptions) Prelude.. Lens.mapping Lens._Coerce
+dhcpOptions_tags = Lens.lens (\DhcpOptions' {tags} -> tags) (\s@DhcpOptions' {} a -> s {tags = a} :: DhcpOptions) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML DhcpOptions where
   parseXML x =

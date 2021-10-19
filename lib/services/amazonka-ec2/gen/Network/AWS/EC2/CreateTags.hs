@@ -117,13 +117,13 @@ createTags_dryRun = Lens.lens (\CreateTags' {dryRun} -> dryRun) (\s@CreateTags' 
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
 -- request into smaller batches.
 createTags_resources :: Lens.Lens' CreateTags [Prelude.Text]
-createTags_resources = Lens.lens (\CreateTags' {resources} -> resources) (\s@CreateTags' {} a -> s {resources = a} :: CreateTags) Prelude.. Lens._Coerce
+createTags_resources = Lens.lens (\CreateTags' {resources} -> resources) (\s@CreateTags' {} a -> s {resources = a} :: CreateTags) Prelude.. Lens.coerced
 
 -- | The tags. The @value@ parameter is required, but if you don\'t want the
 -- tag to have a value, specify the parameter with no value, and we set the
 -- value to an empty string.
 createTags_tags :: Lens.Lens' CreateTags [Tag]
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens._Coerce
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse

@@ -61,7 +61,7 @@ newReviewPolicy pPolicyName_ =
 
 -- | Name of the parameter from the Review policy.
 reviewPolicy_parameters :: Lens.Lens' ReviewPolicy (Prelude.Maybe [PolicyParameter])
-reviewPolicy_parameters = Lens.lens (\ReviewPolicy' {parameters} -> parameters) (\s@ReviewPolicy' {} a -> s {parameters = a} :: ReviewPolicy) Prelude.. Lens.mapping Lens._Coerce
+reviewPolicy_parameters = Lens.lens (\ReviewPolicy' {parameters} -> parameters) (\s@ReviewPolicy' {} a -> s {parameters = a} :: ReviewPolicy) Prelude.. Lens.mapping Lens.coerced
 
 -- | Name of a Review Policy: SimplePlurality\/2011-09-01 or
 -- ScoreMyKnownAnswers\/2011-09-01

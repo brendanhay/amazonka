@@ -90,7 +90,7 @@ batchGetDeploymentGroups_applicationName = Lens.lens (\BatchGetDeploymentGroups'
 
 -- | The names of the deployment groups.
 batchGetDeploymentGroups_deploymentGroupNames :: Lens.Lens' BatchGetDeploymentGroups [Prelude.Text]
-batchGetDeploymentGroups_deploymentGroupNames = Lens.lens (\BatchGetDeploymentGroups' {deploymentGroupNames} -> deploymentGroupNames) (\s@BatchGetDeploymentGroups' {} a -> s {deploymentGroupNames = a} :: BatchGetDeploymentGroups) Prelude.. Lens._Coerce
+batchGetDeploymentGroups_deploymentGroupNames = Lens.lens (\BatchGetDeploymentGroups' {deploymentGroupNames} -> deploymentGroupNames) (\s@BatchGetDeploymentGroups' {} a -> s {deploymentGroupNames = a} :: BatchGetDeploymentGroups) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetDeploymentGroups where
   type
@@ -186,7 +186,7 @@ newBatchGetDeploymentGroupsResponse pHttpStatus_ =
 
 -- | Information about the deployment groups.
 batchGetDeploymentGroupsResponse_deploymentGroupsInfo :: Lens.Lens' BatchGetDeploymentGroupsResponse (Prelude.Maybe [DeploymentGroupInfo])
-batchGetDeploymentGroupsResponse_deploymentGroupsInfo = Lens.lens (\BatchGetDeploymentGroupsResponse' {deploymentGroupsInfo} -> deploymentGroupsInfo) (\s@BatchGetDeploymentGroupsResponse' {} a -> s {deploymentGroupsInfo = a} :: BatchGetDeploymentGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetDeploymentGroupsResponse_deploymentGroupsInfo = Lens.lens (\BatchGetDeploymentGroupsResponse' {deploymentGroupsInfo} -> deploymentGroupsInfo) (\s@BatchGetDeploymentGroupsResponse' {} a -> s {deploymentGroupsInfo = a} :: BatchGetDeploymentGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about errors that might have occurred during the API call.
 batchGetDeploymentGroupsResponse_errorMessage :: Lens.Lens' BatchGetDeploymentGroupsResponse (Prelude.Maybe Prelude.Text)

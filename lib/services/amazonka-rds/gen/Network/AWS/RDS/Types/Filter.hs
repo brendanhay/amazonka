@@ -75,7 +75,7 @@ filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = 
 
 -- | One or more filter values. Filter values are case-sensitive.
 filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens._Coerce
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable Filter
 

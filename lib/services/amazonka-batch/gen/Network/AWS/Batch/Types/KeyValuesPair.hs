@@ -56,7 +56,7 @@ newKeyValuesPair =
 
 -- | The filter values.
 keyValuesPair_values :: Lens.Lens' KeyValuesPair (Prelude.Maybe [Prelude.Text])
-keyValuesPair_values = Lens.lens (\KeyValuesPair' {values} -> values) (\s@KeyValuesPair' {} a -> s {values = a} :: KeyValuesPair) Prelude.. Lens.mapping Lens._Coerce
+keyValuesPair_values = Lens.lens (\KeyValuesPair' {values} -> values) (\s@KeyValuesPair' {} a -> s {values = a} :: KeyValuesPair) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the filter. Filter names are case sensitive.
 keyValuesPair_name :: Lens.Lens' KeyValuesPair (Prelude.Maybe Prelude.Text)

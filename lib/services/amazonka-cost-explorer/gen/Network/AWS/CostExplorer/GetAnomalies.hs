@@ -28,11 +28,11 @@ module Network.AWS.CostExplorer.GetAnomalies
     newGetAnomalies,
 
     -- * Request Lenses
-    getAnomalies_maxResults,
     getAnomalies_nextPageToken,
-    getAnomalies_monitorArn,
-    getAnomalies_feedback,
     getAnomalies_totalImpact,
+    getAnomalies_maxResults,
+    getAnomalies_feedback,
+    getAnomalies_monitorArn,
     getAnomalies_dateInterval,
 
     -- * Destructuring the Response
@@ -55,21 +55,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetAnomalies' smart constructor.
 data GetAnomalies = GetAnomalies'
-  { -- | The number of entries a paginated response contains.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next set of results. Amazon Web Services
+  { -- | The token to retrieve the next set of results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | Retrieves all of the cost anomalies detected for a specific cost anomaly
-    -- monitor Amazon Resource Name (ARN).
-    monitorArn :: Prelude.Maybe Prelude.Text,
-    -- | Filters anomaly results by the feedback field on the anomaly object.
-    feedback :: Prelude.Maybe AnomalyFeedbackType,
     -- | Filters anomaly results by the total impact field on the anomaly object.
     -- For example, you can filter anomalies @GREATER_THAN 200.00@ to retrieve
     -- anomalies, with an estimated dollar impact greater than 200.
     totalImpact :: Prelude.Maybe TotalImpactFilter,
+    -- | The number of entries a paginated response contains.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Filters anomaly results by the feedback field on the anomaly object.
+    feedback :: Prelude.Maybe AnomalyFeedbackType,
+    -- | Retrieves all of the cost anomalies detected for a specific cost anomaly
+    -- monitor Amazon Resource Name (ARN).
+    monitorArn :: Prelude.Maybe Prelude.Text,
     -- | Assigns the start and end dates for retrieving cost anomalies. The
     -- returned anomaly object will have an @AnomalyEndDate@ in the specified
     -- time range.
@@ -85,20 +85,20 @@ data GetAnomalies = GetAnomalies'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'getAnomalies_maxResults' - The number of entries a paginated response contains.
---
 -- 'nextPageToken', 'getAnomalies_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
--- 'monitorArn', 'getAnomalies_monitorArn' - Retrieves all of the cost anomalies detected for a specific cost anomaly
--- monitor Amazon Resource Name (ARN).
---
--- 'feedback', 'getAnomalies_feedback' - Filters anomaly results by the feedback field on the anomaly object.
---
 -- 'totalImpact', 'getAnomalies_totalImpact' - Filters anomaly results by the total impact field on the anomaly object.
 -- For example, you can filter anomalies @GREATER_THAN 200.00@ to retrieve
 -- anomalies, with an estimated dollar impact greater than 200.
+--
+-- 'maxResults', 'getAnomalies_maxResults' - The number of entries a paginated response contains.
+--
+-- 'feedback', 'getAnomalies_feedback' - Filters anomaly results by the feedback field on the anomaly object.
+--
+-- 'monitorArn', 'getAnomalies_monitorArn' - Retrieves all of the cost anomalies detected for a specific cost anomaly
+-- monitor Amazon Resource Name (ARN).
 --
 -- 'dateInterval', 'getAnomalies_dateInterval' - Assigns the start and end dates for retrieving cost anomalies. The
 -- returned anomaly object will have an @AnomalyEndDate@ in the specified
@@ -109,17 +109,13 @@ newGetAnomalies ::
   GetAnomalies
 newGetAnomalies pDateInterval_ =
   GetAnomalies'
-    { maxResults = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      monitorArn = Prelude.Nothing,
-      feedback = Prelude.Nothing,
+    { nextPageToken = Prelude.Nothing,
       totalImpact = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      feedback = Prelude.Nothing,
+      monitorArn = Prelude.Nothing,
       dateInterval = pDateInterval_
     }
-
--- | The number of entries a paginated response contains.
-getAnomalies_maxResults :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Int)
-getAnomalies_maxResults = Lens.lens (\GetAnomalies' {maxResults} -> maxResults) (\s@GetAnomalies' {} a -> s {maxResults = a} :: GetAnomalies)
 
 -- | The token to retrieve the next set of results. Amazon Web Services
 -- provides the token when the response from a previous call has more
@@ -127,20 +123,24 @@ getAnomalies_maxResults = Lens.lens (\GetAnomalies' {maxResults} -> maxResults) 
 getAnomalies_nextPageToken :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Text)
 getAnomalies_nextPageToken = Lens.lens (\GetAnomalies' {nextPageToken} -> nextPageToken) (\s@GetAnomalies' {} a -> s {nextPageToken = a} :: GetAnomalies)
 
--- | Retrieves all of the cost anomalies detected for a specific cost anomaly
--- monitor Amazon Resource Name (ARN).
-getAnomalies_monitorArn :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Text)
-getAnomalies_monitorArn = Lens.lens (\GetAnomalies' {monitorArn} -> monitorArn) (\s@GetAnomalies' {} a -> s {monitorArn = a} :: GetAnomalies)
-
--- | Filters anomaly results by the feedback field on the anomaly object.
-getAnomalies_feedback :: Lens.Lens' GetAnomalies (Prelude.Maybe AnomalyFeedbackType)
-getAnomalies_feedback = Lens.lens (\GetAnomalies' {feedback} -> feedback) (\s@GetAnomalies' {} a -> s {feedback = a} :: GetAnomalies)
-
 -- | Filters anomaly results by the total impact field on the anomaly object.
 -- For example, you can filter anomalies @GREATER_THAN 200.00@ to retrieve
 -- anomalies, with an estimated dollar impact greater than 200.
 getAnomalies_totalImpact :: Lens.Lens' GetAnomalies (Prelude.Maybe TotalImpactFilter)
 getAnomalies_totalImpact = Lens.lens (\GetAnomalies' {totalImpact} -> totalImpact) (\s@GetAnomalies' {} a -> s {totalImpact = a} :: GetAnomalies)
+
+-- | The number of entries a paginated response contains.
+getAnomalies_maxResults :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Int)
+getAnomalies_maxResults = Lens.lens (\GetAnomalies' {maxResults} -> maxResults) (\s@GetAnomalies' {} a -> s {maxResults = a} :: GetAnomalies)
+
+-- | Filters anomaly results by the feedback field on the anomaly object.
+getAnomalies_feedback :: Lens.Lens' GetAnomalies (Prelude.Maybe AnomalyFeedbackType)
+getAnomalies_feedback = Lens.lens (\GetAnomalies' {feedback} -> feedback) (\s@GetAnomalies' {} a -> s {feedback = a} :: GetAnomalies)
+
+-- | Retrieves all of the cost anomalies detected for a specific cost anomaly
+-- monitor Amazon Resource Name (ARN).
+getAnomalies_monitorArn :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Text)
+getAnomalies_monitorArn = Lens.lens (\GetAnomalies' {monitorArn} -> monitorArn) (\s@GetAnomalies' {} a -> s {monitorArn = a} :: GetAnomalies)
 
 -- | Assigns the start and end dates for retrieving cost anomalies. The
 -- returned anomaly object will have an @AnomalyEndDate@ in the specified
@@ -183,11 +183,11 @@ instance Core.ToJSON GetAnomalies where
   toJSON GetAnomalies' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("MonitorArn" Core..=) Prelude.<$> monitorArn,
-            ("Feedback" Core..=) Prelude.<$> feedback,
+          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("TotalImpact" Core..=) Prelude.<$> totalImpact,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Feedback" Core..=) Prelude.<$> feedback,
+            ("MonitorArn" Core..=) Prelude.<$> monitorArn,
             Prelude.Just ("DateInterval" Core..= dateInterval)
           ]
       )
@@ -250,6 +250,6 @@ getAnomaliesResponse_httpStatus = Lens.lens (\GetAnomaliesResponse' {httpStatus}
 
 -- | A list of cost anomalies.
 getAnomaliesResponse_anomalies :: Lens.Lens' GetAnomaliesResponse [Anomaly]
-getAnomaliesResponse_anomalies = Lens.lens (\GetAnomaliesResponse' {anomalies} -> anomalies) (\s@GetAnomaliesResponse' {} a -> s {anomalies = a} :: GetAnomaliesResponse) Prelude.. Lens._Coerce
+getAnomaliesResponse_anomalies = Lens.lens (\GetAnomaliesResponse' {anomalies} -> anomalies) (\s@GetAnomaliesResponse' {} a -> s {anomalies = a} :: GetAnomaliesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData GetAnomaliesResponse

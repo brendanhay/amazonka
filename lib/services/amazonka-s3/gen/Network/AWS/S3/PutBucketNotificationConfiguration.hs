@@ -164,7 +164,9 @@ instance
   type
     AWSResponse PutBucketNotificationConfiguration =
       PutBucketNotificationConfigurationResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketNotificationConfigurationResponse'

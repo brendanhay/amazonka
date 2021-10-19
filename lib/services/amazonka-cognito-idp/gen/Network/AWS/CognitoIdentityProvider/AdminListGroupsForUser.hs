@@ -233,7 +233,7 @@ newAdminListGroupsForUserResponse pHttpStatus_ =
 
 -- | The groups that the user belongs to.
 adminListGroupsForUserResponse_groups :: Lens.Lens' AdminListGroupsForUserResponse (Prelude.Maybe [GroupType])
-adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens._Coerce
+adminListGroupsForUserResponse_groups = Lens.lens (\AdminListGroupsForUserResponse' {groups} -> groups) (\s@AdminListGroupsForUserResponse' {} a -> s {groups = a} :: AdminListGroupsForUserResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the

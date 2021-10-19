@@ -32,17 +32,17 @@ module Network.AWS.CostAndUsageReport
     -- * Errors
     -- $errors
 
-    -- ** DuplicateReportNameException
-    _DuplicateReportNameException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** InternalErrorException
     _InternalErrorException,
 
+    -- ** DuplicateReportNameException
+    _DuplicateReportNameException,
+
     -- ** ReportLimitReachedException
     _ReportLimitReachedException,
-
-    -- ** ValidationException
-    _ValidationException,
 
     -- * Waiters
     -- $waiters
@@ -50,11 +50,11 @@ module Network.AWS.CostAndUsageReport
     -- * Operations
     -- $operations
 
-    -- ** ModifyReportDefinition
-    ModifyReportDefinition (ModifyReportDefinition'),
-    newModifyReportDefinition,
-    ModifyReportDefinitionResponse (ModifyReportDefinitionResponse'),
-    newModifyReportDefinitionResponse,
+    -- ** PutReportDefinition
+    PutReportDefinition (PutReportDefinition'),
+    newPutReportDefinition,
+    PutReportDefinitionResponse (PutReportDefinitionResponse'),
+    newPutReportDefinitionResponse,
 
     -- ** DeleteReportDefinition
     DeleteReportDefinition (DeleteReportDefinition'),
@@ -62,17 +62,17 @@ module Network.AWS.CostAndUsageReport
     DeleteReportDefinitionResponse (DeleteReportDefinitionResponse'),
     newDeleteReportDefinitionResponse,
 
+    -- ** ModifyReportDefinition
+    ModifyReportDefinition (ModifyReportDefinition'),
+    newModifyReportDefinition,
+    ModifyReportDefinitionResponse (ModifyReportDefinitionResponse'),
+    newModifyReportDefinitionResponse,
+
     -- ** DescribeReportDefinitions (Paginated)
     DescribeReportDefinitions (DescribeReportDefinitions'),
     newDescribeReportDefinitions,
     DescribeReportDefinitionsResponse (DescribeReportDefinitionsResponse'),
     newDescribeReportDefinitionsResponse,
-
-    -- ** PutReportDefinition
-    PutReportDefinition (PutReportDefinition'),
-    newPutReportDefinition,
-    PutReportDefinitionResponse (PutReportDefinitionResponse'),
-    newPutReportDefinitionResponse,
 
     -- * Types
 

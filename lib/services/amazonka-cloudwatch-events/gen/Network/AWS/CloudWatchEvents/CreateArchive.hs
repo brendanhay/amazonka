@@ -33,8 +33,8 @@ module Network.AWS.CloudWatchEvents.CreateArchive
 
     -- * Request Lenses
     createArchive_eventPattern,
-    createArchive_description,
     createArchive_retentionDays,
+    createArchive_description,
     createArchive_archiveName,
     createArchive_eventSourceArn,
 
@@ -44,9 +44,9 @@ module Network.AWS.CloudWatchEvents.CreateArchive
 
     -- * Response Lenses
     createArchiveResponse_creationTime,
-    createArchiveResponse_stateReason,
-    createArchiveResponse_archiveArn,
     createArchiveResponse_state,
+    createArchiveResponse_archiveArn,
+    createArchiveResponse_stateReason,
     createArchiveResponse_httpStatus,
   )
 where
@@ -62,11 +62,11 @@ import qualified Network.AWS.Response as Response
 data CreateArchive = CreateArchive'
   { -- | An event pattern to use to filter events sent to the archive.
     eventPattern :: Prelude.Maybe Prelude.Text,
-    -- | A description for the archive.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The number of days to retain events for. Default value is 0. If set to
     -- 0, events are retained indefinitely
     retentionDays :: Prelude.Maybe Prelude.Natural,
+    -- | A description for the archive.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name for the archive to create.
     archiveName :: Prelude.Text,
     -- | The ARN of the event bus that sends events to the archive.
@@ -84,10 +84,10 @@ data CreateArchive = CreateArchive'
 --
 -- 'eventPattern', 'createArchive_eventPattern' - An event pattern to use to filter events sent to the archive.
 --
--- 'description', 'createArchive_description' - A description for the archive.
---
 -- 'retentionDays', 'createArchive_retentionDays' - The number of days to retain events for. Default value is 0. If set to
 -- 0, events are retained indefinitely
+--
+-- 'description', 'createArchive_description' - A description for the archive.
 --
 -- 'archiveName', 'createArchive_archiveName' - The name for the archive to create.
 --
@@ -101,8 +101,8 @@ newCreateArchive ::
 newCreateArchive pArchiveName_ pEventSourceArn_ =
   CreateArchive'
     { eventPattern = Prelude.Nothing,
-      description = Prelude.Nothing,
       retentionDays = Prelude.Nothing,
+      description = Prelude.Nothing,
       archiveName = pArchiveName_,
       eventSourceArn = pEventSourceArn_
     }
@@ -111,14 +111,14 @@ newCreateArchive pArchiveName_ pEventSourceArn_ =
 createArchive_eventPattern :: Lens.Lens' CreateArchive (Prelude.Maybe Prelude.Text)
 createArchive_eventPattern = Lens.lens (\CreateArchive' {eventPattern} -> eventPattern) (\s@CreateArchive' {} a -> s {eventPattern = a} :: CreateArchive)
 
--- | A description for the archive.
-createArchive_description :: Lens.Lens' CreateArchive (Prelude.Maybe Prelude.Text)
-createArchive_description = Lens.lens (\CreateArchive' {description} -> description) (\s@CreateArchive' {} a -> s {description = a} :: CreateArchive)
-
 -- | The number of days to retain events for. Default value is 0. If set to
 -- 0, events are retained indefinitely
 createArchive_retentionDays :: Lens.Lens' CreateArchive (Prelude.Maybe Prelude.Natural)
 createArchive_retentionDays = Lens.lens (\CreateArchive' {retentionDays} -> retentionDays) (\s@CreateArchive' {} a -> s {retentionDays = a} :: CreateArchive)
+
+-- | A description for the archive.
+createArchive_description :: Lens.Lens' CreateArchive (Prelude.Maybe Prelude.Text)
+createArchive_description = Lens.lens (\CreateArchive' {description} -> description) (\s@CreateArchive' {} a -> s {description = a} :: CreateArchive)
 
 -- | The name for the archive to create.
 createArchive_archiveName :: Lens.Lens' CreateArchive Prelude.Text
@@ -138,9 +138,9 @@ instance Core.AWSRequest CreateArchive where
       ( \s h x ->
           CreateArchiveResponse'
             Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "StateReason")
-            Prelude.<*> (x Core..?> "ArchiveArn")
             Prelude.<*> (x Core..?> "State")
+            Prelude.<*> (x Core..?> "ArchiveArn")
+            Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,8 +166,8 @@ instance Core.ToJSON CreateArchive where
     Core.object
       ( Prelude.catMaybes
           [ ("EventPattern" Core..=) Prelude.<$> eventPattern,
-            ("Description" Core..=) Prelude.<$> description,
             ("RetentionDays" Core..=) Prelude.<$> retentionDays,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("ArchiveName" Core..= archiveName),
             Prelude.Just
               ("EventSourceArn" Core..= eventSourceArn)
@@ -184,12 +184,12 @@ instance Core.ToQuery CreateArchive where
 data CreateArchiveResponse = CreateArchiveResponse'
   { -- | The time at which the archive was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The reason that the archive is in the state.
-    stateReason :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the archive that was created.
-    archiveArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the archive that was created.
     state :: Prelude.Maybe ArchiveState,
+    -- | The ARN of the archive that was created.
+    archiveArn :: Prelude.Maybe Prelude.Text,
+    -- | The reason that the archive is in the state.
+    stateReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -205,11 +205,11 @@ data CreateArchiveResponse = CreateArchiveResponse'
 --
 -- 'creationTime', 'createArchiveResponse_creationTime' - The time at which the archive was created.
 --
--- 'stateReason', 'createArchiveResponse_stateReason' - The reason that the archive is in the state.
+-- 'state', 'createArchiveResponse_state' - The state of the archive that was created.
 --
 -- 'archiveArn', 'createArchiveResponse_archiveArn' - The ARN of the archive that was created.
 --
--- 'state', 'createArchiveResponse_state' - The state of the archive that was created.
+-- 'stateReason', 'createArchiveResponse_stateReason' - The reason that the archive is in the state.
 --
 -- 'httpStatus', 'createArchiveResponse_httpStatus' - The response's http status code.
 newCreateArchiveResponse ::
@@ -220,9 +220,9 @@ newCreateArchiveResponse pHttpStatus_ =
   CreateArchiveResponse'
     { creationTime =
         Prelude.Nothing,
-      stateReason = Prelude.Nothing,
-      archiveArn = Prelude.Nothing,
       state = Prelude.Nothing,
+      archiveArn = Prelude.Nothing,
+      stateReason = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -230,17 +230,17 @@ newCreateArchiveResponse pHttpStatus_ =
 createArchiveResponse_creationTime :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe Prelude.UTCTime)
 createArchiveResponse_creationTime = Lens.lens (\CreateArchiveResponse' {creationTime} -> creationTime) (\s@CreateArchiveResponse' {} a -> s {creationTime = a} :: CreateArchiveResponse) Prelude.. Lens.mapping Core._Time
 
--- | The reason that the archive is in the state.
-createArchiveResponse_stateReason :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe Prelude.Text)
-createArchiveResponse_stateReason = Lens.lens (\CreateArchiveResponse' {stateReason} -> stateReason) (\s@CreateArchiveResponse' {} a -> s {stateReason = a} :: CreateArchiveResponse)
+-- | The state of the archive that was created.
+createArchiveResponse_state :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe ArchiveState)
+createArchiveResponse_state = Lens.lens (\CreateArchiveResponse' {state} -> state) (\s@CreateArchiveResponse' {} a -> s {state = a} :: CreateArchiveResponse)
 
 -- | The ARN of the archive that was created.
 createArchiveResponse_archiveArn :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe Prelude.Text)
 createArchiveResponse_archiveArn = Lens.lens (\CreateArchiveResponse' {archiveArn} -> archiveArn) (\s@CreateArchiveResponse' {} a -> s {archiveArn = a} :: CreateArchiveResponse)
 
--- | The state of the archive that was created.
-createArchiveResponse_state :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe ArchiveState)
-createArchiveResponse_state = Lens.lens (\CreateArchiveResponse' {state} -> state) (\s@CreateArchiveResponse' {} a -> s {state = a} :: CreateArchiveResponse)
+-- | The reason that the archive is in the state.
+createArchiveResponse_stateReason :: Lens.Lens' CreateArchiveResponse (Prelude.Maybe Prelude.Text)
+createArchiveResponse_stateReason = Lens.lens (\CreateArchiveResponse' {stateReason} -> stateReason) (\s@CreateArchiveResponse' {} a -> s {stateReason = a} :: CreateArchiveResponse)
 
 -- | The response's http status code.
 createArchiveResponse_httpStatus :: Lens.Lens' CreateArchiveResponse Prelude.Int

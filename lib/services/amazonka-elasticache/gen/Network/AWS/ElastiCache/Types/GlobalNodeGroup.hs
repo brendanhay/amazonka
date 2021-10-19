@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newGlobalNodeGroup' smart constructor.
 data GlobalNodeGroup = GlobalNodeGroup'
-  { -- | The name of the global node group
-    globalNodeGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The keyspace for this node group
-    slots :: Prelude.Maybe Prelude.Text
+  { -- | The keyspace for this node group
+    slots :: Prelude.Maybe Prelude.Text,
+    -- | The name of the global node group
+    globalNodeGroupId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,31 +43,30 @@ data GlobalNodeGroup = GlobalNodeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalNodeGroupId', 'globalNodeGroup_globalNodeGroupId' - The name of the global node group
---
 -- 'slots', 'globalNodeGroup_slots' - The keyspace for this node group
+--
+-- 'globalNodeGroupId', 'globalNodeGroup_globalNodeGroupId' - The name of the global node group
 newGlobalNodeGroup ::
   GlobalNodeGroup
 newGlobalNodeGroup =
   GlobalNodeGroup'
-    { globalNodeGroupId =
-        Prelude.Nothing,
-      slots = Prelude.Nothing
+    { slots = Prelude.Nothing,
+      globalNodeGroupId = Prelude.Nothing
     }
-
--- | The name of the global node group
-globalNodeGroup_globalNodeGroupId :: Lens.Lens' GlobalNodeGroup (Prelude.Maybe Prelude.Text)
-globalNodeGroup_globalNodeGroupId = Lens.lens (\GlobalNodeGroup' {globalNodeGroupId} -> globalNodeGroupId) (\s@GlobalNodeGroup' {} a -> s {globalNodeGroupId = a} :: GlobalNodeGroup)
 
 -- | The keyspace for this node group
 globalNodeGroup_slots :: Lens.Lens' GlobalNodeGroup (Prelude.Maybe Prelude.Text)
 globalNodeGroup_slots = Lens.lens (\GlobalNodeGroup' {slots} -> slots) (\s@GlobalNodeGroup' {} a -> s {slots = a} :: GlobalNodeGroup)
 
+-- | The name of the global node group
+globalNodeGroup_globalNodeGroupId :: Lens.Lens' GlobalNodeGroup (Prelude.Maybe Prelude.Text)
+globalNodeGroup_globalNodeGroupId = Lens.lens (\GlobalNodeGroup' {globalNodeGroupId} -> globalNodeGroupId) (\s@GlobalNodeGroup' {} a -> s {globalNodeGroupId = a} :: GlobalNodeGroup)
+
 instance Core.FromXML GlobalNodeGroup where
   parseXML x =
     GlobalNodeGroup'
-      Prelude.<$> (x Core..@? "GlobalNodeGroupId")
-      Prelude.<*> (x Core..@? "Slots")
+      Prelude.<$> (x Core..@? "Slots")
+      Prelude.<*> (x Core..@? "GlobalNodeGroupId")
 
 instance Prelude.Hashable GlobalNodeGroup
 

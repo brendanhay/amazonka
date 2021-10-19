@@ -80,7 +80,7 @@ newDeleteFaces ::
 newDeleteFaces pCollectionId_ pFaceIds_ =
   DeleteFaces'
     { collectionId = pCollectionId_,
-      faceIds = Lens._Coerce Lens.# pFaceIds_
+      faceIds = Lens.coerced Lens.# pFaceIds_
     }
 
 -- | Collection from which to remove the specific faces.
@@ -89,7 +89,7 @@ deleteFaces_collectionId = Lens.lens (\DeleteFaces' {collectionId} -> collection
 
 -- | An array of face IDs to delete.
 deleteFaces_faceIds :: Lens.Lens' DeleteFaces (Prelude.NonEmpty Prelude.Text)
-deleteFaces_faceIds = Lens.lens (\DeleteFaces' {faceIds} -> faceIds) (\s@DeleteFaces' {} a -> s {faceIds = a} :: DeleteFaces) Prelude.. Lens._Coerce
+deleteFaces_faceIds = Lens.lens (\DeleteFaces' {faceIds} -> faceIds) (\s@DeleteFaces' {} a -> s {faceIds = a} :: DeleteFaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeleteFaces where
   type AWSResponse DeleteFaces = DeleteFacesResponse
@@ -169,7 +169,7 @@ newDeleteFacesResponse pHttpStatus_ =
 
 -- | An array of strings (face IDs) of the faces that were deleted.
 deleteFacesResponse_deletedFaces :: Lens.Lens' DeleteFacesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteFacesResponse_deletedFaces = Lens.lens (\DeleteFacesResponse' {deletedFaces} -> deletedFaces) (\s@DeleteFacesResponse' {} a -> s {deletedFaces = a} :: DeleteFacesResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteFacesResponse_deletedFaces = Lens.lens (\DeleteFacesResponse' {deletedFaces} -> deletedFaces) (\s@DeleteFacesResponse' {} a -> s {deletedFaces = a} :: DeleteFacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteFacesResponse_httpStatus :: Lens.Lens' DeleteFacesResponse Prelude.Int

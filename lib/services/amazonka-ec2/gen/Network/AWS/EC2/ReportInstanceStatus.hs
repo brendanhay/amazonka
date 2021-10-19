@@ -34,10 +34,10 @@ module Network.AWS.EC2.ReportInstanceStatus
     newReportInstanceStatus,
 
     -- * Request Lenses
-    reportInstanceStatus_dryRun,
     reportInstanceStatus_startTime,
     reportInstanceStatus_endTime,
     reportInstanceStatus_description,
+    reportInstanceStatus_dryRun,
     reportInstanceStatus_instances,
     reportInstanceStatus_reasonCodes,
     reportInstanceStatus_status,
@@ -57,17 +57,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newReportInstanceStatus' smart constructor.
 data ReportInstanceStatus = ReportInstanceStatus'
-  { -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The time at which the reported instance health state began.
+  { -- | The time at which the reported instance health state began.
     startTime :: Prelude.Maybe Core.ISO8601,
     -- | The time at which the reported instance health state ended.
     endTime :: Prelude.Maybe Core.ISO8601,
     -- | Descriptive text about the health state of your instance.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The instances.
     instances :: [Prelude.Text],
     -- | The reason codes that describe the health state of your instance.
@@ -110,16 +110,16 @@ data ReportInstanceStatus = ReportInstanceStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dryRun', 'reportInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
---
 -- 'startTime', 'reportInstanceStatus_startTime' - The time at which the reported instance health state began.
 --
 -- 'endTime', 'reportInstanceStatus_endTime' - The time at which the reported instance health state ended.
 --
 -- 'description', 'reportInstanceStatus_description' - Descriptive text about the health state of your instance.
+--
+-- 'dryRun', 'reportInstanceStatus_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'instances', 'reportInstanceStatus_instances' - The instances.
 --
@@ -157,21 +157,14 @@ newReportInstanceStatus ::
   ReportInstanceStatus
 newReportInstanceStatus pStatus_ =
   ReportInstanceStatus'
-    { dryRun = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+    { startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       description = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       instances = Prelude.mempty,
       reasonCodes = Prelude.mempty,
       status = pStatus_
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-reportInstanceStatus_dryRun :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Bool)
-reportInstanceStatus_dryRun = Lens.lens (\ReportInstanceStatus' {dryRun} -> dryRun) (\s@ReportInstanceStatus' {} a -> s {dryRun = a} :: ReportInstanceStatus)
 
 -- | The time at which the reported instance health state began.
 reportInstanceStatus_startTime :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.UTCTime)
@@ -185,9 +178,16 @@ reportInstanceStatus_endTime = Lens.lens (\ReportInstanceStatus' {endTime} -> en
 reportInstanceStatus_description :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Text)
 reportInstanceStatus_description = Lens.lens (\ReportInstanceStatus' {description} -> description) (\s@ReportInstanceStatus' {} a -> s {description = a} :: ReportInstanceStatus)
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+reportInstanceStatus_dryRun :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Bool)
+reportInstanceStatus_dryRun = Lens.lens (\ReportInstanceStatus' {dryRun} -> dryRun) (\s@ReportInstanceStatus' {} a -> s {dryRun = a} :: ReportInstanceStatus)
+
 -- | The instances.
 reportInstanceStatus_instances :: Lens.Lens' ReportInstanceStatus [Prelude.Text]
-reportInstanceStatus_instances = Lens.lens (\ReportInstanceStatus' {instances} -> instances) (\s@ReportInstanceStatus' {} a -> s {instances = a} :: ReportInstanceStatus) Prelude.. Lens._Coerce
+reportInstanceStatus_instances = Lens.lens (\ReportInstanceStatus' {instances} -> instances) (\s@ReportInstanceStatus' {} a -> s {instances = a} :: ReportInstanceStatus) Prelude.. Lens.coerced
 
 -- | The reason codes that describe the health state of your instance.
 --
@@ -216,7 +216,7 @@ reportInstanceStatus_instances = Lens.lens (\ReportInstanceStatus' {instances} -
 --
 -- -   @other@: [explain using the description parameter]
 reportInstanceStatus_reasonCodes :: Lens.Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
-reportInstanceStatus_reasonCodes = Lens.lens (\ReportInstanceStatus' {reasonCodes} -> reasonCodes) (\s@ReportInstanceStatus' {} a -> s {reasonCodes = a} :: ReportInstanceStatus) Prelude.. Lens._Coerce
+reportInstanceStatus_reasonCodes = Lens.lens (\ReportInstanceStatus' {reasonCodes} -> reasonCodes) (\s@ReportInstanceStatus' {} a -> s {reasonCodes = a} :: ReportInstanceStatus) Prelude.. Lens.coerced
 
 -- | The status of all instances listed.
 reportInstanceStatus_status :: Lens.Lens' ReportInstanceStatus ReportStatusType
@@ -247,10 +247,10 @@ instance Core.ToQuery ReportInstanceStatus where
           Core.=: ("ReportInstanceStatus" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime,
         "Description" Core.=: description,
+        "DryRun" Core.=: dryRun,
         Core.toQueryList "InstanceId" instances,
         Core.toQueryList "ReasonCode" reasonCodes,
         "Status" Core.=: status

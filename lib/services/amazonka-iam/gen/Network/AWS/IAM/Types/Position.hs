@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPosition' smart constructor.
 data Position = Position'
-  { -- | The column in the line containing the specified position in the
+  { -- | The line containing the specified position in the document.
+    line :: Prelude.Maybe Prelude.Int,
+    -- | The column in the line containing the specified position in the
     -- document.
-    column :: Prelude.Maybe Prelude.Int,
-    -- | The line containing the specified position in the document.
-    line :: Prelude.Maybe Prelude.Int
+    column :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,31 +46,31 @@ data Position = Position'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'line', 'position_line' - The line containing the specified position in the document.
+--
 -- 'column', 'position_column' - The column in the line containing the specified position in the
 -- document.
---
--- 'line', 'position_line' - The line containing the specified position in the document.
 newPosition ::
   Position
 newPosition =
   Position'
-    { column = Prelude.Nothing,
-      line = Prelude.Nothing
+    { line = Prelude.Nothing,
+      column = Prelude.Nothing
     }
+
+-- | The line containing the specified position in the document.
+position_line :: Lens.Lens' Position (Prelude.Maybe Prelude.Int)
+position_line = Lens.lens (\Position' {line} -> line) (\s@Position' {} a -> s {line = a} :: Position)
 
 -- | The column in the line containing the specified position in the
 -- document.
 position_column :: Lens.Lens' Position (Prelude.Maybe Prelude.Int)
 position_column = Lens.lens (\Position' {column} -> column) (\s@Position' {} a -> s {column = a} :: Position)
 
--- | The line containing the specified position in the document.
-position_line :: Lens.Lens' Position (Prelude.Maybe Prelude.Int)
-position_line = Lens.lens (\Position' {line} -> line) (\s@Position' {} a -> s {line = a} :: Position)
-
 instance Core.FromXML Position where
   parseXML x =
     Position'
-      Prelude.<$> (x Core..@? "Column") Prelude.<*> (x Core..@? "Line")
+      Prelude.<$> (x Core..@? "Line") Prelude.<*> (x Core..@? "Column")
 
 instance Prelude.Hashable Position
 

@@ -98,7 +98,7 @@ modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\Modi
 
 -- | A list of subnet IDs.
 modifyReplicationSubnetGroup_subnetIds :: Lens.Lens' ModifyReplicationSubnetGroup [Prelude.Text]
-modifyReplicationSubnetGroup_subnetIds = Lens.lens (\ModifyReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyReplicationSubnetGroup' {} a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup) Prelude.. Lens._Coerce
+modifyReplicationSubnetGroup_subnetIds = Lens.lens (\ModifyReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyReplicationSubnetGroup' {} a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup) Prelude.. Lens.coerced
 
 instance Core.AWSRequest ModifyReplicationSubnetGroup where
   type

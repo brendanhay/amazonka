@@ -67,21 +67,21 @@ newVpcConfig ::
 newVpcConfig pSecurityGroupIds_ pSubnets_ =
   VpcConfig'
     { securityGroupIds =
-        Lens._Coerce Lens.# pSecurityGroupIds_,
-      subnets = Lens._Coerce Lens.# pSubnets_
+        Lens.coerced Lens.# pSecurityGroupIds_,
+      subnets = Lens.coerced Lens.# pSubnets_
     }
 
 -- | The VPC security group IDs, in the form sg-xxxxxxxx. Specify the
 -- security groups for the VPC that is specified in the @Subnets@ field.
 vpcConfig_securityGroupIds :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
-vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens._Coerce
+vpcConfig_securityGroupIds = Lens.lens (\VpcConfig' {securityGroupIds} -> securityGroupIds) (\s@VpcConfig' {} a -> s {securityGroupIds = a} :: VpcConfig) Prelude.. Lens.coerced
 
 -- | The ID of the subnets in the VPC to which you want to connect your
 -- training job or model. For information about the availability of
 -- specific instance types, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html Supported Instance Types and Availability Zones>.
 vpcConfig_subnets :: Lens.Lens' VpcConfig (Prelude.NonEmpty Prelude.Text)
-vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens._Coerce
+vpcConfig_subnets = Lens.lens (\VpcConfig' {subnets} -> subnets) (\s@VpcConfig' {} a -> s {subnets = a} :: VpcConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON VpcConfig where
   parseJSON =

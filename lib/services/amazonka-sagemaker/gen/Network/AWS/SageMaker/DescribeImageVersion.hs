@@ -36,14 +36,14 @@ module Network.AWS.SageMaker.DescribeImageVersion
 
     -- * Response Lenses
     describeImageVersionResponse_creationTime,
-    describeImageVersionResponse_imageVersionStatus,
-    describeImageVersionResponse_containerImage,
-    describeImageVersionResponse_imageVersionArn,
-    describeImageVersionResponse_baseImage,
-    describeImageVersionResponse_version,
     describeImageVersionResponse_failureReason,
+    describeImageVersionResponse_containerImage,
     describeImageVersionResponse_lastModifiedTime,
+    describeImageVersionResponse_imageVersionStatus,
+    describeImageVersionResponse_version,
+    describeImageVersionResponse_baseImage,
     describeImageVersionResponse_imageArn,
+    describeImageVersionResponse_imageVersionArn,
     describeImageVersionResponse_httpStatus,
   )
 where
@@ -106,14 +106,14 @@ instance Core.AWSRequest DescribeImageVersion where
       ( \s h x ->
           DescribeImageVersionResponse'
             Prelude.<$> (x Core..?> "CreationTime")
-            Prelude.<*> (x Core..?> "ImageVersionStatus")
-            Prelude.<*> (x Core..?> "ContainerImage")
-            Prelude.<*> (x Core..?> "ImageVersionArn")
-            Prelude.<*> (x Core..?> "BaseImage")
-            Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "ContainerImage")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "ImageVersionStatus")
+            Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "BaseImage")
             Prelude.<*> (x Core..?> "ImageArn")
+            Prelude.<*> (x Core..?> "ImageVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -155,24 +155,24 @@ instance Core.ToQuery DescribeImageVersion where
 data DescribeImageVersionResponse = DescribeImageVersionResponse'
   { -- | When the version was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The status of the version.
-    imageVersionStatus :: Prelude.Maybe ImageVersionStatus,
+    -- | When a create or delete operation fails, the reason for the failure.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The registry path of the container image that contains this image
     -- version.
     containerImage :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the version.
-    imageVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | When the version was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of the version.
+    imageVersionStatus :: Prelude.Maybe ImageVersionStatus,
+    -- | The version number.
+    version :: Prelude.Maybe Prelude.Natural,
     -- | The registry path of the container image on which this image version is
     -- based.
     baseImage :: Prelude.Maybe Prelude.Text,
-    -- | The version number.
-    version :: Prelude.Maybe Prelude.Natural,
-    -- | When a create or delete operation fails, the reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | When the version was last modified.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the image the version is based on.
     imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the version.
+    imageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,23 +188,23 @@ data DescribeImageVersionResponse = DescribeImageVersionResponse'
 --
 -- 'creationTime', 'describeImageVersionResponse_creationTime' - When the version was created.
 --
--- 'imageVersionStatus', 'describeImageVersionResponse_imageVersionStatus' - The status of the version.
+-- 'failureReason', 'describeImageVersionResponse_failureReason' - When a create or delete operation fails, the reason for the failure.
 --
 -- 'containerImage', 'describeImageVersionResponse_containerImage' - The registry path of the container image that contains this image
 -- version.
 --
--- 'imageVersionArn', 'describeImageVersionResponse_imageVersionArn' - The ARN of the version.
+-- 'lastModifiedTime', 'describeImageVersionResponse_lastModifiedTime' - When the version was last modified.
+--
+-- 'imageVersionStatus', 'describeImageVersionResponse_imageVersionStatus' - The status of the version.
+--
+-- 'version', 'describeImageVersionResponse_version' - The version number.
 --
 -- 'baseImage', 'describeImageVersionResponse_baseImage' - The registry path of the container image on which this image version is
 -- based.
 --
--- 'version', 'describeImageVersionResponse_version' - The version number.
---
--- 'failureReason', 'describeImageVersionResponse_failureReason' - When a create or delete operation fails, the reason for the failure.
---
--- 'lastModifiedTime', 'describeImageVersionResponse_lastModifiedTime' - When the version was last modified.
---
 -- 'imageArn', 'describeImageVersionResponse_imageArn' - The Amazon Resource Name (ARN) of the image the version is based on.
+--
+-- 'imageVersionArn', 'describeImageVersionResponse_imageVersionArn' - The ARN of the version.
 --
 -- 'httpStatus', 'describeImageVersionResponse_httpStatus' - The response's http status code.
 newDescribeImageVersionResponse ::
@@ -215,14 +215,14 @@ newDescribeImageVersionResponse pHttpStatus_ =
   DescribeImageVersionResponse'
     { creationTime =
         Prelude.Nothing,
-      imageVersionStatus = Prelude.Nothing,
-      containerImage = Prelude.Nothing,
-      imageVersionArn = Prelude.Nothing,
-      baseImage = Prelude.Nothing,
-      version = Prelude.Nothing,
       failureReason = Prelude.Nothing,
+      containerImage = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      imageVersionStatus = Prelude.Nothing,
+      version = Prelude.Nothing,
+      baseImage = Prelude.Nothing,
       imageArn = Prelude.Nothing,
+      imageVersionArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -230,39 +230,39 @@ newDescribeImageVersionResponse pHttpStatus_ =
 describeImageVersionResponse_creationTime :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.UTCTime)
 describeImageVersionResponse_creationTime = Lens.lens (\DescribeImageVersionResponse' {creationTime} -> creationTime) (\s@DescribeImageVersionResponse' {} a -> s {creationTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Core._Time
 
--- | The status of the version.
-describeImageVersionResponse_imageVersionStatus :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe ImageVersionStatus)
-describeImageVersionResponse_imageVersionStatus = Lens.lens (\DescribeImageVersionResponse' {imageVersionStatus} -> imageVersionStatus) (\s@DescribeImageVersionResponse' {} a -> s {imageVersionStatus = a} :: DescribeImageVersionResponse)
+-- | When a create or delete operation fails, the reason for the failure.
+describeImageVersionResponse_failureReason :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
+describeImageVersionResponse_failureReason = Lens.lens (\DescribeImageVersionResponse' {failureReason} -> failureReason) (\s@DescribeImageVersionResponse' {} a -> s {failureReason = a} :: DescribeImageVersionResponse)
 
 -- | The registry path of the container image that contains this image
 -- version.
 describeImageVersionResponse_containerImage :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
 describeImageVersionResponse_containerImage = Lens.lens (\DescribeImageVersionResponse' {containerImage} -> containerImage) (\s@DescribeImageVersionResponse' {} a -> s {containerImage = a} :: DescribeImageVersionResponse)
 
--- | The ARN of the version.
-describeImageVersionResponse_imageVersionArn :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
-describeImageVersionResponse_imageVersionArn = Lens.lens (\DescribeImageVersionResponse' {imageVersionArn} -> imageVersionArn) (\s@DescribeImageVersionResponse' {} a -> s {imageVersionArn = a} :: DescribeImageVersionResponse)
+-- | When the version was last modified.
+describeImageVersionResponse_lastModifiedTime :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.UTCTime)
+describeImageVersionResponse_lastModifiedTime = Lens.lens (\DescribeImageVersionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageVersionResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The status of the version.
+describeImageVersionResponse_imageVersionStatus :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe ImageVersionStatus)
+describeImageVersionResponse_imageVersionStatus = Lens.lens (\DescribeImageVersionResponse' {imageVersionStatus} -> imageVersionStatus) (\s@DescribeImageVersionResponse' {} a -> s {imageVersionStatus = a} :: DescribeImageVersionResponse)
+
+-- | The version number.
+describeImageVersionResponse_version :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Natural)
+describeImageVersionResponse_version = Lens.lens (\DescribeImageVersionResponse' {version} -> version) (\s@DescribeImageVersionResponse' {} a -> s {version = a} :: DescribeImageVersionResponse)
 
 -- | The registry path of the container image on which this image version is
 -- based.
 describeImageVersionResponse_baseImage :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
 describeImageVersionResponse_baseImage = Lens.lens (\DescribeImageVersionResponse' {baseImage} -> baseImage) (\s@DescribeImageVersionResponse' {} a -> s {baseImage = a} :: DescribeImageVersionResponse)
 
--- | The version number.
-describeImageVersionResponse_version :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Natural)
-describeImageVersionResponse_version = Lens.lens (\DescribeImageVersionResponse' {version} -> version) (\s@DescribeImageVersionResponse' {} a -> s {version = a} :: DescribeImageVersionResponse)
-
--- | When a create or delete operation fails, the reason for the failure.
-describeImageVersionResponse_failureReason :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
-describeImageVersionResponse_failureReason = Lens.lens (\DescribeImageVersionResponse' {failureReason} -> failureReason) (\s@DescribeImageVersionResponse' {} a -> s {failureReason = a} :: DescribeImageVersionResponse)
-
--- | When the version was last modified.
-describeImageVersionResponse_lastModifiedTime :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.UTCTime)
-describeImageVersionResponse_lastModifiedTime = Lens.lens (\DescribeImageVersionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeImageVersionResponse' {} a -> s {lastModifiedTime = a} :: DescribeImageVersionResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The Amazon Resource Name (ARN) of the image the version is based on.
 describeImageVersionResponse_imageArn :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
 describeImageVersionResponse_imageArn = Lens.lens (\DescribeImageVersionResponse' {imageArn} -> imageArn) (\s@DescribeImageVersionResponse' {} a -> s {imageArn = a} :: DescribeImageVersionResponse)
+
+-- | The ARN of the version.
+describeImageVersionResponse_imageVersionArn :: Lens.Lens' DescribeImageVersionResponse (Prelude.Maybe Prelude.Text)
+describeImageVersionResponse_imageVersionArn = Lens.lens (\DescribeImageVersionResponse' {imageVersionArn} -> imageVersionArn) (\s@DescribeImageVersionResponse' {} a -> s {imageVersionArn = a} :: DescribeImageVersionResponse)
 
 -- | The response's http status code.
 describeImageVersionResponse_httpStatus :: Lens.Lens' DescribeImageVersionResponse Prelude.Int

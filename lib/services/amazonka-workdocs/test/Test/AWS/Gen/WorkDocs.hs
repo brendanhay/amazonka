@@ -27,44 +27,65 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteCustomMetadata $
---             newDeleteCustomMetadata
---
---         , requestUpdateFolder $
---             newUpdateFolder
---
---         , requestDeleteNotificationSubscription $
---             newDeleteNotificationSubscription
---
---         , requestDeleteFolder $
---             newDeleteFolder
---
---         , requestDeleteLabels $
+--         [ requestDeleteLabels $
 --             newDeleteLabels
 --
 --         , requestAbortDocumentVersionUpload $
 --             newAbortDocumentVersionUpload
 --
---         , requestUpdateDocumentVersion $
---             newUpdateDocumentVersion
+--         , requestGetDocumentPath $
+--             newGetDocumentPath
 --
---         , requestDeactivateUser $
---             newDeactivateUser
+--         , requestCreateComment $
+--             newCreateComment
 --
---         , requestDescribeFolderContents $
---             newDescribeFolderContents
+--         , requestDescribeUsers $
+--             newDescribeUsers
 --
---         , requestCreateLabels $
---             newCreateLabels
+--         , requestDeleteFolder $
+--             newDeleteFolder
 --
---         , requestDescribeRootFolders $
---             newDescribeRootFolders
+--         , requestUpdateFolder $
+--             newUpdateFolder
 --
---         , requestUpdateDocument $
---             newUpdateDocument
+--         , requestDeleteCustomMetadata $
+--             newDeleteCustomMetadata
 --
---         , requestDeleteDocument $
---             newDeleteDocument
+--         , requestDescribeResourcePermissions $
+--             newDescribeResourcePermissions
+--
+--         , requestDeleteNotificationSubscription $
+--             newDeleteNotificationSubscription
+--
+--         , requestCreateFolder $
+--             newCreateFolder
+--
+--         , requestCreateNotificationSubscription $
+--             newCreateNotificationSubscription
+--
+--         , requestCreateCustomMetadata $
+--             newCreateCustomMetadata
+--
+--         , requestGetFolderPath $
+--             newGetFolderPath
+--
+--         , requestDescribeComments $
+--             newDescribeComments
+--
+--         , requestDeleteFolderContents $
+--             newDeleteFolderContents
+--
+--         , requestRemoveAllResourcePermissions $
+--             newRemoveAllResourcePermissions
+--
+--         , requestGetFolder $
+--             newGetFolder
+--
+--         , requestDescribeNotificationSubscriptions $
+--             newDescribeNotificationSubscriptions
+--
+--         , requestActivateUser $
+--             newActivateUser
 --
 --         , requestDescribeDocumentVersions $
 --             newDescribeDocumentVersions
@@ -72,125 +93,125 @@ import Test.Tasty
 --         , requestGetDocumentVersion $
 --             newGetDocumentVersion
 --
---         , requestActivateUser $
---             newActivateUser
---
---         , requestGetFolderPath $
---             newGetFolderPath
---
---         , requestCreateUser $
---             newCreateUser
---
---         , requestDeleteComment $
---             newDeleteComment
---
---         , requestCreateFolder $
---             newCreateFolder
---
---         , requestCreateCustomMetadata $
---             newCreateCustomMetadata
---
---         , requestCreateNotificationSubscription $
---             newCreateNotificationSubscription
---
---         , requestGetResources $
---             newGetResources
---
---         , requestRemoveResourcePermission $
---             newRemoveResourcePermission
---
---         , requestCreateComment $
---             newCreateComment
---
---         , requestDescribeResourcePermissions $
---             newDescribeResourcePermissions
---
---         , requestDescribeUsers $
---             newDescribeUsers
---
---         , requestGetDocumentPath $
---             newGetDocumentPath
---
---         , requestGetDocument $
---             newGetDocument
---
---         , requestDescribeGroups $
---             newDescribeGroups
---
 --         , requestDescribeActivities $
 --             newDescribeActivities
+--
+--         , requestDescribeRootFolders $
+--             newDescribeRootFolders
 --
 --         , requestGetCurrentUser $
 --             newGetCurrentUser
 --
---         , requestAddResourcePermissions $
---             newAddResourcePermissions
+--         , requestDeactivateUser $
+--             newDeactivateUser
 --
---         , requestUpdateUser $
---             newUpdateUser
+--         , requestGetDocument $
+--             newGetDocument
 --
---         , requestDescribeNotificationSubscriptions $
---             newDescribeNotificationSubscriptions
+--         , requestDescribeFolderContents $
+--             newDescribeFolderContents
 --
---         , requestGetFolder $
---             newGetFolder
+--         , requestCreateLabels $
+--             newCreateLabels
 --
---         , requestDeleteUser $
---             newDeleteUser
+--         , requestUpdateDocumentVersion $
+--             newUpdateDocumentVersion
 --
---         , requestDeleteFolderContents $
---             newDeleteFolderContents
+--         , requestRemoveResourcePermission $
+--             newRemoveResourcePermission
 --
---         , requestDescribeComments $
---             newDescribeComments
+--         , requestGetResources $
+--             newGetResources
+--
+--         , requestDeleteComment $
+--             newDeleteComment
 --
 --         , requestInitiateDocumentVersionUpload $
 --             newInitiateDocumentVersionUpload
 --
---         , requestRemoveAllResourcePermissions $
---             newRemoveAllResourcePermissions
+--         , requestCreateUser $
+--             newCreateUser
+--
+--         , requestUpdateUser $
+--             newUpdateUser
+--
+--         , requestDeleteUser $
+--             newDeleteUser
+--
+--         , requestAddResourcePermissions $
+--             newAddResourcePermissions
+--
+--         , requestUpdateDocument $
+--             newUpdateDocument
+--
+--         , requestDeleteDocument $
+--             newDeleteDocument
+--
+--         , requestDescribeGroups $
+--             newDescribeGroups
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteCustomMetadata $
---             newDeleteCustomMetadataResponse
---
---         , responseUpdateFolder $
---             newUpdateFolderResponse
---
---         , responseDeleteNotificationSubscription $
---             newDeleteNotificationSubscriptionResponse
---
---         , responseDeleteFolder $
---             newDeleteFolderResponse
---
---         , responseDeleteLabels $
+--         [ responseDeleteLabels $
 --             newDeleteLabelsResponse
 --
 --         , responseAbortDocumentVersionUpload $
 --             newAbortDocumentVersionUploadResponse
 --
---         , responseUpdateDocumentVersion $
---             newUpdateDocumentVersionResponse
+--         , responseGetDocumentPath $
+--             newGetDocumentPathResponse
 --
---         , responseDeactivateUser $
---             newDeactivateUserResponse
+--         , responseCreateComment $
+--             newCreateCommentResponse
 --
---         , responseDescribeFolderContents $
---             newDescribeFolderContentsResponse
+--         , responseDescribeUsers $
+--             newDescribeUsersResponse
 --
---         , responseCreateLabels $
---             newCreateLabelsResponse
+--         , responseDeleteFolder $
+--             newDeleteFolderResponse
 --
---         , responseDescribeRootFolders $
---             newDescribeRootFoldersResponse
+--         , responseUpdateFolder $
+--             newUpdateFolderResponse
 --
---         , responseUpdateDocument $
---             newUpdateDocumentResponse
+--         , responseDeleteCustomMetadata $
+--             newDeleteCustomMetadataResponse
 --
---         , responseDeleteDocument $
---             newDeleteDocumentResponse
+--         , responseDescribeResourcePermissions $
+--             newDescribeResourcePermissionsResponse
+--
+--         , responseDeleteNotificationSubscription $
+--             newDeleteNotificationSubscriptionResponse
+--
+--         , responseCreateFolder $
+--             newCreateFolderResponse
+--
+--         , responseCreateNotificationSubscription $
+--             newCreateNotificationSubscriptionResponse
+--
+--         , responseCreateCustomMetadata $
+--             newCreateCustomMetadataResponse
+--
+--         , responseGetFolderPath $
+--             newGetFolderPathResponse
+--
+--         , responseDescribeComments $
+--             newDescribeCommentsResponse
+--
+--         , responseDeleteFolderContents $
+--             newDeleteFolderContentsResponse
+--
+--         , responseRemoveAllResourcePermissions $
+--             newRemoveAllResourcePermissionsResponse
+--
+--         , responseGetFolder $
+--             newGetFolderResponse
+--
+--         , responseDescribeNotificationSubscriptions $
+--             newDescribeNotificationSubscriptionsResponse
+--
+--         , responseActivateUser $
+--             newActivateUserResponse
 --
 --         , responseDescribeDocumentVersions $
 --             newDescribeDocumentVersionsResponse
@@ -198,112 +219,67 @@ import Test.Tasty
 --         , responseGetDocumentVersion $
 --             newGetDocumentVersionResponse
 --
---         , responseActivateUser $
---             newActivateUserResponse
---
---         , responseGetFolderPath $
---             newGetFolderPathResponse
---
---         , responseCreateUser $
---             newCreateUserResponse
---
---         , responseDeleteComment $
---             newDeleteCommentResponse
---
---         , responseCreateFolder $
---             newCreateFolderResponse
---
---         , responseCreateCustomMetadata $
---             newCreateCustomMetadataResponse
---
---         , responseCreateNotificationSubscription $
---             newCreateNotificationSubscriptionResponse
---
---         , responseGetResources $
---             newGetResourcesResponse
---
---         , responseRemoveResourcePermission $
---             newRemoveResourcePermissionResponse
---
---         , responseCreateComment $
---             newCreateCommentResponse
---
---         , responseDescribeResourcePermissions $
---             newDescribeResourcePermissionsResponse
---
---         , responseDescribeUsers $
---             newDescribeUsersResponse
---
---         , responseGetDocumentPath $
---             newGetDocumentPathResponse
---
---         , responseGetDocument $
---             newGetDocumentResponse
---
---         , responseDescribeGroups $
---             newDescribeGroupsResponse
---
 --         , responseDescribeActivities $
 --             newDescribeActivitiesResponse
+--
+--         , responseDescribeRootFolders $
+--             newDescribeRootFoldersResponse
 --
 --         , responseGetCurrentUser $
 --             newGetCurrentUserResponse
 --
---         , responseAddResourcePermissions $
---             newAddResourcePermissionsResponse
+--         , responseDeactivateUser $
+--             newDeactivateUserResponse
 --
---         , responseUpdateUser $
---             newUpdateUserResponse
+--         , responseGetDocument $
+--             newGetDocumentResponse
 --
---         , responseDescribeNotificationSubscriptions $
---             newDescribeNotificationSubscriptionsResponse
+--         , responseDescribeFolderContents $
+--             newDescribeFolderContentsResponse
 --
---         , responseGetFolder $
---             newGetFolderResponse
+--         , responseCreateLabels $
+--             newCreateLabelsResponse
 --
---         , responseDeleteUser $
---             newDeleteUserResponse
+--         , responseUpdateDocumentVersion $
+--             newUpdateDocumentVersionResponse
 --
---         , responseDeleteFolderContents $
---             newDeleteFolderContentsResponse
+--         , responseRemoveResourcePermission $
+--             newRemoveResourcePermissionResponse
 --
---         , responseDescribeComments $
---             newDescribeCommentsResponse
+--         , responseGetResources $
+--             newGetResourcesResponse
+--
+--         , responseDeleteComment $
+--             newDeleteCommentResponse
 --
 --         , responseInitiateDocumentVersionUpload $
 --             newInitiateDocumentVersionUploadResponse
 --
---         , responseRemoveAllResourcePermissions $
---             newRemoveAllResourcePermissionsResponse
+--         , responseCreateUser $
+--             newCreateUserResponse
+--
+--         , responseUpdateUser $
+--             newUpdateUserResponse
+--
+--         , responseDeleteUser $
+--             newDeleteUserResponse
+--
+--         , responseAddResourcePermissions $
+--             newAddResourcePermissionsResponse
+--
+--         , responseUpdateDocument $
+--             newUpdateDocumentResponse
+--
+--         , responseDeleteDocument $
+--             newDeleteDocumentResponse
+--
+--         , responseDescribeGroups $
+--             newDescribeGroupsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDeleteCustomMetadata :: DeleteCustomMetadata -> TestTree
-requestDeleteCustomMetadata =
-  req
-    "DeleteCustomMetadata"
-    "fixture/DeleteCustomMetadata.yaml"
-
-requestUpdateFolder :: UpdateFolder -> TestTree
-requestUpdateFolder =
-  req
-    "UpdateFolder"
-    "fixture/UpdateFolder.yaml"
-
-requestDeleteNotificationSubscription :: DeleteNotificationSubscription -> TestTree
-requestDeleteNotificationSubscription =
-  req
-    "DeleteNotificationSubscription"
-    "fixture/DeleteNotificationSubscription.yaml"
-
-requestDeleteFolder :: DeleteFolder -> TestTree
-requestDeleteFolder =
-  req
-    "DeleteFolder"
-    "fixture/DeleteFolder.yaml"
 
 requestDeleteLabels :: DeleteLabels -> TestTree
 requestDeleteLabels =
@@ -317,47 +293,113 @@ requestAbortDocumentVersionUpload =
     "AbortDocumentVersionUpload"
     "fixture/AbortDocumentVersionUpload.yaml"
 
-requestUpdateDocumentVersion :: UpdateDocumentVersion -> TestTree
-requestUpdateDocumentVersion =
+requestGetDocumentPath :: GetDocumentPath -> TestTree
+requestGetDocumentPath =
   req
-    "UpdateDocumentVersion"
-    "fixture/UpdateDocumentVersion.yaml"
+    "GetDocumentPath"
+    "fixture/GetDocumentPath.yaml"
 
-requestDeactivateUser :: DeactivateUser -> TestTree
-requestDeactivateUser =
+requestCreateComment :: CreateComment -> TestTree
+requestCreateComment =
   req
-    "DeactivateUser"
-    "fixture/DeactivateUser.yaml"
+    "CreateComment"
+    "fixture/CreateComment.yaml"
 
-requestDescribeFolderContents :: DescribeFolderContents -> TestTree
-requestDescribeFolderContents =
+requestDescribeUsers :: DescribeUsers -> TestTree
+requestDescribeUsers =
   req
-    "DescribeFolderContents"
-    "fixture/DescribeFolderContents.yaml"
+    "DescribeUsers"
+    "fixture/DescribeUsers.yaml"
 
-requestCreateLabels :: CreateLabels -> TestTree
-requestCreateLabels =
+requestDeleteFolder :: DeleteFolder -> TestTree
+requestDeleteFolder =
   req
-    "CreateLabels"
-    "fixture/CreateLabels.yaml"
+    "DeleteFolder"
+    "fixture/DeleteFolder.yaml"
 
-requestDescribeRootFolders :: DescribeRootFolders -> TestTree
-requestDescribeRootFolders =
+requestUpdateFolder :: UpdateFolder -> TestTree
+requestUpdateFolder =
   req
-    "DescribeRootFolders"
-    "fixture/DescribeRootFolders.yaml"
+    "UpdateFolder"
+    "fixture/UpdateFolder.yaml"
 
-requestUpdateDocument :: UpdateDocument -> TestTree
-requestUpdateDocument =
+requestDeleteCustomMetadata :: DeleteCustomMetadata -> TestTree
+requestDeleteCustomMetadata =
   req
-    "UpdateDocument"
-    "fixture/UpdateDocument.yaml"
+    "DeleteCustomMetadata"
+    "fixture/DeleteCustomMetadata.yaml"
 
-requestDeleteDocument :: DeleteDocument -> TestTree
-requestDeleteDocument =
+requestDescribeResourcePermissions :: DescribeResourcePermissions -> TestTree
+requestDescribeResourcePermissions =
   req
-    "DeleteDocument"
-    "fixture/DeleteDocument.yaml"
+    "DescribeResourcePermissions"
+    "fixture/DescribeResourcePermissions.yaml"
+
+requestDeleteNotificationSubscription :: DeleteNotificationSubscription -> TestTree
+requestDeleteNotificationSubscription =
+  req
+    "DeleteNotificationSubscription"
+    "fixture/DeleteNotificationSubscription.yaml"
+
+requestCreateFolder :: CreateFolder -> TestTree
+requestCreateFolder =
+  req
+    "CreateFolder"
+    "fixture/CreateFolder.yaml"
+
+requestCreateNotificationSubscription :: CreateNotificationSubscription -> TestTree
+requestCreateNotificationSubscription =
+  req
+    "CreateNotificationSubscription"
+    "fixture/CreateNotificationSubscription.yaml"
+
+requestCreateCustomMetadata :: CreateCustomMetadata -> TestTree
+requestCreateCustomMetadata =
+  req
+    "CreateCustomMetadata"
+    "fixture/CreateCustomMetadata.yaml"
+
+requestGetFolderPath :: GetFolderPath -> TestTree
+requestGetFolderPath =
+  req
+    "GetFolderPath"
+    "fixture/GetFolderPath.yaml"
+
+requestDescribeComments :: DescribeComments -> TestTree
+requestDescribeComments =
+  req
+    "DescribeComments"
+    "fixture/DescribeComments.yaml"
+
+requestDeleteFolderContents :: DeleteFolderContents -> TestTree
+requestDeleteFolderContents =
+  req
+    "DeleteFolderContents"
+    "fixture/DeleteFolderContents.yaml"
+
+requestRemoveAllResourcePermissions :: RemoveAllResourcePermissions -> TestTree
+requestRemoveAllResourcePermissions =
+  req
+    "RemoveAllResourcePermissions"
+    "fixture/RemoveAllResourcePermissions.yaml"
+
+requestGetFolder :: GetFolder -> TestTree
+requestGetFolder =
+  req
+    "GetFolder"
+    "fixture/GetFolder.yaml"
+
+requestDescribeNotificationSubscriptions :: DescribeNotificationSubscriptions -> TestTree
+requestDescribeNotificationSubscriptions =
+  req
+    "DescribeNotificationSubscriptions"
+    "fixture/DescribeNotificationSubscriptions.yaml"
+
+requestActivateUser :: ActivateUser -> TestTree
+requestActivateUser =
+  req
+    "ActivateUser"
+    "fixture/ActivateUser.yaml"
 
 requestDescribeDocumentVersions :: DescribeDocumentVersions -> TestTree
 requestDescribeDocumentVersions =
@@ -371,101 +413,17 @@ requestGetDocumentVersion =
     "GetDocumentVersion"
     "fixture/GetDocumentVersion.yaml"
 
-requestActivateUser :: ActivateUser -> TestTree
-requestActivateUser =
-  req
-    "ActivateUser"
-    "fixture/ActivateUser.yaml"
-
-requestGetFolderPath :: GetFolderPath -> TestTree
-requestGetFolderPath =
-  req
-    "GetFolderPath"
-    "fixture/GetFolderPath.yaml"
-
-requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
-  req
-    "CreateUser"
-    "fixture/CreateUser.yaml"
-
-requestDeleteComment :: DeleteComment -> TestTree
-requestDeleteComment =
-  req
-    "DeleteComment"
-    "fixture/DeleteComment.yaml"
-
-requestCreateFolder :: CreateFolder -> TestTree
-requestCreateFolder =
-  req
-    "CreateFolder"
-    "fixture/CreateFolder.yaml"
-
-requestCreateCustomMetadata :: CreateCustomMetadata -> TestTree
-requestCreateCustomMetadata =
-  req
-    "CreateCustomMetadata"
-    "fixture/CreateCustomMetadata.yaml"
-
-requestCreateNotificationSubscription :: CreateNotificationSubscription -> TestTree
-requestCreateNotificationSubscription =
-  req
-    "CreateNotificationSubscription"
-    "fixture/CreateNotificationSubscription.yaml"
-
-requestGetResources :: GetResources -> TestTree
-requestGetResources =
-  req
-    "GetResources"
-    "fixture/GetResources.yaml"
-
-requestRemoveResourcePermission :: RemoveResourcePermission -> TestTree
-requestRemoveResourcePermission =
-  req
-    "RemoveResourcePermission"
-    "fixture/RemoveResourcePermission.yaml"
-
-requestCreateComment :: CreateComment -> TestTree
-requestCreateComment =
-  req
-    "CreateComment"
-    "fixture/CreateComment.yaml"
-
-requestDescribeResourcePermissions :: DescribeResourcePermissions -> TestTree
-requestDescribeResourcePermissions =
-  req
-    "DescribeResourcePermissions"
-    "fixture/DescribeResourcePermissions.yaml"
-
-requestDescribeUsers :: DescribeUsers -> TestTree
-requestDescribeUsers =
-  req
-    "DescribeUsers"
-    "fixture/DescribeUsers.yaml"
-
-requestGetDocumentPath :: GetDocumentPath -> TestTree
-requestGetDocumentPath =
-  req
-    "GetDocumentPath"
-    "fixture/GetDocumentPath.yaml"
-
-requestGetDocument :: GetDocument -> TestTree
-requestGetDocument =
-  req
-    "GetDocument"
-    "fixture/GetDocument.yaml"
-
-requestDescribeGroups :: DescribeGroups -> TestTree
-requestDescribeGroups =
-  req
-    "DescribeGroups"
-    "fixture/DescribeGroups.yaml"
-
 requestDescribeActivities :: DescribeActivities -> TestTree
 requestDescribeActivities =
   req
     "DescribeActivities"
     "fixture/DescribeActivities.yaml"
+
+requestDescribeRootFolders :: DescribeRootFolders -> TestTree
+requestDescribeRootFolders =
+  req
+    "DescribeRootFolders"
+    "fixture/DescribeRootFolders.yaml"
 
 requestGetCurrentUser :: GetCurrentUser -> TestTree
 requestGetCurrentUser =
@@ -473,47 +431,53 @@ requestGetCurrentUser =
     "GetCurrentUser"
     "fixture/GetCurrentUser.yaml"
 
-requestAddResourcePermissions :: AddResourcePermissions -> TestTree
-requestAddResourcePermissions =
+requestDeactivateUser :: DeactivateUser -> TestTree
+requestDeactivateUser =
   req
-    "AddResourcePermissions"
-    "fixture/AddResourcePermissions.yaml"
+    "DeactivateUser"
+    "fixture/DeactivateUser.yaml"
 
-requestUpdateUser :: UpdateUser -> TestTree
-requestUpdateUser =
+requestGetDocument :: GetDocument -> TestTree
+requestGetDocument =
   req
-    "UpdateUser"
-    "fixture/UpdateUser.yaml"
+    "GetDocument"
+    "fixture/GetDocument.yaml"
 
-requestDescribeNotificationSubscriptions :: DescribeNotificationSubscriptions -> TestTree
-requestDescribeNotificationSubscriptions =
+requestDescribeFolderContents :: DescribeFolderContents -> TestTree
+requestDescribeFolderContents =
   req
-    "DescribeNotificationSubscriptions"
-    "fixture/DescribeNotificationSubscriptions.yaml"
+    "DescribeFolderContents"
+    "fixture/DescribeFolderContents.yaml"
 
-requestGetFolder :: GetFolder -> TestTree
-requestGetFolder =
+requestCreateLabels :: CreateLabels -> TestTree
+requestCreateLabels =
   req
-    "GetFolder"
-    "fixture/GetFolder.yaml"
+    "CreateLabels"
+    "fixture/CreateLabels.yaml"
 
-requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
+requestUpdateDocumentVersion :: UpdateDocumentVersion -> TestTree
+requestUpdateDocumentVersion =
   req
-    "DeleteUser"
-    "fixture/DeleteUser.yaml"
+    "UpdateDocumentVersion"
+    "fixture/UpdateDocumentVersion.yaml"
 
-requestDeleteFolderContents :: DeleteFolderContents -> TestTree
-requestDeleteFolderContents =
+requestRemoveResourcePermission :: RemoveResourcePermission -> TestTree
+requestRemoveResourcePermission =
   req
-    "DeleteFolderContents"
-    "fixture/DeleteFolderContents.yaml"
+    "RemoveResourcePermission"
+    "fixture/RemoveResourcePermission.yaml"
 
-requestDescribeComments :: DescribeComments -> TestTree
-requestDescribeComments =
+requestGetResources :: GetResources -> TestTree
+requestGetResources =
   req
-    "DescribeComments"
-    "fixture/DescribeComments.yaml"
+    "GetResources"
+    "fixture/GetResources.yaml"
+
+requestDeleteComment :: DeleteComment -> TestTree
+requestDeleteComment =
+  req
+    "DeleteComment"
+    "fixture/DeleteComment.yaml"
 
 requestInitiateDocumentVersionUpload :: InitiateDocumentVersionUpload -> TestTree
 requestInitiateDocumentVersionUpload =
@@ -521,45 +485,49 @@ requestInitiateDocumentVersionUpload =
     "InitiateDocumentVersionUpload"
     "fixture/InitiateDocumentVersionUpload.yaml"
 
-requestRemoveAllResourcePermissions :: RemoveAllResourcePermissions -> TestTree
-requestRemoveAllResourcePermissions =
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
   req
-    "RemoveAllResourcePermissions"
-    "fixture/RemoveAllResourcePermissions.yaml"
+    "CreateUser"
+    "fixture/CreateUser.yaml"
+
+requestUpdateUser :: UpdateUser -> TestTree
+requestUpdateUser =
+  req
+    "UpdateUser"
+    "fixture/UpdateUser.yaml"
+
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
+  req
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
+
+requestAddResourcePermissions :: AddResourcePermissions -> TestTree
+requestAddResourcePermissions =
+  req
+    "AddResourcePermissions"
+    "fixture/AddResourcePermissions.yaml"
+
+requestUpdateDocument :: UpdateDocument -> TestTree
+requestUpdateDocument =
+  req
+    "UpdateDocument"
+    "fixture/UpdateDocument.yaml"
+
+requestDeleteDocument :: DeleteDocument -> TestTree
+requestDeleteDocument =
+  req
+    "DeleteDocument"
+    "fixture/DeleteDocument.yaml"
+
+requestDescribeGroups :: DescribeGroups -> TestTree
+requestDescribeGroups =
+  req
+    "DescribeGroups"
+    "fixture/DescribeGroups.yaml"
 
 -- Responses
-
-responseDeleteCustomMetadata :: DeleteCustomMetadataResponse -> TestTree
-responseDeleteCustomMetadata =
-  res
-    "DeleteCustomMetadataResponse"
-    "fixture/DeleteCustomMetadataResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCustomMetadata)
-
-responseUpdateFolder :: UpdateFolderResponse -> TestTree
-responseUpdateFolder =
-  res
-    "UpdateFolderResponse"
-    "fixture/UpdateFolderResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateFolder)
-
-responseDeleteNotificationSubscription :: DeleteNotificationSubscriptionResponse -> TestTree
-responseDeleteNotificationSubscription =
-  res
-    "DeleteNotificationSubscriptionResponse"
-    "fixture/DeleteNotificationSubscriptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteNotificationSubscription)
-
-responseDeleteFolder :: DeleteFolderResponse -> TestTree
-responseDeleteFolder =
-  res
-    "DeleteFolderResponse"
-    "fixture/DeleteFolderResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteFolder)
 
 responseDeleteLabels :: DeleteLabelsResponse -> TestTree
 responseDeleteLabels =
@@ -577,61 +545,149 @@ responseAbortDocumentVersionUpload =
     defaultService
     (Proxy :: Proxy AbortDocumentVersionUpload)
 
-responseUpdateDocumentVersion :: UpdateDocumentVersionResponse -> TestTree
-responseUpdateDocumentVersion =
+responseGetDocumentPath :: GetDocumentPathResponse -> TestTree
+responseGetDocumentPath =
   res
-    "UpdateDocumentVersionResponse"
-    "fixture/UpdateDocumentVersionResponse.proto"
+    "GetDocumentPathResponse"
+    "fixture/GetDocumentPathResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocumentVersion)
+    (Proxy :: Proxy GetDocumentPath)
 
-responseDeactivateUser :: DeactivateUserResponse -> TestTree
-responseDeactivateUser =
+responseCreateComment :: CreateCommentResponse -> TestTree
+responseCreateComment =
   res
-    "DeactivateUserResponse"
-    "fixture/DeactivateUserResponse.proto"
+    "CreateCommentResponse"
+    "fixture/CreateCommentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeactivateUser)
+    (Proxy :: Proxy CreateComment)
 
-responseDescribeFolderContents :: DescribeFolderContentsResponse -> TestTree
-responseDescribeFolderContents =
+responseDescribeUsers :: DescribeUsersResponse -> TestTree
+responseDescribeUsers =
   res
-    "DescribeFolderContentsResponse"
-    "fixture/DescribeFolderContentsResponse.proto"
+    "DescribeUsersResponse"
+    "fixture/DescribeUsersResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFolderContents)
+    (Proxy :: Proxy DescribeUsers)
 
-responseCreateLabels :: CreateLabelsResponse -> TestTree
-responseCreateLabels =
+responseDeleteFolder :: DeleteFolderResponse -> TestTree
+responseDeleteFolder =
   res
-    "CreateLabelsResponse"
-    "fixture/CreateLabelsResponse.proto"
+    "DeleteFolderResponse"
+    "fixture/DeleteFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateLabels)
+    (Proxy :: Proxy DeleteFolder)
 
-responseDescribeRootFolders :: DescribeRootFoldersResponse -> TestTree
-responseDescribeRootFolders =
+responseUpdateFolder :: UpdateFolderResponse -> TestTree
+responseUpdateFolder =
   res
-    "DescribeRootFoldersResponse"
-    "fixture/DescribeRootFoldersResponse.proto"
+    "UpdateFolderResponse"
+    "fixture/UpdateFolderResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeRootFolders)
+    (Proxy :: Proxy UpdateFolder)
 
-responseUpdateDocument :: UpdateDocumentResponse -> TestTree
-responseUpdateDocument =
+responseDeleteCustomMetadata :: DeleteCustomMetadataResponse -> TestTree
+responseDeleteCustomMetadata =
   res
-    "UpdateDocumentResponse"
-    "fixture/UpdateDocumentResponse.proto"
+    "DeleteCustomMetadataResponse"
+    "fixture/DeleteCustomMetadataResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDocument)
+    (Proxy :: Proxy DeleteCustomMetadata)
 
-responseDeleteDocument :: DeleteDocumentResponse -> TestTree
-responseDeleteDocument =
+responseDescribeResourcePermissions :: DescribeResourcePermissionsResponse -> TestTree
+responseDescribeResourcePermissions =
   res
-    "DeleteDocumentResponse"
-    "fixture/DeleteDocumentResponse.proto"
+    "DescribeResourcePermissionsResponse"
+    "fixture/DescribeResourcePermissionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDocument)
+    (Proxy :: Proxy DescribeResourcePermissions)
+
+responseDeleteNotificationSubscription :: DeleteNotificationSubscriptionResponse -> TestTree
+responseDeleteNotificationSubscription =
+  res
+    "DeleteNotificationSubscriptionResponse"
+    "fixture/DeleteNotificationSubscriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteNotificationSubscription)
+
+responseCreateFolder :: CreateFolderResponse -> TestTree
+responseCreateFolder =
+  res
+    "CreateFolderResponse"
+    "fixture/CreateFolderResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateFolder)
+
+responseCreateNotificationSubscription :: CreateNotificationSubscriptionResponse -> TestTree
+responseCreateNotificationSubscription =
+  res
+    "CreateNotificationSubscriptionResponse"
+    "fixture/CreateNotificationSubscriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateNotificationSubscription)
+
+responseCreateCustomMetadata :: CreateCustomMetadataResponse -> TestTree
+responseCreateCustomMetadata =
+  res
+    "CreateCustomMetadataResponse"
+    "fixture/CreateCustomMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCustomMetadata)
+
+responseGetFolderPath :: GetFolderPathResponse -> TestTree
+responseGetFolderPath =
+  res
+    "GetFolderPathResponse"
+    "fixture/GetFolderPathResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetFolderPath)
+
+responseDescribeComments :: DescribeCommentsResponse -> TestTree
+responseDescribeComments =
+  res
+    "DescribeCommentsResponse"
+    "fixture/DescribeCommentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeComments)
+
+responseDeleteFolderContents :: DeleteFolderContentsResponse -> TestTree
+responseDeleteFolderContents =
+  res
+    "DeleteFolderContentsResponse"
+    "fixture/DeleteFolderContentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteFolderContents)
+
+responseRemoveAllResourcePermissions :: RemoveAllResourcePermissionsResponse -> TestTree
+responseRemoveAllResourcePermissions =
+  res
+    "RemoveAllResourcePermissionsResponse"
+    "fixture/RemoveAllResourcePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveAllResourcePermissions)
+
+responseGetFolder :: GetFolderResponse -> TestTree
+responseGetFolder =
+  res
+    "GetFolderResponse"
+    "fixture/GetFolderResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetFolder)
+
+responseDescribeNotificationSubscriptions :: DescribeNotificationSubscriptionsResponse -> TestTree
+responseDescribeNotificationSubscriptions =
+  res
+    "DescribeNotificationSubscriptionsResponse"
+    "fixture/DescribeNotificationSubscriptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeNotificationSubscriptions)
+
+responseActivateUser :: ActivateUserResponse -> TestTree
+responseActivateUser =
+  res
+    "ActivateUserResponse"
+    "fixture/ActivateUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy ActivateUser)
 
 responseDescribeDocumentVersions :: DescribeDocumentVersionsResponse -> TestTree
 responseDescribeDocumentVersions =
@@ -649,126 +705,6 @@ responseGetDocumentVersion =
     defaultService
     (Proxy :: Proxy GetDocumentVersion)
 
-responseActivateUser :: ActivateUserResponse -> TestTree
-responseActivateUser =
-  res
-    "ActivateUserResponse"
-    "fixture/ActivateUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy ActivateUser)
-
-responseGetFolderPath :: GetFolderPathResponse -> TestTree
-responseGetFolderPath =
-  res
-    "GetFolderPathResponse"
-    "fixture/GetFolderPathResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetFolderPath)
-
-responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
-  res
-    "CreateUserResponse"
-    "fixture/CreateUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateUser)
-
-responseDeleteComment :: DeleteCommentResponse -> TestTree
-responseDeleteComment =
-  res
-    "DeleteCommentResponse"
-    "fixture/DeleteCommentResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteComment)
-
-responseCreateFolder :: CreateFolderResponse -> TestTree
-responseCreateFolder =
-  res
-    "CreateFolderResponse"
-    "fixture/CreateFolderResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateFolder)
-
-responseCreateCustomMetadata :: CreateCustomMetadataResponse -> TestTree
-responseCreateCustomMetadata =
-  res
-    "CreateCustomMetadataResponse"
-    "fixture/CreateCustomMetadataResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateCustomMetadata)
-
-responseCreateNotificationSubscription :: CreateNotificationSubscriptionResponse -> TestTree
-responseCreateNotificationSubscription =
-  res
-    "CreateNotificationSubscriptionResponse"
-    "fixture/CreateNotificationSubscriptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateNotificationSubscription)
-
-responseGetResources :: GetResourcesResponse -> TestTree
-responseGetResources =
-  res
-    "GetResourcesResponse"
-    "fixture/GetResourcesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetResources)
-
-responseRemoveResourcePermission :: RemoveResourcePermissionResponse -> TestTree
-responseRemoveResourcePermission =
-  res
-    "RemoveResourcePermissionResponse"
-    "fixture/RemoveResourcePermissionResponse.proto"
-    defaultService
-    (Proxy :: Proxy RemoveResourcePermission)
-
-responseCreateComment :: CreateCommentResponse -> TestTree
-responseCreateComment =
-  res
-    "CreateCommentResponse"
-    "fixture/CreateCommentResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateComment)
-
-responseDescribeResourcePermissions :: DescribeResourcePermissionsResponse -> TestTree
-responseDescribeResourcePermissions =
-  res
-    "DescribeResourcePermissionsResponse"
-    "fixture/DescribeResourcePermissionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeResourcePermissions)
-
-responseDescribeUsers :: DescribeUsersResponse -> TestTree
-responseDescribeUsers =
-  res
-    "DescribeUsersResponse"
-    "fixture/DescribeUsersResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeUsers)
-
-responseGetDocumentPath :: GetDocumentPathResponse -> TestTree
-responseGetDocumentPath =
-  res
-    "GetDocumentPathResponse"
-    "fixture/GetDocumentPathResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDocumentPath)
-
-responseGetDocument :: GetDocumentResponse -> TestTree
-responseGetDocument =
-  res
-    "GetDocumentResponse"
-    "fixture/GetDocumentResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetDocument)
-
-responseDescribeGroups :: DescribeGroupsResponse -> TestTree
-responseDescribeGroups =
-  res
-    "DescribeGroupsResponse"
-    "fixture/DescribeGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeGroups)
-
 responseDescribeActivities :: DescribeActivitiesResponse -> TestTree
 responseDescribeActivities =
   res
@@ -776,6 +712,14 @@ responseDescribeActivities =
     "fixture/DescribeActivitiesResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeActivities)
+
+responseDescribeRootFolders :: DescribeRootFoldersResponse -> TestTree
+responseDescribeRootFolders =
+  res
+    "DescribeRootFoldersResponse"
+    "fixture/DescribeRootFoldersResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeRootFolders)
 
 responseGetCurrentUser :: GetCurrentUserResponse -> TestTree
 responseGetCurrentUser =
@@ -785,61 +729,69 @@ responseGetCurrentUser =
     defaultService
     (Proxy :: Proxy GetCurrentUser)
 
-responseAddResourcePermissions :: AddResourcePermissionsResponse -> TestTree
-responseAddResourcePermissions =
+responseDeactivateUser :: DeactivateUserResponse -> TestTree
+responseDeactivateUser =
   res
-    "AddResourcePermissionsResponse"
-    "fixture/AddResourcePermissionsResponse.proto"
+    "DeactivateUserResponse"
+    "fixture/DeactivateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy AddResourcePermissions)
+    (Proxy :: Proxy DeactivateUser)
 
-responseUpdateUser :: UpdateUserResponse -> TestTree
-responseUpdateUser =
+responseGetDocument :: GetDocumentResponse -> TestTree
+responseGetDocument =
   res
-    "UpdateUserResponse"
-    "fixture/UpdateUserResponse.proto"
+    "GetDocumentResponse"
+    "fixture/GetDocumentResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUser)
+    (Proxy :: Proxy GetDocument)
 
-responseDescribeNotificationSubscriptions :: DescribeNotificationSubscriptionsResponse -> TestTree
-responseDescribeNotificationSubscriptions =
+responseDescribeFolderContents :: DescribeFolderContentsResponse -> TestTree
+responseDescribeFolderContents =
   res
-    "DescribeNotificationSubscriptionsResponse"
-    "fixture/DescribeNotificationSubscriptionsResponse.proto"
+    "DescribeFolderContentsResponse"
+    "fixture/DescribeFolderContentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeNotificationSubscriptions)
+    (Proxy :: Proxy DescribeFolderContents)
 
-responseGetFolder :: GetFolderResponse -> TestTree
-responseGetFolder =
+responseCreateLabels :: CreateLabelsResponse -> TestTree
+responseCreateLabels =
   res
-    "GetFolderResponse"
-    "fixture/GetFolderResponse.proto"
+    "CreateLabelsResponse"
+    "fixture/CreateLabelsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetFolder)
+    (Proxy :: Proxy CreateLabels)
 
-responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
+responseUpdateDocumentVersion :: UpdateDocumentVersionResponse -> TestTree
+responseUpdateDocumentVersion =
   res
-    "DeleteUserResponse"
-    "fixture/DeleteUserResponse.proto"
+    "UpdateDocumentVersionResponse"
+    "fixture/UpdateDocumentVersionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUser)
+    (Proxy :: Proxy UpdateDocumentVersion)
 
-responseDeleteFolderContents :: DeleteFolderContentsResponse -> TestTree
-responseDeleteFolderContents =
+responseRemoveResourcePermission :: RemoveResourcePermissionResponse -> TestTree
+responseRemoveResourcePermission =
   res
-    "DeleteFolderContentsResponse"
-    "fixture/DeleteFolderContentsResponse.proto"
+    "RemoveResourcePermissionResponse"
+    "fixture/RemoveResourcePermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFolderContents)
+    (Proxy :: Proxy RemoveResourcePermission)
 
-responseDescribeComments :: DescribeCommentsResponse -> TestTree
-responseDescribeComments =
+responseGetResources :: GetResourcesResponse -> TestTree
+responseGetResources =
   res
-    "DescribeCommentsResponse"
-    "fixture/DescribeCommentsResponse.proto"
+    "GetResourcesResponse"
+    "fixture/GetResourcesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeComments)
+    (Proxy :: Proxy GetResources)
+
+responseDeleteComment :: DeleteCommentResponse -> TestTree
+responseDeleteComment =
+  res
+    "DeleteCommentResponse"
+    "fixture/DeleteCommentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteComment)
 
 responseInitiateDocumentVersionUpload :: InitiateDocumentVersionUploadResponse -> TestTree
 responseInitiateDocumentVersionUpload =
@@ -849,10 +801,58 @@ responseInitiateDocumentVersionUpload =
     defaultService
     (Proxy :: Proxy InitiateDocumentVersionUpload)
 
-responseRemoveAllResourcePermissions :: RemoveAllResourcePermissionsResponse -> TestTree
-responseRemoveAllResourcePermissions =
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
   res
-    "RemoveAllResourcePermissionsResponse"
-    "fixture/RemoveAllResourcePermissionsResponse.proto"
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAllResourcePermissions)
+    (Proxy :: Proxy CreateUser)
+
+responseUpdateUser :: UpdateUserResponse -> TestTree
+responseUpdateUser =
+  res
+    "UpdateUserResponse"
+    "fixture/UpdateUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUser)
+
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
+  res
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUser)
+
+responseAddResourcePermissions :: AddResourcePermissionsResponse -> TestTree
+responseAddResourcePermissions =
+  res
+    "AddResourcePermissionsResponse"
+    "fixture/AddResourcePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy AddResourcePermissions)
+
+responseUpdateDocument :: UpdateDocumentResponse -> TestTree
+responseUpdateDocument =
+  res
+    "UpdateDocumentResponse"
+    "fixture/UpdateDocumentResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDocument)
+
+responseDeleteDocument :: DeleteDocumentResponse -> TestTree
+responseDeleteDocument =
+  res
+    "DeleteDocumentResponse"
+    "fixture/DeleteDocumentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDocument)
+
+responseDescribeGroups :: DescribeGroupsResponse -> TestTree
+responseDescribeGroups =
+  res
+    "DescribeGroupsResponse"
+    "fixture/DescribeGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeGroups)

@@ -40,8 +40,8 @@ module Network.AWS.Connect.ListQueues
 
     -- * Request Lenses
     listQueues_nextToken,
-    listQueues_maxResults,
     listQueues_queueTypes,
+    listQueues_maxResults,
     listQueues_instanceId,
 
     -- * Destructuring the Response
@@ -68,10 +68,10 @@ data ListQueues = ListQueues'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of queue.
     queueTypes :: Prelude.Maybe [QueueType],
+    -- | The maximum number of results to return per page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
@@ -90,9 +90,9 @@ data ListQueues = ListQueues'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page.
---
 -- 'queueTypes', 'listQueues_queueTypes' - The type of queue.
+--
+-- 'maxResults', 'listQueues_maxResults' - The maximum number of results to return per page.
 --
 -- 'instanceId', 'listQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -103,8 +103,8 @@ newListQueues ::
 newListQueues pInstanceId_ =
   ListQueues'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
       queueTypes = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -114,13 +114,13 @@ newListQueues pInstanceId_ =
 listQueues_nextToken :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Text)
 listQueues_nextToken = Lens.lens (\ListQueues' {nextToken} -> nextToken) (\s@ListQueues' {} a -> s {nextToken = a} :: ListQueues)
 
+-- | The type of queue.
+listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
+listQueues_queueTypes = Lens.lens (\ListQueues' {queueTypes} -> queueTypes) (\s@ListQueues' {} a -> s {queueTypes = a} :: ListQueues) Prelude.. Lens.mapping Lens.coerced
+
 -- | The maximum number of results to return per page.
 listQueues_maxResults :: Lens.Lens' ListQueues (Prelude.Maybe Prelude.Natural)
 listQueues_maxResults = Lens.lens (\ListQueues' {maxResults} -> maxResults) (\s@ListQueues' {} a -> s {maxResults = a} :: ListQueues)
-
--- | The type of queue.
-listQueues_queueTypes :: Lens.Lens' ListQueues (Prelude.Maybe [QueueType])
-listQueues_queueTypes = Lens.lens (\ListQueues' {queueTypes} -> queueTypes) (\s@ListQueues' {} a -> s {queueTypes = a} :: ListQueues) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -185,10 +185,10 @@ instance Core.ToQuery ListQueues where
   toQuery ListQueues' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults,
         "queueTypes"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> queueTypes)
+            (Core.toQueryList "member" Prelude.<$> queueTypes),
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListQueuesResponse' smart constructor.
@@ -235,7 +235,7 @@ listQueuesResponse_nextToken = Lens.lens (\ListQueuesResponse' {nextToken} -> ne
 
 -- | Information about the queues.
 listQueuesResponse_queueSummaryList :: Lens.Lens' ListQueuesResponse (Prelude.Maybe [QueueSummary])
-listQueuesResponse_queueSummaryList = Lens.lens (\ListQueuesResponse' {queueSummaryList} -> queueSummaryList) (\s@ListQueuesResponse' {} a -> s {queueSummaryList = a} :: ListQueuesResponse) Prelude.. Lens.mapping Lens._Coerce
+listQueuesResponse_queueSummaryList = Lens.lens (\ListQueuesResponse' {queueSummaryList} -> queueSummaryList) (\s@ListQueuesResponse' {} a -> s {queueSummaryList = a} :: ListQueuesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listQueuesResponse_httpStatus :: Lens.Lens' ListQueuesResponse Prelude.Int

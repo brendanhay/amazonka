@@ -45,18 +45,18 @@ module Network.AWS.LexModels.PutBot
 
     -- * Request Lenses
     putBot_abortStatement,
-    putBot_processBehavior,
-    putBot_voiceId,
-    putBot_clarificationPrompt,
-    putBot_nluIntentConfidenceThreshold,
-    putBot_enableModelImprovements,
-    putBot_idleSessionTTLInSeconds,
     putBot_intents,
-    putBot_tags,
-    putBot_description,
-    putBot_createVersion,
-    putBot_detectSentiment,
     putBot_checksum,
+    putBot_enableModelImprovements,
+    putBot_nluIntentConfidenceThreshold,
+    putBot_detectSentiment,
+    putBot_processBehavior,
+    putBot_idleSessionTTLInSeconds,
+    putBot_clarificationPrompt,
+    putBot_voiceId,
+    putBot_createVersion,
+    putBot_description,
+    putBot_tags,
     putBot_name,
     putBot_locale,
     putBot_childDirected,
@@ -66,26 +66,26 @@ module Network.AWS.LexModels.PutBot
     newPutBotResponse,
 
     -- * Response Lenses
-    putBotResponse_abortStatement,
-    putBotResponse_createdDate,
+    putBotResponse_failureReason,
     putBotResponse_status,
-    putBotResponse_lastUpdatedDate,
-    putBotResponse_voiceId,
-    putBotResponse_clarificationPrompt,
-    putBotResponse_nluIntentConfidenceThreshold,
-    putBotResponse_locale,
+    putBotResponse_abortStatement,
+    putBotResponse_intents,
+    putBotResponse_checksum,
     putBotResponse_enableModelImprovements,
+    putBotResponse_nluIntentConfidenceThreshold,
+    putBotResponse_detectSentiment,
+    putBotResponse_locale,
+    putBotResponse_createdDate,
+    putBotResponse_name,
     putBotResponse_version,
     putBotResponse_idleSessionTTLInSeconds,
-    putBotResponse_name,
-    putBotResponse_intents,
-    putBotResponse_failureReason,
-    putBotResponse_tags,
+    putBotResponse_clarificationPrompt,
+    putBotResponse_voiceId,
+    putBotResponse_lastUpdatedDate,
+    putBotResponse_createVersion,
     putBotResponse_childDirected,
     putBotResponse_description,
-    putBotResponse_createVersion,
-    putBotResponse_detectSentiment,
-    putBotResponse_checksum,
+    putBotResponse_tags,
     putBotResponse_httpStatus,
   )
 where
@@ -120,54 +120,47 @@ data PutBot = PutBot'
     -- information, see
     -- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
     abortStatement :: Prelude.Maybe Statement,
-    -- | If you set the @processBehavior@ element to @BUILD@, Amazon Lex builds
-    -- the bot so that it can be run. If you set the element to @SAVE@ Amazon
-    -- Lex saves the bot, but doesn\'t build it.
+    -- | An array of @Intent@ objects. Each intent represents a command that a
+    -- user can express. For example, a pizza ordering bot might support an
+    -- OrderPizza intent. For more information, see how-it-works.
+    intents :: Prelude.Maybe [Intent],
+    -- | Identifies a specific revision of the @$LATEST@ version.
     --
-    -- If you don\'t specify this value, the default value is @BUILD@.
-    processBehavior :: Prelude.Maybe ProcessBehavior,
-    -- | The Amazon Polly voice ID that you want Amazon Lex to use for voice
-    -- interactions with the user. The locale configured for the voice must
-    -- match the locale of the bot. For more information, see
-    -- <https://docs.aws.amazon.com/polly/latest/dg/voicelist.html Voices in Amazon Polly>
-    -- in the /Amazon Polly Developer Guide/.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | When Amazon Lex doesn\'t understand the user\'s intent, it uses this
-    -- message to get clarification. To specify how many times Amazon Lex
-    -- should repeat the clarification prompt, use the @maxAttempts@ field. If
-    -- Amazon Lex still doesn\'t understand, it sends the message in the
-    -- @abortStatement@ field.
+    -- When you create a new bot, leave the @checksum@ field blank. If you
+    -- specify a checksum you get a @BadRequestException@ exception.
     --
-    -- When you create a clarification prompt, make sure that it suggests the
-    -- correct response from the user. for example, for a bot that orders pizza
-    -- and drinks, you might create this clarification prompt: \"What would you
-    -- like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
+    -- When you want to update a bot, set the @checksum@ field to the checksum
+    -- of the most recent revision of the @$LATEST@ version. If you don\'t
+    -- specify the @ checksum@ field, or if the checksum does not match the
+    -- @$LATEST@ version, you get a @PreconditionFailedException@ exception.
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | Set to @true@ to enable access to natural language understanding
+    -- improvements.
     --
-    -- If you have defined a fallback intent, it will be invoked if the
-    -- clarification prompt is repeated the number of times defined in the
-    -- @maxAttempts@ field. For more information, see
-    -- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
+    -- When you set the @enableModelImprovements@ parameter to @true@ you can
+    -- use the @nluIntentConfidenceThreshold@ parameter to configure confidence
+    -- scores. For more information, see
+    -- <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores>.
     --
-    -- If you don\'t define a clarification prompt, at runtime Amazon Lex will
-    -- return a 400 Bad Request exception in three cases:
+    -- You can only set the @enableModelImprovements@ parameter in certain
+    -- Regions. If you set the parameter to @true@, your bot has access to
+    -- accuracy improvements.
     --
-    -- -   Follow-up prompt - When the user responds to a follow-up prompt but
-    --     does not provide an intent. For example, in response to a follow-up
-    --     prompt that says \"Would you like anything else today?\" the user
-    --     says \"Yes.\" Amazon Lex will return a 400 Bad Request exception
-    --     because it does not have a clarification prompt to send to the user
-    --     to get an intent.
+    -- The Regions where you can set the @enableModelImprovements@ parameter to
+    -- @true@ are:
     --
-    -- -   Lambda function - When using a Lambda function, you return an
-    --     @ElicitIntent@ dialog type. Since Amazon Lex does not have a
-    --     clarification prompt to get an intent from the user, it returns a
-    --     400 Bad Request exception.
+    -- -   US East (N. Virginia) (us-east-1)
     --
-    -- -   PutSession operation - When using the @PutSession@ operation, you
-    --     send an @ElicitIntent@ dialog type. Since Amazon Lex does not have a
-    --     clarification prompt to get an intent from the user, it returns a
-    --     400 Bad Request exception.
-    clarificationPrompt :: Prelude.Maybe Prompt,
+    -- -   US West (Oregon) (us-west-2)
+    --
+    -- -   Asia Pacific (Sydney) (ap-southeast-2)
+    --
+    -- -   EU (Ireland) (eu-west-1)
+    --
+    -- In other Regions, the @enableModelImprovements@ parameter is set to
+    -- @true@ by default. In these Regions setting the parameter to @false@
+    -- throws a @ValidationException@ exception.
+    enableModelImprovements :: Prelude.Maybe Prelude.Bool,
     -- | Determines the threshold where Amazon Lex will insert the
     -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
     -- returning alternative intents in a
@@ -205,33 +198,16 @@ data PutBot = PutBot'
     --
     -- -   IntentC
     nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
-    -- | Set to @true@ to enable access to natural language understanding
-    -- improvements.
+    -- | When set to @true@ user utterances are sent to Amazon Comprehend for
+    -- sentiment analysis. If you don\'t specify @detectSentiment@, the default
+    -- is @false@.
+    detectSentiment :: Prelude.Maybe Prelude.Bool,
+    -- | If you set the @processBehavior@ element to @BUILD@, Amazon Lex builds
+    -- the bot so that it can be run. If you set the element to @SAVE@ Amazon
+    -- Lex saves the bot, but doesn\'t build it.
     --
-    -- When you set the @enableModelImprovements@ parameter to @true@ you can
-    -- use the @nluIntentConfidenceThreshold@ parameter to configure confidence
-    -- scores. For more information, see
-    -- <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores>.
-    --
-    -- You can only set the @enableModelImprovements@ parameter in certain
-    -- Regions. If you set the parameter to @true@, your bot has access to
-    -- accuracy improvements.
-    --
-    -- The Regions where you can set the @enableModelImprovements@ parameter to
-    -- @true@ are:
-    --
-    -- -   US East (N. Virginia) (us-east-1)
-    --
-    -- -   US West (Oregon) (us-west-2)
-    --
-    -- -   Asia Pacific (Sydney) (ap-southeast-2)
-    --
-    -- -   EU (Ireland) (eu-west-1)
-    --
-    -- In other Regions, the @enableModelImprovements@ parameter is set to
-    -- @true@ by default. In these Regions setting the parameter to @false@
-    -- throws a @ValidationException@ exception.
-    enableModelImprovements :: Prelude.Maybe Prelude.Bool,
+    -- If you don\'t specify this value, the default value is @BUILD@.
+    processBehavior :: Prelude.Maybe ProcessBehavior,
     -- | The maximum time in seconds that Amazon Lex retains the data gathered in
     -- a conversation.
     --
@@ -250,34 +226,58 @@ data PutBot = PutBot'
     --
     -- The default is 300 seconds (5 minutes).
     idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | An array of @Intent@ objects. Each intent represents a command that a
-    -- user can express. For example, a pizza ordering bot might support an
-    -- OrderPizza intent. For more information, see how-it-works.
-    intents :: Prelude.Maybe [Intent],
-    -- | A list of tags to add to the bot. You can only add tags when you create
-    -- a bot, you can\'t use the @PutBot@ operation to update the tags on a
-    -- bot. To update tags, use the @TagResource@ operation.
-    tags :: Prelude.Maybe [Tag],
-    -- | A description of the bot.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | When Amazon Lex doesn\'t understand the user\'s intent, it uses this
+    -- message to get clarification. To specify how many times Amazon Lex
+    -- should repeat the clarification prompt, use the @maxAttempts@ field. If
+    -- Amazon Lex still doesn\'t understand, it sends the message in the
+    -- @abortStatement@ field.
+    --
+    -- When you create a clarification prompt, make sure that it suggests the
+    -- correct response from the user. for example, for a bot that orders pizza
+    -- and drinks, you might create this clarification prompt: \"What would you
+    -- like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
+    --
+    -- If you have defined a fallback intent, it will be invoked if the
+    -- clarification prompt is repeated the number of times defined in the
+    -- @maxAttempts@ field. For more information, see
+    -- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
+    --
+    -- If you don\'t define a clarification prompt, at runtime Amazon Lex will
+    -- return a 400 Bad Request exception in three cases:
+    --
+    -- -   Follow-up prompt - When the user responds to a follow-up prompt but
+    --     does not provide an intent. For example, in response to a follow-up
+    --     prompt that says \"Would you like anything else today?\" the user
+    --     says \"Yes.\" Amazon Lex will return a 400 Bad Request exception
+    --     because it does not have a clarification prompt to send to the user
+    --     to get an intent.
+    --
+    -- -   Lambda function - When using a Lambda function, you return an
+    --     @ElicitIntent@ dialog type. Since Amazon Lex does not have a
+    --     clarification prompt to get an intent from the user, it returns a
+    --     400 Bad Request exception.
+    --
+    -- -   PutSession operation - When using the @PutSession@ operation, you
+    --     send an @ElicitIntent@ dialog type. Since Amazon Lex does not have a
+    --     clarification prompt to get an intent from the user, it returns a
+    --     400 Bad Request exception.
+    clarificationPrompt :: Prelude.Maybe Prompt,
+    -- | The Amazon Polly voice ID that you want Amazon Lex to use for voice
+    -- interactions with the user. The locale configured for the voice must
+    -- match the locale of the bot. For more information, see
+    -- <https://docs.aws.amazon.com/polly/latest/dg/voicelist.html Voices in Amazon Polly>
+    -- in the /Amazon Polly Developer Guide/.
+    voiceId :: Prelude.Maybe Prelude.Text,
     -- | When set to @true@ a new numbered version of the bot is created. This is
     -- the same as calling the @CreateBotVersion@ operation. If you don\'t
     -- specify @createVersion@, the default is @false@.
     createVersion :: Prelude.Maybe Prelude.Bool,
-    -- | When set to @true@ user utterances are sent to Amazon Comprehend for
-    -- sentiment analysis. If you don\'t specify @detectSentiment@, the default
-    -- is @false@.
-    detectSentiment :: Prelude.Maybe Prelude.Bool,
-    -- | Identifies a specific revision of the @$LATEST@ version.
-    --
-    -- When you create a new bot, leave the @checksum@ field blank. If you
-    -- specify a checksum you get a @BadRequestException@ exception.
-    --
-    -- When you want to update a bot, set the @checksum@ field to the checksum
-    -- of the most recent revision of the @$LATEST@ version. If you don\'t
-    -- specify the @ checksum@ field, or if the checksum does not match the
-    -- @$LATEST@ version, you get a @PreconditionFailedException@ exception.
-    checksum :: Prelude.Maybe Prelude.Text,
+    -- | A description of the bot.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to add to the bot. You can only add tags when you create
+    -- a bot, you can\'t use the @PutBot@ operation to update the tags on a
+    -- bot. To update tags, use the @TagResource@ operation.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of the bot. The name is /not/ case sensitive.
     name :: Prelude.Text,
     -- | Specifies the target locale for the bot. Any intent used in the bot must
@@ -343,53 +343,46 @@ data PutBot = PutBot'
 -- information, see
 -- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
 --
--- 'processBehavior', 'putBot_processBehavior' - If you set the @processBehavior@ element to @BUILD@, Amazon Lex builds
--- the bot so that it can be run. If you set the element to @SAVE@ Amazon
--- Lex saves the bot, but doesn\'t build it.
+-- 'intents', 'putBot_intents' - An array of @Intent@ objects. Each intent represents a command that a
+-- user can express. For example, a pizza ordering bot might support an
+-- OrderPizza intent. For more information, see how-it-works.
 --
--- If you don\'t specify this value, the default value is @BUILD@.
+-- 'checksum', 'putBot_checksum' - Identifies a specific revision of the @$LATEST@ version.
 --
--- 'voiceId', 'putBot_voiceId' - The Amazon Polly voice ID that you want Amazon Lex to use for voice
--- interactions with the user. The locale configured for the voice must
--- match the locale of the bot. For more information, see
--- <https://docs.aws.amazon.com/polly/latest/dg/voicelist.html Voices in Amazon Polly>
--- in the /Amazon Polly Developer Guide/.
+-- When you create a new bot, leave the @checksum@ field blank. If you
+-- specify a checksum you get a @BadRequestException@ exception.
 --
--- 'clarificationPrompt', 'putBot_clarificationPrompt' - When Amazon Lex doesn\'t understand the user\'s intent, it uses this
--- message to get clarification. To specify how many times Amazon Lex
--- should repeat the clarification prompt, use the @maxAttempts@ field. If
--- Amazon Lex still doesn\'t understand, it sends the message in the
--- @abortStatement@ field.
+-- When you want to update a bot, set the @checksum@ field to the checksum
+-- of the most recent revision of the @$LATEST@ version. If you don\'t
+-- specify the @ checksum@ field, or if the checksum does not match the
+-- @$LATEST@ version, you get a @PreconditionFailedException@ exception.
 --
--- When you create a clarification prompt, make sure that it suggests the
--- correct response from the user. for example, for a bot that orders pizza
--- and drinks, you might create this clarification prompt: \"What would you
--- like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
+-- 'enableModelImprovements', 'putBot_enableModelImprovements' - Set to @true@ to enable access to natural language understanding
+-- improvements.
 --
--- If you have defined a fallback intent, it will be invoked if the
--- clarification prompt is repeated the number of times defined in the
--- @maxAttempts@ field. For more information, see
--- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
+-- When you set the @enableModelImprovements@ parameter to @true@ you can
+-- use the @nluIntentConfidenceThreshold@ parameter to configure confidence
+-- scores. For more information, see
+-- <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores>.
 --
--- If you don\'t define a clarification prompt, at runtime Amazon Lex will
--- return a 400 Bad Request exception in three cases:
+-- You can only set the @enableModelImprovements@ parameter in certain
+-- Regions. If you set the parameter to @true@, your bot has access to
+-- accuracy improvements.
 --
--- -   Follow-up prompt - When the user responds to a follow-up prompt but
---     does not provide an intent. For example, in response to a follow-up
---     prompt that says \"Would you like anything else today?\" the user
---     says \"Yes.\" Amazon Lex will return a 400 Bad Request exception
---     because it does not have a clarification prompt to send to the user
---     to get an intent.
+-- The Regions where you can set the @enableModelImprovements@ parameter to
+-- @true@ are:
 --
--- -   Lambda function - When using a Lambda function, you return an
---     @ElicitIntent@ dialog type. Since Amazon Lex does not have a
---     clarification prompt to get an intent from the user, it returns a
---     400 Bad Request exception.
+-- -   US East (N. Virginia) (us-east-1)
 --
--- -   PutSession operation - When using the @PutSession@ operation, you
---     send an @ElicitIntent@ dialog type. Since Amazon Lex does not have a
---     clarification prompt to get an intent from the user, it returns a
---     400 Bad Request exception.
+-- -   US West (Oregon) (us-west-2)
+--
+-- -   Asia Pacific (Sydney) (ap-southeast-2)
+--
+-- -   EU (Ireland) (eu-west-1)
+--
+-- In other Regions, the @enableModelImprovements@ parameter is set to
+-- @true@ by default. In these Regions setting the parameter to @false@
+-- throws a @ValidationException@ exception.
 --
 -- 'nluIntentConfidenceThreshold', 'putBot_nluIntentConfidenceThreshold' - Determines the threshold where Amazon Lex will insert the
 -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
@@ -428,32 +421,15 @@ data PutBot = PutBot'
 --
 -- -   IntentC
 --
--- 'enableModelImprovements', 'putBot_enableModelImprovements' - Set to @true@ to enable access to natural language understanding
--- improvements.
+-- 'detectSentiment', 'putBot_detectSentiment' - When set to @true@ user utterances are sent to Amazon Comprehend for
+-- sentiment analysis. If you don\'t specify @detectSentiment@, the default
+-- is @false@.
 --
--- When you set the @enableModelImprovements@ parameter to @true@ you can
--- use the @nluIntentConfidenceThreshold@ parameter to configure confidence
--- scores. For more information, see
--- <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores>.
+-- 'processBehavior', 'putBot_processBehavior' - If you set the @processBehavior@ element to @BUILD@, Amazon Lex builds
+-- the bot so that it can be run. If you set the element to @SAVE@ Amazon
+-- Lex saves the bot, but doesn\'t build it.
 --
--- You can only set the @enableModelImprovements@ parameter in certain
--- Regions. If you set the parameter to @true@, your bot has access to
--- accuracy improvements.
---
--- The Regions where you can set the @enableModelImprovements@ parameter to
--- @true@ are:
---
--- -   US East (N. Virginia) (us-east-1)
---
--- -   US West (Oregon) (us-west-2)
---
--- -   Asia Pacific (Sydney) (ap-southeast-2)
---
--- -   EU (Ireland) (eu-west-1)
---
--- In other Regions, the @enableModelImprovements@ parameter is set to
--- @true@ by default. In these Regions setting the parameter to @false@
--- throws a @ValidationException@ exception.
+-- If you don\'t specify this value, the default value is @BUILD@.
 --
 -- 'idleSessionTTLInSeconds', 'putBot_idleSessionTTLInSeconds' - The maximum time in seconds that Amazon Lex retains the data gathered in
 -- a conversation.
@@ -473,33 +449,57 @@ data PutBot = PutBot'
 --
 -- The default is 300 seconds (5 minutes).
 --
--- 'intents', 'putBot_intents' - An array of @Intent@ objects. Each intent represents a command that a
--- user can express. For example, a pizza ordering bot might support an
--- OrderPizza intent. For more information, see how-it-works.
+-- 'clarificationPrompt', 'putBot_clarificationPrompt' - When Amazon Lex doesn\'t understand the user\'s intent, it uses this
+-- message to get clarification. To specify how many times Amazon Lex
+-- should repeat the clarification prompt, use the @maxAttempts@ field. If
+-- Amazon Lex still doesn\'t understand, it sends the message in the
+-- @abortStatement@ field.
 --
--- 'tags', 'putBot_tags' - A list of tags to add to the bot. You can only add tags when you create
--- a bot, you can\'t use the @PutBot@ operation to update the tags on a
--- bot. To update tags, use the @TagResource@ operation.
+-- When you create a clarification prompt, make sure that it suggests the
+-- correct response from the user. for example, for a bot that orders pizza
+-- and drinks, you might create this clarification prompt: \"What would you
+-- like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
 --
--- 'description', 'putBot_description' - A description of the bot.
+-- If you have defined a fallback intent, it will be invoked if the
+-- clarification prompt is repeated the number of times defined in the
+-- @maxAttempts@ field. For more information, see
+-- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
+--
+-- If you don\'t define a clarification prompt, at runtime Amazon Lex will
+-- return a 400 Bad Request exception in three cases:
+--
+-- -   Follow-up prompt - When the user responds to a follow-up prompt but
+--     does not provide an intent. For example, in response to a follow-up
+--     prompt that says \"Would you like anything else today?\" the user
+--     says \"Yes.\" Amazon Lex will return a 400 Bad Request exception
+--     because it does not have a clarification prompt to send to the user
+--     to get an intent.
+--
+-- -   Lambda function - When using a Lambda function, you return an
+--     @ElicitIntent@ dialog type. Since Amazon Lex does not have a
+--     clarification prompt to get an intent from the user, it returns a
+--     400 Bad Request exception.
+--
+-- -   PutSession operation - When using the @PutSession@ operation, you
+--     send an @ElicitIntent@ dialog type. Since Amazon Lex does not have a
+--     clarification prompt to get an intent from the user, it returns a
+--     400 Bad Request exception.
+--
+-- 'voiceId', 'putBot_voiceId' - The Amazon Polly voice ID that you want Amazon Lex to use for voice
+-- interactions with the user. The locale configured for the voice must
+-- match the locale of the bot. For more information, see
+-- <https://docs.aws.amazon.com/polly/latest/dg/voicelist.html Voices in Amazon Polly>
+-- in the /Amazon Polly Developer Guide/.
 --
 -- 'createVersion', 'putBot_createVersion' - When set to @true@ a new numbered version of the bot is created. This is
 -- the same as calling the @CreateBotVersion@ operation. If you don\'t
 -- specify @createVersion@, the default is @false@.
 --
--- 'detectSentiment', 'putBot_detectSentiment' - When set to @true@ user utterances are sent to Amazon Comprehend for
--- sentiment analysis. If you don\'t specify @detectSentiment@, the default
--- is @false@.
+-- 'description', 'putBot_description' - A description of the bot.
 --
--- 'checksum', 'putBot_checksum' - Identifies a specific revision of the @$LATEST@ version.
---
--- When you create a new bot, leave the @checksum@ field blank. If you
--- specify a checksum you get a @BadRequestException@ exception.
---
--- When you want to update a bot, set the @checksum@ field to the checksum
--- of the most recent revision of the @$LATEST@ version. If you don\'t
--- specify the @ checksum@ field, or if the checksum does not match the
--- @$LATEST@ version, you get a @PreconditionFailedException@ exception.
+-- 'tags', 'putBot_tags' - A list of tags to add to the bot. You can only add tags when you create
+-- a bot, you can\'t use the @PutBot@ operation to update the tags on a
+-- bot. To update tags, use the @TagResource@ operation.
 --
 -- 'name', 'putBot_name' - The name of the bot. The name is /not/ case sensitive.
 --
@@ -544,18 +544,18 @@ newPutBot ::
 newPutBot pName_ pLocale_ pChildDirected_ =
   PutBot'
     { abortStatement = Prelude.Nothing,
-      processBehavior = Prelude.Nothing,
-      voiceId = Prelude.Nothing,
-      clarificationPrompt = Prelude.Nothing,
-      nluIntentConfidenceThreshold = Prelude.Nothing,
-      enableModelImprovements = Prelude.Nothing,
-      idleSessionTTLInSeconds = Prelude.Nothing,
       intents = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
-      detectSentiment = Prelude.Nothing,
       checksum = Prelude.Nothing,
+      enableModelImprovements = Prelude.Nothing,
+      nluIntentConfidenceThreshold = Prelude.Nothing,
+      detectSentiment = Prelude.Nothing,
+      processBehavior = Prelude.Nothing,
+      idleSessionTTLInSeconds = Prelude.Nothing,
+      clarificationPrompt = Prelude.Nothing,
+      voiceId = Prelude.Nothing,
+      createVersion = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       locale = pLocale_,
       childDirected = pChildDirected_
@@ -584,59 +584,52 @@ newPutBot pName_ pLocale_ pChildDirected_ =
 putBot_abortStatement :: Lens.Lens' PutBot (Prelude.Maybe Statement)
 putBot_abortStatement = Lens.lens (\PutBot' {abortStatement} -> abortStatement) (\s@PutBot' {} a -> s {abortStatement = a} :: PutBot)
 
--- | If you set the @processBehavior@ element to @BUILD@, Amazon Lex builds
--- the bot so that it can be run. If you set the element to @SAVE@ Amazon
--- Lex saves the bot, but doesn\'t build it.
---
--- If you don\'t specify this value, the default value is @BUILD@.
-putBot_processBehavior :: Lens.Lens' PutBot (Prelude.Maybe ProcessBehavior)
-putBot_processBehavior = Lens.lens (\PutBot' {processBehavior} -> processBehavior) (\s@PutBot' {} a -> s {processBehavior = a} :: PutBot)
+-- | An array of @Intent@ objects. Each intent represents a command that a
+-- user can express. For example, a pizza ordering bot might support an
+-- OrderPizza intent. For more information, see how-it-works.
+putBot_intents :: Lens.Lens' PutBot (Prelude.Maybe [Intent])
+putBot_intents = Lens.lens (\PutBot' {intents} -> intents) (\s@PutBot' {} a -> s {intents = a} :: PutBot) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Polly voice ID that you want Amazon Lex to use for voice
--- interactions with the user. The locale configured for the voice must
--- match the locale of the bot. For more information, see
--- <https://docs.aws.amazon.com/polly/latest/dg/voicelist.html Voices in Amazon Polly>
--- in the /Amazon Polly Developer Guide/.
-putBot_voiceId :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Text)
-putBot_voiceId = Lens.lens (\PutBot' {voiceId} -> voiceId) (\s@PutBot' {} a -> s {voiceId = a} :: PutBot)
+-- | Identifies a specific revision of the @$LATEST@ version.
+--
+-- When you create a new bot, leave the @checksum@ field blank. If you
+-- specify a checksum you get a @BadRequestException@ exception.
+--
+-- When you want to update a bot, set the @checksum@ field to the checksum
+-- of the most recent revision of the @$LATEST@ version. If you don\'t
+-- specify the @ checksum@ field, or if the checksum does not match the
+-- @$LATEST@ version, you get a @PreconditionFailedException@ exception.
+putBot_checksum :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Text)
+putBot_checksum = Lens.lens (\PutBot' {checksum} -> checksum) (\s@PutBot' {} a -> s {checksum = a} :: PutBot)
 
--- | When Amazon Lex doesn\'t understand the user\'s intent, it uses this
--- message to get clarification. To specify how many times Amazon Lex
--- should repeat the clarification prompt, use the @maxAttempts@ field. If
--- Amazon Lex still doesn\'t understand, it sends the message in the
--- @abortStatement@ field.
+-- | Set to @true@ to enable access to natural language understanding
+-- improvements.
 --
--- When you create a clarification prompt, make sure that it suggests the
--- correct response from the user. for example, for a bot that orders pizza
--- and drinks, you might create this clarification prompt: \"What would you
--- like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
+-- When you set the @enableModelImprovements@ parameter to @true@ you can
+-- use the @nluIntentConfidenceThreshold@ parameter to configure confidence
+-- scores. For more information, see
+-- <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores>.
 --
--- If you have defined a fallback intent, it will be invoked if the
--- clarification prompt is repeated the number of times defined in the
--- @maxAttempts@ field. For more information, see
--- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
+-- You can only set the @enableModelImprovements@ parameter in certain
+-- Regions. If you set the parameter to @true@, your bot has access to
+-- accuracy improvements.
 --
--- If you don\'t define a clarification prompt, at runtime Amazon Lex will
--- return a 400 Bad Request exception in three cases:
+-- The Regions where you can set the @enableModelImprovements@ parameter to
+-- @true@ are:
 --
--- -   Follow-up prompt - When the user responds to a follow-up prompt but
---     does not provide an intent. For example, in response to a follow-up
---     prompt that says \"Would you like anything else today?\" the user
---     says \"Yes.\" Amazon Lex will return a 400 Bad Request exception
---     because it does not have a clarification prompt to send to the user
---     to get an intent.
+-- -   US East (N. Virginia) (us-east-1)
 --
--- -   Lambda function - When using a Lambda function, you return an
---     @ElicitIntent@ dialog type. Since Amazon Lex does not have a
---     clarification prompt to get an intent from the user, it returns a
---     400 Bad Request exception.
+-- -   US West (Oregon) (us-west-2)
 --
--- -   PutSession operation - When using the @PutSession@ operation, you
---     send an @ElicitIntent@ dialog type. Since Amazon Lex does not have a
---     clarification prompt to get an intent from the user, it returns a
---     400 Bad Request exception.
-putBot_clarificationPrompt :: Lens.Lens' PutBot (Prelude.Maybe Prompt)
-putBot_clarificationPrompt = Lens.lens (\PutBot' {clarificationPrompt} -> clarificationPrompt) (\s@PutBot' {} a -> s {clarificationPrompt = a} :: PutBot)
+-- -   Asia Pacific (Sydney) (ap-southeast-2)
+--
+-- -   EU (Ireland) (eu-west-1)
+--
+-- In other Regions, the @enableModelImprovements@ parameter is set to
+-- @true@ by default. In these Regions setting the parameter to @false@
+-- throws a @ValidationException@ exception.
+putBot_enableModelImprovements :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Bool)
+putBot_enableModelImprovements = Lens.lens (\PutBot' {enableModelImprovements} -> enableModelImprovements) (\s@PutBot' {} a -> s {enableModelImprovements = a} :: PutBot)
 
 -- | Determines the threshold where Amazon Lex will insert the
 -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
@@ -677,34 +670,19 @@ putBot_clarificationPrompt = Lens.lens (\PutBot' {clarificationPrompt} -> clarif
 putBot_nluIntentConfidenceThreshold :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Double)
 putBot_nluIntentConfidenceThreshold = Lens.lens (\PutBot' {nluIntentConfidenceThreshold} -> nluIntentConfidenceThreshold) (\s@PutBot' {} a -> s {nluIntentConfidenceThreshold = a} :: PutBot)
 
--- | Set to @true@ to enable access to natural language understanding
--- improvements.
+-- | When set to @true@ user utterances are sent to Amazon Comprehend for
+-- sentiment analysis. If you don\'t specify @detectSentiment@, the default
+-- is @false@.
+putBot_detectSentiment :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Bool)
+putBot_detectSentiment = Lens.lens (\PutBot' {detectSentiment} -> detectSentiment) (\s@PutBot' {} a -> s {detectSentiment = a} :: PutBot)
+
+-- | If you set the @processBehavior@ element to @BUILD@, Amazon Lex builds
+-- the bot so that it can be run. If you set the element to @SAVE@ Amazon
+-- Lex saves the bot, but doesn\'t build it.
 --
--- When you set the @enableModelImprovements@ parameter to @true@ you can
--- use the @nluIntentConfidenceThreshold@ parameter to configure confidence
--- scores. For more information, see
--- <https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html Confidence Scores>.
---
--- You can only set the @enableModelImprovements@ parameter in certain
--- Regions. If you set the parameter to @true@, your bot has access to
--- accuracy improvements.
---
--- The Regions where you can set the @enableModelImprovements@ parameter to
--- @true@ are:
---
--- -   US East (N. Virginia) (us-east-1)
---
--- -   US West (Oregon) (us-west-2)
---
--- -   Asia Pacific (Sydney) (ap-southeast-2)
---
--- -   EU (Ireland) (eu-west-1)
---
--- In other Regions, the @enableModelImprovements@ parameter is set to
--- @true@ by default. In these Regions setting the parameter to @false@
--- throws a @ValidationException@ exception.
-putBot_enableModelImprovements :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Bool)
-putBot_enableModelImprovements = Lens.lens (\PutBot' {enableModelImprovements} -> enableModelImprovements) (\s@PutBot' {} a -> s {enableModelImprovements = a} :: PutBot)
+-- If you don\'t specify this value, the default value is @BUILD@.
+putBot_processBehavior :: Lens.Lens' PutBot (Prelude.Maybe ProcessBehavior)
+putBot_processBehavior = Lens.lens (\PutBot' {processBehavior} -> processBehavior) (\s@PutBot' {} a -> s {processBehavior = a} :: PutBot)
 
 -- | The maximum time in seconds that Amazon Lex retains the data gathered in
 -- a conversation.
@@ -726,21 +704,51 @@ putBot_enableModelImprovements = Lens.lens (\PutBot' {enableModelImprovements} -
 putBot_idleSessionTTLInSeconds :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Natural)
 putBot_idleSessionTTLInSeconds = Lens.lens (\PutBot' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@PutBot' {} a -> s {idleSessionTTLInSeconds = a} :: PutBot)
 
--- | An array of @Intent@ objects. Each intent represents a command that a
--- user can express. For example, a pizza ordering bot might support an
--- OrderPizza intent. For more information, see how-it-works.
-putBot_intents :: Lens.Lens' PutBot (Prelude.Maybe [Intent])
-putBot_intents = Lens.lens (\PutBot' {intents} -> intents) (\s@PutBot' {} a -> s {intents = a} :: PutBot) Prelude.. Lens.mapping Lens._Coerce
+-- | When Amazon Lex doesn\'t understand the user\'s intent, it uses this
+-- message to get clarification. To specify how many times Amazon Lex
+-- should repeat the clarification prompt, use the @maxAttempts@ field. If
+-- Amazon Lex still doesn\'t understand, it sends the message in the
+-- @abortStatement@ field.
+--
+-- When you create a clarification prompt, make sure that it suggests the
+-- correct response from the user. for example, for a bot that orders pizza
+-- and drinks, you might create this clarification prompt: \"What would you
+-- like to do? You can say \'Order a pizza\' or \'Order a drink.\'\"
+--
+-- If you have defined a fallback intent, it will be invoked if the
+-- clarification prompt is repeated the number of times defined in the
+-- @maxAttempts@ field. For more information, see
+-- <https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html AMAZON.FallbackIntent>.
+--
+-- If you don\'t define a clarification prompt, at runtime Amazon Lex will
+-- return a 400 Bad Request exception in three cases:
+--
+-- -   Follow-up prompt - When the user responds to a follow-up prompt but
+--     does not provide an intent. For example, in response to a follow-up
+--     prompt that says \"Would you like anything else today?\" the user
+--     says \"Yes.\" Amazon Lex will return a 400 Bad Request exception
+--     because it does not have a clarification prompt to send to the user
+--     to get an intent.
+--
+-- -   Lambda function - When using a Lambda function, you return an
+--     @ElicitIntent@ dialog type. Since Amazon Lex does not have a
+--     clarification prompt to get an intent from the user, it returns a
+--     400 Bad Request exception.
+--
+-- -   PutSession operation - When using the @PutSession@ operation, you
+--     send an @ElicitIntent@ dialog type. Since Amazon Lex does not have a
+--     clarification prompt to get an intent from the user, it returns a
+--     400 Bad Request exception.
+putBot_clarificationPrompt :: Lens.Lens' PutBot (Prelude.Maybe Prompt)
+putBot_clarificationPrompt = Lens.lens (\PutBot' {clarificationPrompt} -> clarificationPrompt) (\s@PutBot' {} a -> s {clarificationPrompt = a} :: PutBot)
 
--- | A list of tags to add to the bot. You can only add tags when you create
--- a bot, you can\'t use the @PutBot@ operation to update the tags on a
--- bot. To update tags, use the @TagResource@ operation.
-putBot_tags :: Lens.Lens' PutBot (Prelude.Maybe [Tag])
-putBot_tags = Lens.lens (\PutBot' {tags} -> tags) (\s@PutBot' {} a -> s {tags = a} :: PutBot) Prelude.. Lens.mapping Lens._Coerce
-
--- | A description of the bot.
-putBot_description :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Text)
-putBot_description = Lens.lens (\PutBot' {description} -> description) (\s@PutBot' {} a -> s {description = a} :: PutBot)
+-- | The Amazon Polly voice ID that you want Amazon Lex to use for voice
+-- interactions with the user. The locale configured for the voice must
+-- match the locale of the bot. For more information, see
+-- <https://docs.aws.amazon.com/polly/latest/dg/voicelist.html Voices in Amazon Polly>
+-- in the /Amazon Polly Developer Guide/.
+putBot_voiceId :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Text)
+putBot_voiceId = Lens.lens (\PutBot' {voiceId} -> voiceId) (\s@PutBot' {} a -> s {voiceId = a} :: PutBot)
 
 -- | When set to @true@ a new numbered version of the bot is created. This is
 -- the same as calling the @CreateBotVersion@ operation. If you don\'t
@@ -748,23 +756,15 @@ putBot_description = Lens.lens (\PutBot' {description} -> description) (\s@PutBo
 putBot_createVersion :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Bool)
 putBot_createVersion = Lens.lens (\PutBot' {createVersion} -> createVersion) (\s@PutBot' {} a -> s {createVersion = a} :: PutBot)
 
--- | When set to @true@ user utterances are sent to Amazon Comprehend for
--- sentiment analysis. If you don\'t specify @detectSentiment@, the default
--- is @false@.
-putBot_detectSentiment :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Bool)
-putBot_detectSentiment = Lens.lens (\PutBot' {detectSentiment} -> detectSentiment) (\s@PutBot' {} a -> s {detectSentiment = a} :: PutBot)
+-- | A description of the bot.
+putBot_description :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Text)
+putBot_description = Lens.lens (\PutBot' {description} -> description) (\s@PutBot' {} a -> s {description = a} :: PutBot)
 
--- | Identifies a specific revision of the @$LATEST@ version.
---
--- When you create a new bot, leave the @checksum@ field blank. If you
--- specify a checksum you get a @BadRequestException@ exception.
---
--- When you want to update a bot, set the @checksum@ field to the checksum
--- of the most recent revision of the @$LATEST@ version. If you don\'t
--- specify the @ checksum@ field, or if the checksum does not match the
--- @$LATEST@ version, you get a @PreconditionFailedException@ exception.
-putBot_checksum :: Lens.Lens' PutBot (Prelude.Maybe Prelude.Text)
-putBot_checksum = Lens.lens (\PutBot' {checksum} -> checksum) (\s@PutBot' {} a -> s {checksum = a} :: PutBot)
+-- | A list of tags to add to the bot. You can only add tags when you create
+-- a bot, you can\'t use the @PutBot@ operation to update the tags on a
+-- bot. To update tags, use the @TagResource@ operation.
+putBot_tags :: Lens.Lens' PutBot (Prelude.Maybe [Tag])
+putBot_tags = Lens.lens (\PutBot' {tags} -> tags) (\s@PutBot' {} a -> s {tags = a} :: PutBot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the bot. The name is /not/ case sensitive.
 putBot_name :: Lens.Lens' PutBot Prelude.Text
@@ -812,26 +812,26 @@ instance Core.AWSRequest PutBot where
     Response.receiveJSON
       ( \s h x ->
           PutBotResponse'
-            Prelude.<$> (x Core..?> "abortStatement")
-            Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<$> (x Core..?> "failureReason")
             Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "voiceId")
-            Prelude.<*> (x Core..?> "clarificationPrompt")
-            Prelude.<*> (x Core..?> "nluIntentConfidenceThreshold")
-            Prelude.<*> (x Core..?> "locale")
+            Prelude.<*> (x Core..?> "abortStatement")
+            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "checksum")
             Prelude.<*> (x Core..?> "enableModelImprovements")
+            Prelude.<*> (x Core..?> "nluIntentConfidenceThreshold")
+            Prelude.<*> (x Core..?> "detectSentiment")
+            Prelude.<*> (x Core..?> "locale")
+            Prelude.<*> (x Core..?> "createdDate")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
-            Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "failureReason")
-            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "clarificationPrompt")
+            Prelude.<*> (x Core..?> "voiceId")
+            Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<*> (x Core..?> "createVersion")
             Prelude.<*> (x Core..?> "childDirected")
             Prelude.<*> (x Core..?> "description")
-            Prelude.<*> (x Core..?> "createVersion")
-            Prelude.<*> (x Core..?> "detectSentiment")
-            Prelude.<*> (x Core..?> "checksum")
+            Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -856,24 +856,24 @@ instance Core.ToJSON PutBot where
       ( Prelude.catMaybes
           [ ("abortStatement" Core..=)
               Prelude.<$> abortStatement,
-            ("processBehavior" Core..=)
-              Prelude.<$> processBehavior,
-            ("voiceId" Core..=) Prelude.<$> voiceId,
-            ("clarificationPrompt" Core..=)
-              Prelude.<$> clarificationPrompt,
-            ("nluIntentConfidenceThreshold" Core..=)
-              Prelude.<$> nluIntentConfidenceThreshold,
+            ("intents" Core..=) Prelude.<$> intents,
+            ("checksum" Core..=) Prelude.<$> checksum,
             ("enableModelImprovements" Core..=)
               Prelude.<$> enableModelImprovements,
-            ("idleSessionTTLInSeconds" Core..=)
-              Prelude.<$> idleSessionTTLInSeconds,
-            ("intents" Core..=) Prelude.<$> intents,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
-            ("createVersion" Core..=) Prelude.<$> createVersion,
+            ("nluIntentConfidenceThreshold" Core..=)
+              Prelude.<$> nluIntentConfidenceThreshold,
             ("detectSentiment" Core..=)
               Prelude.<$> detectSentiment,
-            ("checksum" Core..=) Prelude.<$> checksum,
+            ("processBehavior" Core..=)
+              Prelude.<$> processBehavior,
+            ("idleSessionTTLInSeconds" Core..=)
+              Prelude.<$> idleSessionTTLInSeconds,
+            ("clarificationPrompt" Core..=)
+              Prelude.<$> clarificationPrompt,
+            ("voiceId" Core..=) Prelude.<$> voiceId,
+            ("createVersion" Core..=) Prelude.<$> createVersion,
+            ("description" Core..=) Prelude.<$> description,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("locale" Core..= locale),
             Prelude.Just
               ("childDirected" Core..= childDirected)
@@ -890,11 +890,9 @@ instance Core.ToQuery PutBot where
 
 -- | /See:/ 'newPutBotResponse' smart constructor.
 data PutBotResponse = PutBotResponse'
-  { -- | The message that Amazon Lex uses to cancel a conversation. For more
-    -- information, see PutBot.
-    abortStatement :: Prelude.Maybe Statement,
-    -- | The date that the bot was created.
-    createdDate :: Prelude.Maybe Core.POSIX,
+  { -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+    -- to build the bot.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | When you send a request to create a bot with @processBehavior@ set to
     -- @BUILD@, Amazon Lex sets the @status@ response element to @BUILDING@.
     --
@@ -911,15 +909,16 @@ data PutBotResponse = PutBotResponse'
     --
     -- When the bot is in the @READY@ state you can test and publish the bot.
     status :: Prelude.Maybe LexStatus,
-    -- | The date that the bot was updated. When you create a resource, the
-    -- creation date and last updated date are the same.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
-    -- with the user. For more information, see PutBot.
-    voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The prompts that Amazon Lex uses when it doesn\'t understand the user\'s
-    -- intent. For more information, see PutBot.
-    clarificationPrompt :: Prelude.Maybe Prompt,
+    -- | The message that Amazon Lex uses to cancel a conversation. For more
+    -- information, see PutBot.
+    abortStatement :: Prelude.Maybe Statement,
+    -- | An array of @Intent@ objects. For more information, see PutBot.
+    intents :: Prelude.Maybe [Intent],
+    -- | Checksum of the bot that you created.
+    checksum :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
+    -- that the bot is using the improvements, otherwise, @false@.
+    enableModelImprovements :: Prelude.Maybe Prelude.Bool,
     -- | The score that determines where Amazon Lex inserts the
     -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
     -- returning alternative intents in a
@@ -930,25 +929,35 @@ data PutBotResponse = PutBotResponse'
     -- for all intents is below this value. @AMAZON.KendraSearchIntent@ is only
     -- inserted if it is configured for the bot.
     nluIntentConfidenceThreshold :: Prelude.Maybe Prelude.Double,
+    -- | @true@ if the bot is configured to send user utterances to Amazon
+    -- Comprehend for sentiment analysis. If the @detectSentiment@ field was
+    -- not specified in the request, the @detectSentiment@ field is @false@ in
+    -- the response.
+    detectSentiment :: Prelude.Maybe Prelude.Bool,
     -- | The target locale for the bot.
     locale :: Prelude.Maybe Locale,
-    -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
-    -- that the bot is using the improvements, otherwise, @false@.
-    enableModelImprovements :: Prelude.Maybe Prelude.Bool,
+    -- | The date that the bot was created.
+    createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The name of the bot.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The version of the bot. For a new bot, the version is always @$LATEST@.
     version :: Prelude.Maybe Prelude.Text,
     -- | The maximum length of time that Amazon Lex retains the data gathered in
     -- a conversation. For more information, see PutBot.
     idleSessionTTLInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the bot.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Intent@ objects. For more information, see PutBot.
-    intents :: Prelude.Maybe [Intent],
-    -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
-    -- to build the bot.
-    failureReason :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags associated with the bot.
-    tags :: Prelude.Maybe [Tag],
+    -- | The prompts that Amazon Lex uses when it doesn\'t understand the user\'s
+    -- intent. For more information, see PutBot.
+    clarificationPrompt :: Prelude.Maybe Prompt,
+    -- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
+    -- with the user. For more information, see PutBot.
+    voiceId :: Prelude.Maybe Prelude.Text,
+    -- | The date that the bot was updated. When you create a resource, the
+    -- creation date and last updated date are the same.
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | @True@ if a new version of the bot was created. If the @createVersion@
+    -- field was not specified in the request, the @createVersion@ field is set
+    -- to false in the response.
+    createVersion :: Prelude.Maybe Prelude.Bool,
     -- | For each Amazon Lex bot created with the Amazon Lex Model Building
     -- Service, you must specify whether your use of Amazon Lex is related to a
     -- website, program, or other application that is directed or targeted, in
@@ -977,17 +986,8 @@ data PutBotResponse = PutBotResponse'
     childDirected :: Prelude.Maybe Prelude.Bool,
     -- | A description of the bot.
     description :: Prelude.Maybe Prelude.Text,
-    -- | @True@ if a new version of the bot was created. If the @createVersion@
-    -- field was not specified in the request, the @createVersion@ field is set
-    -- to false in the response.
-    createVersion :: Prelude.Maybe Prelude.Bool,
-    -- | @true@ if the bot is configured to send user utterances to Amazon
-    -- Comprehend for sentiment analysis. If the @detectSentiment@ field was
-    -- not specified in the request, the @detectSentiment@ field is @false@ in
-    -- the response.
-    detectSentiment :: Prelude.Maybe Prelude.Bool,
-    -- | Checksum of the bot that you created.
-    checksum :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags associated with the bot.
+    tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -1001,10 +1001,8 @@ data PutBotResponse = PutBotResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'abortStatement', 'putBotResponse_abortStatement' - The message that Amazon Lex uses to cancel a conversation. For more
--- information, see PutBot.
---
--- 'createdDate', 'putBotResponse_createdDate' - The date that the bot was created.
+-- 'failureReason', 'putBotResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+-- to build the bot.
 --
 -- 'status', 'putBotResponse_status' - When you send a request to create a bot with @processBehavior@ set to
 -- @BUILD@, Amazon Lex sets the @status@ response element to @BUILDING@.
@@ -1022,14 +1020,15 @@ data PutBotResponse = PutBotResponse'
 --
 -- When the bot is in the @READY@ state you can test and publish the bot.
 --
--- 'lastUpdatedDate', 'putBotResponse_lastUpdatedDate' - The date that the bot was updated. When you create a resource, the
--- creation date and last updated date are the same.
+-- 'abortStatement', 'putBotResponse_abortStatement' - The message that Amazon Lex uses to cancel a conversation. For more
+-- information, see PutBot.
 --
--- 'voiceId', 'putBotResponse_voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interaction
--- with the user. For more information, see PutBot.
+-- 'intents', 'putBotResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.
 --
--- 'clarificationPrompt', 'putBotResponse_clarificationPrompt' - The prompts that Amazon Lex uses when it doesn\'t understand the user\'s
--- intent. For more information, see PutBot.
+-- 'checksum', 'putBotResponse_checksum' - Checksum of the bot that you created.
+--
+-- 'enableModelImprovements', 'putBotResponse_enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates
+-- that the bot is using the improvements, otherwise, @false@.
 --
 -- 'nluIntentConfidenceThreshold', 'putBotResponse_nluIntentConfidenceThreshold' - The score that determines where Amazon Lex inserts the
 -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
@@ -1041,24 +1040,34 @@ data PutBotResponse = PutBotResponse'
 -- for all intents is below this value. @AMAZON.KendraSearchIntent@ is only
 -- inserted if it is configured for the bot.
 --
+-- 'detectSentiment', 'putBotResponse_detectSentiment' - @true@ if the bot is configured to send user utterances to Amazon
+-- Comprehend for sentiment analysis. If the @detectSentiment@ field was
+-- not specified in the request, the @detectSentiment@ field is @false@ in
+-- the response.
+--
 -- 'locale', 'putBotResponse_locale' - The target locale for the bot.
 --
--- 'enableModelImprovements', 'putBotResponse_enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates
--- that the bot is using the improvements, otherwise, @false@.
+-- 'createdDate', 'putBotResponse_createdDate' - The date that the bot was created.
+--
+-- 'name', 'putBotResponse_name' - The name of the bot.
 --
 -- 'version', 'putBotResponse_version' - The version of the bot. For a new bot, the version is always @$LATEST@.
 --
 -- 'idleSessionTTLInSeconds', 'putBotResponse_idleSessionTTLInSeconds' - The maximum length of time that Amazon Lex retains the data gathered in
 -- a conversation. For more information, see PutBot.
 --
--- 'name', 'putBotResponse_name' - The name of the bot.
+-- 'clarificationPrompt', 'putBotResponse_clarificationPrompt' - The prompts that Amazon Lex uses when it doesn\'t understand the user\'s
+-- intent. For more information, see PutBot.
 --
--- 'intents', 'putBotResponse_intents' - An array of @Intent@ objects. For more information, see PutBot.
+-- 'voiceId', 'putBotResponse_voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interaction
+-- with the user. For more information, see PutBot.
 --
--- 'failureReason', 'putBotResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
--- to build the bot.
+-- 'lastUpdatedDate', 'putBotResponse_lastUpdatedDate' - The date that the bot was updated. When you create a resource, the
+-- creation date and last updated date are the same.
 --
--- 'tags', 'putBotResponse_tags' - A list of tags associated with the bot.
+-- 'createVersion', 'putBotResponse_createVersion' - @True@ if a new version of the bot was created. If the @createVersion@
+-- field was not specified in the request, the @createVersion@ field is set
+-- to false in the response.
 --
 -- 'childDirected', 'putBotResponse_childDirected' - For each Amazon Lex bot created with the Amazon Lex Model Building
 -- Service, you must specify whether your use of Amazon Lex is related to a
@@ -1088,16 +1097,7 @@ data PutBotResponse = PutBotResponse'
 --
 -- 'description', 'putBotResponse_description' - A description of the bot.
 --
--- 'createVersion', 'putBotResponse_createVersion' - @True@ if a new version of the bot was created. If the @createVersion@
--- field was not specified in the request, the @createVersion@ field is set
--- to false in the response.
---
--- 'detectSentiment', 'putBotResponse_detectSentiment' - @true@ if the bot is configured to send user utterances to Amazon
--- Comprehend for sentiment analysis. If the @detectSentiment@ field was
--- not specified in the request, the @detectSentiment@ field is @false@ in
--- the response.
---
--- 'checksum', 'putBotResponse_checksum' - Checksum of the bot that you created.
+-- 'tags', 'putBotResponse_tags' - A list of tags associated with the bot.
 --
 -- 'httpStatus', 'putBotResponse_httpStatus' - The response's http status code.
 newPutBotResponse ::
@@ -1106,37 +1106,33 @@ newPutBotResponse ::
   PutBotResponse
 newPutBotResponse pHttpStatus_ =
   PutBotResponse'
-    { abortStatement = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
+    { failureReason = Prelude.Nothing,
       status = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      voiceId = Prelude.Nothing,
-      clarificationPrompt = Prelude.Nothing,
-      nluIntentConfidenceThreshold = Prelude.Nothing,
-      locale = Prelude.Nothing,
+      abortStatement = Prelude.Nothing,
+      intents = Prelude.Nothing,
+      checksum = Prelude.Nothing,
       enableModelImprovements = Prelude.Nothing,
+      nluIntentConfidenceThreshold = Prelude.Nothing,
+      detectSentiment = Prelude.Nothing,
+      locale = Prelude.Nothing,
+      createdDate = Prelude.Nothing,
+      name = Prelude.Nothing,
       version = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
-      name = Prelude.Nothing,
-      intents = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      clarificationPrompt = Prelude.Nothing,
+      voiceId = Prelude.Nothing,
+      lastUpdatedDate = Prelude.Nothing,
+      createVersion = Prelude.Nothing,
       childDirected = Prelude.Nothing,
       description = Prelude.Nothing,
-      createVersion = Prelude.Nothing,
-      detectSentiment = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+      tags = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The message that Amazon Lex uses to cancel a conversation. For more
--- information, see PutBot.
-putBotResponse_abortStatement :: Lens.Lens' PutBotResponse (Prelude.Maybe Statement)
-putBotResponse_abortStatement = Lens.lens (\PutBotResponse' {abortStatement} -> abortStatement) (\s@PutBotResponse' {} a -> s {abortStatement = a} :: PutBotResponse)
-
--- | The date that the bot was created.
-putBotResponse_createdDate :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.UTCTime)
-putBotResponse_createdDate = Lens.lens (\PutBotResponse' {createdDate} -> createdDate) (\s@PutBotResponse' {} a -> s {createdDate = a} :: PutBotResponse) Prelude.. Lens.mapping Core._Time
+-- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
+-- to build the bot.
+putBotResponse_failureReason :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
+putBotResponse_failureReason = Lens.lens (\PutBotResponse' {failureReason} -> failureReason) (\s@PutBotResponse' {} a -> s {failureReason = a} :: PutBotResponse)
 
 -- | When you send a request to create a bot with @processBehavior@ set to
 -- @BUILD@, Amazon Lex sets the @status@ response element to @BUILDING@.
@@ -1156,20 +1152,23 @@ putBotResponse_createdDate = Lens.lens (\PutBotResponse' {createdDate} -> create
 putBotResponse_status :: Lens.Lens' PutBotResponse (Prelude.Maybe LexStatus)
 putBotResponse_status = Lens.lens (\PutBotResponse' {status} -> status) (\s@PutBotResponse' {} a -> s {status = a} :: PutBotResponse)
 
--- | The date that the bot was updated. When you create a resource, the
--- creation date and last updated date are the same.
-putBotResponse_lastUpdatedDate :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.UTCTime)
-putBotResponse_lastUpdatedDate = Lens.lens (\PutBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutBotResponse' {} a -> s {lastUpdatedDate = a} :: PutBotResponse) Prelude.. Lens.mapping Core._Time
+-- | The message that Amazon Lex uses to cancel a conversation. For more
+-- information, see PutBot.
+putBotResponse_abortStatement :: Lens.Lens' PutBotResponse (Prelude.Maybe Statement)
+putBotResponse_abortStatement = Lens.lens (\PutBotResponse' {abortStatement} -> abortStatement) (\s@PutBotResponse' {} a -> s {abortStatement = a} :: PutBotResponse)
 
--- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
--- with the user. For more information, see PutBot.
-putBotResponse_voiceId :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
-putBotResponse_voiceId = Lens.lens (\PutBotResponse' {voiceId} -> voiceId) (\s@PutBotResponse' {} a -> s {voiceId = a} :: PutBotResponse)
+-- | An array of @Intent@ objects. For more information, see PutBot.
+putBotResponse_intents :: Lens.Lens' PutBotResponse (Prelude.Maybe [Intent])
+putBotResponse_intents = Lens.lens (\PutBotResponse' {intents} -> intents) (\s@PutBotResponse' {} a -> s {intents = a} :: PutBotResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The prompts that Amazon Lex uses when it doesn\'t understand the user\'s
--- intent. For more information, see PutBot.
-putBotResponse_clarificationPrompt :: Lens.Lens' PutBotResponse (Prelude.Maybe Prompt)
-putBotResponse_clarificationPrompt = Lens.lens (\PutBotResponse' {clarificationPrompt} -> clarificationPrompt) (\s@PutBotResponse' {} a -> s {clarificationPrompt = a} :: PutBotResponse)
+-- | Checksum of the bot that you created.
+putBotResponse_checksum :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
+putBotResponse_checksum = Lens.lens (\PutBotResponse' {checksum} -> checksum) (\s@PutBotResponse' {} a -> s {checksum = a} :: PutBotResponse)
+
+-- | Indicates whether the bot uses accuracy improvements. @true@ indicates
+-- that the bot is using the improvements, otherwise, @false@.
+putBotResponse_enableModelImprovements :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Bool)
+putBotResponse_enableModelImprovements = Lens.lens (\PutBotResponse' {enableModelImprovements} -> enableModelImprovements) (\s@PutBotResponse' {} a -> s {enableModelImprovements = a} :: PutBotResponse)
 
 -- | The score that determines where Amazon Lex inserts the
 -- @AMAZON.FallbackIntent@, @AMAZON.KendraSearchIntent@, or both when
@@ -1183,14 +1182,24 @@ putBotResponse_clarificationPrompt = Lens.lens (\PutBotResponse' {clarificationP
 putBotResponse_nluIntentConfidenceThreshold :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Double)
 putBotResponse_nluIntentConfidenceThreshold = Lens.lens (\PutBotResponse' {nluIntentConfidenceThreshold} -> nluIntentConfidenceThreshold) (\s@PutBotResponse' {} a -> s {nluIntentConfidenceThreshold = a} :: PutBotResponse)
 
+-- | @true@ if the bot is configured to send user utterances to Amazon
+-- Comprehend for sentiment analysis. If the @detectSentiment@ field was
+-- not specified in the request, the @detectSentiment@ field is @false@ in
+-- the response.
+putBotResponse_detectSentiment :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Bool)
+putBotResponse_detectSentiment = Lens.lens (\PutBotResponse' {detectSentiment} -> detectSentiment) (\s@PutBotResponse' {} a -> s {detectSentiment = a} :: PutBotResponse)
+
 -- | The target locale for the bot.
 putBotResponse_locale :: Lens.Lens' PutBotResponse (Prelude.Maybe Locale)
 putBotResponse_locale = Lens.lens (\PutBotResponse' {locale} -> locale) (\s@PutBotResponse' {} a -> s {locale = a} :: PutBotResponse)
 
--- | Indicates whether the bot uses accuracy improvements. @true@ indicates
--- that the bot is using the improvements, otherwise, @false@.
-putBotResponse_enableModelImprovements :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Bool)
-putBotResponse_enableModelImprovements = Lens.lens (\PutBotResponse' {enableModelImprovements} -> enableModelImprovements) (\s@PutBotResponse' {} a -> s {enableModelImprovements = a} :: PutBotResponse)
+-- | The date that the bot was created.
+putBotResponse_createdDate :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.UTCTime)
+putBotResponse_createdDate = Lens.lens (\PutBotResponse' {createdDate} -> createdDate) (\s@PutBotResponse' {} a -> s {createdDate = a} :: PutBotResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the bot.
+putBotResponse_name :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
+putBotResponse_name = Lens.lens (\PutBotResponse' {name} -> name) (\s@PutBotResponse' {} a -> s {name = a} :: PutBotResponse)
 
 -- | The version of the bot. For a new bot, the version is always @$LATEST@.
 putBotResponse_version :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
@@ -1201,22 +1210,26 @@ putBotResponse_version = Lens.lens (\PutBotResponse' {version} -> version) (\s@P
 putBotResponse_idleSessionTTLInSeconds :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Natural)
 putBotResponse_idleSessionTTLInSeconds = Lens.lens (\PutBotResponse' {idleSessionTTLInSeconds} -> idleSessionTTLInSeconds) (\s@PutBotResponse' {} a -> s {idleSessionTTLInSeconds = a} :: PutBotResponse)
 
--- | The name of the bot.
-putBotResponse_name :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
-putBotResponse_name = Lens.lens (\PutBotResponse' {name} -> name) (\s@PutBotResponse' {} a -> s {name = a} :: PutBotResponse)
+-- | The prompts that Amazon Lex uses when it doesn\'t understand the user\'s
+-- intent. For more information, see PutBot.
+putBotResponse_clarificationPrompt :: Lens.Lens' PutBotResponse (Prelude.Maybe Prompt)
+putBotResponse_clarificationPrompt = Lens.lens (\PutBotResponse' {clarificationPrompt} -> clarificationPrompt) (\s@PutBotResponse' {} a -> s {clarificationPrompt = a} :: PutBotResponse)
 
--- | An array of @Intent@ objects. For more information, see PutBot.
-putBotResponse_intents :: Lens.Lens' PutBotResponse (Prelude.Maybe [Intent])
-putBotResponse_intents = Lens.lens (\PutBotResponse' {intents} -> intents) (\s@PutBotResponse' {} a -> s {intents = a} :: PutBotResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | The Amazon Polly voice ID that Amazon Lex uses for voice interaction
+-- with the user. For more information, see PutBot.
+putBotResponse_voiceId :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
+putBotResponse_voiceId = Lens.lens (\PutBotResponse' {voiceId} -> voiceId) (\s@PutBotResponse' {} a -> s {voiceId = a} :: PutBotResponse)
 
--- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
--- to build the bot.
-putBotResponse_failureReason :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
-putBotResponse_failureReason = Lens.lens (\PutBotResponse' {failureReason} -> failureReason) (\s@PutBotResponse' {} a -> s {failureReason = a} :: PutBotResponse)
+-- | The date that the bot was updated. When you create a resource, the
+-- creation date and last updated date are the same.
+putBotResponse_lastUpdatedDate :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.UTCTime)
+putBotResponse_lastUpdatedDate = Lens.lens (\PutBotResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@PutBotResponse' {} a -> s {lastUpdatedDate = a} :: PutBotResponse) Prelude.. Lens.mapping Core._Time
 
--- | A list of tags associated with the bot.
-putBotResponse_tags :: Lens.Lens' PutBotResponse (Prelude.Maybe [Tag])
-putBotResponse_tags = Lens.lens (\PutBotResponse' {tags} -> tags) (\s@PutBotResponse' {} a -> s {tags = a} :: PutBotResponse) Prelude.. Lens.mapping Lens._Coerce
+-- | @True@ if a new version of the bot was created. If the @createVersion@
+-- field was not specified in the request, the @createVersion@ field is set
+-- to false in the response.
+putBotResponse_createVersion :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Bool)
+putBotResponse_createVersion = Lens.lens (\PutBotResponse' {createVersion} -> createVersion) (\s@PutBotResponse' {} a -> s {createVersion = a} :: PutBotResponse)
 
 -- | For each Amazon Lex bot created with the Amazon Lex Model Building
 -- Service, you must specify whether your use of Amazon Lex is related to a
@@ -1250,22 +1263,9 @@ putBotResponse_childDirected = Lens.lens (\PutBotResponse' {childDirected} -> ch
 putBotResponse_description :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
 putBotResponse_description = Lens.lens (\PutBotResponse' {description} -> description) (\s@PutBotResponse' {} a -> s {description = a} :: PutBotResponse)
 
--- | @True@ if a new version of the bot was created. If the @createVersion@
--- field was not specified in the request, the @createVersion@ field is set
--- to false in the response.
-putBotResponse_createVersion :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Bool)
-putBotResponse_createVersion = Lens.lens (\PutBotResponse' {createVersion} -> createVersion) (\s@PutBotResponse' {} a -> s {createVersion = a} :: PutBotResponse)
-
--- | @true@ if the bot is configured to send user utterances to Amazon
--- Comprehend for sentiment analysis. If the @detectSentiment@ field was
--- not specified in the request, the @detectSentiment@ field is @false@ in
--- the response.
-putBotResponse_detectSentiment :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Bool)
-putBotResponse_detectSentiment = Lens.lens (\PutBotResponse' {detectSentiment} -> detectSentiment) (\s@PutBotResponse' {} a -> s {detectSentiment = a} :: PutBotResponse)
-
--- | Checksum of the bot that you created.
-putBotResponse_checksum :: Lens.Lens' PutBotResponse (Prelude.Maybe Prelude.Text)
-putBotResponse_checksum = Lens.lens (\PutBotResponse' {checksum} -> checksum) (\s@PutBotResponse' {} a -> s {checksum = a} :: PutBotResponse)
+-- | A list of tags associated with the bot.
+putBotResponse_tags :: Lens.Lens' PutBotResponse (Prelude.Maybe [Tag])
+putBotResponse_tags = Lens.lens (\PutBotResponse' {tags} -> tags) (\s@PutBotResponse' {} a -> s {tags = a} :: PutBotResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 putBotResponse_httpStatus :: Lens.Lens' PutBotResponse Prelude.Int

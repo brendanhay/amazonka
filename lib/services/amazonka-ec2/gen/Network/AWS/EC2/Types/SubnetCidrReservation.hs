@@ -30,20 +30,20 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSubnetCidrReservation' smart constructor.
 data SubnetCidrReservation = SubnetCidrReservation'
-  { -- | The ID of the account that owns the subnet CIDR reservation.
+  { -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the account that owns the subnet CIDR reservation.
     ownerId :: Prelude.Maybe Prelude.Text,
-    -- | The type of reservation.
-    reservationType :: Prelude.Maybe SubnetCidrReservationType,
-    -- | The ID of the subnet CIDR reservation.
-    subnetCidrReservationId :: Prelude.Maybe Prelude.Text,
     -- | The CIDR that has been reserved.
     cidr :: Prelude.Maybe Prelude.Text,
-    -- | The tags assigned to the subnet CIDR reservation.
-    tags :: Prelude.Maybe [Tag],
+    -- | The ID of the subnet CIDR reservation.
+    subnetCidrReservationId :: Prelude.Maybe Prelude.Text,
+    -- | The type of reservation.
+    reservationType :: Prelude.Maybe SubnetCidrReservationType,
     -- | The description assigned to the subnet CIDR reservation.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text
+    -- | The tags assigned to the subnet CIDR reservation.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,72 +55,72 @@ data SubnetCidrReservation = SubnetCidrReservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subnetId', 'subnetCidrReservation_subnetId' - The ID of the subnet.
+--
 -- 'ownerId', 'subnetCidrReservation_ownerId' - The ID of the account that owns the subnet CIDR reservation.
---
--- 'reservationType', 'subnetCidrReservation_reservationType' - The type of reservation.
---
--- 'subnetCidrReservationId', 'subnetCidrReservation_subnetCidrReservationId' - The ID of the subnet CIDR reservation.
 --
 -- 'cidr', 'subnetCidrReservation_cidr' - The CIDR that has been reserved.
 --
--- 'tags', 'subnetCidrReservation_tags' - The tags assigned to the subnet CIDR reservation.
+-- 'subnetCidrReservationId', 'subnetCidrReservation_subnetCidrReservationId' - The ID of the subnet CIDR reservation.
+--
+-- 'reservationType', 'subnetCidrReservation_reservationType' - The type of reservation.
 --
 -- 'description', 'subnetCidrReservation_description' - The description assigned to the subnet CIDR reservation.
 --
--- 'subnetId', 'subnetCidrReservation_subnetId' - The ID of the subnet.
+-- 'tags', 'subnetCidrReservation_tags' - The tags assigned to the subnet CIDR reservation.
 newSubnetCidrReservation ::
   SubnetCidrReservation
 newSubnetCidrReservation =
   SubnetCidrReservation'
-    { ownerId = Prelude.Nothing,
-      reservationType = Prelude.Nothing,
-      subnetCidrReservationId = Prelude.Nothing,
+    { subnetId = Prelude.Nothing,
+      ownerId = Prelude.Nothing,
       cidr = Prelude.Nothing,
-      tags = Prelude.Nothing,
+      subnetCidrReservationId = Prelude.Nothing,
+      reservationType = Prelude.Nothing,
       description = Prelude.Nothing,
-      subnetId = Prelude.Nothing
+      tags = Prelude.Nothing
     }
-
--- | The ID of the account that owns the subnet CIDR reservation.
-subnetCidrReservation_ownerId :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
-subnetCidrReservation_ownerId = Lens.lens (\SubnetCidrReservation' {ownerId} -> ownerId) (\s@SubnetCidrReservation' {} a -> s {ownerId = a} :: SubnetCidrReservation)
-
--- | The type of reservation.
-subnetCidrReservation_reservationType :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe SubnetCidrReservationType)
-subnetCidrReservation_reservationType = Lens.lens (\SubnetCidrReservation' {reservationType} -> reservationType) (\s@SubnetCidrReservation' {} a -> s {reservationType = a} :: SubnetCidrReservation)
-
--- | The ID of the subnet CIDR reservation.
-subnetCidrReservation_subnetCidrReservationId :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
-subnetCidrReservation_subnetCidrReservationId = Lens.lens (\SubnetCidrReservation' {subnetCidrReservationId} -> subnetCidrReservationId) (\s@SubnetCidrReservation' {} a -> s {subnetCidrReservationId = a} :: SubnetCidrReservation)
-
--- | The CIDR that has been reserved.
-subnetCidrReservation_cidr :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
-subnetCidrReservation_cidr = Lens.lens (\SubnetCidrReservation' {cidr} -> cidr) (\s@SubnetCidrReservation' {} a -> s {cidr = a} :: SubnetCidrReservation)
-
--- | The tags assigned to the subnet CIDR reservation.
-subnetCidrReservation_tags :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe [Tag])
-subnetCidrReservation_tags = Lens.lens (\SubnetCidrReservation' {tags} -> tags) (\s@SubnetCidrReservation' {} a -> s {tags = a} :: SubnetCidrReservation) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description assigned to the subnet CIDR reservation.
-subnetCidrReservation_description :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
-subnetCidrReservation_description = Lens.lens (\SubnetCidrReservation' {description} -> description) (\s@SubnetCidrReservation' {} a -> s {description = a} :: SubnetCidrReservation)
 
 -- | The ID of the subnet.
 subnetCidrReservation_subnetId :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
 subnetCidrReservation_subnetId = Lens.lens (\SubnetCidrReservation' {subnetId} -> subnetId) (\s@SubnetCidrReservation' {} a -> s {subnetId = a} :: SubnetCidrReservation)
 
+-- | The ID of the account that owns the subnet CIDR reservation.
+subnetCidrReservation_ownerId :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
+subnetCidrReservation_ownerId = Lens.lens (\SubnetCidrReservation' {ownerId} -> ownerId) (\s@SubnetCidrReservation' {} a -> s {ownerId = a} :: SubnetCidrReservation)
+
+-- | The CIDR that has been reserved.
+subnetCidrReservation_cidr :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
+subnetCidrReservation_cidr = Lens.lens (\SubnetCidrReservation' {cidr} -> cidr) (\s@SubnetCidrReservation' {} a -> s {cidr = a} :: SubnetCidrReservation)
+
+-- | The ID of the subnet CIDR reservation.
+subnetCidrReservation_subnetCidrReservationId :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
+subnetCidrReservation_subnetCidrReservationId = Lens.lens (\SubnetCidrReservation' {subnetCidrReservationId} -> subnetCidrReservationId) (\s@SubnetCidrReservation' {} a -> s {subnetCidrReservationId = a} :: SubnetCidrReservation)
+
+-- | The type of reservation.
+subnetCidrReservation_reservationType :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe SubnetCidrReservationType)
+subnetCidrReservation_reservationType = Lens.lens (\SubnetCidrReservation' {reservationType} -> reservationType) (\s@SubnetCidrReservation' {} a -> s {reservationType = a} :: SubnetCidrReservation)
+
+-- | The description assigned to the subnet CIDR reservation.
+subnetCidrReservation_description :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe Prelude.Text)
+subnetCidrReservation_description = Lens.lens (\SubnetCidrReservation' {description} -> description) (\s@SubnetCidrReservation' {} a -> s {description = a} :: SubnetCidrReservation)
+
+-- | The tags assigned to the subnet CIDR reservation.
+subnetCidrReservation_tags :: Lens.Lens' SubnetCidrReservation (Prelude.Maybe [Tag])
+subnetCidrReservation_tags = Lens.lens (\SubnetCidrReservation' {tags} -> tags) (\s@SubnetCidrReservation' {} a -> s {tags = a} :: SubnetCidrReservation) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML SubnetCidrReservation where
   parseXML x =
     SubnetCidrReservation'
-      Prelude.<$> (x Core..@? "ownerId")
-      Prelude.<*> (x Core..@? "reservationType")
-      Prelude.<*> (x Core..@? "subnetCidrReservationId")
+      Prelude.<$> (x Core..@? "subnetId")
+      Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "cidr")
+      Prelude.<*> (x Core..@? "subnetCidrReservationId")
+      Prelude.<*> (x Core..@? "reservationType")
+      Prelude.<*> (x Core..@? "description")
       Prelude.<*> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "description")
-      Prelude.<*> (x Core..@? "subnetId")
 
 instance Prelude.Hashable SubnetCidrReservation
 

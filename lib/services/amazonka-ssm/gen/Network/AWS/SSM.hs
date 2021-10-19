@@ -56,362 +56,56 @@ module Network.AWS.SSM
     -- * Errors
     -- $errors
 
-    -- ** InvalidAutomationSignalException
-    _InvalidAutomationSignalException,
-
-    -- ** InvalidDeleteInventoryParametersException
-    _InvalidDeleteInventoryParametersException,
-
-    -- ** OpsMetadataKeyLimitExceededException
-    _OpsMetadataKeyLimitExceededException,
-
-    -- ** FeatureNotAvailableException
-    _FeatureNotAvailableException,
-
-    -- ** InvalidInstanceInformationFilterValue
-    _InvalidInstanceInformationFilterValue,
-
-    -- ** InvalidAggregatorException
-    _InvalidAggregatorException,
-
-    -- ** ComplianceTypeCountLimitExceededException
-    _ComplianceTypeCountLimitExceededException,
-
     -- ** AutomationDefinitionVersionNotFoundException
     _AutomationDefinitionVersionNotFoundException,
-
-    -- ** UnsupportedParameterType
-    _UnsupportedParameterType,
 
     -- ** InvalidDocumentVersion
     _InvalidDocumentVersion,
 
-    -- ** AutomationExecutionLimitExceededException
-    _AutomationExecutionLimitExceededException,
-
-    -- ** IdempotentParameterMismatch
-    _IdempotentParameterMismatch,
-
-    -- ** OpsMetadataInvalidArgumentException
-    _OpsMetadataInvalidArgumentException,
-
-    -- ** ResourceDataSyncConflictException
-    _ResourceDataSyncConflictException,
-
-    -- ** InvalidAutomationStatusUpdateException
-    _InvalidAutomationStatusUpdateException,
-
     -- ** HierarchyTypeMismatchException
     _HierarchyTypeMismatchException,
-
-    -- ** DoesNotExistException
-    _DoesNotExistException,
-
-    -- ** ItemSizeLimitExceededException
-    _ItemSizeLimitExceededException,
-
-    -- ** DocumentAlreadyExists
-    _DocumentAlreadyExists,
-
-    -- ** ParameterMaxVersionLimitExceeded
-    _ParameterMaxVersionLimitExceeded,
-
-    -- ** DocumentLimitExceeded
-    _DocumentLimitExceeded,
-
-    -- ** AutomationStepNotFoundException
-    _AutomationStepNotFoundException,
-
-    -- ** AutomationExecutionNotFoundException
-    _AutomationExecutionNotFoundException,
-
-    -- ** DocumentPermissionLimit
-    _DocumentPermissionLimit,
-
-    -- ** InvalidFilter
-    _InvalidFilter,
-
-    -- ** InvalidTypeNameException
-    _InvalidTypeNameException,
-
-    -- ** SubTypeCountLimitExceededException
-    _SubTypeCountLimitExceededException,
-
-    -- ** AutomationDefinitionNotFoundException
-    _AutomationDefinitionNotFoundException,
-
-    -- ** OpsItemRelatedItemAssociationNotFoundException
-    _OpsItemRelatedItemAssociationNotFoundException,
-
-    -- ** InvalidInventoryItemContextException
-    _InvalidInventoryItemContextException,
-
-    -- ** InvalidDocument
-    _InvalidDocument,
-
-    -- ** TooManyTagsError
-    _TooManyTagsError,
-
-    -- ** OpsItemInvalidParameterException
-    _OpsItemInvalidParameterException,
-
-    -- ** IncompatiblePolicyException
-    _IncompatiblePolicyException,
-
-    -- ** InvalidAllowedPatternException
-    _InvalidAllowedPatternException,
-
-    -- ** OpsMetadataTooManyUpdatesException
-    _OpsMetadataTooManyUpdatesException,
-
-    -- ** InvalidParameters
-    _InvalidParameters,
-
-    -- ** TargetNotConnected
-    _TargetNotConnected,
-
-    -- ** ParameterVersionLabelLimitExceeded
-    _ParameterVersionLabelLimitExceeded,
-
-    -- ** UnsupportedInventorySchemaVersionException
-    _UnsupportedInventorySchemaVersionException,
-
-    -- ** InvalidCommandId
-    _InvalidCommandId,
-
-    -- ** InvalidOutputLocation
-    _InvalidOutputLocation,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** InvalidTarget
-    _InvalidTarget,
-
-    -- ** ServiceSettingNotFound
-    _ServiceSettingNotFound,
-
-    -- ** CustomSchemaCountLimitExceededException
-    _CustomSchemaCountLimitExceededException,
-
-    -- ** InvalidUpdate
-    _InvalidUpdate,
-
-    -- ** InvalidAssociation
-    _InvalidAssociation,
-
-    -- ** InvalidDocumentSchemaVersion
-    _InvalidDocumentSchemaVersion,
-
-    -- ** InvalidOptionException
-    _InvalidOptionException,
-
-    -- ** OpsItemNotFoundException
-    _OpsItemNotFoundException,
-
-    -- ** StatusUnchanged
-    _StatusUnchanged,
-
-    -- ** OpsMetadataNotFoundException
-    _OpsMetadataNotFoundException,
-
-    -- ** InvalidInstanceId
-    _InvalidInstanceId,
-
-    -- ** TooManyUpdates
-    _TooManyUpdates,
-
-    -- ** DuplicateDocumentVersionName
-    _DuplicateDocumentVersionName,
-
-    -- ** OpsItemRelatedItemAlreadyExistsException
-    _OpsItemRelatedItemAlreadyExistsException,
-
-    -- ** InvalidPolicyAttributeException
-    _InvalidPolicyAttributeException,
-
-    -- ** AssociationDoesNotExist
-    _AssociationDoesNotExist,
-
-    -- ** InvalidAssociationVersion
-    _InvalidAssociationVersion,
-
-    -- ** InvalidFilterValue
-    _InvalidFilterValue,
-
-    -- ** ResourceDataSyncCountExceededException
-    _ResourceDataSyncCountExceededException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** ParameterNotFound
-    _ParameterNotFound,
-
-    -- ** AssociationLimitExceeded
-    _AssociationLimitExceeded,
-
-    -- ** AssociationAlreadyExists
-    _AssociationAlreadyExists,
-
-    -- ** ParameterLimitExceeded
-    _ParameterLimitExceeded,
-
-    -- ** InvalidDocumentContent
-    _InvalidDocumentContent,
-
-    -- ** ItemContentMismatchException
-    _ItemContentMismatchException,
-
-    -- ** UnsupportedFeatureRequiredException
-    _UnsupportedFeatureRequiredException,
-
-    -- ** PoliciesLimitExceededException
-    _PoliciesLimitExceededException,
-
-    -- ** InvalidPluginName
-    _InvalidPluginName,
-
-    -- ** ParameterAlreadyExists
-    _ParameterAlreadyExists,
-
-    -- ** InvalidDeletionIdException
-    _InvalidDeletionIdException,
-
-    -- ** ResourceDataSyncAlreadyExistsException
-    _ResourceDataSyncAlreadyExistsException,
 
     -- ** InvalidSchedule
     _InvalidSchedule,
 
-    -- ** ResourceDataSyncNotFoundException
-    _ResourceDataSyncNotFoundException,
+    -- ** UnsupportedParameterType
+    _UnsupportedParameterType,
 
-    -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    -- ** InvalidAutomationStatusUpdateException
+    _InvalidAutomationStatusUpdateException,
 
-    -- ** InvalidAutomationExecutionParametersException
-    _InvalidAutomationExecutionParametersException,
+    -- ** OpsMetadataKeyLimitExceededException
+    _OpsMetadataKeyLimitExceededException,
 
-    -- ** DuplicateDocumentContent
-    _DuplicateDocumentContent,
+    -- ** InvalidPluginName
+    _InvalidPluginName,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** UnsupportedFeatureRequiredException
+    _UnsupportedFeatureRequiredException,
 
-    -- ** InvalidPolicyTypeException
-    _InvalidPolicyTypeException,
+    -- ** InvalidAggregatorException
+    _InvalidAggregatorException,
 
-    -- ** InvalidNotificationConfig
-    _InvalidNotificationConfig,
+    -- ** FeatureNotAvailableException
+    _FeatureNotAvailableException,
 
-    -- ** InvalidFilterKey
-    _InvalidFilterKey,
+    -- ** InvalidAutomationSignalException
+    _InvalidAutomationSignalException,
 
-    -- ** InvalidDocumentType
-    _InvalidDocumentType,
+    -- ** ResourceDataSyncCountExceededException
+    _ResourceDataSyncCountExceededException,
 
-    -- ** InvalidResourceId
-    _InvalidResourceId,
-
-    -- ** TotalSizeLimitExceededException
-    _TotalSizeLimitExceededException,
-
-    -- ** DuplicateInstanceId
-    _DuplicateInstanceId,
-
-    -- ** AutomationDefinitionNotApprovedException
-    _AutomationDefinitionNotApprovedException,
-
-    -- ** InvalidDocumentOperation
-    _InvalidDocumentOperation,
-
-    -- ** InvalidKeyId
-    _InvalidKeyId,
-
-    -- ** InvalidResultAttributeException
-    _InvalidResultAttributeException,
-
-    -- ** InvocationDoesNotExist
-    _InvocationDoesNotExist,
-
-    -- ** InvalidResourceType
-    _InvalidResourceType,
-
-    -- ** DocumentVersionLimitExceeded
-    _DocumentVersionLimitExceeded,
-
-    -- ** ResourceDataSyncInvalidConfigurationException
-    _ResourceDataSyncInvalidConfigurationException,
-
-    -- ** InvalidInventoryGroupException
-    _InvalidInventoryGroupException,
-
-    -- ** AssociationExecutionDoesNotExist
-    _AssociationExecutionDoesNotExist,
-
-    -- ** OpsMetadataLimitExceededException
-    _OpsMetadataLimitExceededException,
-
-    -- ** OpsMetadataAlreadyExistsException
-    _OpsMetadataAlreadyExistsException,
-
-    -- ** InvalidOutputFolder
-    _InvalidOutputFolder,
-
-    -- ** HierarchyLevelLimitExceededException
-    _HierarchyLevelLimitExceededException,
-
-    -- ** OpsItemLimitExceededException
-    _OpsItemLimitExceededException,
-
-    -- ** UnsupportedCalendarException
-    _UnsupportedCalendarException,
-
-    -- ** ParameterVersionNotFound
-    _ParameterVersionNotFound,
-
-    -- ** OpsItemAlreadyExistsException
-    _OpsItemAlreadyExistsException,
-
-    -- ** InvalidActivationId
-    _InvalidActivationId,
-
-    -- ** InvalidRole
-    _InvalidRole,
-
-    -- ** InvalidActivation
-    _InvalidActivation,
-
-    -- ** InvalidInventoryRequestException
-    _InvalidInventoryRequestException,
-
-    -- ** InvalidNextToken
-    _InvalidNextToken,
-
-    -- ** AssociationVersionLimitExceeded
-    _AssociationVersionLimitExceeded,
-
-    -- ** MaxDocumentSizeExceeded
-    _MaxDocumentSizeExceeded,
-
-    -- ** UnsupportedOperatingSystem
-    _UnsupportedOperatingSystem,
+    -- ** OpsItemRelatedItemAlreadyExistsException
+    _OpsItemRelatedItemAlreadyExistsException,
 
     -- ** UnsupportedPlatformType
     _UnsupportedPlatformType,
 
-    -- ** AssociatedInstances
-    _AssociatedInstances,
+    -- ** InvalidFilterValue
+    _InvalidFilterValue,
 
     -- ** InvalidItemContentException
     _InvalidItemContentException,
-
-    -- ** InvalidPermissionType
-    _InvalidPermissionType,
-
-    -- ** UnsupportedInventoryItemContextException
-    _UnsupportedInventoryItemContextException,
 
     -- ** InvalidFilterOption
     _InvalidFilterOption,
@@ -419,8 +113,314 @@ module Network.AWS.SSM
     -- ** ParameterPatternMismatchException
     _ParameterPatternMismatchException,
 
+    -- ** InvalidPermissionType
+    _InvalidPermissionType,
+
+    -- ** AssociatedInstances
+    _AssociatedInstances,
+
+    -- ** UnsupportedOperatingSystem
+    _UnsupportedOperatingSystem,
+
+    -- ** InvalidInstanceId
+    _InvalidInstanceId,
+
+    -- ** StatusUnchanged
+    _StatusUnchanged,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** InvalidInventoryRequestException
+    _InvalidInventoryRequestException,
+
+    -- ** InvalidAssociation
+    _InvalidAssociation,
+
+    -- ** OpsItemAlreadyExistsException
+    _OpsItemAlreadyExistsException,
+
+    -- ** InvalidOutputFolder
+    _InvalidOutputFolder,
+
+    -- ** OpsMetadataAlreadyExistsException
+    _OpsMetadataAlreadyExistsException,
+
+    -- ** OpsItemLimitExceededException
+    _OpsItemLimitExceededException,
+
+    -- ** InvalidActivationId
+    _InvalidActivationId,
+
+    -- ** OpsMetadataLimitExceededException
+    _OpsMetadataLimitExceededException,
+
+    -- ** ServiceSettingNotFound
+    _ServiceSettingNotFound,
+
+    -- ** InvalidResultAttributeException
+    _InvalidResultAttributeException,
+
+    -- ** TargetNotConnected
+    _TargetNotConnected,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** OpsMetadataTooManyUpdatesException
+    _OpsMetadataTooManyUpdatesException,
+
+    -- ** ParameterVersionLabelLimitExceeded
+    _ParameterVersionLabelLimitExceeded,
+
+    -- ** ResourceDataSyncInvalidConfigurationException
+    _ResourceDataSyncInvalidConfigurationException,
+
+    -- ** InvalidCommandId
+    _InvalidCommandId,
+
+    -- ** DuplicateInstanceId
+    _DuplicateInstanceId,
+
+    -- ** InvalidResourceType
+    _InvalidResourceType,
+
+    -- ** UnsupportedInventorySchemaVersionException
+    _UnsupportedInventorySchemaVersionException,
+
+    -- ** InvalidDocument
+    _InvalidDocument,
+
+    -- ** IncompatiblePolicyException
+    _IncompatiblePolicyException,
+
+    -- ** AutomationDefinitionNotFoundException
+    _AutomationDefinitionNotFoundException,
+
+    -- ** InvalidPolicyTypeException
+    _InvalidPolicyTypeException,
+
+    -- ** InvalidFilterKey
+    _InvalidFilterKey,
+
+    -- ** InvalidAutomationExecutionParametersException
+    _InvalidAutomationExecutionParametersException,
+
+    -- ** AutomationExecutionNotFoundException
+    _AutomationExecutionNotFoundException,
+
+    -- ** InvalidTypeNameException
+    _InvalidTypeNameException,
+
+    -- ** ResourceDataSyncNotFoundException
+    _ResourceDataSyncNotFoundException,
+
+    -- ** ParameterMaxVersionLimitExceeded
+    _ParameterMaxVersionLimitExceeded,
+
+    -- ** ItemSizeLimitExceededException
+    _ItemSizeLimitExceededException,
+
+    -- ** ResourceDataSyncAlreadyExistsException
+    _ResourceDataSyncAlreadyExistsException,
+
+    -- ** DoesNotExistException
+    _DoesNotExistException,
+
+    -- ** ResourceDataSyncConflictException
+    _ResourceDataSyncConflictException,
+
+    -- ** OpsMetadataInvalidArgumentException
+    _OpsMetadataInvalidArgumentException,
+
+    -- ** AutomationExecutionLimitExceededException
+    _AutomationExecutionLimitExceededException,
+
+    -- ** IdempotentParameterMismatch
+    _IdempotentParameterMismatch,
+
+    -- ** InvalidInstanceInformationFilterValue
+    _InvalidInstanceInformationFilterValue,
+
+    -- ** ItemContentMismatchException
+    _ItemContentMismatchException,
+
+    -- ** ParameterAlreadyExists
+    _ParameterAlreadyExists,
+
+    -- ** AssociationAlreadyExists
+    _AssociationAlreadyExists,
+
+    -- ** ComplianceTypeCountLimitExceededException
+    _ComplianceTypeCountLimitExceededException,
+
+    -- ** InvalidDeleteInventoryParametersException
+    _InvalidDeleteInventoryParametersException,
+
+    -- ** InvalidDeletionIdException
+    _InvalidDeletionIdException,
+
+    -- ** PoliciesLimitExceededException
+    _PoliciesLimitExceededException,
+
+    -- ** InvalidDocumentContent
+    _InvalidDocumentContent,
+
+    -- ** ParameterLimitExceeded
+    _ParameterLimitExceeded,
+
+    -- ** AssociationLimitExceeded
+    _AssociationLimitExceeded,
+
+    -- ** InvalidAssociationVersion
+    _InvalidAssociationVersion,
+
+    -- ** AssociationDoesNotExist
+    _AssociationDoesNotExist,
+
+    -- ** InvalidPolicyAttributeException
+    _InvalidPolicyAttributeException,
+
+    -- ** ParameterNotFound
+    _ParameterNotFound,
+
     -- ** TargetInUseException
     _TargetInUseException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** UnsupportedInventoryItemContextException
+    _UnsupportedInventoryItemContextException,
+
+    -- ** OpsMetadataNotFoundException
+    _OpsMetadataNotFoundException,
+
+    -- ** AssociationVersionLimitExceeded
+    _AssociationVersionLimitExceeded,
+
+    -- ** InvalidRole
+    _InvalidRole,
+
+    -- ** TooManyUpdates
+    _TooManyUpdates,
+
+    -- ** DuplicateDocumentVersionName
+    _DuplicateDocumentVersionName,
+
+    -- ** OpsItemNotFoundException
+    _OpsItemNotFoundException,
+
+    -- ** InvalidActivation
+    _InvalidActivation,
+
+    -- ** InvalidOptionException
+    _InvalidOptionException,
+
+    -- ** InvalidDocumentSchemaVersion
+    _InvalidDocumentSchemaVersion,
+
+    -- ** MaxDocumentSizeExceeded
+    _MaxDocumentSizeExceeded,
+
+    -- ** ParameterVersionNotFound
+    _ParameterVersionNotFound,
+
+    -- ** UnsupportedCalendarException
+    _UnsupportedCalendarException,
+
+    -- ** InvalidUpdate
+    _InvalidUpdate,
+
+    -- ** CustomSchemaCountLimitExceededException
+    _CustomSchemaCountLimitExceededException,
+
+    -- ** AssociationExecutionDoesNotExist
+    _AssociationExecutionDoesNotExist,
+
+    -- ** InvalidTarget
+    _InvalidTarget,
+
+    -- ** HierarchyLevelLimitExceededException
+    _HierarchyLevelLimitExceededException,
+
+    -- ** InvalidInventoryGroupException
+    _InvalidInventoryGroupException,
+
+    -- ** InvalidDocumentOperation
+    _InvalidDocumentOperation,
+
+    -- ** InvocationDoesNotExist
+    _InvocationDoesNotExist,
+
+    -- ** DocumentVersionLimitExceeded
+    _DocumentVersionLimitExceeded,
+
+    -- ** InvalidOutputLocation
+    _InvalidOutputLocation,
+
+    -- ** InvalidKeyId
+    _InvalidKeyId,
+
+    -- ** InvalidParameters
+    _InvalidParameters,
+
+    -- ** AutomationDefinitionNotApprovedException
+    _AutomationDefinitionNotApprovedException,
+
+    -- ** OpsItemInvalidParameterException
+    _OpsItemInvalidParameterException,
+
+    -- ** InvalidResourceId
+    _InvalidResourceId,
+
+    -- ** InvalidAllowedPatternException
+    _InvalidAllowedPatternException,
+
+    -- ** InvalidNotificationConfig
+    _InvalidNotificationConfig,
+
+    -- ** OpsItemRelatedItemAssociationNotFoundException
+    _OpsItemRelatedItemAssociationNotFoundException,
+
+    -- ** InvalidInventoryItemContextException
+    _InvalidInventoryItemContextException,
+
+    -- ** TotalSizeLimitExceededException
+    _TotalSizeLimitExceededException,
+
+    -- ** SubTypeCountLimitExceededException
+    _SubTypeCountLimitExceededException,
+
+    -- ** InvalidDocumentType
+    _InvalidDocumentType,
+
+    -- ** TooManyTagsError
+    _TooManyTagsError,
+
+    -- ** DocumentPermissionLimit
+    _DocumentPermissionLimit,
+
+    -- ** AutomationStepNotFoundException
+    _AutomationStepNotFoundException,
+
+    -- ** DuplicateDocumentContent
+    _DuplicateDocumentContent,
+
+    -- ** DocumentAlreadyExists
+    _DocumentAlreadyExists,
+
+    -- ** DocumentLimitExceeded
+    _DocumentLimitExceeded,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** InvalidFilter
+    _InvalidFilter,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -431,77 +431,17 @@ module Network.AWS.SSM
     -- * Operations
     -- $operations
 
-    -- ** DescribeOpsItems (Paginated)
-    DescribeOpsItems (DescribeOpsItems'),
-    newDescribeOpsItems,
-    DescribeOpsItemsResponse (DescribeOpsItemsResponse'),
-    newDescribeOpsItemsResponse,
+    -- ** GetConnectionStatus
+    GetConnectionStatus (GetConnectionStatus'),
+    newGetConnectionStatus,
+    GetConnectionStatusResponse (GetConnectionStatusResponse'),
+    newGetConnectionStatusResponse,
 
-    -- ** ListResourceComplianceSummaries (Paginated)
-    ListResourceComplianceSummaries (ListResourceComplianceSummaries'),
-    newListResourceComplianceSummaries,
-    ListResourceComplianceSummariesResponse (ListResourceComplianceSummariesResponse'),
-    newListResourceComplianceSummariesResponse,
-
-    -- ** GetParameter
-    GetParameter (GetParameter'),
-    newGetParameter,
-    GetParameterResponse (GetParameterResponse'),
-    newGetParameterResponse,
-
-    -- ** GetOpsMetadata
-    GetOpsMetadata (GetOpsMetadata'),
-    newGetOpsMetadata,
-    GetOpsMetadataResponse (GetOpsMetadataResponse'),
-    newGetOpsMetadataResponse,
-
-    -- ** AssociateOpsItemRelatedItem
-    AssociateOpsItemRelatedItem (AssociateOpsItemRelatedItem'),
-    newAssociateOpsItemRelatedItem,
-    AssociateOpsItemRelatedItemResponse (AssociateOpsItemRelatedItemResponse'),
-    newAssociateOpsItemRelatedItemResponse,
-
-    -- ** DescribeParameters (Paginated)
-    DescribeParameters (DescribeParameters'),
-    newDescribeParameters,
-    DescribeParametersResponse (DescribeParametersResponse'),
-    newDescribeParametersResponse,
-
-    -- ** RegisterTaskWithMaintenanceWindow
-    RegisterTaskWithMaintenanceWindow (RegisterTaskWithMaintenanceWindow'),
-    newRegisterTaskWithMaintenanceWindow,
-    RegisterTaskWithMaintenanceWindowResponse (RegisterTaskWithMaintenanceWindowResponse'),
-    newRegisterTaskWithMaintenanceWindowResponse,
-
-    -- ** ListResourceDataSync (Paginated)
-    ListResourceDataSync (ListResourceDataSync'),
-    newListResourceDataSync,
-    ListResourceDataSyncResponse (ListResourceDataSyncResponse'),
-    newListResourceDataSyncResponse,
-
-    -- ** GetOpsItem
-    GetOpsItem (GetOpsItem'),
-    newGetOpsItem,
-    GetOpsItemResponse (GetOpsItemResponse'),
-    newGetOpsItemResponse,
-
-    -- ** DescribePatchGroups (Paginated)
-    DescribePatchGroups (DescribePatchGroups'),
-    newDescribePatchGroups,
-    DescribePatchGroupsResponse (DescribePatchGroupsResponse'),
-    newDescribePatchGroupsResponse,
-
-    -- ** TerminateSession
-    TerminateSession (TerminateSession'),
-    newTerminateSession,
-    TerminateSessionResponse (TerminateSessionResponse'),
-    newTerminateSessionResponse,
-
-    -- ** UpdateDocumentDefaultVersion
-    UpdateDocumentDefaultVersion (UpdateDocumentDefaultVersion'),
-    newUpdateDocumentDefaultVersion,
-    UpdateDocumentDefaultVersionResponse (UpdateDocumentDefaultVersionResponse'),
-    newUpdateDocumentDefaultVersionResponse,
+    -- ** DescribeInstancePatches (Paginated)
+    DescribeInstancePatches (DescribeInstancePatches'),
+    newDescribeInstancePatches,
+    DescribeInstancePatchesResponse (DescribeInstancePatchesResponse'),
+    newDescribeInstancePatchesResponse,
 
     -- ** GetInventory (Paginated)
     GetInventory (GetInventory'),
@@ -509,365 +449,11 @@ module Network.AWS.SSM
     GetInventoryResponse (GetInventoryResponse'),
     newGetInventoryResponse,
 
-    -- ** DescribeAssociation
-    DescribeAssociation (DescribeAssociation'),
-    newDescribeAssociation,
-    DescribeAssociationResponse (DescribeAssociationResponse'),
-    newDescribeAssociationResponse,
-
-    -- ** DescribeAssociationExecutionTargets (Paginated)
-    DescribeAssociationExecutionTargets (DescribeAssociationExecutionTargets'),
-    newDescribeAssociationExecutionTargets,
-    DescribeAssociationExecutionTargetsResponse (DescribeAssociationExecutionTargetsResponse'),
-    newDescribeAssociationExecutionTargetsResponse,
-
-    -- ** DeregisterManagedInstance
-    DeregisterManagedInstance (DeregisterManagedInstance'),
-    newDeregisterManagedInstance,
-    DeregisterManagedInstanceResponse (DeregisterManagedInstanceResponse'),
-    newDeregisterManagedInstanceResponse,
-
-    -- ** UpdateAssociationStatus
-    UpdateAssociationStatus (UpdateAssociationStatus'),
-    newUpdateAssociationStatus,
-    UpdateAssociationStatusResponse (UpdateAssociationStatusResponse'),
-    newUpdateAssociationStatusResponse,
-
-    -- ** CreatePatchBaseline
-    CreatePatchBaseline (CreatePatchBaseline'),
-    newCreatePatchBaseline,
-    CreatePatchBaselineResponse (CreatePatchBaselineResponse'),
-    newCreatePatchBaselineResponse,
-
-    -- ** UpdateMaintenanceWindowTarget
-    UpdateMaintenanceWindowTarget (UpdateMaintenanceWindowTarget'),
-    newUpdateMaintenanceWindowTarget,
-    UpdateMaintenanceWindowTargetResponse (UpdateMaintenanceWindowTargetResponse'),
-    newUpdateMaintenanceWindowTargetResponse,
-
-    -- ** DescribeAutomationStepExecutions (Paginated)
-    DescribeAutomationStepExecutions (DescribeAutomationStepExecutions'),
-    newDescribeAutomationStepExecutions,
-    DescribeAutomationStepExecutionsResponse (DescribeAutomationStepExecutionsResponse'),
-    newDescribeAutomationStepExecutionsResponse,
-
-    -- ** GetCommandInvocation
-    GetCommandInvocation (GetCommandInvocation'),
-    newGetCommandInvocation,
-    GetCommandInvocationResponse (GetCommandInvocationResponse'),
-    newGetCommandInvocationResponse,
-
-    -- ** DeregisterTargetFromMaintenanceWindow
-    DeregisterTargetFromMaintenanceWindow (DeregisterTargetFromMaintenanceWindow'),
-    newDeregisterTargetFromMaintenanceWindow,
-    DeregisterTargetFromMaintenanceWindowResponse (DeregisterTargetFromMaintenanceWindowResponse'),
-    newDeregisterTargetFromMaintenanceWindowResponse,
-
-    -- ** GetOpsSummary (Paginated)
-    GetOpsSummary (GetOpsSummary'),
-    newGetOpsSummary,
-    GetOpsSummaryResponse (GetOpsSummaryResponse'),
-    newGetOpsSummaryResponse,
-
-    -- ** ResetServiceSetting
-    ResetServiceSetting (ResetServiceSetting'),
-    newResetServiceSetting,
-    ResetServiceSettingResponse (ResetServiceSettingResponse'),
-    newResetServiceSettingResponse,
-
-    -- ** ListDocuments (Paginated)
-    ListDocuments (ListDocuments'),
-    newListDocuments,
-    ListDocumentsResponse (ListDocumentsResponse'),
-    newListDocumentsResponse,
-
-    -- ** DescribeInstancePatchStates (Paginated)
-    DescribeInstancePatchStates (DescribeInstancePatchStates'),
-    newDescribeInstancePatchStates,
-    DescribeInstancePatchStatesResponse (DescribeInstancePatchStatesResponse'),
-    newDescribeInstancePatchStatesResponse,
-
-    -- ** UnlabelParameterVersion
-    UnlabelParameterVersion (UnlabelParameterVersion'),
-    newUnlabelParameterVersion,
-    UnlabelParameterVersionResponse (UnlabelParameterVersionResponse'),
-    newUnlabelParameterVersionResponse,
-
-    -- ** UpdateDocument
-    UpdateDocument (UpdateDocument'),
-    newUpdateDocument,
-    UpdateDocumentResponse (UpdateDocumentResponse'),
-    newUpdateDocumentResponse,
-
-    -- ** DeleteDocument
-    DeleteDocument (DeleteDocument'),
-    newDeleteDocument,
-    DeleteDocumentResponse (DeleteDocumentResponse'),
-    newDeleteDocumentResponse,
-
-    -- ** ListCommands (Paginated)
-    ListCommands (ListCommands'),
-    newListCommands,
-    ListCommandsResponse (ListCommandsResponse'),
-    newListCommandsResponse,
-
-    -- ** StartSession
-    StartSession (StartSession'),
-    newStartSession,
-    StartSessionResponse (StartSessionResponse'),
-    newStartSessionResponse,
-
-    -- ** CreateDocument
-    CreateDocument (CreateDocument'),
-    newCreateDocument,
-    CreateDocumentResponse (CreateDocumentResponse'),
-    newCreateDocumentResponse,
-
-    -- ** DeleteInventory
-    DeleteInventory (DeleteInventory'),
-    newDeleteInventory,
-    DeleteInventoryResponse (DeleteInventoryResponse'),
-    newDeleteInventoryResponse,
-
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** DeleteParameters
-    DeleteParameters (DeleteParameters'),
-    newDeleteParameters,
-    DeleteParametersResponse (DeleteParametersResponse'),
-    newDeleteParametersResponse,
-
-    -- ** SendCommand
-    SendCommand (SendCommand'),
-    newSendCommand,
-    SendCommandResponse (SendCommandResponse'),
-    newSendCommandResponse,
-
-    -- ** GetCalendarState
-    GetCalendarState (GetCalendarState'),
-    newGetCalendarState,
-    GetCalendarStateResponse (GetCalendarStateResponse'),
-    newGetCalendarStateResponse,
-
-    -- ** DescribeEffectiveInstanceAssociations (Paginated)
-    DescribeEffectiveInstanceAssociations (DescribeEffectiveInstanceAssociations'),
-    newDescribeEffectiveInstanceAssociations,
-    DescribeEffectiveInstanceAssociationsResponse (DescribeEffectiveInstanceAssociationsResponse'),
-    newDescribeEffectiveInstanceAssociationsResponse,
-
-    -- ** RegisterTargetWithMaintenanceWindow
-    RegisterTargetWithMaintenanceWindow (RegisterTargetWithMaintenanceWindow'),
-    newRegisterTargetWithMaintenanceWindow,
-    RegisterTargetWithMaintenanceWindowResponse (RegisterTargetWithMaintenanceWindowResponse'),
-    newRegisterTargetWithMaintenanceWindowResponse,
-
-    -- ** ListOpsMetadata (Paginated)
-    ListOpsMetadata (ListOpsMetadata'),
-    newListOpsMetadata,
-    ListOpsMetadataResponse (ListOpsMetadataResponse'),
-    newListOpsMetadataResponse,
-
-    -- ** DeleteParameter
-    DeleteParameter (DeleteParameter'),
-    newDeleteParameter,
-    DeleteParameterResponse (DeleteParameterResponse'),
-    newDeleteParameterResponse,
-
-    -- ** CreateActivation
-    CreateActivation (CreateActivation'),
-    newCreateActivation,
-    CreateActivationResponse (CreateActivationResponse'),
-    newCreateActivationResponse,
-
-    -- ** UpdateAssociation
-    UpdateAssociation (UpdateAssociation'),
-    newUpdateAssociation,
-    UpdateAssociationResponse (UpdateAssociationResponse'),
-    newUpdateAssociationResponse,
-
-    -- ** DeleteOpsMetadata
-    DeleteOpsMetadata (DeleteOpsMetadata'),
-    newDeleteOpsMetadata,
-    DeleteOpsMetadataResponse (DeleteOpsMetadataResponse'),
-    newDeleteOpsMetadataResponse,
-
-    -- ** UpdateOpsMetadata
-    UpdateOpsMetadata (UpdateOpsMetadata'),
-    newUpdateOpsMetadata,
-    UpdateOpsMetadataResponse (UpdateOpsMetadataResponse'),
-    newUpdateOpsMetadataResponse,
-
-    -- ** DeleteAssociation
-    DeleteAssociation (DeleteAssociation'),
-    newDeleteAssociation,
-    DeleteAssociationResponse (DeleteAssociationResponse'),
-    newDeleteAssociationResponse,
-
-    -- ** DescribeMaintenanceWindowExecutionTaskInvocations (Paginated)
-    DescribeMaintenanceWindowExecutionTaskInvocations (DescribeMaintenanceWindowExecutionTaskInvocations'),
-    newDescribeMaintenanceWindowExecutionTaskInvocations,
-    DescribeMaintenanceWindowExecutionTaskInvocationsResponse (DescribeMaintenanceWindowExecutionTaskInvocationsResponse'),
-    newDescribeMaintenanceWindowExecutionTaskInvocationsResponse,
-
-    -- ** UpdateOpsItem
-    UpdateOpsItem (UpdateOpsItem'),
-    newUpdateOpsItem,
-    UpdateOpsItemResponse (UpdateOpsItemResponse'),
-    newUpdateOpsItemResponse,
-
-    -- ** DescribeSessions (Paginated)
-    DescribeSessions (DescribeSessions'),
-    newDescribeSessions,
-    DescribeSessionsResponse (DescribeSessionsResponse'),
-    newDescribeSessionsResponse,
-
-    -- ** DescribeInstanceInformation (Paginated)
-    DescribeInstanceInformation (DescribeInstanceInformation'),
-    newDescribeInstanceInformation,
-    DescribeInstanceInformationResponse (DescribeInstanceInformationResponse'),
-    newDescribeInstanceInformationResponse,
-
-    -- ** GetMaintenanceWindowExecutionTaskInvocation
-    GetMaintenanceWindowExecutionTaskInvocation (GetMaintenanceWindowExecutionTaskInvocation'),
-    newGetMaintenanceWindowExecutionTaskInvocation,
-    GetMaintenanceWindowExecutionTaskInvocationResponse (GetMaintenanceWindowExecutionTaskInvocationResponse'),
-    newGetMaintenanceWindowExecutionTaskInvocationResponse,
-
-    -- ** StartChangeRequestExecution
-    StartChangeRequestExecution (StartChangeRequestExecution'),
-    newStartChangeRequestExecution,
-    StartChangeRequestExecutionResponse (StartChangeRequestExecutionResponse'),
-    newStartChangeRequestExecutionResponse,
-
-    -- ** ListComplianceSummaries (Paginated)
-    ListComplianceSummaries (ListComplianceSummaries'),
-    newListComplianceSummaries,
-    ListComplianceSummariesResponse (ListComplianceSummariesResponse'),
-    newListComplianceSummariesResponse,
-
-    -- ** DescribeMaintenanceWindowExecutions (Paginated)
-    DescribeMaintenanceWindowExecutions (DescribeMaintenanceWindowExecutions'),
-    newDescribeMaintenanceWindowExecutions,
-    DescribeMaintenanceWindowExecutionsResponse (DescribeMaintenanceWindowExecutionsResponse'),
-    newDescribeMaintenanceWindowExecutionsResponse,
-
-    -- ** CreateOpsItem
-    CreateOpsItem (CreateOpsItem'),
-    newCreateOpsItem,
-    CreateOpsItemResponse (CreateOpsItemResponse'),
-    newCreateOpsItemResponse,
-
-    -- ** DescribeMaintenanceWindowsForTarget (Paginated)
-    DescribeMaintenanceWindowsForTarget (DescribeMaintenanceWindowsForTarget'),
-    newDescribeMaintenanceWindowsForTarget,
-    DescribeMaintenanceWindowsForTargetResponse (DescribeMaintenanceWindowsForTargetResponse'),
-    newDescribeMaintenanceWindowsForTargetResponse,
-
-    -- ** CreateAssociation
-    CreateAssociation (CreateAssociation'),
-    newCreateAssociation,
-    CreateAssociationResponse (CreateAssociationResponse'),
-    newCreateAssociationResponse,
-
-    -- ** CreateOpsMetadata
-    CreateOpsMetadata (CreateOpsMetadata'),
-    newCreateOpsMetadata,
-    CreateOpsMetadataResponse (CreateOpsMetadataResponse'),
-    newCreateOpsMetadataResponse,
-
-    -- ** SendAutomationSignal
-    SendAutomationSignal (SendAutomationSignal'),
-    newSendAutomationSignal,
-    SendAutomationSignalResponse (SendAutomationSignalResponse'),
-    newSendAutomationSignalResponse,
-
-    -- ** DescribeDocument
-    DescribeDocument (DescribeDocument'),
-    newDescribeDocument,
-    DescribeDocumentResponse (DescribeDocumentResponse'),
-    newDescribeDocumentResponse,
-
-    -- ** ListAssociationVersions (Paginated)
-    ListAssociationVersions (ListAssociationVersions'),
-    newListAssociationVersions,
-    ListAssociationVersionsResponse (ListAssociationVersionsResponse'),
-    newListAssociationVersionsResponse,
-
-    -- ** ListOpsItemRelatedItems (Paginated)
-    ListOpsItemRelatedItems (ListOpsItemRelatedItems'),
-    newListOpsItemRelatedItems,
-    ListOpsItemRelatedItemsResponse (ListOpsItemRelatedItemsResponse'),
-    newListOpsItemRelatedItemsResponse,
-
-    -- ** PutComplianceItems
-    PutComplianceItems (PutComplianceItems'),
-    newPutComplianceItems,
-    PutComplianceItemsResponse (PutComplianceItemsResponse'),
-    newPutComplianceItemsResponse,
-
-    -- ** DeregisterTaskFromMaintenanceWindow
-    DeregisterTaskFromMaintenanceWindow (DeregisterTaskFromMaintenanceWindow'),
-    newDeregisterTaskFromMaintenanceWindow,
-    DeregisterTaskFromMaintenanceWindowResponse (DeregisterTaskFromMaintenanceWindowResponse'),
-    newDeregisterTaskFromMaintenanceWindowResponse,
-
-    -- ** GetMaintenanceWindowTask
-    GetMaintenanceWindowTask (GetMaintenanceWindowTask'),
-    newGetMaintenanceWindowTask,
-    GetMaintenanceWindowTaskResponse (GetMaintenanceWindowTaskResponse'),
-    newGetMaintenanceWindowTaskResponse,
-
-    -- ** DeregisterPatchBaselineForPatchGroup
-    DeregisterPatchBaselineForPatchGroup (DeregisterPatchBaselineForPatchGroup'),
-    newDeregisterPatchBaselineForPatchGroup,
-    DeregisterPatchBaselineForPatchGroupResponse (DeregisterPatchBaselineForPatchGroupResponse'),
-    newDeregisterPatchBaselineForPatchGroupResponse,
-
-    -- ** DescribeMaintenanceWindows (Paginated)
-    DescribeMaintenanceWindows (DescribeMaintenanceWindows'),
-    newDescribeMaintenanceWindows,
-    DescribeMaintenanceWindowsResponse (DescribeMaintenanceWindowsResponse'),
-    newDescribeMaintenanceWindowsResponse,
-
-    -- ** GetDeployablePatchSnapshotForInstance
-    GetDeployablePatchSnapshotForInstance (GetDeployablePatchSnapshotForInstance'),
-    newGetDeployablePatchSnapshotForInstance,
-    GetDeployablePatchSnapshotForInstanceResponse (GetDeployablePatchSnapshotForInstanceResponse'),
-    newGetDeployablePatchSnapshotForInstanceResponse,
-
-    -- ** ResumeSession
-    ResumeSession (ResumeSession'),
-    newResumeSession,
-    ResumeSessionResponse (ResumeSessionResponse'),
-    newResumeSessionResponse,
-
-    -- ** GetMaintenanceWindow
-    GetMaintenanceWindow (GetMaintenanceWindow'),
-    newGetMaintenanceWindow,
-    GetMaintenanceWindowResponse (GetMaintenanceWindowResponse'),
-    newGetMaintenanceWindowResponse,
-
-    -- ** RegisterDefaultPatchBaseline
-    RegisterDefaultPatchBaseline (RegisterDefaultPatchBaseline'),
-    newRegisterDefaultPatchBaseline,
-    RegisterDefaultPatchBaselineResponse (RegisterDefaultPatchBaselineResponse'),
-    newRegisterDefaultPatchBaselineResponse,
-
-    -- ** ListDocumentVersions (Paginated)
-    ListDocumentVersions (ListDocumentVersions'),
-    newListDocumentVersions,
-    ListDocumentVersionsResponse (ListDocumentVersionsResponse'),
-    newListDocumentVersionsResponse,
-
-    -- ** UpdateResourceDataSync
-    UpdateResourceDataSync (UpdateResourceDataSync'),
-    newUpdateResourceDataSync,
-    UpdateResourceDataSyncResponse (UpdateResourceDataSyncResponse'),
-    newUpdateResourceDataSyncResponse,
+    -- ** GetParameters
+    GetParameters (GetParameters'),
+    newGetParameters,
+    GetParametersResponse (GetParametersResponse'),
+    newGetParametersResponse,
 
     -- ** DeletePatchBaseline
     DeletePatchBaseline (DeletePatchBaseline'),
@@ -881,329 +467,83 @@ module Network.AWS.SSM
     UpdatePatchBaselineResponse (UpdatePatchBaselineResponse'),
     newUpdatePatchBaselineResponse,
 
-    -- ** DescribeInstancePatches (Paginated)
-    DescribeInstancePatches (DescribeInstancePatches'),
-    newDescribeInstancePatches,
-    DescribeInstancePatchesResponse (DescribeInstancePatchesResponse'),
-    newDescribeInstancePatchesResponse,
-
-    -- ** DescribeAvailablePatches (Paginated)
-    DescribeAvailablePatches (DescribeAvailablePatches'),
-    newDescribeAvailablePatches,
-    DescribeAvailablePatchesResponse (DescribeAvailablePatchesResponse'),
-    newDescribeAvailablePatchesResponse,
-
-    -- ** DescribeInstancePatchStatesForPatchGroup (Paginated)
-    DescribeInstancePatchStatesForPatchGroup (DescribeInstancePatchStatesForPatchGroup'),
-    newDescribeInstancePatchStatesForPatchGroup,
-    DescribeInstancePatchStatesForPatchGroupResponse (DescribeInstancePatchStatesForPatchGroupResponse'),
-    newDescribeInstancePatchStatesForPatchGroupResponse,
-
-    -- ** DeleteResourceDataSync
-    DeleteResourceDataSync (DeleteResourceDataSync'),
-    newDeleteResourceDataSync,
-    DeleteResourceDataSyncResponse (DeleteResourceDataSyncResponse'),
-    newDeleteResourceDataSyncResponse,
-
-    -- ** GetParameters
-    GetParameters (GetParameters'),
-    newGetParameters,
-    GetParametersResponse (GetParametersResponse'),
-    newGetParametersResponse,
-
-    -- ** GetConnectionStatus
-    GetConnectionStatus (GetConnectionStatus'),
-    newGetConnectionStatus,
-    GetConnectionStatusResponse (GetConnectionStatusResponse'),
-    newGetConnectionStatusResponse,
-
-    -- ** ModifyDocumentPermission
-    ModifyDocumentPermission (ModifyDocumentPermission'),
-    newModifyDocumentPermission,
-    ModifyDocumentPermissionResponse (ModifyDocumentPermissionResponse'),
-    newModifyDocumentPermissionResponse,
-
     -- ** ListOpsItemEvents (Paginated)
     ListOpsItemEvents (ListOpsItemEvents'),
     newListOpsItemEvents,
     ListOpsItemEventsResponse (ListOpsItemEventsResponse'),
     newListOpsItemEventsResponse,
 
-    -- ** AddTagsToResource
-    AddTagsToResource (AddTagsToResource'),
-    newAddTagsToResource,
-    AddTagsToResourceResponse (AddTagsToResourceResponse'),
-    newAddTagsToResourceResponse,
+    -- ** TerminateSession
+    TerminateSession (TerminateSession'),
+    newTerminateSession,
+    TerminateSessionResponse (TerminateSessionResponse'),
+    newTerminateSessionResponse,
 
-    -- ** DescribeDocumentPermission
-    DescribeDocumentPermission (DescribeDocumentPermission'),
-    newDescribeDocumentPermission,
-    DescribeDocumentPermissionResponse (DescribeDocumentPermissionResponse'),
-    newDescribeDocumentPermissionResponse,
+    -- ** GetParameter
+    GetParameter (GetParameter'),
+    newGetParameter,
+    GetParameterResponse (GetParameterResponse'),
+    newGetParameterResponse,
 
-    -- ** CreateResourceDataSync
-    CreateResourceDataSync (CreateResourceDataSync'),
-    newCreateResourceDataSync,
-    CreateResourceDataSyncResponse (CreateResourceDataSyncResponse'),
-    newCreateResourceDataSyncResponse,
+    -- ** GetOpsMetadata
+    GetOpsMetadata (GetOpsMetadata'),
+    newGetOpsMetadata,
+    GetOpsMetadataResponse (GetOpsMetadataResponse'),
+    newGetOpsMetadataResponse,
 
-    -- ** GetPatchBaselineForPatchGroup
-    GetPatchBaselineForPatchGroup (GetPatchBaselineForPatchGroup'),
-    newGetPatchBaselineForPatchGroup,
-    GetPatchBaselineForPatchGroupResponse (GetPatchBaselineForPatchGroupResponse'),
-    newGetPatchBaselineForPatchGroupResponse,
+    -- ** UpdateDocumentDefaultVersion
+    UpdateDocumentDefaultVersion (UpdateDocumentDefaultVersion'),
+    newUpdateDocumentDefaultVersion,
+    UpdateDocumentDefaultVersionResponse (UpdateDocumentDefaultVersionResponse'),
+    newUpdateDocumentDefaultVersionResponse,
 
-    -- ** UpdateManagedInstanceRole
-    UpdateManagedInstanceRole (UpdateManagedInstanceRole'),
-    newUpdateManagedInstanceRole,
-    UpdateManagedInstanceRoleResponse (UpdateManagedInstanceRoleResponse'),
-    newUpdateManagedInstanceRoleResponse,
+    -- ** ListResourceDataSync (Paginated)
+    ListResourceDataSync (ListResourceDataSync'),
+    newListResourceDataSync,
+    ListResourceDataSyncResponse (ListResourceDataSyncResponse'),
+    newListResourceDataSyncResponse,
 
-    -- ** DescribeMaintenanceWindowSchedule (Paginated)
-    DescribeMaintenanceWindowSchedule (DescribeMaintenanceWindowSchedule'),
-    newDescribeMaintenanceWindowSchedule,
-    DescribeMaintenanceWindowScheduleResponse (DescribeMaintenanceWindowScheduleResponse'),
-    newDescribeMaintenanceWindowScheduleResponse,
+    -- ** GetOpsItem
+    GetOpsItem (GetOpsItem'),
+    newGetOpsItem,
+    GetOpsItemResponse (GetOpsItemResponse'),
+    newGetOpsItemResponse,
 
-    -- ** CancelCommand
-    CancelCommand (CancelCommand'),
-    newCancelCommand,
-    CancelCommandResponse (CancelCommandResponse'),
-    newCancelCommandResponse,
+    -- ** ResumeSession
+    ResumeSession (ResumeSession'),
+    newResumeSession,
+    ResumeSessionResponse (ResumeSessionResponse'),
+    newResumeSessionResponse,
 
-    -- ** GetDocument
-    GetDocument (GetDocument'),
-    newGetDocument,
-    GetDocumentResponse (GetDocumentResponse'),
-    newGetDocumentResponse,
+    -- ** GetDeployablePatchSnapshotForInstance
+    GetDeployablePatchSnapshotForInstance (GetDeployablePatchSnapshotForInstance'),
+    newGetDeployablePatchSnapshotForInstance,
+    GetDeployablePatchSnapshotForInstanceResponse (GetDeployablePatchSnapshotForInstanceResponse'),
+    newGetDeployablePatchSnapshotForInstanceResponse,
 
-    -- ** ListComplianceItems (Paginated)
-    ListComplianceItems (ListComplianceItems'),
-    newListComplianceItems,
-    ListComplianceItemsResponse (ListComplianceItemsResponse'),
-    newListComplianceItemsResponse,
+    -- ** DescribeParameters (Paginated)
+    DescribeParameters (DescribeParameters'),
+    newDescribeParameters,
+    DescribeParametersResponse (DescribeParametersResponse'),
+    newDescribeParametersResponse,
 
-    -- ** CreateAssociationBatch
-    CreateAssociationBatch (CreateAssociationBatch'),
-    newCreateAssociationBatch,
-    CreateAssociationBatchResponse (CreateAssociationBatchResponse'),
-    newCreateAssociationBatchResponse,
+    -- ** DescribeOpsItems (Paginated)
+    DescribeOpsItems (DescribeOpsItems'),
+    newDescribeOpsItems,
+    DescribeOpsItemsResponse (DescribeOpsItemsResponse'),
+    newDescribeOpsItemsResponse,
 
-    -- ** DisassociateOpsItemRelatedItem
-    DisassociateOpsItemRelatedItem (DisassociateOpsItemRelatedItem'),
-    newDisassociateOpsItemRelatedItem,
-    DisassociateOpsItemRelatedItemResponse (DisassociateOpsItemRelatedItemResponse'),
-    newDisassociateOpsItemRelatedItemResponse,
+    -- ** GetParametersByPath (Paginated)
+    GetParametersByPath (GetParametersByPath'),
+    newGetParametersByPath,
+    GetParametersByPathResponse (GetParametersByPathResponse'),
+    newGetParametersByPathResponse,
 
-    -- ** ListCommandInvocations (Paginated)
-    ListCommandInvocations (ListCommandInvocations'),
-    newListCommandInvocations,
-    ListCommandInvocationsResponse (ListCommandInvocationsResponse'),
-    newListCommandInvocationsResponse,
-
-    -- ** RegisterPatchBaselineForPatchGroup
-    RegisterPatchBaselineForPatchGroup (RegisterPatchBaselineForPatchGroup'),
-    newRegisterPatchBaselineForPatchGroup,
-    RegisterPatchBaselineForPatchGroupResponse (RegisterPatchBaselineForPatchGroupResponse'),
-    newRegisterPatchBaselineForPatchGroupResponse,
-
-    -- ** DescribeEffectivePatchesForPatchBaseline (Paginated)
-    DescribeEffectivePatchesForPatchBaseline (DescribeEffectivePatchesForPatchBaseline'),
-    newDescribeEffectivePatchesForPatchBaseline,
-    DescribeEffectivePatchesForPatchBaselineResponse (DescribeEffectivePatchesForPatchBaselineResponse'),
-    newDescribeEffectivePatchesForPatchBaselineResponse,
-
-    -- ** DescribeMaintenanceWindowTargets (Paginated)
-    DescribeMaintenanceWindowTargets (DescribeMaintenanceWindowTargets'),
-    newDescribeMaintenanceWindowTargets,
-    DescribeMaintenanceWindowTargetsResponse (DescribeMaintenanceWindowTargetsResponse'),
-    newDescribeMaintenanceWindowTargetsResponse,
-
-    -- ** DescribeAutomationExecutions (Paginated)
-    DescribeAutomationExecutions (DescribeAutomationExecutions'),
-    newDescribeAutomationExecutions,
-    DescribeAutomationExecutionsResponse (DescribeAutomationExecutionsResponse'),
-    newDescribeAutomationExecutionsResponse,
-
-    -- ** DescribePatchBaselines (Paginated)
-    DescribePatchBaselines (DescribePatchBaselines'),
-    newDescribePatchBaselines,
-    DescribePatchBaselinesResponse (DescribePatchBaselinesResponse'),
-    newDescribePatchBaselinesResponse,
-
-    -- ** DescribePatchGroupState
-    DescribePatchGroupState (DescribePatchGroupState'),
-    newDescribePatchGroupState,
-    DescribePatchGroupStateResponse (DescribePatchGroupStateResponse'),
-    newDescribePatchGroupStateResponse,
-
-    -- ** UpdateDocumentMetadata
-    UpdateDocumentMetadata (UpdateDocumentMetadata'),
-    newUpdateDocumentMetadata,
-    UpdateDocumentMetadataResponse (UpdateDocumentMetadataResponse'),
-    newUpdateDocumentMetadataResponse,
-
-    -- ** GetPatchBaseline
-    GetPatchBaseline (GetPatchBaseline'),
-    newGetPatchBaseline,
-    GetPatchBaselineResponse (GetPatchBaselineResponse'),
-    newGetPatchBaselineResponse,
-
-    -- ** PutInventory
-    PutInventory (PutInventory'),
-    newPutInventory,
-    PutInventoryResponse (PutInventoryResponse'),
-    newPutInventoryResponse,
-
-    -- ** GetAutomationExecution
-    GetAutomationExecution (GetAutomationExecution'),
-    newGetAutomationExecution,
-    GetAutomationExecutionResponse (GetAutomationExecutionResponse'),
-    newGetAutomationExecutionResponse,
-
-    -- ** UpdateMaintenanceWindow
-    UpdateMaintenanceWindow (UpdateMaintenanceWindow'),
-    newUpdateMaintenanceWindow,
-    UpdateMaintenanceWindowResponse (UpdateMaintenanceWindowResponse'),
-    newUpdateMaintenanceWindowResponse,
-
-    -- ** DescribeInventoryDeletions (Paginated)
-    DescribeInventoryDeletions (DescribeInventoryDeletions'),
-    newDescribeInventoryDeletions,
-    DescribeInventoryDeletionsResponse (DescribeInventoryDeletionsResponse'),
-    newDescribeInventoryDeletionsResponse,
-
-    -- ** DeleteMaintenanceWindow
-    DeleteMaintenanceWindow (DeleteMaintenanceWindow'),
-    newDeleteMaintenanceWindow,
-    DeleteMaintenanceWindowResponse (DeleteMaintenanceWindowResponse'),
-    newDeleteMaintenanceWindowResponse,
-
-    -- ** ListAssociations (Paginated)
-    ListAssociations (ListAssociations'),
-    newListAssociations,
-    ListAssociationsResponse (ListAssociationsResponse'),
-    newListAssociationsResponse,
-
-    -- ** PutParameter
-    PutParameter (PutParameter'),
-    newPutParameter,
-    PutParameterResponse (PutParameterResponse'),
-    newPutParameterResponse,
-
-    -- ** GetMaintenanceWindowExecutionTask
-    GetMaintenanceWindowExecutionTask (GetMaintenanceWindowExecutionTask'),
-    newGetMaintenanceWindowExecutionTask,
-    GetMaintenanceWindowExecutionTaskResponse (GetMaintenanceWindowExecutionTaskResponse'),
-    newGetMaintenanceWindowExecutionTaskResponse,
-
-    -- ** DescribeMaintenanceWindowExecutionTasks (Paginated)
-    DescribeMaintenanceWindowExecutionTasks (DescribeMaintenanceWindowExecutionTasks'),
-    newDescribeMaintenanceWindowExecutionTasks,
-    DescribeMaintenanceWindowExecutionTasksResponse (DescribeMaintenanceWindowExecutionTasksResponse'),
-    newDescribeMaintenanceWindowExecutionTasksResponse,
-
-    -- ** GetDefaultPatchBaseline
-    GetDefaultPatchBaseline (GetDefaultPatchBaseline'),
-    newGetDefaultPatchBaseline,
-    GetDefaultPatchBaselineResponse (GetDefaultPatchBaselineResponse'),
-    newGetDefaultPatchBaselineResponse,
-
-    -- ** DescribeAssociationExecutions (Paginated)
-    DescribeAssociationExecutions (DescribeAssociationExecutions'),
-    newDescribeAssociationExecutions,
-    DescribeAssociationExecutionsResponse (DescribeAssociationExecutionsResponse'),
-    newDescribeAssociationExecutionsResponse,
-
-    -- ** CancelMaintenanceWindowExecution
-    CancelMaintenanceWindowExecution (CancelMaintenanceWindowExecution'),
-    newCancelMaintenanceWindowExecution,
-    CancelMaintenanceWindowExecutionResponse (CancelMaintenanceWindowExecutionResponse'),
-    newCancelMaintenanceWindowExecutionResponse,
-
-    -- ** StopAutomationExecution
-    StopAutomationExecution (StopAutomationExecution'),
-    newStopAutomationExecution,
-    StopAutomationExecutionResponse (StopAutomationExecutionResponse'),
-    newStopAutomationExecutionResponse,
-
-    -- ** GetInventorySchema (Paginated)
-    GetInventorySchema (GetInventorySchema'),
-    newGetInventorySchema,
-    GetInventorySchemaResponse (GetInventorySchemaResponse'),
-    newGetInventorySchemaResponse,
-
-    -- ** CreateMaintenanceWindow
-    CreateMaintenanceWindow (CreateMaintenanceWindow'),
-    newCreateMaintenanceWindow,
-    CreateMaintenanceWindowResponse (CreateMaintenanceWindowResponse'),
-    newCreateMaintenanceWindowResponse,
-
-    -- ** GetParameterHistory (Paginated)
-    GetParameterHistory (GetParameterHistory'),
-    newGetParameterHistory,
-    GetParameterHistoryResponse (GetParameterHistoryResponse'),
-    newGetParameterHistoryResponse,
-
-    -- ** DeleteActivation
-    DeleteActivation (DeleteActivation'),
-    newDeleteActivation,
-    DeleteActivationResponse (DeleteActivationResponse'),
-    newDeleteActivationResponse,
-
-    -- ** UpdateMaintenanceWindowTask
-    UpdateMaintenanceWindowTask (UpdateMaintenanceWindowTask'),
-    newUpdateMaintenanceWindowTask,
-    UpdateMaintenanceWindowTaskResponse (UpdateMaintenanceWindowTaskResponse'),
-    newUpdateMaintenanceWindowTaskResponse,
-
-    -- ** StartAutomationExecution
-    StartAutomationExecution (StartAutomationExecution'),
-    newStartAutomationExecution,
-    StartAutomationExecutionResponse (StartAutomationExecutionResponse'),
-    newStartAutomationExecutionResponse,
-
-    -- ** GetServiceSetting
-    GetServiceSetting (GetServiceSetting'),
-    newGetServiceSetting,
-    GetServiceSettingResponse (GetServiceSettingResponse'),
-    newGetServiceSettingResponse,
-
-    -- ** LabelParameterVersion
-    LabelParameterVersion (LabelParameterVersion'),
-    newLabelParameterVersion,
-    LabelParameterVersionResponse (LabelParameterVersionResponse'),
-    newLabelParameterVersionResponse,
-
-    -- ** GetMaintenanceWindowExecution
-    GetMaintenanceWindowExecution (GetMaintenanceWindowExecution'),
-    newGetMaintenanceWindowExecution,
-    GetMaintenanceWindowExecutionResponse (GetMaintenanceWindowExecutionResponse'),
-    newGetMaintenanceWindowExecutionResponse,
-
-    -- ** StartAssociationsOnce
-    StartAssociationsOnce (StartAssociationsOnce'),
-    newStartAssociationsOnce,
-    StartAssociationsOnceResponse (StartAssociationsOnceResponse'),
-    newStartAssociationsOnceResponse,
-
-    -- ** DescribePatchProperties (Paginated)
-    DescribePatchProperties (DescribePatchProperties'),
-    newDescribePatchProperties,
-    DescribePatchPropertiesResponse (DescribePatchPropertiesResponse'),
-    newDescribePatchPropertiesResponse,
-
-    -- ** ListInventoryEntries
-    ListInventoryEntries (ListInventoryEntries'),
-    newListInventoryEntries,
-    ListInventoryEntriesResponse (ListInventoryEntriesResponse'),
-    newListInventoryEntriesResponse,
-
-    -- ** DescribeMaintenanceWindowTasks (Paginated)
-    DescribeMaintenanceWindowTasks (DescribeMaintenanceWindowTasks'),
-    newDescribeMaintenanceWindowTasks,
-    DescribeMaintenanceWindowTasksResponse (DescribeMaintenanceWindowTasksResponse'),
-    newDescribeMaintenanceWindowTasksResponse,
+    -- ** PutComplianceItems
+    PutComplianceItems (PutComplianceItems'),
+    newPutComplianceItems,
+    PutComplianceItemsResponse (PutComplianceItemsResponse'),
+    newPutComplianceItemsResponse,
 
     -- ** ListDocumentMetadataHistory
     ListDocumentMetadataHistory (ListDocumentMetadataHistory'),
@@ -1217,17 +557,395 @@ module Network.AWS.SSM
     DescribeActivationsResponse (DescribeActivationsResponse'),
     newDescribeActivationsResponse,
 
+    -- ** GetMaintenanceWindowTask
+    GetMaintenanceWindowTask (GetMaintenanceWindowTask'),
+    newGetMaintenanceWindowTask,
+    GetMaintenanceWindowTaskResponse (GetMaintenanceWindowTaskResponse'),
+    newGetMaintenanceWindowTaskResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** GetParametersByPath (Paginated)
-    GetParametersByPath (GetParametersByPath'),
-    newGetParametersByPath,
-    GetParametersByPathResponse (GetParametersByPathResponse'),
-    newGetParametersByPathResponse,
+    -- ** DescribeDocument
+    DescribeDocument (DescribeDocument'),
+    newDescribeDocument,
+    DescribeDocumentResponse (DescribeDocumentResponse'),
+    newDescribeDocumentResponse,
+
+    -- ** DescribePatchProperties (Paginated)
+    DescribePatchProperties (DescribePatchProperties'),
+    newDescribePatchProperties,
+    DescribePatchPropertiesResponse (DescribePatchPropertiesResponse'),
+    newDescribePatchPropertiesResponse,
+
+    -- ** CreateAssociation
+    CreateAssociation (CreateAssociation'),
+    newCreateAssociation,
+    CreateAssociationResponse (CreateAssociationResponse'),
+    newCreateAssociationResponse,
+
+    -- ** DeleteActivation
+    DeleteActivation (DeleteActivation'),
+    newDeleteActivation,
+    DeleteActivationResponse (DeleteActivationResponse'),
+    newDeleteActivationResponse,
+
+    -- ** DescribeMaintenanceWindowExecutions (Paginated)
+    DescribeMaintenanceWindowExecutions (DescribeMaintenanceWindowExecutions'),
+    newDescribeMaintenanceWindowExecutions,
+    DescribeMaintenanceWindowExecutionsResponse (DescribeMaintenanceWindowExecutionsResponse'),
+    newDescribeMaintenanceWindowExecutionsResponse,
+
+    -- ** DescribeMaintenanceWindowsForTarget (Paginated)
+    DescribeMaintenanceWindowsForTarget (DescribeMaintenanceWindowsForTarget'),
+    newDescribeMaintenanceWindowsForTarget,
+    DescribeMaintenanceWindowsForTargetResponse (DescribeMaintenanceWindowsForTargetResponse'),
+    newDescribeMaintenanceWindowsForTargetResponse,
+
+    -- ** CreateOpsMetadata
+    CreateOpsMetadata (CreateOpsMetadata'),
+    newCreateOpsMetadata,
+    CreateOpsMetadataResponse (CreateOpsMetadataResponse'),
+    newCreateOpsMetadataResponse,
+
+    -- ** StartChangeRequestExecution
+    StartChangeRequestExecution (StartChangeRequestExecution'),
+    newStartChangeRequestExecution,
+    StartChangeRequestExecutionResponse (StartChangeRequestExecutionResponse'),
+    newStartChangeRequestExecutionResponse,
+
+    -- ** CancelMaintenanceWindowExecution
+    CancelMaintenanceWindowExecution (CancelMaintenanceWindowExecution'),
+    newCancelMaintenanceWindowExecution,
+    CancelMaintenanceWindowExecutionResponse (CancelMaintenanceWindowExecutionResponse'),
+    newCancelMaintenanceWindowExecutionResponse,
+
+    -- ** GetInventorySchema (Paginated)
+    GetInventorySchema (GetInventorySchema'),
+    newGetInventorySchema,
+    GetInventorySchemaResponse (GetInventorySchemaResponse'),
+    newGetInventorySchemaResponse,
+
+    -- ** ListComplianceSummaries (Paginated)
+    ListComplianceSummaries (ListComplianceSummaries'),
+    newListComplianceSummaries,
+    ListComplianceSummariesResponse (ListComplianceSummariesResponse'),
+    newListComplianceSummariesResponse,
+
+    -- ** StartAutomationExecution
+    StartAutomationExecution (StartAutomationExecution'),
+    newStartAutomationExecution,
+    StartAutomationExecutionResponse (StartAutomationExecutionResponse'),
+    newStartAutomationExecutionResponse,
+
+    -- ** CreateOpsItem
+    CreateOpsItem (CreateOpsItem'),
+    newCreateOpsItem,
+    CreateOpsItemResponse (CreateOpsItemResponse'),
+    newCreateOpsItemResponse,
+
+    -- ** CreateActivation
+    CreateActivation (CreateActivation'),
+    newCreateActivation,
+    CreateActivationResponse (CreateActivationResponse'),
+    newCreateActivationResponse,
+
+    -- ** DeleteMaintenanceWindow
+    DeleteMaintenanceWindow (DeleteMaintenanceWindow'),
+    newDeleteMaintenanceWindow,
+    DeleteMaintenanceWindowResponse (DeleteMaintenanceWindowResponse'),
+    newDeleteMaintenanceWindowResponse,
+
+    -- ** UpdateMaintenanceWindow
+    UpdateMaintenanceWindow (UpdateMaintenanceWindow'),
+    newUpdateMaintenanceWindow,
+    UpdateMaintenanceWindowResponse (UpdateMaintenanceWindowResponse'),
+    newUpdateMaintenanceWindowResponse,
+
+    -- ** DescribeSessions (Paginated)
+    DescribeSessions (DescribeSessions'),
+    newDescribeSessions,
+    DescribeSessionsResponse (DescribeSessionsResponse'),
+    newDescribeSessionsResponse,
+
+    -- ** DescribeMaintenanceWindowExecutionTasks (Paginated)
+    DescribeMaintenanceWindowExecutionTasks (DescribeMaintenanceWindowExecutionTasks'),
+    newDescribeMaintenanceWindowExecutionTasks,
+    DescribeMaintenanceWindowExecutionTasksResponse (DescribeMaintenanceWindowExecutionTasksResponse'),
+    newDescribeMaintenanceWindowExecutionTasksResponse,
+
+    -- ** GetDefaultPatchBaseline
+    GetDefaultPatchBaseline (GetDefaultPatchBaseline'),
+    newGetDefaultPatchBaseline,
+    GetDefaultPatchBaselineResponse (GetDefaultPatchBaselineResponse'),
+    newGetDefaultPatchBaselineResponse,
+
+    -- ** GetMaintenanceWindowExecutionTask
+    GetMaintenanceWindowExecutionTask (GetMaintenanceWindowExecutionTask'),
+    newGetMaintenanceWindowExecutionTask,
+    GetMaintenanceWindowExecutionTaskResponse (GetMaintenanceWindowExecutionTaskResponse'),
+    newGetMaintenanceWindowExecutionTaskResponse,
+
+    -- ** CreateDocument
+    CreateDocument (CreateDocument'),
+    newCreateDocument,
+    CreateDocumentResponse (CreateDocumentResponse'),
+    newCreateDocumentResponse,
+
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
+
+    -- ** GetCalendarState
+    GetCalendarState (GetCalendarState'),
+    newGetCalendarState,
+    GetCalendarStateResponse (GetCalendarStateResponse'),
+    newGetCalendarStateResponse,
+
+    -- ** DeleteParameters
+    DeleteParameters (DeleteParameters'),
+    newDeleteParameters,
+    DeleteParametersResponse (DeleteParametersResponse'),
+    newDeleteParametersResponse,
+
+    -- ** DescribePatchGroupState
+    DescribePatchGroupState (DescribePatchGroupState'),
+    newDescribePatchGroupState,
+    DescribePatchGroupStateResponse (DescribePatchGroupStateResponse'),
+    newDescribePatchGroupStateResponse,
+
+    -- ** ListCommandInvocations (Paginated)
+    ListCommandInvocations (ListCommandInvocations'),
+    newListCommandInvocations,
+    ListCommandInvocationsResponse (ListCommandInvocationsResponse'),
+    newListCommandInvocationsResponse,
+
+    -- ** DeregisterTargetFromMaintenanceWindow
+    DeregisterTargetFromMaintenanceWindow (DeregisterTargetFromMaintenanceWindow'),
+    newDeregisterTargetFromMaintenanceWindow,
+    DeregisterTargetFromMaintenanceWindowResponse (DeregisterTargetFromMaintenanceWindowResponse'),
+    newDeregisterTargetFromMaintenanceWindowResponse,
+
+    -- ** DescribeEffectivePatchesForPatchBaseline (Paginated)
+    DescribeEffectivePatchesForPatchBaseline (DescribeEffectivePatchesForPatchBaseline'),
+    newDescribeEffectivePatchesForPatchBaseline,
+    DescribeEffectivePatchesForPatchBaselineResponse (DescribeEffectivePatchesForPatchBaselineResponse'),
+    newDescribeEffectivePatchesForPatchBaselineResponse,
+
+    -- ** UnlabelParameterVersion
+    UnlabelParameterVersion (UnlabelParameterVersion'),
+    newUnlabelParameterVersion,
+    UnlabelParameterVersionResponse (UnlabelParameterVersionResponse'),
+    newUnlabelParameterVersionResponse,
+
+    -- ** DescribeMaintenanceWindowTargets (Paginated)
+    DescribeMaintenanceWindowTargets (DescribeMaintenanceWindowTargets'),
+    newDescribeMaintenanceWindowTargets,
+    DescribeMaintenanceWindowTargetsResponse (DescribeMaintenanceWindowTargetsResponse'),
+    newDescribeMaintenanceWindowTargetsResponse,
+
+    -- ** ResetServiceSetting
+    ResetServiceSetting (ResetServiceSetting'),
+    newResetServiceSetting,
+    ResetServiceSettingResponse (ResetServiceSettingResponse'),
+    newResetServiceSettingResponse,
+
+    -- ** RegisterPatchBaselineForPatchGroup
+    RegisterPatchBaselineForPatchGroup (RegisterPatchBaselineForPatchGroup'),
+    newRegisterPatchBaselineForPatchGroup,
+    RegisterPatchBaselineForPatchGroupResponse (RegisterPatchBaselineForPatchGroupResponse'),
+    newRegisterPatchBaselineForPatchGroupResponse,
+
+    -- ** ListDocuments (Paginated)
+    ListDocuments (ListDocuments'),
+    newListDocuments,
+    ListDocumentsResponse (ListDocumentsResponse'),
+    newListDocumentsResponse,
+
+    -- ** DescribeInstancePatchStates (Paginated)
+    DescribeInstancePatchStates (DescribeInstancePatchStates'),
+    newDescribeInstancePatchStates,
+    DescribeInstancePatchStatesResponse (DescribeInstancePatchStatesResponse'),
+    newDescribeInstancePatchStatesResponse,
+
+    -- ** GetOpsSummary (Paginated)
+    GetOpsSummary (GetOpsSummary'),
+    newGetOpsSummary,
+    GetOpsSummaryResponse (GetOpsSummaryResponse'),
+    newGetOpsSummaryResponse,
+
+    -- ** GetPatchBaselineForPatchGroup
+    GetPatchBaselineForPatchGroup (GetPatchBaselineForPatchGroup'),
+    newGetPatchBaselineForPatchGroup,
+    GetPatchBaselineForPatchGroupResponse (GetPatchBaselineForPatchGroupResponse'),
+    newGetPatchBaselineForPatchGroupResponse,
+
+    -- ** UpdateManagedInstanceRole
+    UpdateManagedInstanceRole (UpdateManagedInstanceRole'),
+    newUpdateManagedInstanceRole,
+    UpdateManagedInstanceRoleResponse (UpdateManagedInstanceRoleResponse'),
+    newUpdateManagedInstanceRoleResponse,
+
+    -- ** ListComplianceItems (Paginated)
+    ListComplianceItems (ListComplianceItems'),
+    newListComplianceItems,
+    ListComplianceItemsResponse (ListComplianceItemsResponse'),
+    newListComplianceItemsResponse,
+
+    -- ** GetDocument
+    GetDocument (GetDocument'),
+    newGetDocument,
+    GetDocumentResponse (GetDocumentResponse'),
+    newGetDocumentResponse,
+
+    -- ** DescribeMaintenanceWindowSchedule (Paginated)
+    DescribeMaintenanceWindowSchedule (DescribeMaintenanceWindowSchedule'),
+    newDescribeMaintenanceWindowSchedule,
+    DescribeMaintenanceWindowScheduleResponse (DescribeMaintenanceWindowScheduleResponse'),
+    newDescribeMaintenanceWindowScheduleResponse,
+
+    -- ** AddTagsToResource
+    AddTagsToResource (AddTagsToResource'),
+    newAddTagsToResource,
+    AddTagsToResourceResponse (AddTagsToResourceResponse'),
+    newAddTagsToResourceResponse,
+
+    -- ** CancelCommand
+    CancelCommand (CancelCommand'),
+    newCancelCommand,
+    CancelCommandResponse (CancelCommandResponse'),
+    newCancelCommandResponse,
+
+    -- ** DescribeAutomationStepExecutions (Paginated)
+    DescribeAutomationStepExecutions (DescribeAutomationStepExecutions'),
+    newDescribeAutomationStepExecutions,
+    DescribeAutomationStepExecutionsResponse (DescribeAutomationStepExecutionsResponse'),
+    newDescribeAutomationStepExecutionsResponse,
+
+    -- ** GetCommandInvocation
+    GetCommandInvocation (GetCommandInvocation'),
+    newGetCommandInvocation,
+    GetCommandInvocationResponse (GetCommandInvocationResponse'),
+    newGetCommandInvocationResponse,
+
+    -- ** DescribeInstancePatchStatesForPatchGroup (Paginated)
+    DescribeInstancePatchStatesForPatchGroup (DescribeInstancePatchStatesForPatchGroup'),
+    newDescribeInstancePatchStatesForPatchGroup,
+    DescribeInstancePatchStatesForPatchGroupResponse (DescribeInstancePatchStatesForPatchGroupResponse'),
+    newDescribeInstancePatchStatesForPatchGroupResponse,
+
+    -- ** DeregisterManagedInstance
+    DeregisterManagedInstance (DeregisterManagedInstance'),
+    newDeregisterManagedInstance,
+    DeregisterManagedInstanceResponse (DeregisterManagedInstanceResponse'),
+    newDeregisterManagedInstanceResponse,
+
+    -- ** DescribeAssociation
+    DescribeAssociation (DescribeAssociation'),
+    newDescribeAssociation,
+    DescribeAssociationResponse (DescribeAssociationResponse'),
+    newDescribeAssociationResponse,
+
+    -- ** DescribeAssociationExecutionTargets (Paginated)
+    DescribeAssociationExecutionTargets (DescribeAssociationExecutionTargets'),
+    newDescribeAssociationExecutionTargets,
+    DescribeAssociationExecutionTargetsResponse (DescribeAssociationExecutionTargetsResponse'),
+    newDescribeAssociationExecutionTargetsResponse,
+
+    -- ** ModifyDocumentPermission
+    ModifyDocumentPermission (ModifyDocumentPermission'),
+    newModifyDocumentPermission,
+    ModifyDocumentPermissionResponse (ModifyDocumentPermissionResponse'),
+    newModifyDocumentPermissionResponse,
+
+    -- ** UpdateResourceDataSync
+    UpdateResourceDataSync (UpdateResourceDataSync'),
+    newUpdateResourceDataSync,
+    UpdateResourceDataSyncResponse (UpdateResourceDataSyncResponse'),
+    newUpdateResourceDataSyncResponse,
+
+    -- ** DeleteResourceDataSync
+    DeleteResourceDataSync (DeleteResourceDataSync'),
+    newDeleteResourceDataSync,
+    DeleteResourceDataSyncResponse (DeleteResourceDataSyncResponse'),
+    newDeleteResourceDataSyncResponse,
+
+    -- ** UpdateAssociationStatus
+    UpdateAssociationStatus (UpdateAssociationStatus'),
+    newUpdateAssociationStatus,
+    UpdateAssociationStatusResponse (UpdateAssociationStatusResponse'),
+    newUpdateAssociationStatusResponse,
+
+    -- ** DescribeAvailablePatches (Paginated)
+    DescribeAvailablePatches (DescribeAvailablePatches'),
+    newDescribeAvailablePatches,
+    DescribeAvailablePatchesResponse (DescribeAvailablePatchesResponse'),
+    newDescribeAvailablePatchesResponse,
+
+    -- ** ListDocumentVersions (Paginated)
+    ListDocumentVersions (ListDocumentVersions'),
+    newListDocumentVersions,
+    ListDocumentVersionsResponse (ListDocumentVersionsResponse'),
+    newListDocumentVersionsResponse,
+
+    -- ** DeregisterPatchBaselineForPatchGroup
+    DeregisterPatchBaselineForPatchGroup (DeregisterPatchBaselineForPatchGroup'),
+    newDeregisterPatchBaselineForPatchGroup,
+    DeregisterPatchBaselineForPatchGroupResponse (DeregisterPatchBaselineForPatchGroupResponse'),
+    newDeregisterPatchBaselineForPatchGroupResponse,
+
+    -- ** DescribePatchGroups (Paginated)
+    DescribePatchGroups (DescribePatchGroups'),
+    newDescribePatchGroups,
+    DescribePatchGroupsResponse (DescribePatchGroupsResponse'),
+    newDescribePatchGroupsResponse,
+
+    -- ** GetMaintenanceWindow
+    GetMaintenanceWindow (GetMaintenanceWindow'),
+    newGetMaintenanceWindow,
+    GetMaintenanceWindowResponse (GetMaintenanceWindowResponse'),
+    newGetMaintenanceWindowResponse,
+
+    -- ** DescribeMaintenanceWindows (Paginated)
+    DescribeMaintenanceWindows (DescribeMaintenanceWindows'),
+    newDescribeMaintenanceWindows,
+    DescribeMaintenanceWindowsResponse (DescribeMaintenanceWindowsResponse'),
+    newDescribeMaintenanceWindowsResponse,
+
+    -- ** RegisterTaskWithMaintenanceWindow
+    RegisterTaskWithMaintenanceWindow (RegisterTaskWithMaintenanceWindow'),
+    newRegisterTaskWithMaintenanceWindow,
+    RegisterTaskWithMaintenanceWindowResponse (RegisterTaskWithMaintenanceWindowResponse'),
+    newRegisterTaskWithMaintenanceWindowResponse,
+
+    -- ** RegisterDefaultPatchBaseline
+    RegisterDefaultPatchBaseline (RegisterDefaultPatchBaseline'),
+    newRegisterDefaultPatchBaseline,
+    RegisterDefaultPatchBaselineResponse (RegisterDefaultPatchBaselineResponse'),
+    newRegisterDefaultPatchBaselineResponse,
+
+    -- ** ListResourceComplianceSummaries (Paginated)
+    ListResourceComplianceSummaries (ListResourceComplianceSummaries'),
+    newListResourceComplianceSummaries,
+    ListResourceComplianceSummariesResponse (ListResourceComplianceSummariesResponse'),
+    newListResourceComplianceSummariesResponse,
+
+    -- ** AssociateOpsItemRelatedItem
+    AssociateOpsItemRelatedItem (AssociateOpsItemRelatedItem'),
+    newAssociateOpsItemRelatedItem,
+    AssociateOpsItemRelatedItemResponse (AssociateOpsItemRelatedItemResponse'),
+    newAssociateOpsItemRelatedItemResponse,
+
+    -- ** ListAssociationVersions (Paginated)
+    ListAssociationVersions (ListAssociationVersions'),
+    newListAssociationVersions,
+    ListAssociationVersionsResponse (ListAssociationVersionsResponse'),
+    newListAssociationVersionsResponse,
 
     -- ** UpdateServiceSetting
     UpdateServiceSetting (UpdateServiceSetting'),
@@ -1235,11 +953,293 @@ module Network.AWS.SSM
     UpdateServiceSettingResponse (UpdateServiceSettingResponse'),
     newUpdateServiceSettingResponse,
 
+    -- ** DescribeMaintenanceWindowTasks (Paginated)
+    DescribeMaintenanceWindowTasks (DescribeMaintenanceWindowTasks'),
+    newDescribeMaintenanceWindowTasks,
+    DescribeMaintenanceWindowTasksResponse (DescribeMaintenanceWindowTasksResponse'),
+    newDescribeMaintenanceWindowTasksResponse,
+
     -- ** DescribeInstanceAssociationsStatus (Paginated)
     DescribeInstanceAssociationsStatus (DescribeInstanceAssociationsStatus'),
     newDescribeInstanceAssociationsStatus,
     DescribeInstanceAssociationsStatusResponse (DescribeInstanceAssociationsStatusResponse'),
     newDescribeInstanceAssociationsStatusResponse,
+
+    -- ** ListOpsItemRelatedItems (Paginated)
+    ListOpsItemRelatedItems (ListOpsItemRelatedItems'),
+    newListOpsItemRelatedItems,
+    ListOpsItemRelatedItemsResponse (ListOpsItemRelatedItemsResponse'),
+    newListOpsItemRelatedItemsResponse,
+
+    -- ** DeregisterTaskFromMaintenanceWindow
+    DeregisterTaskFromMaintenanceWindow (DeregisterTaskFromMaintenanceWindow'),
+    newDeregisterTaskFromMaintenanceWindow,
+    DeregisterTaskFromMaintenanceWindowResponse (DeregisterTaskFromMaintenanceWindowResponse'),
+    newDeregisterTaskFromMaintenanceWindowResponse,
+
+    -- ** ListInventoryEntries
+    ListInventoryEntries (ListInventoryEntries'),
+    newListInventoryEntries,
+    ListInventoryEntriesResponse (ListInventoryEntriesResponse'),
+    newListInventoryEntriesResponse,
+
+    -- ** LabelParameterVersion
+    LabelParameterVersion (LabelParameterVersion'),
+    newLabelParameterVersion,
+    LabelParameterVersionResponse (LabelParameterVersionResponse'),
+    newLabelParameterVersionResponse,
+
+    -- ** UpdateMaintenanceWindowTask
+    UpdateMaintenanceWindowTask (UpdateMaintenanceWindowTask'),
+    newUpdateMaintenanceWindowTask,
+    UpdateMaintenanceWindowTaskResponse (UpdateMaintenanceWindowTaskResponse'),
+    newUpdateMaintenanceWindowTaskResponse,
+
+    -- ** GetParameterHistory (Paginated)
+    GetParameterHistory (GetParameterHistory'),
+    newGetParameterHistory,
+    GetParameterHistoryResponse (GetParameterHistoryResponse'),
+    newGetParameterHistoryResponse,
+
+    -- ** DescribeAssociationExecutions (Paginated)
+    DescribeAssociationExecutions (DescribeAssociationExecutions'),
+    newDescribeAssociationExecutions,
+    DescribeAssociationExecutionsResponse (DescribeAssociationExecutionsResponse'),
+    newDescribeAssociationExecutionsResponse,
+
+    -- ** GetServiceSetting
+    GetServiceSetting (GetServiceSetting'),
+    newGetServiceSetting,
+    GetServiceSettingResponse (GetServiceSettingResponse'),
+    newGetServiceSettingResponse,
+
+    -- ** StartAssociationsOnce
+    StartAssociationsOnce (StartAssociationsOnce'),
+    newStartAssociationsOnce,
+    StartAssociationsOnceResponse (StartAssociationsOnceResponse'),
+    newStartAssociationsOnceResponse,
+
+    -- ** CreateMaintenanceWindow
+    CreateMaintenanceWindow (CreateMaintenanceWindow'),
+    newCreateMaintenanceWindow,
+    CreateMaintenanceWindowResponse (CreateMaintenanceWindowResponse'),
+    newCreateMaintenanceWindowResponse,
+
+    -- ** StopAutomationExecution
+    StopAutomationExecution (StopAutomationExecution'),
+    newStopAutomationExecution,
+    StopAutomationExecutionResponse (StopAutomationExecutionResponse'),
+    newStopAutomationExecutionResponse,
+
+    -- ** GetMaintenanceWindowExecution
+    GetMaintenanceWindowExecution (GetMaintenanceWindowExecution'),
+    newGetMaintenanceWindowExecution,
+    GetMaintenanceWindowExecutionResponse (GetMaintenanceWindowExecutionResponse'),
+    newGetMaintenanceWindowExecutionResponse,
+
+    -- ** SendAutomationSignal
+    SendAutomationSignal (SendAutomationSignal'),
+    newSendAutomationSignal,
+    SendAutomationSignalResponse (SendAutomationSignalResponse'),
+    newSendAutomationSignalResponse,
+
+    -- ** DeleteOpsMetadata
+    DeleteOpsMetadata (DeleteOpsMetadata'),
+    newDeleteOpsMetadata,
+    DeleteOpsMetadataResponse (DeleteOpsMetadataResponse'),
+    newDeleteOpsMetadataResponse,
+
+    -- ** UpdateOpsMetadata
+    UpdateOpsMetadata (UpdateOpsMetadata'),
+    newUpdateOpsMetadata,
+    UpdateOpsMetadataResponse (UpdateOpsMetadataResponse'),
+    newUpdateOpsMetadataResponse,
+
+    -- ** PutParameter
+    PutParameter (PutParameter'),
+    newPutParameter,
+    PutParameterResponse (PutParameterResponse'),
+    newPutParameterResponse,
+
+    -- ** DescribeMaintenanceWindowExecutionTaskInvocations (Paginated)
+    DescribeMaintenanceWindowExecutionTaskInvocations (DescribeMaintenanceWindowExecutionTaskInvocations'),
+    newDescribeMaintenanceWindowExecutionTaskInvocations,
+    DescribeMaintenanceWindowExecutionTaskInvocationsResponse (DescribeMaintenanceWindowExecutionTaskInvocationsResponse'),
+    newDescribeMaintenanceWindowExecutionTaskInvocationsResponse,
+
+    -- ** GetMaintenanceWindowExecutionTaskInvocation
+    GetMaintenanceWindowExecutionTaskInvocation (GetMaintenanceWindowExecutionTaskInvocation'),
+    newGetMaintenanceWindowExecutionTaskInvocation,
+    GetMaintenanceWindowExecutionTaskInvocationResponse (GetMaintenanceWindowExecutionTaskInvocationResponse'),
+    newGetMaintenanceWindowExecutionTaskInvocationResponse,
+
+    -- ** DeleteParameter
+    DeleteParameter (DeleteParameter'),
+    newDeleteParameter,
+    DeleteParameterResponse (DeleteParameterResponse'),
+    newDeleteParameterResponse,
+
+    -- ** DescribeInstanceInformation (Paginated)
+    DescribeInstanceInformation (DescribeInstanceInformation'),
+    newDescribeInstanceInformation,
+    DescribeInstanceInformationResponse (DescribeInstanceInformationResponse'),
+    newDescribeInstanceInformationResponse,
+
+    -- ** ListAssociations (Paginated)
+    ListAssociations (ListAssociations'),
+    newListAssociations,
+    ListAssociationsResponse (ListAssociationsResponse'),
+    newListAssociationsResponse,
+
+    -- ** UpdateOpsItem
+    UpdateOpsItem (UpdateOpsItem'),
+    newUpdateOpsItem,
+    UpdateOpsItemResponse (UpdateOpsItemResponse'),
+    newUpdateOpsItemResponse,
+
+    -- ** DeleteAssociation
+    DeleteAssociation (DeleteAssociation'),
+    newDeleteAssociation,
+    DeleteAssociationResponse (DeleteAssociationResponse'),
+    newDeleteAssociationResponse,
+
+    -- ** UpdateAssociation
+    UpdateAssociation (UpdateAssociation'),
+    newUpdateAssociation,
+    UpdateAssociationResponse (UpdateAssociationResponse'),
+    newUpdateAssociationResponse,
+
+    -- ** DescribeInventoryDeletions (Paginated)
+    DescribeInventoryDeletions (DescribeInventoryDeletions'),
+    newDescribeInventoryDeletions,
+    DescribeInventoryDeletionsResponse (DescribeInventoryDeletionsResponse'),
+    newDescribeInventoryDeletionsResponse,
+
+    -- ** DeleteInventory
+    DeleteInventory (DeleteInventory'),
+    newDeleteInventory,
+    DeleteInventoryResponse (DeleteInventoryResponse'),
+    newDeleteInventoryResponse,
+
+    -- ** PutInventory
+    PutInventory (PutInventory'),
+    newPutInventory,
+    PutInventoryResponse (PutInventoryResponse'),
+    newPutInventoryResponse,
+
+    -- ** UpdateDocumentMetadata
+    UpdateDocumentMetadata (UpdateDocumentMetadata'),
+    newUpdateDocumentMetadata,
+    UpdateDocumentMetadataResponse (UpdateDocumentMetadataResponse'),
+    newUpdateDocumentMetadataResponse,
+
+    -- ** ListOpsMetadata (Paginated)
+    ListOpsMetadata (ListOpsMetadata'),
+    newListOpsMetadata,
+    ListOpsMetadataResponse (ListOpsMetadataResponse'),
+    newListOpsMetadataResponse,
+
+    -- ** DescribeEffectiveInstanceAssociations (Paginated)
+    DescribeEffectiveInstanceAssociations (DescribeEffectiveInstanceAssociations'),
+    newDescribeEffectiveInstanceAssociations,
+    DescribeEffectiveInstanceAssociationsResponse (DescribeEffectiveInstanceAssociationsResponse'),
+    newDescribeEffectiveInstanceAssociationsResponse,
+
+    -- ** DescribeAutomationExecutions (Paginated)
+    DescribeAutomationExecutions (DescribeAutomationExecutions'),
+    newDescribeAutomationExecutions,
+    DescribeAutomationExecutionsResponse (DescribeAutomationExecutionsResponse'),
+    newDescribeAutomationExecutionsResponse,
+
+    -- ** GetAutomationExecution
+    GetAutomationExecution (GetAutomationExecution'),
+    newGetAutomationExecution,
+    GetAutomationExecutionResponse (GetAutomationExecutionResponse'),
+    newGetAutomationExecutionResponse,
+
+    -- ** SendCommand
+    SendCommand (SendCommand'),
+    newSendCommand,
+    SendCommandResponse (SendCommandResponse'),
+    newSendCommandResponse,
+
+    -- ** DescribePatchBaselines (Paginated)
+    DescribePatchBaselines (DescribePatchBaselines'),
+    newDescribePatchBaselines,
+    DescribePatchBaselinesResponse (DescribePatchBaselinesResponse'),
+    newDescribePatchBaselinesResponse,
+
+    -- ** GetPatchBaseline
+    GetPatchBaseline (GetPatchBaseline'),
+    newGetPatchBaseline,
+    GetPatchBaselineResponse (GetPatchBaselineResponse'),
+    newGetPatchBaselineResponse,
+
+    -- ** RegisterTargetWithMaintenanceWindow
+    RegisterTargetWithMaintenanceWindow (RegisterTargetWithMaintenanceWindow'),
+    newRegisterTargetWithMaintenanceWindow,
+    RegisterTargetWithMaintenanceWindowResponse (RegisterTargetWithMaintenanceWindowResponse'),
+    newRegisterTargetWithMaintenanceWindowResponse,
+
+    -- ** StartSession
+    StartSession (StartSession'),
+    newStartSession,
+    StartSessionResponse (StartSessionResponse'),
+    newStartSessionResponse,
+
+    -- ** ListCommands (Paginated)
+    ListCommands (ListCommands'),
+    newListCommands,
+    ListCommandsResponse (ListCommandsResponse'),
+    newListCommandsResponse,
+
+    -- ** UpdateDocument
+    UpdateDocument (UpdateDocument'),
+    newUpdateDocument,
+    UpdateDocumentResponse (UpdateDocumentResponse'),
+    newUpdateDocumentResponse,
+
+    -- ** DeleteDocument
+    DeleteDocument (DeleteDocument'),
+    newDeleteDocument,
+    DeleteDocumentResponse (DeleteDocumentResponse'),
+    newDeleteDocumentResponse,
+
+    -- ** DescribeDocumentPermission
+    DescribeDocumentPermission (DescribeDocumentPermission'),
+    newDescribeDocumentPermission,
+    DescribeDocumentPermissionResponse (DescribeDocumentPermissionResponse'),
+    newDescribeDocumentPermissionResponse,
+
+    -- ** CreateAssociationBatch
+    CreateAssociationBatch (CreateAssociationBatch'),
+    newCreateAssociationBatch,
+    CreateAssociationBatchResponse (CreateAssociationBatchResponse'),
+    newCreateAssociationBatchResponse,
+
+    -- ** UpdateMaintenanceWindowTarget
+    UpdateMaintenanceWindowTarget (UpdateMaintenanceWindowTarget'),
+    newUpdateMaintenanceWindowTarget,
+    UpdateMaintenanceWindowTargetResponse (UpdateMaintenanceWindowTargetResponse'),
+    newUpdateMaintenanceWindowTargetResponse,
+
+    -- ** CreateResourceDataSync
+    CreateResourceDataSync (CreateResourceDataSync'),
+    newCreateResourceDataSync,
+    CreateResourceDataSyncResponse (CreateResourceDataSyncResponse'),
+    newCreateResourceDataSyncResponse,
+
+    -- ** CreatePatchBaseline
+    CreatePatchBaseline (CreatePatchBaseline'),
+    newCreatePatchBaseline,
+    CreatePatchBaselineResponse (CreatePatchBaselineResponse'),
+    newCreatePatchBaselineResponse,
+
+    -- ** DisassociateOpsItemRelatedItem
+    DisassociateOpsItemRelatedItem (DisassociateOpsItemRelatedItem'),
+    newDisassociateOpsItemRelatedItem,
+    DisassociateOpsItemRelatedItemResponse (DisassociateOpsItemRelatedItemResponse'),
+    newDisassociateOpsItemRelatedItemResponse,
 
     -- * Types
 

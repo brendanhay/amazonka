@@ -81,7 +81,7 @@ newDescribeDomains =
 
 -- | The names of the domains you want to include in the response.
 describeDomains_domainNames :: Lens.Lens' DescribeDomains (Prelude.Maybe [Prelude.Text])
-describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Prelude.. Lens.mapping Lens._Coerce
+describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeDomains where
   type
@@ -160,6 +160,6 @@ describeDomainsResponse_httpStatus = Lens.lens (\DescribeDomainsResponse' {httpS
 
 -- | Undocumented member.
 describeDomainsResponse_domainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
-describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Prelude.. Lens._Coerce
+describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeDomainsResponse

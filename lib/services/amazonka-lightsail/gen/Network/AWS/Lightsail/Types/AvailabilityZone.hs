@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { -- | The name of the Availability Zone. The format is @us-east-2a@
+  { -- | The state of the Availability Zone.
+    state :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Availability Zone. The format is @us-east-2a@
     -- (case-sensitive).
-    zoneName :: Prelude.Maybe Prelude.Text,
-    -- | The state of the Availability Zone.
-    state :: Prelude.Maybe Prelude.Text
+    zoneName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,26 +43,26 @@ data AvailabilityZone = AvailabilityZone'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'state', 'availabilityZone_state' - The state of the Availability Zone.
+--
 -- 'zoneName', 'availabilityZone_zoneName' - The name of the Availability Zone. The format is @us-east-2a@
 -- (case-sensitive).
---
--- 'state', 'availabilityZone_state' - The state of the Availability Zone.
 newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { zoneName = Prelude.Nothing,
-      state = Prelude.Nothing
+    { state = Prelude.Nothing,
+      zoneName = Prelude.Nothing
     }
+
+-- | The state of the Availability Zone.
+availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
 
 -- | The name of the Availability Zone. The format is @us-east-2a@
 -- (case-sensitive).
 availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
 availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
-
--- | The state of the Availability Zone.
-availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
-availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
 
 instance Core.FromJSON AvailabilityZone where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON AvailabilityZone where
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Prelude.<$> (x Core..:? "zoneName")
-            Prelude.<*> (x Core..:? "state")
+            Prelude.<$> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "zoneName")
       )
 
 instance Prelude.Hashable AvailabilityZone

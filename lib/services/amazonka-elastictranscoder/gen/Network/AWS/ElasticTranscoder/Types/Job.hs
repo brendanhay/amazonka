@@ -229,7 +229,7 @@ job_arn = Lens.lens (\Job' {arn} -> arn) (\s@Job' {} a -> s {arn = a} :: Job)
 -- multiple files for this job, Elastic Transcoder stitches the files
 -- together to make one output.
 job_inputs :: Lens.Lens' Job (Prelude.Maybe [JobInput])
-job_inputs = Lens.lens (\Job' {inputs} -> inputs) (\s@Job' {} a -> s {inputs = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
+job_inputs = Lens.lens (\Job' {inputs} -> inputs) (\s@Job' {} a -> s {inputs = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | A section of the request or response body that provides information
 -- about the file that is being transcoded.
@@ -253,7 +253,7 @@ job_input = Lens.lens (\Job' {input} -> input) (\s@Job' {} a -> s {input = a} ::
 --
 -- -   The following symbols: @_.:\/=+-%\@@
 job_userMetadata :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} a -> s {userMetadata = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
+job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} a -> s {userMetadata = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the output files. We recommend that you use the
 -- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to
@@ -265,7 +265,7 @@ job_userMetadata = Lens.lens (\Job' {userMetadata} -> userMetadata) (\s@Job' {} 
 -- creates the files for each output in the order in which you specify them
 -- in the job.
 job_outputs :: Lens.Lens' Job (Prelude.Maybe [JobOutput])
-job_outputs = Lens.lens (\Job' {outputs} -> outputs) (\s@Job' {} a -> s {outputs = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
+job_outputs = Lens.lens (\Job' {outputs} -> outputs) (\s@Job' {} a -> s {outputs = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you specified one output for a job, information about that output. If
 -- you specified multiple outputs for a job, the Output object lists
@@ -293,7 +293,7 @@ job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
 --
 -- The maximum number of master playlists in a job is 30.
 job_playlists :: Lens.Lens' Job (Prelude.Maybe [Playlist])
-job_playlists = Lens.lens (\Job' {playlists} -> playlists) (\s@Job' {} a -> s {playlists = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
+job_playlists = Lens.lens (\Job' {playlists} -> playlists) (\s@Job' {} a -> s {playlists = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the
 -- names of all files that this job creates, including output files,

@@ -27,38 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateSubscription $
+--         [ requestAssociateDRTLogBucket $
+--             newAssociateDRTLogBucket
+--
+--         , requestDisassociateDRTRole $
+--             newDisassociateDRTRole
+--
+--         , requestCreateSubscription $
 --             newCreateSubscription
 --
---         , requestDescribeProtectionGroup $
---             newDescribeProtectionGroup
---
---         , requestDescribeEmergencyContactSettings $
---             newDescribeEmergencyContactSettings
---
---         , requestAssociateHealthCheck $
---             newAssociateHealthCheck
---
---         , requestDescribeSubscription $
---             newDescribeSubscription
---
---         , requestDescribeDRTAccess $
---             newDescribeDRTAccess
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestTagResource $
---             newTagResource
---
---         , requestDisableProactiveEngagement $
---             newDisableProactiveEngagement
---
---         , requestListResourcesInProtectionGroup $
---             newListResourcesInProtectionGroup
---
---         , requestEnableProactiveEngagement $
---             newEnableProactiveEngagement
+--         , requestListProtections $
+--             newListProtections
 --
 --         , requestAssociateDRTRole $
 --             newAssociateDRTRole
@@ -66,56 +45,50 @@ import Test.Tasty
 --         , requestUpdateSubscription $
 --             newUpdateSubscription
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestDisassociateDRTLogBucket $
 --             newDisassociateDRTLogBucket
---
---         , requestCreateProtection $
---             newCreateProtection
---
---         , requestAssociateDRTLogBucket $
---             newAssociateDRTLogBucket
---
---         , requestDisassociateDRTRole $
---             newDisassociateDRTRole
---
---         , requestListAttacks $
---             newListAttacks
---
---         , requestDescribeProtection $
---             newDescribeProtection
---
---         , requestDescribeAttackStatistics $
---             newDescribeAttackStatistics
---
---         , requestDisassociateHealthCheck $
---             newDisassociateHealthCheck
---
---         , requestCreateProtectionGroup $
---             newCreateProtectionGroup
---
---         , requestDescribeAttack $
---             newDescribeAttack
---
---         , requestDeleteProtectionGroup $
---             newDeleteProtectionGroup
---
---         , requestUpdateEmergencyContactSettings $
---             newUpdateEmergencyContactSettings
---
---         , requestUpdateProtectionGroup $
---             newUpdateProtectionGroup
---
---         , requestListProtectionGroups $
---             newListProtectionGroups
 --
 --         , requestAssociateProactiveEngagementDetails $
 --             newAssociateProactiveEngagementDetails
 --
---         , requestListProtections $
---             newListProtections
+--         , requestDescribeAttack $
+--             newDescribeAttack
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestListProtectionGroups $
+--             newListProtectionGroups
+--
+--         , requestEnableProactiveEngagement $
+--             newEnableProactiveEngagement
+--
+--         , requestUpdateEmergencyContactSettings $
+--             newUpdateEmergencyContactSettings
+--
+--         , requestCreateProtectionGroup $
+--             newCreateProtectionGroup
+--
+--         , requestDisableProactiveEngagement $
+--             newDisableProactiveEngagement
+--
+--         , requestDisassociateHealthCheck $
+--             newDisassociateHealthCheck
+--
+--         , requestListResourcesInProtectionGroup $
+--             newListResourcesInProtectionGroup
+--
+--         , requestDescribeProtection $
+--             newDescribeProtection
+--
+--         , requestListAttacks $
+--             newListAttacks
+--
+--         , requestDescribeEmergencyContactSettings $
+--             newDescribeEmergencyContactSettings
+--
+--         , requestCreateProtection $
+--             newCreateProtection
 --
 --         , requestDeleteProtection $
 --             newDeleteProtection
@@ -123,41 +96,47 @@ import Test.Tasty
 --         , requestGetSubscriptionState $
 --             newGetSubscriptionState
 --
+--         , requestDeleteProtectionGroup $
+--             newDeleteProtectionGroup
+--
+--         , requestUpdateProtectionGroup $
+--             newUpdateProtectionGroup
+--
+--         , requestDescribeAttackStatistics $
+--             newDescribeAttackStatistics
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestDescribeDRTAccess $
+--             newDescribeDRTAccess
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestDescribeSubscription $
+--             newDescribeSubscription
+--
+--         , requestAssociateHealthCheck $
+--             newAssociateHealthCheck
+--
+--         , requestDescribeProtectionGroup $
+--             newDescribeProtectionGroup
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateSubscription $
+--         [ responseAssociateDRTLogBucket $
+--             newAssociateDRTLogBucketResponse
+--
+--         , responseDisassociateDRTRole $
+--             newDisassociateDRTRoleResponse
+--
+--         , responseCreateSubscription $
 --             newCreateSubscriptionResponse
 --
---         , responseDescribeProtectionGroup $
---             newDescribeProtectionGroupResponse
---
---         , responseDescribeEmergencyContactSettings $
---             newDescribeEmergencyContactSettingsResponse
---
---         , responseAssociateHealthCheck $
---             newAssociateHealthCheckResponse
---
---         , responseDescribeSubscription $
---             newDescribeSubscriptionResponse
---
---         , responseDescribeDRTAccess $
---             newDescribeDRTAccessResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseDisableProactiveEngagement $
---             newDisableProactiveEngagementResponse
---
---         , responseListResourcesInProtectionGroup $
---             newListResourcesInProtectionGroupResponse
---
---         , responseEnableProactiveEngagement $
---             newEnableProactiveEngagementResponse
+--         , responseListProtections $
+--             newListProtectionsResponse
 --
 --         , responseAssociateDRTRole $
 --             newAssociateDRTRoleResponse
@@ -165,56 +144,50 @@ import Test.Tasty
 --         , responseUpdateSubscription $
 --             newUpdateSubscriptionResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseDisassociateDRTLogBucket $
 --             newDisassociateDRTLogBucketResponse
---
---         , responseCreateProtection $
---             newCreateProtectionResponse
---
---         , responseAssociateDRTLogBucket $
---             newAssociateDRTLogBucketResponse
---
---         , responseDisassociateDRTRole $
---             newDisassociateDRTRoleResponse
---
---         , responseListAttacks $
---             newListAttacksResponse
---
---         , responseDescribeProtection $
---             newDescribeProtectionResponse
---
---         , responseDescribeAttackStatistics $
---             newDescribeAttackStatisticsResponse
---
---         , responseDisassociateHealthCheck $
---             newDisassociateHealthCheckResponse
---
---         , responseCreateProtectionGroup $
---             newCreateProtectionGroupResponse
---
---         , responseDescribeAttack $
---             newDescribeAttackResponse
---
---         , responseDeleteProtectionGroup $
---             newDeleteProtectionGroupResponse
---
---         , responseUpdateEmergencyContactSettings $
---             newUpdateEmergencyContactSettingsResponse
---
---         , responseUpdateProtectionGroup $
---             newUpdateProtectionGroupResponse
---
---         , responseListProtectionGroups $
---             newListProtectionGroupsResponse
 --
 --         , responseAssociateProactiveEngagementDetails $
 --             newAssociateProactiveEngagementDetailsResponse
 --
---         , responseListProtections $
---             newListProtectionsResponse
+--         , responseDescribeAttack $
+--             newDescribeAttackResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseListProtectionGroups $
+--             newListProtectionGroupsResponse
+--
+--         , responseEnableProactiveEngagement $
+--             newEnableProactiveEngagementResponse
+--
+--         , responseUpdateEmergencyContactSettings $
+--             newUpdateEmergencyContactSettingsResponse
+--
+--         , responseCreateProtectionGroup $
+--             newCreateProtectionGroupResponse
+--
+--         , responseDisableProactiveEngagement $
+--             newDisableProactiveEngagementResponse
+--
+--         , responseDisassociateHealthCheck $
+--             newDisassociateHealthCheckResponse
+--
+--         , responseListResourcesInProtectionGroup $
+--             newListResourcesInProtectionGroupResponse
+--
+--         , responseDescribeProtection $
+--             newDescribeProtectionResponse
+--
+--         , responseListAttacks $
+--             newListAttacksResponse
+--
+--         , responseDescribeEmergencyContactSettings $
+--             newDescribeEmergencyContactSettingsResponse
+--
+--         , responseCreateProtection $
+--             newCreateProtectionResponse
 --
 --         , responseDeleteProtection $
 --             newDeleteProtectionResponse
@@ -222,100 +195,37 @@ import Test.Tasty
 --         , responseGetSubscriptionState $
 --             newGetSubscriptionStateResponse
 --
+--         , responseDeleteProtectionGroup $
+--             newDeleteProtectionGroupResponse
+--
+--         , responseUpdateProtectionGroup $
+--             newUpdateProtectionGroupResponse
+--
+--         , responseDescribeAttackStatistics $
+--             newDescribeAttackStatisticsResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseDescribeDRTAccess $
+--             newDescribeDRTAccessResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseDescribeSubscription $
+--             newDescribeSubscriptionResponse
+--
+--         , responseAssociateHealthCheck $
+--             newAssociateHealthCheckResponse
+--
+--         , responseDescribeProtectionGroup $
+--             newDescribeProtectionGroupResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestCreateSubscription :: CreateSubscription -> TestTree
-requestCreateSubscription =
-  req
-    "CreateSubscription"
-    "fixture/CreateSubscription.yaml"
-
-requestDescribeProtectionGroup :: DescribeProtectionGroup -> TestTree
-requestDescribeProtectionGroup =
-  req
-    "DescribeProtectionGroup"
-    "fixture/DescribeProtectionGroup.yaml"
-
-requestDescribeEmergencyContactSettings :: DescribeEmergencyContactSettings -> TestTree
-requestDescribeEmergencyContactSettings =
-  req
-    "DescribeEmergencyContactSettings"
-    "fixture/DescribeEmergencyContactSettings.yaml"
-
-requestAssociateHealthCheck :: AssociateHealthCheck -> TestTree
-requestAssociateHealthCheck =
-  req
-    "AssociateHealthCheck"
-    "fixture/AssociateHealthCheck.yaml"
-
-requestDescribeSubscription :: DescribeSubscription -> TestTree
-requestDescribeSubscription =
-  req
-    "DescribeSubscription"
-    "fixture/DescribeSubscription.yaml"
-
-requestDescribeDRTAccess :: DescribeDRTAccess -> TestTree
-requestDescribeDRTAccess =
-  req
-    "DescribeDRTAccess"
-    "fixture/DescribeDRTAccess.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestDisableProactiveEngagement :: DisableProactiveEngagement -> TestTree
-requestDisableProactiveEngagement =
-  req
-    "DisableProactiveEngagement"
-    "fixture/DisableProactiveEngagement.yaml"
-
-requestListResourcesInProtectionGroup :: ListResourcesInProtectionGroup -> TestTree
-requestListResourcesInProtectionGroup =
-  req
-    "ListResourcesInProtectionGroup"
-    "fixture/ListResourcesInProtectionGroup.yaml"
-
-requestEnableProactiveEngagement :: EnableProactiveEngagement -> TestTree
-requestEnableProactiveEngagement =
-  req
-    "EnableProactiveEngagement"
-    "fixture/EnableProactiveEngagement.yaml"
-
-requestAssociateDRTRole :: AssociateDRTRole -> TestTree
-requestAssociateDRTRole =
-  req
-    "AssociateDRTRole"
-    "fixture/AssociateDRTRole.yaml"
-
-requestUpdateSubscription :: UpdateSubscription -> TestTree
-requestUpdateSubscription =
-  req
-    "UpdateSubscription"
-    "fixture/UpdateSubscription.yaml"
-
-requestDisassociateDRTLogBucket :: DisassociateDRTLogBucket -> TestTree
-requestDisassociateDRTLogBucket =
-  req
-    "DisassociateDRTLogBucket"
-    "fixture/DisassociateDRTLogBucket.yaml"
-
-requestCreateProtection :: CreateProtection -> TestTree
-requestCreateProtection =
-  req
-    "CreateProtection"
-    "fixture/CreateProtection.yaml"
 
 requestAssociateDRTLogBucket :: AssociateDRTLogBucket -> TestTree
 requestAssociateDRTLogBucket =
@@ -329,71 +239,11 @@ requestDisassociateDRTRole =
     "DisassociateDRTRole"
     "fixture/DisassociateDRTRole.yaml"
 
-requestListAttacks :: ListAttacks -> TestTree
-requestListAttacks =
+requestCreateSubscription :: CreateSubscription -> TestTree
+requestCreateSubscription =
   req
-    "ListAttacks"
-    "fixture/ListAttacks.yaml"
-
-requestDescribeProtection :: DescribeProtection -> TestTree
-requestDescribeProtection =
-  req
-    "DescribeProtection"
-    "fixture/DescribeProtection.yaml"
-
-requestDescribeAttackStatistics :: DescribeAttackStatistics -> TestTree
-requestDescribeAttackStatistics =
-  req
-    "DescribeAttackStatistics"
-    "fixture/DescribeAttackStatistics.yaml"
-
-requestDisassociateHealthCheck :: DisassociateHealthCheck -> TestTree
-requestDisassociateHealthCheck =
-  req
-    "DisassociateHealthCheck"
-    "fixture/DisassociateHealthCheck.yaml"
-
-requestCreateProtectionGroup :: CreateProtectionGroup -> TestTree
-requestCreateProtectionGroup =
-  req
-    "CreateProtectionGroup"
-    "fixture/CreateProtectionGroup.yaml"
-
-requestDescribeAttack :: DescribeAttack -> TestTree
-requestDescribeAttack =
-  req
-    "DescribeAttack"
-    "fixture/DescribeAttack.yaml"
-
-requestDeleteProtectionGroup :: DeleteProtectionGroup -> TestTree
-requestDeleteProtectionGroup =
-  req
-    "DeleteProtectionGroup"
-    "fixture/DeleteProtectionGroup.yaml"
-
-requestUpdateEmergencyContactSettings :: UpdateEmergencyContactSettings -> TestTree
-requestUpdateEmergencyContactSettings =
-  req
-    "UpdateEmergencyContactSettings"
-    "fixture/UpdateEmergencyContactSettings.yaml"
-
-requestUpdateProtectionGroup :: UpdateProtectionGroup -> TestTree
-requestUpdateProtectionGroup =
-  req
-    "UpdateProtectionGroup"
-    "fixture/UpdateProtectionGroup.yaml"
-
-requestListProtectionGroups :: ListProtectionGroups -> TestTree
-requestListProtectionGroups =
-  req
-    "ListProtectionGroups"
-    "fixture/ListProtectionGroups.yaml"
-
-requestAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetails -> TestTree
-requestAssociateProactiveEngagementDetails =
-  req
-    "AssociateProactiveEngagementDetails"
-    "fixture/AssociateProactiveEngagementDetails.yaml"
+    "CreateSubscription"
+    "fixture/CreateSubscription.yaml"
 
 requestListProtections :: ListProtections -> TestTree
 requestListProtections =
@@ -401,11 +251,107 @@ requestListProtections =
     "ListProtections"
     "fixture/ListProtections.yaml"
 
+requestAssociateDRTRole :: AssociateDRTRole -> TestTree
+requestAssociateDRTRole =
+  req
+    "AssociateDRTRole"
+    "fixture/AssociateDRTRole.yaml"
+
+requestUpdateSubscription :: UpdateSubscription -> TestTree
+requestUpdateSubscription =
+  req
+    "UpdateSubscription"
+    "fixture/UpdateSubscription.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestDisassociateDRTLogBucket :: DisassociateDRTLogBucket -> TestTree
+requestDisassociateDRTLogBucket =
+  req
+    "DisassociateDRTLogBucket"
+    "fixture/DisassociateDRTLogBucket.yaml"
+
+requestAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetails -> TestTree
+requestAssociateProactiveEngagementDetails =
+  req
+    "AssociateProactiveEngagementDetails"
+    "fixture/AssociateProactiveEngagementDetails.yaml"
+
+requestDescribeAttack :: DescribeAttack -> TestTree
+requestDescribeAttack =
+  req
+    "DescribeAttack"
+    "fixture/DescribeAttack.yaml"
+
+requestListProtectionGroups :: ListProtectionGroups -> TestTree
+requestListProtectionGroups =
+  req
+    "ListProtectionGroups"
+    "fixture/ListProtectionGroups.yaml"
+
+requestEnableProactiveEngagement :: EnableProactiveEngagement -> TestTree
+requestEnableProactiveEngagement =
+  req
+    "EnableProactiveEngagement"
+    "fixture/EnableProactiveEngagement.yaml"
+
+requestUpdateEmergencyContactSettings :: UpdateEmergencyContactSettings -> TestTree
+requestUpdateEmergencyContactSettings =
+  req
+    "UpdateEmergencyContactSettings"
+    "fixture/UpdateEmergencyContactSettings.yaml"
+
+requestCreateProtectionGroup :: CreateProtectionGroup -> TestTree
+requestCreateProtectionGroup =
+  req
+    "CreateProtectionGroup"
+    "fixture/CreateProtectionGroup.yaml"
+
+requestDisableProactiveEngagement :: DisableProactiveEngagement -> TestTree
+requestDisableProactiveEngagement =
+  req
+    "DisableProactiveEngagement"
+    "fixture/DisableProactiveEngagement.yaml"
+
+requestDisassociateHealthCheck :: DisassociateHealthCheck -> TestTree
+requestDisassociateHealthCheck =
+  req
+    "DisassociateHealthCheck"
+    "fixture/DisassociateHealthCheck.yaml"
+
+requestListResourcesInProtectionGroup :: ListResourcesInProtectionGroup -> TestTree
+requestListResourcesInProtectionGroup =
+  req
+    "ListResourcesInProtectionGroup"
+    "fixture/ListResourcesInProtectionGroup.yaml"
+
+requestDescribeProtection :: DescribeProtection -> TestTree
+requestDescribeProtection =
+  req
+    "DescribeProtection"
+    "fixture/DescribeProtection.yaml"
+
+requestListAttacks :: ListAttacks -> TestTree
+requestListAttacks =
+  req
+    "ListAttacks"
+    "fixture/ListAttacks.yaml"
+
+requestDescribeEmergencyContactSettings :: DescribeEmergencyContactSettings -> TestTree
+requestDescribeEmergencyContactSettings =
+  req
+    "DescribeEmergencyContactSettings"
+    "fixture/DescribeEmergencyContactSettings.yaml"
+
+requestCreateProtection :: CreateProtection -> TestTree
+requestCreateProtection =
+  req
+    "CreateProtection"
+    "fixture/CreateProtection.yaml"
 
 requestDeleteProtection :: DeleteProtection -> TestTree
 requestDeleteProtection =
@@ -419,127 +365,61 @@ requestGetSubscriptionState =
     "GetSubscriptionState"
     "fixture/GetSubscriptionState.yaml"
 
+requestDeleteProtectionGroup :: DeleteProtectionGroup -> TestTree
+requestDeleteProtectionGroup =
+  req
+    "DeleteProtectionGroup"
+    "fixture/DeleteProtectionGroup.yaml"
+
+requestUpdateProtectionGroup :: UpdateProtectionGroup -> TestTree
+requestUpdateProtectionGroup =
+  req
+    "UpdateProtectionGroup"
+    "fixture/UpdateProtectionGroup.yaml"
+
+requestDescribeAttackStatistics :: DescribeAttackStatistics -> TestTree
+requestDescribeAttackStatistics =
+  req
+    "DescribeAttackStatistics"
+    "fixture/DescribeAttackStatistics.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestDescribeDRTAccess :: DescribeDRTAccess -> TestTree
+requestDescribeDRTAccess =
+  req
+    "DescribeDRTAccess"
+    "fixture/DescribeDRTAccess.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestDescribeSubscription :: DescribeSubscription -> TestTree
+requestDescribeSubscription =
+  req
+    "DescribeSubscription"
+    "fixture/DescribeSubscription.yaml"
+
+requestAssociateHealthCheck :: AssociateHealthCheck -> TestTree
+requestAssociateHealthCheck =
+  req
+    "AssociateHealthCheck"
+    "fixture/AssociateHealthCheck.yaml"
+
+requestDescribeProtectionGroup :: DescribeProtectionGroup -> TestTree
+requestDescribeProtectionGroup =
+  req
+    "DescribeProtectionGroup"
+    "fixture/DescribeProtectionGroup.yaml"
+
 -- Responses
-
-responseCreateSubscription :: CreateSubscriptionResponse -> TestTree
-responseCreateSubscription =
-  res
-    "CreateSubscriptionResponse"
-    "fixture/CreateSubscriptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateSubscription)
-
-responseDescribeProtectionGroup :: DescribeProtectionGroupResponse -> TestTree
-responseDescribeProtectionGroup =
-  res
-    "DescribeProtectionGroupResponse"
-    "fixture/DescribeProtectionGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeProtectionGroup)
-
-responseDescribeEmergencyContactSettings :: DescribeEmergencyContactSettingsResponse -> TestTree
-responseDescribeEmergencyContactSettings =
-  res
-    "DescribeEmergencyContactSettingsResponse"
-    "fixture/DescribeEmergencyContactSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeEmergencyContactSettings)
-
-responseAssociateHealthCheck :: AssociateHealthCheckResponse -> TestTree
-responseAssociateHealthCheck =
-  res
-    "AssociateHealthCheckResponse"
-    "fixture/AssociateHealthCheckResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateHealthCheck)
-
-responseDescribeSubscription :: DescribeSubscriptionResponse -> TestTree
-responseDescribeSubscription =
-  res
-    "DescribeSubscriptionResponse"
-    "fixture/DescribeSubscriptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeSubscription)
-
-responseDescribeDRTAccess :: DescribeDRTAccessResponse -> TestTree
-responseDescribeDRTAccess =
-  res
-    "DescribeDRTAccessResponse"
-    "fixture/DescribeDRTAccessResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDRTAccess)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
-responseDisableProactiveEngagement :: DisableProactiveEngagementResponse -> TestTree
-responseDisableProactiveEngagement =
-  res
-    "DisableProactiveEngagementResponse"
-    "fixture/DisableProactiveEngagementResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisableProactiveEngagement)
-
-responseListResourcesInProtectionGroup :: ListResourcesInProtectionGroupResponse -> TestTree
-responseListResourcesInProtectionGroup =
-  res
-    "ListResourcesInProtectionGroupResponse"
-    "fixture/ListResourcesInProtectionGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListResourcesInProtectionGroup)
-
-responseEnableProactiveEngagement :: EnableProactiveEngagementResponse -> TestTree
-responseEnableProactiveEngagement =
-  res
-    "EnableProactiveEngagementResponse"
-    "fixture/EnableProactiveEngagementResponse.proto"
-    defaultService
-    (Proxy :: Proxy EnableProactiveEngagement)
-
-responseAssociateDRTRole :: AssociateDRTRoleResponse -> TestTree
-responseAssociateDRTRole =
-  res
-    "AssociateDRTRoleResponse"
-    "fixture/AssociateDRTRoleResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateDRTRole)
-
-responseUpdateSubscription :: UpdateSubscriptionResponse -> TestTree
-responseUpdateSubscription =
-  res
-    "UpdateSubscriptionResponse"
-    "fixture/UpdateSubscriptionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateSubscription)
-
-responseDisassociateDRTLogBucket :: DisassociateDRTLogBucketResponse -> TestTree
-responseDisassociateDRTLogBucket =
-  res
-    "DisassociateDRTLogBucketResponse"
-    "fixture/DisassociateDRTLogBucketResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateDRTLogBucket)
-
-responseCreateProtection :: CreateProtectionResponse -> TestTree
-responseCreateProtection =
-  res
-    "CreateProtectionResponse"
-    "fixture/CreateProtectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateProtection)
 
 responseAssociateDRTLogBucket :: AssociateDRTLogBucketResponse -> TestTree
 responseAssociateDRTLogBucket =
@@ -557,93 +437,13 @@ responseDisassociateDRTRole =
     defaultService
     (Proxy :: Proxy DisassociateDRTRole)
 
-responseListAttacks :: ListAttacksResponse -> TestTree
-responseListAttacks =
+responseCreateSubscription :: CreateSubscriptionResponse -> TestTree
+responseCreateSubscription =
   res
-    "ListAttacksResponse"
-    "fixture/ListAttacksResponse.proto"
+    "CreateSubscriptionResponse"
+    "fixture/CreateSubscriptionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAttacks)
-
-responseDescribeProtection :: DescribeProtectionResponse -> TestTree
-responseDescribeProtection =
-  res
-    "DescribeProtectionResponse"
-    "fixture/DescribeProtectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeProtection)
-
-responseDescribeAttackStatistics :: DescribeAttackStatisticsResponse -> TestTree
-responseDescribeAttackStatistics =
-  res
-    "DescribeAttackStatisticsResponse"
-    "fixture/DescribeAttackStatisticsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAttackStatistics)
-
-responseDisassociateHealthCheck :: DisassociateHealthCheckResponse -> TestTree
-responseDisassociateHealthCheck =
-  res
-    "DisassociateHealthCheckResponse"
-    "fixture/DisassociateHealthCheckResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateHealthCheck)
-
-responseCreateProtectionGroup :: CreateProtectionGroupResponse -> TestTree
-responseCreateProtectionGroup =
-  res
-    "CreateProtectionGroupResponse"
-    "fixture/CreateProtectionGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateProtectionGroup)
-
-responseDescribeAttack :: DescribeAttackResponse -> TestTree
-responseDescribeAttack =
-  res
-    "DescribeAttackResponse"
-    "fixture/DescribeAttackResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAttack)
-
-responseDeleteProtectionGroup :: DeleteProtectionGroupResponse -> TestTree
-responseDeleteProtectionGroup =
-  res
-    "DeleteProtectionGroupResponse"
-    "fixture/DeleteProtectionGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteProtectionGroup)
-
-responseUpdateEmergencyContactSettings :: UpdateEmergencyContactSettingsResponse -> TestTree
-responseUpdateEmergencyContactSettings =
-  res
-    "UpdateEmergencyContactSettingsResponse"
-    "fixture/UpdateEmergencyContactSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateEmergencyContactSettings)
-
-responseUpdateProtectionGroup :: UpdateProtectionGroupResponse -> TestTree
-responseUpdateProtectionGroup =
-  res
-    "UpdateProtectionGroupResponse"
-    "fixture/UpdateProtectionGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateProtectionGroup)
-
-responseListProtectionGroups :: ListProtectionGroupsResponse -> TestTree
-responseListProtectionGroups =
-  res
-    "ListProtectionGroupsResponse"
-    "fixture/ListProtectionGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListProtectionGroups)
-
-responseAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetailsResponse -> TestTree
-responseAssociateProactiveEngagementDetails =
-  res
-    "AssociateProactiveEngagementDetailsResponse"
-    "fixture/AssociateProactiveEngagementDetailsResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateProactiveEngagementDetails)
+    (Proxy :: Proxy CreateSubscription)
 
 responseListProtections :: ListProtectionsResponse -> TestTree
 responseListProtections =
@@ -653,6 +453,22 @@ responseListProtections =
     defaultService
     (Proxy :: Proxy ListProtections)
 
+responseAssociateDRTRole :: AssociateDRTRoleResponse -> TestTree
+responseAssociateDRTRole =
+  res
+    "AssociateDRTRoleResponse"
+    "fixture/AssociateDRTRoleResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateDRTRole)
+
+responseUpdateSubscription :: UpdateSubscriptionResponse -> TestTree
+responseUpdateSubscription =
+  res
+    "UpdateSubscriptionResponse"
+    "fixture/UpdateSubscriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSubscription)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -660,6 +476,118 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy :: Proxy ListTagsForResource)
+
+responseDisassociateDRTLogBucket :: DisassociateDRTLogBucketResponse -> TestTree
+responseDisassociateDRTLogBucket =
+  res
+    "DisassociateDRTLogBucketResponse"
+    "fixture/DisassociateDRTLogBucketResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateDRTLogBucket)
+
+responseAssociateProactiveEngagementDetails :: AssociateProactiveEngagementDetailsResponse -> TestTree
+responseAssociateProactiveEngagementDetails =
+  res
+    "AssociateProactiveEngagementDetailsResponse"
+    "fixture/AssociateProactiveEngagementDetailsResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateProactiveEngagementDetails)
+
+responseDescribeAttack :: DescribeAttackResponse -> TestTree
+responseDescribeAttack =
+  res
+    "DescribeAttackResponse"
+    "fixture/DescribeAttackResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAttack)
+
+responseListProtectionGroups :: ListProtectionGroupsResponse -> TestTree
+responseListProtectionGroups =
+  res
+    "ListProtectionGroupsResponse"
+    "fixture/ListProtectionGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListProtectionGroups)
+
+responseEnableProactiveEngagement :: EnableProactiveEngagementResponse -> TestTree
+responseEnableProactiveEngagement =
+  res
+    "EnableProactiveEngagementResponse"
+    "fixture/EnableProactiveEngagementResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableProactiveEngagement)
+
+responseUpdateEmergencyContactSettings :: UpdateEmergencyContactSettingsResponse -> TestTree
+responseUpdateEmergencyContactSettings =
+  res
+    "UpdateEmergencyContactSettingsResponse"
+    "fixture/UpdateEmergencyContactSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEmergencyContactSettings)
+
+responseCreateProtectionGroup :: CreateProtectionGroupResponse -> TestTree
+responseCreateProtectionGroup =
+  res
+    "CreateProtectionGroupResponse"
+    "fixture/CreateProtectionGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateProtectionGroup)
+
+responseDisableProactiveEngagement :: DisableProactiveEngagementResponse -> TestTree
+responseDisableProactiveEngagement =
+  res
+    "DisableProactiveEngagementResponse"
+    "fixture/DisableProactiveEngagementResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableProactiveEngagement)
+
+responseDisassociateHealthCheck :: DisassociateHealthCheckResponse -> TestTree
+responseDisassociateHealthCheck =
+  res
+    "DisassociateHealthCheckResponse"
+    "fixture/DisassociateHealthCheckResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateHealthCheck)
+
+responseListResourcesInProtectionGroup :: ListResourcesInProtectionGroupResponse -> TestTree
+responseListResourcesInProtectionGroup =
+  res
+    "ListResourcesInProtectionGroupResponse"
+    "fixture/ListResourcesInProtectionGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListResourcesInProtectionGroup)
+
+responseDescribeProtection :: DescribeProtectionResponse -> TestTree
+responseDescribeProtection =
+  res
+    "DescribeProtectionResponse"
+    "fixture/DescribeProtectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeProtection)
+
+responseListAttacks :: ListAttacksResponse -> TestTree
+responseListAttacks =
+  res
+    "ListAttacksResponse"
+    "fixture/ListAttacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAttacks)
+
+responseDescribeEmergencyContactSettings :: DescribeEmergencyContactSettingsResponse -> TestTree
+responseDescribeEmergencyContactSettings =
+  res
+    "DescribeEmergencyContactSettingsResponse"
+    "fixture/DescribeEmergencyContactSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEmergencyContactSettings)
+
+responseCreateProtection :: CreateProtectionResponse -> TestTree
+responseCreateProtection =
+  res
+    "CreateProtectionResponse"
+    "fixture/CreateProtectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateProtection)
 
 responseDeleteProtection :: DeleteProtectionResponse -> TestTree
 responseDeleteProtection =
@@ -676,3 +604,75 @@ responseGetSubscriptionState =
     "fixture/GetSubscriptionStateResponse.proto"
     defaultService
     (Proxy :: Proxy GetSubscriptionState)
+
+responseDeleteProtectionGroup :: DeleteProtectionGroupResponse -> TestTree
+responseDeleteProtectionGroup =
+  res
+    "DeleteProtectionGroupResponse"
+    "fixture/DeleteProtectionGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteProtectionGroup)
+
+responseUpdateProtectionGroup :: UpdateProtectionGroupResponse -> TestTree
+responseUpdateProtectionGroup =
+  res
+    "UpdateProtectionGroupResponse"
+    "fixture/UpdateProtectionGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateProtectionGroup)
+
+responseDescribeAttackStatistics :: DescribeAttackStatisticsResponse -> TestTree
+responseDescribeAttackStatistics =
+  res
+    "DescribeAttackStatisticsResponse"
+    "fixture/DescribeAttackStatisticsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAttackStatistics)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseDescribeDRTAccess :: DescribeDRTAccessResponse -> TestTree
+responseDescribeDRTAccess =
+  res
+    "DescribeDRTAccessResponse"
+    "fixture/DescribeDRTAccessResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDRTAccess)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseDescribeSubscription :: DescribeSubscriptionResponse -> TestTree
+responseDescribeSubscription =
+  res
+    "DescribeSubscriptionResponse"
+    "fixture/DescribeSubscriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSubscription)
+
+responseAssociateHealthCheck :: AssociateHealthCheckResponse -> TestTree
+responseAssociateHealthCheck =
+  res
+    "AssociateHealthCheckResponse"
+    "fixture/AssociateHealthCheckResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateHealthCheck)
+
+responseDescribeProtectionGroup :: DescribeProtectionGroupResponse -> TestTree
+responseDescribeProtectionGroup =
+  res
+    "DescribeProtectionGroupResponse"
+    "fixture/DescribeProtectionGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeProtectionGroup)

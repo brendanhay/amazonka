@@ -28,8 +28,8 @@ module Network.AWS.Pinpoint.GetSegmentImportJobs
     newGetSegmentImportJobs,
 
     -- * Request Lenses
-    getSegmentImportJobs_pageSize,
     getSegmentImportJobs_token,
+    getSegmentImportJobs_pageSize,
     getSegmentImportJobs_segmentId,
     getSegmentImportJobs_applicationId,
 
@@ -52,13 +52,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSegmentImportJobs' smart constructor.
 data GetSegmentImportJobs = GetSegmentImportJobs'
-  { -- | The maximum number of items to include in each page of a paginated
+  { -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The NextToken string that specifies which page of results to return in a
-    -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the segment.
     segmentId :: Prelude.Text,
     -- | The unique identifier for the application. This identifier is displayed
@@ -75,12 +75,12 @@ data GetSegmentImportJobs = GetSegmentImportJobs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'token', 'getSegmentImportJobs_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
 -- 'pageSize', 'getSegmentImportJobs_pageSize' - The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
---
--- 'token', 'getSegmentImportJobs_token' - The NextToken string that specifies which page of results to return in a
--- paginated response.
 --
 -- 'segmentId', 'getSegmentImportJobs_segmentId' - The unique identifier for the segment.
 --
@@ -94,22 +94,22 @@ newGetSegmentImportJobs ::
   GetSegmentImportJobs
 newGetSegmentImportJobs pSegmentId_ pApplicationId_ =
   GetSegmentImportJobs'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { token = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       segmentId = pSegmentId_,
       applicationId = pApplicationId_
     }
+
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getSegmentImportJobs_token :: Lens.Lens' GetSegmentImportJobs (Prelude.Maybe Prelude.Text)
+getSegmentImportJobs_token = Lens.lens (\GetSegmentImportJobs' {token} -> token) (\s@GetSegmentImportJobs' {} a -> s {token = a} :: GetSegmentImportJobs)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 getSegmentImportJobs_pageSize :: Lens.Lens' GetSegmentImportJobs (Prelude.Maybe Prelude.Text)
 getSegmentImportJobs_pageSize = Lens.lens (\GetSegmentImportJobs' {pageSize} -> pageSize) (\s@GetSegmentImportJobs' {} a -> s {pageSize = a} :: GetSegmentImportJobs)
-
--- | The NextToken string that specifies which page of results to return in a
--- paginated response.
-getSegmentImportJobs_token :: Lens.Lens' GetSegmentImportJobs (Prelude.Maybe Prelude.Text)
-getSegmentImportJobs_token = Lens.lens (\GetSegmentImportJobs' {token} -> token) (\s@GetSegmentImportJobs' {} a -> s {token = a} :: GetSegmentImportJobs)
 
 -- | The unique identifier for the segment.
 getSegmentImportJobs_segmentId :: Lens.Lens' GetSegmentImportJobs Prelude.Text
@@ -161,7 +161,7 @@ instance Core.ToPath GetSegmentImportJobs where
 instance Core.ToQuery GetSegmentImportJobs where
   toQuery GetSegmentImportJobs' {..} =
     Prelude.mconcat
-      ["page-size" Core.=: pageSize, "token" Core.=: token]
+      ["token" Core.=: token, "page-size" Core.=: pageSize]
 
 -- | /See:/ 'newGetSegmentImportJobsResponse' smart constructor.
 data GetSegmentImportJobsResponse = GetSegmentImportJobsResponse'

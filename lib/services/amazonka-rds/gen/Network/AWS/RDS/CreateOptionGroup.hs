@@ -181,7 +181,7 @@ newCreateOptionGroup
 
 -- | Tags to assign to the option group.
 createOptionGroup_tags :: Lens.Lens' CreateOptionGroup (Prelude.Maybe [Tag])
-createOptionGroup_tags = Lens.lens (\CreateOptionGroup' {tags} -> tags) (\s@CreateOptionGroup' {} a -> s {tags = a} :: CreateOptionGroup) Prelude.. Lens.mapping Lens._Coerce
+createOptionGroup_tags = Lens.lens (\CreateOptionGroup' {tags} -> tags) (\s@CreateOptionGroup' {} a -> s {tags = a} :: CreateOptionGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the name of the option group to be created.
 --

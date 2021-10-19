@@ -61,7 +61,7 @@ newCacheBehaviors pQuantity_ =
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If @Quantity@ is @0@, you can omit @Items@.
 cacheBehaviors_items :: Lens.Lens' CacheBehaviors (Prelude.Maybe [CacheBehavior])
-cacheBehaviors_items = Lens.lens (\CacheBehaviors' {items} -> items) (\s@CacheBehaviors' {} a -> s {items = a} :: CacheBehaviors) Prelude.. Lens.mapping Lens._Coerce
+cacheBehaviors_items = Lens.lens (\CacheBehaviors' {items} -> items) (\s@CacheBehaviors' {} a -> s {items = a} :: CacheBehaviors) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of cache behaviors for this distribution.
 cacheBehaviors_quantity :: Lens.Lens' CacheBehaviors Prelude.Int

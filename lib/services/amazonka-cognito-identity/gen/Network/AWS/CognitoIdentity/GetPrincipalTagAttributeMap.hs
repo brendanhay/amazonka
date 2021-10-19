@@ -216,7 +216,7 @@ getPrincipalTagAttributeMapResponse_identityProviderName = Lens.lens (\GetPrinci
 -- @PrincipalTags@operation enables you to reference user attributes in
 -- your IAM permissions policy.
 getPrincipalTagAttributeMapResponse_principalTags :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\GetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: GetPrincipalTagAttributeMapResponse) Prelude.. Lens.mapping Lens._Coerce
+getPrincipalTagAttributeMapResponse_principalTags = Lens.lens (\GetPrincipalTagAttributeMapResponse' {principalTags} -> principalTags) (\s@GetPrincipalTagAttributeMapResponse' {} a -> s {principalTags = a} :: GetPrincipalTagAttributeMapResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this operation to list
 getPrincipalTagAttributeMapResponse_useDefaults :: Lens.Lens' GetPrincipalTagAttributeMapResponse (Prelude.Maybe Prelude.Bool)

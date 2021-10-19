@@ -28,9 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFunctionMetadata' smart constructor.
 data FunctionMetadata = FunctionMetadata'
-  { -- | The date and time when the function was created.
-    createdTime :: Prelude.Maybe Core.ISO8601,
-    -- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.
+  { -- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.
     --
     -- When a function is in the @DEVELOPMENT@ stage, you can test the function
     -- with @TestFunction@, and update it with @UpdateFunction@.
@@ -38,6 +36,8 @@ data FunctionMetadata = FunctionMetadata'
     -- When a function is in the @LIVE@ stage, you can attach the function to a
     -- distribution’s cache behavior, using the function’s ARN.
     stage :: Prelude.Maybe FunctionStage,
+    -- | The date and time when the function was created.
+    createdTime :: Prelude.Maybe Core.ISO8601,
     -- | The Amazon Resource Name (ARN) of the function. The ARN uniquely
     -- identifies the function.
     functionARN :: Prelude.Text,
@@ -54,8 +54,6 @@ data FunctionMetadata = FunctionMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTime', 'functionMetadata_createdTime' - The date and time when the function was created.
---
 -- 'stage', 'functionMetadata_stage' - The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.
 --
 -- When a function is in the @DEVELOPMENT@ stage, you can test the function
@@ -63,6 +61,8 @@ data FunctionMetadata = FunctionMetadata'
 --
 -- When a function is in the @LIVE@ stage, you can attach the function to a
 -- distribution’s cache behavior, using the function’s ARN.
+--
+-- 'createdTime', 'functionMetadata_createdTime' - The date and time when the function was created.
 --
 -- 'functionARN', 'functionMetadata_functionARN' - The Amazon Resource Name (ARN) of the function. The ARN uniquely
 -- identifies the function.
@@ -76,16 +76,12 @@ newFunctionMetadata ::
   FunctionMetadata
 newFunctionMetadata pFunctionARN_ pLastModifiedTime_ =
   FunctionMetadata'
-    { createdTime = Prelude.Nothing,
-      stage = Prelude.Nothing,
+    { stage = Prelude.Nothing,
+      createdTime = Prelude.Nothing,
       functionARN = pFunctionARN_,
       lastModifiedTime =
         Core._Time Lens.# pLastModifiedTime_
     }
-
--- | The date and time when the function was created.
-functionMetadata_createdTime :: Lens.Lens' FunctionMetadata (Prelude.Maybe Prelude.UTCTime)
-functionMetadata_createdTime = Lens.lens (\FunctionMetadata' {createdTime} -> createdTime) (\s@FunctionMetadata' {} a -> s {createdTime = a} :: FunctionMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The stage that the function is in, either @DEVELOPMENT@ or @LIVE@.
 --
@@ -96,6 +92,10 @@ functionMetadata_createdTime = Lens.lens (\FunctionMetadata' {createdTime} -> cr
 -- distribution’s cache behavior, using the function’s ARN.
 functionMetadata_stage :: Lens.Lens' FunctionMetadata (Prelude.Maybe FunctionStage)
 functionMetadata_stage = Lens.lens (\FunctionMetadata' {stage} -> stage) (\s@FunctionMetadata' {} a -> s {stage = a} :: FunctionMetadata)
+
+-- | The date and time when the function was created.
+functionMetadata_createdTime :: Lens.Lens' FunctionMetadata (Prelude.Maybe Prelude.UTCTime)
+functionMetadata_createdTime = Lens.lens (\FunctionMetadata' {createdTime} -> createdTime) (\s@FunctionMetadata' {} a -> s {createdTime = a} :: FunctionMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the function. The ARN uniquely
 -- identifies the function.
@@ -109,8 +109,8 @@ functionMetadata_lastModifiedTime = Lens.lens (\FunctionMetadata' {lastModifiedT
 instance Core.FromXML FunctionMetadata where
   parseXML x =
     FunctionMetadata'
-      Prelude.<$> (x Core..@? "CreatedTime")
-      Prelude.<*> (x Core..@? "Stage")
+      Prelude.<$> (x Core..@? "Stage")
+      Prelude.<*> (x Core..@? "CreatedTime")
       Prelude.<*> (x Core..@ "FunctionARN")
       Prelude.<*> (x Core..@ "LastModifiedTime")
 

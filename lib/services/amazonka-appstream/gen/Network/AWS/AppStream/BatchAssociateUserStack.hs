@@ -71,12 +71,12 @@ newBatchAssociateUserStack ::
 newBatchAssociateUserStack pUserStackAssociations_ =
   BatchAssociateUserStack'
     { userStackAssociations =
-        Lens._Coerce Lens.# pUserStackAssociations_
+        Lens.coerced Lens.# pUserStackAssociations_
     }
 
 -- | The list of UserStackAssociation objects.
 batchAssociateUserStack_userStackAssociations :: Lens.Lens' BatchAssociateUserStack (Prelude.NonEmpty UserStackAssociation)
-batchAssociateUserStack_userStackAssociations = Lens.lens (\BatchAssociateUserStack' {userStackAssociations} -> userStackAssociations) (\s@BatchAssociateUserStack' {} a -> s {userStackAssociations = a} :: BatchAssociateUserStack) Prelude.. Lens._Coerce
+batchAssociateUserStack_userStackAssociations = Lens.lens (\BatchAssociateUserStack' {userStackAssociations} -> userStackAssociations) (\s@BatchAssociateUserStack' {} a -> s {userStackAssociations = a} :: BatchAssociateUserStack) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchAssociateUserStack where
   type
@@ -160,7 +160,7 @@ newBatchAssociateUserStackResponse pHttpStatus_ =
 
 -- | The list of UserStackAssociationError objects.
 batchAssociateUserStackResponse_errors :: Lens.Lens' BatchAssociateUserStackResponse (Prelude.Maybe [UserStackAssociationError])
-batchAssociateUserStackResponse_errors = Lens.lens (\BatchAssociateUserStackResponse' {errors} -> errors) (\s@BatchAssociateUserStackResponse' {} a -> s {errors = a} :: BatchAssociateUserStackResponse) Prelude.. Lens.mapping Lens._Coerce
+batchAssociateUserStackResponse_errors = Lens.lens (\BatchAssociateUserStackResponse' {errors} -> errors) (\s@BatchAssociateUserStackResponse' {} a -> s {errors = a} :: BatchAssociateUserStackResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchAssociateUserStackResponse_httpStatus :: Lens.Lens' BatchAssociateUserStackResponse Prelude.Int

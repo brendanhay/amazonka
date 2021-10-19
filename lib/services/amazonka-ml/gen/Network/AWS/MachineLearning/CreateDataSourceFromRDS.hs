@@ -43,8 +43,8 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     newCreateDataSourceFromRDS,
 
     -- * Request Lenses
-    createDataSourceFromRDS_computeStatistics,
     createDataSourceFromRDS_dataSourceName,
+    createDataSourceFromRDS_computeStatistics,
     createDataSourceFromRDS_dataSourceId,
     createDataSourceFromRDS_rDSData,
     createDataSourceFromRDS_roleARN,
@@ -68,14 +68,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDataSourceFromRDS' smart constructor.
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-  { -- | The compute statistics for a @DataSource@. The statistics are generated
+  { -- | A user-supplied name or description of the @DataSource@.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The compute statistics for a @DataSource@. The statistics are generated
     -- from the observation data referenced by a @DataSource@. Amazon ML uses
     -- the statistics internally during @MLModel@ training. This parameter must
     -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
     -- training.
     computeStatistics :: Prelude.Maybe Prelude.Bool,
-    -- | A user-supplied name or description of the @DataSource@.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,
     -- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.
     dataSourceId :: Prelude.Text,
@@ -142,13 +142,13 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataSourceName', 'createDataSourceFromRDS_dataSourceName' - A user-supplied name or description of the @DataSource@.
+--
 -- 'computeStatistics', 'createDataSourceFromRDS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
 -- training.
---
--- 'dataSourceName', 'createDataSourceFromRDS_dataSourceName' - A user-supplied name or description of the @DataSource@.
 --
 -- 'dataSourceId', 'createDataSourceFromRDS_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@. Typically,
 -- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.
@@ -217,13 +217,17 @@ newCreateDataSourceFromRDS
   pRDSData_
   pRoleARN_ =
     CreateDataSourceFromRDS'
-      { computeStatistics =
+      { dataSourceName =
           Prelude.Nothing,
-        dataSourceName = Prelude.Nothing,
+        computeStatistics = Prelude.Nothing,
         dataSourceId = pDataSourceId_,
         rDSData = pRDSData_,
         roleARN = pRoleARN_
       }
+
+-- | A user-supplied name or description of the @DataSource@.
+createDataSourceFromRDS_dataSourceName :: Lens.Lens' CreateDataSourceFromRDS (Prelude.Maybe Prelude.Text)
+createDataSourceFromRDS_dataSourceName = Lens.lens (\CreateDataSourceFromRDS' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromRDS' {} a -> s {dataSourceName = a} :: CreateDataSourceFromRDS)
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
@@ -232,10 +236,6 @@ newCreateDataSourceFromRDS
 -- training.
 createDataSourceFromRDS_computeStatistics :: Lens.Lens' CreateDataSourceFromRDS (Prelude.Maybe Prelude.Bool)
 createDataSourceFromRDS_computeStatistics = Lens.lens (\CreateDataSourceFromRDS' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromRDS' {} a -> s {computeStatistics = a} :: CreateDataSourceFromRDS)
-
--- | A user-supplied name or description of the @DataSource@.
-createDataSourceFromRDS_dataSourceName :: Lens.Lens' CreateDataSourceFromRDS (Prelude.Maybe Prelude.Text)
-createDataSourceFromRDS_dataSourceName = Lens.lens (\CreateDataSourceFromRDS' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromRDS' {} a -> s {dataSourceName = a} :: CreateDataSourceFromRDS)
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,
 -- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.
@@ -334,10 +334,10 @@ instance Core.ToJSON CreateDataSourceFromRDS where
   toJSON CreateDataSourceFromRDS' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ComputeStatistics" Core..=)
-              Prelude.<$> computeStatistics,
-            ("DataSourceName" Core..=)
+          [ ("DataSourceName" Core..=)
               Prelude.<$> dataSourceName,
+            ("ComputeStatistics" Core..=)
+              Prelude.<$> computeStatistics,
             Prelude.Just ("DataSourceId" Core..= dataSourceId),
             Prelude.Just ("RDSData" Core..= rDSData),
             Prelude.Just ("RoleARN" Core..= roleARN)

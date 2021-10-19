@@ -47,12 +47,12 @@ data MailFromAttributes = MailFromAttributes'
     -- -   @TEMPORARY_FAILURE@ – A temporary issue occurred, which prevented
     --     Amazon SES from determining the status of the MAIL FROM domain.
     mailFromDomainStatus :: MailFromDomainStatus,
-    -- | The action that you want to take if the required MX record can\'t be
-    -- found when you send an email. When you set this value to
-    -- @UseDefaultValue@, the mail is sent using /amazonses.com/ as the MAIL
-    -- FROM domain. When you set this value to @RejectMessage@, the Amazon SES
-    -- API v2 returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt
-    -- to deliver the email.
+    -- | The action to take if the required MX record can\'t be found when you
+    -- send an email. When you set this value to @UseDefaultValue@, the mail is
+    -- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
+    -- value to @RejectMessage@, the Amazon SES API v2 returns a
+    -- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
+    -- email.
     --
     -- These behaviors are taken when the custom MAIL FROM domain configuration
     -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
@@ -86,12 +86,12 @@ data MailFromAttributes = MailFromAttributes'
 -- -   @TEMPORARY_FAILURE@ – A temporary issue occurred, which prevented
 --     Amazon SES from determining the status of the MAIL FROM domain.
 --
--- 'behaviorOnMxFailure', 'mailFromAttributes_behaviorOnMxFailure' - The action that you want to take if the required MX record can\'t be
--- found when you send an email. When you set this value to
--- @UseDefaultValue@, the mail is sent using /amazonses.com/ as the MAIL
--- FROM domain. When you set this value to @RejectMessage@, the Amazon SES
--- API v2 returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt
--- to deliver the email.
+-- 'behaviorOnMxFailure', 'mailFromAttributes_behaviorOnMxFailure' - The action to take if the required MX record can\'t be found when you
+-- send an email. When you set this value to @UseDefaultValue@, the mail is
+-- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
+-- value to @RejectMessage@, the Amazon SES API v2 returns a
+-- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
+-- email.
 --
 -- These behaviors are taken when the custom MAIL FROM domain configuration
 -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.
@@ -136,12 +136,12 @@ mailFromAttributes_mailFromDomain = Lens.lens (\MailFromAttributes' {mailFromDom
 mailFromAttributes_mailFromDomainStatus :: Lens.Lens' MailFromAttributes MailFromDomainStatus
 mailFromAttributes_mailFromDomainStatus = Lens.lens (\MailFromAttributes' {mailFromDomainStatus} -> mailFromDomainStatus) (\s@MailFromAttributes' {} a -> s {mailFromDomainStatus = a} :: MailFromAttributes)
 
--- | The action that you want to take if the required MX record can\'t be
--- found when you send an email. When you set this value to
--- @UseDefaultValue@, the mail is sent using /amazonses.com/ as the MAIL
--- FROM domain. When you set this value to @RejectMessage@, the Amazon SES
--- API v2 returns a @MailFromDomainNotVerified@ error, and doesn\'t attempt
--- to deliver the email.
+-- | The action to take if the required MX record can\'t be found when you
+-- send an email. When you set this value to @UseDefaultValue@, the mail is
+-- sent using /amazonses.com/ as the MAIL FROM domain. When you set this
+-- value to @RejectMessage@, the Amazon SES API v2 returns a
+-- @MailFromDomainNotVerified@ error, and doesn\'t attempt to deliver the
+-- email.
 --
 -- These behaviors are taken when the custom MAIL FROM domain configuration
 -- is in the @Pending@, @Failed@, and @TemporaryFailure@ states.

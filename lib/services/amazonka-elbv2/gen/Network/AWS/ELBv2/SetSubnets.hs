@@ -33,9 +33,9 @@ module Network.AWS.ELBv2.SetSubnets
     newSetSubnets,
 
     -- * Request Lenses
-    setSubnets_ipAddressType,
     setSubnets_subnetMappings,
     setSubnets_subnets,
+    setSubnets_ipAddressType,
     setSubnets_loadBalancerArn,
 
     -- * Destructuring the Response
@@ -43,8 +43,8 @@ module Network.AWS.ELBv2.SetSubnets
     newSetSubnetsResponse,
 
     -- * Response Lenses
-    setSubnetsResponse_ipAddressType,
     setSubnetsResponse_availabilityZones,
+    setSubnetsResponse_ipAddressType,
     setSubnetsResponse_httpStatus,
   )
 where
@@ -58,13 +58,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetSubnets' smart constructor.
 data SetSubnets = SetSubnets'
-  { -- | [Network Load Balancers] The type of IP addresses used by the subnets
-    -- for your load balancer. The possible values are @ipv4@ (for IPv4
-    -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
-    -- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
-    -- Internal load balancers must use @ipv4@.
-    ipAddressType :: Prelude.Maybe IpAddressType,
-    -- | The IDs of the public subnets. You can specify only one subnet per
+  { -- | The IDs of the public subnets. You can specify only one subnet per
     -- Availability Zone. You must specify either subnets or subnet mappings.
     --
     -- [Application Load Balancers] You must specify subnets from at least two
@@ -99,6 +93,12 @@ data SetSubnets = SetSubnets'
     -- [Network Load Balancers] You can specify subnets from one or more
     -- Availability Zones.
     subnets :: Prelude.Maybe [Prelude.Text],
+    -- | [Network Load Balancers] The type of IP addresses used by the subnets
+    -- for your load balancer. The possible values are @ipv4@ (for IPv4
+    -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
+    -- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
+    -- Internal load balancers must use @ipv4@.
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerArn :: Prelude.Text
   }
@@ -111,12 +111,6 @@ data SetSubnets = SetSubnets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'ipAddressType', 'setSubnets_ipAddressType' - [Network Load Balancers] The type of IP addresses used by the subnets
--- for your load balancer. The possible values are @ipv4@ (for IPv4
--- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
--- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
--- Internal load balancers must use @ipv4@.
 --
 -- 'subnetMappings', 'setSubnets_subnetMappings' - The IDs of the public subnets. You can specify only one subnet per
 -- Availability Zone. You must specify either subnets or subnet mappings.
@@ -153,6 +147,12 @@ data SetSubnets = SetSubnets'
 -- [Network Load Balancers] You can specify subnets from one or more
 -- Availability Zones.
 --
+-- 'ipAddressType', 'setSubnets_ipAddressType' - [Network Load Balancers] The type of IP addresses used by the subnets
+-- for your load balancer. The possible values are @ipv4@ (for IPv4
+-- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
+-- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
+-- Internal load balancers must use @ipv4@.
+--
 -- 'loadBalancerArn', 'setSubnets_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 newSetSubnets ::
   -- | 'loadBalancerArn'
@@ -160,19 +160,11 @@ newSetSubnets ::
   SetSubnets
 newSetSubnets pLoadBalancerArn_ =
   SetSubnets'
-    { ipAddressType = Prelude.Nothing,
-      subnetMappings = Prelude.Nothing,
+    { subnetMappings = Prelude.Nothing,
       subnets = Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
       loadBalancerArn = pLoadBalancerArn_
     }
-
--- | [Network Load Balancers] The type of IP addresses used by the subnets
--- for your load balancer. The possible values are @ipv4@ (for IPv4
--- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
--- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
--- Internal load balancers must use @ipv4@.
-setSubnets_ipAddressType :: Lens.Lens' SetSubnets (Prelude.Maybe IpAddressType)
-setSubnets_ipAddressType = Lens.lens (\SetSubnets' {ipAddressType} -> ipAddressType) (\s@SetSubnets' {} a -> s {ipAddressType = a} :: SetSubnets)
 
 -- | The IDs of the public subnets. You can specify only one subnet per
 -- Availability Zone. You must specify either subnets or subnet mappings.
@@ -194,7 +186,7 @@ setSubnets_ipAddressType = Lens.lens (\SetSubnets' {ipAddressType} -> ipAddressT
 -- subnet from the IPv4 range of the subnet. For internet-facing load
 -- balancer, you can specify one IPv6 address per subnet.
 setSubnets_subnetMappings :: Lens.Lens' SetSubnets (Prelude.Maybe [SubnetMapping])
-setSubnets_subnetMappings = Lens.lens (\SetSubnets' {subnetMappings} -> subnetMappings) (\s@SetSubnets' {} a -> s {subnetMappings = a} :: SetSubnets) Prelude.. Lens.mapping Lens._Coerce
+setSubnets_subnetMappings = Lens.lens (\SetSubnets' {subnetMappings} -> subnetMappings) (\s@SetSubnets' {} a -> s {subnetMappings = a} :: SetSubnets) Prelude.. Lens.mapping Lens.coerced
 
 -- | The IDs of the public subnets. You can specify only one subnet per
 -- Availability Zone. You must specify either subnets or subnet mappings.
@@ -211,7 +203,15 @@ setSubnets_subnetMappings = Lens.lens (\SetSubnets' {subnetMappings} -> subnetMa
 -- [Network Load Balancers] You can specify subnets from one or more
 -- Availability Zones.
 setSubnets_subnets :: Lens.Lens' SetSubnets (Prelude.Maybe [Prelude.Text])
-setSubnets_subnets = Lens.lens (\SetSubnets' {subnets} -> subnets) (\s@SetSubnets' {} a -> s {subnets = a} :: SetSubnets) Prelude.. Lens.mapping Lens._Coerce
+setSubnets_subnets = Lens.lens (\SetSubnets' {subnets} -> subnets) (\s@SetSubnets' {} a -> s {subnets = a} :: SetSubnets) Prelude.. Lens.mapping Lens.coerced
+
+-- | [Network Load Balancers] The type of IP addresses used by the subnets
+-- for your load balancer. The possible values are @ipv4@ (for IPv4
+-- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
+-- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
+-- Internal load balancers must use @ipv4@.
+setSubnets_ipAddressType :: Lens.Lens' SetSubnets (Prelude.Maybe IpAddressType)
+setSubnets_ipAddressType = Lens.lens (\SetSubnets' {ipAddressType} -> ipAddressType) (\s@SetSubnets' {} a -> s {ipAddressType = a} :: SetSubnets)
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
 setSubnets_loadBalancerArn :: Lens.Lens' SetSubnets Prelude.Text
@@ -225,11 +225,11 @@ instance Core.AWSRequest SetSubnets where
       "SetSubnetsResult"
       ( \s h x ->
           SetSubnetsResponse'
-            Prelude.<$> (x Core..@? "IpAddressType")
-            Prelude.<*> ( x Core..@? "AvailabilityZones"
+            Prelude.<$> ( x Core..@? "AvailabilityZones"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "IpAddressType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -250,7 +250,6 @@ instance Core.ToQuery SetSubnets where
           Core.=: ("SetSubnets" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-12-01" :: Prelude.ByteString),
-        "IpAddressType" Core.=: ipAddressType,
         "SubnetMappings"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
@@ -259,15 +258,16 @@ instance Core.ToQuery SetSubnets where
         "Subnets"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> subnets),
+        "IpAddressType" Core.=: ipAddressType,
         "LoadBalancerArn" Core.=: loadBalancerArn
       ]
 
 -- | /See:/ 'newSetSubnetsResponse' smart constructor.
 data SetSubnetsResponse = SetSubnetsResponse'
-  { -- | [Network Load Balancers] The IP address type.
-    ipAddressType :: Prelude.Maybe IpAddressType,
-    -- | Information about the subnets.
+  { -- | Information about the subnets.
     availabilityZones :: Prelude.Maybe [AvailabilityZone],
+    -- | [Network Load Balancers] The IP address type.
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -281,9 +281,9 @@ data SetSubnetsResponse = SetSubnetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipAddressType', 'setSubnetsResponse_ipAddressType' - [Network Load Balancers] The IP address type.
---
 -- 'availabilityZones', 'setSubnetsResponse_availabilityZones' - Information about the subnets.
+--
+-- 'ipAddressType', 'setSubnetsResponse_ipAddressType' - [Network Load Balancers] The IP address type.
 --
 -- 'httpStatus', 'setSubnetsResponse_httpStatus' - The response's http status code.
 newSetSubnetsResponse ::
@@ -292,19 +292,19 @@ newSetSubnetsResponse ::
   SetSubnetsResponse
 newSetSubnetsResponse pHttpStatus_ =
   SetSubnetsResponse'
-    { ipAddressType =
+    { availabilityZones =
         Prelude.Nothing,
-      availabilityZones = Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the subnets.
+setSubnetsResponse_availabilityZones :: Lens.Lens' SetSubnetsResponse (Prelude.Maybe [AvailabilityZone])
+setSubnetsResponse_availabilityZones = Lens.lens (\SetSubnetsResponse' {availabilityZones} -> availabilityZones) (\s@SetSubnetsResponse' {} a -> s {availabilityZones = a} :: SetSubnetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Network Load Balancers] The IP address type.
 setSubnetsResponse_ipAddressType :: Lens.Lens' SetSubnetsResponse (Prelude.Maybe IpAddressType)
 setSubnetsResponse_ipAddressType = Lens.lens (\SetSubnetsResponse' {ipAddressType} -> ipAddressType) (\s@SetSubnetsResponse' {} a -> s {ipAddressType = a} :: SetSubnetsResponse)
-
--- | Information about the subnets.
-setSubnetsResponse_availabilityZones :: Lens.Lens' SetSubnetsResponse (Prelude.Maybe [AvailabilityZone])
-setSubnetsResponse_availabilityZones = Lens.lens (\SetSubnetsResponse' {availabilityZones} -> availabilityZones) (\s@SetSubnetsResponse' {} a -> s {availabilityZones = a} :: SetSubnetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 setSubnetsResponse_httpStatus :: Lens.Lens' SetSubnetsResponse Prelude.Int

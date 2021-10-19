@@ -28,9 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSnsDestination' smart constructor.
 data SnsDestination = SnsDestination'
-  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to
-    -- publish email events to. For more information about Amazon SNS topics,
-    -- see the
+  { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email
+    -- events to. For more information about Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
     topicArn :: Prelude.Text
   }
@@ -44,9 +43,8 @@ data SnsDestination = SnsDestination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topicArn', 'snsDestination_topicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to
--- publish email events to. For more information about Amazon SNS topics,
--- see the
+-- 'topicArn', 'snsDestination_topicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email
+-- events to. For more information about Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
 newSnsDestination ::
   -- | 'topicArn'
@@ -55,9 +53,8 @@ newSnsDestination ::
 newSnsDestination pTopicArn_ =
   SnsDestination' {topicArn = pTopicArn_}
 
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to
--- publish email events to. For more information about Amazon SNS topics,
--- see the
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email
+-- events to. For more information about Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
 snsDestination_topicArn :: Lens.Lens' SnsDestination Prelude.Text
 snsDestination_topicArn = Lens.lens (\SnsDestination' {topicArn} -> topicArn) (\s@SnsDestination' {} a -> s {topicArn = a} :: SnsDestination)

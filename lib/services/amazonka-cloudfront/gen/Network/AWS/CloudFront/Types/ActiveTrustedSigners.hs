@@ -77,7 +77,7 @@ newActiveTrustedSigners pEnabled_ pQuantity_ =
 -- each account that CloudFront can use to verify the signatures of signed
 -- URLs and signed cookies.
 activeTrustedSigners_items :: Lens.Lens' ActiveTrustedSigners (Prelude.Maybe [Signer])
-activeTrustedSigners_items = Lens.lens (\ActiveTrustedSigners' {items} -> items) (\s@ActiveTrustedSigners' {} a -> s {items = a} :: ActiveTrustedSigners) Prelude.. Lens.mapping Lens._Coerce
+activeTrustedSigners_items = Lens.lens (\ActiveTrustedSigners' {items} -> items) (\s@ActiveTrustedSigners' {} a -> s {items = a} :: ActiveTrustedSigners) Prelude.. Lens.mapping Lens.coerced
 
 -- | This field is @true@ if any of the accounts in the list have active
 -- CloudFront key pairs that CloudFront can use to verify the signatures of

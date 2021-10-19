@@ -35,10 +35,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPoint' smart constructor.
 data Point = Point'
-  { -- | The value of the Y coordinate for a point on a @Polygon@.
-    y :: Prelude.Maybe Prelude.Double,
-    -- | The value of the X coordinate for a point on a @Polygon@.
-    x :: Prelude.Maybe Prelude.Double
+  { -- | The value of the X coordinate for a point on a @Polygon@.
+    x :: Prelude.Maybe Prelude.Double,
+    -- | The value of the Y coordinate for a point on a @Polygon@.
+    y :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,21 +50,21 @@ data Point = Point'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'y', 'point_y' - The value of the Y coordinate for a point on a @Polygon@.
---
 -- 'x', 'point_x' - The value of the X coordinate for a point on a @Polygon@.
+--
+-- 'y', 'point_y' - The value of the Y coordinate for a point on a @Polygon@.
 newPoint ::
   Point
 newPoint =
-  Point' {y = Prelude.Nothing, x = Prelude.Nothing}
-
--- | The value of the Y coordinate for a point on a @Polygon@.
-point_y :: Lens.Lens' Point (Prelude.Maybe Prelude.Double)
-point_y = Lens.lens (\Point' {y} -> y) (\s@Point' {} a -> s {y = a} :: Point)
+  Point' {x = Prelude.Nothing, y = Prelude.Nothing}
 
 -- | The value of the X coordinate for a point on a @Polygon@.
 point_x :: Lens.Lens' Point (Prelude.Maybe Prelude.Double)
 point_x = Lens.lens (\Point' {x} -> x) (\s@Point' {} a -> s {x = a} :: Point)
+
+-- | The value of the Y coordinate for a point on a @Polygon@.
+point_y :: Lens.Lens' Point (Prelude.Maybe Prelude.Double)
+point_y = Lens.lens (\Point' {y} -> y) (\s@Point' {} a -> s {y = a} :: Point)
 
 instance Core.FromJSON Point where
   parseJSON =
@@ -72,7 +72,7 @@ instance Core.FromJSON Point where
       "Point"
       ( \x ->
           Point'
-            Prelude.<$> (x Core..:? "Y") Prelude.<*> (x Core..:? "X")
+            Prelude.<$> (x Core..:? "X") Prelude.<*> (x Core..:? "Y")
       )
 
 instance Prelude.Hashable Point

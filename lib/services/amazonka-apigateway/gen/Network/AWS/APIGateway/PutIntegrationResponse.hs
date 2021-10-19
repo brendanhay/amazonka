@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.PutIntegrationResponse
     -- * Request Lenses
     putIntegrationResponse_contentHandling,
     putIntegrationResponse_responseTemplates,
-    putIntegrationResponse_responseParameters,
     putIntegrationResponse_selectionPattern,
+    putIntegrationResponse_responseParameters,
     putIntegrationResponse_restApiId,
     putIntegrationResponse_resourceId,
     putIntegrationResponse_httpMethod,
@@ -43,9 +43,9 @@ module Network.AWS.APIGateway.PutIntegrationResponse
     -- * Response Lenses
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_responseParameters,
-    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
+    integrationResponse_statusCode,
+    integrationResponse_responseParameters,
   )
 where
 
@@ -76,6 +76,8 @@ data PutIntegrationResponse = PutIntegrationResponse'
     contentHandling :: Prelude.Maybe ContentHandlingStrategy,
     -- | Specifies a put integration response\'s templates.
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the selection pattern of a put integration response.
+    selectionPattern :: Prelude.Maybe Prelude.Text,
     -- | A key-value map specifying response parameters that are passed to the
     -- method response from the back end. The key is a method response header
     -- parameter name and the mapped value is an integration response header
@@ -88,8 +90,6 @@ data PutIntegrationResponse = PutIntegrationResponse'
     -- valid and unique response header name and @JSON-expression@ a valid JSON
     -- expression without the @$@ prefix.
     responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Specifies the selection pattern of a put integration response.
-    selectionPattern :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] Specifies a put integration response request\'s resource
@@ -127,6 +127,8 @@ data PutIntegrationResponse = PutIntegrationResponse'
 --
 -- 'responseTemplates', 'putIntegrationResponse_responseTemplates' - Specifies a put integration response\'s templates.
 --
+-- 'selectionPattern', 'putIntegrationResponse_selectionPattern' - Specifies the selection pattern of a put integration response.
+--
 -- 'responseParameters', 'putIntegrationResponse_responseParameters' - A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
 -- parameter name and the mapped value is an integration response header
@@ -138,8 +140,6 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- @integration.response.body.{JSON-expression}@, where @name@ must be a
 -- valid and unique response header name and @JSON-expression@ a valid JSON
 -- expression without the @$@ prefix.
---
--- 'selectionPattern', 'putIntegrationResponse_selectionPattern' - Specifies the selection pattern of a put integration response.
 --
 -- 'restApiId', 'putIntegrationResponse_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -169,8 +169,8 @@ newPutIntegrationResponse
       { contentHandling =
           Prelude.Nothing,
         responseTemplates = Prelude.Nothing,
-        responseParameters = Prelude.Nothing,
         selectionPattern = Prelude.Nothing,
+        responseParameters = Prelude.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
@@ -195,7 +195,11 @@ putIntegrationResponse_contentHandling = Lens.lens (\PutIntegrationResponse' {co
 
 -- | Specifies a put integration response\'s templates.
 putIntegrationResponse_responseTemplates :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@PutIntegrationResponse' {} a -> s {responseTemplates = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens._Coerce
+putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@PutIntegrationResponse' {} a -> s {responseTemplates = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies the selection pattern of a put integration response.
+putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
+putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {selectionPattern} -> selectionPattern) (\s@PutIntegrationResponse' {} a -> s {selectionPattern = a} :: PutIntegrationResponse)
 
 -- | A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
@@ -209,11 +213,7 @@ putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {
 -- valid and unique response header name and @JSON-expression@ a valid JSON
 -- expression without the @$@ prefix.
 putIntegrationResponse_responseParameters :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegrationResponse_responseParameters = Lens.lens (\PutIntegrationResponse' {responseParameters} -> responseParameters) (\s@PutIntegrationResponse' {} a -> s {responseParameters = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies the selection pattern of a put integration response.
-putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
-putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {selectionPattern} -> selectionPattern) (\s@PutIntegrationResponse' {} a -> s {selectionPattern = a} :: PutIntegrationResponse)
+putIntegrationResponse_responseParameters = Lens.lens (\PutIntegrationResponse' {responseParameters} -> responseParameters) (\s@PutIntegrationResponse' {} a -> s {responseParameters = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 putIntegrationResponse_restApiId :: Lens.Lens' PutIntegrationResponse Prelude.Text
@@ -263,10 +263,10 @@ instance Core.ToJSON PutIntegrationResponse where
               Prelude.<$> contentHandling,
             ("responseTemplates" Core..=)
               Prelude.<$> responseTemplates,
-            ("responseParameters" Core..=)
-              Prelude.<$> responseParameters,
             ("selectionPattern" Core..=)
-              Prelude.<$> selectionPattern
+              Prelude.<$> selectionPattern,
+            ("responseParameters" Core..=)
+              Prelude.<$> responseParameters
           ]
       )
 

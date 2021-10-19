@@ -169,7 +169,7 @@ newRebootRelationalDatabaseResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 rebootRelationalDatabaseResponse_operations :: Lens.Lens' RebootRelationalDatabaseResponse (Prelude.Maybe [Operation])
-rebootRelationalDatabaseResponse_operations = Lens.lens (\RebootRelationalDatabaseResponse' {operations} -> operations) (\s@RebootRelationalDatabaseResponse' {} a -> s {operations = a} :: RebootRelationalDatabaseResponse) Prelude.. Lens.mapping Lens._Coerce
+rebootRelationalDatabaseResponse_operations = Lens.lens (\RebootRelationalDatabaseResponse' {operations} -> operations) (\s@RebootRelationalDatabaseResponse' {} a -> s {operations = a} :: RebootRelationalDatabaseResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 rebootRelationalDatabaseResponse_httpStatus :: Lens.Lens' RebootRelationalDatabaseResponse Prelude.Int

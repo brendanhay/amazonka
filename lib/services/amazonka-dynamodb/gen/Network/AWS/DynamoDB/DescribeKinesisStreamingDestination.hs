@@ -34,8 +34,8 @@ module Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
     newDescribeKinesisStreamingDestinationResponse,
 
     -- * Response Lenses
-    describeKinesisStreamingDestinationResponse_tableName,
     describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations,
+    describeKinesisStreamingDestinationResponse_tableName,
     describeKinesisStreamingDestinationResponse_httpStatus,
   )
 where
@@ -89,10 +89,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeKinesisStreamingDestinationResponse'
-            Prelude.<$> (x Core..?> "TableName")
-              Prelude.<*> ( x Core..?> "KinesisDataStreamDestinations"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<$> ( x Core..?> "KinesisDataStreamDestinations"
+                            Core..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Core..?> "TableName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -146,10 +146,10 @@ instance
 
 -- | /See:/ 'newDescribeKinesisStreamingDestinationResponse' smart constructor.
 data DescribeKinesisStreamingDestinationResponse = DescribeKinesisStreamingDestinationResponse'
-  { -- | The name of the table being described.
-    tableName :: Prelude.Maybe Prelude.Text,
-    -- | The list of replica structures for the table being described.
+  { -- | The list of replica structures for the table being described.
     kinesisDataStreamDestinations :: Prelude.Maybe [KinesisDataStreamDestination],
+    -- | The name of the table being described.
+    tableName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,9 +163,9 @@ data DescribeKinesisStreamingDestinationResponse = DescribeKinesisStreamingDesti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tableName', 'describeKinesisStreamingDestinationResponse_tableName' - The name of the table being described.
---
 -- 'kinesisDataStreamDestinations', 'describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations' - The list of replica structures for the table being described.
+--
+-- 'tableName', 'describeKinesisStreamingDestinationResponse_tableName' - The name of the table being described.
 --
 -- 'httpStatus', 'describeKinesisStreamingDestinationResponse_httpStatus' - The response's http status code.
 newDescribeKinesisStreamingDestinationResponse ::
@@ -175,20 +175,19 @@ newDescribeKinesisStreamingDestinationResponse ::
 newDescribeKinesisStreamingDestinationResponse
   pHttpStatus_ =
     DescribeKinesisStreamingDestinationResponse'
-      { tableName =
+      { kinesisDataStreamDestinations =
           Prelude.Nothing,
-        kinesisDataStreamDestinations =
-          Prelude.Nothing,
+        tableName = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | The list of replica structures for the table being described.
+describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Prelude.Maybe [KinesisDataStreamDestination])
+describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {kinesisDataStreamDestinations} -> kinesisDataStreamDestinations) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {kinesisDataStreamDestinations = a} :: DescribeKinesisStreamingDestinationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the table being described.
 describeKinesisStreamingDestinationResponse_tableName :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Prelude.Maybe Prelude.Text)
 describeKinesisStreamingDestinationResponse_tableName = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {tableName} -> tableName) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {tableName = a} :: DescribeKinesisStreamingDestinationResponse)
-
--- | The list of replica structures for the table being described.
-describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations :: Lens.Lens' DescribeKinesisStreamingDestinationResponse (Prelude.Maybe [KinesisDataStreamDestination])
-describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations = Lens.lens (\DescribeKinesisStreamingDestinationResponse' {kinesisDataStreamDestinations} -> kinesisDataStreamDestinations) (\s@DescribeKinesisStreamingDestinationResponse' {} a -> s {kinesisDataStreamDestinations = a} :: DescribeKinesisStreamingDestinationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeKinesisStreamingDestinationResponse_httpStatus :: Lens.Lens' DescribeKinesisStreamingDestinationResponse Prelude.Int

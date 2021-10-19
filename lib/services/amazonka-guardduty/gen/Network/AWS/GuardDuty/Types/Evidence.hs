@@ -52,7 +52,7 @@ newEvidence =
 
 -- | A list of threat intelligence details related to the evidence.
 evidence_threatIntelligenceDetails :: Lens.Lens' Evidence (Prelude.Maybe [ThreatIntelligenceDetail])
-evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Prelude.. Lens.mapping Lens._Coerce
+evidence_threatIntelligenceDetails = Lens.lens (\Evidence' {threatIntelligenceDetails} -> threatIntelligenceDetails) (\s@Evidence' {} a -> s {threatIntelligenceDetails = a} :: Evidence) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Evidence where
   parseJSON =

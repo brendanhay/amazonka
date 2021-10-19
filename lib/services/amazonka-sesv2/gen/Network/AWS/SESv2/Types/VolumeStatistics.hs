@@ -31,11 +31,11 @@ data VolumeStatistics = VolumeStatistics'
   { -- | The total number of emails that arrived in recipients\' inboxes.
     inboxRawCount :: Prelude.Maybe Prelude.Integer,
     -- | An estimate of the percentage of emails sent from the current domain
-    -- that will arrive in recipients\' inboxes.
-    projectedInbox :: Prelude.Maybe Prelude.Integer,
-    -- | An estimate of the percentage of emails sent from the current domain
     -- that will arrive in recipients\' spam or junk mail folders.
     projectedSpam :: Prelude.Maybe Prelude.Integer,
+    -- | An estimate of the percentage of emails sent from the current domain
+    -- that will arrive in recipients\' inboxes.
+    projectedInbox :: Prelude.Maybe Prelude.Integer,
     -- | The total number of emails that arrived in recipients\' spam or junk
     -- mail folders.
     spamRawCount :: Prelude.Maybe Prelude.Integer
@@ -52,11 +52,11 @@ data VolumeStatistics = VolumeStatistics'
 --
 -- 'inboxRawCount', 'volumeStatistics_inboxRawCount' - The total number of emails that arrived in recipients\' inboxes.
 --
--- 'projectedInbox', 'volumeStatistics_projectedInbox' - An estimate of the percentage of emails sent from the current domain
--- that will arrive in recipients\' inboxes.
---
 -- 'projectedSpam', 'volumeStatistics_projectedSpam' - An estimate of the percentage of emails sent from the current domain
 -- that will arrive in recipients\' spam or junk mail folders.
+--
+-- 'projectedInbox', 'volumeStatistics_projectedInbox' - An estimate of the percentage of emails sent from the current domain
+-- that will arrive in recipients\' inboxes.
 --
 -- 'spamRawCount', 'volumeStatistics_spamRawCount' - The total number of emails that arrived in recipients\' spam or junk
 -- mail folders.
@@ -65,8 +65,8 @@ newVolumeStatistics ::
 newVolumeStatistics =
   VolumeStatistics'
     { inboxRawCount = Prelude.Nothing,
-      projectedInbox = Prelude.Nothing,
       projectedSpam = Prelude.Nothing,
+      projectedInbox = Prelude.Nothing,
       spamRawCount = Prelude.Nothing
     }
 
@@ -75,14 +75,14 @@ volumeStatistics_inboxRawCount :: Lens.Lens' VolumeStatistics (Prelude.Maybe Pre
 volumeStatistics_inboxRawCount = Lens.lens (\VolumeStatistics' {inboxRawCount} -> inboxRawCount) (\s@VolumeStatistics' {} a -> s {inboxRawCount = a} :: VolumeStatistics)
 
 -- | An estimate of the percentage of emails sent from the current domain
--- that will arrive in recipients\' inboxes.
-volumeStatistics_projectedInbox :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
-volumeStatistics_projectedInbox = Lens.lens (\VolumeStatistics' {projectedInbox} -> projectedInbox) (\s@VolumeStatistics' {} a -> s {projectedInbox = a} :: VolumeStatistics)
-
--- | An estimate of the percentage of emails sent from the current domain
 -- that will arrive in recipients\' spam or junk mail folders.
 volumeStatistics_projectedSpam :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
 volumeStatistics_projectedSpam = Lens.lens (\VolumeStatistics' {projectedSpam} -> projectedSpam) (\s@VolumeStatistics' {} a -> s {projectedSpam = a} :: VolumeStatistics)
+
+-- | An estimate of the percentage of emails sent from the current domain
+-- that will arrive in recipients\' inboxes.
+volumeStatistics_projectedInbox :: Lens.Lens' VolumeStatistics (Prelude.Maybe Prelude.Integer)
+volumeStatistics_projectedInbox = Lens.lens (\VolumeStatistics' {projectedInbox} -> projectedInbox) (\s@VolumeStatistics' {} a -> s {projectedInbox = a} :: VolumeStatistics)
 
 -- | The total number of emails that arrived in recipients\' spam or junk
 -- mail folders.
@@ -96,8 +96,8 @@ instance Core.FromJSON VolumeStatistics where
       ( \x ->
           VolumeStatistics'
             Prelude.<$> (x Core..:? "InboxRawCount")
-            Prelude.<*> (x Core..:? "ProjectedInbox")
             Prelude.<*> (x Core..:? "ProjectedSpam")
+            Prelude.<*> (x Core..:? "ProjectedInbox")
             Prelude.<*> (x Core..:? "SpamRawCount")
       )
 

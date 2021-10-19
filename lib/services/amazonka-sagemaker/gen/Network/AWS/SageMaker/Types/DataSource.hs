@@ -29,10 +29,10 @@ import Network.AWS.SageMaker.Types.S3DataSource
 --
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
-  { -- | The file system that is associated with a channel.
-    fileSystemDataSource :: Prelude.Maybe FileSystemDataSource,
-    -- | The S3 location of the data source that is associated with a channel.
-    s3DataSource :: Prelude.Maybe S3DataSource
+  { -- | The S3 location of the data source that is associated with a channel.
+    s3DataSource :: Prelude.Maybe S3DataSource,
+    -- | The file system that is associated with a channel.
+    fileSystemDataSource :: Prelude.Maybe FileSystemDataSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data DataSource = DataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fileSystemDataSource', 'dataSource_fileSystemDataSource' - The file system that is associated with a channel.
---
 -- 's3DataSource', 'dataSource_s3DataSource' - The S3 location of the data source that is associated with a channel.
+--
+-- 'fileSystemDataSource', 'dataSource_fileSystemDataSource' - The file system that is associated with a channel.
 newDataSource ::
   DataSource
 newDataSource =
   DataSource'
-    { fileSystemDataSource = Prelude.Nothing,
-      s3DataSource = Prelude.Nothing
+    { s3DataSource = Prelude.Nothing,
+      fileSystemDataSource = Prelude.Nothing
     }
-
--- | The file system that is associated with a channel.
-dataSource_fileSystemDataSource :: Lens.Lens' DataSource (Prelude.Maybe FileSystemDataSource)
-dataSource_fileSystemDataSource = Lens.lens (\DataSource' {fileSystemDataSource} -> fileSystemDataSource) (\s@DataSource' {} a -> s {fileSystemDataSource = a} :: DataSource)
 
 -- | The S3 location of the data source that is associated with a channel.
 dataSource_s3DataSource :: Lens.Lens' DataSource (Prelude.Maybe S3DataSource)
 dataSource_s3DataSource = Lens.lens (\DataSource' {s3DataSource} -> s3DataSource) (\s@DataSource' {} a -> s {s3DataSource = a} :: DataSource)
+
+-- | The file system that is associated with a channel.
+dataSource_fileSystemDataSource :: Lens.Lens' DataSource (Prelude.Maybe FileSystemDataSource)
+dataSource_fileSystemDataSource = Lens.lens (\DataSource' {fileSystemDataSource} -> fileSystemDataSource) (\s@DataSource' {} a -> s {fileSystemDataSource = a} :: DataSource)
 
 instance Core.FromJSON DataSource where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON DataSource where
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Core..:? "FileSystemDataSource")
-            Prelude.<*> (x Core..:? "S3DataSource")
+            Prelude.<$> (x Core..:? "S3DataSource")
+            Prelude.<*> (x Core..:? "FileSystemDataSource")
       )
 
 instance Prelude.Hashable DataSource
@@ -81,8 +81,8 @@ instance Core.ToJSON DataSource where
   toJSON DataSource' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("FileSystemDataSource" Core..=)
-              Prelude.<$> fileSystemDataSource,
-            ("S3DataSource" Core..=) Prelude.<$> s3DataSource
+          [ ("S3DataSource" Core..=) Prelude.<$> s3DataSource,
+            ("FileSystemDataSource" Core..=)
+              Prelude.<$> fileSystemDataSource
           ]
       )

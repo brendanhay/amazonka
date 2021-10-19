@@ -37,8 +37,8 @@ module Network.AWS.CloudWatchLogs.DescribeResourcePolicies
     newDescribeResourcePoliciesResponse,
 
     -- * Response Lenses
-    describeResourcePoliciesResponse_nextToken,
     describeResourcePoliciesResponse_resourcePolicies,
+    describeResourcePoliciesResponse_nextToken,
     describeResourcePoliciesResponse_httpStatus,
   )
 where
@@ -120,10 +120,10 @@ instance Core.AWSRequest DescribeResourcePolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeResourcePoliciesResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> ( x Core..?> "resourcePolicies"
+            Prelude.<$> ( x Core..?> "resourcePolicies"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -163,9 +163,9 @@ instance Core.ToQuery DescribeResourcePolicies where
 
 -- | /See:/ 'newDescribeResourcePoliciesResponse' smart constructor.
 data DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The resource policies that exist in this account.
+  { -- | The resource policies that exist in this account.
     resourcePolicies :: Prelude.Maybe [ResourcePolicy],
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,9 +179,9 @@ data DescribeResourcePoliciesResponse = DescribeResourcePoliciesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeResourcePoliciesResponse_nextToken' - Undocumented member.
---
 -- 'resourcePolicies', 'describeResourcePoliciesResponse_resourcePolicies' - The resource policies that exist in this account.
+--
+-- 'nextToken', 'describeResourcePoliciesResponse_nextToken' - Undocumented member.
 --
 -- 'httpStatus', 'describeResourcePoliciesResponse_httpStatus' - The response's http status code.
 newDescribeResourcePoliciesResponse ::
@@ -190,19 +190,19 @@ newDescribeResourcePoliciesResponse ::
   DescribeResourcePoliciesResponse
 newDescribeResourcePoliciesResponse pHttpStatus_ =
   DescribeResourcePoliciesResponse'
-    { nextToken =
+    { resourcePolicies =
         Prelude.Nothing,
-      resourcePolicies = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The resource policies that exist in this account.
+describeResourcePoliciesResponse_resourcePolicies :: Lens.Lens' DescribeResourcePoliciesResponse (Prelude.Maybe [ResourcePolicy])
+describeResourcePoliciesResponse_resourcePolicies = Lens.lens (\DescribeResourcePoliciesResponse' {resourcePolicies} -> resourcePolicies) (\s@DescribeResourcePoliciesResponse' {} a -> s {resourcePolicies = a} :: DescribeResourcePoliciesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 describeResourcePoliciesResponse_nextToken :: Lens.Lens' DescribeResourcePoliciesResponse (Prelude.Maybe Prelude.Text)
 describeResourcePoliciesResponse_nextToken = Lens.lens (\DescribeResourcePoliciesResponse' {nextToken} -> nextToken) (\s@DescribeResourcePoliciesResponse' {} a -> s {nextToken = a} :: DescribeResourcePoliciesResponse)
-
--- | The resource policies that exist in this account.
-describeResourcePoliciesResponse_resourcePolicies :: Lens.Lens' DescribeResourcePoliciesResponse (Prelude.Maybe [ResourcePolicy])
-describeResourcePoliciesResponse_resourcePolicies = Lens.lens (\DescribeResourcePoliciesResponse' {resourcePolicies} -> resourcePolicies) (\s@DescribeResourcePoliciesResponse' {} a -> s {resourcePolicies = a} :: DescribeResourcePoliciesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeResourcePoliciesResponse_httpStatus :: Lens.Lens' DescribeResourcePoliciesResponse Prelude.Int

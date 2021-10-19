@@ -28,12 +28,12 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newInitiator' smart constructor.
 data Initiator = Initiator'
-  { -- | If the principal is an Amazon Web Services account, it provides the
+  { -- | Name of the Principal.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | If the principal is an Amazon Web Services account, it provides the
     -- Canonical User ID. If the principal is an IAM User, it provides a user
     -- ARN value.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Name of the Principal.
-    displayName :: Prelude.Maybe Prelude.Text
+    id :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,18 +45,22 @@ data Initiator = Initiator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'displayName', 'initiator_displayName' - Name of the Principal.
+--
 -- 'id', 'initiator_id' - If the principal is an Amazon Web Services account, it provides the
 -- Canonical User ID. If the principal is an IAM User, it provides a user
 -- ARN value.
---
--- 'displayName', 'initiator_displayName' - Name of the Principal.
 newInitiator ::
   Initiator
 newInitiator =
   Initiator'
-    { id = Prelude.Nothing,
-      displayName = Prelude.Nothing
+    { displayName = Prelude.Nothing,
+      id = Prelude.Nothing
     }
+
+-- | Name of the Principal.
+initiator_displayName :: Lens.Lens' Initiator (Prelude.Maybe Prelude.Text)
+initiator_displayName = Lens.lens (\Initiator' {displayName} -> displayName) (\s@Initiator' {} a -> s {displayName = a} :: Initiator)
 
 -- | If the principal is an Amazon Web Services account, it provides the
 -- Canonical User ID. If the principal is an IAM User, it provides a user
@@ -64,15 +68,11 @@ newInitiator =
 initiator_id :: Lens.Lens' Initiator (Prelude.Maybe Prelude.Text)
 initiator_id = Lens.lens (\Initiator' {id} -> id) (\s@Initiator' {} a -> s {id = a} :: Initiator)
 
--- | Name of the Principal.
-initiator_displayName :: Lens.Lens' Initiator (Prelude.Maybe Prelude.Text)
-initiator_displayName = Lens.lens (\Initiator' {displayName} -> displayName) (\s@Initiator' {} a -> s {displayName = a} :: Initiator)
-
 instance Core.FromXML Initiator where
   parseXML x =
     Initiator'
-      Prelude.<$> (x Core..@? "ID")
-      Prelude.<*> (x Core..@? "DisplayName")
+      Prelude.<$> (x Core..@? "DisplayName")
+      Prelude.<*> (x Core..@? "ID")
 
 instance Prelude.Hashable Initiator
 

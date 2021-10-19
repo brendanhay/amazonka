@@ -21,25 +21,11 @@ module Network.AWS.Mobile.Lens
     listProjectsResponse_projects,
     listProjectsResponse_httpStatus,
 
-    -- ** CreateProject
-    createProject_contents,
-    createProject_name,
-    createProject_snapshotId,
-    createProject_region,
-    createProjectResponse_details,
-    createProjectResponse_httpStatus,
-
-    -- ** DescribeBundle
-    describeBundle_bundleId,
-    describeBundleResponse_details,
-    describeBundleResponse_httpStatus,
-
-    -- ** ListBundles
-    listBundles_nextToken,
-    listBundles_maxResults,
-    listBundlesResponse_nextToken,
-    listBundlesResponse_bundleList,
-    listBundlesResponse_httpStatus,
+    -- ** DeleteProject
+    deleteProject_projectId,
+    deleteProjectResponse_deletedResources,
+    deleteProjectResponse_orphanedResources,
+    deleteProjectResponse_httpStatus,
 
     -- ** UpdateProject
     updateProject_contents,
@@ -47,24 +33,30 @@ module Network.AWS.Mobile.Lens
     updateProjectResponse_details,
     updateProjectResponse_httpStatus,
 
-    -- ** DeleteProject
-    deleteProject_projectId,
-    deleteProjectResponse_deletedResources,
-    deleteProjectResponse_orphanedResources,
-    deleteProjectResponse_httpStatus,
-
-    -- ** ExportProject
-    exportProject_projectId,
-    exportProjectResponse_downloadUrl,
-    exportProjectResponse_snapshotId,
-    exportProjectResponse_shareUrl,
-    exportProjectResponse_httpStatus,
+    -- ** ListBundles
+    listBundles_nextToken,
+    listBundles_maxResults,
+    listBundlesResponse_bundleList,
+    listBundlesResponse_nextToken,
+    listBundlesResponse_httpStatus,
 
     -- ** DescribeProject
     describeProject_syncFromResources,
     describeProject_projectId,
     describeProjectResponse_details,
     describeProjectResponse_httpStatus,
+
+    -- ** ExportProject
+    exportProject_projectId,
+    exportProjectResponse_shareUrl,
+    exportProjectResponse_downloadUrl,
+    exportProjectResponse_snapshotId,
+    exportProjectResponse_httpStatus,
+
+    -- ** DescribeBundle
+    describeBundle_bundleId,
+    describeBundleResponse_details,
+    describeBundleResponse_httpStatus,
 
     -- ** ExportBundle
     exportBundle_platform,
@@ -73,35 +65,43 @@ module Network.AWS.Mobile.Lens
     exportBundleResponse_downloadUrl,
     exportBundleResponse_httpStatus,
 
+    -- ** CreateProject
+    createProject_contents,
+    createProject_name,
+    createProject_region,
+    createProject_snapshotId,
+    createProjectResponse_details,
+    createProjectResponse_httpStatus,
+
     -- * Types
 
     -- ** BundleDetails
+    bundleDetails_availablePlatforms,
     bundleDetails_bundleId,
+    bundleDetails_version,
     bundleDetails_iconUrl,
     bundleDetails_title,
-    bundleDetails_version,
     bundleDetails_description,
-    bundleDetails_availablePlatforms,
 
     -- ** ProjectDetails
-    projectDetails_createdDate,
-    projectDetails_lastUpdatedDate,
-    projectDetails_projectId,
     projectDetails_state,
-    projectDetails_name,
-    projectDetails_consoleUrl,
     projectDetails_resources,
+    projectDetails_createdDate,
+    projectDetails_consoleUrl,
+    projectDetails_name,
     projectDetails_region,
+    projectDetails_projectId,
+    projectDetails_lastUpdatedDate,
 
     -- ** ProjectSummary
-    projectSummary_projectId,
     projectSummary_name,
+    projectSummary_projectId,
 
     -- ** Resource
+    resource_feature,
     resource_arn,
     resource_name,
     resource_attributes,
-    resource_feature,
     resource_type,
   )
 where

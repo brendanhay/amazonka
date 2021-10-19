@@ -33,13 +33,13 @@ import Network.AWS.Redshift.Types.UpdateTarget
 --
 -- /See:/ 'newMaintenanceTrack' smart constructor.
 data MaintenanceTrack = MaintenanceTrack'
-  { -- | An array of UpdateTarget objects to update with the maintenance track.
-    updateTargets :: Prelude.Maybe [UpdateTarget],
-    -- | The version number for the cluster release.
+  { -- | The version number for the cluster release.
     databaseVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the maintenance track. Possible values are @current@ and
     -- @trailing@.
-    maintenanceTrackName :: Prelude.Maybe Prelude.Text
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    -- | An array of UpdateTarget objects to update with the maintenance track.
+    updateTargets :: Prelude.Maybe [UpdateTarget]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,24 +51,21 @@ data MaintenanceTrack = MaintenanceTrack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updateTargets', 'maintenanceTrack_updateTargets' - An array of UpdateTarget objects to update with the maintenance track.
---
 -- 'databaseVersion', 'maintenanceTrack_databaseVersion' - The version number for the cluster release.
 --
 -- 'maintenanceTrackName', 'maintenanceTrack_maintenanceTrackName' - The name of the maintenance track. Possible values are @current@ and
 -- @trailing@.
+--
+-- 'updateTargets', 'maintenanceTrack_updateTargets' - An array of UpdateTarget objects to update with the maintenance track.
 newMaintenanceTrack ::
   MaintenanceTrack
 newMaintenanceTrack =
   MaintenanceTrack'
-    { updateTargets = Prelude.Nothing,
-      databaseVersion = Prelude.Nothing,
-      maintenanceTrackName = Prelude.Nothing
+    { databaseVersion =
+        Prelude.Nothing,
+      maintenanceTrackName = Prelude.Nothing,
+      updateTargets = Prelude.Nothing
     }
-
--- | An array of UpdateTarget objects to update with the maintenance track.
-maintenanceTrack_updateTargets :: Lens.Lens' MaintenanceTrack (Prelude.Maybe [UpdateTarget])
-maintenanceTrack_updateTargets = Lens.lens (\MaintenanceTrack' {updateTargets} -> updateTargets) (\s@MaintenanceTrack' {} a -> s {updateTargets = a} :: MaintenanceTrack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The version number for the cluster release.
 maintenanceTrack_databaseVersion :: Lens.Lens' MaintenanceTrack (Prelude.Maybe Prelude.Text)
@@ -79,14 +76,18 @@ maintenanceTrack_databaseVersion = Lens.lens (\MaintenanceTrack' {databaseVersio
 maintenanceTrack_maintenanceTrackName :: Lens.Lens' MaintenanceTrack (Prelude.Maybe Prelude.Text)
 maintenanceTrack_maintenanceTrackName = Lens.lens (\MaintenanceTrack' {maintenanceTrackName} -> maintenanceTrackName) (\s@MaintenanceTrack' {} a -> s {maintenanceTrackName = a} :: MaintenanceTrack)
 
+-- | An array of UpdateTarget objects to update with the maintenance track.
+maintenanceTrack_updateTargets :: Lens.Lens' MaintenanceTrack (Prelude.Maybe [UpdateTarget])
+maintenanceTrack_updateTargets = Lens.lens (\MaintenanceTrack' {updateTargets} -> updateTargets) (\s@MaintenanceTrack' {} a -> s {updateTargets = a} :: MaintenanceTrack) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML MaintenanceTrack where
   parseXML x =
     MaintenanceTrack'
-      Prelude.<$> ( x Core..@? "UpdateTargets" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "DatabaseVersion")
+      Prelude.<*> (x Core..@? "MaintenanceTrackName")
+      Prelude.<*> ( x Core..@? "UpdateTargets" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "UpdateTarget")
                   )
-      Prelude.<*> (x Core..@? "DatabaseVersion")
-      Prelude.<*> (x Core..@? "MaintenanceTrackName")
 
 instance Prelude.Hashable MaintenanceTrack
 

@@ -35,8 +35,8 @@ module Network.AWS.IAM.UpdateLoginProfile
     newUpdateLoginProfile,
 
     -- * Request Lenses
-    updateLoginProfile_passwordResetRequired,
     updateLoginProfile_password,
+    updateLoginProfile_passwordResetRequired,
     updateLoginProfile_userName,
 
     -- * Destructuring the Response
@@ -54,10 +54,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateLoginProfile' smart constructor.
 data UpdateLoginProfile = UpdateLoginProfile'
-  { -- | Allows this new password to be used only once by requiring the specified
-    -- IAM user to set a new password on next sign-in.
-    passwordResetRequired :: Prelude.Maybe Prelude.Bool,
-    -- | The new password for the specified IAM user.
+  { -- | The new password for the specified IAM user.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
     -- this parameter is a string of characters consisting of the following:
@@ -75,6 +72,9 @@ data UpdateLoginProfile = UpdateLoginProfile'
     -- administrator by setting a password policy on the Amazon Web Services
     -- account. For more information, see UpdateAccountPasswordPolicy.
     password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Allows this new password to be used only once by requiring the specified
+    -- IAM user to set a new password on next sign-in.
+    passwordResetRequired :: Prelude.Maybe Prelude.Bool,
     -- | The name of the user whose password you want to update.
     --
     -- This parameter allows (through its
@@ -92,9 +92,6 @@ data UpdateLoginProfile = UpdateLoginProfile'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'passwordResetRequired', 'updateLoginProfile_passwordResetRequired' - Allows this new password to be used only once by requiring the specified
--- IAM user to set a new password on next sign-in.
 --
 -- 'password', 'updateLoginProfile_password' - The new password for the specified IAM user.
 --
@@ -114,6 +111,9 @@ data UpdateLoginProfile = UpdateLoginProfile'
 -- administrator by setting a password policy on the Amazon Web Services
 -- account. For more information, see UpdateAccountPasswordPolicy.
 --
+-- 'passwordResetRequired', 'updateLoginProfile_passwordResetRequired' - Allows this new password to be used only once by requiring the specified
+-- IAM user to set a new password on next sign-in.
+--
 -- 'userName', 'updateLoginProfile_userName' - The name of the user whose password you want to update.
 --
 -- This parameter allows (through its
@@ -126,16 +126,10 @@ newUpdateLoginProfile ::
   UpdateLoginProfile
 newUpdateLoginProfile pUserName_ =
   UpdateLoginProfile'
-    { passwordResetRequired =
-        Prelude.Nothing,
-      password = Prelude.Nothing,
+    { password = Prelude.Nothing,
+      passwordResetRequired = Prelude.Nothing,
       userName = pUserName_
     }
-
--- | Allows this new password to be used only once by requiring the specified
--- IAM user to set a new password on next sign-in.
-updateLoginProfile_passwordResetRequired :: Lens.Lens' UpdateLoginProfile (Prelude.Maybe Prelude.Bool)
-updateLoginProfile_passwordResetRequired = Lens.lens (\UpdateLoginProfile' {passwordResetRequired} -> passwordResetRequired) (\s@UpdateLoginProfile' {} a -> s {passwordResetRequired = a} :: UpdateLoginProfile)
 
 -- | The new password for the specified IAM user.
 --
@@ -156,6 +150,11 @@ updateLoginProfile_passwordResetRequired = Lens.lens (\UpdateLoginProfile' {pass
 -- account. For more information, see UpdateAccountPasswordPolicy.
 updateLoginProfile_password :: Lens.Lens' UpdateLoginProfile (Prelude.Maybe Prelude.Text)
 updateLoginProfile_password = Lens.lens (\UpdateLoginProfile' {password} -> password) (\s@UpdateLoginProfile' {} a -> s {password = a} :: UpdateLoginProfile) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Allows this new password to be used only once by requiring the specified
+-- IAM user to set a new password on next sign-in.
+updateLoginProfile_passwordResetRequired :: Lens.Lens' UpdateLoginProfile (Prelude.Maybe Prelude.Bool)
+updateLoginProfile_passwordResetRequired = Lens.lens (\UpdateLoginProfile' {passwordResetRequired} -> passwordResetRequired) (\s@UpdateLoginProfile' {} a -> s {passwordResetRequired = a} :: UpdateLoginProfile)
 
 -- | The name of the user whose password you want to update.
 --
@@ -191,9 +190,9 @@ instance Core.ToQuery UpdateLoginProfile where
           Core.=: ("UpdateLoginProfile" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
+        "Password" Core.=: password,
         "PasswordResetRequired"
           Core.=: passwordResetRequired,
-        "Password" Core.=: password,
         "UserName" Core.=: userName
       ]
 

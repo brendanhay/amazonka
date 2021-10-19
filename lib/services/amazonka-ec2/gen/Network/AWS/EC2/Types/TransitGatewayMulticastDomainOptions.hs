@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTransitGatewayMulticastDomainOptions' smart constructor.
 data TransitGatewayMulticastDomainOptions = TransitGatewayMulticastDomainOptions'
-  { -- | Indicates whether Internet Group Management Protocol (IGMP) version 2 is
-    -- turned on for the transit gateway multicast domain.
-    igmpv2Support :: Prelude.Maybe Igmpv2SupportValue,
-    -- | Indicates whether to automatically cross-account subnet associations
+  { -- | Indicates whether to automatically cross-account subnet associations
     -- that are associated with the transit gateway multicast domain.
     autoAcceptSharedAssociations :: Prelude.Maybe AutoAcceptSharedAssociationsValue,
+    -- | Indicates whether Internet Group Management Protocol (IGMP) version 2 is
+    -- turned on for the transit gateway multicast domain.
+    igmpv2Support :: Prelude.Maybe Igmpv2SupportValue,
     -- | Indicates whether support for statically configuring transit gateway
     -- multicast group sources is turned on.
     staticSourcesSupport :: Prelude.Maybe StaticSourcesSupportValue
@@ -51,11 +51,11 @@ data TransitGatewayMulticastDomainOptions = TransitGatewayMulticastDomainOptions
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'igmpv2Support', 'transitGatewayMulticastDomainOptions_igmpv2Support' - Indicates whether Internet Group Management Protocol (IGMP) version 2 is
--- turned on for the transit gateway multicast domain.
---
 -- 'autoAcceptSharedAssociations', 'transitGatewayMulticastDomainOptions_autoAcceptSharedAssociations' - Indicates whether to automatically cross-account subnet associations
 -- that are associated with the transit gateway multicast domain.
+--
+-- 'igmpv2Support', 'transitGatewayMulticastDomainOptions_igmpv2Support' - Indicates whether Internet Group Management Protocol (IGMP) version 2 is
+-- turned on for the transit gateway multicast domain.
 --
 -- 'staticSourcesSupport', 'transitGatewayMulticastDomainOptions_staticSourcesSupport' - Indicates whether support for statically configuring transit gateway
 -- multicast group sources is turned on.
@@ -63,23 +63,22 @@ newTransitGatewayMulticastDomainOptions ::
   TransitGatewayMulticastDomainOptions
 newTransitGatewayMulticastDomainOptions =
   TransitGatewayMulticastDomainOptions'
-    { igmpv2Support =
+    { autoAcceptSharedAssociations =
         Prelude.Nothing,
-      autoAcceptSharedAssociations =
-        Prelude.Nothing,
+      igmpv2Support = Prelude.Nothing,
       staticSourcesSupport =
         Prelude.Nothing
     }
-
--- | Indicates whether Internet Group Management Protocol (IGMP) version 2 is
--- turned on for the transit gateway multicast domain.
-transitGatewayMulticastDomainOptions_igmpv2Support :: Lens.Lens' TransitGatewayMulticastDomainOptions (Prelude.Maybe Igmpv2SupportValue)
-transitGatewayMulticastDomainOptions_igmpv2Support = Lens.lens (\TransitGatewayMulticastDomainOptions' {igmpv2Support} -> igmpv2Support) (\s@TransitGatewayMulticastDomainOptions' {} a -> s {igmpv2Support = a} :: TransitGatewayMulticastDomainOptions)
 
 -- | Indicates whether to automatically cross-account subnet associations
 -- that are associated with the transit gateway multicast domain.
 transitGatewayMulticastDomainOptions_autoAcceptSharedAssociations :: Lens.Lens' TransitGatewayMulticastDomainOptions (Prelude.Maybe AutoAcceptSharedAssociationsValue)
 transitGatewayMulticastDomainOptions_autoAcceptSharedAssociations = Lens.lens (\TransitGatewayMulticastDomainOptions' {autoAcceptSharedAssociations} -> autoAcceptSharedAssociations) (\s@TransitGatewayMulticastDomainOptions' {} a -> s {autoAcceptSharedAssociations = a} :: TransitGatewayMulticastDomainOptions)
+
+-- | Indicates whether Internet Group Management Protocol (IGMP) version 2 is
+-- turned on for the transit gateway multicast domain.
+transitGatewayMulticastDomainOptions_igmpv2Support :: Lens.Lens' TransitGatewayMulticastDomainOptions (Prelude.Maybe Igmpv2SupportValue)
+transitGatewayMulticastDomainOptions_igmpv2Support = Lens.lens (\TransitGatewayMulticastDomainOptions' {igmpv2Support} -> igmpv2Support) (\s@TransitGatewayMulticastDomainOptions' {} a -> s {igmpv2Support = a} :: TransitGatewayMulticastDomainOptions)
 
 -- | Indicates whether support for statically configuring transit gateway
 -- multicast group sources is turned on.
@@ -92,8 +91,8 @@ instance
   where
   parseXML x =
     TransitGatewayMulticastDomainOptions'
-      Prelude.<$> (x Core..@? "igmpv2Support")
-      Prelude.<*> (x Core..@? "autoAcceptSharedAssociations")
+      Prelude.<$> (x Core..@? "autoAcceptSharedAssociations")
+      Prelude.<*> (x Core..@? "igmpv2Support")
       Prelude.<*> (x Core..@? "staticSourcesSupport")
 
 instance

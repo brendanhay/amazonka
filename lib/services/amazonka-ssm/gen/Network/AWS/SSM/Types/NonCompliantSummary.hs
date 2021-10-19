@@ -29,10 +29,10 @@ import Network.AWS.SSM.Types.SeveritySummary
 --
 -- /See:/ 'newNonCompliantSummary' smart constructor.
 data NonCompliantSummary = NonCompliantSummary'
-  { -- | A summary of the non-compliance severity by compliance type
-    severitySummary :: Prelude.Maybe SeveritySummary,
-    -- | The total number of compliance items that aren\'t compliant.
-    nonCompliantCount :: Prelude.Maybe Prelude.Int
+  { -- | The total number of compliance items that aren\'t compliant.
+    nonCompliantCount :: Prelude.Maybe Prelude.Int,
+    -- | A summary of the non-compliance severity by compliance type
+    severitySummary :: Prelude.Maybe SeveritySummary
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data NonCompliantSummary = NonCompliantSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severitySummary', 'nonCompliantSummary_severitySummary' - A summary of the non-compliance severity by compliance type
---
 -- 'nonCompliantCount', 'nonCompliantSummary_nonCompliantCount' - The total number of compliance items that aren\'t compliant.
+--
+-- 'severitySummary', 'nonCompliantSummary_severitySummary' - A summary of the non-compliance severity by compliance type
 newNonCompliantSummary ::
   NonCompliantSummary
 newNonCompliantSummary =
   NonCompliantSummary'
-    { severitySummary =
+    { nonCompliantCount =
         Prelude.Nothing,
-      nonCompliantCount = Prelude.Nothing
+      severitySummary = Prelude.Nothing
     }
-
--- | A summary of the non-compliance severity by compliance type
-nonCompliantSummary_severitySummary :: Lens.Lens' NonCompliantSummary (Prelude.Maybe SeveritySummary)
-nonCompliantSummary_severitySummary = Lens.lens (\NonCompliantSummary' {severitySummary} -> severitySummary) (\s@NonCompliantSummary' {} a -> s {severitySummary = a} :: NonCompliantSummary)
 
 -- | The total number of compliance items that aren\'t compliant.
 nonCompliantSummary_nonCompliantCount :: Lens.Lens' NonCompliantSummary (Prelude.Maybe Prelude.Int)
 nonCompliantSummary_nonCompliantCount = Lens.lens (\NonCompliantSummary' {nonCompliantCount} -> nonCompliantCount) (\s@NonCompliantSummary' {} a -> s {nonCompliantCount = a} :: NonCompliantSummary)
+
+-- | A summary of the non-compliance severity by compliance type
+nonCompliantSummary_severitySummary :: Lens.Lens' NonCompliantSummary (Prelude.Maybe SeveritySummary)
+nonCompliantSummary_severitySummary = Lens.lens (\NonCompliantSummary' {severitySummary} -> severitySummary) (\s@NonCompliantSummary' {} a -> s {severitySummary = a} :: NonCompliantSummary)
 
 instance Core.FromJSON NonCompliantSummary where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON NonCompliantSummary where
       "NonCompliantSummary"
       ( \x ->
           NonCompliantSummary'
-            Prelude.<$> (x Core..:? "SeveritySummary")
-            Prelude.<*> (x Core..:? "NonCompliantCount")
+            Prelude.<$> (x Core..:? "NonCompliantCount")
+            Prelude.<*> (x Core..:? "SeveritySummary")
       )
 
 instance Prelude.Hashable NonCompliantSummary

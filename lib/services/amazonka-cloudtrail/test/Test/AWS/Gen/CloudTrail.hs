@@ -27,121 +27,127 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListPublicKeys $
+--         [ requestDescribeTrails $
+--             newDescribeTrails
+--
+--         , requestListPublicKeys $
 --             newListPublicKeys
 --
 --         , requestRemoveTags $
 --             newRemoveTags
 --
---         , requestGetEventSelectors $
---             newGetEventSelectors
---
---         , requestDescribeTrails $
---             newDescribeTrails
---
---         , requestCreateTrail $
---             newCreateTrail
---
---         , requestPutEventSelectors $
---             newPutEventSelectors
---
---         , requestAddTags $
---             newAddTags
---
---         , requestGetTrail $
---             newGetTrail
---
---         , requestPutInsightSelectors $
---             newPutInsightSelectors
---
---         , requestGetInsightSelectors $
---             newGetInsightSelectors
---
---         , requestListTrails $
---             newListTrails
---
---         , requestDeleteTrail $
---             newDeleteTrail
---
---         , requestListTags $
---             newListTags
+--         , requestLookupEvents $
+--             newLookupEvents
 --
 --         , requestStopLogging $
 --             newStopLogging
 --
+--         , requestDeleteTrail $
+--             newDeleteTrail
+--
 --         , requestUpdateTrail $
 --             newUpdateTrail
 --
---         , requestStartLogging $
---             newStartLogging
+--         , requestCreateTrail $
+--             newCreateTrail
+--
+--         , requestPutInsightSelectors $
+--             newPutInsightSelectors
+--
+--         , requestGetEventSelectors $
+--             newGetEventSelectors
+--
+--         , requestGetTrail $
+--             newGetTrail
 --
 --         , requestGetTrailStatus $
 --             newGetTrailStatus
 --
---         , requestLookupEvents $
---             newLookupEvents
+--         , requestAddTags $
+--             newAddTags
+--
+--         , requestListTags $
+--             newListTags
+--
+--         , requestPutEventSelectors $
+--             newPutEventSelectors
+--
+--         , requestStartLogging $
+--             newStartLogging
+--
+--         , requestListTrails $
+--             newListTrails
+--
+--         , requestGetInsightSelectors $
+--             newGetInsightSelectors
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListPublicKeys $
+--         [ responseDescribeTrails $
+--             newDescribeTrailsResponse
+--
+--         , responseListPublicKeys $
 --             newListPublicKeysResponse
 --
 --         , responseRemoveTags $
 --             newRemoveTagsResponse
 --
---         , responseGetEventSelectors $
---             newGetEventSelectorsResponse
---
---         , responseDescribeTrails $
---             newDescribeTrailsResponse
---
---         , responseCreateTrail $
---             newCreateTrailResponse
---
---         , responsePutEventSelectors $
---             newPutEventSelectorsResponse
---
---         , responseAddTags $
---             newAddTagsResponse
---
---         , responseGetTrail $
---             newGetTrailResponse
---
---         , responsePutInsightSelectors $
---             newPutInsightSelectorsResponse
---
---         , responseGetInsightSelectors $
---             newGetInsightSelectorsResponse
---
---         , responseListTrails $
---             newListTrailsResponse
---
---         , responseDeleteTrail $
---             newDeleteTrailResponse
---
---         , responseListTags $
---             newListTagsResponse
+--         , responseLookupEvents $
+--             newLookupEventsResponse
 --
 --         , responseStopLogging $
 --             newStopLoggingResponse
 --
+--         , responseDeleteTrail $
+--             newDeleteTrailResponse
+--
 --         , responseUpdateTrail $
 --             newUpdateTrailResponse
 --
---         , responseStartLogging $
---             newStartLoggingResponse
+--         , responseCreateTrail $
+--             newCreateTrailResponse
+--
+--         , responsePutInsightSelectors $
+--             newPutInsightSelectorsResponse
+--
+--         , responseGetEventSelectors $
+--             newGetEventSelectorsResponse
+--
+--         , responseGetTrail $
+--             newGetTrailResponse
 --
 --         , responseGetTrailStatus $
 --             newGetTrailStatusResponse
 --
---         , responseLookupEvents $
---             newLookupEventsResponse
+--         , responseAddTags $
+--             newAddTagsResponse
+--
+--         , responseListTags $
+--             newListTagsResponse
+--
+--         , responsePutEventSelectors $
+--             newPutEventSelectorsResponse
+--
+--         , responseStartLogging $
+--             newStartLoggingResponse
+--
+--         , responseListTrails $
+--             newListTrailsResponse
+--
+--         , responseGetInsightSelectors $
+--             newGetInsightSelectorsResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestDescribeTrails :: DescribeTrails -> TestTree
+requestDescribeTrails =
+  req
+    "DescribeTrails"
+    "fixture/DescribeTrails.yaml"
 
 requestListPublicKeys :: ListPublicKeys -> TestTree
 requestListPublicKeys =
@@ -155,71 +161,11 @@ requestRemoveTags =
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
-requestGetEventSelectors :: GetEventSelectors -> TestTree
-requestGetEventSelectors =
+requestLookupEvents :: LookupEvents -> TestTree
+requestLookupEvents =
   req
-    "GetEventSelectors"
-    "fixture/GetEventSelectors.yaml"
-
-requestDescribeTrails :: DescribeTrails -> TestTree
-requestDescribeTrails =
-  req
-    "DescribeTrails"
-    "fixture/DescribeTrails.yaml"
-
-requestCreateTrail :: CreateTrail -> TestTree
-requestCreateTrail =
-  req
-    "CreateTrail"
-    "fixture/CreateTrail.yaml"
-
-requestPutEventSelectors :: PutEventSelectors -> TestTree
-requestPutEventSelectors =
-  req
-    "PutEventSelectors"
-    "fixture/PutEventSelectors.yaml"
-
-requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
-    "AddTags"
-    "fixture/AddTags.yaml"
-
-requestGetTrail :: GetTrail -> TestTree
-requestGetTrail =
-  req
-    "GetTrail"
-    "fixture/GetTrail.yaml"
-
-requestPutInsightSelectors :: PutInsightSelectors -> TestTree
-requestPutInsightSelectors =
-  req
-    "PutInsightSelectors"
-    "fixture/PutInsightSelectors.yaml"
-
-requestGetInsightSelectors :: GetInsightSelectors -> TestTree
-requestGetInsightSelectors =
-  req
-    "GetInsightSelectors"
-    "fixture/GetInsightSelectors.yaml"
-
-requestListTrails :: ListTrails -> TestTree
-requestListTrails =
-  req
-    "ListTrails"
-    "fixture/ListTrails.yaml"
-
-requestDeleteTrail :: DeleteTrail -> TestTree
-requestDeleteTrail =
-  req
-    "DeleteTrail"
-    "fixture/DeleteTrail.yaml"
-
-requestListTags :: ListTags -> TestTree
-requestListTags =
-  req
-    "ListTags"
-    "fixture/ListTags.yaml"
+    "LookupEvents"
+    "fixture/LookupEvents.yaml"
 
 requestStopLogging :: StopLogging -> TestTree
 requestStopLogging =
@@ -227,17 +173,41 @@ requestStopLogging =
     "StopLogging"
     "fixture/StopLogging.yaml"
 
+requestDeleteTrail :: DeleteTrail -> TestTree
+requestDeleteTrail =
+  req
+    "DeleteTrail"
+    "fixture/DeleteTrail.yaml"
+
 requestUpdateTrail :: UpdateTrail -> TestTree
 requestUpdateTrail =
   req
     "UpdateTrail"
     "fixture/UpdateTrail.yaml"
 
-requestStartLogging :: StartLogging -> TestTree
-requestStartLogging =
+requestCreateTrail :: CreateTrail -> TestTree
+requestCreateTrail =
   req
-    "StartLogging"
-    "fixture/StartLogging.yaml"
+    "CreateTrail"
+    "fixture/CreateTrail.yaml"
+
+requestPutInsightSelectors :: PutInsightSelectors -> TestTree
+requestPutInsightSelectors =
+  req
+    "PutInsightSelectors"
+    "fixture/PutInsightSelectors.yaml"
+
+requestGetEventSelectors :: GetEventSelectors -> TestTree
+requestGetEventSelectors =
+  req
+    "GetEventSelectors"
+    "fixture/GetEventSelectors.yaml"
+
+requestGetTrail :: GetTrail -> TestTree
+requestGetTrail =
+  req
+    "GetTrail"
+    "fixture/GetTrail.yaml"
 
 requestGetTrailStatus :: GetTrailStatus -> TestTree
 requestGetTrailStatus =
@@ -245,13 +215,51 @@ requestGetTrailStatus =
     "GetTrailStatus"
     "fixture/GetTrailStatus.yaml"
 
-requestLookupEvents :: LookupEvents -> TestTree
-requestLookupEvents =
+requestAddTags :: AddTags -> TestTree
+requestAddTags =
   req
-    "LookupEvents"
-    "fixture/LookupEvents.yaml"
+    "AddTags"
+    "fixture/AddTags.yaml"
+
+requestListTags :: ListTags -> TestTree
+requestListTags =
+  req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
+requestPutEventSelectors :: PutEventSelectors -> TestTree
+requestPutEventSelectors =
+  req
+    "PutEventSelectors"
+    "fixture/PutEventSelectors.yaml"
+
+requestStartLogging :: StartLogging -> TestTree
+requestStartLogging =
+  req
+    "StartLogging"
+    "fixture/StartLogging.yaml"
+
+requestListTrails :: ListTrails -> TestTree
+requestListTrails =
+  req
+    "ListTrails"
+    "fixture/ListTrails.yaml"
+
+requestGetInsightSelectors :: GetInsightSelectors -> TestTree
+requestGetInsightSelectors =
+  req
+    "GetInsightSelectors"
+    "fixture/GetInsightSelectors.yaml"
 
 -- Responses
+
+responseDescribeTrails :: DescribeTrailsResponse -> TestTree
+responseDescribeTrails =
+  res
+    "DescribeTrailsResponse"
+    "fixture/DescribeTrailsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeTrails)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
 responseListPublicKeys =
@@ -269,93 +277,13 @@ responseRemoveTags =
     defaultService
     (Proxy :: Proxy RemoveTags)
 
-responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
-responseGetEventSelectors =
+responseLookupEvents :: LookupEventsResponse -> TestTree
+responseLookupEvents =
   res
-    "GetEventSelectorsResponse"
-    "fixture/GetEventSelectorsResponse.proto"
+    "LookupEventsResponse"
+    "fixture/LookupEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEventSelectors)
-
-responseDescribeTrails :: DescribeTrailsResponse -> TestTree
-responseDescribeTrails =
-  res
-    "DescribeTrailsResponse"
-    "fixture/DescribeTrailsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeTrails)
-
-responseCreateTrail :: CreateTrailResponse -> TestTree
-responseCreateTrail =
-  res
-    "CreateTrailResponse"
-    "fixture/CreateTrailResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTrail)
-
-responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
-responsePutEventSelectors =
-  res
-    "PutEventSelectorsResponse"
-    "fixture/PutEventSelectorsResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutEventSelectors)
-
-responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
-    "AddTagsResponse"
-    "fixture/AddTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddTags)
-
-responseGetTrail :: GetTrailResponse -> TestTree
-responseGetTrail =
-  res
-    "GetTrailResponse"
-    "fixture/GetTrailResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetTrail)
-
-responsePutInsightSelectors :: PutInsightSelectorsResponse -> TestTree
-responsePutInsightSelectors =
-  res
-    "PutInsightSelectorsResponse"
-    "fixture/PutInsightSelectorsResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutInsightSelectors)
-
-responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
-responseGetInsightSelectors =
-  res
-    "GetInsightSelectorsResponse"
-    "fixture/GetInsightSelectorsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetInsightSelectors)
-
-responseListTrails :: ListTrailsResponse -> TestTree
-responseListTrails =
-  res
-    "ListTrailsResponse"
-    "fixture/ListTrailsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTrails)
-
-responseDeleteTrail :: DeleteTrailResponse -> TestTree
-responseDeleteTrail =
-  res
-    "DeleteTrailResponse"
-    "fixture/DeleteTrailResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTrail)
-
-responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
-  res
-    "ListTagsResponse"
-    "fixture/ListTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy :: Proxy LookupEvents)
 
 responseStopLogging :: StopLoggingResponse -> TestTree
 responseStopLogging =
@@ -365,6 +293,14 @@ responseStopLogging =
     defaultService
     (Proxy :: Proxy StopLogging)
 
+responseDeleteTrail :: DeleteTrailResponse -> TestTree
+responseDeleteTrail =
+  res
+    "DeleteTrailResponse"
+    "fixture/DeleteTrailResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTrail)
+
 responseUpdateTrail :: UpdateTrailResponse -> TestTree
 responseUpdateTrail =
   res
@@ -373,13 +309,37 @@ responseUpdateTrail =
     defaultService
     (Proxy :: Proxy UpdateTrail)
 
-responseStartLogging :: StartLoggingResponse -> TestTree
-responseStartLogging =
+responseCreateTrail :: CreateTrailResponse -> TestTree
+responseCreateTrail =
   res
-    "StartLoggingResponse"
-    "fixture/StartLoggingResponse.proto"
+    "CreateTrailResponse"
+    "fixture/CreateTrailResponse.proto"
     defaultService
-    (Proxy :: Proxy StartLogging)
+    (Proxy :: Proxy CreateTrail)
+
+responsePutInsightSelectors :: PutInsightSelectorsResponse -> TestTree
+responsePutInsightSelectors =
+  res
+    "PutInsightSelectorsResponse"
+    "fixture/PutInsightSelectorsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutInsightSelectors)
+
+responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
+responseGetEventSelectors =
+  res
+    "GetEventSelectorsResponse"
+    "fixture/GetEventSelectorsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEventSelectors)
+
+responseGetTrail :: GetTrailResponse -> TestTree
+responseGetTrail =
+  res
+    "GetTrailResponse"
+    "fixture/GetTrailResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTrail)
 
 responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
 responseGetTrailStatus =
@@ -389,10 +349,50 @@ responseGetTrailStatus =
     defaultService
     (Proxy :: Proxy GetTrailStatus)
 
-responseLookupEvents :: LookupEventsResponse -> TestTree
-responseLookupEvents =
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags =
   res
-    "LookupEventsResponse"
-    "fixture/LookupEventsResponse.proto"
+    "AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy LookupEvents)
+    (Proxy :: Proxy AddTags)
+
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags =
+  res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTags)
+
+responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
+responsePutEventSelectors =
+  res
+    "PutEventSelectorsResponse"
+    "fixture/PutEventSelectorsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutEventSelectors)
+
+responseStartLogging :: StartLoggingResponse -> TestTree
+responseStartLogging =
+  res
+    "StartLoggingResponse"
+    "fixture/StartLoggingResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartLogging)
+
+responseListTrails :: ListTrailsResponse -> TestTree
+responseListTrails =
+  res
+    "ListTrailsResponse"
+    "fixture/ListTrailsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTrails)
+
+responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
+responseGetInsightSelectors =
+  res
+    "GetInsightSelectorsResponse"
+    "fixture/GetInsightSelectorsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInsightSelectors)

@@ -14,20 +14,9 @@
 module Network.AWS.StepFunctions.Lens
   ( -- * Operations
 
-    -- ** DescribeExecution
-    describeExecution_executionArn,
-    describeExecutionResponse_stopDate,
-    describeExecutionResponse_inputDetails,
-    describeExecutionResponse_input,
-    describeExecutionResponse_output,
-    describeExecutionResponse_name,
-    describeExecutionResponse_traceHeader,
-    describeExecutionResponse_outputDetails,
-    describeExecutionResponse_httpStatus,
-    describeExecutionResponse_executionArn,
-    describeExecutionResponse_stateMachineArn,
-    describeExecutionResponse_status,
-    describeExecutionResponse_startDate,
+    -- ** DeleteActivity
+    deleteActivity_activityArn,
+    deleteActivityResponse_httpStatus,
 
     -- ** DescribeStateMachine
     describeStateMachine_stateMachineArn,
@@ -42,69 +31,17 @@ module Network.AWS.StepFunctions.Lens
     describeStateMachineResponse_type,
     describeStateMachineResponse_creationDate,
 
-    -- ** DeleteActivity
-    deleteActivity_activityArn,
-    deleteActivityResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
-    -- ** ListActivities
-    listActivities_nextToken,
-    listActivities_maxResults,
-    listActivitiesResponse_nextToken,
-    listActivitiesResponse_httpStatus,
-    listActivitiesResponse_activities,
-
-    -- ** CreateActivity
-    createActivity_tags,
-    createActivity_name,
-    createActivityResponse_httpStatus,
-    createActivityResponse_activityArn,
-    createActivityResponse_creationDate,
-
-    -- ** CreateStateMachine
-    createStateMachine_tracingConfiguration,
-    createStateMachine_tags,
-    createStateMachine_loggingConfiguration,
-    createStateMachine_type,
-    createStateMachine_name,
-    createStateMachine_definition,
-    createStateMachine_roleArn,
-    createStateMachineResponse_httpStatus,
-    createStateMachineResponse_stateMachineArn,
-    createStateMachineResponse_creationDate,
-
-    -- ** GetActivityTask
-    getActivityTask_workerName,
-    getActivityTask_activityArn,
-    getActivityTaskResponse_input,
-    getActivityTaskResponse_taskToken,
-    getActivityTaskResponse_httpStatus,
-
-    -- ** DeleteStateMachine
-    deleteStateMachine_stateMachineArn,
-    deleteStateMachineResponse_httpStatus,
-
-    -- ** UpdateStateMachine
-    updateStateMachine_roleArn,
-    updateStateMachine_tracingConfiguration,
-    updateStateMachine_loggingConfiguration,
-    updateStateMachine_definition,
-    updateStateMachine_stateMachineArn,
-    updateStateMachineResponse_httpStatus,
-    updateStateMachineResponse_updateDate,
-
-    -- ** ListExecutions
-    listExecutions_nextToken,
-    listExecutions_maxResults,
-    listExecutions_statusFilter,
-    listExecutions_stateMachineArn,
-    listExecutionsResponse_nextToken,
-    listExecutionsResponse_httpStatus,
-    listExecutionsResponse_executions,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** StopExecution
+    stopExecution_error,
+    stopExecution_cause,
+    stopExecution_executionArn,
+    stopExecutionResponse_httpStatus,
+    stopExecutionResponse_stopDate,
 
     -- ** DescribeActivity
     describeActivity_activityArn,
@@ -113,46 +50,34 @@ module Network.AWS.StepFunctions.Lens
     describeActivityResponse_name,
     describeActivityResponse_creationDate,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** ListStateMachines
+    listStateMachines_nextToken,
+    listStateMachines_maxResults,
+    listStateMachinesResponse_nextToken,
+    listStateMachinesResponse_httpStatus,
+    listStateMachinesResponse_stateMachines,
 
-    -- ** StartSyncExecution
-    startSyncExecution_input,
-    startSyncExecution_name,
-    startSyncExecution_traceHeader,
-    startSyncExecution_stateMachineArn,
-    startSyncExecutionResponse_stateMachineArn,
-    startSyncExecutionResponse_inputDetails,
-    startSyncExecutionResponse_input,
-    startSyncExecutionResponse_output,
-    startSyncExecutionResponse_name,
-    startSyncExecutionResponse_cause,
-    startSyncExecutionResponse_billingDetails,
-    startSyncExecutionResponse_traceHeader,
-    startSyncExecutionResponse_error,
-    startSyncExecutionResponse_outputDetails,
-    startSyncExecutionResponse_httpStatus,
-    startSyncExecutionResponse_executionArn,
-    startSyncExecutionResponse_startDate,
-    startSyncExecutionResponse_stopDate,
-    startSyncExecutionResponse_status,
+    -- ** ListExecutions
+    listExecutions_statusFilter,
+    listExecutions_nextToken,
+    listExecutions_maxResults,
+    listExecutions_stateMachineArn,
+    listExecutionsResponse_nextToken,
+    listExecutionsResponse_httpStatus,
+    listExecutionsResponse_executions,
 
-    -- ** SendTaskSuccess
-    sendTaskSuccess_taskToken,
-    sendTaskSuccess_output,
-    sendTaskSuccessResponse_httpStatus,
+    -- ** DeleteStateMachine
+    deleteStateMachine_stateMachineArn,
+    deleteStateMachineResponse_httpStatus,
 
-    -- ** SendTaskFailure
-    sendTaskFailure_cause,
-    sendTaskFailure_error,
-    sendTaskFailure_taskToken,
-    sendTaskFailureResponse_httpStatus,
-
-    -- ** SendTaskHeartbeat
-    sendTaskHeartbeat_taskToken,
-    sendTaskHeartbeatResponse_httpStatus,
+    -- ** UpdateStateMachine
+    updateStateMachine_definition,
+    updateStateMachine_tracingConfiguration,
+    updateStateMachine_loggingConfiguration,
+    updateStateMachine_roleArn,
+    updateStateMachine_stateMachineArn,
+    updateStateMachineResponse_httpStatus,
+    updateStateMachineResponse_updateDate,
 
     -- ** DescribeStateMachineForExecution
     describeStateMachineForExecution_executionArn,
@@ -165,22 +90,56 @@ module Network.AWS.StepFunctions.Lens
     describeStateMachineForExecutionResponse_roleArn,
     describeStateMachineForExecutionResponse_updateDate,
 
-    -- ** GetExecutionHistory
-    getExecutionHistory_nextToken,
-    getExecutionHistory_maxResults,
-    getExecutionHistory_includeExecutionData,
-    getExecutionHistory_reverseOrder,
-    getExecutionHistory_executionArn,
-    getExecutionHistoryResponse_nextToken,
-    getExecutionHistoryResponse_httpStatus,
-    getExecutionHistoryResponse_events,
+    -- ** GetActivityTask
+    getActivityTask_workerName,
+    getActivityTask_activityArn,
+    getActivityTaskResponse_input,
+    getActivityTaskResponse_taskToken,
+    getActivityTaskResponse_httpStatus,
 
-    -- ** ListStateMachines
-    listStateMachines_nextToken,
-    listStateMachines_maxResults,
-    listStateMachinesResponse_nextToken,
-    listStateMachinesResponse_httpStatus,
-    listStateMachinesResponse_stateMachines,
+    -- ** CreateActivity
+    createActivity_tags,
+    createActivity_name,
+    createActivityResponse_httpStatus,
+    createActivityResponse_activityArn,
+    createActivityResponse_creationDate,
+
+    -- ** ListActivities
+    listActivities_nextToken,
+    listActivities_maxResults,
+    listActivitiesResponse_nextToken,
+    listActivitiesResponse_httpStatus,
+    listActivitiesResponse_activities,
+
+    -- ** SendTaskHeartbeat
+    sendTaskHeartbeat_taskToken,
+    sendTaskHeartbeatResponse_httpStatus,
+
+    -- ** SendTaskFailure
+    sendTaskFailure_error,
+    sendTaskFailure_cause,
+    sendTaskFailure_taskToken,
+    sendTaskFailureResponse_httpStatus,
+
+    -- ** DescribeExecution
+    describeExecution_executionArn,
+    describeExecutionResponse_stopDate,
+    describeExecutionResponse_inputDetails,
+    describeExecutionResponse_input,
+    describeExecutionResponse_name,
+    describeExecutionResponse_output,
+    describeExecutionResponse_outputDetails,
+    describeExecutionResponse_traceHeader,
+    describeExecutionResponse_httpStatus,
+    describeExecutionResponse_executionArn,
+    describeExecutionResponse_stateMachineArn,
+    describeExecutionResponse_status,
+    describeExecutionResponse_startDate,
+
+    -- ** SendTaskSuccess
+    sendTaskSuccess_taskToken,
+    sendTaskSuccess_output,
+    sendTaskSuccessResponse_httpStatus,
 
     -- ** StartExecution
     startExecution_input,
@@ -191,23 +150,64 @@ module Network.AWS.StepFunctions.Lens
     startExecutionResponse_executionArn,
     startExecutionResponse_startDate,
 
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** StartSyncExecution
+    startSyncExecution_input,
+    startSyncExecution_name,
+    startSyncExecution_traceHeader,
+    startSyncExecution_stateMachineArn,
+    startSyncExecutionResponse_inputDetails,
+    startSyncExecutionResponse_error,
+    startSyncExecutionResponse_input,
+    startSyncExecutionResponse_cause,
+    startSyncExecutionResponse_name,
+    startSyncExecutionResponse_stateMachineArn,
+    startSyncExecutionResponse_output,
+    startSyncExecutionResponse_outputDetails,
+    startSyncExecutionResponse_traceHeader,
+    startSyncExecutionResponse_billingDetails,
+    startSyncExecutionResponse_httpStatus,
+    startSyncExecutionResponse_executionArn,
+    startSyncExecutionResponse_startDate,
+    startSyncExecutionResponse_stopDate,
+    startSyncExecutionResponse_status,
 
-    -- ** StopExecution
-    stopExecution_cause,
-    stopExecution_error,
-    stopExecution_executionArn,
-    stopExecutionResponse_httpStatus,
-    stopExecutionResponse_stopDate,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** GetExecutionHistory
+    getExecutionHistory_reverseOrder,
+    getExecutionHistory_includeExecutionData,
+    getExecutionHistory_nextToken,
+    getExecutionHistory_maxResults,
+    getExecutionHistory_executionArn,
+    getExecutionHistoryResponse_nextToken,
+    getExecutionHistoryResponse_httpStatus,
+    getExecutionHistoryResponse_events,
+
+    -- ** CreateStateMachine
+    createStateMachine_tracingConfiguration,
+    createStateMachine_type,
+    createStateMachine_loggingConfiguration,
+    createStateMachine_tags,
+    createStateMachine_name,
+    createStateMachine_definition,
+    createStateMachine_roleArn,
+    createStateMachineResponse_httpStatus,
+    createStateMachineResponse_stateMachineArn,
+    createStateMachineResponse_creationDate,
 
     -- * Types
 
     -- ** ActivityFailedEventDetails
-    activityFailedEventDetails_cause,
     activityFailedEventDetails_error,
+    activityFailedEventDetails_cause,
 
     -- ** ActivityListItem
     activityListItem_activityArn,
@@ -215,12 +215,12 @@ module Network.AWS.StepFunctions.Lens
     activityListItem_creationDate,
 
     -- ** ActivityScheduleFailedEventDetails
-    activityScheduleFailedEventDetails_cause,
     activityScheduleFailedEventDetails_error,
+    activityScheduleFailedEventDetails_cause,
 
     -- ** ActivityScheduledEventDetails
-    activityScheduledEventDetails_inputDetails,
     activityScheduledEventDetails_heartbeatInSeconds,
+    activityScheduledEventDetails_inputDetails,
     activityScheduledEventDetails_input,
     activityScheduledEventDetails_timeoutInSeconds,
     activityScheduledEventDetails_resource,
@@ -233,8 +233,8 @@ module Network.AWS.StepFunctions.Lens
     activitySucceededEventDetails_outputDetails,
 
     -- ** ActivityTimedOutEventDetails
-    activityTimedOutEventDetails_cause,
     activityTimedOutEventDetails_error,
+    activityTimedOutEventDetails_cause,
 
     -- ** BillingDetails
     billingDetails_billedMemoryUsedInMB,
@@ -247,12 +247,12 @@ module Network.AWS.StepFunctions.Lens
     cloudWatchLogsLogGroup_logGroupArn,
 
     -- ** ExecutionAbortedEventDetails
-    executionAbortedEventDetails_cause,
     executionAbortedEventDetails_error,
+    executionAbortedEventDetails_cause,
 
     -- ** ExecutionFailedEventDetails
-    executionFailedEventDetails_cause,
     executionFailedEventDetails_error,
+    executionFailedEventDetails_cause,
 
     -- ** ExecutionListItem
     executionListItem_stopDate,
@@ -264,51 +264,51 @@ module Network.AWS.StepFunctions.Lens
 
     -- ** ExecutionStartedEventDetails
     executionStartedEventDetails_inputDetails,
-    executionStartedEventDetails_roleArn,
     executionStartedEventDetails_input,
+    executionStartedEventDetails_roleArn,
 
     -- ** ExecutionSucceededEventDetails
     executionSucceededEventDetails_output,
     executionSucceededEventDetails_outputDetails,
 
     -- ** ExecutionTimedOutEventDetails
-    executionTimedOutEventDetails_cause,
     executionTimedOutEventDetails_error,
+    executionTimedOutEventDetails_cause,
 
     -- ** HistoryEvent
-    historyEvent_executionFailedEventDetails,
+    historyEvent_mapStateStartedEventDetails,
     historyEvent_taskSubmitFailedEventDetails,
-    historyEvent_mapIterationStartedEventDetails,
-    historyEvent_mapIterationSucceededEventDetails,
-    historyEvent_mapIterationFailedEventDetails,
+    historyEvent_taskStartedEventDetails,
+    historyEvent_activityStartedEventDetails,
+    historyEvent_taskSubmittedEventDetails,
+    historyEvent_lambdaFunctionStartFailedEventDetails,
+    historyEvent_taskStartFailedEventDetails,
+    historyEvent_stateExitedEventDetails,
+    historyEvent_lambdaFunctionSucceededEventDetails,
+    historyEvent_taskSucceededEventDetails,
+    historyEvent_activitySucceededEventDetails,
     historyEvent_mapIterationAbortedEventDetails,
-    historyEvent_executionTimedOutEventDetails,
-    historyEvent_previousEventId,
-    historyEvent_executionStartedEventDetails,
-    historyEvent_lambdaFunctionScheduleFailedEventDetails,
-    historyEvent_activityScheduleFailedEventDetails,
-    historyEvent_taskScheduledEventDetails,
-    historyEvent_activityScheduledEventDetails,
-    historyEvent_lambdaFunctionScheduledEventDetails,
-    historyEvent_executionSucceededEventDetails,
-    historyEvent_executionAbortedEventDetails,
+    historyEvent_mapIterationSucceededEventDetails,
+    historyEvent_mapIterationStartedEventDetails,
     historyEvent_lambdaFunctionTimedOutEventDetails,
     historyEvent_taskTimedOutEventDetails,
     historyEvent_activityTimedOutEventDetails,
-    historyEvent_mapStateStartedEventDetails,
-    historyEvent_activitySucceededEventDetails,
-    historyEvent_stateExitedEventDetails,
-    historyEvent_activityFailedEventDetails,
+    historyEvent_executionFailedEventDetails,
+    historyEvent_executionAbortedEventDetails,
+    historyEvent_executionSucceededEventDetails,
+    historyEvent_lambdaFunctionScheduledEventDetails,
+    historyEvent_taskScheduledEventDetails,
+    historyEvent_activityScheduledEventDetails,
+    historyEvent_executionStartedEventDetails,
+    historyEvent_activityScheduleFailedEventDetails,
+    historyEvent_lambdaFunctionScheduleFailedEventDetails,
     historyEvent_stateEnteredEventDetails,
-    historyEvent_taskStartFailedEventDetails,
-    historyEvent_taskSucceededEventDetails,
+    historyEvent_previousEventId,
+    historyEvent_activityFailedEventDetails,
     historyEvent_taskFailedEventDetails,
-    historyEvent_lambdaFunctionStartFailedEventDetails,
-    historyEvent_lambdaFunctionSucceededEventDetails,
     historyEvent_lambdaFunctionFailedEventDetails,
-    historyEvent_taskStartedEventDetails,
-    historyEvent_taskSubmittedEventDetails,
-    historyEvent_activityStartedEventDetails,
+    historyEvent_executionTimedOutEventDetails,
+    historyEvent_mapIterationFailedEventDetails,
     historyEvent_timestamp,
     historyEvent_type,
     historyEvent_id,
@@ -317,12 +317,12 @@ module Network.AWS.StepFunctions.Lens
     historyEventExecutionDataDetails_truncated,
 
     -- ** LambdaFunctionFailedEventDetails
-    lambdaFunctionFailedEventDetails_cause,
     lambdaFunctionFailedEventDetails_error,
+    lambdaFunctionFailedEventDetails_cause,
 
     -- ** LambdaFunctionScheduleFailedEventDetails
-    lambdaFunctionScheduleFailedEventDetails_cause,
     lambdaFunctionScheduleFailedEventDetails_error,
+    lambdaFunctionScheduleFailedEventDetails_cause,
 
     -- ** LambdaFunctionScheduledEventDetails
     lambdaFunctionScheduledEventDetails_inputDetails,
@@ -331,23 +331,23 @@ module Network.AWS.StepFunctions.Lens
     lambdaFunctionScheduledEventDetails_resource,
 
     -- ** LambdaFunctionStartFailedEventDetails
-    lambdaFunctionStartFailedEventDetails_cause,
     lambdaFunctionStartFailedEventDetails_error,
+    lambdaFunctionStartFailedEventDetails_cause,
 
     -- ** LambdaFunctionSucceededEventDetails
     lambdaFunctionSucceededEventDetails_output,
     lambdaFunctionSucceededEventDetails_outputDetails,
 
     -- ** LambdaFunctionTimedOutEventDetails
-    lambdaFunctionTimedOutEventDetails_cause,
     lambdaFunctionTimedOutEventDetails_error,
+    lambdaFunctionTimedOutEventDetails_cause,
 
     -- ** LogDestination
     logDestination_cloudWatchLogsLogGroup,
 
     -- ** LoggingConfiguration
-    loggingConfiguration_destinations,
     loggingConfiguration_includeExecutionData,
+    loggingConfiguration_destinations,
     loggingConfiguration_level,
 
     -- ** MapIterationEventDetails
@@ -374,12 +374,12 @@ module Network.AWS.StepFunctions.Lens
     stateMachineListItem_creationDate,
 
     -- ** Tag
-    tag_key,
     tag_value,
+    tag_key,
 
     -- ** TaskFailedEventDetails
-    taskFailedEventDetails_cause,
     taskFailedEventDetails_error,
+    taskFailedEventDetails_cause,
     taskFailedEventDetails_resourceType,
     taskFailedEventDetails_resource,
 
@@ -392,8 +392,8 @@ module Network.AWS.StepFunctions.Lens
     taskScheduledEventDetails_parameters,
 
     -- ** TaskStartFailedEventDetails
-    taskStartFailedEventDetails_cause,
     taskStartFailedEventDetails_error,
+    taskStartFailedEventDetails_cause,
     taskStartFailedEventDetails_resourceType,
     taskStartFailedEventDetails_resource,
 
@@ -402,8 +402,8 @@ module Network.AWS.StepFunctions.Lens
     taskStartedEventDetails_resource,
 
     -- ** TaskSubmitFailedEventDetails
-    taskSubmitFailedEventDetails_cause,
     taskSubmitFailedEventDetails_error,
+    taskSubmitFailedEventDetails_cause,
     taskSubmitFailedEventDetails_resourceType,
     taskSubmitFailedEventDetails_resource,
 
@@ -420,8 +420,8 @@ module Network.AWS.StepFunctions.Lens
     taskSucceededEventDetails_resource,
 
     -- ** TaskTimedOutEventDetails
-    taskTimedOutEventDetails_cause,
     taskTimedOutEventDetails_error,
+    taskTimedOutEventDetails_cause,
     taskTimedOutEventDetails_resourceType,
     taskTimedOutEventDetails_resource,
 

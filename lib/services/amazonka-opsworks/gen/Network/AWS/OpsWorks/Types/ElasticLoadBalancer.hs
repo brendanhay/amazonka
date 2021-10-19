@@ -92,7 +92,7 @@ newElasticLoadBalancer =
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 elasticLoadBalancer_subnetIds :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
-elasticLoadBalancer_subnetIds = Lens.lens (\ElasticLoadBalancer' {subnetIds} -> subnetIds) (\s@ElasticLoadBalancer' {} a -> s {subnetIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
+elasticLoadBalancer_subnetIds = Lens.lens (\ElasticLoadBalancer' {subnetIds} -> subnetIds) (\s@ElasticLoadBalancer' {} a -> s {subnetIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The VPC ID.
 elasticLoadBalancer_vpcId :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
@@ -100,7 +100,7 @@ elasticLoadBalancer_vpcId = Lens.lens (\ElasticLoadBalancer' {vpcId} -> vpcId) (
 
 -- | A list of Availability Zones.
 elasticLoadBalancer_availabilityZones :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
-elasticLoadBalancer_availabilityZones = Lens.lens (\ElasticLoadBalancer' {availabilityZones} -> availabilityZones) (\s@ElasticLoadBalancer' {} a -> s {availabilityZones = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
+elasticLoadBalancer_availabilityZones = Lens.lens (\ElasticLoadBalancer' {availabilityZones} -> availabilityZones) (\s@ElasticLoadBalancer' {} a -> s {availabilityZones = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance\'s AWS region.
 elasticLoadBalancer_region :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)
@@ -117,7 +117,7 @@ elasticLoadBalancer_stackId = Lens.lens (\ElasticLoadBalancer' {stackId} -> stac
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
 elasticLoadBalancer_ec2InstanceIds :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe [Prelude.Text])
-elasticLoadBalancer_ec2InstanceIds = Lens.lens (\ElasticLoadBalancer' {ec2InstanceIds} -> ec2InstanceIds) (\s@ElasticLoadBalancer' {} a -> s {ec2InstanceIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens._Coerce
+elasticLoadBalancer_ec2InstanceIds = Lens.lens (\ElasticLoadBalancer' {ec2InstanceIds} -> ec2InstanceIds) (\s@ElasticLoadBalancer' {} a -> s {ec2InstanceIds = a} :: ElasticLoadBalancer) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the layer that the instance is attached to.
 elasticLoadBalancer_layerId :: Lens.Lens' ElasticLoadBalancer (Prelude.Maybe Prelude.Text)

@@ -206,6 +206,6 @@ listDetectorsResponse_httpStatus = Lens.lens (\ListDetectorsResponse' {httpStatu
 
 -- | A list of detector IDs.
 listDetectorsResponse_detectorIds :: Lens.Lens' ListDetectorsResponse [Prelude.Text]
-listDetectorsResponse_detectorIds = Lens.lens (\ListDetectorsResponse' {detectorIds} -> detectorIds) (\s@ListDetectorsResponse' {} a -> s {detectorIds = a} :: ListDetectorsResponse) Prelude.. Lens._Coerce
+listDetectorsResponse_detectorIds = Lens.lens (\ListDetectorsResponse' {detectorIds} -> detectorIds) (\s@ListDetectorsResponse' {} a -> s {detectorIds = a} :: ListDetectorsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListDetectorsResponse

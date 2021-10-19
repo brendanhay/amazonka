@@ -95,7 +95,7 @@ monitorInstances_dryRun = Lens.lens (\MonitorInstances' {dryRun} -> dryRun) (\s@
 
 -- | The IDs of the instances.
 monitorInstances_instanceIds :: Lens.Lens' MonitorInstances [Prelude.Text]
-monitorInstances_instanceIds = Lens.lens (\MonitorInstances' {instanceIds} -> instanceIds) (\s@MonitorInstances' {} a -> s {instanceIds = a} :: MonitorInstances) Prelude.. Lens._Coerce
+monitorInstances_instanceIds = Lens.lens (\MonitorInstances' {instanceIds} -> instanceIds) (\s@MonitorInstances' {} a -> s {instanceIds = a} :: MonitorInstances) Prelude.. Lens.coerced
 
 instance Core.AWSRequest MonitorInstances where
   type
@@ -166,7 +166,7 @@ newMonitorInstancesResponse pHttpStatus_ =
 
 -- | The monitoring information.
 monitorInstancesResponse_instanceMonitorings :: Lens.Lens' MonitorInstancesResponse (Prelude.Maybe [InstanceMonitoring])
-monitorInstancesResponse_instanceMonitorings = Lens.lens (\MonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@MonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: MonitorInstancesResponse) Prelude.. Lens.mapping Lens._Coerce
+monitorInstancesResponse_instanceMonitorings = Lens.lens (\MonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@MonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: MonitorInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 monitorInstancesResponse_httpStatus :: Lens.Lens' MonitorInstancesResponse Prelude.Int

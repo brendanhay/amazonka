@@ -37,8 +37,8 @@ module Network.AWS.APIGateway.ImportDocumentationParts
     newImportDocumentationPartsResponse,
 
     -- * Response Lenses
-    importDocumentationPartsResponse_warnings,
     importDocumentationPartsResponse_ids,
+    importDocumentationPartsResponse_warnings,
     importDocumentationPartsResponse_httpStatus,
   )
 where
@@ -135,8 +135,8 @@ instance Core.AWSRequest ImportDocumentationParts where
     Response.receiveJSON
       ( \s h x ->
           ImportDocumentationPartsResponse'
-            Prelude.<$> (x Core..?> "warnings" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ids" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -183,11 +183,11 @@ instance Core.ToQuery ImportDocumentationParts where
 --
 -- /See:/ 'newImportDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
-  { -- | A list of warning messages reported during import of documentation
+  { -- | A list of the returned documentation part identifiers.
+    ids :: Prelude.Maybe [Prelude.Text],
+    -- | A list of warning messages reported during import of documentation
     -- parts.
     warnings :: Prelude.Maybe [Prelude.Text],
-    -- | A list of the returned documentation part identifiers.
-    ids :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,10 +201,10 @@ data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ids', 'importDocumentationPartsResponse_ids' - A list of the returned documentation part identifiers.
+--
 -- 'warnings', 'importDocumentationPartsResponse_warnings' - A list of warning messages reported during import of documentation
 -- parts.
---
--- 'ids', 'importDocumentationPartsResponse_ids' - A list of the returned documentation part identifiers.
 --
 -- 'httpStatus', 'importDocumentationPartsResponse_httpStatus' - The response's http status code.
 newImportDocumentationPartsResponse ::
@@ -213,20 +213,20 @@ newImportDocumentationPartsResponse ::
   ImportDocumentationPartsResponse
 newImportDocumentationPartsResponse pHttpStatus_ =
   ImportDocumentationPartsResponse'
-    { warnings =
+    { ids =
         Prelude.Nothing,
-      ids = Prelude.Nothing,
+      warnings = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of the returned documentation part identifiers.
+importDocumentationPartsResponse_ids :: Lens.Lens' ImportDocumentationPartsResponse (Prelude.Maybe [Prelude.Text])
+importDocumentationPartsResponse_ids = Lens.lens (\ImportDocumentationPartsResponse' {ids} -> ids) (\s@ImportDocumentationPartsResponse' {} a -> s {ids = a} :: ImportDocumentationPartsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of warning messages reported during import of documentation
 -- parts.
 importDocumentationPartsResponse_warnings :: Lens.Lens' ImportDocumentationPartsResponse (Prelude.Maybe [Prelude.Text])
-importDocumentationPartsResponse_warnings = Lens.lens (\ImportDocumentationPartsResponse' {warnings} -> warnings) (\s@ImportDocumentationPartsResponse' {} a -> s {warnings = a} :: ImportDocumentationPartsResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | A list of the returned documentation part identifiers.
-importDocumentationPartsResponse_ids :: Lens.Lens' ImportDocumentationPartsResponse (Prelude.Maybe [Prelude.Text])
-importDocumentationPartsResponse_ids = Lens.lens (\ImportDocumentationPartsResponse' {ids} -> ids) (\s@ImportDocumentationPartsResponse' {} a -> s {ids = a} :: ImportDocumentationPartsResponse) Prelude.. Lens.mapping Lens._Coerce
+importDocumentationPartsResponse_warnings = Lens.lens (\ImportDocumentationPartsResponse' {warnings} -> warnings) (\s@ImportDocumentationPartsResponse' {} a -> s {warnings = a} :: ImportDocumentationPartsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 importDocumentationPartsResponse_httpStatus :: Lens.Lens' ImportDocumentationPartsResponse Prelude.Int

@@ -119,7 +119,7 @@ addCommunicationToCase_caseId = Lens.lens (\AddCommunicationToCase' {caseId} -> 
 -- | The email addresses in the CC line of an email to be added to the
 -- support case.
 addCommunicationToCase_ccEmailAddresses :: Lens.Lens' AddCommunicationToCase (Prelude.Maybe [Prelude.Text])
-addCommunicationToCase_ccEmailAddresses = Lens.lens (\AddCommunicationToCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@AddCommunicationToCase' {} a -> s {ccEmailAddresses = a} :: AddCommunicationToCase) Prelude.. Lens.mapping Lens._Coerce
+addCommunicationToCase_ccEmailAddresses = Lens.lens (\AddCommunicationToCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@AddCommunicationToCase' {} a -> s {ccEmailAddresses = a} :: AddCommunicationToCase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet

@@ -37,10 +37,10 @@ module Network.AWS.APIGateway.UpdateModel
 
     -- * Response Lenses
     model_schema,
-    model_contentType,
-    model_id,
     model_name,
+    model_id,
     model_description,
+    model_contentType,
   )
 where
 
@@ -95,7 +95,7 @@ newUpdateModel pRestApiId_ pModelName_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateModel_patchOperations :: Lens.Lens' UpdateModel (Prelude.Maybe [PatchOperation])
-updateModel_patchOperations = Lens.lens (\UpdateModel' {patchOperations} -> patchOperations) (\s@UpdateModel' {} a -> s {patchOperations = a} :: UpdateModel) Prelude.. Lens.mapping Lens._Coerce
+updateModel_patchOperations = Lens.lens (\UpdateModel' {patchOperations} -> patchOperations) (\s@UpdateModel' {} a -> s {patchOperations = a} :: UpdateModel) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateModel_restApiId :: Lens.Lens' UpdateModel Prelude.Text

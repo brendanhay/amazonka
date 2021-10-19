@@ -54,11 +54,11 @@ newCaptureContentTypeHeader =
 
 -- |
 captureContentTypeHeader_csvContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader' {csvContentTypes} -> csvContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {csvContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens._Coerce
+captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader' {csvContentTypes} -> csvContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {csvContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens.coerced
 
 -- |
 captureContentTypeHeader_jsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens._Coerce
+captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CaptureContentTypeHeader where
   parseJSON =

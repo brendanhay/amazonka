@@ -29,8 +29,8 @@ module Network.AWS.AppStream.CreateStreamingURL
     newCreateStreamingURL,
 
     -- * Request Lenses
-    createStreamingURL_applicationId,
     createStreamingURL_sessionContext,
+    createStreamingURL_applicationId,
     createStreamingURL_validity,
     createStreamingURL_stackName,
     createStreamingURL_fleetName,
@@ -56,16 +56,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
-  { -- | The name of the application to launch after the session starts. This is
+  { -- | The session context. For more information, see
+    -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
+    -- in the /Amazon AppStream 2.0 Administration Guide/.
+    sessionContext :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application to launch after the session starts. This is
     -- the name that you specified as __Name__ in the Image Assistant. If your
     -- fleet is enabled for the __Desktop__ stream view, you can also choose to
     -- launch directly to the operating system desktop. To do so, specify
     -- __Desktop__.
     applicationId :: Prelude.Maybe Prelude.Text,
-    -- | The session context. For more information, see
-    -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
-    -- in the /Amazon AppStream 2.0 Administration Guide/.
-    sessionContext :: Prelude.Maybe Prelude.Text,
     -- | The time that the streaming URL will be valid, in seconds. Specify a
     -- value between 1 and 604800 seconds. The default is 60 seconds.
     validity :: Prelude.Maybe Prelude.Integer,
@@ -86,15 +86,15 @@ data CreateStreamingURL = CreateStreamingURL'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sessionContext', 'createStreamingURL_sessionContext' - The session context. For more information, see
+-- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
+-- in the /Amazon AppStream 2.0 Administration Guide/.
+--
 -- 'applicationId', 'createStreamingURL_applicationId' - The name of the application to launch after the session starts. This is
 -- the name that you specified as __Name__ in the Image Assistant. If your
 -- fleet is enabled for the __Desktop__ stream view, you can also choose to
 -- launch directly to the operating system desktop. To do so, specify
 -- __Desktop__.
---
--- 'sessionContext', 'createStreamingURL_sessionContext' - The session context. For more information, see
--- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
--- in the /Amazon AppStream 2.0 Administration Guide/.
 --
 -- 'validity', 'createStreamingURL_validity' - The time that the streaming URL will be valid, in seconds. Specify a
 -- value between 1 and 604800 seconds. The default is 60 seconds.
@@ -117,14 +117,20 @@ newCreateStreamingURL
   pFleetName_
   pUserId_ =
     CreateStreamingURL'
-      { applicationId =
+      { sessionContext =
           Prelude.Nothing,
-        sessionContext = Prelude.Nothing,
+        applicationId = Prelude.Nothing,
         validity = Prelude.Nothing,
         stackName = pStackName_,
         fleetName = pFleetName_,
         userId = pUserId_
       }
+
+-- | The session context. For more information, see
+-- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
+-- in the /Amazon AppStream 2.0 Administration Guide/.
+createStreamingURL_sessionContext :: Lens.Lens' CreateStreamingURL (Prelude.Maybe Prelude.Text)
+createStreamingURL_sessionContext = Lens.lens (\CreateStreamingURL' {sessionContext} -> sessionContext) (\s@CreateStreamingURL' {} a -> s {sessionContext = a} :: CreateStreamingURL)
 
 -- | The name of the application to launch after the session starts. This is
 -- the name that you specified as __Name__ in the Image Assistant. If your
@@ -133,12 +139,6 @@ newCreateStreamingURL
 -- __Desktop__.
 createStreamingURL_applicationId :: Lens.Lens' CreateStreamingURL (Prelude.Maybe Prelude.Text)
 createStreamingURL_applicationId = Lens.lens (\CreateStreamingURL' {applicationId} -> applicationId) (\s@CreateStreamingURL' {} a -> s {applicationId = a} :: CreateStreamingURL)
-
--- | The session context. For more information, see
--- <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context>
--- in the /Amazon AppStream 2.0 Administration Guide/.
-createStreamingURL_sessionContext :: Lens.Lens' CreateStreamingURL (Prelude.Maybe Prelude.Text)
-createStreamingURL_sessionContext = Lens.lens (\CreateStreamingURL' {sessionContext} -> sessionContext) (\s@CreateStreamingURL' {} a -> s {sessionContext = a} :: CreateStreamingURL)
 
 -- | The time that the streaming URL will be valid, in seconds. Specify a
 -- value between 1 and 604800 seconds. The default is 60 seconds.
@@ -194,9 +194,9 @@ instance Core.ToJSON CreateStreamingURL where
   toJSON CreateStreamingURL' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ApplicationId" Core..=) Prelude.<$> applicationId,
-            ("SessionContext" Core..=)
+          [ ("SessionContext" Core..=)
               Prelude.<$> sessionContext,
+            ("ApplicationId" Core..=) Prelude.<$> applicationId,
             ("Validity" Core..=) Prelude.<$> validity,
             Prelude.Just ("StackName" Core..= stackName),
             Prelude.Just ("FleetName" Core..= fleetName),

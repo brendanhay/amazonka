@@ -17,11 +17,11 @@ module Network.AWS.Transcribe.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _BadRequestException,
     _ConflictException,
-    _LimitExceededException,
+    _NotFoundException,
     _InternalFailureException,
+    _BadRequestException,
+    _LimitExceededException,
 
     -- * BaseModelName
     BaseModelName (..),
@@ -83,64 +83,64 @@ module Network.AWS.Transcribe.Types
     -- * AbsoluteTimeRange
     AbsoluteTimeRange (..),
     newAbsoluteTimeRange,
-    absoluteTimeRange_startTime,
-    absoluteTimeRange_endTime,
-    absoluteTimeRange_last,
     absoluteTimeRange_first,
+    absoluteTimeRange_startTime,
+    absoluteTimeRange_last,
+    absoluteTimeRange_endTime,
 
     -- * CallAnalyticsJob
     CallAnalyticsJob (..),
     newCallAnalyticsJob,
-    callAnalyticsJob_languageCode,
-    callAnalyticsJob_mediaFormat,
-    callAnalyticsJob_callAnalyticsJobStatus,
     callAnalyticsJob_creationTime,
-    callAnalyticsJob_media,
-    callAnalyticsJob_completionTime,
-    callAnalyticsJob_transcript,
-    callAnalyticsJob_startTime,
-    callAnalyticsJob_channelDefinitions,
-    callAnalyticsJob_identifiedLanguageScore,
-    callAnalyticsJob_callAnalyticsJobName,
     callAnalyticsJob_failureReason,
-    callAnalyticsJob_mediaSampleRateHertz,
-    callAnalyticsJob_dataAccessRoleArn,
+    callAnalyticsJob_callAnalyticsJobStatus,
+    callAnalyticsJob_identifiedLanguageScore,
+    callAnalyticsJob_languageCode,
     callAnalyticsJob_settings,
+    callAnalyticsJob_startTime,
+    callAnalyticsJob_completionTime,
+    callAnalyticsJob_callAnalyticsJobName,
+    callAnalyticsJob_media,
+    callAnalyticsJob_mediaFormat,
+    callAnalyticsJob_channelDefinitions,
+    callAnalyticsJob_dataAccessRoleArn,
+    callAnalyticsJob_transcript,
+    callAnalyticsJob_mediaSampleRateHertz,
 
     -- * CallAnalyticsJobSettings
     CallAnalyticsJobSettings (..),
     newCallAnalyticsJobSettings,
     callAnalyticsJobSettings_contentRedaction,
+    callAnalyticsJobSettings_languageOptions,
+    callAnalyticsJobSettings_vocabularyName,
+    callAnalyticsJobSettings_languageModelName,
     callAnalyticsJobSettings_vocabularyFilterName,
     callAnalyticsJobSettings_vocabularyFilterMethod,
-    callAnalyticsJobSettings_languageModelName,
-    callAnalyticsJobSettings_vocabularyName,
-    callAnalyticsJobSettings_languageOptions,
 
     -- * CallAnalyticsJobSummary
     CallAnalyticsJobSummary (..),
     newCallAnalyticsJobSummary,
-    callAnalyticsJobSummary_languageCode,
-    callAnalyticsJobSummary_callAnalyticsJobStatus,
     callAnalyticsJobSummary_creationTime,
-    callAnalyticsJobSummary_completionTime,
-    callAnalyticsJobSummary_startTime,
-    callAnalyticsJobSummary_callAnalyticsJobName,
     callAnalyticsJobSummary_failureReason,
+    callAnalyticsJobSummary_callAnalyticsJobStatus,
+    callAnalyticsJobSummary_languageCode,
+    callAnalyticsJobSummary_startTime,
+    callAnalyticsJobSummary_completionTime,
+    callAnalyticsJobSummary_callAnalyticsJobName,
 
     -- * CategoryProperties
     CategoryProperties (..),
     newCategoryProperties,
-    categoryProperties_lastUpdateTime,
     categoryProperties_rules,
     categoryProperties_categoryName,
+    categoryProperties_lastUpdateTime,
     categoryProperties_createTime,
 
     -- * ChannelDefinition
     ChannelDefinition (..),
     newChannelDefinition,
-    channelDefinition_channelId,
     channelDefinition_participantRole,
+    channelDefinition_channelId,
 
     -- * ContentRedaction
     ContentRedaction (..),
@@ -158,30 +158,30 @@ module Network.AWS.Transcribe.Types
     -- * InterruptionFilter
     InterruptionFilter (..),
     newInterruptionFilter,
-    interruptionFilter_threshold,
+    interruptionFilter_participantRole,
     interruptionFilter_relativeTimeRange,
     interruptionFilter_negate,
-    interruptionFilter_participantRole,
+    interruptionFilter_threshold,
     interruptionFilter_absoluteTimeRange,
 
     -- * JobExecutionSettings
     JobExecutionSettings (..),
     newJobExecutionSettings,
-    jobExecutionSettings_allowDeferredExecution,
     jobExecutionSettings_dataAccessRoleArn,
+    jobExecutionSettings_allowDeferredExecution,
 
     -- * LanguageModel
     LanguageModel (..),
     newLanguageModel,
-    languageModel_languageCode,
-    languageModel_inputDataConfig,
-    languageModel_modelStatus,
     languageModel_failureReason,
-    languageModel_createTime,
-    languageModel_upgradeAvailability,
-    languageModel_lastModifiedTime,
+    languageModel_languageCode,
     languageModel_modelName,
+    languageModel_lastModifiedTime,
+    languageModel_upgradeAvailability,
+    languageModel_inputDataConfig,
     languageModel_baseModelName,
+    languageModel_modelStatus,
+    languageModel_createTime,
 
     -- * Media
     Media (..),
@@ -197,47 +197,47 @@ module Network.AWS.Transcribe.Types
     -- * MedicalTranscriptionJob
     MedicalTranscriptionJob (..),
     newMedicalTranscriptionJob,
-    medicalTranscriptionJob_languageCode,
-    medicalTranscriptionJob_mediaFormat,
     medicalTranscriptionJob_creationTime,
-    medicalTranscriptionJob_media,
-    medicalTranscriptionJob_completionTime,
-    medicalTranscriptionJob_transcript,
-    medicalTranscriptionJob_contentIdentificationType,
-    medicalTranscriptionJob_transcriptionJobStatus,
-    medicalTranscriptionJob_startTime,
     medicalTranscriptionJob_specialty,
     medicalTranscriptionJob_failureReason,
+    medicalTranscriptionJob_languageCode,
+    medicalTranscriptionJob_settings,
+    medicalTranscriptionJob_startTime,
+    medicalTranscriptionJob_completionTime,
+    medicalTranscriptionJob_media,
+    medicalTranscriptionJob_mediaFormat,
+    medicalTranscriptionJob_medicalTranscriptionJobName,
+    medicalTranscriptionJob_transcriptionJobStatus,
+    medicalTranscriptionJob_type,
+    medicalTranscriptionJob_contentIdentificationType,
+    medicalTranscriptionJob_transcript,
     medicalTranscriptionJob_tags,
     medicalTranscriptionJob_mediaSampleRateHertz,
-    medicalTranscriptionJob_type,
-    medicalTranscriptionJob_medicalTranscriptionJobName,
-    medicalTranscriptionJob_settings,
 
     -- * MedicalTranscriptionJobSummary
     MedicalTranscriptionJobSummary (..),
     newMedicalTranscriptionJobSummary,
-    medicalTranscriptionJobSummary_languageCode,
     medicalTranscriptionJobSummary_creationTime,
-    medicalTranscriptionJobSummary_completionTime,
-    medicalTranscriptionJobSummary_contentIdentificationType,
-    medicalTranscriptionJobSummary_transcriptionJobStatus,
-    medicalTranscriptionJobSummary_startTime,
-    medicalTranscriptionJobSummary_outputLocationType,
     medicalTranscriptionJobSummary_specialty,
     medicalTranscriptionJobSummary_failureReason,
-    medicalTranscriptionJobSummary_type,
+    medicalTranscriptionJobSummary_languageCode,
+    medicalTranscriptionJobSummary_outputLocationType,
+    medicalTranscriptionJobSummary_startTime,
+    medicalTranscriptionJobSummary_completionTime,
     medicalTranscriptionJobSummary_medicalTranscriptionJobName,
+    medicalTranscriptionJobSummary_transcriptionJobStatus,
+    medicalTranscriptionJobSummary_type,
+    medicalTranscriptionJobSummary_contentIdentificationType,
 
     -- * MedicalTranscriptionSetting
     MedicalTranscriptionSetting (..),
     newMedicalTranscriptionSetting,
-    medicalTranscriptionSetting_showAlternatives,
-    medicalTranscriptionSetting_channelIdentification,
-    medicalTranscriptionSetting_maxAlternatives,
-    medicalTranscriptionSetting_showSpeakerLabels,
     medicalTranscriptionSetting_vocabularyName,
+    medicalTranscriptionSetting_maxAlternatives,
+    medicalTranscriptionSetting_channelIdentification,
+    medicalTranscriptionSetting_showAlternatives,
     medicalTranscriptionSetting_maxSpeakerLabels,
+    medicalTranscriptionSetting_showSpeakerLabels,
 
     -- * ModelSettings
     ModelSettings (..),
@@ -247,47 +247,47 @@ module Network.AWS.Transcribe.Types
     -- * NonTalkTimeFilter
     NonTalkTimeFilter (..),
     newNonTalkTimeFilter,
-    nonTalkTimeFilter_threshold,
     nonTalkTimeFilter_relativeTimeRange,
     nonTalkTimeFilter_negate,
+    nonTalkTimeFilter_threshold,
     nonTalkTimeFilter_absoluteTimeRange,
 
     -- * RelativeTimeRange
     RelativeTimeRange (..),
     newRelativeTimeRange,
-    relativeTimeRange_startPercentage,
     relativeTimeRange_endPercentage,
-    relativeTimeRange_last,
     relativeTimeRange_first,
+    relativeTimeRange_last,
+    relativeTimeRange_startPercentage,
 
     -- * Rule
     Rule (..),
     newRule,
+    rule_nonTalkTimeFilter,
+    rule_transcriptFilter,
     rule_sentimentFilter,
     rule_interruptionFilter,
-    rule_transcriptFilter,
-    rule_nonTalkTimeFilter,
 
     -- * SentimentFilter
     SentimentFilter (..),
     newSentimentFilter,
+    sentimentFilter_participantRole,
     sentimentFilter_relativeTimeRange,
     sentimentFilter_negate,
-    sentimentFilter_participantRole,
     sentimentFilter_absoluteTimeRange,
     sentimentFilter_sentiments,
 
     -- * Settings
     Settings (..),
     newSettings,
-    settings_vocabularyFilterName,
-    settings_vocabularyFilterMethod,
-    settings_showAlternatives,
-    settings_channelIdentification,
-    settings_maxAlternatives,
-    settings_showSpeakerLabels,
     settings_vocabularyName,
+    settings_maxAlternatives,
+    settings_channelIdentification,
+    settings_showAlternatives,
     settings_maxSpeakerLabels,
+    settings_vocabularyFilterName,
+    settings_showSpeakerLabels,
+    settings_vocabularyFilterMethod,
 
     -- * Subtitles
     Subtitles (..),
@@ -297,8 +297,8 @@ module Network.AWS.Transcribe.Types
     -- * SubtitlesOutput
     SubtitlesOutput (..),
     newSubtitlesOutput,
-    subtitlesOutput_subtitleFileUris,
     subtitlesOutput_formats,
+    subtitlesOutput_subtitleFileUris,
 
     -- * Tag
     Tag (..),
@@ -309,15 +309,15 @@ module Network.AWS.Transcribe.Types
     -- * Transcript
     Transcript (..),
     newTranscript,
-    transcript_transcriptFileUri,
     transcript_redactedTranscriptFileUri,
+    transcript_transcriptFileUri,
 
     -- * TranscriptFilter
     TranscriptFilter (..),
     newTranscriptFilter,
+    transcriptFilter_participantRole,
     transcriptFilter_relativeTimeRange,
     transcriptFilter_negate,
-    transcriptFilter_participantRole,
     transcriptFilter_absoluteTimeRange,
     transcriptFilter_transcriptFilterType,
     transcriptFilter_targets,
@@ -325,56 +325,56 @@ module Network.AWS.Transcribe.Types
     -- * TranscriptionJob
     TranscriptionJob (..),
     newTranscriptionJob,
-    transcriptionJob_languageCode,
-    transcriptionJob_mediaFormat,
-    transcriptionJob_contentRedaction,
     transcriptionJob_creationTime,
-    transcriptionJob_media,
-    transcriptionJob_completionTime,
-    transcriptionJob_transcript,
-    transcriptionJob_identifyLanguage,
-    transcriptionJob_transcriptionJobName,
-    transcriptionJob_transcriptionJobStatus,
-    transcriptionJob_startTime,
-    transcriptionJob_modelSettings,
+    transcriptionJob_failureReason,
+    transcriptionJob_contentRedaction,
     transcriptionJob_identifiedLanguageScore,
     transcriptionJob_subtitles,
-    transcriptionJob_failureReason,
+    transcriptionJob_languageCode,
+    transcriptionJob_languageOptions,
+    transcriptionJob_settings,
+    transcriptionJob_startTime,
+    transcriptionJob_completionTime,
+    transcriptionJob_media,
+    transcriptionJob_mediaFormat,
+    transcriptionJob_modelSettings,
+    transcriptionJob_transcriptionJobStatus,
+    transcriptionJob_jobExecutionSettings,
+    transcriptionJob_transcriptionJobName,
+    transcriptionJob_identifyLanguage,
+    transcriptionJob_transcript,
     transcriptionJob_tags,
     transcriptionJob_mediaSampleRateHertz,
-    transcriptionJob_jobExecutionSettings,
-    transcriptionJob_settings,
-    transcriptionJob_languageOptions,
 
     -- * TranscriptionJobSummary
     TranscriptionJobSummary (..),
     newTranscriptionJobSummary,
-    transcriptionJobSummary_languageCode,
-    transcriptionJobSummary_contentRedaction,
     transcriptionJobSummary_creationTime,
-    transcriptionJobSummary_completionTime,
-    transcriptionJobSummary_identifyLanguage,
-    transcriptionJobSummary_transcriptionJobName,
-    transcriptionJobSummary_transcriptionJobStatus,
-    transcriptionJobSummary_startTime,
-    transcriptionJobSummary_outputLocationType,
-    transcriptionJobSummary_modelSettings,
-    transcriptionJobSummary_identifiedLanguageScore,
     transcriptionJobSummary_failureReason,
+    transcriptionJobSummary_contentRedaction,
+    transcriptionJobSummary_identifiedLanguageScore,
+    transcriptionJobSummary_languageCode,
+    transcriptionJobSummary_outputLocationType,
+    transcriptionJobSummary_startTime,
+    transcriptionJobSummary_completionTime,
+    transcriptionJobSummary_modelSettings,
+    transcriptionJobSummary_transcriptionJobStatus,
+    transcriptionJobSummary_transcriptionJobName,
+    transcriptionJobSummary_identifyLanguage,
 
     -- * VocabularyFilterInfo
     VocabularyFilterInfo (..),
     newVocabularyFilterInfo,
     vocabularyFilterInfo_languageCode,
-    vocabularyFilterInfo_vocabularyFilterName,
     vocabularyFilterInfo_lastModifiedTime,
+    vocabularyFilterInfo_vocabularyFilterName,
 
     -- * VocabularyInfo
     VocabularyInfo (..),
     newVocabularyInfo,
     vocabularyInfo_languageCode,
-    vocabularyInfo_lastModifiedTime,
     vocabularyInfo_vocabularyName,
+    vocabularyInfo_lastModifiedTime,
     vocabularyInfo_vocabularyState,
   )
 where
@@ -460,37 +460,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -503,7 +480,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | There is already a resource with that name.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
 
 -- | We can\'t find the requested resource. Check the name and try your
 -- request again.
@@ -512,6 +519,14 @@ _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
+
+-- | There was an internal error. Check the error message and try your
+-- request again.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
 
 -- | Your request didn\'t pass one or more validation tests. For example, if
 -- the entity that you\'re trying to delete doesn\'t exist or if it is in a
@@ -523,13 +538,6 @@ _BadRequestException =
     defaultService
     "BadRequestException"
 
--- | There is already a resource with that name.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
 -- | Either you have sent too many requests or your input file is too long.
 -- Wait before you resend your request, or use a smaller file and resend
 -- the request.
@@ -538,11 +546,3 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | There was an internal error. Check the error message and try your
--- request again.
-_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalFailureException =
-  Core._MatchServiceError
-    defaultService
-    "InternalFailureException"

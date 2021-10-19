@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 data IntArrayOptions = IntArrayOptions'
   { -- | A list of source fields to map to the field.
     sourceFields :: Prelude.Maybe Prelude.Text,
-    -- | Whether facet information can be returned for the field.
-    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field can be returned in the search results.
     returnEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | Whether facet information can be returned for the field.
+    facetEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Whether the contents of the field are searchable.
     searchEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
@@ -53,9 +53,9 @@ data IntArrayOptions = IntArrayOptions'
 --
 -- 'sourceFields', 'intArrayOptions_sourceFields' - A list of source fields to map to the field.
 --
--- 'facetEnabled', 'intArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
---
 -- 'returnEnabled', 'intArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.
+--
+-- 'facetEnabled', 'intArrayOptions_facetEnabled' - Whether facet information can be returned for the field.
 --
 -- 'searchEnabled', 'intArrayOptions_searchEnabled' - Whether the contents of the field are searchable.
 --
@@ -66,8 +66,8 @@ newIntArrayOptions ::
 newIntArrayOptions =
   IntArrayOptions'
     { sourceFields = Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
       returnEnabled = Prelude.Nothing,
+      facetEnabled = Prelude.Nothing,
       searchEnabled = Prelude.Nothing,
       defaultValue = Prelude.Nothing
     }
@@ -76,13 +76,13 @@ newIntArrayOptions =
 intArrayOptions_sourceFields :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Text)
 intArrayOptions_sourceFields = Lens.lens (\IntArrayOptions' {sourceFields} -> sourceFields) (\s@IntArrayOptions' {} a -> s {sourceFields = a} :: IntArrayOptions)
 
--- | Whether facet information can be returned for the field.
-intArrayOptions_facetEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
-intArrayOptions_facetEnabled = Lens.lens (\IntArrayOptions' {facetEnabled} -> facetEnabled) (\s@IntArrayOptions' {} a -> s {facetEnabled = a} :: IntArrayOptions)
-
 -- | Whether the contents of the field can be returned in the search results.
 intArrayOptions_returnEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
 intArrayOptions_returnEnabled = Lens.lens (\IntArrayOptions' {returnEnabled} -> returnEnabled) (\s@IntArrayOptions' {} a -> s {returnEnabled = a} :: IntArrayOptions)
+
+-- | Whether facet information can be returned for the field.
+intArrayOptions_facetEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
+intArrayOptions_facetEnabled = Lens.lens (\IntArrayOptions' {facetEnabled} -> facetEnabled) (\s@IntArrayOptions' {} a -> s {facetEnabled = a} :: IntArrayOptions)
 
 -- | Whether the contents of the field are searchable.
 intArrayOptions_searchEnabled :: Lens.Lens' IntArrayOptions (Prelude.Maybe Prelude.Bool)
@@ -97,8 +97,8 @@ instance Core.FromXML IntArrayOptions where
   parseXML x =
     IntArrayOptions'
       Prelude.<$> (x Core..@? "SourceFields")
-      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "ReturnEnabled")
+      Prelude.<*> (x Core..@? "FacetEnabled")
       Prelude.<*> (x Core..@? "SearchEnabled")
       Prelude.<*> (x Core..@? "DefaultValue")
 
@@ -110,8 +110,8 @@ instance Core.ToQuery IntArrayOptions where
   toQuery IntArrayOptions' {..} =
     Prelude.mconcat
       [ "SourceFields" Core.=: sourceFields,
-        "FacetEnabled" Core.=: facetEnabled,
         "ReturnEnabled" Core.=: returnEnabled,
+        "FacetEnabled" Core.=: facetEnabled,
         "SearchEnabled" Core.=: searchEnabled,
         "DefaultValue" Core.=: defaultValue
       ]

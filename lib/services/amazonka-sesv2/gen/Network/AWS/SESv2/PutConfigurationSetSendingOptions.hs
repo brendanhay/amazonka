@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enable or disable email sending for messages that use a particular
--- configuration set in a specific AWS Region.
+-- configuration set in a specific Amazon Web Services Region.
 module Network.AWS.SESv2.PutConfigurationSetSendingOptions
   ( -- * Creating a Request
     PutConfigurationSetSendingOptions (..),
@@ -55,8 +55,8 @@ data PutConfigurationSetSendingOptions = PutConfigurationSetSendingOptions'
   { -- | If @true@, email sending is enabled for the configuration set. If
     -- @false@, email sending is disabled for the configuration set.
     sendingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the configuration set that you want to enable or disable
-    -- email sending for.
+    -- | The name of the configuration set to enable or disable email sending
+    -- for.
     configurationSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +72,8 @@ data PutConfigurationSetSendingOptions = PutConfigurationSetSendingOptions'
 -- 'sendingEnabled', 'putConfigurationSetSendingOptions_sendingEnabled' - If @true@, email sending is enabled for the configuration set. If
 -- @false@, email sending is disabled for the configuration set.
 --
--- 'configurationSetName', 'putConfigurationSetSendingOptions_configurationSetName' - The name of the configuration set that you want to enable or disable
--- email sending for.
+-- 'configurationSetName', 'putConfigurationSetSendingOptions_configurationSetName' - The name of the configuration set to enable or disable email sending
+-- for.
 newPutConfigurationSetSendingOptions ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -92,8 +92,8 @@ newPutConfigurationSetSendingOptions
 putConfigurationSetSendingOptions_sendingEnabled :: Lens.Lens' PutConfigurationSetSendingOptions (Prelude.Maybe Prelude.Bool)
 putConfigurationSetSendingOptions_sendingEnabled = Lens.lens (\PutConfigurationSetSendingOptions' {sendingEnabled} -> sendingEnabled) (\s@PutConfigurationSetSendingOptions' {} a -> s {sendingEnabled = a} :: PutConfigurationSetSendingOptions)
 
--- | The name of the configuration set that you want to enable or disable
--- email sending for.
+-- | The name of the configuration set to enable or disable email sending
+-- for.
 putConfigurationSetSendingOptions_configurationSetName :: Lens.Lens' PutConfigurationSetSendingOptions Prelude.Text
 putConfigurationSetSendingOptions_configurationSetName = Lens.lens (\PutConfigurationSetSendingOptions' {configurationSetName} -> configurationSetName) (\s@PutConfigurationSetSendingOptions' {} a -> s {configurationSetName = a} :: PutConfigurationSetSendingOptions)
 

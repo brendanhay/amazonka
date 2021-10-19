@@ -64,7 +64,7 @@ newUsageAllocation pAllocatedUsageQuantity_ =
 -- | The set of tags that define the bucket of usage. For the bucket of items
 -- with no tags, this parameter can be left out.
 usageAllocation_tags :: Lens.Lens' UsageAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
-usageAllocation_tags = Lens.lens (\UsageAllocation' {tags} -> tags) (\s@UsageAllocation' {} a -> s {tags = a} :: UsageAllocation) Prelude.. Lens.mapping Lens._Coerce
+usageAllocation_tags = Lens.lens (\UsageAllocation' {tags} -> tags) (\s@UsageAllocation' {} a -> s {tags = a} :: UsageAllocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total quantity allocated to this bucket of usage.
 usageAllocation_allocatedUsageQuantity :: Lens.Lens' UsageAllocation Prelude.Natural

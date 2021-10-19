@@ -31,9 +31,9 @@ module Network.AWS.CloudDirectory.CreateObject
     newCreateObject,
 
     -- * Request Lenses
-    createObject_linkName,
     createObject_parentReference,
     createObject_objectAttributeList,
+    createObject_linkName,
     createObject_directoryArn,
     createObject_schemaFacets,
 
@@ -56,14 +56,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateObject' smart constructor.
 data CreateObject = CreateObject'
-  { -- | The name of link that is used to attach this object to a parent.
-    linkName :: Prelude.Maybe Prelude.Text,
-    -- | If specified, the parent reference to which this object will be
+  { -- | If specified, the parent reference to which this object will be
     -- attached.
     parentReference :: Prelude.Maybe ObjectReference,
     -- | The attribute map whose attribute ARN contains the key and attribute
     -- value as the map value.
     objectAttributeList :: Prelude.Maybe [AttributeKeyAndValue],
+    -- | The name of link that is used to attach this object to a parent.
+    linkName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory in
     -- which the object will be created. For more information, see arns.
     directoryArn :: Prelude.Text,
@@ -81,13 +81,13 @@ data CreateObject = CreateObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'linkName', 'createObject_linkName' - The name of link that is used to attach this object to a parent.
---
 -- 'parentReference', 'createObject_parentReference' - If specified, the parent reference to which this object will be
 -- attached.
 --
 -- 'objectAttributeList', 'createObject_objectAttributeList' - The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
+--
+-- 'linkName', 'createObject_linkName' - The name of link that is used to attach this object to a parent.
 --
 -- 'directoryArn', 'createObject_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory in
 -- which the object will be created. For more information, see arns.
@@ -100,16 +100,12 @@ newCreateObject ::
   CreateObject
 newCreateObject pDirectoryArn_ =
   CreateObject'
-    { linkName = Prelude.Nothing,
-      parentReference = Prelude.Nothing,
+    { parentReference = Prelude.Nothing,
       objectAttributeList = Prelude.Nothing,
+      linkName = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       schemaFacets = Prelude.mempty
     }
-
--- | The name of link that is used to attach this object to a parent.
-createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
-createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
 
 -- | If specified, the parent reference to which this object will be
 -- attached.
@@ -119,7 +115,11 @@ createObject_parentReference = Lens.lens (\CreateObject' {parentReference} -> pa
 -- | The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
 createObject_objectAttributeList :: Lens.Lens' CreateObject (Prelude.Maybe [AttributeKeyAndValue])
-createObject_objectAttributeList = Lens.lens (\CreateObject' {objectAttributeList} -> objectAttributeList) (\s@CreateObject' {} a -> s {objectAttributeList = a} :: CreateObject) Prelude.. Lens.mapping Lens._Coerce
+createObject_objectAttributeList = Lens.lens (\CreateObject' {objectAttributeList} -> objectAttributeList) (\s@CreateObject' {} a -> s {objectAttributeList = a} :: CreateObject) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of link that is used to attach this object to a parent.
+createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
+createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory in
 -- which the object will be created. For more information, see arns.
@@ -129,7 +129,7 @@ createObject_directoryArn = Lens.lens (\CreateObject' {directoryArn} -> director
 -- | A list of schema facets to be associated with the object. Do not provide
 -- minor version components. See SchemaFacet for details.
 createObject_schemaFacets :: Lens.Lens' CreateObject [SchemaFacet]
-createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFacets) (\s@CreateObject' {} a -> s {schemaFacets = a} :: CreateObject) Prelude.. Lens._Coerce
+createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFacets) (\s@CreateObject' {} a -> s {schemaFacets = a} :: CreateObject) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateObject where
   type AWSResponse CreateObject = CreateObjectResponse
@@ -155,11 +155,11 @@ instance Core.ToJSON CreateObject where
   toJSON CreateObject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("LinkName" Core..=) Prelude.<$> linkName,
-            ("ParentReference" Core..=)
+          [ ("ParentReference" Core..=)
               Prelude.<$> parentReference,
             ("ObjectAttributeList" Core..=)
               Prelude.<$> objectAttributeList,
+            ("LinkName" Core..=) Prelude.<$> linkName,
             Prelude.Just ("SchemaFacets" Core..= schemaFacets)
           ]
       )

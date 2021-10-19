@@ -30,9 +30,9 @@ module Network.AWS.EC2.CreateCarrierGateway
     newCreateCarrierGateway,
 
     -- * Request Lenses
+    createCarrierGateway_clientToken,
     createCarrierGateway_tagSpecifications,
     createCarrierGateway_dryRun,
-    createCarrierGateway_clientToken,
     createCarrierGateway_vpcId,
 
     -- * Destructuring the Response
@@ -54,17 +54,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCarrierGateway' smart constructor.
 data CreateCarrierGateway = CreateCarrierGateway'
-  { -- | The tags to associate with the carrier gateway.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to associate with the carrier gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC to associate with the carrier gateway.
     vpcId :: Prelude.Text
   }
@@ -78,16 +78,16 @@ data CreateCarrierGateway = CreateCarrierGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createCarrierGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+--
 -- 'tagSpecifications', 'createCarrierGateway_tagSpecifications' - The tags to associate with the carrier gateway.
 --
 -- 'dryRun', 'createCarrierGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'clientToken', 'createCarrierGateway_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
 --
 -- 'vpcId', 'createCarrierGateway_vpcId' - The ID of the VPC to associate with the carrier gateway.
 newCreateCarrierGateway ::
@@ -96,16 +96,22 @@ newCreateCarrierGateway ::
   CreateCarrierGateway
 newCreateCarrierGateway pVpcId_ =
   CreateCarrierGateway'
-    { tagSpecifications =
+    { clientToken =
         Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       vpcId = pVpcId_
     }
 
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
+createCarrierGateway_clientToken :: Lens.Lens' CreateCarrierGateway (Prelude.Maybe Prelude.Text)
+createCarrierGateway_clientToken = Lens.lens (\CreateCarrierGateway' {clientToken} -> clientToken) (\s@CreateCarrierGateway' {} a -> s {clientToken = a} :: CreateCarrierGateway)
+
 -- | The tags to associate with the carrier gateway.
 createCarrierGateway_tagSpecifications :: Lens.Lens' CreateCarrierGateway (Prelude.Maybe [TagSpecification])
-createCarrierGateway_tagSpecifications = Lens.lens (\CreateCarrierGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCarrierGateway' {} a -> s {tagSpecifications = a} :: CreateCarrierGateway) Prelude.. Lens.mapping Lens._Coerce
+createCarrierGateway_tagSpecifications = Lens.lens (\CreateCarrierGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCarrierGateway' {} a -> s {tagSpecifications = a} :: CreateCarrierGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -113,12 +119,6 @@ createCarrierGateway_tagSpecifications = Lens.lens (\CreateCarrierGateway' {tagS
 -- Otherwise, it is @UnauthorizedOperation@.
 createCarrierGateway_dryRun :: Lens.Lens' CreateCarrierGateway (Prelude.Maybe Prelude.Bool)
 createCarrierGateway_dryRun = Lens.lens (\CreateCarrierGateway' {dryRun} -> dryRun) (\s@CreateCarrierGateway' {} a -> s {dryRun = a} :: CreateCarrierGateway)
-
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to ensure idempotency>.
-createCarrierGateway_clientToken :: Lens.Lens' CreateCarrierGateway (Prelude.Maybe Prelude.Text)
-createCarrierGateway_clientToken = Lens.lens (\CreateCarrierGateway' {clientToken} -> clientToken) (\s@CreateCarrierGateway' {} a -> s {clientToken = a} :: CreateCarrierGateway)
 
 -- | The ID of the VPC to associate with the carrier gateway.
 createCarrierGateway_vpcId :: Lens.Lens' CreateCarrierGateway Prelude.Text
@@ -154,12 +154,12 @@ instance Core.ToQuery CreateCarrierGateway where
           Core.=: ("CreateCarrierGateway" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Core.=: clientToken,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
-        "ClientToken" Core.=: clientToken,
         "VpcId" Core.=: vpcId
       ]
 

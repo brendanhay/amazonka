@@ -27,16 +27,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRecord' smart constructor.
 data Record = Record'
-  { -- | The key for the record.
-    key :: Prelude.Maybe Prelude.Text,
+  { -- | The server sync count for this record.
+    syncCount :: Prelude.Maybe Prelude.Integer,
     -- | The last modified date of the client device.
     deviceLastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The date on which the record was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The server sync count for this record.
-    syncCount :: Prelude.Maybe Prelude.Integer,
     -- | The value for the record.
     value :: Prelude.Maybe Prelude.Text,
+    -- | The key for the record.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The user\/device that made the last change to this record.
     lastModifiedBy :: Prelude.Maybe Prelude.Text
   }
@@ -50,32 +50,32 @@ data Record = Record'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'record_key' - The key for the record.
+-- 'syncCount', 'record_syncCount' - The server sync count for this record.
 --
 -- 'deviceLastModifiedDate', 'record_deviceLastModifiedDate' - The last modified date of the client device.
 --
 -- 'lastModifiedDate', 'record_lastModifiedDate' - The date on which the record was last modified.
 --
--- 'syncCount', 'record_syncCount' - The server sync count for this record.
---
 -- 'value', 'record_value' - The value for the record.
+--
+-- 'key', 'record_key' - The key for the record.
 --
 -- 'lastModifiedBy', 'record_lastModifiedBy' - The user\/device that made the last change to this record.
 newRecord ::
   Record
 newRecord =
   Record'
-    { key = Prelude.Nothing,
+    { syncCount = Prelude.Nothing,
       deviceLastModifiedDate = Prelude.Nothing,
       lastModifiedDate = Prelude.Nothing,
-      syncCount = Prelude.Nothing,
       value = Prelude.Nothing,
+      key = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing
     }
 
--- | The key for the record.
-record_key :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
-record_key = Lens.lens (\Record' {key} -> key) (\s@Record' {} a -> s {key = a} :: Record)
+-- | The server sync count for this record.
+record_syncCount :: Lens.Lens' Record (Prelude.Maybe Prelude.Integer)
+record_syncCount = Lens.lens (\Record' {syncCount} -> syncCount) (\s@Record' {} a -> s {syncCount = a} :: Record)
 
 -- | The last modified date of the client device.
 record_deviceLastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
@@ -85,13 +85,13 @@ record_deviceLastModifiedDate = Lens.lens (\Record' {deviceLastModifiedDate} -> 
 record_lastModifiedDate :: Lens.Lens' Record (Prelude.Maybe Prelude.UTCTime)
 record_lastModifiedDate = Lens.lens (\Record' {lastModifiedDate} -> lastModifiedDate) (\s@Record' {} a -> s {lastModifiedDate = a} :: Record) Prelude.. Lens.mapping Core._Time
 
--- | The server sync count for this record.
-record_syncCount :: Lens.Lens' Record (Prelude.Maybe Prelude.Integer)
-record_syncCount = Lens.lens (\Record' {syncCount} -> syncCount) (\s@Record' {} a -> s {syncCount = a} :: Record)
-
 -- | The value for the record.
 record_value :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_value = Lens.lens (\Record' {value} -> value) (\s@Record' {} a -> s {value = a} :: Record)
+
+-- | The key for the record.
+record_key :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
+record_key = Lens.lens (\Record' {key} -> key) (\s@Record' {} a -> s {key = a} :: Record)
 
 -- | The user\/device that made the last change to this record.
 record_lastModifiedBy :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
@@ -103,11 +103,11 @@ instance Core.FromJSON Record where
       "Record"
       ( \x ->
           Record'
-            Prelude.<$> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "SyncCount")
             Prelude.<*> (x Core..:? "DeviceLastModifiedDate")
             Prelude.<*> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "SyncCount")
             Prelude.<*> (x Core..:? "Value")
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "LastModifiedBy")
       )
 

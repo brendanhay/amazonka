@@ -95,7 +95,7 @@ detachInstancesFromLoadBalancer_loadBalancerName = Lens.lens (\DetachInstancesFr
 -- | An array of strings containing the names of the instances you want to
 -- detach from the load balancer.
 detachInstancesFromLoadBalancer_instanceNames :: Lens.Lens' DetachInstancesFromLoadBalancer [Prelude.Text]
-detachInstancesFromLoadBalancer_instanceNames = Lens.lens (\DetachInstancesFromLoadBalancer' {instanceNames} -> instanceNames) (\s@DetachInstancesFromLoadBalancer' {} a -> s {instanceNames = a} :: DetachInstancesFromLoadBalancer) Prelude.. Lens._Coerce
+detachInstancesFromLoadBalancer_instanceNames = Lens.lens (\DetachInstancesFromLoadBalancer' {instanceNames} -> instanceNames) (\s@DetachInstancesFromLoadBalancer' {} a -> s {instanceNames = a} :: DetachInstancesFromLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -196,7 +196,7 @@ newDetachInstancesFromLoadBalancerResponse
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 detachInstancesFromLoadBalancerResponse_operations :: Lens.Lens' DetachInstancesFromLoadBalancerResponse (Prelude.Maybe [Operation])
-detachInstancesFromLoadBalancerResponse_operations = Lens.lens (\DetachInstancesFromLoadBalancerResponse' {operations} -> operations) (\s@DetachInstancesFromLoadBalancerResponse' {} a -> s {operations = a} :: DetachInstancesFromLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+detachInstancesFromLoadBalancerResponse_operations = Lens.lens (\DetachInstancesFromLoadBalancerResponse' {operations} -> operations) (\s@DetachInstancesFromLoadBalancerResponse' {} a -> s {operations = a} :: DetachInstancesFromLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 detachInstancesFromLoadBalancerResponse_httpStatus :: Lens.Lens' DetachInstancesFromLoadBalancerResponse Prelude.Int

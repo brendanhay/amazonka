@@ -56,7 +56,7 @@ newServerSideEncryptionConfiguration =
 -- | Container for information about a particular server-side encryption
 -- configuration rule.
 serverSideEncryptionConfiguration_rules :: Lens.Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
-serverSideEncryptionConfiguration_rules = Lens.lens (\ServerSideEncryptionConfiguration' {rules} -> rules) (\s@ServerSideEncryptionConfiguration' {} a -> s {rules = a} :: ServerSideEncryptionConfiguration) Prelude.. Lens._Coerce
+serverSideEncryptionConfiguration_rules = Lens.lens (\ServerSideEncryptionConfiguration' {rules} -> rules) (\s@ServerSideEncryptionConfiguration' {} a -> s {rules = a} :: ServerSideEncryptionConfiguration) Prelude.. Lens.coerced
 
 instance
   Core.FromXML

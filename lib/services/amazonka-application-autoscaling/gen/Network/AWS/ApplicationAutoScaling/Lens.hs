@@ -14,19 +14,16 @@
 module Network.AWS.ApplicationAutoScaling.Lens
   ( -- * Operations
 
-    -- ** RegisterScalableTarget
-    registerScalableTarget_roleARN,
-    registerScalableTarget_maxCapacity,
-    registerScalableTarget_suspendedState,
-    registerScalableTarget_minCapacity,
-    registerScalableTarget_serviceNamespace,
-    registerScalableTarget_resourceId,
-    registerScalableTarget_scalableDimension,
-    registerScalableTargetResponse_httpStatus,
+    -- ** DeleteScalingPolicy
+    deleteScalingPolicy_policyName,
+    deleteScalingPolicy_serviceNamespace,
+    deleteScalingPolicy_resourceId,
+    deleteScalingPolicy_scalableDimension,
+    deleteScalingPolicyResponse_httpStatus,
 
     -- ** PutScalingPolicy
-    putScalingPolicy_targetTrackingScalingPolicyConfiguration,
     putScalingPolicy_policyType,
+    putScalingPolicy_targetTrackingScalingPolicyConfiguration,
     putScalingPolicy_stepScalingPolicyConfiguration,
     putScalingPolicy_policyName,
     putScalingPolicy_serviceNamespace,
@@ -36,16 +33,38 @@ module Network.AWS.ApplicationAutoScaling.Lens
     putScalingPolicyResponse_httpStatus,
     putScalingPolicyResponse_policyARN,
 
-    -- ** DescribeScheduledActions
-    describeScheduledActions_resourceId,
-    describeScheduledActions_nextToken,
-    describeScheduledActions_maxResults,
-    describeScheduledActions_scalableDimension,
-    describeScheduledActions_scheduledActionNames,
-    describeScheduledActions_serviceNamespace,
-    describeScheduledActionsResponse_nextToken,
-    describeScheduledActionsResponse_scheduledActions,
-    describeScheduledActionsResponse_httpStatus,
+    -- ** RegisterScalableTarget
+    registerScalableTarget_suspendedState,
+    registerScalableTarget_maxCapacity,
+    registerScalableTarget_minCapacity,
+    registerScalableTarget_roleARN,
+    registerScalableTarget_serviceNamespace,
+    registerScalableTarget_resourceId,
+    registerScalableTarget_scalableDimension,
+    registerScalableTargetResponse_httpStatus,
+
+    -- ** DescribeScalingPolicies
+    describeScalingPolicies_policyNames,
+    describeScalingPolicies_scalableDimension,
+    describeScalingPolicies_resourceId,
+    describeScalingPolicies_nextToken,
+    describeScalingPolicies_maxResults,
+    describeScalingPolicies_serviceNamespace,
+    describeScalingPoliciesResponse_nextToken,
+    describeScalingPoliciesResponse_scalingPolicies,
+    describeScalingPoliciesResponse_httpStatus,
+
+    -- ** PutScheduledAction
+    putScheduledAction_startTime,
+    putScheduledAction_schedule,
+    putScheduledAction_endTime,
+    putScheduledAction_scalableTargetAction,
+    putScheduledAction_timezone,
+    putScheduledAction_serviceNamespace,
+    putScheduledAction_scheduledActionName,
+    putScheduledAction_resourceId,
+    putScheduledAction_scalableDimension,
+    putScheduledActionResponse_httpStatus,
 
     -- ** DeleteScheduledAction
     deleteScheduledAction_serviceNamespace,
@@ -54,61 +73,42 @@ module Network.AWS.ApplicationAutoScaling.Lens
     deleteScheduledAction_scalableDimension,
     deleteScheduledActionResponse_httpStatus,
 
-    -- ** DescribeScalingPolicies
-    describeScalingPolicies_resourceId,
-    describeScalingPolicies_nextToken,
-    describeScalingPolicies_maxResults,
-    describeScalingPolicies_scalableDimension,
-    describeScalingPolicies_policyNames,
-    describeScalingPolicies_serviceNamespace,
-    describeScalingPoliciesResponse_nextToken,
-    describeScalingPoliciesResponse_scalingPolicies,
-    describeScalingPoliciesResponse_httpStatus,
+    -- ** DescribeScheduledActions
+    describeScheduledActions_scalableDimension,
+    describeScheduledActions_resourceId,
+    describeScheduledActions_nextToken,
+    describeScheduledActions_scheduledActionNames,
+    describeScheduledActions_maxResults,
+    describeScheduledActions_serviceNamespace,
+    describeScheduledActionsResponse_nextToken,
+    describeScheduledActionsResponse_scheduledActions,
+    describeScheduledActionsResponse_httpStatus,
+
+    -- ** DescribeScalableTargets
+    describeScalableTargets_resourceIds,
+    describeScalableTargets_scalableDimension,
+    describeScalableTargets_nextToken,
+    describeScalableTargets_maxResults,
+    describeScalableTargets_serviceNamespace,
+    describeScalableTargetsResponse_nextToken,
+    describeScalableTargetsResponse_scalableTargets,
+    describeScalableTargetsResponse_httpStatus,
+
+    -- ** DescribeScalingActivities
+    describeScalingActivities_scalableDimension,
+    describeScalingActivities_resourceId,
+    describeScalingActivities_nextToken,
+    describeScalingActivities_maxResults,
+    describeScalingActivities_serviceNamespace,
+    describeScalingActivitiesResponse_scalingActivities,
+    describeScalingActivitiesResponse_nextToken,
+    describeScalingActivitiesResponse_httpStatus,
 
     -- ** DeregisterScalableTarget
     deregisterScalableTarget_serviceNamespace,
     deregisterScalableTarget_resourceId,
     deregisterScalableTarget_scalableDimension,
     deregisterScalableTargetResponse_httpStatus,
-
-    -- ** DescribeScalingActivities
-    describeScalingActivities_resourceId,
-    describeScalingActivities_nextToken,
-    describeScalingActivities_maxResults,
-    describeScalingActivities_scalableDimension,
-    describeScalingActivities_serviceNamespace,
-    describeScalingActivitiesResponse_nextToken,
-    describeScalingActivitiesResponse_scalingActivities,
-    describeScalingActivitiesResponse_httpStatus,
-
-    -- ** DescribeScalableTargets
-    describeScalableTargets_nextToken,
-    describeScalableTargets_maxResults,
-    describeScalableTargets_scalableDimension,
-    describeScalableTargets_resourceIds,
-    describeScalableTargets_serviceNamespace,
-    describeScalableTargetsResponse_nextToken,
-    describeScalableTargetsResponse_scalableTargets,
-    describeScalableTargetsResponse_httpStatus,
-
-    -- ** DeleteScalingPolicy
-    deleteScalingPolicy_policyName,
-    deleteScalingPolicy_serviceNamespace,
-    deleteScalingPolicy_resourceId,
-    deleteScalingPolicy_scalableDimension,
-    deleteScalingPolicyResponse_httpStatus,
-
-    -- ** PutScheduledAction
-    putScheduledAction_startTime,
-    putScheduledAction_endTime,
-    putScheduledAction_timezone,
-    putScheduledAction_scalableTargetAction,
-    putScheduledAction_schedule,
-    putScheduledAction_serviceNamespace,
-    putScheduledAction_scheduledActionName,
-    putScheduledAction_resourceId,
-    putScheduledAction_scalableDimension,
-    putScheduledActionResponse_httpStatus,
 
     -- * Types
 
@@ -117,8 +117,8 @@ module Network.AWS.ApplicationAutoScaling.Lens
     alarm_alarmARN,
 
     -- ** CustomizedMetricSpecification
-    customizedMetricSpecification_unit,
     customizedMetricSpecification_dimensions,
+    customizedMetricSpecification_unit,
     customizedMetricSpecification_metricName,
     customizedMetricSpecification_namespace,
     customizedMetricSpecification_statistic,
@@ -171,11 +171,11 @@ module Network.AWS.ApplicationAutoScaling.Lens
     scalingPolicy_creationTime,
 
     -- ** ScheduledAction
+    scheduledAction_scalableDimension,
     scheduledAction_startTime,
     scheduledAction_endTime,
-    scheduledAction_scalableDimension,
-    scheduledAction_timezone,
     scheduledAction_scalableTargetAction,
+    scheduledAction_timezone,
     scheduledAction_scheduledActionName,
     scheduledAction_scheduledActionARN,
     scheduledAction_serviceNamespace,
@@ -184,28 +184,28 @@ module Network.AWS.ApplicationAutoScaling.Lens
     scheduledAction_creationTime,
 
     -- ** StepAdjustment
-    stepAdjustment_metricIntervalUpperBound,
     stepAdjustment_metricIntervalLowerBound,
+    stepAdjustment_metricIntervalUpperBound,
     stepAdjustment_scalingAdjustment,
 
     -- ** StepScalingPolicyConfiguration
     stepScalingPolicyConfiguration_stepAdjustments,
-    stepScalingPolicyConfiguration_metricAggregationType,
-    stepScalingPolicyConfiguration_cooldown,
     stepScalingPolicyConfiguration_adjustmentType,
+    stepScalingPolicyConfiguration_cooldown,
+    stepScalingPolicyConfiguration_metricAggregationType,
     stepScalingPolicyConfiguration_minAdjustmentMagnitude,
 
     -- ** SuspendedState
-    suspendedState_scheduledScalingSuspended,
     suspendedState_dynamicScalingInSuspended,
+    suspendedState_scheduledScalingSuspended,
     suspendedState_dynamicScalingOutSuspended,
 
     -- ** TargetTrackingScalingPolicyConfiguration
-    targetTrackingScalingPolicyConfiguration_disableScaleIn,
     targetTrackingScalingPolicyConfiguration_predefinedMetricSpecification,
-    targetTrackingScalingPolicyConfiguration_scaleOutCooldown,
-    targetTrackingScalingPolicyConfiguration_customizedMetricSpecification,
     targetTrackingScalingPolicyConfiguration_scaleInCooldown,
+    targetTrackingScalingPolicyConfiguration_customizedMetricSpecification,
+    targetTrackingScalingPolicyConfiguration_disableScaleIn,
+    targetTrackingScalingPolicyConfiguration_scaleOutCooldown,
     targetTrackingScalingPolicyConfiguration_targetValue,
   )
 where

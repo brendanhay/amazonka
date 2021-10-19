@@ -56,7 +56,7 @@ newConnectorDefinitionVersion =
 -- | A list of references to connectors in this version, with their
 -- corresponding configuration settings.
 connectorDefinitionVersion_connectors :: Lens.Lens' ConnectorDefinitionVersion (Prelude.Maybe [Connector])
-connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
+connectorDefinitionVersion_connectors = Lens.lens (\ConnectorDefinitionVersion' {connectors} -> connectors) (\s@ConnectorDefinitionVersion' {} a -> s {connectors = a} :: ConnectorDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ConnectorDefinitionVersion where
   parseJSON =

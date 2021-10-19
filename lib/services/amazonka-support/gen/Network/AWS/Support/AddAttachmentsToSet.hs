@@ -127,7 +127,7 @@ addAttachmentsToSet_attachmentSetId = Lens.lens (\AddAttachmentsToSet' {attachme
 -- base64-encoded string. The value for @fileName@ is the name of the
 -- attachment, such as @troubleshoot-screenshot.png@.
 addAttachmentsToSet_attachments :: Lens.Lens' AddAttachmentsToSet [Attachment]
-addAttachmentsToSet_attachments = Lens.lens (\AddAttachmentsToSet' {attachments} -> attachments) (\s@AddAttachmentsToSet' {} a -> s {attachments = a} :: AddAttachmentsToSet) Prelude.. Lens._Coerce
+addAttachmentsToSet_attachments = Lens.lens (\AddAttachmentsToSet' {attachments} -> attachments) (\s@AddAttachmentsToSet' {} a -> s {attachments = a} :: AddAttachmentsToSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddAttachmentsToSet where
   type

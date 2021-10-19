@@ -124,7 +124,7 @@ sendMessageBatch_queueUrl = Lens.lens (\SendMessageBatch' {queueUrl} -> queueUrl
 
 -- | A list of @ SendMessageBatchRequestEntry @ items.
 sendMessageBatch_entries :: Lens.Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-sendMessageBatch_entries = Lens.lens (\SendMessageBatch' {entries} -> entries) (\s@SendMessageBatch' {} a -> s {entries = a} :: SendMessageBatch) Prelude.. Lens._Coerce
+sendMessageBatch_entries = Lens.lens (\SendMessageBatch' {entries} -> entries) (\s@SendMessageBatch' {} a -> s {entries = a} :: SendMessageBatch) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SendMessageBatch where
   type
@@ -212,11 +212,11 @@ sendMessageBatchResponse_httpStatus = Lens.lens (\SendMessageBatchResponse' {htt
 
 -- | A list of @ SendMessageBatchResultEntry @ items.
 sendMessageBatchResponse_successful :: Lens.Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-sendMessageBatchResponse_successful = Lens.lens (\SendMessageBatchResponse' {successful} -> successful) (\s@SendMessageBatchResponse' {} a -> s {successful = a} :: SendMessageBatchResponse) Prelude.. Lens._Coerce
+sendMessageBatchResponse_successful = Lens.lens (\SendMessageBatchResponse' {successful} -> successful) (\s@SendMessageBatchResponse' {} a -> s {successful = a} :: SendMessageBatchResponse) Prelude.. Lens.coerced
 
 -- | A list of @ BatchResultErrorEntry @ items with error details about each
 -- message that can\'t be enqueued.
 sendMessageBatchResponse_failed :: Lens.Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed} -> failed) (\s@SendMessageBatchResponse' {} a -> s {failed = a} :: SendMessageBatchResponse) Prelude.. Lens._Coerce
+sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed} -> failed) (\s@SendMessageBatchResponse' {} a -> s {failed = a} :: SendMessageBatchResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData SendMessageBatchResponse

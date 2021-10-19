@@ -37,8 +37,8 @@ module Network.AWS.Lambda.GetLayerVersionPolicy
     newGetLayerVersionPolicyResponse,
 
     -- * Response Lenses
-    getLayerVersionPolicyResponse_revisionId,
     getLayerVersionPolicyResponse_policy,
+    getLayerVersionPolicyResponse_revisionId,
     getLayerVersionPolicyResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetLayerVersionPolicy where
     Response.receiveJSON
       ( \s h x ->
           GetLayerVersionPolicyResponse'
-            Prelude.<$> (x Core..?> "RevisionId")
-            Prelude.<*> (x Core..?> "Policy")
+            Prelude.<$> (x Core..?> "Policy")
+            Prelude.<*> (x Core..?> "RevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,10 +126,10 @@ instance Core.ToQuery GetLayerVersionPolicy where
 
 -- | /See:/ 'newGetLayerVersionPolicyResponse' smart constructor.
 data GetLayerVersionPolicyResponse = GetLayerVersionPolicyResponse'
-  { -- | A unique identifier for the current revision of the policy.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The policy document.
+  { -- | The policy document.
     policy :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the current revision of the policy.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,9 +143,9 @@ data GetLayerVersionPolicyResponse = GetLayerVersionPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'getLayerVersionPolicyResponse_revisionId' - A unique identifier for the current revision of the policy.
---
 -- 'policy', 'getLayerVersionPolicyResponse_policy' - The policy document.
+--
+-- 'revisionId', 'getLayerVersionPolicyResponse_revisionId' - A unique identifier for the current revision of the policy.
 --
 -- 'httpStatus', 'getLayerVersionPolicyResponse_httpStatus' - The response's http status code.
 newGetLayerVersionPolicyResponse ::
@@ -154,19 +154,19 @@ newGetLayerVersionPolicyResponse ::
   GetLayerVersionPolicyResponse
 newGetLayerVersionPolicyResponse pHttpStatus_ =
   GetLayerVersionPolicyResponse'
-    { revisionId =
+    { policy =
         Prelude.Nothing,
-      policy = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A unique identifier for the current revision of the policy.
-getLayerVersionPolicyResponse_revisionId :: Lens.Lens' GetLayerVersionPolicyResponse (Prelude.Maybe Prelude.Text)
-getLayerVersionPolicyResponse_revisionId = Lens.lens (\GetLayerVersionPolicyResponse' {revisionId} -> revisionId) (\s@GetLayerVersionPolicyResponse' {} a -> s {revisionId = a} :: GetLayerVersionPolicyResponse)
 
 -- | The policy document.
 getLayerVersionPolicyResponse_policy :: Lens.Lens' GetLayerVersionPolicyResponse (Prelude.Maybe Prelude.Text)
 getLayerVersionPolicyResponse_policy = Lens.lens (\GetLayerVersionPolicyResponse' {policy} -> policy) (\s@GetLayerVersionPolicyResponse' {} a -> s {policy = a} :: GetLayerVersionPolicyResponse)
+
+-- | A unique identifier for the current revision of the policy.
+getLayerVersionPolicyResponse_revisionId :: Lens.Lens' GetLayerVersionPolicyResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionPolicyResponse_revisionId = Lens.lens (\GetLayerVersionPolicyResponse' {revisionId} -> revisionId) (\s@GetLayerVersionPolicyResponse' {} a -> s {revisionId = a} :: GetLayerVersionPolicyResponse)
 
 -- | The response's http status code.
 getLayerVersionPolicyResponse_httpStatus :: Lens.Lens' GetLayerVersionPolicyResponse Prelude.Int

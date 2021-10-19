@@ -25,17 +25,29 @@ import Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a policy used by EFS lifecycle management to transition files
--- to the Infrequent Access (IA) storage class.
+-- | Describes a policy used by EFS lifecycle management and EFS intelligent
+-- tiering that specifies when to transition files into and out of the file
+-- system\'s Infrequent Access (IA) storage class. For more information,
+-- see
+-- <https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html EFS Intelligent‐Tiering and EFS Lifecycle Management>.
+--
+-- When using the @put-lifecycle-configuration@ CLI command or the
+-- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each
+-- @LifecyclePolicy@ object have only a single transition. This means that
+-- in a request body, @LifecyclePolicies@ needs to be structured as an
+-- array of @LifecyclePolicy@ objects, one object for each transition,
+-- @TransitionToIA@, @TransitionToPrimaryStorageClass@. For more
+-- information, see the request examples in PutLifecycleConfiguration.
 --
 -- /See:/ 'newLifecyclePolicy' smart constructor.
 data LifecyclePolicy = LifecyclePolicy'
   { -- | Describes the period of time that a file is not accessed, after which it
-    -- transitions to the IA storage class. Metadata operations such as listing
-    -- the contents of a directory don\'t count as file access events.
+    -- transitions to IA storage. Metadata operations such as listing the
+    -- contents of a directory don\'t count as file access events.
     transitionToIA :: Prelude.Maybe TransitionToIARules,
-    -- | Describes the policy used to transition a file from infequent access
-    -- storage to primary storage.
+    -- | Describes when to transition a file from IA storage to primary storage.
+    -- Metadata operations such as listing the contents of a directory don\'t
+    -- count as file access events.
     transitionToPrimaryStorageClass :: Prelude.Maybe TransitionToPrimaryStorageClassRules
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,11 +61,12 @@ data LifecyclePolicy = LifecyclePolicy'
 -- for backwards compatibility:
 --
 -- 'transitionToIA', 'lifecyclePolicy_transitionToIA' - Describes the period of time that a file is not accessed, after which it
--- transitions to the IA storage class. Metadata operations such as listing
--- the contents of a directory don\'t count as file access events.
+-- transitions to IA storage. Metadata operations such as listing the
+-- contents of a directory don\'t count as file access events.
 --
--- 'transitionToPrimaryStorageClass', 'lifecyclePolicy_transitionToPrimaryStorageClass' - Describes the policy used to transition a file from infequent access
--- storage to primary storage.
+-- 'transitionToPrimaryStorageClass', 'lifecyclePolicy_transitionToPrimaryStorageClass' - Describes when to transition a file from IA storage to primary storage.
+-- Metadata operations such as listing the contents of a directory don\'t
+-- count as file access events.
 newLifecyclePolicy ::
   LifecyclePolicy
 newLifecyclePolicy =
@@ -63,13 +76,14 @@ newLifecyclePolicy =
     }
 
 -- | Describes the period of time that a file is not accessed, after which it
--- transitions to the IA storage class. Metadata operations such as listing
--- the contents of a directory don\'t count as file access events.
+-- transitions to IA storage. Metadata operations such as listing the
+-- contents of a directory don\'t count as file access events.
 lifecyclePolicy_transitionToIA :: Lens.Lens' LifecyclePolicy (Prelude.Maybe TransitionToIARules)
 lifecyclePolicy_transitionToIA = Lens.lens (\LifecyclePolicy' {transitionToIA} -> transitionToIA) (\s@LifecyclePolicy' {} a -> s {transitionToIA = a} :: LifecyclePolicy)
 
--- | Describes the policy used to transition a file from infequent access
--- storage to primary storage.
+-- | Describes when to transition a file from IA storage to primary storage.
+-- Metadata operations such as listing the contents of a directory don\'t
+-- count as file access events.
 lifecyclePolicy_transitionToPrimaryStorageClass :: Lens.Lens' LifecyclePolicy (Prelude.Maybe TransitionToPrimaryStorageClassRules)
 lifecyclePolicy_transitionToPrimaryStorageClass = Lens.lens (\LifecyclePolicy' {transitionToPrimaryStorageClass} -> transitionToPrimaryStorageClass) (\s@LifecyclePolicy' {} a -> s {transitionToPrimaryStorageClass = a} :: LifecyclePolicy)
 

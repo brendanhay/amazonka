@@ -97,7 +97,7 @@ alarmConfiguration_enabled = Lens.lens (\AlarmConfiguration' {enabled} -> enable
 -- | A list of alarms configured for the deployment group. A maximum of 10
 -- alarms can be added to a deployment group.
 alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Prelude.Maybe [Alarm])
-alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Prelude.. Lens.mapping Lens._Coerce
+alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AlarmConfiguration where
   parseJSON =

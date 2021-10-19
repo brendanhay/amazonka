@@ -56,8 +56,8 @@ module Network.AWS.CloudFront.ListConflictingAliases
     newListConflictingAliases,
 
     -- * Request Lenses
-    listConflictingAliases_maxItems,
     listConflictingAliases_marker,
+    listConflictingAliases_maxItems,
     listConflictingAliases_distributionId,
     listConflictingAliases_alias,
 
@@ -80,14 +80,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListConflictingAliases' smart constructor.
 data ListConflictingAliases = ListConflictingAliases'
-  { -- | The maximum number of conflicting aliases that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Int,
-    -- | Use this field when paginating results to indicate where to begin in the
+  { -- | Use this field when paginating results to indicate where to begin in the
     -- list of conflicting aliases. The response includes conflicting aliases
     -- in the list that occur after the marker. To get the next page of the
     -- list, set this field’s value to the value of @NextMarker@ from the
     -- current page’s response.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of conflicting aliases that you want in the response.
+    maxItems :: Prelude.Maybe Prelude.Int,
     -- | The ID of a distribution in your account that has an attached SSL\/TLS
     -- certificate that includes the provided alias.
     distributionId :: Prelude.Text,
@@ -104,13 +104,13 @@ data ListConflictingAliases = ListConflictingAliases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listConflictingAliases_maxItems' - The maximum number of conflicting aliases that you want in the response.
---
 -- 'marker', 'listConflictingAliases_marker' - Use this field when paginating results to indicate where to begin in the
 -- list of conflicting aliases. The response includes conflicting aliases
 -- in the list that occur after the marker. To get the next page of the
 -- list, set this field’s value to the value of @NextMarker@ from the
 -- current page’s response.
+--
+-- 'maxItems', 'listConflictingAliases_maxItems' - The maximum number of conflicting aliases that you want in the response.
 --
 -- 'distributionId', 'listConflictingAliases_distributionId' - The ID of a distribution in your account that has an attached SSL\/TLS
 -- certificate that includes the provided alias.
@@ -124,15 +124,11 @@ newListConflictingAliases ::
   ListConflictingAliases
 newListConflictingAliases pDistributionId_ pAlias_ =
   ListConflictingAliases'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
       distributionId = pDistributionId_,
       alias = pAlias_
     }
-
--- | The maximum number of conflicting aliases that you want in the response.
-listConflictingAliases_maxItems :: Lens.Lens' ListConflictingAliases (Prelude.Maybe Prelude.Int)
-listConflictingAliases_maxItems = Lens.lens (\ListConflictingAliases' {maxItems} -> maxItems) (\s@ListConflictingAliases' {} a -> s {maxItems = a} :: ListConflictingAliases)
 
 -- | Use this field when paginating results to indicate where to begin in the
 -- list of conflicting aliases. The response includes conflicting aliases
@@ -141,6 +137,10 @@ listConflictingAliases_maxItems = Lens.lens (\ListConflictingAliases' {maxItems}
 -- current page’s response.
 listConflictingAliases_marker :: Lens.Lens' ListConflictingAliases (Prelude.Maybe Prelude.Text)
 listConflictingAliases_marker = Lens.lens (\ListConflictingAliases' {marker} -> marker) (\s@ListConflictingAliases' {} a -> s {marker = a} :: ListConflictingAliases)
+
+-- | The maximum number of conflicting aliases that you want in the response.
+listConflictingAliases_maxItems :: Lens.Lens' ListConflictingAliases (Prelude.Maybe Prelude.Int)
+listConflictingAliases_maxItems = Lens.lens (\ListConflictingAliases' {maxItems} -> maxItems) (\s@ListConflictingAliases' {} a -> s {maxItems = a} :: ListConflictingAliases)
 
 -- | The ID of a distribution in your account that has an attached SSL\/TLS
 -- certificate that includes the provided alias.
@@ -178,8 +178,8 @@ instance Core.ToPath ListConflictingAliases where
 instance Core.ToQuery ListConflictingAliases where
   toQuery ListConflictingAliases' {..} =
     Prelude.mconcat
-      [ "MaxItems" Core.=: maxItems,
-        "Marker" Core.=: marker,
+      [ "Marker" Core.=: marker,
+        "MaxItems" Core.=: maxItems,
         "DistributionId" Core.=: distributionId,
         "Alias" Core.=: alias
       ]

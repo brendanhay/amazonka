@@ -45,11 +45,11 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     newCreateNetworkAclEntry,
 
     -- * Request Lenses
-    createNetworkAclEntry_portRange,
-    createNetworkAclEntry_dryRun,
-    createNetworkAclEntry_icmpTypeCode,
     createNetworkAclEntry_ipv6CidrBlock,
+    createNetworkAclEntry_icmpTypeCode,
+    createNetworkAclEntry_portRange,
     createNetworkAclEntry_cidrBlock,
+    createNetworkAclEntry_dryRun,
     createNetworkAclEntry_egress,
     createNetworkAclEntry_networkAclId,
     createNetworkAclEntry_protocol,
@@ -71,25 +71,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNetworkAclEntry' smart constructor.
 data CreateNetworkAclEntry = CreateNetworkAclEntry'
-  { -- | TCP or UDP protocols: The range of ports the rule applies to. Required
-    -- if specifying protocol 6 (TCP) or 17 (UDP).
-    portRange :: Prelude.Maybe PortRange,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+  { -- | The IPv6 network range to allow or deny, in CIDR notation (for example
+    -- @2001:db8:1234:1a00::\/64@).
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
     -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
     -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
     icmpTypeCode :: Prelude.Maybe IcmpTypeCode,
-    -- | The IPv6 network range to allow or deny, in CIDR notation (for example
-    -- @2001:db8:1234:1a00::\/64@).
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | TCP or UDP protocols: The range of ports the rule applies to. Required
+    -- if specifying protocol 6 (TCP) or 17 (UDP).
+    portRange :: Prelude.Maybe PortRange,
     -- | The IPv4 network range to allow or deny, in CIDR notation (for example
     -- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical
     -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
     -- @100.68.0.0\/18@.
     cidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether this is an egress rule (rule is applied to traffic
     -- leaving the subnet).
     egress :: Prelude.Bool,
@@ -123,24 +123,24 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portRange', 'createNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying protocol 6 (TCP) or 17 (UDP).
---
--- 'dryRun', 'createNetworkAclEntry_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- 'ipv6CidrBlock', 'createNetworkAclEntry_ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example
+-- @2001:db8:1234:1a00::\/64@).
 --
 -- 'icmpTypeCode', 'createNetworkAclEntry_icmpTypeCode' - ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 --
--- 'ipv6CidrBlock', 'createNetworkAclEntry_ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation (for example
--- @2001:db8:1234:1a00::\/64@).
+-- 'portRange', 'createNetworkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to. Required
+-- if specifying protocol 6 (TCP) or 17 (UDP).
 --
 -- 'cidrBlock', 'createNetworkAclEntry_cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation (for example
 -- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical
 -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
 -- @100.68.0.0\/18@.
+--
+-- 'dryRun', 'createNetworkAclEntry_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'egress', 'createNetworkAclEntry_egress' - Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
@@ -182,11 +182,12 @@ newCreateNetworkAclEntry
   pRuleAction_
   pRuleNumber_ =
     CreateNetworkAclEntry'
-      { portRange = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+      { ipv6CidrBlock =
+          Prelude.Nothing,
         icmpTypeCode = Prelude.Nothing,
-        ipv6CidrBlock = Prelude.Nothing,
+        portRange = Prelude.Nothing,
         cidrBlock = Prelude.Nothing,
+        dryRun = Prelude.Nothing,
         egress = pEgress_,
         networkAclId = pNetworkAclId_,
         protocol = pProtocol_,
@@ -194,27 +195,20 @@ newCreateNetworkAclEntry
         ruleNumber = pRuleNumber_
       }
 
--- | TCP or UDP protocols: The range of ports the rule applies to. Required
--- if specifying protocol 6 (TCP) or 17 (UDP).
-createNetworkAclEntry_portRange :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe PortRange)
-createNetworkAclEntry_portRange = Lens.lens (\CreateNetworkAclEntry' {portRange} -> portRange) (\s@CreateNetworkAclEntry' {} a -> s {portRange = a} :: CreateNetworkAclEntry)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createNetworkAclEntry_dryRun :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Bool)
-createNetworkAclEntry_dryRun = Lens.lens (\CreateNetworkAclEntry' {dryRun} -> dryRun) (\s@CreateNetworkAclEntry' {} a -> s {dryRun = a} :: CreateNetworkAclEntry)
+-- | The IPv6 network range to allow or deny, in CIDR notation (for example
+-- @2001:db8:1234:1a00::\/64@).
+createNetworkAclEntry_ipv6CidrBlock :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Text)
+createNetworkAclEntry_ipv6CidrBlock = Lens.lens (\CreateNetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateNetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: CreateNetworkAclEntry)
 
 -- | ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying
 -- protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.
 createNetworkAclEntry_icmpTypeCode :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe IcmpTypeCode)
 createNetworkAclEntry_icmpTypeCode = Lens.lens (\CreateNetworkAclEntry' {icmpTypeCode} -> icmpTypeCode) (\s@CreateNetworkAclEntry' {} a -> s {icmpTypeCode = a} :: CreateNetworkAclEntry)
 
--- | The IPv6 network range to allow or deny, in CIDR notation (for example
--- @2001:db8:1234:1a00::\/64@).
-createNetworkAclEntry_ipv6CidrBlock :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Text)
-createNetworkAclEntry_ipv6CidrBlock = Lens.lens (\CreateNetworkAclEntry' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateNetworkAclEntry' {} a -> s {ipv6CidrBlock = a} :: CreateNetworkAclEntry)
+-- | TCP or UDP protocols: The range of ports the rule applies to. Required
+-- if specifying protocol 6 (TCP) or 17 (UDP).
+createNetworkAclEntry_portRange :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe PortRange)
+createNetworkAclEntry_portRange = Lens.lens (\CreateNetworkAclEntry' {portRange} -> portRange) (\s@CreateNetworkAclEntry' {} a -> s {portRange = a} :: CreateNetworkAclEntry)
 
 -- | The IPv4 network range to allow or deny, in CIDR notation (for example
 -- @172.16.0.0\/24@). We modify the specified CIDR block to its canonical
@@ -222,6 +216,13 @@ createNetworkAclEntry_ipv6CidrBlock = Lens.lens (\CreateNetworkAclEntry' {ipv6Ci
 -- @100.68.0.0\/18@.
 createNetworkAclEntry_cidrBlock :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Text)
 createNetworkAclEntry_cidrBlock = Lens.lens (\CreateNetworkAclEntry' {cidrBlock} -> cidrBlock) (\s@CreateNetworkAclEntry' {} a -> s {cidrBlock = a} :: CreateNetworkAclEntry)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createNetworkAclEntry_dryRun :: Lens.Lens' CreateNetworkAclEntry (Prelude.Maybe Prelude.Bool)
+createNetworkAclEntry_dryRun = Lens.lens (\CreateNetworkAclEntry' {dryRun} -> dryRun) (\s@CreateNetworkAclEntry' {} a -> s {dryRun = a} :: CreateNetworkAclEntry)
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
@@ -280,11 +281,11 @@ instance Core.ToQuery CreateNetworkAclEntry where
           Core.=: ("CreateNetworkAclEntry" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "PortRange" Core.=: portRange,
-        "DryRun" Core.=: dryRun,
-        "Icmp" Core.=: icmpTypeCode,
         "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
+        "Icmp" Core.=: icmpTypeCode,
+        "PortRange" Core.=: portRange,
         "CidrBlock" Core.=: cidrBlock,
+        "DryRun" Core.=: dryRun,
         "Egress" Core.=: egress,
         "NetworkAclId" Core.=: networkAclId,
         "Protocol" Core.=: protocol,

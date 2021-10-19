@@ -17,29 +17,34 @@ module Network.AWS.WorkMail.Types
     defaultService,
 
     -- * Errors
-    _OrganizationNotFoundException,
-    _EntityNotFoundException,
-    _ReservedNameException,
-    _NameAvailabilityException,
+    _DirectoryUnavailableException,
+    _InvalidParameterException,
+    _UnsupportedOperationException,
+    _DirectoryServiceAuthenticationFailedException,
+    _OrganizationStateException,
+    _EntityStateException,
+    _InvalidConfigurationException,
     _TooManyTagsException,
     _MailDomainStateException,
-    _InvalidConfigurationException,
-    _EntityStateException,
-    _OrganizationStateException,
-    _DirectoryInUseException,
-    _UnsupportedOperationException,
-    _InvalidParameterException,
-    _DirectoryUnavailableException,
-    _InvalidPasswordException,
-    _EmailAddressInUseException,
-    _LimitExceededException,
-    _ResourceNotFoundException,
-    _DirectoryServiceAuthenticationFailedException,
-    _MailDomainNotFoundException,
+    _ReservedNameException,
+    _OrganizationNotFoundException,
+    _EntityNotFoundException,
     _EntityAlreadyRegisteredException,
+    _DirectoryInUseException,
+    _MailDomainInUseException,
+    _MailDomainNotFoundException,
+    _InvalidCustomSesConfigurationException,
+    _ResourceNotFoundException,
+    _EmailAddressInUseException,
+    _NameAvailabilityException,
+    _LimitExceededException,
+    _InvalidPasswordException,
 
     -- * AccessControlRuleEffect
     AccessControlRuleEffect (..),
+
+    -- * DnsRecordVerificationStatus
+    DnsRecordVerificationStatus (..),
 
     -- * EntityState
     EntityState (..),
@@ -72,16 +77,16 @@ module Network.AWS.WorkMail.Types
     AccessControlRule (..),
     newAccessControlRule,
     accessControlRule_effect,
-    accessControlRule_dateCreated,
-    accessControlRule_notIpRanges,
-    accessControlRule_actions,
-    accessControlRule_ipRanges,
-    accessControlRule_dateModified,
-    accessControlRule_name,
     accessControlRule_userIds,
-    accessControlRule_description,
-    accessControlRule_notActions,
+    accessControlRule_actions,
+    accessControlRule_dateCreated,
+    accessControlRule_name,
     accessControlRule_notUserIds,
+    accessControlRule_dateModified,
+    accessControlRule_ipRanges,
+    accessControlRule_notIpRanges,
+    accessControlRule_notActions,
+    accessControlRule_description,
 
     -- * BookingOptions
     BookingOptions (..),
@@ -95,6 +100,13 @@ module Network.AWS.WorkMail.Types
     newDelegate,
     delegate_id,
     delegate_type,
+
+    -- * DnsRecord
+    DnsRecord (..),
+    newDnsRecord,
+    dnsRecord_hostname,
+    dnsRecord_value,
+    dnsRecord_type,
 
     -- * Domain
     Domain (..),
@@ -112,68 +124,84 @@ module Network.AWS.WorkMail.Types
     -- * Group
     Group (..),
     newGroup,
-    group_enabledDate,
-    group_id,
-    group_name,
+    group_email,
     group_state,
     group_disabledDate,
-    group_email,
+    group_name,
+    group_id,
+    group_enabledDate,
+
+    -- * MailDomainSummary
+    MailDomainSummary (..),
+    newMailDomainSummary,
+    mailDomainSummary_defaultDomain,
+    mailDomainSummary_domainName,
 
     -- * MailboxExportJob
     MailboxExportJob (..),
     newMailboxExportJob,
-    mailboxExportJob_estimatedProgress,
-    mailboxExportJob_entityId,
-    mailboxExportJob_s3Path,
-    mailboxExportJob_startTime,
-    mailboxExportJob_endTime,
     mailboxExportJob_state,
-    mailboxExportJob_s3BucketName,
-    mailboxExportJob_description,
     mailboxExportJob_jobId,
+    mailboxExportJob_startTime,
+    mailboxExportJob_estimatedProgress,
+    mailboxExportJob_endTime,
+    mailboxExportJob_s3Path,
+    mailboxExportJob_entityId,
+    mailboxExportJob_description,
+    mailboxExportJob_s3BucketName,
 
     -- * Member
     Member (..),
     newMember,
-    member_enabledDate,
-    member_id,
-    member_name,
     member_state,
     member_disabledDate,
+    member_name,
+    member_id,
     member_type,
+    member_enabledDate,
 
     -- * MobileDeviceAccessMatchedRule
     MobileDeviceAccessMatchedRule (..),
     newMobileDeviceAccessMatchedRule,
-    mobileDeviceAccessMatchedRule_name,
     mobileDeviceAccessMatchedRule_mobileDeviceAccessRuleId,
+    mobileDeviceAccessMatchedRule_name,
+
+    -- * MobileDeviceAccessOverride
+    MobileDeviceAccessOverride (..),
+    newMobileDeviceAccessOverride,
+    mobileDeviceAccessOverride_effect,
+    mobileDeviceAccessOverride_userId,
+    mobileDeviceAccessOverride_dateCreated,
+    mobileDeviceAccessOverride_dateModified,
+    mobileDeviceAccessOverride_deviceId,
+    mobileDeviceAccessOverride_description,
 
     -- * MobileDeviceAccessRule
     MobileDeviceAccessRule (..),
     newMobileDeviceAccessRule,
     mobileDeviceAccessRule_effect,
-    mobileDeviceAccessRule_dateCreated,
-    mobileDeviceAccessRule_notDeviceModels,
-    mobileDeviceAccessRule_notDeviceOperatingSystems,
     mobileDeviceAccessRule_deviceUserAgents,
-    mobileDeviceAccessRule_dateModified,
-    mobileDeviceAccessRule_name,
-    mobileDeviceAccessRule_mobileDeviceAccessRuleId,
-    mobileDeviceAccessRule_deviceModels,
+    mobileDeviceAccessRule_deviceTypes,
     mobileDeviceAccessRule_notDeviceTypes,
+    mobileDeviceAccessRule_notDeviceOperatingSystems,
+    mobileDeviceAccessRule_dateCreated,
+    mobileDeviceAccessRule_deviceModels,
+    mobileDeviceAccessRule_mobileDeviceAccessRuleId,
+    mobileDeviceAccessRule_name,
+    mobileDeviceAccessRule_dateModified,
+    mobileDeviceAccessRule_deviceOperatingSystems,
     mobileDeviceAccessRule_description,
     mobileDeviceAccessRule_notDeviceUserAgents,
-    mobileDeviceAccessRule_deviceTypes,
-    mobileDeviceAccessRule_deviceOperatingSystems,
+    mobileDeviceAccessRule_notDeviceModels,
 
     -- * OrganizationSummary
     OrganizationSummary (..),
     newOrganizationSummary,
-    organizationSummary_alias,
-    organizationSummary_organizationId,
-    organizationSummary_defaultMailDomain,
     organizationSummary_state,
+    organizationSummary_alias,
+    organizationSummary_defaultMailDomain,
     organizationSummary_errorMessage,
+    organizationSummary_organizationId,
 
     -- * Permission
     Permission (..),
@@ -185,13 +213,13 @@ module Network.AWS.WorkMail.Types
     -- * Resource
     Resource (..),
     newResource,
-    resource_enabledDate,
-    resource_id,
-    resource_name,
+    resource_email,
     resource_state,
     resource_disabledDate,
-    resource_email,
+    resource_name,
+    resource_id,
     resource_type,
+    resource_enabledDate,
 
     -- * Tag
     Tag (..),
@@ -202,14 +230,14 @@ module Network.AWS.WorkMail.Types
     -- * User
     User (..),
     newUser,
-    user_enabledDate,
-    user_id,
-    user_userRole,
-    user_name,
+    user_email,
     user_state,
     user_disabledDate,
-    user_email,
+    user_name,
+    user_id,
     user_displayName,
+    user_userRole,
+    user_enabledDate,
   )
 where
 
@@ -221,16 +249,20 @@ import Network.AWS.WorkMail.Types.AccessControlRule
 import Network.AWS.WorkMail.Types.AccessControlRuleEffect
 import Network.AWS.WorkMail.Types.BookingOptions
 import Network.AWS.WorkMail.Types.Delegate
+import Network.AWS.WorkMail.Types.DnsRecord
+import Network.AWS.WorkMail.Types.DnsRecordVerificationStatus
 import Network.AWS.WorkMail.Types.Domain
 import Network.AWS.WorkMail.Types.EntityState
 import Network.AWS.WorkMail.Types.FolderConfiguration
 import Network.AWS.WorkMail.Types.FolderName
 import Network.AWS.WorkMail.Types.Group
+import Network.AWS.WorkMail.Types.MailDomainSummary
 import Network.AWS.WorkMail.Types.MailboxExportJob
 import Network.AWS.WorkMail.Types.MailboxExportJobState
 import Network.AWS.WorkMail.Types.Member
 import Network.AWS.WorkMail.Types.MemberType
 import Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
+import Network.AWS.WorkMail.Types.MobileDeviceAccessOverride
 import Network.AWS.WorkMail.Types.MobileDeviceAccessRule
 import Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect
 import Network.AWS.WorkMail.Types.OrganizationSummary
@@ -268,37 +300,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -311,7 +320,108 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | The directory is unavailable. It might be located in another Region or
+-- deleted.
+_DirectoryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryUnavailableException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryUnavailableException"
+
+-- | One or more of the input parameters don\'t match the service\'s
+-- restrictions.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+
+-- | You can\'t perform a write operation against a read-only directory.
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedOperationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedOperationException"
+
+-- | The directory service doesn\'t recognize the credentials supplied by
+-- WorkMail.
+_DirectoryServiceAuthenticationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DirectoryServiceAuthenticationFailedException =
+  Core._MatchServiceError
+    defaultService
+    "DirectoryServiceAuthenticationFailedException"
+
+-- | The organization must have a valid state to perform certain operations
+-- on the organization or its members.
+_OrganizationStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OrganizationStateException =
+  Core._MatchServiceError
+    defaultService
+    "OrganizationStateException"
+
+-- | You are performing an operation on a user, group, or resource that
+-- isn\'t in the expected state, such as trying to delete an active user.
+_EntityStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityStateException =
+  Core._MatchServiceError
+    defaultService
+    "EntityStateException"
+
+-- | The configuration for a resource isn\'t valid. A resource must either be
+-- able to auto-respond to requests or have at least one delegate
+-- associated that can do so on its behalf.
+_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidConfigurationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidConfigurationException"
+
+-- | The resource can have up to 50 user-applied tags.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | After a domain has been added to the organization, it must be verified.
+-- The domain is not yet verified.
+_MailDomainStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MailDomainStateException =
+  Core._MatchServiceError
+    defaultService
+    "MailDomainStateException"
+
+-- | This user, group, or resource name is not allowed in Amazon WorkMail.
+_ReservedNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedNameException =
+  Core._MatchServiceError
+    defaultService
+    "ReservedNameException"
 
 -- | An operation received a valid organization identifier that either
 -- doesn\'t belong or exist in the system.
@@ -329,59 +439,13 @@ _EntityNotFoundException =
     defaultService
     "EntityNotFoundException"
 
--- | This user, group, or resource name is not allowed in Amazon WorkMail.
-_ReservedNameException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReservedNameException =
+-- | The user, group, or resource that you\'re trying to register is already
+-- registered.
+_EntityAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityAlreadyRegisteredException =
   Core._MatchServiceError
     defaultService
-    "ReservedNameException"
-
--- | The user, group, or resource name isn\'t unique in Amazon WorkMail.
-_NameAvailabilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NameAvailabilityException =
-  Core._MatchServiceError
-    defaultService
-    "NameAvailabilityException"
-
--- | The resource can have up to 50 user-applied tags.
-_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError
-    defaultService
-    "TooManyTagsException"
-
--- | After a domain has been added to the organization, it must be verified.
--- The domain is not yet verified.
-_MailDomainStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MailDomainStateException =
-  Core._MatchServiceError
-    defaultService
-    "MailDomainStateException"
-
--- | The configuration for a resource isn\'t valid. A resource must either be
--- able to auto-respond to requests or have at least one delegate
--- associated that can do so on its behalf.
-_InvalidConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidConfigurationException"
-
--- | You are performing an operation on a user, group, or resource that
--- isn\'t in the expected state, such as trying to delete an active user.
-_EntityStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityStateException =
-  Core._MatchServiceError
-    defaultService
-    "EntityStateException"
-
--- | The organization must have a valid state to perform certain operations
--- on the organization or its members.
-_OrganizationStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OrganizationStateException =
-  Core._MatchServiceError
-    defaultService
-    "OrganizationStateException"
+    "EntityAlreadyRegisteredException"
 
 -- | The directory is already in use by another WorkMail organization in the
 -- same account and Region.
@@ -391,36 +455,37 @@ _DirectoryInUseException =
     defaultService
     "DirectoryInUseException"
 
--- | You can\'t perform a write operation against a read-only directory.
-_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedOperationException =
+-- | The domain you\'re trying to change is in use by another user or
+-- organization in your account. See the error message for details.
+_MailDomainInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MailDomainInUseException =
   Core._MatchServiceError
     defaultService
-    "UnsupportedOperationException"
+    "MailDomainInUseException"
 
--- | One or more of the input parameters don\'t match the service\'s
--- restrictions.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The domain specified is not found in your organization.
+_MailDomainNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MailDomainNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "MailDomainNotFoundException"
 
--- | The directory is unavailable. It might be located in another Region or
--- deleted.
-_DirectoryUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryUnavailableException =
+-- | You SES configuration has customizations that Amazon WorkMail cannot
+-- save. The error message lists the invalid setting. For examples of
+-- invalid settings, refer to
+-- <https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html CreateReceiptRule>.
+_InvalidCustomSesConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCustomSesConfigurationException =
   Core._MatchServiceError
     defaultService
-    "DirectoryUnavailableException"
+    "InvalidCustomSesConfigurationException"
 
--- | The supplied password doesn\'t match the minimum security constraints,
--- such as length or use of special characters.
-_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidPasswordException =
+-- | The resource cannot be found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "InvalidPasswordException"
+    "ResourceNotFoundException"
 
 -- | The email address that you\'re trying to assign is already created for a
 -- different user, group, or resource.
@@ -430,6 +495,13 @@ _EmailAddressInUseException =
     defaultService
     "EmailAddressInUseException"
 
+-- | The user, group, or resource name isn\'t unique in Amazon WorkMail.
+_NameAvailabilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NameAvailabilityException =
+  Core._MatchServiceError
+    defaultService
+    "NameAvailabilityException"
+
 -- | The request exceeds the limit of the resource.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
@@ -437,33 +509,10 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The resource cannot be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
+-- | The supplied password doesn\'t match the minimum security constraints,
+-- such as length or use of special characters.
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPasswordException =
   Core._MatchServiceError
     defaultService
-    "ResourceNotFoundException"
-
--- | The directory service doesn\'t recognize the credentials supplied by
--- WorkMail.
-_DirectoryServiceAuthenticationFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DirectoryServiceAuthenticationFailedException =
-  Core._MatchServiceError
-    defaultService
-    "DirectoryServiceAuthenticationFailedException"
-
--- | For an email or alias to be created in Amazon WorkMail, the included
--- domain must be defined in the organization.
-_MailDomainNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MailDomainNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "MailDomainNotFoundException"
-
--- | The user, group, or resource that you\'re trying to register is already
--- registered.
-_EntityAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityAlreadyRegisteredException =
-  Core._MatchServiceError
-    defaultService
-    "EntityAlreadyRegisteredException"
+    "InvalidPasswordException"

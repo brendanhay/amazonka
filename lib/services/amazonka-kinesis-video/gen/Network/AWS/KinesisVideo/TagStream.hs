@@ -108,7 +108,7 @@ tagStream_streamName = Lens.lens (\TagStream' {streamName} -> streamName) (\s@Ta
 -- | A list of tags to associate with the specified stream. Each tag is a
 -- key-value pair (the value is optional).
 tagStream_tags :: Lens.Lens' TagStream (Prelude.HashMap Prelude.Text Prelude.Text)
-tagStream_tags = Lens.lens (\TagStream' {tags} -> tags) (\s@TagStream' {} a -> s {tags = a} :: TagStream) Prelude.. Lens._Coerce
+tagStream_tags = Lens.lens (\TagStream' {tags} -> tags) (\s@TagStream' {} a -> s {tags = a} :: TagStream) Prelude.. Lens.coerced
 
 instance Core.AWSRequest TagStream where
   type AWSResponse TagStream = TagStreamResponse

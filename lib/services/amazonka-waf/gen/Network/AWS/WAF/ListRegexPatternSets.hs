@@ -243,7 +243,7 @@ newListRegexPatternSetsResponse pHttpStatus_ =
 
 -- | An array of RegexPatternSetSummary objects.
 listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe [RegexPatternSetSummary])
-listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you have more @RegexPatternSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a

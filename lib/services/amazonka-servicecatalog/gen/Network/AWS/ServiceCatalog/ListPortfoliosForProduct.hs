@@ -29,9 +29,9 @@ module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
     newListPortfoliosForProduct,
 
     -- * Request Lenses
-    listPortfoliosForProduct_pageSize,
-    listPortfoliosForProduct_pageToken,
     listPortfoliosForProduct_acceptLanguage,
+    listPortfoliosForProduct_pageToken,
+    listPortfoliosForProduct_pageSize,
     listPortfoliosForProduct_productId,
 
     -- * Destructuring the Response
@@ -39,8 +39,8 @@ module Network.AWS.ServiceCatalog.ListPortfoliosForProduct
     newListPortfoliosForProductResponse,
 
     -- * Response Lenses
-    listPortfoliosForProductResponse_portfolioDetails,
     listPortfoliosForProductResponse_nextPageToken,
+    listPortfoliosForProductResponse_portfolioDetails,
     listPortfoliosForProductResponse_httpStatus,
   )
 where
@@ -54,12 +54,7 @@ import Network.AWS.ServiceCatalog.Types
 
 -- | /See:/ 'newListPortfoliosForProduct' smart constructor.
 data ListPortfoliosForProduct = ListPortfoliosForProduct'
-  { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
-    -- | The page token for the next set of results. To retrieve the first set of
-    -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
-    -- | The language code.
+  { -- | The language code.
     --
     -- -   @en@ - English (default)
     --
@@ -67,6 +62,11 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
     -- | The product identifier.
     productId :: Prelude.Text
   }
@@ -80,11 +80,6 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pageSize', 'listPortfoliosForProduct_pageSize' - The maximum number of items to return with this call.
---
--- 'pageToken', 'listPortfoliosForProduct_pageToken' - The page token for the next set of results. To retrieve the first set of
--- results, use null.
---
 -- 'acceptLanguage', 'listPortfoliosForProduct_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -93,6 +88,11 @@ data ListPortfoliosForProduct = ListPortfoliosForProduct'
 --
 -- -   @zh@ - Chinese
 --
+-- 'pageToken', 'listPortfoliosForProduct_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'pageSize', 'listPortfoliosForProduct_pageSize' - The maximum number of items to return with this call.
+--
 -- 'productId', 'listPortfoliosForProduct_productId' - The product identifier.
 newListPortfoliosForProduct ::
   -- | 'productId'
@@ -100,21 +100,12 @@ newListPortfoliosForProduct ::
   ListPortfoliosForProduct
 newListPortfoliosForProduct pProductId_ =
   ListPortfoliosForProduct'
-    { pageSize =
+    { acceptLanguage =
         Prelude.Nothing,
       pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+      pageSize = Prelude.Nothing,
       productId = pProductId_
     }
-
--- | The maximum number of items to return with this call.
-listPortfoliosForProduct_pageSize :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Natural)
-listPortfoliosForProduct_pageSize = Lens.lens (\ListPortfoliosForProduct' {pageSize} -> pageSize) (\s@ListPortfoliosForProduct' {} a -> s {pageSize = a} :: ListPortfoliosForProduct)
-
--- | The page token for the next set of results. To retrieve the first set of
--- results, use null.
-listPortfoliosForProduct_pageToken :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Text)
-listPortfoliosForProduct_pageToken = Lens.lens (\ListPortfoliosForProduct' {pageToken} -> pageToken) (\s@ListPortfoliosForProduct' {} a -> s {pageToken = a} :: ListPortfoliosForProduct)
 
 -- | The language code.
 --
@@ -125,6 +116,15 @@ listPortfoliosForProduct_pageToken = Lens.lens (\ListPortfoliosForProduct' {page
 -- -   @zh@ - Chinese
 listPortfoliosForProduct_acceptLanguage :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Text)
 listPortfoliosForProduct_acceptLanguage = Lens.lens (\ListPortfoliosForProduct' {acceptLanguage} -> acceptLanguage) (\s@ListPortfoliosForProduct' {} a -> s {acceptLanguage = a} :: ListPortfoliosForProduct)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPortfoliosForProduct_pageToken :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Text)
+listPortfoliosForProduct_pageToken = Lens.lens (\ListPortfoliosForProduct' {pageToken} -> pageToken) (\s@ListPortfoliosForProduct' {} a -> s {pageToken = a} :: ListPortfoliosForProduct)
+
+-- | The maximum number of items to return with this call.
+listPortfoliosForProduct_pageSize :: Lens.Lens' ListPortfoliosForProduct (Prelude.Maybe Prelude.Natural)
+listPortfoliosForProduct_pageSize = Lens.lens (\ListPortfoliosForProduct' {pageSize} -> pageSize) (\s@ListPortfoliosForProduct' {} a -> s {pageSize = a} :: ListPortfoliosForProduct)
 
 -- | The product identifier.
 listPortfoliosForProduct_productId :: Lens.Lens' ListPortfoliosForProduct Prelude.Text
@@ -161,10 +161,10 @@ instance Core.AWSRequest ListPortfoliosForProduct where
     Response.receiveJSON
       ( \s h x ->
           ListPortfoliosForProductResponse'
-            Prelude.<$> ( x Core..?> "PortfolioDetails"
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> ( x Core..?> "PortfolioDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -191,10 +191,10 @@ instance Core.ToJSON ListPortfoliosForProduct where
   toJSON ListPortfoliosForProduct' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PageSize" Core..=) Prelude.<$> pageSize,
-            ("PageToken" Core..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Core..=)
+          [ ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("PageToken" Core..=) Prelude.<$> pageToken,
+            ("PageSize" Core..=) Prelude.<$> pageSize,
             Prelude.Just ("ProductId" Core..= productId)
           ]
       )
@@ -207,11 +207,11 @@ instance Core.ToQuery ListPortfoliosForProduct where
 
 -- | /See:/ 'newListPortfoliosForProductResponse' smart constructor.
 data ListPortfoliosForProductResponse = ListPortfoliosForProductResponse'
-  { -- | Information about the portfolios.
-    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
-    -- | The page token to use to retrieve the next set of results. If there are
+  { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the portfolios.
+    portfolioDetails :: Prelude.Maybe [PortfolioDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -225,10 +225,10 @@ data ListPortfoliosForProductResponse = ListPortfoliosForProductResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'portfolioDetails', 'listPortfoliosForProductResponse_portfolioDetails' - Information about the portfolios.
---
 -- 'nextPageToken', 'listPortfoliosForProductResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
+--
+-- 'portfolioDetails', 'listPortfoliosForProductResponse_portfolioDetails' - Information about the portfolios.
 --
 -- 'httpStatus', 'listPortfoliosForProductResponse_httpStatus' - The response's http status code.
 newListPortfoliosForProductResponse ::
@@ -237,20 +237,20 @@ newListPortfoliosForProductResponse ::
   ListPortfoliosForProductResponse
 newListPortfoliosForProductResponse pHttpStatus_ =
   ListPortfoliosForProductResponse'
-    { portfolioDetails =
+    { nextPageToken =
         Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+      portfolioDetails = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the portfolios.
-listPortfoliosForProductResponse_portfolioDetails :: Lens.Lens' ListPortfoliosForProductResponse (Prelude.Maybe [PortfolioDetail])
-listPortfoliosForProductResponse_portfolioDetails = Lens.lens (\ListPortfoliosForProductResponse' {portfolioDetails} -> portfolioDetails) (\s@ListPortfoliosForProductResponse' {} a -> s {portfolioDetails = a} :: ListPortfoliosForProductResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
 listPortfoliosForProductResponse_nextPageToken :: Lens.Lens' ListPortfoliosForProductResponse (Prelude.Maybe Prelude.Text)
 listPortfoliosForProductResponse_nextPageToken = Lens.lens (\ListPortfoliosForProductResponse' {nextPageToken} -> nextPageToken) (\s@ListPortfoliosForProductResponse' {} a -> s {nextPageToken = a} :: ListPortfoliosForProductResponse)
+
+-- | Information about the portfolios.
+listPortfoliosForProductResponse_portfolioDetails :: Lens.Lens' ListPortfoliosForProductResponse (Prelude.Maybe [PortfolioDetail])
+listPortfoliosForProductResponse_portfolioDetails = Lens.lens (\ListPortfoliosForProductResponse' {portfolioDetails} -> portfolioDetails) (\s@ListPortfoliosForProductResponse' {} a -> s {portfolioDetails = a} :: ListPortfoliosForProductResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPortfoliosForProductResponse_httpStatus :: Lens.Lens' ListPortfoliosForProductResponse Prelude.Int

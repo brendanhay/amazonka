@@ -17,14 +17,14 @@ module Network.AWS.Glacier.Types
     defaultService,
 
     -- * Errors
-    _ServiceUnavailableException,
     _PolicyEnforcedException,
     _InvalidParameterValueException,
-    _MissingParameterValueException,
-    _LimitExceededException,
-    _ResourceNotFoundException,
-    _InsufficientCapacityException,
     _RequestTimeoutException,
+    _ServiceUnavailableException,
+    _InsufficientCapacityException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
+    _MissingParameterValueException,
 
     -- * ActionCode
     ActionCode (..),
@@ -66,21 +66,21 @@ module Network.AWS.Glacier.Types
     -- * CSVInput
     CSVInput (..),
     newCSVInput,
-    cSVInput_recordDelimiter,
     cSVInput_quoteCharacter,
+    cSVInput_recordDelimiter,
     cSVInput_fileHeaderInfo,
-    cSVInput_fieldDelimiter,
-    cSVInput_comments,
     cSVInput_quoteEscapeCharacter,
+    cSVInput_comments,
+    cSVInput_fieldDelimiter,
 
     -- * CSVOutput
     CSVOutput (..),
     newCSVOutput,
-    cSVOutput_recordDelimiter,
     cSVOutput_quoteCharacter,
-    cSVOutput_fieldDelimiter,
     cSVOutput_quoteFields,
+    cSVOutput_recordDelimiter,
     cSVOutput_quoteEscapeCharacter,
+    cSVOutput_fieldDelimiter,
 
     -- * DataRetrievalPolicy
     DataRetrievalPolicy (..),
@@ -90,17 +90,17 @@ module Network.AWS.Glacier.Types
     -- * DataRetrievalRule
     DataRetrievalRule (..),
     newDataRetrievalRule,
-    dataRetrievalRule_bytesPerHour,
     dataRetrievalRule_strategy,
+    dataRetrievalRule_bytesPerHour,
 
     -- * DescribeVaultOutput
     DescribeVaultOutput (..),
     newDescribeVaultOutput,
-    describeVaultOutput_lastInventoryDate,
-    describeVaultOutput_creationDate,
     describeVaultOutput_vaultName,
-    describeVaultOutput_vaultARN,
     describeVaultOutput_sizeInBytes,
+    describeVaultOutput_lastInventoryDate,
+    describeVaultOutput_vaultARN,
+    describeVaultOutput_creationDate,
     describeVaultOutput_numberOfArchives,
 
     -- * Encryption
@@ -114,40 +114,40 @@ module Network.AWS.Glacier.Types
     GlacierJobDescription (..),
     newGlacierJobDescription,
     glacierJobDescription_sHA256TreeHash,
-    glacierJobDescription_statusMessage,
-    glacierJobDescription_jobDescription,
-    glacierJobDescription_retrievalByteRange,
-    glacierJobDescription_jobOutputPath,
-    glacierJobDescription_creationDate,
-    glacierJobDescription_selectParameters,
-    glacierJobDescription_sNSTopic,
-    glacierJobDescription_vaultARN,
     glacierJobDescription_archiveId,
-    glacierJobDescription_statusCode,
+    glacierJobDescription_selectParameters,
+    glacierJobDescription_jobId,
+    glacierJobDescription_jobOutputPath,
+    glacierJobDescription_retrievalByteRange,
+    glacierJobDescription_inventoryRetrievalParameters,
+    glacierJobDescription_action,
+    glacierJobDescription_jobDescription,
+    glacierJobDescription_sNSTopic,
+    glacierJobDescription_statusMessage,
+    glacierJobDescription_vaultARN,
+    glacierJobDescription_outputLocation,
+    glacierJobDescription_tier,
+    glacierJobDescription_archiveSHA256TreeHash,
+    glacierJobDescription_creationDate,
+    glacierJobDescription_completed,
+    glacierJobDescription_completionDate,
     glacierJobDescription_inventorySizeInBytes,
     glacierJobDescription_archiveSizeInBytes,
-    glacierJobDescription_action,
-    glacierJobDescription_inventoryRetrievalParameters,
-    glacierJobDescription_completionDate,
-    glacierJobDescription_completed,
-    glacierJobDescription_archiveSHA256TreeHash,
-    glacierJobDescription_tier,
-    glacierJobDescription_jobId,
-    glacierJobDescription_outputLocation,
+    glacierJobDescription_statusCode,
 
     -- * Grant
     Grant (..),
     newGrant,
-    grant_grantee,
     grant_permission,
+    grant_grantee,
 
     -- * Grantee
     Grantee (..),
     newGrantee,
     grantee_uri,
-    grantee_id,
-    grantee_displayName,
     grantee_emailAddress,
+    grantee_displayName,
+    grantee_id,
     grantee_type,
 
     -- * InputSerialization
@@ -158,33 +158,33 @@ module Network.AWS.Glacier.Types
     -- * InventoryRetrievalJobDescription
     InventoryRetrievalJobDescription (..),
     newInventoryRetrievalJobDescription,
-    inventoryRetrievalJobDescription_startDate,
     inventoryRetrievalJobDescription_format,
     inventoryRetrievalJobDescription_endDate,
-    inventoryRetrievalJobDescription_limit,
+    inventoryRetrievalJobDescription_startDate,
     inventoryRetrievalJobDescription_marker,
+    inventoryRetrievalJobDescription_limit,
 
     -- * InventoryRetrievalJobInput
     InventoryRetrievalJobInput (..),
     newInventoryRetrievalJobInput,
-    inventoryRetrievalJobInput_startDate,
     inventoryRetrievalJobInput_endDate,
-    inventoryRetrievalJobInput_limit,
+    inventoryRetrievalJobInput_startDate,
     inventoryRetrievalJobInput_marker,
+    inventoryRetrievalJobInput_limit,
 
     -- * JobParameters
     JobParameters (..),
     newJobParameters,
+    jobParameters_archiveId,
+    jobParameters_selectParameters,
     jobParameters_format,
     jobParameters_retrievalByteRange,
-    jobParameters_selectParameters,
-    jobParameters_sNSTopic,
-    jobParameters_archiveId,
-    jobParameters_description,
     jobParameters_inventoryRetrievalParameters,
-    jobParameters_type,
-    jobParameters_tier,
+    jobParameters_sNSTopic,
     jobParameters_outputLocation,
+    jobParameters_tier,
+    jobParameters_type,
+    jobParameters_description,
 
     -- * OutputLocation
     OutputLocation (..),
@@ -205,20 +205,20 @@ module Network.AWS.Glacier.Types
     -- * ProvisionedCapacityDescription
     ProvisionedCapacityDescription (..),
     newProvisionedCapacityDescription,
-    provisionedCapacityDescription_startDate,
     provisionedCapacityDescription_capacityId,
+    provisionedCapacityDescription_startDate,
     provisionedCapacityDescription_expirationDate,
 
     -- * S3Location
     S3Location (..),
     newS3Location,
-    s3Location_bucketName,
-    s3Location_prefix,
     s3Location_cannedACL,
+    s3Location_prefix,
+    s3Location_bucketName,
+    s3Location_accessControlList,
+    s3Location_userMetadata,
     s3Location_encryption,
     s3Location_storageClass,
-    s3Location_userMetadata,
-    s3Location_accessControlList,
     s3Location_tagging,
 
     -- * SelectParameters
@@ -226,17 +226,17 @@ module Network.AWS.Glacier.Types
     newSelectParameters,
     selectParameters_expressionType,
     selectParameters_outputSerialization,
-    selectParameters_inputSerialization,
     selectParameters_expression,
+    selectParameters_inputSerialization,
 
     -- * UploadListElement
     UploadListElement (..),
     newUploadListElement,
-    uploadListElement_partSizeInBytes,
-    uploadListElement_creationDate,
-    uploadListElement_vaultARN,
-    uploadListElement_archiveDescription,
     uploadListElement_multipartUploadId,
+    uploadListElement_partSizeInBytes,
+    uploadListElement_archiveDescription,
+    uploadListElement_vaultARN,
+    uploadListElement_creationDate,
 
     -- * VaultAccessPolicy
     VaultAccessPolicy (..),
@@ -251,8 +251,8 @@ module Network.AWS.Glacier.Types
     -- * VaultNotificationConfig
     VaultNotificationConfig (..),
     newVaultNotificationConfig,
-    vaultNotificationConfig_events,
     vaultNotificationConfig_sNSTopic,
+    vaultNotificationConfig_events,
   )
 where
 
@@ -320,43 +320,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
-      | Lens.has
-          ( Core.hasCode "RequestTimeoutException"
-              Prelude.. Core.hasStatus 408
-          )
-          e =
-        Prelude.Just "timeouts"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -369,15 +340,36 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has
+          ( Core.hasCode "RequestTimeoutException"
+              Prelude.. Core.hasStatus 408
+          )
+          e =
+        Prelude.Just "timeouts"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | Returned if the service cannot complete the request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceUnavailableException =
-  Core._MatchServiceError
-    defaultService
-    "ServiceUnavailableException"
-    Prelude.. Core.hasStatus 500
 
 -- | Returned if a retrieval job would exceed the current data policy\'s
 -- retrieval rate limit. For more information about data retrieval
@@ -397,31 +389,22 @@ _InvalidParameterValueException =
     "InvalidParameterValueException"
     Prelude.. Core.hasStatus 400
 
--- | Returned if a required header or parameter is missing from the request.
-_MissingParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MissingParameterValueException =
+-- | Returned if, when uploading an archive, Amazon S3 Glacier times out
+-- while receiving the upload.
+_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestTimeoutException =
   Core._MatchServiceError
     defaultService
-    "MissingParameterValueException"
-    Prelude.. Core.hasStatus 400
+    "RequestTimeoutException"
+    Prelude.. Core.hasStatus 408
 
--- | Returned if the request results in a vault or account limit being
--- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | Returned if the service cannot complete the request.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 400
-
--- | Returned if the specified resource (such as a vault, upload ID, or job
--- ID) doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404
+    "ServiceUnavailableException"
+    Prelude.. Core.hasStatus 500
 
 -- | Returned if there is insufficient capacity to process this expedited
 -- request. This error only applies to expedited retrievals and not to
@@ -433,11 +416,28 @@ _InsufficientCapacityException =
     "InsufficientCapacityException"
     Prelude.. Core.hasStatus 400
 
--- | Returned if, when uploading an archive, Amazon S3 Glacier times out
--- while receiving the upload.
-_RequestTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestTimeoutException =
+-- | Returned if the specified resource (such as a vault, upload ID, or job
+-- ID) doesn\'t exist.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "RequestTimeoutException"
-    Prelude.. Core.hasStatus 408
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Returned if the request results in a vault or account limit being
+-- exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | Returned if a required header or parameter is missing from the request.
+_MissingParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MissingParameterValueException =
+  Core._MatchServiceError
+    defaultService
+    "MissingParameterValueException"
+    Prelude.. Core.hasStatus 400

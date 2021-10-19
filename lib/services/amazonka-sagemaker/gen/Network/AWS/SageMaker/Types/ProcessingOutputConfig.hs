@@ -72,7 +72,7 @@ processingOutputConfig_kmsKeyId = Lens.lens (\ProcessingOutputConfig' {kmsKeyId}
 -- | An array of outputs configuring the data to upload from the processing
 -- container.
 processingOutputConfig_outputs :: Lens.Lens' ProcessingOutputConfig [ProcessingOutput]
-processingOutputConfig_outputs = Lens.lens (\ProcessingOutputConfig' {outputs} -> outputs) (\s@ProcessingOutputConfig' {} a -> s {outputs = a} :: ProcessingOutputConfig) Prelude.. Lens._Coerce
+processingOutputConfig_outputs = Lens.lens (\ProcessingOutputConfig' {outputs} -> outputs) (\s@ProcessingOutputConfig' {} a -> s {outputs = a} :: ProcessingOutputConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON ProcessingOutputConfig where
   parseJSON =

@@ -61,7 +61,7 @@ cloudWatchLogsConfiguration_enabled = Lens.lens (\CloudWatchLogsConfiguration' {
 
 -- | A list of configuration options for CloudWatch Logs.
 cloudWatchLogsConfiguration_logStreams :: Lens.Lens' CloudWatchLogsConfiguration (Prelude.Maybe [CloudWatchLogsLogStream])
-cloudWatchLogsConfiguration_logStreams = Lens.lens (\CloudWatchLogsConfiguration' {logStreams} -> logStreams) (\s@CloudWatchLogsConfiguration' {} a -> s {logStreams = a} :: CloudWatchLogsConfiguration) Prelude.. Lens.mapping Lens._Coerce
+cloudWatchLogsConfiguration_logStreams = Lens.lens (\CloudWatchLogsConfiguration' {logStreams} -> logStreams) (\s@CloudWatchLogsConfiguration' {} a -> s {logStreams = a} :: CloudWatchLogsConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CloudWatchLogsConfiguration where
   parseJSON =

@@ -58,8 +58,8 @@ module Network.AWS.SecretsManager.ValidateResourcePolicy
     newValidateResourcePolicyResponse,
 
     -- * Response Lenses
-    validateResourcePolicyResponse_policyValidationPassed,
     validateResourcePolicyResponse_validationErrors,
+    validateResourcePolicyResponse_policyValidationPassed,
     validateResourcePolicyResponse_httpStatus,
   )
 where
@@ -77,24 +77,8 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
     -- you want to validate. You can specify either the Amazon Resource Name
     -- (ARN) or the friendly name of the secret.
     --
-    -- If you specify an ARN, we generally recommend that you specify a
-    -- complete ARN. You can specify a partial ARN too—for example, if you
-    -- don’t include the final hyphen and six random characters that Secrets
-    -- Manager adds at the end of the ARN when you created the secret. A
-    -- partial ARN match can work as long as it uniquely matches only one
-    -- secret. However, if your secret has a name that ends in a hyphen
-    -- followed by six characters (before Secrets Manager adds the hyphen and
-    -- six characters to the ARN) and you try to use that as a partial ARN,
-    -- then those characters cause Secrets Manager to assume that you’re
-    -- specifying a complete ARN. This confusion can cause unexpected results.
-    -- To avoid this situation, we recommend that you don’t create secret names
-    -- ending with a hyphen followed by six characters.
-    --
-    -- If you specify an incomplete ARN without the random suffix, and instead
-    -- provide the \'friendly name\', you /must/ not include the random suffix.
-    -- If you do include the random suffix added by Secrets Manager, you
-    -- receive either a /ResourceNotFoundException/ or an
-    -- /AccessDeniedException/ error, depending on your permissions.
+    -- For an ARN, we recommend that you specify a complete ARN rather than a
+    -- partial ARN.
     secretId :: Prelude.Maybe Prelude.Text,
     -- | A JSON-formatted string constructed according to the grammar and syntax
     -- for an Amazon Web Services resource-based policy. The policy in the
@@ -119,24 +103,8 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
 -- you want to validate. You can specify either the Amazon Resource Name
 -- (ARN) or the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 --
 -- 'resourcePolicy', 'validateResourcePolicy_resourcePolicy' - A JSON-formatted string constructed according to the grammar and syntax
 -- for an Amazon Web Services resource-based policy. The policy in the
@@ -159,24 +127,8 @@ newValidateResourcePolicy pResourcePolicy_ =
 -- you want to validate. You can specify either the Amazon Resource Name
 -- (ARN) or the friendly name of the secret.
 --
--- If you specify an ARN, we generally recommend that you specify a
--- complete ARN. You can specify a partial ARN too—for example, if you
--- don’t include the final hyphen and six random characters that Secrets
--- Manager adds at the end of the ARN when you created the secret. A
--- partial ARN match can work as long as it uniquely matches only one
--- secret. However, if your secret has a name that ends in a hyphen
--- followed by six characters (before Secrets Manager adds the hyphen and
--- six characters to the ARN) and you try to use that as a partial ARN,
--- then those characters cause Secrets Manager to assume that you’re
--- specifying a complete ARN. This confusion can cause unexpected results.
--- To avoid this situation, we recommend that you don’t create secret names
--- ending with a hyphen followed by six characters.
---
--- If you specify an incomplete ARN without the random suffix, and instead
--- provide the \'friendly name\', you /must/ not include the random suffix.
--- If you do include the random suffix added by Secrets Manager, you
--- receive either a /ResourceNotFoundException/ or an
--- /AccessDeniedException/ error, depending on your permissions.
+-- For an ARN, we recommend that you specify a complete ARN rather than a
+-- partial ARN.
 validateResourcePolicy_secretId :: Lens.Lens' ValidateResourcePolicy (Prelude.Maybe Prelude.Text)
 validateResourcePolicy_secretId = Lens.lens (\ValidateResourcePolicy' {secretId} -> secretId) (\s@ValidateResourcePolicy' {} a -> s {secretId = a} :: ValidateResourcePolicy)
 
@@ -199,10 +151,10 @@ instance Core.AWSRequest ValidateResourcePolicy where
     Response.receiveJSON
       ( \s h x ->
           ValidateResourcePolicyResponse'
-            Prelude.<$> (x Core..?> "PolicyValidationPassed")
-            Prelude.<*> ( x Core..?> "ValidationErrors"
+            Prelude.<$> ( x Core..?> "ValidationErrors"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "PolicyValidationPassed")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -243,10 +195,10 @@ instance Core.ToQuery ValidateResourcePolicy where
 
 -- | /See:/ 'newValidateResourcePolicyResponse' smart constructor.
 data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
-  { -- | Returns a message stating that your Reource Policy passed validation.
-    policyValidationPassed :: Prelude.Maybe Prelude.Bool,
-    -- | Returns an error message if your policy doesn\'t pass validatation.
+  { -- | Returns an error message if your policy doesn\'t pass validatation.
     validationErrors :: Prelude.Maybe [ValidationErrorsEntry],
+    -- | Returns a message stating that your Reource Policy passed validation.
+    policyValidationPassed :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -260,9 +212,9 @@ data ValidateResourcePolicyResponse = ValidateResourcePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyValidationPassed', 'validateResourcePolicyResponse_policyValidationPassed' - Returns a message stating that your Reource Policy passed validation.
---
 -- 'validationErrors', 'validateResourcePolicyResponse_validationErrors' - Returns an error message if your policy doesn\'t pass validatation.
+--
+-- 'policyValidationPassed', 'validateResourcePolicyResponse_policyValidationPassed' - Returns a message stating that your Reource Policy passed validation.
 --
 -- 'httpStatus', 'validateResourcePolicyResponse_httpStatus' - The response's http status code.
 newValidateResourcePolicyResponse ::
@@ -271,19 +223,19 @@ newValidateResourcePolicyResponse ::
   ValidateResourcePolicyResponse
 newValidateResourcePolicyResponse pHttpStatus_ =
   ValidateResourcePolicyResponse'
-    { policyValidationPassed =
+    { validationErrors =
         Prelude.Nothing,
-      validationErrors = Prelude.Nothing,
+      policyValidationPassed = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Returns an error message if your policy doesn\'t pass validatation.
+validateResourcePolicyResponse_validationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe [ValidationErrorsEntry])
+validateResourcePolicyResponse_validationErrors = Lens.lens (\ValidateResourcePolicyResponse' {validationErrors} -> validationErrors) (\s@ValidateResourcePolicyResponse' {} a -> s {validationErrors = a} :: ValidateResourcePolicyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Returns a message stating that your Reource Policy passed validation.
 validateResourcePolicyResponse_policyValidationPassed :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe Prelude.Bool)
 validateResourcePolicyResponse_policyValidationPassed = Lens.lens (\ValidateResourcePolicyResponse' {policyValidationPassed} -> policyValidationPassed) (\s@ValidateResourcePolicyResponse' {} a -> s {policyValidationPassed = a} :: ValidateResourcePolicyResponse)
-
--- | Returns an error message if your policy doesn\'t pass validatation.
-validateResourcePolicyResponse_validationErrors :: Lens.Lens' ValidateResourcePolicyResponse (Prelude.Maybe [ValidationErrorsEntry])
-validateResourcePolicyResponse_validationErrors = Lens.lens (\ValidateResourcePolicyResponse' {validationErrors} -> validationErrors) (\s@ValidateResourcePolicyResponse' {} a -> s {validationErrors = a} :: ValidateResourcePolicyResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 validateResourcePolicyResponse_httpStatus :: Lens.Lens' ValidateResourcePolicyResponse Prelude.Int

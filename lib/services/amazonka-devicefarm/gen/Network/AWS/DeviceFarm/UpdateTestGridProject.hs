@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.UpdateTestGridProject
     newUpdateTestGridProject,
 
     -- * Request Lenses
-    updateTestGridProject_vpcConfig,
     updateTestGridProject_name,
+    updateTestGridProject_vpcConfig,
     updateTestGridProject_description,
     updateTestGridProject_projectArn,
 
@@ -51,10 +51,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateTestGridProject' smart constructor.
 data UpdateTestGridProject = UpdateTestGridProject'
-  { -- | The VPC security groups and subnets that are attached to a project.
-    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
-    -- | Human-readable name for the project.
+  { -- | Human-readable name for the project.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
     -- | Human-readable description for the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | ARN of the project to update.
@@ -70,9 +70,9 @@ data UpdateTestGridProject = UpdateTestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'updateTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
---
 -- 'name', 'updateTestGridProject_name' - Human-readable name for the project.
+--
+-- 'vpcConfig', 'updateTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
 --
 -- 'description', 'updateTestGridProject_description' - Human-readable description for the project.
 --
@@ -83,19 +83,19 @@ newUpdateTestGridProject ::
   UpdateTestGridProject
 newUpdateTestGridProject pProjectArn_ =
   UpdateTestGridProject'
-    { vpcConfig = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { name = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       description = Prelude.Nothing,
       projectArn = pProjectArn_
     }
 
--- | The VPC security groups and subnets that are attached to a project.
-updateTestGridProject_vpcConfig :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe TestGridVpcConfig)
-updateTestGridProject_vpcConfig = Lens.lens (\UpdateTestGridProject' {vpcConfig} -> vpcConfig) (\s@UpdateTestGridProject' {} a -> s {vpcConfig = a} :: UpdateTestGridProject)
-
 -- | Human-readable name for the project.
 updateTestGridProject_name :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe Prelude.Text)
 updateTestGridProject_name = Lens.lens (\UpdateTestGridProject' {name} -> name) (\s@UpdateTestGridProject' {} a -> s {name = a} :: UpdateTestGridProject)
+
+-- | The VPC security groups and subnets that are attached to a project.
+updateTestGridProject_vpcConfig :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe TestGridVpcConfig)
+updateTestGridProject_vpcConfig = Lens.lens (\UpdateTestGridProject' {vpcConfig} -> vpcConfig) (\s@UpdateTestGridProject' {} a -> s {vpcConfig = a} :: UpdateTestGridProject)
 
 -- | Human-readable description for the project.
 updateTestGridProject_description :: Lens.Lens' UpdateTestGridProject (Prelude.Maybe Prelude.Text)
@@ -141,8 +141,8 @@ instance Core.ToJSON UpdateTestGridProject where
   toJSON UpdateTestGridProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
-            ("name" Core..=) Prelude.<$> name,
+          [ ("name" Core..=) Prelude.<$> name,
+            ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("projectArn" Core..= projectArn)
           ]

@@ -38,8 +38,8 @@ module Network.AWS.SSM.ListDocumentVersions
     newListDocumentVersionsResponse,
 
     -- * Response Lenses
-    listDocumentVersionsResponse_nextToken,
     listDocumentVersionsResponse_documentVersions,
+    listDocumentVersionsResponse_nextToken,
     listDocumentVersionsResponse_httpStatus,
   )
 where
@@ -139,8 +139,8 @@ instance Core.AWSRequest ListDocumentVersions where
     Response.receiveJSON
       ( \s h x ->
           ListDocumentVersionsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "DocumentVersions")
+            Prelude.<$> (x Core..?> "DocumentVersions")
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,11 +181,11 @@ instance Core.ToQuery ListDocumentVersions where
 
 -- | /See:/ 'newListDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
+  { -- | The document versions.
+    documentVersions :: Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo),
+    -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The document versions.
-    documentVersions :: Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -199,10 +199,10 @@ data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentVersions', 'listDocumentVersionsResponse_documentVersions' - The document versions.
+--
 -- 'nextToken', 'listDocumentVersionsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
---
--- 'documentVersions', 'listDocumentVersionsResponse_documentVersions' - The document versions.
 --
 -- 'httpStatus', 'listDocumentVersionsResponse_httpStatus' - The response's http status code.
 newListDocumentVersionsResponse ::
@@ -211,20 +211,20 @@ newListDocumentVersionsResponse ::
   ListDocumentVersionsResponse
 newListDocumentVersionsResponse pHttpStatus_ =
   ListDocumentVersionsResponse'
-    { nextToken =
+    { documentVersions =
         Prelude.Nothing,
-      documentVersions = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The document versions.
+listDocumentVersionsResponse_documentVersions :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo))
+listDocumentVersionsResponse_documentVersions = Lens.lens (\ListDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@ListDocumentVersionsResponse' {} a -> s {documentVersions = a} :: ListDocumentVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 listDocumentVersionsResponse_nextToken :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe Prelude.Text)
 listDocumentVersionsResponse_nextToken = Lens.lens (\ListDocumentVersionsResponse' {nextToken} -> nextToken) (\s@ListDocumentVersionsResponse' {} a -> s {nextToken = a} :: ListDocumentVersionsResponse)
-
--- | The document versions.
-listDocumentVersionsResponse_documentVersions :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo))
-listDocumentVersionsResponse_documentVersions = Lens.lens (\ListDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@ListDocumentVersionsResponse' {} a -> s {documentVersions = a} :: ListDocumentVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listDocumentVersionsResponse_httpStatus :: Lens.Lens' ListDocumentVersionsResponse Prelude.Int

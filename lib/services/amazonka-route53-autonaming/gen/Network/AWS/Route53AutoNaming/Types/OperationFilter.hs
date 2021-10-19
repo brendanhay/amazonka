@@ -202,7 +202,7 @@ operationFilter_name = Lens.lens (\OperationFilter' {name} -> name) (\s@Operatio
 --     date\/time format and Coordinated Universal Time (UTC). The start
 --     date must be the first value.
 operationFilter_values :: Lens.Lens' OperationFilter [Prelude.Text]
-operationFilter_values = Lens.lens (\OperationFilter' {values} -> values) (\s@OperationFilter' {} a -> s {values = a} :: OperationFilter) Prelude.. Lens._Coerce
+operationFilter_values = Lens.lens (\OperationFilter' {values} -> values) (\s@OperationFilter' {} a -> s {values = a} :: OperationFilter) Prelude.. Lens.coerced
 
 instance Prelude.Hashable OperationFilter
 

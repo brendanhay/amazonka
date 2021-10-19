@@ -102,7 +102,7 @@ disableAvailabilityZonesForLoadBalancer_loadBalancerName = Lens.lens (\DisableAv
 
 -- | The Availability Zones.
 disableAvailabilityZonesForLoadBalancer_availabilityZones :: Lens.Lens' DisableAvailabilityZonesForLoadBalancer [Prelude.Text]
-disableAvailabilityZonesForLoadBalancer_availabilityZones = Lens.lens (\DisableAvailabilityZonesForLoadBalancer' {availabilityZones} -> availabilityZones) (\s@DisableAvailabilityZonesForLoadBalancer' {} a -> s {availabilityZones = a} :: DisableAvailabilityZonesForLoadBalancer) Prelude.. Lens._Coerce
+disableAvailabilityZonesForLoadBalancer_availabilityZones = Lens.lens (\DisableAvailabilityZonesForLoadBalancer' {availabilityZones} -> availabilityZones) (\s@DisableAvailabilityZonesForLoadBalancer' {} a -> s {availabilityZones = a} :: DisableAvailabilityZonesForLoadBalancer) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -198,7 +198,7 @@ newDisableAvailabilityZonesForLoadBalancerResponse
 
 -- | The remaining Availability Zones for the load balancer.
 disableAvailabilityZonesForLoadBalancerResponse_availabilityZones :: Lens.Lens' DisableAvailabilityZonesForLoadBalancerResponse (Prelude.Maybe [Prelude.Text])
-disableAvailabilityZonesForLoadBalancerResponse_availabilityZones = Lens.lens (\DisableAvailabilityZonesForLoadBalancerResponse' {availabilityZones} -> availabilityZones) (\s@DisableAvailabilityZonesForLoadBalancerResponse' {} a -> s {availabilityZones = a} :: DisableAvailabilityZonesForLoadBalancerResponse) Prelude.. Lens.mapping Lens._Coerce
+disableAvailabilityZonesForLoadBalancerResponse_availabilityZones = Lens.lens (\DisableAvailabilityZonesForLoadBalancerResponse' {availabilityZones} -> availabilityZones) (\s@DisableAvailabilityZonesForLoadBalancerResponse' {} a -> s {availabilityZones = a} :: DisableAvailabilityZonesForLoadBalancerResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 disableAvailabilityZonesForLoadBalancerResponse_httpStatus :: Lens.Lens' DisableAvailabilityZonesForLoadBalancerResponse Prelude.Int

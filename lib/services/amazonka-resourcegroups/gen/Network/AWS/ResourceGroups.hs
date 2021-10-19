@@ -55,62 +55,32 @@ module Network.AWS.ResourceGroups
     -- * Errors
     -- $errors
 
+    -- ** ForbiddenException
+    _ForbiddenException,
+
     -- ** NotFoundException
     _NotFoundException,
 
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** UnauthorizedException
-    _UnauthorizedException,
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- ** InternalServerErrorException
     _InternalServerErrorException,
 
-    -- ** ForbiddenException
-    _ForbiddenException,
-
     -- ** MethodNotAllowedException
     _MethodNotAllowedException,
 
-    -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** GetGroupConfiguration
-    GetGroupConfiguration (GetGroupConfiguration'),
-    newGetGroupConfiguration,
-    GetGroupConfigurationResponse (GetGroupConfigurationResponse'),
-    newGetGroupConfigurationResponse,
-
-    -- ** PutGroupConfiguration
-    PutGroupConfiguration (PutGroupConfiguration'),
-    newPutGroupConfiguration,
-    PutGroupConfigurationResponse (PutGroupConfigurationResponse'),
-    newPutGroupConfigurationResponse,
-
-    -- ** ListGroups (Paginated)
-    ListGroups (ListGroups'),
-    newListGroups,
-    ListGroupsResponse (ListGroupsResponse'),
-    newListGroupsResponse,
-
-    -- ** CreateGroup
-    CreateGroup (CreateGroup'),
-    newCreateGroup,
-    CreateGroupResponse (CreateGroupResponse'),
-    newCreateGroupResponse,
-
-    -- ** GetGroupQuery
-    GetGroupQuery (GetGroupQuery'),
-    newGetGroupQuery,
-    GetGroupQueryResponse (GetGroupQueryResponse'),
-    newGetGroupQueryResponse,
 
     -- ** SearchResources (Paginated)
     SearchResources (SearchResources'),
@@ -124,6 +94,36 @@ module Network.AWS.ResourceGroups
     GetTagsResponse (GetTagsResponse'),
     newGetTagsResponse,
 
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+    TagResponse (TagResponse'),
+    newTagResponse,
+
+    -- ** UngroupResources
+    UngroupResources (UngroupResources'),
+    newUngroupResources,
+    UngroupResourcesResponse (UngroupResourcesResponse'),
+    newUngroupResourcesResponse,
+
+    -- ** GroupResources
+    GroupResources (GroupResources'),
+    newGroupResources,
+    GroupResourcesResponse (GroupResourcesResponse'),
+    newGroupResourcesResponse,
+
+    -- ** PutGroupConfiguration
+    PutGroupConfiguration (PutGroupConfiguration'),
+    newPutGroupConfiguration,
+    PutGroupConfigurationResponse (PutGroupConfigurationResponse'),
+    newPutGroupConfigurationResponse,
+
+    -- ** Untag
+    Untag (Untag'),
+    newUntag,
+    UntagResponse (UntagResponse'),
+    newUntagResponse,
+
     -- ** UpdateGroupQuery
     UpdateGroupQuery (UpdateGroupQuery'),
     newUpdateGroupQuery,
@@ -136,17 +136,17 @@ module Network.AWS.ResourceGroups
     ListGroupResourcesResponse (ListGroupResourcesResponse'),
     newListGroupResourcesResponse,
 
-    -- ** Untag
-    Untag (Untag'),
-    newUntag,
-    UntagResponse (UntagResponse'),
-    newUntagResponse,
+    -- ** GetGroupQuery
+    GetGroupQuery (GetGroupQuery'),
+    newGetGroupQuery,
+    GetGroupQueryResponse (GetGroupQueryResponse'),
+    newGetGroupQueryResponse,
 
-    -- ** GetGroup
-    GetGroup (GetGroup'),
-    newGetGroup,
-    GetGroupResponse (GetGroupResponse'),
-    newGetGroupResponse,
+    -- ** CreateGroup
+    CreateGroup (CreateGroup'),
+    newCreateGroup,
+    CreateGroupResponse (CreateGroupResponse'),
+    newCreateGroupResponse,
 
     -- ** DeleteGroup
     DeleteGroup (DeleteGroup'),
@@ -154,29 +154,29 @@ module Network.AWS.ResourceGroups
     DeleteGroupResponse (DeleteGroupResponse'),
     newDeleteGroupResponse,
 
-    -- ** GroupResources
-    GroupResources (GroupResources'),
-    newGroupResources,
-    GroupResourcesResponse (GroupResourcesResponse'),
-    newGroupResourcesResponse,
-
     -- ** UpdateGroup
     UpdateGroup (UpdateGroup'),
     newUpdateGroup,
     UpdateGroupResponse (UpdateGroupResponse'),
     newUpdateGroupResponse,
 
-    -- ** UngroupResources
-    UngroupResources (UngroupResources'),
-    newUngroupResources,
-    UngroupResourcesResponse (UngroupResourcesResponse'),
-    newUngroupResourcesResponse,
+    -- ** ListGroups (Paginated)
+    ListGroups (ListGroups'),
+    newListGroups,
+    ListGroupsResponse (ListGroupsResponse'),
+    newListGroupsResponse,
 
-    -- ** Tag
-    Tag (Tag'),
-    newTag,
-    TagResponse (TagResponse'),
-    newTagResponse,
+    -- ** GetGroup
+    GetGroup (GetGroup'),
+    newGetGroup,
+    GetGroupResponse (GetGroupResponse'),
+    newGetGroupResponse,
+
+    -- ** GetGroupConfiguration
+    GetGroupConfiguration (GetGroupConfiguration'),
+    newGetGroupConfiguration,
+    GetGroupConfigurationResponse (GetGroupConfigurationResponse'),
+    newGetGroupConfigurationResponse,
 
     -- * Types
 

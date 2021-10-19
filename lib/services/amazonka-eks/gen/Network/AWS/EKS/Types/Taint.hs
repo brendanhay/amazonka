@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Taint = Taint'
   { -- | The effect of the taint.
     effect :: Prelude.Maybe TaintEffect,
-    -- | The key of the taint.
-    key :: Prelude.Maybe Prelude.Text,
     -- | The value of the taint.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The key of the taint.
+    key :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,29 +47,29 @@ data Taint = Taint'
 --
 -- 'effect', 'taint_effect' - The effect of the taint.
 --
--- 'key', 'taint_key' - The key of the taint.
---
 -- 'value', 'taint_value' - The value of the taint.
+--
+-- 'key', 'taint_key' - The key of the taint.
 newTaint ::
   Taint
 newTaint =
   Taint'
     { effect = Prelude.Nothing,
-      key = Prelude.Nothing,
-      value = Prelude.Nothing
+      value = Prelude.Nothing,
+      key = Prelude.Nothing
     }
 
 -- | The effect of the taint.
 taint_effect :: Lens.Lens' Taint (Prelude.Maybe TaintEffect)
 taint_effect = Lens.lens (\Taint' {effect} -> effect) (\s@Taint' {} a -> s {effect = a} :: Taint)
 
--- | The key of the taint.
-taint_key :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
-taint_key = Lens.lens (\Taint' {key} -> key) (\s@Taint' {} a -> s {key = a} :: Taint)
-
 -- | The value of the taint.
 taint_value :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
 taint_value = Lens.lens (\Taint' {value} -> value) (\s@Taint' {} a -> s {value = a} :: Taint)
+
+-- | The key of the taint.
+taint_key :: Lens.Lens' Taint (Prelude.Maybe Prelude.Text)
+taint_key = Lens.lens (\Taint' {key} -> key) (\s@Taint' {} a -> s {key = a} :: Taint)
 
 instance Core.FromJSON Taint where
   parseJSON =
@@ -78,8 +78,8 @@ instance Core.FromJSON Taint where
       ( \x ->
           Taint'
             Prelude.<$> (x Core..:? "effect")
-            Prelude.<*> (x Core..:? "key")
             Prelude.<*> (x Core..:? "value")
+            Prelude.<*> (x Core..:? "key")
       )
 
 instance Prelude.Hashable Taint
@@ -91,7 +91,7 @@ instance Core.ToJSON Taint where
     Core.object
       ( Prelude.catMaybes
           [ ("effect" Core..=) Prelude.<$> effect,
-            ("key" Core..=) Prelude.<$> key,
-            ("value" Core..=) Prelude.<$> value
+            ("value" Core..=) Prelude.<$> value,
+            ("key" Core..=) Prelude.<$> key
           ]
       )

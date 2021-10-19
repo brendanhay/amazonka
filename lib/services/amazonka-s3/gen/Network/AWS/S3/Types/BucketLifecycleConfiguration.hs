@@ -56,7 +56,7 @@ newBucketLifecycleConfiguration =
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 bucketLifecycleConfiguration_rules :: Lens.Lens' BucketLifecycleConfiguration [LifecycleRule]
-bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {rules} -> rules) (\s@BucketLifecycleConfiguration' {} a -> s {rules = a} :: BucketLifecycleConfiguration) Prelude.. Lens._Coerce
+bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {rules} -> rules) (\s@BucketLifecycleConfiguration' {} a -> s {rules = a} :: BucketLifecycleConfiguration) Prelude.. Lens.coerced
 
 instance
   Prelude.Hashable

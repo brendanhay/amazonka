@@ -70,12 +70,12 @@ newBatchGetReports ::
 newBatchGetReports pReportArns_ =
   BatchGetReports'
     { reportArns =
-        Lens._Coerce Lens.# pReportArns_
+        Lens.coerced Lens.# pReportArns_
     }
 
 -- | An array of ARNs that identify the @Report@ objects to return.
 batchGetReports_reportArns :: Lens.Lens' BatchGetReports (Prelude.NonEmpty Prelude.Text)
-batchGetReports_reportArns = Lens.lens (\BatchGetReports' {reportArns} -> reportArns) (\s@BatchGetReports' {} a -> s {reportArns = a} :: BatchGetReports) Prelude.. Lens._Coerce
+batchGetReports_reportArns = Lens.lens (\BatchGetReports' {reportArns} -> reportArns) (\s@BatchGetReports' {} a -> s {reportArns = a} :: BatchGetReports) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchGetReports where
   type
@@ -162,12 +162,12 @@ newBatchGetReportsResponse pHttpStatus_ =
 
 -- | The array of @Report@ objects returned by @BatchGetReports@.
 batchGetReportsResponse_reports :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Report))
-batchGetReportsResponse_reports = Lens.lens (\BatchGetReportsResponse' {reports} -> reports) (\s@BatchGetReportsResponse' {} a -> s {reports = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetReportsResponse_reports = Lens.lens (\BatchGetReportsResponse' {reports} -> reports) (\s@BatchGetReportsResponse' {} a -> s {reports = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of ARNs passed to @BatchGetReportGroups@ that are not
 -- associated with a @Report@.
 batchGetReportsResponse_reportsNotFound :: Lens.Lens' BatchGetReportsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchGetReportsResponse_reportsNotFound = Lens.lens (\BatchGetReportsResponse' {reportsNotFound} -> reportsNotFound) (\s@BatchGetReportsResponse' {} a -> s {reportsNotFound = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens._Coerce
+batchGetReportsResponse_reportsNotFound = Lens.lens (\BatchGetReportsResponse' {reportsNotFound} -> reportsNotFound) (\s@BatchGetReportsResponse' {} a -> s {reportsNotFound = a} :: BatchGetReportsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchGetReportsResponse_httpStatus :: Lens.Lens' BatchGetReportsResponse Prelude.Int

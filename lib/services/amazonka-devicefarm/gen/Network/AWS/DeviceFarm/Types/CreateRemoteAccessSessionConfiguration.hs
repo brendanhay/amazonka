@@ -63,7 +63,7 @@ createRemoteAccessSessionConfiguration_billingMethod = Lens.lens (\CreateRemoteA
 
 -- | An array of ARNs included in the VPC endpoint configuration.
 createRemoteAccessSessionConfiguration_vpceConfigurationArns :: Lens.Lens' CreateRemoteAccessSessionConfiguration (Prelude.Maybe [Prelude.Text])
-createRemoteAccessSessionConfiguration_vpceConfigurationArns = Lens.lens (\CreateRemoteAccessSessionConfiguration' {vpceConfigurationArns} -> vpceConfigurationArns) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {vpceConfigurationArns = a} :: CreateRemoteAccessSessionConfiguration) Prelude.. Lens.mapping Lens._Coerce
+createRemoteAccessSessionConfiguration_vpceConfigurationArns = Lens.lens (\CreateRemoteAccessSessionConfiguration' {vpceConfigurationArns} -> vpceConfigurationArns) (\s@CreateRemoteAccessSessionConfiguration' {} a -> s {vpceConfigurationArns = a} :: CreateRemoteAccessSessionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Prelude.Hashable

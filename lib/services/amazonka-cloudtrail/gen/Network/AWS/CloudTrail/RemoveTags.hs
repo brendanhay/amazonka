@@ -86,7 +86,7 @@ newRemoveTags pResourceId_ =
 
 -- | Specifies a list of tags to be removed.
 removeTags_tagsList :: Lens.Lens' RemoveTags (Prelude.Maybe [Tag])
-removeTags_tagsList = Lens.lens (\RemoveTags' {tagsList} -> tagsList) (\s@RemoveTags' {} a -> s {tagsList = a} :: RemoveTags) Prelude.. Lens.mapping Lens._Coerce
+removeTags_tagsList = Lens.lens (\RemoveTags' {tagsList} -> tagsList) (\s@RemoveTags' {} a -> s {tagsList = a} :: RemoveTags) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the ARN of the trail from which tags should be removed. The
 -- format of a trail ARN is:

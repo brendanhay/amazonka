@@ -75,7 +75,7 @@ newPathPatternConditionConfig =
 -- path of the URL, not to its query string. To compare against the query
 -- string, use QueryStringConditionConfig.
 pathPatternConditionConfig_values :: Lens.Lens' PathPatternConditionConfig (Prelude.Maybe [Prelude.Text])
-pathPatternConditionConfig_values = Lens.lens (\PathPatternConditionConfig' {values} -> values) (\s@PathPatternConditionConfig' {} a -> s {values = a} :: PathPatternConditionConfig) Prelude.. Lens.mapping Lens._Coerce
+pathPatternConditionConfig_values = Lens.lens (\PathPatternConditionConfig' {values} -> values) (\s@PathPatternConditionConfig' {} a -> s {values = a} :: PathPatternConditionConfig) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML PathPatternConditionConfig where
   parseXML x =

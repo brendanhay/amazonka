@@ -17,31 +17,31 @@ module Network.AWS.Glue.Types
     defaultService,
 
     -- * Errors
-    _EntityNotFoundException,
-    _CrawlerNotRunningException,
-    _VersionMismatchException,
-    _GlueEncryptionException,
-    _InvalidInputException,
-    _ConcurrentRunsExceededException,
-    _InternalServiceException,
-    _IllegalWorkflowStateException,
-    _ConcurrentModificationException,
-    _ConditionCheckFailureException,
-    _SchedulerTransitioningException,
-    _SchedulerRunningException,
+    _ValidationException,
     _AccessDeniedException,
     _CrawlerRunningException,
-    _MLTransformNotReadyException,
-    _ValidationException,
-    _AlreadyExistsException,
-    _OperationTimeoutException,
-    _IllegalBlueprintStateException,
-    _ConflictException,
-    _CrawlerStoppingException,
-    _IdempotentParameterMismatchException,
+    _SchedulerTransitioningException,
+    _SchedulerRunningException,
+    _ConditionCheckFailureException,
+    _ConcurrentRunsExceededException,
+    _IllegalWorkflowStateException,
     _NoScheduleException,
-    _ResourceNumberLimitExceededException,
+    _OperationTimeoutException,
+    _ConflictException,
+    _CrawlerNotRunningException,
+    _VersionMismatchException,
+    _MLTransformNotReadyException,
+    _EntityNotFoundException,
+    _ConcurrentModificationException,
     _SchedulerNotRunningException,
+    _InternalServiceException,
+    _InvalidInputException,
+    _ResourceNumberLimitExceededException,
+    _GlueEncryptionException,
+    _IdempotentParameterMismatchException,
+    _CrawlerStoppingException,
+    _IllegalBlueprintStateException,
+    _AlreadyExistsException,
 
     -- * BackfillErrorCode
     BackfillErrorCode (..),
@@ -199,12 +199,12 @@ module Network.AWS.Glue.Types
     -- * Action
     Action (..),
     newAction,
-    action_securityConfiguration,
-    action_timeout,
-    action_crawlerName,
     action_notificationProperty,
     action_arguments,
     action_jobName,
+    action_securityConfiguration,
+    action_timeout,
+    action_crawlerName,
 
     -- * BackfillError
     BackfillError (..),
@@ -215,21 +215,21 @@ module Network.AWS.Glue.Types
     -- * BatchStopJobRunError
     BatchStopJobRunError (..),
     newBatchStopJobRunError,
-    batchStopJobRunError_errorDetail,
-    batchStopJobRunError_jobRunId,
     batchStopJobRunError_jobName,
+    batchStopJobRunError_jobRunId,
+    batchStopJobRunError_errorDetail,
 
     -- * BatchStopJobRunSuccessfulSubmission
     BatchStopJobRunSuccessfulSubmission (..),
     newBatchStopJobRunSuccessfulSubmission,
-    batchStopJobRunSuccessfulSubmission_jobRunId,
     batchStopJobRunSuccessfulSubmission_jobName,
+    batchStopJobRunSuccessfulSubmission_jobRunId,
 
     -- * BatchUpdatePartitionFailureEntry
     BatchUpdatePartitionFailureEntry (..),
     newBatchUpdatePartitionFailureEntry,
-    batchUpdatePartitionFailureEntry_errorDetail,
     batchUpdatePartitionFailureEntry_partitionValueList,
+    batchUpdatePartitionFailureEntry_errorDetail,
 
     -- * BatchUpdatePartitionRequestEntry
     BatchUpdatePartitionRequestEntry (..),
@@ -248,15 +248,15 @@ module Network.AWS.Glue.Types
     Blueprint (..),
     newBlueprint,
     blueprint_status,
-    blueprint_createdOn,
-    blueprint_lastActiveDefinition,
+    blueprint_parameterSpec,
+    blueprint_blueprintLocation,
     blueprint_lastModifiedOn,
+    blueprint_lastActiveDefinition,
     blueprint_name,
     blueprint_blueprintServiceLocation,
-    blueprint_parameterSpec,
-    blueprint_description,
     blueprint_errorMessage,
-    blueprint_blueprintLocation,
+    blueprint_description,
+    blueprint_createdOn,
 
     -- * BlueprintDetails
     BlueprintDetails (..),
@@ -267,16 +267,16 @@ module Network.AWS.Glue.Types
     -- * BlueprintRun
     BlueprintRun (..),
     newBlueprintRun,
-    blueprintRun_runId,
     blueprintRun_workflowName,
-    blueprintRun_roleArn,
-    blueprintRun_blueprintName,
-    blueprintRun_state,
     blueprintRun_completedOn,
-    blueprintRun_errorMessage,
-    blueprintRun_startedOn,
+    blueprintRun_state,
     blueprintRun_rollbackErrorMessage,
+    blueprintRun_startedOn,
+    blueprintRun_runId,
     blueprintRun_parameters,
+    blueprintRun_blueprintName,
+    blueprintRun_errorMessage,
+    blueprintRun_roleArn,
 
     -- * BooleanColumnStatisticsData
     BooleanColumnStatisticsData (..),
@@ -295,8 +295,8 @@ module Network.AWS.Glue.Types
     CatalogImportStatus (..),
     newCatalogImportStatus,
     catalogImportStatus_importedBy,
-    catalogImportStatus_importCompleted,
     catalogImportStatus_importTime,
+    catalogImportStatus_importCompleted,
 
     -- * CatalogTarget
     CatalogTarget (..),
@@ -307,10 +307,10 @@ module Network.AWS.Glue.Types
     -- * Classifier
     Classifier (..),
     newClassifier,
-    classifier_xMLClassifier,
-    classifier_jsonClassifier,
-    classifier_csvClassifier,
     classifier_grokClassifier,
+    classifier_xMLClassifier,
+    classifier_csvClassifier,
+    classifier_jsonClassifier,
 
     -- * CloudWatchEncryption
     CloudWatchEncryption (..),
@@ -343,16 +343,16 @@ module Network.AWS.Glue.Types
     -- * Column
     Column (..),
     newColumn,
-    column_comment,
-    column_type,
     column_parameters,
+    column_type,
+    column_comment,
     column_name,
 
     -- * ColumnError
     ColumnError (..),
     newColumnError,
-    columnError_columnName,
     columnError_error,
+    columnError_columnName,
 
     -- * ColumnImportance
     ColumnImportance (..),
@@ -371,57 +371,57 @@ module Network.AWS.Glue.Types
     -- * ColumnStatisticsData
     ColumnStatisticsData (..),
     newColumnStatisticsData,
-    columnStatisticsData_dateColumnStatisticsData,
     columnStatisticsData_binaryColumnStatisticsData,
+    columnStatisticsData_dateColumnStatisticsData,
     columnStatisticsData_booleanColumnStatisticsData,
-    columnStatisticsData_longColumnStatisticsData,
-    columnStatisticsData_stringColumnStatisticsData,
-    columnStatisticsData_doubleColumnStatisticsData,
     columnStatisticsData_decimalColumnStatisticsData,
+    columnStatisticsData_doubleColumnStatisticsData,
+    columnStatisticsData_stringColumnStatisticsData,
+    columnStatisticsData_longColumnStatisticsData,
     columnStatisticsData_type,
 
     -- * ColumnStatisticsError
     ColumnStatisticsError (..),
     newColumnStatisticsError,
-    columnStatisticsError_columnStatistics,
     columnStatisticsError_error,
+    columnStatisticsError_columnStatistics,
 
     -- * Condition
     Condition (..),
     newCondition,
     condition_crawlState,
-    condition_crawlerName,
     condition_state,
-    condition_logicalOperator,
     condition_jobName,
+    condition_logicalOperator,
+    condition_crawlerName,
 
     -- * ConfusionMatrix
     ConfusionMatrix (..),
     newConfusionMatrix,
-    confusionMatrix_numFalsePositives,
     confusionMatrix_numTrueNegatives,
     confusionMatrix_numFalseNegatives,
     confusionMatrix_numTruePositives,
+    confusionMatrix_numFalsePositives,
 
     -- * Connection
     Connection (..),
     newConnection,
-    connection_connectionProperties,
     connection_creationTime,
-    connection_connectionType,
-    connection_name,
-    connection_physicalConnectionRequirements,
     connection_lastUpdatedBy,
-    connection_description,
-    connection_matchCriteria,
+    connection_connectionProperties,
     connection_lastUpdatedTime,
+    connection_matchCriteria,
+    connection_physicalConnectionRequirements,
+    connection_name,
+    connection_description,
+    connection_connectionType,
 
     -- * ConnectionInput
     ConnectionInput (..),
     newConnectionInput,
+    connectionInput_matchCriteria,
     connectionInput_physicalConnectionRequirements,
     connectionInput_description,
-    connectionInput_matchCriteria,
     connectionInput_name,
     connectionInput_connectionType,
     connectionInput_connectionProperties,
@@ -440,47 +440,47 @@ module Network.AWS.Glue.Types
     -- * Crawl
     Crawl (..),
     newCrawl,
-    crawl_logGroup,
-    crawl_state,
     crawl_completedOn,
-    crawl_errorMessage,
+    crawl_state,
     crawl_startedOn,
     crawl_logStream,
+    crawl_logGroup,
+    crawl_errorMessage,
 
     -- * Crawler
     Crawler (..),
     newCrawler,
-    crawler_schemaChangePolicy,
     crawler_creationTime,
+    crawler_state,
+    crawler_schemaChangePolicy,
+    crawler_lastUpdated,
+    crawler_schedule,
+    crawler_lastCrawl,
+    crawler_crawlElapsedTime,
     crawler_recrawlPolicy,
     crawler_classifiers,
-    crawler_configuration,
-    crawler_lineageConfiguration,
-    crawler_version,
-    crawler_targets,
-    crawler_name,
-    crawler_state,
-    crawler_lastUpdated,
-    crawler_crawlElapsedTime,
     crawler_role,
-    crawler_lastCrawl,
-    crawler_description,
-    crawler_tablePrefix,
-    crawler_schedule,
-    crawler_crawlerSecurityConfiguration,
+    crawler_name,
+    crawler_targets,
+    crawler_version,
     crawler_databaseName,
+    crawler_crawlerSecurityConfiguration,
+    crawler_lineageConfiguration,
+    crawler_configuration,
+    crawler_tablePrefix,
+    crawler_description,
 
     -- * CrawlerMetrics
     CrawlerMetrics (..),
     newCrawlerMetrics,
-    crawlerMetrics_crawlerName,
+    crawlerMetrics_lastRuntimeSeconds,
+    crawlerMetrics_tablesCreated,
+    crawlerMetrics_stillEstimating,
+    crawlerMetrics_medianRuntimeSeconds,
+    crawlerMetrics_timeLeftSeconds,
     crawlerMetrics_tablesDeleted,
     crawlerMetrics_tablesUpdated,
-    crawlerMetrics_medianRuntimeSeconds,
-    crawlerMetrics_stillEstimating,
-    crawlerMetrics_tablesCreated,
-    crawlerMetrics_timeLeftSeconds,
-    crawlerMetrics_lastRuntimeSeconds,
+    crawlerMetrics_crawlerName,
 
     -- * CrawlerNodeDetails
     CrawlerNodeDetails (..),
@@ -490,21 +490,21 @@ module Network.AWS.Glue.Types
     -- * CrawlerTargets
     CrawlerTargets (..),
     newCrawlerTargets,
-    crawlerTargets_catalogTargets,
-    crawlerTargets_mongoDBTargets,
     crawlerTargets_dynamoDBTargets,
-    crawlerTargets_jdbcTargets,
     crawlerTargets_s3Targets,
+    crawlerTargets_mongoDBTargets,
+    crawlerTargets_catalogTargets,
+    crawlerTargets_jdbcTargets,
 
     -- * CreateCsvClassifierRequest
     CreateCsvClassifierRequest (..),
     newCreateCsvClassifierRequest,
+    createCsvClassifierRequest_quoteSymbol,
     createCsvClassifierRequest_containsHeader,
-    createCsvClassifierRequest_delimiter,
     createCsvClassifierRequest_disableValueTrimming,
     createCsvClassifierRequest_header,
-    createCsvClassifierRequest_quoteSymbol,
     createCsvClassifierRequest_allowSingleColumn,
+    createCsvClassifierRequest_delimiter,
     createCsvClassifierRequest_name,
 
     -- * CreateGrokClassifierRequest
@@ -532,14 +532,14 @@ module Network.AWS.Glue.Types
     CsvClassifier (..),
     newCsvClassifier,
     csvClassifier_creationTime,
-    csvClassifier_containsHeader,
-    csvClassifier_delimiter,
-    csvClassifier_disableValueTrimming,
-    csvClassifier_version,
-    csvClassifier_header,
-    csvClassifier_lastUpdated,
     csvClassifier_quoteSymbol,
+    csvClassifier_containsHeader,
+    csvClassifier_lastUpdated,
+    csvClassifier_disableValueTrimming,
+    csvClassifier_header,
+    csvClassifier_version,
     csvClassifier_allowSingleColumn,
+    csvClassifier_delimiter,
     csvClassifier_name,
 
     -- * DataCatalogEncryptionSettings
@@ -556,13 +556,13 @@ module Network.AWS.Glue.Types
     -- * Database
     Database (..),
     newDatabase,
-    database_createTableDefaultPermissions,
+    database_locationUri,
     database_catalogId,
     database_targetDatabase,
-    database_createTime,
-    database_description,
-    database_locationUri,
     database_parameters,
+    database_description,
+    database_createTime,
+    database_createTableDefaultPermissions,
     database_name,
 
     -- * DatabaseIdentifier
@@ -574,11 +574,11 @@ module Network.AWS.Glue.Types
     -- * DatabaseInput
     DatabaseInput (..),
     newDatabaseInput,
-    databaseInput_createTableDefaultPermissions,
-    databaseInput_targetDatabase,
-    databaseInput_description,
     databaseInput_locationUri,
+    databaseInput_targetDatabase,
     databaseInput_parameters,
+    databaseInput_description,
+    databaseInput_createTableDefaultPermissions,
     databaseInput_name,
 
     -- * DateColumnStatisticsData
@@ -606,31 +606,31 @@ module Network.AWS.Glue.Types
     -- * DevEndpoint
     DevEndpoint (..),
     newDevEndpoint,
-    devEndpoint_lastUpdateStatus,
-    devEndpoint_publicAddress,
-    devEndpoint_securityGroupIds,
     devEndpoint_status,
+    devEndpoint_failureReason,
     devEndpoint_endpointName,
-    devEndpoint_roleArn,
-    devEndpoint_yarnEndpointAddress,
+    devEndpoint_numberOfWorkers,
+    devEndpoint_extraPythonLibsS3Path,
+    devEndpoint_lastUpdateStatus,
+    devEndpoint_securityGroupIds,
+    devEndpoint_lastModifiedTimestamp,
+    devEndpoint_publicKeys,
+    devEndpoint_vpcId,
+    devEndpoint_arguments,
+    devEndpoint_privateAddress,
+    devEndpoint_workerType,
     devEndpoint_securityConfiguration,
     devEndpoint_publicKey,
-    devEndpoint_createdTimestamp,
-    devEndpoint_privateAddress,
-    devEndpoint_lastModifiedTimestamp,
-    devEndpoint_numberOfWorkers,
-    devEndpoint_zeppelinRemoteSparkInterpreterPort,
-    devEndpoint_extraPythonLibsS3Path,
-    devEndpoint_availabilityZone,
-    devEndpoint_failureReason,
+    devEndpoint_subnetId,
     devEndpoint_glueVersion,
     devEndpoint_numberOfNodes,
-    devEndpoint_workerType,
-    devEndpoint_subnetId,
-    devEndpoint_arguments,
-    devEndpoint_vpcId,
+    devEndpoint_publicAddress,
+    devEndpoint_availabilityZone,
+    devEndpoint_zeppelinRemoteSparkInterpreterPort,
     devEndpoint_extraJarsS3Path,
-    devEndpoint_publicKeys,
+    devEndpoint_createdTimestamp,
+    devEndpoint_yarnEndpointAddress,
+    devEndpoint_roleArn,
 
     -- * DevEndpointCustomLibraries
     DevEndpointCustomLibraries (..),
@@ -649,15 +649,15 @@ module Network.AWS.Glue.Types
     -- * DynamoDBTarget
     DynamoDBTarget (..),
     newDynamoDBTarget,
-    dynamoDBTarget_scanAll,
-    dynamoDBTarget_scanRate,
     dynamoDBTarget_path,
+    dynamoDBTarget_scanRate,
+    dynamoDBTarget_scanAll,
 
     -- * Edge
     Edge (..),
     newEdge,
-    edge_destinationId,
     edge_sourceId,
+    edge_destinationId,
 
     -- * EncryptionAtRest
     EncryptionAtRest (..),
@@ -669,20 +669,20 @@ module Network.AWS.Glue.Types
     EncryptionConfiguration (..),
     newEncryptionConfiguration,
     encryptionConfiguration_s3Encryption,
-    encryptionConfiguration_cloudWatchEncryption,
     encryptionConfiguration_jobBookmarksEncryption,
+    encryptionConfiguration_cloudWatchEncryption,
 
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_errorMessage,
     errorDetail_errorCode,
+    errorDetail_errorMessage,
 
     -- * ErrorDetails
     ErrorDetails (..),
     newErrorDetails,
-    errorDetails_errorMessage,
     errorDetails_errorCode,
+    errorDetails_errorMessage,
 
     -- * EvaluationMetrics
     EvaluationMetrics (..),
@@ -710,46 +710,46 @@ module Network.AWS.Glue.Types
     FindMatchesMetrics (..),
     newFindMatchesMetrics,
     findMatchesMetrics_f1,
-    findMatchesMetrics_columnImportances,
-    findMatchesMetrics_confusionMatrix,
-    findMatchesMetrics_precision,
     findMatchesMetrics_areaUnderPRCurve,
     findMatchesMetrics_recall,
+    findMatchesMetrics_precision,
+    findMatchesMetrics_columnImportances,
+    findMatchesMetrics_confusionMatrix,
 
     -- * FindMatchesParameters
     FindMatchesParameters (..),
     newFindMatchesParameters,
-    findMatchesParameters_accuracyCostTradeoff,
     findMatchesParameters_enforceProvidedLabels,
-    findMatchesParameters_primaryKeyColumnName,
+    findMatchesParameters_accuracyCostTradeoff,
     findMatchesParameters_precisionRecallTradeoff,
+    findMatchesParameters_primaryKeyColumnName,
 
     -- * FindMatchesTaskRunProperties
     FindMatchesTaskRunProperties (..),
     newFindMatchesTaskRunProperties,
-    findMatchesTaskRunProperties_jobRunId,
-    findMatchesTaskRunProperties_jobName,
     findMatchesTaskRunProperties_jobId,
+    findMatchesTaskRunProperties_jobName,
+    findMatchesTaskRunProperties_jobRunId,
 
     -- * GetConnectionsFilter
     GetConnectionsFilter (..),
     newGetConnectionsFilter,
-    getConnectionsFilter_connectionType,
     getConnectionsFilter_matchCriteria,
+    getConnectionsFilter_connectionType,
 
     -- * GluePolicy
     GluePolicy (..),
     newGluePolicy,
     gluePolicy_policyInJson,
     gluePolicy_updateTime,
-    gluePolicy_createTime,
     gluePolicy_policyHash,
+    gluePolicy_createTime,
 
     -- * GlueTable
     GlueTable (..),
     newGlueTable,
-    glueTable_connectionName,
     glueTable_catalogId,
+    glueTable_connectionName,
     glueTable_databaseName,
     glueTable_tableName,
 
@@ -757,8 +757,8 @@ module Network.AWS.Glue.Types
     GrokClassifier (..),
     newGrokClassifier,
     grokClassifier_creationTime,
-    grokClassifier_version,
     grokClassifier_lastUpdated,
+    grokClassifier_version,
     grokClassifier_customPatterns,
     grokClassifier_name,
     grokClassifier_classification,
@@ -773,44 +773,44 @@ module Network.AWS.Glue.Types
     -- * JdbcTarget
     JdbcTarget (..),
     newJdbcTarget,
+    jdbcTarget_path,
     jdbcTarget_connectionName,
     jdbcTarget_exclusions,
-    jdbcTarget_path,
 
     -- * Job
     Job (..),
     newJob,
-    job_nonOverridableArguments,
-    job_createdOn,
-    job_securityConfiguration,
-    job_timeout,
-    job_maxCapacity,
-    job_connections,
-    job_lastModifiedOn,
-    job_notificationProperty,
     job_numberOfWorkers,
-    job_name,
     job_command,
-    job_role,
-    job_glueVersion,
+    job_notificationProperty,
+    job_lastModifiedOn,
+    job_connections,
     job_workerType,
-    job_description,
-    job_defaultArguments,
-    job_executionProperty,
-    job_allocatedCapacity,
+    job_securityConfiguration,
+    job_glueVersion,
+    job_nonOverridableArguments,
+    job_role,
+    job_name,
     job_logUri,
     job_maxRetries,
+    job_executionProperty,
+    job_allocatedCapacity,
+    job_maxCapacity,
+    job_timeout,
+    job_defaultArguments,
+    job_description,
+    job_createdOn,
 
     -- * JobBookmarkEntry
     JobBookmarkEntry (..),
     newJobBookmarkEntry,
-    jobBookmarkEntry_runId,
-    jobBookmarkEntry_jobBookmark,
-    jobBookmarkEntry_version,
-    jobBookmarkEntry_run,
     jobBookmarkEntry_jobName,
-    jobBookmarkEntry_attempt,
+    jobBookmarkEntry_run,
+    jobBookmarkEntry_runId,
+    jobBookmarkEntry_version,
     jobBookmarkEntry_previousRunId,
+    jobBookmarkEntry_attempt,
+    jobBookmarkEntry_jobBookmark,
 
     -- * JobBookmarksEncryption
     JobBookmarksEncryption (..),
@@ -821,8 +821,8 @@ module Network.AWS.Glue.Types
     -- * JobCommand
     JobCommand (..),
     newJobCommand,
-    jobCommand_pythonVersion,
     jobCommand_scriptLocation,
+    jobCommand_pythonVersion,
     jobCommand_name,
 
     -- * JobNodeDetails
@@ -833,56 +833,56 @@ module Network.AWS.Glue.Types
     -- * JobRun
     JobRun (..),
     newJobRun,
-    jobRun_executionTime,
-    jobRun_predecessorRuns,
-    jobRun_securityConfiguration,
-    jobRun_timeout,
-    jobRun_maxCapacity,
-    jobRun_id,
-    jobRun_lastModifiedOn,
-    jobRun_notificationProperty,
+    jobRun_completedOn,
     jobRun_numberOfWorkers,
     jobRun_triggerName,
-    jobRun_completedOn,
-    jobRun_logGroupName,
+    jobRun_notificationProperty,
+    jobRun_lastModifiedOn,
+    jobRun_arguments,
+    jobRun_jobName,
+    jobRun_startedOn,
+    jobRun_workerType,
+    jobRun_securityConfiguration,
     jobRun_glueVersion,
     jobRun_jobRunState,
-    jobRun_workerType,
-    jobRun_errorMessage,
-    jobRun_arguments,
-    jobRun_startedOn,
-    jobRun_jobName,
-    jobRun_allocatedCapacity,
-    jobRun_attempt,
+    jobRun_logGroupName,
+    jobRun_executionTime,
+    jobRun_predecessorRuns,
     jobRun_previousRunId,
+    jobRun_id,
+    jobRun_attempt,
+    jobRun_allocatedCapacity,
+    jobRun_maxCapacity,
+    jobRun_timeout,
+    jobRun_errorMessage,
 
     -- * JobUpdate
     JobUpdate (..),
     newJobUpdate,
-    jobUpdate_nonOverridableArguments,
-    jobUpdate_securityConfiguration,
-    jobUpdate_timeout,
-    jobUpdate_maxCapacity,
-    jobUpdate_connections,
-    jobUpdate_notificationProperty,
     jobUpdate_numberOfWorkers,
     jobUpdate_command,
-    jobUpdate_role,
-    jobUpdate_glueVersion,
+    jobUpdate_notificationProperty,
+    jobUpdate_connections,
     jobUpdate_workerType,
-    jobUpdate_description,
-    jobUpdate_defaultArguments,
-    jobUpdate_executionProperty,
-    jobUpdate_allocatedCapacity,
+    jobUpdate_securityConfiguration,
+    jobUpdate_glueVersion,
+    jobUpdate_nonOverridableArguments,
+    jobUpdate_role,
     jobUpdate_logUri,
     jobUpdate_maxRetries,
+    jobUpdate_executionProperty,
+    jobUpdate_allocatedCapacity,
+    jobUpdate_maxCapacity,
+    jobUpdate_timeout,
+    jobUpdate_defaultArguments,
+    jobUpdate_description,
 
     -- * JsonClassifier
     JsonClassifier (..),
     newJsonClassifier,
     jsonClassifier_creationTime,
-    jsonClassifier_version,
     jsonClassifier_lastUpdated,
+    jsonClassifier_version,
     jsonClassifier_name,
     jsonClassifier_jsonPath,
 
@@ -900,21 +900,21 @@ module Network.AWS.Glue.Types
     -- * LastActiveDefinition
     LastActiveDefinition (..),
     newLastActiveDefinition,
+    lastActiveDefinition_parameterSpec,
+    lastActiveDefinition_blueprintLocation,
     lastActiveDefinition_lastModifiedOn,
     lastActiveDefinition_blueprintServiceLocation,
-    lastActiveDefinition_parameterSpec,
     lastActiveDefinition_description,
-    lastActiveDefinition_blueprintLocation,
 
     -- * LastCrawlInfo
     LastCrawlInfo (..),
     newLastCrawlInfo,
     lastCrawlInfo_status,
+    lastCrawlInfo_startTime,
+    lastCrawlInfo_logStream,
     lastCrawlInfo_logGroup,
     lastCrawlInfo_messagePrefix,
-    lastCrawlInfo_startTime,
     lastCrawlInfo_errorMessage,
-    lastCrawlInfo_logStream,
 
     -- * LineageConfiguration
     LineageConfiguration (..),
@@ -924,8 +924,8 @@ module Network.AWS.Glue.Types
     -- * Location
     Location (..),
     newLocation,
-    location_jdbc,
     location_dynamoDB,
+    location_jdbc,
     location_s3,
 
     -- * LongColumnStatisticsData
@@ -940,24 +940,24 @@ module Network.AWS.Glue.Types
     MLTransform (..),
     newMLTransform,
     mLTransform_status,
-    mLTransform_createdOn,
-    mLTransform_schema,
-    mLTransform_transformId,
-    mLTransform_inputRecordTables,
-    mLTransform_transformEncryption,
-    mLTransform_timeout,
-    mLTransform_maxCapacity,
-    mLTransform_lastModifiedOn,
     mLTransform_numberOfWorkers,
-    mLTransform_name,
-    mLTransform_role,
+    mLTransform_lastModifiedOn,
+    mLTransform_labelCount,
+    mLTransform_workerType,
+    mLTransform_inputRecordTables,
     mLTransform_glueVersion,
     mLTransform_evaluationMetrics,
-    mLTransform_workerType,
-    mLTransform_description,
-    mLTransform_labelCount,
-    mLTransform_maxRetries,
+    mLTransform_schema,
+    mLTransform_role,
+    mLTransform_name,
     mLTransform_parameters,
+    mLTransform_maxRetries,
+    mLTransform_maxCapacity,
+    mLTransform_timeout,
+    mLTransform_transformEncryption,
+    mLTransform_description,
+    mLTransform_createdOn,
+    mLTransform_transformId,
 
     -- * MLUserDataEncryption
     MLUserDataEncryption (..),
@@ -968,18 +968,18 @@ module Network.AWS.Glue.Types
     -- * MappingEntry
     MappingEntry (..),
     newMappingEntry,
-    mappingEntry_targetType,
     mappingEntry_targetTable,
-    mappingEntry_targetPath,
-    mappingEntry_sourceTable,
-    mappingEntry_sourcePath,
     mappingEntry_sourceType,
+    mappingEntry_sourceTable,
+    mappingEntry_targetType,
+    mappingEntry_targetPath,
+    mappingEntry_sourcePath,
 
     -- * MetadataInfo
     MetadataInfo (..),
     newMetadataInfo,
-    metadataInfo_otherMetadataValueList,
     metadataInfo_createdTime,
+    metadataInfo_otherMetadataValueList,
     metadataInfo_metadataValue,
 
     -- * MetadataKeyValuePair
@@ -991,18 +991,18 @@ module Network.AWS.Glue.Types
     -- * MongoDBTarget
     MongoDBTarget (..),
     newMongoDBTarget,
+    mongoDBTarget_path,
     mongoDBTarget_connectionName,
     mongoDBTarget_scanAll,
-    mongoDBTarget_path,
 
     -- * Node
     Node (..),
     newNode,
-    node_jobDetails,
     node_triggerDetails,
-    node_name,
-    node_crawlerDetails,
     node_uniqueId,
+    node_crawlerDetails,
+    node_name,
+    node_jobDetails,
     node_type,
 
     -- * NotificationProperty
@@ -1026,20 +1026,20 @@ module Network.AWS.Glue.Types
     Partition (..),
     newPartition,
     partition_creationTime,
-    partition_tableName,
-    partition_catalogId,
     partition_values,
-    partition_storageDescriptor,
+    partition_catalogId,
     partition_lastAnalyzedTime,
-    partition_lastAccessTime,
-    partition_parameters,
+    partition_storageDescriptor,
     partition_databaseName,
+    partition_parameters,
+    partition_lastAccessTime,
+    partition_tableName,
 
     -- * PartitionError
     PartitionError (..),
     newPartitionError,
-    partitionError_errorDetail,
     partitionError_partitionValues,
+    partitionError_errorDetail,
 
     -- * PartitionIndex
     PartitionIndex (..),
@@ -1059,10 +1059,10 @@ module Network.AWS.Glue.Types
     PartitionInput (..),
     newPartitionInput,
     partitionInput_values,
-    partitionInput_storageDescriptor,
     partitionInput_lastAnalyzedTime,
-    partitionInput_lastAccessTime,
+    partitionInput_storageDescriptor,
     partitionInput_parameters,
+    partitionInput_lastAccessTime,
 
     -- * PartitionValueList
     PartitionValueList (..),
@@ -1073,14 +1073,14 @@ module Network.AWS.Glue.Types
     PhysicalConnectionRequirements (..),
     newPhysicalConnectionRequirements,
     physicalConnectionRequirements_securityGroupIdList,
-    physicalConnectionRequirements_availabilityZone,
     physicalConnectionRequirements_subnetId,
+    physicalConnectionRequirements_availabilityZone,
 
     -- * Predecessor
     Predecessor (..),
     newPredecessor,
-    predecessor_runId,
     predecessor_jobName,
+    predecessor_runId,
 
     -- * Predicate
     Predicate (..),
@@ -1091,14 +1091,14 @@ module Network.AWS.Glue.Types
     -- * PrincipalPermissions
     PrincipalPermissions (..),
     newPrincipalPermissions,
-    principalPermissions_permissions,
     principalPermissions_principal,
+    principalPermissions_permissions,
 
     -- * PropertyPredicate
     PropertyPredicate (..),
     newPropertyPredicate,
-    propertyPredicate_key,
     propertyPredicate_value,
+    propertyPredicate_key,
     propertyPredicate_comparator,
 
     -- * RecrawlPolicy
@@ -1116,17 +1116,17 @@ module Network.AWS.Glue.Types
     RegistryListItem (..),
     newRegistryListItem,
     registryListItem_status,
-    registryListItem_updatedTime,
-    registryListItem_createdTime,
     registryListItem_registryName,
-    registryListItem_description,
+    registryListItem_createdTime,
     registryListItem_registryArn,
+    registryListItem_updatedTime,
+    registryListItem_description,
 
     -- * ResourceUri
     ResourceUri (..),
     newResourceUri,
-    resourceUri_uri,
     resourceUri_resourceType,
+    resourceUri_uri,
 
     -- * S3Encryption
     S3Encryption (..),
@@ -1137,22 +1137,24 @@ module Network.AWS.Glue.Types
     -- * S3Target
     S3Target (..),
     newS3Target,
-    s3Target_connectionName,
-    s3Target_sampleSize,
-    s3Target_exclusions,
     s3Target_path,
+    s3Target_sampleSize,
+    s3Target_connectionName,
+    s3Target_exclusions,
+    s3Target_eventQueueArn,
+    s3Target_dlqEventQueueArn,
 
     -- * Schedule
     Schedule (..),
     newSchedule,
-    schedule_scheduleExpression,
     schedule_state,
+    schedule_scheduleExpression,
 
     -- * SchemaChangePolicy
     SchemaChangePolicy (..),
     newSchemaChangePolicy,
-    schemaChangePolicy_updateBehavior,
     schemaChangePolicy_deleteBehavior,
+    schemaChangePolicy_updateBehavior,
 
     -- * SchemaColumn
     SchemaColumn (..),
@@ -1163,27 +1165,27 @@ module Network.AWS.Glue.Types
     -- * SchemaId
     SchemaId (..),
     newSchemaId,
-    schemaId_schemaArn,
     schemaId_registryName,
     schemaId_schemaName,
+    schemaId_schemaArn,
 
     -- * SchemaListItem
     SchemaListItem (..),
     newSchemaListItem,
+    schemaListItem_registryName,
+    schemaListItem_createdTime,
+    schemaListItem_schemaStatus,
+    schemaListItem_schemaName,
     schemaListItem_schemaArn,
     schemaListItem_updatedTime,
-    schemaListItem_createdTime,
-    schemaListItem_registryName,
     schemaListItem_description,
-    schemaListItem_schemaName,
-    schemaListItem_schemaStatus,
 
     -- * SchemaReference
     SchemaReference (..),
     newSchemaReference,
     schemaReference_schemaVersionId,
-    schemaReference_schemaVersionNumber,
     schemaReference_schemaId,
+    schemaReference_schemaVersionNumber,
 
     -- * SchemaVersionErrorItem
     SchemaVersionErrorItem (..),
@@ -1195,23 +1197,23 @@ module Network.AWS.Glue.Types
     SchemaVersionListItem (..),
     newSchemaVersionListItem,
     schemaVersionListItem_status,
-    schemaVersionListItem_schemaArn,
-    schemaVersionListItem_schemaVersionId,
     schemaVersionListItem_createdTime,
+    schemaVersionListItem_schemaVersionId,
     schemaVersionListItem_versionNumber,
+    schemaVersionListItem_schemaArn,
 
     -- * SchemaVersionNumber
     SchemaVersionNumber (..),
     newSchemaVersionNumber,
-    schemaVersionNumber_latestVersion,
     schemaVersionNumber_versionNumber,
+    schemaVersionNumber_latestVersion,
 
     -- * SecurityConfiguration
     SecurityConfiguration (..),
     newSecurityConfiguration,
+    securityConfiguration_name,
     securityConfiguration_encryptionConfiguration,
     securityConfiguration_createdTimeStamp,
-    securityConfiguration_name,
 
     -- * Segment
     Segment (..),
@@ -1229,38 +1231,38 @@ module Network.AWS.Glue.Types
     -- * SkewedInfo
     SkewedInfo (..),
     newSkewedInfo,
-    skewedInfo_skewedColumnNames,
-    skewedInfo_skewedColumnValues,
     skewedInfo_skewedColumnValueLocationMaps,
+    skewedInfo_skewedColumnValues,
+    skewedInfo_skewedColumnNames,
 
     -- * SortCriterion
     SortCriterion (..),
     newSortCriterion,
-    sortCriterion_fieldName,
     sortCriterion_sort,
+    sortCriterion_fieldName,
 
     -- * StartingEventBatchCondition
     StartingEventBatchCondition (..),
     newStartingEventBatchCondition,
-    startingEventBatchCondition_batchSize,
     startingEventBatchCondition_batchWindow,
+    startingEventBatchCondition_batchSize,
 
     -- * StorageDescriptor
     StorageDescriptor (..),
     newStorageDescriptor,
-    storageDescriptor_compressed,
-    storageDescriptor_numberOfBuckets,
-    storageDescriptor_skewedInfo,
-    storageDescriptor_schemaReference,
     storageDescriptor_sortColumns,
-    storageDescriptor_outputFormat,
+    storageDescriptor_compressed,
+    storageDescriptor_location,
     storageDescriptor_bucketColumns,
     storageDescriptor_serdeInfo,
-    storageDescriptor_location,
-    storageDescriptor_inputFormat,
-    storageDescriptor_columns,
+    storageDescriptor_outputFormat,
+    storageDescriptor_numberOfBuckets,
+    storageDescriptor_schemaReference,
     storageDescriptor_storedAsSubDirectories,
     storageDescriptor_parameters,
+    storageDescriptor_inputFormat,
+    storageDescriptor_skewedInfo,
+    storageDescriptor_columns,
 
     -- * StringColumnStatisticsData
     StringColumnStatisticsData (..),
@@ -1273,24 +1275,24 @@ module Network.AWS.Glue.Types
     -- * Table
     Table (..),
     newTable,
-    table_viewOriginalText,
+    table_retention,
+    table_targetTable,
+    table_isRegisteredWithLakeFormation,
+    table_createdBy,
     table_tableType,
     table_catalogId,
-    table_storageDescriptor,
-    table_lastAnalyzedTime,
-    table_viewExpandedText,
-    table_targetTable,
-    table_retention,
-    table_updateTime,
-    table_createTime,
     table_owner,
+    table_viewOriginalText,
+    table_updateTime,
+    table_viewExpandedText,
+    table_lastAnalyzedTime,
+    table_storageDescriptor,
+    table_databaseName,
+    table_parameters,
+    table_lastAccessTime,
     table_description,
     table_partitionKeys,
-    table_createdBy,
-    table_lastAccessTime,
-    table_isRegisteredWithLakeFormation,
-    table_parameters,
-    table_databaseName,
+    table_createTime,
     table_name,
 
     -- * TableError
@@ -1309,18 +1311,18 @@ module Network.AWS.Glue.Types
     -- * TableInput
     TableInput (..),
     newTableInput,
-    tableInput_viewOriginalText,
-    tableInput_tableType,
-    tableInput_storageDescriptor,
-    tableInput_lastAnalyzedTime,
-    tableInput_viewExpandedText,
-    tableInput_targetTable,
     tableInput_retention,
+    tableInput_targetTable,
+    tableInput_tableType,
     tableInput_owner,
+    tableInput_viewOriginalText,
+    tableInput_viewExpandedText,
+    tableInput_lastAnalyzedTime,
+    tableInput_storageDescriptor,
+    tableInput_parameters,
+    tableInput_lastAccessTime,
     tableInput_description,
     tableInput_partitionKeys,
-    tableInput_lastAccessTime,
-    tableInput_parameters,
     tableInput_name,
 
     -- * TableVersion
@@ -1332,39 +1334,39 @@ module Network.AWS.Glue.Types
     -- * TableVersionError
     TableVersionError (..),
     newTableVersionError,
+    tableVersionError_versionId,
     tableVersionError_tableName,
     tableVersionError_errorDetail,
-    tableVersionError_versionId,
 
     -- * TaskRun
     TaskRun (..),
     newTaskRun,
-    taskRun_executionTime,
-    taskRun_status,
-    taskRun_taskRunId,
-    taskRun_transformId,
-    taskRun_errorString,
-    taskRun_lastModifiedOn,
     taskRun_completedOn,
-    taskRun_logGroupName,
-    taskRun_properties,
+    taskRun_status,
+    taskRun_lastModifiedOn,
+    taskRun_errorString,
     taskRun_startedOn,
+    taskRun_logGroupName,
+    taskRun_executionTime,
+    taskRun_properties,
+    taskRun_transformId,
+    taskRun_taskRunId,
 
     -- * TaskRunFilterCriteria
     TaskRunFilterCriteria (..),
     newTaskRunFilterCriteria,
-    taskRunFilterCriteria_taskRunType,
     taskRunFilterCriteria_status,
-    taskRunFilterCriteria_startedBefore,
     taskRunFilterCriteria_startedAfter,
+    taskRunFilterCriteria_startedBefore,
+    taskRunFilterCriteria_taskRunType,
 
     -- * TaskRunProperties
     TaskRunProperties (..),
     newTaskRunProperties,
-    taskRunProperties_exportLabelsTaskRunProperties,
-    taskRunProperties_findMatchesTaskRunProperties,
-    taskRunProperties_labelingSetGenerationTaskRunProperties,
     taskRunProperties_taskType,
+    taskRunProperties_exportLabelsTaskRunProperties,
+    taskRunProperties_labelingSetGenerationTaskRunProperties,
+    taskRunProperties_findMatchesTaskRunProperties,
     taskRunProperties_importLabelsTaskRunProperties,
 
     -- * TaskRunSortCriteria
@@ -1382,15 +1384,15 @@ module Network.AWS.Glue.Types
     -- * TransformFilterCriteria
     TransformFilterCriteria (..),
     newTransformFilterCriteria,
-    transformFilterCriteria_status,
-    transformFilterCriteria_transformType,
     transformFilterCriteria_createdAfter,
-    transformFilterCriteria_createdBefore,
-    transformFilterCriteria_schema,
-    transformFilterCriteria_lastModifiedBefore,
-    transformFilterCriteria_name,
+    transformFilterCriteria_status,
     transformFilterCriteria_lastModifiedAfter,
+    transformFilterCriteria_lastModifiedBefore,
     transformFilterCriteria_glueVersion,
+    transformFilterCriteria_schema,
+    transformFilterCriteria_transformType,
+    transformFilterCriteria_name,
+    transformFilterCriteria_createdBefore,
 
     -- * TransformParameters
     TransformParameters (..),
@@ -1408,15 +1410,15 @@ module Network.AWS.Glue.Types
     Trigger (..),
     newTrigger,
     trigger_workflowName,
-    trigger_id,
-    trigger_actions,
-    trigger_name,
     trigger_state,
-    trigger_predicate,
-    trigger_description,
-    trigger_eventBatchingCondition,
-    trigger_type,
+    trigger_actions,
     trigger_schedule,
+    trigger_predicate,
+    trigger_name,
+    trigger_id,
+    trigger_type,
+    trigger_eventBatchingCondition,
+    trigger_description,
 
     -- * TriggerNodeDetails
     TriggerNodeDetails (..),
@@ -1427,29 +1429,29 @@ module Network.AWS.Glue.Types
     TriggerUpdate (..),
     newTriggerUpdate,
     triggerUpdate_actions,
-    triggerUpdate_name,
-    triggerUpdate_predicate,
-    triggerUpdate_description,
-    triggerUpdate_eventBatchingCondition,
     triggerUpdate_schedule,
+    triggerUpdate_predicate,
+    triggerUpdate_name,
+    triggerUpdate_eventBatchingCondition,
+    triggerUpdate_description,
 
     -- * UpdateCsvClassifierRequest
     UpdateCsvClassifierRequest (..),
     newUpdateCsvClassifierRequest,
+    updateCsvClassifierRequest_quoteSymbol,
     updateCsvClassifierRequest_containsHeader,
-    updateCsvClassifierRequest_delimiter,
     updateCsvClassifierRequest_disableValueTrimming,
     updateCsvClassifierRequest_header,
-    updateCsvClassifierRequest_quoteSymbol,
     updateCsvClassifierRequest_allowSingleColumn,
+    updateCsvClassifierRequest_delimiter,
     updateCsvClassifierRequest_name,
 
     -- * UpdateGrokClassifierRequest
     UpdateGrokClassifierRequest (..),
     newUpdateGrokClassifierRequest,
-    updateGrokClassifierRequest_grokPattern,
     updateGrokClassifierRequest_classification,
     updateGrokClassifierRequest_customPatterns,
+    updateGrokClassifierRequest_grokPattern,
     updateGrokClassifierRequest_name,
 
     -- * UpdateJsonClassifierRequest
@@ -1468,74 +1470,74 @@ module Network.AWS.Glue.Types
     -- * UserDefinedFunction
     UserDefinedFunction (..),
     newUserDefinedFunction,
-    userDefinedFunction_className,
-    userDefinedFunction_ownerType,
     userDefinedFunction_ownerName,
     userDefinedFunction_catalogId,
-    userDefinedFunction_functionName,
     userDefinedFunction_resourceUris,
-    userDefinedFunction_createTime,
     userDefinedFunction_databaseName,
+    userDefinedFunction_functionName,
+    userDefinedFunction_ownerType,
+    userDefinedFunction_createTime,
+    userDefinedFunction_className,
 
     -- * UserDefinedFunctionInput
     UserDefinedFunctionInput (..),
     newUserDefinedFunctionInput,
-    userDefinedFunctionInput_className,
-    userDefinedFunctionInput_ownerType,
     userDefinedFunctionInput_ownerName,
-    userDefinedFunctionInput_functionName,
     userDefinedFunctionInput_resourceUris,
+    userDefinedFunctionInput_functionName,
+    userDefinedFunctionInput_ownerType,
+    userDefinedFunctionInput_className,
 
     -- * Workflow
     Workflow (..),
     newWorkflow,
-    workflow_createdOn,
-    workflow_defaultRunProperties,
-    workflow_lastRun,
-    workflow_maxConcurrentRuns,
-    workflow_lastModifiedOn,
-    workflow_name,
     workflow_graph,
-    workflow_description,
+    workflow_lastModifiedOn,
     workflow_blueprintDetails,
+    workflow_maxConcurrentRuns,
+    workflow_defaultRunProperties,
+    workflow_name,
+    workflow_lastRun,
+    workflow_description,
+    workflow_createdOn,
 
     -- * WorkflowGraph
     WorkflowGraph (..),
     newWorkflowGraph,
-    workflowGraph_nodes,
     workflowGraph_edges,
+    workflowGraph_nodes,
 
     -- * WorkflowRun
     WorkflowRun (..),
     newWorkflowRun,
-    workflowRun_workflowRunId,
-    workflowRun_status,
-    workflowRun_startingEventBatchCondition,
-    workflowRun_workflowRunProperties,
-    workflowRun_statistics,
-    workflowRun_name,
-    workflowRun_graph,
     workflowRun_completedOn,
-    workflowRun_errorMessage,
+    workflowRun_status,
+    workflowRun_graph,
     workflowRun_startedOn,
+    workflowRun_workflowRunId,
+    workflowRun_name,
     workflowRun_previousRunId,
+    workflowRun_statistics,
+    workflowRun_startingEventBatchCondition,
+    workflowRun_errorMessage,
+    workflowRun_workflowRunProperties,
 
     -- * WorkflowRunStatistics
     WorkflowRunStatistics (..),
     newWorkflowRunStatistics,
+    workflowRunStatistics_runningActions,
+    workflowRunStatistics_stoppedActions,
+    workflowRunStatistics_totalActions,
+    workflowRunStatistics_failedActions,
     workflowRunStatistics_timeoutActions,
     workflowRunStatistics_succeededActions,
-    workflowRunStatistics_runningActions,
-    workflowRunStatistics_totalActions,
-    workflowRunStatistics_stoppedActions,
-    workflowRunStatistics_failedActions,
 
     -- * XMLClassifier
     XMLClassifier (..),
     newXMLClassifier,
     xMLClassifier_creationTime,
-    xMLClassifier_version,
     xMLClassifier_lastUpdated,
+    xMLClassifier_version,
     xMLClassifier_rowTag,
     xMLClassifier_name,
     xMLClassifier_classification,
@@ -1781,37 +1783,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -1824,91 +1803,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | A specified entity does not exist
-_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityNotFoundException =
+-- | A value could not be validated.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "EntityNotFoundException"
-
--- | The specified crawler is not running.
-_CrawlerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CrawlerNotRunningException =
-  Core._MatchServiceError
-    defaultService
-    "CrawlerNotRunningException"
-
--- | There was a version conflict.
-_VersionMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_VersionMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "VersionMismatchException"
-
--- | An encryption operation failed.
-_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlueEncryptionException =
-  Core._MatchServiceError
-    defaultService
-    "GlueEncryptionException"
-
--- | The input provided was not valid.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInputException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInputException"
-
--- | Too many jobs are being run concurrently.
-_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentRunsExceededException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentRunsExceededException"
-
--- | An internal service error occurred.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-
--- | The workflow is in an invalid state to perform a requested operation.
-_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IllegalWorkflowStateException =
-  Core._MatchServiceError
-    defaultService
-    "IllegalWorkflowStateException"
-
--- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
-
--- | A specified condition was not satisfied.
-_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConditionCheckFailureException =
-  Core._MatchServiceError
-    defaultService
-    "ConditionCheckFailureException"
-
--- | The specified scheduler is transitioning.
-_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SchedulerTransitioningException =
-  Core._MatchServiceError
-    defaultService
-    "SchedulerTransitioningException"
-
--- | The specified scheduler is already running.
-_SchedulerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SchedulerRunningException =
-  Core._MatchServiceError
-    defaultService
-    "SchedulerRunningException"
+    "ValidationException"
 
 -- | Access to a resource was denied.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1925,26 +1850,47 @@ _CrawlerRunningException =
     defaultService
     "CrawlerRunningException"
 
--- | The machine learning transform is not ready to run.
-_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MLTransformNotReadyException =
+-- | The specified scheduler is transitioning.
+_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerTransitioningException =
   Core._MatchServiceError
     defaultService
-    "MLTransformNotReadyException"
+    "SchedulerTransitioningException"
 
--- | A value could not be validated.
-_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
+-- | The specified scheduler is already running.
+_SchedulerRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerRunningException =
   Core._MatchServiceError
     defaultService
-    "ValidationException"
+    "SchedulerRunningException"
 
--- | A resource to be created or added already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
+-- | A specified condition was not satisfied.
+_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConditionCheckFailureException =
   Core._MatchServiceError
     defaultService
-    "AlreadyExistsException"
+    "ConditionCheckFailureException"
+
+-- | Too many jobs are being run concurrently.
+_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentRunsExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentRunsExceededException"
+
+-- | The workflow is in an invalid state to perform a requested operation.
+_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalWorkflowStateException =
+  Core._MatchServiceError
+    defaultService
+    "IllegalWorkflowStateException"
+
+-- | There is no applicable schedule.
+_NoScheduleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoScheduleException =
+  Core._MatchServiceError
+    defaultService
+    "NoScheduleException"
 
 -- | The operation timed out.
 _OperationTimeoutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1952,13 +1898,6 @@ _OperationTimeoutException =
   Core._MatchServiceError
     defaultService
     "OperationTimeoutException"
-
--- | Prism for IllegalBlueprintStateException' errors.
-_IllegalBlueprintStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IllegalBlueprintStateException =
-  Core._MatchServiceError
-    defaultService
-    "IllegalBlueprintStateException"
 
 -- | The @CreatePartitions@ API was called on a table that has indexes
 -- enabled.
@@ -1968,26 +1907,61 @@ _ConflictException =
     defaultService
     "ConflictException"
 
--- | The specified crawler is stopping.
-_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CrawlerStoppingException =
+-- | The specified crawler is not running.
+_CrawlerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerNotRunningException =
   Core._MatchServiceError
     defaultService
-    "CrawlerStoppingException"
+    "CrawlerNotRunningException"
 
--- | The same unique identifier was associated with two different records.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IdempotentParameterMismatchException =
+-- | There was a version conflict.
+_VersionMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VersionMismatchException =
   Core._MatchServiceError
     defaultService
-    "IdempotentParameterMismatchException"
+    "VersionMismatchException"
 
--- | There is no applicable schedule.
-_NoScheduleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NoScheduleException =
+-- | The machine learning transform is not ready to run.
+_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MLTransformNotReadyException =
   Core._MatchServiceError
     defaultService
-    "NoScheduleException"
+    "MLTransformNotReadyException"
+
+-- | A specified entity does not exist
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EntityNotFoundException"
+
+-- | Two processes are trying to modify a resource simultaneously.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
+
+-- | The specified scheduler is not running.
+_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SchedulerNotRunningException =
+  Core._MatchServiceError
+    defaultService
+    "SchedulerNotRunningException"
+
+-- | An internal service error occurred.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+
+-- | The input provided was not valid.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidInputException"
 
 -- | A resource numerical limit was exceeded.
 _ResourceNumberLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1996,9 +1970,37 @@ _ResourceNumberLimitExceededException =
     defaultService
     "ResourceNumberLimitExceededException"
 
--- | The specified scheduler is not running.
-_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SchedulerNotRunningException =
+-- | An encryption operation failed.
+_GlueEncryptionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlueEncryptionException =
   Core._MatchServiceError
     defaultService
-    "SchedulerNotRunningException"
+    "GlueEncryptionException"
+
+-- | The same unique identifier was associated with two different records.
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IdempotentParameterMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"
+
+-- | The specified crawler is stopping.
+_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CrawlerStoppingException =
+  Core._MatchServiceError
+    defaultService
+    "CrawlerStoppingException"
+
+-- | Prism for IllegalBlueprintStateException' errors.
+_IllegalBlueprintStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IllegalBlueprintStateException =
+  Core._MatchServiceError
+    defaultService
+    "IllegalBlueprintStateException"
+
+-- | A resource to be created or added already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyExistsException"

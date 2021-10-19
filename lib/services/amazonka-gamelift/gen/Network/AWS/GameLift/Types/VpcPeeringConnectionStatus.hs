@@ -31,10 +31,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newVpcPeeringConnectionStatus' smart constructor.
 data VpcPeeringConnectionStatus = VpcPeeringConnectionStatus'
-  { -- | Additional messaging associated with the connection status.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | Code indicating the status of a VPC peering connection.
-    code :: Prelude.Maybe Prelude.Text
+  { -- | Code indicating the status of a VPC peering connection.
+    code :: Prelude.Maybe Prelude.Text,
+    -- | Additional messaging associated with the connection status.
+    message :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +46,24 @@ data VpcPeeringConnectionStatus = VpcPeeringConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'vpcPeeringConnectionStatus_message' - Additional messaging associated with the connection status.
---
 -- 'code', 'vpcPeeringConnectionStatus_code' - Code indicating the status of a VPC peering connection.
+--
+-- 'message', 'vpcPeeringConnectionStatus_message' - Additional messaging associated with the connection status.
 newVpcPeeringConnectionStatus ::
   VpcPeeringConnectionStatus
 newVpcPeeringConnectionStatus =
   VpcPeeringConnectionStatus'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { code = Prelude.Nothing,
+      message = Prelude.Nothing
     }
-
--- | Additional messaging associated with the connection status.
-vpcPeeringConnectionStatus_message :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
-vpcPeeringConnectionStatus_message = Lens.lens (\VpcPeeringConnectionStatus' {message} -> message) (\s@VpcPeeringConnectionStatus' {} a -> s {message = a} :: VpcPeeringConnectionStatus)
 
 -- | Code indicating the status of a VPC peering connection.
 vpcPeeringConnectionStatus_code :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
 vpcPeeringConnectionStatus_code = Lens.lens (\VpcPeeringConnectionStatus' {code} -> code) (\s@VpcPeeringConnectionStatus' {} a -> s {code = a} :: VpcPeeringConnectionStatus)
+
+-- | Additional messaging associated with the connection status.
+vpcPeeringConnectionStatus_message :: Lens.Lens' VpcPeeringConnectionStatus (Prelude.Maybe Prelude.Text)
+vpcPeeringConnectionStatus_message = Lens.lens (\VpcPeeringConnectionStatus' {message} -> message) (\s@VpcPeeringConnectionStatus' {} a -> s {message = a} :: VpcPeeringConnectionStatus)
 
 instance Core.FromJSON VpcPeeringConnectionStatus where
   parseJSON =
@@ -72,8 +71,8 @@ instance Core.FromJSON VpcPeeringConnectionStatus where
       "VpcPeeringConnectionStatus"
       ( \x ->
           VpcPeeringConnectionStatus'
-            Prelude.<$> (x Core..:? "Message")
-            Prelude.<*> (x Core..:? "Code")
+            Prelude.<$> (x Core..:? "Code")
+            Prelude.<*> (x Core..:? "Message")
       )
 
 instance Prelude.Hashable VpcPeeringConnectionStatus

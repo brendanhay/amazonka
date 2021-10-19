@@ -30,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLambdaOutputUpdate' smart constructor.
 data LambdaOutputUpdate = LambdaOutputUpdate'
-  { -- | Amazon Resource Name (ARN) of the destination Lambda function.
+  { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
+    -- the destination function on your behalf. You need to grant the necessary
+    -- permissions to this role.
+    roleARNUpdate :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Name (ARN) of the destination Lambda function.
     --
     -- To specify an earlier version of the Lambda function than the latest,
     -- include the Lambda function version in the Lambda function ARN. For more
     -- information about Lambda ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-    resourceARNUpdate :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
-    -- the destination function on your behalf. You need to grant the necessary
-    -- permissions to this role.
-    roleARNUpdate :: Prelude.Maybe Prelude.Text
+    resourceARNUpdate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,24 +52,30 @@ data LambdaOutputUpdate = LambdaOutputUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'roleARNUpdate', 'lambdaOutputUpdate_roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
+-- the destination function on your behalf. You need to grant the necessary
+-- permissions to this role.
+--
 -- 'resourceARNUpdate', 'lambdaOutputUpdate_resourceARNUpdate' - Amazon Resource Name (ARN) of the destination Lambda function.
 --
 -- To specify an earlier version of the Lambda function than the latest,
 -- include the Lambda function version in the Lambda function ARN. For more
 -- information about Lambda ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
---
--- 'roleARNUpdate', 'lambdaOutputUpdate_roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
--- the destination function on your behalf. You need to grant the necessary
--- permissions to this role.
 newLambdaOutputUpdate ::
   LambdaOutputUpdate
 newLambdaOutputUpdate =
   LambdaOutputUpdate'
-    { resourceARNUpdate =
+    { roleARNUpdate =
         Prelude.Nothing,
-      roleARNUpdate = Prelude.Nothing
+      resourceARNUpdate = Prelude.Nothing
     }
+
+-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
+-- the destination function on your behalf. You need to grant the necessary
+-- permissions to this role.
+lambdaOutputUpdate_roleARNUpdate :: Lens.Lens' LambdaOutputUpdate (Prelude.Maybe Prelude.Text)
+lambdaOutputUpdate_roleARNUpdate = Lens.lens (\LambdaOutputUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {roleARNUpdate = a} :: LambdaOutputUpdate)
 
 -- | Amazon Resource Name (ARN) of the destination Lambda function.
 --
@@ -80,12 +86,6 @@ newLambdaOutputUpdate =
 lambdaOutputUpdate_resourceARNUpdate :: Lens.Lens' LambdaOutputUpdate (Prelude.Maybe Prelude.Text)
 lambdaOutputUpdate_resourceARNUpdate = Lens.lens (\LambdaOutputUpdate' {resourceARNUpdate} -> resourceARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {resourceARNUpdate = a} :: LambdaOutputUpdate)
 
--- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
--- the destination function on your behalf. You need to grant the necessary
--- permissions to this role.
-lambdaOutputUpdate_roleARNUpdate :: Lens.Lens' LambdaOutputUpdate (Prelude.Maybe Prelude.Text)
-lambdaOutputUpdate_roleARNUpdate = Lens.lens (\LambdaOutputUpdate' {roleARNUpdate} -> roleARNUpdate) (\s@LambdaOutputUpdate' {} a -> s {roleARNUpdate = a} :: LambdaOutputUpdate)
-
 instance Prelude.Hashable LambdaOutputUpdate
 
 instance Prelude.NFData LambdaOutputUpdate
@@ -94,8 +94,8 @@ instance Core.ToJSON LambdaOutputUpdate where
   toJSON LambdaOutputUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceARNUpdate" Core..=)
-              Prelude.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate
+          [ ("RoleARNUpdate" Core..=) Prelude.<$> roleARNUpdate,
+            ("ResourceARNUpdate" Core..=)
+              Prelude.<$> resourceARNUpdate
           ]
       )

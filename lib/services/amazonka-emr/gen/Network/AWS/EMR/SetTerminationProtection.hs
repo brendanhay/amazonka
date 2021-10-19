@@ -107,7 +107,7 @@ newSetTerminationProtection pTerminationProtected_ =
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
 setTerminationProtection_jobFlowIds :: Lens.Lens' SetTerminationProtection [Prelude.Text]
-setTerminationProtection_jobFlowIds = Lens.lens (\SetTerminationProtection' {jobFlowIds} -> jobFlowIds) (\s@SetTerminationProtection' {} a -> s {jobFlowIds = a} :: SetTerminationProtection) Prelude.. Lens._Coerce
+setTerminationProtection_jobFlowIds = Lens.lens (\SetTerminationProtection' {jobFlowIds} -> jobFlowIds) (\s@SetTerminationProtection' {} a -> s {jobFlowIds = a} :: SetTerminationProtection) Prelude.. Lens.coerced
 
 -- | A Boolean that indicates whether to protect the cluster and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,

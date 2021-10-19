@@ -160,11 +160,11 @@ createDeployment_appId = Lens.lens (\CreateDeployment' {appId} -> appId) (\s@Cre
 
 -- | The instance IDs for the deployment targets.
 createDeployment_instanceIds :: Lens.Lens' CreateDeployment (Prelude.Maybe [Prelude.Text])
-createDeployment_instanceIds = Lens.lens (\CreateDeployment' {instanceIds} -> instanceIds) (\s@CreateDeployment' {} a -> s {instanceIds = a} :: CreateDeployment) Prelude.. Lens.mapping Lens._Coerce
+createDeployment_instanceIds = Lens.lens (\CreateDeployment' {instanceIds} -> instanceIds) (\s@CreateDeployment' {} a -> s {instanceIds = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | The layer IDs for the deployment targets.
 createDeployment_layerIds :: Lens.Lens' CreateDeployment (Prelude.Maybe [Prelude.Text])
-createDeployment_layerIds = Lens.lens (\CreateDeployment' {layerIds} -> layerIds) (\s@CreateDeployment' {} a -> s {layerIds = a} :: CreateDeployment) Prelude.. Lens.mapping Lens._Coerce
+createDeployment_layerIds = Lens.lens (\CreateDeployment' {layerIds} -> layerIds) (\s@CreateDeployment' {} a -> s {layerIds = a} :: CreateDeployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | A user-defined comment.
 createDeployment_comment :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)

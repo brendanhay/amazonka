@@ -36,8 +36,8 @@ module Network.AWS.RDS.DeleteDBCluster
     newDeleteDBCluster,
 
     -- * Request Lenses
-    deleteDBCluster_skipFinalSnapshot,
     deleteDBCluster_finalDBSnapshotIdentifier,
+    deleteDBCluster_skipFinalSnapshot,
     deleteDBCluster_dbClusterIdentifier,
 
     -- * Destructuring the Response
@@ -61,17 +61,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteDBCluster' smart constructor.
 data DeleteDBCluster = DeleteDBCluster'
-  { -- | A value that indicates whether to skip the creation of a final DB
-    -- cluster snapshot before the DB cluster is deleted. If skip is specified,
-    -- no DB cluster snapshot is created. If skip isn\'t specified, a DB
-    -- cluster snapshot is created before the DB cluster is deleted. By
-    -- default, skip isn\'t specified, and the DB cluster snapshot is created.
-    -- By default, this parameter is disabled.
-    --
-    -- You must specify a @FinalDBSnapshotIdentifier@ parameter if
-    -- @SkipFinalSnapshot@ is disabled.
-    skipFinalSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | The DB cluster snapshot identifier of the new DB cluster snapshot
+  { -- | The DB cluster snapshot identifier of the new DB cluster snapshot
     -- created when @SkipFinalSnapshot@ is disabled.
     --
     -- Specifying this parameter and also skipping the creation of a final DB
@@ -86,6 +76,16 @@ data DeleteDBCluster = DeleteDBCluster'
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     finalDBSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to skip the creation of a final DB
+    -- cluster snapshot before the DB cluster is deleted. If skip is specified,
+    -- no DB cluster snapshot is created. If skip isn\'t specified, a DB
+    -- cluster snapshot is created before the DB cluster is deleted. By
+    -- default, skip isn\'t specified, and the DB cluster snapshot is created.
+    -- By default, this parameter is disabled.
+    --
+    -- You must specify a @FinalDBSnapshotIdentifier@ parameter if
+    -- @SkipFinalSnapshot@ is disabled.
+    skipFinalSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The DB cluster identifier for the DB cluster to be deleted. This
     -- parameter isn\'t case-sensitive.
     --
@@ -104,16 +104,6 @@ data DeleteDBCluster = DeleteDBCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'skipFinalSnapshot', 'deleteDBCluster_skipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB
--- cluster snapshot before the DB cluster is deleted. If skip is specified,
--- no DB cluster snapshot is created. If skip isn\'t specified, a DB
--- cluster snapshot is created before the DB cluster is deleted. By
--- default, skip isn\'t specified, and the DB cluster snapshot is created.
--- By default, this parameter is disabled.
---
--- You must specify a @FinalDBSnapshotIdentifier@ parameter if
--- @SkipFinalSnapshot@ is disabled.
---
 -- 'finalDBSnapshotIdentifier', 'deleteDBCluster_finalDBSnapshotIdentifier' - The DB cluster snapshot identifier of the new DB cluster snapshot
 -- created when @SkipFinalSnapshot@ is disabled.
 --
@@ -129,6 +119,16 @@ data DeleteDBCluster = DeleteDBCluster'
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
+-- 'skipFinalSnapshot', 'deleteDBCluster_skipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB
+-- cluster snapshot before the DB cluster is deleted. If skip is specified,
+-- no DB cluster snapshot is created. If skip isn\'t specified, a DB
+-- cluster snapshot is created before the DB cluster is deleted. By
+-- default, skip isn\'t specified, and the DB cluster snapshot is created.
+-- By default, this parameter is disabled.
+--
+-- You must specify a @FinalDBSnapshotIdentifier@ parameter if
+-- @SkipFinalSnapshot@ is disabled.
+--
 -- 'dbClusterIdentifier', 'deleteDBCluster_dbClusterIdentifier' - The DB cluster identifier for the DB cluster to be deleted. This
 -- parameter isn\'t case-sensitive.
 --
@@ -141,23 +141,11 @@ newDeleteDBCluster ::
   DeleteDBCluster
 newDeleteDBCluster pDBClusterIdentifier_ =
   DeleteDBCluster'
-    { skipFinalSnapshot =
+    { finalDBSnapshotIdentifier =
         Prelude.Nothing,
-      finalDBSnapshotIdentifier = Prelude.Nothing,
+      skipFinalSnapshot = Prelude.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
-
--- | A value that indicates whether to skip the creation of a final DB
--- cluster snapshot before the DB cluster is deleted. If skip is specified,
--- no DB cluster snapshot is created. If skip isn\'t specified, a DB
--- cluster snapshot is created before the DB cluster is deleted. By
--- default, skip isn\'t specified, and the DB cluster snapshot is created.
--- By default, this parameter is disabled.
---
--- You must specify a @FinalDBSnapshotIdentifier@ parameter if
--- @SkipFinalSnapshot@ is disabled.
-deleteDBCluster_skipFinalSnapshot :: Lens.Lens' DeleteDBCluster (Prelude.Maybe Prelude.Bool)
-deleteDBCluster_skipFinalSnapshot = Lens.lens (\DeleteDBCluster' {skipFinalSnapshot} -> skipFinalSnapshot) (\s@DeleteDBCluster' {} a -> s {skipFinalSnapshot = a} :: DeleteDBCluster)
 
 -- | The DB cluster snapshot identifier of the new DB cluster snapshot
 -- created when @SkipFinalSnapshot@ is disabled.
@@ -175,6 +163,18 @@ deleteDBCluster_skipFinalSnapshot = Lens.lens (\DeleteDBCluster' {skipFinalSnaps
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 deleteDBCluster_finalDBSnapshotIdentifier :: Lens.Lens' DeleteDBCluster (Prelude.Maybe Prelude.Text)
 deleteDBCluster_finalDBSnapshotIdentifier = Lens.lens (\DeleteDBCluster' {finalDBSnapshotIdentifier} -> finalDBSnapshotIdentifier) (\s@DeleteDBCluster' {} a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBCluster)
+
+-- | A value that indicates whether to skip the creation of a final DB
+-- cluster snapshot before the DB cluster is deleted. If skip is specified,
+-- no DB cluster snapshot is created. If skip isn\'t specified, a DB
+-- cluster snapshot is created before the DB cluster is deleted. By
+-- default, skip isn\'t specified, and the DB cluster snapshot is created.
+-- By default, this parameter is disabled.
+--
+-- You must specify a @FinalDBSnapshotIdentifier@ parameter if
+-- @SkipFinalSnapshot@ is disabled.
+deleteDBCluster_skipFinalSnapshot :: Lens.Lens' DeleteDBCluster (Prelude.Maybe Prelude.Bool)
+deleteDBCluster_skipFinalSnapshot = Lens.lens (\DeleteDBCluster' {skipFinalSnapshot} -> skipFinalSnapshot) (\s@DeleteDBCluster' {} a -> s {skipFinalSnapshot = a} :: DeleteDBCluster)
 
 -- | The DB cluster identifier for the DB cluster to be deleted. This
 -- parameter isn\'t case-sensitive.
@@ -216,9 +216,9 @@ instance Core.ToQuery DeleteDBCluster where
           Core.=: ("DeleteDBCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
-        "SkipFinalSnapshot" Core.=: skipFinalSnapshot,
         "FinalDBSnapshotIdentifier"
           Core.=: finalDBSnapshotIdentifier,
+        "SkipFinalSnapshot" Core.=: skipFinalSnapshot,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 

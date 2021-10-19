@@ -84,7 +84,7 @@ newPatchFilter ::
 newPatchFilter pKey_ pValues_ =
   PatchFilter'
     { key = pKey_,
-      values = Lens._Coerce Lens.# pValues_
+      values = Lens.coerced Lens.# pValues_
     }
 
 -- | The key for the filter.
@@ -99,7 +99,7 @@ patchFilter_key = Lens.lens (\PatchFilter' {key} -> key) (\s@PatchFilter' {} a -
 -- Run the DescribePatchProperties command to view lists of valid values
 -- for each key based on operating system type.
 patchFilter_values :: Lens.Lens' PatchFilter (Prelude.NonEmpty Prelude.Text)
-patchFilter_values = Lens.lens (\PatchFilter' {values} -> values) (\s@PatchFilter' {} a -> s {values = a} :: PatchFilter) Prelude.. Lens._Coerce
+patchFilter_values = Lens.lens (\PatchFilter' {values} -> values) (\s@PatchFilter' {} a -> s {values = a} :: PatchFilter) Prelude.. Lens.coerced
 
 instance Core.FromJSON PatchFilter where
   parseJSON =

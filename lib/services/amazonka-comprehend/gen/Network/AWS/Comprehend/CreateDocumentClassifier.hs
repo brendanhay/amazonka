@@ -32,14 +32,14 @@ module Network.AWS.Comprehend.CreateDocumentClassifier
     newCreateDocumentClassifier,
 
     -- * Request Lenses
-    createDocumentClassifier_vpcConfig,
-    createDocumentClassifier_mode,
-    createDocumentClassifier_outputDataConfig,
     createDocumentClassifier_versionName,
-    createDocumentClassifier_volumeKmsKeyId,
-    createDocumentClassifier_tags,
-    createDocumentClassifier_clientRequestToken,
     createDocumentClassifier_modelKmsKeyId,
+    createDocumentClassifier_mode,
+    createDocumentClassifier_vpcConfig,
+    createDocumentClassifier_volumeKmsKeyId,
+    createDocumentClassifier_outputDataConfig,
+    createDocumentClassifier_clientRequestToken,
+    createDocumentClassifier_tags,
     createDocumentClassifier_documentClassifierName,
     createDocumentClassifier_dataAccessRoleArn,
     createDocumentClassifier_inputDataConfig,
@@ -64,11 +64,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDocumentClassifier' smart constructor.
 data CreateDocumentClassifier = CreateDocumentClassifier'
-  { -- | Configuration parameters for an optional private Virtual Private Cloud
-    -- (VPC) containing the resources you are using for your custom classifier.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+  { -- | The version name given to the newly created classifier. Version names
+    -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+    -- (-) and underscores (_) are allowed. The version name must be unique
+    -- among all models with the same classifier name in the account\/AWS
+    -- Region.
+    versionName :: Prelude.Maybe Prelude.Text,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+    -- of the following formats:
+    --
+    -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    --
+    -- -   Amazon Resource Name (ARN) of a KMS Key:
+    --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    modelKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the mode in which the classifier will be trained. The
     -- classifier can be trained in multi-class mode, which identifies one and
     -- only one class for each document, or multi-label mode, which identifies
@@ -76,15 +86,11 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- labels for an individual document are separated by a delimiter. The
     -- default delimiter between labels is a pipe (|).
     mode :: Prelude.Maybe DocumentClassifierMode,
-    -- | Enables the addition of output results configuration parameters for
-    -- custom classifier jobs.
-    outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
-    -- | The version name given to the newly created classifier. Version names
-    -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
-    -- (-) and underscores (_) are allowed. The version name must be unique
-    -- among all models with the same classifier name in the account\/AWS
-    -- Region.
-    versionName :: Prelude.Maybe Prelude.Text,
+    -- | Configuration parameters for an optional private Virtual Private Cloud
+    -- (VPC) containing the resources you are using for your custom classifier.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+    vpcConfig :: Prelude.Maybe VpcConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -95,23 +101,17 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Enables the addition of output results configuration parameters for
+    -- custom classifier jobs.
+    outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
+    -- | A unique identifier for the request. If you don\'t set the client
+    -- request token, Amazon Comprehend generates one.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | Tags to be associated with the document classifier being created. A tag
     -- is a key-value pair that adds as a metadata to a resource used by Amazon
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
-    -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
-    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
-    -- of the following formats:
-    --
-    -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    --
-    -- -   Amazon Resource Name (ARN) of a KMS Key:
-    --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    modelKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the document classifier.
     documentClassifierName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
@@ -135,10 +135,20 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'createDocumentClassifier_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
--- (VPC) containing the resources you are using for your custom classifier.
--- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+-- 'versionName', 'createDocumentClassifier_versionName' - The version name given to the newly created classifier. Version names
+-- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+-- (-) and underscores (_) are allowed. The version name must be unique
+-- among all models with the same classifier name in the account\/AWS
+-- Region.
+--
+-- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+-- of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
 -- 'mode', 'createDocumentClassifier_mode' - Indicates the mode in which the classifier will be trained. The
 -- classifier can be trained in multi-class mode, which identifies one and
@@ -147,14 +157,10 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- labels for an individual document are separated by a delimiter. The
 -- default delimiter between labels is a pipe (|).
 --
--- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
--- custom classifier jobs.
---
--- 'versionName', 'createDocumentClassifier_versionName' - The version name given to the newly created classifier. Version names
--- can have a maximum of 256 characters. Alphanumeric characters, hyphens
--- (-) and underscores (_) are allowed. The version name must be unique
--- among all models with the same classifier name in the account\/AWS
--- Region.
+-- 'vpcConfig', 'createDocumentClassifier_vpcConfig' - Configuration parameters for an optional private Virtual Private Cloud
+-- (VPC) containing the resources you are using for your custom classifier.
+-- For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 --
 -- 'volumeKmsKeyId', 'createDocumentClassifier_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -166,22 +172,16 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- 'tags', 'createDocumentClassifier_tags' - Tags to be associated with the document classifier being created. A tag
--- is a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
+-- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
+-- custom classifier jobs.
 --
 -- 'clientRequestToken', 'createDocumentClassifier_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
 --
--- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
---
--- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- -   Amazon Resource Name (ARN) of a KMS Key:
---     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+-- 'tags', 'createDocumentClassifier_tags' - Tags to be associated with the document classifier being created. A tag
+-- is a key-value pair that adds as a metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
 --
 -- 'documentClassifierName', 'createDocumentClassifier_documentClassifierName' - The name of the document classifier.
 --
@@ -210,27 +210,39 @@ newCreateDocumentClassifier
   pInputDataConfig_
   pLanguageCode_ =
     CreateDocumentClassifier'
-      { vpcConfig =
+      { versionName =
           Prelude.Nothing,
-        mode = Prelude.Nothing,
-        outputDataConfig = Prelude.Nothing,
-        versionName = Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
         modelKmsKeyId = Prelude.Nothing,
+        mode = Prelude.Nothing,
+        vpcConfig = Prelude.Nothing,
+        volumeKmsKeyId = Prelude.Nothing,
+        outputDataConfig = Prelude.Nothing,
+        clientRequestToken = Prelude.Nothing,
+        tags = Prelude.Nothing,
         documentClassifierName = pDocumentClassifierName_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         inputDataConfig = pInputDataConfig_,
         languageCode = pLanguageCode_
       }
 
--- | Configuration parameters for an optional private Virtual Private Cloud
--- (VPC) containing the resources you are using for your custom classifier.
--- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-createDocumentClassifier_vpcConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe VpcConfig)
-createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcConfig} -> vpcConfig) (\s@CreateDocumentClassifier' {} a -> s {vpcConfig = a} :: CreateDocumentClassifier)
+-- | The version name given to the newly created classifier. Version names
+-- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+-- (-) and underscores (_) are allowed. The version name must be unique
+-- among all models with the same classifier name in the account\/AWS
+-- Region.
+createDocumentClassifier_versionName :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {versionName} -> versionName) (\s@CreateDocumentClassifier' {} a -> s {versionName = a} :: CreateDocumentClassifier)
+
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+-- of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+createDocumentClassifier_modelKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_modelKmsKeyId = Lens.lens (\CreateDocumentClassifier' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {modelKmsKeyId = a} :: CreateDocumentClassifier)
 
 -- | Indicates the mode in which the classifier will be trained. The
 -- classifier can be trained in multi-class mode, which identifies one and
@@ -241,18 +253,12 @@ createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcC
 createDocumentClassifier_mode :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierMode)
 createDocumentClassifier_mode = Lens.lens (\CreateDocumentClassifier' {mode} -> mode) (\s@CreateDocumentClassifier' {} a -> s {mode = a} :: CreateDocumentClassifier)
 
--- | Enables the addition of output results configuration parameters for
--- custom classifier jobs.
-createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
-createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
-
--- | The version name given to the newly created classifier. Version names
--- can have a maximum of 256 characters. Alphanumeric characters, hyphens
--- (-) and underscores (_) are allowed. The version name must be unique
--- among all models with the same classifier name in the account\/AWS
--- Region.
-createDocumentClassifier_versionName :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
-createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {versionName} -> versionName) (\s@CreateDocumentClassifier' {} a -> s {versionName = a} :: CreateDocumentClassifier)
+-- | Configuration parameters for an optional private Virtual Private Cloud
+-- (VPC) containing the resources you are using for your custom classifier.
+-- For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+createDocumentClassifier_vpcConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe VpcConfig)
+createDocumentClassifier_vpcConfig = Lens.lens (\CreateDocumentClassifier' {vpcConfig} -> vpcConfig) (\s@CreateDocumentClassifier' {} a -> s {vpcConfig = a} :: CreateDocumentClassifier)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -266,28 +272,22 @@ createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {ve
 createDocumentClassifier_volumeKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_volumeKmsKeyId = Lens.lens (\CreateDocumentClassifier' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {volumeKmsKeyId = a} :: CreateDocumentClassifier)
 
--- | Tags to be associated with the document classifier being created. A tag
--- is a key-value pair that adds as a metadata to a resource used by Amazon
--- Comprehend. For example, a tag with \"Sales\" as the key might be added
--- to a resource to indicate its use by the sales department.
-createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe [Tag])
-createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Prelude.. Lens.mapping Lens._Coerce
+-- | Enables the addition of output results configuration parameters for
+-- custom classifier jobs.
+createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
+createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
 
 -- | A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
 createDocumentClassifier_clientRequestToken :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_clientRequestToken = Lens.lens (\CreateDocumentClassifier' {clientRequestToken} -> clientRequestToken) (\s@CreateDocumentClassifier' {} a -> s {clientRequestToken = a} :: CreateDocumentClassifier)
 
--- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
--- uses to encrypt trained custom models. The ModelKmsKeyId can be either
--- of the following formats:
---
--- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
---
--- -   Amazon Resource Name (ARN) of a KMS Key:
---     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-createDocumentClassifier_modelKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
-createDocumentClassifier_modelKmsKeyId = Lens.lens (\CreateDocumentClassifier' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {modelKmsKeyId = a} :: CreateDocumentClassifier)
+-- | Tags to be associated with the document classifier being created. A tag
+-- is a key-value pair that adds as a metadata to a resource used by Amazon
+-- Comprehend. For example, a tag with \"Sales\" as the key might be added
+-- to a resource to indicate its use by the sales department.
+createDocumentClassifier_tags :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe [Tag])
+createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> tags) (\s@CreateDocumentClassifier' {} a -> s {tags = a} :: CreateDocumentClassifier) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the document classifier.
 createDocumentClassifier_documentClassifierName :: Lens.Lens' CreateDocumentClassifier Prelude.Text
@@ -345,17 +345,17 @@ instance Core.ToJSON CreateDocumentClassifier where
   toJSON CreateDocumentClassifier' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+          [ ("VersionName" Core..=) Prelude.<$> versionName,
+            ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
             ("Mode" Core..=) Prelude.<$> mode,
-            ("OutputDataConfig" Core..=)
-              Prelude.<$> outputDataConfig,
-            ("VersionName" Core..=) Prelude.<$> versionName,
+            ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
-            ("Tags" Core..=) Prelude.<$> tags,
+            ("OutputDataConfig" Core..=)
+              Prelude.<$> outputDataConfig,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ( "DocumentClassifierName"
                   Core..= documentClassifierName

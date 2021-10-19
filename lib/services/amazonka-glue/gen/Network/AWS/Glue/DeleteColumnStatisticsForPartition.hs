@@ -122,7 +122,7 @@ deleteColumnStatisticsForPartition_tableName = Lens.lens (\DeleteColumnStatistic
 
 -- | A list of partition values identifying the partition.
 deleteColumnStatisticsForPartition_partitionValues :: Lens.Lens' DeleteColumnStatisticsForPartition [Prelude.Text]
-deleteColumnStatisticsForPartition_partitionValues = Lens.lens (\DeleteColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@DeleteColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: DeleteColumnStatisticsForPartition) Prelude.. Lens._Coerce
+deleteColumnStatisticsForPartition_partitionValues = Lens.lens (\DeleteColumnStatisticsForPartition' {partitionValues} -> partitionValues) (\s@DeleteColumnStatisticsForPartition' {} a -> s {partitionValues = a} :: DeleteColumnStatisticsForPartition) Prelude.. Lens.coerced
 
 -- | Name of the column.
 deleteColumnStatisticsForPartition_columnName :: Lens.Lens' DeleteColumnStatisticsForPartition Prelude.Text

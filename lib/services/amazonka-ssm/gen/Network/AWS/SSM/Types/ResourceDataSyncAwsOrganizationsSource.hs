@@ -72,7 +72,7 @@ newResourceDataSyncAwsOrganizationsSource
 
 -- | The Organizations organization units included in the sync.
 resourceDataSyncAwsOrganizationsSource_organizationalUnits :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource (Prelude.Maybe (Prelude.NonEmpty ResourceDataSyncOrganizationalUnit))
-resourceDataSyncAwsOrganizationsSource_organizationalUnits = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationalUnits} -> organizationalUnits) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationalUnits = a} :: ResourceDataSyncAwsOrganizationsSource) Prelude.. Lens.mapping Lens._Coerce
+resourceDataSyncAwsOrganizationsSource_organizationalUnits = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationalUnits} -> organizationalUnits) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationalUnits = a} :: ResourceDataSyncAwsOrganizationsSource) Prelude.. Lens.mapping Lens.coerced
 
 -- | If an Amazon Web Services organization is present, this is either
 -- @OrganizationalUnits@ or @EntireOrganization@. For

@@ -107,7 +107,7 @@ deletePartition_tableName = Lens.lens (\DeletePartition' {tableName} -> tableNam
 
 -- | The values that define the partition.
 deletePartition_partitionValues :: Lens.Lens' DeletePartition [Prelude.Text]
-deletePartition_partitionValues = Lens.lens (\DeletePartition' {partitionValues} -> partitionValues) (\s@DeletePartition' {} a -> s {partitionValues = a} :: DeletePartition) Prelude.. Lens._Coerce
+deletePartition_partitionValues = Lens.lens (\DeletePartition' {partitionValues} -> partitionValues) (\s@DeletePartition' {} a -> s {partitionValues = a} :: DeletePartition) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeletePartition where
   type

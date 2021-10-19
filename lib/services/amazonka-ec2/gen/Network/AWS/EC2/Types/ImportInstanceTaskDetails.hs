@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImportInstanceTaskDetails' smart constructor.
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
-  { -- | The instance operating system.
-    platform :: Prelude.Maybe PlatformValues,
-    -- | The ID of the instance.
+  { -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The instance operating system.
+    platform :: Prelude.Maybe PlatformValues,
     -- | The volumes.
     volumes :: Prelude.Maybe [ImportInstanceVolumeDetailItem],
     -- | A description of the task.
@@ -49,9 +49,9 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platform', 'importInstanceTaskDetails_platform' - The instance operating system.
---
 -- 'instanceId', 'importInstanceTaskDetails_instanceId' - The ID of the instance.
+--
+-- 'platform', 'importInstanceTaskDetails_platform' - The instance operating system.
 --
 -- 'volumes', 'importInstanceTaskDetails_volumes' - The volumes.
 --
@@ -60,24 +60,24 @@ newImportInstanceTaskDetails ::
   ImportInstanceTaskDetails
 newImportInstanceTaskDetails =
   ImportInstanceTaskDetails'
-    { platform =
+    { instanceId =
         Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+      platform = Prelude.Nothing,
       volumes = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | The instance operating system.
-importInstanceTaskDetails_platform :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe PlatformValues)
-importInstanceTaskDetails_platform = Lens.lens (\ImportInstanceTaskDetails' {platform} -> platform) (\s@ImportInstanceTaskDetails' {} a -> s {platform = a} :: ImportInstanceTaskDetails)
 
 -- | The ID of the instance.
 importInstanceTaskDetails_instanceId :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe Prelude.Text)
 importInstanceTaskDetails_instanceId = Lens.lens (\ImportInstanceTaskDetails' {instanceId} -> instanceId) (\s@ImportInstanceTaskDetails' {} a -> s {instanceId = a} :: ImportInstanceTaskDetails)
 
+-- | The instance operating system.
+importInstanceTaskDetails_platform :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe PlatformValues)
+importInstanceTaskDetails_platform = Lens.lens (\ImportInstanceTaskDetails' {platform} -> platform) (\s@ImportInstanceTaskDetails' {} a -> s {platform = a} :: ImportInstanceTaskDetails)
+
 -- | The volumes.
 importInstanceTaskDetails_volumes :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe [ImportInstanceVolumeDetailItem])
-importInstanceTaskDetails_volumes = Lens.lens (\ImportInstanceTaskDetails' {volumes} -> volumes) (\s@ImportInstanceTaskDetails' {} a -> s {volumes = a} :: ImportInstanceTaskDetails) Prelude.. Lens.mapping Lens._Coerce
+importInstanceTaskDetails_volumes = Lens.lens (\ImportInstanceTaskDetails' {volumes} -> volumes) (\s@ImportInstanceTaskDetails' {} a -> s {volumes = a} :: ImportInstanceTaskDetails) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the task.
 importInstanceTaskDetails_description :: Lens.Lens' ImportInstanceTaskDetails (Prelude.Maybe Prelude.Text)
@@ -86,8 +86,8 @@ importInstanceTaskDetails_description = Lens.lens (\ImportInstanceTaskDetails' {
 instance Core.FromXML ImportInstanceTaskDetails where
   parseXML x =
     ImportInstanceTaskDetails'
-      Prelude.<$> (x Core..@? "platform")
-      Prelude.<*> (x Core..@? "instanceId")
+      Prelude.<$> (x Core..@? "instanceId")
+      Prelude.<*> (x Core..@? "platform")
       Prelude.<*> ( x Core..@? "volumes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )

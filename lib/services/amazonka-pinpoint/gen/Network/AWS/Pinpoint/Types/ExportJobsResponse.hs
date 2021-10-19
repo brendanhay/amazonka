@@ -74,7 +74,7 @@ exportJobsResponse_nextToken = Lens.lens (\ExportJobsResponse' {nextToken} -> ne
 -- the application (Export Jobs resource) or segment (Segment Export Jobs
 -- resource).
 exportJobsResponse_item :: Lens.Lens' ExportJobsResponse [ExportJobResponse]
-exportJobsResponse_item = Lens.lens (\ExportJobsResponse' {item} -> item) (\s@ExportJobsResponse' {} a -> s {item = a} :: ExportJobsResponse) Prelude.. Lens._Coerce
+exportJobsResponse_item = Lens.lens (\ExportJobsResponse' {item} -> item) (\s@ExportJobsResponse' {} a -> s {item = a} :: ExportJobsResponse) Prelude.. Lens.coerced
 
 instance Core.FromJSON ExportJobsResponse where
   parseJSON =

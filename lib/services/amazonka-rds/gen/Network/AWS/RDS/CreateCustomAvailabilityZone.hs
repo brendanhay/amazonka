@@ -34,8 +34,8 @@ module Network.AWS.RDS.CreateCustomAvailabilityZone
 
     -- * Request Lenses
     createCustomAvailabilityZone_vpnTunnelOriginatorIP,
-    createCustomAvailabilityZone_existingVpnId,
     createCustomAvailabilityZone_newVpnTunnelName,
+    createCustomAvailabilityZone_existingVpnId,
     createCustomAvailabilityZone_customAvailabilityZoneName,
 
     -- * Destructuring the Response
@@ -64,14 +64,14 @@ data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
     --
     -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
     vpnTunnelOriginatorIP :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an existing virtual private network (VPN) between the Amazon
-    -- RDS website and the VMware vSphere cluster.
-    existingVpnId :: Prelude.Maybe Prelude.Text,
     -- | The name of a new VPN tunnel between the Amazon RDS website and the
     -- VMware vSphere cluster.
     --
     -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
     newVpnTunnelName' :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an existing virtual private network (VPN) between the Amazon
+    -- RDS website and the VMware vSphere cluster.
+    existingVpnId :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom Availability Zone (AZ).
     customAvailabilityZoneName :: Prelude.Text
   }
@@ -90,13 +90,13 @@ data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
 --
 -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
 --
--- 'existingVpnId', 'createCustomAvailabilityZone_existingVpnId' - The ID of an existing virtual private network (VPN) between the Amazon
--- RDS website and the VMware vSphere cluster.
---
 -- 'newVpnTunnelName'', 'createCustomAvailabilityZone_newVpnTunnelName' - The name of a new VPN tunnel between the Amazon RDS website and the
 -- VMware vSphere cluster.
 --
 -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
+--
+-- 'existingVpnId', 'createCustomAvailabilityZone_existingVpnId' - The ID of an existing virtual private network (VPN) between the Amazon
+-- RDS website and the VMware vSphere cluster.
 --
 -- 'customAvailabilityZoneName', 'createCustomAvailabilityZone_customAvailabilityZoneName' - The name of the custom Availability Zone (AZ).
 newCreateCustomAvailabilityZone ::
@@ -108,8 +108,8 @@ newCreateCustomAvailabilityZone
     CreateCustomAvailabilityZone'
       { vpnTunnelOriginatorIP =
           Prelude.Nothing,
-        existingVpnId = Prelude.Nothing,
         newVpnTunnelName' = Prelude.Nothing,
+        existingVpnId = Prelude.Nothing,
         customAvailabilityZoneName =
           pCustomAvailabilityZoneName_
       }
@@ -121,17 +121,17 @@ newCreateCustomAvailabilityZone
 createCustomAvailabilityZone_vpnTunnelOriginatorIP :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
 createCustomAvailabilityZone_vpnTunnelOriginatorIP = Lens.lens (\CreateCustomAvailabilityZone' {vpnTunnelOriginatorIP} -> vpnTunnelOriginatorIP) (\s@CreateCustomAvailabilityZone' {} a -> s {vpnTunnelOriginatorIP = a} :: CreateCustomAvailabilityZone)
 
--- | The ID of an existing virtual private network (VPN) between the Amazon
--- RDS website and the VMware vSphere cluster.
-createCustomAvailabilityZone_existingVpnId :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
-createCustomAvailabilityZone_existingVpnId = Lens.lens (\CreateCustomAvailabilityZone' {existingVpnId} -> existingVpnId) (\s@CreateCustomAvailabilityZone' {} a -> s {existingVpnId = a} :: CreateCustomAvailabilityZone)
-
 -- | The name of a new VPN tunnel between the Amazon RDS website and the
 -- VMware vSphere cluster.
 --
 -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
 createCustomAvailabilityZone_newVpnTunnelName :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
 createCustomAvailabilityZone_newVpnTunnelName = Lens.lens (\CreateCustomAvailabilityZone' {newVpnTunnelName'} -> newVpnTunnelName') (\s@CreateCustomAvailabilityZone' {} a -> s {newVpnTunnelName' = a} :: CreateCustomAvailabilityZone)
+
+-- | The ID of an existing virtual private network (VPN) between the Amazon
+-- RDS website and the VMware vSphere cluster.
+createCustomAvailabilityZone_existingVpnId :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+createCustomAvailabilityZone_existingVpnId = Lens.lens (\CreateCustomAvailabilityZone' {existingVpnId} -> existingVpnId) (\s@CreateCustomAvailabilityZone' {} a -> s {existingVpnId = a} :: CreateCustomAvailabilityZone)
 
 -- | The name of the custom Availability Zone (AZ).
 createCustomAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CreateCustomAvailabilityZone Prelude.Text
@@ -174,8 +174,8 @@ instance Core.ToQuery CreateCustomAvailabilityZone where
           Core.=: ("2014-10-31" :: Prelude.ByteString),
         "VpnTunnelOriginatorIP"
           Core.=: vpnTunnelOriginatorIP,
-        "ExistingVpnId" Core.=: existingVpnId,
         "NewVpnTunnelName" Core.=: newVpnTunnelName',
+        "ExistingVpnId" Core.=: existingVpnId,
         "CustomAvailabilityZoneName"
           Core.=: customAvailabilityZoneName
       ]

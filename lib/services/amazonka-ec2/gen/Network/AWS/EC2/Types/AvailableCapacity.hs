@@ -70,7 +70,7 @@ newAvailableCapacity =
 -- support multiple instance types, this parameter represents the number of
 -- instances for each instance size that is supported on the host.
 availableCapacity_availableInstanceCapacity :: Lens.Lens' AvailableCapacity (Prelude.Maybe [InstanceCapacity])
-availableCapacity_availableInstanceCapacity = Lens.lens (\AvailableCapacity' {availableInstanceCapacity} -> availableInstanceCapacity) (\s@AvailableCapacity' {} a -> s {availableInstanceCapacity = a} :: AvailableCapacity) Prelude.. Lens.mapping Lens._Coerce
+availableCapacity_availableInstanceCapacity = Lens.lens (\AvailableCapacity' {availableInstanceCapacity} -> availableInstanceCapacity) (\s@AvailableCapacity' {} a -> s {availableInstanceCapacity = a} :: AvailableCapacity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of vCPUs available for launching instances onto the Dedicated
 -- Host.

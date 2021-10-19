@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUnprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'
-  { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
-    -- | The error code indicating the type of error that occurred.
-    errorCode :: Prelude.Maybe CognitoErrorCode
+  { -- | The error code indicating the type of error that occurred.
+    errorCode :: Prelude.Maybe CognitoErrorCode,
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,24 @@ data UnprocessedIdentityId = UnprocessedIdentityId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'identityId', 'unprocessedIdentityId_identityId' - A unique identifier in the format REGION:GUID.
---
 -- 'errorCode', 'unprocessedIdentityId_errorCode' - The error code indicating the type of error that occurred.
+--
+-- 'identityId', 'unprocessedIdentityId_identityId' - A unique identifier in the format REGION:GUID.
 newUnprocessedIdentityId ::
   UnprocessedIdentityId
 newUnprocessedIdentityId =
   UnprocessedIdentityId'
-    { identityId =
-        Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorCode = Prelude.Nothing,
+      identityId = Prelude.Nothing
     }
-
--- | A unique identifier in the format REGION:GUID.
-unprocessedIdentityId_identityId :: Lens.Lens' UnprocessedIdentityId (Prelude.Maybe Prelude.Text)
-unprocessedIdentityId_identityId = Lens.lens (\UnprocessedIdentityId' {identityId} -> identityId) (\s@UnprocessedIdentityId' {} a -> s {identityId = a} :: UnprocessedIdentityId)
 
 -- | The error code indicating the type of error that occurred.
 unprocessedIdentityId_errorCode :: Lens.Lens' UnprocessedIdentityId (Prelude.Maybe CognitoErrorCode)
 unprocessedIdentityId_errorCode = Lens.lens (\UnprocessedIdentityId' {errorCode} -> errorCode) (\s@UnprocessedIdentityId' {} a -> s {errorCode = a} :: UnprocessedIdentityId)
+
+-- | A unique identifier in the format REGION:GUID.
+unprocessedIdentityId_identityId :: Lens.Lens' UnprocessedIdentityId (Prelude.Maybe Prelude.Text)
+unprocessedIdentityId_identityId = Lens.lens (\UnprocessedIdentityId' {identityId} -> identityId) (\s@UnprocessedIdentityId' {} a -> s {identityId = a} :: UnprocessedIdentityId)
 
 instance Core.FromJSON UnprocessedIdentityId where
   parseJSON =
@@ -70,8 +69,8 @@ instance Core.FromJSON UnprocessedIdentityId where
       "UnprocessedIdentityId"
       ( \x ->
           UnprocessedIdentityId'
-            Prelude.<$> (x Core..:? "IdentityId")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<$> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "IdentityId")
       )
 
 instance Prelude.Hashable UnprocessedIdentityId

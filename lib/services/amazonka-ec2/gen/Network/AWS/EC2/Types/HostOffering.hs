@@ -32,19 +32,19 @@ import qualified Network.AWS.Prelude as Prelude
 data HostOffering = HostOffering'
   { -- | The instance family of the offering.
     instanceFamily :: Prelude.Maybe Prelude.Text,
-    -- | The available payment option.
-    paymentOption :: Prelude.Maybe PaymentOption,
-    -- | The upfront price of the offering. Does not apply to No Upfront
-    -- offerings.
-    upfrontPrice :: Prelude.Maybe Prelude.Text,
-    -- | The duration of the offering (in seconds).
-    duration :: Prelude.Maybe Prelude.Int,
-    -- | The ID of the offering.
-    offeringId :: Prelude.Maybe Prelude.Text,
     -- | The currency of the offering.
     currencyCode :: Prelude.Maybe CurrencyCodeValues,
     -- | The hourly price of the offering.
-    hourlyPrice :: Prelude.Maybe Prelude.Text
+    hourlyPrice :: Prelude.Maybe Prelude.Text,
+    -- | The upfront price of the offering. Does not apply to No Upfront
+    -- offerings.
+    upfrontPrice :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the offering.
+    offeringId :: Prelude.Maybe Prelude.Text,
+    -- | The duration of the offering (in seconds).
+    duration :: Prelude.Maybe Prelude.Int,
+    -- | The available payment option.
+    paymentOption :: Prelude.Maybe PaymentOption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,51 +58,34 @@ data HostOffering = HostOffering'
 --
 -- 'instanceFamily', 'hostOffering_instanceFamily' - The instance family of the offering.
 --
--- 'paymentOption', 'hostOffering_paymentOption' - The available payment option.
+-- 'currencyCode', 'hostOffering_currencyCode' - The currency of the offering.
+--
+-- 'hourlyPrice', 'hostOffering_hourlyPrice' - The hourly price of the offering.
 --
 -- 'upfrontPrice', 'hostOffering_upfrontPrice' - The upfront price of the offering. Does not apply to No Upfront
 -- offerings.
 --
--- 'duration', 'hostOffering_duration' - The duration of the offering (in seconds).
---
 -- 'offeringId', 'hostOffering_offeringId' - The ID of the offering.
 --
--- 'currencyCode', 'hostOffering_currencyCode' - The currency of the offering.
+-- 'duration', 'hostOffering_duration' - The duration of the offering (in seconds).
 --
--- 'hourlyPrice', 'hostOffering_hourlyPrice' - The hourly price of the offering.
+-- 'paymentOption', 'hostOffering_paymentOption' - The available payment option.
 newHostOffering ::
   HostOffering
 newHostOffering =
   HostOffering'
     { instanceFamily = Prelude.Nothing,
-      paymentOption = Prelude.Nothing,
-      upfrontPrice = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      offeringId = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
-      hourlyPrice = Prelude.Nothing
+      hourlyPrice = Prelude.Nothing,
+      upfrontPrice = Prelude.Nothing,
+      offeringId = Prelude.Nothing,
+      duration = Prelude.Nothing,
+      paymentOption = Prelude.Nothing
     }
 
 -- | The instance family of the offering.
 hostOffering_instanceFamily :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_instanceFamily = Lens.lens (\HostOffering' {instanceFamily} -> instanceFamily) (\s@HostOffering' {} a -> s {instanceFamily = a} :: HostOffering)
-
--- | The available payment option.
-hostOffering_paymentOption :: Lens.Lens' HostOffering (Prelude.Maybe PaymentOption)
-hostOffering_paymentOption = Lens.lens (\HostOffering' {paymentOption} -> paymentOption) (\s@HostOffering' {} a -> s {paymentOption = a} :: HostOffering)
-
--- | The upfront price of the offering. Does not apply to No Upfront
--- offerings.
-hostOffering_upfrontPrice :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
-hostOffering_upfrontPrice = Lens.lens (\HostOffering' {upfrontPrice} -> upfrontPrice) (\s@HostOffering' {} a -> s {upfrontPrice = a} :: HostOffering)
-
--- | The duration of the offering (in seconds).
-hostOffering_duration :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Int)
-hostOffering_duration = Lens.lens (\HostOffering' {duration} -> duration) (\s@HostOffering' {} a -> s {duration = a} :: HostOffering)
-
--- | The ID of the offering.
-hostOffering_offeringId :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
-hostOffering_offeringId = Lens.lens (\HostOffering' {offeringId} -> offeringId) (\s@HostOffering' {} a -> s {offeringId = a} :: HostOffering)
 
 -- | The currency of the offering.
 hostOffering_currencyCode :: Lens.Lens' HostOffering (Prelude.Maybe CurrencyCodeValues)
@@ -112,16 +95,33 @@ hostOffering_currencyCode = Lens.lens (\HostOffering' {currencyCode} -> currency
 hostOffering_hourlyPrice :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
 hostOffering_hourlyPrice = Lens.lens (\HostOffering' {hourlyPrice} -> hourlyPrice) (\s@HostOffering' {} a -> s {hourlyPrice = a} :: HostOffering)
 
+-- | The upfront price of the offering. Does not apply to No Upfront
+-- offerings.
+hostOffering_upfrontPrice :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
+hostOffering_upfrontPrice = Lens.lens (\HostOffering' {upfrontPrice} -> upfrontPrice) (\s@HostOffering' {} a -> s {upfrontPrice = a} :: HostOffering)
+
+-- | The ID of the offering.
+hostOffering_offeringId :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Text)
+hostOffering_offeringId = Lens.lens (\HostOffering' {offeringId} -> offeringId) (\s@HostOffering' {} a -> s {offeringId = a} :: HostOffering)
+
+-- | The duration of the offering (in seconds).
+hostOffering_duration :: Lens.Lens' HostOffering (Prelude.Maybe Prelude.Int)
+hostOffering_duration = Lens.lens (\HostOffering' {duration} -> duration) (\s@HostOffering' {} a -> s {duration = a} :: HostOffering)
+
+-- | The available payment option.
+hostOffering_paymentOption :: Lens.Lens' HostOffering (Prelude.Maybe PaymentOption)
+hostOffering_paymentOption = Lens.lens (\HostOffering' {paymentOption} -> paymentOption) (\s@HostOffering' {} a -> s {paymentOption = a} :: HostOffering)
+
 instance Core.FromXML HostOffering where
   parseXML x =
     HostOffering'
       Prelude.<$> (x Core..@? "instanceFamily")
-      Prelude.<*> (x Core..@? "paymentOption")
-      Prelude.<*> (x Core..@? "upfrontPrice")
-      Prelude.<*> (x Core..@? "duration")
-      Prelude.<*> (x Core..@? "offeringId")
       Prelude.<*> (x Core..@? "currencyCode")
       Prelude.<*> (x Core..@? "hourlyPrice")
+      Prelude.<*> (x Core..@? "upfrontPrice")
+      Prelude.<*> (x Core..@? "offeringId")
+      Prelude.<*> (x Core..@? "duration")
+      Prelude.<*> (x Core..@? "paymentOption")
 
 instance Prelude.Hashable HostOffering
 

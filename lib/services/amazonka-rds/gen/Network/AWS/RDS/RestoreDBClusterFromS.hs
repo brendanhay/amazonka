@@ -46,29 +46,29 @@ module Network.AWS.RDS.RestoreDBClusterFromS
     newRestoreDBClusterFromS,
 
     -- * Request Lenses
+    restoreDBClusterFromS_engineVersion,
     restoreDBClusterFromS_deletionProtection,
+    restoreDBClusterFromS_storageEncrypted,
+    restoreDBClusterFromS_dbSubnetGroupName,
+    restoreDBClusterFromS_domain,
+    restoreDBClusterFromS_backtrackWindow,
+    restoreDBClusterFromS_preferredMaintenanceWindow,
+    restoreDBClusterFromS_availabilityZones,
+    restoreDBClusterFromS_characterSetName,
+    restoreDBClusterFromS_kmsKeyId,
     restoreDBClusterFromS_preferredBackupWindow,
     restoreDBClusterFromS_backupRetentionPeriod,
-    restoreDBClusterFromS_storageEncrypted,
-    restoreDBClusterFromS_availabilityZones,
-    restoreDBClusterFromS_enableIAMDatabaseAuthentication,
-    restoreDBClusterFromS_enableCloudwatchLogsExports,
-    restoreDBClusterFromS_optionGroupName,
-    restoreDBClusterFromS_domain,
-    restoreDBClusterFromS_dbSubnetGroupName,
     restoreDBClusterFromS_vpcSecurityGroupIds,
-    restoreDBClusterFromS_kmsKeyId,
-    restoreDBClusterFromS_engineVersion,
-    restoreDBClusterFromS_characterSetName,
-    restoreDBClusterFromS_preferredMaintenanceWindow,
+    restoreDBClusterFromS_databaseName,
+    restoreDBClusterFromS_dbClusterParameterGroupName,
+    restoreDBClusterFromS_s3Prefix,
+    restoreDBClusterFromS_optionGroupName,
+    restoreDBClusterFromS_copyTagsToSnapshot,
+    restoreDBClusterFromS_domainIAMRoleName,
     restoreDBClusterFromS_tags,
     restoreDBClusterFromS_port,
-    restoreDBClusterFromS_domainIAMRoleName,
-    restoreDBClusterFromS_copyTagsToSnapshot,
-    restoreDBClusterFromS_s3Prefix,
-    restoreDBClusterFromS_backtrackWindow,
-    restoreDBClusterFromS_dbClusterParameterGroupName,
-    restoreDBClusterFromS_databaseName,
+    restoreDBClusterFromS_enableIAMDatabaseAuthentication,
+    restoreDBClusterFromS_enableCloudwatchLogsExports,
     restoreDBClusterFromS_dbClusterIdentifier,
     restoreDBClusterFromS_engine,
     restoreDBClusterFromS_masterUsername,
@@ -97,10 +97,100 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRestoreDBClusterFromS' smart constructor.
 data RestoreDBClusterFromS = RestoreDBClusterFromS'
-  { -- | A value that indicates whether the DB cluster has deletion protection
+  { -- | The version number of the database engine to use.
+    --
+    -- To list all of the available engine versions for @aurora@ (for MySQL
+    -- 5.6-compatible Aurora), use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
+    --
+    -- To list all of the available engine versions for @aurora-mysql@ (for
+    -- MySQL 5.7-compatible Aurora), use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
+    --
+    -- To list all of the available engine versions for @aurora-postgresql@,
+    -- use the following command:
+    --
+    -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
+    --
+    -- __Aurora MySQL__
+    --
+    -- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
+    -- @5.7.mysql_aurora.2.04.5@
+    --
+    -- __Aurora PostgreSQL__
+    --
+    -- Example: @9.6.3@, @10.7@
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the DB cluster has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
     -- enabled. By default, deletion protection is disabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the restored DB cluster is encrypted.
+    storageEncrypted :: Prelude.Maybe Prelude.Bool,
+    -- | A DB subnet group to associate with the restored DB cluster.
+    --
+    -- Constraints: If supplied, must match the name of an existing
+    -- DBSubnetGroup.
+    --
+    -- Example: @mySubnetgroup@
+    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specify the Active Directory directory ID to restore the DB cluster in.
+    -- The domain must be created prior to this operation.
+    --
+    -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
+    -- Authentication to authenticate users that connect to the DB cluster. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+    -- in the /Amazon Aurora User Guide/.
+    domain :: Prelude.Maybe Prelude.Text,
+    -- | The target backtrack window, in seconds. To disable backtracking, set
+    -- this value to 0.
+    --
+    -- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
+    --
+    -- Default: 0
+    --
+    -- Constraints:
+    --
+    -- -   If specified, this value must be set to a number from 0 to 259,200
+    --     (72 hours).
+    backtrackWindow :: Prelude.Maybe Prelude.Integer,
+    -- | The weekly time range during which system maintenance can occur, in
+    -- Universal Coordinated Time (UTC).
+    --
+    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    --
+    -- The default is a 30-minute window selected at random from an 8-hour
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week. To see the time blocks available, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
+    -- in the /Amazon Aurora User Guide./
+    --
+    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+    --
+    -- Constraints: Minimum 30-minute window.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | A list of Availability Zones (AZs) where instances in the restored DB
+    -- cluster can be created.
+    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | A value that indicates that the restored DB cluster should be associated
+    -- with the specified CharacterSet.
+    characterSetName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
+    --
+    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+    -- ARN, or alias name for the Amazon Web Services KMS customer master key
+    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
+    -- the key ARN or alias ARN.
+    --
+    -- If the StorageEncrypted parameter is enabled, and you do not specify a
+    -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
+    -- default CMK. There is a default CMK for your Amazon Web Services
+    -- account. Your Amazon Web Services account has a different default CMK
+    -- for each Amazon Web Services Region.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The daily time range during which automated backups are created if
     -- automated backups are enabled using the @BackupRetentionPeriod@
     -- parameter.
@@ -130,11 +220,45 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     --
     -- -   Must be a value from 1 to 35
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    -- | A value that indicates whether the restored DB cluster is encrypted.
-    storageEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | A list of Availability Zones (AZs) where instances in the restored DB
-    -- cluster can be created.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | A list of EC2 VPC security groups to associate with the restored DB
+    -- cluster.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The database name for the restored DB cluster.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the DB cluster parameter group to associate with the
+    -- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
+    -- used.
+    --
+    -- Constraints:
+    --
+    -- -   If supplied, must match the name of an existing
+    --     DBClusterParameterGroup.
+    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The prefix for all of the file names that contain the data used to
+    -- create the Amazon Aurora DB cluster. If you do not specify a
+    -- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
+    -- by using all of the files in the Amazon S3 bucket.
+    s3Prefix :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates that the restored DB cluster should be associated
+    -- with the specified option group.
+    --
+    -- Permanent options can\'t be removed from an option group. An option
+    -- group can\'t be removed from a DB cluster once it is associated with a
+    -- DB cluster.
+    optionGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to copy all tags from the restored DB
+    -- cluster to snapshots of the restored DB cluster. The default is not to
+    -- copy them.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    -- | Specify the name of the IAM role to be used when making API calls to the
+    -- Directory Service.
+    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    tags :: Prelude.Maybe [Tag],
+    -- | The port number on which the instances in the restored DB cluster accept
+    -- connections.
+    --
+    -- Default: @3306@
+    port :: Prelude.Maybe Prelude.Int,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts. By
     -- default, mapping is disabled.
@@ -149,130 +273,6 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
     -- in the /Amazon Aurora User Guide/.
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
-    -- | A value that indicates that the restored DB cluster should be associated
-    -- with the specified option group.
-    --
-    -- Permanent options can\'t be removed from an option group. An option
-    -- group can\'t be removed from a DB cluster once it is associated with a
-    -- DB cluster.
-    optionGroupName :: Prelude.Maybe Prelude.Text,
-    -- | Specify the Active Directory directory ID to restore the DB cluster in.
-    -- The domain must be created prior to this operation.
-    --
-    -- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
-    -- Authentication to authenticate users that connect to the DB cluster. For
-    -- more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
-    -- in the /Amazon Aurora User Guide/.
-    domain :: Prelude.Maybe Prelude.Text,
-    -- | A DB subnet group to associate with the restored DB cluster.
-    --
-    -- Constraints: If supplied, must match the name of an existing
-    -- DBSubnetGroup.
-    --
-    -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of EC2 VPC security groups to associate with the restored DB
-    -- cluster.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
-    --
-    -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK). To use a CMK in a different Amazon Web Services account, specify
-    -- the key ARN or alias ARN.
-    --
-    -- If the StorageEncrypted parameter is enabled, and you do not specify a
-    -- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
-    -- default CMK. There is a default CMK for your Amazon Web Services
-    -- account. Your Amazon Web Services account has a different default CMK
-    -- for each Amazon Web Services Region.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the database engine to use.
-    --
-    -- To list all of the available engine versions for @aurora@ (for MySQL
-    -- 5.6-compatible Aurora), use the following command:
-    --
-    -- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
-    --
-    -- To list all of the available engine versions for @aurora-mysql@ (for
-    -- MySQL 5.7-compatible Aurora), use the following command:
-    --
-    -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
-    --
-    -- To list all of the available engine versions for @aurora-postgresql@,
-    -- use the following command:
-    --
-    -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
-    --
-    -- __Aurora MySQL__
-    --
-    -- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
-    -- @5.7.mysql_aurora.2.04.5@
-    --
-    -- __Aurora PostgreSQL__
-    --
-    -- Example: @9.6.3@, @10.7@
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates that the restored DB cluster should be associated
-    -- with the specified CharacterSet.
-    characterSetName :: Prelude.Maybe Prelude.Text,
-    -- | The weekly time range during which system maintenance can occur, in
-    -- Universal Coordinated Time (UTC).
-    --
-    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
-    --
-    -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Amazon Web Services Region, occurring on a random
-    -- day of the week. To see the time blocks available, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
-    -- in the /Amazon Aurora User Guide./
-    --
-    -- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
-    --
-    -- Constraints: Minimum 30-minute window.
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
-    -- | The port number on which the instances in the restored DB cluster accept
-    -- connections.
-    --
-    -- Default: @3306@
-    port :: Prelude.Maybe Prelude.Int,
-    -- | Specify the name of the IAM role to be used when making API calls to the
-    -- Directory Service.
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
-    -- | A value that indicates whether to copy all tags from the restored DB
-    -- cluster to snapshots of the restored DB cluster. The default is not to
-    -- copy them.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | The prefix for all of the file names that contain the data used to
-    -- create the Amazon Aurora DB cluster. If you do not specify a
-    -- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
-    -- by using all of the files in the Amazon S3 bucket.
-    s3Prefix :: Prelude.Maybe Prelude.Text,
-    -- | The target backtrack window, in seconds. To disable backtracking, set
-    -- this value to 0.
-    --
-    -- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
-    --
-    -- Default: 0
-    --
-    -- Constraints:
-    --
-    -- -   If specified, this value must be set to a number from 0 to 259,200
-    --     (72 hours).
-    backtrackWindow :: Prelude.Maybe Prelude.Integer,
-    -- | The name of the DB cluster parameter group to associate with the
-    -- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
-    -- used.
-    --
-    -- Constraints:
-    --
-    -- -   If supplied, must match the name of an existing
-    --     DBClusterParameterGroup.
-    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text,
-    -- | The database name for the restored DB cluster.
-    databaseName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to create from the source data in the Amazon
     -- S3 bucket. This parameter isn\'t case-sensitive.
     --
@@ -335,9 +335,99 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineVersion', 'restoreDBClusterFromS_engineVersion' - The version number of the database engine to use.
+--
+-- To list all of the available engine versions for @aurora@ (for MySQL
+-- 5.6-compatible Aurora), use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- To list all of the available engine versions for @aurora-mysql@ (for
+-- MySQL 5.7-compatible Aurora), use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- To list all of the available engine versions for @aurora-postgresql@,
+-- use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- __Aurora MySQL__
+--
+-- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
+-- @5.7.mysql_aurora.2.04.5@
+--
+-- __Aurora PostgreSQL__
+--
+-- Example: @9.6.3@, @10.7@
+--
 -- 'deletionProtection', 'restoreDBClusterFromS_deletionProtection' - A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
+--
+-- 'storageEncrypted', 'restoreDBClusterFromS_storageEncrypted' - A value that indicates whether the restored DB cluster is encrypted.
+--
+-- 'dbSubnetGroupName', 'restoreDBClusterFromS_dbSubnetGroupName' - A DB subnet group to associate with the restored DB cluster.
+--
+-- Constraints: If supplied, must match the name of an existing
+-- DBSubnetGroup.
+--
+-- Example: @mySubnetgroup@
+--
+-- 'domain', 'restoreDBClusterFromS_domain' - Specify the Active Directory directory ID to restore the DB cluster in.
+-- The domain must be created prior to this operation.
+--
+-- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
+-- Authentication to authenticate users that connect to the DB cluster. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon Aurora User Guide/.
+--
+-- 'backtrackWindow', 'restoreDBClusterFromS_backtrackWindow' - The target backtrack window, in seconds. To disable backtracking, set
+-- this value to 0.
+--
+-- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
+--
+-- Default: 0
+--
+-- Constraints:
+--
+-- -   If specified, this value must be set to a number from 0 to 259,200
+--     (72 hours).
+--
+-- 'preferredMaintenanceWindow', 'restoreDBClusterFromS_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week. To see the time blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- Constraints: Minimum 30-minute window.
+--
+-- 'availabilityZones', 'restoreDBClusterFromS_availabilityZones' - A list of Availability Zones (AZs) where instances in the restored DB
+-- cluster can be created.
+--
+-- 'characterSetName', 'restoreDBClusterFromS_characterSetName' - A value that indicates that the restored DB cluster should be associated
+-- with the specified CharacterSet.
+--
+-- 'kmsKeyId', 'restoreDBClusterFromS_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB cluster.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
+--
+-- If the StorageEncrypted parameter is enabled, and you do not specify a
+-- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
+-- default CMK. There is a default CMK for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default CMK
+-- for each Amazon Web Services Region.
 --
 -- 'preferredBackupWindow', 'restoreDBClusterFromS_preferredBackupWindow' - The daily time range during which automated backups are created if
 -- automated backups are enabled using the @BackupRetentionPeriod@
@@ -368,10 +458,45 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 --
 -- -   Must be a value from 1 to 35
 --
--- 'storageEncrypted', 'restoreDBClusterFromS_storageEncrypted' - A value that indicates whether the restored DB cluster is encrypted.
+-- 'vpcSecurityGroupIds', 'restoreDBClusterFromS_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with the restored DB
+-- cluster.
 --
--- 'availabilityZones', 'restoreDBClusterFromS_availabilityZones' - A list of Availability Zones (AZs) where instances in the restored DB
--- cluster can be created.
+-- 'databaseName', 'restoreDBClusterFromS_databaseName' - The database name for the restored DB cluster.
+--
+-- 'dbClusterParameterGroupName', 'restoreDBClusterFromS_dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with the
+-- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
+-- used.
+--
+-- Constraints:
+--
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+--
+-- 's3Prefix', 'restoreDBClusterFromS_s3Prefix' - The prefix for all of the file names that contain the data used to
+-- create the Amazon Aurora DB cluster. If you do not specify a
+-- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
+-- by using all of the files in the Amazon S3 bucket.
+--
+-- 'optionGroupName', 'restoreDBClusterFromS_optionGroupName' - A value that indicates that the restored DB cluster should be associated
+-- with the specified option group.
+--
+-- Permanent options can\'t be removed from an option group. An option
+-- group can\'t be removed from a DB cluster once it is associated with a
+-- DB cluster.
+--
+-- 'copyTagsToSnapshot', 'restoreDBClusterFromS_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB
+-- cluster to snapshots of the restored DB cluster. The default is not to
+-- copy them.
+--
+-- 'domainIAMRoleName', 'restoreDBClusterFromS_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+--
+-- 'tags', 'restoreDBClusterFromS_tags' - Undocumented member.
+--
+-- 'port', 'restoreDBClusterFromS_port' - The port number on which the instances in the restored DB cluster accept
+-- connections.
+--
+-- Default: @3306@
 --
 -- 'enableIAMDatabaseAuthentication', 'restoreDBClusterFromS_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -386,131 +511,6 @@ data RestoreDBClusterFromS = RestoreDBClusterFromS'
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon Aurora User Guide/.
---
--- 'optionGroupName', 'restoreDBClusterFromS_optionGroupName' - A value that indicates that the restored DB cluster should be associated
--- with the specified option group.
---
--- Permanent options can\'t be removed from an option group. An option
--- group can\'t be removed from a DB cluster once it is associated with a
--- DB cluster.
---
--- 'domain', 'restoreDBClusterFromS_domain' - Specify the Active Directory directory ID to restore the DB cluster in.
--- The domain must be created prior to this operation.
---
--- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
--- Authentication to authenticate users that connect to the DB cluster. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
--- in the /Amazon Aurora User Guide/.
---
--- 'dbSubnetGroupName', 'restoreDBClusterFromS_dbSubnetGroupName' - A DB subnet group to associate with the restored DB cluster.
---
--- Constraints: If supplied, must match the name of an existing
--- DBSubnetGroup.
---
--- Example: @mySubnetgroup@
---
--- 'vpcSecurityGroupIds', 'restoreDBClusterFromS_vpcSecurityGroupIds' - A list of EC2 VPC security groups to associate with the restored DB
--- cluster.
---
--- 'kmsKeyId', 'restoreDBClusterFromS_kmsKeyId' - The Amazon Web Services KMS key identifier for an encrypted DB cluster.
---
--- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK). To use a CMK in a different Amazon Web Services account, specify
--- the key ARN or alias ARN.
---
--- If the StorageEncrypted parameter is enabled, and you do not specify a
--- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
--- default CMK. There is a default CMK for your Amazon Web Services
--- account. Your Amazon Web Services account has a different default CMK
--- for each Amazon Web Services Region.
---
--- 'engineVersion', 'restoreDBClusterFromS_engineVersion' - The version number of the database engine to use.
---
--- To list all of the available engine versions for @aurora@ (for MySQL
--- 5.6-compatible Aurora), use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible Aurora), use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for @aurora-postgresql@,
--- use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
---
--- __Aurora MySQL__
---
--- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
--- @5.7.mysql_aurora.2.04.5@
---
--- __Aurora PostgreSQL__
---
--- Example: @9.6.3@, @10.7@
---
--- 'characterSetName', 'restoreDBClusterFromS_characterSetName' - A value that indicates that the restored DB cluster should be associated
--- with the specified CharacterSet.
---
--- 'preferredMaintenanceWindow', 'restoreDBClusterFromS_preferredMaintenanceWindow' - The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Amazon Web Services Region, occurring on a random
--- day of the week. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
--- in the /Amazon Aurora User Guide./
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- Constraints: Minimum 30-minute window.
---
--- 'tags', 'restoreDBClusterFromS_tags' - Undocumented member.
---
--- 'port', 'restoreDBClusterFromS_port' - The port number on which the instances in the restored DB cluster accept
--- connections.
---
--- Default: @3306@
---
--- 'domainIAMRoleName', 'restoreDBClusterFromS_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
---
--- 'copyTagsToSnapshot', 'restoreDBClusterFromS_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB
--- cluster to snapshots of the restored DB cluster. The default is not to
--- copy them.
---
--- 's3Prefix', 'restoreDBClusterFromS_s3Prefix' - The prefix for all of the file names that contain the data used to
--- create the Amazon Aurora DB cluster. If you do not specify a
--- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
--- by using all of the files in the Amazon S3 bucket.
---
--- 'backtrackWindow', 'restoreDBClusterFromS_backtrackWindow' - The target backtrack window, in seconds. To disable backtracking, set
--- this value to 0.
---
--- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
---
--- Default: 0
---
--- Constraints:
---
--- -   If specified, this value must be set to a number from 0 to 259,200
---     (72 hours).
---
--- 'dbClusterParameterGroupName', 'restoreDBClusterFromS_dbClusterParameterGroupName' - The name of the DB cluster parameter group to associate with the
--- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
--- used.
---
--- Constraints:
---
--- -   If supplied, must match the name of an existing
---     DBClusterParameterGroup.
---
--- 'databaseName', 'restoreDBClusterFromS_databaseName' - The database name for the restored DB cluster.
 --
 -- 'dbClusterIdentifier', 'restoreDBClusterFromS_dbClusterIdentifier' - The name of the DB cluster to create from the source data in the Amazon
 -- S3 bucket. This parameter isn\'t case-sensitive.
@@ -590,30 +590,30 @@ newRestoreDBClusterFromS
   pS3BucketName_
   pS3IngestionRoleArn_ =
     RestoreDBClusterFromS'
-      { deletionProtection =
+      { engineVersion =
           Prelude.Nothing,
+        deletionProtection = Prelude.Nothing,
+        storageEncrypted = Prelude.Nothing,
+        dbSubnetGroupName = Prelude.Nothing,
+        domain = Prelude.Nothing,
+        backtrackWindow = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        availabilityZones = Prelude.Nothing,
+        characterSetName = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         preferredBackupWindow = Prelude.Nothing,
         backupRetentionPeriod = Prelude.Nothing,
-        storageEncrypted = Prelude.Nothing,
-        availabilityZones = Prelude.Nothing,
-        enableIAMDatabaseAuthentication = Prelude.Nothing,
-        enableCloudwatchLogsExports = Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
-        domain = Prelude.Nothing,
-        dbSubnetGroupName = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        engineVersion = Prelude.Nothing,
-        characterSetName = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
+        databaseName = Prelude.Nothing,
+        dbClusterParameterGroupName = Prelude.Nothing,
+        s3Prefix = Prelude.Nothing,
+        optionGroupName = Prelude.Nothing,
+        copyTagsToSnapshot = Prelude.Nothing,
+        domainIAMRoleName = Prelude.Nothing,
         tags = Prelude.Nothing,
         port = Prelude.Nothing,
-        domainIAMRoleName = Prelude.Nothing,
-        copyTagsToSnapshot = Prelude.Nothing,
-        s3Prefix = Prelude.Nothing,
-        backtrackWindow = Prelude.Nothing,
-        dbClusterParameterGroupName = Prelude.Nothing,
-        databaseName = Prelude.Nothing,
+        enableIAMDatabaseAuthentication = Prelude.Nothing,
+        enableCloudwatchLogsExports = Prelude.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_,
         engine = pEngine_,
         masterUsername = pMasterUsername_,
@@ -624,11 +624,119 @@ newRestoreDBClusterFromS
         s3IngestionRoleArn = pS3IngestionRoleArn_
       }
 
+-- | The version number of the database engine to use.
+--
+-- To list all of the available engine versions for @aurora@ (for MySQL
+-- 5.6-compatible Aurora), use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- To list all of the available engine versions for @aurora-mysql@ (for
+-- MySQL 5.7-compatible Aurora), use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- To list all of the available engine versions for @aurora-postgresql@,
+-- use the following command:
+--
+-- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
+--
+-- __Aurora MySQL__
+--
+-- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
+-- @5.7.mysql_aurora.2.04.5@
+--
+-- __Aurora PostgreSQL__
+--
+-- Example: @9.6.3@, @10.7@
+restoreDBClusterFromS_engineVersion :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_engineVersion = Lens.lens (\RestoreDBClusterFromS' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromS' {} a -> s {engineVersion = a} :: RestoreDBClusterFromS)
+
 -- | A value that indicates whether the DB cluster has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
 -- enabled. By default, deletion protection is disabled.
 restoreDBClusterFromS_deletionProtection :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
 restoreDBClusterFromS_deletionProtection = Lens.lens (\RestoreDBClusterFromS' {deletionProtection} -> deletionProtection) (\s@RestoreDBClusterFromS' {} a -> s {deletionProtection = a} :: RestoreDBClusterFromS)
+
+-- | A value that indicates whether the restored DB cluster is encrypted.
+restoreDBClusterFromS_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
+restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBClusterFromS' {} a -> s {storageEncrypted = a} :: RestoreDBClusterFromS)
+
+-- | A DB subnet group to associate with the restored DB cluster.
+--
+-- Constraints: If supplied, must match the name of an existing
+-- DBSubnetGroup.
+--
+-- Example: @mySubnetgroup@
+restoreDBClusterFromS_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_dbSubnetGroupName = Lens.lens (\RestoreDBClusterFromS' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterFromS' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterFromS)
+
+-- | Specify the Active Directory directory ID to restore the DB cluster in.
+-- The domain must be created prior to this operation.
+--
+-- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
+-- Authentication to authenticate users that connect to the DB cluster. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
+-- in the /Amazon Aurora User Guide/.
+restoreDBClusterFromS_domain :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_domain = Lens.lens (\RestoreDBClusterFromS' {domain} -> domain) (\s@RestoreDBClusterFromS' {} a -> s {domain = a} :: RestoreDBClusterFromS)
+
+-- | The target backtrack window, in seconds. To disable backtracking, set
+-- this value to 0.
+--
+-- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
+--
+-- Default: 0
+--
+-- Constraints:
+--
+-- -   If specified, this value must be set to a number from 0 to 259,200
+--     (72 hours).
+restoreDBClusterFromS_backtrackWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Integer)
+restoreDBClusterFromS_backtrackWindow = Lens.lens (\RestoreDBClusterFromS' {backtrackWindow} -> backtrackWindow) (\s@RestoreDBClusterFromS' {} a -> s {backtrackWindow = a} :: RestoreDBClusterFromS)
+
+-- | The weekly time range during which system maintenance can occur, in
+-- Universal Coordinated Time (UTC).
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- The default is a 30-minute window selected at random from an 8-hour
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week. To see the time blocks available, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
+-- in the /Amazon Aurora User Guide./
+--
+-- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
+--
+-- Constraints: Minimum 30-minute window.
+restoreDBClusterFromS_preferredMaintenanceWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_preferredMaintenanceWindow = Lens.lens (\RestoreDBClusterFromS' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBClusterFromS' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBClusterFromS)
+
+-- | A list of Availability Zones (AZs) where instances in the restored DB
+-- cluster can be created.
+restoreDBClusterFromS_availabilityZones :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromS_availabilityZones = Lens.lens (\RestoreDBClusterFromS' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromS' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens.coerced
+
+-- | A value that indicates that the restored DB cluster should be associated
+-- with the specified CharacterSet.
+restoreDBClusterFromS_characterSetName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_characterSetName = Lens.lens (\RestoreDBClusterFromS' {characterSetName} -> characterSetName) (\s@RestoreDBClusterFromS' {} a -> s {characterSetName = a} :: RestoreDBClusterFromS)
+
+-- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
+--
+-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
+-- ARN, or alias name for the Amazon Web Services KMS customer master key
+-- (CMK). To use a CMK in a different Amazon Web Services account, specify
+-- the key ARN or alias ARN.
+--
+-- If the StorageEncrypted parameter is enabled, and you do not specify a
+-- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
+-- default CMK. There is a default CMK for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default CMK
+-- for each Amazon Web Services Region.
+restoreDBClusterFromS_kmsKeyId :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_kmsKeyId = Lens.lens (\RestoreDBClusterFromS' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterFromS' {} a -> s {kmsKeyId = a} :: RestoreDBClusterFromS)
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled using the @BackupRetentionPeriod@
@@ -663,14 +771,63 @@ restoreDBClusterFromS_preferredBackupWindow = Lens.lens (\RestoreDBClusterFromS'
 restoreDBClusterFromS_backupRetentionPeriod :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
 restoreDBClusterFromS_backupRetentionPeriod = Lens.lens (\RestoreDBClusterFromS' {backupRetentionPeriod} -> backupRetentionPeriod) (\s@RestoreDBClusterFromS' {} a -> s {backupRetentionPeriod = a} :: RestoreDBClusterFromS)
 
--- | A value that indicates whether the restored DB cluster is encrypted.
-restoreDBClusterFromS_storageEncrypted :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
-restoreDBClusterFromS_storageEncrypted = Lens.lens (\RestoreDBClusterFromS' {storageEncrypted} -> storageEncrypted) (\s@RestoreDBClusterFromS' {} a -> s {storageEncrypted = a} :: RestoreDBClusterFromS)
+-- | A list of EC2 VPC security groups to associate with the restored DB
+-- cluster.
+restoreDBClusterFromS_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
+restoreDBClusterFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromS' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromS' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Availability Zones (AZs) where instances in the restored DB
--- cluster can be created.
-restoreDBClusterFromS_availabilityZones :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
-restoreDBClusterFromS_availabilityZones = Lens.lens (\RestoreDBClusterFromS' {availabilityZones} -> availabilityZones) (\s@RestoreDBClusterFromS' {} a -> s {availabilityZones = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
+-- | The database name for the restored DB cluster.
+restoreDBClusterFromS_databaseName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_databaseName = Lens.lens (\RestoreDBClusterFromS' {databaseName} -> databaseName) (\s@RestoreDBClusterFromS' {} a -> s {databaseName = a} :: RestoreDBClusterFromS)
+
+-- | The name of the DB cluster parameter group to associate with the
+-- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
+-- used.
+--
+-- Constraints:
+--
+-- -   If supplied, must match the name of an existing
+--     DBClusterParameterGroup.
+restoreDBClusterFromS_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_dbClusterParameterGroupName = Lens.lens (\RestoreDBClusterFromS' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@RestoreDBClusterFromS' {} a -> s {dbClusterParameterGroupName = a} :: RestoreDBClusterFromS)
+
+-- | The prefix for all of the file names that contain the data used to
+-- create the Amazon Aurora DB cluster. If you do not specify a
+-- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
+-- by using all of the files in the Amazon S3 bucket.
+restoreDBClusterFromS_s3Prefix :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_s3Prefix = Lens.lens (\RestoreDBClusterFromS' {s3Prefix} -> s3Prefix) (\s@RestoreDBClusterFromS' {} a -> s {s3Prefix = a} :: RestoreDBClusterFromS)
+
+-- | A value that indicates that the restored DB cluster should be associated
+-- with the specified option group.
+--
+-- Permanent options can\'t be removed from an option group. An option
+-- group can\'t be removed from a DB cluster once it is associated with a
+-- DB cluster.
+restoreDBClusterFromS_optionGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_optionGroupName = Lens.lens (\RestoreDBClusterFromS' {optionGroupName} -> optionGroupName) (\s@RestoreDBClusterFromS' {} a -> s {optionGroupName = a} :: RestoreDBClusterFromS)
+
+-- | A value that indicates whether to copy all tags from the restored DB
+-- cluster to snapshots of the restored DB cluster. The default is not to
+-- copy them.
+restoreDBClusterFromS_copyTagsToSnapshot :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
+restoreDBClusterFromS_copyTagsToSnapshot = Lens.lens (\RestoreDBClusterFromS' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBClusterFromS' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBClusterFromS)
+
+-- | Specify the name of the IAM role to be used when making API calls to the
+-- Directory Service.
+restoreDBClusterFromS_domainIAMRoleName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
+restoreDBClusterFromS_domainIAMRoleName = Lens.lens (\RestoreDBClusterFromS' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBClusterFromS' {} a -> s {domainIAMRoleName = a} :: RestoreDBClusterFromS)
+
+-- | Undocumented member.
+restoreDBClusterFromS_tags :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Tag])
+restoreDBClusterFromS_tags = Lens.lens (\RestoreDBClusterFromS' {tags} -> tags) (\s@RestoreDBClusterFromS' {} a -> s {tags = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens.coerced
+
+-- | The port number on which the instances in the restored DB cluster accept
+-- connections.
+--
+-- Default: @3306@
+restoreDBClusterFromS_port :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
+restoreDBClusterFromS_port = Lens.lens (\RestoreDBClusterFromS' {port} -> port) (\s@RestoreDBClusterFromS' {} a -> s {port = a} :: RestoreDBClusterFromS)
 
 -- | A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -688,164 +845,7 @@ restoreDBClusterFromS_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBClu
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon Aurora User Guide/.
 restoreDBClusterFromS_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
-restoreDBClusterFromS_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterFromS' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterFromS' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
-
--- | A value that indicates that the restored DB cluster should be associated
--- with the specified option group.
---
--- Permanent options can\'t be removed from an option group. An option
--- group can\'t be removed from a DB cluster once it is associated with a
--- DB cluster.
-restoreDBClusterFromS_optionGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_optionGroupName = Lens.lens (\RestoreDBClusterFromS' {optionGroupName} -> optionGroupName) (\s@RestoreDBClusterFromS' {} a -> s {optionGroupName = a} :: RestoreDBClusterFromS)
-
--- | Specify the Active Directory directory ID to restore the DB cluster in.
--- The domain must be created prior to this operation.
---
--- For Amazon Aurora DB clusters, Amazon RDS can use Kerberos
--- Authentication to authenticate users that connect to the DB cluster. For
--- more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html Kerberos Authentication>
--- in the /Amazon Aurora User Guide/.
-restoreDBClusterFromS_domain :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_domain = Lens.lens (\RestoreDBClusterFromS' {domain} -> domain) (\s@RestoreDBClusterFromS' {} a -> s {domain = a} :: RestoreDBClusterFromS)
-
--- | A DB subnet group to associate with the restored DB cluster.
---
--- Constraints: If supplied, must match the name of an existing
--- DBSubnetGroup.
---
--- Example: @mySubnetgroup@
-restoreDBClusterFromS_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_dbSubnetGroupName = Lens.lens (\RestoreDBClusterFromS' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterFromS' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterFromS)
-
--- | A list of EC2 VPC security groups to associate with the restored DB
--- cluster.
-restoreDBClusterFromS_vpcSecurityGroupIds :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Prelude.Text])
-restoreDBClusterFromS_vpcSecurityGroupIds = Lens.lens (\RestoreDBClusterFromS' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBClusterFromS' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
-
--- | The Amazon Web Services KMS key identifier for an encrypted DB cluster.
---
--- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK). To use a CMK in a different Amazon Web Services account, specify
--- the key ARN or alias ARN.
---
--- If the StorageEncrypted parameter is enabled, and you do not specify a
--- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
--- default CMK. There is a default CMK for your Amazon Web Services
--- account. Your Amazon Web Services account has a different default CMK
--- for each Amazon Web Services Region.
-restoreDBClusterFromS_kmsKeyId :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_kmsKeyId = Lens.lens (\RestoreDBClusterFromS' {kmsKeyId} -> kmsKeyId) (\s@RestoreDBClusterFromS' {} a -> s {kmsKeyId = a} :: RestoreDBClusterFromS)
-
--- | The version number of the database engine to use.
---
--- To list all of the available engine versions for @aurora@ (for MySQL
--- 5.6-compatible Aurora), use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible Aurora), use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora-mysql --query \"DBEngineVersions[].EngineVersion\"@
---
--- To list all of the available engine versions for @aurora-postgresql@,
--- use the following command:
---
--- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \"DBEngineVersions[].EngineVersion\"@
---
--- __Aurora MySQL__
---
--- Example: @5.6.10a@, @5.6.mysql_aurora.1.19.2@, @5.7.12@,
--- @5.7.mysql_aurora.2.04.5@
---
--- __Aurora PostgreSQL__
---
--- Example: @9.6.3@, @10.7@
-restoreDBClusterFromS_engineVersion :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_engineVersion = Lens.lens (\RestoreDBClusterFromS' {engineVersion} -> engineVersion) (\s@RestoreDBClusterFromS' {} a -> s {engineVersion = a} :: RestoreDBClusterFromS)
-
--- | A value that indicates that the restored DB cluster should be associated
--- with the specified CharacterSet.
-restoreDBClusterFromS_characterSetName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_characterSetName = Lens.lens (\RestoreDBClusterFromS' {characterSetName} -> characterSetName) (\s@RestoreDBClusterFromS' {} a -> s {characterSetName = a} :: RestoreDBClusterFromS)
-
--- | The weekly time range during which system maintenance can occur, in
--- Universal Coordinated Time (UTC).
---
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
---
--- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Amazon Web Services Region, occurring on a random
--- day of the week. To see the time blocks available, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow.Aurora Adjusting the Preferred Maintenance Window>
--- in the /Amazon Aurora User Guide./
---
--- Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
---
--- Constraints: Minimum 30-minute window.
-restoreDBClusterFromS_preferredMaintenanceWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_preferredMaintenanceWindow = Lens.lens (\RestoreDBClusterFromS' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@RestoreDBClusterFromS' {} a -> s {preferredMaintenanceWindow = a} :: RestoreDBClusterFromS)
-
--- | Undocumented member.
-restoreDBClusterFromS_tags :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe [Tag])
-restoreDBClusterFromS_tags = Lens.lens (\RestoreDBClusterFromS' {tags} -> tags) (\s@RestoreDBClusterFromS' {} a -> s {tags = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens._Coerce
-
--- | The port number on which the instances in the restored DB cluster accept
--- connections.
---
--- Default: @3306@
-restoreDBClusterFromS_port :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Int)
-restoreDBClusterFromS_port = Lens.lens (\RestoreDBClusterFromS' {port} -> port) (\s@RestoreDBClusterFromS' {} a -> s {port = a} :: RestoreDBClusterFromS)
-
--- | Specify the name of the IAM role to be used when making API calls to the
--- Directory Service.
-restoreDBClusterFromS_domainIAMRoleName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_domainIAMRoleName = Lens.lens (\RestoreDBClusterFromS' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBClusterFromS' {} a -> s {domainIAMRoleName = a} :: RestoreDBClusterFromS)
-
--- | A value that indicates whether to copy all tags from the restored DB
--- cluster to snapshots of the restored DB cluster. The default is not to
--- copy them.
-restoreDBClusterFromS_copyTagsToSnapshot :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Bool)
-restoreDBClusterFromS_copyTagsToSnapshot = Lens.lens (\RestoreDBClusterFromS' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBClusterFromS' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBClusterFromS)
-
--- | The prefix for all of the file names that contain the data used to
--- create the Amazon Aurora DB cluster. If you do not specify a
--- __SourceS3Prefix__ value, then the Amazon Aurora DB cluster is created
--- by using all of the files in the Amazon S3 bucket.
-restoreDBClusterFromS_s3Prefix :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_s3Prefix = Lens.lens (\RestoreDBClusterFromS' {s3Prefix} -> s3Prefix) (\s@RestoreDBClusterFromS' {} a -> s {s3Prefix = a} :: RestoreDBClusterFromS)
-
--- | The target backtrack window, in seconds. To disable backtracking, set
--- this value to 0.
---
--- Currently, Backtrack is only supported for Aurora MySQL DB clusters.
---
--- Default: 0
---
--- Constraints:
---
--- -   If specified, this value must be set to a number from 0 to 259,200
---     (72 hours).
-restoreDBClusterFromS_backtrackWindow :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Integer)
-restoreDBClusterFromS_backtrackWindow = Lens.lens (\RestoreDBClusterFromS' {backtrackWindow} -> backtrackWindow) (\s@RestoreDBClusterFromS' {} a -> s {backtrackWindow = a} :: RestoreDBClusterFromS)
-
--- | The name of the DB cluster parameter group to associate with the
--- restored DB cluster. If this argument is omitted, @default.aurora5.6@ is
--- used.
---
--- Constraints:
---
--- -   If supplied, must match the name of an existing
---     DBClusterParameterGroup.
-restoreDBClusterFromS_dbClusterParameterGroupName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_dbClusterParameterGroupName = Lens.lens (\RestoreDBClusterFromS' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@RestoreDBClusterFromS' {} a -> s {dbClusterParameterGroupName = a} :: RestoreDBClusterFromS)
-
--- | The database name for the restored DB cluster.
-restoreDBClusterFromS_databaseName :: Lens.Lens' RestoreDBClusterFromS (Prelude.Maybe Prelude.Text)
-restoreDBClusterFromS_databaseName = Lens.lens (\RestoreDBClusterFromS' {databaseName} -> databaseName) (\s@RestoreDBClusterFromS' {} a -> s {databaseName = a} :: RestoreDBClusterFromS)
+restoreDBClusterFromS_enableCloudwatchLogsExports = Lens.lens (\RestoreDBClusterFromS' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBClusterFromS' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBClusterFromS) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the DB cluster to create from the source data in the Amazon
 -- S3 bucket. This parameter isn\'t case-sensitive.
@@ -945,17 +945,41 @@ instance Core.ToQuery RestoreDBClusterFromS where
           Core.=: ("RestoreDBClusterFromS" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "EngineVersion" Core.=: engineVersion,
         "DeletionProtection" Core.=: deletionProtection,
-        "PreferredBackupWindow"
-          Core.=: preferredBackupWindow,
-        "BackupRetentionPeriod"
-          Core.=: backupRetentionPeriod,
         "StorageEncrypted" Core.=: storageEncrypted,
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "Domain" Core.=: domain,
+        "BacktrackWindow" Core.=: backtrackWindow,
+        "PreferredMaintenanceWindow"
+          Core.=: preferredMaintenanceWindow,
         "AvailabilityZones"
           Core.=: Core.toQuery
             ( Core.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
+        "CharacterSetName" Core.=: characterSetName,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "PreferredBackupWindow"
+          Core.=: preferredBackupWindow,
+        "BackupRetentionPeriod"
+          Core.=: backupRetentionPeriod,
+        "VpcSecurityGroupIds"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
+        "DatabaseName" Core.=: databaseName,
+        "DBClusterParameterGroupName"
+          Core.=: dbClusterParameterGroupName,
+        "S3Prefix" Core.=: s3Prefix,
+        "OptionGroupName" Core.=: optionGroupName,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
+        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
+        "Port" Core.=: port,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
@@ -963,30 +987,6 @@ instance Core.ToQuery RestoreDBClusterFromS where
             ( Core.toQueryList "member"
                 Prelude.<$> enableCloudwatchLogsExports
             ),
-        "OptionGroupName" Core.=: optionGroupName,
-        "Domain" Core.=: domain,
-        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
-        "VpcSecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
-            ),
-        "KmsKeyId" Core.=: kmsKeyId,
-        "EngineVersion" Core.=: engineVersion,
-        "CharacterSetName" Core.=: characterSetName,
-        "PreferredMaintenanceWindow"
-          Core.=: preferredMaintenanceWindow,
-        "Tags"
-          Core.=: Core.toQuery
-            (Core.toQueryList "Tag" Prelude.<$> tags),
-        "Port" Core.=: port,
-        "DomainIAMRoleName" Core.=: domainIAMRoleName,
-        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
-        "S3Prefix" Core.=: s3Prefix,
-        "BacktrackWindow" Core.=: backtrackWindow,
-        "DBClusterParameterGroupName"
-          Core.=: dbClusterParameterGroupName,
-        "DatabaseName" Core.=: databaseName,
         "DBClusterIdentifier" Core.=: dbClusterIdentifier,
         "Engine" Core.=: engine,
         "MasterUsername" Core.=: masterUsername,

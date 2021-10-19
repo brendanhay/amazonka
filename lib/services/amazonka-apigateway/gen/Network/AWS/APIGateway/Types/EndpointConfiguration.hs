@@ -71,12 +71,12 @@ newEndpointConfiguration =
 -- name, the endpoint type is @REGIONAL@. For a private API, the endpoint
 -- type is @PRIVATE@.
 endpointConfiguration_types :: Lens.Lens' EndpointConfiguration (Prelude.Maybe [EndpointType])
-endpointConfiguration_types = Lens.lens (\EndpointConfiguration' {types} -> types) (\s@EndpointConfiguration' {} a -> s {types = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens._Coerce
+endpointConfiguration_types = Lens.lens (\EndpointConfiguration' {types} -> types) (\s@EndpointConfiguration' {} a -> s {types = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of VpcEndpointIds of an API (RestApi) against which to create
 -- Route53 ALIASes. It is only supported for @PRIVATE@ endpoint type.
 endpointConfiguration_vpcEndpointIds :: Lens.Lens' EndpointConfiguration (Prelude.Maybe [Prelude.Text])
-endpointConfiguration_vpcEndpointIds = Lens.lens (\EndpointConfiguration' {vpcEndpointIds} -> vpcEndpointIds) (\s@EndpointConfiguration' {} a -> s {vpcEndpointIds = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens._Coerce
+endpointConfiguration_vpcEndpointIds = Lens.lens (\EndpointConfiguration' {vpcEndpointIds} -> vpcEndpointIds) (\s@EndpointConfiguration' {} a -> s {vpcEndpointIds = a} :: EndpointConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON EndpointConfiguration where
   parseJSON =

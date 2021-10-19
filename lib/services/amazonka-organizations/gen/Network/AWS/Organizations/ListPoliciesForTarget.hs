@@ -356,7 +356,7 @@ listPoliciesForTargetResponse_nextToken = Lens.lens (\ListPoliciesForTargetRespo
 
 -- | The list of policies that match the criteria in the request.
 listPoliciesForTargetResponse_policies :: Lens.Lens' ListPoliciesForTargetResponse (Prelude.Maybe [PolicySummary])
-listPoliciesForTargetResponse_policies = Lens.lens (\ListPoliciesForTargetResponse' {policies} -> policies) (\s@ListPoliciesForTargetResponse' {} a -> s {policies = a} :: ListPoliciesForTargetResponse) Prelude.. Lens.mapping Lens._Coerce
+listPoliciesForTargetResponse_policies = Lens.lens (\ListPoliciesForTargetResponse' {policies} -> policies) (\s@ListPoliciesForTargetResponse' {} a -> s {policies = a} :: ListPoliciesForTargetResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listPoliciesForTargetResponse_httpStatus :: Lens.Lens' ListPoliciesForTargetResponse Prelude.Int

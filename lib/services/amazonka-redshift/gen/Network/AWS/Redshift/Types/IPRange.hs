@@ -70,7 +70,7 @@ iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s
 
 -- | The list of tags for the IP range.
 iPRange_tags :: Lens.Lens' IPRange (Prelude.Maybe [Tag])
-iPRange_tags = Lens.lens (\IPRange' {tags} -> tags) (\s@IPRange' {} a -> s {tags = a} :: IPRange) Prelude.. Lens.mapping Lens._Coerce
+iPRange_tags = Lens.lens (\IPRange' {tags} -> tags) (\s@IPRange' {} a -> s {tags = a} :: IPRange) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML IPRange where
   parseXML x =

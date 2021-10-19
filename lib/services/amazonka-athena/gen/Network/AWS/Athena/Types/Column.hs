@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
-  { -- | Optional information about the column.
-    comment :: Prelude.Maybe Prelude.Text,
-    -- | The data type of the column.
+  { -- | The data type of the column.
     type' :: Prelude.Maybe Prelude.Text,
+    -- | Optional information about the column.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The name of the column.
     name :: Prelude.Text
   }
@@ -44,9 +44,9 @@ data Column = Column'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'column_comment' - Optional information about the column.
---
 -- 'type'', 'column_type' - The data type of the column.
+--
+-- 'comment', 'column_comment' - Optional information about the column.
 --
 -- 'name', 'column_name' - The name of the column.
 newColumn ::
@@ -55,18 +55,18 @@ newColumn ::
   Column
 newColumn pName_ =
   Column'
-    { comment = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { type' = Prelude.Nothing,
+      comment = Prelude.Nothing,
       name = pName_
     }
-
--- | Optional information about the column.
-column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
-column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
 
 -- | The data type of the column.
 column_type :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
+
+-- | Optional information about the column.
+column_comment :: Lens.Lens' Column (Prelude.Maybe Prelude.Text)
+column_comment = Lens.lens (\Column' {comment} -> comment) (\s@Column' {} a -> s {comment = a} :: Column)
 
 -- | The name of the column.
 column_name :: Lens.Lens' Column Prelude.Text
@@ -78,8 +78,8 @@ instance Core.FromJSON Column where
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "Type")
+            Prelude.<$> (x Core..:? "Type")
+            Prelude.<*> (x Core..:? "Comment")
             Prelude.<*> (x Core..: "Name")
       )
 

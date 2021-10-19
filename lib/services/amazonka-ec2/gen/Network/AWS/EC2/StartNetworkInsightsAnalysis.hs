@@ -28,8 +28,8 @@ module Network.AWS.EC2.StartNetworkInsightsAnalysis
     newStartNetworkInsightsAnalysis,
 
     -- * Request Lenses
-    startNetworkInsightsAnalysis_tagSpecifications,
     startNetworkInsightsAnalysis_filterInArns,
+    startNetworkInsightsAnalysis_tagSpecifications,
     startNetworkInsightsAnalysis_dryRun,
     startNetworkInsightsAnalysis_networkInsightsPathId,
     startNetworkInsightsAnalysis_clientToken,
@@ -53,11 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartNetworkInsightsAnalysis' smart constructor.
 data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
-  { -- | The tags to apply.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The Amazon Resource Names (ARN) of the resources that the path must
+  { -- | The Amazon Resource Names (ARN) of the resources that the path must
     -- traverse.
     filterInArns :: Prelude.Maybe [Prelude.Text],
+    -- | The tags to apply.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -80,10 +80,10 @@ data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagSpecifications', 'startNetworkInsightsAnalysis_tagSpecifications' - The tags to apply.
---
 -- 'filterInArns', 'startNetworkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the resources that the path must
 -- traverse.
+--
+-- 'tagSpecifications', 'startNetworkInsightsAnalysis_tagSpecifications' - The tags to apply.
 --
 -- 'dryRun', 'startNetworkInsightsAnalysis_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,23 +105,23 @@ newStartNetworkInsightsAnalysis
   pNetworkInsightsPathId_
   pClientToken_ =
     StartNetworkInsightsAnalysis'
-      { tagSpecifications =
+      { filterInArns =
           Prelude.Nothing,
-        filterInArns = Prelude.Nothing,
+        tagSpecifications = Prelude.Nothing,
         dryRun = Prelude.Nothing,
         networkInsightsPathId =
           pNetworkInsightsPathId_,
         clientToken = pClientToken_
       }
 
--- | The tags to apply.
-startNetworkInsightsAnalysis_tagSpecifications :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [TagSpecification])
-startNetworkInsightsAnalysis_tagSpecifications = Lens.lens (\StartNetworkInsightsAnalysis' {tagSpecifications} -> tagSpecifications) (\s@StartNetworkInsightsAnalysis' {} a -> s {tagSpecifications = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The Amazon Resource Names (ARN) of the resources that the path must
 -- traverse.
 startNetworkInsightsAnalysis_filterInArns :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
-startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@StartNetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens._Coerce
+startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@StartNetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
+
+-- | The tags to apply.
+startNetworkInsightsAnalysis_tagSpecifications :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [TagSpecification])
+startNetworkInsightsAnalysis_tagSpecifications = Lens.lens (\StartNetworkInsightsAnalysis' {tagSpecifications} -> tagSpecifications) (\s@StartNetworkInsightsAnalysis' {} a -> s {tagSpecifications = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -175,12 +175,12 @@ instance Core.ToQuery StartNetworkInsightsAnalysis where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         Core.toQuery
-          ( Core.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
-          ),
-        Core.toQuery
           ( Core.toQueryList "FilterInArn"
               Prelude.<$> filterInArns
+          ),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "NetworkInsightsPathId"

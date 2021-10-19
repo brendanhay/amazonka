@@ -35,14 +35,14 @@ module Network.AWS.WorkMail.DescribeUser
     newDescribeUserResponse,
 
     -- * Response Lenses
-    describeUserResponse_enabledDate,
-    describeUserResponse_userRole,
-    describeUserResponse_name,
-    describeUserResponse_state,
-    describeUserResponse_disabledDate,
     describeUserResponse_email,
+    describeUserResponse_state,
     describeUserResponse_userId,
+    describeUserResponse_disabledDate,
+    describeUserResponse_name,
     describeUserResponse_displayName,
+    describeUserResponse_userRole,
+    describeUserResponse_enabledDate,
     describeUserResponse_httpStatus,
   )
 where
@@ -101,14 +101,14 @@ instance Core.AWSRequest DescribeUser where
     Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Prelude.<$> (x Core..?> "EnabledDate")
-            Prelude.<*> (x Core..?> "UserRole")
-            Prelude.<*> (x Core..?> "Name")
+            Prelude.<$> (x Core..?> "Email")
             Prelude.<*> (x Core..?> "State")
-            Prelude.<*> (x Core..?> "DisabledDate")
-            Prelude.<*> (x Core..?> "Email")
             Prelude.<*> (x Core..?> "UserId")
+            Prelude.<*> (x Core..?> "DisabledDate")
+            Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "DisplayName")
+            Prelude.<*> (x Core..?> "UserRole")
+            Prelude.<*> (x Core..?> "EnabledDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,9 +149,20 @@ instance Core.ToQuery DescribeUser where
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
-  { -- | The date and time at which the user was enabled for Amazon WorkMail
+  { -- | The email of the user.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The state of a user: enabled (registered to Amazon WorkMail) or disabled
+    -- (deregistered or never registered to WorkMail).
+    state :: Prelude.Maybe EntityState,
+    -- | The identifier for the described user.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time at which the user was disabled for Amazon WorkMail
     -- usage, in UNIX epoch time format.
-    enabledDate :: Prelude.Maybe Core.POSIX,
+    disabledDate :: Prelude.Maybe Core.POSIX,
+    -- | The name for the user.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The display name of the user.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | In certain cases, other entities are modeled as users. If
     -- interoperability is enabled, resources are imported into Amazon WorkMail
     -- as users. Because different WorkMail organizations rely on different
@@ -159,20 +170,9 @@ data DescribeUserResponse = DescribeUserResponse'
     -- user (account is disabled and has a user role) and the directory
     -- administrators. The values are USER, RESOURCE, and SYSTEM_USER.
     userRole :: Prelude.Maybe UserRole,
-    -- | The name for the user.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The state of a user: enabled (registered to Amazon WorkMail) or disabled
-    -- (deregistered or never registered to WorkMail).
-    state :: Prelude.Maybe EntityState,
-    -- | The date and time at which the user was disabled for Amazon WorkMail
+    -- | The date and time at which the user was enabled for Amazon WorkMail
     -- usage, in UNIX epoch time format.
-    disabledDate :: Prelude.Maybe Core.POSIX,
-    -- | The email of the user.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the described user.
-    userId :: Prelude.Maybe Prelude.Text,
-    -- | The display name of the user.
-    displayName :: Prelude.Maybe Prelude.Text,
+    enabledDate :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -186,8 +186,19 @@ data DescribeUserResponse = DescribeUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabledDate', 'describeUserResponse_enabledDate' - The date and time at which the user was enabled for Amazon WorkMail
+-- 'email', 'describeUserResponse_email' - The email of the user.
+--
+-- 'state', 'describeUserResponse_state' - The state of a user: enabled (registered to Amazon WorkMail) or disabled
+-- (deregistered or never registered to WorkMail).
+--
+-- 'userId', 'describeUserResponse_userId' - The identifier for the described user.
+--
+-- 'disabledDate', 'describeUserResponse_disabledDate' - The date and time at which the user was disabled for Amazon WorkMail
 -- usage, in UNIX epoch time format.
+--
+-- 'name', 'describeUserResponse_name' - The name for the user.
+--
+-- 'displayName', 'describeUserResponse_displayName' - The display name of the user.
 --
 -- 'userRole', 'describeUserResponse_userRole' - In certain cases, other entities are modeled as users. If
 -- interoperability is enabled, resources are imported into Amazon WorkMail
@@ -196,19 +207,8 @@ data DescribeUserResponse = DescribeUserResponse'
 -- user (account is disabled and has a user role) and the directory
 -- administrators. The values are USER, RESOURCE, and SYSTEM_USER.
 --
--- 'name', 'describeUserResponse_name' - The name for the user.
---
--- 'state', 'describeUserResponse_state' - The state of a user: enabled (registered to Amazon WorkMail) or disabled
--- (deregistered or never registered to WorkMail).
---
--- 'disabledDate', 'describeUserResponse_disabledDate' - The date and time at which the user was disabled for Amazon WorkMail
+-- 'enabledDate', 'describeUserResponse_enabledDate' - The date and time at which the user was enabled for Amazon WorkMail
 -- usage, in UNIX epoch time format.
---
--- 'email', 'describeUserResponse_email' - The email of the user.
---
--- 'userId', 'describeUserResponse_userId' - The identifier for the described user.
---
--- 'displayName', 'describeUserResponse_displayName' - The display name of the user.
 --
 -- 'httpStatus', 'describeUserResponse_httpStatus' - The response's http status code.
 newDescribeUserResponse ::
@@ -217,22 +217,42 @@ newDescribeUserResponse ::
   DescribeUserResponse
 newDescribeUserResponse pHttpStatus_ =
   DescribeUserResponse'
-    { enabledDate =
-        Prelude.Nothing,
-      userRole = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { email = Prelude.Nothing,
       state = Prelude.Nothing,
-      disabledDate = Prelude.Nothing,
-      email = Prelude.Nothing,
       userId = Prelude.Nothing,
+      disabledDate = Prelude.Nothing,
+      name = Prelude.Nothing,
       displayName = Prelude.Nothing,
+      userRole = Prelude.Nothing,
+      enabledDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The date and time at which the user was enabled for Amazon WorkMail
+-- | The email of the user.
+describeUserResponse_email :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_email = Lens.lens (\DescribeUserResponse' {email} -> email) (\s@DescribeUserResponse' {} a -> s {email = a} :: DescribeUserResponse)
+
+-- | The state of a user: enabled (registered to Amazon WorkMail) or disabled
+-- (deregistered or never registered to WorkMail).
+describeUserResponse_state :: Lens.Lens' DescribeUserResponse (Prelude.Maybe EntityState)
+describeUserResponse_state = Lens.lens (\DescribeUserResponse' {state} -> state) (\s@DescribeUserResponse' {} a -> s {state = a} :: DescribeUserResponse)
+
+-- | The identifier for the described user.
+describeUserResponse_userId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_userId = Lens.lens (\DescribeUserResponse' {userId} -> userId) (\s@DescribeUserResponse' {} a -> s {userId = a} :: DescribeUserResponse)
+
+-- | The date and time at which the user was disabled for Amazon WorkMail
 -- usage, in UNIX epoch time format.
-describeUserResponse_enabledDate :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.UTCTime)
-describeUserResponse_enabledDate = Lens.lens (\DescribeUserResponse' {enabledDate} -> enabledDate) (\s@DescribeUserResponse' {} a -> s {enabledDate = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Time
+describeUserResponse_disabledDate :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.UTCTime)
+describeUserResponse_disabledDate = Lens.lens (\DescribeUserResponse' {disabledDate} -> disabledDate) (\s@DescribeUserResponse' {} a -> s {disabledDate = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The name for the user.
+describeUserResponse_name :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_name = Lens.lens (\DescribeUserResponse' {name} -> name) (\s@DescribeUserResponse' {} a -> s {name = a} :: DescribeUserResponse)
+
+-- | The display name of the user.
+describeUserResponse_displayName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_displayName = Lens.lens (\DescribeUserResponse' {displayName} -> displayName) (\s@DescribeUserResponse' {} a -> s {displayName = a} :: DescribeUserResponse)
 
 -- | In certain cases, other entities are modeled as users. If
 -- interoperability is enabled, resources are imported into Amazon WorkMail
@@ -243,31 +263,10 @@ describeUserResponse_enabledDate = Lens.lens (\DescribeUserResponse' {enabledDat
 describeUserResponse_userRole :: Lens.Lens' DescribeUserResponse (Prelude.Maybe UserRole)
 describeUserResponse_userRole = Lens.lens (\DescribeUserResponse' {userRole} -> userRole) (\s@DescribeUserResponse' {} a -> s {userRole = a} :: DescribeUserResponse)
 
--- | The name for the user.
-describeUserResponse_name :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_name = Lens.lens (\DescribeUserResponse' {name} -> name) (\s@DescribeUserResponse' {} a -> s {name = a} :: DescribeUserResponse)
-
--- | The state of a user: enabled (registered to Amazon WorkMail) or disabled
--- (deregistered or never registered to WorkMail).
-describeUserResponse_state :: Lens.Lens' DescribeUserResponse (Prelude.Maybe EntityState)
-describeUserResponse_state = Lens.lens (\DescribeUserResponse' {state} -> state) (\s@DescribeUserResponse' {} a -> s {state = a} :: DescribeUserResponse)
-
--- | The date and time at which the user was disabled for Amazon WorkMail
+-- | The date and time at which the user was enabled for Amazon WorkMail
 -- usage, in UNIX epoch time format.
-describeUserResponse_disabledDate :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.UTCTime)
-describeUserResponse_disabledDate = Lens.lens (\DescribeUserResponse' {disabledDate} -> disabledDate) (\s@DescribeUserResponse' {} a -> s {disabledDate = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Time
-
--- | The email of the user.
-describeUserResponse_email :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_email = Lens.lens (\DescribeUserResponse' {email} -> email) (\s@DescribeUserResponse' {} a -> s {email = a} :: DescribeUserResponse)
-
--- | The identifier for the described user.
-describeUserResponse_userId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_userId = Lens.lens (\DescribeUserResponse' {userId} -> userId) (\s@DescribeUserResponse' {} a -> s {userId = a} :: DescribeUserResponse)
-
--- | The display name of the user.
-describeUserResponse_displayName :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
-describeUserResponse_displayName = Lens.lens (\DescribeUserResponse' {displayName} -> displayName) (\s@DescribeUserResponse' {} a -> s {displayName = a} :: DescribeUserResponse)
+describeUserResponse_enabledDate :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.UTCTime)
+describeUserResponse_enabledDate = Lens.lens (\DescribeUserResponse' {enabledDate} -> enabledDate) (\s@DescribeUserResponse' {} a -> s {enabledDate = a} :: DescribeUserResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Prelude.Int

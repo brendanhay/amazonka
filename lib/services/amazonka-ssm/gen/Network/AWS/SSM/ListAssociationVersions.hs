@@ -229,7 +229,7 @@ listAssociationVersionsResponse_nextToken = Lens.lens (\ListAssociationVersionsR
 -- | Information about all versions of the association for the specified
 -- association ID.
 listAssociationVersionsResponse_associationVersions :: Lens.Lens' ListAssociationVersionsResponse (Prelude.Maybe (Prelude.NonEmpty AssociationVersionInfo))
-listAssociationVersionsResponse_associationVersions = Lens.lens (\ListAssociationVersionsResponse' {associationVersions} -> associationVersions) (\s@ListAssociationVersionsResponse' {} a -> s {associationVersions = a} :: ListAssociationVersionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listAssociationVersionsResponse_associationVersions = Lens.lens (\ListAssociationVersionsResponse' {associationVersions} -> associationVersions) (\s@ListAssociationVersionsResponse' {} a -> s {associationVersions = a} :: ListAssociationVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listAssociationVersionsResponse_httpStatus :: Lens.Lens' ListAssociationVersionsResponse Prelude.Int

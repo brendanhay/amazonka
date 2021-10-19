@@ -94,7 +94,7 @@ addUploadBuffer_gatewayARN = Lens.lens (\AddUploadBuffer' {gatewayARN} -> gatewa
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 addUploadBuffer_diskIds :: Lens.Lens' AddUploadBuffer [Prelude.Text]
-addUploadBuffer_diskIds = Lens.lens (\AddUploadBuffer' {diskIds} -> diskIds) (\s@AddUploadBuffer' {} a -> s {diskIds = a} :: AddUploadBuffer) Prelude.. Lens._Coerce
+addUploadBuffer_diskIds = Lens.lens (\AddUploadBuffer' {diskIds} -> diskIds) (\s@AddUploadBuffer' {} a -> s {diskIds = a} :: AddUploadBuffer) Prelude.. Lens.coerced
 
 instance Core.AWSRequest AddUploadBuffer where
   type

@@ -31,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPlacementConstraint' smart constructor.
 data PlacementConstraint = PlacementConstraint'
-  { -- | The type of constraint. Use distinctInstance to ensure that each task in
-    -- a particular group is running on a different container instance. Use
-    -- memberOf to restrict the selection to a group of valid candidates.
-    type' :: Prelude.Maybe PlacementConstraintType,
-    -- | A cluster query language expression to apply to the constraint. You
+  { -- | A cluster query language expression to apply to the constraint. You
     -- cannot specify an expression if the constraint type is
     -- @distinctInstance@. To learn more, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
     -- in the Amazon Elastic Container Service Developer Guide.
-    expression :: Prelude.Maybe Prelude.Text
+    expression :: Prelude.Maybe Prelude.Text,
+    -- | The type of constraint. Use distinctInstance to ensure that each task in
+    -- a particular group is running on a different container instance. Use
+    -- memberOf to restrict the selection to a group of valid candidates.
+    type' :: Prelude.Maybe PlacementConstraintType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,22 @@ data PlacementConstraint = PlacementConstraint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'placementConstraint_type' - The type of constraint. Use distinctInstance to ensure that each task in
--- a particular group is running on a different container instance. Use
--- memberOf to restrict the selection to a group of valid candidates.
---
 -- 'expression', 'placementConstraint_expression' - A cluster query language expression to apply to the constraint. You
 -- cannot specify an expression if the constraint type is
 -- @distinctInstance@. To learn more, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
 -- in the Amazon Elastic Container Service Developer Guide.
+--
+-- 'type'', 'placementConstraint_type' - The type of constraint. Use distinctInstance to ensure that each task in
+-- a particular group is running on a different container instance. Use
+-- memberOf to restrict the selection to a group of valid candidates.
 newPlacementConstraint ::
   PlacementConstraint
 newPlacementConstraint =
   PlacementConstraint'
-    { type' = Prelude.Nothing,
-      expression = Prelude.Nothing
+    { expression = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of constraint. Use distinctInstance to ensure that each task in
--- a particular group is running on a different container instance. Use
--- memberOf to restrict the selection to a group of valid candidates.
-placementConstraint_type :: Lens.Lens' PlacementConstraint (Prelude.Maybe PlacementConstraintType)
-placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\s@PlacementConstraint' {} a -> s {type' = a} :: PlacementConstraint)
 
 -- | A cluster query language expression to apply to the constraint. You
 -- cannot specify an expression if the constraint type is
@@ -83,14 +77,20 @@ placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\
 placementConstraint_expression :: Lens.Lens' PlacementConstraint (Prelude.Maybe Prelude.Text)
 placementConstraint_expression = Lens.lens (\PlacementConstraint' {expression} -> expression) (\s@PlacementConstraint' {} a -> s {expression = a} :: PlacementConstraint)
 
+-- | The type of constraint. Use distinctInstance to ensure that each task in
+-- a particular group is running on a different container instance. Use
+-- memberOf to restrict the selection to a group of valid candidates.
+placementConstraint_type :: Lens.Lens' PlacementConstraint (Prelude.Maybe PlacementConstraintType)
+placementConstraint_type = Lens.lens (\PlacementConstraint' {type'} -> type') (\s@PlacementConstraint' {} a -> s {type' = a} :: PlacementConstraint)
+
 instance Core.FromJSON PlacementConstraint where
   parseJSON =
     Core.withObject
       "PlacementConstraint"
       ( \x ->
           PlacementConstraint'
-            Prelude.<$> (x Core..:? "type")
-            Prelude.<*> (x Core..:? "expression")
+            Prelude.<$> (x Core..:? "expression")
+            Prelude.<*> (x Core..:? "type")
       )
 
 instance Prelude.Hashable PlacementConstraint
@@ -101,7 +101,7 @@ instance Core.ToJSON PlacementConstraint where
   toJSON PlacementConstraint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("expression" Core..=) Prelude.<$> expression
+          [ ("expression" Core..=) Prelude.<$> expression,
+            ("type" Core..=) Prelude.<$> type'
           ]
       )

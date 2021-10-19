@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | Amazon Web Services Internet of Things (IoT) object name.
-    iotThingName :: Prelude.Maybe Prelude.Text,
-    -- | Description of the device.
+  { -- | Description of the device.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Web Services Internet of Things (IoT) object name.
+    iotThingName :: Prelude.Maybe Prelude.Text,
     -- | The name of the device.
     deviceName :: Prelude.Text
   }
@@ -44,9 +44,9 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iotThingName', 'device_iotThingName' - Amazon Web Services Internet of Things (IoT) object name.
---
 -- 'description', 'device_description' - Description of the device.
+--
+-- 'iotThingName', 'device_iotThingName' - Amazon Web Services Internet of Things (IoT) object name.
 --
 -- 'deviceName', 'device_deviceName' - The name of the device.
 newDevice ::
@@ -55,18 +55,18 @@ newDevice ::
   Device
 newDevice pDeviceName_ =
   Device'
-    { iotThingName = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { description = Prelude.Nothing,
+      iotThingName = Prelude.Nothing,
       deviceName = pDeviceName_
     }
-
--- | Amazon Web Services Internet of Things (IoT) object name.
-device_iotThingName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_iotThingName = Lens.lens (\Device' {iotThingName} -> iotThingName) (\s@Device' {} a -> s {iotThingName = a} :: Device)
 
 -- | Description of the device.
 device_description :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_description = Lens.lens (\Device' {description} -> description) (\s@Device' {} a -> s {description = a} :: Device)
+
+-- | Amazon Web Services Internet of Things (IoT) object name.
+device_iotThingName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_iotThingName = Lens.lens (\Device' {iotThingName} -> iotThingName) (\s@Device' {} a -> s {iotThingName = a} :: Device)
 
 -- | The name of the device.
 device_deviceName :: Lens.Lens' Device Prelude.Text
@@ -80,8 +80,8 @@ instance Core.ToJSON Device where
   toJSON Device' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("IotThingName" Core..=) Prelude.<$> iotThingName,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("IotThingName" Core..=) Prelude.<$> iotThingName,
             Prelude.Just ("DeviceName" Core..= deviceName)
           ]
       )

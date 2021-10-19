@@ -164,7 +164,7 @@ newUpdateIPSet pIPSetId_ pChangeToken_ pUpdates_ =
   UpdateIPSet'
     { iPSetId = pIPSetId_,
       changeToken = pChangeToken_,
-      updates = Lens._Coerce Lens.# pUpdates_
+      updates = Lens.coerced Lens.# pUpdates_
     }
 
 -- | The @IPSetId@ of the IPSet that you want to update. @IPSetId@ is
@@ -185,7 +185,7 @@ updateIPSet_changeToken = Lens.lens (\UpdateIPSet' {changeToken} -> changeToken)
 --
 -- You can insert a maximum of 1000 addresses in a single request.
 updateIPSet_updates :: Lens.Lens' UpdateIPSet (Prelude.NonEmpty IPSetUpdate)
-updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Prelude.. Lens._Coerce
+updateIPSet_updates = Lens.lens (\UpdateIPSet' {updates} -> updates) (\s@UpdateIPSet' {} a -> s {updates = a} :: UpdateIPSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateIPSet where
   type AWSResponse UpdateIPSet = UpdateIPSetResponse

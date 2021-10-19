@@ -113,7 +113,7 @@ trustedAdvisorResourceDetail_resourceId = Lens.lens (\TrustedAdvisorResourceDeta
 -- shown in the Excel download, even in those cases where the UI shows just
 -- summary data.
 trustedAdvisorResourceDetail_metadata :: Lens.Lens' TrustedAdvisorResourceDetail [Prelude.Text]
-trustedAdvisorResourceDetail_metadata = Lens.lens (\TrustedAdvisorResourceDetail' {metadata} -> metadata) (\s@TrustedAdvisorResourceDetail' {} a -> s {metadata = a} :: TrustedAdvisorResourceDetail) Prelude.. Lens._Coerce
+trustedAdvisorResourceDetail_metadata = Lens.lens (\TrustedAdvisorResourceDetail' {metadata} -> metadata) (\s@TrustedAdvisorResourceDetail' {} a -> s {metadata = a} :: TrustedAdvisorResourceDetail) Prelude.. Lens.coerced
 
 instance Core.FromJSON TrustedAdvisorResourceDetail where
   parseJSON =

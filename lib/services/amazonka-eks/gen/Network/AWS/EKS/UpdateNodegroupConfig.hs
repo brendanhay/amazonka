@@ -31,11 +31,11 @@ module Network.AWS.EKS.UpdateNodegroupConfig
     newUpdateNodegroupConfig,
 
     -- * Request Lenses
+    updateNodegroupConfig_taints,
     updateNodegroupConfig_scalingConfig,
     updateNodegroupConfig_labels,
-    updateNodegroupConfig_updateConfig,
     updateNodegroupConfig_clientRequestToken,
-    updateNodegroupConfig_taints,
+    updateNodegroupConfig_updateConfig,
     updateNodegroupConfig_clusterName,
     updateNodegroupConfig_nodegroupName,
 
@@ -58,20 +58,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateNodegroupConfig' smart constructor.
 data UpdateNodegroupConfig = UpdateNodegroupConfig'
-  { -- | The scaling configuration details for the Auto Scaling group after the
+  { -- | The Kubernetes taints to be applied to the nodes in the node group after
+    -- the update.
+    taints :: Prelude.Maybe UpdateTaintsPayload,
+    -- | The scaling configuration details for the Auto Scaling group after the
     -- update.
     scalingConfig :: Prelude.Maybe NodegroupScalingConfig,
     -- | The Kubernetes labels to be applied to the nodes in the node group after
     -- the update.
     labels :: Prelude.Maybe UpdateLabelsPayload,
-    -- | The node group update configuration.
-    updateConfig :: Prelude.Maybe NodegroupUpdateConfig,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The Kubernetes taints to be applied to the nodes in the node group after
-    -- the update.
-    taints :: Prelude.Maybe UpdateTaintsPayload,
+    -- | The node group update configuration.
+    updateConfig :: Prelude.Maybe NodegroupUpdateConfig,
     -- | The name of the Amazon EKS cluster that the managed node group resides
     -- in.
     clusterName :: Prelude.Text,
@@ -88,19 +88,19 @@ data UpdateNodegroupConfig = UpdateNodegroupConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'taints', 'updateNodegroupConfig_taints' - The Kubernetes taints to be applied to the nodes in the node group after
+-- the update.
+--
 -- 'scalingConfig', 'updateNodegroupConfig_scalingConfig' - The scaling configuration details for the Auto Scaling group after the
 -- update.
 --
 -- 'labels', 'updateNodegroupConfig_labels' - The Kubernetes labels to be applied to the nodes in the node group after
 -- the update.
 --
--- 'updateConfig', 'updateNodegroupConfig_updateConfig' - The node group update configuration.
---
 -- 'clientRequestToken', 'updateNodegroupConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'taints', 'updateNodegroupConfig_taints' - The Kubernetes taints to be applied to the nodes in the node group after
--- the update.
+-- 'updateConfig', 'updateNodegroupConfig_updateConfig' - The node group update configuration.
 --
 -- 'clusterName', 'updateNodegroupConfig_clusterName' - The name of the Amazon EKS cluster that the managed node group resides
 -- in.
@@ -116,15 +116,19 @@ newUpdateNodegroupConfig
   pClusterName_
   pNodegroupName_ =
     UpdateNodegroupConfig'
-      { scalingConfig =
-          Prelude.Nothing,
+      { taints = Prelude.Nothing,
+        scalingConfig = Prelude.Nothing,
         labels = Prelude.Nothing,
-        updateConfig = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
-        taints = Prelude.Nothing,
+        updateConfig = Prelude.Nothing,
         clusterName = pClusterName_,
         nodegroupName = pNodegroupName_
       }
+
+-- | The Kubernetes taints to be applied to the nodes in the node group after
+-- the update.
+updateNodegroupConfig_taints :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe UpdateTaintsPayload)
+updateNodegroupConfig_taints = Lens.lens (\UpdateNodegroupConfig' {taints} -> taints) (\s@UpdateNodegroupConfig' {} a -> s {taints = a} :: UpdateNodegroupConfig)
 
 -- | The scaling configuration details for the Auto Scaling group after the
 -- update.
@@ -136,19 +140,14 @@ updateNodegroupConfig_scalingConfig = Lens.lens (\UpdateNodegroupConfig' {scalin
 updateNodegroupConfig_labels :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe UpdateLabelsPayload)
 updateNodegroupConfig_labels = Lens.lens (\UpdateNodegroupConfig' {labels} -> labels) (\s@UpdateNodegroupConfig' {} a -> s {labels = a} :: UpdateNodegroupConfig)
 
--- | The node group update configuration.
-updateNodegroupConfig_updateConfig :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe NodegroupUpdateConfig)
-updateNodegroupConfig_updateConfig = Lens.lens (\UpdateNodegroupConfig' {updateConfig} -> updateConfig) (\s@UpdateNodegroupConfig' {} a -> s {updateConfig = a} :: UpdateNodegroupConfig)
-
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 updateNodegroupConfig_clientRequestToken :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe Prelude.Text)
 updateNodegroupConfig_clientRequestToken = Lens.lens (\UpdateNodegroupConfig' {clientRequestToken} -> clientRequestToken) (\s@UpdateNodegroupConfig' {} a -> s {clientRequestToken = a} :: UpdateNodegroupConfig)
 
--- | The Kubernetes taints to be applied to the nodes in the node group after
--- the update.
-updateNodegroupConfig_taints :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe UpdateTaintsPayload)
-updateNodegroupConfig_taints = Lens.lens (\UpdateNodegroupConfig' {taints} -> taints) (\s@UpdateNodegroupConfig' {} a -> s {taints = a} :: UpdateNodegroupConfig)
+-- | The node group update configuration.
+updateNodegroupConfig_updateConfig :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe NodegroupUpdateConfig)
+updateNodegroupConfig_updateConfig = Lens.lens (\UpdateNodegroupConfig' {updateConfig} -> updateConfig) (\s@UpdateNodegroupConfig' {} a -> s {updateConfig = a} :: UpdateNodegroupConfig)
 
 -- | The name of the Amazon EKS cluster that the managed node group resides
 -- in.
@@ -191,12 +190,12 @@ instance Core.ToJSON UpdateNodegroupConfig where
   toJSON UpdateNodegroupConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("scalingConfig" Core..=) Prelude.<$> scalingConfig,
+          [ ("taints" Core..=) Prelude.<$> taints,
+            ("scalingConfig" Core..=) Prelude.<$> scalingConfig,
             ("labels" Core..=) Prelude.<$> labels,
-            ("updateConfig" Core..=) Prelude.<$> updateConfig,
             ("clientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("taints" Core..=) Prelude.<$> taints
+            ("updateConfig" Core..=) Prelude.<$> updateConfig
           ]
       )
 

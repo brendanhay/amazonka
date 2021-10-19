@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newChallengeResponseType' smart constructor.
 data ChallengeResponseType = ChallengeResponseType'
-  { -- | The challenge response.
-    challengeResponse :: Prelude.Maybe ChallengeResponse,
-    -- | The challenge name
-    challengeName :: Prelude.Maybe ChallengeName
+  { -- | The challenge name
+    challengeName :: Prelude.Maybe ChallengeName,
+    -- | The challenge response.
+    challengeResponse :: Prelude.Maybe ChallengeResponse
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ChallengeResponseType = ChallengeResponseType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'challengeResponse', 'challengeResponseType_challengeResponse' - The challenge response.
---
 -- 'challengeName', 'challengeResponseType_challengeName' - The challenge name
+--
+-- 'challengeResponse', 'challengeResponseType_challengeResponse' - The challenge response.
 newChallengeResponseType ::
   ChallengeResponseType
 newChallengeResponseType =
   ChallengeResponseType'
-    { challengeResponse =
+    { challengeName =
         Prelude.Nothing,
-      challengeName = Prelude.Nothing
+      challengeResponse = Prelude.Nothing
     }
-
--- | The challenge response.
-challengeResponseType_challengeResponse :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeResponse)
-challengeResponseType_challengeResponse = Lens.lens (\ChallengeResponseType' {challengeResponse} -> challengeResponse) (\s@ChallengeResponseType' {} a -> s {challengeResponse = a} :: ChallengeResponseType)
 
 -- | The challenge name
 challengeResponseType_challengeName :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeName)
 challengeResponseType_challengeName = Lens.lens (\ChallengeResponseType' {challengeName} -> challengeName) (\s@ChallengeResponseType' {} a -> s {challengeName = a} :: ChallengeResponseType)
+
+-- | The challenge response.
+challengeResponseType_challengeResponse :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeResponse)
+challengeResponseType_challengeResponse = Lens.lens (\ChallengeResponseType' {challengeResponse} -> challengeResponse) (\s@ChallengeResponseType' {} a -> s {challengeResponse = a} :: ChallengeResponseType)
 
 instance Core.FromJSON ChallengeResponseType where
   parseJSON =
@@ -70,8 +70,8 @@ instance Core.FromJSON ChallengeResponseType where
       "ChallengeResponseType"
       ( \x ->
           ChallengeResponseType'
-            Prelude.<$> (x Core..:? "ChallengeResponse")
-            Prelude.<*> (x Core..:? "ChallengeName")
+            Prelude.<$> (x Core..:? "ChallengeName")
+            Prelude.<*> (x Core..:? "ChallengeResponse")
       )
 
 instance Prelude.Hashable ChallengeResponseType

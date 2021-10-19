@@ -73,7 +73,7 @@ newCreateOrUpdateTags =
 
 -- | One or more tags.
 createOrUpdateTags_tags :: Lens.Lens' CreateOrUpdateTags [Tag]
-createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Prelude.. Lens._Coerce
+createOrUpdateTags_tags = Lens.lens (\CreateOrUpdateTags' {tags} -> tags) (\s@CreateOrUpdateTags' {} a -> s {tags = a} :: CreateOrUpdateTags) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateOrUpdateTags where
   type

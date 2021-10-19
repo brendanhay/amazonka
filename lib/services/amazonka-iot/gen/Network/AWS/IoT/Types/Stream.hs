@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
-  { -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a file associated with a stream.
-    fileId :: Prelude.Maybe Prelude.Natural
+  { -- | The ID of a file associated with a stream.
+    fileId :: Prelude.Maybe Prelude.Natural,
+    -- | The stream ID.
+    streamId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,24 +42,24 @@ data Stream = Stream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamId', 'stream_streamId' - The stream ID.
---
 -- 'fileId', 'stream_fileId' - The ID of a file associated with a stream.
+--
+-- 'streamId', 'stream_streamId' - The stream ID.
 newStream ::
   Stream
 newStream =
   Stream'
-    { streamId = Prelude.Nothing,
-      fileId = Prelude.Nothing
+    { fileId = Prelude.Nothing,
+      streamId = Prelude.Nothing
     }
-
--- | The stream ID.
-stream_streamId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
-stream_streamId = Lens.lens (\Stream' {streamId} -> streamId) (\s@Stream' {} a -> s {streamId = a} :: Stream)
 
 -- | The ID of a file associated with a stream.
 stream_fileId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Natural)
 stream_fileId = Lens.lens (\Stream' {fileId} -> fileId) (\s@Stream' {} a -> s {fileId = a} :: Stream)
+
+-- | The stream ID.
+stream_streamId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_streamId = Lens.lens (\Stream' {streamId} -> streamId) (\s@Stream' {} a -> s {streamId = a} :: Stream)
 
 instance Core.FromJSON Stream where
   parseJSON =
@@ -67,8 +67,8 @@ instance Core.FromJSON Stream where
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Core..:? "streamId")
-            Prelude.<*> (x Core..:? "fileId")
+            Prelude.<$> (x Core..:? "fileId")
+            Prelude.<*> (x Core..:? "streamId")
       )
 
 instance Prelude.Hashable Stream
@@ -79,7 +79,7 @@ instance Core.ToJSON Stream where
   toJSON Stream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("streamId" Core..=) Prelude.<$> streamId,
-            ("fileId" Core..=) Prelude.<$> fileId
+          [ ("fileId" Core..=) Prelude.<$> fileId,
+            ("streamId" Core..=) Prelude.<$> streamId
           ]
       )

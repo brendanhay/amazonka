@@ -41,8 +41,8 @@ module Network.AWS.EMR.PutAutoScalingPolicy
     -- * Response Lenses
     putAutoScalingPolicyResponse_clusterArn,
     putAutoScalingPolicyResponse_clusterId,
-    putAutoScalingPolicyResponse_instanceGroupId,
     putAutoScalingPolicyResponse_autoScalingPolicy,
+    putAutoScalingPolicyResponse_instanceGroupId,
     putAutoScalingPolicyResponse_httpStatus,
   )
 where
@@ -125,8 +125,8 @@ instance Core.AWSRequest PutAutoScalingPolicy where
           PutAutoScalingPolicyResponse'
             Prelude.<$> (x Core..?> "ClusterArn")
             Prelude.<*> (x Core..?> "ClusterId")
-            Prelude.<*> (x Core..?> "InstanceGroupId")
             Prelude.<*> (x Core..?> "AutoScalingPolicy")
+            Prelude.<*> (x Core..?> "InstanceGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,11 +174,11 @@ data PutAutoScalingPolicyResponse = PutAutoScalingPolicyResponse'
     -- | Specifies the ID of a cluster. The instance group to which the automatic
     -- scaling policy is applied is within this cluster.
     clusterId :: Prelude.Maybe Prelude.Text,
+    -- | The automatic scaling policy definition.
+    autoScalingPolicy :: Prelude.Maybe AutoScalingPolicyDescription,
     -- | Specifies the ID of the instance group to which the scaling policy is
     -- applied.
     instanceGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The automatic scaling policy definition.
-    autoScalingPolicy :: Prelude.Maybe AutoScalingPolicyDescription,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -197,10 +197,10 @@ data PutAutoScalingPolicyResponse = PutAutoScalingPolicyResponse'
 -- 'clusterId', 'putAutoScalingPolicyResponse_clusterId' - Specifies the ID of a cluster. The instance group to which the automatic
 -- scaling policy is applied is within this cluster.
 --
+-- 'autoScalingPolicy', 'putAutoScalingPolicyResponse_autoScalingPolicy' - The automatic scaling policy definition.
+--
 -- 'instanceGroupId', 'putAutoScalingPolicyResponse_instanceGroupId' - Specifies the ID of the instance group to which the scaling policy is
 -- applied.
---
--- 'autoScalingPolicy', 'putAutoScalingPolicyResponse_autoScalingPolicy' - The automatic scaling policy definition.
 --
 -- 'httpStatus', 'putAutoScalingPolicyResponse_httpStatus' - The response's http status code.
 newPutAutoScalingPolicyResponse ::
@@ -212,8 +212,8 @@ newPutAutoScalingPolicyResponse pHttpStatus_ =
     { clusterArn =
         Prelude.Nothing,
       clusterId = Prelude.Nothing,
-      instanceGroupId = Prelude.Nothing,
       autoScalingPolicy = Prelude.Nothing,
+      instanceGroupId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -226,14 +226,14 @@ putAutoScalingPolicyResponse_clusterArn = Lens.lens (\PutAutoScalingPolicyRespon
 putAutoScalingPolicyResponse_clusterId :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe Prelude.Text)
 putAutoScalingPolicyResponse_clusterId = Lens.lens (\PutAutoScalingPolicyResponse' {clusterId} -> clusterId) (\s@PutAutoScalingPolicyResponse' {} a -> s {clusterId = a} :: PutAutoScalingPolicyResponse)
 
+-- | The automatic scaling policy definition.
+putAutoScalingPolicyResponse_autoScalingPolicy :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe AutoScalingPolicyDescription)
+putAutoScalingPolicyResponse_autoScalingPolicy = Lens.lens (\PutAutoScalingPolicyResponse' {autoScalingPolicy} -> autoScalingPolicy) (\s@PutAutoScalingPolicyResponse' {} a -> s {autoScalingPolicy = a} :: PutAutoScalingPolicyResponse)
+
 -- | Specifies the ID of the instance group to which the scaling policy is
 -- applied.
 putAutoScalingPolicyResponse_instanceGroupId :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe Prelude.Text)
 putAutoScalingPolicyResponse_instanceGroupId = Lens.lens (\PutAutoScalingPolicyResponse' {instanceGroupId} -> instanceGroupId) (\s@PutAutoScalingPolicyResponse' {} a -> s {instanceGroupId = a} :: PutAutoScalingPolicyResponse)
-
--- | The automatic scaling policy definition.
-putAutoScalingPolicyResponse_autoScalingPolicy :: Lens.Lens' PutAutoScalingPolicyResponse (Prelude.Maybe AutoScalingPolicyDescription)
-putAutoScalingPolicyResponse_autoScalingPolicy = Lens.lens (\PutAutoScalingPolicyResponse' {autoScalingPolicy} -> autoScalingPolicy) (\s@PutAutoScalingPolicyResponse' {} a -> s {autoScalingPolicy = a} :: PutAutoScalingPolicyResponse)
 
 -- | The response's http status code.
 putAutoScalingPolicyResponse_httpStatus :: Lens.Lens' PutAutoScalingPolicyResponse Prelude.Int

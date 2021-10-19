@@ -70,7 +70,7 @@ logSetup_enabled = Lens.lens (\LogSetup' {enabled} -> enabled) (\s@LogSetup' {} 
 
 -- | The available cluster control plane log types.
 logSetup_types :: Lens.Lens' LogSetup (Prelude.Maybe [LogType])
-logSetup_types = Lens.lens (\LogSetup' {types} -> types) (\s@LogSetup' {} a -> s {types = a} :: LogSetup) Prelude.. Lens.mapping Lens._Coerce
+logSetup_types = Lens.lens (\LogSetup' {types} -> types) (\s@LogSetup' {} a -> s {types = a} :: LogSetup) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON LogSetup where
   parseJSON =

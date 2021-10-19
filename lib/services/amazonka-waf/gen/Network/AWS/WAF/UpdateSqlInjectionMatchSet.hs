@@ -162,7 +162,7 @@ newUpdateSqlInjectionMatchSet
       { sqlInjectionMatchSetId =
           pSqlInjectionMatchSetId_,
         changeToken = pChangeToken_,
-        updates = Lens._Coerce Lens.# pUpdates_
+        updates = Lens.coerced Lens.# pUpdates_
       }
 
 -- | The @SqlInjectionMatchSetId@ of the @SqlInjectionMatchSet@ that you want
@@ -187,7 +187,7 @@ updateSqlInjectionMatchSet_changeToken = Lens.lens (\UpdateSqlInjectionMatchSet'
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
 updateSqlInjectionMatchSet_updates :: Lens.Lens' UpdateSqlInjectionMatchSet (Prelude.NonEmpty SqlInjectionMatchSetUpdate)
-updateSqlInjectionMatchSet_updates = Lens.lens (\UpdateSqlInjectionMatchSet' {updates} -> updates) (\s@UpdateSqlInjectionMatchSet' {} a -> s {updates = a} :: UpdateSqlInjectionMatchSet) Prelude.. Lens._Coerce
+updateSqlInjectionMatchSet_updates = Lens.lens (\UpdateSqlInjectionMatchSet' {updates} -> updates) (\s@UpdateSqlInjectionMatchSet' {} a -> s {updates = a} :: UpdateSqlInjectionMatchSet) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateSqlInjectionMatchSet where
   type

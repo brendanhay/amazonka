@@ -30,19 +30,19 @@ module Network.AWS.EC2.DescribeLocalGateways
     newDescribeLocalGateways,
 
     -- * Request Lenses
-    describeLocalGateways_nextToken,
-    describeLocalGateways_maxResults,
-    describeLocalGateways_dryRun,
-    describeLocalGateways_localGatewayIds,
     describeLocalGateways_filters,
+    describeLocalGateways_nextToken,
+    describeLocalGateways_localGatewayIds,
+    describeLocalGateways_dryRun,
+    describeLocalGateways_maxResults,
 
     -- * Destructuring the Response
     DescribeLocalGatewaysResponse (..),
     newDescribeLocalGatewaysResponse,
 
     -- * Response Lenses
-    describeLocalGatewaysResponse_nextToken,
     describeLocalGatewaysResponse_localGateways,
+    describeLocalGatewaysResponse_nextToken,
     describeLocalGatewaysResponse_httpStatus,
   )
 where
@@ -56,17 +56,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLocalGateways' smart constructor.
 data DescribeLocalGateways = DescribeLocalGateways'
-  { -- | The token for the next page of results.
+  { -- | One or more filters.
+    filters :: Prelude.Maybe [Filter],
+    -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Checks whether you have the required permissions for the action, without
-    -- actually making the request, and provides an error response. If you have
-    -- the required permissions, the error response is @DryRunOperation@.
-    -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters.
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
@@ -84,8 +77,15 @@ data DescribeLocalGateways = DescribeLocalGateways'
     --
     -- -   @state@ - The state of the association.
     localGatewayIds :: Prelude.Maybe [Prelude.Text],
-    -- | One or more filters.
-    filters :: Prelude.Maybe [Filter]
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return with a single call. To retrieve
+    -- the remaining results, make another call with the returned @nextToken@
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,16 +97,9 @@ data DescribeLocalGateways = DescribeLocalGateways'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'describeLocalGateways_filters' - One or more filters.
+--
 -- 'nextToken', 'describeLocalGateways_nextToken' - The token for the next page of results.
---
--- 'maxResults', 'describeLocalGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- 'dryRun', 'describeLocalGateways_dryRun' - Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
 --
 -- 'localGatewayIds', 'describeLocalGateways_localGatewayIds' - One or more filters.
 --
@@ -125,34 +118,32 @@ data DescribeLocalGateways = DescribeLocalGateways'
 --
 -- -   @state@ - The state of the association.
 --
--- 'filters', 'describeLocalGateways_filters' - One or more filters.
+-- 'dryRun', 'describeLocalGateways_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'maxResults', 'describeLocalGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
 newDescribeLocalGateways ::
   DescribeLocalGateways
 newDescribeLocalGateways =
   DescribeLocalGateways'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       localGatewayIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | One or more filters.
+describeLocalGateways_filters :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Filter])
+describeLocalGateways_filters = Lens.lens (\DescribeLocalGateways' {filters} -> filters) (\s@DescribeLocalGateways' {} a -> s {filters = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next page of results.
 describeLocalGateways_nextToken :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe Prelude.Text)
 describeLocalGateways_nextToken = Lens.lens (\DescribeLocalGateways' {nextToken} -> nextToken) (\s@DescribeLocalGateways' {} a -> s {nextToken = a} :: DescribeLocalGateways)
-
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
-describeLocalGateways_maxResults :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe Prelude.Natural)
-describeLocalGateways_maxResults = Lens.lens (\DescribeLocalGateways' {maxResults} -> maxResults) (\s@DescribeLocalGateways' {} a -> s {maxResults = a} :: DescribeLocalGateways)
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-describeLocalGateways_dryRun :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe Prelude.Bool)
-describeLocalGateways_dryRun = Lens.lens (\DescribeLocalGateways' {dryRun} -> dryRun) (\s@DescribeLocalGateways' {} a -> s {dryRun = a} :: DescribeLocalGateways)
 
 -- | One or more filters.
 --
@@ -171,11 +162,20 @@ describeLocalGateways_dryRun = Lens.lens (\DescribeLocalGateways' {dryRun} -> dr
 --
 -- -   @state@ - The state of the association.
 describeLocalGateways_localGatewayIds :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Prelude.Text])
-describeLocalGateways_localGatewayIds = Lens.lens (\DescribeLocalGateways' {localGatewayIds} -> localGatewayIds) (\s@DescribeLocalGateways' {} a -> s {localGatewayIds = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens._Coerce
+describeLocalGateways_localGatewayIds = Lens.lens (\DescribeLocalGateways' {localGatewayIds} -> localGatewayIds) (\s@DescribeLocalGateways' {} a -> s {localGatewayIds = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more filters.
-describeLocalGateways_filters :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe [Filter])
-describeLocalGateways_filters = Lens.lens (\DescribeLocalGateways' {filters} -> filters) (\s@DescribeLocalGateways' {} a -> s {filters = a} :: DescribeLocalGateways) Prelude.. Lens.mapping Lens._Coerce
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeLocalGateways_dryRun :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe Prelude.Bool)
+describeLocalGateways_dryRun = Lens.lens (\DescribeLocalGateways' {dryRun} -> dryRun) (\s@DescribeLocalGateways' {} a -> s {dryRun = a} :: DescribeLocalGateways)
+
+-- | The maximum number of results to return with a single call. To retrieve
+-- the remaining results, make another call with the returned @nextToken@
+-- value.
+describeLocalGateways_maxResults :: Lens.Lens' DescribeLocalGateways (Prelude.Maybe Prelude.Natural)
+describeLocalGateways_maxResults = Lens.lens (\DescribeLocalGateways' {maxResults} -> maxResults) (\s@DescribeLocalGateways' {} a -> s {maxResults = a} :: DescribeLocalGateways)
 
 instance Core.AWSPager DescribeLocalGateways where
   page rq rs
@@ -208,10 +208,10 @@ instance Core.AWSRequest DescribeLocalGateways where
     Response.receiveXML
       ( \s h x ->
           DescribeLocalGatewaysResponse'
-            Prelude.<$> (x Core..@? "nextToken")
-            Prelude.<*> ( x Core..@? "localGatewaySet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "localGatewaySet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -232,24 +232,24 @@ instance Core.ToQuery DescribeLocalGateways where
           Core.=: ("DescribeLocalGateways" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        Core.toQuery
+          (Core.toQueryList "Filter" Prelude.<$> filters),
         "NextToken" Core.=: nextToken,
-        "MaxResults" Core.=: maxResults,
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "LocalGatewayId"
               Prelude.<$> localGatewayIds
           ),
-        Core.toQuery
-          (Core.toQueryList "Filter" Prelude.<$> filters)
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newDescribeLocalGatewaysResponse' smart constructor.
 data DescribeLocalGatewaysResponse = DescribeLocalGatewaysResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
+  { -- | Information about the local gateways.
+    localGateways :: Prelude.Maybe [LocalGateway],
+    -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the local gateways.
-    localGateways :: Prelude.Maybe [LocalGateway],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -263,10 +263,10 @@ data DescribeLocalGatewaysResponse = DescribeLocalGatewaysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'localGateways', 'describeLocalGatewaysResponse_localGateways' - Information about the local gateways.
+--
 -- 'nextToken', 'describeLocalGatewaysResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
---
--- 'localGateways', 'describeLocalGatewaysResponse_localGateways' - Information about the local gateways.
 --
 -- 'httpStatus', 'describeLocalGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeLocalGatewaysResponse ::
@@ -275,20 +275,20 @@ newDescribeLocalGatewaysResponse ::
   DescribeLocalGatewaysResponse
 newDescribeLocalGatewaysResponse pHttpStatus_ =
   DescribeLocalGatewaysResponse'
-    { nextToken =
+    { localGateways =
         Prelude.Nothing,
-      localGateways = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Information about the local gateways.
+describeLocalGatewaysResponse_localGateways :: Lens.Lens' DescribeLocalGatewaysResponse (Prelude.Maybe [LocalGateway])
+describeLocalGatewaysResponse_localGateways = Lens.lens (\DescribeLocalGatewaysResponse' {localGateways} -> localGateways) (\s@DescribeLocalGatewaysResponse' {} a -> s {localGateways = a} :: DescribeLocalGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 describeLocalGatewaysResponse_nextToken :: Lens.Lens' DescribeLocalGatewaysResponse (Prelude.Maybe Prelude.Text)
 describeLocalGatewaysResponse_nextToken = Lens.lens (\DescribeLocalGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeLocalGatewaysResponse' {} a -> s {nextToken = a} :: DescribeLocalGatewaysResponse)
-
--- | Information about the local gateways.
-describeLocalGatewaysResponse_localGateways :: Lens.Lens' DescribeLocalGatewaysResponse (Prelude.Maybe [LocalGateway])
-describeLocalGatewaysResponse_localGateways = Lens.lens (\DescribeLocalGatewaysResponse' {localGateways} -> localGateways) (\s@DescribeLocalGatewaysResponse' {} a -> s {localGateways = a} :: DescribeLocalGatewaysResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeLocalGatewaysResponse_httpStatus :: Lens.Lens' DescribeLocalGatewaysResponse Prelude.Int

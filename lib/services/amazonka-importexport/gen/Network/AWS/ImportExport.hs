@@ -25,65 +25,65 @@ module Network.AWS.ImportExport
     -- * Errors
     -- $errors
 
-    -- ** InvalidVersionException
-    _InvalidVersionException,
-
-    -- ** CreateJobQuotaExceededException
-    _CreateJobQuotaExceededException,
-
-    -- ** UnableToCancelJobIdException
-    _UnableToCancelJobIdException,
-
-    -- ** InvalidManifestFieldException
-    _InvalidManifestFieldException,
-
-    -- ** MissingCustomsException
-    _MissingCustomsException,
-
-    -- ** InvalidAddressException
-    _InvalidAddressException,
-
-    -- ** MissingParameterException
-    _MissingParameterException,
-
-    -- ** BucketPermissionException
-    _BucketPermissionException,
+    -- ** InvalidJobIdException
+    _InvalidJobIdException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** MalformedManifestException
-    _MalformedManifestException,
-
-    -- ** MultipleRegionsException
-    _MultipleRegionsException,
-
-    -- ** InvalidJobIdException
-    _InvalidJobIdException,
-
-    -- ** MissingManifestFieldException
-    _MissingManifestFieldException,
-
-    -- ** UnableToUpdateJobIdException
-    _UnableToUpdateJobIdException,
-
-    -- ** InvalidCustomsException
-    _InvalidCustomsException,
-
-    -- ** InvalidAccessKeyIdException
-    _InvalidAccessKeyIdException,
+    -- ** ExpiredJobIdException
+    _ExpiredJobIdException,
 
     -- ** InvalidFileSystemException
     _InvalidFileSystemException,
 
-    -- ** NoSuchBucketException
-    _NoSuchBucketException,
+    -- ** InvalidAccessKeyIdException
+    _InvalidAccessKeyIdException,
+
+    -- ** UnableToUpdateJobIdException
+    _UnableToUpdateJobIdException,
+
+    -- ** UnableToCancelJobIdException
+    _UnableToCancelJobIdException,
+
+    -- ** MultipleRegionsException
+    _MultipleRegionsException,
+
+    -- ** InvalidVersionException
+    _InvalidVersionException,
+
+    -- ** MalformedManifestException
+    _MalformedManifestException,
+
+    -- ** MissingParameterException
+    _MissingParameterException,
 
     -- ** CanceledJobIdException
     _CanceledJobIdException,
 
-    -- ** ExpiredJobIdException
-    _ExpiredJobIdException,
+    -- ** BucketPermissionException
+    _BucketPermissionException,
+
+    -- ** NoSuchBucketException
+    _NoSuchBucketException,
+
+    -- ** InvalidAddressException
+    _InvalidAddressException,
+
+    -- ** MissingCustomsException
+    _MissingCustomsException,
+
+    -- ** InvalidManifestFieldException
+    _InvalidManifestFieldException,
+
+    -- ** InvalidCustomsException
+    _InvalidCustomsException,
+
+    -- ** MissingManifestFieldException
+    _MissingManifestFieldException,
+
+    -- ** CreateJobQuotaExceededException
+    _CreateJobQuotaExceededException,
 
     -- * Waiters
     -- $waiters
@@ -91,11 +91,23 @@ module Network.AWS.ImportExport
     -- * Operations
     -- $operations
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
+    -- ** GetShippingLabel
+    GetShippingLabel (GetShippingLabel'),
+    newGetShippingLabel,
+    GetShippingLabelResponse (GetShippingLabelResponse'),
+    newGetShippingLabelResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
 
     -- ** UpdateJob
     UpdateJob (UpdateJob'),
@@ -109,23 +121,11 @@ module Network.AWS.ImportExport
     GetStatusResponse (GetStatusResponse'),
     newGetStatusResponse,
 
-    -- ** GetShippingLabel
-    GetShippingLabel (GetShippingLabel'),
-    newGetShippingLabel,
-    GetShippingLabelResponse (GetShippingLabelResponse'),
-    newGetShippingLabelResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
-
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
 
     -- * Types
 

@@ -96,7 +96,7 @@ intelligentTieringConfiguration_status = Lens.lens (\IntelligentTieringConfigura
 -- | Specifies the S3 Intelligent-Tiering storage class tier of the
 -- configuration.
 intelligentTieringConfiguration_tierings :: Lens.Lens' IntelligentTieringConfiguration [Tiering]
-intelligentTieringConfiguration_tierings = Lens.lens (\IntelligentTieringConfiguration' {tierings} -> tierings) (\s@IntelligentTieringConfiguration' {} a -> s {tierings = a} :: IntelligentTieringConfiguration) Prelude.. Lens._Coerce
+intelligentTieringConfiguration_tierings = Lens.lens (\IntelligentTieringConfiguration' {tierings} -> tierings) (\s@IntelligentTieringConfiguration' {} a -> s {tierings = a} :: IntelligentTieringConfiguration) Prelude.. Lens.coerced
 
 instance Core.FromXML IntelligentTieringConfiguration where
   parseXML x =

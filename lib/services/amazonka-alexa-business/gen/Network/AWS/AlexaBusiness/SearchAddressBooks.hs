@@ -28,10 +28,10 @@ module Network.AWS.AlexaBusiness.SearchAddressBooks
     newSearchAddressBooks,
 
     -- * Request Lenses
-    searchAddressBooks_nextToken,
-    searchAddressBooks_sortCriteria,
-    searchAddressBooks_maxResults,
     searchAddressBooks_filters,
+    searchAddressBooks_sortCriteria,
+    searchAddressBooks_nextToken,
+    searchAddressBooks_maxResults,
 
     -- * Destructuring the Response
     SearchAddressBooksResponse (..),
@@ -54,21 +54,21 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSearchAddressBooks' smart constructor.
 data SearchAddressBooks = SearchAddressBooks'
-  { -- | An optional token returned from a prior request. Use this token for
+  { -- | The filters to use to list a specified set of address books. The
+    -- supported filter key is AddressBookName.
+    filters :: Prelude.Maybe [Filter],
+    -- | The sort order to use in listing the specified set of address books. The
+    -- supported sort key is AddressBookName.
+    sortCriteria :: Prelude.Maybe [Sort],
+    -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response only includes results beyond the token, up to the value
     -- specified by MaxResults.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The sort order to use in listing the specified set of address books. The
-    -- supported sort key is AddressBookName.
-    sortCriteria :: Prelude.Maybe [Sort],
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified MaxResults value, a token is included
     -- in the response so that the remaining results can be retrieved.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The filters to use to list a specified set of address books. The
-    -- supported filter key is AddressBookName.
-    filters :: Prelude.Maybe [Filter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,29 +80,39 @@ data SearchAddressBooks = SearchAddressBooks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'filters', 'searchAddressBooks_filters' - The filters to use to list a specified set of address books. The
+-- supported filter key is AddressBookName.
+--
+-- 'sortCriteria', 'searchAddressBooks_sortCriteria' - The sort order to use in listing the specified set of address books. The
+-- supported sort key is AddressBookName.
+--
 -- 'nextToken', 'searchAddressBooks_nextToken' - An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response only includes results beyond the token, up to the value
 -- specified by MaxResults.
 --
--- 'sortCriteria', 'searchAddressBooks_sortCriteria' - The sort order to use in listing the specified set of address books. The
--- supported sort key is AddressBookName.
---
 -- 'maxResults', 'searchAddressBooks_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
---
--- 'filters', 'searchAddressBooks_filters' - The filters to use to list a specified set of address books. The
--- supported filter key is AddressBookName.
 newSearchAddressBooks ::
   SearchAddressBooks
 newSearchAddressBooks =
   SearchAddressBooks'
-    { nextToken = Prelude.Nothing,
+    { filters = Prelude.Nothing,
       sortCriteria = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The filters to use to list a specified set of address books. The
+-- supported filter key is AddressBookName.
+searchAddressBooks_filters :: Lens.Lens' SearchAddressBooks (Prelude.Maybe [Filter])
+searchAddressBooks_filters = Lens.lens (\SearchAddressBooks' {filters} -> filters) (\s@SearchAddressBooks' {} a -> s {filters = a} :: SearchAddressBooks) Prelude.. Lens.mapping Lens.coerced
+
+-- | The sort order to use in listing the specified set of address books. The
+-- supported sort key is AddressBookName.
+searchAddressBooks_sortCriteria :: Lens.Lens' SearchAddressBooks (Prelude.Maybe [Sort])
+searchAddressBooks_sortCriteria = Lens.lens (\SearchAddressBooks' {sortCriteria} -> sortCriteria) (\s@SearchAddressBooks' {} a -> s {sortCriteria = a} :: SearchAddressBooks) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
@@ -111,21 +121,11 @@ newSearchAddressBooks =
 searchAddressBooks_nextToken :: Lens.Lens' SearchAddressBooks (Prelude.Maybe Prelude.Text)
 searchAddressBooks_nextToken = Lens.lens (\SearchAddressBooks' {nextToken} -> nextToken) (\s@SearchAddressBooks' {} a -> s {nextToken = a} :: SearchAddressBooks)
 
--- | The sort order to use in listing the specified set of address books. The
--- supported sort key is AddressBookName.
-searchAddressBooks_sortCriteria :: Lens.Lens' SearchAddressBooks (Prelude.Maybe [Sort])
-searchAddressBooks_sortCriteria = Lens.lens (\SearchAddressBooks' {sortCriteria} -> sortCriteria) (\s@SearchAddressBooks' {} a -> s {sortCriteria = a} :: SearchAddressBooks) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified MaxResults value, a token is included
 -- in the response so that the remaining results can be retrieved.
 searchAddressBooks_maxResults :: Lens.Lens' SearchAddressBooks (Prelude.Maybe Prelude.Natural)
 searchAddressBooks_maxResults = Lens.lens (\SearchAddressBooks' {maxResults} -> maxResults) (\s@SearchAddressBooks' {} a -> s {maxResults = a} :: SearchAddressBooks)
-
--- | The filters to use to list a specified set of address books. The
--- supported filter key is AddressBookName.
-searchAddressBooks_filters :: Lens.Lens' SearchAddressBooks (Prelude.Maybe [Filter])
-searchAddressBooks_filters = Lens.lens (\SearchAddressBooks' {filters} -> filters) (\s@SearchAddressBooks' {} a -> s {filters = a} :: SearchAddressBooks) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest SearchAddressBooks where
   type
@@ -165,10 +165,10 @@ instance Core.ToJSON SearchAddressBooks where
   toJSON SearchAddressBooks' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
             ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -228,7 +228,7 @@ searchAddressBooksResponse_nextToken = Lens.lens (\SearchAddressBooksResponse' {
 -- | The address books that meet the specified set of filter criteria, in
 -- sort order.
 searchAddressBooksResponse_addressBooks :: Lens.Lens' SearchAddressBooksResponse (Prelude.Maybe [AddressBookData])
-searchAddressBooksResponse_addressBooks = Lens.lens (\SearchAddressBooksResponse' {addressBooks} -> addressBooks) (\s@SearchAddressBooksResponse' {} a -> s {addressBooks = a} :: SearchAddressBooksResponse) Prelude.. Lens.mapping Lens._Coerce
+searchAddressBooksResponse_addressBooks = Lens.lens (\SearchAddressBooksResponse' {addressBooks} -> addressBooks) (\s@SearchAddressBooksResponse' {} a -> s {addressBooks = a} :: SearchAddressBooksResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The total number of address books returned.
 searchAddressBooksResponse_totalCount :: Lens.Lens' SearchAddressBooksResponse (Prelude.Maybe Prelude.Int)

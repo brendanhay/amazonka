@@ -36,10 +36,10 @@ module Network.AWS.Greengrass.CreateLoggerDefinitionVersion
     newCreateLoggerDefinitionVersionResponse,
 
     -- * Response Lenses
-    createLoggerDefinitionVersionResponse_creationTimestamp,
     createLoggerDefinitionVersionResponse_arn,
-    createLoggerDefinitionVersionResponse_id,
+    createLoggerDefinitionVersionResponse_creationTimestamp,
     createLoggerDefinitionVersionResponse_version,
+    createLoggerDefinitionVersionResponse_id,
     createLoggerDefinitionVersionResponse_httpStatus,
   )
 where
@@ -89,7 +89,7 @@ newCreateLoggerDefinitionVersion pLoggerDefinitionId_ =
 
 -- | A list of loggers.
 createLoggerDefinitionVersion_loggers :: Lens.Lens' CreateLoggerDefinitionVersion (Prelude.Maybe [GreengrassLogger])
-createLoggerDefinitionVersion_loggers = Lens.lens (\CreateLoggerDefinitionVersion' {loggers} -> loggers) (\s@CreateLoggerDefinitionVersion' {} a -> s {loggers = a} :: CreateLoggerDefinitionVersion) Prelude.. Lens.mapping Lens._Coerce
+createLoggerDefinitionVersion_loggers = Lens.lens (\CreateLoggerDefinitionVersion' {loggers} -> loggers) (\s@CreateLoggerDefinitionVersion' {} a -> s {loggers = a} :: CreateLoggerDefinitionVersion) Prelude.. Lens.mapping Lens.coerced
 
 -- | A client token used to correlate requests and responses.
 createLoggerDefinitionVersion_amznClientToken :: Lens.Lens' CreateLoggerDefinitionVersion (Prelude.Maybe Prelude.Text)
@@ -111,10 +111,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           CreateLoggerDefinitionVersionResponse'
-            Prelude.<$> (x Core..?> "CreationTimestamp")
-            Prelude.<*> (x Core..?> "Arn")
-            Prelude.<*> (x Core..?> "Id")
+            Prelude.<$> (x Core..?> "Arn")
+            Prelude.<*> (x Core..?> "CreationTimestamp")
             Prelude.<*> (x Core..?> "Version")
+            Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -152,14 +152,14 @@ instance Core.ToQuery CreateLoggerDefinitionVersion where
 
 -- | /See:/ 'newCreateLoggerDefinitionVersionResponse' smart constructor.
 data CreateLoggerDefinitionVersionResponse = CreateLoggerDefinitionVersionResponse'
-  { -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the version.
+  { -- | The ARN of the version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the parent definition that the version is associated with.
-    id :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
     -- | The ID of the version.
     version :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -173,13 +173,13 @@ data CreateLoggerDefinitionVersionResponse = CreateLoggerDefinitionVersionRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTimestamp', 'createLoggerDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
---
 -- 'arn', 'createLoggerDefinitionVersionResponse_arn' - The ARN of the version.
 --
--- 'id', 'createLoggerDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
+-- 'creationTimestamp', 'createLoggerDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
 -- 'version', 'createLoggerDefinitionVersionResponse_version' - The ID of the version.
+--
+-- 'id', 'createLoggerDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
 --
 -- 'httpStatus', 'createLoggerDefinitionVersionResponse_httpStatus' - The response's http status code.
 newCreateLoggerDefinitionVersionResponse ::
@@ -188,29 +188,29 @@ newCreateLoggerDefinitionVersionResponse ::
   CreateLoggerDefinitionVersionResponse
 newCreateLoggerDefinitionVersionResponse pHttpStatus_ =
   CreateLoggerDefinitionVersionResponse'
-    { creationTimestamp =
+    { arn =
         Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+      creationTimestamp = Prelude.Nothing,
       version = Prelude.Nothing,
+      id = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The time, in milliseconds since the epoch, when the version was created.
-createLoggerDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateLoggerDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createLoggerDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateLoggerDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateLoggerDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateLoggerDefinitionVersionResponse)
 
 -- | The ARN of the version.
 createLoggerDefinitionVersionResponse_arn :: Lens.Lens' CreateLoggerDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createLoggerDefinitionVersionResponse_arn = Lens.lens (\CreateLoggerDefinitionVersionResponse' {arn} -> arn) (\s@CreateLoggerDefinitionVersionResponse' {} a -> s {arn = a} :: CreateLoggerDefinitionVersionResponse)
 
--- | The ID of the parent definition that the version is associated with.
-createLoggerDefinitionVersionResponse_id :: Lens.Lens' CreateLoggerDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
-createLoggerDefinitionVersionResponse_id = Lens.lens (\CreateLoggerDefinitionVersionResponse' {id} -> id) (\s@CreateLoggerDefinitionVersionResponse' {} a -> s {id = a} :: CreateLoggerDefinitionVersionResponse)
+-- | The time, in milliseconds since the epoch, when the version was created.
+createLoggerDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateLoggerDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createLoggerDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateLoggerDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateLoggerDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateLoggerDefinitionVersionResponse)
 
 -- | The ID of the version.
 createLoggerDefinitionVersionResponse_version :: Lens.Lens' CreateLoggerDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
 createLoggerDefinitionVersionResponse_version = Lens.lens (\CreateLoggerDefinitionVersionResponse' {version} -> version) (\s@CreateLoggerDefinitionVersionResponse' {} a -> s {version = a} :: CreateLoggerDefinitionVersionResponse)
+
+-- | The ID of the parent definition that the version is associated with.
+createLoggerDefinitionVersionResponse_id :: Lens.Lens' CreateLoggerDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createLoggerDefinitionVersionResponse_id = Lens.lens (\CreateLoggerDefinitionVersionResponse' {id} -> id) (\s@CreateLoggerDefinitionVersionResponse' {} a -> s {id = a} :: CreateLoggerDefinitionVersionResponse)
 
 -- | The response's http status code.
 createLoggerDefinitionVersionResponse_httpStatus :: Lens.Lens' CreateLoggerDefinitionVersionResponse Prelude.Int

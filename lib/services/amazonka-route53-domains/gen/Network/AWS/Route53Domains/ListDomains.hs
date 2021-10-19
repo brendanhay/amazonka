@@ -30,8 +30,8 @@ module Network.AWS.Route53Domains.ListDomains
     newListDomains,
 
     -- * Request Lenses
-    listDomains_maxItems,
     listDomains_marker,
+    listDomains_maxItems,
 
     -- * Destructuring the Response
     ListDomainsResponse (..),
@@ -55,11 +55,7 @@ import Network.AWS.Route53Domains.Types
 --
 -- /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | Number of domains to be returned.
-    --
-    -- Default: 20
-    maxItems :: Prelude.Maybe Prelude.Int,
-    -- | For an initial request for a list of domains, omit this element. If the
+  { -- | For an initial request for a list of domains, omit this element. If the
     -- number of domains that are associated with the current AWS account is
     -- greater than the value that you specified for @MaxItems@, you can use
     -- @Marker@ to return additional domains. Get the value of @NextPageMarker@
@@ -68,7 +64,11 @@ data ListDomains = ListDomains'
     --
     -- Constraints: The marker must match the value specified in the previous
     -- request.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Number of domains to be returned.
+    --
+    -- Default: 20
+    maxItems :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,10 +80,6 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listDomains_maxItems' - Number of domains to be returned.
---
--- Default: 20
---
 -- 'marker', 'listDomains_marker' - For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
 -- greater than the value that you specified for @MaxItems@, you can use
@@ -93,19 +89,17 @@ data ListDomains = ListDomains'
 --
 -- Constraints: The marker must match the value specified in the previous
 -- request.
+--
+-- 'maxItems', 'listDomains_maxItems' - Number of domains to be returned.
+--
+-- Default: 20
 newListDomains ::
   ListDomains
 newListDomains =
   ListDomains'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { marker = Prelude.Nothing,
+      maxItems = Prelude.Nothing
     }
-
--- | Number of domains to be returned.
---
--- Default: 20
-listDomains_maxItems :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Int)
-listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@ListDomains' {} a -> s {maxItems = a} :: ListDomains)
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
@@ -118,6 +112,12 @@ listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@List
 -- request.
 listDomains_marker :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
 listDomains_marker = Lens.lens (\ListDomains' {marker} -> marker) (\s@ListDomains' {} a -> s {marker = a} :: ListDomains)
+
+-- | Number of domains to be returned.
+--
+-- Default: 20
+listDomains_maxItems :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Int)
+listDomains_maxItems = Lens.lens (\ListDomains' {maxItems} -> maxItems) (\s@ListDomains' {} a -> s {maxItems = a} :: ListDomains)
 
 instance Core.AWSPager ListDomains where
   page rq rs
@@ -172,8 +172,8 @@ instance Core.ToJSON ListDomains where
   toJSON ListDomains' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxItems" Core..=) Prelude.<$> maxItems,
-            ("Marker" Core..=) Prelude.<$> marker
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("MaxItems" Core..=) Prelude.<$> maxItems
           ]
       )
 
@@ -237,6 +237,6 @@ listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -
 
 -- | A summary of domains.
 listDomainsResponse_domains :: Lens.Lens' ListDomainsResponse [DomainSummary]
-listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens._Coerce
+listDomainsResponse_domains = Lens.lens (\ListDomainsResponse' {domains} -> domains) (\s@ListDomainsResponse' {} a -> s {domains = a} :: ListDomainsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListDomainsResponse

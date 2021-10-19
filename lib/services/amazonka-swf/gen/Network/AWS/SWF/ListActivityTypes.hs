@@ -55,9 +55,9 @@ module Network.AWS.SWF.ListActivityTypes
 
     -- * Request Lenses
     listActivityTypes_nextPageToken,
+    listActivityTypes_reverseOrder,
     listActivityTypes_name,
     listActivityTypes_maximumPageSize,
-    listActivityTypes_reverseOrder,
     listActivityTypes_domain,
     listActivityTypes_registrationStatus,
 
@@ -91,15 +91,15 @@ data ListActivityTypes = ListActivityTypes'
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | When set to @true@, returns the results in reverse order. By default,
+    -- the results are returned in ascending alphabetical order by @name@ of
+    -- the activity types.
+    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | If specified, only lists the activity types that have this name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
     maximumPageSize :: Prelude.Maybe Prelude.Natural,
-    -- | When set to @true@, returns the results in reverse order. By default,
-    -- the results are returned in ascending alphabetical order by @name@ of
-    -- the activity types.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain in which the activity types have been registered.
     domain :: Prelude.Text,
     -- | Specifies the registration status of the activity types to list.
@@ -125,14 +125,14 @@ data ListActivityTypes = ListActivityTypes'
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
 --
+-- 'reverseOrder', 'listActivityTypes_reverseOrder' - When set to @true@, returns the results in reverse order. By default,
+-- the results are returned in ascending alphabetical order by @name@ of
+-- the activity types.
+--
 -- 'name', 'listActivityTypes_name' - If specified, only lists the activity types that have this name.
 --
 -- 'maximumPageSize', 'listActivityTypes_maximumPageSize' - The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
---
--- 'reverseOrder', 'listActivityTypes_reverseOrder' - When set to @true@, returns the results in reverse order. By default,
--- the results are returned in ascending alphabetical order by @name@ of
--- the activity types.
 --
 -- 'domain', 'listActivityTypes_domain' - The name of the domain in which the activity types have been registered.
 --
@@ -146,9 +146,9 @@ newListActivityTypes ::
 newListActivityTypes pDomain_ pRegistrationStatus_ =
   ListActivityTypes'
     { nextPageToken = Prelude.Nothing,
+      reverseOrder = Prelude.Nothing,
       name = Prelude.Nothing,
       maximumPageSize = Prelude.Nothing,
-      reverseOrder = Prelude.Nothing,
       domain = pDomain_,
       registrationStatus = pRegistrationStatus_
     }
@@ -165,6 +165,12 @@ newListActivityTypes pDomain_ pRegistrationStatus_ =
 listActivityTypes_nextPageToken :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
 listActivityTypes_nextPageToken = Lens.lens (\ListActivityTypes' {nextPageToken} -> nextPageToken) (\s@ListActivityTypes' {} a -> s {nextPageToken = a} :: ListActivityTypes)
 
+-- | When set to @true@, returns the results in reverse order. By default,
+-- the results are returned in ascending alphabetical order by @name@ of
+-- the activity types.
+listActivityTypes_reverseOrder :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Bool)
+listActivityTypes_reverseOrder = Lens.lens (\ListActivityTypes' {reverseOrder} -> reverseOrder) (\s@ListActivityTypes' {} a -> s {reverseOrder = a} :: ListActivityTypes)
+
 -- | If specified, only lists the activity types that have this name.
 listActivityTypes_name :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Text)
 listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@ListActivityTypes' {} a -> s {name = a} :: ListActivityTypes)
@@ -173,12 +179,6 @@ listActivityTypes_name = Lens.lens (\ListActivityTypes' {name} -> name) (\s@List
 -- @nextPageToken@ to obtain further pages of results.
 listActivityTypes_maximumPageSize :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Natural)
 listActivityTypes_maximumPageSize = Lens.lens (\ListActivityTypes' {maximumPageSize} -> maximumPageSize) (\s@ListActivityTypes' {} a -> s {maximumPageSize = a} :: ListActivityTypes)
-
--- | When set to @true@, returns the results in reverse order. By default,
--- the results are returned in ascending alphabetical order by @name@ of
--- the activity types.
-listActivityTypes_reverseOrder :: Lens.Lens' ListActivityTypes (Prelude.Maybe Prelude.Bool)
-listActivityTypes_reverseOrder = Lens.lens (\ListActivityTypes' {reverseOrder} -> reverseOrder) (\s@ListActivityTypes' {} a -> s {reverseOrder = a} :: ListActivityTypes)
 
 -- | The name of the domain in which the activity types have been registered.
 listActivityTypes_domain :: Lens.Lens' ListActivityTypes Prelude.Text
@@ -245,10 +245,10 @@ instance Core.ToJSON ListActivityTypes where
     Core.object
       ( Prelude.catMaybes
           [ ("nextPageToken" Core..=) Prelude.<$> nextPageToken,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             ("name" Core..=) Prelude.<$> name,
             ("maximumPageSize" Core..=)
               Prelude.<$> maximumPageSize,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             Prelude.Just ("domain" Core..= domain),
             Prelude.Just
               ("registrationStatus" Core..= registrationStatus)
@@ -327,6 +327,6 @@ listActivityTypesResponse_httpStatus = Lens.lens (\ListActivityTypesResponse' {h
 
 -- | List of activity type information.
 listActivityTypesResponse_typeInfos :: Lens.Lens' ListActivityTypesResponse [ActivityTypeInfo]
-listActivityTypesResponse_typeInfos = Lens.lens (\ListActivityTypesResponse' {typeInfos} -> typeInfos) (\s@ListActivityTypesResponse' {} a -> s {typeInfos = a} :: ListActivityTypesResponse) Prelude.. Lens._Coerce
+listActivityTypesResponse_typeInfos = Lens.lens (\ListActivityTypesResponse' {typeInfos} -> typeInfos) (\s@ListActivityTypesResponse' {} a -> s {typeInfos = a} :: ListActivityTypesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListActivityTypesResponse

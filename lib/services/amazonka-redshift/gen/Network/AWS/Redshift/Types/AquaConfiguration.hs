@@ -30,16 +30,7 @@ import Network.AWS.Redshift.Types.AquaStatus
 --
 -- /See:/ 'newAquaConfiguration' smart constructor.
 data AquaConfiguration = AquaConfiguration'
-  { -- | The value indicates the status of AQUA on the cluster. Possible values
-    -- include the following.
-    --
-    -- -   enabled - AQUA is enabled.
-    --
-    -- -   disabled - AQUA is not enabled.
-    --
-    -- -   applying - AQUA status is being applied.
-    aquaStatus :: Prelude.Maybe AquaStatus,
-    -- | The value represents how the cluster is configured to use AQUA. Possible
+  { -- | The value represents how the cluster is configured to use AQUA. Possible
     -- values include the following.
     --
     -- -   enabled - Use AQUA if it is available for the current Amazon Web
@@ -48,7 +39,16 @@ data AquaConfiguration = AquaConfiguration'
     -- -   disabled - Don\'t use AQUA.
     --
     -- -   auto - Amazon Redshift determines whether to use AQUA.
-    aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus
+    aquaConfigurationStatus :: Prelude.Maybe AquaConfigurationStatus,
+    -- | The value indicates the status of AQUA on the cluster. Possible values
+    -- include the following.
+    --
+    -- -   enabled - AQUA is enabled.
+    --
+    -- -   disabled - AQUA is not enabled.
+    --
+    -- -   applying - AQUA status is being applied.
+    aquaStatus :: Prelude.Maybe AquaStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,15 +60,6 @@ data AquaConfiguration = AquaConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aquaStatus', 'aquaConfiguration_aquaStatus' - The value indicates the status of AQUA on the cluster. Possible values
--- include the following.
---
--- -   enabled - AQUA is enabled.
---
--- -   disabled - AQUA is not enabled.
---
--- -   applying - AQUA status is being applied.
---
 -- 'aquaConfigurationStatus', 'aquaConfiguration_aquaConfigurationStatus' - The value represents how the cluster is configured to use AQUA. Possible
 -- values include the following.
 --
@@ -78,15 +69,8 @@ data AquaConfiguration = AquaConfiguration'
 -- -   disabled - Don\'t use AQUA.
 --
 -- -   auto - Amazon Redshift determines whether to use AQUA.
-newAquaConfiguration ::
-  AquaConfiguration
-newAquaConfiguration =
-  AquaConfiguration'
-    { aquaStatus = Prelude.Nothing,
-      aquaConfigurationStatus = Prelude.Nothing
-    }
-
--- | The value indicates the status of AQUA on the cluster. Possible values
+--
+-- 'aquaStatus', 'aquaConfiguration_aquaStatus' - The value indicates the status of AQUA on the cluster. Possible values
 -- include the following.
 --
 -- -   enabled - AQUA is enabled.
@@ -94,8 +78,14 @@ newAquaConfiguration =
 -- -   disabled - AQUA is not enabled.
 --
 -- -   applying - AQUA status is being applied.
-aquaConfiguration_aquaStatus :: Lens.Lens' AquaConfiguration (Prelude.Maybe AquaStatus)
-aquaConfiguration_aquaStatus = Lens.lens (\AquaConfiguration' {aquaStatus} -> aquaStatus) (\s@AquaConfiguration' {} a -> s {aquaStatus = a} :: AquaConfiguration)
+newAquaConfiguration ::
+  AquaConfiguration
+newAquaConfiguration =
+  AquaConfiguration'
+    { aquaConfigurationStatus =
+        Prelude.Nothing,
+      aquaStatus = Prelude.Nothing
+    }
 
 -- | The value represents how the cluster is configured to use AQUA. Possible
 -- values include the following.
@@ -109,11 +99,22 @@ aquaConfiguration_aquaStatus = Lens.lens (\AquaConfiguration' {aquaStatus} -> aq
 aquaConfiguration_aquaConfigurationStatus :: Lens.Lens' AquaConfiguration (Prelude.Maybe AquaConfigurationStatus)
 aquaConfiguration_aquaConfigurationStatus = Lens.lens (\AquaConfiguration' {aquaConfigurationStatus} -> aquaConfigurationStatus) (\s@AquaConfiguration' {} a -> s {aquaConfigurationStatus = a} :: AquaConfiguration)
 
+-- | The value indicates the status of AQUA on the cluster. Possible values
+-- include the following.
+--
+-- -   enabled - AQUA is enabled.
+--
+-- -   disabled - AQUA is not enabled.
+--
+-- -   applying - AQUA status is being applied.
+aquaConfiguration_aquaStatus :: Lens.Lens' AquaConfiguration (Prelude.Maybe AquaStatus)
+aquaConfiguration_aquaStatus = Lens.lens (\AquaConfiguration' {aquaStatus} -> aquaStatus) (\s@AquaConfiguration' {} a -> s {aquaStatus = a} :: AquaConfiguration)
+
 instance Core.FromXML AquaConfiguration where
   parseXML x =
     AquaConfiguration'
-      Prelude.<$> (x Core..@? "AquaStatus")
-      Prelude.<*> (x Core..@? "AquaConfigurationStatus")
+      Prelude.<$> (x Core..@? "AquaConfigurationStatus")
+      Prelude.<*> (x Core..@? "AquaStatus")
 
 instance Prelude.Hashable AquaConfiguration
 

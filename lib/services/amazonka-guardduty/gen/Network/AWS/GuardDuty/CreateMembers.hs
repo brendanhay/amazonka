@@ -94,7 +94,7 @@ newCreateMembers pDetectorId_ pAccountDetails_ =
   CreateMembers'
     { detectorId = pDetectorId_,
       accountDetails =
-        Lens._Coerce Lens.# pAccountDetails_
+        Lens.coerced Lens.# pAccountDetails_
     }
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
@@ -105,7 +105,7 @@ createMembers_detectorId = Lens.lens (\CreateMembers' {detectorId} -> detectorId
 -- | A list of account ID and email address pairs of the accounts that you
 -- want to associate with the GuardDuty administrator account.
 createMembers_accountDetails :: Lens.Lens' CreateMembers (Prelude.NonEmpty AccountDetail)
-createMembers_accountDetails = Lens.lens (\CreateMembers' {accountDetails} -> accountDetails) (\s@CreateMembers' {} a -> s {accountDetails = a} :: CreateMembers) Prelude.. Lens._Coerce
+createMembers_accountDetails = Lens.lens (\CreateMembers' {accountDetails} -> accountDetails) (\s@CreateMembers' {} a -> s {accountDetails = a} :: CreateMembers) Prelude.. Lens.coerced
 
 instance Core.AWSRequest CreateMembers where
   type
@@ -193,6 +193,6 @@ createMembersResponse_httpStatus = Lens.lens (\CreateMembersResponse' {httpStatu
 -- | A list of objects that include the @accountIds@ of the unprocessed
 -- accounts and a result string that explains why each was unprocessed.
 createMembersResponse_unprocessedAccounts :: Lens.Lens' CreateMembersResponse [UnprocessedAccount]
-createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens._Coerce
+createMembersResponse_unprocessedAccounts = Lens.lens (\CreateMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@CreateMembersResponse' {} a -> s {unprocessedAccounts = a} :: CreateMembersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData CreateMembersResponse

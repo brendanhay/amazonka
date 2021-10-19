@@ -40,74 +40,74 @@ module Network.AWS.SNS
     -- * Errors
     -- $errors
 
-    -- ** KMSThrottlingException
-    _KMSThrottlingException,
-
     -- ** KMSInvalidStateException
     _KMSInvalidStateException,
-
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** KMSNotFoundException
-    _KMSNotFoundException,
-
-    -- ** UserErrorException
-    _UserErrorException,
-
-    -- ** ThrottledException
-    _ThrottledException,
-
-    -- ** TagLimitExceededException
-    _TagLimitExceededException,
-
-    -- ** OptedOutException
-    _OptedOutException,
-
-    -- ** InternalErrorException
-    _InternalErrorException,
-
-    -- ** KMSOptInRequired
-    _KMSOptInRequired,
-
-    -- ** ConcurrentAccessException
-    _ConcurrentAccessException,
-
-    -- ** TopicLimitExceededException
-    _TopicLimitExceededException,
-
-    -- ** TagPolicyException
-    _TagPolicyException,
-
-    -- ** PlatformApplicationDisabledException
-    _PlatformApplicationDisabledException,
-
-    -- ** SubscriptionLimitExceededException
-    _SubscriptionLimitExceededException,
-
-    -- ** StaleTagException
-    _StaleTagException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
-
-    -- ** AuthorizationErrorException
-    _AuthorizationErrorException,
 
     -- ** EndpointDisabledException
     _EndpointDisabledException,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
-
     -- ** ValidationException
     _ValidationException,
 
-    -- ** KMSAccessDeniedException
-    _KMSAccessDeniedException,
+    -- ** AuthorizationErrorException
+    _AuthorizationErrorException,
 
-    -- ** FilterPolicyLimitExceededException
-    _FilterPolicyLimitExceededException,
+    -- ** KMSThrottlingException
+    _KMSThrottlingException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** SubscriptionLimitExceededException
+    _SubscriptionLimitExceededException,
+
+    -- ** PlatformApplicationDisabledException
+    _PlatformApplicationDisabledException,
+
+    -- ** KMSOptInRequired
+    _KMSOptInRequired,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** StaleTagException
+    _StaleTagException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidSecurityException
+    _InvalidSecurityException,
+
+    -- ** TopicLimitExceededException
+    _TopicLimitExceededException,
+
+    -- ** ConcurrentAccessException
+    _ConcurrentAccessException,
+
+    -- ** OptedOutException
+    _OptedOutException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** UserErrorException
+    _UserErrorException,
 
     -- ** VerificationException
     _VerificationException,
@@ -115,11 +115,11 @@ module Network.AWS.SNS
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** InvalidSecurityException
-    _InvalidSecurityException,
+    -- ** FilterPolicyLimitExceededException
+    _FilterPolicyLimitExceededException,
 
-    -- ** KMSDisabledException
-    _KMSDisabledException,
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
 
     -- * Waiters
     -- $waiters
@@ -127,113 +127,11 @@ module Network.AWS.SNS
     -- * Operations
     -- $operations
 
-    -- ** DeletePlatformApplication
-    DeletePlatformApplication (DeletePlatformApplication'),
-    newDeletePlatformApplication,
-    DeletePlatformApplicationResponse (DeletePlatformApplicationResponse'),
-    newDeletePlatformApplicationResponse,
-
-    -- ** ConfirmSubscription
-    ConfirmSubscription (ConfirmSubscription'),
-    newConfirmSubscription,
-    ConfirmSubscriptionResponse (ConfirmSubscriptionResponse'),
-    newConfirmSubscriptionResponse,
-
-    -- ** Publish
-    Publish (Publish'),
-    newPublish,
-    PublishResponse (PublishResponse'),
-    newPublishResponse,
-
-    -- ** DeleteSMSSandboxPhoneNumber
-    DeleteSMSSandboxPhoneNumber (DeleteSMSSandboxPhoneNumber'),
-    newDeleteSMSSandboxPhoneNumber,
-    DeleteSMSSandboxPhoneNumberResponse (DeleteSMSSandboxPhoneNumberResponse'),
-    newDeleteSMSSandboxPhoneNumberResponse,
-
-    -- ** OptInPhoneNumber
-    OptInPhoneNumber (OptInPhoneNumber'),
-    newOptInPhoneNumber,
-    OptInPhoneNumberResponse (OptInPhoneNumberResponse'),
-    newOptInPhoneNumberResponse,
-
-    -- ** Unsubscribe
-    Unsubscribe (Unsubscribe'),
-    newUnsubscribe,
-    UnsubscribeResponse (UnsubscribeResponse'),
-    newUnsubscribeResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListSubscriptionsByTopic (Paginated)
-    ListSubscriptionsByTopic (ListSubscriptionsByTopic'),
-    newListSubscriptionsByTopic,
-    ListSubscriptionsByTopicResponse (ListSubscriptionsByTopicResponse'),
-    newListSubscriptionsByTopicResponse,
-
-    -- ** SetSMSAttributes
-    SetSMSAttributes (SetSMSAttributes'),
-    newSetSMSAttributes,
-    SetSMSAttributesResponse (SetSMSAttributesResponse'),
-    newSetSMSAttributesResponse,
-
-    -- ** Subscribe
-    Subscribe (Subscribe'),
-    newSubscribe,
-    SubscribeResponse (SubscribeResponse'),
-    newSubscribeResponse,
-
-    -- ** SetPlatformApplicationAttributes
-    SetPlatformApplicationAttributes (SetPlatformApplicationAttributes'),
-    newSetPlatformApplicationAttributes,
-    SetPlatformApplicationAttributesResponse (SetPlatformApplicationAttributesResponse'),
-    newSetPlatformApplicationAttributesResponse,
-
-    -- ** GetTopicAttributes
-    GetTopicAttributes (GetTopicAttributes'),
-    newGetTopicAttributes,
-    GetTopicAttributesResponse (GetTopicAttributesResponse'),
-    newGetTopicAttributesResponse,
-
-    -- ** CreatePlatformEndpoint
-    CreatePlatformEndpoint (CreatePlatformEndpoint'),
-    newCreatePlatformEndpoint,
-    CreatePlatformEndpointResponse (CreatePlatformEndpointResponse'),
-    newCreatePlatformEndpointResponse,
-
-    -- ** ListTopics (Paginated)
-    ListTopics (ListTopics'),
-    newListTopics,
-    ListTopicsResponse (ListTopicsResponse'),
-    newListTopicsResponse,
-
-    -- ** AddPermission
-    AddPermission (AddPermission'),
-    newAddPermission,
-    AddPermissionResponse (AddPermissionResponse'),
-    newAddPermissionResponse,
-
-    -- ** GetEndpointAttributes
-    GetEndpointAttributes (GetEndpointAttributes'),
-    newGetEndpointAttributes,
-    GetEndpointAttributesResponse (GetEndpointAttributesResponse'),
-    newGetEndpointAttributesResponse,
-
-    -- ** GetSubscriptionAttributes
-    GetSubscriptionAttributes (GetSubscriptionAttributes'),
-    newGetSubscriptionAttributes,
-    GetSubscriptionAttributesResponse (GetSubscriptionAttributesResponse'),
-    newGetSubscriptionAttributesResponse,
+    -- ** ListPhoneNumbersOptedOut (Paginated)
+    ListPhoneNumbersOptedOut (ListPhoneNumbersOptedOut'),
+    newListPhoneNumbersOptedOut,
+    ListPhoneNumbersOptedOutResponse (ListPhoneNumbersOptedOutResponse'),
+    newListPhoneNumbersOptedOutResponse,
 
     -- ** DeleteEndpoint
     DeleteEndpoint (DeleteEndpoint'),
@@ -241,29 +139,95 @@ module Network.AWS.SNS
     DeleteEndpointResponse (DeleteEndpointResponse'),
     newDeleteEndpointResponse,
 
-    -- ** ListSubscriptions (Paginated)
-    ListSubscriptions (ListSubscriptions'),
-    newListSubscriptions,
-    ListSubscriptionsResponse (ListSubscriptionsResponse'),
-    newListSubscriptionsResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** ListPhoneNumbersOptedOut (Paginated)
-    ListPhoneNumbersOptedOut (ListPhoneNumbersOptedOut'),
-    newListPhoneNumbersOptedOut,
-    ListPhoneNumbersOptedOutResponse (ListPhoneNumbersOptedOutResponse'),
-    newListPhoneNumbersOptedOutResponse,
+    -- ** RemovePermission
+    RemovePermission (RemovePermission'),
+    newRemovePermission,
+    RemovePermissionResponse (RemovePermissionResponse'),
+    newRemovePermissionResponse,
 
-    -- ** SetTopicAttributes
-    SetTopicAttributes (SetTopicAttributes'),
-    newSetTopicAttributes,
-    SetTopicAttributesResponse (SetTopicAttributesResponse'),
-    newSetTopicAttributesResponse,
+    -- ** DeleteTopic
+    DeleteTopic (DeleteTopic'),
+    newDeleteTopic,
+    DeleteTopicResponse (DeleteTopicResponse'),
+    newDeleteTopicResponse,
 
-    -- ** ListPlatformApplications (Paginated)
-    ListPlatformApplications (ListPlatformApplications'),
-    newListPlatformApplications,
-    ListPlatformApplicationsResponse (ListPlatformApplicationsResponse'),
-    newListPlatformApplicationsResponse,
+    -- ** SetSMSAttributes
+    SetSMSAttributes (SetSMSAttributes'),
+    newSetSMSAttributes,
+    SetSMSAttributesResponse (SetSMSAttributesResponse'),
+    newSetSMSAttributesResponse,
+
+    -- ** ListTopics (Paginated)
+    ListTopics (ListTopics'),
+    newListTopics,
+    ListTopicsResponse (ListTopicsResponse'),
+    newListTopicsResponse,
+
+    -- ** VerifySMSSandboxPhoneNumber
+    VerifySMSSandboxPhoneNumber (VerifySMSSandboxPhoneNumber'),
+    newVerifySMSSandboxPhoneNumber,
+    VerifySMSSandboxPhoneNumberResponse (VerifySMSSandboxPhoneNumberResponse'),
+    newVerifySMSSandboxPhoneNumberResponse,
+
+    -- ** CreatePlatformEndpoint
+    CreatePlatformEndpoint (CreatePlatformEndpoint'),
+    newCreatePlatformEndpoint,
+    CreatePlatformEndpointResponse (CreatePlatformEndpointResponse'),
+    newCreatePlatformEndpointResponse,
+
+    -- ** SetPlatformApplicationAttributes
+    SetPlatformApplicationAttributes (SetPlatformApplicationAttributes'),
+    newSetPlatformApplicationAttributes,
+    SetPlatformApplicationAttributesResponse (SetPlatformApplicationAttributesResponse'),
+    newSetPlatformApplicationAttributesResponse,
+
+    -- ** ListSubscriptionsByTopic (Paginated)
+    ListSubscriptionsByTopic (ListSubscriptionsByTopic'),
+    newListSubscriptionsByTopic,
+    ListSubscriptionsByTopicResponse (ListSubscriptionsByTopicResponse'),
+    newListSubscriptionsByTopicResponse,
+
+    -- ** GetTopicAttributes
+    GetTopicAttributes (GetTopicAttributes'),
+    newGetTopicAttributes,
+    GetTopicAttributesResponse (GetTopicAttributesResponse'),
+    newGetTopicAttributesResponse,
+
+    -- ** CreateSMSSandboxPhoneNumber
+    CreateSMSSandboxPhoneNumber (CreateSMSSandboxPhoneNumber'),
+    newCreateSMSSandboxPhoneNumber,
+    CreateSMSSandboxPhoneNumberResponse (CreateSMSSandboxPhoneNumberResponse'),
+    newCreateSMSSandboxPhoneNumberResponse,
+
+    -- ** OptInPhoneNumber
+    OptInPhoneNumber (OptInPhoneNumber'),
+    newOptInPhoneNumber,
+    OptInPhoneNumberResponse (OptInPhoneNumberResponse'),
+    newOptInPhoneNumberResponse,
+
+    -- ** DeleteSMSSandboxPhoneNumber
+    DeleteSMSSandboxPhoneNumber (DeleteSMSSandboxPhoneNumber'),
+    newDeleteSMSSandboxPhoneNumber,
+    DeleteSMSSandboxPhoneNumberResponse (DeleteSMSSandboxPhoneNumberResponse'),
+    newDeleteSMSSandboxPhoneNumberResponse,
+
+    -- ** ListSMSSandboxPhoneNumbers (Paginated)
+    ListSMSSandboxPhoneNumbers (ListSMSSandboxPhoneNumbers'),
+    newListSMSSandboxPhoneNumbers,
+    ListSMSSandboxPhoneNumbersResponse (ListSMSSandboxPhoneNumbersResponse'),
+    newListSMSSandboxPhoneNumbersResponse,
+
+    -- ** CreatePlatformApplication
+    CreatePlatformApplication (CreatePlatformApplication'),
+    newCreatePlatformApplication,
+    CreatePlatformApplicationResponse (CreatePlatformApplicationResponse'),
+    newCreatePlatformApplicationResponse,
 
     -- ** GetPlatformApplicationAttributes
     GetPlatformApplicationAttributes (GetPlatformApplicationAttributes'),
@@ -277,17 +241,101 @@ module Network.AWS.SNS
     ListEndpointsByPlatformApplicationResponse (ListEndpointsByPlatformApplicationResponse'),
     newListEndpointsByPlatformApplicationResponse,
 
+    -- ** SetTopicAttributes
+    SetTopicAttributes (SetTopicAttributes'),
+    newSetTopicAttributes,
+    SetTopicAttributesResponse (SetTopicAttributesResponse'),
+    newSetTopicAttributesResponse,
+
+    -- ** DeletePlatformApplication
+    DeletePlatformApplication (DeletePlatformApplication'),
+    newDeletePlatformApplication,
+    DeletePlatformApplicationResponse (DeletePlatformApplicationResponse'),
+    newDeletePlatformApplicationResponse,
+
     -- ** GetSMSAttributes
     GetSMSAttributes (GetSMSAttributes'),
     newGetSMSAttributes,
     GetSMSAttributesResponse (GetSMSAttributesResponse'),
     newGetSMSAttributesResponse,
 
-    -- ** CreatePlatformApplication
-    CreatePlatformApplication (CreatePlatformApplication'),
-    newCreatePlatformApplication,
-    CreatePlatformApplicationResponse (CreatePlatformApplicationResponse'),
-    newCreatePlatformApplicationResponse,
+    -- ** ListPlatformApplications (Paginated)
+    ListPlatformApplications (ListPlatformApplications'),
+    newListPlatformApplications,
+    ListPlatformApplicationsResponse (ListPlatformApplicationsResponse'),
+    newListPlatformApplicationsResponse,
+
+    -- ** AddPermission
+    AddPermission (AddPermission'),
+    newAddPermission,
+    AddPermissionResponse (AddPermissionResponse'),
+    newAddPermissionResponse,
+
+    -- ** GetEndpointAttributes
+    GetEndpointAttributes (GetEndpointAttributes'),
+    newGetEndpointAttributes,
+    GetEndpointAttributesResponse (GetEndpointAttributesResponse'),
+    newGetEndpointAttributesResponse,
+
+    -- ** ListSubscriptions (Paginated)
+    ListSubscriptions (ListSubscriptions'),
+    newListSubscriptions,
+    ListSubscriptionsResponse (ListSubscriptionsResponse'),
+    newListSubscriptionsResponse,
+
+    -- ** GetSubscriptionAttributes
+    GetSubscriptionAttributes (GetSubscriptionAttributes'),
+    newGetSubscriptionAttributes,
+    GetSubscriptionAttributesResponse (GetSubscriptionAttributesResponse'),
+    newGetSubscriptionAttributesResponse,
+
+    -- ** CreateTopic
+    CreateTopic (CreateTopic'),
+    newCreateTopic,
+    CreateTopicResponse (CreateTopicResponse'),
+    newCreateTopicResponse,
+
+    -- ** CheckIfPhoneNumberIsOptedOut
+    CheckIfPhoneNumberIsOptedOut (CheckIfPhoneNumberIsOptedOut'),
+    newCheckIfPhoneNumberIsOptedOut,
+    CheckIfPhoneNumberIsOptedOutResponse (CheckIfPhoneNumberIsOptedOutResponse'),
+    newCheckIfPhoneNumberIsOptedOutResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** Subscribe
+    Subscribe (Subscribe'),
+    newSubscribe,
+    SubscribeResponse (SubscribeResponse'),
+    newSubscribeResponse,
+
+    -- ** ListOriginationNumbers (Paginated)
+    ListOriginationNumbers (ListOriginationNumbers'),
+    newListOriginationNumbers,
+    ListOriginationNumbersResponse (ListOriginationNumbersResponse'),
+    newListOriginationNumbersResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** Unsubscribe
+    Unsubscribe (Unsubscribe'),
+    newUnsubscribe,
+    UnsubscribeResponse (UnsubscribeResponse'),
+    newUnsubscribeResponse,
+
+    -- ** GetSMSSandboxAccountStatus
+    GetSMSSandboxAccountStatus (GetSMSSandboxAccountStatus'),
+    newGetSMSSandboxAccountStatus,
+    GetSMSSandboxAccountStatusResponse (GetSMSSandboxAccountStatusResponse'),
+    newGetSMSSandboxAccountStatusResponse,
 
     -- ** SetEndpointAttributes
     SetEndpointAttributes (SetEndpointAttributes'),
@@ -301,65 +349,17 @@ module Network.AWS.SNS
     SetSubscriptionAttributesResponse (SetSubscriptionAttributesResponse'),
     newSetSubscriptionAttributesResponse,
 
-    -- ** ListSMSSandboxPhoneNumbers (Paginated)
-    ListSMSSandboxPhoneNumbers (ListSMSSandboxPhoneNumbers'),
-    newListSMSSandboxPhoneNumbers,
-    ListSMSSandboxPhoneNumbersResponse (ListSMSSandboxPhoneNumbersResponse'),
-    newListSMSSandboxPhoneNumbersResponse,
+    -- ** ConfirmSubscription
+    ConfirmSubscription (ConfirmSubscription'),
+    newConfirmSubscription,
+    ConfirmSubscriptionResponse (ConfirmSubscriptionResponse'),
+    newConfirmSubscriptionResponse,
 
-    -- ** ListOriginationNumbers (Paginated)
-    ListOriginationNumbers (ListOriginationNumbers'),
-    newListOriginationNumbers,
-    ListOriginationNumbersResponse (ListOriginationNumbersResponse'),
-    newListOriginationNumbersResponse,
-
-    -- ** CreateSMSSandboxPhoneNumber
-    CreateSMSSandboxPhoneNumber (CreateSMSSandboxPhoneNumber'),
-    newCreateSMSSandboxPhoneNumber,
-    CreateSMSSandboxPhoneNumberResponse (CreateSMSSandboxPhoneNumberResponse'),
-    newCreateSMSSandboxPhoneNumberResponse,
-
-    -- ** GetSMSSandboxAccountStatus
-    GetSMSSandboxAccountStatus (GetSMSSandboxAccountStatus'),
-    newGetSMSSandboxAccountStatus,
-    GetSMSSandboxAccountStatusResponse (GetSMSSandboxAccountStatusResponse'),
-    newGetSMSSandboxAccountStatusResponse,
-
-    -- ** CheckIfPhoneNumberIsOptedOut
-    CheckIfPhoneNumberIsOptedOut (CheckIfPhoneNumberIsOptedOut'),
-    newCheckIfPhoneNumberIsOptedOut,
-    CheckIfPhoneNumberIsOptedOutResponse (CheckIfPhoneNumberIsOptedOutResponse'),
-    newCheckIfPhoneNumberIsOptedOutResponse,
-
-    -- ** VerifySMSSandboxPhoneNumber
-    VerifySMSSandboxPhoneNumber (VerifySMSSandboxPhoneNumber'),
-    newVerifySMSSandboxPhoneNumber,
-    VerifySMSSandboxPhoneNumberResponse (VerifySMSSandboxPhoneNumberResponse'),
-    newVerifySMSSandboxPhoneNumberResponse,
-
-    -- ** DeleteTopic
-    DeleteTopic (DeleteTopic'),
-    newDeleteTopic,
-    DeleteTopicResponse (DeleteTopicResponse'),
-    newDeleteTopicResponse,
-
-    -- ** CreateTopic
-    CreateTopic (CreateTopic'),
-    newCreateTopic,
-    CreateTopicResponse (CreateTopicResponse'),
-    newCreateTopicResponse,
-
-    -- ** RemovePermission
-    RemovePermission (RemovePermission'),
-    newRemovePermission,
-    RemovePermissionResponse (RemovePermissionResponse'),
-    newRemovePermissionResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** Publish
+    Publish (Publish'),
+    newPublish,
+    PublishResponse (PublishResponse'),
+    newPublishResponse,
 
     -- * Types
 

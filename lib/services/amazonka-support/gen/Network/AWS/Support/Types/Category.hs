@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCategory' smart constructor.
 data Category = Category'
-  { -- | The category code for the support case.
-    code :: Prelude.Maybe Prelude.Text,
-    -- | The category name for the support case.
-    name :: Prelude.Maybe Prelude.Text
+  { -- | The category name for the support case.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The category code for the support case.
+    code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,24 +44,24 @@ data Category = Category'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'code', 'category_code' - The category code for the support case.
---
 -- 'name', 'category_name' - The category name for the support case.
+--
+-- 'code', 'category_code' - The category code for the support case.
 newCategory ::
   Category
 newCategory =
   Category'
-    { code = Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      code = Prelude.Nothing
     }
-
--- | The category code for the support case.
-category_code :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
-category_code = Lens.lens (\Category' {code} -> code) (\s@Category' {} a -> s {code = a} :: Category)
 
 -- | The category name for the support case.
 category_name :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
 category_name = Lens.lens (\Category' {name} -> name) (\s@Category' {} a -> s {name = a} :: Category)
+
+-- | The category code for the support case.
+category_code :: Lens.Lens' Category (Prelude.Maybe Prelude.Text)
+category_code = Lens.lens (\Category' {code} -> code) (\s@Category' {} a -> s {code = a} :: Category)
 
 instance Core.FromJSON Category where
   parseJSON =
@@ -69,7 +69,7 @@ instance Core.FromJSON Category where
       "Category"
       ( \x ->
           Category'
-            Prelude.<$> (x Core..:? "code") Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "name") Prelude.<*> (x Core..:? "code")
       )
 
 instance Prelude.Hashable Category

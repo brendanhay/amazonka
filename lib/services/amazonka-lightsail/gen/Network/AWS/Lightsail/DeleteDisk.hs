@@ -180,7 +180,7 @@ newDeleteDiskResponse pHttpStatus_ =
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
 deleteDiskResponse_operations :: Lens.Lens' DeleteDiskResponse (Prelude.Maybe [Operation])
-deleteDiskResponse_operations = Lens.lens (\DeleteDiskResponse' {operations} -> operations) (\s@DeleteDiskResponse' {} a -> s {operations = a} :: DeleteDiskResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteDiskResponse_operations = Lens.lens (\DeleteDiskResponse' {operations} -> operations) (\s@DeleteDiskResponse' {} a -> s {operations = a} :: DeleteDiskResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteDiskResponse_httpStatus :: Lens.Lens' DeleteDiskResponse Prelude.Int

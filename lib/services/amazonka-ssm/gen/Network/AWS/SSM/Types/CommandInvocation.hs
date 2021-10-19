@@ -36,25 +36,25 @@ import Network.AWS.SSM.Types.NotificationConfig
 --
 -- /See:/ 'newCommandInvocation' smart constructor.
 data CommandInvocation = CommandInvocation'
-  { -- | Configurations for sending notifications about command status changes on
-    -- a per instance basis.
-    notificationConfig :: Prelude.Maybe NotificationConfig,
-    -- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
-    -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
-    -- invocation, @StandardOutputUrl@ is populated if there is just one plugin
-    -- defined for the command, and the S3 bucket was defined for the command.
-    standardOutputUrl :: Prelude.Maybe Prelude.Text,
+  { -- | The instance ID in which this invocation was requested.
+    instanceId :: Prelude.Maybe Prelude.Text,
     -- | Whether or not the invocation succeeded, failed, or is pending.
     status :: Prelude.Maybe CommandInvocationStatus,
-    -- | The instance ID in which this invocation was requested.
-    instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The time and date the request was sent to this instance.
-    requestedDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The Identity and Access Management (IAM) service role that Run Command,
-    -- a capability of Amazon Web Services Systems Manager, uses to act on your
-    -- behalf when sending notifications about command status changes on a per
-    -- instance basis.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    -- | Configurations for sending notifications about command status changes on
+    -- a per instance basis.
+    notificationConfig :: Prelude.Maybe NotificationConfig,
+    -- | Plugins processed by the command.
+    commandPlugins :: Prelude.Maybe [CommandPlugin],
+    -- | Amazon CloudWatch Logs information where you want Amazon Web Services
+    -- Systems Manager to send the command output.
+    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+    -- | The document name that was requested for execution.
+    documentName :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
+    -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+    -- invocation, @StandardErrorUrl@ is populated if there is just one plugin
+    -- defined for the command, and the S3 bucket was defined for the command.
+    standardErrorUrl :: Prelude.Maybe Prelude.Text,
     -- | A detailed status of the command execution for each invocation (each
     -- instance targeted by the command). StatusDetails includes more
     -- information than Status because it includes states resulting from error
@@ -102,29 +102,29 @@ data CommandInvocation = CommandInvocation'
     --     subsequent command invocations were canceled by the system. This is
     --     a terminal state.
     statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | The fully qualified host name of the managed instance.
-    instanceName :: Prelude.Maybe Prelude.Text,
+    -- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+    -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+    -- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+    -- defined for the command, and the S3 bucket was defined for the command.
+    standardOutputUrl :: Prelude.Maybe Prelude.Text,
+    -- | The command against which this invocation was requested.
+    commandId :: Prelude.Maybe Prelude.Text,
+    -- | The Systems Manager document (SSM document) version.
+    documentVersion :: Prelude.Maybe Prelude.Text,
     -- | User-specified information about the command, such as a brief
     -- description of what the command should do.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
-    -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
-    -- invocation, @StandardErrorUrl@ is populated if there is just one plugin
-    -- defined for the command, and the S3 bucket was defined for the command.
-    standardErrorUrl :: Prelude.Maybe Prelude.Text,
-    -- | The document name that was requested for execution.
-    documentName :: Prelude.Maybe Prelude.Text,
-    -- | The command against which this invocation was requested.
-    commandId :: Prelude.Maybe Prelude.Text,
     -- | Gets the trace output sent by the agent.
     traceOutput :: Prelude.Maybe Prelude.Text,
-    -- | Plugins processed by the command.
-    commandPlugins :: Prelude.Maybe [CommandPlugin],
-    -- | Amazon CloudWatch Logs information where you want Amazon Web Services
-    -- Systems Manager to send the command output.
-    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
-    -- | The Systems Manager document (SSM document) version.
-    documentVersion :: Prelude.Maybe Prelude.Text
+    -- | The fully qualified host name of the managed instance.
+    instanceName :: Prelude.Maybe Prelude.Text,
+    -- | The time and date the request was sent to this instance.
+    requestedDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Identity and Access Management (IAM) service role that Run Command,
+    -- a capability of Amazon Web Services Systems Manager, uses to act on your
+    -- behalf when sending notifications about command status changes on a per
+    -- instance basis.
+    serviceRole :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -136,24 +136,24 @@ data CommandInvocation = CommandInvocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationConfig', 'commandInvocation_notificationConfig' - Configurations for sending notifications about command status changes on
--- a per instance basis.
---
--- 'standardOutputUrl', 'commandInvocation_standardOutputUrl' - The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
--- (Amazon S3), if the S3 bucket was defined for the parent command. For an
--- invocation, @StandardOutputUrl@ is populated if there is just one plugin
--- defined for the command, and the S3 bucket was defined for the command.
+-- 'instanceId', 'commandInvocation_instanceId' - The instance ID in which this invocation was requested.
 --
 -- 'status', 'commandInvocation_status' - Whether or not the invocation succeeded, failed, or is pending.
 --
--- 'instanceId', 'commandInvocation_instanceId' - The instance ID in which this invocation was requested.
+-- 'notificationConfig', 'commandInvocation_notificationConfig' - Configurations for sending notifications about command status changes on
+-- a per instance basis.
 --
--- 'requestedDateTime', 'commandInvocation_requestedDateTime' - The time and date the request was sent to this instance.
+-- 'commandPlugins', 'commandInvocation_commandPlugins' - Plugins processed by the command.
 --
--- 'serviceRole', 'commandInvocation_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
--- a capability of Amazon Web Services Systems Manager, uses to act on your
--- behalf when sending notifications about command status changes on a per
--- instance basis.
+-- 'cloudWatchOutputConfig', 'commandInvocation_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services
+-- Systems Manager to send the command output.
+--
+-- 'documentName', 'commandInvocation_documentName' - The document name that was requested for execution.
+--
+-- 'standardErrorUrl', 'commandInvocation_standardErrorUrl' - The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardErrorUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
 --
 -- 'statusDetails', 'commandInvocation_statusDetails' - A detailed status of the command execution for each invocation (each
 -- instance targeted by the command). StatusDetails includes more
@@ -202,81 +202,82 @@ data CommandInvocation = CommandInvocation'
 --     subsequent command invocations were canceled by the system. This is
 --     a terminal state.
 --
--- 'instanceName', 'commandInvocation_instanceName' - The fully qualified host name of the managed instance.
+-- 'standardOutputUrl', 'commandInvocation_standardOutputUrl' - The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
+--
+-- 'commandId', 'commandInvocation_commandId' - The command against which this invocation was requested.
+--
+-- 'documentVersion', 'commandInvocation_documentVersion' - The Systems Manager document (SSM document) version.
 --
 -- 'comment', 'commandInvocation_comment' - User-specified information about the command, such as a brief
 -- description of what the command should do.
 --
--- 'standardErrorUrl', 'commandInvocation_standardErrorUrl' - The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
--- (Amazon S3), if the S3 bucket was defined for the parent command. For an
--- invocation, @StandardErrorUrl@ is populated if there is just one plugin
--- defined for the command, and the S3 bucket was defined for the command.
---
--- 'documentName', 'commandInvocation_documentName' - The document name that was requested for execution.
---
--- 'commandId', 'commandInvocation_commandId' - The command against which this invocation was requested.
---
 -- 'traceOutput', 'commandInvocation_traceOutput' - Gets the trace output sent by the agent.
 --
--- 'commandPlugins', 'commandInvocation_commandPlugins' - Plugins processed by the command.
+-- 'instanceName', 'commandInvocation_instanceName' - The fully qualified host name of the managed instance.
 --
--- 'cloudWatchOutputConfig', 'commandInvocation_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services
--- Systems Manager to send the command output.
+-- 'requestedDateTime', 'commandInvocation_requestedDateTime' - The time and date the request was sent to this instance.
 --
--- 'documentVersion', 'commandInvocation_documentVersion' - The Systems Manager document (SSM document) version.
+-- 'serviceRole', 'commandInvocation_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
+-- a capability of Amazon Web Services Systems Manager, uses to act on your
+-- behalf when sending notifications about command status changes on a per
+-- instance basis.
 newCommandInvocation ::
   CommandInvocation
 newCommandInvocation =
   CommandInvocation'
-    { notificationConfig =
-        Prelude.Nothing,
-      standardOutputUrl = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
       status = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      requestedDateTime = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      instanceName = Prelude.Nothing,
-      comment = Prelude.Nothing,
-      standardErrorUrl = Prelude.Nothing,
-      documentName = Prelude.Nothing,
-      commandId = Prelude.Nothing,
-      traceOutput = Prelude.Nothing,
+      notificationConfig = Prelude.Nothing,
       commandPlugins = Prelude.Nothing,
       cloudWatchOutputConfig = Prelude.Nothing,
-      documentVersion = Prelude.Nothing
+      documentName = Prelude.Nothing,
+      standardErrorUrl = Prelude.Nothing,
+      statusDetails = Prelude.Nothing,
+      standardOutputUrl = Prelude.Nothing,
+      commandId = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      comment = Prelude.Nothing,
+      traceOutput = Prelude.Nothing,
+      instanceName = Prelude.Nothing,
+      requestedDateTime = Prelude.Nothing,
+      serviceRole = Prelude.Nothing
     }
+
+-- | The instance ID in which this invocation was requested.
+commandInvocation_instanceId :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_instanceId = Lens.lens (\CommandInvocation' {instanceId} -> instanceId) (\s@CommandInvocation' {} a -> s {instanceId = a} :: CommandInvocation)
+
+-- | Whether or not the invocation succeeded, failed, or is pending.
+commandInvocation_status :: Lens.Lens' CommandInvocation (Prelude.Maybe CommandInvocationStatus)
+commandInvocation_status = Lens.lens (\CommandInvocation' {status} -> status) (\s@CommandInvocation' {} a -> s {status = a} :: CommandInvocation)
 
 -- | Configurations for sending notifications about command status changes on
 -- a per instance basis.
 commandInvocation_notificationConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe NotificationConfig)
 commandInvocation_notificationConfig = Lens.lens (\CommandInvocation' {notificationConfig} -> notificationConfig) (\s@CommandInvocation' {} a -> s {notificationConfig = a} :: CommandInvocation)
 
--- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+-- | Plugins processed by the command.
+commandInvocation_commandPlugins :: Lens.Lens' CommandInvocation (Prelude.Maybe [CommandPlugin])
+commandInvocation_commandPlugins = Lens.lens (\CommandInvocation' {commandPlugins} -> commandPlugins) (\s@CommandInvocation' {} a -> s {commandPlugins = a} :: CommandInvocation) Prelude.. Lens.mapping Lens.coerced
+
+-- | Amazon CloudWatch Logs information where you want Amazon Web Services
+-- Systems Manager to send the command output.
+commandInvocation_cloudWatchOutputConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe CloudWatchOutputConfig)
+commandInvocation_cloudWatchOutputConfig = Lens.lens (\CommandInvocation' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@CommandInvocation' {} a -> s {cloudWatchOutputConfig = a} :: CommandInvocation)
+
+-- | The document name that was requested for execution.
+commandInvocation_documentName :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_documentName = Lens.lens (\CommandInvocation' {documentName} -> documentName) (\s@CommandInvocation' {} a -> s {documentName = a} :: CommandInvocation)
+
+-- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
 -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
--- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+-- invocation, @StandardErrorUrl@ is populated if there is just one plugin
 -- defined for the command, and the S3 bucket was defined for the command.
-commandInvocation_standardOutputUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_standardOutputUrl = Lens.lens (\CommandInvocation' {standardOutputUrl} -> standardOutputUrl) (\s@CommandInvocation' {} a -> s {standardOutputUrl = a} :: CommandInvocation)
-
--- | Whether or not the invocation succeeded, failed, or is pending.
-commandInvocation_status :: Lens.Lens' CommandInvocation (Prelude.Maybe CommandInvocationStatus)
-commandInvocation_status = Lens.lens (\CommandInvocation' {status} -> status) (\s@CommandInvocation' {} a -> s {status = a} :: CommandInvocation)
-
--- | The instance ID in which this invocation was requested.
-commandInvocation_instanceId :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_instanceId = Lens.lens (\CommandInvocation' {instanceId} -> instanceId) (\s@CommandInvocation' {} a -> s {instanceId = a} :: CommandInvocation)
-
--- | The time and date the request was sent to this instance.
-commandInvocation_requestedDateTime :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.UTCTime)
-commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedDateTime} -> requestedDateTime) (\s@CommandInvocation' {} a -> s {requestedDateTime = a} :: CommandInvocation) Prelude.. Lens.mapping Core._Time
-
--- | The Identity and Access Management (IAM) service role that Run Command,
--- a capability of Amazon Web Services Systems Manager, uses to act on your
--- behalf when sending notifications about command status changes on a per
--- instance basis.
-commandInvocation_serviceRole :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_serviceRole = Lens.lens (\CommandInvocation' {serviceRole} -> serviceRole) (\s@CommandInvocation' {} a -> s {serviceRole = a} :: CommandInvocation)
+commandInvocation_standardErrorUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_standardErrorUrl = Lens.lens (\CommandInvocation' {standardErrorUrl} -> standardErrorUrl) (\s@CommandInvocation' {} a -> s {standardErrorUrl = a} :: CommandInvocation)
 
 -- | A detailed status of the command execution for each invocation (each
 -- instance targeted by the command). StatusDetails includes more
@@ -327,46 +328,44 @@ commandInvocation_serviceRole = Lens.lens (\CommandInvocation' {serviceRole} -> 
 commandInvocation_statusDetails :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_statusDetails = Lens.lens (\CommandInvocation' {statusDetails} -> statusDetails) (\s@CommandInvocation' {} a -> s {statusDetails = a} :: CommandInvocation)
 
--- | The fully qualified host name of the managed instance.
-commandInvocation_instanceName :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_instanceName = Lens.lens (\CommandInvocation' {instanceName} -> instanceName) (\s@CommandInvocation' {} a -> s {instanceName = a} :: CommandInvocation)
+-- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
+commandInvocation_standardOutputUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_standardOutputUrl = Lens.lens (\CommandInvocation' {standardOutputUrl} -> standardOutputUrl) (\s@CommandInvocation' {} a -> s {standardOutputUrl = a} :: CommandInvocation)
+
+-- | The command against which this invocation was requested.
+commandInvocation_commandId :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_commandId = Lens.lens (\CommandInvocation' {commandId} -> commandId) (\s@CommandInvocation' {} a -> s {commandId = a} :: CommandInvocation)
+
+-- | The Systems Manager document (SSM document) version.
+commandInvocation_documentVersion :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_documentVersion = Lens.lens (\CommandInvocation' {documentVersion} -> documentVersion) (\s@CommandInvocation' {} a -> s {documentVersion = a} :: CommandInvocation)
 
 -- | User-specified information about the command, such as a brief
 -- description of what the command should do.
 commandInvocation_comment :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_comment = Lens.lens (\CommandInvocation' {comment} -> comment) (\s@CommandInvocation' {} a -> s {comment = a} :: CommandInvocation)
 
--- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
--- (Amazon S3), if the S3 bucket was defined for the parent command. For an
--- invocation, @StandardErrorUrl@ is populated if there is just one plugin
--- defined for the command, and the S3 bucket was defined for the command.
-commandInvocation_standardErrorUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_standardErrorUrl = Lens.lens (\CommandInvocation' {standardErrorUrl} -> standardErrorUrl) (\s@CommandInvocation' {} a -> s {standardErrorUrl = a} :: CommandInvocation)
-
--- | The document name that was requested for execution.
-commandInvocation_documentName :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_documentName = Lens.lens (\CommandInvocation' {documentName} -> documentName) (\s@CommandInvocation' {} a -> s {documentName = a} :: CommandInvocation)
-
--- | The command against which this invocation was requested.
-commandInvocation_commandId :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_commandId = Lens.lens (\CommandInvocation' {commandId} -> commandId) (\s@CommandInvocation' {} a -> s {commandId = a} :: CommandInvocation)
-
 -- | Gets the trace output sent by the agent.
 commandInvocation_traceOutput :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_traceOutput = Lens.lens (\CommandInvocation' {traceOutput} -> traceOutput) (\s@CommandInvocation' {} a -> s {traceOutput = a} :: CommandInvocation)
 
--- | Plugins processed by the command.
-commandInvocation_commandPlugins :: Lens.Lens' CommandInvocation (Prelude.Maybe [CommandPlugin])
-commandInvocation_commandPlugins = Lens.lens (\CommandInvocation' {commandPlugins} -> commandPlugins) (\s@CommandInvocation' {} a -> s {commandPlugins = a} :: CommandInvocation) Prelude.. Lens.mapping Lens._Coerce
+-- | The fully qualified host name of the managed instance.
+commandInvocation_instanceName :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_instanceName = Lens.lens (\CommandInvocation' {instanceName} -> instanceName) (\s@CommandInvocation' {} a -> s {instanceName = a} :: CommandInvocation)
 
--- | Amazon CloudWatch Logs information where you want Amazon Web Services
--- Systems Manager to send the command output.
-commandInvocation_cloudWatchOutputConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe CloudWatchOutputConfig)
-commandInvocation_cloudWatchOutputConfig = Lens.lens (\CommandInvocation' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@CommandInvocation' {} a -> s {cloudWatchOutputConfig = a} :: CommandInvocation)
+-- | The time and date the request was sent to this instance.
+commandInvocation_requestedDateTime :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.UTCTime)
+commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedDateTime} -> requestedDateTime) (\s@CommandInvocation' {} a -> s {requestedDateTime = a} :: CommandInvocation) Prelude.. Lens.mapping Core._Time
 
--- | The Systems Manager document (SSM document) version.
-commandInvocation_documentVersion :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_documentVersion = Lens.lens (\CommandInvocation' {documentVersion} -> documentVersion) (\s@CommandInvocation' {} a -> s {documentVersion = a} :: CommandInvocation)
+-- | The Identity and Access Management (IAM) service role that Run Command,
+-- a capability of Amazon Web Services Systems Manager, uses to act on your
+-- behalf when sending notifications about command status changes on a per
+-- instance basis.
+commandInvocation_serviceRole :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_serviceRole = Lens.lens (\CommandInvocation' {serviceRole} -> serviceRole) (\s@CommandInvocation' {} a -> s {serviceRole = a} :: CommandInvocation)
 
 instance Core.FromJSON CommandInvocation where
   parseJSON =
@@ -374,22 +373,22 @@ instance Core.FromJSON CommandInvocation where
       "CommandInvocation"
       ( \x ->
           CommandInvocation'
-            Prelude.<$> (x Core..:? "NotificationConfig")
-            Prelude.<*> (x Core..:? "StandardOutputUrl")
+            Prelude.<$> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "RequestedDateTime")
-            Prelude.<*> (x Core..:? "ServiceRole")
-            Prelude.<*> (x Core..:? "StatusDetails")
-            Prelude.<*> (x Core..:? "InstanceName")
-            Prelude.<*> (x Core..:? "Comment")
-            Prelude.<*> (x Core..:? "StandardErrorUrl")
-            Prelude.<*> (x Core..:? "DocumentName")
-            Prelude.<*> (x Core..:? "CommandId")
-            Prelude.<*> (x Core..:? "TraceOutput")
+            Prelude.<*> (x Core..:? "NotificationConfig")
             Prelude.<*> (x Core..:? "CommandPlugins" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
+            Prelude.<*> (x Core..:? "DocumentName")
+            Prelude.<*> (x Core..:? "StandardErrorUrl")
+            Prelude.<*> (x Core..:? "StatusDetails")
+            Prelude.<*> (x Core..:? "StandardOutputUrl")
+            Prelude.<*> (x Core..:? "CommandId")
             Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "Comment")
+            Prelude.<*> (x Core..:? "TraceOutput")
+            Prelude.<*> (x Core..:? "InstanceName")
+            Prelude.<*> (x Core..:? "RequestedDateTime")
+            Prelude.<*> (x Core..:? "ServiceRole")
       )
 
 instance Prelude.Hashable CommandInvocation

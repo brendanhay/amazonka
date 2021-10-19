@@ -37,24 +37,24 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUsagePlan' smart constructor.
 data UsagePlan = UsagePlan'
-  { -- | The identifier of a UsagePlan resource.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The associated API stages of a usage plan.
+  { -- | The associated API stages of a usage plan.
     apiStages :: Prelude.Maybe [ApiStage],
     -- | The name of a usage plan.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The collection of tags. Each tag element is associated with a given
-    -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identifier of a UsagePlan resource.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The request throttle limits of a usage plan.
+    throttle :: Prelude.Maybe ThrottleSettings,
+    -- | The maximum number of permitted requests per a given unit time interval.
+    quota :: Prelude.Maybe QuotaSettings,
+    -- | The description of a usage plan.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The AWS Markeplace product identifier to associate with the usage plan
     -- as a SaaS product on AWS Marketplace.
     productCode :: Prelude.Maybe Prelude.Text,
-    -- | The description of a usage plan.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of permitted requests per a given unit time interval.
-    quota :: Prelude.Maybe QuotaSettings,
-    -- | The request throttle limits of a usage plan.
-    throttle :: Prelude.Maybe ThrottleSettings
+    -- | The collection of tags. Each tag element is associated with a given
+    -- resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,70 +66,70 @@ data UsagePlan = UsagePlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'usagePlan_id' - The identifier of a UsagePlan resource.
---
 -- 'apiStages', 'usagePlan_apiStages' - The associated API stages of a usage plan.
 --
 -- 'name', 'usagePlan_name' - The name of a usage plan.
 --
--- 'tags', 'usagePlan_tags' - The collection of tags. Each tag element is associated with a given
--- resource.
+-- 'id', 'usagePlan_id' - The identifier of a UsagePlan resource.
+--
+-- 'throttle', 'usagePlan_throttle' - The request throttle limits of a usage plan.
+--
+-- 'quota', 'usagePlan_quota' - The maximum number of permitted requests per a given unit time interval.
+--
+-- 'description', 'usagePlan_description' - The description of a usage plan.
 --
 -- 'productCode', 'usagePlan_productCode' - The AWS Markeplace product identifier to associate with the usage plan
 -- as a SaaS product on AWS Marketplace.
 --
--- 'description', 'usagePlan_description' - The description of a usage plan.
---
--- 'quota', 'usagePlan_quota' - The maximum number of permitted requests per a given unit time interval.
---
--- 'throttle', 'usagePlan_throttle' - The request throttle limits of a usage plan.
+-- 'tags', 'usagePlan_tags' - The collection of tags. Each tag element is associated with a given
+-- resource.
 newUsagePlan ::
   UsagePlan
 newUsagePlan =
   UsagePlan'
-    { id = Prelude.Nothing,
-      apiStages = Prelude.Nothing,
+    { apiStages = Prelude.Nothing,
       name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      productCode = Prelude.Nothing,
-      description = Prelude.Nothing,
+      id = Prelude.Nothing,
+      throttle = Prelude.Nothing,
       quota = Prelude.Nothing,
-      throttle = Prelude.Nothing
+      description = Prelude.Nothing,
+      productCode = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
-
--- | The identifier of a UsagePlan resource.
-usagePlan_id :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
-usagePlan_id = Lens.lens (\UsagePlan' {id} -> id) (\s@UsagePlan' {} a -> s {id = a} :: UsagePlan)
 
 -- | The associated API stages of a usage plan.
 usagePlan_apiStages :: Lens.Lens' UsagePlan (Prelude.Maybe [ApiStage])
-usagePlan_apiStages = Lens.lens (\UsagePlan' {apiStages} -> apiStages) (\s@UsagePlan' {} a -> s {apiStages = a} :: UsagePlan) Prelude.. Lens.mapping Lens._Coerce
+usagePlan_apiStages = Lens.lens (\UsagePlan' {apiStages} -> apiStages) (\s@UsagePlan' {} a -> s {apiStages = a} :: UsagePlan) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of a usage plan.
 usagePlan_name :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
 usagePlan_name = Lens.lens (\UsagePlan' {name} -> name) (\s@UsagePlan' {} a -> s {name = a} :: UsagePlan)
 
--- | The collection of tags. Each tag element is associated with a given
--- resource.
-usagePlan_tags :: Lens.Lens' UsagePlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-usagePlan_tags = Lens.lens (\UsagePlan' {tags} -> tags) (\s@UsagePlan' {} a -> s {tags = a} :: UsagePlan) Prelude.. Lens.mapping Lens._Coerce
+-- | The identifier of a UsagePlan resource.
+usagePlan_id :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
+usagePlan_id = Lens.lens (\UsagePlan' {id} -> id) (\s@UsagePlan' {} a -> s {id = a} :: UsagePlan)
+
+-- | The request throttle limits of a usage plan.
+usagePlan_throttle :: Lens.Lens' UsagePlan (Prelude.Maybe ThrottleSettings)
+usagePlan_throttle = Lens.lens (\UsagePlan' {throttle} -> throttle) (\s@UsagePlan' {} a -> s {throttle = a} :: UsagePlan)
+
+-- | The maximum number of permitted requests per a given unit time interval.
+usagePlan_quota :: Lens.Lens' UsagePlan (Prelude.Maybe QuotaSettings)
+usagePlan_quota = Lens.lens (\UsagePlan' {quota} -> quota) (\s@UsagePlan' {} a -> s {quota = a} :: UsagePlan)
+
+-- | The description of a usage plan.
+usagePlan_description :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
+usagePlan_description = Lens.lens (\UsagePlan' {description} -> description) (\s@UsagePlan' {} a -> s {description = a} :: UsagePlan)
 
 -- | The AWS Markeplace product identifier to associate with the usage plan
 -- as a SaaS product on AWS Marketplace.
 usagePlan_productCode :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
 usagePlan_productCode = Lens.lens (\UsagePlan' {productCode} -> productCode) (\s@UsagePlan' {} a -> s {productCode = a} :: UsagePlan)
 
--- | The description of a usage plan.
-usagePlan_description :: Lens.Lens' UsagePlan (Prelude.Maybe Prelude.Text)
-usagePlan_description = Lens.lens (\UsagePlan' {description} -> description) (\s@UsagePlan' {} a -> s {description = a} :: UsagePlan)
-
--- | The maximum number of permitted requests per a given unit time interval.
-usagePlan_quota :: Lens.Lens' UsagePlan (Prelude.Maybe QuotaSettings)
-usagePlan_quota = Lens.lens (\UsagePlan' {quota} -> quota) (\s@UsagePlan' {} a -> s {quota = a} :: UsagePlan)
-
--- | The request throttle limits of a usage plan.
-usagePlan_throttle :: Lens.Lens' UsagePlan (Prelude.Maybe ThrottleSettings)
-usagePlan_throttle = Lens.lens (\UsagePlan' {throttle} -> throttle) (\s@UsagePlan' {} a -> s {throttle = a} :: UsagePlan)
+-- | The collection of tags. Each tag element is associated with a given
+-- resource.
+usagePlan_tags :: Lens.Lens' UsagePlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+usagePlan_tags = Lens.lens (\UsagePlan' {tags} -> tags) (\s@UsagePlan' {} a -> s {tags = a} :: UsagePlan) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON UsagePlan where
   parseJSON =
@@ -137,14 +137,14 @@ instance Core.FromJSON UsagePlan where
       "UsagePlan"
       ( \x ->
           UsagePlan'
-            Prelude.<$> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "apiStages" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "apiStages" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "productCode")
-            Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "quota")
+            Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "throttle")
+            Prelude.<*> (x Core..:? "quota")
+            Prelude.<*> (x Core..:? "description")
+            Prelude.<*> (x Core..:? "productCode")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable UsagePlan

@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNodeDetails' smart constructor.
 data NodeDetails = NodeDetails'
-  { -- | Specifies whether the current node is the main node for a multi-node
-    -- parallel job.
-    isMainNode :: Prelude.Maybe Prelude.Bool,
-    -- | The node index for the node. Node index numbering begins at zero. This
+  { -- | The node index for the node. Node index numbering begins at zero. This
     -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
     -- environment variable.
-    nodeIndex :: Prelude.Maybe Prelude.Int
+    nodeIndex :: Prelude.Maybe Prelude.Int,
+    -- | Specifies whether the current node is the main node for a multi-node
+    -- parallel job.
+    isMainNode :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,24 +45,19 @@ data NodeDetails = NodeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isMainNode', 'nodeDetails_isMainNode' - Specifies whether the current node is the main node for a multi-node
--- parallel job.
---
 -- 'nodeIndex', 'nodeDetails_nodeIndex' - The node index for the node. Node index numbering begins at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
+--
+-- 'isMainNode', 'nodeDetails_isMainNode' - Specifies whether the current node is the main node for a multi-node
+-- parallel job.
 newNodeDetails ::
   NodeDetails
 newNodeDetails =
   NodeDetails'
-    { isMainNode = Prelude.Nothing,
-      nodeIndex = Prelude.Nothing
+    { nodeIndex = Prelude.Nothing,
+      isMainNode = Prelude.Nothing
     }
-
--- | Specifies whether the current node is the main node for a multi-node
--- parallel job.
-nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Bool)
-nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\s@NodeDetails' {} a -> s {isMainNode = a} :: NodeDetails)
 
 -- | The node index for the node. Node index numbering begins at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
@@ -70,14 +65,19 @@ nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\
 nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Int)
 nodeDetails_nodeIndex = Lens.lens (\NodeDetails' {nodeIndex} -> nodeIndex) (\s@NodeDetails' {} a -> s {nodeIndex = a} :: NodeDetails)
 
+-- | Specifies whether the current node is the main node for a multi-node
+-- parallel job.
+nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Bool)
+nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\s@NodeDetails' {} a -> s {isMainNode = a} :: NodeDetails)
+
 instance Core.FromJSON NodeDetails where
   parseJSON =
     Core.withObject
       "NodeDetails"
       ( \x ->
           NodeDetails'
-            Prelude.<$> (x Core..:? "isMainNode")
-            Prelude.<*> (x Core..:? "nodeIndex")
+            Prelude.<$> (x Core..:? "nodeIndex")
+            Prelude.<*> (x Core..:? "isMainNode")
       )
 
 instance Prelude.Hashable NodeDetails

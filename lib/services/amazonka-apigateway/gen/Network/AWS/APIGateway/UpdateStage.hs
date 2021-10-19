@@ -36,23 +36,23 @@ module Network.AWS.APIGateway.UpdateStage
     newStage,
 
     -- * Response Lenses
-    stage_createdDate,
     stage_deploymentId,
-    stage_tracingEnabled,
-    stage_lastUpdatedDate,
-    stage_cacheClusterEnabled,
-    stage_stageName,
-    stage_webAclArn,
-    stage_documentationVersion,
-    stage_accessLogSettings,
     stage_variables,
+    stage_accessLogSettings,
+    stage_documentationVersion,
     stage_clientCertificateId,
-    stage_tags,
-    stage_description,
-    stage_cacheClusterSize,
-    stage_canarySettings,
+    stage_tracingEnabled,
+    stage_createdDate,
     stage_cacheClusterStatus,
     stage_methodSettings,
+    stage_lastUpdatedDate,
+    stage_cacheClusterSize,
+    stage_webAclArn,
+    stage_canarySettings,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_description,
+    stage_tags,
   )
 where
 
@@ -107,7 +107,7 @@ newUpdateStage pRestApiId_ pStageName_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateStage_patchOperations :: Lens.Lens' UpdateStage (Prelude.Maybe [PatchOperation])
-updateStage_patchOperations = Lens.lens (\UpdateStage' {patchOperations} -> patchOperations) (\s@UpdateStage' {} a -> s {patchOperations = a} :: UpdateStage) Prelude.. Lens.mapping Lens._Coerce
+updateStage_patchOperations = Lens.lens (\UpdateStage' {patchOperations} -> patchOperations) (\s@UpdateStage' {} a -> s {patchOperations = a} :: UpdateStage) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 updateStage_restApiId :: Lens.Lens' UpdateStage Prelude.Text

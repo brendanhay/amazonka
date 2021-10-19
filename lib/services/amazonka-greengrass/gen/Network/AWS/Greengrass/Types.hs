@@ -17,8 +17,8 @@ module Network.AWS.Greengrass.Types
     defaultService,
 
     -- * Errors
-    _BadRequestException,
     _InternalServerErrorException,
+    _BadRequestException,
 
     -- * BulkDeploymentStatus
     BulkDeploymentStatus (..),
@@ -65,9 +65,9 @@ module Network.AWS.Greengrass.Types
     -- * BulkDeployment
     BulkDeployment (..),
     newBulkDeployment,
+    bulkDeployment_bulkDeploymentArn,
     bulkDeployment_bulkDeploymentId,
     bulkDeployment_createdAt,
-    bulkDeployment_bulkDeploymentArn,
 
     -- * BulkDeploymentMetrics
     BulkDeploymentMetrics (..),
@@ -80,20 +80,20 @@ module Network.AWS.Greengrass.Types
     BulkDeploymentResult (..),
     newBulkDeploymentResult,
     bulkDeploymentResult_deploymentId,
-    bulkDeploymentResult_deploymentType,
-    bulkDeploymentResult_createdAt,
-    bulkDeploymentResult_deploymentStatus,
     bulkDeploymentResult_deploymentArn,
-    bulkDeploymentResult_errorMessage,
-    bulkDeploymentResult_groupArn,
+    bulkDeploymentResult_createdAt,
+    bulkDeploymentResult_deploymentType,
     bulkDeploymentResult_errorDetails,
+    bulkDeploymentResult_groupArn,
+    bulkDeploymentResult_deploymentStatus,
+    bulkDeploymentResult_errorMessage,
 
     -- * ConnectivityInfo
     ConnectivityInfo (..),
     newConnectivityInfo,
-    connectivityInfo_metadata,
-    connectivityInfo_id,
     connectivityInfo_portNumber,
+    connectivityInfo_id,
+    connectivityInfo_metadata,
     connectivityInfo_hostAddress,
 
     -- * Connector
@@ -124,22 +124,22 @@ module Network.AWS.Greengrass.Types
     -- * DefinitionInformation
     DefinitionInformation (..),
     newDefinitionInformation,
-    definitionInformation_creationTimestamp,
     definitionInformation_latestVersionArn,
-    definitionInformation_latestVersion,
     definitionInformation_arn,
-    definitionInformation_id,
     definitionInformation_name,
+    definitionInformation_creationTimestamp,
+    definitionInformation_id,
     definitionInformation_tags,
+    definitionInformation_latestVersion,
     definitionInformation_lastUpdatedTimestamp,
 
     -- * Deployment
     Deployment (..),
     newDeployment,
     deployment_deploymentId,
-    deployment_deploymentType,
-    deployment_createdAt,
     deployment_deploymentArn,
+    deployment_createdAt,
+    deployment_deploymentType,
     deployment_groupArn,
 
     -- * Device
@@ -158,14 +158,14 @@ module Network.AWS.Greengrass.Types
     -- * ErrorDetail
     ErrorDetail (..),
     newErrorDetail,
-    errorDetail_detailedErrorMessage,
     errorDetail_detailedErrorCode,
+    errorDetail_detailedErrorMessage,
 
     -- * Function
     Function (..),
     newFunction,
-    function_functionConfiguration,
     function_functionArn,
+    function_functionConfiguration,
     function_id,
 
     -- * FunctionConfiguration
@@ -173,19 +173,19 @@ module Network.AWS.Greengrass.Types
     newFunctionConfiguration,
     functionConfiguration_memorySize,
     functionConfiguration_execArgs,
-    functionConfiguration_timeout,
-    functionConfiguration_encodingType,
+    functionConfiguration_environment,
     functionConfiguration_executable,
     functionConfiguration_pinned,
-    functionConfiguration_environment,
+    functionConfiguration_encodingType,
+    functionConfiguration_timeout,
 
     -- * FunctionConfigurationEnvironment
     FunctionConfigurationEnvironment (..),
     newFunctionConfigurationEnvironment,
-    functionConfigurationEnvironment_accessSysfs,
     functionConfigurationEnvironment_variables,
     functionConfigurationEnvironment_execution,
     functionConfigurationEnvironment_resourceAccessPolicies,
+    functionConfigurationEnvironment_accessSysfs,
 
     -- * FunctionDefaultConfig
     FunctionDefaultConfig (..),
@@ -195,26 +195,26 @@ module Network.AWS.Greengrass.Types
     -- * FunctionDefaultExecutionConfig
     FunctionDefaultExecutionConfig (..),
     newFunctionDefaultExecutionConfig,
-    functionDefaultExecutionConfig_isolationMode,
     functionDefaultExecutionConfig_runAs,
+    functionDefaultExecutionConfig_isolationMode,
 
     -- * FunctionDefinitionVersion
     FunctionDefinitionVersion (..),
     newFunctionDefinitionVersion,
-    functionDefinitionVersion_functions,
     functionDefinitionVersion_defaultConfig,
+    functionDefinitionVersion_functions,
 
     -- * FunctionExecutionConfig
     FunctionExecutionConfig (..),
     newFunctionExecutionConfig,
-    functionExecutionConfig_isolationMode,
     functionExecutionConfig_runAs,
+    functionExecutionConfig_isolationMode,
 
     -- * FunctionRunAsConfig
     FunctionRunAsConfig (..),
     newFunctionRunAsConfig,
-    functionRunAsConfig_gid,
     functionRunAsConfig_uid,
+    functionRunAsConfig_gid,
 
     -- * GreengrassLogger
     GreengrassLogger (..),
@@ -234,43 +234,43 @@ module Network.AWS.Greengrass.Types
     -- * GroupInformation
     GroupInformation (..),
     newGroupInformation,
-    groupInformation_creationTimestamp,
     groupInformation_latestVersionArn,
-    groupInformation_latestVersion,
     groupInformation_arn,
-    groupInformation_id,
     groupInformation_name,
+    groupInformation_creationTimestamp,
+    groupInformation_id,
+    groupInformation_latestVersion,
     groupInformation_lastUpdatedTimestamp,
 
     -- * GroupOwnerSetting
     GroupOwnerSetting (..),
     newGroupOwnerSetting,
-    groupOwnerSetting_groupOwner,
     groupOwnerSetting_autoAddGroupOwner,
+    groupOwnerSetting_groupOwner,
 
     -- * GroupVersion
     GroupVersion (..),
     newGroupVersion,
+    groupVersion_resourceDefinitionVersionArn,
     groupVersion_subscriptionDefinitionVersionArn,
     groupVersion_coreDefinitionVersionArn,
-    groupVersion_connectorDefinitionVersionArn,
-    groupVersion_loggerDefinitionVersionArn,
-    groupVersion_resourceDefinitionVersionArn,
-    groupVersion_functionDefinitionVersionArn,
     groupVersion_deviceDefinitionVersionArn,
+    groupVersion_functionDefinitionVersionArn,
+    groupVersion_loggerDefinitionVersionArn,
+    groupVersion_connectorDefinitionVersionArn,
 
     -- * LocalDeviceResourceData
     LocalDeviceResourceData (..),
     newLocalDeviceResourceData,
-    localDeviceResourceData_sourcePath,
     localDeviceResourceData_groupOwnerSetting,
+    localDeviceResourceData_sourcePath,
 
     -- * LocalVolumeResourceData
     LocalVolumeResourceData (..),
     newLocalVolumeResourceData,
+    localVolumeResourceData_groupOwnerSetting,
     localVolumeResourceData_destinationPath,
     localVolumeResourceData_sourcePath,
-    localVolumeResourceData_groupOwnerSetting,
 
     -- * LoggerDefinitionVersion
     LoggerDefinitionVersion (..),
@@ -293,10 +293,10 @@ module Network.AWS.Greengrass.Types
     -- * ResourceDataContainer
     ResourceDataContainer (..),
     newResourceDataContainer,
-    resourceDataContainer_localVolumeResourceData,
-    resourceDataContainer_localDeviceResourceData,
     resourceDataContainer_s3MachineLearningModelResourceData,
     resourceDataContainer_sageMakerMachineLearningModelResourceData,
+    resourceDataContainer_localVolumeResourceData,
+    resourceDataContainer_localDeviceResourceData,
     resourceDataContainer_secretsManagerSecretResourceData,
 
     -- * ResourceDefinitionVersion
@@ -326,14 +326,14 @@ module Network.AWS.Greengrass.Types
     SageMakerMachineLearningModelResourceData (..),
     newSageMakerMachineLearningModelResourceData,
     sageMakerMachineLearningModelResourceData_ownerSetting,
-    sageMakerMachineLearningModelResourceData_destinationPath,
     sageMakerMachineLearningModelResourceData_sageMakerJobArn,
+    sageMakerMachineLearningModelResourceData_destinationPath,
 
     -- * SecretsManagerSecretResourceData
     SecretsManagerSecretResourceData (..),
     newSecretsManagerSecretResourceData,
-    secretsManagerSecretResourceData_arn,
     secretsManagerSecretResourceData_additionalStagingLabelsToDownload,
+    secretsManagerSecretResourceData_arn,
 
     -- * Subscription
     Subscription (..),
@@ -362,10 +362,10 @@ module Network.AWS.Greengrass.Types
     -- * VersionInformation
     VersionInformation (..),
     newVersionInformation,
-    versionInformation_creationTimestamp,
     versionInformation_arn,
-    versionInformation_id,
+    versionInformation_creationTimestamp,
     versionInformation_version,
+    versionInformation_id,
   )
 where
 
@@ -457,37 +457,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -500,15 +477,30 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
-
--- | General error information.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
-    Prelude.. Core.hasStatus 400
 
 -- | General error information.
 _InternalServerErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -517,3 +509,11 @@ _InternalServerErrorException =
     defaultService
     "InternalServerErrorException"
     Prelude.. Core.hasStatus 500
+
+-- | General error information.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400

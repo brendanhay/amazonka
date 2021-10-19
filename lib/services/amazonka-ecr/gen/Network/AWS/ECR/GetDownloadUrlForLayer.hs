@@ -45,8 +45,8 @@ module Network.AWS.ECR.GetDownloadUrlForLayer
     newGetDownloadUrlForLayerResponse,
 
     -- * Response Lenses
-    getDownloadUrlForLayerResponse_downloadUrl,
     getDownloadUrlForLayerResponse_layerDigest,
+    getDownloadUrlForLayerResponse_downloadUrl,
     getDownloadUrlForLayerResponse_httpStatus,
   )
 where
@@ -128,8 +128,8 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
     Response.receiveJSON
       ( \s h x ->
           GetDownloadUrlForLayerResponse'
-            Prelude.<$> (x Core..?> "downloadUrl")
-            Prelude.<*> (x Core..?> "layerDigest")
+            Prelude.<$> (x Core..?> "layerDigest")
+            Prelude.<*> (x Core..?> "downloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -171,10 +171,10 @@ instance Core.ToQuery GetDownloadUrlForLayer where
 
 -- | /See:/ 'newGetDownloadUrlForLayerResponse' smart constructor.
 data GetDownloadUrlForLayerResponse = GetDownloadUrlForLayerResponse'
-  { -- | The pre-signed Amazon S3 download URL for the requested layer.
-    downloadUrl :: Prelude.Maybe Prelude.Text,
-    -- | The digest of the image layer to download.
+  { -- | The digest of the image layer to download.
     layerDigest :: Prelude.Maybe Prelude.Text,
+    -- | The pre-signed Amazon S3 download URL for the requested layer.
+    downloadUrl :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -188,9 +188,9 @@ data GetDownloadUrlForLayerResponse = GetDownloadUrlForLayerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'downloadUrl', 'getDownloadUrlForLayerResponse_downloadUrl' - The pre-signed Amazon S3 download URL for the requested layer.
---
 -- 'layerDigest', 'getDownloadUrlForLayerResponse_layerDigest' - The digest of the image layer to download.
+--
+-- 'downloadUrl', 'getDownloadUrlForLayerResponse_downloadUrl' - The pre-signed Amazon S3 download URL for the requested layer.
 --
 -- 'httpStatus', 'getDownloadUrlForLayerResponse_httpStatus' - The response's http status code.
 newGetDownloadUrlForLayerResponse ::
@@ -199,19 +199,19 @@ newGetDownloadUrlForLayerResponse ::
   GetDownloadUrlForLayerResponse
 newGetDownloadUrlForLayerResponse pHttpStatus_ =
   GetDownloadUrlForLayerResponse'
-    { downloadUrl =
+    { layerDigest =
         Prelude.Nothing,
-      layerDigest = Prelude.Nothing,
+      downloadUrl = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The pre-signed Amazon S3 download URL for the requested layer.
-getDownloadUrlForLayerResponse_downloadUrl :: Lens.Lens' GetDownloadUrlForLayerResponse (Prelude.Maybe Prelude.Text)
-getDownloadUrlForLayerResponse_downloadUrl = Lens.lens (\GetDownloadUrlForLayerResponse' {downloadUrl} -> downloadUrl) (\s@GetDownloadUrlForLayerResponse' {} a -> s {downloadUrl = a} :: GetDownloadUrlForLayerResponse)
 
 -- | The digest of the image layer to download.
 getDownloadUrlForLayerResponse_layerDigest :: Lens.Lens' GetDownloadUrlForLayerResponse (Prelude.Maybe Prelude.Text)
 getDownloadUrlForLayerResponse_layerDigest = Lens.lens (\GetDownloadUrlForLayerResponse' {layerDigest} -> layerDigest) (\s@GetDownloadUrlForLayerResponse' {} a -> s {layerDigest = a} :: GetDownloadUrlForLayerResponse)
+
+-- | The pre-signed Amazon S3 download URL for the requested layer.
+getDownloadUrlForLayerResponse_downloadUrl :: Lens.Lens' GetDownloadUrlForLayerResponse (Prelude.Maybe Prelude.Text)
+getDownloadUrlForLayerResponse_downloadUrl = Lens.lens (\GetDownloadUrlForLayerResponse' {downloadUrl} -> downloadUrl) (\s@GetDownloadUrlForLayerResponse' {} a -> s {downloadUrl = a} :: GetDownloadUrlForLayerResponse)
 
 -- | The response's http status code.
 getDownloadUrlForLayerResponse_httpStatus :: Lens.Lens' GetDownloadUrlForLayerResponse Prelude.Int

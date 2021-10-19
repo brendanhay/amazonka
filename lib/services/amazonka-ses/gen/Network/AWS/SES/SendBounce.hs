@@ -37,9 +37,9 @@ module Network.AWS.SES.SendBounce
     newSendBounce,
 
     -- * Request Lenses
-    sendBounce_bounceSenderArn,
     sendBounce_messageDsn,
     sendBounce_explanation,
+    sendBounce_bounceSenderArn,
     sendBounce_originalMessageId,
     sendBounce_bounceSender,
     sendBounce_bouncedRecipientInfoList,
@@ -66,19 +66,19 @@ import Network.AWS.SES.Types
 --
 -- /See:/ 'newSendBounce' smart constructor.
 data SendBounce = SendBounce'
-  { -- | This parameter is used only for sending authorization. It is the ARN of
-    -- the identity that is associated with the sending authorization policy
-    -- that permits you to use the address in the \"From\" header of the
-    -- bounce. For more information about sending authorization, see the
-    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    bounceSenderArn :: Prelude.Maybe Prelude.Text,
-    -- | Message-related DSN fields. If not specified, Amazon SES will choose the
+  { -- | Message-related DSN fields. If not specified, Amazon SES will choose the
     -- values.
     messageDsn :: Prelude.Maybe MessageDsn,
     -- | Human-readable text for the bounce message to explain the failure. If
     -- not specified, the text will be auto-generated based on the bounced
     -- recipient information.
     explanation :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is used only for sending authorization. It is the ARN of
+    -- the identity that is associated with the sending authorization policy
+    -- that permits you to use the address in the \"From\" header of the
+    -- bounce. For more information about sending authorization, see the
+    -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+    bounceSenderArn :: Prelude.Maybe Prelude.Text,
     -- | The message ID of the message to be bounced.
     originalMessageId :: Prelude.Text,
     -- | The address to use in the \"From\" header of the bounce message. This
@@ -100,18 +100,18 @@ data SendBounce = SendBounce'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bounceSenderArn', 'sendBounce_bounceSenderArn' - This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the address in the \"From\" header of the
--- bounce. For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
---
 -- 'messageDsn', 'sendBounce_messageDsn' - Message-related DSN fields. If not specified, Amazon SES will choose the
 -- values.
 --
 -- 'explanation', 'sendBounce_explanation' - Human-readable text for the bounce message to explain the failure. If
 -- not specified, the text will be auto-generated based on the bounced
 -- recipient information.
+--
+-- 'bounceSenderArn', 'sendBounce_bounceSenderArn' - This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the address in the \"From\" header of the
+-- bounce. For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- 'originalMessageId', 'sendBounce_originalMessageId' - The message ID of the message to be bounced.
 --
@@ -130,21 +130,13 @@ newSendBounce ::
   SendBounce
 newSendBounce pOriginalMessageId_ pBounceSender_ =
   SendBounce'
-    { bounceSenderArn = Prelude.Nothing,
-      messageDsn = Prelude.Nothing,
+    { messageDsn = Prelude.Nothing,
       explanation = Prelude.Nothing,
+      bounceSenderArn = Prelude.Nothing,
       originalMessageId = pOriginalMessageId_,
       bounceSender = pBounceSender_,
       bouncedRecipientInfoList = Prelude.mempty
     }
-
--- | This parameter is used only for sending authorization. It is the ARN of
--- the identity that is associated with the sending authorization policy
--- that permits you to use the address in the \"From\" header of the
--- bounce. For more information about sending authorization, see the
--- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendBounce_bounceSenderArn :: Lens.Lens' SendBounce (Prelude.Maybe Prelude.Text)
-sendBounce_bounceSenderArn = Lens.lens (\SendBounce' {bounceSenderArn} -> bounceSenderArn) (\s@SendBounce' {} a -> s {bounceSenderArn = a} :: SendBounce)
 
 -- | Message-related DSN fields. If not specified, Amazon SES will choose the
 -- values.
@@ -156,6 +148,14 @@ sendBounce_messageDsn = Lens.lens (\SendBounce' {messageDsn} -> messageDsn) (\s@
 -- recipient information.
 sendBounce_explanation :: Lens.Lens' SendBounce (Prelude.Maybe Prelude.Text)
 sendBounce_explanation = Lens.lens (\SendBounce' {explanation} -> explanation) (\s@SendBounce' {} a -> s {explanation = a} :: SendBounce)
+
+-- | This parameter is used only for sending authorization. It is the ARN of
+-- the identity that is associated with the sending authorization policy
+-- that permits you to use the address in the \"From\" header of the
+-- bounce. For more information about sending authorization, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
+sendBounce_bounceSenderArn :: Lens.Lens' SendBounce (Prelude.Maybe Prelude.Text)
+sendBounce_bounceSenderArn = Lens.lens (\SendBounce' {bounceSenderArn} -> bounceSenderArn) (\s@SendBounce' {} a -> s {bounceSenderArn = a} :: SendBounce)
 
 -- | The message ID of the message to be bounced.
 sendBounce_originalMessageId :: Lens.Lens' SendBounce Prelude.Text
@@ -171,7 +171,7 @@ sendBounce_bounceSender = Lens.lens (\SendBounce' {bounceSender} -> bounceSender
 -- recipients. You must specify at least one @BouncedRecipientInfo@ in the
 -- list.
 sendBounce_bouncedRecipientInfoList :: Lens.Lens' SendBounce [BouncedRecipientInfo]
-sendBounce_bouncedRecipientInfoList = Lens.lens (\SendBounce' {bouncedRecipientInfoList} -> bouncedRecipientInfoList) (\s@SendBounce' {} a -> s {bouncedRecipientInfoList = a} :: SendBounce) Prelude.. Lens._Coerce
+sendBounce_bouncedRecipientInfoList = Lens.lens (\SendBounce' {bouncedRecipientInfoList} -> bouncedRecipientInfoList) (\s@SendBounce' {} a -> s {bouncedRecipientInfoList = a} :: SendBounce) Prelude.. Lens.coerced
 
 instance Core.AWSRequest SendBounce where
   type AWSResponse SendBounce = SendBounceResponse
@@ -202,9 +202,9 @@ instance Core.ToQuery SendBounce where
           Core.=: ("SendBounce" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
-        "BounceSenderArn" Core.=: bounceSenderArn,
         "MessageDsn" Core.=: messageDsn,
         "Explanation" Core.=: explanation,
+        "BounceSenderArn" Core.=: bounceSenderArn,
         "OriginalMessageId" Core.=: originalMessageId,
         "BounceSender" Core.=: bounceSender,
         "BouncedRecipientInfoList"

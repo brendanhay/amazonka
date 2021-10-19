@@ -34,8 +34,8 @@ module Network.AWS.ServiceCatalog.DeletePortfolioShare
 
     -- * Request Lenses
     deletePortfolioShare_accountId,
-    deletePortfolioShare_organizationNode,
     deletePortfolioShare_acceptLanguage,
+    deletePortfolioShare_organizationNode,
     deletePortfolioShare_portfolioId,
 
     -- * Destructuring the Response
@@ -59,8 +59,6 @@ import Network.AWS.ServiceCatalog.Types
 data DeletePortfolioShare = DeletePortfolioShare'
   { -- | The AWS account ID.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The organization node to whom you are going to stop sharing.
-    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -69,6 +67,8 @@ data DeletePortfolioShare = DeletePortfolioShare'
     --
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The organization node to whom you are going to stop sharing.
+    organizationNode :: Prelude.Maybe OrganizationNode,
     -- | The portfolio identifier.
     portfolioId :: Prelude.Text
   }
@@ -84,8 +84,6 @@ data DeletePortfolioShare = DeletePortfolioShare'
 --
 -- 'accountId', 'deletePortfolioShare_accountId' - The AWS account ID.
 --
--- 'organizationNode', 'deletePortfolioShare_organizationNode' - The organization node to whom you are going to stop sharing.
---
 -- 'acceptLanguage', 'deletePortfolioShare_acceptLanguage' - The language code.
 --
 -- -   @en@ - English (default)
@@ -93,6 +91,8 @@ data DeletePortfolioShare = DeletePortfolioShare'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
+--
+-- 'organizationNode', 'deletePortfolioShare_organizationNode' - The organization node to whom you are going to stop sharing.
 --
 -- 'portfolioId', 'deletePortfolioShare_portfolioId' - The portfolio identifier.
 newDeletePortfolioShare ::
@@ -102,18 +102,14 @@ newDeletePortfolioShare ::
 newDeletePortfolioShare pPortfolioId_ =
   DeletePortfolioShare'
     { accountId = Prelude.Nothing,
-      organizationNode = Prelude.Nothing,
       acceptLanguage = Prelude.Nothing,
+      organizationNode = Prelude.Nothing,
       portfolioId = pPortfolioId_
     }
 
 -- | The AWS account ID.
 deletePortfolioShare_accountId :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
 deletePortfolioShare_accountId = Lens.lens (\DeletePortfolioShare' {accountId} -> accountId) (\s@DeletePortfolioShare' {} a -> s {accountId = a} :: DeletePortfolioShare)
-
--- | The organization node to whom you are going to stop sharing.
-deletePortfolioShare_organizationNode :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe OrganizationNode)
-deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organizationNode} -> organizationNode) (\s@DeletePortfolioShare' {} a -> s {organizationNode = a} :: DeletePortfolioShare)
 
 -- | The language code.
 --
@@ -124,6 +120,10 @@ deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organ
 -- -   @zh@ - Chinese
 deletePortfolioShare_acceptLanguage :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe Prelude.Text)
 deletePortfolioShare_acceptLanguage = Lens.lens (\DeletePortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@DeletePortfolioShare' {} a -> s {acceptLanguage = a} :: DeletePortfolioShare)
+
+-- | The organization node to whom you are going to stop sharing.
+deletePortfolioShare_organizationNode :: Lens.Lens' DeletePortfolioShare (Prelude.Maybe OrganizationNode)
+deletePortfolioShare_organizationNode = Lens.lens (\DeletePortfolioShare' {organizationNode} -> organizationNode) (\s@DeletePortfolioShare' {} a -> s {organizationNode = a} :: DeletePortfolioShare)
 
 -- | The portfolio identifier.
 deletePortfolioShare_portfolioId :: Lens.Lens' DeletePortfolioShare Prelude.Text
@@ -166,10 +166,10 @@ instance Core.ToJSON DeletePortfolioShare where
     Core.object
       ( Prelude.catMaybes
           [ ("AccountId" Core..=) Prelude.<$> accountId,
-            ("OrganizationNode" Core..=)
-              Prelude.<$> organizationNode,
             ("AcceptLanguage" Core..=)
               Prelude.<$> acceptLanguage,
+            ("OrganizationNode" Core..=)
+              Prelude.<$> organizationNode,
             Prelude.Just ("PortfolioId" Core..= portfolioId)
           ]
       )

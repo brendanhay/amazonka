@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchListObjectParentsResponse' smart constructor.
 data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
-  { -- | Returns a list of parent reference and LinkName Tuples.
-    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple],
-    -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list of parent reference and LinkName Tuples.
+    parentLinks :: Prelude.Maybe [ObjectIdentifierAndLinkNameTuple]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,25 +43,25 @@ data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parentLinks', 'batchListObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
---
 -- 'nextToken', 'batchListObjectParentsResponse_nextToken' - The pagination token.
+--
+-- 'parentLinks', 'batchListObjectParentsResponse_parentLinks' - Returns a list of parent reference and LinkName Tuples.
 newBatchListObjectParentsResponse ::
   BatchListObjectParentsResponse
 newBatchListObjectParentsResponse =
   BatchListObjectParentsResponse'
-    { parentLinks =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      parentLinks = Prelude.Nothing
     }
-
--- | Returns a list of parent reference and LinkName Tuples.
-batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
-batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The pagination token.
 batchListObjectParentsResponse_nextToken :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe Prelude.Text)
 batchListObjectParentsResponse_nextToken = Lens.lens (\BatchListObjectParentsResponse' {nextToken} -> nextToken) (\s@BatchListObjectParentsResponse' {} a -> s {nextToken = a} :: BatchListObjectParentsResponse)
+
+-- | Returns a list of parent reference and LinkName Tuples.
+batchListObjectParentsResponse_parentLinks :: Lens.Lens' BatchListObjectParentsResponse (Prelude.Maybe [ObjectIdentifierAndLinkNameTuple])
+batchListObjectParentsResponse_parentLinks = Lens.lens (\BatchListObjectParentsResponse' {parentLinks} -> parentLinks) (\s@BatchListObjectParentsResponse' {} a -> s {parentLinks = a} :: BatchListObjectParentsResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON BatchListObjectParentsResponse where
   parseJSON =
@@ -69,8 +69,8 @@ instance Core.FromJSON BatchListObjectParentsResponse where
       "BatchListObjectParentsResponse"
       ( \x ->
           BatchListObjectParentsResponse'
-            Prelude.<$> (x Core..:? "ParentLinks" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "NextToken")
+            Prelude.<$> (x Core..:? "NextToken")
+            Prelude.<*> (x Core..:? "ParentLinks" Core..!= Prelude.mempty)
       )
 
 instance

@@ -69,12 +69,12 @@ newStartAssociationsOnce ::
 newStartAssociationsOnce pAssociationIds_ =
   StartAssociationsOnce'
     { associationIds =
-        Lens._Coerce Lens.# pAssociationIds_
+        Lens.coerced Lens.# pAssociationIds_
     }
 
 -- | The association IDs that you want to run immediately and only one time.
 startAssociationsOnce_associationIds :: Lens.Lens' StartAssociationsOnce (Prelude.NonEmpty Prelude.Text)
-startAssociationsOnce_associationIds = Lens.lens (\StartAssociationsOnce' {associationIds} -> associationIds) (\s@StartAssociationsOnce' {} a -> s {associationIds = a} :: StartAssociationsOnce) Prelude.. Lens._Coerce
+startAssociationsOnce_associationIds = Lens.lens (\StartAssociationsOnce' {associationIds} -> associationIds) (\s@StartAssociationsOnce' {} a -> s {associationIds = a} :: StartAssociationsOnce) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartAssociationsOnce where
   type

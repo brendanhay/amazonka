@@ -30,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMemberAccountStatus' smart constructor.
 data MemberAccountStatus = MemberAccountStatus'
-  { -- | The timestamp of the last status update.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
+  { -- | An error code that is returned when config rule creation or deletion
+    -- failed in the member account.
+    errorCode :: Prelude.Maybe Prelude.Text,
     -- | An error message indicating that config rule account creation or
     -- deletion has failed due to an error in the member account.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | An error code that is returned when config rule creation or deletion
-    -- failed in the member account.
-    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of the last status update.
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The 12-digit account ID of a member account.
     accountId :: Prelude.Text,
     -- | The name of config rule deployed in the member account.
@@ -90,13 +90,13 @@ data MemberAccountStatus = MemberAccountStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastUpdateTime', 'memberAccountStatus_lastUpdateTime' - The timestamp of the last status update.
+-- 'errorCode', 'memberAccountStatus_errorCode' - An error code that is returned when config rule creation or deletion
+-- failed in the member account.
 --
 -- 'errorMessage', 'memberAccountStatus_errorMessage' - An error message indicating that config rule account creation or
 -- deletion has failed due to an error in the member account.
 --
--- 'errorCode', 'memberAccountStatus_errorCode' - An error code that is returned when config rule creation or deletion
--- failed in the member account.
+-- 'lastUpdateTime', 'memberAccountStatus_lastUpdateTime' - The timestamp of the last status update.
 --
 -- 'accountId', 'memberAccountStatus_accountId' - The 12-digit account ID of a member account.
 --
@@ -151,28 +151,27 @@ newMemberAccountStatus
   pConfigRuleName_
   pMemberAccountRuleStatus_ =
     MemberAccountStatus'
-      { lastUpdateTime =
-          Prelude.Nothing,
+      { errorCode = Prelude.Nothing,
         errorMessage = Prelude.Nothing,
-        errorCode = Prelude.Nothing,
+        lastUpdateTime = Prelude.Nothing,
         accountId = pAccountId_,
         configRuleName = pConfigRuleName_,
         memberAccountRuleStatus = pMemberAccountRuleStatus_
       }
 
--- | The timestamp of the last status update.
-memberAccountStatus_lastUpdateTime :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.UTCTime)
-memberAccountStatus_lastUpdateTime = Lens.lens (\MemberAccountStatus' {lastUpdateTime} -> lastUpdateTime) (\s@MemberAccountStatus' {} a -> s {lastUpdateTime = a} :: MemberAccountStatus) Prelude.. Lens.mapping Core._Time
+-- | An error code that is returned when config rule creation or deletion
+-- failed in the member account.
+memberAccountStatus_errorCode :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
+memberAccountStatus_errorCode = Lens.lens (\MemberAccountStatus' {errorCode} -> errorCode) (\s@MemberAccountStatus' {} a -> s {errorCode = a} :: MemberAccountStatus)
 
 -- | An error message indicating that config rule account creation or
 -- deletion has failed due to an error in the member account.
 memberAccountStatus_errorMessage :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
 memberAccountStatus_errorMessage = Lens.lens (\MemberAccountStatus' {errorMessage} -> errorMessage) (\s@MemberAccountStatus' {} a -> s {errorMessage = a} :: MemberAccountStatus)
 
--- | An error code that is returned when config rule creation or deletion
--- failed in the member account.
-memberAccountStatus_errorCode :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.Text)
-memberAccountStatus_errorCode = Lens.lens (\MemberAccountStatus' {errorCode} -> errorCode) (\s@MemberAccountStatus' {} a -> s {errorCode = a} :: MemberAccountStatus)
+-- | The timestamp of the last status update.
+memberAccountStatus_lastUpdateTime :: Lens.Lens' MemberAccountStatus (Prelude.Maybe Prelude.UTCTime)
+memberAccountStatus_lastUpdateTime = Lens.lens (\MemberAccountStatus' {lastUpdateTime} -> lastUpdateTime) (\s@MemberAccountStatus' {} a -> s {lastUpdateTime = a} :: MemberAccountStatus) Prelude.. Lens.mapping Core._Time
 
 -- | The 12-digit account ID of a member account.
 memberAccountStatus_accountId :: Lens.Lens' MemberAccountStatus Prelude.Text
@@ -227,9 +226,9 @@ instance Core.FromJSON MemberAccountStatus where
       "MemberAccountStatus"
       ( \x ->
           MemberAccountStatus'
-            Prelude.<$> (x Core..:? "LastUpdateTime")
+            Prelude.<$> (x Core..:? "ErrorCode")
             Prelude.<*> (x Core..:? "ErrorMessage")
-            Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "LastUpdateTime")
             Prelude.<*> (x Core..: "AccountId")
             Prelude.<*> (x Core..: "ConfigRuleName")
             Prelude.<*> (x Core..: "MemberAccountRuleStatus")

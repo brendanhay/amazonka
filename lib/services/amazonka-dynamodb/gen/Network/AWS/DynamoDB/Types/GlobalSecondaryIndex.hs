@@ -118,7 +118,7 @@ newGlobalSecondaryIndex
       { provisionedThroughput =
           Prelude.Nothing,
         indexName = pIndexName_,
-        keySchema = Lens._Coerce Lens.# pKeySchema_,
+        keySchema = Lens.coerced Lens.# pKeySchema_,
         projection = pProjection_
       }
 
@@ -153,7 +153,7 @@ globalSecondaryIndex_indexName = Lens.lens (\GlobalSecondaryIndex' {indexName} -
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
 globalSecondaryIndex_keySchema :: Lens.Lens' GlobalSecondaryIndex (Prelude.NonEmpty KeySchemaElement)
-globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -> keySchema) (\s@GlobalSecondaryIndex' {} a -> s {keySchema = a} :: GlobalSecondaryIndex) Prelude.. Lens._Coerce
+globalSecondaryIndex_keySchema = Lens.lens (\GlobalSecondaryIndex' {keySchema} -> keySchema) (\s@GlobalSecondaryIndex' {} a -> s {keySchema = a} :: GlobalSecondaryIndex) Prelude.. Lens.coerced
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key

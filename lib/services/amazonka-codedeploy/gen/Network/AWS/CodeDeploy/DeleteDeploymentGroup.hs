@@ -196,7 +196,7 @@ newDeleteDeploymentGroupResponse pHttpStatus_ =
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
 deleteDeploymentGroupResponse_hooksNotCleanedUp :: Lens.Lens' DeleteDeploymentGroupResponse (Prelude.Maybe [AutoScalingGroup])
-deleteDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\DeleteDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@DeleteDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: DeleteDeploymentGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+deleteDeploymentGroupResponse_hooksNotCleanedUp = Lens.lens (\DeleteDeploymentGroupResponse' {hooksNotCleanedUp} -> hooksNotCleanedUp) (\s@DeleteDeploymentGroupResponse' {} a -> s {hooksNotCleanedUp = a} :: DeleteDeploymentGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 deleteDeploymentGroupResponse_httpStatus :: Lens.Lens' DeleteDeploymentGroupResponse Prelude.Int

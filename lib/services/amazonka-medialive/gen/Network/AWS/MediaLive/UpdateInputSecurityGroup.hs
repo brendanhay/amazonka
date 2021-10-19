@@ -27,8 +27,8 @@ module Network.AWS.MediaLive.UpdateInputSecurityGroup
     newUpdateInputSecurityGroup,
 
     -- * Request Lenses
-    updateInputSecurityGroup_tags,
     updateInputSecurityGroup_whitelistRules,
+    updateInputSecurityGroup_tags,
     updateInputSecurityGroup_inputSecurityGroupId,
 
     -- * Destructuring the Response
@@ -53,10 +53,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateInputSecurityGroup' smart constructor.
 data UpdateInputSecurityGroup = UpdateInputSecurityGroup'
-  { -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | List of IPv4 CIDR addresses to whitelist
+  { -- | List of IPv4 CIDR addresses to whitelist
     whitelistRules :: Prelude.Maybe [InputWhitelistRuleCidr],
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The id of the Input Security Group to update.
     inputSecurityGroupId :: Prelude.Text
   }
@@ -70,9 +70,9 @@ data UpdateInputSecurityGroup = UpdateInputSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'updateInputSecurityGroup_tags' - A collection of key-value pairs.
---
 -- 'whitelistRules', 'updateInputSecurityGroup_whitelistRules' - List of IPv4 CIDR addresses to whitelist
+--
+-- 'tags', 'updateInputSecurityGroup_tags' - A collection of key-value pairs.
 --
 -- 'inputSecurityGroupId', 'updateInputSecurityGroup_inputSecurityGroupId' - The id of the Input Security Group to update.
 newUpdateInputSecurityGroup ::
@@ -81,18 +81,19 @@ newUpdateInputSecurityGroup ::
   UpdateInputSecurityGroup
 newUpdateInputSecurityGroup pInputSecurityGroupId_ =
   UpdateInputSecurityGroup'
-    { tags = Prelude.Nothing,
-      whitelistRules = Prelude.Nothing,
+    { whitelistRules =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       inputSecurityGroupId = pInputSecurityGroupId_
     }
 
--- | A collection of key-value pairs.
-updateInputSecurityGroup_tags :: Lens.Lens' UpdateInputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateInputSecurityGroup_tags = Lens.lens (\UpdateInputSecurityGroup' {tags} -> tags) (\s@UpdateInputSecurityGroup' {} a -> s {tags = a} :: UpdateInputSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
-
 -- | List of IPv4 CIDR addresses to whitelist
 updateInputSecurityGroup_whitelistRules :: Lens.Lens' UpdateInputSecurityGroup (Prelude.Maybe [InputWhitelistRuleCidr])
-updateInputSecurityGroup_whitelistRules = Lens.lens (\UpdateInputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@UpdateInputSecurityGroup' {} a -> s {whitelistRules = a} :: UpdateInputSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
+updateInputSecurityGroup_whitelistRules = Lens.lens (\UpdateInputSecurityGroup' {whitelistRules} -> whitelistRules) (\s@UpdateInputSecurityGroup' {} a -> s {whitelistRules = a} :: UpdateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
+
+-- | A collection of key-value pairs.
+updateInputSecurityGroup_tags :: Lens.Lens' UpdateInputSecurityGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateInputSecurityGroup_tags = Lens.lens (\UpdateInputSecurityGroup' {tags} -> tags) (\s@UpdateInputSecurityGroup' {} a -> s {tags = a} :: UpdateInputSecurityGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The id of the Input Security Group to update.
 updateInputSecurityGroup_inputSecurityGroupId :: Lens.Lens' UpdateInputSecurityGroup Prelude.Text
@@ -130,9 +131,9 @@ instance Core.ToJSON UpdateInputSecurityGroup where
   toJSON UpdateInputSecurityGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tags" Core..=) Prelude.<$> tags,
-            ("whitelistRules" Core..=)
-              Prelude.<$> whitelistRules
+          [ ("whitelistRules" Core..=)
+              Prelude.<$> whitelistRules,
+            ("tags" Core..=) Prelude.<$> tags
           ]
       )
 

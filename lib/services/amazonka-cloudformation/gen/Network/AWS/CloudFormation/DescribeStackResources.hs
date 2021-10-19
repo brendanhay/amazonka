@@ -46,9 +46,9 @@ module Network.AWS.CloudFormation.DescribeStackResources
     newDescribeStackResources,
 
     -- * Request Lenses
-    describeStackResources_stackName,
-    describeStackResources_physicalResourceId,
     describeStackResources_logicalResourceId,
+    describeStackResources_physicalResourceId,
+    describeStackResources_stackName,
 
     -- * Destructuring the Response
     DescribeStackResourcesResponse (..),
@@ -71,19 +71,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeStackResources' smart constructor.
 data DescribeStackResources = DescribeStackResources'
-  { -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
-    --
-    -- -   Running stacks: You can specify either the stack\'s name or its
-    --     unique stack ID.
-    --
-    -- -   Deleted stacks: You must specify the unique stack ID.
+  { -- | The logical name of the resource as specified in the template.
     --
     -- Default: There is no default value.
-    --
-    -- Required: Conditional. If you do not specify @StackName@, you must
-    -- specify @PhysicalResourceId@.
-    stackName :: Prelude.Maybe Prelude.Text,
+    logicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | The name or unique identifier that corresponds to a physical instance ID
     -- of a resource supported by CloudFormation.
     --
@@ -97,10 +88,19 @@ data DescribeStackResources = DescribeStackResources'
     --
     -- Default: There is no default value.
     physicalResourceId :: Prelude.Maybe Prelude.Text,
-    -- | The logical name of the resource as specified in the template.
+    -- | The name or the unique stack ID that is associated with the stack, which
+    -- are not always interchangeable:
+    --
+    -- -   Running stacks: You can specify either the stack\'s name or its
+    --     unique stack ID.
+    --
+    -- -   Deleted stacks: You must specify the unique stack ID.
     --
     -- Default: There is no default value.
-    logicalResourceId :: Prelude.Maybe Prelude.Text
+    --
+    -- Required: Conditional. If you do not specify @StackName@, you must
+    -- specify @PhysicalResourceId@.
+    stackName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -112,18 +112,9 @@ data DescribeStackResources = DescribeStackResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackName', 'describeStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
---
--- -   Running stacks: You can specify either the stack\'s name or its
---     unique stack ID.
---
--- -   Deleted stacks: You must specify the unique stack ID.
+-- 'logicalResourceId', 'describeStackResources_logicalResourceId' - The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
---
--- Required: Conditional. If you do not specify @StackName@, you must
--- specify @PhysicalResourceId@.
 --
 -- 'physicalResourceId', 'describeStackResources_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by CloudFormation.
@@ -138,20 +129,7 @@ data DescribeStackResources = DescribeStackResources'
 --
 -- Default: There is no default value.
 --
--- 'logicalResourceId', 'describeStackResources_logicalResourceId' - The logical name of the resource as specified in the template.
---
--- Default: There is no default value.
-newDescribeStackResources ::
-  DescribeStackResources
-newDescribeStackResources =
-  DescribeStackResources'
-    { stackName =
-        Prelude.Nothing,
-      physicalResourceId = Prelude.Nothing,
-      logicalResourceId = Prelude.Nothing
-    }
-
--- | The name or the unique stack ID that is associated with the stack, which
+-- 'stackName', 'describeStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
@@ -163,8 +141,21 @@ newDescribeStackResources =
 --
 -- Required: Conditional. If you do not specify @StackName@, you must
 -- specify @PhysicalResourceId@.
-describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
-describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackName} -> stackName) (\s@DescribeStackResources' {} a -> s {stackName = a} :: DescribeStackResources)
+newDescribeStackResources ::
+  DescribeStackResources
+newDescribeStackResources =
+  DescribeStackResources'
+    { logicalResourceId =
+        Prelude.Nothing,
+      physicalResourceId = Prelude.Nothing,
+      stackName = Prelude.Nothing
+    }
+
+-- | The logical name of the resource as specified in the template.
+--
+-- Default: There is no default value.
+describeStackResources_logicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_logicalResourceId = Lens.lens (\DescribeStackResources' {logicalResourceId} -> logicalResourceId) (\s@DescribeStackResources' {} a -> s {logicalResourceId = a} :: DescribeStackResources)
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by CloudFormation.
@@ -181,11 +172,20 @@ describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackNam
 describeStackResources_physicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
 describeStackResources_physicalResourceId = Lens.lens (\DescribeStackResources' {physicalResourceId} -> physicalResourceId) (\s@DescribeStackResources' {} a -> s {physicalResourceId = a} :: DescribeStackResources)
 
--- | The logical name of the resource as specified in the template.
+-- | The name or the unique stack ID that is associated with the stack, which
+-- are not always interchangeable:
+--
+-- -   Running stacks: You can specify either the stack\'s name or its
+--     unique stack ID.
+--
+-- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-describeStackResources_logicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
-describeStackResources_logicalResourceId = Lens.lens (\DescribeStackResources' {logicalResourceId} -> logicalResourceId) (\s@DescribeStackResources' {} a -> s {logicalResourceId = a} :: DescribeStackResources)
+--
+-- Required: Conditional. If you do not specify @StackName@, you must
+-- specify @PhysicalResourceId@.
+describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackName} -> stackName) (\s@DescribeStackResources' {} a -> s {stackName = a} :: DescribeStackResources)
 
 instance Core.AWSRequest DescribeStackResources where
   type
@@ -220,9 +220,9 @@ instance Core.ToQuery DescribeStackResources where
           Core.=: ("DescribeStackResources" :: Prelude.ByteString),
         "Version"
           Core.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Core.=: stackName,
+        "LogicalResourceId" Core.=: logicalResourceId,
         "PhysicalResourceId" Core.=: physicalResourceId,
-        "LogicalResourceId" Core.=: logicalResourceId
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for a DescribeStackResources action.
@@ -260,7 +260,7 @@ newDescribeStackResourcesResponse pHttpStatus_ =
 
 -- | A list of @StackResource@ structures.
 describeStackResourcesResponse_stackResources :: Lens.Lens' DescribeStackResourcesResponse (Prelude.Maybe [StackResource])
-describeStackResourcesResponse_stackResources = Lens.lens (\DescribeStackResourcesResponse' {stackResources} -> stackResources) (\s@DescribeStackResourcesResponse' {} a -> s {stackResources = a} :: DescribeStackResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeStackResourcesResponse_stackResources = Lens.lens (\DescribeStackResourcesResponse' {stackResources} -> stackResources) (\s@DescribeStackResourcesResponse' {} a -> s {stackResources = a} :: DescribeStackResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeStackResourcesResponse_httpStatus :: Lens.Lens' DescribeStackResourcesResponse Prelude.Int

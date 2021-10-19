@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSecurityProfileTargetMapping' smart constructor.
 data SecurityProfileTargetMapping = SecurityProfileTargetMapping'
-  { -- | Information about the target (thing group) associated with the security
+  { -- | Information that identifies the security profile.
+    securityProfileIdentifier :: Prelude.Maybe SecurityProfileIdentifier,
+    -- | Information about the target (thing group) associated with the security
     -- profile.
-    target :: Prelude.Maybe SecurityProfileTarget,
-    -- | Information that identifies the security profile.
-    securityProfileIdentifier :: Prelude.Maybe SecurityProfileIdentifier
+    target :: Prelude.Maybe SecurityProfileTarget
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,27 +45,27 @@ data SecurityProfileTargetMapping = SecurityProfileTargetMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'securityProfileIdentifier', 'securityProfileTargetMapping_securityProfileIdentifier' - Information that identifies the security profile.
+--
 -- 'target', 'securityProfileTargetMapping_target' - Information about the target (thing group) associated with the security
 -- profile.
---
--- 'securityProfileIdentifier', 'securityProfileTargetMapping_securityProfileIdentifier' - Information that identifies the security profile.
 newSecurityProfileTargetMapping ::
   SecurityProfileTargetMapping
 newSecurityProfileTargetMapping =
   SecurityProfileTargetMapping'
-    { target =
+    { securityProfileIdentifier =
         Prelude.Nothing,
-      securityProfileIdentifier = Prelude.Nothing
+      target = Prelude.Nothing
     }
+
+-- | Information that identifies the security profile.
+securityProfileTargetMapping_securityProfileIdentifier :: Lens.Lens' SecurityProfileTargetMapping (Prelude.Maybe SecurityProfileIdentifier)
+securityProfileTargetMapping_securityProfileIdentifier = Lens.lens (\SecurityProfileTargetMapping' {securityProfileIdentifier} -> securityProfileIdentifier) (\s@SecurityProfileTargetMapping' {} a -> s {securityProfileIdentifier = a} :: SecurityProfileTargetMapping)
 
 -- | Information about the target (thing group) associated with the security
 -- profile.
 securityProfileTargetMapping_target :: Lens.Lens' SecurityProfileTargetMapping (Prelude.Maybe SecurityProfileTarget)
 securityProfileTargetMapping_target = Lens.lens (\SecurityProfileTargetMapping' {target} -> target) (\s@SecurityProfileTargetMapping' {} a -> s {target = a} :: SecurityProfileTargetMapping)
-
--- | Information that identifies the security profile.
-securityProfileTargetMapping_securityProfileIdentifier :: Lens.Lens' SecurityProfileTargetMapping (Prelude.Maybe SecurityProfileIdentifier)
-securityProfileTargetMapping_securityProfileIdentifier = Lens.lens (\SecurityProfileTargetMapping' {securityProfileIdentifier} -> securityProfileIdentifier) (\s@SecurityProfileTargetMapping' {} a -> s {securityProfileIdentifier = a} :: SecurityProfileTargetMapping)
 
 instance Core.FromJSON SecurityProfileTargetMapping where
   parseJSON =
@@ -73,8 +73,8 @@ instance Core.FromJSON SecurityProfileTargetMapping where
       "SecurityProfileTargetMapping"
       ( \x ->
           SecurityProfileTargetMapping'
-            Prelude.<$> (x Core..:? "target")
-            Prelude.<*> (x Core..:? "securityProfileIdentifier")
+            Prelude.<$> (x Core..:? "securityProfileIdentifier")
+            Prelude.<*> (x Core..:? "target")
       )
 
 instance

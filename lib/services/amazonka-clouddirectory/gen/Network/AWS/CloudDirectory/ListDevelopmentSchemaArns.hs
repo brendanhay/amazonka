@@ -186,7 +186,7 @@ newListDevelopmentSchemaArnsResponse pHttpStatus_ =
 
 -- | The ARNs of retrieved development schemas.
 listDevelopmentSchemaArnsResponse_schemaArns :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listDevelopmentSchemaArnsResponse_schemaArns = Lens.lens (\ListDevelopmentSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListDevelopmentSchemaArnsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDevelopmentSchemaArnsResponse_schemaArns = Lens.lens (\ListDevelopmentSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListDevelopmentSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListDevelopmentSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listDevelopmentSchemaArnsResponse_nextToken :: Lens.Lens' ListDevelopmentSchemaArnsResponse (Prelude.Maybe Prelude.Text)

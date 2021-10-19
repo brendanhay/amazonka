@@ -52,7 +52,7 @@ newAccountRecoverySettingType =
 
 -- | The list of @RecoveryOptionTypes@.
 accountRecoverySettingType_recoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Prelude.Maybe (Prelude.NonEmpty RecoveryOptionType))
-accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Prelude.. Lens.mapping Lens._Coerce
+accountRecoverySettingType_recoveryMechanisms = Lens.lens (\AccountRecoverySettingType' {recoveryMechanisms} -> recoveryMechanisms) (\s@AccountRecoverySettingType' {} a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON AccountRecoverySettingType where
   parseJSON =

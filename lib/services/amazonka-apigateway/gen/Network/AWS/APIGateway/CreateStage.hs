@@ -28,14 +28,14 @@ module Network.AWS.APIGateway.CreateStage
     newCreateStage,
 
     -- * Request Lenses
-    createStage_tracingEnabled,
-    createStage_cacheClusterEnabled,
-    createStage_documentationVersion,
     createStage_variables,
-    createStage_tags,
-    createStage_description,
+    createStage_documentationVersion,
+    createStage_tracingEnabled,
     createStage_cacheClusterSize,
     createStage_canarySettings,
+    createStage_cacheClusterEnabled,
+    createStage_description,
+    createStage_tags,
     createStage_restApiId,
     createStage_stageName,
     createStage_deploymentId,
@@ -45,23 +45,23 @@ module Network.AWS.APIGateway.CreateStage
     newStage,
 
     -- * Response Lenses
-    stage_createdDate,
     stage_deploymentId,
-    stage_tracingEnabled,
-    stage_lastUpdatedDate,
-    stage_cacheClusterEnabled,
-    stage_stageName,
-    stage_webAclArn,
-    stage_documentationVersion,
-    stage_accessLogSettings,
     stage_variables,
+    stage_accessLogSettings,
+    stage_documentationVersion,
     stage_clientCertificateId,
-    stage_tags,
-    stage_description,
-    stage_cacheClusterSize,
-    stage_canarySettings,
+    stage_tracingEnabled,
+    stage_createdDate,
     stage_cacheClusterStatus,
     stage_methodSettings,
+    stage_lastUpdatedDate,
+    stage_cacheClusterSize,
+    stage_webAclArn,
+    stage_canarySettings,
+    stage_cacheClusterEnabled,
+    stage_stageName,
+    stage_description,
+    stage_tags,
   )
 where
 
@@ -76,26 +76,26 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateStage' smart constructor.
 data CreateStage = CreateStage'
-  { -- | Specifies whether active tracing with X-ray is enabled for the Stage.
-    tracingEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether cache clustering is enabled for the stage.
-    cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The version of the associated API documentation.
-    documentationVersion :: Prelude.Maybe Prelude.Text,
-    -- | A map that defines the stage variables for the new Stage resource.
+  { -- | A map that defines the stage variables for the new Stage resource.
     -- Variable names can have alphanumeric and underscore characters, and the
     -- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
     variables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The key-value map of strings. The valid character set is
-    -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
-    -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the Stage resource.
-    description :: Prelude.Maybe Prelude.Text,
+    -- | The version of the associated API documentation.
+    documentationVersion :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether active tracing with X-ray is enabled for the Stage.
+    tracingEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The stage\'s cache cluster size.
     cacheClusterSize :: Prelude.Maybe CacheClusterSize,
     -- | The canary deployment settings of this stage.
     canarySettings :: Prelude.Maybe CanarySettings,
+    -- | Whether cache clustering is enabled for the stage.
+    cacheClusterEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The description of the Stage resource.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The key-value map of strings. The valid character set is
+    -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+    -- start with @aws:@. The tag value can be up to 256 characters.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The name for the Stage resource. Stage names can only contain
@@ -116,25 +116,25 @@ data CreateStage = CreateStage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tracingEnabled', 'createStage_tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the Stage.
---
--- 'cacheClusterEnabled', 'createStage_cacheClusterEnabled' - Whether cache clustering is enabled for the stage.
---
--- 'documentationVersion', 'createStage_documentationVersion' - The version of the associated API documentation.
---
 -- 'variables', 'createStage_variables' - A map that defines the stage variables for the new Stage resource.
 -- Variable names can have alphanumeric and underscore characters, and the
 -- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
 --
--- 'tags', 'createStage_tags' - The key-value map of strings. The valid character set is
--- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
--- start with @aws:@. The tag value can be up to 256 characters.
+-- 'documentationVersion', 'createStage_documentationVersion' - The version of the associated API documentation.
 --
--- 'description', 'createStage_description' - The description of the Stage resource.
+-- 'tracingEnabled', 'createStage_tracingEnabled' - Specifies whether active tracing with X-ray is enabled for the Stage.
 --
 -- 'cacheClusterSize', 'createStage_cacheClusterSize' - The stage\'s cache cluster size.
 --
 -- 'canarySettings', 'createStage_canarySettings' - The canary deployment settings of this stage.
+--
+-- 'cacheClusterEnabled', 'createStage_cacheClusterEnabled' - Whether cache clustering is enabled for the stage.
+--
+-- 'description', 'createStage_description' - The description of the Stage resource.
+--
+-- 'tags', 'createStage_tags' - The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
 --
 -- 'restApiId', 'createStage_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -154,46 +154,32 @@ newCreateStage ::
   CreateStage
 newCreateStage pRestApiId_ pStageName_ pDeploymentId_ =
   CreateStage'
-    { tracingEnabled = Prelude.Nothing,
-      cacheClusterEnabled = Prelude.Nothing,
+    { variables = Prelude.Nothing,
       documentationVersion = Prelude.Nothing,
-      variables = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+      tracingEnabled = Prelude.Nothing,
       cacheClusterSize = Prelude.Nothing,
       canarySettings = Prelude.Nothing,
+      cacheClusterEnabled = Prelude.Nothing,
+      description = Prelude.Nothing,
+      tags = Prelude.Nothing,
       restApiId = pRestApiId_,
       stageName = pStageName_,
       deploymentId = pDeploymentId_
     }
 
--- | Specifies whether active tracing with X-ray is enabled for the Stage.
-createStage_tracingEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
-createStage_tracingEnabled = Lens.lens (\CreateStage' {tracingEnabled} -> tracingEnabled) (\s@CreateStage' {} a -> s {tracingEnabled = a} :: CreateStage)
-
--- | Whether cache clustering is enabled for the stage.
-createStage_cacheClusterEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
-createStage_cacheClusterEnabled = Lens.lens (\CreateStage' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateStage' {} a -> s {cacheClusterEnabled = a} :: CreateStage)
+-- | A map that defines the stage variables for the new Stage resource.
+-- Variable names can have alphanumeric and underscore characters, and the
+-- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
+createStage_variables :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStage_variables = Lens.lens (\CreateStage' {variables} -> variables) (\s@CreateStage' {} a -> s {variables = a} :: CreateStage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the associated API documentation.
 createStage_documentationVersion :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
 createStage_documentationVersion = Lens.lens (\CreateStage' {documentationVersion} -> documentationVersion) (\s@CreateStage' {} a -> s {documentationVersion = a} :: CreateStage)
 
--- | A map that defines the stage variables for the new Stage resource.
--- Variable names can have alphanumeric and underscore characters, and the
--- values must match @[A-Za-z0-9-._~:\/?#&=,]+@.
-createStage_variables :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStage_variables = Lens.lens (\CreateStage' {variables} -> variables) (\s@CreateStage' {} a -> s {variables = a} :: CreateStage) Prelude.. Lens.mapping Lens._Coerce
-
--- | The key-value map of strings. The valid character set is
--- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
--- start with @aws:@. The tag value can be up to 256 characters.
-createStage_tags :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStage_tags = Lens.lens (\CreateStage' {tags} -> tags) (\s@CreateStage' {} a -> s {tags = a} :: CreateStage) Prelude.. Lens.mapping Lens._Coerce
-
--- | The description of the Stage resource.
-createStage_description :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
-createStage_description = Lens.lens (\CreateStage' {description} -> description) (\s@CreateStage' {} a -> s {description = a} :: CreateStage)
+-- | Specifies whether active tracing with X-ray is enabled for the Stage.
+createStage_tracingEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
+createStage_tracingEnabled = Lens.lens (\CreateStage' {tracingEnabled} -> tracingEnabled) (\s@CreateStage' {} a -> s {tracingEnabled = a} :: CreateStage)
 
 -- | The stage\'s cache cluster size.
 createStage_cacheClusterSize :: Lens.Lens' CreateStage (Prelude.Maybe CacheClusterSize)
@@ -202,6 +188,20 @@ createStage_cacheClusterSize = Lens.lens (\CreateStage' {cacheClusterSize} -> ca
 -- | The canary deployment settings of this stage.
 createStage_canarySettings :: Lens.Lens' CreateStage (Prelude.Maybe CanarySettings)
 createStage_canarySettings = Lens.lens (\CreateStage' {canarySettings} -> canarySettings) (\s@CreateStage' {} a -> s {canarySettings = a} :: CreateStage)
+
+-- | Whether cache clustering is enabled for the stage.
+createStage_cacheClusterEnabled :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Bool)
+createStage_cacheClusterEnabled = Lens.lens (\CreateStage' {cacheClusterEnabled} -> cacheClusterEnabled) (\s@CreateStage' {} a -> s {cacheClusterEnabled = a} :: CreateStage)
+
+-- | The description of the Stage resource.
+createStage_description :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
+createStage_description = Lens.lens (\CreateStage' {description} -> description) (\s@CreateStage' {} a -> s {description = a} :: CreateStage)
+
+-- | The key-value map of strings. The valid character set is
+-- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
+-- start with @aws:@. The tag value can be up to 256 characters.
+createStage_tags :: Lens.Lens' CreateStage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStage_tags = Lens.lens (\CreateStage' {tags} -> tags) (\s@CreateStage' {} a -> s {tags = a} :: CreateStage) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 createStage_restApiId :: Lens.Lens' CreateStage Prelude.Text
@@ -242,19 +242,19 @@ instance Core.ToJSON CreateStage where
   toJSON CreateStage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("tracingEnabled" Core..=)
-              Prelude.<$> tracingEnabled,
-            ("cacheClusterEnabled" Core..=)
-              Prelude.<$> cacheClusterEnabled,
+          [ ("variables" Core..=) Prelude.<$> variables,
             ("documentationVersion" Core..=)
               Prelude.<$> documentationVersion,
-            ("variables" Core..=) Prelude.<$> variables,
-            ("tags" Core..=) Prelude.<$> tags,
-            ("description" Core..=) Prelude.<$> description,
+            ("tracingEnabled" Core..=)
+              Prelude.<$> tracingEnabled,
             ("cacheClusterSize" Core..=)
               Prelude.<$> cacheClusterSize,
             ("canarySettings" Core..=)
               Prelude.<$> canarySettings,
+            ("cacheClusterEnabled" Core..=)
+              Prelude.<$> cacheClusterEnabled,
+            ("description" Core..=) Prelude.<$> description,
+            ("tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("stageName" Core..= stageName),
             Prelude.Just ("deploymentId" Core..= deploymentId)
           ]

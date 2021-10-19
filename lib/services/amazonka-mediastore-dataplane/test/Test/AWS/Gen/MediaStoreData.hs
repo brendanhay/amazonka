@@ -27,8 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListItems $
---             newListItems
+--         [ requestPutObject $
+--             newPutObject
 --
 --         , requestDeleteObject $
 --             newDeleteObject
@@ -36,17 +36,17 @@ import Test.Tasty
 --         , requestDescribeObject $
 --             newDescribeObject
 --
---         , requestPutObject $
---             newPutObject
---
 --         , requestGetObject $
 --             newGetObject
+--
+--         , requestListItems $
+--             newListItems
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListItems $
---             newListItemsResponse
+--         [ responsePutObject $
+--             newPutObjectResponse
 --
 --         , responseDeleteObject $
 --             newDeleteObjectResponse
@@ -54,22 +54,16 @@ import Test.Tasty
 --         , responseDescribeObject $
 --             newDescribeObjectResponse
 --
---         , responsePutObject $
---             newPutObjectResponse
---
 --         , responseGetObject $
 --             newGetObjectResponse
+--
+--         , responseListItems $
+--             newListItemsResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestListItems :: ListItems -> TestTree
-requestListItems =
-  req
-    "ListItems"
-    "fixture/ListItems.yaml"
 
 requestDeleteObject :: DeleteObject -> TestTree
 requestDeleteObject =
@@ -89,15 +83,21 @@ requestGetObject =
     "GetObject"
     "fixture/GetObject.yaml"
 
+requestListItems :: ListItems -> TestTree
+requestListItems =
+  req
+    "ListItems"
+    "fixture/ListItems.yaml"
+
 -- Responses
 
-responseListItems :: ListItemsResponse -> TestTree
-responseListItems =
+responsePutObject :: PutObjectResponse -> TestTree
+responsePutObject =
   res
-    "ListItemsResponse"
-    "fixture/ListItemsResponse.proto"
+    "PutObjectResponse"
+    "fixture/PutObjectResponse.proto"
     defaultService
-    (Proxy :: Proxy ListItems)
+    (Proxy :: Proxy PutObject)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
 responseDeleteObject =
@@ -115,10 +115,10 @@ responseDescribeObject =
     defaultService
     (Proxy :: Proxy DescribeObject)
 
-responsePutObject :: PutObjectResponse -> TestTree
-responsePutObject =
+responseListItems :: ListItemsResponse -> TestTree
+responseListItems =
   res
-    "PutObjectResponse"
-    "fixture/PutObjectResponse.proto"
+    "ListItemsResponse"
+    "fixture/ListItemsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutObject)
+    (Proxy :: Proxy ListItems)

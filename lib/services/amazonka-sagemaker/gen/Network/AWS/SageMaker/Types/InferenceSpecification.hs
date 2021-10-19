@@ -30,18 +30,18 @@ import Network.AWS.SageMaker.Types.TransformInstanceType
 --
 -- /See:/ 'newInferenceSpecification' smart constructor.
 data InferenceSpecification = InferenceSpecification'
-  { -- | A list of the instance types on which a transformation job can be run or
-    -- on which an endpoint can be deployed.
-    --
-    -- This parameter is required for unversioned models, and optional for
-    -- versioned models.
-    supportedTransformInstanceTypes :: Prelude.Maybe (Prelude.NonEmpty TransformInstanceType),
-    -- | A list of the instance types that are used to generate inferences in
+  { -- | A list of the instance types that are used to generate inferences in
     -- real-time.
     --
     -- This parameter is required for unversioned models, and optional for
     -- versioned models.
     supportedRealtimeInferenceInstanceTypes :: Prelude.Maybe [ProductionVariantInstanceType],
+    -- | A list of the instance types on which a transformation job can be run or
+    -- on which an endpoint can be deployed.
+    --
+    -- This parameter is required for unversioned models, and optional for
+    -- versioned models.
+    supportedTransformInstanceTypes :: Prelude.Maybe (Prelude.NonEmpty TransformInstanceType),
     -- | The Amazon ECR registry path of the Docker image that contains the
     -- inference code.
     containers :: Prelude.NonEmpty ModelPackageContainerDefinition,
@@ -60,14 +60,14 @@ data InferenceSpecification = InferenceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'supportedTransformInstanceTypes', 'inferenceSpecification_supportedTransformInstanceTypes' - A list of the instance types on which a transformation job can be run or
--- on which an endpoint can be deployed.
+-- 'supportedRealtimeInferenceInstanceTypes', 'inferenceSpecification_supportedRealtimeInferenceInstanceTypes' - A list of the instance types that are used to generate inferences in
+-- real-time.
 --
 -- This parameter is required for unversioned models, and optional for
 -- versioned models.
 --
--- 'supportedRealtimeInferenceInstanceTypes', 'inferenceSpecification_supportedRealtimeInferenceInstanceTypes' - A list of the instance types that are used to generate inferences in
--- real-time.
+-- 'supportedTransformInstanceTypes', 'inferenceSpecification_supportedTransformInstanceTypes' - A list of the instance types on which a transformation job can be run or
+-- on which an endpoint can be deployed.
 --
 -- This parameter is required for unversioned models, and optional for
 -- versioned models.
@@ -84,22 +84,13 @@ newInferenceSpecification ::
   InferenceSpecification
 newInferenceSpecification pContainers_ =
   InferenceSpecification'
-    { supportedTransformInstanceTypes =
+    { supportedRealtimeInferenceInstanceTypes =
         Prelude.Nothing,
-      supportedRealtimeInferenceInstanceTypes =
-        Prelude.Nothing,
-      containers = Lens._Coerce Lens.# pContainers_,
+      supportedTransformInstanceTypes = Prelude.Nothing,
+      containers = Lens.coerced Lens.# pContainers_,
       supportedContentTypes = Prelude.mempty,
       supportedResponseMIMETypes = Prelude.mempty
     }
-
--- | A list of the instance types on which a transformation job can be run or
--- on which an endpoint can be deployed.
---
--- This parameter is required for unversioned models, and optional for
--- versioned models.
-inferenceSpecification_supportedTransformInstanceTypes :: Lens.Lens' InferenceSpecification (Prelude.Maybe (Prelude.NonEmpty TransformInstanceType))
-inferenceSpecification_supportedTransformInstanceTypes = Lens.lens (\InferenceSpecification' {supportedTransformInstanceTypes} -> supportedTransformInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedTransformInstanceTypes = a} :: InferenceSpecification) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of the instance types that are used to generate inferences in
 -- real-time.
@@ -107,20 +98,28 @@ inferenceSpecification_supportedTransformInstanceTypes = Lens.lens (\InferenceSp
 -- This parameter is required for unversioned models, and optional for
 -- versioned models.
 inferenceSpecification_supportedRealtimeInferenceInstanceTypes :: Lens.Lens' InferenceSpecification (Prelude.Maybe [ProductionVariantInstanceType])
-inferenceSpecification_supportedRealtimeInferenceInstanceTypes = Lens.lens (\InferenceSpecification' {supportedRealtimeInferenceInstanceTypes} -> supportedRealtimeInferenceInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedRealtimeInferenceInstanceTypes = a} :: InferenceSpecification) Prelude.. Lens.mapping Lens._Coerce
+inferenceSpecification_supportedRealtimeInferenceInstanceTypes = Lens.lens (\InferenceSpecification' {supportedRealtimeInferenceInstanceTypes} -> supportedRealtimeInferenceInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedRealtimeInferenceInstanceTypes = a} :: InferenceSpecification) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the instance types on which a transformation job can be run or
+-- on which an endpoint can be deployed.
+--
+-- This parameter is required for unversioned models, and optional for
+-- versioned models.
+inferenceSpecification_supportedTransformInstanceTypes :: Lens.Lens' InferenceSpecification (Prelude.Maybe (Prelude.NonEmpty TransformInstanceType))
+inferenceSpecification_supportedTransformInstanceTypes = Lens.lens (\InferenceSpecification' {supportedTransformInstanceTypes} -> supportedTransformInstanceTypes) (\s@InferenceSpecification' {} a -> s {supportedTransformInstanceTypes = a} :: InferenceSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon ECR registry path of the Docker image that contains the
 -- inference code.
 inferenceSpecification_containers :: Lens.Lens' InferenceSpecification (Prelude.NonEmpty ModelPackageContainerDefinition)
-inferenceSpecification_containers = Lens.lens (\InferenceSpecification' {containers} -> containers) (\s@InferenceSpecification' {} a -> s {containers = a} :: InferenceSpecification) Prelude.. Lens._Coerce
+inferenceSpecification_containers = Lens.lens (\InferenceSpecification' {containers} -> containers) (\s@InferenceSpecification' {} a -> s {containers = a} :: InferenceSpecification) Prelude.. Lens.coerced
 
 -- | The supported MIME types for the input data.
 inferenceSpecification_supportedContentTypes :: Lens.Lens' InferenceSpecification [Prelude.Text]
-inferenceSpecification_supportedContentTypes = Lens.lens (\InferenceSpecification' {supportedContentTypes} -> supportedContentTypes) (\s@InferenceSpecification' {} a -> s {supportedContentTypes = a} :: InferenceSpecification) Prelude.. Lens._Coerce
+inferenceSpecification_supportedContentTypes = Lens.lens (\InferenceSpecification' {supportedContentTypes} -> supportedContentTypes) (\s@InferenceSpecification' {} a -> s {supportedContentTypes = a} :: InferenceSpecification) Prelude.. Lens.coerced
 
 -- | The supported MIME types for the output data.
 inferenceSpecification_supportedResponseMIMETypes :: Lens.Lens' InferenceSpecification [Prelude.Text]
-inferenceSpecification_supportedResponseMIMETypes = Lens.lens (\InferenceSpecification' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@InferenceSpecification' {} a -> s {supportedResponseMIMETypes = a} :: InferenceSpecification) Prelude.. Lens._Coerce
+inferenceSpecification_supportedResponseMIMETypes = Lens.lens (\InferenceSpecification' {supportedResponseMIMETypes} -> supportedResponseMIMETypes) (\s@InferenceSpecification' {} a -> s {supportedResponseMIMETypes = a} :: InferenceSpecification) Prelude.. Lens.coerced
 
 instance Core.FromJSON InferenceSpecification where
   parseJSON =
@@ -128,10 +127,10 @@ instance Core.FromJSON InferenceSpecification where
       "InferenceSpecification"
       ( \x ->
           InferenceSpecification'
-            Prelude.<$> (x Core..:? "SupportedTransformInstanceTypes")
-            Prelude.<*> ( x Core..:? "SupportedRealtimeInferenceInstanceTypes"
+            Prelude.<$> ( x Core..:? "SupportedRealtimeInferenceInstanceTypes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "SupportedTransformInstanceTypes")
             Prelude.<*> (x Core..: "Containers")
             Prelude.<*> ( x Core..:? "SupportedContentTypes"
                             Core..!= Prelude.mempty
@@ -149,10 +148,10 @@ instance Core.ToJSON InferenceSpecification where
   toJSON InferenceSpecification' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SupportedTransformInstanceTypes" Core..=)
-              Prelude.<$> supportedTransformInstanceTypes,
-            ("SupportedRealtimeInferenceInstanceTypes" Core..=)
+          [ ("SupportedRealtimeInferenceInstanceTypes" Core..=)
               Prelude.<$> supportedRealtimeInferenceInstanceTypes,
+            ("SupportedTransformInstanceTypes" Core..=)
+              Prelude.<$> supportedTransformInstanceTypes,
             Prelude.Just ("Containers" Core..= containers),
             Prelude.Just
               ( "SupportedContentTypes"

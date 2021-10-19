@@ -105,7 +105,7 @@ describeSuggesters_deployed = Lens.lens (\DescribeSuggesters' {deployed} -> depl
 
 -- | The suggesters you want to describe.
 describeSuggesters_suggesterNames :: Lens.Lens' DescribeSuggesters (Prelude.Maybe [Prelude.Text])
-describeSuggesters_suggesterNames = Lens.lens (\DescribeSuggesters' {suggesterNames} -> suggesterNames) (\s@DescribeSuggesters' {} a -> s {suggesterNames = a} :: DescribeSuggesters) Prelude.. Lens.mapping Lens._Coerce
+describeSuggesters_suggesterNames = Lens.lens (\DescribeSuggesters' {suggesterNames} -> suggesterNames) (\s@DescribeSuggesters' {} a -> s {suggesterNames = a} :: DescribeSuggesters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the domain you want to describe.
 describeSuggesters_domainName :: Lens.Lens' DescribeSuggesters Prelude.Text
@@ -192,6 +192,6 @@ describeSuggestersResponse_httpStatus = Lens.lens (\DescribeSuggestersResponse' 
 
 -- | The suggesters configured for the domain specified in the request.
 describeSuggestersResponse_suggesters :: Lens.Lens' DescribeSuggestersResponse [SuggesterStatus]
-describeSuggestersResponse_suggesters = Lens.lens (\DescribeSuggestersResponse' {suggesters} -> suggesters) (\s@DescribeSuggestersResponse' {} a -> s {suggesters = a} :: DescribeSuggestersResponse) Prelude.. Lens._Coerce
+describeSuggestersResponse_suggesters = Lens.lens (\DescribeSuggestersResponse' {suggesters} -> suggesters) (\s@DescribeSuggestersResponse' {} a -> s {suggesters = a} :: DescribeSuggestersResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DescribeSuggestersResponse

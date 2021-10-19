@@ -217,7 +217,7 @@ newAttachLoadBalancerTlsCertificateResponse
 -- These SSL\/TLS certificates are only usable by Lightsail load balancers.
 -- You can\'t get the certificate and use it for another purpose.
 attachLoadBalancerTlsCertificateResponse_operations :: Lens.Lens' AttachLoadBalancerTlsCertificateResponse (Prelude.Maybe [Operation])
-attachLoadBalancerTlsCertificateResponse_operations = Lens.lens (\AttachLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@AttachLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: AttachLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens._Coerce
+attachLoadBalancerTlsCertificateResponse_operations = Lens.lens (\AttachLoadBalancerTlsCertificateResponse' {operations} -> operations) (\s@AttachLoadBalancerTlsCertificateResponse' {} a -> s {operations = a} :: AttachLoadBalancerTlsCertificateResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 attachLoadBalancerTlsCertificateResponse_httpStatus :: Lens.Lens' AttachLoadBalancerTlsCertificateResponse Prelude.Int

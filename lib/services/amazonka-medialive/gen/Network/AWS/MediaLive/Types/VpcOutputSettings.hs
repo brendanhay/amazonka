@@ -74,18 +74,18 @@ newVpcOutputSettings =
 -- network interfaces. If none are specified then the VPC default security
 -- group will be used
 vpcOutputSettings_securityGroupIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
-vpcOutputSettings_securityGroupIds = Lens.lens (\VpcOutputSettings' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettings' {} a -> s {securityGroupIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens._Coerce
+vpcOutputSettings_securityGroupIds = Lens.lens (\VpcOutputSettings' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettings' {} a -> s {securityGroupIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | List of public address allocation ids to associate with ENIs that will
 -- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for
 -- STANDARD channels
 vpcOutputSettings_publicAddressAllocationIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
-vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {publicAddressAllocationIds} -> publicAddressAllocationIds) (\s@VpcOutputSettings' {} a -> s {publicAddressAllocationIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens._Coerce
+vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {publicAddressAllocationIds} -> publicAddressAllocationIds) (\s@VpcOutputSettings' {} a -> s {publicAddressAllocationIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
 -- IDs must be mapped to two unique availability zones (AZ).
 vpcOutputSettings_subnetIds :: Lens.Lens' VpcOutputSettings [Prelude.Text]
-vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subnetIds) (\s@VpcOutputSettings' {} a -> s {subnetIds = a} :: VpcOutputSettings) Prelude.. Lens._Coerce
+vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subnetIds) (\s@VpcOutputSettings' {} a -> s {subnetIds = a} :: VpcOutputSettings) Prelude.. Lens.coerced
 
 instance Prelude.Hashable VpcOutputSettings
 

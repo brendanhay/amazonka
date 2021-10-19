@@ -30,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFpgaImageAttribute' smart constructor.
 data FpgaImageAttribute = FpgaImageAttribute'
-  { -- | The product codes.
-    productCodes :: Prelude.Maybe [ProductCode],
+  { -- | The ID of the AFI.
+    fpgaImageId :: Prelude.Maybe Prelude.Text,
     -- | The name of the AFI.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
     -- | The description of the AFI.
     description :: Prelude.Maybe Prelude.Text,
     -- | The load permissions.
-    loadPermissions :: Prelude.Maybe [LoadPermission],
-    -- | The ID of the AFI.
-    fpgaImageId :: Prelude.Maybe Prelude.Text
+    loadPermissions :: Prelude.Maybe [LoadPermission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,33 +51,37 @@ data FpgaImageAttribute = FpgaImageAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productCodes', 'fpgaImageAttribute_productCodes' - The product codes.
+-- 'fpgaImageId', 'fpgaImageAttribute_fpgaImageId' - The ID of the AFI.
 --
 -- 'name', 'fpgaImageAttribute_name' - The name of the AFI.
+--
+-- 'productCodes', 'fpgaImageAttribute_productCodes' - The product codes.
 --
 -- 'description', 'fpgaImageAttribute_description' - The description of the AFI.
 --
 -- 'loadPermissions', 'fpgaImageAttribute_loadPermissions' - The load permissions.
---
--- 'fpgaImageId', 'fpgaImageAttribute_fpgaImageId' - The ID of the AFI.
 newFpgaImageAttribute ::
   FpgaImageAttribute
 newFpgaImageAttribute =
   FpgaImageAttribute'
-    { productCodes = Prelude.Nothing,
+    { fpgaImageId = Prelude.Nothing,
       name = Prelude.Nothing,
+      productCodes = Prelude.Nothing,
       description = Prelude.Nothing,
-      loadPermissions = Prelude.Nothing,
-      fpgaImageId = Prelude.Nothing
+      loadPermissions = Prelude.Nothing
     }
 
--- | The product codes.
-fpgaImageAttribute_productCodes :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe [ProductCode])
-fpgaImageAttribute_productCodes = Lens.lens (\FpgaImageAttribute' {productCodes} -> productCodes) (\s@FpgaImageAttribute' {} a -> s {productCodes = a} :: FpgaImageAttribute) Prelude.. Lens.mapping Lens._Coerce
+-- | The ID of the AFI.
+fpgaImageAttribute_fpgaImageId :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe Prelude.Text)
+fpgaImageAttribute_fpgaImageId = Lens.lens (\FpgaImageAttribute' {fpgaImageId} -> fpgaImageId) (\s@FpgaImageAttribute' {} a -> s {fpgaImageId = a} :: FpgaImageAttribute)
 
 -- | The name of the AFI.
 fpgaImageAttribute_name :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe Prelude.Text)
 fpgaImageAttribute_name = Lens.lens (\FpgaImageAttribute' {name} -> name) (\s@FpgaImageAttribute' {} a -> s {name = a} :: FpgaImageAttribute)
+
+-- | The product codes.
+fpgaImageAttribute_productCodes :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe [ProductCode])
+fpgaImageAttribute_productCodes = Lens.lens (\FpgaImageAttribute' {productCodes} -> productCodes) (\s@FpgaImageAttribute' {} a -> s {productCodes = a} :: FpgaImageAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The description of the AFI.
 fpgaImageAttribute_description :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe Prelude.Text)
@@ -85,24 +89,20 @@ fpgaImageAttribute_description = Lens.lens (\FpgaImageAttribute' {description} -
 
 -- | The load permissions.
 fpgaImageAttribute_loadPermissions :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe [LoadPermission])
-fpgaImageAttribute_loadPermissions = Lens.lens (\FpgaImageAttribute' {loadPermissions} -> loadPermissions) (\s@FpgaImageAttribute' {} a -> s {loadPermissions = a} :: FpgaImageAttribute) Prelude.. Lens.mapping Lens._Coerce
-
--- | The ID of the AFI.
-fpgaImageAttribute_fpgaImageId :: Lens.Lens' FpgaImageAttribute (Prelude.Maybe Prelude.Text)
-fpgaImageAttribute_fpgaImageId = Lens.lens (\FpgaImageAttribute' {fpgaImageId} -> fpgaImageId) (\s@FpgaImageAttribute' {} a -> s {fpgaImageId = a} :: FpgaImageAttribute)
+fpgaImageAttribute_loadPermissions = Lens.lens (\FpgaImageAttribute' {loadPermissions} -> loadPermissions) (\s@FpgaImageAttribute' {} a -> s {loadPermissions = a} :: FpgaImageAttribute) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromXML FpgaImageAttribute where
   parseXML x =
     FpgaImageAttribute'
-      Prelude.<$> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<$> (x Core..@? "fpgaImageId")
+      Prelude.<*> (x Core..@? "name")
+      Prelude.<*> ( x Core..@? "productCodes" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "name")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> ( x Core..@? "loadPermissions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
-      Prelude.<*> (x Core..@? "fpgaImageId")
 
 instance Prelude.Hashable FpgaImageAttribute
 

@@ -66,7 +66,7 @@ newResourceGroup ::
 newResourceGroup pArn_ pTags_ pCreatedAt_ =
   ResourceGroup'
     { arn = pArn_,
-      tags = Lens._Coerce Lens.# pTags_,
+      tags = Lens.coerced Lens.# pTags_,
       createdAt = Core._Time Lens.# pCreatedAt_
     }
 
@@ -77,7 +77,7 @@ resourceGroup_arn = Lens.lens (\ResourceGroup' {arn} -> arn) (\s@ResourceGroup' 
 -- | The tags (key and value pairs) of the resource group. This data type
 -- property is used in the CreateResourceGroup action.
 resourceGroup_tags :: Lens.Lens' ResourceGroup (Prelude.NonEmpty ResourceGroupTag)
-resourceGroup_tags = Lens.lens (\ResourceGroup' {tags} -> tags) (\s@ResourceGroup' {} a -> s {tags = a} :: ResourceGroup) Prelude.. Lens._Coerce
+resourceGroup_tags = Lens.lens (\ResourceGroup' {tags} -> tags) (\s@ResourceGroup' {} a -> s {tags = a} :: ResourceGroup) Prelude.. Lens.coerced
 
 -- | The time at which resource group is created.
 resourceGroup_createdAt :: Lens.Lens' ResourceGroup Prelude.UTCTime

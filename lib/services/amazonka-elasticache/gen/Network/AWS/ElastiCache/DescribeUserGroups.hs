@@ -30,8 +30,8 @@ module Network.AWS.ElastiCache.DescribeUserGroups
 
     -- * Request Lenses
     describeUserGroups_userGroupId,
-    describeUserGroups_maxRecords,
     describeUserGroups_marker,
+    describeUserGroups_maxRecords,
 
     -- * Destructuring the Response
     DescribeUserGroupsResponse (..),
@@ -55,15 +55,15 @@ import qualified Network.AWS.Response as Response
 data DescribeUserGroups = DescribeUserGroups'
   { -- | The ID of the user group.
     userGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
-    -- records exist than the specified MaxRecords value, a marker is included
-    -- in the response so that the remaining results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by MaxRecords. >
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified MaxRecords value, a marker is included
+    -- in the response so that the remaining results can be retrieved.
+    maxRecords :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,32 +77,26 @@ data DescribeUserGroups = DescribeUserGroups'
 --
 -- 'userGroupId', 'describeUserGroups_userGroupId' - The ID of the user group.
 --
--- 'maxRecords', 'describeUserGroups_maxRecords' - The maximum number of records to include in the response. If more
--- records exist than the specified MaxRecords value, a marker is included
--- in the response so that the remaining results can be retrieved.
---
 -- 'marker', 'describeUserGroups_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords. >
+--
+-- 'maxRecords', 'describeUserGroups_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a marker is included
+-- in the response so that the remaining results can be retrieved.
 newDescribeUserGroups ::
   DescribeUserGroups
 newDescribeUserGroups =
   DescribeUserGroups'
     { userGroupId = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
 -- | The ID of the user group.
 describeUserGroups_userGroupId :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Text)
 describeUserGroups_userGroupId = Lens.lens (\DescribeUserGroups' {userGroupId} -> userGroupId) (\s@DescribeUserGroups' {} a -> s {userGroupId = a} :: DescribeUserGroups)
-
--- | The maximum number of records to include in the response. If more
--- records exist than the specified MaxRecords value, a marker is included
--- in the response so that the remaining results can be retrieved.
-describeUserGroups_maxRecords :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Int)
-describeUserGroups_maxRecords = Lens.lens (\DescribeUserGroups' {maxRecords} -> maxRecords) (\s@DescribeUserGroups' {} a -> s {maxRecords = a} :: DescribeUserGroups)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
@@ -110,6 +104,12 @@ describeUserGroups_maxRecords = Lens.lens (\DescribeUserGroups' {maxRecords} -> 
 -- the value specified by MaxRecords. >
 describeUserGroups_marker :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Text)
 describeUserGroups_marker = Lens.lens (\DescribeUserGroups' {marker} -> marker) (\s@DescribeUserGroups' {} a -> s {marker = a} :: DescribeUserGroups)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified MaxRecords value, a marker is included
+-- in the response so that the remaining results can be retrieved.
+describeUserGroups_maxRecords :: Lens.Lens' DescribeUserGroups (Prelude.Maybe Prelude.Int)
+describeUserGroups_maxRecords = Lens.lens (\DescribeUserGroups' {maxRecords} -> maxRecords) (\s@DescribeUserGroups' {} a -> s {maxRecords = a} :: DescribeUserGroups)
 
 instance Core.AWSPager DescribeUserGroups where
   page rq rs
@@ -168,8 +168,8 @@ instance Core.ToQuery DescribeUserGroups where
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "UserGroupId" Core.=: userGroupId,
-        "MaxRecords" Core.=: maxRecords,
-        "Marker" Core.=: marker
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeUserGroupsResponse' smart constructor.
@@ -216,7 +216,7 @@ newDescribeUserGroupsResponse pHttpStatus_ =
 
 -- | Returns a list of user groups.
 describeUserGroupsResponse_userGroups :: Lens.Lens' DescribeUserGroupsResponse (Prelude.Maybe [UserGroup])
-describeUserGroupsResponse_userGroups = Lens.lens (\DescribeUserGroupsResponse' {userGroups} -> userGroups) (\s@DescribeUserGroupsResponse' {} a -> s {userGroups = a} :: DescribeUserGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeUserGroupsResponse_userGroups = Lens.lens (\DescribeUserGroupsResponse' {userGroups} -> userGroups) (\s@DescribeUserGroupsResponse' {} a -> s {userGroups = a} :: DescribeUserGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is

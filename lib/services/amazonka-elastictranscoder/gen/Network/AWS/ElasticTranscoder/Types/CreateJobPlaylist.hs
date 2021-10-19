@@ -223,7 +223,7 @@ createJobPlaylist_format = Lens.lens (\CreateJobPlaylist' {format} -> format) (\
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
 createJobPlaylist_outputKeys :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe [Prelude.Text])
-createJobPlaylist_outputKeys = Lens.lens (\CreateJobPlaylist' {outputKeys} -> outputKeys) (\s@CreateJobPlaylist' {} a -> s {outputKeys = a} :: CreateJobPlaylist) Prelude.. Lens.mapping Lens._Coerce
+createJobPlaylist_outputKeys = Lens.lens (\CreateJobPlaylist' {outputKeys} -> outputKeys) (\s@CreateJobPlaylist' {} a -> s {outputKeys = a} :: CreateJobPlaylist) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name that you want Elastic Transcoder to assign to the master
 -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@

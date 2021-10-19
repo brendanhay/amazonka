@@ -36,22 +36,22 @@ module Network.AWS.APIGateway.UpdateDomainName
 
     -- * Response Lenses
     domainName_regionalHostedZoneId,
-    domainName_regionalCertificateName,
-    domainName_mutualTlsAuthentication,
-    domainName_endpointConfiguration,
+    domainName_certificateName,
+    domainName_ownershipVerificationCertificateArn,
+    domainName_regionalCertificateArn,
     domainName_certificateArn,
     domainName_distributionHostedZoneId,
-    domainName_domainNameStatusMessage,
-    domainName_distributionDomainName,
-    domainName_certificateUploadDate,
-    domainName_domainName,
-    domainName_tags,
     domainName_securityPolicy,
-    domainName_domainNameStatus,
-    domainName_regionalCertificateArn,
-    domainName_ownershipVerificationCertificateArn,
-    domainName_certificateName,
+    domainName_domainName,
+    domainName_mutualTlsAuthentication,
+    domainName_regionalCertificateName,
     domainName_regionalDomainName,
+    domainName_certificateUploadDate,
+    domainName_distributionDomainName,
+    domainName_domainNameStatusMessage,
+    domainName_endpointConfiguration,
+    domainName_domainNameStatus,
+    domainName_tags,
   )
 where
 
@@ -100,7 +100,7 @@ newUpdateDomainName pDomainName_ =
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
 updateDomainName_patchOperations :: Lens.Lens' UpdateDomainName (Prelude.Maybe [PatchOperation])
-updateDomainName_patchOperations = Lens.lens (\UpdateDomainName' {patchOperations} -> patchOperations) (\s@UpdateDomainName' {} a -> s {patchOperations = a} :: UpdateDomainName) Prelude.. Lens.mapping Lens._Coerce
+updateDomainName_patchOperations = Lens.lens (\UpdateDomainName' {patchOperations} -> patchOperations) (\s@UpdateDomainName' {} a -> s {patchOperations = a} :: UpdateDomainName) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The name of the DomainName resource to be changed.
 updateDomainName_domainName :: Lens.Lens' UpdateDomainName Prelude.Text

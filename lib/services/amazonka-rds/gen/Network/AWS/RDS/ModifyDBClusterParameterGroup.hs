@@ -147,7 +147,7 @@ modifyDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\ModifyDB
 -- changes to dynamic and static parameters are applied after a reboot
 -- without failover to the DB clusters associated with the parameter group.
 modifyDBClusterParameterGroup_parameters :: Lens.Lens' ModifyDBClusterParameterGroup [Parameter]
-modifyDBClusterParameterGroup_parameters = Lens.lens (\ModifyDBClusterParameterGroup' {parameters} -> parameters) (\s@ModifyDBClusterParameterGroup' {} a -> s {parameters = a} :: ModifyDBClusterParameterGroup) Prelude.. Lens._Coerce
+modifyDBClusterParameterGroup_parameters = Lens.lens (\ModifyDBClusterParameterGroup' {parameters} -> parameters) (\s@ModifyDBClusterParameterGroup' {} a -> s {parameters = a} :: ModifyDBClusterParameterGroup) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest

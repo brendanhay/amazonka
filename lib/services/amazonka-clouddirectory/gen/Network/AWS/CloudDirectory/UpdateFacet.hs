@@ -33,8 +33,8 @@ module Network.AWS.CloudDirectory.UpdateFacet
     newUpdateFacet,
 
     -- * Request Lenses
-    updateFacet_attributeUpdates,
     updateFacet_objectType,
+    updateFacet_attributeUpdates,
     updateFacet_schemaArn,
     updateFacet_name,
 
@@ -56,13 +56,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-  { -- | List of attributes that need to be updated in a given schema Facet. Each
+  { -- | The object type that is associated with the facet. See
+    -- CreateFacetRequest$ObjectType for more details.
+    objectType :: Prelude.Maybe ObjectType,
+    -- | List of attributes that need to be updated in a given schema Facet. Each
     -- attribute is followed by @AttributeAction@, which specifies the type of
     -- update operation to perform.
     attributeUpdates :: Prelude.Maybe [FacetAttributeUpdate],
-    -- | The object type that is associated with the facet. See
-    -- CreateFacetRequest$ObjectType for more details.
-    objectType :: Prelude.Maybe ObjectType,
     -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
     -- more information, see arns.
     schemaArn :: Prelude.Text,
@@ -79,12 +79,12 @@ data UpdateFacet = UpdateFacet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'objectType', 'updateFacet_objectType' - The object type that is associated with the facet. See
+-- CreateFacetRequest$ObjectType for more details.
+--
 -- 'attributeUpdates', 'updateFacet_attributeUpdates' - List of attributes that need to be updated in a given schema Facet. Each
 -- attribute is followed by @AttributeAction@, which specifies the type of
 -- update operation to perform.
---
--- 'objectType', 'updateFacet_objectType' - The object type that is associated with the facet. See
--- CreateFacetRequest$ObjectType for more details.
 --
 -- 'schemaArn', 'updateFacet_schemaArn' - The Amazon Resource Name (ARN) that is associated with the Facet. For
 -- more information, see arns.
@@ -98,22 +98,22 @@ newUpdateFacet ::
   UpdateFacet
 newUpdateFacet pSchemaArn_ pName_ =
   UpdateFacet'
-    { attributeUpdates = Prelude.Nothing,
-      objectType = Prelude.Nothing,
+    { objectType = Prelude.Nothing,
+      attributeUpdates = Prelude.Nothing,
       schemaArn = pSchemaArn_,
       name = pName_
     }
-
--- | List of attributes that need to be updated in a given schema Facet. Each
--- attribute is followed by @AttributeAction@, which specifies the type of
--- update operation to perform.
-updateFacet_attributeUpdates :: Lens.Lens' UpdateFacet (Prelude.Maybe [FacetAttributeUpdate])
-updateFacet_attributeUpdates = Lens.lens (\UpdateFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateFacet' {} a -> s {attributeUpdates = a} :: UpdateFacet) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The object type that is associated with the facet. See
 -- CreateFacetRequest$ObjectType for more details.
 updateFacet_objectType :: Lens.Lens' UpdateFacet (Prelude.Maybe ObjectType)
 updateFacet_objectType = Lens.lens (\UpdateFacet' {objectType} -> objectType) (\s@UpdateFacet' {} a -> s {objectType = a} :: UpdateFacet)
+
+-- | List of attributes that need to be updated in a given schema Facet. Each
+-- attribute is followed by @AttributeAction@, which specifies the type of
+-- update operation to perform.
+updateFacet_attributeUpdates :: Lens.Lens' UpdateFacet (Prelude.Maybe [FacetAttributeUpdate])
+updateFacet_attributeUpdates = Lens.lens (\UpdateFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateFacet' {} a -> s {attributeUpdates = a} :: UpdateFacet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
 -- more information, see arns.
@@ -147,9 +147,9 @@ instance Core.ToJSON UpdateFacet where
   toJSON UpdateFacet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AttributeUpdates" Core..=)
+          [ ("ObjectType" Core..=) Prelude.<$> objectType,
+            ("AttributeUpdates" Core..=)
               Prelude.<$> attributeUpdates,
-            ("ObjectType" Core..=) Prelude.<$> objectType,
             Prelude.Just ("Name" Core..= name)
           ]
       )

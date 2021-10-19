@@ -49,8 +49,8 @@ module Network.AWS.EC2.DescribeAccountAttributes
     newDescribeAccountAttributes,
 
     -- * Request Lenses
-    describeAccountAttributes_dryRun,
     describeAccountAttributes_attributeNames,
+    describeAccountAttributes_dryRun,
 
     -- * Destructuring the Response
     DescribeAccountAttributesResponse (..),
@@ -71,13 +71,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The account attribute names.
+    attributeNames :: Prelude.Maybe [AccountAttributeName],
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The account attribute names.
-    attributeNames :: Prelude.Maybe [AccountAttributeName]
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,20 +89,24 @@ data DescribeAccountAttributes = DescribeAccountAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'attributeNames', 'describeAccountAttributes_attributeNames' - The account attribute names.
+--
 -- 'dryRun', 'describeAccountAttributes_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'attributeNames', 'describeAccountAttributes_attributeNames' - The account attribute names.
 newDescribeAccountAttributes ::
   DescribeAccountAttributes
 newDescribeAccountAttributes =
   DescribeAccountAttributes'
-    { dryRun =
+    { attributeNames =
         Prelude.Nothing,
-      attributeNames = Prelude.Nothing
+      dryRun = Prelude.Nothing
     }
+
+-- | The account attribute names.
+describeAccountAttributes_attributeNames :: Lens.Lens' DescribeAccountAttributes (Prelude.Maybe [AccountAttributeName])
+describeAccountAttributes_attributeNames = Lens.lens (\DescribeAccountAttributes' {attributeNames} -> attributeNames) (\s@DescribeAccountAttributes' {} a -> s {attributeNames = a} :: DescribeAccountAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -110,10 +114,6 @@ newDescribeAccountAttributes =
 -- Otherwise, it is @UnauthorizedOperation@.
 describeAccountAttributes_dryRun :: Lens.Lens' DescribeAccountAttributes (Prelude.Maybe Prelude.Bool)
 describeAccountAttributes_dryRun = Lens.lens (\DescribeAccountAttributes' {dryRun} -> dryRun) (\s@DescribeAccountAttributes' {} a -> s {dryRun = a} :: DescribeAccountAttributes)
-
--- | The account attribute names.
-describeAccountAttributes_attributeNames :: Lens.Lens' DescribeAccountAttributes (Prelude.Maybe [AccountAttributeName])
-describeAccountAttributes_attributeNames = Lens.lens (\DescribeAccountAttributes' {attributeNames} -> attributeNames) (\s@DescribeAccountAttributes' {} a -> s {attributeNames = a} :: DescribeAccountAttributes) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSRequest DescribeAccountAttributes where
   type
@@ -148,11 +148,11 @@ instance Core.ToQuery DescribeAccountAttributes where
           Core.=: ("DescribeAccountAttributes" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "AttributeName"
               Prelude.<$> attributeNames
-          )
+          ),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeAccountAttributesResponse' smart constructor.
@@ -188,7 +188,7 @@ newDescribeAccountAttributesResponse pHttpStatus_ =
 
 -- | Information about the account attributes.
 describeAccountAttributesResponse_accountAttributes :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountAttribute])
-describeAccountAttributesResponse_accountAttributes = Lens.lens (\DescribeAccountAttributesResponse' {accountAttributes} -> accountAttributes) (\s@DescribeAccountAttributesResponse' {} a -> s {accountAttributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeAccountAttributesResponse_accountAttributes = Lens.lens (\DescribeAccountAttributesResponse' {accountAttributes} -> accountAttributes) (\s@DescribeAccountAttributesResponse' {} a -> s {accountAttributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int

@@ -142,7 +142,7 @@ newListOpenIDConnectProvidersResponse pHttpStatus_ =
 -- | The list of IAM OIDC provider resource objects defined in the Amazon Web
 -- Services account.
 listOpenIDConnectProvidersResponse_openIDConnectProviderList :: Lens.Lens' ListOpenIDConnectProvidersResponse (Prelude.Maybe [OpenIDConnectProviderListEntry])
-listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
+listOpenIDConnectProvidersResponse_openIDConnectProviderList = Lens.lens (\ListOpenIDConnectProvidersResponse' {openIDConnectProviderList} -> openIDConnectProviderList) (\s@ListOpenIDConnectProvidersResponse' {} a -> s {openIDConnectProviderList = a} :: ListOpenIDConnectProvidersResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listOpenIDConnectProvidersResponse_httpStatus :: Lens.Lens' ListOpenIDConnectProvidersResponse Prelude.Int

@@ -14,21 +14,36 @@
 module Network.AWS.DataPipeline.Lens
   ( -- * Operations
 
+    -- ** DescribePipelines
+    describePipelines_pipelineIds,
+    describePipelinesResponse_httpStatus,
+    describePipelinesResponse_pipelineDescriptionList,
+
+    -- ** QueryObjects
+    queryObjects_query,
+    queryObjects_marker,
+    queryObjects_limit,
+    queryObjects_pipelineId,
+    queryObjects_sphere,
+    queryObjectsResponse_hasMoreResults,
+    queryObjectsResponse_ids,
+    queryObjectsResponse_marker,
+    queryObjectsResponse_httpStatus,
+
     -- ** RemoveTags
     removeTags_pipelineId,
     removeTags_tagKeys,
     removeTagsResponse_httpStatus,
 
-    -- ** QueryObjects
-    queryObjects_query,
-    queryObjects_limit,
-    queryObjects_marker,
-    queryObjects_pipelineId,
-    queryObjects_sphere,
-    queryObjectsResponse_ids,
-    queryObjectsResponse_hasMoreResults,
-    queryObjectsResponse_marker,
-    queryObjectsResponse_httpStatus,
+    -- ** DeletePipeline
+    deletePipeline_pipelineId,
+
+    -- ** ListPipelines
+    listPipelines_marker,
+    listPipelinesResponse_hasMoreResults,
+    listPipelinesResponse_marker,
+    listPipelinesResponse_httpStatus,
+    listPipelinesResponse_pipelineIdList,
 
     -- ** EvaluateExpression
     evaluateExpression_pipelineId,
@@ -37,37 +52,30 @@ module Network.AWS.DataPipeline.Lens
     evaluateExpressionResponse_httpStatus,
     evaluateExpressionResponse_evaluatedExpression,
 
-    -- ** ReportTaskProgress
-    reportTaskProgress_fields,
-    reportTaskProgress_taskId,
-    reportTaskProgressResponse_httpStatus,
-    reportTaskProgressResponse_canceled,
+    -- ** GetPipelineDefinition
+    getPipelineDefinition_version,
+    getPipelineDefinition_pipelineId,
+    getPipelineDefinitionResponse_pipelineObjects,
+    getPipelineDefinitionResponse_parameterObjects,
+    getPipelineDefinitionResponse_parameterValues,
+    getPipelineDefinitionResponse_httpStatus,
 
-    -- ** CreatePipeline
-    createPipeline_tags,
-    createPipeline_description,
-    createPipeline_name,
-    createPipeline_uniqueId,
-    createPipelineResponse_httpStatus,
-    createPipelineResponse_pipelineId,
+    -- ** PollForTask
+    pollForTask_hostname,
+    pollForTask_instanceIdentity,
+    pollForTask_workerGroup,
+    pollForTaskResponse_taskObject,
+    pollForTaskResponse_httpStatus,
 
-    -- ** DeletePipeline
-    deletePipeline_pipelineId,
+    -- ** DeactivatePipeline
+    deactivatePipeline_cancelActive,
+    deactivatePipeline_pipelineId,
+    deactivatePipelineResponse_httpStatus,
 
-    -- ** SetTaskStatus
-    setTaskStatus_errorStackTrace,
-    setTaskStatus_errorMessage,
-    setTaskStatus_errorId,
-    setTaskStatus_taskId,
-    setTaskStatus_taskStatus,
-    setTaskStatusResponse_httpStatus,
-
-    -- ** ReportTaskRunnerHeartbeat
-    reportTaskRunnerHeartbeat_hostname,
-    reportTaskRunnerHeartbeat_workerGroup,
-    reportTaskRunnerHeartbeat_taskrunnerId,
-    reportTaskRunnerHeartbeatResponse_httpStatus,
-    reportTaskRunnerHeartbeatResponse_terminate,
+    -- ** AddTags
+    addTags_pipelineId,
+    addTags_tags,
+    addTagsResponse_httpStatus,
 
     -- ** DescribeObjects
     describeObjects_evaluateExpressions,
@@ -79,44 +87,49 @@ module Network.AWS.DataPipeline.Lens
     describeObjectsResponse_httpStatus,
     describeObjectsResponse_pipelineObjects,
 
-    -- ** AddTags
-    addTags_pipelineId,
-    addTags_tags,
-    addTagsResponse_httpStatus,
+    -- ** ReportTaskRunnerHeartbeat
+    reportTaskRunnerHeartbeat_hostname,
+    reportTaskRunnerHeartbeat_workerGroup,
+    reportTaskRunnerHeartbeat_taskrunnerId,
+    reportTaskRunnerHeartbeatResponse_httpStatus,
+    reportTaskRunnerHeartbeatResponse_terminate,
 
-    -- ** DescribePipelines
-    describePipelines_pipelineIds,
-    describePipelinesResponse_httpStatus,
-    describePipelinesResponse_pipelineDescriptionList,
+    -- ** ActivatePipeline
+    activatePipeline_startTimestamp,
+    activatePipeline_parameterValues,
+    activatePipeline_pipelineId,
+    activatePipelineResponse_httpStatus,
 
-    -- ** PollForTask
-    pollForTask_hostname,
-    pollForTask_instanceIdentity,
-    pollForTask_workerGroup,
-    pollForTaskResponse_taskObject,
-    pollForTaskResponse_httpStatus,
+    -- ** SetTaskStatus
+    setTaskStatus_errorStackTrace,
+    setTaskStatus_errorId,
+    setTaskStatus_errorMessage,
+    setTaskStatus_taskId,
+    setTaskStatus_taskStatus,
+    setTaskStatusResponse_httpStatus,
 
-    -- ** ValidatePipelineDefinition
-    validatePipelineDefinition_parameterValues,
-    validatePipelineDefinition_parameterObjects,
-    validatePipelineDefinition_pipelineId,
-    validatePipelineDefinition_pipelineObjects,
-    validatePipelineDefinitionResponse_validationErrors,
-    validatePipelineDefinitionResponse_validationWarnings,
-    validatePipelineDefinitionResponse_httpStatus,
-    validatePipelineDefinitionResponse_errored,
+    -- ** SetStatus
+    setStatus_pipelineId,
+    setStatus_objectIds,
+    setStatus_status,
 
-    -- ** GetPipelineDefinition
-    getPipelineDefinition_version,
-    getPipelineDefinition_pipelineId,
-    getPipelineDefinitionResponse_parameterValues,
-    getPipelineDefinitionResponse_parameterObjects,
-    getPipelineDefinitionResponse_pipelineObjects,
-    getPipelineDefinitionResponse_httpStatus,
+    -- ** ReportTaskProgress
+    reportTaskProgress_fields,
+    reportTaskProgress_taskId,
+    reportTaskProgressResponse_httpStatus,
+    reportTaskProgressResponse_canceled,
+
+    -- ** CreatePipeline
+    createPipeline_description,
+    createPipeline_tags,
+    createPipeline_name,
+    createPipeline_uniqueId,
+    createPipelineResponse_httpStatus,
+    createPipelineResponse_pipelineId,
 
     -- ** PutPipelineDefinition
-    putPipelineDefinition_parameterValues,
     putPipelineDefinition_parameterObjects,
+    putPipelineDefinition_parameterValues,
     putPipelineDefinition_pipelineId,
     putPipelineDefinition_pipelineObjects,
     putPipelineDefinitionResponse_validationErrors,
@@ -124,39 +137,26 @@ module Network.AWS.DataPipeline.Lens
     putPipelineDefinitionResponse_httpStatus,
     putPipelineDefinitionResponse_errored,
 
-    -- ** SetStatus
-    setStatus_pipelineId,
-    setStatus_objectIds,
-    setStatus_status,
-
-    -- ** ListPipelines
-    listPipelines_marker,
-    listPipelinesResponse_hasMoreResults,
-    listPipelinesResponse_marker,
-    listPipelinesResponse_httpStatus,
-    listPipelinesResponse_pipelineIdList,
-
-    -- ** ActivatePipeline
-    activatePipeline_parameterValues,
-    activatePipeline_startTimestamp,
-    activatePipeline_pipelineId,
-    activatePipelineResponse_httpStatus,
-
-    -- ** DeactivatePipeline
-    deactivatePipeline_cancelActive,
-    deactivatePipeline_pipelineId,
-    deactivatePipelineResponse_httpStatus,
+    -- ** ValidatePipelineDefinition
+    validatePipelineDefinition_parameterObjects,
+    validatePipelineDefinition_parameterValues,
+    validatePipelineDefinition_pipelineId,
+    validatePipelineDefinition_pipelineObjects,
+    validatePipelineDefinitionResponse_validationErrors,
+    validatePipelineDefinitionResponse_validationWarnings,
+    validatePipelineDefinitionResponse_httpStatus,
+    validatePipelineDefinitionResponse_errored,
 
     -- * Types
 
     -- ** Field
-    field_stringValue,
     field_refValue,
+    field_stringValue,
     field_key,
 
     -- ** InstanceIdentity
-    instanceIdentity_document,
     instanceIdentity_signature,
+    instanceIdentity_document,
 
     -- ** Operator
     operator_values,
@@ -175,15 +175,15 @@ module Network.AWS.DataPipeline.Lens
     parameterValue_stringValue,
 
     -- ** PipelineDescription
-    pipelineDescription_tags,
     pipelineDescription_description,
+    pipelineDescription_tags,
     pipelineDescription_pipelineId,
     pipelineDescription_name,
     pipelineDescription_fields,
 
     -- ** PipelineIdName
-    pipelineIdName_id,
     pipelineIdName_name,
+    pipelineIdName_id,
 
     -- ** PipelineObject
     pipelineObject_id,
@@ -203,9 +203,9 @@ module Network.AWS.DataPipeline.Lens
 
     -- ** TaskObject
     taskObject_pipelineId,
-    taskObject_objects,
-    taskObject_taskId,
     taskObject_attemptId,
+    taskObject_taskId,
+    taskObject_objects,
 
     -- ** ValidationError
     validationError_id,

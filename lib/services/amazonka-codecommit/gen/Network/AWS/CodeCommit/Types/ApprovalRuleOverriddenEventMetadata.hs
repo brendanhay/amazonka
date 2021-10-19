@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newApprovalRuleOverriddenEventMetadata' smart constructor.
 data ApprovalRuleOverriddenEventMetadata = ApprovalRuleOverriddenEventMetadata'
-  { -- | The revision ID of the pull request when the override event occurred.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the override event.
-    overrideStatus :: Prelude.Maybe OverrideStatus
+  { -- | The status of the override event.
+    overrideStatus :: Prelude.Maybe OverrideStatus,
+    -- | The revision ID of the pull request when the override event occurred.
+    revisionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,25 +44,25 @@ data ApprovalRuleOverriddenEventMetadata = ApprovalRuleOverriddenEventMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'approvalRuleOverriddenEventMetadata_revisionId' - The revision ID of the pull request when the override event occurred.
---
 -- 'overrideStatus', 'approvalRuleOverriddenEventMetadata_overrideStatus' - The status of the override event.
+--
+-- 'revisionId', 'approvalRuleOverriddenEventMetadata_revisionId' - The revision ID of the pull request when the override event occurred.
 newApprovalRuleOverriddenEventMetadata ::
   ApprovalRuleOverriddenEventMetadata
 newApprovalRuleOverriddenEventMetadata =
   ApprovalRuleOverriddenEventMetadata'
-    { revisionId =
+    { overrideStatus =
         Prelude.Nothing,
-      overrideStatus = Prelude.Nothing
+      revisionId = Prelude.Nothing
     }
-
--- | The revision ID of the pull request when the override event occurred.
-approvalRuleOverriddenEventMetadata_revisionId :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Prelude.Maybe Prelude.Text)
-approvalRuleOverriddenEventMetadata_revisionId = Lens.lens (\ApprovalRuleOverriddenEventMetadata' {revisionId} -> revisionId) (\s@ApprovalRuleOverriddenEventMetadata' {} a -> s {revisionId = a} :: ApprovalRuleOverriddenEventMetadata)
 
 -- | The status of the override event.
 approvalRuleOverriddenEventMetadata_overrideStatus :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Prelude.Maybe OverrideStatus)
 approvalRuleOverriddenEventMetadata_overrideStatus = Lens.lens (\ApprovalRuleOverriddenEventMetadata' {overrideStatus} -> overrideStatus) (\s@ApprovalRuleOverriddenEventMetadata' {} a -> s {overrideStatus = a} :: ApprovalRuleOverriddenEventMetadata)
+
+-- | The revision ID of the pull request when the override event occurred.
+approvalRuleOverriddenEventMetadata_revisionId :: Lens.Lens' ApprovalRuleOverriddenEventMetadata (Prelude.Maybe Prelude.Text)
+approvalRuleOverriddenEventMetadata_revisionId = Lens.lens (\ApprovalRuleOverriddenEventMetadata' {revisionId} -> revisionId) (\s@ApprovalRuleOverriddenEventMetadata' {} a -> s {revisionId = a} :: ApprovalRuleOverriddenEventMetadata)
 
 instance
   Core.FromJSON
@@ -73,8 +73,8 @@ instance
       "ApprovalRuleOverriddenEventMetadata"
       ( \x ->
           ApprovalRuleOverriddenEventMetadata'
-            Prelude.<$> (x Core..:? "revisionId")
-            Prelude.<*> (x Core..:? "overrideStatus")
+            Prelude.<$> (x Core..:? "overrideStatus")
+            Prelude.<*> (x Core..:? "revisionId")
       )
 
 instance

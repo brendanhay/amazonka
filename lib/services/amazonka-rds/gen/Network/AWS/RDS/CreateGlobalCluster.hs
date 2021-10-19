@@ -38,13 +38,13 @@ module Network.AWS.RDS.CreateGlobalCluster
     newCreateGlobalCluster,
 
     -- * Request Lenses
+    createGlobalCluster_engineVersion,
     createGlobalCluster_deletionProtection,
     createGlobalCluster_storageEncrypted,
-    createGlobalCluster_engineVersion,
-    createGlobalCluster_engine,
-    createGlobalCluster_globalClusterIdentifier,
-    createGlobalCluster_databaseName,
     createGlobalCluster_sourceDBClusterIdentifier,
+    createGlobalCluster_globalClusterIdentifier,
+    createGlobalCluster_engine,
+    createGlobalCluster_databaseName,
 
     -- * Destructuring the Response
     CreateGlobalClusterResponse (..),
@@ -65,24 +65,24 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGlobalCluster' smart constructor.
 data CreateGlobalCluster = CreateGlobalCluster'
-  { -- | The deletion protection setting for the new global database. The global
+  { -- | The engine version of the Aurora global database.
+    engineVersion :: Prelude.Maybe Prelude.Text,
+    -- | The deletion protection setting for the new global database. The global
     -- database can\'t be deleted when deletion protection is enabled.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The storage encryption setting for the new global database cluster.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The engine version of the Aurora global database.
-    engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database engine to be used for this DB cluster.
-    engine :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
+    -- global database. This parameter is optional.
+    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier of the new global database cluster.
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database engine to be used for this DB cluster.
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The name for your database of up to 64 alpha-numeric characters. If you
     -- do not provide a name, Amazon Aurora will not create a database in the
     -- global database cluster you are creating.
-    databaseName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) to use as the primary cluster of the
-    -- global database. This parameter is optional.
-    sourceDBClusterIdentifier :: Prelude.Maybe Prelude.Text
+    databaseName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,36 +94,40 @@ data CreateGlobalCluster = CreateGlobalCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineVersion', 'createGlobalCluster_engineVersion' - The engine version of the Aurora global database.
+--
 -- 'deletionProtection', 'createGlobalCluster_deletionProtection' - The deletion protection setting for the new global database. The global
 -- database can\'t be deleted when deletion protection is enabled.
 --
 -- 'storageEncrypted', 'createGlobalCluster_storageEncrypted' - The storage encryption setting for the new global database cluster.
 --
--- 'engineVersion', 'createGlobalCluster_engineVersion' - The engine version of the Aurora global database.
---
--- 'engine', 'createGlobalCluster_engine' - The name of the database engine to be used for this DB cluster.
+-- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the
+-- global database. This parameter is optional.
 --
 -- 'globalClusterIdentifier', 'createGlobalCluster_globalClusterIdentifier' - The cluster identifier of the new global database cluster.
+--
+-- 'engine', 'createGlobalCluster_engine' - The name of the database engine to be used for this DB cluster.
 --
 -- 'databaseName', 'createGlobalCluster_databaseName' - The name for your database of up to 64 alpha-numeric characters. If you
 -- do not provide a name, Amazon Aurora will not create a database in the
 -- global database cluster you are creating.
---
--- 'sourceDBClusterIdentifier', 'createGlobalCluster_sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the
--- global database. This parameter is optional.
 newCreateGlobalCluster ::
   CreateGlobalCluster
 newCreateGlobalCluster =
   CreateGlobalCluster'
-    { deletionProtection =
+    { engineVersion =
         Prelude.Nothing,
+      deletionProtection = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      engine = Prelude.Nothing,
+      sourceDBClusterIdentifier = Prelude.Nothing,
       globalClusterIdentifier = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
-      sourceDBClusterIdentifier = Prelude.Nothing
+      engine = Prelude.Nothing,
+      databaseName = Prelude.Nothing
     }
+
+-- | The engine version of the Aurora global database.
+createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
 
 -- | The deletion protection setting for the new global database. The global
 -- database can\'t be deleted when deletion protection is enabled.
@@ -134,28 +138,24 @@ createGlobalCluster_deletionProtection = Lens.lens (\CreateGlobalCluster' {delet
 createGlobalCluster_storageEncrypted :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Bool)
 createGlobalCluster_storageEncrypted = Lens.lens (\CreateGlobalCluster' {storageEncrypted} -> storageEncrypted) (\s@CreateGlobalCluster' {} a -> s {storageEncrypted = a} :: CreateGlobalCluster)
 
--- | The engine version of the Aurora global database.
-createGlobalCluster_engineVersion :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_engineVersion = Lens.lens (\CreateGlobalCluster' {engineVersion} -> engineVersion) (\s@CreateGlobalCluster' {} a -> s {engineVersion = a} :: CreateGlobalCluster)
-
--- | The name of the database engine to be used for this DB cluster.
-createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
+-- | The Amazon Resource Name (ARN) to use as the primary cluster of the
+-- global database. This parameter is optional.
+createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
 
 -- | The cluster identifier of the new global database cluster.
 createGlobalCluster_globalClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_globalClusterIdentifier = Lens.lens (\CreateGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: CreateGlobalCluster)
+
+-- | The name of the database engine to be used for this DB cluster.
+createGlobalCluster_engine :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
+createGlobalCluster_engine = Lens.lens (\CreateGlobalCluster' {engine} -> engine) (\s@CreateGlobalCluster' {} a -> s {engine = a} :: CreateGlobalCluster)
 
 -- | The name for your database of up to 64 alpha-numeric characters. If you
 -- do not provide a name, Amazon Aurora will not create a database in the
 -- global database cluster you are creating.
 createGlobalCluster_databaseName :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
 createGlobalCluster_databaseName = Lens.lens (\CreateGlobalCluster' {databaseName} -> databaseName) (\s@CreateGlobalCluster' {} a -> s {databaseName = a} :: CreateGlobalCluster)
-
--- | The Amazon Resource Name (ARN) to use as the primary cluster of the
--- global database. This parameter is optional.
-createGlobalCluster_sourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Prelude.Maybe Prelude.Text)
-createGlobalCluster_sourceDBClusterIdentifier = Lens.lens (\CreateGlobalCluster' {sourceDBClusterIdentifier} -> sourceDBClusterIdentifier) (\s@CreateGlobalCluster' {} a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
 
 instance Core.AWSRequest CreateGlobalCluster where
   type
@@ -188,15 +188,15 @@ instance Core.ToQuery CreateGlobalCluster where
           Core.=: ("CreateGlobalCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "EngineVersion" Core.=: engineVersion,
         "DeletionProtection" Core.=: deletionProtection,
         "StorageEncrypted" Core.=: storageEncrypted,
-        "EngineVersion" Core.=: engineVersion,
-        "Engine" Core.=: engine,
+        "SourceDBClusterIdentifier"
+          Core.=: sourceDBClusterIdentifier,
         "GlobalClusterIdentifier"
           Core.=: globalClusterIdentifier,
-        "DatabaseName" Core.=: databaseName,
-        "SourceDBClusterIdentifier"
-          Core.=: sourceDBClusterIdentifier
+        "Engine" Core.=: engine,
+        "DatabaseName" Core.=: databaseName
       ]
 
 -- | /See:/ 'newCreateGlobalClusterResponse' smart constructor.

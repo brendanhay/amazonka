@@ -105,7 +105,7 @@ newEnterStandby
 
 -- | The IDs of the instances. You can specify up to 20 instances.
 enterStandby_instanceIds :: Lens.Lens' EnterStandby (Prelude.Maybe [Prelude.Text])
-enterStandby_instanceIds = Lens.lens (\EnterStandby' {instanceIds} -> instanceIds) (\s@EnterStandby' {} a -> s {instanceIds = a} :: EnterStandby) Prelude.. Lens.mapping Lens._Coerce
+enterStandby_instanceIds = Lens.lens (\EnterStandby' {instanceIds} -> instanceIds) (\s@EnterStandby' {} a -> s {instanceIds = a} :: EnterStandby) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the Auto Scaling group.
 enterStandby_autoScalingGroupName :: Lens.Lens' EnterStandby Prelude.Text
@@ -187,7 +187,7 @@ newEnterStandbyResponse pHttpStatus_ =
 
 -- | The activities related to moving instances into @Standby@ mode.
 enterStandbyResponse_activities :: Lens.Lens' EnterStandbyResponse (Prelude.Maybe [Activity])
-enterStandbyResponse_activities = Lens.lens (\EnterStandbyResponse' {activities} -> activities) (\s@EnterStandbyResponse' {} a -> s {activities = a} :: EnterStandbyResponse) Prelude.. Lens.mapping Lens._Coerce
+enterStandbyResponse_activities = Lens.lens (\EnterStandbyResponse' {activities} -> activities) (\s@EnterStandbyResponse' {} a -> s {activities = a} :: EnterStandbyResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 enterStandbyResponse_httpStatus :: Lens.Lens' EnterStandbyResponse Prelude.Int

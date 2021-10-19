@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBusinessReportS3Location' smart constructor.
 data BusinessReportS3Location = BusinessReportS3Location'
-  { -- | The S3 bucket name of the output reports.
-    bucketName :: Prelude.Maybe Prelude.Text,
-    -- | The path of the business report.
-    path :: Prelude.Maybe Prelude.Text
+  { -- | The path of the business report.
+    path :: Prelude.Maybe Prelude.Text,
+    -- | The S3 bucket name of the output reports.
+    bucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,24 @@ data BusinessReportS3Location = BusinessReportS3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketName', 'businessReportS3Location_bucketName' - The S3 bucket name of the output reports.
---
 -- 'path', 'businessReportS3Location_path' - The path of the business report.
+--
+-- 'bucketName', 'businessReportS3Location_bucketName' - The S3 bucket name of the output reports.
 newBusinessReportS3Location ::
   BusinessReportS3Location
 newBusinessReportS3Location =
   BusinessReportS3Location'
-    { bucketName =
-        Prelude.Nothing,
-      path = Prelude.Nothing
+    { path = Prelude.Nothing,
+      bucketName = Prelude.Nothing
     }
-
--- | The S3 bucket name of the output reports.
-businessReportS3Location_bucketName :: Lens.Lens' BusinessReportS3Location (Prelude.Maybe Prelude.Text)
-businessReportS3Location_bucketName = Lens.lens (\BusinessReportS3Location' {bucketName} -> bucketName) (\s@BusinessReportS3Location' {} a -> s {bucketName = a} :: BusinessReportS3Location)
 
 -- | The path of the business report.
 businessReportS3Location_path :: Lens.Lens' BusinessReportS3Location (Prelude.Maybe Prelude.Text)
 businessReportS3Location_path = Lens.lens (\BusinessReportS3Location' {path} -> path) (\s@BusinessReportS3Location' {} a -> s {path = a} :: BusinessReportS3Location)
+
+-- | The S3 bucket name of the output reports.
+businessReportS3Location_bucketName :: Lens.Lens' BusinessReportS3Location (Prelude.Maybe Prelude.Text)
+businessReportS3Location_bucketName = Lens.lens (\BusinessReportS3Location' {bucketName} -> bucketName) (\s@BusinessReportS3Location' {} a -> s {bucketName = a} :: BusinessReportS3Location)
 
 instance Core.FromJSON BusinessReportS3Location where
   parseJSON =
@@ -68,8 +67,8 @@ instance Core.FromJSON BusinessReportS3Location where
       "BusinessReportS3Location"
       ( \x ->
           BusinessReportS3Location'
-            Prelude.<$> (x Core..:? "BucketName")
-            Prelude.<*> (x Core..:? "Path")
+            Prelude.<$> (x Core..:? "Path")
+            Prelude.<*> (x Core..:? "BucketName")
       )
 
 instance Prelude.Hashable BusinessReportS3Location

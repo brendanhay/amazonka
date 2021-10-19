@@ -163,7 +163,7 @@ newDescribeTargetGroupAttributesResponse pHttpStatus_ =
 
 -- | Information about the target group attributes
 describeTargetGroupAttributesResponse_attributes :: Lens.Lens' DescribeTargetGroupAttributesResponse (Prelude.Maybe [TargetGroupAttribute])
-describeTargetGroupAttributesResponse_attributes = Lens.lens (\DescribeTargetGroupAttributesResponse' {attributes} -> attributes) (\s@DescribeTargetGroupAttributesResponse' {} a -> s {attributes = a} :: DescribeTargetGroupAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+describeTargetGroupAttributesResponse_attributes = Lens.lens (\DescribeTargetGroupAttributesResponse' {attributes} -> attributes) (\s@DescribeTargetGroupAttributesResponse' {} a -> s {attributes = a} :: DescribeTargetGroupAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeTargetGroupAttributesResponse_httpStatus :: Lens.Lens' DescribeTargetGroupAttributesResponse Prelude.Int

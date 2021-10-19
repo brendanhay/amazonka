@@ -36,8 +36,8 @@ module Network.AWS.Lightsail.GetKeyPairs
     newGetKeyPairsResponse,
 
     -- * Response Lenses
-    getKeyPairsResponse_keyPairs,
     getKeyPairsResponse_nextPageToken,
+    getKeyPairsResponse_keyPairs,
     getKeyPairsResponse_httpStatus,
   )
 where
@@ -114,8 +114,8 @@ instance Core.AWSRequest GetKeyPairs where
     Response.receiveJSON
       ( \s h x ->
           GetKeyPairsResponse'
-            Prelude.<$> (x Core..?> "keyPairs" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextPageToken")
+            Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "keyPairs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -153,9 +153,7 @@ instance Core.ToQuery GetKeyPairs where
 
 -- | /See:/ 'newGetKeyPairsResponse' smart constructor.
 data GetKeyPairsResponse = GetKeyPairsResponse'
-  { -- | An array of key-value pairs containing information about the key pairs.
-    keyPairs :: Prelude.Maybe [KeyPair],
-    -- | The token to advance to the next page of results from your request.
+  { -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
     -- display.
@@ -163,6 +161,8 @@ data GetKeyPairsResponse = GetKeyPairsResponse'
     -- To get the next page of results, perform another @GetKeyPairs@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs containing information about the key pairs.
+    keyPairs :: Prelude.Maybe [KeyPair],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,8 +176,6 @@ data GetKeyPairsResponse = GetKeyPairsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyPairs', 'getKeyPairsResponse_keyPairs' - An array of key-value pairs containing information about the key pairs.
---
 -- 'nextPageToken', 'getKeyPairsResponse_nextPageToken' - The token to advance to the next page of results from your request.
 --
 -- A next page token is not returned if there are no more results to
@@ -186,6 +184,8 @@ data GetKeyPairsResponse = GetKeyPairsResponse'
 -- To get the next page of results, perform another @GetKeyPairs@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
+-- 'keyPairs', 'getKeyPairsResponse_keyPairs' - An array of key-value pairs containing information about the key pairs.
+--
 -- 'httpStatus', 'getKeyPairsResponse_httpStatus' - The response's http status code.
 newGetKeyPairsResponse ::
   -- | 'httpStatus'
@@ -193,14 +193,11 @@ newGetKeyPairsResponse ::
   GetKeyPairsResponse
 newGetKeyPairsResponse pHttpStatus_ =
   GetKeyPairsResponse'
-    { keyPairs = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { nextPageToken =
+        Prelude.Nothing,
+      keyPairs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of key-value pairs containing information about the key pairs.
-getKeyPairsResponse_keyPairs :: Lens.Lens' GetKeyPairsResponse (Prelude.Maybe [KeyPair])
-getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> keyPairs) (\s@GetKeyPairsResponse' {} a -> s {keyPairs = a} :: GetKeyPairsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -211,6 +208,10 @@ getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> ke
 -- and specify the next page token using the @pageToken@ parameter.
 getKeyPairsResponse_nextPageToken :: Lens.Lens' GetKeyPairsResponse (Prelude.Maybe Prelude.Text)
 getKeyPairsResponse_nextPageToken = Lens.lens (\GetKeyPairsResponse' {nextPageToken} -> nextPageToken) (\s@GetKeyPairsResponse' {} a -> s {nextPageToken = a} :: GetKeyPairsResponse)
+
+-- | An array of key-value pairs containing information about the key pairs.
+getKeyPairsResponse_keyPairs :: Lens.Lens' GetKeyPairsResponse (Prelude.Maybe [KeyPair])
+getKeyPairsResponse_keyPairs = Lens.lens (\GetKeyPairsResponse' {keyPairs} -> keyPairs) (\s@GetKeyPairsResponse' {} a -> s {keyPairs = a} :: GetKeyPairsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getKeyPairsResponse_httpStatus :: Lens.Lens' GetKeyPairsResponse Prelude.Int

@@ -37,8 +37,8 @@ module Network.AWS.CloudTrail.ListPublicKeys
     newListPublicKeys,
 
     -- * Request Lenses
-    listPublicKeys_nextToken,
     listPublicKeys_startTime,
+    listPublicKeys_nextToken,
     listPublicKeys_endTime,
 
     -- * Destructuring the Response
@@ -63,12 +63,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
-  { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Optionally specifies, in UTC, the start of the time range to look up
+  { -- | Optionally specifies, in UTC, the start of the time range to look up
     -- public keys for CloudTrail digest files. If not specified, the current
     -- time is used, and the current public key is returned.
     startTime :: Prelude.Maybe Core.POSIX,
+    -- | Reserved for future use.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | Optionally specifies, in UTC, the end of the time range to look up
     -- public keys for CloudTrail digest files. If not specified, the current
     -- time is used.
@@ -84,11 +84,11 @@ data ListPublicKeys = ListPublicKeys'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPublicKeys_nextToken' - Reserved for future use.
---
 -- 'startTime', 'listPublicKeys_startTime' - Optionally specifies, in UTC, the start of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
 -- time is used, and the current public key is returned.
+--
+-- 'nextToken', 'listPublicKeys_nextToken' - Reserved for future use.
 --
 -- 'endTime', 'listPublicKeys_endTime' - Optionally specifies, in UTC, the end of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
@@ -97,20 +97,20 @@ newListPublicKeys ::
   ListPublicKeys
 newListPublicKeys =
   ListPublicKeys'
-    { nextToken = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+    { startTime = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       endTime = Prelude.Nothing
     }
-
--- | Reserved for future use.
-listPublicKeys_nextToken :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
-listPublicKeys_nextToken = Lens.lens (\ListPublicKeys' {nextToken} -> nextToken) (\s@ListPublicKeys' {} a -> s {nextToken = a} :: ListPublicKeys)
 
 -- | Optionally specifies, in UTC, the start of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
 -- time is used, and the current public key is returned.
 listPublicKeys_startTime :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.UTCTime)
 listPublicKeys_startTime = Lens.lens (\ListPublicKeys' {startTime} -> startTime) (\s@ListPublicKeys' {} a -> s {startTime = a} :: ListPublicKeys) Prelude.. Lens.mapping Core._Time
+
+-- | Reserved for future use.
+listPublicKeys_nextToken :: Lens.Lens' ListPublicKeys (Prelude.Maybe Prelude.Text)
+listPublicKeys_nextToken = Lens.lens (\ListPublicKeys' {nextToken} -> nextToken) (\s@ListPublicKeys' {} a -> s {nextToken = a} :: ListPublicKeys)
 
 -- | Optionally specifies, in UTC, the end of the time range to look up
 -- public keys for CloudTrail digest files. If not specified, the current
@@ -176,8 +176,8 @@ instance Core.ToJSON ListPublicKeys where
   toJSON ListPublicKeys' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("StartTime" Core..=) Prelude.<$> startTime,
+          [ ("StartTime" Core..=) Prelude.<$> startTime,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("EndTime" Core..=) Prelude.<$> endTime
           ]
       )
@@ -235,7 +235,7 @@ newListPublicKeysResponse pHttpStatus_ =
 --
 -- The returned public keys may have validity time ranges that overlap.
 listPublicKeysResponse_publicKeyList :: Lens.Lens' ListPublicKeysResponse (Prelude.Maybe [PublicKey])
-listPublicKeysResponse_publicKeyList = Lens.lens (\ListPublicKeysResponse' {publicKeyList} -> publicKeyList) (\s@ListPublicKeysResponse' {} a -> s {publicKeyList = a} :: ListPublicKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+listPublicKeysResponse_publicKeyList = Lens.lens (\ListPublicKeysResponse' {publicKeyList} -> publicKeyList) (\s@ListPublicKeysResponse' {} a -> s {publicKeyList = a} :: ListPublicKeysResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Reserved for future use.
 listPublicKeysResponse_nextToken :: Lens.Lens' ListPublicKeysResponse (Prelude.Maybe Prelude.Text)

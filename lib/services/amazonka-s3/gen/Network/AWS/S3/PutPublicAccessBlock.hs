@@ -52,8 +52,8 @@ module Network.AWS.S3.PutPublicAccessBlock
     newPutPublicAccessBlock,
 
     -- * Request Lenses
-    putPublicAccessBlock_expectedBucketOwner,
     putPublicAccessBlock_contentMD5,
+    putPublicAccessBlock_expectedBucketOwner,
     putPublicAccessBlock_bucket,
     putPublicAccessBlock_publicAccessBlockConfiguration,
 
@@ -72,16 +72,16 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutPublicAccessBlock' smart constructor.
 data PutPublicAccessBlock = PutPublicAccessBlock'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
+  { -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
     -- you want to set.
     bucket :: BucketName,
@@ -103,15 +103,15 @@ data PutPublicAccessBlock = PutPublicAccessBlock'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putPublicAccessBlock_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putPublicAccessBlock_contentMD5' - The MD5 hash of the @PutPublicAccessBlock@ request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putPublicAccessBlock_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putPublicAccessBlock_bucket' - The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
 -- you want to set.
@@ -132,19 +132,12 @@ newPutPublicAccessBlock
   pBucket_
   pPublicAccessBlockConfiguration_ =
     PutPublicAccessBlock'
-      { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+      { contentMD5 = Prelude.Nothing,
+        expectedBucketOwner = Prelude.Nothing,
         bucket = pBucket_,
         publicAccessBlockConfiguration =
           pPublicAccessBlockConfiguration_
       }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putPublicAccessBlock_expectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
-putPublicAccessBlock_expectedBucketOwner = Lens.lens (\PutPublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutPublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: PutPublicAccessBlock)
 
 -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
 --
@@ -153,6 +146,12 @@ putPublicAccessBlock_expectedBucketOwner = Lens.lens (\PutPublicAccessBlock' {ex
 -- automatically.
 putPublicAccessBlock_contentMD5 :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
 putPublicAccessBlock_contentMD5 = Lens.lens (\PutPublicAccessBlock' {contentMD5} -> contentMD5) (\s@PutPublicAccessBlock' {} a -> s {contentMD5 = a} :: PutPublicAccessBlock)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putPublicAccessBlock_expectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
+putPublicAccessBlock_expectedBucketOwner = Lens.lens (\PutPublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutPublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: PutPublicAccessBlock)
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
 -- you want to set.
@@ -172,7 +171,9 @@ instance Core.AWSRequest PutPublicAccessBlock where
   type
     AWSResponse PutPublicAccessBlock =
       PutPublicAccessBlockResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutPublicAccessBlockResponse'
 
@@ -189,9 +190,9 @@ instance Core.ToElement PutPublicAccessBlock where
 instance Core.ToHeaders PutPublicAccessBlock where
   toHeaders PutPublicAccessBlock' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutPublicAccessBlock where

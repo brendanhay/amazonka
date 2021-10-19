@@ -145,7 +145,7 @@ putAttributes_itemName = Lens.lens (\PutAttributes' {itemName} -> itemName) (\s@
 
 -- | The list of attributes.
 putAttributes_attributes :: Lens.Lens' PutAttributes [ReplaceableAttribute]
-putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Lens._Coerce
+putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Lens.coerced
 
 instance Core.AWSRequest PutAttributes where
   type

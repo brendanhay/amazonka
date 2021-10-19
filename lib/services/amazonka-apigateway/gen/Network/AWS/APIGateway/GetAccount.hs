@@ -31,10 +31,10 @@ module Network.AWS.APIGateway.GetAccount
     newAccount,
 
     -- * Response Lenses
-    account_throttleSettings,
     account_apiKeyVersion,
-    account_features,
     account_cloudwatchRoleArn,
+    account_features,
+    account_throttleSettings,
   )
 where
 

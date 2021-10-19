@@ -135,7 +135,7 @@ createPlatformEndpoint_customUserData = Lens.lens (\CreatePlatformEndpoint' {cus
 -- | For a list of attributes, see
 -- <https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
 createPlatformEndpoint_attributes :: Lens.Lens' CreatePlatformEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPlatformEndpoint_attributes = Lens.lens (\CreatePlatformEndpoint' {attributes} -> attributes) (\s@CreatePlatformEndpoint' {} a -> s {attributes = a} :: CreatePlatformEndpoint) Prelude.. Lens.mapping Lens._Coerce
+createPlatformEndpoint_attributes = Lens.lens (\CreatePlatformEndpoint' {attributes} -> attributes) (\s@CreatePlatformEndpoint' {} a -> s {attributes = a} :: CreatePlatformEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.

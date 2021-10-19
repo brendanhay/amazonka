@@ -149,7 +149,7 @@ newRefreshCache pFileShareARN_ =
 -- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
 -- entire S3 bucket that the file share has access to is refreshed.
 refreshCache_folderList :: Lens.Lens' RefreshCache (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Prelude.. Lens.mapping Lens._Coerce
+refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that specifies whether to recursively refresh folders in the
 -- cache. The refresh includes folders that were in the cache the last time

@@ -330,7 +330,7 @@ newGetTopicAttributesResponse pHttpStatus_ =
 --         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 getTopicAttributesResponse_attributes :: Lens.Lens' GetTopicAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' {attributes} -> attributes) (\s@GetTopicAttributesResponse' {} a -> s {attributes = a} :: GetTopicAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' {attributes} -> attributes) (\s@GetTopicAttributesResponse' {} a -> s {attributes = a} :: GetTopicAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getTopicAttributesResponse_httpStatus :: Lens.Lens' GetTopicAttributesResponse Prelude.Int

@@ -27,50 +27,44 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteSecret $
+--         [ requestValidateResourcePolicy $
+--             newValidateResourcePolicy
+--
+--         , requestDeleteSecret $
 --             newDeleteSecret
+--
+--         , requestListSecrets $
+--             newListSecrets
 --
 --         , requestUpdateSecret $
 --             newUpdateSecret
 --
---         , requestRotateSecret $
---             newRotateSecret
---
 --         , requestRemoveRegionsFromReplication $
 --             newRemoveRegionsFromReplication
 --
---         , requestGetResourcePolicy $
---             newGetResourcePolicy
---
---         , requestValidateResourcePolicy $
---             newValidateResourcePolicy
---
---         , requestCancelRotateSecret $
---             newCancelRotateSecret
---
---         , requestRestoreSecret $
---             newRestoreSecret
---
---         , requestPutResourcePolicy $
---             newPutResourcePolicy
---
---         , requestDescribeSecret $
---             newDescribeSecret
---
---         , requestGetSecretValue $
---             newGetSecretValue
---
---         , requestUntagResource $
---             newUntagResource
---
---         , requestTagResource $
---             newTagResource
+--         , requestRotateSecret $
+--             newRotateSecret
 --
 --         , requestCreateSecret $
 --             newCreateSecret
 --
---         , requestGetRandomPassword $
---             newGetRandomPassword
+--         , requestGetSecretValue $
+--             newGetSecretValue
+--
+--         , requestDescribeSecret $
+--             newDescribeSecret
+--
+--         , requestRestoreSecret $
+--             newRestoreSecret
+--
+--         , requestCancelRotateSecret $
+--             newCancelRotateSecret
+--
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
+--
+--         , requestPutSecretValue $
+--             newPutSecretValue
 --
 --         , requestReplicateSecretToRegions $
 --             newReplicateSecretToRegions
@@ -78,68 +72,68 @@ import Test.Tasty
 --         , requestStopReplicationToReplica $
 --             newStopReplicationToReplica
 --
---         , requestListSecrets $
---             newListSecrets
---
---         , requestPutSecretValue $
---             newPutSecretValue
---
---         , requestUpdateSecretVersionStage $
---             newUpdateSecretVersionStage
---
---         , requestDeleteResourcePolicy $
---             newDeleteResourcePolicy
+--         , requestGetRandomPassword $
+--             newGetRandomPassword
 --
 --         , requestListSecretVersionIds $
 --             newListSecretVersionIds
 --
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateSecretVersionStage $
+--             newUpdateSecretVersionStage
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteSecret $
+--         [ responseValidateResourcePolicy $
+--             newValidateResourcePolicyResponse
+--
+--         , responseDeleteSecret $
 --             newDeleteSecretResponse
+--
+--         , responseListSecrets $
+--             newListSecretsResponse
 --
 --         , responseUpdateSecret $
 --             newUpdateSecretResponse
 --
---         , responseRotateSecret $
---             newRotateSecretResponse
---
 --         , responseRemoveRegionsFromReplication $
 --             newRemoveRegionsFromReplicationResponse
 --
---         , responseGetResourcePolicy $
---             newGetResourcePolicyResponse
---
---         , responseValidateResourcePolicy $
---             newValidateResourcePolicyResponse
---
---         , responseCancelRotateSecret $
---             newCancelRotateSecretResponse
---
---         , responseRestoreSecret $
---             newRestoreSecretResponse
---
---         , responsePutResourcePolicy $
---             newPutResourcePolicyResponse
---
---         , responseDescribeSecret $
---             newDescribeSecretResponse
---
---         , responseGetSecretValue $
---             newGetSecretValueResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
---
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseRotateSecret $
+--             newRotateSecretResponse
 --
 --         , responseCreateSecret $
 --             newCreateSecretResponse
 --
---         , responseGetRandomPassword $
---             newGetRandomPasswordResponse
+--         , responseGetSecretValue $
+--             newGetSecretValueResponse
+--
+--         , responseDescribeSecret $
+--             newDescribeSecretResponse
+--
+--         , responseRestoreSecret $
+--             newRestoreSecretResponse
+--
+--         , responseCancelRotateSecret $
+--             newCancelRotateSecretResponse
+--
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
+--
+--         , responsePutSecretValue $
+--             newPutSecretValueResponse
 --
 --         , responseReplicateSecretToRegions $
 --             newReplicateSecretToRegionsResponse
@@ -147,55 +141,31 @@ import Test.Tasty
 --         , responseStopReplicationToReplica $
 --             newStopReplicationToReplicaResponse
 --
---         , responseListSecrets $
---             newListSecretsResponse
+--         , responseGetRandomPassword $
+--             newGetRandomPasswordResponse
 --
---         , responsePutSecretValue $
---             newPutSecretValueResponse
+--         , responseListSecretVersionIds $
+--             newListSecretVersionIdsResponse
 --
---         , responseUpdateSecretVersionStage $
---             newUpdateSecretVersionStageResponse
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responseDeleteResourcePolicy $
 --             newDeleteResourcePolicyResponse
 --
---         , responseListSecretVersionIds $
---             newListSecretVersionIdsResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateSecretVersionStage $
+--             newUpdateSecretVersionStageResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDeleteSecret :: DeleteSecret -> TestTree
-requestDeleteSecret =
-  req
-    "DeleteSecret"
-    "fixture/DeleteSecret.yaml"
-
-requestUpdateSecret :: UpdateSecret -> TestTree
-requestUpdateSecret =
-  req
-    "UpdateSecret"
-    "fixture/UpdateSecret.yaml"
-
-requestRotateSecret :: RotateSecret -> TestTree
-requestRotateSecret =
-  req
-    "RotateSecret"
-    "fixture/RotateSecret.yaml"
-
-requestRemoveRegionsFromReplication :: RemoveRegionsFromReplication -> TestTree
-requestRemoveRegionsFromReplication =
-  req
-    "RemoveRegionsFromReplication"
-    "fixture/RemoveRegionsFromReplication.yaml"
-
-requestGetResourcePolicy :: GetResourcePolicy -> TestTree
-requestGetResourcePolicy =
-  req
-    "GetResourcePolicy"
-    "fixture/GetResourcePolicy.yaml"
 
 requestValidateResourcePolicy :: ValidateResourcePolicy -> TestTree
 requestValidateResourcePolicy =
@@ -203,47 +173,35 @@ requestValidateResourcePolicy =
     "ValidateResourcePolicy"
     "fixture/ValidateResourcePolicy.yaml"
 
-requestCancelRotateSecret :: CancelRotateSecret -> TestTree
-requestCancelRotateSecret =
+requestDeleteSecret :: DeleteSecret -> TestTree
+requestDeleteSecret =
   req
-    "CancelRotateSecret"
-    "fixture/CancelRotateSecret.yaml"
+    "DeleteSecret"
+    "fixture/DeleteSecret.yaml"
 
-requestRestoreSecret :: RestoreSecret -> TestTree
-requestRestoreSecret =
+requestListSecrets :: ListSecrets -> TestTree
+requestListSecrets =
   req
-    "RestoreSecret"
-    "fixture/RestoreSecret.yaml"
+    "ListSecrets"
+    "fixture/ListSecrets.yaml"
 
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy =
+requestUpdateSecret :: UpdateSecret -> TestTree
+requestUpdateSecret =
   req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
+    "UpdateSecret"
+    "fixture/UpdateSecret.yaml"
 
-requestDescribeSecret :: DescribeSecret -> TestTree
-requestDescribeSecret =
+requestRemoveRegionsFromReplication :: RemoveRegionsFromReplication -> TestTree
+requestRemoveRegionsFromReplication =
   req
-    "DescribeSecret"
-    "fixture/DescribeSecret.yaml"
+    "RemoveRegionsFromReplication"
+    "fixture/RemoveRegionsFromReplication.yaml"
 
-requestGetSecretValue :: GetSecretValue -> TestTree
-requestGetSecretValue =
+requestRotateSecret :: RotateSecret -> TestTree
+requestRotateSecret =
   req
-    "GetSecretValue"
-    "fixture/GetSecretValue.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "RotateSecret"
+    "fixture/RotateSecret.yaml"
 
 requestCreateSecret :: CreateSecret -> TestTree
 requestCreateSecret =
@@ -251,11 +209,41 @@ requestCreateSecret =
     "CreateSecret"
     "fixture/CreateSecret.yaml"
 
-requestGetRandomPassword :: GetRandomPassword -> TestTree
-requestGetRandomPassword =
+requestGetSecretValue :: GetSecretValue -> TestTree
+requestGetSecretValue =
   req
-    "GetRandomPassword"
-    "fixture/GetRandomPassword.yaml"
+    "GetSecretValue"
+    "fixture/GetSecretValue.yaml"
+
+requestDescribeSecret :: DescribeSecret -> TestTree
+requestDescribeSecret =
+  req
+    "DescribeSecret"
+    "fixture/DescribeSecret.yaml"
+
+requestRestoreSecret :: RestoreSecret -> TestTree
+requestRestoreSecret =
+  req
+    "RestoreSecret"
+    "fixture/RestoreSecret.yaml"
+
+requestCancelRotateSecret :: CancelRotateSecret -> TestTree
+requestCancelRotateSecret =
+  req
+    "CancelRotateSecret"
+    "fixture/CancelRotateSecret.yaml"
+
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
+
+requestPutSecretValue :: PutSecretValue -> TestTree
+requestPutSecretValue =
+  req
+    "PutSecretValue"
+    "fixture/PutSecretValue.yaml"
 
 requestReplicateSecretToRegions :: ReplicateSecretToRegions -> TestTree
 requestReplicateSecretToRegions =
@@ -269,29 +257,11 @@ requestStopReplicationToReplica =
     "StopReplicationToReplica"
     "fixture/StopReplicationToReplica.yaml"
 
-requestListSecrets :: ListSecrets -> TestTree
-requestListSecrets =
+requestGetRandomPassword :: GetRandomPassword -> TestTree
+requestGetRandomPassword =
   req
-    "ListSecrets"
-    "fixture/ListSecrets.yaml"
-
-requestPutSecretValue :: PutSecretValue -> TestTree
-requestPutSecretValue =
-  req
-    "PutSecretValue"
-    "fixture/PutSecretValue.yaml"
-
-requestUpdateSecretVersionStage :: UpdateSecretVersionStage -> TestTree
-requestUpdateSecretVersionStage =
-  req
-    "UpdateSecretVersionStage"
-    "fixture/UpdateSecretVersionStage.yaml"
-
-requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
-requestDeleteResourcePolicy =
-  req
-    "DeleteResourcePolicy"
-    "fixture/DeleteResourcePolicy.yaml"
+    "GetRandomPassword"
+    "fixture/GetRandomPassword.yaml"
 
 requestListSecretVersionIds :: ListSecretVersionIds -> TestTree
 requestListSecretVersionIds =
@@ -299,47 +269,37 @@ requestListSecretVersionIds =
     "ListSecretVersionIds"
     "fixture/ListSecretVersionIds.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateSecretVersionStage :: UpdateSecretVersionStage -> TestTree
+requestUpdateSecretVersionStage =
+  req
+    "UpdateSecretVersionStage"
+    "fixture/UpdateSecretVersionStage.yaml"
+
 -- Responses
-
-responseDeleteSecret :: DeleteSecretResponse -> TestTree
-responseDeleteSecret =
-  res
-    "DeleteSecretResponse"
-    "fixture/DeleteSecretResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteSecret)
-
-responseUpdateSecret :: UpdateSecretResponse -> TestTree
-responseUpdateSecret =
-  res
-    "UpdateSecretResponse"
-    "fixture/UpdateSecretResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateSecret)
-
-responseRotateSecret :: RotateSecretResponse -> TestTree
-responseRotateSecret =
-  res
-    "RotateSecretResponse"
-    "fixture/RotateSecretResponse.proto"
-    defaultService
-    (Proxy :: Proxy RotateSecret)
-
-responseRemoveRegionsFromReplication :: RemoveRegionsFromReplicationResponse -> TestTree
-responseRemoveRegionsFromReplication =
-  res
-    "RemoveRegionsFromReplicationResponse"
-    "fixture/RemoveRegionsFromReplicationResponse.proto"
-    defaultService
-    (Proxy :: Proxy RemoveRegionsFromReplication)
-
-responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
-responseGetResourcePolicy =
-  res
-    "GetResourcePolicyResponse"
-    "fixture/GetResourcePolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetResourcePolicy)
 
 responseValidateResourcePolicy :: ValidateResourcePolicyResponse -> TestTree
 responseValidateResourcePolicy =
@@ -349,61 +309,45 @@ responseValidateResourcePolicy =
     defaultService
     (Proxy :: Proxy ValidateResourcePolicy)
 
-responseCancelRotateSecret :: CancelRotateSecretResponse -> TestTree
-responseCancelRotateSecret =
+responseDeleteSecret :: DeleteSecretResponse -> TestTree
+responseDeleteSecret =
   res
-    "CancelRotateSecretResponse"
-    "fixture/CancelRotateSecretResponse.proto"
+    "DeleteSecretResponse"
+    "fixture/DeleteSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy CancelRotateSecret)
+    (Proxy :: Proxy DeleteSecret)
 
-responseRestoreSecret :: RestoreSecretResponse -> TestTree
-responseRestoreSecret =
+responseListSecrets :: ListSecretsResponse -> TestTree
+responseListSecrets =
   res
-    "RestoreSecretResponse"
-    "fixture/RestoreSecretResponse.proto"
+    "ListSecretsResponse"
+    "fixture/ListSecretsResponse.proto"
     defaultService
-    (Proxy :: Proxy RestoreSecret)
+    (Proxy :: Proxy ListSecrets)
 
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy =
+responseUpdateSecret :: UpdateSecretResponse -> TestTree
+responseUpdateSecret =
   res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
+    "UpdateSecretResponse"
+    "fixture/UpdateSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy PutResourcePolicy)
+    (Proxy :: Proxy UpdateSecret)
 
-responseDescribeSecret :: DescribeSecretResponse -> TestTree
-responseDescribeSecret =
+responseRemoveRegionsFromReplication :: RemoveRegionsFromReplicationResponse -> TestTree
+responseRemoveRegionsFromReplication =
   res
-    "DescribeSecretResponse"
-    "fixture/DescribeSecretResponse.proto"
+    "RemoveRegionsFromReplicationResponse"
+    "fixture/RemoveRegionsFromReplicationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSecret)
+    (Proxy :: Proxy RemoveRegionsFromReplication)
 
-responseGetSecretValue :: GetSecretValueResponse -> TestTree
-responseGetSecretValue =
+responseRotateSecret :: RotateSecretResponse -> TestTree
+responseRotateSecret =
   res
-    "GetSecretValueResponse"
-    "fixture/GetSecretValueResponse.proto"
+    "RotateSecretResponse"
+    "fixture/RotateSecretResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSecretValue)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy :: Proxy RotateSecret)
 
 responseCreateSecret :: CreateSecretResponse -> TestTree
 responseCreateSecret =
@@ -413,13 +357,53 @@ responseCreateSecret =
     defaultService
     (Proxy :: Proxy CreateSecret)
 
-responseGetRandomPassword :: GetRandomPasswordResponse -> TestTree
-responseGetRandomPassword =
+responseGetSecretValue :: GetSecretValueResponse -> TestTree
+responseGetSecretValue =
   res
-    "GetRandomPasswordResponse"
-    "fixture/GetRandomPasswordResponse.proto"
+    "GetSecretValueResponse"
+    "fixture/GetSecretValueResponse.proto"
     defaultService
-    (Proxy :: Proxy GetRandomPassword)
+    (Proxy :: Proxy GetSecretValue)
+
+responseDescribeSecret :: DescribeSecretResponse -> TestTree
+responseDescribeSecret =
+  res
+    "DescribeSecretResponse"
+    "fixture/DescribeSecretResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSecret)
+
+responseRestoreSecret :: RestoreSecretResponse -> TestTree
+responseRestoreSecret =
+  res
+    "RestoreSecretResponse"
+    "fixture/RestoreSecretResponse.proto"
+    defaultService
+    (Proxy :: Proxy RestoreSecret)
+
+responseCancelRotateSecret :: CancelRotateSecretResponse -> TestTree
+responseCancelRotateSecret =
+  res
+    "CancelRotateSecretResponse"
+    "fixture/CancelRotateSecretResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelRotateSecret)
+
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetResourcePolicy)
+
+responsePutSecretValue :: PutSecretValueResponse -> TestTree
+responsePutSecretValue =
+  res
+    "PutSecretValueResponse"
+    "fixture/PutSecretValueResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutSecretValue)
 
 responseReplicateSecretToRegions :: ReplicateSecretToRegionsResponse -> TestTree
 responseReplicateSecretToRegions =
@@ -437,29 +421,37 @@ responseStopReplicationToReplica =
     defaultService
     (Proxy :: Proxy StopReplicationToReplica)
 
-responseListSecrets :: ListSecretsResponse -> TestTree
-responseListSecrets =
+responseGetRandomPassword :: GetRandomPasswordResponse -> TestTree
+responseGetRandomPassword =
   res
-    "ListSecretsResponse"
-    "fixture/ListSecretsResponse.proto"
+    "GetRandomPasswordResponse"
+    "fixture/GetRandomPasswordResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecrets)
+    (Proxy :: Proxy GetRandomPassword)
 
-responsePutSecretValue :: PutSecretValueResponse -> TestTree
-responsePutSecretValue =
+responseListSecretVersionIds :: ListSecretVersionIdsResponse -> TestTree
+responseListSecretVersionIds =
   res
-    "PutSecretValueResponse"
-    "fixture/PutSecretValueResponse.proto"
+    "ListSecretVersionIdsResponse"
+    "fixture/ListSecretVersionIdsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutSecretValue)
+    (Proxy :: Proxy ListSecretVersionIds)
 
-responseUpdateSecretVersionStage :: UpdateSecretVersionStageResponse -> TestTree
-responseUpdateSecretVersionStage =
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
   res
-    "UpdateSecretVersionStageResponse"
-    "fixture/UpdateSecretVersionStageResponse.proto"
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateSecretVersionStage)
+    (Proxy :: Proxy TagResource)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutResourcePolicy)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
 responseDeleteResourcePolicy =
@@ -469,10 +461,18 @@ responseDeleteResourcePolicy =
     defaultService
     (Proxy :: Proxy DeleteResourcePolicy)
 
-responseListSecretVersionIds :: ListSecretVersionIdsResponse -> TestTree
-responseListSecretVersionIds =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "ListSecretVersionIdsResponse"
-    "fixture/ListSecretVersionIdsResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSecretVersionIds)
+    (Proxy :: Proxy UntagResource)
+
+responseUpdateSecretVersionStage :: UpdateSecretVersionStageResponse -> TestTree
+responseUpdateSecretVersionStage =
+  res
+    "UpdateSecretVersionStageResponse"
+    "fixture/UpdateSecretVersionStageResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSecretVersionStage)

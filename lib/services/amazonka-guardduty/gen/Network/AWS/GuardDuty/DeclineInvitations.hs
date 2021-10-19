@@ -72,13 +72,13 @@ newDeclineInvitations ::
 newDeclineInvitations pAccountIds_ =
   DeclineInvitations'
     { accountIds =
-        Lens._Coerce Lens.# pAccountIds_
+        Lens.coerced Lens.# pAccountIds_
     }
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the
 -- current member account that you want to decline invitations from.
 declineInvitations_accountIds :: Lens.Lens' DeclineInvitations (Prelude.NonEmpty Prelude.Text)
-declineInvitations_accountIds = Lens.lens (\DeclineInvitations' {accountIds} -> accountIds) (\s@DeclineInvitations' {} a -> s {accountIds = a} :: DeclineInvitations) Prelude.. Lens._Coerce
+declineInvitations_accountIds = Lens.lens (\DeclineInvitations' {accountIds} -> accountIds) (\s@DeclineInvitations' {} a -> s {accountIds = a} :: DeclineInvitations) Prelude.. Lens.coerced
 
 instance Core.AWSRequest DeclineInvitations where
   type
@@ -163,6 +163,6 @@ declineInvitationsResponse_httpStatus = Lens.lens (\DeclineInvitationsResponse' 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 declineInvitationsResponse_unprocessedAccounts :: Lens.Lens' DeclineInvitationsResponse [UnprocessedAccount]
-declineInvitationsResponse_unprocessedAccounts = Lens.lens (\DeclineInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeclineInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeclineInvitationsResponse) Prelude.. Lens._Coerce
+declineInvitationsResponse_unprocessedAccounts = Lens.lens (\DeclineInvitationsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@DeclineInvitationsResponse' {} a -> s {unprocessedAccounts = a} :: DeclineInvitationsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData DeclineInvitationsResponse

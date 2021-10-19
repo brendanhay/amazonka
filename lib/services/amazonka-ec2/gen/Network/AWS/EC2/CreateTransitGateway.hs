@@ -50,9 +50,9 @@ module Network.AWS.EC2.CreateTransitGateway
 
     -- * Request Lenses
     createTransitGateway_tagSpecifications,
-    createTransitGateway_dryRun,
     createTransitGateway_options,
     createTransitGateway_description,
+    createTransitGateway_dryRun,
 
     -- * Destructuring the Response
     CreateTransitGatewayResponse (..),
@@ -75,15 +75,15 @@ import qualified Network.AWS.Response as Response
 data CreateTransitGateway = CreateTransitGateway'
   { -- | The tags to apply to the transit gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The transit gateway options.
+    options :: Prelude.Maybe TransitGatewayRequestOptions,
+    -- | A description of the transit gateway.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The transit gateway options.
-    options :: Prelude.Maybe TransitGatewayRequestOptions,
-    -- | A description of the transit gateway.
-    description :: Prelude.Maybe Prelude.Text
+    dryRun :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,35 +97,28 @@ data CreateTransitGateway = CreateTransitGateway'
 --
 -- 'tagSpecifications', 'createTransitGateway_tagSpecifications' - The tags to apply to the transit gateway.
 --
+-- 'options', 'createTransitGateway_options' - The transit gateway options.
+--
+-- 'description', 'createTransitGateway_description' - A description of the transit gateway.
+--
 -- 'dryRun', 'createTransitGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
---
--- 'options', 'createTransitGateway_options' - The transit gateway options.
---
--- 'description', 'createTransitGateway_description' - A description of the transit gateway.
 newCreateTransitGateway ::
   CreateTransitGateway
 newCreateTransitGateway =
   CreateTransitGateway'
     { tagSpecifications =
         Prelude.Nothing,
-      dryRun = Prelude.Nothing,
       options = Prelude.Nothing,
-      description = Prelude.Nothing
+      description = Prelude.Nothing,
+      dryRun = Prelude.Nothing
     }
 
 -- | The tags to apply to the transit gateway.
 createTransitGateway_tagSpecifications :: Lens.Lens' CreateTransitGateway (Prelude.Maybe [TagSpecification])
-createTransitGateway_tagSpecifications = Lens.lens (\CreateTransitGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGateway' {} a -> s {tagSpecifications = a} :: CreateTransitGateway) Prelude.. Lens.mapping Lens._Coerce
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
-createTransitGateway_dryRun :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Bool)
-createTransitGateway_dryRun = Lens.lens (\CreateTransitGateway' {dryRun} -> dryRun) (\s@CreateTransitGateway' {} a -> s {dryRun = a} :: CreateTransitGateway)
+createTransitGateway_tagSpecifications = Lens.lens (\CreateTransitGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGateway' {} a -> s {tagSpecifications = a} :: CreateTransitGateway) Prelude.. Lens.mapping Lens.coerced
 
 -- | The transit gateway options.
 createTransitGateway_options :: Lens.Lens' CreateTransitGateway (Prelude.Maybe TransitGatewayRequestOptions)
@@ -134,6 +127,13 @@ createTransitGateway_options = Lens.lens (\CreateTransitGateway' {options} -> op
 -- | A description of the transit gateway.
 createTransitGateway_description :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Text)
 createTransitGateway_description = Lens.lens (\CreateTransitGateway' {description} -> description) (\s@CreateTransitGateway' {} a -> s {description = a} :: CreateTransitGateway)
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+createTransitGateway_dryRun :: Lens.Lens' CreateTransitGateway (Prelude.Maybe Prelude.Bool)
+createTransitGateway_dryRun = Lens.lens (\CreateTransitGateway' {dryRun} -> dryRun) (\s@CreateTransitGateway' {} a -> s {dryRun = a} :: CreateTransitGateway)
 
 instance Core.AWSRequest CreateTransitGateway where
   type
@@ -169,9 +169,9 @@ instance Core.ToQuery CreateTransitGateway where
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "DryRun" Core.=: dryRun,
         "Options" Core.=: options,
-        "Description" Core.=: description
+        "Description" Core.=: description,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newCreateTransitGatewayResponse' smart constructor.

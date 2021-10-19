@@ -17,18 +17,18 @@ module Network.AWS.SESv2.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
-    _BadRequestException,
-    _MailFromDomainNotVerifiedException,
     _MessageRejected,
-    _SendingPausedException,
+    _MailFromDomainNotVerifiedException,
+    _ConflictException,
+    _NotFoundException,
+    _TooManyRequestsException,
     _ConcurrentModificationException,
     _InvalidNextTokenException,
-    _AlreadyExistsException,
-    _ConflictException,
-    _LimitExceededException,
     _AccountSuspendedException,
-    _TooManyRequestsException,
+    _SendingPausedException,
+    _BadRequestException,
+    _AlreadyExistsException,
+    _LimitExceededException,
 
     -- * BehaviorOnMxFailure
     BehaviorOnMxFailure (..),
@@ -56,6 +56,9 @@ module Network.AWS.SESv2.Types
 
     -- * DkimSigningAttributesOrigin
     DkimSigningAttributesOrigin (..),
+
+    -- * DkimSigningKeyLength
+    DkimSigningKeyLength (..),
 
     -- * DkimStatus
     DkimStatus (..),
@@ -99,25 +102,25 @@ module Network.AWS.SESv2.Types
     -- * AccountDetails
     AccountDetails (..),
     newAccountDetails,
-    accountDetails_useCaseDescription,
-    accountDetails_mailType,
-    accountDetails_contactLanguage,
-    accountDetails_websiteURL,
     accountDetails_reviewDetails,
+    accountDetails_mailType,
+    accountDetails_useCaseDescription,
+    accountDetails_contactLanguage,
     accountDetails_additionalContactEmailAddresses,
+    accountDetails_websiteURL,
 
     -- * BlacklistEntry
     BlacklistEntry (..),
     newBlacklistEntry,
-    blacklistEntry_rblName,
     blacklistEntry_listingTime,
+    blacklistEntry_rblName,
     blacklistEntry_description,
 
     -- * Body
     Body (..),
     newBody,
-    body_html,
     body_text,
+    body_html,
 
     -- * BulkEmailContent
     BulkEmailContent (..),
@@ -127,16 +130,16 @@ module Network.AWS.SESv2.Types
     -- * BulkEmailEntry
     BulkEmailEntry (..),
     newBulkEmailEntry,
-    bulkEmailEntry_replacementTags,
     bulkEmailEntry_replacementEmailContent,
+    bulkEmailEntry_replacementTags,
     bulkEmailEntry_destination,
 
     -- * BulkEmailEntryResult
     BulkEmailEntryResult (..),
     newBulkEmailEntryResult,
     bulkEmailEntryResult_status,
-    bulkEmailEntryResult_messageId,
     bulkEmailEntryResult_error,
+    bulkEmailEntryResult_messageId,
 
     -- * CloudWatchDestination
     CloudWatchDestination (..),
@@ -153,17 +156,17 @@ module Network.AWS.SESv2.Types
     -- * Contact
     Contact (..),
     newContact,
-    contact_topicDefaultPreferences,
     contact_unsubscribeAll,
-    contact_topicPreferences,
-    contact_lastUpdatedTimestamp,
+    contact_topicDefaultPreferences,
     contact_emailAddress,
+    contact_lastUpdatedTimestamp,
+    contact_topicPreferences,
 
     -- * ContactList
     ContactList (..),
     newContactList,
-    contactList_lastUpdatedTimestamp,
     contactList_contactListName,
+    contactList_lastUpdatedTimestamp,
 
     -- * ContactListDestination
     ContactListDestination (..),
@@ -180,18 +183,18 @@ module Network.AWS.SESv2.Types
     -- * CustomVerificationEmailTemplateMetadata
     CustomVerificationEmailTemplateMetadata (..),
     newCustomVerificationEmailTemplateMetadata,
-    customVerificationEmailTemplateMetadata_templateName,
-    customVerificationEmailTemplateMetadata_templateSubject,
     customVerificationEmailTemplateMetadata_fromEmailAddress,
-    customVerificationEmailTemplateMetadata_successRedirectionURL,
+    customVerificationEmailTemplateMetadata_templateName,
     customVerificationEmailTemplateMetadata_failureRedirectionURL,
+    customVerificationEmailTemplateMetadata_templateSubject,
+    customVerificationEmailTemplateMetadata_successRedirectionURL,
 
     -- * DailyVolume
     DailyVolume (..),
     newDailyVolume,
+    dailyVolume_domainIspPlacements,
     dailyVolume_startDate,
     dailyVolume_volumeStatistics,
-    dailyVolume_domainIspPlacements,
 
     -- * DedicatedIp
     DedicatedIp (..),
@@ -204,12 +207,12 @@ module Network.AWS.SESv2.Types
     -- * DeliverabilityTestReport
     DeliverabilityTestReport (..),
     newDeliverabilityTestReport,
-    deliverabilityTestReport_fromEmailAddress,
-    deliverabilityTestReport_reportName,
-    deliverabilityTestReport_reportId,
-    deliverabilityTestReport_createDate,
-    deliverabilityTestReport_deliverabilityTestStatus,
     deliverabilityTestReport_subject,
+    deliverabilityTestReport_fromEmailAddress,
+    deliverabilityTestReport_createDate,
+    deliverabilityTestReport_reportId,
+    deliverabilityTestReport_reportName,
+    deliverabilityTestReport_deliverabilityTestStatus,
 
     -- * DeliveryOptions
     DeliveryOptions (..),
@@ -220,47 +223,51 @@ module Network.AWS.SESv2.Types
     -- * Destination
     Destination (..),
     newDestination,
-    destination_toAddresses,
-    destination_ccAddresses,
     destination_bccAddresses,
+    destination_ccAddresses,
+    destination_toAddresses,
 
     -- * DkimAttributes
     DkimAttributes (..),
     newDkimAttributes,
     dkimAttributes_status,
-    dkimAttributes_signingAttributesOrigin,
+    dkimAttributes_nextSigningKeyLength,
     dkimAttributes_tokens,
     dkimAttributes_signingEnabled,
+    dkimAttributes_currentSigningKeyLength,
+    dkimAttributes_lastKeyGenerationTimestamp,
+    dkimAttributes_signingAttributesOrigin,
 
     -- * DkimSigningAttributes
     DkimSigningAttributes (..),
     newDkimSigningAttributes,
-    dkimSigningAttributes_domainSigningSelector,
+    dkimSigningAttributes_nextSigningKeyLength,
     dkimSigningAttributes_domainSigningPrivateKey,
+    dkimSigningAttributes_domainSigningSelector,
 
     -- * DomainDeliverabilityCampaign
     DomainDeliverabilityCampaign (..),
     newDomainDeliverabilityCampaign,
-    domainDeliverabilityCampaign_projectedVolume,
-    domainDeliverabilityCampaign_inboxCount,
-    domainDeliverabilityCampaign_readDeleteRate,
-    domainDeliverabilityCampaign_firstSeenDateTime,
-    domainDeliverabilityCampaign_lastSeenDateTime,
-    domainDeliverabilityCampaign_campaignId,
-    domainDeliverabilityCampaign_deleteRate,
-    domainDeliverabilityCampaign_imageUrl,
     domainDeliverabilityCampaign_spamCount,
     domainDeliverabilityCampaign_subject,
-    domainDeliverabilityCampaign_sendingIps,
-    domainDeliverabilityCampaign_readRate,
-    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_esps,
+    domainDeliverabilityCampaign_fromAddress,
+    domainDeliverabilityCampaign_deleteRate,
+    domainDeliverabilityCampaign_campaignId,
+    domainDeliverabilityCampaign_sendingIps,
+    domainDeliverabilityCampaign_firstSeenDateTime,
+    domainDeliverabilityCampaign_inboxCount,
+    domainDeliverabilityCampaign_readDeleteRate,
+    domainDeliverabilityCampaign_projectedVolume,
+    domainDeliverabilityCampaign_imageUrl,
+    domainDeliverabilityCampaign_readRate,
+    domainDeliverabilityCampaign_lastSeenDateTime,
 
     -- * DomainDeliverabilityTrackingOption
     DomainDeliverabilityTrackingOption (..),
     newDomainDeliverabilityTrackingOption,
-    domainDeliverabilityTrackingOption_subscriptionStartDate,
     domainDeliverabilityTrackingOption_domain,
+    domainDeliverabilityTrackingOption_subscriptionStartDate,
     domainDeliverabilityTrackingOption_inboxPlacementTrackingOption,
 
     -- * DomainIspPlacement
@@ -282,9 +289,9 @@ module Network.AWS.SESv2.Types
     -- * EmailTemplateContent
     EmailTemplateContent (..),
     newEmailTemplateContent,
-    emailTemplateContent_html,
     emailTemplateContent_subject,
     emailTemplateContent_text,
+    emailTemplateContent_html,
 
     -- * EmailTemplateMetadata
     EmailTemplateMetadata (..),
@@ -295,10 +302,10 @@ module Network.AWS.SESv2.Types
     -- * EventDestination
     EventDestination (..),
     newEventDestination,
-    eventDestination_cloudWatchDestination,
-    eventDestination_enabled,
     eventDestination_pinpointDestination,
+    eventDestination_enabled,
     eventDestination_kinesisFirehoseDestination,
+    eventDestination_cloudWatchDestination,
     eventDestination_snsDestination,
     eventDestination_name,
     eventDestination_matchingEventTypes,
@@ -307,10 +314,10 @@ module Network.AWS.SESv2.Types
     EventDestinationDefinition (..),
     newEventDestinationDefinition,
     eventDestinationDefinition_matchingEventTypes,
-    eventDestinationDefinition_cloudWatchDestination,
-    eventDestinationDefinition_enabled,
     eventDestinationDefinition_pinpointDestination,
+    eventDestinationDefinition_enabled,
     eventDestinationDefinition_kinesisFirehoseDestination,
+    eventDestinationDefinition_cloudWatchDestination,
     eventDestinationDefinition_snsDestination,
 
     -- * FailureInfo
@@ -322,9 +329,9 @@ module Network.AWS.SESv2.Types
     -- * IdentityInfo
     IdentityInfo (..),
     newIdentityInfo,
-    identityInfo_sendingEnabled,
-    identityInfo_identityName,
     identityInfo_identityType,
+    identityInfo_identityName,
+    identityInfo_sendingEnabled,
 
     -- * ImportDataSource
     ImportDataSource (..),
@@ -341,10 +348,10 @@ module Network.AWS.SESv2.Types
     -- * ImportJobSummary
     ImportJobSummary (..),
     newImportJobSummary,
-    importJobSummary_createdTimestamp,
-    importJobSummary_jobStatus,
-    importJobSummary_importDestination,
     importJobSummary_jobId,
+    importJobSummary_importDestination,
+    importJobSummary_jobStatus,
+    importJobSummary_createdTimestamp,
 
     -- * InboxPlacementTrackingOption
     InboxPlacementTrackingOption (..),
@@ -355,8 +362,8 @@ module Network.AWS.SESv2.Types
     -- * IspPlacement
     IspPlacement (..),
     newIspPlacement,
-    ispPlacement_ispName,
     ispPlacement_placementStatistics,
+    ispPlacement_ispName,
 
     -- * KinesisFirehoseDestination
     KinesisFirehoseDestination (..),
@@ -367,8 +374,8 @@ module Network.AWS.SESv2.Types
     -- * ListContactsFilter
     ListContactsFilter (..),
     newListContactsFilter,
-    listContactsFilter_topicFilter,
     listContactsFilter_filteredStatus,
+    listContactsFilter_topicFilter,
 
     -- * ListManagementOptions
     ListManagementOptions (..),
@@ -398,9 +405,9 @@ module Network.AWS.SESv2.Types
     -- * OverallVolume
     OverallVolume (..),
     newOverallVolume,
-    overallVolume_readRatePercent,
-    overallVolume_volumeStatistics,
     overallVolume_domainIspPlacements,
+    overallVolume_volumeStatistics,
+    overallVolume_readRatePercent,
 
     -- * PinpointDestination
     PinpointDestination (..),
@@ -410,11 +417,11 @@ module Network.AWS.SESv2.Types
     -- * PlacementStatistics
     PlacementStatistics (..),
     newPlacementStatistics,
-    placementStatistics_spamPercentage,
-    placementStatistics_dkimPercentage,
-    placementStatistics_spfPercentage,
-    placementStatistics_inboxPercentage,
     placementStatistics_missingPercentage,
+    placementStatistics_spamPercentage,
+    placementStatistics_spfPercentage,
+    placementStatistics_dkimPercentage,
+    placementStatistics_inboxPercentage,
 
     -- * RawMessage
     RawMessage (..),
@@ -434,8 +441,8 @@ module Network.AWS.SESv2.Types
     -- * ReputationOptions
     ReputationOptions (..),
     newReputationOptions,
-    reputationOptions_reputationMetricsEnabled,
     reputationOptions_lastFreshStart,
+    reputationOptions_reputationMetricsEnabled,
 
     -- * ReviewDetails
     ReviewDetails (..),
@@ -446,9 +453,9 @@ module Network.AWS.SESv2.Types
     -- * SendQuota
     SendQuota (..),
     newSendQuota,
-    sendQuota_max24HourSend,
-    sendQuota_sentLast24Hours,
     sendQuota_maxSendRate,
+    sendQuota_sentLast24Hours,
+    sendQuota_max24HourSend,
 
     -- * SendingOptions
     SendingOptions (..),
@@ -506,8 +513,8 @@ module Network.AWS.SESv2.Types
     Template (..),
     newTemplate,
     template_templateName,
-    template_templateData,
     template_templateArn,
+    template_templateData,
 
     -- * Topic
     Topic (..),
@@ -538,8 +545,8 @@ module Network.AWS.SESv2.Types
     VolumeStatistics (..),
     newVolumeStatistics,
     volumeStatistics_inboxRawCount,
-    volumeStatistics_projectedInbox,
     volumeStatistics_projectedSpam,
+    volumeStatistics_projectedInbox,
     volumeStatistics_spamRawCount,
   )
 where
@@ -576,6 +583,7 @@ import Network.AWS.SESv2.Types.DimensionValueSource
 import Network.AWS.SESv2.Types.DkimAttributes
 import Network.AWS.SESv2.Types.DkimSigningAttributes
 import Network.AWS.SESv2.Types.DkimSigningAttributesOrigin
+import Network.AWS.SESv2.Types.DkimSigningKeyLength
 import Network.AWS.SESv2.Types.DkimStatus
 import Network.AWS.SESv2.Types.DomainDeliverabilityCampaign
 import Network.AWS.SESv2.Types.DomainDeliverabilityTrackingOption
@@ -661,37 +669,14 @@ defaultService =
           Core._retryCheck = check
         }
     check e
-      | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode
-              "ProvisionedThroughputExceededException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Prelude.. Core.hasStatus 400
-          )
-          e =
-        Prelude.Just "request_throttled_exception"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
         Prelude.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
@@ -704,22 +689,37 @@ defaultService =
           )
           e =
         Prelude.Just "throttling"
+      | Lens.has
+          ( Core.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Core.hasCode "RequestThrottledException"
+              Prelude.. Core.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The resource you attempted to access doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
+-- | The message can\'t be sent because it contains invalid content.
+_MessageRejected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MessageRejected =
   Core._MatchServiceError
     defaultService
-    "NotFoundException"
-    Prelude.. Core.hasStatus 404
-
--- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BadRequestException =
-  Core._MatchServiceError
-    defaultService
-    "BadRequestException"
+    "MessageRejected"
     Prelude.. Core.hasStatus 400
 
 -- | The message can\'t be sent because the sending domain isn\'t verified.
@@ -730,22 +730,29 @@ _MailFromDomainNotVerifiedException =
     "MailFromDomainNotVerifiedException"
     Prelude.. Core.hasStatus 400
 
--- | The message can\'t be sent because it contains invalid content.
-_MessageRejected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MessageRejected =
+-- | If there is already an ongoing account details update under review.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "MessageRejected"
-    Prelude.. Core.hasStatus 400
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
--- | The message can\'t be sent because the account\'s ability to send email
--- is currently paused.
-_SendingPausedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_SendingPausedException =
+-- | The resource you attempted to access doesn\'t exist.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
   Core._MatchServiceError
     defaultService
-    "SendingPausedException"
-    Prelude.. Core.hasStatus 400
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | Too many requests have been made to the operation.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
 
 -- | The resource is being modified by another operation or thread.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -763,30 +770,6 @@ _InvalidNextTokenException =
     "InvalidNextTokenException"
     Prelude.. Core.hasStatus 400
 
--- | The resource specified in your request already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "AlreadyExistsException"
-    Prelude.. Core.hasStatus 400
-
--- | If there is already an ongoing account details update under review.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-    Prelude.. Core.hasStatus 409
-
--- | There are too many instances of the specified resource type.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 400
-
 -- | The message can\'t be sent because the account\'s ability to send email
 -- has been permanently restricted.
 _AccountSuspendedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -796,10 +779,35 @@ _AccountSuspendedException =
     "AccountSuspendedException"
     Prelude.. Core.hasStatus 400
 
--- | Too many requests have been made to the operation.
-_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequestsException =
+-- | The message can\'t be sent because the account\'s ability to send email
+-- is currently paused.
+_SendingPausedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_SendingPausedException =
   Core._MatchServiceError
     defaultService
-    "TooManyRequestsException"
-    Prelude.. Core.hasStatus 429
+    "SendingPausedException"
+    Prelude.. Core.hasStatus 400
+
+-- | The input you provided is invalid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
+-- | The resource specified in your request already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyExistsException"
+    Prelude.. Core.hasStatus 400
+
+-- | There are too many instances of the specified resource type.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 400

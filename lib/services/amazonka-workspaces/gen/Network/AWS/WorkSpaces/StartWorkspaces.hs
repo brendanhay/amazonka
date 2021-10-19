@@ -72,12 +72,12 @@ newStartWorkspaces ::
 newStartWorkspaces pStartWorkspaceRequests_ =
   StartWorkspaces'
     { startWorkspaceRequests =
-        Lens._Coerce Lens.# pStartWorkspaceRequests_
+        Lens.coerced Lens.# pStartWorkspaceRequests_
     }
 
 -- | The WorkSpaces to start. You can specify up to 25 WorkSpaces.
 startWorkspaces_startWorkspaceRequests :: Lens.Lens' StartWorkspaces (Prelude.NonEmpty StartRequest)
-startWorkspaces_startWorkspaceRequests = Lens.lens (\StartWorkspaces' {startWorkspaceRequests} -> startWorkspaceRequests) (\s@StartWorkspaces' {} a -> s {startWorkspaceRequests = a} :: StartWorkspaces) Prelude.. Lens._Coerce
+startWorkspaces_startWorkspaceRequests = Lens.lens (\StartWorkspaces' {startWorkspaceRequests} -> startWorkspaceRequests) (\s@StartWorkspaces' {} a -> s {startWorkspaceRequests = a} :: StartWorkspaces) Prelude.. Lens.coerced
 
 instance Core.AWSRequest StartWorkspaces where
   type
@@ -161,7 +161,7 @@ newStartWorkspacesResponse pHttpStatus_ =
 
 -- | Information about the WorkSpaces that could not be started.
 startWorkspacesResponse_failedRequests :: Lens.Lens' StartWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-startWorkspacesResponse_failedRequests = Lens.lens (\StartWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StartWorkspacesResponse' {} a -> s {failedRequests = a} :: StartWorkspacesResponse) Prelude.. Lens.mapping Lens._Coerce
+startWorkspacesResponse_failedRequests = Lens.lens (\StartWorkspacesResponse' {failedRequests} -> failedRequests) (\s@StartWorkspacesResponse' {} a -> s {failedRequests = a} :: StartWorkspacesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 startWorkspacesResponse_httpStatus :: Lens.Lens' StartWorkspacesResponse Prelude.Int

@@ -28,11 +28,11 @@ module Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
     newUpdateBusinessReportSchedule,
 
     -- * Request Lenses
-    updateBusinessReportSchedule_format,
     updateBusinessReportSchedule_s3KeyPrefix,
+    updateBusinessReportSchedule_format,
     updateBusinessReportSchedule_recurrence,
-    updateBusinessReportSchedule_s3BucketName,
     updateBusinessReportSchedule_scheduleName,
+    updateBusinessReportSchedule_s3BucketName,
     updateBusinessReportSchedule_scheduleArn,
 
     -- * Destructuring the Response
@@ -53,17 +53,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateBusinessReportSchedule' smart constructor.
 data UpdateBusinessReportSchedule = UpdateBusinessReportSchedule'
-  { -- | The format of the generated report (individual CSV files or zipped files
+  { -- | The S3 key where the report is delivered.
+    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The format of the generated report (individual CSV files or zipped files
     -- of individual files).
     format :: Prelude.Maybe BusinessReportFormat,
-    -- | The S3 key where the report is delivered.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The recurrence of the reports.
     recurrence :: Prelude.Maybe BusinessReportRecurrence,
-    -- | The S3 location of the output reports.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The name identifier of the schedule.
     scheduleName :: Prelude.Maybe Prelude.Text,
+    -- | The S3 location of the output reports.
+    s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the business report schedule.
     scheduleArn :: Prelude.Text
   }
@@ -77,16 +77,16 @@ data UpdateBusinessReportSchedule = UpdateBusinessReportSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 's3KeyPrefix', 'updateBusinessReportSchedule_s3KeyPrefix' - The S3 key where the report is delivered.
+--
 -- 'format', 'updateBusinessReportSchedule_format' - The format of the generated report (individual CSV files or zipped files
 -- of individual files).
 --
--- 's3KeyPrefix', 'updateBusinessReportSchedule_s3KeyPrefix' - The S3 key where the report is delivered.
---
 -- 'recurrence', 'updateBusinessReportSchedule_recurrence' - The recurrence of the reports.
 --
--- 's3BucketName', 'updateBusinessReportSchedule_s3BucketName' - The S3 location of the output reports.
---
 -- 'scheduleName', 'updateBusinessReportSchedule_scheduleName' - The name identifier of the schedule.
+--
+-- 's3BucketName', 'updateBusinessReportSchedule_s3BucketName' - The S3 location of the output reports.
 --
 -- 'scheduleArn', 'updateBusinessReportSchedule_scheduleArn' - The ARN of the business report schedule.
 newUpdateBusinessReportSchedule ::
@@ -95,35 +95,35 @@ newUpdateBusinessReportSchedule ::
   UpdateBusinessReportSchedule
 newUpdateBusinessReportSchedule pScheduleArn_ =
   UpdateBusinessReportSchedule'
-    { format =
+    { s3KeyPrefix =
         Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
+      format = Prelude.Nothing,
       recurrence = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing,
       scheduleName = Prelude.Nothing,
+      s3BucketName = Prelude.Nothing,
       scheduleArn = pScheduleArn_
     }
+
+-- | The S3 key where the report is delivered.
+updateBusinessReportSchedule_s3KeyPrefix :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+updateBusinessReportSchedule_s3KeyPrefix = Lens.lens (\UpdateBusinessReportSchedule' {s3KeyPrefix} -> s3KeyPrefix) (\s@UpdateBusinessReportSchedule' {} a -> s {s3KeyPrefix = a} :: UpdateBusinessReportSchedule)
 
 -- | The format of the generated report (individual CSV files or zipped files
 -- of individual files).
 updateBusinessReportSchedule_format :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe BusinessReportFormat)
 updateBusinessReportSchedule_format = Lens.lens (\UpdateBusinessReportSchedule' {format} -> format) (\s@UpdateBusinessReportSchedule' {} a -> s {format = a} :: UpdateBusinessReportSchedule)
 
--- | The S3 key where the report is delivered.
-updateBusinessReportSchedule_s3KeyPrefix :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
-updateBusinessReportSchedule_s3KeyPrefix = Lens.lens (\UpdateBusinessReportSchedule' {s3KeyPrefix} -> s3KeyPrefix) (\s@UpdateBusinessReportSchedule' {} a -> s {s3KeyPrefix = a} :: UpdateBusinessReportSchedule)
-
 -- | The recurrence of the reports.
 updateBusinessReportSchedule_recurrence :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe BusinessReportRecurrence)
 updateBusinessReportSchedule_recurrence = Lens.lens (\UpdateBusinessReportSchedule' {recurrence} -> recurrence) (\s@UpdateBusinessReportSchedule' {} a -> s {recurrence = a} :: UpdateBusinessReportSchedule)
 
--- | The S3 location of the output reports.
-updateBusinessReportSchedule_s3BucketName :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
-updateBusinessReportSchedule_s3BucketName = Lens.lens (\UpdateBusinessReportSchedule' {s3BucketName} -> s3BucketName) (\s@UpdateBusinessReportSchedule' {} a -> s {s3BucketName = a} :: UpdateBusinessReportSchedule)
-
 -- | The name identifier of the schedule.
 updateBusinessReportSchedule_scheduleName :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
 updateBusinessReportSchedule_scheduleName = Lens.lens (\UpdateBusinessReportSchedule' {scheduleName} -> scheduleName) (\s@UpdateBusinessReportSchedule' {} a -> s {scheduleName = a} :: UpdateBusinessReportSchedule)
+
+-- | The S3 location of the output reports.
+updateBusinessReportSchedule_s3BucketName :: Lens.Lens' UpdateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+updateBusinessReportSchedule_s3BucketName = Lens.lens (\UpdateBusinessReportSchedule' {s3BucketName} -> s3BucketName) (\s@UpdateBusinessReportSchedule' {} a -> s {s3BucketName = a} :: UpdateBusinessReportSchedule)
 
 -- | The ARN of the business report schedule.
 updateBusinessReportSchedule_scheduleArn :: Lens.Lens' UpdateBusinessReportSchedule Prelude.Text
@@ -166,11 +166,11 @@ instance Core.ToJSON UpdateBusinessReportSchedule where
   toJSON UpdateBusinessReportSchedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Format" Core..=) Prelude.<$> format,
-            ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
+          [ ("S3KeyPrefix" Core..=) Prelude.<$> s3KeyPrefix,
+            ("Format" Core..=) Prelude.<$> format,
             ("Recurrence" Core..=) Prelude.<$> recurrence,
-            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
             ("ScheduleName" Core..=) Prelude.<$> scheduleName,
+            ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
             Prelude.Just ("ScheduleArn" Core..= scheduleArn)
           ]
       )

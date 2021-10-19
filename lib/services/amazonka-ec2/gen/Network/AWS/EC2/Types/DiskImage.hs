@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDiskImage' smart constructor.
 data DiskImage = DiskImage'
-  { -- | Information about the volume.
-    volume :: Prelude.Maybe VolumeDetail,
-    -- | Information about the disk image.
+  { -- | Information about the disk image.
     image :: Prelude.Maybe DiskImageDetail,
+    -- | Information about the volume.
+    volume :: Prelude.Maybe VolumeDetail,
     -- | A description of the disk image.
     description :: Prelude.Maybe Prelude.Text
   }
@@ -47,27 +47,27 @@ data DiskImage = DiskImage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volume', 'diskImage_volume' - Information about the volume.
---
 -- 'image', 'diskImage_image' - Information about the disk image.
+--
+-- 'volume', 'diskImage_volume' - Information about the volume.
 --
 -- 'description', 'diskImage_description' - A description of the disk image.
 newDiskImage ::
   DiskImage
 newDiskImage =
   DiskImage'
-    { volume = Prelude.Nothing,
-      image = Prelude.Nothing,
+    { image = Prelude.Nothing,
+      volume = Prelude.Nothing,
       description = Prelude.Nothing
     }
-
--- | Information about the volume.
-diskImage_volume :: Lens.Lens' DiskImage (Prelude.Maybe VolumeDetail)
-diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} a -> s {volume = a} :: DiskImage)
 
 -- | Information about the disk image.
 diskImage_image :: Lens.Lens' DiskImage (Prelude.Maybe DiskImageDetail)
 diskImage_image = Lens.lens (\DiskImage' {image} -> image) (\s@DiskImage' {} a -> s {image = a} :: DiskImage)
+
+-- | Information about the volume.
+diskImage_volume :: Lens.Lens' DiskImage (Prelude.Maybe VolumeDetail)
+diskImage_volume = Lens.lens (\DiskImage' {volume} -> volume) (\s@DiskImage' {} a -> s {volume = a} :: DiskImage)
 
 -- | A description of the disk image.
 diskImage_description :: Lens.Lens' DiskImage (Prelude.Maybe Prelude.Text)
@@ -80,7 +80,7 @@ instance Prelude.NFData DiskImage
 instance Core.ToQuery DiskImage where
   toQuery DiskImage' {..} =
     Prelude.mconcat
-      [ "Volume" Core.=: volume,
-        "Image" Core.=: image,
+      [ "Image" Core.=: image,
+        "Volume" Core.=: volume,
         "Description" Core.=: description
       ]

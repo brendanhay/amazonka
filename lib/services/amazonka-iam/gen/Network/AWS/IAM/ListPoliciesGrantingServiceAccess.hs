@@ -73,8 +73,8 @@ module Network.AWS.IAM.ListPoliciesGrantingServiceAccess
     newListPoliciesGrantingServiceAccessResponse,
 
     -- * Response Lenses
-    listPoliciesGrantingServiceAccessResponse_isTruncated,
     listPoliciesGrantingServiceAccessResponse_marker,
+    listPoliciesGrantingServiceAccessResponse_isTruncated,
     listPoliciesGrantingServiceAccessResponse_httpStatus,
     listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess,
   )
@@ -153,7 +153,7 @@ newListPoliciesGrantingServiceAccess
           Prelude.Nothing,
         arn = pArn_,
         serviceNamespaces =
-          Lens._Coerce
+          Lens.coerced
             Lens.# pServiceNamespaces_
       }
 
@@ -181,7 +181,7 @@ listPoliciesGrantingServiceAccess_arn = Lens.lens (\ListPoliciesGrantingServiceA
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
 -- in the /Amazon Web Services General Reference/.
 listPoliciesGrantingServiceAccess_serviceNamespaces :: Lens.Lens' ListPoliciesGrantingServiceAccess (Prelude.NonEmpty Prelude.Text)
-listPoliciesGrantingServiceAccess_serviceNamespaces = Lens.lens (\ListPoliciesGrantingServiceAccess' {serviceNamespaces} -> serviceNamespaces) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {serviceNamespaces = a} :: ListPoliciesGrantingServiceAccess) Prelude.. Lens._Coerce
+listPoliciesGrantingServiceAccess_serviceNamespaces = Lens.lens (\ListPoliciesGrantingServiceAccess' {serviceNamespaces} -> serviceNamespaces) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {serviceNamespaces = a} :: ListPoliciesGrantingServiceAccess) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -196,8 +196,8 @@ instance
       "ListPoliciesGrantingServiceAccessResult"
       ( \s h x ->
           ListPoliciesGrantingServiceAccessResponse'
-            Prelude.<$> (x Core..@? "IsTruncated")
-              Prelude.<*> (x Core..@? "Marker")
+            Prelude.<$> (x Core..@? "Marker")
+              Prelude.<*> (x Core..@? "IsTruncated")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> ( x Core..@? "PoliciesGrantingServiceAccess"
                               Core..!@ Prelude.mempty
@@ -245,16 +245,16 @@ instance
 
 -- | /See:/ 'newListPoliciesGrantingServiceAccessResponse' smart constructor.
 data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAccessResponse'
-  { -- | A flag that indicates whether there are more items to return. If your
+  { -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | A flag that indicates whether there are more items to return. If your
     -- results were truncated, you can make a subsequent pagination request
     -- using the @Marker@ request parameter to retrieve more items. We
     -- recommend that you check @IsTruncated@ after every call to ensure that
     -- you receive all your results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
-    -- | When @IsTruncated@ is @true@, this element is present and contains the
-    -- value to use for the @Marker@ parameter in a subsequent pagination
-    -- request.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about
@@ -272,15 +272,15 @@ data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAcce
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'marker', 'listPoliciesGrantingServiceAccessResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
 -- 'isTruncated', 'listPoliciesGrantingServiceAccessResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items. We
 -- recommend that you check @IsTruncated@ after every call to ensure that
 -- you receive all your results.
---
--- 'marker', 'listPoliciesGrantingServiceAccessResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
 --
 -- 'httpStatus', 'listPoliciesGrantingServiceAccessResponse_httpStatus' - The response's http status code.
 --
@@ -294,13 +294,19 @@ newListPoliciesGrantingServiceAccessResponse ::
 newListPoliciesGrantingServiceAccessResponse
   pHttpStatus_ =
     ListPoliciesGrantingServiceAccessResponse'
-      { isTruncated =
+      { marker =
           Prelude.Nothing,
-        marker = Prelude.Nothing,
+        isTruncated = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         policiesGrantingServiceAccess =
           Prelude.mempty
       }
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listPoliciesGrantingServiceAccessResponse_marker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Text)
+listPoliciesGrantingServiceAccessResponse_marker = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {marker} -> marker) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {marker = a} :: ListPoliciesGrantingServiceAccessResponse)
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -310,12 +316,6 @@ newListPoliciesGrantingServiceAccessResponse
 listPoliciesGrantingServiceAccessResponse_isTruncated :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Bool)
 listPoliciesGrantingServiceAccessResponse_isTruncated = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {isTruncated} -> isTruncated) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {isTruncated = a} :: ListPoliciesGrantingServiceAccessResponse)
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-listPoliciesGrantingServiceAccessResponse_marker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Prelude.Maybe Prelude.Text)
-listPoliciesGrantingServiceAccessResponse_marker = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {marker} -> marker) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {marker = a} :: ListPoliciesGrantingServiceAccessResponse)
-
 -- | The response's http status code.
 listPoliciesGrantingServiceAccessResponse_httpStatus :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse Prelude.Int
 listPoliciesGrantingServiceAccessResponse_httpStatus = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {httpStatus} -> httpStatus) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {httpStatus = a} :: ListPoliciesGrantingServiceAccessResponse)
@@ -324,7 +324,7 @@ listPoliciesGrantingServiceAccessResponse_httpStatus = Lens.lens (\ListPoliciesG
 -- the permissions policies attached to the specified identity (user,
 -- group, or role).
 listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse [ListPoliciesGrantingServiceAccessEntry]
-listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {policiesGrantingServiceAccess} -> policiesGrantingServiceAccess) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {policiesGrantingServiceAccess = a} :: ListPoliciesGrantingServiceAccessResponse) Prelude.. Lens._Coerce
+listPoliciesGrantingServiceAccessResponse_policiesGrantingServiceAccess = Lens.lens (\ListPoliciesGrantingServiceAccessResponse' {policiesGrantingServiceAccess} -> policiesGrantingServiceAccess) (\s@ListPoliciesGrantingServiceAccessResponse' {} a -> s {policiesGrantingServiceAccess = a} :: ListPoliciesGrantingServiceAccessResponse) Prelude.. Lens.coerced
 
 instance
   Prelude.NFData

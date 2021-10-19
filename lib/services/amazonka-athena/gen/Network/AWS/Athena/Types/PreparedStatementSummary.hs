@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPreparedStatementSummary' smart constructor.
 data PreparedStatementSummary = PreparedStatementSummary'
-  { -- | The name of the prepared statement.
-    statementName :: Prelude.Maybe Prelude.Text,
-    -- | The last modified time of the prepared statement.
-    lastModifiedTime :: Prelude.Maybe Core.POSIX
+  { -- | The last modified time of the prepared statement.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the prepared statement.
+    statementName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data PreparedStatementSummary = PreparedStatementSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statementName', 'preparedStatementSummary_statementName' - The name of the prepared statement.
---
 -- 'lastModifiedTime', 'preparedStatementSummary_lastModifiedTime' - The last modified time of the prepared statement.
+--
+-- 'statementName', 'preparedStatementSummary_statementName' - The name of the prepared statement.
 newPreparedStatementSummary ::
   PreparedStatementSummary
 newPreparedStatementSummary =
   PreparedStatementSummary'
-    { statementName =
+    { lastModifiedTime =
         Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing
+      statementName = Prelude.Nothing
     }
-
--- | The name of the prepared statement.
-preparedStatementSummary_statementName :: Lens.Lens' PreparedStatementSummary (Prelude.Maybe Prelude.Text)
-preparedStatementSummary_statementName = Lens.lens (\PreparedStatementSummary' {statementName} -> statementName) (\s@PreparedStatementSummary' {} a -> s {statementName = a} :: PreparedStatementSummary)
 
 -- | The last modified time of the prepared statement.
 preparedStatementSummary_lastModifiedTime :: Lens.Lens' PreparedStatementSummary (Prelude.Maybe Prelude.UTCTime)
 preparedStatementSummary_lastModifiedTime = Lens.lens (\PreparedStatementSummary' {lastModifiedTime} -> lastModifiedTime) (\s@PreparedStatementSummary' {} a -> s {lastModifiedTime = a} :: PreparedStatementSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The name of the prepared statement.
+preparedStatementSummary_statementName :: Lens.Lens' PreparedStatementSummary (Prelude.Maybe Prelude.Text)
+preparedStatementSummary_statementName = Lens.lens (\PreparedStatementSummary' {statementName} -> statementName) (\s@PreparedStatementSummary' {} a -> s {statementName = a} :: PreparedStatementSummary)
 
 instance Core.FromJSON PreparedStatementSummary where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON PreparedStatementSummary where
       "PreparedStatementSummary"
       ( \x ->
           PreparedStatementSummary'
-            Prelude.<$> (x Core..:? "StatementName")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<$> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "StatementName")
       )
 
 instance Prelude.Hashable PreparedStatementSummary

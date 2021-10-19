@@ -79,7 +79,7 @@ nodeProperties_mainNode = Lens.lens (\NodeProperties' {mainNode} -> mainNode) (\
 -- | A list of node ranges and their properties associated with a multi-node
 -- parallel job.
 nodeProperties_nodeRangeProperties :: Lens.Lens' NodeProperties [NodeRangeProperty]
-nodeProperties_nodeRangeProperties = Lens.lens (\NodeProperties' {nodeRangeProperties} -> nodeRangeProperties) (\s@NodeProperties' {} a -> s {nodeRangeProperties = a} :: NodeProperties) Prelude.. Lens._Coerce
+nodeProperties_nodeRangeProperties = Lens.lens (\NodeProperties' {nodeRangeProperties} -> nodeRangeProperties) (\s@NodeProperties' {} a -> s {nodeRangeProperties = a} :: NodeProperties) Prelude.. Lens.coerced
 
 instance Core.FromJSON NodeProperties where
   parseJSON =

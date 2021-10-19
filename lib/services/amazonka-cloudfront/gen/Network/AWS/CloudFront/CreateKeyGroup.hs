@@ -48,8 +48,8 @@ module Network.AWS.CloudFront.CreateKeyGroup
 
     -- * Response Lenses
     createKeyGroupResponse_eTag,
-    createKeyGroupResponse_keyGroup,
     createKeyGroupResponse_location,
+    createKeyGroupResponse_keyGroup,
     createKeyGroupResponse_httpStatus,
   )
 where
@@ -98,8 +98,8 @@ instance Core.AWSRequest CreateKeyGroup where
       ( \s h x ->
           CreateKeyGroupResponse'
             Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (h Core..#? "Location")
+            Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,10 +126,10 @@ instance Core.ToQuery CreateKeyGroup where
 data CreateKeyGroupResponse = CreateKeyGroupResponse'
   { -- | The identifier for this version of the key group.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The key group that was just created.
-    keyGroup :: Prelude.Maybe KeyGroup,
     -- | The URL of the key group.
     location :: Prelude.Maybe Prelude.Text,
+    -- | The key group that was just created.
+    keyGroup :: Prelude.Maybe KeyGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -145,9 +145,9 @@ data CreateKeyGroupResponse = CreateKeyGroupResponse'
 --
 -- 'eTag', 'createKeyGroupResponse_eTag' - The identifier for this version of the key group.
 --
--- 'keyGroup', 'createKeyGroupResponse_keyGroup' - The key group that was just created.
---
 -- 'location', 'createKeyGroupResponse_location' - The URL of the key group.
+--
+-- 'keyGroup', 'createKeyGroupResponse_keyGroup' - The key group that was just created.
 --
 -- 'httpStatus', 'createKeyGroupResponse_httpStatus' - The response's http status code.
 newCreateKeyGroupResponse ::
@@ -157,8 +157,8 @@ newCreateKeyGroupResponse ::
 newCreateKeyGroupResponse pHttpStatus_ =
   CreateKeyGroupResponse'
     { eTag = Prelude.Nothing,
-      keyGroup = Prelude.Nothing,
       location = Prelude.Nothing,
+      keyGroup = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -166,13 +166,13 @@ newCreateKeyGroupResponse pHttpStatus_ =
 createKeyGroupResponse_eTag :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe Prelude.Text)
 createKeyGroupResponse_eTag = Lens.lens (\CreateKeyGroupResponse' {eTag} -> eTag) (\s@CreateKeyGroupResponse' {} a -> s {eTag = a} :: CreateKeyGroupResponse)
 
--- | The key group that was just created.
-createKeyGroupResponse_keyGroup :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe KeyGroup)
-createKeyGroupResponse_keyGroup = Lens.lens (\CreateKeyGroupResponse' {keyGroup} -> keyGroup) (\s@CreateKeyGroupResponse' {} a -> s {keyGroup = a} :: CreateKeyGroupResponse)
-
 -- | The URL of the key group.
 createKeyGroupResponse_location :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe Prelude.Text)
 createKeyGroupResponse_location = Lens.lens (\CreateKeyGroupResponse' {location} -> location) (\s@CreateKeyGroupResponse' {} a -> s {location = a} :: CreateKeyGroupResponse)
+
+-- | The key group that was just created.
+createKeyGroupResponse_keyGroup :: Lens.Lens' CreateKeyGroupResponse (Prelude.Maybe KeyGroup)
+createKeyGroupResponse_keyGroup = Lens.lens (\CreateKeyGroupResponse' {keyGroup} -> keyGroup) (\s@CreateKeyGroupResponse' {} a -> s {keyGroup = a} :: CreateKeyGroupResponse)
 
 -- | The response's http status code.
 createKeyGroupResponse_httpStatus :: Lens.Lens' CreateKeyGroupResponse Prelude.Int

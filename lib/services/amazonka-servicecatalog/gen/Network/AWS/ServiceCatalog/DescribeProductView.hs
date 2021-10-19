@@ -35,8 +35,8 @@ module Network.AWS.ServiceCatalog.DescribeProductView
     newDescribeProductViewResponse,
 
     -- * Response Lenses
-    describeProductViewResponse_provisioningArtifacts,
     describeProductViewResponse_productViewSummary,
+    describeProductViewResponse_provisioningArtifacts,
     describeProductViewResponse_httpStatus,
   )
 where
@@ -114,10 +114,10 @@ instance Core.AWSRequest DescribeProductView where
     Response.receiveJSON
       ( \s h x ->
           DescribeProductViewResponse'
-            Prelude.<$> ( x Core..?> "ProvisioningArtifacts"
+            Prelude.<$> (x Core..?> "ProductViewSummary")
+            Prelude.<*> ( x Core..?> "ProvisioningArtifacts"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ProductViewSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -158,10 +158,10 @@ instance Core.ToQuery DescribeProductView where
 
 -- | /See:/ 'newDescribeProductViewResponse' smart constructor.
 data DescribeProductViewResponse = DescribeProductViewResponse'
-  { -- | Information about the provisioning artifacts for the product.
-    provisioningArtifacts :: Prelude.Maybe [ProvisioningArtifact],
-    -- | Summary information about the product.
+  { -- | Summary information about the product.
     productViewSummary :: Prelude.Maybe ProductViewSummary,
+    -- | Information about the provisioning artifacts for the product.
+    provisioningArtifacts :: Prelude.Maybe [ProvisioningArtifact],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,9 +175,9 @@ data DescribeProductViewResponse = DescribeProductViewResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'provisioningArtifacts', 'describeProductViewResponse_provisioningArtifacts' - Information about the provisioning artifacts for the product.
---
 -- 'productViewSummary', 'describeProductViewResponse_productViewSummary' - Summary information about the product.
+--
+-- 'provisioningArtifacts', 'describeProductViewResponse_provisioningArtifacts' - Information about the provisioning artifacts for the product.
 --
 -- 'httpStatus', 'describeProductViewResponse_httpStatus' - The response's http status code.
 newDescribeProductViewResponse ::
@@ -186,19 +186,19 @@ newDescribeProductViewResponse ::
   DescribeProductViewResponse
 newDescribeProductViewResponse pHttpStatus_ =
   DescribeProductViewResponse'
-    { provisioningArtifacts =
+    { productViewSummary =
         Prelude.Nothing,
-      productViewSummary = Prelude.Nothing,
+      provisioningArtifacts = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the provisioning artifacts for the product.
-describeProductViewResponse_provisioningArtifacts :: Lens.Lens' DescribeProductViewResponse (Prelude.Maybe [ProvisioningArtifact])
-describeProductViewResponse_provisioningArtifacts = Lens.lens (\DescribeProductViewResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductViewResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductViewResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Summary information about the product.
 describeProductViewResponse_productViewSummary :: Lens.Lens' DescribeProductViewResponse (Prelude.Maybe ProductViewSummary)
 describeProductViewResponse_productViewSummary = Lens.lens (\DescribeProductViewResponse' {productViewSummary} -> productViewSummary) (\s@DescribeProductViewResponse' {} a -> s {productViewSummary = a} :: DescribeProductViewResponse)
+
+-- | Information about the provisioning artifacts for the product.
+describeProductViewResponse_provisioningArtifacts :: Lens.Lens' DescribeProductViewResponse (Prelude.Maybe [ProvisioningArtifact])
+describeProductViewResponse_provisioningArtifacts = Lens.lens (\DescribeProductViewResponse' {provisioningArtifacts} -> provisioningArtifacts) (\s@DescribeProductViewResponse' {} a -> s {provisioningArtifacts = a} :: DescribeProductViewResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeProductViewResponse_httpStatus :: Lens.Lens' DescribeProductViewResponse Prelude.Int

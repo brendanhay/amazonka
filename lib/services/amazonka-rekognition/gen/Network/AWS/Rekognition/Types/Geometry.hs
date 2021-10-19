@@ -30,12 +30,12 @@ import Network.AWS.Rekognition.Types.Point
 --
 -- /See:/ 'newGeometry' smart constructor.
 data Geometry = Geometry'
-  { -- | Within the bounding box, a fine-grained polygon around the detected
-    -- item.
-    polygon :: Prelude.Maybe [Point],
-    -- | An axis-aligned coarse representation of the detected item\'s location
+  { -- | An axis-aligned coarse representation of the detected item\'s location
     -- on the image.
-    boundingBox :: Prelude.Maybe BoundingBox
+    boundingBox :: Prelude.Maybe BoundingBox,
+    -- | Within the bounding box, a fine-grained polygon around the detected
+    -- item.
+    polygon :: Prelude.Maybe [Point]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,28 +47,28 @@ data Geometry = Geometry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'polygon', 'geometry_polygon' - Within the bounding box, a fine-grained polygon around the detected
--- item.
---
 -- 'boundingBox', 'geometry_boundingBox' - An axis-aligned coarse representation of the detected item\'s location
 -- on the image.
+--
+-- 'polygon', 'geometry_polygon' - Within the bounding box, a fine-grained polygon around the detected
+-- item.
 newGeometry ::
   Geometry
 newGeometry =
   Geometry'
-    { polygon = Prelude.Nothing,
-      boundingBox = Prelude.Nothing
+    { boundingBox = Prelude.Nothing,
+      polygon = Prelude.Nothing
     }
-
--- | Within the bounding box, a fine-grained polygon around the detected
--- item.
-geometry_polygon :: Lens.Lens' Geometry (Prelude.Maybe [Point])
-geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} a -> s {polygon = a} :: Geometry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An axis-aligned coarse representation of the detected item\'s location
 -- on the image.
 geometry_boundingBox :: Lens.Lens' Geometry (Prelude.Maybe BoundingBox)
 geometry_boundingBox = Lens.lens (\Geometry' {boundingBox} -> boundingBox) (\s@Geometry' {} a -> s {boundingBox = a} :: Geometry)
+
+-- | Within the bounding box, a fine-grained polygon around the detected
+-- item.
+geometry_polygon :: Lens.Lens' Geometry (Prelude.Maybe [Point])
+geometry_polygon = Lens.lens (\Geometry' {polygon} -> polygon) (\s@Geometry' {} a -> s {polygon = a} :: Geometry) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON Geometry where
   parseJSON =
@@ -76,8 +76,8 @@ instance Core.FromJSON Geometry where
       "Geometry"
       ( \x ->
           Geometry'
-            Prelude.<$> (x Core..:? "Polygon" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "BoundingBox")
+            Prelude.<$> (x Core..:? "BoundingBox")
+            Prelude.<*> (x Core..:? "Polygon" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Geometry

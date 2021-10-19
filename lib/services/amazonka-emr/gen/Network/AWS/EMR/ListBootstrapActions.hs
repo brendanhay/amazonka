@@ -203,7 +203,7 @@ newListBootstrapActionsResponse pHttpStatus_ =
 
 -- | The bootstrap actions associated with the cluster.
 listBootstrapActionsResponse_bootstrapActions :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe [Command])
-listBootstrapActionsResponse_bootstrapActions = Lens.lens (\ListBootstrapActionsResponse' {bootstrapActions} -> bootstrapActions) (\s@ListBootstrapActionsResponse' {} a -> s {bootstrapActions = a} :: ListBootstrapActionsResponse) Prelude.. Lens.mapping Lens._Coerce
+listBootstrapActionsResponse_bootstrapActions = Lens.lens (\ListBootstrapActionsResponse' {bootstrapActions} -> bootstrapActions) (\s@ListBootstrapActionsResponse' {} a -> s {bootstrapActions = a} :: ListBootstrapActionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token that indicates the next set of results to retrieve.
 listBootstrapActionsResponse_marker :: Lens.Lens' ListBootstrapActionsResponse (Prelude.Maybe Prelude.Text)

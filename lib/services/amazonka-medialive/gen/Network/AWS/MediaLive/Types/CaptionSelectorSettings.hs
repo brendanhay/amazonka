@@ -34,13 +34,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCaptionSelectorSettings' smart constructor.
 data CaptionSelectorSettings = CaptionSelectorSettings'
-  { ancillarySourceSettings :: Prelude.Maybe AncillarySourceSettings,
-    embeddedSourceSettings :: Prelude.Maybe EmbeddedSourceSettings,
+  { teletextSourceSettings :: Prelude.Maybe TeletextSourceSettings,
     aribSourceSettings :: Prelude.Maybe AribSourceSettings,
     scte27SourceSettings :: Prelude.Maybe Scte27SourceSettings,
     dvbSubSourceSettings :: Prelude.Maybe DvbSubSourceSettings,
+    ancillarySourceSettings :: Prelude.Maybe AncillarySourceSettings,
     scte20SourceSettings :: Prelude.Maybe Scte20SourceSettings,
-    teletextSourceSettings :: Prelude.Maybe TeletextSourceSettings
+    embeddedSourceSettings :: Prelude.Maybe EmbeddedSourceSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,9 +52,7 @@ data CaptionSelectorSettings = CaptionSelectorSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ancillarySourceSettings', 'captionSelectorSettings_ancillarySourceSettings' - Undocumented member.
---
--- 'embeddedSourceSettings', 'captionSelectorSettings_embeddedSourceSettings' - Undocumented member.
+-- 'teletextSourceSettings', 'captionSelectorSettings_teletextSourceSettings' - Undocumented member.
 --
 -- 'aribSourceSettings', 'captionSelectorSettings_aribSourceSettings' - Undocumented member.
 --
@@ -62,30 +60,28 @@ data CaptionSelectorSettings = CaptionSelectorSettings'
 --
 -- 'dvbSubSourceSettings', 'captionSelectorSettings_dvbSubSourceSettings' - Undocumented member.
 --
+-- 'ancillarySourceSettings', 'captionSelectorSettings_ancillarySourceSettings' - Undocumented member.
+--
 -- 'scte20SourceSettings', 'captionSelectorSettings_scte20SourceSettings' - Undocumented member.
 --
--- 'teletextSourceSettings', 'captionSelectorSettings_teletextSourceSettings' - Undocumented member.
+-- 'embeddedSourceSettings', 'captionSelectorSettings_embeddedSourceSettings' - Undocumented member.
 newCaptionSelectorSettings ::
   CaptionSelectorSettings
 newCaptionSelectorSettings =
   CaptionSelectorSettings'
-    { ancillarySourceSettings =
+    { teletextSourceSettings =
         Prelude.Nothing,
-      embeddedSourceSettings = Prelude.Nothing,
       aribSourceSettings = Prelude.Nothing,
       scte27SourceSettings = Prelude.Nothing,
       dvbSubSourceSettings = Prelude.Nothing,
+      ancillarySourceSettings = Prelude.Nothing,
       scte20SourceSettings = Prelude.Nothing,
-      teletextSourceSettings = Prelude.Nothing
+      embeddedSourceSettings = Prelude.Nothing
     }
 
 -- | Undocumented member.
-captionSelectorSettings_ancillarySourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe AncillarySourceSettings)
-captionSelectorSettings_ancillarySourceSettings = Lens.lens (\CaptionSelectorSettings' {ancillarySourceSettings} -> ancillarySourceSettings) (\s@CaptionSelectorSettings' {} a -> s {ancillarySourceSettings = a} :: CaptionSelectorSettings)
-
--- | Undocumented member.
-captionSelectorSettings_embeddedSourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe EmbeddedSourceSettings)
-captionSelectorSettings_embeddedSourceSettings = Lens.lens (\CaptionSelectorSettings' {embeddedSourceSettings} -> embeddedSourceSettings) (\s@CaptionSelectorSettings' {} a -> s {embeddedSourceSettings = a} :: CaptionSelectorSettings)
+captionSelectorSettings_teletextSourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe TeletextSourceSettings)
+captionSelectorSettings_teletextSourceSettings = Lens.lens (\CaptionSelectorSettings' {teletextSourceSettings} -> teletextSourceSettings) (\s@CaptionSelectorSettings' {} a -> s {teletextSourceSettings = a} :: CaptionSelectorSettings)
 
 -- | Undocumented member.
 captionSelectorSettings_aribSourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe AribSourceSettings)
@@ -100,12 +96,16 @@ captionSelectorSettings_dvbSubSourceSettings :: Lens.Lens' CaptionSelectorSettin
 captionSelectorSettings_dvbSubSourceSettings = Lens.lens (\CaptionSelectorSettings' {dvbSubSourceSettings} -> dvbSubSourceSettings) (\s@CaptionSelectorSettings' {} a -> s {dvbSubSourceSettings = a} :: CaptionSelectorSettings)
 
 -- | Undocumented member.
+captionSelectorSettings_ancillarySourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe AncillarySourceSettings)
+captionSelectorSettings_ancillarySourceSettings = Lens.lens (\CaptionSelectorSettings' {ancillarySourceSettings} -> ancillarySourceSettings) (\s@CaptionSelectorSettings' {} a -> s {ancillarySourceSettings = a} :: CaptionSelectorSettings)
+
+-- | Undocumented member.
 captionSelectorSettings_scte20SourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe Scte20SourceSettings)
 captionSelectorSettings_scte20SourceSettings = Lens.lens (\CaptionSelectorSettings' {scte20SourceSettings} -> scte20SourceSettings) (\s@CaptionSelectorSettings' {} a -> s {scte20SourceSettings = a} :: CaptionSelectorSettings)
 
 -- | Undocumented member.
-captionSelectorSettings_teletextSourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe TeletextSourceSettings)
-captionSelectorSettings_teletextSourceSettings = Lens.lens (\CaptionSelectorSettings' {teletextSourceSettings} -> teletextSourceSettings) (\s@CaptionSelectorSettings' {} a -> s {teletextSourceSettings = a} :: CaptionSelectorSettings)
+captionSelectorSettings_embeddedSourceSettings :: Lens.Lens' CaptionSelectorSettings (Prelude.Maybe EmbeddedSourceSettings)
+captionSelectorSettings_embeddedSourceSettings = Lens.lens (\CaptionSelectorSettings' {embeddedSourceSettings} -> embeddedSourceSettings) (\s@CaptionSelectorSettings' {} a -> s {embeddedSourceSettings = a} :: CaptionSelectorSettings)
 
 instance Core.FromJSON CaptionSelectorSettings where
   parseJSON =
@@ -113,13 +113,13 @@ instance Core.FromJSON CaptionSelectorSettings where
       "CaptionSelectorSettings"
       ( \x ->
           CaptionSelectorSettings'
-            Prelude.<$> (x Core..:? "ancillarySourceSettings")
-            Prelude.<*> (x Core..:? "embeddedSourceSettings")
+            Prelude.<$> (x Core..:? "teletextSourceSettings")
             Prelude.<*> (x Core..:? "aribSourceSettings")
             Prelude.<*> (x Core..:? "scte27SourceSettings")
             Prelude.<*> (x Core..:? "dvbSubSourceSettings")
+            Prelude.<*> (x Core..:? "ancillarySourceSettings")
             Prelude.<*> (x Core..:? "scte20SourceSettings")
-            Prelude.<*> (x Core..:? "teletextSourceSettings")
+            Prelude.<*> (x Core..:? "embeddedSourceSettings")
       )
 
 instance Prelude.Hashable CaptionSelectorSettings
@@ -130,19 +130,19 @@ instance Core.ToJSON CaptionSelectorSettings where
   toJSON CaptionSelectorSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ancillarySourceSettings" Core..=)
-              Prelude.<$> ancillarySourceSettings,
-            ("embeddedSourceSettings" Core..=)
-              Prelude.<$> embeddedSourceSettings,
+          [ ("teletextSourceSettings" Core..=)
+              Prelude.<$> teletextSourceSettings,
             ("aribSourceSettings" Core..=)
               Prelude.<$> aribSourceSettings,
             ("scte27SourceSettings" Core..=)
               Prelude.<$> scte27SourceSettings,
             ("dvbSubSourceSettings" Core..=)
               Prelude.<$> dvbSubSourceSettings,
+            ("ancillarySourceSettings" Core..=)
+              Prelude.<$> ancillarySourceSettings,
             ("scte20SourceSettings" Core..=)
               Prelude.<$> scte20SourceSettings,
-            ("teletextSourceSettings" Core..=)
-              Prelude.<$> teletextSourceSettings
+            ("embeddedSourceSettings" Core..=)
+              Prelude.<$> embeddedSourceSettings
           ]
       )

@@ -271,7 +271,7 @@ listHostedZonesByVPCResponse_httpStatus = Lens.lens (\ListHostedZonesByVPCRespon
 -- @HostedZoneSummary@ element contains the hosted zone name and ID, and
 -- information about who owns the hosted zone.
 listHostedZonesByVPCResponse_hostedZoneSummaries :: Lens.Lens' ListHostedZonesByVPCResponse [HostedZoneSummary]
-listHostedZonesByVPCResponse_hostedZoneSummaries = Lens.lens (\ListHostedZonesByVPCResponse' {hostedZoneSummaries} -> hostedZoneSummaries) (\s@ListHostedZonesByVPCResponse' {} a -> s {hostedZoneSummaries = a} :: ListHostedZonesByVPCResponse) Prelude.. Lens._Coerce
+listHostedZonesByVPCResponse_hostedZoneSummaries = Lens.lens (\ListHostedZonesByVPCResponse' {hostedZoneSummaries} -> hostedZoneSummaries) (\s@ListHostedZonesByVPCResponse' {} a -> s {hostedZoneSummaries = a} :: ListHostedZonesByVPCResponse) Prelude.. Lens.coerced
 
 -- | The value that you specified for @MaxItems@ in the most recent
 -- @ListHostedZonesByVPC@ request.

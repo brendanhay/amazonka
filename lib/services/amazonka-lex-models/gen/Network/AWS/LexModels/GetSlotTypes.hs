@@ -46,8 +46,8 @@ module Network.AWS.LexModels.GetSlotTypes
     newGetSlotTypesResponse,
 
     -- * Response Lenses
-    getSlotTypesResponse_slotTypes,
     getSlotTypesResponse_nextToken,
+    getSlotTypesResponse_slotTypes,
     getSlotTypesResponse_httpStatus,
   )
 where
@@ -148,8 +148,8 @@ instance Core.AWSRequest GetSlotTypes where
     Response.receiveJSON
       ( \s h x ->
           GetSlotTypesResponse'
-            Prelude.<$> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "nextToken")
+            Prelude.<$> (x Core..?> "nextToken")
+            Prelude.<*> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -181,12 +181,12 @@ instance Core.ToQuery GetSlotTypes where
 
 -- | /See:/ 'newGetSlotTypesResponse' smart constructor.
 data GetSlotTypesResponse = GetSlotTypesResponse'
-  { -- | An array of objects, one for each slot type, that provides information
-    -- such as the name of the slot type, the version, and a description.
-    slotTypes :: Prelude.Maybe [SlotTypeMetadata],
-    -- | If the response is truncated, it includes a pagination token that you
+  { -- | If the response is truncated, it includes a pagination token that you
     -- can specify in your next request to fetch the next page of slot types.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of objects, one for each slot type, that provides information
+    -- such as the name of the slot type, the version, and a description.
+    slotTypes :: Prelude.Maybe [SlotTypeMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,11 +200,11 @@ data GetSlotTypesResponse = GetSlotTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'slotTypes', 'getSlotTypesResponse_slotTypes' - An array of objects, one for each slot type, that provides information
--- such as the name of the slot type, the version, and a description.
---
 -- 'nextToken', 'getSlotTypesResponse_nextToken' - If the response is truncated, it includes a pagination token that you
 -- can specify in your next request to fetch the next page of slot types.
+--
+-- 'slotTypes', 'getSlotTypesResponse_slotTypes' - An array of objects, one for each slot type, that provides information
+-- such as the name of the slot type, the version, and a description.
 --
 -- 'httpStatus', 'getSlotTypesResponse_httpStatus' - The response's http status code.
 newGetSlotTypesResponse ::
@@ -213,20 +213,20 @@ newGetSlotTypesResponse ::
   GetSlotTypesResponse
 newGetSlotTypesResponse pHttpStatus_ =
   GetSlotTypesResponse'
-    { slotTypes = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      slotTypes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of objects, one for each slot type, that provides information
--- such as the name of the slot type, the version, and a description.
-getSlotTypesResponse_slotTypes :: Lens.Lens' GetSlotTypesResponse (Prelude.Maybe [SlotTypeMetadata])
-getSlotTypesResponse_slotTypes = Lens.lens (\GetSlotTypesResponse' {slotTypes} -> slotTypes) (\s@GetSlotTypesResponse' {} a -> s {slotTypes = a} :: GetSlotTypesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the response is truncated, it includes a pagination token that you
 -- can specify in your next request to fetch the next page of slot types.
 getSlotTypesResponse_nextToken :: Lens.Lens' GetSlotTypesResponse (Prelude.Maybe Prelude.Text)
 getSlotTypesResponse_nextToken = Lens.lens (\GetSlotTypesResponse' {nextToken} -> nextToken) (\s@GetSlotTypesResponse' {} a -> s {nextToken = a} :: GetSlotTypesResponse)
+
+-- | An array of objects, one for each slot type, that provides information
+-- such as the name of the slot type, the version, and a description.
+getSlotTypesResponse_slotTypes :: Lens.Lens' GetSlotTypesResponse (Prelude.Maybe [SlotTypeMetadata])
+getSlotTypesResponse_slotTypes = Lens.lens (\GetSlotTypesResponse' {slotTypes} -> slotTypes) (\s@GetSlotTypesResponse' {} a -> s {slotTypes = a} :: GetSlotTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getSlotTypesResponse_httpStatus :: Lens.Lens' GetSlotTypesResponse Prelude.Int

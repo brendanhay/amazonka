@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Grantee = Grantee'
   { -- | URI of the grantee group.
     uri :: Prelude.Maybe Prelude.Text,
-    -- | The canonical user ID of the grantee.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Screen name of the grantee.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Email address of the grantee.
     emailAddress :: Prelude.Maybe Prelude.Text,
+    -- | Screen name of the grantee.
+    displayName :: Prelude.Maybe Prelude.Text,
+    -- | The canonical user ID of the grantee.
+    id :: Prelude.Maybe Prelude.Text,
     -- | Type of grantee
     type' :: Type
   }
@@ -51,11 +51,11 @@ data Grantee = Grantee'
 --
 -- 'uri', 'grantee_uri' - URI of the grantee group.
 --
--- 'id', 'grantee_id' - The canonical user ID of the grantee.
+-- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.
 --
 -- 'displayName', 'grantee_displayName' - Screen name of the grantee.
 --
--- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.
+-- 'id', 'grantee_id' - The canonical user ID of the grantee.
 --
 -- 'type'', 'grantee_type' - Type of grantee
 newGrantee ::
@@ -65,9 +65,9 @@ newGrantee ::
 newGrantee pType_ =
   Grantee'
     { uri = Prelude.Nothing,
-      id = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       emailAddress = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      id = Prelude.Nothing,
       type' = pType_
     }
 
@@ -75,17 +75,17 @@ newGrantee pType_ =
 grantee_uri :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_uri = Lens.lens (\Grantee' {uri} -> uri) (\s@Grantee' {} a -> s {uri = a} :: Grantee)
 
--- | The canonical user ID of the grantee.
-grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
-grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
+-- | Email address of the grantee.
+grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
 
 -- | Screen name of the grantee.
 grantee_displayName :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Grantee' {} a -> s {displayName = a} :: Grantee)
 
--- | Email address of the grantee.
-grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
-grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
+-- | The canonical user ID of the grantee.
+grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
 
 -- | Type of grantee
 grantee_type :: Lens.Lens' Grantee Type
@@ -98,9 +98,9 @@ instance Core.FromJSON Grantee where
       ( \x ->
           Grantee'
             Prelude.<$> (x Core..:? "URI")
-            Prelude.<*> (x Core..:? "ID")
-            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "EmailAddress")
+            Prelude.<*> (x Core..:? "DisplayName")
+            Prelude.<*> (x Core..:? "ID")
             Prelude.<*> (x Core..: "Type")
       )
 
@@ -113,9 +113,9 @@ instance Core.ToJSON Grantee where
     Core.object
       ( Prelude.catMaybes
           [ ("URI" Core..=) Prelude.<$> uri,
-            ("ID" Core..=) Prelude.<$> id,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("EmailAddress" Core..=) Prelude.<$> emailAddress,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("ID" Core..=) Prelude.<$> id,
             Prelude.Just ("Type" Core..= type')
           ]
       )

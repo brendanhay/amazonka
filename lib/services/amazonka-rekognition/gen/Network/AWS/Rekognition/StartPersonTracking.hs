@@ -40,9 +40,9 @@ module Network.AWS.Rekognition.StartPersonTracking
     newStartPersonTracking,
 
     -- * Request Lenses
+    startPersonTracking_jobTag,
     startPersonTracking_notificationChannel,
     startPersonTracking_clientRequestToken,
-    startPersonTracking_jobTag,
     startPersonTracking_video,
 
     -- * Destructuring the Response
@@ -64,7 +64,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartPersonTracking' smart constructor.
 data StartPersonTracking = StartPersonTracking'
-  { -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
+  { -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
     -- the completion status of the people detection operation to. The Amazon
     -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
     -- you are using the AmazonRekognitionServiceRole permissions policy.
@@ -74,11 +79,6 @@ data StartPersonTracking = StartPersonTracking'
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
     -- accidently started more than once.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | An identifier you specify that\'s returned in the completion
-    -- notification that\'s published to your Amazon Simple Notification
-    -- Service topic. For example, you can use @JobTag@ to group related jobs
-    -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
     -- | The video in which you want to detect people. The video must be stored
     -- in an Amazon S3 bucket.
     video :: Video
@@ -93,6 +93,11 @@ data StartPersonTracking = StartPersonTracking'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'jobTag', 'startPersonTracking_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
 -- 'notificationChannel', 'startPersonTracking_notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the people detection operation to. The Amazon
 -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
@@ -103,11 +108,6 @@ data StartPersonTracking = StartPersonTracking'
 -- returned. Use @ClientRequestToken@ to prevent the same job from being
 -- accidently started more than once.
 --
--- 'jobTag', 'startPersonTracking_jobTag' - An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
---
 -- 'video', 'startPersonTracking_video' - The video in which you want to detect people. The video must be stored
 -- in an Amazon S3 bucket.
 newStartPersonTracking ::
@@ -116,12 +116,18 @@ newStartPersonTracking ::
   StartPersonTracking
 newStartPersonTracking pVideo_ =
   StartPersonTracking'
-    { notificationChannel =
-        Prelude.Nothing,
+    { jobTag = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      jobTag = Prelude.Nothing,
       video = pVideo_
     }
+
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startPersonTracking_jobTag :: Lens.Lens' StartPersonTracking (Prelude.Maybe Prelude.Text)
+startPersonTracking_jobTag = Lens.lens (\StartPersonTracking' {jobTag} -> jobTag) (\s@StartPersonTracking' {} a -> s {jobTag = a} :: StartPersonTracking)
 
 -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
 -- the completion status of the people detection operation to. The Amazon
@@ -136,13 +142,6 @@ startPersonTracking_notificationChannel = Lens.lens (\StartPersonTracking' {noti
 -- accidently started more than once.
 startPersonTracking_clientRequestToken :: Lens.Lens' StartPersonTracking (Prelude.Maybe Prelude.Text)
 startPersonTracking_clientRequestToken = Lens.lens (\StartPersonTracking' {clientRequestToken} -> clientRequestToken) (\s@StartPersonTracking' {} a -> s {clientRequestToken = a} :: StartPersonTracking)
-
--- | An identifier you specify that\'s returned in the completion
--- notification that\'s published to your Amazon Simple Notification
--- Service topic. For example, you can use @JobTag@ to group related jobs
--- and identify them in the completion notification.
-startPersonTracking_jobTag :: Lens.Lens' StartPersonTracking (Prelude.Maybe Prelude.Text)
-startPersonTracking_jobTag = Lens.lens (\StartPersonTracking' {jobTag} -> jobTag) (\s@StartPersonTracking' {} a -> s {jobTag = a} :: StartPersonTracking)
 
 -- | The video in which you want to detect people. The video must be stored
 -- in an Amazon S3 bucket.
@@ -185,11 +184,11 @@ instance Core.ToJSON StartPersonTracking where
   toJSON StartPersonTracking' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationChannel" Core..=)
+          [ ("JobTag" Core..=) Prelude.<$> jobTag,
+            ("NotificationChannel" Core..=)
               Prelude.<$> notificationChannel,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("JobTag" Core..=) Prelude.<$> jobTag,
             Prelude.Just ("Video" Core..= video)
           ]
       )

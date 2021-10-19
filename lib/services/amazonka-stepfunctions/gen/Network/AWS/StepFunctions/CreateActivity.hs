@@ -156,7 +156,7 @@ newCreateActivity pName_ =
 -- Tags may only contain Unicode letters, digits, white space, or these
 -- symbols: @_ . : \/ = + - \@@.
 createActivity_tags :: Lens.Lens' CreateActivity (Prelude.Maybe [Tag])
-createActivity_tags = Lens.lens (\CreateActivity' {tags} -> tags) (\s@CreateActivity' {} a -> s {tags = a} :: CreateActivity) Prelude.. Lens.mapping Lens._Coerce
+createActivity_tags = Lens.lens (\CreateActivity' {tags} -> tags) (\s@CreateActivity' {} a -> s {tags = a} :: CreateActivity) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the activity to create. This name must be unique for your
 -- AWS account and region for 90 days. For more information, see

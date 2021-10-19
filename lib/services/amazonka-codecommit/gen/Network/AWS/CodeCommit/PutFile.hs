@@ -28,11 +28,11 @@ module Network.AWS.CodeCommit.PutFile
     newPutFile,
 
     -- * Request Lenses
-    putFile_parentCommitId,
-    putFile_commitMessage,
-    putFile_name,
     putFile_email,
     putFile_fileMode,
+    putFile_parentCommitId,
+    putFile_name,
+    putFile_commitMessage,
     putFile_repositoryName,
     putFile_branchName,
     putFile_fileContent,
@@ -59,7 +59,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutFile' smart constructor.
 data PutFile = PutFile'
-  { -- | The full commit ID of the head commit in the branch where you want to
+  { -- | An email address for the person adding or updating the file.
+    email :: Prelude.Maybe Prelude.Text,
+    -- | The file mode permissions of the blob. Valid file mode permissions are
+    -- listed here.
+    fileMode :: Prelude.Maybe FileModeTypeEnum,
+    -- | The full commit ID of the head commit in the branch where you want to
     -- add or update the file. If this is an empty repository, no commit ID is
     -- required. If this is not an empty repository, a commit ID is required.
     --
@@ -67,19 +72,14 @@ data PutFile = PutFile'
     -- operation. Otherwise, an error occurs, and the file is not added or
     -- updated.
     parentCommitId :: Prelude.Maybe Prelude.Text,
-    -- | A message about why this file was added or updated. Although it is
-    -- optional, a message makes the commit history for your repository more
-    -- useful.
-    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the person adding or updating the file. Although it is
     -- optional, a name makes the commit history for your repository more
     -- useful.
     name :: Prelude.Maybe Prelude.Text,
-    -- | An email address for the person adding or updating the file.
-    email :: Prelude.Maybe Prelude.Text,
-    -- | The file mode permissions of the blob. Valid file mode permissions are
-    -- listed here.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
+    -- | A message about why this file was added or updated. Although it is
+    -- optional, a message makes the commit history for your repository more
+    -- useful.
+    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository where you want to add or update the file.
     repositoryName :: Prelude.Text,
     -- | The name of the branch where you want to add or update the file. If this
@@ -104,6 +104,11 @@ data PutFile = PutFile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'email', 'putFile_email' - An email address for the person adding or updating the file.
+--
+-- 'fileMode', 'putFile_fileMode' - The file mode permissions of the blob. Valid file mode permissions are
+-- listed here.
+--
 -- 'parentCommitId', 'putFile_parentCommitId' - The full commit ID of the head commit in the branch where you want to
 -- add or update the file. If this is an empty repository, no commit ID is
 -- required. If this is not an empty repository, a commit ID is required.
@@ -112,18 +117,13 @@ data PutFile = PutFile'
 -- operation. Otherwise, an error occurs, and the file is not added or
 -- updated.
 --
--- 'commitMessage', 'putFile_commitMessage' - A message about why this file was added or updated. Although it is
--- optional, a message makes the commit history for your repository more
--- useful.
---
 -- 'name', 'putFile_name' - The name of the person adding or updating the file. Although it is
 -- optional, a name makes the commit history for your repository more
 -- useful.
 --
--- 'email', 'putFile_email' - An email address for the person adding or updating the file.
---
--- 'fileMode', 'putFile_fileMode' - The file mode permissions of the blob. Valid file mode permissions are
--- listed here.
+-- 'commitMessage', 'putFile_commitMessage' - A message about why this file was added or updated. Although it is
+-- optional, a message makes the commit history for your repository more
+-- useful.
 --
 -- 'repositoryName', 'putFile_repositoryName' - The name of the repository where you want to add or update the file.
 --
@@ -157,16 +157,25 @@ newPutFile
   pFileContent_
   pFilePath_ =
     PutFile'
-      { parentCommitId = Prelude.Nothing,
-        commitMessage = Prelude.Nothing,
-        name = Prelude.Nothing,
-        email = Prelude.Nothing,
+      { email = Prelude.Nothing,
         fileMode = Prelude.Nothing,
+        parentCommitId = Prelude.Nothing,
+        name = Prelude.Nothing,
+        commitMessage = Prelude.Nothing,
         repositoryName = pRepositoryName_,
         branchName = pBranchName_,
         fileContent = Core._Base64 Lens.# pFileContent_,
         filePath = pFilePath_
       }
+
+-- | An email address for the person adding or updating the file.
+putFile_email :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_email = Lens.lens (\PutFile' {email} -> email) (\s@PutFile' {} a -> s {email = a} :: PutFile)
+
+-- | The file mode permissions of the blob. Valid file mode permissions are
+-- listed here.
+putFile_fileMode :: Lens.Lens' PutFile (Prelude.Maybe FileModeTypeEnum)
+putFile_fileMode = Lens.lens (\PutFile' {fileMode} -> fileMode) (\s@PutFile' {} a -> s {fileMode = a} :: PutFile)
 
 -- | The full commit ID of the head commit in the branch where you want to
 -- add or update the file. If this is an empty repository, no commit ID is
@@ -178,26 +187,17 @@ newPutFile
 putFile_parentCommitId :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
 putFile_parentCommitId = Lens.lens (\PutFile' {parentCommitId} -> parentCommitId) (\s@PutFile' {} a -> s {parentCommitId = a} :: PutFile)
 
--- | A message about why this file was added or updated. Although it is
--- optional, a message makes the commit history for your repository more
--- useful.
-putFile_commitMessage :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
-putFile_commitMessage = Lens.lens (\PutFile' {commitMessage} -> commitMessage) (\s@PutFile' {} a -> s {commitMessage = a} :: PutFile)
-
 -- | The name of the person adding or updating the file. Although it is
 -- optional, a name makes the commit history for your repository more
 -- useful.
 putFile_name :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
 putFile_name = Lens.lens (\PutFile' {name} -> name) (\s@PutFile' {} a -> s {name = a} :: PutFile)
 
--- | An email address for the person adding or updating the file.
-putFile_email :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
-putFile_email = Lens.lens (\PutFile' {email} -> email) (\s@PutFile' {} a -> s {email = a} :: PutFile)
-
--- | The file mode permissions of the blob. Valid file mode permissions are
--- listed here.
-putFile_fileMode :: Lens.Lens' PutFile (Prelude.Maybe FileModeTypeEnum)
-putFile_fileMode = Lens.lens (\PutFile' {fileMode} -> fileMode) (\s@PutFile' {} a -> s {fileMode = a} :: PutFile)
+-- | A message about why this file was added or updated. Although it is
+-- optional, a message makes the commit history for your repository more
+-- useful.
+putFile_commitMessage :: Lens.Lens' PutFile (Prelude.Maybe Prelude.Text)
+putFile_commitMessage = Lens.lens (\PutFile' {commitMessage} -> commitMessage) (\s@PutFile' {} a -> s {commitMessage = a} :: PutFile)
 
 -- | The name of the repository where you want to add or update the file.
 putFile_repositoryName :: Lens.Lens' PutFile Prelude.Text
@@ -260,12 +260,12 @@ instance Core.ToJSON PutFile where
   toJSON PutFile' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("parentCommitId" Core..=)
-              Prelude.<$> parentCommitId,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("name" Core..=) Prelude.<$> name,
-            ("email" Core..=) Prelude.<$> email,
+          [ ("email" Core..=) Prelude.<$> email,
             ("fileMode" Core..=) Prelude.<$> fileMode,
+            ("parentCommitId" Core..=)
+              Prelude.<$> parentCommitId,
+            ("name" Core..=) Prelude.<$> name,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             Prelude.Just
               ("repositoryName" Core..= repositoryName),
             Prelude.Just ("branchName" Core..= branchName),

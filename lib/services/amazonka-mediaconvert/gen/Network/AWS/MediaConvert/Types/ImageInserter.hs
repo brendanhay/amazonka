@@ -56,7 +56,7 @@ newImageInserter =
 -- | Specify the images that you want to overlay on your video. The images
 -- must be PNG or TGA files.
 imageInserter_insertableImages :: Lens.Lens' ImageInserter (Prelude.Maybe [InsertableImage])
-imageInserter_insertableImages = Lens.lens (\ImageInserter' {insertableImages} -> insertableImages) (\s@ImageInserter' {} a -> s {insertableImages = a} :: ImageInserter) Prelude.. Lens.mapping Lens._Coerce
+imageInserter_insertableImages = Lens.lens (\ImageInserter' {insertableImages} -> insertableImages) (\s@ImageInserter' {} a -> s {insertableImages = a} :: ImageInserter) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ImageInserter where
   parseJSON =

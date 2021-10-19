@@ -37,8 +37,8 @@ module Network.AWS.Comprehend.ClassifyDocument
     newClassifyDocumentResponse,
 
     -- * Response Lenses
-    classifyDocumentResponse_classes,
     classifyDocumentResponse_labels,
+    classifyDocumentResponse_classes,
     classifyDocumentResponse_httpStatus,
   )
 where
@@ -100,8 +100,8 @@ instance Core.AWSRequest ClassifyDocument where
     Response.receiveJSON
       ( \s h x ->
           ClassifyDocumentResponse'
-            Prelude.<$> (x Core..?> "Classes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "Labels" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Classes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -141,19 +141,19 @@ instance Core.ToQuery ClassifyDocument where
 
 -- | /See:/ 'newClassifyDocumentResponse' smart constructor.
 data ClassifyDocumentResponse = ClassifyDocumentResponse'
-  { -- | The classes used by the document being analyzed. These are used for
-    -- multi-class trained models. Individual classes are mutually exclusive
-    -- and each document is expected to have only a single class assigned to
-    -- it. For example, an animal can be a dog or a cat, but not both at the
-    -- same time.
-    classes :: Prelude.Maybe [DocumentClass],
-    -- | The labels used the document being analyzed. These are used for
+  { -- | The labels used the document being analyzed. These are used for
     -- multi-label trained models. Individual labels represent different
     -- categories that are related in some manner and are not mutually
     -- exclusive. For example, a movie can be just an action movie, or it can
     -- be an action movie, a science fiction movie, and a comedy, all at the
     -- same time.
     labels :: Prelude.Maybe [DocumentLabel],
+    -- | The classes used by the document being analyzed. These are used for
+    -- multi-class trained models. Individual classes are mutually exclusive
+    -- and each document is expected to have only a single class assigned to
+    -- it. For example, an animal can be a dog or a cat, but not both at the
+    -- same time.
+    classes :: Prelude.Maybe [DocumentClass],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,17 +167,17 @@ data ClassifyDocumentResponse = ClassifyDocumentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'classes', 'classifyDocumentResponse_classes' - The classes used by the document being analyzed. These are used for
--- multi-class trained models. Individual classes are mutually exclusive
--- and each document is expected to have only a single class assigned to
--- it. For example, an animal can be a dog or a cat, but not both at the
--- same time.
---
 -- 'labels', 'classifyDocumentResponse_labels' - The labels used the document being analyzed. These are used for
 -- multi-label trained models. Individual labels represent different
 -- categories that are related in some manner and are not mutually
 -- exclusive. For example, a movie can be just an action movie, or it can
 -- be an action movie, a science fiction movie, and a comedy, all at the
+-- same time.
+--
+-- 'classes', 'classifyDocumentResponse_classes' - The classes used by the document being analyzed. These are used for
+-- multi-class trained models. Individual classes are mutually exclusive
+-- and each document is expected to have only a single class assigned to
+-- it. For example, an animal can be a dog or a cat, but not both at the
 -- same time.
 --
 -- 'httpStatus', 'classifyDocumentResponse_httpStatus' - The response's http status code.
@@ -187,19 +187,10 @@ newClassifyDocumentResponse ::
   ClassifyDocumentResponse
 newClassifyDocumentResponse pHttpStatus_ =
   ClassifyDocumentResponse'
-    { classes =
-        Prelude.Nothing,
-      labels = Prelude.Nothing,
+    { labels = Prelude.Nothing,
+      classes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The classes used by the document being analyzed. These are used for
--- multi-class trained models. Individual classes are mutually exclusive
--- and each document is expected to have only a single class assigned to
--- it. For example, an animal can be a dog or a cat, but not both at the
--- same time.
-classifyDocumentResponse_classes :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [DocumentClass])
-classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classes} -> classes) (\s@ClassifyDocumentResponse' {} a -> s {classes = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The labels used the document being analyzed. These are used for
 -- multi-label trained models. Individual labels represent different
@@ -208,7 +199,15 @@ classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classe
 -- be an action movie, a science fiction movie, and a comedy, all at the
 -- same time.
 classifyDocumentResponse_labels :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [DocumentLabel])
-classifyDocumentResponse_labels = Lens.lens (\ClassifyDocumentResponse' {labels} -> labels) (\s@ClassifyDocumentResponse' {} a -> s {labels = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Lens._Coerce
+classifyDocumentResponse_labels = Lens.lens (\ClassifyDocumentResponse' {labels} -> labels) (\s@ClassifyDocumentResponse' {} a -> s {labels = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The classes used by the document being analyzed. These are used for
+-- multi-class trained models. Individual classes are mutually exclusive
+-- and each document is expected to have only a single class assigned to
+-- it. For example, an animal can be a dog or a cat, but not both at the
+-- same time.
+classifyDocumentResponse_classes :: Lens.Lens' ClassifyDocumentResponse (Prelude.Maybe [DocumentClass])
+classifyDocumentResponse_classes = Lens.lens (\ClassifyDocumentResponse' {classes} -> classes) (\s@ClassifyDocumentResponse' {} a -> s {classes = a} :: ClassifyDocumentResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 classifyDocumentResponse_httpStatus :: Lens.Lens' ClassifyDocumentResponse Prelude.Int

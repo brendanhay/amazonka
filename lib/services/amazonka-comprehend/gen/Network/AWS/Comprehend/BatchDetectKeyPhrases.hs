@@ -90,7 +90,7 @@ newBatchDetectKeyPhrases pLanguageCode_ =
 -- a maximum of 25 documents. Each document must contain fewer that 5,000
 -- bytes of UTF-8 encoded characters.
 batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases [Prelude.Text]
-batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Core._Sensitive Prelude.. Lens._Coerce
+batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -203,13 +203,13 @@ batchDetectKeyPhrasesResponse_httpStatus = Lens.lens (\BatchDetectKeyPhrasesResp
 -- of the documents in the input list. If all of the documents contain an
 -- error, the @ResultList@ is empty.
 batchDetectKeyPhrasesResponse_resultList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchDetectKeyPhrasesItemResult]
-batchDetectKeyPhrasesResponse_resultList = Lens.lens (\BatchDetectKeyPhrasesResponse' {resultList} -> resultList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {resultList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Lens._Coerce
+batchDetectKeyPhrasesResponse_resultList = Lens.lens (\BatchDetectKeyPhrasesResponse' {resultList} -> resultList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {resultList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Lens.coerced
 
 -- | A list containing one object for each document that contained an error.
 -- The results are sorted in ascending order by the @Index@ field and match
 -- the order of the documents in the input list. If there are no errors in
 -- the batch, the @ErrorList@ is empty.
 batchDetectKeyPhrasesResponse_errorList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchItemError]
-batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesResponse' {errorList} -> errorList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Lens._Coerce
+batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesResponse' {errorList} -> errorList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData BatchDetectKeyPhrasesResponse

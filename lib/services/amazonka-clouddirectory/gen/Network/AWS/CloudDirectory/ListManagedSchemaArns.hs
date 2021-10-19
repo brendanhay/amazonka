@@ -200,7 +200,7 @@ newListManagedSchemaArnsResponse pHttpStatus_ =
 
 -- | The ARNs for all AWS managed schemas.
 listManagedSchemaArnsResponse_schemaArns :: Lens.Lens' ListManagedSchemaArnsResponse (Prelude.Maybe [Prelude.Text])
-listManagedSchemaArnsResponse_schemaArns = Lens.lens (\ListManagedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListManagedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListManagedSchemaArnsResponse) Prelude.. Lens.mapping Lens._Coerce
+listManagedSchemaArnsResponse_schemaArns = Lens.lens (\ListManagedSchemaArnsResponse' {schemaArns} -> schemaArns) (\s@ListManagedSchemaArnsResponse' {} a -> s {schemaArns = a} :: ListManagedSchemaArnsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token.
 listManagedSchemaArnsResponse_nextToken :: Lens.Lens' ListManagedSchemaArnsResponse (Prelude.Maybe Prelude.Text)

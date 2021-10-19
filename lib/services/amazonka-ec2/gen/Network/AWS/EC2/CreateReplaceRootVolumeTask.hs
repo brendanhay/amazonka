@@ -33,10 +33,10 @@ module Network.AWS.EC2.CreateReplaceRootVolumeTask
     newCreateReplaceRootVolumeTask,
 
     -- * Request Lenses
+    createReplaceRootVolumeTask_clientToken,
     createReplaceRootVolumeTask_tagSpecifications,
     createReplaceRootVolumeTask_dryRun,
     createReplaceRootVolumeTask_snapshotId,
-    createReplaceRootVolumeTask_clientToken,
     createReplaceRootVolumeTask_instanceId,
 
     -- * Destructuring the Response
@@ -58,7 +58,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateReplaceRootVolumeTask' smart constructor.
 data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
-  { -- | The tags to apply to the root volume replacement task.
+  { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
+    -- of the request. If you do not specify a client token, a randomly
+    -- generated token is used for the request to ensure idempotency. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The tags to apply to the root volume replacement task.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -69,12 +75,6 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
     -- volume. If you want to restore the volume to the initial launch state,
     -- omit this parameter.
     snapshotId :: Prelude.Maybe Prelude.Text,
-    -- | Unique, case-sensitive identifier you provide to ensure the idempotency
-    -- of the request. If you do not specify a client token, a randomly
-    -- generated token is used for the request to ensure idempotency. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance for which to replace the root volume.
     instanceId :: Prelude.Text
   }
@@ -88,6 +88,12 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clientToken', 'createReplaceRootVolumeTask_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request. If you do not specify a client token, a randomly
+-- generated token is used for the request to ensure idempotency. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
+--
 -- 'tagSpecifications', 'createReplaceRootVolumeTask_tagSpecifications' - The tags to apply to the root volume replacement task.
 --
 -- 'dryRun', 'createReplaceRootVolumeTask_dryRun' - Checks whether you have the required permissions for the action, without
@@ -99,12 +105,6 @@ data CreateReplaceRootVolumeTask = CreateReplaceRootVolumeTask'
 -- volume. If you want to restore the volume to the initial launch state,
 -- omit this parameter.
 --
--- 'clientToken', 'createReplaceRootVolumeTask_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. If you do not specify a client token, a randomly
--- generated token is used for the request to ensure idempotency. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
---
 -- 'instanceId', 'createReplaceRootVolumeTask_instanceId' - The ID of the instance for which to replace the root volume.
 newCreateReplaceRootVolumeTask ::
   -- | 'instanceId'
@@ -112,17 +112,25 @@ newCreateReplaceRootVolumeTask ::
   CreateReplaceRootVolumeTask
 newCreateReplaceRootVolumeTask pInstanceId_ =
   CreateReplaceRootVolumeTask'
-    { tagSpecifications =
+    { clientToken =
         Prelude.Nothing,
+      tagSpecifications = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       snapshotId = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
       instanceId = pInstanceId_
     }
 
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request. If you do not specify a client token, a randomly
+-- generated token is used for the request to ensure idempotency. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
+createReplaceRootVolumeTask_clientToken :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
+createReplaceRootVolumeTask_clientToken = Lens.lens (\CreateReplaceRootVolumeTask' {clientToken} -> clientToken) (\s@CreateReplaceRootVolumeTask' {} a -> s {clientToken = a} :: CreateReplaceRootVolumeTask)
+
 -- | The tags to apply to the root volume replacement task.
 createReplaceRootVolumeTask_tagSpecifications :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe [TagSpecification])
-createReplaceRootVolumeTask_tagSpecifications = Lens.lens (\CreateReplaceRootVolumeTask' {tagSpecifications} -> tagSpecifications) (\s@CreateReplaceRootVolumeTask' {} a -> s {tagSpecifications = a} :: CreateReplaceRootVolumeTask) Prelude.. Lens.mapping Lens._Coerce
+createReplaceRootVolumeTask_tagSpecifications = Lens.lens (\CreateReplaceRootVolumeTask' {tagSpecifications} -> tagSpecifications) (\s@CreateReplaceRootVolumeTask' {} a -> s {tagSpecifications = a} :: CreateReplaceRootVolumeTask) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -136,14 +144,6 @@ createReplaceRootVolumeTask_dryRun = Lens.lens (\CreateReplaceRootVolumeTask' {d
 -- omit this parameter.
 createReplaceRootVolumeTask_snapshotId :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
 createReplaceRootVolumeTask_snapshotId = Lens.lens (\CreateReplaceRootVolumeTask' {snapshotId} -> snapshotId) (\s@CreateReplaceRootVolumeTask' {} a -> s {snapshotId = a} :: CreateReplaceRootVolumeTask)
-
--- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. If you do not specify a client token, a randomly
--- generated token is used for the request to ensure idempotency. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
-createReplaceRootVolumeTask_clientToken :: Lens.Lens' CreateReplaceRootVolumeTask (Prelude.Maybe Prelude.Text)
-createReplaceRootVolumeTask_clientToken = Lens.lens (\CreateReplaceRootVolumeTask' {clientToken} -> clientToken) (\s@CreateReplaceRootVolumeTask' {} a -> s {clientToken = a} :: CreateReplaceRootVolumeTask)
 
 -- | The ID of the instance for which to replace the root volume.
 createReplaceRootVolumeTask_instanceId :: Lens.Lens' CreateReplaceRootVolumeTask Prelude.Text
@@ -181,13 +181,13 @@ instance Core.ToQuery CreateReplaceRootVolumeTask where
                   ),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "ClientToken" Core.=: clientToken,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
         "DryRun" Core.=: dryRun,
         "SnapshotId" Core.=: snapshotId,
-        "ClientToken" Core.=: clientToken,
         "InstanceId" Core.=: instanceId
       ]
 

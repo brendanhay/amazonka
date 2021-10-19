@@ -30,9 +30,7 @@ import Network.AWS.Route53AutoNaming.Types.RoutingPolicy
 --
 -- /See:/ 'newDnsConfig' smart constructor.
 data DnsConfig = DnsConfig'
-  { -- | The ID of the namespace to use for DNS configuration.
-    namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | The routing policy that you want to apply to all Route 53 DNS records
+  { -- | The routing policy that you want to apply to all Route 53 DNS records
     -- that Cloud Map creates when you register an instance and specify this
     -- service.
     --
@@ -82,6 +80,8 @@ data DnsConfig = DnsConfig'
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing>
     --     in the /Route 53 Developer Guide/.
     routingPolicy :: Prelude.Maybe RoutingPolicy,
+    -- | The ID of the namespace to use for DNS configuration.
+    namespaceId :: Prelude.Maybe Prelude.Text,
     -- | An array that contains one @DnsRecord@ object for each Route 53 DNS
     -- record that you want Cloud Map to create when you register an instance.
     dnsRecords :: [DnsRecord]
@@ -95,8 +95,6 @@ data DnsConfig = DnsConfig'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'namespaceId', 'dnsConfig_namespaceId' - The ID of the namespace to use for DNS configuration.
 --
 -- 'routingPolicy', 'dnsConfig_routingPolicy' - The routing policy that you want to apply to all Route 53 DNS records
 -- that Cloud Map creates when you register an instance and specify this
@@ -148,20 +146,18 @@ data DnsConfig = DnsConfig'
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-weighted Weighted Routing>
 --     in the /Route 53 Developer Guide/.
 --
+-- 'namespaceId', 'dnsConfig_namespaceId' - The ID of the namespace to use for DNS configuration.
+--
 -- 'dnsRecords', 'dnsConfig_dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 DNS
 -- record that you want Cloud Map to create when you register an instance.
 newDnsConfig ::
   DnsConfig
 newDnsConfig =
   DnsConfig'
-    { namespaceId = Prelude.Nothing,
-      routingPolicy = Prelude.Nothing,
+    { routingPolicy = Prelude.Nothing,
+      namespaceId = Prelude.Nothing,
       dnsRecords = Prelude.mempty
     }
-
--- | The ID of the namespace to use for DNS configuration.
-dnsConfig_namespaceId :: Lens.Lens' DnsConfig (Prelude.Maybe Prelude.Text)
-dnsConfig_namespaceId = Lens.lens (\DnsConfig' {namespaceId} -> namespaceId) (\s@DnsConfig' {} a -> s {namespaceId = a} :: DnsConfig)
 
 -- | The routing policy that you want to apply to all Route 53 DNS records
 -- that Cloud Map creates when you register an instance and specify this
@@ -215,10 +211,14 @@ dnsConfig_namespaceId = Lens.lens (\DnsConfig' {namespaceId} -> namespaceId) (\s
 dnsConfig_routingPolicy :: Lens.Lens' DnsConfig (Prelude.Maybe RoutingPolicy)
 dnsConfig_routingPolicy = Lens.lens (\DnsConfig' {routingPolicy} -> routingPolicy) (\s@DnsConfig' {} a -> s {routingPolicy = a} :: DnsConfig)
 
+-- | The ID of the namespace to use for DNS configuration.
+dnsConfig_namespaceId :: Lens.Lens' DnsConfig (Prelude.Maybe Prelude.Text)
+dnsConfig_namespaceId = Lens.lens (\DnsConfig' {namespaceId} -> namespaceId) (\s@DnsConfig' {} a -> s {namespaceId = a} :: DnsConfig)
+
 -- | An array that contains one @DnsRecord@ object for each Route 53 DNS
 -- record that you want Cloud Map to create when you register an instance.
 dnsConfig_dnsRecords :: Lens.Lens' DnsConfig [DnsRecord]
-dnsConfig_dnsRecords = Lens.lens (\DnsConfig' {dnsRecords} -> dnsRecords) (\s@DnsConfig' {} a -> s {dnsRecords = a} :: DnsConfig) Prelude.. Lens._Coerce
+dnsConfig_dnsRecords = Lens.lens (\DnsConfig' {dnsRecords} -> dnsRecords) (\s@DnsConfig' {} a -> s {dnsRecords = a} :: DnsConfig) Prelude.. Lens.coerced
 
 instance Core.FromJSON DnsConfig where
   parseJSON =
@@ -226,8 +226,8 @@ instance Core.FromJSON DnsConfig where
       "DnsConfig"
       ( \x ->
           DnsConfig'
-            Prelude.<$> (x Core..:? "NamespaceId")
-            Prelude.<*> (x Core..:? "RoutingPolicy")
+            Prelude.<$> (x Core..:? "RoutingPolicy")
+            Prelude.<*> (x Core..:? "NamespaceId")
             Prelude.<*> (x Core..:? "DnsRecords" Core..!= Prelude.mempty)
       )
 
@@ -239,8 +239,8 @@ instance Core.ToJSON DnsConfig where
   toJSON DnsConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NamespaceId" Core..=) Prelude.<$> namespaceId,
-            ("RoutingPolicy" Core..=) Prelude.<$> routingPolicy,
+          [ ("RoutingPolicy" Core..=) Prelude.<$> routingPolicy,
+            ("NamespaceId" Core..=) Prelude.<$> namespaceId,
             Prelude.Just ("DnsRecords" Core..= dnsRecords)
           ]
       )

@@ -80,7 +80,7 @@ newUntagResource ::
 newUntagResource pResourceId_ pTagKeyList_ =
   UntagResource'
     { resourceId = pResourceId_,
-      tagKeyList = Lens._Coerce Lens.# pTagKeyList_
+      tagKeyList = Lens.coerced Lens.# pTagKeyList_
     }
 
 -- | The cluster identifier (ID) for the cluster whose tags you are removing.
@@ -91,7 +91,7 @@ untagResource_resourceId = Lens.lens (\UntagResource' {resourceId} -> resourceId
 -- | A list of one or more tag keys for the tags that you are removing.
 -- Specify only the tag keys, not the tag values.
 untagResource_tagKeyList :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeyList = Lens.lens (\UntagResource' {tagKeyList} -> tagKeyList) (\s@UntagResource' {} a -> s {tagKeyList = a} :: UntagResource) Prelude.. Lens._Coerce
+untagResource_tagKeyList = Lens.lens (\UntagResource' {tagKeyList} -> tagKeyList) (\s@UntagResource' {} a -> s {tagKeyList = a} :: UntagResource) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UntagResource where
   type

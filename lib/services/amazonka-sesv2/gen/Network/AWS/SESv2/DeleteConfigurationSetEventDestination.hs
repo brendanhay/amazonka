@@ -57,10 +57,10 @@ import Network.AWS.SESv2.Types
 --
 -- /See:/ 'newDeleteConfigurationSetEventDestination' smart constructor.
 data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestination'
-  { -- | The name of the configuration set that contains the event destination
-    -- that you want to delete.
+  { -- | The name of the configuration set that contains the event destination to
+    -- delete.
     configurationSetName :: Prelude.Text,
-    -- | The name of the event destination that you want to delete.
+    -- | The name of the event destination to delete.
     eventDestinationName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,10 +73,10 @@ data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestina
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationSetName', 'deleteConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination
--- that you want to delete.
+-- 'configurationSetName', 'deleteConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination to
+-- delete.
 --
--- 'eventDestinationName', 'deleteConfigurationSetEventDestination_eventDestinationName' - The name of the event destination that you want to delete.
+-- 'eventDestinationName', 'deleteConfigurationSetEventDestination_eventDestinationName' - The name of the event destination to delete.
 newDeleteConfigurationSetEventDestination ::
   -- | 'configurationSetName'
   Prelude.Text ->
@@ -93,12 +93,12 @@ newDeleteConfigurationSetEventDestination
           pEventDestinationName_
       }
 
--- | The name of the configuration set that contains the event destination
--- that you want to delete.
+-- | The name of the configuration set that contains the event destination to
+-- delete.
 deleteConfigurationSetEventDestination_configurationSetName :: Lens.Lens' DeleteConfigurationSetEventDestination Prelude.Text
 deleteConfigurationSetEventDestination_configurationSetName = Lens.lens (\DeleteConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: DeleteConfigurationSetEventDestination)
 
--- | The name of the event destination that you want to delete.
+-- | The name of the event destination to delete.
 deleteConfigurationSetEventDestination_eventDestinationName :: Lens.Lens' DeleteConfigurationSetEventDestination Prelude.Text
 deleteConfigurationSetEventDestination_eventDestinationName = Lens.lens (\DeleteConfigurationSetEventDestination' {eventDestinationName} -> eventDestinationName) (\s@DeleteConfigurationSetEventDestination' {} a -> s {eventDestinationName = a} :: DeleteConfigurationSetEventDestination)
 

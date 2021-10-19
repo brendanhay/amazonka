@@ -30,10 +30,10 @@ module Network.AWS.Inspector.ListFindings
     newListFindings,
 
     -- * Request Lenses
-    listFindings_nextToken,
-    listFindings_maxResults,
     listFindings_assessmentRunArns,
+    listFindings_nextToken,
     listFindings_filter,
+    listFindings_maxResults,
 
     -- * Destructuring the Response
     ListFindingsResponse (..),
@@ -55,25 +55,25 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFindings' smart constructor.
 data ListFindings = ListFindings'
-  { -- | You can use this parameter when paginating results. Set the value of
+  { -- | The ARNs of the assessment runs that generate the findings that you want
+    -- to list.
+    assessmentRunArns :: Prelude.Maybe [Prelude.Text],
+    -- | You can use this parameter when paginating results. Set the value of
     -- this parameter to null on your first call to the __ListFindings__
     -- action. Subsequent calls to the action fill __nextToken__ in the request
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The ARNs of the assessment runs that generate the findings that you want
-    -- to list.
-    assessmentRunArns :: Prelude.Maybe [Prelude.Text],
     -- | You can use this parameter to specify a subset of data to be included in
     -- the action\'s response.
     --
     -- For a record to match a filter, all specified filter attributes must
     -- match. When multiple values are specified for a filter attribute, any of
     -- the values can match.
-    filter' :: Prelude.Maybe FindingFilter
+    filter' :: Prelude.Maybe FindingFilter,
+    -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,17 +85,14 @@ data ListFindings = ListFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'assessmentRunArns', 'listFindings_assessmentRunArns' - The ARNs of the assessment runs that generate the findings that you want
+-- to list.
+--
 -- 'nextToken', 'listFindings_nextToken' - You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the __ListFindings__
 -- action. Subsequent calls to the action fill __nextToken__ in the request
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
---
--- 'maxResults', 'listFindings_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
---
--- 'assessmentRunArns', 'listFindings_assessmentRunArns' - The ARNs of the assessment runs that generate the findings that you want
--- to list.
 --
 -- 'filter'', 'listFindings_filter' - You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
@@ -103,15 +100,23 @@ data ListFindings = ListFindings'
 -- For a record to match a filter, all specified filter attributes must
 -- match. When multiple values are specified for a filter attribute, any of
 -- the values can match.
+--
+-- 'maxResults', 'listFindings_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
 newListFindings ::
   ListFindings
 newListFindings =
   ListFindings'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      assessmentRunArns = Prelude.Nothing,
-      filter' = Prelude.Nothing
+    { assessmentRunArns = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      filter' = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
+
+-- | The ARNs of the assessment runs that generate the findings that you want
+-- to list.
+listFindings_assessmentRunArns :: Lens.Lens' ListFindings (Prelude.Maybe [Prelude.Text])
+listFindings_assessmentRunArns = Lens.lens (\ListFindings' {assessmentRunArns} -> assessmentRunArns) (\s@ListFindings' {} a -> s {assessmentRunArns = a} :: ListFindings) Prelude.. Lens.mapping Lens.coerced
 
 -- | You can use this parameter when paginating results. Set the value of
 -- this parameter to null on your first call to the __ListFindings__
@@ -121,16 +126,6 @@ newListFindings =
 listFindings_nextToken :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Text)
 listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s@ListFindings' {} a -> s {nextToken = a} :: ListFindings)
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 10. The maximum value is 500.
-listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Int)
-listFindings_maxResults = Lens.lens (\ListFindings' {maxResults} -> maxResults) (\s@ListFindings' {} a -> s {maxResults = a} :: ListFindings)
-
--- | The ARNs of the assessment runs that generate the findings that you want
--- to list.
-listFindings_assessmentRunArns :: Lens.Lens' ListFindings (Prelude.Maybe [Prelude.Text])
-listFindings_assessmentRunArns = Lens.lens (\ListFindings' {assessmentRunArns} -> assessmentRunArns) (\s@ListFindings' {} a -> s {assessmentRunArns = a} :: ListFindings) Prelude.. Lens.mapping Lens._Coerce
-
 -- | You can use this parameter to specify a subset of data to be included in
 -- the action\'s response.
 --
@@ -139,6 +134,11 @@ listFindings_assessmentRunArns = Lens.lens (\ListFindings' {assessmentRunArns} -
 -- the values can match.
 listFindings_filter :: Lens.Lens' ListFindings (Prelude.Maybe FindingFilter)
 listFindings_filter = Lens.lens (\ListFindings' {filter'} -> filter') (\s@ListFindings' {} a -> s {filter' = a} :: ListFindings)
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 10. The maximum value is 500.
+listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Int)
+listFindings_maxResults = Lens.lens (\ListFindings' {maxResults} -> maxResults) (\s@ListFindings' {} a -> s {maxResults = a} :: ListFindings)
 
 instance Core.AWSPager ListFindings where
   page rq rs
@@ -192,11 +192,11 @@ instance Core.ToJSON ListFindings where
   toJSON ListFindings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("assessmentRunArns" Core..=)
+          [ ("assessmentRunArns" Core..=)
               Prelude.<$> assessmentRunArns,
-            ("filter" Core..=) Prelude.<$> filter'
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filter" Core..=) Prelude.<$> filter',
+            ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -260,6 +260,6 @@ listFindingsResponse_httpStatus = Lens.lens (\ListFindingsResponse' {httpStatus}
 
 -- | A list of ARNs that specifies the findings returned by the action.
 listFindingsResponse_findingArns :: Lens.Lens' ListFindingsResponse [Prelude.Text]
-listFindingsResponse_findingArns = Lens.lens (\ListFindingsResponse' {findingArns} -> findingArns) (\s@ListFindingsResponse' {} a -> s {findingArns = a} :: ListFindingsResponse) Prelude.. Lens._Coerce
+listFindingsResponse_findingArns = Lens.lens (\ListFindingsResponse' {findingArns} -> findingArns) (\s@ListFindingsResponse' {} a -> s {findingArns = a} :: ListFindingsResponse) Prelude.. Lens.coerced
 
 instance Prelude.NFData ListFindingsResponse

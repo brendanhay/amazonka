@@ -37,8 +37,8 @@ module Network.AWS.GuardDuty.ListOrganizationAdminAccounts
     newListOrganizationAdminAccountsResponse,
 
     -- * Response Lenses
-    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_adminAccounts,
+    listOrganizationAdminAccountsResponse_nextToken,
     listOrganizationAdminAccountsResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationAdminAccountsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "adminAccounts" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "adminAccounts" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -164,11 +164,11 @@ instance Core.ToQuery ListOrganizationAdminAccounts where
 
 -- | /See:/ 'newListOrganizationAdminAccountsResponse' smart constructor.
 data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsResponse'
-  { -- | The pagination parameter to be used on the next list operation to
+  { -- | A list of accounts configured as GuardDuty delegated administrators.
+    adminAccounts :: Prelude.Maybe [AdminAccount],
+    -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of accounts configured as GuardDuty delegated administrators.
-    adminAccounts :: Prelude.Maybe [AdminAccount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,10 +182,10 @@ data ListOrganizationAdminAccountsResponse = ListOrganizationAdminAccountsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'adminAccounts', 'listOrganizationAdminAccountsResponse_adminAccounts' - A list of accounts configured as GuardDuty delegated administrators.
+--
 -- 'nextToken', 'listOrganizationAdminAccountsResponse_nextToken' - The pagination parameter to be used on the next list operation to
 -- retrieve more items.
---
--- 'adminAccounts', 'listOrganizationAdminAccountsResponse_adminAccounts' - A list of accounts configured as GuardDuty delegated administrators.
 --
 -- 'httpStatus', 'listOrganizationAdminAccountsResponse_httpStatus' - The response's http status code.
 newListOrganizationAdminAccountsResponse ::
@@ -194,20 +194,20 @@ newListOrganizationAdminAccountsResponse ::
   ListOrganizationAdminAccountsResponse
 newListOrganizationAdminAccountsResponse pHttpStatus_ =
   ListOrganizationAdminAccountsResponse'
-    { nextToken =
+    { adminAccounts =
         Prelude.Nothing,
-      adminAccounts = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of accounts configured as GuardDuty delegated administrators.
+listOrganizationAdminAccountsResponse_adminAccounts :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe [AdminAccount])
+listOrganizationAdminAccountsResponse_adminAccounts = Lens.lens (\ListOrganizationAdminAccountsResponse' {adminAccounts} -> adminAccounts) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {adminAccounts = a} :: ListOrganizationAdminAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
 listOrganizationAdminAccountsResponse_nextToken :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe Prelude.Text)
 listOrganizationAdminAccountsResponse_nextToken = Lens.lens (\ListOrganizationAdminAccountsResponse' {nextToken} -> nextToken) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {nextToken = a} :: ListOrganizationAdminAccountsResponse)
-
--- | A list of accounts configured as GuardDuty delegated administrators.
-listOrganizationAdminAccountsResponse_adminAccounts :: Lens.Lens' ListOrganizationAdminAccountsResponse (Prelude.Maybe [AdminAccount])
-listOrganizationAdminAccountsResponse_adminAccounts = Lens.lens (\ListOrganizationAdminAccountsResponse' {adminAccounts} -> adminAccounts) (\s@ListOrganizationAdminAccountsResponse' {} a -> s {adminAccounts = a} :: ListOrganizationAdminAccountsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listOrganizationAdminAccountsResponse_httpStatus :: Lens.Lens' ListOrganizationAdminAccountsResponse Prelude.Int

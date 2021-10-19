@@ -256,7 +256,7 @@ getPredictiveScalingForecastResponse_httpStatus = Lens.lens (\GetPredictiveScali
 
 -- | The load forecast.
 getPredictiveScalingForecastResponse_loadForecast :: Lens.Lens' GetPredictiveScalingForecastResponse [LoadForecast]
-getPredictiveScalingForecastResponse_loadForecast = Lens.lens (\GetPredictiveScalingForecastResponse' {loadForecast} -> loadForecast) (\s@GetPredictiveScalingForecastResponse' {} a -> s {loadForecast = a} :: GetPredictiveScalingForecastResponse) Prelude.. Lens._Coerce
+getPredictiveScalingForecastResponse_loadForecast = Lens.lens (\GetPredictiveScalingForecastResponse' {loadForecast} -> loadForecast) (\s@GetPredictiveScalingForecastResponse' {} a -> s {loadForecast = a} :: GetPredictiveScalingForecastResponse) Prelude.. Lens.coerced
 
 -- | The capacity forecast.
 getPredictiveScalingForecastResponse_capacityForecast :: Lens.Lens' GetPredictiveScalingForecastResponse CapacityForecast

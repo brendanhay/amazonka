@@ -63,16 +63,16 @@ newUsageCriteria =
 
 -- | The account IDs to aggregate usage statistics from.
 usageCriteria_accountIds :: Lens.Lens' UsageCriteria (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-usageCriteria_accountIds = Lens.lens (\UsageCriteria' {accountIds} -> accountIds) (\s@UsageCriteria' {} a -> s {accountIds = a} :: UsageCriteria) Prelude.. Lens.mapping Lens._Coerce
+usageCriteria_accountIds = Lens.lens (\UsageCriteria' {accountIds} -> accountIds) (\s@UsageCriteria' {} a -> s {accountIds = a} :: UsageCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resources to aggregate usage statistics from. Only accepts exact
 -- resource names.
 usageCriteria_resources :: Lens.Lens' UsageCriteria (Prelude.Maybe [Prelude.Text])
-usageCriteria_resources = Lens.lens (\UsageCriteria' {resources} -> resources) (\s@UsageCriteria' {} a -> s {resources = a} :: UsageCriteria) Prelude.. Lens.mapping Lens._Coerce
+usageCriteria_resources = Lens.lens (\UsageCriteria' {resources} -> resources) (\s@UsageCriteria' {} a -> s {resources = a} :: UsageCriteria) Prelude.. Lens.mapping Lens.coerced
 
 -- | The data sources to aggregate usage statistics from.
 usageCriteria_dataSources :: Lens.Lens' UsageCriteria [DataSource]
-usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Prelude.. Lens._Coerce
+usageCriteria_dataSources = Lens.lens (\UsageCriteria' {dataSources} -> dataSources) (\s@UsageCriteria' {} a -> s {dataSources = a} :: UsageCriteria) Prelude.. Lens.coerced
 
 instance Prelude.Hashable UsageCriteria
 

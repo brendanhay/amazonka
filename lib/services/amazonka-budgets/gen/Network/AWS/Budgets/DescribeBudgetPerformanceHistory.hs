@@ -30,9 +30,9 @@ module Network.AWS.Budgets.DescribeBudgetPerformanceHistory
     newDescribeBudgetPerformanceHistory,
 
     -- * Request Lenses
+    describeBudgetPerformanceHistory_timePeriod,
     describeBudgetPerformanceHistory_nextToken,
     describeBudgetPerformanceHistory_maxResults,
-    describeBudgetPerformanceHistory_timePeriod,
     describeBudgetPerformanceHistory_accountId,
     describeBudgetPerformanceHistory_budgetName,
 
@@ -56,11 +56,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBudgetPerformanceHistory' smart constructor.
 data DescribeBudgetPerformanceHistory = DescribeBudgetPerformanceHistory'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Retrieves how often the budget went into an @ALARM@ state for the
+  { -- | Retrieves how often the budget went into an @ALARM@ state for the
     -- specified time period.
     timePeriod :: Prelude.Maybe TimePeriod,
+    nextToken :: Prelude.Maybe Prelude.Text,
+    maxResults :: Prelude.Maybe Prelude.Natural,
     accountId :: Prelude.Text,
     budgetName :: Prelude.Text
   }
@@ -74,12 +74,12 @@ data DescribeBudgetPerformanceHistory = DescribeBudgetPerformanceHistory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timePeriod', 'describeBudgetPerformanceHistory_timePeriod' - Retrieves how often the budget went into an @ALARM@ state for the
+-- specified time period.
+--
 -- 'nextToken', 'describeBudgetPerformanceHistory_nextToken' - Undocumented member.
 --
 -- 'maxResults', 'describeBudgetPerformanceHistory_maxResults' - Undocumented member.
---
--- 'timePeriod', 'describeBudgetPerformanceHistory_timePeriod' - Retrieves how often the budget went into an @ALARM@ state for the
--- specified time period.
 --
 -- 'accountId', 'describeBudgetPerformanceHistory_accountId' - Undocumented member.
 --
@@ -94,13 +94,18 @@ newDescribeBudgetPerformanceHistory
   pAccountId_
   pBudgetName_ =
     DescribeBudgetPerformanceHistory'
-      { nextToken =
+      { timePeriod =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         maxResults = Prelude.Nothing,
-        timePeriod = Prelude.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_
       }
+
+-- | Retrieves how often the budget went into an @ALARM@ state for the
+-- specified time period.
+describeBudgetPerformanceHistory_timePeriod :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe TimePeriod)
+describeBudgetPerformanceHistory_timePeriod = Lens.lens (\DescribeBudgetPerformanceHistory' {timePeriod} -> timePeriod) (\s@DescribeBudgetPerformanceHistory' {} a -> s {timePeriod = a} :: DescribeBudgetPerformanceHistory)
 
 -- | Undocumented member.
 describeBudgetPerformanceHistory_nextToken :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe Prelude.Text)
@@ -109,11 +114,6 @@ describeBudgetPerformanceHistory_nextToken = Lens.lens (\DescribeBudgetPerforman
 -- | Undocumented member.
 describeBudgetPerformanceHistory_maxResults :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe Prelude.Natural)
 describeBudgetPerformanceHistory_maxResults = Lens.lens (\DescribeBudgetPerformanceHistory' {maxResults} -> maxResults) (\s@DescribeBudgetPerformanceHistory' {} a -> s {maxResults = a} :: DescribeBudgetPerformanceHistory)
-
--- | Retrieves how often the budget went into an @ALARM@ state for the
--- specified time period.
-describeBudgetPerformanceHistory_timePeriod :: Lens.Lens' DescribeBudgetPerformanceHistory (Prelude.Maybe TimePeriod)
-describeBudgetPerformanceHistory_timePeriod = Lens.lens (\DescribeBudgetPerformanceHistory' {timePeriod} -> timePeriod) (\s@DescribeBudgetPerformanceHistory' {} a -> s {timePeriod = a} :: DescribeBudgetPerformanceHistory)
 
 -- | Undocumented member.
 describeBudgetPerformanceHistory_accountId :: Lens.Lens' DescribeBudgetPerformanceHistory Prelude.Text
@@ -195,9 +195,9 @@ instance Core.ToJSON DescribeBudgetPerformanceHistory where
   toJSON DescribeBudgetPerformanceHistory' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("TimePeriod" Core..=) Prelude.<$> timePeriod,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("TimePeriod" Core..=) Prelude.<$> timePeriod,
             Prelude.Just ("AccountId" Core..= accountId),
             Prelude.Just ("BudgetName" Core..= budgetName)
           ]

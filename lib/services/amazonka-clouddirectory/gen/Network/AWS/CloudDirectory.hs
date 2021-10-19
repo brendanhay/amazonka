@@ -28,68 +28,101 @@ module Network.AWS.CloudDirectory
     -- * Errors
     -- $errors
 
-    -- ** IncompatibleSchemaException
-    _IncompatibleSchemaException,
-
-    -- ** InvalidAttachmentException
-    _InvalidAttachmentException,
-
-    -- ** FacetValidationException
-    _FacetValidationException,
-
-    -- ** BatchWriteException
-    _BatchWriteException,
-
-    -- ** FacetInUseException
-    _FacetInUseException,
-
-    -- ** InvalidArnException
-    _InvalidArnException,
-
-    -- ** DirectoryDeletedException
-    _DirectoryDeletedException,
-
-    -- ** InvalidRuleException
-    _InvalidRuleException,
-
-    -- ** InternalServiceException
-    _InternalServiceException,
-
-    -- ** LinkNameAlreadyInUseException
-    _LinkNameAlreadyInUseException,
-
-    -- ** InvalidTaggingRequestException
-    _InvalidTaggingRequestException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
-
-    -- ** NotPolicyException
-    _NotPolicyException,
-
-    -- ** CannotListParentOfRootException
-    _CannotListParentOfRootException,
-
-    -- ** InvalidSchemaDocException
-    _InvalidSchemaDocException,
-
     -- ** UnsupportedIndexTypeException
     _UnsupportedIndexTypeException,
-
-    -- ** AccessDeniedException
-    _AccessDeniedException,
 
     -- ** NotIndexException
     _NotIndexException,
 
-    -- ** FacetAlreadyExistsException
-    _FacetAlreadyExistsException,
-
     -- ** ValidationException
     _ValidationException,
 
-    -- ** ObjectNotDetachedException
-    _ObjectNotDetachedException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** FacetAlreadyExistsException
+    _FacetAlreadyExistsException,
+
+    -- ** InvalidSchemaDocException
+    _InvalidSchemaDocException,
+
+    -- ** InvalidAttachmentException
+    _InvalidAttachmentException,
+
+    -- ** CannotListParentOfRootException
+    _CannotListParentOfRootException,
+
+    -- ** NotPolicyException
+    _NotPolicyException,
+
+    -- ** InvalidTaggingRequestException
+    _InvalidTaggingRequestException,
+
+    -- ** InvalidFacetUpdateException
+    _InvalidFacetUpdateException,
+
+    -- ** InvalidRuleException
+    _InvalidRuleException,
+
+    -- ** SchemaAlreadyPublishedException
+    _SchemaAlreadyPublishedException,
+
+    -- ** DirectoryAlreadyExistsException
+    _DirectoryAlreadyExistsException,
+
+    -- ** DirectoryNotDisabledException
+    _DirectoryNotDisabledException,
+
+    -- ** BatchWriteException
+    _BatchWriteException,
+
+    -- ** DirectoryNotEnabledException
+    _DirectoryNotEnabledException,
+
+    -- ** FacetInUseException
+    _FacetInUseException,
+
+    -- ** FacetValidationException
+    _FacetValidationException,
+
+    -- ** StillContainsLinksException
+    _StillContainsLinksException,
+
+    -- ** IncompatibleSchemaException
+    _IncompatibleSchemaException,
+
+    -- ** NotNodeException
+    _NotNodeException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ObjectAlreadyDetachedException
+    _ObjectAlreadyDetachedException,
+
+    -- ** LinkNameAlreadyInUseException
+    _LinkNameAlreadyInUseException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** SchemaAlreadyExistsException
+    _SchemaAlreadyExistsException,
+
+    -- ** IndexedAttributeMissingException
+    _IndexedAttributeMissingException,
+
+    -- ** DirectoryDeletedException
+    _DirectoryDeletedException,
+
+    -- ** RetryableConflictException
+    _RetryableConflictException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** FacetNotFoundException
     _FacetNotFoundException,
@@ -97,41 +130,8 @@ module Network.AWS.CloudDirectory
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** StillContainsLinksException
-    _StillContainsLinksException,
-
-    -- ** DirectoryNotEnabledException
-    _DirectoryNotEnabledException,
-
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** RetryableConflictException
-    _RetryableConflictException,
-
-    -- ** DirectoryNotDisabledException
-    _DirectoryNotDisabledException,
-
-    -- ** SchemaAlreadyExistsException
-    _SchemaAlreadyExistsException,
-
-    -- ** DirectoryAlreadyExistsException
-    _DirectoryAlreadyExistsException,
-
-    -- ** SchemaAlreadyPublishedException
-    _SchemaAlreadyPublishedException,
-
-    -- ** IndexedAttributeMissingException
-    _IndexedAttributeMissingException,
-
-    -- ** NotNodeException
-    _NotNodeException,
-
-    -- ** ObjectAlreadyDetachedException
-    _ObjectAlreadyDetachedException,
-
-    -- ** InvalidFacetUpdateException
-    _InvalidFacetUpdateException,
+    -- ** ObjectNotDetachedException
+    _ObjectNotDetachedException,
 
     -- * Waiters
     -- $waiters
@@ -139,29 +139,11 @@ module Network.AWS.CloudDirectory
     -- * Operations
     -- $operations
 
-    -- ** ListTypedLinkFacetNames (Paginated)
-    ListTypedLinkFacetNames (ListTypedLinkFacetNames'),
-    newListTypedLinkFacetNames,
-    ListTypedLinkFacetNamesResponse (ListTypedLinkFacetNamesResponse'),
-    newListTypedLinkFacetNamesResponse,
-
-    -- ** GetDirectory
-    GetDirectory (GetDirectory'),
-    newGetDirectory,
-    GetDirectoryResponse (GetDirectoryResponse'),
-    newGetDirectoryResponse,
-
-    -- ** AttachTypedLink
-    AttachTypedLink (AttachTypedLink'),
-    newAttachTypedLink,
-    AttachTypedLinkResponse (AttachTypedLinkResponse'),
-    newAttachTypedLinkResponse,
-
-    -- ** GetObjectInformation
-    GetObjectInformation (GetObjectInformation'),
-    newGetObjectInformation,
-    GetObjectInformationResponse (GetObjectInformationResponse'),
-    newGetObjectInformationResponse,
+    -- ** ListTypedLinkFacetAttributes (Paginated)
+    ListTypedLinkFacetAttributes (ListTypedLinkFacetAttributes'),
+    newListTypedLinkFacetAttributes,
+    ListTypedLinkFacetAttributesResponse (ListTypedLinkFacetAttributesResponse'),
+    newListTypedLinkFacetAttributesResponse,
 
     -- ** DeleteObject
     DeleteObject (DeleteObject'),
@@ -169,17 +151,11 @@ module Network.AWS.CloudDirectory
     DeleteObjectResponse (DeleteObjectResponse'),
     newDeleteObjectResponse,
 
-    -- ** UpdateFacet
-    UpdateFacet (UpdateFacet'),
-    newUpdateFacet,
-    UpdateFacetResponse (UpdateFacetResponse'),
-    newUpdateFacetResponse,
-
-    -- ** GetObjectAttributes
-    GetObjectAttributes (GetObjectAttributes'),
-    newGetObjectAttributes,
-    GetObjectAttributesResponse (GetObjectAttributesResponse'),
-    newGetObjectAttributesResponse,
+    -- ** ListIndex (Paginated)
+    ListIndex (ListIndex'),
+    newListIndex,
+    ListIndexResponse (ListIndexResponse'),
+    newListIndexResponse,
 
     -- ** UpgradeAppliedSchema
     UpgradeAppliedSchema (UpgradeAppliedSchema'),
@@ -187,59 +163,137 @@ module Network.AWS.CloudDirectory
     UpgradeAppliedSchemaResponse (UpgradeAppliedSchemaResponse'),
     newUpgradeAppliedSchemaResponse,
 
-    -- ** DeleteFacet
-    DeleteFacet (DeleteFacet'),
-    newDeleteFacet,
-    DeleteFacetResponse (DeleteFacetResponse'),
-    newDeleteFacetResponse,
+    -- ** GetDirectory
+    GetDirectory (GetDirectory'),
+    newGetDirectory,
+    GetDirectoryResponse (GetDirectoryResponse'),
+    newGetDirectoryResponse,
 
-    -- ** ListTypedLinkFacetAttributes (Paginated)
-    ListTypedLinkFacetAttributes (ListTypedLinkFacetAttributes'),
-    newListTypedLinkFacetAttributes,
-    ListTypedLinkFacetAttributesResponse (ListTypedLinkFacetAttributesResponse'),
-    newListTypedLinkFacetAttributesResponse,
+    -- ** GetObjectInformation
+    GetObjectInformation (GetObjectInformation'),
+    newGetObjectInformation,
+    GetObjectInformationResponse (GetObjectInformationResponse'),
+    newGetObjectInformationResponse,
 
-    -- ** UpgradePublishedSchema
-    UpgradePublishedSchema (UpgradePublishedSchema'),
-    newUpgradePublishedSchema,
-    UpgradePublishedSchemaResponse (UpgradePublishedSchemaResponse'),
-    newUpgradePublishedSchemaResponse,
+    -- ** ListAttachedIndices (Paginated)
+    ListAttachedIndices (ListAttachedIndices'),
+    newListAttachedIndices,
+    ListAttachedIndicesResponse (ListAttachedIndicesResponse'),
+    newListAttachedIndicesResponse,
 
-    -- ** CreateObject
-    CreateObject (CreateObject'),
-    newCreateObject,
-    CreateObjectResponse (CreateObjectResponse'),
-    newCreateObjectResponse,
+    -- ** DetachFromIndex
+    DetachFromIndex (DetachFromIndex'),
+    newDetachFromIndex,
+    DetachFromIndexResponse (DetachFromIndexResponse'),
+    newDetachFromIndexResponse,
 
-    -- ** BatchWrite
-    BatchWrite (BatchWrite'),
-    newBatchWrite,
-    BatchWriteResponse (BatchWriteResponse'),
-    newBatchWriteResponse,
+    -- ** LookupPolicy (Paginated)
+    LookupPolicy (LookupPolicy'),
+    newLookupPolicy,
+    LookupPolicyResponse (LookupPolicyResponse'),
+    newLookupPolicyResponse,
 
-    -- ** UpdateLinkAttributes
-    UpdateLinkAttributes (UpdateLinkAttributes'),
-    newUpdateLinkAttributes,
-    UpdateLinkAttributesResponse (UpdateLinkAttributesResponse'),
-    newUpdateLinkAttributesResponse,
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** ListDevelopmentSchemaArns (Paginated)
-    ListDevelopmentSchemaArns (ListDevelopmentSchemaArns'),
-    newListDevelopmentSchemaArns,
-    ListDevelopmentSchemaArnsResponse (ListDevelopmentSchemaArnsResponse'),
-    newListDevelopmentSchemaArnsResponse,
+    -- ** ListPublishedSchemaArns (Paginated)
+    ListPublishedSchemaArns (ListPublishedSchemaArns'),
+    newListPublishedSchemaArns,
+    ListPublishedSchemaArnsResponse (ListPublishedSchemaArnsResponse'),
+    newListPublishedSchemaArnsResponse,
 
-    -- ** GetTypedLinkFacetInformation
-    GetTypedLinkFacetInformation (GetTypedLinkFacetInformation'),
-    newGetTypedLinkFacetInformation,
-    GetTypedLinkFacetInformationResponse (GetTypedLinkFacetInformationResponse'),
-    newGetTypedLinkFacetInformationResponse,
+    -- ** ListDirectories (Paginated)
+    ListDirectories (ListDirectories'),
+    newListDirectories,
+    ListDirectoriesResponse (ListDirectoriesResponse'),
+    newListDirectoriesResponse,
 
-    -- ** DetachTypedLink
-    DetachTypedLink (DetachTypedLink'),
-    newDetachTypedLink,
-    DetachTypedLinkResponse (DetachTypedLinkResponse'),
-    newDetachTypedLinkResponse,
+    -- ** CreateTypedLinkFacet
+    CreateTypedLinkFacet (CreateTypedLinkFacet'),
+    newCreateTypedLinkFacet,
+    CreateTypedLinkFacetResponse (CreateTypedLinkFacetResponse'),
+    newCreateTypedLinkFacetResponse,
+
+    -- ** ListObjectParentPaths (Paginated)
+    ListObjectParentPaths (ListObjectParentPaths'),
+    newListObjectParentPaths,
+    ListObjectParentPathsResponse (ListObjectParentPathsResponse'),
+    newListObjectParentPathsResponse,
+
+    -- ** DisableDirectory
+    DisableDirectory (DisableDirectory'),
+    newDisableDirectory,
+    DisableDirectoryResponse (DisableDirectoryResponse'),
+    newDisableDirectoryResponse,
+
+    -- ** CreateDirectory
+    CreateDirectory (CreateDirectory'),
+    newCreateDirectory,
+    CreateDirectoryResponse (CreateDirectoryResponse'),
+    newCreateDirectoryResponse,
+
+    -- ** ListFacetAttributes (Paginated)
+    ListFacetAttributes (ListFacetAttributes'),
+    newListFacetAttributes,
+    ListFacetAttributesResponse (ListFacetAttributesResponse'),
+    newListFacetAttributesResponse,
+
+    -- ** ListManagedSchemaArns (Paginated)
+    ListManagedSchemaArns (ListManagedSchemaArns'),
+    newListManagedSchemaArns,
+    ListManagedSchemaArnsResponse (ListManagedSchemaArnsResponse'),
+    newListManagedSchemaArnsResponse,
+
+    -- ** UpdateTypedLinkFacet
+    UpdateTypedLinkFacet (UpdateTypedLinkFacet'),
+    newUpdateTypedLinkFacet,
+    UpdateTypedLinkFacetResponse (UpdateTypedLinkFacetResponse'),
+    newUpdateTypedLinkFacetResponse,
+
+    -- ** DeleteTypedLinkFacet
+    DeleteTypedLinkFacet (DeleteTypedLinkFacet'),
+    newDeleteTypedLinkFacet,
+    DeleteTypedLinkFacetResponse (DeleteTypedLinkFacetResponse'),
+    newDeleteTypedLinkFacetResponse,
+
+    -- ** GetAppliedSchemaVersion
+    GetAppliedSchemaVersion (GetAppliedSchemaVersion'),
+    newGetAppliedSchemaVersion,
+    GetAppliedSchemaVersionResponse (GetAppliedSchemaVersionResponse'),
+    newGetAppliedSchemaVersionResponse,
+
+    -- ** RemoveFacetFromObject
+    RemoveFacetFromObject (RemoveFacetFromObject'),
+    newRemoveFacetFromObject,
+    RemoveFacetFromObjectResponse (RemoveFacetFromObjectResponse'),
+    newRemoveFacetFromObjectResponse,
+
+    -- ** EnableDirectory
+    EnableDirectory (EnableDirectory'),
+    newEnableDirectory,
+    EnableDirectoryResponse (EnableDirectoryResponse'),
+    newEnableDirectoryResponse,
+
+    -- ** ListObjectAttributes (Paginated)
+    ListObjectAttributes (ListObjectAttributes'),
+    newListObjectAttributes,
+    ListObjectAttributesResponse (ListObjectAttributesResponse'),
+    newListObjectAttributesResponse,
+
+    -- ** ListAppliedSchemaArns (Paginated)
+    ListAppliedSchemaArns (ListAppliedSchemaArns'),
+    newListAppliedSchemaArns,
+    ListAppliedSchemaArnsResponse (ListAppliedSchemaArnsResponse'),
+    newListAppliedSchemaArnsResponse,
+
+    -- ** ListIncomingTypedLinks (Paginated)
+    ListIncomingTypedLinks (ListIncomingTypedLinks'),
+    newListIncomingTypedLinks,
+    ListIncomingTypedLinksResponse (ListIncomingTypedLinksResponse'),
+    newListIncomingTypedLinksResponse,
 
     -- ** GetFacet
     GetFacet (GetFacet'),
@@ -247,17 +301,143 @@ module Network.AWS.CloudDirectory
     GetFacetResponse (GetFacetResponse'),
     newGetFacetResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** GetTypedLinkFacetInformation
+    GetTypedLinkFacetInformation (GetTypedLinkFacetInformation'),
+    newGetTypedLinkFacetInformation,
+    GetTypedLinkFacetInformationResponse (GetTypedLinkFacetInformationResponse'),
+    newGetTypedLinkFacetInformationResponse,
 
-    -- ** ListIncomingTypedLinks (Paginated)
-    ListIncomingTypedLinks (ListIncomingTypedLinks'),
-    newListIncomingTypedLinks,
-    ListIncomingTypedLinksResponse (ListIncomingTypedLinksResponse'),
-    newListIncomingTypedLinksResponse,
+    -- ** ListDevelopmentSchemaArns (Paginated)
+    ListDevelopmentSchemaArns (ListDevelopmentSchemaArns'),
+    newListDevelopmentSchemaArns,
+    ListDevelopmentSchemaArnsResponse (ListDevelopmentSchemaArnsResponse'),
+    newListDevelopmentSchemaArnsResponse,
+
+    -- ** AttachObject
+    AttachObject (AttachObject'),
+    newAttachObject,
+    AttachObjectResponse (AttachObjectResponse'),
+    newAttachObjectResponse,
+
+    -- ** BatchWrite
+    BatchWrite (BatchWrite'),
+    newBatchWrite,
+    BatchWriteResponse (BatchWriteResponse'),
+    newBatchWriteResponse,
+
+    -- ** CreateObject
+    CreateObject (CreateObject'),
+    newCreateObject,
+    CreateObjectResponse (CreateObjectResponse'),
+    newCreateObjectResponse,
+
+    -- ** UpgradePublishedSchema
+    UpgradePublishedSchema (UpgradePublishedSchema'),
+    newUpgradePublishedSchema,
+    UpgradePublishedSchemaResponse (UpgradePublishedSchemaResponse'),
+    newUpgradePublishedSchemaResponse,
+
+    -- ** CreateFacet
+    CreateFacet (CreateFacet'),
+    newCreateFacet,
+    CreateFacetResponse (CreateFacetResponse'),
+    newCreateFacetResponse,
+
+    -- ** GetLinkAttributes
+    GetLinkAttributes (GetLinkAttributes'),
+    newGetLinkAttributes,
+    GetLinkAttributesResponse (GetLinkAttributesResponse'),
+    newGetLinkAttributesResponse,
+
+    -- ** GetObjectAttributes
+    GetObjectAttributes (GetObjectAttributes'),
+    newGetObjectAttributes,
+    GetObjectAttributesResponse (GetObjectAttributesResponse'),
+    newGetObjectAttributesResponse,
+
+    -- ** DeleteFacet
+    DeleteFacet (DeleteFacet'),
+    newDeleteFacet,
+    DeleteFacetResponse (DeleteFacetResponse'),
+    newDeleteFacetResponse,
+
+    -- ** UpdateFacet
+    UpdateFacet (UpdateFacet'),
+    newUpdateFacet,
+    UpdateFacetResponse (UpdateFacetResponse'),
+    newUpdateFacetResponse,
+
+    -- ** ListObjectChildren
+    ListObjectChildren (ListObjectChildren'),
+    newListObjectChildren,
+    ListObjectChildrenResponse (ListObjectChildrenResponse'),
+    newListObjectChildrenResponse,
+
+    -- ** ListTypedLinkFacetNames (Paginated)
+    ListTypedLinkFacetNames (ListTypedLinkFacetNames'),
+    newListTypedLinkFacetNames,
+    ListTypedLinkFacetNamesResponse (ListTypedLinkFacetNamesResponse'),
+    newListTypedLinkFacetNamesResponse,
+
+    -- ** AttachTypedLink
+    AttachTypedLink (AttachTypedLink'),
+    newAttachTypedLink,
+    AttachTypedLinkResponse (AttachTypedLinkResponse'),
+    newAttachTypedLinkResponse,
+
+    -- ** DetachPolicy
+    DetachPolicy (DetachPolicy'),
+    newDetachPolicy,
+    DetachPolicyResponse (DetachPolicyResponse'),
+    newDetachPolicyResponse,
+
+    -- ** CreateIndex
+    CreateIndex (CreateIndex'),
+    newCreateIndex,
+    CreateIndexResponse (CreateIndexResponse'),
+    newCreateIndexResponse,
+
+    -- ** DetachObject
+    DetachObject (DetachObject'),
+    newDetachObject,
+    DetachObjectResponse (DetachObjectResponse'),
+    newDetachObjectResponse,
+
+    -- ** AddFacetToObject
+    AddFacetToObject (AddFacetToObject'),
+    newAddFacetToObject,
+    AddFacetToObjectResponse (AddFacetToObjectResponse'),
+    newAddFacetToObjectResponse,
+
+    -- ** ApplySchema
+    ApplySchema (ApplySchema'),
+    newApplySchema,
+    ApplySchemaResponse (ApplySchemaResponse'),
+    newApplySchemaResponse,
+
+    -- ** CreateSchema
+    CreateSchema (CreateSchema'),
+    newCreateSchema,
+    CreateSchemaResponse (CreateSchemaResponse'),
+    newCreateSchemaResponse,
+
+    -- ** GetSchemaAsJson
+    GetSchemaAsJson (GetSchemaAsJson'),
+    newGetSchemaAsJson,
+    GetSchemaAsJsonResponse (GetSchemaAsJsonResponse'),
+    newGetSchemaAsJsonResponse,
+
+    -- ** PublishSchema
+    PublishSchema (PublishSchema'),
+    newPublishSchema,
+    PublishSchemaResponse (PublishSchemaResponse'),
+    newPublishSchemaResponse,
+
+    -- ** DeleteDirectory
+    DeleteDirectory (DeleteDirectory'),
+    newDeleteDirectory,
+    DeleteDirectoryResponse (DeleteDirectoryResponse'),
+    newDeleteDirectoryResponse,
 
     -- ** ListObjectParents
     ListObjectParents (ListObjectParents'),
@@ -277,161 +457,35 @@ module Network.AWS.CloudDirectory
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** ListObjectAttributes (Paginated)
-    ListObjectAttributes (ListObjectAttributes'),
-    newListObjectAttributes,
-    ListObjectAttributesResponse (ListObjectAttributesResponse'),
-    newListObjectAttributesResponse,
+    -- ** UpdateSchema
+    UpdateSchema (UpdateSchema'),
+    newUpdateSchema,
+    UpdateSchemaResponse (UpdateSchemaResponse'),
+    newUpdateSchemaResponse,
 
-    -- ** DeleteTypedLinkFacet
-    DeleteTypedLinkFacet (DeleteTypedLinkFacet'),
-    newDeleteTypedLinkFacet,
-    DeleteTypedLinkFacetResponse (DeleteTypedLinkFacetResponse'),
-    newDeleteTypedLinkFacetResponse,
+    -- ** DeleteSchema
+    DeleteSchema (DeleteSchema'),
+    newDeleteSchema,
+    DeleteSchemaResponse (DeleteSchemaResponse'),
+    newDeleteSchemaResponse,
 
-    -- ** PublishSchema
-    PublishSchema (PublishSchema'),
-    newPublishSchema,
-    PublishSchemaResponse (PublishSchemaResponse'),
-    newPublishSchemaResponse,
-
-    -- ** DeleteDirectory
-    DeleteDirectory (DeleteDirectory'),
-    newDeleteDirectory,
-    DeleteDirectoryResponse (DeleteDirectoryResponse'),
-    newDeleteDirectoryResponse,
-
-    -- ** UpdateTypedLinkFacet
-    UpdateTypedLinkFacet (UpdateTypedLinkFacet'),
-    newUpdateTypedLinkFacet,
-    UpdateTypedLinkFacetResponse (UpdateTypedLinkFacetResponse'),
-    newUpdateTypedLinkFacetResponse,
-
-    -- ** CreateDirectory
-    CreateDirectory (CreateDirectory'),
-    newCreateDirectory,
-    CreateDirectoryResponse (CreateDirectoryResponse'),
-    newCreateDirectoryResponse,
-
-    -- ** ListPublishedSchemaArns (Paginated)
-    ListPublishedSchemaArns (ListPublishedSchemaArns'),
-    newListPublishedSchemaArns,
-    ListPublishedSchemaArnsResponse (ListPublishedSchemaArnsResponse'),
-    newListPublishedSchemaArnsResponse,
-
-    -- ** ListDirectories (Paginated)
-    ListDirectories (ListDirectories'),
-    newListDirectories,
-    ListDirectoriesResponse (ListDirectoriesResponse'),
-    newListDirectoriesResponse,
-
-    -- ** ListObjectParentPaths (Paginated)
-    ListObjectParentPaths (ListObjectParentPaths'),
-    newListObjectParentPaths,
-    ListObjectParentPathsResponse (ListObjectParentPathsResponse'),
-    newListObjectParentPathsResponse,
-
-    -- ** CreateSchema
-    CreateSchema (CreateSchema'),
-    newCreateSchema,
-    CreateSchemaResponse (CreateSchemaResponse'),
-    newCreateSchemaResponse,
-
-    -- ** LookupPolicy (Paginated)
-    LookupPolicy (LookupPolicy'),
-    newLookupPolicy,
-    LookupPolicyResponse (LookupPolicyResponse'),
-    newLookupPolicyResponse,
-
-    -- ** CreateIndex
-    CreateIndex (CreateIndex'),
-    newCreateIndex,
-    CreateIndexResponse (CreateIndexResponse'),
-    newCreateIndexResponse,
-
-    -- ** DetachFromIndex
-    DetachFromIndex (DetachFromIndex'),
-    newDetachFromIndex,
-    DetachFromIndexResponse (DetachFromIndexResponse'),
-    newDetachFromIndexResponse,
-
-    -- ** ListAttachedIndices (Paginated)
-    ListAttachedIndices (ListAttachedIndices'),
-    newListAttachedIndices,
-    ListAttachedIndicesResponse (ListAttachedIndicesResponse'),
-    newListAttachedIndicesResponse,
-
-    -- ** DetachPolicy
-    DetachPolicy (DetachPolicy'),
-    newDetachPolicy,
-    DetachPolicyResponse (DetachPolicyResponse'),
-    newDetachPolicyResponse,
-
-    -- ** ListObjectChildren
-    ListObjectChildren (ListObjectChildren'),
-    newListObjectChildren,
-    ListObjectChildrenResponse (ListObjectChildrenResponse'),
-    newListObjectChildrenResponse,
-
-    -- ** ListIndex (Paginated)
-    ListIndex (ListIndex'),
-    newListIndex,
-    ListIndexResponse (ListIndexResponse'),
-    newListIndexResponse,
-
-    -- ** ListObjectPolicies (Paginated)
-    ListObjectPolicies (ListObjectPolicies'),
-    newListObjectPolicies,
-    ListObjectPoliciesResponse (ListObjectPoliciesResponse'),
-    newListObjectPoliciesResponse,
-
-    -- ** GetLinkAttributes
-    GetLinkAttributes (GetLinkAttributes'),
-    newGetLinkAttributes,
-    GetLinkAttributesResponse (GetLinkAttributesResponse'),
-    newGetLinkAttributesResponse,
-
-    -- ** CreateFacet
-    CreateFacet (CreateFacet'),
-    newCreateFacet,
-    CreateFacetResponse (CreateFacetResponse'),
-    newCreateFacetResponse,
-
-    -- ** PutSchemaFromJson
-    PutSchemaFromJson (PutSchemaFromJson'),
-    newPutSchemaFromJson,
-    PutSchemaFromJsonResponse (PutSchemaFromJsonResponse'),
-    newPutSchemaFromJsonResponse,
-
-    -- ** BatchRead
-    BatchRead (BatchRead'),
-    newBatchRead,
-    BatchReadResponse (BatchReadResponse'),
-    newBatchReadResponse,
-
-    -- ** AttachObject
-    AttachObject (AttachObject'),
-    newAttachObject,
-    AttachObjectResponse (AttachObjectResponse'),
-    newAttachObjectResponse,
-
-    -- ** AttachToIndex
-    AttachToIndex (AttachToIndex'),
-    newAttachToIndex,
-    AttachToIndexResponse (AttachToIndexResponse'),
-    newAttachToIndexResponse,
-
-    -- ** AttachPolicy
-    AttachPolicy (AttachPolicy'),
-    newAttachPolicy,
-    AttachPolicyResponse (AttachPolicyResponse'),
-    newAttachPolicyResponse,
+    -- ** DetachTypedLink
+    DetachTypedLink (DetachTypedLink'),
+    newDetachTypedLink,
+    DetachTypedLinkResponse (DetachTypedLinkResponse'),
+    newDetachTypedLinkResponse,
 
     -- ** ListFacetNames (Paginated)
     ListFacetNames (ListFacetNames'),
     newListFacetNames,
     ListFacetNamesResponse (ListFacetNamesResponse'),
     newListFacetNamesResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** ListOutgoingTypedLinks (Paginated)
     ListOutgoingTypedLinks (ListOutgoingTypedLinks'),
@@ -445,95 +499,41 @@ module Network.AWS.CloudDirectory
     UpdateObjectAttributesResponse (UpdateObjectAttributesResponse'),
     newUpdateObjectAttributesResponse,
 
-    -- ** ListAppliedSchemaArns (Paginated)
-    ListAppliedSchemaArns (ListAppliedSchemaArns'),
-    newListAppliedSchemaArns,
-    ListAppliedSchemaArnsResponse (ListAppliedSchemaArnsResponse'),
-    newListAppliedSchemaArnsResponse,
+    -- ** AttachPolicy
+    AttachPolicy (AttachPolicy'),
+    newAttachPolicy,
+    AttachPolicyResponse (AttachPolicyResponse'),
+    newAttachPolicyResponse,
 
-    -- ** ListManagedSchemaArns (Paginated)
-    ListManagedSchemaArns (ListManagedSchemaArns'),
-    newListManagedSchemaArns,
-    ListManagedSchemaArnsResponse (ListManagedSchemaArnsResponse'),
-    newListManagedSchemaArnsResponse,
+    -- ** BatchRead
+    BatchRead (BatchRead'),
+    newBatchRead,
+    BatchReadResponse (BatchReadResponse'),
+    newBatchReadResponse,
 
-    -- ** DeleteSchema
-    DeleteSchema (DeleteSchema'),
-    newDeleteSchema,
-    DeleteSchemaResponse (DeleteSchemaResponse'),
-    newDeleteSchemaResponse,
+    -- ** PutSchemaFromJson
+    PutSchemaFromJson (PutSchemaFromJson'),
+    newPutSchemaFromJson,
+    PutSchemaFromJsonResponse (PutSchemaFromJsonResponse'),
+    newPutSchemaFromJsonResponse,
 
-    -- ** UpdateSchema
-    UpdateSchema (UpdateSchema'),
-    newUpdateSchema,
-    UpdateSchemaResponse (UpdateSchemaResponse'),
-    newUpdateSchemaResponse,
+    -- ** UpdateLinkAttributes
+    UpdateLinkAttributes (UpdateLinkAttributes'),
+    newUpdateLinkAttributes,
+    UpdateLinkAttributesResponse (UpdateLinkAttributesResponse'),
+    newUpdateLinkAttributesResponse,
 
-    -- ** RemoveFacetFromObject
-    RemoveFacetFromObject (RemoveFacetFromObject'),
-    newRemoveFacetFromObject,
-    RemoveFacetFromObjectResponse (RemoveFacetFromObjectResponse'),
-    newRemoveFacetFromObjectResponse,
+    -- ** AttachToIndex
+    AttachToIndex (AttachToIndex'),
+    newAttachToIndex,
+    AttachToIndexResponse (AttachToIndexResponse'),
+    newAttachToIndexResponse,
 
-    -- ** ListFacetAttributes (Paginated)
-    ListFacetAttributes (ListFacetAttributes'),
-    newListFacetAttributes,
-    ListFacetAttributesResponse (ListFacetAttributesResponse'),
-    newListFacetAttributesResponse,
-
-    -- ** GetAppliedSchemaVersion
-    GetAppliedSchemaVersion (GetAppliedSchemaVersion'),
-    newGetAppliedSchemaVersion,
-    GetAppliedSchemaVersionResponse (GetAppliedSchemaVersionResponse'),
-    newGetAppliedSchemaVersionResponse,
-
-    -- ** EnableDirectory
-    EnableDirectory (EnableDirectory'),
-    newEnableDirectory,
-    EnableDirectoryResponse (EnableDirectoryResponse'),
-    newEnableDirectoryResponse,
-
-    -- ** ApplySchema
-    ApplySchema (ApplySchema'),
-    newApplySchema,
-    ApplySchemaResponse (ApplySchemaResponse'),
-    newApplySchemaResponse,
-
-    -- ** DisableDirectory
-    DisableDirectory (DisableDirectory'),
-    newDisableDirectory,
-    DisableDirectoryResponse (DisableDirectoryResponse'),
-    newDisableDirectoryResponse,
-
-    -- ** CreateTypedLinkFacet
-    CreateTypedLinkFacet (CreateTypedLinkFacet'),
-    newCreateTypedLinkFacet,
-    CreateTypedLinkFacetResponse (CreateTypedLinkFacetResponse'),
-    newCreateTypedLinkFacetResponse,
-
-    -- ** GetSchemaAsJson
-    GetSchemaAsJson (GetSchemaAsJson'),
-    newGetSchemaAsJson,
-    GetSchemaAsJsonResponse (GetSchemaAsJsonResponse'),
-    newGetSchemaAsJsonResponse,
-
-    -- ** DetachObject
-    DetachObject (DetachObject'),
-    newDetachObject,
-    DetachObjectResponse (DetachObjectResponse'),
-    newDetachObjectResponse,
-
-    -- ** AddFacetToObject
-    AddFacetToObject (AddFacetToObject'),
-    newAddFacetToObject,
-    AddFacetToObjectResponse (AddFacetToObjectResponse'),
-    newAddFacetToObjectResponse,
-
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** ListObjectPolicies (Paginated)
+    ListObjectPolicies (ListObjectPolicies'),
+    newListObjectPolicies,
+    ListObjectPoliciesResponse (ListObjectPoliciesResponse'),
+    newListObjectPoliciesResponse,
 
     -- * Types
 

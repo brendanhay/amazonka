@@ -19,41 +19,53 @@ module Network.AWS.Rekognition
     -- * Errors
     -- $errors
 
-    -- ** ServiceQuotaExceededException
-    _ServiceQuotaExceededException,
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** VideoTooLargeException
     _VideoTooLargeException,
 
-    -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
-    -- ** HumanLoopQuotaExceededException
-    _HumanLoopQuotaExceededException,
-
-    -- ** ImageTooLargeException
-    _ImageTooLargeException,
-
-    -- ** ResourceNotReadyException
-    _ResourceNotReadyException,
-
-    -- ** InvalidS3ObjectException
-    _InvalidS3ObjectException,
+    -- ** InvalidImageFormatException
+    _InvalidImageFormatException,
 
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** InternalServerError
-    _InternalServerError,
+    -- ** InvalidS3ObjectException
+    _InvalidS3ObjectException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ImageTooLargeException
+    _ImageTooLargeException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ThrottlingException
     _ThrottlingException,
 
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** InternalServerError
+    _InternalServerError,
 
-    -- ** AccessDeniedException
-    _AccessDeniedException,
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** HumanLoopQuotaExceededException
+    _HumanLoopQuotaExceededException,
+
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -61,209 +73,17 @@ module Network.AWS.Rekognition
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
-
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
-
-    -- ** InvalidImageFormatException
-    _InvalidImageFormatException,
-
     -- * Waiters
     -- $waiters
-
-    -- ** ProjectVersionTrainingCompleted
-    newProjectVersionTrainingCompleted,
 
     -- ** ProjectVersionRunning
     newProjectVersionRunning,
 
+    -- ** ProjectVersionTrainingCompleted
+    newProjectVersionTrainingCompleted,
+
     -- * Operations
     -- $operations
-
-    -- ** StartFaceSearch
-    StartFaceSearch (StartFaceSearch'),
-    newStartFaceSearch,
-    StartFaceSearchResponse (StartFaceSearchResponse'),
-    newStartFaceSearchResponse,
-
-    -- ** GetLabelDetection
-    GetLabelDetection (GetLabelDetection'),
-    newGetLabelDetection,
-    GetLabelDetectionResponse (GetLabelDetectionResponse'),
-    newGetLabelDetectionResponse,
-
-    -- ** DeleteCollection
-    DeleteCollection (DeleteCollection'),
-    newDeleteCollection,
-    DeleteCollectionResponse (DeleteCollectionResponse'),
-    newDeleteCollectionResponse,
-
-    -- ** DescribeStreamProcessor
-    DescribeStreamProcessor (DescribeStreamProcessor'),
-    newDescribeStreamProcessor,
-    DescribeStreamProcessorResponse (DescribeStreamProcessorResponse'),
-    newDescribeStreamProcessorResponse,
-
-    -- ** SearchFaces
-    SearchFaces (SearchFaces'),
-    newSearchFaces,
-    SearchFacesResponse (SearchFacesResponse'),
-    newSearchFacesResponse,
-
-    -- ** GetTextDetection
-    GetTextDetection (GetTextDetection'),
-    newGetTextDetection,
-    GetTextDetectionResponse (GetTextDetectionResponse'),
-    newGetTextDetectionResponse,
-
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
-
-    -- ** DetectCustomLabels
-    DetectCustomLabels (DetectCustomLabels'),
-    newDetectCustomLabels,
-    DetectCustomLabelsResponse (DetectCustomLabelsResponse'),
-    newDetectCustomLabelsResponse,
-
-    -- ** RecognizeCelebrities
-    RecognizeCelebrities (RecognizeCelebrities'),
-    newRecognizeCelebrities,
-    RecognizeCelebritiesResponse (RecognizeCelebritiesResponse'),
-    newRecognizeCelebritiesResponse,
-
-    -- ** StartFaceDetection
-    StartFaceDetection (StartFaceDetection'),
-    newStartFaceDetection,
-    StartFaceDetectionResponse (StartFaceDetectionResponse'),
-    newStartFaceDetectionResponse,
-
-    -- ** DetectModerationLabels
-    DetectModerationLabels (DetectModerationLabels'),
-    newDetectModerationLabels,
-    DetectModerationLabelsResponse (DetectModerationLabelsResponse'),
-    newDetectModerationLabelsResponse,
-
-    -- ** ListStreamProcessors (Paginated)
-    ListStreamProcessors (ListStreamProcessors'),
-    newListStreamProcessors,
-    ListStreamProcessorsResponse (ListStreamProcessorsResponse'),
-    newListStreamProcessorsResponse,
-
-    -- ** DeleteStreamProcessor
-    DeleteStreamProcessor (DeleteStreamProcessor'),
-    newDeleteStreamProcessor,
-    DeleteStreamProcessorResponse (DeleteStreamProcessorResponse'),
-    newDeleteStreamProcessorResponse,
-
-    -- ** DescribeCollection
-    DescribeCollection (DescribeCollection'),
-    newDescribeCollection,
-    DescribeCollectionResponse (DescribeCollectionResponse'),
-    newDescribeCollectionResponse,
-
-    -- ** DeleteFaces
-    DeleteFaces (DeleteFaces'),
-    newDeleteFaces,
-    DeleteFacesResponse (DeleteFacesResponse'),
-    newDeleteFacesResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** ListFaces (Paginated)
-    ListFaces (ListFaces'),
-    newListFaces,
-    ListFacesResponse (ListFacesResponse'),
-    newListFacesResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** SearchFacesByImage
-    SearchFacesByImage (SearchFacesByImage'),
-    newSearchFacesByImage,
-    SearchFacesByImageResponse (SearchFacesByImageResponse'),
-    newSearchFacesByImageResponse,
-
-    -- ** CompareFaces
-    CompareFaces (CompareFaces'),
-    newCompareFaces,
-    CompareFacesResponse (CompareFacesResponse'),
-    newCompareFacesResponse,
-
-    -- ** CreateCollection
-    CreateCollection (CreateCollection'),
-    newCreateCollection,
-    CreateCollectionResponse (CreateCollectionResponse'),
-    newCreateCollectionResponse,
-
-    -- ** DetectLabels
-    DetectLabels (DetectLabels'),
-    newDetectLabels,
-    DetectLabelsResponse (DetectLabelsResponse'),
-    newDetectLabelsResponse,
-
-    -- ** GetSegmentDetection
-    GetSegmentDetection (GetSegmentDetection'),
-    newGetSegmentDetection,
-    GetSegmentDetectionResponse (GetSegmentDetectionResponse'),
-    newGetSegmentDetectionResponse,
-
-    -- ** StartPersonTracking
-    StartPersonTracking (StartPersonTracking'),
-    newStartPersonTracking,
-    StartPersonTrackingResponse (StartPersonTrackingResponse'),
-    newStartPersonTrackingResponse,
-
-    -- ** GetCelebrityRecognition
-    GetCelebrityRecognition (GetCelebrityRecognition'),
-    newGetCelebrityRecognition,
-    GetCelebrityRecognitionResponse (GetCelebrityRecognitionResponse'),
-    newGetCelebrityRecognitionResponse,
-
-    -- ** StartProjectVersion
-    StartProjectVersion (StartProjectVersion'),
-    newStartProjectVersion,
-    StartProjectVersionResponse (StartProjectVersionResponse'),
-    newStartProjectVersionResponse,
-
-    -- ** ListCollections (Paginated)
-    ListCollections (ListCollections'),
-    newListCollections,
-    ListCollectionsResponse (ListCollectionsResponse'),
-    newListCollectionsResponse,
-
-    -- ** StopProjectVersion
-    StopProjectVersion (StopProjectVersion'),
-    newStopProjectVersion,
-    StopProjectVersionResponse (StopProjectVersionResponse'),
-    newStopProjectVersionResponse,
-
-    -- ** IndexFaces
-    IndexFaces (IndexFaces'),
-    newIndexFaces,
-    IndexFacesResponse (IndexFacesResponse'),
-    newIndexFacesResponse,
-
-    -- ** StartSegmentDetection
-    StartSegmentDetection (StartSegmentDetection'),
-    newStartSegmentDetection,
-    StartSegmentDetectionResponse (StartSegmentDetectionResponse'),
-    newStartSegmentDetectionResponse,
 
     -- ** DetectProtectiveEquipment
     DetectProtectiveEquipment (DetectProtectiveEquipment'),
@@ -289,23 +109,83 @@ module Network.AWS.Rekognition
     GetPersonTrackingResponse (GetPersonTrackingResponse'),
     newGetPersonTrackingResponse,
 
-    -- ** StartLabelDetection
-    StartLabelDetection (StartLabelDetection'),
-    newStartLabelDetection,
-    StartLabelDetectionResponse (StartLabelDetectionResponse'),
-    newStartLabelDetectionResponse,
+    -- ** GetTextDetection
+    GetTextDetection (GetTextDetection'),
+    newGetTextDetection,
+    GetTextDetectionResponse (GetTextDetectionResponse'),
+    newGetTextDetectionResponse,
 
-    -- ** DescribeProjectVersions (Paginated)
-    DescribeProjectVersions (DescribeProjectVersions'),
-    newDescribeProjectVersions,
-    DescribeProjectVersionsResponse (DescribeProjectVersionsResponse'),
-    newDescribeProjectVersionsResponse,
+    -- ** StartSegmentDetection
+    StartSegmentDetection (StartSegmentDetection'),
+    newStartSegmentDetection,
+    StartSegmentDetectionResponse (StartSegmentDetectionResponse'),
+    newStartSegmentDetectionResponse,
 
-    -- ** GetFaceSearch
-    GetFaceSearch (GetFaceSearch'),
-    newGetFaceSearch,
-    GetFaceSearchResponse (GetFaceSearchResponse'),
-    newGetFaceSearchResponse,
+    -- ** ListCollections (Paginated)
+    ListCollections (ListCollections'),
+    newListCollections,
+    ListCollectionsResponse (ListCollectionsResponse'),
+    newListCollectionsResponse,
+
+    -- ** StartProjectVersion
+    StartProjectVersion (StartProjectVersion'),
+    newStartProjectVersion,
+    StartProjectVersionResponse (StartProjectVersionResponse'),
+    newStartProjectVersionResponse,
+
+    -- ** DeleteCollection
+    DeleteCollection (DeleteCollection'),
+    newDeleteCollection,
+    DeleteCollectionResponse (DeleteCollectionResponse'),
+    newDeleteCollectionResponse,
+
+    -- ** CreateCollection
+    CreateCollection (CreateCollection'),
+    newCreateCollection,
+    CreateCollectionResponse (CreateCollectionResponse'),
+    newCreateCollectionResponse,
+
+    -- ** StopStreamProcessor
+    StopStreamProcessor (StopStreamProcessor'),
+    newStopStreamProcessor,
+    StopStreamProcessorResponse (StopStreamProcessorResponse'),
+    newStopStreamProcessorResponse,
+
+    -- ** DetectLabels
+    DetectLabels (DetectLabels'),
+    newDetectLabels,
+    DetectLabelsResponse (DetectLabelsResponse'),
+    newDetectLabelsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** StartContentModeration
+    StartContentModeration (StartContentModeration'),
+    newStartContentModeration,
+    StartContentModerationResponse (StartContentModerationResponse'),
+    newStartContentModerationResponse,
+
+    -- ** SearchFacesByImage
+    SearchFacesByImage (SearchFacesByImage'),
+    newSearchFacesByImage,
+    SearchFacesByImageResponse (SearchFacesByImageResponse'),
+    newSearchFacesByImageResponse,
+
+    -- ** ListStreamProcessors (Paginated)
+    ListStreamProcessors (ListStreamProcessors'),
+    newListStreamProcessors,
+    ListStreamProcessorsResponse (ListStreamProcessorsResponse'),
+    newListStreamProcessorsResponse,
+
+    -- ** DescribeCollection
+    DescribeCollection (DescribeCollection'),
+    newDescribeCollection,
+    DescribeCollectionResponse (DescribeCollectionResponse'),
+    newDescribeCollectionResponse,
 
     -- ** DeleteProjectVersion
     DeleteProjectVersion (DeleteProjectVersion'),
@@ -313,53 +193,89 @@ module Network.AWS.Rekognition
     DeleteProjectVersionResponse (DeleteProjectVersionResponse'),
     newDeleteProjectVersionResponse,
 
-    -- ** CreateStreamProcessor
-    CreateStreamProcessor (CreateStreamProcessor'),
-    newCreateStreamProcessor,
-    CreateStreamProcessorResponse (CreateStreamProcessorResponse'),
-    newCreateStreamProcessorResponse,
+    -- ** DescribeProjectVersions (Paginated)
+    DescribeProjectVersions (DescribeProjectVersions'),
+    newDescribeProjectVersions,
+    DescribeProjectVersionsResponse (DescribeProjectVersionsResponse'),
+    newDescribeProjectVersionsResponse,
 
-    -- ** GetCelebrityInfo
-    GetCelebrityInfo (GetCelebrityInfo'),
-    newGetCelebrityInfo,
-    GetCelebrityInfoResponse (GetCelebrityInfoResponse'),
-    newGetCelebrityInfoResponse,
+    -- ** RecognizeCelebrities
+    RecognizeCelebrities (RecognizeCelebrities'),
+    newRecognizeCelebrities,
+    RecognizeCelebritiesResponse (RecognizeCelebritiesResponse'),
+    newRecognizeCelebritiesResponse,
 
-    -- ** GetContentModeration
-    GetContentModeration (GetContentModeration'),
-    newGetContentModeration,
-    GetContentModerationResponse (GetContentModerationResponse'),
-    newGetContentModerationResponse,
+    -- ** DetectCustomLabels
+    DetectCustomLabels (DetectCustomLabels'),
+    newDetectCustomLabels,
+    DetectCustomLabelsResponse (DetectCustomLabelsResponse'),
+    newDetectCustomLabelsResponse,
 
-    -- ** DescribeProjects (Paginated)
-    DescribeProjects (DescribeProjects'),
-    newDescribeProjects,
-    DescribeProjectsResponse (DescribeProjectsResponse'),
-    newDescribeProjectsResponse,
+    -- ** GetFaceSearch
+    GetFaceSearch (GetFaceSearch'),
+    newGetFaceSearch,
+    GetFaceSearchResponse (GetFaceSearchResponse'),
+    newGetFaceSearchResponse,
 
-    -- ** CreateProjectVersion
-    CreateProjectVersion (CreateProjectVersion'),
-    newCreateProjectVersion,
-    CreateProjectVersionResponse (CreateProjectVersionResponse'),
-    newCreateProjectVersionResponse,
+    -- ** StartLabelDetection
+    StartLabelDetection (StartLabelDetection'),
+    newStartLabelDetection,
+    StartLabelDetectionResponse (StartLabelDetectionResponse'),
+    newStartLabelDetectionResponse,
 
-    -- ** GetFaceDetection
-    GetFaceDetection (GetFaceDetection'),
-    newGetFaceDetection,
-    GetFaceDetectionResponse (GetFaceDetectionResponse'),
-    newGetFaceDetectionResponse,
+    -- ** SearchFaces
+    SearchFaces (SearchFaces'),
+    newSearchFaces,
+    SearchFacesResponse (SearchFacesResponse'),
+    newSearchFacesResponse,
 
-    -- ** DetectFaces
-    DetectFaces (DetectFaces'),
-    newDetectFaces,
-    DetectFacesResponse (DetectFacesResponse'),
-    newDetectFacesResponse,
+    -- ** IndexFaces
+    IndexFaces (IndexFaces'),
+    newIndexFaces,
+    IndexFacesResponse (IndexFacesResponse'),
+    newIndexFacesResponse,
 
-    -- ** StartContentModeration
-    StartContentModeration (StartContentModeration'),
-    newStartContentModeration,
-    StartContentModerationResponse (StartContentModerationResponse'),
-    newStartContentModerationResponse,
+    -- ** GetLabelDetection
+    GetLabelDetection (GetLabelDetection'),
+    newGetLabelDetection,
+    GetLabelDetectionResponse (GetLabelDetectionResponse'),
+    newGetLabelDetectionResponse,
+
+    -- ** StopProjectVersion
+    StopProjectVersion (StopProjectVersion'),
+    newStopProjectVersion,
+    StopProjectVersionResponse (StopProjectVersionResponse'),
+    newStopProjectVersionResponse,
+
+    -- ** DescribeStreamProcessor
+    DescribeStreamProcessor (DescribeStreamProcessor'),
+    newDescribeStreamProcessor,
+    DescribeStreamProcessorResponse (DescribeStreamProcessorResponse'),
+    newDescribeStreamProcessorResponse,
+
+    -- ** StartFaceSearch
+    StartFaceSearch (StartFaceSearch'),
+    newStartFaceSearch,
+    StartFaceSearchResponse (StartFaceSearchResponse'),
+    newStartFaceSearchResponse,
+
+    -- ** StartTextDetection
+    StartTextDetection (StartTextDetection'),
+    newStartTextDetection,
+    StartTextDetectionResponse (StartTextDetectionResponse'),
+    newStartTextDetectionResponse,
+
+    -- ** StartPersonTracking
+    StartPersonTracking (StartPersonTracking'),
+    newStartPersonTracking,
+    StartPersonTrackingResponse (StartPersonTrackingResponse'),
+    newStartPersonTrackingResponse,
+
+    -- ** GetCelebrityRecognition
+    GetCelebrityRecognition (GetCelebrityRecognition'),
+    newGetCelebrityRecognition,
+    GetCelebrityRecognitionResponse (GetCelebrityRecognitionResponse'),
+    newGetCelebrityRecognitionResponse,
 
     -- ** StartStreamProcessor
     StartStreamProcessor (StartStreamProcessor'),
@@ -373,23 +289,107 @@ module Network.AWS.Rekognition
     DetectTextResponse (DetectTextResponse'),
     newDetectTextResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** GetSegmentDetection
+    GetSegmentDetection (GetSegmentDetection'),
+    newGetSegmentDetection,
+    GetSegmentDetectionResponse (GetSegmentDetectionResponse'),
+    newGetSegmentDetectionResponse,
 
-    -- ** StopStreamProcessor
-    StopStreamProcessor (StopStreamProcessor'),
-    newStopStreamProcessor,
-    StopStreamProcessorResponse (StopStreamProcessorResponse'),
-    newStopStreamProcessorResponse,
+    -- ** CompareFaces
+    CompareFaces (CompareFaces'),
+    newCompareFaces,
+    CompareFacesResponse (CompareFacesResponse'),
+    newCompareFacesResponse,
 
-    -- ** StartTextDetection
-    StartTextDetection (StartTextDetection'),
-    newStartTextDetection,
-    StartTextDetectionResponse (StartTextDetectionResponse'),
-    newStartTextDetectionResponse,
+    -- ** DetectFaces
+    DetectFaces (DetectFaces'),
+    newDetectFaces,
+    DetectFacesResponse (DetectFacesResponse'),
+    newDetectFacesResponse,
+
+    -- ** GetFaceDetection
+    GetFaceDetection (GetFaceDetection'),
+    newGetFaceDetection,
+    GetFaceDetectionResponse (GetFaceDetectionResponse'),
+    newGetFaceDetectionResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** ListFaces (Paginated)
+    ListFaces (ListFaces'),
+    newListFaces,
+    ListFacesResponse (ListFacesResponse'),
+    newListFacesResponse,
+
+    -- ** CreateProjectVersion
+    CreateProjectVersion (CreateProjectVersion'),
+    newCreateProjectVersion,
+    CreateProjectVersionResponse (CreateProjectVersionResponse'),
+    newCreateProjectVersionResponse,
+
+    -- ** DescribeProjects (Paginated)
+    DescribeProjects (DescribeProjects'),
+    newDescribeProjects,
+    DescribeProjectsResponse (DescribeProjectsResponse'),
+    newDescribeProjectsResponse,
+
+    -- ** GetContentModeration
+    GetContentModeration (GetContentModeration'),
+    newGetContentModeration,
+    GetContentModerationResponse (GetContentModerationResponse'),
+    newGetContentModerationResponse,
+
+    -- ** DeleteFaces
+    DeleteFaces (DeleteFaces'),
+    newDeleteFaces,
+    DeleteFacesResponse (DeleteFacesResponse'),
+    newDeleteFacesResponse,
+
+    -- ** GetCelebrityInfo
+    GetCelebrityInfo (GetCelebrityInfo'),
+    newGetCelebrityInfo,
+    GetCelebrityInfoResponse (GetCelebrityInfoResponse'),
+    newGetCelebrityInfoResponse,
+
+    -- ** DeleteStreamProcessor
+    DeleteStreamProcessor (DeleteStreamProcessor'),
+    newDeleteStreamProcessor,
+    DeleteStreamProcessorResponse (DeleteStreamProcessorResponse'),
+    newDeleteStreamProcessorResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DetectModerationLabels
+    DetectModerationLabels (DetectModerationLabels'),
+    newDetectModerationLabels,
+    DetectModerationLabelsResponse (DetectModerationLabelsResponse'),
+    newDetectModerationLabelsResponse,
+
+    -- ** CreateStreamProcessor
+    CreateStreamProcessor (CreateStreamProcessor'),
+    newCreateStreamProcessor,
+    CreateStreamProcessorResponse (CreateStreamProcessorResponse'),
+    newCreateStreamProcessorResponse,
+
+    -- ** StartFaceDetection
+    StartFaceDetection (StartFaceDetection'),
+    newStartFaceDetection,
+    StartFaceDetectionResponse (StartFaceDetectionResponse'),
+    newStartFaceDetectionResponse,
+
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- * Types
 

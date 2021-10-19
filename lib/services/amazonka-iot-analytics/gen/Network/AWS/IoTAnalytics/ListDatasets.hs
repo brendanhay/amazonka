@@ -187,7 +187,7 @@ listDatasetsResponse_nextToken = Lens.lens (\ListDatasetsResponse' {nextToken} -
 
 -- | A list of @DatasetSummary@ objects.
 listDatasetsResponse_datasetSummaries :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe [DatasetSummary])
-listDatasetsResponse_datasetSummaries = Lens.lens (\ListDatasetsResponse' {datasetSummaries} -> datasetSummaries) (\s@ListDatasetsResponse' {} a -> s {datasetSummaries = a} :: ListDatasetsResponse) Prelude.. Lens.mapping Lens._Coerce
+listDatasetsResponse_datasetSummaries = Lens.lens (\ListDatasetsResponse' {datasetSummaries} -> datasetSummaries) (\s@ListDatasetsResponse' {} a -> s {datasetSummaries = a} :: ListDatasetsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Prelude.Int

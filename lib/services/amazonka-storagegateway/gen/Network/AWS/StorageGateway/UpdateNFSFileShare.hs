@@ -43,6 +43,7 @@ module Network.AWS.StorageGateway.UpdateNFSFileShare
     newUpdateNFSFileShare,
 
     -- * Request Lenses
+    updateNFSFileShare_auditDestinationARN,
     updateNFSFileShare_kmsKey,
     updateNFSFileShare_cacheAttributes,
     updateNFSFileShare_objectACL,
@@ -79,12 +80,14 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newUpdateNFSFileShare' smart constructor.
 data UpdateNFSFileShare = UpdateNFSFileShare'
-  { -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+  { -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
     kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | specifies refresh cache information for the file share.
+    -- | Specifies refresh cache information for the file share.
     cacheAttributes :: Prelude.Maybe CacheAttributes,
     -- | A value that sets the access control list (ACL) permission for objects
     -- in the S3 bucket that a S3 File Gateway puts objects into. The default
@@ -105,7 +108,7 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@.
+    -- @LocationARN@, or if an access point or access point alias is used.
     fileShareName :: Prelude.Maybe Prelude.Text,
     -- | The notification policy of the file share. @SettlingTimeInSeconds@
     -- controls the number of seconds to wait after the last point in time a
@@ -176,12 +179,14 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'auditDestinationARN', 'updateNFSFileShare_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for audit logs.
+--
 -- 'kmsKey', 'updateNFSFileShare_kmsKey' - The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
 --
--- 'cacheAttributes', 'updateNFSFileShare_cacheAttributes' - specifies refresh cache information for the file share.
+-- 'cacheAttributes', 'updateNFSFileShare_cacheAttributes' - Specifies refresh cache information for the file share.
 --
 -- 'objectACL', 'updateNFSFileShare_objectACL' - A value that sets the access control list (ACL) permission for objects
 -- in the S3 bucket that a S3 File Gateway puts objects into. The default
@@ -202,7 +207,7 @@ data UpdateNFSFileShare = UpdateNFSFileShare'
 -- 'fileShareName', 'updateNFSFileShare_fileShareName' - The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'notificationPolicy', 'updateNFSFileShare_notificationPolicy' - The notification policy of the file share. @SettlingTimeInSeconds@
 -- controls the number of seconds to wait after the last point in time a
@@ -267,7 +272,9 @@ newUpdateNFSFileShare ::
   UpdateNFSFileShare
 newUpdateNFSFileShare pFileShareARN_ =
   UpdateNFSFileShare'
-    { kmsKey = Prelude.Nothing,
+    { auditDestinationARN =
+        Prelude.Nothing,
+      kmsKey = Prelude.Nothing,
       cacheAttributes = Prelude.Nothing,
       objectACL = Prelude.Nothing,
       kmsEncrypted = Prelude.Nothing,
@@ -283,6 +290,10 @@ newUpdateNFSFileShare pFileShareARN_ =
       fileShareARN = pFileShareARN_
     }
 
+-- | The Amazon Resource Name (ARN) of the storage used for audit logs.
+updateNFSFileShare_auditDestinationARN :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
+updateNFSFileShare_auditDestinationARN = Lens.lens (\UpdateNFSFileShare' {auditDestinationARN} -> auditDestinationARN) (\s@UpdateNFSFileShare' {} a -> s {auditDestinationARN = a} :: UpdateNFSFileShare)
+
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
@@ -290,7 +301,7 @@ newUpdateNFSFileShare pFileShareARN_ =
 updateNFSFileShare_kmsKey :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
 updateNFSFileShare_kmsKey = Lens.lens (\UpdateNFSFileShare' {kmsKey} -> kmsKey) (\s@UpdateNFSFileShare' {} a -> s {kmsKey = a} :: UpdateNFSFileShare)
 
--- | specifies refresh cache information for the file share.
+-- | Specifies refresh cache information for the file share.
 updateNFSFileShare_cacheAttributes :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe CacheAttributes)
 updateNFSFileShare_cacheAttributes = Lens.lens (\UpdateNFSFileShare' {cacheAttributes} -> cacheAttributes) (\s@UpdateNFSFileShare' {} a -> s {cacheAttributes = a} :: UpdateNFSFileShare)
 
@@ -319,7 +330,7 @@ updateNFSFileShare_defaultStorageClass = Lens.lens (\UpdateNFSFileShare' {defaul
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 updateNFSFileShare_fileShareName :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe Prelude.Text)
 updateNFSFileShare_fileShareName = Lens.lens (\UpdateNFSFileShare' {fileShareName} -> fileShareName) (\s@UpdateNFSFileShare' {} a -> s {fileShareName = a} :: UpdateNFSFileShare)
 
@@ -376,7 +387,7 @@ updateNFSFileShare_nFSFileShareDefaults = Lens.lens (\UpdateNFSFileShare' {nFSFi
 -- | The list of clients that are allowed to access the S3 File Gateway. The
 -- list must contain either valid IP addresses or valid CIDR blocks.
 updateNFSFileShare_clientList :: Lens.Lens' UpdateNFSFileShare (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-updateNFSFileShare_clientList = Lens.lens (\UpdateNFSFileShare' {clientList} -> clientList) (\s@UpdateNFSFileShare' {} a -> s {clientList = a} :: UpdateNFSFileShare) Prelude.. Lens.mapping Lens._Coerce
+updateNFSFileShare_clientList = Lens.lens (\UpdateNFSFileShare' {clientList} -> clientList) (\s@UpdateNFSFileShare' {} a -> s {clientList = a} :: UpdateNFSFileShare) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that enables guessing of the MIME type for uploaded objects
 -- based on file extensions. Set this value to @true@ to enable MIME type
@@ -433,7 +444,9 @@ instance Core.ToJSON UpdateNFSFileShare where
   toJSON UpdateNFSFileShare' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KMSKey" Core..=) Prelude.<$> kmsKey,
+          [ ("AuditDestinationARN" Core..=)
+              Prelude.<$> auditDestinationARN,
+            ("KMSKey" Core..=) Prelude.<$> kmsKey,
             ("CacheAttributes" Core..=)
               Prelude.<$> cacheAttributes,
             ("ObjectACL" Core..=) Prelude.<$> objectACL,

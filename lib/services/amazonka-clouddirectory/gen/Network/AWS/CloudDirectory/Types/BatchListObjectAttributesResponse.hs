@@ -64,7 +64,7 @@ batchListObjectAttributesResponse_nextToken = Lens.lens (\BatchListObjectAttribu
 -- | The attributes map that is associated with the object. @AttributeArn@ is
 -- the key; attribute value is the value.
 batchListObjectAttributesResponse_attributes :: Lens.Lens' BatchListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-batchListObjectAttributesResponse_attributes = Lens.lens (\BatchListObjectAttributesResponse' {attributes} -> attributes) (\s@BatchListObjectAttributesResponse' {} a -> s {attributes = a} :: BatchListObjectAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+batchListObjectAttributesResponse_attributes = Lens.lens (\BatchListObjectAttributesResponse' {attributes} -> attributes) (\s@BatchListObjectAttributesResponse' {} a -> s {attributes = a} :: BatchListObjectAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

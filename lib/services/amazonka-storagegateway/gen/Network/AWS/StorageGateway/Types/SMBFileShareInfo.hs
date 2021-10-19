@@ -88,7 +88,7 @@ data SMBFileShareInfo = SMBFileShareInfo'
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
-    -- @LocationARN@.
+    -- @LocationARN@, or if an access point or access point alias is used.
     fileShareName :: Prelude.Maybe Prelude.Text,
     role' :: Prelude.Maybe Prelude.Text,
     -- | If this value is set to @true@, it indicates that access control list
@@ -241,7 +241,7 @@ data SMBFileShareInfo = SMBFileShareInfo'
 -- 'fileShareName', 'sMBFileShareInfo_fileShareName' - The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 --
 -- 'role'', 'sMBFileShareInfo_role' - Undocumented member.
 --
@@ -368,7 +368,7 @@ sMBFileShareInfo_accessBasedEnumeration = Lens.lens (\SMBFileShareInfo' {accessB
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
 sMBFileShareInfo_adminUserList :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe [Prelude.Text])
-sMBFileShareInfo_adminUserList = Lens.lens (\SMBFileShareInfo' {adminUserList} -> adminUserList) (\s@SMBFileShareInfo' {} a -> s {adminUserList = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens._Coerce
+sMBFileShareInfo_adminUserList = Lens.lens (\SMBFileShareInfo' {adminUserList} -> adminUserList) (\s@SMBFileShareInfo' {} a -> s {adminUserList = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Name (ARN) of the storage used for audit logs.
 sMBFileShareInfo_auditDestinationARN :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe Prelude.Text)
@@ -384,7 +384,7 @@ sMBFileShareInfo_fileShareStatus = Lens.lens (\SMBFileShareInfo' {fileShareStatu
 -- @\@group1@, and @\@DOMAIN\\group1@. Can only be set if Authentication is
 -- set to @ActiveDirectory@.
 sMBFileShareInfo_invalidUserList :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe [Prelude.Text])
-sMBFileShareInfo_invalidUserList = Lens.lens (\SMBFileShareInfo' {invalidUserList} -> invalidUserList) (\s@SMBFileShareInfo' {} a -> s {invalidUserList = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens._Coerce
+sMBFileShareInfo_invalidUserList = Lens.lens (\SMBFileShareInfo' {invalidUserList} -> invalidUserList) (\s@SMBFileShareInfo' {} a -> s {invalidUserList = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 sMBFileShareInfo_kmsKey :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe Prelude.Text)
@@ -396,7 +396,7 @@ sMBFileShareInfo_kmsKey = Lens.lens (\SMBFileShareInfo' {kmsKey} -> kmsKey) (\s@
 -- @\@DOMAIN\\group1@. Can only be set if Authentication is set to
 -- @ActiveDirectory@.
 sMBFileShareInfo_validUserList :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe [Prelude.Text])
-sMBFileShareInfo_validUserList = Lens.lens (\SMBFileShareInfo' {validUserList} -> validUserList) (\s@SMBFileShareInfo' {} a -> s {validUserList = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens._Coerce
+sMBFileShareInfo_validUserList = Lens.lens (\SMBFileShareInfo' {validUserList} -> validUserList) (\s@SMBFileShareInfo' {} a -> s {validUserList = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | Undocumented member.
 sMBFileShareInfo_gatewayARN :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe Prelude.Text)
@@ -454,7 +454,7 @@ sMBFileShareInfo_defaultStorageClass = Lens.lens (\SMBFileShareInfo' {defaultSto
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
--- @LocationARN@.
+-- @LocationARN@, or if an access point or access point alias is used.
 sMBFileShareInfo_fileShareName :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe Prelude.Text)
 sMBFileShareInfo_fileShareName = Lens.lens (\SMBFileShareInfo' {fileShareName} -> fileShareName) (\s@SMBFileShareInfo' {} a -> s {fileShareName = a} :: SMBFileShareInfo)
 
@@ -558,7 +558,7 @@ sMBFileShareInfo_caseSensitivity = Lens.lens (\SMBFileShareInfo' {caseSensitivit
 -- with more than 10 tags assigned, you can view all tags using the
 -- @ListTagsForResource@ API operation.
 sMBFileShareInfo_tags :: Lens.Lens' SMBFileShareInfo (Prelude.Maybe [Tag])
-sMBFileShareInfo_tags = Lens.lens (\SMBFileShareInfo' {tags} -> tags) (\s@SMBFileShareInfo' {} a -> s {tags = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens._Coerce
+sMBFileShareInfo_tags = Lens.lens (\SMBFileShareInfo' {tags} -> tags) (\s@SMBFileShareInfo' {} a -> s {tags = a} :: SMBFileShareInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON SMBFileShareInfo where
   parseJSON =

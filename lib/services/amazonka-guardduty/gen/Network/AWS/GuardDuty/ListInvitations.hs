@@ -38,8 +38,8 @@ module Network.AWS.GuardDuty.ListInvitations
     newListInvitationsResponse,
 
     -- * Response Lenses
-    listInvitationsResponse_nextToken,
     listInvitationsResponse_invitations,
+    listInvitationsResponse_nextToken,
     listInvitationsResponse_httpStatus,
   )
 where
@@ -133,8 +133,8 @@ instance Core.AWSRequest ListInvitations where
     Response.receiveJSON
       ( \s h x ->
           ListInvitationsResponse'
-            Prelude.<$> (x Core..?> "nextToken")
-            Prelude.<*> (x Core..?> "invitations" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "invitations" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,11 +165,11 @@ instance Core.ToQuery ListInvitations where
 
 -- | /See:/ 'newListInvitationsResponse' smart constructor.
 data ListInvitationsResponse = ListInvitationsResponse'
-  { -- | The pagination parameter to be used on the next list operation to
+  { -- | A list of invitation descriptions.
+    invitations :: Prelude.Maybe [Invitation],
+    -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of invitation descriptions.
-    invitations :: Prelude.Maybe [Invitation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,10 +183,10 @@ data ListInvitationsResponse = ListInvitationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'invitations', 'listInvitationsResponse_invitations' - A list of invitation descriptions.
+--
 -- 'nextToken', 'listInvitationsResponse_nextToken' - The pagination parameter to be used on the next list operation to
 -- retrieve more items.
---
--- 'invitations', 'listInvitationsResponse_invitations' - A list of invitation descriptions.
 --
 -- 'httpStatus', 'listInvitationsResponse_httpStatus' - The response's http status code.
 newListInvitationsResponse ::
@@ -195,20 +195,20 @@ newListInvitationsResponse ::
   ListInvitationsResponse
 newListInvitationsResponse pHttpStatus_ =
   ListInvitationsResponse'
-    { nextToken =
+    { invitations =
         Prelude.Nothing,
-      invitations = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | A list of invitation descriptions.
+listInvitationsResponse_invitations :: Lens.Lens' ListInvitationsResponse (Prelude.Maybe [Invitation])
+listInvitationsResponse_invitations = Lens.lens (\ListInvitationsResponse' {invitations} -> invitations) (\s@ListInvitationsResponse' {} a -> s {invitations = a} :: ListInvitationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
 listInvitationsResponse_nextToken :: Lens.Lens' ListInvitationsResponse (Prelude.Maybe Prelude.Text)
 listInvitationsResponse_nextToken = Lens.lens (\ListInvitationsResponse' {nextToken} -> nextToken) (\s@ListInvitationsResponse' {} a -> s {nextToken = a} :: ListInvitationsResponse)
-
--- | A list of invitation descriptions.
-listInvitationsResponse_invitations :: Lens.Lens' ListInvitationsResponse (Prelude.Maybe [Invitation])
-listInvitationsResponse_invitations = Lens.lens (\ListInvitationsResponse' {invitations} -> invitations) (\s@ListInvitationsResponse' {} a -> s {invitations = a} :: ListInvitationsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listInvitationsResponse_httpStatus :: Lens.Lens' ListInvitationsResponse Prelude.Int

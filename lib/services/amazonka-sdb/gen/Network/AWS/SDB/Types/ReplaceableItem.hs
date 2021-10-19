@@ -62,7 +62,7 @@ replaceableItem_name = Lens.lens (\ReplaceableItem' {name} -> name) (\s@Replacea
 
 -- | The list of attributes for a replaceable item.
 replaceableItem_attributes :: Lens.Lens' ReplaceableItem [ReplaceableAttribute]
-replaceableItem_attributes = Lens.lens (\ReplaceableItem' {attributes} -> attributes) (\s@ReplaceableItem' {} a -> s {attributes = a} :: ReplaceableItem) Prelude.. Lens._Coerce
+replaceableItem_attributes = Lens.lens (\ReplaceableItem' {attributes} -> attributes) (\s@ReplaceableItem' {} a -> s {attributes = a} :: ReplaceableItem) Prelude.. Lens.coerced
 
 instance Prelude.Hashable ReplaceableItem
 

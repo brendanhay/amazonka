@@ -38,8 +38,10 @@ data CapacityProvider = CapacityProvider'
     -- | The update status reason. This provides further details about the update
     -- status for the capacity provider.
     updateStatusReason :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that identifies the capacity provider.
-    capacityProviderArn :: Prelude.Maybe Prelude.Text,
+    -- | The Auto Scaling group settings for the capacity provider.
+    autoScalingGroupProvider :: Prelude.Maybe AutoScalingGroupProvider,
+    -- | The name of the capacity provider.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The update status of the capacity provider. The following are the
     -- possible states that will be returned.
     --
@@ -54,10 +56,8 @@ data CapacityProvider = CapacityProvider'
     --     The capacity provider was unable to be deleted. The update status
     --     reason will provide further details about why the delete failed.
     updateStatus :: Prelude.Maybe CapacityProviderUpdateStatus,
-    -- | The name of the capacity provider.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The Auto Scaling group settings for the capacity provider.
-    autoScalingGroupProvider :: Prelude.Maybe AutoScalingGroupProvider,
+    -- | The Amazon Resource Name (ARN) that identifies the capacity provider.
+    capacityProviderArn :: Prelude.Maybe Prelude.Text,
     -- | The metadata that you apply to the capacity provider to help you
     -- categorize and organize it. Each tag consists of a key and an optional
     -- value, both of which you define.
@@ -105,7 +105,9 @@ data CapacityProvider = CapacityProvider'
 -- 'updateStatusReason', 'capacityProvider_updateStatusReason' - The update status reason. This provides further details about the update
 -- status for the capacity provider.
 --
--- 'capacityProviderArn', 'capacityProvider_capacityProviderArn' - The Amazon Resource Name (ARN) that identifies the capacity provider.
+-- 'autoScalingGroupProvider', 'capacityProvider_autoScalingGroupProvider' - The Auto Scaling group settings for the capacity provider.
+--
+-- 'name', 'capacityProvider_name' - The name of the capacity provider.
 --
 -- 'updateStatus', 'capacityProvider_updateStatus' - The update status of the capacity provider. The following are the
 -- possible states that will be returned.
@@ -121,9 +123,7 @@ data CapacityProvider = CapacityProvider'
 --     The capacity provider was unable to be deleted. The update status
 --     reason will provide further details about why the delete failed.
 --
--- 'name', 'capacityProvider_name' - The name of the capacity provider.
---
--- 'autoScalingGroupProvider', 'capacityProvider_autoScalingGroupProvider' - The Auto Scaling group settings for the capacity provider.
+-- 'capacityProviderArn', 'capacityProvider_capacityProviderArn' - The Amazon Resource Name (ARN) that identifies the capacity provider.
 --
 -- 'tags', 'capacityProvider_tags' - The metadata that you apply to the capacity provider to help you
 -- categorize and organize it. Each tag consists of a key and an optional
@@ -159,10 +159,10 @@ newCapacityProvider =
   CapacityProvider'
     { status = Prelude.Nothing,
       updateStatusReason = Prelude.Nothing,
-      capacityProviderArn = Prelude.Nothing,
-      updateStatus = Prelude.Nothing,
-      name = Prelude.Nothing,
       autoScalingGroupProvider = Prelude.Nothing,
+      name = Prelude.Nothing,
+      updateStatus = Prelude.Nothing,
+      capacityProviderArn = Prelude.Nothing,
       tags = Prelude.Nothing
     }
 
@@ -177,9 +177,13 @@ capacityProvider_status = Lens.lens (\CapacityProvider' {status} -> status) (\s@
 capacityProvider_updateStatusReason :: Lens.Lens' CapacityProvider (Prelude.Maybe Prelude.Text)
 capacityProvider_updateStatusReason = Lens.lens (\CapacityProvider' {updateStatusReason} -> updateStatusReason) (\s@CapacityProvider' {} a -> s {updateStatusReason = a} :: CapacityProvider)
 
--- | The Amazon Resource Name (ARN) that identifies the capacity provider.
-capacityProvider_capacityProviderArn :: Lens.Lens' CapacityProvider (Prelude.Maybe Prelude.Text)
-capacityProvider_capacityProviderArn = Lens.lens (\CapacityProvider' {capacityProviderArn} -> capacityProviderArn) (\s@CapacityProvider' {} a -> s {capacityProviderArn = a} :: CapacityProvider)
+-- | The Auto Scaling group settings for the capacity provider.
+capacityProvider_autoScalingGroupProvider :: Lens.Lens' CapacityProvider (Prelude.Maybe AutoScalingGroupProvider)
+capacityProvider_autoScalingGroupProvider = Lens.lens (\CapacityProvider' {autoScalingGroupProvider} -> autoScalingGroupProvider) (\s@CapacityProvider' {} a -> s {autoScalingGroupProvider = a} :: CapacityProvider)
+
+-- | The name of the capacity provider.
+capacityProvider_name :: Lens.Lens' CapacityProvider (Prelude.Maybe Prelude.Text)
+capacityProvider_name = Lens.lens (\CapacityProvider' {name} -> name) (\s@CapacityProvider' {} a -> s {name = a} :: CapacityProvider)
 
 -- | The update status of the capacity provider. The following are the
 -- possible states that will be returned.
@@ -197,13 +201,9 @@ capacityProvider_capacityProviderArn = Lens.lens (\CapacityProvider' {capacityPr
 capacityProvider_updateStatus :: Lens.Lens' CapacityProvider (Prelude.Maybe CapacityProviderUpdateStatus)
 capacityProvider_updateStatus = Lens.lens (\CapacityProvider' {updateStatus} -> updateStatus) (\s@CapacityProvider' {} a -> s {updateStatus = a} :: CapacityProvider)
 
--- | The name of the capacity provider.
-capacityProvider_name :: Lens.Lens' CapacityProvider (Prelude.Maybe Prelude.Text)
-capacityProvider_name = Lens.lens (\CapacityProvider' {name} -> name) (\s@CapacityProvider' {} a -> s {name = a} :: CapacityProvider)
-
--- | The Auto Scaling group settings for the capacity provider.
-capacityProvider_autoScalingGroupProvider :: Lens.Lens' CapacityProvider (Prelude.Maybe AutoScalingGroupProvider)
-capacityProvider_autoScalingGroupProvider = Lens.lens (\CapacityProvider' {autoScalingGroupProvider} -> autoScalingGroupProvider) (\s@CapacityProvider' {} a -> s {autoScalingGroupProvider = a} :: CapacityProvider)
+-- | The Amazon Resource Name (ARN) that identifies the capacity provider.
+capacityProvider_capacityProviderArn :: Lens.Lens' CapacityProvider (Prelude.Maybe Prelude.Text)
+capacityProvider_capacityProviderArn = Lens.lens (\CapacityProvider' {capacityProviderArn} -> capacityProviderArn) (\s@CapacityProvider' {} a -> s {capacityProviderArn = a} :: CapacityProvider)
 
 -- | The metadata that you apply to the capacity provider to help you
 -- categorize and organize it. Each tag consists of a key and an optional
@@ -234,7 +234,7 @@ capacityProvider_autoScalingGroupProvider = Lens.lens (\CapacityProvider' {autoS
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 capacityProvider_tags :: Lens.Lens' CapacityProvider (Prelude.Maybe [Tag])
-capacityProvider_tags = Lens.lens (\CapacityProvider' {tags} -> tags) (\s@CapacityProvider' {} a -> s {tags = a} :: CapacityProvider) Prelude.. Lens.mapping Lens._Coerce
+capacityProvider_tags = Lens.lens (\CapacityProvider' {tags} -> tags) (\s@CapacityProvider' {} a -> s {tags = a} :: CapacityProvider) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON CapacityProvider where
   parseJSON =
@@ -244,10 +244,10 @@ instance Core.FromJSON CapacityProvider where
           CapacityProvider'
             Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "updateStatusReason")
-            Prelude.<*> (x Core..:? "capacityProviderArn")
-            Prelude.<*> (x Core..:? "updateStatus")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "autoScalingGroupProvider")
+            Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "updateStatus")
+            Prelude.<*> (x Core..:? "capacityProviderArn")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
       )
 

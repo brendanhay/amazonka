@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLambdaFunctionScheduledEventAttributes' smart constructor.
 data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
-  { -- | The input provided to the Lambda task.
-    input :: Prelude.Maybe Prelude.Text,
-    -- | Data attached to the event that the decider can use in subsequent
+  { -- | Data attached to the event that the decider can use in subsequent
     -- workflow tasks. This data isn\'t sent to the Lambda task.
     control :: Prelude.Maybe Prelude.Text,
+    -- | The input provided to the Lambda task.
+    input :: Prelude.Maybe Prelude.Text,
     -- | The maximum amount of time a worker can take to process the Lambda task.
     startToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the Lambda task.
@@ -55,10 +55,10 @@ data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttrib
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'input', 'lambdaFunctionScheduledEventAttributes_input' - The input provided to the Lambda task.
---
 -- 'control', 'lambdaFunctionScheduledEventAttributes_control' - Data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the Lambda task.
+--
+-- 'input', 'lambdaFunctionScheduledEventAttributes_input' - The input provided to the Lambda task.
 --
 -- 'startToCloseTimeout', 'lambdaFunctionScheduledEventAttributes_startToCloseTimeout' - The maximum amount of time a worker can take to process the Lambda task.
 --
@@ -83,9 +83,9 @@ newLambdaFunctionScheduledEventAttributes
   pName_
   pDecisionTaskCompletedEventId_ =
     LambdaFunctionScheduledEventAttributes'
-      { input =
+      { control =
           Prelude.Nothing,
-        control = Prelude.Nothing,
+        input = Prelude.Nothing,
         startToCloseTimeout =
           Prelude.Nothing,
         id = pId_,
@@ -94,14 +94,14 @@ newLambdaFunctionScheduledEventAttributes
           pDecisionTaskCompletedEventId_
       }
 
--- | The input provided to the Lambda task.
-lambdaFunctionScheduledEventAttributes_input :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
-lambdaFunctionScheduledEventAttributes_input = Lens.lens (\LambdaFunctionScheduledEventAttributes' {input} -> input) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {input = a} :: LambdaFunctionScheduledEventAttributes)
-
 -- | Data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the Lambda task.
 lambdaFunctionScheduledEventAttributes_control :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
 lambdaFunctionScheduledEventAttributes_control = Lens.lens (\LambdaFunctionScheduledEventAttributes' {control} -> control) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {control = a} :: LambdaFunctionScheduledEventAttributes)
+
+-- | The input provided to the Lambda task.
+lambdaFunctionScheduledEventAttributes_input :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+lambdaFunctionScheduledEventAttributes_input = Lens.lens (\LambdaFunctionScheduledEventAttributes' {input} -> input) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {input = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The maximum amount of time a worker can take to process the Lambda task.
 lambdaFunctionScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
@@ -131,8 +131,8 @@ instance
       "LambdaFunctionScheduledEventAttributes"
       ( \x ->
           LambdaFunctionScheduledEventAttributes'
-            Prelude.<$> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "control")
+            Prelude.<$> (x Core..:? "control")
+            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "startToCloseTimeout")
             Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "name")

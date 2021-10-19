@@ -118,7 +118,7 @@ newLabelParameterVersion pName_ pLabels_ =
     { parameterVersion =
         Prelude.Nothing,
       name = pName_,
-      labels = Lens._Coerce Lens.# pLabels_
+      labels = Lens.coerced Lens.# pLabels_
     }
 
 -- | The specific version of the parameter on which you want to attach one or
@@ -133,7 +133,7 @@ labelParameterVersion_name = Lens.lens (\LabelParameterVersion' {name} -> name) 
 
 -- | One or more labels to attach to the specified parameter version.
 labelParameterVersion_labels :: Lens.Lens' LabelParameterVersion (Prelude.NonEmpty Prelude.Text)
-labelParameterVersion_labels = Lens.lens (\LabelParameterVersion' {labels} -> labels) (\s@LabelParameterVersion' {} a -> s {labels = a} :: LabelParameterVersion) Prelude.. Lens._Coerce
+labelParameterVersion_labels = Lens.lens (\LabelParameterVersion' {labels} -> labels) (\s@LabelParameterVersion' {} a -> s {labels = a} :: LabelParameterVersion) Prelude.. Lens.coerced
 
 instance Core.AWSRequest LabelParameterVersion where
   type
@@ -232,7 +232,7 @@ newLabelParameterVersionResponse pHttpStatus_ =
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 labelParameterVersionResponse_invalidLabels :: Lens.Lens' LabelParameterVersionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-labelParameterVersionResponse_invalidLabels = Lens.lens (\LabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@LabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: LabelParameterVersionResponse) Prelude.. Lens.mapping Lens._Coerce
+labelParameterVersionResponse_invalidLabels = Lens.lens (\LabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@LabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: LabelParameterVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version of the parameter that has been labeled.
 labelParameterVersionResponse_parameterVersion :: Lens.Lens' LabelParameterVersionResponse (Prelude.Maybe Prelude.Integer)

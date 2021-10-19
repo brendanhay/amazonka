@@ -27,18 +27,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSdkConfigurationProperty' smart constructor.
 data SdkConfigurationProperty = SdkConfigurationProperty'
-  { -- | A boolean flag of an SdkType configuration property to indicate if the
+  { -- | The user-friendly name of an SdkType configuration property.
+    friendlyName :: Prelude.Maybe Prelude.Text,
+    -- | A boolean flag of an SdkType configuration property to indicate if the
     -- associated SDK configuration property is required (@true@) or not
     -- (@false@).
     required :: Prelude.Maybe Prelude.Bool,
-    -- | The user-friendly name of an SdkType configuration property.
-    friendlyName :: Prelude.Maybe Prelude.Text,
     -- | The name of a an SdkType configuration property.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of an SdkType configuration property.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The default value of an SdkType configuration property.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The description of an SdkType configuration property.
+    description :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,28 +50,32 @@ data SdkConfigurationProperty = SdkConfigurationProperty'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'friendlyName', 'sdkConfigurationProperty_friendlyName' - The user-friendly name of an SdkType configuration property.
+--
 -- 'required', 'sdkConfigurationProperty_required' - A boolean flag of an SdkType configuration property to indicate if the
 -- associated SDK configuration property is required (@true@) or not
 -- (@false@).
 --
--- 'friendlyName', 'sdkConfigurationProperty_friendlyName' - The user-friendly name of an SdkType configuration property.
---
 -- 'name', 'sdkConfigurationProperty_name' - The name of a an SdkType configuration property.
 --
--- 'description', 'sdkConfigurationProperty_description' - The description of an SdkType configuration property.
---
 -- 'defaultValue', 'sdkConfigurationProperty_defaultValue' - The default value of an SdkType configuration property.
+--
+-- 'description', 'sdkConfigurationProperty_description' - The description of an SdkType configuration property.
 newSdkConfigurationProperty ::
   SdkConfigurationProperty
 newSdkConfigurationProperty =
   SdkConfigurationProperty'
-    { required =
+    { friendlyName =
         Prelude.Nothing,
-      friendlyName = Prelude.Nothing,
+      required = Prelude.Nothing,
       name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      defaultValue = Prelude.Nothing,
+      description = Prelude.Nothing
     }
+
+-- | The user-friendly name of an SdkType configuration property.
+sdkConfigurationProperty_friendlyName :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
+sdkConfigurationProperty_friendlyName = Lens.lens (\SdkConfigurationProperty' {friendlyName} -> friendlyName) (\s@SdkConfigurationProperty' {} a -> s {friendlyName = a} :: SdkConfigurationProperty)
 
 -- | A boolean flag of an SdkType configuration property to indicate if the
 -- associated SDK configuration property is required (@true@) or not
@@ -79,21 +83,17 @@ newSdkConfigurationProperty =
 sdkConfigurationProperty_required :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Bool)
 sdkConfigurationProperty_required = Lens.lens (\SdkConfigurationProperty' {required} -> required) (\s@SdkConfigurationProperty' {} a -> s {required = a} :: SdkConfigurationProperty)
 
--- | The user-friendly name of an SdkType configuration property.
-sdkConfigurationProperty_friendlyName :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
-sdkConfigurationProperty_friendlyName = Lens.lens (\SdkConfigurationProperty' {friendlyName} -> friendlyName) (\s@SdkConfigurationProperty' {} a -> s {friendlyName = a} :: SdkConfigurationProperty)
-
 -- | The name of a an SdkType configuration property.
 sdkConfigurationProperty_name :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
 sdkConfigurationProperty_name = Lens.lens (\SdkConfigurationProperty' {name} -> name) (\s@SdkConfigurationProperty' {} a -> s {name = a} :: SdkConfigurationProperty)
 
--- | The description of an SdkType configuration property.
-sdkConfigurationProperty_description :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
-sdkConfigurationProperty_description = Lens.lens (\SdkConfigurationProperty' {description} -> description) (\s@SdkConfigurationProperty' {} a -> s {description = a} :: SdkConfigurationProperty)
-
 -- | The default value of an SdkType configuration property.
 sdkConfigurationProperty_defaultValue :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
 sdkConfigurationProperty_defaultValue = Lens.lens (\SdkConfigurationProperty' {defaultValue} -> defaultValue) (\s@SdkConfigurationProperty' {} a -> s {defaultValue = a} :: SdkConfigurationProperty)
+
+-- | The description of an SdkType configuration property.
+sdkConfigurationProperty_description :: Lens.Lens' SdkConfigurationProperty (Prelude.Maybe Prelude.Text)
+sdkConfigurationProperty_description = Lens.lens (\SdkConfigurationProperty' {description} -> description) (\s@SdkConfigurationProperty' {} a -> s {description = a} :: SdkConfigurationProperty)
 
 instance Core.FromJSON SdkConfigurationProperty where
   parseJSON =
@@ -101,11 +101,11 @@ instance Core.FromJSON SdkConfigurationProperty where
       "SdkConfigurationProperty"
       ( \x ->
           SdkConfigurationProperty'
-            Prelude.<$> (x Core..:? "required")
-            Prelude.<*> (x Core..:? "friendlyName")
+            Prelude.<$> (x Core..:? "friendlyName")
+            Prelude.<*> (x Core..:? "required")
             Prelude.<*> (x Core..:? "name")
-            Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "defaultValue")
+            Prelude.<*> (x Core..:? "description")
       )
 
 instance Prelude.Hashable SdkConfigurationProperty

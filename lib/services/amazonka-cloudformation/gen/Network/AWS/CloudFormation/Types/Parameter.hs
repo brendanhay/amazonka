@@ -29,19 +29,19 @@ import qualified Network.AWS.Prelude as Prelude
 data Parameter = Parameter'
   { -- | The input value associated with the parameter.
     parameterValue :: Prelude.Maybe Prelude.Text,
-    -- | During a stack update, use the existing parameter value that the stack
-    -- is using for a given parameter key. If you specify @true@, do not
-    -- specify a parameter value.
-    usePreviousValue :: Prelude.Maybe Prelude.Bool,
-    -- | The key associated with the parameter. If you don\'t specify a key and
-    -- value for a particular parameter, CloudFormation uses the default value
-    -- that is specified in your template.
-    parameterKey :: Prelude.Maybe Prelude.Text,
     -- | Read-only. The value that corresponds to a Systems Manager parameter
     -- key. This field is returned only for
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types SSM parameter types>
     -- in the template.
-    resolvedValue :: Prelude.Maybe Prelude.Text
+    resolvedValue :: Prelude.Maybe Prelude.Text,
+    -- | The key associated with the parameter. If you don\'t specify a key and
+    -- value for a particular parameter, CloudFormation uses the default value
+    -- that is specified in your template.
+    parameterKey :: Prelude.Maybe Prelude.Text,
+    -- | During a stack update, use the existing parameter value that the stack
+    -- is using for a given parameter key. If you specify @true@, do not
+    -- specify a parameter value.
+    usePreviousValue :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,43 +55,31 @@ data Parameter = Parameter'
 --
 -- 'parameterValue', 'parameter_parameterValue' - The input value associated with the parameter.
 --
--- 'usePreviousValue', 'parameter_usePreviousValue' - During a stack update, use the existing parameter value that the stack
--- is using for a given parameter key. If you specify @true@, do not
--- specify a parameter value.
+-- 'resolvedValue', 'parameter_resolvedValue' - Read-only. The value that corresponds to a Systems Manager parameter
+-- key. This field is returned only for
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types SSM parameter types>
+-- in the template.
 --
 -- 'parameterKey', 'parameter_parameterKey' - The key associated with the parameter. If you don\'t specify a key and
 -- value for a particular parameter, CloudFormation uses the default value
 -- that is specified in your template.
 --
--- 'resolvedValue', 'parameter_resolvedValue' - Read-only. The value that corresponds to a Systems Manager parameter
--- key. This field is returned only for
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#aws-ssm-parameter-types SSM parameter types>
--- in the template.
+-- 'usePreviousValue', 'parameter_usePreviousValue' - During a stack update, use the existing parameter value that the stack
+-- is using for a given parameter key. If you specify @true@, do not
+-- specify a parameter value.
 newParameter ::
   Parameter
 newParameter =
   Parameter'
     { parameterValue = Prelude.Nothing,
-      usePreviousValue = Prelude.Nothing,
+      resolvedValue = Prelude.Nothing,
       parameterKey = Prelude.Nothing,
-      resolvedValue = Prelude.Nothing
+      usePreviousValue = Prelude.Nothing
     }
 
 -- | The input value associated with the parameter.
 parameter_parameterValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterValue) (\s@Parameter' {} a -> s {parameterValue = a} :: Parameter)
-
--- | During a stack update, use the existing parameter value that the stack
--- is using for a given parameter key. If you specify @true@, do not
--- specify a parameter value.
-parameter_usePreviousValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
-parameter_usePreviousValue = Lens.lens (\Parameter' {usePreviousValue} -> usePreviousValue) (\s@Parameter' {} a -> s {usePreviousValue = a} :: Parameter)
-
--- | The key associated with the parameter. If you don\'t specify a key and
--- value for a particular parameter, CloudFormation uses the default value
--- that is specified in your template.
-parameter_parameterKey :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
-parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) (\s@Parameter' {} a -> s {parameterKey = a} :: Parameter)
 
 -- | Read-only. The value that corresponds to a Systems Manager parameter
 -- key. This field is returned only for
@@ -100,13 +88,25 @@ parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) 
 parameter_resolvedValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
 parameter_resolvedValue = Lens.lens (\Parameter' {resolvedValue} -> resolvedValue) (\s@Parameter' {} a -> s {resolvedValue = a} :: Parameter)
 
+-- | The key associated with the parameter. If you don\'t specify a key and
+-- value for a particular parameter, CloudFormation uses the default value
+-- that is specified in your template.
+parameter_parameterKey :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_parameterKey = Lens.lens (\Parameter' {parameterKey} -> parameterKey) (\s@Parameter' {} a -> s {parameterKey = a} :: Parameter)
+
+-- | During a stack update, use the existing parameter value that the stack
+-- is using for a given parameter key. If you specify @true@, do not
+-- specify a parameter value.
+parameter_usePreviousValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
+parameter_usePreviousValue = Lens.lens (\Parameter' {usePreviousValue} -> usePreviousValue) (\s@Parameter' {} a -> s {usePreviousValue = a} :: Parameter)
+
 instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
       Prelude.<$> (x Core..@? "ParameterValue")
-      Prelude.<*> (x Core..@? "UsePreviousValue")
-      Prelude.<*> (x Core..@? "ParameterKey")
       Prelude.<*> (x Core..@? "ResolvedValue")
+      Prelude.<*> (x Core..@? "ParameterKey")
+      Prelude.<*> (x Core..@? "UsePreviousValue")
 
 instance Prelude.Hashable Parameter
 
@@ -116,7 +116,7 @@ instance Core.ToQuery Parameter where
   toQuery Parameter' {..} =
     Prelude.mconcat
       [ "ParameterValue" Core.=: parameterValue,
-        "UsePreviousValue" Core.=: usePreviousValue,
+        "ResolvedValue" Core.=: resolvedValue,
         "ParameterKey" Core.=: parameterKey,
-        "ResolvedValue" Core.=: resolvedValue
+        "UsePreviousValue" Core.=: usePreviousValue
       ]

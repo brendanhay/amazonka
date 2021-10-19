@@ -36,8 +36,8 @@ module Network.AWS.CognitoIdentityProvider.ListUserImportJobs
     newListUserImportJobsResponse,
 
     -- * Response Lenses
-    listUserImportJobsResponse_userImportJobs,
     listUserImportJobsResponse_paginationToken,
+    listUserImportJobsResponse_userImportJobs,
     listUserImportJobsResponse_httpStatus,
   )
 where
@@ -119,8 +119,8 @@ instance Core.AWSRequest ListUserImportJobs where
     Response.receiveJSON
       ( \s h x ->
           ListUserImportJobsResponse'
-            Prelude.<$> (x Core..?> "UserImportJobs")
-            Prelude.<*> (x Core..?> "PaginationToken")
+            Prelude.<$> (x Core..?> "PaginationToken")
+            Prelude.<*> (x Core..?> "UserImportJobs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -165,11 +165,11 @@ instance Core.ToQuery ListUserImportJobs where
 --
 -- /See:/ 'newListUserImportJobsResponse' smart constructor.
 data ListUserImportJobsResponse = ListUserImportJobsResponse'
-  { -- | The user import jobs.
-    userImportJobs :: Prelude.Maybe (Prelude.NonEmpty UserImportJobType),
-    -- | An identifier that can be used to return the next set of user import
+  { -- | An identifier that can be used to return the next set of user import
     -- jobs in the list.
     paginationToken :: Prelude.Maybe Prelude.Text,
+    -- | The user import jobs.
+    userImportJobs :: Prelude.Maybe (Prelude.NonEmpty UserImportJobType),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,10 +183,10 @@ data ListUserImportJobsResponse = ListUserImportJobsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userImportJobs', 'listUserImportJobsResponse_userImportJobs' - The user import jobs.
---
 -- 'paginationToken', 'listUserImportJobsResponse_paginationToken' - An identifier that can be used to return the next set of user import
 -- jobs in the list.
+--
+-- 'userImportJobs', 'listUserImportJobsResponse_userImportJobs' - The user import jobs.
 --
 -- 'httpStatus', 'listUserImportJobsResponse_httpStatus' - The response's http status code.
 newListUserImportJobsResponse ::
@@ -195,20 +195,20 @@ newListUserImportJobsResponse ::
   ListUserImportJobsResponse
 newListUserImportJobsResponse pHttpStatus_ =
   ListUserImportJobsResponse'
-    { userImportJobs =
+    { paginationToken =
         Prelude.Nothing,
-      paginationToken = Prelude.Nothing,
+      userImportJobs = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The user import jobs.
-listUserImportJobsResponse_userImportJobs :: Lens.Lens' ListUserImportJobsResponse (Prelude.Maybe (Prelude.NonEmpty UserImportJobType))
-listUserImportJobsResponse_userImportJobs = Lens.lens (\ListUserImportJobsResponse' {userImportJobs} -> userImportJobs) (\s@ListUserImportJobsResponse' {} a -> s {userImportJobs = a} :: ListUserImportJobsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An identifier that can be used to return the next set of user import
 -- jobs in the list.
 listUserImportJobsResponse_paginationToken :: Lens.Lens' ListUserImportJobsResponse (Prelude.Maybe Prelude.Text)
 listUserImportJobsResponse_paginationToken = Lens.lens (\ListUserImportJobsResponse' {paginationToken} -> paginationToken) (\s@ListUserImportJobsResponse' {} a -> s {paginationToken = a} :: ListUserImportJobsResponse)
+
+-- | The user import jobs.
+listUserImportJobsResponse_userImportJobs :: Lens.Lens' ListUserImportJobsResponse (Prelude.Maybe (Prelude.NonEmpty UserImportJobType))
+listUserImportJobsResponse_userImportJobs = Lens.lens (\ListUserImportJobsResponse' {userImportJobs} -> userImportJobs) (\s@ListUserImportJobsResponse' {} a -> s {userImportJobs = a} :: ListUserImportJobsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listUserImportJobsResponse_httpStatus :: Lens.Lens' ListUserImportJobsResponse Prelude.Int

@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
   { -- | The ID of the target.
     targetId :: Prelude.Maybe Prelude.Text,
-    -- | The error message that explains why the target removal failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code that indicates why the target removal failed. If the
     -- value is @ConcurrentModificationException@, too many requests were made
     -- at the same time.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Prelude.Maybe Prelude.Text,
+    -- | The error message that explains why the target removal failed.
+    errorMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,34 +48,34 @@ data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
 --
 -- 'targetId', 'removeTargetsResultEntry_targetId' - The ID of the target.
 --
--- 'errorMessage', 'removeTargetsResultEntry_errorMessage' - The error message that explains why the target removal failed.
---
 -- 'errorCode', 'removeTargetsResultEntry_errorCode' - The error code that indicates why the target removal failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
+--
+-- 'errorMessage', 'removeTargetsResultEntry_errorMessage' - The error message that explains why the target removal failed.
 newRemoveTargetsResultEntry ::
   RemoveTargetsResultEntry
 newRemoveTargetsResultEntry =
   RemoveTargetsResultEntry'
     { targetId =
         Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+      errorCode = Prelude.Nothing,
+      errorMessage = Prelude.Nothing
     }
 
 -- | The ID of the target.
 removeTargetsResultEntry_targetId :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
 removeTargetsResultEntry_targetId = Lens.lens (\RemoveTargetsResultEntry' {targetId} -> targetId) (\s@RemoveTargetsResultEntry' {} a -> s {targetId = a} :: RemoveTargetsResultEntry)
 
--- | The error message that explains why the target removal failed.
-removeTargetsResultEntry_errorMessage :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
-removeTargetsResultEntry_errorMessage = Lens.lens (\RemoveTargetsResultEntry' {errorMessage} -> errorMessage) (\s@RemoveTargetsResultEntry' {} a -> s {errorMessage = a} :: RemoveTargetsResultEntry)
-
 -- | The error code that indicates why the target removal failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
 removeTargetsResultEntry_errorCode :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
 removeTargetsResultEntry_errorCode = Lens.lens (\RemoveTargetsResultEntry' {errorCode} -> errorCode) (\s@RemoveTargetsResultEntry' {} a -> s {errorCode = a} :: RemoveTargetsResultEntry)
+
+-- | The error message that explains why the target removal failed.
+removeTargetsResultEntry_errorMessage :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
+removeTargetsResultEntry_errorMessage = Lens.lens (\RemoveTargetsResultEntry' {errorMessage} -> errorMessage) (\s@RemoveTargetsResultEntry' {} a -> s {errorMessage = a} :: RemoveTargetsResultEntry)
 
 instance Core.FromJSON RemoveTargetsResultEntry where
   parseJSON =
@@ -84,8 +84,8 @@ instance Core.FromJSON RemoveTargetsResultEntry where
       ( \x ->
           RemoveTargetsResultEntry'
             Prelude.<$> (x Core..:? "TargetId")
-            Prelude.<*> (x Core..:? "ErrorMessage")
             Prelude.<*> (x Core..:? "ErrorCode")
+            Prelude.<*> (x Core..:? "ErrorMessage")
       )
 
 instance Prelude.Hashable RemoveTargetsResultEntry

@@ -27,9 +27,9 @@ module Network.AWS.Glue.CreateScript
     newCreateScript,
 
     -- * Request Lenses
-    createScript_dagNodes,
-    createScript_language,
     createScript_dagEdges,
+    createScript_language,
+    createScript_dagNodes,
 
     -- * Destructuring the Response
     CreateScriptResponse (..),
@@ -51,12 +51,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateScript' smart constructor.
 data CreateScript = CreateScript'
-  { -- | A list of the nodes in the DAG.
-    dagNodes :: Prelude.Maybe [CodeGenNode],
+  { -- | A list of the edges in the DAG.
+    dagEdges :: Prelude.Maybe [CodeGenEdge],
     -- | The programming language of the resulting code from the DAG.
     language :: Prelude.Maybe Language,
-    -- | A list of the edges in the DAG.
-    dagEdges :: Prelude.Maybe [CodeGenEdge]
+    -- | A list of the nodes in the DAG.
+    dagNodes :: Prelude.Maybe [CodeGenNode]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,31 +68,31 @@ data CreateScript = CreateScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dagNodes', 'createScript_dagNodes' - A list of the nodes in the DAG.
+-- 'dagEdges', 'createScript_dagEdges' - A list of the edges in the DAG.
 --
 -- 'language', 'createScript_language' - The programming language of the resulting code from the DAG.
 --
--- 'dagEdges', 'createScript_dagEdges' - A list of the edges in the DAG.
+-- 'dagNodes', 'createScript_dagNodes' - A list of the nodes in the DAG.
 newCreateScript ::
   CreateScript
 newCreateScript =
   CreateScript'
-    { dagNodes = Prelude.Nothing,
+    { dagEdges = Prelude.Nothing,
       language = Prelude.Nothing,
-      dagEdges = Prelude.Nothing
+      dagNodes = Prelude.Nothing
     }
 
--- | A list of the nodes in the DAG.
-createScript_dagNodes :: Lens.Lens' CreateScript (Prelude.Maybe [CodeGenNode])
-createScript_dagNodes = Lens.lens (\CreateScript' {dagNodes} -> dagNodes) (\s@CreateScript' {} a -> s {dagNodes = a} :: CreateScript) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of the edges in the DAG.
+createScript_dagEdges :: Lens.Lens' CreateScript (Prelude.Maybe [CodeGenEdge])
+createScript_dagEdges = Lens.lens (\CreateScript' {dagEdges} -> dagEdges) (\s@CreateScript' {} a -> s {dagEdges = a} :: CreateScript) Prelude.. Lens.mapping Lens.coerced
 
 -- | The programming language of the resulting code from the DAG.
 createScript_language :: Lens.Lens' CreateScript (Prelude.Maybe Language)
 createScript_language = Lens.lens (\CreateScript' {language} -> language) (\s@CreateScript' {} a -> s {language = a} :: CreateScript)
 
--- | A list of the edges in the DAG.
-createScript_dagEdges :: Lens.Lens' CreateScript (Prelude.Maybe [CodeGenEdge])
-createScript_dagEdges = Lens.lens (\CreateScript' {dagEdges} -> dagEdges) (\s@CreateScript' {} a -> s {dagEdges = a} :: CreateScript) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of the nodes in the DAG.
+createScript_dagNodes :: Lens.Lens' CreateScript (Prelude.Maybe [CodeGenNode])
+createScript_dagNodes = Lens.lens (\CreateScript' {dagNodes} -> dagNodes) (\s@CreateScript' {} a -> s {dagNodes = a} :: CreateScript) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest CreateScript where
   type AWSResponse CreateScript = CreateScriptResponse
@@ -127,9 +127,9 @@ instance Core.ToJSON CreateScript where
   toJSON CreateScript' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DagNodes" Core..=) Prelude.<$> dagNodes,
+          [ ("DagEdges" Core..=) Prelude.<$> dagEdges,
             ("Language" Core..=) Prelude.<$> language,
-            ("DagEdges" Core..=) Prelude.<$> dagEdges
+            ("DagNodes" Core..=) Prelude.<$> dagNodes
           ]
       )
 

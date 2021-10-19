@@ -102,7 +102,7 @@ batchRead_directoryArn = Lens.lens (\BatchRead' {directoryArn} -> directoryArn) 
 
 -- | A list of operations that are part of the batch.
 batchRead_operations :: Lens.Lens' BatchRead [BatchReadOperation]
-batchRead_operations = Lens.lens (\BatchRead' {operations} -> operations) (\s@BatchRead' {} a -> s {operations = a} :: BatchRead) Prelude.. Lens._Coerce
+batchRead_operations = Lens.lens (\BatchRead' {operations} -> operations) (\s@BatchRead' {} a -> s {operations = a} :: BatchRead) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchRead where
   type AWSResponse BatchRead = BatchReadResponse
@@ -173,7 +173,7 @@ newBatchReadResponse pHttpStatus_ =
 
 -- | A list of all the responses for each batch read.
 batchReadResponse_responses :: Lens.Lens' BatchReadResponse (Prelude.Maybe [BatchReadOperationResponse])
-batchReadResponse_responses = Lens.lens (\BatchReadResponse' {responses} -> responses) (\s@BatchReadResponse' {} a -> s {responses = a} :: BatchReadResponse) Prelude.. Lens.mapping Lens._Coerce
+batchReadResponse_responses = Lens.lens (\BatchReadResponse' {responses} -> responses) (\s@BatchReadResponse' {} a -> s {responses = a} :: BatchReadResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 batchReadResponse_httpStatus :: Lens.Lens' BatchReadResponse Prelude.Int

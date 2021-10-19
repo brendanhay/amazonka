@@ -57,8 +57,8 @@ module Network.AWS.S3.PutBucketEncryption
     newPutBucketEncryption,
 
     -- * Request Lenses
-    putBucketEncryption_expectedBucketOwner,
     putBucketEncryption_contentMD5,
+    putBucketEncryption_expectedBucketOwner,
     putBucketEncryption_bucket,
     putBucketEncryption_serverSideEncryptionConfiguration,
 
@@ -77,17 +77,17 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketEncryption' smart constructor.
 data PutBucketEncryption = PutBucketEncryption'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
+  { -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
     -- configuration.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies default encryption for a bucket using server-side encryption
     -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
     -- For information about the Amazon S3 default encryption feature, see
@@ -106,16 +106,16 @@ data PutBucketEncryption = PutBucketEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketEncryption_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
---
 -- 'contentMD5', 'putBucketEncryption_contentMD5' - The base64-encoded 128-bit MD5 digest of the server-side encryption
 -- configuration.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
 -- (CLI) or Amazon Web Services SDKs, this field is calculated
 -- automatically.
+--
+-- 'expectedBucketOwner', 'putBucketEncryption_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
 --
 -- 'bucket', 'putBucketEncryption_bucket' - Specifies default encryption for a bucket using server-side encryption
 -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
@@ -134,19 +134,12 @@ newPutBucketEncryption
   pBucket_
   pServerSideEncryptionConfiguration_ =
     PutBucketEncryption'
-      { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+      { contentMD5 = Prelude.Nothing,
+        expectedBucketOwner = Prelude.Nothing,
         bucket = pBucket_,
         serverSideEncryptionConfiguration =
           pServerSideEncryptionConfiguration_
       }
-
--- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
-putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
-putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketEncryption' {} a -> s {expectedBucketOwner = a} :: PutBucketEncryption)
 
 -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
 -- configuration.
@@ -156,6 +149,12 @@ putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expe
 -- automatically.
 putBucketEncryption_contentMD5 :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
 putBucketEncryption_contentMD5 = Lens.lens (\PutBucketEncryption' {contentMD5} -> contentMD5) (\s@PutBucketEncryption' {} a -> s {contentMD5 = a} :: PutBucketEncryption)
+
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
+putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketEncryption' {} a -> s {expectedBucketOwner = a} :: PutBucketEncryption)
 
 -- | Specifies default encryption for a bucket using server-side encryption
 -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
@@ -173,7 +172,9 @@ instance Core.AWSRequest PutBucketEncryption where
   type
     AWSResponse PutBucketEncryption =
       PutBucketEncryptionResponse
-  request = Request.putXML defaultService
+  request =
+    Request.s3vhost
+      Prelude.. Request.putXML defaultService
   response =
     Response.receiveNull PutBucketEncryptionResponse'
 
@@ -190,9 +191,9 @@ instance Core.ToElement PutBucketEncryption where
 instance Core.ToHeaders PutBucketEncryption where
   toHeaders PutBucketEncryption' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
-          Core.=# expectedBucketOwner,
-        "Content-MD5" Core.=# contentMD5
+      [ "Content-MD5" Core.=# contentMD5,
+        "x-amz-expected-bucket-owner"
+          Core.=# expectedBucketOwner
       ]
 
 instance Core.ToPath PutBucketEncryption where

@@ -35,13 +35,13 @@ import qualified Network.AWS.Prelude as Prelude
 data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
   { -- | The status of an automatic scaling policy.
     status :: Prelude.Maybe AutoScalingPolicyStatus,
+    -- | The scale-in and scale-out rules that comprise the automatic scaling
+    -- policy.
+    rules :: Prelude.Maybe [ScalingRule],
     -- | The upper and lower EC2 instance limits for an automatic scaling policy.
     -- Automatic scaling activity will not cause an instance group to grow
     -- above or below these limits.
-    constraints :: Prelude.Maybe ScalingConstraints,
-    -- | The scale-in and scale-out rules that comprise the automatic scaling
-    -- policy.
-    rules :: Prelude.Maybe [ScalingRule]
+    constraints :: Prelude.Maybe ScalingConstraints
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,36 +55,36 @@ data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
 --
 -- 'status', 'autoScalingPolicyDescription_status' - The status of an automatic scaling policy.
 --
+-- 'rules', 'autoScalingPolicyDescription_rules' - The scale-in and scale-out rules that comprise the automatic scaling
+-- policy.
+--
 -- 'constraints', 'autoScalingPolicyDescription_constraints' - The upper and lower EC2 instance limits for an automatic scaling policy.
 -- Automatic scaling activity will not cause an instance group to grow
 -- above or below these limits.
---
--- 'rules', 'autoScalingPolicyDescription_rules' - The scale-in and scale-out rules that comprise the automatic scaling
--- policy.
 newAutoScalingPolicyDescription ::
   AutoScalingPolicyDescription
 newAutoScalingPolicyDescription =
   AutoScalingPolicyDescription'
     { status =
         Prelude.Nothing,
-      constraints = Prelude.Nothing,
-      rules = Prelude.Nothing
+      rules = Prelude.Nothing,
+      constraints = Prelude.Nothing
     }
 
 -- | The status of an automatic scaling policy.
 autoScalingPolicyDescription_status :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe AutoScalingPolicyStatus)
 autoScalingPolicyDescription_status = Lens.lens (\AutoScalingPolicyDescription' {status} -> status) (\s@AutoScalingPolicyDescription' {} a -> s {status = a} :: AutoScalingPolicyDescription)
 
+-- | The scale-in and scale-out rules that comprise the automatic scaling
+-- policy.
+autoScalingPolicyDescription_rules :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe [ScalingRule])
+autoScalingPolicyDescription_rules = Lens.lens (\AutoScalingPolicyDescription' {rules} -> rules) (\s@AutoScalingPolicyDescription' {} a -> s {rules = a} :: AutoScalingPolicyDescription) Prelude.. Lens.mapping Lens.coerced
+
 -- | The upper and lower EC2 instance limits for an automatic scaling policy.
 -- Automatic scaling activity will not cause an instance group to grow
 -- above or below these limits.
 autoScalingPolicyDescription_constraints :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe ScalingConstraints)
 autoScalingPolicyDescription_constraints = Lens.lens (\AutoScalingPolicyDescription' {constraints} -> constraints) (\s@AutoScalingPolicyDescription' {} a -> s {constraints = a} :: AutoScalingPolicyDescription)
-
--- | The scale-in and scale-out rules that comprise the automatic scaling
--- policy.
-autoScalingPolicyDescription_rules :: Lens.Lens' AutoScalingPolicyDescription (Prelude.Maybe [ScalingRule])
-autoScalingPolicyDescription_rules = Lens.lens (\AutoScalingPolicyDescription' {rules} -> rules) (\s@AutoScalingPolicyDescription' {} a -> s {rules = a} :: AutoScalingPolicyDescription) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON AutoScalingPolicyDescription where
   parseJSON =
@@ -93,8 +93,8 @@ instance Core.FromJSON AutoScalingPolicyDescription where
       ( \x ->
           AutoScalingPolicyDescription'
             Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Constraints")
             Prelude.<*> (x Core..:? "Rules" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Constraints")
       )
 
 instance

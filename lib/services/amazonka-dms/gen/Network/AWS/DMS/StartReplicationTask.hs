@@ -31,9 +31,9 @@ module Network.AWS.DMS.StartReplicationTask
     newStartReplicationTask,
 
     -- * Request Lenses
-    startReplicationTask_cdcStartTime,
-    startReplicationTask_cdcStopPosition,
     startReplicationTask_cdcStartPosition,
+    startReplicationTask_cdcStopPosition,
+    startReplicationTask_cdcStartTime,
     startReplicationTask_replicationTaskArn,
     startReplicationTask_startReplicationTaskType,
 
@@ -58,22 +58,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newStartReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
-  { -- | Indicates the start time for a change data capture (CDC) operation. Use
-    -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
-    -- operation to start. Specifying both values results in an error.
-    --
-    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Core.POSIX,
-    -- | Indicates when you want a change data capture (CDC) operation to stop.
-    -- The value can be either server time or commit time.
-    --
-    -- Server time example: --cdc-stop-position
-    -- “server_time:2018-02-09T12:12:12”
-    --
-    -- Commit time example: --cdc-stop-position “commit_time:
-    -- 2018-02-09T12:12:12 “
-    cdcStopPosition :: Prelude.Maybe Prelude.Text,
-    -- | Indicates when you want a change data capture (CDC) operation to start.
+  { -- | Indicates when you want a change data capture (CDC) operation to start.
     -- Use either CdcStartPosition or CdcStartTime to specify when you want a
     -- CDC operation to start. Specifying both values results in an error.
     --
@@ -93,6 +78,21 @@ data StartReplicationTask = StartReplicationTask'
     -- more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
     cdcStartPosition :: Prelude.Maybe Prelude.Text,
+    -- | Indicates when you want a change data capture (CDC) operation to stop.
+    -- The value can be either server time or commit time.
+    --
+    -- Server time example: --cdc-stop-position
+    -- “server_time:2018-02-09T12:12:12”
+    --
+    -- Commit time example: --cdc-stop-position “commit_time:
+    -- 2018-02-09T12:12:12 “
+    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the start time for a change data capture (CDC) operation. Use
+    -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+    -- operation to start. Specifying both values results in an error.
+    --
+    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+    cdcStartTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the replication task to be started.
     replicationTaskArn :: Prelude.Text,
     -- | A type of replication task.
@@ -107,21 +107,6 @@ data StartReplicationTask = StartReplicationTask'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'cdcStartTime', 'startReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use
--- either CdcStartTime or CdcStartPosition to specify when you want a CDC
--- operation to start. Specifying both values results in an error.
---
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
---
--- 'cdcStopPosition', 'startReplicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
--- The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position
--- “server_time:2018-02-09T12:12:12”
---
--- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
 --
 -- 'cdcStartPosition', 'startReplicationTask_cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start.
 -- Use either CdcStartPosition or CdcStartTime to specify when you want a
@@ -143,6 +128,21 @@ data StartReplicationTask = StartReplicationTask'
 -- more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 --
+-- 'cdcStopPosition', 'startReplicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
+--
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+--
+-- 'cdcStartTime', 'startReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use
+-- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+-- operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+--
 -- 'replicationTaskArn', 'startReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be started.
 --
 -- 'startReplicationTaskType', 'startReplicationTask_startReplicationTaskType' - A type of replication task.
@@ -156,33 +156,14 @@ newStartReplicationTask
   pReplicationTaskArn_
   pStartReplicationTaskType_ =
     StartReplicationTask'
-      { cdcStartTime =
+      { cdcStartPosition =
           Prelude.Nothing,
         cdcStopPosition = Prelude.Nothing,
-        cdcStartPosition = Prelude.Nothing,
+        cdcStartTime = Prelude.Nothing,
         replicationTaskArn = pReplicationTaskArn_,
         startReplicationTaskType =
           pStartReplicationTaskType_
       }
-
--- | Indicates the start time for a change data capture (CDC) operation. Use
--- either CdcStartTime or CdcStartPosition to specify when you want a CDC
--- operation to start. Specifying both values results in an error.
---
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-startReplicationTask_cdcStartTime :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.UTCTime)
-startReplicationTask_cdcStartTime = Lens.lens (\StartReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@StartReplicationTask' {} a -> s {cdcStartTime = a} :: StartReplicationTask) Prelude.. Lens.mapping Core._Time
-
--- | Indicates when you want a change data capture (CDC) operation to stop.
--- The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position
--- “server_time:2018-02-09T12:12:12”
---
--- Commit time example: --cdc-stop-position “commit_time:
--- 2018-02-09T12:12:12 “
-startReplicationTask_cdcStopPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
-startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@StartReplicationTask' {} a -> s {cdcStopPosition = a} :: StartReplicationTask)
 
 -- | Indicates when you want a change data capture (CDC) operation to start.
 -- Use either CdcStartPosition or CdcStartTime to specify when you want a
@@ -205,6 +186,25 @@ startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcSto
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS>.
 startReplicationTask_cdcStartPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
 startReplicationTask_cdcStartPosition = Lens.lens (\StartReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@StartReplicationTask' {} a -> s {cdcStartPosition = a} :: StartReplicationTask)
+
+-- | Indicates when you want a change data capture (CDC) operation to stop.
+-- The value can be either server time or commit time.
+--
+-- Server time example: --cdc-stop-position
+-- “server_time:2018-02-09T12:12:12”
+--
+-- Commit time example: --cdc-stop-position “commit_time:
+-- 2018-02-09T12:12:12 “
+startReplicationTask_cdcStopPosition :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.Text)
+startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@StartReplicationTask' {} a -> s {cdcStopPosition = a} :: StartReplicationTask)
+
+-- | Indicates the start time for a change data capture (CDC) operation. Use
+-- either CdcStartTime or CdcStartPosition to specify when you want a CDC
+-- operation to start. Specifying both values results in an error.
+--
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+startReplicationTask_cdcStartTime :: Lens.Lens' StartReplicationTask (Prelude.Maybe Prelude.UTCTime)
+startReplicationTask_cdcStartTime = Lens.lens (\StartReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@StartReplicationTask' {} a -> s {cdcStartTime = a} :: StartReplicationTask) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the replication task to be started.
 startReplicationTask_replicationTaskArn :: Lens.Lens' StartReplicationTask Prelude.Text
@@ -250,11 +250,11 @@ instance Core.ToJSON StartReplicationTask where
   toJSON StartReplicationTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
+          [ ("CdcStartPosition" Core..=)
+              Prelude.<$> cdcStartPosition,
             ("CdcStopPosition" Core..=)
               Prelude.<$> cdcStopPosition,
-            ("CdcStartPosition" Core..=)
-              Prelude.<$> cdcStartPosition,
+            ("CdcStartTime" Core..=) Prelude.<$> cdcStartTime,
             Prelude.Just
               ("ReplicationTaskArn" Core..= replicationTaskArn),
             Prelude.Just

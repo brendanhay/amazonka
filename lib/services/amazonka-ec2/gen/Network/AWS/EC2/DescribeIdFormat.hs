@@ -38,12 +38,12 @@
 -- @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@.
 --
 -- These settings apply to the IAM user who makes the request; they do not
--- apply to the entire AWS account. By default, an IAM user defaults to the
--- same settings as the root user, unless they explicitly override the
--- settings by running the ModifyIdFormat command. Resources created with
--- longer IDs are visible to all IAM users, regardless of these settings
--- and provided that they have permission to use the relevant @Describe@
--- command for the resource type.
+-- apply to the entire Amazon Web Services account. By default, an IAM user
+-- defaults to the same settings as the root user, unless they explicitly
+-- override the settings by running the ModifyIdFormat command. Resources
+-- created with longer IDs are visible to all IAM users, regardless of
+-- these settings and provided that they have permission to use the
+-- relevant @Describe@ command for the resource type.
 module Network.AWS.EC2.DescribeIdFormat
   ( -- * Creating a Request
     DescribeIdFormat (..),
@@ -189,7 +189,7 @@ newDescribeIdFormatResponse pHttpStatus_ =
 
 -- | Information about the ID format for the resource.
 describeIdFormatResponse_statuses :: Lens.Lens' DescribeIdFormatResponse (Prelude.Maybe [IdFormat])
-describeIdFormatResponse_statuses = Lens.lens (\DescribeIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdFormatResponse) Prelude.. Lens.mapping Lens._Coerce
+describeIdFormatResponse_statuses = Lens.lens (\DescribeIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdFormatResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdFormatResponse Prelude.Int

@@ -31,6 +31,7 @@ module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
         ServiceNamespace_Elasticmapreduce,
         ServiceNamespace_Kafka,
         ServiceNamespace_Lambda,
+        ServiceNamespace_Neptune,
         ServiceNamespace_Rds,
         ServiceNamespace_Sagemaker
       ),
@@ -101,6 +102,9 @@ pattern ServiceNamespace_Kafka = ServiceNamespace' "kafka"
 pattern ServiceNamespace_Lambda :: ServiceNamespace
 pattern ServiceNamespace_Lambda = ServiceNamespace' "lambda"
 
+pattern ServiceNamespace_Neptune :: ServiceNamespace
+pattern ServiceNamespace_Neptune = ServiceNamespace' "neptune"
+
 pattern ServiceNamespace_Rds :: ServiceNamespace
 pattern ServiceNamespace_Rds = ServiceNamespace' "rds"
 
@@ -119,6 +123,7 @@ pattern ServiceNamespace_Sagemaker = ServiceNamespace' "sagemaker"
   ServiceNamespace_Elasticmapreduce,
   ServiceNamespace_Kafka,
   ServiceNamespace_Lambda,
+  ServiceNamespace_Neptune,
   ServiceNamespace_Rds,
   ServiceNamespace_Sagemaker,
   ServiceNamespace'

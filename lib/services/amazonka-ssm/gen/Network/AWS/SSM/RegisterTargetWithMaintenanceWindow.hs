@@ -27,10 +27,10 @@ module Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
     newRegisterTargetWithMaintenanceWindow,
 
     -- * Request Lenses
+    registerTargetWithMaintenanceWindow_clientToken,
+    registerTargetWithMaintenanceWindow_ownerInformation,
     registerTargetWithMaintenanceWindow_name,
     registerTargetWithMaintenanceWindow_description,
-    registerTargetWithMaintenanceWindow_ownerInformation,
-    registerTargetWithMaintenanceWindow_clientToken,
     registerTargetWithMaintenanceWindow_windowId,
     registerTargetWithMaintenanceWindow_resourceType,
     registerTargetWithMaintenanceWindow_targets,
@@ -54,16 +54,16 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newRegisterTargetWithMaintenanceWindow' smart constructor.
 data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
-  { -- | An optional name for the target.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | An optional description for the target.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+  { -- | User-provided idempotency token.
+    clientToken :: Prelude.Maybe Prelude.Text,
     -- | User-provided value that will be included in any Amazon CloudWatch
     -- Events events raised while running tasks for these targets in this
     -- maintenance window.
     ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | User-provided idempotency token.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional name for the target.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | An optional description for the target.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The ID of the maintenance window the target should be registered with.
     windowId :: Prelude.Text,
     -- | The type of target being registered with the maintenance window.
@@ -120,15 +120,15 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'registerTargetWithMaintenanceWindow_name' - An optional name for the target.
---
--- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.
+-- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.
 --
 -- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch
 -- Events events raised while running tasks for these targets in this
 -- maintenance window.
 --
--- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.
+-- 'name', 'registerTargetWithMaintenanceWindow_name' - An optional name for the target.
+--
+-- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.
 --
 -- 'windowId', 'registerTargetWithMaintenanceWindow_windowId' - The ID of the maintenance window the target should be registered with.
 --
@@ -184,15 +184,25 @@ newRegisterTargetWithMaintenanceWindow
   pWindowId_
   pResourceType_ =
     RegisterTargetWithMaintenanceWindow'
-      { name =
+      { clientToken =
           Prelude.Nothing,
-        description = Prelude.Nothing,
         ownerInformation = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+        name = Prelude.Nothing,
+        description = Prelude.Nothing,
         windowId = pWindowId_,
         resourceType = pResourceType_,
         targets = Prelude.mempty
       }
+
+-- | User-provided idempotency token.
+registerTargetWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTargetWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTargetWithMaintenanceWindow)
+
+-- | User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
+registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
+registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
 -- | An optional name for the target.
 registerTargetWithMaintenanceWindow_name :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
@@ -201,16 +211,6 @@ registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMainten
 -- | An optional description for the target.
 registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
-
--- | User-provided value that will be included in any Amazon CloudWatch
--- Events events raised while running tasks for these targets in this
--- maintenance window.
-registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
-
--- | User-provided idempotency token.
-registerTargetWithMaintenanceWindow_clientToken :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
-registerTargetWithMaintenanceWindow_clientToken = Lens.lens (\RegisterTargetWithMaintenanceWindow' {clientToken} -> clientToken) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {clientToken = a} :: RegisterTargetWithMaintenanceWindow)
 
 -- | The ID of the maintenance window the target should be registered with.
 registerTargetWithMaintenanceWindow_windowId :: Lens.Lens' RegisterTargetWithMaintenanceWindow Prelude.Text
@@ -261,7 +261,7 @@ registerTargetWithMaintenanceWindow_resourceType = Lens.lens (\RegisterTargetWit
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 registerTargetWithMaintenanceWindow_targets :: Lens.Lens' RegisterTargetWithMaintenanceWindow [Target]
-registerTargetWithMaintenanceWindow_targets = Lens.lens (\RegisterTargetWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens._Coerce
+registerTargetWithMaintenanceWindow_targets = Lens.lens (\RegisterTargetWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -312,11 +312,11 @@ instance
   toJSON RegisterTargetWithMaintenanceWindow' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("OwnerInformation" Core..=)
               Prelude.<$> ownerInformation,
-            ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("Name" Core..=) Prelude.<$> name,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("WindowId" Core..= windowId),
             Prelude.Just ("ResourceType" Core..= resourceType),
             Prelude.Just ("Targets" Core..= targets)

@@ -64,7 +64,7 @@ newStartTextDetectionFilters =
 -- | Filter focusing on a certain area of the frame. Uses a @BoundingBox@
 -- object to set the region of the screen.
 startTextDetectionFilters_regionsOfInterest :: Lens.Lens' StartTextDetectionFilters (Prelude.Maybe [RegionOfInterest])
-startTextDetectionFilters_regionsOfInterest = Lens.lens (\StartTextDetectionFilters' {regionsOfInterest} -> regionsOfInterest) (\s@StartTextDetectionFilters' {} a -> s {regionsOfInterest = a} :: StartTextDetectionFilters) Prelude.. Lens.mapping Lens._Coerce
+startTextDetectionFilters_regionsOfInterest = Lens.lens (\StartTextDetectionFilters' {regionsOfInterest} -> regionsOfInterest) (\s@StartTextDetectionFilters' {} a -> s {regionsOfInterest = a} :: StartTextDetectionFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | Filters focusing on qualities of the text, such as confidence or size.
 startTextDetectionFilters_wordFilter :: Lens.Lens' StartTextDetectionFilters (Prelude.Maybe DetectionFilter)

@@ -69,7 +69,7 @@ automaticTapeCreationPolicyInfo_gatewayARN = Lens.lens (\AutomaticTapeCreationPo
 -- creation rules. This returns the rules that determine when and how to
 -- automatically create new tapes.
 automaticTapeCreationPolicyInfo_automaticTapeCreationRules :: Lens.Lens' AutomaticTapeCreationPolicyInfo (Prelude.Maybe (Prelude.NonEmpty AutomaticTapeCreationRule))
-automaticTapeCreationPolicyInfo_automaticTapeCreationRules = Lens.lens (\AutomaticTapeCreationPolicyInfo' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@AutomaticTapeCreationPolicyInfo' {} a -> s {automaticTapeCreationRules = a} :: AutomaticTapeCreationPolicyInfo) Prelude.. Lens.mapping Lens._Coerce
+automaticTapeCreationPolicyInfo_automaticTapeCreationRules = Lens.lens (\AutomaticTapeCreationPolicyInfo' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@AutomaticTapeCreationPolicyInfo' {} a -> s {automaticTapeCreationRules = a} :: AutomaticTapeCreationPolicyInfo) Prelude.. Lens.mapping Lens.coerced
 
 instance
   Core.FromJSON

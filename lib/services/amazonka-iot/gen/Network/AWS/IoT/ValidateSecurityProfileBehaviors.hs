@@ -80,7 +80,7 @@ newValidateSecurityProfileBehaviors =
 -- | Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
 validateSecurityProfileBehaviors_behaviors :: Lens.Lens' ValidateSecurityProfileBehaviors [Behavior]
-validateSecurityProfileBehaviors_behaviors = Lens.lens (\ValidateSecurityProfileBehaviors' {behaviors} -> behaviors) (\s@ValidateSecurityProfileBehaviors' {} a -> s {behaviors = a} :: ValidateSecurityProfileBehaviors) Prelude.. Lens._Coerce
+validateSecurityProfileBehaviors_behaviors = Lens.lens (\ValidateSecurityProfileBehaviors' {behaviors} -> behaviors) (\s@ValidateSecurityProfileBehaviors' {} a -> s {behaviors = a} :: ValidateSecurityProfileBehaviors) Prelude.. Lens.coerced
 
 instance
   Core.AWSRequest
@@ -172,7 +172,7 @@ newValidateSecurityProfileBehaviorsResponse
 
 -- | The list of any errors found in the behaviors.
 validateSecurityProfileBehaviorsResponse_validationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe [ValidationError])
-validateSecurityProfileBehaviorsResponse_validationErrors = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {validationErrors} -> validationErrors) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse) Prelude.. Lens.mapping Lens._Coerce
+validateSecurityProfileBehaviorsResponse_validationErrors = Lens.lens (\ValidateSecurityProfileBehaviorsResponse' {validationErrors} -> validationErrors) (\s@ValidateSecurityProfileBehaviorsResponse' {} a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | True if the behaviors were valid.
 validateSecurityProfileBehaviorsResponse_valid :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Prelude.Maybe Prelude.Bool)

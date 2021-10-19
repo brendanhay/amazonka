@@ -32,8 +32,8 @@ module Network.AWS.MechanicalTurk.CreateHITType
 
     -- * Request Lenses
     createHITType_autoApprovalDelayInSeconds,
-    createHITType_qualificationRequirements,
     createHITType_keywords,
+    createHITType_qualificationRequirements,
     createHITType_assignmentDurationInSeconds,
     createHITType_reward,
     createHITType_title,
@@ -62,15 +62,15 @@ data CreateHITType = CreateHITType'
     -- submitted, after which the assignment is considered Approved
     -- automatically unless the Requester explicitly rejects it.
     autoApprovalDelayInSeconds :: Prelude.Maybe Prelude.Integer,
+    -- | One or more words or phrases that describe the HIT, separated by commas.
+    -- These words are used in searches to find HITs.
+    keywords :: Prelude.Maybe Prelude.Text,
     -- | Conditions that a Worker\'s Qualifications must meet in order to accept
     -- the HIT. A HIT can have between zero and ten Qualification requirements.
     -- All requirements must be met in order for a Worker to accept the HIT.
     -- Additionally, other actions can be restricted using the @ActionsGuarded@
     -- field on each @QualificationRequirement@ structure.
     qualificationRequirements :: Prelude.Maybe [QualificationRequirement],
-    -- | One or more words or phrases that describe the HIT, separated by commas.
-    -- These words are used in searches to find HITs.
-    keywords :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, that a Worker has to complete the HIT
     -- after accepting it. If a Worker does not complete the assignment within
     -- the specified duration, the assignment is considered abandoned. If the
@@ -107,14 +107,14 @@ data CreateHITType = CreateHITType'
 -- submitted, after which the assignment is considered Approved
 -- automatically unless the Requester explicitly rejects it.
 --
+-- 'keywords', 'createHITType_keywords' - One or more words or phrases that describe the HIT, separated by commas.
+-- These words are used in searches to find HITs.
+--
 -- 'qualificationRequirements', 'createHITType_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
 -- All requirements must be met in order for a Worker to accept the HIT.
 -- Additionally, other actions can be restricted using the @ActionsGuarded@
 -- field on each @QualificationRequirement@ structure.
---
--- 'keywords', 'createHITType_keywords' - One or more words or phrases that describe the HIT, separated by commas.
--- These words are used in searches to find HITs.
 --
 -- 'assignmentDurationInSeconds', 'createHITType_assignmentDurationInSeconds' - The amount of time, in seconds, that a Worker has to complete the HIT
 -- after accepting it. If a Worker does not complete the assignment within
@@ -154,8 +154,8 @@ newCreateHITType
     CreateHITType'
       { autoApprovalDelayInSeconds =
           Prelude.Nothing,
-        qualificationRequirements = Prelude.Nothing,
         keywords = Prelude.Nothing,
+        qualificationRequirements = Prelude.Nothing,
         assignmentDurationInSeconds =
           pAssignmentDurationInSeconds_,
         reward = pReward_,
@@ -169,18 +169,18 @@ newCreateHITType
 createHITType_autoApprovalDelayInSeconds :: Lens.Lens' CreateHITType (Prelude.Maybe Prelude.Integer)
 createHITType_autoApprovalDelayInSeconds = Lens.lens (\CreateHITType' {autoApprovalDelayInSeconds} -> autoApprovalDelayInSeconds) (\s@CreateHITType' {} a -> s {autoApprovalDelayInSeconds = a} :: CreateHITType)
 
+-- | One or more words or phrases that describe the HIT, separated by commas.
+-- These words are used in searches to find HITs.
+createHITType_keywords :: Lens.Lens' CreateHITType (Prelude.Maybe Prelude.Text)
+createHITType_keywords = Lens.lens (\CreateHITType' {keywords} -> keywords) (\s@CreateHITType' {} a -> s {keywords = a} :: CreateHITType)
+
 -- | Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
 -- All requirements must be met in order for a Worker to accept the HIT.
 -- Additionally, other actions can be restricted using the @ActionsGuarded@
 -- field on each @QualificationRequirement@ structure.
 createHITType_qualificationRequirements :: Lens.Lens' CreateHITType (Prelude.Maybe [QualificationRequirement])
-createHITType_qualificationRequirements = Lens.lens (\CreateHITType' {qualificationRequirements} -> qualificationRequirements) (\s@CreateHITType' {} a -> s {qualificationRequirements = a} :: CreateHITType) Prelude.. Lens.mapping Lens._Coerce
-
--- | One or more words or phrases that describe the HIT, separated by commas.
--- These words are used in searches to find HITs.
-createHITType_keywords :: Lens.Lens' CreateHITType (Prelude.Maybe Prelude.Text)
-createHITType_keywords = Lens.lens (\CreateHITType' {keywords} -> keywords) (\s@CreateHITType' {} a -> s {keywords = a} :: CreateHITType)
+createHITType_qualificationRequirements = Lens.lens (\CreateHITType' {qualificationRequirements} -> qualificationRequirements) (\s@CreateHITType' {} a -> s {qualificationRequirements = a} :: CreateHITType) Prelude.. Lens.mapping Lens.coerced
 
 -- | The amount of time, in seconds, that a Worker has to complete the HIT
 -- after accepting it. If a Worker does not complete the assignment within
@@ -249,9 +249,9 @@ instance Core.ToJSON CreateHITType where
       ( Prelude.catMaybes
           [ ("AutoApprovalDelayInSeconds" Core..=)
               Prelude.<$> autoApprovalDelayInSeconds,
+            ("Keywords" Core..=) Prelude.<$> keywords,
             ("QualificationRequirements" Core..=)
               Prelude.<$> qualificationRequirements,
-            ("Keywords" Core..=) Prelude.<$> keywords,
             Prelude.Just
               ( "AssignmentDurationInSeconds"
                   Core..= assignmentDurationInSeconds

@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobDependency' smart constructor.
 data JobDependency = JobDependency'
-  { -- | The type of the job dependency.
-    type' :: Prelude.Maybe ArrayJobDependency,
-    -- | The job ID of the Batch job associated with this dependency.
-    jobId :: Prelude.Maybe Prelude.Text
+  { -- | The job ID of the Batch job associated with this dependency.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The type of the job dependency.
+    type' :: Prelude.Maybe ArrayJobDependency
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data JobDependency = JobDependency'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'jobDependency_type' - The type of the job dependency.
---
 -- 'jobId', 'jobDependency_jobId' - The job ID of the Batch job associated with this dependency.
+--
+-- 'type'', 'jobDependency_type' - The type of the job dependency.
 newJobDependency ::
   JobDependency
 newJobDependency =
   JobDependency'
-    { type' = Prelude.Nothing,
-      jobId = Prelude.Nothing
+    { jobId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
-
--- | The type of the job dependency.
-jobDependency_type :: Lens.Lens' JobDependency (Prelude.Maybe ArrayJobDependency)
-jobDependency_type = Lens.lens (\JobDependency' {type'} -> type') (\s@JobDependency' {} a -> s {type' = a} :: JobDependency)
 
 -- | The job ID of the Batch job associated with this dependency.
 jobDependency_jobId :: Lens.Lens' JobDependency (Prelude.Maybe Prelude.Text)
 jobDependency_jobId = Lens.lens (\JobDependency' {jobId} -> jobId) (\s@JobDependency' {} a -> s {jobId = a} :: JobDependency)
+
+-- | The type of the job dependency.
+jobDependency_type :: Lens.Lens' JobDependency (Prelude.Maybe ArrayJobDependency)
+jobDependency_type = Lens.lens (\JobDependency' {type'} -> type') (\s@JobDependency' {} a -> s {type' = a} :: JobDependency)
 
 instance Core.FromJSON JobDependency where
   parseJSON =
@@ -68,7 +68,7 @@ instance Core.FromJSON JobDependency where
       "JobDependency"
       ( \x ->
           JobDependency'
-            Prelude.<$> (x Core..:? "type") Prelude.<*> (x Core..:? "jobId")
+            Prelude.<$> (x Core..:? "jobId") Prelude.<*> (x Core..:? "type")
       )
 
 instance Prelude.Hashable JobDependency
@@ -79,7 +79,7 @@ instance Core.ToJSON JobDependency where
   toJSON JobDependency' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("type" Core..=) Prelude.<$> type',
-            ("jobId" Core..=) Prelude.<$> jobId
+          [ ("jobId" Core..=) Prelude.<$> jobId,
+            ("type" Core..=) Prelude.<$> type'
           ]
       )

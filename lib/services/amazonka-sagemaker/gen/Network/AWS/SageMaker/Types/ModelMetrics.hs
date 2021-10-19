@@ -33,12 +33,12 @@ import Network.AWS.SageMaker.Types.ModelQuality
 data ModelMetrics = ModelMetrics'
   { -- | Metrics that measure bais in a model.
     bias :: Prelude.Maybe Bias,
-    -- | Metrics that help explain a model.
-    explainability :: Prelude.Maybe Explainability,
     -- | Metrics that measure the quality of the input data for a model.
     modelDataQuality :: Prelude.Maybe ModelDataQuality,
     -- | Metrics that measure the quality of a model.
-    modelQuality :: Prelude.Maybe ModelQuality
+    modelQuality :: Prelude.Maybe ModelQuality,
+    -- | Metrics that help explain a model.
+    explainability :: Prelude.Maybe Explainability
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -52,28 +52,24 @@ data ModelMetrics = ModelMetrics'
 --
 -- 'bias', 'modelMetrics_bias' - Metrics that measure bais in a model.
 --
--- 'explainability', 'modelMetrics_explainability' - Metrics that help explain a model.
---
 -- 'modelDataQuality', 'modelMetrics_modelDataQuality' - Metrics that measure the quality of the input data for a model.
 --
 -- 'modelQuality', 'modelMetrics_modelQuality' - Metrics that measure the quality of a model.
+--
+-- 'explainability', 'modelMetrics_explainability' - Metrics that help explain a model.
 newModelMetrics ::
   ModelMetrics
 newModelMetrics =
   ModelMetrics'
     { bias = Prelude.Nothing,
-      explainability = Prelude.Nothing,
       modelDataQuality = Prelude.Nothing,
-      modelQuality = Prelude.Nothing
+      modelQuality = Prelude.Nothing,
+      explainability = Prelude.Nothing
     }
 
 -- | Metrics that measure bais in a model.
 modelMetrics_bias :: Lens.Lens' ModelMetrics (Prelude.Maybe Bias)
 modelMetrics_bias = Lens.lens (\ModelMetrics' {bias} -> bias) (\s@ModelMetrics' {} a -> s {bias = a} :: ModelMetrics)
-
--- | Metrics that help explain a model.
-modelMetrics_explainability :: Lens.Lens' ModelMetrics (Prelude.Maybe Explainability)
-modelMetrics_explainability = Lens.lens (\ModelMetrics' {explainability} -> explainability) (\s@ModelMetrics' {} a -> s {explainability = a} :: ModelMetrics)
 
 -- | Metrics that measure the quality of the input data for a model.
 modelMetrics_modelDataQuality :: Lens.Lens' ModelMetrics (Prelude.Maybe ModelDataQuality)
@@ -83,6 +79,10 @@ modelMetrics_modelDataQuality = Lens.lens (\ModelMetrics' {modelDataQuality} -> 
 modelMetrics_modelQuality :: Lens.Lens' ModelMetrics (Prelude.Maybe ModelQuality)
 modelMetrics_modelQuality = Lens.lens (\ModelMetrics' {modelQuality} -> modelQuality) (\s@ModelMetrics' {} a -> s {modelQuality = a} :: ModelMetrics)
 
+-- | Metrics that help explain a model.
+modelMetrics_explainability :: Lens.Lens' ModelMetrics (Prelude.Maybe Explainability)
+modelMetrics_explainability = Lens.lens (\ModelMetrics' {explainability} -> explainability) (\s@ModelMetrics' {} a -> s {explainability = a} :: ModelMetrics)
+
 instance Core.FromJSON ModelMetrics where
   parseJSON =
     Core.withObject
@@ -90,9 +90,9 @@ instance Core.FromJSON ModelMetrics where
       ( \x ->
           ModelMetrics'
             Prelude.<$> (x Core..:? "Bias")
-            Prelude.<*> (x Core..:? "Explainability")
             Prelude.<*> (x Core..:? "ModelDataQuality")
             Prelude.<*> (x Core..:? "ModelQuality")
+            Prelude.<*> (x Core..:? "Explainability")
       )
 
 instance Prelude.Hashable ModelMetrics
@@ -104,10 +104,10 @@ instance Core.ToJSON ModelMetrics where
     Core.object
       ( Prelude.catMaybes
           [ ("Bias" Core..=) Prelude.<$> bias,
-            ("Explainability" Core..=)
-              Prelude.<$> explainability,
             ("ModelDataQuality" Core..=)
               Prelude.<$> modelDataQuality,
-            ("ModelQuality" Core..=) Prelude.<$> modelQuality
+            ("ModelQuality" Core..=) Prelude.<$> modelQuality,
+            ("Explainability" Core..=)
+              Prelude.<$> explainability
           ]
       )

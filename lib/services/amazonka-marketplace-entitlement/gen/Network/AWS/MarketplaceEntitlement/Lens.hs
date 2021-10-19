@@ -16,8 +16,8 @@ module Network.AWS.MarketplaceEntitlement.Lens
 
     -- ** GetEntitlements
     getEntitlements_nextToken,
-    getEntitlements_maxResults,
     getEntitlements_filter,
+    getEntitlements_maxResults,
     getEntitlements_productCode,
     getEntitlementsResponse_nextToken,
     getEntitlementsResponse_entitlements,
@@ -26,17 +26,17 @@ module Network.AWS.MarketplaceEntitlement.Lens
     -- * Types
 
     -- ** Entitlement
+    entitlement_dimension,
+    entitlement_value,
     entitlement_expirationDate,
     entitlement_customerIdentifier,
     entitlement_productCode,
-    entitlement_value,
-    entitlement_dimension,
 
     -- ** EntitlementValue
+    entitlementValue_integerValue,
     entitlementValue_doubleValue,
     entitlementValue_stringValue,
     entitlementValue_booleanValue,
-    entitlementValue_integerValue,
   )
 where
 

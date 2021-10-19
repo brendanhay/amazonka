@@ -139,7 +139,7 @@ newListTagsResponse pHttpStatus_ =
 
 -- | List of @Tag@ for the requested Elasticsearch domain.
 listTagsResponse_tagList :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens._Coerce
+listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int

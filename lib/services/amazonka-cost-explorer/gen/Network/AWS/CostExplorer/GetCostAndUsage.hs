@@ -39,8 +39,8 @@ module Network.AWS.CostExplorer.GetCostAndUsage
     newGetCostAndUsage,
 
     -- * Request Lenses
-    getCostAndUsage_nextPageToken,
     getCostAndUsage_groupBy,
+    getCostAndUsage_nextPageToken,
     getCostAndUsage_filter,
     getCostAndUsage_timePeriod,
     getCostAndUsage_granularity,
@@ -51,9 +51,9 @@ module Network.AWS.CostExplorer.GetCostAndUsage
     newGetCostAndUsageResponse,
 
     -- * Response Lenses
+    getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_nextPageToken,
     getCostAndUsageResponse_dimensionValueAttributes,
-    getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_groupDefinitions,
     getCostAndUsageResponse_httpStatus,
   )
@@ -68,11 +68,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCostAndUsage' smart constructor.
 data GetCostAndUsage = GetCostAndUsage'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
-    -- provides the token when the response from a previous call has more
-    -- results than the maximum page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | You can group Amazon Web Services costs using up to two different
+  { -- | You can group Amazon Web Services costs using up to two different
     -- groups, either dimensions, tag keys, cost categories, or any two group
     -- by types.
     --
@@ -83,6 +79,10 @@ data GetCostAndUsage = GetCostAndUsage'
     -- When you group by the @TAG@ type and include a valid tag key, you get
     -- all tag values, including empty strings.
     groupBy :: Prelude.Maybe [GroupDefinition],
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Filters Amazon Web Services costs by different dimensions. For example,
     -- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that
     -- are associated with that account\'s usage of that service. You can nest
@@ -129,10 +129,6 @@ data GetCostAndUsage = GetCostAndUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getCostAndUsage_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
---
 -- 'groupBy', 'getCostAndUsage_groupBy' - You can group Amazon Web Services costs using up to two different
 -- groups, either dimensions, tag keys, cost categories, or any two group
 -- by types.
@@ -143,6 +139,10 @@ data GetCostAndUsage = GetCostAndUsage'
 --
 -- When you group by the @TAG@ type and include a valid tag key, you get
 -- all tag values, including empty strings.
+--
+-- 'nextPageToken', 'getCostAndUsage_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'filter'', 'getCostAndUsage_filter' - Filters Amazon Web Services costs by different dimensions. For example,
 -- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that
@@ -186,19 +186,13 @@ newGetCostAndUsage ::
   GetCostAndUsage
 newGetCostAndUsage pTimePeriod_ pGranularity_ =
   GetCostAndUsage'
-    { nextPageToken = Prelude.Nothing,
-      groupBy = Prelude.Nothing,
+    { groupBy = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       filter' = Prelude.Nothing,
       timePeriod = pTimePeriod_,
       granularity = pGranularity_,
       metrics = Prelude.mempty
     }
-
--- | The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
-getCostAndUsage_nextPageToken :: Lens.Lens' GetCostAndUsage (Prelude.Maybe Prelude.Text)
-getCostAndUsage_nextPageToken = Lens.lens (\GetCostAndUsage' {nextPageToken} -> nextPageToken) (\s@GetCostAndUsage' {} a -> s {nextPageToken = a} :: GetCostAndUsage)
 
 -- | You can group Amazon Web Services costs using up to two different
 -- groups, either dimensions, tag keys, cost categories, or any two group
@@ -211,7 +205,13 @@ getCostAndUsage_nextPageToken = Lens.lens (\GetCostAndUsage' {nextPageToken} -> 
 -- When you group by the @TAG@ type and include a valid tag key, you get
 -- all tag values, including empty strings.
 getCostAndUsage_groupBy :: Lens.Lens' GetCostAndUsage (Prelude.Maybe [GroupDefinition])
-getCostAndUsage_groupBy = Lens.lens (\GetCostAndUsage' {groupBy} -> groupBy) (\s@GetCostAndUsage' {} a -> s {groupBy = a} :: GetCostAndUsage) Prelude.. Lens.mapping Lens._Coerce
+getCostAndUsage_groupBy = Lens.lens (\GetCostAndUsage' {groupBy} -> groupBy) (\s@GetCostAndUsage' {} a -> s {groupBy = a} :: GetCostAndUsage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getCostAndUsage_nextPageToken :: Lens.Lens' GetCostAndUsage (Prelude.Maybe Prelude.Text)
+getCostAndUsage_nextPageToken = Lens.lens (\GetCostAndUsage' {nextPageToken} -> nextPageToken) (\s@GetCostAndUsage' {} a -> s {nextPageToken = a} :: GetCostAndUsage)
 
 -- | Filters Amazon Web Services costs by different dimensions. For example,
 -- you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that
@@ -254,7 +254,7 @@ getCostAndUsage_granularity = Lens.lens (\GetCostAndUsage' {granularity} -> gran
 --
 -- @Metrics@ is required for @GetCostAndUsage@ requests.
 getCostAndUsage_metrics :: Lens.Lens' GetCostAndUsage [Prelude.Text]
-getCostAndUsage_metrics = Lens.lens (\GetCostAndUsage' {metrics} -> metrics) (\s@GetCostAndUsage' {} a -> s {metrics = a} :: GetCostAndUsage) Prelude.. Lens._Coerce
+getCostAndUsage_metrics = Lens.lens (\GetCostAndUsage' {metrics} -> metrics) (\s@GetCostAndUsage' {} a -> s {metrics = a} :: GetCostAndUsage) Prelude.. Lens.coerced
 
 instance Core.AWSRequest GetCostAndUsage where
   type
@@ -265,11 +265,11 @@ instance Core.AWSRequest GetCostAndUsage where
     Response.receiveJSON
       ( \s h x ->
           GetCostAndUsageResponse'
-            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Core..?> "ResultsByTime" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> ( x Core..?> "DimensionValueAttributes"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "ResultsByTime" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "GroupDefinitions"
                             Core..!@ Prelude.mempty
                         )
@@ -299,8 +299,8 @@ instance Core.ToJSON GetCostAndUsage where
   toJSON GetCostAndUsage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
-            ("GroupBy" Core..=) Prelude.<$> groupBy,
+          [ ("GroupBy" Core..=) Prelude.<$> groupBy,
+            ("NextPageToken" Core..=) Prelude.<$> nextPageToken,
             ("Filter" Core..=) Prelude.<$> filter',
             Prelude.Just ("TimePeriod" Core..= timePeriod),
             Prelude.Just ("Granularity" Core..= granularity),
@@ -316,15 +316,15 @@ instance Core.ToQuery GetCostAndUsage where
 
 -- | /See:/ 'newGetCostAndUsageResponse' smart constructor.
 data GetCostAndUsageResponse = GetCostAndUsageResponse'
-  { -- | The token for the next set of retrievable results. Amazon Web Services
+  { -- | The time period that\'s covered by the results in the response.
+    resultsByTime :: Prelude.Maybe [ResultByTime],
+    -- | The token for the next set of retrievable results. Amazon Web Services
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The attributes that apply to a specific dimension value. For example, if
     -- the value is a linked account, the attribute is that account name.
     dimensionValueAttributes :: Prelude.Maybe [DimensionValuesWithAttributes],
-    -- | The time period that\'s covered by the results in the response.
-    resultsByTime :: Prelude.Maybe [ResultByTime],
     -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
     -- the request.
     groupDefinitions :: Prelude.Maybe [GroupDefinition],
@@ -341,14 +341,14 @@ data GetCostAndUsageResponse = GetCostAndUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resultsByTime', 'getCostAndUsageResponse_resultsByTime' - The time period that\'s covered by the results in the response.
+--
 -- 'nextPageToken', 'getCostAndUsageResponse_nextPageToken' - The token for the next set of retrievable results. Amazon Web Services
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
 -- 'dimensionValueAttributes', 'getCostAndUsageResponse_dimensionValueAttributes' - The attributes that apply to a specific dimension value. For example, if
 -- the value is a linked account, the attribute is that account name.
---
--- 'resultsByTime', 'getCostAndUsageResponse_resultsByTime' - The time period that\'s covered by the results in the response.
 --
 -- 'groupDefinitions', 'getCostAndUsageResponse_groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in
 -- the request.
@@ -360,13 +360,17 @@ newGetCostAndUsageResponse ::
   GetCostAndUsageResponse
 newGetCostAndUsageResponse pHttpStatus_ =
   GetCostAndUsageResponse'
-    { nextPageToken =
+    { resultsByTime =
         Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       dimensionValueAttributes = Prelude.Nothing,
-      resultsByTime = Prelude.Nothing,
       groupDefinitions = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The time period that\'s covered by the results in the response.
+getCostAndUsageResponse_resultsByTime :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [ResultByTime])
+getCostAndUsageResponse_resultsByTime = Lens.lens (\GetCostAndUsageResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The token for the next set of retrievable results. Amazon Web Services
 -- provides the token when the response from a previous call has more
@@ -377,16 +381,12 @@ getCostAndUsageResponse_nextPageToken = Lens.lens (\GetCostAndUsageResponse' {ne
 -- | The attributes that apply to a specific dimension value. For example, if
 -- the value is a linked account, the attribute is that account name.
 getCostAndUsageResponse_dimensionValueAttributes :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [DimensionValuesWithAttributes])
-getCostAndUsageResponse_dimensionValueAttributes = Lens.lens (\GetCostAndUsageResponse' {dimensionValueAttributes} -> dimensionValueAttributes) (\s@GetCostAndUsageResponse' {} a -> s {dimensionValueAttributes = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | The time period that\'s covered by the results in the response.
-getCostAndUsageResponse_resultsByTime :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [ResultByTime])
-getCostAndUsageResponse_resultsByTime = Lens.lens (\GetCostAndUsageResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens._Coerce
+getCostAndUsageResponse_dimensionValueAttributes = Lens.lens (\GetCostAndUsageResponse' {dimensionValueAttributes} -> dimensionValueAttributes) (\s@GetCostAndUsageResponse' {} a -> s {dimensionValueAttributes = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
 -- the request.
 getCostAndUsageResponse_groupDefinitions :: Lens.Lens' GetCostAndUsageResponse (Prelude.Maybe [GroupDefinition])
-getCostAndUsageResponse_groupDefinitions = Lens.lens (\GetCostAndUsageResponse' {groupDefinitions} -> groupDefinitions) (\s@GetCostAndUsageResponse' {} a -> s {groupDefinitions = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens._Coerce
+getCostAndUsageResponse_groupDefinitions = Lens.lens (\GetCostAndUsageResponse' {groupDefinitions} -> groupDefinitions) (\s@GetCostAndUsageResponse' {} a -> s {groupDefinitions = a} :: GetCostAndUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getCostAndUsageResponse_httpStatus :: Lens.Lens' GetCostAndUsageResponse Prelude.Int

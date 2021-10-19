@@ -28,8 +28,8 @@ module Network.AWS.SageMaker.UpdateExperiment
     newUpdateExperiment,
 
     -- * Request Lenses
-    updateExperiment_description,
     updateExperiment_displayName,
+    updateExperiment_description,
     updateExperiment_experimentName,
 
     -- * Destructuring the Response
@@ -51,12 +51,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdateExperiment' smart constructor.
 data UpdateExperiment = UpdateExperiment'
-  { -- | The description of the experiment.
-    description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the experiment as displayed. The name doesn\'t need to be
+  { -- | The name of the experiment as displayed. The name doesn\'t need to be
     -- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is
     -- displayed.
     displayName :: Prelude.Maybe Prelude.Text,
+    -- | The description of the experiment.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The name of the experiment to update.
     experimentName :: Prelude.Text
   }
@@ -70,11 +70,11 @@ data UpdateExperiment = UpdateExperiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateExperiment_description' - The description of the experiment.
---
 -- 'displayName', 'updateExperiment_displayName' - The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is
 -- displayed.
+--
+-- 'description', 'updateExperiment_description' - The description of the experiment.
 --
 -- 'experimentName', 'updateExperiment_experimentName' - The name of the experiment to update.
 newUpdateExperiment ::
@@ -83,20 +83,20 @@ newUpdateExperiment ::
   UpdateExperiment
 newUpdateExperiment pExperimentName_ =
   UpdateExperiment'
-    { description = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { displayName = Prelude.Nothing,
+      description = Prelude.Nothing,
       experimentName = pExperimentName_
     }
-
--- | The description of the experiment.
-updateExperiment_description :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
-updateExperiment_description = Lens.lens (\UpdateExperiment' {description} -> description) (\s@UpdateExperiment' {} a -> s {description = a} :: UpdateExperiment)
 
 -- | The name of the experiment as displayed. The name doesn\'t need to be
 -- unique. If @DisplayName@ isn\'t specified, @ExperimentName@ is
 -- displayed.
 updateExperiment_displayName :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
 updateExperiment_displayName = Lens.lens (\UpdateExperiment' {displayName} -> displayName) (\s@UpdateExperiment' {} a -> s {displayName = a} :: UpdateExperiment)
+
+-- | The description of the experiment.
+updateExperiment_description :: Lens.Lens' UpdateExperiment (Prelude.Maybe Prelude.Text)
+updateExperiment_description = Lens.lens (\UpdateExperiment' {description} -> description) (\s@UpdateExperiment' {} a -> s {description = a} :: UpdateExperiment)
 
 -- | The name of the experiment to update.
 updateExperiment_experimentName :: Lens.Lens' UpdateExperiment Prelude.Text
@@ -136,8 +136,8 @@ instance Core.ToJSON UpdateExperiment where
   toJSON UpdateExperiment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Description" Core..=) Prelude.<$> description,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
+          [ ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("Description" Core..=) Prelude.<$> description,
             Prelude.Just
               ("ExperimentName" Core..= experimentName)
           ]

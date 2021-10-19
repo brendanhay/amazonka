@@ -50,10 +50,10 @@ module Network.AWS.SecretsManager.ListSecrets
     newListSecrets,
 
     -- * Request Lenses
+    listSecrets_filters,
     listSecrets_nextToken,
     listSecrets_sortOrder,
     listSecrets_maxResults,
-    listSecrets_filters,
 
     -- * Destructuring the Response
     ListSecretsResponse (..),
@@ -75,7 +75,9 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'newListSecrets' smart constructor.
 data ListSecrets = ListSecrets'
-  { -- | (Optional) Use this parameter in a request if you receive a @NextToken@
+  { -- | Lists the secret request filters.
+    filters :: Prelude.Maybe [Filter],
+    -- | (Optional) Use this parameter in a request if you receive a @NextToken@
     -- response in a previous request indicating there\'s more output
     -- available. In a subsequent call, set it to the value of the previous
     -- call @NextToken@ response to indicate where the output should continue
@@ -93,9 +95,7 @@ data ListSecrets = ListSecrets'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Lists the secret request filters.
-    filters :: Prelude.Maybe [Filter]
+    maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,6 +106,8 @@ data ListSecrets = ListSecrets'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'filters', 'listSecrets_filters' - Lists the secret request filters.
 --
 -- 'nextToken', 'listSecrets_nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@
 -- response in a previous request indicating there\'s more output
@@ -125,17 +127,19 @@ data ListSecrets = ListSecrets'
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
---
--- 'filters', 'listSecrets_filters' - Lists the secret request filters.
 newListSecrets ::
   ListSecrets
 newListSecrets =
   ListSecrets'
-    { nextToken = Prelude.Nothing,
+    { filters = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+      maxResults = Prelude.Nothing
     }
+
+-- | Lists the secret request filters.
+listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
+listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) Use this parameter in a request if you receive a @NextToken@
 -- response in a previous request indicating there\'s more output
@@ -161,10 +165,6 @@ listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@L
 -- results.
 listSecrets_maxResults :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Natural)
 listSecrets_maxResults = Lens.lens (\ListSecrets' {maxResults} -> maxResults) (\s@ListSecrets' {} a -> s {maxResults = a} :: ListSecrets)
-
--- | Lists the secret request filters.
-listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
-listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListSecrets where
   page rq rs
@@ -218,10 +218,10 @@ instance Core.ToJSON ListSecrets where
   toJSON ListSecrets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("Filters" Core..=) Prelude.<$> filters,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Filters" Core..=) Prelude.<$> filters
+            ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )
 
@@ -293,7 +293,7 @@ listSecretsResponse_nextToken = Lens.lens (\ListSecretsResponse' {nextToken} -> 
 
 -- | A list of the secrets in the account.
 listSecretsResponse_secretList :: Lens.Lens' ListSecretsResponse (Prelude.Maybe [SecretListEntry])
-listSecretsResponse_secretList = Lens.lens (\ListSecretsResponse' {secretList} -> secretList) (\s@ListSecretsResponse' {} a -> s {secretList = a} :: ListSecretsResponse) Prelude.. Lens.mapping Lens._Coerce
+listSecretsResponse_secretList = Lens.lens (\ListSecretsResponse' {secretList} -> secretList) (\s@ListSecretsResponse' {} a -> s {secretList = a} :: ListSecretsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 listSecretsResponse_httpStatus :: Lens.Lens' ListSecretsResponse Prelude.Int

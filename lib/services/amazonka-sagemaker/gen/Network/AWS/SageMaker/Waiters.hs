@@ -28,100 +28,6 @@ import Network.AWS.SageMaker.DescribeTransformJob
 import Network.AWS.SageMaker.Lens
 import Network.AWS.SageMaker.Types
 
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
-newNotebookInstanceStopped =
-  Core.Wait
-    { Core._waitName =
-        "NotebookInstanceStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "Stopped"
-            Core.AcceptSuccess
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEndpointDeleted :: Core.Wait DescribeEndpoint
-newEndpointDeleted =
-  Core.Wait
-    { Core._waitName = "EndpointDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ValidationException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeEndpointResponse_endpointStatus
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
-newNotebookInstanceDeleted =
-  Core.Wait
-    { Core._waitName =
-        "NotebookInstanceDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ValidationException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
-newNotebookInstanceInService =
-  Core.Wait
-    { Core._waitName =
-        "NotebookInstanceInService",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "InService"
-            Core.AcceptSuccess
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeNotebookInstanceResponse_notebookInstanceStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageUpdated :: Core.Wait DescribeImage
 newImageUpdated =
@@ -174,6 +80,98 @@ newImageDeleted =
         ]
     }
 
+-- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newNotebookInstanceDeleted :: Core.Wait DescribeNotebookInstance
+newNotebookInstanceDeleted =
+  Core.Wait
+    { Core._waitName =
+        "NotebookInstanceDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ValidationException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageVersionDeleted :: Core.Wait DescribeImageVersion
+newImageVersionDeleted =
+  Core.Wait
+    { Core._waitName = "ImageVersionDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ResourceNotFoundException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "DELETE_FAILED"
+            Core.AcceptFailure
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newEndpointDeleted :: Core.Wait DescribeEndpoint
+newEndpointDeleted =
+  Core.Wait
+    { Core._waitName = "EndpointDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchError
+            "ValidationException"
+            Core.AcceptSuccess,
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeEndpointResponse_endpointStatus
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+newEndpointInService :: Core.Wait DescribeEndpoint
+newEndpointInService =
+  Core.Wait
+    { Core._waitName = "EndpointInService",
+      Core._waitAttempts = 120,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "InService"
+            Core.AcceptSuccess
+            ( describeEndpointResponse_endpointStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeEndpointResponse_endpointStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
 -- | Polls 'Network.AWS.SageMaker.DescribeImage' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newImageCreated :: Core.Wait DescribeImage
 newImageCreated =
@@ -202,24 +200,118 @@ newImageCreated =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeEndpoint' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newEndpointInService :: Core.Wait DescribeEndpoint
-newEndpointInService =
+-- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newTransformJobCompletedOrStopped :: Core.Wait DescribeTransformJob
+newTransformJobCompletedOrStopped =
   Core.Wait
-    { Core._waitName = "EndpointInService",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
+    { Core._waitName =
+        "TransformJobCompletedOrStopped",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
       Core._waitAcceptors =
         [ Core.matchAll
-            "InService"
+            "Completed"
             Core.AcceptSuccess
-            ( describeEndpointResponse_endpointStatus
+            ( describeTransformJobResponse_transformJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Stopped"
+            Core.AcceptSuccess
+            ( describeTransformJobResponse_transformJobStatus
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( describeEndpointResponse_endpointStatus
+            ( describeTransformJobResponse_transformJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newNotebookInstanceInService :: Core.Wait DescribeNotebookInstance
+newNotebookInstanceInService =
+  Core.Wait
+    { Core._waitName =
+        "NotebookInstanceInService",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "InService"
+            Core.AcceptSuccess
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newProcessingJobCompletedOrStopped :: Core.Wait DescribeProcessingJob
+newProcessingJobCompletedOrStopped =
+  Core.Wait
+    { Core._waitName =
+        "ProcessingJobCompletedOrStopped",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "Completed"
+            Core.AcceptSuccess
+            ( describeProcessingJobResponse_processingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Stopped"
+            Core.AcceptSuccess
+            ( describeProcessingJobResponse_processingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
+            ( describeProcessingJobResponse_processingJobStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationException"
+            Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newImageVersionCreated :: Core.Wait DescribeImageVersion
+newImageVersionCreated =
+  Core.Wait
+    { Core._waitName = "ImageVersionCreated",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 60,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "CREATED"
+            Core.AcceptSuccess
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( describeImageVersionResponse_imageVersionStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchError
@@ -261,120 +353,28 @@ newTrainingJobCompletedOrStopped =
         ]
     }
 
--- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newImageVersionDeleted :: Core.Wait DescribeImageVersion
-newImageVersionDeleted =
-  Core.Wait
-    { Core._waitName = "ImageVersionDeleted",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchError
-            "ResourceNotFoundException"
-            Core.AcceptSuccess,
-          Core.matchAll
-            "DELETE_FAILED"
-            Core.AcceptFailure
-            ( describeImageVersionResponse_imageVersionStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Network.AWS.SageMaker.DescribeImageVersion' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newImageVersionCreated :: Core.Wait DescribeImageVersion
-newImageVersionCreated =
-  Core.Wait
-    { Core._waitName = "ImageVersionCreated",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "CREATED"
-            Core.AcceptSuccess
-            ( describeImageVersionResponse_imageVersionStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATE_FAILED"
-            Core.AcceptFailure
-            ( describeImageVersionResponse_imageVersionStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Network.AWS.SageMaker.DescribeProcessingJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newProcessingJobCompletedOrStopped :: Core.Wait DescribeProcessingJob
-newProcessingJobCompletedOrStopped =
+-- | Polls 'Network.AWS.SageMaker.DescribeNotebookInstance' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newNotebookInstanceStopped :: Core.Wait DescribeNotebookInstance
+newNotebookInstanceStopped =
   Core.Wait
     { Core._waitName =
-        "ProcessingJobCompletedOrStopped",
+        "NotebookInstanceStopped",
       Core._waitAttempts = 60,
-      Core._waitDelay = 60,
+      Core._waitDelay = 30,
       Core._waitAcceptors =
         [ Core.matchAll
-            "Completed"
-            Core.AcceptSuccess
-            ( describeProcessingJobResponse_processingJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
             "Stopped"
             Core.AcceptSuccess
-            ( describeProcessingJobResponse_processingJobStatus
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAll
             "Failed"
             Core.AcceptFailure
-            ( describeProcessingJobResponse_processingJobStatus
+            ( describeNotebookInstanceResponse_notebookInstanceStatus
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Network.AWS.SageMaker.DescribeTransformJob' every 60 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newTransformJobCompletedOrStopped :: Core.Wait DescribeTransformJob
-newTransformJobCompletedOrStopped =
-  Core.Wait
-    { Core._waitName =
-        "TransformJobCompletedOrStopped",
-      Core._waitAttempts = 60,
-      Core._waitDelay = 60,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "Completed"
-            Core.AcceptSuccess
-            ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Stopped"
-            Core.AcceptSuccess
-            ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "Failed"
-            Core.AcceptFailure
-            ( describeTransformJobResponse_transformJobStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationException"
-            Core.AcceptFailure
+            )
         ]
     }

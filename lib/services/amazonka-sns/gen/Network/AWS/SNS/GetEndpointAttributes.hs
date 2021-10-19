@@ -197,7 +197,7 @@ newGetEndpointAttributesResponse pHttpStatus_ =
 --
 --     The device token for the iOS platform is returned in lowercase.
 getEndpointAttributesResponse_attributes :: Lens.Lens' GetEndpointAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResponse' {attributes} -> attributes) (\s@GetEndpointAttributesResponse' {} a -> s {attributes = a} :: GetEndpointAttributesResponse) Prelude.. Lens.mapping Lens._Coerce
+getEndpointAttributesResponse_attributes = Lens.lens (\GetEndpointAttributesResponse' {attributes} -> attributes) (\s@GetEndpointAttributesResponse' {} a -> s {attributes = a} :: GetEndpointAttributesResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getEndpointAttributesResponse_httpStatus :: Lens.Lens' GetEndpointAttributesResponse Prelude.Int

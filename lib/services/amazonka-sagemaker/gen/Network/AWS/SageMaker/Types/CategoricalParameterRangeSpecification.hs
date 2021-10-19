@@ -48,12 +48,12 @@ newCategoricalParameterRangeSpecification ::
 newCategoricalParameterRangeSpecification pValues_ =
   CategoricalParameterRangeSpecification'
     { values =
-        Lens._Coerce Lens.# pValues_
+        Lens.coerced Lens.# pValues_
     }
 
 -- | The allowed categories for the hyperparameter.
 categoricalParameterRangeSpecification_values :: Lens.Lens' CategoricalParameterRangeSpecification (Prelude.NonEmpty Prelude.Text)
-categoricalParameterRangeSpecification_values = Lens.lens (\CategoricalParameterRangeSpecification' {values} -> values) (\s@CategoricalParameterRangeSpecification' {} a -> s {values = a} :: CategoricalParameterRangeSpecification) Prelude.. Lens._Coerce
+categoricalParameterRangeSpecification_values = Lens.lens (\CategoricalParameterRangeSpecification' {values} -> values) (\s@CategoricalParameterRangeSpecification' {} a -> s {values = a} :: CategoricalParameterRangeSpecification) Prelude.. Lens.coerced
 
 instance
   Core.FromJSON

@@ -63,29 +63,29 @@ module Network.AWS.Cloud9
     -- * Errors
     -- $errors
 
-    -- ** NotFoundException
-    _NotFoundException,
-
-    -- ** BadRequestException
-    _BadRequestException,
-
-    -- ** ConcurrentAccessException
-    _ConcurrentAccessException,
-
-    -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** ConflictException
-    _ConflictException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** NotFoundException
+    _NotFoundException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ConcurrentAccessException
+    _ConcurrentAccessException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -99,23 +99,11 @@ module Network.AWS.Cloud9
     ListEnvironmentsResponse (ListEnvironmentsResponse'),
     newListEnvironmentsResponse,
 
-    -- ** CreateEnvironmentMembership
-    CreateEnvironmentMembership (CreateEnvironmentMembership'),
-    newCreateEnvironmentMembership,
-    CreateEnvironmentMembershipResponse (CreateEnvironmentMembershipResponse'),
-    newCreateEnvironmentMembershipResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** UpdateEnvironment
+    UpdateEnvironment (UpdateEnvironment'),
+    newUpdateEnvironment,
+    UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
+    newUpdateEnvironmentResponse,
 
     -- ** DeleteEnvironment
     DeleteEnvironment (DeleteEnvironment'),
@@ -129,17 +117,41 @@ module Network.AWS.Cloud9
     DescribeEnvironmentStatusResponse (DescribeEnvironmentStatusResponse'),
     newDescribeEnvironmentStatusResponse,
 
-    -- ** UpdateEnvironment
-    UpdateEnvironment (UpdateEnvironment'),
-    newUpdateEnvironment,
-    UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
-    newUpdateEnvironmentResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** DescribeEnvironmentMemberships (Paginated)
-    DescribeEnvironmentMemberships (DescribeEnvironmentMemberships'),
-    newDescribeEnvironmentMemberships,
-    DescribeEnvironmentMembershipsResponse (DescribeEnvironmentMembershipsResponse'),
-    newDescribeEnvironmentMembershipsResponse,
+    -- ** CreateEnvironmentEC
+    CreateEnvironmentEC (CreateEnvironmentEC'),
+    newCreateEnvironmentEC,
+    CreateEnvironmentECResponse (CreateEnvironmentECResponse'),
+    newCreateEnvironmentECResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** CreateEnvironmentMembership
+    CreateEnvironmentMembership (CreateEnvironmentMembership'),
+    newCreateEnvironmentMembership,
+    CreateEnvironmentMembershipResponse (CreateEnvironmentMembershipResponse'),
+    newCreateEnvironmentMembershipResponse,
+
+    -- ** DescribeEnvironments
+    DescribeEnvironments (DescribeEnvironments'),
+    newDescribeEnvironments,
+    DescribeEnvironmentsResponse (DescribeEnvironmentsResponse'),
+    newDescribeEnvironmentsResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** DeleteEnvironmentMembership
     DeleteEnvironmentMembership (DeleteEnvironmentMembership'),
@@ -153,23 +165,11 @@ module Network.AWS.Cloud9
     UpdateEnvironmentMembershipResponse (UpdateEnvironmentMembershipResponse'),
     newUpdateEnvironmentMembershipResponse,
 
-    -- ** DescribeEnvironments
-    DescribeEnvironments (DescribeEnvironments'),
-    newDescribeEnvironments,
-    DescribeEnvironmentsResponse (DescribeEnvironmentsResponse'),
-    newDescribeEnvironmentsResponse,
-
-    -- ** CreateEnvironmentEC
-    CreateEnvironmentEC (CreateEnvironmentEC'),
-    newCreateEnvironmentEC,
-    CreateEnvironmentECResponse (CreateEnvironmentECResponse'),
-    newCreateEnvironmentECResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** DescribeEnvironmentMemberships (Paginated)
+    DescribeEnvironmentMemberships (DescribeEnvironmentMemberships'),
+    newDescribeEnvironmentMemberships,
+    DescribeEnvironmentMembershipsResponse (DescribeEnvironmentMembershipsResponse'),
+    newDescribeEnvironmentMembershipsResponse,
 
     -- * Types
 

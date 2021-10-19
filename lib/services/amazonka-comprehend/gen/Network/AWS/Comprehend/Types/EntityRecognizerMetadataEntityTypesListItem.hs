@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerMetadataEntityTypesListItem' smart constructor.
 data EntityRecognizerMetadataEntityTypesListItem = EntityRecognizerMetadataEntityTypesListItem'
-  { -- | Indicates the number of times the given entity type was seen in the
-    -- training data.
-    numberOfTrainMentions :: Prelude.Maybe Prelude.Int,
-    -- | Detailed information about the accuracy of the entity recognizer for a
+  { -- | Detailed information about the accuracy of the entity recognizer for a
     -- specific item on the list of entity types.
     evaluationMetrics :: Prelude.Maybe EntityTypesEvaluationMetrics,
     -- | Type of entity from the list of entity types in the metadata of an
     -- entity recognizer.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe Prelude.Text,
+    -- | Indicates the number of times the given entity type was seen in the
+    -- training data.
+    numberOfTrainMentions :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,29 +49,24 @@ data EntityRecognizerMetadataEntityTypesListItem = EntityRecognizerMetadataEntit
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfTrainMentions', 'entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions' - Indicates the number of times the given entity type was seen in the
--- training data.
---
 -- 'evaluationMetrics', 'entityRecognizerMetadataEntityTypesListItem_evaluationMetrics' - Detailed information about the accuracy of the entity recognizer for a
 -- specific item on the list of entity types.
 --
 -- 'type'', 'entityRecognizerMetadataEntityTypesListItem_type' - Type of entity from the list of entity types in the metadata of an
 -- entity recognizer.
+--
+-- 'numberOfTrainMentions', 'entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions' - Indicates the number of times the given entity type was seen in the
+-- training data.
 newEntityRecognizerMetadataEntityTypesListItem ::
   EntityRecognizerMetadataEntityTypesListItem
 newEntityRecognizerMetadataEntityTypesListItem =
   EntityRecognizerMetadataEntityTypesListItem'
-    { numberOfTrainMentions =
+    { evaluationMetrics =
         Prelude.Nothing,
-      evaluationMetrics =
-        Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      numberOfTrainMentions =
+        Prelude.Nothing
     }
-
--- | Indicates the number of times the given entity type was seen in the
--- training data.
-entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Prelude.Maybe Prelude.Int)
-entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {numberOfTrainMentions} -> numberOfTrainMentions) (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {numberOfTrainMentions = a} :: EntityRecognizerMetadataEntityTypesListItem)
 
 -- | Detailed information about the accuracy of the entity recognizer for a
 -- specific item on the list of entity types.
@@ -83,6 +78,11 @@ entityRecognizerMetadataEntityTypesListItem_evaluationMetrics = Lens.lens (\Enti
 entityRecognizerMetadataEntityTypesListItem_type :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Prelude.Maybe Prelude.Text)
 entityRecognizerMetadataEntityTypesListItem_type = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {type'} -> type') (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {type' = a} :: EntityRecognizerMetadataEntityTypesListItem)
 
+-- | Indicates the number of times the given entity type was seen in the
+-- training data.
+entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions :: Lens.Lens' EntityRecognizerMetadataEntityTypesListItem (Prelude.Maybe Prelude.Int)
+entityRecognizerMetadataEntityTypesListItem_numberOfTrainMentions = Lens.lens (\EntityRecognizerMetadataEntityTypesListItem' {numberOfTrainMentions} -> numberOfTrainMentions) (\s@EntityRecognizerMetadataEntityTypesListItem' {} a -> s {numberOfTrainMentions = a} :: EntityRecognizerMetadataEntityTypesListItem)
+
 instance
   Core.FromJSON
     EntityRecognizerMetadataEntityTypesListItem
@@ -92,9 +92,9 @@ instance
       "EntityRecognizerMetadataEntityTypesListItem"
       ( \x ->
           EntityRecognizerMetadataEntityTypesListItem'
-            Prelude.<$> (x Core..:? "NumberOfTrainMentions")
-              Prelude.<*> (x Core..:? "EvaluationMetrics")
+            Prelude.<$> (x Core..:? "EvaluationMetrics")
               Prelude.<*> (x Core..:? "Type")
+              Prelude.<*> (x Core..:? "NumberOfTrainMentions")
       )
 
 instance

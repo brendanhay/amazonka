@@ -29,9 +29,9 @@ module Network.AWS.Redshift.CreateScheduledAction
     newCreateScheduledAction,
 
     -- * Request Lenses
+    createScheduledAction_startTime,
     createScheduledAction_scheduledActionDescription,
     createScheduledAction_enable,
-    createScheduledAction_startTime,
     createScheduledAction_endTime,
     createScheduledAction_scheduledActionName,
     createScheduledAction_targetAction,
@@ -43,15 +43,15 @@ module Network.AWS.Redshift.CreateScheduledAction
     newScheduledAction,
 
     -- * Response Lenses
-    scheduledAction_targetAction,
-    scheduledAction_nextInvocations,
-    scheduledAction_iamRole,
-    scheduledAction_scheduledActionDescription,
-    scheduledAction_startTime,
-    scheduledAction_endTime,
     scheduledAction_state,
-    scheduledAction_scheduledActionName,
+    scheduledAction_targetAction,
+    scheduledAction_startTime,
     scheduledAction_schedule,
+    scheduledAction_scheduledActionName,
+    scheduledAction_scheduledActionDescription,
+    scheduledAction_nextInvocations,
+    scheduledAction_endTime,
+    scheduledAction_iamRole,
   )
 where
 
@@ -64,16 +64,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateScheduledAction' smart constructor.
 data CreateScheduledAction = CreateScheduledAction'
-  { -- | The description of the scheduled action.
+  { -- | The start time in UTC of the scheduled action. Before this time, the
+    -- scheduled action does not trigger. For more information about this
+    -- parameter, see ScheduledAction.
+    startTime :: Prelude.Maybe Core.ISO8601,
+    -- | The description of the scheduled action.
     scheduledActionDescription :: Prelude.Maybe Prelude.Text,
     -- | If true, the schedule is enabled. If false, the scheduled action does
     -- not trigger. For more information about @state@ of the scheduled action,
     -- see ScheduledAction.
     enable :: Prelude.Maybe Prelude.Bool,
-    -- | The start time in UTC of the scheduled action. Before this time, the
-    -- scheduled action does not trigger. For more information about this
-    -- parameter, see ScheduledAction.
-    startTime :: Prelude.Maybe Core.ISO8601,
     -- | The end time in UTC of the scheduled action. After this time, the
     -- scheduled action does not trigger. For more information about this
     -- parameter, see ScheduledAction.
@@ -102,15 +102,15 @@ data CreateScheduledAction = CreateScheduledAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'startTime', 'createScheduledAction_startTime' - The start time in UTC of the scheduled action. Before this time, the
+-- scheduled action does not trigger. For more information about this
+-- parameter, see ScheduledAction.
+--
 -- 'scheduledActionDescription', 'createScheduledAction_scheduledActionDescription' - The description of the scheduled action.
 --
 -- 'enable', 'createScheduledAction_enable' - If true, the schedule is enabled. If false, the scheduled action does
 -- not trigger. For more information about @state@ of the scheduled action,
 -- see ScheduledAction.
---
--- 'startTime', 'createScheduledAction_startTime' - The start time in UTC of the scheduled action. Before this time, the
--- scheduled action does not trigger. For more information about this
--- parameter, see ScheduledAction.
 --
 -- 'endTime', 'createScheduledAction_endTime' - The end time in UTC of the scheduled action. After this time, the
 -- scheduled action does not trigger. For more information about this
@@ -144,16 +144,21 @@ newCreateScheduledAction
   pSchedule_
   pIamRole_ =
     CreateScheduledAction'
-      { scheduledActionDescription =
-          Prelude.Nothing,
+      { startTime = Prelude.Nothing,
+        scheduledActionDescription = Prelude.Nothing,
         enable = Prelude.Nothing,
-        startTime = Prelude.Nothing,
         endTime = Prelude.Nothing,
         scheduledActionName = pScheduledActionName_,
         targetAction = pTargetAction_,
         schedule = pSchedule_,
         iamRole = pIamRole_
       }
+
+-- | The start time in UTC of the scheduled action. Before this time, the
+-- scheduled action does not trigger. For more information about this
+-- parameter, see ScheduledAction.
+createScheduledAction_startTime :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.UTCTime)
+createScheduledAction_startTime = Lens.lens (\CreateScheduledAction' {startTime} -> startTime) (\s@CreateScheduledAction' {} a -> s {startTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | The description of the scheduled action.
 createScheduledAction_scheduledActionDescription :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Text)
@@ -164,12 +169,6 @@ createScheduledAction_scheduledActionDescription = Lens.lens (\CreateScheduledAc
 -- see ScheduledAction.
 createScheduledAction_enable :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Bool)
 createScheduledAction_enable = Lens.lens (\CreateScheduledAction' {enable} -> enable) (\s@CreateScheduledAction' {} a -> s {enable = a} :: CreateScheduledAction)
-
--- | The start time in UTC of the scheduled action. Before this time, the
--- scheduled action does not trigger. For more information about this
--- parameter, see ScheduledAction.
-createScheduledAction_startTime :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.UTCTime)
-createScheduledAction_startTime = Lens.lens (\CreateScheduledAction' {startTime} -> startTime) (\s@CreateScheduledAction' {} a -> s {startTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Core._Time
 
 -- | The end time in UTC of the scheduled action. After this time, the
 -- scheduled action does not trigger. For more information about this
@@ -225,10 +224,10 @@ instance Core.ToQuery CreateScheduledAction where
           Core.=: ("CreateScheduledAction" :: Prelude.ByteString),
         "Version"
           Core.=: ("2012-12-01" :: Prelude.ByteString),
+        "StartTime" Core.=: startTime,
         "ScheduledActionDescription"
           Core.=: scheduledActionDescription,
         "Enable" Core.=: enable,
-        "StartTime" Core.=: startTime,
         "EndTime" Core.=: endTime,
         "ScheduledActionName" Core.=: scheduledActionName,
         "TargetAction" Core.=: targetAction,

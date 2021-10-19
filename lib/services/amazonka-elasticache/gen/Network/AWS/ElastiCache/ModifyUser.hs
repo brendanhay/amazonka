@@ -28,8 +28,8 @@ module Network.AWS.ElastiCache.ModifyUser
 
     -- * Request Lenses
     modifyUser_appendAccessString,
-    modifyUser_passwords,
     modifyUser_accessString,
+    modifyUser_passwords,
     modifyUser_noPasswordRequired,
     modifyUser_userId,
 
@@ -39,13 +39,13 @@ module Network.AWS.ElastiCache.ModifyUser
 
     -- * Response Lenses
     user_status,
-    user_accessString,
+    user_arn,
     user_userGroupIds,
     user_authentication,
-    user_arn,
-    user_userId,
     user_engine,
     user_userName,
+    user_accessString,
+    user_userId,
   )
 where
 
@@ -60,10 +60,10 @@ import qualified Network.AWS.Response as Response
 data ModifyUser = ModifyUser'
   { -- | Adds additional user permissions to the access string.
     appendAccessString :: Prelude.Maybe Prelude.Text,
-    -- | The passwords belonging to the user. You are allowed up to two.
-    passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Access permissions string used for this user.
     accessString :: Prelude.Maybe Prelude.Text,
+    -- | The passwords belonging to the user. You are allowed up to two.
+    passwords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Indicates no password is required for the user.
     noPasswordRequired :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the user.
@@ -81,9 +81,9 @@ data ModifyUser = ModifyUser'
 --
 -- 'appendAccessString', 'modifyUser_appendAccessString' - Adds additional user permissions to the access string.
 --
--- 'passwords', 'modifyUser_passwords' - The passwords belonging to the user. You are allowed up to two.
---
 -- 'accessString', 'modifyUser_accessString' - Access permissions string used for this user.
+--
+-- 'passwords', 'modifyUser_passwords' - The passwords belonging to the user. You are allowed up to two.
 --
 -- 'noPasswordRequired', 'modifyUser_noPasswordRequired' - Indicates no password is required for the user.
 --
@@ -95,8 +95,8 @@ newModifyUser ::
 newModifyUser pUserId_ =
   ModifyUser'
     { appendAccessString = Prelude.Nothing,
-      passwords = Prelude.Nothing,
       accessString = Prelude.Nothing,
+      passwords = Prelude.Nothing,
       noPasswordRequired = Prelude.Nothing,
       userId = pUserId_
     }
@@ -105,13 +105,13 @@ newModifyUser pUserId_ =
 modifyUser_appendAccessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
 modifyUser_appendAccessString = Lens.lens (\ModifyUser' {appendAccessString} -> appendAccessString) (\s@ModifyUser' {} a -> s {appendAccessString = a} :: ModifyUser)
 
--- | The passwords belonging to the user. You are allowed up to two.
-modifyUser_passwords :: Lens.Lens' ModifyUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@ModifyUser' {} a -> s {passwords = a} :: ModifyUser) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Access permissions string used for this user.
 modifyUser_accessString :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Text)
 modifyUser_accessString = Lens.lens (\ModifyUser' {accessString} -> accessString) (\s@ModifyUser' {} a -> s {accessString = a} :: ModifyUser)
+
+-- | The passwords belonging to the user. You are allowed up to two.
+modifyUser_passwords :: Lens.Lens' ModifyUser (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+modifyUser_passwords = Lens.lens (\ModifyUser' {passwords} -> passwords) (\s@ModifyUser' {} a -> s {passwords = a} :: ModifyUser) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates no password is required for the user.
 modifyUser_noPasswordRequired :: Lens.Lens' ModifyUser (Prelude.Maybe Prelude.Bool)
@@ -147,10 +147,10 @@ instance Core.ToQuery ModifyUser where
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "AppendAccessString" Core.=: appendAccessString,
+        "AccessString" Core.=: accessString,
         "Passwords"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> passwords),
-        "AccessString" Core.=: accessString,
         "NoPasswordRequired" Core.=: noPasswordRequired,
         "UserId" Core.=: userId
       ]

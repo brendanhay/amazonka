@@ -40,10 +40,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHTTPHeader' smart constructor.
 data HTTPHeader = HTTPHeader'
-  { -- | The name of one of the headers in the sampled web request.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The value of one of the headers in the sampled web request.
-    value :: Prelude.Maybe Prelude.Text
+  { -- | The value of one of the headers in the sampled web request.
+    value :: Prelude.Maybe Prelude.Text,
+    -- | The name of one of the headers in the sampled web request.
+    name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,24 +55,24 @@ data HTTPHeader = HTTPHeader'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'hTTPHeader_name' - The name of one of the headers in the sampled web request.
---
 -- 'value', 'hTTPHeader_value' - The value of one of the headers in the sampled web request.
+--
+-- 'name', 'hTTPHeader_name' - The name of one of the headers in the sampled web request.
 newHTTPHeader ::
   HTTPHeader
 newHTTPHeader =
   HTTPHeader'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of one of the headers in the sampled web request.
-hTTPHeader_name :: Lens.Lens' HTTPHeader (Prelude.Maybe Prelude.Text)
-hTTPHeader_name = Lens.lens (\HTTPHeader' {name} -> name) (\s@HTTPHeader' {} a -> s {name = a} :: HTTPHeader)
 
 -- | The value of one of the headers in the sampled web request.
 hTTPHeader_value :: Lens.Lens' HTTPHeader (Prelude.Maybe Prelude.Text)
 hTTPHeader_value = Lens.lens (\HTTPHeader' {value} -> value) (\s@HTTPHeader' {} a -> s {value = a} :: HTTPHeader)
+
+-- | The name of one of the headers in the sampled web request.
+hTTPHeader_name :: Lens.Lens' HTTPHeader (Prelude.Maybe Prelude.Text)
+hTTPHeader_name = Lens.lens (\HTTPHeader' {name} -> name) (\s@HTTPHeader' {} a -> s {name = a} :: HTTPHeader)
 
 instance Core.FromJSON HTTPHeader where
   parseJSON =
@@ -80,7 +80,7 @@ instance Core.FromJSON HTTPHeader where
       "HTTPHeader"
       ( \x ->
           HTTPHeader'
-            Prelude.<$> (x Core..:? "Name") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Value") Prelude.<*> (x Core..:? "Name")
       )
 
 instance Prelude.Hashable HTTPHeader

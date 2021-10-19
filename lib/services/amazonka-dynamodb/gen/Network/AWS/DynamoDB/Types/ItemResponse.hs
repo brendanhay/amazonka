@@ -49,7 +49,7 @@ newItemResponse =
 
 -- | Map of attribute data consisting of the data type and attribute value.
 itemResponse_item :: Lens.Lens' ItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-itemResponse_item = Lens.lens (\ItemResponse' {item} -> item) (\s@ItemResponse' {} a -> s {item = a} :: ItemResponse) Prelude.. Lens.mapping Lens._Coerce
+itemResponse_item = Lens.lens (\ItemResponse' {item} -> item) (\s@ItemResponse' {} a -> s {item = a} :: ItemResponse) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON ItemResponse where
   parseJSON =

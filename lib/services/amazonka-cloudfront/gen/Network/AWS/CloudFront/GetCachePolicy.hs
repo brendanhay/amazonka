@@ -44,8 +44,8 @@ module Network.AWS.CloudFront.GetCachePolicy
     newGetCachePolicyResponse,
 
     -- * Response Lenses
-    getCachePolicyResponse_eTag,
     getCachePolicyResponse_cachePolicy,
+    getCachePolicyResponse_eTag,
     getCachePolicyResponse_httpStatus,
   )
 where
@@ -104,8 +104,8 @@ instance Core.AWSRequest GetCachePolicy where
     Response.receiveXML
       ( \s h x ->
           GetCachePolicyResponse'
-            Prelude.<$> (h Core..#? "ETag")
-            Prelude.<*> (Core.parseXML x)
+            Prelude.<$> (Core.parseXML x)
+            Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -126,10 +126,10 @@ instance Core.ToQuery GetCachePolicy where
 
 -- | /See:/ 'newGetCachePolicyResponse' smart constructor.
 data GetCachePolicyResponse = GetCachePolicyResponse'
-  { -- | The current version of the cache policy.
-    eTag :: Prelude.Maybe Prelude.Text,
-    -- | The cache policy.
+  { -- | The cache policy.
     cachePolicy :: Prelude.Maybe CachePolicy,
+    -- | The current version of the cache policy.
+    eTag :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -143,9 +143,9 @@ data GetCachePolicyResponse = GetCachePolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eTag', 'getCachePolicyResponse_eTag' - The current version of the cache policy.
---
 -- 'cachePolicy', 'getCachePolicyResponse_cachePolicy' - The cache policy.
+--
+-- 'eTag', 'getCachePolicyResponse_eTag' - The current version of the cache policy.
 --
 -- 'httpStatus', 'getCachePolicyResponse_httpStatus' - The response's http status code.
 newGetCachePolicyResponse ::
@@ -154,18 +154,19 @@ newGetCachePolicyResponse ::
   GetCachePolicyResponse
 newGetCachePolicyResponse pHttpStatus_ =
   GetCachePolicyResponse'
-    { eTag = Prelude.Nothing,
-      cachePolicy = Prelude.Nothing,
+    { cachePolicy =
+        Prelude.Nothing,
+      eTag = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The current version of the cache policy.
-getCachePolicyResponse_eTag :: Lens.Lens' GetCachePolicyResponse (Prelude.Maybe Prelude.Text)
-getCachePolicyResponse_eTag = Lens.lens (\GetCachePolicyResponse' {eTag} -> eTag) (\s@GetCachePolicyResponse' {} a -> s {eTag = a} :: GetCachePolicyResponse)
 
 -- | The cache policy.
 getCachePolicyResponse_cachePolicy :: Lens.Lens' GetCachePolicyResponse (Prelude.Maybe CachePolicy)
 getCachePolicyResponse_cachePolicy = Lens.lens (\GetCachePolicyResponse' {cachePolicy} -> cachePolicy) (\s@GetCachePolicyResponse' {} a -> s {cachePolicy = a} :: GetCachePolicyResponse)
+
+-- | The current version of the cache policy.
+getCachePolicyResponse_eTag :: Lens.Lens' GetCachePolicyResponse (Prelude.Maybe Prelude.Text)
+getCachePolicyResponse_eTag = Lens.lens (\GetCachePolicyResponse' {eTag} -> eTag) (\s@GetCachePolicyResponse' {} a -> s {eTag = a} :: GetCachePolicyResponse)
 
 -- | The response's http status code.
 getCachePolicyResponse_httpStatus :: Lens.Lens' GetCachePolicyResponse Prelude.Int

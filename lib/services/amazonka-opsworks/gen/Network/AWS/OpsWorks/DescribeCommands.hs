@@ -117,7 +117,7 @@ describeCommands_instanceId = Lens.lens (\DescribeCommands' {instanceId} -> inst
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
 describeCommands_commandIds :: Lens.Lens' DescribeCommands (Prelude.Maybe [Prelude.Text])
-describeCommands_commandIds = Lens.lens (\DescribeCommands' {commandIds} -> commandIds) (\s@DescribeCommands' {} a -> s {commandIds = a} :: DescribeCommands) Prelude.. Lens.mapping Lens._Coerce
+describeCommands_commandIds = Lens.lens (\DescribeCommands' {commandIds} -> commandIds) (\s@DescribeCommands' {} a -> s {commandIds = a} :: DescribeCommands) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest DescribeCommands where
   type
@@ -205,7 +205,7 @@ newDescribeCommandsResponse pHttpStatus_ =
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
 describeCommandsResponse_commands :: Lens.Lens' DescribeCommandsResponse (Prelude.Maybe [Command])
-describeCommandsResponse_commands = Lens.lens (\DescribeCommandsResponse' {commands} -> commands) (\s@DescribeCommandsResponse' {} a -> s {commands = a} :: DescribeCommandsResponse) Prelude.. Lens.mapping Lens._Coerce
+describeCommandsResponse_commands = Lens.lens (\DescribeCommandsResponse' {commands} -> commands) (\s@DescribeCommandsResponse' {} a -> s {commands = a} :: DescribeCommandsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 describeCommandsResponse_httpStatus :: Lens.Lens' DescribeCommandsResponse Prelude.Int

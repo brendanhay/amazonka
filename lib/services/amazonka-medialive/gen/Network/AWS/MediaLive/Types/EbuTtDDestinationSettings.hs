@@ -29,23 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEbuTtDDestinationSettings' smart constructor.
 data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
-  { -- | Applies only if you plan to convert these source captions to EBU-TT-D or
-    -- TTML in an output. Complete this field if you want to include the name
-    -- of the copyright holder in the copyright metadata tag in the TTML
-    copyrightHolder :: Prelude.Maybe Prelude.Text,
-    -- | Specifies how to handle the gap between the lines (in multi-line
+  { -- | Specifies how to handle the gap between the lines (in multi-line
     -- captions). - enabled: Fill with the captions background color (as
     -- specified in the input captions). - disabled: Leave the gap unfilled.
     fillLineGap :: Prelude.Maybe EbuTtDFillLineGapControl,
-    -- | Specifies the style information (font color, font position, and so on)
-    -- to include in the font data that is attached to the EBU-TT captions. -
-    -- include: Take the style information (font color, font position, and so
-    -- on) from the source captions and include that information in the font
-    -- data attached to the EBU-TT captions. This option is valid only if the
-    -- source captions are Embedded or Teletext. - exclude: In the font data
-    -- attached to the EBU-TT captions, set the font family to \"monospaced\".
-    -- Do not include any other style information.
-    styleControl :: Prelude.Maybe EbuTtDDestinationStyleControl,
+    -- | Applies only if you plan to convert these source captions to EBU-TT-D or
+    -- TTML in an output. Complete this field if you want to include the name
+    -- of the copyright holder in the copyright metadata tag in the TTML
+    copyrightHolder :: Prelude.Maybe Prelude.Text,
     -- | Specifies the font family to include in the font data attached to the
     -- EBU-TT captions. Valid only if styleControl is set to include. If you
     -- leave this field empty, the font family is set to \"monospaced\". (If
@@ -58,7 +49,16 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
     -- be a font family (such as “Arial”), or a generic font family (such as
     -- “serif”), or “default” (to let the downstream player choose the font). -
     -- Leave blank to set the family to “monospace”.
-    fontFamily :: Prelude.Maybe Prelude.Text
+    fontFamily :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the style information (font color, font position, and so on)
+    -- to include in the font data that is attached to the EBU-TT captions. -
+    -- include: Take the style information (font color, font position, and so
+    -- on) from the source captions and include that information in the font
+    -- data attached to the EBU-TT captions. This option is valid only if the
+    -- source captions are Embedded or Teletext. - exclude: In the font data
+    -- attached to the EBU-TT captions, set the font family to \"monospaced\".
+    -- Do not include any other style information.
+    styleControl :: Prelude.Maybe EbuTtDDestinationStyleControl
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,22 +70,13 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'copyrightHolder', 'ebuTtDDestinationSettings_copyrightHolder' - Applies only if you plan to convert these source captions to EBU-TT-D or
--- TTML in an output. Complete this field if you want to include the name
--- of the copyright holder in the copyright metadata tag in the TTML
---
 -- 'fillLineGap', 'ebuTtDDestinationSettings_fillLineGap' - Specifies how to handle the gap between the lines (in multi-line
 -- captions). - enabled: Fill with the captions background color (as
 -- specified in the input captions). - disabled: Leave the gap unfilled.
 --
--- 'styleControl', 'ebuTtDDestinationSettings_styleControl' - Specifies the style information (font color, font position, and so on)
--- to include in the font data that is attached to the EBU-TT captions. -
--- include: Take the style information (font color, font position, and so
--- on) from the source captions and include that information in the font
--- data attached to the EBU-TT captions. This option is valid only if the
--- source captions are Embedded or Teletext. - exclude: In the font data
--- attached to the EBU-TT captions, set the font family to \"monospaced\".
--- Do not include any other style information.
+-- 'copyrightHolder', 'ebuTtDDestinationSettings_copyrightHolder' - Applies only if you plan to convert these source captions to EBU-TT-D or
+-- TTML in an output. Complete this field if you want to include the name
+-- of the copyright holder in the copyright metadata tag in the TTML
 --
 -- 'fontFamily', 'ebuTtDDestinationSettings_fontFamily' - Specifies the font family to include in the font data attached to the
 -- EBU-TT captions. Valid only if styleControl is set to include. If you
@@ -99,30 +90,8 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
 -- be a font family (such as “Arial”), or a generic font family (such as
 -- “serif”), or “default” (to let the downstream player choose the font). -
 -- Leave blank to set the family to “monospace”.
-newEbuTtDDestinationSettings ::
-  EbuTtDDestinationSettings
-newEbuTtDDestinationSettings =
-  EbuTtDDestinationSettings'
-    { copyrightHolder =
-        Prelude.Nothing,
-      fillLineGap = Prelude.Nothing,
-      styleControl = Prelude.Nothing,
-      fontFamily = Prelude.Nothing
-    }
-
--- | Applies only if you plan to convert these source captions to EBU-TT-D or
--- TTML in an output. Complete this field if you want to include the name
--- of the copyright holder in the copyright metadata tag in the TTML
-ebuTtDDestinationSettings_copyrightHolder :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
-ebuTtDDestinationSettings_copyrightHolder = Lens.lens (\EbuTtDDestinationSettings' {copyrightHolder} -> copyrightHolder) (\s@EbuTtDDestinationSettings' {} a -> s {copyrightHolder = a} :: EbuTtDDestinationSettings)
-
--- | Specifies how to handle the gap between the lines (in multi-line
--- captions). - enabled: Fill with the captions background color (as
--- specified in the input captions). - disabled: Leave the gap unfilled.
-ebuTtDDestinationSettings_fillLineGap :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe EbuTtDFillLineGapControl)
-ebuTtDDestinationSettings_fillLineGap = Lens.lens (\EbuTtDDestinationSettings' {fillLineGap} -> fillLineGap) (\s@EbuTtDDestinationSettings' {} a -> s {fillLineGap = a} :: EbuTtDDestinationSettings)
-
--- | Specifies the style information (font color, font position, and so on)
+--
+-- 'styleControl', 'ebuTtDDestinationSettings_styleControl' - Specifies the style information (font color, font position, and so on)
 -- to include in the font data that is attached to the EBU-TT captions. -
 -- include: Take the style information (font color, font position, and so
 -- on) from the source captions and include that information in the font
@@ -130,8 +99,28 @@ ebuTtDDestinationSettings_fillLineGap = Lens.lens (\EbuTtDDestinationSettings' {
 -- source captions are Embedded or Teletext. - exclude: In the font data
 -- attached to the EBU-TT captions, set the font family to \"monospaced\".
 -- Do not include any other style information.
-ebuTtDDestinationSettings_styleControl :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe EbuTtDDestinationStyleControl)
-ebuTtDDestinationSettings_styleControl = Lens.lens (\EbuTtDDestinationSettings' {styleControl} -> styleControl) (\s@EbuTtDDestinationSettings' {} a -> s {styleControl = a} :: EbuTtDDestinationSettings)
+newEbuTtDDestinationSettings ::
+  EbuTtDDestinationSettings
+newEbuTtDDestinationSettings =
+  EbuTtDDestinationSettings'
+    { fillLineGap =
+        Prelude.Nothing,
+      copyrightHolder = Prelude.Nothing,
+      fontFamily = Prelude.Nothing,
+      styleControl = Prelude.Nothing
+    }
+
+-- | Specifies how to handle the gap between the lines (in multi-line
+-- captions). - enabled: Fill with the captions background color (as
+-- specified in the input captions). - disabled: Leave the gap unfilled.
+ebuTtDDestinationSettings_fillLineGap :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe EbuTtDFillLineGapControl)
+ebuTtDDestinationSettings_fillLineGap = Lens.lens (\EbuTtDDestinationSettings' {fillLineGap} -> fillLineGap) (\s@EbuTtDDestinationSettings' {} a -> s {fillLineGap = a} :: EbuTtDDestinationSettings)
+
+-- | Applies only if you plan to convert these source captions to EBU-TT-D or
+-- TTML in an output. Complete this field if you want to include the name
+-- of the copyright holder in the copyright metadata tag in the TTML
+ebuTtDDestinationSettings_copyrightHolder :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
+ebuTtDDestinationSettings_copyrightHolder = Lens.lens (\EbuTtDDestinationSettings' {copyrightHolder} -> copyrightHolder) (\s@EbuTtDDestinationSettings' {} a -> s {copyrightHolder = a} :: EbuTtDDestinationSettings)
 
 -- | Specifies the font family to include in the font data attached to the
 -- EBU-TT captions. Valid only if styleControl is set to include. If you
@@ -148,16 +137,27 @@ ebuTtDDestinationSettings_styleControl = Lens.lens (\EbuTtDDestinationSettings' 
 ebuTtDDestinationSettings_fontFamily :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
 ebuTtDDestinationSettings_fontFamily = Lens.lens (\EbuTtDDestinationSettings' {fontFamily} -> fontFamily) (\s@EbuTtDDestinationSettings' {} a -> s {fontFamily = a} :: EbuTtDDestinationSettings)
 
+-- | Specifies the style information (font color, font position, and so on)
+-- to include in the font data that is attached to the EBU-TT captions. -
+-- include: Take the style information (font color, font position, and so
+-- on) from the source captions and include that information in the font
+-- data attached to the EBU-TT captions. This option is valid only if the
+-- source captions are Embedded or Teletext. - exclude: In the font data
+-- attached to the EBU-TT captions, set the font family to \"monospaced\".
+-- Do not include any other style information.
+ebuTtDDestinationSettings_styleControl :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe EbuTtDDestinationStyleControl)
+ebuTtDDestinationSettings_styleControl = Lens.lens (\EbuTtDDestinationSettings' {styleControl} -> styleControl) (\s@EbuTtDDestinationSettings' {} a -> s {styleControl = a} :: EbuTtDDestinationSettings)
+
 instance Core.FromJSON EbuTtDDestinationSettings where
   parseJSON =
     Core.withObject
       "EbuTtDDestinationSettings"
       ( \x ->
           EbuTtDDestinationSettings'
-            Prelude.<$> (x Core..:? "copyrightHolder")
-            Prelude.<*> (x Core..:? "fillLineGap")
-            Prelude.<*> (x Core..:? "styleControl")
+            Prelude.<$> (x Core..:? "fillLineGap")
+            Prelude.<*> (x Core..:? "copyrightHolder")
             Prelude.<*> (x Core..:? "fontFamily")
+            Prelude.<*> (x Core..:? "styleControl")
       )
 
 instance Prelude.Hashable EbuTtDDestinationSettings
@@ -168,10 +168,10 @@ instance Core.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("copyrightHolder" Core..=)
+          [ ("fillLineGap" Core..=) Prelude.<$> fillLineGap,
+            ("copyrightHolder" Core..=)
               Prelude.<$> copyrightHolder,
-            ("fillLineGap" Core..=) Prelude.<$> fillLineGap,
-            ("styleControl" Core..=) Prelude.<$> styleControl,
-            ("fontFamily" Core..=) Prelude.<$> fontFamily
+            ("fontFamily" Core..=) Prelude.<$> fontFamily,
+            ("styleControl" Core..=) Prelude.<$> styleControl
           ]
       )

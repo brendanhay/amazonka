@@ -35,50 +35,32 @@ module Network.AWS.SDB
     -- * Errors
     -- $errors
 
-    -- ** NumberDomainAttributesExceeded
-    _NumberDomainAttributesExceeded,
-
-    -- ** NumberSubmittedItemsExceeded
-    _NumberSubmittedItemsExceeded,
+    -- ** InvalidNumberValueTests
+    _InvalidNumberValueTests,
 
     -- ** NoSuchDomain
     _NoSuchDomain,
 
-    -- ** NumberDomainBytesExceeded
-    _NumberDomainBytesExceeded,
-
-    -- ** NumberDomainsExceeded
-    _NumberDomainsExceeded,
-
-    -- ** InvalidNumberPredicates
-    _InvalidNumberPredicates,
-
-    -- ** DuplicateItemName
-    _DuplicateItemName,
+    -- ** NumberSubmittedItemsExceeded
+    _NumberSubmittedItemsExceeded,
 
     -- ** AttributeDoesNotExist
     _AttributeDoesNotExist,
 
-    -- ** InvalidNumberValueTests
-    _InvalidNumberValueTests,
+    -- ** NumberDomainAttributesExceeded
+    _NumberDomainAttributesExceeded,
 
-    -- ** InvalidQueryExpression
-    _InvalidQueryExpression,
+    -- ** DuplicateItemName
+    _DuplicateItemName,
 
-    -- ** NumberSubmittedAttributesExceeded
-    _NumberSubmittedAttributesExceeded,
-
-    -- ** InvalidParameterValue
-    _InvalidParameterValue,
-
-    -- ** TooManyRequestedAttributes
-    _TooManyRequestedAttributes,
+    -- ** MissingParameter
+    _MissingParameter,
 
     -- ** InvalidNextToken
     _InvalidNextToken,
 
-    -- ** MissingParameter
-    _MissingParameter,
+    -- ** InvalidParameterValue
+    _InvalidParameterValue,
 
     -- ** NumberItemAttributesExceeded
     _NumberItemAttributesExceeded,
@@ -86,29 +68,35 @@ module Network.AWS.SDB
     -- ** RequestTimeout
     _RequestTimeout,
 
+    -- ** TooManyRequestedAttributes
+    _TooManyRequestedAttributes,
+
+    -- ** InvalidNumberPredicates
+    _InvalidNumberPredicates,
+
+    -- ** NumberDomainsExceeded
+    _NumberDomainsExceeded,
+
+    -- ** NumberSubmittedAttributesExceeded
+    _NumberSubmittedAttributesExceeded,
+
+    -- ** NumberDomainBytesExceeded
+    _NumberDomainBytesExceeded,
+
+    -- ** InvalidQueryExpression
+    _InvalidQueryExpression,
+
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
 
-    -- ** ListDomains (Paginated)
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
-
-    -- ** DeleteAttributes
-    DeleteAttributes (DeleteAttributes'),
-    newDeleteAttributes,
-    DeleteAttributesResponse (DeleteAttributesResponse'),
-    newDeleteAttributesResponse,
-
-    -- ** DomainMetadata
-    DomainMetadata (DomainMetadata'),
-    newDomainMetadata,
-    DomainMetadataResponse (DomainMetadataResponse'),
-    newDomainMetadataResponse,
+    -- ** BatchDeleteAttributes
+    BatchDeleteAttributes (BatchDeleteAttributes'),
+    newBatchDeleteAttributes,
+    BatchDeleteAttributesResponse (BatchDeleteAttributesResponse'),
+    newBatchDeleteAttributesResponse,
 
     -- ** BatchPutAttributes
     BatchPutAttributes (BatchPutAttributes'),
@@ -116,29 +104,23 @@ module Network.AWS.SDB
     BatchPutAttributesResponse (BatchPutAttributesResponse'),
     newBatchPutAttributesResponse,
 
-    -- ** CreateDomain
-    CreateDomain (CreateDomain'),
-    newCreateDomain,
-    CreateDomainResponse (CreateDomainResponse'),
-    newCreateDomainResponse,
-
-    -- ** DeleteDomain
-    DeleteDomain (DeleteDomain'),
-    newDeleteDomain,
-    DeleteDomainResponse (DeleteDomainResponse'),
-    newDeleteDomainResponse,
-
     -- ** GetAttributes
     GetAttributes (GetAttributes'),
     newGetAttributes,
     GetAttributesResponse (GetAttributesResponse'),
     newGetAttributesResponse,
 
-    -- ** PutAttributes
-    PutAttributes (PutAttributes'),
-    newPutAttributes,
-    PutAttributesResponse (PutAttributesResponse'),
-    newPutAttributesResponse,
+    -- ** CreateDomain
+    CreateDomain (CreateDomain'),
+    newCreateDomain,
+    CreateDomainResponse (CreateDomainResponse'),
+    newCreateDomainResponse,
+
+    -- ** DomainMetadata
+    DomainMetadata (DomainMetadata'),
+    newDomainMetadata,
+    DomainMetadataResponse (DomainMetadataResponse'),
+    newDomainMetadataResponse,
 
     -- ** Select (Paginated)
     Select (Select'),
@@ -146,11 +128,29 @@ module Network.AWS.SDB
     SelectResponse (SelectResponse'),
     newSelectResponse,
 
-    -- ** BatchDeleteAttributes
-    BatchDeleteAttributes (BatchDeleteAttributes'),
-    newBatchDeleteAttributes,
-    BatchDeleteAttributesResponse (BatchDeleteAttributesResponse'),
-    newBatchDeleteAttributesResponse,
+    -- ** DeleteAttributes
+    DeleteAttributes (DeleteAttributes'),
+    newDeleteAttributes,
+    DeleteAttributesResponse (DeleteAttributesResponse'),
+    newDeleteAttributesResponse,
+
+    -- ** PutAttributes
+    PutAttributes (PutAttributes'),
+    newPutAttributes,
+    PutAttributesResponse (PutAttributesResponse'),
+    newPutAttributesResponse,
+
+    -- ** DeleteDomain
+    DeleteDomain (DeleteDomain'),
+    newDeleteDomain,
+    DeleteDomainResponse (DeleteDomainResponse'),
+    newDeleteDomainResponse,
+
+    -- ** ListDomains (Paginated)
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
 
     -- * Types
 

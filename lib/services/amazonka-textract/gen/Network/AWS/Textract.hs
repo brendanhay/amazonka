@@ -21,47 +21,47 @@ module Network.AWS.Textract
     -- * Errors
     -- $errors
 
-    -- ** BadDocumentException
-    _BadDocumentException,
-
-    -- ** DocumentTooLargeException
-    _DocumentTooLargeException,
-
-    -- ** HumanLoopQuotaExceededException
-    _HumanLoopQuotaExceededException,
-
-    -- ** InvalidS3ObjectException
-    _InvalidS3ObjectException,
-
-    -- ** InternalServerError
-    _InternalServerError,
-
-    -- ** ThrottlingException
-    _ThrottlingException,
-
-    -- ** InvalidParameterException
-    _InvalidParameterException,
+    -- ** InvalidJobIdException
+    _InvalidJobIdException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** InvalidKMSKeyException
-    _InvalidKMSKeyException,
+    -- ** BadDocumentException
+    _BadDocumentException,
 
-    -- ** InvalidJobIdException
-    _InvalidJobIdException,
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** UnsupportedDocumentException
+    _UnsupportedDocumentException,
+
+    -- ** InvalidS3ObjectException
+    _InvalidS3ObjectException,
 
     -- ** ProvisionedThroughputExceededException
     _ProvisionedThroughputExceededException,
 
+    -- ** InvalidKMSKeyException
+    _InvalidKMSKeyException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
 
-    -- ** UnsupportedDocumentException
-    _UnsupportedDocumentException,
+    -- ** HumanLoopQuotaExceededException
+    _HumanLoopQuotaExceededException,
+
+    -- ** DocumentTooLargeException
+    _DocumentTooLargeException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -69,17 +69,11 @@ module Network.AWS.Textract
     -- * Operations
     -- $operations
 
-    -- ** GetDocumentTextDetection
-    GetDocumentTextDetection (GetDocumentTextDetection'),
-    newGetDocumentTextDetection,
-    GetDocumentTextDetectionResponse (GetDocumentTextDetectionResponse'),
-    newGetDocumentTextDetectionResponse,
-
-    -- ** GetDocumentAnalysis
-    GetDocumentAnalysis (GetDocumentAnalysis'),
-    newGetDocumentAnalysis,
-    GetDocumentAnalysisResponse (GetDocumentAnalysisResponse'),
-    newGetDocumentAnalysisResponse,
+    -- ** DetectDocumentText
+    DetectDocumentText (DetectDocumentText'),
+    newDetectDocumentText,
+    DetectDocumentTextResponse (DetectDocumentTextResponse'),
+    newDetectDocumentTextResponse,
 
     -- ** StartDocumentAnalysis
     StartDocumentAnalysis (StartDocumentAnalysis'),
@@ -87,11 +81,17 @@ module Network.AWS.Textract
     StartDocumentAnalysisResponse (StartDocumentAnalysisResponse'),
     newStartDocumentAnalysisResponse,
 
-    -- ** StartDocumentTextDetection
-    StartDocumentTextDetection (StartDocumentTextDetection'),
-    newStartDocumentTextDetection,
-    StartDocumentTextDetectionResponse (StartDocumentTextDetectionResponse'),
-    newStartDocumentTextDetectionResponse,
+    -- ** AnalyzeDocument
+    AnalyzeDocument (AnalyzeDocument'),
+    newAnalyzeDocument,
+    AnalyzeDocumentResponse (AnalyzeDocumentResponse'),
+    newAnalyzeDocumentResponse,
+
+    -- ** GetDocumentTextDetection
+    GetDocumentTextDetection (GetDocumentTextDetection'),
+    newGetDocumentTextDetection,
+    GetDocumentTextDetectionResponse (GetDocumentTextDetectionResponse'),
+    newGetDocumentTextDetectionResponse,
 
     -- ** AnalyzeExpense
     AnalyzeExpense (AnalyzeExpense'),
@@ -99,17 +99,17 @@ module Network.AWS.Textract
     AnalyzeExpenseResponse (AnalyzeExpenseResponse'),
     newAnalyzeExpenseResponse,
 
-    -- ** AnalyzeDocument
-    AnalyzeDocument (AnalyzeDocument'),
-    newAnalyzeDocument,
-    AnalyzeDocumentResponse (AnalyzeDocumentResponse'),
-    newAnalyzeDocumentResponse,
+    -- ** StartDocumentTextDetection
+    StartDocumentTextDetection (StartDocumentTextDetection'),
+    newStartDocumentTextDetection,
+    StartDocumentTextDetectionResponse (StartDocumentTextDetectionResponse'),
+    newStartDocumentTextDetectionResponse,
 
-    -- ** DetectDocumentText
-    DetectDocumentText (DetectDocumentText'),
-    newDetectDocumentText,
-    DetectDocumentTextResponse (DetectDocumentTextResponse'),
-    newDetectDocumentTextResponse,
+    -- ** GetDocumentAnalysis
+    GetDocumentAnalysis (GetDocumentAnalysis'),
+    newGetDocumentAnalysis,
+    GetDocumentAnalysisResponse (GetDocumentAnalysisResponse'),
+    newGetDocumentAnalysisResponse,
 
     -- * Types
 

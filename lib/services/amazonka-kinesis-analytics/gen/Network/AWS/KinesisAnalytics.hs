@@ -34,23 +34,29 @@ module Network.AWS.KinesisAnalytics
     -- ** ResourceProvisionedThroughputExceededException
     _ResourceProvisionedThroughputExceededException,
 
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
     -- ** TooManyTagsException
     _TooManyTagsException,
 
-    -- ** UnableToDetectSchemaException
-    _UnableToDetectSchemaException,
-
-    -- ** ServiceUnavailableException
-    _ServiceUnavailableException,
+    -- ** CodeValidationException
+    _CodeValidationException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
-    -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
-    -- ** CodeValidationException
-    _CodeValidationException,
+    -- ** UnableToDetectSchemaException
+    _UnableToDetectSchemaException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
@@ -58,23 +64,11 @@ module Network.AWS.KinesisAnalytics
     -- ** ResourceInUseException
     _ResourceInUseException,
 
-    -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
-
-    -- ** InvalidArgumentException
-    _InvalidArgumentException,
-
     -- * Waiters
     -- $waiters
 
     -- * Operations
     -- $operations
-
-    -- ** DeleteApplicationOutput
-    DeleteApplicationOutput (DeleteApplicationOutput'),
-    newDeleteApplicationOutput,
-    DeleteApplicationOutputResponse (DeleteApplicationOutputResponse'),
-    newDeleteApplicationOutputResponse,
 
     -- ** AddApplicationOutput
     AddApplicationOutput (AddApplicationOutput'),
@@ -82,47 +76,11 @@ module Network.AWS.KinesisAnalytics
     AddApplicationOutputResponse (AddApplicationOutputResponse'),
     newAddApplicationOutputResponse,
 
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
-
-    -- ** DeleteApplicationCloudWatchLoggingOption
-    DeleteApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption'),
-    newDeleteApplicationCloudWatchLoggingOption,
-    DeleteApplicationCloudWatchLoggingOptionResponse (DeleteApplicationCloudWatchLoggingOptionResponse'),
-    newDeleteApplicationCloudWatchLoggingOptionResponse,
-
-    -- ** AddApplicationCloudWatchLoggingOption
-    AddApplicationCloudWatchLoggingOption (AddApplicationCloudWatchLoggingOption'),
-    newAddApplicationCloudWatchLoggingOption,
-    AddApplicationCloudWatchLoggingOptionResponse (AddApplicationCloudWatchLoggingOptionResponse'),
-    newAddApplicationCloudWatchLoggingOptionResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** StartApplication
-    StartApplication (StartApplication'),
-    newStartApplication,
-    StartApplicationResponse (StartApplicationResponse'),
-    newStartApplicationResponse,
-
-    -- ** StopApplication
-    StopApplication (StopApplication'),
-    newStopApplication,
-    StopApplicationResponse (StopApplicationResponse'),
-    newStopApplicationResponse,
+    -- ** DiscoverInputSchema
+    DiscoverInputSchema (DiscoverInputSchema'),
+    newDiscoverInputSchema,
+    DiscoverInputSchemaResponse (DiscoverInputSchemaResponse'),
+    newDiscoverInputSchemaResponse,
 
     -- ** DescribeApplication
     DescribeApplication (DescribeApplication'),
@@ -130,29 +88,23 @@ module Network.AWS.KinesisAnalytics
     DescribeApplicationResponse (DescribeApplicationResponse'),
     newDescribeApplicationResponse,
 
-    -- ** DiscoverInputSchema
-    DiscoverInputSchema (DiscoverInputSchema'),
-    newDiscoverInputSchema,
-    DiscoverInputSchemaResponse (DiscoverInputSchemaResponse'),
-    newDiscoverInputSchemaResponse,
+    -- ** StartApplication
+    StartApplication (StartApplication'),
+    newStartApplication,
+    StartApplicationResponse (StartApplicationResponse'),
+    newStartApplicationResponse,
 
-    -- ** DeleteApplicationInputProcessingConfiguration
-    DeleteApplicationInputProcessingConfiguration (DeleteApplicationInputProcessingConfiguration'),
-    newDeleteApplicationInputProcessingConfiguration,
-    DeleteApplicationInputProcessingConfigurationResponse (DeleteApplicationInputProcessingConfigurationResponse'),
-    newDeleteApplicationInputProcessingConfigurationResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
-    -- ** AddApplicationInputProcessingConfiguration
-    AddApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration'),
-    newAddApplicationInputProcessingConfiguration,
-    AddApplicationInputProcessingConfigurationResponse (AddApplicationInputProcessingConfigurationResponse'),
-    newAddApplicationInputProcessingConfigurationResponse,
-
-    -- ** ListApplications
-    ListApplications (ListApplications'),
-    newListApplications,
-    ListApplicationsResponse (ListApplicationsResponse'),
-    newListApplicationsResponse,
+    -- ** DeleteApplicationReferenceDataSource
+    DeleteApplicationReferenceDataSource (DeleteApplicationReferenceDataSource'),
+    newDeleteApplicationReferenceDataSource,
+    DeleteApplicationReferenceDataSourceResponse (DeleteApplicationReferenceDataSourceResponse'),
+    newDeleteApplicationReferenceDataSourceResponse,
 
     -- ** DeleteApplication
     DeleteApplication (DeleteApplication'),
@@ -166,17 +118,41 @@ module Network.AWS.KinesisAnalytics
     UpdateApplicationResponse (UpdateApplicationResponse'),
     newUpdateApplicationResponse,
 
+    -- ** DeleteApplicationCloudWatchLoggingOption
+    DeleteApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption'),
+    newDeleteApplicationCloudWatchLoggingOption,
+    DeleteApplicationCloudWatchLoggingOptionResponse (DeleteApplicationCloudWatchLoggingOptionResponse'),
+    newDeleteApplicationCloudWatchLoggingOptionResponse,
+
+    -- ** AddApplicationInputProcessingConfiguration
+    AddApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration'),
+    newAddApplicationInputProcessingConfiguration,
+    AddApplicationInputProcessingConfigurationResponse (AddApplicationInputProcessingConfigurationResponse'),
+    newAddApplicationInputProcessingConfigurationResponse,
+
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
+
+    -- ** DeleteApplicationOutput
+    DeleteApplicationOutput (DeleteApplicationOutput'),
+    newDeleteApplicationOutput,
+    DeleteApplicationOutputResponse (DeleteApplicationOutputResponse'),
+    newDeleteApplicationOutputResponse,
+
+    -- ** StopApplication
+    StopApplication (StopApplication'),
+    newStopApplication,
+    StopApplicationResponse (StopApplicationResponse'),
+    newStopApplicationResponse,
+
     -- ** AddApplicationReferenceDataSource
     AddApplicationReferenceDataSource (AddApplicationReferenceDataSource'),
     newAddApplicationReferenceDataSource,
     AddApplicationReferenceDataSourceResponse (AddApplicationReferenceDataSourceResponse'),
     newAddApplicationReferenceDataSourceResponse,
-
-    -- ** DeleteApplicationReferenceDataSource
-    DeleteApplicationReferenceDataSource (DeleteApplicationReferenceDataSource'),
-    newDeleteApplicationReferenceDataSource,
-    DeleteApplicationReferenceDataSourceResponse (DeleteApplicationReferenceDataSourceResponse'),
-    newDeleteApplicationReferenceDataSourceResponse,
 
     -- ** AddApplicationInput
     AddApplicationInput (AddApplicationInput'),
@@ -184,11 +160,35 @@ module Network.AWS.KinesisAnalytics
     AddApplicationInputResponse (AddApplicationInputResponse'),
     newAddApplicationInputResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** AddApplicationCloudWatchLoggingOption
+    AddApplicationCloudWatchLoggingOption (AddApplicationCloudWatchLoggingOption'),
+    newAddApplicationCloudWatchLoggingOption,
+    AddApplicationCloudWatchLoggingOptionResponse (AddApplicationCloudWatchLoggingOptionResponse'),
+    newAddApplicationCloudWatchLoggingOptionResponse,
+
+    -- ** ListApplications
+    ListApplications (ListApplications'),
+    newListApplications,
+    ListApplicationsResponse (ListApplicationsResponse'),
+    newListApplicationsResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeleteApplicationInputProcessingConfiguration
+    DeleteApplicationInputProcessingConfiguration (DeleteApplicationInputProcessingConfiguration'),
+    newDeleteApplicationInputProcessingConfiguration,
+    DeleteApplicationInputProcessingConfigurationResponse (DeleteApplicationInputProcessingConfigurationResponse'),
+    newDeleteApplicationInputProcessingConfigurationResponse,
 
     -- * Types
 

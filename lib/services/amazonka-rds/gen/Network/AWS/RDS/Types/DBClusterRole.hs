@@ -41,13 +41,13 @@ data DBClusterRole = DBClusterRole'
     --     the DB cluster is unable to assume the IAM role in order to access
     --     other Amazon Web Services on your behalf.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
-    -- the DB cluster.
-    roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the feature associated with the Amazon Web Services Identity
     -- and Access Management (IAM) role. For the list of supported feature
     -- names, see DBEngineVersion.
-    featureName :: Prelude.Maybe Prelude.Text
+    featureName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
+    -- the DB cluster.
+    roleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,19 +72,19 @@ data DBClusterRole = DBClusterRole'
 --     the DB cluster is unable to assume the IAM role in order to access
 --     other Amazon Web Services on your behalf.
 --
--- 'roleArn', 'dbClusterRole_roleArn' - The Amazon Resource Name (ARN) of the IAM role that is associated with
--- the DB cluster.
---
 -- 'featureName', 'dbClusterRole_featureName' - The name of the feature associated with the Amazon Web Services Identity
 -- and Access Management (IAM) role. For the list of supported feature
 -- names, see DBEngineVersion.
+--
+-- 'roleArn', 'dbClusterRole_roleArn' - The Amazon Resource Name (ARN) of the IAM role that is associated with
+-- the DB cluster.
 newDBClusterRole ::
   DBClusterRole
 newDBClusterRole =
   DBClusterRole'
     { status = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      featureName = Prelude.Nothing
+      featureName = Prelude.Nothing,
+      roleArn = Prelude.Nothing
     }
 
 -- | Describes the state of association between the IAM role and the DB
@@ -102,23 +102,23 @@ newDBClusterRole =
 dbClusterRole_status :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_status = Lens.lens (\DBClusterRole' {status} -> status) (\s@DBClusterRole' {} a -> s {status = a} :: DBClusterRole)
 
--- | The Amazon Resource Name (ARN) of the IAM role that is associated with
--- the DB cluster.
-dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
-dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBClusterRole' {} a -> s {roleArn = a} :: DBClusterRole)
-
 -- | The name of the feature associated with the Amazon Web Services Identity
 -- and Access Management (IAM) role. For the list of supported feature
 -- names, see DBEngineVersion.
 dbClusterRole_featureName :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_featureName = Lens.lens (\DBClusterRole' {featureName} -> featureName) (\s@DBClusterRole' {} a -> s {featureName = a} :: DBClusterRole)
 
+-- | The Amazon Resource Name (ARN) of the IAM role that is associated with
+-- the DB cluster.
+dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
+dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBClusterRole' {} a -> s {roleArn = a} :: DBClusterRole)
+
 instance Core.FromXML DBClusterRole where
   parseXML x =
     DBClusterRole'
       Prelude.<$> (x Core..@? "Status")
-      Prelude.<*> (x Core..@? "RoleArn")
       Prelude.<*> (x Core..@? "FeatureName")
+      Prelude.<*> (x Core..@? "RoleArn")
 
 instance Prelude.Hashable DBClusterRole
 

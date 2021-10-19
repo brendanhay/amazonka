@@ -28,10 +28,10 @@ import Network.AWS.XRay.Types.SamplingStrategyName
 --
 -- /See:/ 'newSamplingStrategy' smart constructor.
 data SamplingStrategy = SamplingStrategy'
-  { -- | The name of a sampling rule.
-    name :: Prelude.Maybe SamplingStrategyName,
-    -- | The value of a sampling rule.
-    value :: Prelude.Maybe Prelude.Double
+  { -- | The value of a sampling rule.
+    value :: Prelude.Maybe Prelude.Double,
+    -- | The name of a sampling rule.
+    name :: Prelude.Maybe SamplingStrategyName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,24 +43,24 @@ data SamplingStrategy = SamplingStrategy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'samplingStrategy_name' - The name of a sampling rule.
---
 -- 'value', 'samplingStrategy_value' - The value of a sampling rule.
+--
+-- 'name', 'samplingStrategy_name' - The name of a sampling rule.
 newSamplingStrategy ::
   SamplingStrategy
 newSamplingStrategy =
   SamplingStrategy'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { value = Prelude.Nothing,
+      name = Prelude.Nothing
     }
-
--- | The name of a sampling rule.
-samplingStrategy_name :: Lens.Lens' SamplingStrategy (Prelude.Maybe SamplingStrategyName)
-samplingStrategy_name = Lens.lens (\SamplingStrategy' {name} -> name) (\s@SamplingStrategy' {} a -> s {name = a} :: SamplingStrategy)
 
 -- | The value of a sampling rule.
 samplingStrategy_value :: Lens.Lens' SamplingStrategy (Prelude.Maybe Prelude.Double)
 samplingStrategy_value = Lens.lens (\SamplingStrategy' {value} -> value) (\s@SamplingStrategy' {} a -> s {value = a} :: SamplingStrategy)
+
+-- | The name of a sampling rule.
+samplingStrategy_name :: Lens.Lens' SamplingStrategy (Prelude.Maybe SamplingStrategyName)
+samplingStrategy_name = Lens.lens (\SamplingStrategy' {name} -> name) (\s@SamplingStrategy' {} a -> s {name = a} :: SamplingStrategy)
 
 instance Prelude.Hashable SamplingStrategy
 
@@ -70,7 +70,7 @@ instance Core.ToJSON SamplingStrategy where
   toJSON SamplingStrategy' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Value" Core..=) Prelude.<$> value
+          [ ("Value" Core..=) Prelude.<$> value,
+            ("Name" Core..=) Prelude.<$> name
           ]
       )

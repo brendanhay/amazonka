@@ -58,7 +58,7 @@ newOnPremisesTagSet =
 -- an instance to be included in the deployment group, it must be
 -- identified by all of the tag groups in the list.
 onPremisesTagSet_onPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Prelude.Maybe [[TagFilter]])
-onPremisesTagSet_onPremisesTagSetList = Lens.lens (\OnPremisesTagSet' {onPremisesTagSetList} -> onPremisesTagSetList) (\s@OnPremisesTagSet' {} a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet) Prelude.. Lens.mapping Lens._Coerce
+onPremisesTagSet_onPremisesTagSetList = Lens.lens (\OnPremisesTagSet' {onPremisesTagSetList} -> onPremisesTagSetList) (\s@OnPremisesTagSet' {} a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON OnPremisesTagSet where
   parseJSON =

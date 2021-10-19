@@ -29,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFirewallUnexpectedFirewallRoutesViolation' smart constructor.
 data NetworkFirewallUnexpectedFirewallRoutesViolation = NetworkFirewallUnexpectedFirewallRoutesViolation'
-  { -- | The endpoint of the firewall.
-    firewallEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the route table.
+  { -- | The ID of the route table.
     routeTableId :: Prelude.Maybe Prelude.Text,
+    -- | Information about the VPC ID.
+    vpcId :: Prelude.Maybe Prelude.Text,
     -- | The routes that are in violation.
     violatingRoutes :: Prelude.Maybe [Route],
+    -- | The endpoint of the firewall.
+    firewallEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The subnet ID for the firewall.
-    firewallSubnetId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the VPC ID.
-    vpcId :: Prelude.Maybe Prelude.Text
+    firewallSubnetId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,49 +50,49 @@ data NetworkFirewallUnexpectedFirewallRoutesViolation = NetworkFirewallUnexpecte
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'firewallEndpoint', 'networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint' - The endpoint of the firewall.
---
 -- 'routeTableId', 'networkFirewallUnexpectedFirewallRoutesViolation_routeTableId' - The ID of the route table.
+--
+-- 'vpcId', 'networkFirewallUnexpectedFirewallRoutesViolation_vpcId' - Information about the VPC ID.
 --
 -- 'violatingRoutes', 'networkFirewallUnexpectedFirewallRoutesViolation_violatingRoutes' - The routes that are in violation.
 --
--- 'firewallSubnetId', 'networkFirewallUnexpectedFirewallRoutesViolation_firewallSubnetId' - The subnet ID for the firewall.
+-- 'firewallEndpoint', 'networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint' - The endpoint of the firewall.
 --
--- 'vpcId', 'networkFirewallUnexpectedFirewallRoutesViolation_vpcId' - Information about the VPC ID.
+-- 'firewallSubnetId', 'networkFirewallUnexpectedFirewallRoutesViolation_firewallSubnetId' - The subnet ID for the firewall.
 newNetworkFirewallUnexpectedFirewallRoutesViolation ::
   NetworkFirewallUnexpectedFirewallRoutesViolation
 newNetworkFirewallUnexpectedFirewallRoutesViolation =
   NetworkFirewallUnexpectedFirewallRoutesViolation'
-    { firewallEndpoint =
+    { routeTableId =
         Prelude.Nothing,
-      routeTableId =
-        Prelude.Nothing,
+      vpcId = Prelude.Nothing,
       violatingRoutes =
         Prelude.Nothing,
-      firewallSubnetId =
+      firewallEndpoint =
         Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      firewallSubnetId =
+        Prelude.Nothing
     }
-
--- | The endpoint of the firewall.
-networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe Prelude.Text)
-networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {firewallEndpoint} -> firewallEndpoint) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {firewallEndpoint = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation)
 
 -- | The ID of the route table.
 networkFirewallUnexpectedFirewallRoutesViolation_routeTableId :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe Prelude.Text)
 networkFirewallUnexpectedFirewallRoutesViolation_routeTableId = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {routeTableId} -> routeTableId) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {routeTableId = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation)
 
+-- | Information about the VPC ID.
+networkFirewallUnexpectedFirewallRoutesViolation_vpcId :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe Prelude.Text)
+networkFirewallUnexpectedFirewallRoutesViolation_vpcId = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {vpcId} -> vpcId) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {vpcId = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation)
+
 -- | The routes that are in violation.
 networkFirewallUnexpectedFirewallRoutesViolation_violatingRoutes :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe [Route])
-networkFirewallUnexpectedFirewallRoutesViolation_violatingRoutes = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {violatingRoutes} -> violatingRoutes) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {violatingRoutes = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation) Prelude.. Lens.mapping Lens._Coerce
+networkFirewallUnexpectedFirewallRoutesViolation_violatingRoutes = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {violatingRoutes} -> violatingRoutes) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {violatingRoutes = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The endpoint of the firewall.
+networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe Prelude.Text)
+networkFirewallUnexpectedFirewallRoutesViolation_firewallEndpoint = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {firewallEndpoint} -> firewallEndpoint) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {firewallEndpoint = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation)
 
 -- | The subnet ID for the firewall.
 networkFirewallUnexpectedFirewallRoutesViolation_firewallSubnetId :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe Prelude.Text)
 networkFirewallUnexpectedFirewallRoutesViolation_firewallSubnetId = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {firewallSubnetId} -> firewallSubnetId) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {firewallSubnetId = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation)
-
--- | Information about the VPC ID.
-networkFirewallUnexpectedFirewallRoutesViolation_vpcId :: Lens.Lens' NetworkFirewallUnexpectedFirewallRoutesViolation (Prelude.Maybe Prelude.Text)
-networkFirewallUnexpectedFirewallRoutesViolation_vpcId = Lens.lens (\NetworkFirewallUnexpectedFirewallRoutesViolation' {vpcId} -> vpcId) (\s@NetworkFirewallUnexpectedFirewallRoutesViolation' {} a -> s {vpcId = a} :: NetworkFirewallUnexpectedFirewallRoutesViolation)
 
 instance
   Core.FromJSON
@@ -103,13 +103,13 @@ instance
       "NetworkFirewallUnexpectedFirewallRoutesViolation"
       ( \x ->
           NetworkFirewallUnexpectedFirewallRoutesViolation'
-            Prelude.<$> (x Core..:? "FirewallEndpoint")
-              Prelude.<*> (x Core..:? "RouteTableId")
+            Prelude.<$> (x Core..:? "RouteTableId")
+              Prelude.<*> (x Core..:? "VpcId")
               Prelude.<*> ( x Core..:? "ViolatingRoutes"
                               Core..!= Prelude.mempty
                           )
+              Prelude.<*> (x Core..:? "FirewallEndpoint")
               Prelude.<*> (x Core..:? "FirewallSubnetId")
-              Prelude.<*> (x Core..:? "VpcId")
       )
 
 instance

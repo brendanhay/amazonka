@@ -41,19 +41,19 @@ module Network.AWS.APIGateway.PutRestApi
     newRestApi,
 
     -- * Response Lenses
-    restApi_createdDate,
-    restApi_warnings,
-    restApi_endpointConfiguration,
-    restApi_binaryMediaTypes,
-    restApi_id,
-    restApi_version,
-    restApi_name,
-    restApi_tags,
-    restApi_description,
-    restApi_policy,
-    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
+    restApi_disableExecuteApiEndpoint,
+    restApi_binaryMediaTypes,
+    restApi_warnings,
+    restApi_createdDate,
+    restApi_name,
+    restApi_version,
     restApi_apiKeySource,
+    restApi_id,
+    restApi_policy,
+    restApi_endpointConfiguration,
+    restApi_description,
+    restApi_tags,
   )
 where
 
@@ -146,7 +146,7 @@ putRestApi_failOnWarnings = Lens.lens (\PutRestApi' {failOnWarnings} -> failOnWa
 -- @parameters@ value, as in the AWS CLI command of
 -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
 putRestApi_parameters :: Lens.Lens' PutRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putRestApi_parameters = Lens.lens (\PutRestApi' {parameters} -> parameters) (\s@PutRestApi' {} a -> s {parameters = a} :: PutRestApi) Prelude.. Lens.mapping Lens._Coerce
+putRestApi_parameters = Lens.lens (\PutRestApi' {parameters} -> parameters) (\s@PutRestApi' {} a -> s {parameters = a} :: PutRestApi) Prelude.. Lens.mapping Lens.coerced
 
 -- | [Required] The string identifier of the associated RestApi.
 putRestApi_restApiId :: Lens.Lens' PutRestApi Prelude.Text
